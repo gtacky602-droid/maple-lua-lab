@@ -62,6 +62,12 @@
       "status": "Referenced idle shown at liyue-field ground spawn 1; 144px provisional scale. Generic placeholder behavior, hitbox and health retained; dedicated skills, animation and back/side model check incomplete.",
       "art": "assets/ruin-guard-idle-sprites.json",
       "audit": "evidence/ruin-guard-reference-audit.json"
+    },
+    {
+      "id": "dendro-fungus",
+      "status": "Referenced idle candidate in gallery and placement preview only; no live spawn or hovering behavior",
+      "art": "assets/dendro-fungus-idle-sprites.json",
+      "audit": "evidence/dendro-fungus-reference-audit.json"
     }
   ],
   "scope": "inventory of existing work, not full planned enemy roster",
@@ -73,7 +79,8 @@
     "candidates": [
       "hydro-slime-reference",
       "pyro-slime-reference",
-      "ruin-guard"
+      "ruin-guard",
+      "dendro-fungus"
     ],
     "live_copy": "Current-node authored spawns can be copied into the visual draft with referenced asset mapping, support-derived y, undo and JSON export. Editing does not write live spawn data."
   },

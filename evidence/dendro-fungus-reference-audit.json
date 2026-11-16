@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2729?crawler=Googlebot",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2022/09/05/1023623/93ab547d2d1f2cf6145fddaf7fe4c32c_3710198556567337943.png",
+      "sha256": "4f92d0ec12a8aedaccfee6031209951d9bd43f9716ce0a04777aa5fad996b1eb",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "Face icon"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2026/03/09/35428890/f3e17d79465bedd433eabed8036b7cad_45168982936636777.png",
+      "sha256": "49131c01f8ad06e8aa0223aa5b899f727ec749aeadc7fc9e5ac052bdfe0463d8",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "Full-body silhouette"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2026/03/09/35428890/eeb6e6e0040e228207f9e22af62642d6_7846210781273542847.png",
+      "sha256": "dd30d957b510a484f4e1dcdfb66f4d408355d4f83f78e81315de5536f693df87",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "Same full-body pose as reference 1"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2026/03/09/35428890/e680cf915c5ce580bf9307dbb56c3396_205338469729102219.png",
+      "sha256": "794e6d3e1194d61f0c5aa77d6212e18bfd938943664302e1055fb2c308c0bc2e",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "Different fungus species in game screenshot; excluded"
+    }
+  ],
+  "model_lookup": "MMDFr floating-dendro-fungus endpoint returned 404; no model inspected",
+  "limits": [
+    "Only front/three-quarter image reference; back and side model views unverified",
+    "Idle candidate only; no flight mechanics or attacks",
+    "Not canonical regional spawn placement",
+    "Ring eyes and gill lines lose detail at 32px",
+    "Bottom tip aligned to platform in preview; hovering offset not implemented"
+  ],
+  "output": "assets/dendro-fungus-idle-source-v1.png",
+  "sha256": "e4961da4c9ec96de9ff7a5d66d2d58d1a1c33caa2fe45017ff28fa3277808018",
+  "profiles": {
+    "legacy": {
+      "height": 64,
+      "runs": 882
+    },
+    "h48c32": {
+      "height": 48,
+      "runs": 559
+    },
+    "h32c16": {
+      "height": 32,
+      "runs": 255
+    }
+  },
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "validation": [
+    "7 gallery candidates, 3 profiles, 3 zooms, both facings and mobile390",
+    "Sumeru placement 3 profiles and export/import",
+    "61 node placement regression",
+    "PNG and smallest-profile placement screenshot directly viewed"
+  ]
+}
