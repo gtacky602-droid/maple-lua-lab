@@ -1,5 +1,6 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ veluriyam:{file:'veluriyam-background-v1.png',region:'ヴェルーリヤ・ミラージュ',zones:[]},
  golden:{file:'golden-background-v1.png',region:'金リンゴ群島',zones:[]},
  tunigi:{file:'tunigi-background-v1.png',region:'トゥニギの黒淵',zones:[]},
  ochkanatlan:{file:'ochkanatlan-background-v1.png',region:'オシカ・ナタ',zones:[]},

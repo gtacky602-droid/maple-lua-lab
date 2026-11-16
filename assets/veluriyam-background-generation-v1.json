@@ -1,0 +1,8 @@
+{
+  "method": "built-in image_gen",
+  "prompt": "Create one wide 16:9 opaque temporary side-scrolling RPG background inspired by these two Veluriyam Mirage reference landscapes. Original layout of a whimsical summer garden valley: lush green layered rocky cliffs, huge pink-purple flowers on curled green stems with delicate waterfalls, tall broad-crowned trees, thin golden rollercoaster rails winding through the distant valley, tiny colorful pointed canopy pavilions. Light blue sky, airy cyan haze, painterly anime game environment. Keep large flowers left and right in middle distance, open calm center. Lowest third a broad muted green meadow with a gentle earthen path, quiet enough for small pixel characters. No foreground blocking objects, no characters or animals, no text, UI, logos, no gameplay platforms. Mood reference only, not exact geography; rails are decorative distant scenery, not interactive tracks.",
+  "references": [
+    "work/references/veluriyam-official-1.jpg",
+    "work/references/veluriyam-official-2.jpg"
+  ]
+}

@@ -286,13 +286,13 @@
     {
       "id": "veluriyam-hub",
       "count": 0,
-      "fallback": true,
+      "fallback": false,
       "backgroundState": "ready"
     },
     {
       "id": "veluriyam-play",
       "count": 0,
-      "fallback": true,
+      "fallback": false,
       "backgroundState": "ready"
     },
     {

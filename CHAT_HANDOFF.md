@@ -130,3 +130,9 @@ map-art.html追加: 本編61仮地点の足場/背景を選択し、元PNGと軽
 
 金リンゴ群島の仮背景追加。公式担当者PlayStation Blog Ver.2.8掲載の海岸遠景/城2枚を直接確認して画像参照付き生成。拠点・探索ステージへ共用接続し足場砂色化。2地点/61地点画像ready・配置比較/読込失敗2ケース通過、PNG対最軽量表示を目視。地域仮画像51/代用10。各島/各版/島変化/正確地理/本番3D未制作、技変更なし。
 根拠: evidence/golden-background-audit.json, evidence/golden-sprite-preview.png。
+
+
+## 2026-11-17 ヴェルーリヤの仮背景
+
+ヴェルーリヤ・ミラージュ仮背景追加。公式担当者PlayStation Blog掲載の巨大花/谷/樹木/レール2枚を直接確認して画像参照付き生成。拠点・探索ステージへ共用接続。2地点/61地点画像ready・配置比較検査通過、PNG対最軽量表示を目視。地域仮画像53/代用8。レールは遠景装飾のみ、乗り物/先成図/正確地理/本番3D未制作、技変更なし。
+根拠: evidence/veluriyam-background-audit.json, evidence/veluriyam-sprite-preview.png。

@@ -2,8 +2,8 @@
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
   "scope": "Authored 61 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 51,
-  "fallback_mondstadt": 10,
+  "regional_temporary_image": 53,
+  "fallback_mondstadt": 8,
   "nodes": [
     {
       "id": "mond-town",
@@ -291,13 +291,13 @@
       "id": "veluriyam-hub",
       "name": "ヴェルーリヤ・ミラージュ・入口広場",
       "region": "ヴェルーリヤ・ミラージュ",
-      "status": "fallback_mondstadt"
+      "status": "regional_temporary_image"
     },
     {
       "id": "veluriyam-play",
       "name": "ヴェルーリヤ・ミラージュ・探索ステージ",
       "region": "ヴェルーリヤ・ミラージュ",
-      "status": "fallback_mondstadt"
+      "status": "regional_temporary_image"
     },
     {
       "id": "simulanka-hub",

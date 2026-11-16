@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-17",
+  "reference_page": "https://blog.playstation.com/2023/06/27/20230627-genshin/",
+  "references": [
+    {
+      "url": "https://blog.playstation.com/tachyon/2023/06/df34b937ba68b7c2082cac233b79988df5acc3ab-scaled.jpg",
+      "sha256": "81c228fdd78fad062e5c4bb0caa0ab77d613962af844b0972e379814dbfd4c11",
+      "directly_viewed": true
+    },
+    {
+      "url": "https://blog.playstation.com/tachyon/2023/06/0e0838a23829241a9557870a5f66a5807d2b58a1-scaled.jpg",
+      "sha256": "ca99c182f1a0945abf6c7a59481ee7b4c2232bf60c60f3c39a8a77205e7dfb60",
+      "directly_viewed": true
+    }
+  ],
+  "generation": "assets/veluriyam-background-generation-v1.json",
+  "output": "assets/veluriyam-background-v1.png",
+  "output_sha256": "20d07637b1049f85ad468f7110e8bed65865acff0db4323c556b3152cd0f5d8e",
+  "mapped_nodes": [
+    "veluriyam-hub",
+    "veluriyam-play"
+  ],
+  "validation": [
+    "2 node mappings",
+    "61-node editor and image readiness checks",
+    "PNG/h32c16 sprite overlay directly viewed"
+  ],
+  "limitations": [
+    "Shared original mood composition, not exact geography",
+    "Rails are background decoration, no cart or Preprint mechanics added",
+    "No native 3D or gameplay traversal proof"
+  ],
+  "skills_changed": false
+}
