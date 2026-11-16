@@ -9,6 +9,13 @@
       "mapHover": 0
     },
     {
+      "id": "signora-flame",
+      "name": "淑女・炎形態（参照付き待機候補）",
+      "file": "signora-flame-idle-sprites.json",
+      "height": 180,
+      "mapHover": 16
+    },
+    {
       "id": "dvalin",
       "name": "トワリン（浄化後・参照付き待機候補）",
       "file": "dvalin-idle-sprites.json",

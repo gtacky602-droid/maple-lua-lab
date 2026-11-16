@@ -2,8 +2,8 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 37,
-    "visibleCount": 37,
+    "count": 38,
+    "visibleCount": 38,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
@@ -14,6 +14,12 @@
         "h": 112,
         "w": 59.464369616288174,
         "ratio": 0.5309318715740016
+      },
+      {
+        "id": "signora-flame",
+        "h": 180,
+        "w": 109.12751677852349,
+        "ratio": 0.6062639821029083
       },
       {
         "id": "dvalin",

@@ -1,0 +1,75 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2101?lang=ja-jp",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/18/94675339/2be988ca1e451cbd3f4fc166416757de_2601928863513629814.png",
+      "sha256": "2354d307dc8eab13c53e4a7399c2b7752939e43a93354df91e3c0fc8204429a5",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/27/94675339/4dae7a561b8dd8a4a1a12f681d0f86b6_1823057771525533710.png",
+      "sha256": "f243e00d4c1690fc62212ae5521fd88337680a47867d01d0a1a24f3d71be0f0c",
+      "directly_viewed": true,
+      "generation_input": true
+    }
+  ],
+  "model_lookup": "Previously inspected Jaring model is human form and excluded; matching flame model/back not inspected.",
+  "output": "assets/signora-flame-idle-source-v1.png",
+  "sha256": "dee4020e58e708580656e0010129c0445743e5e759e5487d4c3244d359c54c2e",
+  "profiles": {
+    "legacy": {
+      "height": 180,
+      "runs": 4899
+    },
+    "h48c32": {
+      "height": 135,
+      "runs": 3012
+    },
+    "h32c16": {
+      "height": 90,
+      "runs": 1336
+    }
+  },
+  "source_bounds": {
+    "size": [
+      1145,
+      1374
+    ],
+    "alpha128_bbox": [
+      148,
+      16,
+      961,
+      1357
+    ]
+  },
+  "limits": [
+    "Idle folded-cape body only; no attack wings, flame effects, phase transitions, animation or live combat",
+    "Compact torso and widened skirt; ornaments simplified, back not verified",
+    "Display180px and hover16px provisional"
+  ],
+  "visual_review": "Source and final gallery/map comparisons directly viewed. Long head ornaments, separate shoulders and skirt silhouette remain. Orange median reservation retains orange samples but tiny cape veins, face and central diamonds remain coarse and the lightest cape still reads darker/redder than PNG. Clean transparency. Rainforest is only comparison fixture.",
+  "palette": {
+    "color": "#fc7a3c",
+    "samples": 18827,
+    "criteria": "alpha>=128,R>200,90<G<200,B<100",
+    "before_runs": {
+      "legacy": 4916,
+      "h48c32": 3023,
+      "h32c16": 1341
+    },
+    "actual_colors": {
+      "legacy": 32,
+      "h48c32": 32,
+      "h32c16": 16
+    },
+    "note": "One orange source median reserved inside existing32/16 color budget, unchanged source"
+  },
+  "validation": {
+    "gallery": "evidence/bosses-gallery.json",
+    "placement": "evidence/boss-placement-test.json",
+    "candidates": 38,
+    "distinct_bosses": 34
+  }
+}
