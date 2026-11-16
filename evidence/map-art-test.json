@@ -298,13 +298,13 @@
     {
       "id": "simulanka-hub",
       "count": 0,
-      "fallback": true,
+      "fallback": false,
       "backgroundState": "ready"
     },
     {
       "id": "simulanka-play",
       "count": 0,
-      "fallback": true,
+      "fallback": false,
       "backgroundState": "ready"
     },
     {

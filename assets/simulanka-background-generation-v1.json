@@ -1,0 +1,8 @@
+{
+  "method": "built-in image_gen",
+  "prompt": "One wide 16:9 opaque temporary side-scrolling RPG background inspired by the two Simulanka forest reference images. Original composition of a whimsical papercraft forest village: folded angular teal pine trees with curled layered branches, oversized faceted purple pink paper flowers at far sides, small pastel violet cottages with folded roofs in middle distance beside a calm blue pond and a little angular wooden bridge. Terraced pale gray cliffs and hazy lavender mountains behind. Soft daytime cyan sky. Painterly anime environment with visible papercraft edges in plants, restrained textures, subtle colors. Broad quiet grassy lower third for tiny pixel sprites and separate gameplay platforms, no foreground blocking trees. No characters, animals, toy figures, text, UI, logos or built-in gameplay platforms. Forest mood only, no toy city or mine, not exact canonical geography.",
+  "references": [
+    "work/references/simulanka-official-1.png",
+    "work/references/simulanka-official-2.png"
+  ]
+}

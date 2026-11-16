@@ -136,3 +136,9 @@ map-art.html追加: 本編61仮地点の足場/背景を選択し、元PNGと軽
 
 ヴェルーリヤ・ミラージュ仮背景追加。公式担当者PlayStation Blog掲載の巨大花/谷/樹木/レール2枚を直接確認して画像参照付き生成。拠点・探索ステージへ共用接続。2地点/61地点画像ready・配置比較検査通過、PNG対最軽量表示を目視。地域仮画像53/代用8。レールは遠景装飾のみ、乗り物/先成図/正確地理/本番3D未制作、技変更なし。
 根拠: evidence/veluriyam-background-audit.json, evidence/veluriyam-sprite-preview.png。
+
+
+## 2026-11-17 シムランカ森の仮背景
+
+シムランカ森の仮背景追加。PlayStation Blog公式担当者掲載の紙風樹木/花/家2枚を直接確認して画像参照付き生成。拠点・探索ステージへ共用接続。2地点/61地点画像ready・配置比較検査通過、PNG対最軽量表示を目視。地域仮画像55/代用6。積み木街/鉱山/正確地理/本番3D未制作、技変更なし。並行チャットのボス一覧レビュー文書を受領、地方伝説56戦は暫定候補で現行66戦へ未追加。
+根拠: evidence/simulanka-background-audit.json, evidence/simulanka-sprite-preview.png。

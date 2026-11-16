@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-17",
+  "reference_page": "https://blog.de.playstation.com/?p=180701",
+  "references": [
+    {
+      "url": "https://blog.de.playstation.com/uploads/sites/13/2024/07/4ee5a05e9699eda9f32304a00412dae7cc01f931.png",
+      "sha256": "19227598e03c76bfacea727c573c0298aafaf6176e399150806b69c1dc4ee19c",
+      "directly_viewed": true
+    },
+    {
+      "url": "https://blog.de.playstation.com/uploads/sites/13/2024/07/5754b212ae5e8c01957826a8124260a06057996d.png",
+      "sha256": "b8779353e45467e9d1e42c1ec30944b1dbb0e8e27756283240ed2b2cbb3ef04b",
+      "directly_viewed": true
+    }
+  ],
+  "generation": "assets/simulanka-background-generation-v1.json",
+  "output": "assets/simulanka-background-v1.png",
+  "output_sha256": "fcae3305f5f537e22999e7f44f6fa89aded2e83084403dbae52f0ccc0a577cd2",
+  "mapped_nodes": [
+    "simulanka-hub",
+    "simulanka-play"
+  ],
+  "validation": [
+    "2 node mappings",
+    "61-node editor and image readiness checks",
+    "PNG/h32c16 sprite overlay directly viewed"
+  ],
+  "limitations": [
+    "Forest mood only; toy city and mines not represented",
+    "Shared original composition, not exact geography",
+    "No native 3D or gameplay traversal proof"
+  ],
+  "skills_changed": false
+}

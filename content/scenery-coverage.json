@@ -2,8 +2,8 @@
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
   "scope": "Authored 61 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 53,
-  "fallback_mondstadt": 8,
+  "regional_temporary_image": 55,
+  "fallback_mondstadt": 6,
   "nodes": [
     {
       "id": "mond-town",
@@ -303,13 +303,13 @@
       "id": "simulanka-hub",
       "name": "シムランカ・入口広場",
       "region": "シムランカ",
-      "status": "fallback_mondstadt"
+      "status": "regional_temporary_image"
     },
     {
       "id": "simulanka-play",
       "name": "シムランカ・探索ステージ",
       "region": "シムランカ",
-      "status": "fallback_mondstadt"
+      "status": "regional_temporary_image"
     },
     {
       "id": "anemo-approach",
