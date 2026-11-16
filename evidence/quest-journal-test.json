@@ -1,0 +1,14 @@
+{
+  "questCount": 47,
+  "visibleCount": 44,
+  "allObjectivesResolved": true,
+  "liveAcceptance": true,
+  "filters": true,
+  "fixture": {
+    "remoteDisabled": true,
+    "localReport": "story_report:mond-patrol",
+    "repeatCycles": true
+  },
+  "mobileOverflow": false,
+  "errors": []
+}

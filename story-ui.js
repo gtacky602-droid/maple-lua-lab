@@ -1,3 +1,5 @@
+import {renderQuestJournal} from './quest-journal.js';
+let questFilter='relevant';
 const panel=document.getElementById('storyPanel');let previous='';
 function button(label,action){const b=document.createElement('button');b.textContent=label;b.onclick=()=>{window.lab.action(action);b.blur()};return b}
 function update(){
@@ -23,6 +25,6 @@ function update(){
  for(const h of node.hints||[])panel.append(button('調べる：'+h.label,'story_discover:'+h.group));
  for(const e of node.exits){const n=graph.nodes.find(n=>n.id===e.to);const b=button('門：'+n.name+' Lv'+n.level,'story_portal:'+n.id);if(e.windowStart){b.disabled=!f.voyage?.stopover;b.title='出航30〜50秒の寄港中に下船できます。'}if(e.requiresArrival)b.disabled=!!f.voyage;panel.append(b)}
  for(const n of graph.nodes.filter(n=>n.hub&&f.story.visited[n.id]))panel.append(button('拠点へ：'+n.name,'story_fast:'+n.id));
- for(const q of graph.quests){const st=f.story.quests[q.id];if(q.hub!==node.id&&!st)continue;const row=document.createElement('p');row.textContent=q.name+(q.join&&st?.status==='complete'?'（加入済み／初期装備は未実装）':'')+(q.repeatable?'・報告'+(st?.cycles||0)+'回':'')+' ｜ '+(st?st.status==='complete'?'完了':`${st.count}/${q.goal}`:'未受注')+` ｜ 仮報酬 ${q.xp}EXP / ${q.mora}モラ`;if(q.hub===node.id){if(!st||(q.repeatable&&st.status==='complete'))row.append(button('受注','story_accept:'+q.id));else if(st.status==='active'&&st.count===q.goal)row.append(button('報告','story_report:'+q.id))}panel.append(row)}
+ panel.append(renderQuestJournal(f,{filter:questFilter,button,onFilter:value=>{questFilter=value;previous='';update()}}));
 }
 setInterval(update,200);
