@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-17",
+  "references": [
+    {
+      "url": "https://pack.skowt.cc/asset/01a19237-06f7-702f-b4af-6023dffe9c39-preview.webp?v=f811442098",
+      "sha256": "fae03140227f71fcda2da173839d35f449d3f93c7eddfda14fe136941e368158",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "3D model preview, main full-body anatomy"
+    },
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2022/02/24/108713336/ada7b1b6e4b87ac69dee7e1d88f61ce2_4353923809231368125.png",
+      "sha256": "1d3d2fe910887e4406887ef4c160eb9f08d196272320471adcc0419eb5b0d992",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "HoYoLAB game close-up, face and armor"
+    }
+  ],
+  "model_viewer": {
+    "url": "https://skowt.cc/a/fe4lfGJyG",
+    "actually_viewed": true,
+    "angles": [
+      "front idle",
+      "side after horizontal drag",
+      "rear three-quarter after second drag"
+    ],
+    "pose": "paused idle at 2.12s for side/rear",
+    "observations": [
+      "one large sword-holding arm and three slender arms",
+      "two gold mechanical hands under feet",
+      "long indigo hair and burgundy drapery",
+      "electro-medallion ring behind upper body"
+    ],
+    "limitations": "Viewer beta warns poses, parts or FX may be inaccurate; no model downloaded or redistributed. Exact underside and close-up ornaments not independently checked."
+  },
+  "output": "assets/raiden-boss-idle-source-v1.png",
+  "sha256": "a293a9afadbca825e1d4a2413bcb901aa6198d8724c494eede600eb7dcb706a2",
+  "profiles": {
+    "legacy": {
+      "height": 200,
+      "runs": 9908
+    },
+    "h48c32": {
+      "height": 150,
+      "runs": 6214
+    },
+    "h32c16": {
+      "height": 100,
+      "runs": 2926
+    }
+  },
+  "reduction_percent": 70.47,
+  "map_hover": 24,
+  "status": "candidate, not final likeness or live combat",
+  "limitations": [
+    "Central figure and arms enlarged/simplified relative to 3D reference; pose adapted for readable idle silhouette.",
+    "Normal untransformed form absent; no attacks or animation authored.",
+    "Mirroring reverses asymmetric armor and arms.",
+    "Map hover is provisional visual clearance, not native collision/altitude."
+  ],
+  "palette_adjustment": {
+    "reserved_colors": [
+      "#b99a69"
+    ],
+    "within_existing_budgets": true,
+    "reason": "Initial 16-color profile lost gold hand platforms into lavender. Reserve gold to preserve material distinction.",
+    "initial_runs": [
+      9933,
+      6152,
+      2909
+    ]
+  },
+  "visual_review": {
+    "gallery": "Source and final 100px profile viewed side by side. Gold platform distinction partially restored; fine face/armor details noisy at 100px. Major arm count and sword silhouette retained.",
+    "map": "Both image and rectangle rendering viewed on temporary Sumeru fixture; provisional hover24 visible, not canonical boss geography."
+  }
+}

@@ -2,6 +2,13 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "raiden-boss",
+      "name": "禍津御建鳴神命（悪曜影向天魔・候補）",
+      "file": "raiden-boss-idle-sprites.json",
+      "height": 200,
+      "mapHover": 24
+    },
+    {
       "id": "narwhal",
       "name": "呑星の鯨（待機候補）",
       "file": "narwhal-idle-sprites.json",

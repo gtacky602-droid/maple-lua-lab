@@ -2,13 +2,19 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 47,
-    "visibleCount": 47,
+    "count": 48,
+    "visibleCount": 48,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "raiden-boss",
+        "h": 200,
+        "w": 194.5624468988955,
+        "ratio": 0.9728122344944775
+      },
       {
         "id": "narwhal",
         "h": 200,
