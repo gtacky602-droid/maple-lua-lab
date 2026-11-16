@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-17",
+  "reference_audit": "evidence/traveler-amber-reference-audit.json",
+  "generation": "assets/amber-idle-generation-v2.json",
+  "source": "assets/amber-idle-source-v2.png",
+  "observations": [
+    "White-red boots replace invented dark shoes",
+    "Branching corset decoration, smooth chest panel and side ribbons revised",
+    "Compact figure still differs in body/head ratio from traveler; no claim of unified final style",
+    "Small gold ornament lines disappear at lightest resolution"
+  ],
+  "profiles": {
+    "legacy": 1378,
+    "h48c32": 821,
+    "h32c16": 360
+  },
+  "validation": [
+    "PNG hash/alpha; 2 facings x 3 profiles; dead hidden",
+    "Existing bow atlas pose remains during lock and new idle resumes afterwards",
+    "Chrome town and 9-card 3-profile 3-zoom both-facing gallery passed; screenshots directly viewed",
+    "13 Amber and 16 companion regression checks passed"
+  ],
+  "remaining": [
+    "Old bow pose costume inconsistent, attack changes held",
+    "Walk uses static idle",
+    "Mirrored asymmetry, small details and style consistency unfinished"
+  ],
+  "skills_changed": false
+}
