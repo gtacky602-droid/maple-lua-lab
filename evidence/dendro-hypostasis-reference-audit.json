@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2974?lang=en-us&crawler=Googlebot",
+  "discovery": "Sumeru entry 3799 related enemy link",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2022/11/03/35428890/50cc8e306cfa81acc245a23ead9cc331_7814858893705514308.png",
+      "sha256": "ed2d6ca4415f8fe46152df7c37bdab5139b136d073b0925a4e1230c6cda78c88",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "small icon with glow"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/99e1871becaf063e6dbd0cd56abe2993_8743137714830182421.png",
+      "sha256": "34084dce5a9e7d28c572d8bf3087bb19781cefb40b6f35ed2d5c47c269259ff4",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "primary shell view"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/68e1e85fee56d79bc517cab159593385_8553875086453989583.png",
+      "sha256": "0a8f6ab5c93e8a2510780b2454e3c4d0fd5676c3af99678e6b2b1eaff54cefa9",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "same shell pose different size; not independent angle"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/6ef73d53a18ab1b5a98a35b5495f1ab8_7655128978627998624.png",
+      "sha256": "59dfebc8e5d2d8da14878c2b1f28a8b63e307dce77055928328f99a1274a2e73",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "in-game composite: spread shell and alternate states"
+    }
+  ],
+  "model_lookup": "Web search for Dendro Hypostasis 3D model did not yield a matching usable model; no 3D/back view inspected",
+  "observed": "Green shell with dark leaf/vine edging and brown chipped corners; large yellow-green pointed curled-leaf motifs; lime faceted core",
+  "output": "assets/dendro-hypostasis-idle-source-v1.png",
+  "sha256": "72b14e31e39f1dd4670dddfff400543cc41accaa592d2cc00dc06d3b4278b47e",
+  "profiles": {
+    "legacy": {
+      "height": 128,
+      "runs": 5766
+    },
+    "h48c32": {
+      "height": 96,
+      "runs": 3547
+    },
+    "h32c16": {
+      "height": 64,
+      "runs": 1439
+    }
+  },
+  "alpha": {
+    "zero": 852127,
+    "at_least_250": 676742,
+    "partial": 719466
+  },
+  "limits": [
+    "3D and backside unverified",
+    "Leaf veins/edge vines simplified, emblem is an adaptation not exact engraving",
+    "128px comparison size provisional",
+    "Idle only; no separated shell/core, animation or live combat"
+  ],
+  "visual_review": "Viewed generated source and browser PNG/64px comparison. Green shell, yellow-green core and curled motifs remain; thin pointed tips/leaf edging fragment at lowest profile. Source geometric adaptation is flatter than reference, with simplified brown corners. No full animation or live combat reviewed."
+}

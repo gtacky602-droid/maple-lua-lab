@@ -1,0 +1,9 @@
+{
+  "mode": "built-in image_gen",
+  "generated_file": "exec-d41ed9ea-75f5-4332-b2fa-013e568843d9.png",
+  "references": [
+    "work/references/dendro-hypostasis-wiki-1.png",
+    "work/references/dendro-hypostasis-wiki-3.png"
+  ],
+  "prompt": "Use case: stylized-concept. Make a single transparent pixel-art idle sprite of Genshin Impact Dendro Hypostasis for a side-scrolling 2D RPG. Reference 1 is the primary full-shell model appearance, reference 2 is actual in-game configurations for material and motif verification only, not action design. Keep compact upper/lower rows of separate forest-green cubes surrounding a bright lime-green faceted diamond core in the central gap. Cubes have dark leaf/vine-like edging and ochre/brown chipped corners, large yellow-green curled leaf/spiral emblems with pointed thornlike tips. Do not replace these with water circles, snowflakes or flame swirls. A few small green cube satellites. Three-quarter view, same floating idle shell structure as primary reference. Deliberate sparse chunky pixel art, large FLAT green shaded planes with 2-3 shades each; strong dark outlines and broad continuous lime emblem strokes readable at total 64px height. Simplify fine veins while preserving curled thorn-leaf motif. No dithering/no texture noise/no painterly gradients, no diffuse glow beyond silhouette, no atmospheric effects, no ground/reflection, no background, no text/UI or attack. Fully transparent outside crisp stepped silhouettes and opaque object pixels. Center entire sprite with clear margins. Original 2D adaptation faithfully based on the provided appearance references."
+}

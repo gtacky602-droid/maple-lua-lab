@@ -2,6 +2,12 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "dendro-hypostasis",
+      "name": "無相の草（参照付き待機候補・戦闘未実装）",
+      "file": "dendro-hypostasis-idle-sprites.json",
+      "height": 128
+    },
+    {
       "id": "pyro-hypostasis",
       "name": "無相の炎（参照付き待機候補・戦闘未実装）",
       "file": "pyro-hypostasis-idle-sprites.json",
