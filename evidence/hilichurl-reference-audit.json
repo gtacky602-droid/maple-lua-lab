@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-17",
+  "character": "regular hilichurl",
+  "source_index": "https://mmdfr.fr/genshin-mmd/",
+  "api": "https://api.mmdfr.fr/api/character/hilichurls",
+  "model_url": "https://static.biligame.com/caster_custom_assets/ys/gczj/qiuqiuren.rar",
+  "version": "1.0 regular model; 1.1 not selected",
+  "archive_sha256": "4afd3c9b1fef866059b8e00e4bcc9409a0c1314a4c5293d29055574691ed0ae9",
+  "pmx_sha256": "7d25eeeea19d8ec44f85d2b94a1311d89aaaab6e5cddf64d11301347d20a0a61",
+  "readme_path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\hilichurl-model\\丘丘人\\使用规则.txt",
+  "readme_sha256": "51ab04323e2510c47070532bc8871a108b2e608e2b735f2af6b10807a3e2a75a",
+  "terms_read": true,
+  "credits": "miHoYo / 神帝宇",
+  "storage": "local ignored work/references, no model redistribution",
+  "render_method": "Blender 4.2 flat texture inspection, not original game shading",
+  "views": [
+    {
+      "view": "front",
+      "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\hilichurl-views\\front.png",
+      "sha256": "fcd0c023ce3e4c9d33a4e693557ecb6b91d091fddf1bbadde425205759072fe6",
+      "directly_viewed": true
+    },
+    {
+      "view": "back",
+      "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\hilichurl-views\\back.png",
+      "sha256": "c787409498d532fc81b5ead9ac7566d1f859a8a4ac0bddbd97a1abdb448801b5",
+      "directly_viewed": true
+    },
+    {
+      "view": "right",
+      "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\hilichurl-views\\right.png",
+      "sha256": "33190a7fc7ebe5ea5f023648d67e47a973bc2d5b4578e79d3e91c520d533cd73",
+      "directly_viewed": true
+    },
+    {
+      "view": "left",
+      "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\hilichurl-views\\left.png",
+      "sha256": "23f591f5320137eab7b36d38110dd13ad382bd7e0643ead6d12c19eb8102cd59",
+      "directly_viewed": true
+    }
+  ],
+  "observations": [
+    "Beige mane, dark long horns, ivory mask with orange centered motif",
+    "Dark skin and bandaged forearms",
+    "Patterned brown waist wrap, double dark straps, pale buckle and rear panels",
+    "Bare clawed feet and tan shin straps"
+  ],
+  "generation": "assets/hilichurl-idle-generation-v1.json",
+  "source": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\assets\\hilichurl-idle-source-v1.png",
+  "profiles": {
+    "legacy": 1175,
+    "h48c32": 692,
+    "h32c16": 285
+  },
+  "validation": [
+    "Source hash and alpha range verified",
+    "Compiler verified rectangle reconstruction",
+    "3 enemies x 3 profiles x 3 zooms and both facings; 390px no overflow; no browser errors",
+    "Enemy comparison screenshot directly viewed",
+    "Existing 9 character gallery regression passed"
+  ],
+  "unfinished": [
+    "Not placed in story",
+    "No dedicated attack/AI/walk animation",
+    "Mask motif loses legibility at 38px",
+    "Mirrored costume asymmetry"
+  ]
+}

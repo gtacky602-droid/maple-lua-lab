@@ -1,0 +1,32 @@
+{
+  "errors": [],
+  "state": {
+    "ready": true,
+    "count": 3,
+    "profile": "h32c16",
+    "zoom": 2,
+    "flip": false,
+    "dimensions": [
+      {
+        "id": "hydro-slime",
+        "h": 40,
+        "w": 50.23255813953488,
+        "ratio": 1.255813953488372
+      },
+      {
+        "id": "pyro-slime",
+        "h": 40,
+        "w": 45.333333333333336,
+        "ratio": 1.1333333333333333
+      },
+      {
+        "id": "hilichurl",
+        "h": 76,
+        "w": 41.67741935483871,
+        "ratio": 0.5483870967741935
+      }
+    ]
+  },
+  "combinations": 18,
+  "mobileOverflow": false
+}

@@ -1,0 +1,53 @@
+{
+  "updated": "2026-11-17",
+  "basis": [
+    "core.lua C.new: kind 1/2; atlas indices 5/7",
+    "story.lua enter: six copied enemies per hostile node"
+  ],
+  "hostile_story_nodes": [
+    "mond-road",
+    "mond-border",
+    "liyue-entry",
+    "liyue-field",
+    "inazuma-road",
+    "sumeru-entry",
+    "sumeru-field",
+    "fontaine-entry",
+    "fontaine-field",
+    "natlan-entry",
+    "natlan-field",
+    "ochkanatlan-ruins",
+    "nod-field",
+    "snezhnaya-entry",
+    "snezhnaya-field",
+    "dragonspine-depth",
+    "chenyu-depth",
+    "enkanomiya-depth",
+    "tunigi-depth",
+    "bygone-depth",
+    "dornman-depth",
+    "nod-special-depth",
+    "novokichev-depth",
+    "golden-play",
+    "veluriyam-play",
+    "simulanka-play"
+  ],
+  "current_story_assignment": "Shared proxy population; region-specific enemy species are not authored",
+  "assets": [
+    {
+      "id": "hydro-slime",
+      "status": "existing atlas candidate, image reference audit pending"
+    },
+    {
+      "id": "pyro-slime",
+      "status": "existing atlas candidate, image reference audit pending"
+    },
+    {
+      "id": "hilichurl",
+      "status": "model-informed idle candidate; gallery only, no story placement or dedicated behavior",
+      "art": "assets/hilichurl-idle-sprites.json"
+    }
+  ],
+  "scope": "inventory of existing work, not full planned enemy roster",
+  "hold": "Attack design and skill tuning pending ChatGPT design"
+}
