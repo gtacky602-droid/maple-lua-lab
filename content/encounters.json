@@ -409,7 +409,13 @@
         "ドット絵・動作",
         "報酬・難度",
         "通し検証"
-      ]
+      ],
+      "art_candidate": {
+        "source": "assets/wolflord-idle-source-v2.png",
+        "encoding": "assets/wolflord-idle-sprites.json",
+        "audit": "evidence/wolflord-reference-audit.json",
+        "status": "idle body candidate only; no live combat or animations"
+      }
     },
     {
       "id": "boss-26230301",

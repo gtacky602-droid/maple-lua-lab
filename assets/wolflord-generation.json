@@ -1,0 +1,25 @@
+{
+  "mode": "builtin image_gen",
+  "versions": [
+    {
+      "file": "wolflord-idle-source-v1.png",
+      "generated_file": "exec-5320ce32-ca41-4322-bc57-6aa3f505ec21.png",
+      "prompt": "Use case: stylized-concept. Generate ONE transparent pixel-art idle sprite of Golden Wolflord from Genshin Impact for a Maple-inspired 2D RPG lab. Use attached archive image for full-body anatomy and frontal announcement screenshot for head details. IMPORTANT this is the long serpentine Golden Wolflord, not a four-legged Rifthound. One elongated canine head at lower left, narrow black muzzle, cyan glowing eyes, gold angular forehead crest, large swept gold cheek plates, layered slate-blue and dark brown mane. Three slender dark ribbon-like appendages rising above mane, ending in cyan outlined eye-shaped motifs. The long segmented charcoal/brown armored snake-like body curves gently upward to the right and ends in a gold-inlaid blade-shaped tail at upper right. Many separated armor segments, gaps filled with transparency, sharp dorsal plates, muted golden internal accents. No legs or paws, no conventional wings. Side/three-quarter view facing left, relaxed floating idle, readable head and complete curved tail. Omit the three summoned satellite wolf heads and their trails for this base idle body candidate; no particles, aura, attack, motion trail, ground or shadow. Entire head, crest, ribbons and tail inside generous transparent margins. Pixel art with crisp square clusters and dark contour, restrained 24-32 color aesthetic, designed for 200px high sprite, no painterly gradients or dither noise. Transparent exterior and spaces between segmented parts. No lettering, UI, frame, background, multiple poses.",
+      "reference_files": [
+        "work/references/wolf-actual-0.png",
+        "work/references/wolf-actual-1.png"
+      ],
+      "status": "retained; extra fourth ribbon"
+    },
+    {
+      "file": "wolflord-idle-source-v2.png",
+      "generated_file": "exec-b0256653-814b-4078-8c8b-799c7edf7330.png",
+      "prompt": "Edit this pixel-art Golden Wolflord sprite only to correct its cyan eye-tipped mane appendages. There are currently FOUR eye-tipped ribbons; retain exactly THREE, as in the attached in-game announcement reference. Remove the short rightmost cyan eye ribbon and its complete stem (the ribbon pointing to the right near the middle of the image, below the tallest ribbon). Keep the leftmost tall ribbon, the small middle ribbon and tallest central ribbon. Preserve all other pixels/style, head, armor, mane, body/tail, pose, palette, dimensions, transparent background and gaps. No other additions or changes.",
+      "reference_files": [
+        "assets/wolflord-idle-source-v1.png",
+        "work/references/wolf-actual-1.png"
+      ],
+      "status": "active idle candidate"
+    }
+  ]
+}

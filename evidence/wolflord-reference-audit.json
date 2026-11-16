@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-17",
+  "pages": [
+    "https://www.hoyolab.com/article/14537375",
+    "https://www.hoyolab.com/article/1458239"
+  ],
+  "references": [
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2022/12/24/152636517/86ecb137e2f26cd0e01c7f6fa3d4a3f9_1976827223088506134.png",
+      "sha256": "1738113686e39d9955483c46106140da62326a6ed04b7ec3a31583ef09b48348",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "archive screenshot full coiled body, community posted"
+    },
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2021/11/25/1561847/034f221eba64eae827cc0e595beddbbb_1733239887874021669.jpg",
+      "sha256": "735e81fc58785f0619a1252a6274dbb426d0798b422904fcbdf062e2ca8da899",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "announcement screenshot frontal head, community posted"
+    }
+  ],
+  "rejected_references": [
+    "Search result entry2212 was Azhdaha, entry2121 Primo Geovishap, not Golden Wolflord",
+    "HoYoLAB1334114 and Inverse image91d53c47 depicted four-legged Rifthounds; not used"
+  ],
+  "model_lookup": "No usable matching 3D model found. Back view and actual model not inspected.",
+  "output": "assets/wolflord-idle-source-v2.png",
+  "sha256": "a5b3aebedebefa0212db3c3bdd349061af806726a1810ec5ed35c82b788aec92",
+  "profiles": {
+    "legacy": {
+      "height": 200,
+      "runs": 11113
+    },
+    "h48c32": {
+      "height": 150,
+      "runs": 7067
+    },
+    "h32c16": {
+      "height": 100,
+      "runs": 3355
+    }
+  },
+  "limits": [
+    "Three satellite wolf heads omitted; base idle body only",
+    "Display height200px and map hover48px provisional",
+    "Straighter body and broader mane than archive reference; no back view",
+    "No movement, attacks or live combat; map rainforest is temporary comparison fixture"
+  ],
+  "visual_review": "Source v1/v2 directly viewed. v1 had four eye ribbons; builtin edit v2 reduced to three. Initial 16-color browser comparison lost cyan; reserved source cyan restored eye motifs. Final PNG/100px comparison and temporary map placement viewed. Long segmented body, mane, gold cheek plates and cyan decorations retained; thin ribbons, teeth and joints remain coarse.",
+  "palette": {
+    "color": "#8ddbe7",
+    "samples": 4764,
+    "criteria": "alpha>=128,G>150,B>160,G>R+20,B>R+30",
+    "before_runs": {
+      "legacy": 11125,
+      "h48c32": 7115,
+      "h32c16": 3425
+    },
+    "note": "Reserve source median cyan within existing 32/16 color budget; source PNG unchanged."
+  },
+  "validation": {
+    "gallery": "31 candidates, 3 profiles, 3 zooms, both facings, aspect, clipping, 390px passed",
+    "placement": "31 candidates: placement, profiles, flip, JSON roundtrip, undo and mobile passed"
+  }
+}

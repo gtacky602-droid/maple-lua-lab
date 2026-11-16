@@ -2,6 +2,13 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "wolflord",
+      "name": "黄金王獣（参照付き待機候補）",
+      "file": "wolflord-idle-sprites.json",
+      "height": 200,
+      "mapHover": 48
+    },
+    {
       "id": "legatus",
       "name": "魔像レガトゥス（参照付き待機候補）",
       "file": "legatus-idle-sprites.json",

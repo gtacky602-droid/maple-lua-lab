@@ -2,13 +2,19 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 30,
-    "visibleCount": 30,
+    "count": 31,
+    "visibleCount": 31,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "wolflord",
+        "h": 200,
+        "w": 417.08278580814715,
+        "ratio": 2.085413929040736
+      },
       {
         "id": "legatus",
         "h": 200,

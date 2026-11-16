@@ -34,6 +34,7 @@ try{
   if(item.id==='electro-regisvine')await p.locator('main').screenshot({path:'evidence/electro-regisvine-map-comparison.png'});
   if(item.id==='ruin-serpent')await p.locator('main').screenshot({path:'evidence/ruin-serpent-map-comparison.png'});
   if(item.id==='aeonblight')await p.locator('main').screenshot({path:'evidence/aeonblight-map-comparison.png'});
+  if(item.id==='wolflord')await p.locator('main').screenshot({path:'evidence/wolflord-map-comparison.png'});
   if(item.id==='legatus')await p.locator('main').screenshot({path:'evidence/legatus-map-comparison.png'});
   if(item.id==='suanni')await p.locator('main').screenshot({path:'evidence/suanni-map-comparison.png'});
   if(item.id==='field-generator')await p.locator('main').screenshot({path:'evidence/field-generator-map-comparison.png'});
