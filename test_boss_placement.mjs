@@ -34,6 +34,7 @@ try{
   if(item.id==='electro-regisvine')await p.locator('main').screenshot({path:'evidence/electro-regisvine-map-comparison.png'});
   if(item.id==='ruin-serpent')await p.locator('main').screenshot({path:'evidence/ruin-serpent-map-comparison.png'});
   if(item.id==='aeonblight')await p.locator('main').screenshot({path:'evidence/aeonblight-map-comparison.png'});
+  if(item.id==='emperor')await p.locator('main').screenshot({path:'evidence/emperor-map-comparison.png'});
   if(item.id==='seahorse')await p.locator('main').screenshot({path:'evidence/seahorse-map-comparison.png'});
   if(item.id==='baptist')await p.locator('main').screenshot({path:'evidence/baptist-map-comparison.png'});
   if(item.id==='wenut')await p.locator('main').screenshot({path:'evidence/wenut-map-comparison.png'});

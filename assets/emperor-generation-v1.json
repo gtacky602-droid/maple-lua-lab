@@ -1,0 +1,9 @@
+{
+  "mode": "builtin image_gen",
+  "generated_file": "exec-5e4c606d-3aec-4764-bb67-035f433c4e4a.png",
+  "reference_files": [
+    "work/references/emperor-1.png",
+    "work/references/emperor-6.png"
+  ],
+  "prompt": "Use case: stylized-concept. Create one transparent pixel-art idle sprite of Genshin Impact Emperor of Fire and Iron for a Maple-inspired 2D side-scrolling RPG lab. Reference first full-body render and second FINAL official design sheet. Preserve asymmetric claws: viewer-left large dark brown rocky pincer with orange tips; viewer-right ivory layered shell pincer containing an orange oval core. Exactly two big front claws. Low broad crab body, small central orange mustache-like face, pale cream/gray layered pointed shell towers to both upper sides, two raised red-brown organic horns at rear with orange warm tips, dark jointed walking legs ending in orange pointed feet. Match limb arrangement in final sheet, do not replace with humanoid legs or add claws. Full-body grounded resting three-quarter/front pose, all feet in a coherent lower support band; calm, no attack. Ivory armor with muted green-gray shadow, dark warm stone joints, red shell, warm orange visible seams. Deliberate crisp square pixel clusters and clean dark outlines, restrained 24-32 color look, readable at 180px high. No smooth painted gradients, no noisy dithering. Entire silhouette inside transparent canvas with generous margin, transparent gaps between legs and claws. No environment, no floor, no ground shadow, no loose sparks, no lava puddle, no aura, no lettering or multiple poses. Use final design, not early exploratory concepts. Keep paired shell towers tall and preserve the asymmetry of white versus brown pincers."
+}

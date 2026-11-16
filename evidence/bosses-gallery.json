@@ -2,11 +2,17 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 25,
+    "count": 26,
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "emperor",
+        "h": 180,
+        "w": 220.27972027972027,
+        "ratio": 1.2237762237762237
+      },
       {
         "id": "seahorse",
         "h": 180,

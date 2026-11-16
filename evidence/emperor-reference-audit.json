@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/3992?lang=en-us",
+  "discovery": "Belleau Region entry5141 related enemy link",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/17/35428890/92cf784732984089c7f5a91f7a42822c_6821414569242480633.png",
+      "sha256": "d589a572510244c4120a106a0c6aeff8cdcfcb7585bdd62f66a5461162c5ca5c",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "not inspected"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/05283303651868289e98e479102f8a85_2299744219400153644.png",
+      "sha256": "b468b3c88baf7e3d8c1c654204328b930754059704eb666c61a17a728500f2d9",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full-body render"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/04/22/35428890/6365e0f3bf365fab4f8f257fee4d1021_3633507646743056866.png",
+      "sha256": "ffa4615a13d749dd8a93f4783d4ab5cf0fa2afd035ccb697070ad04909e15e71",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "card illustration"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/21b87f03929d95558267a28da41ba876_2065671397146732279.png",
+      "sha256": "7eba168988519e356ffdacf563c4c21a9279deb2898c4b851c035e9c84071d7a",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "same full-body render, not independent angle"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/c1313f6a1fe95810828a473c355670b2_5932579601428816278.png",
+      "sha256": "fbe4b1fc549aef17e1a94bb950c60aef2ed3fabbf65666654b3b4bfe967e994c",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "illustration with fire effects"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/617999f9eb5b7dbecdd89be845ad9643_3037050255939949406.png",
+      "sha256": "5c7f57146169e061dbdd21f3b62973d7c9c3872f83d74c749674574c6184485a",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "in-game intact/broken shell comparison"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/7f6b0bc9f359366c425e43d0db070bd0_8656368991305402662.png",
+      "sha256": "d2b08250a4030602f6cac5cdb9eb9ec595974c0e29fab0c6cb8ff8f720be0365",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "final official design sheet with front/back, components and states"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/0035dc0ace9366505e136e22ebb1c107_3753630221681303598.png",
+      "sha256": "18010e24fe1a29a101bf7c352834afab0779054930ac8bd8667f7973bfb68a03",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "early concept exploration, excluded"
+    }
+  ],
+  "model_lookup": "No usable matching 3D model yielded by search; final orthographic/component sheet inspected, not model inspection.",
+  "output": "assets/emperor-idle-source-v1.png",
+  "sha256": "68c1c773d8dfb40e080553f726c1af037a86b0f1cfd74f7df38c4ff210f4993e",
+  "profiles": {
+    "legacy": {
+      "height": 180,
+      "runs": 11298
+    },
+    "h48c32": {
+      "height": 135,
+      "runs": 7186
+    },
+    "h32c16": {
+      "height": 90,
+      "runs": 3369
+    }
+  },
+  "visual_review": "Source, browser PNG/90px comparison and temporary map placement directly viewed. White vs brown pincers, twin rear horns, pale shell towers and orange tips remain. Small facial curls and shell grooves degrade. Feet/claw lower band touches support; claws and rear legs overlap in frontal pose.",
+  "limits": [
+    "No 3D model inspected",
+    "180px display size provisional",
+    "More compact frontal silhouette than some reference angles",
+    "Flip mirrors asymmetric claws; no independently drawn opposite facing",
+    "Intact idle only; no break state, attacks, animations or live battle",
+    "Forest map is comparison fixture, not habitat placement"
+  ]
+}
