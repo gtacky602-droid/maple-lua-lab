@@ -2,6 +2,18 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "hydro-hypostasis",
+      "name": "無相の水（波紋を整理したv2・戦闘未実装）",
+      "file": "hydro-hypostasis-idle-sprites.json",
+      "height": 128
+    },
+    {
+      "id": "hydro-hypostasis-v1",
+      "name": "無相の水（細部重視v1・比較用）",
+      "file": "hydro-hypostasis-idle-sprites-v1.json",
+      "height": 128
+    },
+    {
       "id": "cryo-hypostasis",
       "name": "無相の氷（新規待機候補・戦闘未実装）",
       "file": "cryo-hypostasis-idle-sprites.json",

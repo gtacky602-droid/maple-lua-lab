@@ -1,0 +1,9 @@
+{
+  "mode": "built-in image_gen",
+  "generated_file": "exec-c920df72-b6cc-4990-9cd2-9eddbfe06e9b.png",
+  "references": [
+    "work/references/hydro-hypostasis-wiki-0.png",
+    "work/references/hydro-hypostasis-wiki-2.png"
+  ],
+  "prompt": "Use case: stylized-concept. Generate a single idle pixel-art sprite of Genshin Impact Hydro Hypostasis for a 2D side-scrolling RPG lab. Reference 1: primary model appearance, compact paired upper/lower rows of luminous deep-blue water cubes with round ripple/circle-and-dot motifs, fine cyan edge rims, blue faceted central diamond core outlined white; tiny orbiting cubes. Ignore edge chroma artifacts in the reference. Reference 2: in-game appearance with cubes spread out, for the blue palette, ripple glyphs, cube orientation and center-core proportions, not an action to animate. Make a compact floating idle arrangement with clear central gap and visible core. Preserve watery rounded bevels, rich cobalt/azure faces and aqua circular markings; do not use ice snowflakes or frosty white thick edges. Crisp deliberate stepped pixels and clean clusters, readable at 128 pixels high with simplified circles, approximately 24-32 colors, no blur or smooth gradients. Entire sprite centered with clear margins, isolated on true transparent background. All solid sprite pixels opaque, no diffuse glow outside the silhouette, no ground reflection, no UI/text/background/attacks. An original pixel-art adaptation following the subject references."
+}

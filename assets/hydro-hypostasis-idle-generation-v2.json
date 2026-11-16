@@ -1,0 +1,9 @@
+{
+  "mode": "built-in image_gen",
+  "generated_file": "exec-91420c5e-5858-40ca-8a61-cef1177facb9.png",
+  "references": [
+    "assets/hydro-hypostasis-idle-source-v1.png",
+    "work/references/hydro-hypostasis-wiki-0.png"
+  ],
+  "prompt": "Edit the first image (our Hydro Hypostasis pixel-art sprite). Second image is the original subject reference, preserve its circular water ripple identity. Keep the silhouette, cube layout, blue watery palette, floating satellites, center core position and transparent background. Change ONLY internal rendering complexity for low-resolution readability: remove scattered small highlights/dithering/texture and all tiny dot rings; on every visible main cube face retain ONE LARGE clean cyan circular ring with a central dot, plus at most one broad partial arc. Rings must have thick continuous stepped pixel bands, around 2-3 pixels thick at a 64-pixel total sprite height; make circles as large as each cube face permits. Use large FLAT cobalt/blue planes with only 2 or 3 discrete shades per face, cyan rim highlights only. Core a large simple solid cyan diamond with a thick white contour and only two internal facets. Deliberately chunky, sparse, clean retro pixel art. No gradient speckling, no soft edges, no exterior glow, no ground or reflection. All subject pixels opaque, all outside pixels fully transparent. Preserve subject, pose and total framing; do not turn this into ice or change to snowflake symbols."
+}

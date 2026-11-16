@@ -2,11 +2,23 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 12,
+    "count": 14,
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "hydro-hypostasis",
+        "h": 128,
+        "w": 130.04255319148936,
+        "ratio": 1.0159574468085106
+      },
+      {
+        "id": "hydro-hypostasis-v1",
+        "h": 128,
+        "w": 129.10702702702702,
+        "ratio": 1.0086486486486486
+      },
       {
         "id": "cryo-hypostasis",
         "h": 128,

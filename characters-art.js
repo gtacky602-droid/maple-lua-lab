@@ -1,6 +1,6 @@
 const $=id=>document.getElementById(id),assets=[];
 async function json(path){const r=await fetch(path);if(!r.ok)throw Error(path);return r.json()}
-async function add(id,name,data,h,w){const image=new Image();image.src='assets/'+data.source;await image.decode();const article=document.createElement('article');article.innerHTML=`<h2>${name}</h2><div class="pair"><div><small>元PNG</small><canvas width="340" height="300"></canvas></div><div><small>矩形版</small><canvas width="340" height="300"></canvas></div></div><div class="stats"></div>`;$('cards').append(article);assets.push({id,data,image,article,h,w:w||h*data.box[2]/data.box[3]})}
+async function add(id,name,data,h,w){const image=new Image();image.src='assets/'+data.source;await image.decode();const article=document.createElement('article');article.dataset.id=id;article.innerHTML=`<h2>${name}</h2><div class="pair"><div><small>元PNG</small><canvas width="340" height="300"></canvas></div><div><small>矩形版</small><canvas width="340" height="300"></canvas></div></div><div class="stats"></div>`;$('cards').append(article);assets.push({id,data,image,article,h,w:w||h*data.box[2]/data.box[3]})}
 let layouts={};
 const enemies=document.documentElement.dataset.gallery==='enemies';
 try{

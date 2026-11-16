@@ -1,0 +1,93 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2160?lang=en-us&crawler=Googlebot",
+  "discovery": "Linked from Varunada Lazurite Fragment entry 1036",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/9e53b66a5cbcab8fa3c48351d1884df5_7715537846282428338.png",
+      "sha256": "8162f12cdcd9cfd45489d905c34280b9f05ac2c08c9dd9d3432fab6391c3f66c",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "primary compact shell view with outer chroma noise"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/29636aec2ef0c864a34c8fcc65d1dcb8_6463285974750348523.png",
+      "sha256": "70d5c170b6503e756637e0c7b806fdfd8ffa3567f311ce1fabebb961ad55c06c",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "same pose with reflection; not another angle"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/4e28ac7538499bf87e2d7845e930e226_2362734479665847835.png",
+      "sha256": "e433d7621c7a70dbf7898a3db2dfe27543b82f64d8fa4a824ed5f111e80cbdf1",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "in-game spread-cube configuration"
+    }
+  ],
+  "other_references": {
+    "page": "https://game8.jp/genshin/399941",
+    "header_image": "https://img.game8.jp/6098146/1dc792e54a59215a0fa06b66e3c86252.png/original",
+    "header_viewed": true,
+    "gif": "https://img.game8.jp/6122881/7a2fc9f7d049716f32d2f13f4cff9068.gif/original",
+    "frames_viewed": [
+      0,
+      64
+    ],
+    "total_frames": 128,
+    "excluded": "No boss in the inspected travel-guide frames; none used for generation"
+  },
+  "model_lookup": "Search for Hydro Hypostasis 3D model and Sketchfab returned no usable matching model in retrieved results; model not inspected",
+  "observed": "Deep blue rounded cubes, circular ripple/dot motifs, narrow cyan bevels, white-lined blue diamond core and satellite cubes",
+  "output": "assets/hydro-hypostasis-idle-source-v2.png",
+  "sha256": "cf3de78e6e1d8d7142cf901a4021571c2bb63262dcaef61d078df088a90e29e3",
+  "profiles": {
+    "legacy": {
+      "height": 128,
+      "runs": 4764
+    },
+    "h48c32": {
+      "height": 96,
+      "runs": 3040
+    },
+    "h32c16": {
+      "height": 64,
+      "runs": 1259
+    }
+  },
+  "alpha": {
+    "zero": 1072530,
+    "at_least_250": 454277,
+    "partial": 498652
+  },
+  "limits": [
+    "No backside/model inspection",
+    "Source contains low alpha fringe; not binary alpha",
+    "Idle candidate only, no separate shell/core or animation",
+    "No combat or live placement; provisional 128px size"
+  ],
+  "v1": {
+    "output": "assets/hydro-hypostasis-idle-source-v1.png",
+    "sha256": "221333b3bcf2bff55c8076f8966229588316eb1a4578019692291c2ab630e3ce",
+    "profiles": {
+      "legacy": {
+        "height": 128,
+        "runs": 5164
+      },
+      "h48c32": {
+        "height": 96,
+        "runs": 3179
+      },
+      "h32c16": {
+        "height": 64,
+        "runs": 1412
+      }
+    },
+    "alpha": {
+      "zero": 1080942,
+      "at_least_250": 424039,
+      "partial": 490070
+    }
+  },
+  "visual_review": "Viewed both generated PNGs and browser lowest-profile comparisons. v1 ripple lines broke into isolated dots; v2 thick single rings remain recognizable at 64px. v2 sacrifices fine water texture and multiple small ripples. Lowest core white rim weakens. Both versions retained in gallery. Not an animation or native performance test."
+}

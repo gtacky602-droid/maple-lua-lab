@@ -453,7 +453,13 @@
         "ドット絵・動作",
         "報酬・難度",
         "通し検証"
-      ]
+      ],
+      "art_candidate": {
+        "source": "assets/hydro-hypostasis-idle-source-v2.png",
+        "encoding": "assets/hydro-hypostasis-idle-sprites.json",
+        "audit": "evidence/hydro-hypostasis-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
     },
     {
       "id": "boss-20051201",
