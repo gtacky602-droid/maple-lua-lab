@@ -14,5 +14,6 @@
     "columbina": "dedicated provisional idle PNG and 3 numeric profiles; precise costume unverified; walk reuses idle"
   },
   "regular_enemies": "existing hydro/pyro slime atlas candidates; broader enemy roster not authored",
-  "hold": "skill changes and attack animation detail pending ChatGPT design"
+  "hold": "skill changes and attack animation detail pending ChatGPT design",
+  "reference_audit": "Existing sprites are candidates; visual comparison against images and available 3D models is pending. Rendering tests do not establish costume accuracy."
 }
