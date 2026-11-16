@@ -2,6 +2,13 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "qucusaur",
+      "name": "暴君・金焔のクク竜（参照付き待機候補）",
+      "file": "qucusaur-idle-sprites.json",
+      "height": 180,
+      "mapHover": 0
+    },
+    {
       "id": "yumka",
       "name": "山の王・貪食のユムカ竜（参照付き待機候補）",
       "file": "yumka-idle-sprites.json",

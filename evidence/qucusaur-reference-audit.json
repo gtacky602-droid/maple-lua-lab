@@ -1,0 +1,113 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/6584?lang=ja-jp",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/08/28/94675339/5709594dc5a9060e80eff1f292116304_9184128386299622288.png",
+      "sha256": "901d53659c11c61dd7a34e47304b4b87a9125c3262d42a05501754563be1b04c",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "normal red appearance"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/08/28/94675339/87bd3c1a58af7127068b9540e8ffa89d_542963256691528489.png",
+      "sha256": "9142ffaef2888a37f47725d3344d533fa4608379ddf53236ef4f9ee4758dac59",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "normal red appearance"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/08/30/94675339/5ef968cd07bc91c07a2a46ebd6e0c4ed_1268032306677905706.png",
+      "sha256": "1498e8753e0827e378e30d852529ae1782cbbce425fb844822970a4cd3d9e3e6",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "normal red appearance"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/08/30/94675339/781ce9c04132cf65e0fdea6210a92db3_3547940086233864330.png",
+      "sha256": "b52bb7c68a0327c3dde21b893672018b978af7fb660bb2da0defa0c911674b10",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "gold flying state excluded"
+    }
+  ],
+  "model_lookup": "Search Goldflame Qucusaur Tyrant 3d model yielded no usable matching model; model/back not inspected.",
+  "output": "assets/qucusaur-idle-source-v1.png",
+  "sha256": "b4148d8e2082fcc954e09bace32aaf8bf2171e252f77fd6ec4594ef285fe6599",
+  "profiles": {
+    "legacy": {
+      "height": 180,
+      "runs": 9599
+    },
+    "h48c32": {
+      "height": 135,
+      "runs": 6176
+    },
+    "h32c16": {
+      "height": 90,
+      "runs": 2642
+    }
+  },
+  "source_bounds": {
+    "size": [
+      1536,
+      1024
+    ],
+    "alpha128_bbox": [
+      140,
+      11,
+      1445,
+      1009
+    ]
+  },
+  "alpha_samples": {
+    "points": [
+      [
+        100,
+        100
+      ],
+      [
+        750,
+        20
+      ],
+      [
+        1450,
+        550
+      ],
+      [
+        750,
+        1010
+      ]
+    ],
+    "alpha": 0
+  },
+  "limits": [
+    "Normal red form only, no golden form/flight/attacks/animation/live combat",
+    "More upright, broader crest and wings than reference; tail mostly obscured; back not verified",
+    "Perspective feet do not all share baseline; anchor uses lowest front claw",
+    "Display180px provisional"
+  ],
+  "visual_review": "Final gallery and map comparison directly inspected. Crest and wing silhouette remain; blue-green samples retained after reservation but cheek and claws still very small at90px. Wing veins/eye weak, perspective feet not on one plane. Transparent surround clean in browser despite generated preview RGB glow. Rainforest is comparison fixture, not canonical Natlan map.",
+  "palette": {
+    "color": "#6ab3c3",
+    "samples": 10448,
+    "criteria": "alpha>=128,G>120,B>120,G>1.2R,B>1.2R",
+    "before_runs": {
+      "legacy": 9596,
+      "h48c32": 6167,
+      "h32c16": 2656
+    },
+    "actual_colors": {
+      "legacy": 32,
+      "h48c32": 32,
+      "h32c16": 16
+    },
+    "note": "Reserved one blue-green source median inside original32/16 color budget; source unchanged"
+  },
+  "validation": {
+    "gallery": "evidence/bosses-gallery.json",
+    "placement": "evidence/boss-placement-test.json",
+    "candidates": 40,
+    "distinct_bosses": 36
+  }
+}
