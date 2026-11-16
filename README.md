@@ -861,3 +861,10 @@ HoYoWiki3993の全身レンダー、ゲーム内正面、最終設定画の正�
 美術候補54件。群れは1戦のまま、art_componentsに2体を登録。戦闘・技・動作は未実装のまま。54候補の3profile/3zoom/左右・配置・JSON往復・390px幅と、2体同時配置3profileを検証。比較画像を目視し透過を確認。スメール背景は配置検査用で生息地設定ではない。背景は仮画像、本番3D方針を継続。矩形削減は実機速度の保証ではない。
 
 根拠: evidence/bathysmal-reference-audit.json、evidence/bathysmal-pair-test.json、evidence/bathysmal-pair-map.png。生成記録: assets/rimebiter-generation-v1.json、assets/bolteater-generation-v1.json。
+
+
+## 2026-11-17 ボス一覧から美術比較へ
+
+戦闘の制作状況と別に、登録済みの待機候補数と比較リンクを表示。art_candidate・art_variants・art_componentsを素材一覧のファイル名と照合し、群れ2体や形態違いも個別リンクにする。既存11体の素材対応も登録。66戦中47戦に52リンク。リンクは別タブで開き、シミュレーションを保持する。美術の登録は戦闘完成を意味しない。
+
+全行の素材対応、群れ2体の実際の別タブ遷移、390px幅、美術一覧503時の既存ファルカ挑戦を検証。表示画像を目視。技・戦闘数値・背景方針の変更なし。根拠: evidence/encounter-art-test.json、evidence/encounter-art-mobile.png。
