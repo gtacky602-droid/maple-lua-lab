@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2212?lang=en-us",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/14/35428890/cfa6502016fc1ec34b28ac386d842e66_3846884341926432039.png",
+      "sha256": "9a7fb997c629966331bd212cb7858509693c37af7ffaaa31481b91c4341c61a0",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "not inspected"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2023/12/17/35428890/59c9f48b45fef7fae67645f57f3631bc_8264828271882490187.png",
+      "sha256": "fcb80d8475aa8ce4f08759521f564d95ff81ee73fdc64447a4fdc1d0cd14917b",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "TCG card, frontal detail"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/14/35428890/a2e8720078588bc584dae720727c89ce_7033624349940005810.png",
+      "sha256": "21d6505c68426eaaeaeb42b8cbf9520acc668b13a04366c3a988adec0fb4dd77",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full render, tail crown cropped in reference"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/14/35428890/26630d431d97417018833cf078cb379a_5683142150635425523.png",
+      "sha256": "fa9c95413b1e0fa27949f9c2ac459a5772570bb75ead35ab5752de4ebd917554",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "illustration with tail tree crown"
+    }
+  ],
+  "model_lookup": {
+    "url": "https://sketchfab.com/3d-models/azhdaha-0109a68e82164cc39c2fcd794dd5af84",
+    "author": "Erial Game Studio",
+    "listed_license": "CC Attribution",
+    "result": "Viewer loaded; visibly rounded chibi interpretation, excluded from generation/anatomical reference. No model downloaded; back not inspected.",
+    "capture": "work/references/azhdaha-model-loaded.png"
+  },
+  "output": "assets/azhdaha-idle-source-v1.png",
+  "sha256": "b6a4e302c5a2799cc732c8e2c25c264856346b3a115ea130f5736245ed8c343b",
+  "profiles": {
+    "legacy": {
+      "height": 220,
+      "runs": 18545
+    },
+    "h48c32": {
+      "height": 165,
+      "runs": 11659
+    },
+    "h32c16": {
+      "height": 110,
+      "runs": 5356
+    }
+  },
+  "limits": [
+    "220px display height provisional",
+    "Tail crown fuller and more stylized than reference; four paws arranged for readable grounded pose",
+    "No matching 3D/back inspection",
+    "No movement, phase changes, attacks or live combat; map rainforest is temporary comparison fixture"
+  ],
+  "visual_review": "Source and initial/final PNG110px comparisons and temporary map placement directly viewed. Four paws, gold horns, rock plates and tree tail remain. Red reservation retains23/12/7 pixels in profiles, but eyes remain small and visually weak. Armor engravings, branch tips and belly lines become coarse. Larger tree canopy and squatter readable pose than primary reference.",
+  "palette": {
+    "color": "#be1312",
+    "samples": 59,
+    "criteria": "alpha>=128,R>180,R>3G,B>0.8G",
+    "before_runs": {
+      "legacy": 18690,
+      "h48c32": 11693,
+      "h32c16": 5437
+    },
+    "note": "Reserve source median saturated red within existing 32/16 color budget; source PNG unchanged.",
+    "reserved_pixel_counts": {
+      "legacy": 23,
+      "h48c32": 12,
+      "h32c16": 7
+    }
+  },
+  "validation": {
+    "gallery": "32 candidates, 3 profiles, 3 zooms, both facings, aspect, clipping, 390px passed",
+    "placement": "32 candidates: placement, profiles, flip, JSON roundtrip, undo and mobile passed"
+  }
+}

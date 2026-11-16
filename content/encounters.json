@@ -119,7 +119,13 @@
         "ドット絵・動作",
         "報酬・難度",
         "通し検証"
-      ]
+      ],
+      "art_candidate": {
+        "source": "assets/azhdaha-idle-source-v1.png",
+        "encoding": "assets/azhdaha-idle-sprites.json",
+        "audit": "evidence/azhdaha-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
     },
     {
       "id": "boss-29030101",

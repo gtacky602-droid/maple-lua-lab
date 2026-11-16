@@ -1,0 +1,9 @@
+{
+  "mode": "builtin image_gen",
+  "generated_file": "exec-4b0e1745-2ad6-4a8b-a5c9-9dd6e2b9fdec.png",
+  "reference_files": [
+    "work/references/azhdaha-full.png",
+    "work/references/azhdaha-illustration.png"
+  ],
+  "prompt": "Use case: stylized-concept. Create one transparent pixel-art idle sprite of Azhdaha, Genshin Impact weekly boss, for a Maple-inspired side-scrolling 2D RPG lab. Use the attached full render as primary anatomy reference and illustration only for complete tail silhouette. Massive squat quadrupedal dragon, head at left in three-quarter side view, broad low belly, four thick short planted legs, huge forearms encased in brown rock plates with angular spiral engravings and dark broad claws. Deep brown craggy head crown, pair of huge curved upward golden horns with dark tips, small red eyes, pale ivory pointed lower jaw and layered cream belly. Olive-taupe hide beneath stone, golden jagged shoulder/back mineral plates, dark rocky dorsal ridge. Thick tail emerges from rear at right and curves upward into a branching tree trunk with sparse golden autumn leaves; keep entire tree crown and all roots of tail visible and clearly connected to rear. Four paws near a common ground baseline, neutral patient crouched idle, mouth closed, no attack, no roar, no elemental infusions, no dust, no ground, no shadow. Broad beast silhouette, not chibi baby, not human or lion, no wings, no extra limbs or second tail, no unrelated background trees. Clear square pixel clusters, restrained 24-32 color aesthetic and dark clean outline, readable at 220px high. Generous transparent margins around horns, claws, tail tree; transparent between branches and limbs. No text, UI, logos, frame, multiple poses, painted gradients or noisy dithering."
+}

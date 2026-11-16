@@ -2,6 +2,13 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "azhdaha",
+      "name": "若陀龍王（参照付き待機候補）",
+      "file": "azhdaha-idle-sprites.json",
+      "height": 220,
+      "mapHover": 0
+    },
+    {
       "id": "wolflord",
       "name": "黄金王獣（参照付き待機候補）",
       "file": "wolflord-idle-sprites.json",
