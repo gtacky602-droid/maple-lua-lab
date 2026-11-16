@@ -134,17 +134,17 @@
     {
       "id": "snezhnaya-entry",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "snezhnaya-hub",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "snezhnaya-field",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "dragonspine-camp",

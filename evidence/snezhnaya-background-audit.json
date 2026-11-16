@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-17",
+  "official_video": "https://www.youtube.com/watch?v=RGFJa2mwD8E",
+  "official_news": "https://genshin.hoyoverse.com/en/news/detail/164865",
+  "reference_url": "https://i.ytimg.com/vi/RGFJa2mwD8E/maxresdefault.jpg",
+  "reference_path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\snezhnaya-official-teaser.jpg",
+  "reference_sha256": "b43ec6474fee863574825a679fe6f6fd282a5391e9cd543516f1feaf991c74a1",
+  "directly_viewed": true,
+  "observations": [
+    "Blue-gray ice/snow, slender spired architecture, mist and light through clouds",
+    "Thumbnail depicts a dramatic icy structure; no exact geography or ordinary town layout inferred"
+  ],
+  "generation": "assets/snezhnaya-background-generation-v1.json",
+  "output": "assets/snezhnaya-background-v1.png",
+  "output_sha256": "5b2ddee8d1f7048df6929362c886beb004206ca58c8dcf784b7d605d1b580a4d",
+  "scope": "Original temporary snow-road scenery with distant town; real production background remains 3D",
+  "mapped_nodes": [
+    "snezhnaya-entry",
+    "snezhnaya-hub",
+    "snezhnaya-field"
+  ],
+  "validation": [
+    "3 actual story nodes map to snezhnaya",
+    "Shared host renderer/platform screenshot directly viewed",
+    "12 existing scenery cases and 61-node map editor checks passed"
+  ],
+  "limitations": [
+    "Official video thumbnail only, not full-video visual inspection",
+    "No gameplay travel test; shared renderer fixture only",
+    "Individual towns/routes and exact geography not recreated",
+    "No native 3D stage or performance verification"
+  ],
+  "skills_changed": false
+}

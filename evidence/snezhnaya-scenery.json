@@ -1,0 +1,18 @@
+{
+  "errors": [],
+  "result": [
+    {
+      "id": "snezhnaya-entry",
+      "key": "snezhnaya"
+    },
+    {
+      "id": "snezhnaya-hub",
+      "key": "snezhnaya"
+    },
+    {
+      "id": "snezhnaya-field",
+      "key": "snezhnaya"
+    }
+  ],
+  "method": "actual story node data rendered by shared host scenery; visual fixture, not a gameplay travel test"
+}

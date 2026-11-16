@@ -1,0 +1,7 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Create an original wide 16:9 pixel-art temporary scenery background for a 2D side-scrolling RPG, inspired by the snowy blue-gray atmosphere and slender icy tower silhouettes in the supplied official Snezhnaya teaser thumbnail. Reference is for broad color/architecture language only, not exact geography or a recreation of the pictured landmark. Panorama of a quiet frozen road outside a snowbound northern fantasy town. Low snow-covered conifers and bare branches at far left/right, distant blue-gray mountains and small spired town silhouettes on right, icy ravine and atmospheric mist in middle distance, softly lit cloud opening overhead. Distinct pixel clusters matching MapleStory-inspired landscape assets. Keep center and lower playfield uncluttered and low contrast; bottom 20% a broad quiet snowy ground band to support separate platform overlays and tiny dark character sprites. No foreground tall trees blocking playfield, no giant central castle, no huge magic swirl, no characters, enemies, weapons, HUD, text, Genshin logo, borders, floating gameplay platforms or labels. Full opaque background image; not actual finished 3D world, just mood and visibility prototype.",
+  "reference": "https://i.ytimg.com/vi/RGFJa2mwD8E/maxresdefault.jpg",
+  "official_video": "https://www.youtube.com/watch?v=RGFJa2mwD8E",
+  "status": "original provisional regional snow landscape; thumbnail color/architecture reference only, not verified exact geography or finished 3D"
+}
