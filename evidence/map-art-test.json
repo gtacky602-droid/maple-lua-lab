@@ -159,12 +159,12 @@
     {
       "id": "chenyu-camp",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "chenyu-depth",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "enkanomiya-camp",

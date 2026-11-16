@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-17",
+  "reference_page": "https://blog.playstation.com/?p=388276",
+  "reference_url": "https://media3.giphy.com/media/J36OkNYtINgCy5Cm8w/giphy.gif",
+  "reference_sha256": "91ed6f89537558a3c04ca67309b88de7930a2caf4c98ef8b4da9118f97325ac6",
+  "directly_viewed_frames": [
+    0,
+    85
+  ],
+  "observations": [
+    "Cyan-green and tan vertical cliffs with trees on ledges",
+    "Fog accumulates between mountain layers"
+  ],
+  "generation": "assets/chenyu-background-generation-v1.json",
+  "method": "Reference frames visually inspected, observations supplied as text to built-in image_gen; image not attached to generation",
+  "output": "assets/chenyu-background-v1.png",
+  "output_sha256": "b2910f96fb8888379c33ab57828dda1b4374c4e0f7668641b2f5e7b8bca20038",
+  "mapped_nodes": [
+    "chenyu-camp",
+    "chenyu-depth"
+  ],
+  "validation": [
+    "2 node mappings",
+    "12 existing scenery cases",
+    "61-node editor checks",
+    "Host-rendered platform preview directly viewed"
+  ],
+  "limitations": [
+    "Two frames only, not full animation review",
+    "Original mood composition, not exact geography",
+    "Shared image for camp and depth",
+    "Visual fixture, not gameplay traversal or native 3D verification"
+  ],
+  "skills_changed": false
+}

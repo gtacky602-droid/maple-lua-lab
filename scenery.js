@@ -1,5 +1,6 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ chenyu:{file:'chenyu-background-v1.png',region:'沈玉の谷',zones:[]},
  dragonspine:{file:'dragonspine-background-v1.png',region:'ドラゴンスパイン',zones:[]},
  voyage:{file:'voyage-background-v1.png',region:'航路',zones:[]},
  snezhnaya:{file:'snezhnaya-background-v1.png',region:'スネージナヤ',zones:[]},
