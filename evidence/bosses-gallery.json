@@ -2,13 +2,19 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 27,
-    "visibleCount": 27,
+    "count": 28,
+    "visibleCount": 28,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "field-generator",
+        "h": 180,
+        "w": 239.77164605137963,
+        "ratio": 1.3320647002854424
+      },
       {
         "id": "tulpa",
         "h": 200,

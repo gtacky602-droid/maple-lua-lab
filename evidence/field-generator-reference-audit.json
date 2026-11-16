@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/4343?lang=en-us",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/09/28/35428890/411a0336222dd0d0f0dd7ae5c80e43f4_9047017844500482580.png",
+      "sha256": "51d0a3d9dd5ce62e6678ab42ff2efca7fdf2e90a3474503d77958fb9fb1fc185",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "not inspected"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/479f18656abc91a37b668bc36241d3ec_3220441381654762284.png",
+      "sha256": "b7b3ca9a5ba2c0b5507a83c19bfa5f52976cb14b1756bc49a2debffd13138d25",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full-body render"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2026/07/01/35428890/04724b187dc83024f68cd20b8bc668ab_5181983427448991721.png",
+      "sha256": "6ed2f0dd560f7f299253d59a0859c7a7ec6388b0850f57353bc5c0f859c0f0c7",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "card illustration"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/e40c2dd75e97916e1ced4abe6a70012e_942408293675031493.png",
+      "sha256": "8619854e5c700806bc25de988857bcafa9b6d6f20b473aa6bf1410caf250389b",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "same render different crop"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/b9343626fef0c50226fa9dcdc51f9b9f_8287150332565135704.png",
+      "sha256": "cd9d18d985de0bfd2dbf997afed3db260b360cc83a2b2d28ade8aaf1eeac352d",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "in-game field scene"
+    }
+  ],
+  "model_lookup": "No usable matching 3D model found in search; back view not inspected.",
+  "output": "assets/field-generator-idle-source-v1.png",
+  "sha256": "13e28acb7510150a30f37ebe090b65582189c4b39160d0ce407357d1d15b9376",
+  "profiles": {
+    "legacy": {
+      "height": 180,
+      "runs": 8097
+    },
+    "h48c32": {
+      "height": 135,
+      "runs": 5051
+    },
+    "h32c16": {
+      "height": 90,
+      "runs": 2266
+    }
+  },
+  "visual_review": "Source, browser PNG/90px comparison and temporary map placement directly viewed. Wide upper ring, side cones, tilted core and detached lower ornament remain. Fine teeth, measurement marks and inner rings lose detail; lower ornament gap smaller than render.",
+  "limits": [
+    "3D/back view unverified",
+    "More symmetric frontal silhouette and simplified gyro geometry",
+    "180px height and 48px hover provisional",
+    "Whole sprite only; no independent ring rotation, gravity field, attacks or live combat",
+    "Forest background is comparison fixture, not Fontaine habitat placement"
+  ]
+}

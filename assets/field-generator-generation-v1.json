@@ -1,0 +1,9 @@
+{
+  "mode": "builtin image_gen",
+  "generated_file": "exec-f72a5a27-c9d0-449f-9862-4d00926324a5.png",
+  "reference_files": [
+    "work/references/field-generator-1.png",
+    "work/references/field-generator-4.png"
+  ],
+  "prompt": "Use case: stylized-concept. Create a single transparent pixel-art idle sprite of Genshin Impact Experimental Field Generator for a Maple-inspired 2D RPG lab. Follow supplied official full-body render precisely for structural arrangement, use in-game image only as supplementary reference. Broad horizontal elliptical mechanical ring at TOP, ivory segmented panels with bronze and gold rims, warm gold slit, large pointed cone extending from each left and right side. Smaller separate-looking horizontal halo on top at center. BELOW the big ring: compact tilted gyroscope core of interlocking rings, golden circular center, crossbar with small downward hanging cone mechanisms on left and right. A small horizontal gold ring below core, then a clearly SEPARATED dangling lower ornament with silver split cog, gold fan arc and long gold downward point. Preserve transparent negative spaces inside the large ring and halo, around core and above detached bottom ornament; no invented supports joining every gap. Brass, ivory, dark bronze shadows, controlled amber highlights. Calm floating still pose in front/three-quarter perspective matching render; no attacks, no rocks or gravity field, no particles, no ground. Entire silhouette fits with margin. Crisp deliberate square pixel clusters and readable dark outline, 24-32 colors aesthetic, clear enough at 180px high. No smooth painterly shading or dithering noise, no text, no frame, no backdrop. One static complete machine, no limbs, no alternate poses. Transparent background including holes."
+}
