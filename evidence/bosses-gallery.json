@@ -2,13 +2,25 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 62,
-    "visibleCount": 62,
+    "count": 64,
+    "visibleCount": 64,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "whisperer-nightmares",
+        "h": 210,
+        "w": 201.70815450643778,
+        "ratio": 0.9605150214592275
+      },
+      {
+        "id": "fallen-vigil",
+        "h": 230,
+        "w": 204.85758275596612,
+        "ratio": 0.8906851424172441
+      },
       {
         "id": "moongecko",
         "h": 170,

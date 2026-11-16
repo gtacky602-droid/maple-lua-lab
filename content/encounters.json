@@ -928,7 +928,13 @@
         "ドット絵・動作",
         "報酬・難度",
         "通し検証"
-      ]
+      ],
+      "art_candidate": {
+        "source": "assets/whisperer-nightmares-idle-source-v1.png",
+        "encoding": "assets/whisperer-nightmares-idle-sprites.json",
+        "audit": "evidence/whisperer-nightmares-reference-audit.json",
+        "status": "idle candidate"
+      }
     },
     {
       "id": "boss-29020101",
@@ -1630,7 +1636,13 @@
         "ドット絵・動作",
         "報酬・難度",
         "通し検証"
-      ]
+      ],
+      "art_candidate": {
+        "source": "assets/fallen-vigil-idle-source-v1.png",
+        "encoding": "assets/fallen-vigil-idle-sprites.json",
+        "audit": "evidence/fallen-vigil-reference-audit.json",
+        "status": "idle candidate"
+      }
     },
     {
       "id": "boss-25134601",

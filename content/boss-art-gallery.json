@@ -2,6 +2,20 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "whisperer-nightmares",
+      "name": "昏き魘夢の主（待機候補）",
+      "file": "whisperer-nightmares-idle-sprites.json",
+      "height": 210,
+      "mapHover": 0
+    },
+    {
+      "id": "fallen-vigil",
+      "name": "守護者・堕天（待機候補）",
+      "file": "fallen-vigil-idle-sprites.json",
+      "height": 230,
+      "mapHover": 48
+    },
+    {
       "id": "moongecko",
       "name": "集光の月ヤモリ（待機候補）",
       "file": "moongecko-idle-sprites.json",

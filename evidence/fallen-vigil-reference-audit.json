@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-17",
+  "encounter": "boss-24111101",
+  "references": [
+    {
+      "url": "https://img.gamewith.jp/img/original_46c3da7345cb51adddcdb69b7e9e8a83.jpg",
+      "page": "https://gamewith.jp/genshin/article/show/553301",
+      "view": "Japanese preview, weapon and wing, lower edge cropped",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "d178587dcef7050a81faa9ec61e66a5cd9470a16705d8aad269281320f44442c"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/original_56990e0d3b68675a28b267d259e111ca.png",
+      "page": "https://gamewith.jp/genshin/article/show/552924",
+      "view": "Named encounter in phase displayed as The Open-Eyed, hover and wing outline",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "48ec9d646ffd09a8b9f5fe206fdc671fef0419ce3699fe7589d3140071fa9bde"
+    },
+    {
+      "url": "https://sdk.hoyoverse.com/upload/ann/2026/04/07/b0b3a3f15534bf45d7bf1977d0665dad_7716071368835331574_transformed.png",
+      "page": null,
+      "view": "Official announcement, same upper pose; separate Domain Keeper image excluded",
+      "directly_viewed": true,
+      "generation_input": false,
+      "sha256": "560e8c42f63404bc4066e3b962bb77b4c483f9459624e070a3ec81b682774b07"
+    }
+  ],
+  "model_lookup": "Exact-name searches did not yield a usable model. Related Open-Eyed listing 602345 was not treated as the verified base form. Rear unverified.",
+  "source": "assets/fallen-vigil-idle-source-v1.png",
+  "sha256": "7fca5d1fc2606f3ec037fcf6263f18e5fea685527814da09d360dcb0e39cec3e",
+  "profiles": {
+    "legacy": {
+      "height": 230,
+      "runs": 9694
+    },
+    "h48c32": {
+      "height": 172,
+      "runs": 5882
+    },
+    "h32c16": {
+      "height": 115,
+      "runs": 2561
+    }
+  },
+  "rectangle_reduction_percent": 73.58,
+  "reserved_colors": [
+    "#ffd685",
+    "#c93628"
+  ],
+  "hover": 48,
+  "anchorX": 0.5,
+  "anchor_method": "center",
+  "visual_review": "One large white wing, gold frame and the weapon silhouette remain readable on the Dornman Port preview. At 115px the weapon edges, halo and small red fragments become coarser.",
+  "provisional_details": "The unseen lower feather ends and weapon tip are completed by interpretation. Left-right mirroring also changes the side of the large wing. This preview uses a 48px floating offset.",
+  "measurement_scope": "Local rectangle counts at fixed display size. Native frame time remains unmeasured."
+}

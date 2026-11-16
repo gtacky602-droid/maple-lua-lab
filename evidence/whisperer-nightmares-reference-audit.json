@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-17",
+  "encounter": "boss-22150101",
+  "references": [
+    {
+      "url": "https://img.gamewith.jp/img/original_fbe8c705cd870c04bcf3e11dc8160551.png",
+      "page": "https://gamewith.jp/genshin/article/show/539820",
+      "view": "Preview, horn and chest blades, tail tip partly cropped",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "b23387c4abd98ca3ef4dd4245699cbadea5e9152947b04a93e090ddcbfa56be3"
+    },
+    {
+      "url": "https://i0.wp.com/brandanime.com/wp-content/uploads/2026/01/image-245.png?resize=1920%2C1080&ssl=1",
+      "page": null,
+      "view": "Gameplay, frontal silhouette amid effects and summons",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "6c925192cdb39615054e52ac5f9f632a4a4f8be266e5297a6f704118cdf4513c"
+    }
+  ],
+  "model_lookup": "The Models Resource asset 586793 matched the name, but its ZIP endpoint returned HTTP 403. Rear and underside unverified.",
+  "source": "assets/whisperer-nightmares-idle-source-v1.png",
+  "sha256": "2c910185e3fc56f53a7f79368feee8864e550ab913eb817dedb00f7bab55dcdb",
+  "profiles": {
+    "legacy": {
+      "height": 210,
+      "runs": 6956
+    },
+    "h48c32": {
+      "height": 158,
+      "runs": 4404
+    },
+    "h32c16": {
+      "height": 105,
+      "runs": 2004
+    }
+  },
+  "rectangle_reduction_percent": 71.19,
+  "reserved_colors": [
+    "#d24bfc",
+    "#f5b8ff"
+  ],
+  "hover": 0,
+  "anchorX": 0.3378016085790885,
+  "anchor_method": "midpoint of opaque pixels in bottom 4 percent band",
+  "visual_review": "The upright violet horns, curved tail and four-leg silhouette remain readable in the Nod-Krai map preview. At 105px the facial core and fine blue-black ribs merge.",
+  "provisional_details": "The pose and the tail tip are interpreted. The visible creature form has one idle sprite; alternate shadow shapes are pending.",
+  "measurement_scope": "Local rectangle counts at fixed display size. Native frame time remains unmeasured."
+}
