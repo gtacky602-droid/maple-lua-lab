@@ -1,8 +1,11 @@
 """Read generated pixels into numeric render encodings; never rewrite source art."""
 from pathlib import Path
 from PIL import Image
-import json,hashlib,argparse
-parser=argparse.ArgumentParser();parser.add_argument("--source",default="cryo-regisvine-source-v1.png");parser.add_argument("--output",default="boss-sprites.json");parser.add_argument("--height",type=int,default=128);parser.add_argument("--foot-anchor",action="store_true");args=parser.parse_args()
+import json,hashlib,argparse,re
+parser=argparse.ArgumentParser();parser.add_argument("--source",default="cryo-regisvine-source-v1.png");parser.add_argument("--output",default="boss-sprites.json");parser.add_argument("--height",type=int,default=128);parser.add_argument("--foot-anchor",action="store_true");parser.add_argument('--accent-color',action='append',default=[],help='Reserve a #RRGGBB color within the existing palette budget');args=parser.parse_args()
+if any(not re.fullmatch(r'#[0-9a-fA-F]{6}',c) for c in args.accent_color):parser.error('accent-color must be #RRGGBB')
+accents=list(dict.fromkeys(tuple(int(c[i:i+2],16) for i in (1,3,5)) for c in args.accent_color))
+if len(accents)>8:parser.error('at most 8 distinct accent colors')
 ROOT=Path(__file__).resolve().parent
 im=Image.open(ROOT/'assets'/args.source).convert('RGBA');box=im.getchannel('A').point(lambda a:255 if a>=128 else 0).getbbox();left,top,right,bottom=box
 
@@ -22,10 +25,11 @@ def merge(grid):
   active=nxt
  return runs
 out={'source':args.source,'sha256':hashlib.sha256((ROOT/'assets'/args.source).read_bytes()).hexdigest(),'box':[left,top,right-left,bottom-top],'profiles':{}}
+if accents:out['reserved_colors']=['#'+''.join(f'{v:02x}' for v in c) for c in accents]
 for key,h,count in [('legacy',args.height,32),('h48c32',round(args.height*.75),32),('h32c16',args.height//2,16)]:
  w=round((right-left)/(bottom-top)*h)
  grid=[[im.getpixel((int(left+(x+.5)*(right-left)/w),int(top+(y+.5)*(bottom-top)/h))) for x in range(w)] for y in range(h)]
- pixels=[p[:3] for row in grid for p in row if p[3]>=128];strip=Image.new('RGB',(len(pixels),1));strip.putdata(pixels);q=strip.quantize(colors=count,method=Image.Quantize.MEDIANCUT,dither=Image.Dither.NONE);pal=q.getpalette();colors=[tuple(pal[i*3:i*3+3]) for i in sorted(set(q.getdata()))];cache={}
+ pixels=[p[:3] for row in grid for p in row if p[3]>=128];strip=Image.new('RGB',(len(pixels),1));strip.putdata(pixels);q=strip.quantize(colors=count-len(accents),method=Image.Quantize.MEDIANCUT,dither=Image.Dither.NONE);pal=q.getpalette();colors=list(dict.fromkeys([tuple(pal[i*3:i*3+3]) for i in sorted(set(q.getdata()))]+accents));cache={}
  encoded=[]
  for row in grid:
   line=[]

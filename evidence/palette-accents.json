@@ -1,0 +1,35 @@
+{
+  "results": [
+    {
+      "profile": "legacy",
+      "core_samples": 56,
+      "core_rgb_squared_error_before": 447855,
+      "core_rgb_squared_error_after": 73492,
+      "runs_before": 6243,
+      "runs_after": 6177
+    },
+    {
+      "profile": "h48c32",
+      "core_samples": 36,
+      "core_rgb_squared_error_before": 254519,
+      "core_rgb_squared_error_after": 32869,
+      "runs_before": 3862,
+      "runs_after": 3826
+    },
+    {
+      "profile": "h32c16",
+      "core_samples": 16,
+      "core_rgb_squared_error_before": 161748,
+      "core_rgb_squared_error_after": 32253,
+      "runs_before": 1764,
+      "runs_after": 1717
+    }
+  ],
+  "checks": [
+    "source unchanged",
+    "alpha mask and anchors unchanged",
+    "palette budget preserved",
+    "default compiler output unchanged"
+  ],
+  "scope": "core color error only; not whole-image perceptual quality or FPS"
+}
