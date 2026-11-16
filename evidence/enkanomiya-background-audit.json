@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-17",
+  "reference_page": "https://blog.playstation.com/2021/12/26/genshin-impact-version-2-4-brings-grand-celebrations-and-a-mysterious-new-area-to-teyvat/",
+  "reference_url": "https://live.staticflickr.com/65535/51748334705_6599f39cbd_h.jpg",
+  "reference_sha256": "5b6f08a48df653288a4742d91d24fefae64275685d04c084f59fd3b3aec46de9",
+  "directly_viewed": true,
+  "observations": [
+    "Blue-violet fog and pale angular ruins",
+    "Broken bridges, pale dead trees, tiny gold lamps"
+  ],
+  "generation": "assets/enkanomiya-background-generation-v1.json",
+  "output": "assets/enkanomiya-background-v1.png",
+  "output_sha256": "75f7ce02dee5b3d5c17374c8b6bf138265216460b3becaf0d631b2146b12358d",
+  "mapped_nodes": [
+    "enkanomiya-camp",
+    "enkanomiya-depth"
+  ],
+  "validation": [
+    "2 mappings and host screenshot",
+    "12 existing mappings",
+    "61-node editor checks",
+    "Hilichurl PNG versus h32c16 placement screenshot directly viewed"
+  ],
+  "limitations": [
+    "Second reference image request returned HTTP 429 and was not used",
+    "Single reference view only",
+    "Recomposed reference-informed scene, not exact geography",
+    "Shared camp/depth image; no day/night mode or native 3D",
+    "Visual fixture, not gameplay traversal; sprite mask details lost at minimum resolution"
+  ],
+  "skills_changed": false
+}

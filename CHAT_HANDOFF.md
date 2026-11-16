@@ -90,3 +90,10 @@ map-art.html追加: 本編61仮地点の足場/背景を選択し、元PNGと軽
 沈玉の谷の仮背景を追加。HoYoverse担当者のPlayStation Blog掲載GIFの2フレームを直接確認し、青緑の岩山/谷霧を文章参照として独自画像生成。入口/探索路2地点へ接続。2地点・既存背景12ケース・配置比較61地点検査通過、足場付き表示目視。地域仮画像41/モンド代用20。本番3D・正確地理・個別地点差は未制作。技変更なし。
 
 根拠: evidence/chenyu-background-audit.json, evidence/chenyu-scenery.json, evidence/map-art-test.json。
+
+
+## 2026-11-17 淵下宮の仮背景
+
+淵下宮仮背景を追加。HoYoverse担当者のPlayStation Blog掲載画像を直接確認して画像参照付き生成。青紫の霧/石造遺跡/崩橋の構図を再構成。入口と探索路へ接続、足場を青灰色化。2地点/既存背景12ケース/配置比較61地点検査通過。ヒルチャールPNG対最軽量版を背景上で目視、輪郭は区別できるが仮面細部はつぶれる。地域仮画像43/代用18。昼夜切替・正確地理・本番3D未実装、技変更なし。
+
+根拠: evidence/enkanomiya-background-audit.json, evidence/enkanomiya-sprite-preview.png。

@@ -1,5 +1,6 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ enkanomiya:{file:'enkanomiya-background-v1.png',region:'淵下宮',zones:[]},
  chenyu:{file:'chenyu-background-v1.png',region:'沈玉の谷',zones:[]},
  dragonspine:{file:'dragonspine-background-v1.png',region:'ドラゴンスパイン',zones:[]},
  voyage:{file:'voyage-background-v1.png',region:'航路',zones:[]},
@@ -35,9 +36,9 @@ export function scenery(ctx,frame){
  const camera=frame.camera||0,snow=key==='snezhnaya'||key==='dragonspine';
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
-  ctx.fillStyle=key==='voyage'?'#765641':snow?'#6f8197':key==='natlan'?'#a16646':key==='fontaine'?'#9c9b9e':key==='liyue'?'#887653':key==='inazuma'?'#686174':p.y===480?'#655c43':'#756d56';ctx.fillRect(x,p.y,p.w,p.y===480?60:24);
-  ctx.fillStyle=key==='voyage'?'#ac8258':snow?'#c9dded':key==='fontaine'?'#bbbfc5':key==='inazuma'?'#697b79':'#508451';ctx.fillRect(x,p.y,p.w,7);ctx.fillStyle=key==='voyage'?'#d6b17a':snow?'#f1f7ff':key==='fontaine'?'#f0e9da':key==='inazuma'?'#c5bbd2':'#bed088';ctx.fillRect(x,p.y,p.w,2);
-  ctx.fillStyle=key==='voyage'?'#b69069':snow?'#a1b7cc':'#a09675';for(let n=0;n<p.w;n+=40){if(x+n>-40&&x+n<960)ctx.fillRect(x+n+5,p.y+11,27,5)}
+  ctx.fillStyle=key==='enkanomiya'?'#555d80':key==='voyage'?'#765641':snow?'#6f8197':key==='natlan'?'#a16646':key==='fontaine'?'#9c9b9e':key==='liyue'?'#887653':key==='inazuma'?'#686174':p.y===480?'#655c43':'#756d56';ctx.fillRect(x,p.y,p.w,p.y===480?60:24);
+  ctx.fillStyle=key==='enkanomiya'?'#858cab':key==='voyage'?'#ac8258':snow?'#c9dded':key==='fontaine'?'#bbbfc5':key==='inazuma'?'#697b79':'#508451';ctx.fillRect(x,p.y,p.w,7);ctx.fillStyle=key==='enkanomiya'?'#c4c8dd':key==='voyage'?'#d6b17a':snow?'#f1f7ff':key==='fontaine'?'#f0e9da':key==='inazuma'?'#c5bbd2':'#bed088';ctx.fillRect(x,p.y,p.w,2);
+  ctx.fillStyle=key==='enkanomiya'?'#949bb9':key==='voyage'?'#b69069':snow?'#a1b7cc':'#a09675';for(let n=0;n<p.w;n+=40){if(x+n>-40&&x+n<960)ctx.fillRect(x+n+5,p.y+11,27,5)}
  }
  ctx.restore();
 }

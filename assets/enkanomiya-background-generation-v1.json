@@ -1,0 +1,5 @@
+{
+  "method": "built-in image_gen",
+  "prompt": "Create a wide 16:9 temporary side-scrolling RPG backdrop. Original composition inspired by the provided reference image's Enkanomiya atmosphere: enormous subterranean blue-violet cavern, pale gray ancient angular stone ruins on distant broken rocky shelves, fractured bridges disappearing into cyan fog, slender dead pale trees and sparse violet plants, tiny soft golden lamps. Painterly anime environment, restrained detail, atmospheric depth. Distant ruined sanctuary on left half, deep open luminous mist at center, small broken pillars at right. No blue daytime sky, no moon, no underwater bubbles. Make the lowest third quiet dark blue stone ground and mist so small pixel sprites and separately drawn platforms read clearly. No foreground blocking pillars. No characters, text, logo, UI, or built-in gameplay platforms. Do not replicate exact screenshot layout or claim accurate geography. Opaque full bleed.",
+  "reference": "work/references/enkanomiya-official-1.jpg"
+}

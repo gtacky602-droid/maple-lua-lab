@@ -169,12 +169,12 @@
     {
       "id": "enkanomiya-camp",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "enkanomiya-depth",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "tunigi-camp",
