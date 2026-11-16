@@ -1354,7 +1354,13 @@
         "ドット絵・動作",
         "報酬・難度",
         "通し検証"
-      ]
+      ],
+      "art_candidate": {
+        "source": "assets/papilla-idle-source-v1.png",
+        "encoding": "assets/papilla-idle-sprites.json",
+        "audit": "evidence/papilla-reference-audit.json",
+        "status": "idle base-form candidate; projected branches, transformations, attacks and animation not implemented"
+      }
     },
     {
       "id": "boss-29130201",

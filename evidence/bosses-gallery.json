@@ -2,13 +2,19 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 42,
-    "visibleCount": 42,
+    "count": 43,
+    "visibleCount": 43,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "papilla",
+        "h": 200,
+        "w": 135.25925925925927,
+        "ratio": 0.6762962962962963
+      },
       {
         "id": "lava-dragon",
         "h": 180,

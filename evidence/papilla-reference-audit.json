@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/7125?lang=ja-jp",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/11/20/94675339/4f48bdf376d1b4597c8c54a0fe47c8b8_7761057490415774178.png",
+      "sha256": "dba91f471ab08f8474c84f9bb05c0f9dcd168771227a073d2d47e8d271b44cc7",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "core icon"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/11/21/94675339/57af3fb9662177e5dd0e8d04cb399e84_8907119445831588399.png",
+      "sha256": "7dbe48983f3bdec2d085abe0c4d76665cfd29dad848fe436b6c84eff9145574c",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full body primary"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/11/21/94675339/3cc99049f9bb8a6255fcdd62dca3557e_5141964521164767175.png",
+      "sha256": "a6f0eb83a50b077ea870e3dacc1682278a732ab26b999e4dd98cdced77470028",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "game projected branches excluded"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/03/05/94675339/ab2e36c9c1b6719d0bf03106ff216c59_902385719593470512.png",
+      "sha256": "bcf556f702d4a77118ff4a41d987e6df6fc05b57dc113ea86a7cd24c7bb8ee1b",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "combat/transformation comparison excluded"
+    }
+  ],
+  "model_lookup": "Tenebrous Papilla 3d model search did not locate a usable matching model. Model and rear not inspected.",
+  "output": "assets/papilla-idle-source-v1.png",
+  "sha256": "3e3282edd1b8579d8c537a2376699d37e0fd81ef7187ed7545f864294760c83b",
+  "profiles": {
+    "legacy": {
+      "height": 200,
+      "runs": 7089
+    },
+    "h48c32": {
+      "height": 150,
+      "runs": 4396
+    },
+    "h32c16": {
+      "height": 100,
+      "runs": 1979
+    }
+  },
+  "reduction_percent": 72.08,
+  "limitations": [
+    "Idle base-form candidate only; projected branches, transformations, attacks and animations absent",
+    "Thicker branches, more symmetrical base and simplified eye surrounds relative to full render",
+    "Back not verified; 200px scale and bottom anchor provisional"
+  ],
+  "visual_review": "Source, gallery and map comparison directly inspected. Four eye-orbs, cyan lower core and dark branching silhouette remain, but pupil centers and core line patterns weaken at 100px. Small tips become jagged. Clean transparent surround. Forest used for comparison, not canonical geography.",
+  "validation": {
+    "gallery": "evidence/bosses-gallery.json",
+    "placement": "evidence/boss-placement-test.json",
+    "candidates": 43,
+    "distinct_bosses": 38
+  }
+}
