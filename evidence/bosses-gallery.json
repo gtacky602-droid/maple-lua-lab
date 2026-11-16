@@ -2,13 +2,19 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 59,
-    "visibleCount": 59,
+    "count": 60,
+    "visibleCount": 60,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "battleship",
+        "h": 190,
+        "w": 328.7064116985377,
+        "ratio": 1.7300337457817774
+      },
       {
         "id": "frostnight-herra",
         "h": 220,

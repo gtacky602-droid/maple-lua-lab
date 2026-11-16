@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-17",
+  "encounter": "boss-23090101",
+  "references": [
+    {
+      "url": "https://upload-bbs.miyoushe.com/upload/2025/11/21/75276539/12b6bc878cd996122a43d2d12f3b48db_2301634990127281869.jpg",
+      "page": null,
+      "view": "Chinese showcase: three-quarter hull, asymmetric modules and lower outline",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "03b770165587be126661ff1da138d62580918c0262eee1349bc6fc1009ee9f73"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/8f8f5d15b4c291601a2a846fe728e2db.png",
+      "page": "https://gamewith.jp/genshin/article/show/531946",
+      "view": "Gameplay side view: pistons and leg joints; parts occluded",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "a434641a93c781408a26d5b36eddeb8cbe6322dacb207c8bbfe0445a9ef60ad9"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/dd2a0d76f90605bd897038141eec633d.png",
+      "page": "https://gamewith.jp/genshin/article/show/531946",
+      "view": "Gameplay front view: orange-red attachment and cyan lens, heavily occluded",
+      "directly_viewed": true,
+      "generation_input": false,
+      "sha256": "4446c43afd899a01a041611f520fe31e5a79a458aa607119893e8fcb4572736a"
+    },
+    {
+      "url": "https://mk-chatworks.up.seesaa.net/image/E695B5G6R9UePbQAA2EaD.jpg",
+      "page": "https://mk-chatworks.seesaa.net/article/519082995.html",
+      "view": "Japanese showcase: cropped duplicate pose",
+      "directly_viewed": true,
+      "generation_input": false,
+      "sha256": "756dd87e1503e77352e235e1b06dadb81077235c137dae6a3dfdfc3230080302"
+    },
+    {
+      "url": "https://img.gamewith.net/img/original_7984163de9b6373e826d05d1c4e9da38.png",
+      "page": null,
+      "view": "Adventurer handbook: confirmed named entry and front icon",
+      "directly_viewed": true,
+      "generation_input": false,
+      "sha256": "2a81ab8a078e1570da1b78e98917b14474f097ee420951464d03ba82a44b018a"
+    }
+  ],
+  "model_lookup": {
+    "result": "Exact English-name and site-specific searches did not yield a usable 3D model. Rear geometry and far leg attachments remain unverified."
+  },
+  "source": "assets/battleship-idle-source-v1.png",
+  "sha256": "0f05d299a14dca54f58faa1b164e1ba3e6a1077c21ebf85316da4e2da463d421",
+  "profiles": {
+    "legacy": {
+      "height": 190,
+      "runs": 19680
+    },
+    "h48c32": {
+      "height": 142,
+      "runs": 12201
+    },
+    "h32c16": {
+      "height": 95,
+      "runs": 5626
+    }
+  },
+  "rectangle_reduction_percent": 71.41,
+  "reserved_colors": [
+    "#45e4ff",
+    "#ea88d5"
+  ],
+  "anchorX": 0.41449934980494146,
+  "anchor_method": "midpoint of opaque pixels in bottom 2 percent band",
+  "hover": 0,
+  "visual_review": "Directly viewed the source and 95px rectangular profile on the Nod-Krai map preview and gallery. The cyan lens, dark hull and four feet are readable. The amber-red attachment loses saturation and fine pipes and joints merge at 95px.",
+  "support_landmark": "Opaque x spans 122–383 and 1009–1294 in the bottom 2% belong to the two foreground feet.",
+  "provisional_details": "The far legs and rear pipes are inferred from the partially occluded references. The preview mirror flips the asymmetric modules together with the hull.",
+  "measurement_scope": "Local rectangle counts at a fixed display scale. Native frame time remains unmeasured."
+}

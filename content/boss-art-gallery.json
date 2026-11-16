@@ -2,6 +2,13 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "battleship",
+      "name": "重量級陸巡艦「バトルシップ」（待機候補）",
+      "file": "battleship-idle-sprites.json",
+      "height": 190,
+      "mapHover": 0
+    },
+    {
       "id": "frostnight-herra",
       "name": "霜夜の空を巡る霊主（待機候補）",
       "file": "frostnight-herra-idle-sprites.json",
