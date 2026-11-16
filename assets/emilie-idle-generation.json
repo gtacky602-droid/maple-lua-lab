@@ -1,0 +1,5 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Single transparent-background pixel art idle game sprite of Emilie from Genshin Impact, full body standing facing RIGHT in three-quarter side view. Cute MapleStory-like 2.5-head-tall side scrolling RPG proportions, matching chibi Traveler companions and readable at 88 pixels high. Recognizable light blond short bob with pale pink tips, green eyes, delicate glasses, ornate dark green wide brim hat with white flower, elegant emerald green and black layered Fontaine perfumer dress with white ruffles, gold details, dark stockings and heeled shoes. Calm neutral resting hands, no attack pose, no bottle effects, no weapon obscuring body. Crisp dark pixel outlines, compact 16-bit pixel clusters and limited palette, entire hat and feet visible with generous fully transparent margins. No scenery, no ground, no shadow, no text, one idle pose only.",
+  "status": "idle candidate; static movement proxy; skills unchanged"
+}
