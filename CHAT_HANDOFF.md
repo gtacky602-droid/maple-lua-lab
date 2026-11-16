@@ -142,3 +142,9 @@ map-art.html追加: 本編61仮地点の足場/背景を選択し、元PNGと軽
 
 シムランカ森の仮背景追加。PlayStation Blog公式担当者掲載の紙風樹木/花/家2枚を直接確認して画像参照付き生成。拠点・探索ステージへ共用接続。2地点/61地点画像ready・配置比較検査通過、PNG対最軽量表示を目視。地域仮画像55/代用6。積み木街/鉱山/正確地理/本番3D未制作、技変更なし。並行チャットのボス一覧レビュー文書を受領、地方伝説56戦は暫定候補で現行66戦へ未追加。
 根拠: evidence/simulanka-background-audit.json, evidence/simulanka-sprite-preview.png。
+
+
+## 2026-11-17 ドーンマンポート仮背景
+
+ドーンマンポートの仮背景追加。Game8掲載の港画像1枚を直接確認して画像参照付き生成。崖/石造港/赤茶屋根/風車/帆船を参考にした独自構図。入口・探索路2地点/61地点画像ready・配置比較/背景読込失敗2ケース通過、PNG対最軽量表示を目視。地域仮画像57/代用4。単一角度のみ、正確地理/本番3D未制作、技変更なし。
+根拠: evidence/dornman-background-audit.json, evidence/dornman-sprite-preview.png。

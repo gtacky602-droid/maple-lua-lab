@@ -1,0 +1,5 @@
+{
+  "prompt": "Create a wide 16:9 original temporary background for a Maple-like 2D side scrolling RPG lab. Reference image shows Dornman Port: monumental blue-grey coastal cliffs, vertically stacked stone harbor town, small timber frame houses with terracotta roofs, windmills, moored sailing boats and pale stone dock arches. Use these environmental features, not the screenshot composition. Soft painterly game background with restrained details, bright coastal daylight and atmospheric depth. Side-on view from a quiet harbor promenade; buildings in middle distance on left, water and sailboats right, cliffs high behind. Keep bottom 25 percent low detail and relatively quiet so separately rendered pixel characters and platforms read clearly. No characters, no text, no logo, no borders, no UI, no foreground collision platforms. Reference is only environment inspiration; do not reproduce the title banner or framing.",
+  "reference": "work/references/dornman-game8.webp",
+  "status": "temporary lab background"
+}

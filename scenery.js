@@ -1,5 +1,6 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ dornman:{file:'dornman-background-v1.png',region:'ドーンマンポート',zones:[]},
  simulanka:{file:'simulanka-background-v1.png',region:'シムランカ',zones:[]},
  veluriyam:{file:'veluriyam-background-v1.png',region:'ヴェルーリヤ・ミラージュ',zones:[]},
  golden:{file:'golden-background-v1.png',region:'金リンゴ群島',zones:[]},

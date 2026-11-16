@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-17",
+  "reference_page": "https://game8.jp/genshin/774899",
+  "references": [
+    {
+      "url": "https://img.game8.jp/12431658/f6af40fe9fcb71c91a5c134580da2c45.webp/original",
+      "sha256": "756927cc95ee495477702fe4fc955f3b542e50822087c9c66434b45f4f7437b3",
+      "directly_viewed": true,
+      "source_type": "third-party gameplay screenshot with editorial frame"
+    }
+  ],
+  "official_search": "HoYoverse news 163467 returned no readable content; traveler.gg source mirror returned 403. Neither treated as viewed imagery.",
+  "generation": "assets/dornman-background-generation-v1.json",
+  "output": "assets/dornman-background-v1.png",
+  "output_sha256": "52ded926a60ad86a3b8fed6ae8b6243ebec4d33c92936f7ce5e871823cf421e8",
+  "mapped_nodes": [
+    "dornman-camp",
+    "dornman-depth"
+  ],
+  "validation": [
+    "2 node mappings",
+    "61-node editor and decoded image readiness",
+    "missing regional and fallback image error cases",
+    "PNG/h32c16 overlay directly viewed"
+  ],
+  "limitations": [
+    "One screenshot angle only; no 3D reference inspected",
+    "Original temporary coastal composition, not exact geography",
+    "Shared image across two proxy nodes",
+    "No native 3D or gameplay traversal proof"
+  ],
+  "skills_changed": false
+}

@@ -9,7 +9,7 @@
     },
     {
       "file": "mondstadt-background.png",
-      "node": "dornman-camp",
+      "node": "nod-special-camp",
       "errorReported": true,
       "healthyNodeUnaffected": true,
       "errors": []

@@ -2,8 +2,8 @@
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
   "scope": "Authored 61 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 55,
-  "fallback_mondstadt": 6,
+  "regional_temporary_image": 57,
+  "fallback_mondstadt": 4,
   "nodes": [
     {
       "id": "mond-town",
@@ -243,13 +243,13 @@
       "id": "dornman-camp",
       "name": "ドーンマンポート・入口拠点",
       "region": "ドーンマンポート",
-      "status": "fallback_mondstadt"
+      "status": "regional_temporary_image"
     },
     {
       "id": "dornman-depth",
       "name": "ドーンマンポート・探索路",
       "region": "ドーンマンポート",
-      "status": "fallback_mondstadt"
+      "status": "regional_temporary_image"
     },
     {
       "id": "nod-special-camp",
