@@ -1,0 +1,18 @@
+{
+  "updated": "2026-11-16",
+  "traveler": {
+    "status": "existing atlas idle/run candidates; not final animation"
+  },
+  "companions": {
+    "amber": "existing atlas idle/bow candidates",
+    "beidou": "dedicated idle PNG and 3 numeric profiles; walk reuses idle",
+    "ayaka": "geometric placeholder",
+    "wanderer": "geometric placeholder",
+    "emilie": "geometric placeholder",
+    "kachina": "geometric placeholder",
+    "mitya": "geometric placeholder",
+    "columbina": "geometric placeholder"
+  },
+  "regular_enemies": "existing hydro/pyro slime atlas candidates; broader enemy roster not authored",
+  "hold": "skill changes and attack animation detail pending ChatGPT design"
+}

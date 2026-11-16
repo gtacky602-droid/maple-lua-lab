@@ -78,7 +78,9 @@ return function(C)
   if col or s.companion=='wanderer' or s.companion=='beidou' or s.companion=='ayaka' or s.companion=='emilie' or s.companion=='kachina' or s.companion=='mitya' then
    for i=#f.draws,1,-1 do local d=f.draws[i];if d.kind=='sprite' and (d.asset==3 or d.asset==4) then table.remove(f.draws,i) end end
    local a=s.actors[2]
-   if a.hp>0 then
+   if a.hp>0 and C.companionArt and C.companionArt[s.companion] then
+    C.drawCompanionArt(f,s,a,mode,profile)
+   elseif a.hp>0 then
     f.draws[#f.draws+1]={kind='rect',x=a.x-s.camera-14,y=a.y-60,w=28,h=60,color='#a4b1d4'}
     f.draws[#f.draws+1]={kind='rect',x=a.x-s.camera-10,y=a.y-78,w=20,h=18,color='#e1d7d4'}
     if s.companion=='wanderer' then f.draws[#f.draws+1]={kind='rect',x=a.x-s.camera-26,y=a.y-80,w=52,h=6,color='#7aa7ba'} end
