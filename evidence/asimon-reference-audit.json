@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2855?lang=en-us",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2022/09/30/94376896/702fe9f038eb1bab144bd63853736da3_1720597185541312937.png",
+      "sha256": "163f5a6e9e335e55ec41db1db893f8f11570c55ff409617ad2729262070795e4",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "downloaded, not inspected"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/ffd4c9640868b1eb7ed4ea9b14aacdbc_1231778002615957994.png",
+      "sha256": "01df31e4dddcbb249ecde36a4f1eea933e2e72cfcd94a68260f7f34b1c5308de",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full-body floating arrangement"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/42c422206e136ececf0045be3843f920_7514346317509088351.png",
+      "sha256": "27b14961471b6993d7d61da10f0760d6822b7a5fd65dee57ac17c89fd13d300f",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "same pose at another size, not another angle"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/3c2ebac6cfdeb53f765830f19bc6394b_2105186032446356538.png",
+      "sha256": "9ad22b22d664ea8a5b34d8f93911e97d2173f69ef703fc55a74c9343e4334a1b",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "in-game composite with state changes"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/3ef1604c0ce1d616f912ee9880d1a83d_6382063873408976606.png",
+      "sha256": "576a0fc61289a89e96c1a86f189599106351cf62b3e421f9577af2830d7c3e68",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "title card, excluded"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/0f0640cb3070057037268bf6c4be1263_1496874931640483510.png",
+      "sha256": "5f0b243804763594712c92513335efd953822254a09865539d4fa699e7e44ef3",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "early concepts, excluded"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/b903341ed075baa93b227eab825e4a53_4991836266142274270.png",
+      "sha256": "1e9b699c97955f4dd2c5eed458a535ccf5e7a86ffd41d67139503524d579ed4b",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "final official front/side/back and component design sheet"
+    }
+  ],
+  "model_lookup": "No usable matching 3D model retrieved or inspected. Orthographic design sheet is not model inspection.",
+  "output": "assets/asimon-idle-source-v1.png",
+  "sha256": "fc2b8190b5f9d07213dc29295897d875140778e20f8676993d981a5d1ee050f9",
+  "profiles": {
+    "legacy": {
+      "height": 160,
+      "runs": 6836
+    },
+    "h48c32": {
+      "height": 120,
+      "runs": 4119
+    },
+    "h32c16": {
+      "height": 80,
+      "runs": 1811
+    }
+  },
+  "limits": [
+    "Symmetric pose adaptation; upper cones touch disks more than reference",
+    "Engravings simplified; 160px display size provisional",
+    "Idle only; no part animation, native performance, live battle or attacks"
+  ],
+  "visual_review": "Inspected source and browser PNG/80px comparison, then temporary Sumeru background placement. Triangle/core and lateral arrow units remain; small blue rosettes and engravings degrade. Background geographic placement is comparison only."
+}

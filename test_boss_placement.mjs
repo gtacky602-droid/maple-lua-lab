@@ -7,7 +7,7 @@ const p=await b.newPage({viewport:{width:1440,height:1100}}),errors=[];
 p.on('pageerror',e=>errors.push(e.message));
 const state=()=>p.evaluate(()=>window.mapArt);
 try{
- await p.goto('http://127.0.0.1:8769/map-art.html');
+ await p.goto((process.env.LAB_URL||'http://127.0.0.1:8769')+'/map-art.html');
  await p.waitForFunction(()=>window.mapArt?.ready,null,{timeout:60000});
  await p.selectOption('#node','sumeru-entry');
  if(kind==='character'){
@@ -34,6 +34,7 @@ try{
   if(item.id==='electro-regisvine')await p.locator('main').screenshot({path:'evidence/electro-regisvine-map-comparison.png'});
   if(item.id==='ruin-serpent')await p.locator('main').screenshot({path:'evidence/ruin-serpent-map-comparison.png'});
   if(item.id==='aeonblight')await p.locator('main').screenshot({path:'evidence/aeonblight-map-comparison.png'});
+  if(item.id==='asimon')await p.locator('main').screenshot({path:'evidence/asimon-map-comparison.png'});
   const promise=p.waitForEvent('download');await p.click('#export');const download=await promise;
   const text=await fs.readFile(await download.path(),'utf8');
   await p.click('#deleteSelected');if((await state()).count!==baseline)throw Error('delete');
