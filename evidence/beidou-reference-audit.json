@@ -32,15 +32,19 @@
   ],
   "model_status": "Downloaded PMX; front/back/camera +/-X rendered and directly viewed; sprite corrections remain",
   "profiles": {
-    "legacy": 1879,
-    "h48c32": 1128,
-    "h32c16": 480
+    "legacy": 1944,
+    "h48c32": 1144,
+    "h32c16": 500
   },
   "model_audit": "evidence/model-reference-audit.json",
   "remaining_model_findings": [
-    "Back hair tied partly with complex gold pin and teal tassel",
-    "Back garment red with split tails, dark lower panels and gold patterns; v2 purple cape candidate needs rechecking against game footage rather than assuming illustration lighting is base color",
-    "Chest has a pale tied ornament absent from simplified v2",
-    "Hair, eyepatch and accessories are asymmetric; mirrored sprite cannot preserve all sides"
+    "Mirrored eye patch, pin and accessories still reverse anatomy",
+    "Chibi costume simplification; no precise game footage/animation audit"
+  ],
+  "active_revision": "v3",
+  "v3_observed": [
+    "Red split tails with dark lower panels replace purple panels",
+    "Silver tied chest ornament added",
+    "Curved gold comb/hairpin refined"
   ]
 }

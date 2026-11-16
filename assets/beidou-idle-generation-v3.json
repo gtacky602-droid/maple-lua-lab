@@ -1,0 +1,12 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Edit image 1, the current Beidou pixel-art idle sprite, keeping its chibi proportions, pose facing RIGHT in three-quarter view, full-body size, outline, pixel texture, face, dark brown hair, burgundy left-eye patch, pale loop fasteners and teal tassel. Images 2 and 3 show the supplied Beidou 3D model front/back for precise costume structure. Correct ONLY costume differences: replace the long muted PURPLE side/back cloth panels with burgundy RED panels terminating in dark near-black lower panels with restrained gold curved edging/tassels, as in the 3D model. These are split garment tails, not a broad solid purple cape. Add the small pale silver tied ribbon ornament centered on the BLACK chest bodice, below the neckline, visible and distinct from the gold waist ornament. Keep the short burgundy shoulder cape and white fur collar. Refine the hairpin into the model's gold curved ornamental comb/pin with teal hanging tassel, but retain readable simplified pixels. Preserve readable 16-bit chibi pixel style, relaxed arms, no weapon, no action, no effects, no scene or floor, no text, single full-body idle sprite with generous transparent margins and feet visible. The 3D references establish garment colors and structure; do not reproduce realistic proportions or T-pose. Transparent background.",
+  "reference_images": [
+    "assets/beidou-idle-source-v2.png",
+    "work/references/beidou-views/front.png",
+    "work/references/beidou-views/back.png"
+  ],
+  "provenance": "evidence/model-reference-audit.json",
+  "status": "model-informed costume revision; mirrored asymmetry and chibi simplification remain; idle only",
+  "generated_file": "exec-211bc3b5-adc0-4ddf-993b-39c861987316.png"
+}
