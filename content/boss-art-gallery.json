@@ -9,6 +9,13 @@
       "mapHover": 0
     },
     {
+      "id": "lava-dragon-molten",
+      "name": "輝ける溶岩の龍像（溶焔形態・待機候補）",
+      "file": "lava-dragon-molten-sprites.json",
+      "height": 200,
+      "mapHover": 0
+    },
+    {
       "id": "qucusaur",
       "name": "暴君・金焔のクク竜（参照付き待機候補）",
       "file": "qucusaur-idle-sprites.json",

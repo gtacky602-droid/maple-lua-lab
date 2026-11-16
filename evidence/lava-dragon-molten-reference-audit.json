@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/7597?lang=ja-jp",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/01/94675339/11cf902367d882826dcbec19f24b34b3_515215574726325496.png",
+      "sha256": "7d70e0c335fd62f6ce4274d5e930fd89eebd6a1f9d2b949bc1076266230306d1",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2025/03/25/215921855/74de653783a4cb12cfc2047fac9e4465_8373696329467290198.jpg",
+      "sha256": "28314a5e9cbb8f33eb5e9efc48e0fa149021f2e58534c442b430b54621eac64a",
+      "directly_viewed": true,
+      "generation_input": true
+    }
+  ],
+  "model_lookup": "No matching usable model obtained in prior search; model/back not inspected.",
+  "output": "assets/lava-dragon-molten-idle-source-v1.png",
+  "sha256": "044bd926ddfdb2ae4d9155ae0fc1f0868d749b00c55bd105b768a6ccd1304ced",
+  "profiles": {
+    "legacy": {
+      "height": 200,
+      "runs": 7146
+    },
+    "h48c32": {
+      "height": 150,
+      "runs": 4632
+    },
+    "h32c16": {
+      "height": 100,
+      "runs": 2177
+    }
+  },
+  "reduction_percent": 69.54,
+  "limitations": [
+    "Idle candidate only: transformation, attacks, animations and native implementation absent",
+    "Narrower upright body and taller crest than reference; rear and lower-body details partly inferred",
+    "Hands retain stone armor of reference card rather than charged screenshot",
+    "200px height and base anchor provisional"
+  ],
+  "visual_review": "Source, gallery and map comparison directly viewed. Crest silhouette, two arms, lava column and bright belly core remain distinct from normal form. At 100px moss greens, eyes and armor cracks weaken, arms become browner, lava bands look more fragmented. Transparent background clean. Rainforest comparison fixture is not canonical boss location.",
+  "validation": {
+    "gallery": "evidence/bosses-gallery.json",
+    "placement": "evidence/boss-placement-test.json",
+    "candidates": 42,
+    "distinct_bosses": 37
+  }
+}
