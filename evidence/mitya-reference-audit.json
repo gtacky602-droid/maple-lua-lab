@@ -1,0 +1,52 @@
+{
+  "character": "mitya",
+  "date": "2026-11-17",
+  "source_page": "https://www.4gamer.net/games/486/G048621/20260929011/",
+  "official_post_link": "https://x.com/Genshin_7/status/2104783478931804260",
+  "official_post_access": "403; not directly viewed",
+  "references": [
+    {
+      "url": "https://www.4gamer.net/games/486/G048621/20260929011/SS/001.jpg",
+      "local_path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\mitya-4gamer-001.jpg",
+      "sha256": "7f0ce2281b059972d498a57a97b6fbd21c9b44ae544fd5303756c9d0defcbd4c",
+      "directly_viewed": true,
+      "host": "4Gamer third-party publication of character introduction art; same pose in both images"
+    },
+    {
+      "url": "https://www.4gamer.net/games/486/G048621/20260929011/SS/002.jpg",
+      "local_path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\mitya-4gamer-002.jpg",
+      "sha256": "1c46a4e8bb4ffa55290ddc2328fa50b2c42ea7c4cc95b4eecbd0c932e7d30693",
+      "directly_viewed": true,
+      "host": "4Gamer third-party publication of character introduction art; same pose in both images"
+    }
+  ],
+  "observations": [
+    "Wavy silver hair and curled top lock, violet eyes",
+    "White neck collar with dark navy torso; cyan round chest ornaments and amber shoulder clasp",
+    "Purple long split drapes with gold geometric decoration, teal hanging ribbons",
+    "Bare hands and black boots with pale gold sole; old white shirt, stars, fringe and laces are unsupported"
+  ],
+  "model_search": {
+    "url": "https://api.mmdfr.fr/api/character/mitya",
+    "result": "HTTP 404; cached model index has no mitya match; this does not prove no model exists"
+  },
+  "result": "assets/mitya-idle-source-v2.png",
+  "unverified": [
+    "Rear and side views, model unavailable at checked source",
+    "Asymmetric costume mirrored in left facing",
+    "Small ornament details and pose simplification",
+    "Body proportions and pixel-style consistency across roster"
+  ],
+  "validation": [
+    "test_mitya_art.py passed",
+    "test_mitya_art.mjs passed",
+    "test_characters_gallery.mjs passed",
+    "Town and gallery screenshots directly viewed"
+  ],
+  "profiles": {
+    "legacy": 1365,
+    "h48c32": 830,
+    "h32c16": 366
+  },
+  "skills_changed": false
+}
