@@ -1,0 +1,13 @@
+{
+  "errors": [],
+  "checks": [
+    "disabled without selection",
+    "replacement preserves ID, position, facing, count and other objects",
+    "asset height and hover updated",
+    "undo/redo roundtrip",
+    "same material and empty filter preserve draft and redo",
+    "browser save/reload retains replacement",
+    "enemy to boss to character",
+    "390px no overflow"
+  ]
+}

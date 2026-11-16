@@ -65,7 +65,7 @@ try{
    }
   }
   $('placements').replaceChildren();for(const e of items){const label=document.createElement('button');label.type='button';label.dataset.id=e.id;label.setAttribute('aria-pressed',String(e.id===selected));label.onclick=()=>{selected=e.id;$('editMode').value='move';render()};label.textContent=`${e.species}：(${e.x}, ${e.y})${assets[e.species].hover?` ／ 浮き ${assets[e.species].hover}px`:``}`;$('placements').append(label)}
-  const chosen=items.find(e=>e.id===selected);$('selectionStatus').textContent=chosen?`選択：${chosen.species} (${chosen.x}, ${chosen.y})`:'選択なし';for(const id of ['focusSelected','flipSelected','deleteSelected','clearSelection'])$(id).disabled=!chosen;
+  const chosen=items.find(e=>e.id===selected);$('selectionStatus').textContent=chosen?`選択：${chosen.species} (${chosen.x}, ${chosen.y})`:'選択なし';for(const id of ['focusSelected','replaceSelected','flipSelected','deleteSelected','clearSelection'])$(id).disabled=!chosen;
   const runs=items.reduce((sum,e)=>sum+assets[e.species].profiles[profile].runs.length,0);$('status').textContent=`配置${items.length}体 ／ 矩形${runs.toLocaleString()}個（配置した全体の合計・FPSではありません） ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
   const diff=baselines[n.id]?comparePlacements(baselines[n.id],items):null;
   $('diffSummary').textContent=diff?`取得した本編配置との差分：追加${diff.added.length}・削除${diff.removed.length}・変更${diff.changed.length}・同じ${diff.unchanged}体`:'この地点の本編配置は未取得です。比較しても編集案は変わりません。';
@@ -94,6 +94,13 @@ try{
   const center=e.x+width*(.5-(a.anchorX??.5))*(e.flip?-1:1);
   $('camera').value=Math.round(Math.max(0,Math.min(Math.max(0,node().width-960),center-480)));
   render();$('png').scrollIntoView({block:'center',behavior:'instant'});
+ };
+ $('replaceSelected').onclick=()=>{
+  const e=placements().find(e=>e.id===selected),species=$('species').value;if(!e)return;
+  if(!assets[species]){$('fileStatus').textContent='差し替える素材がありません。素材の絞り込みを解除してください。';return}
+  if(e.species===species){$('fileStatus').textContent='同じ素材です。配置案は変わりません。';return}
+  remember(node().id);e.species=species;render();
+  $('fileStatus').textContent='選択個体の絵を差し替えました。座標・向き・IDは保持しています。取り消しで元に戻せます。';
  };
  $('flipSelected').onclick=()=>{const e=placements().find(e=>e.id===selected);if(!e)return;remember(node().id);e.flip=!e.flip;render()};
  $('deleteSelected').onclick=()=>{if(!selected)return;remember(node().id);drafts.nodes[node().id]=placements().filter(e=>e.id!==selected);selected=null;render()};
