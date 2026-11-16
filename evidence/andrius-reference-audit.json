@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2117?lang=en-us",
+  "discovery": "Related enemy2117 found in cached pyro ascension material links",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/14/35428890/932835ab9e285a2ed49e43f6ed120b08_7488843023951856070.png",
+      "sha256": "384655588900a9f69a87cf89113d9b6bf0f6005a34e5965b6a7f3eb1d9c210e3",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "illustration with effects and cutout artifacts excluded"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/14/35428890/76abef0c8f6d24f45919c2759fba3c5c_915471270331020682.png",
+      "sha256": "1477053af9b4c627ecaea313626a22d81866e8acc3c14a4d52ac3317dd135b44",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full normal-form render"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/14/35428890/11333ade280a0b510fde317df655dac2_2011469616017862166.png",
+      "sha256": "9e3f06ac7ec49491634f5d7e3de38f39fc4d82dd85489d1da07ac56495893003",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "duplicate illustration, not another angle"
+    }
+  ],
+  "other_reference": {
+    "page": "https://www.hoyolab.com/article/8058853",
+    "url": "https://upload-os-bbs.hoyolab.com/upload/2022/09/03/9590267/289810c70965b39c98a12891369285d4_4781608738624915263.png",
+    "sha256": "ffc54741dd9d455dcea2b94bb667ae573f1cd458e3411c9de5c1d92626bfdb7b",
+    "directly_viewed": true,
+    "generation_input": false,
+    "note": "glowing white howling phase, not selected for idle normal form"
+  },
+  "failed_reference": "PlayerAssist andrius.jpg returned404",
+  "model_lookup": {
+    "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/andrius",
+    "result": "Listing located, no model downloaded or inspected. No back-view verification."
+  },
+  "output": "assets/andrius-idle-source-v1.png",
+  "sha256": "f595bdc15082fc4a69fb960d442b34916b44745808e0a8d928ebf755e64c98a9",
+  "profiles": {
+    "legacy": {
+      "height": 180,
+      "runs": 9173
+    },
+    "h48c32": {
+      "height": 135,
+      "runs": 5797
+    },
+    "h32c16": {
+      "height": 90,
+      "runs": 2643
+    }
+  },
+  "alpha_samples": {
+    "points": [
+      [
+        100,
+        100
+      ],
+      [
+        700,
+        100
+      ],
+      [
+        1300,
+        700
+      ],
+      [
+        300,
+        980
+      ]
+    ],
+    "alpha": 0
+  },
+  "limits": [
+    "180px display height provisional",
+    "Taller upright pose; broader mane and simpler flank markings than reference",
+    "No model/back view inspection",
+    "No movement, howling, glowing phase, attacks or live combat; map rainforest is temporary comparison fixture"
+  ],
+  "visual_review": "Source, PNG/90px comparison and temporary map placement directly viewed. Four legs, dark mane, curled narrow tail and cyan decorations remain; flank lines, ankle crystals and thin ribbons are coarse in16 colors. Browser background gaps clean despite RGB glow in generation preview. Upright taller pose and broad mane are adapted from crouched source.",
+  "validation": {
+    "gallery": "33 candidates, 3 profiles, 3 zooms, both facings, aspect, clipping, 390px passed",
+    "placement": "33 candidates: placement, profiles, flip, JSON roundtrip, undo and mobile passed"
+  }
+}
