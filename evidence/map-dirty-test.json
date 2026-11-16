@@ -1,0 +1,14 @@
+{
+  "errors": [],
+  "checks": [
+    "initial clean",
+    "edit undo redo",
+    "save establishes baseline",
+    "undo to saved content clean",
+    "view-only node/profile change clean",
+    "reordered JSON nodes equivalent",
+    "empty node equivalent but sprite draw order distinct",
+    "quota failure preserves saved baseline and dirty",
+    "reload clean"
+  ]
+}

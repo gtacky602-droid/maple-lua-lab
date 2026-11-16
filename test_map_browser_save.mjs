@@ -12,8 +12,11 @@ const state=()=>page.evaluate(()=>window.mapArt.placements);
 const raw=()=>page.evaluate(k=>localStorage.getItem(k),key);
 async function add(species,x){
  await page.selectOption('#editMode','add');await page.selectOption('#species',species);
+ await page.locator('#png').scrollIntoViewIfNeeded();
+ const beforeCount=await page.evaluate(()=>window.mapArt.count);
  const box=await page.locator('#png').boundingBox();
  await page.mouse.click(box.x+x/960*box.width,box.y+478/540*box.height);
+ assert.equal(await page.evaluate(()=>window.mapArt.count),beforeCount+1);
 }
 try{
  await page.goto(url);await ready(page);

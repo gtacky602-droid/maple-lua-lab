@@ -1,3 +1,4 @@
+import {placementSignature} from './placement-signature.js';
 import {setupPlacementPosition} from './placement-position.js';
 import {setupMapNodePicker} from './map-node-picker.js';
 import {loadImageSet} from './sprite-images.js';
@@ -38,24 +39,25 @@ try{
    $('browserStatus').textContent='ブラウザ保存から全地点の配置案を復元しました。取り消し履歴は復元されません。';
   }
  }catch(e){$('browserStatus').textContent='ブラウザ保存を復元できませんでした。初期案を表示します。保存データは変更していません。詳細：'+e.message}
+ let savedSignature=placementSignature(drafts),cleanMessage=$('browserStatus').textContent;
  $('saveBrowser').onclick=()=>{
   try{
    const current=localStorage.getItem(DRAFT_KEY);
    if(current!==storedRaw)throw Error('別の画面で保存が更新されました。この案をJSON保存してから再読み込みしてください。');
    const text=JSON.stringify(validatePlacementDraft(drafts,graph,Object.keys(assets)));
    if(new Blob([text]).size>MAX_DRAFT_BYTES)throw Error('保存データが512KBを超えています。');
-   localStorage.setItem(DRAFT_KEY,text);storedRaw=text;
+   localStorage.setItem(DRAFT_KEY,text);storedRaw=text;savedSignature=placementSignature(drafts);cleanMessage='この画面で最後に保存した配置案と同じです。';render();
    $('browserStatus').textContent='全地点の配置案をブラウザに保存しました。次回はこの案から再開します。';
   }catch(e){$('browserStatus').textContent='ブラウザ保存に失敗しました。編集中の案は残っています。JSON保存も利用できます。詳細：'+e.message}
  };
- let lastRenderedDraft=JSON.stringify(drafts);
+ let lastRenderedDraft=placementSignature(drafts);
  for(const n of graph.nodes){const option=document.createElement('option');option.value=n.id;option.textContent=`${n.region}｜${n.name}`;$('node').append(option)}$('node').value='mond-road';
  const positionEditor=setupPlacementPosition({getNode:node,getSelected:()=>placements().find(e=>e.id===selected),commit:(e,x,y)=>{remember(node().id);e.x=x;e.y=y;render()},report:text=>{$('fileStatus').textContent=text}});
  const nodePicker=setupMapNodePicker({graph,select:$('node'),getDraft:()=>drafts,onChoose:select});
  function node(){return nodes.get($('node').value)}
- function placements(){return drafts.nodes[node().id]??=[]}
+ function placements(){return drafts.nodes[node().id]??[]}
  function render(){
-  const renderedDraft=JSON.stringify(drafts);if(renderedDraft!==lastRenderedDraft){lastRenderedDraft=renderedDraft;$('browserStatus').textContent='未保存の編集があります。再読み込み前にブラウザ保存またはJSON保存してください。'}
+  const renderedDraft=placementSignature(drafts),dirty=renderedDraft!==savedSignature;if(renderedDraft!==lastRenderedDraft){lastRenderedDraft=renderedDraft;$('browserStatus').textContent=dirty?'未保存の編集があります。再読み込み前にブラウザ保存またはJSON保存してください。':cleanMessage}
   const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=placements(),frame={camera,platforms:n.platforms,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
   if(!items.some(e=>e.id===selected))selected=null;
   const background=sceneryStatus(frame);
@@ -78,7 +80,7 @@ try{
   const line=text=>{const li=document.createElement('li');li.textContent=text;$('diffDetails').append(li)};
   if(diff){for(const e of diff.added)line(`追加 ${e.id}：${describe(e)}`);for(const e of diff.removed)line(`削除 ${e.id}：${describe(e)}`);for(const e of diff.changed){const names={species:'敵種',x:'横位置',y:'足場の高さ',flip:'向き'};line(`変更 ${e.id}［${e.fields.map(k=>names[k]).join('・')}］：${describe(e.before)} → ${describe(e.after)}`)}}
   nodePicker.update();positionEditor.update();
-  window.mapArt={diff,ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,selected,editMode:$('editMode').value,placements:structuredClone(items),visuals:items.map(e=>({id:e.id,y:e.y-assets[e.species].hover,hover:assets[e.species].hover,height:assets[e.species].h})),grounded:valid,background:sceneryKey(frame),backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file};
+  window.mapArt={diff,dirty,ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,selected,editMode:$('editMode').value,placements:structuredClone(items),visuals:items.map(e=>({id:e.id,y:e.y-assets[e.species].hover,hover:assets[e.species].hover,height:assets[e.species].h})),grounded:valid,background:sceneryKey(frame),backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file};
  }
  function remember(id){const history=histories[id]??=[];history.push(structuredClone(drafts.nodes[id]??[]));if(history.length>100)history.shift();delete redos[id]}
  function restoreHistory(from,to){
@@ -118,7 +120,7 @@ for(const id of ['camera','profile'])$(id).oninput=render;
   if(copying&&!source){$('fileStatus').textContent='下の個体一覧から複製する個体を選んでください。';return}
   const species=copying?source.species:$('species').value;
   if(!assets[species]){$('fileStatus').textContent='追加する素材がありません。素材の絞り込みを解除してください。';return}
-  let id;do{id=`added-${++serial}`}while(placements().some(e=>e.id===id));const item={id,species,x,y:supports[0].y,flip:copying?source.flip:false};remember(n.id);placements().push(item);if(copying)selected=id;render();if(copying)$('fileStatus').textContent='同じ素材・向きの個体を複製しました。続けてクリックすると追加できます。';};
+  let id;do{id=`added-${++serial}`}while(placements().some(e=>e.id===id));const item={id,species,x,y:supports[0].y,flip:copying?source.flip:false};remember(n.id);(drafts.nodes[n.id]??=[]).push(item);if(copying)selected=id;render();if(copying)$('fileStatus').textContent='同じ素材・向きの個体を複製しました。続けてクリックすると追加できます。';};
  $('undo').onclick=()=>restoreHistory(histories,redos);
  $('redo').onclick=()=>restoreHistory(redos,histories);
  $('reset').onclick=()=>{
