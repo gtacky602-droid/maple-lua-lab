@@ -1,0 +1,67 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/3705?lang=en-us",
+  "discovery": "Varunada Lazurite Fragment entry1036 related boss link",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/04/15/35428890/2899a9fa6efec1006150467a00823c4a_6098755085792994548.png",
+      "sha256": "78127d6fbfc96400357a8ead42e16414284559163fbf2bf9997176a7f5fd593c",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "not inspected"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/07/07/237301566/aa8be47bd13848d7dee1f9a20d8a9938_2911098022364570806.png",
+      "sha256": "988b504f2a39df020a2401fab3bf5744f17cb511301d6c66b3720f683d5ae98b",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "upper-body illustration"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/07/07/237301566/fed2662bcd43eae1835dda089bf2e4fc_6037388472376249834.png",
+      "sha256": "ce1747b01dd9aaac0e89dfe31fd2d6fb411a73f24136bddd6a5fd21a5987769f",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "whole-body render, four arms"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/c5da8fcdc40171c2d1b48c6137a93f46_6475015176907358079.png",
+      "sha256": "bef2dda40edc596beea1d61436eac756a0cc585b08cf874472df3b2042801166",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "same upper-body illustration, not another angle"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/c316daf006406941873e86f3d138c1fc_2035578636618610558.png",
+      "sha256": "974a50245d3f5666f45879ceacf0311615152f2e7ba58a1fe4b9ae3e397124b7",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "in-game frontal scene"
+    }
+  ],
+  "model_lookup": "No usable matching model from quoted-name 3D-model search; back view unverified.",
+  "output": "assets/baptist-idle-source-v1.png",
+  "sha256": "9804ac93d2f72b51db4974927f519b5cc2ef937ec9416f8b5ef3898779bf7a70",
+  "profiles": {
+    "legacy": {
+      "height": 180,
+      "runs": 6025
+    },
+    "h48c32": {
+      "height": 135,
+      "runs": 3777
+    },
+    "h32c16": {
+      "height": 90,
+      "runs": 1715
+    }
+  },
+  "visual_review": "Source and browser PNG/90px comparison and temporary map placement directly viewed. Four arms, four detached purple ornaments and long white/purple coat tails are readable in source. At 90px chest hands and thin clothing details merge. Floating feet remain separated from baseline.",
+  "limits": [
+    "3D and back view unverified",
+    "More symmetric frontal pose and brighter gold trim than reference",
+    "180px size and 32px hover provisional",
+    "Elemental orbs omitted for idle candidate",
+    "No attacks, animations, hitboxes or live battle; map background is comparison fixture"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "mode": "builtin image_gen",
+  "generated_file": "exec-8e588da0-da25-4c02-bb5d-2b0a75d19ba4.png",
+  "reference_files": [
+    "work/references/baptist-2.png",
+    "work/references/baptist-1.png"
+  ],
+  "prompt": "Use case: stylized-concept. Create a single full-body transparent pixel-art idle sprite of Genshin Impact Iniquitous Baptist, for a Maple-inspired 2D side-view RPG lab. Reference first image for whole-body anatomy and flowing armor robes, second for mask/chest/ornaments detail. Exactly FOUR arms, not two or six: upper pair calmly bent with hands in front of chest, lower pair spread downward and outward, all four arms traceable to torso. Long narrow purple faceless mask with very tall spear crown, white ivory and dark-violet layered armored robes with thin gold trim, purple glowing chest diamond, long split ribbon-like coat tails and close-set hanging armored feet. Behind upper torso retain four detached pointed purple blade ornaments, two angled high upward and two angled outward, with simple pale violet markings. Keep entire floating silhouette and every tip inside frame with margin. Idle display, no attack gesture, no spell rings, no elemental orbs, no ground effects, no explosions, no book or weapon. Slight three-quarter front view appropriate for side-scroller. Crisp square pixel clusters and clean dark outline, 24-32-color feel, readable at 180px high, no smooth illustration gradients or noisy dithering. Transparent exterior AND all interior gaps between arms and cloth. No background, no ground, no text, no panels, no extra characters. Reference ornamentation simplified for readability; retain four-arm anatomy."
+}
