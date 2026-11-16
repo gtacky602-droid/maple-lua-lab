@@ -1,0 +1,29 @@
+{
+  "checked": [
+    "jadeplume",
+    "dendro-hypostasis",
+    "pyro-hypostasis",
+    "hydro-hypostasis",
+    "hydro-hypostasis-v1",
+    "cryo-hypostasis",
+    "cryo-regisvine",
+    "pyro-regisvine",
+    "farka",
+    "anemo",
+    "electro",
+    "geo",
+    "oceanid",
+    "primo",
+    "maguu",
+    "array",
+    "thunder"
+  ],
+  "profiles": 3,
+  "groundSupport": true,
+  "declaredHeights": true,
+  "flip": true,
+  "exportImport": true,
+  "deleteUndo": true,
+  "mobileOverflow": false,
+  "errors": []
+}

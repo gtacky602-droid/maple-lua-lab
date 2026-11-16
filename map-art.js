@@ -14,6 +14,11 @@ try{
  assets.hilichurl={...await json('assets/hilichurl-idle-sprites.json'),h:76};
  for(const element of ['hydro','pyro'])assets[`${element}-slime-reference`]={...await json(`assets/${element}-slime-idle-sprites.json`),h:40};
  for(const [id,data] of Object.entries(assets)){const layout=layouts[id.replace('-reference','')];data.h=layout.height;data.hover=layout.hover}
+ const bossGallery=await json('content/boss-art-gallery.json');
+ const bossGroup=document.createElement('optgroup');bossGroup.label='ボス待機候補（比較用の大きさ）';
+ const bossAssets=await Promise.all(bossGallery.items.map(async item=>({item,data:await json('assets/'+item.file)})));
+ for(const {item,data} of bossAssets){const id='boss-'+item.id;assets[id]={...data,h:item.height,hover:0};const option=document.createElement('option');option.value=id;option.textContent=item.name;bossGroup.append(option)}
+ $('species').append(bossGroup);
  for(const data of Object.values(assets)){data.image=new Image();data.image.src='assets/'+data.source;await data.image.decode()}
  drafts=validatePlacementDraft(drafts,graph,Object.keys(assets));
  for(const n of graph.nodes){const option=document.createElement('option');option.value=n.id;option.textContent=`${n.region}｜${n.name}`;$('node').append(option)}$('node').value='mond-road';
@@ -24,7 +29,7 @@ try{
   if(!items.some(e=>e.id===selected))selected=null;
   const background=sceneryStatus(frame);
   const mapped=Object.values(sceneryDefinitions).some(d=>d.region===n.region),valid=items.every(e=>n.platforms.some(p=>p.y===e.y&&e.x>=p.x&&e.x<=p.x+p.w));
-  $('cameraValue').value=camera;$('context').textContent=`${n.name} ／ 幅${n.width}px ／ ${n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${background.state!=='ready'?'背景画像を読み込めません：単色で表示（'+background.file+'）':mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用'}。敵${items.length}体（見た目確認用）。`;
+  $('cameraValue').value=camera;$('context').textContent=`${n.name} ／ 幅${n.width}px ／ ${n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${background.state!=='ready'?'背景画像を読み込めません：単色で表示（'+background.file+'）':mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用'}。配置${items.length}体（見た目確認用）。`;
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame);ctx.imageSmoothingEnabled=false;
    for(const e of items){const a=assets[e.species],w=a.h*a.box[2]/a.box[3],anchor=a.anchorX??.5,x=e.x-camera;ctx.save();ctx.translate(x,e.y-a.hover);if(e.flip)ctx.scale(-1,1);
     if(mode==='png')ctx.drawImage(a.image,...a.box,-w*anchor,-a.h,w,a.h);else{const p=a.profiles[profile];for(const r of p.runs){ctx.fillStyle=r[4];ctx.fillRect(-w*anchor+r[0]*w/p.width,-a.h+r[1]*a.h/p.height,r[2]*w/p.width+.05,r[3]*a.h/p.height+.05)}}ctx.restore();
