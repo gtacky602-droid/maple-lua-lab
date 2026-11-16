@@ -2,6 +2,20 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "coppelia",
+      "name": "氷風組曲：コッペリア（待機候補）",
+      "file": "coppelia-idle-sprites.json",
+      "height": 160,
+      "mapHover": 24
+    },
+    {
+      "id": "coppelius",
+      "name": "氷風組曲：コペリウス（待機候補）",
+      "file": "coppelius-idle-sprites.json",
+      "height": 180,
+      "mapHover": 0
+    },
+    {
       "id": "knave",
       "name": "「召使」（双鎌のボス形態・待機候補）",
       "file": "knave-idle-sprites.json",

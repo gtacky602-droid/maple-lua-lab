@@ -2,13 +2,25 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 50,
-    "visibleCount": 50,
+    "count": 52,
+    "visibleCount": 52,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "coppelia",
+        "h": 160,
+        "w": 99.11205073995772,
+        "ratio": 0.6194503171247357
+      },
+      {
+        "id": "coppelius",
+        "h": 180,
+        "w": 107.54641909814323,
+        "ratio": 0.5974801061007957
+      },
       {
         "id": "knave",
         "h": 160,

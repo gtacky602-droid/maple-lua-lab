@@ -2,7 +2,8 @@
 from pathlib import Path
 from PIL import Image
 import json,hashlib,argparse,re
-parser=argparse.ArgumentParser();parser.add_argument("--source",default="cryo-regisvine-source-v1.png");parser.add_argument("--output",default="boss-sprites.json");parser.add_argument("--height",type=int,default=128);parser.add_argument("--foot-anchor",action="store_true");parser.add_argument('--accent-color',action='append',default=[],help='Reserve a #RRGGBB color within the existing palette budget');parser.add_argument('--foot-anchor-band',type=float,default=.035,help='Bottom fraction used to locate the support foot; narrow for low weapons');args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument("--source",default="cryo-regisvine-source-v1.png");parser.add_argument("--output",default="boss-sprites.json");parser.add_argument("--height",type=int,default=128);parser.add_argument("--foot-anchor",action="store_true");parser.add_argument('--accent-color',action='append',default=[],help='Reserve a #RRGGBB color within the existing palette budget');parser.add_argument('--foot-anchor-band',type=float,default=.035,help='Bottom fraction used to locate the support foot; narrow for low weapons');parser.add_argument('--anchor-x',type=float,help='Explicit normalized horizontal anchor for artwork with low props');args=parser.parse_args()
+if args.anchor_x is not None and (not 0<=args.anchor_x<=1 or args.foot_anchor):parser.error('anchor-x must be within 0..1 and cannot combine with foot-anchor')
 if not 0<args.foot_anchor_band<=1:parser.error('foot-anchor-band must be greater than 0 and at most 1')
 if any(not re.fullmatch(r'#[0-9a-fA-F]{6}',c) for c in args.accent_color):parser.error('accent-color must be #RRGGBB')
 accents=list(dict.fromkeys(tuple(int(c[i:i+2],16) for i in (1,3,5)) for c in args.accent_color))
@@ -50,5 +51,8 @@ if args.foot_anchor:
  xs=[x for y in range(bottom-max(2,round((bottom-top)*args.foot_anchor_band)),bottom) for x in range(left,right) if im.getpixel((x,y))[3]>=128]
  out['anchorX']=((min(xs)+max(xs)+1)/2-left)/(right-left)
  out['anchor_method']=f'midpoint of opaque pixels in bottom {args.foot_anchor_band*100:g} percent band'
+if args.anchor_x is not None:
+ out['anchorX']=args.anchor_x
+ out['anchor_method']='explicit normalized anchor; source landmark recorded in reference audit'
 (ROOT/'assets'/args.output).write_text(json.dumps(out,separators=(',',':')),encoding='utf8')
 print(json.dumps({k:len(v['runs']) for k,v in out['profiles'].items()}))

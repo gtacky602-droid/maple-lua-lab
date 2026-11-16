@@ -1,0 +1,120 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/3993?lang=ja-jp",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/17/94675339/377f3a8f5ea5fc082951815af746a2ae_2749286724487014087.png",
+      "sha256": "4e550f61e57dc0f844d70552d6f6dea826cd4975c05b3ceef6e1b750829b5137",
+      "directly_viewed": true,
+      "generation_input": false
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/17/94675339/6826e6bef0b82b2a32e7233ce36efa3b_737717513103185804.png",
+      "sha256": "eb3e918a899ac5e38e9e774bc3b818e963c0df85621eb3f89e3fcefb5202a8a9",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/17/94675339/818c4cd8bee5b1176372d903e84e45df_5262098392740983409.png",
+      "sha256": "d6e6ffae1e192caa4e07b8e6f84b0b95c4a4f895e7f0ff29b7b9773986ec8010",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/29/94675339/cea7c9cd37f54431d50a051266ec5257_6934457885082896802.png",
+      "sha256": "7cdd120c8bf9b709169ed16afc8f3f4f046a848bf3d28950cab54a1c307d2f17",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/29/94675339/029ca6a0bcb7c12f21bc8443f3b04ed6_5438257185034095205.png",
+      "sha256": "80285cd7773a78e7b667e8b736c7582a029bd8c89f021fe09cdf61a9b0a7c766",
+      "directly_viewed": true,
+      "generation_input": false
+    }
+  ],
+  "model_lookup": "Targeted Icewind Suite 3D model web search returned no usable matching viewer/download; actual 3D not inspected. Final-design turnaround supplies front/side/back reference instead.",
+  "assets": {
+    "coppelia": {
+      "source": "assets/coppelia-idle-source-v1.png",
+      "sha256": "48f0b5e17a27138a279e2da5c2d1796381f97bc16ad02944e117e38beaf9be43",
+      "profiles": {
+        "legacy": {
+          "height": 160,
+          "runs": 4623
+        },
+        "h48c32": {
+          "height": 120,
+          "runs": 2836
+        },
+        "h32c16": {
+          "height": 80,
+          "runs": 1212
+        }
+      },
+      "reduction_percent": 73.78,
+      "reserved_color": "#58d9e8 within 32/16 colors",
+      "anchorX": 0.5,
+      "hover": 24,
+      "alpha_review": "Generated preview RGB contains brown halo but sampled outside alpha=0; no opaque backdrop assumed from preview. Browser compositing inspected separately. A generated cleanup attempt is unused; original source retained."
+    },
+    "coppelius": {
+      "source": "assets/coppelius-idle-source-v1.png",
+      "sha256": "4458f1fab38e35274ad8ded842a7009e13671a0d4cf2044cd647a5a830450830",
+      "profiles": {
+        "legacy": {
+          "height": 180,
+          "runs": 4471
+        },
+        "h48c32": {
+          "height": 135,
+          "runs": 2817
+        },
+        "h32c16": {
+          "height": 90,
+          "runs": 1249
+        }
+      },
+      "reduction_percent": 72.06,
+      "reserved_color": "#58d9e8 within 32/16 colors",
+      "anchorX": 0.38457269700333,
+      "hover": 0,
+      "anchor_landmark": {
+        "source_bottom_band_y": [
+          1510,
+          1530
+        ],
+        "foot_x_intervals": [
+          [
+            288,
+            338
+          ],
+          [
+            409,
+            460
+          ]
+        ],
+        "excluded_cane_x": [
+          88,
+          105
+        ],
+        "source_midpoint_x": 374.5,
+        "normalized_calculation": "(374.5-28)/901",
+        "rebuild_flag": "--anchor-x 0.38457269700332963"
+      }
+    }
+  },
+  "limitations": [
+    "Individual posed idle sprites only; paired dances, attacks, animations and combat not implemented.",
+    "Coppelius proportions broadened/head enlarged; Coppelia skirt and lens enlarged for readable pixel art.",
+    "Mirroring reverses asymmetrical crest, shoulder and cape.",
+    "Display scale/hover provisional; exact native proportions and collision unverified."
+  ],
+  "reference_selection": "Early exploration sheet icewind-5 was viewed but excluded from generation to avoid mixing discarded designs. Final sheet icewind-4 used.",
+  "anchor_validation": "Out-of-range, NaN, and simultaneous foot-anchor rejected.",
+  "visual_review": {
+    "coppelia": "Browser checkerboard clear outside body including arms/skirt gaps; no brown halo visible. Cyan spindle retained; lens and radial skirt engraving simplified/noisy at80px.",
+    "coppelius": "Hat, one-sided cape, cane and separated wheel feet retained at90px. Cyan eye details sparse; fine gold machinery noisy.",
+    "pair": "Both placed together on temporary Sumeru fixture and viewed side-by-side source/rectangles, three profiles tested; not original arena or choreography."
+  }
+}

@@ -197,3 +197,14 @@ skowt.ccの3Dモデルを正面・側面・背面から確認し、モデルプ�
 低い鎌の刃が足元基準に混ざるため、コンパイラに--foot-anchor-bandを追加。既定は従来の.035、召使のみ.01で最下部の支持足を抽出（元画像x619〜650）。基準Xは.37684から.52204へ修正。再生成: python compile_boss_assets.py --source knave-idle-source-v1.png --output knave-idle-sprites.json --height 160 --foot-anchor --foot-anchor-band .01 。範囲外の値は拒否。原画像は変更しない。
 
 44体・50美術候補。登録先はtheknave.jsonに対応するboss-29091001。通常姿・翼付き外観・技・アニメーション・実戦は未制作。仮背景・本番3D方針を継続。根拠: evidence/knave-reference-audit.json, evidence/knave-comparison.png, evidence/knave-map-comparison.png。生成プロンプト: assets/knave-generation-v1.json。
+
+
+## 2026-11-17 氷風組曲の2体を個別素材化
+
+HoYoWiki3993の全身レンダー、ゲーム内正面、最終設定画の正面/側面/背面を直接確認し、画像参照付き内蔵image_genでコッペリア・コペリウスを個別生成。操作可能な3Dモデルは検索で見つからず未確認。初期検討画は見たが生成参照から除外。
+
+コッペリア160/120/80pxは4623/2836/1212矩形（73.78%減）、コペリウス180/135/90pxは4471/2817/1249矩形（72.06%減）。32/16色枠にシアン#58d9e8を確保。最軽量でレンズ・彫刻・目など細部は省略。原画保持。コッペリアのプレビューに見える茶色RGBは外側alpha0を含み、実際のブラウザ合成で背景の残存がないことを確認。
+
+コッペリア浮遊24px、コペリウス接地0pxで同時配置を検証。杖先を足元基準から除くため--anchor-xを追加し、コペリウスは原画の両足x288〜460の中心374.5に基づく.38457269700332963を指定。自動foot-anchorとの併用・範囲外値を拒否。再生成時もこの引数を用いる。52美術候補・氷風2演目にも個別待機素材を登録。2体の連携動作・技・実戦は未制作。仮背景・本番3D方針を維持。
+
+52候補の3profile/3zoom/両向き・配置・JSON往復・390px検証、2体同時配置3profile検証を通過。根拠: evidence/icewind-reference-audit.json, evidence/icewind-pair-test.json, evidence/icewind-pair-map.png。プロンプト: assets/coppelia-generation-v1.json, assets/coppelius-generation-v1.json。
