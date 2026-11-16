@@ -1,0 +1,13 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Revise image 1, the current idle pixel sprite of Emilie from Genshin Impact. Image 2 and 3 are directly viewed front and side distributed 3D model references; image 4 is the character illustration. Preserve cute chibi proportions, relaxed standing facing screen RIGHT, short blonde bob fading to pink tips, glasses and crisp pixel clusters. Correct outfit faithfully: small tilted emerald fascinator on side of head, NOT broad wide-brim witch hat, with dark feather, black/gold long ribbon and small pale floral accents. Eyes violet/pink-purple not green. Large white ornate collar/shoulder ruffles, black fitted bodice with small blue-purple bottle jewel pendant, separate dark plum puff sleeves with green cuffs and black gloves. Long emerald dress extends below knees with white/light-green petal ruffled lower hem and a single asymmetric slit; avoid short layered leaf miniskirt or large invented white waist flower. Bare light skin lower legs, no full black stockings. Delicate white/dark-green high heel pumps with small bows, no chunky black boots. Keep black thigh straps only where visible through slit. Preserve elegant coherent silhouette scaled to about 88px display, simplify tiny details, full hair and feet in frame, one sprite, no weapon/attack/effects/background/floor/shadow/text. Transparent background with margins. Do not copy realistic proportions or T-pose.",
+  "reference_images": [
+    "assets/emilie-idle-source-v1.png",
+    "work/references/emilie-views/front.png",
+    "work/references/emilie-views/left.png",
+    "work/references/emilie-paimon.png"
+  ],
+  "provenance": "evidence/emilie-reference-audit.json",
+  "status": "reference-informed idle revision; tiny ornament and mirror asymmetry unresolved",
+  "generated_file": "exec-b1e42c53-f20a-49c3-bc37-c838d551babe.png"
+}

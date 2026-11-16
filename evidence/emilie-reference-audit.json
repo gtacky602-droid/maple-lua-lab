@@ -1,0 +1,73 @@
+{
+  "character": "emilie",
+  "date": "2026-11-17",
+  "active_revision": "v2",
+  "illustration": {
+    "url": "https://paimon.moe/images/characters/full/emilie.png",
+    "sha256": "a9fa41a5431881180989be3168a7db8ffd058613e46f36ec347104a1cc8b2734",
+    "directly_viewed": true
+  },
+  "model": {
+    "discovery": "https://mmdfr.fr/genshin-mmd/",
+    "download": {
+      "ver": "57",
+      "alt": "",
+      "url": "https://activity.hdslb.com/blackboard/static/20250604/c6e19b806b80786dbd92b712c3f459cf/0T5MrKxKo7.zip",
+      "sd": "8.8MB",
+      "r": ""
+    },
+    "pmx_sha256": "f79979db3fae5b57b828a1bda0ba1e939f294cc045d02b6da092d2803c058d2b",
+    "zip_sha256": "974ac33a4eb5a397b886f647db5ca7b2cc04145c63c3b0c675a8f381ff4105a1",
+    "readme_sha256": "78b25e862eb859b14db9cc20b14c09972c0a9f02c541e9a9f6dc18793b717b60",
+    "credits": "miHoYo / 观海",
+    "terms": "Bundled readme inspected: no redistribution/commercial use/parts extraction for other models. Local reference only.",
+    "views": {
+      "front": {
+        "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\emilie-views\\front.png",
+        "sha256": "891354e4cf39b51c31ee1bcc56c3953b44e1abfeef8741d7b12516557c8f783c",
+        "directly_viewed": true
+      },
+      "back": {
+        "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\emilie-views\\back.png",
+        "sha256": "0494a8ab1853340872ec1ffed1f279d990578e194ef44dbaf112b8c7495c0992",
+        "directly_viewed": true
+      },
+      "left": {
+        "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\emilie-views\\left.png",
+        "sha256": "e4ad5531001f1c6c47b547477e2a7b63500506fbac62e4772643b26017fa47e2",
+        "directly_viewed": true
+      },
+      "right": {
+        "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\emilie-views\\right.png",
+        "sha256": "e6ae6c0104ef0c04d37fe8b467d781be6998dd95e521e6fb7db457ce4da52fcd",
+        "directly_viewed": true
+      }
+    },
+    "render_limitations": "Flat base-texture views; no game shader/physics validation; +/-X camera labels not anatomical sides"
+  },
+  "v1_findings": [
+    "Oversized broad hat unlike tilted fascinator",
+    "Green eyes instead of violet",
+    "Full dark stockings unlike exposed legs",
+    "Short layered skirt and invented waist flower",
+    "Dark chunky shoes instead of pale/green pumps"
+  ],
+  "v2_observed": [
+    "Tilted small hat",
+    "Violet eyes and glasses",
+    "Long emerald dress with white/pale-green hem",
+    "Exposed legs and pale green/white shoes",
+    "White collar and bottle pendant"
+  ],
+  "unverified": [
+    "Proportions remain slender relative to traveler at same height; standardization needed",
+    "Small glasses/pendant lose definition at 44px",
+    "Mirrored asymmetrical slit and hat",
+    "Static idle, no completed movement animation"
+  ],
+  "profiles": {
+    "legacy": 1246,
+    "h48c32": 727,
+    "h32c16": 297
+  }
+}
