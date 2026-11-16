@@ -1,0 +1,59 @@
+{
+  "status": "idle visual candidates; animations and original-game scale not complete",
+  "items": [
+    {
+      "id": "traveler",
+      "name": "旅人",
+      "file": "traveler-idle-sprites.json",
+      "height": 88
+    },
+    {
+      "id": "amber",
+      "name": "アンバー",
+      "file": "amber-idle-sprites.json",
+      "height": 88
+    },
+    {
+      "id": "beidou",
+      "name": "北斗",
+      "file": "beidou-idle-sprites.json",
+      "height": 88
+    },
+    {
+      "id": "ayaka",
+      "name": "神里綾華",
+      "file": "ayaka-idle-sprites.json",
+      "height": 88
+    },
+    {
+      "id": "wanderer",
+      "name": "放浪者",
+      "file": "wanderer-idle-sprites.json",
+      "height": 88
+    },
+    {
+      "id": "emilie",
+      "name": "エミリエ",
+      "file": "emilie-idle-sprites.json",
+      "height": 88
+    },
+    {
+      "id": "kachina",
+      "name": "カチーナ",
+      "file": "kachina-idle-sprites.json",
+      "height": 76
+    },
+    {
+      "id": "columbina",
+      "name": "コロンビーナ",
+      "file": "columbina-idle-sprites.json",
+      "height": 88
+    },
+    {
+      "id": "mitya",
+      "name": "ミティヤ",
+      "file": "mitya-idle-sprites.json",
+      "height": 88
+    }
+  ]
+}

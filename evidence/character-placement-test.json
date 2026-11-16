@@ -1,0 +1,21 @@
+{
+  "checked": [
+    "traveler",
+    "amber",
+    "beidou",
+    "ayaka",
+    "wanderer",
+    "emilie",
+    "kachina",
+    "columbina",
+    "mitya"
+  ],
+  "profiles": 3,
+  "groundSupport": true,
+  "declaredHeights": true,
+  "flip": true,
+  "exportImport": true,
+  "deleteUndo": true,
+  "mobileOverflow": false,
+  "errors": []
+}

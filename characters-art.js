@@ -18,9 +18,7 @@ try{
   await add('nobushi','野伏・陣刀番（待機候補・稲妻に仮配置）',await json('assets/nobushi-idle-sprites.json'),104);
   await add('armored-crab','重甲ヤドカニ（全身参照v2・フォンテーヌに仮配置）',await json('assets/armored-crab-idle-sprites.json'),64);
  }else{
- await add('traveler','旅人',await json('assets/traveler-idle-sprites.json'),88);
- await add('amber','アンバー',await json('assets/amber-idle-sprites.json'),88);
- for(const [id,name] of Object.entries({beidou:'北斗',ayaka:'神里綾華',wanderer:'放浪者',emilie:'エミリエ',kachina:'カチーナ',columbina:'コロンビーナ',mitya:'ミティヤ'}))await add(id,name,await json(`assets/${id}-idle-sprites.json`),id==='kachina'?76:88);
+ for(const item of (await json('content/character-art-gallery.json')).items)await add(item.id,item.name,await json('assets/'+item.file),item.height);
  }
  function render(){const profile=$('profile').value,zoom=Number($('zoom').value),flip=$('flip').checked;
   for(const {id,data,image,article,h,w} of assets){const a=data.profiles[profile],hover=(layouts[id.replace('-reference','')]?.hover??0)*zoom,height=h*zoom,width=w*zoom,anchor=data.anchorX??.5;

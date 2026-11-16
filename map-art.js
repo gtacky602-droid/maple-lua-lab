@@ -14,11 +14,12 @@ try{
  assets.hilichurl={...await json('assets/hilichurl-idle-sprites.json'),h:76};
  for(const element of ['hydro','pyro'])assets[`${element}-slime-reference`]={...await json(`assets/${element}-slime-idle-sprites.json`),h:40};
  for(const [id,data] of Object.entries(assets)){const layout=layouts[id.replace('-reference','')];data.h=layout.height;data.hover=layout.hover}
- const bossGallery=await json('content/boss-art-gallery.json');
- const bossGroup=document.createElement('optgroup');bossGroup.label='ボス待機候補（比較用の大きさ）';
- const bossAssets=await Promise.all(bossGallery.items.map(async item=>({item,data:await json('assets/'+item.file)})));
- for(const {item,data} of bossAssets){const id='boss-'+item.id;assets[id]={...data,h:item.height,hover:0};const option=document.createElement('option');option.value=id;option.textContent=item.name;bossGroup.append(option)}
- $('species').append(bossGroup);
+ for(const [kind,label,file] of [['boss','ボス待機候補（比較用の大きさ）','boss-art-gallery.json'],['character','主人公・味方（待機候補）','character-art-gallery.json']]){
+  const gallery=await json('content/'+file),group=document.createElement('optgroup');group.label=label;
+  const loaded=await Promise.all(gallery.items.map(async item=>({item,data:await json('assets/'+item.file)})));
+  for(const {item,data} of loaded){const id=kind+'-'+item.id;assets[id]={...data,h:item.height,hover:0};const option=document.createElement('option');option.value=id;option.textContent=item.name;group.append(option)}
+  $('species').append(group);
+ }
  for(const data of Object.values(assets)){data.image=new Image();data.image.src='assets/'+data.source;await data.image.decode()}
  drafts=validatePlacementDraft(drafts,graph,Object.keys(assets));
  for(const n of graph.nodes){const option=document.createElement('option');option.value=n.id;option.textContent=`${n.region}｜${n.name}`;$('node').append(option)}$('node').value='mond-road';
@@ -56,7 +57,7 @@ try{
  $('deleteSelected').onclick=()=>{if(!selected)return;remember(node().id);drafts.nodes[node().id]=placements().filter(e=>e.id!==selected);selected=null;render()};
 for(const id of ['camera','profile'])$(id).oninput=render;
  for(const mode of ['png','rect'])$(mode).onclick=event=>{const box=$(mode).getBoundingClientRect(),n=node(),x=Math.round((event.clientX-box.left)*960/box.width+Number($('camera').value)),y=(event.clientY-box.top)*540/box.height;const supports=n.platforms.filter(p=>x>=p.x&&x<=p.x+p.w&&x<=n.width).sort((a,b)=>Math.abs(a.y-y)-Math.abs(b.y-y));if(!supports.length)return;
-  if($('editMode').value==='move'){const e=placements().find(e=>e.id===selected);if(!e){$('fileStatus').textContent='下の個体一覧から移動する敵を選んでください。';return}if(e.x!==x||e.y!==supports[0].y){remember(n.id);e.x=x;e.y=supports[0].y}render();return}
+  if($('editMode').value==='move'){const e=placements().find(e=>e.id===selected);if(!e){$('fileStatus').textContent='下の個体一覧から移動する個体を選んでください。';return}if(e.x!==x||e.y!==supports[0].y){remember(n.id);e.x=x;e.y=supports[0].y}render();return}
   if(placements().length>=MAX_NODE_PLACEMENTS||Object.values(drafts.nodes).reduce((s,x)=>s+x.length,0)>=MAX_TOTAL_PLACEMENTS){$('fileStatus').textContent='配置数の上限です。別の案として保存してから編集してください。';return}
   let id;do{id=`added-${++serial}`}while(placements().some(e=>e.id===id));const item={id,species:$('species').value,x,y:supports[0].y,flip:false};remember(n.id);placements().push(item);render()};
  $('undo').onclick=()=>{const previous=histories[node().id]?.pop();if(previous)drafts.nodes[node().id]=previous;render()};
