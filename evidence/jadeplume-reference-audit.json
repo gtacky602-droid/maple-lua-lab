@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2716?lang=en-us",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2022/09/01/1023623/2c52519dbc771ad29b2b7228c3ab3a36_6911028137361197518.png",
+      "sha256": "0ad8a8781db7f61039b1ed31adaf74ef9d3d4566db9866fae4f983edbfa585f2",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "downloaded but not directly inspected"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/a9a0ca68bfb3f6f9cfa54753630cbd7c_4394120403355661074.png",
+      "sha256": "3e151ffbcbc228f2d9c0bec1549c508cb44260845404ec086a29f0b1a4119bc9",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "full-body illustrated splash"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2022/12/01/35428890/920c7d546361d0b52dd95613517319f9_7937390309938836162.png",
+      "sha256": "7a377342494cd9cf66bebdf9969564da71776bdfed90956dbbb713fa56446914",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "card illustration, different framing"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/cc0d77afe6449a8cfed6c1f6500fe5c5_819793732519633656.png",
+      "sha256": "dfdac8476f834d8b295a634fa84a96ec713a006a88c9534a62f8f17f5072969d",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full-body rendered appearance"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/cab6bbac89c7b658e9afc548e06f7ae3_1741809169880700982.png",
+      "sha256": "e3f4d21db158332de0fd2df3a23228371b8e94dda00063a638a2e03a02585a6a",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "same splash pose as image 1, not independent angle"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/4544d79f8b96e8d9104dd7a496ba5205_977897445851982010.png",
+      "sha256": "aefee3e7bd8f480b0c2242cd9cc4b84cefd2760ff8fcf0e294329f387af20757",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "in-game side views in altered elemental states; anatomy reference only"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/6581e0c82ebbd60f7be00b77ec8126e3_6780845900665647514.png",
+      "sha256": "53e3758f7045351ab5731709eed37dfc8d907fc0368682c6edc63eeb1142ce4b",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "downloaded but not directly inspected"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/d15b0cc391acf8478c21294cbdbe0460_7053938420738513602.png",
+      "sha256": "f6d2002170e8ae933c6df4cdfb08509177592d7ad1bb69d1d4d475548b0ee08b",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "downloaded but not directly inspected"
+    }
+  ],
+  "model_lookup": "Search did not yield a usable matching 3D model; no model or back view inspected",
+  "observed": "Fan tail with pale green leaves and orange inner panels; swept teal crest, ivory chest, orange tendrils, thick pale stalk legs and mossy feet",
+  "output": "assets/jadeplume-idle-source-v1.png",
+  "sha256": "f8a7411ba0b212db05757c0a916072ee4bbf526ef3dafeaa071988a05dd3ccff",
+  "profiles": {
+    "legacy": {
+      "height": 160,
+      "runs": 6145
+    },
+    "h48c32": {
+      "height": 120,
+      "runs": 4055
+    },
+    "h32c16": {
+      "height": 80,
+      "runs": 1893
+    }
+  },
+  "alpha": {
+    "zero": 791790,
+    "at_least_250": 695321,
+    "partial": 780401
+  },
+  "limits": [
+    "3D and back unverified",
+    "Generated proportions are stockier and tail more regularly fanned than references",
+    "Fine veins, crest detail and toe shapes simplified",
+    "160px comparison height provisional; idle only, no animation or live battle"
+  ],
+  "visual_review": "Viewed generated source and actual browser PNG/80px comparison. Fan silhouette, crest, ivory chest and orange-green palette remain. Chest and leg fine lines fragment at 80px. Broad transparent background appears clean on browser checkerboard; no native performance claim."
+}
