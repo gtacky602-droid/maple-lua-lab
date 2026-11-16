@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-17",
+  "encounter": "boss-29130201",
+  "references": [
+    {
+      "url": "https://img.gamewith.jp/img/original_ee4c1c6c9f11511f4361eefc4952e660.png",
+      "page": "https://gamewith.jp/genshin/article/show/539829",
+      "view": "Japanese showcase: ceremonial coat, gold ring, crescent props and mismatched arms",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "877cc6cef76880dcb3da602006d55786b0e01a41b7d86042978ccd2e33a8518e"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/original_ce54855575595daf6b619581599adfa8.png",
+      "page": "https://gamewith.jp/genshin/article/show/539829",
+      "view": "Gameplay explicitly names Heretic of the False Moon; ring and hovering silhouette",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "e6135ac28a9b85dc2f20cb5b06292f1575c421d624fff23d90e5bb60acd50794"
+    },
+    {
+      "url": "https://pbs.twimg.com/media/G9olKBxacAASiag.jpg",
+      "page": null,
+      "view": "English duplicate of the Japanese showcase",
+      "directly_viewed": true,
+      "generation_input": false,
+      "sha256": "95eef8597266022b7071fa6d12e4bcf1607164c799ac7e5f4e56ac9a3c7914a5"
+    }
+  ],
+  "model_lookup": "The Models Resource asset 510216 matches Heretic of the False Moon; its ZIP returned HTTP 403. Actual 3D and rear remain unverified.",
+  "source": "assets/doctor-false-moon-idle-source-v1.png",
+  "sha256": "cf85e2bc8a1c7ebf3e611fa192288adf39dd2891df4cc87778f1f30eb892eb48",
+  "profiles": {
+    "legacy": {
+      "height": 210,
+      "runs": 9625
+    },
+    "h48c32": {
+      "height": 158,
+      "runs": 5916
+    },
+    "h32c16": {
+      "height": 105,
+      "runs": 2594
+    }
+  },
+  "rectangle_reduction_percent": 73.05,
+  "reserved_colors": [
+    "#ec403a",
+    "#55cffa",
+    "#eecb85"
+  ],
+  "hover": 40,
+  "anchorX": 0.5,
+  "anchor_method": "center",
+  "visual_review": "The gold ring, separate crescent props and white coat distinguish the False Moon sprite at 105px. Thin cyan lines, facial detail and small fittings merge.",
+  "provisional_details": "The complete ring outline, lower shoes and split coat tips were inferred from cropped art and partly occluded gameplay. Hover 40px is a map comparison setting.",
+  "measurement_scope": "Local rectangle counts at fixed display size. Native frame time remains unmeasured."
+}

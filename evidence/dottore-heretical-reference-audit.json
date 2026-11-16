@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-17",
+  "encounter": "boss-29150101",
+  "references": [
+    {
+      "url": "https://img.gamewith.jp/img/original_9c2921ff27b4980baf34281350b9c512.jpg",
+      "page": null,
+      "view": "Japanese showcase names the Exalted Master and shows the sharp armored suit and cables",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "1740b6b6d7af86ceefd4857c833c66272dea215c22628dd9d585c6e10711d215"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/original_63f7de711b4d57de11321dd37722de08.png",
+      "page": "https://gamewith.jp/genshin/article/show/560976",
+      "view": "Gameplay title and first-form silhouette, partly occluded by effects",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "e50dc7d6727c76dd3007faa3f7961591f11de97bd9f263f4629ecdb10341cffd"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/original_197989ec83b42f124632af73af6fbadc.png",
+      "page": "https://gamewith.jp/genshin/article/show/560976",
+      "view": "Gameplay title same encounter, second phase obscured; excluded from idle generation",
+      "directly_viewed": true,
+      "generation_input": false,
+      "sha256": "49223ab02bea4116242f9c42d7086fadf4722726bf9bf2dec6924952f30f2cc6"
+    }
+  ],
+  "model_lookup": "The Models Resource asset 556532 matches Exalted Master of the Heretical Path; its ZIP returned HTTP 403. Actual 3D and rear remain unverified.",
+  "source": "assets/dottore-heretical-idle-source-v1.png",
+  "sha256": "05ee926857f98f93ed96341adea59e20ec5417579d87fff52d7fa46d355eb1b2",
+  "profiles": {
+    "legacy": {
+      "height": 200,
+      "runs": 4149
+    },
+    "h48c32": {
+      "height": 150,
+      "runs": 2512
+    },
+    "h32c16": {
+      "height": 100,
+      "runs": 1033
+    }
+  },
+  "rectangle_reduction_percent": 75.1,
+  "reserved_colors": [
+    "#ef4049",
+    "#58dce9"
+  ],
+  "hover": 28,
+  "anchorX": 0.5,
+  "anchor_method": "center",
+  "visual_review": "The red visor, silver shoulders and cyan grid distinguish the Exalted Master at 100px. Fine red seams and thin cable links become coarse.",
+  "provisional_details": "First combat appearance only. The simple idle posture and exact cable curves are adapted for side-view display. Hover 28px is a map comparison setting.",
+  "measurement_scope": "Local rectangle counts at fixed display size. Native frame time remains unmeasured."
+}

@@ -2,13 +2,25 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 68,
-    "visibleCount": 68,
+    "count": 70,
+    "visibleCount": 70,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "dottore-heretical",
+        "h": 200,
+        "w": 83.44549125168237,
+        "ratio": 0.41722745625841184
+      },
+      {
+        "id": "doctor-false-moon",
+        "h": 210,
+        "w": 204.71032745591938,
+        "ratio": 0.9748110831234257
+      },
       {
         "id": "spiritspeaker",
         "h": 180,

@@ -2,6 +2,20 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "dottore-heretical",
+      "name": "ドットーレ（待機候補）",
+      "file": "dottore-heretical-idle-sprites.json",
+      "height": 200,
+      "mapHover": 28
+    },
+    {
+      "id": "doctor-false-moon",
+      "name": "「博士」（待機候補）",
+      "file": "doctor-false-moon-idle-sprites.json",
+      "height": 210,
+      "mapHover": 40
+    },
+    {
       "id": "spiritspeaker",
       "name": "迷える霊覚の修験者（待機候補）",
       "file": "spiritspeaker-idle-sprites.json",
