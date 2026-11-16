@@ -6,7 +6,7 @@
   "companions": {
     "amber": "existing atlas idle/bow candidates",
     "beidou": "dedicated idle PNG and 3 numeric profiles; walk reuses idle",
-    "ayaka": "geometric placeholder",
+    "ayaka": "dedicated idle PNG and 3 numeric profiles; walk reuses idle",
     "wanderer": "geometric placeholder",
     "emilie": "geometric placeholder",
     "kachina": "geometric placeholder",

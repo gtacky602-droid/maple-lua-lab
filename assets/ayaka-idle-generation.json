@@ -1,0 +1,5 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Single transparent-background pixel art idle game sprite of Kamisato Ayaka from Genshin Impact, full body standing facing RIGHT in three-quarter side view. Cute MapleStory-like 2.5-head-tall side-scrolling RPG proportions, readable at 88 pixels high, crisp dark pixel outline, compact 16-bit pixel clusters, limited palette. Recognizable pale blue silver hair in high ponytail with straight bangs and ribbon, blue eyes, navy and light blue armored kimono dress with gold trim and pink ribbon accents, dark pleated skirt, white socks and sandals. Calm neutral stance with hands resting, sheathed sword unobtrusive at hip, no attack pose, no effects. Entire body including feet, centered with generous transparent margins, no background, no ground, no shadow, no text, no sheet, one idle pose.",
+  "status": "idle candidate; static proxy during movement; skill behavior unchanged"
+}
