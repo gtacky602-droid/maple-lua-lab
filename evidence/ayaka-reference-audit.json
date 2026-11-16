@@ -22,7 +22,6 @@
   ],
   "unverified": [
     "Exact crest geometry simplified",
-    "3D model and side/back views not obtained",
     "Mirroring asymmetrical sword and armor",
     "Walking remains static idle"
   ],
@@ -30,5 +29,13 @@
     "legacy": 1628,
     "h48c32": 976,
     "h32c16": 413
-  }
+  },
+  "model_audit": "evidence/model-reference-audit.json",
+  "model_status": "Downloaded PMX; front/back/camera +/-X rendered and directly viewed; sprite corrections remain",
+  "remaining_model_findings": [
+    "Back bow supports Cryo vision and pink cords; long split light-blue panels",
+    "Side skirt has broad dark armor panels with large gold crest not represented precisely in v2",
+    "Forearm includes visible white patterned panel with dark glove; v2 all-dark forearm is incomplete",
+    "Ponytail and crest shapes readable in side/back; exact crest still simplified in v2"
+  ]
 }

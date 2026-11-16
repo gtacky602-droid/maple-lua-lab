@@ -1,0 +1,117 @@
+{
+  "date": "2026-11-17",
+  "models": [
+    {
+      "id": "beidou",
+      "discovery": "https://mmdfr.fr/genshin-mmd/",
+      "download": {
+        "ver": "46",
+        "alt": "",
+        "url": "https://activity.hdslb.com/blackboard/static/20240509/c84ef0977c17fb1198f6887261fea35f/AKcqH9XL22.zip",
+        "sd": "5.0MB",
+        "r": ""
+      },
+      "zip_sha256": "56213af04ba90d9f44885399cea0bb2621485ebf048c38c14a18f94ce09fd002",
+      "pmx_sha256": "e0234874c3f81737bbbdfaa9ee590a12bba5b7bd259873c8926b82ebc9f7ffdb",
+      "readme_sha256": "78b25e862eb859b14db9cc20b14c09972c0a9f02c541e9a9f6dc18793b717b60",
+      "credits": {
+        "model_provider": "miHoYo",
+        "model_adaptation": "观海"
+      },
+      "terms_summary": "No redistribution, no commercial use, no extracting parts for other models. Other content restrictions in bundled readme; original retained locally.",
+      "local_model": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\beidou-model\\北斗.pmx",
+      "views": {
+        "front": {
+          "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\beidou-views\\front.png",
+          "sha256": "bcba29cfbb0ac04ab95e7d379a9a169d5edbc75c718a96581c2777698a2fe0c8",
+          "directly_viewed": true
+        },
+        "right": {
+          "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\beidou-views\\right.png",
+          "sha256": "1b594d8fcd8c57dd28e18895873d57e7afa48b6d442527fec6bb852f92637a79",
+          "directly_viewed": true
+        },
+        "back": {
+          "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\beidou-views\\back.png",
+          "sha256": "cba8c05bed92b4d3f03c23de3497b80d300436f4efb212f439c492150db51e42",
+          "directly_viewed": true
+        },
+        "left": {
+          "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\beidou-views\\left.png",
+          "sha256": "bd6ed13fc92d8846feb16642f2ca5a8c7a63147860722a6e479cc4eb6edcbabc",
+          "directly_viewed": true
+        }
+      },
+      "view_convention": "front = camera -Y; back = +Y; right = +X camera, left = -X camera, not anatomical side labels",
+      "render_limitations": [
+        "Flat base texture emission, original game shader not reproduced",
+        "Additive coplanar sph.png shine faces omitted in transient scene to prevent black or missing hair",
+        "No pose, physics or in-game animation validation",
+        "No model or texture redistributed in repository"
+      ],
+      "renderer": "Blender 4.2.17; MMD Tools 3451990faea2e0def110e7f6027f5c8575451e8b; opencc-python-reimplemented 0.1.7",
+      "observations": [
+        "Back hair tied partly with complex gold pin and teal tassel",
+        "Back garment red with split tails, dark lower panels and gold patterns; v2 purple cape candidate needs rechecking against game footage rather than assuming illustration lighting is base color",
+        "Chest has a pale tied ornament absent from simplified v2",
+        "Hair, eyepatch and accessories are asymmetric; mirrored sprite cannot preserve all sides"
+      ]
+    },
+    {
+      "id": "ayaka",
+      "discovery": "https://mmdfr.fr/genshin-mmd/",
+      "download": {
+        "ver": "43",
+        "alt": "",
+        "url": "https://activity.hdslb.com/blackboard/static/20231215/55e5deafb5be7f1eeac6f9bd4da51855/vikaFqeOG0.zip",
+        "sd": "5.7MB",
+        "r": ""
+      },
+      "zip_sha256": "80c7f4910ccb91ebaffe5ab8fd815cc43a36a5a6d9b773d27741d7b5ea73089b",
+      "pmx_sha256": "28b407fd32a5f70ae7553db60af780cf2df454d6d947bf33af8016cb3ce7cdce",
+      "readme_sha256": "78b25e862eb859b14db9cc20b14c09972c0a9f02c541e9a9f6dc18793b717b60",
+      "credits": {
+        "model_provider": "miHoYo",
+        "model_adaptation": "观海"
+      },
+      "terms_summary": "No redistribution, no commercial use, no extracting parts for other models. Other content restrictions in bundled readme; original retained locally.",
+      "local_model": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\ayaka-model\\神里绫华.pmx",
+      "views": {
+        "front": {
+          "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\ayaka-views\\front.png",
+          "sha256": "917c5ebf71b41ac279b207844f024cd1038e422e67406d5809ddcf2608e5185f",
+          "directly_viewed": true
+        },
+        "right": {
+          "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\ayaka-views\\right.png",
+          "sha256": "dbbc5ab54a3793033191ce1f290a993bf7e0a70e90ab767f892517da6dc141ff",
+          "directly_viewed": true
+        },
+        "back": {
+          "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\ayaka-views\\back.png",
+          "sha256": "5e9071f3bea2743034279a4932ef5167b93d03ce98e863c56c5fe1c0259dfce7",
+          "directly_viewed": true
+        },
+        "left": {
+          "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\ayaka-views\\left.png",
+          "sha256": "08d442b91b3569ad0e0bebba07357e07b0b1e0910e3b786af9c929f2695df562",
+          "directly_viewed": true
+        }
+      },
+      "view_convention": "front = camera -Y; back = +Y; right = +X camera, left = -X camera, not anatomical side labels",
+      "render_limitations": [
+        "Flat base texture emission, original game shader not reproduced",
+        "Additive coplanar sph.png shine faces omitted in transient scene to prevent black or missing hair",
+        "No pose, physics or in-game animation validation",
+        "No model or texture redistributed in repository"
+      ],
+      "renderer": "Blender 4.2.17; MMD Tools 3451990faea2e0def110e7f6027f5c8575451e8b; opencc-python-reimplemented 0.1.7",
+      "observations": [
+        "Back bow supports Cryo vision and pink cords; long split light-blue panels",
+        "Side skirt has broad dark armor panels with large gold crest not represented precisely in v2",
+        "Forearm includes visible white patterned panel with dark glove; v2 all-dark forearm is incomplete",
+        "Ponytail and crest shapes readable in side/back; exact crest still simplified in v2"
+      ]
+    }
+  ]
+}

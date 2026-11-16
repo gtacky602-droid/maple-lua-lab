@@ -23,8 +23,6 @@
     "Burgundy eyepatch now visible beneath fringe"
   ],
   "unverified": [
-    "3D model not obtained/rendered",
-    "Side/back costume not verified",
     "Facial asymmetry when mirrored",
     "Exact low-resolution costume accuracy; chibi simplifications remain"
   ],
@@ -32,10 +30,17 @@
     "https://github.com/cjhlk/GI-Model-Collects",
     "https://mmdfr.fr/genshin-mmd/"
   ],
-  "model_status": "discovery only, not visual evidence",
+  "model_status": "Downloaded PMX; front/back/camera +/-X rendered and directly viewed; sprite corrections remain",
   "profiles": {
     "legacy": 1879,
     "h48c32": 1128,
     "h32c16": 480
-  }
+  },
+  "model_audit": "evidence/model-reference-audit.json",
+  "remaining_model_findings": [
+    "Back hair tied partly with complex gold pin and teal tassel",
+    "Back garment red with split tails, dark lower panels and gold patterns; v2 purple cape candidate needs rechecking against game footage rather than assuming illustration lighting is base color",
+    "Chest has a pale tied ornament absent from simplified v2",
+    "Hair, eyepatch and accessories are asymmetric; mirrored sprite cannot preserve all sides"
+  ]
 }
