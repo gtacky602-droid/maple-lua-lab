@@ -2,13 +2,19 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 40,
-    "visibleCount": 40,
+    "count": 41,
+    "visibleCount": 41,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "lava-dragon",
+        "h": 180,
+        "w": 296.5330188679245,
+        "ratio": 1.6474056603773586
+      },
       {
         "id": "qucusaur",
         "h": 180,

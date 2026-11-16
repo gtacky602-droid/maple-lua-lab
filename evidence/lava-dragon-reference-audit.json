@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/7597?lang=ja-jp",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/01/94675339/2219083c8ff0d45557d259152a250595_3117244094219798003.png",
+      "sha256": "82d95c64143d8f0d63b4022c39db8ea647721c95a228a831926a336c735eec12",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2025/03/25/215921855/74de653783a4cb12cfc2047fac9e4465_8373696329467290198.jpg",
+      "sha256": "28314a5e9cbb8f33eb5e9efc48e0fa149021f2e58534c442b430b54621eac64a",
+      "directly_viewed": true,
+      "generation_input": true
+    }
+  ],
+  "model_lookup": "Matching model not obtained; search returned unrelated dragons. Model and rear view unverified.",
+  "output": "assets/lava-dragon-idle-source-v1.png",
+  "sha256": "bef7761b7c35ef1a1617828c4db76f7538c9bb253164637ee66b6328b46a8036",
+  "profiles": {
+    "legacy": {
+      "height": 180,
+      "runs": 11206
+    },
+    "h48c32": {
+      "height": 135,
+      "runs": 7564
+    },
+    "h32c16": {
+      "height": 90,
+      "runs": 3425
+    }
+  },
+  "reduction_percent": 69.44,
+  "limitations": [
+    "Normal Earth Golem idle candidate only; molten form and all animations not made",
+    "More compact and front-facing than screenshot; back structure partially inferred",
+    "Perspective hands and feet do not share exactly one baseline; bottom-band anchor is provisional",
+    "180px scale provisional; not native performance evidence"
+  ],
+  "visual_review": "Source, gallery and map screenshots directly viewed. Wide rocky silhouette, golden crystals and core retained; moss green patches and fine cracks muted at 90px. Browser transparency clean. Sumeru background is comparison fixture, not canonical boss geography.",
+  "validation": {
+    "gallery": "evidence/bosses-gallery.json",
+    "placement": "evidence/boss-placement-test.json",
+    "candidates": 41,
+    "distinct_bosses": 37
+  }
+}
