@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "all four changed fields",
+    "add/remove/unchanged",
+    "read-only fetch",
+    "live copy initializes baseline",
+    "flip/delete/undo/add update comparison",
+    "failed refresh preserves draft and baseline",
+    "node isolation",
+    "390px layout"
+  ],
+  "errors": []
+}

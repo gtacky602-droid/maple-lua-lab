@@ -35,3 +35,11 @@ export function validatePlacementDraft(input,graph,species){
  }
  return {version:1,status:'visual-only draft; not canonical spawn geography or live combat placement',nodes};
 }
+
+// Inputs have already passed draft validation; identity is the stable spawn ID.
+export function comparePlacements(baseline,draft){
+ const before=new Map(baseline.map(e=>[e.id,e])),after=new Map(draft.map(e=>[e.id,e]));
+ const added=draft.filter(e=>!before.has(e.id)),removed=baseline.filter(e=>!after.has(e.id)),changed=[];
+ for(const e of draft){const old=before.get(e.id);if(!old)continue;const fields=['species','x','y','flip'].filter(k=>old[k]!==e[k]);if(fields.length)changed.push({id:e.id,before:old,after:e,fields})}
+ return {added,removed,changed,unchanged:draft.length-added.length-changed.length};
+}
