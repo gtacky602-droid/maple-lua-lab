@@ -1,0 +1,5 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Wide 16:9 scenic background for a MapleStory-like pixel-art side scrolling fantasy RPG, original Fontaine-inspired elegant French fantasy water city. Distant white limestone architecture with blue slate rooftops and delicate gold accents, graceful canal bridges, fountains, aqueduct and domed civic towers on the right, sparkling turquoise canal across the middle, flowering trees framing upper corners, bright clear afternoon sky with white clouds. Unobstructed center and lower middle for small character sprites, quiet stone promenade only along bottom tenth. Atmospheric depth, crisp detailed 16-bit pixel clusters, subdued cream sky blue turquoise and muted gold palette. No characters, monsters, UI, text, foreground platforms or combat effects. Ground-level city backdrop, not underwater. A provisional scenic adaptation, not an exact game screenshot or map.",
+  "status": "provisional ground-level city backdrop; underwater and precise geography not implemented"
+}

@@ -1,0 +1,18 @@
+{
+  "errors": [],
+  "result": [
+    {
+      "id": "fontaine-entry",
+      "key": "fontaine"
+    },
+    {
+      "id": "fontaine-hub",
+      "key": "fontaine"
+    },
+    {
+      "id": "fontaine-field",
+      "key": "fontaine"
+    }
+  ],
+  "method": "actual story node data rendered by shared host scenery; visual fixture, not a gameplay travel test"
+}

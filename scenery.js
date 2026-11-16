@@ -3,6 +3,7 @@ export const sceneryDefinitions={
  mondstadt:{file:'mondstadt-background.png',region:'モンド',zones:[]},
  liyue:{file:'liyue-background-v1.png',region:'璃月',zones:['geo','oceanid','primo','pyro_regisvine']},
  inazuma:{file:'inazuma-background-v1.png',region:'稲妻',zones:['thunder','array','maguu']},
+ fontaine:{file:'fontaine-background-v1.png',region:'フォンテーヌ',zones:[]},
  sumeru:{file:'sumeru-background-v1.png',region:'スメール',zones:[]}
 };
 const backgrounds={};
@@ -28,8 +29,8 @@ export function scenery(ctx,frame){
  const camera=frame.camera||0;
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
-  ctx.fillStyle=key==='liyue'?'#887653':key==='inazuma'?'#686174':p.y===480?'#655c43':'#756d56';ctx.fillRect(x,p.y,p.w,p.y===480?60:24);
-  ctx.fillStyle=key==='inazuma'?'#697b79':'#508451';ctx.fillRect(x,p.y,p.w,7);ctx.fillStyle=key==='inazuma'?'#c5bbd2':'#bed088';ctx.fillRect(x,p.y,p.w,2);
+  ctx.fillStyle=key==='fontaine'?'#9c9b9e':key==='liyue'?'#887653':key==='inazuma'?'#686174':p.y===480?'#655c43':'#756d56';ctx.fillRect(x,p.y,p.w,p.y===480?60:24);
+  ctx.fillStyle=key==='fontaine'?'#bbbfc5':key==='inazuma'?'#697b79':'#508451';ctx.fillRect(x,p.y,p.w,7);ctx.fillStyle=key==='fontaine'?'#f0e9da':key==='inazuma'?'#c5bbd2':'#bed088';ctx.fillRect(x,p.y,p.w,2);
   ctx.fillStyle='#a09675';for(let n=0;n<p.w;n+=40){if(x+n>-40&&x+n<960)ctx.fillRect(x+n+5,p.y+11,27,5)}
  }
  ctx.restore();
