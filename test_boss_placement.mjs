@@ -34,7 +34,7 @@ try{
   if(item.id==='electro-regisvine')await p.locator('main').screenshot({path:'evidence/electro-regisvine-map-comparison.png'});
   if(item.id==='ruin-serpent')await p.locator('main').screenshot({path:'evidence/ruin-serpent-map-comparison.png'});
   if(item.id==='aeonblight')await p.locator('main').screenshot({path:'evidence/aeonblight-map-comparison.png'});
-  if(['flugel','immortal-construct','overseer','rimebiter','bolteater','coppelia','coppelius'].includes(item.id))await p.locator('main').screenshot({path:`evidence/${item.id}-map-comparison.png`});
+  if(['drifting-snow','flugel','immortal-construct','overseer','overseer','rimebiter','bolteater','coppelia','coppelius'].includes(item.id))await p.locator('main').screenshot({path:`evidence/${item.id}-map-comparison.png`});
   if(item.id==='knave')await p.locator('main').screenshot({path:'evidence/knave-map-comparison.png'});
   if(item.id==='shouki')await p.locator('main').screenshot({path:'evidence/shouki-map-comparison.png'});
   if(item.id==='raiden-boss')await p.locator('main').screenshot({path:'evidence/raiden-boss-map-comparison.png'});

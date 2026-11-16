@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-17",
+  "encounter": "boss-25135202",
+  "references": [
+    {
+      "url": "https://img.gamewith.jp/img/fd88f2fa2ab73f6cf367587958567e14.jpg",
+      "page": "https://gamewith.jp/genshin/article/show/232413",
+      "view": "Version preview artwork: helmet, layered armor and sword guard; feet cropped",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "f258b4e3dcec6110ccc41dcec44ad79b2ba03294305b6781e8e0a053fb769ba3"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/original_cb543445b63e955339cd5dfa35735af1.png",
+      "page": "https://gamewith.jp/genshin/article/show/577196",
+      "view": "Gameplay standing pose: boots and blade trajectory",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "5e7a58feae981d023bf5656fb6348dcfbeb86b9ac318a696b4329d1ab7f59473"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/original_fe7399675702781ee00ea3794b3d05fd.png",
+      "page": "https://gamewith.jp/genshin/article/show/577196",
+      "view": "Gameplay with shield obscuring the silhouette",
+      "directly_viewed": true,
+      "generation_input": false,
+      "sha256": "ff6cb360d46530e0141d2f7458d3a6469b0c566733151dbede8461b8ca5a3d8f"
+    }
+  ],
+  "model_lookup": {
+    "result": "Exact English and Chinese model searches found no usable model. Rear armor and cloth attachments remain unverified."
+  },
+  "source": "assets/drifting-snow-idle-source-v1.png",
+  "sha256": "b8dde97536398444ef24a1a3e5c019bfe1c8f95de0026d13d2a3a2e201931a1d",
+  "profiles": {
+    "legacy": {
+      "height": 180,
+      "runs": 5213
+    },
+    "h48c32": {
+      "height": 135,
+      "runs": 3269
+    },
+    "h32c16": {
+      "height": 90,
+      "runs": 1521
+    }
+  },
+  "rectangle_reduction_percent": 70.82,
+  "reserved_colors": [
+    "#60dfff",
+    "#305bb8"
+  ],
+  "anchorX": 0.5910815939278937,
+  "anchor_method": "midpoint of opaque pixels in bottom 2 percent band",
+  "hover": 0,
+  "visual_review": "In the snow placement comparison the crown, shoulder asymmetry, blue coat and outline of the slender ice sword remain recognizable at 90 px. Sword tip and small armor edges become jagged.",
+  "support_landmark": "Opaque x spans 552–640, 651–676, 793–863 in the bottom 2% correspond to the soles and heels; the blade tip is outside this band.",
+  "provisional_details": "The idle stance and rear cloth folds are 2D interpretations from cropped preview art and a distant gameplay pose.",
+  "measurement_scope": "Local rectangle counts at a fixed display scale. Native frame time remains unmeasured."
+}

@@ -2,13 +2,19 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 57,
-    "visibleCount": 57,
+    "count": 58,
+    "visibleCount": 58,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "drifting-snow",
+        "h": 180,
+        "w": 163.1298366294067,
+        "ratio": 0.9062768701633706
+      },
       {
         "id": "flugel",
         "h": 220,
