@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2217?lang=ja-jp",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2023/12/15/132746206/497160d9f34a61f72b6943c550530da9_8927643173446645653.png",
+      "sha256": "cd76193b4004eb2c48cb1ac71f3833daa06adef539c73983ba984c075f3884e5",
+      "directly_viewed": true,
+      "generation_input": false
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/18/94675339/1f5ae2ed15ff5d933bce695182892ec7_5910052411813239060.png",
+      "sha256": "90e8d26ae7256baa3ea9779ae5a44c234f9196775f5e78d9911be39ad82fb5a0",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/18/94675339/ae2159dd659817bff3a408303c0d5322_5150645270380479562.png",
+      "sha256": "3482f24d9803f169d2934697480dac42219bcc08114c3048c19c22c0a2d7ba05",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/27/94675339/ef105517f4c30d0580344f73fe596712_8563586887864987921.png",
+      "sha256": "49742a574e22e6bd433f4e6404eb0812ddbcf3710bb47a638d08bb75a26a251d",
+      "directly_viewed": true,
+      "generation_input": true
+    }
+  ],
+  "model_lookup": {
+    "page": "https://models.spriters-resource.com/pc_computer/genshinimpact/asset/328740/",
+    "download": "https://models.spriters-resource.com/media/assets/326/328740.zip?updated=1785180104",
+    "result": "HTTP403; no model downloaded or multiple-angle/back inspection",
+    "other_listing": "https://sketchfab.com/3d-models/dvalin-from-genshin-impact-d5636e933c0f4dbf867da15e3bb21673"
+  },
+  "output": "assets/dvalin-idle-source-v1.png",
+  "sha256": "02ee0d92aa06509eb760c80674868538c3fab2cbb0845b0a264818b219905e4c",
+  "profiles": {
+    "legacy": {
+      "height": 220,
+      "runs": 9940
+    },
+    "h48c32": {
+      "height": 165,
+      "runs": 6201
+    },
+    "h32c16": {
+      "height": 110,
+      "runs": 2872
+    }
+  },
+  "limits": [
+    "Purified body candidate; no corrupted purple crystals",
+    "Upright compact pose and larger tail leaf than reference; underside/back unverified",
+    "220px display height and 48px hover provisional; not canon scale",
+    "No flight/attacks/animation/live combat; temporary map only"
+  ],
+  "visual_review": "Source and final browser gallery/map comparison directly viewed. Three wing pairs, pale chest and leaf tail remain at 110px; tiny wing droplets, eye, claws and streamers become coarse. Render has clean transparent surround. Source more upright/compact, tail leaf larger than reference. Rainforest screenshot is a generic comparison fixture, not Dvalin geography.",
+  "source_bounds": {
+    "size": [
+      1312,
+      1199
+    ],
+    "alpha128_bbox": [
+      58,
+      8,
+      1288,
+      1187
+    ]
+  },
+  "validation": {
+    "gallery": "evidence/bosses-gallery.json",
+    "placement": "evidence/boss-placement-test.json",
+    "candidates": 36,
+    "distinct_bosses": 33
+  }
+}
