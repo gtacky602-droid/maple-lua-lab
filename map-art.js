@@ -67,7 +67,7 @@ try{
    }
   }
   $('placements').replaceChildren();for(const e of items){const label=document.createElement('button');label.type='button';label.dataset.id=e.id;label.setAttribute('aria-pressed',String(e.id===selected));label.onclick=()=>{selected=e.id;$('editMode').value='move';render()};label.textContent=`${e.species}：(${e.x}, ${e.y})${assets[e.species].hover?` ／ 浮き ${assets[e.species].hover}px`:``}`;$('placements').append(label)}
-  const chosen=items.find(e=>e.id===selected);$('selectionStatus').textContent=chosen?`選択：${chosen.species} (${chosen.x}, ${chosen.y})`:'選択なし';for(const id of ['focusSelected','replaceSelected','flipSelected','deleteSelected','clearSelection'])$(id).disabled=!chosen;
+  const chosen=items.find(e=>e.id===selected);$('selectionStatus').textContent=chosen?`選択：${chosen.species} (${chosen.x}, ${chosen.y})`:'選択なし';for(const id of ['focusSelected','replaceSelected','copySelected','flipSelected','deleteSelected','clearSelection'])$(id).disabled=!chosen;
   const runs=items.reduce((sum,e)=>sum+assets[e.species].profiles[profile].runs.length,0);$('status').textContent=`配置${items.length}体 ／ 矩形${runs.toLocaleString()}個（配置した全体の合計・FPSではありません） ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
   const diff=baselines[n.id]?comparePlacements(baselines[n.id],items):null;
   $('diffSummary').textContent=diff?`取得した本編配置との差分：追加${diff.added.length}・削除${diff.removed.length}・変更${diff.changed.length}・同じ${diff.unchanged}体`:'この地点の本編配置は未取得です。比較しても編集案は変わりません。';
@@ -105,14 +105,18 @@ try{
   remember(node().id);e.species=species;render();
   $('fileStatus').textContent='選択個体の絵を差し替えました。座標・向き・IDは保持しています。取り消しで元に戻せます。';
  };
+ $('copySelected').onclick=()=>{if(!placements().some(e=>e.id===selected))return;$('editMode').value='copy';render();$('fileStatus').textContent='画像上の複製先をクリックしてください。同じ素材・向きで追加します。';};
  $('flipSelected').onclick=()=>{const e=placements().find(e=>e.id===selected);if(!e)return;remember(node().id);e.flip=!e.flip;render()};
  $('deleteSelected').onclick=()=>{if(!selected)return;remember(node().id);drafts.nodes[node().id]=placements().filter(e=>e.id!==selected);selected=null;render()};
 for(const id of ['camera','profile'])$(id).oninput=render;
  for(const mode of ['png','rect'])$(mode).onclick=event=>{const box=$(mode).getBoundingClientRect(),n=node(),x=Math.round((event.clientX-box.left)*960/box.width+Number($('camera').value)),y=(event.clientY-box.top)*540/box.height;const supports=n.platforms.filter(p=>x>=p.x&&x<=p.x+p.w&&x<=n.width).sort((a,b)=>Math.abs(a.y-y)-Math.abs(b.y-y));if(!supports.length)return;
   if($('editMode').value==='move'){const e=placements().find(e=>e.id===selected);if(!e){$('fileStatus').textContent='下の個体一覧から移動する個体を選んでください。';return}if(e.x!==x||e.y!==supports[0].y){remember(n.id);e.x=x;e.y=supports[0].y}render();return}
   if(placements().length>=MAX_NODE_PLACEMENTS||Object.values(drafts.nodes).reduce((s,x)=>s+x.length,0)>=MAX_TOTAL_PLACEMENTS){$('fileStatus').textContent='配置数の上限です。別の案として保存してから編集してください。';return}
-  if(!assets[$('species').value]){$('fileStatus').textContent='追加する素材がありません。素材の絞り込みを解除してください。';return}
-  let id;do{id=`added-${++serial}`}while(placements().some(e=>e.id===id));const item={id,species:$('species').value,x,y:supports[0].y,flip:false};remember(n.id);placements().push(item);render()};
+  const copying=$('editMode').value==='copy',source=copying?placements().find(e=>e.id===selected):null;
+  if(copying&&!source){$('fileStatus').textContent='下の個体一覧から複製する個体を選んでください。';return}
+  const species=copying?source.species:$('species').value;
+  if(!assets[species]){$('fileStatus').textContent='追加する素材がありません。素材の絞り込みを解除してください。';return}
+  let id;do{id=`added-${++serial}`}while(placements().some(e=>e.id===id));const item={id,species,x,y:supports[0].y,flip:copying?source.flip:false};remember(n.id);placements().push(item);if(copying)selected=id;render();if(copying)$('fileStatus').textContent='同じ素材・向きの個体を複製しました。続けてクリックすると追加できます。';};
  $('undo').onclick=()=>restoreHistory(histories,redos);
  $('redo').onclick=()=>restoreHistory(redos,histories);
  $('reset').onclick=()=>{

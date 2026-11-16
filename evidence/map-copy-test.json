@@ -1,0 +1,15 @@
+{
+  "errors": [],
+  "checks": [
+    "no selection no mutation",
+    "arming copy no mutation",
+    "material and facing inherited, original unchanged",
+    "repeated placement unique IDs",
+    "undo redo",
+    "browser save reload",
+    "node switch clears source",
+    "128 node and 1024 total limit preserve draft and redo",
+    "imported added-N ID collision avoided",
+    "390px no overflow"
+  ]
+}
