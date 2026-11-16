@@ -6,21 +6,29 @@ export function questRouteText(f,q,status){
  if(!nodes.has(target))return '目的地は未公開または未登録です。';
  const from=f.story.node;if(!nodes.has(from))return '';
  if(from===target)return status==='active'?'目的地に到着しています。':'受注・報告の拠点にいます。';
- const queue=[[from]],seen=new Set([from]);let path;
- for(let i=0;i<queue.length;i++){
-  const current=queue[i],node=nodes.get(current.at(-1));
-  for(const edge of node.exits||[]){
-   if(!nodes.has(edge.to)||seen.has(edge.to))continue;
-   const next=[...current,edge.to];if(edge.to===target){path=next;break}
-   seen.add(edge.to);queue.push(next);
+ const level=f.progression?.level??0;
+ function routeAtLevel(limit){
+  const queue=[[from]],seen=new Set([from]);
+  for(let i=0;i<queue.length;i++){
+   const current=queue[i],node=nodes.get(current.at(-1));
+   for(const edge of node.exits||[]){
+    if(!nodes.has(edge.to)||seen.has(edge.to)||(nodes.get(edge.to).level||1)>limit)continue;
+    const next=[...current,edge.to];if(edge.to===target)return next;
+    seen.add(edge.to);queue.push(next);
+   }
   }
-  if(path)break;
+ }
+ // Prefer the shortest level-eligible route. If none exists, show the route
+ // needing the smallest level increase, then the fewest transitions.
+ let path=routeAtLevel(level);
+ if(!path)for(const limit of [...new Set([...nodes.values()].map(n=>n.level||1))].filter(n=>n>level).sort((a,b)=>a-b)){
+  path=routeAtLevel(limit);if(path)break;
  }
  if(!path)return '公開中の地点からつながる経路がありません。';
  const next=nodes.get(path[1]),edge=nodes.get(from).exits.find(e=>e.to===next.id);
  const required=Math.max(...path.slice(1).map(id=>nodes.get(id).level||1));
  const notes=[];
- if((f.progression?.level??0)<required)notes.push(`経路上にLv${required}が必要な地点があります`);
+ if(level<required)notes.push(`現在のレベルでは通れません。経路上にLv${required}が必要な地点があります`);
  if(edge.windowStart!==undefined){
   const elapsed=f.voyage?.elapsed;
   if(elapsed===undefined)notes.push('寄港中のみ下船できます');

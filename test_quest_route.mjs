@@ -18,5 +18,22 @@ frame.voyage.elapsed=50;assert.match(questRouteText(frame,visit,'active'),/寄�
 assert.match(questRouteText(frame,{...visit,target:'nod-port'},'active'),/船の到着を待ちます/);
 frame.paused=true;assert.match(questRouteText(frame,visit,'active'),/一時停止中/);
 const disconnected={...frame,storyGraph:{nodes:[{id:'a',name:'A',exits:[]},{id:'b',name:'B',exits:[]}],quests:[]},story:{active:true,node:'a'}};assert.match(questRouteText(disconnected,{kind:'visit',target:'b'},'active'),/経路がありません/);
+// Prefer an unlocked detour over a shorter locked branch. Threshold fallback
+// must minimize required level rather than simply choosing the fewest gates.
+const routeGraph={nodes:[
+ {id:'start',name:'Start',level:99,exits:[{to:'locked'},{to:'detour'}]},
+ {id:'locked',name:'Locked shortcut',level:30,exits:[{to:'goal'}]},
+ {id:'detour',name:'Available detour',level:5,exits:[{to:'start'},{to:'bridge'}]},
+ {id:'bridge',name:'Bridge',level:5,exits:[{to:'goal'}]},
+ {id:'goal',name:'Goal',level:5,exits:[]}
+]};
+const routed={story:{active:true,node:'start'},storyGraph:routeGraph,progression:{level:5}},targetQuest={kind:'visit',target:'goal'};
+assert.match(questRouteText(routed,targetQuest,'active'),/次は Available detour.*残り3区間/);
+assert.doesNotMatch(questRouteText(routed,targetQuest,'active'),/Lv30|現在のレベルでは/);
+routed.progression.level=30;assert.match(questRouteText(routed,targetQuest,'active'),/次は Locked shortcut.*残り2区間/);
+routed.progression.level=1;assert.match(questRouteText(routed,targetQuest,'active'),/次は Available detour.*現在のレベルでは通れません.*Lv5/);
+// A high-level starting node does not prevent leaving it; only destinations gate entry.
+assert.doesNotMatch(questRouteText(routed,targetQuest,'active'),/Lv99/);
+const routeSnapshot=JSON.stringify(routed);questRouteText(routed,targetQuest,'active');assert.equal(JSON.stringify(routed),routeSnapshot);
 const original=JSON.stringify(frame);let checked=0;for(const quest of graph.quests)for(const status of ['unaccepted','active','ready','complete']){assert.equal(typeof questRouteText(frame,quest,status),'string');checked++}assert.equal(JSON.stringify(frame),original);
-await fs.writeFile('evidence/quest-route-test.json',JSON.stringify({checked,checks:['accept/report hub destination','active visit/kill destination','boss challenge entrance','one-time complete hidden','repeatable complete points to hub','missing/hidden target no leak','level gate indication','voyage pre/during/post stopover and arrival','pause indication','disconnected graph','no frame mutation']},null,2));console.log('Quest routing fixtures passed');
+await fs.writeFile('evidence/quest-route-test.json',JSON.stringify({checked,checks:['accept/report hub destination','active visit/kill destination','boss challenge entrance','one-time complete hidden','repeatable complete points to hub','missing/hidden target no leak','level gate indication','level-eligible detour preferred','shortest route at eligible level','blocked fallback minimizes required level','high-level origin permits exit','cycles terminate','voyage pre/during/post stopover and arrival','pause indication','disconnected graph','no frame mutation']},null,2));console.log('Quest routing fixtures passed');
