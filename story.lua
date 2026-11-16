@@ -95,11 +95,18 @@ return function(C,data)
   f.storyGraph=visible;f.storyNotice=s.storyNotice;f.storyJoined={};f.voyage=s.voyage and {seconds=math.max(0,s.voyage.arrives-s.t),destination=s.voyage.destination,elapsed=s.t-s.voyage.started,stopover=s.voyage.stopStart and s.t-s.voyage.started+1e-8>=s.voyage.stopStart and s.t-s.voyage.started+1e-8<s.voyage.stopEnd or false} or nil
   for id,q in pairs(quests) do if q.join and s.story.quests[id] and s.story.quests[id].status=='complete' then f.storyJoined[q.join]=true end end
   if s.story.active then local n=nodes[s.story.node];f.location=n.name..'（本編試作）'
-   for _,h in ipairs(n.hints or {}) do f.draws[#f.draws+1]={kind='rect',x=h.x-s.camera-8,y=h.y-48,w=16,h=16,color='#ffe4a0'} end
+   local markers={};f.storyPortals={}
+   local function marker(x,y,w,h) markers[#markers+1]={kind='rect',x=x,y=y,w=w,h=h,color='#83dbe1'} end
    for _,edge in ipairs(n.exits) do if shown(nodes[edge.to]) then
-    f.draws[#f.draws+1]={kind='rect',x=edge.x-s.camera-18,y=390,w=36,h=90,color='#83dbe1'}
+    local x=edge.x-s.camera
+    marker(x-18,390,3,90);marker(x+15,390,3,90)
+    marker(x-18,390,36,3);marker(x-21,477,42,3)
+    f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=480}
    end
    end
+   -- Navigation markers sit behind actors, enemies and effects in both render modes.
+   for _,draw in ipairs(f.draws) do markers[#markers+1]=draw end;f.draws=markers
+   for _,h in ipairs(n.hints or {}) do f.draws[#f.draws+1]={kind='rect',x=h.x-s.camera-8,y=h.y-48,w=16,h=16,color='#ffe4a0'} end
    f.commands=#f.draws
   end
   return f

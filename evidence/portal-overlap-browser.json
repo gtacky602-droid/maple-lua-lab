@@ -1,0 +1,20 @@
+{
+  "draw": {
+    "kind": "boss_sprite",
+    "anchorX": 0.4558139534883721,
+    "source": "nobushi-idle-source-v1.png",
+    "y": 480,
+    "box": [
+      273,
+      80,
+      645,
+      1174
+    ],
+    "w": 57.13798977853492,
+    "flip": false,
+    "h": 104,
+    "x": 720
+  },
+  "errors": [],
+  "method": "Actual Lua inazuma-road entry frames rendered through intercepted browser responses. Nobushi deliberately centered on gate x720 to inspect occlusion. Static render fixture, not live traversal or combat verification."
+}

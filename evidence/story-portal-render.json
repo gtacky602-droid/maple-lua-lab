@@ -1,0 +1,620 @@
+{
+  "results": [
+    {
+      "node": "mond-town",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "mond-town",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "mond-road",
+      "mode": "sprite",
+      "visible_portals": 5
+    },
+    {
+      "node": "mond-road",
+      "mode": "rect",
+      "visible_portals": 5
+    },
+    {
+      "node": "mond-border",
+      "mode": "sprite",
+      "visible_portals": 4
+    },
+    {
+      "node": "mond-border",
+      "mode": "rect",
+      "visible_portals": 4
+    },
+    {
+      "node": "liyue-entry",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "liyue-entry",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "liyue-harbor",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "liyue-harbor",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "liyue-field",
+      "mode": "sprite",
+      "visible_portals": 5
+    },
+    {
+      "node": "liyue-field",
+      "mode": "rect",
+      "visible_portals": 5
+    },
+    {
+      "node": "liyue-ferry",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "liyue-ferry",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-port",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-port",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-road",
+      "mode": "sprite",
+      "visible_portals": 6
+    },
+    {
+      "node": "inazuma-road",
+      "mode": "rect",
+      "visible_portals": 6
+    },
+    {
+      "node": "inazuma-town",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-town",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-entry",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-entry",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-hub",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-hub",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-field",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "sumeru-field",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "fontaine-entry",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-entry",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-hub",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-hub",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-field",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "fontaine-field",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "natlan-entry",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-entry",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-hub",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-hub",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-field",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-field",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-port",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-port",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-voyage",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "natlan-voyage",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "ochkanatlan-dock",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "ochkanatlan-dock",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "ochkanatlan-ruins",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "ochkanatlan-ruins",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "nod-port",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "nod-port",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "nod-field",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "nod-field",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "nod-town",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "nod-town",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "snezhnaya-entry",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "snezhnaya-entry",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "snezhnaya-hub",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "snezhnaya-hub",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "snezhnaya-field",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "snezhnaya-field",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "dragonspine-camp",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "dragonspine-camp",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "dragonspine-depth",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "dragonspine-depth",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "chenyu-camp",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "chenyu-camp",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "chenyu-depth",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "chenyu-depth",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "enkanomiya-camp",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "enkanomiya-camp",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "enkanomiya-depth",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "enkanomiya-depth",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "tunigi-camp",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "tunigi-camp",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "tunigi-depth",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "tunigi-depth",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "bygone-camp",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "bygone-camp",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "bygone-depth",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "bygone-depth",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "dornman-camp",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "dornman-camp",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "dornman-depth",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "dornman-depth",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "nod-special-camp",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "nod-special-camp",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "nod-special-depth",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "nod-special-depth",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "novokichev-camp",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "novokichev-camp",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "novokichev-depth",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "novokichev-depth",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "golden-hub",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "golden-hub",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "golden-play",
+      "mode": "sprite",
+      "visible_portals": 0
+    },
+    {
+      "node": "golden-play",
+      "mode": "rect",
+      "visible_portals": 0
+    },
+    {
+      "node": "veluriyam-hub",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "veluriyam-hub",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "veluriyam-play",
+      "mode": "sprite",
+      "visible_portals": 0
+    },
+    {
+      "node": "veluriyam-play",
+      "mode": "rect",
+      "visible_portals": 0
+    },
+    {
+      "node": "simulanka-hub",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "simulanka-hub",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "simulanka-play",
+      "mode": "sprite",
+      "visible_portals": 0
+    },
+    {
+      "node": "simulanka-play",
+      "mode": "rect",
+      "visible_portals": 0
+    },
+    {
+      "node": "anemo-approach",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "anemo-approach",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "cryo-approach",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "cryo-approach",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "pyro-approach",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "pyro-approach",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "electro-approach",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "electro-approach",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "geo-approach",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "geo-approach",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "oceanid-approach",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "oceanid-approach",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "primo-approach",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "primo-approach",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "maguu-approach",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "maguu-approach",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "array-approach",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "array-approach",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "thunder-approach",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "thunder-approach",
+      "mode": "rect",
+      "visible_portals": 1
+    }
+  ],
+  "checks": [
+    "all gates outlined with no opaque interior",
+    "gate commands before character/enemy commands",
+    "command count accurate"
+  ],
+  "scope": "render order only; existing story tests cover portal interaction"
+}
