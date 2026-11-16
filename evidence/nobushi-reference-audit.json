@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2229?crawler=Googlebot",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2026/03/09/35428890/6e42f100f2ec28179c78f29c1d78342f_6862845441368535198.png",
+      "sha256": "6d3b5110f26dcdcade67766359f8d371865bf0a2d9c5585c3fe9f66db220fe13",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "Neutral standing"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2022/12/17/35428890/34aecb7ff5055da07a4d233cb02e10eb_7853412703534586910.png",
+      "sha256": "992b25f6050da6733d7380097a16854757d02fc3ad522b42125f3e8e81cdb239",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "Alternate card pose"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2026/03/09/35428890/c4d1f1b80a7f66b09dee8a2b7af097c9_5885575405534606319.png",
+      "sha256": "d9ab3e1ddb76d70b3ea4528419aa9a142d5ffe19361d1b2cf3291b37f4ed9cc4",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "Same pose as image0"
+    }
+  ],
+  "model_lookup": "MMDFr nobushi and nobushi-jintouban endpoints returned 404; no model inspected",
+  "limits": [
+    "Back/side model views unverified",
+    "Mirroring reverses asymmetric costume and sword hand",
+    "Idle sprite only; no dedicated walk or attacks",
+    "104px display height is provisional",
+    "Smallest profile loses sleeve pattern, cords and fingers; original facing retained, automatic facing not implemented"
+  ],
+  "output": "assets/nobushi-idle-source-v1.png",
+  "sha256": "86a073014d8e06039c869243be7c4782d6972a517ef0bfa2f6bd8aa9bd39e342",
+  "profiles": {
+    "legacy": {
+      "height": 104,
+      "runs": 1658
+    },
+    "h48c32": {
+      "height": 78,
+      "runs": 958
+    },
+    "h32c16": {
+      "height": 52,
+      "runs": 435
+    }
+  },
+  "validation": [
+    "8 enemy gallery profiles/zooms/facing/mobile",
+    "6 enemy assets all profiles anchors/culling/render mechanics invariance",
+    "61 node spawn and placement editor regressions",
+    "19 story checks",
+    "Actual Lua static frame PNG/rect browser fixture, not continuous traversal"
+  ],
+  "live_placement": {
+    "node": "inazuma-road",
+    "x": 620,
+    "height": 104,
+    "status": "generic placeholder behavior and hitbox"
+  }
+}

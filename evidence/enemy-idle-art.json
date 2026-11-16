@@ -89,6 +89,24 @@
       "profile": "h32c16",
       "runs": 255,
       "height": 64
+    },
+    {
+      "art": "nobushi",
+      "profile": "legacy",
+      "runs": 1658,
+      "height": 104
+    },
+    {
+      "art": "nobushi",
+      "profile": "h48c32",
+      "runs": 958,
+      "height": 104
+    },
+    {
+      "art": "nobushi",
+      "profile": "h32c16",
+      "runs": 435,
+      "height": 104
     }
   ],
   "checks": [

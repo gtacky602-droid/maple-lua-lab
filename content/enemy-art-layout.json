@@ -18,5 +18,9 @@
   "dendro-fungus": {
     "height": 64,
     "hover": 18
+  },
+  "nobushi": {
+    "height": 104,
+    "hover": 0
   }
 }

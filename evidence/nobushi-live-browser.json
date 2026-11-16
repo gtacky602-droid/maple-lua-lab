@@ -1,0 +1,20 @@
+{
+  "draw": {
+    "source": "nobushi-idle-source-v1.png",
+    "kind": "boss_sprite",
+    "flip": false,
+    "box": [
+      273,
+      80,
+      645,
+      1174
+    ],
+    "h": 104,
+    "x": 620,
+    "y": 480,
+    "anchorX": 0.4558139534883721,
+    "w": 57.13798977853492
+  },
+  "errors": [],
+  "method": "Actual Lua inazuma-road entry frames rendered through intercepted browser responses. Static render fixture, not live traversal or combat verification."
+}

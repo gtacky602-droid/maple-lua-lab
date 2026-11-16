@@ -13,6 +13,7 @@ try{
   await add('pyro-slime-reference','炎スライム（参照付き候補・本編表示中）',await json('assets/pyro-slime-idle-sprites.json'),40);
   await add('ruin-guard','遺跡守衛（待機候補・璃月に仮配置）',await json('assets/ruin-guard-idle-sprites.json'),144);
   await add('dendro-fungus','浮遊草キノコン（待機候補・スメールに仮配置）',await json('assets/dendro-fungus-idle-sprites.json'),64);
+  await add('nobushi','野伏・陣刀番（待機候補・稲妻に仮配置）',await json('assets/nobushi-idle-sprites.json'),104);
  }else{
  await add('traveler','旅人',await json('assets/traveler-idle-sprites.json'),88);
  await add('amber','アンバー',await json('assets/amber-idle-sprites.json'),88);

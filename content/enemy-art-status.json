@@ -32,7 +32,7 @@
     "veluriyam-play",
     "simulanka-play"
   ],
-  "current_story_assignment": "26 hostile nodes, 156 provisional placements: 152 slime, 2 Hilichurl, 1 Ruin Guard, 1 Floating Dendro Fungus idle. Existing numeric kind and generic behavior unchanged; not canonical distribution.",
+  "current_story_assignment": "26 hostile nodes, 156 provisional placements: 151 slime, 2 Hilichurl, 1 Ruin Guard, 1 Floating Dendro Fungus, 1 Nobushi idle. Existing numeric kind and generic behavior unchanged; not canonical distribution.",
   "assets": [
     {
       "id": "hydro-slime",
@@ -68,6 +68,12 @@
       "status": "Referenced idle at sumeru-field spawn1; 64px tall and 18px visual hover via shared art layout. No dedicated flight movement, attack or hitbox changes.",
       "art": "assets/dendro-fungus-idle-sprites.json",
       "audit": "evidence/dendro-fungus-reference-audit.json"
+    },
+    {
+      "id": "nobushi",
+      "status": "Referenced Jintouban idle at inazuma-road spawn1, 104px; generic behavior and hitbox retained; dedicated attacks/animation and back model check incomplete",
+      "art": "assets/nobushi-idle-sprites.json",
+      "audit": "evidence/nobushi-reference-audit.json"
     }
   ],
   "scope": "inventory of existing work, not full planned enemy roster",
@@ -80,7 +86,8 @@
       "hydro-slime-reference",
       "pyro-slime-reference",
       "ruin-guard",
-      "dendro-fungus"
+      "dendro-fungus",
+      "nobushi"
     ],
     "live_copy": "Current-node authored spawns can be copied into the visual draft with referenced asset mapping, support-derived y, undo and JSON export. Editing does not write live spawn data."
   },
