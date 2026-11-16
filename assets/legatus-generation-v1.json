@@ -1,0 +1,9 @@
+{
+  "mode": "builtin image_gen",
+  "generated_file": "exec-be81971f-391e-4dfd-9df6-fb04244a3f1f.png",
+  "reference_files": [
+    "work/references/legatus-1.png",
+    "work/references/legatus-3.png"
+  ],
+  "prompt": "Use case: stylized-concept. Create a single transparent pixel-art idle sprite of Genshin Impact Legatus Golem for a Maple-inspired 2D RPG lab. Use official rearing render for armor details, in-game standing left figure for neutral four-hoof stance. Marble-and-brass centaur automaton: humanoid armored torso rises from FRONT of a horse-shaped lower body, exactly FOUR equine legs with gold hooves plus exactly TWO humanoid arms. Facing left in side/three-quarter view; all four hooves grounded, no rearing. Gray-ivory marble armor plates, sculpted spiral forms, muted taupe inner body, thin gold seams. Narrow helmet with swept crest and orange-gold vertical glowing face slits, no human face. One arm holds a long narrow sword lowered diagonally left, with thin orange illuminated blade center and pale stone outer tip; the other bears the ornate shield shaped like a lyre/violin body with glowing golden string motif, clearly attached to forearm. Preserve front armored horse chest, pointed knee plates, long small armored tail. Calm waiting pose, no slash trail, no fire aura, no attack. No separate rider or horse head, no additional limbs. Entire sword tip, shield, crest, hooves and tail inside generous transparent margins. Crisp square pixel clusters, clean dark outline, restrained 24-32-color aesthetic, readable around 200px high, no painterly smoothing or noisy dithering. Transparent background and gaps between legs/sword; no scenery, ground shadow, text, logo or multiple poses."
+}

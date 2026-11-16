@@ -2,6 +2,13 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "legatus",
+      "name": "魔像レガトゥス（参照付き待機候補）",
+      "file": "legatus-idle-sprites.json",
+      "height": 200,
+      "mapHover": 0
+    },
+    {
       "id": "suanni",
       "name": "山隠れの猊獣（参照付き待機候補）",
       "file": "suanni-idle-sprites.json",
