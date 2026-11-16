@@ -1,0 +1,98 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2975?lang=en-us",
+  "references": [
+    {
+      "url": "https://pack.skowt.cc/asset/01a1923e-236d-750f-b283-95a696761cbb-preview.webp?v=9400f9e0c3",
+      "sha256": "c2c14f1a0636ee8e48bfd8b3cde8d584b1b32fc8e53f87e92f312acab4e55ec8",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "Full model preview"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2022/11/03/35428890/86791657203a69e453d8e217414b3f9e_6244827810099144009.png",
+      "sha256": "4ada6b7eb646b7983f070259c7fdbadfc682196d4d2bef09f0a4b48c1fdc0bc1",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "HoYoWiki face icon"
+    }
+  ],
+  "model_viewer": {
+    "url": "https://skowt.cc/a/gjqKJqfxw",
+    "actually_viewed": true,
+    "angles": [
+      "front idle",
+      "side after 200px horizontal drag",
+      "rear after additional 110px drag"
+    ],
+    "pose": "paused idle at 1.88s for side/rear",
+    "observations": [
+      "four arms",
+      "five floating electro medallions",
+      "long pointed legs",
+      "gold/white/red mask and high crest",
+      "violet circular chest core visible in live viewer; static preview cavity dark"
+    ],
+    "limitations": "Viewer beta warns pose/parts/FX may be inaccurate. No model downloaded or redistributed. No close-up underside or animation-sequence verification."
+  },
+  "output": "assets/shouki-idle-source-v1.png",
+  "sha256": "e9f21d2ab986b255bcf814534b52beafcbd0c2f156c003fd765b744fe801ac2c",
+  "profiles": {
+    "legacy": {
+      "height": 240,
+      "runs": 7331
+    },
+    "h48c32": {
+      "height": 180,
+      "runs": 4378
+    },
+    "h32c16": {
+      "height": 120,
+      "runs": 1837
+    }
+  },
+  "reduction_percent": 74.94,
+  "palette": {
+    "reserved": [
+      "#b83933",
+      "#bc42ee"
+    ],
+    "within_existing_32_16_color_budgets": true,
+    "reason": "Preserve red mask/roof/shin insets and violet chest/joints within 32/16 color budgets. First render with red only weakened chest violet.",
+    "initial_runs": [
+      7275,
+      4409,
+      1858
+    ]
+  },
+  "map_hover": 32,
+  "status": "visual candidate only, no live combat",
+  "limitations": [
+    "Generated sprite is frontal and more symmetric than reference three-quarter render; hands/head and medallions are enlarged for readability.",
+    "Torso-only first phase, attacks and animation absent.",
+    "Map size and clearance provisional, not original-world physical scale or native collision.",
+    "Mirroring reverses asymmetric details."
+  ],
+  "source_check": {
+    "size": [
+      1044,
+      1507
+    ],
+    "alpha128_bbox": [
+      87,
+      14,
+      955,
+      1494
+    ],
+    "edge_opaque": {
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "bottom": 0
+    }
+  },
+  "visual_review": {
+    "gallery": "Viewed final source-vs-120px profile. Four arms, five medallions, pointed legs and red/white mask silhouette retained. Reserved violet restores chest/joint highlights. Fine electro symbols and engraving merge/noisy at120px; candidate not final likeness.",
+    "map": "Viewed both outputs on shared Sumeru temporary-background fixture, hover32 and whole240px visible. Not original boss arena or native scale."
+  }
+}

@@ -802,3 +802,11 @@ skowt.ccの3Dビューアで正面・側面・背面斜めを実際に確認し�
 
 ボス美術は42体・48候補。通常形態・技・アニメーション・実戦は未制作。配置画面の浮遊量24pxは比較用、本番高度ではない。左右反転で非対称装飾も反転する。背景は引き続き仮画像、本番3D未制作。
 根拠: evidence/raiden-boss-reference-audit.json, evidence/raiden-boss-comparison.png, evidence/raiden-boss-map-comparison.png。生成プロンプト: assets/raiden-boss-generation-v1.json（built-in image_gen）。
+
+
+## 2026-11-17 正機の神の全身待機候補
+
+skowt.ccの3Dモデルを正面・側面・背面から確認し、モデルプレビューとHoYoWiki2975の顔画像を参照して内蔵image_genで制作。4本の腕、5枚の雷紋、長い脚、白赤の面と高い冠を保持した全身形態の候補。参照より正面・左右対称に整理し、頭・手・紋章は読みやすく拡大。原画は保持、240/180/120pxで7331/4378/1837矩形、最軽量74.94%減。既存32/16色枠に赤#b83933と紫#bc42eeを確保。120pxでは雷紋や彫刻が潰れるため最終美術ではない。
+
+43体・49美術候補。配置比較用の浮遊32px、本来の巨体寸法や実機衝突を再現した値ではない。上半身だけの第1形態、技、アニメーション、実戦は未制作。背景は仮画像・本番3D方針を維持。
+根拠: evidence/shouki-reference-audit.json, evidence/shouki-comparison.png, evidence/shouki-map-comparison.png。生成プロンプト: assets/shouki-generation-v1.json。

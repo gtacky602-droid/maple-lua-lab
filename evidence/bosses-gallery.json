@@ -2,13 +2,19 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 48,
-    "visibleCount": 48,
+    "count": 49,
+    "visibleCount": 49,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "shouki",
+        "h": 240,
+        "w": 140.75675675675674,
+        "ratio": 0.5864864864864865
+      },
       {
         "id": "raiden-boss",
         "h": 200,
