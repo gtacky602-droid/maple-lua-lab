@@ -2,8 +2,8 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 45,
-    "visibleCount": 45,
+    "count": 46,
+    "visibleCount": 46,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
@@ -14,6 +14,12 @@
         "h": 220,
         "w": 204.17935702199662,
         "ratio": 0.928087986463621
+      },
+      {
+        "id": "apep-dark",
+        "h": 180,
+        "w": 447.98807749627423,
+        "ratio": 2.488822652757079
       },
       {
         "id": "config-device",

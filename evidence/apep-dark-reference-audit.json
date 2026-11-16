@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-17",
+  "pages": [
+    "https://wiki.hoyolab.com/pc/genshin/entry/3695?lang=ja-jp",
+    "https://www.hoyolab.com/article/18421881"
+  ],
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/27/94675339/f3601834c3b199fa8a1321fd1b856186_4143095055604691514.png",
+      "sha256": "da0a893bba3429387747fb3ab38336571991dbf8ea9489bb70f641800464724c",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "primary close-up low pose"
+    },
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2023/05/10/189751896/bf682e7597f98a72cc5ba40cbbfa69e0_1782416797983752278.png",
+      "sha256": "1233323f5bae2596c936a9b2eb64c1c3478f0a1a8f26c58cab943a089a2eeb34",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "opposite/rear oblique game pose, partly obstructed"
+    }
+  ],
+  "excluded": "apep-6/7 directly viewed but are small organisms, not boss body; excluded. GamingOnPhone image returned404.",
+  "model_lookup": "Prior Apep model search yielded no usable matching model. Actual3D and complete rear/underside unverified.",
+  "output": "assets/apep-dark-idle-source-v1.png",
+  "sha256": "ca1f846268702431bf8d350cda5f49e3a8234bf08fd4a2aa388d51ecfae0ca46",
+  "profiles": {
+    "legacy": {
+      "height": 180,
+      "runs": 18603
+    },
+    "h48c32": {
+      "height": 135,
+      "runs": 11910
+    },
+    "h32c16": {
+      "height": 90,
+      "runs": 5320
+    }
+  },
+  "reduction_percent": 71.4,
+  "limitations": [
+    "Dark crawling idle candidate only; transformations, defense stage, attacks and animation absent",
+    "Four leaf tips clearly visible, far appendages occluded; complete six-limb anatomy not verified",
+    "Compact body and simplified floral seed, perspective supports do not all share one baseline",
+    "180px height provisional, bottom-band anchor uses nearest lowest appendage"
+  ],
+  "visual_review": "Final gallery and map directly inspected. Low wide body, hood ribbons and pale leaf tips retained. Yellow thorns and seed restored after palette reservation. Fine shell curves and flower detail still weak at90px. Dark body clear against bright comparison background; generic forest is not exact arena.",
+  "palette": {
+    "reserved": "#e4bb48",
+    "source_samples": 10328,
+    "criteria": "alpha>=128,R>180,G>140,B<100,R>2B",
+    "before_runs": [
+      18945,
+      11980,
+      5495
+    ],
+    "actual_colors": {
+      "legacy": 32,
+      "h48c32": 32,
+      "h32c16": 16
+    },
+    "note": "Reserved source yellow median within32/16 color budget, source unchanged."
+  },
+  "validation": {
+    "gallery": "evidence/bosses-gallery.json",
+    "placement": "evidence/boss-placement-test.json",
+    "candidates": 46,
+    "distinct_bosses": 40
+  }
+}

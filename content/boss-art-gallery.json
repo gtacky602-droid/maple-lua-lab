@@ -9,6 +9,13 @@
       "mapHover": 0
     },
     {
+      "id": "apep-dark",
+      "name": "アペプのオアシス守護者（暗色形態・待機候補）",
+      "file": "apep-dark-idle-sprites.json",
+      "height": 180,
+      "mapHover": 0
+    },
+    {
       "id": "config-device",
       "name": "秘源機兵・機巧デバイス（待機候補）",
       "file": "config-device-idle-sprites.json",
