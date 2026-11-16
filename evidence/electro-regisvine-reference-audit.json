@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2717?lang=en-us",
+  "discovery": "Sumeru HoYoWiki 3799 related entry",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2022/09/01/1023623/cc5fbd3bdd4a48efb854968a3bfd22e8_4243984819726260372.png",
+      "sha256": "7d6c875f8702d57796764fefd4db4c53ca0e97453fad9c0d6668318097b46fba",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "downloaded but not inspected"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/848a5378220af3d7a5c52782b45c5234_7843352586907255691.png",
+      "sha256": "85a5aa8785a98d7b1158dcfeefd902a82717ed58780ed0c7935e5c63bb1da7ea",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "full splash illustration"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/a6dab617161e7123dd39e16e628b09a9_7793940901606517531.png",
+      "sha256": "b30db5736847424cb920107e9fa854f74f0ea6501cb341231ca9e5976654e595",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full-body rendered frontal appearance"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/ec2aac804904d6c2a1e4189f07efa775_7522852862215962279.png",
+      "sha256": "56382509bf3f52779afb90de0f9065abc64db1953d14c0d4a925a0a9161468c8",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "same splash pose as 1, not separate angle"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/0a96a2f3db38b662cc9d56cf02c70d34_4199020660964722638.png",
+      "sha256": "5c0a72cfb14309f7c538e4d506028b7ec3a4eb612f1a74371c55f13daaabdafd",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "in-game frontal view with combat effects"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/6581e0c82ebbd60f7be00b77ec8126e3_6780845900665647514.png",
+      "sha256": "53e3758f7045351ab5731709eed37dfc8d907fc0368682c6edc63eeb1142ce4b",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "downloaded but not inspected"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/d15b0cc391acf8478c21294cbdbe0460_7053938420738513602.png",
+      "sha256": "f6d2002170e8ae933c6df4cdfb08509177592d7ad1bb69d1d4d475548b0ee08b",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "downloaded but not inspected"
+    }
+  ],
+  "model_lookup": "Web search did not yield a usable matching model; no 3D or back inspected",
+  "observed": "Four jagged purple/pink petals, pale yellow flower center, twisted lilac stem, blue basal leaves, thorny side stalks with small flowers and blue points",
+  "output": "assets/electro-regisvine-idle-source-v1.png",
+  "sha256": "6fa53e10dd29418b61e1a80bd65519455b97d3e17c0531b27fbf268a8088e4a1",
+  "profiles": {
+    "legacy": {
+      "height": 200,
+      "runs": 8154
+    },
+    "h48c32": {
+      "height": 150,
+      "runs": 5312
+    },
+    "h32c16": {
+      "height": 100,
+      "runs": 2499
+    }
+  },
+  "alpha": {
+    "zero": 877592,
+    "at_least_250": 582819,
+    "partial": 693996
+  },
+  "limits": [
+    "Back and 3D unverified",
+    "Fine petal veins simplified and root base flattened",
+    "200px display height provisional",
+    "Idle only; no animation, core state switching or live combat"
+  ],
+  "visual_review": "Viewed generated source and browser PNG/100px comparison. Four petal lobes, center glow and twisted stem retained; small petal veins and root luminous lines break up. Viewed Sumeru map comparison: rooted base aligns with platform and purple silhouette remains distinct from green background. Not native performance verification."
+}

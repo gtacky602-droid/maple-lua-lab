@@ -31,6 +31,7 @@ try{
   await p.click('#flipSelected');
   if(kind==='boss'&&item.id==='jadeplume')await p.locator('main').screenshot({path:'evidence/jadeplume-map-comparison.png'});
   if(kind==='character'&&item.id==='traveler')await p.locator('main').screenshot({path:'evidence/character-boss-map-comparison.png'});
+  if(item.id==='electro-regisvine')await p.locator('main').screenshot({path:'evidence/electro-regisvine-map-comparison.png'});
   const promise=p.waitForEvent('download');await p.click('#export');const download=await promise;
   const text=await fs.readFile(await download.path(),'utf8');
   await p.click('#deleteSelected');if((await state()).count!==baseline)throw Error('delete');

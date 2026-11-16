@@ -1,0 +1,9 @@
+{
+  "mode": "builtin image_gen",
+  "generated_file": "exec-349cddf1-fc85-40cd-bd9a-5358d99f6071.png",
+  "reference_files": [
+    "work/references/electro-regisvine-2.png",
+    "work/references/electro-regisvine-4.png"
+  ],
+  "prompt": "Use case: stylized-concept\nAsset type: idle boss sprite for Maple-inspired 2D RPG lab.\nPrimary request: Create one transparent-background pixel-art Electro Regisvine faithful to supplied appearance references.\nInput images: first full body rendered appearance; second real game frontal view. Use anatomy and colors, omit all battle effects and scenery.\nSubject: upright rooted plant boss, near frontal with slight leftward turn. Four huge jagged purple/pink feather-shaped petal blades in X arrangement, two upper ones rising taller than the two sweeping lower ones; pale yellow highlights near their bases. Bright pale yellow pointed central flower face surrounded by lavender pointed inner petals, dark blue rear sepals. Two thin thorny sideways curved stalks each ending in a small purple flower and long blue crystal point. Twisted lilac thick central stem, icy blue broad basal leaves, dark purple broad root mound with a few yellow veins. Base firmly on one ground line.\nStyle: crisp chunky pixel-art clusters, dark colored outline, limited shades, visually readable at 200 pixels high and at 100 pixels high. Simplify fine petal veins while preserving four-lobed silhouette and twisted stem. No soft painting, blur, dithering or tiny noise.\nComposition: one complete isolated creature, all petal tips and side flowers visible, transparent margin all sides. No cast shadow, rocks, pedestal, lightning arcs, sparks, particles, text, UI, duplicate characters or animation frames. Actual alpha transparency. Not an attack pose."
+}
