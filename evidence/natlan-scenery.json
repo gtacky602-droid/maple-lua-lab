@@ -1,0 +1,22 @@
+{
+  "errors": [],
+  "result": [
+    {
+      "id": "natlan-entry",
+      "key": "natlan"
+    },
+    {
+      "id": "natlan-hub",
+      "key": "natlan"
+    },
+    {
+      "id": "natlan-field",
+      "key": "natlan"
+    },
+    {
+      "id": "natlan-port",
+      "key": "natlan"
+    }
+  ],
+  "method": "actual story node data rendered by shared host scenery; visual fixture, not a gameplay travel test"
+}

@@ -1,0 +1,5 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Wide 16:9 scenic background for a MapleStory-like pixel-art side scrolling fantasy RPG, original Natlan-inspired vibrant red-rock grassland landscape. Layered ochre and terracotta mesas with green grassy tops, distant volcanic peak under clear blue sky, a small colorful geometric tribal settlement with woven banners and wooden bridges on the right, broad sunny savanna, scattered palms and hardy flowering shrubs, a distant turquoise river winding through canyon. Unobstructed middle and lower area for small playable sprites, simple reddish dirt and grass path only along bottom tenth. Crisp detailed 16-bit pixel-art clusters, warm orange rock and fresh green palette, atmospheric depth, calm daylight. No characters, creatures, UI, text, foreground platforms, active lava or combat effects. Provisional regional scenery, not exact game geography.",
+  "status": "provisional regional mainland backdrop; sea voyage and Ochkanatlan have no dedicated background yet"
+}
