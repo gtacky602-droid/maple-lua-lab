@@ -1,0 +1,13 @@
+{
+  "errors": [],
+  "checks": [
+    "add/flip/move/delete/reset/live-load undo and redo",
+    "per-node isolation",
+    "new edit invalidates only current redo",
+    "import clears histories",
+    "1024 total limit rejects restore without losing history",
+    "restore succeeds after freeing capacity",
+    "reload retains saved draft but clears histories",
+    "390px no overflow"
+  ]
+}
