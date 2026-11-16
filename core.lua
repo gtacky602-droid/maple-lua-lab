@@ -341,7 +341,7 @@ function C.step(s,dt,input)
   else for _,a in ipairs(s.actors) do a.hp=a.maxhp;a.x=140+a.id*60;a.y=480;a.inv=3 end;s.returns=s.returns+1;event(s,'return') end
  end
  for _,list in ipairs({s.numbers,s.effects}) do for i=#list,1,-1 do list[i].life=list[i].life-dt;if list[i].life<=0 then table.remove(list,i) end end end
- local player=s.actors[s.active];s.camera=clamp(player.x-400,0,1920)
+ local player=s.actors[s.active];s.camera=clamp(player.x-400,0,math.max(0,(s.worldwidth or 2880)-960))
 end
 function C.frame(s,mode,profile)
  local draws={};local visible=0

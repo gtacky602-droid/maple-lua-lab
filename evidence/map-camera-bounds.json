@@ -1,0 +1,317 @@
+{
+  "nodes": [
+    {
+      "node": "mond-town",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "mond-road",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "mond-border",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "liyue-entry",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "liyue-harbor",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "liyue-field",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "liyue-ferry",
+      "width": 960,
+      "rightCamera": 0
+    },
+    {
+      "node": "inazuma-port",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "inazuma-road",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "inazuma-town",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "sumeru-entry",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "sumeru-hub",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "sumeru-field",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "fontaine-entry",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "fontaine-hub",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "fontaine-field",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "natlan-entry",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "natlan-hub",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "natlan-field",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "natlan-port",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "natlan-voyage",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "ochkanatlan-dock",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "ochkanatlan-ruins",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "nod-port",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "nod-field",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "nod-town",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "snezhnaya-entry",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "snezhnaya-hub",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "snezhnaya-field",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "dragonspine-camp",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "dragonspine-depth",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "chenyu-camp",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "chenyu-depth",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "enkanomiya-camp",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "enkanomiya-depth",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "tunigi-camp",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "tunigi-depth",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "bygone-camp",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "bygone-depth",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "dornman-camp",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "dornman-depth",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "nod-special-camp",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "nod-special-depth",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "novokichev-camp",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "novokichev-depth",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "golden-hub",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "golden-play",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "veluriyam-hub",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "veluriyam-play",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "simulanka-hub",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "simulanka-play",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "anemo-approach",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "cryo-approach",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "pyro-approach",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "electro-approach",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "geo-approach",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "oceanid-approach",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "primo-approach",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "maguu-approach",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "array-approach",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "thunder-approach",
+      "width": 1440,
+      "rightCamera": 480
+    }
+  ],
+  "checks": [
+    "61 nodes left/middle/right ground covers viewport",
+    "player stays on screen",
+    "node entry clears prior camera immediately",
+    "return portal first frame clamped",
+    "original 2880 test field unchanged",
+    "declared widths 960 through 4800"
+  ]
+}

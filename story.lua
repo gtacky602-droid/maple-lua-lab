@@ -51,6 +51,7 @@ return function(C,data)
    end
   end
   for i,a in ipairs(s.actors) do a.x=(spawn or 160)-(i-1)*40;a.y=480;a.vy=0;a.ground=true end
+  s.camera=math.max(0,math.min(s.actors[s.active].x-400,math.max(0,n.width-960)))
   s.macro=nil;s.encounter=nil;s.voyage=n.voyage and {destination=n.voyage.destination,arrives=s.t+n.voyage.seconds-(elapsed or 0),started=s.t-(elapsed or 0),source=n.voyage.source,stopStart=n.voyage.stopStart,stopEnd=n.voyage.stopEnd} or nil;progress(s,'visit',id,1)
  end
  function C.enterStoryNode(s,id) setup(s);enter(s,id) end
