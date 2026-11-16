@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-17",
+  "encounter": "bathysmal-herd",
+  "references": [
+    {
+      "url": "https://gamefans.ru/uploads/posts/2022-01/1642676300_genshinimpact-vishapi-glubin.png",
+      "sha256": "61586fef000bba61313fc774e05b02a17a5b7abd5eb2d0990e829436ce29ba64",
+      "directly_viewed": true,
+      "generation_input": true,
+      "view": "game screenshot: frontal three-quarter pair"
+    },
+    {
+      "url": "https://xboxplay.games/uploadStream/24332.jpg",
+      "sha256": "8776327ccd2c267f226cd9eba165b7efb30b3f171e59ae647a400f3dfda7a19e",
+      "directly_viewed": true,
+      "generation_input": true,
+      "view": "game screenshot: full quadrupeds and raised tail tips; attacks excluded from generated artwork"
+    }
+  ],
+  "model_lookup": "Earlier targeted model search did not yield a usable matching model. Actual 3D, full rear and underside remain unverified. Juvenile HoYoWiki2179 was excluded.",
+  "assets": {
+    "rimebiter": {
+      "source": "assets/rimebiter-idle-source-v1.png",
+      "sha256": "399ec9eb7b96c6fb6120c61e3a6c02fbe5d7bbb488d8f9648f61e71749bede3e",
+      "profiles": {
+        "legacy": {
+          "height": 160,
+          "runs": 7605
+        },
+        "h48c32": {
+          "height": 120,
+          "runs": 4938
+        },
+        "h32c16": {
+          "height": 80,
+          "runs": 2373
+        }
+      },
+      "rectangle_reduction_percent": 68.8,
+      "anchorX": 0.3793706293706294,
+      "anchor_method": "midpoint of opaque pixels in bottom 3.5 percent band",
+      "corner_alpha": 0,
+      "visual_review": "PNG and rectangle checkerboard comparison plus two-sprite map compositing directly viewed. No rectangular background or glow retained in browser compositing."
+    },
+    "bolteater": {
+      "source": "assets/bolteater-idle-source-v1.png",
+      "sha256": "caadda793d81d745bc88a16a4e7e0e3559f678f257a61c79a144dfc3482c9056",
+      "profiles": {
+        "legacy": {
+          "height": 160,
+          "runs": 8201
+        },
+        "h48c32": {
+          "height": 120,
+          "runs": 5043
+        },
+        "h32c16": {
+          "height": 80,
+          "runs": 2368
+        }
+      },
+      "rectangle_reduction_percent": 71.13,
+      "anchorX": 0.35101651842439646,
+      "anchor_method": "midpoint of opaque pixels in bottom 3.5 percent band",
+      "corner_alpha": 0,
+      "visual_review": "PNG and rectangle checkerboard comparison plus two-sprite map compositing directly viewed. No rectangular background or glow retained in browser compositing."
+    }
+  },
+  "limitations": [
+    "Original interpretation, not exact model projection; heads and shoulders exaggerated for readability.",
+    "80px loses eyes, teeth and fine crystal outlines.",
+    "Static idle candidates only; no attacks, animations, paired fight or rewards implemented.",
+    "Pair placement uses Sumeru as a render-test fixture, not canonical habitat or encounter placement.",
+    "Backgrounds remain lab images; production 3D unbuilt.",
+    "Rectangle reduction is not measured FPS or native performance."
+  ]
+}

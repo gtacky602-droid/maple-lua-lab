@@ -208,3 +208,12 @@ HoYoWiki3993の全身レンダー、ゲーム内正面、最終設定画の正�
 コッペリア浮遊24px、コペリウス接地0pxで同時配置を検証。杖先を足元基準から除くため--anchor-xを追加し、コペリウスは原画の両足x288〜460の中心374.5に基づく.38457269700332963を指定。自動foot-anchorとの併用・範囲外値を拒否。再生成時もこの引数を用いる。52美術候補・氷風2演目にも個別待機素材を登録。2体の連携動作・技・実戦は未制作。仮背景・本番3D方針を維持。
 
 52候補の3profile/3zoom/両向き・配置・JSON往復・390px検証、2体同時配置3profile検証を通過。根拠: evidence/icewind-reference-audit.json, evidence/icewind-pair-test.json, evidence/icewind-pair-map.png。プロンプト: assets/coppelia-generation-v1.json, assets/coppelius-generation-v1.json。
+
+
+## 2026-11-17 アビサルヴィシャップの群れ：2体の待機素材
+
+噛氷・吞雷をゲーム内画像2枚の参照付き生成で個別素材化。3Dモデル、背面全体、腹面は未確認。160/120/80pxで氷7605/4938/2373矩形（68.80%減）、雷8201/5043/2368矩形（71.13%減）。80pxでは目・歯・結晶の細線が省略される。原画保持、足元は下端3.5%の不透明範囲で合わせ、接地0px。
+
+美術候補54件。群れは1戦のまま、art_componentsに2体を登録。戦闘・技・動作は未実装のまま。54候補の3profile/3zoom/左右・配置・JSON往復・390px幅と、2体同時配置3profileを検証。比較画像を目視し透過を確認。スメール背景は配置検査用で生息地設定ではない。背景は仮画像、本番3D方針を継続。矩形削減は実機速度の保証ではない。
+
+根拠: evidence/bathysmal-reference-audit.json、evidence/bathysmal-pair-test.json、evidence/bathysmal-pair-map.png。生成記録: assets/rimebiter-generation-v1.json、assets/bolteater-generation-v1.json。

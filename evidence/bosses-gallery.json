@@ -2,13 +2,25 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 52,
-    "visibleCount": 52,
+    "count": 54,
+    "visibleCount": 54,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "rimebiter",
+        "h": 160,
+        "w": 245.49356223175965,
+        "ratio": 1.5343347639484979
+      },
+      {
+        "id": "bolteater",
+        "h": 160,
+        "w": 275.23497267759564,
+        "ratio": 1.7202185792349727
+      },
       {
         "id": "coppelia",
         "h": 160,

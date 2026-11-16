@@ -2,6 +2,20 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "rimebiter",
+      "name": "アビサルヴィシャップ・噛氷（待機候補）",
+      "file": "rimebiter-idle-sprites.json",
+      "height": 160,
+      "mapHover": 0
+    },
+    {
+      "id": "bolteater",
+      "name": "アビサルヴィシャップ・吞雷（待機候補）",
+      "file": "bolteater-idle-sprites.json",
+      "height": 160,
+      "mapHover": 0
+    },
+    {
       "id": "coppelia",
       "name": "氷風組曲：コッペリア（待機候補）",
       "file": "coppelia-idle-sprites.json",
