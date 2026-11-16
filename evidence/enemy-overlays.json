@@ -1,0 +1,397 @@
+{
+  "results": [
+    {
+      "asset": "hydro-slime",
+      "mode": "sprite",
+      "profile": "legacy",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    },
+    {
+      "asset": "hydro-slime",
+      "mode": "sprite",
+      "profile": "h48c32",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    },
+    {
+      "asset": "hydro-slime",
+      "mode": "sprite",
+      "profile": "h32c16",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    },
+    {
+      "asset": "hydro-slime",
+      "mode": "rect",
+      "profile": "legacy",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    },
+    {
+      "asset": "hydro-slime",
+      "mode": "rect",
+      "profile": "h48c32",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    },
+    {
+      "asset": "hydro-slime",
+      "mode": "rect",
+      "profile": "h32c16",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    },
+    {
+      "asset": "pyro-slime",
+      "mode": "sprite",
+      "profile": "legacy",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    },
+    {
+      "asset": "pyro-slime",
+      "mode": "sprite",
+      "profile": "h48c32",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    },
+    {
+      "asset": "pyro-slime",
+      "mode": "sprite",
+      "profile": "h32c16",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    },
+    {
+      "asset": "pyro-slime",
+      "mode": "rect",
+      "profile": "legacy",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    },
+    {
+      "asset": "pyro-slime",
+      "mode": "rect",
+      "profile": "h48c32",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    },
+    {
+      "asset": "pyro-slime",
+      "mode": "rect",
+      "profile": "h32c16",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    },
+    {
+      "asset": "hilichurl",
+      "mode": "sprite",
+      "profile": "legacy",
+      "head_y": 274,
+      "bar_y": 265,
+      "warning_y": 251
+    },
+    {
+      "asset": "hilichurl",
+      "mode": "sprite",
+      "profile": "h48c32",
+      "head_y": 274,
+      "bar_y": 265,
+      "warning_y": 251
+    },
+    {
+      "asset": "hilichurl",
+      "mode": "sprite",
+      "profile": "h32c16",
+      "head_y": 274,
+      "bar_y": 265,
+      "warning_y": 251
+    },
+    {
+      "asset": "hilichurl",
+      "mode": "rect",
+      "profile": "legacy",
+      "head_y": 274,
+      "bar_y": 265,
+      "warning_y": 251
+    },
+    {
+      "asset": "hilichurl",
+      "mode": "rect",
+      "profile": "h48c32",
+      "head_y": 274,
+      "bar_y": 265,
+      "warning_y": 251
+    },
+    {
+      "asset": "hilichurl",
+      "mode": "rect",
+      "profile": "h32c16",
+      "head_y": 274,
+      "bar_y": 265,
+      "warning_y": 251
+    },
+    {
+      "asset": "ruin-guard",
+      "mode": "sprite",
+      "profile": "legacy",
+      "head_y": 206,
+      "bar_y": 197,
+      "warning_y": 183
+    },
+    {
+      "asset": "ruin-guard",
+      "mode": "sprite",
+      "profile": "h48c32",
+      "head_y": 206,
+      "bar_y": 197,
+      "warning_y": 183
+    },
+    {
+      "asset": "ruin-guard",
+      "mode": "sprite",
+      "profile": "h32c16",
+      "head_y": 206,
+      "bar_y": 197,
+      "warning_y": 183
+    },
+    {
+      "asset": "ruin-guard",
+      "mode": "rect",
+      "profile": "legacy",
+      "head_y": 206,
+      "bar_y": 197,
+      "warning_y": 183
+    },
+    {
+      "asset": "ruin-guard",
+      "mode": "rect",
+      "profile": "h48c32",
+      "head_y": 206,
+      "bar_y": 197,
+      "warning_y": 183
+    },
+    {
+      "asset": "ruin-guard",
+      "mode": "rect",
+      "profile": "h32c16",
+      "head_y": 206,
+      "bar_y": 197,
+      "warning_y": 183
+    },
+    {
+      "asset": "dendro-fungus",
+      "mode": "sprite",
+      "profile": "legacy",
+      "head_y": 268,
+      "bar_y": 259,
+      "warning_y": 245
+    },
+    {
+      "asset": "dendro-fungus",
+      "mode": "sprite",
+      "profile": "h48c32",
+      "head_y": 268,
+      "bar_y": 259,
+      "warning_y": 245
+    },
+    {
+      "asset": "dendro-fungus",
+      "mode": "sprite",
+      "profile": "h32c16",
+      "head_y": 268,
+      "bar_y": 259,
+      "warning_y": 245
+    },
+    {
+      "asset": "dendro-fungus",
+      "mode": "rect",
+      "profile": "legacy",
+      "head_y": 268,
+      "bar_y": 259,
+      "warning_y": 245
+    },
+    {
+      "asset": "dendro-fungus",
+      "mode": "rect",
+      "profile": "h48c32",
+      "head_y": 268,
+      "bar_y": 259,
+      "warning_y": 245
+    },
+    {
+      "asset": "dendro-fungus",
+      "mode": "rect",
+      "profile": "h32c16",
+      "head_y": 268,
+      "bar_y": 259,
+      "warning_y": 245
+    },
+    {
+      "asset": "nobushi",
+      "mode": "sprite",
+      "profile": "legacy",
+      "head_y": 246,
+      "bar_y": 237,
+      "warning_y": 223
+    },
+    {
+      "asset": "nobushi",
+      "mode": "sprite",
+      "profile": "h48c32",
+      "head_y": 246,
+      "bar_y": 237,
+      "warning_y": 223
+    },
+    {
+      "asset": "nobushi",
+      "mode": "sprite",
+      "profile": "h32c16",
+      "head_y": 246,
+      "bar_y": 237,
+      "warning_y": 223
+    },
+    {
+      "asset": "nobushi",
+      "mode": "rect",
+      "profile": "legacy",
+      "head_y": 246,
+      "bar_y": 237,
+      "warning_y": 223
+    },
+    {
+      "asset": "nobushi",
+      "mode": "rect",
+      "profile": "h48c32",
+      "head_y": 246,
+      "bar_y": 237,
+      "warning_y": 223
+    },
+    {
+      "asset": "nobushi",
+      "mode": "rect",
+      "profile": "h32c16",
+      "head_y": 246,
+      "bar_y": 237,
+      "warning_y": 223
+    },
+    {
+      "asset": "armored-crab",
+      "mode": "sprite",
+      "profile": "legacy",
+      "head_y": 286,
+      "bar_y": 277,
+      "warning_y": 263
+    },
+    {
+      "asset": "armored-crab",
+      "mode": "sprite",
+      "profile": "h48c32",
+      "head_y": 286,
+      "bar_y": 277,
+      "warning_y": 263
+    },
+    {
+      "asset": "armored-crab",
+      "mode": "sprite",
+      "profile": "h32c16",
+      "head_y": 286,
+      "bar_y": 277,
+      "warning_y": 263
+    },
+    {
+      "asset": "armored-crab",
+      "mode": "rect",
+      "profile": "legacy",
+      "head_y": 286,
+      "bar_y": 277,
+      "warning_y": 263
+    },
+    {
+      "asset": "armored-crab",
+      "mode": "rect",
+      "profile": "h48c32",
+      "head_y": 286,
+      "bar_y": 277,
+      "warning_y": 263
+    },
+    {
+      "asset": "armored-crab",
+      "mode": "rect",
+      "profile": "h32c16",
+      "head_y": 286,
+      "bar_y": 277,
+      "warning_y": 263
+    },
+    {
+      "asset": "legacy-atlas",
+      "mode": "sprite",
+      "profile": "legacy",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    },
+    {
+      "asset": "legacy-atlas",
+      "mode": "sprite",
+      "profile": "h48c32",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    },
+    {
+      "asset": "legacy-atlas",
+      "mode": "sprite",
+      "profile": "h32c16",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    },
+    {
+      "asset": "legacy-atlas",
+      "mode": "rect",
+      "profile": "legacy",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    },
+    {
+      "asset": "legacy-atlas",
+      "mode": "rect",
+      "profile": "h48c32",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    },
+    {
+      "asset": "legacy-atlas",
+      "mode": "rect",
+      "profile": "h32c16",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287
+    }
+  ],
+  "checks": [
+    "bar and warning above sprite including hover offset",
+    "half HP bar length",
+    "camera shift",
+    "full HP and inactive warning hidden",
+    "dead enemy warning hidden",
+    "render leaves combat state unchanged"
+  ],
+  "scope": "layout only; no attack timing, damage or hitbox changes"
+}

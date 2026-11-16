@@ -371,8 +371,10 @@ function C.frame(s,mode,profile)
    if C.enemyIdleArt and C.enemyIdleArt[e.art] then C.drawEnemyIdleArt({draws=draws},s,e,mode,profile)
    else add({kind='sprite',asset=e.kind==1 and 5 or 7,x=e.x-s.camera,y=e.y,w=e.boss and 144 or 48,h=e.boss and 120 or 40,flip=false}) end
   end
-  if e.hp<e.maxhp then rect(e.x-s.camera-20,e.y-49,40,4,'#45645d');rect(e.x-s.camera-20,e.y-49,40*e.hp/e.maxhp,4,'#ffcc7c') end
-  if e.warning>0 then add({kind='text',x=e.x-s.camera,y=e.y-63,text='!',color='#e54b35',size=26}) end
+  local layout=not e.custom and C.enemyIdleArt and C.enemyIdleArt[e.art] and C.enemyArtLayout[e.art]
+  local headY=e.y-(layout and (layout.height+layout.hover) or 40)
+  if e.hp<e.maxhp then rect(e.x-s.camera-20,headY-9,40,4,'#45645d');rect(e.x-s.camera-20,headY-9,40*e.hp/e.maxhp,4,'#ffcc7c') end
+  if e.warning>0 then add({kind='text',x=e.x-s.camera,y=headY-23,text='!',color='#e54b35',size=26}) end
  end end
  for _,a in ipairs(s.actors) do
   if a.hp>0 then
