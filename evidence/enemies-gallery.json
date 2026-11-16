@@ -2,7 +2,7 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 3,
+    "count": 4,
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
@@ -24,6 +24,12 @@
         "h": 76,
         "w": 41.67741935483871,
         "ratio": 0.5483870967741935
+      },
+      {
+        "id": "hydro-slime-reference",
+        "h": 40,
+        "w": 57.65704584040747,
+        "ratio": 1.4414261460101867
       }
     ]
   },

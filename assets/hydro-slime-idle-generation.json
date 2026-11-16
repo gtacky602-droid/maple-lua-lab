@@ -1,0 +1,10 @@
+{
+  "initial_prompt": "Generate ONE isolated Hydro Slime idle sprite for a Maple-like 2D pixel RPG, transparent background. Refer to attached HoYoWiki images for actual creature appearance: simple rounded slightly flattened cyan/teal jelly dome, two pale yellow-white vertical oval eyes rimmed blue, darker teal top and luminous pale cyan lower belly. No mouth, no arms, no horn, no accessories, no surrounding floating bubbles, no floor, no shadow, no text. Facing slightly right, grounded flat bottom. Crisp intentional pixel-art clusters and stepped pixel outline, limited palette about 16-24 colors, no smooth painted gradients or antialiasing. Designed to read at 40 pixels tall; output as a clean enlarged pixel sprite centered with transparent margin. One creature only, not a sheet. Preserve key contour and two distinct eyes. Reference card used for palette only, do not reproduce its background or multiple creatures.",
+  "revision": "v2 requested removal of outer glow and flatter pixel clusters; residual glow remains",
+  "references": [
+    "work/references/hydro-hoyowiki-1.png",
+    "work/references/hydro-hoyowiki-2.png"
+  ],
+  "selected": "hydro-slime-idle-source-v2.png",
+  "status": "gallery candidate only"
+}

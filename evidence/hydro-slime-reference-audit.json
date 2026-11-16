@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2167?crawler=Googlebot",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2026/03/04/35428890/2907723f4b558a6b955718d7b5f08442_1394659127991228117.png",
+      "sha256": "5b3c3141037c52d917976f88e1222246f7db416481bfd2ca7db002b00a150a11",
+      "directly_viewed": true,
+      "used_for_generation": false
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2026/03/04/35428890/55898b75bc80ed265ad01c616a8950bd_4384534132808681251.png",
+      "sha256": "c657837c6f7a7daaded0b017dda400ebd565bd030abf49ff41ffcfee0c6babd8",
+      "directly_viewed": true,
+      "used_for_generation": true
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2022/12/16/35428890/3a3eb3193945cbd993d35d88cc8a6c47_9213407253300864229.png",
+      "sha256": "ffa4a119e008f5c061eba90b1a01686e2a0cfa2e23e10242b2ef5ed8c1d696aa",
+      "directly_viewed": true,
+      "used_for_generation": true
+    }
+  ],
+  "models": {
+    "mmdfr_hydro_slime_and_slime": "404",
+    "models_resource_asset_587823": "listing found; ZIP download challenged; no model acquired or viewed"
+  },
+  "observations": [
+    "Cyan-teal rounded body; pale vertical eyes; pale belly",
+    "First two images depict same source; third is stylized card art, not independent model angle"
+  ],
+  "output": "assets/hydro-slime-idle-source-v2.png",
+  "sha256": "8c62268534675dc48fbb4e82eb08b81976bde309df3c7fa6c50a8f286b781f42",
+  "profiles": {
+    "legacy": {
+      "height": 40,
+      "runs": 728
+    },
+    "h48c32": {
+      "height": 30,
+      "runs": 415
+    },
+    "h32c16": {
+      "height": 20,
+      "runs": 164
+    }
+  },
+  "validation": [
+    "4 enemy candidates: 3 profiles, 3 scales, both facings, mobile width 390 passed",
+    "9 character gallery regression passed",
+    "PNG and smallest profile directly viewed"
+  ],
+  "limitations": [
+    "Residual soft outer glow despite v2 edit request",
+    "Alpha >=128 used for rectangle compiler; faint halo omitted",
+    "Back and 3D shape unverified",
+    "Gallery only; live game and map placement still use old atlas",
+    "No attack changes; no native performance measurement"
+  ]
+}
