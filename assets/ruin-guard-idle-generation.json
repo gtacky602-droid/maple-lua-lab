@@ -1,0 +1,8 @@
+{
+  "prompt": "Create ONE isolated Genshin Ruin Guard idle enemy sprite for a Maple-like side-scrolling 2D pixel RPG. Reference 1 is actual in-game standing proportions, reference 2 shows frontal material details. Neutral standing 3/4 view facing right, both feet fully visible on same ground line, arms hanging, fists near knees. Massive broad armored shoulders, compact round upper torso with single recessed orange glowing core surrounded by four stone spokes, thin segmented waist, long heavily ring-banded forearms, heavy broad three-toed feet, weathered grey-beige carved stone armor over dark rusty brown machinery, orange shoulder cylinder markings and sparse small blue vegetation on upper shoulders. No humanoid face or helmet, no weapon, no action pose. Retain recognizability but simplify intricate carved patterns into strong pixel clusters for 144px display height. Crisp pixel-art edges and limited palette, no soft halo, no floor shadow, no background, no text. Transparent background with generous margin. No companion birds or extra characters. Full body, one sprite only.",
+  "references": [
+    "work/references/ruin-guard-ref-3.png",
+    "work/references/ruin-guard-ref-1.png"
+  ],
+  "status": "gallery and map-placement idle candidate; not live combat"
+}

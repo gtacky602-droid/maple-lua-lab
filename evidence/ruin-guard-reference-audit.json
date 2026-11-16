@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2220?crawler=Googlebot",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2023/12/21/35428890/a8dcb2fea4b75d4954cde6ce93f14fb4_8556033524630425911.png",
+      "sha256": "03807c12388a61ffe5cb80358f3d457dcff59d6c62d24dbc60c58005eeb68da4",
+      "directly_viewed": true,
+      "generation_input": false
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/19/35428890/1968704f8ed27cbbef74ec6ae55230a7_4787062633880428164.png",
+      "sha256": "dc0dbd2377dfeff069437bd01b81547fe85343626891591583c269e51cdd5902",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/19/35428890/385aff969887684fb3bb25f4b4945fff_6019080536727423507.png",
+      "sha256": "18f958c1fd6362e122d12c463c2f5c82b30b95549f5de7bdf5f99ce427931f73",
+      "directly_viewed": true,
+      "generation_input": false
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/19/35428890/6c467e87c2fefc31c11fc6d43f8f2a2c_2667591437335661117.png",
+      "sha256": "fb37eb275032f6d2a50cf8bdba707beafa2e37e3892b58aa2bdee3d535962542",
+      "directly_viewed": true,
+      "generation_input": true
+    }
+  ],
+  "model_lookup": "MMDFr ruin-guard endpoint returned404; no model inspected",
+  "observations": [
+    "In-game standing image used for proportions; seated art for frontal details",
+    "Broad shoulders, long ring-banded arms, orange central core, heavy toes"
+  ],
+  "output": "assets/ruin-guard-idle-source-v1.png",
+  "sha256": "28d81ebd2fe51380c48586133e8c4d237ee020dd00af7b596f34111759e7a94f",
+  "profiles": {
+    "legacy": {
+      "height": 144,
+      "runs": 6243
+    },
+    "h48c32": {
+      "height": 108,
+      "runs": 3862
+    },
+    "h32c16": {
+      "height": 72,
+      "runs": 1764
+    }
+  },
+  "validation": [
+    "6 candidate gallery profiles/zoom/facing/mobile390 and large-canvas clipping check",
+    "9 character gallery regression",
+    "61 node placement editor regression",
+    "Liyue placement PNG/h32c16 directly viewed"
+  ],
+  "limits": [
+    "Back and side 3D views not inspected",
+    "Intricate engravings and core glow weaken at smallest profile",
+    "144px display height is provisional",
+    "Gallery and placement preview only; no new combat or skills"
+  ]
+}

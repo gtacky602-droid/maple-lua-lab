@@ -56,6 +56,12 @@
       "id": "hilichurl",
       "status": "model-informed idle connected to mond-road and mond-border; existing generic proxy behavior, no dedicated attacks or walking animation",
       "art": "assets/hilichurl-idle-sprites.json"
+    },
+    {
+      "id": "ruin-guard",
+      "status": "HoYoWiki standing screenshot and frontal art referenced idle candidate; gallery and placement preview only; no live spawn, back/side model check or dedicated behavior",
+      "art": "assets/ruin-guard-idle-sprites.json",
+      "audit": "evidence/ruin-guard-reference-audit.json"
     }
   ],
   "scope": "inventory of existing work, not full planned enemy roster",
@@ -66,7 +72,8 @@
     "scope": "61 authored proxy nodes; mond-road initial visual draft; in-memory edits can be exported and imported with node/species/ID/grounding validation; not combat spawns",
     "candidates": [
       "hydro-slime-reference",
-      "pyro-slime-reference"
+      "pyro-slime-reference",
+      "ruin-guard"
     ]
   },
   "live_placement": {

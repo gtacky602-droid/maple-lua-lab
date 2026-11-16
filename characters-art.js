@@ -9,6 +9,7 @@ try{
   await add('hilichurl','ヒルチャール（待機候補）',await json('assets/hilichurl-idle-sprites.json'),76);
   await add('hydro-slime-reference','水スライム（参照付き候補・本編表示中）',await json('assets/hydro-slime-idle-sprites.json'),40);
   await add('pyro-slime-reference','炎スライム（参照付き候補・本編表示中）',await json('assets/pyro-slime-idle-sprites.json'),40);
+  await add('ruin-guard','遺跡守衛（待機候補・本編未配置）',await json('assets/ruin-guard-idle-sprites.json'),144);
  }else{
  await add('traveler','旅人',await json('assets/traveler-idle-sprites.json'),88);
  await add('amber','アンバー',await json('assets/amber-idle-sprites.json'),88);
@@ -16,8 +17,8 @@ try{
  }
  function render(){const profile=$('profile').value,zoom=Number($('zoom').value),flip=$('flip').checked;
   for(const {data,image,article,h,w} of assets){const a=data.profiles[profile],height=h*zoom,width=w*zoom,anchor=data.anchorX??.5;
-   for(const [i,canvas] of [...article.querySelectorAll('canvas')].entries()){const ctx=canvas.getContext('2d');ctx.clearRect(0,0,340,300);ctx.imageSmoothingEnabled=false;ctx.save();ctx.translate(170,285);if(flip)ctx.scale(-1,1);const x=-width*anchor,y=-height;
-    if(i===0)ctx.drawImage(image,...data.box,x,y,width,height);else for(const r of a.runs){ctx.fillStyle=r[4];ctx.fillRect(x+r[0]*width/a.width,y+r[1]*height/a.height,r[2]*width/a.width+.05,r[3]*height/a.height+.05)}ctx.restore();ctx.fillStyle='#dae5cc';ctx.fillRect(0,285,340,1);
+   for(const [i,canvas] of [...article.querySelectorAll('canvas')].entries()){canvas.width=Math.max(340,Math.ceil(width*2*Math.max(anchor,1-anchor)+30));canvas.height=Math.max(300,Math.ceil(height+30));const ctx=canvas.getContext('2d');ctx.clearRect(0,0,canvas.width,canvas.height);ctx.imageSmoothingEnabled=false;ctx.save();ctx.translate(canvas.width/2,canvas.height-15);if(flip)ctx.scale(-1,1);const x=-width*anchor,y=-height;
+    if(i===0)ctx.drawImage(image,...data.box,x,y,width,height);else for(const r of a.runs){ctx.fillStyle=r[4];ctx.fillRect(x+r[0]*width/a.width,y+r[1]*height/a.height,r[2]*width/a.width+.05,r[3]*height/a.height+.05)}ctx.restore();ctx.fillStyle='#dae5cc';ctx.fillRect(0,canvas.height-15,canvas.width,1);
    }
    article.querySelector('.stats').textContent=`表示${h}px高 ／ ${a.width}×${a.height}px ／ ${a.runs.length.toLocaleString()}矩形 ／ ${(100*(1-a.runs.length/data.profiles.legacy.runs.length)).toFixed(1)}%減`;
   }$('status').textContent=`${assets.length}体を表示。原画像を変更せず比較しています。`;window.charactersGallery={ready:true,count:assets.length,profile,zoom,flip,dimensions:assets.map(({id,h,w,data})=>({id,h,w,ratio:data.box[2]/data.box[3]}))};
