@@ -3,7 +3,7 @@ const b=await chromium.launch({headless:true,channel:'chrome'}),p=await b.newPag
 try{
  await p.goto('http://127.0.0.1:8769/map-art.html');await p.waitForFunction(()=>window.mapArt?.ready);
  const ids=await p.locator('#node option').evaluateAll(xs=>xs.map(x=>x.value)),results=[];
- for(const id of ids){await p.selectOption('#node',id);const s=await p.evaluate(()=>window.mapArt);if(s.node!==id||!s.grounded)throw Error('Invalid node '+id);results.push({id,count:s.count,fallback:s.backgroundFallback});}
+ for(const id of ids){await p.selectOption('#node',id);const s=await p.evaluate(()=>window.mapArt);if(s.node!==id||!s.grounded||s.backgroundState!=='ready')throw Error('Invalid node '+id);results.push({id,count:s.count,fallback:s.backgroundFallback,backgroundState:s.backgroundState});}
  await p.selectOption('#node','mond-road');for(const profile of ['legacy','h48c32','h32c16']){await p.selectOption('#profile',profile);await p.locator('#camera').fill('480');await p.locator('#camera').dispatchEvent('input');if((await p.evaluate(()=>window.mapArt)).camera!==480)throw Error('camera');}
  await p.locator('#camera').fill('0');await p.locator('#camera').dispatchEvent('input');
  const box=await p.locator('#png').boundingBox();await p.mouse.click(box.x+600/960*box.width,box.y+470/540*box.height);let s=await p.evaluate(()=>window.mapArt);if(s.count!==4||s.placements[3].y!==480)throw Error('snap');

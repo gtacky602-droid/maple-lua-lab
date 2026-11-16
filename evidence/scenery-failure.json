@@ -1,0 +1,18 @@
+{
+  "results": [
+    {
+      "file": "tunigi-background-v1.png",
+      "node": "tunigi-depth",
+      "errorReported": true,
+      "healthyNodeUnaffected": true,
+      "errors": []
+    },
+    {
+      "file": "mondstadt-background.png",
+      "node": "golden-hub",
+      "errorReported": true,
+      "healthyNodeUnaffected": true,
+      "errors": []
+    }
+  ]
+}

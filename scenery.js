@@ -16,8 +16,8 @@ export const sceneryDefinitions={
  natlan:{file:'natlan-background-v1.png',region:'ナタ',zones:[]},
  sumeru:{file:'sumeru-background-v1.png',region:'スメール',zones:[]}
 };
-const backgrounds={};
-export const backgroundReady=Promise.all(Object.entries(sceneryDefinitions).map(async([key,definition])=>{const image=new Image();backgrounds[key]=image;image.src='assets/'+definition.file;await image.decode().catch(()=>{});}));
+const backgrounds={},backgroundStates={};
+export const backgroundReady=Promise.all(Object.entries(sceneryDefinitions).map(async([key,definition])=>{const image=new Image();backgrounds[key]=image;backgroundStates[key]='loading';image.src='assets/'+definition.file;try{await image.decode();backgroundStates[key]=image.naturalWidth&&image.naturalHeight?'ready':'error'}catch{backgroundStates[key]='error'}}));
 // Explicit prototype mappings; stale story state must not recolor unrelated lab fights.
 export function sceneryKey(frame){
  const zone=frame.campaign?.zone;
@@ -27,6 +27,9 @@ export function sceneryKey(frame){
   for(const [key,definition] of Object.entries(sceneryDefinitions))if(node?.region===definition.region)return key;
  }
  return 'mondstadt';
+}
+export function sceneryStatus(frame){
+ const key=sceneryKey(frame);return {key,file:sceneryDefinitions[key].file,state:backgroundStates[key]??'loading'};
 }
 export function scenery(ctx,frame){
  ctx.save();ctx.imageSmoothingEnabled=true;

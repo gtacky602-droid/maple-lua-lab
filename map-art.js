@@ -1,4 +1,4 @@
-import {scenery,sceneryKey,sceneryDefinitions,backgroundReady} from './scenery.js';
+import {scenery,sceneryKey,sceneryDefinitions,sceneryStatus,backgroundReady} from './scenery.js';
 import {validatePlacementDraft,MAX_DRAFT_BYTES,MAX_NODE_PLACEMENTS,MAX_TOTAL_PLACEMENTS} from './placement-drafts.js';
 const $=id=>document.getElementById(id),assets={},histories={};
 async function json(path){const r=await fetch(path);if(!r.ok)throw Error(path);return r.json()}
@@ -14,8 +14,9 @@ try{
  function placements(){return drafts.nodes[node().id]??=[]}
  function render(){
   const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=placements(),frame={camera,platforms:n.platforms,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
+  const background=sceneryStatus(frame);
   const mapped=Object.values(sceneryDefinitions).some(d=>d.region===n.region),valid=items.every(e=>n.platforms.some(p=>p.y===e.y&&e.x>=p.x&&e.x<=p.x+p.w));
-  $('cameraValue').value=camera;$('context').textContent=`${n.name} ／ 幅${n.width}px ／ ${n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${mapped?'地域用の仮背景':'専用背景未制作：モンド画像で代用'}。敵${items.length}体（見た目確認用）。`;
+  $('cameraValue').value=camera;$('context').textContent=`${n.name} ／ 幅${n.width}px ／ ${n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${background.state!=='ready'?'背景画像を読み込めません：単色で表示（'+background.file+'）':mapped?'地域用の仮背景':'専用背景未制作：モンド画像で代用'}。敵${items.length}体（見た目確認用）。`;
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame);ctx.imageSmoothingEnabled=false;
    for(const e of items){const a=assets[e.species],w=a.h*a.box[2]/a.box[3],anchor=a.anchorX??.5,x=e.x-camera;ctx.save();ctx.translate(x,e.y);if(e.flip)ctx.scale(-1,1);
     if(mode==='png')ctx.drawImage(a.image,...a.box,-w*anchor,-a.h,w,a.h);else{const p=a.profiles[profile];for(const r of p.runs){ctx.fillStyle=r[4];ctx.fillRect(-w*anchor+r[0]*w/p.width,-a.h+r[1]*a.h/p.height,r[2]*w/p.width+.05,r[3]*a.h/p.height+.05)}}ctx.restore();
@@ -24,7 +25,7 @@ try{
   }
   $('placements').replaceChildren();for(const e of items){const label=document.createElement('span');label.textContent=`${e.species}：(${e.x}, ${e.y})`;$('placements').append(label)}
   const runs=items.reduce((sum,e)=>sum+assets[e.species].profiles[profile].runs.length,0);$('status').textContent=`配置${items.length}体 ／ 矩形${runs.toLocaleString()}個（配置した全体の合計・FPSではありません） ／ ${valid?'全個体が足場に接地':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);
-  window.mapArt={ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,placements:structuredClone(items),grounded:valid,background:sceneryKey(frame),backgroundFallback:!mapped};
+  window.mapArt={ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,placements:structuredClone(items),grounded:valid,background:sceneryKey(frame),backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file};
  }
  function select(){const n=node();$('camera').max=Math.max(0,n.width-960);$('camera').value=0;render()}
  $('node').onchange=select;for(const id of ['camera','profile'])$(id).oninput=render;

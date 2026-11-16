@@ -4,307 +4,368 @@
     {
       "id": "mond-town",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "mond-road",
       "count": 3,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "mond-border",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "liyue-entry",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "liyue-harbor",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "liyue-field",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "liyue-ferry",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "inazuma-port",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "inazuma-road",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "inazuma-town",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "sumeru-entry",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "sumeru-hub",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "sumeru-field",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "fontaine-entry",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "fontaine-hub",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "fontaine-field",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "natlan-entry",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "natlan-hub",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "natlan-field",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "natlan-port",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "natlan-voyage",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "ochkanatlan-dock",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "ochkanatlan-ruins",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "nod-port",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "nod-field",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "nod-town",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "snezhnaya-entry",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "snezhnaya-hub",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "snezhnaya-field",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "dragonspine-camp",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "dragonspine-depth",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "chenyu-camp",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "chenyu-depth",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "enkanomiya-camp",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "enkanomiya-depth",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "tunigi-camp",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "tunigi-depth",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "bygone-camp",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "bygone-depth",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "dornman-camp",
       "count": 0,
-      "fallback": true
+      "fallback": true,
+      "backgroundState": "ready"
     },
     {
       "id": "dornman-depth",
       "count": 0,
-      "fallback": true
+      "fallback": true,
+      "backgroundState": "ready"
     },
     {
       "id": "nod-special-camp",
       "count": 0,
-      "fallback": true
+      "fallback": true,
+      "backgroundState": "ready"
     },
     {
       "id": "nod-special-depth",
       "count": 0,
-      "fallback": true
+      "fallback": true,
+      "backgroundState": "ready"
     },
     {
       "id": "novokichev-camp",
       "count": 0,
-      "fallback": true
+      "fallback": true,
+      "backgroundState": "ready"
     },
     {
       "id": "novokichev-depth",
       "count": 0,
-      "fallback": true
+      "fallback": true,
+      "backgroundState": "ready"
     },
     {
       "id": "golden-hub",
       "count": 0,
-      "fallback": true
+      "fallback": true,
+      "backgroundState": "ready"
     },
     {
       "id": "golden-play",
       "count": 0,
-      "fallback": true
+      "fallback": true,
+      "backgroundState": "ready"
     },
     {
       "id": "veluriyam-hub",
       "count": 0,
-      "fallback": true
+      "fallback": true,
+      "backgroundState": "ready"
     },
     {
       "id": "veluriyam-play",
       "count": 0,
-      "fallback": true
+      "fallback": true,
+      "backgroundState": "ready"
     },
     {
       "id": "simulanka-hub",
       "count": 0,
-      "fallback": true
+      "fallback": true,
+      "backgroundState": "ready"
     },
     {
       "id": "simulanka-play",
       "count": 0,
-      "fallback": true
+      "fallback": true,
+      "backgroundState": "ready"
     },
     {
       "id": "anemo-approach",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "cryo-approach",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "pyro-approach",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "electro-approach",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "geo-approach",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "oceanid-approach",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "primo-approach",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "maguu-approach",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "array-approach",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     },
     {
       "id": "thunder-approach",
       "count": 0,
-      "fallback": false
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,
