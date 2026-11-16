@@ -42,7 +42,7 @@
 
 制作状況は [CHAT_HANDOFF.md](CHAT_HANDOFF.md)、全体範囲は [PRODUCTION_SCOPE.md](PRODUCTION_SCOPE.md) と [content/coverage.json](content/coverage.json)、変更履歴は [sources/20261116-amendment.md](sources/20261116-amendment.md) を参照する。
 
-[README.md](README.md) には制作履歴が含まれる。古い段階の技数や「未実装装」の記述を、最新状態と取り違えない。本台帳では完成数・倍率・CT等を重複管理しない。
+[README.md](README.md) には制作履歴が含まれる。古い段階の技数や「未実装」の記述を、最新状態と取り違えない。本台帳では完成数・倍率・CT等を重複管理しない。
 
 現在の引き継ぎで示されている本番3D背景の方針は変更しない。「旧メイプル風の攻撃表現」を理由に、背景まで全面Lua描画へ戻さない。
 
