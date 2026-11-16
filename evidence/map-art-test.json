@@ -274,13 +274,13 @@
     {
       "id": "golden-hub",
       "count": 0,
-      "fallback": true,
+      "fallback": false,
       "backgroundState": "ready"
     },
     {
       "id": "golden-play",
       "count": 0,
-      "fallback": true,
+      "fallback": false,
       "backgroundState": "ready"
     },
     {

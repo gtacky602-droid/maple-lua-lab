@@ -2,7 +2,7 @@ import {chromium} from 'playwright';
 import fs from 'node:fs/promises';
 const browser=await chromium.launch({headless:true,channel:'chrome'}),results=[];
 try {
- for(const [file,node] of [['tunigi-background-v1.png','tunigi-depth'],['mondstadt-background.png','golden-hub']]){
+ for(const [file,node] of [['tunigi-background-v1.png','tunigi-depth'],['mondstadt-background.png','dornman-camp']]){
   const page=await browser.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.route('**/assets/'+file,route=>route.fulfill({status:404,body:'missing fixture'}));
   await page.goto('http://127.0.0.1:8769/map-art.html');await page.waitForFunction(()=>window.mapArt?.ready);

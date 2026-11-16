@@ -1,0 +1,8 @@
+{
+  "method": "built-in image_gen",
+  "prompt": "Wide 16:9 opaque temporary background for side scrolling pixel RPG. Original coastal scene inspired by these Golden Apple Archipelago 2.8 references. Turquoise clear sea, tall gray rocky islets with green tops, distant slender fantasy castle towers on rocky islands, tiny purple roofs, sunny summer sky with soft golden late-afternoon light and white clouds. Foreground is a broad quiet sandy beach at lowest third, a few weathered wooden dock posts at far left and small green shrubs at far right. Distant castle low contrast, ocean open center, beautiful painterly anime environment. No people, monsters, boats, text, UI, logos or foreground gameplay platforms. Do not recreate exact geography; this is a temporary mood composition, not all island variants. Keep lower third uncluttered to make small pixel sprites readable.",
+  "references": [
+    "work/references/golden-overview.jpg",
+    "work/references/golden-official-1.jpg"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-17",
+  "reference_page": "https://blog.playstation.com/2022/07/02/genshin-impact-version-2-8-summer-fantasia-details-revealed-live-july-13/",
+  "references": [
+    {
+      "url": "https://live.staticflickr.com/65535/52185388565_d61d442585_h.jpg",
+      "sha256": "e1f232816a56bcc0f8726fed4082bbca688e30062a09c8a1aa3b37bc965b430e",
+      "directly_viewed": true
+    },
+    {
+      "url": "https://live.staticflickr.com/65535/52183883257_a6cb18ebeb_h.jpg",
+      "sha256": "f5090a2e31a1471bba8bd80e95873520d402b56523c5b0b26e7d5e7a6b8f28c8",
+      "directly_viewed": true
+    }
+  ],
+  "generation": "assets/golden-background-generation-v1.json",
+  "output": "assets/golden-background-v1.png",
+  "output_sha256": "4bc16b415b4f97defb20b52df80c79e9f0d9825dfe8ce16df0b37a02b0bff27a",
+  "mapped_nodes": [
+    "golden-hub",
+    "golden-play"
+  ],
+  "validation": [
+    "2 node mappings",
+    "61-node editor and image readiness checks",
+    "Missing background test",
+    "PNG/h32c16 sprite overlay directly viewed"
+  ],
+  "limitations": [
+    "Version 2.8 coastal castle mood, not all versions or island variants",
+    "Shared image and original composition, not exact geography",
+    "Additional image 52184913823 request returned 429, not used",
+    "No native 3D or gameplay traversal proof"
+  ],
+  "skills_changed": false
+}

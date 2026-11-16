@@ -124,3 +124,9 @@ map-art.html追加: 本編61仮地点の足場/背景を選択し、元PNGと軽
 
 背景の読み込み状態をloading/ready/errorで公開。配置比較はデコード失敗時に画像名と単色表示を明示し、地域背景ありと誤表示しない。全61地点の検査に実画像ready条件を追加。地域PNGと代用モンドPNGを404にする2ケースで失敗表示/正常地域への切替を検査し通過。初回の並列Chrome検査はready条件に失敗、単独再実行では両検査通過（並列時の原因未特定）。技変更なし。
 根拠: evidence/scenery-failure.json, evidence/map-art-test.json。
+
+
+## 2026-11-17 金リンゴ群島の仮背景
+
+金リンゴ群島の仮背景追加。公式担当者PlayStation Blog Ver.2.8掲載の海岸遠景/城2枚を直接確認して画像参照付き生成。拠点・探索ステージへ共用接続し足場砂色化。2地点/61地点画像ready・配置比較/読込失敗2ケース通過、PNG対最軽量表示を目視。地域仮画像51/代用10。各島/各版/島変化/正確地理/本番3D未制作、技変更なし。
+根拠: evidence/golden-background-audit.json, evidence/golden-sprite-preview.png。

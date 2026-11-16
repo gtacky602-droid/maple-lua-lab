@@ -9,7 +9,7 @@
     },
     {
       "file": "mondstadt-background.png",
-      "node": "golden-hub",
+      "node": "dornman-camp",
       "errorReported": true,
       "healthyNodeUnaffected": true,
       "errors": []
