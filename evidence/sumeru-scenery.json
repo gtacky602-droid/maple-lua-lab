@@ -1,0 +1,18 @@
+{
+  "errors": [],
+  "result": [
+    {
+      "id": "sumeru-entry",
+      "key": "sumeru"
+    },
+    {
+      "id": "sumeru-hub",
+      "key": "sumeru"
+    },
+    {
+      "id": "sumeru-field",
+      "key": "sumeru"
+    }
+  ],
+  "method": "actual story node data rendered by shared host scenery; visual fixture, not a gameplay travel test"
+}

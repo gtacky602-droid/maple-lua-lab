@@ -1,15 +1,19 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
+export const sceneryDefinitions={
+ mondstadt:{file:'mondstadt-background.png',region:'モンド',zones:[]},
+ liyue:{file:'liyue-background-v1.png',region:'璃月',zones:['geo','oceanid','primo','pyro_regisvine']},
+ inazuma:{file:'inazuma-background-v1.png',region:'稲妻',zones:['thunder','array','maguu']},
+ sumeru:{file:'sumeru-background-v1.png',region:'スメール',zones:[]}
+};
 const backgrounds={};
-export const backgroundReady=Promise.all(Object.entries({mondstadt:'mondstadt-background.png',inazuma:'inazuma-background-v1.png',liyue:'liyue-background-v1.png'}).map(async([key,file])=>{const image=new Image();backgrounds[key]=image;image.src='assets/'+file;await image.decode().catch(()=>{});}));
-// Explicit prototype mappings. Do not infer a region from stale story state in a lab fight.
+export const backgroundReady=Promise.all(Object.entries(sceneryDefinitions).map(async([key,definition])=>{const image=new Image();backgrounds[key]=image;image.src='assets/'+definition.file;await image.decode().catch(()=>{});}));
+// Explicit prototype mappings; stale story state must not recolor unrelated lab fights.
 export function sceneryKey(frame){
  const zone=frame.campaign?.zone;
- if(['thunder','array','maguu'].includes(zone))return 'inazuma';
- if(['geo','oceanid','primo','pyro_regisvine'].includes(zone))return 'liyue';
+ for(const [key,definition] of Object.entries(sceneryDefinitions))if(definition.zones.includes(zone))return key;
  if(frame.story?.active&&(zone==='town'||zone?.startsWith('story:'))){
   const node=frame.storyGraph?.nodes?.find(n=>n.id===frame.story.node);
-  if(node?.region==='稲妻')return 'inazuma';
-  if(node?.region==='璃月')return 'liyue';
+  for(const [key,definition] of Object.entries(sceneryDefinitions))if(node?.region===definition.region)return key;
  }
  return 'mondstadt';
 }
