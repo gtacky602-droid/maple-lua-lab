@@ -1,0 +1,31 @@
+{
+  "hash_alpha": true,
+  "facings_profiles": [
+    [
+      -1,
+      "legacy"
+    ],
+    [
+      -1,
+      "h48c32"
+    ],
+    [
+      -1,
+      "h32c16"
+    ],
+    [
+      1,
+      "legacy"
+    ],
+    [
+      1,
+      "h48c32"
+    ],
+    [
+      1,
+      "h32c16"
+    ]
+  ],
+  "dead_hidden": true,
+  "float_tracks_actor": true
+}

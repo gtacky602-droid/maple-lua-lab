@@ -1,0 +1,5 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Single transparent-background pixel art idle game sprite of Wanderer from Genshin Impact, full body standing facing RIGHT in three-quarter side view. Cute MapleStory-like 2.5-head-tall side scrolling RPG proportions matching chibi Traveler companions, readable at 88 pixels high. Recognizable wide flat circular dark blue kasa hat with gold trim and teal ribbons hanging behind, short dark indigo hair, blue eyes, white and navy sleeveless Japanese-inspired layered outfit, turquoise sash, dark shorts, white leg wraps and black sandals. Neutral resting stance, no attack, no magic, no hovering effects. Crisp dark pixel outlines and compact 16-bit pixel clusters, limited palette, complete hat and feet visible with generous transparent margins. No scenery, no floor, no shadow, no text, one idle pose only.",
+  "status": "idle candidate; static movement/float proxy; skills unchanged"
+}
