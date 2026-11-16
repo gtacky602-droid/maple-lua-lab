@@ -1,0 +1,15 @@
+{
+  "errors": [],
+  "checks": [
+    "all61 nodes listed",
+    "region and placed intersection",
+    "filter preserves map/draft/save status",
+    "NFKC AND search",
+    "explicit navigation",
+    "add undo redo update counts",
+    "browser saved drafts restore counts",
+    "active map remains when removed from filter",
+    "delete undo and import update counts",
+    "390px no horizontal overflow"
+  ]
+}

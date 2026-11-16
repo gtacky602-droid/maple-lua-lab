@@ -1,3 +1,4 @@
+import {setupMapNodePicker} from './map-node-picker.js';
 import {loadImageSet} from './sprite-images.js';
 import {setupPlacementPicker} from './placement-picker.js';
 import {scenery,sceneryKey,sceneryDefinitions,sceneryStatus,backgroundReady} from './scenery.js';
@@ -48,6 +49,7 @@ try{
  };
  let lastRenderedDraft=JSON.stringify(drafts);
  for(const n of graph.nodes){const option=document.createElement('option');option.value=n.id;option.textContent=`${n.region}｜${n.name}`;$('node').append(option)}$('node').value='mond-road';
+ const nodePicker=setupMapNodePicker({graph,select:$('node'),getDraft:()=>drafts,onChoose:select});
  function node(){return nodes.get($('node').value)}
  function placements(){return drafts.nodes[node().id]??=[]}
  function render(){
@@ -73,6 +75,7 @@ try{
   const describe=e=>`${e.species} (${e.x}, ${e.y}) ${e.flip?'反転':'元の向き'}`;
   const line=text=>{const li=document.createElement('li');li.textContent=text;$('diffDetails').append(li)};
   if(diff){for(const e of diff.added)line(`追加 ${e.id}：${describe(e)}`);for(const e of diff.removed)line(`削除 ${e.id}：${describe(e)}`);for(const e of diff.changed){const names={species:'敵種',x:'横位置',y:'足場の高さ',flip:'向き'};line(`変更 ${e.id}［${e.fields.map(k=>names[k]).join('・')}］：${describe(e.before)} → ${describe(e.after)}`)}}
+  nodePicker.update();
   window.mapArt={diff,ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,selected,editMode:$('editMode').value,placements:structuredClone(items),visuals:items.map(e=>({id:e.id,y:e.y-assets[e.species].hover,hover:assets[e.species].hover,height:assets[e.species].h})),grounded:valid,background:sceneryKey(frame),backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file};
  }
  function remember(id){const history=histories[id]??=[];history.push(structuredClone(drafts.nodes[id]??[]));if(history.length>100)history.shift();delete redos[id]}
