@@ -1,0 +1,13 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Revise image 1, existing chibi pixel-art idle sprite of Columbina from Genshin Impact. Image 2 is the character illustration and is authoritative for COLOR, especially pale white leg ornaments (the 3D preview renders them incorrectly black). Images 3 and 4 are front/back 3D reference views for garment construction. Correct the invented floor-length closed purple gown: use short white/lavender inner dress with a blue-violet center bodice and small gold/crescent ornament; long open outer white-to-periwinkle panels flowing at sides/back, white long flared sleeves with blue-violet edges and small shoulder caps. Legs visible below short inner dress, delicate PALE WHITE ribbon-like ornaments and bare toes, not a closed skirt hiding feet or dark stockings. Very long mostly straight dark plum hair with magenta underside/tips, short curled face locks held by white X ribbons, not thick braided front pigtails. Feather/wing hair ornaments join at back with white ribbon tails. Keep calm closed eyes WITHOUT eye-covering mask as in existing idle (the model mask is optional reference state), hands gently together in front, facing screen RIGHT. Cute compact roughly 2.5-3 heads tall MapleStory-like proportions, big readable head, short simplified body rather than tall fashion illustration. Crisp dark pixel clusters and limited palette readable at 88px high. One single full-body idle sprite, no action or skill effects, no scene, no floor/shadow/text, transparent background with full feet/hair margins. Keep garment side panels restrained so silhouette remains readable.",
+  "reference_images": [
+    "assets/columbina-idle-source-v1.png",
+    "work/references/columbina-paimon.png",
+    "work/references/columbina-views/front.png",
+    "work/references/columbina-views/back.png"
+  ],
+  "provenance": "evidence/columbina-reference-audit.json",
+  "status": "reference-informed idle candidate; unmasked closed-eye pose retained; fine costume and mirror simplifications remain",
+  "generated_file": "exec-47495824-72f2-4085-81bb-77e76f6ef5c4.png"
+}

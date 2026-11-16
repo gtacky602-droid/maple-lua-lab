@@ -28,7 +28,7 @@ for obj in meshes:
     overlay_slots = set()
     for i, mat in enumerate(obj.data.materials):
         tex = mat.node_tree.nodes.get('mmd_base_tex') if mat and mat.node_tree else None
-        if tex and tex.image and tex.image.name in {'sph.png', 'spa_h.png'}:
+        if tex and tex.image and tex.image.name in {'sph.png', 'spa_h.png', 'sp.png'}:
             overlay_slots.add(i)
     # Coplanar additive shine faces obscure the underlying hair in Cycles.
     # Omit them only in this transient inspection scene; source PMX is untouched.
@@ -48,7 +48,7 @@ for mat in bpy.data.materials:
     tex.image.alpha_mode = 'CHANNEL_PACKED'
     textures.append({'material': mat.name, 'image': tex.image.name, 'size': list(tex.image.size)})
     output = next(n for n in nodes if n.type == 'OUTPUT_MATERIAL')
-    if tex.image.name in {'sph.png', 'spa_h.png'}:
+    if tex.image.name in {'sph.png', 'spa_h.png', 'sp.png'}:
         # Separate additive shine overlay must not become an opaque black shell.
         transparent = nodes.new('ShaderNodeBsdfTransparent')
         links.new(transparent.outputs[0], output.inputs['Surface'])

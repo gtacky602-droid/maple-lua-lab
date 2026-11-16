@@ -1,0 +1,71 @@
+{
+  "character": "columbina",
+  "date": "2026-11-17",
+  "active_revision": "v2",
+  "illustration": {
+    "url": "https://paimon.moe/images/characters/full/columbina.png",
+    "sha256": "87c979de7edc812fca30b45b9c0ea1649d1f1067a7265ff837cd61b49ca453b4",
+    "directly_viewed": true
+  },
+  "model": {
+    "discovery": "https://mmdfr.fr/genshin-mmd/",
+    "download": {
+      "ver": "67",
+      "alt": "",
+      "url": "https://i0.hdslb.com/bfs/activity-plat/static/8201/10377/11850/20260629/d32c2bb79f59192cb072d7bf79b61c6d/YlYG9eCBu8.zip",
+      "sd": "15.1MB",
+      "r": ""
+    },
+    "pmx_sha256": "9f70cf5862d675be18c40cbf64f80423274347e7f7c52d3c2e48e51639e01b8c",
+    "zip_sha256": "27203622f2b2828fb9191b9a1b2494a97fc75a24fdba2ddf72b8999d8f8c59c8",
+    "readme_sha256": "78b25e862eb859b14db9cc20b14c09972c0a9f02c541e9a9f6dc18793b717b60",
+    "credits": "miHoYo / 观海",
+    "terms": "Read bundled readme: no redistribution/commercial use/parts extraction for other models. Local reference only.",
+    "views": {
+      "front": {
+        "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\columbina-views\\front.png",
+        "sha256": "ff7a8ea1421b4242eae94489967c167cf6bb8a8608f94f112f71353e23148a66",
+        "directly_viewed": true
+      },
+      "back": {
+        "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\columbina-views\\back.png",
+        "sha256": "d744fb64fc6d05942e3752983b24e5f1d694273ff8fbad8932326db7595f9326",
+        "directly_viewed": true
+      },
+      "left": {
+        "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\columbina-views\\left.png",
+        "sha256": "bbabcaa869184dbf7522b1ac8ca396fd176348eae988d06c27adf1cfe65c45ce",
+        "directly_viewed": true
+      },
+      "right": {
+        "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\columbina-views\\right.png",
+        "sha256": "7ddfb46db8ace9cb0bcd9cf55ee133f9b2fd9fce5745e77a0d427a008a31265b",
+        "directly_viewed": true
+      }
+    },
+    "render_limitations": "Flat texture display. sp.png hair shine overlay omitted to fix black hair. Leg ornaments render dark; illustration used for pale color. Eye-cover model state not copied; existing unmasked closed-eye idle retained. Camera +/-X labels not anatomical sides."
+  },
+  "v1_findings": [
+    "Invented closed floor-length gown",
+    "Muted purple rather than white/periwinkle outer layers",
+    "Thick front braids unlike ribbon-tied curled locks",
+    "Missing pale leg ornaments and short inner dress"
+  ],
+  "v2_observed": [
+    "Short inner dress and long open outer panels",
+    "White/periwinkle sleeve and side layers",
+    "Mostly straight long plum hair, magenta underside, ribbon-tied front locks",
+    "Pale leg ribbons and visible feet"
+  ],
+  "unverified": [
+    "Exact ornament geometry and costume-state selection require further gameplay reference",
+    "Proportions and line style not fully unified across cast",
+    "Mirroring asymmetrical ornaments",
+    "Static idle only"
+  ],
+  "profiles": {
+    "legacy": 2032,
+    "h48c32": 1208,
+    "h32c16": 528
+  }
+}
