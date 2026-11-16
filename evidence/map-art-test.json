@@ -312,6 +312,9 @@
   "platformSnap": true,
   "nodeRetention": true,
   "download": true,
+  "importRoundtrip": true,
+  "importFailurePreservesDraft": true,
+  "importIdCollisionAvoided": true,
   "undo": true,
   "reset": true,
   "mobileOverflow": false

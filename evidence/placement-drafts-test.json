@@ -1,0 +1,18 @@
+{
+  "roundtrip": true,
+  "rejected": [
+    "version",
+    "null nodes",
+    "unknown node",
+    "unknown species",
+    "duplicate ID",
+    "negative x",
+    "out of bounds",
+    "nonfinite x",
+    "floating",
+    "string flip",
+    "node limit",
+    "total limit"
+  ],
+  "unknownFieldsDiscarded": true
+}
