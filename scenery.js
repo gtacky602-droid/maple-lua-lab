@@ -41,7 +41,9 @@ export function scenery(ctx,frame){
  ctx.save();ctx.imageSmoothingEnabled=true;
  const key=sceneryKey(frame),background=backgrounds[key];
  if(background.complete&&background.naturalWidth){
-  const w=1160,h=540,offset=(frame.camera||0)/1920*(w-960);
+  // The temporary image has only 200px of overscan. Stop its parallax at
+  // either image edge even when the playable map extends farther.
+  const w=1160,h=540,offset=Math.max(0,Math.min(1,(frame.camera||0)/1920))*(w-960);
   ctx.drawImage(background,-offset,0,w,h);
  }else{ctx.fillStyle='#c5decc';ctx.fillRect(0,0,960,540)}
  // Lab-only terrain proxies. These will be 3D set dressing and colliders in the game.

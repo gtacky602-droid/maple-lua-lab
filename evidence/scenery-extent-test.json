@@ -1,0 +1,636 @@
+{
+  "errors": [],
+  "cases": [
+    {
+      "key": "novokichev",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "novokichev",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "novokichev",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "novokichev",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "novokichev",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "novokichev",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "nodspecial",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "nodspecial",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "nodspecial",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "nodspecial",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "nodspecial",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "nodspecial",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "dornman",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "dornman",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "dornman",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "dornman",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "dornman",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "dornman",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "simulanka",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "simulanka",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "simulanka",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "simulanka",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "simulanka",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "simulanka",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "veluriyam",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "veluriyam",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "veluriyam",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "veluriyam",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "veluriyam",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "veluriyam",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "golden",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "golden",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "golden",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "golden",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "golden",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "golden",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "tunigi",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "tunigi",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "tunigi",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "tunigi",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "tunigi",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "tunigi",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "ochkanatlan",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "ochkanatlan",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "ochkanatlan",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "ochkanatlan",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "ochkanatlan",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "ochkanatlan",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "bygone",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "bygone",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "bygone",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "bygone",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "bygone",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "bygone",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "enkanomiya",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "enkanomiya",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "enkanomiya",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "enkanomiya",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "enkanomiya",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "enkanomiya",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "chenyu",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "chenyu",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "chenyu",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "chenyu",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "chenyu",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "chenyu",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "dragonspine",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "dragonspine",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "dragonspine",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "dragonspine",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "dragonspine",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "dragonspine",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "voyage",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "voyage",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "voyage",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "voyage",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "voyage",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "voyage",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "snezhnaya",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "snezhnaya",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "snezhnaya",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "snezhnaya",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "snezhnaya",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "snezhnaya",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "nodkrai",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "nodkrai",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "nodkrai",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "nodkrai",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "nodkrai",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "nodkrai",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "mondstadt",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "mondstadt",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "mondstadt",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "mondstadt",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "mondstadt",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "mondstadt",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "liyue",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "liyue",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "liyue",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "liyue",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "liyue",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "liyue",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "inazuma",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "inazuma",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "inazuma",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "inazuma",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "inazuma",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "inazuma",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "fontaine",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "fontaine",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "fontaine",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "fontaine",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "fontaine",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "fontaine",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "natlan",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "natlan",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "natlan",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "natlan",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "natlan",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "natlan",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "sumeru",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "sumeru",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "sumeru",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "sumeru",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "sumeru",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "sumeru",
+      "camera": 99999,
+      "transparent": 0
+    }
+  ],
+  "note": "All pixels alpha255 for 21 actual host images at six camera positions; no platform fill masks background gaps. This is lab background coverage, not native 3D."
+}
