@@ -1,0 +1,16 @@
+{
+  "errors": [],
+  "boss": {
+    "label": "岩で柱を壊して核を落とす",
+    "timer": 1.9000000000000004,
+    "hp": 500,
+    "pulses": 0,
+    "brokenPillars": 0,
+    "maxhp": 500,
+    "revivalDestroyed": 0,
+    "activePillar": 1,
+    "name": "無相の岩（試作素材）",
+    "phase": "perched"
+  },
+  "method": "UI launch Geo Hypostasis with Liyue background; visual smoke only"
+}

@@ -1,0 +1,6 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Wide 16:9 scenic background for a MapleStory-like pixel-art 2D side scrolling RPG, original Liyue-inspired Chinese fantasy harbor landscape. Golden ochre karst mountains, distant terraced Chinese tiled-roof harbor town at the right, jade green river inlet, stone bridges, golden ginkgo framing upper left and rocky pines at right. Warm clear afternoon sunlight. Unobstructed center and lower middle for small character sprites, distant horizon halfway up, subtle grass and stone waterfront only along bottom tenth. No characters, monsters, UI, lettering or foreground platforms. Crisp 16-bit pixel clusters, detailed but subdued background, teal jade water and muted gold stone palette, atmospheric depth. Not an exact game screenshot or accurate map.",
+  "status": "provisional regional scenery; exact geography not reproduced",
+  "source": "liyue-background-v1.png"
+}

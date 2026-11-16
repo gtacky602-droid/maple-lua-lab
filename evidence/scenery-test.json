@@ -33,5 +33,30 @@
     "name": "default",
     "actual": "mondstadt",
     "expected": "mondstadt"
+  },
+  {
+    "name": "geo",
+    "actual": "liyue",
+    "expected": "liyue"
+  },
+  {
+    "name": "oceanid",
+    "actual": "liyue",
+    "expected": "liyue"
+  },
+  {
+    "name": "primo",
+    "actual": "liyue",
+    "expected": "liyue"
+  },
+  {
+    "name": "pyro_regisvine",
+    "actual": "liyue",
+    "expected": "liyue"
+  },
+  {
+    "name": "liyue-town",
+    "actual": "liyue",
+    "expected": "liyue"
   }
 ]
