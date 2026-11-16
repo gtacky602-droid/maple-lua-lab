@@ -5,7 +5,7 @@ async function json(path){const r=await fetch(path);if(!r.ok)throw Error(path);r
 try{
  const [graph,initial,variants]=await Promise.all([json('content/story-graph.json'),json('content/enemy-placement-drafts.json'),json('assets/variants.json'),backgroundReady]);
  const layouts=await json('content/enemy-art-layout.json');
- let drafts=structuredClone(initial),serial=0,importTicket=0;const nodes=new Map(graph.nodes.map(n=>[n.id,n]));
+ let drafts=structuredClone(initial),serial=0,importTicket=0,selected=null;const nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  for(const [id,index] of [['hydro-slime',4],['pyro-slime',6]]){const profiles=Object.fromEntries(Object.entries(variants.variants).map(([k,v])=>[k,v.sprites[index]]));assets[id]={source:'atlas-transparent.png',box:profiles.legacy.box,profiles,h:40}}
  assets['ruin-guard']={...await json('assets/ruin-guard-idle-sprites.json'),h:144};
  assets['dendro-fungus']={...await json('assets/dendro-fungus-idle-sprites.json'),h:64};
@@ -21,23 +21,31 @@ try{
  function placements(){return drafts.nodes[node().id]??=[]}
  function render(){
   const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=placements(),frame={camera,platforms:n.platforms,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
+  if(!items.some(e=>e.id===selected))selected=null;
   const background=sceneryStatus(frame);
   const mapped=Object.values(sceneryDefinitions).some(d=>d.region===n.region),valid=items.every(e=>n.platforms.some(p=>p.y===e.y&&e.x>=p.x&&e.x<=p.x+p.w));
   $('cameraValue').value=camera;$('context').textContent=`${n.name} ／ 幅${n.width}px ／ ${n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${background.state!=='ready'?'背景画像を読み込めません：単色で表示（'+background.file+'）':mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用'}。敵${items.length}体（見た目確認用）。`;
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame);ctx.imageSmoothingEnabled=false;
    for(const e of items){const a=assets[e.species],w=a.h*a.box[2]/a.box[3],anchor=a.anchorX??.5,x=e.x-camera;ctx.save();ctx.translate(x,e.y-a.hover);if(e.flip)ctx.scale(-1,1);
     if(mode==='png')ctx.drawImage(a.image,...a.box,-w*anchor,-a.h,w,a.h);else{const p=a.profiles[profile];for(const r of p.runs){ctx.fillStyle=r[4];ctx.fillRect(-w*anchor+r[0]*w/p.width,-a.h+r[1]*a.h/p.height,r[2]*w/p.width+.05,r[3]*a.h/p.height+.05)}}ctx.restore();
+    if(e.id===selected){ctx.strokeStyle='#ffe08a';ctx.lineWidth=2;ctx.strokeRect(x-w*(e.flip?1-anchor:anchor)-3,e.y-a.hover-a.h-3,w+6,a.h+6)}
     ctx.fillStyle='#ffffff';ctx.fillRect(x-3,e.y-1,6,2);
    }
   }
-  $('placements').replaceChildren();for(const e of items){const label=document.createElement('span');label.textContent=`${e.species}：(${e.x}, ${e.y})${assets[e.species].hover?` ／ 浮き ${assets[e.species].hover}px`:``}`;$('placements').append(label)}
+  $('placements').replaceChildren();for(const e of items){const label=document.createElement('button');label.type='button';label.dataset.id=e.id;label.setAttribute('aria-pressed',String(e.id===selected));label.onclick=()=>{selected=e.id;$('editMode').value='move';render()};label.textContent=`${e.species}：(${e.x}, ${e.y})${assets[e.species].hover?` ／ 浮き ${assets[e.species].hover}px`:``}`;$('placements').append(label)}
+  const chosen=items.find(e=>e.id===selected);$('selectionStatus').textContent=chosen?`選択：${chosen.species} (${chosen.x}, ${chosen.y})`:'選択なし';for(const id of ['flipSelected','deleteSelected','clearSelection'])$(id).disabled=!chosen;
   const runs=items.reduce((sum,e)=>sum+assets[e.species].profiles[profile].runs.length,0);$('status').textContent=`配置${items.length}体 ／ 矩形${runs.toLocaleString()}個（配置した全体の合計・FPSではありません） ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);
-  window.mapArt={ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,placements:structuredClone(items),visuals:items.map(e=>({id:e.id,y:e.y-assets[e.species].hover,hover:assets[e.species].hover,height:assets[e.species].h})),grounded:valid,background:sceneryKey(frame),backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file};
+  window.mapArt={ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,selected,editMode:$('editMode').value,placements:structuredClone(items),visuals:items.map(e=>({id:e.id,y:e.y-assets[e.species].hover,hover:assets[e.species].hover,height:assets[e.species].h})),grounded:valid,background:sceneryKey(frame),backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file};
  }
  function remember(id){const history=histories[id]??=[];history.push(structuredClone(drafts.nodes[id]??[]));if(history.length>100)history.shift()}
- function select(){const n=node();$('camera').max=Math.max(0,n.width-960);$('camera').value=0;render()}
- $('node').onchange=select;for(const id of ['camera','profile'])$(id).oninput=render;
+ function select(){selected=null;const n=node();$('camera').max=Math.max(0,n.width-960);$('camera').value=0;render()}
+ $('node').onchange=select;$('editMode').onchange=render;
+ $('clearSelection').onclick=()=>{selected=null;$('editMode').value='add';render()};
+ $('flipSelected').onclick=()=>{const e=placements().find(e=>e.id===selected);if(!e)return;remember(node().id);e.flip=!e.flip;render()};
+ $('deleteSelected').onclick=()=>{if(!selected)return;remember(node().id);drafts.nodes[node().id]=placements().filter(e=>e.id!==selected);selected=null;render()};
+for(const id of ['camera','profile'])$(id).oninput=render;
  for(const mode of ['png','rect'])$(mode).onclick=event=>{const box=$(mode).getBoundingClientRect(),n=node(),x=Math.round((event.clientX-box.left)*960/box.width+Number($('camera').value)),y=(event.clientY-box.top)*540/box.height;const supports=n.platforms.filter(p=>x>=p.x&&x<=p.x+p.w&&x<=n.width).sort((a,b)=>Math.abs(a.y-y)-Math.abs(b.y-y));if(!supports.length)return;
+  if($('editMode').value==='move'){const e=placements().find(e=>e.id===selected);if(!e){$('fileStatus').textContent='下の個体一覧から移動する敵を選んでください。';return}if(e.x!==x||e.y!==supports[0].y){remember(n.id);e.x=x;e.y=supports[0].y}render();return}
   if(placements().length>=MAX_NODE_PLACEMENTS||Object.values(drafts.nodes).reduce((s,x)=>s+x.length,0)>=MAX_TOTAL_PLACEMENTS){$('fileStatus').textContent='配置数の上限です。別の案として保存してから編集してください。';return}
   let id;do{id=`added-${++serial}`}while(placements().some(e=>e.id===id));const item={id,species:$('species').value,x,y:supports[0].y,flip:false};remember(n.id);placements().push(item);render()};
  $('undo').onclick=()=>{const previous=histories[node().id]?.pop();if(previous)drafts.nodes[node().id]=previous;render()};
@@ -50,7 +58,7 @@ try{
    if(file.size>MAX_DRAFT_BYTES)throw Error('512KB以下の配置案を選んでください。');
    const text=await file.text();if(ticket!==importTicket)return;
    let parsed;try{parsed=JSON.parse(text)}catch{throw Error('JSONを読み取れませんでした。')}
-   const next=validatePlacementDraft(parsed,graph,Object.keys(assets));drafts=next;for(const id of Object.keys(histories))delete histories[id];
+   const next=validatePlacementDraft(parsed,graph,Object.keys(assets));drafts=next;selected=null;for(const id of Object.keys(histories))delete histories[id];
    render();$('fileStatus').textContent=`${file.name}を読み込みました。全地点の編集案を置き換えました。`;
   }catch(e){if(ticket===importTicket)$('fileStatus').textContent=`読み込み中止：${e.message} 編集中の案は保持しています。`}
   finally{if(ticket===importTicket)$('import').value=''}

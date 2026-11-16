@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "select item from accessible list",
+    "move snaps to upper platform without changing ID/count",
+    "flip",
+    "delete",
+    "undo move/flip/delete",
+    "export/import edited positions and facing",
+    "camera-space move",
+    "node switch clears selection",
+    "unselected move does not add",
+    "390px layout"
+  ],
+  "errors": []
+}

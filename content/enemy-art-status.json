@@ -101,7 +101,8 @@
       "nobushi",
       "armored-crab"
     ],
-    "live_copy": "Current-node authored spawns can be copied into the visual draft with referenced asset mapping, support-derived y, undo and JSON export. Editing does not write live spawn data."
+    "live_copy": "Current-node authored spawns can be copied into the visual draft with referenced asset mapping, support-derived y, undo and JSON export. Editing does not write live spawn data.",
+    "editing": "Select individual from list, move by clicking either preview with platform snapping, mirror, delete, undo and export/import; all visual-only drafts."
   },
   "live_placement": {
     "file": "content/enemy-spawns.json",
