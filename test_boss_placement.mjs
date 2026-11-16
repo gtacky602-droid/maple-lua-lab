@@ -34,6 +34,7 @@ try{
   if(item.id==='electro-regisvine')await p.locator('main').screenshot({path:'evidence/electro-regisvine-map-comparison.png'});
   if(item.id==='ruin-serpent')await p.locator('main').screenshot({path:'evidence/ruin-serpent-map-comparison.png'});
   if(item.id==='aeonblight')await p.locator('main').screenshot({path:'evidence/aeonblight-map-comparison.png'});
+  if(item.id==='wenut')await p.locator('main').screenshot({path:'evidence/wenut-map-comparison.png'});
   if(item.id==='asimon')await p.locator('main').screenshot({path:'evidence/asimon-map-comparison.png'});
   const promise=p.waitForEvent('download');await p.click('#export');const download=await promise;
   const text=await fs.readFile(await download.path(),'utf8');

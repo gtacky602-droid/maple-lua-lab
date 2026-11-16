@@ -2,11 +2,17 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 21,
+    "count": 22,
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "wenut",
+        "h": 200,
+        "w": 146.65508253692443,
+        "ratio": 0.733275412684622
+      },
       {
         "id": "asimon",
         "h": 160,

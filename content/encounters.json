@@ -1125,7 +1125,13 @@
         "ドット絵・動作",
         "報酬・難度",
         "通し検証"
-      ]
+      ],
+      "art_candidate": {
+        "source": "assets/wenut-idle-source-v1.png",
+        "encoding": "assets/wenut-idle-sprites.json",
+        "audit": "evidence/wenut-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
     },
     {
       "id": "boss-29070101",

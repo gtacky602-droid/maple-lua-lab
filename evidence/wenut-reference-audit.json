@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/3474?lang=en-us",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/01/19/194600931/ca675a813c0acf7a5efbc88e7af636c2_1393531290247834563.png",
+      "sha256": "98400b6e9facd5d93ee1cefd7ac5a4da81a07e2ebf480741e232f09238b2ca29",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "not inspected"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/e3c20a313eef1f3445257605eee8552f_8193689525135362730.png",
+      "sha256": "c7cc569c058a6436a31d3e3fc77e602620dc61c9ba00d465668ff872482f0d11",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full body render"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/25f51b49d4f14ddbb29e793156dd7410_7886319076216301456.png",
+      "sha256": "720fbfa547db4bfd70bc29d27cac536fa84276d512dbfdd6e0de557b223ae73d",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "same pose different size, not another angle"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/b841caa8a47944eb87b4acf71c5835e8_1929847918223266999.png",
+      "sha256": "045640c1469bf945ff4fe6f117eb4c641b66df63ee7e31a6181f6eaf8400ae2d",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "in-game side view with full tail"
+    }
+  ],
+  "model_lookup": "Quoted name plus 3D model search did not yield usable matching model; no model or back view inspected.",
+  "output": "assets/wenut-idle-source-v1.png",
+  "sha256": "526f07ad00d04accb38d6ed39c1638f8f77964e1d54124abfd584f2a3da24315",
+  "profiles": {
+    "legacy": {
+      "height": 200,
+      "runs": 5998
+    },
+    "h48c32": {
+      "height": 150,
+      "runs": 3833
+    },
+    "h32c16": {
+      "height": 100,
+      "runs": 1752
+    }
+  },
+  "visual_review": "Source, PNG/100px comparison and temporary Sumeru map placement directly viewed. Conical head, tall teal dorsal fins, curved sandy body and tapering tail remain. Fine teal engravings and plate edges degrade at smallest profile. Source simplifies tubular dorsal organs toward leaf-like fins.",
+  "limits": [
+    "3D and back view unverified",
+    "200px size and 48px hover provisional",
+    "Rainforest background is comparison fixture, not habitat placement",
+    "Idle only; no segmented motion, burrowing, attacks or live combat"
+  ]
+}

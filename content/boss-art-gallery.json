@@ -2,6 +2,13 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "wenut",
+      "name": "風蝕ウェネト（参照付き待機候補）",
+      "file": "wenut-idle-sprites.json",
+      "height": 200,
+      "mapHover": 48
+    },
+    {
       "id": "asimon",
       "name": "半永久統制マトリックス（参照付き待機候補）",
       "file": "asimon-idle-sprites.json",
