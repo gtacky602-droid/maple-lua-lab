@@ -1,0 +1,34 @@
+{
+  "character": "ayaka",
+  "date": "2026-11-17",
+  "reference_url": "https://paimon.moe/images/characters/full/kamisato_ayaka.png",
+  "reference_sha256": "52d31fad467c1b221f0fbf658d5df1b61b333ed78eb239ec709b7598b9bc8e7c",
+  "reference_local": "work\\references\\ayaka-paimon.png",
+  "reference_viewed": true,
+  "source_type": "third-party hosted character illustration; official hosting not verified",
+  "view": "front three-quarter full body",
+  "v1_findings": [
+    "Generic starburst replaces rounded breastplate crest",
+    "White forearms unlike dark reference gauntlets",
+    "Large gold skirt motifs unlike pale flowing bands and small blossoms",
+    "Ponytail ornament block U shape"
+  ],
+  "v2_observed": [
+    "Rounded simplified gold breastplate crest",
+    "Dark forearm gauntlets and pale wide sleeves",
+    "Pale flowing skirt bands with small blossoms",
+    "Pale blue hanging panels with gold tassels",
+    "Smaller curved ponytail crest"
+  ],
+  "unverified": [
+    "Exact crest geometry simplified",
+    "3D model and side/back views not obtained",
+    "Mirroring asymmetrical sword and armor",
+    "Walking remains static idle"
+  ],
+  "profiles": {
+    "legacy": 1628,
+    "h48c32": 976,
+    "h32c16": 413
+  }
+}

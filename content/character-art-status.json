@@ -6,7 +6,7 @@
   "companions": {
     "amber": "existing atlas idle/bow candidates",
     "beidou": "v2 idle revised using directly viewed character art; front costume audit partial; side/back/3D unverified; 88px and 3 numeric profiles",
-    "ayaka": "dedicated idle PNG and 3 numeric profiles; walk reuses idle",
+    "ayaka": "v2 idle revised from directly viewed character art; front outfit audit partial; 3D side/back unverified; 88px and 3 numeric profiles",
     "wanderer": "dedicated idle PNG and 3 numeric profiles; walk/float reuses idle",
     "emilie": "dedicated idle PNG and 3 numeric profiles; walk reuses idle",
     "kachina": "dedicated idle PNG at 76px and 3 numeric profiles; walk reuses idle",

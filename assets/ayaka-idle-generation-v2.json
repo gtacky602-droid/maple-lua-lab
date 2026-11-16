@@ -1,0 +1,17 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Revise the idle pixel sprite of Kamisato Ayaka from Genshin Impact. Image 1 is the costume reference; image 2 is the existing sprite whose pose, full body, chibi proportions, facing RIGHT three-quarter view and crisp pixel-art treatment must be maintained. Match visible outfit details to image 1: replace generic starburst on breastplate with simplified gold rounded Kamisato crest; black/dark forearm gauntlets below pale-blue wide kimono sleeves, not white long undersleeves; dark navy pleated skirt with pale ivory flowing wave bands and small pale blossoms instead of large gold snowflake panels; pale-blue hanging rear kimono panels; black and gold crown-like ponytail ornament should be a graceful small curved crest rather than a large block U. Retain silver pale-blue straight bangs and high long ponytail, pink knot hair ties and waist cords, navy back bow, blue eyes, short white tabi and dark sandals with pink ties, unobtrusive sheathed sword. No change to calm relaxed idle pose, no attack, no effects, no scene, no ground or shadow or text. One single full-body sprite, transparent background with margin around all hair and feet. Crisp pixel clusters, limited palette readable at 88px high, MapleStory-like chibi style. Costume reference takes precedence over invented motifs of image 2. Preserve transparency.",
+  "reference_images": [
+    {
+      "path": "work/references/ayaka-paimon.png",
+      "url": "https://paimon.moe/images/characters/full/kamisato_ayaka.png",
+      "role": "directly viewed costume reference; third-party hosted character illustration"
+    },
+    {
+      "path": "assets/ayaka-idle-source-v1.png",
+      "role": "directly viewed existing pose/style"
+    }
+  ],
+  "status": "partial front costume revision; 3D side/back unverified",
+  "generated_file": "exec-08cddebb-d135-41a8-8ab1-a3a936718db9.png"
+}
