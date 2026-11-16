@@ -662,3 +662,6 @@ Lua操作入力だけで町から実歩行、戦闘49.28秒/全滅0、プリズ�
 
 
 2026-11-17: セッション解放と再読み込み継続を追加。app/compareで別々のsessionStorage IDと文書ownerを管理し、pagehide時にsendBeaconで60秒猶予の解放を依頼。猶予内の再読み込みは同じLua状態へ接続、期限後は次のAPI要求で回収。旧文書の遅延releaseは新ownerへ影響せず、遅延frameは猶予を取消さない。活動中IDを複製した別文書は新規状態に分離。bfcache遷移は解放せず、強制終了等で通知できない場合は既存30分期限が残る。12セッション上限/60秒期限/他状態保持/異Origin403/owner競合を分離HTTP検査、実Chrome13回reloadで受注状態と同一ID保持、比較別ID/reload/実pagehideを検査。依頼追跡/手帳/門移動/保存再開も更新版で通過。上限エラーは60秒待機を案内。旧8769は既存状態を維持して再起動せず、更新サーバーを127.0.0.1:8771（PID19644、Hidden）で稼働確認。旧プロセスへbackend変更は未適用、次回通常起動時に反映。技変更なし。根拠 evidence/session-lifecycle-test.json, evidence/session-browser-test.json。
+
+
+2026-11-17: 冒険保存のJSON書出/読込再開を追加。出力対象は最後のブラウザ保存、未保存なら保存を案内。読込は48KB以下のJSONオブジェクトを受け、既存サーバーvalidate_saveとrestoreに成功した後のcheckpointだけブラウザへ保存。検証中は保存系操作を無効化。不正JSON/null/配列/サイズ超過/version99で元保存とsession不変を検査。別ブラウザcontextへ受注依頼を移行、HTTP503注入では元ブラウザ保存保持、容量例外では再開済みだが保存失敗と区別して表示することを検査。追跡の保存再開回帰も通過。実デスクトップ表示目視、390px保存操作欄のはみ出しなし。通信断でサーバー処理済みか不明な場合の完全な取引保証ではない。旧8769→8771のユーザー本人の保存移行は未実施、ファイル操作で移行可能。技変更なし。根拠 evidence/save-transfer-test.json, evidence/save-transfer.png。

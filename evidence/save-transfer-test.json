@@ -1,0 +1,10 @@
+{
+  "separateBrowserContexts": true,
+  "exportImport": true,
+  "questPreserved": true,
+  "invalidFilesPreserveSaveAndSession": true,
+  "networkFailurePreservesSave": true,
+  "storageFailureReportedAfterResume": true,
+  "mobileOverflow": false,
+  "errors": []
+}
