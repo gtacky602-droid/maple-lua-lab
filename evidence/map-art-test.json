@@ -262,13 +262,13 @@
     {
       "id": "novokichev-camp",
       "count": 0,
-      "fallback": true,
+      "fallback": false,
       "backgroundState": "ready"
     },
     {
       "id": "novokichev-depth",
       "count": 0,
-      "fallback": true,
+      "fallback": false,
       "backgroundState": "ready"
     },
     {

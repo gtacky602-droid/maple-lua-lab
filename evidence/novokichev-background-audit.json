@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-17",
+  "references": [
+    {
+      "page": "https://gamewith.jp/genshin/article/show/586997",
+      "url": "https://img.gamewith.jp/img/3b3d7048f73cb634495f999058709e9e.png",
+      "sha256": "4a1266e045c09d415a203cd98cede5c141cc2848e9aa771a6d795ac5e1148967",
+      "directly_viewed": true,
+      "source_type": "third-party published game image"
+    },
+    {
+      "page": "https://gamewith.jp/genshin/article/show/586603",
+      "url": "https://img.gamewith.jp/article/thumbnail/rectangle/586603.png?date=1793795882",
+      "sha256": "dc60b728ab9c910bacc8e7e7feafff02a8b8caea0e106a3e9c511e6106323388",
+      "directly_viewed": true,
+      "source_type": "third-party published game image"
+    }
+  ],
+  "observed": [
+    "Blue-violet riverside and stone arch",
+    "Cavern luminous tall crystalline plant"
+  ],
+  "output": "assets/novokichev-background-v1.png",
+  "output_sha256": "6c848bf4a471317111497e77af8cb1f3bf68c4befc0460335010d2d398b1f09b",
+  "generation": "assets/novokichev-background-generation-v1.json",
+  "mapped_nodes": [
+    "novokichev-camp",
+    "novokichev-depth"
+  ],
+  "validation": [
+    "2 node mappings",
+    "61 decoded backgrounds and editor checks",
+    "regional and synthetic unmapped fallback image failure cases",
+    "scope disclaimer and PNG/h32c16 overlay directly viewed"
+  ],
+  "limitations": [
+    "Original underground-route composition, not exact geography",
+    "Does not represent entire city or confirm deepest-region adoption",
+    "No 3D model reference or native performance proof",
+    "Only still images inspected, no full quest footage or traversal"
+  ],
+  "skills_changed": false
+}

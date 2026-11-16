@@ -2,8 +2,8 @@
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
   "scope": "Authored 61 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 57,
-  "fallback_mondstadt": 2,
+  "regional_temporary_image": 59,
+  "fallback_mondstadt": 0,
   "nodes": [
     {
       "id": "mond-town",
@@ -267,13 +267,13 @@
       "id": "novokichev-camp",
       "name": "ノヴォキッチェヴ（仮構造）・入口拠点",
       "region": "ノヴォキッチェヴ（仮構造）",
-      "status": "fallback_mondstadt"
+      "status": "regional_temporary_image"
     },
     {
       "id": "novokichev-depth",
       "name": "ノヴォキッチェヴ（仮構造）・探索路",
       "region": "ノヴォキッチェヴ（仮構造）",
-      "status": "fallback_mondstadt"
+      "status": "regional_temporary_image"
     },
     {
       "id": "golden-hub",

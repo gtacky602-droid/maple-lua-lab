@@ -1,0 +1,8 @@
+{
+  "prompt": "Create a wide 16:9 painterly environment background for a Maple-like 2D side scrolling RPG lab. The two attached screenshots are environment references only: cool blue-violet cavern water, carved dark stone arches, lavender glowing vegetation and towering luminous crystalline plant in cavern depths. Make an ORIGINAL composition inspired by these motifs for a temporary underground exploration route, not exact geography. Deep spacious cavern with distant stone arcades, a turquoise stream in middle distance, faint violet foliage and distant tall glowing flower-like crystal plant. Leave lower 25 percent a quiet desaturated bluish stone bank, with no foreground platform architecture since collision platforms and small pixel characters will be rendered separately. Atmospheric depth, restrained brightness behind characters. No characters, no UI, no text, no logo, no decorative border, no screenshot layout. Only scenery; smooth painterly game background.",
+  "references": [
+    "work/references/novokichev-water.png",
+    "work/references/novokichev-city.png"
+  ],
+  "status": "temporary background; geographic scope not adopted"
+}
