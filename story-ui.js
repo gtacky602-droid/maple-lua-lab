@@ -1,10 +1,15 @@
-import {renderQuestJournal} from './quest-journal.js';
-let questFilter='relevant';
+import {renderQuestJournal,trackedQuestText} from './quest-journal.js';
+let questFilter='relevant',trackedId=null;
+const trackingKey='maple-lua-lab-tracked-quest';
+try{trackedId=localStorage.getItem(trackingKey)}catch{}
+function trackQuest(id){trackedId=id;try{if(id)localStorage.setItem(trackingKey,id);else localStorage.removeItem(trackingKey)}catch{}previous='';update()}
+document.getElementById('clearTrackedQuest').onclick=()=>trackQuest(null);
 const panel=document.getElementById('storyPanel');let previous='';
 function button(label,action){const b=document.createElement('button');b.textContent=label;b.onclick=()=>{window.lab.action(action);b.blur()};return b}
 function update(){
  const f=window.lab?.frame;if(!f?.story)return;
  const signature=JSON.stringify([f.story,f.bossJourney,f.storyNotice,f.imprintTrial,f.progression?.level,Math.ceil(f.voyage?.seconds||0)]);if(signature===previous)return;previous=signature;
+ const tracked=document.getElementById('trackedQuest'),text=trackedQuestText(f,trackedId);tracked.hidden=!text;document.getElementById('trackedQuestText').textContent=text;
  panel.replaceChildren();const title=document.createElement('p');title.textContent=`本編ルート試作：モンド → スネージナヤ（${f.storyGraph.nodes.length}表示地点・${f.storyGraph.quests.length}表示依頼）。配置・敵・報酬は仮設定。背景画像は共用。`;panel.append(title,button('本編ルートへ','story_start'));
  if(f.bossJourney){const notice=document.createElement('p');notice.textContent=f.bossJourney.name+'・本編挑戦'+(f.bossJourney.defeated?'／討伐済み':'');panel.append(notice,button('挑戦入口へ戻る','world_boss_return'));}
  if(!f.story.active)return;
@@ -25,6 +30,6 @@ function update(){
  for(const h of node.hints||[])panel.append(button('調べる：'+h.label,'story_discover:'+h.group));
  for(const e of node.exits){const n=graph.nodes.find(n=>n.id===e.to);const b=button('門：'+n.name+' Lv'+n.level,'story_portal:'+n.id);if(e.windowStart){b.disabled=!f.voyage?.stopover;b.title='出航30〜50秒の寄港中に下船できます。'}if(e.requiresArrival)b.disabled=!!f.voyage;panel.append(b)}
  for(const n of graph.nodes.filter(n=>n.hub&&f.story.visited[n.id]))panel.append(button('拠点へ：'+n.name,'story_fast:'+n.id));
- panel.append(renderQuestJournal(f,{filter:questFilter,button,onFilter:value=>{questFilter=value;previous='';update()}}));
+ panel.append(renderQuestJournal(f,{filter:questFilter,button,trackedId,onTrack:trackQuest,onFilter:value=>{questFilter=value;previous='';update()}}));
 }
 setInterval(update,200);
