@@ -111,3 +111,10 @@ map-art.html追加: 本編61仮地点の足場/背景を選択し、元PNGと軽
 オシカ・ナタ仮背景追加。HoYoverse担当者のPlayStation Blog掲載画像2枚を直接確認して画像参照付き生成。環状遺跡/塔/細い赤岩/青霧の構図を再構成。船着場・遺構の道へ接続し足場灰緑化。2地点/既存背景12ケース/配置比較61地点検査通過、ヒルチャールPNG対最軽量表示を目視。地域仮画像47/代用14。個別船着場装飾・正確地理・本番3D未制作。技変更なし。
 
 根拠: evidence/ochkanatlan-background-audit.json, evidence/ochkanatlan-sprite-preview.png。
+
+
+## 2026-11-17 トゥニギ外縁の仮背景
+
+トゥニギ外縁の仮背景追加。公式担当者PlayStation Blog掲載4画像を直接確認し、砂岩と白結晶の1枚を参照して生成。参照の厳密な座標は未照合、黒淵中央/地下/浄化後状態は未再現。入口・探索路へ共用接続し足場砂色化。2地点/既存背景12ケース/配置比較61地点検査通過、PNG対最軽量表示を目視。地域仮画像49/代用12。本番3D未制作、技変更なし。並行チャットの命中数字v0.2文書を受領、B推奨も数値は未承認案として維持。
+
+根拠: evidence/tunigi-background-audit.json, evidence/tunigi-sprite-preview.png。

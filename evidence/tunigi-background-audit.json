@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-17",
+  "reference_page": "https://blog.fr.playstation.com/2023/03/31/version-3-6-de-genshin-impact-celebration-de-la-providence-et-aventure-dans-les-terres-desolees/",
+  "references": [
+    {
+      "url": "https://blog.fr.playstation.com/tachyon/sites/10/2023/03/66dd6e611fc6a1b9b9b384a6d7c28f00eace9302-scaled.jpg",
+      "sha256": "74cee0090ec985d1b860cd34f65873285bfbcd5569bfb6756d53548c9b7d3040",
+      "directly_viewed": true,
+      "used_for_generation": false
+    },
+    {
+      "url": "https://blog.fr.playstation.com/tachyon/sites/10/2023/03/83ea2a90abc290f48f6449ec66203cffe0c61b6e-scaled.jpg",
+      "sha256": "ad3d56df1784b69657bc517985184db8a6c82b85edec64783015450904956042",
+      "directly_viewed": true,
+      "used_for_generation": false
+    },
+    {
+      "url": "https://blog.fr.playstation.com/tachyon/sites/10/2023/03/38ceefa4ff241170274eca130ee229566c0fc655-scaled.jpg",
+      "sha256": "f9a8b0f2c07bb29cfd69665cbac5a76251763d7ae8b7d9f337f3b33eb1887e82",
+      "directly_viewed": true,
+      "used_for_generation": false
+    },
+    {
+      "url": "https://blog.fr.playstation.com/tachyon/sites/10/2023/03/7a38fb505b4c4ff81ba51b5c315df088517e0ad6-scaled.jpg",
+      "sha256": "e2dc6abe75d858eeb4361efebf31ffb4f15fffe92bd51c81acc0baa97647b513",
+      "directly_viewed": true,
+      "used_for_generation": true
+    }
+  ],
+  "observations": [
+    "Only fourth image used: dry sandstone ravine and pale crystal spires",
+    "Other views show tree/oasis and underground gate, not combined into this exterior"
+  ],
+  "generation": "assets/tunigi-background-generation-v1.json",
+  "output": "assets/tunigi-background-v1.png",
+  "output_sha256": "29946e3954d78aec87280be294a9fa6dca85ed98d8fbd89cd9a0c5e5b380cd8c",
+  "mapped_nodes": [
+    "tunigi-camp",
+    "tunigi-depth"
+  ],
+  "validation": [
+    "2 mappings",
+    "12 existing mappings",
+    "61-node editor checks",
+    "Hilichurl PNG/h32c16 overlay directly viewed"
+  ],
+  "limitations": [
+    "Outskirts mood only; central chasm and underground not represented",
+    "Reference screenshot exact location not independently geolocated",
+    "Shared image, no restored/corrupted state switching",
+    "No native 3D or gameplay traversal proof",
+    "Minimum-resolution mask loses detail"
+  ],
+  "skills_changed": false
+}

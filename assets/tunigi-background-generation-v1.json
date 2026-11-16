@@ -1,0 +1,5 @@
+{
+  "method": "built-in image_gen",
+  "prompt": "Create a wide 16:9 opaque temporary side-scrolling RPG background based on the landscape of this reference, not its character. Desert ravine near Tunigi Hollow: warm ochre sand, eroded layered sandstone cliffs with broad natural arches, several tall pale gray translucent crystal spires on right in middle distance with subtle violet inclusions, scattered dry shrubs and a few orange trees far left, pale hazy blue sky. Original side-on composition with broad quiet sandy lower third for tiny pixel sprites and separate gameplay platforms. Painterly anime game environment, muted medium contrast. No characters, creatures, floating golden quest markers, UI, text, logos, buildings, foreground blocking cliffs or gameplay platforms. Regional outskirts mood only, not exact geography, not depiction of restored state or the central chasm.",
+  "reference": "work/references/tunigi-official-4.jpg"
+}

@@ -179,12 +179,12 @@
     {
       "id": "tunigi-camp",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "tunigi-depth",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "bygone-camp",

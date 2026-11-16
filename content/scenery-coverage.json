@@ -2,8 +2,8 @@
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
   "scope": "Authored 61 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 47,
-  "fallback_mondstadt": 14,
+  "regional_temporary_image": 49,
+  "fallback_mondstadt": 12,
   "nodes": [
     {
       "id": "mond-town",
@@ -219,13 +219,13 @@
       "id": "tunigi-camp",
       "name": "トゥニギの黒淵・入口拠点",
       "region": "トゥニギの黒淵",
-      "status": "fallback_mondstadt"
+      "status": "regional_temporary_image"
     },
     {
       "id": "tunigi-depth",
       "name": "トゥニギの黒淵・探索路",
       "region": "トゥニギの黒淵",
-      "status": "fallback_mondstadt"
+      "status": "regional_temporary_image"
     },
     {
       "id": "bygone-camp",
