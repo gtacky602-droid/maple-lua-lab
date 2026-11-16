@@ -1,0 +1,10 @@
+{
+  "mode": "built-in image_gen",
+  "generated_file": "exec-888de9ba-fb9b-4d4f-b74e-df6e1a0abe53.png",
+  "references": [
+    "work/references/cryo-hypostasis-0.png",
+    "work/references/cryo-hypostasis-1.png",
+    "work/references/cryo-hypostasis-3.png"
+  ],
+  "prompt": "Use case: stylized-concept. Create one game-ready pixel-art idle sprite of Genshin Impact Cryo Hypostasis for a side-scrolling 2D RPG lab. Input 1 is the primary shell/model reference: preserve its cyan ice cubes, pale frosted bevels, engraved sixfold snowflake faces, separated upper/lower cluster, and bright white-cyan diamond core visible in the central gap. Input 2 is a supporting illustration showing the same cube-face motif and core. Input 3 is an in-game appearance reference for ice material only, not an action to reproduce. Make one compact floating idle cluster in three-quarter view, large cubes around a readable central core, a few small cube satellites. Use deliberate hard pixel clusters, crisp stepped outlines, 24-32 icy blue/cyan/white colors, coherent pixel scale, no smooth painted gradients or antialias fringes. Design for 128px-tall display, readable silhouette and simplified snowflake symbols. Center the entire sprite with generous transparent margins. Fully transparent background, opaque pixels on solid ice faces, no ground/reflection/shadow, no scenery, no text/UI, no attacks, no snowstorm or diffuse glow outside the silhouette. Original 2D pixel-art adaptation matching the supplied references, not a screenshot."
+}

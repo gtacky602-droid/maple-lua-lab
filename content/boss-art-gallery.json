@@ -1,0 +1,77 @@
+{
+  "status": "visual candidates only; does not establish complete combat or reference validation",
+  "items": [
+    {
+      "id": "cryo-hypostasis",
+      "name": "無相の氷（新規待機候補・戦闘未実装）",
+      "file": "cryo-hypostasis-idle-sprites.json",
+      "height": 128
+    },
+    {
+      "id": "cryo-regisvine",
+      "name": "急凍樹（既存候補）",
+      "file": "boss-sprites.json",
+      "height": 200
+    },
+    {
+      "id": "pyro-regisvine",
+      "name": "爆炎樹（既存候補）",
+      "file": "pyro-regisvine-sprites.json",
+      "height": 200
+    },
+    {
+      "id": "farka",
+      "name": "ファルカ（既存候補）",
+      "file": "farka-sprites.json",
+      "height": 110
+    },
+    {
+      "id": "anemo",
+      "name": "無相の風・外殻（既存候補）",
+      "file": "anemo-shell-sprites.json",
+      "height": 128
+    },
+    {
+      "id": "electro",
+      "name": "無相の雷・外殻（既存候補）",
+      "file": "electro-shell-sprites.json",
+      "height": 128
+    },
+    {
+      "id": "geo",
+      "name": "無相の岩・外殻（既存候補）",
+      "file": "geo-shell-sprites.json",
+      "height": 128
+    },
+    {
+      "id": "oceanid",
+      "name": "純水精霊（既存候補）",
+      "file": "oceanid-sprites.json",
+      "height": 150
+    },
+    {
+      "id": "primo",
+      "name": "エンシェントヴィシャップ（既存候補）",
+      "file": "primo-sprites.json",
+      "height": 140
+    },
+    {
+      "id": "maguu",
+      "name": "魔偶剣鬼（既存候補）",
+      "file": "maguu-sprites.json",
+      "height": 150
+    },
+    {
+      "id": "array",
+      "name": "恒常からくり陣形（既存候補）",
+      "file": "array-sprites.json",
+      "height": 140
+    },
+    {
+      "id": "thunder",
+      "name": "雷音権現（既存候補）",
+      "file": "thunder-sprites.json",
+      "height": 150
+    }
+  ]
+}

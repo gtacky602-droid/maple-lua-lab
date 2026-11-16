@@ -4,7 +4,9 @@ async function add(id,name,data,h,w){const image=new Image();image.src='assets/'
 let layouts={};
 const enemies=document.documentElement.dataset.gallery==='enemies';
 try{
- if(enemies){
+ if(document.documentElement.dataset.gallery==='bosses'){
+  for(const item of (await json('content/boss-art-gallery.json')).items)await add(item.id,item.name,await json('assets/'+item.file),item.height);
+ }else if(enemies){
   layouts=await json('content/enemy-art-layout.json');
   const variants=(await json('assets/variants.json')).variants;
   for(const [id,name,index] of [['hydro-slime','水スライム（既存候補）',4],['pyro-slime','炎スライム（既存候補）',6]]){const profiles=Object.fromEntries(['legacy','h48c32','h32c16'].map(k=>[k,variants[k].sprites[index]]));await add(id,name,{source:'atlas-transparent.png',box:profiles.legacy.box,profiles},40)}

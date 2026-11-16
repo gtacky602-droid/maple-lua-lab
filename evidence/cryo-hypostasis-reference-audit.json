@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2158?lang=en-us&crawler=Googlebot",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/e8b1f7ddbfc4b91676343091db8a57f9_5570998829617861669.png",
+      "sha256": "d84eaeccf884f60112943abf327ced5297733bfb4ff8123376bc69077a1abffe",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "primary model image, outer edge has visible noise"
+    },
+    {
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/01/29/8d7de2636087ba94e7195a1b0007e1ef_6874961881922603162.png",
+      "sha256": "b9db9bbca96717f88ece891e703c785b7abe132f4ebf80bd9fe030b1af14a308",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "card illustration alternate arrangement"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/9ba3b0774abb42241643966e8d4ec819_3331457317602069243.png",
+      "sha256": "8b9985839467d288cab03e9251aa402e95a35481b3fa2963272c7b5466c4a40f",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "same model pose with reflection; not independent angle"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/09b9a688597c7c5b0dce4766136acc97_3779395987355700549.png",
+      "sha256": "c437414540b79bba6acbbd7f34b9d22c5d26dd90b6a83a34c83a03c05b50cca3",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "in-game composite showing two shell configurations"
+    }
+  ],
+  "model_lookup": "Web search for Cryo Hypostasis 3D model returned no usable model in retrieved results; no 3D inspected",
+  "observed": "Cyan cubes, pale frosted bevels, sixfold snowflake faces, white-cyan diamond core, small satellite cubes",
+  "output": "assets/cryo-hypostasis-idle-source-v1.png",
+  "sha256": "a6b29efc34216c58f616cb260397158ef1093ae2d73629e6d7dae763d7e5be43",
+  "profiles": {
+    "legacy": {
+      "height": 128,
+      "runs": 4383
+    },
+    "h48c32": {
+      "height": 96,
+      "runs": 2889
+    },
+    "h32c16": {
+      "height": 64,
+      "runs": 1184
+    }
+  },
+  "alpha": {
+    "transparent": 995852,
+    "opaque": 1042,
+    "partial": 576194,
+    "at_least_250": 512485
+  },
+  "limits": [
+    "Backside model views unverified",
+    "Idle art only; combat and live placement absent",
+    "128px display is provisional",
+    "Exterior alpha fringe and fine engravings require comparison review",
+    "No separate shell/core parts or animation yet"
+  ],
+  "visual_review": "Viewed generated sprite and PNG versus lowest profile in browser. Outer cubes and bright central core readable; snowflake lines fragmented at 64px. Source mostly alpha253/254 with residual low-alpha exterior fringe, not strictly binary alpha."
+}
