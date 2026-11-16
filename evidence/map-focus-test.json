@@ -1,0 +1,53 @@
+{
+  "errors": [],
+  "checked": [
+    {
+      "wide": false,
+      "id": "left",
+      "camera": 0
+    },
+    {
+      "wide": false,
+      "id": "right",
+      "camera": 480
+    },
+    {
+      "wide": false,
+      "id": "offset",
+      "camera": 436
+    },
+    {
+      "wide": false,
+      "id": "mirrored",
+      "camera": 476
+    },
+    {
+      "wide": true,
+      "id": "left",
+      "camera": 0
+    },
+    {
+      "wide": true,
+      "id": "right",
+      "camera": 3840
+    },
+    {
+      "wide": true,
+      "id": "offset",
+      "camera": 2620
+    },
+    {
+      "wide": true,
+      "id": "mirrored",
+      "camera": 2660
+    }
+  ],
+  "checks": [
+    "actual map edges",
+    "4800px future-width fixture",
+    "asymmetric anchor and mirrored center",
+    "coordinates/selection/save status/history unchanged",
+    "clear/delete/node switch disable focus",
+    "390px no overflow and canvas scrolled into view"
+  ]
+}
