@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "traveler": {
-    "status": "existing atlas idle/run candidates; not final animation",
-    "reference_audit": "Four PMX views inspected; cape patterns and asymmetric shoulder armor differ in current atlas; revision pending"
+    "status": "v2 idle model-informed candidate; old atlas run retained; 88px/3 profiles",
+    "reference_audit": "Four PMX views inspected; front/back/side supplied to generator; shoulder asymmetry and cape motifs revised; mirrored left facing and old run costume mismatch remain"
   },
   "companions": {
     "amber": "v2 idle from directly viewed default PMX front/side; white-red boots/corset/ribbons corrected; 88px/3 profiles; old atlas bow pose retained and visually inconsistent; mirrored asymmetry unresolved",

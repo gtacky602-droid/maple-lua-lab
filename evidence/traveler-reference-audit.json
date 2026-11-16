@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-17",
+  "reference_audit": "evidence/traveler-amber-reference-audit.json",
+  "generation": "assets/traveler-idle-generation-v2.json",
+  "source": "assets/traveler-idle-source-v2.png",
+  "observations": [
+    "One gold shoulder guard and opposite dark sleeve represented in right-facing candidate",
+    "White/gold cape border and circular motifs replace repeated invented patterns",
+    "White-gold angular shin ornaments and front cloth revised",
+    "Lightest profile retains broad colors but loses fine shoulder and cape motifs"
+  ],
+  "profiles": {
+    "legacy": 1588,
+    "h48c32": 914,
+    "h32c16": 405
+  },
+  "validation": [
+    "PNG hash/alpha; two facings x three profiles; dead hidden",
+    "Old run pose preserved during walk and idle restored afterwards",
+    "Natural aspect ratios for traveler/Amber idle and old run/bow poses",
+    "Chrome town and 9-card 3-profile 3-zoom both-facing gallery passed; screenshots directly viewed",
+    "16 traveler utility and 16 companion checks passed; Amber idle regression passed"
+  ],
+  "remaining": [
+    "Left facing mirrors asymmetric shoulder/clothing",
+    "Old run pose has different costume detail/proportions",
+    "Small motifs and roster style consistency unfinished"
+  ],
+  "skills_changed": false
+}

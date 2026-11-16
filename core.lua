@@ -373,7 +373,9 @@ function C.frame(s,mode,profile)
  for _,a in ipairs(s.actors) do
   if a.hp>0 then
    local asset=a.id==1 and (a.walk~=0 and 2 or 1) or (a.lock>0 and 4 or 3)
-   if asset==3 and (s.companion or 'amber')=='amber' and C.amberIdleArt then
+   if asset==1 and C.travelerIdleArt then
+    C.drawTravelerIdleArt({draws=draws},s,a,mode,profile)
+   elseif asset==3 and (s.companion or 'amber')=='amber' and C.amberIdleArt then
     C.drawAmberIdleArt({draws=draws},s,a,mode,profile)
    else
     add({kind='sprite',asset=asset,x=a.x-s.camera,y=a.y,w=70,h=88,flip=a.dir<0,glow=a.light>0})
