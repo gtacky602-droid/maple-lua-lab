@@ -1,0 +1,100 @@
+{
+  "date": "2026-11-17",
+  "references": [
+    {
+      "url": "https://pack.skowt.cc/asset/01a17737-dd34-77d9-8663-4f81071ef02a-preview.webp?v=8e0051d03d",
+      "sha256": "e4843742b7babb32b61d12b7d596f0efa37c23a8d705f6f57760ebc01252507b",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "Full boss preview"
+    },
+    {
+      "url": "https://pack.skowt.cc/asset/0198390a-e4b3-742e-a0d1-375ff5f25113-preview.webp",
+      "sha256": "a81cd320da678d58c4ee8f640ba8adf0506ed73eab768d56b478466291ede2fb",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "Weapon and outfit material sheet; not pose reference"
+    }
+  ],
+  "model_viewer": {
+    "url": "https://skowt.cc/a/Biqxt6AKq",
+    "actually_viewed": true,
+    "angles": [
+      "front idle",
+      "side after 200px drag",
+      "rear after additional 110px drag"
+    ],
+    "pose": "paused at 0.28s for side/rear",
+    "observations": [
+      "two red scythes, crossed shafts behind shoulders",
+      "silver/black asymmetrical hair",
+      "dark outfit with silver diamond insets and red inner coattails",
+      "pale gray outer long coattails seen from back"
+    ],
+    "limitations": "Viewer beta warns parts/FX may be inaccurate. Wings not shown in inspected idle. No downloaded model or full motion verification."
+  },
+  "output": "assets/knave-idle-source-v1.png",
+  "sha256": "969d26260c0bc0c984f8c47666010caef4ed1aa5666c525e7260ef96363c065d",
+  "profiles": {
+    "legacy": {
+      "height": 160,
+      "runs": 4925
+    },
+    "h48c32": {
+      "height": 120,
+      "runs": 2992
+    },
+    "h32c16": {
+      "height": 80,
+      "runs": 1324
+    }
+  },
+  "reduction_percent": 73.12,
+  "anchorX": 0.5220397579948142,
+  "map_hover": 0,
+  "source_check": {
+    "size": [
+      1219,
+      1290
+    ],
+    "alpha128_bbox": [
+      31,
+      87,
+      1188,
+      1224
+    ]
+  },
+  "status": "art candidate only, no live combat",
+  "limitations": [
+    "Head enlarged and legs shortened for side-scrolling pixel readability; not exact model proportions.",
+    "Cross pupils simplified into plus-like red pixels; exact eye detail unverified at target size.",
+    "First form, winged appearance, attacks and animation absent.",
+    "Mirroring reverses asymmetric hair/weapon sizes.",
+    "Display160px is provisional comparison scale, not native size."
+  ],
+  "anchor_review": {
+    "initial_band": 0.035,
+    "initial_anchorX": 0.37683664649956783,
+    "problem": "Lower scythe blade polluted automatic support-foot estimate",
+    "final_band": 0.01,
+    "source_x_range": [
+      619,
+      650
+    ],
+    "method": "midpoint of opaque pixels in bottom 1 percent band",
+    "note": "Lowest supporting foot, other foot slightly raised. Original pixels unchanged.",
+    "validation": {
+      "invalid_values_rejected": [
+        "0",
+        "-1",
+        "nan",
+        "1.1"
+      ],
+      "final_anchor_asserted": true
+    }
+  },
+  "visual_review": {
+    "gallery": "Viewed final80px vs source: both scythes, silver hair and red/black panels retained; eyes and narrow silver decoration noisy or lost. Candidate likeness, not final.",
+    "map": "Viewed final grounded support foot with hover0 after narrowing anchor band; full scythes visible on temporary Sumeru fixture. Not canonical boss arena."
+  }
+}

@@ -188,3 +188,12 @@ skowt.ccの3Dモデルを正面・側面・背面から確認し、モデルプ�
 
 43体・49美術候補。配置比較用の浮遊32px、本来の巨体寸法や実機衝突を再現した値ではない。上半身だけの第1形態、技、アニメーション、実戦は未制作。背景は仮画像・本番3D方針を維持。
 根拠: evidence/shouki-reference-audit.json, evidence/shouki-comparison.png, evidence/shouki-map-comparison.png。生成プロンプト: assets/shouki-generation-v1.json。
+
+
+## 2026-11-17 「召使」の双鎌待機候補
+
+ボスモデルを正面・側面・背面から確認し、モデル画像と武器・衣装シートを参照して内蔵image_genで生成。2本の赤い大鎌、銀黒の髪、赤黒の衣装、灰白の外裾と赤い裏地を持つ待機候補。原画保持。160/120/80pxで4925/2992/1324矩形、最軽量73.12%減。頭身・刀身の細部は読みやすさ優先で整理し、目の十字は単純化。80pxでは顔と細い銀装飾が潰れる。
+
+低い鎌の刃が足元基準に混ざるため、コンパイラに--foot-anchor-bandを追加。既定は従来の.035、召使のみ.01で最下部の支持足を抽出（元画像x619〜650）。基準Xは.37684から.52204へ修正。再生成: python compile_boss_assets.py --source knave-idle-source-v1.png --output knave-idle-sprites.json --height 160 --foot-anchor --foot-anchor-band .01 。範囲外の値は拒否。原画像は変更しない。
+
+44体・50美術候補。登録先はtheknave.jsonに対応するboss-29091001。通常姿・翼付き外観・技・アニメーション・実戦は未制作。仮背景・本番3D方針を継続。根拠: evidence/knave-reference-audit.json, evidence/knave-comparison.png, evidence/knave-map-comparison.png。生成プロンプト: assets/knave-generation-v1.json。
