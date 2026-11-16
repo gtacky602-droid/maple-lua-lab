@@ -97,3 +97,10 @@ map-art.html追加: 本編61仮地点の足場/背景を選択し、元PNGと軽
 淵下宮仮背景を追加。HoYoverse担当者のPlayStation Blog掲載画像を直接確認して画像参照付き生成。青紫の霧/石造遺跡/崩橋の構図を再構成。入口と探索路へ接続、足場を青灰色化。2地点/既存背景12ケース/配置比較61地点検査通過。ヒルチャールPNG対最軽量版を背景上で目視、輪郭は区別できるが仮面細部はつぶれる。地域仮画像43/代用18。昼夜切替・正確地理・本番3D未実装、技変更なし。
 
 根拠: evidence/enkanomiya-background-audit.json, evidence/enkanomiya-sprite-preview.png。
+
+
+## 2026-11-17 往日の海の仮背景
+
+往日の海仮背景を追加。HoYoverse担当者のPlayStation Blog掲載画像3枚を直接確認、地上画像を除いた水中2枚を参照して生成。青緑の水/金色遺跡/水草の独自構図。入口・探索路へ接続、足場を青緑石色へ。2地点/既存背景12ケース/配置比較61地点検査通過。ヒルチャールPNG対最軽量版を背景上で目視。地域仮画像45/代用16。正確地理・本番3D未制作、水中移動と技は変更なし。
+
+根拠: evidence/bygone-background-audit.json, evidence/bygone-sprite-preview.png。

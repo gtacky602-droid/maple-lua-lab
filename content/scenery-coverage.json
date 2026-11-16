@@ -2,8 +2,8 @@
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
   "scope": "Authored 61 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 43,
-  "fallback_mondstadt": 18,
+  "regional_temporary_image": 45,
+  "fallback_mondstadt": 16,
   "nodes": [
     {
       "id": "mond-town",
@@ -231,13 +231,13 @@
       "id": "bygone-camp",
       "name": "往日の海・入口拠点",
       "region": "往日の海",
-      "status": "fallback_mondstadt"
+      "status": "regional_temporary_image"
     },
     {
       "id": "bygone-depth",
       "name": "往日の海・探索路",
       "region": "往日の海",
-      "status": "fallback_mondstadt"
+      "status": "regional_temporary_image"
     },
     {
       "id": "dornman-camp",

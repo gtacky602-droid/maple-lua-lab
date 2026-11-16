@@ -1,0 +1,8 @@
+{
+  "method": "built-in image_gen",
+  "prompt": "Wide 16:9 side scrolling RPG temporary background, original arrangement inspired by the two reference images of the Sea of Bygone Eras. Deep blue turquoise underwater realm, distant sunken pale stone and gold classical columns and broken arches, delicate golden elevated aqueduct in far distance, warm hazy light filtering from above, teal aquatic plants and small orange fan corals at sides, suspended rocky shelves far away. Painterly anime game scenery with restrained detail. Broad empty dark teal lower third, quiet sandy stone seafloor; sprites and platforms will be drawn separately. Architecture mainly upper and middle distance, no foreground columns blocking play. No characters, sea monsters, text, logos or UI. Not an exact reconstruction of a real game location; environment mood reference only. Full bleed opaque.",
+  "references": [
+    "work/references/bygone-official-2.jpg",
+    "work/references/bygone-official-3.jpg"
+  ]
+}

@@ -189,12 +189,12 @@
     {
       "id": "bygone-camp",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "bygone-depth",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "dornman-camp",

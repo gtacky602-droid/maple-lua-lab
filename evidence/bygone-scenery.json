@@ -1,0 +1,14 @@
+{
+  "errors": [],
+  "result": [
+    {
+      "id": "bygone-camp",
+      "key": "bygone"
+    },
+    {
+      "id": "bygone-depth",
+      "key": "bygone"
+    }
+  ],
+  "method": "actual story node data rendered by shared host scenery; visual fixture, not a gameplay travel test"
+}

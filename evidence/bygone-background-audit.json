@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-17",
+  "reference_page": "https://blog.playstation.com/2024/04/12/genshin-impact-version-4-6-arrives-april-24/",
+  "references": [
+    {
+      "url": "https://live.staticflickr.com/65535/53645503629_48651ac883_h.jpg",
+      "sha256": "d1c03c3b6eef51ec4e3536932c7bf1730cb8feb6d3995c4dea425333dd8f112a",
+      "directly_viewed": true,
+      "used_for_generation": false
+    },
+    {
+      "url": "https://live.staticflickr.com/65535/53645503589_c4e5093362_h.jpg",
+      "sha256": "0528e95e0626a8005ec75e1d7f2b40cf3321cb5627ff8b639a3dac40568cd6c2",
+      "directly_viewed": true,
+      "used_for_generation": true
+    },
+    {
+      "url": "https://live.staticflickr.com/65535/53645623285_927830bada_h.jpg",
+      "sha256": "ade885eb08b73da5a77e9d20af464fedef912f326fb7e9d5fc104e6efb593b41",
+      "directly_viewed": true,
+      "used_for_generation": true
+    }
+  ],
+  "observations": [
+    "First image is surface Petrichor, excluded from underwater generation",
+    "Blue water, suspended rocks, teal plants and orange fans",
+    "Pale gold columns and elevated curving structure"
+  ],
+  "generation": "assets/bygone-background-generation-v1.json",
+  "output": "assets/bygone-background-v1.png",
+  "output_sha256": "c42df5993ba3a4d5ae59f525911f4330ca5c9c57e5c92c9b7f1808423122242d",
+  "mapped_nodes": [
+    "bygone-camp",
+    "bygone-depth"
+  ],
+  "validation": [
+    "2 node mappings",
+    "12 existing mappings",
+    "61-node editor checks",
+    "Hilichurl PNG versus h32c16 overlay directly viewed"
+  ],
+  "limitations": [
+    "Shared temporary regional image, not accurate local geography",
+    "Water movement and physics unchanged",
+    "No native 3D; no full gameplay traversal proof",
+    "Minimum-resolution mask detail remains reduced"
+  ],
+  "skills_changed": false
+}
