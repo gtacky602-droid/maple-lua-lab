@@ -32,7 +32,140 @@
   "limitations": [
     "Continuous bottom route retained",
     "Enemy species and spawn geography still provisional",
-    "Hubs and peaceful nodes not revised in this pass",
-    "No native 3D implementation"
-  ]
+    "No native 3D implementation",
+    "13 peaceful/hub nodes received intermediate platforms; scenery/quest/3D fidelity not established"
+  ],
+  "hub_accessibility_changes": [
+    {
+      "node": "mond-town",
+      "added_platform_index": 3,
+      "platform": {
+        "x": 550,
+        "y": 390,
+        "w": 210
+      },
+      "reason": "Reach existing elevated platform without movement skills"
+    },
+    {
+      "node": "sumeru-hub",
+      "added_platform_index": 3,
+      "platform": {
+        "x": 530,
+        "y": 390,
+        "w": 230
+      },
+      "reason": "Reach existing elevated platform without movement skills"
+    },
+    {
+      "node": "natlan-voyage",
+      "added_platform_index": 3,
+      "platform": {
+        "x": 610,
+        "y": 390,
+        "w": 190
+      },
+      "reason": "Reach existing elevated platform without movement skills"
+    },
+    {
+      "node": "ochkanatlan-dock",
+      "added_platform_index": 3,
+      "platform": {
+        "x": 610,
+        "y": 390,
+        "w": 190
+      },
+      "reason": "Reach existing elevated platform without movement skills"
+    },
+    {
+      "node": "nod-port",
+      "added_platform_index": 3,
+      "platform": {
+        "x": 610,
+        "y": 390,
+        "w": 190
+      },
+      "reason": "Reach existing elevated platform without movement skills"
+    },
+    {
+      "node": "nod-town",
+      "added_platform_index": 3,
+      "platform": {
+        "x": 610,
+        "y": 390,
+        "w": 190
+      },
+      "reason": "Reach existing elevated platform without movement skills"
+    },
+    {
+      "node": "snezhnaya-hub",
+      "added_platform_index": 3,
+      "platform": {
+        "x": 550,
+        "y": 390,
+        "w": 215
+      },
+      "reason": "Reach existing elevated platform without movement skills"
+    },
+    {
+      "node": "dragonspine-camp",
+      "added_platform_index": 3,
+      "platform": {
+        "x": 520,
+        "y": 390,
+        "w": 240
+      },
+      "reason": "Reach existing elevated platform without movement skills"
+    },
+    {
+      "node": "chenyu-camp",
+      "added_platform_index": 3,
+      "platform": {
+        "x": 560,
+        "y": 390,
+        "w": 200
+      },
+      "reason": "Reach existing elevated platform without movement skills"
+    },
+    {
+      "node": "enkanomiya-camp",
+      "added_platform_index": 3,
+      "platform": {
+        "x": 600,
+        "y": 390,
+        "w": 160
+      },
+      "reason": "Reach existing elevated platform without movement skills"
+    },
+    {
+      "node": "bygone-camp",
+      "added_platform_index": 3,
+      "platform": {
+        "x": 560,
+        "y": 390,
+        "w": 200
+      },
+      "reason": "Reach existing elevated platform without movement skills"
+    },
+    {
+      "node": "dornman-camp",
+      "added_platform_index": 3,
+      "platform": {
+        "x": 600,
+        "y": 390,
+        "w": 160
+      },
+      "reason": "Reach existing elevated platform without movement skills"
+    },
+    {
+      "node": "nod-special-camp",
+      "added_platform_index": 3,
+      "platform": {
+        "x": 520,
+        "y": 390,
+        "w": 240
+      },
+      "reason": "Reach existing elevated platform without movement skills"
+    }
+  ],
+  "traversal_verification_scope": "All 61 story nodes; actual Lua jumps and two-way ground walking, isolated from combat"
 }

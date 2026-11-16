@@ -4,8 +4,8 @@ from runtime import runtime, ROOT
 
 lua, core = runtime()
 graph = json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf-8'))
-ids = json.loads((ROOT/'content/terrain-layout-status.json').read_text())['nodes']
 results = []
+failures = []
 
 def state(node):
     s = core.new(12)
@@ -34,8 +34,6 @@ def jump(node, source, target):
     return False
 
 for node in graph['nodes']:
-    if node['id'] not in ids:
-        continue
     platforms = node['platforms']
     reached = {0}
     routes = []
@@ -51,7 +49,9 @@ for node in graph['nodes']:
                     break
         if len(reached) == previous:
             break
-    assert len(reached) == len(platforms), (node['id'], 'unreachable', sorted(set(range(len(platforms)))-reached))
+    missing = sorted(set(range(len(platforms)))-reached)
+    if missing:
+        failures.append({'node': node['id'], 'unreachable_platforms': missing})
     # End-to-end ground travel in both directions, without teleporting between exits.
     s = state(node)
     a = s.actors[1]
@@ -65,5 +65,6 @@ for node in graph['nodes']:
         assert a.ground and a.y == 480
     results.append({'node': node['id'], 'platforms': len(platforms), 'jump_routes': routes, 'ground_both_directions': True})
 
-(ROOT/'evidence/terrain-traversal.json').write_text(json.dumps({'method':'Actual Lua fixed-step jump and walk inputs; enemies removed; jump trial begins on previously proven reachable platform; not full gameplay or native verification', 'nodes':results}, indent=2)+'\n')
+(ROOT/'evidence/terrain-traversal.json').write_text(json.dumps({'method':'All story nodes; actual Lua fixed-step jump and walk inputs; enemies removed; jump trial begins on previously proven reachable platform; not full gameplay or native verification', 'nodes':results, 'failures':failures}, indent=2)+'\n')
+assert not failures, failures
 print(f'{len(results)} routes: every elevated platform reachable; ground travel both directions passed')

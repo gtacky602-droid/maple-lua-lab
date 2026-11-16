@@ -837,3 +837,11 @@ HoYoWiki3993の全身レンダー、ゲーム内正面、最終設定画の正�
 コッペリア浮遊24px、コペリウス接地0pxで同時配置を検証。杖先を足元基準から除くため--anchor-xを追加し、コペリウスは原画の両足x288〜460の中心374.5に基づく.38457269700332963を指定。自動foot-anchorとの併用・範囲外値を拒否。再生成時もこの引数を用いる。52美術候補・氷風2演目にも個別待機素材を登録。2体の連携動作・技・実戦は未制作。仮背景・本番3D方針を維持。
 
 52候補の3profile/3zoom/両向き・配置・JSON往復・390px検証、2体同時配置3profile検証を通過。根拠: evidence/icewind-reference-audit.json, evidence/icewind-pair-test.json, evidence/icewind-pair-map.png。プロンプト: assets/coppelia-generation-v1.json, assets/coppelius-generation-v1.json。
+
+
+## 2026-11-17 町・港・入口拠点の上段到達を修正
+
+地形検査を従来の探索26地点から全61地点へ拡大したところ、町/港/入口拠点13地点の上段に通常ジャンプだけでは届かなかった。地上経路は通行可能。既存の上段と足場インデックスを保持し、高さ390の中継足場を各1枚追加。対象と座標はcontent/terrain-layout-status.jsonのhub_accessibility_changesに記録。ジャンプ性能・技・敵配置・クエスト条件は変更しない。
+
+修正後、Luaの実移動処理で全61地点の上段到達と地上往復を確認、story19項目と全61地点の敵配置/足場/再出現試験も通過。モンドとドラゴンスパインの配置比較を目視し390px幅も検査。これは敵を除いた地形単体検証で、戦闘込み通しプレイ・原作地形の再現・本番3Dの完成を証明しない。
+根拠: evidence/terrain-before-hub-fix.json（修正前13失敗）, evidence/terrain-traversal.json（修正後61成功）, evidence/hub-access-preview.json, evidence/hub-access-mond-town.png, evidence/hub-access-dragonspine-camp.png。
