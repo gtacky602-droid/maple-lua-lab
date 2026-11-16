@@ -1,0 +1,6 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Wide 16:9 background illustration for a MapleStory-like pixel-art 2D side scrolling RPG, an Inazuma-inspired Japanese fantasy island landscape. Lavender sakura trees framing left and right, distant layered dark violet mountains, a hilltop shrine and tiled-roof town across a calm blue sea, luminous pale lavender afternoon sky and soft clouds. Broad unobstructed central area for small character sprites, horizon halfway up, near grass and stone path only along bottom tenth. No characters, monsters, UI, text, foreground platforms or dramatic lightning. Crisp detailed pixel-art clusters, harmonious lavender teal and warm pale pink palette, atmospheric depth, background subdued enough for combat sprites. This is an original provisional scenic image not an exact game screenshot.",
+  "status": "provisional regional background, not exact geography",
+  "source": "inazuma-background-v1.png"
+}

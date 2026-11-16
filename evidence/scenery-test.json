@@ -1,0 +1,37 @@
+[
+  {
+    "name": "thunder",
+    "actual": "inazuma",
+    "expected": "inazuma"
+  },
+  {
+    "name": "array",
+    "actual": "inazuma",
+    "expected": "inazuma"
+  },
+  {
+    "name": "maguu",
+    "actual": "inazuma",
+    "expected": "inazuma"
+  },
+  {
+    "name": "town",
+    "actual": "inazuma",
+    "expected": "inazuma"
+  },
+  {
+    "name": "road",
+    "actual": "inazuma",
+    "expected": "inazuma"
+  },
+  {
+    "name": "stale",
+    "actual": "mondstadt",
+    "expected": "mondstadt"
+  },
+  {
+    "name": "default",
+    "actual": "mondstadt",
+    "expected": "mondstadt"
+  }
+]
