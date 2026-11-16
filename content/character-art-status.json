@@ -1,11 +1,11 @@
 {
-  "updated": "2026-11-16",
+  "updated": "2026-11-17",
   "traveler": {
     "status": "existing atlas idle/run candidates; not final animation"
   },
   "companions": {
     "amber": "existing atlas idle/bow candidates",
-    "beidou": "dedicated idle PNG and 3 numeric profiles; walk reuses idle",
+    "beidou": "v2 idle revised using directly viewed character art; front costume audit partial; side/back/3D unverified; 88px and 3 numeric profiles",
     "ayaka": "dedicated idle PNG and 3 numeric profiles; walk reuses idle",
     "wanderer": "dedicated idle PNG and 3 numeric profiles; walk/float reuses idle",
     "emilie": "dedicated idle PNG and 3 numeric profiles; walk reuses idle",

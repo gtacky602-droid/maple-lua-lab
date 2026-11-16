@@ -1,0 +1,41 @@
+{
+  "character": "beidou",
+  "date": "2026-11-17",
+  "reference_url": "https://paimon.moe/images/characters/full/beidou.png",
+  "reference_sha256": "ae8034eac289239224de51275192b13171fe2cc89b72ea9d375e0d9ca6a2db2a",
+  "reference_local": "work\\references\\beidou-paimon.png",
+  "reference_viewed": true,
+  "source_type": "third-party hosted character illustration; not independently verified official-host file",
+  "view": "front three-quarter full body",
+  "v1_findings": [
+    "Hair tips visibly red unlike reference dark brown hair",
+    "Front gold swirls replace reference pale loop fasteners",
+    "Cape mostly red instead of muted purple lining",
+    "Hairpin tassel red instead of teal",
+    "Boots have invented red panels",
+    "Eyepatch difficult to read beneath fringe"
+  ],
+  "v2_observed": [
+    "Dark brown hair without red tips",
+    "Pale loop fasteners on red front panel",
+    "Muted purple cape, teal hairpin tassel",
+    "Dark boots with gold trim",
+    "Burgundy eyepatch now visible beneath fringe"
+  ],
+  "unverified": [
+    "3D model not obtained/rendered",
+    "Side/back costume not verified",
+    "Facial asymmetry when mirrored",
+    "Exact low-resolution costume accuracy; chibi simplifications remain"
+  ],
+  "model_discovery": [
+    "https://github.com/cjhlk/GI-Model-Collects",
+    "https://mmdfr.fr/genshin-mmd/"
+  ],
+  "model_status": "discovery only, not visual evidence",
+  "profiles": {
+    "legacy": 1879,
+    "h48c32": 1128,
+    "h32c16": 480
+  }
+}

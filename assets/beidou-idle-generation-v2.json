@@ -1,0 +1,18 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Create a revised single pixel-art idle sprite of Beidou from Genshin Impact. Reference image 1 is the costume reference: follow its actual costume, dark brown hair without bright red gradient, burgundy eyepatch partly visible beneath fringe over her LEFT eye, gold hairpin with teal tassel, black bodice, red long split front panel with silver/white loop fasteners, small white fur shoulder trim, muted violet cape lining, dark thigh-high footwear with restrained gold trim. Reference image 2 is the existing game sprite: retain its cute chibi side-scrolling pixel-art style, full-body compact proportions, relaxed idle pose facing screen RIGHT, readable silhouette. Correct the invented gold swirl front design, red boot panels, oversized red hair tips and red tassel to match the first reference. Make eye patch readable where anatomically visible without moving it to wrong eye. No weapon, no attack pose, no effects, no shadow, no ground, no text. One single sprite, centered entire body with feet visible and transparent margins. Crisp pixel clusters, limited color palette readable when displayed 88 pixels high. Preserve transparent background. This is a revised art candidate, not an animation sheet.",
+  "reference_images": [
+    {
+      "path": "work/references/beidou-paimon.png",
+      "url": "https://paimon.moe/images/characters/full/beidou.png",
+      "page": "https://paimon.moe/characters/beidou",
+      "role": "costume reference; third-party hosted character art; directly viewed"
+    },
+    {
+      "path": "assets/beidou-idle-source-v1.png",
+      "role": "existing pose and style reference; directly viewed"
+    }
+  ],
+  "status": "front three-quarter visual reference revision; side/back and 3D still unverified; static idle",
+  "generated_file": "exec-c0404d9b-2db1-4402-8dbe-d219ee196395.png"
+}
