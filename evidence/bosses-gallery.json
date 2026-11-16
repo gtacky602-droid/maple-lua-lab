@@ -2,13 +2,25 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 64,
-    "visibleCount": 64,
+    "count": 66,
+    "visibleCount": 66,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "wavebinder",
+        "h": 200,
+        "w": 209.9145299145299,
+        "ratio": 1.0495726495726496
+      },
+      {
+        "id": "knuckle-duckle",
+        "h": 155,
+        "w": 187.45179063360882,
+        "ratio": 1.209366391184573
+      },
       {
         "id": "whisperer-nightmares",
         "h": 210,

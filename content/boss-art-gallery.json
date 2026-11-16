@@ -2,6 +2,20 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "wavebinder",
+      "name": "波濤の投錨者（待機候補）",
+      "file": "wavebinder-idle-sprites.json",
+      "height": 200,
+      "mapHover": 0
+    },
+    {
+      "id": "knuckle-duckle",
+      "name": "ボコボコダック（待機候補）",
+      "file": "knuckle-duckle-idle-sprites.json",
+      "height": 155,
+      "mapHover": 0
+    },
+    {
       "id": "whisperer-nightmares",
       "name": "昏き魘夢の主（待機候補）",
       "file": "whisperer-nightmares-idle-sprites.json",

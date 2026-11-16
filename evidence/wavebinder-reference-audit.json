@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-17",
+  "encounter": "boss-25134601",
+  "references": [
+    {
+      "url": "https://img.gamewith.jp/img/original_b51d25827e041c5630a24bfd1ed9fd48.jpeg",
+      "page": "https://gamewith.jp/genshin/article/show/235614",
+      "view": "Preview: anchor, cap, belly emblem and clothing; tips and boots partially cropped",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "958a59e26f72da604c636c5b26283c0d1065236456c3220e366e95f22d1e8d07"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/2e0cdd48122d87e994e4bed001d41556.png",
+      "page": "https://gamewith.jp/genshin/article/show/585942",
+      "view": "Gameplay: side shape and tail; combat effects obscure some parts",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "2587bcc97a9f51a0ffe06f24c6fb3da7e5fe9778c2938860fe06d674a14786c8"
+    }
+  ],
+  "model_lookup": "Exact English-name model search did not yield a usable model. Rear and complete tail geometry unverified.",
+  "source": "assets/wavebinder-idle-source-v1.png",
+  "sha256": "30bb2ffc200c04146360abb16c108c0aaf26ff5f6d5954b4638b5c1650536da2",
+  "profiles": {
+    "legacy": {
+      "height": 200,
+      "runs": 10217
+    },
+    "h48c32": {
+      "height": 150,
+      "runs": 6333
+    },
+    "h32c16": {
+      "height": 100,
+      "runs": 2857
+    }
+  },
+  "rectangle_reduction_percent": 72.04,
+  "reserved_colors": [
+    "#37d8ff",
+    "#216be5"
+  ],
+  "hover": 0,
+  "anchorX": 0.43526058631921827,
+  "anchor_method": "midpoint of opaque pixels in bottom 2 percent band",
+  "visual_review": "At 100px the cyan belly mark and large anchor remain recognizable. Chain openings, tiny hat decoration and tail tips become coarse.",
+  "provisional_details": "Full anchor and tail tips and the chain loop are interpreted from the cropped and partly occluded references.",
+  "foot_opaque_x_intervals_in_bottom_2_percent": [
+    [
+      304,
+      449
+    ],
+    [
+      673,
+      874
+    ]
+  ],
+  "measurement_scope": "Local rectangle counts at fixed display size. Native frame time remains unmeasured."
+}
