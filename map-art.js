@@ -1,5 +1,5 @@
 import {scenery,sceneryKey,sceneryDefinitions,sceneryStatus,backgroundReady} from './scenery.js';
-import {validatePlacementDraft,MAX_DRAFT_BYTES,MAX_NODE_PLACEMENTS,MAX_TOTAL_PLACEMENTS} from './placement-drafts.js';
+import {liveNodeDraft,validatePlacementDraft,MAX_DRAFT_BYTES,MAX_NODE_PLACEMENTS,MAX_TOTAL_PLACEMENTS} from './placement-drafts.js';
 const $=id=>document.getElementById(id),assets={},histories={};
 async function json(path){const r=await fetch(path);if(!r.ok)throw Error(path);return r.json()}
 try{
@@ -29,13 +29,15 @@ try{
   const runs=items.reduce((sum,e)=>sum+assets[e.species].profiles[profile].runs.length,0);$('status').textContent=`配置${items.length}体 ／ 矩形${runs.toLocaleString()}個（配置した全体の合計・FPSではありません） ／ ${valid?'全個体が足場に接地':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);
   window.mapArt={ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,placements:structuredClone(items),grounded:valid,background:sceneryKey(frame),backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file};
  }
+ function remember(id){const history=histories[id]??=[];history.push(structuredClone(drafts.nodes[id]??[]));if(history.length>100)history.shift()}
  function select(){const n=node();$('camera').max=Math.max(0,n.width-960);$('camera').value=0;render()}
  $('node').onchange=select;for(const id of ['camera','profile'])$(id).oninput=render;
  for(const mode of ['png','rect'])$(mode).onclick=event=>{const box=$(mode).getBoundingClientRect(),n=node(),x=Math.round((event.clientX-box.left)*960/box.width+Number($('camera').value)),y=(event.clientY-box.top)*540/box.height;const supports=n.platforms.filter(p=>x>=p.x&&x<=p.x+p.w&&x<=n.width).sort((a,b)=>Math.abs(a.y-y)-Math.abs(b.y-y));if(!supports.length)return;
   if(placements().length>=MAX_NODE_PLACEMENTS||Object.values(drafts.nodes).reduce((s,x)=>s+x.length,0)>=MAX_TOTAL_PLACEMENTS){$('fileStatus').textContent='配置数の上限です。別の案として保存してから編集してください。';return}
-  let id;do{id=`added-${++serial}`}while(placements().some(e=>e.id===id));const item={id,species:$('species').value,x,y:supports[0].y,flip:false};placements().push(item);(histories[n.id]??=[]).push(item.id);render()};
- $('undo').onclick=()=>{const id=histories[node().id]?.pop();if(id)drafts.nodes[node().id]=placements().filter(e=>e.id!==id);render()};
- $('reset').onclick=()=>{drafts.nodes[node().id]=structuredClone(initial.nodes[node().id]||[]);histories[node().id]=[];render()};
+  let id;do{id=`added-${++serial}`}while(placements().some(e=>e.id===id));const item={id,species:$('species').value,x,y:supports[0].y,flip:false};remember(n.id);placements().push(item);render()};
+ $('undo').onclick=()=>{const previous=histories[node().id]?.pop();if(previous)drafts.nodes[node().id]=previous;render()};
+ $('reset').onclick=()=>{remember(node().id);drafts.nodes[node().id]=structuredClone(initial.nodes[node().id]||[]);render()};
+ $('loadLive').onclick=async()=>{const id=node().id;$('loadLive').disabled=true;try{const source=await json('content/enemy-spawns.json');if(node().id!==id)throw Error('地点が切り替わったため読み込みを中止しました。');const items=liveNodeDraft(source,graph,id,Object.keys(assets));if(Object.entries(drafts.nodes).reduce((sum,[key,list])=>sum+(key===id?0:list.length),items.length)>MAX_TOTAL_PLACEMENTS)throw Error('全地点の配置数の上限を超えます。');remember(id);drafts.nodes[id]=items;render();$('fileStatus').textContent='この地点の本編配置を編集案にコピーしました。取り消すと直前の案に戻ります。';}catch(e){$('fileStatus').textContent='読み込み中止：'+e.message+' 編集中の案は保持しています。';}finally{$('loadLive').disabled=false}};
  $('export').onclick=()=>{const blob=new Blob([JSON.stringify(drafts,null,2)+'\n'],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='enemy-placement-drafts.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
  $('import').onchange=async()=>{
   const file=$('import').files[0],ticket=++importTicket;if(!file)return;

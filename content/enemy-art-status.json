@@ -74,7 +74,8 @@
       "hydro-slime-reference",
       "pyro-slime-reference",
       "ruin-guard"
-    ]
+    ],
+    "live_copy": "Current-node authored spawns can be copied into the visual draft with referenced asset mapping, support-derived y, undo and JSON export. Editing does not write live spawn data."
   },
   "live_placement": {
     "file": "content/enemy-spawns.json",

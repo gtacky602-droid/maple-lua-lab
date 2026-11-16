@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "referenced slime aliases",
+    "Ruin Guard position and grounding",
+    "replacement undo",
+    "other node retained",
+    "failed fetch retains edits",
+    "export",
+    "empty hub",
+    "390px layout"
+  ],
+  "errors": []
+}

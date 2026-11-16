@@ -1,6 +1,22 @@
 export const MAX_DRAFT_BYTES=512*1024;
 export const MAX_NODE_PLACEMENTS=128;
 export const MAX_TOTAL_PLACEMENTS=1024;
+// Convert authored spawn support indices to the visual editor's grounded coordinates.
+export function liveNodeDraft(input,graph,nodeId,species){
+ const node=graph.nodes.find(n=>n.id===nodeId);
+ if(!node||input?.version!==1||!input.nodes||Array.isArray(input.nodes))throw Error('本編配置の形式が不正です。');
+ const items=input.nodes[nodeId];
+ if(items===undefined&&!node.hub&&!node.peaceful)throw Error('この戦闘地点の本編配置がありません。');
+ if(items!==undefined&&!Array.isArray(items))throw Error('本編配置の個体一覧が不正です。');
+ const aliases={'hydro-slime':'hydro-slime-reference','pyro-slime':'pyro-slime-reference'};
+ const converted=(items??[]).map(e=>{
+  if(!e||!Number.isInteger(e.platform)||!node.platforms[e.platform])throw Error('本編配置の足場番号が不正です。');
+  const support=node.platforms[e.platform];
+  if(e.x<support.x||e.x>support.x+support.w)throw Error('本編配置が指定足場の外にあります。');
+  return {id:e.id,species:aliases[e.art]??e.art,x:e.x,y:support.y,flip:false};
+ });
+ return validatePlacementDraft({version:1,nodes:{[nodeId]:converted}},graph,species).nodes[nodeId];
+}
 export function validatePlacementDraft(input,graph,species){
  const object=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
  if(!object(input)||input.version!==1||!object(input.nodes))throw Error('対応する配置案JSON（version 1）を選んでください。');
