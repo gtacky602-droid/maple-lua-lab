@@ -2,6 +2,12 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "pyro-hypostasis",
+      "name": "無相の炎（参照付き待機候補・戦闘未実装）",
+      "file": "pyro-hypostasis-idle-sprites.json",
+      "height": 128
+    },
+    {
       "id": "hydro-hypostasis",
       "name": "無相の水（波紋を整理したv2・戦闘未実装）",
       "file": "hydro-hypostasis-idle-sprites.json",

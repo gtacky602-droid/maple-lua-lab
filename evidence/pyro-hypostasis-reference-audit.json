@@ -1,0 +1,122 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2161?lang=en-us&crawler=Googlebot",
+  "discovery": "Agnidus Agate Fragment entry 1099 related enemy link",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/fcd1d6fd2915911793d52c672bdeac3f_8786506688074737339.png",
+      "sha256": "a18029535e70a57243f931c74a293a519951e86278d18d7265e1da5fef7780e4",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "compact shell view"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/aeefefc7b5060030fd51a6cd2b1fd4da_8785953486307470992.png",
+      "sha256": "3ff1dd67dfa2822ff030ca9540f702c34cdbd10406cb2dbd3b293b430cf2dd94",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "same pose with reflection; not independent angle"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/7cae94e7f107fb2afc306eb4c31f29d1_8883988312826943737.png",
+      "sha256": "8c22ea2994a1f2fe8610ba3c4654da0c8eab2f97fb991cdd4d8372e3dc93d245",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "game screenshot composite: spread cubes and alternate state"
+    }
+  ],
+  "model_lookup": "Web search for Pyro Hypostasis 3D model returned no matching usable model in retrieved results; no 3D inspected",
+  "observed": "Orange/red cubes, curving pale flame/sun emblems, yellow core, ember satellite cubes",
+  "output": "assets/pyro-hypostasis-idle-source-v2.png",
+  "sha256": "da248053c2f2d4d2b70a5bab9d6c398bf8c615e7ecc952cdaca6829fcfc522a8",
+  "profiles": {
+    "legacy": {
+      "height": 128,
+      "runs": 4814
+    },
+    "h48c32": {
+      "height": 96,
+      "runs": 2771
+    },
+    "h32c16": {
+      "height": 64,
+      "runs": 1163
+    }
+  },
+  "alpha": {
+    "zero": 1088348,
+    "at_least_250": 441352,
+    "partial": 484516
+  },
+  "transparency_review": "Generation preview appeared to show a broad halo. After an edit attempt, inspecting both source versions found alpha=0 at the sampled exterior glow coordinates; RGB under transparent pixels is not visible in browser compositing. Raw preview is insufficient to claim visible halo.",
+  "transparent_samples": [
+    {
+      "xy": [
+        600,
+        100
+      ],
+      "rgba": [
+        49,
+        14,
+        0,
+        0
+      ]
+    },
+    {
+      "xy": [
+        600,
+        150
+      ],
+      "rgba": [
+        99,
+        28,
+        2,
+        0
+      ]
+    },
+    {
+      "xy": [
+        300,
+        600
+      ],
+      "rgba": [
+        69,
+        27,
+        5,
+        0
+      ]
+    },
+    {
+      "xy": [
+        1100,
+        700
+      ],
+      "rgba": [
+        122,
+        18,
+        0,
+        0
+      ]
+    },
+    {
+      "xy": [
+        700,
+        50
+      ],
+      "rgba": [
+        14,
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "limits": [
+    "3D/backside not inspected",
+    "Flame glyph is a bold simplified adaptation, not exact face engraving",
+    "Source not binary alpha; edge residuals possible",
+    "128px display provisional; idle only",
+    "No separated shell/core, animation, live encounter or new skills"
+  ],
+  "visual_review": "Viewed browser PNG/64px comparison over checkerboard: no broad exterior halo visible; bold flame swirls and yellow core remain recognizable, fine edging and satellite facets simplify. Both source versions preserved; only v2 in gallery."
+}

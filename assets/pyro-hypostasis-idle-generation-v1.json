@@ -1,0 +1,9 @@
+{
+  "mode": "built-in image_gen",
+  "generated_file": "exec-b0900122-394e-4337-9fe8-e5e48aa6ad71.png",
+  "references": [
+    "work/references/pyro-hypostasis-wiki-0.png",
+    "work/references/pyro-hypostasis-wiki-2.png"
+  ],
+  "prompt": "Use case: stylized-concept. Create one transparent-background pixel-art idle sprite of Genshin Impact Pyro Hypostasis for a 2D side-scrolling RPG. Image 1 primary appearance: orange-red cubes with beveled glowing edges, large pale yellow curving FLAME/SUN swirl motifs on each face, small ember cube satellites, bright yellow faceted diamond core in the central gap between upper and lower shell rows. Ignore the chroma noise at the original cutout edges. Image 2 in-game reference: confirms warmer orange/gold material and alternate shell arrangement; use only for appearance, not attack poses or effects. Center one compact floating shell cluster in a three-quarter view, preserve separate cubes and core. Draw as sparse chunky retro pixel art designed to remain readable when reduced to 64 pixels high, with stepped opaque pixel clusters and large flat color planes, max 3 shades per face. One bold simplified flowing flame-sun emblem per main face, with thick continuous yellow bands, no delicate filigree, no speckling/dither/soft gradient. Keep emblem recognizably CURVED FLAME pattern, not water circles or ice snowflakes. Strong silhouette and simple gold core. No sprawling fire, sparks, smoke, blur, bloom, halo, ground shadow/reflection, text, UI or background. All subject pixels opaque; outside fully transparent. Generous transparent margin. Original pixel-art adaptation based on supplied visual references; idle art only."
+}
