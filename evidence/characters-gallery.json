@@ -1,0 +1,12 @@
+{
+  "errors": [],
+  "state": {
+    "ready": true,
+    "count": 9,
+    "profile": "h32c16",
+    "zoom": 2,
+    "flip": false
+  },
+  "combinations": 18,
+  "mobileOverflow": false
+}
