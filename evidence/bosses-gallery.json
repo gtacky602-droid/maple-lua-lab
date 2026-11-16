@@ -2,11 +2,17 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 26,
+    "count": 27,
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "tulpa",
+        "h": 200,
+        "w": 266.39260020554985,
+        "ratio": 1.3319630010277492
+      },
       {
         "id": "emperor",
         "h": 180,

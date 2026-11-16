@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/4571?lang=en-us",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/09/35428890/685c8e4b6a58dbed2c74cbbf1cbb977c_5528264069620377076.png",
+      "sha256": "73fd761867e5d86eaf0135a3e55763a92d5cea320df0c454a964255064b9023d",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "face icon"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/09/35428890/81f2a68943d51cddfed93270f34971d7_5613618789416573835.png",
+      "sha256": "5c7eda5bc7bc6c609486696a484c523f4758bfd9f441b17b1c9b2c73086a9904",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "front/three-quarter render with background"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/11/02/271694481/e1b23bd295d6daa4e3d6c8d3e9e80478_2263535142542448811.png",
+      "sha256": "ac9a78507d8f83c20bc21a8fde0c2a4767ea51b4127e8d22461da66795a80bbd",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "card illustration"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/09/35428890/7c449fb52823e32c87ac880d87812efa_4634166586208400992.png",
+      "sha256": "a62c1ee80712958e2cd5c7d3dac2a44d01272d4f4702d6b9548771d87e6acfab",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "same render as 1, not another angle"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/9d4f8b10ed7d190efc5761eb030bd98a_2899057606069444813.png",
+      "sha256": "9d15dc1f61cf7626f16827d7e48960216891ee71c4bc1ccf4d0e13d3ea326f3d",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "in-game large and half-tulpa scene"
+    }
+  ],
+  "model_lookup": "No usable matching 3D model found in search; back view not inspected.",
+  "output": "assets/tulpa-idle-source-v1.png",
+  "sha256": "f99142ab9b388dfb335794ca05187f81c06a60f85b2eb02534d74bcab55401eb",
+  "profiles": {
+    "legacy": {
+      "height": 200,
+      "runs": 9888
+    },
+    "h48c32": {
+      "height": 150,
+      "runs": 6597
+    },
+    "h32c16": {
+      "height": 100,
+      "runs": 2989
+    }
+  },
+  "alpha_check": {
+    "outside_sample_coordinates": [
+      [
+        100,
+        100
+      ],
+      [
+        400,
+        200
+      ],
+      [
+        500,
+        700
+      ],
+      [
+        1000,
+        700
+      ],
+      [
+        800,
+        10
+      ]
+    ],
+    "sample_alpha": 0,
+    "note": "Preview glow has RGB beneath alpha0 at these samples. Actual checkerboard and map view showed clean exterior; not a claim about all pixels."
+  },
+  "visual_review": "Source, PNG/100px comparison and map placement directly viewed. Tall pale crest, wide shoulder plates, water hands and base funnel remain. Face spiral and small shell grooves lose detail. More symmetric squat pose and rounded hand digits than reference.",
+  "limits": [
+    "3D/back unverified",
+    "Opaque blue/cyan pixel treatment evokes water; no physical water transparency/refraction",
+    "200px size provisional; water base aligned to support",
+    "No small tulpa, attacks, animation or live combat",
+    "Forest background is comparison fixture, not habitat placement"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "mode": "builtin image_gen",
+  "generated_file": "exec-c45eca24-bcec-4342-8374-ab66aab929f8.png",
+  "reference_files": [
+    "work/references/tulpa-1.png",
+    "work/references/tulpa-4.png"
+  ],
+  "prompt": "Use case: stylized-concept. Create one transparent full-body pixel-art idle sprite of Genshin Impact Hydro Tulpa for a Maple-inspired 2D RPG lab. Follow supplied official portrait/render for head and shoulders, and in-game image for the watery lower body. Massive broad humanoid upper body made of deep blue and turquoise water. Distinct tall pale blue-white spear/crown carapace framing a single circular dark face medallion with luminous cyan spiral, pointed lower face, no human eyes or mouth. Wide angular pale shoulder plates with swept winglike points, dark blue swirling torso, exactly two big turquoise fluid arms ending in broad three-digit droplet hands. No legs: lower torso narrows into a compact swirling water funnel/base, with a few pale curved shell pieces along its sides. Calm front/three-quarter idle, arms relaxed outward/down; no weapons, no attacks, no tiny companion monsters. Strong readable silhouette and clear interior gaps, all crown/shoulder/hand/base tips inside generous margins. Crisp square pixel clusters, 24-32-color palette feel, dark navy outline, cyan and pale blue highlights to suggest water. No smooth gradients, no noisy dithering, no large translucent glow. Exterior background truly transparent and no scene, water floor, separate shadows, distant spray or floating particles. Body filled with readable pixel colors so it remains legible after a binary-alpha 16-color reduction at 100px high; this is a stylized visual water impression, not physically transparent water. Single still sprite only, no text or frame."
+}

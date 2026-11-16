@@ -2,6 +2,13 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "tulpa",
+      "name": "水形タルパ（参照付き待機候補）",
+      "file": "tulpa-idle-sprites.json",
+      "height": 200,
+      "mapHover": 0
+    },
+    {
       "id": "emperor",
       "name": "鉄甲熔炎帝王（参照付き待機候補）",
       "file": "emperor-idle-sprites.json",
