@@ -1,0 +1,535 @@
+{
+  "method": "Actual Lua fixed-step jump and walk inputs; enemies removed; jump trial begins on previously proven reachable platform; not full gameplay or native verification",
+  "nodes": [
+    {
+      "node": "mond-road",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 0,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "mond-border",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "liyue-entry",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "liyue-field",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 0,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "inazuma-road",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "sumeru-entry",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "sumeru-field",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "fontaine-entry",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "fontaine-field",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "natlan-entry",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "natlan-field",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "ochkanatlan-ruins",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "nod-field",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "snezhnaya-entry",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "snezhnaya-field",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "dragonspine-depth",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "chenyu-depth",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "enkanomiya-depth",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "tunigi-depth",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "bygone-depth",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "dornman-depth",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "nod-special-depth",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "novokichev-depth",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "golden-play",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "veluriyam-play",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "simulanka-play",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    }
+  ]
+}

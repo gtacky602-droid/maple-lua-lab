@@ -1,0 +1,38 @@
+{
+  "status": "prototype traversal layouts; not exact canonical terrain",
+  "nodes": [
+    "mond-road",
+    "mond-border",
+    "liyue-entry",
+    "liyue-field",
+    "inazuma-road",
+    "sumeru-entry",
+    "sumeru-field",
+    "fontaine-entry",
+    "fontaine-field",
+    "natlan-entry",
+    "natlan-field",
+    "ochkanatlan-ruins",
+    "nod-field",
+    "snezhnaya-entry",
+    "snezhnaya-field",
+    "dragonspine-depth",
+    "chenyu-depth",
+    "enkanomiya-depth",
+    "tunigi-depth",
+    "bygone-depth",
+    "dornman-depth",
+    "nod-special-depth",
+    "novokichev-depth",
+    "golden-play",
+    "veluriyam-play",
+    "simulanka-play"
+  ],
+  "basis": "Existing jump velocity and gravity; no skill or enemy behavior changes",
+  "limitations": [
+    "Continuous bottom route retained",
+    "Enemy species and spawn geography still provisional",
+    "Hubs and peaceful nodes not revised in this pass",
+    "No native 3D implementation"
+  ]
+}
