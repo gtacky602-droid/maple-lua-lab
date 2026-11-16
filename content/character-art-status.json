@@ -1,10 +1,11 @@
 {
   "updated": "2026-11-17",
   "traveler": {
-    "status": "existing atlas idle/run candidates; not final animation"
+    "status": "existing atlas idle/run candidates; not final animation",
+    "reference_audit": "Four PMX views inspected; cape patterns and asymmetric shoulder armor differ in current atlas; revision pending"
   },
   "companions": {
-    "amber": "existing atlas idle/bow candidates",
+    "amber": "Existing atlas idle/bow candidates; four default-outfit PMX views inspected; boots, corset motif and side ribbons require revision; attacks held",
     "beidou": "v3 idle: red/dark split tails, silver chest ornament and gold hairpin revised using viewed PMX front/back; mirror asymmetry remains; 88px/3 profiles",
     "ayaka": "v3 idle: white forearm guard, side armor gold crest and chest crest revised using viewed PMX front/side; mirror asymmetry remains; 88px/3 profiles",
     "wanderer": "v2 idle revised from illustration and four viewed PMX angles; hat/shoulder/sleeve/waist colors corrected; 88px/3 profiles; float tracking verified; mirror asymmetry remains",

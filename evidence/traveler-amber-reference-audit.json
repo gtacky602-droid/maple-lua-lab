@@ -1,0 +1,110 @@
+{
+  "date": "2026-11-17",
+  "records": [
+    {
+      "id": "amber",
+      "source_index": "https://mmdfr.fr/genshin-mmd/",
+      "model_url": "https://activity.hdslb.com/blackboard/static/20210316/4d40bc4f98f94fbc71c235832ce3efd4/ApoSncaZI8.zip",
+      "version": "14",
+      "archive_sha256": "4dafd2bc1251d7c90cc68e62fd3edda29aa137ae430dc382df19d44859ce52f5",
+      "pmx_sha256": "eebeb442e3fe6cb9fc4823d45b850f5f7844e6f1e557d7535f2bce26037c28c4",
+      "readme_path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\amber-model\\安柏2.0\\使用规则.txt",
+      "readme_sha256": "1e182c07d6d9b90db07fe9898adf34a3052f091ee5c848dea099cb8483f41265",
+      "terms_read": true,
+      "credits": "miHoYo / 神帝宇",
+      "storage": "ignored local work/references only; model/textures not redistributed",
+      "views": [
+        {
+          "view": "front",
+          "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\amber-views\\front.png",
+          "sha256": "d30568fdfd2100d7c3d9281b621137118ff6e0b3da5d04f878f29fba704dec36",
+          "directly_viewed": true
+        },
+        {
+          "view": "back",
+          "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\amber-views\\back.png",
+          "sha256": "7f7bef8ab78c0da73c6a5082f5399bfe0047fbf42be55c31edb15eb977007c4a",
+          "directly_viewed": true
+        },
+        {
+          "view": "right",
+          "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\amber-views\\right.png",
+          "sha256": "36cc383534557171602ebb3d19951aa27e081483740af1db1d0b3114f1b2194d",
+          "directly_viewed": true
+        },
+        {
+          "view": "left",
+          "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\amber-views\\left.png",
+          "sha256": "7af6580598ae66c1a250f90c8b09784bcef9b6ce9f4568d3e63dd1d6a31adf2d",
+          "directly_viewed": true
+        }
+      ],
+      "observations": [
+        "Default red outfit, brown corset with pale-gold branching front motif; current atlas uses a small star and fluffy white neckline",
+        "Thigh-high boots are white with broad red upper sections and gold trim; atlas has white legs with orange motifs and separate dark footwear",
+        "Long side red/orange ribbons and asymmetrical hip pouch; current atlas quiver is not established by this unarmed model",
+        "Brown gloves, goggles and red head ribbon broadly present in existing candidate"
+      ]
+    },
+    {
+      "id": "aether",
+      "source_index": "https://mmdfr.fr/genshin-mmd/",
+      "model_url": "https://static.biligame.com/caster_custom_assets/ys/gczj/kong.rar",
+      "version": "10",
+      "archive_sha256": "0c28320d623a01f4d496368fbaf28dde6b6e328edbd78364d6798be2585f75c9",
+      "pmx_sha256": "4a78a8e791497c03026c1b7e12eb7eb567464c21ee4a329fea617304ccf6912d",
+      "readme_path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\aether-model\\空\\readme【一定要看】.txt",
+      "readme_sha256": "78b25e862eb859b14db9cc20b14c09972c0a9f02c541e9a9f6dc18793b717b60",
+      "terms_read": true,
+      "credits": "miHoYo / 观海",
+      "storage": "ignored local work/references only; model/textures not redistributed",
+      "views": [
+        {
+          "view": "front",
+          "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\aether-views\\front.png",
+          "sha256": "3d033e89a30607681987c76691208933f28875bec1656c46903bceed7061898e",
+          "directly_viewed": true
+        },
+        {
+          "view": "back",
+          "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\aether-views\\back.png",
+          "sha256": "0e695debd4784564e7b40d0188cb1dd8a02c31e917de31661003215c6fa807bd",
+          "directly_viewed": true
+        },
+        {
+          "view": "right",
+          "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\aether-views\\right.png",
+          "sha256": "75156a3ccfdc2d1fdcd08834af5b211cf36168f8a7f88c89900b6f5ee6244079",
+          "directly_viewed": true
+        },
+        {
+          "view": "left",
+          "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\aether-views\\left.png",
+          "sha256": "f97164b274dad312ce9909bed7832bc414a57df4e6693aca726bc5e86d3418c0",
+          "directly_viewed": true
+        }
+      ],
+      "observations": [
+        "White/gold split back cape has central circular emblem and long border motifs; atlas substitutes repeated small patterns",
+        "One ornate gold shoulder guard and opposite dark sleeve are asymmetric; atlas does not accurately distinguish them",
+        "Dark cropped chest garment exposes midriff; large angular white/gold shin ornaments and black boots",
+        "Long braid and white/gold front hanging panel broadly present; exact ornaments simplified"
+      ]
+    }
+  ],
+  "renderer": "render_model_reference.py; Blender 4.2.17; flat base texture emission, no game shading validation",
+  "camera_labels": "front -Y, back +Y, right +X, left -X; not anatomical side labels",
+  "atlas": "assets/atlas-transparent.png",
+  "atlas_sha256": "36e0a6a4509e56e25a766eb31364a5fe0cf41bde92252fd56c993b5ccadba4de",
+  "atlas_directly_viewed": true,
+  "remaining": [
+    "No sprite revision yet",
+    "No animation or skill changes",
+    "Default costume only; no alternate Amber outfit selected",
+    "Asymmetric left/right sprites and precise small ornaments remain unverified"
+  ],
+  "failed_image_sources": [
+    "https://paimon.moe/images/characters/full/amber.png HTTP 403",
+    "https://paimon.moe/images/characters/full/traveler.png HTTP 403"
+  ]
+}

@@ -17,7 +17,10 @@ sys.path.insert(0, str(ROOT / 'work/tools/blender_mmd_tools'))
 import mmd_tools
 mmd_tools.register()
 name = sys.argv[sys.argv.index('--') + 1]
-model = next((ROOT / 'work/references' / (name + '-model')).glob('*.pmx'))
+model_files = list((ROOT / 'work/references' / (name + '-model')).rglob('*.pmx'))
+if len(model_files) != 1:
+    raise ValueError(f'Expected one unambiguous PMX for {name}; found {len(model_files)}')
+model = model_files[0]
 out = ROOT / 'work/references' / (name + '-views')
 out.mkdir(exist_ok=True)
 bpy.ops.object.select_all(action='SELECT')
