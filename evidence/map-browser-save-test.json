@@ -1,0 +1,10 @@
+{
+  "multiNodeRestore": true,
+  "unsavedEditsDiscarded": true,
+  "floatPreserved": true,
+  "staleTabSaveRejected": true,
+  "quotaFailurePreservesDraftAndSave": true,
+  "invalidSavePreserved": true,
+  "mobileOverflow": false,
+  "errors": []
+}

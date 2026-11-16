@@ -1,6 +1,7 @@
 import {loadImageSet} from './sprite-images.js';
 import {scenery,sceneryKey,sceneryDefinitions,sceneryStatus,backgroundReady} from './scenery.js';
 import {comparePlacements,liveNodeDraft,validatePlacementDraft,MAX_DRAFT_BYTES,MAX_NODE_PLACEMENTS,MAX_TOTAL_PLACEMENTS} from './placement-drafts.js';
+const DRAFT_KEY='maple-lua-lab.map-draft.v1';
 const $=id=>document.getElementById(id),assets={},histories={},baselines={};
 async function json(path){const r=await fetch(path);if(!r.ok)throw Error(path);return r.json()}
 try{
@@ -24,10 +25,31 @@ try{
  const images=await loadImageSet(Object.values(assets).map(data=>data.source),{onProgress:(done,total)=>{$('status').textContent=`画像を読み込み中 ${done} / ${total}`}});
  for(const data of Object.values(assets))data.image=images[data.source];
  drafts=validatePlacementDraft(drafts,graph,Object.keys(assets));
+ let storedRaw=null;
+ try{
+  storedRaw=localStorage.getItem(DRAFT_KEY);
+  if(storedRaw!==null){
+   if(new Blob([storedRaw]).size>MAX_DRAFT_BYTES)throw Error('保存データが512KBを超えています。');
+   drafts=validatePlacementDraft(JSON.parse(storedRaw),graph,Object.keys(assets));
+   $('browserStatus').textContent='ブラウザ保存から全地点の配置案を復元しました。取り消し履歴は復元されません。';
+  }
+ }catch(e){$('browserStatus').textContent='ブラウザ保存を復元できませんでした。初期案を表示します。保存データは変更していません。詳細：'+e.message}
+ $('saveBrowser').onclick=()=>{
+  try{
+   const current=localStorage.getItem(DRAFT_KEY);
+   if(current!==storedRaw)throw Error('別の画面で保存が更新されました。この案をJSON保存してから再読み込みしてください。');
+   const text=JSON.stringify(validatePlacementDraft(drafts,graph,Object.keys(assets)));
+   if(new Blob([text]).size>MAX_DRAFT_BYTES)throw Error('保存データが512KBを超えています。');
+   localStorage.setItem(DRAFT_KEY,text);storedRaw=text;
+   $('browserStatus').textContent='全地点の配置案をブラウザに保存しました。次回はこの案から再開します。';
+  }catch(e){$('browserStatus').textContent='ブラウザ保存に失敗しました。編集中の案は残っています。JSON保存も利用できます。詳細：'+e.message}
+ };
+ let lastRenderedDraft=JSON.stringify(drafts);
  for(const n of graph.nodes){const option=document.createElement('option');option.value=n.id;option.textContent=`${n.region}｜${n.name}`;$('node').append(option)}$('node').value='mond-road';
  function node(){return nodes.get($('node').value)}
  function placements(){return drafts.nodes[node().id]??=[]}
  function render(){
+  const renderedDraft=JSON.stringify(drafts);if(renderedDraft!==lastRenderedDraft){lastRenderedDraft=renderedDraft;$('browserStatus').textContent='未保存の編集があります。再読み込み前にブラウザ保存またはJSON保存してください。'}
   const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=placements(),frame={camera,platforms:n.platforms,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
   if(!items.some(e=>e.id===selected))selected=null;
   const background=sceneryStatus(frame);
