@@ -1,0 +1,18 @@
+{
+  "errors": [],
+  "result": [
+    {
+      "id": "nod-port",
+      "key": "nodkrai"
+    },
+    {
+      "id": "nod-field",
+      "key": "nodkrai"
+    },
+    {
+      "id": "nod-town",
+      "key": "nodkrai"
+    }
+  ],
+  "method": "actual story node data rendered by shared host scenery; visual fixture, not a gameplay travel test"
+}

@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-17",
+  "official_reference_page": "https://act.hoyoverse.com/ys/event/e20250723light-uowufz/index.html",
+  "reference_discovery": "Image paths found in official page index_5b207c1832057a6c4d5e.js",
+  "references": [
+    {
+      "url": "https://act.hoyoverse.com/ys/event/e20250723light-uowufz/images/pic_md_1.33026451..jpg",
+      "local_path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\nodkrai-pic_md_1.33026451..jpg",
+      "sha256": "0a5ae1b396b80bc0c83b42b533fb27fafb479e3f9c570215e48813b4069acb67",
+      "directly_viewed": true,
+      "generation_input": false
+    },
+    {
+      "url": "https://act.hoyoverse.com/ys/event/e20250723light-uowufz/images/pic_md_2.ecfbec19..jpg",
+      "local_path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\nodkrai-pic_md_2.ecfbec19..jpg",
+      "sha256": "b006ddf9be65b005d195052f71b910f3f4dfbf84f1875a6e70f6e00fadcabf23",
+      "directly_viewed": true,
+      "generation_input": false
+    },
+    {
+      "url": "https://act.hoyoverse.com/ys/event/e20250723light-uowufz/images/pic_md_3.9e989798..jpg",
+      "local_path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\nodkrai-pic_md_3.9e989798..jpg",
+      "sha256": "dc8939ce47b69d4da3558416e2e471a482b5c7f08f98172e7f251213e7ddaf5a",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "url": "https://act.hoyoverse.com/ys/event/e20250723light-uowufz/images/pic_md_4.8448ce11..jpg",
+      "local_path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\nodkrai-pic_md_4.8448ce11..jpg",
+      "sha256": "e11296e031f9625dac8395fa2dc836e08bc84387fbb19da50161e8637a2bb015",
+      "directly_viewed": true,
+      "generation_input": true
+    }
+  ],
+  "observations": [
+    "Blue/purple night, metal salvage buildings, industrial walkways, warm lamps",
+    "Water/vegetation and mechanical architecture coexist; not a blanket-snow landscape"
+  ],
+  "output": "assets/nodkrai-background-v1.png",
+  "output_sha256": "ec1d44f92dfeb8f4e33ae3c0452e36c9c6352e6b47a4f03fcdf69154dbe81924",
+  "generation": "assets/nodkrai-background-generation-v1.json",
+  "scope": "Original temporary regional harbor outskirts, not exact Nasha geography. Future background remains 3D. Host image, no Lua background commands.",
+  "mapped_nodes": [
+    "nod-port",
+    "nod-field",
+    "nod-town"
+  ],
+  "unmapped": [
+    "nod-special-camp",
+    "nod-special-depth"
+  ],
+  "validation": [
+    "3 authored region nodes select nodkrai",
+    "Shared host scenery screenshot with actual platforms directly viewed",
+    "12 existing scenery cases passed",
+    "61-node map editor and import/export regression passed"
+  ],
+  "limitations": [
+    "Visual fixture is not a gameplay travel test",
+    "Dedicated town/road/port variants and special-region background not authored",
+    "No production 3D scene or native performance verification"
+  ],
+  "skills_changed": false
+}

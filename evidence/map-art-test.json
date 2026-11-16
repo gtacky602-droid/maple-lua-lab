@@ -119,17 +119,17 @@
     {
       "id": "nod-port",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "nod-field",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "nod-town",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "snezhnaya-entry",
