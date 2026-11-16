@@ -1,3 +1,4 @@
+import {questRouteText} from './quest-route.js';
 export function questStatus(q,state){
  if(!state)return 'unaccepted';
  if(state.status==='complete')return 'complete';
@@ -14,7 +15,8 @@ export function trackedQuestText(f,id){
  const q=f.storyGraph.quests.find(q=>q.id===id);if(!q)return '';
  const st=f.story.quests[q.id],status=questStatus(q,st),hub=f.storyGraph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
  const next=status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph);
- return `${q.name} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''} ｜ ${next}`;
+ const route=questRouteText(f,q,status);
+ return `${q.name} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''} ｜ ${next}`+(route?' ｜ '+route:'');
 }
 export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack}){
  const {story,storyGraph:graph}=f,section=document.createElement('section');section.id='questJournal';section.style.width='100%';

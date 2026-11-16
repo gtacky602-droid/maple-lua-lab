@@ -16,8 +16,9 @@ try{
  await p.selectOption('#questFilter','complete');assert.match(await p.locator('#trackedQuestText').textContent(),/0\/8/);
  await p.locator('#saveProgress').click();await p.waitForFunction(()=>document.getElementById('saveStatus').textContent.includes('保存しました'));
  await p.reload();await p.waitForFunction(()=>window.lab?.frame);await p.waitForSelector('#trackedQuest:visible');await p.click('#loadProgress');await p.waitForSelector('#trackedQuest:visible');assert.match(await p.locator('#trackedQuestText').textContent(),/街道の安全確認.*0\/8/);
- await p.locator('#trackedQuest').screenshot({path:'evidence/quest-tracking.png'});
+ assert.match(await p.locator('#trackedQuestText').textContent(),/次は モンド・南の街道.*残り1区間/);await p.locator('#trackedQuest').screenshot({path:'evidence/quest-tracking.png'});
  await p.setViewportSize({width:390,height:844});assert.equal(await p.locator('#trackedQuest').evaluate(el=>el.scrollWidth>el.clientWidth),false);
+ await p.locator('#trackedQuest').screenshot({path:'evidence/quest-tracking-mobile.png'});
  await p.click('#clearTrackedQuest');assert.equal(await p.locator('#trackedQuest').isVisible(),false);assert.equal(await p.evaluate(()=>localStorage.getItem('maple-lua-lab-tracked-quest')),null);
  // Stale IDs must not leak a name or block the rest of the interface.
  await p.evaluate(()=>localStorage.setItem('maple-lua-lab-tracked-quest','unknown-id'));await p.reload();await p.waitForFunction(()=>window.lab?.frame);await p.click('#loadProgress');await p.waitForSelector('#questJournal');assert.equal(await p.locator('#trackedQuest').isVisible(),false);

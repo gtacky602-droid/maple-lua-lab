@@ -1,0 +1,16 @@
+{
+  "checked": 188,
+  "checks": [
+    "accept/report hub destination",
+    "active visit/kill destination",
+    "boss challenge entrance",
+    "one-time complete hidden",
+    "repeatable complete points to hub",
+    "missing/hidden target no leak",
+    "level gate indication",
+    "voyage pre/during/post stopover and arrival",
+    "pause indication",
+    "disconnected graph",
+    "no frame mutation"
+  ]
+}
