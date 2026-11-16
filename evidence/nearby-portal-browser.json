@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "hidden away from portal",
+    "walk from town with keyboard",
+    "destination name and enabled button",
+    "F travels to road",
+    "walk back then mobile button returns to town",
+    "390px portal bar fits"
+  ],
+  "errors": []
+}

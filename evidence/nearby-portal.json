@@ -1,0 +1,494 @@
+{
+  "connections": [
+    {
+      "node": "mond-town",
+      "to": "mond-road"
+    },
+    {
+      "node": "mond-road",
+      "to": "mond-town"
+    },
+    {
+      "node": "mond-road",
+      "to": "mond-border"
+    },
+    {
+      "node": "mond-road",
+      "to": "dornman-camp"
+    },
+    {
+      "node": "mond-road",
+      "to": "golden-hub"
+    },
+    {
+      "node": "mond-road",
+      "to": "anemo-approach"
+    },
+    {
+      "node": "mond-road",
+      "to": "electro-approach"
+    },
+    {
+      "node": "mond-border",
+      "to": "mond-road"
+    },
+    {
+      "node": "mond-border",
+      "to": "liyue-entry"
+    },
+    {
+      "node": "mond-border",
+      "to": "dragonspine-camp"
+    },
+    {
+      "node": "mond-border",
+      "to": "cryo-approach"
+    },
+    {
+      "node": "liyue-entry",
+      "to": "mond-border"
+    },
+    {
+      "node": "liyue-entry",
+      "to": "liyue-harbor"
+    },
+    {
+      "node": "liyue-entry",
+      "to": "chenyu-camp"
+    },
+    {
+      "node": "liyue-harbor",
+      "to": "liyue-entry"
+    },
+    {
+      "node": "liyue-harbor",
+      "to": "liyue-field"
+    },
+    {
+      "node": "liyue-harbor",
+      "to": "liyue-ferry"
+    },
+    {
+      "node": "liyue-field",
+      "to": "liyue-harbor"
+    },
+    {
+      "node": "liyue-field",
+      "to": "pyro-approach"
+    },
+    {
+      "node": "liyue-field",
+      "to": "geo-approach"
+    },
+    {
+      "node": "liyue-field",
+      "to": "oceanid-approach"
+    },
+    {
+      "node": "liyue-field",
+      "to": "primo-approach"
+    },
+    {
+      "node": "liyue-ferry",
+      "to": "liyue-harbor"
+    },
+    {
+      "node": "liyue-ferry",
+      "to": "inazuma-port"
+    },
+    {
+      "node": "inazuma-port",
+      "to": "liyue-harbor"
+    },
+    {
+      "node": "inazuma-port",
+      "to": "inazuma-road"
+    },
+    {
+      "node": "inazuma-road",
+      "to": "inazuma-port"
+    },
+    {
+      "node": "inazuma-road",
+      "to": "inazuma-town"
+    },
+    {
+      "node": "inazuma-road",
+      "to": "enkanomiya-camp"
+    },
+    {
+      "node": "inazuma-road",
+      "to": "maguu-approach"
+    },
+    {
+      "node": "inazuma-road",
+      "to": "array-approach"
+    },
+    {
+      "node": "inazuma-road",
+      "to": "thunder-approach"
+    },
+    {
+      "node": "inazuma-town",
+      "to": "inazuma-road"
+    },
+    {
+      "node": "inazuma-town",
+      "to": "sumeru-entry"
+    },
+    {
+      "node": "sumeru-entry",
+      "to": "inazuma-town"
+    },
+    {
+      "node": "sumeru-entry",
+      "to": "sumeru-hub"
+    },
+    {
+      "node": "sumeru-entry",
+      "to": "veluriyam-hub"
+    },
+    {
+      "node": "sumeru-hub",
+      "to": "sumeru-entry"
+    },
+    {
+      "node": "sumeru-hub",
+      "to": "sumeru-field"
+    },
+    {
+      "node": "sumeru-field",
+      "to": "sumeru-hub"
+    },
+    {
+      "node": "sumeru-field",
+      "to": "fontaine-entry"
+    },
+    {
+      "node": "sumeru-field",
+      "to": "tunigi-camp"
+    },
+    {
+      "node": "fontaine-entry",
+      "to": "sumeru-field"
+    },
+    {
+      "node": "fontaine-entry",
+      "to": "fontaine-hub"
+    },
+    {
+      "node": "fontaine-hub",
+      "to": "fontaine-entry"
+    },
+    {
+      "node": "fontaine-hub",
+      "to": "fontaine-field"
+    },
+    {
+      "node": "fontaine-hub",
+      "to": "simulanka-hub"
+    },
+    {
+      "node": "fontaine-field",
+      "to": "fontaine-hub"
+    },
+    {
+      "node": "fontaine-field",
+      "to": "natlan-entry"
+    },
+    {
+      "node": "fontaine-field",
+      "to": "bygone-camp"
+    },
+    {
+      "node": "natlan-entry",
+      "to": "fontaine-field"
+    },
+    {
+      "node": "natlan-entry",
+      "to": "natlan-hub"
+    },
+    {
+      "node": "natlan-hub",
+      "to": "natlan-entry"
+    },
+    {
+      "node": "natlan-hub",
+      "to": "natlan-field"
+    },
+    {
+      "node": "natlan-field",
+      "to": "natlan-hub"
+    },
+    {
+      "node": "natlan-field",
+      "to": "natlan-port"
+    },
+    {
+      "node": "natlan-port",
+      "to": "natlan-field"
+    },
+    {
+      "node": "natlan-port",
+      "to": "natlan-voyage"
+    },
+    {
+      "node": "natlan-voyage",
+      "to": "natlan-port"
+    },
+    {
+      "node": "natlan-voyage",
+      "to": "ochkanatlan-dock"
+    },
+    {
+      "node": "natlan-voyage",
+      "to": "nod-port"
+    },
+    {
+      "node": "ochkanatlan-dock",
+      "to": "natlan-voyage"
+    },
+    {
+      "node": "ochkanatlan-dock",
+      "to": "ochkanatlan-ruins"
+    },
+    {
+      "node": "ochkanatlan-ruins",
+      "to": "ochkanatlan-dock"
+    },
+    {
+      "node": "nod-port",
+      "to": "natlan-port"
+    },
+    {
+      "node": "nod-port",
+      "to": "nod-field"
+    },
+    {
+      "node": "nod-field",
+      "to": "nod-port"
+    },
+    {
+      "node": "nod-field",
+      "to": "nod-town"
+    },
+    {
+      "node": "nod-field",
+      "to": "nod-special-camp"
+    },
+    {
+      "node": "nod-town",
+      "to": "nod-field"
+    },
+    {
+      "node": "nod-town",
+      "to": "snezhnaya-entry"
+    },
+    {
+      "node": "snezhnaya-entry",
+      "to": "nod-town"
+    },
+    {
+      "node": "snezhnaya-entry",
+      "to": "snezhnaya-hub"
+    },
+    {
+      "node": "snezhnaya-hub",
+      "to": "snezhnaya-entry"
+    },
+    {
+      "node": "snezhnaya-hub",
+      "to": "snezhnaya-field"
+    },
+    {
+      "node": "snezhnaya-field",
+      "to": "snezhnaya-hub"
+    },
+    {
+      "node": "snezhnaya-field",
+      "to": "novokichev-camp"
+    },
+    {
+      "node": "dragonspine-camp",
+      "to": "mond-border"
+    },
+    {
+      "node": "dragonspine-camp",
+      "to": "dragonspine-depth"
+    },
+    {
+      "node": "dragonspine-depth",
+      "to": "dragonspine-camp"
+    },
+    {
+      "node": "chenyu-camp",
+      "to": "liyue-entry"
+    },
+    {
+      "node": "chenyu-camp",
+      "to": "chenyu-depth"
+    },
+    {
+      "node": "chenyu-depth",
+      "to": "chenyu-camp"
+    },
+    {
+      "node": "enkanomiya-camp",
+      "to": "inazuma-road"
+    },
+    {
+      "node": "enkanomiya-camp",
+      "to": "enkanomiya-depth"
+    },
+    {
+      "node": "enkanomiya-depth",
+      "to": "enkanomiya-camp"
+    },
+    {
+      "node": "tunigi-camp",
+      "to": "sumeru-field"
+    },
+    {
+      "node": "tunigi-camp",
+      "to": "tunigi-depth"
+    },
+    {
+      "node": "tunigi-depth",
+      "to": "tunigi-camp"
+    },
+    {
+      "node": "bygone-camp",
+      "to": "fontaine-field"
+    },
+    {
+      "node": "bygone-camp",
+      "to": "bygone-depth"
+    },
+    {
+      "node": "bygone-depth",
+      "to": "bygone-camp"
+    },
+    {
+      "node": "dornman-camp",
+      "to": "mond-road"
+    },
+    {
+      "node": "dornman-camp",
+      "to": "dornman-depth"
+    },
+    {
+      "node": "dornman-depth",
+      "to": "dornman-camp"
+    },
+    {
+      "node": "nod-special-camp",
+      "to": "nod-field"
+    },
+    {
+      "node": "nod-special-camp",
+      "to": "nod-special-depth"
+    },
+    {
+      "node": "nod-special-depth",
+      "to": "nod-special-camp"
+    },
+    {
+      "node": "novokichev-camp",
+      "to": "snezhnaya-field"
+    },
+    {
+      "node": "novokichev-camp",
+      "to": "novokichev-depth"
+    },
+    {
+      "node": "novokichev-depth",
+      "to": "novokichev-camp"
+    },
+    {
+      "node": "golden-hub",
+      "to": "mond-road"
+    },
+    {
+      "node": "golden-hub",
+      "to": "golden-play"
+    },
+    {
+      "node": "golden-play",
+      "to": "golden-hub"
+    },
+    {
+      "node": "veluriyam-hub",
+      "to": "sumeru-entry"
+    },
+    {
+      "node": "veluriyam-hub",
+      "to": "veluriyam-play"
+    },
+    {
+      "node": "veluriyam-play",
+      "to": "veluriyam-hub"
+    },
+    {
+      "node": "simulanka-hub",
+      "to": "fontaine-hub"
+    },
+    {
+      "node": "simulanka-hub",
+      "to": "simulanka-play"
+    },
+    {
+      "node": "simulanka-play",
+      "to": "simulanka-hub"
+    },
+    {
+      "node": "anemo-approach",
+      "to": "mond-road"
+    },
+    {
+      "node": "cryo-approach",
+      "to": "mond-border"
+    },
+    {
+      "node": "pyro-approach",
+      "to": "liyue-field"
+    },
+    {
+      "node": "electro-approach",
+      "to": "mond-road"
+    },
+    {
+      "node": "geo-approach",
+      "to": "liyue-field"
+    },
+    {
+      "node": "oceanid-approach",
+      "to": "liyue-field"
+    },
+    {
+      "node": "primo-approach",
+      "to": "liyue-field"
+    },
+    {
+      "node": "maguu-approach",
+      "to": "inazuma-road"
+    },
+    {
+      "node": "array-approach",
+      "to": "inazuma-road"
+    },
+    {
+      "node": "thunder-approach",
+      "to": "inazuma-road"
+    }
+  ],
+  "hidden_connections_checked": 9,
+  "checks": [
+    "nearest name from graph",
+    "strict distance/height boundaries",
+    "pause/dead blocks",
+    "keyboard action delegates existing traversal",
+    "level blocks",
+    "undiscovered names hidden",
+    "arrival and stopover boundaries"
+  ]
+}

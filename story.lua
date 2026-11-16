@@ -11,6 +11,24 @@ return function(C,data)
   if not s.story then s.story={active=false,node='mond-town',visited={['mond-town']=true},quests={}} end
   s.story.discovered=s.story.discovered or {}
  end
+ local function nearbyPortal(s)
+  if not s.story.active then return nil end
+  local a=s.actors[s.active];if math.abs(a.y-480)>=60 then return nil end
+  local best,distance=nil,90
+  for _,edge in ipairs(nodes[s.story.node].exits) do
+   local n=nodes[edge.to];local dx=math.abs(a.x-edge.x)
+   if dx<distance and (not n.hiddenGroup or s.story.discovered[n.hiddenGroup]) then
+    local passed=s.voyage and s.t-s.voyage.started or -1;local reason=nil
+    if s.paused then reason='一時停止中'
+    elseif a.hp<=0 then reason='戦闘不能中'
+    elseif not s.progression or s.progression.level<n.level then reason='必要レベル '..n.level
+    elseif edge.windowStart and not (passed+1e-8>=edge.windowStart and passed+1e-8<edge.windowEnd) then reason='寄港時間外'
+    elseif edge.requiresArrival and not (s.voyage and s.t>=s.voyage.arrives) then reason='到着待ち' end
+    best={to=edge.to,name=n.name,level=n.level,available=not reason,reason=reason};distance=dx
+   end
+  end
+  return best
+ end
  local function progress(s,kind,target,amount)
   for id,state in pairs(s.story.quests) do local q=quests[id]
    if state.status=='active' and q.kind==kind and q.target==target then state.count=math.min(q.goal,state.count+amount) end
@@ -39,6 +57,7 @@ return function(C,data)
  function C.storyBossDefeated(s,id) setup(s);progress(s,'boss',id,1) end
  function C.action(s,key)
   setup(s)
+  if key=='story_nearby_portal' then local p=nearbyPortal(s);if p then C.action(s,'story_portal:'..p.to) end;return end
   local discovery=key:match('^story_discover:([%w%-]+)$')
   if discovery then
    if s.paused or not s.story.active or s.actors[s.active].hp<=0 then return end
@@ -95,6 +114,7 @@ return function(C,data)
   f.storyGraph=visible;f.storyNotice=s.storyNotice;f.storyJoined={};f.voyage=s.voyage and {seconds=math.max(0,s.voyage.arrives-s.t),destination=s.voyage.destination,elapsed=s.t-s.voyage.started,stopover=s.voyage.stopStart and s.t-s.voyage.started+1e-8>=s.voyage.stopStart and s.t-s.voyage.started+1e-8<s.voyage.stopEnd or false} or nil
   for id,q in pairs(quests) do if q.join and s.story.quests[id] and s.story.quests[id].status=='complete' then f.storyJoined[q.join]=true end end
   if s.story.active then local n=nodes[s.story.node];f.location=n.name..'（本編試作）'
+   f.storyNearbyPortal=nearbyPortal(s)
    local markers={};f.storyPortals={}
    local function marker(x,y,w,h) markers[#markers+1]={kind='rect',x=x,y=y,w=w,h=h,color='#83dbe1'} end
    for _,edge in ipairs(n.exits) do if shown(nodes[edge.to]) then
