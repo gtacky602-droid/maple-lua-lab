@@ -333,6 +333,7 @@ function C.step(s,dt,input)
     end
    end
    if near==nil and not attracted and e.root<=0 then e.motionTime=(e.motionTime or 0)+dt*rate;e.x=e.home+math.sin(e.motionTime*1.2+e.id)*18 end
+   if e.patrolMin then e.x=clamp(e.x,e.patrolMin,e.patrolMax) end
   end
  end
  if s.actors[s.active].hp<=0 then
@@ -366,7 +367,10 @@ function C.frame(s,mode,profile)
  end
  for _,e in ipairs(s.enemies) do if e.hp>0 and e.x>s.camera-40 and e.x<s.camera+1000 then
   visible=visible+1
-  if not e.custom then add({kind='sprite',asset=e.kind==1 and 5 or 7,x=e.x-s.camera,y=e.y,w=e.boss and 144 or 48,h=e.boss and 120 or 40,flip=false}) end
+  if not e.custom then
+   if e.art=='hilichurl' and C.hilichurlArt then C.drawEnemyIdleArt({draws=draws},s,e,mode,profile)
+   else add({kind='sprite',asset=e.kind==1 and 5 or 7,x=e.x-s.camera,y=e.y,w=e.boss and 144 or 48,h=e.boss and 120 or 40,flip=false}) end
+  end
   if e.hp<e.maxhp then rect(e.x-s.camera-20,e.y-49,40,4,'#45645d');rect(e.x-s.camera-20,e.y-49,40*e.hp/e.maxhp,4,'#ffcc7c') end
   if e.warning>0 then add({kind='text',x=e.x-s.camera,y=e.y-63,text='!',color='#e54b35',size=26}) end
  end end

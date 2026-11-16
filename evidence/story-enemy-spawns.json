@@ -1,0 +1,255 @@
+{
+  "nodes": [
+    {
+      "node": "mond-town",
+      "enemy_count": 0
+    },
+    {
+      "node": "mond-road",
+      "enemy_count": 6
+    },
+    {
+      "node": "mond-border",
+      "enemy_count": 6
+    },
+    {
+      "node": "liyue-entry",
+      "enemy_count": 6
+    },
+    {
+      "node": "liyue-harbor",
+      "enemy_count": 0
+    },
+    {
+      "node": "liyue-field",
+      "enemy_count": 6
+    },
+    {
+      "node": "liyue-ferry",
+      "enemy_count": 0
+    },
+    {
+      "node": "inazuma-port",
+      "enemy_count": 0
+    },
+    {
+      "node": "inazuma-road",
+      "enemy_count": 6
+    },
+    {
+      "node": "inazuma-town",
+      "enemy_count": 0
+    },
+    {
+      "node": "sumeru-entry",
+      "enemy_count": 6
+    },
+    {
+      "node": "sumeru-hub",
+      "enemy_count": 0
+    },
+    {
+      "node": "sumeru-field",
+      "enemy_count": 6
+    },
+    {
+      "node": "fontaine-entry",
+      "enemy_count": 6
+    },
+    {
+      "node": "fontaine-hub",
+      "enemy_count": 0
+    },
+    {
+      "node": "fontaine-field",
+      "enemy_count": 6
+    },
+    {
+      "node": "natlan-entry",
+      "enemy_count": 6
+    },
+    {
+      "node": "natlan-hub",
+      "enemy_count": 0
+    },
+    {
+      "node": "natlan-field",
+      "enemy_count": 6
+    },
+    {
+      "node": "natlan-port",
+      "enemy_count": 0
+    },
+    {
+      "node": "natlan-voyage",
+      "enemy_count": 0
+    },
+    {
+      "node": "ochkanatlan-dock",
+      "enemy_count": 0
+    },
+    {
+      "node": "ochkanatlan-ruins",
+      "enemy_count": 6
+    },
+    {
+      "node": "nod-port",
+      "enemy_count": 0
+    },
+    {
+      "node": "nod-field",
+      "enemy_count": 6
+    },
+    {
+      "node": "nod-town",
+      "enemy_count": 0
+    },
+    {
+      "node": "snezhnaya-entry",
+      "enemy_count": 6
+    },
+    {
+      "node": "snezhnaya-hub",
+      "enemy_count": 0
+    },
+    {
+      "node": "snezhnaya-field",
+      "enemy_count": 6
+    },
+    {
+      "node": "dragonspine-camp",
+      "enemy_count": 0
+    },
+    {
+      "node": "dragonspine-depth",
+      "enemy_count": 6
+    },
+    {
+      "node": "chenyu-camp",
+      "enemy_count": 0
+    },
+    {
+      "node": "chenyu-depth",
+      "enemy_count": 6
+    },
+    {
+      "node": "enkanomiya-camp",
+      "enemy_count": 0
+    },
+    {
+      "node": "enkanomiya-depth",
+      "enemy_count": 6
+    },
+    {
+      "node": "tunigi-camp",
+      "enemy_count": 0
+    },
+    {
+      "node": "tunigi-depth",
+      "enemy_count": 6
+    },
+    {
+      "node": "bygone-camp",
+      "enemy_count": 0
+    },
+    {
+      "node": "bygone-depth",
+      "enemy_count": 6
+    },
+    {
+      "node": "dornman-camp",
+      "enemy_count": 0
+    },
+    {
+      "node": "dornman-depth",
+      "enemy_count": 6
+    },
+    {
+      "node": "nod-special-camp",
+      "enemy_count": 0
+    },
+    {
+      "node": "nod-special-depth",
+      "enemy_count": 6
+    },
+    {
+      "node": "novokichev-camp",
+      "enemy_count": 0
+    },
+    {
+      "node": "novokichev-depth",
+      "enemy_count": 6
+    },
+    {
+      "node": "golden-hub",
+      "enemy_count": 0
+    },
+    {
+      "node": "golden-play",
+      "enemy_count": 6
+    },
+    {
+      "node": "veluriyam-hub",
+      "enemy_count": 0
+    },
+    {
+      "node": "veluriyam-play",
+      "enemy_count": 6
+    },
+    {
+      "node": "simulanka-hub",
+      "enemy_count": 0
+    },
+    {
+      "node": "simulanka-play",
+      "enemy_count": 6
+    },
+    {
+      "node": "anemo-approach",
+      "enemy_count": 0
+    },
+    {
+      "node": "cryo-approach",
+      "enemy_count": 0
+    },
+    {
+      "node": "pyro-approach",
+      "enemy_count": 0
+    },
+    {
+      "node": "electro-approach",
+      "enemy_count": 0
+    },
+    {
+      "node": "geo-approach",
+      "enemy_count": 0
+    },
+    {
+      "node": "oceanid-approach",
+      "enemy_count": 0
+    },
+    {
+      "node": "primo-approach",
+      "enemy_count": 0
+    },
+    {
+      "node": "maguu-approach",
+      "enemy_count": 0
+    },
+    {
+      "node": "array-approach",
+      "enemy_count": 0
+    },
+    {
+      "node": "thunder-approach",
+      "enemy_count": 0
+    }
+  ],
+  "render_profiles": [
+    "legacy",
+    "h48c32",
+    "h32c16"
+  ],
+  "lure_support_and_respawn": true,
+  "scope": "isolated fixtures, not canonical species or full combat playtest"
+}

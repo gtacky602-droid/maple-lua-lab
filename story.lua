@@ -24,7 +24,13 @@ return function(C,data)
   s.enemies={}
   if not n.hub and not n.peaceful then
    local fresh=C.new(12)
-   for i=1,6 do local e=fresh.enemies[i];e.x=300+(i-1)*170;e.home=e.x;e.y=480;e.level=n.level;e.barrier=n.barrier or 0;if e.barrier>0 then e.hp=60;e.maxhp=60 end;s.enemies[i]=e end
+   local placements=assert(C.enemySpawns and C.enemySpawns[id],'Missing story enemy placements: '..id)
+   for i,placement in ipairs(placements) do
+    local e=fresh.enemies[i];local p=assert(n.platforms[placement.platform+1],'Invalid enemy support')
+    e.x=placement.x;e.home=e.x;e.y=p.y;e.kind=placement.kind;e.art=placement.art;e.spawnId=placement.id
+    e.patrolMin=p.x+24;e.patrolMax=p.x+p.w-24
+    e.level=n.level;e.barrier=n.barrier or 0;if e.barrier>0 then e.hp=60;e.maxhp=60 end;s.enemies[i]=e
+   end
   end
   for i,a in ipairs(s.actors) do a.x=(spawn or 160)-(i-1)*40;a.y=480;a.vy=0;a.ground=true end
   s.macro=nil;s.encounter=nil;s.voyage=n.voyage and {destination=n.voyage.destination,arrives=s.t+n.voyage.seconds-(elapsed or 0),started=s.t-(elapsed or 0),source=n.voyage.source,stopStart=n.voyage.stopStart,stopEnd=n.voyage.stopEnd} or nil;progress(s,'visit',id,1)

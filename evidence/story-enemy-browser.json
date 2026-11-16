@@ -1,0 +1,24 @@
+{
+  "result": {
+    "node": "mond-road",
+    "total": 6,
+    "hilichurl": {
+      "source": "hilichurl-idle-source-v1.png",
+      "y": 480,
+      "x": 295.33333333333326,
+      "kind": "boss_sprite",
+      "anchorX": 0.4638655462184874,
+      "box": [
+        290,
+        126,
+        595,
+        1085
+      ],
+      "h": 76,
+      "w": 41.67741935483871,
+      "flip": false
+    }
+  },
+  "errors": [],
+  "method": "walked from story start to adjacent portal using keyboard; PNG and rect runtime frames checked"
+}

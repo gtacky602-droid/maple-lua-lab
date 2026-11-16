@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": [
-    "core.lua C.new: kind 1/2; atlas indices 5/7",
-    "story.lua enter: six copied enemies per hostile node"
+    "content/enemy-spawns.json: per-node live placement",
+    "story.lua enter: existing generic enemies populated from placement data"
   ],
   "hostile_story_nodes": [
     "mond-road",
@@ -32,7 +32,7 @@
     "veluriyam-play",
     "simulanka-play"
   ],
-  "current_story_assignment": "Shared proxy population; region-specific enemy species are not authored",
+  "current_story_assignment": "26 hostile nodes with six provisional enemies each, four ground and two elevated. Regional species not complete. Mondstadt road/border use one model-informed Hilichurl idle each with existing generic prototype behavior.",
   "assets": [
     {
       "id": "hydro-slime",
@@ -44,7 +44,7 @@
     },
     {
       "id": "hilichurl",
-      "status": "model-informed idle candidate; gallery and visual map-placement preview; no live story placement or dedicated behavior",
+      "status": "model-informed idle connected to mond-road and mond-border; existing generic proxy behavior, no dedicated attacks or walking animation",
       "art": "assets/hilichurl-idle-sprites.json"
     }
   ],
@@ -54,5 +54,10 @@
     "page": "map-art.html",
     "draft": "content/enemy-placement-drafts.json",
     "scope": "61 authored proxy nodes; mond-road initial visual draft; in-memory edits can be exported and imported with node/species/ID/grounding validation; not combat spawns"
+  },
+  "live_placement": {
+    "file": "content/enemy-spawns.json",
+    "scope": "26 hostile nodes, 156 provisional spawns; numeric kind keeps existing mechanics; art selects appearance; not canonical species distribution",
+    "validation": "evidence/story-enemy-spawns.json"
   }
 }

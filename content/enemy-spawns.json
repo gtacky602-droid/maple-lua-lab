@@ -1,0 +1,1150 @@
+{
+  "version": 1,
+  "status": "Provisional live placement; existing generic behavior; not canonical regional species or attacks",
+  "nodes": {
+    "mond-road": [
+      {
+        "id": "mond-road-1",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "mond-road-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "mond-road-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "mond-road-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "mond-road-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 370,
+        "platform": 1
+      },
+      {
+        "id": "mond-road-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 655,
+        "platform": 2
+      }
+    ],
+    "mond-border": [
+      {
+        "id": "mond-border-1",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "mond-border-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "mond-border-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "mond-border-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "mond-border-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 290,
+        "platform": 1
+      },
+      {
+        "id": "mond-border-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 585,
+        "platform": 2
+      }
+    ],
+    "liyue-entry": [
+      {
+        "id": "liyue-entry-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "liyue-entry-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "liyue-entry-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "liyue-entry-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "liyue-entry-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 305,
+        "platform": 1
+      },
+      {
+        "id": "liyue-entry-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 600,
+        "platform": 2
+      }
+    ],
+    "liyue-field": [
+      {
+        "id": "liyue-field-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "liyue-field-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "liyue-field-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "liyue-field-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "liyue-field-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 295,
+        "platform": 1
+      },
+      {
+        "id": "liyue-field-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 575,
+        "platform": 2
+      }
+    ],
+    "inazuma-road": [
+      {
+        "id": "inazuma-road-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "inazuma-road-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "inazuma-road-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "inazuma-road-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "inazuma-road-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 290,
+        "platform": 1
+      },
+      {
+        "id": "inazuma-road-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 610,
+        "platform": 2
+      }
+    ],
+    "sumeru-entry": [
+      {
+        "id": "sumeru-entry-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "sumeru-entry-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "sumeru-entry-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "sumeru-entry-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "sumeru-entry-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 1
+      },
+      {
+        "id": "sumeru-entry-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 575,
+        "platform": 2
+      }
+    ],
+    "sumeru-field": [
+      {
+        "id": "sumeru-field-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "sumeru-field-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "sumeru-field-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "sumeru-field-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "sumeru-field-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 275,
+        "platform": 1
+      },
+      {
+        "id": "sumeru-field-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 560,
+        "platform": 2
+      }
+    ],
+    "fontaine-entry": [
+      {
+        "id": "fontaine-entry-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "fontaine-entry-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "fontaine-entry-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "fontaine-entry-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "fontaine-entry-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 320,
+        "platform": 1
+      },
+      {
+        "id": "fontaine-entry-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 650,
+        "platform": 2
+      }
+    ],
+    "fontaine-field": [
+      {
+        "id": "fontaine-field-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "fontaine-field-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "fontaine-field-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "fontaine-field-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "fontaine-field-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 320,
+        "platform": 1
+      },
+      {
+        "id": "fontaine-field-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 690,
+        "platform": 2
+      }
+    ],
+    "natlan-entry": [
+      {
+        "id": "natlan-entry-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "natlan-entry-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "natlan-entry-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "natlan-entry-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "natlan-entry-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 290,
+        "platform": 1
+      },
+      {
+        "id": "natlan-entry-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 550,
+        "platform": 2
+      }
+    ],
+    "natlan-field": [
+      {
+        "id": "natlan-field-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "natlan-field-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "natlan-field-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "natlan-field-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "natlan-field-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 290,
+        "platform": 1
+      },
+      {
+        "id": "natlan-field-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 560,
+        "platform": 2
+      }
+    ],
+    "ochkanatlan-ruins": [
+      {
+        "id": "ochkanatlan-ruins-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "ochkanatlan-ruins-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "ochkanatlan-ruins-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "ochkanatlan-ruins-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "ochkanatlan-ruins-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 290,
+        "platform": 1
+      },
+      {
+        "id": "ochkanatlan-ruins-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 575,
+        "platform": 2
+      }
+    ],
+    "nod-field": [
+      {
+        "id": "nod-field-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "nod-field-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "nod-field-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "nod-field-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "nod-field-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 1
+      },
+      {
+        "id": "nod-field-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 640,
+        "platform": 2
+      }
+    ],
+    "snezhnaya-entry": [
+      {
+        "id": "snezhnaya-entry-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "snezhnaya-entry-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "snezhnaya-entry-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "snezhnaya-entry-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "snezhnaya-entry-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 1
+      },
+      {
+        "id": "snezhnaya-entry-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 640,
+        "platform": 2
+      }
+    ],
+    "snezhnaya-field": [
+      {
+        "id": "snezhnaya-field-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "snezhnaya-field-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "snezhnaya-field-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "snezhnaya-field-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "snezhnaya-field-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 315,
+        "platform": 1
+      },
+      {
+        "id": "snezhnaya-field-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 630,
+        "platform": 2
+      }
+    ],
+    "dragonspine-depth": [
+      {
+        "id": "dragonspine-depth-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "dragonspine-depth-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "dragonspine-depth-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "dragonspine-depth-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "dragonspine-depth-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 265,
+        "platform": 1
+      },
+      {
+        "id": "dragonspine-depth-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 535,
+        "platform": 2
+      }
+    ],
+    "chenyu-depth": [
+      {
+        "id": "chenyu-depth-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "chenyu-depth-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "chenyu-depth-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "chenyu-depth-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "chenyu-depth-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 1
+      },
+      {
+        "id": "chenyu-depth-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 590,
+        "platform": 2
+      }
+    ],
+    "enkanomiya-depth": [
+      {
+        "id": "enkanomiya-depth-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "enkanomiya-depth-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "enkanomiya-depth-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "enkanomiya-depth-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "enkanomiya-depth-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 310,
+        "platform": 1
+      },
+      {
+        "id": "enkanomiya-depth-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 650,
+        "platform": 2
+      }
+    ],
+    "tunigi-depth": [
+      {
+        "id": "tunigi-depth-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "tunigi-depth-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "tunigi-depth-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "tunigi-depth-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "tunigi-depth-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 280,
+        "platform": 1
+      },
+      {
+        "id": "tunigi-depth-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 585,
+        "platform": 2
+      }
+    ],
+    "bygone-depth": [
+      {
+        "id": "bygone-depth-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "bygone-depth-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "bygone-depth-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "bygone-depth-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "bygone-depth-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 305,
+        "platform": 1
+      },
+      {
+        "id": "bygone-depth-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 620,
+        "platform": 2
+      }
+    ],
+    "dornman-depth": [
+      {
+        "id": "dornman-depth-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "dornman-depth-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "dornman-depth-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "dornman-depth-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "dornman-depth-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 310,
+        "platform": 1
+      },
+      {
+        "id": "dornman-depth-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 650,
+        "platform": 2
+      }
+    ],
+    "nod-special-depth": [
+      {
+        "id": "nod-special-depth-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "nod-special-depth-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "nod-special-depth-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "nod-special-depth-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "nod-special-depth-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 1
+      },
+      {
+        "id": "nod-special-depth-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 590,
+        "platform": 2
+      }
+    ],
+    "novokichev-depth": [
+      {
+        "id": "novokichev-depth-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "novokichev-depth-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "novokichev-depth-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "novokichev-depth-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "novokichev-depth-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 290,
+        "platform": 1
+      },
+      {
+        "id": "novokichev-depth-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 600,
+        "platform": 2
+      }
+    ],
+    "golden-play": [
+      {
+        "id": "golden-play-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "golden-play-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "golden-play-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "golden-play-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "golden-play-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 270,
+        "platform": 1
+      },
+      {
+        "id": "golden-play-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 550,
+        "platform": 2
+      }
+    ],
+    "veluriyam-play": [
+      {
+        "id": "veluriyam-play-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "veluriyam-play-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "veluriyam-play-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "veluriyam-play-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "veluriyam-play-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 275,
+        "platform": 1
+      },
+      {
+        "id": "veluriyam-play-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 570,
+        "platform": 2
+      }
+    ],
+    "simulanka-play": [
+      {
+        "id": "simulanka-play-1",
+        "kind": 1,
+        "art": "atlas",
+        "x": 300,
+        "platform": 0
+      },
+      {
+        "id": "simulanka-play-2",
+        "kind": 1,
+        "art": "atlas",
+        "x": 510,
+        "platform": 0
+      },
+      {
+        "id": "simulanka-play-3",
+        "kind": 2,
+        "art": "atlas",
+        "x": 850,
+        "platform": 0
+      },
+      {
+        "id": "simulanka-play-4",
+        "kind": 1,
+        "art": "atlas",
+        "x": 1120,
+        "platform": 0
+      },
+      {
+        "id": "simulanka-play-5",
+        "kind": 1,
+        "art": "atlas",
+        "x": 265,
+        "platform": 1
+      },
+      {
+        "id": "simulanka-play-6",
+        "kind": 2,
+        "art": "atlas",
+        "x": 545,
+        "platform": 2
+      }
+    ]
+  }
+}
