@@ -1,0 +1,99 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2100?lang=ja-jp",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/18/94675339/06b574d2fb95e4139acef962006c8ee8_1209789504653189524.png",
+      "sha256": "a6d36c37afc4bc4d826ce4006e1c0e5d7ca4bee1e1d678b4381a54d3656fb57a",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "Foul Legacy render excluded"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/18/94675339/7b45b184d74bb056feff9865aef8ac5d_4759810611351496034.png",
+      "sha256": "f163500089be2f13518ffbc4d438c1bac33734367a033b6e0583cbc778e60f83",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "Foul Legacy illustration excluded"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/27/94675339/c1401f0eb61031f62793a412547b67d3_3843525595287798274.png",
+      "sha256": "9eba784c2899639c4fb4498dc6dc39de9ccbfb88b73e936f0262e6efbe860b31",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "first grey human form game screenshot, mask at side of head"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/27/94675339/3b4927271ffa3c8267ef680bafbc0ac9_7431285282048266114.png",
+      "sha256": "df9233e19d3d9010bc5b9971ad25d8d76c5bc9b899650c748820796fe96836a0",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "second dark form game screenshot excluded"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/27/94675339/a9c4eac7349fa9fef76dd488728d7b02_7153580333064660948.png",
+      "sha256": "6cde5d28087f87962294343681713ec7af8ecf6e4f7fc0edc357c93ccb01fb47",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "Foul Legacy game screenshot excluded"
+    }
+  ],
+  "model": {
+    "catalog": "https://mmdfr.fr/genshin-mmd/",
+    "url": "https://activity.hdslb.com/blackboard/static/20230807/c84ef0977c17fb1198f6887261fea35f/ekLEcASyyV.zip",
+    "archive_sha256": "61cbbdeade235ce4706f2283c70a446996114c9613f767b9eae0e46c65734433",
+    "credit": "Model miHoYo; modification Guan Hai (观海)",
+    "terms": "Read included readme: no redistribution/part extraction for other models; no commercial use. Archive and rendered views kept in ignored work/ for local reference only.",
+    "readme_sha256": "505117cc71a6340793516f478bb1b88e0ed9ec548a26328a2ccba9a476a8175b",
+    "views": {
+      "front": {
+        "sha256": "5f62606eb9d2a460dcd64a23b0ba4b3db69d42f267b715f28f09d3e7605cfdfa",
+        "directly_viewed": true,
+        "generation_input": true
+      },
+      "back": {
+        "sha256": "fc4536ae0a38dbc2e111c7eb4d943ec13b0273b05117bfb6669e8e221eda2c06",
+        "directly_viewed": true,
+        "generation_input": true
+      },
+      "left": {
+        "sha256": "b191eadec9925736243b1808d11c2b1ff4ba761d3faa477a27e3eba4d05a2b8d",
+        "directly_viewed": true,
+        "generation_input": false
+      },
+      "right": {
+        "sha256": "5c4c3ddb70eef7b4a7a2bf72c015506a53bf119d38156167056f0c3e14726a22",
+        "directly_viewed": true,
+        "generation_input": true
+      }
+    },
+    "renderer": "render_model_reference.py; flat-texture unposed costume inspection, not game shading"
+  },
+  "output": "assets/childe-idle-source-v1.png",
+  "sha256": "728ae5399976036cd90961bbdbd8294acede3e11b258a7fc1be62409a700571a",
+  "profiles": {
+    "legacy": {
+      "height": 100,
+      "runs": 1543
+    },
+    "h48c32": {
+      "height": 75,
+      "runs": 924
+    },
+    "h32c16": {
+      "height": 50,
+      "runs": 413
+    }
+  },
+  "limits": [
+    "100px display height provisional",
+    "Chibi proportions, simplified silver trims and wider scarf than model",
+    "Horizontal flip mirrors mask/scarf/vision asymmetry",
+    "No weapon, phase2/3, attacks, movement or live combat; map rainforest is temporary comparison fixture"
+  ],
+  "visual_review": "Source, PNG50px comparison and temporary map placement directly viewed. Orange hair, grey outfit, red scarf and side mask remain; 50px face/vision and silver trim become hard to distinguish. No weapon or additional phases. Base pose, scarf width and proportions are stylized adaptations, not exact model reproduction.",
+  "validation": {
+    "gallery": "34 candidates, 3 profiles, 3 zooms, both facings, aspect, clipping, 390px passed",
+    "placement": "34 candidates: placement, profiles, flip, JSON roundtrip, undo and mobile passed"
+  }
+}

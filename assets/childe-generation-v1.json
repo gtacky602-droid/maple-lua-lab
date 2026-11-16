@@ -1,0 +1,11 @@
+{
+  "mode": "builtin image_gen",
+  "generated_file": "exec-a3f47703-df4f-4b82-b39e-88e0d5491715.png",
+  "reference_files": [
+    "work/references/childe-views/front.png",
+    "work/references/childe-views/back.png",
+    "work/references/childe-views/right.png",
+    "work/references/childe-jp-2.png"
+  ],
+  "prompt": "Use case: stylized-concept. Generate one transparent pixel-art idle sprite of Tartaglia/Childe, first human grey-outfit boss form from Genshin Impact, for a Maple-inspired 2D RPG lab. Use attached model front/back/right views to preserve exact costume structure and attached first-phase game screenshot to confirm the outfit and mask position. Compact readable RPG proportions around 3.5 heads tall, designed for 100px sprite height, not realistic 8-head figure. Facing left in three-quarter view, standing relaxed with two boots on common baseline, arms lowered slightly away from body, empty gloved hands (weapons will be authored separately). Tousled orange-brown hair with a small cowlick, blue eyes, single red angular Fatui mask sitting on side/top of head as in normal model/game image, NOT covering face. Light grey tailored asymmetric suit with dark burgundy collar and inner panels, angular silver/dark shoulder decoration, red scarf draped diagonally across chest with two long red decorated tails falling behind to the right, grey trousers with dark angular seams, dark tall boots, black gloves, small cyan Hydro vision at right hip. Keep costume asymmetry and scarf connection matching reference, no extra cape or hat. Hair, mask, scarf ends and boots fully visible within transparent margins. One idle pose, no bow, water blades, spear, magic, particles, attack, arena, platform, shadow, frame, text or UI. Crisp square pixel clusters, clean dark contour, restrained 24-32 color aesthetic, no painterly smoothing or noise. Preserve transparent gaps between arms, body, scarf and legs."
+}
