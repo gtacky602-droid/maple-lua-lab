@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-17",
+  "encounter": "boss-20081001",
+  "references": [
+    {
+      "url": "https://pbs.twimg.com/media/G25V2EUXMAAqCj2.jpg",
+      "page": "https://x.com/Genshin_7/status/1976624002010370520",
+      "view": "Official preview artwork: tail, curved silver frames and iridescence; wing tips cropped",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "fbed3b8856be3bac16000bf61a75b41f28accf0007747b0d1377a74b865b1b0e"
+    },
+    {
+      "url": "https://gamedaily.com/.image/c_fill%2Cw_2048%2Ch_1152%2Cg_faces%3Acenter/MTU6MDAwMDAwMDAwMDI0MjMy/genshin-impact-luna-ii-frostnight-herra-boss.jpg",
+      "page": "https://gamedaily.com/games/everything-you-need-to-know-about-genshin-impact-version-6-1-luna-ii-an-elegy-for-fated-moonlight",
+      "view": "Game image: frontal armor and grounded hooves; near wing foreshortened",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "506f2a2cb57abe29cae15916f8dc966fa6870025770ae0bbb46047ab06951748"
+    },
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2025/10/17/62657813/b39cf412225b4b22dec3ee9195a2cd7d_8248025299973276527.png",
+      "page": "https://www.hoyolab.com/article/41800413",
+      "view": "Guide duplicates the frontal game image",
+      "directly_viewed": true,
+      "generation_input": false,
+      "sha256": "8b16585270e1f2a9dffb5a88ea772e8e1770402b4d63fdf4580f51709cf5fb11"
+    }
+  ],
+  "model_lookup": {
+    "result": "Exact English name and site-specific 3D searches did not yield a usable model. Rear geometry and relative wing depth remain unverified."
+  },
+  "source": "assets/frostnight-herra-idle-source-v1.png",
+  "sha256": "f5b5fc1f6b983f3b913bcc6c78eb85f22153abfb4f1b2f89ff241d28b99ece9e",
+  "profiles": {
+    "legacy": {
+      "height": 220,
+      "runs": 13573
+    },
+    "h48c32": {
+      "height": 165,
+      "runs": 8538
+    },
+    "h32c16": {
+      "height": 110,
+      "runs": 3863
+    }
+  },
+  "rectangle_reduction_percent": 71.54,
+  "reserved_colors": [
+    "#b6e5f2",
+    "#efc8e4"
+  ],
+  "anchorX": 0.46064981949458483,
+  "anchor_method": "midpoint of opaque pixels in bottom 2 percent band",
+  "hover": 0,
+  "visual_review": "Directly compared PNG and 110px rectangular profile in checkerboard and Nod-Krai placement. Four hooves, wing-frame gaps and pale tail remain readable. Fine iridescent bands and face detail merge on the lightweight profile.",
+  "provisional_details": "Wing tips and relative wing depth were interpreted from the partially cropped official illustration and the foreshortened ground reference. Nod-Krai background is a local fixture.",
+  "measurement_scope": "Local rectangle counts at a fixed display scale. Native frame time remains unmeasured."
+}

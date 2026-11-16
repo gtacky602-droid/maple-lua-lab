@@ -2,13 +2,19 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 58,
-    "visibleCount": 58,
+    "count": 59,
+    "visibleCount": 59,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "frostnight-herra",
+        "h": 220,
+        "w": 298.43290891283056,
+        "ratio": 1.356513222331048
+      },
       {
         "id": "drifting-snow",
         "h": 180,
