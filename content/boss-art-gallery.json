@@ -2,6 +2,12 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "ruin-serpent",
+      "name": "遺跡サーペント（参照付き待機候補）",
+      "file": "ruin-serpent-idle-sprites.json",
+      "height": 220
+    },
+    {
       "id": "electro-regisvine",
       "name": "迅電樹（参照付き待機候補）",
       "file": "electro-regisvine-idle-sprites.json",

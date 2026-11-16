@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2222?lang=en-us",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/9791aa4afbdeaf396690fb649f1d7992_4075359282038766923.png",
+      "sha256": "5463ef17fcba82dc23816747f0c97b5c6fd9efdf3e03e93308e956c1f6d2fb75",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "downloaded but not inspected"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/bb64f86f92c987159fdf2e202ea68903_2835406413467620659.png",
+      "sha256": "f814d86d825e1172ccc7fc33e6b8ead797cb093e44e339741c51e42a77ddf200",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full-body rendered curved pose"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/e2823bab29e4fbf1975228fa555594ca_48338832102310556.png",
+      "sha256": "7753abcf9b0134d6280f1194aa090f23cf08a442af41ef92bd135c9fa4f4a2aa",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "splash illustration, head and forward cage detail"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/be2d329aadc81195f2f8ab99fbb89460_4957663332374620319.png",
+      "sha256": "9ec6bd9ba44e2a1c9d00ba89aa9a898d7d843d848ebcefe2537a789830b1867f",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "in-game bent body and tail; effects excluded"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/f2711418a74a8dfa432c0c4636e27659_3192203179618004527.png",
+      "sha256": "a5e164998484025bf3cbe502a5a8b8143ad5023c329c180fd90b189033b9db0a",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "title card with no serpent, excluded"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/1d5332fc7e53d6c37b07927ed5e63c36_4276003185442816095.png",
+      "sha256": "9bca3907ff9f26f28546f83d1f1fe9712bf1544eb5f06159079ba382b60ed36a",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "official design sheet: orthographic component order and details"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/bdfccfc32fd2f1aa546f5b5a415f0755_6192213736441209544.png",
+      "sha256": "85d96e40eeecae5e70e6fa58350141a821ec4ec7a9a6f86073bd411e4b8c041f",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "downloaded but not inspected"
+    }
+  ],
+  "model_lookup": "Search found Polycount WIP and Sketchfab sitemap listing; no model retrieved or inspected. Sketchfab sitemap fetch 403. Official design sheet inspected instead; this is not 3D model verification.",
+  "other_access": "HoYoDex returned HTTP402; not used",
+  "observed": "Circular excavator head, four progressively smaller spiked cage segments, golden joints, gray rear disk segments and long dark spiral tail drill",
+  "output": "assets/ruin-serpent-idle-source-v1.png",
+  "sha256": "a8b8afa3b4bc6cc022e7472e3cea915b2efb271167d7eeb2e6cb40263296b0e7",
+  "profiles": {
+    "legacy": {
+      "height": 220,
+      "runs": 7248
+    },
+    "h48c32": {
+      "height": 165,
+      "runs": 4603
+    },
+    "h32c16": {
+      "height": 110,
+      "runs": 2180
+    }
+  },
+  "alpha": {
+    "zero": 1116392,
+    "at_least_250": 385284,
+    "partial": 455141
+  },
+  "limits": [
+    "3D model uninspected; design-sheet orthographic views are the structural reference",
+    "Runes and engravings simplified; joint highlights weaken at 110px",
+    "220px comparison height and S idle pose provisional",
+    "No segmentation rig, animation, burrowing, hitboxes or live battle"
+  ],
+  "visual_review": "Viewed generated source and browser PNG/110px comparison, then Traveler/serpent on Liyue temporary background. Segment order, broad curve and tail drill remain; gold joint brightness and engraved details weaken. Full body within frame, lower bend aligned with ground; not canonical boss geography or scale."
+}

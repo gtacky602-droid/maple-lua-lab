@@ -2,11 +2,17 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 18,
+    "count": 19,
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "ruin-serpent",
+        "h": 220,
+        "w": 240.4741000877963,
+        "ratio": 1.093064091308165
+      },
       {
         "id": "electro-regisvine",
         "h": 200,
