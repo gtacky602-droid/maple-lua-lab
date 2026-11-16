@@ -9,6 +9,13 @@
       "mapHover": 0
     },
     {
+      "id": "childe-foul",
+      "name": "公子・魔王武装（参照付き待機候補）",
+      "file": "childe-foul-idle-sprites.json",
+      "height": 160,
+      "mapHover": 32
+    },
+    {
       "id": "andrius",
       "name": "北風の王狼（参照付き待機候補）",
       "file": "andrius-idle-sprites.json",

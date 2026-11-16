@@ -2,8 +2,8 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 34,
-    "visibleCount": 34,
+    "count": 35,
+    "visibleCount": 35,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
@@ -14,6 +14,12 @@
         "h": 100,
         "w": 52.29709035222052,
         "ratio": 0.5229709035222052
+      },
+      {
+        "id": "childe-foul",
+        "h": 160,
+        "w": 207.4134419551935,
+        "ratio": 1.2963340122199594
       },
       {
         "id": "andrius",

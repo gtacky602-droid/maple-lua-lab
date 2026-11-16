@@ -1,0 +1,96 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2100?lang=ja-jp",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/18/94675339/06b574d2fb95e4139acef962006c8ee8_1209789504653189524.png",
+      "sha256": "a6d36c37afc4bc4d826ce4006e1c0e5d7ca4bee1e1d678b4381a54d3656fb57a",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "Foul Legacy full render"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/27/94675339/a9c4eac7349fa9fef76dd488728d7b02_7153580333064660948.png",
+      "sha256": "6cde5d28087f87962294343681713ec7af8ecf6e4f7fc0edc357c93ccb01fb47",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "Foul Legacy standing game screenshot"
+    }
+  ],
+  "model_lookup": "Previously inspected human Tartaglia PMX is a different form and was NOT used. Matching Foul Legacy model/back not inspected.",
+  "output": "assets/childe-foul-idle-source-v1.png",
+  "sha256": "d1feb2b8bd586a19c0f21560823b041e4bf3eaef5578b0095c5172520c6f3a50",
+  "profiles": {
+    "legacy": {
+      "height": 160,
+      "runs": 4561
+    },
+    "h48c32": {
+      "height": 120,
+      "runs": 2916
+    },
+    "h32c16": {
+      "height": 80,
+      "runs": 1200
+    }
+  },
+  "limits": [
+    "Display height160px and hover32px provisional",
+    "More frontal/symmetric and compact than reference; cape star pattern simplified",
+    "No polearm, phase transitions, attacks, movement or live combat; map rainforest is temporary comparison fixture"
+  ],
+  "visual_review": "Source, final gallery and temporary-map comparison directly inspected: horns, red helmet, single cyan eye and two star cape lobes remain. At 80px the eye, chest trim and star details are weak/coarse; more frontal/symmetric than reference. Transparent surroundings render correctly.",
+  "palette": {
+    "helmet": {
+      "color": "#b9385a",
+      "samples": 20712
+    },
+    "eye": {
+      "color": "#72d8fc",
+      "samples": 227
+    },
+    "criteria": {
+      "helmet": "alpha>=128,R>120,R>1.5G,R>1.2B",
+      "eye": "alpha>=128,G>140,G>1.2R,B>1.2R"
+    },
+    "before_runs": {
+      "legacy": 4592,
+      "h48c32": 2938,
+      "h32c16": 1303
+    },
+    "actual_colors": {
+      "legacy": 32,
+      "h48c32": 32,
+      "h32c16": 16
+    },
+    "note": "Two source median accents reserved within existing32/16 color budget; source SHA256 unchanged."
+  },
+  "alpha_samples": {
+    "points": [
+      [
+        100,
+        100
+      ],
+      [
+        750,
+        20
+      ],
+      [
+        1450,
+        550
+      ],
+      [
+        750,
+        1010
+      ]
+    ],
+    "alpha": 0
+  },
+  "validation": {
+    "gallery": "evidence/bosses-gallery.json",
+    "placement": "evidence/boss-placement-test.json",
+    "candidates": 35,
+    "distinct_bosses": 32,
+    "errors": []
+  }
+}

@@ -34,6 +34,7 @@ try{
   if(item.id==='electro-regisvine')await p.locator('main').screenshot({path:'evidence/electro-regisvine-map-comparison.png'});
   if(item.id==='ruin-serpent')await p.locator('main').screenshot({path:'evidence/ruin-serpent-map-comparison.png'});
   if(item.id==='aeonblight')await p.locator('main').screenshot({path:'evidence/aeonblight-map-comparison.png'});
+  if(item.id==='childe-foul')await p.locator('main').screenshot({path:'evidence/childe-foul-map-comparison.png'});
   if(item.id==='childe')await p.locator('main').screenshot({path:'evidence/childe-map-comparison.png'});
   if(item.id==='andrius')await p.locator('main').screenshot({path:'evidence/andrius-map-comparison.png'});
   if(item.id==='azhdaha')await p.locator('main').screenshot({path:'evidence/azhdaha-map-comparison.png'});
