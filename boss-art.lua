@@ -27,6 +27,7 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
  end
  function C.drawMaguuMask(f,x,y,h,facing,mode,profile) draw(f,C.maguuMaskArt,x,y,h,mode,profile,(facing or -1)>0) end
  function C.drawGeoPart(f,part,x,y,h,mode,profile) draw(f,geo[part],x,y,h,mode,profile) end
+ function C.drawThunderArt(f,b,mode,profile) draw(f,C.thunderArt,b.x,465,150,mode,profile,false) end
  function C.drawArrayArt(f,b,mode,profile)
   draw(f,C.arrayArt,b.x,b.phase=='rocket' and 280 or b.phase=='down' and 480 or 465,b.phase=='down' and 90 or b.phase=='split' and 75 or 140,mode,profile,false)
  end

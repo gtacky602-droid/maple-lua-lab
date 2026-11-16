@@ -86,10 +86,10 @@ return function(C)
   local labels={survey='索敵準備',survey_idle='索敵パルス',bolt_warning='落雷予告',enrage_warning='怒り移行・衝撃波を跳ぶ',recover='攻撃後の隙',walls_warning='両側に雷壁',walls='雷壁が迫る',prison_warning='檻の照準が追尾中',prison_lock='照準固定・離れる',prison='追尾する雷の檻',defeated='討伐完了'}
   labels.bolt_flash='落雷';if b.enraged and (b.phase=='bolt_warning' or b.phase=='bolt_flash') then labels[b.phase]=labels[b.phase]..' '..math.min(3,(b.boltCount or 0)+(b.phase=='bolt_warning' and 1 or 0))..'/3' end
   labels.dash_warning='直線突進・跳んで避ける';labels.dash='直線突進'
-  f.location='雷音権現（図形試作）';f.boss={name='雷音権現',hp=b.hp,maxhp=b.maxhp,phase=b.phase,label=labels[b.phase],timer=b.timer,fury=b.fury,enraged=not not b.enraged,x=b.x}
+  f.location='雷音権現（静止絵試作）';f.boss={name='雷音権現',hp=b.hp,maxhp=b.maxhp,phase=b.phase,label=labels[b.phase],timer=b.timer,fury=b.fury,enraged=not not b.enraged,x=b.x}
   local function rect(x,y,w,h,color) f.draws[#f.draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color} end
   if b.hp>0 then
-   rect(b.x-22,365,44,70,'#aa85e0');rect(b.x-100,382,80,20,'#8866bc');rect(b.x+20,382,80,20,'#8866bc');rect(b.x-8,380,16,12,'#f5ddff')
+   C.drawThunderArt(f,b,mode,profile)
    for _,p in ipairs(b.probes) do rect(p.x-70,474,140,6,p.flash>0 and '#f2d1ff' or '#8062aa');rect(p.x-5,430,10,40,'#ab80d1') end
    if b.phase=='bolt_warning' then rect(b.target-70,470,140,10,'#e0a2f5') end
    if b.phase=='bolt_flash' then rect(b.target-70,300,140,180,'#e8c4ff') end

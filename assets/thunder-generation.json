@@ -1,0 +1,5 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "One transparent-background pixel art idle boss sprite, Thunder Manifestation from Genshin Impact adapted for a MapleStory-like side scrolling 2D RPG. Recognizable floating violet electric bird elemental, wide angular jagged lightning wings spread horizontally, small faceless luminous lavender central diamond core, trailing pointed purple feather shards, symmetrical readable silhouette, three-quarter frontal view. Crisp 16-bit pixel clusters and limited purple palette, hard edges, no soft haze or gradients. Entire creature centered with generous transparent margins. One idle pose only, no attacks, no projectiles, no scenery, no text, no floor, no shadow. Readable at 128 pixels high.",
+  "status": "idle candidate; no attack animation"
+}
