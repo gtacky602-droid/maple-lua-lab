@@ -1,0 +1,103 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2101?lang=ja-jp",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2023/12/15/94675339/f09b3e68802998c038891d55f147417a_2389700440835675856.png",
+      "sha256": "f53581643a913df2230714c40cb166f917ab7900086cb644e93c65949b7700d2",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "Human form"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/18/94675339/2be988ca1e451cbd3f4fc166416757de_2601928863513629814.png",
+      "sha256": "2354d307dc8eab13c53e4a7399c2b7752939e43a93354df91e3c0fc8204429a5",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "Flame form excluded"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/18/94675339/5ddf211c75aee8fef9f6789fdff6d0fe_6809265942147468254.png",
+      "sha256": "7123bd1ba910f31c3afa3a13a045c6c7ed971b5a40ef60249ad0577dcf90b25d",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "Flame form excluded"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/27/94675339/35285db99ebf083a4f1ffc7e18bff211_8695771778065457380.png",
+      "sha256": "d8c6d157f39bdb8c9a97ac6b8fd8cf899a1373d0d2d274a950db1e0e272d2d75",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "Human form"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/27/94675339/4dae7a561b8dd8a4a1a12f681d0f86b6_1823057771525533710.png",
+      "sha256": "f243e00d4c1690fc62212ae5521fd88337680a47867d01d0a1a24f3d71be0f0c",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "Flame form excluded"
+    }
+  ],
+  "model_lookup": {
+    "page": "https://sketchfab.com/3d-models/la-signora-964cfcf14c7f4dc497c498b42e2283ad",
+    "author": "Jaring",
+    "listed_license": "CC Attribution-NonCommercial-ShareAlike",
+    "use": "viewer only, not downloaded or redistributed; not a generation input",
+    "review": "Viewer successfully started and rotated. Directly inspected front oblique, rear and opposite front oblique. Rear red/black cape lattice ornament and pale hair buns visible; dark stylized lighting, third-party model fidelity not guaranteed. No model file downloaded; screenshots not generation inputs.",
+    "views": [
+      {
+        "file": "signora-model-loaded.png",
+        "sha256": "b4316f3164a22d9f1f20d42072104e4d1926fe8fe40f382b3e01592ec5745bcd"
+      },
+      {
+        "file": "signora-model-rotated1.png",
+        "sha256": "960b0019afff815b79e1f134ef528c269fc17ccebf2bca6bd8a9c7b41d96453b"
+      },
+      {
+        "file": "signora-model-rotated2.png",
+        "sha256": "fde5ad5e8d0428b8d8a2c0caef9bbc6251c566c3581ef1e9f413bc25ce357a39"
+      }
+    ]
+  },
+  "output": "assets/signora-idle-source-v1.png",
+  "sha256": "64e97fb0b268ac2cb296ee2d9f0028b87cb6381c237464c4c10aaa4a1a0c4ee8",
+  "profiles": {
+    "legacy": {
+      "height": 112,
+      "runs": 2084
+    },
+    "h48c32": {
+      "height": 84,
+      "runs": 1230
+    },
+    "h32c16": {
+      "height": 56,
+      "runs": 544
+    }
+  },
+  "limits": [
+    "Human form only, no catalyst/ice/fire form/attacks/animation/live combat",
+    "More compact head/body proportions; hem medallions appear nearly symmetrical rather than exact costume",
+    "Mirroring also mirrors asymmetric crown and hair",
+    "Display112px provisional"
+  ],
+  "visual_review": "Source and final browser gallery/map comparison directly inspected: asymmetric dark crown, pale dress and red cape remain; face, lattice gloves, hip rose and hem medallions weak/coarse at 56px. Clean transparency and ground contact. Temporary rainforest is comparison fixture, not canonical boss geography.",
+  "source_bounds": {
+    "size": [
+      1199,
+      1312
+    ],
+    "alpha128_bbox": [
+      261,
+      18,
+      939,
+      1295
+    ]
+  },
+  "validation": {
+    "gallery": "evidence/bosses-gallery.json",
+    "placement": "evidence/boss-placement-test.json",
+    "candidates": 37,
+    "distinct_bosses": 34
+  }
+}
