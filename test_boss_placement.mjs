@@ -34,6 +34,7 @@ try{
   if(item.id==='electro-regisvine')await p.locator('main').screenshot({path:'evidence/electro-regisvine-map-comparison.png'});
   if(item.id==='ruin-serpent')await p.locator('main').screenshot({path:'evidence/ruin-serpent-map-comparison.png'});
   if(item.id==='aeonblight')await p.locator('main').screenshot({path:'evidence/aeonblight-map-comparison.png'});
+  if(item.id==='narwhal')await p.locator('main').screenshot({path:'evidence/narwhal-map-comparison.png'});
   if(item.id==='apep-dark')await p.locator('main').screenshot({path:'evidence/apep-dark-map-comparison.png'});
   if(item.id==='apep-prime')await p.locator('main').screenshot({path:'evidence/apep-prime-map-comparison.png'});
   if(item.id==='config-device')await p.locator('main').screenshot({path:'evidence/config-device-map-comparison.png'});

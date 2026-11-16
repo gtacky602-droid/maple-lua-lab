@@ -2,6 +2,13 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "narwhal",
+      "name": "呑星の鯨（待機候補）",
+      "file": "narwhal-idle-sprites.json",
+      "height": 200,
+      "mapHover": 64
+    },
+    {
       "id": "apep-prime",
       "name": "アペプのオアシス守護者（活性形態・待機候補）",
       "file": "apep-prime-idle-sprites.json",

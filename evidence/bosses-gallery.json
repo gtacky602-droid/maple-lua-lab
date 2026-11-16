@@ -2,13 +2,19 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 46,
-    "visibleCount": 46,
+    "count": 47,
+    "visibleCount": 47,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "narwhal",
+        "h": 200,
+        "w": 413.4117647058824,
+        "ratio": 2.0670588235294116
+      },
       {
         "id": "apep-prime",
         "h": 220,

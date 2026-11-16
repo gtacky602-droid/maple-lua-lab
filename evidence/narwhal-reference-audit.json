@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/4572?lang=ja-jp",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/06/94675339/d6f05906844b79f1be3d4f049381a60f_6730019851764958623.png",
+      "sha256": "63ec58d755411f54b7fa90dbfaaf75b102460c00317b02ff6c5e210627638147",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "face icon"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/08/94675339/4b58c095b04ba361840fd60d27fae008_3576323931875977619.png",
+      "sha256": "3a2b116080c048b09ab8a9f80a73ccd1ab5f619b126ed811bb24d6b5488f58e4",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full-body render"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/08/94675339/5bdef309adbdd3e23340acb0036e5b41_8593627086145423583.png",
+      "sha256": "844c0ed12cd77a62067bf32fad689f0861a0d7342b1baf3e15c8a905a88e02ae",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "illustration; portal excluded"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/27/94675339/8a3afa5288c0a56419277cab39d8aa45_6062610157552435026.png",
+      "sha256": "a53aa868caf84df68d05ed33cd2f56d6ec52221e7ea5a8d83db762c0ae95ca9e",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "game scene side view; portal excluded"
+    }
+  ],
+  "model_lookup": "Targeted All-Devouring Narwhal 3d model search returned no usable matching model; actual3D and full rear unverified.",
+  "output": "assets/narwhal-idle-source-v1.png",
+  "sha256": "ad101a09e92460ab316b1488bb9706bc5e90e40f5e8b20600c73d8354a1e036d",
+  "profiles": {
+    "legacy": {
+      "height": 200,
+      "runs": 10430
+    },
+    "h48c32": {
+      "height": 150,
+      "runs": 6670
+    },
+    "h32c16": {
+      "height": 100,
+      "runs": 3070
+    }
+  },
+  "reduction_percent": 70.57,
+  "source_check": {
+    "size": [
+      1774,
+      887
+    ],
+    "alpha128_bbox": [
+      9,
+      15,
+      1766,
+      865
+    ],
+    "opaque_left_right_edge": [
+      0,
+      0
+    ]
+  },
+  "limitations": [
+    "Whale body candidate only; inner enemy, portal, attacks and animation absent",
+    "Horizontal relaxed mouth pose differs from diving open-mouth reference; rear/far fin arrangement partly inferred",
+    "Eye, star specks and ornate silver grooves lose detail at100px",
+    "200px scale and64px hover provisional, not native size/altitude"
+  ],
+  "visual_review": "Final gallery and map directly viewed. Long horn, paired tail lobes, blue body and purple tail retained; mouth detail and armor grooves weaken. Transparency clean in browser despite colored RGB fringe in generated preview. Rainforest is comparison fixture, not original whale arena.",
+  "validation": {
+    "gallery": "evidence/bosses-gallery.json",
+    "placement": "evidence/boss-placement-test.json",
+    "candidates": 47,
+    "distinct_bosses": 41
+  }
+}
