@@ -34,6 +34,7 @@ try{
   if(item.id==='electro-regisvine')await p.locator('main').screenshot({path:'evidence/electro-regisvine-map-comparison.png'});
   if(item.id==='ruin-serpent')await p.locator('main').screenshot({path:'evidence/ruin-serpent-map-comparison.png'});
   if(item.id==='aeonblight')await p.locator('main').screenshot({path:'evidence/aeonblight-map-comparison.png'});
+  if(item.id==='config-device')await p.locator('main').screenshot({path:'evidence/config-device-map-comparison.png'});
   if(item.id==='papilla')await p.locator('main').screenshot({path:'evidence/papilla-map-comparison.png'});
   if(item.id==='lava-dragon-molten')await p.locator('main').screenshot({path:'evidence/lava-dragon-molten-map-comparison.png'});
   if(item.id==='lava-dragon')await p.locator('main').screenshot({path:'evidence/lava-dragon-map-comparison.png'});

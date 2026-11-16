@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-17",
+  "pages": [
+    "https://www.hoyolab.com/article/39761868",
+    "https://thenerdstash.com/how-to-find-beat-secret-source-automaton-configuration-device-in-genshin-impact/",
+    "https://www.hoyolab.com/article/34070908"
+  ],
+  "references": [
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2025/07/02/62657813/09ef87d3fb5ab253462f4d030cad32f9_1505478374373293389.png",
+      "sha256": "85beab21499843c1fa8785cad5b0b9949a8cc42f3d478512d2b47301f94fcc3a",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "guide top-left compact form primary"
+    },
+    {
+      "url": "https://image.thenerdstash.com/2024/10/Genshin-Impact-Secret-Source-Automaton-Configuration-Device-1024x576.jpg",
+      "sha256": "284fcd4455edc6f06db4f34e047da3eb4d39652b23065381fe549285207fb269",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "spread archive configuration material details only"
+    },
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2024/10/09/32414073/5f5fa87d8519091c18acd93249a4dd12_2252782114026929848.png",
+      "sha256": "06597c1a86b1afe8424c7cbaef547c37ac08a753a44c75ca7c02626cc34c20f5",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "game upright hover"
+    }
+  ],
+  "model_lookup": "Targeted English 3d model search found no usable matching model; side and back not inspected.",
+  "output": "assets/config-device-idle-source-v1.png",
+  "sha256": "7a89bcaa9e39167b15f28af0d9a3a8de429e1f3f5db558c6333d90db328a652c",
+  "profiles": {
+    "legacy": {
+      "height": 180,
+      "runs": 8499
+    },
+    "h48c32": {
+      "height": 135,
+      "runs": 5393
+    },
+    "h32c16": {
+      "height": 90,
+      "runs": 2429
+    }
+  },
+  "reduction_percent": 71.42,
+  "palette": {
+    "reserved": "#f99f03",
+    "source_samples": 3690,
+    "criteria": "alpha>=128,R>240,75<G<180,B<50",
+    "before_runs": [
+      8654,
+      5445,
+      2486
+    ],
+    "actual_colors": {
+      "legacy": 32,
+      "h48c32": 32,
+      "h32c16": 16
+    },
+    "note": "Orange source median reserved inside original 32/16 color budget. Source unchanged."
+  },
+  "limitations": [
+    "Compact upright idle candidate only; other configurations, attacks and animations not made",
+    "More frontal and symmetric, modules thicker than reference, engraved motifs simplified",
+    "Side and rear unverified; 180px height/40px hover provisional, not native collision or flight altitude"
+  ],
+  "visual_review": "Final gallery and map directly inspected: orange core stripes and side strips retained after reserved color. Ivory/navy body and three major components distinct, fine engraved lines and central chest small markings weaken. Transparent gaps and hover visible. Forest is comparison fixture, not exact original location.",
+  "validation": {
+    "gallery": "evidence/bosses-gallery.json",
+    "placement": "evidence/boss-placement-test.json",
+    "candidates": 44,
+    "distinct_bosses": 39
+  }
+}

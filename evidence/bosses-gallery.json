@@ -2,13 +2,19 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 43,
-    "visibleCount": 43,
+    "count": 44,
+    "visibleCount": 44,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "config-device",
+        "h": 180,
+        "w": 187.19360568383658,
+        "ratio": 1.0399644760213145
+      },
       {
         "id": "papilla",
         "h": 200,

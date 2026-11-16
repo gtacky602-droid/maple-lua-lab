@@ -2,6 +2,13 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "config-device",
+      "name": "秘源機兵・機巧デバイス（待機候補）",
+      "file": "config-device-idle-sprites.json",
+      "height": 180,
+      "mapHover": 40
+    },
+    {
       "id": "papilla",
       "name": "深遠なるミミックパピラ・I型（待機候補）",
       "file": "papilla-idle-sprites.json",
