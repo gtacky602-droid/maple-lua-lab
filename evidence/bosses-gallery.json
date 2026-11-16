@@ -2,13 +2,25 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 66,
-    "visibleCount": 66,
+    "count": 68,
+    "visibleCount": 68,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "spiritspeaker",
+        "h": 180,
+        "w": 191.26903553299493,
+        "ratio": 1.0626057529610828
+      },
+      {
+        "id": "gosoythoth",
+        "h": 240,
+        "w": 234.768962510898,
+        "ratio": 0.978204010462075
+      },
       {
         "id": "wavebinder",
         "h": 200,

@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-17",
+  "encounter": "boss-29091101",
+  "references": [
+    {
+      "url": "https://img.gamewith.jp/img/original_473e28dab3d35e1aeeec5a8af1e11357.jpg",
+      "page": null,
+      "view": "Official Japanese preview presented via GameWith: central dragon and contrasting ornament colors",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "3519f85a9fd8caa7d05a21753f0cf9ecda9167383dd62fce4f9fe768eddaf41a"
+    },
+    {
+      "url": "https://img.gamewith.net/img/37908ec482ad40cd4808420130991b3d.png",
+      "page": null,
+      "view": "Gameplay side view: curled body and tail; effects excluded from the sprite",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "e8d5c525ab0496b9301c20c5730e5cfb995181730797ce5a9b05d3adbde5ac1d"
+    }
+  ],
+  "model_lookup": "The Models Resource asset 587887 matched the name. Its ZIP returned HTTP 403 in the lab. Actual 3D, rear and underside remain unverified.",
+  "source": "assets/gosoythoth-idle-source-v1.png",
+  "sha256": "3f85750160a5b3014986a405f06f670fd177f96b90aeb78cc3ea9668beca0c49",
+  "profiles": {
+    "legacy": {
+      "height": 240,
+      "runs": 12054
+    },
+    "h48c32": {
+      "height": 180,
+      "runs": 7447
+    },
+    "h32c16": {
+      "height": 120,
+      "runs": 3281
+    }
+  },
+  "rectangle_reduction_percent": 72.78,
+  "reserved_colors": [
+    "#76dfd0",
+    "#ce66f6",
+    "#feb04d"
+  ],
+  "hover": 32,
+  "anchorX": 0.5,
+  "anchor_method": "center",
+  "visual_review": "The blue-purple coils, horn silhouette and orange accent remain distinct at 120px. Horn filaments and small eyes on the ornaments become coarse.",
+  "provisional_details": "The coil depth and placement of the small contrasting ornaments are interpretations for an idle pose. Alternative combat forms remain pending.",
+  "measurement_scope": "Local rectangle counts at fixed display size. Native frame time remains unmeasured."
+}
