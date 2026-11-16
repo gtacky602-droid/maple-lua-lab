@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-17",
+  "encounter": "boss-26310501",
+  "references": [
+    {
+      "url": "https://img.gamewith.jp/img/original_633707bad4f074b41d015878c2bfc26e.jpeg",
+      "page": "https://gamewith.jp/genshin/article/show/235614",
+      "view": "Version preview artwork: face, crystalline wings and violet weapon",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "6e05fc6f562d6588ce051fd5969e9ed38f00803caaf897da10bb75f6063aef35"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/original_d080c517277329c11eb84bc3255ac325.png",
+      "page": "https://gamewith.jp/genshin/article/show/571066",
+      "view": "Gameplay side angle: hindquarters and wings, partially obscured by combat effects",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "21a53ae10f5785161f9bab3b8585a7ecda77ab3f152db7d25e642e372b62ce59"
+    }
+  ],
+  "model_lookup": {
+    "page": "https://models.spriters-resource.com/pc_computer/genshinimpact/asset/603978/",
+    "result": "Matching listing found. The ZIP endpoint returned HTTP 403 from the lab machine. Model was not inspected; rear and wing attachment geometry remain unverified."
+  },
+  "source": "assets/flugel-idle-source-v1.png",
+  "sha256": "f637af9d70fd04954b39d1447463a41234aea5a4867b14b62b17b3dced0aa485",
+  "profiles": {
+    "legacy": {
+      "height": 220,
+      "runs": 14119
+    },
+    "h48c32": {
+      "height": 165,
+      "runs": 9247
+    },
+    "h32c16": {
+      "height": 110,
+      "runs": 4247
+    }
+  },
+  "rectangle_reduction_percent": 69.92,
+  "reserved_colors": [
+    "#52e3c1",
+    "#dc76ff"
+  ],
+  "anchorX": 0.5294321329639889,
+  "anchor_method": "midpoint of opaque pixels in bottom 3.5 percent band",
+  "hover": 0,
+  "visual_review": "Compared the source and low-resolution encoding on the Snezhnaya field preview and gallery checkerboard. Both retain separate wing tips, white feather layers, the violet weapon and ground alignment. Face and feather boundaries are coarser at 110 px.",
+  "provisional_details": "The pose, spear angle and unseen rear anatomy are interpreted for the 2D idle. This is a single visual depiction without mode-specific sprites.",
+  "measurement_scope": "Local rectangle counts at fixed display height. Native frame time remains unmeasured."
+}
