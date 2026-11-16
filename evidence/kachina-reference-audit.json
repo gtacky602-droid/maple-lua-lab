@@ -1,0 +1,72 @@
+{
+  "character": "kachina",
+  "date": "2026-11-17",
+  "active_revision": "v2",
+  "illustration": {
+    "url": "https://paimon.moe/images/characters/full/kachina.png",
+    "sha256": "116a3a95b432a057fc4def68f11c69858e2f167baeec3948b21e5d6e7eac224e",
+    "directly_viewed": true
+  },
+  "model": {
+    "discovery": "https://mmdfr.fr/genshin-mmd/",
+    "download": {
+      "ver": "50",
+      "alt": "",
+      "url": "https://activity.hdslb.com/blackboard/static/20240828/d32c2bb79f59192cb072d7bf79b61c6d/aIyBI7p5d8.zip",
+      "sd": "8.1MB",
+      "r": ""
+    },
+    "pmx_sha256": "b3864893df1ebca288098e5ede4b7dcb81b2ea9ee5cbca21d81e844e23590a8e",
+    "zip_sha256": "10287272edc0a079db8ddb901d12ff686bd20a93b3f1be55913f7582bdd37d8f",
+    "readme_sha256": "78b25e862eb859b14db9cc20b14c09972c0a9f02c541e9a9f6dc18793b717b60",
+    "credits": "miHoYo / 观海",
+    "terms": "Read bundled readme: no redistribution/commercial use/parts extraction for other models. Local reference only.",
+    "views": {
+      "front": {
+        "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\kachina-views\\front.png",
+        "sha256": "7de9e7a5ad5165876281ebb69e96b83cb086a41ec43976778f6c74fb32988645",
+        "directly_viewed": true
+      },
+      "back": {
+        "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\kachina-views\\back.png",
+        "sha256": "cfd2d1eea0168c404aa9794dd8564685858af85a1e3c694ade1ce63ef7abf600",
+        "directly_viewed": true
+      },
+      "left": {
+        "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\kachina-views\\left.png",
+        "sha256": "3316b9aa3cb1cbbfe63278b813e5cba3d8cedb6ab36ef168383106487fd7d429",
+        "directly_viewed": true
+      },
+      "right": {
+        "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\kachina-views\\right.png",
+        "sha256": "c88f5c2eb700ad70d0bc27b9e8ada8efadf7deac77ebe5894d4f988d6dc65804",
+        "directly_viewed": true
+      }
+    },
+    "render_limitations": "Flat textures; knee cross dark in model render, pale bandage taken from illustration instead; +/-X camera labels not anatomical sides"
+  },
+  "v1_findings": [
+    "Invented goggles",
+    "Amber eyes instead of blue",
+    "Cream scarf instead of green",
+    "Short braids instead of long ponytail",
+    "Orange skirt-like panels rather than tied jacket"
+  ],
+  "v2_observed": [
+    "Circular cap crest, goggles removed",
+    "Blue eyes and green scarf",
+    "Long sandy ponytail and slim braid",
+    "Orange tied jacket, pale gloves, white-toed dark boots"
+  ],
+  "unverified": [
+    "Source edges smoother than previous pixel-art style; style consistency remains candidate",
+    "Small markings and facial detail merge at 38px",
+    "Mirroring reverses leg bandage and asymmetric adornments",
+    "Movement remains static idle"
+  ],
+  "profiles": {
+    "legacy": 1201,
+    "h48c32": 749,
+    "h32c16": 326
+  }
+}

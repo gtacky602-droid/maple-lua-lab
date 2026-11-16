@@ -1,0 +1,13 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Revise image 1, the current chibi pixel-art idle sprite of Kachina from Genshin Impact. Image 2 and 3 are front and side 3D model costume references; image 4 is the character illustration. Preserve cute small chibi body proportions and relaxed standing facing RIGHT three-quarter view, readable at 76px high. Correct outfit strongly according to references: REMOVE invented goggles entirely. Use pale ivory/yellow-orange cap with circular gold crest on front, teal little accents and big rounded animal ears with yellow bands, not huge pointed fox ears. Bright cyan BLUE eyes, not amber. Sandy blonde long high ponytail with a slim braid, short side locks, not short double braids. Lime/olive GREEN scarf with dark triangular inset, not cream scarf. Black/white angular patterned cropped top and dark shorts with light cuffs, orange jacket tied around waist with sleeves/pockets falling at sides, not orange skirt armor. Pale oversized gloves with orange cuffs and small teal accents, dark tall shoes with white toes and soles, lime accents and white wing-like side ornaments. Small pale fluffy tail behind waist. Keep minor blue geometric arm/leg markings and pale cross bandage at knee as shown in illustration, simplify for pixels. No drill machine, no weapon, no attack pose, no elemental effects, no background, ground, shadow, text. One entire full-body idle sprite with transparent margins around ponytail, ears and feet. Maintain chibi proportions rather than model T-pose or realistic body, crisp pixel clusters with limited colors.",
+  "reference_images": [
+    "assets/kachina-idle-source-v1.png",
+    "work/references/kachina-views/front.png",
+    "work/references/kachina-views/left.png",
+    "work/references/kachina-paimon.png"
+  ],
+  "provenance": "evidence/kachina-reference-audit.json",
+  "status": "reference-informed idle candidate; 76px display; mirror asymmetry unresolved",
+  "generated_file": "exec-df2c5f48-b99c-427c-9dd4-e5e8684c2ad2.png"
+}
