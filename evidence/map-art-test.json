@@ -1,0 +1,318 @@
+{
+  "errors": [],
+  "nodes": [
+    {
+      "id": "mond-town",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "mond-road",
+      "count": 3,
+      "fallback": false
+    },
+    {
+      "id": "mond-border",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "liyue-entry",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "liyue-harbor",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "liyue-field",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "liyue-ferry",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "inazuma-port",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "inazuma-road",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "inazuma-town",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "sumeru-entry",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "sumeru-hub",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "sumeru-field",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "fontaine-entry",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "fontaine-hub",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "fontaine-field",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "natlan-entry",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "natlan-hub",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "natlan-field",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "natlan-port",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "natlan-voyage",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "ochkanatlan-dock",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "ochkanatlan-ruins",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "nod-port",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "nod-field",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "nod-town",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "snezhnaya-entry",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "snezhnaya-hub",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "snezhnaya-field",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "dragonspine-camp",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "dragonspine-depth",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "chenyu-camp",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "chenyu-depth",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "enkanomiya-camp",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "enkanomiya-depth",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "tunigi-camp",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "tunigi-depth",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "bygone-camp",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "bygone-depth",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "dornman-camp",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "dornman-depth",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "nod-special-camp",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "nod-special-depth",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "novokichev-camp",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "novokichev-depth",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "golden-hub",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "golden-play",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "veluriyam-hub",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "veluriyam-play",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "simulanka-hub",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "simulanka-play",
+      "count": 0,
+      "fallback": true
+    },
+    {
+      "id": "anemo-approach",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "cryo-approach",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "pyro-approach",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "electro-approach",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "geo-approach",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "oceanid-approach",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "primo-approach",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "maguu-approach",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "array-approach",
+      "count": 0,
+      "fallback": false
+    },
+    {
+      "id": "thunder-approach",
+      "count": 0,
+      "fallback": false
+    }
+  ],
+  "profiles": 3,
+  "camera": true,
+  "platformSnap": true,
+  "nodeRetention": true,
+  "download": true,
+  "undo": true,
+  "reset": true,
+  "mobileOverflow": false
+}

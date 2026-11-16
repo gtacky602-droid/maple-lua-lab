@@ -44,10 +44,15 @@
     },
     {
       "id": "hilichurl",
-      "status": "model-informed idle candidate; gallery only, no story placement or dedicated behavior",
+      "status": "model-informed idle candidate; gallery and visual map-placement preview; no live story placement or dedicated behavior",
       "art": "assets/hilichurl-idle-sprites.json"
     }
   ],
   "scope": "inventory of existing work, not full planned enemy roster",
-  "hold": "Attack design and skill tuning pending ChatGPT design"
+  "hold": "Attack design and skill tuning pending ChatGPT design",
+  "placement_preview": {
+    "page": "map-art.html",
+    "draft": "content/enemy-placement-drafts.json",
+    "scope": "61 authored proxy nodes can be inspected; only mond-road has an initial three-enemy visual draft; edits are in-memory and exportable, not combat spawns"
+  }
 }

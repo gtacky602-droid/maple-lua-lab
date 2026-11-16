@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "status": "visual-only draft; not canonical spawn geography or live combat placement",
+  "nodes": {
+    "mond-road": [
+      {"id": "preview-hilichurl-1", "species": "hilichurl", "x": 470, "y": 480, "flip": true},
+      {"id": "preview-hydro-1", "species": "hydro-slime", "x": 335, "y": 350, "flip": false},
+      {"id": "preview-pyro-1", "species": "pyro-slime", "x": 850, "y": 340, "flip": false}
+    ]
+  }
+}
