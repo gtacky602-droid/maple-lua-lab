@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-17",
+  "decision_basis": "sources/20261113-master.md: user idea is moon?; name and structure unconfirmed",
+  "reference_page": "https://act.hoyoverse.com/ys/event/e20250723light-uowufz/index.html",
+  "references": [
+    {
+      "url": "https://act.hoyoverse.com/ys/event/e20250723light-uowufz/images/pic_md_2.ecfbec19..jpg",
+      "sha256": "b006ddf9be65b005d195052f71b910f3f4dfbf84f1875a6e70f6e00fadcabf23",
+      "directly_viewed": true,
+      "used_for": "violet sky and cyan luminous vegetation palette only"
+    }
+  ],
+  "output": "assets/nodspecial-background-v1.png",
+  "output_sha256": "4800075f25bb51e0b9a6e915d77d0f56337f1cad39b0fbf06dd97dcb1c5b9652",
+  "generation": "assets/nodspecial-background-generation-v1.json",
+  "mapped_nodes": [
+    "nod-special-camp",
+    "nod-special-depth"
+  ],
+  "validation": [
+    "2 node mappings",
+    "61 decoded background and editor checks",
+    "2 background failure cases",
+    "concept disclaimer and PNG/h32c16 overlay directly viewed"
+  ],
+  "limitations": [
+    "Unconfirmed original moonlit lakeshore concept, not a canonical location",
+    "Moon, lake, ruins and tree placement are invented",
+    "No 3D or native performance proof",
+    "Does not establish user adoption of location or layout"
+  ],
+  "skills_changed": false
+}

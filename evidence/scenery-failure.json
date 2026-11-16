@@ -9,7 +9,7 @@
     },
     {
       "file": "mondstadt-background.png",
-      "node": "nod-special-camp",
+      "node": "novokichev-camp",
       "errorReported": true,
       "healthyNodeUnaffected": true,
       "errors": []

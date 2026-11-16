@@ -250,13 +250,13 @@
     {
       "id": "nod-special-camp",
       "count": 0,
-      "fallback": true,
+      "fallback": false,
       "backgroundState": "ready"
     },
     {
       "id": "nod-special-depth",
       "count": 0,
-      "fallback": true,
+      "fallback": false,
       "backgroundState": "ready"
     },
     {

@@ -3,7 +3,7 @@
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
   "scope": "Authored 61 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
   "regional_temporary_image": 57,
-  "fallback_mondstadt": 4,
+  "fallback_mondstadt": 2,
   "nodes": [
     {
       "id": "mond-town",
@@ -255,13 +255,13 @@
       "id": "nod-special-camp",
       "name": "ナド・クライ特別地域（仮）・入口拠点",
       "region": "ナド・クライ特別地域（仮）",
-      "status": "fallback_mondstadt"
+      "status": "unconfirmed_concept_image"
     },
     {
       "id": "nod-special-depth",
       "name": "ナド・クライ特別地域（仮）・探索路",
       "region": "ナド・クライ特別地域（仮）",
-      "status": "fallback_mondstadt"
+      "status": "unconfirmed_concept_image"
     },
     {
       "id": "novokichev-camp",
@@ -371,5 +371,6 @@
       "region": "稲妻",
       "status": "regional_temporary_image"
     }
-  ]
+  ],
+  "unconfirmed_concept_image": 2
 }
