@@ -427,3 +427,10 @@ skowt.ccの3Dモデルを正面・側面・背面から確認し、モデルプ�
 
 43体・49美術候補。配置比較用の浮遊32px、本来の巨体寸法や実機衝突を再現した値ではない。上半身だけの第1形態、技、アニメーション、実戦は未制作。背景は仮画像・本番3D方針を維持。
 根拠: evidence/shouki-reference-audit.json, evidence/shouki-comparison.png, evidence/shouki-map-comparison.png。生成プロンプト: assets/shouki-generation-v1.json。
+
+
+## 2026-11-17 素材比較条件のリンク
+
+ボス・同行者・通常敵の比較画面は名前の絞り込み(q)、軽量設定(profile)、拡大率(zoom)、向き(flip=1)をURLに反映し、再読み込みやリンクから同じ条件へ戻れる。画面の「この比較条件のリンク」も利用可能。例: http://127.0.0.1:8771/bosses-art.html?q=shouki&profile=h48c32 。ゲームのセーブや配置案は含めない。localhostのリンクはラボが動く同じPC向けで、ChatGPTから直接接続可能になったことを意味しない。ボス説明の古い固定列挙も現状に合う共通注記へ変更。
+
+3画面で日本語検索、条件変更と再読み込み、未知設定の既定値化、解除、該当なし、記号文字、全角検索、390px幅を検証し、モバイル画像を目視確認。根拠: evidence/gallery-url-test.json, evidence/gallery-url-mobile.png。

@@ -1,0 +1,13 @@
+{
+  "pages": 3,
+  "queryRestore": true,
+  "settingsRestore": true,
+  "reload": true,
+  "invalidSettingsDefault": true,
+  "clearFilter": true,
+  "emptyStateRoundtrip": true,
+  "literalInput": true,
+  "nfkc": true,
+  "mobileOverflow": false,
+  "errors": []
+}
