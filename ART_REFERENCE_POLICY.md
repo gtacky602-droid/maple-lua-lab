@@ -217,3 +217,10 @@ HoYoWiki3993の全身レンダー、ゲーム内正面、最終設定画の正�
 美術候補54件。群れは1戦のまま、art_componentsに2体を登録。戦闘・技・動作は未実装のまま。54候補の3profile/3zoom/左右・配置・JSON往復・390px幅と、2体同時配置3profileを検証。比較画像を目視し透過を確認。スメール背景は配置検査用で生息地設定ではない。背景は仮画像、本番3D方針を継続。矩形削減は実機速度の保証ではない。
 
 根拠: evidence/bathysmal-reference-audit.json、evidence/bathysmal-pair-test.json、evidence/bathysmal-pair-map.png。生成記録: assets/rimebiter-generation-v1.json、assets/bolteater-generation-v1.json。
+
+
+## 2026-11-17 統御デバイスの待機候補
+
+図鑑全身とゲーム内側面寄り画像を直接確認し、参照付き内蔵image_genで生成。3Dモデル・背面・内部は未確認。白い分割外殻、橙色リング、分離浮遊部品を保持。原画を保存し、200/150/100pxで8227/5181/2280矩形（最軽量72.29%減）。橙#ff9f00を既存32/16色枠内に確保。100pxで内部彫刻と輪郭の細線が劣化。浮遊40pxは配置比較用。
+
+美術候補55件。55候補の3profile/3zoom/左右、配置・JSON往復・390px幅を検証し比較/マップ画像を目視。boss-24090501の美術候補として一覧にも接続。技・動作・実戦は未制作。矩形削減は実機FPS改善を証明しない。仮背景・本番3D方針を維持。根拠: evidence/overseer-reference-audit.json、evidence/overseer-comparison.png、evidence/overseer-map-comparison.png。生成記録: assets/overseer-generation-v1.json。

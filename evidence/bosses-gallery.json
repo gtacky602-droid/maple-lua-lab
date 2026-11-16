@@ -2,13 +2,19 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 54,
-    "visibleCount": 54,
+    "count": 55,
+    "visibleCount": 55,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "overseer",
+        "h": 200,
+        "w": 197.9780960404381,
+        "ratio": 0.9898904802021904
+      },
       {
         "id": "rimebiter",
         "h": 160,

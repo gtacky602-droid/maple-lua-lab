@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-17",
+  "encounter": "boss-24090501",
+  "references": [
+    {
+      "url": "https://img.game8.co/4282551/01cc5c6cdb31aa06b36de0bd9d3aead1.png/show",
+      "sha256": "5368f62245218412c1e3cc138ac257409c9fe297582f9597d25eb8879b0a8dcb",
+      "directly_viewed": true,
+      "generation_input": false,
+      "view": "cropped guide header, same pose as archive"
+    },
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2025/05/12/205556113/461f01931d0274ea7cd089a162d2cfff_2193966571056670134.png",
+      "sha256": "5cc2eb8799b31447afc8f253765b868a5345a05f200f383014fb401e447a4069",
+      "directly_viewed": true,
+      "generation_input": true,
+      "view": "full-body archive three-quarter"
+    },
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2025/05/12/108040188/a16aaa0e4d825e60760242dd778e374d_7699947219709996060.jpg",
+      "sha256": "944657531bb1a90e8f75166654d7ae2916f449d94226650303e557b3cb4aebfb",
+      "directly_viewed": true,
+      "generation_input": true,
+      "view": "game screenshot, side angle partly occluded by effects"
+    }
+  ],
+  "pages": [
+    "https://game8.co/games/Genshin-Impact/archives/516265",
+    "https://www.hoyolab.com/article/38738650",
+    "https://www.hoyolab.com/article/38742561"
+  ],
+  "model_lookup": "Targeted exact-name web, Sketchfab and skowt searches returned no matching usable model. Actual 3D, full rear and interior remain unverified.",
+  "source": "assets/overseer-idle-source-v1.png",
+  "sha256": "a6be8c1620782a9ca482fcb7d005dfe014bb802c44c527a7c21d0f90126a00c9",
+  "profiles": {
+    "legacy": {
+      "height": 200,
+      "runs": 8227
+    },
+    "h48c32": {
+      "height": 150,
+      "runs": 5181
+    },
+    "h32c16": {
+      "height": 100,
+      "runs": 2280
+    }
+  },
+  "rectangle_reduction_percent": 72.29,
+  "reserved_colors": [
+    "#ff9f00"
+  ],
+  "hover": 40,
+  "anchor": "center of whole art bounding box; preview only",
+  "limitations": [
+    "Static candidate; no attacks or motion.",
+    "Archive pose adapted into pixel clusters, not exact orthographic reconstruction.",
+    "Fine engraved lines expected to simplify at100px.",
+    "Hover40 is a lab placement offset, not native altitude/collision.",
+    "Rectangle reduction is not measured frame rate.",
+    "Background remains temporary; production3D unbuilt."
+  ],
+  "visual_review": "Directly viewed original generation, final PNG/100px rectangle comparison and map composition. Detached components, orange arcs and transparency retained. Fine inner engraving and edge thickness degrade at100px;150/200px retain more detail. Sumeru background is render fixture, not canonical habitat."
+}
