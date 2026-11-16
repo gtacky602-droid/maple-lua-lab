@@ -1,0 +1,10 @@
+{
+  "mode": "builtin image_gen",
+  "generated_file": "exec-4cfa7053-1a2c-4de4-b012-1c6e7327f3e2.png",
+  "reference_files": [
+    "work/references/suanni-jp-1.png",
+    "work/references/suanni-jp-4.png",
+    "work/references/suanni-0.png"
+  ],
+  "prompt": "Use case: stylized-concept. Create one transparent pixel-art idle sprite of Genshin Impact Solitary Suanni, for a Maple-inspired 2D side-scrolling RPG lab. Use supplied full-body image for standing anatomy, in-game airborne side view for tail and leg layout, face icon for facial details. Do NOT copy the white cutout artifacts or dark background from full-body reference. Full animal stands on four feline paws facing slightly left in side/three-quarter view, tall straight forelegs at left, bent hindlegs at right, long tapered tail extending right, complete leaflike blue tail fin. Teal/dark blue feline-draconic body, cream mint fluffy beard and chest mane, tall cyan swept horn/ear fins, gold-orange branching forehead crest, two long gold whiskers curving outward, pale cloud-scroll motifs at shoulders, leaflike fins along back, rear body and lower forelegs. No wings, no extra limbs, no lion brown fur, no human clothing. Calm dignified standing idle with all paws near common ground baseline. Preserve elegant long limbs and tail, not chibi cub proportions. Entire crown, whiskers, paws and tail tip within generous transparent margin. Crisp square pixel clusters, dark teal outline, restrained 24-32-color aesthetic, readable at 180px high. No smooth painting, no noisy dithering. No effects, wind, water rings, rocks, ground shadow, landscape, text or logo. Transparent background and gaps between legs; one complete still animal."
+}

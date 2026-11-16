@@ -1,0 +1,106 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/5056?lang=ja-jp",
+  "discovery": "Varunada Lazurite Fragment entry1036 related boss; English entry only icon, switched to Japanese gallery",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/02/24/35428890/f02b8c509e8b9e4440f8c7d044f8206e_2986720003559009678.png",
+      "sha256": "9ba624ad76496d29f1c10d6d23b3a5cd7033883794691a9358b1c0d68223d710",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "face icon"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/01/31/94675339/f02b8c509e8b9e4440f8c7d044f8206e_5358668850199852689.png",
+      "sha256": "9ba624ad76496d29f1c10d6d23b3a5cd7033883794691a9358b1c0d68223d710",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "not inspected"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/04/06/94675339/a5e872147760ee1767e244667c4ca5a0_8936645043557265791.png",
+      "sha256": "81157fc7ceb472dd3380c51aae3f8dddee75200681c722a10170113975cd206e",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full standing image, white cutout artifacts not copied"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/02/02/94675339/ce433b7b8115e3c0b23e130487a17403_7340956306740056027.png",
+      "sha256": "7f009421f9e1350a68435417a150f5f16d83bbbf857c861bcb0af5adc520304c",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "resting in-game scene"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/07/31/94675339/e0368130c5560fe78646f3a46875fc57_4989640911111838310.png",
+      "sha256": "9e46acaf81367d9de00ae0dfc3a0c3cc1cc7e754908102b471a875dafb9bfa72",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "element-state gameplay composite"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/02/02/94675339/cf330aa8d487feba6af54492f0f4715d_3922595138552237366.png",
+      "sha256": "7818b529d3ab8fb9edd95ddef703942505ff3dbe8d9656b148338de4ead4cc40",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "airborne side scene, full tail"
+    }
+  ],
+  "model_lookup": "No usable matching 3D model yielded by search; back view unverified.",
+  "output": "assets/suanni-idle-source-v1.png",
+  "sha256": "3f6b139273c5114b419b81e03d2cdcf58dce9c365da245bbf2741cad92f6b345",
+  "profiles": {
+    "legacy": {
+      "height": 180,
+      "runs": 7678
+    },
+    "h48c32": {
+      "height": 135,
+      "runs": 4946
+    },
+    "h32c16": {
+      "height": 90,
+      "runs": 2257
+    }
+  },
+  "palette": {
+    "color": "#f8da82",
+    "samples": 8983,
+    "criteria": "alpha>=128, R>180, G>120, R>G+10, G>B+30",
+    "before_runs": {
+      "legacy": 7803,
+      "h48c32": 4970,
+      "h32c16": 2300
+    },
+    "note": "Reserve source median warm color within 32/16 budget; source PNG unchanged.",
+    "command": "python compile_boss_assets.py --source suanni-idle-source-v1.png --output suanni-idle-sprites.json --height 180 --foot-anchor --accent-color \"#f8da82\""
+  },
+  "alpha_samples": {
+    "points": [
+      [
+        100,
+        100
+      ],
+      [
+        700,
+        200
+      ],
+      [
+        1000,
+        600
+      ],
+      [
+        800,
+        1000
+      ]
+    ],
+    "alpha": 0
+  },
+  "limits": [
+    "No 3D/back inspection",
+    "180px display height provisional",
+    "Tall frontal head and thicker chest/whiskers than reference",
+    "No movement/attacks/live combat; rainforest backdrop is comparison fixture"
+  ],
+  "visual_review": "Source, pre/post reserved-color PNG/90px comparisons and final map placement viewed. Four legs, chest mane, cloud motifs and long tail remain. Reserved gold recovers warm whiskers and forehead; facial details and fur tips remain coarse. Actual browser exterior clean, unlike glow in RGB preview."
+}
