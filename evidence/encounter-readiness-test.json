@@ -1,0 +1,9 @@
+{
+  "earlyFailureDisabled": true,
+  "syntheticEarlyClickSafe": true,
+  "variantPreserved": true,
+  "recoveredLaunch": "boss_farka",
+  "lateCatalogEnabled": 11,
+  "unimplementedDisabled": 55,
+  "errors": []
+}
