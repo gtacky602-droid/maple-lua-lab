@@ -1,3 +1,4 @@
+import {loadImageSet} from './sprite-images.js';
 import {scenery,sceneryKey,sceneryDefinitions,sceneryStatus,backgroundReady} from './scenery.js';
 import {comparePlacements,liveNodeDraft,validatePlacementDraft,MAX_DRAFT_BYTES,MAX_NODE_PLACEMENTS,MAX_TOTAL_PLACEMENTS} from './placement-drafts.js';
 const $=id=>document.getElementById(id),assets={},histories={},baselines={};
@@ -20,7 +21,8 @@ try{
   for(const {item,data} of loaded){const id=kind+'-'+item.id;assets[id]={...data,h:item.height,hover:0};const option=document.createElement('option');option.value=id;option.textContent=item.name;group.append(option)}
   $('species').append(group);
  }
- for(const data of Object.values(assets)){data.image=new Image();data.image.src='assets/'+data.source;await data.image.decode()}
+ const images=await loadImageSet(Object.values(assets).map(data=>data.source),{onProgress:(done,total)=>{$('status').textContent=`画像を読み込み中 ${done} / ${total}`}});
+ for(const data of Object.values(assets))data.image=images[data.source];
  drafts=validatePlacementDraft(drafts,graph,Object.keys(assets));
  for(const n of graph.nodes){const option=document.createElement('option');option.value=n.id;option.textContent=`${n.region}｜${n.name}`;$('node').append(option)}$('node').value='mond-road';
  function node(){return nodes.get($('node').value)}

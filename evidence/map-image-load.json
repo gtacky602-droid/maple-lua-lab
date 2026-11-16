@@ -1,0 +1,21 @@
+{
+  "baselineCommit": "dec4ed2",
+  "checks": [
+    {
+      "mode": "before",
+      "bootMs": 5772.1329,
+      "peak": 1,
+      "uniqueImages": 35
+    },
+    {
+      "mode": "after",
+      "bootMs": 1665.9006999999992,
+      "peak": 6,
+      "uniqueImages": 35
+    }
+  ],
+  "artificialDelayMs": 100,
+  "workerLimit": 6,
+  "missingAsset": "filename shown; editor not initialized; error persists",
+  "scope": "single local startup observations, not FPS or native performance"
+}
