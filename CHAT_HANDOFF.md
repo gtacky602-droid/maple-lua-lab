@@ -104,3 +104,10 @@ map-art.html追加: 本編61仮地点の足場/背景を選択し、元PNGと軽
 往日の海仮背景を追加。HoYoverse担当者のPlayStation Blog掲載画像3枚を直接確認、地上画像を除いた水中2枚を参照して生成。青緑の水/金色遺跡/水草の独自構図。入口・探索路へ接続、足場を青緑石色へ。2地点/既存背景12ケース/配置比較61地点検査通過。ヒルチャールPNG対最軽量版を背景上で目視。地域仮画像45/代用16。正確地理・本番3D未制作、水中移動と技は変更なし。
 
 根拠: evidence/bygone-background-audit.json, evidence/bygone-sprite-preview.png。
+
+
+## 2026-11-17 オシカ・ナタの仮背景
+
+オシカ・ナタ仮背景追加。HoYoverse担当者のPlayStation Blog掲載画像2枚を直接確認して画像参照付き生成。環状遺跡/塔/細い赤岩/青霧の構図を再構成。船着場・遺構の道へ接続し足場灰緑化。2地点/既存背景12ケース/配置比較61地点検査通過、ヒルチャールPNG対最軽量表示を目視。地域仮画像47/代用14。個別船着場装飾・正確地理・本番3D未制作。技変更なし。
+
+根拠: evidence/ochkanatlan-background-audit.json, evidence/ochkanatlan-sprite-preview.png。

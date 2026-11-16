@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-17",
+  "reference_page": "https://blog.playstation.com/2024/11/10/20241111-genshinimpact/",
+  "references": [
+    {
+      "url": "https://blog.ja.playstation.com/uploads/sites/7/2024/11/9604367a23a4539156a541b39c9d63fac20ddb15-scaled.jpg",
+      "sha256": "10c32f7ac095b9ec0014dd4b49cb2e63f9c59a0fabd79ba7f740802d5d941bf4",
+      "directly_viewed": true,
+      "used_for_generation": true
+    },
+    {
+      "url": "https://blog.ja.playstation.com/uploads/sites/7/2024/11/a6037ee7f7ecf1f1ba48f77b1450b16aaf7e412c-scaled.jpg",
+      "sha256": "c628b000372776b40bd2973cf7020f6dd6147473767851e2f2a1e232f0e5e0f4",
+      "directly_viewed": true,
+      "used_for_generation": true
+    }
+  ],
+  "observations": [
+    "Broken monumental rings and pale stone tower",
+    "Narrow red mesas with grassy tops, suspended stones and blue fog"
+  ],
+  "generation": "assets/ochkanatlan-background-generation-v1.json",
+  "output": "assets/ochkanatlan-background-v1.png",
+  "output_sha256": "8dccab9bd1b5d9cede483cef64c5a4fbff2a784b889f1483bc568ee43657bad1",
+  "mapped_nodes": [
+    "ochkanatlan-dock",
+    "ochkanatlan-ruins"
+  ],
+  "validation": [
+    "2 node mappings",
+    "12 existing mappings",
+    "61-node editor checks",
+    "Hilichurl PNG versus h32c16 overlay directly viewed"
+  ],
+  "limitations": [
+    "Shared temporary regional image, not accurate local geography or dock-specific decoration",
+    "No native 3D or gameplay traversal proof",
+    "Minimum-resolution mask detail remains reduced"
+  ],
+  "skills_changed": false
+}

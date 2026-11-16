@@ -1,0 +1,8 @@
+{
+  "method": "built-in image_gen",
+  "prompt": "One wide 16:9 opaque temporary side-scrolling RPG background inspired by the two reference images of Ochkanatlan. Original composition: ancient monumental pale gray stone city with broken curved ring walls and geometric bands, a distant crumbling tower, suspended stone fragments, narrow reddish vertical mesas with small green grassy tops and sparse orange trees, cool blue-gray cloudbanks and mist swallowing the ravines. Atmospheric painterly anime game art. Put ruined rings and tower in upper and middle distance, modest contrast, blue-gray overcast sky with soft daylight. Lowest third is broad quiet stone/grass terrace in muted dark gray green for separately rendered tiny pixel characters. No foreground blocking architecture, no gameplay platforms, characters, creatures, text, logo, UI. Not an accurate reconstruction of a named location; mood and architectural reference only.",
+  "references": [
+    "work/references/ochkanatlan-official-1.jpg",
+    "work/references/ochkanatlan-official-2.jpg"
+  ]
+}

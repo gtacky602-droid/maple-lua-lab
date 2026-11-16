@@ -109,12 +109,12 @@
     {
       "id": "ochkanatlan-dock",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "ochkanatlan-ruins",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "nod-port",

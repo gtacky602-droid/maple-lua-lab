@@ -2,8 +2,8 @@
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
   "scope": "Authored 61 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 45,
-  "fallback_mondstadt": 16,
+  "regional_temporary_image": 47,
+  "fallback_mondstadt": 14,
   "nodes": [
     {
       "id": "mond-town",
@@ -135,13 +135,13 @@
       "id": "ochkanatlan-dock",
       "name": "オシカ・ナタ・寄港地",
       "region": "オシカ・ナタ",
-      "status": "fallback_mondstadt"
+      "status": "regional_temporary_image"
     },
     {
       "id": "ochkanatlan-ruins",
       "name": "オシカ・ナタ・遺構の道",
       "region": "オシカ・ナタ",
-      "status": "fallback_mondstadt"
+      "status": "regional_temporary_image"
     },
     {
       "id": "nod-port",
