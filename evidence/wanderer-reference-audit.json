@@ -1,0 +1,71 @@
+{
+  "character": "wanderer",
+  "date": "2026-11-17",
+  "active_revision": "v2",
+  "illustration": {
+    "url": "https://paimon.moe/images/characters/full/wanderer.png",
+    "sha256": "10eafb71bcce70978c33fbdefb9509b4ee521074efda0f23635d486410a5fbf8",
+    "directly_viewed": true
+  },
+  "model": {
+    "discovery": "https://mmdfr.fr/genshin-mmd/",
+    "download": {
+      "ver": "46",
+      "alt": "",
+      "url": "https://activity.hdslb.com/blackboard/static/20240509/c84ef0977c17fb1198f6887261fea35f/xxQ091lakE.zip",
+      "sd": "7.3MB",
+      "r": ""
+    },
+    "pmx_sha256": "6658fa003e64354fc3eeb0a546a55209791a132086f3a930630a3de3bc8a69ea",
+    "zip_sha256": "e3bae1e46d3dd1b9ae5b0f2f9f17277b94f44ffadf22d4868d8e84bdf02dc8f2",
+    "readme_sha256": "78b25e862eb859b14db9cc20b14c09972c0a9f02c541e9a9f6dc18793b717b60",
+    "credits": "miHoYo / 观海",
+    "terms": "Bundled readme inspected; no redistribution/commercial use/parts extraction for other models. Model stays locally under ignored work/.",
+    "views": {
+      "front": {
+        "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\wanderer-views\\front.png",
+        "sha256": "64fc097f27e3009ecffefa1ef000bcb2050f7e738b9fcce9a8644029e7b35b0a",
+        "directly_viewed": true
+      },
+      "back": {
+        "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\wanderer-views\\back.png",
+        "sha256": "93813d5b9d529d69169ae7ee5f9cb0b1c5698dd6e0988c9dcee714d4e21cb9ec",
+        "directly_viewed": true
+      },
+      "left": {
+        "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\wanderer-views\\left.png",
+        "sha256": "e8282f279da61a2bded5f235ef7180dfd2e063e76a33a2be7458d6b91ea2a48d",
+        "directly_viewed": true
+      },
+      "right": {
+        "path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\wanderer-views\\right.png",
+        "sha256": "3a359f8024d2a53bc752f8cea806503827f41c8094ed5ccc02df9410f108fd7b",
+        "directly_viewed": true
+      }
+    },
+    "render_limitations": "Flat base textures, additive spa_h.png coplanar shine faces omitted in temporary scene; not original game shader; camera +/-X labels are not anatomical sides"
+  },
+  "v1_findings": [
+    "Teal waist bow instead of purple rope",
+    "Teal hat tassels instead of purple ends",
+    "Missing blue shoulder cloth and large pale blue sleeve patterns",
+    "Hat shape and ornament simplified incorrectly",
+    "Exposed shoulder unlike references"
+  ],
+  "v2_observed": [
+    "Low wide petal-frame hat",
+    "Purple waist ropes and hat tassels",
+    "Blue shoulder drape and large pale blue patterned panels",
+    "White top over dark neck/chest covering"
+  ],
+  "unverified": [
+    "Exact ornament geometry simplified",
+    "Mirror reverses asymmetric costume",
+    "Static idle used for walking and floating; animations incomplete"
+  ],
+  "profiles": {
+    "legacy": 1902,
+    "h48c32": 1149,
+    "h32c16": 513
+  }
+}

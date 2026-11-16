@@ -1,0 +1,13 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Revise image 1, current chibi pixel-art idle sprite of Wanderer from Genshin Impact. Images 2 and 3 are front and back views of his distributed 3D model, and image 4 the character illustration. Use them to correct the outfit while retaining image 1's chibi proportions, relaxed pose facing screen RIGHT, dark-blue short hair, purple-blue eyes and crisp pixel clusters. Replace the invented teal waist bow with layered PURPLE waist rope and purple tassels. White upper garment over a black fitted neck/chest layer, subtle teal motif rather than exposed shoulder skin. Include asymmetrical BLUE shoulder drape, the large pale-blue/teal flowing sleeve panels with pale curve bands and darker circular details seen in references, and dark forearm coverings. Hat is broad low flat navy circular brim with pale gold openwork petal frame, not a tall conical hat. Rear hanging hat straps are teal/light cyan with pale curved markings, metal pendants and PURPLE lower tassels, not teal tassels. Short dark pleated trousers with small pale lower motifs instead of invented gold V trim, white shin wraps and dark sandals. Keep visible full hair/hat/feet, one sprite only, relaxed idle, no airborne attack pose, no elemental halo, no energy effects, no background, no floor or shadow or text. Transparent background with margins. Simplify tiny decorative details to readable clusters at 88 pixels high, do not copy realistic model proportions or T-pose.",
+  "reference_images": [
+    "assets/wanderer-idle-source-v1.png",
+    "work/references/wanderer-views/front.png",
+    "work/references/wanderer-views/back.png",
+    "work/references/wanderer-paimon.png"
+  ],
+  "provenance": "evidence/wanderer-reference-audit.json",
+  "status": "reference-informed idle revision; simplified ornament and mirrored asymmetry remain",
+  "generated_file": "exec-7bcdd19e-38f2-47b9-a362-0053c2c05efc.png"
+}
