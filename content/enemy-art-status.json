@@ -32,23 +32,23 @@
     "veluriyam-play",
     "simulanka-play"
   ],
-  "current_story_assignment": "26 hostile nodes with six provisional enemies each, four ground and two elevated. Regional species not complete. Mondstadt road/border use one model-informed Hilichurl idle each with existing generic prototype behavior.",
+  "current_story_assignment": "26 hostile nodes, 156 provisional placements: referenced water/fire slime idle art plus two Hilichurl idle placements. Existing generic behavior and numeric kind unchanged; regional species incomplete.",
   "assets": [
     {
       "id": "hydro-slime",
-      "status": "existing atlas candidate, image reference audit pending",
+      "status": "Old atlas retained for comparison and legacy arena; referenced idle used by story spawns",
       "candidate": {
         "art": "assets/hydro-slime-idle-sprites.json",
-        "status": "HoYoWiki image-informed v2; gallery and visual placement candidate; live atlas retained",
+        "status": "Referenced idle connected to 26 story nodes, gallery and visual placement. Residual halo and back/model-view limits remain.",
         "audit": "evidence/hydro-slime-reference-audit.json"
       }
     },
     {
       "id": "pyro-slime",
-      "status": "existing atlas candidate, image reference audit pending",
+      "status": "Old atlas retained for comparison and legacy arena; referenced idle used by story spawns",
       "candidate": {
         "art": "assets/pyro-slime-idle-sprites.json",
-        "status": "HoYoWiki image-informed idle candidate, residual halo; gallery and visual placement only",
+        "status": "Referenced idle connected to 26 story nodes, gallery and visual placement. Residual halo and back/model-view limits remain.",
         "audit": "evidence/pyro-slime-reference-audit.json"
       }
     },

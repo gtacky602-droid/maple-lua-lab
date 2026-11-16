@@ -368,7 +368,7 @@ function C.frame(s,mode,profile)
  for _,e in ipairs(s.enemies) do if e.hp>0 and e.x>s.camera-40 and e.x<s.camera+1000 then
   visible=visible+1
   if not e.custom then
-   if e.art=='hilichurl' and C.hilichurlArt then C.drawEnemyIdleArt({draws=draws},s,e,mode,profile)
+   if C.enemyIdleArt and C.enemyIdleArt[e.art] then C.drawEnemyIdleArt({draws=draws},s,e,mode,profile)
    else add({kind='sprite',asset=e.kind==1 and 5 or 7,x=e.x-s.camera,y=e.y,w=e.boss and 144 or 48,h=e.boss and 120 or 40,flip=false}) end
   end
   if e.hp<e.maxhp then rect(e.x-s.camera-20,e.y-49,40,4,'#45645d');rect(e.x-s.camera-20,e.y-49,40*e.hp/e.maxhp,4,'#ffcc7c') end

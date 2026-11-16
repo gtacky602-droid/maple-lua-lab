@@ -13,35 +13,35 @@
       {
         "id": "mond-road-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "mond-road-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "mond-road-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "mond-road-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 370,
         "platform": 1
       },
       {
         "id": "mond-road-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 655,
         "platform": 2
       }
@@ -57,35 +57,35 @@
       {
         "id": "mond-border-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "mond-border-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "mond-border-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "mond-border-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 290,
         "platform": 1
       },
       {
         "id": "mond-border-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 585,
         "platform": 2
       }
@@ -94,42 +94,42 @@
       {
         "id": "liyue-entry-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "liyue-entry-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "liyue-entry-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "liyue-entry-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "liyue-entry-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 305,
         "platform": 1
       },
       {
         "id": "liyue-entry-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 600,
         "platform": 2
       }
@@ -138,42 +138,42 @@
       {
         "id": "liyue-field-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "liyue-field-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "liyue-field-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "liyue-field-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "liyue-field-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 295,
         "platform": 1
       },
       {
         "id": "liyue-field-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 575,
         "platform": 2
       }
@@ -182,42 +182,42 @@
       {
         "id": "inazuma-road-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "inazuma-road-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "inazuma-road-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "inazuma-road-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "inazuma-road-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 290,
         "platform": 1
       },
       {
         "id": "inazuma-road-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 610,
         "platform": 2
       }
@@ -226,42 +226,42 @@
       {
         "id": "sumeru-entry-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "sumeru-entry-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "sumeru-entry-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "sumeru-entry-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "sumeru-entry-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 1
       },
       {
         "id": "sumeru-entry-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 575,
         "platform": 2
       }
@@ -270,42 +270,42 @@
       {
         "id": "sumeru-field-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "sumeru-field-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "sumeru-field-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "sumeru-field-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "sumeru-field-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 275,
         "platform": 1
       },
       {
         "id": "sumeru-field-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 560,
         "platform": 2
       }
@@ -314,42 +314,42 @@
       {
         "id": "fontaine-entry-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "fontaine-entry-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "fontaine-entry-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "fontaine-entry-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "fontaine-entry-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 320,
         "platform": 1
       },
       {
         "id": "fontaine-entry-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 650,
         "platform": 2
       }
@@ -358,42 +358,42 @@
       {
         "id": "fontaine-field-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "fontaine-field-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "fontaine-field-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "fontaine-field-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "fontaine-field-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 320,
         "platform": 1
       },
       {
         "id": "fontaine-field-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 690,
         "platform": 2
       }
@@ -402,42 +402,42 @@
       {
         "id": "natlan-entry-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "natlan-entry-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "natlan-entry-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "natlan-entry-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "natlan-entry-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 290,
         "platform": 1
       },
       {
         "id": "natlan-entry-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 550,
         "platform": 2
       }
@@ -446,42 +446,42 @@
       {
         "id": "natlan-field-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "natlan-field-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "natlan-field-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "natlan-field-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "natlan-field-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 290,
         "platform": 1
       },
       {
         "id": "natlan-field-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 560,
         "platform": 2
       }
@@ -490,42 +490,42 @@
       {
         "id": "ochkanatlan-ruins-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "ochkanatlan-ruins-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "ochkanatlan-ruins-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "ochkanatlan-ruins-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "ochkanatlan-ruins-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 290,
         "platform": 1
       },
       {
         "id": "ochkanatlan-ruins-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 575,
         "platform": 2
       }
@@ -534,42 +534,42 @@
       {
         "id": "nod-field-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "nod-field-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "nod-field-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "nod-field-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "nod-field-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 1
       },
       {
         "id": "nod-field-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 640,
         "platform": 2
       }
@@ -578,42 +578,42 @@
       {
         "id": "snezhnaya-entry-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "snezhnaya-entry-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "snezhnaya-entry-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "snezhnaya-entry-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "snezhnaya-entry-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 1
       },
       {
         "id": "snezhnaya-entry-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 640,
         "platform": 2
       }
@@ -622,42 +622,42 @@
       {
         "id": "snezhnaya-field-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "snezhnaya-field-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "snezhnaya-field-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "snezhnaya-field-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "snezhnaya-field-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 315,
         "platform": 1
       },
       {
         "id": "snezhnaya-field-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 630,
         "platform": 2
       }
@@ -666,42 +666,42 @@
       {
         "id": "dragonspine-depth-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "dragonspine-depth-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "dragonspine-depth-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "dragonspine-depth-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "dragonspine-depth-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 265,
         "platform": 1
       },
       {
         "id": "dragonspine-depth-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 535,
         "platform": 2
       }
@@ -710,42 +710,42 @@
       {
         "id": "chenyu-depth-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "chenyu-depth-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "chenyu-depth-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "chenyu-depth-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "chenyu-depth-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 1
       },
       {
         "id": "chenyu-depth-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 590,
         "platform": 2
       }
@@ -754,42 +754,42 @@
       {
         "id": "enkanomiya-depth-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "enkanomiya-depth-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "enkanomiya-depth-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "enkanomiya-depth-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "enkanomiya-depth-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 310,
         "platform": 1
       },
       {
         "id": "enkanomiya-depth-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 650,
         "platform": 2
       }
@@ -798,42 +798,42 @@
       {
         "id": "tunigi-depth-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "tunigi-depth-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "tunigi-depth-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "tunigi-depth-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "tunigi-depth-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 280,
         "platform": 1
       },
       {
         "id": "tunigi-depth-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 585,
         "platform": 2
       }
@@ -842,42 +842,42 @@
       {
         "id": "bygone-depth-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "bygone-depth-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "bygone-depth-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "bygone-depth-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "bygone-depth-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 305,
         "platform": 1
       },
       {
         "id": "bygone-depth-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 620,
         "platform": 2
       }
@@ -886,42 +886,42 @@
       {
         "id": "dornman-depth-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "dornman-depth-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "dornman-depth-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "dornman-depth-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "dornman-depth-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 310,
         "platform": 1
       },
       {
         "id": "dornman-depth-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 650,
         "platform": 2
       }
@@ -930,42 +930,42 @@
       {
         "id": "nod-special-depth-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "nod-special-depth-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "nod-special-depth-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "nod-special-depth-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "nod-special-depth-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 1
       },
       {
         "id": "nod-special-depth-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 590,
         "platform": 2
       }
@@ -974,42 +974,42 @@
       {
         "id": "novokichev-depth-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "novokichev-depth-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "novokichev-depth-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "novokichev-depth-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "novokichev-depth-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 290,
         "platform": 1
       },
       {
         "id": "novokichev-depth-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 600,
         "platform": 2
       }
@@ -1018,42 +1018,42 @@
       {
         "id": "golden-play-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "golden-play-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "golden-play-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "golden-play-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "golden-play-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 270,
         "platform": 1
       },
       {
         "id": "golden-play-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 550,
         "platform": 2
       }
@@ -1062,42 +1062,42 @@
       {
         "id": "veluriyam-play-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "veluriyam-play-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "veluriyam-play-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "veluriyam-play-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "veluriyam-play-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 275,
         "platform": 1
       },
       {
         "id": "veluriyam-play-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 570,
         "platform": 2
       }
@@ -1106,42 +1106,42 @@
       {
         "id": "simulanka-play-1",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "simulanka-play-2",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 510,
         "platform": 0
       },
       {
         "id": "simulanka-play-3",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 850,
         "platform": 0
       },
       {
         "id": "simulanka-play-4",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "simulanka-play-5",
         "kind": 1,
-        "art": "atlas",
+        "art": "hydro-slime",
         "x": 265,
         "platform": 1
       },
       {
         "id": "simulanka-play-6",
         "kind": 2,
-        "art": "atlas",
+        "art": "pyro-slime",
         "x": 545,
         "platform": 2
       }

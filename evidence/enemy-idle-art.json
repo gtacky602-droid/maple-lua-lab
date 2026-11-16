@@ -1,0 +1,69 @@
+{
+  "results": [
+    {
+      "art": "hydro-slime",
+      "profile": "legacy",
+      "runs": 728,
+      "height": 40
+    },
+    {
+      "art": "hydro-slime",
+      "profile": "h48c32",
+      "runs": 415,
+      "height": 40
+    },
+    {
+      "art": "hydro-slime",
+      "profile": "h32c16",
+      "runs": 164,
+      "height": 40
+    },
+    {
+      "art": "pyro-slime",
+      "profile": "legacy",
+      "runs": 848,
+      "height": 40
+    },
+    {
+      "art": "pyro-slime",
+      "profile": "h48c32",
+      "runs": 486,
+      "height": 40
+    },
+    {
+      "art": "pyro-slime",
+      "profile": "h32c16",
+      "runs": 193,
+      "height": 40
+    },
+    {
+      "art": "hilichurl",
+      "profile": "legacy",
+      "runs": 1175,
+      "height": 76
+    },
+    {
+      "art": "hilichurl",
+      "profile": "h48c32",
+      "runs": 692,
+      "height": 76
+    },
+    {
+      "art": "hilichurl",
+      "profile": "h32c16",
+      "runs": 285,
+      "height": 76
+    }
+  ],
+  "checks": [
+    "source hash and alpha",
+    "foot anchor and aspect ratio",
+    "dead and offscreen hidden",
+    "exact added rectangle count",
+    "render leaves mechanics unchanged"
+  ],
+  "limits": [
+    "Residual low-alpha halo in source PNG",
+    "No animation or native-performance verification"
+  ]
+}
