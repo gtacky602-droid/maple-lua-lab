@@ -1,0 +1,14 @@
+{
+  "errors": [],
+  "checks": [
+    "no selection disabled",
+    "fractional X and elevated platform explicit move",
+    "ID material facing other objects preserved",
+    "pending fields survive profile change",
+    "same and invalid input preserve redo",
+    "undo redo update inputs",
+    "browser save reload",
+    "node switch clears fields",
+    "390px no overflow"
+  ]
+}
