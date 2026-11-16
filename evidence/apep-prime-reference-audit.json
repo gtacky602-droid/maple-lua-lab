@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/3695?lang=ja-jp",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/04/12/132746206/d6fda0fbccc37d41505ff1fcce5b6e77_1117326160813665377.png",
+      "sha256": "1b1deb75376632b75f12bf787fbc6dbe98af8ae6923ed56ce42254a081929068",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "face icon"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/06/04/94675339/58b9577b4845239875149218a0b1c7e2_8245969945641844425.png",
+      "sha256": "e47924dddcee558d2451654a41994a6dd456bd6848f2f8ede6f9c4b36e41b9ae",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "card illustration"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/18/94675339/42ef72974a3afdc4c83cb0edae9d79cc_5643670610321705387.png",
+      "sha256": "101d3b0371d85592953745c641c4a1714e5b3e43a150390087fb73ab81f6a05f",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full-body green form"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/18/94675339/a306ee7de299341366ef42b49d5e82b7_71440378554877264.png",
+      "sha256": "4d23a6574d34b3e7438e652c803a8c2e263e80104c832a4378e738dace6ad24f",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "illustration"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/27/94675339/f3601834c3b199fa8a1321fd1b856186_4143095055604691514.png",
+      "sha256": "da0a893bba3429387747fb3ab38336571991dbf8ea9489bb70f641800464724c",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "dark crawling form excluded"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/27/94675339/a4fb50bc626a59e941a23aaf252657bf_644241944110643286.png",
+      "sha256": "7ff1e0cd17ca67806d326d84310aefb62d0c4f44853f9b2414b104f5dbc18331",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "green upright game view"
+    }
+  ],
+  "model_lookup": "Guardian of Apep 3d model search returned unrelated mythology assets; no matching model inspected. Rear unverified.",
+  "output": "assets/apep-prime-idle-source-v1.png",
+  "sha256": "90d3033fee650257c4c5208f1671c444f28f4653400a258020c19fd4cb868c5e",
+  "profiles": {
+    "legacy": {
+      "height": 220,
+      "runs": 12695
+    },
+    "h48c32": {
+      "height": 165,
+      "runs": 8024
+    },
+    "h32c16": {
+      "height": 110,
+      "runs": 3709
+    }
+  },
+  "reduction_percent": 70.78,
+  "palette": {
+    "reserved": "#ecb127",
+    "source_samples": 8070,
+    "criteria": "alpha>=128,R>180,90<G<200,B<90,R>G*1.15",
+    "before_runs": [
+      12859,
+      8070,
+      3783
+    ],
+    "actual_colors": {
+      "legacy": 32,
+      "h48c32": 32,
+      "h32c16": 16
+    },
+    "note": "Source golden median reserved within original 32/16 color budgets; source unchanged."
+  },
+  "limitations": [
+    "Verdant Warden of Oasis Prime idle candidate only; dark crawling form, defense stage, attacks and animations absent",
+    "More frontal symmetric torso and evenly spaced six appendages; shorter curled tail and simplified vine details",
+    "Back and model not inspected; 220px scale and base anchor provisional"
+  ],
+  "visual_review": "Final gallery and map directly viewed. Six major leaf appendages and curled torso readable. Gold pixels retained after palette reservation, but face fine floral pattern and small vine leaves remain weak at110px. Dense details look noisy. Forest background is comparison fixture, not exact original arena. Transparent surround clean.",
+  "validation": {
+    "gallery": "evidence/bosses-gallery.json",
+    "placement": "evidence/boss-placement-test.json",
+    "candidates": 45,
+    "distinct_bosses": 40
+  }
+}
