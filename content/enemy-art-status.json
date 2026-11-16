@@ -39,13 +39,18 @@
       "status": "existing atlas candidate, image reference audit pending",
       "candidate": {
         "art": "assets/hydro-slime-idle-sprites.json",
-        "status": "HoYoWiki image-informed v2 gallery candidate; residual glow and back-view limits; live atlas retained",
+        "status": "HoYoWiki image-informed v2; gallery and visual placement candidate; live atlas retained",
         "audit": "evidence/hydro-slime-reference-audit.json"
       }
     },
     {
       "id": "pyro-slime",
-      "status": "existing atlas candidate, image reference audit pending"
+      "status": "existing atlas candidate, image reference audit pending",
+      "candidate": {
+        "art": "assets/pyro-slime-idle-sprites.json",
+        "status": "HoYoWiki image-informed idle candidate, residual halo; gallery and visual placement only",
+        "audit": "evidence/pyro-slime-reference-audit.json"
+      }
     },
     {
       "id": "hilichurl",
@@ -58,7 +63,11 @@
   "placement_preview": {
     "page": "map-art.html",
     "draft": "content/enemy-placement-drafts.json",
-    "scope": "61 authored proxy nodes; mond-road initial visual draft; in-memory edits can be exported and imported with node/species/ID/grounding validation; not combat spawns"
+    "scope": "61 authored proxy nodes; mond-road initial visual draft; in-memory edits can be exported and imported with node/species/ID/grounding validation; not combat spawns",
+    "candidates": [
+      "hydro-slime-reference",
+      "pyro-slime-reference"
+    ]
   },
   "live_placement": {
     "file": "content/enemy-spawns.json",

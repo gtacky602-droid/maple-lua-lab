@@ -7,6 +7,7 @@ try{
  let drafts=structuredClone(initial),serial=0,importTicket=0;const nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  for(const [id,index] of [['hydro-slime',4],['pyro-slime',6]]){const profiles=Object.fromEntries(Object.entries(variants.variants).map(([k,v])=>[k,v.sprites[index]]));assets[id]={source:'atlas-transparent.png',box:profiles.legacy.box,profiles,h:40}}
  assets.hilichurl={...await json('assets/hilichurl-idle-sprites.json'),h:76};
+ for(const element of ['hydro','pyro'])assets[`${element}-slime-reference`]={...await json(`assets/${element}-slime-idle-sprites.json`),h:40};
  for(const data of Object.values(assets)){data.image=new Image();data.image.src='assets/'+data.source;await data.image.decode()}
  drafts=validatePlacementDraft(drafts,graph,Object.keys(assets));
  for(const n of graph.nodes){const option=document.createElement('option');option.value=n.id;option.textContent=`${n.region}｜${n.name}`;$('node').append(option)}$('node').value='mond-road';

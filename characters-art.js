@@ -8,6 +8,7 @@ try{
   for(const [id,name,index] of [['hydro-slime','水スライム（既存候補）',4],['pyro-slime','炎スライム（既存候補）',6]]){const profiles=Object.fromEntries(['legacy','h48c32','h32c16'].map(k=>[k,variants[k].sprites[index]]));await add(id,name,{source:'atlas-transparent.png',box:profiles.legacy.box,profiles},40)}
   await add('hilichurl','ヒルチャール（待機候補）',await json('assets/hilichurl-idle-sprites.json'),76);
   await add('hydro-slime-reference','水スライム（参照付き新候補・本編未採用）',await json('assets/hydro-slime-idle-sprites.json'),40);
+  await add('pyro-slime-reference','炎スライム（参照付き新候補・本編未採用）',await json('assets/pyro-slime-idle-sprites.json'),40);
  }else{
  await add('traveler','旅人',await json('assets/traveler-idle-sprites.json'),88);
  await add('amber','アンバー',await json('assets/amber-idle-sprites.json'),88);

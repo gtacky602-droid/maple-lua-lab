@@ -1,0 +1,8 @@
+{
+  "prompt": "Create one isolated small Pyro Slime idle sprite for a Maple-like pixel RPG. Use the provided actual creature reference images: rounded smooth dome silhouette WITHOUT any flame on top, warm deep orange upper body, bright golden yellow lower belly with a few rising flame-shaped orange internal markings, two pale cream vertical oval eyes rimmed salmon orange. No mouth, arms, horn, crown, top fire, extra droplets, detached flames, particles, shadows or halo. Slightly right-facing grounded pose. Strict pixel art with solid flat color clusters, 16-24 colors, sharp stepped outer contour and NO gradients or soft glow. All space outside the opaque pixel outline must be fully transparent. Designed at 40px tall then enlarged cleanly with nearest-neighbor appearance. Single sprite centered with transparent margin, no sheet, no text, no background.",
+  "references": [
+    "work/references/pyro-hoyowiki-1.png",
+    "work/references/pyro-hoyowiki-2.png"
+  ],
+  "status": "gallery candidate only; residual glow remains despite prompt"
+}

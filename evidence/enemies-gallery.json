@@ -2,7 +2,7 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 4,
+    "count": 5,
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
@@ -30,6 +30,12 @@
         "h": 40,
         "w": 57.65704584040747,
         "ratio": 1.4414261460101867
+      },
+      {
+        "id": "pyro-slime-reference",
+        "h": 40,
+        "w": 53.88157894736842,
+        "ratio": 1.3470394736842106
       }
     ]
   },
