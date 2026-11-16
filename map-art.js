@@ -112,7 +112,15 @@ for(const id of ['camera','profile'])$(id).oninput=render;
   let id;do{id=`added-${++serial}`}while(placements().some(e=>e.id===id));const item={id,species:$('species').value,x,y:supports[0].y,flip:false};remember(n.id);placements().push(item);render()};
  $('undo').onclick=()=>restoreHistory(histories,redos);
  $('redo').onclick=()=>restoreHistory(redos,histories);
- $('reset').onclick=()=>{remember(node().id);drafts.nodes[node().id]=structuredClone(initial.nodes[node().id]||[]);render()};
+ $('reset').onclick=()=>{
+  const id=node().id;
+  try{
+   const next=structuredClone(drafts);next.nodes[id]=structuredClone(initial.nodes[id]||[]);
+   const valid=validatePlacementDraft(next,graph,Object.keys(assets));
+   remember(id);drafts=valid;render();
+   $('fileStatus').textContent='この地点を初期案へ戻しました。取り消しで直前の案へ戻せます。';
+  }catch(e){$('fileStatus').textContent='初期案へ戻せません：'+e.message+' 編集案と履歴は保持しています。'}
+ };
  $('loadLive').onclick=async()=>{const id=node().id;$('loadLive').disabled=true;try{const source=await json('content/enemy-spawns.json');if(node().id!==id)throw Error('地点が切り替わったため読み込みを中止しました。');const items=liveNodeDraft(source,graph,id,Object.keys(assets));if(Object.entries(drafts.nodes).reduce((sum,[key,list])=>sum+(key===id?0:list.length),items.length)>MAX_TOTAL_PLACEMENTS)throw Error('全地点の配置数の上限を超えます。');baselines[id]=structuredClone(items);remember(id);drafts.nodes[id]=items;render();$('fileStatus').textContent='この地点の本編配置を編集案にコピーしました。取り消すと直前の案に戻ります。';}catch(e){$('fileStatus').textContent='読み込み中止：'+e.message+' 編集中の案は保持しています。';}finally{$('loadLive').disabled=false}};
  $('compareLive').onclick=async()=>{const id=node().id;$('compareLive').disabled=true;try{const source=await json('content/enemy-spawns.json');const baseline=liveNodeDraft(source,graph,id,Object.keys(assets));baselines[id]=baseline;render();$('fileStatus').textContent='本編配置を取得しました。同じ個体IDで比較しています。編集案は変更していません。';}catch(e){$('fileStatus').textContent='比較の取得失敗：'+e.message+' 編集案と前回の比較基準を保持しています。';}finally{$('compareLive').disabled=false}};
  $('export').onclick=()=>{const blob=new Blob([JSON.stringify(drafts,null,2)+'\n'],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='enemy-placement-drafts.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};

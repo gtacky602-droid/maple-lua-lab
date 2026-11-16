@@ -1,0 +1,11 @@
+{
+  "errors": [],
+  "checks": [
+    "1024 full fixture rejects reset before mutation",
+    "rejection does not create undo",
+    "freeing 3 slots permits 3-item initial reset",
+    "undo/redo restores reset",
+    "rejected reset preserves existing redo",
+    "1024-item draft saves and reloads"
+  ]
+}
