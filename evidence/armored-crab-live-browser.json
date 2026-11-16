@@ -1,0 +1,20 @@
+{
+  "draw": {
+    "w": 69.51090700344432,
+    "x": 620,
+    "kind": "boss_sprite",
+    "source": "armored-crab-idle-source-v2.png",
+    "box": [
+      228,
+      120,
+      946,
+      871
+    ],
+    "flip": false,
+    "h": 64,
+    "anchorX": 0.4941860465116279,
+    "y": 480
+  },
+  "errors": [],
+  "method": "Actual Lua fontaine-field entry frames rendered through intercepted browser responses. Static render fixture, not live traversal or combat verification."
+}

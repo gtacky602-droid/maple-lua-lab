@@ -32,7 +32,7 @@
     "veluriyam-play",
     "simulanka-play"
   ],
-  "current_story_assignment": "26 hostile nodes, 156 provisional placements: 151 slime, 2 Hilichurl, 1 Ruin Guard, 1 Floating Dendro Fungus, 1 Nobushi idle. Existing numeric kind and generic behavior unchanged; not canonical distribution.",
+  "current_story_assignment": "26 hostile nodes, 156 provisional placements: 150 slime, 2 Hilichurl, 1 Ruin Guard, 1 Floating Dendro Fungus, 1 Nobushi, 1 Armored Crab idle. Generic numeric kind/behavior unchanged; not canonical distribution.",
   "assets": [
     {
       "id": "hydro-slime",
@@ -77,9 +77,9 @@
     },
     {
       "id": "armored-crab",
-      "status": "Orange frontal candidate based on cropped icon; full appendages provisional, side/back unverified. Gallery/placement only, no live spawn.",
+      "status": "Full-body referenced v2 at fontaine-field spawn1; pointed legs and open pincer corrected. Generic movement/hitbox, no dedicated behavior; back model unverified.",
       "art": "assets/armored-crab-idle-sprites.json",
-      "audit": "evidence/armored-crab-reference-audit.json"
+      "audit": "evidence/armored-crab-v2-reference-audit.json"
     }
   ],
   "scope": "inventory of existing work, not full planned enemy roster",

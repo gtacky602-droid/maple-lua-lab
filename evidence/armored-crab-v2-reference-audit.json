@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-17",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/09/06/125391187/76bbcfde41653631feb16990a4eb18ab_21826992581221104.png",
+      "sha256": "b1aba6b93e730a20762a011e0656499c948ab079cec1a69be73d8f80a424ef91",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2023/09/13/115011837/54923f3bd4ca535e57694c9d87ec42d0_4181991647176543874.png",
+      "sha256": "3a4d810fc8f117a311ea446cd0481b219d0f622c4a3776cf8fe13f8513eca0bd",
+      "directly_viewed": true,
+      "generation_input": false
+    },
+    {
+      "url": "https://webstatic.hoyoverse.com/upload/op-public/2023/08/29/f5b48dbb5fc1e2bf1e989d1ac51b0dc1_3267702854951337801.jpg",
+      "sha256": "acf236643d02de14a345b64e851f7597fde75c597bd92d4dceadf2469ae652b8",
+      "directly_viewed": true,
+      "generation_input": true
+    }
+  ],
+  "pages": [
+    "https://wiki.hoyolab.com/pc/genshin/entry/4058?lang=zh-tw",
+    "https://www.hoyolab.com/article/21590431",
+    "https://genshin.hoyoverse.com/en/news/detail/112763"
+  ],
+  "findings": [
+    "v1 invented blunt pale-tipped legs; references show tapered blue-grey pointed legs",
+    "Small claw needs open pincer notch",
+    "Large claw has circular recess, not a spiral decoration"
+  ],
+  "limits": [
+    "Front/three-quarter views only; no back or 3D model inspection",
+    "Game screenshot partly occluded by player",
+    "No walking, underwater movement or dedicated attack implementation"
+  ],
+  "output": "assets/armored-crab-idle-source-v2.png",
+  "sha256": "66e612c82568625faa99269f8624c1de475bf01b1a4e8f7ce41a4869a8de2b8a",
+  "profiles": {
+    "legacy": {
+      "height": 64,
+      "runs": 1451
+    },
+    "h48c32": {
+      "height": 48,
+      "runs": 900
+    },
+    "h32c16": {
+      "height": 32,
+      "runs": 432
+    }
+  },
+  "validation": [
+    "7 live enemy assets all profiles, source hash/alpha/anchors/culling/mechanics invariance",
+    "61 node spawn sets and live draft conversion",
+    "9 candidate gallery profiles/zooms/facing/mobile390",
+    "Crab draft export/import and 61 node editor regression",
+    "19 story checks",
+    "Lua fontaine-field static frames PNG and rect browser rendering directly viewed"
+  ]
+}

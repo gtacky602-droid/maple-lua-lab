@@ -60,7 +60,7 @@ def runtime():
     core.enemySpawns=lua.table_from(json.loads((ROOT/'content/enemy-spawns.json').read_text(encoding='utf8'))['nodes'],recursive=True)
     core.hilichurlArt=lua.table_from(json.loads((ROOT/'assets/hilichurl-idle-sprites.json').read_text(encoding='utf8')),recursive=True)
     core.enemyArtLayout=lua.table_from(json.loads((ROOT/'content/enemy-art-layout.json').read_text()),recursive=True)
-    core.enemyIdleArt=lua.table_from({key:json.loads((ROOT/'assets'/f'{key}-idle-sprites.json').read_text(encoding='utf8')) for key in ['hydro-slime','pyro-slime','hilichurl','ruin-guard','dendro-fungus','nobushi']},recursive=True)
+    core.enemyIdleArt=lua.table_from({key:json.loads((ROOT/'assets'/f'{key}-idle-sprites.json').read_text(encoding='utf8')) for key in ['hydro-slime','pyro-slime','hilichurl','ruin-guard','dendro-fungus','nobushi','armored-crab']},recursive=True)
     core.amberIdleArt=lua.table_from(json.loads((ROOT/'assets/amber-idle-sprites.json').read_text(encoding='utf8')),recursive=True)
     core.thunderArt=lua.table_from(json.loads((ROOT/'assets/thunder-sprites.json').read_text(encoding='utf8')),recursive=True)
     core.arrayArt=lua.table_from(json.loads((ROOT/'assets/array-sprites.json').read_text(encoding='utf8')),recursive=True)

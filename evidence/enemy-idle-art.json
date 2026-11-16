@@ -107,6 +107,24 @@
       "profile": "h32c16",
       "runs": 435,
       "height": 104
+    },
+    {
+      "art": "armored-crab",
+      "profile": "legacy",
+      "runs": 1451,
+      "height": 64
+    },
+    {
+      "art": "armored-crab",
+      "profile": "h48c32",
+      "runs": 900,
+      "height": 64
+    },
+    {
+      "art": "armored-crab",
+      "profile": "h32c16",
+      "runs": 432,
+      "height": 64
     }
   ],
   "checks": [

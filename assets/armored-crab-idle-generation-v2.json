@@ -1,0 +1,9 @@
+{
+  "references": [
+    "assets/armored-crab-idle-source-v1.png",
+    "work/references/armored-crab-full-0.png",
+    "work/references/armored-crab-full-2.jpg"
+  ],
+  "description": "Corrected full-body appendages using viewed HoYoWiki and official announcement images: pointed blue-grey legs, open small pincer, circular shield-claw recess. Pixel art and transparent alpha preserved; no reflection or background.",
+  "generated_file": "exec-0f6c14c6-2ef1-4be5-bc61-c4e0c68f6d2b.png"
+}
