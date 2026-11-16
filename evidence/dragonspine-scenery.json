@@ -1,0 +1,14 @@
+{
+  "errors": [],
+  "result": [
+    {
+      "id": "dragonspine-camp",
+      "key": "dragonspine"
+    },
+    {
+      "id": "dragonspine-depth",
+      "key": "dragonspine"
+    }
+  ],
+  "method": "actual story node data rendered by shared host scenery; visual fixture, not a gameplay travel test"
+}

@@ -1,0 +1,7 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Original wide 16:9 pixel-art scenery for a MapleStory-like 2D side-scrolling RPG laboratory, Dragonspine-inspired mountainous snowy ruin route. Use supplied official Dragonspine thumbnail only as reference for massive slate-gray rocky cliffs, heavy turquoise-white snow cornices, icy fog, and broken dark stone ruins. Do not copy its logo, statue, exact layout or beam. Compose a broad mountain ledge viewpoint with towering jagged rocky snow peak in upper center, broken ancient arch fragments in midground far left/right, sparse bare trees, pale cyan ice and drifting snow, deep misty ravine behind the playfield. Far landscape, no populated town or tall palace skyline. Pixel clusters, layered depth and calm limited cool palette. Lower 20 percent is open softly shaded snow without large props, so separate platforms and small character sprites remain visible. Full opaque image, no characters, enemies, text, logos, UI, borders, floating game platforms or combat effects. Temporary regional mood image only, not an accurate map or completed 3D stage.",
+  "reference": "https://i.ytimg.com/vi/u8kzvjRDGOM/maxresdefault.jpg",
+  "official_video": "https://www.youtube.com/watch?v=u8kzvjRDGOM",
+  "status": "original temporary snowy ruin route; official thumbnail visual reference, not exact geography or finished 3D"
+}

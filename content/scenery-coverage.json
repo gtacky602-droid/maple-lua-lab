@@ -2,8 +2,8 @@
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
   "scope": "Authored 61 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 37,
-  "fallback_mondstadt": 24,
+  "regional_temporary_image": 39,
+  "fallback_mondstadt": 22,
   "nodes": [
     {
       "id": "mond-town",
@@ -183,13 +183,13 @@
       "id": "dragonspine-camp",
       "name": "ドラゴンスパイン・入口拠点",
       "region": "ドラゴンスパイン",
-      "status": "fallback_mondstadt"
+      "status": "regional_temporary_image"
     },
     {
       "id": "dragonspine-depth",
       "name": "ドラゴンスパイン・探索路",
       "region": "ドラゴンスパイン",
-      "status": "fallback_mondstadt"
+      "status": "regional_temporary_image"
     },
     {
       "id": "chenyu-camp",

@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-17",
+  "official_video": "https://www.youtube.com/watch?v=u8kzvjRDGOM",
+  "reference_url": "https://i.ytimg.com/vi/u8kzvjRDGOM/maxresdefault.jpg",
+  "reference_path": "C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\work\\references\\dragonspine-official.jpg",
+  "reference_sha256": "64de43011934c1a838b764535a6ab7808b1d124ff3441c37e4dc2b3d5fa4f9b0",
+  "directly_viewed": true,
+  "observations": [
+    "Gray rocky cliffs and cyan-white snow cornices",
+    "Broken dark stone ruins and frozen mist; distinct from distant town snow scenery"
+  ],
+  "generation": "assets/dragonspine-background-generation-v1.json",
+  "output": "assets/dragonspine-background-v1.png",
+  "output_sha256": "9f6f3f2d02d09212fffcad3d97158605daafc7d7d75b54c0689fe1f78ded8b83",
+  "scope": "Original temporary regional snowy ruin route; no exact geography; future 3D background unchanged",
+  "mapped_nodes": [
+    "dragonspine-camp",
+    "dragonspine-depth"
+  ],
+  "validation": [
+    "2 story nodes select dragonspine",
+    "Shared host renderer and actual platforms screenshot directly viewed",
+    "12 existing scenery cases and 61-node editor checks passed"
+  ],
+  "limitations": [
+    "Thumbnail only, not full video inspection",
+    "Visual fixture, not gameplay travel verification",
+    "No unique camp/depth variants, exact geography or completed native 3D"
+  ],
+  "skills_changed": false
+}

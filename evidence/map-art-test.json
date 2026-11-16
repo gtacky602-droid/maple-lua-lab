@@ -149,12 +149,12 @@
     {
       "id": "dragonspine-camp",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "dragonspine-depth",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "chenyu-camp",
