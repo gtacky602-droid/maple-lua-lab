@@ -1,0 +1,375 @@
+{
+  "updated": "2026-11-17",
+  "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
+  "scope": "Authored 61 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 37,
+  "fallback_mondstadt": 24,
+  "nodes": [
+    {
+      "id": "mond-town",
+      "name": "モンド・城門広場",
+      "region": "モンド",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "mond-road",
+      "name": "モンド・南の街道",
+      "region": "モンド",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "mond-border",
+      "name": "モンド・国境の道",
+      "region": "モンド",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "liyue-entry",
+      "name": "璃月・北の入口",
+      "region": "璃月",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "liyue-harbor",
+      "name": "璃月・港の広場",
+      "region": "璃月",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "liyue-field",
+      "name": "璃月・岩間の狩場",
+      "region": "璃月",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "liyue-ferry",
+      "name": "稲妻行き・船の甲板",
+      "region": "航路",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "inazuma-port",
+      "name": "稲妻・離島の波止場",
+      "region": "稲妻",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "inazuma-road",
+      "name": "稲妻・海辺の街道",
+      "region": "稲妻",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "inazuma-town",
+      "name": "稲妻・城下の広場",
+      "region": "稲妻",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "sumeru-entry",
+      "name": "スメール・地域の入口",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "sumeru-hub",
+      "name": "スメール・樹陰の広場",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "sumeru-field",
+      "name": "スメール・雨林の道",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "fontaine-entry",
+      "name": "フォンテーヌ・地域の入口",
+      "region": "フォンテーヌ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "fontaine-hub",
+      "name": "フォンテーヌ・水辺の広場",
+      "region": "フォンテーヌ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "fontaine-field",
+      "name": "フォンテーヌ・水路沿い",
+      "region": "フォンテーヌ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "natlan-entry",
+      "name": "ナタ・地域の入口",
+      "region": "ナタ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "natlan-hub",
+      "name": "ナタ・谷の集落",
+      "region": "ナタ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "natlan-field",
+      "name": "ナタ・岩場の道",
+      "region": "ナタ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "natlan-port",
+      "name": "ナタ・花翼の集付近の港（仮）",
+      "region": "ナタ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "natlan-voyage",
+      "name": "北行き航海・甲板",
+      "region": "航路",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "ochkanatlan-dock",
+      "name": "オシカ・ナタ・寄港地",
+      "region": "オシカ・ナタ",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "ochkanatlan-ruins",
+      "name": "オシカ・ナタ・遺構の道",
+      "region": "オシカ・ナタ",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "nod-port",
+      "name": "ナド・クライ・到着港",
+      "region": "ナド・クライ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "nod-field",
+      "name": "ナド・クライ・月明かりの道",
+      "region": "ナド・クライ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "nod-town",
+      "name": "ナド・クライ・町の広場",
+      "region": "ナド・クライ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "snezhnaya-entry",
+      "name": "スネージナヤ・雪原の入口",
+      "region": "スネージナヤ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "snezhnaya-hub",
+      "name": "スネージナヤ・雪の町",
+      "region": "スネージナヤ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "snezhnaya-field",
+      "name": "スネージナヤ・凍った街道",
+      "region": "スネージナヤ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "dragonspine-camp",
+      "name": "ドラゴンスパイン・入口拠点",
+      "region": "ドラゴンスパイン",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "dragonspine-depth",
+      "name": "ドラゴンスパイン・探索路",
+      "region": "ドラゴンスパイン",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "chenyu-camp",
+      "name": "沈玉の谷・入口拠点",
+      "region": "沈玉の谷",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "chenyu-depth",
+      "name": "沈玉の谷・探索路",
+      "region": "沈玉の谷",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "enkanomiya-camp",
+      "name": "淵下宮・入口拠点",
+      "region": "淵下宮",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "enkanomiya-depth",
+      "name": "淵下宮・探索路",
+      "region": "淵下宮",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "tunigi-camp",
+      "name": "トゥニギの黒淵・入口拠点",
+      "region": "トゥニギの黒淵",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "tunigi-depth",
+      "name": "トゥニギの黒淵・探索路",
+      "region": "トゥニギの黒淵",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "bygone-camp",
+      "name": "往日の海・入口拠点",
+      "region": "往日の海",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "bygone-depth",
+      "name": "往日の海・探索路",
+      "region": "往日の海",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "dornman-camp",
+      "name": "ドーンマンポート・入口拠点",
+      "region": "ドーンマンポート",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "dornman-depth",
+      "name": "ドーンマンポート・探索路",
+      "region": "ドーンマンポート",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "nod-special-camp",
+      "name": "ナド・クライ特別地域（仮）・入口拠点",
+      "region": "ナド・クライ特別地域（仮）",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "nod-special-depth",
+      "name": "ナド・クライ特別地域（仮）・探索路",
+      "region": "ナド・クライ特別地域（仮）",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "novokichev-camp",
+      "name": "ノヴォキッチェヴ（仮構造）・入口拠点",
+      "region": "ノヴォキッチェヴ（仮構造）",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "novokichev-depth",
+      "name": "ノヴォキッチェヴ（仮構造）・探索路",
+      "region": "ノヴォキッチェヴ（仮構造）",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "golden-hub",
+      "name": "金リンゴ群島・入口広場",
+      "region": "金リンゴ群島",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "golden-play",
+      "name": "金リンゴ群島・探索ステージ",
+      "region": "金リンゴ群島",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "veluriyam-hub",
+      "name": "ヴェルーリヤ・ミラージュ・入口広場",
+      "region": "ヴェルーリヤ・ミラージュ",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "veluriyam-play",
+      "name": "ヴェルーリヤ・ミラージュ・探索ステージ",
+      "region": "ヴェルーリヤ・ミラージュ",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "simulanka-hub",
+      "name": "シムランカ・入口広場",
+      "region": "シムランカ",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "simulanka-play",
+      "name": "シムランカ・探索ステージ",
+      "region": "シムランカ",
+      "status": "fallback_mondstadt"
+    },
+    {
+      "id": "anemo-approach",
+      "name": "無相の風・挑戦入口",
+      "region": "モンド",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "cryo-approach",
+      "name": "急凍樹・挑戦入口",
+      "region": "モンド",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "pyro-approach",
+      "name": "爆炎樹・挑戦入口",
+      "region": "璃月",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "electro-approach",
+      "name": "無相の雷・挑戦入口",
+      "region": "モンド",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "geo-approach",
+      "name": "無相の岩・挑戦入口",
+      "region": "璃月",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "oceanid-approach",
+      "name": "純水精霊・湖畔入口",
+      "region": "璃月",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "primo-approach",
+      "name": "エンシェントヴィシャップ・洞窟入口",
+      "region": "璃月",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "maguu-approach",
+      "name": "魔偶剣鬼・挑戦入口",
+      "region": "稲妻",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "array-approach",
+      "name": "恒常からくり陣形・挑戦入口",
+      "region": "稲妻",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "thunder-approach",
+      "name": "雷音権現・挑戦入口",
+      "region": "稲妻",
+      "status": "regional_temporary_image"
+    }
+  ]
+}

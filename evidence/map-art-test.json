@@ -34,7 +34,7 @@
     {
       "id": "liyue-ferry",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "inazuma-port",
@@ -104,7 +104,7 @@
     {
       "id": "natlan-voyage",
       "count": 0,
-      "fallback": true
+      "fallback": false
     },
     {
       "id": "ochkanatlan-dock",

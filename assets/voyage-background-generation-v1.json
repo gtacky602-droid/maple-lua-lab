@@ -1,0 +1,6 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Create a wide 16:9 original pixel-art background for a MapleStory-like 2D side-scrolling fantasy RPG laboratory, representing a quiet sea voyage as viewed sideways from a ship. Panoramic blue ocean with soft repeating waves, distant small island silhouettes low on horizon, bright expansive sky with soft clouds, gentle afternoon sunlight, layered atmospheric distance. A tiny distant sailing vessel may sit near horizon, but no large ship or dock in foreground. Composition optimized for tiny game characters: lower third uncluttered muted blue water, horizon around middle height; no high-contrast details near bottom. Coherent detailed pixel scenery, visible crisp pixel clusters, harmonious blue/cyan palette, not photoreal. Full opaque landscape image. IMPORTANT: do NOT draw deck, railings, masts or floating platforms in foreground, because the host renderer adds the playable wooden ship deck separately at the correct collision height. No land/grass at bottom, no characters, enemies, text, logos, borders, HUD or attack effects. This is a generic temporary voyage backdrop, not a recreation of any exact Genshin route or geography.",
+  "references": [],
+  "status": "original generic temporary ocean landscape; no claim of exact Genshin route; host deck separate, production 3D unfinished"
+}

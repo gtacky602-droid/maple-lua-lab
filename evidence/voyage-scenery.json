@@ -1,0 +1,14 @@
+{
+  "errors": [],
+  "result": [
+    {
+      "id": "liyue-ferry",
+      "key": "voyage"
+    },
+    {
+      "id": "natlan-voyage",
+      "key": "voyage"
+    }
+  ],
+  "method": "actual story node data rendered by shared host scenery; visual fixture, not a gameplay travel test"
+}

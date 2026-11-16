@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-17",
+  "output": "assets/voyage-background-v1.png",
+  "sha256": "acb6250121122c2504abb58988f935c267c2d0addc310fd86a9f38d49bb1c68b",
+  "generation": "assets/voyage-background-generation-v1.json",
+  "references": [],
+  "scope": "Original generic temporary ocean, not verified geography; real production background remains 3D",
+  "mapped_nodes": [
+    "liyue-ferry",
+    "natlan-voyage"
+  ],
+  "terrain": "Wood-colored host platform surfaces, collision dimensions unchanged",
+  "validation": [
+    "2 actual story nodes map to voyage",
+    "Shared host scenery screenshot with platforms directly viewed",
+    "12 existing background mappings passed",
+    "61-node preview/edit/import/export checks passed"
+  ],
+  "limitations": [
+    "No ship model, railings or deck detail",
+    "No continuous sailing motion",
+    "Visual fixture, not travel gameplay verification"
+  ],
+  "skills_changed": false
+}
