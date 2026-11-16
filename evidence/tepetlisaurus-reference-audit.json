@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-17",
+  "pages": [
+    "https://wiki.hoyolab.com/pc/genshin/entry/6578?lang=ja-jp",
+    "https://genshin.hoyoverse.com/en/news/detail/125346"
+  ],
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/09/13/94675339/3c762da1c828d934c5b65e53b7a6e4bf_958279175804064934.png",
+      "sha256": "149dec62fde3b25fd9a3c2e85d73cd63f91f53a848083b52dfa16cc0cedc008b",
+      "directly_viewed": true,
+      "role": "full-body model screenshot, not a downloaded model"
+    },
+    {
+      "url": "https://fastcdn.hoyoverse.com/content-v2/hk4e/125346/c67398b01130f830491d8339f2a7ef9c_3346784898769372367.gif",
+      "sha256": "8e5dfbffd2014d3000831d7fc18ffa03eddcf39e33e6c534f1870e84e01cd71d",
+      "viewed_frames": [
+        0,
+        62
+      ],
+      "total_frames": 124,
+      "role": "official illustration and small rear gameplay view, not full animation review"
+    }
+  ],
+  "unavailable": [
+    {
+      "url": "https://images.rpgsite.net/image/da49c9a1/140406/original/Genshin-Impact-5-0_20240816_20.jpg",
+      "result": "HTTP403; not viewed"
+    },
+    {
+      "url": "https://api.mmdfr.fr/api/character/tepetlisaurus",
+      "result": "HTTP404; no model inspected"
+    }
+  ],
+  "limits": [
+    "Rear view in GIF is small; fine back detail not verified",
+    "No downloaded 3D model inspection",
+    "Idle only; no digging, walking or dedicated attacks",
+    "112px display height provisional"
+  ],
+  "generation": {
+    "status": "failed_no_output",
+    "request_id": "8b7ae9ed-be2d-4d79-b5f7-f245a490dce7",
+    "error": "HTTP400 moderation_blocked at output stage, category other; reason unspecified",
+    "prompt_summary": "Single adult Tepetlisaurus neutral idle pixel sprite, full-body, 112px target, references for anatomy, no attacks.",
+    "references": [
+      "work/references/tepetlisaurus-0.png",
+      "work/references/tepetlisaurus-official-frame0.png",
+      "work/references/tepetlisaurus-official-frame62.png"
+    ]
+  },
+  "observations": [
+    "Yellow faceted forehead crystal",
+    "Dark purple-brown angular crown and layered belly plates",
+    "Short arms, thick brown legs, yellow feet with dark claws",
+    "Tail behind body; small rear gameplay frame supports dorsal silhouette"
+  ]
+}
