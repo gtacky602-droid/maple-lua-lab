@@ -2,13 +2,19 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 38,
-    "visibleCount": 38,
+    "count": 39,
+    "visibleCount": 39,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "yumka",
+        "h": 180,
+        "w": 168.19420783645657,
+        "ratio": 0.934412265758092
+      },
       {
         "id": "signora",
         "h": 112,

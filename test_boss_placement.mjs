@@ -34,6 +34,7 @@ try{
   if(item.id==='electro-regisvine')await p.locator('main').screenshot({path:'evidence/electro-regisvine-map-comparison.png'});
   if(item.id==='ruin-serpent')await p.locator('main').screenshot({path:'evidence/ruin-serpent-map-comparison.png'});
   if(item.id==='aeonblight')await p.locator('main').screenshot({path:'evidence/aeonblight-map-comparison.png'});
+  if(item.id==='yumka')await p.locator('main').screenshot({path:'evidence/yumka-map-comparison.png'});
   if(item.id==='signora-flame')await p.locator('main').screenshot({path:'evidence/signora-flame-map-comparison.png'});
   if(item.id==='signora')await p.locator('main').screenshot({path:'evidence/signora-map-comparison.png'});
   if(item.id==='dvalin')await p.locator('main').screenshot({path:'evidence/dvalin-map-comparison.png'});

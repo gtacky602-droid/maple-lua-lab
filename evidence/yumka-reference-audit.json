@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/6583?lang=ja-jp",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/08/29/94675339/7c1ed7d240424237bc75660e96f3f0ee_4637627479991737879.png",
+      "sha256": "91a2476e44de4ca2e4078cb4e95c6179f871fdee338849b6e7b84fa1b440f268",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "normal appearance"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/08/28/94675339/5b96c8a6010323f4899a942653bed6e5_1388115406971931590.png",
+      "sha256": "db5f4550036a9d1704b9165304e1abfb4ae5fde319ffe475784f65a9c3d7a913",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "normal appearance"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/08/30/94675339/8429123be48611b13b799ae47f84bd9f_2266353461935632801.png",
+      "sha256": "936a571f3930af330b8bf62c741bccadcdaac88abd7c66dbaab3869955afe2f3",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "normal appearance"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/08/30/94675339/8f4e3acecc22ce67a66f1c19093bc7d4_4522623263540308898.png",
+      "sha256": "6bfb64f8a31251acc5f2b3a4eaa1e5dc6a885d585336a6736086e02bef10bf62",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "charged orange crest, excluded"
+    }
+  ],
+  "model_lookup": "Search for Gluttonous Yumkasaur Mountain King model/download/Sketchfab yielded no matching usable model; model and back not inspected.",
+  "output": "assets/yumka-idle-source-v1.png",
+  "sha256": "da75ad9867a39db0c9acbf576bccc973d6a0df53aba15e9d706fa5d0e2bb5837",
+  "profiles": {
+    "legacy": {
+      "height": 180,
+      "runs": 6431
+    },
+    "h48c32": {
+      "height": 135,
+      "runs": 4323
+    },
+    "h32c16": {
+      "height": 90,
+      "runs": 1914
+    }
+  },
+  "source_bounds": {
+    "size": [
+      1312,
+      1199
+    ],
+    "alpha128_bbox": [
+      105,
+      6,
+      1202,
+      1180
+    ]
+  },
+  "limits": [
+    "Normal blue crest only, no fruit/charged form/attacks/animation/live combat",
+    "More upright ears and enlarged blue crest; rear fronds partly inferred",
+    "Display180px provisional; not canonical boss scale"
+  ],
+  "visual_review": "Final gallery and temporary-map comparison directly inspected. Blue chest crest now retained after source-blue reservation; belly orange swirl and leaf ears remain. Face, tiny leaf edges and talons coarse at90px. Clean alpha and grounded feet. Rainforest is a generic comparison fixture, not canonical Natlan geography.",
+  "palette": {
+    "color": "#1f5ff8",
+    "samples": 49186,
+    "criteria": "alpha>=128,B>180,B>1.3G,B>2R",
+    "before_runs": {
+      "legacy": 6554,
+      "h48c32": 4358,
+      "h32c16": 1984
+    },
+    "actual_colors": {
+      "legacy": 32,
+      "h48c32": 32,
+      "h32c16": 16
+    },
+    "note": "Reserved one blue median from source within existing32/16 color budget; source unchanged"
+  },
+  "validation": {
+    "gallery": "evidence/bosses-gallery.json",
+    "placement": "evidence/boss-placement-test.json",
+    "candidates": 39,
+    "distinct_bosses": 35
+  }
+}
