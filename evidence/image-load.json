@@ -1,0 +1,37 @@
+{
+  "names": 51,
+  "workerLimit": 6,
+  "mockDecodeDelayMs": 5,
+  "mockSerialMs": 787.9042,
+  "mockParallelMs": 148.971,
+  "checks": [
+    {
+      "page": "/",
+      "bootMs": 2382.7755,
+      "maxInflight": 6
+    },
+    {
+      "page": "/compare.html",
+      "bootMs": 2452.7298,
+      "maxInflight": 6
+    }
+  ],
+  "missingAsset": "filename displayed; game not started; error not overwritten",
+  "errors": [],
+  "scope": "startup loading only; timings are local test observations, not FPS or native performance",
+  "baseline": {
+    "commit": "9dd1fdc",
+    "perImageArtificialDelayMs": 100,
+    "checks": [
+      {
+        "page": "/",
+        "bootMs": 7820.277099999999
+      },
+      {
+        "page": "/compare.html",
+        "bootMs": 8135.788300000002
+      }
+    ],
+    "limitation": "Single runs in fresh browser pages; comparison includes browser/network/runtime startup variance, not production performance guarantee"
+  }
+}
