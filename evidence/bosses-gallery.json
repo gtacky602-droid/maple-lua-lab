@@ -2,13 +2,19 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 24,
+    "count": 25,
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
       {
         "id": "seahorse",
+        "h": 180,
+        "w": 306.04072398190044,
+        "ratio": 1.7002262443438914
+      },
+      {
+        "id": "seahorse-v1",
         "h": 180,
         "w": 306.04072398190044,
         "ratio": 1.7002262443438914

@@ -1,0 +1,35 @@
+{
+  "sourceUnchanged": true,
+  "reservedColor": "#b9cdfc",
+  "selection": "Median RGB of source alpha>=128 pixels where B>R+20, G>R+10 and G>160 (1792 samples)",
+  "profiles": {
+    "legacy": {
+      "blueSamplePixels": 76,
+      "beforeMeanSquaredRGBError": 3039.11,
+      "afterMeanSquaredRGBError": 675.14,
+      "beforeRuns": 8421,
+      "afterRuns": 8422,
+      "actualColors": 32,
+      "opacityMaskUnchanged": true
+    },
+    "h48c32": {
+      "blueSamplePixels": 39,
+      "beforeMeanSquaredRGBError": 3074.23,
+      "afterMeanSquaredRGBError": 530.69,
+      "beforeRuns": 5431,
+      "afterRuns": 5406,
+      "actualColors": 32,
+      "opacityMaskUnchanged": true
+    },
+    "h32c16": {
+      "blueSamplePixels": 22,
+      "beforeMeanSquaredRGBError": 4140.73,
+      "afterMeanSquaredRGBError": 526.82,
+      "beforeRuns": 2483,
+      "afterRuns": 2461,
+      "actualColors": 16,
+      "opacityMaskUnchanged": true
+    }
+  },
+  "limits": "Numeric error is measured on pale-blue sample subset, not all features; visual review still required."
+}

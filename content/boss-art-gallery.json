@@ -3,8 +3,15 @@
   "items": [
     {
       "id": "seahorse",
-      "name": "千年真珠の海駿（参照付き待機候補）",
+      "name": "千年真珠の海駿（真珠の青を保持・待機候補）",
       "file": "seahorse-idle-sprites.json",
+      "height": 180,
+      "mapHover": 32
+    },
+    {
+      "id": "seahorse-v1",
+      "name": "千年真珠の海駿（色補正前・比較用）",
+      "file": "seahorse-idle-sprites-v1.json",
       "height": 180,
       "mapHover": 32
     },

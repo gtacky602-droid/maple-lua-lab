@@ -58,6 +58,27 @@
   "profiles": {
     "legacy": {
       "height": 180,
+      "runs": 8422
+    },
+    "h48c32": {
+      "height": 135,
+      "runs": 5406
+    },
+    "h32c16": {
+      "height": 90,
+      "runs": 2461
+    }
+  },
+  "visual_review": "Source, browser PNG/90px comparison and temporary forest map placement directly viewed. Spear horn, petal crown, limbs and broad fin tail retained. Fine fin veins and pale blue pearl hue weaken at lowest profile. Source has a broader crown/tail and brighter pink than render; candidate not exact model reproduction.",
+  "limits": [
+    "3D/back view unverified",
+    "180px and 32px hover provisional",
+    "Pearl-intact idle only, no break state, animations or live combat",
+    "Forest backdrop is comparison fixture, not Fontaine habitat placement"
+  ],
+  "previous_profiles": {
+    "legacy": {
+      "height": 180,
       "runs": 8421
     },
     "h48c32": {
@@ -69,11 +90,12 @@
       "runs": 2483
     }
   },
-  "visual_review": "Source, browser PNG/90px comparison and temporary forest map placement directly viewed. Spear horn, petal crown, limbs and broad fin tail retained. Fine fin veins and pale blue pearl hue weaken at lowest profile. Source has a broader crown/tail and brighter pink than render; candidate not exact model reproduction.",
-  "limits": [
-    "3D/back view unverified",
-    "180px and 32px hover provisional",
-    "Pearl-intact idle only, no break state, animations or live combat",
-    "Forest backdrop is comparison fixture, not Fontaine habitat placement"
-  ]
+  "palette_revision": {
+    "source_unchanged": true,
+    "reserved_color": "#b9cdfc",
+    "old_encoding": "assets/seahorse-idle-sprites-v1.json",
+    "command": "python compile_boss_assets.py --source seahorse-idle-source-v1.png --output seahorse-idle-sprites.json --height 180 --accent-color \"#b9cdfc\"",
+    "evidence": "evidence/seahorse-palette-test.json",
+    "review": "Before/after 90px browser comparisons and current map placement inspected. Pale blue pearl now distinct from pink armor; outline, horn and tail retained. Fine veins still degraded."
+  }
 }
