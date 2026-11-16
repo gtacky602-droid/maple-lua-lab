@@ -6,7 +6,7 @@
   "companions": {
     "amber": "existing atlas idle/bow candidates",
     "beidou": "v3 idle: red/dark split tails, silver chest ornament and gold hairpin revised using viewed PMX front/back; mirror asymmetry remains; 88px/3 profiles",
-    "ayaka": "v2 idle candidate; illustration and 4 PMX views audited; additional model-based costume corrections remain; 88px and 3 profiles",
+    "ayaka": "v3 idle: white forearm guard, side armor gold crest and chest crest revised using viewed PMX front/side; mirror asymmetry remains; 88px/3 profiles",
     "wanderer": "dedicated idle PNG and 3 numeric profiles; walk/float reuses idle",
     "emilie": "dedicated idle PNG and 3 numeric profiles; walk reuses idle",
     "kachina": "dedicated idle PNG at 76px and 3 numeric profiles; walk reuses idle",

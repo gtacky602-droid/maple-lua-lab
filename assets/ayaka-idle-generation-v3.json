@@ -1,0 +1,12 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Edit image 1, the current chibi pixel-art idle sprite of Kamisato Ayaka, using images 2 and 3 (front and side 3D model costume views) as the authority for costume details. Preserve image 1's cute chibi proportions, silver pale-blue ponytail, straight bangs, pink hair ties, calm face, relaxed standing pose facing screen RIGHT, navy/pale-blue colors, full body and crisp pixel clusters. Correct the forearm: add the WHITE patterned protective forearm panel visible in the model, keep the hand glove dark and sleeve light blue; do not leave the whole forearm black/red crisscross. Add the broad dark side skirt armor panel with large GOLD rounded Kamisato crest and gold lower rim, sitting below the red-laced waist lamellar plates as shown in the model. The front navy skirt must still show pale flowing wave bands and small blossoms. Refine the gold chest crest from generic three circles into the simplified rounded interlocking crest with angular surround seen on model; make it readable at 88 pixels high, not photorealistic detail. Preserve the pale blue rear split hanging cloth, gold tassels, navy back bow, white tabi and dark pink-tied sandals, unobtrusive sheathed sword. Only a single idle sprite, no action or effects or scene or floor or shadow or text, fully transparent background, full hair and feet with margins. Do not adopt the model's realistic proportions or T-pose.",
+  "reference_images": [
+    "assets/ayaka-idle-source-v2.png",
+    "work/references/ayaka-views/front.png",
+    "work/references/ayaka-views/left.png"
+  ],
+  "provenance": "evidence/model-reference-audit.json",
+  "status": "model-informed costume revision; simplified crest and mirrored asymmetry remain; idle only",
+  "generated_file": "exec-aa88ccbc-2d8c-497d-adc7-da5c6dccd4f0.png"
+}

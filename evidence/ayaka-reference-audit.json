@@ -26,16 +26,21 @@
     "Walking remains static idle"
   ],
   "profiles": {
-    "legacy": 1628,
-    "h48c32": 976,
-    "h32c16": 413
+    "legacy": 1639,
+    "h48c32": 906,
+    "h32c16": 424
   },
   "model_audit": "evidence/model-reference-audit.json",
   "model_status": "Downloaded PMX; front/back/camera +/-X rendered and directly viewed; sprite corrections remain",
   "remaining_model_findings": [
-    "Back bow supports Cryo vision and pink cords; long split light-blue panels",
-    "Side skirt has broad dark armor panels with large gold crest not represented precisely in v2",
-    "Forearm includes visible white patterned panel with dark glove; v2 all-dark forearm is incomplete",
-    "Ponytail and crest shapes readable in side/back; exact crest still simplified in v2"
+    "Crest lines simplified at 88px and merge at 44px",
+    "Mirrored sword and armor reverse sides",
+    "Back vision mostly occluded in current idle; no back animation"
+  ],
+  "active_revision": "v3",
+  "v3_observed": [
+    "White patterned forearm panel over dark glove",
+    "Broad side armor with large gold crest below red-laced plates",
+    "Chest crest angular surround added"
   ]
 }
