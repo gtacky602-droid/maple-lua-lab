@@ -2,6 +2,12 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "aeonblight",
+      "name": "兆載永劫ドレイク（参照付き待機v2）",
+      "file": "aeonblight-idle-sprites.json",
+      "height": 180
+    },
+    {
       "id": "ruin-serpent",
       "name": "遺跡サーペント（参照付き待機候補）",
       "file": "ruin-serpent-idle-sprites.json",

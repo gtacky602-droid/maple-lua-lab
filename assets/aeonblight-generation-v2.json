@@ -1,0 +1,9 @@
+{
+  "mode": "builtin image_gen",
+  "generated_file": "exec-4a1939a1-472c-48da-ad10-9237a43a75e7.png",
+  "reference_files": [
+    "assets/aeonblight-idle-source-v1.png",
+    "work/references/aeonblight-6.png"
+  ],
+  "prompt": "Use case: precise-object-edit\nImage 1 is the draft pixel sprite. Image 2 is the final official design reference.\nCorrect only the extra humanoid arms in image 1: remove BOTH separate downward hanging arms, elbows, wrists and fists from the sides of the torso. The two wing pods and their mounts are the upper appendages; there must be NO additional arms or hands beneath them. Cleanly reconstruct the dark torso and hip contours revealed by arm removal according to the side orthographic view in image 2. Keep the two hind legs, feet, head, torso core, two wing pods, paired wing blades and segmented ring-ended tail in their existing positions. Preserve pixel-art style, palette, whole-body framing, overall dimensions and real background transparency. Do not add another pair of limbs or replace hands with claws. This is a bipedal mechanical drake whose forelimbs are wing structures, not a humanoid robot with wings. Keep all other details unchanged."
+}

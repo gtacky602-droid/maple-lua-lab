@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/2857?lang=en-us",
+  "discovery": "Sumeru entry3799 related enemy link",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2022/09/30/94376896/5ed960ef01a22660c0e92ab516835435_3311889872084514227.png",
+      "sha256": "94b0594ce6ea0341fb5aab0cc20635bf6ba222bc7d3e28404aa0a25244ce9575",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "downloaded but not inspected"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/74935b57f46acaea8cc767d81a309fea_8068810367697500196.png",
+      "sha256": "ab3b163e28853c92d6327ff7c3485fb70f53690dc1e4852277c4b3903c1925c5",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "splash full-body flying illustration"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/877aa3b4516f11f648402744bf831af7_544803337684316244.png",
+      "sha256": "4e18b2f630ec1349116f1a4459caf585099bb0359e1f81bb92c92a2313846601",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "rendered flying full body"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/b11f01d22a6eb68c4942af2aa3d8b672_7398018860116550314.png",
+      "sha256": "6b2d4838ff58865cb540998e0b8f7800e6a64df58af17f36c71de375eed3df36",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "same splash as 1, not independent angle"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/cae03477dc7510211623dc5146604ee5_8067619225793687904.png",
+      "sha256": "3c989ba89732cbdfb7006b9ef64d3eb183e20792b870a134ab67afb0edffadbc",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "in-game flying and grounded comparison"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/8acb35e66cd971aa6b364671069d7c22_288489197561929910.png",
+      "sha256": "7bf4962c42170d9c6e5ae16d5361a60147785cc74b3c7a8934563889274783a0",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "early design variants; not final anatomy"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/98a751d1b3e7f0c6a86876fdc4024ae8_6452483385338579408.png",
+      "sha256": "05ac607e1f1f45ee4adcdc5a1ff35ca5b3711812c8d2c804d9ce964759d092b8",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "final official design sheet front/side/back, foot and wing assemblies"
+    }
+  ],
+  "model_lookup": "Search did not yield usable matching 3D model. Official front/side/back design sheet inspected, not a model inspection.",
+  "observed": "Two hind legs, two orange wing pod hubs with paired blades, horned head with star face core, segmented tail and hollow gear ring",
+  "revision": "v1 added separate arms/hands absent from final design. Builtin image edit removed them in v2; both originals retained. v2 is active candidate.",
+  "output": "assets/aeonblight-idle-source-v2.png",
+  "sha256": "bd7f9b3e9754216a436f0a354ad415cfe91c2642f45e6f4774ca6ca2e0a9a7b5",
+  "profiles": {
+    "legacy": {
+      "height": 180,
+      "runs": 8195
+    },
+    "h48c32": {
+      "height": 135,
+      "runs": 5179
+    },
+    "h32c16": {
+      "height": 90,
+      "runs": 2271
+    }
+  },
+  "alpha": {
+    "zero": 1008451,
+    "at_least_250": 461674,
+    "partial": 563143
+  },
+  "limits": [
+    "No 3D model inspected",
+    "Pose more upright than original side design; simplified engravings and wing geometry",
+    "180px display height provisional",
+    "Idle only; no wing folding/flying animation, hitboxes or live battle"
+  ],
+  "visual_review": "Viewed source revisions and browser PNG/90px comparison, then Sumeru background placement. v2 no longer has separate dangling arms. Wing pods, orange blades and hollow tail ring remain at lowest profile; small armor details and core highlights degrade. Grounded two feet visible. Not native performance proof."
+}

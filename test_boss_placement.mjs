@@ -33,6 +33,7 @@ try{
   if(kind==='character'&&item.id==='traveler')await p.locator('main').screenshot({path:'evidence/character-boss-map-comparison.png'});
   if(item.id==='electro-regisvine')await p.locator('main').screenshot({path:'evidence/electro-regisvine-map-comparison.png'});
   if(item.id==='ruin-serpent')await p.locator('main').screenshot({path:'evidence/ruin-serpent-map-comparison.png'});
+  if(item.id==='aeonblight')await p.locator('main').screenshot({path:'evidence/aeonblight-map-comparison.png'});
   const promise=p.waitForEvent('download');await p.click('#export');const download=await promise;
   const text=await fs.readFile(await download.path(),'utf8');
   await p.click('#deleteSelected');if((await state()).count!==baseline)throw Error('delete');

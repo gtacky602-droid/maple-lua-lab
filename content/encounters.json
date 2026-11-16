@@ -28,7 +28,13 @@
         "ドット絵・動作",
         "報酬・難度",
         "通し検証"
-      ]
+      ],
+      "art_candidate": {
+        "source": "assets/aeonblight-idle-source-v2.png",
+        "encoding": "assets/aeonblight-idle-sprites.json",
+        "audit": "evidence/aeonblight-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
     },
     {
       "id": "boss-24050101",
