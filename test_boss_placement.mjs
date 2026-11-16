@@ -12,14 +12,14 @@ try{
  await p.selectOption('#node','sumeru-entry');
  if(kind==='character'){
   await p.selectOption('#species','boss-jadeplume');const box=await p.locator('#png').boundingBox();
-  await p.mouse.click(box.x+800/960*box.width,box.y+478/540*box.height);
+  await p.locator('#png').click({position:{x:800/960*box.width,y:478/540*box.height}});
  }
  const baseline=(await state()).count;
  const box=await p.locator('#png').boundingBox();
  const checked=[];
  for(const item of catalog){
   await p.selectOption('#species',kind+'-'+item.id);
-  await p.mouse.click(box.x+600/960*box.width,box.y+478/540*box.height);
+  await p.locator('#png').click({position:{x:600/960*box.width,y:478/540*box.height}});
   let s=await state(),e=s.placements.at(-1);
   if(s.count!==baseline+1||e.species!==kind+'-'+item.id||e.y!==480||!s.grounded)throw Error('add/support '+item.id);
   for(const profile of ['legacy','h48c32','h32c16']){

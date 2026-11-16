@@ -1,0 +1,48 @@
+import {chromium} from 'playwright';
+import fs from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const browser=await chromium.launch({headless:true,channel:'chrome'});
+const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];
+page.on('pageerror',e=>errors.push(e.message));
+try{
+ await page.goto((process.env.LAB_URL||'http://127.0.0.1:8771')+'/map-art.html');
+ await page.waitForFunction(()=>window.mapArt?.ready);
+ const total=await page.locator('#species option').count();
+ const original=await page.locator('#species').inputValue();
+ await page.selectOption('#assetKind','boss');
+ await page.fill('#assetSearch','魔像');
+ assert.equal(await page.locator('#species option').count(),1);
+ assert.equal(await page.locator('#species').inputValue(),'boss-legatus');
+ const before=await page.evaluate(()=>window.mapArt.count);
+ await page.locator('#png').click({position:{x:250,y:300}});
+ assert.equal(await page.evaluate(()=>window.mapArt.placements.at(-1).species),'boss-legatus');
+ assert.equal(await page.evaluate(()=>window.mapArt.count),before+1);
+ await page.fill('#assetSearch','存在しない素材');
+ assert.equal(await page.locator('#species').isDisabled(),true);
+ await page.locator('#png').click({position:{x:300,y:300}});
+ assert.equal(await page.evaluate(()=>window.mapArt.count),before+1);
+ // Existing objects remain editable even when the add picker has no results.
+ await page.locator('#placements button').last().click();
+ await page.click('#flipSelected');
+ assert.equal(await page.evaluate(()=>window.mapArt.placements.at(-1).flip),true);
+ await page.click('#undo');
+ assert.equal(await page.evaluate(()=>window.mapArt.placements.at(-1).flip),false);
+ await page.click('#clearAssetSearch');
+ assert.equal(await page.locator('#species option').count(),total);
+ assert.equal(await page.locator('#species').inputValue(),original);
+ await page.selectOption('#assetKind','character');
+ await page.fill('#assetSearch','旅人');
+ assert.equal(await page.locator('#species option').count(),1);
+ await page.selectOption('#species',await page.locator('#species').inputValue());
+ const chosen=await page.locator('#species').inputValue();
+ await page.click('#clearAssetSearch');
+ assert.equal(await page.locator('#species').inputValue(),chosen);
+ await page.fill('#assetSearch','ＳＥＡＨＯＲＳＥ　ｖ１');
+ assert.equal(await page.locator('#species').inputValue(),'boss-seahorse-v1');
+ await page.setViewportSize({width:390,height:844});
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+ await page.screenshot({path:'evidence/placement-picker-mobile.png',fullPage:true});
+ assert.deepEqual(errors,[]);
+ await fs.writeFile('evidence/placement-picker-test.json',JSON.stringify({total,errors,checks:['kind/name filter','add filtered boss','empty result prevents add','existing objects flip/undo while filtered','clear restores preference','explicit selection persists','NFKC AND search','390px no overflow']},null,2));
+ console.log('Placement picker search, editing isolation and mobile passed');
+}finally{await browser.close()}

@@ -1,0 +1,14 @@
+{
+  "total": 48,
+  "errors": [],
+  "checks": [
+    "kind/name filter",
+    "add filtered boss",
+    "empty result prevents add",
+    "existing objects flip/undo while filtered",
+    "clear restores preference",
+    "explicit selection persists",
+    "NFKC AND search",
+    "390px no overflow"
+  ]
+}

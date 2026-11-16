@@ -1,4 +1,5 @@
 import {loadImageSet} from './sprite-images.js';
+import {setupPlacementPicker} from './placement-picker.js';
 import {scenery,sceneryKey,sceneryDefinitions,sceneryStatus,backgroundReady} from './scenery.js';
 import {comparePlacements,liveNodeDraft,validatePlacementDraft,MAX_DRAFT_BYTES,MAX_NODE_PLACEMENTS,MAX_TOTAL_PLACEMENTS} from './placement-drafts.js';
 const DRAFT_KEY='maple-lua-lab.map-draft.v1';
@@ -22,6 +23,7 @@ try{
   for(const {item,data} of loaded){const id=kind+'-'+item.id;assets[id]={...data,h:item.height,hover:item.mapHover??0};const option=document.createElement('option');option.value=id;option.textContent=item.name;group.append(option)}
   $('species').append(group);
  }
+ setupPlacementPicker($('species'));
  const images=await loadImageSet(Object.values(assets).map(data=>data.source),{onProgress:(done,total)=>{$('status').textContent=`画像を読み込み中 ${done} / ${total}`}});
  for(const data of Object.values(assets))data.image=images[data.source];
  drafts=validatePlacementDraft(drafts,graph,Object.keys(assets));
@@ -83,6 +85,7 @@ for(const id of ['camera','profile'])$(id).oninput=render;
  for(const mode of ['png','rect'])$(mode).onclick=event=>{const box=$(mode).getBoundingClientRect(),n=node(),x=Math.round((event.clientX-box.left)*960/box.width+Number($('camera').value)),y=(event.clientY-box.top)*540/box.height;const supports=n.platforms.filter(p=>x>=p.x&&x<=p.x+p.w&&x<=n.width).sort((a,b)=>Math.abs(a.y-y)-Math.abs(b.y-y));if(!supports.length)return;
   if($('editMode').value==='move'){const e=placements().find(e=>e.id===selected);if(!e){$('fileStatus').textContent='下の個体一覧から移動する個体を選んでください。';return}if(e.x!==x||e.y!==supports[0].y){remember(n.id);e.x=x;e.y=supports[0].y}render();return}
   if(placements().length>=MAX_NODE_PLACEMENTS||Object.values(drafts.nodes).reduce((s,x)=>s+x.length,0)>=MAX_TOTAL_PLACEMENTS){$('fileStatus').textContent='配置数の上限です。別の案として保存してから編集してください。';return}
+  if(!assets[$('species').value]){$('fileStatus').textContent='追加する素材がありません。素材の絞り込みを解除してください。';return}
   let id;do{id=`added-${++serial}`}while(placements().some(e=>e.id===id));const item={id,species:$('species').value,x,y:supports[0].y,flip:false};remember(n.id);placements().push(item);render()};
  $('undo').onclick=()=>{const previous=histories[node().id]?.pop();if(previous)drafts.nodes[node().id]=previous;render()};
  $('reset').onclick=()=>{remember(node().id);drafts.nodes[node().id]=structuredClone(initial.nodes[node().id]||[]);render()};
