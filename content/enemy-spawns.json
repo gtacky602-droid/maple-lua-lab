@@ -115,14 +115,14 @@
       {
         "id": "liyue-entry-4",
         "kind": 1,
-        "art": "hydro-slime",
-        "x": 1120,
+        "art": "ruin-guard",
+        "x": 1230,
         "platform": 0
       },
       {
         "id": "liyue-entry-5",
         "kind": 1,
-        "art": "hydro-slime",
+        "art": "hilichurl",
         "x": 305,
         "platform": 1
       },
@@ -210,7 +210,7 @@
       {
         "id": "inazuma-road-5",
         "kind": 1,
-        "art": "hydro-slime",
+        "art": "nobushi",
         "x": 290,
         "platform": 1
       },
@@ -226,7 +226,7 @@
       {
         "id": "sumeru-entry-1",
         "kind": 1,
-        "art": "hydro-slime",
+        "art": "dendro-fungus",
         "x": 300,
         "platform": 0
       },
@@ -254,7 +254,7 @@
       {
         "id": "sumeru-entry-5",
         "kind": 1,
-        "art": "hydro-slime",
+        "art": "dendro-fungus",
         "x": 300,
         "platform": 1
       },
@@ -314,7 +314,7 @@
       {
         "id": "fontaine-entry-1",
         "kind": 1,
-        "art": "hydro-slime",
+        "art": "armored-crab",
         "x": 300,
         "platform": 0
       },
@@ -342,7 +342,7 @@
       {
         "id": "fontaine-entry-5",
         "kind": 1,
-        "art": "hydro-slime",
+        "art": "armored-crab",
         "x": 320,
         "platform": 1
       },

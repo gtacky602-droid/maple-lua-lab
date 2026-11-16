@@ -1,0 +1,66 @@
+{
+  "checked": [
+    {
+      "node": "liyue-entry",
+      "camera": 0,
+      "mode": "sprite",
+      "commands": 26
+    },
+    {
+      "node": "liyue-entry",
+      "camera": 0,
+      "mode": "rect",
+      "commands": 1783
+    },
+    {
+      "node": "liyue-entry",
+      "camera": 480,
+      "mode": "sprite",
+      "commands": 25
+    },
+    {
+      "node": "liyue-entry",
+      "camera": 480,
+      "mode": "rect",
+      "commands": 3051
+    },
+    {
+      "node": "inazuma-road",
+      "camera": 0,
+      "mode": "sprite",
+      "commands": 38
+    },
+    {
+      "node": "inazuma-road",
+      "camera": 0,
+      "mode": "rect",
+      "commands": 2216
+    },
+    {
+      "node": "sumeru-entry",
+      "camera": 0,
+      "mode": "sprite",
+      "commands": 23
+    },
+    {
+      "node": "sumeru-entry",
+      "camera": 0,
+      "mode": "rect",
+      "commands": 1841
+    },
+    {
+      "node": "fontaine-entry",
+      "camera": 0,
+      "mode": "sprite",
+      "commands": 22
+    },
+    {
+      "node": "fontaine-entry",
+      "camera": 0,
+      "mode": "rect",
+      "commands": 2194
+    }
+  ],
+  "errors": [],
+  "method": "Actual Lua entry frames, camera 0 plus Liyue camera 480; static browser rendering, not continuous traversal or combat verification."
+}

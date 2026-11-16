@@ -32,7 +32,7 @@
     "veluriyam-play",
     "simulanka-play"
   ],
-  "current_story_assignment": "26 hostile nodes, 156 provisional placements: 150 slime, 2 Hilichurl, 1 Ruin Guard, 1 Floating Dendro Fungus, 1 Nobushi, 1 Armored Crab idle. Generic numeric kind/behavior unchanged; not canonical distribution.",
+  "current_story_assignment": "26 hostile nodes, 156 provisional placements: 143 slime, 3 Hilichurl, 2 Ruin Guard, 3 Floating Dendro Fungus, 2 Nobushi, 3 Armored Crab idle. Generic numeric kind/behavior unchanged; not canonical distribution.",
   "assets": [
     {
       "id": "hydro-slime",

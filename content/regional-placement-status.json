@@ -1,0 +1,131 @@
+{
+  "status": "provisional visual placement, not canonical species distribution or new behavior",
+  "scope": "four regional routes; existing generic behaviors and counts retained",
+  "changes": [
+    {
+      "node": "liyue-entry",
+      "before": {
+        "id": "liyue-entry-4",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 1120,
+        "platform": 0
+      },
+      "after": {
+        "id": "liyue-entry-4",
+        "kind": 1,
+        "art": "ruin-guard",
+        "x": 1230,
+        "platform": 0
+      }
+    },
+    {
+      "node": "liyue-entry",
+      "before": {
+        "id": "liyue-entry-5",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 305,
+        "platform": 1
+      },
+      "after": {
+        "id": "liyue-entry-5",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 305,
+        "platform": 1
+      }
+    },
+    {
+      "node": "inazuma-road",
+      "before": {
+        "id": "inazuma-road-5",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 290,
+        "platform": 1
+      },
+      "after": {
+        "id": "inazuma-road-5",
+        "kind": 1,
+        "art": "nobushi",
+        "x": 290,
+        "platform": 1
+      }
+    },
+    {
+      "node": "sumeru-entry",
+      "before": {
+        "id": "sumeru-entry-1",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 300,
+        "platform": 0
+      },
+      "after": {
+        "id": "sumeru-entry-1",
+        "kind": 1,
+        "art": "dendro-fungus",
+        "x": 300,
+        "platform": 0
+      }
+    },
+    {
+      "node": "sumeru-entry",
+      "before": {
+        "id": "sumeru-entry-5",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 300,
+        "platform": 1
+      },
+      "after": {
+        "id": "sumeru-entry-5",
+        "kind": 1,
+        "art": "dendro-fungus",
+        "x": 300,
+        "platform": 1
+      }
+    },
+    {
+      "node": "fontaine-entry",
+      "before": {
+        "id": "fontaine-entry-1",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 300,
+        "platform": 0
+      },
+      "after": {
+        "id": "fontaine-entry-1",
+        "kind": 1,
+        "art": "armored-crab",
+        "x": 300,
+        "platform": 0
+      }
+    },
+    {
+      "node": "fontaine-entry",
+      "before": {
+        "id": "fontaine-entry-5",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 320,
+        "platform": 1
+      },
+      "after": {
+        "id": "fontaine-entry-5",
+        "kind": 1,
+        "art": "armored-crab",
+        "x": 320,
+        "platform": 1
+      }
+    }
+  ],
+  "unchecked": [
+    "continuous combat traversal",
+    "dedicated species behavior",
+    "canonical geography",
+    "native 3D background"
+  ]
+}
