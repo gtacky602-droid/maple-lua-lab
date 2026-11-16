@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-17",
+  "encounter": "boss-25140101",
+  "references": [
+    {
+      "url": "https://img.gamewith.jp/img/original_a6350a05c80be6d3eaf496c53bc2bb32.jpeg",
+      "page": "https://gamewith.jp/genshin/article/show/235614",
+      "view": "Version preview artwork, leaf wings and chest details; tips partly cropped",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "2b11d8f1570a602c012ce1b667848f1c5fbff1ca9a934a58d3de64b1d9130cd3"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/original_7d0072b5274a9e8bb3a46e18edf7054c.png",
+      "page": "https://gamewith.jp/genshin/article/show/571058",
+      "view": "Gameplay, side angle, legs and torso; left side obscured by effects",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "78952322cd6fabdc14b849a8d970f9fdd0f8869f63a437dbd6785ca8af94c5ea"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/original_3a99a499071dae95350615b98747d9ee.png",
+      "page": "https://gamewith.jp/genshin/article/show/571058",
+      "view": "Gameplay, silhouette mostly obscured by damage numbers and effects",
+      "directly_viewed": true,
+      "generation_input": false,
+      "sha256": "423fcd3932f753459640691dc63cd43b7b13da56bf53bce104dce087dd2f5985"
+    }
+  ],
+  "model_lookup": {
+    "page": "https://models.spriters-resource.com/pc_computer/genshinimpact/asset/604015/",
+    "result": "Matching listing found. Asset page and ZIP returned HTTP 403 from the lab machine. Model was not inspected; rear and wing attachment geometry remain unverified."
+  },
+  "source": "assets/immortal-construct-idle-source-v1.png",
+  "sha256": "8cefb9b754a4a1c1b1ac4f062f631312ff5a15a517a7f2ce6cd110f51202f540",
+  "profiles": {
+    "legacy": {
+      "height": 200,
+      "runs": 11889
+    },
+    "h48c32": {
+      "height": 150,
+      "runs": 7508
+    },
+    "h32c16": {
+      "height": 100,
+      "runs": 3489
+    }
+  },
+  "rectangle_reduction_percent": 70.65,
+  "reserved_colors": [
+    "#ffce71",
+    "#e46a91"
+  ],
+  "anchorX": 0.45378989361702127,
+  "anchor_method": "midpoint of opaque pixels in bottom 3.5 percent band",
+  "hover": 0,
+  "visual_review": "The checkerboard and map comparisons show the transparent gaps, the red leaf wings, the pink chest flower and planted feet. The 100px encoding simplifies the small ivory ornament and talons. Wing tips missing from the showcase were extended by interpretation. The Sumeru map is a placement test fixture.",
+  "measurement_scope": "Rectangle counts for local encodings at a common display scale. Native performance remains unmeasured."
+}
