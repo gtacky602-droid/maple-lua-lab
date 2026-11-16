@@ -1,0 +1,29 @@
+{
+  "boss_rectangle_counts": {
+    "legacy": 12453,
+    "h48c32": 7788,
+    "h32c16": 3432
+  },
+  "scene_rectangle_counts": {
+    "legacy": 14537,
+    "h48c32": 8953,
+    "h32c16": 3940
+  },
+  "light_reduction_percent": 72.44037581305709,
+  "alpha": {
+    "shell": {
+      "transparent_pixels": 1011149,
+      "opaque_pixels": 1360
+    },
+    "core": {
+      "transparent_pixels": 1257363,
+      "opaque_pixels": 1404
+    }
+  },
+  "checked": [
+    "seven parts when shielded",
+    "core only when exposed",
+    "all three profiles render"
+  ],
+  "limitation": "Counts compare rectangle profiles, not PNG or native performance."
+}

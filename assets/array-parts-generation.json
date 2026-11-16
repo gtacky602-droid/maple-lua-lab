@@ -1,0 +1,22 @@
+{
+  "tool": "builtin image_gen",
+  "status": "four idle candidates, original fidelity and full animation unverified",
+  "prompts": [
+    {
+      "part": 1,
+      "prompt": "Single transparent-background pixel-art enemy sprite for a MapleStory-like 2D side-scrolling game, Genshin Impact ruin sentinel. Bronze brown angular mechanical armor, dark charcoal joints, amber orange glowing core and small engraved channels. Crisp 16-bit pixel clusters, limited palette, strong readable silhouette at 64px high. Entire creature centered with generous transparent margins, three-quarter side view facing LEFT. One idle pose only, no text, no backdrop, no floor, no cast shadow, no extra creatures or separate props, no diffuse glow. Ruin Defender: low broad crab/beetle-like four-legged ancient machine, thick armored domed body, two large front shield-like forelegs raised slightly, small orange core nestled between them. Compact squat grounded stance, no humanoid face."
+    },
+    {
+      "part": 2,
+      "prompt": "Single transparent-background pixel-art enemy sprite for a MapleStory-like 2D side-scrolling game, Genshin Impact ruin sentinel. Bronze brown angular mechanical armor, dark charcoal joints, amber orange glowing core and small engraved channels. Crisp 16-bit pixel clusters, limited palette, strong readable silhouette at 64px high. Entire creature centered with generous transparent margins, three-quarter side view facing LEFT. One idle pose only, no text, no backdrop, no floor, no cast shadow, no extra creatures or separate props, no diffuse glow. Ruin Scout: floating jellyfish-inspired machine, large domed angular head with an amber core under the dome, four slender segmented tentacles dangling and curling beneath. Clearly tall jellyfish silhouette rather than crab or humanoid, no legs touching ground."
+    },
+    {
+      "part": 3,
+      "prompt": "Single transparent-background pixel-art enemy sprite for a MapleStory-like 2D side-scrolling game, Genshin Impact ruin sentinel. Bronze brown angular mechanical armor, dark charcoal joints, amber orange glowing core and small engraved channels. Crisp 16-bit pixel clusters, limited palette, strong readable silhouette at 64px high. Entire creature centered with generous transparent margins, three-quarter side view facing LEFT. One idle pose only, no text, no backdrop, no floor, no cast shadow, no extra creatures or separate props, no diffuse glow. Ruin Cruiser: floating bee-colony inspired ancient machine consisting of one tapered central mechanical head pointing left with an amber eye/core, and THREE small angular orbital pods surrounding it, visually one connected grouping with clear gaps between pods. Compact wide hovering shooter silhouette, no tentacles, no legs, no wings, no humanoid face."
+    },
+    {
+      "part": 4,
+      "prompt": "Single transparent-background pixel-art enemy sprite for a MapleStory-like 2D side-scrolling game, Genshin Impact ruin sentinel. Bronze brown angular mechanical armor, dark charcoal joints, amber orange glowing core and small engraved channels. Crisp 16-bit pixel clusters, limited palette, strong readable silhouette at 64px high. Entire creature centered with generous transparent margins, three-quarter side view facing LEFT. One idle pose only, no text, no backdrop, no floor, no cast shadow, no extra creatures or separate props, no diffuse glow. Ruin Destroyer: plant/cobra-like ancient machine, tall segmented curved mechanical neck rising from a grounded compact root-like base, broad open angular flower crown around a brilliant amber core tilted toward the left. Crown made of four thick armor petals, no actual plant leaves, no humanoid face, no crab legs. Tall rooted silhouette distinctly different from flying jellyfish and floating shooter."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "errors": [],
+  "enteredFromRegistry": true,
+  "warning": {
+    "hp": 750,
+    "maxhp": 750,
+    "core": 6,
+    "breaks": 0,
+    "corePosition": "root",
+    "timer": 1.0500000000000003,
+    "label": "3連叩きつけ予告 ／ 核 6/6",
+    "phase": "slam_warning",
+    "name": "急凍樹（仮素材）"
+  }
+}

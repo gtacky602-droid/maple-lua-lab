@@ -1,0 +1,25 @@
+{
+  "count": 20,
+  "checks": [
+    "normal source hit count and multiplier",
+    "skill1 source hit count and multiplier",
+    "skill2 source hit count and multiplier",
+    "skill4 source hit count and multiplier",
+    "no burning rejects buff without cooldown",
+    "burning target gains thirty percent personal bonus",
+    "burn ends so bonus ends on that target",
+    "buff expires after eight seconds",
+    "buff does not increase traveler damage",
+    "bottle survives control swap and finishes ten hits",
+    "bottle expires after ten seconds",
+    "one bottle per owner",
+    "bottle and ultimate coexist",
+    "pause freezes bottle",
+    "death cancels bottle",
+    "map cancels bottle",
+    "AI prioritizes burn boost",
+    "actual pyro then dendro history produces burning",
+    "actual burning enables buff",
+    "emilie selection persists"
+  ]
+}

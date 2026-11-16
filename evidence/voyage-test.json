@@ -1,0 +1,17 @@
+{
+  "count": 12,
+  "checks": [
+    "departure requires level forty",
+    "boarding creates peaceful deck and timer",
+    "arrival exit cannot skip timer",
+    "stays aboard before thirty seconds",
+    "automatically arrives once",
+    "arrival stable",
+    "inazuma combat stage reached",
+    "inazuma checkpoint resumes at port",
+    "pause freezes voyage",
+    "return to departure cancels arrival",
+    "save mid voyage safely resumes source port",
+    "wipe aboard returns to discovered port"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "count": 18,
+  "checks": [
+    "ice sword three hits four targets",
+    "cooldown enforced",
+    "wave five hits eight targets",
+    "cold marker applied",
+    "cold marker expires",
+    "cage first pulse binds",
+    "same cage cannot extend bind beyond two seconds",
+    "cage four damage pulses then expires",
+    "boss slowed instead of rooted",
+    "close scatter concentrates eight pellets",
+    "far scatter divides 3 3 2 across max three",
+    "scatter awards gauge only once",
+    "cryo immunity",
+    "pause freezes cage",
+    "death removes cage",
+    "map removes cage",
+    "cryo skills equip",
+    "cryo slots persist"
+  ]
+}

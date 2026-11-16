@@ -1,0 +1,78 @@
+{
+  "assets": {
+    "host": {
+      "legacy": 3667,
+      "h48c32": 2287,
+      "h32c16": 1089
+    },
+    "boar": {
+      "legacy": 1912,
+      "h48c32": 1281,
+      "h32c16": 576
+    },
+    "crane": {
+      "legacy": 749,
+      "h48c32": 450,
+      "h32c16": 196
+    },
+    "mallard": {
+      "legacy": 1096,
+      "h48c32": 676,
+      "h32c16": 359
+    },
+    "ferret": {
+      "legacy": 1605,
+      "h48c32": 1010,
+      "h32c16": 462
+    },
+    "crab": {
+      "legacy": 2706,
+      "h48c32": 1712,
+      "h32c16": 788
+    },
+    "raptor": {
+      "legacy": 1665,
+      "h48c32": 1059,
+      "h32c16": 472
+    },
+    "frog": {
+      "legacy": 2541,
+      "h48c32": 1604,
+      "h32c16": 781
+    },
+    "finch": {
+      "legacy": 1022,
+      "h48c32": 681,
+      "h32c16": 313
+    }
+  },
+  "wave_scene_commands": {
+    "1": {
+      "legacy": 9833,
+      "h48c32": 6158,
+      "h32c16": 2822
+    },
+    "2": {
+      "legacy": 8266,
+      "h48c32": 4956,
+      "h32c16": 2268
+    },
+    "3": {
+      "legacy": 11421,
+      "h48c32": 6978,
+      "h32c16": 3322
+    },
+    "4": {
+      "legacy": 16429,
+      "h48c32": 10210,
+      "h32c16": 4675
+    },
+    "5": {
+      "legacy": 9578,
+      "h48c32": 5887,
+      "h32c16": 2770
+    }
+  },
+  "checks": "9 hashes/transparent sources; all profiles; both directions; 8 species rendered across 5 waves",
+  "scope": "rectangle counts, not PNG or native performance"
+}

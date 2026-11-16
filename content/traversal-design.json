@@ -1,0 +1,77 @@
+{
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json",
+  "status": "partial",
+  "skills": [
+    {
+      "id": "SK46",
+      "name": "氷蔦縄",
+      "category": "二元素",
+      "elements": [
+        "草",
+        "氷"
+      ],
+      "unlock_level": 157,
+      "damage_segments": [],
+      "max_enemy_targets": 0,
+      "cooldown_seconds": 12,
+      "role": "探索・斜め移動",
+      "effect": "指定可能な結節点へグラップル移動。攻略必須地形のスキップを防止。"
+    },
+    {
+      "id": "SK48",
+      "name": "氷床疾走",
+      "category": "二元素",
+      "elements": [
+        "水",
+        "氷"
+      ],
+      "unlock_level": 158,
+      "damage_segments": [
+        {
+          "pct_per_hit": 80,
+          "hit_count": 5
+        }
+      ],
+      "max_enemy_targets": 5,
+      "cooldown_seconds": 18,
+      "role": "高速地上移動",
+      "effect": "6秒間の氷床加速移動。接触した敵にダメージ。"
+    }
+  ],
+  "draft_parameters": {
+    "SK46": {
+      "speed": 600,
+      "max_range": 420,
+      "nodes": "three authored points on current lab/town/field upper platforms; no boss-room nodes",
+      "guards": [
+        "allowed",
+        "locked",
+        "requiredQuest",
+        "range",
+        "swept solids path before and during motion"
+      ],
+      "selection": "grapple_next button cycles points",
+      "interruption": [
+        "death",
+        "map change",
+        "swap",
+        "dodge",
+        "new solid obstacle"
+      ]
+    },
+    "SK48": {
+      "ground_speed_multiplier": 1.6,
+      "duration": 6,
+      "contact_interval": 1.2,
+      "max_hits": 5,
+      "max_targets": 5,
+      "air_speed_bonus": false
+    }
+  },
+  "limitations": [
+    "Full map progression graph and all gated routes are not implemented; no global skip prevention claim",
+    "Ground walking still lacks generic solid collision",
+    "No final art/audio/native validation",
+    "SK47 smoke still pending"
+  ]
+}

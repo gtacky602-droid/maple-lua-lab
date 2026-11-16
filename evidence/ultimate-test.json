@@ -1,0 +1,25 @@
+{
+  "count": 20,
+  "checks": [
+    "cast spends full common gauge",
+    "twenty broad pulses before final",
+    "single twelve hundred percent final hit",
+    "ultimate cannot refund its gauge",
+    "final occurs once",
+    "fifteen targets per broad pulse plus one final",
+    "final selects highest remaining HP including outside first fifteen",
+    "equal remaining HP tie resolves by ID",
+    "final cannot reach outside authored range",
+    "insufficient gauge rejected without cooldown",
+    "pause freezes all segments",
+    "death cancels pending and final",
+    "map clears final",
+    "seven element resistance averaged once",
+    "element equipment and light bonus applied once",
+    "ultimate adds no ordinary aura",
+    "ultimate excluded from echo record",
+    "light and ultimate share same resource",
+    "slot saved with shared gauge",
+    "macro activates ultimate"
+  ]
+}

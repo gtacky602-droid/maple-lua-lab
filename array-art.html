@@ -1,0 +1,18 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>恒常からくり陣形の素材比較</title>
+<style>body{margin:30px;background:#102b33;color:#e3f4f4;font:16px sans-serif}a{color:#94e8e5}header{display:flex;gap:24px;align-items:center;flex-wrap:wrap}h1{font-size:26px}select{padding:10px;background:#24515b;color:white;border-radius:8px}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:18px}article{padding:16px;border:1px solid #527980;border-radius:12px;background:#193c45}h2{font-size:18px;margin:0 0 10px}.pair{display:flex;gap:8px}.pair>div{width:50%;text-align:center}canvas{width:100%;background:repeating-conic-gradient(#32616a 0 25%,#28535e 0 50%) 0/24px 24px;image-rendering:pixelated;border-radius:8px}small{color:#b4d3d5}.stats{margin-top:10px;font-size:14px}</style>
+<header><h1>恒常からくり陣形と小型機4種</h1><label>軽量版 <select id="profile"><option value="legacy">64px・32色</option><option value="h48c32">48px・32色</option><option value="h32c16" selected>32px・16色</option></select></label><a href="compare.html">戦闘場面で比較</a></header>
+<p>左が元PNG、右が軽量版。同じ大きさに拡大して輪郭を確認できます。本体のみ解像度は2倍です。静止素材の試作です。</p><main id="cards"></main><p id="status" role="status">読み込み中</p>
+<script type="module">
+const kinds={host:'恒常からくり陣形','part-1':'盾型','part-2':'偵察型','part-3':'巡航型','part-4':'殲滅型'},assets=[];
+for(const [kind,name] of Object.entries(kinds)){
+ const response=await fetch('assets/array'+(kind==='host'?'':'-'+kind)+'-sprites.json');if(!response.ok)throw Error('素材を取得できません');const data=await response.json(),image=new Image();image.src='assets/'+data.source;await image.decode();
+ const article=document.createElement('article');article.innerHTML=`<h2>${name}</h2><div class="pair"><div><small>元PNG</small><canvas width="300" height="200"></canvas></div><div><small>軽量版</small><canvas width="300" height="200"></canvas></div></div><div class="stats"></div>`;document.querySelector('#cards').append(article);assets.push({kind,data,image,article});
+}
+function render(){const key=document.querySelector('#profile').value;for(const {data,image,article} of assets){
+ const a=data.profiles[key],h=Math.min(170,270*data.box[3]/data.box[2]),w=h*data.box[2]/data.box[3],x=(300-w)/2,y=190-h;
+ const [left,right]=article.querySelectorAll('canvas');let ctx=left.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.clearRect(0,0,300,200);ctx.drawImage(image,...data.box,x,y,w,h);
+ ctx=right.getContext('2d');ctx.clearRect(0,0,300,200);for(const r of a.runs){ctx.fillStyle=r[4];ctx.fillRect(x+r[0]*w/a.width,y+r[1]*h/a.height,r[2]*w/a.width+.05,r[3]*h/a.height+.05)}
+ article.querySelector('.stats').textContent=`${a.width}×${a.height}px / ${a.runs.length.toLocaleString()}矩形 / 標準矩形版より${(100*(1-a.runs.length/data.profiles.legacy.runs.length)).toFixed(1)}%減`;
+}document.querySelector('#status').textContent='5点を表示。矩形数の比較であり、PNG描画や原神実機のFPSとの比較ではありません。';window.arrayGallery={ready:true,profile:key,count:assets.length};}
+document.querySelector('#profile').onchange=render;render();
+</script></html>

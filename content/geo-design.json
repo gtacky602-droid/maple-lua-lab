@@ -1,0 +1,103 @@
+{
+  "status": "partial",
+  "sources": [
+    "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/hypostases",
+    "https://library.keqingmains.com/evidence/combat-mechanics/enemy-mechanics/enemy-interactions"
+  ],
+  "adaptation": "4本の柱を横一列に置換。柱は通行を塞がない戦闘対象。占有柱破壊で核が地上に6秒落下。未占有柱破壊では落下しない。",
+  "balance": "HP500、柱ゲージ6、岩2/物理0.5/他0、同一技能0.25秒間隔は全て仮。原作の攻撃別重撃/削り値は未再現。",
+  "attacks": [
+    "柱上3連岩弾",
+    "各生存柱の周囲への地面衝撃波",
+    "柱上の短時間露出",
+    "全柱破壊後の叩きつけ",
+    "追尾印1.2秒→位置固定0.8秒→石柱26ダメージ",
+    "全柱破壊後、地上3回ごとの挟撃28ダメージ"
+  ],
+  "revival": {
+    "threshold": 0.05,
+    "seconds": 15,
+    "pillars": 3,
+    "persistent_destroyed": true,
+    "healing_fraction_by_remaining": [
+      0.15,
+      0.35,
+      0.5
+    ],
+    "last_break_immediate_kill": true,
+    "normal_pillars_restored_after_heal": true
+  },
+  "verification": {
+    "unit": "evidence/geo-test.json",
+    "input_playthrough": "evidence/geo-playthrough.json",
+    "browser": "evidence/geo-browser.json"
+  },
+  "remaining": [
+    "完成アニメーション・攻撃順序と数値の調整",
+    "攻撃別の柱破壊量",
+    "専用素材/報酬・育成バランス",
+    "実機互換"
+  ],
+  "art": {
+    "status": "generated core/shell/pillar candidates",
+    "metadata": "assets/geo-generation.json",
+    "metrics": "evidence/geo-art-metrics.json",
+    "animation_remaining": true
+  },
+  "story": {
+    "entrance": "liyue-field -> geo-approach",
+    "quest": "geo-commission",
+    "gate_level": 20,
+    "input_evidence": "evidence/geo-story-playthrough.json",
+    "fixture": "Lv20 Liyue harbor initialized; subsequent route/battle/report uses inputs",
+    "browser": "evidence/geo-route-browser.json"
+  },
+  "barrage": {
+    "warning_seconds": 2,
+    "active_seconds": 6,
+    "first_pulse_after": 0.7,
+    "pulse_interval": 0.9,
+    "damage": 18,
+    "adaptation": "2D全域の地面衝撃波、跳躍か防護場で回避。数値は仮。",
+    "crystal_gauge": 3,
+    "application_cooldown": 0.25,
+    "ward_radius": 110,
+    "protection": "barrage only; does not block unrelated damage",
+    "cleanup": "occupied pillar collapse, timeout, revival, death, exit",
+    "verification": [
+      "evidence/geo-ward-test.json",
+      "evidence/geo-ward-playthrough.json",
+      "evidence/geo-ward-browser.json"
+    ]
+  },
+  "pillar_selection": "次の生存柱へ巡回。破壊済みを飛ばす。復活後に通常柱を再生成した際は最初の柱へ戻る。",
+  "rain": {
+    "trigger": "全通常柱破壊後、地上2回目の攻撃（1戦1回の仮選択）",
+    "volleys": 3,
+    "targets_per_volley": 5,
+    "warning_seconds": 1.2,
+    "fall_speed": 1000,
+    "damage": 18,
+    "collision": "swept vertical segment vs actor box; jumping does not guarantee safety",
+    "cleanup": "revival/death/exit",
+    "verification": [
+      "evidence/geo-rain-test.json",
+      "evidence/geo-rain-playthrough.json",
+      "evidence/geo-rain-browser.json"
+    ]
+  },
+  "seal_clap": {
+    "status": "2D provisional timings and collision",
+    "tracking_seconds": 1.2,
+    "locked_seconds": 0.8,
+    "seal_radius": 40,
+    "seal_top": 240,
+    "clap_warning_seconds": 1.1,
+    "clap_radius": 125,
+    "verification": [
+      "evidence/geo-seal-test.json",
+      "evidence/geo-seal-browser.json",
+      "evidence/geo-rain-playthrough.json"
+    ]
+  }
+}

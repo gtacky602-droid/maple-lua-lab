@@ -1,0 +1,96 @@
+{
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json",
+  "status": "partial",
+  "skills": [
+    {
+      "id": "SK17",
+      "name": "水流弾",
+      "category": "単独",
+      "elements": [
+        "水"
+      ],
+      "unlock_level": 80,
+      "damage_segments": [
+        {
+          "pct_per_hit": 155,
+          "hit_count": 3
+        }
+      ],
+      "max_enemy_targets": 4,
+      "cooldown_seconds": 3,
+      "role": "中距離攻撃",
+      "effect": "前方へ水流弾を3連射。"
+    },
+    {
+      "id": "SK18",
+      "name": "回復する水の領域",
+      "category": "単独",
+      "elements": [
+        "水"
+      ],
+      "unlock_level": 84,
+      "damage_segments": [],
+      "max_enemy_targets": 0,
+      "cooldown_seconds": 24,
+      "role": "回復・支援",
+      "effect": "6秒間、範囲内の味方へ毎秒最大HPの2.5%回復（合計15%）。初期マルチ想定で最大8キャラ。重複設置の回復は重ねない。"
+    },
+    {
+      "id": "SK19",
+      "name": "潮の押し波",
+      "category": "単独",
+      "elements": [
+        "水"
+      ],
+      "unlock_level": 90,
+      "damage_segments": [
+        {
+          "pct_per_hit": 150,
+          "hit_count": 5
+        }
+      ],
+      "max_enemy_targets": 8,
+      "cooldown_seconds": 10,
+      "role": "集敵・押し出し",
+      "effect": "地上を進む押し波。小型敵をまとめて押し出す。"
+    },
+    {
+      "id": "SK20",
+      "name": "水鏡の盾",
+      "category": "単独",
+      "elements": [
+        "水"
+      ],
+      "unlock_level": 96,
+      "damage_segments": [
+        {
+          "pct_per_hit": 65,
+          "hit_count": 3
+        }
+      ],
+      "max_enemy_targets": 4,
+      "cooldown_seconds": 22,
+      "role": "防御・反撃",
+      "effect": "7秒間、耐久値＝攻撃力140%の盾。被弾時に最大3回反撃。"
+    }
+  ],
+  "draft_parameters": {
+    "SK17_range": 400,
+    "SK17_interval": 0.15,
+    "SK18_radius": 220,
+    "SK18_vertical": 75,
+    "SK18_policy": "one field, replacement not stacking, six pulses at seconds 1 through 6; living actors only; removed on owner death",
+    "SK19_range": 160,
+    "SK19_speed": 250,
+    "SK19_interval": 0.2,
+    "SK19_push": 24,
+    "SK20_counter_radius": 220,
+    "SK20_policy": "owner only, absorb after rock wall, one 65% counter per absorbed attack up to three total; break still counters; no gauge reward; cast-time stats"
+  },
+  "limitations": [
+    "Only two local actors; eight-player networking not implemented",
+    "No elemental aura/reactions or unlock requirements",
+    "Ranges and visuals provisional",
+    "Native Miliastra not verified"
+  ]
+}

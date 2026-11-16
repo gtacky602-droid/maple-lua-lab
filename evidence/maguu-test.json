@@ -1,0 +1,22 @@
+{
+  "checks": [
+    "awake invulnerability",
+    "first mask warning",
+    "far idle hit blocked",
+    "near hit allowed",
+    "attacking boss does not parry",
+    "71 percent transition starts",
+    "transition releases health floor",
+    "mask hits locked area",
+    "outside mask avoids damage",
+    "second phase queues phantom",
+    "phantom damages after warning",
+    "paused timer stable",
+    "exit removes encounter",
+    "death clears hazards",
+    "no boss respawn",
+    "frame exposes encounter"
+  ],
+  "count": 16,
+  "scope": "controlled mechanics tests; not input-only playthrough"
+}

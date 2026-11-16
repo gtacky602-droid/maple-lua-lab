@@ -1,0 +1,27 @@
+{
+  "count": 22,
+  "checks": [
+    "normal source hits and damage",
+    "skill2 source hits and damage",
+    "skill4 source hits and damage",
+    "missed counter causes no damage",
+    "telegraphed attack caught",
+    "successful counter five hits",
+    "unwarned hit cannot trigger counter",
+    "expired window cannot counter",
+    "guard halves damage",
+    "guard expires",
+    "shield equals floor of maxHP eighteen percent",
+    "shield absorbs then residual reaches HP",
+    "shield recast replaces both shield and pulses",
+    "shield expires after ten seconds",
+    "map clears defensive buffs",
+    "AI prioritizes counter for warning",
+    "star slash six 450 percent hits",
+    "star slash does not apply ordinary aura",
+    "star slash requires electro partner",
+    "star slash requires living partner",
+    "beidou and star slash save validated and restored",
+    "ordinary enemy warning reaches counter hook"
+  ]
+}

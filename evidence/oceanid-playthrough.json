@@ -1,0 +1,38 @@
+{
+  "initial_stats": [
+    {
+      "atk": 4,
+      "maxhp": 161
+    },
+    {
+      "atk": 3,
+      "maxhp": 140
+    }
+  ],
+  "seconds": 52.916666666664945,
+  "returns": 0,
+  "kills": 3,
+  "phases": [
+    "mimics",
+    "sink_warning",
+    "summon"
+  ],
+  "species": [
+    "boar",
+    "crab",
+    "crane",
+    "ferret",
+    "finch",
+    "frog",
+    "mallard",
+    "raptor"
+  ],
+  "boss_hp": 0,
+  "actor_hp": [
+    77.12500000000003,
+    105.5
+  ],
+  "note": "Action/movement only, sample flower, skills lab unlocked; no combat HP/ATK/position mutations",
+  "story_report_once": true,
+  "fixture": "Lv20 Liyue harbor; later walking, battle, return and reporting use actions"
+}

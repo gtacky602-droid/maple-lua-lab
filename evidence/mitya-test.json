@@ -1,0 +1,25 @@
+{
+  "count": 20,
+  "checks": [
+    "normal source hit count and multiplier",
+    "skill1 source hit count and multiplier",
+    "skill2 source hit count and multiplier",
+    "skill3 source hit count and multiplier",
+    "skill4 source hit count and multiplier",
+    "jump grants invulnerability",
+    "jump lifts actor",
+    "invulnerability ends",
+    "mixed cryo electro gets twelve percent only once",
+    "leaving field removes bonus",
+    "physical and normal excluded",
+    "companion excluded",
+    "field expires after ten seconds",
+    "field survives control swap",
+    "death clears field",
+    "field recast replaces pulses",
+    "mitya enables star slash",
+    "electro prerequisite preserves all six hits",
+    "AI prioritizes leap on danger",
+    "selection saved"
+  ]
+}

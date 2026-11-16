@@ -1,0 +1,21 @@
+{
+  "count": 16,
+  "checks": [
+    "normal first hit waits 150ms",
+    "normal water three hits",
+    "ripple ten hits at source timings",
+    "moon domain eight hits",
+    "ultimate ten hits",
+    "mark no direct attack and source duration",
+    "eligible traveler hit triggers one 120 percent proxy",
+    "one second global ICD suppresses extra multi hit proxy",
+    "proxy does not recursively trigger itself",
+    "mark without domain no proxy",
+    "dead companion removes support",
+    "cannot change companion in field",
+    "town selection works and clears buffs",
+    "companion selection saved",
+    "unknown companion rejected by save validator",
+    "old saves default to amber"
+  ]
+}

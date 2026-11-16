@@ -1,0 +1,15 @@
+{
+  "count": 10,
+  "checks": [
+    "seventh attack moves near player and warns",
+    "walking out of locked target avoids clap",
+    "recovery exposes core",
+    "staying takes one hit",
+    "impact does not repeatedly hit",
+    "timed normal jump avoids ground clap",
+    "edge clamp stays on arena",
+    "pause freezes tell",
+    "revival cancels clap",
+    "exit clears encounter"
+  ]
+}

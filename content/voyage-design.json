@@ -1,0 +1,36 @@
+{
+  "status": "partial",
+  "user_requested_route": "Natlan -> NodKrai with optional Ochkanatlan, implemented as partial local state machine",
+  "lab_route": "Liyue -> Inazuma, level40,30seconds",
+  "draft": [
+    "route/duration/return shortcut",
+    "shared placeholder background",
+    "solo simulation only"
+  ],
+  "verified_by_lua": [
+    "timer",
+    "pause",
+    "cancel",
+    "save to source port",
+    "automatic arrival",
+    "no early exit",
+    "new regional checkpoint"
+  ],
+  "remaining": [
+    "sea artwork/events",
+    "cooperative ship state",
+    "production entry and shortened-return balance"
+  ],
+  "natlan_route": {
+    "seconds": 90,
+    "stop_window": [
+      30,
+      50
+    ],
+    "reboard_elapsed_draft": 50,
+    "departure_level_draft": 120,
+    "shore_quest_optional": true,
+    "midvoyage_restore": "original Natlan harbor",
+    "shore_restore": "shore hub"
+  }
+}

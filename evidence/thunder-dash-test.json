@@ -1,0 +1,17 @@
+{
+  "count": 12,
+  "checks": [
+    "fourth attack repositions to opposite edge",
+    "route remains fixed after target moves",
+    "pause freezes dash warning",
+    "dash moves at 700 per second",
+    "ground contact damages",
+    "only one contact per actor",
+    "arrives and clears route",
+    "opposite direction starts left",
+    "airborne actor avoids contact",
+    "pause freezes moving dash",
+    "death clears dash",
+    "exit clears encounter"
+  ]
+}

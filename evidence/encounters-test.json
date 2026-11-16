@@ -1,0 +1,22 @@
+{
+  "count": 17,
+  "checks": [
+    "every imported entity represented",
+    "encounter IDs unique",
+    "vishap pair grouped",
+    "suite has two selectable variants",
+    "original encounters retained",
+    "completion not overclaimed",
+    "not implemented rows cannot launch",
+    "evidence on every row",
+    "generated file matches builder",
+    "launch boss-20040201",
+    "launch boss-26020101",
+    "launch boss-20040101",
+    "launch boss-20040301",
+    "launch boss-20050101",
+    "launch boss-26050101",
+    "launch boss-26020201",
+    "launch stygian-farka"
+  ]
+}

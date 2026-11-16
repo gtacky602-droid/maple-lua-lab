@@ -1,0 +1,24 @@
+{
+  "count": 19,
+  "checks": [
+    "starts awake and immune",
+    "first claw attack",
+    "matching shield reflects 15 percent",
+    "successful reflection stuns with reduced resistance",
+    "resistance recovers after stun",
+    "broken shield does not reflect and excess hurts",
+    "expired shield cannot reflect",
+    "dodge immunity cannot reflect",
+    "outside shower cannot reflect",
+    "Beidou surviving shield reflects different element 5 percent",
+    "critical health replaces shower with stones",
+    "stones spawn without immediate damage",
+    "stones explode after warning",
+    "burrow becomes invulnerable",
+    "burrow reaches locked target",
+    "pause freezes fight",
+    "exit clears boss",
+    "reflection can defeat boss once",
+    "no respawn or repeated kill"
+  ]
+}

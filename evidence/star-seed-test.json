@@ -1,0 +1,19 @@
+{
+  "count": 14,
+  "checks": [
+    "requires wind companion",
+    "requires living companion",
+    "cast succeeds",
+    "twelve fixed 110 percent pulses",
+    "self pulses cannot grow seed",
+    "one 300 percent final burst",
+    "burst occurs once",
+    "direct hit grows seed",
+    "growth changes radius only",
+    "growth capped at twelve",
+    "pause freezes seed",
+    "partner death cancels burst and pulses",
+    "map transition cancels seed",
+    "loadout persists"
+  ]
+}

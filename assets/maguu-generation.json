@@ -1,0 +1,6 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Create a single transparent-background pixel-art game enemy sprite: Maguu Kenki from Genshin Impact, for a MapleStory-like 2D side-scrolling RPG laboratory. Full body mechanical samurai puppet, recognizable large white horned oni mask and long white mane, dark navy segmented samurai armor with turquoise teal cloth panels and red cord details, articulated wooden limbs, long katana held low diagonally to the left. Three-quarter side view facing LEFT, grounded idle combat stance, both feet at a common baseline. Compact readable 16-bit pixel-art clusters, crisp stair-step edges, limited palette, no smooth painterly gradients. One character only centered with generous transparent margins, no background, no floor, no cast shadow, no text, no UI, no separate props, no extra frames, no cut-off blade. Silhouette should remain readable at 128px body height.",
+  "source": "exec-b9c71056-d62d-46e2-832c-2058151ddf4c.png",
+  "status": "single idle pose candidate; not verified original-model fidelity"
+}

@@ -1,0 +1,27 @@
+{
+  "count": 22,
+  "checks": [
+    "shell blocks attack",
+    "combo locks first target",
+    "leaving telegraph avoids first attack",
+    "three attacks expose core",
+    "lethal attack awaits revival",
+    "three prisms spawned",
+    "physical hydro electro ineffective regardless ATK",
+    "pyro one gauge independent of ATK",
+    "same skill application cooldown",
+    "secondary reaction cannot double apply",
+    "one ATK cryo still one gauge",
+    "first prism destroyed without reward",
+    "two remaining heal 35 percent",
+    "broken prism absent next revival",
+    "anemo half gauge",
+    "last prism immediately defeats boss once",
+    "no respawn or duplicate reward",
+    "exit clears encounter",
+    "jump avoids ground wave",
+    "ground wave damages grounded actor",
+    "pause freezes phase",
+    "wipe clears boss"
+  ]
+}

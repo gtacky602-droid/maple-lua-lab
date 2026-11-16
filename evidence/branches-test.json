@@ -1,0 +1,20 @@
+{
+  "count": 13,
+  "checks": [
+    "low-level player can enter high-light branch",
+    "branch encounter carries barrier threshold",
+    "zero trial light reduces actual damage to ten percent",
+    "field cannot edit trial power",
+    "safe hub can set trial power",
+    "meeting threshold restores full damage",
+    "over-threshold cannot amplify above baseline",
+    "partial threshold scales linearly in provisional formula",
+    "save restores branch hub but not test power",
+    "above fifty rejected",
+    "nine requested branch regions represented",
+    "every branch depth has a return edge to safe camp",
+    "branch threshold is independent of entry level"
+  ],
+  "nodes": 55,
+  "quests": 41
+}

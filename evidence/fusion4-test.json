@@ -1,0 +1,22 @@
+{
+  "count": 17,
+  "checks": [
+    "airborne waterway lands on platform below",
+    "waterway fixed eight ticks over eight seconds",
+    "waterway excludes flying enemy",
+    "waterway excludes upper floor",
+    "explosion chain eight pulses three targets",
+    "chain stops across gap",
+    "boss not blown away",
+    "slash seven hits applies six second debuff",
+    "physical resistance reduced twelve points",
+    "physical debuff expires",
+    "debuff does not bypass physical immunity",
+    "garden twelve pulses over eight seconds",
+    "garden replacement does not stack",
+    "pause freezes fields",
+    "map clears fields",
+    "field skills equip",
+    "field slots persist"
+  ]
+}

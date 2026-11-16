@@ -1,0 +1,123 @@
+{
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json",
+  "status": "partial",
+  "skills": [
+    {
+      "id": "SK41",
+      "name": "導電水路",
+      "category": "二元素",
+      "elements": [
+        "雷",
+        "水"
+      ],
+      "unlock_level": 95,
+      "damage_segments": [
+        {
+          "pct_per_hit": 100,
+          "hit_count": 8
+        }
+      ],
+      "max_enemy_targets": 7,
+      "cooldown_seconds": 16,
+      "role": "地上制圧",
+      "effect": "8秒間、地面に水路を生成し、触れる敵へ周期ダメージ。"
+    },
+    {
+      "id": "SK42",
+      "name": "過負荷連爆",
+      "category": "二元素",
+      "elements": [
+        "雷",
+        "炎"
+      ],
+      "unlock_level": 114,
+      "damage_segments": [
+        {
+          "pct_per_hit": 170,
+          "hit_count": 8
+        }
+      ],
+      "max_enemy_targets": 10,
+      "cooldown_seconds": 16,
+      "role": "密集狩り",
+      "effect": "爆発を周囲へ連鎖。小型敵の吹き飛ばしは控えめ。"
+    },
+    {
+      "id": "SK43",
+      "name": "超電導斬",
+      "category": "二元素",
+      "elements": [
+        "雷",
+        "氷"
+      ],
+      "unlock_level": 153,
+      "damage_segments": [
+        {
+          "pct_per_hit": 180,
+          "hit_count": 7
+        }
+      ],
+      "max_enemy_targets": 8,
+      "cooldown_seconds": 14,
+      "role": "横一列・弱体化",
+      "effect": "7段斬りと物理耐性-12%（6秒）。"
+    },
+    {
+      "id": "SK44",
+      "name": "開花花園",
+      "category": "二元素",
+      "elements": [
+        "草",
+        "水"
+      ],
+      "unlock_level": 97,
+      "damage_segments": [
+        {
+          "pct_per_hit": 115,
+          "hit_count": 12
+        }
+      ],
+      "max_enemy_targets": 8,
+      "cooldown_seconds": 20,
+      "role": "継続・定点狩り",
+      "effect": "8秒間、周期的に種子を発生して攻撃。"
+    }
+  ],
+  "draft_parameters": {
+    "SK41": {
+      "radius": 240,
+      "vertical_tolerance": 30,
+      "interval": 1,
+      "duration": 8,
+      "floor": "nearest platform below placement point",
+      "flying_targets": false
+    },
+    "SK42": {
+      "range": 520,
+      "chain_hop": 180,
+      "interval": 0.15,
+      "small_enemy_push": 8
+    },
+    "SK43": {
+      "range": 360,
+      "interval": 0.15,
+      "physical_resistance_reduction": 0.12,
+      "duration": 6,
+      "stacks": false,
+      "negative_resistance": "linear continuation in lab, not official formula"
+    },
+    "SK44": {
+      "radius": 240,
+      "offset": 140,
+      "interval": 0.6666666666666666,
+      "duration": 8,
+      "max_fields": 1
+    }
+  },
+  "limitations": [
+    "Periodic seed hits are range pulses; not full projectile simulation",
+    "No lunar bloom branch yet",
+    "Dimensions, intervals and chain geometry are provisional",
+    "Final art/audio, unlock conditions and native verification incomplete"
+  ]
+}

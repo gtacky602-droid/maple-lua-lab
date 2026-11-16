@@ -1,0 +1,22 @@
+{
+  "count": 17,
+  "checks": [
+    "coral blocks crossing direct damage",
+    "area damage bypasses coral",
+    "behind wall eight pulses 4.8 percent healing",
+    "front of wall not healed",
+    "coral replacement single wall",
+    "lava armor reduces incoming damage twenty percent",
+    "lava contact ten hits over ten seconds",
+    "armor reduction expires",
+    "armor mitigation before shield absorption",
+    "cold target twenty percent bonus six hits",
+    "first unchilled hit no bonus",
+    "next hit can use own cryo aura",
+    "tree fixed position ten strikes",
+    "pause freezes defenses",
+    "map clears defense buffs",
+    "defense skills equip",
+    "defense slots persist"
+  ]
+}

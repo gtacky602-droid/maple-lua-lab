@@ -1,0 +1,23 @@
+{
+  "count": 18,
+  "checks": [
+    "normal source multipliers and hits",
+    "skill1 source multipliers and hits",
+    "skill2 source multipliers and hits",
+    "skill4 source multipliers and hits",
+    "dash moves on ground",
+    "dash stops before solid wall",
+    "dash stops at unsupported edge",
+    "dodge rejects incoming damage",
+    "dodge expires after point six seconds",
+    "cryo attacks do not fully freeze boss",
+    "blizzard stays at placed origin",
+    "blizzard expires at three point five seconds",
+    "blizzard recast replaces previous pulses",
+    "pause freezes blizzard",
+    "death cancels blizzard",
+    "map clears blizzard",
+    "AI prioritizes danger dodge",
+    "ayaka saved and restored"
+  ]
+}

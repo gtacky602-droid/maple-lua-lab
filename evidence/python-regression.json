@@ -1,0 +1,252 @@
+[
+  {
+    "file": "test_amber.py",
+    "passed": true,
+    "output": "13 Amber checks passed\n"
+  },
+  {
+    "file": "test_anemo.py",
+    "passed": true,
+    "output": "18 Anemo checks passed\n"
+  },
+  {
+    "file": "test_artifacts.py",
+    "passed": true,
+    "output": "13 artifact checks passed\n"
+  },
+  {
+    "file": "test_ayaka.py",
+    "passed": true,
+    "output": "18 ayaka checks passed\n"
+  },
+  {
+    "file": "test_beidou.py",
+    "passed": true,
+    "output": "22 beidou checks passed\n"
+  },
+  {
+    "file": "test_branches.py",
+    "passed": true,
+    "output": "13 branch checks passed\n"
+  },
+  {
+    "file": "test_campaign.py",
+    "passed": true,
+    "output": "13 campaign checks passed\n"
+  },
+  {
+    "file": "test_companion.py",
+    "passed": true,
+    "output": "16 companion checks passed\n"
+  },
+  {
+    "file": "test_conditional.py",
+    "passed": true,
+    "output": "15 conditional checks passed\n"
+  },
+  {
+    "file": "test_cryo.py",
+    "passed": true,
+    "output": "18 cryo checks passed\n"
+  },
+  {
+    "file": "test_dendro.py",
+    "passed": true,
+    "output": "19 dendro checks passed\n"
+  },
+  {
+    "file": "test_echo.py",
+    "passed": true,
+    "output": "21 echo checks passed\n"
+  },
+  {
+    "file": "test_electro.py",
+    "passed": true,
+    "output": "25 electro checks passed\n"
+  },
+  {
+    "file": "test_emilie.py",
+    "passed": true,
+    "output": "20 emilie checks passed\n"
+  },
+  {
+    "file": "test_encounters.py",
+    "passed": true,
+    "output": "12 encounter checks passed\n"
+  },
+  {
+    "file": "test_farka.py",
+    "passed": true,
+    "output": "17 Farka checks passed\n"
+  },
+  {
+    "file": "test_fusion.py",
+    "passed": true,
+    "output": "17 fusion checks passed\n"
+  },
+  {
+    "file": "test_fusion2.py",
+    "passed": true,
+    "output": "16 fusion2 checks passed\n"
+  },
+  {
+    "file": "test_fusion3.py",
+    "passed": true,
+    "output": "17 fusion3 checks passed\n"
+  },
+  {
+    "file": "test_fusion4.py",
+    "passed": true,
+    "output": "17 fusion4 checks passed\n"
+  },
+  {
+    "file": "test_hidden.py",
+    "passed": true,
+    "output": "25 hidden checks passed\n"
+  },
+  {
+    "file": "test_hydro.py",
+    "passed": true,
+    "output": "22 hydro checks passed\n"
+  },
+  {
+    "file": "test_kachina.py",
+    "passed": true,
+    "output": "17 kachina checks passed\n"
+  },
+  {
+    "file": "test_light.py",
+    "passed": true,
+    "output": "19 light checks passed\n"
+  },
+  {
+    "file": "test_loadout.py",
+    "passed": true,
+    "output": "15 loadout checks passed\n"
+  },
+  {
+    "file": "test_loot.py",
+    "passed": true,
+    "output": "13 loot checks passed\n"
+  },
+  {
+    "file": "test_lunar.py",
+    "passed": true,
+    "output": "14 lunar checks passed\n"
+  },
+  {
+    "file": "test_mitya.py",
+    "passed": true,
+    "output": "20 mitya checks passed\n"
+  },
+  {
+    "file": "test_progression.py",
+    "passed": true,
+    "output": "13 progression checks passed\n"
+  },
+  {
+    "file": "test_projectiles.py",
+    "passed": true,
+    "output": "14 projectile checks passed\n"
+  },
+  {
+    "file": "test_pyro.py",
+    "passed": true,
+    "output": "19 pyro checks passed\n"
+  },
+  {
+    "file": "test_reactions.py",
+    "passed": true,
+    "output": "15 reaction checks passed\n"
+  },
+  {
+    "file": "test_regions.py",
+    "passed": true,
+    "output": "23 region checks passed\n"
+  },
+  {
+    "file": "test_regisvine.py",
+    "passed": true,
+    "output": "23 regisvine checks passed\n"
+  },
+  {
+    "file": "test_regisvine_hitboxes.py",
+    "passed": true,
+    "output": "13 hitbox/projectile checks passed\n"
+  },
+  {
+    "file": "test_savegame.py",
+    "passed": true,
+    "output": "23 save checks passed\n"
+  },
+  {
+    "file": "test_sets.py",
+    "passed": true,
+    "output": "13 set and critical checks passed\n"
+  },
+  {
+    "file": "test_snow.py",
+    "passed": true,
+    "output": "13 snow checks passed\n"
+  },
+  {
+    "file": "test_star_seed.py",
+    "passed": true,
+    "output": "14 star seed checks passed\n"
+  },
+  {
+    "file": "test_stopover.py",
+    "passed": true,
+    "output": "15 stopover checks passed\n"
+  },
+  {
+    "file": "test_story.py",
+    "passed": true,
+    "output": "19 story checks passed\n"
+  },
+  {
+    "file": "test_story_growth.py",
+    "passed": true,
+    "output": "38 growth checks passed 17 contracts 290.1 sim seconds\n"
+  },
+  {
+    "file": "test_timed_combat.py",
+    "passed": true,
+    "output": "16 timed combat checks passed\n"
+  },
+  {
+    "file": "test_traveler_utility.py",
+    "passed": true,
+    "output": "16 traveler utility checks passed\n"
+  },
+  {
+    "file": "test_traversal.py",
+    "passed": true,
+    "output": "18 traversal checks passed\n"
+  },
+  {
+    "file": "test_triple.py",
+    "passed": true,
+    "output": "16 triple checks passed\n"
+  },
+  {
+    "file": "test_ultimate.py",
+    "passed": true,
+    "output": "20 ultimate checks passed\n"
+  },
+  {
+    "file": "test_voyage.py",
+    "passed": true,
+    "output": "12 voyage checks passed\n"
+  },
+  {
+    "file": "test_wall.py",
+    "passed": true,
+    "output": "12 wall checks passed\n"
+  },
+  {
+    "file": "test_wanderer.py",
+    "passed": true,
+    "output": "16 wanderer checks passed\n"
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "initial_stats": [
+    {
+      "atk": 4,
+      "maxhp": 161
+    },
+    {
+      "atk": 3,
+      "maxhp": 140
+    }
+  ],
+  "seconds": 173.78333333336377,
+  "returns": 0,
+  "kills": 1,
+  "core_breaks": 4,
+  "phases": [
+    "beam_active",
+    "beam_warning",
+    "defeated",
+    "down",
+    "ice_warning",
+    "ready",
+    "recover",
+    "rise_warning",
+    "slam_warning"
+  ],
+  "boss_hp": 0,
+  "actor_hp": [
+    27.52500000000002,
+    0
+  ],
+  "note": "Lv1 with UI sample flower equipped, other stats unmodified, lab-unlocked skills. Controller uses actions and input only; no HP/stat/position mutations."
+}

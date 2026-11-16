@@ -1,0 +1,13 @@
+{
+  "errors": [],
+  "boss": {
+    "prisms": 0,
+    "name": "無相の雷（試作素材）",
+    "timer": 1.0833333333333335,
+    "hp": 330,
+    "maxhp": 420,
+    "label": "ドリル突進の予告・近づいたらジャンプ",
+    "phase": "drill_warning"
+  },
+  "launchedFromCatalog": true
+}

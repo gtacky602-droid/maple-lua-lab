@@ -1,0 +1,115 @@
+return function(C,data)
+ local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
+ local function copy(v)
+  if type(v)~='table' then return v end
+  local out={};for k,item in pairs(v) do out[k]=copy(item) end;return out
+ end
+ local nodes,quests={},{}
+ for _,n in ipairs(data.nodes) do nodes[n.id]=n end
+ for _,q in ipairs(data.quests) do quests[q.id]=q end
+ local function setup(s)
+  if not s.story then s.story={active=false,node='mond-town',visited={['mond-town']=true},quests={}} end
+  s.story.discovered=s.story.discovered or {}
+ end
+ local function progress(s,kind,target,amount)
+  for id,state in pairs(s.story.quests) do local q=quests[id]
+   if state.status=='active' and q.kind==kind and q.target==target then state.count=math.min(q.goal,state.count+amount) end
+  end
+ end
+ local function enter(s,id,spawn,elapsed)
+  local n=nodes[id];s.campaign.zone='story:transition';action(s,n.hub and 'town' or 'field')
+  s.campaign.zone=n.hub and 'town' or ('story:'..id);s.campaign.message='本編ルートの試作。隣の地点へは門の近くで移動。'
+  s.story.active=true;s.story.node=id;s.story.visited[id]=true;s.worldwidth=n.width
+  s.platforms={};for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]={x=p.x,y=p.y,w=p.w} end
+  s.enemies={}
+  if not n.hub and not n.peaceful then
+   local fresh=C.new(12)
+   for i=1,6 do local e=fresh.enemies[i];e.x=300+(i-1)*170;e.home=e.x;e.y=480;e.level=n.level;e.barrier=n.barrier or 0;if e.barrier>0 then e.hp=60;e.maxhp=60 end;s.enemies[i]=e end
+  end
+  for i,a in ipairs(s.actors) do a.x=(spawn or 160)-(i-1)*40;a.y=480;a.vy=0;a.ground=true end
+  s.macro=nil;s.encounter=nil;s.voyage=n.voyage and {destination=n.voyage.destination,arrives=s.t+n.voyage.seconds-(elapsed or 0),started=s.t-(elapsed or 0),source=n.voyage.source,stopStart=n.voyage.stopStart,stopEnd=n.voyage.stopEnd} or nil;progress(s,'visit',id,1)
+ end
+ function C.enterStoryNode(s,id) setup(s);enter(s,id) end
+ function C.storyBossDefeated(s,id) setup(s);progress(s,'boss',id,1) end
+ function C.action(s,key)
+  setup(s)
+  local discovery=key:match('^story_discover:([%w%-]+)$')
+  if discovery then
+   if s.paused or not s.story.active or s.actors[s.active].hp<=0 then return end
+   local a=s.actors[s.active]
+   for _,h in ipairs(nodes[s.story.node].hints or {}) do if h.group==discovery and math.abs(a.x-h.x)<75 and math.abs(a.y-h.y)<60 then s.story.discovered[discovery]=true;s.storyNotice='隠し入口を発見しました。';return end end
+   s.storyNotice='手がかりの近くで調べてください。';return
+  end
+  if key=='story_start' then if not s.campaign then action(s,'campaign') end;enter(s,'mond-town');return end
+  local dest=key:match('^story_portal:([%w%-]+)$');local fast=key:match('^story_fast:([%w%-]+)$')
+  if dest or fast then
+   if s.paused or not s.story.active or s.actors[s.active].hp<=0 then return end
+   local resume=0;dest=dest or fast;local n=nodes[dest];if not n then return end
+   if n.hiddenGroup and not s.story.discovered[n.hiddenGroup] then s.storyNotice='この入口はまだ発見していません。';return end
+   if not s.progression or s.progression.level<n.level then s.storyNotice='必要レベル '..n.level..' に達していません。';return end
+   if fast then if not n.hub or not s.story.visited[dest] then s.storyNotice='到達済みの拠点だけ移動できます。';return end
+   else
+    local allowed=false;local a=s.actors[s.active]
+    for _,edge in ipairs(nodes[s.story.node].exits) do local passed=s.voyage and s.t-s.voyage.started or -1
+     if edge.to==dest and (not edge.windowStart or (passed+1e-8>=edge.windowStart and passed+1e-8<edge.windowEnd)) and (not edge.requiresArrival or (s.voyage and s.t>=s.voyage.arrives)) and math.abs(a.x-edge.x)<90 and math.abs(a.y-480)<60 then allowed=true;resume=edge.resumeSeconds or 0 end end
+    if not allowed then s.storyNotice='接続する門の近くまで歩いてください。';return end
+   end
+   local previous=s.story.node;local spawn=160
+   for _,edge in ipairs(n.exits) do if edge.to==previous then spawn=edge.x<720 and 160 or n.width-160 end end
+   enter(s,dest,spawn,resume);s.storyNotice=nil;return
+  end
+  local accept=key:match('^story_accept:([%w%-]+)$');local report=key:match('^story_report:([%w%-]+)$')
+  if accept or report then
+   if s.paused or not s.story.active then return end
+   local id=accept or report;local q=quests[id];if not q or s.story.node~=q.hub then return end
+   local state=s.story.quests[id]
+   if accept and (not state or (q.repeatable and state.status=='complete')) then s.story.quests[id]={status='active',count=0,cycles=state and state.cycles or 0}
+   elseif report and state and state.status=='active' and state.count==q.goal then
+    state.status='complete';state.cycles=(state.cycles or 0)+1;s.mora=s.mora+q.mora;C.grantExp(s,q.xp,'quest');s.storyNotice=q.name..'：報酬を受け取りました。'
+   end
+   return
+  end
+  if key=='campaign' or key=='town' or key=='field' or key=='arena' or key=='boss_anemo' then s.story.active=false;s.voyage=nil end
+  action(s,key)
+ end
+ function C.onKill(s,e)
+  if onKill then onKill(s,e) end
+  if s.story and s.story.active then progress(s,'kill',s.story.node,1) end
+ end
+ function C.step(s,dt,input)
+  local returns=s.returns;step(s,dt,input)
+  if s.story and s.story.active and s.voyage and not s.paused and s.t+1e-8>=s.voyage.arrives then enter(s,s.voyage.destination) end
+  if s.story and s.story.active and s.returns~=returns then enter(s,s.story.visited[nodes[s.story.node].checkpoint] and nodes[s.story.node].checkpoint or 'mond-town') end
+ end
+ function C.frame(s,mode,profile)
+  local f=frame(s,mode,profile);setup(s);f.story=s.story;local visible={version=data.version,status=data.status,nodes={},quests={}}
+  local function shown(n) return not n.hiddenGroup or s.story.discovered[n.hiddenGroup] end
+  for _,n in ipairs(data.nodes) do if shown(n) then local out=copy(n);out.exits={};for _,edge in ipairs(n.exits) do if shown(nodes[edge.to]) then out.exits[#out.exits+1]=copy(edge) end end;visible.nodes[#visible.nodes+1]=out end end
+  for _,q in ipairs(data.quests) do if shown(nodes[q.hub]) then visible.quests[#visible.quests+1]=q end end
+  f.storyGraph=visible;f.storyNotice=s.storyNotice;f.storyJoined={};f.voyage=s.voyage and {seconds=math.max(0,s.voyage.arrives-s.t),destination=s.voyage.destination,elapsed=s.t-s.voyage.started,stopover=s.voyage.stopStart and s.t-s.voyage.started+1e-8>=s.voyage.stopStart and s.t-s.voyage.started+1e-8<s.voyage.stopEnd or false} or nil
+  for id,q in pairs(quests) do if q.join and s.story.quests[id] and s.story.quests[id].status=='complete' then f.storyJoined[q.join]=true end end
+  if s.story.active then local n=nodes[s.story.node];f.location=n.name..'（本編試作）'
+   for _,h in ipairs(n.hints or {}) do f.draws[#f.draws+1]={kind='rect',x=h.x-s.camera-8,y=h.y-48,w=16,h=16,color='#ffe4a0'} end
+   for _,edge in ipairs(n.exits) do if shown(nodes[edge.to]) then
+    f.draws[#f.draws+1]={kind='rect',x=edge.x-s.camera-18,y=390,w=36,h=90,color='#83dbe1'}
+   end
+   end
+   f.commands=#f.draws
+  end
+  return f
+ end
+ function C.checkpoint(s)
+  local d=checkpoint(s);setup(s);if d then d.story=s.story end;return d
+ end
+ function C.restore(d,density)
+  local s=restore(d,density);setup(s)
+  if d.story then
+   s.story=copy(d.story);setup(s)
+   if s.story.active then
+    local hub=s.story.visited[nodes[s.story.node].checkpoint] and nodes[s.story.node].checkpoint or 'mond-town'
+    enter(s,hub)
+   end
+  end
+  return s
+ end
+end

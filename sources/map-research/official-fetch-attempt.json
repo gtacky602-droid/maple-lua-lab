@@ -1,0 +1,6 @@
+{
+  "url": "https://waf-api-takumi.mihoyo.com/common/map_user/ys_obc/v3/map/point/list?map_id=2&app_sn=ys_obc&lang=zh-cn",
+  "status": "incomplete_response",
+  "error": "IncompleteRead, 12552184 bytes read; incomplete payload not used",
+  "fallback": "pinned repository snapshot from provenance.json"
+}

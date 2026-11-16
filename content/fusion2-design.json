@@ -1,0 +1,124 @@
+{
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json",
+  "status": "partial",
+  "skills": [
+    {
+      "id": "SK33",
+      "name": "炎風竜巻",
+      "category": "二元素",
+      "elements": [
+        "風",
+        "炎"
+      ],
+      "unlock_level": 107,
+      "damage_segments": [
+        {
+          "pct_per_hit": 110,
+          "hit_count": 12
+        }
+      ],
+      "max_enemy_targets": 10,
+      "cooldown_seconds": 18,
+      "role": "集敵・範囲狩り",
+      "effect": "敵を引き寄せながら12段の炎風攻撃。"
+    },
+    {
+      "id": "SK34",
+      "name": "霜翼滑空",
+      "category": "二元素",
+      "elements": [
+        "風",
+        "氷"
+      ],
+      "unlock_level": 147,
+      "damage_segments": [
+        {
+          "pct_per_hit": 75,
+          "hit_count": 6
+        }
+      ],
+      "max_enemy_targets": 5,
+      "cooldown_seconds": 16,
+      "role": "空中移動",
+      "effect": "5秒間の滑空で接触した敵へ最大6ヒット。"
+    },
+    {
+      "id": "SK35",
+      "name": "磁界足場",
+      "category": "二元素",
+      "elements": [
+        "岩",
+        "雷"
+      ],
+      "unlock_level": 51,
+      "damage_segments": [
+        {
+          "pct_per_hit": 90,
+          "hit_count": 6
+        }
+      ],
+      "max_enemy_targets": 4,
+      "cooldown_seconds": 20,
+      "role": "足場・迎撃",
+      "effect": "8秒間の浮遊足場を設置。周囲へ6回放電。最大1基。"
+    },
+    {
+      "id": "SK36",
+      "name": "巨樹石拳",
+      "category": "二元素",
+      "elements": [
+        "岩",
+        "草"
+      ],
+      "unlock_level": 72,
+      "damage_segments": [
+        {
+          "pct_per_hit": 460,
+          "hit_count": 3
+        }
+      ],
+      "max_enemy_targets": 2,
+      "cooldown_seconds": 16,
+      "role": "ボス・装甲削り",
+      "effect": "大型岩拳の高威力3連撃。敵の装甲を削る。"
+    }
+  ],
+  "draft_parameters": {
+    "SK33": {
+      "radius": 240,
+      "offset": 180,
+      "interval": 0.25,
+      "pull_per_hit": 24,
+      "boss_pull": false
+    },
+    "SK34": {
+      "airborne_only": true,
+      "duration": 5,
+      "fall_speed_cap": 90,
+      "contact_interval": 0.5,
+      "contact_radius": 65,
+      "max_unique_targets": 5,
+      "max_hits_per_target": 6,
+      "landing_cancels": true
+    },
+    "SK35": {
+      "height": 90,
+      "width": 120,
+      "duration": 8,
+      "interval": 1.3333333333333333,
+      "max_platforms": 1
+    },
+    "SK36": {
+      "range": 180,
+      "interval": 0.25,
+      "defense_reduction": 0.15,
+      "debuff_seconds": 6,
+      "stacks": false
+    }
+  },
+  "limitations": [
+    "Geometry, timing and armor reduction are prototype choices",
+    "No physical solid collision for tornado pull yet",
+    "Final art/audio/unlock gates incomplete; native unverified"
+  ]
+}

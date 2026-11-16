@@ -1,0 +1,6 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "One transparent-background pixel-art game boss sprite of the Perpetual Mechanical Array from Genshin Impact, adapted for a MapleStory-like 2D side-scrolling RPG. A floating compact cluster of segmented ancient bronze-brown and charcoal stone mechanical cubes orbiting a bright amber-orange central energy core. Six interlocking chunky angular blocks, engraved geometric channels and warm orange seams, recognizable ruin-machine aesthetic, no humanoid features, no limbs, no face. Three-quarter side view with a readable silhouette at 128 pixels high, crisp 16-bit pixel clusters, limited palette, flat shading, no painterly blur. Entire cluster centered with generous transparent margins. One idle assembled form only, no separate loose additional assets, no text, no scenery, no floor, no shadow, no broad glow haze, no animation sheet.",
+  "source": "exec-9e2e489e-bcdf-40ed-97a3-c79b41ea3599.png",
+  "status": "idle candidate; transformations use scaled static proxy"
+}

@@ -1,0 +1,20 @@
+{
+  "count": 15,
+  "checks": [
+    "grass plus fire starts burning",
+    "burn four nonrecursive ticks and expiry",
+    "reverse order works and overlapping enemy untouched",
+    "wind does not swirl grass",
+    "ash life accepts burning targets",
+    "three burning enemies give sixteen percent max hp",
+    "ash cooldown enforced",
+    "one enemy scales healing to one third cap",
+    "no burning target no cast or cooldown",
+    "pause freezes burn",
+    "death clears burn",
+    "melt slash six cold boosted hits",
+    "melt slash without cold unboosted",
+    "conditional skills equip",
+    "conditional slots persist"
+  ]
+}

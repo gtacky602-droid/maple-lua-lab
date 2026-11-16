@@ -1,0 +1,16 @@
+{
+  "status": "provisional_lab_only",
+  "decision_basis": "sources/20261113-master.md §10: final EXP table undecided; quest-focused growth, shared EXP; equipment target ATK is not level-granted",
+  "next_level_exp": "100+20*(level-1)^2",
+  "current_lv1_kill_exp": 10,
+  "trial_quest_exp": 500,
+  "calculation_horizon": 200,
+  "official_level_cap": null,
+  "not_connected": [
+    "high-level enemy EXP",
+    "daily EXP",
+    "region story unlock",
+    "skill learning gates",
+    "equipment growth"
+  ]
+}

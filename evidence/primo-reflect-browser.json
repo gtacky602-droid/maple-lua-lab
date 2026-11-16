@@ -1,0 +1,65 @@
+{
+  "errors": [],
+  "result": {
+    "boss": {
+      "hp": 672,
+      "reflections": 1,
+      "phase": "stunned",
+      "timer": 4.916666666666667,
+      "lastReflection": 40,
+      "element": "hydro",
+      "name": "エンシェントヴィシャップ（仮表示）",
+      "maxhp": 800,
+      "label": "反射成功・耐性低下"
+    },
+    "actor": {
+      "normalBonus": 0,
+      "ground": true,
+      "inv": 0.4999999999999997,
+      "iceRun": 0,
+      "elementBonus": 0,
+      "atk": 3,
+      "counterUntil": 0,
+      "critRate": 0,
+      "guardUntil": 0,
+      "buffer": 0,
+      "setCounts": {
+        "gladiator": 0,
+        "troupe": 0
+      },
+      "coyote": 0.08,
+      "x": 389,
+      "drop": 0,
+      "troupe4": false,
+      "y": 480,
+      "hp": 140,
+      "walk": 1,
+      "floatUntil": 0,
+      "id": 2,
+      "climbBoostUntil": 0,
+      "light": 0,
+      "cd": {
+        "skill4": 21.200000000000045
+      },
+      "thunderShield": {
+        "untilTime": 19.38333333333338,
+        "hp": 5
+      },
+      "leap": 0,
+      "dash": 0,
+      "glide": 0,
+      "critDamageBonus": 0,
+      "lock": 0,
+      "dir": 1,
+      "climbIntent": false,
+      "haste": 0,
+      "lavaArmor": 0,
+      "burnBoostUntil": 0,
+      "skillBonus": 0,
+      "maxhp": 140,
+      "vy": 0
+    },
+    "requests": 95
+  },
+  "method": "Lv20 Beidou fixture; automatic UI polling suspended during accelerated input test, UI boss launch, normal frame API actions/movement, accelerated; no direct state mutation"
+}

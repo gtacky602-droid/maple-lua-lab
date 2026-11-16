@@ -1,0 +1,26 @@
+{
+  "count": 21,
+  "checks": [
+    "form required",
+    "eligible source required",
+    "echo accepted",
+    "echo waits for first hit",
+    "echo inherits two hits at fifty five percent",
+    "echo does not replace its source",
+    "current attack defense resistance recalculated",
+    "critical recalculated",
+    "second echo uses original multiplier not recursive attenuation",
+    "normal leaves last eligible source",
+    "healing leaves last eligible source",
+    "deployment excluded",
+    "new eligible skill replaces record",
+    "failed source cast leaves record",
+    "channel copied with twelve pulses",
+    "echo channel interrupt retains cooldown",
+    "shared projectile total stays ten",
+    "map clears copy record",
+    "death clears copy record",
+    "echo loadout persists without combat record",
+    "macro casts source then echo once"
+  ]
+}

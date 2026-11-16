@@ -1,0 +1,59 @@
+{
+  "errors": [],
+  "result": {
+    "boss": {
+      "ward": {
+        "x": 225,
+        "radius": 110
+      },
+      "timer": 5.250000000000003,
+      "name": "無相の岩（試作素材）",
+      "hp": 500,
+      "phase": "barrage",
+      "pulses": 1,
+      "label": "防護場の中で衝撃波を防ぐ",
+      "brokenPillars": 0,
+      "revivalDestroyed": 0,
+      "maxhp": 500
+    },
+    "actor": {
+      "cd": {
+        "SK21": 0.5666666666666724
+      },
+      "skillBonus": 0,
+      "critRate": 0.04,
+      "setCounts": {
+        "troupe": 0,
+        "gladiator": 1
+      },
+      "vy": 0,
+      "glide": 0,
+      "leap": 0,
+      "coyote": 0.08,
+      "id": 1,
+      "buffer": 0,
+      "elementBonus": 0,
+      "dir": 1,
+      "inv": 0,
+      "maxhp": 161,
+      "hp": 133,
+      "dash": 0,
+      "drop": 0,
+      "troupe4": false,
+      "x": 221,
+      "y": 480,
+      "normalBonus": 0,
+      "light": 0,
+      "iceRun": 0,
+      "lavaArmor": 0,
+      "atk": 4,
+      "critDamageBonus": 0,
+      "ground": true,
+      "lock": 0,
+      "haste": 0,
+      "walk": 0
+    },
+    "requests": 170
+  },
+  "method": "Lv20 Columbina fixture, UI boss launch, normal frame API actions/movement, accelerated; no direct state mutation"
+}

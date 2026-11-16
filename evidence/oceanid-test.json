@@ -1,0 +1,27 @@
+{
+  "count": 22,
+  "checks": [
+    "host cannot be damaged",
+    "first wave has two boars",
+    "mimic immune to water",
+    "boar regenerates",
+    "pause freezes encounter",
+    "eight species across five waves",
+    "sinking avoids central tile",
+    "only host awards kill",
+    "victory clears hazards",
+    "no respawn or repeated victory",
+    "timeout starts following whirlpool",
+    "whirlpool follows player",
+    "exit clears encounter",
+    "pause prevents restart",
+    "bomb deals damage at ground height",
+    "jump avoids water bomb",
+    "sunken strip damages grounded actor",
+    "center stays safe",
+    "boar enters charge",
+    "charge swept contact damages",
+    "crane launches projectile",
+    "exit removes projectiles"
+  ]
+}

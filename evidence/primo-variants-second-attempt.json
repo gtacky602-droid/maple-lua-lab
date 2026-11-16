@@ -1,0 +1,26 @@
+{
+  "seconds": 31.399999999998222,
+  "returns": 1,
+  "boss_hp": null,
+  "reflections": null,
+  "actor_hp": [
+    161,
+    140
+  ],
+  "phases": [
+    "awake",
+    "breath",
+    "breath_warning",
+    "burrow",
+    "burrow_warning",
+    "claw_warning",
+    "combo_warning",
+    "recover",
+    "shower_warning",
+    "slam_warning",
+    "spin_warning",
+    "stones_warning",
+    "stunned"
+  ],
+  "note": "Lv20 Liyue hub fixture, sample flower, lab skills. Walking/battle/return/report via inputs. No HP/ATK/position edits in combat."
+}

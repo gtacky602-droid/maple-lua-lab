@@ -1,0 +1,14 @@
+{
+  "errors": [],
+  "progress": {
+    "questXp": 0,
+    "total": 100,
+    "questRewarded": false,
+    "level": 2,
+    "xp": 0,
+    "killXp": 100,
+    "lastKills": 10
+  },
+  "killLevelUp": true,
+  "saveReload": true
+}

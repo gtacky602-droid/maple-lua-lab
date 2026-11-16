@@ -1,0 +1,20 @@
+{
+  "count": 15,
+  "checks": [
+    "normal resistance",
+    "HP split and four parts",
+    "only marked part damageable",
+    "core immune during split",
+    "marked defeat exposes core",
+    "no kill rewards from sentinels",
+    "down subtracts 50 percent resistance",
+    "normal resistance restored",
+    "split does not repeat",
+    "time can trigger split",
+    "pause freezes sentinel timers",
+    "exit clears encounter",
+    "sword hit matches warning region",
+    "defeat removes parts",
+    "no respawn"
+  ]
+}

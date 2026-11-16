@@ -1,0 +1,87 @@
+import json
+from pathlib import Path
+_STORY_GRAPH=json.loads((Path(__file__).parent/"content/story-graph.json").read_text(encoding="utf8"))
+_STORY_ZONES={"story:"+n["id"] for n in _STORY_GRAPH["nodes"]}
+import math
+"""Versioned local checkpoint validation; this is not a production multiplayer save."""
+FIELDS={'version','quest','count','mora','kills','hits','damage','gauge','active'}
+def validate_save(data):
+    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story'}!=FIELDS:
+        raise ValueError('保存データの項目が一致しません')
+    if type(data['version']) is not int or data['version']!=1:
+        raise ValueError('対応していない保存バージョンです')
+    if data['quest'] not in ('available','hunt','boss','report','complete'):
+        raise ValueError('依頼の状態が不正です')
+    if data.get('companion','amber') not in ('amber','columbina','wanderer','beidou','ayaka','emilie','kachina','mitya'): raise ValueError('仲間が不正です')
+    for key,maximum in [('count',8),('mora',10**12),('kills',10**9),('hits',10**12),('damage',10**15),('gauge',100),('active',2)]:
+        if type(data[key]) is not int or not 0<=data[key]<=maximum:
+            raise ValueError('保存数値が不正です: '+key)
+    if data['active'] not in (1,2): raise ValueError('操作キャラが不正です')
+    q,n=data['quest'],data['count']
+    if (q=='available' and n!=0) or (q=='hunt' and n>=8) or (q in ('boss','report','complete') and n!=8):
+        raise ValueError('討伐数と依頼の状態が一致しません')
+    if 'loadout' in data:
+        slots=data['loadout']
+        if not isinstance(slots,list) or len(slots)!=8: raise ValueError('スキル枠は8個です')
+        for slot in slots:
+            if not isinstance(slot,list) or len(slot)>3 or any(x not in ('SK01','SK02','SK03','SK04','SK05','SK06','SK07','SK08','SK09','SK10','SK11','SK12','SK13','SK14','SK15','SK16','SK17','SK18','SK19','SK20','SK21','SK22','SK23','SK24','SK25','SK26','SK27','SK28','SK29','SK30','SK31','SK32','SK33','SK34','SK35','SK36','SK37','SK38','SK39','SK40','SK41','SK42','SK43','SK44','SK45','SK46','SK47','SK48','SK49','SK50','SK51','SK52','SK53','SK54','SK55','SK56','SK57','SK58','SK59','SK60') for x in slot):
+                raise ValueError('スキル枠が不正です')
+    if 'progression' in data:
+        p=data['progression']
+        if not isinstance(p,dict) or set(p)!={'level','xp','total','killXp','questXp','lastKills','questRewarded'}:
+            raise ValueError('経験値の保存項目が不正です')
+        for k in ('level','xp','total','killXp','questXp','lastKills'):
+            if type(p[k]) is not int or not 0<=p[k]<=10**12: raise ValueError('経験値の数値が不正です')
+        level=p['level']
+        if not 1<=level<=200: raise ValueError('検証範囲外のレベルです')
+        needed=100+20*(level-1)**2
+        spent=sum(100+20*(n-1)**2 for n in range(1,level))
+        if (level<200 and p['xp']>=needed) or spent+p['xp']!=p['total'] or p['killXp']+p['questXp']!=p['total']:
+            raise ValueError('レベルと累計経験値が一致しません')
+        if type(p['questRewarded']) is not bool or p['questRewarded']!=(data['quest']=='complete') or p['lastKills']!=data['kills']:
+            raise ValueError('経験値報酬の状態が一致しません')
+    if 'inventory' in data:
+        bag=data['inventory']
+        if not isinstance(bag,dict) or set(bag)-{'ground','targetSet','combatRng'}!={'items','nextId','rng','sampleKit','message'}: raise ValueError('装備保存形式が不正です')
+        if not isinstance(bag['items'],list) or len(bag['items'])>80: raise ValueError('バッグ上限を超えています')
+        if type(bag['nextId']) is not int or not 1<=bag['nextId']<=10**9 or type(bag['rng']) is not int or not 1<=bag['rng']<2147483647: raise ValueError('装備ID/乱数状態が不正です')
+        if type(bag['sampleKit']) is not bool or not isinstance(bag['message'],str) or len(bag['message'])>200: raise ValueError('装備状態が不正です')
+        ground=bag.get('ground',[])
+        if not isinstance(ground,list) or len(ground)>256: raise ValueError('未回収品が検証上限を超えています')
+        for drop in ground:
+            if not isinstance(drop,dict) or set(drop)!={'item','x','y','zone'}: raise ValueError('地面品の形式が不正です')
+            if drop['zone'] not in {'town','field','arena','anemo','electro','geo','oceanid','primo','maguu','array','thunder','farka','cryo_regisvine','pyro_regisvine'} | _STORY_ZONES: raise ValueError('地面品の地域が不正です')
+            for axis in ('x','y'):
+                if type(drop[axis]) not in (int,float) or not math.isfinite(drop[axis]) or not -1000<=drop[axis]<=5000: raise ValueError('地面品の座標が不正です')
+            if not isinstance(drop['item'],dict) or drop['item'].get('owner')!=0: raise ValueError('地面品は装備できません')
+        if bag.get('targetSet','gladiator') not in ('gladiator','troupe'): raise ValueError('対象セットが不正です')
+        if type(bag.get('combatRng',1973)) is not int or not 1<=bag.get('combatRng',1973)<2147483647: raise ValueError('会心乱数が不正です')
+        ids=set();equipped=set()
+        for item in bag['items']+[d['item'] for d in ground]:
+            if not isinstance(item,dict) or set(item)-{'locked','setId','subpair'}!={'id','slot','itemLv','rarity','enhance','owner'} or any(type(v) is not int for k,v in item.items() if k not in ('locked','setId','subpair')): raise ValueError('聖遺物形式が不正です')
+            if not 0<item['id']<bag['nextId'] or item['id'] in ids or not 1<=item['slot']<=5 or not 1<=item['itemLv']<=220 or item['rarity'] not in (3,4,5) or item['owner'] not in (0,1,2): raise ValueError('聖遺物の値が不正です')
+            if item['enhance'] not in range(0,{3:12,4:16,5:20}[item['rarity']]+1,4): raise ValueError('強化値が不正です')
+            if 'setId' in item and item['setId'] not in ('gladiator','troupe'): raise ValueError('セットが不正です')
+            if 'subpair' in item and item['subpair'] not in ('atk_crit','hp_crit'): raise ValueError('サブ効果が不正です')
+            if item.get('subpair')=='atk_crit' and item['slot']==3: raise ValueError('主効果とサブ効果の重複です')
+            if 'locked' in item and type(item['locked']) is not bool: raise ValueError('装備ロックが不正です')
+            ids.add(item['id']);slot=(item['owner'],item['slot'])
+            if item['owner'] and slot in equipped: raise ValueError('装備部位が重複しています')
+            if item['owner']: equipped.add(slot)
+    if 'story' in data:
+        import json
+        from pathlib import Path
+        graph=json.loads((Path(__file__).parent/'content/story-graph.json').read_text(encoding='utf8'))
+        nodes={n['id']:n for n in graph['nodes']};quests={q['id']:q for q in graph['quests']}
+        st=data['story']
+        if not isinstance(st,dict) or set(st)-{'discovered'}!={'active','node','visited','quests'} or type(st['active']) is not bool or st['node'] not in nodes: raise ValueError('Invalid story state')
+        if not isinstance(st['visited'],dict) or not st['visited'].get('mond-town') or not st['visited'].get(st['node']) or any(k not in nodes or v is not True for k,v in st['visited'].items()): raise ValueError('Invalid visited stages')
+        discovered=st.get('discovered',{})
+        groups={n.get('hiddenGroup') for n in graph['nodes'] if n.get('hiddenGroup')}
+        if not isinstance(discovered,dict) or any(k not in groups or v is not True for k,v in discovered.items()): raise ValueError('Invalid hidden discovery')
+        if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
+        if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
+        for id,q in st['quests'].items():
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
+    return data.copy()

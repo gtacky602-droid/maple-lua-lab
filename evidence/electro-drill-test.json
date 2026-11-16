@@ -1,0 +1,17 @@
+{
+  "count": 12,
+  "checks": [
+    "fourth cycle warns and locks direction",
+    "warning harmless and does not retarget",
+    "drill moves while shielded",
+    "grounded actor hit once",
+    "same rush cannot hit actor twice",
+    "stops inside arena and exposes",
+    "rightward direction supported",
+    "swept movement catches actor between positions",
+    "normal jump input clears drill",
+    "pause freezes rush",
+    "revival cancels rush",
+    "exit clears encounter"
+  ]
+}

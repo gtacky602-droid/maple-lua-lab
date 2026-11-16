@@ -1,0 +1,91 @@
+{
+  "status": "partial, geometric laboratory prototype",
+  "source": "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/perpetual-mechanical-array",
+  "retrieved": "2026-11-16",
+  "supported_mechanics": [
+    "Physical resistance 70%, other elements 10%",
+    "Four sentinels, marked target defeat unlocks core",
+    "Weakened phase reduces all resistances by 50 percentage points",
+    "Sentinels grant no kill effects",
+    "One split"
+  ],
+  "provisional": {
+    "hp": 800,
+    "split_hp_fraction": 0.7,
+    "split_seconds": 30,
+    "down_seconds": 10,
+    "sentinel_hp": 90,
+    "marked_selection": "Laboratory selector for all four types; story default defender. Random production selection pending.",
+    "beam_rolling": "All ranges, speeds, timing and damage are laboratory values; beam ends at tracked aim point",
+    "spin": {
+      "warning": 1.2,
+      "offsets": [
+        100,
+        -70,
+        130
+      ],
+      "leg_seconds": 0.35,
+      "contact_damage": 12,
+      "final_warning": 0.75,
+      "final_radius": 160,
+      "final_damage": 26,
+      "note": "2D lab approximation; not measured original animation"
+    },
+    "sentinels": "Representative subset, fixed clocks and provisional damages; Defender/Scout physical 50%, Cruiser/Destroyer 30%, elemental 10%"
+  },
+  "implemented": [
+    "Rocket and landing warning",
+    "Forward sword",
+    "Locked orbital strike",
+    "Marked sentinel no-reward defeat and core vulnerability",
+    "Tracking beam: shared render/collision cells, 500px reach, endpoint speed 180px/s, 3sec, 8 damage pulses",
+    "Long range only (>260px) rolling: three locked runs, 600px/s, swept contact, 20 damage once per actor per pass",
+    "Close-range spinning blade: three alternating 0.35sec legs with swept contacts, then final slash",
+    "Defender frontal shield/bash alternating locked landing",
+    "Scout orb deployed under self with contact/timed explosion",
+    "Cruiser fixed aim projectile",
+    "Destroyer sustained target field"
+  ],
+  "remaining": [
+    "Additional sentinel attacks, exposed-core two-hit disable, orb links, random marked selection",
+    "Transform and action animation",
+    "Precision targeting, timings and original behavior verification",
+    "Native performance"
+  ],
+  "story": {
+    "entry": "array-approach",
+    "from": "inazuma-road",
+    "portal_x": 400,
+    "level": 40,
+    "quest": "array-commission",
+    "reward_note": "provisional geography and rewards"
+  },
+  "validation": {
+    "input": "evidence/array-playthrough.json",
+    "world": "evidence/world-bosses-test.json",
+    "additional": "evidence/array-attacks-test.json",
+    "spin": "evidence/array-spin-test.json",
+    "sentinels": "evidence/array-sentinels-test.json",
+    "variants": "evidence/array-variants-playthrough.json",
+    "art": "evidence/array-art-metrics.json",
+    "sentinel_art": "evidence/array-parts-metrics.json"
+  },
+  "sentinel_sources": [
+    "https://library.keqingmains.com/enemy-data/automatons/ruin-defender",
+    "https://library.keqingmains.com/enemy-data/automatons/ruin-scout",
+    "https://library.keqingmains.com/enemy-data/automatons/ruin-cruiser",
+    "https://library.keqingmains.com/enemy-data/automatons/ruin-destroyer"
+  ],
+  "art": {
+    "source": "assets/array-source-v1.png",
+    "generation": "assets/array-generation.json",
+    "profiles": [
+      128,
+      96,
+      64
+    ],
+    "status": "body and four sentinel idle candidates; transformations and action animation incomplete",
+    "sentinels": "assets/array-parts-generation.json",
+    "gallery": "array-art.html"
+  }
+}

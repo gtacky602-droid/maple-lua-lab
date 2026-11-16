@@ -1,0 +1,13 @@
+{
+  "rectangles": {
+    "legacy": 4295,
+    "h48c32": 2564,
+    "h32c16": 1135
+  },
+  "reduction_vs_128px_rectangles": 0.7357392316647264,
+  "source_hash_verified": true,
+  "transparent": true,
+  "anchor": 0.6404,
+  "initial_frame_and_both_orientations": true,
+  "scope": "No native performance claim; PNG is a different draw primitive"
+}

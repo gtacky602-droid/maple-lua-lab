@@ -1,0 +1,25 @@
+{
+  "count": 13,
+  "checks": [
+    "deploy starts with no hit",
+    "explosion waits 3.8 seconds",
+    "first explosion pulse",
+    "three explosion hits and single gauge award",
+    "decoy expires at four seconds",
+    "ordinary enemy approaches decoy",
+    "enemy attacks decoy",
+    "boss ignores taunt and hits player",
+    "leap has invulnerability and lift",
+    "leap deals three timed hits",
+    "leap cooldown enforced",
+    "zone change removes decoy and explosion",
+    "AI uses all five skills"
+  ],
+  "ai_casts": [
+    "cast:normal",
+    "cast:skill1",
+    "cast:skill2",
+    "cast:skill3",
+    "cast:skill4"
+  ]
+}

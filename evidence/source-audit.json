@@ -1,0 +1,10 @@
+{
+  "rerun_passed": 147,
+  "rerun_total": 147,
+  "cases": 58,
+  "exact_json_match": true,
+  "numeric_tolerance": "max(1e-7, abs(reference)*1e-12)",
+  "material_differences": [],
+  "skills_declared": 60,
+  "source_priority": "20261116 user amendments > v0.2 skill original > per-domain original data. v0.6 is independent comparison model, not full replacement."
+}

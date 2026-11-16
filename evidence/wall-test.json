@@ -1,0 +1,17 @@
+{
+  "count": 12,
+  "checks": [
+    "wall durability equals attack x 160 percent",
+    "intervening wall absorbs direct attack",
+    "invulnerability prevents duplicate drain",
+    "broken wall lets excess damage through",
+    "area attack bypasses wall",
+    "wall behind actor does not protect",
+    "attack above wall not intercepted",
+    "wall protects companion in same geometry",
+    "new cast replaces old wall",
+    "wall expires at seven seconds",
+    "pause freezes wall",
+    "map transition removes wall"
+  ]
+}

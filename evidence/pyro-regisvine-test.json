@@ -1,0 +1,30 @@
+{
+  "count": 25,
+  "checks": [
+    "starts with root and own fire resistance",
+    "pyro cannot reduce core",
+    "hydro reduces core once per cooldown",
+    "six applications down boss",
+    "down removes damage reduction",
+    "core restores after warned recovery",
+    "later core rises to head",
+    "ground body hit leaves head core intact",
+    "aerial hydro can hit head core",
+    "slam spawns two opposing waves",
+    "jump clears wave",
+    "ground wave actually damages",
+    "three shots emitted over time",
+    "fireballs do not home",
+    "third attack marks three eruptions",
+    "eruption warning no damage",
+    "leaving marked area avoids eruption",
+    "eruption hits marked area",
+    "pause freezes attack",
+    "core break cancels eruption",
+    "kill once no respawn",
+    "exit clears boss",
+    "wipe exits arena",
+    "checkpoint outside battle",
+    "switching encounters clears previous boss"
+  ]
+}

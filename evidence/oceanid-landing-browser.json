@@ -1,0 +1,97 @@
+{
+  "errors": [],
+  "result": {
+    "boss": {
+      "timer": -2.799999999999995,
+      "hp": 200,
+      "wave": 4,
+      "mimics": [
+        {
+          "x": 269.0656961325154,
+          "y": 480,
+          "state": "ready",
+          "kind": "crab",
+          "target": 249
+        },
+        {
+          "x": 317.30889669471185,
+          "y": 480,
+          "state": "ready",
+          "kind": "crab",
+          "target": 245.5
+        },
+        {
+          "x": 249,
+          "y": 463.75,
+          "state": "recover",
+          "radius": 65,
+          "kind": "raptor",
+          "target": 249
+        },
+        {
+          "x": 422.425,
+          "y": 389,
+          "state": "strike",
+          "radius": 65,
+          "kind": "raptor",
+          "target": 245.5
+        },
+        {
+          "x": 580.25,
+          "y": 350,
+          "state": "warning",
+          "radius": 65,
+          "kind": "raptor",
+          "target": 255.25
+        }
+      ],
+      "maxhp": 500,
+      "label": "幻形 4/5波・残り5体／水無効",
+      "remaining": 5,
+      "phase": "mimics",
+      "name": "純水精霊（試作素材）"
+    },
+    "actor": {
+      "elementBonus": 0,
+      "coyote": 0.08,
+      "leap": 0,
+      "ground": true,
+      "drop": 0,
+      "lavaArmor": 0,
+      "normalBonus": 0,
+      "vy": 0,
+      "y": 480,
+      "glide": 0,
+      "cd": {
+        "normal": 0,
+        "SK05": 0,
+        "SK25": 0,
+        "SK21": 0
+      },
+      "setCounts": {
+        "troupe": 0,
+        "gladiator": 1
+      },
+      "buffer": 0,
+      "haste": 0,
+      "iceRun": 0,
+      "dash": 0,
+      "hp": 141,
+      "critDamageBonus": 0,
+      "id": 1,
+      "walk": -1,
+      "critRate": 0.04,
+      "x": 242,
+      "skillBonus": 0,
+      "troupe4": false,
+      "light": 0,
+      "maxhp": 161,
+      "inv": 0.5333333333333331,
+      "atk": 4,
+      "dir": -1,
+      "lock": 0
+    },
+    "requests": 212
+  },
+  "method": "Lv20 Amber fixture; automatic UI polling suspended during accelerated input test, UI boss launch, normal frame API actions/movement, accelerated; no direct state mutation"
+}

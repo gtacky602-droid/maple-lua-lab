@@ -1,0 +1,1516 @@
+{
+  "version": "0.6",
+  "created_date": "2026-11-16",
+  "status": "OFFLINE_TEST_MODEL_NOT_ENGINE_TEST",
+  "provenance": {
+    "raw_v05_reopened": false,
+    "notes": "v0.5原本は再取得できず。旧結果の再実行とは扱わない。v0.1スキル表・v0.3装備表をFilesで再読し必要フィールドを転記、直近の会話承認事項でオーバーライド。",
+    "sources": [
+      {
+        "file": "miliastra_traveler_60skills_v0_1.json",
+        "file_id": "file_00000000b0fc81f79c9e7bf6ff893257",
+        "method": "Files.read full 1-1185; curated field subset"
+      },
+      {
+        "file": "miliastra_equipment_balance_v0_3.json",
+        "file_id": "file_0000000018e882098d6e398f451748ae",
+        "method": "Files.read lines1-740; weapon/feather/reference snapshot subset"
+      }
+    ]
+  },
+  "locked_rules": {
+    "shared_light_gauge": true,
+    "boss_hp_multiplier_by_player_count": false,
+    "density_all_levels": [
+      12,
+      20
+    ],
+    "party_members": 2,
+    "equipped_artifacts_max": 45,
+    "inventory_total": 80,
+    "spare_slots": 32,
+    "pending_slots": 3,
+    "reroll_substats_on_normal_upgrade": false,
+    "random_artifact_set": false,
+    "artifact_level_offset": 20,
+    "artifact_level_hidden_minus20": false,
+    "other_player_resurrection": false,
+    "skill_macro_max_steps": 3,
+    "macro_loop": false,
+    "ground_drop_auto_pickup": true
+  },
+  "assumptions": {
+    "level": 180,
+    "traveler_atk": 613183,
+    "enemy_def": 32,
+    "boss_hp": 1373760000,
+    "normal_hp": 6868800,
+    "crit_rate": 0.13,
+    "crit_damage": 0.752,
+    "element_bonus": 0.1008,
+    "dt": 0.05,
+    "normal_pct": 110,
+    "normal_hits": 2,
+    "normal_lock": 0.7,
+    "normal_targets": 2,
+    "light_normal_pct": 190,
+    "light_normal_hits": 4,
+    "light_normal_targets": 5,
+    "light_cost": 60,
+    "light_duration": 12,
+    "light_bonus": 0.18,
+    "seven_cost": 100,
+    "gauge_max": 100,
+    "respawn": 6,
+    "input_keyboard": 0.05,
+    "input_pad": 0.08,
+    "input_touch": 0.12,
+    "touch_page_switch": 0.22,
+    "pickup_radius": 120,
+    "artifact_drop": 0.01,
+    "highlevel_r5": 0.55,
+    "favorable_stats": 0.75,
+    "inherit_fee_ratio": 0.6,
+    "star_step_cost": 200000,
+    "mora_power": 1.3,
+    "mora_multiplier": 10,
+    "artifact_lvl_max": 220,
+    "network_state_bytes": 28,
+    "event_bytes": 20,
+    "network_overhead": 2.5
+  },
+  "skill_subset": [
+    {
+      "id": 1,
+      "name": "旋風斬り",
+      "level": 1,
+      "pct": 120,
+      "hits": 3,
+      "targets": 4,
+      "cd": 2.0,
+      "elements": [
+        "風"
+      ],
+      "lock": 0.65,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 2,
+      "name": "竜巻",
+      "level": 6,
+      "pct": 85,
+      "hits": 8,
+      "targets": 8,
+      "cd": 8.0,
+      "elements": [
+        "風"
+      ],
+      "lock": 0.65,
+      "first": 0.15,
+      "span": 2.8,
+      "persistent": true,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 3,
+      "name": "風の加速",
+      "level": 11,
+      "pct": 0,
+      "hits": 0,
+      "targets": 0,
+      "cd": 16.0,
+      "elements": [
+        "風"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 4,
+      "name": "上昇気流",
+      "level": 16,
+      "pct": 0,
+      "hits": 0,
+      "targets": 0,
+      "cd": 14.0,
+      "elements": [
+        "風"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 5,
+      "name": "岩の槍",
+      "level": 20,
+      "pct": 180,
+      "hits": 2,
+      "targets": 3,
+      "cd": 3.0,
+      "elements": [
+        "岩"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 6,
+      "name": "岩壁",
+      "level": 24,
+      "pct": 0,
+      "hits": 0,
+      "targets": 0,
+      "cd": 20.0,
+      "elements": [
+        "岩"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 7,
+      "name": "地面の衝撃波",
+      "level": 30,
+      "pct": 155,
+      "hits": 5,
+      "targets": 7,
+      "cd": 9.0,
+      "elements": [
+        "岩"
+      ],
+      "lock": 0.8,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 8,
+      "name": "踏み石",
+      "level": 36,
+      "pct": 0,
+      "hits": 0,
+      "targets": 0,
+      "cd": 12.0,
+      "elements": [
+        "岩"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 9,
+      "name": "雷撃",
+      "level": 40,
+      "pct": 200,
+      "hits": 2,
+      "targets": 3,
+      "cd": 3.0,
+      "elements": [
+        "雷"
+      ],
+      "lock": 0.55,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 10,
+      "name": "連鎖する落雷",
+      "level": 44,
+      "pct": 160,
+      "hits": 5,
+      "targets": 6,
+      "cd": 8.0,
+      "elements": [
+        "雷"
+      ],
+      "lock": 0.7,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 11,
+      "name": "雷光突進",
+      "level": 50,
+      "pct": 140,
+      "hits": 4,
+      "targets": 5,
+      "cd": 10.0,
+      "elements": [
+        "雷"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 12,
+      "name": "蓄電標",
+      "level": 56,
+      "pct": 100,
+      "hits": 6,
+      "targets": 3,
+      "cd": 18.0,
+      "elements": [
+        "雷"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 5,
+      "persistent": true,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 13,
+      "name": "草の拘束",
+      "level": 60,
+      "pct": 90,
+      "hits": 2,
+      "targets": 5,
+      "cd": 12.0,
+      "elements": [
+        "草"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 14,
+      "name": "蔦の攻撃",
+      "level": 64,
+      "pct": 170,
+      "hits": 4,
+      "targets": 5,
+      "cd": 6.0,
+      "elements": [
+        "草"
+      ],
+      "lock": 0.7,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 15,
+      "name": "種子の追撃",
+      "level": 70,
+      "pct": 130,
+      "hits": 6,
+      "targets": 6,
+      "cd": 11.0,
+      "elements": [
+        "草"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "shared"
+    },
+    {
+      "id": 16,
+      "name": "芽吹きの台",
+      "level": 76,
+      "pct": 0,
+      "hits": 0,
+      "targets": 0,
+      "cd": 15.0,
+      "elements": [
+        "草"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 17,
+      "name": "水流弾",
+      "level": 80,
+      "pct": 155,
+      "hits": 3,
+      "targets": 4,
+      "cd": 3.0,
+      "elements": [
+        "水"
+      ],
+      "lock": 0.65,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 18,
+      "name": "回復する水の領域",
+      "level": 84,
+      "pct": 0,
+      "hits": 0,
+      "targets": 0,
+      "cd": 24.0,
+      "elements": [
+        "水"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 19,
+      "name": "潮の押し波",
+      "level": 90,
+      "pct": 150,
+      "hits": 5,
+      "targets": 8,
+      "cd": 10.0,
+      "elements": [
+        "水"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 20,
+      "name": "水鏡の盾",
+      "level": 96,
+      "pct": 65,
+      "hits": 3,
+      "targets": 4,
+      "cd": 22.0,
+      "elements": [
+        "水"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 21,
+      "name": "炎の斬撃",
+      "level": 100,
+      "pct": 195,
+      "hits": 3,
+      "targets": 5,
+      "cd": 3.0,
+      "elements": [
+        "炎"
+      ],
+      "lock": 0.65,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 22,
+      "name": "火柱",
+      "level": 104,
+      "pct": 175,
+      "hits": 5,
+      "targets": 6,
+      "cd": 9.0,
+      "elements": [
+        "炎"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 4,
+      "persistent": true,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 23,
+      "name": "火走り",
+      "level": 110,
+      "pct": 120,
+      "hits": 6,
+      "targets": 7,
+      "cd": 12.0,
+      "elements": [
+        "炎"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 24,
+      "name": "燐火の輪",
+      "level": 116,
+      "pct": 115,
+      "hits": 8,
+      "targets": 6,
+      "cd": 18.0,
+      "elements": [
+        "炎"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 7,
+      "persistent": true,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 25,
+      "name": "冰の剣",
+      "level": 140,
+      "pct": 230,
+      "hits": 3,
+      "targets": 4,
+      "cd": 3.0,
+      "elements": [
+        "氷"
+      ],
+      "lock": 0.65,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 26,
+      "name": "氷結衝撃波",
+      "level": 144,
+      "pct": 170,
+      "hits": 5,
+      "targets": 8,
+      "cd": 9.0,
+      "elements": [
+        "氷"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 27,
+      "name": "霜柱の檻",
+      "level": 150,
+      "pct": 110,
+      "hits": 4,
+      "targets": 6,
+      "cd": 18.0,
+      "elements": [
+        "氷"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 28,
+      "name": "氷晶散弾",
+      "level": 156,
+      "pct": 130,
+      "hits": 8,
+      "targets": 3,
+      "cd": 12.0,
+      "elements": [
+        "氷"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "shared"
+    },
+    {
+      "id": 29,
+      "name": "飛礫嵐",
+      "level": 27,
+      "pct": 135,
+      "hits": 8,
+      "targets": 8,
+      "cd": 12.0,
+      "elements": [
+        "風",
+        "岩"
+      ],
+      "lock": 0.75,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 30,
+      "name": "帯電の風衣",
+      "level": 47,
+      "pct": 75,
+      "hits": 10,
+      "targets": 6,
+      "cd": 20.0,
+      "elements": [
+        "風",
+        "雷"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 9,
+      "persistent": true,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 31,
+      "name": "千葉穿刃",
+      "level": 67,
+      "pct": 250,
+      "hits": 6,
+      "targets": 1,
+      "cd": 12.0,
+      "elements": [
+        "風",
+        "草"
+      ],
+      "lock": 0.85,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "shared"
+    },
+    {
+      "id": 32,
+      "name": "水圧螺旋槍",
+      "level": 87,
+      "pct": 185,
+      "hits": 9,
+      "targets": 2,
+      "cd": 15.0,
+      "elements": [
+        "風",
+        "水"
+      ],
+      "lock": 1.5,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 33,
+      "name": "炎風竜巻",
+      "level": 107,
+      "pct": 110,
+      "hits": 12,
+      "targets": 10,
+      "cd": 18.0,
+      "elements": [
+        "風",
+        "炎"
+      ],
+      "lock": 0.65,
+      "first": 0.15,
+      "span": 3.3,
+      "persistent": true,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 34,
+      "name": "霜翼滑空",
+      "level": 147,
+      "pct": 75,
+      "hits": 6,
+      "targets": 5,
+      "cd": 16.0,
+      "elements": [
+        "風",
+        "氷"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 35,
+      "name": "磁界足場",
+      "level": 51,
+      "pct": 90,
+      "hits": 6,
+      "targets": 4,
+      "cd": 20.0,
+      "elements": [
+        "岩",
+        "雷"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 6,
+      "persistent": true,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 36,
+      "name": "巨樹石拳",
+      "level": 72,
+      "pct": 460,
+      "hits": 3,
+      "targets": 2,
+      "cd": 16.0,
+      "elements": [
+        "岩",
+        "草"
+      ],
+      "lock": 0.9,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 37,
+      "name": "珊瑚壁",
+      "level": 91,
+      "pct": 0,
+      "hits": 0,
+      "targets": 0,
+      "cd": 24.0,
+      "elements": [
+        "岩",
+        "水"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 38,
+      "name": "熔岩鎧",
+      "level": 111,
+      "pct": 65,
+      "hits": 10,
+      "targets": 5,
+      "cd": 25.0,
+      "elements": [
+        "岩",
+        "炎"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 9,
+      "persistent": true,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 39,
+      "name": "凍岩断",
+      "level": 151,
+      "pct": 350,
+      "hits": 6,
+      "targets": 3,
+      "cd": 18.0,
+      "elements": [
+        "岩",
+        "氷"
+      ],
+      "lock": 0.9,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 40,
+      "name": "雷樹の守護",
+      "level": 77,
+      "pct": 125,
+      "hits": 10,
+      "targets": 5,
+      "cd": 20.0,
+      "elements": [
+        "雷",
+        "草"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 9,
+      "persistent": true,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 41,
+      "name": "導電水路",
+      "level": 95,
+      "pct": 100,
+      "hits": 8,
+      "targets": 7,
+      "cd": 16.0,
+      "elements": [
+        "雷",
+        "水"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 7,
+      "persistent": true,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 42,
+      "name": "過負荷連爆",
+      "level": 114,
+      "pct": 170,
+      "hits": 8,
+      "targets": 10,
+      "cd": 16.0,
+      "elements": [
+        "雷",
+        "炎"
+      ],
+      "lock": 0.85,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 43,
+      "name": "超電導斬",
+      "level": 153,
+      "pct": 180,
+      "hits": 7,
+      "targets": 8,
+      "cd": 14.0,
+      "elements": [
+        "雷",
+        "氷"
+      ],
+      "lock": 0.85,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 44,
+      "name": "開花花園",
+      "level": 97,
+      "pct": 115,
+      "hits": 12,
+      "targets": 8,
+      "cd": 20.0,
+      "elements": [
+        "草",
+        "水"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 7,
+      "persistent": true,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 45,
+      "name": "灰の生命",
+      "level": 117,
+      "pct": 0,
+      "hits": 0,
+      "targets": 0,
+      "cd": 20.0,
+      "elements": [
+        "草",
+        "炎"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 46,
+      "name": "氷蔦縄",
+      "level": 157,
+      "pct": 0,
+      "hits": 0,
+      "targets": 0,
+      "cd": 12.0,
+      "elements": [
+        "草",
+        "氷"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 47,
+      "name": "蒸気幕",
+      "level": 118,
+      "pct": 70,
+      "hits": 6,
+      "targets": 6,
+      "cd": 20.0,
+      "elements": [
+        "水",
+        "炎"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 5,
+      "persistent": true,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 48,
+      "name": "氷床疾走",
+      "level": 158,
+      "pct": 80,
+      "hits": 5,
+      "targets": 5,
+      "cd": 18.0,
+      "elements": [
+        "水",
+        "氷"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 49,
+      "name": "融解閃斬",
+      "level": 159,
+      "pct": 350,
+      "hits": 6,
+      "targets": 3,
+      "cd": 18.0,
+      "elements": [
+        "炎",
+        "氷"
+      ],
+      "lock": 0.9,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 50,
+      "name": "空中庭園",
+      "level": 78,
+      "pct": 115,
+      "hits": 10,
+      "targets": 6,
+      "cd": 32.0,
+      "elements": [
+        "風",
+        "岩",
+        "草"
+      ],
+      "lock": 0.65,
+      "first": 0.15,
+      "span": 9,
+      "persistent": true,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 51,
+      "name": "超開花大星群",
+      "level": 98,
+      "pct": 180,
+      "hits": 10,
+      "targets": 10,
+      "cd": 32.0,
+      "elements": [
+        "雷",
+        "草",
+        "水"
+      ],
+      "lock": 0.65,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "shared"
+    },
+    {
+      "id": 52,
+      "name": "超高圧蒸気砲",
+      "level": 119,
+      "pct": 245,
+      "hits": 12,
+      "targets": 3,
+      "cd": 34.0,
+      "elements": [
+        "風",
+        "水",
+        "炎"
+      ],
+      "lock": 3,
+      "first": 0.15,
+      "span": 2.7,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 53,
+      "name": "霜根要塞",
+      "level": 158,
+      "pct": 115,
+      "hits": 12,
+      "targets": 6,
+      "cd": 36.0,
+      "elements": [
+        "岩",
+        "草",
+        "氷"
+      ],
+      "lock": 0.65,
+      "first": 0.15,
+      "span": 11,
+      "persistent": true,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 54,
+      "name": "月雷遊星",
+      "level": 127,
+      "pct": 90,
+      "hits": 12,
+      "targets": 8,
+      "cd": 22.0,
+      "elements": [
+        "雷",
+        "水"
+      ],
+      "lock": 0.55,
+      "first": 0.15,
+      "span": 11,
+      "persistent": true,
+      "extra": [],
+      "requires_companion": "CO",
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 55,
+      "name": "月晶輪舞",
+      "level": 133,
+      "pct": 125,
+      "hits": 10,
+      "targets": 6,
+      "cd": 24.0,
+      "elements": [
+        "岩",
+        "水"
+      ],
+      "lock": 0.55,
+      "first": 0.15,
+      "span": 9,
+      "persistent": true,
+      "extra": [],
+      "requires_companion": "CO",
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 56,
+      "name": "星嵐の種",
+      "level": 149,
+      "pct": 110,
+      "hits": 12,
+      "targets": 8,
+      "cd": 28.0,
+      "elements": [
+        "氷",
+        "風"
+      ],
+      "lock": 0.6,
+      "first": 0.15,
+      "span": 11.5,
+      "persistent": true,
+      "extra": [
+        {
+          "pct": 300,
+          "hits": 1,
+          "targets": 8
+        }
+      ],
+      "requires_companion": "風",
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 57,
+      "name": "北辰の一閃",
+      "level": 155,
+      "pct": 450,
+      "hits": 6,
+      "targets": 3,
+      "cd": 30.0,
+      "elements": [
+        "氷",
+        "雷"
+      ],
+      "lock": 1,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": "雷",
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 58,
+      "name": "光界解放",
+      "level": 160,
+      "pct": 0,
+      "hits": 0,
+      "targets": 0,
+      "cd": 60.0,
+      "elements": [
+        "光界"
+      ],
+      "lock": 0.35,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 59,
+      "name": "光界反響",
+      "level": 170,
+      "pct": 0,
+      "hits": 0,
+      "targets": 0,
+      "cd": 24.0,
+      "elements": [
+        "光界"
+      ],
+      "lock": 0.35,
+      "first": 0.15,
+      "span": 0.5,
+      "persistent": false,
+      "extra": [],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    },
+    {
+      "id": 60,
+      "name": "七律開天",
+      "level": 180,
+      "pct": 250,
+      "hits": 20,
+      "targets": 15,
+      "cd": 90.0,
+      "elements": [
+        "光界"
+      ],
+      "lock": 3,
+      "first": 0.15,
+      "span": 2.75,
+      "persistent": false,
+      "extra": [
+        {
+          "pct": 1200,
+          "hits": 1,
+          "targets": 1
+        }
+      ],
+      "requires_companion": null,
+      "hit_pool": "per_target"
+    }
+  ],
+  "gauge_gain_candidates": {
+    "slow": [
+      1,
+      2
+    ],
+    "middle": [
+      2,
+      5
+    ],
+    "fast": [
+      3,
+      8
+    ]
+  },
+  "bars": {
+    "direct8": [
+      [
+        58
+      ],
+      [
+        60
+      ],
+      [
+        52
+      ],
+      [
+        49
+      ],
+      [
+        31
+      ],
+      [
+        51
+      ],
+      [
+        39
+      ],
+      [
+        40
+      ]
+    ],
+    "macro8": [
+      [
+        58,
+        52,
+        49
+      ],
+      [
+        60,
+        51,
+        31
+      ],
+      [
+        39,
+        36,
+        40
+      ],
+      [
+        42,
+        33,
+        44
+      ],
+      [
+        32,
+        26,
+        43
+      ],
+      [
+        25,
+        21,
+        14
+      ],
+      [
+        10,
+        29,
+        7
+      ],
+      [
+        24,
+        41,
+        30
+      ]
+    ]
+  },
+  "companion_fixture": {
+    "id": "AM",
+    "name": "アンバー",
+    "atk_ratio": 0.66,
+    "description": "過去会話の役割を使う新しい比較用5技。全8人の再計測ではない。",
+    "skills": [
+      {
+        "id": 101,
+        "pct": 95,
+        "hits": 2,
+        "cd": 0,
+        "lock": 0.7,
+        "first": 0.15,
+        "span": 0.3,
+        "targets": 2,
+        "persistent": false
+      },
+      {
+        "id": 102,
+        "pct": 170,
+        "hits": 4,
+        "cd": 7,
+        "lock": 0.75,
+        "first": 0.15,
+        "span": 0.5,
+        "targets": 4,
+        "persistent": false
+      },
+      {
+        "id": 103,
+        "pct": 200,
+        "hits": 3,
+        "cd": 14,
+        "lock": 0.55,
+        "first": 4,
+        "span": 0,
+        "targets": 6,
+        "persistent": true
+      },
+      {
+        "id": 104,
+        "pct": 125,
+        "hits": 3,
+        "cd": 9,
+        "lock": 0.6,
+        "first": 0.15,
+        "span": 0.35,
+        "targets": 3,
+        "persistent": false
+      },
+      {
+        "id": 105,
+        "pct": 105,
+        "hits": 12,
+        "cd": 24,
+        "lock": 0.8,
+        "first": 0.15,
+        "span": 4.4,
+        "targets": 8,
+        "persistent": true,
+        "energy": 100
+      }
+    ]
+  },
+  "old_feather_anchors": {
+    "1": 0,
+    "10": 133.333333,
+    "20": 208.333333,
+    "30": 268,
+    "40": 393,
+    "60": 454.545455,
+    "80": 1250,
+    "100": 2343.75,
+    "110": 6250,
+    "120": 6250,
+    "140": 29800,
+    "160": 71400,
+    "170": 100000,
+    "180": 170000,
+    "200": 300000,
+    "220": 520000
+  },
+  "candidate_feather_anchors": {
+    "1": 0,
+    "21": 5,
+    "30": 20,
+    "40": 50,
+    "60": 250,
+    "80": 1000,
+    "100": 2500,
+    "120": 6250,
+    "140": 29800,
+    "160": 71400,
+    "180": 170000,
+    "200": 300000,
+    "220": 520000
+  },
+  "source_reference_levels": [
+    {
+      "level": 1,
+      "atk": 4,
+      "weapon": 4,
+      "upgrade": 0,
+      "atk_pct": 0,
+      "hp_enemy": 15
+    },
+    {
+      "level": 20,
+      "atk": 78,
+      "weapon": 50,
+      "upgrade": 0,
+      "atk_pct": 0.04,
+      "hp_enemy": 375
+    },
+    {
+      "level": 40,
+      "atk": 678,
+      "weapon": 343,
+      "upgrade": 1,
+      "atk_pct": 0.36,
+      "hp_enemy": 3800
+    },
+    {
+      "level": 60,
+      "atk": 1717,
+      "weapon": 980,
+      "upgrade": 3,
+      "atk_pct": 0.04,
+      "hp_enemy": 11000
+    },
+    {
+      "level": 100,
+      "atk": 16250,
+      "weapon": 3000,
+      "upgrade": 10,
+      "atk_pct": 0.3375,
+      "hp_enemy": 130000
+    },
+    {
+      "level": 160,
+      "atk": 324855,
+      "weapon": 60000,
+      "upgrade": 6,
+      "atk_pct": 0.689,
+      "hp_enemy": 3379200
+    }
+  ],
+  "star_flat_multipliers": [
+    1,
+    1.1,
+    1.25,
+    1.45,
+    1.7,
+    2
+  ],
+  "star_percent_multipliers": [
+    1,
+    1.05,
+    1.1,
+    1.15,
+    1.2,
+    1.25
+  ]
+}

@@ -1,0 +1,13 @@
+﻿level,item_level,curve,feather_r3_plus0,atk,reference_atk,ratio
+1,21,old_feather_anchors,26,30,4,7.5
+1,21,candidate_feather_anchors,1,5,4,1.25
+20,40,old_feather_anchors,47,100,78,1.2820512820512822
+20,40,candidate_feather_anchors,6,58,78,0.7435897435897436
+40,60,old_feather_anchors,55,603,678,0.8893805309734514
+40,60,candidate_feather_anchors,30,569,678,0.8392330383480826
+60,80,old_feather_anchors,150,1665,1717,0.9697146185206756
+60,80,candidate_feather_anchors,120,1634,1717,0.9516598718695399
+100,120,old_feather_anchors,750,15247,16250,0.9382769230769231
+100,120,candidate_feather_anchors,750,15247,16250,0.9382769230769231
+160,180,old_feather_anchors,20400,258011,324855,0.7942343507103169
+160,180,candidate_feather_anchors,20400,258011,324855,0.7942343507103169

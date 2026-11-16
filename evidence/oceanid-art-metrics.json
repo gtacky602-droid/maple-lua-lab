@@ -1,0 +1,33 @@
+{
+  "host": {
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "corner_alpha": 0,
+    "profiles": {
+      "legacy": 3667,
+      "h48c32": 2287,
+      "h32c16": 1089
+    }
+  },
+  "boar": {
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "corner_alpha": 0,
+    "profiles": {
+      "legacy": 1912,
+      "h48c32": 1281,
+      "h32c16": 576
+    }
+  },
+  "first_wave_boss_rectangles": {
+    "legacy": 7491,
+    "h48c32": 4849,
+    "h32c16": 2241
+  },
+  "reduction_percent": 70.08410092110533,
+  "scope": "host + two boars; rectangle profiles compared, not PNG/native frame performance"
+}

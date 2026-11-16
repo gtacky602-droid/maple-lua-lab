@@ -1,0 +1,21 @@
+{
+  "count": 16,
+  "checks": [
+    "only first hit occurs at cast",
+    "next hit waits for interval",
+    "second hit occurs later",
+    "all three hits resolve",
+    "one gauge award for full cast",
+    "leaving attack area avoids later hits",
+    "new shield blocks pending hits",
+    "death cancels remaining hits",
+    "pause freezes pending attacks",
+    "paused input cannot add attacks",
+    "tornado eight pulses finish",
+    "map transition cancels old attacks",
+    "Anemo immunity rejects all wind hits",
+    "physical normal attacks work",
+    "Amber pyro uses ten percent resistance",
+    "Amber fire arrow resolves four pulses"
+  ]
+}

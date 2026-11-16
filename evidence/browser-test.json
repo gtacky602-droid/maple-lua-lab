@@ -1,0 +1,32 @@
+{
+  "errors": [],
+  "movement": {
+    "before": 200,
+    "after": 350.5
+  },
+  "rect": {
+    "commands": 6844,
+    "lua_ms": 3.3268000006501097,
+    "record": {
+      "t": 2.9833333333333276,
+      "lua_ms": 3.3268000006501097,
+      "lua_kb": 19926.1171875,
+      "render_ms": 2.399999998509884,
+      "calls": 6852,
+      "hits": 37,
+      "kills": 7,
+      "visible": 9
+    }
+  },
+  "checks": [
+    "boot",
+    "keyboard movement",
+    "swap",
+    "attack",
+    "auto combat",
+    "Lua rectangle rendering",
+    "density 20",
+    "pause",
+    "mobile width"
+  ]
+}

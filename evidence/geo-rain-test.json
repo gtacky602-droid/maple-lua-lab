@@ -1,0 +1,18 @@
+{
+  "count": 13,
+  "checks": [
+    "moves to next living pillar",
+    "skips broken pillar",
+    "cycles around surviving pillars",
+    "ground second attack has five warning positions",
+    "moving between marks avoids falling rocks",
+    "next volley retargets after impact",
+    "three volleys end in exposure",
+    "standing at target is hit once per volley",
+    "airborne actor can be struck by falling rock",
+    "pause freezes rock positions",
+    "revival clears falling rocks and targets",
+    "exit clears encounter",
+    "death clears rocks"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "errors": [],
+  "initial": {
+    "t": 0,
+    "a": 11584,
+    "b": 6779
+  },
+  "moved": 263,
+  "times": [
+    0.6000000000000002,
+    0.6000000000000002
+  ],
+  "profiles": [
+    "h32c16",
+    "h32c32",
+    "h48c16",
+    "h48c32",
+    "h64c16",
+    "h64c32",
+    "lossless",
+    "legacy",
+    "png"
+  ],
+  "checks": [
+    "same state",
+    "frozen profile switching",
+    "eight profiles",
+    "original and two variant close-ups",
+    "movement",
+    "auto",
+    "pause",
+    "density",
+    "reset",
+    "mobile width"
+  ]
+}

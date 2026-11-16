@@ -1,0 +1,117 @@
+{
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json",
+  "status": "partial",
+  "skills": [
+    {
+      "id": "SK37",
+      "name": "珊瑚壁",
+      "category": "二元素",
+      "elements": [
+        "岩",
+        "水"
+      ],
+      "unlock_level": 91,
+      "damage_segments": [],
+      "max_enemy_targets": 0,
+      "cooldown_seconds": 24,
+      "role": "遮蔽・微回復",
+      "effect": "8秒間の壁。背後で毎秒最大HP0.6%回復、敵攻撃を遮る。最大1枚。"
+    },
+    {
+      "id": "SK38",
+      "name": "熔岩鎧",
+      "category": "二元素",
+      "elements": [
+        "岩",
+        "炎"
+      ],
+      "unlock_level": 111,
+      "damage_segments": [
+        {
+          "pct_per_hit": 65,
+          "hit_count": 10
+        }
+      ],
+      "max_enemy_targets": 5,
+      "cooldown_seconds": 25,
+      "role": "防御・接触攻撃",
+      "effect": "10秒間、被ダメージ-20%。接触敵へ最大10ヒット。"
+    },
+    {
+      "id": "SK39",
+      "name": "凍岩断",
+      "category": "二元素",
+      "elements": [
+        "岩",
+        "氷"
+      ],
+      "unlock_level": 151,
+      "damage_segments": [
+        {
+          "pct_per_hit": 350,
+          "hit_count": 6
+        }
+      ],
+      "max_enemy_targets": 3,
+      "cooldown_seconds": 18,
+      "role": "近接・集中",
+      "effect": "凍結/冷気の敵に追撃補正を持つ重い6連撃。"
+    },
+    {
+      "id": "SK40",
+      "name": "雷樹の守護",
+      "category": "二元素",
+      "elements": [
+        "雷",
+        "草"
+      ],
+      "unlock_level": 77,
+      "damage_segments": [
+        {
+          "pct_per_hit": 125,
+          "hit_count": 10
+        }
+      ],
+      "max_enemy_targets": 5,
+      "cooldown_seconds": 20,
+      "role": "設置・自動狩り",
+      "effect": "10秒間、範囲内の敵へ周期的に雷撃。最大1基。"
+    }
+  ],
+  "draft_parameters": {
+    "SK37": {
+      "height": 120,
+      "offset": 60,
+      "healing_reach_behind": 220,
+      "duration": 8,
+      "heal_per_second": 0.006,
+      "durability": "not specified; indestructible for duration in lab",
+      "blocks": "direct attacks crossing wall only; area bypasses"
+    },
+    "SK38": {
+      "duration": 10,
+      "reduction": 0.2,
+      "contact_radius": 65,
+      "interval": 1,
+      "mitigation_order": "coral block then armor then rock wall then water shield then HP"
+    },
+    "SK39": {
+      "range": 180,
+      "interval": 0.15,
+      "cold_bonus": 0.2,
+      "conditions": "chill marker, frozen marker or valid cryo aura; can benefit from own prior hit aura"
+    },
+    "SK40": {
+      "range": 300,
+      "offset": 120,
+      "interval": 1,
+      "duration": 10
+    }
+  },
+  "limitations": [
+    "Cold bonus and coral geometry/durability are lab proposals",
+    "Frozen marker support does not imply freeze reaction implemented",
+    "No actor movement collision on coral wall",
+    "Final art/audio/unlock conditions and native validation incomplete"
+  ]
+}

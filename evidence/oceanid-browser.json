@@ -1,0 +1,54 @@
+{
+  "errors": [],
+  "result": {
+    "boss": {
+      "label": "幻形 1/5波・残り2体／水無効",
+      "name": "純水精霊（仮表示）",
+      "wave": 1,
+      "timer": 0,
+      "phase": "mimics",
+      "remaining": 2,
+      "maxhp": 500,
+      "hp": 500
+    },
+    "actor": {
+      "glide": 0,
+      "elementBonus": 0,
+      "critRate": 0.04,
+      "coyote": 0.08,
+      "setCounts": {
+        "troupe": 0,
+        "gladiator": 1
+      },
+      "critDamageBonus": 0,
+      "skillBonus": 0,
+      "leap": 0,
+      "dir": 1,
+      "light": 0,
+      "drop": 0,
+      "buffer": 0,
+      "iceRun": 0,
+      "maxhp": 161,
+      "ground": true,
+      "id": 1,
+      "dash": 0,
+      "lavaArmor": 0,
+      "troupe4": false,
+      "vy": 0,
+      "normalBonus": 0,
+      "atk": 4,
+      "haste": 0,
+      "hp": 161,
+      "inv": 0,
+      "cd": {
+        "dodge": 0.0500000000000021
+      },
+      "walk": 1,
+      "y": 480,
+      "lock": 0,
+      "x": 678
+    },
+    "requests": 18
+  },
+  "method": "Lv20 Columbina fixture, UI boss launch, normal frame API actions/movement, accelerated; no direct state mutation"
+}

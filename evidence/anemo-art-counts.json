@@ -1,0 +1,28 @@
+{
+  "checks": [
+    "six shared shells plus one core",
+    "all rect profiles expand",
+    "exposure removes only shells"
+  ],
+  "scene": [
+    {
+      "profile": "legacy",
+      "commands": 12943
+    },
+    {
+      "profile": "h48c32",
+      "commands": 7645
+    },
+    {
+      "profile": "h32c16",
+      "commands": 3307
+    }
+  ],
+  "boss_only_counts": {
+    "legacy": 10865,
+    "h48c32": 6486,
+    "h32c16": 2805
+  },
+  "light_reduction_pct": 74.18315692590889,
+  "scope": "matrix drawing count, not PNG or native FPS"
+}

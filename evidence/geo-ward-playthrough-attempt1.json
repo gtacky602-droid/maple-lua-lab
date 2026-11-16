@@ -1,0 +1,40 @@
+{
+  "ward_seen": true,
+  "protected_phase_pulses": 0,
+  "initial_stats": [
+    {
+      "atk": 4,
+      "maxhp": 161
+    },
+    {
+      "atk": 3,
+      "maxhp": 140
+    }
+  ],
+  "seconds": 56.89999999999746,
+  "route_seconds": 9.533333333333387,
+  "returns": 0,
+  "kills": 2,
+  "phases": [
+    "barrage_warning",
+    "down",
+    "ground_exposed",
+    "ground_ready",
+    "hammer_warning",
+    "perch_exposed",
+    "perched",
+    "pulse_warning",
+    "revival",
+    "shots",
+    "shots_warning"
+  ],
+  "boss_hp": 0,
+  "pillar_breaks": 3,
+  "revival_destroyed": 3,
+  "actor_hp": [
+    133,
+    140
+  ],
+  "note": "Lv20 Liyue hub fixture; then route and battle use actions and movement only; sample flower, lab-unlocked skills; no HP/ATK/position edits.",
+  "reported_once": true
+}

@@ -1,0 +1,17 @@
+{
+  "count": 12,
+  "checks": [
+    "fifth attack telegraphed",
+    "ascends and exposes actual hit position",
+    "first volley contains two shots",
+    "shots do not home after launch",
+    "ground normal cannot reach elevated core",
+    "airborne attack reaches exposed core",
+    "four volleys spawn exactly eight shots",
+    "returns to grounded exposed state",
+    "pause freezes boss and bullets",
+    "revival removes owned bullets and lowers core",
+    "death removes owned bullets",
+    "exit clears bullets"
+  ]
+}

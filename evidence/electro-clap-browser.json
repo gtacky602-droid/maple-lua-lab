@@ -1,0 +1,19 @@
+{
+  "errors": [],
+  "boss": {
+    "name": "無相の雷（試作素材）",
+    "phase": "clap_warning",
+    "hp": 275,
+    "label": "挟撃予告・赤い範囲から離れる",
+    "timer": 1.016666666666667,
+    "maxhp": 420,
+    "prisms": 0
+  },
+  "advance": {
+    "stepsRequested": 3666,
+    "phase": "clap_warning",
+    "hp": 60
+  },
+  "launchedFromCatalog": true,
+  "method": "UI launch then normal frame API actions jump/dodge/movement; accelerated simulation; no state mutations"
+}

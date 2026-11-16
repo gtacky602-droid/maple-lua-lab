@@ -1,0 +1,14 @@
+{
+  "errors": [],
+  "boss": {
+    "revivalDestroyed": 0,
+    "brokenPillars": 0,
+    "phase": "shots_warning",
+    "name": "無相の岩（仮形状）",
+    "maxhp": 500,
+    "timer": 1.1833333333333333,
+    "label": "岩弾の予告",
+    "hp": 500
+  },
+  "launchedFromCatalog": true
+}

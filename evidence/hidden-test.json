@@ -1,0 +1,30 @@
+{
+  "count": 25,
+  "checks": [
+    "golden hidden nodes absent before discovery",
+    "golden remote discovery rejected",
+    "golden direct undiscovered portal rejected",
+    "golden clue unlocks exactly this group",
+    "golden discovered portal enters",
+    "golden exploration progresses",
+    "golden discovery persists and resumes safe hidden hub",
+    "golden return to parent route works",
+    "undiscovered hidden checkpoint rejected",
+    "veluriyam hidden nodes absent before discovery",
+    "veluriyam remote discovery rejected",
+    "veluriyam direct undiscovered portal rejected",
+    "veluriyam clue unlocks exactly this group",
+    "veluriyam discovered portal enters",
+    "veluriyam exploration progresses",
+    "veluriyam discovery persists and resumes safe hidden hub",
+    "veluriyam return to parent route works",
+    "simulanka hidden nodes absent before discovery",
+    "simulanka remote discovery rejected",
+    "simulanka direct undiscovered portal rejected",
+    "simulanka clue unlocks exactly this group",
+    "simulanka discovered portal enters",
+    "simulanka exploration progresses",
+    "simulanka discovery persists and resumes safe hidden hub",
+    "simulanka return to parent route works"
+  ]
+}

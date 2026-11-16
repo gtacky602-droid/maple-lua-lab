@@ -1,0 +1,75 @@
+{
+  "runtime": "Lua 5.3 Lupa native, local PC",
+  "scope": "one fixed 1/60 step + Lua draw-command generation; excludes browser / HTTP / Miliastra",
+  "checks": [
+    "16 enemies per screen / 48 total",
+    "movement",
+    "jump reaches upper platform",
+    "land on one-way platform",
+    "drop to ground",
+    "swap keeps hp cooldown gauge",
+    "cooldown prevents duplicate cast",
+    "hit gauge increment once per cast",
+    "insufficient gauge rejected",
+    "shared gauge consumes 60",
+    "light cooldown enforced",
+    "AI deals damage and kills",
+    "effect and event buffers bounded",
+    "gauge bounded",
+    "respawn waits six seconds",
+    "respawn restores enemy",
+    "death switches to living partner",
+    "wipe preserves rewards gauge",
+    "pause freezes simulation"
+  ],
+  "benchmarks": [
+    {
+      "density": 12,
+      "enemies": 36,
+      "sim_seconds": 60,
+      "mean_ms": 0.09324138892427275,
+      "p95_ms": 0.14799999917158857,
+      "max_ms": 14.620699999795761,
+      "peak_lua_kb": 33917.2314453125,
+      "max_lua_commands": 38,
+      "hits": 287,
+      "kills": 57
+    },
+    {
+      "density": 16,
+      "enemies": 48,
+      "sim_seconds": 60,
+      "mean_ms": 0.12014144446058911,
+      "p95_ms": 0.18009999985224567,
+      "max_ms": 27.762399997300236,
+      "peak_lua_kb": 37608.8916015625,
+      "max_lua_commands": 47,
+      "hits": 370,
+      "kills": 70
+    },
+    {
+      "density": 20,
+      "enemies": 60,
+      "sim_seconds": 60,
+      "mean_ms": 0.16152686110924858,
+      "p95_ms": 0.20840000070165843,
+      "max_ms": 36.21679999923799,
+      "peak_lua_kb": 44208.4658203125,
+      "max_lua_commands": 47,
+      "hits": 453,
+      "kills": 88
+    },
+    {
+      "density": 40,
+      "enemies": 120,
+      "sim_seconds": 60,
+      "mean_ms": 0.25489786110786855,
+      "p95_ms": 0.3428999989409931,
+      "max_ms": 34.9129999995057,
+      "peak_lua_kb": 66716.2998046875,
+      "max_lua_commands": 87,
+      "hits": 792,
+      "kills": 164
+    }
+  ]
+}

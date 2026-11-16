@@ -1,0 +1,30 @@
+{
+  "count": 23,
+  "checks": [
+    "sumeru-entry connected and enterable",
+    "sumeru-hub connected and enterable",
+    "sumeru-field connected and enterable",
+    "sumeru authored platforms and enemies",
+    "sumeru lethal hit advances local join",
+    "sumeru checkpoint resumes regional hub",
+    "fontaine-entry rejects underlevel",
+    "fontaine-entry connected and enterable",
+    "fontaine-hub connected and enterable",
+    "fontaine-field connected and enterable",
+    "fontaine authored platforms and enemies",
+    "fontaine lethal hit advances local join",
+    "fontaine checkpoint resumes regional hub",
+    "natlan-entry rejects underlevel",
+    "natlan-entry connected and enterable",
+    "natlan-hub connected and enterable",
+    "natlan-field connected and enterable",
+    "natlan authored platforms and enemies",
+    "natlan lethal hit advances local join",
+    "natlan checkpoint resumes regional hub",
+    "Natlan harbor reached through entire graph",
+    "every edge and checkpoint references existing stage",
+    "every quest target and hub exist"
+  ],
+  "nodes": 58,
+  "quests": 44
+}

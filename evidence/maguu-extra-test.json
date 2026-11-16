@@ -1,0 +1,20 @@
+{
+  "checks": [
+    "push warning selects locked corridor",
+    "push retains direction",
+    "moving mask makes contact",
+    "same mask cannot hit actor twice",
+    "mask removed after travel",
+    "combo starts facing player",
+    "first strike spawns locked phantom",
+    "second strike retargets opposite side",
+    "exactly three strikes then recover",
+    "stage one combo has no phantom",
+    "AI target outside warning",
+    "AI holds safe location during warning",
+    "normal AI resumes after warning",
+    "transition cancels old hazards",
+    "phantom uses sprite with visible label"
+  ],
+  "count": 15
+}

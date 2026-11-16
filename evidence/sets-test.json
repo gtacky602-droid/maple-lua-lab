@@ -1,0 +1,18 @@
+{
+  "count": 13,
+  "checks": [
+    "gladiator two set adds twelve percent ATK",
+    "four set normal bonus only",
+    "fall below four disables effect",
+    "companion does not inherit traveler set",
+    "targeted set on new drops",
+    "old items do not mutate when target changes",
+    "troupe two and four active",
+    "manual troupe bonus uses 15 percent",
+    "AI troupe bonus uses 25 percent",
+    "critical bonus enters final damage",
+    "critical event flagged",
+    "critical sequence survives save restore",
+    "legacy gear gains no invented set bonuses"
+  ]
+}

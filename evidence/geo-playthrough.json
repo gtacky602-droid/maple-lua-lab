@@ -1,0 +1,31 @@
+{
+  "initial_stats": [
+    {
+      "atk": 4,
+      "maxhp": 161
+    },
+    {
+      "atk": 3,
+      "maxhp": 140
+    }
+  ],
+  "seconds": 35.11666666666596,
+  "returns": 0,
+  "kills": 1,
+  "phases": [
+    "down",
+    "perched",
+    "pulse_warning",
+    "revival",
+    "shots",
+    "shots_warning"
+  ],
+  "boss_hp": 0,
+  "pillar_breaks": 3,
+  "revival_destroyed": 3,
+  "actor_hp": [
+    161,
+    140
+  ],
+  "note": "Action and movement input only; sample flower, lab-unlocked skills; no HP/ATK/position edits."
+}

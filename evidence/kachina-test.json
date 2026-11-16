@@ -1,0 +1,22 @@
+{
+  "count": 17,
+  "checks": [
+    "normal source hits and damage",
+    "skill1 source hits and damage",
+    "skill2 source hits and damage",
+    "skill4 source hits and damage",
+    "top survives control swap",
+    "top expires at nine seconds",
+    "recast replaces top",
+    "rush moves actor",
+    "rush respects walls",
+    "climb boost increases actual vertical movement",
+    "climb boost expires",
+    "flat combat AI avoids traversal buff",
+    "AI enables boost at authored climb route",
+    "death cancels top",
+    "pause freezes top",
+    "map clears top",
+    "selection saved"
+  ]
+}

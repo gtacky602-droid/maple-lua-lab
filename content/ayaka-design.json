@@ -1,0 +1,34 @@
+{
+  "companion": "ayaka",
+  "status": "partial",
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json",
+  "skills": {
+    "normal": "physical100%x3",
+    "dash": "cryo125%x3 CT6",
+    "slash": "cryo160%x6 CT8",
+    "dodge": "invulnerability0.6s CT10, no damage",
+    "blizzard": "cryo150%x12 first0.4 interval0.25 CT25 visualduration3.5"
+  },
+  "draft": {
+    "dash_seconds": 0.25,
+    "dash_speed": 650,
+    "attack_range": 180,
+    "blizzard_offset": 150,
+    "blizzard_vertical": 160
+  },
+  "behavior": [
+    "dash stops on solid walls and unsupported ground",
+    "blizzard fixed origin, replacement not stacking",
+    "no full boss freeze",
+    "danger dodge before offensive AI priorities",
+    "death/map change cancels placed effect and pending attacks",
+    "selection and checkpoint supported"
+  ],
+  "unfinished": [
+    "final sprites/animation",
+    "personal base stats and equipment",
+    "story join conditions",
+    "full freeze reactions",
+    "native Miliastra verification"
+  ]
+}

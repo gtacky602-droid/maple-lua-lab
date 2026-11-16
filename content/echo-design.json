@@ -1,0 +1,35 @@
+{
+  "skill": "SK59",
+  "status": "partial",
+  "source": "sources/20261113-master.md section SK59/v0.5 direct-channel trial restriction",
+  "rule": "Last successful eligible traveler cast, base multiplier * .55, same hit count/interval/target shape; recalculate current ATK/equipment and per-hit defense/resistance/crit",
+  "timing": {
+    "cooldown": 24,
+    "first_hit": 0.12,
+    "lock": 0.35,
+    "channel_lock": "original channel duration"
+  },
+  "excluded": [
+    "normal",
+    "healing",
+    "shield",
+    "platform",
+    "deployment/summon",
+    "echo itself",
+    "ultimate",
+    "whole macro"
+  ],
+  "behavior": [
+    "ineligible/failed casts retain last eligible record",
+    "record taken before hits so original execution cannot mutate it",
+    "record cleared on death/map change; not checkpointed",
+    "new position/facing/target acquisition; source elemental partner condition still checked",
+    "copied channel interruptible; dash movement retained; gauge gained once as skill"
+  ],
+  "unfinished": [
+    "deployment copy policy is undecided, not permanently rejected",
+    "final art and animation",
+    "Lv170/all-seven unlock gates",
+    "native Miliastra verification"
+  ]
+}

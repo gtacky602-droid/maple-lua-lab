@@ -1,0 +1,66 @@
+{
+  "status": "partial_2d_adaptation",
+  "source": "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/regisvines",
+  "lab_proposals": {
+    "hp": 750,
+    "shield_damage_factor": 0.2,
+    "core": 6,
+    "core_cooldown": 0.25,
+    "head_hit_anchor_y": 350,
+    "ice_attack": {
+      "count": 3,
+      "speed": 200,
+      "homing_seconds": 1.5,
+      "life": 5,
+      "damage": 18,
+      "steam_compatible": true
+    },
+    "ground": {
+      "warning": 1.5,
+      "duration": 8,
+      "damage": 10,
+      "per_actor_interval": 1,
+      "inner_radius": 200,
+      "safe_airborne_feet_below": 475
+    },
+    "cross_beam": {
+      "warning": 1.3,
+      "duration": 0.7,
+      "damage": 28,
+      "hits_per_actor_per_attack": 1,
+      "geometry": "Two locked rays sampled every <=7px into 14px damage squares. Warning uses same centerline. Core break cancels."
+    }
+  },
+  "unfinished": [
+    "full animation and pixel art",
+    "rewards and balancing",
+    "browser-input full victory verification",
+    "original full moveset parity"
+  ],
+  "hitboxes": {
+    "body_anchor_interval": [
+      350,
+      480
+    ],
+    "root_core_y": 480,
+    "head_core_y": 350,
+    "down_body_interval": [
+      480,
+      480
+    ],
+    "rule": "Each cast hits the body once; core checks its own height against the same cast. Head lowers during slam warning."
+  },
+  "acceptance": {
+    "lua_input_controller": "passed with sample flower, ATK4 HP161 traveler + Amber ATK3 HP140, unlocked skills",
+    "seconds": 173.7833,
+    "core_breaks": 4,
+    "returns": 0,
+    "unarmored_controller": "two failed attempts retained; not balanced as guaranteed starter victory",
+    "browser": "beam warning appearance verified; not full battle victory"
+  },
+  "art": {
+    "source": "assets/cryo-regisvine-source-v1.png",
+    "runtime": "boss-art.lua",
+    "status": "idle candidate; down uses height scaling; no animation"
+  }
+}

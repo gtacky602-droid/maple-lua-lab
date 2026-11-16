@@ -1,0 +1,101 @@
+{
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json",
+  "status": "partial",
+  "skills": [
+    {
+      "id": "SK25",
+      "name": "冰の剣",
+      "category": "単独",
+      "elements": [
+        "氷"
+      ],
+      "unlock_level": 140,
+      "damage_segments": [
+        {
+          "pct_per_hit": 230,
+          "hit_count": 3
+        }
+      ],
+      "max_enemy_targets": 4,
+      "cooldown_seconds": 3,
+      "role": "近接・主力",
+      "effect": "氷の刃で3連斬り。名称は原案表記を保持。"
+    },
+    {
+      "id": "SK26",
+      "name": "氷結衝撃波",
+      "category": "単独",
+      "elements": [
+        "氷"
+      ],
+      "unlock_level": 144,
+      "damage_segments": [
+        {
+          "pct_per_hit": 170,
+          "hit_count": 5
+        }
+      ],
+      "max_enemy_targets": 8,
+      "cooldown_seconds": 9,
+      "role": "広域狩り",
+      "effect": "前方に氷の衝撃波5段。冷気を付着。"
+    },
+    {
+      "id": "SK27",
+      "name": "霜柱の檻",
+      "category": "単独",
+      "elements": [
+        "氷"
+      ],
+      "unlock_level": 150,
+      "damage_segments": [
+        {
+          "pct_per_hit": 110,
+          "hit_count": 4
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 18,
+      "role": "拘束・設置",
+      "effect": "4回氷柱を発生。通常敵は最大2秒拘束、ボスは鈍足。"
+    },
+    {
+      "id": "SK28",
+      "name": "氷晶散弾",
+      "category": "単独",
+      "elements": [
+        "氷"
+      ],
+      "unlock_level": 156,
+      "damage_segments": [
+        {
+          "pct_per_hit": 130,
+          "hit_count": 8
+        }
+      ],
+      "max_enemy_targets": 3,
+      "cooldown_seconds": 12,
+      "role": "単体寄り・散弾",
+      "effect": "至近距離では8ヒットが集中、離れるほど分散。"
+    }
+  ],
+  "draft_parameters": {
+    "SK25_range": 180,
+    "SK25_interval": 0.15,
+    "SK26_range": 360,
+    "SK26_interval": 0.2,
+    "SK26_chill_seconds": 4,
+    "SK27_radius": 160,
+    "SK27_offset": 180,
+    "SK27_pulses": "seconds 1 through 4; bind once per target for two seconds, no refresh from same cast",
+    "SK28_range": 450,
+    "SK28_interval": 0.08,
+    "SK28_distribution": "8 total pellets; nearest within 100 receives all; otherwise round-robin among nearest three, reacquired per pellet; prototype interpretation of distance-dependent scattering"
+  },
+  "limitations": [
+    "Cold marker only; freeze/melt/superconduct reactions not implemented",
+    "Distances, intervals, cold duration and scatter distribution are prototype choices",
+    "Final art/audio and unlock conditions incomplete",
+    "Native Miliastra not verified"
+  ]
+}

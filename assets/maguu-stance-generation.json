@@ -1,0 +1,7 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Edit this game sprite into ONE alternate anticipation pose for the exact same mechanical samurai character. Preserve the ivory horned oni mask, white mane, turquoise cloth, dark navy armor, red cords, wooden limbs, pixel-art cluster style and proportions. Full body three-quarter view facing LEFT. Pose: low bent-knee Iai preparation stance, torso leaning forward, katana held horizontally near waist in both hands ready to draw/strike, blade pointing left, tightly controlled compact silhouette. Both feet grounded on one baseline. Keep body identity and details consistent with reference; no duplicate character, no detached props, no slash effects, no background, no floor or shadow, no lettering. Transparent background. Provide ample transparent margins, full horns, feet and blade visible. Single still animation key pose.",
+  "reference": "maguu-source-v1.png",
+  "source": "exec-00ec7048-417e-4045-85f6-dd34184cf55f.png",
+  "status": "anticipation key pose; rendered 130px vs idle 150px, not full animation"
+}

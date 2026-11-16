@@ -1,0 +1,18 @@
+{
+  "checks": [
+    "1: exactly selected sentinel vulnerable",
+    "1: other death cannot release core",
+    "1: selected death releases core",
+    "2: exactly selected sentinel vulnerable",
+    "2: other death cannot release core",
+    "2: selected death releases core",
+    "3: exactly selected sentinel vulnerable",
+    "3: other death cannot release core",
+    "3: selected death releases core",
+    "4: exactly selected sentinel vulnerable",
+    "4: other death cannot release core",
+    "4: selected death releases core",
+    "invalid selection not launched"
+  ],
+  "count": 13
+}

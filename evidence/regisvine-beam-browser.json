@@ -1,0 +1,16 @@
+{
+  "errors": [],
+  "enteredFromRegistry": true,
+  "warning": {
+    "label": "交差ビーム予告・線から離れる ／ 核 6/6",
+    "breaks": 0,
+    "timer": 1.2666666666666668,
+    "phase": "beam_warning",
+    "corePosition": "root",
+    "name": "急凍樹（仮素材）",
+    "core": 6,
+    "coreY": 480,
+    "maxhp": 750,
+    "hp": 750
+  }
+}

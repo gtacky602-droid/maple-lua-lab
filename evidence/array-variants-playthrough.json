@@ -1,0 +1,106 @@
+[
+  {
+    "seconds": 45.83333333333142,
+    "returns": 0,
+    "boss_hp": 0,
+    "actor_hp": [
+      77.17500000000004,
+      6.5
+    ],
+    "phases": [
+      "beam",
+      "beam_warning",
+      "down",
+      "orbital_warning",
+      "ready",
+      "recover",
+      "rocket",
+      "slam_warning",
+      "spin",
+      "spin_slash_warning",
+      "spin_warning",
+      "split",
+      "sword_warning"
+    ],
+    "note": "Lv40/sample flower/Beidou fixture; direct selected laboratory encounter after walking to approach, normal battle inputs only; no story completion claim",
+    "marked_index": 1
+  },
+  {
+    "seconds": 42.183333333331625,
+    "returns": 0,
+    "boss_hp": 0,
+    "actor_hp": [
+      73.15000000000003,
+      19
+    ],
+    "phases": [
+      "beam",
+      "beam_warning",
+      "down",
+      "orbital_warning",
+      "ready",
+      "recover",
+      "rocket",
+      "slam_warning",
+      "spin",
+      "spin_slash_warning",
+      "spin_warning",
+      "split",
+      "sword_warning"
+    ],
+    "note": "Lv40/sample flower/Beidou fixture; direct selected laboratory encounter after walking to approach, normal battle inputs only; no story completion claim",
+    "marked_index": 2
+  },
+  {
+    "seconds": 38.19999999999852,
+    "returns": 0,
+    "boss_hp": 0,
+    "actor_hp": [
+      111.15000000000003,
+      40.0
+    ],
+    "phases": [
+      "beam",
+      "beam_warning",
+      "down",
+      "orbital_warning",
+      "ready",
+      "recover",
+      "rocket",
+      "slam_warning",
+      "spin",
+      "spin_slash_warning",
+      "spin_warning",
+      "split",
+      "sword_warning"
+    ],
+    "note": "Lv40/sample flower/Beidou fixture; direct selected laboratory encounter after walking to approach, normal battle inputs only; no story completion claim",
+    "marked_index": 3
+  },
+  {
+    "seconds": 49.733333333331196,
+    "returns": 0,
+    "boss_hp": 0,
+    "actor_hp": [
+      57.20000000000001,
+      60.5
+    ],
+    "phases": [
+      "beam",
+      "beam_warning",
+      "down",
+      "orbital_warning",
+      "ready",
+      "recover",
+      "rocket",
+      "slam_warning",
+      "spin",
+      "spin_slash_warning",
+      "spin_warning",
+      "split",
+      "sword_warning"
+    ],
+    "note": "Lv40/sample flower/Beidou fixture; direct selected laboratory encounter after walking to approach, normal battle inputs only; no story completion claim",
+    "marked_index": 4
+  }
+]

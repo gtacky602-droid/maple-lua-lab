@@ -1,0 +1,34 @@
+{
+  "companion": "kachina",
+  "status": "partial",
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json",
+  "skills": {
+    "normal": "100%x2",
+    "top": "110%x8 first.5 interval1.1 duration9 CT16",
+    "rush": "140%x5 CT10",
+    "climb": "5s traversal +25% CT12",
+    "ultimate": "185%x7 CT24"
+  },
+  "draft": {
+    "range": 300,
+    "melee_range": 180,
+    "vertical": 160,
+    "top_offset": 120,
+    "dash_duration": 0.25,
+    "dash_speed": 650,
+    "climb": "existing authored vines only; speed280 to350; no arbitrary wall climbing"
+  },
+  "behavior": [
+    "top survives control swap, recast replaces",
+    "AI traversal buff only near vine and higher target; flat fight zero uses normal",
+    "climbing requires manual Space or AI climb intent",
+    "no rideable top mode specified/implemented",
+    "death/map clears top and boost"
+  ],
+  "unfinished": [
+    "ride mode and full traversal specification",
+    "final sprites",
+    "personal stats/join quest",
+    "native verification"
+  ]
+}

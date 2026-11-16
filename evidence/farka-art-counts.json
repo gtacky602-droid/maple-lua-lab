@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "PNG default left",
+    "PNG flips right",
+    "all rectangle profiles mirror around boss anchor"
+  ],
+  "boss_only_counts": {
+    "legacy": 3052,
+    "h48c32": 1842,
+    "h32c16": 852
+  },
+  "light_reduction_pct": 72.08387942332897,
+  "source_sha256": "a41dab0f859a3038feddba85efda0c8ca02285519eb6d59f3549bc88dee2a3d9",
+  "status": "provisional costume, idle only"
+}

@@ -1,0 +1,63 @@
+{
+  "errors": [],
+  "enteredFromRegistry": true,
+  "boss": {
+    "phase": "recover",
+    "label": "攻撃後の隙 ／ 核 6/6",
+    "name": "急凍樹（仮素材）",
+    "breaks": 0,
+    "corePosition": "root",
+    "timer": 1.9500000000000002,
+    "coreY": 480,
+    "maxhp": 750,
+    "core": 6,
+    "hp": 750
+  },
+  "projectiles": [
+    {
+      "color": "#a4dfff",
+      "homingTime": 1.5,
+      "y": 315.8901383251912,
+      "x": 628.0530854365402,
+      "target": 1,
+      "age": 0.06666666666666667,
+      "damage": 18,
+      "obscured": false,
+      "source": 26020101,
+      "speed": 200,
+      "life": 4.933333333333334,
+      "turnRate": 2.4,
+      "angle": 2.743539872566017
+    },
+    {
+      "color": "#a4dfff",
+      "homingTime": 1.5,
+      "y": 314.0427154303593,
+      "x": 627.2943229331563,
+      "target": 1,
+      "age": 0.06666666666666667,
+      "damage": 18,
+      "obscured": false,
+      "source": 26020101,
+      "speed": 200,
+      "life": 4.933333333333334,
+      "turnRate": 2.4,
+      "angle": 2.833539872566017
+    },
+    {
+      "color": "#a4dfff",
+      "homingTime": 1.5,
+      "y": 312.09650940729347,
+      "x": 626.8460216899365,
+      "target": 1,
+      "age": 0.06666666666666667,
+      "damage": 18,
+      "obscured": false,
+      "source": 26020101,
+      "speed": 200,
+      "life": 4.933333333333334,
+      "turnRate": 2.4,
+      "angle": 2.9235398725660167
+    }
+  ]
+}

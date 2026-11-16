@@ -1,0 +1,18 @@
+{
+  "count": 13,
+  "checks": [
+    "ground body damage without head core damage",
+    "head hit damages body and core once",
+    "wide attack does not double hit overlapping body and core",
+    "above both hitboxes misses",
+    "slam lowers head but keeps body stationary",
+    "lowered head reachable from ground",
+    "ice attack emits three real projectiles",
+    "projectiles own source and finite homing",
+    "initial flight turns toward target",
+    "after homing deadline flies straight",
+    "pause freezes projectile age and position",
+    "boss defeat clears owned projectiles",
+    "exit clears attack and hitbox state"
+  ]
+}

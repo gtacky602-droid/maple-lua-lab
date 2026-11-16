@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "source": "cryo-regisvine-source-v1.png",
+  "transparent_background": true,
+  "prompt": "Create ONE transparent-background game sprite: Cryo Regisvine from Genshin Impact reinterpreted as charming detailed MapleStory-like 2D side scrolling pixel art. Entire monster visible, stationary root base at bottom center, curved dark teal stem, icy blue crystalline six-petal flower head at top leaning slightly left, two curled icy vine arms. Pale cyan crystal highlights, deep navy outlines, restrained approximately 24-color palette, deliberate chunky square pixel clusters, no smooth painterly gradients, no glow outside silhouette. Single idle standing pose, facing left in side-view, no text, no UI, no ground, no shadow, no other sprites. Approximate 128x160 logical pixel silhouette rendered cleanly enlarged within square canvas with generous transparent margins. Root base stays narrower than flower crown. This is a source asset for an actual game sprite pipeline, prioritize readable silhouette.",
+  "status": "generated idle candidate; no attack animation; down state scales height"
+}

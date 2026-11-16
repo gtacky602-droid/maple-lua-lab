@@ -1,0 +1,26 @@
+{
+  "skill": "SK58",
+  "status": "partial",
+  "sources": [
+    "sources/20261116-amendment.md",
+    "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+  ],
+  "implemented": [
+    "Q and slot share60gauge/60s cooldown/12s duration/.35s lock",
+    "190%x4 normal/max5 replaces110%x2/max2",
+    "traveler elemental hits and empowered normal +18% once",
+    "AI companion damage +10%; manual companion excluded",
+    "pause freezes timer; death/map exit clears form; save only preserves gauge and loadout"
+  ],
+  "draft": [
+    "bonus evaluated at hit time and added to existing damage bonus pool",
+    "empowered normal retains physical resistance calculation; no eighth elemental aura, suppresses extra aura applications",
+    "Lv160 and all-seven-elements gate bypassed by lab unlock"
+  ],
+  "unfinished": [
+    "first learning event",
+    "final transformation artwork/animation",
+    "production unlock/AI gauge reservation policy",
+    "native Miliastra verification"
+  ]
+}

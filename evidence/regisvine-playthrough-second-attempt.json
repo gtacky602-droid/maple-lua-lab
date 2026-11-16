@@ -1,0 +1,22 @@
+{
+  "seconds": 125.29999999999417,
+  "returns": 1,
+  "kills": 0,
+  "core_breaks": 3,
+  "phases": [
+    "beam_active",
+    "beam_warning",
+    "down",
+    "ice_warning",
+    "ready",
+    "recover",
+    "rise_warning",
+    "slam_warning"
+  ],
+  "boss_hp": null,
+  "actor_hp": [
+    140,
+    140
+  ],
+  "note": "Fresh Lv1 default stats, lab-unlocked skill loadout. Controller uses actions and input only; no HP/stat/position mutations."
+}

@@ -1,0 +1,20 @@
+{
+  "count": 15,
+  "checks": [
+    "editing outside town rejected",
+    "invalid sequence rejected ['SK01', 'SK01', 'SK01', 'SK01']",
+    "invalid sequence rejected ['SK61']",
+    "invalid sequence rejected ['slot1']",
+    "three skills accepted",
+    "macro starts one cast",
+    "repeated activation cannot bypass CT",
+    "ordered casts respect CT and lock",
+    "sequence terminates",
+    "no automatic loop",
+    "explicit cancel",
+    "swap cancels queued skills",
+    "companion cannot use traveler slots",
+    "loadout persisted in checkpoint",
+    "old saves get defaults"
+  ]
+}

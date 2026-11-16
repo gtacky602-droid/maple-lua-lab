@@ -1,0 +1,49 @@
+{
+  "parts": [
+    {
+      "part": 1,
+      "counts": {
+        "legacy": 2872,
+        "h48c32": 1749,
+        "h32c16": 809
+      },
+      "reduction": 0.7183147632311977,
+      "sha256": "8bcdd98c1bbf711fcd2e14c6031950de641a0fdd61ac6e9873607a38a1143382",
+      "anchor": 0.25743006993006995
+    },
+    {
+      "part": 2,
+      "counts": {
+        "legacy": 863,
+        "h48c32": 523,
+        "h32c16": 227
+      },
+      "reduction": 0.7369640787949014,
+      "sha256": "f55f41459c484dab7f02ff3e817bca4e57c5f736ff9b6c0985690617aac2ab05",
+      "anchor": 0.5
+    },
+    {
+      "part": 3,
+      "counts": {
+        "legacy": 1183,
+        "h48c32": 690,
+        "h32c16": 322
+      },
+      "reduction": 0.7278106508875739,
+      "sha256": "b6f8549875d014a635011a14f666b48ee4ac6dcc391d5aa5f9e8e2be1411488c",
+      "anchor": 0.5
+    },
+    {
+      "part": 4,
+      "counts": {
+        "legacy": 1056,
+        "h48c32": 607,
+        "h32c16": 266
+      },
+      "reduction": 0.7481060606060606,
+      "sha256": "2e5f7fc18ff1d941ce2a68ffc8e0e77d50ba47a0a935008a7bdbd56fdee805d3",
+      "anchor": 0.5930996714129244
+    }
+  ],
+  "checks": "4 hashes, transparency, both facings, 3 profiles, shared bottom baseline"
+}

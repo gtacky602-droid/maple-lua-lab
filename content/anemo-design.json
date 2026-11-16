@@ -1,0 +1,38 @@
+{
+  "boss_id": "20040201",
+  "name": "無相の風",
+  "status": "partial_2d_encounter",
+  "source": "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/hypostases",
+  "source_checked": "2026-11-16",
+  "adaptation": "外殻による防御と核の露出、挟撃、竜巻、終盤の風玉回収を2D化。取得した風玉は再回復時にも戻さない。",
+  "provisional_values": {
+    "hp": 300,
+    "clap_warning_seconds": 1.2,
+    "clap_damage": 28,
+    "vortex_damage": 12,
+    "exposed_seconds": 4,
+    "revival_seconds": 12,
+    "revival_orbs": 4,
+    "heal_per_remaining_orb": 60
+  },
+  "not_implemented": [
+    "竜巻への元素変化",
+    "吸引と衝撃波",
+    "蝶型攻撃・遠隔弾・落下攻撃",
+    "完成版ドット絵・モーション",
+    "地域内の正式な配置",
+    "固有素材ドロップ・初回報酬記録",
+    "現在の攻撃にない元素の接続・元素反応"
+  ],
+  "verification": [
+    "evidence/anemo-test.json",
+    "evidence/anemo-browser.json"
+  ],
+  "completion_claim": false,
+  "implemented_resistance": {
+    "anemo": "immune",
+    "physical": 0,
+    "pyro": 0.1,
+    "geo": 0.1
+  }
+}

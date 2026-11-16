@@ -1,0 +1,24 @@
+{
+  "boss_only_counts": {
+    "legacy": 3409,
+    "h48c32": 2162,
+    "h32c16": 985
+  },
+  "reduction_pct": 71.10589615723086,
+  "scene": [
+    {
+      "profile": "legacy",
+      "commands": 5494
+    },
+    {
+      "profile": "h48c32",
+      "commands": 3328
+    },
+    {
+      "profile": "h32c16",
+      "commands": 1494
+    }
+  ],
+  "source_sha256": "86a097337edcf82fc3c90b1d9af131d6fc94f8d1b851828ccaf3e204ea2d2640",
+  "scope": "rect drawing command count, not PNG cost or native FPS"
+}

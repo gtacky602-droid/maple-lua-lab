@@ -1,0 +1,14 @@
+{
+  "errors": [],
+  "boss": {
+    "splitUsed": false,
+    "timer": 0.7166666666666666,
+    "label": "回転後の斬撃・離れる",
+    "x": 437.5,
+    "hp": 688,
+    "phase": "spin_slash_warning",
+    "maxhp": 800,
+    "name": "恒常からくり陣形"
+  },
+  "method": "UI launch, accelerated ordinary frame API and left movement; spin final warning display, not a complete playthrough"
+}

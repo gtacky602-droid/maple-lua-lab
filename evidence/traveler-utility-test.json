@@ -1,0 +1,21 @@
+{
+  "count": 16,
+  "checks": [
+    "haste movement +25 percent",
+    "haste allows attacks",
+    "haste expires after six seconds",
+    "haste cooldown not bypassed",
+    "updraft lifts both party members",
+    "updraft expires after five seconds",
+    "stone placed within world",
+    "stone supports collision",
+    "expired stone releases player",
+    "at most two stones",
+    "zone change clears transient structures",
+    "spear two hits and small enemy knockback",
+    "boss cannot be pushed",
+    "moving shockwave pulses resolve",
+    "utilities can be assigned as macro",
+    "utility macro finishes with haste draft and stone"
+  ]
+}

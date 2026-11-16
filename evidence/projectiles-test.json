@@ -1,0 +1,19 @@
+{
+  "count": 14,
+  "checks": [
+    "steam six hits over seven seconds",
+    "steam reduces angular steering to twenty percent",
+    "projectile hits and is consumed",
+    "invulnerability prevents projectile damage",
+    "solid wall blocks projectile",
+    "rock wall spends durability",
+    "broken wall passes remaining projectile damage",
+    "coral wall blocks projectile",
+    "pause freezes projectile",
+    "projectile lifetime expires",
+    "projectile cap bounded",
+    "map transition clears projectiles",
+    "steam skill equips",
+    "steam slot persists"
+  ]
+}

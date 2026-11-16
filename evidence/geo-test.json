@@ -1,0 +1,28 @@
+{
+  "count": 23,
+  "checks": [
+    "four pillars and shielded elevated core",
+    "shell blocks attack",
+    "non blunt element cannot brute force pillar",
+    "physical gauge independent of ATK",
+    "geo stronger with application cooldown",
+    "occupied pillar drops core without rewards",
+    "core immune to geo",
+    "recovers onto another pillar",
+    "unoccupied pillar break does not drop core",
+    "lethal core damage waits for revival",
+    "three revival pillars replace normal pillars",
+    "first revival pillar persists as destroyed",
+    "two pillars heal 35 percent and restore four normal pillars",
+    "broken revival pillar does not return",
+    "last revival pillar immediately defeats once",
+    "no respawn and objects cleaned",
+    "exit clears encounter",
+    "all normal pillars destroyed leads to ground combat",
+    "ground hammer telegraphs",
+    "pause freezes phase",
+    "wipe cleans encounter",
+    "pillar shooting spawns attributed projectile",
+    "pillar collapse cancels owned projectiles"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "count": 15,
+  "checks": [
+    "ninety second voyage begins",
+    "early disembark rejected",
+    "before thirty seconds rejected",
+    "thirty seconds opens stopover",
+    "optional stop disembarks and cancels old timer",
+    "shore does not teleport at old arrival time",
+    "ruins visit progresses optional quest",
+    "shore save resumes at shore",
+    "reboard resumes outbound leg with forty seconds left",
+    "reboard reaches NodKrai",
+    "fifty seconds closes disembark",
+    "staying aboard reaches next country without optional visit",
+    "pause preserves stopover window",
+    "cancel does not later arrive",
+    "mid reboard save returns safe original harbor"
+  ]
+}

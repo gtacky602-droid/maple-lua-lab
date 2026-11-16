@@ -1,0 +1,20 @@
+{
+  "count": 15,
+  "checks": [
+    "sixth attack is combo",
+    "first strike and second warning",
+    "second strike and wider final warning",
+    "third strike then recovery",
+    "moving behind avoids all strikes and facing stays locked",
+    "seventh attack is breath warning",
+    "warning does no damage",
+    "breath starts with delay",
+    "four breath pulses then recovery",
+    "behind breath stays safe",
+    "outside breath reach stays safe",
+    "pause freezes breath pulse clock",
+    "defeat cancels active breath",
+    "right facing breath also hits",
+    "exit clears encounter"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "errors": [],
+  "boss": {
+    "timer": 1.1000000000000003,
+    "phase": "walls_warning",
+    "maxhp": 700,
+    "name": "雷音権現",
+    "fury": 100,
+    "x": 620,
+    "label": "両側に雷壁",
+    "hp": 700,
+    "enraged": true
+  },
+  "method": "UI launch and walls warning display; not a complete playthrough"
+}

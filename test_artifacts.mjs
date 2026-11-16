@@ -1,0 +1,31 @@
+import {chromium} from 'playwright';import fs from 'node:fs/promises';
+const browser=await chromium.launch({headless:true,channel:'chrome'}),page=await browser.newPage(),errors=[];
+page.on('pageerror',e=>errors.push(e.message));
+try{
+ await page.goto('http://127.0.0.1:8769');await page.waitForFunction(()=>window.lab?.frame);
+ await page.locator('[data-action="campaign"]').click();await page.waitForFunction(()=>window.lab.frame.campaign?.zone==='town');
+ await page.getByText('聖遺物バッグ・5部位装備',{exact:true}).click();
+ await page.locator('[data-action="artifact_samples"]').click();await page.waitForFunction(()=>window.lab.frame.inventory.items.length===5);
+ await page.locator('#inventoryRows > div').nth(1).getByRole('button',{name:'操作中キャラに装備'}).click();
+ await page.waitForFunction(()=>window.lab.frame.actors[0].atk>4);
+ const attack=await page.evaluate(()=>window.lab.frame.actors[0].atk);
+ await page.locator('#saveProgress').click();await page.waitForFunction(()=>document.getElementById('saveStatus').textContent.includes('保存しました'));
+ await page.reload();await page.waitForFunction(()=>window.lab?.frame);await page.locator('#loadProgress').click();
+ await page.waitForFunction(n=>window.lab.frame.actors[0].atk===n,attack);
+ await page.getByText('聖遺物バッグ・5部位装備',{exact:true}).click();
+ await page.screenshot({path:'evidence/artifacts-browser.png',fullPage:true});
+ const row=page.locator('#inventoryRows > div').first();
+ await row.getByRole('button',{name:'ロック',exact:true}).click();
+ await page.waitForFunction(()=>window.lab.frame.inventory.items[0].locked===true);
+ if(!await row.getByRole('button',{name:/売却/}).isDisabled())throw Error('locked sale enabled');
+ await row.getByRole('button',{name:'ロック解除',exact:true}).click();
+ await page.waitForFunction(()=>window.lab.frame.inventory.items[0].locked===false);
+ const before=await page.evaluate(()=>window.lab.frame.mora);
+ await row.getByRole('button',{name:/売却/}).click();
+ await page.waitForFunction(()=>window.lab.frame.inventory.items.length===4);
+ const after=await page.evaluate(()=>window.lab.frame.mora);
+ if(after-before!==630)throw Error('sale price mismatch');
+ if(errors.length)throw Error(errors.join('\n'));
+ await fs.writeFile('evidence/artifacts-browser.json',JSON.stringify({errors,kitItems:5,equippedAttack:attack,saveReload:true,lockAndSale:true},null,2));
+ console.log('Artifact kit, equip stat change and persisted equipment passed');
+}finally{await browser.close()}

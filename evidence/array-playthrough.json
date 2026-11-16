@@ -1,0 +1,26 @@
+{
+  "seconds": 45.83333333333142,
+  "returns": 0,
+  "boss_hp": 0,
+  "actor_hp": [
+    77.17500000000004,
+    6.5
+  ],
+  "phases": [
+    "beam",
+    "beam_warning",
+    "down",
+    "orbital_warning",
+    "ready",
+    "recover",
+    "rocket",
+    "slam_warning",
+    "spin",
+    "spin_slash_warning",
+    "spin_warning",
+    "split",
+    "sword_warning"
+  ],
+  "note": "Lv40 Inazuma port fixture, sample flower, lab skills. Walking/battle/return/report via inputs. No HP/ATK/position edits in combat.",
+  "reported_once": true
+}

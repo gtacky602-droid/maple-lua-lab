@@ -1,0 +1,19 @@
+{
+  "count": 13,
+  "checks": [
+    "lab kills not retroactively credited",
+    "companion kill awards shared EXP",
+    "one reward per kill",
+    "exact threshold levels once",
+    "level does not grant equipment ATK",
+    "multiple levels and remainder",
+    "quest reward once",
+    "restore neither replays kills nor report reward",
+    "roundtrip preserves progression",
+    "inconsistent EXP rejected",
+    "old saves migrate without replaying rewarded quest",
+    "region eligibility follows shared level",
+    "eligibility does not claim map exists"
+  ],
+  "model": "provisional, not official EXP table"
+}

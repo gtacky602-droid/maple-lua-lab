@@ -1,0 +1,70 @@
+{
+  "status": "partial; single encounter prototype",
+  "source": "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/maguu-kenki",
+  "retrieved": "2026-11-16",
+  "source_mechanics": [
+    "71% HP triggers invulnerable transition; 70% HP floor before transition finishes",
+    "Idle protective mask blocks ranged attacks",
+    "Exploding mask, Iai, circular slash, phase-two phantom follow-up"
+  ],
+  "lab_values": {
+    "hp": 700,
+    "start_seconds": 2,
+    "transition_seconds": 2.5,
+    "transition_radius": 230,
+    "ranged_distance_proxy": 220,
+    "resistance": 0.1,
+    "push_duration": 0.6,
+    "push_distance": 360,
+    "combo_damage": 18,
+    "combo_phantom_damage": 16
+  },
+  "differences": [
+    "All remote casts during ready/recover use distance proxy, not verified projectile classification",
+    "Instantaneous Iai corridor hit, no animated dash",
+    "Warnings and hit radii are 2D lab values; not original measurements",
+    "Inazuma road connection and commission rewards are provisional",
+    "Five fixed attack cycle; triple slash retargets each hit and phase two inserts delayed phantom hits",
+    "Generated idle sprite reused for phantom with label; not animated or element-tinted"
+  ],
+  "remaining": [
+    "Precise targeting, taunt and movement",
+    "Native game validation",
+    "Attack animation and phantom sprite"
+  ],
+  "validation": {
+    "input_playthrough": "evidence/maguu-playthrough.json",
+    "assets": "evidence/maguu-art-metrics.json",
+    "browser": "evidence/maguu-art-browser.json",
+    "extra_mechanics": "evidence/maguu-extra-test.json",
+    "companion_avoidance": "Warning-aware walking, ordinary movement locks/damage retained; both survived current input run"
+  },
+  "mask_asset": {
+    "source": "assets/maguu-mask-source-v1.png",
+    "generation": "assets/maguu-mask-generation.json",
+    "heights": [
+      64,
+      48,
+      32
+    ],
+    "uses": [
+      "parry",
+      "explosion warning",
+      "push warning",
+      "moving push"
+    ],
+    "measurements": "evidence/maguu-mask-metrics.json"
+  },
+  "poses": {
+    "idle": 150,
+    "anticipation": 130,
+    "slash": 140,
+    "anchor": "feet at y480",
+    "slash_seconds": 0.3,
+    "status": "3 key poses only; no interpolated animation",
+    "generation": [
+      "assets/maguu-stance-generation.json",
+      "assets/maguu-slash-generation.json"
+    ]
+  }
+}

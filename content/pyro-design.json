@@ -1,0 +1,101 @@
+{
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json",
+  "status": "partial",
+  "skills": [
+    {
+      "id": "SK21",
+      "name": "炎の斬撃",
+      "category": "単独",
+      "elements": [
+        "炎"
+      ],
+      "unlock_level": 100,
+      "damage_segments": [
+        {
+          "pct_per_hit": 195,
+          "hit_count": 3
+        }
+      ],
+      "max_enemy_targets": 5,
+      "cooldown_seconds": 3,
+      "role": "近接・主力",
+      "effect": "前方3連斬り。炎付着の起点。"
+    },
+    {
+      "id": "SK22",
+      "name": "火柱",
+      "category": "単独",
+      "elements": [
+        "炎"
+      ],
+      "unlock_level": 104,
+      "damage_segments": [
+        {
+          "pct_per_hit": 175,
+          "hit_count": 5
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 9,
+      "role": "設置・範囲",
+      "effect": "5秒間、前方の固定地点に火柱。"
+    },
+    {
+      "id": "SK23",
+      "name": "火走り",
+      "category": "単独",
+      "elements": [
+        "炎"
+      ],
+      "unlock_level": 110,
+      "damage_segments": [
+        {
+          "pct_per_hit": 120,
+          "hit_count": 6
+        }
+      ],
+      "max_enemy_targets": 7,
+      "cooldown_seconds": 12,
+      "role": "移動攻撃",
+      "effect": "前方に突進しながら炎の軌跡で6ヒット。"
+    },
+    {
+      "id": "SK24",
+      "name": "燐火の輪",
+      "category": "単独",
+      "elements": [
+        "炎"
+      ],
+      "unlock_level": 116,
+      "damage_segments": [
+        {
+          "pct_per_hit": 115,
+          "hit_count": 8
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 18,
+      "role": "周囲範囲・継続",
+      "effect": "8秒間、旅人の周囲を炎の輪が巡る。"
+    }
+  ],
+  "draft_parameters": {
+    "SK21_range": 180,
+    "SK21_interval": 0.15,
+    "SK22_radius": 130,
+    "SK22_offset": 180,
+    "SK22_pulses": "seconds 1 through 5, fixed position",
+    "SK23_speed": 650,
+    "SK23_duration": 0.75,
+    "SK23_interval": 0.15,
+    "SK23_range": 150,
+    "SK24_radius": 200,
+    "SK24_pulses": "seconds 1 through 8, follows traveler even after swapping active character",
+    "placement_limit": "one each of pillar and ring; replacement does not stack"
+  },
+  "limitations": [
+    "No elemental aura or burning reactions",
+    "Geometry, timing, art and sounds provisional/incomplete",
+    "No native Miliastra verification or story unlock enforcement"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "counts": {
+    "legacy": 4927,
+    "h48c32": 3151,
+    "h32c16": 1392
+  },
+  "reduction": 0.717475137000203,
+  "checks": "source hash, alpha, four phase display states x three profiles, death hidden",
+  "scope": "static candidate, rectangle count comparison only"
+}

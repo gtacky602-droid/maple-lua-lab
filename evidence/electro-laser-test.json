@@ -1,0 +1,18 @@
+{
+  "count": 13,
+  "checks": [
+    "third cycle laser warning",
+    "warning harmless",
+    "laser exposes core",
+    "rendered horizontal beam hits body",
+    "invulnerability prevents per cell repeated damage",
+    "inner ring safe",
+    "render cells match collision exactly",
+    "laser rotates",
+    "pause freezes rotation",
+    "collapse telegraphed and beams removed",
+    "escaping convergence avoids damage",
+    "revival interrupts beam",
+    "exit clears laser encounter"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "tool": "built-in image_gen",
+  "transparent_background": true,
+  "prompt": "Create a single transparent pixel-art sprite for an original placeholder appearance of Varka in a Genshin-themed MapleStory-style 2D side-scrolling boss duel. This is a provisional knight design, not a claim of canonical costume accuracy. Full body adult broad-shouldered muscular male knight, short tousled ash-blond hair, stern face, navy and steel armor with ivory fur collar and restrained teal accents, rugged boots, enormous silver two-handed claymore. Face LEFT in a three-quarter side-view combat-ready stance, sword held diagonally to left, both boots on a common ground baseline. Charming compact 3-head-tall MapleStory-like proportions, crisp stepped dark navy pixel outline, clearly separated chunky pixel clusters, about 64x96 logical pixels, limited palette, no gradients, no glow, no ground, no text, no UI, no other characters, no shadow. Entire sword and body visible with transparent margin. One idle pose only. Prioritize readable hands, sword silhouette and face at small scale.",
+  "edit_prompt": "Edit this knight sprite for game asset use. Preserve the knight design, face, palette, left-facing pose, sword and pixel-art style. Remove ALL surrounding glow/halo, shadows, background gradients and haze; every pixel outside the hard character/sword outline must be fully transparent, including gaps between legs and arms. Zoom out enough to leave at least 10% transparent padding around every edge; restore the entire sword tip so nothing is cropped. Do not add any other objects or text.",
+  "source": "farka-source-v1.png",
+  "status": "provisional knight costume, not canonical appearance; idle only",
+  "known_limit": "provisional costume and idle source; foot anchor now uses bottom opaque band"
+}

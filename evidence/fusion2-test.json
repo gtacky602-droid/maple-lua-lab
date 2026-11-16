@@ -1,0 +1,21 @@
+{
+  "count": 16,
+  "checks": [
+    "tornado twelve hits pulls small enemy",
+    "tornado cannot pull boss",
+    "glide requires airborne cast",
+    "glide limits falling speed",
+    "contact max six hits per enemy over five seconds",
+    "glide ends after five seconds",
+    "landing ends glide and pending contact",
+    "magnetic platform floats ninety above cast",
+    "magnetic platform supports actor",
+    "six pulses and eight second expiry",
+    "one magnetic platform and discharge",
+    "fist applies nonstacking armor reduction",
+    "armor break expires",
+    "transition clears platform",
+    "four skills equip",
+    "four skills persist"
+  ]
+}

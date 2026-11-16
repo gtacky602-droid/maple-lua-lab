@@ -1,0 +1,22 @@
+{
+  "errors": [],
+  "reactions": [
+    {
+      "kind": "swirl",
+      "auraOwner": 2,
+      "t": 0.5833333333333335,
+      "target": 1,
+      "owner": 1,
+      "element": "pyro"
+    },
+    {
+      "kind": "swirl",
+      "auraOwner": 2,
+      "t": 0.5833333333333335,
+      "target": 2,
+      "owner": 1,
+      "element": "pyro"
+    }
+  ],
+  "livePartyCombat": true
+}

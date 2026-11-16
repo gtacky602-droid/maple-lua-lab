@@ -1,0 +1,20 @@
+{
+  "count": 13,
+  "checks": [
+    "below140 cannot cross",
+    "140 enters without prior quests completed",
+    "entry checkpoint uses previous visited town",
+    "snow hub reached",
+    "snow battlefield has authored layout",
+    "four actual kills finish join objective",
+    "join report records Mitya",
+    "join reward cannot duplicate",
+    "join and snow checkpoint persist",
+    "all authored stages reachable by declared edges",
+    "all eight main regions have hub and combat nodes",
+    "all eight selected companions have join quest records",
+    "quest hubs are safe hubs"
+  ],
+  "nodes": 55,
+  "quests": 41
+}

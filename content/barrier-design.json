@@ -1,0 +1,25 @@
+{
+  "status": "provisional",
+  "source": "20261113-master section5",
+  "thresholds": {
+    "Dragonspine": 3,
+    "Chenyu": 8,
+    "Enkanomiya": 10,
+    "Tunigi": 13,
+    "BygoneSea": 25,
+    "Dornman": 30,
+    "Ochkanatlan": 35,
+    "NodSpecial": 40,
+    "Novokichev": 50
+  },
+  "formula": "damage multiplier=0.1+0.9*min(1,trialPower/threshold), before integer rounding",
+  "entry": "parent region level only; no light threshold gate",
+  "trial_power": "0..50 editable at hubs, no equipment integration, not saved",
+  "enemy_hp_draft": 60,
+  "limitations": [
+    "not actual imprint progression",
+    "not final enemy stats or barrier formula",
+    "minimum-one damage inherited from core",
+    "all layouts/backgrounds provisional"
+  ]
+}

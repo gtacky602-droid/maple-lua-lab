@@ -1,0 +1,82 @@
+{
+  "status": "provisional",
+  "source": "20261113-master section4 and 20261116-amendment section81",
+  "new_quests": [
+    "amber-join",
+    "beidou-join",
+    "mond-contract",
+    "liyue-contract"
+  ],
+  "rules": [
+    "Repeat requires completed prior cycle and new explicit acceptance",
+    "Counter resets on reaccept; each completed cycle pays once",
+    "No date gate; these are repeatable contracts, not implemented daily reset",
+    "Join completion recorded; unrestricted lab selection and starter gear remain unfinished"
+  ],
+  "rewards": {
+    "mond-contract": {
+      "kills": 12,
+      "xp": 2500,
+      "mora": 200
+    },
+    "liyue-contract": {
+      "kills": 16,
+      "xp": 6500,
+      "mora": 350
+    }
+  },
+  "observed": {
+    "count": 38,
+    "checks": [
+      "cycle 0 pays fixed reward",
+      "cycle 0 duplicate report blocked",
+      "cycle 1 pays fixed reward",
+      "cycle 1 duplicate report blocked",
+      "cycle 2 pays fixed reward",
+      "cycle 2 duplicate report blocked",
+      "cycle 3 pays fixed reward",
+      "cycle 3 duplicate report blocked",
+      "cycle 4 pays fixed reward",
+      "cycle 4 duplicate report blocked",
+      "cycle 5 pays fixed reward",
+      "cycle 5 duplicate report blocked",
+      "cycle 6 pays fixed reward",
+      "cycle 6 duplicate report blocked",
+      "cycle 7 pays fixed reward",
+      "cycle 7 duplicate report blocked",
+      "cycle 8 pays fixed reward",
+      "cycle 8 duplicate report blocked",
+      "cycle 9 pays fixed reward",
+      "cycle 9 duplicate report blocked",
+      "cycle 10 pays fixed reward",
+      "cycle 10 duplicate report blocked",
+      "cycle 11 pays fixed reward",
+      "cycle 11 duplicate report blocked",
+      "cycle 12 pays fixed reward",
+      "cycle 12 duplicate report blocked",
+      "cycle 13 pays fixed reward",
+      "cycle 13 duplicate report blocked",
+      "cycle 14 pays fixed reward",
+      "cycle 14 duplicate report blocked",
+      "cycle 15 pays fixed reward",
+      "cycle 15 duplicate report blocked",
+      "cycle 16 pays fixed reward",
+      "cycle 16 duplicate report blocked",
+      "natural combat and reports reach twenty",
+      "amber join recorded",
+      "cycles and join survive save",
+      "earned level unlocks Liyue without all quests"
+    ],
+    "rounds": 17,
+    "kills": 205,
+    "level": 20,
+    "simulation_seconds": 290.1,
+    "quest_xp": 44000,
+    "kill_xp": 2050
+  },
+  "limitations": [
+    "290.1 seconds is simulated combat ticks, excluding walking to portals (test positions actors at portals)",
+    "All skills unlocked and existing weak enemy tuning: not the intended 0.5-1h leveling validation",
+    "No full-story pacing or production economy claim"
+  ]
+}

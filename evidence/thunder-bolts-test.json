@@ -1,0 +1,19 @@
+{
+  "count": 14,
+  "checks": [
+    "third cycle starts three strikes",
+    "first target captured",
+    "warning does not track",
+    "pause freezes warning",
+    "strike 1 damages once",
+    "flash 1 does not repeat damage",
+    "next strike 2 retargets",
+    "strike 2 damages once",
+    "flash 2 does not repeat damage",
+    "next strike 3 retargets",
+    "strike 3 damages once",
+    "flash 3 does not repeat damage",
+    "third strike ends cycle",
+    "death cancels pending strike"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json",
+  "status": "partial",
+  "skills": [
+    {
+      "id": "SK45",
+      "name": "灰の生命",
+      "category": "二元素",
+      "elements": [
+        "草",
+        "炎"
+      ],
+      "unlock_level": 117,
+      "damage_segments": [],
+      "max_enemy_targets": 0,
+      "cooldown_seconds": 20,
+      "role": "自己回復・燃焼消費",
+      "effect": "近くの燃焼中の敵を最大3体参照。自己HPを最大16%回復。"
+    },
+    {
+      "id": "SK49",
+      "name": "融解閃斬",
+      "category": "二元素",
+      "elements": [
+        "炎",
+        "氷"
+      ],
+      "unlock_level": 159,
+      "damage_segments": [
+        {
+          "pct_per_hit": 350,
+          "hit_count": 6
+        }
+      ],
+      "max_enemy_targets": 3,
+      "cooldown_seconds": 18,
+      "role": "単体高火力・決戦",
+      "effect": "短い隙へ集中する6段斬り。冷気状態の敵へ追加補正。"
+    }
+  ],
+  "draft_parameters": {
+    "SK45": {
+      "radius": 300,
+      "vertical": 100,
+      "healing": "maxHP * 16% * burning enemies consumed / 3, capped at three nearest living enemies",
+      "no_targets": "no cast and no cooldown"
+    },
+    "SK49": {
+      "range": 180,
+      "interval": 0.1,
+      "cold_bonus": 0.2
+    }
+  },
+  "limitations": [
+    "Burning numerical model and per-enemy heal scaling are provisional",
+    "SK46/47/48 remain unimplemented",
+    "No final art/audio/unlock conditions or native verification"
+  ]
+}

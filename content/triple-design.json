@@ -1,0 +1,135 @@
+{
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json",
+  "status": "partial",
+  "skills": [
+    {
+      "id": "SK50",
+      "name": "空中庭園",
+      "category": "三元素",
+      "elements": [
+        "風",
+        "岩",
+        "草"
+      ],
+      "unlock_level": 78,
+      "damage_segments": [
+        {
+          "pct_per_hit": 115,
+          "hit_count": 10
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 32,
+      "role": "足場・援護",
+      "effect": "10秒間、味方が乗れる空中拠点と種子弾を生成。最大1拠点。"
+    },
+    {
+      "id": "SK51",
+      "name": "超開花大星群",
+      "category": "三元素",
+      "elements": [
+        "雷",
+        "草",
+        "水"
+      ],
+      "unlock_level": 98,
+      "damage_segments": [
+        {
+          "pct_per_hit": 180,
+          "hit_count": 10
+        }
+      ],
+      "max_enemy_targets": 10,
+      "cooldown_seconds": 32,
+      "role": "追尾・群体/ボス",
+      "effect": "弾数10発を分散/集中。10ヒットは全弾命中時の最大値。",
+      "hit_distribution": "shared_projectiles"
+    },
+    {
+      "id": "SK52",
+      "name": "超高圧蒸気砲",
+      "category": "三元素",
+      "elements": [
+        "風",
+        "水",
+        "炎"
+      ],
+      "unlock_level": 119,
+      "damage_segments": [
+        {
+          "pct_per_hit": 245,
+          "hit_count": 12
+        }
+      ],
+      "max_enemy_targets": 3,
+      "cooldown_seconds": 34,
+      "role": "直線ボス火力",
+      "effect": "3秒間固定方向に高圧蒸気を照射。中断可能。"
+    },
+    {
+      "id": "SK53",
+      "name": "霜根要塞",
+      "category": "三元素",
+      "elements": [
+        "岩",
+        "草",
+        "氷"
+      ],
+      "unlock_level": 158,
+      "damage_segments": [
+        {
+          "pct_per_hit": 115,
+          "hit_count": 12
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 36,
+      "role": "防衛・設置",
+      "effect": "12秒間、氷樹の迎撃要塞。最大1基。ボスを完全に閉じ込めない。"
+    }
+  ],
+  "draft_parameters": {
+    "SK50": {
+      "range": 360,
+      "height": 150,
+      "platform_width": 160,
+      "duration": 10,
+      "interval": 1
+    },
+    "SK51": {
+      "acquisition_range": 600,
+      "vertical": 220,
+      "interval": 0.1,
+      "allocation": "10 total hit attempts round robin over surviving locked targets, no replacement targets",
+      "tracking_limit_x": 900
+    },
+    "SK52": {
+      "range": 600,
+      "duration": 3,
+      "interval": 0.25,
+      "direction": "fixed at cast",
+      "interrupt": [
+        "HP damage",
+        "movement input",
+        "jump/drop",
+        "dodge",
+        "swap",
+        "cancel button",
+        "death",
+        "map change"
+      ],
+      "cooldown_retained": true
+    },
+    "SK53": {
+      "radius": 300,
+      "duration": 12,
+      "interval": 1,
+      "collision": "none; does not enclose bosses"
+    }
+  },
+  "limitations": [
+    "Player projectiles currently resolve timed tracking hit attempts, not full flight/collision objects",
+    "Dimensions/timing/equal elemental shares are provisional",
+    "Final art/audio/level unlocks and native verification incomplete"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "errors": [],
+  "result": {
+    "boss": {
+      "timer": 1.0833333333333337,
+      "revivalDestroyed": 0,
+      "rainTargets": [
+        719,
+        819,
+        915,
+        915,
+        915
+      ],
+      "brokenPillars": 2,
+      "maxhp": 500,
+      "pulses": 0,
+      "label": "落石の予告・赤い印の間へ移動",
+      "phase": "rain_warning",
+      "hp": 343,
+      "name": "無相の岩（試作素材）"
+    },
+    "actor": {
+      "setCounts": {
+        "gladiator": 1,
+        "troupe": 0
+      },
+      "elementBonus": 0,
+      "leap": 0,
+      "critDamageBonus": 0,
+      "dash": 0,
+      "lavaArmor": 0,
+      "troupe4": false,
+      "light": 0,
+      "cd": {
+        "SK05": 0,
+        "dodge": 0.9500000000000034,
+        "normal": 0
+      },
+      "lock": 0,
+      "inv": 0,
+      "dir": -1,
+      "critRate": 0.04,
+      "skillBonus": 0,
+      "drop": 0,
+      "glide": 0,
+      "normalBonus": 0,
+      "id": 1,
+      "atk": 4,
+      "x": 898,
+      "maxhp": 161,
+      "iceRun": 0,
+      "vy": 0,
+      "haste": 0,
+      "buffer": 0,
+      "y": 480,
+      "ground": true,
+      "hp": 83,
+      "coyote": 0.08,
+      "walk": -1
+    },
+    "requests": 217
+  },
+  "method": "Lv20 Columbina fixture, UI boss launch, normal frame API actions/movement, accelerated; no direct state mutation"
+}

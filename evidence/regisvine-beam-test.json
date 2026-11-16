@@ -1,0 +1,16 @@
+{
+  "count": 11,
+  "checks": [
+    "third cycle creates two warning rays",
+    "warning does no damage",
+    "aim remains locked and moving away avoids",
+    "entering active beam damages",
+    "overlapping cells cannot multiply damage",
+    "pause freezes active beam",
+    "beam ends and clears geometry",
+    "core break cancels telegraph",
+    "canceled beam cannot resolve later",
+    "defeat removes warning",
+    "exit removes encounter"
+  ]
+}

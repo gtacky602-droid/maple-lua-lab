@@ -1,0 +1,10 @@
+{
+  "counts": {
+    "legacy": 1263,
+    "h48c32": 759,
+    "h32c16": 364
+  },
+  "reduction": 0.7117973079968329,
+  "checks": "4 uses x 2 orientations x 3 rectangle profiles; source hash and alpha",
+  "scope": "rectangle counts, not native performance"
+}

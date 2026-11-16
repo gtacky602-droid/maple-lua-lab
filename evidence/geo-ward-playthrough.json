@@ -1,0 +1,71 @@
+{
+  "companion": "columbina",
+  "ward_seen": true,
+  "observed_pulses_with_field": 5,
+  "pulse_observations": [
+    {
+      "time": 27.76666666666637,
+      "pulse": 1,
+      "inside": true,
+      "hp": 133
+    },
+    {
+      "time": 28.66666666666632,
+      "pulse": 2,
+      "inside": true,
+      "hp": 133
+    },
+    {
+      "time": 29.56666666666627,
+      "pulse": 3,
+      "inside": false,
+      "hp": 115
+    },
+    {
+      "time": 30.466666666666217,
+      "pulse": 4,
+      "inside": false,
+      "hp": 97
+    },
+    {
+      "time": 31.366666666666166,
+      "pulse": 5,
+      "inside": false,
+      "hp": 83.025
+    }
+  ],
+  "initial_stats": [
+    {
+      "atk": 4,
+      "maxhp": 161
+    },
+    {
+      "atk": 3,
+      "maxhp": 140
+    }
+  ],
+  "seconds": 78.78333333332955,
+  "route_seconds": 9.533333333333387,
+  "returns": 0,
+  "kills": 2,
+  "phases": [
+    "barrage",
+    "barrage_warning",
+    "down",
+    "perch_exposed",
+    "perched",
+    "pulse_warning",
+    "revival",
+    "shots",
+    "shots_warning"
+  ],
+  "boss_hp": 0,
+  "pillar_breaks": 5,
+  "revival_destroyed": 3,
+  "actor_hp": [
+    115.40000000000009,
+    70.0
+  ],
+  "note": "Lv20 Liyue hub fixture; then route and battle use actions and movement only; sample flower, lab-unlocked skills; no HP/ATK/position edits.",
+  "reported_once": true
+}

@@ -1,0 +1,20 @@
+{
+  "errors": [],
+  "enteredFromRegistry": true,
+  "warning": {
+    "maxhp": 800,
+    "seed": {
+      "hp": 20,
+      "seconds": 7.933333333333337,
+      "x": 200
+    },
+    "hp": 800,
+    "phase": "recover",
+    "core": 6,
+    "name": "爆炎樹（仮素材）",
+    "coreY": 480,
+    "breaks": 0,
+    "timer": 2.45,
+    "label": "攻撃後の隙 ／ 核 6/6"
+  }
+}

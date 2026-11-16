@@ -1,0 +1,24 @@
+{
+  "scope": "通常・週ボス全種に加える幽境専用戦闘",
+  "source": "sources/20261116-amendment.md:94-101",
+  "final_roster": false,
+  "encounters": [
+    {
+      "id": "farka",
+      "name": "ファルカ模擬戦",
+      "status": "partial",
+      "design": "farka-design.json"
+    },
+    {
+      "id": "beidou",
+      "name": "北斗・反撃読み合い",
+      "status": "not_implemented"
+    },
+    {
+      "id": "wanderer",
+      "name": "放浪者・空中決闘",
+      "status": "not_implemented"
+    }
+  ],
+  "note": "資料に挙がる3例を制作対象として記録。通常・週ボス63件は敵エンティティ候補で、戦闘単位の重複整理は未完。"
+}

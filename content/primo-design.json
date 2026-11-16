@@ -1,0 +1,73 @@
+{
+  "status": "partial",
+  "sources": [
+    "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/primo-geovishap",
+    "https://library.keqingmains.com/evidence/combat-mechanics/enemy-mechanics/enemy-interactions#shield-reflection-mechanics"
+  ],
+  "variant": "hydro/pyro/cryo/electro selectable in lab catalog; story entrance defaults to hydro",
+  "adaptation": "HP800、噴射20ダメージ/半径330px/予告2.5秒などは仮値。目覚め2秒は無敵で代用。前方爪・回転・原岩噴射・潜行と叩きつけ・遅延石3個を固定巡回。",
+  "reflection": "シールドが実際に吸収して残る必要がある。水15%、北斗の雷5%最大HP反射。距離/死亡/回避無敵/破損時は不成立。同属性は1噴射1回、異属性は加算。5秒耐性-0.5。",
+  "critical": "HP10%以下では噴射を石散布へ置換",
+  "remaining": [
+    "専用攻撃ポーズと動作",
+    "炎/氷/雷の専用色素材と元素別エフェクト仕上げ",
+    "ブレス・潜行・回転の専用演出",
+    "岩シールドと結晶反応の接続",
+    "覚醒時耐性と精密数値",
+    "専用報酬・難度・実機互換"
+  ],
+  "story": {
+    "entry": "liyue-field x650 -> primo-approach",
+    "level": 20,
+    "quest": "primo-commission"
+  },
+  "verification": [
+    "evidence/primo-test.json",
+    "evidence/primo-playthrough.json",
+    "evidence/primo-reflect-browser.json",
+    "evidence/world-bosses-test.json"
+  ],
+  "art": {
+    "status": "generated hydro idle candidate",
+    "source": "assets/primo-source-v1.png",
+    "metadata": "assets/primo-generation.json",
+    "metrics": "evidence/primo-art-metrics.json",
+    "browser": "evidence/primo-art-browser.json",
+    "remaining": [
+      "attack poses",
+      "animation",
+      "other elements"
+    ]
+  },
+  "combo_breath": {
+    "combo": "locked facing, 18/18/26 damage, forward centers 95px, radii 115/115/145px, .7/1 second between later warnings",
+    "breath": "1s warning; 3s duration, 4 pulses of 12 damage; 16 cells shared by telegraph and collision, forward 40..360px; actor box overlap; fixed direction",
+    "status": "2D provisional; static pose and solid-color breath proxy",
+    "evidence": [
+      "evidence/primo-combo-test.json",
+      "evidence/primo-breath-browser.json",
+      "evidence/primo-playthrough.json"
+    ]
+  },
+  "elemental_fields": {
+    "status": "2D prototype; dedicated body color artwork pending",
+    "hydro": "7 eruptions at fixed nearby offsets, .35s interval, 56x90 hit box",
+    "pyro": "180px pool, six 8-damage ticks at .6s intervals",
+    "cryo": "3 outward spike pulses at 0/60/120px, .6s interval",
+    "electro": "26 rectangles in crossed diagonal pattern; 14 damage once",
+    "shared": "2s stone warning covers union of later collision cells; all fields cleared by reflection, defeat, exit; at most 12 simultaneous fields",
+    "evidence": [
+      "evidence/primo-variants-test.json",
+      "evidence/primo-variants-browser.json"
+    ]
+  },
+  "burrow_rear": {
+    "burrow": "1.2s swept horizontal contact, +/-55px; 18 damage once per actor per transit; feet above410 avoids; warning marks entire corridor and landing radius",
+    "rear": "within 50..180px behind previous facing and 80px vertical; after recovery triggers spin before next sequence attack; 8s cooldown; no sequence slot consumed",
+    "status": "provisional 2D values",
+    "evidence": [
+      "evidence/primo-movement-test.json",
+      "evidence/primo-rear-browser.json"
+    ]
+  }
+}

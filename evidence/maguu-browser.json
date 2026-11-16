@@ -1,0 +1,14 @@
+{
+  "errors": [],
+  "boss": {
+    "hp": 700,
+    "name": "魔偶剣鬼",
+    "stage": 1,
+    "label": "爆発する仮面・予告から離れる",
+    "parries": 0,
+    "timer": 1.3,
+    "phase": "mask_warning",
+    "maxhp": 700
+  },
+  "method": "UI launch and mask warning display; not a complete playthrough"
+}

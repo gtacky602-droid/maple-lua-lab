@@ -1,0 +1,117 @@
+{
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json",
+  "status": "partial",
+  "skills": [
+    {
+      "id": "SK29",
+      "name": "飛礫嵐",
+      "category": "二元素",
+      "elements": [
+        "風",
+        "岩"
+      ],
+      "unlock_level": 27,
+      "damage_segments": [
+        {
+          "pct_per_hit": 135,
+          "hit_count": 8
+        }
+      ],
+      "max_enemy_targets": 8,
+      "cooldown_seconds": 12,
+      "role": "上下足場・狩り",
+      "effect": "上下の足場へ岩片を撒く。"
+    },
+    {
+      "id": "SK30",
+      "name": "帯電の風衣",
+      "category": "二元素",
+      "elements": [
+        "風",
+        "雷"
+      ],
+      "unlock_level": 47,
+      "damage_segments": [
+        {
+          "pct_per_hit": 75,
+          "hit_count": 10
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 20,
+      "role": "移動狩り・自己強化",
+      "effect": "10秒間周囲に自動放電。1秒ごと1回。"
+    },
+    {
+      "id": "SK31",
+      "name": "千葉穿刃",
+      "category": "二元素",
+      "elements": [
+        "風",
+        "草"
+      ],
+      "unlock_level": 67,
+      "damage_segments": [
+        {
+          "pct_per_hit": 250,
+          "hit_count": 6
+        }
+      ],
+      "max_enemy_targets": 1,
+      "cooldown_seconds": 12,
+      "role": "対単体・高所",
+      "effect": "遠くの単体を狙う追尾葉刃6発。"
+    },
+    {
+      "id": "SK32",
+      "name": "水圧螺旋槍",
+      "category": "二元素",
+      "elements": [
+        "風",
+        "水"
+      ],
+      "unlock_level": 87,
+      "damage_segments": [
+        {
+          "pct_per_hit": 185,
+          "hit_count": 9
+        }
+      ],
+      "max_enemy_targets": 2,
+      "cooldown_seconds": 15,
+      "role": "直線・ボス",
+      "effect": "動かない大型敵へ直線多段。"
+    }
+  ],
+  "draft_rules": {
+    "direct_damage": "equal component shares; average resistance including immune component=100%; apply total multiplier once; all-element bonus once",
+    "application": "one nominated element per cast: geo/electro/dendro/hydro; same 2.5s actor-skill-target ICD; no automatic self-swirl",
+    "SK29": {
+      "range": 360,
+      "vertical": 190,
+      "interval": 0.15
+    },
+    "SK30": {
+      "radius": 220,
+      "duration": 10,
+      "interval": 1,
+      "first_pulse": 1
+    },
+    "SK31": {
+      "range": 720,
+      "vertical": 360,
+      "selection": "farthest valid front target; lock and track",
+      "interval": 0.15
+    },
+    "SK32": {
+      "range": 520,
+      "interval": 0.1
+    }
+  },
+  "limitations": [
+    "Equal split and elemental application selection are proposals, not finalized source formulas",
+    "Geo/dendro aura and related reactions not implemented",
+    "No exact projectile collision/occlusion yet; direct pulses use ranges",
+    "Final assets, story unlocks and native Miliastra unverified"
+  ]
+}

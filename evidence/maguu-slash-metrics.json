@@ -1,0 +1,9 @@
+{
+  "counts": {
+    "legacy": 5498,
+    "h48c32": 3387,
+    "h32c16": 1502
+  },
+  "reduction": 0.7268097489996362,
+  "checks": "hash alpha; both orientations; foot baseline; three profiles; slash expires"
+}

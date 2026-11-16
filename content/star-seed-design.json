@@ -1,0 +1,26 @@
+{
+  "skill": "SK56",
+  "status": "partial",
+  "source": "miliastra_traveler_60skills_v0_2.json",
+  "fixed": {
+    "pct": 110,
+    "hits": 12,
+    "burst_pct": 300,
+    "targets": 8,
+    "cooldown": 28
+  },
+  "draft": {
+    "interval": 1,
+    "burst_seconds": 12.1,
+    "radius": 180,
+    "growth_radius": 5,
+    "max_growth": 12,
+    "growth_icd": 0.25
+  },
+  "limitations": [
+    "氷習得・Lv149はラボ全技解放で省略。製品の習得条件は未実装",
+    "生存放浪者を風仲間として判定。他の風仲間は未実装",
+    "成長は近傍の直接命中で範囲だけ増加。倍率は増加しない",
+    "成長式/範囲/間隔/図形表示は仮仕様。完成ドット絵・原神実機は未確認"
+  ]
+}

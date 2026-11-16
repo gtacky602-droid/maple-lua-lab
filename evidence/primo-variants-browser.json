@@ -1,0 +1,63 @@
+{
+  "errors": [],
+  "launched": [
+    "hydro",
+    "cryo",
+    "electro",
+    "pyro"
+  ],
+  "result": {
+    "element": "pyro",
+    "fields": [
+      {
+        "element": "pyro",
+        "clock": 0.5499999999999998,
+        "pulse": 1,
+        "flash": 0.11333333333333334,
+        "boxes": [
+          {
+            "w": 180,
+            "h": 25,
+            "y": 455,
+            "x": 240
+          }
+        ],
+        "total": 6,
+        "x": 330
+      },
+      {
+        "element": "pyro",
+        "clock": 0.5499999999999998,
+        "pulse": 1,
+        "flash": 0.11333333333333334,
+        "boxes": [
+          {
+            "w": 180,
+            "h": 25,
+            "y": 455,
+            "x": 110
+          }
+        ],
+        "total": 6,
+        "x": 200
+      },
+      {
+        "element": "pyro",
+        "clock": 0.5499999999999998,
+        "pulse": 1,
+        "flash": 0.11333333333333334,
+        "boxes": [
+          {
+            "w": 180,
+            "h": 25,
+            "y": 455,
+            "x": -20
+          }
+        ],
+        "total": 6,
+        "x": 70
+      }
+    ],
+    "requests": 145
+  }
+}

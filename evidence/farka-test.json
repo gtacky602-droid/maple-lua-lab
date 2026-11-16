@@ -1,0 +1,22 @@
+{
+  "count": 17,
+  "checks": [
+    "original battle exits story",
+    "charge target locked",
+    "no retarget during charge",
+    "off-path avoids charge",
+    "swept charge hits once",
+    "ground sweep damages",
+    "jump avoids sweep",
+    "half hp adds warning for second sweep",
+    "second sweep resolves separately",
+    "pause freezes boss",
+    "kill registered exactly once",
+    "defeated boss cannot respawn",
+    "frame communicates provisional battle",
+    "exit clears encounter",
+    "wipe returns to town",
+    "save resumes outside battle",
+    "switching bosses clears previous state"
+  ]
+}

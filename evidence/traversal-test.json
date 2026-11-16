@@ -1,0 +1,23 @@
+{
+  "count": 18,
+  "checks": [
+    "grapple cast accepts authored point",
+    "grapple moves gradually not teleport",
+    "grapple lands on target platform",
+    "locked node rejected without cooldown",
+    "quest gated node rejected",
+    "distant authored node rejected",
+    "wall blocks grapple path",
+    "new obstacle interrupts grapple before collision",
+    "pause freezes grapple",
+    "node selection cycles",
+    "no unapproved boss room grapple nodes",
+    "ice run grounded speed sixty percent bonus",
+    "ice speed not applied in air",
+    "ice contact five pulses over six seconds",
+    "ice acceleration expires",
+    "map clears traversal buffs",
+    "traversal skills equip",
+    "restored town has authored nodes and loadout"
+  ]
+}

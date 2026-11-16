@@ -1,0 +1,24 @@
+{
+  "count": 19,
+  "checks": [
+    "slash three hits five targets",
+    "slash cooldown rejects repeat",
+    "pillar placed ahead",
+    "pillar first pulse at one second",
+    "pillar 175 percent hit",
+    "pillar stays fixed five pulses and expires",
+    "pillar respects facing and world edge",
+    "flame dash moves through path",
+    "dash resolves six pulses",
+    "flame dash respects wall",
+    "ring attacks front and rear",
+    "ring follows owner to new targets",
+    "ring eight pulses over eight seconds",
+    "ring replacement cannot stack",
+    "pause freezes ring",
+    "death cancels ring",
+    "transition clears both fire effects",
+    "fire skills equip",
+    "fire loadout persists"
+  ]
+}

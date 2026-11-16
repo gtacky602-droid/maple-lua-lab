@@ -1,0 +1,18 @@
+{
+  "count": 13,
+  "checks": [
+    "defender shields first",
+    "front blocked",
+    "rear allowed",
+    "defender alternates leap",
+    "leap lands at snapshot",
+    "scout warns orb beneath self",
+    "orb remains after deployment",
+    "orb explodes on contact",
+    "cruiser fires fixed aimed projectile",
+    "destroyer makes field",
+    "field damages occupants",
+    "core release removes sentinel shots",
+    "sentinel physical resistances differ"
+  ]
+}

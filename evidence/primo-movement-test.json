@@ -1,0 +1,19 @@
+{
+  "count": 14,
+  "checks": [
+    "moving underground hits swept ground corridor",
+    "one burrow only hits an actor once",
+    "invulnerable actor avoids underground contact",
+    "airborne actor avoids underground contact",
+    "pause freezes burrow position",
+    "exit clears underground attack",
+    "nearby rear actor triggers spin without consuming sequence",
+    "cooldown permits next normal attack",
+    "front actor does not trigger rear priority",
+    "distant rear actor does not trigger priority",
+    "high airborne rear actor does not trigger priority",
+    "stun exit resumes sequence without extra spin",
+    "rear priority works facing right",
+    "warning marks clamped destination and full path"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "seconds": 64.69999999999632,
+  "returns": 0,
+  "boss_hp": 0,
+  "reflections": 1,
+  "actor_hp": [
+    57.400000000000055,
+    0
+  ],
+  "phases": [
+    "awake",
+    "breath",
+    "breath_warning",
+    "burrow",
+    "burrow_warning",
+    "claw_warning",
+    "combo_warning",
+    "recover",
+    "shower_warning",
+    "slam_warning",
+    "spin_warning",
+    "stones_warning",
+    "stunned"
+  ],
+  "note": "Lv20 hub fixture; then action/movement inputs only. Direct laboratory variant challenge, no quest reporting claimed. Sample flower and lab-unlocked skills.",
+  "element": "cryo"
+}

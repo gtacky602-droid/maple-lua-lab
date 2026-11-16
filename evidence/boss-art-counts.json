@@ -1,0 +1,29 @@
+{
+  "source_sha256": "ed7cc502a5cea03e765270a0ecb33b953c689c31aa397ae45ce3606af6ecb515",
+  "boss_only_rectangles": {
+    "legacy": 3801,
+    "h48c32": 2334,
+    "h32c16": 1099
+  },
+  "scene": [
+    {
+      "profile": "legacy",
+      "commands": 5886
+    },
+    {
+      "profile": "h48c32",
+      "commands": 3500
+    },
+    {
+      "profile": "h32c16",
+      "commands": 1608
+    }
+  ],
+  "boss_only_reduction_pct": {
+    "legacy": 0.0,
+    "h48c32": 38.59510655090765,
+    "h32c16": 71.08655616942909
+  },
+  "scope": "draw instruction counts only, not native FPS",
+  "pose": "idle source; down pose uses shortened display, no finished animation"
+}

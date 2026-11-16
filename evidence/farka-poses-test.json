@@ -1,0 +1,19 @@
+{
+  "checks": [
+    "ready:-1",
+    "ready:1",
+    "charge_warning:-1",
+    "charge_warning:1",
+    "charge:-1",
+    "charge:1",
+    "sweep_warning:-1",
+    "sweep_warning:1",
+    "recover:-1",
+    "recover:1",
+    "slash display overrides recovery",
+    "legacy anchor mirror",
+    "h48c32 anchor mirror",
+    "h32c16 anchor mirror"
+  ],
+  "count": 14
+}

@@ -1,0 +1,16 @@
+{
+  "errors": [],
+  "boss": {
+    "phase": "split",
+    "x": 347,
+    "timer": 999999999.9666667,
+    "splitUsed": true,
+    "markedIndex": 4,
+    "name": "恒常からくり陣形",
+    "maxhp": 800,
+    "markedName": "殲滅型",
+    "label": "金色の印を狙う",
+    "hp": 706
+  },
+  "method": "UI launch, accelerated ordinary frame API and left movement; split display, not a complete playthrough"
+}

@@ -1,0 +1,13 @@
+{
+  "errors": [],
+  "boss": {
+    "prisms": 0,
+    "timer": 0.18333333333333335,
+    "name": "無相の雷（試作素材）",
+    "hp": 275,
+    "maxhp": 420,
+    "phase": "air_burst",
+    "label": "2発ずつ4連射・跳んで核へ攻撃"
+  },
+  "launchedFromCatalog": true
+}

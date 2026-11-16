@@ -1,0 +1,24 @@
+{
+  "count": 19,
+  "checks": [
+    "starts at safe hub",
+    "cannot teleport to unvisited exit remotely",
+    "nonadjacent exit rejected",
+    "adjacent portal loads authored combat stage",
+    "local kills advance accepted quest",
+    "report outside hub rejected",
+    "quest reward paid once",
+    "repeat report cannot duplicate rewards",
+    "visit quest requires actual entry",
+    "Liyue level twenty required",
+    "level unlock does not require previous quests completion",
+    "unvisited hub cannot fast travel",
+    "harbor becomes discovered hub",
+    "second region combat route loads",
+    "save resumes at discovered regional hub",
+    "invalid graph node rejected",
+    "legacy test arena cannot advance story quest",
+    "wipe returns to story hub",
+    "actual lethal hit updates story quest"
+  ]
+}

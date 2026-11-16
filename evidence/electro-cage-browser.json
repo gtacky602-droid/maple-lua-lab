@@ -1,0 +1,19 @@
+{
+  "errors": [],
+  "boss": {
+    "phase": "cage",
+    "maxhp": 420,
+    "hp": 277,
+    "timer": 7.966666666666667,
+    "name": "無相の雷（試作素材）",
+    "prisms": 0,
+    "label": "元素で柱を破壊／跳び越え、落雷予告から離れる"
+  },
+  "advance": {
+    "stepsRequested": 2922,
+    "phase": "cage",
+    "hp": 54
+  },
+  "launchedFromCatalog": true,
+  "method": "UI launch then normal frame API actions jump/dodge/movement; accelerated simulation; no state mutations"
+}

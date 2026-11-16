@@ -1,0 +1,63 @@
+{
+  "errors": [],
+  "result": {
+    "boss": {
+      "timer": 0.9666666666666666,
+      "label": "背後を察知・回転攻撃の予告",
+      "rearResponse": true,
+      "hp": 772,
+      "name": "エンシェントヴィシャップ（試作素材）",
+      "rearResponses": 1,
+      "element": "hydro",
+      "facing": -1,
+      "maxhp": 800,
+      "reflections": 0,
+      "x": 620,
+      "fields": {},
+      "phase": "spin_warning"
+    },
+    "actor": {
+      "climbBoostUntil": 0,
+      "skillBonus": 0,
+      "hp": 140,
+      "guardUntil": 0,
+      "maxhp": 140,
+      "counterUntil": 0,
+      "inv": 0,
+      "troupe4": false,
+      "iceRun": 0,
+      "dir": 1,
+      "normalBonus": 0,
+      "drop": 0,
+      "vy": 0,
+      "buffer": 0,
+      "x": 725,
+      "id": 2,
+      "setCounts": {
+        "gladiator": 0,
+        "troupe": 0
+      },
+      "glide": 0,
+      "walk": 0,
+      "dash": 0,
+      "lock": 0,
+      "critDamageBonus": 0,
+      "leap": 0,
+      "cd": {},
+      "elementBonus": 0,
+      "climbIntent": false,
+      "ground": true,
+      "atk": 3,
+      "floatUntil": 0,
+      "burnBoostUntil": 0,
+      "critRate": 0,
+      "coyote": 0.08,
+      "light": 0,
+      "lavaArmor": 0,
+      "haste": 0,
+      "y": 480
+    },
+    "requests": 45
+  },
+  "method": "Lv20 Beidou fixture; automatic UI polling suspended during accelerated input test, UI boss launch, normal frame API actions/movement, accelerated; no direct state mutation"
+}

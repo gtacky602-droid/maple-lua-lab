@@ -1,0 +1,15 @@
+{
+  "errors": [],
+  "t": 3.1999999999999935,
+  "comparisons": [
+    {
+      "profile": "png",
+      "commands": 12
+    },
+    {
+      "profile": "h32c16",
+      "commands": 2008
+    }
+  ],
+  "pngBoss": true
+}

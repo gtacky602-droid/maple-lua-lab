@@ -1,0 +1,112 @@
+{
+  "status": "partial",
+  "source": "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/hypostases",
+  "adaptation": "3連撃と横移動する地上波。原作の3D攻撃そのものではなく、2D向けの予告・跳躍回避に置換。HP420と攻撃数値、プリズム付着間隔0.5秒は仮。",
+  "revival": {
+    "threshold": 0.05,
+    "seconds": 15,
+    "prisms": 3,
+    "gauge": 3,
+    "effective_elements": [
+      "pyro",
+      "cryo",
+      "dendro"
+    ],
+    "half_strength_elements": [
+      "anemo",
+      "geo"
+    ],
+    "heal_fraction_by_remaining": [
+      0.15,
+      0.35,
+      0.5
+    ],
+    "broken_prisms_persist": true,
+    "atk_independent": true
+  },
+  "remaining": [
+    "攻撃選択・タイミング・原作との細部照合",
+    "完成ドット絵・アニメーション",
+    "原神実機との互換性",
+    "専用報酬・育成バランス",
+    "ブラウザ操作での通し撃破"
+  ],
+  "input_playthrough": "evidence/electro-playthrough.json: all seven attacks, revival, story report; 104.75s, no wipe, traveler HP141.175, companion defeated. Input-only controller, sample flower, lab-unlocked skills.",
+  "art": {
+    "status": "generated core and shell candidates",
+    "metadata": "assets/electro-generation.json",
+    "metrics": "evidence/electro-art-metrics.json",
+    "remaining": "prisms and attack animations; only idle shell orbit currently animated"
+  },
+  "laser": {
+    "adaptation": "2D四方向回転光線。元の水平3D回転を画面平面の回転へ置換。",
+    "warning_seconds": 1.5,
+    "active_seconds": 5,
+    "rotation_radians_per_second": 0.35,
+    "safe_inner_radius": 80,
+    "cell_size": 14,
+    "damage": 18,
+    "collapse_warning_seconds": 1.1,
+    "collapse_radius": 120,
+    "collapse_damage": 28,
+    "core_exposed_during_laser": true,
+    "collision": "rendered cells vs actor 24x60 box; shared cell list",
+    "numbers": "provisional"
+  },
+  "drill": {
+    "warning_seconds": 1.1,
+    "speed_pixels_per_second": 850,
+    "arena_endpoints": [
+      80,
+      880
+    ],
+    "damage": 30,
+    "hit_once_per_actor": true,
+    "collision": "swept interval plus radius42; player half-width12; feet above410 avoid",
+    "direction": "locked toward initial actor side",
+    "recovery_exposed_seconds": 4,
+    "visual": "six shell sprites in triangular arrangement; provisional",
+    "tests": "evidence/electro-drill-test.json",
+    "full_victory_note": "Covered by current six-attack playthrough; see input_playthrough."
+  },
+  "air_burst": {
+    "warning_seconds": 1.1,
+    "height_y": 350,
+    "volley_count": 4,
+    "shots_per_volley": 2,
+    "interval_seconds": 0.65,
+    "shot_speed": 240,
+    "shot_damage": 16,
+    "shot_life": 4,
+    "homing": false,
+    "core_exposed": true,
+    "cleanup": "owned shots removed on revival/death/exit",
+    "tests": "evidence/electro-air-test.json",
+    "status": "2D timing and numbers provisional"
+  },
+  "cage": {
+    "warning_seconds": 1.1,
+    "duration_seconds": 8,
+    "pillars": 2,
+    "pillar_height": 140,
+    "pillar_gauge": 3,
+    "damage_model": "three non-physical element applications, per actor/skill cooldown0.5; ATK independent; provisional",
+    "escape": "destroy either pillar or jump over it; normal walk blocked",
+    "lightning_warning_seconds": 0.8,
+    "lightning_radius": 45,
+    "lightning_damage": 22,
+    "core_exposed": true,
+    "cleanup": "timeout/revival/death/wipe/exit; only own solids removed",
+    "adaptation": "3D octagonal cage reduced to two side-view barriers, selected as sixth attack for a prolonged battle"
+  },
+  "clap": {
+    "warning_seconds": 1.1,
+    "radius": 125,
+    "damage": 28,
+    "target": "locked nearest-player position, arena-clamped130..830",
+    "impact_seconds": 0.25,
+    "recovery_seconds": 4,
+    "avoid": "walk outside red region or timed jump",
+    "visual": "two vertical stacks of three shell sprites; provisional"
+  }
+}

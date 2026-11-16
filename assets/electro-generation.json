@@ -1,0 +1,10 @@
+{
+  "tool": "built-in image_gen",
+  "shellPrompt": "Create one isolated pixel-art sprite for a MapleStory-like 2D side-scrolling RPG: a single Electro Hypostasis outer shell cube inspired by Genshin Impact. Dark violet carved stone cube, three visible faces in three-quarter view, crisp stepped pixel edges, angular glowing lilac rune channels and inset purple crystal facets. Readable compact silhouette, limited 16-to-24 color palette, restrained highlights, no soft glow outside silhouette. A single cube only, centered with generous empty margins, no core, no surrounding cubes, no text, no ground shadow. True transparent background. Classic handcrafted chunky pixel clusters appropriate for reduction to 64 pixels high, not smooth 3D render. Save as a clean production sprite.",
+  "corePrompt": "One isolated pixel-art game sprite: the exposed Electro Hypostasis energy core inspired by Genshin Impact, for a MapleStory-like 2D side-scrolling RPG. Single floating angular violet octahedral crystal, diamond silhouette with distinct triangular facets, bright pale lavender center, saturated purple lower facets and a dark purple crisp stepped outline. Chunky handcrafted pixel clusters, limited palette, readable when reduced to 64 pixels high. Centered, generous empty margin, true transparent background. No shell cubes, no particle cloud, no text, no shadows, no ground, no soft blur or halo, no smooth 3D rendering. Only the single compact crystal.",
+  "sources": [
+    "electro-shell-source-v1.png",
+    "electro-core-source-v1.png"
+  ],
+  "status": "generated candidates; no official animation accuracy claimed"
+}

@@ -1,0 +1,33 @@
+{
+  "boss_rectangle_counts": {
+    "legacy": 19707,
+    "h48c32": 12683,
+    "h32c16": 5260
+  },
+  "scene_rectangle_counts": {
+    "legacy": 21796,
+    "h48c32": 13853,
+    "h32c16": 5773
+  },
+  "light_reduction_percent": 73.30897650581012,
+  "alpha": {
+    "shell": {
+      "fully_transparent_pixels": 997353,
+      "opaque_enough_pixels": 566626
+    },
+    "core": {
+      "fully_transparent_pixels": 1358417,
+      "opaque_enough_pixels": 206742
+    },
+    "pillar": {
+      "fully_transparent_pixels": 1096567,
+      "opaque_enough_pixels": 463572
+    }
+  },
+  "checked": [
+    "4 pillars + 6 shells + core",
+    "down hides shells",
+    "all 3 profiles"
+  ],
+  "limitation": "Rectangle profile comparison, not PNG or native performance."
+}

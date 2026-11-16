@@ -1,0 +1,18 @@
+{
+  "count": 13,
+  "checks": [
+    "third attack creates crystal during warning",
+    "crystal gauge ignores ATK and repeats cooldown",
+    "breaking creates ward without rewards",
+    "inside field blocks first pulse",
+    "outside field takes pulse",
+    "returning inside protects again",
+    "ward does not grant unrelated global immunity",
+    "pause freezes wave timer",
+    "duration end clears ward and crystal",
+    "occupied pillar collapse cancels barrage and field",
+    "revival clears field and support object",
+    "death clears support object",
+    "wipe clears encounter"
+  ]
+}

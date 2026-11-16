@@ -1,0 +1,69 @@
+{
+  "scope": "static initial scene; Lua command generation only, excluding JSON/HTTP/Canvas; no Miliastra inference",
+  "results": [
+    {
+      "density": 12,
+      "mode": "sprite",
+      "visible": 12,
+      "commands": 136,
+      "mean_lua_draw_ms": 0.06683722228141657,
+      "p95_lua_draw_ms": 0.1250000022992026
+    },
+    {
+      "density": 12,
+      "mode": "rect",
+      "visible": 12,
+      "commands": 7899,
+      "mean_lua_draw_ms": 4.639979444396482,
+      "p95_lua_draw_ms": 6.1823999967600685
+    },
+    {
+      "density": 16,
+      "mode": "sprite",
+      "visible": 16,
+      "commands": 140,
+      "mean_lua_draw_ms": 0.3363538890577426,
+      "p95_lua_draw_ms": 0.09470000077271834
+    },
+    {
+      "density": 16,
+      "mode": "rect",
+      "visible": 16,
+      "commands": 9802,
+      "mean_lua_draw_ms": 5.037013333296475,
+      "p95_lua_draw_ms": 6.466599999839673
+    },
+    {
+      "density": 20,
+      "mode": "sprite",
+      "visible": 20,
+      "commands": 144,
+      "mean_lua_draw_ms": 0.25385277765761,
+      "p95_lua_draw_ms": 0.09919999865815043
+    },
+    {
+      "density": 20,
+      "mode": "rect",
+      "visible": 20,
+      "commands": 11705,
+      "mean_lua_draw_ms": 6.033521666621608,
+      "p95_lua_draw_ms": 8.237300000473624
+    },
+    {
+      "density": 40,
+      "mode": "sprite",
+      "visible": 40,
+      "commands": 164,
+      "mean_lua_draw_ms": 0.23950888882811544,
+      "p95_lua_draw_ms": 0.12490000153775327
+    },
+    {
+      "density": 40,
+      "mode": "rect",
+      "visible": 40,
+      "commands": 21202,
+      "mean_lua_draw_ms": 12.025608888628389,
+      "p95_lua_draw_ms": 15.719099999842001
+    }
+  ]
+}

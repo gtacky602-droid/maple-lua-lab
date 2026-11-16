@@ -1,0 +1,7 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Create ONE alternate attack keyframe of the exact mechanical samurai pixel-art character in the reference. Keep identical white horned oni mask, long white mane, navy armor with gold edges, turquoise waist cloth, red cords, wooden articulated limbs, same proportions and crisp pixel clusters. Full body, three-quarter side view facing LEFT. Pose: forceful completed horizontal katana slash to the left, torso turned and leaning forward, one arm fully extended left with the blade, trailing hand behind, knees bent with both feet on one common ground baseline. A clear distinct attack silhouette from the idle pose. Entire blade and horns and feet inside frame with generous margins. No slash arc or glow, no background, no shadow, no ground, no lettering, no additional characters, one still sprite, transparent background. Maintain consistent body scale relative to head.",
+  "reference": "maguu-source-v1.png",
+  "source": "exec-5d9ae389-08ff-4afb-9d63-8521905ac295.png",
+  "status": "attack key pose; no interpolation; rendered 140px"
+}

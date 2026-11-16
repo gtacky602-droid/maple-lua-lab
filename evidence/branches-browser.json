@@ -1,0 +1,9 @@
+{
+  "errors": [],
+  "fixture": "level1 discovered Dragonspine",
+  "nodes": 45,
+  "quests": 34,
+  "portalWalk": true,
+  "regionalFastTravel": true,
+  "snowQuestsShown": true
+}

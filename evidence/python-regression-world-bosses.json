@@ -1,0 +1,292 @@
+[
+  {
+    "file": "test_amber.py",
+    "passed": true,
+    "output": "13 Amber checks passed\n"
+  },
+  {
+    "file": "test_anemo.py",
+    "passed": true,
+    "output": "18 Anemo checks passed\n"
+  },
+  {
+    "file": "test_artifacts.py",
+    "passed": true,
+    "output": "13 artifact checks passed\n"
+  },
+  {
+    "file": "test_ayaka.py",
+    "passed": true,
+    "output": "18 ayaka checks passed\n"
+  },
+  {
+    "file": "test_beidou.py",
+    "passed": true,
+    "output": "22 beidou checks passed\n"
+  },
+  {
+    "file": "test_branches.py",
+    "passed": true,
+    "output": "13 branch checks passed\n"
+  },
+  {
+    "file": "test_campaign.py",
+    "passed": true,
+    "output": "13 campaign checks passed\n"
+  },
+  {
+    "file": "test_companion.py",
+    "passed": true,
+    "output": "16 companion checks passed\n"
+  },
+  {
+    "file": "test_conditional.py",
+    "passed": true,
+    "output": "15 conditional checks passed\n"
+  },
+  {
+    "file": "test_cryo.py",
+    "passed": true,
+    "output": "18 cryo checks passed\n"
+  },
+  {
+    "file": "test_dendro.py",
+    "passed": true,
+    "output": "19 dendro checks passed\n"
+  },
+  {
+    "file": "test_echo.py",
+    "passed": true,
+    "output": "21 echo checks passed\n"
+  },
+  {
+    "file": "test_electro.py",
+    "passed": true,
+    "output": "25 electro checks passed\n"
+  },
+  {
+    "file": "test_emilie.py",
+    "passed": true,
+    "output": "20 emilie checks passed\n"
+  },
+  {
+    "file": "test_encounters.py",
+    "passed": true,
+    "output": "13 encounter checks passed\n"
+  },
+  {
+    "file": "test_farka.py",
+    "passed": true,
+    "output": "17 Farka checks passed\n"
+  },
+  {
+    "file": "test_farka_poses.py",
+    "passed": true,
+    "output": "14 pose checks passed\n"
+  },
+  {
+    "file": "test_fusion.py",
+    "passed": true,
+    "output": "17 fusion checks passed\n"
+  },
+  {
+    "file": "test_fusion2.py",
+    "passed": true,
+    "output": "16 fusion2 checks passed\n"
+  },
+  {
+    "file": "test_fusion3.py",
+    "passed": true,
+    "output": "17 fusion3 checks passed\n"
+  },
+  {
+    "file": "test_fusion4.py",
+    "passed": true,
+    "output": "17 fusion4 checks passed\n"
+  },
+  {
+    "file": "test_hidden.py",
+    "passed": true,
+    "output": "25 hidden checks passed\n"
+  },
+  {
+    "file": "test_hydro.py",
+    "passed": true,
+    "output": "22 hydro checks passed\n"
+  },
+  {
+    "file": "test_kachina.py",
+    "passed": true,
+    "output": "17 kachina checks passed\n"
+  },
+  {
+    "file": "test_light.py",
+    "passed": true,
+    "output": "19 light checks passed\n"
+  },
+  {
+    "file": "test_loadout.py",
+    "passed": true,
+    "output": "15 loadout checks passed\n"
+  },
+  {
+    "file": "test_loot.py",
+    "passed": true,
+    "output": "13 loot checks passed\n"
+  },
+  {
+    "file": "test_lunar.py",
+    "passed": true,
+    "output": "14 lunar checks passed\n"
+  },
+  {
+    "file": "test_mitya.py",
+    "passed": true,
+    "output": "20 mitya checks passed\n"
+  },
+  {
+    "file": "test_progression.py",
+    "passed": true,
+    "output": "13 progression checks passed\n"
+  },
+  {
+    "file": "test_projectiles.py",
+    "passed": true,
+    "output": "14 projectile checks passed\n"
+  },
+  {
+    "file": "test_pyro.py",
+    "passed": true,
+    "output": "19 pyro checks passed\n"
+  },
+  {
+    "file": "test_pyro_playthrough.py",
+    "passed": true,
+    "output": "{\"initial_stats\": [{\"atk\": 4, \"maxhp\": 161}, {\"atk\": 3, \"maxhp\": 140}], \"seconds\": 77.84999999999687, \"returns\": 0, \"kills\": 1, \"core_breaks\": 3, \"phases\": [\"defeated\", \"down\", \"eruption_active\", \"eruption_warning\", \"fire_burst\", \"fire_warning\", \"ready\", \"recover\", \"rise_warning\", \"seed_warning\", \"slam_warning\", \"spin_active\", \"spin_warning\"], \"boss_hp\": 0, \"actor_hp\": [38.30000000000007, 140], \"note\": \"Lv1 with UI sample flower equipped, other stats unmodified, lab-unlocked skills. Controller uses actions and input only; no HP/stat/position mutations.\"}\n"
+  },
+  {
+    "file": "test_pyro_regisvine.py",
+    "passed": true,
+    "output": "25 pyro regisvine checks passed\n"
+  },
+  {
+    "file": "test_pyro_seed.py",
+    "passed": true,
+    "output": "19 seed/spin checks passed\n"
+  },
+  {
+    "file": "test_reactions.py",
+    "passed": true,
+    "output": "15 reaction checks passed\n"
+  },
+  {
+    "file": "test_regions.py",
+    "passed": false,
+    "output": "Traceback (most recent call last):\n  File \"C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\test_regions.py\", line 27, in <module>\n    graph=json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8'));ids={n['id'] for n in graph['nodes']};check('every edge and checkpoint references existing stage',all(n['checkpoint'] in ids and all(e['to'] in ids for e in n['exits']) for n in graph['nodes']));check('every quest target and hub exist',all(q['hub'] in ids and q['target'] in ids for q in graph['quests']))\n                                                                                                                                                                                                                                                                                      ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\tacky\\Documents\\genshin\\outputs\\maple-lua-lab\\test_regions.py\", line 6, in check\n    assert v,n\n           ^\nAssertionError: every quest target and hub exist\n"
+  },
+  {
+    "file": "test_regisvine.py",
+    "passed": true,
+    "output": "23 regisvine checks passed\n"
+  },
+  {
+    "file": "test_regisvine_beams.py",
+    "passed": true,
+    "output": "11 beam checks passed\n"
+  },
+  {
+    "file": "test_regisvine_ground.py",
+    "passed": true,
+    "output": "12 frozen ground checks passed\n"
+  },
+  {
+    "file": "test_regisvine_hitboxes.py",
+    "passed": true,
+    "output": "13 hitbox/projectile checks passed\n"
+  },
+  {
+    "file": "test_regisvine_playthrough.py",
+    "passed": true,
+    "output": "{\"initial_stats\": [{\"atk\": 4, \"maxhp\": 161}, {\"atk\": 3, \"maxhp\": 140}], \"seconds\": 173.78333333336377, \"returns\": 0, \"kills\": 1, \"core_breaks\": 4, \"phases\": [\"beam_active\", \"beam_warning\", \"defeated\", \"down\", \"ice_warning\", \"ready\", \"recover\", \"rise_warning\", \"slam_warning\"], \"boss_hp\": 0, \"actor_hp\": [27.52500000000002, 0], \"note\": \"Lv1 with UI sample flower equipped, other stats unmodified, lab-unlocked skills. Controller uses actions and input only; no HP/stat/position mutations.\"}\n"
+  },
+  {
+    "file": "test_savegame.py",
+    "passed": true,
+    "output": "23 save checks passed\n"
+  },
+  {
+    "file": "test_sets.py",
+    "passed": true,
+    "output": "13 set and critical checks passed\n"
+  },
+  {
+    "file": "test_snow.py",
+    "passed": true,
+    "output": "13 snow checks passed\n"
+  },
+  {
+    "file": "test_star_seed.py",
+    "passed": true,
+    "output": "14 star seed checks passed\n"
+  },
+  {
+    "file": "test_stopover.py",
+    "passed": true,
+    "output": "15 stopover checks passed\n"
+  },
+  {
+    "file": "test_story.py",
+    "passed": true,
+    "output": "19 story checks passed\n"
+  },
+  {
+    "file": "test_story_growth.py",
+    "passed": true,
+    "output": "38 growth checks passed 17 contracts 290.1 sim seconds\n"
+  },
+  {
+    "file": "test_timed_combat.py",
+    "passed": true,
+    "output": "16 timed combat checks passed\n"
+  },
+  {
+    "file": "test_traveler_utility.py",
+    "passed": true,
+    "output": "16 traveler utility checks passed\n"
+  },
+  {
+    "file": "test_traversal.py",
+    "passed": true,
+    "output": "18 traversal checks passed\n"
+  },
+  {
+    "file": "test_triple.py",
+    "passed": true,
+    "output": "16 triple checks passed\n"
+  },
+  {
+    "file": "test_ultimate.py",
+    "passed": true,
+    "output": "20 ultimate checks passed\n"
+  },
+  {
+    "file": "test_voyage.py",
+    "passed": true,
+    "output": "12 voyage checks passed\n"
+  },
+  {
+    "file": "test_wall.py",
+    "passed": true,
+    "output": "12 wall checks passed\n"
+  },
+  {
+    "file": "test_wanderer.py",
+    "passed": true,
+    "output": "16 wanderer checks passed\n"
+  },
+  {
+    "file": "test_world_bosses.py",
+    "passed": true,
+    "output": "26 world boss checks passed\n"
+  }
+]

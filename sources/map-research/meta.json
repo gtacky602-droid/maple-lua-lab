@@ -1,0 +1,18 @@
+{
+  "mapId": 2,
+  "mapVersion": "bd70cde160dbd523926208d9fa8961a1",
+  "gameVersion": "7.2.0",
+  "origin": [
+    24207,
+    16411
+  ],
+  "totalSize": [
+    36864,
+    32768
+  ],
+  "minZoom": -4,
+  "maxZoom": 0,
+  "tileUrlTemplate": "tiles/{x}_{y}_{suffix}.webp",
+  "cdnTileUrlTemplate": "https://act-webstatic.mihoyo.com/ys-map-op/map/{mapId}/{mapVersion}/{x}_{y}_{suffix}.webp",
+  "fetchedAt": "2026-11-09T19:10:14.152Z"
+}

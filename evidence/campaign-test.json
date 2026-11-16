@@ -1,0 +1,18 @@
+{
+  "passed": [
+    "town has no enemies",
+    "boss gate rejects unaccepted quest",
+    "kills advance accepted quest",
+    "boss encounter initializes",
+    "boss telegraph exists",
+    "leave locked telegraph avoids damage",
+    "boss phase two visible",
+    "boss stays defeated beyond respawn interval",
+    "boss unlocks report",
+    "report requires town",
+    "reward paid once",
+    "town heals both actors",
+    "wipe returns to town preserving quest"
+  ],
+  "count": 13
+}

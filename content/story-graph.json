@@ -1,0 +1,2774 @@
+{
+  "version": 1,
+  "status": "prototype",
+  "source": "20261113-master sections4-5; 20261116-amendment",
+  "limitations": [
+    "Authored proxy stages, not verified waypoint correspondence",
+    "Quest text/layout/rewards/enemy tuning provisional",
+    "No requirement to finish previous quests to enter Liyue; level20 required",
+    "Repeatable contracts are provisional, not date-gated daily rewards; target duration unverified",
+    "Join records implemented; lab character selection remains unrestricted",
+    "Liyue-Inazuma ferry30s is an original lab draft; canonical user-requested stopover applies to future Natlan-NodKrai route",
+    "Return ferry shortened to portal for now; sea background is placeholder",
+    "Cross-country links are original 2D travel abstractions; not verified physical geography",
+    "All combat-stage enemies still use laboratory base HP; high-level tuning is pending"
+  ],
+  "nodes": [
+    {
+      "id": "mond-town",
+      "name": "モンド・城門広場",
+      "region": "モンド",
+      "level": 1,
+      "hub": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 180,
+          "y": 350,
+          "w": 350
+        },
+        {
+          "x": 780,
+          "y": 300,
+          "w": 350
+        }
+      ],
+      "exits": [
+        {
+          "to": "mond-road",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "mond-town"
+    },
+    {
+      "id": "mond-road",
+      "name": "モンド・南の街道",
+      "region": "モンド",
+      "level": 1,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 195,
+          "y": 350,
+          "w": 350
+        },
+        {
+          "x": 760,
+          "y": 340,
+          "w": 350
+        }
+      ],
+      "exits": [
+        {
+          "to": "mond-town",
+          "x": 60
+        },
+        {
+          "to": "mond-border",
+          "x": 1380
+        },
+        {
+          "to": "dornman-camp",
+          "x": 720
+        },
+        {
+          "to": "golden-hub",
+          "x": 1050
+        },
+        {
+          "to": "anemo-approach",
+          "x": 1200
+        },
+        {
+          "to": "electro-approach",
+          "x": 400
+        }
+      ],
+      "checkpoint": "mond-town",
+      "hints": [
+        {
+          "group": "golden",
+          "x": 1050,
+          "y": 480,
+          "label": "古い船着き場の跡"
+        }
+      ]
+    },
+    {
+      "id": "mond-border",
+      "name": "モンド・国境の道",
+      "region": "モンド",
+      "level": 1,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 210,
+          "y": 350,
+          "w": 350
+        },
+        {
+          "x": 740,
+          "y": 300,
+          "w": 350
+        }
+      ],
+      "exits": [
+        {
+          "to": "mond-road",
+          "x": 60
+        },
+        {
+          "to": "liyue-entry",
+          "x": 1380
+        },
+        {
+          "to": "dragonspine-camp",
+          "x": 720
+        },
+        {
+          "to": "cryo-approach",
+          "x": 1200
+        }
+      ],
+      "checkpoint": "mond-town"
+    },
+    {
+      "id": "liyue-entry",
+      "name": "璃月・北の入口",
+      "region": "璃月",
+      "level": 20,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 225,
+          "y": 350,
+          "w": 350
+        },
+        {
+          "x": 720,
+          "y": 340,
+          "w": 350
+        }
+      ],
+      "exits": [
+        {
+          "to": "mond-border",
+          "x": 60
+        },
+        {
+          "to": "liyue-harbor",
+          "x": 1380
+        },
+        {
+          "to": "chenyu-camp",
+          "x": 720
+        }
+      ],
+      "checkpoint": "liyue-harbor"
+    },
+    {
+      "id": "liyue-harbor",
+      "name": "璃月・港の広場",
+      "region": "璃月",
+      "level": 20,
+      "hub": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 240,
+          "y": 350,
+          "w": 350
+        },
+        {
+          "x": 700,
+          "y": 300,
+          "w": 350
+        }
+      ],
+      "exits": [
+        {
+          "to": "liyue-entry",
+          "x": 60
+        },
+        {
+          "to": "liyue-field",
+          "x": 1380
+        },
+        {
+          "to": "liyue-ferry",
+          "x": 720
+        }
+      ],
+      "checkpoint": "liyue-harbor"
+    },
+    {
+      "id": "liyue-field",
+      "name": "璃月・岩間の狩場",
+      "region": "璃月",
+      "level": 20,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 255,
+          "y": 350,
+          "w": 350
+        },
+        {
+          "x": 680,
+          "y": 340,
+          "w": 350
+        }
+      ],
+      "exits": [
+        {
+          "to": "liyue-harbor",
+          "x": 60
+        },
+        {
+          "to": "pyro-approach",
+          "x": 1200
+        },
+        {
+          "to": "geo-approach",
+          "x": 400
+        },
+        {
+          "to": "oceanid-approach",
+          "x": 900
+        },
+        {
+          "to": "primo-approach",
+          "x": 650
+        }
+      ],
+      "checkpoint": "liyue-harbor"
+    },
+    {
+      "id": "liyue-ferry",
+      "name": "稲妻行き・船の甲板",
+      "region": "航路",
+      "level": 40,
+      "hub": false,
+      "peaceful": true,
+      "width": 960,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 960
+        },
+        {
+          "x": 360,
+          "y": 350,
+          "w": 240
+        }
+      ],
+      "exits": [
+        {
+          "to": "liyue-harbor",
+          "x": 60
+        },
+        {
+          "to": "inazuma-port",
+          "x": 900,
+          "requiresArrival": true
+        }
+      ],
+      "checkpoint": "liyue-harbor",
+      "voyage": {
+        "destination": "inazuma-port",
+        "seconds": 30,
+        "source": "liyue-harbor",
+        "draft": true
+      }
+    },
+    {
+      "id": "inazuma-port",
+      "name": "稲妻・離島の波止場",
+      "region": "稲妻",
+      "level": 40,
+      "hub": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 260,
+          "y": 340,
+          "w": 420
+        }
+      ],
+      "exits": [
+        {
+          "to": "liyue-harbor",
+          "x": 60
+        },
+        {
+          "to": "inazuma-road",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "inazuma-port"
+    },
+    {
+      "id": "inazuma-road",
+      "name": "稲妻・海辺の街道",
+      "region": "稲妻",
+      "level": 40,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 260,
+          "y": 350,
+          "w": 300
+        },
+        {
+          "x": 800,
+          "y": 300,
+          "w": 360
+        }
+      ],
+      "exits": [
+        {
+          "to": "inazuma-port",
+          "x": 60
+        },
+        {
+          "to": "inazuma-town",
+          "x": 1380
+        },
+        {
+          "to": "enkanomiya-camp",
+          "x": 720
+        },
+        {
+          "to": "maguu-approach",
+          "x": 1100
+        },
+        {
+          "to": "array-approach",
+          "x": 400
+        },
+        {
+          "to": "thunder-approach",
+          "x": 900
+        }
+      ],
+      "checkpoint": "inazuma-port"
+    },
+    {
+      "id": "inazuma-town",
+      "name": "稲妻・城下の広場",
+      "region": "稲妻",
+      "level": 40,
+      "hub": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 400,
+          "y": 340,
+          "w": 500
+        }
+      ],
+      "exits": [
+        {
+          "to": "inazuma-road",
+          "x": 60
+        },
+        {
+          "to": "sumeru-entry",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "inazuma-town"
+    },
+    {
+      "id": "sumeru-entry",
+      "name": "スメール・地域の入口",
+      "region": "スメール",
+      "level": 60,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 180,
+          "y": 360,
+          "w": 270
+        },
+        {
+          "x": 780,
+          "y": 300,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "inazuma-town",
+          "x": 60
+        },
+        {
+          "to": "sumeru-hub",
+          "x": 1380
+        },
+        {
+          "to": "veluriyam-hub",
+          "x": 1050
+        }
+      ],
+      "checkpoint": "inazuma-town",
+      "hints": [
+        {
+          "group": "veluriyam",
+          "x": 1050,
+          "y": 480,
+          "label": "砂に埋もれた瓶"
+        }
+      ]
+    },
+    {
+      "id": "sumeru-hub",
+      "name": "スメール・樹陰の広場",
+      "region": "スメール",
+      "level": 60,
+      "hub": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 180,
+          "y": 340,
+          "w": 330
+        },
+        {
+          "x": 780,
+          "y": 300,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "sumeru-entry",
+          "x": 60
+        },
+        {
+          "to": "sumeru-field",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "sumeru-hub"
+    },
+    {
+      "id": "sumeru-field",
+      "name": "スメール・雨林の道",
+      "region": "スメール",
+      "level": 60,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 180,
+          "y": 320,
+          "w": 390
+        },
+        {
+          "x": 780,
+          "y": 300,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "sumeru-hub",
+          "x": 60
+        },
+        {
+          "to": "fontaine-entry",
+          "x": 1380
+        },
+        {
+          "to": "tunigi-camp",
+          "x": 720
+        }
+      ],
+      "checkpoint": "sumeru-hub"
+    },
+    {
+      "id": "fontaine-entry",
+      "name": "フォンテーヌ・地域の入口",
+      "region": "フォンテーヌ",
+      "level": 80,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 225,
+          "y": 360,
+          "w": 270
+        },
+        {
+          "x": 750,
+          "y": 325,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "sumeru-field",
+          "x": 60
+        },
+        {
+          "to": "fontaine-hub",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "sumeru-hub"
+    },
+    {
+      "id": "fontaine-hub",
+      "name": "フォンテーヌ・水辺の広場",
+      "region": "フォンテーヌ",
+      "level": 80,
+      "hub": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 225,
+          "y": 340,
+          "w": 330
+        },
+        {
+          "x": 750,
+          "y": 325,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "fontaine-entry",
+          "x": 60
+        },
+        {
+          "to": "fontaine-field",
+          "x": 1380
+        },
+        {
+          "to": "simulanka-hub",
+          "x": 1050
+        }
+      ],
+      "checkpoint": "fontaine-hub",
+      "hints": [
+        {
+          "group": "simulanka",
+          "x": 1050,
+          "y": 480,
+          "label": "不思議な絵本"
+        }
+      ]
+    },
+    {
+      "id": "fontaine-field",
+      "name": "フォンテーヌ・水路沿い",
+      "region": "フォンテーヌ",
+      "level": 80,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 225,
+          "y": 320,
+          "w": 390
+        },
+        {
+          "x": 750,
+          "y": 325,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "fontaine-hub",
+          "x": 60
+        },
+        {
+          "to": "natlan-entry",
+          "x": 1380
+        },
+        {
+          "to": "bygone-camp",
+          "x": 720
+        }
+      ],
+      "checkpoint": "fontaine-hub"
+    },
+    {
+      "id": "natlan-entry",
+      "name": "ナタ・地域の入口",
+      "region": "ナタ",
+      "level": 100,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 270,
+          "y": 360,
+          "w": 270
+        },
+        {
+          "x": 720,
+          "y": 350,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "fontaine-field",
+          "x": 60
+        },
+        {
+          "to": "natlan-hub",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "fontaine-hub"
+    },
+    {
+      "id": "natlan-hub",
+      "name": "ナタ・谷の集落",
+      "region": "ナタ",
+      "level": 100,
+      "hub": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 270,
+          "y": 340,
+          "w": 330
+        },
+        {
+          "x": 720,
+          "y": 350,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "natlan-entry",
+          "x": 60
+        },
+        {
+          "to": "natlan-field",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "natlan-hub"
+    },
+    {
+      "id": "natlan-field",
+      "name": "ナタ・岩場の道",
+      "region": "ナタ",
+      "level": 100,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 270,
+          "y": 320,
+          "w": 390
+        },
+        {
+          "x": 720,
+          "y": 350,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "natlan-hub",
+          "x": 60
+        },
+        {
+          "to": "natlan-port",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "natlan-hub"
+    },
+    {
+      "id": "natlan-port",
+      "name": "ナタ・花翼の集付近の港（仮）",
+      "region": "ナタ",
+      "level": 100,
+      "hub": true,
+      "peaceful": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 400,
+          "y": 340,
+          "w": 420
+        }
+      ],
+      "exits": [
+        {
+          "to": "natlan-field",
+          "x": 60
+        },
+        {
+          "to": "natlan-voyage",
+          "x": 720
+        }
+      ],
+      "checkpoint": "natlan-port"
+    },
+    {
+      "id": "natlan-voyage",
+      "name": "北行き航海・甲板",
+      "region": "航路",
+      "level": 120,
+      "hub": false,
+      "peaceful": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 240,
+          "y": 340,
+          "w": 350
+        },
+        {
+          "x": 820,
+          "y": 310,
+          "w": 300
+        }
+      ],
+      "checkpoint": "natlan-port",
+      "exits": [
+        {
+          "to": "natlan-port",
+          "x": 60
+        },
+        {
+          "to": "ochkanatlan-dock",
+          "x": 720,
+          "windowStart": 30,
+          "windowEnd": 50
+        },
+        {
+          "to": "nod-port",
+          "x": 1380,
+          "requiresArrival": true
+        }
+      ],
+      "voyage": {
+        "destination": "nod-port",
+        "seconds": 90,
+        "source": "natlan-port",
+        "stopStart": 30,
+        "stopEnd": 50
+      }
+    },
+    {
+      "id": "ochkanatlan-dock",
+      "name": "オシカ・ナタ・寄港地",
+      "region": "オシカ・ナタ",
+      "level": 120,
+      "hub": true,
+      "peaceful": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 240,
+          "y": 340,
+          "w": 350
+        },
+        {
+          "x": 820,
+          "y": 310,
+          "w": 300
+        }
+      ],
+      "checkpoint": "ochkanatlan-dock",
+      "exits": [
+        {
+          "to": "natlan-voyage",
+          "x": 60,
+          "resumeSeconds": 50
+        },
+        {
+          "to": "ochkanatlan-ruins",
+          "x": 1380
+        }
+      ],
+      "branch": true,
+      "lightReference": 35,
+      "barrier": 0
+    },
+    {
+      "id": "ochkanatlan-ruins",
+      "name": "オシカ・ナタ・遺構の道",
+      "region": "オシカ・ナタ",
+      "level": 120,
+      "hub": false,
+      "peaceful": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 240,
+          "y": 340,
+          "w": 350
+        },
+        {
+          "x": 820,
+          "y": 310,
+          "w": 300
+        }
+      ],
+      "checkpoint": "ochkanatlan-dock",
+      "exits": [
+        {
+          "to": "ochkanatlan-dock",
+          "x": 60
+        }
+      ],
+      "branch": true,
+      "lightReference": 35,
+      "barrier": 35
+    },
+    {
+      "id": "nod-port",
+      "name": "ナド・クライ・到着港",
+      "region": "ナド・クライ",
+      "level": 120,
+      "hub": true,
+      "peaceful": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 240,
+          "y": 340,
+          "w": 350
+        },
+        {
+          "x": 820,
+          "y": 310,
+          "w": 300
+        }
+      ],
+      "checkpoint": "nod-port",
+      "exits": [
+        {
+          "to": "natlan-port",
+          "x": 60
+        },
+        {
+          "to": "nod-field",
+          "x": 1380
+        }
+      ]
+    },
+    {
+      "id": "nod-field",
+      "name": "ナド・クライ・月明かりの道",
+      "region": "ナド・クライ",
+      "level": 120,
+      "hub": false,
+      "peaceful": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 240,
+          "y": 340,
+          "w": 350
+        },
+        {
+          "x": 820,
+          "y": 310,
+          "w": 300
+        }
+      ],
+      "checkpoint": "nod-port",
+      "exits": [
+        {
+          "to": "nod-port",
+          "x": 60
+        },
+        {
+          "to": "nod-town",
+          "x": 1380
+        },
+        {
+          "to": "nod-special-camp",
+          "x": 720
+        }
+      ]
+    },
+    {
+      "id": "nod-town",
+      "name": "ナド・クライ・町の広場",
+      "region": "ナド・クライ",
+      "level": 120,
+      "hub": true,
+      "peaceful": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 240,
+          "y": 340,
+          "w": 350
+        },
+        {
+          "x": 820,
+          "y": 310,
+          "w": 300
+        }
+      ],
+      "checkpoint": "nod-town",
+      "exits": [
+        {
+          "to": "nod-field",
+          "x": 60
+        },
+        {
+          "to": "snezhnaya-entry",
+          "x": 1380
+        }
+      ]
+    },
+    {
+      "id": "snezhnaya-entry",
+      "name": "スネージナヤ・雪原の入口",
+      "region": "スネージナヤ",
+      "level": 140,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 180,
+          "y": 350,
+          "w": 320
+        },
+        {
+          "x": 760,
+          "y": 290,
+          "w": 360
+        }
+      ],
+      "exits": [
+        {
+          "to": "nod-town",
+          "x": 60
+        },
+        {
+          "to": "snezhnaya-hub",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "nod-town"
+    },
+    {
+      "id": "snezhnaya-hub",
+      "name": "スネージナヤ・雪の町",
+      "region": "スネージナヤ",
+      "level": 140,
+      "hub": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 210,
+          "y": 350,
+          "w": 320
+        },
+        {
+          "x": 785,
+          "y": 310,
+          "w": 360
+        }
+      ],
+      "exits": [
+        {
+          "to": "snezhnaya-entry",
+          "x": 60
+        },
+        {
+          "to": "snezhnaya-field",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "snezhnaya-hub"
+    },
+    {
+      "id": "snezhnaya-field",
+      "name": "スネージナヤ・凍った街道",
+      "region": "スネージナヤ",
+      "level": 140,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 240,
+          "y": 350,
+          "w": 320
+        },
+        {
+          "x": 810,
+          "y": 330,
+          "w": 360
+        }
+      ],
+      "exits": [
+        {
+          "to": "snezhnaya-hub",
+          "x": 60
+        },
+        {
+          "to": "novokichev-camp",
+          "x": 720
+        }
+      ],
+      "checkpoint": "snezhnaya-hub"
+    },
+    {
+      "id": "dragonspine-camp",
+      "name": "ドラゴンスパイン・入口拠点",
+      "region": "ドラゴンスパイン",
+      "level": 1,
+      "hub": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 180,
+          "y": 360,
+          "w": 320
+        },
+        {
+          "x": 780,
+          "y": 280,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "mond-border",
+          "x": 60
+        },
+        {
+          "to": "dragonspine-depth",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "dragonspine-camp",
+      "branch": true,
+      "lightReference": 3,
+      "barrier": 0
+    },
+    {
+      "id": "dragonspine-depth",
+      "name": "ドラゴンスパイン・探索路",
+      "region": "ドラゴンスパイン",
+      "level": 1,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 180,
+          "y": 360,
+          "w": 320
+        },
+        {
+          "x": 780,
+          "y": 280,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "dragonspine-camp",
+          "x": 60
+        }
+      ],
+      "checkpoint": "dragonspine-camp",
+      "branch": true,
+      "lightReference": 3,
+      "barrier": 3
+    },
+    {
+      "id": "chenyu-camp",
+      "name": "沈玉の谷・入口拠点",
+      "region": "沈玉の谷",
+      "level": 20,
+      "hub": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 220,
+          "y": 360,
+          "w": 320
+        },
+        {
+          "x": 780,
+          "y": 300,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "liyue-entry",
+          "x": 60
+        },
+        {
+          "to": "chenyu-depth",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "chenyu-camp",
+      "branch": true,
+      "lightReference": 8,
+      "barrier": 0
+    },
+    {
+      "id": "chenyu-depth",
+      "name": "沈玉の谷・探索路",
+      "region": "沈玉の谷",
+      "level": 20,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 220,
+          "y": 360,
+          "w": 320
+        },
+        {
+          "x": 780,
+          "y": 300,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "chenyu-camp",
+          "x": 60
+        }
+      ],
+      "checkpoint": "chenyu-camp",
+      "branch": true,
+      "lightReference": 8,
+      "barrier": 8
+    },
+    {
+      "id": "enkanomiya-camp",
+      "name": "淵下宮・入口拠点",
+      "region": "淵下宮",
+      "level": 40,
+      "hub": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 260,
+          "y": 360,
+          "w": 320
+        },
+        {
+          "x": 780,
+          "y": 320,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "inazuma-road",
+          "x": 60
+        },
+        {
+          "to": "enkanomiya-depth",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "enkanomiya-camp",
+      "branch": true,
+      "lightReference": 10,
+      "barrier": 0
+    },
+    {
+      "id": "enkanomiya-depth",
+      "name": "淵下宮・探索路",
+      "region": "淵下宮",
+      "level": 40,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 260,
+          "y": 360,
+          "w": 320
+        },
+        {
+          "x": 780,
+          "y": 320,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "enkanomiya-camp",
+          "x": 60
+        }
+      ],
+      "checkpoint": "enkanomiya-camp",
+      "branch": true,
+      "lightReference": 10,
+      "barrier": 10
+    },
+    {
+      "id": "tunigi-camp",
+      "name": "トゥニギの黒淵・入口拠点",
+      "region": "トゥニギの黒淵",
+      "level": 60,
+      "hub": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 180,
+          "y": 360,
+          "w": 320
+        },
+        {
+          "x": 780,
+          "y": 340,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "sumeru-field",
+          "x": 60
+        },
+        {
+          "to": "tunigi-depth",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "tunigi-camp",
+      "branch": true,
+      "lightReference": 13,
+      "barrier": 0
+    },
+    {
+      "id": "tunigi-depth",
+      "name": "トゥニギの黒淵・探索路",
+      "region": "トゥニギの黒淵",
+      "level": 60,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 180,
+          "y": 360,
+          "w": 320
+        },
+        {
+          "x": 780,
+          "y": 340,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "tunigi-camp",
+          "x": 60
+        }
+      ],
+      "checkpoint": "tunigi-camp",
+      "branch": true,
+      "lightReference": 13,
+      "barrier": 13
+    },
+    {
+      "id": "bygone-camp",
+      "name": "往日の海・入口拠点",
+      "region": "往日の海",
+      "level": 80,
+      "hub": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 220,
+          "y": 360,
+          "w": 320
+        },
+        {
+          "x": 780,
+          "y": 280,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "fontaine-field",
+          "x": 60
+        },
+        {
+          "to": "bygone-depth",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "bygone-camp",
+      "branch": true,
+      "lightReference": 25,
+      "barrier": 0
+    },
+    {
+      "id": "bygone-depth",
+      "name": "往日の海・探索路",
+      "region": "往日の海",
+      "level": 80,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 220,
+          "y": 360,
+          "w": 320
+        },
+        {
+          "x": 780,
+          "y": 280,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "bygone-camp",
+          "x": 60
+        }
+      ],
+      "checkpoint": "bygone-camp",
+      "branch": true,
+      "lightReference": 25,
+      "barrier": 25
+    },
+    {
+      "id": "dornman-camp",
+      "name": "ドーンマンポート・入口拠点",
+      "region": "ドーンマンポート",
+      "level": 1,
+      "hub": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 260,
+          "y": 360,
+          "w": 320
+        },
+        {
+          "x": 780,
+          "y": 300,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "mond-road",
+          "x": 60
+        },
+        {
+          "to": "dornman-depth",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "dornman-camp",
+      "branch": true,
+      "lightReference": 30,
+      "barrier": 0
+    },
+    {
+      "id": "dornman-depth",
+      "name": "ドーンマンポート・探索路",
+      "region": "ドーンマンポート",
+      "level": 1,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 260,
+          "y": 360,
+          "w": 320
+        },
+        {
+          "x": 780,
+          "y": 300,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "dornman-camp",
+          "x": 60
+        }
+      ],
+      "checkpoint": "dornman-camp",
+      "branch": true,
+      "lightReference": 30,
+      "barrier": 30
+    },
+    {
+      "id": "nod-special-camp",
+      "name": "ナド・クライ特別地域（仮）・入口拠点",
+      "region": "ナド・クライ特別地域（仮）",
+      "level": 120,
+      "hub": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 180,
+          "y": 360,
+          "w": 320
+        },
+        {
+          "x": 780,
+          "y": 320,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "nod-field",
+          "x": 60
+        },
+        {
+          "to": "nod-special-depth",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "nod-special-camp",
+      "branch": true,
+      "lightReference": 40,
+      "barrier": 0
+    },
+    {
+      "id": "nod-special-depth",
+      "name": "ナド・クライ特別地域（仮）・探索路",
+      "region": "ナド・クライ特別地域（仮）",
+      "level": 120,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 180,
+          "y": 360,
+          "w": 320
+        },
+        {
+          "x": 780,
+          "y": 320,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "nod-special-camp",
+          "x": 60
+        }
+      ],
+      "checkpoint": "nod-special-camp",
+      "branch": true,
+      "lightReference": 40,
+      "barrier": 40
+    },
+    {
+      "id": "novokichev-camp",
+      "name": "ノヴォキッチェヴ（仮構造）・入口拠点",
+      "region": "ノヴォキッチェヴ（仮構造）",
+      "level": 140,
+      "hub": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 220,
+          "y": 360,
+          "w": 320
+        },
+        {
+          "x": 780,
+          "y": 340,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "snezhnaya-field",
+          "x": 60
+        },
+        {
+          "to": "novokichev-depth",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "novokichev-camp",
+      "branch": true,
+      "lightReference": 50,
+      "barrier": 0
+    },
+    {
+      "id": "novokichev-depth",
+      "name": "ノヴォキッチェヴ（仮構造）・探索路",
+      "region": "ノヴォキッチェヴ（仮構造）",
+      "level": 140,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 220,
+          "y": 360,
+          "w": 320
+        },
+        {
+          "x": 780,
+          "y": 340,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "novokichev-camp",
+          "x": 60
+        }
+      ],
+      "checkpoint": "novokichev-camp",
+      "branch": true,
+      "lightReference": 50,
+      "barrier": 50
+    },
+    {
+      "id": "golden-hub",
+      "name": "金リンゴ群島・入口広場",
+      "region": "金リンゴ群島",
+      "level": 1,
+      "hub": true,
+      "hiddenGroup": "golden",
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 150,
+          "y": 350,
+          "w": 280
+        },
+        {
+          "x": 650,
+          "y": 300,
+          "w": 250
+        },
+        {
+          "x": 1050,
+          "y": 350,
+          "w": 250
+        }
+      ],
+      "exits": [
+        {
+          "to": "mond-road",
+          "x": 60
+        },
+        {
+          "to": "golden-play",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "golden-hub"
+    },
+    {
+      "id": "golden-play",
+      "name": "金リンゴ群島・探索ステージ",
+      "region": "金リンゴ群島",
+      "level": 1,
+      "hub": false,
+      "hiddenGroup": "golden",
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 150,
+          "y": 350,
+          "w": 280
+        },
+        {
+          "x": 650,
+          "y": 300,
+          "w": 250
+        },
+        {
+          "x": 1050,
+          "y": 350,
+          "w": 250
+        }
+      ],
+      "exits": [
+        {
+          "to": "golden-hub",
+          "x": 60
+        }
+      ],
+      "checkpoint": "golden-hub"
+    },
+    {
+      "id": "veluriyam-hub",
+      "name": "ヴェルーリヤ・ミラージュ・入口広場",
+      "region": "ヴェルーリヤ・ミラージュ",
+      "level": 60,
+      "hub": true,
+      "hiddenGroup": "veluriyam",
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 195,
+          "y": 350,
+          "w": 280
+        },
+        {
+          "x": 650,
+          "y": 280,
+          "w": 250
+        },
+        {
+          "x": 1050,
+          "y": 350,
+          "w": 250
+        }
+      ],
+      "exits": [
+        {
+          "to": "sumeru-entry",
+          "x": 60
+        },
+        {
+          "to": "veluriyam-play",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "veluriyam-hub"
+    },
+    {
+      "id": "veluriyam-play",
+      "name": "ヴェルーリヤ・ミラージュ・探索ステージ",
+      "region": "ヴェルーリヤ・ミラージュ",
+      "level": 60,
+      "hub": false,
+      "hiddenGroup": "veluriyam",
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 195,
+          "y": 350,
+          "w": 280
+        },
+        {
+          "x": 650,
+          "y": 280,
+          "w": 250
+        },
+        {
+          "x": 1050,
+          "y": 350,
+          "w": 250
+        }
+      ],
+      "exits": [
+        {
+          "to": "veluriyam-hub",
+          "x": 60
+        }
+      ],
+      "checkpoint": "veluriyam-hub"
+    },
+    {
+      "id": "simulanka-hub",
+      "name": "シムランカ・入口広場",
+      "region": "シムランカ",
+      "level": 80,
+      "hub": true,
+      "hiddenGroup": "simulanka",
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 240,
+          "y": 350,
+          "w": 280
+        },
+        {
+          "x": 650,
+          "y": 260,
+          "w": 250
+        },
+        {
+          "x": 1050,
+          "y": 350,
+          "w": 250
+        }
+      ],
+      "exits": [
+        {
+          "to": "fontaine-hub",
+          "x": 60
+        },
+        {
+          "to": "simulanka-play",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "simulanka-hub"
+    },
+    {
+      "id": "simulanka-play",
+      "name": "シムランカ・探索ステージ",
+      "region": "シムランカ",
+      "level": 80,
+      "hub": false,
+      "hiddenGroup": "simulanka",
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 240,
+          "y": 350,
+          "w": 280
+        },
+        {
+          "x": 650,
+          "y": 260,
+          "w": 250
+        },
+        {
+          "x": 1050,
+          "y": 350,
+          "w": 250
+        }
+      ],
+      "exits": [
+        {
+          "to": "simulanka-hub",
+          "x": 60
+        }
+      ],
+      "checkpoint": "simulanka-hub"
+    },
+    {
+      "id": "anemo-approach",
+      "name": "無相の風・挑戦入口",
+      "region": "モンド",
+      "level": 1,
+      "hub": false,
+      "peaceful": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        }
+      ],
+      "exits": [
+        {
+          "to": "mond-road",
+          "x": 60
+        }
+      ],
+      "checkpoint": "mond-town",
+      "challenge": "anemo",
+      "challengeName": "無相の風",
+      "challengeAction": "boss_anemo",
+      "challengeX": 720
+    },
+    {
+      "id": "cryo-approach",
+      "name": "急凍樹・挑戦入口",
+      "region": "モンド",
+      "level": 1,
+      "hub": false,
+      "peaceful": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        }
+      ],
+      "exits": [
+        {
+          "to": "mond-border",
+          "x": 60
+        }
+      ],
+      "checkpoint": "mond-town",
+      "challenge": "cryo",
+      "challengeName": "急凍樹",
+      "challengeAction": "boss_cryo_regisvine",
+      "challengeX": 720
+    },
+    {
+      "id": "pyro-approach",
+      "name": "爆炎樹・挑戦入口",
+      "region": "璃月",
+      "level": 20,
+      "hub": false,
+      "peaceful": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        }
+      ],
+      "exits": [
+        {
+          "to": "liyue-field",
+          "x": 60
+        }
+      ],
+      "checkpoint": "liyue-harbor",
+      "challenge": "pyro",
+      "challengeName": "爆炎樹",
+      "challengeAction": "boss_pyro_regisvine",
+      "challengeX": 720
+    },
+    {
+      "id": "electro-approach",
+      "name": "無相の雷・挑戦入口",
+      "region": "モンド",
+      "level": 1,
+      "hub": false,
+      "peaceful": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        }
+      ],
+      "exits": [
+        {
+          "to": "mond-road",
+          "x": 60
+        }
+      ],
+      "checkpoint": "mond-town",
+      "challenge": "electro",
+      "challengeName": "無相の雷",
+      "challengeAction": "boss_electro",
+      "challengeX": 720
+    },
+    {
+      "id": "geo-approach",
+      "name": "無相の岩・挑戦入口",
+      "region": "璃月",
+      "level": 20,
+      "hub": false,
+      "peaceful": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        }
+      ],
+      "exits": [
+        {
+          "to": "liyue-field",
+          "x": 60
+        }
+      ],
+      "checkpoint": "liyue-harbor",
+      "challenge": "geo",
+      "challengeName": "無相の岩",
+      "challengeAction": "boss_geo",
+      "challengeX": 720
+    },
+    {
+      "id": "oceanid-approach",
+      "name": "純水精霊・湖畔入口",
+      "region": "璃月",
+      "level": 20,
+      "hub": false,
+      "peaceful": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        }
+      ],
+      "exits": [
+        {
+          "to": "liyue-field",
+          "x": 60
+        }
+      ],
+      "checkpoint": "liyue-harbor",
+      "challenge": "oceanid",
+      "challengeName": "純水精霊",
+      "challengeAction": "boss_oceanid",
+      "challengeX": 720
+    },
+    {
+      "id": "primo-approach",
+      "name": "エンシェントヴィシャップ・洞窟入口",
+      "region": "璃月",
+      "level": 20,
+      "hub": false,
+      "peaceful": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        }
+      ],
+      "exits": [
+        {
+          "to": "liyue-field",
+          "x": 60
+        }
+      ],
+      "checkpoint": "liyue-harbor",
+      "challenge": "primo",
+      "challengeName": "エンシェントヴィシャップ",
+      "challengeAction": "boss_primo",
+      "challengeX": 720
+    },
+    {
+      "id": "maguu-approach",
+      "name": "魔偶剣鬼・挑戦入口",
+      "region": "稲妻",
+      "level": 40,
+      "hub": false,
+      "peaceful": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        }
+      ],
+      "exits": [
+        {
+          "to": "inazuma-road",
+          "x": 60
+        }
+      ],
+      "checkpoint": "inazuma-port",
+      "challenge": "maguu",
+      "challengeName": "魔偶剣鬼",
+      "challengeAction": "boss_maguu",
+      "challengeX": 720
+    },
+    {
+      "id": "array-approach",
+      "name": "恒常からくり陣形・挑戦入口",
+      "region": "稲妻",
+      "level": 40,
+      "hub": false,
+      "peaceful": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        }
+      ],
+      "exits": [
+        {
+          "to": "inazuma-road",
+          "x": 60
+        }
+      ],
+      "checkpoint": "inazuma-port",
+      "challenge": "array",
+      "challengeName": "恒常からくり陣形",
+      "challengeAction": "boss_array",
+      "challengeX": 720
+    },
+    {
+      "id": "thunder-approach",
+      "name": "雷音権現・挑戦入口",
+      "region": "稲妻",
+      "level": 40,
+      "hub": false,
+      "peaceful": true,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        }
+      ],
+      "exits": [
+        {
+          "to": "inazuma-road",
+          "x": 60
+        }
+      ],
+      "checkpoint": "inazuma-port",
+      "challenge": "thunder",
+      "challengeName": "雷音権現",
+      "challengeAction": "boss_thunder",
+      "challengeX": 720
+    }
+  ],
+  "quests": [
+    {
+      "id": "mond-patrol",
+      "name": "街道の安全確認",
+      "hub": "mond-town",
+      "target": "mond-road",
+      "kind": "kill",
+      "goal": 8,
+      "xp": 500,
+      "mora": 200
+    },
+    {
+      "id": "mond-border-check",
+      "name": "国境の道を確かめる",
+      "hub": "mond-town",
+      "target": "mond-border",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 250,
+      "mora": 100
+    },
+    {
+      "id": "liyue-supply",
+      "name": "港への補給路",
+      "hub": "liyue-harbor",
+      "target": "liyue-field",
+      "kind": "kill",
+      "goal": 8,
+      "xp": 800,
+      "mora": 300
+    },
+    {
+      "id": "liyue-entry-check",
+      "name": "北の入口を巡回する",
+      "hub": "liyue-harbor",
+      "target": "liyue-entry",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 400,
+      "mora": 150
+    },
+    {
+      "id": "amber-join",
+      "name": "アンバーと街道を見回る",
+      "hub": "mond-town",
+      "target": "mond-road",
+      "kind": "kill",
+      "goal": 4,
+      "xp": 1000,
+      "mora": 100,
+      "join": "amber"
+    },
+    {
+      "id": "beidou-join",
+      "name": "北斗と補給路を開く",
+      "hub": "liyue-harbor",
+      "target": "liyue-field",
+      "kind": "kill",
+      "goal": 4,
+      "xp": 1500,
+      "mora": 150,
+      "join": "beidou"
+    },
+    {
+      "id": "mond-contract",
+      "name": "街道の巡回依頼（繰り返し）",
+      "hub": "mond-town",
+      "target": "mond-road",
+      "kind": "kill",
+      "goal": 12,
+      "xp": 2500,
+      "mora": 200,
+      "repeatable": true
+    },
+    {
+      "id": "liyue-contract",
+      "name": "岩間の巡回依頼（繰り返し）",
+      "hub": "liyue-harbor",
+      "target": "liyue-field",
+      "kind": "kill",
+      "goal": 16,
+      "xp": 6500,
+      "mora": 350,
+      "repeatable": true
+    },
+    {
+      "id": "ayaka-join",
+      "name": "綾華と海辺の安全を確かめる",
+      "hub": "inazuma-port",
+      "target": "inazuma-road",
+      "kind": "kill",
+      "goal": 4,
+      "xp": 2500,
+      "mora": 200,
+      "join": "ayaka"
+    },
+    {
+      "id": "inazuma-delivery",
+      "name": "城下への道をたどる",
+      "hub": "inazuma-port",
+      "target": "inazuma-town",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 1500,
+      "mora": 200
+    },
+    {
+      "id": "inazuma-contract",
+      "name": "海辺の巡回依頼（繰り返し）",
+      "hub": "inazuma-port",
+      "target": "inazuma-road",
+      "kind": "kill",
+      "goal": 16,
+      "xp": 12000,
+      "mora": 400,
+      "repeatable": true
+    },
+    {
+      "id": "wanderer-join",
+      "name": "スメールの仲間と道を確かめる",
+      "hub": "sumeru-hub",
+      "target": "sumeru-field",
+      "kind": "kill",
+      "goal": 4,
+      "xp": 4000,
+      "mora": 300,
+      "join": "wanderer"
+    },
+    {
+      "id": "sumeru-entry-check",
+      "name": "スメールの入口を巡回する",
+      "hub": "sumeru-hub",
+      "target": "sumeru-entry",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 2000,
+      "mora": 200
+    },
+    {
+      "id": "sumeru-contract",
+      "name": "スメールの巡回依頼（繰り返し）",
+      "hub": "sumeru-hub",
+      "target": "sumeru-field",
+      "kind": "kill",
+      "goal": 20,
+      "xp": 20000,
+      "mora": 500,
+      "repeatable": true
+    },
+    {
+      "id": "emilie-join",
+      "name": "フォンテーヌの仲間と道を確かめる",
+      "hub": "fontaine-hub",
+      "target": "fontaine-field",
+      "kind": "kill",
+      "goal": 4,
+      "xp": 6000,
+      "mora": 300,
+      "join": "emilie"
+    },
+    {
+      "id": "fontaine-entry-check",
+      "name": "フォンテーヌの入口を巡回する",
+      "hub": "fontaine-hub",
+      "target": "fontaine-entry",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 3000,
+      "mora": 200
+    },
+    {
+      "id": "fontaine-contract",
+      "name": "フォンテーヌの巡回依頼（繰り返し）",
+      "hub": "fontaine-hub",
+      "target": "fontaine-field",
+      "kind": "kill",
+      "goal": 20,
+      "xp": 30000,
+      "mora": 500,
+      "repeatable": true
+    },
+    {
+      "id": "kachina-join",
+      "name": "ナタの仲間と道を確かめる",
+      "hub": "natlan-hub",
+      "target": "natlan-field",
+      "kind": "kill",
+      "goal": 4,
+      "xp": 8400,
+      "mora": 300,
+      "join": "kachina"
+    },
+    {
+      "id": "natlan-entry-check",
+      "name": "ナタの入口を巡回する",
+      "hub": "natlan-hub",
+      "target": "natlan-entry",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 4200,
+      "mora": 200
+    },
+    {
+      "id": "natlan-contract",
+      "name": "ナタの巡回依頼（繰り返し）",
+      "hub": "natlan-hub",
+      "target": "natlan-field",
+      "kind": "kill",
+      "goal": 20,
+      "xp": 42000,
+      "mora": 500,
+      "repeatable": true
+    },
+    {
+      "id": "columbina-join",
+      "name": "コロンビーナと道を確かめる",
+      "hub": "nod-port",
+      "target": "nod-field",
+      "kind": "kill",
+      "goal": 4,
+      "xp": 12000,
+      "mora": 400,
+      "join": "columbina"
+    },
+    {
+      "id": "nod-contract",
+      "name": "月明かりの巡回（繰り返し）",
+      "hub": "nod-port",
+      "target": "nod-field",
+      "kind": "kill",
+      "goal": 20,
+      "xp": 60000,
+      "mora": 600,
+      "repeatable": true
+    },
+    {
+      "id": "ochkanatlan-survey",
+      "name": "寄港地から遺構を調べる",
+      "hub": "ochkanatlan-dock",
+      "target": "ochkanatlan-ruins",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 5000,
+      "mora": 300
+    },
+    {
+      "id": "mitya-join",
+      "name": "ミティアと雪道を見回る",
+      "hub": "snezhnaya-hub",
+      "target": "snezhnaya-field",
+      "kind": "kill",
+      "goal": 4,
+      "xp": 16000,
+      "mora": 500,
+      "join": "mitya"
+    },
+    {
+      "id": "snezhnaya-entry-check",
+      "name": "雪原の入口を確かめる",
+      "hub": "snezhnaya-hub",
+      "target": "snezhnaya-entry",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 8000,
+      "mora": 300
+    },
+    {
+      "id": "snezhnaya-contract",
+      "name": "雪道の巡回（繰り返し）",
+      "hub": "snezhnaya-hub",
+      "target": "snezhnaya-field",
+      "kind": "kill",
+      "goal": 20,
+      "xp": 80000,
+      "mora": 700,
+      "repeatable": true
+    },
+    {
+      "id": "dragonspine-survey",
+      "name": "ドラゴンスパインの探索路を調べる",
+      "hub": "dragonspine-camp",
+      "target": "dragonspine-depth",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 1300,
+      "mora": 230
+    },
+    {
+      "id": "chenyu-survey",
+      "name": "沈玉の谷の探索路を調べる",
+      "hub": "chenyu-camp",
+      "target": "chenyu-depth",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 1800,
+      "mora": 280
+    },
+    {
+      "id": "enkanomiya-survey",
+      "name": "淵下宮の探索路を調べる",
+      "hub": "enkanomiya-camp",
+      "target": "enkanomiya-depth",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 2000,
+      "mora": 300
+    },
+    {
+      "id": "tunigi-survey",
+      "name": "トゥニギの黒淵の探索路を調べる",
+      "hub": "tunigi-camp",
+      "target": "tunigi-depth",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 2300,
+      "mora": 330
+    },
+    {
+      "id": "bygone-survey",
+      "name": "往日の海の探索路を調べる",
+      "hub": "bygone-camp",
+      "target": "bygone-depth",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 3500,
+      "mora": 450
+    },
+    {
+      "id": "dornman-survey",
+      "name": "ドーンマンポートの探索路を調べる",
+      "hub": "dornman-camp",
+      "target": "dornman-depth",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 4000,
+      "mora": 500
+    },
+    {
+      "id": "nod-special-survey",
+      "name": "ナド・クライ特別地域（仮）の探索路を調べる",
+      "hub": "nod-special-camp",
+      "target": "nod-special-depth",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 5000,
+      "mora": 600
+    },
+    {
+      "id": "novokichev-survey",
+      "name": "ノヴォキッチェヴ（仮構造）の探索路を調べる",
+      "hub": "novokichev-camp",
+      "target": "novokichev-depth",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 6000,
+      "mora": 700
+    },
+    {
+      "id": "golden-explore",
+      "name": "金リンゴ群島の奥を見に行く",
+      "hub": "golden-hub",
+      "target": "golden-play",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 1000,
+      "mora": 300
+    },
+    {
+      "id": "veluriyam-explore",
+      "name": "ヴェルーリヤ・ミラージュの奥を見に行く",
+      "hub": "veluriyam-hub",
+      "target": "veluriyam-play",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 2000,
+      "mora": 300
+    },
+    {
+      "id": "simulanka-explore",
+      "name": "シムランカの奥を見に行く",
+      "hub": "simulanka-hub",
+      "target": "simulanka-play",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 3000,
+      "mora": 300
+    },
+    {
+      "id": "anemo-commission",
+      "name": "無相の風の討伐調査",
+      "hub": "mond-town",
+      "target": "anemo",
+      "kind": "boss",
+      "goal": 1,
+      "xp": 1500,
+      "mora": 300,
+      "note": "本編入口から挑戦した討伐のみ対象。報酬/入口位置は試作。"
+    },
+    {
+      "id": "cryo-commission",
+      "name": "急凍樹の討伐調査",
+      "hub": "mond-town",
+      "target": "cryo",
+      "kind": "boss",
+      "goal": 1,
+      "xp": 1500,
+      "mora": 300,
+      "note": "本編入口から挑戦した討伐のみ対象。報酬/入口位置は試作。"
+    },
+    {
+      "id": "pyro-commission",
+      "name": "爆炎樹の討伐調査",
+      "hub": "liyue-harbor",
+      "target": "pyro",
+      "kind": "boss",
+      "goal": 1,
+      "xp": 4000,
+      "mora": 300,
+      "note": "本編入口から挑戦した討伐のみ対象。報酬/入口位置は試作。"
+    },
+    {
+      "id": "electro-commission",
+      "name": "無相の雷の討伐調査",
+      "hub": "mond-town",
+      "target": "electro",
+      "kind": "boss",
+      "goal": 1,
+      "xp": 1500,
+      "mora": 300,
+      "note": "本編入口から挑戦した討伐のみ対象。報酬/入口位置は試作。"
+    },
+    {
+      "id": "geo-commission",
+      "name": "無相の岩の討伐調査",
+      "hub": "liyue-harbor",
+      "target": "geo",
+      "kind": "boss",
+      "goal": 1,
+      "xp": 4000,
+      "mora": 300,
+      "note": "本編入口から挑戦した討伐のみ対象。報酬/入口位置は試作。"
+    },
+    {
+      "id": "oceanid-commission",
+      "name": "純水精霊の討伐調査",
+      "hub": "liyue-harbor",
+      "target": "oceanid",
+      "kind": "boss",
+      "goal": 1,
+      "xp": 4000,
+      "mora": 300,
+      "note": "本編入口から挑戦した討伐のみ対象。報酬/入口位置は試作。"
+    },
+    {
+      "id": "primo-commission",
+      "name": "エンシェントヴィシャップの討伐調査",
+      "hub": "liyue-harbor",
+      "target": "primo",
+      "kind": "boss",
+      "goal": 1,
+      "xp": 4000,
+      "mora": 300,
+      "note": "本編入口から挑戦した討伐のみ対象。報酬/入口位置は試作。"
+    },
+    {
+      "id": "maguu-commission",
+      "name": "魔偶剣鬼の討伐調査",
+      "hub": "inazuma-port",
+      "target": "maguu",
+      "kind": "boss",
+      "goal": 1,
+      "xp": 4000,
+      "mora": 300,
+      "note": "本編入口から挑戦した討伐のみ対象。報酬・地理配置は試案。"
+    },
+    {
+      "id": "array-commission",
+      "name": "恒常からくり陣形の討伐調査",
+      "hub": "inazuma-port",
+      "target": "array",
+      "kind": "boss",
+      "goal": 1,
+      "xp": 4000,
+      "mora": 300,
+      "note": "本編入口から挑戦した討伐のみ対象。報酬・地理配置は試案。"
+    },
+    {
+      "id": "thunder-commission",
+      "name": "雷音権現の討伐調査",
+      "hub": "inazuma-port",
+      "target": "thunder",
+      "kind": "boss",
+      "goal": 1,
+      "xp": 4000,
+      "mora": 300,
+      "note": "本編入口から挑戦した討伐のみ対象。報酬・地理配置は試案。"
+    }
+  ]
+}

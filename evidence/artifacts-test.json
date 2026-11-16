@@ -1,0 +1,19 @@
+{
+  "count": 13,
+  "checks": [
+    "sample kit granted once",
+    "feather adds item level ATK",
+    "reequip not additive",
+    "same item transfers without duplicate ownership",
+    "equip does not heal repeatedly",
+    "insufficient funds do not mutate",
+    "upgrade +4 exact fee",
+    "rarity enhancement cap",
+    "source Lv160 feather value matches",
+    "inventory and equipment persist",
+    "80 item limit",
+    "duplicate IDs rejected",
+    "normal drops use enemy+20 range and low-level rarity"
+  ],
+  "sample_drops": 25
+}

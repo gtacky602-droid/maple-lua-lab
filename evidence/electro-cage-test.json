@@ -1,0 +1,23 @@
+{
+  "count": 18,
+  "checks": [
+    "sixth attack warns without walls",
+    "two pillars block and core exposed",
+    "walking cannot pass right pillar",
+    "physical ATK cannot break pillar",
+    "element gauges use cooldown",
+    "three elemental applications remove wall without rewards",
+    "destroyed side can be crossed",
+    "normal jump clears intact pillar",
+    "lightning telegraph acquired",
+    "moving away avoids locked lightning",
+    "standing in strike damages once",
+    "pause freezes cage",
+    "timeout removes pillars and collision",
+    "revival cleans own walls only",
+    "exit clears encounter",
+    "wipe cannot leave invisible walls",
+    "arena edge 20 leaves escape space",
+    "arena edge 940 leaves escape space"
+  ]
+}

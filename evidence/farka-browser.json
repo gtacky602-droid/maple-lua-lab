@@ -1,0 +1,14 @@
+{
+  "errors": [],
+  "boss": {
+    "stage": 1,
+    "maxhp": 600,
+    "name": "ファルカ模擬戦",
+    "timer": 1.1500000000000001,
+    "label": "突進予告・進路から離れる",
+    "phase": "charge_warning",
+    "hp": 600
+  },
+  "location": "幽境・ファルカ模擬戦（独自設計／仮素材）",
+  "story": false
+}

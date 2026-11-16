@@ -1,0 +1,10 @@
+{
+  "counts": {
+    "legacy": 5678,
+    "h48c32": 3466,
+    "h32c16": 1588
+  },
+  "reduction": 0.7203240577668193,
+  "anchor": 0.5483870967741935,
+  "checks": "3 anticipation phases and recovery; both orientations; same foot baseline; 3 profiles; hash/alpha"
+}

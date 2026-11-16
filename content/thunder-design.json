@@ -1,0 +1,64 @@
+{
+  "status": "partial laboratory prototype",
+  "source": "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/thunder-manifestation",
+  "retrieved": "2026-11-16",
+  "source_mechanics": [
+    "Electro immune, other resistances 10%",
+    "Probe pulse detection adds 25% fury",
+    "HP around 75% forces enrage",
+    "Closing lightning walls",
+    "Target circle locks before homing prison"
+  ],
+  "lab_values": {
+    "hp": 700,
+    "probe_positions": [
+      200,
+      480,
+      760
+    ],
+    "probe_period": 2,
+    "walls_speed": 100,
+    "prison_speed": 100,
+    "prison_duration": 4,
+    "bolt_warnings": [
+      1,
+      0.7,
+      0.7
+    ],
+    "bolt_flash": 0.2,
+    "dash": {
+      "warning": 1.2,
+      "speed": 700,
+      "damage": 24,
+      "radius": 45,
+      "actor_padding": 12,
+      "ground_threshold_y": 410
+    }
+  },
+  "differences": [
+    "Fixed probe layout; both party members count for detection",
+    "Full fury also uses same transition shockwave as HP trigger",
+    "Prison is a 2D vertical rectangle, reaches actors above y280",
+    "Walls disappear when meeting rather than overlapping",
+    "Fixed four-action rage cycle with three retargeted bolts",
+    "Dash repositions instantly to opposite arena edge and crosses horizontally; 2D jump escape, not original flight animation"
+  ],
+  "remaining": [
+    "feather sets, additional shockwaves and teleport",
+    "Dedicated sprites and animation",
+    "Original timing/targeting/native validation"
+  ],
+  "validation": "evidence/thunder-test.json",
+  "story": {
+    "entry": "thunder-approach",
+    "from": "inazuma-road",
+    "portal_x": 900,
+    "level": 40,
+    "hub": "inazuma-port",
+    "quest": "thunder-commission",
+    "note": "geography and rewards provisional"
+  },
+  "input_validation": "evidence/thunder-playthrough.json",
+  "additional_validation": "evidence/thunder-bolts-test.json",
+  "dash_validation": "evidence/thunder-dash-test.json"
+}

@@ -1,0 +1,15 @@
+{
+  "errors": [],
+  "enteredFromRegistry": true,
+  "warning": {
+    "core": 6,
+    "breaks": 0,
+    "phase": "slam_warning",
+    "coreY": 480,
+    "timer": 1.1666666666666667,
+    "name": "爆炎樹（仮素材）",
+    "hp": 800,
+    "label": "叩きつけ→炎波・跳ぶ ／ 核 6/6",
+    "maxhp": 800
+  }
+}

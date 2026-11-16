@@ -1,0 +1,30 @@
+{
+  "initial_stats": [
+    {
+      "atk": 4,
+      "maxhp": 161
+    },
+    {
+      "atk": 3,
+      "maxhp": 140
+    }
+  ],
+  "seconds": 479.9999999998921,
+  "returns": 0,
+  "kills": 0,
+  "phases": [
+    "combo_warning",
+    "exposed",
+    "revival",
+    "shielded",
+    "wave",
+    "wave_warning"
+  ],
+  "destroyed": 1,
+  "boss_hp": 32.0,
+  "actor_hp": [
+    111.42500000000055,
+    0
+  ],
+  "note": "Actions and movement inputs only; no position/HP/ATK mutations. Sample flower, level-unlocked lab skills."
+}

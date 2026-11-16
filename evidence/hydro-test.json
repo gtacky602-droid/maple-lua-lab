@@ -1,0 +1,27 @@
+{
+  "count": 22,
+  "checks": [
+    "water shots three 155 percent hits",
+    "wave pushes small targets through five hits",
+    "wave cannot push boss",
+    "healing waits one second",
+    "both actors healed 2.5 percent",
+    "six pulses total 15 percent then expire",
+    "healing capped at max hp",
+    "field does not resurrect",
+    "outside field no heal",
+    "replacement field does not stack",
+    "shield durability 140 percent attack",
+    "shield absorbs area damage and counters once",
+    "invulnerability prevents duplicate counter",
+    "counter capped three despite remaining shield",
+    "break overflow damages actor",
+    "shield expires after seven seconds",
+    "wall intercept does not spend shield or counter",
+    "pause freezes field and shield",
+    "map clears field and shield",
+    "death clears owned support effects",
+    "hydro skills equip",
+    "hydro slots persist"
+  ]
+}

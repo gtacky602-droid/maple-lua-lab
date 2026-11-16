@@ -1,0 +1,14 @@
+{
+  "errors": [],
+  "boss": {
+    "maxhp": 700,
+    "hp": 649,
+    "label": "仮面の突進",
+    "parries": 0,
+    "phase": "push",
+    "name": "魔偶剣鬼",
+    "stage": 1,
+    "timer": 0.6
+  },
+  "method": "UI launch and moving mask display; not a complete playthrough"
+}

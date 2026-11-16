@@ -1,0 +1,23 @@
+{
+  "url": "https://raw.githubusercontent.com/kxxoling/genshin-map-data/8adbf200c245b5491e3b48537465bd850eb5af86/data/teyvat/points.json",
+  "commit": "8adbf200c245b5491e3b48537465bd850eb5af86",
+  "sha256": "127923dbe15ccd2b7184ade8f7f7701371219830bbb5ce6fb4f8c3240d186943",
+  "snapshot_meta": {
+    "mapId": 2,
+    "mapVersion": "bd70cde160dbd523926208d9fa8961a1",
+    "gameVersion": "7.2.0",
+    "origin": [
+      24207,
+      16411
+    ],
+    "totalSize": [
+      36864,
+      32768
+    ],
+    "minZoom": -4,
+    "maxZoom": 0,
+    "tileUrlTemplate": "tiles/{x}_{y}_{suffix}.webp",
+    "cdnTileUrlTemplate": "https://act-webstatic.mihoyo.com/ys-map-op/map/{mapId}/{mapVersion}/{x}_{y}_{suffix}.webp",
+    "fetchedAt": "2026-11-09T19:10:14.152Z"
+  }
+}

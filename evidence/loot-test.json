@@ -1,0 +1,18 @@
+{
+  "count": 13,
+  "checks": [
+    "frame preserves grounded boolean and empty drop array",
+    "drop attracts before pickup",
+    "proximity collects one stable item",
+    "pickup not duplicated",
+    "full bag leaves drop intact",
+    "uncollected drop persists across map and save",
+    "lock blocks sale",
+    "equipped blocks sale",
+    "sale paid only once",
+    "town recovery fills free slot",
+    "recovery not duplicated",
+    "backlog blocks new attacks without discarding loot",
+    "cross-container duplicate rejected"
+  ]
+}

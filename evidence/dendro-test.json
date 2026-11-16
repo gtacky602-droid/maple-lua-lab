@@ -1,0 +1,24 @@
+{
+  "count": 19,
+  "checks": [
+    "bind two hits at 90 percent",
+    "root prevents wandering",
+    "root expires and movement resumes",
+    "boss slowed not rooted",
+    "immune phase rejects bind",
+    "vine attack reaches one upper tier",
+    "vine attack excludes too high targets",
+    "upper tier attack excludes lower floor",
+    "seeds track moving target for six hits",
+    "tracking has bounded range",
+    "vine seven second climbable structure",
+    "climb reaches and lands on vine top",
+    "expired vine releases actor",
+    "separate caps two stones two vines",
+    "pause preserves vine life",
+    "transition clears vines",
+    "boss phase clock slows without stopping",
+    "grass skills equip",
+    "grass loadout persists"
+  ]
+}

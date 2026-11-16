@@ -1,0 +1,22 @@
+{
+  "count": 17,
+  "checks": [
+    "rock storm eight hits on upper tier",
+    "one immune component halves damage",
+    "remaining element resistance applies",
+    "all components immune no damage",
+    "all element bonus added once",
+    "electrified coat first pulse at one second",
+    "coat follows owner for ten pulses",
+    "fusion never auto swirls itself",
+    "wind damage does not apply immune electro aura",
+    "leaf blades track far high target six times",
+    "spiral spear nine hits two targets",
+    "fusion hit event separate from reaction",
+    "pause freezes coat",
+    "death removes coat",
+    "map removes coat",
+    "fusion skills equip",
+    "fusion slots persist"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "companion": "mitya",
+  "status": "partial",
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json",
+  "skills": {
+    "normal": "electro95%x2",
+    "rapid": "140%x5 CT7",
+    "field": "80%x8 first.6 interval1.2 duration10 CT20",
+    "leap": "115%x3 and0.45s evade CT10",
+    "ultimate": "150%x7 CT24"
+  },
+  "draft": {
+    "range": 360,
+    "vertical": 160,
+    "leap_velocity": -360,
+    "field_rule": "traveler current position in fixed field; cryo/electro skill component qualifies once; additive12%; normal/reaction/companion excluded"
+  },
+  "behavior": [
+    "field persists through control swap and replaces on recast",
+    "field ends on expiry/death/map/companion replacement",
+    "Mitya or Beidou satisfies living electro partner for SK57",
+    "AI danger leap then field/ultimate/rapid/normal"
+  ],
+  "unfinished": [
+    "formal stellar reaction formula",
+    "final art and animations",
+    "individual base stats/join quest",
+    "native verification"
+  ]
+}

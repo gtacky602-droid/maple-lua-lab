@@ -1,0 +1,65 @@
+{
+  "status": "partial",
+  "sources": [
+    "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/oceanid",
+    "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/oceanid/oceanid-boar",
+    "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/oceanid/oceanid-crab",
+    "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/oceanid/oceanid-crane",
+    "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/oceanid/oceanid-ferret",
+    "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/oceanid/oceanid-finch",
+    "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/oceanid/oceanid-frog",
+    "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/oceanid/oceanid-mallard",
+    "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/oceanid/oceanid-raptor"
+  ],
+  "adaptation": "8種を5波で固定出現。本体は攻撃不可、波全滅でHP100減少。幻形は報酬なし。3×3を横9区画の浸水ダメージに仮置換、中央安全。",
+  "balance": "HP・秒数・射程・回復量は全てラボ仮値。",
+  "remaining": [
+    "本体・8幻形のアニメと攻撃ポーズ",
+    "原作の攻撃組み合わせ・抽選・急降下軌道",
+    "地形沈下と足場復帰の演出",
+    "時間切れ渦の継続ダメージ",
+    "専用報酬・難度",
+    "実機互換・性能",
+    "常時水付着の反応・凍結の精密化"
+  ],
+  "verification": [
+    "evidence/oceanid-test.json",
+    "evidence/oceanid-playthrough.json",
+    "evidence/oceanid-browser.json",
+    "evidence/world-bosses-test.json"
+  ],
+  "story": {
+    "entry": "liyue-field x900 -> oceanid-approach x720",
+    "quest": "oceanid-commission",
+    "level": 20
+  },
+  "art": {
+    "status": "host + all eight mimics generated single-pose candidates",
+    "metadata": "assets/oceanid-generation.json",
+    "metrics": "evidence/oceanid-art-metrics.json",
+    "remaining": [
+      "animation",
+      "attack poses",
+      "visual accuracy refinement"
+    ],
+    "all_metrics": "evidence/oceanid-all-art-metrics.json",
+    "gallery": "oceanid-art.html"
+  },
+  "attack_geometry": {
+    "status": "2D provisional",
+    "warning_seconds": 0.85,
+    "landing_range_cap": 325,
+    "strike_seconds": 0.5,
+    "recover_seconds": 0.4,
+    "raptor": "350 -> 480 at impact -> 350 during recovery",
+    "frog_finch": "110px leap arc, lands exactly at locked target",
+    "impact_radius": {
+      "raptor": 65,
+      "frog": 110,
+      "finch": 110
+    },
+    "charge": "full swept corridor marker with 45px half width",
+    "projectiles": "direction locked at warning start; dotted aim line",
+    "evidence": "evidence/oceanid-attacks-test.json"
+  }
+}

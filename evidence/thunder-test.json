@@ -1,0 +1,23 @@
+{
+  "count": 18,
+  "checks": [
+    "electro immunity",
+    "three probes",
+    "outside probes no fury",
+    "probe detection adds 25 fury",
+    "four detections enrage and clear probes",
+    "75 percent HP enrage",
+    "enrage leads to recovery",
+    "first rage attack warns walls",
+    "walls close toward each other",
+    "walls cleared after closing",
+    "prison warning follows actor",
+    "lock delay holds aim",
+    "prison homes at bounded speed",
+    "inside prison damages",
+    "pause freezes prison",
+    "exit clears encounter",
+    "death clears hazards",
+    "no respawn"
+  ]
+}

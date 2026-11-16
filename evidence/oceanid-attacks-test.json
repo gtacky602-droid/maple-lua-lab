@@ -1,0 +1,28 @@
+{
+  "count": 23,
+  "checks": [
+    "raptor distant landing capped at reachable position",
+    "raptor marker matches damage radius",
+    "raptor attack is in flight before impact",
+    "raptor pause freezes trajectory",
+    "raptor landing matches target and damage",
+    "raptor returns to rest height",
+    "raptor outside marker avoids damage",
+    "frog distant landing capped at reachable position",
+    "frog marker matches damage radius",
+    "frog attack is in flight before impact",
+    "frog pause freezes trajectory",
+    "frog landing matches target and damage",
+    "frog returns to rest height",
+    "frog outside marker avoids damage",
+    "finch distant landing capped at reachable position",
+    "finch marker matches damage radius",
+    "finch attack is in flight before impact",
+    "finch pause freezes trajectory",
+    "finch landing matches target and damage",
+    "finch returns to rest height",
+    "finch outside marker avoids damage",
+    "crane projectile keeps telegraphed direction",
+    "boar marks entire swept charge corridor"
+  ]
+}

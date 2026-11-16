@@ -1,0 +1,21 @@
+{
+  "count": 16,
+  "checks": [
+    "normal wind three 120 percent hits",
+    "aerial barrage rejected outside float",
+    "float physically lifts actor",
+    "floating normal receives fifteen percent once",
+    "floating aerial barrage six hits",
+    "wind evasion grants 0.45 seconds invulnerability",
+    "evasion prevents hit",
+    "evasion counterattack three hits",
+    "storm ultimate eight hits",
+    "float holds hundred-pixel lift",
+    "float supports horizontal steering",
+    "float expires and lands",
+    "pause freezes float timer",
+    "map removes float buff",
+    "wanderer selection saved",
+    "AI opens with float"
+  ]
+}

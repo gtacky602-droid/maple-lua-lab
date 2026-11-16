@@ -1,0 +1,27 @@
+{
+  "status": "partial",
+  "connections": {
+    "anemo": "mond-road -> anemo-approach",
+    "cryo": "mond-border -> cryo-approach",
+    "pyro": "liyue-field -> pyro-approach",
+    "electro": "mond-road -> electro-approach",
+    "geo": "liyue-field -> geo-approach",
+    "oceanid": "liyue-field -> oceanid-approach",
+    "primo": "liyue-field -> primo-approach"
+  },
+  "gate": "existing region level + within 90px of challenge monument, alive, unpaused",
+  "return": "leave or wipe -> peaceful approach; saved encounter -> regional checkpoint hub",
+  "quests": "accepted boss commission advances only for matching boss killed in a story journey; report once in regional hub",
+  "lab_direct": "does not advance these quests",
+  "provisional": [
+    "entrance geography",
+    "quest reward XP1500/4000 and Mora300",
+    "boss level/gear balancing"
+  ],
+  "unfinished": [
+    "dedicated boss materials",
+    "first clear weapons",
+    "full roster map placement",
+    "co-op and rejoin rules"
+  ]
+}

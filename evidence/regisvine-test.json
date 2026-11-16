@@ -1,0 +1,28 @@
+{
+  "count": 23,
+  "checks": [
+    "starts with root core",
+    "cryo does not break core",
+    "reaction cannot recursively damage core",
+    "pyro hit damages core",
+    "core hit cooldown",
+    "core break starts down",
+    "down increases actual damage",
+    "warning before standing",
+    "empty core does not reset down on rising",
+    "root regenerates after first break",
+    "second break counted",
+    "second recovery moves core to head",
+    "ground attack does not break raised core",
+    "elevated attack hits head",
+    "moving avoids locked slam",
+    "second slam retargets with warning",
+    "three slams finish recovery",
+    "pause freezes encounter",
+    "kill once without respawn",
+    "exit cleans encounter",
+    "wipe returns to town",
+    "checkpoint resumes outside fight",
+    "Amber skill damages core through actual timed hits"
+  ]
+}

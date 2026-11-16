@@ -1,0 +1,17 @@
+{
+  "count": 12,
+  "checks": [
+    "first recovery warns outer ground",
+    "telegraph deals no damage",
+    "outer ground damages after warning",
+    "ground damage cooldown per actor",
+    "inner area safe during outer freeze",
+    "airborne avoids ground freeze",
+    "ground field expires",
+    "second recovery uses inner ground",
+    "outer safe during inner freeze",
+    "inner ground now damages",
+    "pause freezes hazard and damage",
+    "defeat removes frozen ground"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "tool": "built-in image_gen",
+  "transparent_background": true,
+  "assets": [
+    {
+      "file": "anemo-shell-source-v1.png",
+      "prompt": "Single game sprite asset: one floating cubic stone shell fragment for the Anemo Hypostasis from Genshin Impact, reimagined in crisp MapleStory-style 2D pixel art. Just ONE cube, three-quarter view with top and two sides visible; dark desaturated teal stone faces, thick navy stepped pixel outline, pale mint-green angular geometric inlays on faces, bright aqua edges, simple readable 16-24 color palette. Logical resolution approximately 40x40 pixels, enlarged with hard square pixel clusters. No central core, no other cubes, no particle effects, no text, no background, no shadow. True transparent background. Cube centered with generous empty margins. This isolated cube will be reused six times orbiting a separate core in a side-scrolling game."
+    },
+    {
+      "file": "anemo-core-source-v1.png",
+      "prompt": "Single transparent game sprite: exposed Anemo Hypostasis core from Genshin Impact as a small floating mint-green faceted crystal diamond, MapleStory-like crisp pixel art. One luminous octahedral crystal, pointed top and bottom, broad middle, visibly faceted with white mint highlights and aqua/teal shadows, dark navy stepped outline. Approximately 32x40 logical pixels enlarged in hard square pixel clusters, limited 12 colors, no smooth gradients, no bloom outside silhouette, no outer shell cubes, no particles, no text, no ground or shadow. Entire crystal centered and isolated with generous transparent margin. Asset will appear at 40 screen pixels high in a 2D side-view game."
+    }
+  ],
+  "status": "generated sprite candidates; orbit animation is existing Lua movement"
+}

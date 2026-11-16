@@ -1,0 +1,28 @@
+{
+  "checks": [
+    "round trip available",
+    "reward invariant available",
+    "reward cannot repeat after reload available",
+    "round trip hunt",
+    "reward invariant hunt",
+    "reward cannot repeat after reload hunt",
+    "round trip boss",
+    "reward invariant boss",
+    "reward cannot repeat after reload boss",
+    "round trip report",
+    "reward invariant report",
+    "reward cannot repeat after reload report",
+    "round trip complete",
+    "reward invariant complete",
+    "reward cannot repeat after reload complete",
+    "reject version",
+    "reject mora",
+    "reject count",
+    "reject gauge",
+    "reject active",
+    "reject kills",
+    "reject quest",
+    "baseline has no checkpoint"
+  ],
+  "count": 23
+}

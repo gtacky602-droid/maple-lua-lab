@@ -1,0 +1,14 @@
+{
+  "errors": [],
+  "boss": {
+    "name": "恒常からくり陣形",
+    "splitUsed": false,
+    "phase": "beam",
+    "hp": 744,
+    "timer": 2.95,
+    "x": 60,
+    "maxhp": 800,
+    "label": "追尾ビーム・横切って避ける"
+  },
+  "method": "UI launch, accelerated ordinary frame API and left movement; beam display, not a complete playthrough"
+}

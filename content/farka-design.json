@@ -1,0 +1,34 @@
+{
+  "status": "partial_original_encounter",
+  "basis": "sources/20261116-amendment.md:94-101",
+  "not_official_moveset": true,
+  "hp": 600,
+  "charge": {
+    "warning_seconds": [
+      1.2,
+      0.8
+    ],
+    "duration": 0.45,
+    "damage": 30,
+    "locked_destination": true,
+    "once_per_actor": true
+  },
+  "sweep": {
+    "warning": 1.1,
+    "damage": 24,
+    "airborne_safe_feet_y_max": 420,
+    "second_sweep_below_half_hp": true,
+    "second_warning": 0.85
+  },
+  "recovery": 2.2,
+  "unfinished": [
+    "4難度",
+    "専用報酬",
+    "台詞・専用アニメーション",
+    "マルチ・観戦",
+    "個人記録",
+    "難易度バランス"
+  ],
+  "art": "generated_idle_provisional_costume",
+  "art_source": "assets/farka-source-v1.png"
+}

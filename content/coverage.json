@@ -1,0 +1,445 @@
+{
+  "version": 1,
+  "updated": "2026-11-16",
+  "goal_status": "paused",
+  "scope_complete": false,
+  "all_bosses_scope": "all normal + all weekly + original Stygian encounters; explicit user confirmation 2026-11-16",
+  "background_policy": {
+    "production": "3D scene, outside Lua draw commands",
+    "lab": "host-rendered image and terrain proxies",
+    "character_logic": "Lua + 2D sprites"
+  },
+  "regions": [
+    {
+      "id": "region-01",
+      "name": "モンド",
+      "kind": "main",
+      "selected_companion": "アンバー",
+      "unlock_level_draft": 1,
+      "unlock_system": "風",
+      "decision_source": "20261113-master §4/8; 20261116 amendment",
+      "waypoints_status": "global_catalog_imported; regional mapping unverified",
+      "map_status": "partial_authored_proxy",
+      "quest_status": "partial_provisional",
+      "draft_quest_budget": {
+        "main": 3,
+        "side": 5,
+        "daily": 3
+      },
+      "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
+      "prototype_stage_count": 3,
+      "prototype_quest_count": 2
+    },
+    {
+      "id": "region-02",
+      "name": "璃月",
+      "kind": "main",
+      "selected_companion": "北斗",
+      "unlock_level_draft": 20,
+      "unlock_system": "岩",
+      "decision_source": "20261113-master §4/8; 20261116 amendment",
+      "waypoints_status": "global_catalog_imported; regional mapping unverified",
+      "map_status": "partial_authored_proxy",
+      "quest_status": "partial_provisional",
+      "draft_quest_budget": {
+        "main": 3,
+        "side": 5,
+        "daily": 3
+      },
+      "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
+      "prototype_stage_count": 3,
+      "prototype_quest_count": 2
+    },
+    {
+      "id": "region-03",
+      "name": "稲妻",
+      "kind": "main",
+      "selected_companion": "神里綾華",
+      "unlock_level_draft": 40,
+      "unlock_system": "雷",
+      "decision_source": "20261113-master §4/8; 20261116 amendment",
+      "waypoints_status": "global_catalog_imported; regional mapping unverified",
+      "map_status": "partial_authored_proxy",
+      "quest_status": "partial_provisional",
+      "draft_quest_budget": {
+        "main": 3,
+        "side": 5,
+        "daily": 3
+      },
+      "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
+      "prototype_stage_count": 3,
+      "prototype_quest_count": 3
+    },
+    {
+      "id": "region-04",
+      "name": "スメール",
+      "kind": "main",
+      "selected_companion": "放浪者",
+      "unlock_level_draft": 60,
+      "unlock_system": "草",
+      "decision_source": "20261113-master §4/8; 20261116 amendment",
+      "waypoints_status": "global_catalog_imported; regional mapping unverified",
+      "map_status": "partial_authored_proxy",
+      "quest_status": "partial_provisional",
+      "draft_quest_budget": {
+        "main": 3,
+        "side": 5,
+        "daily": 3
+      },
+      "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
+      "prototype_stage_count": 3,
+      "prototype_quest_count": 3
+    },
+    {
+      "id": "region-05",
+      "name": "フォンテーヌ",
+      "kind": "main",
+      "selected_companion": "エミリエ",
+      "unlock_level_draft": 80,
+      "unlock_system": "水",
+      "decision_source": "20261113-master §4/8; 20261116 amendment",
+      "waypoints_status": "global_catalog_imported; regional mapping unverified",
+      "map_status": "partial_authored_proxy",
+      "quest_status": "partial_provisional",
+      "draft_quest_budget": {
+        "main": 3,
+        "side": 5,
+        "daily": 3
+      },
+      "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
+      "prototype_stage_count": 3,
+      "prototype_quest_count": 3
+    },
+    {
+      "id": "region-06",
+      "name": "ナタ",
+      "kind": "main",
+      "selected_companion": "カチーナ",
+      "unlock_level_draft": 100,
+      "unlock_system": "炎",
+      "decision_source": "20261113-master §4/8; 20261116 amendment",
+      "waypoints_status": "global_catalog_imported; regional mapping unverified",
+      "map_status": "partial_authored_proxy",
+      "quest_status": "partial_provisional",
+      "draft_quest_budget": {
+        "main": 3,
+        "side": 5,
+        "daily": 3
+      },
+      "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
+      "prototype_stage_count": 4,
+      "prototype_quest_count": 3
+    },
+    {
+      "id": "region-07",
+      "name": "ナド・クライ",
+      "kind": "main",
+      "selected_companion": "コロンビーナ",
+      "unlock_level_draft": 120,
+      "unlock_system": "月",
+      "decision_source": "20261113-master §4/8; 20261116 amendment",
+      "waypoints_status": "global_catalog_imported; regional mapping unverified",
+      "map_status": "partial_authored_proxy",
+      "quest_status": "partial_provisional",
+      "draft_quest_budget": {
+        "main": 3,
+        "side": 5,
+        "daily": 3
+      },
+      "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
+      "prototype_stage_count": 3,
+      "prototype_quest_count": 2
+    },
+    {
+      "id": "region-08",
+      "name": "スネージナヤ",
+      "kind": "main",
+      "selected_companion": "ミティヤ",
+      "unlock_level_draft": 140,
+      "unlock_system": "氷・星",
+      "decision_source": "20261113-master §4/8; 20261116 amendment",
+      "waypoints_status": "global_catalog_imported; regional mapping unverified",
+      "map_status": "partial_authored_proxy",
+      "quest_status": "partial_provisional",
+      "draft_quest_budget": {
+        "main": 3,
+        "side": 5,
+        "daily": 3
+      },
+      "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
+      "prototype_stage_count": 3,
+      "prototype_quest_count": 3
+    },
+    {
+      "id": "branch-01",
+      "name": "ドラゴンスパイン",
+      "kind": "high_level_branch",
+      "decision_source": "20261113-master §5, amended by 20261116 §78",
+      "map_status": "partial_authored_proxy",
+      "quest_status": "partial_provisional",
+      "prototype_stage_count": 2,
+      "prototype_quest_count": 1,
+      "barrier_status": "provisional_formula_test_power_not_equipment"
+    },
+    {
+      "id": "branch-02",
+      "name": "沈玉の谷",
+      "kind": "high_level_branch",
+      "decision_source": "20261113-master §5, amended by 20261116 §78",
+      "map_status": "partial_authored_proxy",
+      "quest_status": "partial_provisional",
+      "prototype_stage_count": 2,
+      "prototype_quest_count": 1,
+      "barrier_status": "provisional_formula_test_power_not_equipment"
+    },
+    {
+      "id": "branch-03",
+      "name": "淵下宮",
+      "kind": "high_level_branch",
+      "decision_source": "20261113-master §5, amended by 20261116 §78",
+      "map_status": "partial_authored_proxy",
+      "quest_status": "partial_provisional",
+      "prototype_stage_count": 2,
+      "prototype_quest_count": 1,
+      "barrier_status": "provisional_formula_test_power_not_equipment"
+    },
+    {
+      "id": "branch-04",
+      "name": "トゥニギの黒淵",
+      "kind": "high_level_branch",
+      "decision_source": "20261113-master §5, amended by 20261116 §78",
+      "map_status": "partial_authored_proxy",
+      "quest_status": "partial_provisional",
+      "prototype_stage_count": 2,
+      "prototype_quest_count": 1,
+      "barrier_status": "provisional_formula_test_power_not_equipment"
+    },
+    {
+      "id": "branch-05",
+      "name": "往日の海",
+      "kind": "high_level_branch",
+      "decision_source": "20261113-master §5, amended by 20261116 §78",
+      "map_status": "partial_authored_proxy",
+      "quest_status": "partial_provisional",
+      "prototype_stage_count": 2,
+      "prototype_quest_count": 1,
+      "barrier_status": "provisional_formula_test_power_not_equipment"
+    },
+    {
+      "id": "branch-06",
+      "name": "ドーンマンポート",
+      "kind": "high_level_branch",
+      "decision_source": "20261113-master §5, amended by 20261116 §78",
+      "map_status": "partial_authored_proxy",
+      "quest_status": "partial_provisional",
+      "prototype_stage_count": 2,
+      "prototype_quest_count": 1,
+      "barrier_status": "provisional_formula_test_power_not_equipment"
+    },
+    {
+      "id": "branch-07",
+      "name": "オシカ・ナタ",
+      "kind": "high_level_branch",
+      "decision_source": "20261113-master §5, amended by 20261116 §78",
+      "map_status": "partial_authored_proxy",
+      "quest_status": "partial_provisional",
+      "prototype_stage_count": 2,
+      "prototype_quest_count": 1,
+      "waypoints_status": "global_catalog_imported; regional mapping unverified",
+      "barrier_status": "provisional_formula_test_power_not_equipment"
+    },
+    {
+      "id": "branch-08",
+      "name": "ナド・クライ特別地域（名称未確定）",
+      "kind": "high_level_branch",
+      "decision_source": "20261113-master §5, amended by 20261116 §78",
+      "map_status": "partial_authored_proxy",
+      "quest_status": "partial_provisional",
+      "prototype_stage_count": 2,
+      "prototype_quest_count": 1,
+      "barrier_status": "provisional_formula_test_power_not_equipment"
+    },
+    {
+      "id": "branch-09",
+      "name": "ノヴォキッチェヴ（構造未確定）",
+      "kind": "high_level_branch",
+      "decision_source": "20261113-master §5, amended by 20261116 §78",
+      "map_status": "partial_authored_proxy",
+      "quest_status": "partial_provisional",
+      "prototype_stage_count": 2,
+      "prototype_quest_count": 1,
+      "barrier_status": "provisional_formula_test_power_not_equipment"
+    },
+    {
+      "id": "hidden-01",
+      "name": "金リンゴ群島",
+      "kind": "hidden_world",
+      "decision_source": "20261113-master §6",
+      "map_status": "partial_authored_proxy",
+      "entry_conditions": "provisional clue at parent stage; proximity inspect; saved discovery",
+      "quest_status": "partial_provisional",
+      "prototype_stage_count": 2,
+      "prototype_quest_count": 1
+    },
+    {
+      "id": "hidden-02",
+      "name": "ヴェルーリヤ・ミラージュ",
+      "kind": "hidden_world",
+      "decision_source": "20261113-master §6",
+      "map_status": "partial_authored_proxy",
+      "entry_conditions": "provisional clue at parent stage; proximity inspect; saved discovery",
+      "quest_status": "partial_provisional",
+      "prototype_stage_count": 2,
+      "prototype_quest_count": 1
+    },
+    {
+      "id": "hidden-03",
+      "name": "シムランカ",
+      "kind": "hidden_world",
+      "decision_source": "20261113-master §6",
+      "map_status": "partial_authored_proxy",
+      "entry_conditions": "provisional clue at parent stage; proximity inspect; saved discovery",
+      "quest_status": "partial_provisional",
+      "prototype_stage_count": 2,
+      "prototype_quest_count": 1
+    }
+  ],
+  "special_content": [
+    {
+      "id": "ship",
+      "name": "花翼の集側→航海→ナド・クライ、途中下船でオシカ・ナタ",
+      "status": "not_implemented"
+    },
+    {
+      "id": "abyss",
+      "name": "深境螺旋",
+      "status": "not_implemented"
+    },
+    {
+      "id": "stygian",
+      "name": "幽境の激戦",
+      "status": "not_implemented",
+      "boss_candidates": [
+        "ファルカ",
+        "北斗",
+        "放浪者"
+      ],
+      "candidate_status": "examples, not exhaustive final list"
+    }
+  ],
+  "boss_catalog": {
+    "status": "entity_candidates_imported",
+    "catalog": "content/boss-catalog.json",
+    "entity_candidates": 63,
+    "complete_roster_verified": false,
+    "warning": "Entity records, not encounter count. Paired enemies and alternative forms require grouping. Latest-release coverage not established."
+  },
+  "research": [
+    {
+      "url": "https://act.hoyolab.com/ys/app/interactive-map/index.html",
+      "status": "official page located; dynamic map content not extracted yet",
+      "checked": "2026-11-16"
+    },
+    {
+      "url": "https://genshin-impact.fandom.com/wiki/Normal_Boss",
+      "status": "search result found; direct fetch restricted; not used as complete roster"
+    },
+    {
+      "url": "https://genshin-impact.fandom.com/wiki/Weekly_Boss",
+      "status": "search result found; direct fetch restricted; not used as complete roster"
+    }
+  ],
+  "milestones": [
+    {
+      "id": "background",
+      "status": "implemented_local",
+      "acceptance": "host image and terrain, zero Lua scenery commands"
+    },
+    {
+      "id": "mondstadt_vertical_slice",
+      "status": "provisional_local_trial",
+      "acceptance": "town -> field -> boss -> quest report with rewards"
+    },
+    {
+      "id": "combat",
+      "status": "partial",
+      "acceptance": "60 traveler skills + 40 companion skills; timed hits; reactions; macros"
+    },
+    {
+      "id": "progression",
+      "status": "partial_checkpoint_only",
+      "acceptance": "shared level, gear, targeted loot, save/load, nonduplicate rewards"
+    },
+    {
+      "id": "world",
+      "status": "not_implemented",
+      "acceptance": "source-versioned node coverage, all region connections, hidden worlds, ship"
+    },
+    {
+      "id": "bosses",
+      "status": "not_implemented",
+      "acceptance": "full roster and unique tested encounters, not renamed shared placeholder fights"
+    },
+    {
+      "id": "quests",
+      "status": "not_implemented",
+      "acceptance": "all scoped accept/progress/report/reward flows"
+    },
+    {
+      "id": "coop",
+      "status": "not_implemented",
+      "acceptance": "shared HP, individual loot, retries/reconnect offline tests; native separate"
+    }
+  ],
+  "map_catalog": {
+    "status": "snapshot_coordinates_imported",
+    "file": "content/map-catalog.json",
+    "counts": {
+      "waypoints": 681,
+      "statues": 64
+    },
+    "complete_world_verified": false,
+    "region_assignment": "pending",
+    "playable_at_imported_nodes": 0
+  },
+  "main_route_summary": {
+    "connected_main_regions": 8,
+    "authored_stages": 61,
+    "provisional_quests": 47,
+    "companion_join_records": 8,
+    "scope_complete": false,
+    "not_proven": [
+      "all waypoint stages",
+      "all boss encounters",
+      "final story quests",
+      "companion starter equipment and selection gates",
+      "production balance",
+      "native Lua limits"
+    ]
+  },
+  "stygian_summary": {
+    "partial": [
+      "farka"
+    ],
+    "not_implemented": [
+      "beidou",
+      "wanderer"
+    ],
+    "final_roster": false,
+    "catalog": "content/stygian-encounters.json"
+  },
+  "encounter_worklist": {
+    "catalog": "content/encounters.json",
+    "source_entities": 63,
+    "candidates": 66,
+    "partial": 11,
+    "complete": 0,
+    "complete_roster_verified": false
+  },
+  "world_boss_connections": {
+    "normal": 10,
+    "stygian": 0,
+    "status": "partial",
+    "design": "content/world-bosses-design.json"
+  }
+}

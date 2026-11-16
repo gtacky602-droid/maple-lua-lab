@@ -1,0 +1,34 @@
+{
+  "companion": "emilie",
+  "status": "partial",
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json",
+  "skills": {
+    "normal": "physical90%x2",
+    "bottle": "dendro90%x10 first.5 interval1 duration10 CT16",
+    "spray": "dendro135%x4 CT8",
+    "boost": "burning-target personal damage+30% 8s CT18",
+    "ultimate": "dendro140%x10 first.4 interval.3 duration3.5 CT24"
+  },
+  "draft": {
+    "melee_range": 180,
+    "ranged_radius": 360,
+    "vertical": 160,
+    "placement_offset": 120
+  },
+  "behavior": [
+    "one bottle per owner; survives active-character swap",
+    "bottle and ultimate coexist; same deployment replaces previous",
+    "boost requires nearby living burning target",
+    "damage boost evaluated at hit time, includes owner-attributed burning, adds to existing bonus pool",
+    "no bonus for traveler or non-burning enemies",
+    "actual pyro/dendro hit history supplies burning condition",
+    "death/map/companion replacement clears deployments and boost"
+  ],
+  "unfinished": [
+    "final art/animation",
+    "individual base stats/equipment",
+    "join quest",
+    "full reaction model",
+    "native Miliastra verification"
+  ]
+}

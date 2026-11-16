@@ -1,0 +1,43 @@
+{
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json",
+  "status": "partial",
+  "skill": {
+    "id": "SK47",
+    "name": "蒸気幕",
+    "category": "二元素",
+    "elements": [
+      "水",
+      "炎"
+    ],
+    "unlock_level": 118,
+    "damage_segments": [
+      {
+        "pct_per_hit": 70,
+        "hit_count": 6
+      }
+    ],
+    "max_enemy_targets": 6,
+    "cooldown_seconds": 20,
+    "role": "遮蔽・接近",
+    "effect": "7秒間の蒸気幕。敵飛び道具の追尾性能を低下。"
+  },
+  "draft_parameters": {
+    "steam_radius": 180,
+    "steam_half_height": 90,
+    "duration": 7,
+    "damage_pulses": 6,
+    "turn_rate_multiplier_in_steam": 0.2,
+    "affected_if": "projectile or current target inside steam",
+    "projectile_speed": 180,
+    "projectile_turn_radians_per_second": 2.4,
+    "projectile_lifetime": 6,
+    "projectile_cap": 128,
+    "trial_interval": 3
+  },
+  "limitations": [
+    "Projectile trial is opt-in; ordinary and boss ranged patterns not wired to this system yet",
+    "Shot is not destroyed by steam, only steering reduced",
+    "No certified hit-rate balance or native performance result",
+    "Steam dimensions and steering reduction provisional; final art/audio incomplete"
+  ]
+}

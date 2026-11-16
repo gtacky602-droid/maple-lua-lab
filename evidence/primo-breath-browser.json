@@ -1,0 +1,65 @@
+{
+  "errors": [],
+  "result": {
+    "boss": {
+      "facing": -1,
+      "maxhp": 800,
+      "reflections": 1,
+      "label": "前方へブレス・背後が安全",
+      "element": "hydro",
+      "combo": 3,
+      "name": "エンシェントヴィシャップ（試作素材）",
+      "x": 371.5,
+      "hp": 418,
+      "phase": "breath",
+      "breathPulses": 1,
+      "timer": 2.7333333333333343,
+      "lastReflection": 40
+    },
+    "actor": {
+      "inv": 0,
+      "drop": 0,
+      "climbIntent": false,
+      "dir": 1,
+      "burnBoostUntil": 0,
+      "lock": 0,
+      "vy": 0,
+      "iceRun": 0,
+      "hp": 100,
+      "ground": true,
+      "x": 389,
+      "coyote": 0.08,
+      "cd": {
+        "skill4": 1.3999999999999675
+      },
+      "climbBoostUntil": 0,
+      "buffer": 0,
+      "id": 2,
+      "walk": 1,
+      "critRate": 0,
+      "maxhp": 140,
+      "haste": 0,
+      "atk": 3,
+      "troupe4": false,
+      "leap": 0,
+      "setCounts": {
+        "gladiator": 0,
+        "troupe": 0
+      },
+      "critDamageBonus": 0,
+      "elementBonus": 0,
+      "glide": 0,
+      "lavaArmor": 0,
+      "guardUntil": 0,
+      "y": 480,
+      "skillBonus": 0,
+      "floatUntil": 0,
+      "counterUntil": 0,
+      "normalBonus": 0,
+      "light": 0,
+      "dash": 0
+    },
+    "requests": 293
+  },
+  "method": "Lv20 Beidou fixture; automatic UI polling suspended during accelerated input test, UI boss launch, normal frame API actions/movement, accelerated; no direct state mutation"
+}

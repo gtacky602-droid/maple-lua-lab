@@ -1,0 +1,21 @@
+{
+  "count": 16,
+  "checks": [
+    "triple damage keeps other two thirds when one immune",
+    "aerial garden supports actor",
+    "garden ten strikes and ten second platform expiry",
+    "ten shared shots concentrate on single target",
+    "ten shared shots not ten per target",
+    "locked projectiles track moving target within bound",
+    "steam cannon twelve hits in three seconds",
+    "explicit cannon interruption stops damage and retains cooldown",
+    "damage interrupts channel",
+    "movement cancels cannon and moves",
+    "pause freezes cannon",
+    "fortress twelve hits and does not trap boss",
+    "one fortress per actor",
+    "map clears triple structures",
+    "triple skills equip",
+    "triple skills persist"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "status": "partial",
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json",
+  "beidou": {
+    "normal": "115%x2 physical",
+    "counter": "0.85s catch window; telegraphed hit only; 260%x5; CT8",
+    "strike": "150%x4 CT7",
+    "guard": "2s damage -50%; CT15",
+    "shield": "floor(maxHP*18%) for10s;110%x8 first .8s then1.2s;CT22"
+  },
+  "SK57": {
+    "damage": "450%x6",
+    "targets": 3,
+    "cooldown": 30,
+    "first": 0.12,
+    "interval": 0.116,
+    "lock": 1,
+    "requirement": "living Beidou; lab bypass for cryo learning and Lv155"
+  },
+  "draft": [
+    "melee range180/shield radius220/star slash range400",
+    "counter cancels one warned hit and starts five pulses after .15s",
+    "only ordinary enemy windup, trial boss strike and Anemo clap carry warning provenance; generic projectiles/vortices do not",
+    "shield replaces rather than adds; water shield removed on thunder shield activation",
+    "star special damage uses equal cryo/electro resistance blend, no ordinary aura/reaction recursion"
+  ],
+  "unfinished": [
+    "final art and animations",
+    "personal base stats/join quest/per-character equipment",
+    "full star reaction and accumulation specification",
+    "native Miliastra verification"
+  ]
+}

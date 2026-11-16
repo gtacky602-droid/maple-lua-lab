@@ -1,0 +1,16 @@
+{
+  "count": 11,
+  "checks": [
+    "near range selects spin",
+    "path alternates direction",
+    "warning contains whole route",
+    "safe point avoids first contact",
+    "moving blade damages",
+    "contact capped within leg",
+    "three legs lead to final warning",
+    "final slash hits once",
+    "pause freezes spin warning",
+    "split interrupts spin",
+    "spin visual absent after split"
+  ]
+}

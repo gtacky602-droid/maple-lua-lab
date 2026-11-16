@@ -1,0 +1,100 @@
+{
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json",
+  "status": "partial",
+  "skills": [
+    {
+      "id": "SK13",
+      "name": "草の拘束",
+      "category": "単独",
+      "elements": [
+        "草"
+      ],
+      "unlock_level": 60,
+      "damage_segments": [
+        {
+          "pct_per_hit": 90,
+          "hit_count": 2
+        }
+      ],
+      "max_enemy_targets": 5,
+      "cooldown_seconds": 12,
+      "role": "拘束",
+      "effect": "前方の敵を約2秒拘束。ボスには鈍足のみ。"
+    },
+    {
+      "id": "SK14",
+      "name": "蔦の攻撃",
+      "category": "単独",
+      "elements": [
+        "草"
+      ],
+      "unlock_level": 64,
+      "damage_segments": [
+        {
+          "pct_per_hit": 170,
+          "hit_count": 4
+        }
+      ],
+      "max_enemy_targets": 5,
+      "cooldown_seconds": 6,
+      "role": "中距離・多段",
+      "effect": "前方と一段上を蔦で4連撃。"
+    },
+    {
+      "id": "SK15",
+      "name": "種子の追撃",
+      "category": "単独",
+      "elements": [
+        "草"
+      ],
+      "unlock_level": 70,
+      "damage_segments": [
+        {
+          "pct_per_hit": 130,
+          "hit_count": 6
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 11,
+      "role": "追尾・狩り",
+      "effect": "最大6体へ追尾する種子で連続攻撃。"
+    },
+    {
+      "id": "SK16",
+      "name": "芽吹きの台",
+      "category": "単独",
+      "elements": [
+        "草"
+      ],
+      "unlock_level": 76,
+      "damage_segments": [],
+      "max_enemy_targets": 0,
+      "cooldown_seconds": 15,
+      "role": "探索・足場",
+      "effect": "7秒間、味方も乗れる蔦の足場を作る。最大2枚。"
+    }
+  ],
+  "draft_parameters": {
+    "bind_seconds": 2,
+    "boss_slow": 0.3,
+    "SK13_range": 300,
+    "SK14_range": 360,
+    "upper_tier_reach": 170,
+    "SK15_acquisition_range": 520,
+    "SK15_tracking_limit_x": 900,
+    "SK15_tracking_limit_y": 360,
+    "SK15_policy": "snapshot up to six targets, follow current positions per pulse, no retarget on death",
+    "SK16_height": 160,
+    "SK16_width": 120,
+    "SK16_climb_speed": 280,
+    "SK16_duration": 7,
+    "SK16_max": 2
+  },
+  "limitations": [
+    "Provisional geometry, timing and art",
+    "Binding stops ordinary enemy movement, not attacks; bosses receive slow only",
+    "Boss slow also extends exposed phases; revival collection deadline is unchanged",
+    "No elemental aura/reactions or story unlock enforcement",
+    "No native Miliastra verification"
+  ]
+}

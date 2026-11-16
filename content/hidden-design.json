@@ -1,0 +1,29 @@
+{
+  "status": "partial",
+  "source": "20261113-master section6",
+  "selected_worlds": [
+    "金リンゴ群島",
+    "ヴェルーリヤ・ミラージュ",
+    "シムランカ"
+  ],
+  "draft_entries": {
+    "golden": "mond-road secret dock at1050",
+    "veluriyam": "sumeru-entry bottle at1050",
+    "simulanka": "fontaine-hub book at1050"
+  },
+  "rules": [
+    "inspect within75px horizontally/60px vertically",
+    "unfound nodes/edges/quests omitted from frame graph and UI",
+    "backend rejects undiscovered travel",
+    "discovery persists and checkpoint resumes hidden hub",
+    "bidirectional return to parent stage"
+  ],
+  "remaining": [
+    "treasure hunting",
+    "minecart/amusement park",
+    "building blocks/origami platforms",
+    "final art",
+    "full waypoint mapping",
+    "native verification"
+  ]
+}

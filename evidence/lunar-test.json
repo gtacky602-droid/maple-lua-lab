@@ -1,0 +1,19 @@
+{
+  "count": 14,
+  "checks": [
+    "amber cannot cast lunar skill",
+    "dead companion cannot enable skill",
+    "moon orb twelve 90 percent hits",
+    "moon ring ten 125 percent hits",
+    "lunar direct damage does not trigger proxy or aura",
+    "companion death cancels pending moon skill",
+    "companion change cancels moon skill",
+    "pause freezes moon pulses",
+    "moon equal split resistance applied once",
+    "all element bonus not doubled",
+    "lunar loadout can be prepared in town",
+    "unmet macro condition cancels with message",
+    "eligible companion allows both lunar macro casts",
+    "lunar loadout and companion persist"
+  ]
+}

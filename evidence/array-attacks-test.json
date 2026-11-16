@@ -1,0 +1,19 @@
+{
+  "count": 14,
+  "checks": [
+    "beam telegraph begins",
+    "warning deals no damage",
+    "beam damages on contact",
+    "beam follows at bounded speed",
+    "beam ends",
+    "long range selects rolling",
+    "roll target stays locked",
+    "roll swept contact damages",
+    "one hit per pass",
+    "three rolls finish",
+    "close range avoids roll",
+    "airborne actor avoids roll",
+    "split cancels beam",
+    "pause freezes rolling"
+  ]
+}

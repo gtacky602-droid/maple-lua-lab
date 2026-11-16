@@ -1,0 +1,24 @@
+{
+  "count": 19,
+  "checks": [
+    "Q consumes sixty and sets duration and shared cooldown",
+    "activation has action lock",
+    "light normal four 190 percent hits with eighteen percent once",
+    "light normal applies no aura",
+    "element bonus adds once alongside equipment",
+    "low gauge rejects without cooldown",
+    "pause blocks activation",
+    "death blocks activation",
+    "companion cannot activate",
+    "Q and slot share cooldown",
+    "pause freezes duration and cooldown",
+    "expiry returns to normal two hits",
+    "death clears form",
+    "map change clears form",
+    "AI companion bonus ten percent",
+    "manual companion has no AI bonus",
+    "slot save valid",
+    "macro activates and proceeds after lock",
+    "insufficient gauge stops macro with notice"
+  ]
+}

@@ -1,0 +1,1371 @@
+{
+  "version": 1,
+  "snapshot_commit": "8e5badd60b5d894284ccc927a56c9683529d2592",
+  "complete_roster_verified": false,
+  "warning": "制作候補一覧。最新の全ボス網羅・戦闘単位の最終確認は未完。未実装を挑戦可能として表示しない。",
+  "counts": {
+    "source_entities": 63,
+    "encounter_candidates": 66,
+    "partial": 11,
+    "complete": 0
+  },
+  "encounters": [
+    {
+      "id": "boss-24030301",
+      "name": "兆載永劫ドレイク",
+      "kind": "normal",
+      "entity_ids": [
+        "24030301"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/aeonblightdrake.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-24050101",
+      "name": "半永久統制マトリックス",
+      "kind": "normal",
+      "entity_ids": [
+        "24050101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/algorithmofsemiintransientmatrixofoverseernetwork.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-29090101",
+      "name": "呑星の鯨",
+      "kind": "weekly",
+      "entity_ids": [
+        "29090101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/alldevouringnarwhal.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-20040201",
+      "name": "無相の風",
+      "kind": "normal",
+      "entity_ids": [
+        "20040201"
+      ],
+      "status": "partial",
+      "action": "boss_anemo",
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/anemohypostasis.json"
+      ],
+      "remaining": [
+        "追加行動・調整",
+        "完成ドット絵",
+        "専用報酬・通し検証"
+      ]
+    },
+    {
+      "id": "boss-29040101",
+      "name": "若陀龍王",
+      "kind": "weekly",
+      "entity_ids": [
+        "29040101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/azhdaha.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-29030101",
+      "name": "「公子」",
+      "kind": "weekly",
+      "entity_ids": [
+        "29030101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/childe.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-26310501",
+      "name": "合成獣・フリューゲルレーヴェ",
+      "kind": "normal",
+      "entity_ids": [
+        "26310501"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/chimericwingedlion.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-20040501",
+      "name": "無相の氷",
+      "kind": "normal",
+      "entity_ids": [
+        "20040501"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/cryohypostasis.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-26020101",
+      "name": "急凍樹",
+      "kind": "normal",
+      "entity_ids": [
+        "26020101"
+      ],
+      "status": "partial",
+      "action": "boss_cryo_regisvine",
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/cryoregisvine.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-20040701",
+      "name": "無相の草",
+      "kind": "normal",
+      "entity_ids": [
+        "20040701"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/dendrohypostasis.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-20040101",
+      "name": "無相の雷",
+      "kind": "normal",
+      "entity_ids": [
+        "20040101"
+      ],
+      "status": "partial",
+      "action": "boss_electro",
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/electrohypostasis.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-26020301",
+      "name": "迅電樹",
+      "kind": "normal",
+      "entity_ids": [
+        "26020301"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/electroregisvine.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-26160302",
+      "name": "鉄甲熔炎帝王",
+      "kind": "normal",
+      "entity_ids": [
+        "26160302"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/emperoroffireandiron.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-24080101",
+      "name": "実験用フィールド生成装置",
+      "kind": "normal",
+      "entity_ids": [
+        "24080101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/experimentalfieldgenerator.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-20081001",
+      "name": "霜夜の空を巡る霊主",
+      "kind": "normal",
+      "entity_ids": [
+        "20081001"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/frostnightherra.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-20040301",
+      "name": "無相の岩",
+      "kind": "normal",
+      "entity_ids": [
+        "20040301"
+      ],
+      "status": "partial",
+      "action": "boss_geo",
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/geohypostasis.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-26220301",
+      "name": "山の王·貪食のユムカ竜",
+      "kind": "normal",
+      "entity_ids": [
+        "26220301"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/gluttonousyumkasaurmountainking.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-22060101",
+      "name": "黄金王獣",
+      "kind": "normal",
+      "entity_ids": [
+        "22060101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/goldenwolflord.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-26230301",
+      "name": "暴君·金焔のクク竜",
+      "kind": "normal",
+      "entity_ids": [
+        "26230301"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/goldflamequcusaurtyrant.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-25135202",
+      "name": "游雪のブレードガーディアン",
+      "kind": "normal",
+      "entity_ids": [
+        "25135202"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/guardianbladeofdriftingsnow.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-29080101",
+      "name": "アペプのオアシス守護者",
+      "kind": "weekly",
+      "entity_ids": [
+        "29080101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/guardianofapepsoasis.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-20040401",
+      "name": "無相の水",
+      "kind": "normal",
+      "entity_ids": [
+        "20040401"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/hydrohypostasis.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-20051201",
+      "name": "水形タルパ",
+      "kind": "normal",
+      "entity_ids": [
+        "20051201"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/hydrotulpa.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "icewind-coppelia",
+      "name": "氷風組曲：コッペリアの葬送",
+      "kind": "normal",
+      "entity_ids": [
+        "24070301"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "selectable_variant",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/icewindsuite.json",
+        "sources/boss-research/english-boss-candidates.json:24070301 investigation.description"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "icewind-coppelius",
+      "name": "氷風組曲：コペリウスの劫罰",
+      "kind": "normal",
+      "entity_ids": [
+        "24070301"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "selectable_variant",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/icewindsuite.json",
+        "sources/boss-research/english-boss-candidates.json:24070301 investigation.description"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-29150101",
+      "name": "ドットーレ",
+      "kind": "weekly",
+      "entity_ids": [
+        "29150101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/ildottore.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ],
+      "review_note": "同一人物の別データ。報酬IDが異なるため別候補のまま保持。挑戦枠の公式照合が必要。"
+    },
+    {
+      "id": "boss-25140101",
+      "name": "不滅の副産物",
+      "kind": "normal",
+      "entity_ids": [
+        "25140101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/immortalconstruct.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-22100501",
+      "name": "深罪の浸礼者",
+      "kind": "normal",
+      "entity_ids": [
+        "22100501"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/iniquitousbaptist.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-26110101",
+      "name": "マッシュラプトル",
+      "kind": "normal",
+      "entity_ids": [
+        "26110101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/jadeplumeterrorshroom.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-24100101",
+      "name": "ボコボコダック",
+      "kind": "normal",
+      "entity_ids": [
+        "24100101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/knuckleduckle.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-29050101",
+      "name": "「淑女」",
+      "kind": "weekly",
+      "entity_ids": [
+        "29050101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/lasignora.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-26270301",
+      "name": "輝ける溶岩の龍像",
+      "kind": "normal",
+      "entity_ids": [
+        "26270301"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/lavadragonstatue.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-26140101",
+      "name": "魔像レガトゥス",
+      "kind": "normal",
+      "entity_ids": [
+        "26140101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/legatusgolem.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-29091101",
+      "name": "蝕まれし源焔の主",
+      "kind": "weekly",
+      "entity_ids": [
+        "29091101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/lordoferodedprimalfire.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-22150101",
+      "name": "昏き魘夢の主",
+      "kind": "normal",
+      "entity_ids": [
+        "22150101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/lordofthehiddendepthswhispererofnightmares.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-29020101",
+      "name": "北風の王狼、奔狼の領主",
+      "kind": "weekly",
+      "entity_ids": [
+        "29020101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/lupusboreasdominatorofwolves.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-29060201",
+      "name": "禍津御建鳴神命",
+      "kind": "weekly",
+      "entity_ids": [
+        "29060201"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/magatsumitakenarukaminomikoto.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-25090101",
+      "name": "魔偶剣鬼",
+      "kind": "normal",
+      "entity_ids": [
+        "25090101"
+      ],
+      "status": "partial",
+      "action": "boss_maguu",
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/maguukenki.json",
+        "content/maguu-design.json"
+      ],
+      "remaining": [
+        "専用攻撃アニメ・分身の元素色",
+        "精密AI・挑発・吸引",
+        "報酬・難度調整"
+      ],
+      "review_note": "5行動と第二段階分身、同行AI予告退避。通常入力49.22秒撃破・帰還報告、両者生存。静止絵128/96/64px比較。遠距離防御220pxは代用。"
+    },
+    {
+      "id": "boss-26180101",
+      "name": "千年真珠の海駿",
+      "kind": "normal",
+      "entity_ids": [
+        "26180101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/millennialpearlseahorse.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-20050101",
+      "name": "純水精霊",
+      "kind": "normal",
+      "entity_ids": [
+        "20050101"
+      ],
+      "status": "partial",
+      "action": "boss_oceanid",
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/oceanid.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-24021101",
+      "name": "恒常からくり陣形",
+      "kind": "normal",
+      "entity_ids": [
+        "24021101"
+      ],
+      "status": "partial",
+      "action": "boss_array",
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/perpetualmechanicalarray.json"
+      ],
+      "remaining": [
+        "変形・小型機アニメ",
+        "小型機の追加行動・弱点停止・印のランダム選択",
+        "精密挙動・アニメ"
+      ],
+      "review_note": "本体と4小型機の専用静止素材/軽量比較。弱点4種選択・全種入力撃破確認。変形と動作は仮。",
+      "variantLabel": "弱点個体",
+      "variants": [
+        {
+          "label": "盾型",
+          "action": "boss_array_1"
+        },
+        {
+          "label": "偵察型",
+          "action": "boss_array_2"
+        },
+        {
+          "label": "巡航型",
+          "action": "boss_array_3"
+        },
+        {
+          "label": "殲滅型",
+          "action": "boss_array_4"
+        }
+      ]
+    },
+    {
+      "id": "boss-26050101",
+      "name": "エンシェントヴィシャップ·岩",
+      "kind": "normal",
+      "entity_ids": [
+        "26050101"
+      ],
+      "status": "partial",
+      "action": "boss_primo",
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/primogeovishap.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ],
+      "variants": [
+        {
+          "label": "水",
+          "action": "boss_primo_hydro"
+        },
+        {
+          "label": "炎",
+          "action": "boss_primo_pyro"
+        },
+        {
+          "label": "氷",
+          "action": "boss_primo_cryo"
+        },
+        {
+          "label": "雷",
+          "action": "boss_primo_electro"
+        }
+      ]
+    },
+    {
+      "id": "boss-20040601",
+      "name": "無相の炎",
+      "kind": "normal",
+      "entity_ids": [
+        "20040601"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/pyrohypostasis.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-26020201",
+      "name": "爆炎樹",
+      "kind": "normal",
+      "entity_ids": [
+        "26020201"
+      ],
+      "status": "partial",
+      "action": "boss_pyro_regisvine",
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/pyroregisvine.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-26301101",
+      "name": "集光の幻月蝶",
+      "kind": "normal",
+      "entity_ids": [
+        "26301101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/radiantmoonfly.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-26302101",
+      "name": "集光の月ヤモリ",
+      "kind": "normal",
+      "entity_ids": [
+        "26302101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/radiantmoongecko.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "bathysmal-herd",
+      "name": "アビサルヴィシャップの群れ",
+      "kind": "normal",
+      "entity_ids": [
+        "26050701",
+        "26050801"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "paired_encounter",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/rimebiterbathysmalvishap.json",
+        "sources/boss-research/english-boss-candidates.json:26050701 investigation=37",
+        "https://genshin-impact.fandom.com/wiki/Coral_Defenders"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-24010401",
+      "name": "遺跡サーペント",
+      "kind": "normal",
+      "entity_ids": [
+        "24010401"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/ruinserpent.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-24090201",
+      "name": "秘源機兵・機巧デバイス",
+      "kind": "normal",
+      "entity_ids": [
+        "24090201"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/secretsourceautomatonconfigurationdevice.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-24090501",
+      "name": "秘源機兵・統御デバイス",
+      "kind": "normal",
+      "entity_ids": [
+        "24090501"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/secretsourceautomatonoverseerdevice.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-26130101",
+      "name": "風蝕ウェネト",
+      "kind": "normal",
+      "entity_ids": [
+        "26130101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/setekhwenut.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-29070101",
+      "name": "「正機の神」",
+      "kind": "weekly",
+      "entity_ids": [
+        "29070101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/shoukinokamitheprodigal.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-26190101",
+      "name": "山隠れの猊獣",
+      "kind": "normal",
+      "entity_ids": [
+        "26190101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/solitarysuanni.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-29010101",
+      "name": "空を裂く魔龍",
+      "kind": "weekly",
+      "entity_ids": [
+        "29010101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/stormterror.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-23090101",
+      "name": "重量級陸巡艦「バトルシップ」",
+      "kind": "normal",
+      "entity_ids": [
+        "23090101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/superheavylandrovermechanizedfortress.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-22120101",
+      "name": "深遠なるミミックパピラ・I型",
+      "kind": "normal",
+      "entity_ids": [
+        "22120101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/tenebrouspapillatypei.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-29130201",
+      "name": "「博士」",
+      "kind": "weekly",
+      "entity_ids": [
+        "29130201"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/thedoctor.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ],
+      "review_note": "同一人物の別データ。報酬IDが異なるため別候補のまま保持。挑戦枠の公式照合が必要。"
+    },
+    {
+      "id": "boss-29122000",
+      "name": "扉に通ずる対局",
+      "kind": "weekly",
+      "entity_ids": [
+        "29122000"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/thegamebeforethegate.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-29091001",
+      "name": "「召使」",
+      "kind": "weekly",
+      "entity_ids": [
+        "29091001"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/theknave.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-20070101",
+      "name": "雷音権現",
+      "kind": "normal",
+      "entity_ids": [
+        "20070101"
+      ],
+      "status": "partial",
+      "action": "boss_thunder",
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/thundermanifestation.json"
+      ],
+      "remaining": [
+        "羽弾・回転斬り・追加衝撃波等",
+        "専用素材・動作",
+        "精密な数値・AIと実機検証"
+      ],
+      "review_note": "本編入口・依頼接続、三連落雷/直線突進経由の通常入力33.97秒撃破・帰還報告、旅人/アンバー生存。図形と数値は試作。"
+    },
+    {
+      "id": "boss-24111101",
+      "name": "守護者・堕天",
+      "kind": "normal",
+      "entity_ids": [
+        "24111101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/watcherfallenvigil.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-25134601",
+      "name": "波濤の投錨者",
+      "kind": "normal",
+      "entity_ids": [
+        "25134601"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/wavebinder.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "boss-25520101",
+      "name": "迷える霊覚の修験者",
+      "kind": "normal",
+      "entity_ids": [
+        "25520101"
+      ],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "single_entity_provisional",
+      "evidence": [
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/waywardhermeticspiritspeaker.json"
+      ],
+      "remaining": [
+        "固有戦闘",
+        "ドット絵・動作",
+        "報酬・難度",
+        "通し検証"
+      ]
+    },
+    {
+      "id": "stygian-farka",
+      "name": "ファルカ模擬戦",
+      "kind": "stygian",
+      "entity_ids": [],
+      "status": "partial",
+      "action": "boss_farka",
+      "grouping": "original_design",
+      "evidence": [
+        "sources/20261116-amendment.md:94-101"
+      ],
+      "remaining": [
+        "完成ドット絵・台詞",
+        "4難度・報酬",
+        "マルチ・記録"
+      ]
+    },
+    {
+      "id": "stygian-beidou",
+      "name": "北斗・反撃読み合い",
+      "kind": "stygian",
+      "entity_ids": [],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "original_design",
+      "evidence": [
+        "sources/20261116-amendment.md:94-101"
+      ],
+      "remaining": [
+        "完成ドット絵・台詞",
+        "4難度・報酬",
+        "マルチ・記録",
+        "専用戦闘行動"
+      ]
+    },
+    {
+      "id": "stygian-wanderer",
+      "name": "放浪者・空中決闘",
+      "kind": "stygian",
+      "entity_ids": [],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "original_design",
+      "evidence": [
+        "sources/20261116-amendment.md:94-101"
+      ],
+      "remaining": [
+        "完成ドット絵・台詞",
+        "4難度・報酬",
+        "マルチ・記録",
+        "専用戦闘行動"
+      ]
+    }
+  ]
+}

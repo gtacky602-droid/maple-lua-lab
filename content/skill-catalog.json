@@ -1,0 +1,2358 @@
+{
+  "version": 1,
+  "scope": "60 traveler skills plus 8 companions x 5 (including normals)",
+  "source_priority": "Selected names from v0.2; companion runtime proposals from v0.5; later amendments still override. Import is not implementation.",
+  "sources": [
+    {
+      "file": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json",
+      "sha256": "10afa8722a98182001dcbcb14e2534037d6608e5234ad4391423e9035b68e72f"
+    },
+    {
+      "file": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json",
+      "sha256": "8209c5715b622b1103f969030f665f2f5d6ca794ff8bdf70a5277d0c793f8a8a"
+    }
+  ],
+  "skills": [
+    {
+      "id": "SK01",
+      "name": "旋風斬り",
+      "category": "単独",
+      "elements": [
+        "風"
+      ],
+      "unlock_level": 1,
+      "damage_segments": [
+        {
+          "pct_per_hit": 120,
+          "hit_count": 3
+        }
+      ],
+      "max_enemy_targets": 4,
+      "cooldown_seconds": 2,
+      "role": "近接・序盤狩り",
+      "effect": "前方の小扇形に3ヒット。押し続けて使う通常攻撃とは別技。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK02",
+      "name": "竜巻",
+      "category": "単独",
+      "elements": [
+        "風"
+      ],
+      "unlock_level": 6,
+      "damage_segments": [
+        {
+          "pct_per_hit": 85,
+          "hit_count": 8
+        }
+      ],
+      "max_enemy_targets": 8,
+      "cooldown_seconds": 8,
+      "role": "集敵・狩り",
+      "effect": "横方向の竜巻が敵を引き寄せながら8ヒット。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK03",
+      "name": "風の加速",
+      "category": "単独",
+      "elements": [
+        "風"
+      ],
+      "unlock_level": 11,
+      "damage_segments": [],
+      "max_enemy_targets": 0,
+      "cooldown_seconds": 16,
+      "role": "移動・自己強化",
+      "effect": "6秒間、移動速度+25%。発動中も攻撃可能。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK04",
+      "name": "上昇気流",
+      "category": "単独",
+      "elements": [
+        "風"
+      ],
+      "unlock_level": 16,
+      "damage_segments": [],
+      "max_enemy_targets": 0,
+      "cooldown_seconds": 14,
+      "role": "探索・縦移動",
+      "effect": "5秒間、味方も利用できる上昇気流を設置。最大1本。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK05",
+      "name": "岩の槍",
+      "category": "単独",
+      "elements": [
+        "岩"
+      ],
+      "unlock_level": 20,
+      "damage_segments": [
+        {
+          "pct_per_hit": 180,
+          "hit_count": 2
+        }
+      ],
+      "max_enemy_targets": 3,
+      "cooldown_seconds": 3,
+      "role": "近接・単体寄り",
+      "effect": "前方に岩槍を突き出す。小型敵を押し出す。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK06",
+      "name": "岩壁",
+      "category": "単独",
+      "elements": [
+        "岩"
+      ],
+      "unlock_level": 24,
+      "damage_segments": [],
+      "max_enemy_targets": 0,
+      "cooldown_seconds": 20,
+      "role": "防御・遮蔽",
+      "effect": "7秒間、耐久値＝攻撃力160%の遮蔽物を設置。最大1枚。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK07",
+      "name": "地面の衝撃波",
+      "category": "単独",
+      "elements": [
+        "岩"
+      ],
+      "unlock_level": 30,
+      "damage_segments": [
+        {
+          "pct_per_hit": 155,
+          "hit_count": 5
+        }
+      ],
+      "max_enemy_targets": 7,
+      "cooldown_seconds": 9,
+      "role": "地上範囲狩り",
+      "effect": "地面沿いを進む5段の衝撃波。浮遊敵には当たりにくい。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK08",
+      "name": "踏み石",
+      "category": "単独",
+      "elements": [
+        "岩"
+      ],
+      "unlock_level": 36,
+      "damage_segments": [],
+      "max_enemy_targets": 0,
+      "cooldown_seconds": 12,
+      "role": "探索・足場",
+      "effect": "6秒間の小さな足場を生成。最大2枚、配置可能領域のみ。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK09",
+      "name": "雷撃",
+      "category": "単独",
+      "elements": [
+        "雷"
+      ],
+      "unlock_level": 40,
+      "damage_segments": [
+        {
+          "pct_per_hit": 200,
+          "hit_count": 2
+        }
+      ],
+      "max_enemy_targets": 3,
+      "cooldown_seconds": 3,
+      "role": "中距離攻撃",
+      "effect": "正面に2連続の雷撃。元素付着の起点。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK10",
+      "name": "連鎖する落雷",
+      "category": "単独",
+      "elements": [
+        "雷"
+      ],
+      "unlock_level": 44,
+      "damage_segments": [
+        {
+          "pct_per_hit": 160,
+          "hit_count": 5
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 8,
+      "role": "集団戦・連鎖",
+      "effect": "範囲内の敵へ5段の落雷。連鎖対象は最大6体。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK11",
+      "name": "雷光突進",
+      "category": "単独",
+      "elements": [
+        "雷"
+      ],
+      "unlock_level": 50,
+      "damage_segments": [
+        {
+          "pct_per_hit": 140,
+          "hit_count": 4
+        }
+      ],
+      "max_enemy_targets": 5,
+      "cooldown_seconds": 10,
+      "role": "移動攻撃",
+      "effect": "前方へ高速移動しながら4ヒット。崖は越えない。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK12",
+      "name": "蓄電標",
+      "category": "単独",
+      "elements": [
+        "雷"
+      ],
+      "unlock_level": 56,
+      "damage_segments": [
+        {
+          "pct_per_hit": 100,
+          "hit_count": 6
+        }
+      ],
+      "max_enemy_targets": 3,
+      "cooldown_seconds": 18,
+      "role": "設置・継続攻撃",
+      "effect": "6秒間の放電装置。1秒ごとに最大3体へ攻撃。最大1基。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK13",
+      "name": "草の拘束",
+      "category": "単独",
+      "elements": [
+        "草"
+      ],
+      "unlock_level": 60,
+      "damage_segments": [
+        {
+          "pct_per_hit": 90,
+          "hit_count": 2
+        }
+      ],
+      "max_enemy_targets": 5,
+      "cooldown_seconds": 12,
+      "role": "拘束",
+      "effect": "前方の敵を約2秒拘束。ボスには鈍足のみ。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK14",
+      "name": "蔦の攻撃",
+      "category": "単独",
+      "elements": [
+        "草"
+      ],
+      "unlock_level": 64,
+      "damage_segments": [
+        {
+          "pct_per_hit": 170,
+          "hit_count": 4
+        }
+      ],
+      "max_enemy_targets": 5,
+      "cooldown_seconds": 6,
+      "role": "中距離・多段",
+      "effect": "前方と一段上を蔦で4連撃。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK15",
+      "name": "種子の追撃",
+      "category": "単独",
+      "elements": [
+        "草"
+      ],
+      "unlock_level": 70,
+      "damage_segments": [
+        {
+          "pct_per_hit": 130,
+          "hit_count": 6
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 11,
+      "role": "追尾・狩り",
+      "effect": "最大6体へ追尾する種子で連続攻撃。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK16",
+      "name": "芽吹きの台",
+      "category": "単独",
+      "elements": [
+        "草"
+      ],
+      "unlock_level": 76,
+      "damage_segments": [],
+      "max_enemy_targets": 0,
+      "cooldown_seconds": 15,
+      "role": "探索・足場",
+      "effect": "7秒間、味方も乗れる蔦の足場を作る。最大2枚。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK17",
+      "name": "水流弾",
+      "category": "単独",
+      "elements": [
+        "水"
+      ],
+      "unlock_level": 80,
+      "damage_segments": [
+        {
+          "pct_per_hit": 155,
+          "hit_count": 3
+        }
+      ],
+      "max_enemy_targets": 4,
+      "cooldown_seconds": 3,
+      "role": "中距離攻撃",
+      "effect": "前方へ水流弾を3連射。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK18",
+      "name": "回復する水の領域",
+      "category": "単独",
+      "elements": [
+        "水"
+      ],
+      "unlock_level": 84,
+      "damage_segments": [],
+      "max_enemy_targets": 0,
+      "cooldown_seconds": 24,
+      "role": "回復・支援",
+      "effect": "6秒間、範囲内の味方へ毎秒最大HPの2.5%回復（合計15%）。初期マルチ想定で最大8キャラ。重複設置の回復は重ねない。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK19",
+      "name": "潮の押し波",
+      "category": "単独",
+      "elements": [
+        "水"
+      ],
+      "unlock_level": 90,
+      "damage_segments": [
+        {
+          "pct_per_hit": 150,
+          "hit_count": 5
+        }
+      ],
+      "max_enemy_targets": 8,
+      "cooldown_seconds": 10,
+      "role": "集敵・押し出し",
+      "effect": "地上を進む押し波。小型敵をまとめて押し出す。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK20",
+      "name": "水鏡の盾",
+      "category": "単独",
+      "elements": [
+        "水"
+      ],
+      "unlock_level": 96,
+      "damage_segments": [
+        {
+          "pct_per_hit": 65,
+          "hit_count": 3
+        }
+      ],
+      "max_enemy_targets": 4,
+      "cooldown_seconds": 22,
+      "role": "防御・反撃",
+      "effect": "7秒間、耐久値＝攻撃力140%の盾。被弾時に最大3回反撃。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK21",
+      "name": "炎の斬撃",
+      "category": "単独",
+      "elements": [
+        "炎"
+      ],
+      "unlock_level": 100,
+      "damage_segments": [
+        {
+          "pct_per_hit": 195,
+          "hit_count": 3
+        }
+      ],
+      "max_enemy_targets": 5,
+      "cooldown_seconds": 3,
+      "role": "近接・主力",
+      "effect": "前方3連斬り。炎付着の起点。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK22",
+      "name": "火柱",
+      "category": "単独",
+      "elements": [
+        "炎"
+      ],
+      "unlock_level": 104,
+      "damage_segments": [
+        {
+          "pct_per_hit": 175,
+          "hit_count": 5
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 9,
+      "role": "設置・範囲",
+      "effect": "5秒間、前方の固定地点に火柱。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK23",
+      "name": "火走り",
+      "category": "単独",
+      "elements": [
+        "炎"
+      ],
+      "unlock_level": 110,
+      "damage_segments": [
+        {
+          "pct_per_hit": 120,
+          "hit_count": 6
+        }
+      ],
+      "max_enemy_targets": 7,
+      "cooldown_seconds": 12,
+      "role": "移動攻撃",
+      "effect": "前方に突進しながら炎の軌跡で6ヒット。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK24",
+      "name": "燐火の輪",
+      "category": "単独",
+      "elements": [
+        "炎"
+      ],
+      "unlock_level": 116,
+      "damage_segments": [
+        {
+          "pct_per_hit": 115,
+          "hit_count": 8
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 18,
+      "role": "周囲範囲・継続",
+      "effect": "8秒間、旅人の周囲を炎の輪が巡る。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK25",
+      "name": "冰の剣",
+      "category": "単独",
+      "elements": [
+        "氷"
+      ],
+      "unlock_level": 140,
+      "damage_segments": [
+        {
+          "pct_per_hit": 230,
+          "hit_count": 3
+        }
+      ],
+      "max_enemy_targets": 4,
+      "cooldown_seconds": 3,
+      "role": "近接・主力",
+      "effect": "氷の刃で3連斬り。名称は原案表記を保持。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK26",
+      "name": "氷結衝撃波",
+      "category": "単独",
+      "elements": [
+        "氷"
+      ],
+      "unlock_level": 144,
+      "damage_segments": [
+        {
+          "pct_per_hit": 170,
+          "hit_count": 5
+        }
+      ],
+      "max_enemy_targets": 8,
+      "cooldown_seconds": 9,
+      "role": "広域狩り",
+      "effect": "前方に氷の衝撃波5段。冷気を付着。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK27",
+      "name": "霜柱の檻",
+      "category": "単独",
+      "elements": [
+        "氷"
+      ],
+      "unlock_level": 150,
+      "damage_segments": [
+        {
+          "pct_per_hit": 110,
+          "hit_count": 4
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 18,
+      "role": "拘束・設置",
+      "effect": "4回氷柱を発生。通常敵は最大2秒拘束、ボスは鈍足。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK28",
+      "name": "氷晶散弾",
+      "category": "単独",
+      "elements": [
+        "氷"
+      ],
+      "unlock_level": 156,
+      "damage_segments": [
+        {
+          "pct_per_hit": 130,
+          "hit_count": 8
+        }
+      ],
+      "max_enemy_targets": 3,
+      "cooldown_seconds": 12,
+      "role": "単体寄り・散弾",
+      "effect": "至近距離では8ヒットが集中、離れるほど分散。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK29",
+      "name": "飛礫嵐",
+      "category": "二元素",
+      "elements": [
+        "風",
+        "岩"
+      ],
+      "unlock_level": 27,
+      "damage_segments": [
+        {
+          "pct_per_hit": 135,
+          "hit_count": 8
+        }
+      ],
+      "max_enemy_targets": 8,
+      "cooldown_seconds": 12,
+      "role": "上下足場・狩り",
+      "effect": "上下の足場へ岩片を撒く。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK30",
+      "name": "帯電の風衣",
+      "category": "二元素",
+      "elements": [
+        "風",
+        "雷"
+      ],
+      "unlock_level": 47,
+      "damage_segments": [
+        {
+          "pct_per_hit": 75,
+          "hit_count": 10
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 20,
+      "role": "移動狩り・自己強化",
+      "effect": "10秒間周囲に自動放電。1秒ごと1回。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK31",
+      "name": "千葉穿刃",
+      "category": "二元素",
+      "elements": [
+        "風",
+        "草"
+      ],
+      "unlock_level": 67,
+      "damage_segments": [
+        {
+          "pct_per_hit": 250,
+          "hit_count": 6
+        }
+      ],
+      "max_enemy_targets": 1,
+      "cooldown_seconds": 12,
+      "role": "対単体・高所",
+      "effect": "遠くの単体を狙う追尾葉刃6発。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK32",
+      "name": "水圧螺旋槍",
+      "category": "二元素",
+      "elements": [
+        "風",
+        "水"
+      ],
+      "unlock_level": 87,
+      "damage_segments": [
+        {
+          "pct_per_hit": 185,
+          "hit_count": 9
+        }
+      ],
+      "max_enemy_targets": 2,
+      "cooldown_seconds": 15,
+      "role": "直線・ボス",
+      "effect": "動かない大型敵へ直線多段。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK33",
+      "name": "炎風竜巻",
+      "category": "二元素",
+      "elements": [
+        "風",
+        "炎"
+      ],
+      "unlock_level": 107,
+      "damage_segments": [
+        {
+          "pct_per_hit": 110,
+          "hit_count": 12
+        }
+      ],
+      "max_enemy_targets": 10,
+      "cooldown_seconds": 18,
+      "role": "集敵・範囲狩り",
+      "effect": "敵を引き寄せながら12段の炎風攻撃。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK34",
+      "name": "霜翼滑空",
+      "category": "二元素",
+      "elements": [
+        "風",
+        "氷"
+      ],
+      "unlock_level": 147,
+      "damage_segments": [
+        {
+          "pct_per_hit": 75,
+          "hit_count": 6
+        }
+      ],
+      "max_enemy_targets": 5,
+      "cooldown_seconds": 16,
+      "role": "空中移動",
+      "effect": "5秒間の滑空で接触した敵へ最大6ヒット。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK35",
+      "name": "磁界足場",
+      "category": "二元素",
+      "elements": [
+        "岩",
+        "雷"
+      ],
+      "unlock_level": 51,
+      "damage_segments": [
+        {
+          "pct_per_hit": 90,
+          "hit_count": 6
+        }
+      ],
+      "max_enemy_targets": 4,
+      "cooldown_seconds": 20,
+      "role": "足場・迎撃",
+      "effect": "8秒間の浮遊足場を設置。周囲へ6回放電。最大1基。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK36",
+      "name": "巨樹石拳",
+      "category": "二元素",
+      "elements": [
+        "岩",
+        "草"
+      ],
+      "unlock_level": 72,
+      "damage_segments": [
+        {
+          "pct_per_hit": 460,
+          "hit_count": 3
+        }
+      ],
+      "max_enemy_targets": 2,
+      "cooldown_seconds": 16,
+      "role": "ボス・装甲削り",
+      "effect": "大型岩拳の高威力3連撃。敵の装甲を削る。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK37",
+      "name": "珊瑚壁",
+      "category": "二元素",
+      "elements": [
+        "岩",
+        "水"
+      ],
+      "unlock_level": 91,
+      "damage_segments": [],
+      "max_enemy_targets": 0,
+      "cooldown_seconds": 24,
+      "role": "遮蔽・微回復",
+      "effect": "8秒間の壁。背後で毎秒最大HP0.6%回復、敵攻撃を遮る。最大1枚。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK38",
+      "name": "熔岩鎧",
+      "category": "二元素",
+      "elements": [
+        "岩",
+        "炎"
+      ],
+      "unlock_level": 111,
+      "damage_segments": [
+        {
+          "pct_per_hit": 65,
+          "hit_count": 10
+        }
+      ],
+      "max_enemy_targets": 5,
+      "cooldown_seconds": 25,
+      "role": "防御・接触攻撃",
+      "effect": "10秒間、被ダメージ-20%。接触敵へ最大10ヒット。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK39",
+      "name": "凍岩断",
+      "category": "二元素",
+      "elements": [
+        "岩",
+        "氷"
+      ],
+      "unlock_level": 151,
+      "damage_segments": [
+        {
+          "pct_per_hit": 350,
+          "hit_count": 6
+        }
+      ],
+      "max_enemy_targets": 3,
+      "cooldown_seconds": 18,
+      "role": "近接・集中",
+      "effect": "凍結/冷気の敵に追撃補正を持つ重い6連撃。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK40",
+      "name": "雷樹の守護",
+      "category": "二元素",
+      "elements": [
+        "雷",
+        "草"
+      ],
+      "unlock_level": 77,
+      "damage_segments": [
+        {
+          "pct_per_hit": 125,
+          "hit_count": 10
+        }
+      ],
+      "max_enemy_targets": 5,
+      "cooldown_seconds": 20,
+      "role": "設置・自動狩り",
+      "effect": "10秒間、範囲内の敵へ周期的に雷撃。最大1基。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK41",
+      "name": "導電水路",
+      "category": "二元素",
+      "elements": [
+        "雷",
+        "水"
+      ],
+      "unlock_level": 95,
+      "damage_segments": [
+        {
+          "pct_per_hit": 100,
+          "hit_count": 8
+        }
+      ],
+      "max_enemy_targets": 7,
+      "cooldown_seconds": 16,
+      "role": "地上制圧",
+      "effect": "8秒間、地面に水路を生成し、触れる敵へ周期ダメージ。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK42",
+      "name": "過負荷連爆",
+      "category": "二元素",
+      "elements": [
+        "雷",
+        "炎"
+      ],
+      "unlock_level": 114,
+      "damage_segments": [
+        {
+          "pct_per_hit": 170,
+          "hit_count": 8
+        }
+      ],
+      "max_enemy_targets": 10,
+      "cooldown_seconds": 16,
+      "role": "密集狩り",
+      "effect": "爆発を周囲へ連鎖。小型敵の吹き飛ばしは控えめ。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK43",
+      "name": "超電導斬",
+      "category": "二元素",
+      "elements": [
+        "雷",
+        "氷"
+      ],
+      "unlock_level": 153,
+      "damage_segments": [
+        {
+          "pct_per_hit": 180,
+          "hit_count": 7
+        }
+      ],
+      "max_enemy_targets": 8,
+      "cooldown_seconds": 14,
+      "role": "横一列・弱体化",
+      "effect": "7段斬りと物理耐性-12%（6秒）。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK44",
+      "name": "開花花園",
+      "category": "二元素",
+      "elements": [
+        "草",
+        "水"
+      ],
+      "unlock_level": 97,
+      "damage_segments": [
+        {
+          "pct_per_hit": 115,
+          "hit_count": 12
+        }
+      ],
+      "max_enemy_targets": 8,
+      "cooldown_seconds": 20,
+      "role": "継続・定点狩り",
+      "effect": "8秒間、周期的に種子を発生して攻撃。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK45",
+      "name": "灰の生命",
+      "category": "二元素",
+      "elements": [
+        "草",
+        "炎"
+      ],
+      "unlock_level": 117,
+      "damage_segments": [],
+      "max_enemy_targets": 0,
+      "cooldown_seconds": 20,
+      "role": "自己回復・燃焼消費",
+      "effect": "近くの燃焼中の敵を最大3体参照。自己HPを最大16%回復。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK46",
+      "name": "氷蔦縄",
+      "category": "二元素",
+      "elements": [
+        "草",
+        "氷"
+      ],
+      "unlock_level": 157,
+      "damage_segments": [],
+      "max_enemy_targets": 0,
+      "cooldown_seconds": 12,
+      "role": "探索・斜め移動",
+      "effect": "指定可能な結節点へグラップル移動。攻略必須地形のスキップを防止。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK47",
+      "name": "蒸気幕",
+      "category": "二元素",
+      "elements": [
+        "水",
+        "炎"
+      ],
+      "unlock_level": 118,
+      "damage_segments": [
+        {
+          "pct_per_hit": 70,
+          "hit_count": 6
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 20,
+      "role": "遮蔽・接近",
+      "effect": "7秒間の蒸気幕。敵飛び道具の追尾性能を低下。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK48",
+      "name": "氷床疾走",
+      "category": "二元素",
+      "elements": [
+        "水",
+        "氷"
+      ],
+      "unlock_level": 158,
+      "damage_segments": [
+        {
+          "pct_per_hit": 80,
+          "hit_count": 5
+        }
+      ],
+      "max_enemy_targets": 5,
+      "cooldown_seconds": 18,
+      "role": "高速地上移動",
+      "effect": "6秒間の氷床加速移動。接触した敵にダメージ。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK49",
+      "name": "融解閃斬",
+      "category": "二元素",
+      "elements": [
+        "炎",
+        "氷"
+      ],
+      "unlock_level": 159,
+      "damage_segments": [
+        {
+          "pct_per_hit": 350,
+          "hit_count": 6
+        }
+      ],
+      "max_enemy_targets": 3,
+      "cooldown_seconds": 18,
+      "role": "単体高火力・決戦",
+      "effect": "短い隙へ集中する6段斬り。冷気状態の敵へ追加補正。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK50",
+      "name": "空中庭園",
+      "category": "三元素",
+      "elements": [
+        "風",
+        "岩",
+        "草"
+      ],
+      "unlock_level": 78,
+      "damage_segments": [
+        {
+          "pct_per_hit": 115,
+          "hit_count": 10
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 32,
+      "role": "足場・援護",
+      "effect": "10秒間、味方が乗れる空中拠点と種子弾を生成。最大1拠点。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK51",
+      "name": "超開花大星群",
+      "category": "三元素",
+      "elements": [
+        "雷",
+        "草",
+        "水"
+      ],
+      "unlock_level": 98,
+      "damage_segments": [
+        {
+          "pct_per_hit": 180,
+          "hit_count": 10
+        }
+      ],
+      "max_enemy_targets": 10,
+      "cooldown_seconds": 32,
+      "role": "追尾・群体/ボス",
+      "effect": "弾数10発を分散/集中。10ヒットは全弾命中時の最大値。",
+      "hit_distribution": "shared_projectiles",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK52",
+      "name": "超高圧蒸気砲",
+      "category": "三元素",
+      "elements": [
+        "風",
+        "水",
+        "炎"
+      ],
+      "unlock_level": 119,
+      "damage_segments": [
+        {
+          "pct_per_hit": 245,
+          "hit_count": 12
+        }
+      ],
+      "max_enemy_targets": 3,
+      "cooldown_seconds": 34,
+      "role": "直線ボス火力",
+      "effect": "3秒間固定方向に高圧蒸気を照射。中断可能。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK53",
+      "name": "霜根要塞",
+      "category": "三元素",
+      "elements": [
+        "岩",
+        "草",
+        "氷"
+      ],
+      "unlock_level": 158,
+      "damage_segments": [
+        {
+          "pct_per_hit": 115,
+          "hit_count": 12
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 36,
+      "role": "防衛・設置",
+      "effect": "12秒間、氷樹の迎撃要塞。最大1基。ボスを完全に閉じ込めない。",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK54",
+      "name": "月雷遊星",
+      "category": "月",
+      "elements": [
+        "雷",
+        "水"
+      ],
+      "unlock_level": 127,
+      "damage_segments": [
+        {
+          "pct_per_hit": 90,
+          "hit_count": 12
+        }
+      ],
+      "max_enemy_targets": 8,
+      "cooldown_seconds": 22,
+      "role": "月感電・継続",
+      "effect": "コロンビーナ同行時のみ。月の球が12回自動落雷。",
+      "partner_requirement": "コロンビーナ",
+      "reaction": "月感電",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK55",
+      "name": "月晶輪舞",
+      "category": "月",
+      "elements": [
+        "岩",
+        "水"
+      ],
+      "unlock_level": 133,
+      "damage_segments": [
+        {
+          "pct_per_hit": 125,
+          "hit_count": 10
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 24,
+      "role": "月結晶・周回",
+      "effect": "コロンビーナ同行時のみ。周回する月晶で10回攻撃。",
+      "partner_requirement": "コロンビーナ",
+      "reaction": "月結晶",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK56",
+      "name": "星嵐の種",
+      "category": "星",
+      "elements": [
+        "氷",
+        "風"
+      ],
+      "unlock_level": 149,
+      "damage_segments": [
+        {
+          "pct_per_hit": 110,
+          "hit_count": 12
+        },
+        {
+          "pct_per_hit": 300,
+          "hit_count": 1
+        }
+      ],
+      "max_enemy_targets": 8,
+      "cooldown_seconds": 28,
+      "role": "星拡散・成長設置",
+      "effect": "氷技を習得済みかつ風仲間同行。攻撃で育ち、最後に300%の爆発。",
+      "partner_element_requirement": "風",
+      "reaction": "星拡散",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK57",
+      "name": "北辰の一閃",
+      "category": "星",
+      "elements": [
+        "氷",
+        "雷"
+      ],
+      "unlock_level": 155,
+      "damage_segments": [
+        {
+          "pct_per_hit": 450,
+          "hit_count": 6
+        }
+      ],
+      "max_enemy_targets": 3,
+      "cooldown_seconds": 30,
+      "role": "星電導・対ボス",
+      "effect": "氷技を習得済みかつ雷仲間同行。蓄積して集中6連斬撃。",
+      "partner_element_requirement": "雷",
+      "reaction": "星電導",
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK58",
+      "name": "光界解放",
+      "category": "光界",
+      "elements": [
+        "光界"
+      ],
+      "unlock_level": 160,
+      "damage_segments": [],
+      "max_enemy_targets": 0,
+      "cooldown_seconds": 60,
+      "role": "強化・形態変化",
+      "effect": "光界ゲージ60消費で12秒間変身。全元素与ダメージ+18%、同行AI与ダメージ+10%。この間、旅人の通常攻撃を光界纏装（190%×4/最大5体）に置換。光界通常攻撃の与ダメ18%増は重複適用しない。",
+      "gauge_cost": 60,
+      "requires_all_seven_elements": true,
+      "light_normal_attack_enabled": true,
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK59",
+      "name": "光界反響",
+      "category": "光界",
+      "elements": [
+        "光界"
+      ],
+      "unlock_level": 170,
+      "damage_segments": [],
+      "max_enemy_targets": 0,
+      "cooldown_seconds": 24,
+      "role": "コピー・連携",
+      "effect": "光界状態のみ。直前の対象可能な攻撃スキルの基礎倍率とヒット構造を55%で再現。会心・防御・耐性は再計算。反響自身と切り札は複製不可。",
+      "damage_rule": "直前の対象可能スキルの基礎倍率×55%（ヒット構造を継承）",
+      "requires_light_form": true,
+      "requires_all_seven_elements": true,
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "SK60",
+      "name": "七律開天",
+      "category": "切り札",
+      "elements": [
+        "光界"
+      ],
+      "unlock_level": 180,
+      "damage_segments": [
+        {
+          "pct_per_hit": 250,
+          "hit_count": 20,
+          "max_targets": 15
+        },
+        {
+          "pct_per_hit": 1200,
+          "hit_count": 1,
+          "max_targets": 1
+        }
+      ],
+      "max_enemy_targets": 15,
+      "cooldown_seconds": 90,
+      "role": "広域奥義・単体追撃",
+      "effect": "光界ゲージ100消費。20段の広域攻撃後、HPが最も多い敵へ白金斬撃1発。",
+      "gauge_cost": 100,
+      "requires_all_seven_elements": true,
+      "owner": "traveler",
+      "implementation": "partial",
+      "equippable": true,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json"
+    },
+    {
+      "id": "amber_0",
+      "owner": "amber",
+      "name": "通常射撃",
+      "pct_per_hit": 95,
+      "hit_count": 2,
+      "cooldown_s": 0,
+      "action_lock_s": 0.7,
+      "max_targets": 2,
+      "kind": "normal",
+      "element": "physical",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 0,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "amber_1",
+      "owner": "amber",
+      "name": "火矢",
+      "pct_per_hit": 170,
+      "hit_count": 4,
+      "cooldown_s": 7,
+      "action_lock_s": 0.65,
+      "max_targets": 4,
+      "kind": "strike",
+      "element": "炎",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 70,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "amber_2",
+      "owner": "amber",
+      "name": "ウサギ伯爵",
+      "pct_per_hit": 200,
+      "hit_count": 3,
+      "cooldown_s": 14,
+      "action_lock_s": 0.45,
+      "max_targets": 6,
+      "kind": "deploy",
+      "element": "炎",
+      "first_hit_s": 3.8,
+      "hit_interval_s": 0.1,
+      "condition": "always",
+      "buff": null,
+      "priority": 80,
+      "range_type": "ranged",
+      "duration_s": 4,
+      "effect": "4秒の囮。ボスの強制ターゲット変更はしない。爆発1回。",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "amber_3",
+      "owner": "amber",
+      "name": "跳躍射撃",
+      "pct_per_hit": 125,
+      "hit_count": 3,
+      "cooldown_s": 9,
+      "action_lock_s": 0.5,
+      "max_targets": 3,
+      "kind": "strike",
+      "element": "炎",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "danger",
+      "buff": null,
+      "priority": 95,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "予兆時のみ。0.45秒の回避窓を確保。",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "amber_4",
+      "owner": "amber",
+      "name": "矢の雨",
+      "pct_per_hit": 105,
+      "hit_count": 12,
+      "cooldown_s": 24,
+      "action_lock_s": 0.8,
+      "max_targets": 8,
+      "kind": "deploy",
+      "element": "炎",
+      "first_hit_s": 0.4,
+      "hit_interval_s": 0.3,
+      "condition": "always",
+      "buff": null,
+      "priority": 90,
+      "range_type": "ranged",
+      "duration_s": 4,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "beidou_0",
+      "owner": "beidou",
+      "name": "通常斬り",
+      "pct_per_hit": 115,
+      "hit_count": 2,
+      "cooldown_s": 0,
+      "action_lock_s": 0.85,
+      "max_targets": 3,
+      "kind": "normal",
+      "element": "physical",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 0,
+      "range_type": "melee",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "beidou_1",
+      "owner": "beidou",
+      "name": "反撃",
+      "pct_per_hit": 260,
+      "hit_count": 5,
+      "cooldown_s": 8,
+      "action_lock_s": 0.85,
+      "max_targets": 5,
+      "kind": "counter",
+      "element": "雷",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "telegraph",
+      "buff": null,
+      "priority": 100,
+      "range_type": "melee",
+      "duration_s": 0,
+      "effect": "0.85秒以内の予告攻撃を受け止めた場合のみ260%×5。空振りに同倍率は付けない。",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "beidou_2",
+      "owner": "beidou",
+      "name": "雷連斬",
+      "pct_per_hit": 150,
+      "hit_count": 4,
+      "cooldown_s": 7,
+      "action_lock_s": 0.75,
+      "max_targets": 6,
+      "kind": "strike",
+      "element": "雷",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 70,
+      "range_type": "melee",
+      "duration_s": 0,
+      "effect": "単体にも4hit上限。敵同士の無限反射なし。",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "beidou_3",
+      "owner": "beidou",
+      "name": "防御構え",
+      "pct_per_hit": 0,
+      "hit_count": 0,
+      "cooldown_s": 15,
+      "action_lock_s": 0.35,
+      "max_targets": 0,
+      "kind": "buff",
+      "element": "雷",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "danger",
+      "buff": {
+        "key": "guard",
+        "duration": 2,
+        "value": 0.5
+      },
+      "priority": 95,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "2秒間被ダメージ-50%。反撃が使える場合は反撃優先。",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "beidou_4",
+      "owner": "beidou",
+      "name": "雷の盾",
+      "pct_per_hit": 110,
+      "hit_count": 8,
+      "cooldown_s": 22,
+      "action_lock_s": 0.55,
+      "max_targets": 5,
+      "kind": "deploy",
+      "element": "雷",
+      "first_hit_s": 0.8,
+      "hit_interval_s": 1.2,
+      "condition": "always",
+      "buff": {
+        "key": "shield",
+        "duration": 10,
+        "value": 0.18
+      },
+      "priority": 85,
+      "range_type": "ranged",
+      "duration_s": 10,
+      "effect": "最大HP18%シールドと8回の放電。シールド同士は加算しない。",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "ayaka_0",
+      "owner": "ayaka",
+      "name": "通常剣技",
+      "pct_per_hit": 100,
+      "hit_count": 3,
+      "cooldown_s": 0,
+      "action_lock_s": 0.75,
+      "max_targets": 3,
+      "kind": "normal",
+      "element": "physical",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 0,
+      "range_type": "melee",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "ayaka_1",
+      "owner": "ayaka",
+      "name": "高速踏込",
+      "pct_per_hit": 125,
+      "hit_count": 3,
+      "cooldown_s": 6,
+      "action_lock_s": 0.45,
+      "max_targets": 4,
+      "kind": "strike",
+      "element": "氷",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 60,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "ayaka_2",
+      "owner": "ayaka",
+      "name": "氷刃斬",
+      "pct_per_hit": 160,
+      "hit_count": 6,
+      "cooldown_s": 8,
+      "action_lock_s": 0.7,
+      "max_targets": 6,
+      "kind": "strike",
+      "element": "氷",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 70,
+      "range_type": "melee",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "ayaka_3",
+      "owner": "ayaka",
+      "name": "霜影回避",
+      "pct_per_hit": 0,
+      "hit_count": 0,
+      "cooldown_s": 10,
+      "action_lock_s": 0.3,
+      "max_targets": 0,
+      "kind": "buff",
+      "element": "氷",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "danger",
+      "buff": {
+        "key": "dodge",
+        "duration": 0.6,
+        "value": 1
+      },
+      "priority": 100,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "0.6秒回避。ボスを完全凍結させない。",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "ayaka_4",
+      "owner": "ayaka",
+      "name": "吹雪奥義",
+      "pct_per_hit": 150,
+      "hit_count": 12,
+      "cooldown_s": 25,
+      "action_lock_s": 0.75,
+      "max_targets": 6,
+      "kind": "deploy",
+      "element": "氷",
+      "first_hit_s": 0.4,
+      "hit_interval_s": 0.25,
+      "condition": "always",
+      "buff": null,
+      "priority": 90,
+      "range_type": "ranged",
+      "duration_s": 3.5,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "wanderer_0",
+      "owner": "wanderer",
+      "name": "通常風弾",
+      "pct_per_hit": 120,
+      "hit_count": 3,
+      "cooldown_s": 0,
+      "action_lock_s": 0.7,
+      "max_targets": 3,
+      "kind": "normal",
+      "element": "風",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 0,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "wanderer_1",
+      "owner": "wanderer",
+      "name": "浮遊",
+      "pct_per_hit": 0,
+      "hit_count": 0,
+      "cooldown_s": 18,
+      "action_lock_s": 0.35,
+      "max_targets": 0,
+      "kind": "buff",
+      "element": "風",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": {
+        "key": "float",
+        "duration": 10,
+        "value": 0.15
+      },
+      "priority": 100,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "10秒間、通常風弾+15%。空中連射の使用条件。",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "wanderer_2",
+      "owner": "wanderer",
+      "name": "空中連射",
+      "pct_per_hit": 120,
+      "hit_count": 6,
+      "cooldown_s": 9,
+      "action_lock_s": 0.75,
+      "max_targets": 6,
+      "kind": "strike",
+      "element": "風",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "floating",
+      "buff": null,
+      "priority": 75,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "wanderer_3",
+      "owner": "wanderer",
+      "name": "風圧回避",
+      "pct_per_hit": 100,
+      "hit_count": 3,
+      "cooldown_s": 10,
+      "action_lock_s": 0.4,
+      "max_targets": 4,
+      "kind": "strike",
+      "element": "風",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "danger",
+      "buff": null,
+      "priority": 95,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "0.45秒回避。",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "wanderer_4",
+      "owner": "wanderer",
+      "name": "嵐の奥義",
+      "pct_per_hit": 165,
+      "hit_count": 8,
+      "cooldown_s": 24,
+      "action_lock_s": 0.8,
+      "max_targets": 8,
+      "kind": "strike",
+      "element": "風",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 90,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "emilie_0",
+      "owner": "emilie",
+      "name": "通常槍撃",
+      "pct_per_hit": 90,
+      "hit_count": 2,
+      "cooldown_s": 0,
+      "action_lock_s": 0.75,
+      "max_targets": 3,
+      "kind": "normal",
+      "element": "physical",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 0,
+      "range_type": "melee",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "emilie_1",
+      "owner": "emilie",
+      "name": "ルミドゥースの瓶",
+      "pct_per_hit": 90,
+      "hit_count": 10,
+      "cooldown_s": 16,
+      "action_lock_s": 0.45,
+      "max_targets": 6,
+      "kind": "deploy",
+      "element": "草",
+      "first_hit_s": 0.5,
+      "hit_interval_s": 1,
+      "condition": "always",
+      "buff": null,
+      "priority": 85,
+      "range_type": "ranged",
+      "duration_s": 10,
+      "effect": "同一所有者の瓶は1基。操作交代で消えない。",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "emilie_2",
+      "owner": "emilie",
+      "name": "芳香散布",
+      "pct_per_hit": 135,
+      "hit_count": 4,
+      "cooldown_s": 8,
+      "action_lock_s": 0.55,
+      "max_targets": 5,
+      "kind": "strike",
+      "element": "草",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 65,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "emilie_3",
+      "owner": "emilie",
+      "name": "燃焼強化",
+      "pct_per_hit": 0,
+      "hit_count": 0,
+      "cooldown_s": 18,
+      "action_lock_s": 0.35,
+      "max_targets": 0,
+      "kind": "buff",
+      "element": "草",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "burning",
+      "buff": {
+        "key": "burn_boost",
+        "duration": 8,
+        "value": 0.3
+      },
+      "priority": 95,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "燃焼対象への本人ダメージ+30%を8秒。燃焼は炎・草命中履歴から判定する試験モデル。",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "emilie_4",
+      "owner": "emilie",
+      "name": "追撃奥義",
+      "pct_per_hit": 140,
+      "hit_count": 10,
+      "cooldown_s": 24,
+      "action_lock_s": 0.65,
+      "max_targets": 8,
+      "kind": "deploy",
+      "element": "草",
+      "first_hit_s": 0.4,
+      "hit_interval_s": 0.3,
+      "condition": "always",
+      "buff": null,
+      "priority": 90,
+      "range_type": "ranged",
+      "duration_s": 3.5,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "kachina_0",
+      "owner": "kachina",
+      "name": "通常槍撃",
+      "pct_per_hit": 100,
+      "hit_count": 2,
+      "cooldown_s": 0,
+      "action_lock_s": 0.75,
+      "max_targets": 3,
+      "kind": "normal",
+      "element": "physical",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 0,
+      "range_type": "melee",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "kachina_1",
+      "owner": "kachina",
+      "name": "コマちゃん",
+      "pct_per_hit": 110,
+      "hit_count": 8,
+      "cooldown_s": 16,
+      "action_lock_s": 0.45,
+      "max_targets": 6,
+      "kind": "deploy",
+      "element": "岩",
+      "first_hit_s": 0.5,
+      "hit_interval_s": 1.1,
+      "condition": "always",
+      "buff": null,
+      "priority": 80,
+      "range_type": "ranged",
+      "duration_s": 9,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "kachina_2",
+      "owner": "kachina",
+      "name": "掘削突進",
+      "pct_per_hit": 140,
+      "hit_count": 5,
+      "cooldown_s": 10,
+      "action_lock_s": 0.65,
+      "max_targets": 5,
+      "kind": "strike",
+      "element": "岩",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 70,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "kachina_3",
+      "owner": "kachina",
+      "name": "登攀加速",
+      "pct_per_hit": 0,
+      "hit_count": 0,
+      "cooldown_s": 12,
+      "action_lock_s": 0.3,
+      "max_targets": 0,
+      "kind": "buff",
+      "element": "岩",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "traversal",
+      "buff": {
+        "key": "traversal",
+        "duration": 5,
+        "value": 0.25
+      },
+      "priority": 95,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "探索・段差追従用。平面ボス試験では不使用、使用0回も正常。",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "kachina_4",
+      "owner": "kachina",
+      "name": "地響き奥義",
+      "pct_per_hit": 185,
+      "hit_count": 7,
+      "cooldown_s": 24,
+      "action_lock_s": 0.8,
+      "max_targets": 8,
+      "kind": "strike",
+      "element": "岩",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 90,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "columbina_0",
+      "owner": "columbina",
+      "name": "通常水弾",
+      "pct_per_hit": 90,
+      "hit_count": 3,
+      "cooldown_s": 0,
+      "action_lock_s": 0.8,
+      "max_targets": 3,
+      "kind": "normal",
+      "element": "水",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 0,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "columbina_1",
+      "owner": "columbina",
+      "name": "さざ波",
+      "pct_per_hit": 70,
+      "hit_count": 10,
+      "cooldown_s": 15,
+      "action_lock_s": 0.45,
+      "max_targets": 6,
+      "kind": "deploy",
+      "element": "水",
+      "first_hit_s": 0.4,
+      "hit_interval_s": 0.6,
+      "condition": "always",
+      "buff": null,
+      "priority": 75,
+      "range_type": "ranged",
+      "duration_s": 6,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "columbina_2",
+      "owner": "columbina",
+      "name": "月の領域",
+      "pct_per_hit": 45,
+      "hit_count": 8,
+      "cooldown_s": 20,
+      "action_lock_s": 0.5,
+      "max_targets": 6,
+      "kind": "deploy",
+      "element": "水",
+      "first_hit_s": 0.6,
+      "hit_interval_s": 1.2,
+      "condition": "always",
+      "buff": {
+        "key": "moon_domain",
+        "duration": 10,
+        "value": 1
+      },
+      "priority": 90,
+      "range_type": "ranged",
+      "duration_s": 10,
+      "effect": "水付着を継続。月反応の全仕様ではなく本作の支援代理モデルを使用。",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "columbina_3",
+      "owner": "columbina",
+      "name": "月の印",
+      "pct_per_hit": 0,
+      "hit_count": 0,
+      "cooldown_s": 12,
+      "action_lock_s": 0.35,
+      "max_targets": 0,
+      "kind": "buff",
+      "element": "水",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": {
+        "key": "moon_mark",
+        "duration": 10,
+        "value": 1.2
+      },
+      "priority": 85,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "印+領域中、旅人の雷/草/岩hitから旅人ATK120%の追加攻撃。1秒ICD、再帰なし。新規仮ルール。",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "columbina_4",
+      "owner": "columbina",
+      "name": "月光奥義",
+      "pct_per_hit": 110,
+      "hit_count": 10,
+      "cooldown_s": 26,
+      "action_lock_s": 0.75,
+      "max_targets": 8,
+      "kind": "strike",
+      "element": "水",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 80,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "mitya_0",
+      "owner": "mitya",
+      "name": "通常雷球",
+      "pct_per_hit": 95,
+      "hit_count": 2,
+      "cooldown_s": 0,
+      "action_lock_s": 0.75,
+      "max_targets": 3,
+      "kind": "normal",
+      "element": "雷",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 0,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "mitya_1",
+      "owner": "mitya",
+      "name": "雷連射",
+      "pct_per_hit": 140,
+      "hit_count": 5,
+      "cooldown_s": 7,
+      "action_lock_s": 0.6,
+      "max_targets": 5,
+      "kind": "strike",
+      "element": "雷",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 75,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "mitya_2",
+      "owner": "mitya",
+      "name": "極星フィールド",
+      "pct_per_hit": 80,
+      "hit_count": 8,
+      "cooldown_s": 20,
+      "action_lock_s": 0.5,
+      "max_targets": 6,
+      "kind": "deploy",
+      "element": "雷",
+      "first_hit_s": 0.6,
+      "hit_interval_s": 1.2,
+      "condition": "always",
+      "buff": {
+        "key": "stellar",
+        "duration": 10,
+        "value": 0.12
+      },
+      "priority": 90,
+      "range_type": "ranged",
+      "duration_s": 10,
+      "effect": "領域中の旅人の氷/雷技を+12%。特殊反応の代理効果であり正式な星反応式ではない。",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "mitya_3",
+      "owner": "mitya",
+      "name": "雷の跳躍",
+      "pct_per_hit": 115,
+      "hit_count": 3,
+      "cooldown_s": 10,
+      "action_lock_s": 0.4,
+      "max_targets": 4,
+      "kind": "strike",
+      "element": "雷",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "danger",
+      "buff": null,
+      "priority": 95,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "0.45秒回避。",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    },
+    {
+      "id": "mitya_4",
+      "owner": "mitya",
+      "name": "星電導奥義",
+      "pct_per_hit": 150,
+      "hit_count": 7,
+      "cooldown_s": 24,
+      "action_lock_s": 0.75,
+      "max_targets": 8,
+      "kind": "strike",
+      "element": "雷",
+      "first_hit_s": 0.15,
+      "hit_interval_s": 0.08,
+      "condition": "always",
+      "buff": null,
+      "priority": 85,
+      "range_type": "ranged",
+      "duration_s": 0,
+      "effect": "",
+      "implementation": "partial",
+      "equippable": false,
+      "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+    }
+  ]
+}

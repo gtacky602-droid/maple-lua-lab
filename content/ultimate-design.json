@@ -1,0 +1,42 @@
+{
+  "skill": "SK60",
+  "status": "partial",
+  "sources": [
+    "sources/20261116-amendment.md",
+    "sources/attachments/miliastra_codex_full_handoff_20261113/sources/v05_extracted/miliastra_v05/miliastra_combat_config_v0_5.json"
+  ],
+  "fixed": {
+    "gauge_cost": 100,
+    "cooldown": 90,
+    "lock": 2.8,
+    "first_hit": 0.12,
+    "interval": 0.134,
+    "broad_multiplier": 2.5,
+    "broad_hits": 20,
+    "broad_target_limit": 15,
+    "final_multiplier": 12,
+    "final_targets": 1
+  },
+  "draft": {
+    "radius": 600,
+    "vertical": 300,
+    "final_time": 2.8,
+    "target": "highest remaining HP at final time within original cast area; equal HP uses ascending ID",
+    "resistance": "equal average of seven elements; no eighth elemental aura",
+    "gauge_gain": 0
+  },
+  "behavior": [
+    "no light form prerequisite",
+    "shared light gauge",
+    "no automatic AI activation",
+    "echo cannot record this skill",
+    "death/map transition cancels all segments",
+    "pause freezes timers",
+    "no invulnerability; switching does not cancel; fixed cast origin"
+  ],
+  "unfinished": [
+    "Lv180/all-seven-elements learning gate",
+    "final visual/sound assets",
+    "native Miliastra performance and behavior verification"
+  ]
+}

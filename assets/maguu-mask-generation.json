@@ -1,0 +1,6 @@
+{
+  "tool": "builtin image_gen",
+  "prompt": "Single game sprite on transparent background: the floating protective oni mask summoned by Maguu Kenki, Genshin Impact, adapted to a MapleStory-like 2D side-scroller pixel art. Only an ornate pale ivory and dark blue mechanical oni mask, two short curved horns, narrow teal eyes, angular cheeks, dark stern mouth, subtle turquoise edging, slightly three-quarter facing left. No head behind it, no body, no hair, no hands, no sword, no scenery, no ground or shadow, no text. Crisp 16-bit pixel clusters, limited colors, flat readable shading, strong silhouette designed to read at 64px tall. Centered isolated complete mask with transparent margin all around. One mask only, no animation sheet, no diffuse glow.",
+  "source": "exec-2b62b978-5323-4559-b06c-3116a919c996.png",
+  "status": "lab interpretation, original fidelity unverified"
+}

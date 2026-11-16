@@ -1,0 +1,9 @@
+{
+  "errors": [],
+  "fixture": "level100 visited route",
+  "nodes": 20,
+  "quests": 20,
+  "portalWalk": true,
+  "regionalFastTravel": true,
+  "natlanQuestsShown": true
+}

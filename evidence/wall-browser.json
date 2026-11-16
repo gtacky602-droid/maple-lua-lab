@@ -1,0 +1,12 @@
+{
+  "errors": [],
+  "equipped": true,
+  "cast": true,
+  "wall": {
+    "maxhp": 6,
+    "life": 6.9,
+    "hp": 6,
+    "y": 480,
+    "x": 240
+  }
+}

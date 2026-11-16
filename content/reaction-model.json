@@ -1,0 +1,43 @@
+{
+  "status": "partial prototype",
+  "sources": [
+    "sources/20261111-plan.md",
+    "sources/20261113-master.md",
+    "sources/20261116-amendment.md"
+  ],
+  "implemented": [
+    "pyro hydro electro cryo aura",
+    "anemo-triggered swirl",
+    "per actor skill target application ICD",
+    "reaction owner and aura owner records",
+    "nonrecursive reaction damage",
+    "dendro aura",
+    "pyro plus dendro burning in either order"
+  ],
+  "parameters": {
+    "aura_seconds": 6,
+    "application_ICD_seconds": 2.5,
+    "swirl_ATK_multiplier": 0.6,
+    "swirl_radius": 140,
+    "swirl_targets": 4,
+    "reaction_crit": false,
+    "reaction_gauge": 0,
+    "burning": {
+      "ticks": 4,
+      "interval_seconds": 1,
+      "ATK_multiplier_per_tick": 0.3,
+      "owner": "triggering actor",
+      "crit": false,
+      "recursive": false,
+      "stacking": false
+    }
+  },
+  "limitations": [
+    "Parameters are lab proposals, not approved final balance or official Genshin rules",
+    "Direct killing blows currently do not apply aura or trigger swirl",
+    "Other unimplemented pairs replace the aura without a reaction",
+    "No vaporize melt freeze electrocharged bloom crystallize lunar or stellar engine",
+    "Fusion skill damage is not implemented yet",
+    "No native or multiplayer verification"
+  ]
+}

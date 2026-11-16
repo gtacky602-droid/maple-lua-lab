@@ -1,0 +1,23 @@
+{
+  "count": 18,
+  "checks": [
+    "shell blocks damage",
+    "clap telegraph locks position",
+    "moving avoids clap",
+    "lethal damage gated until revival",
+    "low hp starts four orb revival",
+    "revival invulnerable",
+    "airborne collection",
+    "uncollected orbs heal boss",
+    "collected orb does not return",
+    "all orbs disable revival",
+    "final kill and no respawn",
+    "exit cleans encounter",
+    "second attack has moving vortices",
+    "vortices move",
+    "pause freezes boss",
+    "wipe returns to town and removes boss",
+    "updraft lifts player from ground to collect orb",
+    "arena boundary keeps player on floor"
+  ]
+}

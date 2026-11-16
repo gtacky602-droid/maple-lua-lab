@@ -1,0 +1,71 @@
+{
+  "source": "sources/attachments/miliastra_codex_full_handoff_20261113/sources/miliastra_traveler_60skills_v0_2.json",
+  "status": "partial",
+  "skills": [
+    {
+      "id": "SK54",
+      "name": "月雷遊星",
+      "category": "月",
+      "elements": [
+        "雷",
+        "水"
+      ],
+      "unlock_level": 127,
+      "damage_segments": [
+        {
+          "pct_per_hit": 90,
+          "hit_count": 12
+        }
+      ],
+      "max_enemy_targets": 8,
+      "cooldown_seconds": 22,
+      "role": "月感電・継続",
+      "effect": "コロンビーナ同行時のみ。月の球が12回自動落雷。",
+      "partner_requirement": "コロンビーナ",
+      "reaction": "月感電"
+    },
+    {
+      "id": "SK55",
+      "name": "月晶輪舞",
+      "category": "月",
+      "elements": [
+        "岩",
+        "水"
+      ],
+      "unlock_level": 133,
+      "damage_segments": [
+        {
+          "pct_per_hit": 125,
+          "hit_count": 10
+        }
+      ],
+      "max_enemy_targets": 6,
+      "cooldown_seconds": 24,
+      "role": "月結晶・周回",
+      "effect": "コロンビーナ同行時のみ。周回する月晶で10回攻撃。",
+      "partner_requirement": "コロンビーナ",
+      "reaction": "月結晶"
+    }
+  ],
+  "draft_parameters": {
+    "SK54": {
+      "radius": 300,
+      "interval": 1,
+      "duration": 12
+    },
+    "SK55": {
+      "radius": 180,
+      "interval": 0.8,
+      "duration": 8
+    },
+    "partner": "living columbina; cancel active cast on loss",
+    "damage": "equal element split, all-element bonus once; no aura application or moon proxy recursion",
+    "macro": "cancel with visible reason when companion requirement fails"
+  },
+  "limitations": [
+    "These are named lunar skills, not a complete lunar reaction engine",
+    "Companion death cancellation, intervals and geometry provisional",
+    "Join/story/level gates still bypassed in lab",
+    "Final art/audio and native verification incomplete"
+  ]
+}

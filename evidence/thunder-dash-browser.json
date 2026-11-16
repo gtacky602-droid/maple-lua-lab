@@ -1,0 +1,15 @@
+{
+  "errors": [],
+  "boss": {
+    "name": "雷音権現",
+    "hp": 473,
+    "maxhp": 700,
+    "enraged": true,
+    "label": "直線突進・跳んで避ける",
+    "phase": "dash_warning",
+    "x": 60,
+    "fury": 100,
+    "timer": 1.1666666666666667
+  },
+  "method": "UI launch, accelerated ordinary frame API and left movement; dash warning display, not a complete playthrough"
+}

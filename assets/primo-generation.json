@@ -1,0 +1,6 @@
+{
+  "tool": "built-in image_gen",
+  "selected": "primo-source-v1.png",
+  "prompt": "Single isolated pixel-art game boss sprite of a HYDRO-INFUSED PRIMO GEOVISHAP inspired by Genshin Impact, reimagined for a MapleStory-like side scrolling RPG. Huge stocky quadrupedal stone lizard dragon, facing LEFT in three-quarter side view, heavy low head with two swept jagged horns, thick rocky jaw, massive forearms planted on ground, hunched armored shoulders and jagged stone plates down its back, thick long tapering rocky tail extending right. No wings. Dark slate and brown rock armor with warm ochre edges, glowing cyan-blue hydro crystal seams and a few blue crystal spikes. Whole creature visible, all feet on one horizontal baseline, tail entirely inside image. Powerful low broad silhouette, chunky handcrafted pixel clusters, crisp stepped outline, restricted 24-32 color palette, readable at 128px high. One idle combat stance, no scenery, no ground shadow, no particles, no halo, no text, no other creature. Truly transparent alpha background with generous empty margins. Not smooth 3D rendering.",
+  "status": "hydro idle candidate; dedicated attack poses unfinished"
+}

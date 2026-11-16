@@ -1,0 +1,20 @@
+{
+  "count": 15,
+  "checks": [
+    "amber-owned fire aura",
+    "traveler triggers owned swirl",
+    "swirl hits four nearby enemies with no recursion",
+    "reaction damage identified in events",
+    "reaction awards no gauge",
+    "same skill aura ICD blocks repeat",
+    "wind ICD blocks repeated swirl",
+    "wind allowed after ICD",
+    "aura expires after six seconds",
+    "pause preserves aura",
+    "immune hit applies no aura",
+    "reaction damage cannot apply aura",
+    "death clears aura and ICD",
+    "physical does not consume aura",
+    "unimplemented pair replaces aura without fake reaction"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "status": "partial_2d_adaptation",
+  "reference": "https://library.keqingmains.com/enemy-data/bosses/overworld-bosses/regisvines",
+  "original_basis": [
+    "core break and stun",
+    "fireballs",
+    "slam with ground tremors",
+    "ground eruptions"
+  ],
+  "lab_proposals": {
+    "hp": 800,
+    "core": 6,
+    "core_damage": {
+      "hydro": 1,
+      "cryo": 0.5,
+      "electro": 0.5,
+      "anemo": 0.25,
+      "geo": 0.25,
+      "physical": 0.1
+    },
+    "core_icd": 0.25,
+    "down_seconds": 10,
+    "shield_damage_factor": 0.2,
+    "waves": {
+      "speed": 220,
+      "damage": 18,
+      "jump_safe_feet_y": 435
+    },
+    "fireballs": {
+      "count": 3,
+      "interval": 0.3,
+      "speed": 230,
+      "damage": 16,
+      "homing": false
+    },
+    "eruption": {
+      "warning": 1.5,
+      "marks": 3,
+      "damage": 24,
+      "radius": 45
+    },
+    "spin": {
+      "warning": 1.2,
+      "radius": 210,
+      "damage": 32
+    },
+    "seed": {
+      "hp": 20,
+      "expires": 8,
+      "hydro_damage_factor": 6,
+      "other_damage_factor": 0.1,
+      "cryo_damage_factor": 1.5,
+      "pyro_immune": true,
+      "no_kill_xp_mora_or_drop": true,
+      "burn_seconds": 6,
+      "burn_radius": 110,
+      "burn_damage": 10,
+      "burn_interval": 1
+    }
+  },
+  "unfinished": [
+    "dedicated pixel art and animation",
+    "rewards and balance",
+    "browser-input full playthrough",
+    "full original moveset parity",
+    "native runtime verification"
+  ],
+  "acceptance": {
+    "input_controller": "77.85s, 3 core breaks, 0 returns, victory; sample flower HP161 ATK4 traveler + Columbina HP140 ATK3, unlocked water skills",
+    "core_regression": "56 Python suites passed before new full playthrough check",
+    "browser": "seed spawn displayed, not full victory"
+  },
+  "art": {
+    "source": "assets/pyro-regisvine-source-v1.png",
+    "status": "idle generated candidate; down scales height"
+  }
+}

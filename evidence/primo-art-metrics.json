@@ -1,0 +1,13 @@
+{
+  "counts": {
+    "legacy": 9954,
+    "h48c32": 6228,
+    "h32c16": 2788
+  },
+  "reduction_percent": 71.99115933293149,
+  "anchorX": 0.31480397893504974,
+  "source_hash_verified": true,
+  "transparent_corner": true,
+  "both_directions_and_burrow_checked": true,
+  "scope": "boss rectangle profiles only; not PNG or native FPS comparison"
+}

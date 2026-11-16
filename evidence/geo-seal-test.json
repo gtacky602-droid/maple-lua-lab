@@ -1,0 +1,20 @@
+{
+  "count": 15,
+  "checks": [
+    "fourth pillar attack tracks actor",
+    "tracking follows movement",
+    "pause freezes tracking",
+    "warning locks position",
+    "moving away avoids column",
+    "column clears on exposure",
+    "stationary actor takes column damage",
+    "column hits airborne actor",
+    "occupied pillar break cancels tracking",
+    "revival cancels tracking",
+    "third ground attack telegraphs clap",
+    "clap damages grounded actor",
+    "clap exposes core afterward",
+    "clap can be avoided laterally",
+    "clap can be jumped"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "scope": "same frozen initial state, 20 enemies + two characters, Lua draw-command generation only. 20 warmup rounds + 120 samples per profile, randomized order. Includes normal GC pauses, excludes JSON / network / Canvas. No Miliastra inference.",
+  "results": [
+    {
+      "profile": "legacy",
+      "commands": 11584,
+      "reduction_pct": 0.0,
+      "median_ms": 6.518200001664809,
+      "p95_ms": 14.719000002514804,
+      "json_bytes": 162386
+    },
+    {
+      "profile": "lossless",
+      "commands": 11571,
+      "reduction_pct": 0.11222375690608244,
+      "median_ms": 6.388149999111192,
+      "p95_ms": 9.493300000031013,
+      "json_bytes": 161974
+    },
+    {
+      "profile": "h32c16",
+      "commands": 2904,
+      "reduction_pct": 74.93093922651934,
+      "median_ms": 1.5544500001851702,
+      "p95_ms": 2.3314999998547137,
+      "json_bytes": 39382
+    },
+    {
+      "profile": "h32c32",
+      "commands": 3416,
+      "reduction_pct": 70.5110497237569,
+      "median_ms": 1.877799999419949,
+      "p95_ms": 3.1267000013031065,
+      "json_bytes": 44005
+    },
+    {
+      "profile": "h48c16",
+      "commands": 5760,
+      "reduction_pct": 50.276243093922645,
+      "median_ms": 3.1836500002100365,
+      "p95_ms": 5.280900000798283,
+      "json_bytes": 79069
+    },
+    {
+      "profile": "h48c32",
+      "commands": 6779,
+      "reduction_pct": 41.4796270718232,
+      "median_ms": 3.5615499982668553,
+      "p95_ms": 6.263100000069244,
+      "json_bytes": 91465
+    },
+    {
+      "profile": "h64c16",
+      "commands": 9546,
+      "reduction_pct": 17.593232044198892,
+      "median_ms": 5.268749999231659,
+      "p95_ms": 9.238400001777336,
+      "json_bytes": 131399
+    },
+    {
+      "profile": "h64c32",
+      "commands": 11391,
+      "reduction_pct": 1.666091160220995,
+      "median_ms": 6.179099998917081,
+      "p95_ms": 10.580999998637708,
+      "json_bytes": 152946
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "reloadResumed": true,
+  "saved": {
+    "kills": 4,
+    "quest": "hunt",
+    "damage": 64,
+    "active": 1,
+    "mora": 40,
+    "version": 1,
+    "gauge": 65,
+    "count": 0,
+    "hits": 16
+  },
+  "rejected": 400,
+  "stillSame": true,
+  "errors": []
+}
