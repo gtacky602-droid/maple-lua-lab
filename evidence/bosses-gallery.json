@@ -3,6 +3,8 @@
   "state": {
     "ready": true,
     "count": 27,
+    "visibleCount": 27,
+    "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,

@@ -1,0 +1,28 @@
+{
+  "checks": [
+    {
+      "file": "bosses-art.html",
+      "total": 27,
+      "query": "千年真珠",
+      "matches": 2
+    },
+    {
+      "file": "characters-art.html",
+      "total": 9,
+      "query": "旅人",
+      "matches": 1
+    },
+    {
+      "file": "enemies-art.html",
+      "total": 9,
+      "query": "水スライム",
+      "matches": 2
+    }
+  ],
+  "multipleTerms": true,
+  "unicodeNormalization": true,
+  "noMatch": true,
+  "clearRetainsSettings": true,
+  "mobileOverflow": false,
+  "errors": []
+}
