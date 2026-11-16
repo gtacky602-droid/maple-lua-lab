@@ -10,6 +10,7 @@ try{
  assets['ruin-guard']={...await json('assets/ruin-guard-idle-sprites.json'),h:144};
  assets['dendro-fungus']={...await json('assets/dendro-fungus-idle-sprites.json'),h:64};
  assets.nobushi={...await json('assets/nobushi-idle-sprites.json'),h:104};
+ assets['armored-crab']={...await json('assets/armored-crab-idle-sprites.json'),h:64};
  assets.hilichurl={...await json('assets/hilichurl-idle-sprites.json'),h:76};
  for(const element of ['hydro','pyro'])assets[`${element}-slime-reference`]={...await json(`assets/${element}-slime-idle-sprites.json`),h:40};
  for(const [id,data] of Object.entries(assets)){const layout=layouts[id.replace('-reference','')];data.h=layout.height;data.hover=layout.hover}

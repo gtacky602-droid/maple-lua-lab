@@ -22,5 +22,9 @@
   "nobushi": {
     "height": 104,
     "hover": 0
+  },
+  "armored-crab": {
+    "height": 64,
+    "hover": 0
   }
 }

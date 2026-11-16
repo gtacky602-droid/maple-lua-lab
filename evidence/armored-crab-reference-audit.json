@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/4058?crawler=Googlebot",
+  "secondary_page": "https://genshinimpact.th.gl/db/enemies/enemy_61521",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/17/35428890/329e20cf29240d29d0ac7fe36c2387ec_996625048654513076.gif",
+      "sha256": "7108fcea31d1484775cc3cbd27c422795161a3d49db75569213888d521aa5e9c",
+      "directly_viewed": true
+    },
+    {
+      "url": "https://cdn.th.gl/genshin-impact/icons/db/enemy_61521.webp",
+      "sha256": "bab18e14c55f424f2e6b48da61edbed44805959c4572ef05c20e5767643e7a4f",
+      "directly_viewed": true
+    }
+  ],
+  "gif_frames": {
+    "0": "Orange variant; extracted unchanged for generation reference",
+    "1": "Green variant; viewed to distinguish, excluded from generation"
+  },
+  "generation_references": [
+    "work/references/armored-crab-icon-frame0.png",
+    "work/references/armored-crab-thgl.webp"
+  ],
+  "model_lookup": "MMDFr armored-crab and crab endpoints 404; model not obtained",
+  "limits": [
+    "Only frontal cropped icons; secondary image is same appearance, not a distinct angle",
+    "Full legs/claws, side and back unverified; generated tips are provisional extrapolation",
+    "Orange variant only; no underwater, animation or attack mechanics",
+    "Smallest palette weakens turquoise eyes and fine claw/leg details",
+    "No live spawn; visual candidate only"
+  ],
+  "output": "assets/armored-crab-idle-source-v1.png",
+  "sha256": "f077cb758c1e21e13de8665031e19f9ae0fa9cdc695b7b79b1b01e10dc649d20",
+  "profiles": {
+    "legacy": {
+      "height": 64,
+      "runs": 1331
+    },
+    "h48c32": {
+      "height": 48,
+      "runs": 867
+    },
+    "h32c16": {
+      "height": 32,
+      "runs": 439
+    }
+  },
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "validation": [
+    "Source hash and alpha verified",
+    "9 candidate gallery: 3 profiles, 3 zooms, both facings, mobile390",
+    "Fontaine placement 3 profiles and export/import",
+    "61 map editing regression",
+    "Placement PNG vs smallest profile directly viewed"
+  ]
+}

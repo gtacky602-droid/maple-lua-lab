@@ -74,6 +74,12 @@
       "status": "Referenced Jintouban idle at inazuma-road spawn1, 104px; generic behavior and hitbox retained; dedicated attacks/animation and back model check incomplete",
       "art": "assets/nobushi-idle-sprites.json",
       "audit": "evidence/nobushi-reference-audit.json"
+    },
+    {
+      "id": "armored-crab",
+      "status": "Orange frontal candidate based on cropped icon; full appendages provisional, side/back unverified. Gallery/placement only, no live spawn.",
+      "art": "assets/armored-crab-idle-sprites.json",
+      "audit": "evidence/armored-crab-reference-audit.json"
     }
   ],
   "scope": "inventory of existing work, not full planned enemy roster",
@@ -87,7 +93,8 @@
       "pyro-slime-reference",
       "ruin-guard",
       "dendro-fungus",
-      "nobushi"
+      "nobushi",
+      "armored-crab"
     ],
     "live_copy": "Current-node authored spawns can be copied into the visual draft with referenced asset mapping, support-derived y, undo and JSON export. Editing does not write live spawn data."
   },
