@@ -1,0 +1,79 @@
+{
+  "date": "2026-11-17",
+  "page": "https://wiki.hoyolab.com/pc/genshin/entry/4344?lang=en-us",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/09/28/35428890/c4f5112a860768d0c0c581344c205174_2897400963027652809.png",
+      "sha256": "42c99c2efe66ceb1c7f9f9cf939998fa3af3dcfe9ac5acba9dbe8f07fec4b8b1",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "not inspected"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/8e19ef6522a88018d7e21931b2050eb8_2101580588613828717.png",
+      "sha256": "f3963cca7e37da270482acc09e38c3b36bf6d7e15689e47a299d2792394bceef",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "whole-body render"
+    },
+    {
+      "url": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/01/29/dba478ce69e1dc5244bc59ba7f9a4e26_1364664288877760586.png",
+      "sha256": "4565f7248781b6f206b93ddeda6878f55f95ebe60cddba242a2abcda1adf5af7",
+      "directly_viewed": false,
+      "generation_input": false,
+      "note": "not inspected"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/6bc766e3f60a0369b56e8bc75bb6190e_6843751668023619274.png",
+      "sha256": "4162649fb7f8ba0ca57704b5e094a560943c432911ff560d0023b57da1a3d005",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "same render, different crop"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/221ce0066287b156274241b1430f305a_2691210350027902329.png",
+      "sha256": "47061cd3af6657851e4e57911d4c9fa245474f1dfa101846847323ea9732c44d",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "illustration with effects"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/594a7c71b6f0c357c8f6c44e42e6bf4f_2605810039534355464.png",
+      "sha256": "d4c079aa76e87c2e2d78613bbc14b245fa5c3c20e5f55c539d77307a399f5718",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "in-game pearl intact/broken side comparison"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/b80d7ead09c95fb8680c378a9bb069e4_7058944105652389258.png",
+      "sha256": "98416a1bf39c376ea1eb4392e2b032b4ad7ab47cd1c17deeadd9a3aa162a7a75",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "in-game airborne attack view; not used for generation"
+    }
+  ],
+  "model_lookup": "No usable matching 3D model yielded by quoted-name 3D-model query; no model or back-view inspection.",
+  "output": "assets/seahorse-idle-source-v1.png",
+  "sha256": "35907fcc994c438082592cad7f78986ac9124ddd0301c3a228d813a8b49b1f85",
+  "profiles": {
+    "legacy": {
+      "height": 180,
+      "runs": 8421
+    },
+    "h48c32": {
+      "height": 135,
+      "runs": 5431
+    },
+    "h32c16": {
+      "height": 90,
+      "runs": 2483
+    }
+  },
+  "visual_review": "Source, browser PNG/90px comparison and temporary forest map placement directly viewed. Spear horn, petal crown, limbs and broad fin tail retained. Fine fin veins and pale blue pearl hue weaken at lowest profile. Source has a broader crown/tail and brighter pink than render; candidate not exact model reproduction.",
+  "limits": [
+    "3D/back view unverified",
+    "180px and 32px hover provisional",
+    "Pearl-intact idle only, no break state, animations or live combat",
+    "Forest backdrop is comparison fixture, not Fontaine habitat placement"
+  ]
+}

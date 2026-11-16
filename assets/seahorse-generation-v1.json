@@ -1,0 +1,9 @@
+{
+  "mode": "builtin image_gen",
+  "generated_file": "exec-6c95ba02-edd4-478c-b73c-f050d7130ce9.png",
+  "reference_files": [
+    "work/references/seahorse-1.png",
+    "work/references/seahorse-5.png"
+  ],
+  "prompt": "Use case: stylized-concept. Single transparent pixel-art idle sprite of Genshin Impact Millennial Pearl Seahorse for a Maple-inspired 2D side-scrolling RPG lab. Follow official whole-body render and in-game side comparison. Use the pearl-intact form (left creature in comparison). Full body faces left in side/three-quarter view, horizontal hindbody to right, upright arched neck at left. Narrow dark violet equine snout, yellow eye, one long thin spear-like forehead horn angled left/up, pink/lilac petal crown swept backward. Pale peach throat; overlapping purple petal-like chest armor with small pale blue throat jewel and larger round pale blue-lilac pearl on lower front chest. Preserve actual quadrupedal limb anatomy from references: folded angular forelimbs and bent hindlimbs with pointed fin-like feet, not a conventional limbless curled seahorse. Long tail to the right with large flowing purple-pink-gold petal fins, leaflike back fins. Calm hovering idle pose with lowered limbs, no attack, no electricity, no bubbles or floating extra pearls, no ground or shadow. Deliberate crisp square pixel clusters and readable dark outlines, 24-32-color aesthetic, no smooth painted gradients, no noisy dithering. Readable around 180px high. Entire horn, crown, feet, and tail tips comfortably inside frame; transparent background and gaps between body parts. No text, no frame, no sheets, no additional creature. Do not convert into dragon, add wings or curled spiral tail."
+}

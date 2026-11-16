@@ -2,11 +2,17 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 23,
+    "count": 24,
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "seahorse",
+        "h": 180,
+        "w": 306.04072398190044,
+        "ratio": 1.7002262443438914
+      },
       {
         "id": "baptist",
         "h": 180,
