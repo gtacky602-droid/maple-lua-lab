@@ -2,13 +2,25 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 60,
-    "visibleCount": 60,
+    "count": 62,
+    "visibleCount": 62,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "moongecko",
+        "h": 170,
+        "w": 276.8776371308017,
+        "ratio": 1.628691983122363
+      },
+      {
+        "id": "moonfly",
+        "h": 160,
+        "w": 217.28,
+        "ratio": 1.358
+      },
       {
         "id": "battleship",
         "h": 190,

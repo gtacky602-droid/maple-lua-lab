@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-17",
+  "encounter": "boss-26301101",
+  "references": [
+    {
+      "url": "https://img.gamewith.net/img/c96cc52bb8e25060a51dacc585447e46.png",
+      "page": "https://gamewith.net/genshin-impact/article/show/69569",
+      "view": "Preview design and wing pattern",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "4090c26b460bda8f9abee325b328a417a4cbbce57f6dfdd0eafc0457cd28306d"
+    },
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2025/09/19/157251052/3b141a1d866c62c39dacd0744ae00e3c_4946543808464340114.png",
+      "page": "https://www.hoyolab.com/article/41241218",
+      "view": "In-game tutorial shows floating posture amid effects",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "c02f8ec97ed74b3db2c6ac68c60eb7dc1e302a6d544d1b2e8d3c6830c7d6e475"
+    }
+  ],
+  "model_lookup": "Exact English-name and site-specific searches found no usable 3D model. Back and underside remain unverified.",
+  "source": "assets/moonfly-idle-source-v1.png",
+  "sha256": "e57a0a714c17cdfa7f81a27644a211e795deeea588df3f6b41d2f7dccbf6e6d3",
+  "profiles": {
+    "legacy": {
+      "height": 160,
+      "runs": 6452
+    },
+    "h48c32": {
+      "height": 120,
+      "runs": 4095
+    },
+    "h32c16": {
+      "height": 80,
+      "runs": 1847
+    }
+  },
+  "rectangle_reduction_percent": 71.37,
+  "reserved_colors": [
+    "#c9db48",
+    "#ad9be3"
+  ],
+  "hover": 48,
+  "anchorX": 0.5,
+  "anchor_method": "center",
+  "visual_review": "Lime wing markings and floating silhouette remain distinct. Thin antenna and wing tracery break into coarse steps at 80px.",
+  "provisional_details": "Wing foreshortening and lower wing arrangement are interpreted from the available angles. Floating offset 48 is for the map preview.",
+  "measurement_scope": "Local rectangle counts at a fixed display scale. Native frame time remains unmeasured."
+}

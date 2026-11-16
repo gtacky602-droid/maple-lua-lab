@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-17",
+  "encounter": "boss-26302101",
+  "references": [
+    {
+      "url": "https://img.gamewith.jp/img/original_60253542d65f5f449b9739201fc3e1ea.jpg",
+      "page": "https://gamewith.jp/genshin/article/show/232413",
+      "view": "Japanese preview design and angular tail; some upper detail cropped",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "1673f0740069d338f7ace67c5a607807b2e50e02a8fd0f7a290bdd1ffd038148"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/3d5ffee48b8f18e832eea509d2114e35.png",
+      "page": "https://gamewith.jp/genshin/article/show/545469",
+      "view": "Gameplay reveals low front crouch and leg spread",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "5d8a6d088953cf81be08c3c5c1332718df748af897898dc790f4f751d2628452"
+    },
+    {
+      "url": "https://landofgames.ru/uploads/posts/2026-02/1771953354_4.webp",
+      "page": "https://landofgames.ru/articles/guides/29259-luchezarnyj-lunnyj-gekkon-v-genshin-impact-kak-najti-i-pobedit.html",
+      "view": "English duplicate of the preview pose",
+      "directly_viewed": true,
+      "generation_input": false,
+      "sha256": "c697979f979ce6055de76f772254a475f3ebd0a7665ce5f46bdccca2d6008d11"
+    }
+  ],
+  "model_lookup": "Exact English-name and site-specific searches found no usable 3D model. Back and underside remain unverified.",
+  "source": "assets/moongecko-idle-source-v1.png",
+  "sha256": "858c210a8c4f63d5964cdcb6f4c1f2464c287df818d21e5372683fa125e7d076",
+  "profiles": {
+    "legacy": {
+      "height": 170,
+      "runs": 9736
+    },
+    "h48c32": {
+      "height": 128,
+      "runs": 6170
+    },
+    "h32c16": {
+      "height": 85,
+      "runs": 2845
+    }
+  },
+  "rectangle_reduction_percent": 70.78,
+  "reserved_colors": [
+    "#ffc440",
+    "#7265b4"
+  ],
+  "hover": 0,
+  "anchorX": 0.43167098445595853,
+  "anchor_method": "midpoint of opaque pixels in bottom 4 percent band",
+  "visual_review": "The dark crouched silhouette and gold tail-frame openings remain distinct. Small crystal facets and the eye simplify at 85px.",
+  "provisional_details": "The tail tip is completed as a provisional gold lattice based on the cropped design. The 4% bottom band aligns the planted feet.",
+  "measurement_scope": "Local rectangle counts at a fixed display scale. Native frame time remains unmeasured."
+}
