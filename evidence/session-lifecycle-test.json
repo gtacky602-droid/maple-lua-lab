@@ -1,0 +1,12 @@
+{
+  "reloadPreservesQuest": true,
+  "inflightDoesNotCancelRelease": true,
+  "oldReleaseIgnoredAfterResume": true,
+  "staleFrameRejected": true,
+  "activeDuplicateIsolated": true,
+  "limit": 12,
+  "graceSeconds": 60,
+  "expiredReleaseFreesSlot": true,
+  "otherSessionsPreserved": true,
+  "foreignOriginRejected": true
+}

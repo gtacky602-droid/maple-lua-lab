@@ -9,20 +9,32 @@ class Handler(SimpleHTTPRequestHandler):
     def __init__(self,*a,**kw): super().__init__(*a,directory=str(ROOT),**kw)
     def log_message(self,*a): pass
     def do_POST(self):
-        if self.path != '/api/frame': self.send_error(404); return
-        if self.headers.get('Origin') not in (None, 'http://127.0.0.1:8769', 'http://localhost:8769'):
+        if self.path not in ('/api/frame','/api/release'): self.send_error(404); return
+        if self.headers.get('Origin') not in (None, f'http://127.0.0.1:{self.server.server_port}', f'http://localhost:{self.server.server_port}'):
             self.send_error(403); return
         try:
             size=int(self.headers.get('Content-Length',0))
             if size>65536: raise ValueError('request too large')
             req=json.loads(self.rfile.read(size))
             if not isinstance(req,dict): raise ValueError('request must be an object')
+            owner=req.get('owner')
+            if owner is not None and (not isinstance(owner,str) or len(owner)>80): raise ValueError('invalid owner')
+            if self.path == '/api/release':
+                with LOCK:
+                    env=SESSIONS.get(req.get('session'))
+                    if env and owner and env.get('owner')==owner:
+                        env['retire_at']=time.monotonic()+60
+                self.send_response(204);self.end_headers();return
             saved=validate_save(req['restore']) if 'restore' in req else None
             with LOCK:
                 now=time.monotonic()
                 for old in list(SESSIONS):
-                    if now-SESSIONS[old]['last']>1800: del SESSIONS[old]
+                    if now-SESSIONS[old]['last']>1800 or SESSIONS[old].get('retire_at',float('inf'))<=now: del SESSIONS[old]
                 sid=req.get('session')
+                if sid in SESSIONS and owner and SESSIONS[sid].get('owner') not in (None,owner):
+                    if req.get('resume'):
+                        if 'retire_at' not in SESSIONS[sid]: sid=None  # Duplicated active tab gets its own state.
+                    else: raise ValueError('This page no longer owns the session; reload to reconnect')
                 if sid not in SESSIONS or req.get('reset') or saved is not None:
                     if sid in SESSIONS: del SESSIONS[sid]
                     if len(SESSIONS)>=12: raise ValueError('Too many sessions')
@@ -32,6 +44,8 @@ class Handler(SimpleHTTPRequestHandler):
                     if saved is not None:
                         SESSIONS[sid]['state']=core.restore(lua.table_from(saved,recursive=True),density)
                 env=SESSIONS[sid];env['last']=now
+                if owner: env['owner']=owner
+                if req.get('resume'): env.pop('retire_at',None)
                 lua,core,state=env['lua'],env['core'],env['state']
                 started=time.perf_counter()
                 configuration=None

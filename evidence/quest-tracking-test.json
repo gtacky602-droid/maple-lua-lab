@@ -13,11 +13,5 @@
     "hidden"
   ],
   "mobileOverflow": false,
-  "errors": [],
-  "storyRegression": {
-    "result": "passed",
-    "apiPort": 8771,
-    "isolation": "temporary dedicated server; browser routes /api/frame only; existing 8769 sessions unchanged",
-    "mainServerLimitation": "HTTP400 Too many sessions (12 session cap) blocked additional regression until isolated"
-  }
+  "errors": []
 }

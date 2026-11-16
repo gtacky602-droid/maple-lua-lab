@@ -4,7 +4,7 @@ const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 for(const q of graph.quests){if(questStatus(q,null)!=='unaccepted'||questStatus(q,{status:'active',count:0})!=='active'||questStatus(q,{status:'active',count:q.goal})!=='ready'||questStatus(q,{status:'complete',count:q.goal})!=='complete')throw Error('status '+q.id);if(questObjective(q,graph).includes('未登録'))throw Error('missing destination '+q.id);}
 const b=await chromium.launch({headless:true,channel:'chrome'}),p=await b.newPage({viewport:{width:1200,height:1000}}),errors=[];p.on('pageerror',e=>errors.push(e.message));
 try{
- await p.goto('http://127.0.0.1:8769');await p.waitForFunction(()=>window.lab?.frame);
+ await p.goto(process.env.LAB_URL||'http://127.0.0.1:8769');await p.waitForFunction(()=>window.lab?.frame);
  await p.getByRole('button',{name:'本編ルートへ',exact:true}).click();await p.waitForSelector('#questFilter');
  const visibleCount=await p.evaluate(()=>window.lab.frame.storyGraph.quests.length);
  await p.selectOption('#questFilter','all');if(await p.locator('#questJournal [data-quest]').count()!==visibleCount)throw Error('visible quest count');
