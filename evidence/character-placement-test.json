@@ -13,6 +13,7 @@
   "profiles": 3,
   "groundSupport": true,
   "declaredHeights": true,
+  "hoverOffsets": true,
   "flip": true,
   "exportImport": true,
   "deleteUndo": true,

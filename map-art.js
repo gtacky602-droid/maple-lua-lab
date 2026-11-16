@@ -18,7 +18,7 @@ try{
  for(const [kind,label,file] of [['boss','ボス待機候補（比較用の大きさ）','boss-art-gallery.json'],['character','主人公・味方（待機候補）','character-art-gallery.json']]){
   const gallery=await json('content/'+file),group=document.createElement('optgroup');group.label=label;
   const loaded=await Promise.all(gallery.items.map(async item=>({item,data:await json('assets/'+item.file)})));
-  for(const {item,data} of loaded){const id=kind+'-'+item.id;assets[id]={...data,h:item.height,hover:0};const option=document.createElement('option');option.value=id;option.textContent=item.name;group.append(option)}
+  for(const {item,data} of loaded){const id=kind+'-'+item.id;assets[id]={...data,h:item.height,hover:item.mapHover??0};const option=document.createElement('option');option.value=id;option.textContent=item.name;group.append(option)}
   $('species').append(group);
  }
  const images=await loadImageSet(Object.values(assets).map(data=>data.source),{onProgress:(done,total)=>{$('status').textContent=`画像を読み込み中 ${done} / ${total}`}});

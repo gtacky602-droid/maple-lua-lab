@@ -7,6 +7,6 @@
 <div class="controls"><label>クリック操作 <select id="editMode"><option value="add">素材を追加</option><option value="move">選択した個体を移動</option></select></label><span id="selectionStatus">選択なし</span><button id="flipSelected" disabled>選択した個体の向きを反転</button><button id="deleteSelected" disabled>選択した個体を削除</button><button id="clearSelection" disabled>選択を解除</button></div>
 <label>保存した配置案を読み込む <input id="import" type="file" accept=".json,application/json"></label><p id="fileStatus" role="status" class="note">読み込むと全地点の編集案を置き換えます。必要な案は先にJSON保存してください。</p>
 <p class="note">「本編配置を読み込む」でこの地点の編集案を置き換えます。取り消しで元の案に戻せます。「素材を追加」で画像をクリックすると近い足場へ追加します。下の個体一覧で個体を選ぶと移動モードになります。移動先を画像上でクリックしてください。移動・反転・削除も取り消せます。別地点へ移っても案はこの画面内で保持します。再読み込みで初期案へ戻ります。必要な案はJSON保存してください。</p>
-<p class="note">ボスは素材比較画面と同じ仮の大きさです。浮遊するボスも、ここでは画像の下端を足場へ合わせて表示します。本編での浮遊高度・当たり判定・戦闘配置を示すものではありません。</p>
+<p class="note">ボスは素材比較画面と同じ仮の大きさです。浮遊素材は足場の基準点から仮の高さだけ離して表示します（一覧に「浮き」を表示）。水・炎など地面側の表現を含む素材は下端を足場へ合わせます。高さは見た目比較用で、本編の飛行高度・当たり判定ではありません。</p>
 <main><figure><figcaption>元PNG</figcaption><canvas id="png" width="960" height="540"></canvas></figure><figure><figcaption>軽量矩形版</figcaption><canvas id="rect" width="960" height="540"></canvas></figure></main>
 <div id="placements"></div><section aria-label="本編配置との差分"><h2>本編配置との差分</h2><button id="compareLive">本編との差分を確認・更新</button><p id="diffSummary" role="status"></p><ul id="diffDetails"></ul><p class="note">同じ個体IDを照合します。比較基準は取得時点の配置です。本編への反映や自動保存は行いません。</p></section><p id="status" role="status">読み込み中</p><script type="module" src="map-art.js"></script></html>

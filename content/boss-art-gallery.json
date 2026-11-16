@@ -5,127 +5,149 @@
       "id": "asimon",
       "name": "半永久統制マトリックス（参照付き待機候補）",
       "file": "asimon-idle-sprites.json",
-      "height": 160
+      "height": 160,
+      "mapHover": 48
     },
     {
       "id": "aeonblight",
       "name": "兆載永劫ドレイク（参照付き待機v2）",
       "file": "aeonblight-idle-sprites.json",
-      "height": 180
+      "height": 180,
+      "mapHover": 0
     },
     {
       "id": "ruin-serpent",
       "name": "遺跡サーペント（参照付き待機候補）",
       "file": "ruin-serpent-idle-sprites.json",
-      "height": 220
+      "height": 220,
+      "mapHover": 0
     },
     {
       "id": "electro-regisvine",
       "name": "迅電樹（参照付き待機候補）",
       "file": "electro-regisvine-idle-sprites.json",
-      "height": 200
+      "height": 200,
+      "mapHover": 0
     },
     {
       "id": "jadeplume",
       "name": "マッシュラプトル / 待機候補",
       "file": "jadeplume-idle-sprites.json",
-      "height": 160
+      "height": 160,
+      "mapHover": 0
     },
     {
       "id": "dendro-hypostasis",
       "name": "無相の草（参照付き待機候補・戦闘未実装）",
       "file": "dendro-hypostasis-idle-sprites.json",
-      "height": 128
+      "height": 128,
+      "mapHover": 48
     },
     {
       "id": "pyro-hypostasis",
       "name": "無相の炎（参照付き待機候補・戦闘未実装）",
       "file": "pyro-hypostasis-idle-sprites.json",
-      "height": 128
+      "height": 128,
+      "mapHover": 0
     },
     {
       "id": "hydro-hypostasis",
       "name": "無相の水（波紋を整理したv2・戦闘未実装）",
       "file": "hydro-hypostasis-idle-sprites.json",
-      "height": 128
+      "height": 128,
+      "mapHover": 0
     },
     {
       "id": "hydro-hypostasis-v1",
       "name": "無相の水（細部重視v1・比較用）",
       "file": "hydro-hypostasis-idle-sprites-v1.json",
-      "height": 128
+      "height": 128,
+      "mapHover": 0
     },
     {
       "id": "cryo-hypostasis",
       "name": "無相の氷（新規待機候補・戦闘未実装）",
       "file": "cryo-hypostasis-idle-sprites.json",
-      "height": 128
+      "height": 128,
+      "mapHover": 48
     },
     {
       "id": "cryo-regisvine",
       "name": "急凍樹（既存候補）",
       "file": "boss-sprites.json",
-      "height": 200
+      "height": 200,
+      "mapHover": 0
     },
     {
       "id": "pyro-regisvine",
       "name": "爆炎樹（既存候補）",
       "file": "pyro-regisvine-sprites.json",
-      "height": 200
+      "height": 200,
+      "mapHover": 0
     },
     {
       "id": "farka",
       "name": "ファルカ（既存候補）",
       "file": "farka-sprites.json",
-      "height": 110
+      "height": 110,
+      "mapHover": 0
     },
     {
       "id": "anemo",
       "name": "無相の風・外殻（既存候補）",
       "file": "anemo-shell-sprites.json",
-      "height": 128
+      "height": 128,
+      "mapHover": 48
     },
     {
       "id": "electro",
       "name": "無相の雷・外殻（既存候補）",
       "file": "electro-shell-sprites.json",
-      "height": 128
+      "height": 128,
+      "mapHover": 48
     },
     {
       "id": "geo",
       "name": "無相の岩・外殻（既存候補）",
       "file": "geo-shell-sprites.json",
-      "height": 128
+      "height": 128,
+      "mapHover": 48
     },
     {
       "id": "oceanid",
       "name": "純水精霊（既存候補）",
       "file": "oceanid-sprites.json",
-      "height": 150
+      "height": 150,
+      "mapHover": 64
     },
     {
       "id": "primo",
       "name": "エンシェントヴィシャップ（既存候補）",
       "file": "primo-sprites.json",
-      "height": 140
+      "height": 140,
+      "mapHover": 0
     },
     {
       "id": "maguu",
       "name": "魔偶剣鬼（既存候補）",
       "file": "maguu-sprites.json",
-      "height": 150
+      "height": 150,
+      "mapHover": 0
     },
     {
       "id": "array",
       "name": "恒常からくり陣形（既存候補）",
       "file": "array-sprites.json",
-      "height": 140
+      "height": 140,
+      "mapHover": 48
     },
     {
       "id": "thunder",
       "name": "雷音権現（既存候補）",
       "file": "thunder-sprites.json",
-      "height": 150
+      "height": 150,
+      "mapHover": 64
     }
-  ]
+  ],
+  "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }

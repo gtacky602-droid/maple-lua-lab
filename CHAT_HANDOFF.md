@@ -285,3 +285,6 @@ map-art.html追加: 本編61仮地点の足場/背景を選択し、元PNGと軽
 
 
 2026-11-17: 半永久統制マトリックスの参照付き待機候補追加。HoYoWiki2855の全身/同姿勢別サイズ/ゲーム内/初期案/最終正側背面設定画を確認し、全身1と最終設定画6をbuiltin画像生成へ使用。3Dモデル未確認。160/120/80px=6836/4119/1811矩形（最軽量73.51%減、FPSではない）。20ボス21候補の表示比較と配置検査はerrorsなし。単体と仮背景上を目視し三角核・左右矢形部品は残るが青装飾/刻印は粗くなる。対称配置への改変と上側部品間隔の簡略化あり。待機候補のみ、技/本編配置未実装。背景は仮画像、本番3D想定。根拠 evidence/asimon-reference-audit.json, evidence/asimon-comparison.png。
+
+
+2026-11-17: マップ素材比較の浮遊表示を追加。boss-art-galleryのmapHoverに比較用下端距離を定義し、マトリックス/無相の風雷岩氷草/からくり陣形は48px、純水精霊/雷音権現は64px浮かせる。水炎の地面側表現と接地素材は0を維持。高さは仮で本編高度/当たり判定ではない。21ボス候補と9主人公味方候補の3設定・配置・反転・JSON書出読戻・削除undo・390px検査通過。マトリックスの元PNG/最軽量を仮背景上で目視し下端の空間を確認。技変更なし。根拠 evidence/boss-placement-test.json, evidence/character-placement-test.json, evidence/asimon-map-comparison.png。

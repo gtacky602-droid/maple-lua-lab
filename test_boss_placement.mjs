@@ -24,7 +24,7 @@ try{
   if(s.count!==baseline+1||e.species!==kind+'-'+item.id||e.y!==480||!s.grounded)throw Error('add/support '+item.id);
   for(const profile of ['legacy','h48c32','h32c16']){
    await p.selectOption('#profile',profile);s=await state();
-   if(s.visuals.at(-1).height!==item.height||s.visuals.at(-1).y!==480)throw Error('visual anchor '+item.id);
+   if(s.visuals.at(-1).height!==item.height||s.visuals.at(-1).y!==480-(item.mapHover??0))throw Error('visual anchor '+item.id);
   }
   await p.locator(`#placements button[data-id="${e.id}"]`).click();
   await p.click('#flipSelected');if(!(await state()).placements.at(-1).flip)throw Error('flip');
@@ -40,6 +40,7 @@ try{
   await p.click('#deleteSelected');if((await state()).count!==baseline)throw Error('delete');
   await p.locator('#import').setInputFiles({name:kind+'-placement.json',mimeType:'application/json',buffer:Buffer.from(text)});
   await p.waitForFunction(()=>document.getElementById('import').value==='');
+  if((await state()).visuals.at(-1).y!==480-(item.mapHover??0))throw Error('restored hover '+item.id);
   if(JSON.stringify((await state()).placements)!==JSON.stringify(s.placements))throw Error('roundtrip '+item.id);
   await p.locator(`#placements button[data-id="${e.id}"]`).click();await p.click('#deleteSelected');
   await p.click('#undo');if((await state()).count!==baseline+1)throw Error('undo');
@@ -49,6 +50,6 @@ try{
  await p.setViewportSize({width:390,height:844});
  if(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('mobile overflow');
  if(errors.length)throw Error(errors.join('/'));
- await fs.writeFile(`evidence/${kind}-placement-test.json`,JSON.stringify({checked,profiles:3,groundSupport:true,declaredHeights:true,flip:true,exportImport:true,deleteUndo:true,mobileOverflow:false,errors},null,2));
+ await fs.writeFile(`evidence/${kind}-placement-test.json`,JSON.stringify({checked,profiles:3,groundSupport:true,declaredHeights:true,hoverOffsets:true,flip:true,exportImport:true,deleteUndo:true,mobileOverflow:false,errors},null,2));
  console.log(`${checked.length} ${kind} candidates: placement, profiles, roundtrip and mobile passed`);
 }finally{await b.close()}
