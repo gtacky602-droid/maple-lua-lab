@@ -1,0 +1,20 @@
+{
+  "draw": {
+    "x": 300,
+    "y": 462,
+    "source": "dendro-fungus-idle-source-v1.png",
+    "w": 71.31428571428572,
+    "box": [
+      285,
+      118,
+      897,
+      805
+    ],
+    "anchorX": 0.4782608695652174,
+    "kind": "boss_sprite",
+    "flip": false,
+    "h": 64
+  },
+  "errors": [],
+  "method": "Actual Lua sumeru-field entry frames rendered through intercepted browser responses. Static render fixture, not live traversal or combat verification."
+}

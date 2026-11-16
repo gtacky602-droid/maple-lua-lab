@@ -2,5 +2,5 @@
   "profiles": 3,
   "exportImport": true,
   "errors": [],
-  "scope": "static visual draft, bottom tip aligned to platform; hovering behavior not implemented"
+  "scope": "static visual draft, bottom tip 18px above support; no flight movement or attack verification"
 }

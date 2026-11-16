@@ -1,0 +1,22 @@
+{
+  "hydro-slime": {
+    "height": 40,
+    "hover": 0
+  },
+  "pyro-slime": {
+    "height": 40,
+    "hover": 0
+  },
+  "hilichurl": {
+    "height": 76,
+    "hover": 0
+  },
+  "ruin-guard": {
+    "height": 144,
+    "hover": 0
+  },
+  "dendro-fungus": {
+    "height": 64,
+    "hover": 18
+  }
+}

@@ -71,6 +71,24 @@
       "profile": "h32c16",
       "runs": 1717,
       "height": 144
+    },
+    {
+      "art": "dendro-fungus",
+      "profile": "legacy",
+      "runs": 882,
+      "height": 64
+    },
+    {
+      "art": "dendro-fungus",
+      "profile": "h48c32",
+      "runs": 559,
+      "height": 64
+    },
+    {
+      "art": "dendro-fungus",
+      "profile": "h32c16",
+      "runs": 255,
+      "height": 64
     }
   ],
   "checks": [

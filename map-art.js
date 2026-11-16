@@ -4,12 +4,14 @@ const $=id=>document.getElementById(id),assets={},histories={};
 async function json(path){const r=await fetch(path);if(!r.ok)throw Error(path);return r.json()}
 try{
  const [graph,initial,variants]=await Promise.all([json('content/story-graph.json'),json('content/enemy-placement-drafts.json'),json('assets/variants.json'),backgroundReady]);
+ const layouts=await json('content/enemy-art-layout.json');
  let drafts=structuredClone(initial),serial=0,importTicket=0;const nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  for(const [id,index] of [['hydro-slime',4],['pyro-slime',6]]){const profiles=Object.fromEntries(Object.entries(variants.variants).map(([k,v])=>[k,v.sprites[index]]));assets[id]={source:'atlas-transparent.png',box:profiles.legacy.box,profiles,h:40}}
  assets['ruin-guard']={...await json('assets/ruin-guard-idle-sprites.json'),h:144};
  assets['dendro-fungus']={...await json('assets/dendro-fungus-idle-sprites.json'),h:64};
  assets.hilichurl={...await json('assets/hilichurl-idle-sprites.json'),h:76};
  for(const element of ['hydro','pyro'])assets[`${element}-slime-reference`]={...await json(`assets/${element}-slime-idle-sprites.json`),h:40};
+ for(const [id,data] of Object.entries(assets)){const layout=layouts[id.replace('-reference','')];data.h=layout.height;data.hover=layout.hover}
  for(const data of Object.values(assets)){data.image=new Image();data.image.src='assets/'+data.source;await data.image.decode()}
  drafts=validatePlacementDraft(drafts,graph,Object.keys(assets));
  for(const n of graph.nodes){const option=document.createElement('option');option.value=n.id;option.textContent=`${n.region}｜${n.name}`;$('node').append(option)}$('node').value='mond-road';
@@ -21,14 +23,14 @@ try{
   const mapped=Object.values(sceneryDefinitions).some(d=>d.region===n.region),valid=items.every(e=>n.platforms.some(p=>p.y===e.y&&e.x>=p.x&&e.x<=p.x+p.w));
   $('cameraValue').value=camera;$('context').textContent=`${n.name} ／ 幅${n.width}px ／ ${n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${background.state!=='ready'?'背景画像を読み込めません：単色で表示（'+background.file+'）':mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用'}。敵${items.length}体（見た目確認用）。`;
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame);ctx.imageSmoothingEnabled=false;
-   for(const e of items){const a=assets[e.species],w=a.h*a.box[2]/a.box[3],anchor=a.anchorX??.5,x=e.x-camera;ctx.save();ctx.translate(x,e.y);if(e.flip)ctx.scale(-1,1);
+   for(const e of items){const a=assets[e.species],w=a.h*a.box[2]/a.box[3],anchor=a.anchorX??.5,x=e.x-camera;ctx.save();ctx.translate(x,e.y-a.hover);if(e.flip)ctx.scale(-1,1);
     if(mode==='png')ctx.drawImage(a.image,...a.box,-w*anchor,-a.h,w,a.h);else{const p=a.profiles[profile];for(const r of p.runs){ctx.fillStyle=r[4];ctx.fillRect(-w*anchor+r[0]*w/p.width,-a.h+r[1]*a.h/p.height,r[2]*w/p.width+.05,r[3]*a.h/p.height+.05)}}ctx.restore();
     ctx.fillStyle='#ffffff';ctx.fillRect(x-3,e.y-1,6,2);
    }
   }
-  $('placements').replaceChildren();for(const e of items){const label=document.createElement('span');label.textContent=`${e.species}：(${e.x}, ${e.y})`;$('placements').append(label)}
-  const runs=items.reduce((sum,e)=>sum+assets[e.species].profiles[profile].runs.length,0);$('status').textContent=`配置${items.length}体 ／ 矩形${runs.toLocaleString()}個（配置した全体の合計・FPSではありません） ／ ${valid?'全個体が足場に接地':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);
-  window.mapArt={ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,placements:structuredClone(items),grounded:valid,background:sceneryKey(frame),backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file};
+  $('placements').replaceChildren();for(const e of items){const label=document.createElement('span');label.textContent=`${e.species}：(${e.x}, ${e.y})${assets[e.species].hover?` ／ 浮き ${assets[e.species].hover}px`:``}`;$('placements').append(label)}
+  const runs=items.reduce((sum,e)=>sum+assets[e.species].profiles[profile].runs.length,0);$('status').textContent=`配置${items.length}体 ／ 矩形${runs.toLocaleString()}個（配置した全体の合計・FPSではありません） ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);
+  window.mapArt={ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,placements:structuredClone(items),visuals:items.map(e=>({id:e.id,y:e.y-assets[e.species].hover,hover:assets[e.species].hover,height:assets[e.species].h})),grounded:valid,background:sceneryKey(frame),backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file};
  }
  function remember(id){const history=histories[id]??=[];history.push(structuredClone(drafts.nodes[id]??[]));if(history.length>100)history.shift()}
  function select(){const n=node();$('camera').max=Math.max(0,n.width-960);$('camera').value=0;render()}

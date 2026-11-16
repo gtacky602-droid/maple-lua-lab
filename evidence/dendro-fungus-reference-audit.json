@@ -64,5 +64,13 @@
     "Sumeru placement 3 profiles and export/import",
     "61 node placement regression",
     "PNG and smallest-profile placement screenshot directly viewed"
-  ]
+  ],
+  "integration_update": {
+    "live_node": "sumeru-field",
+    "layout": "content/enemy-art-layout.json",
+    "height": 64,
+    "hover": 18,
+    "evidence": "evidence/dendro-fungus-live-browser.json",
+    "scope": "Static browser render of real Lua frame; generic movement and hitbox unchanged. Earlier gallery-only limits describe initial creation."
+  }
 }

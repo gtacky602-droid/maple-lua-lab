@@ -3,7 +3,7 @@ from PIL import Image
 from runtime import runtime,ROOT
 
 lua,c=runtime();results=[]
-for name,height in [('hydro-slime',40),('pyro-slime',40),('hilichurl',76),('ruin-guard',144)]:
+for name,height in [('hydro-slime',40),('pyro-slime',40),('hilichurl',76),('ruin-guard',144),('dendro-fungus',64)]:
  data=json.loads((ROOT/'assets'/f'{name}-idle-sprites.json').read_text())
  assert hashlib.sha256((ROOT/'assets'/data['source']).read_bytes()).hexdigest()==data['sha256']
  alpha=Image.open(ROOT/'assets'/data['source']).getchannel('A').getextrema()
@@ -18,7 +18,7 @@ for name,height in [('hydro-slime',40),('pyro-slime',40),('hilichurl',76),('ruin
   draws=[d for d in png.draws.values() if d.source==data['source']]
   assert len(draws)==1
   draw=draws[0]
-  assert draw.h==height and draw.y==350 and abs(draw.w/height-data['box'][2]/data['box'][3])<1e-9
+  assert draw.h==height and draw.y==350-(18 if name=='dendro-fungus' else 0) and abs(draw.w/height-data['box'][2]/data['box'][3])<1e-9
   assert draw.anchorX==data['anchorX']
   rect=c.frame(s,'rect',profile)
   e.hp=0;baseline=c.frame(s,'rect',profile)
@@ -30,4 +30,4 @@ for name,height in [('hydro-slime',40),('pyro-slime',40),('hilichurl',76),('ruin
   assert not any(d.source==data['source'] for d in c.frame(s,'sprite',profile).draws.values())
   results.append({'art':name,'profile':profile,'runs':len(data['profiles'][profile]['runs']),'height':height})
 (ROOT/'evidence/enemy-idle-art.json').write_text(json.dumps({'results':results,'checks':['source hash and alpha','foot anchor and aspect ratio','dead and offscreen hidden','exact added rectangle count','render leaves mechanics unchanged'],'limits':['Residual low-alpha halo in source PNG','No animation or native-performance verification']},indent=2)+'\n')
-print('Four enemy assets: all profiles, anchors, culling and unchanged mechanics passed')
+print('Five enemy assets: all profiles, anchors, culling and unchanged mechanics passed')

@@ -32,7 +32,7 @@
     "veluriyam-play",
     "simulanka-play"
   ],
-  "current_story_assignment": "26 hostile nodes, 156 provisional placements: 153 slime, 2 Hilichurl, 1 Ruin Guard idle. Existing numeric kind and generic behavior unchanged; not canonical species distribution.",
+  "current_story_assignment": "26 hostile nodes, 156 provisional placements: 152 slime, 2 Hilichurl, 1 Ruin Guard, 1 Floating Dendro Fungus idle. Existing numeric kind and generic behavior unchanged; not canonical distribution.",
   "assets": [
     {
       "id": "hydro-slime",
@@ -65,7 +65,7 @@
     },
     {
       "id": "dendro-fungus",
-      "status": "Referenced idle candidate in gallery and placement preview only; no live spawn or hovering behavior",
+      "status": "Referenced idle at sumeru-field spawn1; 64px tall and 18px visual hover via shared art layout. No dedicated flight movement, attack or hitbox changes.",
       "art": "assets/dendro-fungus-idle-sprites.json",
       "audit": "evidence/dendro-fungus-reference-audit.json"
     }
