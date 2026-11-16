@@ -1,0 +1,20 @@
+{
+  "draw": {
+    "kind": "boss_sprite",
+    "source": "ruin-guard-idle-source-v1.png",
+    "y": 480,
+    "w": 115.97837837837838,
+    "x": 740,
+    "flip": false,
+    "anchorX": 0.540268456375839,
+    "h": 144,
+    "box": [
+      202,
+      41,
+      894,
+      1110
+    ]
+  },
+  "errors": [],
+  "method": "Actual Lua liyue-field entry frames rendered through intercepted browser responses. Static render fixture, not live traversal or combat verification."
+}

@@ -9,7 +9,7 @@ try{
   await add('hilichurl','ヒルチャール（待機候補）',await json('assets/hilichurl-idle-sprites.json'),76);
   await add('hydro-slime-reference','水スライム（参照付き候補・本編表示中）',await json('assets/hydro-slime-idle-sprites.json'),40);
   await add('pyro-slime-reference','炎スライム（参照付き候補・本編表示中）',await json('assets/pyro-slime-idle-sprites.json'),40);
-  await add('ruin-guard','遺跡守衛（待機候補・本編未配置）',await json('assets/ruin-guard-idle-sprites.json'),144);
+  await add('ruin-guard','遺跡守衛（待機候補・璃月に仮配置）',await json('assets/ruin-guard-idle-sprites.json'),144);
  }else{
  await add('traveler','旅人',await json('assets/traveler-idle-sprites.json'),88);
  await add('amber','アンバー',await json('assets/amber-idle-sprites.json'),88);

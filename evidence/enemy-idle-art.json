@@ -53,6 +53,24 @@
       "profile": "h32c16",
       "runs": 285,
       "height": 76
+    },
+    {
+      "art": "ruin-guard",
+      "profile": "legacy",
+      "runs": 6177,
+      "height": 144
+    },
+    {
+      "art": "ruin-guard",
+      "profile": "h48c32",
+      "runs": 3826,
+      "height": 144
+    },
+    {
+      "art": "ruin-guard",
+      "profile": "h32c16",
+      "runs": 1717,
+      "height": 144
     }
   ],
   "checks": [

@@ -17,7 +17,7 @@ for n in graph['nodes']:
     for i, p in enumerate(expected, 1):
         support = n['platforms'][p['platform']]
         e = s.enemies[i]
-        assert p['kind'] in (1, 2) and p['art'] in ('hydro-slime', 'pyro-slime', 'hilichurl')
+        assert p['kind'] in (1, 2) and p['art'] in ('hydro-slime', 'pyro-slime', 'hilichurl', 'ruin-guard')
         assert support['x']+24 <= p['x'] <= support['x']+support['w']-24
         assert (e.home,e.y,e.kind,e.spawnId) == (p['x'],support['y'],p['kind'],p['id'])
         # Existing lure movement must not pull an elevated enemy beyond its support.

@@ -59,7 +59,7 @@ def runtime():
     core.travelerIdleArt=lua.table_from(json.loads((ROOT/'assets/traveler-idle-sprites.json').read_text(encoding='utf8')),recursive=True)
     core.enemySpawns=lua.table_from(json.loads((ROOT/'content/enemy-spawns.json').read_text(encoding='utf8'))['nodes'],recursive=True)
     core.hilichurlArt=lua.table_from(json.loads((ROOT/'assets/hilichurl-idle-sprites.json').read_text(encoding='utf8')),recursive=True)
-    core.enemyIdleArt=lua.table_from({key:json.loads((ROOT/'assets'/f'{key}-idle-sprites.json').read_text(encoding='utf8')) for key in ['hydro-slime','pyro-slime','hilichurl']},recursive=True)
+    core.enemyIdleArt=lua.table_from({key:json.loads((ROOT/'assets'/f'{key}-idle-sprites.json').read_text(encoding='utf8')) for key in ['hydro-slime','pyro-slime','hilichurl','ruin-guard']},recursive=True)
     core.amberIdleArt=lua.table_from(json.loads((ROOT/'assets/amber-idle-sprites.json').read_text(encoding='utf8')),recursive=True)
     core.thunderArt=lua.table_from(json.loads((ROOT/'assets/thunder-sprites.json').read_text(encoding='utf8')),recursive=True)
     core.arrayArt=lua.table_from(json.loads((ROOT/'assets/array-sprites.json').read_text(encoding='utf8')),recursive=True)

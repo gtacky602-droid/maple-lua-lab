@@ -32,7 +32,7 @@
     "veluriyam-play",
     "simulanka-play"
   ],
-  "current_story_assignment": "26 hostile nodes, 156 provisional placements: referenced water/fire slime idle art plus two Hilichurl idle placements. Existing generic behavior and numeric kind unchanged; regional species incomplete.",
+  "current_story_assignment": "26 hostile nodes, 156 provisional placements: 153 slime, 2 Hilichurl, 1 Ruin Guard idle. Existing numeric kind and generic behavior unchanged; not canonical species distribution.",
   "assets": [
     {
       "id": "hydro-slime",
@@ -59,7 +59,7 @@
     },
     {
       "id": "ruin-guard",
-      "status": "HoYoWiki standing screenshot and frontal art referenced idle candidate; gallery and placement preview only; no live spawn, back/side model check or dedicated behavior",
+      "status": "Referenced idle shown at liyue-field ground spawn 1; 144px provisional scale. Generic placeholder behavior, hitbox and health retained; dedicated skills, animation and back/side model check incomplete.",
       "art": "assets/ruin-guard-idle-sprites.json",
       "audit": "evidence/ruin-guard-reference-audit.json"
     }
