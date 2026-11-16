@@ -29,13 +29,24 @@ export function questRouteText(f,q,status){
  const required=Math.max(...path.slice(1).map(id=>nodes.get(id).level||1));
  const notes=[];
  if(level<required)notes.push(`現在のレベルでは通れません。経路上にLv${required}が必要な地点があります`);
+ const actor=f.actors?.find(a=>a.id===f.active);
+ if(actor&&Number.isFinite(actor.x)&&Number.isFinite(actor.y)&&Number.isFinite(edge.x)){
+  const dx=edge.x-actor.x;
+  if(Math.abs(dx)>=90)notes.push(`次の門は${dx>0?'右':'左'}にあります`);
+  else if(Math.abs(actor.y-480)>=60)notes.push('門の横位置まで来ています。地上へ降りてください');
+  else notes.push('次の門の近くです。移動条件を満たすと「F：この門を通る」で進めます');
+ }
  if(edge.windowStart!==undefined){
   const elapsed=f.voyage?.elapsed;
   if(elapsed===undefined)notes.push('寄港中のみ下船できます');
   else if(elapsed+1e-8<edge.windowStart)notes.push(`寄港まで約${Math.ceil(edge.windowStart-elapsed)}秒`);
   else if(elapsed+1e-8>=edge.windowEnd)notes.push('寄港時間を過ぎています。出発港へ戻り、再乗船してください');
   else notes.push(`寄港中：下船できる残り時間は約${Math.ceil(edge.windowEnd-elapsed)}秒`);
- }else if(edge.requiresArrival)notes.push(`船の到着を待ちます${f.voyage?`（約${Math.ceil(f.voyage.seconds)}秒）`:''}`);
+ }else if(edge.requiresArrival){
+  const seconds=f.voyage?.seconds;
+  if(Number.isFinite(seconds)&&seconds<=0)notes.push('船は到着しています。下船する門へ進んでください');
+  else notes.push(`船の到着を待ちます${Number.isFinite(seconds)?`（約${Math.ceil(seconds)}秒）`:''}`);
+ }
  else notes.push('次の地点の門へ歩いて移動してください');
  if(f.paused)notes.push('一時停止中');
  return `次は ${next.name} → 目的地：${nodes.get(target).name}（残り${path.length-1}区間・拠点移動を除く接続経路）。${notes.join('。')}。`;

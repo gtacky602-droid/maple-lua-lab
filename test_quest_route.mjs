@@ -16,6 +16,9 @@ assert.match(questRouteText(frame,visit,'active'),/寄港まで約10秒/);
 frame.voyage.elapsed=30;assert.match(questRouteText(frame,visit,'active'),/寄港中.*20秒/);
 frame.voyage.elapsed=50;assert.match(questRouteText(frame,visit,'active'),/寄港時間を過ぎ/);
 assert.match(questRouteText(frame,{...visit,target:'nod-port'},'active'),/船の到着を待ちます/);
+frame.voyage.seconds=0;assert.match(questRouteText(frame,{...visit,target:'nod-port'},'active'),/船は到着しています/);
+assert.doesNotMatch(questRouteText(frame,{...visit,target:'nod-port'},'active'),/到着を待ちます/);
+frame.voyage.seconds=.01;assert.match(questRouteText(frame,{...visit,target:'nod-port'},'active'),/約1秒/);
 frame.paused=true;assert.match(questRouteText(frame,visit,'active'),/一時停止中/);
 const disconnected={...frame,storyGraph:{nodes:[{id:'a',name:'A',exits:[]},{id:'b',name:'B',exits:[]}],quests:[]},story:{active:true,node:'a'}};assert.match(questRouteText(disconnected,{kind:'visit',target:'b'},'active'),/経路がありません/);
 // Prefer an unlocked detour over a shorter locked branch. Threshold fallback
@@ -35,5 +38,11 @@ routed.progression.level=1;assert.match(questRouteText(routed,targetQuest,'activ
 // A high-level starting node does not prevent leaving it; only destinations gate entry.
 assert.doesNotMatch(questRouteText(routed,targetQuest,'active'),/Lv99/);
 const routeSnapshot=JSON.stringify(routed);questRouteText(routed,targetQuest,'active');assert.equal(JSON.stringify(routed),routeSnapshot);
+const gateFrame={story:{active:true,node:'mond-town'},storyGraph:graph,progression:{level:1},active:2,actors:[{id:1,x:1380,y:480},{id:2,x:160,y:480}]};
+assert.match(questRouteText(gateFrame,q,'active'),/次の門は右/);
+gateFrame.actors[1].x=1380;gateFrame.actors[1].y=350;assert.match(questRouteText(gateFrame,q,'active'),/地上へ降りて/);
+gateFrame.actors[1].y=480;assert.match(questRouteText(gateFrame,q,'active'),/次の門の近く/);
+gateFrame.story.node='mond-road';gateFrame.actors[1].x=500;assert.match(questRouteText(gateFrame,q,'ready'),/次の門は左/);
+delete gateFrame.actors;assert.doesNotMatch(questRouteText(gateFrame,q,'ready'),/次の門は左|次の門の近く/);
 const original=JSON.stringify(frame);let checked=0;for(const quest of graph.quests)for(const status of ['unaccepted','active','ready','complete']){assert.equal(typeof questRouteText(frame,quest,status),'string');checked++}assert.equal(JSON.stringify(frame),original);
-await fs.writeFile('evidence/quest-route-test.json',JSON.stringify({checked,checks:['accept/report hub destination','active visit/kill destination','boss challenge entrance','one-time complete hidden','repeatable complete points to hub','missing/hidden target no leak','level gate indication','level-eligible detour preferred','shortest route at eligible level','blocked fallback minimizes required level','high-level origin permits exit','cycles terminate','voyage pre/during/post stopover and arrival','pause indication','disconnected graph','no frame mutation']},null,2));console.log('Quest routing fixtures passed');
+await fs.writeFile('evidence/quest-route-test.json',JSON.stringify({checked,checks:['accept/report hub destination','active visit/kill destination','boss challenge entrance','one-time complete hidden','repeatable complete points to hub','missing/hidden target no leak','level gate indication','level-eligible detour preferred','shortest route at eligible level','blocked fallback minimizes required level','high-level origin permits exit','cycles terminate','voyage pre/during/post stopover and arrival','arrival zero switches to disembark; positive fraction waits','active companion position drives gate direction','ground proximity and elevated descent guidance','missing actors omit directional guidance','pause indication','disconnected graph','no frame mutation']},null,2));console.log('Quest routing fixtures passed');

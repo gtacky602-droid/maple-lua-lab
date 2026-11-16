@@ -16,6 +16,10 @@
     "voyage pre/during/post stopover and arrival",
     "pause indication",
     "disconnected graph",
-    "no frame mutation"
+    "no frame mutation",
+    "arrival zero switches to disembark; positive fraction waits",
+    "active companion position drives gate direction",
+    "ground proximity and elevated descent guidance",
+    "missing actors omit directional guidance"
   ]
 }

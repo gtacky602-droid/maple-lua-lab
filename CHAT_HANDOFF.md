@@ -462,3 +462,10 @@ HoYoWiki3993の全身レンダー、ゲーム内正面、最終設定画の正�
 
 修正後、Luaの実移動処理で全61地点の上段到達と地上往復を確認、story19項目と全61地点の敵配置/足場/再出現試験も通過。モンドとドラゴンスパインの配置比較を目視し390px幅も検査。これは敵を除いた地形単体検証で、戦闘込み通しプレイ・原作地形の再現・本番3Dの完成を証明しない。
 根拠: evidence/terrain-before-hub-fix.json（修正前13失敗）, evidence/terrain-traversal.json（修正後61成功）, evidence/hub-access-preview.json, evidence/hub-access-mond-town.png, evidence/hub-access-dragonspine-camp.png。
+
+
+## 2026-11-17 追跡依頼の門方向と下船案内
+
+追跡中の依頼は操作キャラクター（同行者操作も含む）から見た次の門の左右を表示。横位置が近くても上段にいる場合は地上へ降りる案内、地上で90px以内なら門の操作案内を表示する。レベル・寄港・到着・一時停止の条件表示は維持し、移動や条件解除を自動実行しない。船の残り時間が0になった後も待機を促す表示を修正し、到着後は下船門への案内へ切り替える。
+
+0秒到着/正の端数秒待機・同行者座標・左右・上段・地上近接・座標欠落をfixtureで確認。既存47依頼4状態・ルート条件試験、実ブラウザの追跡/受注/保存復元/解除/非公開ID処理も通過。390px表示を目視。根拠: evidence/quest-route-test.json, evidence/quest-tracking-test.json, evidence/quest-tracking-mobile.png。
