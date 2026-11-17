@@ -52,6 +52,7 @@ function C.damageActor(s,a,amount,source,blockable,telegraphed)
  return damage
 end
 function C.defeatEnemy(s,e,owner)
+ e=e.sharedHealth or e
  if e.hp<=0 then return false end
  e.hp=0
  if e.noRewards then e.respawn=1e9;event(s,'object_destroyed',owner,e.id,0)
@@ -96,10 +97,30 @@ function C.canTargetEnemy(e) return e.hp>0 and not e.underground end
 function C.targetHeight(a,e)
  return math.max(e.hitTop or e.y,math.min(e.hitBottom or e.y,a.y))
 end
-local function targets(s,a,range,limit)
+local function receiver(e) return e.sharedHealth or e end
+local function firstContact(a,e)
+ if not a.travelSpeed or not a.lastPulseX then return 0 end
+ return max(0,(e.x-a.lastPulseX)*a.dir-a.range)
+end
+local function targets(s,a,range,limit,includePartners)
  local out={}
+ local contacts={}
  for _,e in ipairs(s.enemies) do
-  if (C.canTargetEnemy(e) or (a.persistentTarget==e and e.hp>0)) and (not a.targetId or e.id==a.targetId) and (not a.groundOnly or not e.flying) and (not a.upward or C.targetHeight(a,e)-a.y<75) and abs(C.targetHeight(a,e)-a.y)<(a.vertical or 75) and abs(e.x-a.x)<range and (a.radial or (e.x-a.x)*a.dir>-25) then out[#out+1]=e end
+  if (C.canTargetEnemy(e) or (a.persistentTarget==e and e.hp>0)) and (not a.targetId or e.id==a.targetId) and (not a.groundOnly or not e.flying) and (not a.upward or C.targetHeight(a,e)-a.y<75) and abs(C.targetHeight(a,e)-a.y)<(a.vertical or 75) and abs(e.x-a.x)<range and (a.radial or (e.x-a.x)*a.dir>-25) then
+   out[#out+1]=e
+   if not includePartners and (e.sharedHealth or e.fieldPartner) then
+    local key=receiver(e)
+    local first=contacts[key]
+    local time=firstContact(a,e)
+    if not first or time<first.time or (time==first.time and e.id<first.body.id) then
+     contacts[key]={body=e,time=time}
+    end
+   end
+  end
+ end
+ for i=#out,1,-1 do
+  local first=contacts[receiver(out[i])]
+  if first and first.body~=out[i] then table.remove(out,i) end
  end
  table.sort(out,function(a1,b) if a.farthest then return abs(a1.x-a.x)>abs(b.x-a.x) end;return abs(a1.x-a.x)<abs(b.x-a.x) end)
  while #out>limit do table.remove(out) end
@@ -131,15 +152,17 @@ local function pulse(s,cast)
   cast.shot=(cast.shot or 0)+1;selected={selected[(cast.shot-1)%#selected+1]}
  end
  if cast.chain then
-  local candidates=targets(s,cast,cast.range,#s.enemies);selected={};local x,y=cast.x,cast.y
+  local candidates=targets(s,cast,cast.range,#s.enemies,true);selected={};local x,y=cast.x,cast.y
+  local receivers={}
   while #selected<cast.limit do
-   local nearest,index,distance=nil,nil,math.huge
-   for i,e in ipairs(candidates) do local d=math.sqrt((e.x-x)^2+(e.y-y)^2)
-    if d<distance and d<=(#selected==0 and 320 or cast.chain) then nearest,index,distance=e,i,d end
+   local nearest,distance=nil,math.huge
+   for _,e in ipairs(candidates) do local d=math.sqrt((e.x-x)^2+(e.y-y)^2)
+    if not receivers[receiver(e)] and d<=(#selected==0 and 320 or cast.chain) and
+       (d<distance or (d==distance and e.id<nearest.id)) then nearest,distance=e,d end
    end
    if not nearest then break end
    s.effects[#s.effects+1]={x=(x+nearest.x)/2,y=nearest.y-45,w=math.max(8,abs(nearest.x-x)),h=5,life=.18,color=cast.color}
-   selected[#selected+1]=nearest;table.remove(candidates,index);x,y=nearest.x,nearest.y
+   selected[#selected+1]=nearest;receivers[receiver(nearest)]=true;x,y=nearest.x,nearest.y
   end
  end
  if cast.interval==.3 or cast.travelSpeed or cast.element=='electro' then
@@ -147,10 +170,11 @@ local function pulse(s,cast)
  end
  for _,e in ipairs(selected) do
   cast.contactHits=cast.contactHits or {};cast.contactTargets=cast.contactTargets or 0
-  local count=cast.contactHits[e.id] or 0
+  local id=receiver(e).id
+  local count=cast.contactHits[id] or 0
   local allowed=not cast.contactBudget or (count<cast.contactBudget and (count>0 or cast.contactTargets<cast.limit))
   if allowed and hit(s,cast,e,cast.mult,cast.color,cast.element) then
-   if count==0 then cast.contactTargets=cast.contactTargets+1 end;cast.contactHits[e.id]=count+1
+   if count==0 then cast.contactTargets=cast.contactTargets+1 end;cast.contactHits[id]=count+1
    touched=true
    if cast.pull and not e.boss then e.x=e.x+clamp(cast.x-e.x,-cast.pull,cast.pull);e.home=e.x end
    if cast.armorBreak then e.armorBreak=cast.armorBreak end
@@ -164,6 +188,7 @@ local function pulse(s,cast)
    if cast.push and not e.boss then e.x=clamp(e.x+cast.dir*cast.push,20,(s.worldwidth or 2880)-20);e.home=e.x end
   end
  end
+ if cast.travelSpeed then cast.lastPulseX=cast.x end
  if touched and not cast.gained then s.gauge=min(100,s.gauge+cast.gain);cast.gained=true end
 end
 C.resolveCast=pulse
@@ -220,6 +245,7 @@ function C.attack(s,a,key)
   s.decoys=s.decoys or {};s.decoys[#s.decoys+1]={x=cast.x,y=a.y,life=4,owner=a.id,id=-1,inv=0}
  elseif key=='skill4' then a.inv=max(a.inv,.45);a.vy=-360;a.ground=false;a.leap=.45 end
  if C.onCastBuilt then C.onCastBuilt(s,a,cast,delay,lock,definition) end
+ if cast.travelSpeed then cast.lastPulseX=cast.x end
  cast.next=s.t+(delay>0 and delay or interval)
  if delay==0 then pulse(s,cast);cast.remaining=cast.remaining-1 end
  if cast.remaining>0 then s.pending[#s.pending+1]=cast end

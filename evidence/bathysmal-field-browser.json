@@ -1,0 +1,33 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 60.95,
+    "moves": [
+      "FBH01",
+      "FBH02",
+      "FBH03"
+    ],
+    "dodgeWindows": 5,
+    "finished": true,
+    "hp": 140,
+    "returns": 0
+  },
+  "fieldKill": {
+    "xp": 17450,
+    "mora": 195
+  },
+  "commissionReport": {
+    "xp": 4000,
+    "mora": 300
+  },
+  "persistedCooldown": true,
+  "sameSceneCommands": {
+    "png": 26,
+    "standard": 17145,
+    "light": 4754
+  },
+  "oneSharedHudBar": true,
+  "alternatingLeapSprites": true,
+  "viewport390": true,
+  "errors": []
+}

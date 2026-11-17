@@ -461,16 +461,18 @@
       }
     },
     "bathysmal-herd": {
+      "remaining": ["連続アニメーション・被弾・撃破作画", "装備別・Webマルチの実測", "幻境実機"],
+      "extra_evidence": ["evidence/bathysmal-field-lua.json", "evidence/bathysmal-field-browser.json"],
       "art_components": [
         {
           "item": "rimebiter",
-          "audit": "evidence/bathysmal-reference-audit.json",
-          "status": "idle candidate only; paired encounter combat and animations not implemented"
+          "audit": "evidence/bathysmal-field-art-audit.json",
+          "status": "Rimebiter field body with idle, tail, breath and leap poses"
         },
         {
           "item": "bolteater",
-          "audit": "evidence/bathysmal-reference-audit.json",
-          "status": "idle candidate only; paired encounter combat and animations not implemented"
+          "audit": "evidence/bathysmal-field-art-audit.json",
+          "status": "Bolteater field body with idle, tail, breath and leap poses"
         }
       ]
     },

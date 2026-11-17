@@ -875,6 +875,36 @@
           "damage": 11
         }
       ]
+    },
+    {
+      "id": "bathysmal-herd",
+      "controller": "bathysmal",
+      "entity": 26050701,
+      "name": "アビサルヴィシャップの群れ",
+      "node": "bathysmal-field-sanctum",
+      "storyChallenge": "bathysmal-herd",
+      "level": 46,
+      "hp": 1120,
+      "mora": 195,
+      "artHeight": 110,
+      "floorY": 480,
+      "home": 780,
+      "arenaMin": 290,
+      "arenaMax": 1530,
+      "noticeRange": 275,
+      "noticeTicks": 36,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 64,
+      "contactDamage": 0,
+      "resist": {"cryo": 0.4},
+      "partner": {"id": 26050801, "offset": 152, "resist": {"electro": 0.4}},
+      "moves": [
+        {"id":"FBH01","kind":"tail","title":"交代する旋尾","reach":180,"lock":42,"active":[[90,108]],"recover":132,"total":252,"damage":19},
+        {"id":"FBH02","kind":"volley","title":"氷雷の二吐息","reach":235,"lock":48,"active":[],"fire":[84,156],"life":54,"recover":228,"total":300,"damage":14},
+        {"id":"FBH03","kind":"relay","title":"二体の跳躍リレー","reach":240,"lock":54,"active":[[114,126],[234,246]],"air":[[78,114],[198,234]],"recover":270,"total":390,"damage":21}
+      ]
     }
   ]
 }

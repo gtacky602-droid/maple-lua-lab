@@ -434,6 +434,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "bathysmal-field-sanctum",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "tunigi-camp",
       "count": 0,
       "fallback": false,

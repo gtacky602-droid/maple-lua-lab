@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 127 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 125,
+  "scope": "Authored 128 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 126,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -434,6 +434,12 @@
     {
       "id": "enkanomiya-depth",
       "name": "淵下宮・探索路",
+      "region": "淵下宮",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "bathysmal-field-sanctum",
+      "name": "淵下宮・双影の石庭",
       "region": "淵下宮",
       "status": "regional_temporary_image"
     },

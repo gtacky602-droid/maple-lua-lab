@@ -182,6 +182,9 @@ def runtime():
     hydro_hypostasis=lua.execute((ROOT/'field-hydro-hypostasis.lua').read_text(encoding='utf-8'))(core)
     wolflord_field=lua.execute((ROOT/'field-wolflord.lua').read_text(encoding='utf-8'))(core)
     ruin_serpent=lua.execute((ROOT/'field-ruin-serpent.lua').read_text(encoding='utf-8'))(core)
+    bathysmal=lua.execute((ROOT/'field-bathysmal.lua').read_text(encoding='utf-8'))(core)
+    core.rimebiterFieldArt=field_art(lua,'rimebiter',('tail','breath','leap'),idle='rimebiter-idle-sprites.json')
+    core.bolteaterFieldArt=field_art(lua,'bolteater',('tail','breath','leap'),idle='bolteater-idle-sprites.json')
     core.ruinSerpentFieldArt=field_art(lua,'ruin-serpent',('idle','roll','dive','emerge','bombs','drill'))
     core.wolflordFieldArt=field_art(lua,'wolflord',('idle','ram','tail','jaw','recover','skull'))
     core.hydroHypostasisFieldArt=field_art(lua,'hydro-hypostasis',('dolphin','ray','rain','recover'),
@@ -199,7 +202,7 @@ def runtime():
                         'primoGeovishap':primo_field,'oceanid':oceanid_field,'maguu':maguu_field,
                         'array':array_field,'thunder':thunder_field,'cryoHypostasis':cryo_hypostasis,
                         'pyroHypostasis':pyro_hypostasis,'hydroHypostasis':hydro_hypostasis,
-                        'wolflord':wolflord_field,'ruinSerpent':ruin_serpent})
+                        'wolflord':wolflord_field,'ruinSerpent':ruin_serpent,'bathysmal':bathysmal})
     )
     return lua, core
 

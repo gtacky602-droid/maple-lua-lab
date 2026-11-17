@@ -55,6 +55,11 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local art=C.ruinSerpentFieldArt[pose]
   draw(f,art,x,y-ruinSerpentPoseOffsets[pose]*scale,art.profiles.legacy.height*scale,mode,profile,flip)
  end
+ function C.drawBathysmalFieldArt(f,x,y,index,pose,mode,profile,flip)
+  local art=(index==1 and C.rimebiterFieldArt or C.bolteaterFieldArt)[pose]
+  local h=pose=='idle' and 110 or art.profiles.legacy.height
+  draw(f,art,x,y,h,mode,profile,flip)
+ end
  function C.drawThunderFieldArt(f,x,y,h,mode,profile,pose,dir)
   draw(f,pose and C.thunderFieldArt[pose] or C.thunderArt,x,y,h,mode,profile,pose=='dash' and dir>0)
  end

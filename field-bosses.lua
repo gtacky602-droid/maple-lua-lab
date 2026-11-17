@@ -19,10 +19,14 @@ return function(C,configs,controllers)
  end
 
  local function attach(s,spec,slot)
-  for i,e in ipairs(s.enemies) do
-   if e.fieldBoss==spec.id then s.enemies[i]=slot.enemy;return end
+  local function place(body)
+   for i,e in ipairs(s.enemies) do
+    if e.fieldBoss==spec.id and e.id==body.id then s.enemies[i]=body;return end
+   end
+   s.enemies[#s.enemies+1]=body
   end
-  s.enemies[#s.enemies+1]=slot.enemy
+  place(slot.enemy)
+  if slot.enemy.fieldPartner then place(slot.enemy.fieldPartner) end
  end
 
  local function cancelCast(spec,slot)
@@ -53,6 +57,7 @@ return function(C,configs,controllers)
   local best,distance=nil,math.huge
   for _,a in ipairs(s.actors) do
    local dx=math.abs(a.x-boss.x)
+   if boss.fieldPartner then dx=math.min(dx,math.abs(a.x-boss.fieldPartner.x)) end
    if a.hp>0 and a.x>=spec.arenaMin and a.x<=spec.arenaMax and dx<distance then best,distance=a,dx end
   end
   return best,distance
@@ -60,14 +65,18 @@ return function(C,configs,controllers)
 
  local function returnHome(s,spec,slot,here)
   local boss=slot.enemy
-  local dx=spec.home-boss.x
   local speed=(spec.returnSpeed or spec.walkSpeed*2.4)/60
-  if math.abs(dx)<=speed then
+  local function walkHome(body)
+   local dx=body.home-body.x
+   if math.abs(dx)<=speed then body.x=body.home;return true end
+   body.facing=dx<0 and -1 or 1
+   body.x=body.x+body.facing*speed
+  end
+  local arrived=walkHome(boss)
+  if boss.fieldPartner then arrived=walkHome(boss.fieldPartner) and arrived end
+  if arrived then
    spawn(slot,spec,spec.hp)
    if here then attach(s,spec,slot) end
-  else
-   boss.facing=dx<0 and -1 or 1
-   boss.x=boss.x+boss.facing*speed
   end
  end
 
@@ -133,6 +142,7 @@ return function(C,configs,controllers)
   end
   slot.out=target and 0 or slot.out+1
   if slot.out>=spec.leashTicks then
+   if boss.fieldPartner then cancelCast(spec,slot) end
    slot.phase='leash';slot.cast=nil;boss.invulnerable=true
    boss.y=spec.floorY;boss.drawHeight=spec.artHeight;boss.hitTop=boss.y-boss.drawHeight;boss.hitBottom=boss.y
    return
@@ -157,6 +167,7 @@ return function(C,configs,controllers)
    boss.facing=dir
    local speed=spec.walkSpeed*C.enemyRate(boss)/60
    boss.x=math.max(spec.arenaMin+63,math.min(spec.arenaMax-63,boss.x+dir*speed))
+   if behavior.walk then behavior.walk(boss,spec,target,speed) end
   end
   local farShot=slot.delay<=0 and distance>reach and spec.walkSpeed==0 and behavior.farMove
   if farShot then move=behavior.farMove(spec,move);reach=move.reach end
@@ -250,7 +261,9 @@ return function(C,configs,controllers)
   local slot=spec and s.fieldSlots and s.fieldSlots[spec.id]
   if not slot then return f end
   local boss=slot.enemy
-  if math.abs(s.actors[s.active].x-boss.x)>550 and slot.phase=='available' then return f end
+  local partner=boss.fieldPartner
+  local playerX=s.actors[s.active].x
+  if math.abs(playerX-boss.x)>550 and (not partner or math.abs(playerX-partner.x)>550) and slot.phase=='available' then return f end
   local cast=slot.cast
   local behavior=controllers[spec.controller]
   local label=slot.phase=='notice' and '振り向き' or slot.phase=='leash' and '巣へ戻っている' or
@@ -259,7 +272,11 @@ return function(C,configs,controllers)
   f.fieldBoss={id=spec.id,name=boss.displayName or spec.name,element=boss.element,form=boss.form,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
    generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(s,slot)/60,label=label,
    move=cast and cast.move.id,tick=cast and cast.tick,underground=boss.underground}
-  if boss.hp>0 and boss.x>=s.camera-180 and boss.x<=s.camera+1140 then
+  if partner then
+   f.fieldBoss.bodies={{id=boss.id,x=boss.x,y=boss.y,element=boss.element},{id=partner.id,x=partner.x,y=partner.y,element=partner.element}}
+  end
+  local function visible(body) return body.x>=s.camera-180 and body.x<=s.camera+1140 end
+  if boss.hp>0 and (visible(boss) or (partner and visible(partner))) then
    local layer={draws={}}
    behavior.draw(layer,s,boss,spec,cast,mode,profile)
    for _,draw in ipairs(f.draws) do layer.draws[#layer.draws+1]=draw end

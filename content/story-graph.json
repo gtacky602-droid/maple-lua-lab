@@ -2578,6 +2578,10 @@
         {
           "to": "enkanomiya-camp",
           "x": 60
+        },
+        {
+          "to": "bathysmal-field-sanctum",
+          "x": 1375
         }
       ],
       "checkpoint": "enkanomiya-camp",
@@ -2585,6 +2589,7 @@
       "lightReference": 10,
       "barrier": 10
     },
+    {"id":"bathysmal-field-sanctum","name":"淵下宮・双影の石庭","region":"淵下宮","level":46,"hub":false,"peaceful":true,"width":1640,"platforms":[{"x":0,"y":480,"w":1640}],"exits":[{"to":"enkanomiya-depth","x":65}],"checkpoint":"enkanomiya-camp"},
     {
       "id": "tunigi-camp",
       "name": "トゥニギの黒淵・入口拠点",
@@ -5547,6 +5552,7 @@
     {"id":"pyro-hypostasis-commission","name":"無相の炎の討伐調査","hub":"inazuma-town","target":"pyro-hypostasis","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"燎火の石浜での討伐が対象。"},
     {"id":"hydro-hypostasis-commission","name":"無相の水の討伐調査","hub":"inazuma-port","target":"hydro-hypostasis","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"海祇島の浜から進む潮紋の洞での討伐が対象。"},
     {"id":"wolflord-commission","name":"黄金王獣の討伐調査","hub":"inazuma-port","target":"wolflord","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"鶴観の浜から進む霧浜遺跡での討伐が対象。"},
-    {"id":"ruin-serpent-commission","name":"遺跡サーペントの討伐調査","hub":"chasm-camp","target":"ruin-serpent","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"巨蛇岩穴の岩棚を越えた掘削場での討伐が対象。"}
+    {"id":"ruin-serpent-commission","name":"遺跡サーペントの討伐調査","hub":"chasm-camp","target":"ruin-serpent","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"巨蛇岩穴の岩棚を越えた掘削場での討伐が対象。"},
+    {"id":"bathysmal-commission","name":"アビサルヴィシャップの群れの討伐調査","hub":"enkanomiya-camp","target":"bathysmal-herd","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"探索路の奥にある双影の石庭での討伐が対象。"}
   ]
 }

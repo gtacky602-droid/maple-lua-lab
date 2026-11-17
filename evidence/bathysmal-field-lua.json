@@ -1,0 +1,24 @@
+{
+  "attacks": [
+    "FBH01",
+    "FBH02",
+    "FBH03"
+  ],
+  "fixedSharedHp": 1120,
+  "separateAuras": true,
+  "simultaneousHitCountedOnce": true,
+  "successivePulsesCounted": true,
+  "directedSweptContact": true,
+  "noExtraChainHit": true,
+  "sharedContactBudget": true,
+  "independentAttackWindows": true,
+  "alternatingAirborne": true,
+  "escapeCancelsCast": true,
+  "bothRespawnTogether": true,
+  "oneKillAndReport": true,
+  "commands": {
+    "standard": 17501,
+    "light": 5200
+  },
+  "killXp": 17450
+}

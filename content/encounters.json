@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 17,
+    "partial": 18,
     "complete": 0
   },
   "encounters": [
@@ -1366,32 +1366,35 @@
         "26050701",
         "26050801"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "paired_encounter",
       "evidence": [
         "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/rimebiterbathysmalvishap.json",
         "sources/boss-research/english-boss-candidates.json:26050701 investigation=37",
-        "https://genshin-impact.fandom.com/wiki/Coral_Defenders"
+        "https://genshin-impact.fandom.com/wiki/Coral_Defenders",
+        "evidence/bathysmal-field-lua.json",
+        "evidence/bathysmal-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "連続アニメーション・被弾・撃破作画",
+        "装備別・Webマルチの実測",
+        "幻境実機"
       ],
+      "fieldNode": "bathysmal-field-sanctum",
+      "fieldEntrance": "淵下宮・双影の石庭（Lv46）",
       "art_components": [
         {
           "source": "assets/rimebiter-idle-source-v1.png",
           "encoding": "assets/rimebiter-idle-sprites.json",
-          "audit": "evidence/bathysmal-reference-audit.json",
-          "status": "idle candidate only; paired encounter combat and animations not implemented"
+          "audit": "evidence/bathysmal-field-art-audit.json",
+          "status": "Rimebiter field body with idle, tail, breath and leap poses"
         },
         {
           "source": "assets/bolteater-idle-source-v1.png",
           "encoding": "assets/bolteater-idle-sprites.json",
-          "audit": "evidence/bathysmal-reference-audit.json",
-          "status": "idle candidate only; paired encounter combat and animations not implemented"
+          "audit": "evidence/bathysmal-field-art-audit.json",
+          "status": "Bolteater field body with idle, tail, breath and leap poses"
         }
       ]
     },

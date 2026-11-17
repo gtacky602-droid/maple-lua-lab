@@ -1,5 +1,6 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ bathysmalField:{file:'bathysmal-field-background-v1.png',zones:['story:bathysmal-field-sanctum'],note:'双影の石庭の仮背景'},
  ruinSerpentField:{file:'ruin-serpent-field-background-v1.png',zones:['story:ruin-serpent-field-pit'],note:'巨蛇岩穴の掘削場の仮背景'},
  wolflordField:{file:'wolflord-field-background-v1.png',zones:['story:wolflord-field-ruins'],note:'鶴観の霧浜遺跡の仮背景'},
  hydroHypostasisField:{file:'hydro-hypostasis-field-background-v1.png',zones:['story:hydro-hypostasis-field-cove'],note:'潮紋の洞の仮背景'},
@@ -101,7 +102,7 @@ export function scenery(ctx,frame){
  }else{ctx.fillStyle='#c5decc';ctx.fillRect(0,0,960,540)}
  // Lab-only terrain proxies. These will be 3D set dressing and colliders in the game.
  const inazuma=key==='inazumatown'||key==='inazuma'||key==='toriiforest'||key==='shiomicape';
- const stone=['seacave','windsplit','cryoField','pyroField','electroField','geoField','primoField','oceanidField','maguuField','arrayField','thunderField','pyroHypostasisField','hydroHypostasisField','wolflordField','ruinSerpentField','enkanomiya','nodspecial','novokichev','chasm'].includes(key);
+ const stone=['seacave','windsplit','cryoField','pyroField','electroField','geoField','primoField','oceanidField','maguuField','arrayField','thunderField','pyroHypostasisField','hydroHypostasisField','wolflordField','ruinSerpentField','bathysmalField','enkanomiya','nodspecial','novokichev','chasm'].includes(key);
  const roof=key==='mondroof',lookout=key==='mondlookout';
  const camera=frame.camera||0,snow=['snezhnaya','dragonspine','cryoHypostasisField','wingspan'].includes(key);
  drawDecorations(ctx,frame,camera);

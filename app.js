@@ -253,7 +253,8 @@ function hud(f,calls,renderMs){
  if(field){
   const status=field.phase==='respawn'?`再出現まで ${Math.ceil(field.remaining)}秒`:
    `HP ${field.hp} / ${field.maxhp} ｜ ${field.label}`;
-  const line=`${field.name}（Lv${field.level}） ｜ ${status}`;
+  const elements=field.bodies?.length===2?' ❄ 氷① / ⚡ 雷②':'';
+  const line=`${field.name}（Lv${field.level}）${elements} ｜ ${status}`;
   if(fieldLabel.textContent!==line)fieldLabel.textContent=line;
   fieldHp.hidden=field.phase==='respawn';
   fieldHp.max=field.maxhp;fieldHp.value=field.hp;

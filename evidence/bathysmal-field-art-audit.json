@@ -1,0 +1,181 @@
+{
+  "stage": "Enkanomiya / Twin Shadows Court",
+  "referenceAudit": "evidence/bathysmal-reference-audit.json",
+  "references": [
+    {
+      "url": "https://gamefans.ru/uploads/posts/2022-01/1642676300_genshinimpact-vishapi-glubin.png",
+      "use": "Observed in-game pair; anatomy, crystals, blue-green cavern floor. Used for both generations.",
+      "sha256": "61586fef000bba61313fc774e05b02a17a5b7abd5eb2d0990e829436ce29ba64"
+    },
+    {
+      "url": "https://blog.playstation.com/2021/12/26/genshin-impact-version-2-4-brings-grand-celebrations-and-a-mysterious-new-area-to-teyvat/",
+      "use": "Enkanomiya ruins and ash-blue stone; used for background generation.",
+      "sha256": "5b6f08a48df653288a4742d91d24fefae64275685d04c084f59fd3b3aec46de9"
+    },
+    {
+      "path": "assets/rimebiter-idle-source-v1.png",
+      "use": "Used existing idle pose to keep the palette and armor profile consistent.",
+      "sha256": "399ec9eb7b96c6fb6120c61e3a6c02fbe5d7bbb488d8f9648f61e71749bede3e"
+    },
+    {
+      "path": "assets/bolteater-idle-source-v1.png",
+      "use": "Used existing idle pose to keep the palette and armor profile consistent.",
+      "sha256": "caadda793d81d745bc88a16a4e7e0e3559f678f257a61c79a144dfc3482c9056"
+    }
+  ],
+  "generated": [
+    {
+      "path": "assets/bathysmal-field-poses-source-v1.png",
+      "sha256": "e97292fb0d2fb34f2a075467cbf608d0e955b074bdb742627150072ed5566b7e",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "prompt": "Transparent pixel-art sprite sheet, 2 columns by 3 rows, SIX fully separated isolated quadrupeds for a side-scrolling RPG, generous transparent gutters on an actual alpha background. The supplied Genshin Bathysmal Vishap game image and sprite references show heavy reptilian bodies, low pointed wedge faces, pale belly, large curved dark claws, long full tail and crystal shoulder and back armor. This is an original raster pixel-art interpretation. All six face LEFT, side view. Left column: identical icy vishap color across all three, muted steel-blue scales, large sharp CYAN crystals, pale glacial belly. Right column: identical thunder vishap across all three, dark plum charcoal scales, curved VIOLET dorsal spikes and sharp lilac back crystals, pale violet-grey belly. TOP ROW: each lizard crouches low close to the ground with back arched and tail curled up high, ready to sweep. MIDDLE ROW: each is in a low grounded stretched stance, head at left with conspicuously open jaws and tight bright throat for a projectile breath, tail far right. BOTTOM ROW: each jumps with tucked forelegs and feet off ground, neck pointed down-left, long tail trailing upward-right, clear legs in air. Consistent giant lizard proportions across all three, four limbs, no wings, crisp deliberately squared pixels, sharp black/purple outlines and broad color blocks. No shadow floor, cues, sparkles, explosion, projectile, lettering, cell lines, border, text, background, fog or glow beyond the creature edge. Actual alpha."
+    },
+    {
+      "path": "assets/bathysmal-field-background-v1.png",
+      "sha256": "2089b6768fa162e3015015b829c5374f48788536001d81372d8a074036f444c0",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "prompt": "Original side-scrolling platform RPG background, a flat sunken stone arena inside Enkanomiya. Attached screenshot provides visual references for ash-blue ruins, stepped island architecture, and old pale stone, and the creatures screenshot only for teal-blue low light and gray slate. Design an original broad square cavern terrace with ruins and vaulted stone arches receding into a dark blue cavern, underwater-like teal haze in far distance, a few old fluted pillars and very sparse muted blue vegetation at far edges. Flat clear unobstructed foreground stone stretch at lower 18 percent, neither boundary walls nor tactical objects on the walkable strip. Matte crisp pixel-painted shapes, dim low saturation for visibility of purple and light blue combat cues, no giant bright landmark in the central play area. 16:9. No creatures, character, particle effects, warnings, text, UI, water on the ground or border."
+    }
+  ],
+  "poses": {
+    "rimebiter-tail": {
+      "crop": [
+        108,
+        2,
+        590,
+        351
+      ],
+      "box": [
+        127,
+        11,
+        538,
+        335
+      ],
+      "height": 103,
+      "anchorX": 0.36,
+      "commands": {
+        "legacy": 4699,
+        "h48c32": 2956,
+        "h32c16": 1318
+      }
+    },
+    "bolteater-tail": {
+      "crop": [
+        845,
+        2,
+        612,
+        351
+      ],
+      "box": [
+        865,
+        10,
+        569,
+        335
+      ],
+      "height": 103,
+      "anchorX": 0.35,
+      "commands": {
+        "legacy": 4959,
+        "h48c32": 3132,
+        "h32c16": 1394
+      }
+    },
+    "rimebiter-breath": {
+      "crop": [
+        8,
+        365,
+        753,
+        244
+      ],
+      "box": [
+        21,
+        377,
+        726,
+        227
+      ],
+      "height": 78,
+      "anchorX": 0.35,
+      "commands": {
+        "legacy": 5364,
+        "h48c32": 3378,
+        "h32c16": 1566
+      }
+    },
+    "bolteater-breath": {
+      "crop": [
+        776,
+        365,
+        758,
+        244
+      ],
+      "box": [
+        787,
+        380,
+        736,
+        224
+      ],
+      "height": 78,
+      "anchorX": 0.35,
+      "commands": {
+        "legacy": 6082,
+        "h48c32": 3750,
+        "h32c16": 1692
+      }
+    },
+    "rimebiter-leap": {
+      "crop": [
+        67,
+        614,
+        653,
+        382
+      ],
+      "box": [
+        78,
+        619,
+        626,
+        363
+      ],
+      "height": 108,
+      "anchorX": 0.34,
+      "commands": {
+        "legacy": 4568,
+        "h48c32": 2868,
+        "h32c16": 1281
+      }
+    },
+    "bolteater-leap": {
+      "crop": [
+        849,
+        614,
+        680,
+        382
+      ],
+      "box": [
+        861,
+        618,
+        642,
+        361
+      ],
+      "height": 108,
+      "anchorX": 0.34,
+      "commands": {
+        "legacy": 4809,
+        "h48c32": 2990,
+        "h32c16": 1368
+      }
+    }
+  },
+  "limits": [
+    "Existing reference audit found no matching usable 3D model.",
+    "Three new poses per body; in-between animation, hurt and defeat art pending.",
+    "Prototype 2D background. No live Miliastra validation."
+  ]
+}
