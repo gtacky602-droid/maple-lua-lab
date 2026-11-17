@@ -704,6 +704,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "array-field-court",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "thunder-approach",
       "count": 0,
       "fallback": false,

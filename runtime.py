@@ -146,11 +146,16 @@ def runtime():
     primo_field=lua.execute((ROOT/'field-primo-geovishap.lua').read_text(encoding='utf-8'))(core)
     oceanid_field=lua.execute((ROOT/'field-oceanid.lua').read_text(encoding='utf-8'))(core)
     maguu_field=lua.execute((ROOT/'field-maguu.lua').read_text(encoding='utf-8'))(core)
+    array_field=lua.execute((ROOT/'field-array.lua').read_text(encoding='utf-8'))(core)
+    core.arrayFieldArt=lua.table_from({
+        pose:json.loads((ROOT/'assets'/f'array-field-{pose}-sprites-v1.json').read_text(encoding='utf8'))
+        for pose in ('blade','wheel','rocket','core')
+    },recursive=True)
     lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(
         core,lua.table_from(field_specs,recursive=True),
         lua.table_from({'jadeplume':jade,'cryoRegisvine':cryo_field,'pyroRegisvine':pyro_field,
                         'anemoHypostasis':anemo_field,'electroHypostasis':electro_field,'geoHypostasis':geo_field,
-                        'primoGeovishap':primo_field,'oceanid':oceanid_field,'maguu':maguu_field})
+                        'primoGeovishap':primo_field,'oceanid':oceanid_field,'maguu':maguu_field,'array':array_field})
     )
     return lua, core
 

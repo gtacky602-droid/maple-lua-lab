@@ -4403,7 +4403,8 @@
         {
           "to": "inazuma-road",
           "x": 60
-        }
+        },
+        {"to":"array-field-court","x":1270}
       ],
       "checkpoint": "inazuma-port",
       "challenge": "array",
@@ -4411,6 +4412,7 @@
       "challengeAction": "boss_array",
       "challengeX": 720
     },
+    {"id":"array-field-court","name":"稲妻・機巧の石庭","region":"稲妻","level":46,"hub":false,"peaceful":true,"width":1580,"platforms":[{"x":0,"y":480,"w":1580}],"exits":[{"to":"array-approach","x":65}],"checkpoint":"inazuma-port"},
     {
       "id": "thunder-approach",
       "name": "雷音権現・挑戦入口",
@@ -5511,7 +5513,7 @@
       "goal": 1,
       "xp": 4000,
       "mora": 300,
-      "note": "本編入口から挑戦した討伐のみ対象。報酬・地理配置は試案。"
+      "note": "機巧の石庭、または本編入口の挑戦碑での討伐が対象。"
     },
     {
       "id": "thunder-commission",

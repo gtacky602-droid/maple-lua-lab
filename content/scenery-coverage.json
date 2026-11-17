@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 118 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 116,
+  "scope": "Authored 119 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 117,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -704,6 +704,12 @@
     {
       "id": "array-approach",
       "name": "恒常からくり陣形・挑戦入口",
+      "region": "稲妻",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "array-field-court",
+      "name": "稲妻・機巧の石庭",
       "region": "稲妻",
       "status": "regional_temporary_image"
     },

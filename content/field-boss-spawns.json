@@ -306,6 +306,87 @@
          "halfWidth": 0.7, "height": 0.6, "damage": 21}
       ]
     },
-    {"id":"boss-25090101","controller":"maguu","entity":25090101,"name":"魔偶剣鬼","node":"maguu-field-dojo","storyChallenge":"maguu","level":44,"hp":900,"mora":180,"artHeight":150,"floorY":480,"home":860,"arenaMin":420,"arenaMax":1450,"noticeRange":270,"noticeTicks":36,"restTicks":36,"leashTicks":300,"respawnTicks":3600,"walkSpeed":65,"contactDamage":0,"moves":[{"id":"FMK01","title":"一息の居合","reach":228,"lock":54,"active":[[126,138]],"recover":180,"total":300,"near":0.2,"far":2.2,"low":0.15,"high":1.2,"damage":22},{"id":"FMK02","title":"二段の斬り返し","reach":195,"lock":42,"active":[[84,90],[144,150]],"recover":168,"total":240,"near":0.2,"far":1.5,"low":0.2,"high":1.1,"damage":13},{"id":"FMK03","title":"押し出す仮面","reach":225,"lock":48,"active":[],"recover":156,"total":252,"mask":true,"damage":17}]}
+    {"id":"boss-25090101","controller":"maguu","entity":25090101,"name":"魔偶剣鬼","node":"maguu-field-dojo","storyChallenge":"maguu","level":44,"hp":900,"mora":180,"artHeight":150,"floorY":480,"home":860,"arenaMin":420,"arenaMax":1450,"noticeRange":270,"noticeTicks":36,"restTicks":36,"leashTicks":300,"respawnTicks":3600,"walkSpeed":65,"contactDamage":0,"moves":[{"id":"FMK01","title":"一息の居合","reach":228,"lock":54,"active":[[126,138]],"recover":180,"total":300,"near":0.2,"far":2.2,"low":0.15,"high":1.2,"damage":22},{"id":"FMK02","title":"二段の斬り返し","reach":195,"lock":42,"active":[[84,90],[144,150]],"recover":168,"total":240,"near":0.2,"far":1.5,"low":0.2,"high":1.1,"damage":13},{"id":"FMK03","title":"押し出す仮面","reach":225,"lock":48,"active":[],"recover":156,"total":252,"mask":true,"damage":17}]},
+    {
+      "id": "boss-24021101",
+      "controller": "array",
+      "entity": 24021101,
+      "name": "恒常からくり陣形",
+      "node": "array-field-court",
+      "storyChallenge": "array",
+      "level": 46,
+      "hp": 960,
+      "mora": 185,
+      "artHeight": 110,
+      "floorY": 480,
+      "home": 860,
+      "arenaMin": 410,
+      "arenaMax": 1450,
+      "noticeRange": 270,
+      "noticeTicks": 36,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 65,
+      "contactDamage": 0,
+      "moves": [
+        {
+          "id": "FPA01",
+          "title": "機刃の横断",
+          "reach": 209,
+          "lock": 48,
+          "active": [
+            [
+              96,
+              108
+            ]
+          ],
+          "recover": 144,
+          "total": 264,
+          "art": "blade",
+          "damage": 18
+        },
+        {
+          "id": "FPA02",
+          "title": "回転刃の一走",
+          "reach": 205,
+          "lock": 42,
+          "active": [
+            [
+              90,
+              126
+            ]
+          ],
+          "recover": 144,
+          "total": 252,
+          "art": "wheel",
+          "roll": true,
+          "distance": 1.8,
+          "damage": 17
+        },
+        {
+          "id": "FPA03",
+          "title": "機核の跳躍落下",
+          "reach": 200,
+          "lock": 54,
+          "active": [
+            [
+              114,
+              126
+            ]
+          ],
+          "recover": 150,
+          "total": 270,
+          "art": "rocket",
+          "air": [
+            78,
+            114
+          ],
+          "distance": 1.6,
+          "rise": 103,
+          "damage": 22
+        }
+      ]
+    }
   ]
 }

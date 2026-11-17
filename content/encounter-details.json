@@ -364,7 +364,8 @@
         "小型機の追加行動・弱点停止・印のランダム選択",
         "精密挙動・アニメ"
       ],
-      "review_note": "本体と4小型機の専用静止素材/軽量比較。弱点4種選択・全種入力撃破確認。変形と動作は仮。",
+      "review_note": "フィールドでは剣・回転刃・跳躍・休止でHPを共有。旧模擬戦では小型機の弱点4種を選べる。",
+      "extra_evidence": ["evidence/array-field-lua.json", "evidence/array-field-browser.json", "evidence/array-field-art-audit.json"],
       "variants": [
         {
           "label": "盾型",

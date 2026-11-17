@@ -1151,14 +1151,19 @@
       "action": "boss_array",
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/perpetualmechanicalarray.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/perpetualmechanicalarray.json",
+        "evidence/array-field-lua.json",
+        "evidence/array-field-browser.json",
+        "evidence/array-field-art-audit.json"
       ],
       "remaining": [
         "変形・小型機アニメ",
         "小型機の追加行動・弱点停止・印のランダム選択",
         "精密挙動・アニメ"
       ],
-      "review_note": "本体と4小型機の専用静止素材/軽量比較。弱点4種選択・全種入力撃破確認。変形と動作は仮。",
+      "fieldNode": "array-field-court",
+      "fieldEntrance": "稲妻・機巧の石庭（Lv46）",
+      "review_note": "フィールドでは剣・回転刃・跳躍・休止でHPを共有。旧模擬戦では小型機の弱点4種を選べる。",
       "variants": [
         {
           "label": "盾型",

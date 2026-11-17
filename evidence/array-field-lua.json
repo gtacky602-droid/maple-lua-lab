@@ -1,0 +1,17 @@
+{
+  "attacks": [
+    "FPA01",
+    "FPA02",
+    "FPA03"
+  ],
+  "bladeLocked": true,
+  "rollSweptAndSingleHit": true,
+  "sharedReceiver": true,
+  "airborneHurtbox": true,
+  "commands": {
+    "standard": 4293,
+    "light": 1141
+  },
+  "questReportOnce": true,
+  "killXp": 17450
+}

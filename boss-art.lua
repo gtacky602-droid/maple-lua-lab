@@ -71,4 +71,8 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
  function C.drawArrayPartArt(f,e,mode,profile)
   draw(f,C.arrayPartArt[e.part],e.x,480,({72,84,70,95})[e.part],mode,profile,(e.facing or -1)>0)
  end
+ function C.drawArrayFieldArt(f,x,y,style,mode,profile,facing)
+  local pose=C.arrayFieldArt[style]
+  draw(f,pose,x,y,pose.profiles.legacy.height,mode,profile,style=='blade' and facing>0)
+ end
 end

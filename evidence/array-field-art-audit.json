@@ -1,0 +1,105 @@
+{
+  "stage": "稲妻・機巧の石庭",
+  "references": [
+    {
+      "page": "https://gamewith.net/genshin-impact/article/show/29424",
+      "image": "https://img.gamewith.net/img/eba247b674be63119cd569c3714f9762.jpg",
+      "sha256": "f83d621836d4e1f6e1dc9c7acfd65c007c121d8e565e3b98d889dfbf7d851417",
+      "observed": "Underground blue-green stone, old floor slabs, orange core surrounded by masonry."
+    },
+    {
+      "page": "https://gamewith.net/genshin-impact/article/show/29424",
+      "image": "https://img.gamewith.net/img/dbe0aa0135b56959feeb224eab90c44e.jpg",
+      "sha256": "bc74b25b097bcb94073d214b982052a2550c0bcd5b747ae6f86987218adf7b58",
+      "observed": "Warm warning against a dim green stone floor."
+    },
+    {
+      "path": "assets/array-source-v1.png",
+      "observed": "Read and showed existing lab art for material, core, color and angular silhouette."
+    }
+  ],
+  "generated": [
+    {
+      "path": "assets/array-field-background-v1.png",
+      "sha256": "e16ba3414e6db210179ac75fbfa4fd4a572370351e8ed9c7a3a558dc8128bb6c",
+      "prompt": "Wide 16:9 environment-only side-view background for an original 2D fantasy platform RPG. The attached game images supply palette and weathered stone references only: deep blue-green underground ruin, a few dim turquoise moss clusters well away from center, old geometric stone pillars and a long empty flat slab floor. Compose as a vast underground courtyard beneath an island, layered mossy arches in the distance and barely visible cool light from broad ceiling cracks. Bottom 15 percent is flat muted slate stone, no foreground silhouette above floor. Quiet dusky central field with room for an orange-glowing mechanical boss sprite and visible warm telegraphs. Crisp pixel-painted shadow clusters, restrained highlights, clear readable playfield. ABSOLUTELY no characters, humans, monsters, floating machines, floating rocks, red rings, attack effects, objects in center, UI or text. Environment only."
+    },
+    {
+      "path": "assets/array-field-poses-source-v1.png",
+      "sha256": "02f02fd5c4c39bd24ae551b6372e50b11586839b77ce34a0453abfc394e74783",
+      "size": [
+        1254,
+        1254
+      ],
+      "prompt": "Make one regular square sprite sheet of FOUR independent silhouette sprites using exactly a 2x2 grid, with empty gutters and true transparent alpha background. Match the bronze/umber stone plating, dark joints, gold-orange traced seams and bright central diamond core of the attached existing lab sprite. Each cell is ONE rearrangement of the same ancient mechanical boss for a side-view pixel art game; no characters, creatures, legs, ground, UI, shadows, glow haze, floating dust, gradients, lettering or guide lines. Top left: horizontal long chunky sword, broad articulated segmented blade points LEFT, thick crossguard houses its original central diamond core, grip on right. Top right: nearly circular rotating stone saw, eight broad angled stone teeth and center orange diamond mounted horizontally in the middle facing the camera. Bottom left: vertically symmetrical upright pointed rocket, segmented heavy bronze casing beside an orange central core, slight three quarters but points straight up, no exhaust. Bottom right: compact low circular resting arrangement, four bronze plates around the same low central core. Crisp pixel-art color clusters, fixed visual thickness and common stone texture; let every shape fit with clear transparent margins on every side. Existing lab sprite as material reference, screenshot as reference for the boss core, do not copy the photo backdrop."
+    }
+  ],
+  "poses": {
+    "blade": {
+      "sourceCrop": [
+        0,
+        0,
+        640,
+        568
+      ],
+      "anchorX": 0.7,
+      "drawHeight": 82,
+      "commands": [
+        2590,
+        1660,
+        664
+      ]
+    },
+    "wheel": {
+      "sourceCrop": [
+        640,
+        0,
+        614,
+        568
+      ],
+      "anchorX": 0.5,
+      "drawHeight": 90,
+      "commands": [
+        3183,
+        1997,
+        853
+      ]
+    },
+    "rocket": {
+      "sourceCrop": [
+        0,
+        568,
+        640,
+        686
+      ],
+      "anchorX": 0.5,
+      "drawHeight": 108,
+      "commands": [
+        2395,
+        1454,
+        642
+      ]
+    },
+    "core": {
+      "sourceCrop": [
+        640,
+        568,
+        614,
+        686
+      ],
+      "anchorX": 0.5,
+      "drawHeight": 70,
+      "commands": [
+        2598,
+        1622,
+        682
+      ]
+    }
+  },
+  "profiles": [
+    "legacy",
+    "h48c32",
+    "h32c16"
+  ],
+  "limitations": "Four lab silhouettes based on still references. No source 3D model or original transformation timing inspected. The background is a Web lab host image; actual production 3D is pending."
+}

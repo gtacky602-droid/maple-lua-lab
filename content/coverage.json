@@ -75,7 +75,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 16,
+      "prototype_stage_count": 17,
       "prototype_quest_count": 9,
       "official_map2_markers": {
         "waypoints": 47,
@@ -578,7 +578,7 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 118,
+    "authored_stages": 119,
     "provisional_quests": 67,
     "companion_join_records": 8,
     "scope_complete": false,
@@ -731,6 +731,7 @@
           "maguu-approach",
           "maguu-field-dojo",
           "array-approach",
+          "array-field-court",
           "thunder-approach"
         ],
         "quest_ids": [
