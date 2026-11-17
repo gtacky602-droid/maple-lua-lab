@@ -10,21 +10,11 @@ return function(C)
   b.hitTop=b.hitBottom-89
  end
 
- local function clearSummon(state,c)
-  local summon=c and c.summon
-  if not summon then return end
-  summon.hp=0
-  for i,e in ipairs(state.enemies) do
-   if e==summon then table.remove(state.enemies,i);break end
-  end
-  c.summon=nil
- end
-
  function tulpa.cancel(b,s,state,c)
-  clearSummon(state,c)
+  C.clearFieldSummon(state,c)
   tulpa.spawn(b,s)
  end
- function tulpa.onDefeat(state,b,s,c) clearSummon(state,c) end
+ function tulpa.onDefeat(state,b,s,c) C.clearFieldSummon(state,c) end
 
  local function aim(b,s,c,a)
   c.dir=a.x<c.origin and -1 or 1
@@ -73,11 +63,11 @@ return function(C)
   if not summon then return end
   if summon.hp<=0 then
    c.summonStopped=true
-   clearSummon(state,c)
+   C.clearFieldSummon(state,c)
   elseif t>=rules.merge then
    c.absorbed=true
    b.form='surge'
-   clearSummon(state,c)
+   C.clearFieldSummon(state,c)
   else
    local u=(t-rules.spawn)/(rules.merge-rules.spawn)
    summon.x=c.summonStart+(c.origin-c.summonStart)*u

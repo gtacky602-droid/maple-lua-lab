@@ -1726,7 +1726,8 @@
           "to": "simulanka-hub",
           "x": 1050
         },
-        {"to":"icewind-promenade","x":580}
+        {"to":"icewind-promenade","x":580},
+        {"to":"nostoi-castle-approach","x":820}
       ],
       "checkpoint": "fontaine-hub",
       "hints": [
@@ -1794,6 +1795,8 @@
     {"id":"icewind-promenade","name":"フォンテーヌ・氷風の舞台入口","region":"フォンテーヌ","level":90,"hub":false,"peaceful":true,"width":1440,"platforms":[{"x":0,"y":480,"w":1440}],"exits":[{"to":"fontaine-hub","x":65},{"to":"icewind-coppelia-field","x":420},{"to":"icewind-coppelius-field","x":1060}],"checkpoint":"fontaine-hub"},
     {"id":"icewind-coppelia-field","name":"氷風組曲・コッペリアの葬送","region":"フォンテーヌ","level":90,"hub":false,"peaceful":true,"width":1690,"platforms":[{"x":0,"y":480,"w":1690}],"exits":[{"to":"icewind-promenade","x":65}],"checkpoint":"fontaine-hub"},
     {"id":"icewind-coppelius-field","name":"氷風組曲・コペリウスの劫罰","region":"フォンテーヌ","level":90,"hub":false,"peaceful":true,"width":1690,"platforms":[{"x":0,"y":480,"w":1690}],"exits":[{"to":"icewind-promenade","x":65}],"checkpoint":"fontaine-hub"},
+    {"id":"nostoi-castle-approach","name":"ノストイ地区・色褪せた城の入口","region":"フォンテーヌ","level":92,"hub":false,"peaceful":true,"width":1440,"platforms":[{"x":0,"y":480,"w":1440}],"exits":[{"to":"fontaine-hub","x":65},{"to":"legatus-field-hall","x":1050}],"checkpoint":"fontaine-hub"},
+    {"id":"legatus-field-hall","name":"ノストイ地区・色褪せた城の展示広間","region":"フォンテーヌ","level":92,"hub":false,"peaceful":true,"width":1690,"platforms":[{"x":0,"y":480,"w":1690}],"exits":[{"to":"nostoi-castle-approach","x":65}],"checkpoint":"fontaine-hub"},
     {
       "id": "natlan-entry",
       "name": "ナタ・地域の入口",
@@ -5598,6 +5601,7 @@
     {"id":"field-generator-commission","name":"実験用フィールド生成装置の討伐調査","hub":"fontaine-hub","target":"field-generator","kind":"boss","goal":1,"xp":5400,"mora":380,"note":"水路沿いから入る重力試験室での討伐が対象。"},
     {"id":"tulpa-commission","name":"水形タルパの討伐調査","hub":"fontaine-hub","target":"tulpa","kind":"boss","goal":1,"xp":5600,"mora":390,"note":"水路沿いから入る潮影の洞での討伐が対象。"},
     {"id":"icewind-coppelia-commission","name":"コッペリアの葬送の討伐調査","hub":"fontaine-hub","target":"icewind-coppelia","kind":"boss","goal":1,"xp":6000,"mora":400,"note":"水辺の広場から舞台入口へ。コッペリアの葬送を選ぶ。"},
-    {"id":"icewind-coppelius-commission","name":"コペリウスの劫罰の討伐調査","hub":"fontaine-hub","target":"icewind-coppelius","kind":"boss","goal":1,"xp":6000,"mora":400,"note":"水辺の広場から舞台入口へ。コペリウスの劫罰を選ぶ。"}
+    {"id":"icewind-coppelius-commission","name":"コペリウスの劫罰の討伐調査","hub":"fontaine-hub","target":"icewind-coppelius","kind":"boss","goal":1,"xp":6000,"mora":400,"note":"水辺の広場から舞台入口へ。コペリウスの劫罰を選ぶ。"},
+    {"id":"legatus-commission","name":"魔像レガトゥスの討伐調査","hub":"fontaine-hub","target":"legatus","kind":"boss","goal":1,"xp":6200,"mora":420,"note":"水辺の広場からノストイ地区へ。色褪せた城の展示広間で魔像を倒す。"}
   ]
 }

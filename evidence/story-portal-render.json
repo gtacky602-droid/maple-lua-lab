@@ -563,12 +563,12 @@
     {
       "node": "fontaine-hub",
       "mode": "sprite",
-      "visible_portals": 3
+      "visible_portals": 4
     },
     {
       "node": "fontaine-hub",
       "mode": "rect",
-      "visible_portals": 3
+      "visible_portals": 4
     },
     {
       "node": "fontaine-field",
@@ -647,6 +647,26 @@
     },
     {
       "node": "icewind-coppelius-field",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "nostoi-castle-approach",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "nostoi-castle-approach",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "legatus-field-hall",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "legatus-field-hall",
       "mode": "rect",
       "visible_portals": 1
     },

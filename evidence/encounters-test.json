@@ -1,5 +1,5 @@
 {
-  "count": 66,
+  "count": 67,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -29,6 +29,7 @@
     "The Tulpa is reachable through the field route",
     "icewind-coppelia has a separate field route",
     "icewind-coppelius has a separate field route",
+    "The Legatus Golem is reachable through the castle route",
     "public roster matched without merging Icewind modes or Dottore challenges",
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",

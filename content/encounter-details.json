@@ -318,10 +318,16 @@
       ]
     },
     "boss-26140101": {
+      "extra_evidence": [
+        "https://wiki.hoyolab.com/pc/genshin/entry/5609?lang=en-us",
+        "evidence/legatus-field-lua.json",
+        "evidence/legatus-field-browser.json"
+      ],
+      "remaining": ["連続モーション・音", "難度・報酬の調整", "複数人と幻境実機の検証"],
       "art_candidate": {
         "item": "legatus",
-        "audit": "evidence/legatus-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/legatus-field-art-audit.json",
+        "status": "Web field prototype. Four-hoof charge and temporary armor with an independently targetable resonator."
       }
     },
     "boss-29091101": {

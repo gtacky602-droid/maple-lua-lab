@@ -1,0 +1,32 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "won": true,
+    "seconds": 48.48,
+    "moves": [
+      "FLG01",
+      "FLG02",
+      "FLG03"
+    ],
+    "hp": 140,
+    "returns": 0
+  },
+  "scenery": {
+    "key": "legatusField",
+    "file": "legatus-field-background-v1.png",
+    "state": "ready"
+  },
+  "resonatorWasVisible": true,
+  "questReport": {
+    "xp": 6200,
+    "mora": 420
+  },
+  "sameSceneCommands": {
+    "png": 36,
+    "standard": 11215,
+    "light": 2872
+  },
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}

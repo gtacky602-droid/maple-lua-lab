@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 141 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 139,
+  "scope": "Authored 143 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 141,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -392,6 +392,18 @@
     {
       "id": "icewind-coppelius-field",
       "name": "氷風組曲・コペリウスの劫罰",
+      "region": "フォンテーヌ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "nostoi-castle-approach",
+      "name": "ノストイ地区・色褪せた城の入口",
+      "region": "フォンテーヌ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "legatus-field-hall",
+      "name": "ノストイ地区・色褪せた城の展示広間",
       "region": "フォンテーヌ",
       "status": "regional_temporary_image"
     },

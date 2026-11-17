@@ -1,0 +1,127 @@
+{
+  "date": "2026-11-18",
+  "tool": "built-in image_gen",
+  "prompts": [
+    "Use case: stylized-concept. Create one transparent 2 by 2 sprite atlas of the Legatus Golem for a side-scrolling pixel RPG. Image 1 is the existing idle sprite, match its dark pixel contours, marble-white and muted taupe plating, brass hooves, hot orange slit visor, prominent asymmetrical instrument-shield and incandescent straight sword. Images 2 and 3 are official reference views for correct four-legged centaur anatomy, sword and shield. Face LEFT in every cell, with the tail on the right, across the four poses. Distinct silhouettes: top left, sword arm wound back toward shoulder, one foreleg forward for a sweep; top right, swift low left-facing charge with sword fully extended horizontally to the left, four hooves arranged as gallop; bottom left, planted upright conducting pose lifting the sword diagonally up-left while shield stays visible; bottom right, exhausted low stagger, both front knees bent but grounded, sword lowered, shield rotated aside so the chest reads. Maintain stable hoof/body scale and armor identity. Square canvas, each full body wholly contained in exactly one quadrant, large 45-pixel dead gutters around the center x and y and all outer edges, align to equal framing. All four legs readable with two farther legs darker. Genuine alpha transparency. No floor, shadows, backdrop, labels, UI, glow particles or attack trails.",
+    "Use case: stylized-concept. Generate a wide 16:9 pixel illustration as the temporary gameplay background for a 2D platform RPG, of an ancient half-submerged Remurian castle hall in the Nostoi region, referencing the architecture, materials, and blue/amber palette of the supplied official in-game visual. View directly side-on from arena floor level. Flat uninterrupted stage spans the entire bottom quarter, with subdued carved blue-grey limestone flags. The background shows rhythmic massive columns, relic niches, muted gold lyre relief, recessed stone steps in the distance and cool bluish water-lit shadows. Light shafts and small dim warm lamps stay high and behind. Enough negative space in the lower half to keep pale marble sprites and orange floor hazard cues visible. Polished softly shaded pixel art with crisp clusters. No foreground occluders, enemies, characters, railings cutting across foot level, writing, interface or watermark."
+  ],
+  "reference_page": "https://wiki.hoyolab.com/pc/genshin/entry/5609?lang=en-us",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/6def2290a26cc5418bfedeb6814cd68a_2678583527298416003.png",
+      "sha256": "6ba3e5e21f6b031c3c548d24363d0dea0b6e8d7ea970c3cec64fe506bfec3ec3",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "rearing full render",
+      "use": "four-legged proportions and equipment"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/f090d664fc231a715a9607c45be28ff7_8699689461163725840.png",
+      "sha256": "36c9bb139313669a15a1c41e21044908ef48a22b8a5c3e3889b184c81bf3803c",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "in-game standing and hunched poses",
+      "use": "three-quarter standing and stagger, castle materials"
+    }
+  ],
+  "idle": "assets/legatus-idle-source-v1.png",
+  "generated": {
+    "legatus-field-poses-source-v1.png": "15c490a1d3162d2a325080c594062921969d8bd5ff544347d1c047b27cb80538",
+    "legatus-field-background-v1.png": "001112375f4b0e6a16a7c6d9de0b724141a6d098db8d767febd69c43a010caa4"
+  },
+  "poses": {
+    "sweep": {
+      "crop": [
+        0,
+        0,
+        584,
+        627
+      ],
+      "box": [
+        92,
+        74,
+        482,
+        461
+      ],
+      "anchor_source": 326,
+      "anchor": 0.4854771784232365,
+      "height": 151,
+      "profiles": {
+        "legacy": 6959,
+        "h48c32": 4214,
+        "h32c16": 1793
+      }
+    },
+    "charge": {
+      "crop": [
+        584,
+        0,
+        670,
+        627
+      ],
+      "box": [
+        596,
+        188,
+        634,
+        273
+      ],
+      "anchor_source": 990,
+      "anchor": 0.6214511041009464,
+      "height": 116,
+      "profiles": {
+        "legacy": 7722,
+        "h48c32": 4736,
+        "h32c16": 2082
+      }
+    },
+    "conduct": {
+      "crop": [
+        0,
+        627,
+        627,
+        627
+      ],
+      "box": [
+        92,
+        647,
+        495,
+        532
+      ],
+      "anchor_source": 374,
+      "anchor": 0.5696969696969697,
+      "height": 174,
+      "profiles": {
+        "legacy": 6821,
+        "h48c32": 4107,
+        "h32c16": 1789
+      }
+    },
+    "stagger": {
+      "crop": [
+        627,
+        627,
+        627,
+        627
+      ],
+      "box": [
+        668,
+        812,
+        541,
+        346
+      ],
+      "anchor_source": 973,
+      "anchor": 0.5637707948243993,
+      "height": 124,
+      "profiles": {
+        "legacy": 7518,
+        "h48c32": 4543,
+        "h32c16": 1970
+      }
+    }
+  },
+  "notes": [
+    "All four atlas poses face left. Hoof group and torso are aligned around the gameplay body.",
+    "Official in-game screenshots were inspected directly. A matching Legatus 3D model was unverified.",
+    "Horizontal mirroring swaps the shield and sword. The full environment was generated as a temporary lab-only bitmap."
+  ]
+}

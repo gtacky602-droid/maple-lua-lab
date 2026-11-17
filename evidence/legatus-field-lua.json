@@ -1,0 +1,34 @@
+{
+  "attacks": [
+    "FLG01",
+    "FLG02",
+    "FLG03"
+  ],
+  "lockedDirection": true,
+  "chargeUsesSweptBody": true,
+  "optionalResonatorInterruption": true,
+  "lastTickBreakWins": true,
+  "noDeviceRewards": true,
+  "cleanupOnExitAndKill": true,
+  "oneQuestReportAndSavedRespawn": true,
+  "normalAttackSolo": {
+    "breakResonator": {
+      "seconds": 87.8,
+      "hp": 140,
+      "stopped": 5,
+      "released": 0
+    },
+    "evadeFlame": {
+      "seconds": 87.45,
+      "hp": 140,
+      "stopped": 0,
+      "released": 5
+    }
+  },
+  "sameSceneCommands": {
+    "png": 39,
+    "standard": 8542,
+    "light": 2274
+  },
+  "killXP": 191700
+}

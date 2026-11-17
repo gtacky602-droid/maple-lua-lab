@@ -210,6 +210,9 @@ def runtime():
     icewind=lua.execute((ROOT/'field-icewind.lua').read_text(encoding='utf-8'))(core)
     core.coppeliaFieldArt=field_art(lua,'coppelia',('idle','attack','focus','bow'))
     core.coppeliusFieldArt=field_art(lua,'coppelius',('idle','attack','focus','bow'))
+    legatus=lua.execute((ROOT/'field-legatus.lua').read_text(encoding='utf-8'))(core)
+    core.legatusFieldArt=field_art(lua,'legatus',('sweep','charge','conduct','stagger'),
+                                  idle='legatus-idle-sprites.json')
     core.aeonblightFieldArt=field_art(lua,'aeonblight',('wing_first','wing_second','cannon','windup','dash','down'),
                                      idle='aeonblight-idle-sprites.json')
     bathysmal=lua.execute((ROOT/'field-bathysmal.lua').read_text(encoding='utf-8'))(core)
@@ -236,7 +239,7 @@ def runtime():
                         'electroRegisvine':electro_vine,'aeonblight':aeonblight,
                         'dendroHypostasis':dendro_hypostasis,'asimon':asimon,'wenut':wenut,'baptist':baptist,
                         'emperor':emperor,'seahorse':seahorse,'generator':generator,'tulpa':tulpa,
-                        'icewind':icewind})
+                        'icewind':icewind,'legatus':legatus})
     )
     return lua, core
 

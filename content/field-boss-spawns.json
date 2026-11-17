@@ -1218,6 +1218,18 @@
         {"id":"FIP02","kind":"duet","title":"氷風の交差","reach":230,"lock":48,"travelEnd":94,"width":1.32,"height":0.73,"active":[[112,124],[156,168]],"recover":198,"total":294,"damage":19},
         {"id":"FIP03","kind":"guard","title":"終幕・氷装甲と二振り","reach":220,"lock":54,"width":3.55,"height":0.67,"active":[[120,132],[174,186]],"recover":198,"total":342,"damage":22}
       ]
+    },
+    {
+      "id":"boss-26140101","controller":"legatus","entity":26140101,
+      "name":"魔像レガトゥス","node":"legatus-field-hall","storyChallenge":"legatus",
+      "level":92,"hp":1010,"mora":335,"artHeight":155,"floorY":480,"home":860,
+      "arenaMin":335,"arenaMax":1570,"noticeRange":303,"noticeTicks":36,"restTicks":36,
+      "leashTicks":300,"respawnTicks":3600,"walkSpeed":65,"contactDamage":0,"armorFactor":0.55,
+      "moves":[
+        {"id":"FLG01","kind":"sweep","title":"石剣の横薙ぎ","reach":228,"lock":45,"near":0.22,"far":2.18,"height":0.78,"low":0.16,"active":[99,112],"recover":150,"total":258,"damage":20,"element":"physical"},
+        {"id":"FLG02","kind":"charge","title":"四蹄の突進","reach":285,"lock":54,"distance":3.7,"margin":0.48,"height":0.58,"active":[112,151],"recover":166,"total":282,"damage":21,"element":"physical"},
+        {"id":"FLG03","kind":"resonance","title":"響奏・共鳴器の炎","reach":248,"lock":54,"width":3.2,"height":1.18,"active":[166,180],"recover":204,"total":348,"damage":24,"element":"pyro","resonator":{"distance":2.5,"spawn":54,"release":166,"hp":14,"stagger":144}}
+      ]
     }
   ]
 }

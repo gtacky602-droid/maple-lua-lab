@@ -16,6 +16,15 @@ return function(C,configs,controllers)
   primary.fieldPartner=setmetatable(partner,healthProxy)
   return primary.fieldPartner
  end
+ function C.clearFieldSummon(state,cast)
+  local summon=cast and cast.summon
+  if not summon then return end
+  summon.hp=0
+  for i,enemy in ipairs(state.enemies) do
+   if enemy==summon then table.remove(state.enemies,i);break end
+  end
+  cast.summon=nil
+ end
  function C.damageFactor(s,cast,e)
   local factor=damageFactor and damageFactor(s,cast,e) or 1
   local spec=byId[e.fieldBoss]
