@@ -31,7 +31,8 @@
     {
       "id": "wanderer",
       "name": "放浪者",
-      "file": "wanderer-idle-sprites.json",
+      "file": "wanderer-idle-right-sprites-v3.json",
+      "leftFile": "wanderer-idle-left-sprites-v3.json",
       "height": 88
     },
     {

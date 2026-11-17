@@ -1,7 +1,7 @@
 {
   "character": "wanderer",
   "date": "2026-11-17",
-  "active_revision": "v2",
+  "active_revision": "v3",
   "illustration": {
     "url": "https://paimon.moe/images/characters/full/wanderer.png",
     "sha256": "10eafb71bcce70978c33fbdefb9509b4ee521074efda0f23635d486410a5fbf8",
@@ -67,5 +67,50 @@
     "legacy": 1902,
     "h48c32": 1149,
     "h32c16": 513
+  },
+  "v3": {
+    "guide": "DESIGN_MAPLE_CHIBI_STYLE_GUIDE_V01.md",
+    "tool": "built-in ImageGen; independent three-quarter views with a second pass widening and lengthening the visible head below the brim",
+    "directly_viewed": [
+      "work/references/wanderer-views/front.png",
+      "work/references/wanderer-views/left.png",
+      "work/references/wanderer-views/right.png",
+      "work/references/wanderer-views/back.png"
+    ],
+    "initial_shared_tool_refs": [
+      "assets/wanderer-idle-source-v2.png",
+      "assets/traveler-idle-source-v3.png",
+      "work/references/wanderer-views/front.png"
+    ],
+    "proportion_limit": "Hat hides the anatomical crown. No precise head count can be read from the supplied idle sprites. Comparison at 88px includes the hat in the rendered height.",
+    "art_limit": "At 44px in the rectangle renderer, the hat outline and shoulder colors read better than individual tassel and lattice lines. The static art is reused during movement and float; no new animation or attack behavior.",
+    "directions": {
+      "right": {
+        "source": "assets/wanderer-idle-right-source-v3.png",
+        "encoding": "assets/wanderer-idle-right-sprites-v3.json",
+        "sha256": "8e386eac01292e833058d51bd382d861c6c71b32597f579218e94a2ac26ff53d",
+        "side_tool_ref": "work/references/wanderer-views/left.png",
+        "shoulder": "white near sleeve; blue cloth on far shoulder",
+        "anchor_x": 0.5286425902864259,
+        "runs88_66_44": [
+          2037,
+          1235,
+          575
+        ]
+      },
+      "left": {
+        "source": "assets/wanderer-idle-left-source-v3.png",
+        "encoding": "assets/wanderer-idle-left-sprites-v3.json",
+        "sha256": "8546460e37964f57a624e1817a67d62d4df20facdc0545201bef176316c56919",
+        "side_tool_ref": "work/references/wanderer-views/right.png",
+        "shoulder": "blue cloth and teal ornament on near shoulder; white far sleeve",
+        "anchor_x": 0.44248366013071894,
+        "runs88_66_44": [
+          1964,
+          1147,
+          532
+        ]
+      }
+    }
   }
 }

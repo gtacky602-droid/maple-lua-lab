@@ -1,3 +1,20 @@
-import {chromium} from 'playwright';import fs from 'node:fs/promises';
-const browser=await chromium.launch({headless:true,channel:'chrome'}),page=await browser.newPage({viewport:{width:1440,height:1080}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
-try{await page.goto('http://127.0.0.1:8769');await page.waitForFunction(()=>window.lab?.frame);await page.locator('[data-action="campaign"]').click();await page.waitForFunction(()=>window.lab.frame.campaign?.zone==='town');await page.locator('[data-action="companion:wanderer"]').click();await page.waitForFunction(()=>window.lab.frame.draws.some(d=>d.source==='wanderer-idle-source-v2.png'));await page.evaluate(()=>window.lab.action('pause'));await page.waitForFunction(()=>window.lab.frame.paused);await page.locator('canvas').first().screenshot({path:'evidence/wanderer-art-browser.png'});if(errors.length)throw Error(errors.join('/'));await fs.writeFile('evidence/wanderer-art-browser.json',JSON.stringify({errors,method:'Town UI companion selection, idle art display'}));console.log('Wanderer art browser passed');}finally{await browser.close()}
+import assert from 'node:assert/strict';
+import {checkCompanionIdleArt} from './check_companion_idle_art.mjs';
+
+await checkCompanionIdleArt('wanderer',['traveler','ayaka'],async (page,source)=>{
+ await page.evaluate(()=>window.lab.action('skill1'));
+ await page.waitForFunction(()=>window.lab.frame.companion.floatSeconds>0&&window.lab.frame.actors[1].y===380);
+ const airborne=[];
+ for(const [side,key] of [['right','KeyD'],['left','KeyA']]){
+  await page.keyboard.down(key);
+  const pose=await page.waitForFunction(file=>{
+   const frame=window.lab.frame,actor=frame.actors[1],draw=frame.draws.find(d=>d.source===file);
+   return !actor.ground&&actor.walk!==0&&draw&&{x:actor.x-frame.camera,y:actor.y,draw};
+  },source(side));
+  await page.keyboard.up(key);
+  const {x,y,draw}=await pose.jsonValue();
+  assert.deepEqual([draw.x,draw.y,draw.flip],[x,y,false]);
+  airborne.push({side,source:draw.source,y});
+ }
+ return {airborne};
+});

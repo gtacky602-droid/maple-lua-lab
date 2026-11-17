@@ -1,31 +1,80 @@
 {
-  "hash_alpha": true,
-  "facings_profiles": [
-    [
-      -1,
-      "legacy"
-    ],
-    [
-      -1,
-      "h48c32"
-    ],
-    [
-      -1,
-      "h32c16"
-    ],
-    [
-      1,
-      "legacy"
-    ],
-    [
-      1,
-      "h48c32"
-    ],
-    [
-      1,
-      "h32c16"
-    ]
+  "ground": [
+    {
+      "side": "left",
+      "profile": "legacy",
+      "anchor_y": 480,
+      "rectangles": 1964
+    },
+    {
+      "side": "left",
+      "profile": "h48c32",
+      "anchor_y": 480,
+      "rectangles": 1147
+    },
+    {
+      "side": "left",
+      "profile": "h32c16",
+      "anchor_y": 480,
+      "rectangles": 532
+    },
+    {
+      "side": "right",
+      "profile": "legacy",
+      "anchor_y": 480,
+      "rectangles": 2037
+    },
+    {
+      "side": "right",
+      "profile": "h48c32",
+      "anchor_y": 480,
+      "rectangles": 1235
+    },
+    {
+      "side": "right",
+      "profile": "h32c16",
+      "anchor_y": 480,
+      "rectangles": 575
+    }
   ],
-  "dead_hidden": true,
-  "float_tracks_actor": true
+  "float": [
+    {
+      "side": "left",
+      "profile": "legacy",
+      "anchor_y": 380.0,
+      "rectangles": 1964
+    },
+    {
+      "side": "left",
+      "profile": "h48c32",
+      "anchor_y": 380.0,
+      "rectangles": 1147
+    },
+    {
+      "side": "left",
+      "profile": "h32c16",
+      "anchor_y": 380.0,
+      "rectangles": 532
+    },
+    {
+      "side": "right",
+      "profile": "legacy",
+      "anchor_y": 380.0,
+      "rectangles": 2037
+    },
+    {
+      "side": "right",
+      "profile": "h48c32",
+      "anchor_y": 380.0,
+      "rectangles": 1235
+    },
+    {
+      "side": "right",
+      "profile": "h32c16",
+      "anchor_y": 380.0,
+      "rectangles": 575
+    }
+  ],
+  "hash_alpha": true,
+  "dead_hidden": true
 }

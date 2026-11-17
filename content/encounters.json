@@ -1798,7 +1798,7 @@
       ],
       "art_candidate": {
         "gallery": "characters",
-        "encoding": "assets/wanderer-idle-sprites.json"
+        "encoding": "assets/wanderer-idle-right-sprites-v3.json"
       }
     }
   ]

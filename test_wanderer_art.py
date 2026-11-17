@@ -1,15 +1,61 @@
-import json,hashlib
+import hashlib
+import json
+
 from PIL import Image
-from runtime import runtime,ROOT
-lua,c=runtime();s=c.new(16);c.action(s,'campaign');c.action(s,'companion:wanderer');data=json.loads((ROOT/'assets/wanderer-idle-sprites.json').read_text());assert hashlib.sha256((ROOT/'assets'/data['source']).read_bytes()).hexdigest()==data['sha256'];assert Image.open(ROOT/'assets'/data['source']).getchannel('A').getextrema()[0]==0
-checks=[]
-for direction in [-1,1]:
- s.actors[2].dir=direction
- for profile in ['legacy','h48c32','h32c16']:
-  f=c.frame(s,'sprite',profile);ds=[d for d in f.draws.values() if d.kind=='boss_sprite' and d.source==data['source']];assert len(ds)==1 and ds[0].flip==(direction<0) and ds[0].h==88
-  f=c.frame(s,'rect',profile);assert not any(d.kind=='rect' and d.color=='#a4b1d4' for d in f.draws.values());checks.append([direction,profile])
-c.action(s,'swap');c.action(s,'skill1')
-for _ in range(60):c.step(s,1/60,lua.table())
-a=s.actors[2];ds=[d for d in c.frame(s,'sprite','legacy').draws.values() if d.kind=='boss_sprite' and d.source==data['source']];assert a.y<480 and len(ds)==1 and ds[0].y==a.y
-s.actors[2].hp=0;assert not any(d.kind=='boss_sprite' and d.source==data['source'] for d in c.frame(s,'sprite','legacy').draws.values())
-(ROOT/'evidence/wanderer-art-test.json').write_text(json.dumps({'hash_alpha':True,'facings_profiles':checks,'dead_hidden':True,'float_tracks_actor':True},indent=2));print('Wanderer art checks passed')
+from runtime import ROOT, runtime
+
+lua, core = runtime()
+state = core.new(16)
+core.action(state, 'campaign')
+core.action(state, 'companion:wanderer')
+actor = state.actors[2]
+arts = {}
+for side in ('left', 'right'):
+    path = ROOT / 'assets' / f'wanderer-idle-{side}-sprites-v3.json'
+    art = arts[side] = json.loads(path.read_text(encoding='utf8'))
+    image_path = ROOT / 'assets' / art['source']
+    assert hashlib.sha256(image_path.read_bytes()).hexdigest() == art['sha256']
+    with Image.open(image_path) as image:
+        assert image.getchannel('A').getextrema()[0] == 0
+
+
+def verify_pose(side):
+    art = arts[side]
+    checks = []
+    for profile in ('legacy', 'h48c32', 'h32c16'):
+        frame = core.frame(state, 'sprite', profile)
+        sprite, = [d for d in frame.draws.values() if d.source and d.source.startswith('wanderer-idle-')]
+        assert (sprite.source, sprite.flip, sprite.x, sprite.y, sprite.h, sprite.anchorX) == (
+            art['source'], False, actor.x - state.camera, actor.y, 88, art['anchorX'],
+        )
+        assert abs(sprite.w / sprite.h - art['box'][2] / art['box'][3]) < 1e-9
+        count = sum(d.kind == 'rect' for d in core.frame(state, 'rect', profile).draws.values())
+        hp = actor.hp
+        actor.hp = 0
+        assert not any(d.source == art['source'] for d in core.frame(state, 'sprite', profile).draws.values())
+        hidden = sum(d.kind == 'rect' for d in core.frame(state, 'rect', profile).draws.values())
+        actor.hp = hp
+        assert count - hidden == len(art['profiles'][profile]['runs'])
+        checks.append({'side': side, 'profile': profile, 'anchor_y': sprite.y, 'rectangles': count - hidden})
+    return checks
+
+
+ground_checks = []
+for side, direction in [('left', -1), ('right', 1)]:
+    actor.dir = direction
+    ground_checks.extend(verify_pose(side))
+
+core.action(state, 'swap')
+core.action(state, 'skill1')
+for _ in range(60):
+    core.step(state, 1 / 60, lua.table())
+assert actor.y == 380 and not actor.ground
+float_checks = []
+for side in ('left', 'right'):
+    core.step(state, 1 / 60, lua.table_from({side: True}))
+    float_checks.extend(verify_pose(side))
+
+(ROOT / 'evidence/wanderer-art-test.json').write_text(json.dumps({
+    'ground': ground_checks, 'float': float_checks, 'hash_alpha': True, 'dead_hidden': True,
+}, indent=2), encoding='utf8')
+print('Wanderer directional art passed on ground and in the air, in PNG and all rectangle profiles')

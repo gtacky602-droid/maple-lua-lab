@@ -2,7 +2,7 @@ import {chromium} from 'playwright';
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 
-export async function checkCompanionIdleArt(id,comparisonIds){
+export async function checkCompanionIdleArt(id,comparisonIds,checkScene){
  const catalog=JSON.parse(await fs.readFile('content/character-art-gallery.json','utf8'));
  const byId=Object.fromEntries(catalog.items.map(item=>[item.id,item]));
  const {name,height,file,leftFile}=byId[id];
@@ -38,6 +38,7 @@ export async function checkCompanionIdleArt(id,comparisonIds){
    poses.push({side,moving:await moving.jsonValue(),waiting:draw});
   }
   await page.locator('#game').screenshot({path:`evidence/${id}-art-browser.png`});
+  const sceneChecks=checkScene?await checkScene(page,source):{};
 
   await page.goto(new URL('characters-art.html?q='+id,base).href);
   await page.waitForFunction(()=>window.charactersGallery?.ready);
@@ -51,22 +52,29 @@ export async function checkCompanionIdleArt(id,comparisonIds){
    [`${name}・右向き`,artBySide.right],[`${name}・左向き`,artBySide.left]];
   await page.evaluate(async ({art,name})=>{
    const preview=document.createElement('section');preview.id='poseComparison';
-   preview.style.cssText=`width:${art.length*222}px;padding:20px;background:#18363f;color:#f4f4de`;
+   const h=158,base=178;
+   const laneWidths=art.map(([,data])=>{
+    const w=h*data.box[2]/data.box[3],anchor=data.anchorX??.5;
+    return Math.max(98,Math.ceil(2*w*Math.max(anchor,1-anchor)+16));
+   });
+   const width=laneWidths.reduce((sum,lane)=>sum+lane*2+26,0);
+   preview.style.cssText=`width:${width}px;padding:20px;background:#18363f;color:#f4f4de`;
    const heading=document.createElement('h2');heading.textContent=`${name}の待機絵 — 元PNGと44px・16色`;preview.append(heading);
    const row=document.createElement('div');row.style.cssText='display:flex;gap:10px';preview.append(row);
-   for(const [name,data] of art){
+   for(const [index,[name,data]] of art.entries()){
     const card=document.createElement('div');card.style.cssText='background:#234c52;text-align:center;padding:8px';
     const caption=document.createElement('h3');caption.textContent=name;
-    const canvas=document.createElement('canvas');canvas.width=196;canvas.height=204;canvas.style.cssText='width:196px;height:204px;background:#234c52;';
+    const lane=laneWidths[index],pngX=lane/2,rectX=lane*1.5;
+    const canvas=document.createElement('canvas');canvas.width=lane*2;canvas.height=204;canvas.style.cssText=`width:${canvas.width}px;height:204px;background:#234c52;`;
     const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;
-    const h=158,w=h*data.box[2]/data.box[3],base=178,anchor=data.anchorX??.5;
-    ctx.fillStyle='#b8ccbf';ctx.fillRect(0,base,196,1);
+    const w=h*data.box[2]/data.box[3],anchor=data.anchorX??.5;
+    ctx.fillStyle='#b8ccbf';ctx.fillRect(0,base,canvas.width,1);
     const image=new Image();image.src='/assets/'+data.source;await image.decode();
-    ctx.drawImage(image,...data.box,49-w*anchor,base-h,w,h);
+    ctx.drawImage(image,...data.box,pngX-w*anchor,base-h,w,h);
     const profile=data.profiles.h32c16,sx=w/profile.width,sy=h/profile.height;
-    for(const [x,y,rw,rh,color] of profile.runs){ctx.fillStyle=color;ctx.fillRect(147-w*anchor+x*sx,base-h+y*sy,rw*sx+.05,rh*sy+.05)}
+    for(const [x,y,rw,rh,color] of profile.runs){ctx.fillStyle=color;ctx.fillRect(rectX-w*anchor+x*sx,base-h+y*sy,rw*sx+.05,rh*sy+.05)}
     ctx.fillStyle='#f4f4de';ctx.font='12px sans-serif';ctx.textAlign='center';
-    ctx.fillText('PNG',49,196);ctx.fillText('44px・16色',147,196);
+    ctx.fillText('PNG',pngX,196);ctx.fillText('44px・16色',rectX,196);
     card.append(caption,canvas);row.append(card);
    }
    document.body.prepend(preview);
@@ -85,7 +93,7 @@ export async function checkCompanionIdleArt(id,comparisonIds){
   assert.deepEqual(left.item,{...right.item,flip:true});
   assert.deepEqual([left.pose.y,left.pose.height],[480,height]);
   assert.deepEqual(errors,[]);
-  await fs.writeFile(`evidence/${id}-art-browser.json`,JSON.stringify({errors,poses,galleryBothFacings:true,mapFacing:{right,left}},null,2));
+  await fs.writeFile(`evidence/${id}-art-browser.json`,JSON.stringify({errors,poses,galleryBothFacings:true,mapFacing:{right,left},...sceneChecks},null,2));
   console.log(`${id}: left/right PNG, actor anchor, stop, gallery and map placement passed`);
  }finally{await browser.close()}
 }

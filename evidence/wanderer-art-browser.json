@@ -1,1 +1,122 @@
-{"errors":[],"method":"Town UI companion selection, idle art display"}
+{
+  "errors": [],
+  "poses": [
+    {
+      "side": "right",
+      "moving": {
+        "x": 203.5,
+        "y": 480,
+        "flip": false,
+        "w": 63.318996415770606,
+        "source": "wanderer-idle-right-source-v3.png",
+        "kind": "boss_sprite",
+        "anchorX": 0.5286425902864259,
+        "box": [
+          193,
+          107,
+          803,
+          1116
+        ],
+        "h": 88
+      },
+      "waiting": {
+        "x": 210.5,
+        "y": 480,
+        "flip": false,
+        "w": 63.318996415770606,
+        "source": "wanderer-idle-right-source-v3.png",
+        "kind": "boss_sprite",
+        "anchorX": 0.5286425902864259,
+        "box": [
+          193,
+          107,
+          803,
+          1116
+        ],
+        "h": 88
+      }
+    },
+    {
+      "side": "left",
+      "moving": {
+        "x": 203.5,
+        "y": 480,
+        "flip": false,
+        "w": 61.03354487760653,
+        "source": "wanderer-idle-left-source-v3.png",
+        "kind": "boss_sprite",
+        "anchorX": 0.44248366013071894,
+        "box": [
+          212,
+          104,
+          765,
+          1103
+        ],
+        "h": 88
+      },
+      "waiting": {
+        "x": 203.5,
+        "y": 480,
+        "flip": false,
+        "w": 61.03354487760653,
+        "source": "wanderer-idle-left-source-v3.png",
+        "kind": "boss_sprite",
+        "anchorX": 0.44248366013071894,
+        "box": [
+          212,
+          104,
+          765,
+          1103
+        ],
+        "h": 88
+      }
+    }
+  ],
+  "galleryBothFacings": true,
+  "mapFacing": {
+    "right": {
+      "pose": {
+        "id": "added-1",
+        "source": "wanderer-idle-right-source-v3.png",
+        "y": 480,
+        "hover": 0,
+        "height": 88
+      },
+      "item": {
+        "id": "added-1",
+        "species": "character-wanderer",
+        "x": 401,
+        "y": 480,
+        "flip": false
+      }
+    },
+    "left": {
+      "pose": {
+        "id": "added-1",
+        "source": "wanderer-idle-left-source-v3.png",
+        "y": 480,
+        "hover": 0,
+        "height": 88
+      },
+      "item": {
+        "id": "added-1",
+        "species": "character-wanderer",
+        "x": 401,
+        "y": 480,
+        "flip": true
+      }
+    }
+  },
+  "airborne": [
+    {
+      "side": "right",
+      "source": "wanderer-idle-right-source-v3.png",
+      "y": 380
+    },
+    {
+      "side": "left",
+      "source": "wanderer-idle-left-source-v3.png",
+      "y": 380
+    }
+  ]
+}
