@@ -2,28 +2,40 @@
   "hash_alpha": true,
   "facings_profiles": [
     [
-      -1,
-      "legacy"
+      "left",
+      "legacy",
+      "traveler-idle-left-source-v1.png",
+      1768
     ],
     [
-      -1,
-      "h48c32"
+      "left",
+      "h48c32",
+      "traveler-idle-left-source-v1.png",
+      1004
     ],
     [
-      -1,
-      "h32c16"
+      "left",
+      "h32c16",
+      "traveler-idle-left-source-v1.png",
+      445
     ],
     [
-      1,
-      "legacy"
+      "right",
+      "legacy",
+      "traveler-idle-source-v3.png",
+      1684
     ],
     [
-      1,
-      "h48c32"
+      "right",
+      "h48c32",
+      "traveler-idle-source-v3.png",
+      998
     ],
     [
-      1,
-      "h32c16"
+      "right",
+      "h32c16",
+      "traveler-idle-source-v3.png",
+      448
     ]
   ],
   "dead_hidden": true,

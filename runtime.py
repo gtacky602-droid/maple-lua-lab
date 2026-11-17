@@ -56,7 +56,8 @@ def runtime():
     core.primoArt=lua.table_from(json.loads((ROOT/'assets/primo-sprites.json').read_text(encoding='utf8')),recursive=True)
     core.maguuArt=lua.table_from(json.loads((ROOT/'assets/maguu-sprites.json').read_text(encoding='utf8')),recursive=True)
     core.companionArt=lua.table_from({key:json.loads((ROOT/'assets'/f'{key}-idle-sprites.json').read_text(encoding='utf8')) for key in ['beidou','ayaka','wanderer','emilie','kachina','columbina','mitya']},recursive=True)
-    core.travelerIdleArt=lua.table_from(json.loads((ROOT/'assets/traveler-idle-sprites-v3.json').read_text(encoding='utf8')),recursive=True)
+    idle_files={'right':'traveler-idle-sprites-v3.json','left':'traveler-idle-left-sprites-v1.json'}
+    core.travelerIdleArt=lua.table_from({side:json.loads((ROOT/'assets'/name).read_text(encoding='utf8')) for side,name in idle_files.items()},recursive=True)
     run_cycles={}
     for side in ('left','right'):
         prefix=f'traveler-run-{side}'

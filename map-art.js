@@ -22,13 +22,17 @@ try{
  }
  for(const [kind,label,file] of [['boss','ボス待機候補（比較用の大きさ）','boss-art-gallery.json'],['character','主人公・味方（待機候補）','character-art-gallery.json']]){
   const gallery=await json('content/'+file),group=document.createElement('optgroup');group.label=label;
-  const loaded=await Promise.all(gallery.items.map(async item=>({item,data:await json('assets/'+item.file)})));
-  for(const {item,data} of loaded){const id=kind+'-'+item.id;assets[id]={...data,h:item.height,hover:item.mapHover??0};const option=document.createElement('option');option.value=id;option.textContent=item.name;group.append(option)}
+  const loaded=await Promise.all(gallery.items.map(async item=>{
+   const [data,left]=await Promise.all([json('assets/'+item.file),item.leftFile&&json('assets/'+item.leftFile)]);
+   const size={h:item.height,hover:item.mapHover??0};return {item,art:{...data,...size,left:left&&{...left,...size}}};
+  }));
+  for(const {item,art} of loaded){const id=kind+'-'+item.id;assets[id]=art;const option=document.createElement('option');option.value=id;option.textContent=item.name;group.append(option)}
   $('species').append(group);
  }
  setupPlacementPicker($('species'));
- const images=await loadImageSet(Object.values(assets).map(data=>data.source),{onProgress:(done,total)=>{$('status').textContent=`画像を読み込み中 ${done} / ${total}`}});
- for(const data of Object.values(assets))data.image=images[data.source];
+ const imageArt=Object.values(assets).flatMap(data=>data.left?[data,data.left]:[data]);
+ const images=await loadImageSet(imageArt.map(data=>data.source),{onProgress:(done,total)=>{$('status').textContent=`画像を読み込み中 ${done} / ${total}`}});
+ for(const data of imageArt)data.image=images[data.source];
  drafts=validatePlacementDraft(drafts,graph,Object.keys(assets));
  let storedRaw=null;
  try{
@@ -58,6 +62,7 @@ try{
  const nodePicker=setupMapNodePicker({graph,select:$('node'),getDraft:()=>drafts,onChoose:select});
  function node(){return nodes.get($('node').value)}
  function placements(){return drafts.nodes[node().id]??[]}
+ function placementArt(e){const art=assets[e.species];return e.flip&&art.left?art.left:art}
  function render(){
   const renderedDraft=placementSignature(drafts),dirty=renderedDraft!==savedSignature;if(renderedDraft!==lastRenderedDraft){lastRenderedDraft=renderedDraft;$('browserStatus').textContent=dirty?'未保存の編集があります。再読み込み前にブラウザ保存またはJSON保存してください。':cleanMessage}
   const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=placements(),frame={camera,platforms:n.platforms,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
@@ -66,15 +71,15 @@ try{
   const mapped=Object.values(sceneryDefinitions).some(d=>d.region===n.region),valid=items.every(e=>n.platforms.some(p=>p.y===e.y&&e.x>=p.x&&e.x<=p.x+p.w));
   $('cameraValue').value=camera;$('context').textContent=`${n.name} ／ 幅${n.width}px ／ ${n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${background.state!=='ready'?'背景画像を読み込めません：単色で表示（'+background.file+'）':mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用'}。配置${items.length}体（見た目確認用）。`;
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame);ctx.imageSmoothingEnabled=false;
-   for(const e of items){const a=assets[e.species],w=a.h*a.box[2]/a.box[3],anchor=a.anchorX??.5,x=e.x-camera;ctx.save();ctx.translate(x,e.y-a.hover);if(e.flip)ctx.scale(-1,1);
+   for(const e of items){const a=placementArt(e),flip=e.flip&&a===assets[e.species],w=a.h*a.box[2]/a.box[3],anchor=a.anchorX??.5,x=e.x-camera;ctx.save();ctx.translate(x,e.y-a.hover);if(flip)ctx.scale(-1,1);
     if(mode==='png')ctx.drawImage(a.image,...a.box,-w*anchor,-a.h,w,a.h);else{const p=a.profiles[profile];for(const r of p.runs){ctx.fillStyle=r[4];ctx.fillRect(-w*anchor+r[0]*w/p.width,-a.h+r[1]*a.h/p.height,r[2]*w/p.width+.05,r[3]*a.h/p.height+.05)}}ctx.restore();
-    if(e.id===selected){ctx.strokeStyle='#ffe08a';ctx.lineWidth=2;ctx.strokeRect(x-w*(e.flip?1-anchor:anchor)-3,e.y-a.hover-a.h-3,w+6,a.h+6)}
+    if(e.id===selected){ctx.strokeStyle='#ffe08a';ctx.lineWidth=2;ctx.strokeRect(x-w*(flip?1-anchor:anchor)-3,e.y-a.hover-a.h-3,w+6,a.h+6)}
     ctx.fillStyle='#ffffff';ctx.fillRect(x-3,e.y-1,6,2);
    }
   }
   $('placements').replaceChildren();for(const e of items){const label=document.createElement('button');label.type='button';label.dataset.id=e.id;label.setAttribute('aria-pressed',String(e.id===selected));label.onclick=()=>{selected=e.id;$('editMode').value='move';render()};label.textContent=`${e.species}：(${e.x}, ${e.y})${assets[e.species].hover?` ／ 浮き ${assets[e.species].hover}px`:``}`;$('placements').append(label)}
   const chosen=items.find(e=>e.id===selected);$('selectionStatus').textContent=chosen?`選択：${chosen.species} (${chosen.x}, ${chosen.y})`:'選択なし';for(const id of ['focusSelected','replaceSelected','copySelected','flipSelected','deleteSelected','clearSelection'])$(id).disabled=!chosen;
-  const runs=items.reduce((sum,e)=>sum+assets[e.species].profiles[profile].runs.length,0);$('status').textContent=`配置${items.length}体 ／ 矩形${runs.toLocaleString()}個（配置した全体の合計・FPSではありません） ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
+  const runs=items.reduce((sum,e)=>sum+placementArt(e).profiles[profile].runs.length,0);$('status').textContent=`配置${items.length}体 ／ 矩形${runs.toLocaleString()}個（配置した全体の合計・FPSではありません） ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
   const diff=baselines[n.id]?comparePlacements(baselines[n.id],items):null;
   $('diffSummary').textContent=diff?`取得した本編配置との差分：追加${diff.added.length}・削除${diff.removed.length}・変更${diff.changed.length}・同じ${diff.unchanged}体`:'この地点の本編配置は未取得です。比較しても編集案は変わりません。';
   $('diffDetails').replaceChildren();
@@ -82,7 +87,8 @@ try{
   const line=text=>{const li=document.createElement('li');li.textContent=text;$('diffDetails').append(li)};
   if(diff){for(const e of diff.added)line(`追加 ${e.id}：${describe(e)}`);for(const e of diff.removed)line(`削除 ${e.id}：${describe(e)}`);for(const e of diff.changed){const names={species:'敵種',x:'横位置',y:'足場の高さ',flip:'向き'};line(`変更 ${e.id}［${e.fields.map(k=>names[k]).join('・')}］：${describe(e.before)} → ${describe(e.after)}`)}}
   nodePicker.update();positionEditor.update();
-  window.mapArt={diff,dirty,ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,selected,editMode:$('editMode').value,placements:structuredClone(items),visuals:items.map(e=>({id:e.id,y:e.y-assets[e.species].hover,hover:assets[e.species].hover,height:assets[e.species].h})),grounded:valid,background:sceneryKey(frame),backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file};
+  const visuals=items.map(e=>{const a=placementArt(e);return {id:e.id,source:a.source,y:e.y-a.hover,hover:a.hover,height:a.h}});
+  window.mapArt={diff,dirty,ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,selected,editMode:$('editMode').value,placements:structuredClone(items),visuals,grounded:valid,background:sceneryKey(frame),backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file};
  }
  function remember(id){const history=histories[id]??=[];history.push(structuredClone(drafts.nodes[id]??[]));if(history.length>100)history.shift();delete redos[id]}
  function restoreHistory(from,to){
@@ -99,8 +105,8 @@ try{
  $('clearSelection').onclick=()=>{selected=null;$('editMode').value='add';render()};
  $('focusSelected').onclick=()=>{
   const e=placements().find(e=>e.id===selected);if(!e)return;
-  const a=assets[e.species],width=a.h*a.box[2]/a.box[3];
-  const center=e.x+width*(.5-(a.anchorX??.5))*(e.flip?-1:1);
+  const a=placementArt(e),width=a.h*a.box[2]/a.box[3],flip=e.flip&&a===assets[e.species];
+  const center=e.x+width*(.5-(a.anchorX??.5))*(flip?-1:1);
   $('camera').value=Math.round(Math.max(0,Math.min(Math.max(0,node().width-960),center-480)));
   render();$('png').scrollIntoView({block:'center',behavior:'instant'});
  };

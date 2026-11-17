@@ -49,7 +49,7 @@
     }
   ],
   "anchorMethod": "Match the bottom opacity crop to the sole baseline. Set horizontal root from the projected hip center in each source, keeping the step's natural front-foot offset from the actor's horizontal anchor.",
-  "limits": "Direction-specific idle, jump art, and a fully refined locomotion loop are pending. Far-side details and fine motifs are simplified.",
+  "limits": "Jump art and a fully refined locomotion loop are pending. Far-side details and fine motifs are simplified.",
   "evidence": [
     "evidence/traveler-run-comparison.png",
     "evidence/traveler-art-test.json",
@@ -141,5 +141,36 @@
         ]
       }
     }
+  },
+  "idleFacing": {
+    "guide": "DESIGN_MAPLE_CHIBI_STYLE_GUIDE_V01.md",
+    "right": {
+      "source": "assets/traveler-idle-source-v3.png",
+      "runs88_66_44": [
+        1684,
+        998,
+        448
+      ]
+    },
+    "left": {
+      "source": "assets/traveler-idle-left-source-v1.png",
+      "encoding": "assets/traveler-idle-left-sprites-v1.json",
+      "sha256": "1c8a996e3c8380f714dd436d97cec581252ce0ce69e14886aa62576892ec2f5f",
+      "runs88_66_44": [
+        1768,
+        1004,
+        445
+      ],
+      "references": [
+        "assets/traveler-idle-source-v3.png",
+        "work/references/aether-views/right.png",
+        "assets/traveler-run-left-source-v3.png"
+      ],
+      "pmxSideSHA256": "75156a3ccfdc2d1fdcd08834af5b211cf36168f8a7f88c89900b6f5ee6244079",
+      "pose": "Neutral standing facing screen left. On the near side: large gold pauldron and pearl earring. Braid and divided cloth hang behind, toward screen right.",
+      "proportion": "Approx. 2.9 heads, measured from the crown excluding the elevated tuft. Manual chin/crown reading from the source.",
+      "anchorX": 0.36678200692041524
+    },
+    "comparison": "Same 88px rendered height, foot base mapped to actor.y. Verified direction-specific PNG, all rectangle profiles, movement and stop, gallery and map placement. The lightest profile softens the engraved pattern especially; general shape and color remain visible."
   }
 }

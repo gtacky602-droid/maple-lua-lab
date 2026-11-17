@@ -13,55 +13,64 @@
         "id": "traveler",
         "h": 88,
         "w": 44.612612612612615,
-        "ratio": 0.506961506961507
+        "ratio": 0.506961506961507,
+        "source": "traveler-idle-source-v3.png"
       },
       {
         "id": "amber",
         "h": 88,
         "w": 46.597495527728086,
-        "ratio": 0.5295169946332737
+        "ratio": 0.5295169946332737,
+        "source": "amber-idle-source-v3.png"
       },
       {
         "id": "beidou",
         "h": 88,
         "w": 47.9774011299435,
-        "ratio": 0.5451977401129944
+        "ratio": 0.5451977401129944,
+        "source": "beidou-idle-source-v3.png"
       },
       {
         "id": "ayaka",
         "h": 88,
         "w": 44.5352798053528,
-        "ratio": 0.5060827250608273
+        "ratio": 0.5060827250608273,
+        "source": "ayaka-idle-source-v3.png"
       },
       {
         "id": "wanderer",
         "h": 88,
         "w": 61.51747655583973,
-        "ratio": 0.6990622335890878
+        "ratio": 0.6990622335890878,
+        "source": "wanderer-idle-source-v2.png"
       },
       {
         "id": "emilie",
         "h": 88,
         "w": 32.92993630573248,
-        "ratio": 0.37420382165605093
+        "ratio": 0.37420382165605093,
+        "source": "emilie-idle-source-v2.png"
       },
       {
         "id": "kachina",
         "h": 76,
-        "w": 36.274153592072665,
-        "ratio": 0.4772914946325351
+        "w": 36.27415359207267,
+        "ratio": 0.4772914946325351,
+        "source": "kachina-idle-source-v2.png"
       },
       {
         "id": "columbina",
         "h": 88,
-        "w": 49.16160787530763,
-        "ratio": 0.5586546349466776
+        "w": 49.161607875307624,
+        "ratio": 0.5586546349466776,
+        "source": "columbina-idle-source-v2.png"
       },
       {
         "id": "mitya",
         "h": 88,
         "w": 37.921052631578945,
-        "ratio": 0.4309210526315789
+        "ratio": 0.4309210526315789,
+        "source": "mitya-idle-source-v2.png"
       }
     ]
   },

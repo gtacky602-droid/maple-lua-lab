@@ -5,6 +5,7 @@
       "id": "traveler",
       "name": "旅人",
       "file": "traveler-idle-sprites-v3.json",
+      "leftFile": "traveler-idle-left-sprites-v1.json",
       "height": 88
     },
     {
