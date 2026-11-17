@@ -1,0 +1,80 @@
+{
+  "subject": "Capitano / 隊長",
+  "status": "coat-on entrance idle candidate only",
+  "design": "docs/stygian-motion-v1/CAPITANO.md",
+  "style": "DESIGN_MAPLE_CHIBI_STYLE_GUIDE_V01.md",
+  "references": [
+    {
+      "page": "https://www.youtube.com/watch?v=8qon5akq198",
+      "image": "https://i.ytimg.com/vi/8qon5akq198/maxresdefault.jpg",
+      "sha256": "c8cab4f795e7d4f599e6fe1ed37cf0fcdb8c5d3c05c2e5558e3d251a33e5a882",
+      "use": "Official Japanese cutscene thumbnail. Right half used for helmet, face void and fur; no claim of film or hand-timing inspection."
+    },
+    {
+      "page": "https://skowt.cc/a/sEWyS3jDi",
+      "preview": "https://pack.skowt.cc/asset/01a16b3f-0c98-71e9-987e-ad2e65017252-preview.webp?v=4d2cd304e0",
+      "sha256": "726016b2c2f85ae00334e9569659e4a7db6dc94391db6e8a49eb7d49c2181956",
+      "use": "Idle model was rotated to inspect front, both sides and rear. Unmodified preview render passed to ImageGen. Right brooch, dark fur collar, long coat and face closure identified; screenshots and preview kept only in local work.",
+      "terms": "Viewer identifies the model as a Genshin asset by COGNOSPHERE and lists non-commercial fan use with publisher policy. No model or reference renders are included with the repo.",
+      "views": {
+        "front": "464ceebb24aca499c73918a160b1f011ecea0e7a818588ffd4c7eb226fc3ffc4",
+        "side": "5e2ef6f660966146ceac9e70c48380e956858eec50016d9134c51c2aa3981679",
+        "rear": "956987a83b3c445182b46fbbf97e051e4b001a8c8a2ba3b08816dd33195fa36f",
+        "other_side": "6463c670e26ddca225100aacf91996626e4d6f1f01c4c92e542bb71c7353673a"
+      }
+    },
+    {
+      "path": "assets/farka-guide-right-source-v1.png",
+      "use": "Low-head pixel-art proportions, not costume."
+    }
+  ],
+  "generation": {
+    "tool": "built-in ImageGen",
+    "prompt": "Create one transparent sprite sheet for a 2D side-scrolling JRPG: TWO separate idle entrance sprites of Capitano (the masked captain from Genshin Impact). On the left half, Capitano faces screen right in a visible three-quarter turn. On the right half he faces screen left in a visible three-quarter turn. Each whole figure has ample transparent margin and fully visible soles, same aligned baseline, broad completely transparent gutter. Use image 1 (source 3D-model render) as main costume reference; image 2 (official cutscene thumbnail) only for the masked captain on its RIGHT, especially helmet silhouette and coat details; ignore the other person and arena. Use image 3 (compact blond horseman) ONLY for sprite proportions, thick boots and pixel-cluster rendering, not its costume or face. Real chunky pixel art with a dark 1px rim at a functional 152px in-game height, manually shaped 2-4 tonal clusters per material. Helmet and concealed face about one-third of height including crest, strong shoulders, short torso, short thick lower legs and two planted shoes showing under coat. Helmet is capacious dark navy with the source's angular gold star-shaped crest and silver curved chin guard. Preserve the complete black void inside the mask, no eyes, no glowing facial dots, no mouth or skin. Preserve the blue-gray feather/fur mantle, midnight navy overcoat with silver diamond insets and trim, right shoulder's large silver four-point brooch and gold chest chains. Brooch remains on the same anatomical shoulder in both views; the opposite shoulder shows the smaller silver trim. Garment opens just enough to reveal the dark boots. Both heavy gloved hands at rest, gloves partly covered by coat. This is the arrival pose with the Snezhnayan coat, no sword or other prop, no action pose, no magic aura, no snow particles, no shadows, no text, no color swatches, no ground, real transparency.",
+    "sheet_px": [
+      1774,
+      887
+    ],
+    "sheet_sha256": "a8d677179e19d6b03a4991093d8565d0d0adb84e907d43df356122d0a778fe36",
+    "split_x": 887
+  },
+  "staging": {
+    "background": "assets/natlan-background-v1.png",
+    "map_preview": "natlan-entry",
+    "ground_y": 480,
+    "display_height": 152,
+    "foot_anchor": "midpoint of opaque pixels in bottom 1.8% of height",
+    "profiles_px": [
+      152,
+      114,
+      76
+    ],
+    "colors": [
+      32,
+      32,
+      16
+    ],
+    "reserved_gold": "#cfae71",
+    "right_rectangles": [
+      6369,
+      3923,
+      1766
+    ],
+    "left_rectangles": [
+      6166,
+      3864,
+      1731
+    ],
+    "right_without_reservation": [
+      6410,
+      3925,
+      1787
+    ],
+    "left_without_reservation": [
+      6210,
+      3897,
+      1746
+    ]
+  },
+  "limits": "The 152px preview counts the crest inside its bounding box. The exact anatomical head is hidden by helmet and boots; no precise anatomy ratio claimed. Fine chains and filigree soften in 16 colors. Sleeves, hem and boots were simplified and the far brooch is mostly occluded in the left-facing art. Two stationary entrance frames only. Coat-off ready, sword grip side and transitions still need direct cutscene frames and separate assets."
+}

@@ -12,15 +12,24 @@ check('every imported entity represented',set(x['id'] for x in source['boss_enti
 check('encounter IDs unique',len({r['id'] for r in rows})==len(rows))
 check('vishap pair grouped',len([r for r in rows if '26050801' in r['entity_ids']])==1 and len(next(r for r in rows if r['id']=='bathysmal-herd')['entity_ids'])==2)
 check('suite has two selectable variants',len([r for r in rows if '24070301' in r['entity_ids']])==2)
-check('original encounters retained',len([r for r in rows if r['kind']=='stygian'])==3)
+check('original and authored encounters retained',{r['id'] for r in rows if r['kind']=='stygian'}=={
+ 'stygian-farka','stygian-beidou','stygian-wanderer','stygian-capitano',
+ 'stygian-xbalanque','stygian-rerir','stygian-ronova',
+})
 check('completion not overclaimed',d['counts']['complete']==0 and not d['complete_roster_verified'])
 check('not implemented rows cannot launch',all(r['action'] is None for r in rows if r['status']=='not_implemented'))
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
-check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':66,'partial':11,'complete':0})
+check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':70,'partial':11,'complete':0})
 by_id={r['id']:r for r in rows}
 check('both paired encounters retain two art references',all(len(by_id[id]['art_components'])==2 for id in ('bathysmal-herd','boss-29122000')))
-check('all candidates retain gallery references',all(r.get('art_candidate') or r.get('art_components') for r in rows))
+check('only new design-only candidates lack art',{
+ r['id'] for r in rows if not (r.get('art_candidate') or r.get('art_components'))
+}=={'stygian-xbalanque','stygian-rerir','stygian-ronova'})
+check('Capitano art and design linked without a playable action',
+      by_id['stygian-capitano']['art_candidate']['encoding']=='assets/capitano-coat-right-sprites-v1.json'
+      and by_id['stygian-capitano']['evidence']==['docs/stygian-motion-v1/CAPITANO.md']
+      and by_id['stygian-capitano']['action'] is None)
 
 read_json=build_encounters.read_json
 def read_previous_beidou_art(path):

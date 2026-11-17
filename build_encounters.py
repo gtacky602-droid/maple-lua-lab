@@ -73,7 +73,7 @@ def build():
         rows.append({
             'id': 'stygian-' + entry['id'], 'name': entry['name'], 'kind': 'stygian',
             'entity_ids': [], 'status': 'not_implemented', 'action': None, 'grouping': 'original_design',
-            'evidence': [original['source']], 'remaining': ['完成ドット絵・台詞', '4難度・報酬', 'マルチ・記録'],
+            'evidence': [entry.get('source', original['source'])], 'remaining': ['完成ドット絵・台詞', '4難度・報酬', 'マルチ・記録'],
         })
     unknown = details.keys() - {row['id'] for row in rows}
     if unknown:

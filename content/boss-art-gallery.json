@@ -458,6 +458,14 @@
       "mapHover": 0
     },
     {
+      "id": "capitano-coat",
+      "name": "隊長（外套あり・入場待機候補）",
+      "file": "capitano-coat-right-sprites-v1.json",
+      "leftFile": "capitano-coat-left-sprites-v1.json",
+      "height": 152,
+      "mapHover": 0
+    },
+    {
       "id": "anemo",
       "name": "無相の風・外殻（既存候補）",
       "file": "anemo-shell-sprites.json",

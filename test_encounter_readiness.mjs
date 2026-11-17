@@ -11,7 +11,7 @@ try{
   if(requests===2)await gate;
   await route.continue();
  });
- await p.goto(base);await p.waitForFunction(()=>document.querySelectorAll('[data-encounter]').length===66);
+ await p.goto(base);await p.waitForFunction(()=>document.querySelectorAll('[data-encounter]').length===70);
  const panel=p.locator('#encountersPanel');await panel.locator('summary').click();
  await p.waitForFunction(()=>document.querySelector('#status').textContent.includes('通信に失敗'));
  assert.equal(await p.evaluate(()=>Boolean(window.lab)),false);
@@ -31,12 +31,12 @@ try{
  // The opposite load order: runtime becomes ready before encounter metadata arrives.
  let unlock;const delayed=new Promise(resolve=>unlock=resolve);
  await p.route('**/content/encounters.json',async route=>{await delayed;await route.continue()});
- await p.reload();await p.waitForFunction(()=>window.lab?.frame);unlock();await p.waitForFunction(()=>document.querySelectorAll('[data-encounter]').length===66);
+ await p.reload();await p.waitForFunction(()=>window.lab?.frame);unlock();await p.waitForFunction(()=>document.querySelectorAll('[data-encounter]').length===70);
  if(!await panel.evaluate(el=>el.open))await panel.locator('summary').click();
  assert.equal(await panel.locator('[data-runtime-action]:enabled').count(),11);
- assert.equal(await panel.getByRole('button',{name:'制作中',exact:true}).count(),55);
+ assert.equal(await panel.getByRole('button',{name:'制作中',exact:true}).count(),59);
  assert.equal(await panel.locator('button:enabled:not([data-runtime-action])').count(),0);
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/encounter-readiness-test.json',JSON.stringify({earlyFailureDisabled:true,syntheticEarlyClickSafe:true,variantPreserved:true,recoveredLaunch:'boss_farka',lateCatalogEnabled:11,unimplementedDisabled:55,errors},null,2));
+ await fs.writeFile('evidence/encounter-readiness-test.json',JSON.stringify({earlyFailureDisabled:true,syntheticEarlyClickSafe:true,variantPreserved:true,recoveredLaunch:'boss_farka',lateCatalogEnabled:11,unimplementedDisabled:59,errors},null,2));
  console.log('Both boot orders, first-frame failure/recovery and guarded launch passed');
 }finally{release();await browser.close()}

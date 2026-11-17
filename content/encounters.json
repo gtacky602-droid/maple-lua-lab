@@ -5,7 +5,7 @@
   "warning": "制作候補一覧。最新の全ボス網羅・戦闘単位の最終確認は未完。未実装を挑戦可能として表示しない。",
   "counts": {
     "source_entities": 63,
-    "encounter_candidates": 66,
+    "encounter_candidates": 70,
     "partial": 11,
     "complete": 0
   },
@@ -1809,6 +1809,85 @@
         "gallery": "characters",
         "encoding": "assets/wanderer-idle-right-sprites-v3.json"
       }
+    },
+    {
+      "id": "stygian-capitano",
+      "name": "隊長",
+      "kind": "stygian",
+      "entity_ids": [],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "original_design",
+      "evidence": [
+        "docs/stygian-motion-v1/CAPITANO.md"
+      ],
+      "remaining": [
+        "外套なし・氷剣の構え、専用モーション・台詞",
+        "専用戦闘行動",
+        "4難度・報酬",
+        "マルチ・記録"
+      ],
+      "art_candidate": {
+        "source": "assets/capitano-coat-right-source-v1.png",
+        "encoding": "assets/capitano-coat-right-sprites-v1.json",
+        "audit": "evidence/capitano-coat-reference-audit.json",
+        "status": "directional coat-on entrance idle candidate"
+      },
+      "review_note": "外套ありの入場待機を152pxの比較サイズで左右別に試作。"
+    },
+    {
+      "id": "stygian-xbalanque",
+      "name": "シュバランケ",
+      "kind": "stygian",
+      "entity_ids": [],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "original_design",
+      "evidence": [
+        "docs/stygian-motion-v1/XBALANQUE.md"
+      ],
+      "remaining": [
+        "完成ドット絵・台詞",
+        "4難度・報酬",
+        "マルチ・記録",
+        "専用戦闘行動"
+      ]
+    },
+    {
+      "id": "stygian-rerir",
+      "name": "レリル",
+      "kind": "stygian",
+      "entity_ids": [],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "original_design",
+      "evidence": [
+        "docs/stygian-motion-v1/RERIR.md"
+      ],
+      "remaining": [
+        "完成ドット絵・台詞",
+        "4難度・報酬",
+        "マルチ・記録",
+        "専用戦闘行動"
+      ]
+    },
+    {
+      "id": "stygian-ronova",
+      "name": "ロノヴァ",
+      "kind": "stygian",
+      "entity_ids": [],
+      "status": "not_implemented",
+      "action": null,
+      "grouping": "original_design",
+      "evidence": [
+        "docs/stygian-motion-v1/RONOVA.md"
+      ],
+      "remaining": [
+        "完成ドット絵・台詞",
+        "4難度・報酬",
+        "マルチ・記録",
+        "専用戦闘行動"
+      ]
     }
   ]
 }

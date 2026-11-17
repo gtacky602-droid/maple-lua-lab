@@ -595,6 +595,20 @@
         "gallery": "characters",
         "item": "wanderer"
       }
+    },
+    "stygian-capitano": {
+      "art_candidate": {
+        "item": "capitano-coat",
+        "audit": "evidence/capitano-coat-reference-audit.json",
+        "status": "directional coat-on entrance idle candidate"
+      },
+      "remaining": [
+        "外套なし・氷剣の構え、専用モーション・台詞",
+        "専用戦闘行動",
+        "4難度・報酬",
+        "マルチ・記録"
+      ],
+      "review_note": "外套ありの入場待機を152pxの比較サイズで左右別に試作。"
     }
   }
 }

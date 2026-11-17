@@ -12,14 +12,14 @@ for(const encounter of data.encounters){
   assert(catalogs[art.gallery??'bosses']?.some(item=>'assets/'+item.file===art.encoding),'Missing registered art '+art.encoding);
  }
 }
-assert(expected.every(e=>e.items.length>0));
+assert.deepEqual(expected.filter(e=>!e.items.length).map(e=>e.id),['stygian-xbalanque','stygian-rerir','stygian-ronova']);
 assert.equal(expected.find(e=>e.id==='bathysmal-herd').items.length,2);
 assert.deepEqual(encounterArtItems({art_candidate:{encoding:'javascript:alert(1)'}},catalogs),[]);
 const browser=await chromium.launch({headless:true,channel:'chrome'}),context=await browser.newContext({viewport:{width:1440,height:1080}}),p=await context.newPage(),errors=[];
 p.on('pageerror',e=>errors.push(e.message));
 const base=process.env.LAB_URL||'http://127.0.0.1:8771';
 try{
- await p.goto(base);await p.waitForFunction(()=>window.lab?.frame&&document.querySelectorAll('[data-encounter]').length===66);
+ await p.goto(base);await p.waitForFunction(count=>window.lab?.frame&&document.querySelectorAll('[data-encounter]').length===count,expected.length);
  const panel=p.locator('#encountersPanel');await panel.locator('summary').click();
  for(const e of expected){
   const row=panel.locator(`[data-encounter="${e.id}"]`),links=row.locator('.encounter-art a');assert.equal(await links.count(),e.items.length);
@@ -49,13 +49,16 @@ try{
   assert.match(await row.locator('.encounter-art').innerText(),/同行キャラの待機絵を共用/);
   await verifyPopup(row.locator('.encounter-art a'),'characters-art.html',id);
  }
+ const captain=panel.locator('[data-encounter="stygian-capitano"]');
+ assert(await captain.getByRole('button',{name:'制作中',exact:true}).isDisabled());
+ await verifyPopup(captain.locator('.encounter-art a'),'bosses-art.html','capitano-coat');
  await panel.screenshot({path:'evidence/encounter-art-desktop.png'});
  await p.setViewportSize({width:390,height:844});await panel.screenshot({path:'evidence/encounter-art-mobile.png'});
  assert.equal(await panel.evaluate(el=>el.scrollWidth>el.clientWidth),false);
  for(const [key,{catalog}] of Object.entries(encounterArtGalleries)){
   const routePattern=`**/${catalog}`;
   await p.route(routePattern,route=>route.fulfill({status:503,body:'unavailable'}));await p.reload();
-  await p.waitForFunction(()=>window.lab?.frame&&document.querySelectorAll('[data-encounter]').length===66);
+  await p.waitForFunction(count=>window.lab?.frame&&document.querySelectorAll('[data-encounter]').length===count,expected.length);
   if(!await panel.evaluate(el=>el.open))await panel.locator('summary').click();
   const remaining=expected.flatMap(e=>e.items).filter(item=>item.gallery!==key);
   assert.equal(await panel.locator('.encounter-art a').count(),remaining.length);
@@ -63,6 +66,6 @@ try{
   await p.unroute(routePattern);
  }
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/encounter-art-test.json',JSON.stringify({rows:expected.length,rowsWithArt:expected.filter(e=>e.items.length).length,artLinks:expected.reduce((n,e)=>n+e.items.length,0),bossPopupsVerified:2,characterPopupsVerified:2,mobilePanelOverflow:false,catalogFailuresPreserveOtherLinksAndLaunch:true,errors},null,2));
+ await fs.writeFile('evidence/encounter-art-test.json',JSON.stringify({rows:expected.length,rowsWithArt:expected.filter(e=>e.items.length).length,artLinks:expected.reduce((n,e)=>n+e.items.length,0),bossPopupsVerified:3,characterPopupsVerified:2,mobilePanelOverflow:false,catalogFailuresPreserveOtherLinksAndLaunch:true,errors},null,2));
  console.log('Encounter art links, boss and character navigation, mobile and catalog failures passed');
 }finally{await browser.close()}

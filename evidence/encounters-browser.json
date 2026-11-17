@@ -1,8 +1,8 @@
 {
   "errors": [],
-  "allCandidates": 66,
+  "allCandidates": 70,
   "suiteVariants": 2,
-  "stygianCandidates": 3,
+  "stygianCandidates": 7,
   "disabledUnimplemented": true,
   "launchesVerified": [
     "boss_array_3",

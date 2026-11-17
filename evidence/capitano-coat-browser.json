@@ -1,0 +1,85 @@
+{
+  "directions": [
+    {
+      "side": "right",
+      "profile": "legacy",
+      "rectangles": 6369
+    },
+    {
+      "side": "right",
+      "profile": "h48c32",
+      "rectangles": 3923
+    },
+    {
+      "side": "right",
+      "profile": "h32c16",
+      "rectangles": 1766
+    },
+    {
+      "side": "left",
+      "profile": "legacy",
+      "rectangles": 6166
+    },
+    {
+      "side": "left",
+      "profile": "h48c32",
+      "rectangles": 3864
+    },
+    {
+      "side": "left",
+      "profile": "h32c16",
+      "rectangles": 1731
+    }
+  ],
+  "map": {
+    "diff": null,
+    "dirty": true,
+    "ready": true,
+    "node": "natlan-entry",
+    "nodeCount": 61,
+    "camera": 0,
+    "profile": "h32c16",
+    "count": 2,
+    "selected": null,
+    "editMode": "add",
+    "placements": [
+      {
+        "id": "added-1",
+        "species": "boss-capitano-coat",
+        "x": 271,
+        "y": 480,
+        "flip": false
+      },
+      {
+        "id": "added-2",
+        "species": "boss-capitano-coat",
+        "x": 656,
+        "y": 480,
+        "flip": true
+      }
+    ],
+    "visuals": [
+      {
+        "id": "added-1",
+        "source": "capitano-coat-right-source-v1.png",
+        "y": 480,
+        "hover": 0,
+        "height": 152
+      },
+      {
+        "id": "added-2",
+        "source": "capitano-coat-left-source-v1.png",
+        "y": 480,
+        "hover": 0,
+        "height": 152
+      }
+    ],
+    "grounded": true,
+    "background": "natlan",
+    "backgroundFallback": false,
+    "backgroundState": "ready",
+    "backgroundFile": "natlan-background-v1.png"
+  },
+  "mobileOverflow": false,
+  "errors": []
+}

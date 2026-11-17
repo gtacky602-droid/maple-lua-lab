@@ -18,7 +18,31 @@
       "id": "wanderer",
       "name": "放浪者・空中決闘",
       "status": "not_implemented"
+    },
+    {
+      "id": "capitano",
+      "name": "隊長",
+      "status": "not_implemented",
+      "source": "docs/stygian-motion-v1/CAPITANO.md"
+    },
+    {
+      "id": "xbalanque",
+      "name": "シュバランケ",
+      "status": "not_implemented",
+      "source": "docs/stygian-motion-v1/XBALANQUE.md"
+    },
+    {
+      "id": "rerir",
+      "name": "レリル",
+      "status": "not_implemented",
+      "source": "docs/stygian-motion-v1/RERIR.md"
+    },
+    {
+      "id": "ronova",
+      "name": "ロノヴァ",
+      "status": "not_implemented",
+      "source": "docs/stygian-motion-v1/RONOVA.md"
     }
   ],
-  "note": "資料に挙がる3例を制作対象として記録。通常・週ボス63件は敵エンティティ候補で、戦闘単位の重複整理は未完。"
+  "note": "11月16日の企画にある3件と、11月17日のモーション制作基準で設計された追加4件を収録。通常・週ボス63件は敵エンティティ候補で、戦闘単位の重複整理は未完。"
 }
