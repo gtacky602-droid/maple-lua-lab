@@ -1145,6 +1145,264 @@
         "x": 545,
         "platform": 2
       }
+    ],
+    "chasm-wp-25268": [
+      {
+        "id": "chasm-wp-25268-1",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 285,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25268-2",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 365,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25268-3",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 450,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25268-4",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 590,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25268-5",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 665,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25268-6",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 765,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25268-7",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 925,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25268-8",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 1005,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25268-9",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 1085,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25268-10",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 310,
+        "platform": 1
+      },
+      {
+        "id": "chasm-wp-25268-11",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 365,
+        "platform": 1
+      },
+      {
+        "id": "chasm-wp-25268-12",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 561,
+        "platform": 2
+      }
+    ],
+    "chasm-wp-25269": [
+      {
+        "id": "chasm-wp-25269-1",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 285,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25269-2",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 365,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25269-3",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 450,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25269-4",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 590,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25269-5",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 665,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25269-6",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 765,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25269-7",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 925,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25269-8",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 1005,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25269-9",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 1085,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25269-10",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 310,
+        "platform": 1
+      },
+      {
+        "id": "chasm-wp-25269-11",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 365,
+        "platform": 1
+      },
+      {
+        "id": "chasm-wp-25269-12",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 561,
+        "platform": 2
+      }
+    ],
+    "chasm-wp-25270": [
+      {
+        "id": "chasm-wp-25270-1",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 285,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25270-2",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 365,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25270-3",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 450,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25270-4",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 590,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25270-5",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 665,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25270-6",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 765,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25270-7",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 925,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25270-8",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 1005,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25270-9",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 1085,
+        "platform": 0
+      },
+      {
+        "id": "chasm-wp-25270-10",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 310,
+        "platform": 1
+      },
+      {
+        "id": "chasm-wp-25270-11",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 365,
+        "platform": 1
+      },
+      {
+        "id": "chasm-wp-25270-12",
+        "kind": 1,
+        "art": "hydro-slime",
+        "x": 561,
+        "platform": 2
+      }
     ]
   }
 }

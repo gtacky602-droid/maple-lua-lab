@@ -246,6 +246,76 @@
       "rightCamera": 960
     },
     {
+      "node": "chasm-wp-25264",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "chasm-wp-25266",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "chasm-wp-25267",
+      "width": 1600,
+      "rightCamera": 640
+    },
+    {
+      "node": "chasm-wp-25268",
+      "width": 1600,
+      "rightCamera": 640
+    },
+    {
+      "node": "chasm-wp-25269",
+      "width": 1760,
+      "rightCamera": 800
+    },
+    {
+      "node": "chasm-wp-25270",
+      "width": 1600,
+      "rightCamera": 640
+    },
+    {
+      "node": "chasm-wp-25271",
+      "width": 1600,
+      "rightCamera": 640
+    },
+    {
+      "node": "chasm-wp-25272",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "chasm-wp-25273",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "chasm-wp-25274",
+      "width": 1600,
+      "rightCamera": 640
+    },
+    {
+      "node": "chasm-wp-25275",
+      "width": 1600,
+      "rightCamera": 640
+    },
+    {
+      "node": "chasm-wp-25276",
+      "width": 1760,
+      "rightCamera": 800
+    },
+    {
+      "node": "chasm-wp-25277",
+      "width": 1600,
+      "rightCamera": 640
+    },
+    {
+      "node": "chasm-wp-26463",
+      "width": 1760,
+      "rightCamera": 800
+    },
+    {
       "node": "golden-hub",
       "width": 1440,
       "rightCamera": 480

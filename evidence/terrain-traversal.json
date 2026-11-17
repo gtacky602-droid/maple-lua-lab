@@ -913,6 +913,320 @@
       "ground_both_directions": true
     },
     {
+      "node": "chasm-wp-25264",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 0,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "chasm-wp-25266",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "chasm-wp-25267",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "chasm-wp-25268",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 0,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "chasm-wp-25269",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 0,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "chasm-wp-25270",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 0,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "chasm-wp-25271",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 0,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "chasm-wp-25272",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "chasm-wp-25273",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "chasm-wp-25274",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "chasm-wp-25275",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "chasm-wp-25276",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 0,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "chasm-wp-25277",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 0,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "chasm-wp-26463",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 0,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 0,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
       "node": "golden-hub",
       "platforms": 4,
       "jump_routes": [

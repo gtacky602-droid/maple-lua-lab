@@ -483,12 +483,152 @@
     {
       "node": "chasm-depth",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 3
     },
     {
       "node": "chasm-depth",
       "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "chasm-wp-25264",
+      "mode": "sprite",
       "visible_portals": 1
+    },
+    {
+      "node": "chasm-wp-25264",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "chasm-wp-25266",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "chasm-wp-25266",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "chasm-wp-25267",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "chasm-wp-25267",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "chasm-wp-25268",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "chasm-wp-25268",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "chasm-wp-25269",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "chasm-wp-25269",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "chasm-wp-25270",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "chasm-wp-25270",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "chasm-wp-25271",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "chasm-wp-25271",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "chasm-wp-25272",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "chasm-wp-25272",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "chasm-wp-25273",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "chasm-wp-25273",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "chasm-wp-25274",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "chasm-wp-25274",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "chasm-wp-25275",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "chasm-wp-25275",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "chasm-wp-25276",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "chasm-wp-25276",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "chasm-wp-25277",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "chasm-wp-25277",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "chasm-wp-26463",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "chasm-wp-26463",
+      "mode": "rect",
+      "visible_portals": 3
     },
     {
       "node": "golden-hub",

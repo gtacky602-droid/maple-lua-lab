@@ -57,9 +57,28 @@ try{
  assert.match(await chosen.innerText(),/モンド.*373\.5/);
  await search.fill('');
  await map.selectOption('9');
- const sourceMarker=catalog.nodes.find(marker=>marker.map_id===9);
- await page.locator(`circle[aria-label="${sourceMarker.id}"]`).press('Enter');
- assert.match(await chosen.innerText(),/層岩巨淵・地下鉱区/);
+ const ledger=JSON.parse(await fs.readFile('content/coverage.json','utf8'));
+ const links=ledger.map_catalog.stage_links;
+ const chasmMarkers=catalog.nodes.filter(marker=>marker.map_id===9);
+ const passages=page.locator('#worldPanel svg line');
+ assert.equal(await passages.count(),15);
+ for(const marker of chasmMarkers){
+  await page.locator(`circle[aria-label="${marker.id}"]`).press('Enter');
+  assert.match(await chosen.innerText(),/層岩巨淵・地下鉱区/);
+  assert.equal(await chosen.getByRole('link').getAttribute('href'),
+               'map-art.html?node='+links[marker.id].stage_id);
+ }
+ const event=page.waitForEvent('popup');
+ await chosen.getByRole('link').click();
+ const fromMarker=await event;
+ fromMarker.on('pageerror',error=>errors.push(error.message));
+ await fromMarker.waitForFunction(()=>window.mapArt?.ready);
+ assert.equal(await fromMarker.locator('#node').inputValue(),links[chasmMarkers.at(-1).id].stage_id);
+ await fromMarker.close();
+ await search.fill(chasmMarkers[0].id);
+ assert.equal(await markers.count(),1);
+ assert.equal(await passages.count(),0);
+ await search.fill('');
  assert.equal((await frame()).story.active,false);
  await page.locator('#worldPanel').screenshot({path:'evidence/world-catalog.png'});
  await page.setViewportSize({width:390,height:844});
@@ -133,7 +152,7 @@ try{
  await fs.writeFile('evidence/world-browser.json',JSON.stringify({
   errors,layers,totalMarkers:catalog.nodes.length,statues:64,snezhnayaStatues:7,
   idCoordinatesVerified:true,trialNavigation:true,mobileWidth:true,
-  chasm:{fixture:'Lv20 Liyue harbor',walkedRoute:true,remoteEntryRejected:true,rewardMora:300,rewardXp:1100,
+  chasm:{fixture:'Lv20 Liyue harbor',walkedRoute:true,markerLinks:chasmMarkers.length,dashedPassages:15,remoteEntryRejected:true,rewardMora:300,rewardXp:1100,
          savedQuestComplete:true,spriteComparison:'PNG vs 16-color rectangles'}
  },null,2)+'\n');
  console.log('Official layers, region and marker filters, Chasm visit, save and comparison passed');

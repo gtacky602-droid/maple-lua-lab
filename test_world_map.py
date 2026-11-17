@@ -26,8 +26,9 @@ assert Counter(group['kind'] for group in review['requested_groups']) == {
 assert all(group['stage_ids'] and set(group['stage_ids']) <= ids for group in review['requested_groups'])
 assert counts[9, 'waypoint'] == 15
 assert {stage for layer in review['other_map_layers'] if layer['id'] == 9
-        for stage in layer['prototype_stage_ids']} == {'chasm-camp', 'chasm-depth'}
-assert coverage['map_catalog']['playable_at_imported_nodes'] == 0
+        for stage in layer['prototype_stage_ids']} == {'chasm-camp', *(
+            n['id'] for n in graph['nodes'] if n.get('mapPoint','').startswith('map9:'))}
+assert coverage['map_catalog']['playable_at_imported_nodes'] == 15
 assert coverage['main_route_summary']['authored_stages'] == len(ids)
 assert coverage['main_route_summary']['provisional_quests'] == len(graph['quests'])
 

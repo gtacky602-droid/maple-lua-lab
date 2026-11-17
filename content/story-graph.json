@@ -2143,6 +2143,674 @@
         {
           "to": "chasm-camp",
           "x": 60
+        },
+        {
+          "to": "chasm-wp-25266",
+          "x": 1860
+        },
+        {
+          "to": "chasm-wp-25264",
+          "x": 890
+        }
+      ],
+      "checkpoint": "chasm-camp",
+      "peaceful": true,
+      "mapPoint": "map9:25265"
+    },
+    {
+      "id": "chasm-wp-25264",
+      "mapPoint": "map9:25264",
+      "name": "層岩巨淵・巨蛇岩穴の岩棚",
+      "region": "層岩巨淵・地下鉱区",
+      "level": 20,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 174,
+          "y": 402,
+          "w": 300
+        },
+        {
+          "x": 436,
+          "y": 315,
+          "w": 260
+        },
+        {
+          "x": 660,
+          "y": 233,
+          "w": 213
+        },
+        {
+          "x": 1070,
+          "y": 382,
+          "w": 277
+        }
+      ],
+      "exits": [
+        {
+          "to": "chasm-depth",
+          "x": 60
+        }
+      ],
+      "checkpoint": "chasm-camp",
+      "peaceful": true
+    },
+    {
+      "id": "chasm-wp-25266",
+      "mapPoint": "map9:25266",
+      "name": "層岩巨淵・臨時本坑の東側",
+      "region": "層岩巨淵・地下鉱区",
+      "level": 20,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 196,
+          "y": 388,
+          "w": 335
+        },
+        {
+          "x": 486,
+          "y": 304,
+          "w": 285
+        },
+        {
+          "x": 945,
+          "y": 371,
+          "w": 342
+        }
+      ],
+      "exits": [
+        {
+          "to": "chasm-depth",
+          "x": 60
+        },
+        {
+          "to": "chasm-wp-25267",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "chasm-camp",
+      "peaceful": true
+    },
+    {
+      "id": "chasm-wp-25267",
+      "mapPoint": "map9:25267",
+      "name": "層岩巨淵・鉱区へ続く連絡坑",
+      "region": "層岩巨淵・地下鉱区",
+      "level": 20,
+      "hub": false,
+      "width": 1600,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1600
+        },
+        {
+          "x": 158,
+          "y": 360,
+          "w": 334
+        },
+        {
+          "x": 441,
+          "y": 272,
+          "w": 275
+        },
+        {
+          "x": 850,
+          "y": 382,
+          "w": 244
+        },
+        {
+          "x": 1120,
+          "y": 296,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "chasm-wp-25266",
+          "x": 60
+        },
+        {
+          "to": "chasm-wp-25268",
+          "x": 1540
+        },
+        {
+          "to": "chasm-wp-25270",
+          "x": 750
+        }
+      ],
+      "checkpoint": "chasm-camp",
+      "peaceful": true
+    },
+    {
+      "id": "chasm-wp-25268",
+      "mapPoint": "map9:25268",
+      "name": "層岩巨淵・巨淵主鉱区の北側",
+      "region": "層岩巨淵・地下鉱区",
+      "level": 20,
+      "hub": false,
+      "width": 1600,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1600
+        },
+        {
+          "x": 180,
+          "y": 394,
+          "w": 360
+        },
+        {
+          "x": 495,
+          "y": 310,
+          "w": 309
+        },
+        {
+          "x": 787,
+          "y": 224,
+          "w": 204
+        },
+        {
+          "x": 1090,
+          "y": 353,
+          "w": 350
+        }
+      ],
+      "exits": [
+        {
+          "to": "chasm-wp-25267",
+          "x": 60
+        },
+        {
+          "to": "chasm-wp-25269",
+          "x": 1540
+        }
+      ],
+      "checkpoint": "chasm-camp"
+    },
+    {
+      "id": "chasm-wp-25269",
+      "mapPoint": "map9:25269",
+      "name": "層岩巨淵・巨淵主鉱区の南側",
+      "region": "層岩巨淵・地下鉱区",
+      "level": 20,
+      "hub": false,
+      "width": 1760,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1760
+        },
+        {
+          "x": 163,
+          "y": 402,
+          "w": 410
+        },
+        {
+          "x": 530,
+          "y": 321,
+          "w": 360
+        },
+        {
+          "x": 861,
+          "y": 233,
+          "w": 270
+        },
+        {
+          "x": 1220,
+          "y": 385,
+          "w": 420
+        }
+      ],
+      "exits": [
+        {
+          "to": "chasm-wp-25268",
+          "x": 60
+        },
+        {
+          "to": "chasm-wp-25277",
+          "x": 1700
+        }
+      ],
+      "checkpoint": "chasm-camp"
+    },
+    {
+      "id": "chasm-wp-25270",
+      "mapPoint": "map9:25270",
+      "name": "層岩巨淵・地下湿原の水路",
+      "region": "層岩巨淵・地下鉱区",
+      "level": 20,
+      "hub": false,
+      "width": 1600,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1600
+        },
+        {
+          "x": 138,
+          "y": 416,
+          "w": 346
+        },
+        {
+          "x": 440,
+          "y": 340,
+          "w": 228
+        },
+        {
+          "x": 704,
+          "y": 392,
+          "w": 380
+        },
+        {
+          "x": 1035,
+          "y": 308,
+          "w": 342
+        }
+      ],
+      "exits": [
+        {
+          "to": "chasm-wp-25267",
+          "x": 60
+        },
+        {
+          "to": "chasm-wp-26463",
+          "x": 1540
+        }
+      ],
+      "checkpoint": "chasm-camp"
+    },
+    {
+      "id": "chasm-wp-25271",
+      "mapPoint": "map9:25271",
+      "name": "層岩巨淵・蛍光隘路の西側",
+      "region": "層岩巨淵・地下鉱区",
+      "level": 20,
+      "hub": false,
+      "width": 1600,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1600
+        },
+        {
+          "x": 167,
+          "y": 391,
+          "w": 270
+        },
+        {
+          "x": 402,
+          "y": 308,
+          "w": 290
+        },
+        {
+          "x": 655,
+          "y": 220,
+          "w": 286
+        },
+        {
+          "x": 1120,
+          "y": 384,
+          "w": 334
+        }
+      ],
+      "exits": [
+        {
+          "to": "chasm-wp-26463",
+          "x": 1540
+        },
+        {
+          "to": "chasm-wp-25274",
+          "x": 870
+        },
+        {
+          "to": "chasm-wp-25273",
+          "x": 60
+        }
+      ],
+      "checkpoint": "chasm-camp",
+      "peaceful": true
+    },
+    {
+      "id": "chasm-wp-25272",
+      "mapPoint": "map9:25272",
+      "name": "層岩巨淵・西の行き止まり",
+      "region": "層岩巨淵・地下鉱区",
+      "level": 20,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 211,
+          "y": 372,
+          "w": 360
+        },
+        {
+          "x": 522,
+          "y": 283,
+          "w": 320
+        },
+        {
+          "x": 939,
+          "y": 391,
+          "w": 355
+        }
+      ],
+      "exits": [
+        {
+          "to": "chasm-wp-25273",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "chasm-camp",
+      "peaceful": true
+    },
+    {
+      "id": "chasm-wp-25273",
+      "mapPoint": "map9:25273",
+      "name": "層岩巨淵・西の連絡坑",
+      "region": "層岩巨淵・地下鉱区",
+      "level": 20,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 144,
+          "y": 391,
+          "w": 296
+        },
+        {
+          "x": 410,
+          "y": 302,
+          "w": 230
+        },
+        {
+          "x": 698,
+          "y": 370,
+          "w": 346
+        },
+        {
+          "x": 1012,
+          "y": 286,
+          "w": 280
+        }
+      ],
+      "exits": [
+        {
+          "to": "chasm-wp-25271",
+          "x": 1380
+        },
+        {
+          "to": "chasm-wp-25272",
+          "x": 60
+        }
+      ],
+      "checkpoint": "chasm-camp",
+      "peaceful": true
+    },
+    {
+      "id": "chasm-wp-25274",
+      "mapPoint": "map9:25274",
+      "name": "層岩巨淵・蛍光隘路の東側",
+      "region": "層岩巨淵・地下鉱区",
+      "level": 20,
+      "hub": false,
+      "width": 1600,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1600
+        },
+        {
+          "x": 170,
+          "y": 403,
+          "w": 341
+        },
+        {
+          "x": 465,
+          "y": 322,
+          "w": 282
+        },
+        {
+          "x": 801,
+          "y": 387,
+          "w": 331
+        },
+        {
+          "x": 1090,
+          "y": 300,
+          "w": 330
+        }
+      ],
+      "exits": [
+        {
+          "to": "chasm-wp-25271",
+          "x": 60
+        }
+      ],
+      "checkpoint": "chasm-camp",
+      "peaceful": true
+    },
+    {
+      "id": "chasm-wp-25275",
+      "mapPoint": "map9:25275",
+      "name": "層岩巨淵・石堂南の坑道",
+      "region": "層岩巨淵・地下鉱区",
+      "level": 20,
+      "hub": false,
+      "width": 1600,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1600
+        },
+        {
+          "x": 182,
+          "y": 363,
+          "w": 353
+        },
+        {
+          "x": 494,
+          "y": 281,
+          "w": 268
+        },
+        {
+          "x": 796,
+          "y": 375,
+          "w": 396
+        },
+        {
+          "x": 1153,
+          "y": 291,
+          "w": 300
+        }
+      ],
+      "exits": [
+        {
+          "to": "chasm-wp-25276",
+          "x": 60
+        }
+      ],
+      "checkpoint": "chasm-camp",
+      "peaceful": true
+    },
+    {
+      "id": "chasm-wp-25276",
+      "mapPoint": "map9:25276",
+      "name": "層岩巨淵・嶮しき石堂の岩棚",
+      "region": "層岩巨淵・地下鉱区",
+      "level": 20,
+      "hub": false,
+      "width": 1760,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1760
+        },
+        {
+          "x": 170,
+          "y": 401,
+          "w": 347
+        },
+        {
+          "x": 480,
+          "y": 315,
+          "w": 281
+        },
+        {
+          "x": 735,
+          "y": 231,
+          "w": 266
+        },
+        {
+          "x": 1150,
+          "y": 372,
+          "w": 390
+        }
+      ],
+      "exits": [
+        {
+          "to": "chasm-wp-25277",
+          "x": 1700
+        },
+        {
+          "to": "chasm-wp-25275",
+          "x": 1040
+        },
+        {
+          "to": "chasm-wp-26463",
+          "x": 60
+        }
+      ],
+      "checkpoint": "chasm-camp",
+      "peaceful": true
+    },
+    {
+      "id": "chasm-wp-25277",
+      "mapPoint": "map9:25277",
+      "name": "層岩巨淵・嶮しき石堂の入口側",
+      "region": "層岩巨淵・地下鉱区",
+      "level": 20,
+      "hub": false,
+      "width": 1600,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1600
+        },
+        {
+          "x": 187,
+          "y": 390,
+          "w": 347
+        },
+        {
+          "x": 498,
+          "y": 306,
+          "w": 260
+        },
+        {
+          "x": 718,
+          "y": 218,
+          "w": 201
+        },
+        {
+          "x": 1055,
+          "y": 380,
+          "w": 372
+        }
+      ],
+      "exits": [
+        {
+          "to": "chasm-wp-25269",
+          "x": 60
+        },
+        {
+          "to": "chasm-wp-25276",
+          "x": 1540
+        }
+      ],
+      "checkpoint": "chasm-camp",
+      "peaceful": true
+    },
+    {
+      "id": "chasm-wp-26463",
+      "mapPoint": "map9:26463",
+      "name": "層岩巨淵・無名遺跡の足場",
+      "region": "層岩巨淵・地下鉱区",
+      "level": 20,
+      "hub": false,
+      "width": 1760,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1760
+        },
+        {
+          "x": 196,
+          "y": 408,
+          "w": 386
+        },
+        {
+          "x": 530,
+          "y": 324,
+          "w": 287
+        },
+        {
+          "x": 789,
+          "y": 238,
+          "w": 286
+        },
+        {
+          "x": 1178,
+          "y": 393,
+          "w": 341
+        }
+      ],
+      "exits": [
+        {
+          "to": "chasm-wp-25270",
+          "x": 60
+        },
+        {
+          "to": "chasm-wp-25276",
+          "x": 1700
+        },
+        {
+          "to": "chasm-wp-25271",
+          "x": 590
         }
       ],
       "checkpoint": "chasm-camp",
@@ -3050,6 +3718,36 @@
       "goal": 1,
       "xp": 1100,
       "mora": 300
+    },
+    {
+      "id": "chasm-wetland-survey",
+      "name": "地下湿原の水路を調べる",
+      "hub": "chasm-camp",
+      "target": "chasm-wp-25270",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 1400,
+      "mora": 350
+    },
+    {
+      "id": "chasm-stonehall-survey",
+      "name": "石堂南の坑道まで巡回する",
+      "hub": "chasm-camp",
+      "target": "chasm-wp-25275",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 1800,
+      "mora": 450
+    },
+    {
+      "id": "chasm-west-survey",
+      "name": "西の行き止まりまで調べる",
+      "hub": "chasm-camp",
+      "target": "chasm-wp-25272",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 2000,
+      "mora": 500
     },
     {
       "id": "golden-explore",

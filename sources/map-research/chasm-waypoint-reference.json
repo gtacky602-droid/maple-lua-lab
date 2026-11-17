@@ -1,0 +1,111 @@
+{
+  "map_id": 9,
+  "map_version": "96733f1194aed673f3cdafee4f56b2d2",
+  "anchors_source": {
+    "url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/map_anchor/list?app_sn=ys_obc&lang=ja-jp&map_id=9",
+    "sha256": "d14ef6084b09d0c76901d679af0f9687210ceccc1a0d4c68cb65762d774f7593"
+  },
+  "floors_source": {
+    "url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v2/map/point_group?app_sn=ys_obc&lang=ja-jp&map_id=9",
+    "sha256": "5fb0b9b25c3cc8aa3c9f69c3f6163ce159e954c2c1ef1a76b977964b27e369a5",
+    "returned_groups": 0
+  },
+  "anchors": [
+    {
+      "id": "138",
+      "name": "蛍光隘路",
+      "l_x": -354,
+      "l_y": 136,
+      "r_x": -40,
+      "r_y": 548
+    },
+    {
+      "id": "139",
+      "name": "嶮しき石堂",
+      "l_x": 58,
+      "l_y": 78,
+      "r_x": 268,
+      "r_y": 334
+    },
+    {
+      "id": "140",
+      "name": "無名遺跡",
+      "l_x": -84,
+      "l_y": 28,
+      "r_x": 104,
+      "r_y": 230
+    },
+    {
+      "id": "141",
+      "name": "地下湿原",
+      "l_x": -146,
+      "l_y": -274,
+      "r_x": 154,
+      "r_y": -56
+    },
+    {
+      "id": "142",
+      "name": "巨淵主鉱区",
+      "l_x": 78,
+      "l_y": -526,
+      "r_x": 438,
+      "r_y": -84
+    },
+    {
+      "id": "143",
+      "name": "巨蛇岩穴",
+      "l_x": -612,
+      "l_y": -258,
+      "r_x": -230,
+      "r_y": -8
+    },
+    {
+      "id": "144",
+      "name": "臨時本坑",
+      "l_x": -428,
+      "l_y": -540,
+      "r_x": -114,
+      "r_y": -314
+    }
+  ],
+  "overlapping_bounds_by_waypoint": {
+    "25264": [
+      "143"
+    ],
+    "25265": [
+      "144"
+    ],
+    "25266": [
+      "144"
+    ],
+    "25267": [],
+    "25268": [
+      "142"
+    ],
+    "25269": [
+      "142"
+    ],
+    "25270": [
+      "141"
+    ],
+    "25271": [
+      "138"
+    ],
+    "25272": [],
+    "25273": [],
+    "25274": [
+      "138"
+    ],
+    "25275": [],
+    "25276": [
+      "139"
+    ],
+    "25277": [
+      "139"
+    ],
+    "26463": [
+      "140"
+    ]
+  },
+  "scope": "Map anchors are view rectangles, not area borders. Marker payloads have no individual name or floor_id on map 9. Stage positions and gate connections are 2D adaptations."
+}

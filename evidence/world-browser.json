@@ -43,6 +43,8 @@
   "chasm": {
     "fixture": "Lv20 Liyue harbor",
     "walkedRoute": true,
+    "markerLinks": 15,
+    "dashedPassages": 15,
     "remoteEntryRejected": true,
     "rewardMora": 300,
     "rewardXp": 1100,

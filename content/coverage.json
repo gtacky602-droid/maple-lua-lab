@@ -432,12 +432,134 @@
     },
     "complete_world_verified": false,
     "region_assignment": "official area IDs",
-    "playable_at_imported_nodes": 0
+    "playable_at_imported_nodes": 15,
+    "stage_links": {
+      "map9:25264": {
+        "stage_id": "chasm-wp-25264",
+        "name": "層岩巨淵・巨蛇岩穴の岩棚",
+        "gates": [
+          "map9:25265"
+        ]
+      },
+      "map9:25265": {
+        "stage_id": "chasm-depth",
+        "name": "層岩巨淵・地下の坑道",
+        "gates": [
+          "map9:25266",
+          "map9:25264"
+        ]
+      },
+      "map9:25266": {
+        "stage_id": "chasm-wp-25266",
+        "name": "層岩巨淵・臨時本坑の東側",
+        "gates": [
+          "map9:25265",
+          "map9:25267"
+        ]
+      },
+      "map9:25267": {
+        "stage_id": "chasm-wp-25267",
+        "name": "層岩巨淵・鉱区へ続く連絡坑",
+        "gates": [
+          "map9:25266",
+          "map9:25268",
+          "map9:25270"
+        ]
+      },
+      "map9:25268": {
+        "stage_id": "chasm-wp-25268",
+        "name": "層岩巨淵・巨淵主鉱区の北側",
+        "gates": [
+          "map9:25267",
+          "map9:25269"
+        ]
+      },
+      "map9:25269": {
+        "stage_id": "chasm-wp-25269",
+        "name": "層岩巨淵・巨淵主鉱区の南側",
+        "gates": [
+          "map9:25268",
+          "map9:25277"
+        ]
+      },
+      "map9:25270": {
+        "stage_id": "chasm-wp-25270",
+        "name": "層岩巨淵・地下湿原の水路",
+        "gates": [
+          "map9:25267",
+          "map9:26463"
+        ]
+      },
+      "map9:25271": {
+        "stage_id": "chasm-wp-25271",
+        "name": "層岩巨淵・蛍光隘路の西側",
+        "gates": [
+          "map9:26463",
+          "map9:25274",
+          "map9:25273"
+        ]
+      },
+      "map9:25272": {
+        "stage_id": "chasm-wp-25272",
+        "name": "層岩巨淵・西の行き止まり",
+        "gates": [
+          "map9:25273"
+        ]
+      },
+      "map9:25273": {
+        "stage_id": "chasm-wp-25273",
+        "name": "層岩巨淵・西の連絡坑",
+        "gates": [
+          "map9:25271",
+          "map9:25272"
+        ]
+      },
+      "map9:25274": {
+        "stage_id": "chasm-wp-25274",
+        "name": "層岩巨淵・蛍光隘路の東側",
+        "gates": [
+          "map9:25271"
+        ]
+      },
+      "map9:25275": {
+        "stage_id": "chasm-wp-25275",
+        "name": "層岩巨淵・石堂南の坑道",
+        "gates": [
+          "map9:25276"
+        ]
+      },
+      "map9:25276": {
+        "stage_id": "chasm-wp-25276",
+        "name": "層岩巨淵・嶮しき石堂の岩棚",
+        "gates": [
+          "map9:25277",
+          "map9:25275",
+          "map9:26463"
+        ]
+      },
+      "map9:25277": {
+        "stage_id": "chasm-wp-25277",
+        "name": "層岩巨淵・嶮しき石堂の入口側",
+        "gates": [
+          "map9:25269",
+          "map9:25276"
+        ]
+      },
+      "map9:26463": {
+        "stage_id": "chasm-wp-26463",
+        "name": "層岩巨淵・無名遺跡の足場",
+        "gates": [
+          "map9:25270",
+          "map9:25276",
+          "map9:25271"
+        ]
+      }
+    }
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 65,
-    "provisional_quests": 49,
+    "authored_stages": 79,
+    "provisional_quests": 52,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -793,7 +915,21 @@
         },
         "prototype_stage_ids": [
           "chasm-camp",
-          "chasm-depth"
+          "chasm-depth",
+          "chasm-wp-25264",
+          "chasm-wp-25266",
+          "chasm-wp-25267",
+          "chasm-wp-25268",
+          "chasm-wp-25269",
+          "chasm-wp-25270",
+          "chasm-wp-25271",
+          "chasm-wp-25272",
+          "chasm-wp-25273",
+          "chasm-wp-25274",
+          "chasm-wp-25275",
+          "chasm-wp-25276",
+          "chasm-wp-25277",
+          "chasm-wp-26463"
         ]
       },
       {

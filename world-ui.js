@@ -5,8 +5,9 @@ export async function initWorldUI(action){
   return response.json();
  }));
  const host=document.getElementById('worldPanel');
+ const links=coverage.map_catalog.stage_links;
  const intro=document.createElement('p');
- intro.textContent=`公式地図で確認したワープ ${map.counts.waypoints}・七天神像 ${map.counts.statues}。ラボで遊べる試作は ${coverage.main_route_summary.authored_stages} 地点。`;
+ intro.textContent=`公式地図で確認したワープ ${map.counts.waypoints}・七天神像 ${map.counts.statues}。ラボで遊べる試作は ${coverage.main_route_summary.authored_stages} 地点。そのうち公式座標に対応する試作は ${Object.keys(links).length} 地点。`;
  host.append(intro);
  const nav=document.createElement('div');
  nav.className='controls';
@@ -18,7 +19,7 @@ export async function initWorldUI(action){
  }
  host.append(nav);
  const note=document.createElement('p');
- note.textContent='地図の点を選ぶと公式データのIDと座標を表示します。対応する2Dステージは地点ごとに制作予定です。';
+ note.textContent='点を選ぶと公式の座標を確認できます。紫の点は配置プレビューがある地点で、破線はラボで歩ける通路です。';
  host.append(note);
 
  const controls=document.createElement('div');
@@ -51,7 +52,7 @@ export async function initWorldUI(action){
  const ns='http://www.w3.org/2000/svg', svg=document.createElementNS(ns,'svg');
  svg.setAttribute('viewBox','0 0 1000 850');
  svg.setAttribute('aria-label','取得したワープと神像の座標図');
- svg.style.cssText='display:block;width:100%;min-width:600px';
+ svg.style.cssText='display:block;width:100%;height:520px';
  viewport.append(svg);
  host.append(viewport);
  let nodes=[],bounds;
@@ -74,12 +75,30 @@ export async function initWorldUI(action){
   selected.textContent=shown.length?`${shown.length}地点。点を選択してください。`:
    nodes.length?'この条件に合う地点はありません。':'現在の公式地図データに地点はありません。';
   const {xmin,xmax,ymin,ymax}=bounds;
+  const coords=new Map(shown.map(node=>[node.id,[
+   30+(node.x-xmin)/Math.max(1,xmax-xmin)*940,
+   30+(node.y-ymin)/Math.max(1,ymax-ymin)*790
+  ]]));
+  const drawn=new Set();
+  for(const node of shown){
+   for(const destination of links[node.id]?.gates??[]){
+    const edge=[node.id,destination].sort().join('|');
+    if(!coords.has(destination)||drawn.has(edge))continue;
+    drawn.add(edge);
+    const [x1,y1]=coords.get(node.id),[x2,y2]=coords.get(destination);
+    const line=document.createElementNS(ns,'line');
+    for(const [name,value] of Object.entries({x1,y1,x2,y2,stroke:'#bca3ed','stroke-dasharray':'5 4'}))
+     line.setAttribute(name,value);
+    svg.append(line);
+   }
+  }
   for(const node of shown){
    const point=document.createElementNS(ns,'circle');
-   point.setAttribute('cx',30+(node.x-xmin)/Math.max(1,xmax-xmin)*940);
-   point.setAttribute('cy',30+(node.y-ymin)/Math.max(1,ymax-ymin)*790);
-   point.setAttribute('r',node.kind==='statue'?5:3);
-   point.setAttribute('fill',node.kind==='statue'?'#f4cf74':'#8bd9cd');
+   const [x,y]=coords.get(node.id),link=links[node.id];
+   point.setAttribute('cx',x);
+   point.setAttribute('cy',y);
+   point.setAttribute('r',link||node.kind==='statue'?5:3);
+   point.setAttribute('fill',link?'#c3abff':node.kind==='statue'?'#f4cf74':'#8bd9cd');
    point.setAttribute('tabindex','0');
    point.setAttribute('role','button');
    point.setAttribute('aria-label',node.id);
@@ -89,6 +108,14 @@ export async function initWorldUI(action){
    const choose=()=>{
     const floor=node.point_group?` ｜ 公式の階層ID ${node.point_group.floor_id}`:'';
     selected.textContent=`${node.id} ｜ ${node.region} ｜ ${typeName(node)} ｜ 原座標 ${node.x}, ${node.y}${floor}`;
+    if(link){
+     const preview=document.createElement('a');
+     preview.href='map-art.html?'+new URLSearchParams({node:link.stage_id});
+     preview.textContent=link.name+'の配置プレビュー';
+     preview.target='_blank';
+     preview.rel='noopener';
+     selected.append(' ｜ ',preview);
+    }
    };
    point.onclick=choose;
    point.onkeydown=event=>{
@@ -99,7 +126,11 @@ export async function initWorldUI(action){
  }
  mapSelect.onchange=loadMap;
  region.onchange=filter.onchange=search.oninput=draw;
- zoom.oninput=()=>svg.style.width=Number(zoom.value)*100+'%';
+ zoom.oninput=()=>{
+  const scale=Number(zoom.value);
+  svg.style.width=scale*100+'%';
+  svg.style.height=scale*520+'px';
+ };
  loadMap();
  const plans=document.createElement('p');
  plans.textContent='企画資料の対象地域：'+coverage.regions.map(item=>item.name).join(' ／ ');

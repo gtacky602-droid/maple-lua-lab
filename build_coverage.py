@@ -14,6 +14,23 @@ def rebuild():
     coverage = read('coverage.json')
     graph = read('story-graph.json')
     maps = read('map-catalog.json')
+    marker_ids = {marker['id'] for marker in maps['nodes']}
+    stage_by_marker = {}
+    marker_by_stage = {}
+    for stage in graph['nodes']:
+        marker_id = stage.get('mapPoint')
+        if marker_id is None:
+            continue
+        if marker_id not in marker_ids or marker_id in stage_by_marker:
+            raise ValueError(f'{stage["id"]}: unknown or duplicate map marker {marker_id}')
+        stage_by_marker[marker_id] = stage
+        marker_by_stage[stage['id']] = marker_id
+    links = {
+        marker_id: {'stage_id': stage['id'], 'name': stage['name'],
+                    'gates': [marker_by_stage[edge['to']] for edge in stage['exits']
+                              if edge['to'] in marker_by_stage]}
+        for marker_id, stage in sorted(stage_by_marker.items())
+    }
     counts_by_region = Counter((node['region'], node['kind']) for node in maps['nodes'])
     aliases = {
         'ナド・クライ特別地域（名称未確定）': 'ナド・クライ特別地域（仮）',
@@ -42,7 +59,7 @@ def rebuild():
         'status': 'official_interactive_map_markers_imported',
         'file': 'content/map-catalog.json', 'counts': maps['counts'],
         'complete_world_verified': False, 'region_assignment': 'official area IDs',
-        'playable_at_imported_nodes': 0,
+        'playable_at_imported_nodes': len(links), 'stage_links': links,
     }
     coverage['updated'] = maps['captured_at'][:10]
     coverage['main_route_summary'].update(authored_stages=len(graph['nodes']), provisional_quests=len(graph['quests']))

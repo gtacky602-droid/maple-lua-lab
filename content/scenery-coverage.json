@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 65 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 63,
+  "scope": "Authored 79 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 77,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -296,6 +296,90 @@
     {
       "id": "chasm-depth",
       "name": "層岩巨淵・地下の坑道",
+      "region": "層岩巨淵・地下鉱区",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "chasm-wp-25264",
+      "name": "層岩巨淵・巨蛇岩穴の岩棚",
+      "region": "層岩巨淵・地下鉱区",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "chasm-wp-25266",
+      "name": "層岩巨淵・臨時本坑の東側",
+      "region": "層岩巨淵・地下鉱区",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "chasm-wp-25267",
+      "name": "層岩巨淵・鉱区へ続く連絡坑",
+      "region": "層岩巨淵・地下鉱区",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "chasm-wp-25268",
+      "name": "層岩巨淵・巨淵主鉱区の北側",
+      "region": "層岩巨淵・地下鉱区",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "chasm-wp-25269",
+      "name": "層岩巨淵・巨淵主鉱区の南側",
+      "region": "層岩巨淵・地下鉱区",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "chasm-wp-25270",
+      "name": "層岩巨淵・地下湿原の水路",
+      "region": "層岩巨淵・地下鉱区",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "chasm-wp-25271",
+      "name": "層岩巨淵・蛍光隘路の西側",
+      "region": "層岩巨淵・地下鉱区",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "chasm-wp-25272",
+      "name": "層岩巨淵・西の行き止まり",
+      "region": "層岩巨淵・地下鉱区",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "chasm-wp-25273",
+      "name": "層岩巨淵・西の連絡坑",
+      "region": "層岩巨淵・地下鉱区",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "chasm-wp-25274",
+      "name": "層岩巨淵・蛍光隘路の東側",
+      "region": "層岩巨淵・地下鉱区",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "chasm-wp-25275",
+      "name": "層岩巨淵・石堂南の坑道",
+      "region": "層岩巨淵・地下鉱区",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "chasm-wp-25276",
+      "name": "層岩巨淵・嶮しき石堂の岩棚",
+      "region": "層岩巨淵・地下鉱区",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "chasm-wp-25277",
+      "name": "層岩巨淵・嶮しき石堂の入口側",
+      "region": "層岩巨淵・地下鉱区",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "chasm-wp-26463",
+      "name": "層岩巨淵・無名遺跡の足場",
       "region": "層岩巨淵・地下鉱区",
       "status": "regional_temporary_image"
     },
