@@ -184,10 +184,13 @@
       ]
     },
     "boss-20040401": {
+      "review_note": "Lv52のフィールドでイルカ・エイの叩き波・固定三点の雨紋。殻が変わっても対象・HP・元素付着を保持。",
+      "remaining": ["連続モーションと被弾・撃破作画", "装備差と周回報酬のバランス", "Webマルチと幻境実機"],
+      "extra_evidence": ["evidence/hydro-hypostasis-field-lua.json", "evidence/hydro-hypostasis-field-browser.json"],
       "art_candidate": {
         "item": "hydro-hypostasis",
-        "audit": "evidence/hydro-hypostasis-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/hydro-hypostasis-field-art-audit.json",
+        "status": "existing idle and four new poses in the Web field encounter"
       }
     },
     "boss-20051201": {

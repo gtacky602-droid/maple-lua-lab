@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 14,
+    "partial": 15,
     "complete": 0
   },
   "encounters": [
@@ -610,23 +610,27 @@
       "entity_ids": [
         "20040401"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/hydrohypostasis.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/hydrohypostasis.json",
+        "evidence/hydro-hypostasis-field-lua.json",
+        "evidence/hydro-hypostasis-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "連続モーションと被弾・撃破作画",
+        "装備差と周回報酬のバランス",
+        "Webマルチと幻境実機"
       ],
+      "fieldNode": "hydro-hypostasis-field-cove",
+      "fieldEntrance": "稲妻・潮紋の洞（Lv52）",
+      "review_note": "Lv52のフィールドでイルカ・エイの叩き波・固定三点の雨紋。殻が変わっても対象・HP・元素付着を保持。",
       "art_candidate": {
         "source": "assets/hydro-hypostasis-idle-source-v2.png",
         "encoding": "assets/hydro-hypostasis-idle-sprites.json",
-        "audit": "evidence/hydro-hypostasis-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/hydro-hypostasis-field-art-audit.json",
+        "status": "existing idle and four new poses in the Web field encounter"
       }
     },
     {

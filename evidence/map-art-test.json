@@ -176,6 +176,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "watatsumi-landing",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "hydro-hypostasis-field-cove",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "inazuma-road",
       "count": 0,
       "fallback": false,

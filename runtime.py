@@ -150,6 +150,12 @@ def runtime():
     thunder_field=lua.execute((ROOT/'field-thunder.lua').read_text(encoding='utf-8'))(core)
     cryo_hypostasis=lua.execute((ROOT/'field-cryo-hypostasis.lua').read_text(encoding='utf-8'))(core)
     pyro_hypostasis=lua.execute((ROOT/'field-pyro-hypostasis.lua').read_text(encoding='utf-8'))(core)
+    hydro_hypostasis=lua.execute((ROOT/'field-hydro-hypostasis.lua').read_text(encoding='utf-8'))(core)
+    core.hydroHypostasisFieldArt=lua.table_from({
+        'idle':json.loads((ROOT/'assets/hydro-hypostasis-idle-sprites.json').read_text(encoding='utf8')),
+        **{pose:json.loads((ROOT/'assets'/f'hydro-hypostasis-field-{pose}-sprites-v1.json').read_text(encoding='utf8'))
+           for pose in ('dolphin','ray','rain','recover')}
+    },recursive=True)
     core.pyroHypostasisFieldArt=lua.table_from({
         'idle':json.loads((ROOT/'assets/pyro-hypostasis-idle-sprites.json').read_text(encoding='utf8')),
         **{pose:json.loads((ROOT/'assets'/f'pyro-hypostasis-field-{pose}-sprites-v1.json').read_text(encoding='utf8'))
@@ -174,7 +180,7 @@ def runtime():
                         'anemoHypostasis':anemo_field,'electroHypostasis':electro_field,'geoHypostasis':geo_field,
                         'primoGeovishap':primo_field,'oceanid':oceanid_field,'maguu':maguu_field,
                         'array':array_field,'thunder':thunder_field,'cryoHypostasis':cryo_hypostasis,
-                        'pyroHypostasis':pyro_hypostasis})
+                        'pyroHypostasis':pyro_hypostasis,'hydroHypostasis':hydro_hypostasis})
     )
     return lua, core
 

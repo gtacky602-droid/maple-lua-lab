@@ -1,0 +1,32 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 48.8,
+    "moves": [
+      "FHH01",
+      "FHH02",
+      "FHH03"
+    ],
+    "dodgeWindows": 3,
+    "finished": true,
+    "hp": 128,
+    "returns": 0
+  },
+  "fieldKill": {
+    "xp": 27700,
+    "mora": 200
+  },
+  "commissionReport": {
+    "xp": 4000,
+    "mora": 300
+  },
+  "persistedCooldown": true,
+  "sameSceneCommands": {
+    "png": 30,
+    "standard": 7112,
+    "light": 1856
+  },
+  "airborneDolphinSprite": true,
+  "viewport390": true,
+  "errors": []
+}

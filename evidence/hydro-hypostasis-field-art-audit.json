@@ -1,0 +1,96 @@
+{
+  "stage": "稲妻・潮紋の洞",
+  "references": [
+    {
+      "page": "https://wiki.hoyolab.com/pc/genshin/entry/2160?lang=en-us",
+      "asset": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/9e53b66a5cbcab8fa3c48351d1884df5_7715537846282428338.png",
+      "sha256": "8162f12cdcd9cfd45489d905c34280b9f05ac2c08c9dd9d3432fab6391c3f66c",
+      "observed": "Rounded deep-blue shell, concentric ripple motifs and cyan bevels."
+    },
+    {
+      "page": "https://wiki.hoyolab.com/pc/genshin/entry/2160?lang=en-us",
+      "asset": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/4e28ac7538499bf87e2d7845e930e226_2362734479665847835.png",
+      "sha256": "e433d7621c7a70dbf7898a3db2dfe27543b82f64d8fa4a824ed5f111e80cbdf1",
+      "observed": "White-lined diamond, spread shell, stone platform, waterfall and cave lighting."
+    }
+  ],
+  "generated": [
+    {
+      "path": "assets/hydro-hypostasis-field-background-v1.png",
+      "sha256": "d86a0320f7b7a4d089d7dd1104f391c6b3cba5ac8da65630fe7a2f643229dc81",
+      "prompt": "Original panoramic side-scrolling 2D RPG foreground-ready environment. Attached game frame is for foamy narrow waterfalls, slate-grey marine cavern stone and Watatsumi shell-like rock, color reference only. Compose a large vaulted sea cavern with dim chalk-green rock ridges and weathered underwater stone ruins, a tall gentle waterfall far to LEFT and a glimmer of daylight high on RIGHT, quiet desaturated dark teal near central playfield, sparse blue coral shapes at far corners. At bottom 15 percent an unbroken flat corridor of old slate paving, no rocks obstructing combat. Crisp pixel-painted grouped shadow textures. No people, enemies, floating cubes, glowing diamond, warnings, battle elements, HUD, text, border or bright center waterfall. Original 16:9, horizontal stage."
+    },
+    {
+      "path": "assets/hydro-hypostasis-field-poses-source-v1.png",
+      "sha256": "aff5bbb9fb8bbbafd04ae64021f8471cb4b8109d44384221ea4cb310d4190a34",
+      "size": [
+        1443,
+        1090
+      ],
+      "prompt": "A regular 2x2 transparent pixel-art sheet, exactly FOUR individual silhouettes with wide empty gutters and clear padding inside their own respective cells. Match the game reference deep lapis blue beveled hydromechanical stones with ripples and bright cyan cut edges, a luminous white-blue diamond center, and darker indigo shadows. Unique original crisp broad pixels. TOP LEFT: a single left-facing dolphin built from curved layered water plates, unmistakable jumping arc silhouette, short snout, dorsal fin and broad forked tail, diamond in lower belly. TOP RIGHT: a broad almost frontal left-leaning manta ray with two long outspread high side fins and down-pointed angular wing tips, core on breast. BOTTOM LEFT: ring of four water cubes and three tiny water droplets lifted above a low central white-blue diamond, distinct rain-preparation silhouette. BOTTOM RIGHT: low wide rest formation of four beveled cubes around the low faceted core with clear gaps. All sprites same palette and scale. No backdrop, reflective ground, haze, color field, border, label, UI or extra subjects. Actual alpha transparency."
+    }
+  ],
+  "poses": {
+    "dolphin": {
+      "height": 94,
+      "anchorX": 0.56,
+      "crop": [
+        0,
+        0,
+        695,
+        543
+      ],
+      "commands": {
+        "legacy": 2862,
+        "h48c32": 1727,
+        "h32c16": 783
+      }
+    },
+    "ray": {
+      "height": 99,
+      "anchorX": 0.41,
+      "crop": [
+        695,
+        0,
+        748,
+        543
+      ],
+      "commands": {
+        "legacy": 4307,
+        "h48c32": 2696,
+        "h32c16": 1155
+      }
+    },
+    "rain": {
+      "height": 106,
+      "anchorX": 0.5,
+      "crop": [
+        0,
+        543,
+        695,
+        547
+      ],
+      "commands": {
+        "legacy": 2878,
+        "h48c32": 1790,
+        "h32c16": 773
+      }
+    },
+    "recover": {
+      "height": 69,
+      "anchorX": 0.5,
+      "crop": [
+        695,
+        543,
+        748,
+        547
+      ],
+      "commands": {
+        "legacy": 3164,
+        "h48c32": 1968,
+        "h32c16": 842
+      }
+    }
+  },
+  "limitations": "No usable original model in the previous reference audit. The field art is four posed adaptations. In-between, hurt and defeat poses are unfinished. The cave image and shore route are lab proxies."
+}

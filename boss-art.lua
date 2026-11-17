@@ -41,6 +41,10 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local bottom=y-(pose=='boar' and 3 or 13)
   draw(f,art,x,bottom,art.profiles.legacy.height,mode,profile,(pose=='boar' or pose=='snake') and dir==1)
  end
+ function C.drawHydroHypostasisFieldArt(f,x,y,pose,mode,profile,dir)
+  local art=C.hydroHypostasisFieldArt[pose]
+  draw(f,art,x,y-15,art.profiles.legacy.height,mode,profile,(pose=='dolphin' or pose=='ray') and dir==1)
+ end
  function C.drawThunderFieldArt(f,x,y,h,mode,profile,pose,dir)
   draw(f,pose and C.thunderFieldArt[pose] or C.thunderArt,x,y,h,mode,profile,pose=='dash' and dir>0)
  end

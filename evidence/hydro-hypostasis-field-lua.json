@@ -1,0 +1,17 @@
+{
+  "attacks": [
+    "FHH01",
+    "FHH02",
+    "FHH03"
+  ],
+  "dolphinTracksHeightAndRetainsTargetAura": true,
+  "rayAndWaveSharePerActorGroup": true,
+  "threeLockedRainMarkers": true,
+  "physicalReachesWaterImmuneCore": true,
+  "commands": {
+    "standard": 4859,
+    "light": 1301
+  },
+  "questReportOnce": true,
+  "killXp": 27700
+}

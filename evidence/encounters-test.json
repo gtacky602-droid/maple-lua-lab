@@ -1,5 +1,5 @@
 {
-  "count": 50,
+  "count": 51,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -13,6 +13,7 @@
     "counts retained",
     "Cryo Hypostasis is reachable through the field route",
     "Pyro Hypostasis is reachable through the field route",
+    "Hydro Hypostasis is reachable through the field route",
     "public roster matched without merging Icewind modes or Dottore challenges",
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",

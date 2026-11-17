@@ -965,3 +965,9 @@ Chromeで入場、アンバー同行40.6秒で討伐、1,150EXP・145モラ、�
 稲妻・城下の広場の右側からLv50の「稲妻・燎火の石浜」へ入る。城下の広場に討伐調査を追加。炎猪は予告した方向に一度進み、炎蛇は固定した射線へ三発、炎拳は跳んで予告地点へ一度落ちる。跳躍中は核の当たり判定も上がり、そこで倒すと着地攻撃が消える。炎は無効で、通常攻撃で核を削れる。名称・Lv50・HP990・報酬195モラはラボの試案。
 
 Chromeではアンバー同行で59.85秒で討伐し、23,750EXPと195モラを獲得。報告で4,000EXPと300モラを受け取り、再出現待ちを保存した。炎猪の同一フレームの描画指示は標準矩形7,608件、軽量矩形1,948件。ゲーム画像を見て猪・蛇・拳・息継ぎの4姿勢と石浜の仮背景を作った。連続アニメーション・被弾・撃破と3D照合は未実施。次は無相の水を稲妻に接続する。 [設計](docs/field-boss-v1/HYPOSTASES_WOLFLORD_MOVESETS.md)・[美術参照](evidence/pyro-hypostasis-field-art-audit.json)・[Lua検証](evidence/pyro-hypostasis-field-lua.json)・[Chrome検証](evidence/pyro-hypostasis-field-browser.json)
+
+## 無相の水のフィールド戦
+
+「稲妻・離島の波止場」から「海祇島の浜」を経て、Lv52の「潮紋の洞」へ入る。浜と洞窟の接続・地名・Lv52・HP1,010はラボの試案。波止場に討伐調査を追加。イルカが跳ぶ間は絵と当たり判定が一緒に上がり、HPと元素付着は同じ対象に残る。エイの直撃と後続波は同じ相手に一回だけ当たる。三点の雨紋は床に示した地点へ順に落ちる。水は無効で、核は通常攻撃で削れる。
+
+Chromeで往復し、アンバー同行48.8秒で討伐、27,700EXPと200モラ、報告4,000EXPと300モラ、再出現待ちの保存を確認した。イルカを止めた同一フレームの描画指示は標準矩形7,112件、軽量矩形1,856件。ゲーム画像を見て4姿勢と洞窟の仮背景を作った。浜は既存の稲妻背景を使用。連続アニメーション・被弾・撃破作画、3D照合と幻境実機は未実施。次は黄金王獣のフィールド戦に進む。 [設計](docs/field-boss-v1/HYPOSTASES_WOLFLORD_MOVESETS.md)・[美術参照](evidence/hydro-hypostasis-field-art-audit.json)・[Lua検証](evidence/hydro-hypostasis-field-lua.json)・[Chrome検証](evidence/hydro-hypostasis-field-browser.json)

@@ -642,6 +642,101 @@
           "damage": 23
         }
       ]
+    },
+    {
+      "id": "boss-20040401",
+      "controller": "hydroHypostasis",
+      "entity": 20040401,
+      "name": "無相の水",
+      "node": "hydro-hypostasis-field-cove",
+      "storyChallenge": "hydro-hypostasis",
+      "level": 52,
+      "hp": 1010,
+      "mora": 200,
+      "artHeight": 110,
+      "floorY": 480,
+      "home": 850,
+      "arenaMin": 408,
+      "arenaMax": 1470,
+      "noticeRange": 278,
+      "noticeTicks": 36,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 66,
+      "contactDamage": 0,
+      "immune": "hydro",
+      "moves": [
+        {
+          "id": "FHH01",
+          "kind": "dolphin",
+          "title": "一尾の海豚跳躍",
+          "reach": 208,
+          "lock": 54,
+          "active": [
+            [
+              114,
+              126
+            ]
+          ],
+          "recover": 144,
+          "total": 288,
+          "air": [
+            78,
+            114
+          ],
+          "distance": 1.6,
+          "rise": 112,
+          "height": 0.65,
+          "damage": 23
+        },
+        {
+          "id": "FHH02",
+          "kind": "ray",
+          "title": "水翼の叩き波",
+          "reach": 215,
+          "lock": 48,
+          "active": [
+            [
+              96,
+              108
+            ]
+          ],
+          "recover": 168,
+          "total": 288,
+          "fire": 108,
+          "life": 48,
+          "waveOffset": 1.5,
+          "waveSpeed": 3,
+          "height": 0.65,
+          "damage": 17
+        },
+        {
+          "id": "FHH03",
+          "kind": "rain",
+          "title": "三点の雨紋",
+          "reach": 228,
+          "lock": 48,
+          "active": [
+            [
+              108,
+              114
+            ],
+            [
+              150,
+              156
+            ],
+            [
+              192,
+              198
+            ]
+          ],
+          "recover": 210,
+          "total": 264,
+          "height": 0.7,
+          "damage": 12
+        }
+      ]
     }
   ]
 }
