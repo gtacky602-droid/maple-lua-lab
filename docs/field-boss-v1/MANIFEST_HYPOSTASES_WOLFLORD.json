@@ -1,0 +1,30 @@
+{
+  "schema_version":"1.0",
+  "date":"2026-11-17",
+  "status":"design_only_not_runtime",
+  "source_commit":"cb1f5a548c352b86697b221b3548586e9fdb6fa8",
+  "source_of_truth":["../../DESIGN_FIELD_BOSS_MASTER_V01.md","COMMON.md","HYPOSTASES_WOLFLORD_MOVESETS.md"],
+  "tick_rate_hz":60,"unit_U_pixels":88,"interval_semantics":"half_open",
+  "counts":{"bosses":4,"attack_cards":12,"cumulative_bosses":15,"cumulative_attack_cards":45,"catalog_reference_rows":49,"all_catalog_rows_detailed":false},
+  "shared":{"max_attack_patterns":3,"max_concurrent_casts":1,"hp_bars":1,"multiplayer_hp_scaling":false,"required_special_element":false,"forced_revive_phase":false,"hp_zero_priority":true,"normal_damage_pipeline":true,"hp_receiver_id_stable":true,"visible_hurtbox_tracks_pose":true,"runtime_or_visual_tested":false},
+  "bosses":[
+    {"encounter_id":"boss-20040501","name":"無相の氷","attack_ids":["FHC01","FHC02","FHC03"],"signature":"FHC01","ground_hurtbox_bottom_u":0.45,"hp_attackable_during_combat":true,"required_frostfruit_trial":false},
+    {"encounter_id":"boss-20040601","name":"無相の炎","attack_ids":["FHP01","FHP02","FHP03"],"signature":"FHP03","ground_hurtbox_bottom_u":0.45,"hp_attackable_during_combat":true,"required_ignition_trial":false},
+    {"encounter_id":"boss-20040401","name":"無相の水","attack_ids":["FHH01","FHH02","FHH03"],"signature":"FHH01","ground_hurtbox_bottom_u":0.4,"hp_attackable_during_combat":true,"healing_droplets":false},
+    {"encounter_id":"boss-22060101","name":"黄金王獣","attack_ids":["FWL01","FWL02","FWL03"],"signature":"FWL01","ground_hurtbox_bottom_u":0.35,"hp_attackable_during_combat":true,"required_skull_shield_trial":false,"party_corrosion":false}
+  ],
+  "attacks":[
+    {"id":"FHC01","encounter_id":"boss-20040501","title":"氷輪の直走","total_ticks":270,"lock_tick":54,"active":[{"start":108,"end":144,"group":"wheel"}],"projectiles":[],"airborne":[],"recovery":[150,270],"groups":{"wheel":1},"hit_cap":1,"travel_u_max":2.0},
+    {"id":"FHC02","encounter_id":"boss-20040501","title":"双掌の氷挟み","total_ticks":240,"lock_tick":42,"active":[{"start":90,"end":102,"group":"clap"}],"projectiles":[],"airborne":[],"recovery":[120,240],"groups":{"clap":1},"hit_cap":1},
+    {"id":"FHC03","encounter_id":"boss-20040501","title":"三本の落氷","total_ticks":252,"lock_tick":48,"active":[{"start":108,"end":114,"group":"ice1"},{"start":144,"end":150,"group":"ice2"},{"start":180,"end":186,"group":"ice3"}],"projectiles":[],"airborne":[],"recovery":[198,252],"groups":{"ice1":1,"ice2":1,"ice3":1},"hit_cap":3},
+    {"id":"FHP01","encounter_id":"boss-20040601","title":"炎猪の駆け抜け","total_ticks":270,"lock_tick":54,"active":[{"start":108,"end":132,"group":"boar"}],"projectiles":[],"airborne":[],"recovery":[150,270],"groups":{"boar":1},"hit_cap":1,"travel_u_max":1.8},
+    {"id":"FHP02","encounter_id":"boss-20040601","title":"炎蛇の三射","total_ticks":288,"lock_tick":48,"active":[],"projectiles":[{"spawn_ticks":[96,132,168],"ttl_ticks":48,"groups":["fire1","fire2","fire3"]}],"airborne":[],"recovery":[228,288],"groups":{"fire1":1,"fire2":1,"fire3":1},"hit_cap":3},
+    {"id":"FHP03","encounter_id":"boss-20040601","title":"炎拳の跳ね落ち","total_ticks":288,"lock_tick":54,"active":[{"start":114,"end":126,"group":"fist"}],"projectiles":[],"airborne":[[78,114]],"recovery":[144,288],"groups":{"fist":1},"hit_cap":1,"travel_u_max":1.6},
+    {"id":"FHH01","encounter_id":"boss-20040401","title":"一尾の海豚跳躍","total_ticks":288,"lock_tick":54,"active":[{"start":114,"end":126,"group":"landing"}],"projectiles":[],"airborne":[[78,114]],"recovery":[144,288],"groups":{"landing":1},"hit_cap":1,"travel_u_max":1.6},
+    {"id":"FHH02","encounter_id":"boss-20040401","title":"水翼の叩き波","total_ticks":288,"lock_tick":48,"active":[{"start":96,"end":108,"group":"ray_wave"}],"projectiles":[{"spawn_ticks":[108],"ttl_ticks":48,"groups":["ray_wave"]}],"airborne":[],"recovery":[168,288],"groups":{"ray_wave":1},"hit_cap":1},
+    {"id":"FHH03","encounter_id":"boss-20040401","title":"三点の雨紋","total_ticks":264,"lock_tick":48,"active":[{"start":108,"end":114,"group":"rain1"},{"start":150,"end":156,"group":"rain2"},{"start":192,"end":198,"group":"rain3"}],"projectiles":[],"airborne":[],"recovery":[210,264],"groups":{"rain1":1,"rain2":1,"rain3":1},"hit_cap":3},
+    {"id":"FWL01","encounter_id":"boss-22060101","title":"低空の蛇行突進","total_ticks":312,"lock_tick":60,"active":[{"start":120,"end":156,"group":"ram"}],"projectiles":[],"airborne":[[84,120]],"recovery":[168,312],"groups":{"ram":1},"hit_cap":1,"travel_u_max":2.6},
+    {"id":"FWL02","encounter_id":"boss-22060101","title":"尾の一薙ぎ","total_ticks":264,"lock_tick":48,"active":[{"start":108,"end":126,"group":"tail"}],"projectiles":[],"airborne":[],"recovery":[144,264],"groups":{"tail":1},"hit_cap":1},
+    {"id":"FWL03","encounter_id":"boss-22060101","title":"二つの黄金首","total_ticks":264,"lock_tick":48,"active":[],"projectiles":[{"spawn_ticks":[84,120],"ttl_ticks":48,"groups":["skull1","skull2"]}],"airborne":[],"recovery":[180,264],"groups":{"skull1":1,"skull2":1},"hit_cap":2}
+  ]
+}
