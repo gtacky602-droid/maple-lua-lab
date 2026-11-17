@@ -677,12 +677,18 @@
         {
           "to": "liyue-cart-road",
           "x": 170,
-          "requires": {"quest": "liyue-hauling-shortcut", "construction": "ground"}
+          "requires": {
+            "quest": "liyue-hauling-shortcut",
+            "construction": "ground"
+          }
         },
         {
           "to": "liyue-cart-lift",
           "x": 840,
-          "requires": {"quest": "liyue-hauling-shortcut", "construction": "lift"},
+          "requires": {
+            "quest": "liyue-hauling-shortcut",
+            "construction": "lift"
+          },
           "liftSeconds": 1.8
         },
         {
@@ -704,7 +710,11 @@
         {
           "to": "liyue-crux-wharf",
           "x": 570,
-          "requires": {"quest": "beidou-join", "count": 0, "recovery": true}
+          "requires": {
+            "quest": "beidou-join",
+            "count": 0,
+            "recovery": true
+          }
         },
         {
           "to": "liyue-river-trail",
@@ -712,7 +722,10 @@
           "requires": {
             "quest": "liyue-caravan-search",
             "count": 0,
-            "alternative": {"quest": "liyue-harbor-meal", "count": 0}
+            "alternative": {
+              "quest": "liyue-harbor-meal",
+              "count": 0
+            }
           }
         },
         {
@@ -722,7 +735,10 @@
           "requires": {
             "quest": "liyue-caravan-search",
             "count": 0,
-            "alternative": {"quest": "liyue-harbor-meal", "count": 0}
+            "alternative": {
+              "quest": "liyue-harbor-meal",
+              "count": 0
+            }
           }
         },
         {
@@ -740,6 +756,14 @@
           "requires": {
             "quest": "liyue-market-opening",
             "count": 3
+          }
+        },
+        {
+          "to": "tide-calibration-hall",
+          "x": 1120,
+          "requires": {
+            "quest": "surveyor-inspection",
+            "count": 0
           }
         }
       ],
@@ -4562,7 +4586,8 @@
     {"id":"immortal-construct-root-hollow","name":"スネージナヤ・赤葉の根洞","region":"スネージナヤ","level":142,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"snezhnaya-field","x":65}],"checkpoint":"snezhnaya-hub"},
     {"id":"wavebinder-tide-cavern","name":"ノヴォキッチェヴ・西港の潮洞（仮配置）","region":"ノヴォキッチェヴ（仮構造）","level":152,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"novokichev-depth","x":65}],"checkpoint":"novokichev-camp","branch":true,"lightReference":50,"barrier":0},
     {"id":"dvalin-sky-arena","name":"モンド・風龍の空域（週ボス試作）","region":"モンド","level":20,"hub":false,"peaceful":true,"width":960,"platforms":[{"x":0,"y":480,"w":264},{"x":303.6,"y":480,"w":264},{"x":607.2,"y":480,"w":264}],"exits":[{"to":"mond-road","x":35}],"checkpoint":"mond-town"},
-    {"id":"andrius-wolf-ring","name":"モンド・狼の領の試練場（週ボス試作）","region":"モンド","level":24,"hub":false,"peaceful":true,"width":960,"platforms":[{"x":0,"y":480,"w":960},{"x":40,"y":356.8,"w":176},{"x":744,"y":356.8,"w":176}],"exits":[{"to":"mond-road","x":35}],"checkpoint":"mond-town"}
+    {"id":"andrius-wolf-ring","name":"モンド・狼の領の試練場（週ボス試作）","region":"モンド","level":24,"hub":false,"peaceful":true,"width":960,"platforms":[{"x":0,"y":480,"w":960},{"x":40,"y":356.8,"w":176},{"x":744,"y":356.8,"w":176}],"exits":[{"to":"mond-road","x":35}],"checkpoint":"mond-town"},
+    {"id":"tide-calibration-hall","name":"潮位較正室","region":"璃月","level":30,"hub":false,"peaceful":true,"width":960,"platforms":[{"x":0,"y":480,"w":960},{"x":115,"y":374,"w":150},{"x":695,"y":374,"w":150}],"exits":[{"to":"liyue-harbor","x":42}],"checkpoint":"liyue-harbor"}
   ],
   "quests": [
     {
@@ -5688,6 +5713,7 @@
     {"id":"immortal-construct-commission","name":"不滅の副産物の討伐調査","hub":"snezhnaya-hub","target":"immortal-construct","kind":"boss","goal":1,"xp":10600,"mora":720,"note":"凍った街道から赤葉の根洞へ進む。蘇生の守りを削って小波を止め、すべて壊せば灼焔の華を中断できる。通常攻撃でも対処可。"},
     {"id":"wavebinder-commission","name":"波濤の投錨者の討伐調査","hub":"novokichev-camp","target":"wavebinder","kind":"boss","goal":1,"xp":11200,"mora":750,"note":"探索路から西港の潮洞へ。飲み物は直接攻撃で妨害できる。豪胆値が満ちると強化されるが、雷や時間経過で解除でき、通常攻撃でも討伐可。"},
     {"id":"dvalin-weekly-commission","name":"風龍の再現戦・首の結晶","hub":"mond-town","target":"dvalin-weekly","kind":"boss","goal":1,"xp":1400,"mora":360,"note":"南の街道から風龍の空域へ。前脚を攻撃して体勢を崩し、低い踏み場へジャンプして首の結晶を攻撃する。途中退出・保存読込は未完の挑戦を初期化。"},
-    {"id":"andrius-weekly-commission","name":"王狼の再現戦・氷と北風","hub":"mond-town","target":"andrius-weekly","kind":"boss","goal":1,"xp":1600,"mora":390,"note":"南の街道から狼の領の試練場へ。肩・尾・着地点を見て攻め、疾走は左右の入口と上段を使って避ける。比較用に風/氷無効、物理通常は有効。"}
+    {"id":"andrius-weekly-commission","name":"王狼の再現戦・氷と北風","hub":"mond-town","target":"andrius-weekly","kind":"boss","goal":1,"xp":1600,"mora":390,"note":"南の街道から狼の領の試練場へ。肩・尾・着地点を見て攻め、疾走は左右の入口と上段を使って避ける。比較用に風/氷無効、物理通常は有効。"},
+    {"id":"surveyor-inspection","name":"夜間の潮位点検","hub":"liyue-harbor","target":"original-tide-surveyor","kind":"boss","goal":1,"xp":1800,"mora":420,"note":"港の門から潮位較正室へ。測距印が付いたら、緑の接地板に立って解除する。"}
   ]
 }

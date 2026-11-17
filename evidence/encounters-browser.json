@@ -1,6 +1,7 @@
 {
   "errors": [],
-  "allCandidates": 70,
+  "allCandidates": 71,
+  "originalWeeklyRoute": true,
   "fieldBossFamilies": 48,
   "weeklyChallenges": 14,
   "dottoreAliasMatches": 2,

@@ -12,8 +12,8 @@
   },
   "counts": {
     "source_entities": 63,
-    "encounter_candidates": 70,
-    "partial": 52,
+    "encounter_candidates": 71,
+    "partial": 53,
     "complete": 0
   },
   "encounters": [
@@ -1967,6 +1967,31 @@
         "encoding": "assets/spiritspeaker-idle-sprites.json",
         "audit": "evidence/spiritspeaker-field-art-audit.json",
         "status": "Legacy gallery idle retained; Web battle uses six compact humanoid poses, four reflections and a redrawn ready idle"
+      }
+    },
+    {
+      "id": "original-tide-surveyor",
+      "name": "測潮機関士",
+      "kind": "weekly",
+      "entity_ids": [],
+      "status": "partial",
+      "action": null,
+      "grouping": "original_design",
+      "evidence": [
+        "docs/weekly-boss-v1/TIDE_SURVEYOR_WEB.md"
+      ],
+      "remaining": [
+        "連続アニメーション",
+        "難度別報酬",
+        "マルチ検証"
+      ],
+      "weeklyNode": "tide-calibration-hall",
+      "weeklyEntrance": "潮位較正室（Lv30）",
+      "art_candidate": {
+        "source": "assets/tide-surveyor-source-v1.png",
+        "encoding": "assets/tide-surveyor-meter-sprites-v1.json",
+        "audit": "evidence/tide-surveyor-art.json",
+        "status": "original weekly trial with six key poses"
       }
     },
     {

@@ -1,5 +1,5 @@
 {
-  "count": 89,
+  "count": 90,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -11,6 +11,7 @@
     "evidence on every row",
     "generated file matches builder",
     "counts retained",
+    "original trial is independent of the imported roster",
     "Cryo Hypostasis is reachable through the field route",
     "Pyro Hypostasis is reachable through the field route",
     "Hydro Hypostasis is reachable through the field route",

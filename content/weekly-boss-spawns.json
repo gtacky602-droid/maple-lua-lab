@@ -279,6 +279,145 @@
           "damage": 18
         }
       }
+    },
+    {
+      "id": "original-tide-surveyor",
+      "controller": "surveyor",
+      "entity": 99000001,
+      "original": true,
+      "name": "測潮機関士",
+      "node": "tide-calibration-hall",
+      "storyChallenge": "original-tide-surveyor",
+      "design": "docs/weekly-boss-v1/TIDE_SURVEYOR_WEB.md",
+      "level": 30,
+      "hp": 650,
+      "mora": 340,
+      "expRole": "weekly_boss",
+      "center": 480,
+      "floorY": 480,
+      "noticeTicks": 48,
+      "respawnTicks": 3600,
+      "thresholds": [
+        0.7,
+        0.34
+      ],
+      "transitionTicks": 72,
+      "stageNames": [
+        "測距",
+        "振り子",
+        "排水制御"
+      ],
+      "cleansePads": [
+        160,
+        800
+      ],
+      "padRadius": 31,
+      "markSeconds": 22,
+      "feedbackDamage": 12,
+      "rotations": [
+        [
+          "TS01",
+          "TS02",
+          "TS03"
+        ],
+        [
+          "TS04",
+          "TS05",
+          "TS06",
+          "TS02"
+        ],
+        [
+          "TS07",
+          "TS08",
+          "TS09",
+          "TS02"
+        ]
+      ],
+      "moves": {
+        "TS01": {
+          "id": "TS01",
+          "name": "測距パルス",
+          "pose": "sight",
+          "total": 130,
+          "recover": 66,
+          "warning": 54,
+          "damage": 12,
+          "mark": true
+        },
+        "TS02": {
+          "id": "TS02",
+          "name": "反響パルス",
+          "pose": "sight",
+          "total": 152,
+          "recover": 78,
+          "warning": 66,
+          "damage": 16,
+          "feedback": true
+        },
+        "TS03": {
+          "id": "TS03",
+          "name": "床下の圧力波",
+          "pose": "meter",
+          "total": 165,
+          "recover": 84,
+          "warning": 64,
+          "damage": 18
+        },
+        "TS04": {
+          "id": "TS04",
+          "name": "振り子払い",
+          "pose": "swing",
+          "total": 134,
+          "recover": 62,
+          "warning": 48,
+          "damage": 18
+        },
+        "TS05": {
+          "id": "TS05",
+          "name": "二連振り子",
+          "pose": "swing",
+          "total": 190,
+          "recover": 120,
+          "warning": 48,
+          "damage": 17
+        },
+        "TS06": {
+          "id": "TS06",
+          "name": "左右の検査光",
+          "pose": "pendulum",
+          "total": 184,
+          "recover": 110,
+          "warning": 54,
+          "damage": 16
+        },
+        "TS07": {
+          "id": "TS07",
+          "name": "排水弁の三連波",
+          "pose": "stand",
+          "total": 305,
+          "recover": 240,
+          "warning": 66,
+          "damage": 16
+        },
+        "TS08": {
+          "id": "TS08",
+          "name": "水門整流",
+          "pose": "stand",
+          "total": 226,
+          "recover": 150,
+          "warning": 68,
+          "damage": 20
+        },
+        "TS09": {
+          "id": "TS09",
+          "name": "両側排水・中央噴流",
+          "pose": "stand",
+          "total": 224,
+          "recover": 150,
+          "warning": 60,
+          "damage": 21
+        }
+      }
     }
   ]
 }

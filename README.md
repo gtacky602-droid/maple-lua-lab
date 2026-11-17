@@ -979,3 +979,7 @@ Luaで通常攻撃のみ・同行戦闘不能・回復なし186.6秒、残HP112�
 Luaの通常攻撃のみ・同行戦闘不能・回復なしは147.08秒、残HP116、移行1回、落下0で11行動を通過。風刃はQA追補の90tick間隔にし、2回の実ジャンプと着地で回避。AIの上段退避、Chromeの受注/戦闘/帰還報告/保存、164マップ表示、492背景条件、保存23件/49通常ボスcontrollerの保存復元を確認した。全体は164マップ/107試作依頼、ボス70候補中52件部分実装・完成0。
 
 最新ラボ: http://127.0.0.1:8850/ 。[実装と仮値](docs/weekly-boss-v1/ANDRIUS_WEB.md)、[Lua](evidence/andrius-weekly-lua.json)、[Chrome](evidence/andrius-weekly-browser.json)、[PNG](evidence/andrius-weekly-png.png)、[軽量16色](evidence/andrius-weekly-light.png)。背景はラボ仮画像、本番は3D配置の方針を維持。連続作画・装備別/難度別バランス・本番報酬・Webマルチ・幻境実機は未完。次は公子の三形態と14行動を進める。
+
+## ラボ独自の週ボス「測潮機関士」
+
+港の広場で「夜間の潮位点検」を受注し、潮位較正室へ。測距・振り子・排水制御の三段階、測距印と接地板、帰還報告と保存を接続した。6姿勢と仮背景、三つの矩形描画設定を収録。既存のボス台帳では独立したオリジナル枠とする。遊び方と試作値は [測潮機関士](docs/weekly-boss-v1/TIDE_SURVEYOR_WEB.md)、結果は [Lua](evidence/tide-surveyor-lua.json) と [Chrome](evidence/tide-surveyor-browser.json)。

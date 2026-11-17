@@ -51,8 +51,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 21,
-      "prototype_quest_count": 15,
+      "prototype_stage_count": 22,
+      "prototype_quest_count": 16,
       "official_map2_markers": {
         "waypoints": 75,
         "statues": 8
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 164,
-    "provisional_quests": 107,
+    "authored_stages": 165,
+    "provisional_quests": 108,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -695,7 +695,8 @@
           "oceanid-approach",
           "oceanid-field-reservoir",
           "primo-approach",
-          "primo-field-vault"
+          "primo-field-vault",
+          "tide-calibration-hall"
         ],
         "quest_ids": [
           "liyue-market-delivery",
@@ -712,7 +713,8 @@
           "pyro-commission",
           "geo-commission",
           "oceanid-commission",
-          "primo-commission"
+          "primo-commission",
+          "surveyor-inspection"
         ]
       },
       {

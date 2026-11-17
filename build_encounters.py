@@ -62,7 +62,8 @@ def apply_roster_review(rows, review):
     totals = {}
     unmatched = []
     for kind in ('normal', 'weekly'):
-        by_id = {row['id']: row for row in rows if row['kind'] == kind}
+        by_id = {row['id']: row for row in rows
+                 if row['kind'] == kind and row.get('grouping') != 'original_design'}
         matched = set()
         names = set()
         for entry in review[kind]:
@@ -103,6 +104,13 @@ def build():
     }
     entities = source['boss_entities']
     rows = list(imported_encounters(entities))
+    for spec in weeklies.values():
+        if spec.get('original'):
+            rows.append({
+                'id': spec['id'], 'name': spec['name'], 'kind': 'weekly', 'entity_ids': [],
+                'status': 'not_implemented', 'action': None, 'grouping': 'original_design',
+                'evidence': [spec['design']], 'remaining': ['連続アニメーション', '難度別報酬', 'マルチ検証'],
+            })
     for entry in original['encounters']:
         rows.append({
             'id': 'stygian-' + entry['id'], 'name': entry['name'], 'kind': 'stygian',

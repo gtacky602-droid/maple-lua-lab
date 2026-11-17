@@ -1,0 +1,78 @@
+{
+  "source": "tide-surveyor-source-v1.png",
+  "background": "tide-calibration-background-v1.png",
+  "poses": {
+    "meter": {
+      "crop": [
+        0,
+        0,
+        480,
+        480
+      ],
+      "height": 116,
+      "anchorX": 0.5737704918032787
+    },
+    "sight": {
+      "crop": [
+        535,
+        0,
+        489,
+        480
+      ],
+      "height": 110,
+      "anchorX": 0.5947368421052631
+    },
+    "pendulum": {
+      "crop": [
+        0,
+        480,
+        480,
+        487
+      ],
+      "height": 118,
+      "anchorX": 0.5934959349593496
+    },
+    "swing": {
+      "crop": [
+        485,
+        480,
+        539,
+        487
+      ],
+      "height": 109,
+      "anchorX": 0.6222222222222222
+    },
+    "stand": {
+      "crop": [
+        0,
+        967,
+        495,
+        569
+      ],
+      "height": 133,
+      "anchorX": 0.5184331797235023
+    },
+    "reset": {
+      "crop": [
+        590,
+        970,
+        434,
+        566
+      ],
+      "height": 101,
+      "anchorX": 0.4685714285714286
+    }
+  },
+  "tool": "Built-in image generation",
+  "generatedInputs": [],
+  "hashes": {
+    "tide-surveyor-source-v1.png": "2fe072c0f4f063004f7cd92be25fcfd62129b03af7054cf26169fa44ad6c40b4",
+    "tide-calibration-background-v1.png": "1c66237a9133d8277ae5c1ffa478034126e7282511a3d1371d4da07797e4ca09"
+  },
+  "prompts": {
+    "art": "Generate an original six-slot transparent pixel-art sprite atlas for a 2D action RPG: the Tide Surveyor, an entirely original squat humanoid brass automaton lighthouse engineer. Distinct design: oversized octagonal brass pressure-gauge HEAD with dark indigo glass face and two tiny glowing mint squares, no human hair or human face, deep aubergine knee-length oilskin workcoat, asymmetrical mustard shoulder guard, thick brass gloves, rounded brown boots, one diagonal orange belt holding a white enamel tally wheel. Exactly 3 head heights excluding tools. Short torso and short thick limbs. Consistent silhouette, rooted boots, crisp stepped dark outlines, deliberate pixel clusters. Facing LEFT in all poses. Large readable tools: NEVER bows, spears, swords, or recognizable franchise symbols. Exactly 2 columns and 3 rows, six independent full sprites, generous transparent margins, empty transparent gutters, no cropping, no lettering, no effects. In order: 1 ready holding boxy mint-lens survey meter; 2 bent shoulder sighting through meter as if measuring; 3 ready with a large orange industrial pendulum weight on a short brass handle; 4 swung pendulum at floor height with braced boots; 5 both boots locked into an expanded octagonal brass maintenance stand with short triangular outriggers, head and purple coat clearly visible; 6 kneeling maintenance reset, gauge dim, gloves braced on one knee. Keep the standing head sizes and relative widths consistent. Transparent background.",
+    "bg": "Original environment asset, wide 1536x1024 pixel-art background for a side-scrolling platform RPG. Invent a flooded industrial tide calibration hall: weathered scalloped copper and violet-painted steel ribs, huge circular level gauge with unnumbered tick marks in the distant wall, frosted blue windows showing rain, dark water through gaps in the machinery, soft mint and warm brass lamps. Strong architectural depth, restrained details behind the combat plane. Bottom third low contrast uninterrupted dark wall and water, no platforms, no player characters, enemies, lettering, logo, or UI. Crisp pixel clusters and muted midnight plum, petroleum teal, aged copper. This is an original level, with no existing game reference."
+  },
+  "styleTarget": "2.8–3.2 head heights, excluding cap and equipment.",
+  "standingReview": "First sprite is approximately 2.6 head heights, measured from the metal head casing to the sole and excluding the top fitting. This is a first-pass key pose."
+}

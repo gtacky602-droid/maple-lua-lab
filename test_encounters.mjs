@@ -2,7 +2,7 @@ import {chromium} from 'playwright';import fs from 'node:fs/promises';
 const browser=await chromium.launch({headless:true,channel:'chrome'}),page=await browser.newPage({viewport:{width:1440,height:1080}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769');await page.waitForFunction(()=>window.lab?.frame);
- const panel=page.locator('#encountersPanel');await panel.locator('summary').click();await page.waitForFunction(()=>document.querySelectorAll('[data-encounter]').length===70);
+ const panel=page.locator('#encountersPanel');await panel.locator('summary').click();await page.waitForFunction(()=>document.querySelectorAll('[data-encounter]').length===71);
  if(!await panel.getByText(/Ver\.7\.2.*通常48系統・週ボス14戦/).isVisible())throw Error('roster review missing');
  for(const query of ['博士','ドットーレ']){
   await panel.getByLabel('ボス名で検索').fill(query);
@@ -68,6 +68,9 @@ try{
  await panel.getByLabel('ボス名で検索').fill('北風の王狼');
  const andrius=panel.locator('[data-encounter="boss-29020101"]').getByRole('link',{name:/狼の領の試練場/});
  if(await andrius.getAttribute('href')!=='map-art.html?node=andrius-wolf-ring')throw Error('Andrius weekly route missing');
+ await panel.getByLabel('ボス名で検索').fill('測潮機関士');
+ const surveyor=panel.locator('[data-encounter="original-tide-surveyor"]').getByRole('link',{name:/潮位較正室/});
+ if(await surveyor.getAttribute('href')!=='map-art.html?node=tide-calibration-hall')throw Error('Surveyor weekly route missing');
  await panel.getByLabel('ボス名で検索').fill('恒常からくり陣形');
  await panel.getByLabel('恒常からくり陣形の弱点個体').selectOption('boss_array_3');
  await panel.getByRole('button',{name:'模擬戦に挑戦'}).click();
@@ -80,5 +83,5 @@ try{
  await panel.getByLabel('挑戦可能のみ').check();if(await panel.locator('[data-encounter]').count()!==1)throw Error('playable filter');
  await panel.getByRole('button',{name:'試作に挑戦'}).click();await page.waitForFunction(()=>window.lab.frame.boss?.name==='ファルカ模擬戦');
  await panel.screenshot({path:'evidence/encounters-browser.png'});if(errors.length)throw Error(errors.join('/'));
- await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:70,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,configDeviceFieldRoute:true,papillaFieldRoute:true,lavaDragonFieldRoute:true,overseerFieldRoute:true,knuckleDuckleFieldRoute:true,battleshipFieldRoute:true,frostnightHerraFieldRoute:true,whispererNightmaresFieldRoute:true,moonflyFieldRoute:true,moongeckoFieldRoute:true,spiritspeakerFieldRoute:true,fallenVigilFieldRoute:true,flugelFieldRoute:true,driftingSnowFieldRoute:true,immortalConstructFieldRoute:true,wavebinderFieldRoute:true,stygianCandidates:7,disabledUnimplemented:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');
+ await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:71,originalWeeklyRoute:true,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,configDeviceFieldRoute:true,papillaFieldRoute:true,lavaDragonFieldRoute:true,overseerFieldRoute:true,knuckleDuckleFieldRoute:true,battleshipFieldRoute:true,frostnightHerraFieldRoute:true,whispererNightmaresFieldRoute:true,moonflyFieldRoute:true,moongeckoFieldRoute:true,spiritspeakerFieldRoute:true,fallenVigilFieldRoute:true,flugelFieldRoute:true,driftingSnowFieldRoute:true,immortalConstructFieldRoute:true,wavebinderFieldRoute:true,stygianCandidates:7,disabledUnimplemented:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');
 }finally{await browser.close()}

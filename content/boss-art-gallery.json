@@ -275,6 +275,13 @@
       "mapHover": 32
     },
     {
+      "id": "tide-surveyor",
+      "name": "測潮機関士（ラボ独自）",
+      "file": "tide-surveyor-meter-sprites-v1.json",
+      "height": 116,
+      "mapHover": 0
+    },
+    {
       "id": "andrius",
       "name": "北風の王狼（参照付き待機候補）",
       "file": "andrius-idle-sprites.json",

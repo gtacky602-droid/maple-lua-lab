@@ -20,8 +20,12 @@ check('completion not overclaimed',d['counts']['complete']==0 and not d['complet
 check('not implemented rows cannot launch',all(r['action'] is None for r in rows if r['status']=='not_implemented'))
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
-check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':70,'partial':52,'complete':0})
+check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':71,'partial':53,'complete':0})
 by_id={r['id']:r for r in rows}
+surveyor=by_id['original-tide-surveyor']
+check('original trial is independent of the imported roster',
+      surveyor['weeklyNode']=='tide-calibration-hall' and not surveyor['entity_ids']
+      and surveyor['kind']=='weekly' and surveyor['status']=='partial')
 ice=by_id['boss-20040501']
 check('Cryo Hypostasis is reachable through the field route',
       ice['status']=='partial' and ice['fieldNode']=='cryo-hypostasis-field-basin' and ice['action'] is None)

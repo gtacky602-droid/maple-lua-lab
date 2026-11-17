@@ -153,12 +153,12 @@
     {
       "node": "liyue-harbor",
       "mode": "sprite",
-      "visible_portals": 11
+      "visible_portals": 12
     },
     {
       "node": "liyue-harbor",
       "mode": "rect",
-      "visible_portals": 11
+      "visible_portals": 12
     },
     {
       "node": "liyue-loading-yard",
@@ -1637,6 +1637,16 @@
     },
     {
       "node": "andrius-wolf-ring",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "tide-calibration-hall",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "tide-calibration-hall",
       "mode": "rect",
       "visible_portals": 1
     }

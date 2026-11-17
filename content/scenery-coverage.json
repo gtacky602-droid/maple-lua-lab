@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 164 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 162,
+  "scope": "Authored 165 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 163,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -988,7 +988,8 @@
       "name": "モンド・狼の領の試練場（週ボス試作）",
       "region": "モンド",
       "status": "regional_temporary_image"
-    }
+    },
+    {"id":"tide-calibration-hall","name":"潮位較正室","region":"璃月","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 2
 }

@@ -1,6 +1,13 @@
 {
   "version": 1,
   "entries": {
+    "original-tide-surveyor": {
+      "art_candidate": {
+        "item": "tide-surveyor",
+        "audit": "evidence/tide-surveyor-art.json",
+        "status": "original weekly trial with six key poses"
+      }
+    },
     "boss-24030301": {
       "remaining": ["連続アニメーション・被弾・撃破作画", "装備とWebマルチの実測", "幻境実機"],
       "extra_evidence": ["evidence/aeonblight-field-lua.json", "evidence/aeonblight-field-browser.json"],
