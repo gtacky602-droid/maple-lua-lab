@@ -31,8 +31,6 @@
     "catalog_sha256": "6aea9a92c7ca48d9b6491c834ac82d79915b5bd2b8707aa2b1d573100d02a2a6"
   },
   "progress_before_after": {
-    "game_scope_complete_unchanged": false,
-    "game_region_count_unchanged": 20,
     "editor_map_definitions_added": 24,
     "editor_field_ids_added": 873,
     "production_runtime_files_changed": [],
@@ -41,7 +39,15 @@
     "canonical_approved_edges": 0,
     "canonical_spawn_entries": 0,
     "canonical_monster_variants": 0,
-    "qa_fixture_data_in_canonical": false
+    "qa_fixture_data_in_canonical": false,
+    "game_scope_complete": {
+      "before": false,
+      "after": false
+    },
+    "game_region_count": {
+      "before": 20,
+      "after": 20
+    }
   },
   "unverified": [
     "Shared Cloud preview relay unavailable; deliver local start and ZIP instead",
