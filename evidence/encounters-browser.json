@@ -4,5 +4,9 @@
   "suiteVariants": 2,
   "stygianCandidates": 3,
   "disabledUnimplemented": true,
-  "launchVerified": "boss_farka"
+  "launchesVerified": [
+    "boss_array_3",
+    "boss_primo_electro",
+    "boss_farka"
+  ]
 }

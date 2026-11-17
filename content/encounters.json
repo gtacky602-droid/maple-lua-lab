@@ -165,9 +165,9 @@
       },
       "art_variants": [
         {
-          "id": "foul-legacy",
           "source": "assets/childe-foul-idle-source-v1.png",
           "encoding": "assets/childe-foul-idle-sprites.json",
+          "id": "foul-legacy",
           "audit": "evidence/childe-foul-reference-audit.json",
           "status": "idle body candidate only; no weapon, transitions, live combat or animations"
         }
@@ -561,9 +561,9 @@
       },
       "art_variants": [
         {
-          "id": "dark",
           "source": "assets/apep-dark-idle-source-v1.png",
           "encoding": "assets/apep-dark-idle-sprites.json",
+          "id": "dark",
           "audit": "evidence/apep-dark-reference-audit.json",
           "status": "dark crawling idle candidate; transformations, defense phase, attacks and animations absent"
         }
@@ -833,9 +833,9 @@
       },
       "art_variants": [
         {
-          "id": "flame",
           "source": "assets/signora-flame-idle-source-v1.png",
           "encoding": "assets/signora-flame-idle-sprites.json",
+          "id": "flame",
           "audit": "evidence/signora-flame-reference-audit.json",
           "status": "idle body candidate only; no fire effects, phase transitions, attacks or animation"
         }
@@ -1102,7 +1102,6 @@
         "精密挙動・アニメ"
       ],
       "review_note": "本体と4小型機の専用静止素材/軽量比較。弱点4種選択・全種入力撃破確認。変形と動作は仮。",
-      "variantLabel": "弱点個体",
       "variants": [
         {
           "label": "盾型",
@@ -1121,6 +1120,7 @@
           "action": "boss_array_4"
         }
       ],
+      "variantLabel": "弱点個体",
       "art_candidate": {
         "source": "assets/array-source-v1.png",
         "encoding": "assets/array-sprites.json",

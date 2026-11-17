@@ -1,5 +1,5 @@
 {
-  "count": 17,
+  "count": 40,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -10,13 +10,122 @@
     "not implemented rows cannot launch",
     "evidence on every row",
     "generated file matches builder",
-    "launch boss-20040201",
-    "launch boss-26020101",
-    "launch boss-20040101",
-    "launch boss-20040301",
-    "launch boss-20050101",
-    "launch boss-26050101",
-    "launch boss-26020201",
-    "launch stygian-farka"
+    "counts retained",
+    "both paired encounters retain two art references",
+    "all candidates retain gallery references",
+    "gallery revision automatically updates reference",
+    "launch boss_anemo",
+    "launch boss_cryo_regisvine",
+    "launch boss_electro",
+    "launch boss_geo",
+    "launch boss_maguu",
+    "launch boss_oceanid",
+    "launch boss_array",
+    "launch boss_array_1",
+    "variant boss_array_1",
+    "launch boss_array_2",
+    "variant boss_array_2",
+    "launch boss_array_3",
+    "variant boss_array_3",
+    "launch boss_array_4",
+    "variant boss_array_4",
+    "launch boss_primo",
+    "launch boss_primo_hydro",
+    "variant boss_primo_hydro",
+    "launch boss_primo_pyro",
+    "variant boss_primo_pyro",
+    "launch boss_primo_cryo",
+    "variant boss_primo_cryo",
+    "launch boss_primo_electro",
+    "variant boss_primo_electro",
+    "launch boss_pyro_regisvine",
+    "launch boss_thunder",
+    "launch boss_farka"
+  ],
+  "launches": [
+    {
+      "action": "boss_anemo",
+      "boss": "無相の風（形状仮素材）"
+    },
+    {
+      "action": "boss_cryo_regisvine",
+      "boss": "急凍樹（仮素材）"
+    },
+    {
+      "action": "boss_electro",
+      "boss": "無相の雷（試作素材）"
+    },
+    {
+      "action": "boss_geo",
+      "boss": "無相の岩（試作素材）"
+    },
+    {
+      "action": "boss_maguu",
+      "boss": "魔偶剣鬼"
+    },
+    {
+      "action": "boss_oceanid",
+      "boss": "純水精霊（試作素材）"
+    },
+    {
+      "action": "boss_array",
+      "boss": "恒常からくり陣形"
+    },
+    {
+      "action": "boss_array_1",
+      "boss": "恒常からくり陣形",
+      "variant": "盾型"
+    },
+    {
+      "action": "boss_array_2",
+      "boss": "恒常からくり陣形",
+      "variant": "偵察型"
+    },
+    {
+      "action": "boss_array_3",
+      "boss": "恒常からくり陣形",
+      "variant": "巡航型"
+    },
+    {
+      "action": "boss_array_4",
+      "boss": "恒常からくり陣形",
+      "variant": "殲滅型"
+    },
+    {
+      "action": "boss_primo",
+      "boss": "エンシェントヴィシャップ（試作素材）"
+    },
+    {
+      "action": "boss_primo_hydro",
+      "boss": "エンシェントヴィシャップ（試作素材）",
+      "variant": "hydro"
+    },
+    {
+      "action": "boss_primo_pyro",
+      "boss": "エンシェントヴィシャップ（試作素材）",
+      "variant": "pyro"
+    },
+    {
+      "action": "boss_primo_cryo",
+      "boss": "エンシェントヴィシャップ（試作素材）",
+      "variant": "cryo"
+    },
+    {
+      "action": "boss_primo_electro",
+      "boss": "エンシェントヴィシャップ（試作素材）",
+      "variant": "electro"
+    },
+    {
+      "action": "boss_pyro_regisvine",
+      "boss": "爆炎樹（仮素材）"
+    },
+    {
+      "action": "boss_thunder",
+      "boss": "雷音権現"
+    },
+    {
+      "action": "boss_farka",
+      "boss": "ファルカ模擬戦"
+    }
   ]
 }

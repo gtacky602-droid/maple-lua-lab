@@ -1,0 +1,592 @@
+{
+  "version": 1,
+  "entries": {
+    "boss-24030301": {
+      "art_candidate": {
+        "item": "aeonblight",
+        "audit": "evidence/aeonblight-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-24050101": {
+      "art_candidate": {
+        "item": "asimon",
+        "audit": "evidence/asimon-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-29090101": {
+      "art_candidate": {
+        "item": "narwhal",
+        "audit": "evidence/narwhal-reference-audit.json",
+        "status": "whale idle candidate; portal, inner enemy, attacks and animation not implemented"
+      }
+    },
+    "boss-20040201": {
+      "action": "boss_anemo",
+      "remaining": [
+        "追加行動・調整",
+        "完成ドット絵",
+        "専用報酬・通し検証"
+      ],
+      "art_candidate": {
+        "item": "anemo",
+        "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
+      }
+    },
+    "boss-29040101": {
+      "art_candidate": {
+        "item": "azhdaha",
+        "audit": "evidence/azhdaha-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-29030101": {
+      "art_candidate": {
+        "item": "childe",
+        "audit": "evidence/childe-reference-audit.json",
+        "status": "first human form idle candidate only; no weapon, live combat or animations"
+      },
+      "art_variants": [
+        {
+          "item": "childe-foul",
+          "id": "foul-legacy",
+          "audit": "evidence/childe-foul-reference-audit.json",
+          "status": "idle body candidate only; no weapon, transitions, live combat or animations"
+        }
+      ]
+    },
+    "boss-26310501": {
+      "art_candidate": {
+        "item": "flugel",
+        "audit": "evidence/flugel-reference-audit.json",
+        "status": "idle candidate"
+      }
+    },
+    "boss-20040501": {
+      "art_candidate": {
+        "item": "cryo-hypostasis",
+        "audit": "evidence/cryo-hypostasis-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-26020101": {
+      "action": "boss_cryo_regisvine",
+      "art_candidate": {
+        "item": "cryo-regisvine",
+        "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
+      }
+    },
+    "boss-20040701": {
+      "art_candidate": {
+        "item": "dendro-hypostasis",
+        "audit": "evidence/dendro-hypostasis-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-20040101": {
+      "action": "boss_electro",
+      "art_candidate": {
+        "item": "electro",
+        "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
+      }
+    },
+    "boss-26020301": {
+      "art_candidate": {
+        "item": "electro-regisvine",
+        "audit": "evidence/electro-regisvine-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-26160302": {
+      "art_candidate": {
+        "item": "emperor",
+        "audit": "evidence/emperor-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-24080101": {
+      "art_candidate": {
+        "item": "field-generator",
+        "audit": "evidence/field-generator-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-20081001": {
+      "art_candidate": {
+        "item": "frostnight-herra",
+        "audit": "evidence/frostnight-herra-reference-audit.json",
+        "status": "idle candidate"
+      }
+    },
+    "boss-20040301": {
+      "action": "boss_geo",
+      "art_candidate": {
+        "item": "geo",
+        "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
+      }
+    },
+    "boss-26220301": {
+      "art_candidate": {
+        "item": "yumka",
+        "audit": "evidence/yumka-reference-audit.json",
+        "status": "normal blue-crest idle candidate only; charged form, attacks and animation not implemented"
+      }
+    },
+    "boss-22060101": {
+      "art_candidate": {
+        "item": "wolflord",
+        "audit": "evidence/wolflord-reference-audit.json",
+        "status": "idle body candidate only; no live combat or animations"
+      }
+    },
+    "boss-26230301": {
+      "art_candidate": {
+        "item": "qucusaur",
+        "audit": "evidence/qucusaur-reference-audit.json",
+        "status": "normal red-form idle candidate only; gold form, attacks and animation not implemented"
+      }
+    },
+    "boss-25135202": {
+      "art_candidate": {
+        "item": "drifting-snow",
+        "audit": "evidence/drifting-snow-reference-audit.json",
+        "status": "idle candidate"
+      }
+    },
+    "boss-29080101": {
+      "art_candidate": {
+        "item": "apep-prime",
+        "audit": "evidence/apep-prime-reference-audit.json",
+        "status": "verdant idle candidate; dark idle variant separate; defense phase, attacks and animation absent"
+      },
+      "art_variants": [
+        {
+          "item": "apep-dark",
+          "id": "dark",
+          "audit": "evidence/apep-dark-reference-audit.json",
+          "status": "dark crawling idle candidate; transformations, defense phase, attacks and animations absent"
+        }
+      ]
+    },
+    "boss-20040401": {
+      "art_candidate": {
+        "item": "hydro-hypostasis",
+        "audit": "evidence/hydro-hypostasis-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-20051201": {
+      "art_candidate": {
+        "item": "tulpa",
+        "audit": "evidence/tulpa-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "icewind-coppelia": {
+      "art_candidate": {
+        "item": "coppelia",
+        "audit": "evidence/icewind-reference-audit.json",
+        "status": "Individual idle candidate; partner available separately in gallery, paired choreography and combat not implemented"
+      }
+    },
+    "icewind-coppelius": {
+      "art_candidate": {
+        "item": "coppelius",
+        "audit": "evidence/icewind-reference-audit.json",
+        "status": "Individual idle candidate; partner available separately in gallery, paired choreography and combat not implemented"
+      }
+    },
+    "boss-29150101": {
+      "review_note": "同一人物の別データ。報酬IDが異なるため別候補のまま保持。挑戦枠の公式照合が必要。",
+      "art_candidate": {
+        "item": "dottore-heretical",
+        "audit": "evidence/dottore-heretical-reference-audit.json",
+        "status": "idle candidate"
+      }
+    },
+    "boss-25140101": {
+      "art_candidate": {
+        "item": "immortal-construct",
+        "audit": "evidence/immortal-construct-reference-audit.json",
+        "status": "idle candidate"
+      }
+    },
+    "boss-22100501": {
+      "art_candidate": {
+        "item": "baptist",
+        "audit": "evidence/baptist-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-26110101": {
+      "art_candidate": {
+        "item": "jadeplume",
+        "audit": "evidence/jadeplume-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-24100101": {
+      "art_candidate": {
+        "item": "knuckle-duckle",
+        "audit": "evidence/knuckle-duckle-reference-audit.json",
+        "status": "idle candidate"
+      }
+    },
+    "boss-29050101": {
+      "art_candidate": {
+        "item": "signora",
+        "audit": "evidence/signora-reference-audit.json",
+        "status": "human idle body candidate only; no catalyst, ice, flame form, attacks or animation"
+      },
+      "art_variants": [
+        {
+          "item": "signora-flame",
+          "id": "flame",
+          "audit": "evidence/signora-flame-reference-audit.json",
+          "status": "idle body candidate only; no fire effects, phase transitions, attacks or animation"
+        }
+      ]
+    },
+    "boss-26270301": {
+      "art_candidate": {
+        "item": "lava-dragon",
+        "audit": "evidence/lava-dragon-reference-audit.json",
+        "status": "normal Earth Golem idle candidate; molten idle variant separate; attacks and animation not implemented"
+      },
+      "art_variants": [
+        {
+          "item": "lava-dragon-molten",
+          "audit": "evidence/lava-dragon-molten-reference-audit.json",
+          "status": "molten dragon idle candidate only; transformation, attacks and animation not implemented",
+          "id": "molten"
+        }
+      ]
+    },
+    "boss-26140101": {
+      "art_candidate": {
+        "item": "legatus",
+        "audit": "evidence/legatus-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-29091101": {
+      "art_candidate": {
+        "item": "gosoythoth",
+        "audit": "evidence/gosoythoth-reference-audit.json",
+        "status": "idle candidate"
+      }
+    },
+    "boss-22150101": {
+      "art_candidate": {
+        "item": "whisperer-nightmares",
+        "audit": "evidence/whisperer-nightmares-reference-audit.json",
+        "status": "idle candidate"
+      }
+    },
+    "boss-29020101": {
+      "art_candidate": {
+        "item": "andrius",
+        "audit": "evidence/andrius-reference-audit.json",
+        "status": "normal-form idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-29060201": {
+      "art_candidate": {
+        "item": "raiden-boss",
+        "audit": "evidence/raiden-boss-reference-audit.json",
+        "status": "Baleful Shadowlord idle candidate; normal form, attacks and animation not implemented"
+      }
+    },
+    "boss-25090101": {
+      "action": "boss_maguu",
+      "remaining": [
+        "専用攻撃アニメ・分身の元素色",
+        "精密AI・挑発・吸引",
+        "報酬・難度調整"
+      ],
+      "review_note": "5行動と第二段階分身、同行AI予告退避。通常入力49.22秒撃破・帰還報告、両者生存。静止絵128/96/64px比較。遠距離防御220pxは代用。",
+      "extra_evidence": [
+        "content/maguu-design.json"
+      ],
+      "art_candidate": {
+        "item": "maguu",
+        "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
+      }
+    },
+    "boss-26180101": {
+      "art_candidate": {
+        "item": "seahorse",
+        "audit": "evidence/seahorse-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-20050101": {
+      "action": "boss_oceanid",
+      "art_candidate": {
+        "item": "oceanid",
+        "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
+      }
+    },
+    "boss-24021101": {
+      "action": "boss_array",
+      "remaining": [
+        "変形・小型機アニメ",
+        "小型機の追加行動・弱点停止・印のランダム選択",
+        "精密挙動・アニメ"
+      ],
+      "review_note": "本体と4小型機の専用静止素材/軽量比較。弱点4種選択・全種入力撃破確認。変形と動作は仮。",
+      "variants": [
+        {
+          "label": "盾型",
+          "action": "boss_array_1"
+        },
+        {
+          "label": "偵察型",
+          "action": "boss_array_2"
+        },
+        {
+          "label": "巡航型",
+          "action": "boss_array_3"
+        },
+        {
+          "label": "殲滅型",
+          "action": "boss_array_4"
+        }
+      ],
+      "variantLabel": "弱点個体",
+      "art_candidate": {
+        "item": "array",
+        "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
+      }
+    },
+    "boss-26050101": {
+      "action": "boss_primo",
+      "variants": [
+        {
+          "label": "水",
+          "action": "boss_primo_hydro"
+        },
+        {
+          "label": "炎",
+          "action": "boss_primo_pyro"
+        },
+        {
+          "label": "氷",
+          "action": "boss_primo_cryo"
+        },
+        {
+          "label": "雷",
+          "action": "boss_primo_electro"
+        }
+      ],
+      "art_candidate": {
+        "item": "primo",
+        "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
+      }
+    },
+    "boss-20040601": {
+      "art_candidate": {
+        "item": "pyro-hypostasis",
+        "audit": "evidence/pyro-hypostasis-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-26020201": {
+      "action": "boss_pyro_regisvine",
+      "art_candidate": {
+        "item": "pyro-regisvine",
+        "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
+      }
+    },
+    "boss-26301101": {
+      "art_candidate": {
+        "item": "moonfly",
+        "audit": "evidence/moonfly-reference-audit.json",
+        "status": "idle candidate"
+      }
+    },
+    "boss-26302101": {
+      "art_candidate": {
+        "item": "moongecko",
+        "audit": "evidence/moongecko-reference-audit.json",
+        "status": "idle candidate"
+      }
+    },
+    "bathysmal-herd": {
+      "art_components": [
+        {
+          "item": "rimebiter",
+          "audit": "evidence/bathysmal-reference-audit.json",
+          "status": "idle candidate only; paired encounter combat and animations not implemented"
+        },
+        {
+          "item": "bolteater",
+          "audit": "evidence/bathysmal-reference-audit.json",
+          "status": "idle candidate only; paired encounter combat and animations not implemented"
+        }
+      ]
+    },
+    "boss-24010401": {
+      "art_candidate": {
+        "item": "ruin-serpent",
+        "audit": "evidence/ruin-serpent-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-24090201": {
+      "art_candidate": {
+        "item": "config-device",
+        "audit": "evidence/config-device-reference-audit.json",
+        "status": "compact upright idle candidate; separated configurations, attacks and animation not implemented"
+      }
+    },
+    "boss-24090501": {
+      "art_candidate": {
+        "item": "overseer",
+        "audit": "evidence/overseer-reference-audit.json",
+        "status": "idle candidate only; no attacks, animations or live combat"
+      }
+    },
+    "boss-26130101": {
+      "art_candidate": {
+        "item": "wenut",
+        "audit": "evidence/wenut-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-29070101": {
+      "art_candidate": {
+        "item": "shouki",
+        "audit": "evidence/shouki-reference-audit.json",
+        "status": "Full-body idle candidate; torso-only first phase, attacks, animation and combat not implemented"
+      }
+    },
+    "boss-26190101": {
+      "art_candidate": {
+        "item": "suanni",
+        "audit": "evidence/suanni-reference-audit.json",
+        "status": "idle candidate only; no live combat or animations"
+      }
+    },
+    "boss-29010101": {
+      "art_candidate": {
+        "item": "dvalin",
+        "audit": "evidence/dvalin-reference-audit.json",
+        "status": "purified idle body candidate only; corrupted crystals, attacks and animation not implemented"
+      }
+    },
+    "boss-23090101": {
+      "art_candidate": {
+        "item": "battleship",
+        "audit": "evidence/battleship-reference-audit.json",
+        "status": "idle candidate"
+      }
+    },
+    "boss-22120101": {
+      "art_candidate": {
+        "item": "papilla",
+        "audit": "evidence/papilla-reference-audit.json",
+        "status": "idle base-form candidate; projected branches, transformations, attacks and animation not implemented"
+      }
+    },
+    "boss-29130201": {
+      "review_note": "同一人物の別データ。報酬IDが異なるため別候補のまま保持。挑戦枠の公式照合が必要。",
+      "art_candidate": {
+        "item": "doctor-false-moon",
+        "audit": "evidence/doctor-false-moon-reference-audit.json",
+        "status": "idle candidate"
+      }
+    },
+    "boss-29122000": {
+      "grouping": "multi_phase_paired_encounter",
+      "extra_evidence": [
+        "https://wiki.hoyolab.com/pc/genshin/entry/7672?lang=ja-jp"
+      ],
+      "art_components": [
+        {
+          "item": "gate-king",
+          "audit": "evidence/gate-king-reference-audit.json",
+          "status": "idle candidate"
+        },
+        {
+          "item": "gate-queen",
+          "audit": "evidence/gate-queen-reference-audit.json",
+          "status": "idle candidate"
+        }
+      ]
+    },
+    "boss-29091001": {
+      "art_candidate": {
+        "item": "knave",
+        "audit": "evidence/knave-reference-audit.json",
+        "status": "Dual-scythe boss outfit idle candidate; wings, first form, attacks, animation and combat not implemented"
+      }
+    },
+    "boss-20070101": {
+      "action": "boss_thunder",
+      "remaining": [
+        "羽弾・回転斬り・追加衝撃波等",
+        "専用素材・動作",
+        "精密な数値・AIと実機検証"
+      ],
+      "review_note": "本編入口・依頼接続、三連落雷/直線突進経由の通常入力33.97秒撃破・帰還報告、旅人/アンバー生存。図形と数値は試作。",
+      "art_candidate": {
+        "item": "thunder",
+        "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
+      }
+    },
+    "boss-24111101": {
+      "art_candidate": {
+        "item": "fallen-vigil",
+        "audit": "evidence/fallen-vigil-reference-audit.json",
+        "status": "idle candidate"
+      }
+    },
+    "boss-25134601": {
+      "art_candidate": {
+        "item": "wavebinder",
+        "audit": "evidence/wavebinder-reference-audit.json",
+        "status": "idle candidate"
+      }
+    },
+    "boss-25520101": {
+      "art_candidate": {
+        "item": "spiritspeaker",
+        "audit": "evidence/spiritspeaker-reference-audit.json",
+        "status": "idle candidate"
+      }
+    },
+    "stygian-farka": {
+      "action": "boss_farka",
+      "art_candidate": {
+        "item": "farka",
+        "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
+      }
+    },
+    "stygian-beidou": {
+      "remaining": [
+        "専用モーション・台詞",
+        "4難度・報酬",
+        "マルチ・記録",
+        "専用戦闘行動"
+      ],
+      "art_candidate": {
+        "gallery": "characters",
+        "item": "beidou"
+      }
+    },
+    "stygian-wanderer": {
+      "remaining": [
+        "専用モーション・台詞",
+        "4難度・報酬",
+        "マルチ・記録",
+        "専用戦闘行動"
+      ],
+      "art_candidate": {
+        "gallery": "characters",
+        "item": "wanderer"
+      }
+    }
+  }
+}
