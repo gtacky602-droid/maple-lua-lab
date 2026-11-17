@@ -1,0 +1,16 @@
+{
+  "m02_and_lv16_gate": true,
+  "noncombat_and_preserved_hp_mora": true,
+  "safety_return": true,
+  "pause_freezes_both_time_and_wind_travel": true,
+  "partial_restore": true,
+  "slow_first_clear_ticks": 2345,
+  "replay_best_ticks": 559,
+  "title_threshold_seconds": 26,
+  "single_report": {
+    "xp": 2004,
+    "mora": 210
+  },
+  "persistent_best_time_and_no_replay_payout": true,
+  "two_way_town_shortcut_after_finish": true
+}

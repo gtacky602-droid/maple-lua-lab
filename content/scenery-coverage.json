@@ -1,13 +1,25 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 107 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 105,
+  "scope": "Authored 109 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 107,
   "fallback_mondstadt": 0,
   "nodes": [
     {
       "id": "mond-town",
       "name": "モンド・城門広場",
+      "region": "モンド",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "mond-roof-route",
+      "name": "モンド・風車へ続く屋根",
+      "region": "モンド",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "mond-windmill-lookout",
+      "name": "モンド・風車の展望台",
       "region": "モンド",
       "status": "regional_temporary_image"
     },

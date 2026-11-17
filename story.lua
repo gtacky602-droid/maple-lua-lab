@@ -1,11 +1,11 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
   local out={};for k,item in pairs(v) do out[k]=copy(item) end;return out
  end
  local nodes,quests,starterQuests={},{},{}
- local lanternQuest,contestQuest,sightQuest,restQuest,caveQuest
+ local lanternQuest,contestQuest,sightQuest,restQuest,caveQuest,roofQuest
  for _,n in ipairs(data.nodes) do nodes[n.id]=n end
  for _,q in ipairs(data.quests) do
   quests[q.id]=q
@@ -14,6 +14,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if q.sights then sightQuest=q end
   if q.rest then restQuest=q end
   if q.cave then caveQuest=q end
+  if q.roof then roofQuest=q end
   if q.join and q.starter then starterQuests[q.join]=q end
  end
  local function setup(s)
@@ -37,6 +38,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    (rule.count and state and state.count>=rule.count and (not rule.recovery or state.recovered))
  end
  local function gateRestriction(s,edge)
+  if edge.roofTrialStage and s.roofTrial and s.roofTrial.count<edge.roofTrialStage then return '屋根の目印を先に調べてください。' end
   local rule=edge.requires
   if rule then
    local state=s.story.quests[rule.quest]
@@ -66,7 +68,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local n=nodes[edge.to];local dx=math.abs(a.x-edge.x)
    if dx<distance and nearGate(a,edge) and (not n.hiddenGroup or s.story.discovered[n.hiddenGroup]) then
     local reason=nil
-    if s.caveFall then reason='崩落中'
+    if s.roofFlight then reason='移動中'
+    elseif s.caveFall then reason='崩落中'
     elseif s.paused then reason='一時停止中'
     elseif a.hp<=0 then reason='戦闘不能中'
     elseif not s.progression or s.progression.level<n.level then reason='必要レベル '..n.level
@@ -201,6 +204,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.storyFirstClear=nil
   s.sightNotice=nil
   s.restNotice=nil
+  if roofQuest then roof.enter(s,roofQuest,id) end
   s.caveNotice=nil
   s.caveRockHit=nil
   s.caveFall=nil
@@ -227,7 +231,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  function C.storyBossDefeated(s,id) setup(s);progress(s,'boss',id) end
  function C.action(s,key)
   setup(s)
-  if s.lift or s.caveFall then
+  if s.lift or s.caveFall or s.roofFlight then
    if key=='pause' then action(s,key) end
    return
   end
@@ -240,6 +244,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if sightQuest and sights.inspect(s,sightQuest,s.story.quests[sightQuest.id]) then return end
    if restQuest and rest.interact(s,restQuest,s.story.quests[restQuest.id]) then return end
    if caveQuest and cave.interact(s,caveQuest,s.story.quests[caveQuest.id]) then return end
+   if roofQuest and roof.interact(s,roofQuest,s.story.quests[roofQuest.id]) then return end
    for id,state in pairs(s.story.quests) do
     local q=quests[id]
     if q.cooking then
@@ -402,7 +407,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
                        stone=q.stone and {marked={},sequence=0} or nil,construction=q.construction and {surveyed={}} or nil,
                        lantern=q.lantern and {inspected={}} or nil,
                        forest=q.forest and {looped=false,defeated={}} or nil,
-                       sights=q.sights and {seen={}} or nil,rest=q.rest and {defeated={}} or nil}
+                       sights=q.sights and {seen={}} or nil,rest=q.rest and {defeated={}} or nil,
+                       roof=q.roof and {ticks=0,falls=0} or nil}
    elseif report and state and state.status=='active' and state.count==q.goal then
     if q.cooking then state.cooking.meals=1 end
     if state.sights then sights.report(s,q) end
@@ -459,6 +465,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    return
   end
+  if s.roofFlight then
+   roof.travel(s,roofQuest,s.story.quests[roofQuest.id],dt)
+   return
+  end
   if s.caveFall then
    if cave.stepFall(s,dt) then
     local spec=caveQuest.cave
@@ -467,7 +477,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    return
   end
-  local returns=s.returns;step(s,dt,input)
+  local returns,previous=s.returns,s.t;step(s,dt,input)
+  if roofQuest and s.story and s.story.active and s.returns==returns then
+   roof.update(s,roofQuest,s.story.quests[roofQuest.id],s.t-previous)
+  end
   if caveQuest and s.story and s.story.active and s.returns==returns then
    cave.update(s,caveQuest,s.story.quests[caveQuest.id])
   end
@@ -569,6 +582,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if sightQuest then sights.observe(s,f,markers,sightQuest,s.story.quests[sightQuest.id],mode,profile) end
    if restQuest then rest.observe(s,f,markers,restQuest,s.story.quests[restQuest.id],mode,profile) end
    if caveQuest then cave.observe(s,f,markers,caveQuest,s.story.quests[caveQuest.id],mode,profile) end
+   if roofQuest then roof.observe(s,f,markers,roofQuest,s.story.quests[roofQuest.id]) end
    local recoveryQuest=quests[n.clearedBy]
    local recoveryState=recoveryQuest and recoveryQuest.recovery and s.story.quests[recoveryQuest.id]
    if recoveryState and recoveryState.recovered and recoveryState.count==recoveryQuest.goal-1 and s.companion~='beidou' then

@@ -27,8 +27,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 15,
-      "prototype_quest_count": 11,
+      "prototype_stage_count": 17,
+      "prototype_quest_count": 12,
       "official_map2_markers": {
         "waypoints": 45,
         "statues": 6
@@ -404,7 +404,7 @@
       "verified": [
         "Lv1 to 200 draft curve",
         "normal and named elite kill EXP",
-        "17 linked quest reports using fixed draft EXP",
+        "18 linked quest reports using fixed draft EXP",
         "3 chapter bosses with independent first-clear EXP",
         "legacy progression migration",
         "Lv200 overflow and lifetime EXP"
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 107,
-    "provisional_quests": 66,
+    "authored_stages": 109,
+    "provisional_quests": 67,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -631,6 +631,8 @@
         "kind": "main",
         "stage_ids": [
           "mond-town",
+          "mond-roof-route",
+          "mond-windmill-lookout",
           "mond-road",
           "mond-roadside-rest",
           "mond-old-road",
@@ -651,6 +653,7 @@
           "mond-rest-stop",
           "mond-old-trail",
           "mond-bennett-cave",
+          "mond-windmill",
           "mond-watchtower-clear",
           "mond-patrol",
           "mond-border-check",
@@ -1059,8 +1062,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 17,
-    "without_explicit_mapping": 136,
+    "linked": 18,
+    "without_explicit_mapping": 135,
     "runtime_id_by_design_id": {
       "Q-INA-M01": "inazuma-moving-lantern",
       "Q-INA-M02": "inazuma-torii-maze",
@@ -1078,7 +1081,8 @@
       "Q-MON-M02": "mond-old-trail",
       "Q-MON-M03": "mond-watchtower-clear",
       "Q-MON-S01": "mond-rest-stop",
-      "Q-MON-S03": "mond-bennett-cave"
+      "Q-MON-S03": "mond-bennett-cave",
+      "Q-MON-S05": "mond-windmill"
     },
     "scope": "Explicit links to runtime quests only; no claim of completed or tested content."
   }

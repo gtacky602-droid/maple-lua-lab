@@ -1,15 +1,15 @@
 {
   "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
   "version": "monster-quest-v02",
-  "quests_tested": 17,
+  "quests_tested": 18,
   "old_completed_not_reissued": true,
   "old_unreported_uses_current_preview": true,
   "unlinked_trial_fallback": true,
   "by_region": {
     "MON": {
-      "linked": 5,
-      "legacy_xp": 5293,
-      "report_xp": 8326
+      "linked": 6,
+      "legacy_xp": 7297,
+      "report_xp": 10330
     },
     "LIY": {
       "linked": 8,
@@ -46,6 +46,12 @@
       "quest_id": "mond-bennett-cave",
       "legacy_xp": 967,
       "report_xp": 967
+    },
+    {
+      "design_id": "Q-MON-S05",
+      "quest_id": "mond-windmill",
+      "legacy_xp": 2004,
+      "report_xp": 2004
     },
     {
       "design_id": "Q-MON-M03",

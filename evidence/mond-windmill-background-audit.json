@@ -1,0 +1,50 @@
+{
+  "scope": "Web/Lua temporary backgrounds for Q-MON-S05; host image layer",
+  "visual_references": [
+    {
+      "role": "Palette, limestone gate, tiled roofs and windmills",
+      "file": "assets/mondstadt-background.png",
+      "sha256": "b81efa1c80275044162f49a18dd0cf9bbbed1b1178719bb0fddd5c5e8f51cf44",
+      "size": [
+        1672,
+        941
+      ]
+    },
+    {
+      "role": "Hill and wood lookout with a red banner",
+      "file": "assets/mond-hill-background-v1.png",
+      "sha256": "7833f558dba0b99a2c6a6ca0684f8ebc6a9a72e5302136f37e2974e4651c08b1",
+      "size": [
+        1672,
+        941
+      ]
+    }
+  ],
+  "generated": [
+    {
+      "node": "mond-roof-route",
+      "prompt": "New original fully opaque wide 16:9 pixel-painted parallax background plate for a side-scrolling fantasy RPG. A close-up raised side view of a Mondstadt-inspired city of pale limestone and red terracotta roofs, half-timbered buildings and a prominently visible stone windmill with beige cloth sails on the right half. A slope of rooftops climbs from left to right. Overlapping old town roofs and little blue banners, sunny spring clear sky, hazy blue mountains, bright readable clusters. The bottom fifth is softly shaded warm brick and roof colors for an independently overlaid walkable foreground. Keep the backdrop lower contrast in the center and keep the upper right open blue sky for sprites jumping. Match the supplied existing original lab Mondstadt landscape palette and pixel-painted depth. No characters, no HUD, no text, no invisible gameplay platforms or glowing wind launch effects.",
+      "file": "assets/mond-rooftops-background-v1.png",
+      "sha256": "b0d8e4fa72916fb469ed56fe28051620cc60f558a78a47fce8952004bd65774b",
+      "size": [
+        1672,
+        941
+      ]
+    },
+    {
+      "node": "mond-windmill-lookout",
+      "prompt": "New original fully opaque wide 16:9 pixel-painted vista background for a side-scrolling fantasy RPG, looking outward from an elevated windmill lookout in a Mondstadt-inspired medieval town. A few red tiled city rooftops low left; visibly recognizable arch of the pale limestone city gate at left-middle; a bright ribbon of water near the grassland and a continuous road curving away from the gate through green meadows toward a small recognizable wooden lookout and red flag on a sunny hill at right-middle. Distant blue mountains and less than half sky. A low neutral stone color along the lower edge for separate sprites and foreground walkway. Golden warm spring afternoon, light atmosphere. Match supplied lab images and tie together recognizable castle gate, meadow and flag hill shapes in one view. No characters, text, labels, user interface, mechanical foreground or decorative borders.",
+      "file": "assets/mond-windmill-lookout-background-v1.png",
+      "sha256": "c872a2c88073e23a50c8ce7392b5844607a44b773b6c52a6a711c269ed2c6599",
+      "size": [
+        1672,
+        941
+      ]
+    }
+  ],
+  "observations": [
+    "Left-to-right slate roofs and windmill behind collision platforms.",
+    "Recognizable city gate at left, grassland and road in the middle, red-banner hill at right.",
+    "Directional wind, flags and platform collision are separate Lua layers. The images depict an original composition."
+  ]
+}

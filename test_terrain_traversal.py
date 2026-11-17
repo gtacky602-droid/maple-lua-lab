@@ -6,6 +6,7 @@ lua, core = runtime()
 graph = json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf-8'))
 results = []
 failures = []
+roof_quests = {q['target']:q for q in graph['quests'] if q.get('roof')}
 
 def state(node):
     s = core.new(12)
@@ -33,6 +34,30 @@ def jump(node, source, target):
             return abs(a.y-target['y']) < .01 and target['x'] <= a.x <= target['x']+target['w']
     return False
 
+def wind_route(node, source, target):
+    quest=roof_quests.get(node['id'])
+    if not quest:
+        return False
+    for draft in quest['roof']['drafts']:
+        if (draft['y']!=source['y'] or not source['x']<=draft['x']<=source['x']+source['w']
+                or draft['toY']!=target['y'] or not target['x']<=draft['toX']<=target['x']+target['w']):
+            continue
+        s=state(node)
+        s.story.quests[quest['id']]=lua.table_from({
+            'status':'active','count':draft['requires'],'cycles':0,'roof':{'ticks':0,'falls':0}
+        },recursive=True)
+        a=s.actors[1]
+        a.x,a.y,a.ground=draft['x'],draft['y'],True
+        core.action(s,'story_collect')
+        if not s.roofFlight:
+            return False
+        for _ in range(120):
+            core.step(s,1/60,lua.table())
+            if not s.roofFlight:
+                return bool(a.ground and (a.x,a.y)==(draft['toX'],draft['toY']))
+    return False
+
+
 for node in graph['nodes']:
     platforms = node['platforms']
     reached = {0}
@@ -43,6 +68,10 @@ for node in graph['nodes']:
             if target in reached:
                 continue
             for source in sorted(reached):
+                if wind_route(node, platforms[source], platforms[target]):
+                    reached.add(target)
+                    routes.append({'from': source, 'to': target, 'movement':'story wind current'})
+                    break
                 if jump(node, platforms[source], platforms[target]):
                     reached.add(target)
                     routes.append({'from': source, 'to': target})
@@ -65,6 +94,6 @@ for node in graph['nodes']:
         assert a.ground and a.y == 480
     results.append({'node': node['id'], 'platforms': len(platforms), 'jump_routes': routes, 'ground_both_directions': True})
 
-(ROOT/'evidence/terrain-traversal.json').write_text(json.dumps({'method':'All story nodes; actual Lua fixed-step jump and walk inputs; enemies removed; jump trial begins on previously proven reachable platform; not full gameplay or native verification', 'nodes':results, 'failures':failures}, indent=2)+'\n')
+(ROOT/'evidence/terrain-traversal.json').write_text(json.dumps({'method':'All story nodes; actual Lua fixed-step jump, wind-current and walk inputs; enemies removed; jump trial begins on previously proven reachable platform; not full gameplay or native verification', 'nodes':results, 'failures':failures}, indent=2)+'\n')
 assert not failures, failures
-print(f'{len(results)} routes: every elevated platform reachable; ground travel both directions passed')
+print(f'{len(results)} routes: every elevated platform reachable by jump or wind current; ground travel both directions passed')

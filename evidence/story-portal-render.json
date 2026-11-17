@@ -3,12 +3,32 @@
     {
       "node": "mond-town",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 4
     },
     {
       "node": "mond-town",
       "mode": "rect",
+      "visible_portals": 4
+    },
+    {
+      "node": "mond-roof-route",
+      "mode": "sprite",
       "visible_portals": 2
+    },
+    {
+      "node": "mond-roof-route",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "mond-windmill-lookout",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "mond-windmill-lookout",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "mond-road",

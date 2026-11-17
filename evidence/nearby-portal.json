@@ -9,6 +9,26 @@
       "to": "mond-restored-road"
     },
     {
+      "node": "mond-town",
+      "to": "mond-roof-route"
+    },
+    {
+      "node": "mond-town",
+      "to": "mond-windmill-lookout"
+    },
+    {
+      "node": "mond-roof-route",
+      "to": "mond-town"
+    },
+    {
+      "node": "mond-roof-route",
+      "to": "mond-windmill-lookout"
+    },
+    {
+      "node": "mond-windmill-lookout",
+      "to": "mond-town"
+    },
+    {
       "node": "mond-road",
       "to": "mond-town"
     },

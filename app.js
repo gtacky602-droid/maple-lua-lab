@@ -224,7 +224,7 @@ function hud(f,calls,renderMs){
  updateSights(f);
  updateLanternNote(f.storyLanternNote,f.storySightNote);
  const forest=$('storyForest');
- const observation=f.storyContest??f.storyForest??f.storyRest??f.storyCave;
+ const observation=f.storyContest??f.storyForest??f.storyRest??f.storyCave??f.storyRoof;
  forest.hidden=!observation;
  if(observation&&forest.textContent!==observation.message)forest.textContent=observation.message;
  const lift=f.storyLift;
@@ -253,7 +253,7 @@ function hud(f,calls,renderMs){
  const book=f.storyNearbyBook;
  const stone=f.storyNearbyStone;
  const construction=f.storyNearbyConstruction;
- const interact=f.storyNearbyContest??f.storyNearbyForest??f.storyNearbyLantern??f.storyNearbySight??f.storyNearbyRest??f.storyNearbyCave??construction??stone??book;
+ const interact=f.storyNearbyContest??f.storyNearbyForest??f.storyNearbyLantern??f.storyNearbySight??f.storyNearbyRest??f.storyNearbyCave??f.storyNearbyRoof??construction??stone??book;
  $('nearbyCargo').hidden=!(interact||ingredient||cargo||clue);
  if(interact||ingredient||cargo||clue)$('nearbyCargoGo').textContent=interact?`G：${interact.label}`:ingredient?`G：${ingredient.name}を集める`:clue?'G：'+(clue.label??clue.name+'を調べる'):
   cargo.guarded?`${cargo.name} ｜ 先に魔物を退ける`:`G：${cargo.name}を回収`;

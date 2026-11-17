@@ -55,8 +55,51 @@
             "quest": "mond-watchtower-clear",
             "count": 1
           }
+        },
+        {
+          "to": "mond-roof-route",
+          "x": 620,
+          "requires": {"quest": "mond-windmill", "count": 0}
+        },
+        {
+          "to": "mond-windmill-lookout",
+          "x": 965,
+          "requires": {"quest": "mond-windmill", "count": 4}
         }
       ],
+      "checkpoint": "mond-town"
+    },
+    {
+      "id": "mond-roof-route",
+      "name": "モンド・風車へ続く屋根",
+      "region": "モンド",
+      "level": 16,
+      "hub": false,
+      "peaceful": true,
+      "width": 1540,
+      "platforms": [
+        {"x": 0, "y": 480, "w": 1540},
+        {"x": 220, "y": 395, "w": 320},
+        {"x": 470, "y": 310, "w": 326},
+        {"x": 890, "y": 145, "w": 226},
+        {"x": 1270, "y": 112, "w": 216}
+      ],
+      "exits": [
+        {"to": "mond-town", "x": 64},
+        {"to": "mond-windmill-lookout", "x": 1395, "y": 112, "requires": {"quest": "mond-windmill", "count": 3}, "roofTrialStage": 3}
+      ],
+      "checkpoint": "mond-town"
+    },
+    {
+      "id": "mond-windmill-lookout",
+      "name": "モンド・風車の展望台",
+      "region": "モンド",
+      "level": 16,
+      "hub": false,
+      "peaceful": true,
+      "width": 1240,
+      "platforms": [{"x": 0, "y": 480, "w": 1240}],
+      "exits": [{"to": "mond-town", "x": 1180}],
       "checkpoint": "mond-town"
     },
     {
@@ -4415,6 +4458,39 @@
         "rockfall": {"x": 505, "radius": 42, "period": 2.4, "damage": 12},
         "landing": {"x": 350, "y": 480},
         "ore": {"x": 480, "y": 480, "label": "光る鉱石を拾う", "quantity": 1}
+      }
+    },
+    {
+      "id": "mond-windmill",
+      "designId": "Q-MON-S05",
+      "name": "風車の上まで、あと一跳び！",
+      "giver": "アンバー",
+      "hub": "mond-town",
+      "target": "mond-roof-route",
+      "kind": "roof",
+      "requires": "mond-old-trail",
+      "level": 16,
+      "goal": 4,
+      "xp": 2004,
+      "mora": 210,
+      "briefing": "アンバー「屋根の巡回に付き合って！ 目印を三つ見て、風車の上まで登ってみよう。」",
+      "closing": "アンバー「屋根の巡回、おつかれさま！ また行きたくなったら、広場から近道を使えるよ。」",
+      "roof": {
+        "lookout": "mond-windmill-lookout",
+        "marks": [
+          {"x": 329, "y": 395, "label": "屋根の赤い目印を調べる"},
+          {"x": 584, "y": 310, "label": "見張りの青い目印を調べる"},
+          {"x": 965, "y": 145, "label": "風車の黄色い目印を調べる"}
+        ],
+        "drafts": [
+          {"x": 742, "y": 310, "label": "風車へ上がる気流に乗る", "toX": 924, "toY": 145, "requires": 2},
+          {"x": 1045, "y": 145, "label": "展望台へ上がる気流に乗る", "toX": 1322, "toY": 112, "requires": 3}
+        ],
+        "finish": {"x": 563, "y": 480, "label": "飛ばされた目印を拾い、景色を眺める"},
+        "retry": {"x": 185, "y": 480, "label": "屋根巡回の記録に挑戦する"},
+        "flightSeconds": 1.1,
+        "titleSeconds": 26,
+        "title": "風車の風読み"
       }
     },
     {

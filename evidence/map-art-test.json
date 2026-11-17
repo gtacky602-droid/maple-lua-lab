@@ -8,6 +8,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "mond-roof-route",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "mond-windmill-lookout",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "mond-road",
       "count": 3,
       "fallback": false,

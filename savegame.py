@@ -106,7 +106,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -160,6 +160,13 @@ def validate_save(data):
                         raise ValueError('Invalid favorite sight')
                 elif 'favorite' in state:
                     raise ValueError('Premature favorite sight')
+            if quest.get('roof') or 'roof' in q:
+                state=q.get('roof')
+                fields={'ticks','falls'} | ({'bestTicks'} if q['count']==quest['goal'] else set())
+                if (not quest.get('roof') or not isinstance(state,dict) or set(state)!=fields
+                        or any(type(n) is not int or not 0<=n<=10**9 for n in state.values())
+                        or ('bestTicks' in state and not 1<=state['bestTicks']<=state['ticks'])):
+                    raise ValueError('風車の巡回記録が不正です')
             if quest.get('rest') or 'rest' in q:
                 spec, state = quest.get('rest'), q.get('rest')
                 if not spec or not isinstance(state,dict) or set(state)!={'defeated'}:

@@ -11,6 +11,15 @@ const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready
 export function questObjective(q,graph,state){
  const destination=graph.nodes.find(n=>q.kind==='boss'?n.challenge===q.target:n.id===q.target);
  const place=destination?.name||'目的地未登録';
+ if(q.roof){
+  const ticks=state?.roof?.bestTicks;
+  if(ticks){
+   const record=`記録 ${(ticks/60).toFixed(1)}秒${ticks<=q.roof.titleSeconds*60?' ｜ 称号「'+q.roof.title+'」':''}`;
+   return (state.status==='complete'?'広場から展望台へ行ける ｜ ':'城門広場でアンバーに報告する ｜ ')+record;
+  }
+  return ['低い屋根で赤い目印を調べる','上の屋根で青い目印を調べる','気流に乗り、風車で黄色い目印を調べる',
+   'ふたつ目の気流で上がり、展望台で目印を拾う'][state?.count??0];
+ }
  if(q.cave){
   if(state?.status==='complete')return '洞窟の鉱脈を探索し、旧道への近道を使える';
   return ['風見の丘から小洞窟へ入り、ベネットに話を聞く','落石を避けて上段の宝箱を開ける',
@@ -148,7 +157,7 @@ export function trackedQuestText(f,id){
  return `${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''} ｜ ${next}`+(route?' ｜ '+route:'');
 }
 function prerequisiteText(q,graph,level){
- if(q.level!==undefined&&level<q.level)return `Lv${q.level}で港に到着する`;
+ if(q.level!==undefined&&level<q.level)return q.roof?`Lv${q.level}になる`:`Lv${q.level}で港に到着する`;
  const previous=graph.quests.find(quest=>quest.id===(q.requires??q.opensAfter));
  return `先に「${previous?.name??q.requires??q.opensAfter}」を${q.requires?'報告':'受注'}する`;
 }

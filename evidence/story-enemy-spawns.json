@@ -5,6 +5,14 @@
       "enemy_count": 0
     },
     {
+      "node": "mond-roof-route",
+      "enemy_count": 0
+    },
+    {
+      "node": "mond-windmill-lookout",
+      "enemy_count": 0
+    },
+    {
       "node": "mond-road",
       "enemy_count": 6
     },

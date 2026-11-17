@@ -1,0 +1,15 @@
+{
+  "browser": "Chrome",
+  "actual_controls": true,
+  "three_markers_and_two_currents": true,
+  "fall_returned_to_roof": true,
+  "lookouts_and_town_shortcut": true,
+  "bestTicks": 736,
+  "save_reload": true,
+  "report": {
+    "xp": 2004,
+    "mora": 210
+  },
+  "viewport_390": true,
+  "errors": []
+}

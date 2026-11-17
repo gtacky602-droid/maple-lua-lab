@@ -2,6 +2,66 @@
   "errors": [],
   "cases": [
     {
+      "key": "mondroof",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "mondroof",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "mondroof",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "mondroof",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "mondroof",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "mondroof",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "mondlookout",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "mondlookout",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "mondlookout",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "mondlookout",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "mondlookout",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "mondlookout",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "windsplit",
       "camera": -960,
       "transparent": 0

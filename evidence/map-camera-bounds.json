@@ -6,6 +6,16 @@
       "rightCamera": 480
     },
     {
+      "node": "mond-roof-route",
+      "width": 1540,
+      "rightCamera": 580
+    },
+    {
+      "node": "mond-windmill-lookout",
+      "width": 1240,
+      "rightCamera": 280
+    },
+    {
       "node": "mond-road",
       "width": 1440,
       "rightCamera": 480
