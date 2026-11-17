@@ -22,15 +22,6 @@ return function(C)
   return {move=move,tick=0,center=target.x,dir=target.x<boss.x and -1 or 1,seen={},vortexHits={{},{}}}
  end
 
- local function hitArea(s,boss,seen,left,right,top,damage)
-  for _,a in ipairs(s.actors) do
-   if a.hp>0 and not seen[a.id] and a.x+10>left and a.x-10<right and a.y>top and a.y-50<boss.y then
-    seen[a.id]=true
-    C.damageActor(s,a,damage,boss,false,true)
-   end
-  end
- end
-
  local function vortexX(boss,cast,age)
   return boss.x+cast.dir*(.42+age*cast.move.speed/60)*U
  end
@@ -51,13 +42,13 @@ return function(C)
     if age>=0 and age<move.shotLife then
      local x=vortexX(boss,cast,age)
      local previous=vortexX(boss,cast,math.max(0,age-1))
-     hitArea(s,boss,cast.vortexHits[i],math.min(x,previous)-half,math.max(x,previous)+half,top,move.damage)
+     C.hitFieldArea(s,boss,cast.vortexHits[i],math.min(x,previous)-half,math.max(x,previous)+half,top,move.damage)
     end
    end
   else
    local window=move.active[1]
    if t>=window[1] and t<window[2] then
-    hitArea(s,boss,cast.seen,cast.center-half,cast.center+half,top,move.damage)
+    C.hitFieldArea(s,boss,cast.seen,cast.center-half,cast.center+half,top,move.damage)
    end
   end
   return t>=move.total

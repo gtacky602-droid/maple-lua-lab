@@ -1,0 +1,36 @@
+{
+  "matches_manifest_timing": true,
+  "low_core_damage_during_shell_and_drill": true,
+  "electro_immunity": true,
+  "all_three_groups_lock_and_hit_once": true,
+  "drill_single_swept_pass_distance_px": 193.60000000000002,
+  "two_wave_jumps": {
+    "height_at_wave_px": [
+      140.83,
+      140.83
+    ],
+    "damage": 0,
+    "grounded_damage": 18
+  },
+  "lethal_hit_with_live_wave_cancels_cast": true,
+  "leash_returns_after_drill": true,
+  "solo_normal": {
+    "seconds": 79.33,
+    "hp": 140,
+    "damage": 900
+  },
+  "amber_companion": {
+    "seconds": 48.98,
+    "hp": 140,
+    "damage": 900
+  },
+  "field_kill": {
+    "xp": 1250,
+    "mora": 140
+  },
+  "report_once": {
+    "xp": 1500,
+    "mora": 300
+  },
+  "restored_respawn_ticks": 3600
+}

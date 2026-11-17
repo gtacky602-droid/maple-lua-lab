@@ -973,6 +973,14 @@
       "to": "mond-road"
     },
     {
+      "node": "electro-approach",
+      "to": "electro-field-shelf"
+    },
+    {
+      "node": "electro-field-shelf",
+      "to": "electro-approach"
+    },
+    {
       "node": "geo-approach",
       "to": "liyue-field"
     },

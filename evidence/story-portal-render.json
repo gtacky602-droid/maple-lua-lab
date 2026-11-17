@@ -1053,10 +1053,20 @@
     {
       "node": "electro-approach",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "electro-approach",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "electro-field-shelf",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "electro-field-shelf",
       "mode": "rect",
       "visible_portals": 1
     },

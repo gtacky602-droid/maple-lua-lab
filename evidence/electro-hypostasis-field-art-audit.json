@@ -1,0 +1,101 @@
+{
+  "assets": {
+    "shell": {
+      "source": "assets/electro-shell-source-v1.png",
+      "sha256": "d16fd0da240214bbef87b61f9e41fde22bbbb4c000c339a8a86d3fe288267ad7",
+      "encoding": "assets/electro-shell-sprites.json",
+      "box": [
+        229,
+        201,
+        803,
+        828
+      ],
+      "profiles": {
+        "legacy": {
+          "dimensions": [
+            62,
+            64
+          ],
+          "rectangles": 1929
+        },
+        "h48c32": {
+          "dimensions": [
+            47,
+            48
+          ],
+          "rectangles": 1205
+        },
+        "h32c16": {
+          "dimensions": [
+            31,
+            32
+          ],
+          "rectangles": 529
+        }
+      }
+    },
+    "core": {
+      "source": "assets/electro-core-source-v1.png",
+      "sha256": "21affe6bfcd777ecdb3ceb0895d4b70079e95efa4018d812cbb3f42ff88b85b5",
+      "encoding": "assets/electro-core-sprites.json",
+      "box": [
+        267,
+        207,
+        727,
+        843
+      ],
+      "profiles": {
+        "legacy": {
+          "dimensions": [
+            55,
+            64
+          ],
+          "rectangles": 879
+        },
+        "h48c32": {
+          "dimensions": [
+            41,
+            48
+          ],
+          "rectangles": 558
+        },
+        "h32c16": {
+          "dimensions": [
+            28,
+            32
+          ],
+          "rectangles": 258
+        }
+      }
+    }
+  },
+  "visual_reference": {
+    "url": "https://library.keqingmains.com/assets/images/Enemy_Electro_Hypostasis_Icon-b102a610dee85a4fda89e3a21a1d833c.webp",
+    "sha256": "941005b71529aeee6329eff8911ab4ce747dbd249e85df3ca5bf1603d8b3810a",
+    "observed": "Game icon at three-quarter view: engraved violet cubes around a bright violet center."
+  },
+  "design": "docs/field-boss-v1/STARTER_MOVESETS.md#3-無相の雷boss-20040101",
+  "composition": {
+    "code": "field-electro-hypostasis.lua",
+    "shell_motion": "six-cube idle orbit, fist, divided shears, open palm, tapered drill and low orbit",
+    "core": "46px high, bottom 18px above the floor; translates with the drill.",
+    "waves": "five violet pixel steps drawn against each ground-level collision band."
+  },
+  "background": {
+    "source": "assets/electro-hypostasis-field-background-v1.png",
+    "sha256": "563c2a2511410b3df3ecb2a78f09e171dcf16470f8697582802c711ca3738e91",
+    "size": [
+      1672,
+      941
+    ],
+    "method": "built-in imagegen, new scene guided by a local regional image",
+    "reference": {
+      "source": "assets/mond-restored-road-background-v1.png",
+      "sha256": "b0eb6781b2c925b0c3bfe7344bc67f6faf5c48e8fb8a42cc595fdc14d091f28d",
+      "role": "limestone palette and pixel painting"
+    },
+    "prompt": "Create a new widescreen 16:9 opaque bitmap game background for a side-view 2D fantasy RPG. Use the supplied cliff-country scene only as a reference for painterly pixel clusters and hazy Mondstadt limestone, with a wholly new scene and composition. A broad weathered slate-gray coastal rock shelf at late afternoon before a light summer storm, seen in clean side view. Distant muted desaturated blue-gray sea and layered windy cliffs, patches of flat golden-green scrub and broken stone along the side edges, a few faint lavender clouds at horizon, a dim shaft of warm daylight at one far edge. A restrained desert-of-rock clearing in the middle and lower third, rich texture but enough even dark gray space for a small violet enemy, bright violet ground waves and orange marks to read clearly. No trees in center, no focal object near the playable foreground, no tower, no platform collision graphics, no lightning bolts, no characters, no text, no HUD. Keep the geometry of the painted foreground natural and nearly horizontal.",
+    "scope": "temporary lab proxy with a fictional name and composition"
+  },
+  "unverified": "Multiple viewing angles of the game model, unique hit/defeat motion, production 3D scenery."
+}

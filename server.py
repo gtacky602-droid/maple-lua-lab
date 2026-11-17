@@ -81,5 +81,11 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_json(400,{'error':str(e)})
 
 if __name__=='__main__':
-    print('Lua lab: http://127.0.0.1:8769',flush=True)
-    ThreadingHTTPServer(('127.0.0.1',8769),Handler).serve_forever()
+    from argparse import ArgumentParser
+
+    parser=ArgumentParser(description='Run the local Lua lab.')
+    parser.add_argument('--port',type=int,default=8769,help='Loopback port (default: 8769)')
+    args=parser.parse_args()
+    with ThreadingHTTPServer(('127.0.0.1',args.port),Handler) as server:
+        print(f'Lua lab: http://127.0.0.1:{server.server_port}',flush=True)
+        server.serve_forever()

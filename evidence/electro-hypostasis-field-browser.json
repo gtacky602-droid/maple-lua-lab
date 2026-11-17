@@ -1,0 +1,34 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 51.13333333333044,
+    "finished": true,
+    "moves": [
+      "FE01",
+      "FE02",
+      "FE03"
+    ],
+    "shapes": [
+      "1/3",
+      "2/3",
+      "3/3"
+    ],
+    "drillTravel": 193.60000000000002,
+    "returns": 0,
+    "hp": 140
+  },
+  "fieldKill": {
+    "xp": 1250,
+    "mora": 140
+  },
+  "commissionReportXp": 1500,
+  "persistedCooldown": true,
+  "directTrialHp": 420,
+  "sameSceneCommands": {
+    "png": 28,
+    "standard": 16695,
+    "light": 4497
+  },
+  "viewport390": true,
+  "errors": []
+}

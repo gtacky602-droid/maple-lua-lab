@@ -128,9 +128,11 @@ def runtime():
     core.cryoFieldArt=lua.table_from(cryo_art,recursive=True)
     cryo_field=lua.execute((ROOT/'field-cryo-regisvine.lua').read_text(encoding='utf8'))(core)
     anemo_field=lua.execute((ROOT/'field-anemo-hypostasis.lua').read_text(encoding='utf-8'))(core)
+    electro_field=lua.execute((ROOT/'field-electro-hypostasis.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(
         core,lua.table_from(field_specs,recursive=True),
-        lua.table_from({'jadeplume':jade,'cryoRegisvine':cryo_field,'anemoHypostasis':anemo_field})
+        lua.table_from({'jadeplume':jade,'cryoRegisvine':cryo_field,
+                        'anemoHypostasis':anemo_field,'electroHypostasis':electro_field})
     )
     return lua, core
 

@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 112 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 110,
+  "scope": "Authored 113 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 111,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -638,6 +638,12 @@
     {
       "id": "electro-approach",
       "name": "無相の雷・挑戦入口",
+      "region": "モンド",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "electro-field-shelf",
+      "name": "モンド・雷紋の岩棚",
       "region": "モンド",
       "status": "regional_temporary_image"
     },

@@ -49,13 +49,22 @@ return function(C,configs,controllers)
  local function returnHome(s,spec,slot,here)
   local boss=slot.enemy
   local dx=spec.home-boss.x
-  local speed=spec.walkSpeed*2.4/60
+  local speed=(spec.returnSpeed or spec.walkSpeed*2.4)/60
   if math.abs(dx)<=speed then
    spawn(slot,spec,spec.hp)
    if here then attach(s,spec,slot) end
   else
    boss.facing=dx<0 and -1 or 1
    boss.x=boss.x+boss.facing*speed
+  end
+ end
+
+ function C.hitFieldArea(s,boss,seen,left,right,top,damage)
+  for _,a in ipairs(s.actors) do
+   if a.hp>0 and not seen[a.id] and a.x+10>left and a.x-10<right and a.y>top and a.y-50<boss.y then
+    seen[a.id]=true
+    C.damageActor(s,a,damage,boss,false,true)
+   end
   end
  end
 
@@ -201,7 +210,7 @@ return function(C,configs,controllers)
   local behavior=controllers[spec.controller]
   local label=slot.phase=='notice' and '振り向き' or slot.phase=='leash' and '巣へ戻っている' or
    slot.phase=='available' and '警戒前' or cast and cast.move.title or '息継ぎ'
-  if boss.hp>0 and slot.phase=='combat' and behavior.label then label=behavior.label(boss) or label end
+  if boss.hp>0 and slot.phase=='combat' and behavior.label then label=behavior.label(boss,cast) or label end
   f.fieldBoss={id=spec.id,name=spec.name,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
    generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(s,slot)/60,label=label,
    move=cast and cast.move.id,tick=cast and cast.tick}

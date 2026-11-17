@@ -531,6 +531,11 @@
       "rightCamera": 480
     },
     {
+      "node": "electro-field-shelf",
+      "width": 1480,
+      "rightCamera": 520
+    },
+    {
       "node": "geo-approach",
       "width": 1440,
       "rightCamera": 480

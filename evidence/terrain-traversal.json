@@ -1879,6 +1879,12 @@
       "ground_both_directions": true
     },
     {
+      "node": "electro-field-shelf",
+      "platforms": 1,
+      "jump_routes": [],
+      "ground_both_directions": true
+    },
+    {
       "node": "geo-approach",
       "platforms": 1,
       "jump_routes": [],

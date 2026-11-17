@@ -428,6 +428,11 @@
       "enemy_count": 0
     },
     {
+      "node": "electro-field-shelf",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
       "node": "geo-approach",
       "enemy_count": 0
     },

@@ -91,9 +91,12 @@
     },
     "boss-20040101": {
       "action": "boss_electro",
+      "remaining": ["被弾・撃破の追加作画", "装備差・周回報酬のバランス", "Webマルチと幻境実機"],
+      "extra_evidence": ["evidence/electro-hypostasis-field-lua.json", "evidence/electro-hypostasis-field-browser.json"],
       "art_candidate": {
         "item": "electro",
-        "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
+        "audit": "evidence/electro-hypostasis-field-art-audit.json",
+        "status": "existing shell and core pixel art animated in the Web field encounter"
       }
     },
     "boss-26020301": {

@@ -638,6 +638,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "electro-field-shelf",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "geo-approach",
       "count": 0,
       "fallback": false,

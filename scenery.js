@@ -1,5 +1,6 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ electroField:{file:'electro-hypostasis-field-background-v1.png',zones:['story:electro-field-shelf'],note:'雷紋の岩棚の仮背景'},
  cryoField:{file:'cryo-regisvine-field-background-v1.png',zones:['story:cryo-field-grove'],note:'霜花の洞窟の仮背景'},
  mondroof:{file:'mond-rooftops-background-v1.png',zones:['story:mond-roof-route'],note:'赤い屋根と風車を見上げる仮背景'},
  mondlookout:{file:'mond-windmill-lookout-background-v1.png',zones:['story:mond-windmill-lookout'],note:'城門・草地・丘を見渡す仮背景'},
@@ -88,15 +89,15 @@ export function scenery(ctx,frame){
  }else{ctx.fillStyle='#c5decc';ctx.fillRect(0,0,960,540)}
  // Lab-only terrain proxies. These will be 3D set dressing and colliders in the game.
  const inazuma=key==='inazumatown'||key==='inazuma'||key==='toriiforest'||key==='shiomicape';
- const cave=['seacave','windsplit','cryoField','enkanomiya','nodspecial','novokichev','chasm'].includes(key);
+ const stone=['seacave','windsplit','cryoField','electroField','enkanomiya','nodspecial','novokichev','chasm'].includes(key);
  const roof=key==='mondroof',lookout=key==='mondlookout';
  const camera=frame.camera||0,snow=key==='snezhnaya'||key==='dragonspine'||key==='wingspan';
  drawDecorations(ctx,frame,camera);
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
-  ctx.fillStyle=key==='bygone'?'#436c7b':key==='ochkanatlan'?'#687275':key==='tunigi'?'#94704f':key==='golden'?'#ad9064':cave?'#555d80':key==='voyage'?'#765641':roof?'#866058':lookout?'#776b61':snow?'#6f8197':key==='natlan'?'#a16646':key==='fontaine'?'#9c9b9e':key==='liyue'?'#887653':inazuma?'#686174':p.y===480?'#655c43':'#756d56';ctx.fillRect(x,p.y,p.w,p.y===480?60:24);
-  ctx.fillStyle=key==='bygone'?'#92aea9':key==='ochkanatlan'?'#8d9b82':key==='tunigi'?'#bd966c':key==='golden'?'#d7b981':cave?'#858cab':key==='voyage'?'#ac8258':roof?'#b2846c':lookout?'#ab9e86':snow?'#c9dded':key==='fontaine'?'#bbbfc5':inazuma?'#697b79':'#508451';ctx.fillRect(x,p.y,p.w,7);ctx.fillStyle=key==='bygone'?'#e0d6a3':key==='ochkanatlan'?'#c7d0be':key==='tunigi'?'#ead2a0':key==='golden'?'#f7e3b1':cave?'#c4c8dd':key==='voyage'?'#d6b17a':roof?'#efbb94':lookout?'#dfcba6':snow?'#f1f7ff':key==='fontaine'?'#f0e9da':inazuma?'#c5bbd2':'#bed088';ctx.fillRect(x,p.y,p.w,2);
-  ctx.fillStyle=key==='bygone'?'#b6baaa':key==='ochkanatlan'?'#a5ada5':key==='tunigi'?'#c2a17c':key==='golden'?'#dfc998':cave?'#949bb9':key==='voyage'?'#b69069':roof?'#ac796d':lookout?'#a19583':snow?'#a1b7cc':'#a09675';for(let n=0;n<p.w;n+=40){if(x+n>-40&&x+n<960)ctx.fillRect(x+n+5,p.y+11,27,5)}
+  ctx.fillStyle=key==='bygone'?'#436c7b':key==='ochkanatlan'?'#687275':key==='tunigi'?'#94704f':key==='golden'?'#ad9064':stone?'#555d80':key==='voyage'?'#765641':roof?'#866058':lookout?'#776b61':snow?'#6f8197':key==='natlan'?'#a16646':key==='fontaine'?'#9c9b9e':key==='liyue'?'#887653':inazuma?'#686174':p.y===480?'#655c43':'#756d56';ctx.fillRect(x,p.y,p.w,p.y===480?60:24);
+  ctx.fillStyle=key==='bygone'?'#92aea9':key==='ochkanatlan'?'#8d9b82':key==='tunigi'?'#bd966c':key==='golden'?'#d7b981':stone?'#858cab':key==='voyage'?'#ac8258':roof?'#b2846c':lookout?'#ab9e86':snow?'#c9dded':key==='fontaine'?'#bbbfc5':inazuma?'#697b79':'#508451';ctx.fillRect(x,p.y,p.w,7);ctx.fillStyle=key==='bygone'?'#e0d6a3':key==='ochkanatlan'?'#c7d0be':key==='tunigi'?'#ead2a0':key==='golden'?'#f7e3b1':stone?'#c4c8dd':key==='voyage'?'#d6b17a':roof?'#efbb94':lookout?'#dfcba6':snow?'#f1f7ff':key==='fontaine'?'#f0e9da':inazuma?'#c5bbd2':'#bed088';ctx.fillRect(x,p.y,p.w,2);
+  ctx.fillStyle=key==='bygone'?'#b6baaa':key==='ochkanatlan'?'#a5ada5':key==='tunigi'?'#c2a17c':key==='golden'?'#dfc998':stone?'#949bb9':key==='voyage'?'#b69069':roof?'#ac796d':lookout?'#a19583':snow?'#a1b7cc':'#a09675';for(let n=0;n<p.w;n+=40){if(x+n>-40&&x+n<960)ctx.fillRect(x+n+5,p.y+11,27,5)}
  }
  ctx.restore();
 }

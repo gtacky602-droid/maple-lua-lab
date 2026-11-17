@@ -4202,13 +4202,26 @@
         {
           "to": "mond-road",
           "x": 60
-        }
+        },
+        {"to": "electro-field-shelf", "x": 1270}
       ],
       "checkpoint": "mond-town",
       "challenge": "electro",
       "challengeName": "無相の雷",
       "challengeAction": "boss_electro",
       "challengeX": 720
+    },
+    {
+      "id": "electro-field-shelf",
+      "name": "モンド・雷紋の岩棚",
+      "region": "モンド",
+      "level": 18,
+      "hub": false,
+      "peaceful": true,
+      "width": 1480,
+      "platforms": [{"x": 0, "y": 480, "w": 1480}],
+      "exits": [{"to": "electro-approach", "x": 65}],
+      "checkpoint": "mond-town"
     },
     {
       "id": "geo-approach",
@@ -5390,7 +5403,7 @@
       "goal": 1,
       "xp": 1500,
       "mora": 300,
-      "note": "本編入口から挑戦した討伐のみ対象。報酬/入口位置は試作。"
+      "note": "雷紋の岩棚、または本編入口の挑戦碑での討伐が対象。"
     },
     {
       "id": "geo-commission",

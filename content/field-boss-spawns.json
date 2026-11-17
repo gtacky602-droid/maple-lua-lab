@@ -87,6 +87,52 @@
         {"id": "FA02", "pattern": "drop", "title": "落圧", "reach": 235, "lock": 48, "active": [[96, 108]], "recover": 120, "total": 216, "damage": 16, "width": 1.5, "height": 0.6},
         {"id": "FA03", "pattern": "vortices", "title": "二つの小旋風", "reach": 270, "lock": 42, "active": [], "shotTicks": [72, 96], "shotLife": 60, "recover": 168, "total": 240, "damage": 9, "width": 0.45, "height": 0.8, "speed": 2.5}
       ]
+    },
+    {
+      "id": "boss-20040101",
+      "controller": "electroHypostasis",
+      "entity": 20040101,
+      "name": "無相の雷",
+      "node": "electro-field-shelf",
+      "storyChallenge": "electro",
+      "level": 18,
+      "hp": 900,
+      "mora": 140,
+      "artHeight": 128,
+      "floorY": 480,
+      "home": 850,
+      "arenaMin": 410,
+      "arenaMax": 1340,
+      "noticeRange": 245,
+      "noticeTicks": 36,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 0,
+      "returnSpeed": 176,
+      "contactDamage": 2,
+      "immune": "electro",
+      "moves": [
+        {
+          "id": "FE01", "pattern": "combo", "title": "三形の連撃", "reach": 195,
+          "lock": 42, "active": [[78, 84], [138, 144], [204, 216]], "recover": 228, "total": 324,
+          "strikes": [
+            {"title": "グー", "tell": 0, "near": 0.24, "far": 1.6, "height": 0.65, "damage": 10},
+            {"title": "チョキ", "tell": 98, "near": 0.2, "far": 1.8, "height": 0.85, "damage": 11},
+            {"title": "パー", "tell": 160, "near": 0.65, "far": 2.05, "height": 0.69, "damage": 15}
+          ]
+        },
+        {
+          "id": "FE02", "pattern": "drill", "title": "直進ドリル", "reach": 235,
+          "lock": 36, "active": [[84, 108]], "recover": 120, "total": 192,
+          "distance": 2.2, "height": 0.37, "radius": 0.24, "damage": 15
+        },
+        {
+          "id": "FE03", "pattern": "waves", "title": "二つの低い雷波", "reach": 260,
+          "lock": 42, "active": [], "shotTicks": [84, 156], "shotLife": 42, "recover": 210, "total": 270,
+          "width": 0.18, "height": 0.45, "speed": 4, "damage": 9
+        }
+      ]
     }
   ]
 }
