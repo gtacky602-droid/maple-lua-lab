@@ -248,6 +248,16 @@ function hud(f,calls,renderMs){
   const line=`${elite.name}（試作）　HP ${elite.hp} / ${elite.maxhp}`;
   if(encounter.textContent!==line)encounter.textContent=line;
  }
+ const field=f.fieldBoss,fieldPanel=$('fieldBoss'),fieldLabel=$('fieldBossLabel'),fieldHp=$('fieldBossHp');
+ fieldPanel.hidden=!field;
+ if(field){
+  const status=field.phase==='respawn'?`再出現まで ${Math.ceil(field.remaining)}秒`:
+   `HP ${field.hp} / ${field.maxhp} ｜ ${field.label}`;
+  const line=`${field.name}（Lv${field.level}） ｜ ${status}`;
+  if(fieldLabel.textContent!==line)fieldLabel.textContent=line;
+  fieldHp.hidden=field.phase==='respawn';
+  fieldHp.max=field.maxhp;fieldHp.value=field.hp;
+ }
  const cargo=f.storyNearbyCargo??f.storyNearbyParcel,clue=f.storyNearbyClue;
  const ingredient=f.storyNearbyIngredient;
  const book=f.storyNearbyBook;

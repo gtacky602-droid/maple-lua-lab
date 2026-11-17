@@ -13,11 +13,12 @@ for n in graph['nodes']:
     c.action(s, 'story_start')
     c.enterStoryNode(s, n['id'])
     expected = [p for p in spawns.get(n['id'], []) if p.get('questPhase', 0) == 0]
-    assert len(s.enemies) == len(expected)
+    ordinary=[e for e in s.enemies.values() if not e.fieldBoss]
+    assert len(ordinary) == len(expected)
     assert len({e['id'] for e in expected}) == len(expected)
     for i, p in enumerate(expected, 1):
         support = n['platforms'][p['platform']]
-        e = s.enemies[i]
+        e = ordinary[i-1]
         assert p['kind'] in (1, 2) and p['art'] in layouts and e.art == p['art']
         assert support['x']+24 <= p['x'] <= support['x']+support['w']-24
         assert (e.home,e.y,e.kind,e.spawnId) == (p['x'],support['y'],p['kind'],p['id'])
@@ -29,7 +30,9 @@ for n in graph['nodes']:
         e.hp=0;e.respawn=.001
         c.step(s,1/60,lua.table())
         assert e.hp == e.maxhp and e.x == e.home
-    results.append({'node':n['id'],'enemy_count':len(expected)})
+    row={'node':n['id'],'enemy_count':len(expected)}
+    if len(s.enemies)>len(ordinary):row['field_boss_count']=len(s.enemies)-len(ordinary)
+    results.append(row)
 
 s=c.new(12);c.action(s,'story_start');c.enterStoryNode(s,'mond-road')
 source=c.hilichurlArt.source

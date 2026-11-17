@@ -99,7 +99,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 3,
+      "prototype_stage_count": 4,
       "prototype_quest_count": 3,
       "official_map2_markers": {
         "waypoints": 112,
@@ -578,7 +578,7 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 109,
+    "authored_stages": 110,
     "provisional_quests": 67,
     "companion_join_records": 8,
     "scope_complete": false,
@@ -744,7 +744,8 @@
         "stage_ids": [
           "sumeru-entry",
           "sumeru-hub",
-          "sumeru-field"
+          "sumeru-field",
+          "sumeru-jadeplume-grove"
         ],
         "quest_ids": [
           "wanderer-join",

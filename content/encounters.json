@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 11,
+    "partial": 12,
     "complete": 0
   },
   "encounters": [
@@ -781,23 +781,26 @@
       "entity_ids": [
         "26110101"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/jadeplumeterrorshroom.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/jadeplumeterrorshroom.json",
+        "evidence/jadeplume-field-lua.json",
+        "evidence/jadeplume-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "移動・被弾・撃破の追加作画",
+        "装備差・周回報酬のバランス",
+        "Webマルチと幻境実機"
       ],
+      "fieldNode": "sumeru-jadeplume-grove",
+      "fieldEntrance": "スメール・菌傘の谷（Lv60）",
       "art_candidate": {
         "source": "assets/jadeplume-idle-source-v1.png",
         "encoding": "assets/jadeplume-idle-sprites.json",
         "audit": "evidence/jadeplume-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "status": "idle and keyed attack poses used in the Web field encounter"
       }
     },
     {

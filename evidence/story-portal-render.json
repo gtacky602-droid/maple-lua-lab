@@ -423,12 +423,22 @@
     {
       "node": "sumeru-field",
       "mode": "sprite",
-      "visible_portals": 3
+      "visible_portals": 4
     },
     {
       "node": "sumeru-field",
       "mode": "rect",
-      "visible_portals": 3
+      "visible_portals": 4
+    },
+    {
+      "node": "sumeru-jadeplume-grove",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "sumeru-jadeplume-grove",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "fontaine-entry",

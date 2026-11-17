@@ -2,12 +2,13 @@ import json
 from pathlib import Path
 from experience import CAP, CAP_EXP, CURVE_ID, LEVELS, MAX_SAVED_EXP
 _STORY_GRAPH=json.loads((Path(__file__).parent/"content/story-graph.json").read_text(encoding="utf8"))
+_FIELD_BOSSES={slot["id"]:slot for slot in json.loads((Path(__file__).parent/"content/field-boss-spawns.json").read_text(encoding="utf-8-sig"))["fieldBosses"]}
 _STORY_ZONES={"story:"+n["id"] for n in _STORY_GRAPH["nodes"]}
 import math
 """Versioned local checkpoint validation; this is not a production multiplayer save."""
 FIELDS={'version','quest','count','mora','kills','hits','damage','gauge','active'}
 def validate_save(data):
-    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story'}!=FIELDS:
+    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses'}!=FIELDS:
         raise ValueError('保存データの項目が一致しません')
     if type(data['version']) is not int or data['version']!=1:
         raise ValueError('対応していない保存バージョンです')
@@ -265,4 +266,16 @@ def validate_save(data):
                 if (state['recovered'] and not state['guardCleared']
                         or quest['delivery']['cache']['id'] in delivered and not state['recovered']):
                     raise ValueError('Invalid recovered parcel')
+    if 'fieldBosses' in data:
+        slots=data['fieldBosses']
+        if not isinstance(slots,dict):
+            raise ValueError('フィールドボスの保存形式が不正です')
+        for id, slot in slots.items():
+            spec=_FIELD_BOSSES.get(id)
+            if (not spec or not isinstance(slot,dict) or set(slot)!={'generation','hp','waitTicks'}
+                    or any(type(v) is not int for v in slot.values())
+                    or not 1<=slot['generation']<=10**9 or not 0<=slot['hp']<=spec['hp']
+                    or not 0<=slot['waitTicks']<=spec['respawnTicks']
+                    or bool(slot['hp'])==bool(slot['waitTicks'])):
+                raise ValueError('フィールドボスの個体情報が不正です')
     return data.copy()

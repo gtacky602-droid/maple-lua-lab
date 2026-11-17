@@ -48,7 +48,12 @@ function C.defeatEnemy(s,e,owner)
  if e.hp<=0 then return false end
  e.hp=0
  if e.noRewards then e.respawn=1e9;event(s,'object_destroyed',owner,e.id,0)
- else s.kills=s.kills+1;s.mora=s.mora+10;e.respawn=6;event(s,'kill',owner,e.id,10);if C.onKill then C.onKill(s,e) end end
+ else
+  local mora=e.rewardMora or 10
+  s.kills=s.kills+1;s.mora=s.mora+mora;e.respawn=6
+  event(s,'kill',owner,e.id,mora)
+  if C.onKill then C.onKill(s,e) end
+ end
  return true
 end
 local function hit(s,a,e,mult,color,element)
@@ -383,7 +388,7 @@ function C.frame(s,mode,profile)
    else add({kind='sprite',asset=e.kind==1 and 5 or 7,x=e.x-s.camera,y=e.y,w=e.boss and 144 or 48,h=e.boss and 120 or 40,flip=false}) end
   end
   local headY=C.enemyHeadY(e)
-  if e.hp<e.maxhp then rect(e.x-s.camera-20,headY-9,40,4,'#45645d');rect(e.x-s.camera-20,headY-9,40*e.hp/e.maxhp,4,'#ffcc7c') end
+  if e.hp<e.maxhp and not e.fieldBoss then rect(e.x-s.camera-20,headY-9,40,4,'#45645d');rect(e.x-s.camera-20,headY-9,40*e.hp/e.maxhp,4,'#ffcc7c') end
   if e.warning>0 then add({kind='text',x=e.x-s.camera,y=headY-23,text='!',color='#e54b35',size=26}) end
  end end
  for _,a in ipairs(s.actors) do

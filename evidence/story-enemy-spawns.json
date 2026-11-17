@@ -173,6 +173,11 @@
       "enemy_count": 6
     },
     {
+      "node": "sumeru-jadeplume-grove",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
       "node": "fontaine-entry",
       "enemy_count": 6
     },

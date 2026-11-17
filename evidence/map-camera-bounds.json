@@ -216,6 +216,11 @@
       "rightCamera": 480
     },
     {
+      "node": "sumeru-jadeplume-grove",
+      "width": 1460,
+      "rightCamera": 500
+    },
+    {
       "node": "fontaine-entry",
       "width": 1440,
       "rightCamera": 480

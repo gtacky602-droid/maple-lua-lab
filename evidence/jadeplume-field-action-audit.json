@@ -1,0 +1,238 @@
+{
+  "source": "assets/jadeplume-field-actions-source-v1.png",
+  "sha256": "bfa21d941c830c6c56849727a1fea45ea60d77a5830836ce5dfc3d9fbc6eed3f",
+  "size": [
+    1536,
+    1024
+  ],
+  "imagegen_prompt": "Create an original six-frame action sheet for the existing left-facing Jadeplume Terrorshroom 2D pixel art supplied in reference 1. References 2 and 3 are its official model appearance and side angles. Match the idle colors, scale of individual body parts, hard pixel clusters, and original distinctive anatomy: cream chest, two thick moss-tipped stalk legs, dark jade crest, orange curling tendrils, huge broad leaf fan with orange inlays. Exactly six separate sprites against true transparent alpha, three columns by two rows with large transparent gutters and margins. Same facing SCREEN LEFT in every cell. In reading order upper left: neck and head retracted before a peck; upper middle: beak and neck extended sharply low to the left, body planted; upper right: body squatting and wings pressed with feet on floor before a jump; lower left: full spring leap, legs tucked, neck pointing forward and leafy fan trailing; lower middle: low landing/stagger, feet planted wide and head drooped, some wilting tail; lower right: launching spores posture with tail feathers high, chest up and beak raised. Only creature in each cell, no spores or FX drawn, no scenery, weapons, labels, grid marks, shadows, guides or lines. Keep opaque body masses at same stage scale in all six cells, do not enlarge the crouched poses to fill cells. Facing left and foot placement consistent. Wide 3:2 layout.",
+  "visual_references": [
+    {
+      "source": "assets/jadeplume-idle-source-v1.png",
+      "sha256": "f8a7411ba0b212db05757c0a916072ee4bbf526ef3dafeaa071988a05dd3ccff",
+      "role": "existing sprite and palette"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/cc0d77afe6449a8cfed6c1f6500fe5c5_819793732519633656.png",
+      "sha256": "dfdac8476f834d8b295a634fa84a96ec713a006a88c9534a62f8f17f5072969d",
+      "role": "full-body rendered appearance"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/4544d79f8b96e8d9104dd7a496ba5205_977897445851982010.png",
+      "sha256": "aefee3e7bd8f480b0c2242cd9cc4b84cefd2760ff8fcf0e294329f387af20757",
+      "role": "in-game side views in altered elemental states; anatomy reference only"
+    }
+  ],
+  "design_reference": "docs/field-boss-v1/STARTER_MOVESETS.md",
+  "background": {
+    "source": "assets/sumeru-background-v1.png",
+    "scope": "reused temporary regional host image"
+  },
+  "poses": {
+    "crouch": {
+      "encoding": "assets/jadeplume-field-crouch-sprites-v1.json",
+      "bounds": [
+        1088,
+        105,
+        414,
+        344
+      ],
+      "foot_anchor": 0.32608695652173914,
+      "profiles": {
+        "legacy": {
+          "size": [
+            171,
+            142
+          ],
+          "rectangles": 6778
+        },
+        "h48c32": {
+          "size": [
+            128,
+            106
+          ],
+          "rectangles": 4286
+        },
+        "h32c16": {
+          "size": [
+            85,
+            71
+          ],
+          "rectangles": 2013
+        }
+      }
+    },
+    "peck-ready": {
+      "encoding": "assets/jadeplume-field-peck-ready-sprites-v1.json",
+      "bounds": [
+        66,
+        64,
+        392,
+        385
+      ],
+      "foot_anchor": 0.30357142857142855,
+      "profiles": {
+        "legacy": {
+          "size": [
+            162,
+            159
+          ],
+          "rectangles": 6942
+        },
+        "h48c32": {
+          "size": [
+            121,
+            119
+          ],
+          "rectangles": 4558
+        },
+        "h32c16": {
+          "size": [
+            80,
+            79
+          ],
+          "rectangles": 2129
+        }
+      }
+    },
+    "peck": {
+      "encoding": "assets/jadeplume-field-peck-sprites-v1.json",
+      "bounds": [
+        492,
+        73,
+        528,
+        376
+      ],
+      "foot_anchor": 0.49053030303030304,
+      "profiles": {
+        "legacy": {
+          "size": [
+            218,
+            155
+          ],
+          "rectangles": 7481
+        },
+        "h48c32": {
+          "size": [
+            163,
+            116
+          ],
+          "rectangles": 4672
+        },
+        "h32c16": {
+          "size": [
+            108,
+            77
+          ],
+          "rectangles": 2245
+        }
+      }
+    },
+    "spores": {
+      "encoding": "assets/jadeplume-field-spores-sprites-v1.json",
+      "bounds": [
+        1061,
+        531,
+        422,
+        387
+      ],
+      "foot_anchor": 0.33767772511848343,
+      "profiles": {
+        "legacy": {
+          "size": [
+            174,
+            160
+          ],
+          "rectangles": 7296
+        },
+        "h48c32": {
+          "size": [
+            131,
+            120
+          ],
+          "rectangles": 4652
+        },
+        "h32c16": {
+          "size": [
+            87,
+            80
+          ],
+          "rectangles": 2212
+        }
+      }
+    },
+    "spring": {
+      "encoding": "assets/jadeplume-field-spring-sprites-v1.json",
+      "bounds": [
+        27,
+        561,
+        481,
+        290
+      ],
+      "foot_anchor": 0.4074844074844075,
+      "profiles": {
+        "legacy": {
+          "size": [
+            199,
+            120
+          ],
+          "rectangles": 5285
+        },
+        "h48c32": {
+          "size": [
+            149,
+            90
+          ],
+          "rectangles": 3351
+        },
+        "h32c16": {
+          "size": [
+            100,
+            60
+          ],
+          "rectangles": 1645
+        }
+      }
+    },
+    "stagger": {
+      "encoding": "assets/jadeplume-field-stagger-sprites-v1.json",
+      "bounds": [
+        549,
+        665,
+        451,
+        253
+      ],
+      "foot_anchor": 0.3625277161862528,
+      "profiles": {
+        "legacy": {
+          "size": [
+            185,
+            104
+          ],
+          "rectangles": 5318
+        },
+        "h48c32": {
+          "size": [
+            139,
+            78
+          ],
+          "rectangles": 3450
+        },
+        "h32c16": {
+          "size": [
+            93,
+            52
+          ],
+          "rectangles": 1644
+        }
+      }
+    }
+  },
+  "observations": [
+    "Crest and beak pull back before peck, extended neck at strike.",
+    "Shortened body during crouch, tucked feet in leap, broad grounded feet and drooped head in stagger.",
+    "Raised tail distinguishes the spore attack. Rockless landing point is separate from sprite pixels.",
+    "Preserved existing non-humanoid idle sprite. The action cells are left-facing and are mirrored for right-facing attacks.",
+    "Walking, hit, dying, and detailed in-betweens remain candidates; reviewed front and side reference art, model and rear view unavailable."
+  ]
+}
