@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 135 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 133,
+  "scope": "Authored 136 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 134,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -356,6 +356,12 @@
     {
       "id": "emperor-field-cove",
       "name": "フォンテーヌ・熔殻の洞",
+      "region": "フォンテーヌ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "seahorse-field-cavern",
+      "name": "フォンテーヌ・真珠珊瑚の洞",
       "region": "フォンテーヌ",
       "status": "regional_temporary_image"
     },

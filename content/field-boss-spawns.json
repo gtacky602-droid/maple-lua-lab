@@ -1108,6 +1108,35 @@
         {"id":"FEC02","kind":"fire","title":"熔弾の二落ち","reach":232,"lock":48,"active":[[108,118],[156,166]],"spacing":1.25,"width":0.72,"height":0.55,"recover":192,"total":288,"damage":19,"element":"pyro"},
         {"id":"FEC03","kind":"eruption","title":"双角の噴火","reach":216,"lock":54,"active":[[120,132]],"width":3.4,"height":0.6,"recover":168,"total":312,"damage":24,"element":"pyro"}
       ]
+    },
+    {
+      "id":"boss-26180101",
+      "controller":"seahorse",
+      "entity":26180101,
+      "name":"千年真珠の海駿",
+      "node":"seahorse-field-cavern",
+      "storyChallenge":"seahorse",
+      "level":84,
+      "hp":1010,
+      "mora":290,
+      "artHeight":145,
+      "floorY":480,
+      "home":850,
+      "arenaMin":350,
+      "arenaMax":1480,
+      "noticeRange":286,
+      "noticeTicks":36,
+      "restTicks":36,
+      "leashTicks":300,
+      "respawnTicks":3600,
+      "walkSpeed":63,
+      "contactDamage":0,
+      "pearl":{"forward":0.09,"height":0.49,"radius":0.17,"casts":2},
+      "moves":[
+        {"id":"FSH01","kind":"sweep","title":"尾ひれの横払い","reach":205,"lock":42,"active":[[96,112]],"near":0.25,"far":1.75,"low":0.15,"height":0.7,"recover":138,"total":252,"damage":21,"element":"physical"},
+        {"id":"FSH02","kind":"charge","title":"真珠の双雷弾","reach":230,"lock":48,"active":[],"fire":[90,138],"life":44,"speed":3.5,"radius":0.14,"height":0.7,"recover":192,"total":276,"damage":16,"element":"electro"},
+        {"id":"FSH03","kind":"dive","title":"真珠の雷落とし","reach":212,"lock":54,"air":[96,132],"active":[[132,144]],"distance":1.5,"lift":70,"width":1.7,"height":0.65,"recover":168,"total":312,"damage":24,"element":"electro"}
+      ]
     }
   ]
 }

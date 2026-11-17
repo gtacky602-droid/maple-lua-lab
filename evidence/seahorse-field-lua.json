@@ -1,0 +1,36 @@
+{
+  "attacks": [
+    "FSH01",
+    "FSH02",
+    "FSH03"
+  ],
+  "bodyTakesNormalHits": true,
+  "twoLockedElectroBolts": true,
+  "airMovesBodyAndHurtbox": true,
+  "auraSurvivesFlight": true,
+  "landedElectroHit": true,
+  "twoDirectCastsStopDive": true,
+  "sameCastAndReactionDoNotAdvancePearl": true,
+  "oneHpReceiver": true,
+  "interruptRecoveryTicks": 144,
+  "noLateLandingAfterInterrupt": true,
+  "questReportOnce": true,
+  "normalAttackSolo": {
+    "attackPearl": {
+      "seconds": 78.45,
+      "hp": 108,
+      "interrupts": 2
+    },
+    "waitForLanding": {
+      "seconds": 83.73,
+      "hp": 124,
+      "interrupts": 0
+    }
+  },
+  "commands": {
+    "png": 25,
+    "standard": 9029,
+    "light": 2552
+  },
+  "killXp": 113150
+}

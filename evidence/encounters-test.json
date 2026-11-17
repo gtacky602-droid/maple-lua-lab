@@ -1,5 +1,5 @@
 {
-  "count": 61,
+  "count": 62,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -24,6 +24,7 @@
     "The Wenut is reachable through the field route",
     "The Baptist is reachable through the field route",
     "The Emperor is reachable through the field route",
+    "The Seahorse is reachable through the field route",
     "public roster matched without merging Icewind modes or Dottore challenges",
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",

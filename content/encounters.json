@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 25,
+    "partial": 26,
     "complete": 0
   },
   "encounters": [
@@ -1122,23 +1122,26 @@
       "entity_ids": [
         "26180101"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/millennialpearlseahorse.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/millennialpearlseahorse.json",
+        "evidence/seahorse-field-lua.json",
+        "evidence/seahorse-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "連続アニメーション・被弾・撃破作画",
+        "装備別・Webマルチの実測",
+        "幻境実機"
       ],
+      "fieldNode": "seahorse-field-cavern",
+      "fieldEntrance": "フォンテーヌ・真珠珊瑚の洞（Lv84）",
       "art_candidate": {
         "source": "assets/seahorse-idle-source-v1.png",
         "encoding": "assets/seahorse-idle-sprites.json",
-        "audit": "evidence/seahorse-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/seahorse-field-art-audit.json",
+        "status": "Web field prototype with a targetable pearl and four action poses"
       }
     },
     {

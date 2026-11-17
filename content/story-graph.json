@@ -1779,11 +1779,13 @@
           "to": "bygone-camp",
           "x": 720
         },
-        {"to":"emperor-field-cove","x":510}
+        {"to":"emperor-field-cove","x":510},
+        {"to":"seahorse-field-cavern","x":985}
       ],
       "checkpoint": "fontaine-hub"
     },
     {"id":"emperor-field-cove","name":"フォンテーヌ・熔殻の洞","region":"フォンテーヌ","level":82,"hub":false,"peaceful":true,"width":1660,"platforms":[{"x":0,"y":480,"w":1660}],"exits":[{"to":"fontaine-field","x":65}],"checkpoint":"fontaine-hub"},
+    {"id":"seahorse-field-cavern","name":"フォンテーヌ・真珠珊瑚の洞","region":"フォンテーヌ","level":84,"hub":false,"peaceful":true,"width":1640,"platforms":[{"x":0,"y":480,"w":1640}],"exits":[{"to":"fontaine-field","x":65}],"checkpoint":"fontaine-hub"},
     {
       "id": "natlan-entry",
       "name": "ナタ・地域の入口",
@@ -5583,6 +5585,7 @@
     {"id":"asimon-commission","name":"半永久統制マトリックスの討伐調査","hub":"sumeru-hub","target":"asimon","kind":"boss","goal":1,"xp":4200,"mora":310,"note":"地域の入口から入る砂鏡の遺構での討伐が対象。"},
     {"id":"wenut-commission","name":"風蝕ウェネトの討伐調査","hub":"sumeru-hub","target":"wenut","kind":"boss","goal":1,"xp":4400,"mora":320,"note":"地域の入口から入る風蝕の砂洞での討伐が対象。"},
     {"id":"baptist-commission","name":"深罪の浸礼者の討伐調査","hub":"sumeru-hub","target":"baptist","kind":"boss","goal":1,"xp":4600,"mora":330,"note":"地域の入口から入る三環の祭場での討伐が対象。"},
-    {"id":"emperor-commission","name":"鉄甲熔炎帝王の討伐調査","hub":"fontaine-hub","target":"emperor","kind":"boss","goal":1,"xp":5000,"mora":360,"note":"水路沿いから入る熔殻の洞での討伐が対象。"}
+    {"id":"emperor-commission","name":"鉄甲熔炎帝王の討伐調査","hub":"fontaine-hub","target":"emperor","kind":"boss","goal":1,"xp":5000,"mora":360,"note":"水路沿いから入る熔殻の洞での討伐が対象。"},
+    {"id":"seahorse-commission","name":"千年真珠の海駿の討伐調査","hub":"fontaine-hub","target":"seahorse","kind":"boss","goal":1,"xp":5200,"mora":370,"note":"水路沿いから入る真珠珊瑚の洞での討伐が対象。"}
   ]
 }

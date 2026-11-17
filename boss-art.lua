@@ -90,6 +90,12 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local art=C.emperorFieldArt[pose]
   draw(f,art,x,y,art.profiles.legacy.height,mode,profile,flip)
  end
+ local seahorseOffsets={idle=12,sweep=7,charge=12,dive=8,dim=2}
+ function C.drawSeahorseFieldArt(f,x,y,pose,mode,profile,flip)
+  local art=C.seahorseFieldArt[pose]
+  local height=pose=='idle' and 145 or art.profiles.legacy.height
+  draw(f,art,x,y-seahorseOffsets[pose],height,mode,profile,flip)
+ end
  function C.drawThunderFieldArt(f,x,y,h,mode,profile,pose,dir)
   draw(f,pose and C.thunderFieldArt[pose] or C.thunderArt,x,y,h,mode,profile,pose=='dash' and dir>0)
  end

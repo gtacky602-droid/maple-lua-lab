@@ -362,10 +362,12 @@
       }
     },
     "boss-26180101": {
+      "remaining": ["連続アニメーション・被弾・撃破作画", "装備別・Webマルチの実測", "幻境実機"],
+      "extra_evidence": ["evidence/seahorse-field-lua.json", "evidence/seahorse-field-browser.json"],
       "art_candidate": {
         "item": "seahorse",
-        "audit": "evidence/seahorse-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/seahorse-field-art-audit.json",
+        "status": "Web field prototype with a targetable pearl and four action poses"
       }
     },
     "boss-20050101": {

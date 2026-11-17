@@ -1,0 +1,121 @@
+{
+  "date": "2026-11-18",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/8e19ef6522a88018d7e21931b2050eb8_2101580588613828717.png",
+      "sha256": "f3963cca7e37da270482acc09e38c3b36bf6d7e15689e47a299d2792394bceef",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "whole-body render",
+      "use": "full silhouette"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/594a7c71b6f0c357c8f6c44e42e6bf4f_2605810039534355464.png",
+      "sha256": "d4c079aa76e87c2e2d78613bbc14b245fa5c3c20e5f55c539d77307a399f5718",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "in-game pearl intact/broken side comparison",
+      "use": "intact and broken pearl state, cave palette"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/b80d7ead09c95fb8680c378a9bb069e4_7058944105652389258.png",
+      "sha256": "98416a1bf39c376ea1eb4392e2b032b4ad7ab47cd1c17deeadd9a3aa162a7a75",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "in-game airborne attack view; not used for generation",
+      "use": "aerial attack documentation"
+    }
+  ],
+  "idle": "assets/seahorse-idle-source-v1.png",
+  "generated": {
+    "seahorse-field-poses-source-v1.png": "3015576193ca1611c9cea61da21c20beacee808b05bc8c8c49f9865f29c41b54",
+    "seahorse-field-background-v1.png": "8a1e862f5221540145fb840d09816aae3e54de9e0177fc07385c37292a0cc38e"
+  },
+  "poses": {
+    "sweep": {
+      "crop": [
+        0,
+        0,
+        768,
+        512
+      ],
+      "box": [
+        54,
+        109,
+        606,
+        320
+      ],
+      "anchor": 0.3747326732673267,
+      "profiles": {
+        "legacy": 6759,
+        "h48c32": 4438,
+        "h32c16": 1974
+      }
+    },
+    "charge": {
+      "crop": [
+        768,
+        0,
+        768,
+        512
+      ],
+      "box": [
+        786,
+        26,
+        702,
+        421
+      ],
+      "anchor": 0.27411965811965816,
+      "profiles": {
+        "legacy": 7322,
+        "h48c32": 4659,
+        "h32c16": 2081
+      }
+    },
+    "dive": {
+      "crop": [
+        0,
+        512,
+        768,
+        512
+      ],
+      "box": [
+        30,
+        514,
+        711,
+        468
+      ],
+      "anchor": 0.39851476793248947,
+      "profiles": {
+        "legacy": 4978,
+        "h48c32": 3098,
+        "h32c16": 1422
+      }
+    },
+    "dim": {
+      "crop": [
+        768,
+        512,
+        768,
+        512
+      ],
+      "box": [
+        771,
+        730,
+        728,
+        216
+      ],
+      "anchor": 0.3271318681318682,
+      "profiles": {
+        "legacy": 3715,
+        "h48c32": 2353,
+        "h32c16": 1023
+      }
+    }
+  },
+  "notes": [
+    "Crown, spear horn and coral-pink tail remain. The pale blue is explicitly kept in lightweight profiles.",
+    "A chest anchor keeps the pearl, attack receiver and body together across poses.",
+    "No matching 3D model or rear view was inspected. The cave is a host-side placeholder image."
+  ]
+}

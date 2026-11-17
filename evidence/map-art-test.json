@@ -356,6 +356,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "seahorse-field-cavern",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "natlan-entry",
       "count": 0,
       "fallback": false,

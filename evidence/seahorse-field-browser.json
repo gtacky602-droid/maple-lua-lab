@@ -1,0 +1,33 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 54.92,
+    "moves": [
+      "FSH01",
+      "FSH02",
+      "FSH03"
+    ],
+    "dodgeWindows": 3,
+    "finished": true,
+    "hp": 76,
+    "returns": 0
+  },
+  "fieldKill": {
+    "xp": 113150,
+    "mora": 290
+  },
+  "commissionReport": {
+    "xp": 5200,
+    "mora": 370
+  },
+  "persistedCooldown": true,
+  "sameSceneCommands": {
+    "png": 20,
+    "standard": 10999,
+    "light": 3037
+  },
+  "chargeAndWeakpoint": true,
+  "recovery": "真珠が消灯・反撃",
+  "viewport390": true,
+  "errors": []
+}
