@@ -1,11 +1,13 @@
 {
-  "count": 13,
+  "count": 15,
   "checks": [
     "below140 cannot cross",
     "140 enters without prior quests completed",
+    "snow entry cryo slime assignments",
     "entry checkpoint uses previous visited town",
     "snow hub reached",
     "snow battlefield has authored layout",
+    "frozen road cryo slime assignments",
     "four actual kills finish join objective",
     "join report records Mitya",
     "join reward cannot duplicate",

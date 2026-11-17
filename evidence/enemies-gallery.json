@@ -2,8 +2,8 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 11,
-    "visibleCount": 11,
+    "count": 12,
+    "visibleCount": 12,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
@@ -38,6 +38,12 @@
         "h": 40,
         "w": 53.88157894736842,
         "ratio": 1.3470394736842106
+      },
+      {
+        "id": "cryo-slime",
+        "h": 40,
+        "w": 57.737226277372265,
+        "ratio": 1.4434306569343065
       },
       {
         "id": "ruin-guard",

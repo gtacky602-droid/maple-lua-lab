@@ -34,5 +34,9 @@
   "hunter-seeker": {
     "height": 96,
     "hover": 20
+  },
+  "cryo-slime": {
+    "height": 40,
+    "hover": 0
   }
 }

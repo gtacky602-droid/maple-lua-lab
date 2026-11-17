@@ -578,14 +578,14 @@
       {
         "id": "snezhnaya-entry-1",
         "kind": 1,
-        "art": "hydro-slime",
+        "art": "cryo-slime",
         "x": 300,
         "platform": 0
       },
       {
         "id": "snezhnaya-entry-2",
         "kind": 1,
-        "art": "hydro-slime",
+        "art": "cryo-slime",
         "x": 510,
         "platform": 0
       },
@@ -606,7 +606,7 @@
       {
         "id": "snezhnaya-entry-5",
         "kind": 1,
-        "art": "hydro-slime",
+        "art": "cryo-slime",
         "x": 300,
         "platform": 1
       },
@@ -622,7 +622,7 @@
       {
         "id": "snezhnaya-field-1",
         "kind": 1,
-        "art": "hydro-slime",
+        "art": "cryo-slime",
         "x": 300,
         "platform": 0
       },
@@ -643,14 +643,14 @@
       {
         "id": "snezhnaya-field-4",
         "kind": 1,
-        "art": "hydro-slime",
+        "art": "cryo-slime",
         "x": 1120,
         "platform": 0
       },
       {
         "id": "snezhnaya-field-5",
         "kind": 1,
-        "art": "hydro-slime",
+        "art": "cryo-slime",
         "x": 315,
         "platform": 1
       },
@@ -673,7 +673,7 @@
       {
         "id": "dragonspine-depth-2",
         "kind": 1,
-        "art": "hydro-slime",
+        "art": "cryo-slime",
         "x": 510,
         "platform": 0
       },
@@ -694,7 +694,7 @@
       {
         "id": "dragonspine-depth-5",
         "kind": 1,
-        "art": "hydro-slime",
+        "art": "cryo-slime",
         "x": 265,
         "platform": 1
       },

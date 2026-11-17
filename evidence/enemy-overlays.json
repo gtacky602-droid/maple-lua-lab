@@ -487,6 +487,60 @@
       "barrier_y": 219
     },
     {
+      "asset": "cryo-slime",
+      "mode": "sprite",
+      "profile": "legacy",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287,
+      "barrier_y": 280
+    },
+    {
+      "asset": "cryo-slime",
+      "mode": "sprite",
+      "profile": "h48c32",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287,
+      "barrier_y": 280
+    },
+    {
+      "asset": "cryo-slime",
+      "mode": "sprite",
+      "profile": "h32c16",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287,
+      "barrier_y": 280
+    },
+    {
+      "asset": "cryo-slime",
+      "mode": "rect",
+      "profile": "legacy",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287,
+      "barrier_y": 280
+    },
+    {
+      "asset": "cryo-slime",
+      "mode": "rect",
+      "profile": "h48c32",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287,
+      "barrier_y": 280
+    },
+    {
+      "asset": "cryo-slime",
+      "mode": "rect",
+      "profile": "h32c16",
+      "head_y": 310,
+      "bar_y": 301,
+      "warning_y": 287,
+      "barrier_y": 280
+    },
+    {
       "asset": "legacy-atlas",
       "mode": "sprite",
       "profile": "legacy",

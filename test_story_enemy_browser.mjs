@@ -42,6 +42,9 @@ try {
  },source);
  assert.deepEqual([frostarm.total,frostarm.draw.h,frostarm.draw.y],[6,128,480]);
  assert.equal(frostarm.barrier.y,frostarm.draw.y-frostarm.draw.h-15);
+ const cryo=await page.evaluate(()=>window.lab.frame.draws.filter(d=>d.source==='cryo-slime-idle-source-v1.png').map(d=>[d.y,d.h]).sort((a,b)=>a[0]-b[0]));
+ const ledge=await page.evaluate(()=>window.lab.frame.platforms[1].y);
+ assert.deepEqual(cryo,[[ledge,40],[480,40]]);
  await page.locator('#game').screenshot({path:'evidence/frostarm-live-png.png'});
  await page.selectOption('#renderMode','rect');
  await page.waitForFunction(name=>!window.lab.frame.draws.some(d=>d.source===name),source);
@@ -61,6 +64,6 @@ try {
  await popup.locator('main').screenshot({path:'evidence/frostarm-placement.png'});
  await popup.close();
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/frostarm-live-browser.json',JSON.stringify({frostarm,errors,portalTraversal:['mond-town','mond-road','mond-border','dragonspine-camp','dragonspine-depth'],questReady:true,placementProfiles:3},null,2));
+ await fs.writeFile('evidence/frostarm-live-browser.json',JSON.stringify({frostarm,cryo,errors,portalTraversal:['mond-town','mond-road','mond-border','dragonspine-camp','dragonspine-depth'],questReady:true,placementProfiles:3},null,2));
  console.log('Browser walked to Dragonspine; live enemy, quest and placement comparisons passed');
 } finally {await browser.close()}

@@ -32,7 +32,7 @@
     "veluriyam-play",
     "simulanka-play"
   ],
-  "current_story_assignment": "26 hostile nodes, 156 provisional placements: 140 slime, 3 Hilichurl, 2 Ruin Guard, 3 Floating Dendro Fungus, 2 Nobushi, 3 Armored Crab, 1 Frostarm Lawachurl, 2 Hunter-Seeker. Art selection is provisional; generic numeric kind determines behavior.",
+  "current_story_assignment": "26 hostile nodes, 156 provisional placements: 80 Hydro Slime, 52 Pyro Slime, 8 Cryo Slime, 3 Hilichurl, 2 Ruin Guard, 3 Floating Dendro Fungus, 2 Nobushi, 3 Armored Crab, 1 Frostarm Lawachurl, 2 Hunter-Seeker. Art selection is provisional; generic numeric kind determines behavior.",
   "assets": [
     {
       "id": "hydro-slime",
@@ -94,6 +94,12 @@
       "audit": "evidence/hunter-seeker-reference-audit.json"
     },
     {
+      "id": "cryo-slime",
+      "status": "Referenced small idle (40px) at eight ground or ledge slots across Dragonspine and two Snezhnaya routes. Visual assignment only; generic movement and collision. Large form, unique behaviors and rear view pending.",
+      "art": "assets/cryo-slime-idle-sprites.json",
+      "audit": "evidence/cryo-slime-reference-audit.json"
+    },
+    {
       "id": "tepetlisaurus",
       "status": "References directly inspected; idle image generation failed at provider output safety check. No sprite, gallery entry or live spawn created.",
       "audit": "evidence/tepetlisaurus-reference-audit.json"
@@ -113,7 +119,8 @@
       "nobushi",
       "armored-crab",
       "frostarm-lawachurl",
-      "hunter-seeker"
+      "hunter-seeker",
+      "cryo-slime"
     ],
     "live_copy": "Current-node authored spawns can be copied into the visual draft with referenced asset mapping, support-derived y, undo and JSON export. Editing does not write live spawn data.",
     "editing": "Select individual from list, move by clicking either preview with platform snapping, mirror, delete, undo and export/import; all visual-only drafts."

@@ -14,6 +14,7 @@ try{
   await add('hilichurl','ヒルチャール（待機候補）',await json('assets/hilichurl-idle-sprites.json'),76);
   await add('hydro-slime-reference','水スライム（参照付き候補・本編表示中）',await json('assets/hydro-slime-idle-sprites.json'),40);
   await add('pyro-slime-reference','炎スライム（参照付き候補・本編表示中）',await json('assets/pyro-slime-idle-sprites.json'),40);
+  await add('cryo-slime','氷スライム（小型・雪山に仮配置）',await json('assets/cryo-slime-idle-sprites.json'),layouts['cryo-slime'].height);
   await add('ruin-guard','遺跡守衛（待機候補・璃月に仮配置）',await json('assets/ruin-guard-idle-sprites.json'),144);
   await add('dendro-fungus','浮遊草キノコン（待機候補・スメールに仮配置）',await json('assets/dendro-fungus-idle-sprites.json'),64);
   await add('nobushi','野伏・陣刀番（待機候補・稲妻に仮配置）',await json('assets/nobushi-idle-sprites.json'),104);

@@ -1,0 +1,65 @@
+{
+  "date": "2026-11-17",
+  "label": "氷スライム（小型） / Cryo Slime (small)",
+  "references": [
+    {
+      "role": "HoYoWiki Cryo Slime illustration. The lower right settled pose shows the small snow cap, three faceted crystals and flattened lower edge. The mirror reflection is outside the sprite.",
+      "page": "https://wiki.hoyolab.com/m/genshin/entry/2107?lang=ja-jp",
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/03/94675339/75ab07153519df7d9699d6c7b8ed0adb_7873263621577943252.png",
+      "sha256": "0017c16e3bb40b8895259c2ad8086ad070185b7a5c308a08f155446ec8dccd03",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "role": "Game scene with two small forms flanking the large shielded slime. Confirms surface frost, oval eyes, scalloped snow cap and shallow side crystals.",
+      "page": "https://www.hoyolab.com/article/23351616",
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2023/12/02/41724517/5ba4082fdee0ca8b7e9fef4a60b247b1_7921586897982050798.jpg",
+      "sha256": "261a29f63e0935b36cec7c486237493039a477831c256700d7c3400dc1e4b542",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "role": "Existing Hydro Slime sprite for in-lab silhouette scale and pixel cluster style.",
+      "path": "assets/hydro-slime-idle-source-v2.png",
+      "sha256": "8c62268534675dc48fbb4e82eb08b81976bde309df3c7fa6c50a8f286b781f42",
+      "directly_viewed": true,
+      "generation_input": true
+    }
+  ],
+  "model": [
+    { "page": "https://models.spriters-resource.com/pc_computer/genshinimpact/asset/587819/", "credit": "Adverse56", "status": "Small form listing inspected; archive returned HTTP 403." },
+    { "page": "https://booth.pm/ja/items/4358213", "credit": "teruo24", "status": "Fan model download requires sign-in. No model geometry, renders or textures imported from this listing." }
+  ],
+  "generation": {
+    "tool": "built-in ImageGen",
+    "prompt": "Create a single isolated SMALL Cryo Slime game sprite from Genshin Impact for our compact 2D MapleStory-inspired pixel art RPG. Reference 1: HoYoWiki, match only the bottom RIGHT settled body, ignoring its reflection and the other two poses. Reference 2: gameplay screenshot, use the SMALL slime in the lower right or left, ignore the large central shielded crown form. Reference 3: existing Hydro Slime art is the style and proportions reference, preserve its broad but compact jelly silhouette and chunky pixel clusters, do not copy its monochrome water colors. The Cryo Slime has a low rounded dome, flat standing edge, cloudy pale icy-blue translucent body with mid-blue lower edge, a conspicuous ivory snow cap with a scalloped edge, one small cyan diamond crystal on the snowy brow and one small triangular facet on each side, tall paired ivory glowing eyes that are outlined medium blue, and two compact cream snowflake pixel marks on the body. Slight three-quarter turn looking to the right, both eyes visible. Add a narrow crisp dark cool-blue silhouette outline so the pale figure reads clearly against snow scenery. Native-looking 16-bit pixel clusters with large coherent color regions and minimal fine noise; detail should read when downsampled to 20 pixels high. Keep a distinct snow cap, dark eyes outlines and three tiny ice facets. Single full-body settled idle sprite, nothing cropped, no helmet, no giant crown, no weapons, no text, no background, no gradient glow around the figure, no reflection, no ground shadow, no loose snowflakes or particles. Transparent alpha.",
+    "output": "assets/cryo-slime-idle-source-v1.png",
+    "sha256": "7e92adf1036a69779a0e063573c25d3c5c8c4a1eddb3a31e1067d606915ce7cd",
+    "imageSize": [1536, 1024],
+    "opaqueBox": [366, 268, 791, 548],
+    "poseDecision": "Slight right-facing three-quarter settled shape. Enlarged cap and frost marks for 20px sampling. Dark outline #05234c and frost #eef3fa reserved within the existing palette budgets. Low alpha fringe remains outside the main sprite."
+  },
+  "encoding": "assets/cryo-slime-idle-sprites.json",
+  "profiles": {
+    "legacy": { "height": 40, "runs": 750 },
+    "h48c32": { "height": 30, "runs": 505 },
+    "h32c16": { "height": 20, "runs": 207 }
+  },
+  "placement": {
+    "dragonspine-depth": [2, 5],
+    "snezhnaya-entry": [1, 2, 5],
+    "snezhnaya-field": [1, 4, 5],
+    "scope": "Visual assignment at existing ground and ledge support points. Existing enemy kind, support, HP, collision and attacks stay as the shared prototype."
+  },
+  "limits": [
+    "72.4 percent fewer rectangles than the full-height rectangle profile, without FPS measurement.",
+    "Rotatable model/rear inspection and dedicated Cryo behaviors are unfinished; the large shielded form is outside this asset."
+  ],
+  "validation": [
+    "evidence/enemies-gallery.json",
+    "evidence/snow-test.json",
+    "evidence/snow-browser.json",
+    "evidence/frostarm-live-browser.json",
+    "evidence/cryo-slime-snow-placement.png"
+  ]
+}

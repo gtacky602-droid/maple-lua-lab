@@ -2,30 +2,40 @@
   "frostarm": {
     "total": 6,
     "draw": {
-      "x": 353.33333333333314,
-      "y": 480,
       "source": "frostarm-lawachurl-idle-source-v1.png",
+      "kind": "boss_sprite",
+      "flip": false,
+      "w": 98.86896551724138,
+      "y": 480,
+      "x": 355.6666666666665,
       "box": [
         141,
         70,
         896,
         1160
       ],
-      "kind": "boss_sprite",
-      "h": 128,
-      "w": 98.86896551724138,
-      "flip": false,
-      "anchorX": 0.46316964285714285
+      "anchorX": 0.46316964285714285,
+      "h": 128
     },
     "barrier": {
-      "x": 328.33333333333314,
+      "w": 50,
+      "y": 337,
       "kind": "rect",
       "color": "#ccb6fa",
-      "w": 50,
       "h": 3,
-      "y": 337
+      "x": 330.6666666666665
     }
   },
+  "cryo": [
+    [
+      380,
+      40
+    ],
+    [
+      480,
+      40
+    ]
+  ],
   "errors": [],
   "portalTraversal": [
     "mond-town",

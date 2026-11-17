@@ -1,9 +1,24 @@
 {
   "errors": [],
   "fixture": "level140 joined Mitya",
-  "nodes": 29,
-  "quests": 26,
+  "visibleNodes": 55,
+  "visibleQuests": 44,
   "portalWalk": true,
   "regionalFastTravel": true,
-  "snowQuestsShown": true
+  "snowQuestsShown": true,
+  "cryo": {
+    "total": 6,
+    "ledge": 380,
+    "draws": [
+      [
+        380,
+        40
+      ],
+      [
+        480,
+        40
+      ]
+    ],
+    "previewProfiles": 3
+  }
 }
