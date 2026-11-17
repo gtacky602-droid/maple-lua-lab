@@ -849,6 +849,10 @@
       "to": "nod-herra-terrace"
     },
     {
+      "node": "nod-field",
+      "to": "nod-nightmare-shore"
+    },
+    {
       "node": "nod-duckle-workyard",
       "to": "nod-field"
     },
@@ -858,6 +862,10 @@
     },
     {
       "node": "nod-herra-terrace",
+      "to": "nod-field"
+    },
+    {
+      "node": "nod-nightmare-shore",
       "to": "nod-field"
     },
     {

@@ -512,6 +512,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "nod-nightmare-shore",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "nod-town",
       "count": 0,
       "fallback": false,

@@ -1,0 +1,37 @@
+{
+  "browser": "Chrome",
+  "companion": "wanderer",
+  "play": {
+    "won": true,
+    "seconds": 88.57,
+    "moves": [
+      "FWN01",
+      "FWN02",
+      "FWN03"
+    ],
+    "hp": 140,
+    "returns": 0,
+    "casts": 11,
+    "down": true
+  },
+  "scenery": {
+    "key": "nightmareField",
+    "file": "whisperer-nightmares-field-background-v1.png",
+    "state": "ready"
+  },
+  "questAcceptedInUi": true,
+  "questReport": {
+    "xp": 9200,
+    "mora": 630
+  },
+  "sameSceneCommands": {
+    "png": 124,
+    "standard": 18027,
+    "light": 4834
+  },
+  "riftX": 853.1499999999999,
+  "shieldBrokenTick": 417,
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}

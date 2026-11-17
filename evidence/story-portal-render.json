@@ -813,12 +813,12 @@
     {
       "node": "nod-field",
       "mode": "sprite",
-      "visible_portals": 6
+      "visible_portals": 7
     },
     {
       "node": "nod-field",
       "mode": "rect",
-      "visible_portals": 6
+      "visible_portals": 7
     },
     {
       "node": "nod-duckle-workyard",
@@ -847,6 +847,16 @@
     },
     {
       "node": "nod-herra-terrace",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "nod-nightmare-shore",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "nod-nightmare-shore",
       "mode": "rect",
       "visible_portals": 1
     },

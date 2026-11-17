@@ -84,6 +84,20 @@ local function hit(s,a,e,mult,color,element)
  if a.coldBonus and ((e.chill or 0)>0 or (e.frozen or 0)>0 or (e.aura and e.aura.element=='cryo' and e.aura.expires>s.t)) then mult=mult*(1+a.coldBonus) end
  local defense=(e.defense or 5)*((e.armorBreak or 0)>0 and .85 or 1)
  local n=max(1,floor(a.atk*mult*100/(100+defense)*(1-resist)*(1+bonus)*critMultiplier*(C.damageFactor and C.damageFactor(s,a,e,element) or 1)+1e-9))
+ if (e.damageShield or 0)>0 then
+  if element=='physical' then
+   number(s,e,'シールド','#d6b4ff')
+   event(s,'shield_block',a.id,e.id,0)
+  else
+   local absorbed=min(e.damageShield,n*((e.shieldFactors and e.shieldFactors[element]) or 1))
+   e.damageShield=e.damageShield-absorbed
+   number(s,e,absorbed,'#eeb9ff')
+   event(s,'shield_hit',a.id,e.id,absorbed)
+   s.events[#s.events].element=element
+   if e.onShieldDamage then e.onShieldDamage(s,a,e) end
+  end
+  return true
+ end
  n=min(n,max(0,e.hp-(e.minhp or 0)))
  if n<=0 then return false end
  local remaining=max(e.minhp or 0,e.hp-n);s.hits=s.hits+1;s.damage=s.damage+n

@@ -1363,6 +1363,21 @@
         {"id":"FHR02","kind":"dive","title":"飛翔からの着地","reach":216,"lock":60,"distance":1.55,"width":1.72,"height":0.83,"air":[96,138],"lift":1.48,"active":[[138,151]],"recover":182,"total":288,"damage":27,"element":"cryo"},
         {"id":"FHR03","kind":"gloom","title":"薄闇の二連波","reach":222,"lock":60,"distance":1.48,"width":2.35,"height":0.72,"active":[[184,198],[272,286]],"recover":324,"total":418,"damage":24,"element":"cryo"}
       ]
+    },
+    {
+      "id":"boss-22150101","controller":"whispererNightmares","entity":22150101,
+      "name":"昏き魘夢の主","node":"nod-nightmare-shore","storyChallenge":"whisperer-nightmares",
+      "level":128,"hp":1340,"mora":475,"artHeight":210,"floorY":480,"home":940,
+      "arenaMin":325,"arenaMax":1600,"noticeRange":350,"noticeTicks":36,"restTicks":42,
+      "leashTicks":360,"respawnTicks":3600,"walkSpeed":65,"contactDamage":0,"keepHpOnExit":true,
+      "ward":{"max":400,"unitHp":60,"lunarFactor":3,"offsets":[-2.8,-1.2,1.2,2.8],
+        "downTicks":180,"fisherFirst":110,"fisherStagger":24,"fisherPeriod":210,"fisherWindup":58,
+        "fisherWidth":0.9,"fisherDamage":9},
+      "moves":[
+        {"id":"FWN01","kind":"lunge","title":"刃角の突進","reach":215,"lock":48,"near":0.1,"far":2.35,"travel":0.95,"height":0.7,"advance":[100,123],"active":[[100,126]],"recover":156,"total":252,"damage":24,"element":"electro"},
+        {"id":"FWN02","kind":"rift","title":"裂け目からの奇襲","reach":225,"lock":56,"distance":1.65,"width":1.75,"height":0.8,"hide":[84,138],"active":[[138,152]],"recover":184,"total":280,"damage":28,"element":"electro"},
+        {"id":"FWN03","kind":"ward","title":"暗黒のシールド・深淵の放出","reach":230,"lock":60,"deploy":64,"height":0.72,"active":[[840,858]],"recover":880,"total":968,"damage":38,"element":"electro"}
+      ]
     }
   ]
 }

@@ -1,0 +1,20 @@
+{
+  "fixedLungeAndRiftDestination": true,
+  "riftUntargetable": true,
+  "shieldAbsorbsHpDamage": true,
+  "lunarShieldDamageMultiplier": 3,
+  "fourFishersDamageShieldWithoutRewards": true,
+  "finalFisherCancelsReleaseAtBoundary": true,
+  "unbrokenShieldHasOneRelease": true,
+  "summonsRemovedOnExitSaveAndBreak": true,
+  "oneQuestReport": true,
+  "normalAttackSolo": {
+    "seconds": 216.02,
+    "hp": 140
+  },
+  "sameSceneCommands": {
+    "png": 118,
+    "standard": 16058,
+    "light": 4297
+  }
+}

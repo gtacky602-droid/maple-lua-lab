@@ -516,6 +516,12 @@
       "status": "regional_temporary_image"
     },
     {
+      "id": "nod-nightmare-shore",
+      "name": "ナド・クライ・煙雲の山の昏き浜",
+      "region": "ナド・クライ",
+      "status": "regional_temporary_image"
+    },
+    {
       "id": "nod-town",
       "name": "ナド・クライ・町の広場",
       "region": "ナド・クライ",

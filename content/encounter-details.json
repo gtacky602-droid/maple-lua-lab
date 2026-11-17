@@ -348,10 +348,12 @@
       }
     },
     "boss-22150101": {
+      "remaining": ["シールド耐久・召喚数・タイミングと報酬の調整", "被弾・撃破の追加作画と音", "Webマルチと幻境実機"],
+      "extra_evidence": ["https://genshin.hoyoverse.com/ja/news/detail/162159","evidence/whisperer-nightmares-field-lua.json","evidence/whisperer-nightmares-field-browser.json"],
       "art_candidate": {
         "item": "whisperer-nightmares",
-        "audit": "evidence/whisperer-nightmares-reference-audit.json",
-        "status": "idle candidate"
+        "audit": "evidence/whisperer-nightmares-field-art-audit.json",
+        "status": "Web field prototype with five boss poses and a summoned Fisher of Hidden Depths"
       }
     },
     "boss-29020101": {

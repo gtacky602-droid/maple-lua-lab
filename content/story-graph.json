@@ -2204,12 +2204,14 @@
         },
         {"to":"nod-duckle-workyard","x":1110},
         {"to":"nod-battleship-depot","x":945},
-        {"to":"nod-herra-terrace","x":510}
+        {"to":"nod-herra-terrace","x":510},
+        {"to":"nod-nightmare-shore","x":330}
       ]
     },
     {"id":"nod-duckle-workyard","name":"ナド・クライ・工房裏の試運転場","region":"ナド・クライ","level":122,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"nod-field","x":65}],"checkpoint":"nod-town"},
     {"id":"nod-battleship-depot","name":"ナド・クライ・陸巡艦の整備庫","region":"ナド・クライ","level":124,"hub":false,"peaceful":true,"width":1780,"platforms":[{"x":0,"y":480,"w":1780}],"exits":[{"to":"nod-field","x":65}],"checkpoint":"nod-town"},
     {"id":"nod-herra-terrace","name":"ナド・クライ・霜夜の石壇","region":"ナド・クライ","level":126,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"nod-field","x":65}],"checkpoint":"nod-town"},
+    {"id":"nod-nightmare-shore","name":"ナド・クライ・煙雲の山の昏き浜","region":"ナド・クライ","level":128,"hub":false,"peaceful":true,"width":1800,"platforms":[{"x":0,"y":480,"w":1800}],"exits":[{"to":"nod-field","x":65}],"checkpoint":"nod-town"},
     {
       "id": "nod-town",
       "name": "ナド・クライ・町の広場",
@@ -5631,6 +5633,7 @@
     {"id":"overseer-commission","name":"秘源機兵・統御デバイスの討伐調査","hub":"natlan-hub","target":"overseer","kind":"boss","goal":1,"xp":8200,"mora":540,"note":"アトクパンの溶岩棚の分岐から統御の遺構へ入り、統御デバイスを倒す。"},
     {"id":"knuckle-duckle-commission","name":"ボコボコダックの試運転調査","hub":"nod-town","target":"knuckle-duckle","kind":"boss","goal":1,"xp":8500,"mora":570,"note":"月明かりの道から工房裏の試運転場に入り、ボコボコダックを止める。"},
     {"id":"battleship-commission","name":"重量級陸巡艦「バトルシップ」の調査","hub":"nod-town","target":"battleship","kind":"boss","goal":1,"xp":8800,"mora":590,"note":"月明かりの道から陸巡艦の整備庫に入り、バトルシップを止める。"},
-    {"id":"frostnight-herra-commission","name":"霜夜の空を巡る霊主の調査","hub":"nod-town","target":"frostnight-herra","kind":"boss","goal":1,"xp":9000,"mora":610,"note":"月明かりの道から霜夜の石壇へ進み、霜夜の空を巡る霊主を倒す。"}
+    {"id":"frostnight-herra-commission","name":"霜夜の空を巡る霊主の調査","hub":"nod-town","target":"frostnight-herra","kind":"boss","goal":1,"xp":9000,"mora":610,"note":"月明かりの道から霜夜の石壇へ進み、霜夜の空を巡る霊主を倒す。"},
+    {"id":"whisperer-nightmares-commission","name":"昏き魘夢の主の討伐調査","hub":"nod-town","target":"whisperer-nightmares","kind":"boss","goal":1,"xp":9200,"mora":630,"note":"月明かりの道の西側から煙雲の山の昏き浜へ進み、昏き魘夢の主を倒す。"}
   ]
 }

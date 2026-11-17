@@ -35,6 +35,9 @@ try{
  await panel.getByLabel('ボス名で検索').fill('霜夜の空を巡る霊主');
  const terrace=panel.locator('[data-encounter="boss-20081001"]').getByRole('link',{name:/霜夜の石壇/});
  if(await terrace.getAttribute('href')!=='map-art.html?node=nod-herra-terrace')throw Error('Frostnight Herra terrace route missing');
+ await panel.getByLabel('ボス名で検索').fill('昏き魘夢の主');
+ const shore=panel.locator('[data-encounter="boss-22150101"]').getByRole('link',{name:/煙雲の山の昏き浜/});
+ if(await shore.getAttribute('href')!=='map-art.html?node=nod-nightmare-shore')throw Error('Whisperer of Nightmares shore route missing');
  await panel.getByLabel('ボス名で検索').fill('恒常からくり陣形');
  await panel.getByLabel('恒常からくり陣形の弱点個体').selectOption('boss_array_3');
  await panel.getByRole('button',{name:'模擬戦に挑戦'}).click();
@@ -47,5 +50,5 @@ try{
  await panel.getByLabel('挑戦可能のみ').check();if(await panel.locator('[data-encounter]').count()!==1)throw Error('playable filter');
  await panel.getByRole('button',{name:'試作に挑戦'}).click();await page.waitForFunction(()=>window.lab.frame.boss?.name==='ファルカ模擬戦');
  await panel.screenshot({path:'evidence/encounters-browser.png'});if(errors.length)throw Error(errors.join('/'));
- await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:70,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,configDeviceFieldRoute:true,papillaFieldRoute:true,lavaDragonFieldRoute:true,overseerFieldRoute:true,knuckleDuckleFieldRoute:true,battleshipFieldRoute:true,frostnightHerraFieldRoute:true,stygianCandidates:7,disabledUnimplemented:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');
+ await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:70,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,configDeviceFieldRoute:true,papillaFieldRoute:true,lavaDragonFieldRoute:true,overseerFieldRoute:true,knuckleDuckleFieldRoute:true,battleshipFieldRoute:true,frostnightHerraFieldRoute:true,whispererNightmaresFieldRoute:true,stygianCandidates:7,disabledUnimplemented:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');
 }finally{await browser.close()}

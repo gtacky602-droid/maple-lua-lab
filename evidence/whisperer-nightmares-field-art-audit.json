@@ -1,0 +1,227 @@
+{
+  "tool": "built-in image_gen",
+  "references": [
+    {
+      "url": "https://img.gamewith.jp/img/original_fbe8c705cd870c04bcf3e11dc8160551.png",
+      "page": "https://gamewith.jp/genshin/article/show/539820",
+      "view": "Preview, horn and chest blades, tail tip partly cropped",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "b23387c4abd98ca3ef4dd4245699cbadea5e9152947b04a93e090ddcbfa56be3"
+    },
+    {
+      "url": "https://i0.wp.com/brandanime.com/wp-content/uploads/2026/01/image-245.png?resize=1920%2C1080&ssl=1",
+      "page": null,
+      "view": "Gameplay, frontal silhouette amid effects and summons",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "6c925192cdb39615054e52ac5f9f632a4a4f8be266e5297a6f704118cdf4513c"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/ndogsIwY5q5Rx_mtdIC_D3AX_lmIu30xOfotznKDcL0_IJzYCWjXeC2TAOo4S9buCBtmD-OMgEo5nw2CftmCIAviLQXhLPUi7V1i_eYXA8eaPg",
+      "page": "https://kamigame.jp/genshin/page/405046445289290157.html",
+      "view": "Enemy archive icon, face and dark pointed bird wing plates; lower anatomy partly interpreted",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "4484c9a20b81cd9ee1b0b79b1b6e18ceb695eee8d6ca1c91f726233a3df134ec"
+    }
+  ],
+  "poses": {
+    "ready": {
+      "height": 215,
+      "crop": [
+        0,
+        0,
+        620,
+        550
+      ],
+      "original": [
+        25,
+        14,
+        446,
+        468
+      ],
+      "box": [
+        25,
+        25,
+        421,
+        454
+      ],
+      "anchor": 0.6175771971496437,
+      "profiles": {
+        "legacy": 8775,
+        "h48c32": 5463,
+        "h32c16": 2457
+      }
+    },
+    "lunge": {
+      "height": 150,
+      "crop": [
+        620,
+        0,
+        620,
+        550
+      ],
+      "original": [
+        515,
+        198,
+        1003,
+        468
+      ],
+      "box": [
+        645,
+        25,
+        488,
+        270
+      ],
+      "anchor": 0.5635245901639344,
+      "profiles": {
+        "legacy": 8943,
+        "h48c32": 5562,
+        "h32c16": 2573
+      }
+    },
+    "emerge": {
+      "height": 211,
+      "crop": [
+        1240,
+        0,
+        620,
+        550
+      ],
+      "original": [
+        1040,
+        30,
+        1512,
+        468
+      ],
+      "box": [
+        1265,
+        25,
+        472,
+        438
+      ],
+      "anchor": 0.6038135593220338,
+      "profiles": {
+        "legacy": 7668,
+        "h48c32": 4652,
+        "h32c16": 2104
+      }
+    },
+    "shield": {
+      "height": 210,
+      "crop": [
+        0,
+        550,
+        620,
+        550
+      ],
+      "original": [
+        25,
+        522,
+        442,
+        960
+      ],
+      "box": [
+        25,
+        575,
+        417,
+        438
+      ],
+      "anchor": 0.6163069544364509,
+      "profiles": {
+        "legacy": 9714,
+        "h48c32": 5948,
+        "h32c16": 2629
+      }
+    },
+    "down": {
+      "height": 145,
+      "crop": [
+        620,
+        550,
+        620,
+        550
+      ],
+      "original": [
+        515,
+        672,
+        1021,
+        955
+      ],
+      "box": [
+        645,
+        575,
+        506,
+        283
+      ],
+      "anchor": 0.5335968379446641,
+      "profiles": {
+        "legacy": 7576,
+        "h48c32": 4653,
+        "h32c16": 2076
+      }
+    },
+    "fisher": {
+      "height": 70,
+      "crop": [
+        1240,
+        550,
+        620,
+        550
+      ],
+      "original": [
+        1167,
+        692,
+        1406,
+        951
+      ],
+      "box": [
+        1265,
+        575,
+        239,
+        259
+      ],
+      "anchor": 0.6610878661087866,
+      "profiles": {
+        "legacy": 1137,
+        "h48c32": 674,
+        "h32c16": 277
+      }
+    }
+  },
+  "prompts": [
+    "Create one sharp transparent pixel art sprite atlas in exactly 3 columns by 2 rows with generously separated silhouettes (at least 10% blank margins inside each cell). 5 large sprites are alternate poses of the SAME creature, adapted from the attached Japanese official creature art and its current idle pixel sprite for an action RPG. It is the dark faceless quadruped Lord of the Hidden Depths. Four angular legs ending in pointed violet hooves, a very tall slim neck protruding from blade-like shoulder fins, upright forked crystal horn crown, charcoal and midnight lavender armor, hot violet light runs along sternum up the narrow neck, upward-hooked scythe tail behind. FACE RIGHT in every pose (tail left). Top left upright braced anticipation, forward hoof raised. Top middle a forward rightward lunge with lowered neck, horns and bladed chest out ahead, hind feet back. Top right tall reappearance pose with hoof thrust toward right as though just caught itself on landing, low tail. Bottom left dark shield stance, four hooves grounded, hollow violet eyes and brightest core in chest, OUTSIDE shield effect omitted so silhouette stays clean. Bottom center head and chest slumped, lowered body, folded blade fins, lowered tail, violet core dim for stagger. Bottom right a smaller standalone Fisher of Hidden Depths, exact attached tiny icon colors and game scene silhouette: a black two-legged abyssal bird monster with bladed thighs, angular lopsided violet wing fins, pointed beak visor and forked narrow crown, small mauve core, no garments or weapons, separate single body facing right. Keep style consistent with attached idle reference, hard pixel clusters and revised anatomy. True alpha background, no matte texture, words, frames, arrows, shadows, glow outside silhouettes or shared strokes.",
+    "Create a wide 16:9 original static side-view RPG background inspired by the attached purple coastal in-game scene for the Lord of the Hidden Depths. Night at a wild Nod-Krai coast under Smokecloud Mountain. Distant cold gray sea and bluish fog in large central opening, sheer dark slate basalt banks at far left and far right, weathered rocks, a few subdued lavender grasses at far back and thin inert violet fissures high on the cliff face. A dark neutral broad stone fighting apron begins at about 72% from top, front edge completely flat. Palette: medium dark neutral gray-blue horizontals, violet limited to cliff cracks so magenta mob silhouettes and pink warning indicators are distinct. No foreground cliffs blocking gameplay, no creatures, signs, drops, text, purple energy stripes over the floor, HUD, markers, or logos. Fine and coherent pixel art texture with crisp details."
+  ],
+  "raw_atlas_sha256": "d0714f2d129020ba06f2675e4061d2dd46b31e3a40319e6a38ced679479864ca",
+  "idle_sha256": "2c910185e3fc56f53a7f79368feee8864e550ab913eb817dedb00f7bab55dcdb",
+  "outputs": {
+    "whisperer-nightmares-field-poses-source-v1.png": "ff25511a21fb463ec72603d31999caa019a6b35d340f5af70923d9ee61f9710c",
+    "whisperer-nightmares-field-background-v1.png": "70ca91655b5326fc57bc73956a08dcfef101a384e1d210e6d5854a8755ec0f19"
+  },
+  "model_lookup": {
+    "page": "https://models.spriters-resource.com/pc_computer/genshinimpact/asset/586793/",
+    "result": "Matching FBX/DAE package listed, ZIP and page HTTP403 from local client. Geometry unverified."
+  },
+  "notes": [
+    "Six connected silhouettes repacked with transparent gutters. Semi-transparent matte removed outside the connected outlines.",
+    "The previous idle faces left; five combat bodies and one bird face right.",
+    "The coastal setting is a provisional lab background."
+  ],
+  "visual_review": {
+    "reviewed": [
+      "whisperer-nightmares-field-png.png",
+      "whisperer-nightmares-field-light.png",
+      "whisperer-nightmares-field-down.png",
+      "whisperer-nightmares-field-rift.png"
+    ],
+    "observations": [
+      "The two branching horns, long neck and scythe tail remain readable in both modes.",
+      "Four separate Fisher silhouettes and HP bars remain distinct against the neutral shore.",
+      "The down pose is visibly lower and rift hides the creature while preserving the landing mark.",
+      "The lightweight mode merges thin neck plates and the face core."
+    ],
+    "scope": "Fixed-state local drawing command counts; native frame time unverified."
+  }
+}

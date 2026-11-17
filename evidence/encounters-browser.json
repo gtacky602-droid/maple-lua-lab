@@ -12,6 +12,7 @@
   "knuckleDuckleFieldRoute": true,
   "battleshipFieldRoute": true,
   "frostnightHerraFieldRoute": true,
+  "whispererNightmaresFieldRoute": true,
   "stygianCandidates": 7,
   "disabledUnimplemented": true,
   "launchesVerified": [
