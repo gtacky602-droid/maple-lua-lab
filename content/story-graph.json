@@ -1779,6 +1779,7 @@
           "to": "bygone-camp",
           "x": 720
         },
+        {"to":"tulpa-field-grotto","x":320},
         {"to":"emperor-field-cove","x":510},
         {"to":"seahorse-field-cavern","x":985},
         {"to":"field-generator-field-chamber","x":1165}
@@ -1788,6 +1789,7 @@
     {"id":"emperor-field-cove","name":"フォンテーヌ・熔殻の洞","region":"フォンテーヌ","level":82,"hub":false,"peaceful":true,"width":1660,"platforms":[{"x":0,"y":480,"w":1660}],"exits":[{"to":"fontaine-field","x":65}],"checkpoint":"fontaine-hub"},
     {"id":"seahorse-field-cavern","name":"フォンテーヌ・真珠珊瑚の洞","region":"フォンテーヌ","level":84,"hub":false,"peaceful":true,"width":1640,"platforms":[{"x":0,"y":480,"w":1640}],"exits":[{"to":"fontaine-field","x":65}],"checkpoint":"fontaine-hub"},
     {"id":"field-generator-field-chamber","name":"フォンテーヌ・重力試験室","region":"フォンテーヌ","level":86,"hub":false,"peaceful":true,"width":1660,"platforms":[{"x":0,"y":480,"w":1660}],"exits":[{"to":"fontaine-field","x":65}],"checkpoint":"fontaine-hub"},
+    {"id":"tulpa-field-grotto","name":"フォンテーヌ・潮影の洞","region":"フォンテーヌ","level":88,"hub":false,"peaceful":true,"width":1690,"platforms":[{"x":0,"y":480,"w":1690}],"exits":[{"to":"fontaine-field","x":65}],"checkpoint":"fontaine-hub"},
     {
       "id": "natlan-entry",
       "name": "ナタ・地域の入口",
@@ -5589,6 +5591,7 @@
     {"id":"baptist-commission","name":"深罪の浸礼者の討伐調査","hub":"sumeru-hub","target":"baptist","kind":"boss","goal":1,"xp":4600,"mora":330,"note":"地域の入口から入る三環の祭場での討伐が対象。"},
     {"id":"emperor-commission","name":"鉄甲熔炎帝王の討伐調査","hub":"fontaine-hub","target":"emperor","kind":"boss","goal":1,"xp":5000,"mora":360,"note":"水路沿いから入る熔殻の洞での討伐が対象。"},
     {"id":"seahorse-commission","name":"千年真珠の海駿の討伐調査","hub":"fontaine-hub","target":"seahorse","kind":"boss","goal":1,"xp":5200,"mora":370,"note":"水路沿いから入る真珠珊瑚の洞での討伐が対象。"},
-    {"id":"field-generator-commission","name":"実験用フィールド生成装置の討伐調査","hub":"fontaine-hub","target":"field-generator","kind":"boss","goal":1,"xp":5400,"mora":380,"note":"水路沿いから入る重力試験室での討伐が対象。"}
+    {"id":"field-generator-commission","name":"実験用フィールド生成装置の討伐調査","hub":"fontaine-hub","target":"field-generator","kind":"boss","goal":1,"xp":5400,"mora":380,"note":"水路沿いから入る重力試験室での討伐が対象。"},
+    {"id":"tulpa-commission","name":"水形タルパの討伐調査","hub":"fontaine-hub","target":"tulpa","kind":"boss","goal":1,"xp":5600,"mora":390,"note":"水路沿いから入る潮影の洞での討伐が対象。"}
   ]
 }

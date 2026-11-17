@@ -573,12 +573,12 @@
     {
       "node": "fontaine-field",
       "mode": "sprite",
-      "visible_portals": 6
+      "visible_portals": 7
     },
     {
       "node": "fontaine-field",
       "mode": "rect",
-      "visible_portals": 6
+      "visible_portals": 7
     },
     {
       "node": "emperor-field-cove",
@@ -607,6 +607,16 @@
     },
     {
       "node": "field-generator-field-chamber",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "tulpa-field-grotto",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "tulpa-field-grotto",
       "mode": "rect",
       "visible_portals": 1
     },

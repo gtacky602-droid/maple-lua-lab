@@ -1,0 +1,46 @@
+{
+  "attacks": [
+    "FHT01",
+    "FHT02",
+    "FHT03"
+  ],
+  "hydroImmunityAndNormalHits": true,
+  "fixedSpearAndHammer": true,
+  "summonHasOwnHp": true,
+  "summonMovesToBoss": true,
+  "killSummonHasNoRewards": true,
+  "absorptionDoesNotHeal": true,
+  "absorptionChangesSurge": {
+    "width": [
+      1.8,
+      3.6
+    ],
+    "damage": [
+      20,
+      28
+    ]
+  },
+  "cleanupOnExitAndBossKill": true,
+  "finalTickKillStopsAbsorption": true,
+  "questReportOnce": true,
+  "normalAttackSolo": {
+    "stopHalf": {
+      "seconds": 88.22,
+      "hp": 140,
+      "absorbed": 2,
+      "stopped": 3
+    },
+    "allowMerge": {
+      "seconds": 82.78,
+      "hp": 140,
+      "absorbed": 4,
+      "stopped": 0
+    }
+  },
+  "commands": {
+    "png": 40,
+    "standard": 8423,
+    "light": 2386
+  },
+  "killXp": 148300
+}

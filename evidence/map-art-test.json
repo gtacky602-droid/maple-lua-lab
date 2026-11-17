@@ -368,6 +368,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "tulpa-field-grotto",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "natlan-entry",
       "count": 0,
       "fallback": false,

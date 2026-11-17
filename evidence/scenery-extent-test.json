@@ -2,6 +2,36 @@
   "errors": [],
   "cases": [
     {
+      "key": "tulpaField",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "tulpaField",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "tulpaField",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "tulpaField",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "tulpaField",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "tulpaField",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "generatorField",
       "camera": -960,
       "transparent": 0

@@ -1165,6 +1165,35 @@
         {"id":"FFG02","kind":"stones","title":"岩弾の二連","reach":239,"lock":48,"active":[],"fire":[84,132],"life":48,"speed":4.4,"radius":0.15,"height":0.63,"recover":198,"total":282,"damage":18,"element":"geo"},
         {"id":"FFG03","kind":"quake","title":"低重力場・三連地震","reach":232,"lock":54,"active":[[114,124],[146,156],[178,188]],"height":0.44,"gravity":{"width":6,"height":4,"start":72,"finish":216,"factor":0.55},"recover":216,"total":360,"damage":19,"element":"geo"}
       ]
+    },
+    {
+      "id":"boss-20051201",
+      "controller":"tulpa",
+      "entity":20051201,
+      "name":"水形タルパ",
+      "node":"tulpa-field-grotto",
+      "storyChallenge":"tulpa",
+      "level":88,
+      "hp":1030,
+      "mora":315,
+      "artHeight":155,
+      "floorY":480,
+      "home":860,
+      "arenaMin":355,
+      "arenaMax":1530,
+      "noticeRange":295,
+      "noticeTicks":36,
+      "restTicks":36,
+      "leashTicks":300,
+      "respawnTicks":3600,
+      "walkSpeed":56,
+      "contactDamage":0,
+      "immune":"hydro",
+      "moves":[
+        {"id":"FHT01","kind":"spear","title":"水槍の一閃","reach":245,"lock":48,"active":[[96,110]],"near":0.45,"far":2.6,"low":0.18,"height":0.85,"recover":144,"total":264,"damage":21,"element":"hydro"},
+        {"id":"FHT02","kind":"hammer","title":"水槌の二打","reach":224,"lock":54,"active":[[102,114],[156,168]],"spacing":1.32,"width":0.85,"height":0.78,"recover":198,"total":288,"damage":20,"element":"hydro"},
+        {"id":"FHT03","kind":"merge","title":"半身の合流・奔流","reach":246,"lock":48,"active":[[204,216]],"height":0.68,"width":1.8,"absorbedWidth":3.6,"recover":240,"total":384,"damage":20,"absorbedDamage":28,"element":"hydro","summon":{"spawn":54,"merge":174,"distance":2.65,"hp":26}}
+      ]
     }
   ]
 }

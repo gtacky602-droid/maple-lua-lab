@@ -208,10 +208,12 @@
       }
     },
     "boss-20051201": {
+      "remaining": ["連続アニメーション・被弾・撃破作画", "装備別・Webマルチの実測", "幻境実機"],
+      "extra_evidence": ["evidence/tulpa-field-lua.json", "evidence/tulpa-field-browser.json"],
       "art_candidate": {
         "item": "tulpa",
-        "audit": "evidence/tulpa-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/tulpa-field-art-audit.json",
+        "status": "Web field prototype with independent Half-Tulpa art, water weapons and absorption poses"
       }
     },
     "icewind-coppelia": {

@@ -45,17 +45,17 @@ return function(C,configs,controllers)
   if slot.enemy.fieldPartner then place(slot.enemy.fieldPartner) end
  end
 
- local function cancelCast(spec,slot)
+ local function cancelCast(s,spec,slot)
   local behavior=controllers[spec.controller]
   if slot.cast and behavior.cancel then
-   behavior.cancel(slot.enemy,spec)
+   behavior.cancel(slot.enemy,spec,s,slot.cast)
    slot.cast=nil;slot.index=1;slot.delay=spec.restTicks
   end
  end
 
  function C.enterFieldBossNode(s,id)
   for other,slot in pairs(s.fieldSlots or {}) do
-   if byId[other].node~=id then cancelCast(byId[other],slot) end
+   if byId[other].node~=id then cancelCast(s,byId[other],slot) end
   end
   local spec=byNode[id]
   if not spec then return end
@@ -146,7 +146,7 @@ return function(C,configs,controllers)
    return
   end
   if slot.phase=='leash' then returnHome(s,spec,slot,here);return end
-  if not here then cancelCast(spec,slot) end
+  if not here then cancelCast(s,spec,slot) end
   local target,distance
   if here then target,distance=nearest(s,spec,boss) end
   if slot.phase=='available' then
@@ -158,7 +158,7 @@ return function(C,configs,controllers)
   end
   slot.out=target and 0 or slot.out+1
   if slot.out>=spec.leashTicks then
-   if boss.fieldPartner then cancelCast(spec,slot) end
+   if boss.fieldPartner or (slot.cast and slot.cast.summon) then cancelCast(s,spec,slot) end
    slot.phase='leash';slot.cast=nil;boss.invulnerable=true
    boss.y=spec.floorY;boss.drawHeight=spec.artHeight;boss.hitTop=boss.y-boss.drawHeight;boss.hitBottom=boss.y
    return
@@ -221,6 +221,8 @@ return function(C,configs,controllers)
    local slot=s.fieldSlots and s.fieldSlots[e.fieldBoss]
    if not slot or e~=slot.enemy or e.hp>0 or slot.waitUntil then return end
    slot.waitUntil=s.t+spec.respawnTicks/60
+   local behavior=controllers[spec.controller]
+   if behavior.onDefeat then behavior.onDefeat(s,e,spec,slot.cast) end
    slot.cast=nil;slot.phase='respawn'
    e.weakpoint=nil
    e.respawn=math.huge
@@ -290,6 +292,10 @@ return function(C,configs,controllers)
    generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(s,slot)/60,label=label,elementSlots=boss.elementSlots,
    move=cast and cast.move.id,tick=cast and cast.tick,underground=boss.underground,
    weakpoint=boss.hp>0 and boss.weakpoint or nil,gravity=cast and cast.gravity}
+  local summon=cast and cast.summon
+  if summon and summon.hp>0 then
+   f.fieldBoss.summon={id=summon.id,x=summon.x,y=summon.y,hp=summon.hp,maxhp=summon.maxhp}
+  end
   if partner then
    f.fieldBoss.bodies={{id=boss.id,x=boss.x,y=boss.y,element=boss.element},{id=partner.id,x=partner.x,y=partner.y,element=partner.element}}
   end

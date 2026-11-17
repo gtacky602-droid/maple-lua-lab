@@ -204,6 +204,9 @@ def runtime():
     generator=lua.execute((ROOT/'field-generator.lua').read_text(encoding='utf-8'))(core)
     core.generatorFieldArt=field_art(lua,'field-generator',('sweep','stones','quake','recover'),
                                     idle='field-generator-idle-sprites.json')
+    tulpa=lua.execute((ROOT/'field-tulpa.lua').read_text(encoding='utf-8'))(core)
+    core.tulpaFieldArt=field_art(lua,'tulpa',('spear','hammer','merge','surge','settled','half'),
+                               idle='tulpa-idle-sprites.json')
     core.aeonblightFieldArt=field_art(lua,'aeonblight',('wing_first','wing_second','cannon','windup','dash','down'),
                                      idle='aeonblight-idle-sprites.json')
     bathysmal=lua.execute((ROOT/'field-bathysmal.lua').read_text(encoding='utf-8'))(core)
@@ -229,7 +232,7 @@ def runtime():
                         'wolflord':wolflord_field,'ruinSerpent':ruin_serpent,'bathysmal':bathysmal,
                         'electroRegisvine':electro_vine,'aeonblight':aeonblight,
                         'dendroHypostasis':dendro_hypostasis,'asimon':asimon,'wenut':wenut,'baptist':baptist,
-                        'emperor':emperor,'seahorse':seahorse,'generator':generator})
+                        'emperor':emperor,'seahorse':seahorse,'generator':generator,'tulpa':tulpa})
     )
     return lua, core
 

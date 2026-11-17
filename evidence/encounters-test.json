@@ -1,5 +1,5 @@
 {
-  "count": 63,
+  "count": 64,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -26,6 +26,7 @@
     "The Emperor is reachable through the field route",
     "The Seahorse is reachable through the field route",
     "The Field Generator is reachable through the field route",
+    "The Tulpa is reachable through the field route",
     "public roster matched without merging Icewind modes or Dottore challenges",
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",

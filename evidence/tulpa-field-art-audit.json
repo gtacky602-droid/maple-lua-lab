@@ -1,0 +1,153 @@
+{
+  "date": "2026-11-18",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/09/35428890/81f2a68943d51cddfed93270f34971d7_5613618789416573835.png",
+      "sha256": "5c7eda5bc7bc6c609486696a484c523f4758bfd9f441b17b1c9b2c73086a9904",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "front/three-quarter render with background",
+      "use": "crest, arms and main silhouette"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/9d4f8b10ed7d190efc5761eb030bd98a_2899057606069444813.png",
+      "sha256": "9d15dc1f61cf7626f16827d7e48960216891ee71c4bc1ccf4d0e13d3ea326f3d",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "in-game large and half-tulpa scene",
+      "use": "summon silhouette and cavern palette"
+    }
+  ],
+  "idle": "assets/tulpa-idle-source-v1.png",
+  "generated": {
+    "tulpa-field-poses-source-v1.png": "72e7d9f552fbb2a60ced9d4ae523498d97c99ff3aae17bd41eeca947c813351a",
+    "tulpa-field-background-v1.png": "1c63b402f85539bf8647678852058f06d7e34880f4c70ee871509f4c1a86f747"
+  },
+  "poses": {
+    "spear": {
+      "crop": [
+        0,
+        0,
+        535,
+        512
+      ],
+      "box": [
+        30,
+        101,
+        493,
+        382
+      ],
+      "anchor": 0.37322515212981744,
+      "profiles": {
+        "legacy": 4997,
+        "h48c32": 3225,
+        "h32c16": 1414
+      }
+    },
+    "hammer": {
+      "crop": [
+        535,
+        0,
+        490,
+        512
+      ],
+      "box": [
+        555,
+        15,
+        438,
+        472
+      ],
+      "anchor": 0.3538812785388128,
+      "profiles": {
+        "legacy": 6121,
+        "h48c32": 3836,
+        "h32c16": 1661
+      }
+    },
+    "merge": {
+      "crop": [
+        1025,
+        0,
+        511,
+        512
+      ],
+      "box": [
+        1089,
+        101,
+        407,
+        391
+      ],
+      "anchor": 0.32678132678132676,
+      "profiles": {
+        "legacy": 5779,
+        "h48c32": 3740,
+        "h32c16": 1645
+      }
+    },
+    "surge": {
+      "crop": [
+        0,
+        512,
+        575,
+        512
+      ],
+      "box": [
+        22,
+        525,
+        530,
+        424
+      ],
+      "anchor": 0.5018867924528302,
+      "profiles": {
+        "legacy": 9475,
+        "h48c32": 6161,
+        "h32c16": 2733
+      }
+    },
+    "settled": {
+      "crop": [
+        575,
+        512,
+        465,
+        512
+      ],
+      "box": [
+        642,
+        576,
+        339,
+        355
+      ],
+      "anchor": 0.4749262536873156,
+      "profiles": {
+        "legacy": 4646,
+        "h48c32": 2891,
+        "h32c16": 1277
+      }
+    },
+    "half": {
+      "crop": [
+        1040,
+        512,
+        496,
+        512
+      ],
+      "box": [
+        1170,
+        699,
+        203,
+        161
+      ],
+      "anchor": 0.5369458128078818,
+      "profiles": {
+        "legacy": 923,
+        "h48c32": 562,
+        "h32c16": 256
+      }
+    }
+  },
+  "notes": [
+    "The half-tulpa is independently encoded. Its silhouette and main body share a blue palette and a spiral eye.",
+    "The base, attached weapon and two body widths are readable in a side view. Continuous water simulation is pending.",
+    "No matching 3D model or rear view was inspected. The tidal grotto is a temporary lab image."
+  ]
+}

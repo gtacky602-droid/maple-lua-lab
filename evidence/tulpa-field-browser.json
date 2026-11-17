@@ -1,0 +1,33 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 66.12,
+    "moves": [
+      "FHT01",
+      "FHT02",
+      "FHT03"
+    ],
+    "dodgeWindows": 4,
+    "finished": true,
+    "hp": 140,
+    "returns": 0
+  },
+  "fieldKill": {
+    "xp": 148300,
+    "mora": 315
+  },
+  "commissionReport": {
+    "xp": 5600,
+    "mora": 390
+  },
+  "persistedCooldown": true,
+  "sameSceneCommands": {
+    "png": 31,
+    "standard": 9248,
+    "light": 2488
+  },
+  "summonWasVisible": true,
+  "mergeOutcome": "合流済み・広い奔流から離れる",
+  "viewport390": true,
+  "errors": []
+}

@@ -123,8 +123,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 6,
-      "prototype_quest_count": 6,
+      "prototype_stage_count": 7,
+      "prototype_quest_count": 7,
       "official_map2_markers": {
         "waypoints": 92,
         "statues": 8
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 137,
-    "provisional_quests": 82,
+    "authored_stages": 138,
+    "provisional_quests": 83,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -793,7 +793,8 @@
           "fontaine-field",
           "emperor-field-cove",
           "seahorse-field-cavern",
-          "field-generator-field-chamber"
+          "field-generator-field-chamber",
+          "tulpa-field-grotto"
         ],
         "quest_ids": [
           "emilie-join",
@@ -801,7 +802,8 @@
           "fontaine-contract",
           "emperor-commission",
           "seahorse-commission",
-          "field-generator-commission"
+          "field-generator-commission",
+          "tulpa-commission"
         ]
       },
       {
