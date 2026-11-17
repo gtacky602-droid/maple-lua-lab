@@ -6,6 +6,7 @@
   "interval_semantics": "half_open",
   "unit_U_pixels": 88,
   "source_of_truth": [
+    "CORRECTIONS_V02.md",
     "ALL_DEVOURING_NARWHAL.md",
     "THE_KNAVE.md"
   ],
@@ -19,6 +20,8 @@
     "all_fixed_routes": 31
   },
   "damage_policy": "normal_pipeline; no authority_lethal; no implicit party revival",
+  "design_revision": "simulation-corrections-v2",
+  "source_precedence": "CORRECTIONS_V02 overrides only its named sections; all other original prose remains valid. This manifest is corrected in place.",
   "entries": [
     {"id":"WV01","title":"星海の飛び出し","boss":"narwhal","kind":"fixed","total_ticks":360,"lock_ticks":[54],"active_windows":[[108,120],[174,186]],"recovery":[276,360],"projectiles":[],"hit_cap":2},
     {"id":"WV02","title":"巨鯨の飛び込み","boss":"narwhal","kind":"fixed","total_ticks":420,"lock_ticks":[72],"active_windows":[[156,168],[228,240]],"recovery":[300,420],"projectiles":[],"hit_cap":2},
@@ -30,7 +33,7 @@
     {"id":"WV08","title":"幻影の三斬・遅裂","boss":"narwhal","kind":"fixed","total_ticks":300,"lock_ticks":[42],"active_windows":[[84,90],[108,114],[132,138],[156,162],[180,186],[204,210]],"recovery":[228,300],"projectiles":[],"hit_cap":3,"paired_groups":[[0,1],[2,3],[4,5]]},
     {"id":"WV09","title":"巨剣の往還","boss":"narwhal","kind":"fixed","total_ticks":360,"lock_ticks":[54],"active_windows":[],"recovery":[288,360],"projectiles":[{"spawn_ticks":[90],"ttl_ticks":180,"hit_cap":2,"passes":2}],"hit_cap":2},
     {"id":"WV10","title":"雷裂の三柱","boss":"narwhal","kind":"fixed","total_ticks":336,"lock_ticks":[48,108,168],"active_windows":[[108,114],[168,174],[228,234]],"recovery":[252,336],"projectiles":[],"hit_cap":3},
-    {"id":"WV11","title":"幻形の核","boss":"narwhal","kind":"event","deadline_ticks":300,"accept_window":[60,240],"success_stagger_ticks":96,"success_S_loss":25,"failure_next":"WV12"},
+    {"id":"WV11","title":"幻形の核","boss":"narwhal","kind":"event","deadline_ticks":420,"accept_window":[60,360],"success_stagger_ticks":96,"success_S_loss":25,"failure_next":"WV12","required_manual_casts":4,"min_cast_gap_ticks":12,"visual_center_z_U":0.9,"hurtbox_x_halfwidth_U":0.35,"hurtbox_z_U":[0.65,1.15],"failure_telegraph":[360,420]},
     {"id":"WV12","title":"幻形の襲来","boss":"narwhal","kind":"fixed","total_ticks":456,"lock_ticks":[48],"active_windows":[[348,354]],"recovery":[384,456],"projectiles":[{"spawn_ticks":[84,144,204,264],"ttl_ticks":60,"hit_cap":1}],"hit_cap":5,"variants":[{"key":"vishap","total_ticks":432,"lock_ticks":[48],"active_windows":[[108,120],[228,240],[300,306]],"recovery":[336,432],"projectiles":[],"hit_cap":3},{"key":"jellyfish","total_ticks":480,"lock_ticks":[60],"active_windows":[[384,390]],"recovery":[408,480],"projectiles":[{"spawn_ticks":[90,150,210,270],"ttl_ticks":90,"hit_cap":1}],"hit_cap":5}]},
     {"id":"WV13","title":"幻影耐久と中断","boss":"narwhal","kind":"event","resource":"S","max_value":100,"completion_next":"WV14"},
     {"id":"WV14","title":"内部崩落・帰還","boss":"narwhal","kind":"fixed","total_ticks":180,"lock_ticks":[],"active_windows":[],"recovery":[144,180],"projectiles":[],"hp_attackable_during_recovery":false,"script_ticks":[0,96,120],"bonus_hp_ratio":0.2},
@@ -43,7 +46,7 @@
     {"id":"WK05","title":"空中輪刈","boss":"knave","kind":"fixed","total_ticks":300,"lock_ticks":[60],"active_windows":[[138,150],[198,204]],"recovery":[228,300],"projectiles":[],"hit_cap":2},
     {"id":"WK06","title":"横滑り・迎撃","boss":"knave","kind":"fixed","total_ticks":216,"lock_ticks":[30],"active_windows":[[120,126]],"recovery":[144,216],"projectiles":[],"hit_cap":1},
     {"id":"WK07","title":"血償の宣告","boss":"knave","kind":"fixed","total_ticks":240,"lock_ticks":[],"active_windows":[],"recovery":[180,240],"projectiles":[],"script_ticks":[120],"debt_apply_ratio":0.25,"non_damage_status":true},
-    {"id":"WK08","title":"契約・侵食・返済灯","boss":"knave","kind":"event","resources":["D","F"],"debt_cap_max_hp_ratio":0.5,"repayment_start_delay":45,"repayment_interval":60,"repayment_ratio":0.05,"repayment_changes_HP":false},
+    {"id":"WK08","title":"契約・侵食・返済灯","boss":"knave","kind":"event","resources":["D","F"],"debt_cap_max_hp_ratio":0.5,"repayment_start_delay":45,"repayment_interval":30,"repayment_ratio":0.05,"repayment_changes_HP":false,"repayment_mode":"hold_to_repay","repayment_preserve_paid_on_cancel":true,"repayment_owner":"actor_generation","repayment_no_catchup":true,"interaction_contract":"ENCOUNTER_INTERACTION_V01.md"},
     {"id":"WK09","title":"血汐の衝撃","boss":"knave","kind":"event","eligible_casts":["WK10","WK14","WK15"],"requires_valid_hit":true,"uses_existing_normal_attack":true,"interrupt_next":"WK17"},
     {"id":"WK10","title":"赤宴・地紋","boss":"knave","kind":"fixed","total_ticks":420,"lock_ticks":[60],"active_windows":[[180,192],[252,264],[324,336]],"recovery":[348,420],"projectiles":[],"hit_cap":3,"interrupt_window":[90,324],"geometry_variants":["circle","cross"],"debt_on_hit":true},
     {"id":"WK11","title":"凶月の羽化","boss":"knave","kind":"fixed","total_ticks":240,"lock_ticks":[],"active_windows":[],"recovery":[180,240],"projectiles":[],"hp_attackable_during_recovery":false,"script_ticks":[0,144],"pause_debt_drain_ticks":240},

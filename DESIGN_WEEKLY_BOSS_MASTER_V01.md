@@ -1,6 +1,12 @@
-# 週ボス設計：原作の攻略体験を2Dへ移す v0.7
+# 週ボス設計：原作の攻略体験を2Dへ移す v0.8
 
 2026-11-17 JST。入口のファイル名は参照互換のためV01のまま保持。モンド・璃月・稲妻・スメール・フォンテーヌ各2戦、蝕まれし源焔の主と扉に通ずる対局に続き、偽月の異端者と左道の真諦者を追加した。同人物に関係する二つの独立挑戦を統合しない。
+
+## 先に読む修正版（2026-11-17）
+
+[シミュレーション後の修正入口](DESIGN_WEEKLY_BOSS_CORRECTIONS_V02.md)と[CORRECTIONS_V02](docs/weekly-boss-v1/CORRECTIONS_V02.md)を優先する。WG05/WG16のG12・受付12秒、WV11のhurtboxと受付5秒、WT17の3.5秒準備と再試行期限、WK08の保持返済45/30tick、[共通入力・予約契約](docs/weekly-boss-v1/ENCOUNTER_INTERACTION_V01.md)を今回の制作基準に採用した。未指定の技は変更しない。
+
+個別v0.1票の置換対象節は履歴として残し、修正版が上書きする。MANIFEST_PRIMAL_GATE/FONTAINEは同じ値へ直接更新済み。旧QAのSHA・試験結果は当時の履歴であり、現行の検査は[simulation-v2](docs/weekly-boss-v1/simulation-v2/README.md)を読む。ゲーム本体・素材へ適用済みとはしない。
 
 ## 位置づけ
 

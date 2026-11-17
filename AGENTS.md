@@ -10,6 +10,8 @@
 
 まずCHAT_HANDOFF.mdを読む。全体目標を縮小しない。試作と完成、ラボ検証と実機検証を区別する。制作再開済み。ドット絵・マップ・共通システムを優先し、技の追加と調整は保留。秘密情報・セーブ・ローカル作業記録は登録しない。
 
+**週ボス修正の優先入口（2026-11-17）:** [DESIGN_WEEKLY_BOSS_CORRECTIONS_V02.md](DESIGN_WEEKLY_BOSS_CORRECTIONS_V02.md)を先に読む。CORRECTIONS_V02の指定節は古い個別票を上書きし、MANIFEST_PRIMAL_GATE/FONTAINEも更新済み。G12/受付12秒、核のhurtbox/受付5秒、誘導準備210tick/再試行上限666、個人返済45/30tick、入力由来と共有予約の解放を採用した。simulation-v1は旧値の履歴、simulation-v2が今回の回帰検査。これは設計・独立モデルの修正であり、Lua本体・画像・報酬・セーブの変更許可ではない。
+
 美術作業はART_REFERENCE_POLICY.mdを読む。ドット絵は参照画像を直接確認し、可能なら3Dモデルの複数角度も照合する。説明文だけを視覚参照済みとしない。背景画像はラボ仮素材、本番3D方針を維持する。
 
 幽境5ボスのモーション・演出は [DESIGN_STYGIAN_MOTION_VFX_MASTER_V1.md](DESIGN_STYGIAN_MOTION_VFX_MASTER_V1.md) を入口にする。共通規格、ボス別49項目、旧ID対応、MANIFEST、QAを参照し、古い個別案の曖昧な時間・番号と混在させない。具体値は本作の制作開始値であり、原作フレーム解析・作画完成・実機検証済みの値ではない。この仕様の追加は技ロジック実装の保留を解除しない。

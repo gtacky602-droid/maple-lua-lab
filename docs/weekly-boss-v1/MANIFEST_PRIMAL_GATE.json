@@ -6,6 +6,7 @@
   "interval_semantics": "half_open",
   "unit_U_pixels": 88,
   "source_of_truth": [
+    "CORRECTIONS_V02.md",
     "LORD_OF_ERODED_PRIMAL_FIRE.md",
     "GAME_BEFORE_THE_GATE.md"
   ],
@@ -17,12 +18,14 @@
     "event_states": 10
   },
   "damage_policy": "normal damage pipeline; no authority_lethal; no automatic player revival",
+  "design_revision": "simulation-corrections-v2",
+  "source_precedence": "CORRECTIONS_V02 overrides only its named sections; all other original prose remains valid. This manifest is corrected in place.",
   "entries": [
     {"id":"WG01","title":"紫焔の四珠","boss":"primal_fire","kind":"fixed","total_ticks":330,"lock_ticks":[42],"active_windows":[],"recovery":[240,330],"projectiles":[{"spawn_ticks":[72,102,132,162],"ttl_ticks":72}],"hit_cap":4,"detached_ground":[{"spawn_ticks":[162],"ttl_ticks":300,"owner_state":"WG18","may_outlive_cast":true}]},
     {"id":"WG02","title":"焔剣の落断","boss":"primal_fire","kind":"fixed","total_ticks":270,"lock_ticks":[54],"active_windows":[[108,120]],"recovery":[168,270],"hit_cap":1,"detached_ground":[{"spawn_ticks":[120],"ttl_ticks":300,"owner_state":"WG18","may_outlive_cast":true}]},
     {"id":"WG03","title":"炎剣の二薙ぎ","boss":"primal_fire","kind":"fixed","total_ticks":300,"lock_ticks":[42],"active_windows":[[84,90],[144,150]],"recovery":[192,300],"hit_cap":2,"detached_ground":[{"spawn_ticks":[150],"ttl_ticks":300,"owner_state":"WG18","may_outlive_cast":true}]},
     {"id":"WG04","title":"追剣と影移り","boss":"primal_fire","kind":"fixed","total_ticks":300,"lock_ticks":[42,180],"active_windows":[[84,90]],"recovery":[228,300],"hit_cap":1},
-    {"id":"WG05","title":"刺剣の障壁試練","boss":"primal_fire","kind":"fixed","total_ticks":900,"lock_ticks":[60],"active_windows":[[180,186],[360,366],[540,546]],"recovery":[828,900],"projectiles":[{"spawn_ticks":[720],"ttl_ticks":90}],"hit_cap":4,"conditional_success":{"accept":[60,660],"on_success":"WG17","cancel_pending":true},"hp_attackable_during_recovery":true},
+    {"id":"WG05","title":"刺剣の障壁試練","boss":"primal_fire","kind":"fixed","total_ticks":1020,"lock_ticks":[60],"active_windows":[[180,186],[360,366],[540,546]],"recovery":[948,1020],"projectiles":[{"spawn_ticks":[840],"ttl_ticks":90}],"hit_cap":4,"conditional_success":{"accept":[60,780],"on_success":"WG17","cancel_pending":true},"hp_attackable_during_recovery":true,"barrier_units":12,"barrier_min_gap_ticks":24,"barrier_dedup":"actorId+castId+targetId"},
     {"id":"WG06","title":"三体の擬態芽","boss":"primal_fire","kind":"event_state","deadline_ticks":720,"targets":3,"units_per_target":4,"on_success":"WG17","on_failure":"WG07","projectiles":[{"relative_spawn_ticks":[180,360,540],"ttl_ticks":72,"max_sources":3,"cancel_on_resolve":true}]},
     {"id":"WG07","title":"深淵の掌","boss":"primal_fire","kind":"fixed","total_ticks":300,"lock_ticks":[72],"active_windows":[[132,144],[192,198]],"recovery":[228,300],"hit_cap":2},
     {"id":"WG08","title":"焔雨と第二の剣","boss":"primal_fire","kind":"fixed","total_ticks":360,"lock_ticks":[42],"active_windows":[[90,96],[138,144],[186,192]],"recovery":[300,360],"hit_cap":3,"hp_attackable_during_recovery":false},
@@ -33,7 +36,7 @@
     {"id":"WG13","title":"剣舞・霧走・帰刃","boss":"primal_fire","kind":"fixed","total_ticks":480,"lock_ticks":[42,180,318],"active_windows":[[84,90],[210,216],[270,276],[354,360]],"recovery":[396,480],"hit_cap":4},
     {"id":"WG14","title":"三柱の虚界封鎖","boss":"primal_fire","kind":"event_state","deadline_ticks":1080,"targets":3,"units_per_target":6,"on_success":"WG17","on_failure":"WG15","scripted_windows":[[300,306],[660,666],[960,966]],"cleanup_before_child":true},
     {"id":"WG15","title":"暗黒星の墜落","boss":"primal_fire","kind":"fixed","total_ticks":360,"lock_ticks":[90],"active_windows":[[180,192]],"recovery":[252,360],"hit_cap":1,"no_authority_lethal":true},
-    {"id":"WG16","title":"剣を呑む終焔","boss":"primal_fire","kind":"event_state","deadline_ticks":600,"barrier_units":24,"on_success":"WG17","on_failure":"WG15","cleanup_before_child":true},
+    {"id":"WG16","title":"剣を呑む終焔","boss":"primal_fire","kind":"event_state","deadline_ticks":780,"barrier_units":12,"on_success":"WG17","on_failure":"WG15","cleanup_before_child":true,"accept_window":[60,780],"barrier_min_gap_ticks":24,"barrier_dedup":"actorId+castId+targetId"},
     {"id":"WG17","title":"虚界崩れ・露出","boss":"primal_fire","kind":"fixed","total_ticks":600,"lock_ticks":[],"active_windows":[],"recovery":[540,600],"exposure":[60,540],"standup":[540,600],"terminal_pose_end":600,"hp_attackable_during_recovery":false},
     {"id":"WG18","title":"蝕破・床・縮小の管理","boss":"primal_fire","kind":"event_state","attrition":{"delay_ticks":120,"cap":4,"max_hp_fraction_per_stack":0.015,"existing_damage_pipeline":true},"ground_limit":3,"crop_left_bounds_U":[0,1,2,3],"right_bound_U":10},
     {"id":"WT01","title":"駒王の三歩","boss":"game_before_gate","kind":"fixed","total_ticks":300,"lock_ticks":[30,90,150],"active_windows":[[72,78],[132,138],[204,216]],"recovery":[240,300],"hit_cap":3},
@@ -52,9 +55,9 @@
     {"id":"WT14","title":"水渦と火炎追走","boss":"game_before_gate","kind":"fixed","total_ticks":480,"lock_ticks":[48,180],"active_windows":[[228,288]],"recovery":[324,480],"hit_cap":1,"control_regions":[{"active":[96,300],"speed_floor_ratio":0.7,"forced_movement":false}]},
     {"id":"WT15","title":"轟音の礼砲","boss":"game_before_gate","kind":"fixed","total_ticks":360,"lock_ticks":[60],"active_windows":[[150,162],[228,240]],"recovery":[276,360],"hit_cap":2},
     {"id":"WT16","title":"キングのチェックメイト","boss":"game_before_gate","kind":"event_state","deadline_ticks":720,"freeze_required":100,"on_success":"WT18","failure_window":[720,726],"failure_end":840,"normal_damage_failure":true},
-    {"id":"WT17","title":"クイーンの津波と誘導","boss":"game_before_gate","kind":"event_state","deadline_ticks":960,"freeze_required":100,"freeze_completed_by":600,"lock_offset":72,"charge_window_offset":[120,156],"success_collision_target":"queen","on_success":"WT18","failure_window":[960,966],"failure_end":1080},
+    {"id":"WT17","title":"クイーンの津波と誘導","boss":"game_before_gate","kind":"event_state","deadline_ticks":960,"freeze_required":100,"freeze_completed_by":600,"lock_offset":210,"charge_window_offset":[258,294],"success_collision_target":"queen","on_success":"WT18","failure_window":[960,966],"failure_end":1080,"last_retry_start_tick":666,"preparation_damage_free":true,"post_lock_retarget":false,"lure_min_x_U":6.5},
     {"id":"WT18","title":"王族の体勢崩し","boss":"game_before_gate","kind":"fixed","total_ticks":480,"lock_ticks":[],"active_windows":[],"recovery":[408,480],"exposure":[48,408],"standup":[408,480],"terminal_pose_end":480,"hp_attackable_during_recovery":false},
     {"id":"WT19","title":"分け与える命","boss":"game_before_gate","kind":"event_state","revive_channel_ticks":180,"revive_budget_total":2,"donor_fraction":0.5,"donor_threshold_fraction":0.2,"conserves_total_hp":true},
-    {"id":"WT20","title":"対局・凍結・共有進行","boss":"game_before_gate","kind":"event_state","freeze_gain_per_reaction":25,"context_channel_ticks":90,"context_cooldown_ticks":120,"context_gain":50,"does_not_grant_player_skill":true}
+    {"id":"WT20","title":"対局・凍結・共有進行","boss":"game_before_gate","kind":"event_state","freeze_gain_per_reaction":25,"context_channel_ticks":90,"context_cooldown_ticks":120,"context_gain":50,"does_not_grant_player_skill":true,"context_positions_U":[0.5,9.5],"context_radius_U":0.55,"interaction_contract":"ENCOUNTER_INTERACTION_V01.md"}
   ]
 }
