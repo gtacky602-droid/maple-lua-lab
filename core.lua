@@ -386,6 +386,8 @@ function C.frame(s,mode,profile)
    local amberArt=asset==3 and C.amberIdleArt or asset==4 and C.amberBowArt
    if asset==1 and C.travelerIdleArt then
     C.drawTravelerIdleArt({draws=draws},s,a,mode,profile)
+   elseif asset==2 and C.travelerRunArt then
+    C.drawTravelerRunArt({draws=draws},s,a,mode,profile)
    elseif amberArt and (s.companion or 'amber')=='amber' then
     C.drawAmberArt({draws=draws},s,a,mode,profile,amberArt)
    else

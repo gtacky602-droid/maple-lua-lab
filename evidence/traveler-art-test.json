@@ -26,5 +26,35 @@
       "h32c16"
     ]
   ],
-  "dead_hidden": true
+  "dead_hidden": true,
+  "run_profiles": [
+    [
+      "left",
+      "legacy"
+    ],
+    [
+      "left",
+      "h48c32"
+    ],
+    [
+      "left",
+      "h32c16"
+    ],
+    [
+      "right",
+      "legacy"
+    ],
+    [
+      "right",
+      "h48c32"
+    ],
+    [
+      "right",
+      "h32c16"
+    ]
+  ],
+  "native_facing": true,
+  "actor_anchor": true,
+  "light_outline": true,
+  "idle_restored": true
 }

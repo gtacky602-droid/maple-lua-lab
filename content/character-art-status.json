@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "traveler": {
-    "status": "v3 idle uses larger head, shorter torso and shins, fuller cuffs and soles; 88px/3 profiles. Existing run pose still uses the old atlas.",
-    "reference_audit": "Directly viewed the v2 idle and PMX front; art comparison and measurements in evidence/humanoid-proportions.json. Asymmetry still mirrors on left-facing draw."
+    "status": "v3 idle and independent left/right running contact poses; 88px/3 profiles. One static running pose per direction.",
+    "reference_audit": "Directly viewed the four PMX angles. Running near shoulder matches each viewed side; idle still uses one mirrored asset. See evidence/traveler-run-reference-audit.json."
   },
   "companions": {
     "amber": "v3 idle and bow stance; larger head, fuller limbs and shorter shins; 88px/3 profiles. The bow is larger and thicker in the preexisting aiming display. Mirrored asymmetry remains.",

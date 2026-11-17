@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-17",
+  "guide": "DESIGN_MAPLE_CHIBI_STYLE_GUIDE_V01.md",
+  "poseSpecification": "DESIGN_TRAVELER_SPRITE_POSE_SPEC_V01.md",
+  "tool": "built-in ImageGen",
+  "modelAudit": "evidence/traveler-amber-reference-audit.json",
+  "comparisonBasis": "Use the active v3 idle at 88px, approximately 2.83 heads excluding the tuft and 2.46 using the guide's hair-inclusive apparent height. Running is bent-knee contact art; the standing measurement does not directly apply to this pose.",
+  "costume": "Viewed PMX front, back and both side views. Camera -X (left.png) faces screen right with near black sleeve. Camera +X (right.png) faces screen left with near gold pauldron.",
+  "outputs": [
+    {
+      "side": "right",
+      "references": ["assets/traveler-idle-source-v3.png", "work/references/aether-views/left.png", "assets/atlas-transparent.png"],
+      "sideReferenceSHA256": "f97164b274dad312ce9909bed7832bc414a57df4e6693aca726bc5e86d3418c0",
+      "source": "assets/traveler-run-right-source-v3.png",
+      "encoding": "assets/traveler-run-right-sprites-v3.json",
+      "sourceSHA256": "1d2dc4cb3b94faa8d70dec541156444cf6135c3d99cd4dd9d9657ce8fa217a66",
+      "rootX": 817,
+      "anchorX": 0.6670902160101652,
+      "runs88_66_44": [2375, 1400, 591],
+      "prompt": "Create one full-body right-facing running contact-pose sprite of Aether Traveler for the existing MapleStory-inspired 2D pixel RPG. Reference one is the APPROVED new idle look: same head size at equivalent body height (about 2.9 anatomical heads excluding the tuft), same blond chunky fringe and large amber eye, same broad shoulder and compact torso, shins and grounded chunky boots. Reference two faces SCREEN RIGHT and is the exact model-side costume reference: the visible near shoulder is the short DARK sleeve with gold trim; the large gold shoulder plate belongs on the far shoulder and is not repeated on the near shoulder. Match the existing single front scarf panel with circles, one long braid, exposed midriff, brown trousers, and black-gold boots with diamond knee guards. Clothing contrast and simplified pixel clusters should closely match ref one. Use only the traveler run pose (second top character) from ref three as loosely intended motion; do not copy outdated clothes or tall proportions, and do not include the other characters. Moderate forward lean and opposing tucked arms, wider stride, the leading boot touching a horizontal ground plane with full sole near level, the rear boot lifted a little and its toe above the same ground line, bent legs without lengthening shins. The foot contact should be under the center of the body if possible, while braid and split white-gold cape sweep LEFT and end above the sole line. Full 3/4 side profile facing RIGHT with almost the same face and costume as ref one. Crisp hard pixel clusters with dark brown outline, highly readable at on-screen height 88px. No weapon, effects, terrain, floor, text, blur, cast shadow, or other sprites. Single exact character, centered, generous fully transparent padding, all limbs, hair and fabric inside the frame."
+    },
+    {
+      "side": "left",
+      "references": ["assets/traveler-run-right-source-v3.png", "work/references/aether-views/right.png", "assets/traveler-idle-source-v3.png"],
+      "sideReferenceSHA256": "75156a3ccfdc2d1fdcd08834af5b211cf36168f8a7f88c89900b6f5ee6244079",
+      "source": "assets/traveler-run-left-source-v3.png",
+      "encoding": "assets/traveler-run-left-sprites-v3.json",
+      "sourceSHA256": "b1728f9f27340ce24b75471ebeb4d0ba999dc11a90e51d273a1730c16b76a81b",
+      "rootX": 699,
+      "anchorX": 0.3497076023391813,
+      "runs88_66_44": [2239, 1322, 563],
+      "prompt": "Draw ONE independent left-facing running contact-pose pixel sprite of Aether Traveler for the same MapleStory-inspired 2D RPG. First reference is the matching right-facing run: reproduce its larger head, short thick shins, compact torso, chunky boots, amber eye, 16-bit cluster style and moderate lean at the same body scale. Second reference is the real model on the LEFT-facing side; follow this for the costume differences. IMPORTANT: the near shoulder, clearly visible in the left-facing figure, bears ONE LARGE ORNATE GOLD PAULDRON. Keep the short black sleeve only on the opposite far shoulder, never add two large gold pauldrons. Retain the long braid, white-and-gold split cape, single front panel with circular motifs, exposed midriff, brown trousers and black boots with diamond knee ornaments. Reference three fixes the character identity and color palette; the head remains about 2.9 anatomical heads excluding the upturned tuft. Match the right run's stride and head size in a new drawing facing SCREEN LEFT, not a mechanically mirrored costume. A visible leading boot contacts the horizontal ground with a level, full sole; rear boot lifted with the toe higher than the sole line. Opposing arms tucked, forearms and glove shapes simple, calf anatomy compact. Braid and cape trail toward the RIGHT, stay above the soles, and are readable against the brown clothes. Pixel art with crisp steps, a brown contour, limited color clusters, readable at 88px sprite height. No sword, effects, cast shadow, scenery, text, line, or extra figures. Complete figure centered with generous true transparent margins. Single sprite."
+    }
+  ],
+  "anchorMethod": "Match the bottom opacity crop to the sole baseline. Set horizontal root from the projected hip center in each source, keeping the step's natural front-foot offset from the actor's horizontal anchor.",
+  "limits": "One running contact image per direction. Other locomotion frames and direction-specific idle remain pending. Far-side details and fine motifs are simplified.",
+  "evidence": ["evidence/traveler-run-comparison.png", "evidence/traveler-art-test.json", "evidence/traveler-art-browser.json"]
+}

@@ -1,1 +1,55 @@
-{"errors":[],"method":"Town UI companion selection, idle art display"}
+{
+  "errors": [],
+  "method": "Town movement using keyboard and real Lua frames; stopped again in both directions",
+  "poses": [
+    {
+      "side": "right",
+      "draw": {
+        "source": "traveler-run-right-source-v3.png",
+        "flip": false,
+        "y": 480,
+        "x": 361,
+        "kind": "boss_sprite",
+        "h": 88,
+        "box": [
+          292,
+          98,
+          787,
+          818
+        ],
+        "w": 84.66503667481662,
+        "anchorX": 0.667090216010165
+      },
+      "actor": {
+        "x": 361,
+        "y": 480,
+        "walk": 1
+      }
+    },
+    {
+      "side": "left",
+      "draw": {
+        "source": "traveler-run-left-source-v3.png",
+        "flip": false,
+        "y": 480,
+        "x": 298,
+        "kind": "boss_sprite",
+        "h": 88,
+        "box": [
+          400,
+          53,
+          855,
+          890
+        ],
+        "w": 84.53932584269663,
+        "anchorX": 0.349707602339181
+      },
+      "actor": {
+        "x": 298,
+        "y": 480,
+        "walk": -1
+      }
+    }
+  ],
+  "idleRestored": true
+}

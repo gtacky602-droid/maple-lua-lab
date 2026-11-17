@@ -10,8 +10,13 @@
     "h": 88
   },
   {
-    "asset": 2,
-    "w": 82.1978021978022,
+    "source": "traveler-run-left-source-v3.png",
+    "w": 84.53932584269663,
+    "h": 88
+  },
+  {
+    "source": "traveler-run-right-source-v3.png",
+    "w": 84.66503667481662,
     "h": 88
   },
   {

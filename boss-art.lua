@@ -32,6 +32,11 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
  function C.drawEnemyIdleArt(f,s,e,mode,profile) local layout=C.enemyArtLayout[e.art];draw(f,C.enemyIdleArt[e.art],e.x-s.camera,e.y-layout.hover,layout.height,mode,profile,false) end
  function C.drawAmberArt(f,s,a,mode,profile,art) draw(f,art,a.x-s.camera,a.y,88,mode,profile,a.dir<0) end
  function C.drawTravelerIdleArt(f,s,a,mode,profile) draw(f,C.travelerIdleArt,a.x-s.camera,a.y,88,mode,profile,a.dir<0) end
+ function C.drawTravelerRunArt(f,s,a,mode,profile)
+  local art=C.travelerRunArt[a.dir<0 and 'left' or 'right']
+  draw(f,art,a.x-s.camera,a.y,88,mode,profile,false)
+  if mode~='rect' and a.light>0 then f.draws[#f.draws].glow=true end
+ end
  function C.drawArrayArt(f,b,mode,profile)
   draw(f,C.arrayArt,b.x,b.phase=='rocket' and 280 or b.phase=='down' and 480 or 465,b.phase=='down' and 90 or b.phase=='split' and 75 or 140,mode,profile,false)
  end
