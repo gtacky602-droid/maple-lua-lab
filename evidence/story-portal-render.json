@@ -143,12 +143,22 @@
     {
       "node": "liyue-quarry-post",
       "mode": "sprite",
-      "visible_portals": 4
+      "visible_portals": 5
     },
     {
       "node": "liyue-quarry-post",
       "mode": "rect",
-      "visible_portals": 4
+      "visible_portals": 5
+    },
+    {
+      "node": "liyue-craftsmen-overlook",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "liyue-craftsmen-overlook",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "liyue-quarry-storage",

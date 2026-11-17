@@ -825,6 +825,12 @@
           "x": 270
         },
         {
+          "to": "liyue-craftsmen-overlook",
+          "x": 690,
+          "y": 305,
+          "requires": {"quest": "liyue-stone-marks", "count": 3}
+        },
+        {
           "to": "liyue-quarry-storage",
           "x": 1490,
           "y": 305,
@@ -844,6 +850,26 @@
         }
       ],
       "clearedBy": "liyue-caravan-search"
+    },
+    {
+      "id": "liyue-craftsmen-overlook",
+      "name": "璃月・職人の展望所",
+      "region": "璃月",
+      "level": 20,
+      "hub": false,
+      "peaceful": true,
+      "width": 1520,
+      "checkpoint": "liyue-harbor",
+      "platforms": [
+        {"x": 0, "y": 480, "w": 1520},
+        {"x": 315, "y": 397, "w": 315},
+        {"x": 520, "y": 312, "w": 370},
+        {"x": 775, "y": 231, "w": 395},
+        {"x": 1160, "y": 388, "w": 290}
+      ],
+      "exits": [
+        {"to": "liyue-quarry-post", "x": 65}
+      ]
     },
     {
       "id": "liyue-quarry-storage",
@@ -4306,6 +4332,38 @@
         "title": "石門を越えた侠客",
         "story": "侠客はきらびやかな箱を開けた。中には、町の子が続きの頁を待ちわびる本と、傷だらけの版木があった。侠客は箱を抱え、石門の向こうの港へ急いだ。",
         "caption": "行秋の挿絵話 ｜ 石門と、港へ持ち帰った箱"
+      }
+    },
+    {
+      "id": "liyue-stone-marks",
+      "designId": "Q-LIY-S04",
+      "name": "ただの石にも、旅はある",
+      "giver": "鍾離",
+      "requires": "liyue-caravan-search",
+      "hub": "liyue-harbor",
+      "target": "liyue-craftsmen-overlook",
+      "kind": "stone",
+      "goal": 5,
+      "xp": 1800,
+      "mora": 240,
+      "briefing": "鍾離「商隊が持ち帰った石に、職人の印がある。川沿いの壁、桟道の道具、詰所の石畳に、同じ印がないか見てきてくれないか。」",
+      "closing": "鍾離「山から港へ、石はこうして運ばれた。あの模型は、当時の工夫を伝えるために市へ飾ろう。」",
+      "stone": {
+        "marks": [
+          {"id": "cut-wall", "name": "川沿いの壁の彫り跡", "node": "liyue-river-trail", "x": 1250, "y": 480},
+          {"id": "tool-mark", "name": "桟道の道具の印", "node": "liyue-cliff-planks", "x": 905, "y": 305},
+          {"id": "paving-mark", "name": "詰所の石畳の印", "node": "liyue-quarry-post", "x": 420, "y": 480}
+        ],
+        "mural": {"id": "craft-mural", "name": "職人の壁画", "x": 488, "y": 397},
+        "tiles": [
+          {"id": "build", "label": "組み立てる"},
+          {"id": "cut", "label": "切り出す"},
+          {"id": "carry", "label": "運ぶ"}
+        ],
+        "order": ["cut", "carry", "build"],
+        "model": {"id": "overlook-model", "name": "展望所の建物模型", "x": 980, "y": 231},
+        "stand": {"id": "model-exhibit", "name": "職人の模型展示", "x": 335, "y": 480},
+        "marketStand": {"id": "model-exhibit", "name": "職人の模型展示", "x": 1190, "y": 480, "quest": "liyue-market-opening", "count": 3}
       }
     },
     {

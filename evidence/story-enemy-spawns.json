@@ -61,6 +61,10 @@
       "enemy_count": 3
     },
     {
+      "node": "liyue-craftsmen-overlook",
+      "enemy_count": 0
+    },
+    {
       "node": "liyue-quarry-storage",
       "enemy_count": 2
     },

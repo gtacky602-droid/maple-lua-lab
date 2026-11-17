@@ -1,0 +1,15 @@
+{
+  "requires_M02": true,
+  "three_unique_marks_with_ordinary_movement": true,
+  "overlook_gate_requires_all_marks": true,
+  "wrong_sequence_resets_without_losing_marks": true,
+  "remote_unknown_and_paused_input_rejected": true,
+  "partial_sequence_survives_restore": true,
+  "model_reachable_on_fixed_platforms": true,
+  "pre_market_and_market_exhibits": true,
+  "revisit_retains_open_mural": true,
+  "one_time_reward": {
+    "xp": 1800,
+    "mora": 240
+  }
+}

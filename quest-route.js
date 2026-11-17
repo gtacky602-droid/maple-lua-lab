@@ -12,7 +12,9 @@ export function questRouteText(f,q,status){
  }
  const lookingForClues=status==='active'&&q.trail&&!f.story.quests?.[q.id]?.count;
  const ingredients=status==='active'&&q.cooking?.ingredients.filter(item=>!f.story.quests?.[q.id]?.cooking.gathered[item.id]);
- const destinations=ingredients?.length?ingredients.map(item=>item.node):lookingForClues?q.trail.clues.map(item=>item.node):[target];
+ const marks=status==='active'&&q.stone?.marks.filter(item=>!f.story.quests?.[q.id]?.stone.marked[item.id]);
+ const unfinished=ingredients?.length?ingredients:marks?.length?marks:lookingForClues?q.trail.clues:null;
+ const destinations=unfinished?unfinished.map(item=>item.node):[target];
  const targets=new Set(destinations.filter(id=>nodes.has(id)));
  if(!targets.size)return '目的地は未公開または未登録です。';
  const from=f.story.node;if(!nodes.has(from))return '';

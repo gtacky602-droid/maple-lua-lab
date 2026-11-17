@@ -82,7 +82,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -120,6 +120,20 @@ def validate_save(data):
                     raise ValueError('Invalid trail progress')
             if quest.get('level', 0) > data.get('progression', {}).get('level', 0):
                 raise ValueError('Unmet story quest level')
+            if quest.get('stone') or 'stone' in q:
+                spec, state = quest.get('stone'), q.get('stone')
+                if not spec or not isinstance(state, dict) or set(state) != {'marked','sequence'}:
+                    raise ValueError('Invalid stonemason quest state')
+                marks = {item['id'] for item in spec['marks']}
+                marked, sequence = state['marked'], state['sequence']
+                if (not isinstance(marked, dict) or len(marked) != min(q['count'],len(marks))
+                        or any(key not in marks or value is not True for key, value in marked.items())):
+                    raise ValueError('Invalid stonemason marks')
+                if type(sequence) is not int or not 0 <= sequence <= len(spec['order']):
+                    raise ValueError('Invalid stonemason tile sequence')
+                if (q['count'] < len(marks) and sequence != 0
+                        or (q['count'] > len(marks)) != (sequence == len(spec['order']))):
+                    raise ValueError('Invalid stonemason puzzle progress')
             if quest.get('book') or 'book' in q:
                 case = quest.get('book')
                 state = q.get('book')

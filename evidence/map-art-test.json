@@ -92,6 +92,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "liyue-craftsmen-overlook",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "liyue-quarry-storage",
       "count": 0,
       "fallback": false,

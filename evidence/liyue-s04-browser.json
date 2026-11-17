@@ -1,0 +1,11 @@
+{
+  "browser": "Chrome",
+  "actual_controls": true,
+  "all_three_marks": true,
+  "wrong_sequence_retry": true,
+  "fixed_platform_model_recovery": true,
+  "report_and_exhibit": true,
+  "exhibit_after_restore": true,
+  "viewport_390": true,
+  "errors": []
+}

@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book)
+return function(C,data,delivery,rail,cooking,book,stone)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -164,6 +164,7 @@ return function(C,data,delivery,rail,cooking,book)
   s.lift=nil
   s.railTrip=nil
   s.readingQuest=nil
+  s.stoneNotice=nil
   s.storyDeliveryNotice=nil
   local railConfig,railState=railQuest(s,n)
   if railState and railState.count>=1 then s.platforms[#s.platforms+1]=copy(railConfig.rail.bridge) end
@@ -202,6 +203,10 @@ return function(C,data,delivery,rail,cooking,book)
      local item=book.nearby(s,q,state)
      if item then book.interact(s,q,state,item);return end
     end
+    if q.stone then
+     local item=stone.nearby(s,q,state)
+     if item then stone.inspect(s,q,state,item);return end
+    end
     if q.delivery and state.status=='active' and q.target==s.story.node then
      delivery.recover(s,q,state.delivery)
      return
@@ -233,6 +238,12 @@ return function(C,data,delivery,rail,cooking,book)
     beginChase(s,q)
     s.storyNotice='赤い布を引きずるヒルチャールを、街道の奥へ追いましょう。'
    else s.storyNotice=item.name..'を回収しました。' end
+   return
+  end
+  local puzzleId,tile=key:match('^story_stone_tile:([%w%-]+):([%w%-]+)$')
+  if puzzleId then
+   local q,state=quests[puzzleId],s.story.quests[puzzleId]
+   if s.story.active and not s.paused and q and q.stone and state then stone.press(s,q,state,tile) end
    return
   end
   local command,mealQuest,flavor=key:match('^story_([%a_]+):([%w%-]+):?([%w%-]*)$')
@@ -307,7 +318,8 @@ return function(C,data,delivery,rail,cooking,book)
     if q.level and (not s.progression or s.progression.level<q.level) then return end
     s.story.quests[id]={status='active',count=0,cycles=state and state.cycles or 0,
                        recovered=q.cargo and {} or nil,inspected=q.trail and {} or nil,delivery=q.delivery and delivery.new() or nil,
-                       cooking=q.cooking and cooking.new() or nil,book=q.book and {defeated={}} or nil}
+                       cooking=q.cooking and cooking.new() or nil,book=q.book and {defeated={}} or nil,
+                       stone=q.stone and {marked={},sequence=0} or nil}
    elseif report and state and state.status=='active' and state.count==q.goal then
     if q.cooking then state.cooking.meals=1 end
     state.status='complete';state.cycles=(state.cycles or 0)+1;s.mora=s.mora+q.mora;C.grantExp(s,q.xp,'quest');s.storyNotice=q.closing or q.name..'：報酬を受け取りました。'
@@ -431,12 +443,13 @@ return function(C,data,delivery,rail,cooking,book)
     markers[#markers+1]={kind='rect',x=x-5,y=y-10,w=10,h=7,color=elevated and '#f76859' or '#b69765'}
    end
    for _,q in ipairs(data.quests) do
-    if q.delivery or q.rail or q.cooking or q.book then
+    if q.delivery or q.rail or q.cooking or q.book or q.stone then
      local state=s.story.quests[q.id]
      if q.delivery then delivery.observe(s,f,markers,q,state and state.delivery)
      elseif q.rail then rail.observe(s,f,markers,q,state)
      elseif q.cooking and state then cooking.observe(s,f,markers,q,state)
-     elseif q.book and state then book.observe(s,f,markers,q,state) end
+     elseif q.book and state then book.observe(s,f,markers,q,state)
+     elseif q.stone and state then stone.observe(s,f,markers,q,state) end
     end
    end
    local recoveryQuest=quests[n.clearedBy]

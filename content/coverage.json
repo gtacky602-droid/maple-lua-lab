@@ -51,8 +51,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 14,
-      "prototype_quest_count": 13,
+      "prototype_stage_count": 15,
+      "prototype_quest_count": 14,
       "official_map2_markers": {
         "waypoints": 75,
         "statues": 8
@@ -558,8 +558,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 92,
-    "provisional_quests": 59,
+    "authored_stages": 93,
+    "provisional_quests": 60,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -646,6 +646,7 @@
           "liyue-river-trail",
           "liyue-cliff-planks",
           "liyue-quarry-post",
+          "liyue-craftsmen-overlook",
           "liyue-quarry-storage",
           "liyue-crux-wharf",
           "liyue-field",
@@ -661,6 +662,7 @@
           "liyue-market-opening",
           "liyue-harbor-meal",
           "liyue-book-rescue",
+          "liyue-stone-marks",
           "liyue-supply",
           "liyue-entry-check",
           "beidou-join",

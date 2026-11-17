@@ -202,11 +202,19 @@
     },
     {
       "node": "liyue-quarry-post",
+      "to": "liyue-craftsmen-overlook"
+    },
+    {
+      "node": "liyue-quarry-post",
       "to": "liyue-quarry-storage"
     },
     {
       "node": "liyue-quarry-post",
       "to": "liyue-harbor"
+    },
+    {
+      "node": "liyue-craftsmen-overlook",
+      "to": "liyue-quarry-post"
     },
     {
       "node": "liyue-quarry-storage",
