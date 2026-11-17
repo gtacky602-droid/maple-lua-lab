@@ -1,0 +1,28 @@
+{
+  "schema_version":"1.0","date":"2026-11-17","status":"design_only_not_runtime",
+  "source_commit":"a4bb1bd233f067badb4074cfe1ac939fd3378f73",
+  "source_of_truth":["../../DESIGN_FIELD_BOSS_MASTER_V01.md","COMMON.md","SUMERU_QUARTET_MOVESETS.md"],
+  "tick_rate_hz":60,"unit_U_pixels":88,"interval_semantics":"half_open",
+  "counts":{"encounters":4,"attack_cards":12,"cumulative_encounters":23,"cumulative_attack_cards":69,"catalog_reference_rows":49,"all_catalog_rows_detailed":false},
+  "shared":{"max_attack_patterns":3,"max_concurrent_casts":1,"hp_bars":1,"multiplayer_hp_scaling":false,"required_special_element":false,"forced_revive_phase":false,"hp_zero_priority":true,"normal_damage_pipeline":true,"hp_receiver_id_stable":true,"runtime_or_visual_tested":false},
+  "bosses":[
+    {"id":"boss-20040701","name":"無相の草","attacks":["FHD01","FHD02","FHD03"],"signature":"FHD02","hurtbox_bottom_u":0.4,"required_cleansing":false},
+    {"id":"boss-24050101","name":"半永久統制マトリックス","attacks":["FMT01","FMT02","FMT03"],"signature":"FMT03","hurtbox_bottom_u":0.4,"required_component_break":false,"camouflage":{"min_body_opacity":0.45,"core_outline_opacity":1.0,"fully_hidden_ticks":0,"targetable":true,"extra_resistance":false,"reset_status":false,"reduced_transparency_opaque":true}},
+    {"id":"boss-26130101","name":"風蝕ウェネト","attacks":["FWN01","FWN02","FWN03"],"signature":"FWN03","hurtbox_bottom_u":0.3,"required_windbite_break":false,"min_ground_casts_between_burrows":2},
+    {"id":"boss-22100501","name":"深罪の浸礼者","attacks":["FIB01","FIB02","FIB03"],"signature":"FIB03","hurtbox_bottom_u":0.25,"required_shield_break":false,"element_slots":{"source":"existing_variant","fallback":["pyro","cryo","electro"],"fixed_per_encounter":true},"floor_rings_targetable":false}
+  ],
+  "attacks":[
+    {"id":"FHD01","owner":"boss-20040701","name":"蔓鞭の二振り","lock":48,"total":264,"windows":[[96,102,"whip1"],[150,156,"whip2"]],"projectiles":[],"recovery":[180,264],"max_hits":2},
+    {"id":"FHD02","owner":"boss-20040701","name":"蔓球の一落ち","lock":54,"total":288,"windows":[[114,126,"landing"]],"projectiles":[],"recovery":[144,288],"max_hits":1,"airborne":[78,114]},
+    {"id":"FHD03","owner":"boss-20040701","name":"三粒の草弾","lock":48,"total":288,"windows":[],"projectiles":[[96,48,"seed1"],[132,48,"seed2"],[168,48,"seed3"]],"recovery":[228,288],"max_hits":3},
+    {"id":"FMT01","owner":"boss-24050101","name":"二機の直線照射","lock":48,"total":264,"windows":[[96,108,"ray1"],[156,168,"ray2"]],"projectiles":[],"recovery":[192,264],"max_hits":2},
+    {"id":"FMT02","owner":"boss-24050101","name":"三点の光柱","lock":48,"total":288,"windows":[[108,114,"pillar1"],[150,156,"pillar2"],[192,198,"pillar3"]],"projectiles":[],"recovery":[210,288],"max_hits":3},
+    {"id":"FMT03","owner":"boss-24050101","name":"透影移動・一閃放電","lock":54,"total":324,"windows":[[144,156,"discharge"]],"projectiles":[],"recovery":[180,324],"max_hits":1,"visible_move":[72,108],"restored_at":108},
+    {"id":"FWN01","owner":"boss-26130101","name":"砂を払う横薙ぎ","lock":48,"total":264,"windows":[[108,126,"sweep"]],"projectiles":[],"recovery":[144,264],"max_hits":1},
+    {"id":"FWN02","owner":"boss-26130101","name":"低い風線","lock":54,"total":276,"windows":[[108,132,"windline"]],"projectiles":[],"recovery":[156,276],"max_hits":1},
+    {"id":"FWN03","owner":"boss-26130101","name":"砂潜り・双風弾","lock":54,"total":384,"windows":[],"projectiles":[[144,36,"wind1"],[192,36,"wind2"]],"recovery":[240,384],"max_hits":2,"underground":[78,114],"reappears_at":114},
+    {"id":"FIB01","owner":"boss-22100501","name":"二つの詠弾","lock":42,"total":264,"windows":[],"projectiles":[[84,48,"orb1"],[132,48,"orb2"]],"recovery":[192,264],"max_hits":2,"element_slot":0},
+    {"id":"FIB02","owner":"boss-22100501","name":"斜列の落晶","lock":48,"total":288,"windows":[[108,114,"fall1"],[150,156,"fall2"],[192,198,"fall3"]],"projectiles":[],"recovery":[210,288],"max_hits":3,"element_slot":1},
+    {"id":"FIB03","owner":"boss-22100501","name":"三環の順爆","lock":60,"total":354,"windows":[[120,126,"ring1"],[156,162,"ring2"],[192,198,"ring3"]],"projectiles":[],"recovery":[210,354],"max_hits":3,"element_slots":[0,1,2],"rings_required_to_break":false}
+  ]
+}
