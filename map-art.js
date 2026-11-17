@@ -51,7 +51,9 @@ try{
   }catch(e){$('browserStatus').textContent='ブラウザ保存に失敗しました。編集中の案は残っています。JSON保存も利用できます。詳細：'+e.message}
  };
  let lastRenderedDraft=placementSignature(drafts);
- for(const n of graph.nodes){const option=document.createElement('option');option.value=n.id;option.textContent=`${n.region}｜${n.name}`;$('node').append(option)}$('node').value='mond-road';
+ for(const n of graph.nodes){const option=document.createElement('option');option.value=n.id;option.textContent=`${n.region}｜${n.name}`;$('node').append(option)}
+ const openingNode=new URLSearchParams(location.search).get('node');
+ $('node').value=nodes.has(openingNode)?openingNode:'mond-road';
  const positionEditor=setupPlacementPosition({getNode:node,getSelected:()=>placements().find(e=>e.id===selected),commit:(e,x,y)=>{remember(node().id);e.x=x;e.y=y;render()},report:text=>{$('fileStatus').textContent=text}});
  const nodePicker=setupMapNodePicker({graph,select:$('node'),getDraft:()=>drafts,onChoose:select});
  function node(){return nodes.get($('node').value)}

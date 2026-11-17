@@ -15,6 +15,12 @@ function update(){
  if(!f.story.active)return;
  const graph=f.storyGraph,node=graph.nodes.find(n=>n.id===f.story.node);
  const position=document.createElement('p');position.textContent=node.name+' ｜ '+(f.storyNotice||'水色の門まで歩き、Fキーか画面下のボタンで移動。璃月はLv20から。');if(f.voyage)position.textContent+=' ／ 到着まで '+Math.ceil(f.voyage.seconds)+'秒（'+(f.voyage.stopover?'寄港中・途中下船可':'航海中')+'）';panel.append(position);
+ if(!f.bossJourney){
+  const comparison=document.createElement('a');
+  comparison.href='map-art.html?'+new URLSearchParams({node:node.id});
+  comparison.textContent='この地点の配置比較を開く';comparison.target='_blank';comparison.rel='noopener';
+  panel.append(comparison);
+ }
  if(node.challenge)panel.append(button('挑戦：'+node.challengeName,'world_boss:'+node.challenge));
  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox',`0 0 780 ${Math.ceil(graph.nodes.length/6)*100}`);svg.style.width='100%';svg.style.maxWidth='780px';
  const coords=new Map(graph.nodes.map((n,i)=>[n.id,{x:65+(i%6)*130,y:30+Math.floor(i/6)*100}]));

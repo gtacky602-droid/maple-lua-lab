@@ -1,9 +1,10 @@
 {
   "rows": 66,
-  "rowsWithArt": 64,
-  "artLinks": 70,
-  "pairPopupsVerified": 2,
+  "rowsWithArt": 66,
+  "artLinks": 72,
+  "bossPopupsVerified": 2,
+  "characterPopupsVerified": 2,
   "mobilePanelOverflow": false,
-  "catalogFailurePreservesLaunch": true,
+  "catalogFailuresPreserveOtherLinksAndLaunch": true,
   "errors": []
 }

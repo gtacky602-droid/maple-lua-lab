@@ -1769,11 +1769,15 @@
         "sources/20261116-amendment.md:94-101"
       ],
       "remaining": [
-        "完成ドット絵・台詞",
+        "専用モーション・台詞",
         "4難度・報酬",
         "マルチ・記録",
         "専用戦闘行動"
-      ]
+      ],
+      "art_candidate": {
+        "gallery": "characters",
+        "encoding": "assets/beidou-idle-sprites.json"
+      }
     },
     {
       "id": "stygian-wanderer",
@@ -1787,11 +1791,15 @@
         "sources/20261116-amendment.md:94-101"
       ],
       "remaining": [
-        "完成ドット絵・台詞",
+        "専用モーション・台詞",
         "4難度・報酬",
         "マルチ・記録",
         "専用戦闘行動"
-      ]
+      ],
+      "art_candidate": {
+        "gallery": "characters",
+        "encoding": "assets/wanderer-idle-sprites.json"
+      }
     }
   ]
 }

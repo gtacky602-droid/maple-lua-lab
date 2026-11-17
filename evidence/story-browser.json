@@ -4,5 +4,11 @@
   "remotePortalRejected": true,
   "walkedToPortal": true,
   "visitedStage": true,
-  "savedResumedAtHub": true
+  "savedResumedAtHub": true,
+  "placementLinksVerified": [
+    "mond-town",
+    "mond-road"
+  ],
+  "invalidPlacementLinkFallsBack": true,
+  "openingPlacementLeavesDraftClean": true
 }

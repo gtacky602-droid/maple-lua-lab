@@ -1,5 +1,5 @@
 // Encounter worklist and playable entry points; incomplete rows never start a fake fight.
-import {encounterArtItems} from './encounter-art.js';
+import {encounterArtGalleries,encounterArtItems,encounterArtReferences} from './encounter-art.js';
 async function initEncounters(){
  const panel=document.createElement('details');panel.id='encountersPanel';
  const title=document.createElement('summary');title.textContent='ボス挑戦・全戦闘の制作状況';panel.append(title);
@@ -8,11 +8,14 @@ async function initEncounters(){
   const response=await fetch('content/encounters.json');if(!response.ok)throw Error(response.status);
   const data=await response.json(),note=document.createElement('p');note.className='note';
   note.textContent=`候補 ${data.counts.encounter_candidates}戦／部分実装 ${data.counts.partial}戦／完成 ${data.counts.complete}戦。${data.warning}`;panel.append(note);
-  let artCatalog=null;
-  try{
-   const response=await fetch('content/boss-art-gallery.json');if(!response.ok)throw Error(response.status);
-   const gallery=await response.json();if(!Array.isArray(gallery.items))throw Error('Invalid gallery');artCatalog=gallery.items;
-  }catch{const warning=document.createElement('p');warning.className='note';warning.textContent='美術一覧を読み込めませんでした。戦闘の制作状況と挑戦操作は利用できます。';panel.append(warning)}
+  const galleries=Object.entries(encounterArtGalleries);
+  const results=await Promise.allSettled(galleries.map(async ([,gallery])=>{
+   const response=await fetch(gallery.catalog);if(!response.ok)throw Error(response.status);
+   const data=await response.json();if(!Array.isArray(data.items))throw Error('Invalid gallery');return data.items;
+  }));
+  const catalogs=Object.fromEntries(galleries.map(([key],i)=>[key,results[i].value??null]));
+  const failed=galleries.filter(([key])=>catalogs[key]===null).map(([,gallery])=>gallery.label);
+  if(failed.length){const warning=document.createElement('p');warning.className='note';warning.textContent=`${failed.join('・')}の美術一覧を読み込めませんでした。戦闘の制作状況と挑戦操作は利用できます。`;panel.append(warning)}
   const controls=document.createElement('div');controls.className='controls';
   const search=document.createElement('input');search.placeholder='ボス名で検索';search.setAttribute('aria-label','ボス名で検索');
   const kind=document.createElement('select');kind.setAttribute('aria-label','ボスの分類');
@@ -40,10 +43,15 @@ async function initEncounters(){
     const detail=document.createElement('small');detail.textContent='残り：'+r.remaining.join('／')+(r.review_note?' ｜ '+r.review_note:'');
     row.append(text);if(variant)row.append(variant);row.append(button,detail);
     const art=document.createElement('div');art.className='encounter-art';art.style.cssText='flex-basis:100%;display:flex;flex-wrap:wrap;gap:8px 16px;overflow-wrap:anywhere;line-height:1.6';
-    const items=artCatalog?encounterArtItems(r,artCatalog):[];
-    const status=document.createElement('small');status.style.flexBasis='100%';status.textContent=artCatalog===null?'美術：一覧を取得できません':items.length?`美術：待機候補 ${items.length}点（動作・戦闘の完成とは別）`:'美術：比較素材の登録なし';art.append(status);
+    const items=encounterArtItems(r,catalogs);
+    const missing=encounterArtReferences(r).some(ref=>catalogs[ref.gallery??'bosses']===null);
+    const status=document.createElement('small');status.style.flexBasis='100%';
+    status.textContent=items.length?`美術：待機候補 ${items.length}点`:'美術：比較素材の登録なし';
+    if(missing)status.textContent=items.length?status.textContent+'（一部の一覧を取得できません）':'美術：一覧を取得できません';
+    else if(items.some(item=>item.gallery==='characters'))status.textContent+='（同行キャラの待機絵を共用）';
+    art.append(status);
     for(const item of items){
-     const link=document.createElement('a');link.textContent=item.name+'を比較';link.href='bosses-art.html?'+new URLSearchParams({q:item.id});link.target='_blank';link.rel='noopener';art.append(link);
+     const link=document.createElement('a');link.textContent=item.name+'を比較';link.href=item.page+'?'+new URLSearchParams({q:item.id});link.target='_blank';link.rel='noopener';art.append(link);
     }
     row.append(art);list.append(row);
    }
