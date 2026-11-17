@@ -323,12 +323,32 @@
     {
       "node": "inazuma-forest-shore",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "inazuma-forest-shore",
       "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "inazuma-sea-cave",
+      "mode": "sprite",
       "visible_portals": 2
+    },
+    {
+      "node": "inazuma-sea-cave",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-shiomi-cape",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "inazuma-shiomi-cape",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "sumeru-entry",

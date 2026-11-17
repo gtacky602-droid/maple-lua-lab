@@ -9,6 +9,12 @@ const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready
 export function questObjective(q,graph,state){
  const destination=graph.nodes.find(n=>q.kind==='boss'?n.challenge===q.target:n.id===q.target);
  const place=destination?.name||'目的地未登録';
+ if(q.contest){
+  if(state?.status==='complete')return '潮見の岬を見つけ、化け狸の親分と再戦できる';
+  return ['洞穴で化け狸の親分に勝負を申し込む','千化け大灯籠の化け術の外殻を削る',
+   '水面にしっぽが映る灯籠を調べる','本物の大灯籠の化け力を使い切らせる',
+   '洞穴を出て潮見の岬から海を眺める','離島の綾華に勝負と岬のことを報告する'][state?.count??0];
+ }
  if(q.forest){
   if(state?.status==='complete')return '大灯籠と勝負の絵をみちくさ帳に収めた';
   const count=state?.count??0;

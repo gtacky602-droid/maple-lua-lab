@@ -1,0 +1,14 @@
+{
+  "requires_M02": true,
+  "cave_and_cape_gates": true,
+  "first_and_final_battle": true,
+  "wrong_answers_retry": true,
+  "observation_has_no_combat_targets": true,
+  "observation_survives_restore": true,
+  "cape_visit_and_revisit": true,
+  "replay_without_repeat_rewards": true,
+  "one_time_reward": {
+    "xp": 4500,
+    "mora": 550
+  }
+}

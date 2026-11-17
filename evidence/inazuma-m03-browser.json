@@ -1,0 +1,12 @@
+{
+  "browser": "Chrome",
+  "actual_controls": true,
+  "first_and_final_battle": true,
+  "reflection_retry": true,
+  "leaf_curtain_reveal": true,
+  "cape_visit": true,
+  "report_and_restore": true,
+  "replay_entry": true,
+  "viewport_390": true,
+  "errors": []
+}

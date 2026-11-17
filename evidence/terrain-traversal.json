@@ -564,6 +564,18 @@
       "ground_both_directions": true
     },
     {
+      "node": "inazuma-sea-cave",
+      "platforms": 1,
+      "jump_routes": [],
+      "ground_both_directions": true
+    },
+    {
+      "node": "inazuma-shiomi-cape",
+      "platforms": 1,
+      "jump_routes": [],
+      "ground_both_directions": true
+    },
+    {
       "node": "sumeru-entry",
       "platforms": 4,
       "jump_routes": [

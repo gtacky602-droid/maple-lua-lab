@@ -180,8 +180,9 @@ function hud(f,calls,renderMs){
  updateConstruction(f.storyConstruction);
  updateLanternNote(f.storyLanternNote);
  const forest=$('storyForest');
- forest.hidden=!f.storyForest;
- if(f.storyForest&&forest.textContent!==f.storyForest.message)forest.textContent=f.storyForest.message;
+ const observation=f.storyContest??f.storyForest;
+ forest.hidden=!observation;
+ if(observation&&forest.textContent!==observation.message)forest.textContent=observation.message;
  const lift=f.storyLift;
  const rail=f.storyRailTransit;
  const market=$('storyMarket');
@@ -204,7 +205,7 @@ function hud(f,calls,renderMs){
  const book=f.storyNearbyBook;
  const stone=f.storyNearbyStone;
  const construction=f.storyNearbyConstruction;
- const interact=f.storyNearbyForest??f.storyNearbyLantern??construction??stone??book;
+ const interact=f.storyNearbyContest??f.storyNearbyForest??f.storyNearbyLantern??construction??stone??book;
  $('nearbyCargo').hidden=!(interact||ingredient||cargo||clue);
  if(interact||ingredient||cargo||clue)$('nearbyCargoGo').textContent=interact?`G：${interact.label}`:ingredient?`G：${ingredient.name}を集める`:clue?'G：'+(clue.label??clue.name+'を調べる'):
   cargo.guarded?`${cargo.name} ｜ 先に魔物を退ける`:`G：${cargo.name}を回収`;

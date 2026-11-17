@@ -1,7 +1,16 @@
 import {chromium} from 'playwright';import fs from 'node:fs/promises';
 import {questStatus,questObjective} from './quest-journal.js';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
-for(const q of graph.quests){if(questStatus(q,null)!=='unaccepted'||questStatus(q,{status:'active',count:0})!=='active'||questStatus(q,{status:'active',count:q.goal})!=='ready'||questStatus(q,{status:'complete',count:q.goal})!=='complete')throw Error('status '+q.id);if(questObjective(q,graph).includes('未登録'))throw Error('missing destination '+q.id);}
+for(const q of graph.quests){
+ const gated=Boolean(q.requires||q.opensAfter||q.level!==undefined);
+ const prerequisites=Object.fromEntries([q.requires,q.opensAfter].filter(Boolean).map(id=>[id,{status:'complete'}]));
+ if(questStatus(q,null,{},0)!==(gated?'locked':'unaccepted')||
+    questStatus(q,null,prerequisites)!=='unaccepted'||
+    questStatus(q,{status:'active',count:0})!=='active'||
+    questStatus(q,{status:'active',count:q.goal})!=='ready'||
+    questStatus(q,{status:'complete',count:q.goal})!=='complete')throw Error('status '+q.id);
+ if(questObjective(q,graph).includes('未登録'))throw Error('missing destination '+q.id);
+}
 const b=await chromium.launch({headless:true,channel:'chrome'}),p=await b.newPage({viewport:{width:1200,height:1000}}),errors=[];p.on('pageerror',e=>errors.push(e.message));
 try{
  await p.goto(process.env.LAB_URL||'http://127.0.0.1:8769');await p.waitForFunction(()=>window.lab?.frame);

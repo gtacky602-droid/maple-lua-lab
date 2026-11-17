@@ -2,6 +2,66 @@
   "errors": [],
   "cases": [
     {
+      "key": "seacave",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "seacave",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "seacave",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "seacave",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "seacave",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "seacave",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "shiomicape",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "shiomicape",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "shiomicape",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "shiomicape",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "shiomicape",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "shiomicape",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "toriiforest",
       "camera": -960,
       "transparent": 0

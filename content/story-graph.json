@@ -1331,8 +1331,28 @@
       "platforms": [{"x": 0, "y": 480, "w": 1320}, {"x": 440, "y": 392, "w": 340}],
       "exits": [
         {"to": "inazuma-torii-thicket", "x": 65},
-        {"to": "inazuma-town", "x": 1250}
+        {"to": "inazuma-town", "x": 1250},
+        {"to": "inazuma-sea-cave", "x": 850, "requires": {"quest": "inazuma-lantern-contest", "count": 0}}
       ]
+    },
+    {
+      "id": "inazuma-sea-cave",
+      "name": "稲妻・海へ抜ける洞穴",
+      "region": "稲妻", "level": 40, "hub": false, "peaceful": true,
+      "width": 1400, "checkpoint": "inazuma-port",
+      "platforms": [{"x": 0, "y": 480, "w": 1400}],
+      "exits": [
+        {"to": "inazuma-forest-shore", "x": 65},
+        {"to": "inazuma-shiomi-cape", "x": 1335, "requires": {"quest": "inazuma-lantern-contest", "count": 4}}
+      ]
+    },
+    {
+      "id": "inazuma-shiomi-cape",
+      "name": "稲妻・潮見の岬",
+      "region": "稲妻", "level": 40, "hub": false, "peaceful": true,
+      "width": 1180, "checkpoint": "inazuma-port",
+      "platforms": [{"x": 0, "y": 480, "w": 1180}],
+      "exits": [{"to": "inazuma-sea-cave", "x": 65}]
     },
     {
       "id": "sumeru-entry",
@@ -4697,6 +4717,31 @@
         ],
         "guards": ["inazuma-thicket-1", "inazuma-thicket-2", "inazuma-thicket-3"],
         "guest": {"x": 1280, "y": 480}
+      }
+    },
+    {
+      "id": "inazuma-lantern-contest",
+      "designId": "Q-INA-M03",
+      "name": "今宵、化かし合いの大勝負！",
+      "giver": "綾華",
+      "requires": "inazuma-torii-maze",
+      "hub": "inazuma-port",
+      "target": "inazuma-sea-cave",
+      "kind": "contest",
+      "goal": 5,
+      "xp": 4500,
+      "mora": 550,
+      "briefing": "綾華「招待の絵にあった灯籠は海岸の洞穴の先のようです。最後までお付き合いしましょう。」",
+      "closing": "綾華「町の灯りまで見える岬でしたね。次に会ったら、また勝負を申し込んでみましょうか。」",
+      "contest": {
+        "cape": "inazuma-shiomi-cape",
+        "hostX": 440,
+        "bossX": 760,
+        "decoys": [560, 760, 960],
+        "answer": 3,
+        "overlookX": 675,
+        "shellHP": 46,
+        "finalHP": 28
       }
     },
     {

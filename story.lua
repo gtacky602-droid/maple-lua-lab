@@ -1,14 +1,15 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
   local out={};for k,item in pairs(v) do out[k]=copy(item) end;return out
  end
- local nodes,quests,lanternQuest={},{},nil
+ local nodes,quests,lanternQuest,contestQuest={},{},nil,nil
  for _,n in ipairs(data.nodes) do nodes[n.id]=n end
  for _,q in ipairs(data.quests) do
   quests[q.id]=q
   if q.lantern then lanternQuest=q end
+  if q.contest then contestQuest=q end
  end
  local function setup(s)
   if not s.story then s.story={active=false,node='mond-town',visited={['mond-town']=true},quests={}} end
@@ -176,6 +177,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.portLanternX=nil
   s.danukiDanceAt=nil
   s.forestFeedback=nil
+  s.contestReplay=nil
+  s.contestFlash=nil
   s.storyDeliveryNotice=nil
   local railConfig,railState=railQuest(s,n)
   if railState and railState.count>=1 then s.platforms[#s.platforms+1]=copy(railConfig.rail.bridge) end
@@ -189,6 +192,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if cargo and cargo.chase and recoveredAll(cargo,state) then beginChase(s,cargo) end
   for i,a in ipairs(s.actors) do a.x=(spawn or 160)-(i-1)*40;a.y=arrivalY or 480;a.vy=0;a.ground=true;if arrivalY then a.drop=0 end end
   s.camera=math.max(0,math.min(s.actors[s.active].x-400,math.max(0,n.width-960)))
+  if contestQuest and id==contestQuest.target then contest.populate(s,contestQuest,s.story.quests[contestQuest.id]) end
   s.macro=nil;s.encounter=nil;s.voyage=n.voyage and {destination=n.voyage.destination,arrives=s.t+n.voyage.seconds-(elapsed or 0),started=s.t-(elapsed or 0),source=n.voyage.source,stopStart=n.voyage.stopStart,stopEnd=n.voyage.stopEnd} or nil;progress(s,'visit',id)
  end
  function C.enterStoryNode(s,id) setup(s);enter(s,id) end
@@ -204,6 +208,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if s.paused or not s.story.active then return end
    local railConfig,railState=railQuest(s,nodes[s.story.node])
    if railConfig then rail.start(s,railConfig,railState);return end
+   if contestQuest and contest.interact(s,contestQuest,s.story.quests[contestQuest.id]) then return end
    for id,state in pairs(s.story.quests) do
     local q=quests[id]
     if q.cooking then
@@ -417,6 +422,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local state=s.story.quests[lanternQuest.id]
    if state then lantern.step(s,lanternQuest,state,dt) end
   end
+  if contestQuest and s.story and s.story.active and s.returns==returns then
+   contest.step(s,contestQuest,s.story.quests[contestQuest.id])
+  end
   if s.railTrip and s.story.active and s.returns==returns then
    local n=nodes[s.story.node];local q,state=railQuest(s,n)
    if rail.step(s,dt,state) then
@@ -501,6 +509,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      elseif q.forest and state then forest.observe(s,f,markers,q,state,mode,profile) end
     end
    end
+   if contestQuest then contest.observe(s,f,markers,n,contestQuest,s.story.quests[contestQuest.id],mode,profile) end
    local recoveryQuest=quests[n.clearedBy]
    local recoveryState=recoveryQuest and recoveryQuest.recovery and s.story.quests[recoveryQuest.id]
    if recoveryState and recoveryState.recovered and recoveryState.count==recoveryQuest.goal-1 and s.companion~='beidou' then

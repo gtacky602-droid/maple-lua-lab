@@ -1,0 +1,23 @@
+{
+  "method": "built-in imagegen",
+  "references": [
+    {
+      "file": "assets/inazuma-torii-forest-background-v1.png",
+      "view": "Indigo woodland, blue flowers and hard color clusters",
+      "sha256": "4691a33089acef67f83553b17c2e3889443a5a3b1593cade47f29458c72c3741"
+    },
+    {
+      "file": "assets/enkanomiya-background-v1.png",
+      "view": "Layers of blue rock; architecture omitted from the new backdrop",
+      "sha256": "75f7ce02dee5b3d5c17374c8b6bf138265216460b3becaf0d631b2146b12358d"
+    }
+  ],
+  "prompt": "Create a distinct original 16:9 pixel-art side-scrolling RPG backdrop for a fictional sea cave in Inazuma between the previous dark woodland and a coastal overlook. First project art reference is for blue flora and stepped clusters only. Second project art reference is for layers of deep blue rock structure only; omit all ruins and buildings. A real enclosed coastal cave with a broad flattened natural arch, fractured aubergine rock wall and stalactites at upper edge, shallow still tidal pool mid-distance, indigo darkness on the left, a small bright irregular cave mouth in upper right with warm amber light and a glimpse of muted coral sky and sea. Add scarce tiny cool blue plants and a few soft warm shafts hitting the water. Dark quiet foreground from 70 percent down for the game-controlled reflective pools, enemies and feet; no lines that look like walkable platforms. Show no figures, lanterns, labels, roof architecture, signs, or UI. Authentic hard-edged grouped pixel colors, coherent limited palette. Landscape edge to edge.",
+  "source": "assets/inazuma-sea-cave-background-v1.png",
+  "scope": "Original coastal cave backdrop for the lab. Existing project backgrounds were supplied as style and color references.",
+  "sha256": "711a888a7ab02f0001af310c8c2bcb0cd49ed1ce8bce2c4561179aabc956cadb",
+  "size": [
+    1672,
+    941
+  ]
+}

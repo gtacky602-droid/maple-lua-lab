@@ -133,6 +133,14 @@
       "enemy_count": 0
     },
     {
+      "node": "inazuma-sea-cave",
+      "enemy_count": 0
+    },
+    {
+      "node": "inazuma-shiomi-cape",
+      "enemy_count": 0
+    },
+    {
       "node": "sumeru-entry",
       "enemy_count": 6
     },

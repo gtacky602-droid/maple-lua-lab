@@ -1,0 +1,23 @@
+{
+  "method": "built-in imagegen",
+  "references": [
+    {
+      "file": "assets/inazuma-background-v1.png",
+      "view": "Inazuma roof silhouette, harbor lights and coastal composition",
+      "sha256": "c4c042b270ba222cc1caaf565416d804cec32f67913ce9b5932f3ebbd1bd4645"
+    },
+    {
+      "file": "assets/inazuma-torii-forest-background-v1.png",
+      "view": "Layered indigo woodland, stone and blue flowers",
+      "sha256": "4691a33089acef67f83553b17c2e3889443a5a3b1593cade47f29458c72c3741"
+    }
+  ],
+  "prompt": "Create an original 16:9 side-on pixel-art game background for Shiomi Cape, a fictional Inazuma coastal overlook in this Japanese action RPG. References are two project art assets: first for distant Inazuma roof shapes and scatter of lights across water, second for cool indigo stone and blue floral colors at forest edge. Invent a third distinct composition from a cliff above the inlet at the very end of sunset. Left side glimpses the indigo cliff and silhouettes of wind-bent coastal grass, center shows wide open coral/gold ocean horizon under dusky mauve-blue clouds, far right across the inlet shows a small layered waterfront town of dark Japanese tiled roofs with many amber points of light and reflections. Warm dim sunset band behind pale lavender haze and rolling dark waves. Open sky upper half for dramatic reveal, visually quiet desaturated deep plum lower third behind character sprites, little hard geometry around center. Authored stepped-color pixel clusters and strong silhouettes, consistent with the given side-scrolling game backgrounds, landscape edge-to-edge. Backdrop only: no people, animals, lantern characters, labels, UI, text, writing, logos, foreground gaps, platforms, or fences.",
+  "source": "assets/inazuma-shiomi-cape-background-v1.png",
+  "scope": "Original lab backdrop for the fictional Shiomi Cape. The two project images are art references for continuity; the cape is not a reconstruction of a canonical location.",
+  "sha256": "6486a85f1a12da295886e8c6a54a8f4f55d8d88aa608ed3b2382de19e40f8e87",
+  "size": [
+    1672,
+    941
+  ]
+}

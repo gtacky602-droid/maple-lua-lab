@@ -351,7 +351,7 @@ function C.step(s,dt,input)
 end
 function C.enemyHeadY(e)
  local layout=not e.custom and C.enemyIdleArt and C.enemyIdleArt[e.art] and C.enemyArtLayout[e.art]
- return e.y-(layout and (layout.height+layout.hover) or 40)
+ return e.y-(e.drawHeight or (layout and (layout.height+layout.hover) or 40))
 end
 
 function C.frame(s,mode,profile)
@@ -378,7 +378,7 @@ function C.frame(s,mode,profile)
  end
  for _,e in ipairs(s.enemies) do if e.hp>0 and e.x>s.camera-40 and e.x<s.camera+1000 then
   visible=visible+1
-  if not e.custom then
+  if not e.custom and not e.storyDrawn then
    if C.enemyIdleArt and C.enemyIdleArt[e.art] then C.drawEnemyIdleArt({draws=draws},s,e,mode,profile)
    else add({kind='sprite',asset=e.kind==1 and 5 or 7,x=e.x-s.camera,y=e.y,w=e.boss and 144 or 48,h=e.boss and 120 or 40,flip=false}) end
   end

@@ -200,6 +200,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "inazuma-sea-cave",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "inazuma-shiomi-cape",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "sumeru-entry",
       "count": 0,
       "fallback": false,

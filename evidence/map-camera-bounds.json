@@ -166,6 +166,16 @@
       "rightCamera": 360
     },
     {
+      "node": "inazuma-sea-cave",
+      "width": 1400,
+      "rightCamera": 440
+    },
+    {
+      "node": "inazuma-shiomi-cape",
+      "width": 1180,
+      "rightCamera": 220
+    },
+    {
       "node": "sumeru-entry",
       "width": 1440,
       "rightCamera": 480

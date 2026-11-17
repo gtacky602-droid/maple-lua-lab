@@ -413,6 +413,22 @@
       "to": "inazuma-town"
     },
     {
+      "node": "inazuma-forest-shore",
+      "to": "inazuma-sea-cave"
+    },
+    {
+      "node": "inazuma-sea-cave",
+      "to": "inazuma-forest-shore"
+    },
+    {
+      "node": "inazuma-sea-cave",
+      "to": "inazuma-shiomi-cape"
+    },
+    {
+      "node": "inazuma-shiomi-cape",
+      "to": "inazuma-sea-cave"
+    },
+    {
       "node": "sumeru-entry",
       "to": "inazuma-town"
     },

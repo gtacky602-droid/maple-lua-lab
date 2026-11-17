@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 102 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 100,
+  "scope": "Authored 104 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 102,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -204,6 +204,18 @@
         "status": "regional_temporary_image"
       },
       {
+      "id": "inazuma-sea-cave",
+      "name": "稲妻・海へ抜ける洞穴",
+      "region": "稲妻",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "inazuma-shiomi-cape",
+      "name": "稲妻・潮見の岬",
+      "region": "稲妻",
+      "status": "regional_temporary_image"
+    },
+    {
       "id": "sumeru-entry",
       "name": "スメール・地域の入口",
       "region": "スメール",

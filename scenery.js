@@ -1,5 +1,7 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ seacave:{file:'inazuma-sea-cave-background-v1.png',zones:['story:inazuma-sea-cave'],note:'洞穴から夕暮れの海が見えるラボ仮背景'},
+ shiomicape:{file:'inazuma-shiomi-cape-background-v1.png',zones:['story:inazuma-shiomi-cape'],note:'潮見の岬の夕景を描いたラボ仮背景'},
  toriiforest:{file:'inazuma-torii-forest-background-v1.png',zones:['story:inazuma-torii-footprints','story:inazuma-torii-statues','story:inazuma-torii-reflections','story:inazuma-torii-thicket'],note:'鎮守の森の色と鳥居を参照した共通の仮背景'},
  liyuequarry:{file:'liyue-quarry-background-v1.png',zones:['story:liyue-river-trail','story:liyue-cliff-planks','story:liyue-quarry-post','story:liyue-quarry-storage','story:liyue-book-camp'],note:'川沿い・桟道・石切り場・宝盗団の拠点で共用する仮背景'},
  mondrestored:{file:'mond-restored-road-background-v1.png',zones:['story:mond-restored-road'],clearedZones:['story:mond-watchtower'],note:'見張り討伐後の街道の仮画像'},
@@ -78,8 +80,8 @@ export function scenery(ctx,frame){
   ctx.drawImage(background,-offset,0,w,h);
  }else{ctx.fillStyle='#c5decc';ctx.fillRect(0,0,960,540)}
  // Lab-only terrain proxies. These will be 3D set dressing and colliders in the game.
- const inazuma=key==='inazuma'||key==='toriiforest';
- const cave=['enkanomiya','nodspecial','novokichev','chasm'].includes(key);
+ const inazuma=key==='inazuma'||key==='toriiforest'||key==='shiomicape';
+ const cave=['seacave','enkanomiya','nodspecial','novokichev','chasm'].includes(key);
  const camera=frame.camera||0,snow=key==='snezhnaya'||key==='dragonspine'||key==='wingspan';
  drawDecorations(ctx,frame,camera);
  for(const p of frame.platforms||[]){
