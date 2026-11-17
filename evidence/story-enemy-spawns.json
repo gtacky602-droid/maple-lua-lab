@@ -9,6 +9,22 @@
       "enemy_count": 6
     },
     {
+      "node": "mond-old-road",
+      "enemy_count": 0
+    },
+    {
+      "node": "mond-old-canopy",
+      "enemy_count": 0
+    },
+    {
+      "node": "mond-old-ground",
+      "enemy_count": 8
+    },
+    {
+      "node": "mond-hill",
+      "enemy_count": 3
+    },
+    {
       "node": "mond-border",
       "enemy_count": 6
     },

@@ -13,12 +13,52 @@
     {
       "node": "mond-road",
       "mode": "sprite",
-      "visible_portals": 5
+      "visible_portals": 7
     },
     {
       "node": "mond-road",
       "mode": "rect",
-      "visible_portals": 5
+      "visible_portals": 7
+    },
+    {
+      "node": "mond-old-road",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "mond-old-road",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "mond-old-canopy",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "mond-old-canopy",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "mond-old-ground",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "mond-old-ground",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "mond-hill",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "mond-hill",
+      "mode": "rect",
+      "visible_portals": 3
     },
     {
       "node": "mond-border",

@@ -1,0 +1,19 @@
+{
+  "errors": [],
+  "prerequisiteShown": true,
+  "realUpperRoute": true,
+  "inspectedRedCloth": true,
+  "ordinaryGuardCombat": true,
+  "shortcut": true,
+  "reporting": {
+    "xp": 1300,
+    "mora": 140
+  },
+  "saveRestored": true,
+  "mobileWidth": true,
+  "backdrop": {
+    "key": "mondhill",
+    "file": "mond-hill-background-v1.png",
+    "state": "ready"
+  }
+}

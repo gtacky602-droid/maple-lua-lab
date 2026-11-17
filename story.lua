@@ -11,19 +11,38 @@ return function(C,data)
   if not s.story then s.story={active=false,node='mond-town',visited={['mond-town']=true},quests={}} end
   s.story.discovered=s.story.discovered or {}
  end
+ local function completed(s,id)
+  local state=s.story.quests[id]
+  return state and state.status=='complete'
+ end
+ local function gateRestriction(s,edge)
+  local rule=edge.requires
+  if rule then
+   local state=s.story.quests[rule.quest]
+   local allowed=completed(s,rule.quest) or (rule.count and state and state.count>=rule.count)
+   if not allowed then
+    return '依頼「'..quests[rule.quest].name..'」'..(rule.count and 'を進めてください。' or 'を報告してください。')
+   end
+  end
+  local passed=s.voyage and s.t-s.voyage.started or -1
+  if edge.windowStart and not (passed+1e-8>=edge.windowStart and passed+1e-8<edge.windowEnd) then return '寄港時間外' end
+  if edge.requiresArrival and not (s.voyage and s.t>=s.voyage.arrives) then return '到着待ち' end
+ end
+ local function nearGate(a,edge)
+  return math.abs(a.x-edge.x)<90 and math.abs(a.y-(edge.y or 480))<60
+ end
  local function nearbyPortal(s)
   if not s.story.active then return nil end
-  local a=s.actors[s.active];if math.abs(a.y-480)>=60 then return nil end
+  local a=s.actors[s.active]
   local best,distance=nil,90
   for _,edge in ipairs(nodes[s.story.node].exits) do
    local n=nodes[edge.to];local dx=math.abs(a.x-edge.x)
-   if dx<distance and (not n.hiddenGroup or s.story.discovered[n.hiddenGroup]) then
-    local passed=s.voyage and s.t-s.voyage.started or -1;local reason=nil
+   if dx<distance and nearGate(a,edge) and (not n.hiddenGroup or s.story.discovered[n.hiddenGroup]) then
+    local reason=nil
     if s.paused then reason='一時停止中'
     elseif a.hp<=0 then reason='戦闘不能中'
     elseif not s.progression or s.progression.level<n.level then reason='必要レベル '..n.level
-    elseif edge.windowStart and not (passed+1e-8>=edge.windowStart and passed+1e-8<edge.windowEnd) then reason='寄港時間外'
-    elseif edge.requiresArrival and not (s.voyage and s.t>=s.voyage.arrives) then reason='到着待ち' end
+    else reason=gateRestriction(s,edge) end
     best={to=edge.to,name=n.name,level=n.level,available=not reason,reason=reason};distance=dx
    end
   end
@@ -58,6 +77,19 @@ return function(C,data)
    if not state.recovered[item.id] and math.abs(a.y-item.y)<34 and dx<distance then best,distance=item,dx end
   end
   return best
+ end
+ local function trailClue(s)
+  for id,state in pairs(s.story.quests) do
+   local trail=quests[id].trail
+   if trail and state.status=='active' and state.count<quests[id].goal then
+    for _,item in ipairs(trail.clues) do
+     if item.node==s.story.node and not state.inspected[item.id] then return item,state end
+    end
+   end
+  end
+ end
+ local function canInspect(a,item)
+  return a.hp>0 and math.abs(a.x-item.x)<54 and math.abs(a.y-item.y)<34
  end
  local function questKillCounts(q,state,enemy)
   if not state.recovered then return true end -- Already accepted under the original four-kill contract.
@@ -103,7 +135,15 @@ return function(C,data)
   if key=='story_collect' then
    if s.paused or not s.story.active then return end
    local q,state=cargoQuest(s)
-   if not q then return end
+   if not q then
+    local clue,progress=trailClue(s)
+    if not clue then return end
+    if not canInspect(s.actors[s.active],clue) then s.storyNotice='手がかりのそばまで移動してください。';return end
+    progress.inspected[clue.id]=true
+    progress.count=1
+    s.storyNotice=clue.line
+    return
+   end
    local item=nearbyCargo(s,q,state)
    if not item then s.storyNotice='荷物のそばまで移動してください。';return end
    state.recovered[item.id]=true
@@ -130,8 +170,13 @@ return function(C,data)
    if fast then if not n.hub or not s.story.visited[dest] then s.storyNotice='到達済みの拠点だけ移動できます。';return end
    else
     local allowed=false;local a=s.actors[s.active]
-    for _,edge in ipairs(nodes[s.story.node].exits) do local passed=s.voyage and s.t-s.voyage.started or -1
-     if edge.to==dest and (not edge.windowStart or (passed+1e-8>=edge.windowStart and passed+1e-8<edge.windowEnd)) and (not edge.requiresArrival or (s.voyage and s.t>=s.voyage.arrives)) and math.abs(a.x-edge.x)<90 and math.abs(a.y-480)<60 then allowed=true;resume=edge.resumeSeconds or 0 end end
+    for _,edge in ipairs(nodes[s.story.node].exits) do
+     if edge.to==dest and nearGate(a,edge) then
+      local reason=gateRestriction(s,edge)
+      if reason then s.storyNotice=reason;return end
+      allowed=true;resume=edge.resumeSeconds or 0
+     end
+    end
     if not allowed then s.storyNotice='接続する門の近くまで歩いてください。';return end
    end
    local previous=s.story.node;local spawn=160
@@ -144,7 +189,9 @@ return function(C,data)
    local id=accept or report;local q=quests[id];if not q or s.story.node~=q.hub then return end
    local state=s.story.quests[id]
    if accept and (not state or (q.repeatable and state.status=='complete')) then
-    s.story.quests[id]={status='active',count=0,cycles=state and state.cycles or 0,recovered=q.cargo and {} or nil}
+    if q.requires and not completed(s,q.requires) then return end
+    s.story.quests[id]={status='active',count=0,cycles=state and state.cycles or 0,
+                       recovered=q.cargo and {} or nil,inspected=q.trail and {} or nil}
    elseif report and state and state.status=='active' and state.count==q.goal then
     state.status='complete';state.cycles=(state.cycles or 0)+1;s.mora=s.mora+q.mora;C.grantExp(s,q.xp,'quest');s.storyNotice=q.closing or q.name..'：報酬を受け取りました。'
    end
@@ -155,7 +202,16 @@ return function(C,data)
  end
  function C.onKill(s,e)
   if onKill then onKill(s,e) end
-  if s.story and s.story.active then progress(s,'kill',s.story.node,e) end
+  if s.story and s.story.active then
+   progress(s,'kill',s.story.node,e)
+   for id,state in pairs(s.story.quests) do
+    local q=quests[id]
+    if q.trail and state.status=='active' and state.count==1 and q.target==s.story.node and e.spawnId==q.trail.guard then
+     state.count=q.goal
+     s.storyNotice='見張りを倒して柵が開きました。森への近道から戻れます。'
+    end
+   end
+  end
  end
  function C.step(s,dt,input)
   local returns=s.returns;step(s,dt,input)
@@ -174,10 +230,10 @@ return function(C,data)
    local markers={};f.storyPortals={}
    local function marker(x,y,w,h) markers[#markers+1]={kind='rect',x=x,y=y,w=w,h=h,color='#83dbe1'} end
    for _,edge in ipairs(n.exits) do if shown(nodes[edge.to]) then
-    local x=edge.x-s.camera
-    marker(x-18,390,3,90);marker(x+15,390,3,90)
-    marker(x-18,390,36,3);marker(x-21,477,42,3)
-    f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=480}
+    local x,y=edge.x-s.camera,edge.y or 480
+    marker(x-18,y-90,3,90);marker(x+15,y-90,3,90)
+    marker(x-18,y-90,36,3);marker(x-21,y-3,42,3)
+    f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=y}
    end
    end
    local q,state=cargoQuest(s)
@@ -198,7 +254,15 @@ return function(C,data)
      end
     end
    end
-   -- Gates and cargo sit behind actors, enemies and effects in both render modes.
+   local clue=trailClue(s)
+   if clue then
+    if not s.paused and canInspect(s.actors[s.active],clue) then f.storyNearbyClue={id=clue.id,name=clue.name} end
+    local x,y=clue.x-s.camera,clue.y
+    local elevated=y<480
+    markers[#markers+1]={kind='rect',x=x-10,y=y-14,w=20,h=4,color=elevated and '#a93634' or '#634936'}
+    markers[#markers+1]={kind='rect',x=x-5,y=y-10,w=10,h=7,color=elevated and '#f76859' or '#b69765'}
+   end
+   -- Navigation and quest objects precede actors, enemies, and effects.
    for _,draw in ipairs(f.draws) do markers[#markers+1]=draw end;f.draws=markers
    for _,h in ipairs(n.hints or {}) do f.draws[#f.draws+1]={kind='rect',x=h.x-s.camera-8,y=h.y-48,w=16,h=16,color='#ffe4a0'} end
    f.commands=#f.draws

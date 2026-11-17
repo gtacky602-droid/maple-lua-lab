@@ -1403,6 +1403,87 @@
         "x": 561,
         "platform": 2
       }
+    ],
+    "mond-old-ground": [
+      {
+        "id": "mond-old-ground-1",
+        "x": 285,
+        "platform": 0,
+        "art": "hydro-slime",
+        "kind": 1
+      },
+      {
+        "id": "mond-old-ground-2",
+        "x": 380,
+        "platform": 0,
+        "art": "hilichurl",
+        "kind": 1
+      },
+      {
+        "id": "mond-old-ground-3",
+        "x": 520,
+        "platform": 0,
+        "art": "pyro-slime",
+        "kind": 2
+      },
+      {
+        "id": "mond-old-ground-4",
+        "x": 730,
+        "platform": 0,
+        "art": "hydro-slime",
+        "kind": 1
+      },
+      {
+        "id": "mond-old-ground-5",
+        "x": 950,
+        "platform": 0,
+        "art": "hilichurl",
+        "kind": 1
+      },
+      {
+        "id": "mond-old-ground-6",
+        "x": 1120,
+        "platform": 0,
+        "art": "pyro-slime",
+        "kind": 2
+      },
+      {
+        "id": "mond-old-ground-7",
+        "x": 370,
+        "platform": 1,
+        "art": "hydro-slime",
+        "kind": 1
+      },
+      {
+        "id": "mond-old-ground-8",
+        "x": 1020,
+        "platform": 3,
+        "art": "hilichurl",
+        "kind": 1
+      }
+    ],
+    "mond-hill": [
+      {
+        "id": "mond-hill-1",
+        "x": 700,
+        "platform": 0,
+        "art": "hilichurl",
+        "kind": 1
+      },
+      {
+        "id": "mond-hill-2",
+        "x": 410,
+        "platform": 1,
+        "art": "hilichurl",
+        "kind": 1
+      },
+      {
+        "id": "mond-hill-3",
+        "x": 1120,
+        "platform": 3,
+        "art": "pyro-slime",
+        "kind": 2
+      }
     ]
   }
 }

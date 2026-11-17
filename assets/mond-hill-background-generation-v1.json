@@ -1,0 +1,11 @@
+{
+  "prompt": "Wide 16:9 painterly game background for a bright side-scrolling adventure. Based on the attached screenshot's rickety timber tower construction and the green slopes around it, make an ORIGINAL hilltop beyond a quiet woodland trail on a sunny afternoon, brilliant blue sky and clouds, grass-covered layered limestone slopes and warm foliage. An improvised timber lookout dominates the upper middle/right of the landscape, with a prominent fluttering weathered red cloth, one cart wheel tied to a beam, and a small upside-down blank yellow wooden sign at its base. Highlight these specific story clues with simple clear silhouettes. Lower third remains quiet desaturated green-brown, with enough contrast for bright pixel actors and independently drawn collision ledges. No text, screenshot UI, tracking circles, arrows, characters, watermark, logo, borders, or playable foreground platforms.",
+  "references": [
+    {
+      "source": "https://gamewith.jp/genshin/article/show/295118",
+      "image": "https://img.gamewith.jp/img/original_347ae94d0813e808c1f13aa4f36679d0.png",
+      "use": "Reviewed the in-game wood scaffolding, ladder, tiers and limestone hills. The red cloth, sign, cart wheel, and composition are original quest-design adaptations."
+    }
+  ],
+  "status": "lab background; no production 3D"
+}

@@ -3,17 +3,24 @@ export function questRouteText(f,q,status){
  if(!f.story?.active||!q||(status==='complete'&&!q.repeatable))return '';
  const graph=f.storyGraph,nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  const target=status==='active'?(q.kind==='boss'?graph.nodes.find(n=>n.challenge===q.target)?.id:q.target):q.hub;
- if(!nodes.has(target))return '目的地は未公開または未登録です。';
+ const lookingForClues=status==='active'&&q.trail&&!f.story.quests?.[q.id]?.count;
+ const targets=new Set((lookingForClues?q.trail.clues.map(item=>item.node):[target]).filter(id=>nodes.has(id)));
+ if(!targets.size)return '目的地は未公開または未登録です。';
  const from=f.story.node;if(!nodes.has(from))return '';
- if(from===target)return status==='active'?'目的地に到着しています。':'受注・報告の拠点にいます。';
+ if(targets.has(from))return status==='active'?'目的地に到着しています。':'受注・報告の拠点にいます。';
+ function gateOpen(edge){
+  if(!edge.requires)return true;
+  const state=f.story.quests?.[edge.requires.quest];
+  return state?.status==='complete'||(edge.requires.count!==undefined&&state?.count>=edge.requires.count);
+ }
  const level=f.progression?.level??0;
  function routeAtLevel(limit){
   const queue=[[from]],seen=new Set([from]);
   for(let i=0;i<queue.length;i++){
    const current=queue[i],node=nodes.get(current.at(-1));
    for(const edge of node.exits||[]){
-    if(!nodes.has(edge.to)||seen.has(edge.to)||(nodes.get(edge.to).level||1)>limit)continue;
-    const next=[...current,edge.to];if(edge.to===target)return next;
+    if(!nodes.has(edge.to)||seen.has(edge.to)||!gateOpen(edge)||(nodes.get(edge.to).level||1)>limit)continue;
+    const next=[...current,edge.to];if(targets.has(edge.to))return next;
     seen.add(edge.to);queue.push(next);
    }
   }
@@ -33,7 +40,7 @@ export function questRouteText(f,q,status){
  if(actor&&Number.isFinite(actor.x)&&Number.isFinite(actor.y)&&Number.isFinite(edge.x)){
   const dx=edge.x-actor.x;
   if(Math.abs(dx)>=90)notes.push(`次の門は${dx>0?'右':'左'}にあります`);
-  else if(Math.abs(actor.y-480)>=60)notes.push('門の横位置まで来ています。地上へ降りてください');
+  else if(Math.abs(actor.y-(edge.y??480))>=60)notes.push(edge.y===undefined?'門の横位置まで来ています。地上へ降りてください':'門のある足場へ移動してください');
   else notes.push('次の門の近くです。移動条件を満たすと「F：この門を通る」で進めます');
  }
  if(edge.windowStart!==undefined){
@@ -49,5 +56,5 @@ export function questRouteText(f,q,status){
  }
  else notes.push('次の地点の門へ歩いて移動してください');
  if(f.paused)notes.push('一時停止中');
- return `次は ${next.name} → 目的地：${nodes.get(target).name}（残り${path.length-1}区間・拠点移動を除く接続経路）。${notes.join('。')}。`;
+ return `次は ${next.name} → 目的地：${nodes.get(path.at(-1)).name}（残り${path.length-1}区間・拠点移動を除く接続経路）。${notes.join('。')}。`;
 }

@@ -9,7 +9,7 @@ for n in graph['nodes']:
   for i,p in enumerate(f.storyPortals.values()):
    runs=[f.draws[i*4+j] for j in range(1,5)]
    assert all(r.kind=='rect' and r.color=='#83dbe1' and (r.w<=3 or r.h<=3) for r in runs)
-   assert runs[0].x==p.x-18 and runs[0].y==390
+   assert runs[0].x==p.x-18 and runs[0].y==p.y-90
   # Original character/enemy draw commands follow all outlined gates.
   if mode=='sprite': assert any(d.source for i,d in f.draws.items() if i>prefix)
   assert not any(d.color=='#83dbe1' and d.w>3 and d.h>3 for d in f.draws.values())

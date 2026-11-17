@@ -14,6 +14,30 @@
       "backgroundState": "ready"
     },
     {
+      "id": "mond-old-road",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "mond-old-canopy",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "mond-old-ground",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "mond-hill",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "mond-border",
       "count": 0,
       "fallback": false,

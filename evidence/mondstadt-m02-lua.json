@@ -1,0 +1,26 @@
+{
+  "routes": [
+    {
+      "route": "mond-old-ground",
+      "clue": "wheel-ruts",
+      "fight": true,
+      "shortcut_after_report": true,
+      "partial_save": true,
+      "reward_xp": 1300,
+      "reward_mora": 140
+    },
+    {
+      "route": "mond-old-canopy",
+      "clue": "red-cloth",
+      "fight": true,
+      "shortcut_after_report": true,
+      "partial_save": true,
+      "reward_xp": 1300,
+      "reward_mora": 140
+    }
+  ],
+  "prerequisite": true,
+  "hill_requires_clue": true,
+  "elevated_gate_requires_correct_height": true,
+  "duplicate_reward_rejected": true
+}

@@ -11,6 +11,26 @@
       "rightCamera": 480
     },
     {
+      "node": "mond-old-road",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "mond-old-canopy",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "mond-old-ground",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
+      "node": "mond-hill",
+      "width": 1760,
+      "rightCamera": 800
+    },
+    {
       "node": "mond-border",
       "width": 1440,
       "rightCamera": 480

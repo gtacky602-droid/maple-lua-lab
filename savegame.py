@@ -82,7 +82,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -95,4 +95,18 @@ def validate_save(data):
                 if (found and q['count'] < quests[id]['goal'] - 1
                         or q['count'] == quests[id]['goal'] and set(found) != cargo_ids):
                     raise ValueError('Invalid quest cargo progress')
+            quest = quests[id]
+            if quest.get('requires'):
+                predecessor = st['quests'].get(quest['requires'])
+                if not isinstance(predecessor, dict) or predecessor.get('status') != 'complete':
+                    raise ValueError('Incomplete story quest prerequisite')
+            if quest.get('trail') or 'inspected' in q:
+                inspected = q.get('inspected')
+                if not quest.get('trail') or not isinstance(inspected, dict):
+                    raise ValueError('Invalid trail clues')
+                clue_ids = {clue['id'] for clue in quest['trail']['clues']}
+                if any(key not in clue_ids or flag is not True for key, flag in inspected.items()):
+                    raise ValueError('Invalid trail clue ID')
+                if bool(inspected) != (q['count'] > 0):
+                    raise ValueError('Invalid trail progress')
     return data.copy()

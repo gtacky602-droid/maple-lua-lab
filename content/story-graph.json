@@ -104,6 +104,22 @@
         {
           "to": "electro-approach",
           "x": 400
+        },
+        {
+          "to": "mond-old-road",
+          "x": 895,
+          "requires": {
+            "quest": "amber-join"
+          }
+        },
+        {
+          "to": "mond-hill",
+          "x": 270,
+          "y": 350,
+          "requires": {
+            "quest": "mond-old-trail",
+            "count": 2
+          }
         }
       ],
       "checkpoint": "mond-town",
@@ -115,6 +131,199 @@
           "label": "古い船着き場の跡"
         }
       ]
+    },
+    {
+      "id": "mond-old-road",
+      "name": "モンド・木漏れ日の旧道",
+      "region": "モンド",
+      "level": 1,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 215,
+          "y": 390,
+          "w": 330
+        },
+        {
+          "x": 492,
+          "y": 300,
+          "w": 415
+        },
+        {
+          "x": 960,
+          "y": 375,
+          "w": 295
+        }
+      ],
+      "exits": [
+        {
+          "to": "mond-road",
+          "x": 60
+        },
+        {
+          "to": "mond-old-canopy",
+          "x": 740,
+          "y": 300
+        },
+        {
+          "to": "mond-old-ground",
+          "x": 1380
+        }
+      ],
+      "checkpoint": "mond-town",
+      "peaceful": true
+    },
+    {
+      "id": "mond-old-canopy",
+      "name": "モンド・旧道の上段",
+      "region": "モンド",
+      "level": 1,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 175,
+          "y": 390,
+          "w": 380
+        },
+        {
+          "x": 490,
+          "y": 305,
+          "w": 420
+        },
+        {
+          "x": 840,
+          "y": 220,
+          "w": 480
+        }
+      ],
+      "exits": [
+        {
+          "to": "mond-old-road",
+          "x": 60
+        },
+        {
+          "to": "mond-hill",
+          "x": 1220,
+          "y": 220,
+          "requires": {
+            "quest": "mond-old-trail",
+            "count": 1
+          }
+        }
+      ],
+      "checkpoint": "mond-town",
+      "peaceful": true
+    },
+    {
+      "id": "mond-old-ground",
+      "name": "モンド・旧道の下段",
+      "region": "モンド",
+      "level": 1,
+      "hub": false,
+      "width": 1440,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 215,
+          "y": 395,
+          "w": 300
+        },
+        {
+          "x": 595,
+          "y": 315,
+          "w": 290
+        },
+        {
+          "x": 920,
+          "y": 387,
+          "w": 360
+        }
+      ],
+      "exits": [
+        {
+          "to": "mond-old-road",
+          "x": 60
+        },
+        {
+          "to": "mond-hill",
+          "x": 1380,
+          "requires": {
+            "quest": "mond-old-trail",
+            "count": 1
+          }
+        }
+      ],
+      "checkpoint": "mond-town"
+    },
+    {
+      "id": "mond-hill",
+      "name": "モンド・風見の丘",
+      "region": "モンド",
+      "level": 1,
+      "hub": false,
+      "width": 1760,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1760
+        },
+        {
+          "x": 200,
+          "y": 396,
+          "w": 340
+        },
+        {
+          "x": 495,
+          "y": 310,
+          "w": 345
+        },
+        {
+          "x": 995,
+          "y": 377,
+          "w": 285
+        },
+        {
+          "x": 1250,
+          "y": 288,
+          "w": 318
+        }
+      ],
+      "exits": [
+        {
+          "to": "mond-old-ground",
+          "x": 60
+        },
+        {
+          "to": "mond-old-canopy",
+          "x": 285
+        },
+        {
+          "to": "mond-road",
+          "x": 1700,
+          "requires": {
+            "quest": "mond-old-trail",
+            "count": 2
+          }
+        }
+      ],
+      "checkpoint": "mond-town"
     },
     {
       "id": "mond-border",
@@ -3386,6 +3595,42 @@
         "x": 1210,
         "min": 1130,
         "max": 1320
+      }
+    },
+    {
+      "id": "mond-old-trail",
+      "designId": "Q-MON-M02",
+      "name": "看板の向こうに、何がある？",
+      "hub": "mond-town",
+      "target": "mond-hill",
+      "kind": "trail",
+      "requires": "amber-join",
+      "giver": "アンバー",
+      "goal": 2,
+      "xp": 1300,
+      "mora": 140,
+      "briefing": "アンバー「看板より、こっちの跡の方が信用できそうだね！ 旧道の下段で車輪跡を探すか、上段から赤い布を追ってみよう。」",
+      "closing": "アンバー「これで森から丘へ近道できるね。準備ができたら、あの見張り台へ行こう！」",
+      "trail": {
+        "guard": "mond-hill-1",
+        "clues": [
+          {
+            "id": "wheel-ruts",
+            "name": "車輪跡",
+            "node": "mond-old-ground",
+            "x": 660,
+            "y": 480,
+            "line": "車輪跡は丘へ向かっています。"
+          },
+          {
+            "id": "red-cloth",
+            "name": "枝の赤い布",
+            "node": "mond-old-canopy",
+            "x": 700,
+            "y": 305,
+            "line": "枝の赤い布は荷物を包んでいた布と同じです。"
+          }
+        ]
       }
     },
     {
