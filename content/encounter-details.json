@@ -11,10 +11,12 @@
       }
     },
     "boss-24050101": {
+      "remaining": ["連続アニメーション・被弾・撃破作画", "装備別・Webマルチの実測", "幻境実機"],
+      "extra_evidence": ["evidence/asimon-field-lua.json", "evidence/asimon-field-browser.json"],
       "art_candidate": {
         "item": "asimon",
-        "audit": "evidence/asimon-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/asimon-field-art-audit.json",
+        "status": "Web field prototype using idle and four action poses"
       }
     },
     "boss-29090101": {

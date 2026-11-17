@@ -189,6 +189,9 @@ def runtime():
     dendro_hypostasis=lua.execute((ROOT/'field-dendro-hypostasis.lua').read_text(encoding='utf-8'))(core)
     core.dendroHypostasisFieldArt=field_art(lua,'dendro-hypostasis',('vine','ball','core'),
                                             idle='dendro-hypostasis-idle-sprites.json')
+    asimon=lua.execute((ROOT/'field-asimon.lua').read_text(encoding='utf-8'))(core)
+    core.asimonFieldArt=field_art(lua,'asimon',('ray','pillars','cloak','recover'),
+                                 idle='asimon-idle-sprites.json')
     core.aeonblightFieldArt=field_art(lua,'aeonblight',('wing_first','wing_second','cannon','windup','dash','down'),
                                      idle='aeonblight-idle-sprites.json')
     bathysmal=lua.execute((ROOT/'field-bathysmal.lua').read_text(encoding='utf-8'))(core)
@@ -213,7 +216,7 @@ def runtime():
                         'pyroHypostasis':pyro_hypostasis,'hydroHypostasis':hydro_hypostasis,
                         'wolflord':wolflord_field,'ruinSerpent':ruin_serpent,'bathysmal':bathysmal,
                         'electroRegisvine':electro_vine,'aeonblight':aeonblight,
-                        'dendroHypostasis':dendro_hypostasis})
+                        'dendroHypostasis':dendro_hypostasis,'asimon':asimon})
     )
     return lua, core
 

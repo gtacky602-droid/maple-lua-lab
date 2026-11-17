@@ -2,6 +2,36 @@
   "errors": [],
   "cases": [
     {
+      "key": "asimonField",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "asimonField",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "asimonField",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "asimonField",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "asimonField",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "asimonField",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "dendroHypostasisField",
       "camera": -960,
       "transparent": 0

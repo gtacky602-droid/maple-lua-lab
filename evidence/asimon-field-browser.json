@@ -1,0 +1,37 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 61.1,
+    "moves": [
+      "FMT01",
+      "FMT02",
+      "FMT03"
+    ],
+    "dodgeWindows": 6,
+    "finished": true,
+    "hp": 56,
+    "returns": 0
+  },
+  "fieldKill": {
+    "xp": 61650,
+    "mora": 245
+  },
+  "commissionReport": {
+    "xp": 4200,
+    "mora": 310
+  },
+  "persistedCooldown": true,
+  "sameSceneCommands": {
+    "png": 35,
+    "standard": 8626,
+    "light": 2228
+  },
+  "sameStateOpacity": {
+    "normal": 0.45,
+    "reduced": 1,
+    "tick": 89
+  },
+  "fullPillarHeight": true,
+  "viewport390": true,
+  "errors": []
+}

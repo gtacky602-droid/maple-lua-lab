@@ -1,5 +1,5 @@
 {
-  "count": 57,
+  "count": 58,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -20,6 +20,7 @@
     "Electro Regisvine is reachable through the field route",
     "Aeonblight Drake is reachable through the field route",
     "The Dendro Hypostasis is reachable through the field route",
+    "The Matrix is reachable through the field route",
     "public roster matched without merging Icewind modes or Dottore challenges",
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",

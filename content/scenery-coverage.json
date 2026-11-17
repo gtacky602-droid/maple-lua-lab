@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 131 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 129,
+  "scope": "Authored 132 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 130,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -314,6 +314,12 @@
     {
       "id": "dendro-hypostasis-field-den",
       "name": "スメール・枯蔓の洞",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "asimon-field-ruins",
+      "name": "スメール・砂鏡の遺構",
       "region": "スメール",
       "status": "regional_temporary_image"
     },

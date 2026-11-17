@@ -1,0 +1,30 @@
+{
+  "attacks": [
+    "FMT01",
+    "FMT02",
+    "FMT03"
+  ],
+  "designTiming": true,
+  "lockedBeamDirection": true,
+  "lowBeamJump": true,
+  "threeFixedPillars": true,
+  "movingHurtbox": true,
+  "noOriginHurtbox": true,
+  "oneDischargeHit": true,
+  "fadeAlpha": 0.45,
+  "normalHitWhileFaded": true,
+  "auraExpiryPreserved": true,
+  "burningTicksWhileFaded": true,
+  "sharedHp": true,
+  "questReportOnce": true,
+  "normalAttackSolo": {
+    "seconds": 87.13,
+    "hp": 35
+  },
+  "commands": {
+    "png": 37,
+    "standard": 6231,
+    "light": 1705
+  },
+  "killXp": 61650
+}

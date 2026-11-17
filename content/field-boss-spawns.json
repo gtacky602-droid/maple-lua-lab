@@ -993,6 +993,34 @@
         {"id":"FHD02","kind":"plunge","title":"蔓球の一落ち","reach":225,"lock":54,"active":[[114,126]],"air":[78,114],"distance":1.5,"height":0.65,"recover":144,"total":288,"damage":24},
         {"id":"FHD03","kind":"seeds","title":"三粒の草弾","reach":234,"lock":48,"active":[],"fire":[96,132,168],"life":48,"recover":228,"total":288,"damage":14}
       ]
+    },
+    {
+      "id":"boss-24050101",
+      "controller":"asimon",
+      "entity":24050101,
+      "name":"半永久統制マトリックス",
+      "node":"asimon-field-ruins",
+      "storyChallenge":"asimon",
+      "level":70,
+      "hp":1100,
+      "mora":245,
+      "artHeight":120,
+      "floorY":480,
+      "home":810,
+      "arenaMin":335,
+      "arenaMax":1420,
+      "noticeRange":285,
+      "noticeTicks":36,
+      "restTicks":36,
+      "leashTicks":300,
+      "respawnTicks":3600,
+      "walkSpeed":58,
+      "contactDamage":0,
+      "moves":[
+        {"id":"FMT01","kind":"ray","title":"二機の直線照射","reach":217,"lock":48,"active":[[96,108],[156,168]],"near":0.4,"far":2.2,"low":0.25,"height":0.65,"recover":192,"total":264,"damage":20,"element":"physical"},
+        {"id":"FMT02","kind":"pillars","title":"三点の光柱","reach":218,"lock":48,"active":[[108,114],[150,156],[192,198]],"spacing":1.04,"width":0.55,"height":1.3,"recover":210,"total":288,"damage":21,"element":"physical"},
+        {"id":"FMT03","kind":"cloak","title":"透影移動・一閃放電","reach":218,"lock":54,"travel":[72,108],"active":[[144,156]],"distance":1.6,"width":2.2,"height":0.65,"recover":180,"total":324,"damage":24,"element":"physical"}
+      ]
     }
   ]
 }

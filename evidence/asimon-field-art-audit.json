@@ -1,0 +1,121 @@
+{
+  "date": "2026-11-18",
+  "source_references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/ffd4c9640868b1eb7ed4ea9b14aacdbc_1231778002615957994.png",
+      "sha256": "01df31e4dddcbb249ecde36a4f1eea933e2e72cfcd94a68260f7f34b1c5308de",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full-body floating arrangement",
+      "use": "sprite silhouette"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/b903341ed075baa93b227eab825e4a53_4991836266142274270.png",
+      "sha256": "1e9b699c97955f4dd2c5eed458a535ccf5e7a86ffd41d67139503524d579ed4b",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "final official front/side/back and component design sheet",
+      "use": "sprite chassis and part shapes"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/3c2ebac6cfdeb53f765830f19bc6394b_2105186032446356538.png",
+      "sha256": "9ad22b22d664ea8a5b34d8f93911e97d2173f69ef703fc55a74c9343e4334a1b",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "in-game composite with state changes",
+      "use": "background mood"
+    }
+  ],
+  "idle": "assets/asimon-idle-source-v1.png",
+  "generated": {
+    "asimon-field-poses-source-v1.png": "4dacdf872d2f078d9df8b9f229110213f60532119d4dda0ea5dbe4a3a66d75e4",
+    "asimon-field-background-v1.png": "2f51e2bd4ea1e5497453ed8e4e8484c8a89c159764fef6955943e1ab36aba622"
+  },
+  "poses": {
+    "ray": {
+      "crop": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "box": [
+        65,
+        115,
+        509,
+        410
+      ],
+      "anchor_x": 0.4746620825147348,
+      "profiles": {
+        "legacy": 4371,
+        "h48c32": 2692,
+        "h32c16": 1150
+      }
+    },
+    "pillars": {
+      "crop": [
+        627,
+        0,
+        627,
+        627
+      ],
+      "box": [
+        666,
+        122,
+        549,
+        403
+      ],
+      "anchor_x": 0.4657377049180327,
+      "profiles": {
+        "legacy": 4869,
+        "h48c32": 2956,
+        "h32c16": 1317
+      }
+    },
+    "cloak": {
+      "crop": [
+        0,
+        627,
+        627,
+        627
+      ],
+      "box": [
+        19,
+        739,
+        588,
+        412
+      ],
+      "anchor_x": 0.48912074829931973,
+      "profiles": {
+        "legacy": 4512,
+        "h48c32": 2738,
+        "h32c16": 1222
+      }
+    },
+    "recover": {
+      "crop": [
+        627,
+        627,
+        627,
+        627
+      ],
+      "box": [
+        724,
+        789,
+        433,
+        356
+      ],
+      "anchor_x": 0.4565588914549652,
+      "profiles": {
+        "legacy": 4277,
+        "h48c32": 2611,
+        "h32c16": 1171
+      }
+    }
+  },
+  "notes": [
+    "The prototype uses an amber core consistently with the adapted moveset and idle.",
+    "No matching 3D model was retrieved. The official front, side and back designs are 2D references.",
+    "Room layout and image are lab placeholders for the eventual 3D scene."
+  ]
+}

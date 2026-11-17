@@ -360,7 +360,7 @@
     },
     {
       "id": "asimon",
-      "name": "半永久統制マトリックス（参照付き待機候補）",
+      "name": "半永久統制マトリックス（フィールド戦の待機姿勢）",
       "file": "asimon-idle-sprites.json",
       "height": 160,
       "mapHover": 48
