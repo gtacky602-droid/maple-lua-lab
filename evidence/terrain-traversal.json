@@ -1855,6 +1855,12 @@
       "ground_both_directions": true
     },
     {
+      "node": "cryo-field-grove",
+      "platforms": 1,
+      "jump_routes": [],
+      "ground_both_directions": true
+    },
+    {
       "node": "pyro-approach",
       "platforms": 1,
       "jump_routes": [],

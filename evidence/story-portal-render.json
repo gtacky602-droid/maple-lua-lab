@@ -1013,10 +1013,20 @@
     {
       "node": "cryo-approach",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "cryo-approach",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "cryo-field-grove",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "cryo-field-grove",
       "mode": "rect",
       "visible_portals": 1
     },

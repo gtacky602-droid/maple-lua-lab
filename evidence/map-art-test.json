@@ -614,6 +614,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "cryo-field-grove",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "pyro-approach",
       "count": 0,
       "fallback": false,

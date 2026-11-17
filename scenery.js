@@ -1,5 +1,6 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ cryoField:{file:'cryo-regisvine-field-background-v1.png',zones:['story:cryo-field-grove'],note:'霜花の洞窟の仮背景'},
  mondroof:{file:'mond-rooftops-background-v1.png',zones:['story:mond-roof-route'],note:'赤い屋根と風車を見上げる仮背景'},
  mondlookout:{file:'mond-windmill-lookout-background-v1.png',zones:['story:mond-windmill-lookout'],note:'城門・草地・丘を見渡す仮背景'},
  windsplit:{file:'mond-windsplit-cave-background-v1.png',zones:['story:mond-bennett-ledge','story:mond-bennett-depth'],note:'風で入口が開いた石灰洞窟の仮背景'},
@@ -87,7 +88,7 @@ export function scenery(ctx,frame){
  }else{ctx.fillStyle='#c5decc';ctx.fillRect(0,0,960,540)}
  // Lab-only terrain proxies. These will be 3D set dressing and colliders in the game.
  const inazuma=key==='inazumatown'||key==='inazuma'||key==='toriiforest'||key==='shiomicape';
- const cave=['seacave','windsplit','enkanomiya','nodspecial','novokichev','chasm'].includes(key);
+ const cave=['seacave','windsplit','cryoField','enkanomiya','nodspecial','novokichev','chasm'].includes(key);
  const roof=key==='mondroof',lookout=key==='mondlookout';
  const camera=frame.camera||0,snow=key==='snezhnaya'||key==='dragonspine'||key==='wingspan';
  drawDecorations(ctx,frame,camera);

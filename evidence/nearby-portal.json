@@ -949,6 +949,14 @@
       "to": "mond-border"
     },
     {
+      "node": "cryo-approach",
+      "to": "cryo-field-grove"
+    },
+    {
+      "node": "cryo-field-grove",
+      "to": "cryo-approach"
+    },
+    {
       "node": "pyro-approach",
       "to": "liyue-field"
     },

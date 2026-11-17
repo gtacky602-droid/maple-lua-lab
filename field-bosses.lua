@@ -1,5 +1,6 @@
-return function(C,configs,jade)
+return function(C,configs,controllers)
  local step,frame,onKill,checkpoint,restore=C.step,C.frame,C.onKill,C.checkpoint,C.restore
+ local after=C.afterElementHit
  local byId,byNode={},{}
  for _,spec in ipairs(configs) do byId[spec.id]=spec;byNode[spec.node]=spec end
  local function current(s)
@@ -12,6 +13,8 @@ return function(C,configs,jade)
    rewardMora=spec.mora,expRole='field_boss',resist=spec.resist,hitTop=spec.floorY-spec.artHeight,
    hitBottom=spec.floorY,drawHeight=spec.artHeight,facing=-1}
   slot.phase='available';slot.index=1;slot.out=0;slot.delay=0;slot.contact={};slot.cast=nil;slot.waitUntil=nil
+  local behavior=controllers[spec.controller]
+  if behavior.spawn then behavior.spawn(slot.enemy,spec) end
  end
 
  local function attach(s,spec,slot)
@@ -88,22 +91,26 @@ return function(C,configs,jade)
    if slot.delay<=0 then slot.phase='combat' end
    return
   end
+  local behavior=controllers[spec.controller]
+  if behavior.preempt and behavior.preempt(boss,spec,slot) then return end
   if slot.cast then
-   if jade.tick(s,boss,spec,slot.cast,target) then slot.cast=nil;slot.delay=spec.restTicks end
+   if behavior.tick(s,boss,spec,slot.cast,target) then slot.cast=nil;slot.delay=spec.restTicks end
    return
   end
   if not target then return end
   local move=spec.moves[slot.index]
-  local reach=move.pattern=='peck' and 130 or move.pattern=='leap' and 215 or 265
+  local reach=move.reach
   if distance>reach-18 then
    local dir=target.x<boss.x and -1 or 1
    boss.facing=dir
    local speed=spec.walkSpeed*C.enemyRate(boss)/60
    boss.x=math.max(spec.arenaMin+63,math.min(spec.arenaMax-63,boss.x+dir*speed))
   end
+  local farShot=slot.delay<=0 and distance>reach and spec.walkSpeed==0 and behavior.farMove
+  if farShot then move=behavior.farMove(spec,move);reach=move.reach end
   if slot.delay<=0 and distance<=reach then
-   slot.cast=jade.begin(boss,spec,move,target)
-   slot.index=slot.index%#spec.moves+1
+   slot.cast=behavior.begin(boss,spec,move,target)
+   if not farShot then slot.index=slot.index%#spec.moves+1 end
    return
   end
   slot.delay=math.max(0,slot.delay-1)
@@ -135,8 +142,17 @@ return function(C,configs,jade)
    slot.waitUntil=s.t+spec.respawnTicks/60
    slot.cast=nil;slot.phase='respawn'
    e.respawn=math.huge
+   if spec.storyChallenge then C.storyBossDefeated(s,spec.storyChallenge) end
   end
   if onKill then onKill(s,e) end
+ end
+
+ function C.afterElementHit(s,cast,e,element)
+  if after then after(s,cast,e,element) end
+  local spec=e.fieldBoss and byId[e.fieldBoss]
+  if not spec or e.hp<=0 or e.invulnerable then return end
+  local behavior=controllers[spec.controller]
+  if behavior.onHit then behavior.onHit(cast,e,spec) end
  end
 
  local function waitTicks(s,slot)
@@ -182,14 +198,16 @@ return function(C,configs,jade)
   local boss=slot.enemy
   if math.abs(s.actors[s.active].x-boss.x)>550 and slot.phase=='available' then return f end
   local cast=slot.cast
+  local behavior=controllers[spec.controller]
   local label=slot.phase=='notice' and '振り向き' or slot.phase=='leash' and '巣へ戻っている' or
    slot.phase=='available' and '警戒前' or cast and cast.move.title or '息継ぎ'
+  if boss.hp>0 and slot.phase=='combat' and behavior.label then label=behavior.label(boss) or label end
   f.fieldBoss={id=spec.id,name=spec.name,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
    generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(s,slot)/60,label=label,
    move=cast and cast.move.id,tick=cast and cast.tick}
   if boss.hp>0 and boss.x>=s.camera-180 and boss.x<=s.camera+1140 then
    local layer={draws={}}
-   jade.draw(layer,s,boss,spec,cast,mode,profile)
+   behavior.draw(layer,s,boss,spec,cast,mode,profile)
    for _,draw in ipairs(f.draws) do layer.draws[#layer.draws+1]=draw end
    f.draws=layer.draws;f.commands=#f.draws
   end

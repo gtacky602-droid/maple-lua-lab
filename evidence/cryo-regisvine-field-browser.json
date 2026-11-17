@@ -1,0 +1,35 @@
+{
+  "browser": "Chrome",
+  "physical_normal_with_default_amber": {
+    "seconds": 43.16666666666423,
+    "order": [
+      "FC01",
+      "FC02",
+      "FC03",
+      "FC01",
+      "FC02",
+      "FC03",
+      "FC01",
+      "FC02",
+      "FC03",
+      "FC01"
+    ],
+    "returns": 0,
+    "maxGap": 0.09999999999999432,
+    "finished": true
+  },
+  "field_route_and_nucleus_down": true,
+  "reward": {
+    "xp": 900,
+    "mora": 125
+  },
+  "investigation_report_xp": 1500,
+  "persisted_cooldown": true,
+  "direct_trial_750_hp": true,
+  "sameSceneCommands": {
+    "standard": 8045,
+    "light": 2166
+  },
+  "viewport_390": true,
+  "errors": []
+}

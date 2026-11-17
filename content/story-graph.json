@@ -4122,13 +4122,26 @@
         {
           "to": "mond-border",
           "x": 60
-        }
+        },
+        {"to": "cryo-field-grove", "x": 1270}
       ],
       "checkpoint": "mond-town",
       "challenge": "cryo",
       "challengeName": "急凍樹",
       "challengeAction": "boss_cryo_regisvine",
       "challengeX": 720
+    },
+    {
+      "id": "cryo-field-grove",
+      "name": "モンド・霜花の洞窟",
+      "region": "モンド",
+      "level": 16,
+      "hub": false,
+      "peaceful": true,
+      "width": 1400,
+      "platforms": [{"x": 0, "y": 480, "w": 1400}],
+      "exits": [{"to": "cryo-approach", "x": 65}],
+      "checkpoint": "mond-town"
     },
     {
       "id": "pyro-approach",
@@ -5342,7 +5355,7 @@
       "goal": 1,
       "xp": 1500,
       "mora": 300,
-      "note": "本編入口から挑戦した討伐のみ対象。報酬/入口位置は試作。"
+      "note": "霜花の洞窟、または本編入口の挑戦碑での討伐が対象。"
     },
     {
       "id": "pyro-commission",

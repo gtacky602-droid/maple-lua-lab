@@ -1,0 +1,285 @@
+{
+  "source": "assets/cryo-regisvine-field-actions-source-v1.png",
+  "sha256": "cd652116eecf096df98b49de30baf562a931b7cf35a68389b55149beae0a5cdf",
+  "size": [
+    1536,
+    1024
+  ],
+  "imagegen_prompt": "Six game-ready pixel-art keyposes on transparent RGBA sheet, 3 columns and 2 rows, for the Cryo Regisvine creature from the supplied idle sprite and in-game corolla closeup. Keep dark teal curved rooted vine, light blue crystalline petals, bright diamond in the crown, two curled frozen side vines, and hard chunky navy-outlined pixel clusters. One creature per square, roots firmly at same spot of each cell as measured from each center, crown points to SCREEN LEFT for every pose. Left-to-right top row: (1) stalk curls back to wind up and icy crown rears up high before slam; (2) flower thrust down far left and flattens toward floor with base still planted; (3) crown coils and leans sharply sideways left, tilted edge visible with flower at about half height, preparing sweep. Bottom row: (4) crown sweeps horizontally low to screen left, stem stretched left but root base stays; (5) both hanging branch tips lift toward screen left-crown height, flower raised before two ice shots; (6) completely slumped inert downed pose, head on the ground in front, vines wilted flat, roots at same position. Keep the scale of flower and root base constant and let shorter poses fill less of each cell. Keep an extra wide padding in every cell so petals cannot touch or overlap cell boundaries. Full RGBA transparency, zero shadow or extra marks, no ice particles, no beams, no text, no visible grid. Wide 3:2 sheet.",
+  "visual_references": [
+    {
+      "source": "assets/cryo-regisvine-source-v1.png",
+      "sha256": "ed7cc502a5cea03e765270a0ecb33b953c689c31aa397ae45ce3606af6ecb515",
+      "size": [
+        1254,
+        1254
+      ],
+      "role": "existing idle appearance, rooted stem and silhouettes"
+    },
+    {
+      "url": "https://library.keqingmains.com/assets/images/Enemy_Cryo_Regisvine_Icon-15be99b3008e07ac831b3f8cff280367.webp",
+      "sha256": "bcb9a92737b193f2efa4807c836a36e2d15a5bea133f306ad727643cc2f03346",
+      "role": "in-game corolla close-up; petal shape and markings"
+    }
+  ],
+  "design_reference": "docs/field-boss-v1/STARTER_MOVESETS.md",
+  "background": {
+    "source": "assets/cryo-regisvine-field-background-v1.png",
+    "sha256": "4651acea4b6b6bcccbe569a3946e1d15fa09dd9892c918020183035ec95f736d",
+    "size": [
+      1672,
+      941
+    ],
+    "imagegen_prompt": "Original opaque 16:9 pixel-painted game background for a side-view 2D fantasy RPG. Underground glacial clearing inspired by Mondstadt's Cryo Regisvine cave. Match the supplied limestone cavern's broad shadow shapes and clear low-contrast space for combat. Blue and graphite rock shelves, dark cool gray central floor, soft shaft of frosted light through a high opening at left, a few narrow translucent cyan ice crystals and pale moss embedded along back walls and edges. Do not fill the center with snow or bright blue. Leave the central and bottom thirds open and muted so cyan sprites, amber danger marks and pale ice projectiles read crisply. Dramatic pixel clusters, earthy cavern with icy accents. No flower or enemy itself, no people, no fog overlay, no text, no HUD, no drawn game platforms.",
+    "scope": "temporary lab background for the 2D field route",
+    "reference": {
+      "source": "assets/mond-windsplit-cave-background-v1.png",
+      "sha256": "a7bcd9d84e551572aebda287523a0670cf28ad1fcbf15261b1ef79eefcd8407a",
+      "size": [
+        1672,
+        941
+      ],
+      "role": "existing cave perspective and shadow composition"
+    }
+  },
+  "poses": {
+    "idle": {
+      "encoding": "assets/boss-sprites.json",
+      "bounds": [
+        98,
+        16,
+        1004,
+        1213
+      ],
+      "root_anchor": 0.54,
+      "display_height": 188,
+      "profiles": {
+        "legacy": {
+          "size": [
+            106,
+            128
+          ],
+          "rectangles": 3801
+        },
+        "h48c32": {
+          "size": [
+            79,
+            96
+          ],
+          "rectangles": 2334
+        },
+        "h32c16": {
+          "size": [
+            53,
+            64
+          ],
+          "rectangles": 1099
+        }
+      }
+    },
+    "slam-ready": {
+      "encoding": "assets/cryo-field-slam-ready-sprites-v1.json",
+      "bounds": [
+        112,
+        13,
+        314,
+        470
+      ],
+      "root_anchor": 0.54,
+      "display_height": 193,
+      "profiles": {
+        "legacy": {
+          "size": [
+            129,
+            193
+          ],
+          "rectangles": 7341
+        },
+        "h48c32": {
+          "size": [
+            97,
+            145
+          ],
+          "rectangles": 4567
+        },
+        "h32c16": {
+          "size": [
+            64,
+            96
+          ],
+          "rectangles": 2024
+        }
+      }
+    },
+    "slam": {
+      "encoding": "assets/cryo-field-slam-sprites-v1.json",
+      "bounds": [
+        539,
+        274,
+        422,
+        209
+      ],
+      "root_anchor": 0.71,
+      "display_height": 86,
+      "profiles": {
+        "legacy": {
+          "size": [
+            174,
+            86
+          ],
+          "rectangles": 5772
+        },
+        "h48c32": {
+          "size": [
+            129,
+            64
+          ],
+          "rectangles": 3500
+        },
+        "h32c16": {
+          "size": [
+            87,
+            43
+          ],
+          "rectangles": 1598
+        }
+      }
+    },
+    "sweep-ready": {
+      "encoding": "assets/cryo-field-sweep-ready-sprites-v1.json",
+      "bounds": [
+        1087,
+        178,
+        364,
+        305
+      ],
+      "root_anchor": 0.58,
+      "display_height": 125,
+      "profiles": {
+        "legacy": {
+          "size": [
+            149,
+            125
+          ],
+          "rectangles": 6046
+        },
+        "h48c32": {
+          "size": [
+            112,
+            94
+          ],
+          "rectangles": 3789
+        },
+        "h32c16": {
+          "size": [
+            74,
+            62
+          ],
+          "rectangles": 1619
+        }
+      }
+    },
+    "sweep": {
+      "encoding": "assets/cryo-field-sweep-sprites-v1.json",
+      "bounds": [
+        19,
+        722,
+        445,
+        257
+      ],
+      "root_anchor": 0.76,
+      "display_height": 105,
+      "profiles": {
+        "legacy": {
+          "size": [
+            182,
+            105
+          ],
+          "rectangles": 5679
+        },
+        "h48c32": {
+          "size": [
+            137,
+            79
+          ],
+          "rectangles": 3605
+        },
+        "h32c16": {
+          "size": [
+            90,
+            52
+          ],
+          "rectangles": 1576
+        }
+      }
+    },
+    "bolts": {
+      "encoding": "assets/cryo-field-bolts-sprites-v1.json",
+      "bounds": [
+        563,
+        578,
+        388,
+        397
+      ],
+      "root_anchor": 0.54,
+      "display_height": 164,
+      "profiles": {
+        "legacy": {
+          "size": [
+            160,
+            164
+          ],
+          "rectangles": 7307
+        },
+        "h48c32": {
+          "size": [
+            120,
+            123
+          ],
+          "rectangles": 4493
+        },
+        "h32c16": {
+          "size": [
+            80,
+            82
+          ],
+          "rectangles": 2026
+        }
+      }
+    },
+    "down": {
+      "encoding": "assets/cryo-field-down-sprites-v1.json",
+      "bounds": [
+        1034,
+        827,
+        470,
+        152
+      ],
+      "root_anchor": 0.68,
+      "display_height": 69,
+      "profiles": {
+        "legacy": {
+          "size": [
+            213,
+            69
+          ],
+          "rectangles": 5268
+        },
+        "h48c32": {
+          "size": [
+            161,
+            52
+          ],
+          "rectangles": 3329
+        },
+        "h32c16": {
+          "size": [
+            105,
+            34
+          ],
+          "rectangles": 1432
+        }
+      }
+    }
+  }
+}

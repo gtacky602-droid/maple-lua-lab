@@ -119,7 +119,17 @@ def runtime():
     core.jadeplumeArt=lua.table_from({
         pose:json.loads((ROOT/'assets'/filename).read_text(encoding='utf8')) for pose,filename in jade_art.items()
     },recursive=True)
-    lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(core,lua.table_from(field_specs,recursive=True),jade)
+    cryo_art={
+        pose: json.loads((ROOT/'assets'/f'cryo-field-{pose.replace("_","-")}-sprites-v1.json').read_text(encoding='utf8'))
+        for pose in ('slam_ready','slam','sweep_ready','sweep','bolts','down')
+    }
+    cryo_art['idle']=json.loads((ROOT/'assets/boss-sprites.json').read_text(encoding='utf8'))
+    cryo_art['idle']['anchorX']=0.54
+    core.cryoFieldArt=lua.table_from(cryo_art,recursive=True)
+    cryo_field=lua.execute((ROOT/'field-cryo-regisvine.lua').read_text(encoding='utf8'))(core)
+    lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(
+        core,lua.table_from(field_specs,recursive=True),lua.table_from({'jadeplume':jade,'cryoRegisvine':cryo_field})
+    )
     return lua, core
 
 def native(value):

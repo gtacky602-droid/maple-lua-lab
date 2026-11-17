@@ -12,12 +12,28 @@ return function(C)
   s.projectiles[#s.projectiles+1]={x=x,y=y,angle=angle or math.atan(a.y-30-y,a.x-x),target=target,speed=o.speed or 180,turnRate=o.turnRate or 2.4,damage=o.damage or 14,life=o.life or 6,age=0,homingTime=o.homingTime,source=o.source,color=o.color}
   return true
  end
- local function intersects(x,y,nx,ny,w)
+ local function intersects(x,y,nx,ny,w,radius)
   local count=math.max(1,math.ceil(math.sqrt((nx-x)^2+(ny-y)^2)/4))
   for i=0,count do local px,py=x+(nx-x)*i/count,y+(ny-y)*i/count
-   if px>=w.x-5 and px<=w.x+w.w+5 and py>=w.y-5 and py<=w.y+w.h+5 then return true end
+   if px>=w.x-radius and px<=w.x+w.w+radius and py>=w.y-radius and py<=w.y+w.h+radius then return true end
   end
   return false
+ end
+ function C.resolveEnemyProjectileSegment(s,p,nx,ny,radius,halfWidth,height)
+   local blocked=false
+   for _,w in ipairs(s.solids or {}) do if intersects(p.x,p.y,nx,ny,w,radius) then blocked=true;break end end
+   for _,kind in ipairs({'coralWall','rockWall'}) do local w=s[kind]
+    if not blocked and w and intersects(p.x,p.y,nx,ny,{x=w.x-12,y=w.y-120,w=24,h=120},radius) then
+     blocked=true
+     if kind=='rockWall' then local absorbed=math.min(w.hp,p.damage);w.hp=w.hp-absorbed;p.damage=p.damage-absorbed;blocked=p.damage<=0;if w.hp==0 then s.rockWall=nil end end
+    end
+   end
+   if not blocked then
+    for _,victim in ipairs(s.actors) do if victim.hp>0 and intersects(p.x,p.y,nx,ny,{x=victim.x-halfWidth,y=victim.y-height,w=2*halfWidth,h=height},radius) then
+     C.damageActor(s,victim,p.damage,{id=p.source or 0,x=p.x,y=p.y+30},true);blocked=true;break
+    end end
+   end
+  return blocked
  end
  function C.action(s,key)
   if key=='projectile_trial' then s.projectileTrial=not s.projectileTrial;s.projectileClock=0;return end
@@ -42,19 +58,7 @@ return function(C)
    end
    p.obscured=not not cloud
    local nx,ny=p.x+math.cos(p.angle)*p.speed*dt,p.y+math.sin(p.angle)*p.speed*dt
-   local blocked=false
-   for _,w in ipairs(s.solids or {}) do if intersects(p.x,p.y,nx,ny,w) then blocked=true;break end end
-   for _,kind in ipairs({'coralWall','rockWall'}) do local w=s[kind]
-    if not blocked and w and intersects(p.x,p.y,nx,ny,{x=w.x-12,y=w.y-120,w=24,h=120}) then
-     blocked=true
-     if kind=='rockWall' then local absorbed=math.min(w.hp,p.damage);w.hp=w.hp-absorbed;p.damage=p.damage-absorbed;blocked=p.damage<=0;if w.hp==0 then s.rockWall=nil end end
-    end
-   end
-   if not blocked then
-    for _,victim in ipairs(s.actors) do if victim.hp>0 and intersects(p.x,p.y,nx,ny,{x=victim.x-14,y=victim.y-55,w=28,h=55}) then
-     C.damageActor(s,victim,p.damage,{id=p.source or 0,x=p.x,y=p.y+30},true);blocked=true;break
-    end end
-   end
+   local blocked=C.resolveEnemyProjectileSegment(s,p,nx,ny,5,14,55)
    p.x=nx;p.y=ny
    if blocked or p.life<=0 then table.remove(s.projectiles,i) end
   end

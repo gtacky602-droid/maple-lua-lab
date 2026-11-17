@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 110 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 108,
+  "scope": "Authored 111 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 109,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -614,6 +614,12 @@
     {
       "id": "cryo-approach",
       "name": "急凍樹・挑戦入口",
+      "region": "モンド",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "cryo-field-grove",
+      "name": "モンド・霜花の洞窟",
       "region": "モンド",
       "status": "regional_temporary_image"
     },

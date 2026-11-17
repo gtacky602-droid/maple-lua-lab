@@ -2,6 +2,7 @@
   "fieldBosses": [
     {
       "id": "boss-26110101",
+      "controller": "jadeplume",
       "entity": 26110101,
       "name": "マッシュラプトル",
       "node": "sumeru-jadeplume-grove",
@@ -22,9 +23,39 @@
       "contactDamage": 3,
       "resist": {"physical": 0.25, "dendro": 0.8, "anemo": 0.25, "geo": 0.25, "electro": 0.25, "hydro": 0.25, "pyro": 0.25, "cryo": 0.25},
       "moves": [
-        {"id": "FJ01", "pattern": "peck", "title": "二度ついばむ", "lock": 36, "active": [[66, 72], [108, 114]], "recover": 126, "total": 180, "damage": 9},
-        {"id": "FJ02", "pattern": "leap", "title": "跳びかかり", "lock": 48, "active": [[108, 120]], "recover": 132, "total": 228, "damage": 16},
-        {"id": "FJ03", "pattern": "spores", "title": "三粒の胞子", "lock": 48, "active": [[108, 114], [144, 150], [180, 186]], "recover": 198, "total": 252, "damage": 10}
+        {"id": "FJ01", "pattern": "peck", "reach": 130, "title": "二度ついばむ", "lock": 36, "active": [[66, 72], [108, 114]], "recover": 126, "total": 180, "damage": 9},
+        {"id": "FJ02", "pattern": "leap", "reach": 215, "title": "跳びかかり", "lock": 48, "active": [[108, 120]], "recover": 132, "total": 228, "damage": 16},
+        {"id": "FJ03", "pattern": "spores", "reach": 265, "title": "三粒の胞子", "lock": 48, "active": [[108, 114], [144, 150], [180, 186]], "recover": 198, "total": 252, "damage": 10}
+      ]
+    },
+    {
+      "id": "boss-26020101",
+      "controller": "cryoRegisvine",
+      "entity": 26020101,
+      "name": "急凍樹",
+      "node": "cryo-field-grove",
+      "storyChallenge": "cryo",
+      "level": 16,
+      "hp": 570,
+      "mora": 125,
+      "artHeight": 188,
+      "floorY": 480,
+      "home": 800,
+      "arenaMin": 420,
+      "arenaMax": 1290,
+      "noticeRange": 260,
+      "noticeTicks": 36,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 0,
+      "contactDamage": 3,
+      "resist": {"physical": 0.3, "cryo": 0.7, "pyro": 0.1, "geo": 0.1, "anemo": 0.1, "dendro": 0.1, "hydro": 0.1, "electro": 0.1},
+      "core": {"hits": 3, "down": 240, "rise": 24, "rearm": 1200},
+      "moves": [
+        {"id": "FC01", "pattern": "slam", "title": "首落とし", "reach": 190, "lock": 36, "active": [[72, 84]], "recover": 96, "total": 180, "damage": 15},
+        {"id": "FC02", "pattern": "sweep", "title": "低い薙ぎ", "reach": 185, "lock": 42, "active": [[78, 96]], "recover": 108, "total": 192, "damage": 11},
+        {"id": "FC03", "pattern": "bolts", "title": "二つの氷弾", "reach": 360, "lock": 36, "active": [], "shotTicks": [66, 90], "shotLife": 60, "recover": 156, "total": 216, "damage": 9}
       ]
     }
   ]

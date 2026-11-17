@@ -33,7 +33,7 @@ async function initEncounters(){
   const runtimeReady=()=>typeof window.lab?.action==='function';
   function updateReadiness(){
    const ready=runtimeReady();runtimeNotice.hidden=ready;
-   for(const button of list.querySelectorAll('[data-runtime-action]')){button.disabled=!ready;button.textContent=ready?'試作に挑戦':'準備中';}
+   for(const button of list.querySelectorAll('[data-runtime-action]')){button.disabled=!ready;button.textContent=ready?(button.dataset.fieldAlso?'模擬戦に挑戦':'試作に挑戦'):'準備中';}
   }
   window.addEventListener('lab-ready',updateReadiness);
   function render(){
@@ -44,7 +44,7 @@ async function initEncounters(){
    for(const r of rows){
     const row=document.createElement('div');row.className='controls';row.dataset.encounter=r.id;
     const text=document.createElement('span');text.textContent=`${r.name} — ${r.fieldNode?'フィールドで遭遇可能':r.status==='partial'?'部分実装':'未実装'}`;
-    const button=document.createElement('button');button.textContent=r.action?'試作に挑戦':'制作中';button.disabled=!r.action;if(r.action)button.dataset.runtimeAction=r.action;
+    const button=document.createElement('button');button.textContent=r.action?'試作に挑戦':'制作中';button.disabled=!r.action;if(r.action)button.dataset.runtimeAction=r.action;if(r.fieldNode)button.dataset.fieldAlso='1';
     let variant=null;
     if(r.variants){variant=document.createElement('select');variant.setAttribute('aria-label',r.name+'の'+(r.variantLabel||'元素'));for(const item of r.variants){const option=document.createElement('option');option.value=item.action;option.textContent=item.label;variant.append(option)}}
     button.onclick=()=>{if(!r.action||!runtimeReady())return;window.lab.action(variant?variant.value:r.action);button.blur()};
@@ -54,7 +54,8 @@ async function initEncounters(){
      const route=document.createElement('a');route.textContent=r.fieldEntrance;
      route.href='map-art.html?'+new URLSearchParams({node:r.fieldNode});
      row.append(route);
-    }else row.append(button);
+    }
+    if(r.action||!r.fieldNode)row.append(button);
     row.append(detail);
     const art=document.createElement('div');art.className='encounter-art';art.style.cssText='flex-basis:100%;display:flex;flex-wrap:wrap;gap:8px 16px;overflow-wrap:anywhere;line-height:1.6';
     const items=encounterArtItems(r,catalogs);

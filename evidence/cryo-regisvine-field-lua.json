@@ -1,0 +1,33 @@
+{
+  "attack_windows_and_icicle_ttls_match_design": true,
+  "side_lock_hop_and_two_icicle_hits": true,
+  "rock_wall_absorbs_both_icicles": true,
+  "core_one_hit_per_cast_with_main_hp_damage": true,
+  "core_break_waits_until_active_end": true,
+  "down_ticks": 240,
+  "safe_rise_ticks": 24,
+  "core_rearm_ticks": 1200,
+  "solo_normal_without_core_break": {
+    "seconds": 88.28,
+    "hp": 140,
+    "damage": 570,
+    "coreHitsLeft": 3
+  },
+  "amber_companion": {
+    "seconds": 46.88,
+    "hp": 140,
+    "damage": 570,
+    "coreHitsLeft": 1
+  },
+  "one_generation_reward": {
+    "xp": 900,
+    "mora": 125
+  },
+  "commission_once": {
+    "xp": 1500,
+    "mora": 300
+  },
+  "cooldown_persists": true,
+  "second_generation_at_3600_ticks": true,
+  "short_exit_preserves_damage_long_exit_resets": true
+}
