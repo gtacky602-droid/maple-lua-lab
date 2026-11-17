@@ -18,12 +18,13 @@ PowerShellでリポジトリのルートを開きます。同じポートを使�
 python -m tools.field_editor.start_chatgpt --client "C:\tools\tunnel-client\tunnel-client.exe" --tunnel-id "tunnel_ここを置換"
 ```
 
-`--tunnel-id` は省略すると起動後に入力できます。`--open-chatgpt` を付けると、ローカルの連携設定画面が開き、トンネルの準備ができた時点でChatGPTのプラグイン画面も開きます。
+`--tunnel-id` は省略すると起動後に入力できます。`--open-chatgpt` を付けると、OpenAIへのトンネル接続が確認できた時点で、ローカルの連携設定とChatGPTのプラグイン画面が開きます。
 
 Runtime API keyは、起動後に表示される非表示入力欄に入れます。コマンド、チャット、画面共有、Gitにはキーを貼り付けないでください。MCP用の中継トークンは起動時に生成され、同じ起動処理が開始するエディタとtunnel-clientだけに渡ります。どちらの値も設定画面には表示されません。
 
 - [設計室の「ChatGPT連携」](http://127.0.0.1:8770/chatgpt)を開き、「接続テスト」を押します。このボタンはローカルMCPへの認証とrevision取得を確認します。
-- 起動時の `tunnel-client doctor` に続き、[tunnel-clientの準備状況](http://127.0.0.1:8772/readyz)を開きます。HTTP 200になってからChatGPTに進みます。テスト結果と最終アクセス時刻は、ChatGPTから呼び出せたかどうかとあわせて確認してください。tunnel-clientの起動時プローブも最終アクセス時刻を更新します。
+- 起動ウィンドウに「OpenAIへのトンネル接続を確認しました。」と表示されてから、ChatGPTに進みます。診断が必要なら、[tunnel-clientの状態](http://127.0.0.1:8772/health?details=true)で `control-plane` を確認します。401が出た場合は同じトンネルのRuntime API keyをコピーし直し、起動時の入力欄に1回だけ貼り付けます。
+- テスト結果と最終アクセス時刻は、ChatGPTから呼び出せたかどうかとあわせて確認してください。tunnel-clientの起動時プローブも最終アクセス時刻を更新します。
 - 正本は起動した作業ツリーの `design/field-editor/project.json` です。既存の編集用チェックアウトを正本として使い続ける場合や、検証用のコピーを使う場合は、`--data "C:\path\to\project.json"` で実ファイルを指定します。
 - ポートが使用中なら `--ui-port`、`--mcp-port`、`--health-port` で空いているポートを指定してください。既定は順に8770、8771、8772です。
 

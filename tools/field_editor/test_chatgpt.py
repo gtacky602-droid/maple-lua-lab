@@ -1,4 +1,5 @@
 """HTTP MCP acceptance tests using a disposable copy of the actual project."""
+import io
 import json
 from pathlib import Path
 import secrets
@@ -6,6 +7,7 @@ import shutil
 import tempfile
 import threading
 import unittest
+from unittest.mock import Mock, patch
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
@@ -13,6 +15,34 @@ from .commands import connection, spawn
 from .model import ROOT, Store
 from .remote_mcp import ACCEPT, PROTOCOLS, TOKEN_HEADER, RemoteMCP
 from .server import EditorServer
+from .start_chatgpt import wait_for_tunnel
+
+
+class ChatGPTLauncherTests(unittest.TestCase):
+    def test_local_readiness_is_not_successful_openai_polling(self):
+        tunnel = Mock()
+        tunnel.poll.return_value = None
+        health_url = 'http://127.0.0.1:8772/health?details=true'
+
+        def snapshot(status, **details):
+            return io.StringIO(json.dumps({'ready': True, 'components': {
+                'control-plane': {'status': status, 'details': details}
+            }}))
+
+        with patch('tools.field_editor.start_chatgpt.build_opener') as opener, \
+                patch('tools.field_editor.start_chatgpt.time.sleep'):
+            probes = opener.return_value.open
+            probes.side_effect = [
+                snapshot('unknown'),
+                snapshot('ok', last_success='2026-11-17T10:00:00Z'),
+            ]
+            wait_for_tunnel(tunnel, health_url)
+            self.assertEqual(2, probes.call_count)
+            for status in (401, 403):
+                with self.subTest(status=status):
+                    probes.side_effect = [snapshot('degraded', http_status=status)]
+                    with self.assertRaisesRegex(SystemExit, str(status)):
+                        wait_for_tunnel(tunnel, health_url)
 
 
 class ChatGPTMCPTests(unittest.TestCase):
