@@ -2,8 +2,8 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 10,
-    "visibleCount": 10,
+    "count": 11,
+    "visibleCount": 11,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
@@ -68,6 +68,12 @@
         "h": 128,
         "w": 98.86896551724138,
         "ratio": 0.7724137931034483
+      },
+      {
+        "id": "hunter-seeker",
+        "h": 96,
+        "w": 163.32972972972973,
+        "ratio": 1.7013513513513514
       }
     ]
   },

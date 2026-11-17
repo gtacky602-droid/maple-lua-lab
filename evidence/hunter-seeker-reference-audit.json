@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-17",
+  "label": "秘源機兵・ハンターシーカー (Secret Source Automaton: Hunter-Seeker)",
+  "references": [
+    {
+      "role": "In-game tutorial image, left panel: two stepped ivory shells, open frame, floating side parts and concentric front hub. Right panel shows the active light and was not used for the idle pose.",
+      "page": "https://gi.gachabase.net/tutorials/enemies/3079/secret-source-automaton-hunter-seeker/beta/6.6.54/45574465",
+      "url": "https://cdn.gachabase.net/gi/assets/dbdab7372c03376675398a0651a8aaac.png",
+      "sha256": "c5df8fa63d26e825a7e84a5d8a5b4db831872a538d673840e747b1c573f14f9c",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "role": "Frontal in-game model render carried by the guide; clear upper shell angles, paired lower hooks and hub. Edges of detached side pieces are cropped by the card.",
+      "page": "https://game8.co/games/Genshin-Impact/archives/470540",
+      "url": "https://img.game8.co/3973713/68477d7297ce2a8daec919c8de1ca77b.png/show",
+      "sha256": "c00a36622dd1dbda550ed7f9930477de138cd5752c26fc70b65098eb25550e15",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "role": "Natlan field gameplay capture; side angle corroborates the long flat ivory outer panel and gold arc. Light and player overlap parts of the body.",
+      "url": "https://staticg.sportskeeda.com/editor/2024/08/66193-17248406407540-1920.jpg",
+      "sha256": "9d792bb7ed2fb797e50b73703f87f50644273c41858d486f8a3fce2091d2f640",
+      "directly_viewed": true,
+      "generation_input": false
+    },
+    {
+      "role": "In-game icon reproduced in the enemy database; confirms the cream/gold/slate color grouping and hub before active lighting.",
+      "page": "https://genshinimpact.th.gl/db/enemies/enemy_40901",
+      "url": "https://cdn.th.gl/genshin-impact/icons/db/enemy_40901.webp",
+      "sha256": "16453ae8dc3de28c3e1fe9a507483f6bd6e26c9c83cbf5e57d5743f513208026",
+      "directly_viewed": true,
+      "generation_input": false
+    }
+  ],
+  "model": "Searched the Models Resource listing and the enemy database for the exact Hunter-Seeker. No rotatable matching model was found. Configuration Device and Overseer Device assets are distinct. Mesh and rear view remain unverified.",
+  "generation": {
+    "tool": "built-in ImageGen",
+    "prompt": "Draw one full-body isolated 16-bit pixel-art game sprite of Genshin Impact Secret Source Automaton: Hunter-Seeker, the elite automaton shown in the LEFT half of the tutorial screenshot and in the right half of the labeled guide card. Depict the original compact floating assembly in a calm three-quarter hover idle turned slightly to screen LEFT, with the circular cream-and-gold front hub clearly visible. Preserve the characteristic open angular dark gray frame, two large ivory upper armor shells with individually stepped rim profiles and gold edging, two short dark lower hooked modules with fine gold paths, the orange-banded dark small cores and disconnected small crescent side panels visible in the reference. Leave clear pixel gaps between the floating pieces where the reference separates them; keep the parts compact so they read as a single enemy. Retain the small gold face motif at the center of the ring and one small diamond above. Emphasize chunky readable silhouette and group similar shades in clean stepped pixel clusters; use warm ivory, brown-gold, slate charcoal with just small amber accents. Neutral lighting, no high-glow active state. Reference structure faithfully; do not copy text, UI, the player, scenery or the active orange effect. This specific small hovering enemy has no grounded legs, claws on the ground, pedestal, large blue core, wheels, or humanoid head. No background, cast shadow, ground plane, border, text, stray effects or grid. Keep all parts completely inside generous transparent margins.",
+    "output": "assets/hunter-seeker-idle-source-v1.png",
+    "sha256": "fe73095d9285943e8fabe648f27c164861141f6e372aaf4953b0e4a449c107c0",
+    "imageSize": [1536, 1024],
+    "opaqueBox": [137, 120, 1259, 740],
+    "poseDecision": "Front-biased three-quarter idle, amber stripe reserved as #f3aa2c. Orb spacing and occluded panel depth approximated for readability. Low-alpha source fringe remains."
+  },
+  "encoding": "assets/hunter-seeker-idle-sprites.json",
+  "profiles": {
+    "legacy": { "height": 96, "runs": 4462 },
+    "h48c32": { "height": 72, "runs": 2876 },
+    "h32c16": { "height": 48, "runs": 1337 }
+  },
+  "placement": {
+    "ids": ["natlan-entry-2", "natlan-field-2"],
+    "x": 510,
+    "supportY": 480,
+    "originY": 460,
+    "hover": 20
+  },
+  "limits": [
+    "70.04 percent reduction relative to the full-height rectangle profile is a draw-rectangle count, with no FPS measurement.",
+    "Existing patrol, collision and combat kind are provisional. Dedicated flight mechanics, motions and native 3D scene remain unfinished."
+  ],
+  "validation": [
+    "evidence/regions-test.json",
+    "evidence/regions-browser.json",
+    "evidence/enemy-idle-art.json",
+    "evidence/enemies-gallery.json",
+    "evidence/hunter-seeker-placement.png"
+  ]
+}

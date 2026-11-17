@@ -1,9 +1,29 @@
 {
   "errors": [],
   "fixture": "level100 visited route",
-  "nodes": 20,
-  "quests": 20,
+  "visibleNodes": 55,
+  "visibleQuests": 44,
   "portalWalk": true,
   "regionalFastTravel": true,
-  "natlanQuestsShown": true
+  "natlanQuestsShown": true,
+  "hunterSeeker": {
+    "total": 6,
+    "draw": {
+      "x": 178.13212600257816,
+      "y": 460,
+      "source": "hunter-seeker-idle-source-v1.png",
+      "w": 163.32972972972973,
+      "flip": false,
+      "box": [
+        137,
+        120,
+        1259,
+        740
+      ],
+      "h": 96,
+      "anchorX": 0.5,
+      "kind": "boss_sprite"
+    },
+    "previewProfiles": 3
+  }
 }

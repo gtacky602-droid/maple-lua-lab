@@ -433,6 +433,60 @@
       "barrier_y": 207
     },
     {
+      "asset": "hunter-seeker",
+      "mode": "sprite",
+      "profile": "legacy",
+      "head_y": 234,
+      "bar_y": 225,
+      "warning_y": 211,
+      "barrier_y": 219
+    },
+    {
+      "asset": "hunter-seeker",
+      "mode": "sprite",
+      "profile": "h48c32",
+      "head_y": 234,
+      "bar_y": 225,
+      "warning_y": 211,
+      "barrier_y": 219
+    },
+    {
+      "asset": "hunter-seeker",
+      "mode": "sprite",
+      "profile": "h32c16",
+      "head_y": 234,
+      "bar_y": 225,
+      "warning_y": 211,
+      "barrier_y": 219
+    },
+    {
+      "asset": "hunter-seeker",
+      "mode": "rect",
+      "profile": "legacy",
+      "head_y": 234,
+      "bar_y": 225,
+      "warning_y": 211,
+      "barrier_y": 219
+    },
+    {
+      "asset": "hunter-seeker",
+      "mode": "rect",
+      "profile": "h48c32",
+      "head_y": 234,
+      "bar_y": 225,
+      "warning_y": 211,
+      "barrier_y": 219
+    },
+    {
+      "asset": "hunter-seeker",
+      "mode": "rect",
+      "profile": "h32c16",
+      "head_y": 234,
+      "bar_y": 225,
+      "warning_y": 211,
+      "barrier_y": 219
+    },
+    {
       "asset": "legacy-atlas",
       "mode": "sprite",
       "profile": "legacy",

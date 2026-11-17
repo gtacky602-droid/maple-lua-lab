@@ -143,6 +143,24 @@
       "profile": "h32c16",
       "runs": 1267,
       "height": 128
+    },
+    {
+      "art": "hunter-seeker",
+      "profile": "legacy",
+      "runs": 4462,
+      "height": 96
+    },
+    {
+      "art": "hunter-seeker",
+      "profile": "h48c32",
+      "runs": 2876,
+      "height": 96
+    },
+    {
+      "art": "hunter-seeker",
+      "profile": "h32c16",
+      "runs": 1337,
+      "height": 96
     }
   ],
   "checks": [

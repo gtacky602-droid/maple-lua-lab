@@ -1,5 +1,5 @@
 {
-  "count": 23,
+  "count": 25,
   "checks": [
     "sumeru-entry connected and enterable",
     "sumeru-hub connected and enterable",
@@ -16,8 +16,10 @@
     "fontaine checkpoint resumes regional hub",
     "natlan-entry rejects underlevel",
     "natlan-entry connected and enterable",
+    "natlan-entry hunter uses ground support and existing combat kind",
     "natlan-hub connected and enterable",
     "natlan-field connected and enterable",
+    "natlan-field hunter uses ground support and existing combat kind",
     "natlan authored platforms and enemies",
     "natlan lethal hit advances local join",
     "natlan checkpoint resumes regional hub",
@@ -25,6 +27,6 @@
     "every edge and checkpoint references existing stage",
     "every quest target and hub exist"
   ],
-  "nodes": 58,
-  "quests": 44
+  "nodes": 61,
+  "quests": 47
 }
