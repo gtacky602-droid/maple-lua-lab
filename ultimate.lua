@@ -27,7 +27,7 @@ return function(C)
   if not s.paused and s.t+1e-8>=u.finish then
    local c=u.cast;local target=nil
    for _,e in ipairs(s.enemies) do
-    if e.hp>0 and math.abs(e.x-c.x)<c.range and math.abs(e.y-c.y)<c.vertical and (not target or e.hp>target.hp or (e.hp==target.hp and e.id<target.id)) then target=e end
+    if C.canTargetEnemy(e) and math.abs(e.x-c.x)<c.range and math.abs(e.y-c.y)<c.vertical and (not target or e.hp>target.hp or (e.hp==target.hp and e.id<target.id)) then target=e end
    end
    if target then
     c.key='SK60:final';c.mult=12;c.limit=1;c.targetId=target.id

@@ -1,0 +1,186 @@
+{
+  "stage": "The Chasm / Serpent cave excavation arena",
+  "sourcePage": "https://wiki.hoyolab.com/pc/genshin/entry/2222?lang=en-us",
+  "referenceAudit": "evidence/ruin-serpent-reference-audit.json",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/bb64f86f92c987159fdf2e202ea68903_2835406413467620659.png",
+      "sha256": "f814d86d825e1172ccc7fc33e6b8ead797cb093e44e339741c51e42a77ddf200",
+      "observed": "full-body rendered curved pose",
+      "usedFor": "silhouette and segment structure"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/be2d329aadc81195f2f8ab99fbb89460_4957663332374620319.png",
+      "sha256": "9ec6bd9ba44e2a1c9d00ba89aa9a898d7d843d848ebcefe2537a789830b1867f",
+      "observed": "in-game bent body and tail; effects excluded",
+      "usedFor": "cavern atmosphere and floor"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/1d5332fc7e53d6c37b07927ed5e63c36_4276003185442816095.png",
+      "sha256": "9bca3907ff9f26f28546f83d1f1fe9712bf1544eb5f06159079ba382b60ed36a",
+      "observed": "official design sheet: orthographic component order and details",
+      "usedFor": "silhouette and segment structure"
+    }
+  ],
+  "modelLookup": "Search found Polycount WIP and Sketchfab sitemap listing; no model retrieved or inspected. Sketchfab sitemap fetch 403. Official design sheet inspected instead; this is not 3D model verification.",
+  "generated": [
+    {
+      "path": "assets/ruin-serpent-field-background-v1.png",
+      "sha256": "019fe85f2a91f03728160a36ddd99e11a4ee6bc673c77ebe07a0e8eb645d52df",
+      "size": [
+        1672,
+        941
+      ],
+      "prompt": "Original panoramic platform-RPG backdrop 16:9 for a deep abandoned mining arena. The supplied game screenshot is a reference for pale layered shale, slate-blue cavern floor, warm brown boulders, deep violet trace minerals; do not reproduce the boss, battle effects or screenshot composition. Subdued blue-black open irregular quarry cavity, eroded cavern ribs across the middle distance, few amber mine lamp specks at the far sides and an abandoned trestle hidden back on one side. Wide horizontal strip of flat gray-blue stone floor, side-facing camera, clear lower 20 percent x traversal. Low contrast behind combat for orange attack cues. Pixel-painted geometric textures. No figures, characters, boss, objects across the walkable strip, bright center glow, text, border, UI, attack marks or thin white haze. Physically separate stone strata receding into darkness."
+    },
+    {
+      "path": "assets/ruin-serpent-field-poses-source-v1.png",
+      "sha256": "ce9d330030489ed16da49dc0323d01ccc2b4077f4554aedda718d37ffa2b9bd7",
+      "size": [
+        1448,
+        1086
+      ],
+      "prompt": "Original transparent pixel-art sprite sheet for a 2D sidescroller, 2 columns and 3 rows, six fully separated objects, generous transparent margins. Match these Genshin Ruin Serpent reference shapes: NO animal face, NO eyes, NO teeth, NO legs. Flat mechanical shovel-like head with pale chisel fins at front, dark gray and beige spined hexagonal cage segments with amber cores; orange-gold narrow articulations, thin gray collar segments narrowing back to a charcoal conical drill. Compact sprites with strong jagged stepped silhouette. A single exact palette across the set, crisp deep outline and broad muted mineral shadows, amber highlights. Top left: head pointing LEFT, the head is within the BOTTOM quarter of the sprite, main body is low wide serpentine curve trailing RIGHT. Top right: sideways low horizontal LEFT facing roll, head tilted left and side of first few segments exposed, rightward trailing tail well above head. Middle left: coiled body crowding together, head on left tilts vertically down, pale chisel fins pointing to bottom left, the tail curves high to the right. Middle right: small isolated near-vertical erupting FRONT assembly only, 2 or 3 cage segments, raised shovel head bends left and up, bottom segment cut cleanly as if still below ground. Bottom left: LEFT-facing head low front, 3 large cage segments bend up and then descend toward RIGHT, amber cores bright, narrow rings taper to the right. Bottom right: tiny separated dark gray corkscrew steel projectile with amber ring, pointing down. All six isolated, no labels/UI, scenery, ground, particles, dust, reflections, haze, borders, lettering, no dividing lines, actual alpha transparency. Crisp square pixels."
+    }
+  ],
+  "poses": {
+    "idle": {
+      "crop": [
+        20,
+        85,
+        698,
+        261
+      ],
+      "box": [
+        48,
+        125,
+        651,
+        209
+      ],
+      "height": 92,
+      "anchorX": 0.134,
+      "bottomOffset": 8,
+      "commands": {
+        "legacy": 5696,
+        "h48c32": 3614,
+        "h32c16": 1636
+      }
+    },
+    "roll": {
+      "crop": [
+        720,
+        35,
+        710,
+        307
+      ],
+      "box": [
+        733,
+        66,
+        673,
+        255
+      ],
+      "height": 112,
+      "anchorX": 0.125,
+      "bottomOffset": 11,
+      "commands": {
+        "legacy": 5905,
+        "h48c32": 3738,
+        "h32c16": 1644
+      }
+    },
+    "dive": {
+      "crop": [
+        55,
+        352,
+        660,
+        378
+      ],
+      "box": [
+        81,
+        397,
+        614,
+        307
+      ],
+      "height": 134,
+      "anchorX": 0.13,
+      "bottomOffset": 0,
+      "commands": {
+        "legacy": 9385,
+        "h48c32": 5823,
+        "h32c16": 2565
+      }
+    },
+    "emerge": {
+      "crop": [
+        840,
+        352,
+        395,
+        366
+      ],
+      "box": [
+        877,
+        368,
+        323,
+        323
+      ],
+      "height": 106,
+      "anchorX": 0.297,
+      "bottomOffset": 0,
+      "commands": {
+        "legacy": 3115,
+        "h48c32": 2016,
+        "h32c16": 887
+      }
+    },
+    "bombs": {
+      "crop": [
+        20,
+        735,
+        780,
+        325
+      ],
+      "box": [
+        45,
+        761,
+        724,
+        288
+      ],
+      "height": 116,
+      "anchorX": 0.133,
+      "bottomOffset": 8,
+      "commands": {
+        "legacy": 6678,
+        "h48c32": 4307,
+        "h32c16": 1910
+      }
+    },
+    "drill": {
+      "crop": [
+        975,
+        740,
+        205,
+        300
+      ],
+      "box": [
+        1023,
+        770,
+        125,
+        240
+      ],
+      "height": 28,
+      "anchorX": 0.488,
+      "bottomOffset": 0,
+      "commands": {
+        "legacy": 183,
+        "h48c32": 111,
+        "h32c16": 45
+      }
+    }
+  },
+  "alignment": "Body art anchors to the front assembly. The dive scales toward the ground. The emerged front assembly scales up over the fixed target before impact.",
+  "limits": [
+    "Temporary 2D cave scene for the local lab",
+    "Five discrete body poses. Articulated segment animation, hit reaction and defeat art pending.",
+    "Original 3D model and Miliastra behavior unverified."
+  ]
+}

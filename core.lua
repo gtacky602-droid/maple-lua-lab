@@ -85,19 +85,21 @@ local function hit(s,a,e,mult,color,element)
  n=min(n,max(0,e.hp-(e.minhp or 0)))
  if n<=0 then return false end
  local remaining=max(e.minhp or 0,e.hp-n);s.hits=s.hits+1;s.damage=s.damage+n
- number(s,e,critical and (tostring(n)..'!') or n,color);event(s,'hit',a.id,e.id,n);s.events[#s.events].element=element;s.events[#s.events].critical=not not critical;s.events[#s.events].reaction=a.reaction or false
+ if not e.underground then number(s,e,critical and (tostring(n)..'!') or n,color) end
+ event(s,'hit',a.id,e.id,n);s.events[#s.events].element=element;s.events[#s.events].critical=not not critical;s.events[#s.events].reaction=a.reaction or false
  if remaining==0 then C.defeatEnemy(s,e,a.id) else e.hp=remaining end
  if C.afterElementHit then C.afterElementHit(s,a,e,a.applicationElement or element) end
  return true
 end
 function C.enemyRate(e) return (e.slow or 0)>0 and .7 or 1 end
+function C.canTargetEnemy(e) return e.hp>0 and not e.underground end
 function C.targetHeight(a,e)
  return math.max(e.hitTop or e.y,math.min(e.hitBottom or e.y,a.y))
 end
 local function targets(s,a,range,limit)
  local out={}
  for _,e in ipairs(s.enemies) do
-  if e.hp>0 and (not a.targetId or e.id==a.targetId) and (not a.groundOnly or not e.flying) and (not a.upward or C.targetHeight(a,e)-a.y<75) and abs(C.targetHeight(a,e)-a.y)<(a.vertical or 75) and abs(e.x-a.x)<range and (a.radial or (e.x-a.x)*a.dir>-25) then out[#out+1]=e end
+  if (C.canTargetEnemy(e) or (a.persistentTarget==e and e.hp>0)) and (not a.targetId or e.id==a.targetId) and (not a.groundOnly or not e.flying) and (not a.upward or C.targetHeight(a,e)-a.y<75) and abs(C.targetHeight(a,e)-a.y)<(a.vertical or 75) and abs(e.x-a.x)<range and (a.radial or (e.x-a.x)*a.dir>-25) then out[#out+1]=e end
  end
  table.sort(out,function(a1,b) if a.farthest then return abs(a1.x-a.x)>abs(b.x-a.x) end;return abs(a1.x-a.x)<abs(b.x-a.x) end)
  while #out>limit do table.remove(out) end
@@ -119,7 +121,7 @@ local function pulse(s,cast)
  if cast.homing then
   if not cast.tracked then cast.tracked={};for _,e in ipairs(selected) do cast.tracked[e.id]=true end end
   selected={}
-  for _,e in ipairs(s.enemies) do if cast.tracked[e.id] and e.hp>0 and abs(e.x-cast.x)<900 and abs(e.y-cast.y)<360 then
+  for _,e in ipairs(s.enemies) do if cast.tracked[e.id] and C.canTargetEnemy(e) and abs(e.x-cast.x)<900 and abs(e.y-cast.y)<360 then
    selected[#selected+1]=e
    s.effects[#s.effects+1]={x=e.x,y=e.y-30,w=24,h=24,life=.2,color=cast.color}
   end end
@@ -301,7 +303,7 @@ function C.step(s,dt,input)
    local move=manual and ((input.right and 1 or 0)-(input.left and 1 or 0)) or 0
    local nearest,dist=nil,10000
    if not manual then
-    for _,e in ipairs(s.enemies) do local d=abs(e.x-a.x)+abs(e.y-a.y)*2;if e.hp>0 and d<dist then nearest=e;dist=d end end
+    for _,e in ipairs(s.enemies) do local d=abs(e.x-a.x)+abs(e.y-a.y)*2;if C.canTargetEnemy(e) and d<dist then nearest=e;dist=d end end
     local leader=s.actors[s.active]
     local avoid=C.aiAvoidTarget and C.aiAvoidTarget(s,a)
     if avoid then
@@ -388,7 +390,7 @@ function C.frame(s,mode,profile)
   rect(d.x-s.camera-12,d.y-50,8,23,'#e98b71');rect(d.x-s.camera+4,d.y-50,8,23,'#e98b71')
   add({kind='text',x=d.x-s.camera,y=d.y-57,text=string.format('%.1f',d.life),color='#fff0c4',size=14})
  end
- for _,e in ipairs(s.enemies) do if e.hp>0 and e.x>s.camera-40 and e.x<s.camera+1000 then
+ for _,e in ipairs(s.enemies) do if C.canTargetEnemy(e) and e.x>s.camera-40 and e.x<s.camera+1000 then
   visible=visible+1
   if not e.custom and not e.storyDrawn then
    if C.enemyIdleArt and C.enemyIdleArt[e.art] then C.drawEnemyIdleArt({draws=draws},s,e,mode,profile)

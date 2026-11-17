@@ -50,6 +50,11 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local art=C.wolflordFieldArt[pose]
   draw(f,art,x,y-wolflordPoseOffsets[pose],art.profiles.legacy.height,mode,profile,dir>0)
  end
+ local ruinSerpentPoseOffsets={idle=8,roll=11,dive=0,emerge=0,bombs=8,drill=0}
+ function C.drawRuinSerpentFieldArt(f,x,y,pose,scale,mode,profile,flip)
+  local art=C.ruinSerpentFieldArt[pose]
+  draw(f,art,x,y-ruinSerpentPoseOffsets[pose]*scale,art.profiles.legacy.height*scale,mode,profile,flip)
+ end
  function C.drawThunderFieldArt(f,x,y,h,mode,profile,pose,dir)
   draw(f,pose and C.thunderFieldArt[pose] or C.thunderArt,x,y,h,mode,profile,pose=='dash' and dir>0)
  end

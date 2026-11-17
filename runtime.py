@@ -5,6 +5,51 @@ ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / 'lua-limit-break-20261026-r1/work/python'))
 from lupa.lua53 import LuaRuntime
 
+def asset_entries(container):
+    rows = container.items() if isinstance(container, dict) else enumerate(container, 1)
+    return ((key, value, isinstance(value, (dict, list))) for key, value in rows)
+
+
+def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None):
+    filenames = {
+        pose: f'{prefix}-field-{pose.replace("_", "-")}-sprites-v1.json'
+        for pose in poses
+    }
+    if idle:
+        filenames['idle'] = idle
+
+    def read(key):
+        filename = filenames.get(key)
+        if filename is None:
+            return None
+        asset = json.loads((ROOT / 'assets' / filename).read_text(encoding='utf8'))
+        if key == 'idle' and idle_anchor is not None:
+            asset['anchorX'] = idle_anchor
+        return asset
+
+    # Cache a pose on first use. The Python callbacks do not retain the Lua
+    # runtime, so retiring a browser session can reclaim its asset tables.
+    loader = lua.eval("""
+        function(read, entries)
+            local function copy(container)
+                local result = {}
+                for key, value, nested in python.iterex(entries(container)) do
+                    result[key] = nested and copy(value) or value
+                end
+                return result
+            end
+            return setmetatable({}, {__index = function(poses, key)
+                local data = read(key)
+                if data == nil then return nil end
+                local art = copy(data)
+                rawset(poses, key, art)
+                return art
+            end})
+        end
+    """)
+    return loader(read, asset_entries)
+
+
 def runtime():
     lua = LuaRuntime(unpack_returned_tuples=True)
     core = lua.execute((ROOT / 'core.lua').read_text(encoding='utf-8'))
@@ -113,30 +158,14 @@ def runtime():
     lua.execute((ROOT/'world-bosses.lua').read_text(encoding='utf8'))(core,graph)
     field_specs=json.loads((ROOT/'content/field-boss-spawns.json').read_text(encoding='utf-8-sig'))['fieldBosses']
     jade=lua.execute((ROOT/'field-jadeplume.lua').read_text(encoding='utf-8'))(core)
-    jade_art={'idle':'jadeplume-idle-sprites.json'}
-    for pose in ('peck_ready','peck','crouch','spring','stagger','spores'):
-        jade_art[pose]="jadeplume-field-"+pose.replace('_','-')+"-sprites-v1.json"
-    core.jadeplumeArt=lua.table_from({
-        pose:json.loads((ROOT/'assets'/filename).read_text(encoding='utf8')) for pose,filename in jade_art.items()
-    },recursive=True)
-    def regisvine_art(prefix,idle,anchor,poses):
-        art={
-            pose: json.loads((ROOT/'assets'/f'{prefix}-field-{pose.replace("_","-")}-sprites-v1.json').read_text(encoding='utf8'))
-            for pose in poses
-        }
-        art['idle']=json.loads((ROOT/'assets'/idle).read_text(encoding='utf8'))
-        art['idle']['anchorX']=anchor
-        return lua.table_from(art,recursive=True)
-
-    core.cryoFieldArt=regisvine_art('cryo','boss-sprites.json',0.54,('slam_ready','slam','sweep_ready','sweep','bolts','down'))
-    core.pyroFieldArt=regisvine_art('pyro','pyro-regisvine-sprites.json',0.49,
-                                   ('raised','bowed','impact','down','bud_first','bud_second','sweep_ready','sweep'))
-    primo_field_art={'idle':json.loads((ROOT/'assets/primo-sprites.json').read_text(encoding='utf8'))}
-    primo_field_art['idle']['anchorX']=0.43
-    for pose in ('windup','claw_first','claw_second','tail_ready','tail_sweep','charge','burst','down'):
-        filename='primo-field-'+pose.replace('_','-')+'-sprites-v1.json'
-        primo_field_art[pose]=json.loads((ROOT/'assets'/filename).read_text(encoding='utf8'))
-    core.primoFieldArt=lua.table_from(primo_field_art,recursive=True)
+    core.jadeplumeArt=field_art(lua,'jadeplume',('peck_ready','peck','crouch','spring','stagger','spores'),
+                               idle='jadeplume-idle-sprites.json')
+    core.cryoFieldArt=field_art(lua,'cryo',('slam_ready','slam','sweep_ready','sweep','bolts','down'),
+                                idle='boss-sprites.json',idle_anchor=.54)
+    core.pyroFieldArt=field_art(lua,'pyro',('raised','bowed','impact','down','bud_first','bud_second','sweep_ready','sweep'),
+                                idle='pyro-regisvine-sprites.json',idle_anchor=.49)
+    core.primoFieldArt=field_art(lua,'primo',('windup','claw_first','claw_second','tail_ready','tail_sweep','charge','burst','down'),
+                                idle='primo-sprites.json',idle_anchor=.43)
     lua.execute((ROOT/'field-regisvine.lua').read_text(encoding='utf8'))(core)
     cryo_field=lua.execute((ROOT/'field-cryo-regisvine.lua').read_text(encoding='utf8'))(core)
     pyro_field=lua.execute((ROOT/'field-pyro-regisvine.lua').read_text(encoding='utf8'))(core)
@@ -152,33 +181,17 @@ def runtime():
     pyro_hypostasis=lua.execute((ROOT/'field-pyro-hypostasis.lua').read_text(encoding='utf-8'))(core)
     hydro_hypostasis=lua.execute((ROOT/'field-hydro-hypostasis.lua').read_text(encoding='utf-8'))(core)
     wolflord_field=lua.execute((ROOT/'field-wolflord.lua').read_text(encoding='utf-8'))(core)
-    core.wolflordFieldArt=lua.table_from({
-        pose:json.loads((ROOT/'assets'/f'wolflord-field-{pose}-sprites-v1.json').read_text(encoding='utf8'))
-        for pose in ('idle','ram','tail','jaw','recover','skull')
-    },recursive=True)
-    core.hydroHypostasisFieldArt=lua.table_from({
-        'idle':json.loads((ROOT/'assets/hydro-hypostasis-idle-sprites.json').read_text(encoding='utf8')),
-        **{pose:json.loads((ROOT/'assets'/f'hydro-hypostasis-field-{pose}-sprites-v1.json').read_text(encoding='utf8'))
-           for pose in ('dolphin','ray','rain','recover')}
-    },recursive=True)
-    core.pyroHypostasisFieldArt=lua.table_from({
-        'idle':json.loads((ROOT/'assets/pyro-hypostasis-idle-sprites.json').read_text(encoding='utf8')),
-        **{pose:json.loads((ROOT/'assets'/f'pyro-hypostasis-field-{pose}-sprites-v1.json').read_text(encoding='utf8'))
-           for pose in ('boar','snake','fist','recover')}
-    },recursive=True)
-    core.cryoHypostasisFieldArt=lua.table_from({
-        'idle':json.loads((ROOT/'assets/cryo-hypostasis-idle-sprites.json').read_text(encoding='utf8')),
-        **{pose:json.loads((ROOT/'assets'/f'cryo-hypostasis-field-{pose}-sprites-v1.json').read_text(encoding='utf8'))
-           for pose in ('wheel','clap','fall','recover')}
-    },recursive=True)
-    core.thunderFieldArt=lua.table_from({
-        pose:json.loads((ROOT/'assets'/f'thunder-field-{pose}-sprites-v1.json').read_text(encoding='utf8'))
-        for pose in ('wing','feathers','dash','recover')
-    },recursive=True)
-    core.arrayFieldArt=lua.table_from({
-        pose:json.loads((ROOT/'assets'/f'array-field-{pose}-sprites-v1.json').read_text(encoding='utf8'))
-        for pose in ('blade','wheel','rocket','core')
-    },recursive=True)
+    ruin_serpent=lua.execute((ROOT/'field-ruin-serpent.lua').read_text(encoding='utf-8'))(core)
+    core.ruinSerpentFieldArt=field_art(lua,'ruin-serpent',('idle','roll','dive','emerge','bombs','drill'))
+    core.wolflordFieldArt=field_art(lua,'wolflord',('idle','ram','tail','jaw','recover','skull'))
+    core.hydroHypostasisFieldArt=field_art(lua,'hydro-hypostasis',('dolphin','ray','rain','recover'),
+                                          idle='hydro-hypostasis-idle-sprites.json')
+    core.pyroHypostasisFieldArt=field_art(lua,'pyro-hypostasis',('boar','snake','fist','recover'),
+                                          idle='pyro-hypostasis-idle-sprites.json')
+    core.cryoHypostasisFieldArt=field_art(lua,'cryo-hypostasis',('wheel','clap','fall','recover'),
+                                          idle='cryo-hypostasis-idle-sprites.json')
+    core.thunderFieldArt=field_art(lua,'thunder',('wing','feathers','dash','recover'))
+    core.arrayFieldArt=field_art(lua,'array',('blade','wheel','rocket','core'))
     lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(
         core,lua.table_from(field_specs,recursive=True),
         lua.table_from({'jadeplume':jade,'cryoRegisvine':cryo_field,'pyroRegisvine':pyro_field,
@@ -186,7 +199,7 @@ def runtime():
                         'primoGeovishap':primo_field,'oceanid':oceanid_field,'maguu':maguu_field,
                         'array':array_field,'thunder':thunder_field,'cryoHypostasis':cryo_hypostasis,
                         'pyroHypostasis':pyro_hypostasis,'hydroHypostasis':hydro_hypostasis,
-                        'wolflord':wolflord_field})
+                        'wolflord':wolflord_field,'ruinSerpent':ruin_serpent})
     )
     return lua, core
 

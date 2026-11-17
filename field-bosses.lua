@@ -258,7 +258,7 @@ return function(C,configs,controllers)
   if boss.hp>0 and slot.phase=='combat' and behavior.label then label=behavior.label(boss,cast) or label end
   f.fieldBoss={id=spec.id,name=boss.displayName or spec.name,element=boss.element,form=boss.form,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
    generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(s,slot)/60,label=label,
-   move=cast and cast.move.id,tick=cast and cast.tick}
+   move=cast and cast.move.id,tick=cast and cast.tick,underground=boss.underground}
   if boss.hp>0 and boss.x>=s.camera-180 and boss.x<=s.camera+1140 then
    local layer={draws={}}
    behavior.draw(layer,s,boss,spec,cast,mode,profile)

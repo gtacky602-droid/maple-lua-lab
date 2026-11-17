@@ -2,7 +2,7 @@ return function(C)
  local attack,ai,bonus,action,step,frame=C.companionAttack,C.companionAI,C.damageBonus,C.action,C.step,C.frame
  local defs={normal={mult=.9,hits=2,ct=0,lock=.75,targets=3},skill1={mult=.9,hits=10,ct=16,lock=.45,targets=6,delay=.5,interval=1,duration=10},skill2={mult=1.35,hits=4,ct=8,lock=.55,targets=5},skill3={ct=18,lock=.35},skill4={mult=1.4,hits=10,ct=24,lock=.65,targets=8,delay=.4,interval=.3,duration=3.5}}
  local function burning(s,a)
-  for _,e in ipairs(s.enemies) do if e.hp>0 and e.burning and e.burning.remaining>0 and math.abs(e.x-a.x)<360 and math.abs(e.y-a.y)<160 then return true end end
+  for _,e in ipairs(s.enemies) do if C.canTargetEnemy(e) and e.burning and e.burning.remaining>0 and math.abs(e.x-a.x)<360 and math.abs(e.y-a.y)<160 then return true end end
   return false
  end
  function C.companionAttack(s,a,key)

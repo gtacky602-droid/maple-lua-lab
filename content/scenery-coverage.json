@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 126 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 124,
+  "scope": "Authored 127 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 125,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -524,6 +524,12 @@
     {
       "id": "chasm-wp-25264",
       "name": "層岩巨淵・巨蛇岩穴の岩棚",
+      "region": "層岩巨淵・地下鉱区",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "ruin-serpent-field-pit",
+      "name": "層岩巨淵・巨蛇岩穴の掘削場",
       "region": "層岩巨淵・地下鉱区",
       "status": "regional_temporary_image"
     },

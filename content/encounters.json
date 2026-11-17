@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 16,
+    "partial": 17,
     "complete": 0
   },
   "encounters": [
@@ -1402,23 +1402,26 @@
       "entity_ids": [
         "24010401"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/ruinserpent.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/ruinserpent.json",
+        "evidence/ruin-serpent-field-lua.json",
+        "evidence/ruin-serpent-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "節の連動・被弾・撃破の追加作画",
+        "装備差・報酬のバランス",
+        "Webマルチと幻境実機"
       ],
+      "fieldNode": "ruin-serpent-field-pit",
+      "fieldEntrance": "層岩巨淵・巨蛇岩穴の掘削場（Lv24）",
       "art_candidate": {
         "source": "assets/ruin-serpent-idle-source-v1.png",
         "encoding": "assets/ruin-serpent-idle-sprites.json",
-        "audit": "evidence/ruin-serpent-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/ruin-serpent-field-art-audit.json",
+        "status": "Web field encounter with five body poses and a separate drill projectile sprite"
       }
     },
     {

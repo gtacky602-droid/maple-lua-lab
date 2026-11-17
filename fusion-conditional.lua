@@ -5,7 +5,7 @@ return function(C)
   if key~='SK45' then return attack(s,a,key) end
   if s.paused or a.id~=1 or a.hp<=0 or a.lock>0 or (a.cd[key] or 0)>0 then return false end
   local candidates={}
-  for _,e in ipairs(s.enemies) do if e.hp>0 and e.burning and math.abs(e.x-a.x)<300 and math.abs(e.y-a.y)<100 then candidates[#candidates+1]=e end end
+  for _,e in ipairs(s.enemies) do if C.canTargetEnemy(e) and e.burning and math.abs(e.x-a.x)<300 and math.abs(e.y-a.y)<100 then candidates[#candidates+1]=e end end
   table.sort(candidates,function(x,y)return math.abs(x.x-a.x)<math.abs(y.x-a.x) end)
   local count=math.min(3,#candidates);if count==0 then return false end
   for i=1,count do candidates[i].burning=nil end

@@ -1,0 +1,33 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 48.58,
+    "moves": [
+      "FRS01",
+      "FRS02",
+      "FRS03"
+    ],
+    "dodgeWindows": 5,
+    "finished": true,
+    "hp": 129,
+    "returns": 0
+  },
+  "fieldKill": {
+    "xp": 2350,
+    "mora": 150
+  },
+  "commissionReport": {
+    "xp": 4000,
+    "mora": 300
+  },
+  "persistedCooldown": true,
+  "sameSceneCommands": {
+    "png": 30,
+    "standard": 10155,
+    "light": 2717
+  },
+  "noSpriteUnderground": true,
+  "visibleBeforeImpact": true,
+  "viewport390": true,
+  "errors": []
+}

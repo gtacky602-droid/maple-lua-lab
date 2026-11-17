@@ -1,0 +1,20 @@
+{
+  "attacks": [
+    "FRS01",
+    "FRS02",
+    "FRS03"
+  ],
+  "hiddenTicks": 36,
+  "visibleBeforeImpactTicks": 24,
+  "lockedEmergence": true,
+  "threeIndependentFixedLandings": true,
+  "burningCanKillUnderground": true,
+  "physicalReachesHeadAtRest": true,
+  "unrelatedFieldArtStaysUnloaded": true,
+  "commands": {
+    "standard": 7391,
+    "light": 2095
+  },
+  "questReportOnce": true,
+  "killXp": 2350
+}

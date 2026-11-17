@@ -1,5 +1,5 @@
 {
-  "count": 52,
+  "count": 53,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -15,6 +15,7 @@
     "Pyro Hypostasis is reachable through the field route",
     "Hydro Hypostasis is reachable through the field route",
     "Golden Wolflord is reachable through the field route",
+    "Ruin Serpent is reachable through the field route",
     "public roster matched without merging Icewind modes or Dottore challenges",
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",

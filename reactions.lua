@@ -35,7 +35,7 @@ return function(C)
     if e.applicationClocks then for key,untilTime in pairs(e.applicationClocks) do if untilTime<=s.t then e.applicationClocks[key]=nil end end end
     local burn=e.burning
     if burn and s.t+math.max(0,math.min(dt,1/30))+1e-8>=burn.next then
-     C.resolveCast(s,{id=burn.owner,key='reaction:burning',atk=burn.atk,x=e.x,y=e.y,targetId=e.id,dir=1,radial=true,range=1,limit=1,mult=.3,element='pyro',color=colors.pyro,gain=0,reaction=true,critRate=0})
+     C.resolveCast(s,{id=burn.owner,key='reaction:burning',atk=burn.atk,x=e.x,y=e.y,targetId=e.id,persistentTarget=e,dir=1,radial=true,range=1,limit=1,mult=.3,element='pyro',color=colors.pyro,gain=0,reaction=true,critRate=0})
      burn.remaining=burn.remaining-1;burn.next=burn.next+1
      if burn.remaining<=0 or e.hp<=0 then e.burning=nil end
     end
@@ -47,9 +47,9 @@ return function(C)
   local f=frame(s,mode,profile);f.reactions=s.reactions or {};f.auras={}
   for _,e in ipairs(s.enemies) do if e.hp>0 and e.aura then
    f.auras[#f.auras+1]={target=e.id,element=e.aura.element,owner=e.aura.owner,seconds=math.max(0,e.aura.expires-s.t)}
-   f.draws[#f.draws+1]={kind='rect',x=e.x-s.camera-6,y=e.y-78,w=12,h=12,color=colors[e.aura.element]}
+   if not e.underground then f.draws[#f.draws+1]={kind='rect',x=e.x-s.camera-6,y=e.y-78,w=12,h=12,color=colors[e.aura.element]} end
   end end
-  for _,e in ipairs(s.enemies) do if e.hp>0 and e.burning then
+  for _,e in ipairs(s.enemies) do if C.canTargetEnemy(e) and e.burning then
    f.draws[#f.draws+1]={kind='rect',x=e.x-s.camera-10,y=e.y-72,w=20,h=10,color='#ff6d46'}
   end end
   f.commands=#f.draws;return f

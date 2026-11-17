@@ -816,6 +816,65 @@
           "damage": 14
         }
       ]
+    },
+    {
+      "id": "boss-24010401",
+      "controller": "ruinSerpent",
+      "entity": 24010401,
+      "name": "遺跡サーペント",
+      "node": "ruin-serpent-field-pit",
+      "storyChallenge": "ruin-serpent",
+      "level": 24,
+      "hp": 900,
+      "mora": 150,
+      "artHeight": 112,
+      "floorY": 480,
+      "home": 790,
+      "arenaMin": 315,
+      "arenaMax": 1390,
+      "noticeRange": 270,
+      "noticeTicks": 36,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 70,
+      "contactDamage": 0,
+      "moves": [
+        {
+          "id": "FRS01",
+          "kind": "roll",
+          "title": "横転の一薙ぎ",
+          "reach": 210,
+          "lock": 48,
+          "active": [[108, 132]],
+          "recover": 156,
+          "total": 276,
+          "damage": 14
+        },
+        {
+          "id": "FRS02",
+          "kind": "burrow",
+          "title": "短潜行・掘り上げ",
+          "reach": 208,
+          "lock": 54,
+          "hidden": [78, 114],
+          "active": [[138, 150]],
+          "recover": 168,
+          "total": 312,
+          "damage": 18
+        },
+        {
+          "id": "FRS03",
+          "kind": "bombs",
+          "title": "三点の掘削弾",
+          "reach": 220,
+          "lock": 48,
+          "active": [[108, 114], [150, 156], [192, 198]],
+          "recover": 210,
+          "total": 270,
+          "damage": 11
+        }
+      ]
     }
   ]
 }

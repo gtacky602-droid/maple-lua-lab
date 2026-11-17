@@ -475,10 +475,12 @@
       ]
     },
     "boss-24010401": {
+      "remaining": ["節の連動・被弾・撃破の追加作画", "装備差・報酬のバランス", "Webマルチと幻境実機"],
+      "extra_evidence": ["evidence/ruin-serpent-field-lua.json", "evidence/ruin-serpent-field-browser.json"],
       "art_candidate": {
         "item": "ruin-serpent",
-        "audit": "evidence/ruin-serpent-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/ruin-serpent-field-art-audit.json",
+        "status": "Web field encounter with five body poses and a separate drill projectile sprite"
       }
     },
     "boss-24090201": {

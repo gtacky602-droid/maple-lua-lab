@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 126,
-    "provisional_quests": 71,
+    "authored_stages": 127,
+    "provisional_quests": 72,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -1003,6 +1003,7 @@
           "chasm-camp",
           "chasm-depth",
           "chasm-wp-25264",
+          "ruin-serpent-field-pit",
           "chasm-wp-25266",
           "chasm-wp-25267",
           "chasm-wp-25268",
