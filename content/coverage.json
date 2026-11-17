@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-16",
+  "updated": "2026-11-17",
   "goal_status": "active",
   "scope_complete": false,
   "all_bosses_scope": "all normal + all weekly + original Stygian encounters; explicit user confirmation 2026-11-16",
@@ -18,7 +18,7 @@
       "unlock_level_draft": 1,
       "unlock_system": "風",
       "decision_source": "20261113-master §4/8; 20261116 amendment",
-      "waypoints_status": "global_catalog_imported; regional mapping unverified",
+      "waypoints_status": "verified official interactive-map area IDs",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
       "draft_quest_budget": {
@@ -27,8 +27,12 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 3,
-      "prototype_quest_count": 2
+      "prototype_stage_count": 6,
+      "prototype_quest_count": 7,
+      "official_map2_markers": {
+        "waypoints": 45,
+        "statues": 6
+      }
     },
     {
       "id": "region-02",
@@ -38,7 +42,7 @@
       "unlock_level_draft": 20,
       "unlock_system": "岩",
       "decision_source": "20261113-master §4/8; 20261116 amendment",
-      "waypoints_status": "global_catalog_imported; regional mapping unverified",
+      "waypoints_status": "verified official interactive-map area IDs",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
       "draft_quest_budget": {
@@ -47,8 +51,12 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 3,
-      "prototype_quest_count": 2
+      "prototype_stage_count": 7,
+      "prototype_quest_count": 8,
+      "official_map2_markers": {
+        "waypoints": 75,
+        "statues": 8
+      }
     },
     {
       "id": "region-03",
@@ -58,7 +66,7 @@
       "unlock_level_draft": 40,
       "unlock_system": "雷",
       "decision_source": "20261113-master §4/8; 20261116 amendment",
-      "waypoints_status": "global_catalog_imported; regional mapping unverified",
+      "waypoints_status": "verified official interactive-map area IDs",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
       "draft_quest_budget": {
@@ -67,8 +75,12 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 3,
-      "prototype_quest_count": 3
+      "prototype_stage_count": 6,
+      "prototype_quest_count": 6,
+      "official_map2_markers": {
+        "waypoints": 47,
+        "statues": 6
+      }
     },
     {
       "id": "region-04",
@@ -78,7 +90,7 @@
       "unlock_level_draft": 60,
       "unlock_system": "草",
       "decision_source": "20261113-master §4/8; 20261116 amendment",
-      "waypoints_status": "global_catalog_imported; regional mapping unverified",
+      "waypoints_status": "verified official interactive-map area IDs",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
       "draft_quest_budget": {
@@ -88,7 +100,11 @@
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
       "prototype_stage_count": 3,
-      "prototype_quest_count": 3
+      "prototype_quest_count": 3,
+      "official_map2_markers": {
+        "waypoints": 112,
+        "statues": 13
+      }
     },
     {
       "id": "region-05",
@@ -98,7 +114,7 @@
       "unlock_level_draft": 80,
       "unlock_system": "水",
       "decision_source": "20261113-master §4/8; 20261116 amendment",
-      "waypoints_status": "global_catalog_imported; regional mapping unverified",
+      "waypoints_status": "verified official interactive-map area IDs",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
       "draft_quest_budget": {
@@ -108,7 +124,11 @@
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
       "prototype_stage_count": 3,
-      "prototype_quest_count": 3
+      "prototype_quest_count": 3,
+      "official_map2_markers": {
+        "waypoints": 92,
+        "statues": 8
+      }
     },
     {
       "id": "region-06",
@@ -118,7 +138,7 @@
       "unlock_level_draft": 100,
       "unlock_system": "炎",
       "decision_source": "20261113-master §4/8; 20261116 amendment",
-      "waypoints_status": "global_catalog_imported; regional mapping unverified",
+      "waypoints_status": "verified official interactive-map area IDs",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
       "draft_quest_budget": {
@@ -128,7 +148,11 @@
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
       "prototype_stage_count": 4,
-      "prototype_quest_count": 3
+      "prototype_quest_count": 3,
+      "official_map2_markers": {
+        "waypoints": 126,
+        "statues": 9
+      }
     },
     {
       "id": "region-07",
@@ -138,7 +162,7 @@
       "unlock_level_draft": 120,
       "unlock_system": "月",
       "decision_source": "20261113-master §4/8; 20261116 amendment",
-      "waypoints_status": "global_catalog_imported; regional mapping unverified",
+      "waypoints_status": "verified official interactive-map area IDs",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
       "draft_quest_budget": {
@@ -148,7 +172,11 @@
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
       "prototype_stage_count": 3,
-      "prototype_quest_count": 2
+      "prototype_quest_count": 2,
+      "official_map2_markers": {
+        "waypoints": 83,
+        "statues": 7
+      }
     },
     {
       "id": "region-08",
@@ -158,7 +186,7 @@
       "unlock_level_draft": 140,
       "unlock_system": "氷・星",
       "decision_source": "20261113-master §4/8; 20261116 amendment",
-      "waypoints_status": "global_catalog_imported; regional mapping unverified",
+      "waypoints_status": "verified official interactive-map area IDs",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
       "draft_quest_budget": {
@@ -168,7 +196,11 @@
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
       "prototype_stage_count": 3,
-      "prototype_quest_count": 3
+      "prototype_quest_count": 3,
+      "official_map2_markers": {
+        "waypoints": 101,
+        "statues": 7
+      }
     },
     {
       "id": "branch-01",
@@ -372,7 +404,7 @@
     },
     {
       "id": "world",
-      "status": "not_implemented",
+      "status": "partial",
       "acceptance": "source-versioned node coverage, all region connections, hidden worlds, ship"
     },
     {
@@ -382,7 +414,7 @@
     },
     {
       "id": "quests",
-      "status": "not_implemented",
+      "status": "partial",
       "acceptance": "all scoped accept/progress/report/reward flows"
     },
     {
@@ -392,20 +424,20 @@
     }
   ],
   "map_catalog": {
-    "status": "snapshot_coordinates_imported",
+    "status": "official_interactive_map_markers_imported",
     "file": "content/map-catalog.json",
     "counts": {
-      "waypoints": 681,
+      "waypoints": 809,
       "statues": 64
     },
     "complete_world_verified": false,
-    "region_assignment": "pending",
+    "region_assignment": "official area IDs",
     "playable_at_imported_nodes": 0
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 61,
-    "provisional_quests": 47,
+    "authored_stages": 65,
+    "provisional_quests": 49,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -442,5 +474,385 @@
     "status": "partial",
     "design": "content/world-bosses-design.json"
   },
-  "current_priority": "Sprites, maps, shared systems; skill authoring on hold pending ChatGPT design"
+  "current_priority": "Sprites, maps, shared systems; skill authoring on hold pending ChatGPT design",
+  "world_map_review": {
+    "basis": [
+      "sources/20261113-master.md sections 4–6",
+      "sources/20261116-amendment.md sections 1, 7",
+      "content/map-catalog.json",
+      "content/story-graph.json"
+    ],
+    "requested_groups": [
+      {
+        "id": "region-01",
+        "name": "モンド",
+        "kind": "main",
+        "stage_ids": [
+          "mond-town",
+          "mond-road",
+          "mond-border",
+          "anemo-approach",
+          "cryo-approach",
+          "electro-approach"
+        ],
+        "quest_ids": [
+          "mond-patrol",
+          "mond-border-check",
+          "amber-join",
+          "mond-contract",
+          "anemo-commission",
+          "cryo-commission",
+          "electro-commission"
+        ]
+      },
+      {
+        "id": "region-02",
+        "name": "璃月",
+        "kind": "main",
+        "stage_ids": [
+          "liyue-entry",
+          "liyue-harbor",
+          "liyue-field",
+          "pyro-approach",
+          "geo-approach",
+          "oceanid-approach",
+          "primo-approach"
+        ],
+        "quest_ids": [
+          "liyue-supply",
+          "liyue-entry-check",
+          "beidou-join",
+          "liyue-contract",
+          "pyro-commission",
+          "geo-commission",
+          "oceanid-commission",
+          "primo-commission"
+        ]
+      },
+      {
+        "id": "region-03",
+        "name": "稲妻",
+        "kind": "main",
+        "stage_ids": [
+          "inazuma-port",
+          "inazuma-road",
+          "inazuma-town",
+          "maguu-approach",
+          "array-approach",
+          "thunder-approach"
+        ],
+        "quest_ids": [
+          "ayaka-join",
+          "inazuma-delivery",
+          "inazuma-contract",
+          "maguu-commission",
+          "array-commission",
+          "thunder-commission"
+        ]
+      },
+      {
+        "id": "region-04",
+        "name": "スメール",
+        "kind": "main",
+        "stage_ids": [
+          "sumeru-entry",
+          "sumeru-hub",
+          "sumeru-field"
+        ],
+        "quest_ids": [
+          "wanderer-join",
+          "sumeru-entry-check",
+          "sumeru-contract"
+        ]
+      },
+      {
+        "id": "region-05",
+        "name": "フォンテーヌ",
+        "kind": "main",
+        "stage_ids": [
+          "fontaine-entry",
+          "fontaine-hub",
+          "fontaine-field"
+        ],
+        "quest_ids": [
+          "emilie-join",
+          "fontaine-entry-check",
+          "fontaine-contract"
+        ]
+      },
+      {
+        "id": "region-06",
+        "name": "ナタ",
+        "kind": "main",
+        "stage_ids": [
+          "natlan-entry",
+          "natlan-hub",
+          "natlan-field",
+          "natlan-port"
+        ],
+        "quest_ids": [
+          "kachina-join",
+          "natlan-entry-check",
+          "natlan-contract"
+        ]
+      },
+      {
+        "id": "region-07",
+        "name": "ナド・クライ",
+        "kind": "main",
+        "stage_ids": [
+          "nod-port",
+          "nod-field",
+          "nod-town"
+        ],
+        "quest_ids": [
+          "columbina-join",
+          "nod-contract"
+        ]
+      },
+      {
+        "id": "region-08",
+        "name": "スネージナヤ",
+        "kind": "main",
+        "stage_ids": [
+          "snezhnaya-entry",
+          "snezhnaya-hub",
+          "snezhnaya-field"
+        ],
+        "quest_ids": [
+          "mitya-join",
+          "snezhnaya-entry-check",
+          "snezhnaya-contract"
+        ]
+      },
+      {
+        "id": "branch-01",
+        "name": "ドラゴンスパイン",
+        "kind": "high_level_branch",
+        "stage_ids": [
+          "dragonspine-camp",
+          "dragonspine-depth"
+        ],
+        "quest_ids": [
+          "dragonspine-survey"
+        ]
+      },
+      {
+        "id": "branch-02",
+        "name": "沈玉の谷",
+        "kind": "high_level_branch",
+        "stage_ids": [
+          "chenyu-camp",
+          "chenyu-depth"
+        ],
+        "quest_ids": [
+          "chenyu-survey"
+        ]
+      },
+      {
+        "id": "branch-03",
+        "name": "淵下宮",
+        "kind": "high_level_branch",
+        "stage_ids": [
+          "enkanomiya-camp",
+          "enkanomiya-depth"
+        ],
+        "quest_ids": [
+          "enkanomiya-survey"
+        ]
+      },
+      {
+        "id": "branch-04",
+        "name": "トゥニギの黒淵",
+        "kind": "high_level_branch",
+        "stage_ids": [
+          "tunigi-camp",
+          "tunigi-depth"
+        ],
+        "quest_ids": [
+          "tunigi-survey"
+        ]
+      },
+      {
+        "id": "branch-05",
+        "name": "往日の海",
+        "kind": "high_level_branch",
+        "stage_ids": [
+          "bygone-camp",
+          "bygone-depth"
+        ],
+        "quest_ids": [
+          "bygone-survey"
+        ]
+      },
+      {
+        "id": "branch-06",
+        "name": "ドーンマンポート",
+        "kind": "high_level_branch",
+        "stage_ids": [
+          "dornman-camp",
+          "dornman-depth"
+        ],
+        "quest_ids": [
+          "dornman-survey"
+        ]
+      },
+      {
+        "id": "branch-07",
+        "name": "オシカ・ナタ",
+        "kind": "high_level_branch",
+        "stage_ids": [
+          "ochkanatlan-dock",
+          "ochkanatlan-ruins"
+        ],
+        "quest_ids": [
+          "ochkanatlan-survey"
+        ]
+      },
+      {
+        "id": "branch-08",
+        "name": "ナド・クライ特別地域（名称未確定）",
+        "kind": "high_level_branch",
+        "stage_ids": [
+          "nod-special-camp",
+          "nod-special-depth"
+        ],
+        "quest_ids": [
+          "nod-special-survey"
+        ]
+      },
+      {
+        "id": "branch-09",
+        "name": "ノヴォキッチェヴ（構造未確定）",
+        "kind": "high_level_branch",
+        "stage_ids": [
+          "novokichev-camp",
+          "novokichev-depth"
+        ],
+        "quest_ids": [
+          "novokichev-survey"
+        ]
+      },
+      {
+        "id": "hidden-01",
+        "name": "金リンゴ群島",
+        "kind": "hidden_world",
+        "stage_ids": [
+          "golden-hub",
+          "golden-play"
+        ],
+        "quest_ids": [
+          "golden-explore"
+        ]
+      },
+      {
+        "id": "hidden-02",
+        "name": "ヴェルーリヤ・ミラージュ",
+        "kind": "hidden_world",
+        "stage_ids": [
+          "veluriyam-hub",
+          "veluriyam-play"
+        ],
+        "quest_ids": [
+          "veluriyam-explore"
+        ]
+      },
+      {
+        "id": "hidden-03",
+        "name": "シムランカ",
+        "kind": "hidden_world",
+        "stage_ids": [
+          "simulanka-hub",
+          "simulanka-play"
+        ],
+        "quest_ids": [
+          "simulanka-explore"
+        ]
+      }
+    ],
+    "requested_groups_with_proxy_stage": 20,
+    "other_map_layers": [
+      {
+        "id": 7,
+        "name": "淵下宮",
+        "markers": {
+          "statues": 0,
+          "waypoints": 24
+        },
+        "prototype_stage_ids": [
+          "enkanomiya-camp",
+          "enkanomiya-depth"
+        ]
+      },
+      {
+        "id": 9,
+        "name": "層岩巨淵・地下鉱区",
+        "markers": {
+          "statues": 0,
+          "waypoints": 15
+        },
+        "prototype_stage_ids": [
+          "chasm-camp",
+          "chasm-depth"
+        ]
+      },
+      {
+        "id": 10,
+        "name": "金リンゴ群島",
+        "markers": {
+          "statues": 0,
+          "waypoints": 0
+        },
+        "prototype_stage_ids": [
+          "golden-hub",
+          "golden-play"
+        ]
+      },
+      {
+        "id": 34,
+        "name": "往日の海",
+        "markers": {
+          "statues": 0,
+          "waypoints": 17
+        },
+        "prototype_stage_ids": [
+          "bygone-camp",
+          "bygone-depth"
+        ]
+      },
+      {
+        "id": 36,
+        "name": "古の聖山",
+        "markers": {
+          "statues": 0,
+          "waypoints": 19
+        },
+        "prototype_stage_ids": []
+      },
+      {
+        "id": 37,
+        "name": "空の神殿",
+        "markers": {
+          "statues": 0,
+          "waypoints": 20
+        },
+        "prototype_stage_ids": []
+      },
+      {
+        "id": 40,
+        "name": "霜月",
+        "markers": {
+          "statues": 0,
+          "waypoints": 33
+        },
+        "prototype_stage_ids": []
+      }
+    ],
+    "natlan_voyage_stage_ids": [
+      "natlan-port",
+      "natlan-voyage",
+      "ochkanatlan-dock",
+      "nod-port"
+    ]
+  }
 }

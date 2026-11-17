@@ -53,12 +53,12 @@
     {
       "node": "liyue-field",
       "mode": "sprite",
-      "visible_portals": 5
+      "visible_portals": 6
     },
     {
       "node": "liyue-field",
       "mode": "rect",
-      "visible_portals": 5
+      "visible_portals": 6
     },
     {
       "node": "liyue-ferry",
@@ -467,6 +467,26 @@
     },
     {
       "node": "wingspan-lookout",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "chasm-camp",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "chasm-camp",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "chasm-depth",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "chasm-depth",
       "mode": "rect",
       "visible_portals": 1
     },

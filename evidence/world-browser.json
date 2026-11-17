@@ -1,8 +1,52 @@
 {
   "errors": [],
-  "allPoints": 745,
+  "layers": [
+    {
+      "id": 2,
+      "count": 745
+    },
+    {
+      "id": 7,
+      "count": 24
+    },
+    {
+      "id": 9,
+      "count": 15
+    },
+    {
+      "id": 10,
+      "count": 0
+    },
+    {
+      "id": 34,
+      "count": 17
+    },
+    {
+      "id": 36,
+      "count": 19
+    },
+    {
+      "id": 37,
+      "count": 20
+    },
+    {
+      "id": 40,
+      "count": 33
+    }
+  ],
+  "totalMarkers": 873,
   "statues": 64,
+  "snezhnayaStatues": 7,
   "idCoordinatesVerified": true,
   "trialNavigation": true,
-  "mobileWidth": true
+  "mobileWidth": true,
+  "chasm": {
+    "fixture": "Lv20 Liyue harbor",
+    "walkedRoute": true,
+    "remoteEntryRejected": true,
+    "rewardMora": 300,
+    "rewardXp": 1100,
+    "savedQuestComplete": true,
+    "spriteComparison": "PNG vs 16-color rectangles"
+  }
 }

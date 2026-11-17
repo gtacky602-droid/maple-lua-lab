@@ -236,6 +236,16 @@
       "rightCamera": 760
     },
     {
+      "node": "chasm-camp",
+      "width": 1280,
+      "rightCamera": 320
+    },
+    {
+      "node": "chasm-depth",
+      "width": 1920,
+      "rightCamera": 960
+    },
+    {
       "node": "golden-hub",
       "width": 1440,
       "rightCamera": 480

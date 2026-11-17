@@ -189,6 +189,14 @@
       "enemy_count": 0
     },
     {
+      "node": "chasm-camp",
+      "enemy_count": 0
+    },
+    {
+      "node": "chasm-depth",
+      "enemy_count": 0
+    },
+    {
       "node": "golden-hub",
       "enemy_count": 0
     },

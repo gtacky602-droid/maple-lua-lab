@@ -1,5 +1,6 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ chasm:{file:'chasm-background-v1.png',region:'層岩巨淵・地下鉱区',zones:[],note:'岩層や青い光を参照したラボ仮背景（坑道と足場は試作）'},
  wingspan:{file:'wingspan-background-v1.png',region:'翼の峰',zones:[],note:'巨龍の公式紹介を参照したラボ仮背景（地形・入口は試作）'},
  novokichev:{file:'novokichev-background-v1.png',region:'ノヴォキッチェヴ（仮構造）',zones:[],note:'地下探索路の仮画像（市街地・最深部の採用未確定）'},
  nodspecial:{file:'nodspecial-background-v1.png',region:'ナド・クライ特別地域（仮）',zones:[],note:'場所・構造未確定の独自案（月明かりの湖畔）'},
@@ -73,13 +74,14 @@ export function scenery(ctx,frame){
   ctx.drawImage(background,-offset,0,w,h);
  }else{ctx.fillStyle='#c5decc';ctx.fillRect(0,0,960,540)}
  // Lab-only terrain proxies. These will be 3D set dressing and colliders in the game.
+ const cave=['enkanomiya','nodspecial','novokichev','chasm'].includes(key);
  const camera=frame.camera||0,snow=key==='snezhnaya'||key==='dragonspine'||key==='wingspan';
  drawDecorations(ctx,frame,camera);
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
-  ctx.fillStyle=key==='bygone'?'#436c7b':key==='ochkanatlan'?'#687275':key==='tunigi'?'#94704f':key==='golden'?'#ad9064':(key==='enkanomiya'||key==='nodspecial'||key==='novokichev')?'#555d80':key==='voyage'?'#765641':snow?'#6f8197':key==='natlan'?'#a16646':key==='fontaine'?'#9c9b9e':key==='liyue'?'#887653':key==='inazuma'?'#686174':p.y===480?'#655c43':'#756d56';ctx.fillRect(x,p.y,p.w,p.y===480?60:24);
-  ctx.fillStyle=key==='bygone'?'#92aea9':key==='ochkanatlan'?'#8d9b82':key==='tunigi'?'#bd966c':key==='golden'?'#d7b981':(key==='enkanomiya'||key==='nodspecial'||key==='novokichev')?'#858cab':key==='voyage'?'#ac8258':snow?'#c9dded':key==='fontaine'?'#bbbfc5':key==='inazuma'?'#697b79':'#508451';ctx.fillRect(x,p.y,p.w,7);ctx.fillStyle=key==='bygone'?'#e0d6a3':key==='ochkanatlan'?'#c7d0be':key==='tunigi'?'#ead2a0':key==='golden'?'#f7e3b1':(key==='enkanomiya'||key==='nodspecial'||key==='novokichev')?'#c4c8dd':key==='voyage'?'#d6b17a':snow?'#f1f7ff':key==='fontaine'?'#f0e9da':key==='inazuma'?'#c5bbd2':'#bed088';ctx.fillRect(x,p.y,p.w,2);
-  ctx.fillStyle=key==='bygone'?'#b6baaa':key==='ochkanatlan'?'#a5ada5':key==='tunigi'?'#c2a17c':key==='golden'?'#dfc998':(key==='enkanomiya'||key==='nodspecial'||key==='novokichev')?'#949bb9':key==='voyage'?'#b69069':snow?'#a1b7cc':'#a09675';for(let n=0;n<p.w;n+=40){if(x+n>-40&&x+n<960)ctx.fillRect(x+n+5,p.y+11,27,5)}
+  ctx.fillStyle=key==='bygone'?'#436c7b':key==='ochkanatlan'?'#687275':key==='tunigi'?'#94704f':key==='golden'?'#ad9064':cave?'#555d80':key==='voyage'?'#765641':snow?'#6f8197':key==='natlan'?'#a16646':key==='fontaine'?'#9c9b9e':key==='liyue'?'#887653':key==='inazuma'?'#686174':p.y===480?'#655c43':'#756d56';ctx.fillRect(x,p.y,p.w,p.y===480?60:24);
+  ctx.fillStyle=key==='bygone'?'#92aea9':key==='ochkanatlan'?'#8d9b82':key==='tunigi'?'#bd966c':key==='golden'?'#d7b981':cave?'#858cab':key==='voyage'?'#ac8258':snow?'#c9dded':key==='fontaine'?'#bbbfc5':key==='inazuma'?'#697b79':'#508451';ctx.fillRect(x,p.y,p.w,7);ctx.fillStyle=key==='bygone'?'#e0d6a3':key==='ochkanatlan'?'#c7d0be':key==='tunigi'?'#ead2a0':key==='golden'?'#f7e3b1':cave?'#c4c8dd':key==='voyage'?'#d6b17a':snow?'#f1f7ff':key==='fontaine'?'#f0e9da':key==='inazuma'?'#c5bbd2':'#bed088';ctx.fillRect(x,p.y,p.w,2);
+  ctx.fillStyle=key==='bygone'?'#b6baaa':key==='ochkanatlan'?'#a5ada5':key==='tunigi'?'#c2a17c':key==='golden'?'#dfc998':cave?'#949bb9':key==='voyage'?'#b69069':snow?'#a1b7cc':'#a09675';for(let n=0;n<p.w;n+=40){if(x+n>-40&&x+n<960)ctx.fillRect(x+n+5,p.y+11,27,5)}
  }
  ctx.restore();
 }

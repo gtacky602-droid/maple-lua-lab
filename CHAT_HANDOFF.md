@@ -692,3 +692,13 @@ Ver.7.2の公開一覧で通常48系統・週ボス14戦をラボの登録IDと�
 仮背景は公式紹介の巨龍の輪郭と色を見て生成した。峡谷と麓の建物はラボ用の構図。本番では3D地形・背景を使う。 [公式紹介](https://genshin.hoyoverse.com/ja/news/detail/167140)・[参照と生成記録](assets/wingspan-background-generation-v1.json)・[PNGと16色矩形の配置比較](evidence/wingspan-map-comparison.png)・[ブラウザの探索記録](evidence/wingspan-quest-browser.json)
 
 ブラウザ検査は `test_wingspan_fixture.py` でスネージナヤ拠点のLv140検証用セーブを作り、ローカルサーバーを起動して `LAB_URL` を設定し、`node test_wingspan.mjs` を実行する。
+
+## HoYoLAB地図とラボのマップ制作範囲
+
+企画資料で指定された通常地域8・高難度分岐9・隠し世界3は、すべてラボに試作地点がある。ナド・クライ特別地域の名称とノヴォキッチェヴの構造は仮案。本人指定のナタからナド・クライへの航海とオシカ・ナタ途中下船も接続済み。地域別の地点・依頼IDは [制作範囲](content/coverage.json) に記載。
+
+日本語の公式テイワットマップから、ワープ809件、七天神像64件の地域IDと座標を取得した。テイワット745件は以前のスナップショットとIDがすべて一致し、小数第2位への丸めを超える座標差は0。別地図は淵下宮24、層岩巨淵・地下鉱区15、往日の海17、古の聖山19、空の神殿20、霜月33件を取得。観測時に金リンゴ群島のワープは0件で、ヴェルーリヤとシムランカは対象の応答に含まれない。ラボでは8地図を切り替えられる。公式座標は全873件、実際に遊べるラボの試作は65地点・49依頼。座標と2Dステージの地点単位の対応は未作成。 [HoYoLAB](https://act.hoyolab.com/ys/app/interactive-map/index.html)・[地図カタログと取得元](content/map-catalog.json)
+
+璃月・岩間の狩場の右端から層岩巨淵の地下調査拠点へ移動できる。Lv20の試作で、依頼を受注して地下の坑道を訪ね、拠点へ戻ると1,100EXPと300モラを1回受け取れる。斜めの岩層、滝、青い光を公式資料の掲載画像で確認して仮背景に反映した。地上鉱区、公式の開放任務、流明石、遺跡サーペントは今後の制作対象。本番の背景は3Dで制作する。 [公式紹介](https://blog.ja.playstation.com/?p=201248)・[生成と参照記録](assets/chasm-background-generation-v1.json)・[PNGと16色比較](evidence/chasm-map-comparison.png)
+
+`python build_map_catalog.py` で公式データを再取得し、応答を保存済みなら `--responses` で収録時のファイルを指定できる。台帳更新は `python build_coverage.py`。検証用セーブ作成と範囲の検査は `python test_world_map.py`、ブラウザは起動済みのラボに `node test_world.mjs` で接続する。既定以外のポートは `LAB_URL` を使う。 [ブラウザの検査結果](evidence/world-browser.json)

@@ -867,6 +867,52 @@
       "ground_both_directions": true
     },
     {
+      "node": "chasm-camp",
+      "platforms": 3,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 0,
+          "to": 2
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "chasm-depth",
+      "platforms": 7,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 0,
+          "to": 4
+        },
+        {
+          "from": 4,
+          "to": 5
+        },
+        {
+          "from": 0,
+          "to": 6
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
       "node": "golden-hub",
       "platforms": 4,
       "jump_routes": [

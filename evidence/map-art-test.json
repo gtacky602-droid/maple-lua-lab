@@ -284,6 +284,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "chasm-camp",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "chasm-depth",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "golden-hub",
       "count": 0,
       "fallback": false,

@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 63 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 61,
+  "scope": "Authored 65 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 63,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -285,6 +285,18 @@
       "id": "wingspan-lookout",
       "name": "翼の峰・峡谷の展望路",
       "region": "翼の峰",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "chasm-camp",
+      "name": "層岩巨淵・地下の調査拠点",
+      "region": "層岩巨淵・地下鉱区",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "chasm-depth",
+      "name": "層岩巨淵・地下の坑道",
+      "region": "層岩巨淵・地下鉱区",
       "status": "regional_temporary_image"
     },
     {

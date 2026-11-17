@@ -1,25 +1,113 @@
 export async function initWorldUI(action){
- const [map,coverage]=await Promise.all(['content/map-catalog.json','content/coverage.json'].map(async p=>(await fetch(p)).json()));
+ const [map,coverage]=await Promise.all(['content/map-catalog.json','content/coverage.json'].map(async path=>{
+  const response=await fetch(path);
+  if(!response.ok)throw Error(path);
+  return response.json();
+ }));
  const host=document.getElementById('worldPanel');
- const intro=document.createElement('p');intro.textContent=`取得済み：ワープ ${map.counts.waypoints}・七天神像 ${map.counts.statues}。座標は地図資料、各地点のゲーム場面は未制作。地域割当・別地図・期間限定地域は照合中。`;host.append(intro);
- const nav=document.createElement('div');nav.className='controls';
+ const intro=document.createElement('p');
+ intro.textContent=`公式地図で確認したワープ ${map.counts.waypoints}・七天神像 ${map.counts.statues}。ラボで遊べる試作は ${coverage.main_route_summary.authored_stages} 地点。`;
+ host.append(intro);
+ const nav=document.createElement('div');
+ nav.className='controls';
  for(const [label,key] of [['町（仮配置）','town'],['城外の狩場（仮配置）','field'],['依頼の討伐試験','arena'],['無相の風・2D試作','boss_anemo']]){
-  const b=document.createElement('button');b.textContent=label;b.onclick=()=>{action('campaign');action(key);b.blur()};nav.append(b);
+  const button=document.createElement('button');
+  button.textContent=label;
+  button.onclick=()=>{action('campaign');action(key);button.blur()};
+  nav.append(button);
  }
  host.append(nav);
- const note=document.createElement('p');note.textContent='上の4場面は操作できる試作です。下の座標図は制作対象の確認用で、クリックしても同じ狩場の使い回しには移動しません。';host.append(note);
- const controls=document.createElement('div');controls.className='controls';
- const filter=document.createElement('select');filter.setAttribute('aria-label','地点種別');for(const [n,v] of [['全地点','all'],['ワープ','waypoint'],['七天神像','statue']])filter.add(new Option(n,v));controls.append(filter);
- const search=document.createElement('input');search.placeholder='地点IDを検索';search.setAttribute('aria-label','地点IDを検索');controls.append(search);
- const zoom=document.createElement('input');zoom.type='range';zoom.min='1';zoom.max='4';zoom.step='.25';zoom.value='1';zoom.setAttribute('aria-label','地図拡大率');controls.append(zoom);host.append(controls);
- const selected=document.createElement('p');selected.id='selectedMapNode';selected.textContent='点を選ぶと元データのIDと座標を表示します。';host.append(selected);
- const viewport=document.createElement('div');viewport.style.cssText='overflow:auto;max-height:520px;background:#123036;border:1px solid #678578';
- const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');svg.setAttribute('viewBox','0 0 1000 850');svg.setAttribute('aria-label','取得したワープと神像の座標図');svg.style.display='block';svg.style.width='100%';svg.style.minWidth='600px';viewport.append(svg);host.append(viewport);
- const xs=map.nodes.map(n=>n.x),ys=map.nodes.map(n=>n.y),xmin=Math.min(...xs),xmax=Math.max(...xs),ymin=Math.min(...ys),ymax=Math.max(...ys);
- function draw(){svg.replaceChildren();const nodes=map.nodes.filter(n=>(filter.value==='all'||n.kind===filter.value)&&(!search.value||n.id.includes(search.value)));
-  for(const n of nodes){const point=document.createElementNS(ns,'circle');point.setAttribute('cx',30+(n.x-xmin)/(xmax-xmin)*940);point.setAttribute('cy',30+(n.y-ymin)/(ymax-ymin)*790);point.setAttribute('r',n.kind==='statue'?5:3);point.setAttribute('fill',n.kind==='statue'?'#f4cf74':'#8bd9cd');point.setAttribute('tabindex','0');point.setAttribute('role','button');point.setAttribute('aria-label',n.id);const title=document.createElementNS(ns,'title');title.textContent=n.id;point.append(title);const choose=()=>selected.textContent=`${n.id} ｜ ${n.kind==='statue'?'七天神像':'ワープ'} ｜ 原座標 ${n.x}, ${n.y} ｜ 地域・日本語名未割当／場面未制作`;point.onclick=choose;point.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose()}};svg.append(point)}
+ const note=document.createElement('p');
+ note.textContent='地図の点を選ぶと公式データのIDと座標を表示します。対応する2Dステージは地点ごとに制作予定です。';
+ host.append(note);
+
+ const controls=document.createElement('div');
+ controls.className='controls';
+ function select(label, items){
+  const field=document.createElement('select');
+  field.setAttribute('aria-label',label);
+  for(const [name,value] of items)field.add(new Option(name,value));
+  controls.append(field);
+  return field;
  }
- filter.onchange=search.oninput=draw;zoom.oninput=()=>svg.style.width=Number(zoom.value)*100+'%';draw();
- const plans=document.createElement('p');plans.textContent='地域別の制作対象：'+coverage.regions.map(r=>r.name).join(' ／ ');host.append(plans);
- const source=document.createElement('a');source.href=map.source;source.textContent=`座標データの出典（取得元記載 ${map.snapshot.gameVersion} / ${map.snapshot.fetchedAt.slice(0,10)}）`;source.target='_blank';source.rel='noopener';host.append(source);
+ const mapSelect=select('地図',map.maps.map(item=>[item.name,item.id]));
+ const region=select('地域',[]);
+ const filter=select('地点種別',[['全地点','all'],['ワープ','waypoint'],['七天神像','statue']]);
+ const search=document.createElement('input');
+ search.placeholder='地点IDを検索';
+ search.setAttribute('aria-label','地点IDを検索');
+ controls.append(search);
+ const zoom=document.createElement('input');
+ zoom.type='range';zoom.min='1';zoom.max='4';zoom.step='.25';zoom.value='1';
+ zoom.setAttribute('aria-label','地図拡大率');
+ controls.append(zoom);
+ host.append(controls);
+ const selected=document.createElement('p');
+ selected.id='selectedMapNode';
+ selected.setAttribute('role','status');
+ host.append(selected);
+ const viewport=document.createElement('div');
+ viewport.style.cssText='overflow:auto;max-height:520px;background:#123036;border:1px solid #678578';
+ const ns='http://www.w3.org/2000/svg', svg=document.createElementNS(ns,'svg');
+ svg.setAttribute('viewBox','0 0 1000 850');
+ svg.setAttribute('aria-label','取得したワープと神像の座標図');
+ svg.style.cssText='display:block;width:100%;min-width:600px';
+ viewport.append(svg);
+ host.append(viewport);
+ let nodes=[],bounds;
+ const typeName=node=>node.kind==='statue'?'七天神像':'ワープ';
+ function loadMap(){
+  const id=Number(mapSelect.value);
+  region.replaceChildren(new Option('全地域','all'));
+  for(const area of map.areas.filter(area=>area.map_id===id))region.add(new Option(area.name,area.id));
+  nodes=map.nodes.filter(node=>node.map_id===id);
+  const xs=nodes.map(n=>n.x),ys=nodes.map(n=>n.y);
+  bounds={xmin:Math.min(...xs),xmax:Math.max(...xs),ymin:Math.min(...ys),ymax:Math.max(...ys)};
+  draw();
+ }
+ function draw(){
+  svg.replaceChildren();
+  const query=search.value.trim().toLowerCase();
+  const shown=nodes.filter(node=>
+   (region.value==='all'||node.area_id===Number(region.value))&&
+   (filter.value==='all'||node.kind===filter.value)&&node.id.includes(query));
+  selected.textContent=shown.length?`${shown.length}地点。点を選択してください。`:
+   nodes.length?'この条件に合う地点はありません。':'現在の公式地図データに地点はありません。';
+  const {xmin,xmax,ymin,ymax}=bounds;
+  for(const node of shown){
+   const point=document.createElementNS(ns,'circle');
+   point.setAttribute('cx',30+(node.x-xmin)/Math.max(1,xmax-xmin)*940);
+   point.setAttribute('cy',30+(node.y-ymin)/Math.max(1,ymax-ymin)*790);
+   point.setAttribute('r',node.kind==='statue'?5:3);
+   point.setAttribute('fill',node.kind==='statue'?'#f4cf74':'#8bd9cd');
+   point.setAttribute('tabindex','0');
+   point.setAttribute('role','button');
+   point.setAttribute('aria-label',node.id);
+   const title=document.createElementNS(ns,'title');
+   title.textContent=`${node.region}・${typeName(node)} (${node.id})`;
+   point.append(title);
+   const choose=()=>{
+    const floor=node.point_group?` ｜ 公式の階層ID ${node.point_group.floor_id}`:'';
+    selected.textContent=`${node.id} ｜ ${node.region} ｜ ${typeName(node)} ｜ 原座標 ${node.x}, ${node.y}${floor}`;
+   };
+   point.onclick=choose;
+   point.onkeydown=event=>{
+    if(event.key==='Enter'||event.key===' '){event.preventDefault();choose()}
+   };
+   svg.append(point);
+  }
+ }
+ mapSelect.onchange=loadMap;
+ region.onchange=filter.onchange=search.oninput=draw;
+ zoom.oninput=()=>svg.style.width=Number(zoom.value)*100+'%';
+ loadMap();
+ const plans=document.createElement('p');
+ plans.textContent='企画資料の対象地域：'+coverage.regions.map(item=>item.name).join(' ／ ');
+ host.append(plans);
+ const source=document.createElement('a');
+ source.href=map.source;
+ source.textContent=`HoYoLABテイワットマップ（取得 ${map.captured_at.slice(0,10)}）`;
+ source.target='_blank';
+ source.rel='noopener';
+ host.append(source);
 }

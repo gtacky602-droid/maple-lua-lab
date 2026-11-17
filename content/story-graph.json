@@ -304,6 +304,10 @@
         {
           "to": "primo-approach",
           "x": 650
+        },
+        {
+          "to": "chasm-camp",
+          "x": 1380
         }
       ],
       "checkpoint": "liyue-harbor"
@@ -2056,6 +2060,95 @@
       "peaceful": true
     },
     {
+      "id": "chasm-camp",
+      "name": "層岩巨淵・地下の調査拠点",
+      "region": "層岩巨淵・地下鉱区",
+      "level": 20,
+      "hub": true,
+      "width": 1280,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1280
+        },
+        {
+          "x": 260,
+          "y": 389,
+          "w": 300
+        },
+        {
+          "x": 630,
+          "y": 358,
+          "w": 390
+        }
+      ],
+      "exits": [
+        {
+          "to": "liyue-field",
+          "x": 60
+        },
+        {
+          "to": "chasm-depth",
+          "x": 1220
+        }
+      ],
+      "checkpoint": "chasm-camp"
+    },
+    {
+      "id": "chasm-depth",
+      "name": "層岩巨淵・地下の坑道",
+      "region": "層岩巨淵・地下鉱区",
+      "level": 20,
+      "hub": false,
+      "width": 1920,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1920
+        },
+        {
+          "x": 155,
+          "y": 385,
+          "w": 305
+        },
+        {
+          "x": 410,
+          "y": 295,
+          "w": 280
+        },
+        {
+          "x": 650,
+          "y": 210,
+          "w": 260
+        },
+        {
+          "x": 935,
+          "y": 390,
+          "w": 350
+        },
+        {
+          "x": 1235,
+          "y": 300,
+          "w": 305
+        },
+        {
+          "x": 1500,
+          "y": 386,
+          "w": 290
+        }
+      ],
+      "exits": [
+        {
+          "to": "chasm-camp",
+          "x": 60
+        }
+      ],
+      "checkpoint": "chasm-camp",
+      "peaceful": true
+    },
+    {
       "id": "golden-hub",
       "name": "金リンゴ群島・入口広場",
       "region": "金リンゴ群島",
@@ -2947,6 +3040,16 @@
       "goal": 1,
       "xp": 6000,
       "mora": 700
+    },
+    {
+      "id": "chasm-survey",
+      "name": "地下の坑道を調べる",
+      "hub": "chasm-camp",
+      "target": "chasm-depth",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 1100,
+      "mora": 300
     },
     {
       "id": "golden-explore",

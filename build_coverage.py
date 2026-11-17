@@ -1,22 +1,72 @@
-from pathlib import Path
+"""Update the coverage ledger from the authored story graph and map catalog."""
 import json
-P=Path(__file__).resolve().parent
-regions=[]
-for i,(name,ally,element) in enumerate([('モンド','アンバー','風'),('璃月','北斗','岩'),('稲妻','神里綾華','雷'),('スメール','放浪者','草'),('フォンテーヌ','エミリエ','水'),('ナタ','カチーナ','炎'),('ナド・クライ','コロンビーナ','月'),('スネージナヤ','ミティヤ','氷・星')]):
- regions.append({'id':f'region-{i+1:02}','name':name,'kind':'main','selected_companion':ally,'unlock_level_draft':max(1,i*20),'unlock_system':element,'decision_source':'20261113-master §4/8; 20261116 amendment','waypoints_status':'not_imported','map_status':'not_implemented','quest_status':'not_implemented','draft_quest_budget':{'main':3,'side':5,'daily':3},'budget_status':'provisional; lightweight narrative; latest user authorizes implementation'})
-for i,name in enumerate(['ドラゴンスパイン','沈玉の谷','淵下宮','トゥニギの黒淵','往日の海','ドーンマンポート','オシカ・ナタ','ナド・クライ特別地域（名称未確定）','ノヴォキッチェヴ（構造未確定）']):
- regions.append({'id':f'branch-{i+1:02}','name':name,'kind':'high_level_branch','decision_source':'20261113-master §5, amended by 20261116 §78','map_status':'not_implemented','quest_status':'not_implemented'})
-for i,name in enumerate(['金リンゴ群島','ヴェルーリヤ・ミラージュ','シムランカ']):
- regions.append({'id':f'hidden-{i+1:02}','name':name,'kind':'hidden_world','decision_source':'20261113-master §6','map_status':'not_implemented','entry_conditions':'draft_required'})
-out={'version':1,'updated':'2026-11-16','goal_status':'active','scope_complete':False,'all_bosses_scope':'all normal + all weekly + original Stygian encounters; explicit user confirmation 2026-11-16','background_policy':{'production':'3D scene, outside Lua draw commands','lab':'host-rendered image and terrain proxies','character_logic':'Lua + 2D sprites'},'regions':regions,'special_content':[{'id':'ship','name':'花翼の集側→航海→ナド・クライ、途中下船でオシカ・ナタ','status':'not_implemented'},{'id':'abyss','name':'深境螺旋','status':'not_implemented'},{'id':'stygian','name':'幽境の激戦','status':'not_implemented','boss_candidates':['ファルカ','北斗','放浪者'],'candidate_status':'examples, not exhaustive final list'}],'boss_catalog':{'status':'researching','normal':[],'weekly':[],'warning':'Empty means not imported, not no bosses. Names alone do not count as implemented.'},'research':[{'url':'https://act.hoyolab.com/ys/app/interactive-map/index.html','status':'official page located; dynamic map content not extracted yet','checked':'2026-11-16'},{'url':'https://genshin-impact.fandom.com/wiki/Normal_Boss','status':'search result found; direct fetch restricted; not used as complete roster'},{'url':'https://genshin-impact.fandom.com/wiki/Weekly_Boss','status':'search result found; direct fetch restricted; not used as complete roster'}],'milestones':[{'id':'background','status':'implemented_local','acceptance':'host image and terrain, zero Lua scenery commands'},{'id':'mondstadt_vertical_slice','status':'provisional_local_trial','acceptance':'town -> field -> boss -> quest report with rewards'},{'id':'combat','status':'partial','acceptance':'60 traveler skills + 40 companion skills; timed hits; reactions; macros'},{'id':'progression','status':'partial_checkpoint_only','acceptance':'shared level, gear, targeted loot, save/load, nonduplicate rewards'},{'id':'world','status':'not_implemented','acceptance':'source-versioned node coverage, all region connections, hidden worlds, ship'},{'id':'bosses','status':'not_implemented','acceptance':'full roster and unique tested encounters, not renamed shared placeholder fights'},{'id':'quests','status':'not_implemented','acceptance':'all scoped accept/progress/report/reward flows'},{'id':'coop','status':'not_implemented','acceptance':'shared HP, individual loot, retries/reconnect offline tests; native separate'}]}
-catalog=P/'content/boss-catalog.json'
-if catalog.exists():
- data=json.loads(catalog.read_text(encoding='utf8'))
- out['boss_catalog']={'status':'entity_candidates_imported','catalog':'content/boss-catalog.json','entity_candidates':len(data['boss_entities']),'complete_roster_verified':False,'warning':data['warning']}
-map_catalog=P/'content/map-catalog.json'
-if map_catalog.exists():
- m=json.loads(map_catalog.read_text(encoding='utf8'))
- out['map_catalog']={'status':'snapshot_coordinates_imported','file':'content/map-catalog.json','counts':m['counts'],'complete_world_verified':False,'region_assignment':'pending','playable_at_imported_nodes':0}
-(P/'content').mkdir(exist_ok=True)
-(P/'content/coverage.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf8')
-print(f'{len(regions)} planned region groups; detailed nodes and boss roster remain incomplete')
+from collections import Counter
+from pathlib import Path
+
+CONTENT = Path(__file__).resolve().parent / 'content'
+
+
+def read(name):
+    return json.loads((CONTENT / name).read_text(encoding='utf8'))
+
+
+def rebuild():
+    coverage = read('coverage.json')
+    graph = read('story-graph.json')
+    maps = read('map-catalog.json')
+    counts_by_region = Counter((node['region'], node['kind']) for node in maps['nodes'])
+    aliases = {
+        'ナド・クライ特別地域（名称未確定）': 'ナド・クライ特別地域（仮）',
+        'ノヴォキッチェヴ（構造未確定）': 'ノヴォキッチェヴ（仮構造）',
+    }
+    stages_by_region = {}
+    for stage in graph['nodes']:
+        stages_by_region.setdefault(stage['region'], []).append(stage['id'])
+
+    reviewed_groups = []
+    for plan in coverage['regions']:
+        name = plan['name']
+        stages = stages_by_region.get(aliases.get(name, name), [])
+        quests = [q['id'] for q in graph['quests'] if q['hub'] in stages]
+        plan['prototype_stage_count'] = len(stages)
+        plan['prototype_quest_count'] = len(quests)
+        if plan['kind'] == 'main':
+            plan['waypoints_status'] = 'verified official interactive-map area IDs'
+            plan['official_map2_markers'] = {
+                'waypoints': counts_by_region[name, 'waypoint'], 'statues': counts_by_region[name, 'statue'],
+            }
+        reviewed_groups.append({'id': plan['id'], 'name': name, 'kind': plan['kind'],
+                                'stage_ids': stages, 'quest_ids': quests})
+
+    coverage['map_catalog'] = {
+        'status': 'official_interactive_map_markers_imported',
+        'file': 'content/map-catalog.json', 'counts': maps['counts'],
+        'complete_world_verified': False, 'region_assignment': 'official area IDs',
+        'playable_at_imported_nodes': 0,
+    }
+    coverage['updated'] = maps['captured_at'][:10]
+    coverage['main_route_summary'].update(authored_stages=len(graph['nodes']), provisional_quests=len(graph['quests']))
+    for milestone in coverage['milestones']:
+        if milestone['id'] in {'world', 'quests'}:
+            milestone['status'] = 'partial'
+
+    coverage['world_map_review'] = {
+        'basis': ['sources/20261113-master.md sections 4–6', 'sources/20261116-amendment.md sections 1, 7',
+                  'content/map-catalog.json', 'content/story-graph.json'],
+        'requested_groups': reviewed_groups,
+        'requested_groups_with_proxy_stage': sum(bool(group['stage_ids']) for group in reviewed_groups),
+        'other_map_layers': [
+            {'id': meta['id'], 'name': meta['name'], 'markers': meta['counts'],
+             'prototype_stage_ids': stages_by_region.get(meta['name'], [])}
+            for meta in maps['maps'] if meta['id'] != 2
+        ],
+        'natlan_voyage_stage_ids': ['natlan-port', 'natlan-voyage', 'ochkanatlan-dock', 'nod-port'],
+    }
+    stage_ids = {node['id'] for node in graph['nodes']}
+    assert set(coverage['world_map_review']['natlan_voyage_stage_ids']) <= stage_ids
+    (CONTENT / 'coverage.json').write_text(json.dumps(coverage, indent=2, ensure_ascii=False) + '\n', encoding='utf8')
+    print(f'{len(graph["nodes"])} authored stages, {len(graph["quests"])} prototype quests, {len(maps["nodes"])} official map markers')
+
+
+if __name__ == '__main__':
+    rebuild()

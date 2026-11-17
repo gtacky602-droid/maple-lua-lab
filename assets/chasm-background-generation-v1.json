@@ -1,0 +1,13 @@
+{
+  "prompt": "Wide 16:9 original atmospheric background for the underground mining area of a side-scrolling 2D pixel-sprite RPG lab, using the enclosed Chasm preview only as a lighting and geology reference. Vast lapis and charcoal cavern, towering blocks of sharply vertical and diagonally tilted strata, haze and a slim distant waterfall on right, an old timber mining trestle high in middle distance, ropes and two tiny warm amber oil lamps, muted bioluminescent indigo growth with just a few cyan crystalline highlights, quiet dark slate low-contrast lower third behind small pixel characters and collision ledges drawn separately. Original composition, hand-painted fantasy environment, muted blues and subtle ochre, lateral point of view, retain legibility. No text, logos, borders, people, creatures, UI, floating game platforms, or textural noise.",
+  "references": [
+    {
+      "publisher": "miHoYo / HoYoverse",
+      "source": "https://game8.jp/genshin/426218",
+      "image": "https://img.game8.jp/6537642/118152a84d33678b253216773f4d0246.jpeg/original",
+      "review": "Viewed official mine preview reproduced by Game8; used tilted stratum, underground waterfall, and blue/violet glow."
+    }
+  ],
+  "developerPreview": "https://blog.ja.playstation.com/?p=201248",
+  "status": "temporary host image; original layout; production 3D pending"
+}
