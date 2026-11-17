@@ -61,6 +61,40 @@ def rebuild():
         'complete_world_verified': False, 'region_assignment': 'official area IDs',
         'playable_at_imported_nodes': len(links), 'stage_links': links,
     }
+    manifest_path = 'docs/quest-v1/MANIFEST.json'
+    manifest = json.loads((CONTENT.parent / manifest_path).read_text(encoding='utf8'))
+    design_ids = {entry['id'] for entry in manifest['growth']}
+    for region in manifest['regions']:
+        for prefix, key in [('M', 'main'), ('S', 'side'), ('D', 'daily')]:
+            design_ids.update(f"Q-{region['code']}-{prefix}{number:02d}"
+                              for number in range(1, len(region[key])+1))
+    for prefix, key in [('B', 'branches'), ('H', 'hidden_worlds')]:
+        for group in manifest[key]:
+            group_number = group['id'].split('-')[-1]
+            design_ids.update(f"Q-{prefix}{group_number}-{number:02d}"
+                              for number in range(1, len(group['quests'])+1))
+    if len(design_ids) != manifest['counts']['total']:
+        raise ValueError('Quest design ID count does not match the index')
+    design_to_runtime = {}
+    for quest in graph['quests']:
+        design_id = quest.get('designId')
+        if not design_id:
+            continue
+        if design_id not in design_ids:
+            raise ValueError(f'Unknown quest design ID: {design_id}')
+        if design_id in design_to_runtime:
+            raise ValueError(f'Duplicate quest design mapping: {design_id}')
+        design_to_runtime[design_id] = quest['id']
+    design_count = len(design_ids)
+    coverage['quest_design_links'] = {
+        'basis': [manifest_path, 'content/story-graph.json'],
+        'design_entries': design_count,
+        'linked': len(design_to_runtime),
+        'without_explicit_mapping': design_count - len(design_to_runtime),
+        'runtime_id_by_design_id': dict(sorted(design_to_runtime.items())),
+        'scope': 'Explicit links to runtime quests only; no claim of completed or tested content.',
+    }
+
     coverage['updated'] = maps['captured_at'][:10]
     coverage['main_route_summary'].update(authored_stages=len(graph['nodes']), provisional_quests=len(graph['quests']))
     for milestone in coverage['milestones']:

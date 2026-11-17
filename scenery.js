@@ -1,5 +1,6 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ inazumatown:{file:'inazuma-castle-town-background-v1.png',zones:['story:inazuma-town'],note:'桜並木と港の夕方を描いた城下の仮背景'},
  seacave:{file:'inazuma-sea-cave-background-v1.png',zones:['story:inazuma-sea-cave'],note:'洞穴から夕暮れの海が見えるラボ仮背景'},
  shiomicape:{file:'inazuma-shiomi-cape-background-v1.png',zones:['story:inazuma-shiomi-cape'],note:'潮見の岬の夕景を描いたラボ仮背景'},
  toriiforest:{file:'inazuma-torii-forest-background-v1.png',zones:['story:inazuma-torii-footprints','story:inazuma-torii-statues','story:inazuma-torii-reflections','story:inazuma-torii-thicket'],note:'鎮守の森の色と鳥居を参照した共通の仮背景'},
@@ -45,7 +46,8 @@ export const backgroundReady=Promise.all([
 // Explicit prototype mappings; stale story state must not recolor unrelated lab fights.
 export function sceneryKey(frame){
  const zone=frame.campaign?.zone;
- for(const [key,definition] of Object.entries(sceneryDefinitions))if(definition.zones.includes(zone)||(frame.storyCleared&&definition.clearedZones?.includes(zone)))return key;
+ const location=zone==='town'&&frame.story?.active?'story:'+frame.story.node:zone;
+ for(const [key,definition] of Object.entries(sceneryDefinitions))if(definition.zones.includes(location)||(frame.storyCleared&&definition.clearedZones?.includes(location)))return key;
  if(frame.story?.active&&(zone==='town'||zone?.startsWith('story:'))){
   const node=frame.storyGraph?.nodes?.find(n=>n.id===frame.story.node);
   for(const [key,definition] of Object.entries(sceneryDefinitions))if(definition.region&&node?.region===definition.region)return key;
@@ -80,7 +82,7 @@ export function scenery(ctx,frame){
   ctx.drawImage(background,-offset,0,w,h);
  }else{ctx.fillStyle='#c5decc';ctx.fillRect(0,0,960,540)}
  // Lab-only terrain proxies. These will be 3D set dressing and colliders in the game.
- const inazuma=key==='inazuma'||key==='toriiforest'||key==='shiomicape';
+ const inazuma=key==='inazumatown'||key==='inazuma'||key==='toriiforest'||key==='shiomicape';
  const cave=['seacave','enkanomiya','nodspecial','novokichev','chasm'].includes(key);
  const camera=frame.camera||0,snow=key==='snezhnaya'||key==='dragonspine'||key==='wingspan';
  drawDecorations(ctx,frame,camera);

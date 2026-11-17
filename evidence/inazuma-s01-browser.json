@@ -1,0 +1,10 @@
+{
+  "browser": "Chrome",
+  "actual_controls": true,
+  "three_sights_and_rooftop_jump": true,
+  "bridge_and_notebook": true,
+  "dedicated_town_background": true,
+  "recruitment_starter_equipment_and_restore": true,
+  "viewport_390": true,
+  "errors": []
+}

@@ -4,6 +4,7 @@ export function questRouteText(f,q,status){
  const graph=f.storyGraph,nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  const activeCount=f.story.quests?.[q.id]?.count??0;
  let target=status==='active'?(q.kind==='boss'?graph.nodes.find(n=>n.challenge===q.target)?.id:q.target):q.hub;
+ if(status==='active'&&q.sights&&f.story.quests?.[q.id]&&!f.story.quests[q.id].sights)target=q.sights.legacyTarget;
  if(status==='active'&&q.contest&&activeCount===4)target=q.contest.cape;
  if(status==='active'&&q.forest)target=q.forest.rooms[activeCount]?.node??q.target;
  if(status==='active'&&q.lantern){

@@ -4746,15 +4746,36 @@
     },
     {
       "id": "ayaka-join",
-      "name": "綾華と海辺の安全を確かめる",
+      "designId": "Q-INA-S01",
+      "name": "絵図にない、ひとつの景色",
+      "giver": "綾華",
       "hub": "inazuma-port",
-      "target": "inazuma-road",
-      "kind": "kill",
+      "target": "inazuma-town",
+      "kind": "sights",
       "goal": 4,
       "xp": 2500,
       "mora": 200,
       "join": "ayaka",
-      "opensAfter": "inazuma-moving-lantern"
+      "opensAfter": "inazuma-moving-lantern",
+      "briefing": "綾華「城下を歩く楽しさも、案内絵図に載せたいのです。気になる場所を一緒に見て回りませんか？」",
+      "closing": "綾華「私は橋が気に入りました。またこうして、知らない町を一緒に歩いてみたいです。」",
+      "starter": {
+        "weapon": {"name": "綾華の初期刀", "atk": 1},
+        "flower": {"name": "綾華の入門の花", "hp": 10}
+      },
+      "sights": {
+        "legacyName": "綾華と海辺の安全を確かめる",
+        "legacyTarget": "inazuma-road",
+        "places": [
+          {"id": "sakura", "name": "桜並木", "x": 250, "y": 480,
+           "line": "綾華「桜の時期は、お店の軒先まで花びらが届くんです。」"},
+          {"id": "slope", "name": "海の坂", "x": 1090, "y": 480,
+           "line": "旅人「町を抜けると、荷船が戻ってくるのが見える。」"},
+          {"id": "rooftops", "name": "屋根越しの高台", "x": 570, "y": 340,
+           "line": "綾華「屋根はよく見えますが、港に降りる人の姿は隠れますね。」"}
+        ],
+        "bridge": {"id": "bridge", "name": "港を見渡す橋", "x": 790, "y": 480}
+      }
     },
     {
       "id": "inazuma-delivery",

@@ -144,14 +144,39 @@ function updateConstruction(view){
   row.append(button,detail);plans.append(row);
  }
 }
+let sightOptions='';
+function updateSights(f){
+ const message=f.storySightMessage??'';
+ const options=f.storySightChoices??[];
+ $('storySights').hidden=!(message||options.length);
+ const status=$('storySightMessage');
+ if(status.textContent!==message)status.textContent=message;
+ const key=JSON.stringify(options.map(({id,name})=>[id,name]));
+ if(key===sightOptions)return;
+ sightOptions=key;
+ const host=$('storySightChoices');
+ host.hidden=!options.length;
+ host.replaceChildren(...options.map(({id,name})=>{
+  const button=document.createElement('button');
+  button.type='button';button.textContent=name+'に印を付ける';
+  button.onclick=()=>actions.push('story_sight_mark:'+id);
+  return button;
+ }));
+}
 let lanternNote='';
-function updateLanternNote(note){
+function updateLanternNote(note,sight){
  const panel=$('storyLanternNotes');
- panel.hidden=!note;
+ panel.hidden=!(note||sight);
+ $('storyLanternEntry').hidden=!note;
+ const sightLabel=$('storySightNote');
+ const text=sight?`城下の案内絵図で「${sight.name}」に印を付けた。`:'';
+ sightLabel.hidden=!sight;
+ if(sightLabel.textContent!==text)sightLabel.textContent=text;
+ if(panel.hidden)panel.open=false;
  const signature=JSON.stringify(note??null);
  if(signature===lanternNote)return;
  lanternNote=signature;
- if(!note){panel.open=false;return}
+ if(!note)return;
  const canvas=$('storyLanternPicture'),pen=canvas.getContext('2d');
  canvas.setAttribute('aria-label',note.challenge?'海の大灯籠と勝負の絵':note.smile?'鳥居、大灯籠、海、狸の笑顔の絵':'鳥居、大灯籠、海の絵');
  $('storyLanternNoteText').textContent=note.challenge?'海の先の大灯籠に、向き合う二人が描き足された。狸からの勝負のお誘い。':
@@ -178,7 +203,8 @@ function hud(f,calls,renderMs){
  updateBook(f.storyBook);
  updateStone(f.storyStone);
  updateConstruction(f.storyConstruction);
- updateLanternNote(f.storyLanternNote);
+ updateSights(f);
+ updateLanternNote(f.storyLanternNote,f.storySightNote);
  const forest=$('storyForest');
  const observation=f.storyContest??f.storyForest;
  forest.hidden=!observation;
@@ -205,7 +231,7 @@ function hud(f,calls,renderMs){
  const book=f.storyNearbyBook;
  const stone=f.storyNearbyStone;
  const construction=f.storyNearbyConstruction;
- const interact=f.storyNearbyContest??f.storyNearbyForest??f.storyNearbyLantern??construction??stone??book;
+ const interact=f.storyNearbyContest??f.storyNearbyForest??f.storyNearbyLantern??f.storyNearbySight??construction??stone??book;
  $('nearbyCargo').hidden=!(interact||ingredient||cargo||clue);
  if(interact||ingredient||cargo||clue)$('nearbyCargoGo').textContent=interact?`G：${interact.label}`:ingredient?`G：${ingredient.name}を集める`:clue?'G：'+(clue.label??clue.name+'を調べる'):
   cargo.guarded?`${cargo.name} ｜ 先に魔物を退ける`:`G：${cargo.name}を回収`;

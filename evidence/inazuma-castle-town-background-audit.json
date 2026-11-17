@@ -1,0 +1,23 @@
+{
+  "method": "built-in imagegen",
+  "references": [
+    {
+      "file": "assets/inazuma-background-v1.png",
+      "view": "Cherry-blossom color, tiled roofs and layered Inazuma buildings",
+      "sha256": "c4c042b270ba222cc1caaf565416d804cec32f67913ce9b5932f3ebbd1bd4645"
+    },
+    {
+      "file": "assets/inazuma-shiomi-cape-background-v1.png",
+      "view": "Amber window lights and coastal reflections",
+      "sha256": "6486a85f1a12da295886e8c6a54a8f4f55d8d88aa608ed3b2382de19e40f8e87"
+    }
+  ],
+  "prompt": "Create a wide 16:9 side-scrolling pixel-art RPG background for a fictional walk through Inazuma's castle town, matching the two project reference images. Use the first for Narukami pink cherry blossoms, purple tile roofs and Inazuma building shapes, the second for amber window lights and reflected light on coastal water. A fresh composition viewed side-on from a little above a lively but unoccupied canal-side district at late afternoon: left dense pale pink cherry trees above the edges of wooden shop fronts, middle low purple roofs with warm amber windows and breathing space behind the playfield, right a wide view through the buildings to a softly lit harbor, two small docked sailboats and blue sea. A small distant wooden bridge over the canal, secondary to the waterfront. Lavender hills and pale clouds. Layered depth and clean stepped pixel color clusters. Keep the bottom third quiet dark plum-terracotta or slate, with no foreground bridges, rails, platforms, obstacles or decorative walkable lines. No figures, no text, no UI, no logos. Characters, signposts, rails and collision geometry will be drawn separately by the game. Landscape, edge to edge.",
+  "source": "assets/inazuma-castle-town-background-v1.png",
+  "scope": "Original town walk background for the prototype. In-game route and elevation are defined independently of the artwork.",
+  "sha256": "c7eed52f600c5e97526f743acff263ecc6726df4e4e6850fa8038702221b9341",
+  "size": [
+    1672,
+    941
+  ]
+}

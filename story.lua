@@ -1,15 +1,18 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
   local out={};for k,item in pairs(v) do out[k]=copy(item) end;return out
  end
- local nodes,quests,lanternQuest,contestQuest={},{},nil,nil
+ local nodes,quests,starterQuests={},{},{}
+ local lanternQuest,contestQuest,sightQuest
  for _,n in ipairs(data.nodes) do nodes[n.id]=n end
  for _,q in ipairs(data.quests) do
   quests[q.id]=q
   if q.lantern then lanternQuest=q end
   if q.contest then contestQuest=q end
+  if q.sights then sightQuest=q end
+  if q.join and q.starter then starterQuests[q.join]=q end
  end
  local function setup(s)
   if not s.story then s.story={active=false,node='mond-town',visited={['mond-town']=true},quests={}} end
@@ -18,6 +21,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local function completed(s,id)
   local state=s.story.quests[id]
   return state and state.status=='complete'
+ end
+ function C.starterEquipment(s,companion)
+  local q=starterQuests[companion]
+  if q and s.story and completed(s,q.id) then return q.starter end
  end
  local function meetsGateRule(s,rule)
   local state=s.story.quests[rule.quest]
@@ -131,7 +138,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  local function progress(s,kind,target,enemy)
   for id,state in pairs(s.story.quests) do local q=quests[id]
-   if state.status=='active' and q.kind==kind and q.target==target and state.count<q.goal
+   local legacySights=kind=='kill' and q.sights and not state.sights and target==q.sights.legacyTarget
+   local matches=(q.kind==kind and q.target==target) or legacySights
+   if state.status=='active' and matches and state.count<q.goal
     and (kind~='kill' or questKillCounts(q,state,enemy)) then
     state.count=state.count+1
     if state.count==q.goal and q.clearedNotice then s.storyNotice=q.clearedNotice end
@@ -179,6 +188,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.forestFeedback=nil
   s.contestReplay=nil
   s.contestFlash=nil
+  s.sightNotice=nil
+  s.sightMenu=nil
   s.storyDeliveryNotice=nil
   local railConfig,railState=railQuest(s,n)
   if railState and railState.count>=1 then s.platforms[#s.platforms+1]=copy(railConfig.rail.bridge) end
@@ -209,6 +220,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local railConfig,railState=railQuest(s,nodes[s.story.node])
    if railConfig then rail.start(s,railConfig,railState);return end
    if contestQuest and contest.interact(s,contestQuest,s.story.quests[contestQuest.id]) then return end
+   if sightQuest and sights.inspect(s,sightQuest,s.story.quests[sightQuest.id]) then return end
    for id,state in pairs(s.story.quests) do
     local q=quests[id]
     if q.cooking then
@@ -266,6 +278,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     beginChase(s,q)
     s.storyNotice='赤い布を引きずるヒルチャールを、街道の奥へ追いましょう。'
    else s.storyNotice=item.name..'を回収しました。' end
+   return
+  end
+  local favorite=key:match('^story_sight_mark:([%w%-]+)$')
+  if favorite then
+   if sightQuest then sights.mark(s,sightQuest,s.story.quests[sightQuest.id],favorite) end
    return
   end
   local puzzleId,tile=key:match('^story_stone_tile:([%w%-]+):([%w%-]+)$')
@@ -365,10 +382,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
                        cooking=q.cooking and cooking.new() or nil,book=q.book and {defeated={}} or nil,
                        stone=q.stone and {marked={},sequence=0} or nil,construction=q.construction and {surveyed={}} or nil,
                        lantern=q.lantern and {inspected={}} or nil,
-                       forest=q.forest and {looped=false,defeated={}} or nil}
+                       forest=q.forest and {looped=false,defeated={}} or nil,
+                       sights=q.sights and {seen={}} or nil}
    elseif report and state and state.status=='active' and state.count==q.goal then
     if q.cooking then state.cooking.meals=1 end
-    state.status='complete';state.cycles=(state.cycles or 0)+1;s.mora=s.mora+q.mora;C.grantExp(s,q.xp,'quest');s.storyNotice=q.closing or q.name..'：報酬を受け取りました。'
+    if state.sights then sights.report(s,q) end
+    state.status='complete';state.cycles=(state.cycles or 0)+1;s.mora=s.mora+q.mora;C.grantExp(s,q.xp,'quest')
+    if not state.sights then s.storyNotice=(not q.sights and q.closing) or (q.sights and q.sights.legacyName or q.name)..'：報酬を受け取りました。' end
+    if q.starter and s.companion==q.join then C.refreshArtifactStats(s,true) end
    end
    return
   end
@@ -510,6 +531,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     end
    end
    if contestQuest then contest.observe(s,f,markers,n,contestQuest,s.story.quests[contestQuest.id],mode,profile) end
+   if sightQuest then sights.observe(s,f,markers,sightQuest,s.story.quests[sightQuest.id],mode,profile) end
    local recoveryQuest=quests[n.clearedBy]
    local recoveryState=recoveryQuest and recoveryQuest.recovery and s.story.quests[recoveryQuest.id]
    if recoveryState and recoveryState.recovered and recoveryState.count==recoveryQuest.goal-1 and s.companion~='beidou' then
@@ -538,6 +560,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     enter(s,hub)
    end
   end
+  if C.starterEquipment(s,s.companion) then C.refreshArtifactStats(s,true) end
   return s
  end
 end

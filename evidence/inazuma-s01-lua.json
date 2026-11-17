@@ -1,0 +1,11 @@
+{
+  "opens_on_main_quest_accept": true,
+  "three_sites_and_upper_platform": true,
+  "bridge_choice_and_saved_favorite": true,
+  "no_remote_duplicate_or_paused_choice": true,
+  "one_time_report_reward": true,
+  "legacy_hunt_and_recruitment_saved": true,
+  "starter_stats_only_for_ayaka": true,
+  "equipped_flower_overrides_starter": true,
+  "starter_outside_bag_and_restored": true
+}

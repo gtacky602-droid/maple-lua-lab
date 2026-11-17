@@ -5,10 +5,23 @@ export function questStatus(q,state,quests,level=Infinity){
  if(state.status==='complete')return 'complete';
  return state.count>=q.goal?'ready':'active';
 }
+const questName=(q,state)=>q.sights&&state&&!state.sights?q.sights.legacyName:q.name;
 const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready:'報告待ち',complete:'完了'};
 export function questObjective(q,graph,state){
  const destination=graph.nodes.find(n=>q.kind==='boss'?n.challenge===q.target:n.id===q.target);
  const place=destination?.name||'目的地未登録';
+ if(q.sights){
+  if(state&&!state.sights){
+   const road=graph.nodes.find(node=>node.id===q.sights.legacyTarget)?.name;
+   if(state.status==='complete')return '海辺の巡回を終え、綾華が同行を申し出た';
+   return state.count===q.goal?'離島に戻り、綾華に報告する':`旧依頼：${road}で敵を${q.goal}体倒す`;
+  }
+  const places=[...q.sights.places,q.sights.bridge];
+  const favorite=places.find(place=>place.id===state?.sights?.favorite);
+  if(favorite)return state.status==='complete'?`みちくさ帳に「${favorite.name}」を記録した`:'離島の綾華に案内絵図を見せる';
+  if(state?.count===q.goal-1)return '城下の橋から港を眺め、絵図に好きな景色を記す';
+  return '城下で景色を調べる（残り：'+q.sights.places.filter(place=>!state?.sights?.seen[place.id]).map(place=>place.name).join('、')+'）';
+ }
  if(q.contest){
   if(state?.status==='complete')return '潮見の岬を見つけ、化け狸の親分と再戦できる';
   return ['洞穴で化け狸の親分に勝負を申し込む','千化け大灯籠の化け術の外殻を削る',
@@ -121,7 +134,7 @@ export function trackedQuestText(f,id){
  const st=f.story.quests[q.id],status=questStatus(q,st,f.story.quests,f.progression?.level??0),hub=f.storyGraph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
  const next=status==='locked'?prerequisiteText(q,f.storyGraph,f.progression?.level??0):status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph,st);
  const route=status==='locked'?'':questRouteText(f,q,status);
- return `${q.name} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''} ｜ ${next}`+(route?' ｜ '+route:'');
+ return `${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''} ｜ ${next}`+(route?' ｜ '+route:'');
 }
 function prerequisiteText(q,graph,level){
  if(q.level!==undefined&&level<q.level)return `Lv${q.level}で港に到着する`;
@@ -141,19 +154,20 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
   if(filter==='relevant'?q.hub!==story.node&&!st:filter!=='all'&&filter!==status)continue;
   shown++;const row=document.createElement('p');row.dataset.quest=q.id;row.dataset.status=status;
   const hub=graph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
-  row.textContent=`${q.name} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''}${q.repeatable?` ／ 報告${st?.cycles||0}回`:''}${q.join&&status==='complete'?(q.giver?`（${q.giver}加入済み）`:'（加入済み／初期装備は未実装）'):''} ｜ ${status==='locked'?prerequisiteText(q,graph,f.progression?.level??0):questObjective(q,graph,st)} ｜ 受注・報告：${hub} ｜ 仮報酬 ${q.xp}EXP / ${q.mora}モラ `;
+  row.textContent=`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''}${q.repeatable?` ／ 報告${st?.cycles||0}回`:''}${q.join&&status==='complete'?(q.giver?`（${q.giver}加入済み）`:'（加入済み／初期装備は未実装）'):''} ｜ ${status==='locked'?prerequisiteText(q,graph,f.progression?.level??0):questObjective(q,graph,st)} ｜ 受注・報告：${hub} ｜ 仮報酬 ${q.xp}EXP / ${q.mora}モラ `;
   if(status==='unaccepted'||(status==='complete'&&q.repeatable)){const b=button('受注','story_accept:'+q.id);b.disabled=q.hub!==story.node;b.title=b.disabled?`${hub}で受注してください`:'';row.append(b)}
   if(status==='ready'){const b=button('報告','story_report:'+q.id);b.disabled=q.hub!==story.node;b.title=b.disabled?`${hub}へ戻って報告してください`:'';row.append(b)}
-  if(status==='complete'&&q.recovery&&q.join){
+  if(status==='complete'&&q.join&&(q.recovery||q.sights)){
    const b=button(f.companion?.id===q.join?`${q.giver}が同行中`:`${q.giver}を同行に選ぶ`,'story_select_joined:'+q.id);
    b.disabled=!graph.nodes.find(n=>n.id===story.node)?.hub||f.companion?.id===q.join;
    row.append(b);
   }
   if(onTrack){const b=document.createElement('button');b.textContent=trackedId===q.id?'追跡を解除':'この依頼を追跡';b.setAttribute('aria-pressed',String(trackedId===q.id));b.onclick=()=>onTrack(trackedId===q.id?null:q.id);row.append(b)}
-  if(q.briefing&&(status==='unaccepted'||status==='complete')){
+  const dialogue=status==='unaccepted'?q.briefing:status==='complete'&&(!q.sights||st.sights)?q.closing:null;
+  if(dialogue){
    const line=document.createElement('small');
    line.style.display='block';
-   line.textContent=status==='complete'?q.closing:q.briefing;
+   line.textContent=dialogue;
    row.append(line);
   }
   if(q.note){const note=document.createElement('small');note.style.display='block';note.textContent=q.note;row.append(note)}

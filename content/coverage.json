@@ -1027,5 +1027,32 @@
       "ochkanatlan-dock",
       "nod-port"
     ]
+  },
+  "quest_design_links": {
+    "basis": [
+      "docs/quest-v1/MANIFEST.json",
+      "content/story-graph.json"
+    ],
+    "design_entries": 153,
+    "linked": 15,
+    "without_explicit_mapping": 138,
+    "runtime_id_by_design_id": {
+      "Q-INA-M01": "inazuma-moving-lantern",
+      "Q-INA-M02": "inazuma-torii-maze",
+      "Q-INA-M03": "inazuma-lantern-contest",
+      "Q-INA-S01": "ayaka-join",
+      "Q-LIY-M01": "liyue-market-delivery",
+      "Q-LIY-M02": "liyue-caravan-search",
+      "Q-LIY-M03": "liyue-market-opening",
+      "Q-LIY-S01": "beidou-join",
+      "Q-LIY-S02": "liyue-harbor-meal",
+      "Q-LIY-S03": "liyue-book-rescue",
+      "Q-LIY-S04": "liyue-stone-marks",
+      "Q-LIY-S05": "liyue-hauling-shortcut",
+      "Q-MON-M01": "amber-join",
+      "Q-MON-M02": "mond-old-trail",
+      "Q-MON-M03": "mond-watchtower-clear"
+    },
+    "scope": "Explicit links to runtime quests only; no claim of completed or tested content."
   }
 }

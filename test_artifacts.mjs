@@ -2,7 +2,7 @@ import {chromium} from 'playwright';import fs from 'node:fs/promises';
 const browser=await chromium.launch({headless:true,channel:'chrome'}),page=await browser.newPage(),errors=[];
 page.on('pageerror',e=>errors.push(e.message));
 try{
- await page.goto('http://127.0.0.1:8769');await page.waitForFunction(()=>window.lab?.frame);
+ await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769');await page.waitForFunction(()=>window.lab?.frame);
  await page.locator('[data-action="campaign"]').click();await page.waitForFunction(()=>window.lab.frame.campaign?.zone==='town');
  await page.getByText('聖遺物バッグ・5部位装備',{exact:true}).click();
  await page.locator('[data-action="artifact_samples"]').click();await page.waitForFunction(()=>window.lab.frame.inventory.items.length===5);

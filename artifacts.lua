@@ -25,21 +25,29 @@ return function(C)
   if item.slot<=2 then return math.floor(base*factor+.5) end
   return math.floor(base*factor*100+.5)/100
  end
- local function apply(s)
+ function C.refreshArtifactStats(s,keepHp)
   setup(s)
+  local starter=C.starterEquipment and C.starterEquipment(s,s.companion)
   for i,a in ipairs(s.actors) do
    local hp,atk,pct,element,crit,rate=0,0,0,0,0,0
    local sets={gladiator=0,troupe=0};local hpPct=0
+   local hasFlower=false
    for _,item in ipairs(s.inventory.items) do if item.owner==i then
     local v=C.artifactStats(item)
-    if item.slot==1 then hp=hp+v elseif item.slot==2 then atk=atk+v elseif item.slot==3 then pct=pct+v elseif item.slot==4 then element=element+v elseif item.slot==5 then crit=crit+v end
+    if item.slot==1 then hp=hp+v;hasFlower=true elseif item.slot==2 then atk=atk+v elseif item.slot==3 then pct=pct+v elseif item.slot==4 then element=element+v elseif item.slot==5 then crit=crit+v end
     if item.setId then sets[item.setId]=sets[item.setId]+1 end
     if item.subpair=='atk_crit' then pct=pct+8;rate=rate+4 elseif item.subpair=='hp_crit' then hpPct=hpPct+8;rate=rate+4 end
    end end
    if sets.gladiator>=2 then pct=pct+12 end
    a.normalBonus=sets.gladiator>=4 and .2 or 0;a.skillBonus=sets.troupe>=2 and .12 or 0;a.troupe4=sets.troupe>=4
    a.critRate=math.min(1,rate/100);a.setCounts=sets
-   local old=a.maxhp;a.maxhp=math.floor((140+hp)*(1+hpPct/100));a.hp=math.min(a.maxhp,math.floor(a.hp/old*a.maxhp))
+   if i==2 and starter then
+    atk=atk+starter.weapon.atk
+    if not hasFlower then hp=hp+starter.flower.hp end
+   end
+   local old=a.maxhp
+   a.maxhp=math.floor((140+hp)*(1+hpPct/100))
+   a.hp=math.min(a.maxhp,keepHp and a.hp or math.floor(a.hp/old*a.maxhp))
    a.atk=math.floor(((i==1 and 4 or 3)+atk)*(1+pct/100));a.elementBonus=element/100;a.critDamageBonus=crit/100
   end
  end
@@ -108,8 +116,8 @@ return function(C)
    for index,item in ipairs(bag.items) do if item.id==tonumber(id) then
     if command=='equip' then
      for _,other in ipairs(bag.items) do if other.owner==s.active and other.slot==item.slot then other.owner=0 end end
-     item.owner=s.active;bag.message='操作中キャラに装備しました。';apply(s)
-    elseif command=='remove' then item.owner=0;apply(s)
+     item.owner=s.active;bag.message='操作中キャラに装備しました。';C.refreshArtifactStats(s)
+    elseif command=='remove' then item.owner=0;C.refreshArtifactStats(s)
     elseif command=='lock' then item.locked=not item.locked
     elseif command=='sell' then
      if item.owner~=0 or item.locked then bag.message='装備中・ロック中の品は売却できません。'
@@ -118,7 +126,7 @@ return function(C)
      local next=item.enhance+4;local cost=next*200*item.rarity^2
      if next>caps[item.rarity] then bag.message='通常強化の上限です。'
      elseif s.mora<cost then bag.message='強化には'..cost..'モラ必要です。'
-     else s.mora=s.mora-math.floor(cost);item.enhance=next;apply(s);bag.message='+4強化しました。' end
+     else s.mora=s.mora-math.floor(cost);item.enhance=next;C.refreshArtifactStats(s);bag.message='+4強化しました。' end
     end
     return
    end end
@@ -143,6 +151,14 @@ return function(C)
  end
  function C.frame(s,mode,profile)
   setup(s);local f=frame(s,mode,profile);f.inventory=s.inventory
+  local starter=C.starterEquipment and C.starterEquipment(s,s.companion)
+  if starter then
+   local useFlower=true
+   for _,item in ipairs(s.inventory.items) do
+    if item.owner==2 and item.slot==1 then useFlower=false;break end
+   end
+   f.starterEquipment={weapon=starter.weapon,flower=starter.flower,useFlower=useFlower}
+  end
   for _,d in ipairs(s.inventory.ground) do if s.campaign and d.zone==s.campaign.zone then
    f.draws[#f.draws+1]={kind='rect',x=d.x-s.camera-7,y=d.y-16,w=14,h=14,color=d.item.rarity==5 and '#ffd46b' or d.item.rarity==4 and '#c597fa' or '#87c9ff'}
   end end
@@ -153,7 +169,7 @@ return function(C)
  end
  function C.restore(d,density)
   local s=restore(d,density);setup(s)
-  if d.inventory then s.inventory=d.inventory;setup(s);apply(s) end
+  if d.inventory then s.inventory=d.inventory;C.refreshArtifactStats(s) end
   return s
  end
 end
