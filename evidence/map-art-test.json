@@ -170,6 +170,36 @@
       "backgroundState": "ready"
     },
     {
+      "id": "inazuma-torii-footprints",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "inazuma-torii-statues",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "inazuma-torii-reflections",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "inazuma-torii-thicket",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "inazuma-forest-shore",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "sumeru-entry",
       "count": 0,
       "fallback": false,

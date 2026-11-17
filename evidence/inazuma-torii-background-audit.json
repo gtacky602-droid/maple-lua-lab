@@ -1,0 +1,27 @@
+{
+  "references": [
+    {
+      "page": "https://gamerch.com/genshinwiki/847869",
+      "image": "https://cdn.gamerch.com/contents/wiki/4268/entry/spO7X9ou.png",
+      "view": "Red torii and warm stone lanterns in a dark grove",
+      "viewed_and_supplied": true,
+      "sha256": "954c939d8a5f90e48db507d25461918d921ec347f5971c5e925f7fc49f2f7649"
+    },
+    {
+      "page": "https://www.hoyolab.com/article/15209680",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/01/16/145585797/476f62f9a1f3706a52d34650247d9fd8_8781971357212830648.png",
+      "view": "Water, blue flowers and the layered forest",
+      "viewed_and_supplied": true,
+      "sha256": "75510de879e8f5b7218de0f1c84da7891391377fe5bb1d44ad6b863dca73c1fe"
+    }
+  ],
+  "method": "built-in imagegen",
+  "prompt": "Generate an original wide 16:9 parallax backdrop for a classic Japanese pixel-art sidescroller, taking environmental cues from exactly these two reference in-game screenshots of Genshin's nighttime Chinju Forest. Use the references for cool cerulean bioluminescent flowers among dark huge trunks, mist, softly reflected moonlight in a shallow creek, and vermilion torii. Make a fresh flat side-on composition with a single large weathered red torii centered in the distant midground, distant softly lit small stone lanterns way behind the player in warm pale amber, layers of indigo forest, mottled cyan creek and moss, magical uncanny but inviting mood. It will be the identical base background for three trick rooms, so no readable gameplay clues: no characters, no animals, no footprints, no foreground statues, no movable objects, no floating paths, no HUD, no text, no logos or icons. Keep the foreground from y=70% to bottom quietly dark teal with smooth subdued hues for pixel sprites and rectangular clues to stand out, and let the visible real gameplay floor be authored separately. Crisp pixel clusters in the scenery, painterly color layering only through stepped color, a clear middle band and top canopy. Landscape image, filled edge to edge.",
+  "source": "assets/inazuma-torii-forest-background-v1.png",
+  "sha256": "4691a33089acef67f83553b17c2e3889443a5a3b1593cade47f29458c72c3741",
+  "size": [
+    1672,
+    941
+  ],
+  "scope": "Shared original lab image for the three trick clearings and thicket. No claim of canonical terrain or 3D deployment."
+}

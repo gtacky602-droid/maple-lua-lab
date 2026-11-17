@@ -253,12 +253,12 @@
     {
       "node": "inazuma-town",
       "mode": "sprite",
-      "visible_portals": 4
+      "visible_portals": 5
     },
     {
       "node": "inazuma-town",
       "mode": "rect",
-      "visible_portals": 4
+      "visible_portals": 5
     },
     {
       "node": "inazuma-lantern-trail",
@@ -273,10 +273,60 @@
     {
       "node": "inazuma-lantern-clearing",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "inazuma-lantern-clearing",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "inazuma-torii-footprints",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-torii-footprints",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-torii-statues",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-torii-statues",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-torii-reflections",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-torii-reflections",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-torii-thicket",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-torii-thicket",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-forest-shore",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-forest-shore",
       "mode": "rect",
       "visible_portals": 2
     },

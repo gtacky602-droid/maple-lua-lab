@@ -9,6 +9,14 @@ const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready
 export function questObjective(q,graph,state){
  const destination=graph.nodes.find(n=>q.kind==='boss'?n.challenge===q.target:n.id===q.target);
  const place=destination?.name||'目的地未登録';
+ if(q.forest){
+  if(state?.status==='complete')return '大灯籠と勝負の絵をみちくさ帳に収めた';
+  const count=state?.count??0;
+  if(!count)return state?.forest?.looped?'木の実のそばの足跡を見比べる':'三つ灯籠の広場の奥で鳥居をくぐる';
+  return ['','上下に動く石像を探す','水面に映る姿を見比べる',
+   '森の奥に入り込んだ魔物を退ける','化け狸に話しかけ、絵を受け取る',
+   '海岸の近道から戻り、離島の綾華に絵を見せる'][count];
+ }
  if(q.lantern){
   if(state?.status==='complete')return '狸の招待状を稲妻みちくさ帳に収めた';
   const count=state?.count??0;

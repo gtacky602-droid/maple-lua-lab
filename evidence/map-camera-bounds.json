@@ -141,6 +141,31 @@
       "rightCamera": 360
     },
     {
+      "node": "inazuma-torii-footprints",
+      "width": 1320,
+      "rightCamera": 360
+    },
+    {
+      "node": "inazuma-torii-statues",
+      "width": 1320,
+      "rightCamera": 360
+    },
+    {
+      "node": "inazuma-torii-reflections",
+      "width": 1320,
+      "rightCamera": 360
+    },
+    {
+      "node": "inazuma-torii-thicket",
+      "width": 1600,
+      "rightCamera": 640
+    },
+    {
+      "node": "inazuma-forest-shore",
+      "width": 1320,
+      "rightCamera": 360
+    },
+    {
       "node": "sumeru-entry",
       "width": 1440,
       "rightCamera": 480

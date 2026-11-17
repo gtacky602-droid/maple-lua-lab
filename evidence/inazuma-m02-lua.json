@@ -1,0 +1,14 @@
+{
+  "requires_M01": true,
+  "first_loop_once_even_after_restore": true,
+  "exit_always_available": true,
+  "optional_hint_and_three_two_choice_rooms": true,
+  "wrong_choices_do_not_reset": true,
+  "partial_combat_save_and_cleared_revisit": true,
+  "bidirectional_shore_shortcut": true,
+  "challenge_note_persists": true,
+  "one_time_reward": {
+    "xp": 3400,
+    "mora": 440
+  }
+}

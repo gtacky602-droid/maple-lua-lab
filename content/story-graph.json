@@ -1213,6 +1213,11 @@
           "requires": {"quest": "inazuma-moving-lantern", "count": 1}
         },
         {
+          "to": "inazuma-forest-shore",
+          "x": 940,
+          "requires": {"quest": "inazuma-torii-maze", "count": 5}
+        },
+        {
           "to": "inazuma-lantern-clearing",
           "x": 1080,
           "requires": {"quest": "inazuma-moving-lantern", "count": 6}
@@ -1259,8 +1264,74 @@
       ],
       "exits": [
         {"to": "inazuma-lantern-trail", "x": 65},
+        {"to": "inazuma-torii-footprints", "x": 1020,
+         "requires": {"quest": "inazuma-torii-maze", "count": 0}},
         {"to": "inazuma-town", "x": 1245,
          "requires": {"quest": "inazuma-moving-lantern", "count": 6}}
+      ]
+    },
+    {
+      "id": "inazuma-torii-footprints",
+      "name": "稲妻・迷い鳥居の広場",
+      "region": "稲妻", "level": 40, "hub": false, "peaceful": true,
+      "width": 1320, "checkpoint": "inazuma-port",
+      "platforms": [{"x": 0, "y": 480, "w": 1320}, {"x": 440, "y": 392, "w": 340}],
+      "exits": [
+        {"to": "inazuma-lantern-clearing", "x": 65},
+        {"to": "inazuma-torii-statues", "x": 1250, "loopOnce": true,
+         "requires": {"quest": "inazuma-torii-maze", "count": 1}}
+      ]
+    },
+    {
+      "id": "inazuma-torii-statues",
+      "name": "稲妻・迷い鳥居の広場",
+      "region": "稲妻", "level": 40, "hub": false, "peaceful": true,
+      "width": 1320, "checkpoint": "inazuma-port",
+      "platforms": [{"x": 0, "y": 480, "w": 1320}, {"x": 440, "y": 392, "w": 340}],
+      "exits": [
+        {"to": "inazuma-torii-footprints", "x": 65},
+        {"to": "inazuma-torii-reflections", "x": 1250,
+         "requires": {"quest": "inazuma-torii-maze", "count": 2}}
+      ]
+    },
+    {
+      "id": "inazuma-torii-reflections",
+      "name": "稲妻・迷い鳥居の広場",
+      "region": "稲妻", "level": 40, "hub": false, "peaceful": true,
+      "width": 1320, "checkpoint": "inazuma-port",
+      "platforms": [{"x": 0, "y": 480, "w": 1320}, {"x": 440, "y": 392, "w": 340}],
+      "exits": [
+        {"to": "inazuma-torii-statues", "x": 65},
+        {"to": "inazuma-torii-thicket", "x": 1250,
+         "requires": {"quest": "inazuma-torii-maze", "count": 3}}
+      ]
+    },
+    {
+      "id": "inazuma-torii-thicket",
+      "name": "稲妻・鳥居の森の奥",
+      "region": "稲妻", "level": 40, "hub": false,
+      "width": 1600, "checkpoint": "inazuma-port",
+      "platforms": [
+        {"x": 0, "y": 480, "w": 1600}, {"x": 440, "y": 392, "w": 350},
+        {"x": 930, "y": 388, "w": 470}
+      ],
+      "exits": [
+        {"to": "inazuma-torii-reflections", "x": 65},
+        {"to": "inazuma-forest-shore", "x": 1535,
+         "requires": {"quest": "inazuma-torii-maze", "count": 5}}
+      ],
+      "clearedBy": "inazuma-torii-maze",
+      "clearCount": 4
+    },
+    {
+      "id": "inazuma-forest-shore",
+      "name": "稲妻・森を抜けた海岸",
+      "region": "稲妻", "level": 40, "hub": false, "peaceful": true,
+      "width": 1320, "checkpoint": "inazuma-port",
+      "platforms": [{"x": 0, "y": 480, "w": 1320}, {"x": 440, "y": 392, "w": 340}],
+      "exits": [
+        {"to": "inazuma-torii-thicket", "x": 65},
+        {"to": "inazuma-town", "x": 1250}
       ]
     },
     {
@@ -4599,6 +4670,33 @@
           {"id": "right-lantern", "name": "右の灯籠", "x": 920, "y": 480}
         ],
         "guest": {"id": "tanuki-invitation", "x": 680, "y": 480}
+      }
+    },
+    {
+      "id": "inazuma-torii-maze",
+      "designId": "Q-INA-M02",
+      "name": "くぐって、戻って、もう一度？",
+      "giver": "綾華",
+      "requires": "inazuma-moving-lantern",
+      "hub": "inazuma-port",
+      "target": "inazuma-torii-thicket",
+      "kind": "forest",
+      "goal": 5,
+      "xp": 3400,
+      "mora": 440,
+      "briefing": "綾華「みちくさ帳にあった鳥居は、三つ灯籠の広場の奥です。絵の続きが見つかるかもしれません。」",
+      "closing": "綾華「海の先に大灯籠。それに、この絵は勝負のお誘いでしょうか。今度はこちらから会いに行きましょう。」",
+      "forest": {
+        "rooms": [
+          {"node": "inazuma-torii-footprints", "kind": "prints", "answer": 1, "name": "岩のそば",
+           "hint": "木の実の皿の近くに、小さな足跡がないか見てみましょう。"},
+          {"node": "inazuma-torii-statues", "kind": "statue", "answer": 2, "name": "石像",
+           "hint": "石像の下の影から、足が浮いていないか見てください。"},
+          {"node": "inazuma-torii-reflections", "kind": "water", "answer": 1, "name": "水たまり",
+           "hint": "水辺の上と、水面に映った姿を見比べてください。"}
+        ],
+        "guards": ["inazuma-thicket-1", "inazuma-thicket-2", "inazuma-thicket-3"],
+        "guest": {"x": 1280, "y": 480}
       }
     },
     {

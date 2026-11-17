@@ -113,6 +113,26 @@
       "enemy_count": 0
     },
     {
+      "node": "inazuma-torii-footprints",
+      "enemy_count": 0
+    },
+    {
+      "node": "inazuma-torii-statues",
+      "enemy_count": 0
+    },
+    {
+      "node": "inazuma-torii-reflections",
+      "enemy_count": 0
+    },
+    {
+      "node": "inazuma-torii-thicket",
+      "enemy_count": 3
+    },
+    {
+      "node": "inazuma-forest-shore",
+      "enemy_count": 0
+    },
+    {
       "node": "sumeru-entry",
       "enemy_count": 6
     },

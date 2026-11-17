@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 97 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 95,
+  "scope": "Authored 102 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 100,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -170,6 +170,36 @@
       {
         "id": "inazuma-lantern-clearing",
         "name": "稲妻・三つ灯籠の広場",
+        "region": "稲妻",
+        "status": "regional_temporary_image"
+      },
+      {
+        "id": "inazuma-torii-footprints",
+        "name": "稲妻・迷い鳥居の広場",
+        "region": "稲妻",
+        "status": "regional_temporary_image"
+      },
+      {
+        "id": "inazuma-torii-statues",
+        "name": "稲妻・迷い鳥居の広場",
+        "region": "稲妻",
+        "status": "regional_temporary_image"
+      },
+      {
+        "id": "inazuma-torii-reflections",
+        "name": "稲妻・迷い鳥居の広場",
+        "region": "稲妻",
+        "status": "regional_temporary_image"
+      },
+      {
+        "id": "inazuma-torii-thicket",
+        "name": "稲妻・鳥居の森の奥",
+        "region": "稲妻",
+        "status": "regional_temporary_image"
+      },
+      {
+        "id": "inazuma-forest-shore",
+        "name": "稲妻・森を抜けた海岸",
         "region": "稲妻",
         "status": "regional_temporary_image"
       },

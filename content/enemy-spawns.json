@@ -243,6 +243,11 @@
       {"id": "inazuma-lantern-trail-3", "kind": 1, "art": "nobushi", "x": 1230, "platform": 0},
       {"id": "inazuma-lantern-trail-4", "kind": 1, "art": "hydro-slime", "x": 1325, "platform": 3}
     ],
+    "inazuma-torii-thicket": [
+      {"id": "inazuma-thicket-1", "kind": 1, "art": "hilichurl", "x": 420, "platform": 0, "hp": 20},
+      {"id": "inazuma-thicket-2", "kind": 2, "art": "pyro-slime", "x": 785, "platform": 0, "hp": 22},
+      {"id": "inazuma-thicket-3", "kind": 1, "art": "hilichurl", "x": 1130, "platform": 0, "hp": 24}
+    ],
     "sumeru-entry": [
       {
         "id": "sumeru-entry-1",

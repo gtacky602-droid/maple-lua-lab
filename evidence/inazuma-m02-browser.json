@@ -1,0 +1,11 @@
+{
+  "browser": "Chrome",
+  "actual_controls": true,
+  "one_time_return": true,
+  "three_clues_and_retry": true,
+  "forest_combat_and_guest": true,
+  "port_report_and_restore": true,
+  "coastal_shortcut": true,
+  "viewport_390": true,
+  "errors": []
+}

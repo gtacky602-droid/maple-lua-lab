@@ -153,8 +153,9 @@ function updateLanternNote(note){
  lanternNote=signature;
  if(!note){panel.open=false;return}
  const canvas=$('storyLanternPicture'),pen=canvas.getContext('2d');
- canvas.setAttribute('aria-label',note.smile?'鳥居、大灯籠、海、狸の笑顔の絵':'鳥居、大灯籠、海の絵');
- $('storyLanternNoteText').textContent=note.smile?'鳥居、大灯籠、海。狸が招待状に笑顔を描き足した。':'鳥居、大灯籠、海。化け狸が渡してくれた絵。';
+ canvas.setAttribute('aria-label',note.challenge?'海の大灯籠と勝負の絵':note.smile?'鳥居、大灯籠、海、狸の笑顔の絵':'鳥居、大灯籠、海の絵');
+ $('storyLanternNoteText').textContent=note.challenge?'海の先の大灯籠に、向き合う二人が描き足された。狸からの勝負のお誘い。':
+  note.smile?'鳥居、大灯籠、海。狸が招待状に笑顔を描き足した。':'鳥居、大灯籠、海。化け狸が渡してくれた絵。';
  pen.fillStyle='#e9dab4';pen.fillRect(0,0,180,64);
  pen.fillStyle='#a25245';
  pen.fillRect(14,15,40,5);pen.fillRect(18,26,32,3);pen.fillRect(22,20,5,29);pen.fillRect(41,20,5,29);
@@ -165,6 +166,11 @@ function updateLanternNote(note){
   pen.fillStyle='#765b44';pen.fillRect(160,12,3,3);pen.fillRect(169,12,3,3);
   pen.fillRect(160,19,3,2);pen.fillRect(163,21,6,2);pen.fillRect(169,19,3,2);
  }
+ if(note.challenge){
+  pen.fillStyle='#a4664e';pen.fillRect(63,46,5,9);pen.fillRect(110,46,5,9);
+  pen.fillRect(62,42,6,5);pen.fillRect(110,42,6,5);
+  pen.fillStyle='#8b735a';pen.fillRect(77,52,22,2);
+ }
 }
 function hud(f,calls,renderMs){
  updateDelivery(f);
@@ -173,6 +179,9 @@ function hud(f,calls,renderMs){
  updateStone(f.storyStone);
  updateConstruction(f.storyConstruction);
  updateLanternNote(f.storyLanternNote);
+ const forest=$('storyForest');
+ forest.hidden=!f.storyForest;
+ if(f.storyForest&&forest.textContent!==f.storyForest.message)forest.textContent=f.storyForest.message;
  const lift=f.storyLift;
  const rail=f.storyRailTransit;
  const market=$('storyMarket');
@@ -195,7 +204,7 @@ function hud(f,calls,renderMs){
  const book=f.storyNearbyBook;
  const stone=f.storyNearbyStone;
  const construction=f.storyNearbyConstruction;
- const interact=f.storyNearbyLantern??construction??stone??book;
+ const interact=f.storyNearbyForest??f.storyNearbyLantern??construction??stone??book;
  $('nearbyCargo').hidden=!(interact||ingredient||cargo||clue);
  if(interact||ingredient||cargo||clue)$('nearbyCargoGo').textContent=interact?`G：${interact.label}`:ingredient?`G：${ingredient.name}を集める`:clue?'G：'+(clue.label??clue.name+'を調べる'):
   cargo.guarded?`${cargo.name} ｜ 先に魔物を退ける`:`G：${cargo.name}を回収`;

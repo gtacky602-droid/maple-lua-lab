@@ -342,6 +342,10 @@
     },
     {
       "node": "inazuma-town",
+      "to": "inazuma-forest-shore"
+    },
+    {
+      "node": "inazuma-town",
       "to": "inazuma-lantern-clearing"
     },
     {
@@ -362,6 +366,50 @@
     },
     {
       "node": "inazuma-lantern-clearing",
+      "to": "inazuma-torii-footprints"
+    },
+    {
+      "node": "inazuma-lantern-clearing",
+      "to": "inazuma-town"
+    },
+    {
+      "node": "inazuma-torii-footprints",
+      "to": "inazuma-lantern-clearing"
+    },
+    {
+      "node": "inazuma-torii-footprints",
+      "to": "inazuma-torii-statues"
+    },
+    {
+      "node": "inazuma-torii-statues",
+      "to": "inazuma-torii-footprints"
+    },
+    {
+      "node": "inazuma-torii-statues",
+      "to": "inazuma-torii-reflections"
+    },
+    {
+      "node": "inazuma-torii-reflections",
+      "to": "inazuma-torii-statues"
+    },
+    {
+      "node": "inazuma-torii-reflections",
+      "to": "inazuma-torii-thicket"
+    },
+    {
+      "node": "inazuma-torii-thicket",
+      "to": "inazuma-torii-reflections"
+    },
+    {
+      "node": "inazuma-torii-thicket",
+      "to": "inazuma-forest-shore"
+    },
+    {
+      "node": "inazuma-forest-shore",
+      "to": "inazuma-torii-thicket"
+    },
+    {
+      "node": "inazuma-forest-shore",
       "to": "inazuma-town"
     },
     {

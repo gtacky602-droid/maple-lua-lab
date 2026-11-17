@@ -3,6 +3,7 @@ export function questRouteText(f,q,status){
  if(!f.story?.active||!q||f.storyLift||(status==='complete'&&!q.repeatable))return '';
  const graph=f.storyGraph,nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  let target=status==='active'?(q.kind==='boss'?graph.nodes.find(n=>n.challenge===q.target)?.id:q.target):q.hub;
+ if(status==='active'&&q.forest)target=q.forest.rooms[f.story.quests[q.id]?.count??0]?.node??q.target;
  if(status==='active'&&q.lantern){
   const count=f.story.quests[q.id]?.count??0;
   if(count===0)target=q.hub;

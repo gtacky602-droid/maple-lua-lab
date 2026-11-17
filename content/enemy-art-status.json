@@ -13,6 +13,7 @@
     "liyue-book-camp",
     "inazuma-road",
     "inazuma-lantern-trail",
+    "inazuma-torii-thicket",
     "sumeru-entry",
     "sumeru-field",
     "fontaine-entry",
@@ -46,7 +47,7 @@
     "liyue-quarry-storage",
     "liyue-quarry-post"
   ],
-  "current_story_assignment": "40 hostile nodes, 248 authored placements including phase-specific entries; art selection is provisional; numeric kind retains existing mechanics.",
+  "current_story_assignment": "41 hostile nodes, 251 authored placements including phase-specific entries; art selection is provisional; numeric kind retains existing mechanics.",
   "assets": [
     {
       "id": "hydro-slime",
@@ -136,7 +137,7 @@
   "placement_preview": {
     "page": "map-art.html",
     "draft": "content/enemy-placement-drafts.json",
-    "scope": "97 authored proxy nodes; visual draft can be edited, imported and exported; live placements are read-only in this editor",
+    "scope": "102 authored proxy nodes; visual draft can be edited, imported and exported; live placements are read-only in this editor",
     "candidates": [
       "hydro-slime-reference",
       "pyro-slime-reference",
@@ -155,7 +156,7 @@
   },
   "live_placement": {
     "file": "content/enemy-spawns.json",
-    "scope": "40 hostile nodes, 248 authored placements including phase-specific entries; art selection is provisional; numeric kind retains existing mechanics.",
+    "scope": "41 hostile nodes, 251 authored placements including phase-specific entries; art selection is provisional; numeric kind retains existing mechanics.",
     "validation": "evidence/story-enemy-spawns.json"
   }
 }

@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -31,6 +31,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern)
   if rule then
    local state=s.story.quests[rule.quest]
    local allowed=meetsGateRule(s,rule) or (rule.alternative and meetsGateRule(s,rule.alternative))
+    or (edge.loopOnce and forest.canLoop(state))
    if not allowed then
     if rule.construction and completed(s,rule.quest) then return '今回はもう一方の道を整備しました。' end
     if rule.recovery and state and not state.recovered then return '受注済みの旧依頼は岩間の狩場で進められます。' end
@@ -174,6 +175,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern)
   s.stoneNotice=nil
   s.portLanternX=nil
   s.danukiDanceAt=nil
+  s.forestFeedback=nil
   s.storyDeliveryNotice=nil
   local railConfig,railState=railQuest(s,n)
   if railState and railState.count>=1 then s.platforms[#s.platforms+1]=copy(railConfig.rail.bridge) end
@@ -181,8 +183,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern)
   local stageState=stageQuest and s.story.quests[stageQuest.id]
   local phase=railState and railState.count or 0
   if stageQuest and stageQuest.recovery and stageState and stageState.recovered and stageState.count==stageQuest.goal-1 then phase=1 end
-  spawnEnemies(s,n,phase,stageState and stageState.recovered,
-              stageState and stageState.book and stageState.book.defeated)
+  local group=stageState and (stageState.book or stageState.forest)
+  spawnEnemies(s,n,phase,stageState and stageState.recovered,group and group.defeated)
   local cargo,state=cargoQuest(s)
   if cargo and cargo.chase and recoveredAll(cargo,state) then beginChase(s,cargo) end
   for i,a in ipairs(s.actors) do a.x=(spawn or 160)-(i-1)*40;a.y=arrivalY or 480;a.vy=0;a.ground=true;if arrivalY then a.drop=0 end end
@@ -223,6 +225,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern)
     if q.lantern then
      local item=lantern.nearby(s,q,state)
      if item then lantern.inspect(s,q,state,item);return end
+    end
+    if q.forest then
+     local item=forest.nearby(s,q,state)
+     if item then forest.inspect(s,q,state,item);return end
     end
     if q.delivery and state.status=='active' and q.target==s.story.node then
      delivery.recover(s,q,state.delivery)
@@ -309,6 +315,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern)
     if not allowed then s.storyNotice='接続する門の近くまで歩いてください。';return end
    end
    local previous=s.story.node;local spawn,arrival=160,nil
+   if departure and departure.loopOnce then
+    local state=s.story.quests[departure.requires.quest]
+    if forest.canLoop(state) then
+     state.forest.looped=true
+     enter(s,previous)
+     s.storyNotice='入口に戻ったように見えます。灯籠が一つ増え、木の実のそばに足跡があります。'
+     s.forestFeedback=s.storyNotice
+     return
+    end
+   end
    for _,edge in ipairs(n.exits) do
     if edge.to==previous then spawn=edge.x<720 and 160 or n.width-160;arrival=edge end
    end
@@ -343,7 +359,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern)
                        recovered=q.cargo and {} or nil,inspected=q.trail and {} or nil,delivery=q.delivery and delivery.new() or nil,
                        cooking=q.cooking and cooking.new() or nil,book=q.book and {defeated={}} or nil,
                        stone=q.stone and {marked={},sequence=0} or nil,construction=q.construction and {surveyed={}} or nil,
-                       lantern=q.lantern and {inspected={}} or nil}
+                       lantern=q.lantern and {inspected={}} or nil,
+                       forest=q.forest and {looped=false,defeated={}} or nil}
    elseif report and state and state.status=='active' and state.count==q.goal then
     if q.cooking then state.cooking.meals=1 end
     state.status='complete';state.cycles=(state.cycles or 0)+1;s.mora=s.mora+q.mora;C.grantExp(s,q.xp,'quest');s.storyNotice=q.closing or q.name..'：報酬を受け取りました。'
@@ -360,6 +377,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern)
    for id,state in pairs(s.story.quests) do
     local q=quests[id]
     if q.book and s.story.node==q.target then book.defeat(s,q,state,e) end
+    if q.forest and s.story.node==q.target then forest.defeat(s,q,state,e) end
     if q.delivery and state.status=='active' and q.target==s.story.node and e.spawnId==q.delivery.cache.guard then
      if not state.delivery.guardCleared then s.storyNotice='見張りを倒しました。足場の荷箱を回収できます。' end
      state.delivery.guardCleared=true
@@ -471,7 +489,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern)
     markers[#markers+1]={kind='rect',x=x-5,y=y-10,w=10,h=7,color=elevated and '#f76859' or '#b69765'}
    end
    for _,q in ipairs(data.quests) do
-    if q.delivery or q.rail or q.cooking or q.book or q.stone or q.construction or q.lantern then
+    if q.delivery or q.rail or q.cooking or q.book or q.stone or q.construction or q.lantern or q.forest then
      local state=s.story.quests[q.id]
      if q.delivery then delivery.observe(s,f,markers,q,state and state.delivery)
      elseif q.rail then rail.observe(s,f,markers,q,state)
@@ -479,7 +497,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern)
      elseif q.book and state then book.observe(s,f,markers,q,state)
      elseif q.stone and state then stone.observe(s,f,markers,q,state)
      elseif q.construction and state then construction.observe(s,f,markers,q,state)
-     elseif q.lantern and state then lantern.observe(s,f,markers,q,state,mode,profile) end
+     elseif q.lantern and state then lantern.observe(s,f,markers,q,state,mode,profile)
+     elseif q.forest and state then forest.observe(s,f,markers,q,state,mode,profile) end
     end
    end
    local recoveryQuest=quests[n.clearedBy]

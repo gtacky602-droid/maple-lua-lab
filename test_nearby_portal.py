@@ -17,6 +17,8 @@ for n in g['nodes']:
    finished={'status':'complete','count':rule.get('count',0)}
    if rule.get('construction'):
     finished['construction']={'plan':rule['construction'],'surveyed':{}}
+   if rule['quest']=='inazuma-torii-maze':
+    finished['forest']={'looped':True,'defeated':{}}
    s.story.quests[rule['quest']]=lua.table_from(finished,recursive=True)
    assert c.frame(s,'sprite','h32c16').storyNearbyPortal.available
    s.story.quests[rule['quest']]=None
