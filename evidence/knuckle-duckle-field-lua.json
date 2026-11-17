@@ -1,0 +1,21 @@
+{
+  "twoPunchBands": true,
+  "lockedJumpAndHurtbox": true,
+  "normalAttacksDestroyBothBots": true,
+  "lunarCastBonus": true,
+  "bossHpSeparateFromBarrier": true,
+  "survivingBotRestoresWard": true,
+  "interruptionHasNoShockwave": true,
+  "doNothingStillHasFixedAvoidableShockwave": true,
+  "exitSaveAndKillCleanup": true,
+  "oneRewardAndReport": true,
+  "normalAttackSolo": {
+    "seconds": 99.62,
+    "hp": 140
+  },
+  "sameSceneCommands": {
+    "png": 23,
+    "standard": 10821,
+    "light": 3022
+  }
+}

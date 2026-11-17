@@ -498,6 +498,12 @@
       "status": "regional_temporary_image"
     },
     {
+      "id": "nod-duckle-workyard",
+      "name": "ナド・クライ・工房裏の試運転場",
+      "region": "ナド・クライ",
+      "status": "regional_temporary_image"
+    },
+    {
       "id": "nod-town",
       "name": "ナド・クライ・町の広場",
       "region": "ナド・クライ",

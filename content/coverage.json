@@ -171,8 +171,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 3,
-      "prototype_quest_count": 2,
+      "prototype_stage_count": 4,
+      "prototype_quest_count": 3,
       "official_map2_markers": {
         "waypoints": 83,
         "statues": 7
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 150,
-    "provisional_quests": 93,
+    "authored_stages": 151,
+    "provisional_quests": 94,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -849,11 +849,13 @@
         "stage_ids": [
           "nod-port",
           "nod-field",
+          "nod-duckle-workyard",
           "nod-town"
         ],
         "quest_ids": [
           "columbina-join",
-          "nod-contract"
+          "nod-contract",
+          "knuckle-duckle-commission"
         ]
       },
       {

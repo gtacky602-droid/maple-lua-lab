@@ -285,10 +285,12 @@
       }
     },
     "boss-24100101": {
+      "extra_evidence": ["https://genshin.hoyoverse.com/ja/news/detail/159349","evidence/knuckle-duckle-field-lua.json","evidence/knuckle-duckle-field-browser.json"],
+      "remaining": ["連続モーション・音", "難度・報酬の調整", "複数人と幻境実機の検証"],
       "art_candidate": {
         "item": "knuckle-duckle",
-        "audit": "evidence/knuckle-duckle-reference-audit.json",
-        "status": "idle candidate"
+        "audit": "evidence/knuckle-duckle-field-art-audit.json",
+        "status": "Web field prototype. Punch, airborne hammer, guard, down, and separate repair mecha ducks."
       }
     },
     "boss-29050101": {

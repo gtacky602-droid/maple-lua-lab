@@ -9,6 +9,7 @@
   "papillaFieldRoute": true,
   "lavaDragonFieldRoute": true,
   "overseerFieldRoute": true,
+  "knuckleDuckleFieldRoute": true,
   "stygianCandidates": 7,
   "disabledUnimplemented": true,
   "launchesVerified": [

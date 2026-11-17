@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 38,
+    "partial": 39,
     "complete": 0
   },
   "encounters": [
@@ -876,23 +876,27 @@
       "entity_ids": [
         "24100101"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/knuckleduckle.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/knuckleduckle.json",
+        "https://genshin.hoyoverse.com/ja/news/detail/159349",
+        "evidence/knuckle-duckle-field-lua.json",
+        "evidence/knuckle-duckle-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "連続モーション・音",
+        "難度・報酬の調整",
+        "複数人と幻境実機の検証"
       ],
+      "fieldNode": "nod-duckle-workyard",
+      "fieldEntrance": "ナド・クライ・工房裏の試運転場（Lv122）",
       "art_candidate": {
         "source": "assets/knuckle-duckle-idle-source-v1.png",
         "encoding": "assets/knuckle-duckle-idle-sprites.json",
-        "audit": "evidence/knuckle-duckle-reference-audit.json",
-        "status": "idle candidate"
+        "audit": "evidence/knuckle-duckle-field-art-audit.json",
+        "status": "Web field prototype. Punch, airborne hammer, guard, down, and separate repair mecha ducks."
       }
     },
     {

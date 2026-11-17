@@ -16,13 +16,16 @@ return function(C,configs,controllers)
   primary.fieldPartner=setmetatable(partner,healthProxy)
   return primary.fieldPartner
  end
- function C.clearFieldSummon(state,cast)
-  local summon=cast and cast.summon
-  if not summon then return end
+ function C.removeFieldSummon(state,summon)
   summon.hp=0
   for i,enemy in ipairs(state.enemies) do
    if enemy==summon then table.remove(state.enemies,i);break end
   end
+ end
+ function C.clearFieldSummon(state,cast)
+  local summon=cast and cast.summon
+  if not summon then return end
+  C.removeFieldSummon(state,summon)
   cast.summon=nil
  end
  function C.damageFactor(s,cast,e)
@@ -182,7 +185,7 @@ return function(C,configs,controllers)
   end
   slot.out=target and 0 or slot.out+1
   if slot.out>=spec.leashTicks then
-   if boss.fieldPartner or (slot.cast and slot.cast.summon) then cancelCast(s,spec,slot) end
+   if boss.fieldPartner or (slot.cast and (slot.cast.summon or slot.cast.summons)) then cancelCast(s,spec,slot) end
    slot.phase='leash';slot.cast=nil;boss.invulnerable=true
    boss.y=spec.floorY;boss.drawHeight=spec.artHeight;boss.hitTop=boss.y-boss.drawHeight;boss.hitBottom=boss.y
    return
@@ -320,6 +323,12 @@ return function(C,configs,controllers)
   local summon=cast and cast.summon
   if summon and summon.hp>0 then
    f.fieldBoss.summon={id=summon.id,x=summon.x,y=summon.y,hp=summon.hp,maxhp=summon.maxhp}
+  end
+  if cast and cast.summons then
+   f.fieldBoss.summons={}
+   for _,unit in ipairs(cast.summons) do
+    if unit.hp>0 then f.fieldBoss.summons[#f.fieldBoss.summons+1]={id=unit.id,x=unit.x,y=unit.y,hp=unit.hp,maxhp=unit.maxhp} end
+   end
   end
   if partner then
    f.fieldBoss.bodies={{id=boss.id,x=boss.x,y=boss.y,element=boss.element},{id=partner.id,x=partner.x,y=partner.y,element=partner.element}}

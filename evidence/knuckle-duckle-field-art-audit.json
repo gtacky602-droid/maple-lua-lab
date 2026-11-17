@@ -1,0 +1,203 @@
+{
+  "date": "2026-11-18",
+  "tool": "built-in image_gen",
+  "prompts": [
+    "Create a 3-column x 2-row transparent sprite atlas for a chunky pixel-art action RPG. Use the attached current pixel sprite and official-looking metal duck reference for the same round scrap-metal Knuckle Duckle boss: grey rotary fan in belly, small yellow beak, bolt-eye, gold-and-magenta helmet, massive lemon-yellow boxing mitt, tin feet and magenta zigzag fittings. All 5 large bodies face right in a clear 3/4 side view. Upper left wind-up turning giant yellow fist behind body, grounded; upper middle giant extended punch horizontal right; upper right squat hammer landing, both feet and one large yellow mitt planted on a clear baseline. Lower left guarded squat with glowing pink inlet and raised fists but no drawn force field; lower center deflated slumped seated body, bell-shaped housing, gloves drooped and magenta charge dark. Lower right: one small standalone repair mecha duck robot like the gameplay reference, round yellow riveted duck head, small grey wheeled or two-foot body, brass rivets, tiny pink antenna and black eyes, no mitts. Very generous transparent gutters. Crisp dark contours and warm chunky pixel clusters, no grid, floor, hazard shadows, alpha noise, stars, decorative effects, logos or text.",
+    "An original wide 16:9 side-view exploration-game pixel background for a scrap-metal seaside workshop on Nod-Krai. The battle screenshot is a reference for green cliff sides and open daylight. Industrial coastal inlet, oxidized lilac-grey scrap iron, weathered teal gantries and a corrugated repair shed deep in the background, crates and disassembled yellow machinery in the far margins, muted grass and a strip of distant cold blue ocean. Bottom quarter is a continuous flat walkable dark-grey metal and stone workshop apron, center clear so the yellow duck character and magenta warnings can read. No characters, logos, readable signs, grid, HUD or objects blocking the floor."
+  ],
+  "references": [
+    {
+      "url": "https://img.gamewith.jp/img/original_de39f782b705bccd0e9afc278a467288.jpg",
+      "page": "https://gamewith.jp/genshin/article/show/517076",
+      "view": "Japanese showcase: helmet, bolt eye, mitt and fittings; far leg partly hidden",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "27b26e7c9bf5444ab56cf15d6e672072d083810268d2127be151a75c5741ce69",
+      "use": "Beak, helmet, punch mitt and fan"
+    },
+    {
+      "url": "https://img.game8.jp/11769997/8e6862a92e73831d6a3f081b67f15f80.jpg/poster",
+      "page": null,
+      "view": "Gameplay, lower body hidden by effects",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "a9d92305b454b6dc692084afae6485026fb8b62ef839a5ac51a0fb0e3513e7ed",
+      "use": "Gameplay silhouette of the repair duck and the coastal plateau"
+    }
+  ],
+  "idle_sha256": "6954b1ad090cb21f1cfe08c32ef0d5cffc1315e5fd2aac8a8b6ef58360ee8b5a",
+  "raw_atlas_sha256": "bc3afad81ce183330c4d6a56ef36b9805a60c056a290395c39015f23efe0a422",
+  "outputs": {
+    "knuckle-duckle-field-poses-source-v1.png": "1c00323ee0e8830ab5b692c01904ac96992d64508160e34c04c5def9efa9d948",
+    "knuckle-duckle-field-background-v1.png": "9a7fc850bbd7b54b0a0c82c7f95ac02d4f6d851cbb975dfc647f548f556bdb8d"
+  },
+  "poses": {
+    "windup": {
+      "crop": [
+        0,
+        0,
+        620,
+        516
+      ],
+      "original": [
+        27,
+        63,
+        455,
+        479
+      ],
+      "box": [
+        25,
+        25,
+        428,
+        416
+      ],
+      "height": 154,
+      "anchor": 0.48130841121495327,
+      "profiles": {
+        "legacy": 7116,
+        "h48c32": 4435,
+        "h32c16": 1945
+      }
+    },
+    "punch": {
+      "crop": [
+        620,
+        0,
+        620,
+        516
+      ],
+      "original": [
+        490,
+        97,
+        1036,
+        474
+      ],
+      "box": [
+        645,
+        25,
+        546,
+        377
+      ],
+      "height": 152,
+      "anchor": 0.32967032967032966,
+      "profiles": {
+        "legacy": 7551,
+        "h48c32": 4758,
+        "h32c16": 2151
+      }
+    },
+    "stomp": {
+      "crop": [
+        1240,
+        0,
+        620,
+        516
+      ],
+      "original": [
+        1034,
+        105,
+        1513,
+        478
+      ],
+      "box": [
+        1265,
+        25,
+        479,
+        373
+      ],
+      "height": 137,
+      "anchor": 0.31524008350730687,
+      "profiles": {
+        "legacy": 7354,
+        "h48c32": 4532,
+        "h32c16": 1872
+      }
+    },
+    "guard": {
+      "crop": [
+        0,
+        516,
+        620,
+        516
+      ],
+      "original": [
+        94,
+        592,
+        474,
+        961
+      ],
+      "box": [
+        25,
+        541,
+        380,
+        369
+      ],
+      "height": 161,
+      "anchor": 0.4105263157894737,
+      "profiles": {
+        "legacy": 8208,
+        "h48c32": 5167,
+        "h32c16": 2313
+      }
+    },
+    "down": {
+      "crop": [
+        620,
+        516,
+        620,
+        516
+      ],
+      "original": [
+        523,
+        600,
+        1090,
+        969
+      ],
+      "box": [
+        645,
+        541,
+        567,
+        369
+      ],
+      "height": 116,
+      "anchor": 0.43562610229276894,
+      "profiles": {
+        "legacy": 5652,
+        "h48c32": 3579,
+        "h32c16": 1494
+      }
+    },
+    "mecha": {
+      "crop": [
+        1240,
+        516,
+        620,
+        516
+      ],
+      "original": [
+        1202,
+        652,
+        1385,
+        952
+      ],
+      "box": [
+        1265,
+        541,
+        183,
+        300
+      ],
+      "height": 42,
+      "anchor": 0.5136612021857924,
+      "profiles": {
+        "legacy": 455,
+        "h48c32": 298,
+        "h32c16": 121
+      }
+    }
+  },
+  "notes": [
+    "Repacked six connected bodies into clean cells with transparent gutters.",
+    "Yellow and magenta accents are reserved within the palette budget.",
+    "A matching 3D model was not confirmed. The workshop apron is a temporary static lab background."
+  ]
+}

@@ -813,12 +813,22 @@
     {
       "node": "nod-field",
       "mode": "sprite",
-      "visible_portals": 3
+      "visible_portals": 4
     },
     {
       "node": "nod-field",
       "mode": "rect",
-      "visible_portals": 3
+      "visible_portals": 4
+    },
+    {
+      "node": "nod-duckle-workyard",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "nod-duckle-workyard",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "nod-town",

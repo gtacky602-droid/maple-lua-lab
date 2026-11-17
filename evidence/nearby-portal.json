@@ -837,6 +837,14 @@
       "to": "nod-special-camp"
     },
     {
+      "node": "nod-field",
+      "to": "nod-duckle-workyard"
+    },
+    {
+      "node": "nod-duckle-workyard",
+      "to": "nod-field"
+    },
+    {
       "node": "nod-town",
       "to": "nod-field"
     },
