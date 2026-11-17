@@ -18,6 +18,8 @@ PowerShellでリポジトリのルートを開きます。同じポートを使�
 python -m tools.field_editor.start_chatgpt --client "C:\tools\tunnel-client\tunnel-client.exe" --tunnel-id "tunnel_ここを置換"
 ```
 
+`--tunnel-id` は省略すると起動後に入力できます。`--open-chatgpt` を付けると、ローカルの連携設定画面が開き、トンネルの準備ができた時点でChatGPTのプラグイン画面も開きます。
+
 Runtime API keyは、起動後に表示される非表示入力欄に入れます。コマンド、チャット、画面共有、Gitにはキーを貼り付けないでください。MCP用の中継トークンは起動時に生成され、同じ起動処理が開始するエディタとtunnel-clientだけに渡ります。どちらの値も設定画面には表示されません。
 
 - [設計室の「ChatGPT連携」](http://127.0.0.1:8770/chatgpt)を開き、「接続テスト」を押します。このボタンはローカルMCPへの認証とrevision取得を確認します。
