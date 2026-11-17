@@ -1,0 +1,45 @@
+{
+  "browser": "Chrome",
+  "companion": "amber",
+  "play": {
+    "won": true,
+    "seconds": 34.33,
+    "moves": [
+      "FV01",
+      "FV02",
+      "FV03"
+    ],
+    "hp": 76,
+    "returns": 0,
+    "interrupted": true,
+    "recorded": [
+      "pyro",
+      "pyro"
+    ],
+    "skill1": 1,
+    "skill2": 1
+  },
+  "scenery": {
+    "key": "vigilField",
+    "file": "fallen-vigil-field-background-v1.png",
+    "state": "ready"
+  },
+  "questAcceptedInUi": true,
+  "questReport": {
+    "xp": 1400,
+    "mora": 220
+  },
+  "twoPyroRecords": true,
+  "repeatedElementRequiredSix": true,
+  "twoActiveStars": true,
+  "normalCastsBreakStars": true,
+  "sameSceneCommands": {
+    "png": 30,
+    "standard": 20533,
+    "light": 5459
+  },
+  "starsBrokenTick": 593,
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}

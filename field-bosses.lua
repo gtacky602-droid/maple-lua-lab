@@ -320,6 +320,7 @@ return function(C,configs,controllers)
    generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(s,slot)/60,label=label,elementSlots=boss.elementSlots,
    move=cast and cast.move.id,tick=cast and cast.tick,underground=boss.underground,
    weakpoint=boss.hp>0 and boss.weakpoint or nil,gravity=cast and cast.gravity}
+  if behavior.frame then behavior.frame(f.fieldBoss,boss,spec,cast,s) end
   local summon=cast and cast.summon
   if summon and summon.hp>0 then
    f.fieldBoss.summon={id=summon.id,x=summon.x,y=summon.y,hp=summon.hp,maxhp=summon.maxhp}

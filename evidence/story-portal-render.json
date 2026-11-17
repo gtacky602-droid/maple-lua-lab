@@ -1053,12 +1053,12 @@
     {
       "node": "dornman-camp",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "dornman-camp",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "dornman-depth",
@@ -1567,6 +1567,16 @@
     },
     {
       "node": "spiritspeaker-field-grotto",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "windrest-vigil-court",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "windrest-vigil-court",
       "mode": "rect",
       "visible_portals": 1
     }

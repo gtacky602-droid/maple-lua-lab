@@ -655,10 +655,12 @@
       }
     },
     "boss-24111101": {
+      "remaining": ["監視・星の層数と時間・報酬の調整", "左右・被弾・撃破の追加作画と音", "Webマルチと幻境実機"],
+      "extra_evidence": ["https://genshin.hoyoverse.com/en/news/detail/163454", "evidence/fallen-vigil-field-lua.json", "evidence/fallen-vigil-field-browser.json"],
       "art_candidate": {
         "item": "fallen-vigil",
-        "audit": "evidence/fallen-vigil-reference-audit.json",
-        "status": "idle candidate"
+        "audit": "evidence/fallen-vigil-field-art-audit.json",
+        "status": "Legacy gallery idle retained; Web battle uses five construct poses, a redrawn ready idle and two Elemental Stars"
       }
     },
     "boss-25134601": {

@@ -47,6 +47,9 @@ try{
  await panel.getByLabel('ボス名で検索').fill('迷える霊覚の修験者');
  const spiritspeakerGrotto=panel.locator('[data-encounter="boss-25520101"]').getByRole('link',{name:/謎煙の修練窟/});
  if(await spiritspeakerGrotto.getAttribute('href')!=='map-art.html?node=spiritspeaker-field-grotto')throw Error('Spiritspeaker grotto route missing');
+ await panel.getByLabel('ボス名で検索').fill('守護者・堕天');
+ const vigilCourt=panel.locator('[data-encounter="boss-24111101"]').getByRole('link',{name:/風息山の石庭/});
+ if(await vigilCourt.getAttribute('href')!=='map-art.html?node=windrest-vigil-court')throw Error('Fallen Vigil court route missing');
  await panel.getByLabel('ボス名で検索').fill('恒常からくり陣形');
  await panel.getByLabel('恒常からくり陣形の弱点個体').selectOption('boss_array_3');
  await panel.getByRole('button',{name:'模擬戦に挑戦'}).click();
@@ -59,5 +62,5 @@ try{
  await panel.getByLabel('挑戦可能のみ').check();if(await panel.locator('[data-encounter]').count()!==1)throw Error('playable filter');
  await panel.getByRole('button',{name:'試作に挑戦'}).click();await page.waitForFunction(()=>window.lab.frame.boss?.name==='ファルカ模擬戦');
  await panel.screenshot({path:'evidence/encounters-browser.png'});if(errors.length)throw Error(errors.join('/'));
- await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:70,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,configDeviceFieldRoute:true,papillaFieldRoute:true,lavaDragonFieldRoute:true,overseerFieldRoute:true,knuckleDuckleFieldRoute:true,battleshipFieldRoute:true,frostnightHerraFieldRoute:true,whispererNightmaresFieldRoute:true,moonflyFieldRoute:true,moongeckoFieldRoute:true,spiritspeakerFieldRoute:true,stygianCandidates:7,disabledUnimplemented:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');
+ await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:70,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,configDeviceFieldRoute:true,papillaFieldRoute:true,lavaDragonFieldRoute:true,overseerFieldRoute:true,knuckleDuckleFieldRoute:true,battleshipFieldRoute:true,frostnightHerraFieldRoute:true,whispererNightmaresFieldRoute:true,moonflyFieldRoute:true,moongeckoFieldRoute:true,spiritspeakerFieldRoute:true,fallenVigilFieldRoute:true,stygianCandidates:7,disabledUnimplemented:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');
 }finally{await browser.close()}

@@ -1017,6 +1017,10 @@
       "to": "dornman-depth"
     },
     {
+      "node": "dornman-camp",
+      "to": "windrest-vigil-court"
+    },
+    {
       "node": "dornman-depth",
       "to": "dornman-camp"
     },
@@ -1355,6 +1359,10 @@
     {
       "node": "spiritspeaker-field-grotto",
       "to": "natlan-field"
+    },
+    {
+      "node": "windrest-vigil-court",
+      "to": "dornman-camp"
     }
   ],
   "hidden_connections_checked": 9,

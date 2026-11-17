@@ -264,8 +264,8 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 2,
-      "prototype_quest_count": 1,
+      "prototype_stage_count": 3,
+      "prototype_quest_count": 2,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
     {
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 157,
-    "provisional_quests": 100,
+    "authored_stages": 158,
+    "provisional_quests": 101,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -957,10 +957,12 @@
         "kind": "high_level_branch",
         "stage_ids": [
           "dornman-camp",
-          "dornman-depth"
+          "dornman-depth",
+          "windrest-vigil-court"
         ],
         "quest_ids": [
-          "dornman-survey"
+          "dornman-survey",
+          "fallen-vigil-commission"
         ]
       },
       {

@@ -1,0 +1,33 @@
+{
+  "twoLungeWindows": true,
+  "fixedSpearAndDescent": true,
+  "airborneHurtbox": true,
+  "threePECHHitsRecordElement": true,
+  "repeatElementNeedsSix": true,
+  "differentSecondElementNeedsThree": true,
+  "freshMultiHitCastCountsDamageInstances": true,
+  "oldCastsAndReactionsExcluded": true,
+  "activeAndInertStarsHaveDifferentLayers": true,
+  "sameElementDoesNotBreakActiveStar": true,
+  "oppositeElementRemovesTwoLayers": true,
+  "distinctCastsChipStars": true,
+  "firstBrokenStarCancelsOnlyItsRelease": true,
+  "finalTickBreakCancelsSecondRelease": true,
+  "allStarsBreakDown": true,
+  "starBacklashCanDefeatOnce": true,
+  "bodyAlwaysVulnerableOutsideAirborneReach": true,
+  "noFalseKillRewards": true,
+  "timeoutCleansUp": true,
+  "saveExitAndDefeatCleanUp": true,
+  "oneRewardAndReport": true,
+  "normalAttackWithoutHealing": {
+    "seconds": 54.15,
+    "hp": 140,
+    "starInterruptions": 2
+  },
+  "sameSceneCommands": {
+    "png": 24,
+    "standard": 18777,
+    "light": 5026
+  }
+}

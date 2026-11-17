@@ -16,6 +16,7 @@
   "moonflyFieldRoute": true,
   "moongeckoFieldRoute": true,
   "spiritspeakerFieldRoute": true,
+  "fallenVigilFieldRoute": true,
   "stygianCandidates": 7,
   "disabledUnimplemented": true,
   "launchesVerified": [

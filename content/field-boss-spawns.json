@@ -1533,6 +1533,135 @@
       "element": "cryo"
     }
   ]
+},
+{
+  "id": "boss-24111101",
+  "controller": "fallenVigil",
+  "entity": 24111101,
+  "name": "守護者・堕天",
+  "node": "windrest-vigil-court",
+  "storyChallenge": "fallen-vigil",
+  "level": 18,
+  "hp": 700,
+  "mora": 155,
+  "artHeight": 230,
+  "floorY": 480,
+  "hover": 32,
+  "home": 940,
+  "arenaMin": 325,
+  "arenaMax": 1580,
+  "noticeRange": 350,
+  "noticeTicks": 36,
+  "restTicks": 42,
+  "leashTicks": 360,
+  "respawnTicks": 3600,
+  "walkSpeed": 60,
+  "contactDamage": 0,
+  "keepHpOnExit": true,
+  "resist": {},
+  "monitor": {
+    "hits": 3,
+    "repeatHits": 6
+  },
+  "stars": {
+    "activeLayers": 3,
+    "inertLayers": 5,
+    "opposedLayers": 2,
+    "offset": 1.55,
+    "hover": 16,
+    "downTicks": 180,
+    "downFactor": 1.2,
+    "backlashAttack": 32
+  },
+  "moves": [
+    {
+      "id": "FV01",
+      "kind": "lunge",
+      "title": "金槍の二連突進",
+      "reach": 210,
+      "lock": 48,
+      "near": 0.1,
+      "far": 2.15,
+      "height": 0.68,
+      "active": [
+        [
+          104,
+          116
+        ],
+        [
+          174,
+          186
+        ]
+      ],
+      "recover": 212,
+      "total": 288,
+      "damage": 14,
+      "element": "physical"
+    },
+    {
+      "id": "FV02",
+      "kind": "descent",
+      "title": "槍落としと降下",
+      "reach": 225,
+      "lock": 54,
+      "distance": 1.5,
+      "width": 1.8,
+      "height": 0.74,
+      "air": [
+        112,
+        178
+      ],
+      "lift": 0.9,
+      "active": [
+        [
+          112,
+          126
+        ],
+        [
+          178,
+          192
+        ]
+      ],
+      "recover": 218,
+      "total": 306,
+      "damage": 18,
+      "element": "physical"
+    },
+    {
+      "id": "FV03",
+      "kind": "monitor",
+      "title": "元素の監視・現象の譫妄",
+      "reach": 230,
+      "lock": 60,
+      "scans": [
+        [
+          60,
+          210
+        ],
+        [
+          240,
+          390
+        ]
+      ],
+      "deploy": 420,
+      "radius": 2.4,
+      "height": 0.72,
+      "active": [
+        [
+          930,
+          946
+        ],
+        [
+          1010,
+          1026
+        ]
+      ],
+      "recover": 1060,
+      "total": 1150,
+      "damage": 26,
+      "element": "physical"
+    }
+  ]
 }
   ]
 }

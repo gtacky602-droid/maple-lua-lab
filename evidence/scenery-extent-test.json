@@ -512,6 +512,36 @@
       "transparent": 0
     },
     {
+      "key": "vigilField",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "vigilField",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "vigilField",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "vigilField",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "vigilField",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "vigilField",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "generatorField",
       "camera": -960,
       "transparent": 0

@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 157 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 155,
+  "scope": "Authored 158 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 156,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -945,6 +945,12 @@
       "id": "spiritspeaker-field-grotto",
       "name": "ナタ・謎煙の修練窟",
       "region": "ナタ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "windrest-vigil-court",
+      "name": "ドーンマンポート・風息山の石庭",
+      "region": "ドーンマンポート",
       "status": "regional_temporary_image"
     }
   ],
