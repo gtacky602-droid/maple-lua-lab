@@ -17,7 +17,8 @@
     {
       "id": "beidou",
       "name": "北斗",
-      "file": "beidou-idle-sprites.json",
+      "file": "beidou-idle-right-sprites-v4.json",
+      "leftFile": "beidou-idle-left-sprites-v4.json",
       "height": 88
     },
     {

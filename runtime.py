@@ -55,7 +55,17 @@ def runtime():
     lua.execute((ROOT/'boss-art.lua').read_text(encoding='utf8'))(core,*[lua.table_from(json.loads((ROOT/'assets'/name).read_text(encoding='utf8')),recursive=True) for name in ['boss-sprites.json','anemo-shell-sprites.json','anemo-core-sprites.json','farka-sprites.json']],lua.table_from([json.loads((ROOT/'assets'/f'farka-action-{i}.json').read_text(encoding='utf8')) for i in range(1,5)],recursive=True),lua.table_from(json.loads((ROOT/'assets/pyro-regisvine-sprites.json').read_text(encoding='utf8')),recursive=True),*[lua.table_from(json.loads((ROOT/'assets'/name).read_text(encoding='utf8')),recursive=True) for name in ['electro-shell-sprites.json','electro-core-sprites.json']],lua.table_from({part:json.loads((ROOT/'assets'/f'geo-{part}-sprites.json').read_text(encoding='utf8')) for part in ['shell','core','pillar']},recursive=True))
     core.primoArt=lua.table_from(json.loads((ROOT/'assets/primo-sprites.json').read_text(encoding='utf8')),recursive=True)
     core.maguuArt=lua.table_from(json.loads((ROOT/'assets/maguu-sprites.json').read_text(encoding='utf8')),recursive=True)
-    core.companionArt=lua.table_from({key:json.loads((ROOT/'assets'/f'{key}-idle-sprites.json').read_text(encoding='utf8')) for key in ['beidou','ayaka','wanderer','emilie','kachina','columbina','mitya']},recursive=True)
+    character_gallery=json.loads((ROOT/'content/character-art-gallery.json').read_text(encoding='utf8'))
+    companion_art={}
+    for item in character_gallery['items']:
+        if item['id'] in ('traveler','amber'):
+            continue
+        art=json.loads((ROOT/'assets'/item['file']).read_text(encoding='utf8'))
+        art['height']=item['height']
+        if 'leftFile' in item:
+            art['left']=json.loads((ROOT/'assets'/item['leftFile']).read_text(encoding='utf8'))
+        companion_art[item['id']]=art
+    core.companionArt=lua.table_from(companion_art,recursive=True)
     idle_files={'right':'traveler-idle-sprites-v3.json','left':'traveler-idle-left-sprites-v1.json'}
     core.travelerIdleArt=lua.table_from({side:json.loads((ROOT/'assets'/name).read_text(encoding='utf8')) for side,name in idle_files.items()},recursive=True)
     run_cycles={}

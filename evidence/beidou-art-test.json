@@ -1,30 +1,42 @@
 {
   "hash_alpha": true,
   "facings_profiles": [
-    [
-      -1,
-      "legacy"
-    ],
-    [
-      -1,
-      "h48c32"
-    ],
-    [
-      -1,
-      "h32c16"
-    ],
-    [
-      1,
-      "legacy"
-    ],
-    [
-      1,
-      "h48c32"
-    ],
-    [
-      1,
-      "h32c16"
-    ]
+    {
+      "side": "left",
+      "profile": "legacy",
+      "source": "beidou-idle-left-source-v4.png",
+      "rectangles": 2021
+    },
+    {
+      "side": "left",
+      "profile": "h48c32",
+      "source": "beidou-idle-left-source-v4.png",
+      "rectangles": 1170
+    },
+    {
+      "side": "left",
+      "profile": "h32c16",
+      "source": "beidou-idle-left-source-v4.png",
+      "rectangles": 488
+    },
+    {
+      "side": "right",
+      "profile": "legacy",
+      "source": "beidou-idle-right-source-v4.png",
+      "rectangles": 2349
+    },
+    {
+      "side": "right",
+      "profile": "h48c32",
+      "source": "beidou-idle-right-source-v4.png",
+      "rectangles": 1384
+    },
+    {
+      "side": "right",
+      "profile": "h32c16",
+      "source": "beidou-idle-right-source-v4.png",
+      "rectangles": 551
+    }
   ],
   "dead_hidden": true
 }

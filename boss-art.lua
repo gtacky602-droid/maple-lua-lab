@@ -28,7 +28,11 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
  function C.drawMaguuMask(f,x,y,h,facing,mode,profile) draw(f,C.maguuMaskArt,x,y,h,mode,profile,(facing or -1)>0) end
  function C.drawGeoPart(f,part,x,y,h,mode,profile) draw(f,geo[part],x,y,h,mode,profile) end
  function C.drawThunderArt(f,b,mode,profile) draw(f,C.thunderArt,b.x,465,150,mode,profile,false) end
- function C.drawCompanionArt(f,s,a,mode,profile) draw(f,C.companionArt[s.companion],a.x-s.camera,a.y,s.companion=='kachina' and 76 or 88,mode,profile,a.dir<0) end
+ function C.drawCompanionArt(f,s,a,mode,profile)
+  local art=C.companionArt[s.companion]
+  local left=a.dir<0 and art.left
+  draw(f,left or art,a.x-s.camera,a.y,art.height,mode,profile,a.dir<0 and not left)
+ end
  function C.drawEnemyIdleArt(f,s,e,mode,profile) local layout=C.enemyArtLayout[e.art];draw(f,C.enemyIdleArt[e.art],e.x-s.camera,e.y-layout.hover,layout.height,mode,profile,false) end
  function C.drawAmberArt(f,s,a,mode,profile,art) draw(f,art,a.x-s.camera,a.y,88,mode,profile,a.dir<0) end
  function C.drawTravelerIdleArt(f,s,a,mode,profile) draw(f,C.travelerIdleArt[a.dir<0 and 'left' or 'right'],a.x-s.camera,a.y,88,mode,profile) end

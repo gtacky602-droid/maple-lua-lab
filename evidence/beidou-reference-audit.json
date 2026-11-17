@@ -41,10 +41,68 @@
     "Mirrored eye patch, pin and accessories still reverse anatomy",
     "Chibi costume simplification; no precise game footage/animation audit"
   ],
-  "active_revision": "v3",
+  "active_revision": "v4",
   "v3_observed": [
     "Red split tails with dark lower panels replace purple panels",
     "Silver tied chest ornament added",
     "Curved gold comb/hairpin refined"
-  ]
+  ],
+  "v4": {
+    "guide": "DESIGN_MAPLE_CHIBI_STYLE_GUIDE_V01.md",
+    "tool": "built-in ImageGen; independent three-quarter views, then a head-height and ornament revision for each",
+    "model_provenance": "evidence/model-reference-audit.json",
+    "observed_refs": [
+      "work/references/beidou-views/front.png",
+      "work/references/beidou-views/back.png",
+      "work/references/beidou-views/left.png",
+      "work/references/beidou-views/right.png"
+    ],
+    "image_refs": [
+      "assets/beidou-idle-source-v3.png",
+      "assets/traveler-idle-source-v3.png",
+      "work/references/beidou-views/front.png"
+    ],
+    "directions": {
+      "right": {
+        "encoding": "assets/beidou-idle-right-sprites-v4.json",
+        "source": "assets/beidou-idle-right-source-v4.png",
+        "sha256": "9a47b6b4ee4e88b12fa092d1520c5c425e99f40aec7f40cbdf74ff6ef584ef5b",
+        "modelView": "work/references/beidou-views/left.png",
+        "observedCostume": "Open near eye and small far eyepatch edge; curved gold pin and cyan tassel; far hip Vision obscured.",
+        "crownChinSoleY": [
+          180,
+          543,
+          1202
+        ],
+        "approxHeads": 2.82,
+        "anchorX": 0.6021594684385382,
+        "runs88_66_44": [
+          2349,
+          1384,
+          551
+        ]
+      },
+      "left": {
+        "encoding": "assets/beidou-idle-left-sprites-v4.json",
+        "source": "assets/beidou-idle-left-source-v4.png",
+        "sha256": "03e72e3af5fb4704313d7c78a9b98c82614cc94d45692f52d75f524570d88644",
+        "modelView": "work/references/beidou-views/right.png",
+        "observedCostume": "Near left-eye patch; a far-eye sliver; three-pronged pin and near purple Vision.",
+        "crownChinSoleY": [
+          200,
+          521,
+          1188
+        ],
+        "approxHeads": 3.08,
+        "anchorX": 0.36338289962825276,
+        "runs88_66_44": [
+          2021,
+          1170,
+          488
+        ]
+      }
+    },
+    "proportion_note": "The v3 head was already close to the lower target ratio. The v4 proportion change emphasizes short shins, wider boots and simplified gloves. Both initial v4 drafts were below 2.8 heads and were revised. Crown and chin landmarks are manual approximations and exclude metal ornaments.",
+    "limitations": "Tiny gold and silver ornaments simplify at 44px. The costume and the compact heels are stylized. Idle only; reused while moving."
+  }
 }

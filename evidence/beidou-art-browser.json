@@ -1,1 +1,76 @@
-{"errors":[],"method":"Town UI companion selection, idle art display"}
+{
+  "errors": [],
+  "poses": [
+    {
+      "side": "right",
+      "moving": {
+        "w": 51.68390243902439,
+        "x": 210.5,
+        "y": 480,
+        "source": "beidou-idle-right-source-v4.png",
+        "anchorX": 0.6021594684385382,
+        "box": [
+          281,
+          177,
+          602,
+          1025
+        ],
+        "kind": "boss_sprite",
+        "flip": false,
+        "h": 88
+      },
+      "waiting": {
+        "w": 51.68390243902439,
+        "x": 210.5,
+        "y": 480,
+        "source": "beidou-idle-right-source-v4.png",
+        "anchorX": 0.6021594684385382,
+        "box": [
+          281,
+          177,
+          602,
+          1025
+        ],
+        "kind": "boss_sprite",
+        "flip": false,
+        "h": 88
+      }
+    },
+    {
+      "side": "left",
+      "moving": {
+        "w": 46.324853228962816,
+        "x": 203.5,
+        "y": 480,
+        "source": "beidou-idle-left-source-v4.png",
+        "anchorX": 0.36338289962825276,
+        "box": [
+          339,
+          162,
+          538,
+          1022
+        ],
+        "kind": "boss_sprite",
+        "flip": false,
+        "h": 88
+      },
+      "waiting": {
+        "w": 46.324853228962816,
+        "x": 200,
+        "y": 480,
+        "source": "beidou-idle-left-source-v4.png",
+        "anchorX": 0.36338289962825276,
+        "box": [
+          339,
+          162,
+          538,
+          1022
+        ],
+        "kind": "boss_sprite",
+        "flip": false,
+        "h": 88
+      }
+    }
+  ],
+  "galleryBothFacings": true
+}

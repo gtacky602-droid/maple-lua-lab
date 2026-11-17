@@ -1,6 +1,7 @@
 import {chromium} from 'playwright';import fs from 'node:fs/promises';
 const browser=await chromium.launch({headless:true,channel:'chrome'});const page=await browser.newPage({viewport:{width:1600,height:1200}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
-await page.goto('http://127.0.0.1:8769/compare.html');await page.waitForFunction(()=>window.compareLab?.samples.length>=3);
+const base=new URL(process.env.LAB_URL||'http://127.0.0.1:8769/');
+await page.goto(new URL('compare.html',base).href);await page.waitForFunction(()=>window.compareLab?.samples.length>=3);
 const initial=await page.evaluate(()=>({t:compareLab.frame.t,a:compareLab.frame.comparisons[0].commands,b:compareLab.frame.comparisons[1].commands}));if(initial.t!==0||initial.b>=initial.a)throw Error('frozen comparison failed');
 await page.screenshot({path:'evidence/comparison-48px.png',fullPage:true});
 const profiles=['h32c16','h32c32','h48c16','h48c32','h64c16','h64c32','lossless','legacy','png'];
