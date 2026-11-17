@@ -937,6 +937,12 @@
           "x": 400
         },
         {
+          "to": "liyue-book-camp",
+          "x": 1225,
+          "y": 390,
+          "requires": {"quest": "liyue-book-rescue", "count": 2}
+        },
+        {
           "to": "oceanid-approach",
           "x": 900
         },
@@ -950,6 +956,25 @@
         }
       ],
       "checkpoint": "liyue-harbor"
+    },
+    {
+      "id": "liyue-book-camp",
+      "name": "璃月・石門裏の宝盗団の拠点",
+      "region": "璃月",
+      "level": 20,
+      "hub": false,
+      "width": 1520,
+      "checkpoint": "liyue-harbor",
+      "platforms": [
+        {"x": 0, "y": 480, "w": 1520},
+        {"x": 705, "y": 392, "w": 410},
+        {"x": 1020, "y": 305, "w": 300}
+      ],
+      "exits": [
+        {"to": "liyue-field", "x": 65}
+      ],
+      "clearedBy": "liyue-book-rescue",
+      "clearCount": 3
     },
     {
       "id": "liyue-ferry",
@@ -4251,6 +4276,36 @@
         "price": 45,
         "heal": 35,
         "capacity": 5
+      }
+    },
+    {
+      "id": "liyue-book-rescue",
+      "designId": "Q-LIY-S03",
+      "name": "侠客の宝は、箱の中",
+      "giver": "行秋",
+      "requires": "liyue-market-delivery",
+      "hub": "liyue-harbor",
+      "target": "liyue-book-camp",
+      "kind": "book",
+      "goal": 4,
+      "xp": 1600,
+      "mora": 220,
+      "briefing": "行秋「新刊と版木を入れた箱が盗まれたんだ。箱ばかり立派だったからね。岩間の狩場で落ちた試し刷りを探そう。」",
+      "closing": "行秋「誰かの大事なものを守る。なかなかの侠客だったと思うよ。取り戻した本は読書台に置こう。」",
+      "book": {
+        "proof": {"id": "proof-sheet", "name": "落ちた試し刷り", "node": "liyue-field", "x": 530, "y": 480},
+        "markers": [
+          {"id": "forked-tree", "name": "二股の道しるべ", "x": 820, "y": 350},
+          {"id": "stone-arch", "name": "石門の道しるべ", "x": 1120, "y": 390}
+        ],
+        "match": "stone-arch",
+        "guards": ["liyue-book-scout-1", "liyue-book-scout-2", "liyue-book-scout-3"],
+        "cache": {"id": "print-crate", "name": "新刊と版木の箱", "x": 1250, "y": 480},
+        "stand": {"x": 485, "y": 480},
+        "marketStand": {"x": 665, "y": 480, "quest": "liyue-market-opening", "count": 3},
+        "title": "石門を越えた侠客",
+        "story": "侠客はきらびやかな箱を開けた。中には、町の子が続きの頁を待ちわびる本と、傷だらけの版木があった。侠客は箱を抱え、石門の向こうの港へ急いだ。",
+        "caption": "行秋の挿絵話 ｜ 石門と、港へ持ち帰った箱"
       }
     },
     {

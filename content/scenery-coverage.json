@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 91 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 89,
+  "scope": "Authored 92 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 90,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -114,6 +114,12 @@
       "status": "regional_temporary_image"
     },
     {
+        "id": "liyue-book-camp",
+        "name": "璃月・石門裏の宝盗団の拠点",
+        "region": "璃月",
+        "status": "regional_temporary_image"
+      },
+      {
       "id": "liyue-ferry",
       "name": "稲妻行き・船の甲板",
       "region": "航路",

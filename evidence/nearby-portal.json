@@ -234,6 +234,10 @@
     },
     {
       "node": "liyue-field",
+      "to": "liyue-book-camp"
+    },
+    {
+      "node": "liyue-field",
       "to": "oceanid-approach"
     },
     {
@@ -243,6 +247,10 @@
     {
       "node": "liyue-field",
       "to": "chasm-camp"
+    },
+    {
+      "node": "liyue-book-camp",
+      "to": "liyue-field"
     },
     {
       "node": "liyue-ferry",

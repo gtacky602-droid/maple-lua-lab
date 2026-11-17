@@ -173,12 +173,22 @@
     {
       "node": "liyue-field",
       "mode": "sprite",
-      "visible_portals": 6
+      "visible_portals": 7
     },
     {
       "node": "liyue-field",
       "mode": "rect",
-      "visible_portals": 6
+      "visible_portals": 7
+    },
+    {
+      "node": "liyue-book-camp",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "liyue-book-camp",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "liyue-ferry",

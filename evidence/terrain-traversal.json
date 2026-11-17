@@ -368,6 +368,21 @@
       "ground_both_directions": true
     },
     {
+      "node": "liyue-book-camp",
+      "platforms": 3,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
       "node": "liyue-ferry",
       "platforms": 2,
       "jump_routes": [

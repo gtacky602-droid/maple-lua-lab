@@ -22,6 +22,7 @@ try{
   await add('ruin-guard','遺跡守衛（待機候補・璃月に仮配置）',await json('assets/ruin-guard-idle-sprites.json'),144);
   await add('dendro-fungus','浮遊草キノコン（待機候補・スメールに仮配置）',await json('assets/dendro-fungus-idle-sprites.json'),64);
   await add('nobushi','野伏・陣刀番（待機候補・稲妻に仮配置）',await json('assets/nobushi-idle-sprites.json'),104);
+  await add('treasure-scout','宝盗団・斥候（待機候補・璃月に仮配置）',await json('assets/treasure-scout-idle-sprites.json'),layouts['treasure-scout'].height);
   await add('armored-crab','重甲ヤドカニ（全身参照v2・フォンテーヌに仮配置）',await json('assets/armored-crab-idle-sprites.json'),64);
   await add('frostarm-lawachurl','ヒルチャール・霜鎧の王（ドラゴンスパインに仮配置）',await json('assets/frostarm-lawachurl-idle-sprites.json'),layouts['frostarm-lawachurl'].height);
   await add('hunter-seeker','秘源機兵・ハンターシーカー（ナタに仮配置）',await json('assets/hunter-seeker-idle-sprites.json'),layouts['hunter-seeker'].height);

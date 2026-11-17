@@ -2,8 +2,8 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 13,
-    "visibleCount": 13,
+    "count": 14,
+    "visibleCount": 14,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
@@ -12,80 +12,100 @@
       {
         "id": "hydro-slime",
         "h": 40,
-        "w": 50.23255813953488,
-        "ratio": 1.255813953488372
+        "w": 50.23255813953489,
+        "ratio": 1.255813953488372,
+        "source": "atlas-transparent.png"
       },
       {
         "id": "pyro-slime",
         "h": 40,
-        "w": 45.333333333333336,
-        "ratio": 1.1333333333333333
+        "w": 45.33333333333333,
+        "ratio": 1.1333333333333333,
+        "source": "atlas-transparent.png"
       },
       {
         "id": "hilichurl",
         "h": 76,
-        "w": 41.67741935483871,
-        "ratio": 0.5483870967741935
+        "w": 41.677419354838705,
+        "ratio": 0.5483870967741935,
+        "source": "hilichurl-idle-source-v1.png"
       },
       {
         "id": "hydro-slime-reference",
         "h": 40,
         "w": 57.65704584040747,
-        "ratio": 1.4414261460101867
+        "ratio": 1.4414261460101867,
+        "source": "hydro-slime-idle-source-v2.png"
       },
       {
         "id": "pyro-slime-reference",
         "h": 40,
-        "w": 53.88157894736842,
-        "ratio": 1.3470394736842106
+        "w": 53.881578947368425,
+        "ratio": 1.3470394736842106,
+        "source": "pyro-slime-idle-source-v1.png"
       },
       {
         "id": "cryo-slime",
         "h": 40,
-        "w": 57.737226277372265,
-        "ratio": 1.4434306569343065
+        "w": 57.73722627737226,
+        "ratio": 1.4434306569343065,
+        "source": "cryo-slime-idle-source-v1.png"
       },
       {
         "id": "ruin-guard",
         "h": 144,
         "w": 115.97837837837838,
-        "ratio": 0.8054054054054054
+        "ratio": 0.8054054054054054,
+        "source": "ruin-guard-idle-source-v1.png"
       },
       {
         "id": "dendro-fungus",
         "h": 64,
         "w": 71.31428571428572,
-        "ratio": 1.1142857142857143
+        "ratio": 1.1142857142857143,
+        "source": "dendro-fungus-idle-source-v1.png"
       },
       {
         "id": "nobushi",
         "h": 104,
-        "w": 57.13798977853492,
-        "ratio": 0.5494037478705281
+        "w": 57.13798977853493,
+        "ratio": 0.5494037478705281,
+        "source": "nobushi-idle-source-v1.png"
+      },
+      {
+        "id": "treasure-scout",
+        "h": 88,
+        "w": 44.84033613445378,
+        "ratio": 0.5095492742551566,
+        "source": "treasure-scout-idle-source-v1.png"
       },
       {
         "id": "armored-crab",
         "h": 64,
         "w": 69.51090700344432,
-        "ratio": 1.0861079219288174
+        "ratio": 1.0861079219288174,
+        "source": "armored-crab-idle-source-v2.png"
       },
       {
         "id": "frostarm-lawachurl",
         "h": 128,
         "w": 98.86896551724138,
-        "ratio": 0.7724137931034483
+        "ratio": 0.7724137931034483,
+        "source": "frostarm-lawachurl-idle-source-v1.png"
       },
       {
         "id": "hunter-seeker",
         "h": 96,
         "w": 163.32972972972973,
-        "ratio": 1.7013513513513514
+        "ratio": 1.7013513513513514,
+        "source": "hunter-seeker-idle-source-v1.png"
       },
       {
         "id": "fanged-beast",
         "h": 112,
-        "w": 201.42175066312998,
-        "ratio": 1.7984084880636604
+        "w": 201.42175066312996,
+        "ratio": 1.7984084880636604,
+        "source": "fanged-beast-idle-source-v1.png"
       }
     ]
   },

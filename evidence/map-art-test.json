@@ -110,6 +110,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "liyue-book-camp",
+      "count": 3,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "liyue-ferry",
       "count": 0,
       "fallback": false,

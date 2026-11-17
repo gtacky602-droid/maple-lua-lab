@@ -1,0 +1,13 @@
+{
+  "requires_M01": true,
+  "wrong_landmark_can_be_retried": true,
+  "camp_only_after_matching_print": true,
+  "all_three_guards_once_with_normal_attacks": true,
+  "midfight_save_retains_defeated_guards": true,
+  "optional_reading_and_market_relocation": true,
+  "no_repeat_fight_after_report": true,
+  "one_time_reward": {
+    "xp": 1600,
+    "mora": 220
+  }
+}

@@ -73,6 +73,10 @@
       "enemy_count": 6
     },
     {
+      "node": "liyue-book-camp",
+      "enemy_count": 3
+    },
+    {
       "node": "liyue-ferry",
       "enemy_count": 0
     },

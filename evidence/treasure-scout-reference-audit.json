@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-17",
+  "subject": "宝盗団・斥候",
+  "references": [
+    {
+      "page": "https://gamerch.com/genshinwiki/841755",
+      "image": "https://cdn.gamerch.com/contents/wiki/4268/entry/u3BJAn7F.jpg",
+      "sha256": "aaa1cbaefa3e656d703dfd1acd4bc1406bab6672eaf41f6fe787cbdd6d918805",
+      "view": "in-game archive, near front, cropped feet",
+      "viewed_and_passed_to_generation": true
+    },
+    {
+      "page": "https://game8.jp/genshin/369544",
+      "image": "https://img.game8.jp/5560841/cc3d9d38f64ae6ce76c0b84caa2a57a5.jpeg/original",
+      "sha256": "bfc2abceb1cb9728a662558385763cbf2217e17ae1facdf8e2644177eb013816",
+      "view": "in-game archive, slight angle, full body and boots",
+      "viewed_and_passed_to_generation": true
+    }
+  ],
+  "official_catalog": "https://wiki.hoyolab.com/pc/genshin/entry/2202?lang=en-us",
+  "model_status": "Two in-game images of the character model used. Standalone rotatable model and rear view not inspected.",
+  "method": "built-in imagegen",
+  "prompt": "Generate one original pixel art sprite for a Japanese 2D side-scrolling RPG based on the character in these two in-game Treasure Hoarder Scout reference images, no copying of source pixels. Truly transparent background. Single centered full-body sprite, both boot soles fully visible and level, no shadows on floor, no captions, no animation sheet. Orient face and torso THREE-QUARTER LEFT (looking towards screen left), ready relaxed guard with one slightly larger raised hand and feet apart, no held weapon in idle; clearly visible small belt sheath and pouch. Preserve sandy blond short messy hair, olive brown cloth triangle mask covering nose/mouth, white rolled-sleeve shirt, brown diagonal strap, broad dark belt with square silver buckle, olive-grey cropped trousers, wrist wraps and dark leather lace-up boots. Use classic 2D MMORPG chibi readable silhouette, approximately 2.95 heads tall in actual chibi anatomy, head about 30-34 percent of full body, short torso, short knees and lower legs, slightly broad shoulders, sturdy hands and boots. Hard square pixel clusters and crisp dark warm outlines, no gradients, maximum ~26 distinct colors, designed to reduce to an 88 px tall runtime sprite, especially legible smaller as 44 px/16 colors. Maintain pale shirt and olive pants separation. Use background alpha around entire silhouette. Do not include level scene, source screenshot UI, second character, watermark, text, or stylized lettering.",
+  "source": "assets/treasure-scout-idle-source-v1.png",
+  "sha256": "10fa46fba3d14c79b64e22ec8c7f9fbd87b24c2c4f67f3717f67b1eb499b25a8",
+  "box": [
+    212,
+    26,
+    667,
+    1309
+  ],
+  "anchor_x": 0.5382308845577212,
+  "visual_height": 88,
+  "approx_heads_including_hair": 3.1,
+  "profiles": {
+    "legacy": {
+      "height": 88,
+      "colors": 32,
+      "rectangles": 1318
+    },
+    "h48c32": {
+      "height": 66,
+      "colors": 32,
+      "rectangles": 799
+    },
+    "h32c16": {
+      "height": 44,
+      "colors": 16,
+      "rectangles": 323
+    }
+  },
+  "limits": "Left three-quarter still shared by the three generic camp enemies. Separate direction and motion art deferred. Rectangle counts do not measure game performance."
+}

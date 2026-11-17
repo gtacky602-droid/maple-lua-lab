@@ -8,7 +8,9 @@
     "mond-road",
     "mond-border",
     "liyue-entry",
+    "liyue-crux-wharf",
     "liyue-field",
+    "liyue-book-camp",
     "inazuma-road",
     "sumeru-entry",
     "sumeru-field",
@@ -30,9 +32,20 @@
     "novokichev-depth",
     "golden-play",
     "veluriyam-play",
-    "simulanka-play"
+    "simulanka-play",
+    "chasm-wp-25268",
+    "chasm-wp-25269",
+    "chasm-wp-25270",
+    "mond-old-ground",
+    "mond-hill",
+    "mond-watchtower",
+    "liyue-loading-yard",
+    "liyue-river-trail",
+    "liyue-cliff-planks",
+    "liyue-quarry-storage",
+    "liyue-quarry-post"
   ],
-  "current_story_assignment": "26 hostile nodes, 156 provisional placements: 79 Hydro Slime, 52 Pyro Slime, 8 Cryo Slime, 3 Hilichurl, 2 Ruin Guard, 3 Floating Dendro Fungus, 2 Nobushi, 3 Armored Crab, 1 Frostarm Lawachurl, 2 Hunter-Seeker, 1 Consecrated Fanged Beast. Art selection is provisional; generic numeric kind determines behavior.",
+  "current_story_assignment": "39 hostile nodes, 244 authored placements including phase-specific entries; art selection is provisional; numeric kind retains existing mechanics.",
   "assets": [
     {
       "id": "hydro-slime",
@@ -109,6 +122,12 @@
       "id": "tepetlisaurus",
       "status": "References directly inspected; idle image generation failed at provider output safety check. No sprite, gallery entry or live spawn created.",
       "audit": "evidence/tepetlisaurus-reference-audit.json"
+    },
+    {
+      "id": "treasure-scout",
+      "status": "88px low-head idle in the Liyue book camp; generic combat; separate direction poses, rear model and combat animations are pending",
+      "art": "assets/treasure-scout-idle-sprites.json",
+      "audit": "evidence/treasure-scout-reference-audit.json"
     }
   ],
   "scope": "inventory of existing work, not full planned enemy roster",
@@ -116,7 +135,7 @@
   "placement_preview": {
     "page": "map-art.html",
     "draft": "content/enemy-placement-drafts.json",
-    "scope": "61 authored proxy nodes; mond-road initial visual draft; in-memory edits can be exported and imported with node/species/ID/grounding validation; not combat spawns",
+    "scope": "92 authored proxy nodes; visual draft can be edited, imported and exported; live placements are read-only in this editor",
     "candidates": [
       "hydro-slime-reference",
       "pyro-slime-reference",
@@ -127,14 +146,15 @@
       "frostarm-lawachurl",
       "hunter-seeker",
       "cryo-slime",
-      "fanged-beast"
+      "fanged-beast",
+      "treasure-scout"
     ],
     "live_copy": "Current-node authored spawns can be copied into the visual draft with referenced asset mapping, support-derived y, undo and JSON export. Editing does not write live spawn data.",
     "editing": "Select individual from list, move by clicking either preview with platform snapping, mirror, delete, undo and export/import; all visual-only drafts."
   },
   "live_placement": {
     "file": "content/enemy-spawns.json",
-    "scope": "26 hostile nodes, 156 provisional spawns; numeric kind keeps existing mechanics; art selects appearance; not canonical species distribution",
+    "scope": "39 hostile nodes, 244 authored placements including phase-specific entries; art selection is provisional; numeric kind retains existing mechanics.",
     "validation": "evidence/story-enemy-spawns.json"
   }
 }

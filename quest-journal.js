@@ -9,6 +9,12 @@ const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready
 export function questObjective(q,graph,state){
  const destination=graph.nodes.find(n=>q.kind==='boss'?n.challenge===q.target:n.id===q.target);
  const place=destination?.name||'目的地未登録';
+ if(q.book){
+  if(state?.status==='complete')return '新刊と版木を返し、港に読書台ができた';
+  return ['岩間の狩場で落ちた試し刷りを探す','試し刷りの絵と同じ道しるべを調べる',
+   '石門の奥で宝盗団を退ける','火鉢のそばの箱から新刊と版木を回収する',
+   '港の行秋に新刊と版木を返す'][state?.count??0];
+ }
  if(q.cooking){
   if(state?.status==='complete')return '港の屋台で山海包みを購入できる';
   if(state?.count===q.goal)return '香菱に試作を報告する';

@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking)
+return function(C,data,delivery,rail,cooking,book)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -137,13 +137,13 @@ return function(C,data,delivery,rail,cooking)
   local q=quests[n.clearedBy]
   if q and q.rail then return q,s.story.quests[q.id] end
  end
- local function spawnEnemies(s,n,phase,recovered)
+ local function spawnEnemies(s,n,phase,recovered,defeated)
   s.enemies={}
   if not n.hub and not n.peaceful and not cleared(s,n) then
    local fresh=C.new(12)
    local placements=assert(C.enemySpawns and C.enemySpawns[n.id],'Missing story enemy placements: '..n.id)
    for i,placement in ipairs(placements) do
-    if (not placement.questPhase or placement.questPhase==phase) and
+    if not (defeated and defeated[placement.id]) and (not placement.questPhase or placement.questPhase==phase) and
        not (placement.cargo and recovered and recovered[placement.cargo]) then
      local e=fresh.enemies[i];local p=assert(n.platforms[placement.platform+1],'Invalid enemy support')
      e.x=placement.x;e.home=e.x;e.y=p.y;e.kind=placement.kind;e.art=placement.art;e.spawnId=placement.id
@@ -163,14 +163,16 @@ return function(C,data,delivery,rail,cooking)
   s.platforms={};for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]=copy(p) end
   s.lift=nil
   s.railTrip=nil
+  s.readingQuest=nil
   s.storyDeliveryNotice=nil
   local railConfig,railState=railQuest(s,n)
   if railState and railState.count>=1 then s.platforms[#s.platforms+1]=copy(railConfig.rail.bridge) end
-  local recoveryQuest=quests[n.clearedBy]
-  local recoveryState=recoveryQuest and recoveryQuest.recovery and s.story.quests[recoveryQuest.id]
+  local stageQuest=quests[n.clearedBy]
+  local stageState=stageQuest and s.story.quests[stageQuest.id]
   local phase=railState and railState.count or 0
-  if recoveryState and recoveryState.recovered and recoveryState.count==recoveryQuest.goal-1 then phase=1 end
-  spawnEnemies(s,n,phase,recoveryState and recoveryState.recovered)
+  if stageQuest and stageQuest.recovery and stageState and stageState.recovered and stageState.count==stageQuest.goal-1 then phase=1 end
+  spawnEnemies(s,n,phase,stageState and stageState.recovered,
+              stageState and stageState.book and stageState.book.defeated)
   local cargo,state=cargoQuest(s)
   if cargo and cargo.chase and recoveredAll(cargo,state) then beginChase(s,cargo) end
   for i,a in ipairs(s.actors) do a.x=(spawn or 160)-(i-1)*40;a.y=arrivalY or 480;a.vy=0;a.ground=true;if arrivalY then a.drop=0 end end
@@ -195,6 +197,10 @@ return function(C,data,delivery,rail,cooking)
     if q.cooking then
      local item=cooking.nearbyIngredient(s,q,state)
      if item then cooking.gather(s,q,state,item);return end
+    end
+    if q.book then
+     local item=book.nearby(s,q,state)
+     if item then book.interact(s,q,state,item);return end
     end
     if q.delivery and state.status=='active' and q.target==s.story.node then
      delivery.recover(s,q,state.delivery)
@@ -301,7 +307,7 @@ return function(C,data,delivery,rail,cooking)
     if q.level and (not s.progression or s.progression.level<q.level) then return end
     s.story.quests[id]={status='active',count=0,cycles=state and state.cycles or 0,
                        recovered=q.cargo and {} or nil,inspected=q.trail and {} or nil,delivery=q.delivery and delivery.new() or nil,
-                       cooking=q.cooking and cooking.new() or nil}
+                       cooking=q.cooking and cooking.new() or nil,book=q.book and {defeated={}} or nil}
    elseif report and state and state.status=='active' and state.count==q.goal then
     if q.cooking then state.cooking.meals=1 end
     state.status='complete';state.cycles=(state.cycles or 0)+1;s.mora=s.mora+q.mora;C.grantExp(s,q.xp,'quest');s.storyNotice=q.closing or q.name..'：報酬を受け取りました。'
@@ -317,6 +323,7 @@ return function(C,data,delivery,rail,cooking)
    progress(s,'kill',s.story.node,e)
    for id,state in pairs(s.story.quests) do
     local q=quests[id]
+    if q.book and s.story.node==q.target then book.defeat(s,q,state,e) end
     if q.delivery and state.status=='active' and q.target==s.story.node and e.spawnId==q.delivery.cache.guard then
      if not state.delivery.guardCleared then s.storyNotice='見張りを倒しました。足場の荷箱を回収できます。' end
      state.delivery.guardCleared=true
@@ -424,11 +431,12 @@ return function(C,data,delivery,rail,cooking)
     markers[#markers+1]={kind='rect',x=x-5,y=y-10,w=10,h=7,color=elevated and '#f76859' or '#b69765'}
    end
    for _,q in ipairs(data.quests) do
-    if q.delivery or q.rail or q.cooking then
+    if q.delivery or q.rail or q.cooking or q.book then
      local state=s.story.quests[q.id]
      if q.delivery then delivery.observe(s,f,markers,q,state and state.delivery)
      elseif q.rail then rail.observe(s,f,markers,q,state)
-     elseif state then cooking.observe(s,f,markers,q,state) end
+     elseif q.cooking and state then cooking.observe(s,f,markers,q,state)
+     elseif q.book and state then book.observe(s,f,markers,q,state) end
     end
    end
    local recoveryQuest=quests[n.clearedBy]

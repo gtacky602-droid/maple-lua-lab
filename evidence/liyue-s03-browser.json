@@ -1,0 +1,11 @@
+{
+  "browser": "Chrome",
+  "actual_controls": true,
+  "wrong_and_correct_landmarks": true,
+  "scout_art_in_combat": true,
+  "three_foes_and_recovery": true,
+  "report_and_optional_reading": true,
+  "resume_and_viewport_390": true,
+  "png_vs_44px_16_color_map_comparison": true,
+  "errors": []
+}
