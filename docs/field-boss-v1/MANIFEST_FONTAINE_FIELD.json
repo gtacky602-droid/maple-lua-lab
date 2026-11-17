@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-11-18",
+  "status": "design_only_not_runtime",
+  "source_commit": "2d9703b94e2c86461013ee2f98d31d118fd19c92",
+  "source_of_truth": ["../../DESIGN_FIELD_BOSS_MASTER_V01.md","COMMON.md","FONTAINE_QUARTET_MOVESETS.md"],
+  "tick_rate_hz": 60,
+  "unit_U_pixels": 88,
+  "interval_semantics": "half_open",
+  "counts": {"encounters":4,"attack_cards":12,"optional_interrupts":2,"gravity_fields":1,"cumulative_encounters":27,"cumulative_attack_cards":81,"catalog_reference_rows":49,"all_catalog_rows_detailed":false},
+  "shared": {"max_attack_patterns":3,"max_concurrent_casts":1,"hp_bars":1,"multiplayer_hp_scaling":false,"required_special_element":false,"forced_revive_phase":false,"hp_zero_priority":true,"normal_damage_pipeline":true,"runtime_or_visual_tested":false},
+  "bosses": [
+    {"encounter_id":"boss-26160302","name":"鉄甲熔炎帝王","attack_ids":["FCR01","FCR02","FCR03"],"signature":"FCR03","hurtbox_bottom_u":0.2,"hp_attackable_during_combat":true},
+    {"encounter_id":"boss-26180101","name":"千年真珠の海駿","attack_ids":["FSH01","FSH02","FSH03"],"signature":"FSH03","hurtbox_bottom_u":0.3,"hp_attackable_during_combat":true},
+    {"encounter_id":"boss-24080101","name":"実験用フィールド生成装置","attack_ids":["FEG01","FEG02","FEG03"],"signature":"FEG03","hurtbox_bottom_u":0.4,"hp_attackable_during_combat":true},
+    {"encounter_id":"boss-20051201","name":"水形タルパ","attack_ids":["FHT01","FHT02","FHT03"],"signature":"FHT03","hurtbox_bottom_u":0.2,"hp_attackable_during_combat":true,"half_tulpa_combat":false,"absorption_buffs":false}
+  ],
+  "attacks": [
+    {"id":"FCR01","encounter_id":"boss-26160302","title":"挟鋏の二打","total_ticks":264,"lock_tick":48,"active_windows":[{"interval":[96,102],"group":"left"},{"interval":[156,162],"group":"right"}],"projectiles":[],"airborne_windows":[],"recovery":[180,264],"hit_cap":2,"group_caps":{"left":1,"right":1},"hp_attackable_during_recovery":true},
+    {"id":"FCR02","encounter_id":"boss-26160302","title":"火角の二弾","total_ticks":276,"lock_tick":48,"active_windows":[],"projectiles":[{"spawn_tick":90,"ttl_ticks":48,"group":"fire1","direction":1},{"spawn_tick":138,"ttl_ticks":48,"group":"fire2","direction":1}],"airborne_windows":[],"recovery":[204,276],"hit_cap":2,"group_caps":{"fire1":1,"fire2":1},"hp_attackable_during_recovery":true},
+    {"id":"FCR03","encounter_id":"boss-26160302","title":"伏殻・溶炎噴","total_ticks":324,"lock_tick":60,"active_windows":[{"interval":[144,156],"group":"eruption"}],"projectiles":[],"airborne_windows":[],"recovery":[180,324],"hit_cap":1,"group_caps":{"eruption":1},"hp_attackable_during_recovery":true},
+    {"id":"FSH01","encounter_id":"boss-26180101","title":"尾鰭の一薙ぎ","total_ticks":252,"lock_tick":48,"active_windows":[{"interval":[96,114],"group":"tail"}],"projectiles":[],"airborne_windows":[],"recovery":[132,252],"hit_cap":1,"group_caps":{"tail":1},"hp_attackable_during_recovery":true},
+    {"id":"FSH02","encounter_id":"boss-26180101","title":"双雷魚の射出","total_ticks":276,"lock_tick":48,"active_windows":[],"projectiles":[{"spawn_tick":90,"ttl_ticks":42,"group":"fish1","direction":1},{"spawn_tick":144,"ttl_ticks":42,"group":"fish2","direction":1}],"airborne_windows":[],"recovery":[204,276],"hit_cap":2,"group_caps":{"fish1":1,"fish2":1},"hp_attackable_during_recovery":true},
+    {"id":"FSH03","encounter_id":"boss-26180101","title":"雷環の着地","total_ticks":324,"lock_tick":54,"active_windows":[{"interval":[114,126],"group":"landing_ring"},{"interval":[138,156],"group":"landing_ring"}],"projectiles":[],"airborne_windows":[[78,114]],"recovery":[180,324],"hit_cap":1,"group_caps":{"landing_ring":1},"hp_attackable_during_recovery":true},
+    {"id":"FEG01","encounter_id":"boss-24080101","title":"機底の落圧","total_ticks":276,"lock_tick":54,"active_windows":[{"interval":[114,126],"group":"fall"}],"projectiles":[],"airborne_windows":[[78,114]],"recovery":[144,276],"hit_cap":1,"group_caps":{"fall":1},"hp_attackable_during_recovery":true},
+    {"id":"FEG02","encounter_id":"boss-24080101","title":"三点の岩落","total_ticks":288,"lock_tick":48,"active_windows":[{"interval":[108,114],"group":"rock1"},{"interval":[150,156],"group":"rock2"},{"interval":[192,198],"group":"rock3"}],"projectiles":[],"airborne_windows":[],"recovery":[210,288],"hit_cap":3,"group_caps":{"rock1":1,"rock2":1,"rock3":1},"hp_attackable_during_recovery":true},
+    {"id":"FEG03","encounter_id":"boss-24080101","title":"軽重力・双震波","total_ticks":444,"lock_tick":54,"active_windows":[],"projectiles":[{"spawn_tick":132,"ttl_ticks":42,"group":"pulse1","direction":-1},{"spawn_tick":132,"ttl_ticks":42,"group":"pulse1","direction":1},{"spawn_tick":240,"ttl_ticks":42,"group":"pulse2","direction":-1},{"spawn_tick":240,"ttl_ticks":42,"group":"pulse2","direction":1}],"airborne_windows":[],"recovery":[300,444],"hit_cap":2,"group_caps":{"pulse1":1,"pulse2":1},"hp_attackable_during_recovery":true,"gravity":{"admission_window":[60,300],"gravity_scale":0.85,"jump_velocity_scale":1.0,"field_half_width_u":3.2,"sample":"basic_jump_takeoff_only","affects_existing_airborne":false,"stacking":false,"max_flight_modifier_ticks":96,"expiry":"landing_or_cap","cleanup_on_exit":true,"reset_velocity_on_cleanup":false,"base_jump_can_evade":true}},
+    {"id":"FHT01","encounter_id":"boss-20051201","title":"水剣の二連","total_ticks":264,"lock_tick":48,"active_windows":[{"interval":[96,102],"group":"sword1"},{"interval":[156,162],"group":"sword2"}],"projectiles":[],"airborne_windows":[],"recovery":[180,264],"hit_cap":2,"group_caps":{"sword1":1,"sword2":1},"hp_attackable_during_recovery":true},
+    {"id":"FHT02","encounter_id":"boss-20051201","title":"二連水槍","total_ticks":276,"lock_tick":48,"active_windows":[],"projectiles":[{"spawn_tick":90,"ttl_ticks":48,"group":"spear1","direction":1},{"spawn_tick":138,"ttl_ticks":48,"group":"spear2","direction":1}],"airborne_windows":[],"recovery":[204,276],"hit_cap":2,"group_caps":{"spear1":1,"spear2":1},"hp_attackable_during_recovery":true},
+    {"id":"FHT03","encounter_id":"boss-20051201","title":"集水・巨槌","total_ticks":336,"lock_tick":60,"active_windows":[{"interval":[156,168],"group":"hammer"}],"projectiles":[],"airborne_windows":[],"recovery":[192,336],"hit_cap":1,"group_caps":{"hammer":1},"hp_attackable_during_recovery":true}
+  ],
+  "interrupts": [
+    {"id":"horn","attack_id":"FCR03","accept_windows":[[60,144],[180,324]],"progress_unit":"distinct_cast_with_part_collision","required_casts":3,"progress_persists_between_casts":true,"part_center_z_u":0.58,"part_radius_u":0.18,"recovery_ticks":240,"standup_ticks":24,"rearm_after_recovery_ticks":1200,"required_for_victory":false,"cancel_parent_timers":true,"clear_parent_projectiles":true,"hp_zero_priority":true,"extra_hp_damage":false},
+    {"id":"pearl","attack_id":"FSH02","accept_windows":[[48,204]],"progress_unit":"distinct_cast_with_part_collision","required_casts":3,"progress_persists_between_casts":true,"part_center_z_u":0.55,"part_radius_u":0.18,"recovery_ticks":180,"standup_ticks":24,"rearm_after_recovery_ticks":1200,"required_for_victory":false,"cancel_parent_timers":true,"clear_parent_projectiles":true,"hp_zero_priority":true,"extra_hp_damage":false}
+  ]
+}
