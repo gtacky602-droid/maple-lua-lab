@@ -1,7 +1,7 @@
 import json
 from runtime import ROOT, native, runtime
 from savegame import validate_save
-from experience import LEVELS
+from experience import LEVELS, RUNTIME_EXP
 
 lua, core = runtime()
 s = core.new(12)
@@ -10,6 +10,8 @@ core.grantExp(s, LEVELS[43]['maple_reference_total_exp_to_reach'], 'quest')
 core.enterStoryNode(s, 'inazuma-port')
 quest = 'maguu-commission'
 core.action(s, 'story_accept:'+quest)
+(ROOT/'work').mkdir(exist_ok=True)
+(ROOT/'work/maguu-field-fixture.json').write_text(json.dumps(validate_save(native(core.checkpoint(s)))),encoding='utf8')
 core.enterStoryNode(s, 'maguu-approach')
 s.actors[1].x = 1270
 core.action(s, 'story_nearby_portal')
@@ -65,6 +67,6 @@ assert r.story.node=='inazuma-port'
 xp,mora=r.progression.questXp,r.mora
 for _ in range(2): core.action(r,'story_report:'+quest)
 assert (r.progression.questXp-xp,r.mora-mora)==(4000,300)
-result={'attacks':['FMK01','FMK02','FMK03'],'lockSide':True,'damages':[22,13,13,17],'maskExpiresTick':144,'commands':{'standard':f.commands,'light':g.commands},'questReportOnce':True,'savedRespawnTicks':3600}
+result={'attacks':['FMK01','FMK02','FMK03'],'lockSide':True,'damages':[22,13,13,17],'maskExpiresTick':144,'commands':{'standard':f.commands,'light':g.commands},'questReportOnce':True,'savedRespawnTicks':3600,'killXp':LEVELS[43]['normal_enemy_base_exp']*RUNTIME_EXP['roles']['field_boss']}
 (ROOT/'evidence/maguu-field-lua.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')
 print(result)

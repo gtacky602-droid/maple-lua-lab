@@ -17,5 +17,6 @@
     "light": 2047
   },
   "questReportOnce": true,
-  "savedRespawnTicks": 3600
+  "savedRespawnTicks": 3600,
+  "killXp": 14950
 }

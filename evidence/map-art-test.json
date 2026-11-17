@@ -692,6 +692,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "maguu-field-dojo",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "array-approach",
       "count": 0,
       "fallback": false,

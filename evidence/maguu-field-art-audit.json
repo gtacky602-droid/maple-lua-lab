@@ -1,0 +1,21 @@
+{
+  "stage": "稲妻・剣鬼の古庭",
+  "reference": {
+    "page": "https://gamewith.net/genshin-impact/article/show/28442",
+    "image": "https://img.gamewith.net/img/fd030223320ce615d53a3e38e445c2d8.jpg",
+    "sha256": "3e85a3e82a5c04bd620605d68f035772b6713ee65db1f3ae3d58fb1837e59445",
+    "observed": "Weathered slate foreground, low grass behind the arena, dusk palette."
+  },
+  "generated": {
+    "path": "assets/maguu-field-background-v1.png",
+    "sha256": "b47a6b20f46aa5dbb28ea3cb625c9ad8b10abcd990273a9e3f705f5197bf3fce",
+    "prompt": "An unoccupied wide 16:9 2D side-scrolling fantasy RPG background, inspired by an Inazuma island sword dueling ground. Refer to the attached game frame for weathered dusky blue slate and green grass bordering the arena only. Do not include any characters, floating masks, creatures, UI, letters or highlights in the battlefield. Environment only. Large grassy rocky island basin, deep blue cliffs, a few windbent sparse trees on hills and a quiet ancient Japanese stone lantern pair far off toward the edges. Overcast evening with muted slate blue and subdued muted moss green, soft distant mountain shapes. Wide flat slate training floor at the bottom 16 percent, with subtle scuffs and no obstacles. Pixel-painted atmosphere with limited visual noise behind combat. Side-on view, subdued palette suitable for bright cyan and amber attack cues, completely still, no objects crowding the foreground."
+  },
+  "reusedSprites": [
+    "maguu-source-v1.png",
+    "maguu-stance-source-v1.png",
+    "maguu-slash-source-v1.png",
+    "maguu-mask-source-v1.png"
+  ],
+  "limitations": "Temporary browser backdrop with a new composition. No multi-angle comparison of the boss sprites or production 3D completed here."
+}

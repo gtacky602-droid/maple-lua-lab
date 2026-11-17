@@ -329,12 +329,15 @@
         "精密AI・挑発・吸引",
         "報酬・難度調整"
       ],
-      "review_note": "5行動と第二段階分身、同行AI予告退避。通常入力49.22秒撃破・帰還報告、両者生存。静止絵128/96/64px比較。遠距離防御220pxは代用。",
+      "review_note": "Lv44のフィールド戦は居合・二段斬り・仮面。旧模擬戦では5行動と第二段階分身を検証。",
       "extra_evidence": [
-        "content/maguu-design.json"
+        "content/maguu-design.json",
+        "evidence/maguu-field-lua.json",
+        "evidence/maguu-field-browser.json"
       ],
       "art_candidate": {
         "item": "maguu",
+        "audit": "evidence/maguu-field-art-audit.json",
         "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
       }
     },
