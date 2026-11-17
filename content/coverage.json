@@ -99,8 +99,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 5,
-      "prototype_quest_count": 4,
+      "prototype_stage_count": 6,
+      "prototype_quest_count": 5,
       "official_map2_markers": {
         "waypoints": 112,
         "statues": 13
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 129,
-    "provisional_quests": 74,
+    "authored_stages": 130,
+    "provisional_quests": 75,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -764,13 +764,15 @@
           "sumeru-hub",
           "sumeru-field",
           "sumeru-jadeplume-grove",
-          "electro-regisvine-field-cave"
+          "electro-regisvine-field-cave",
+          "aeonblight-field-chamber"
         ],
         "quest_ids": [
           "wanderer-join",
           "sumeru-entry-check",
           "sumeru-contract",
-          "electro-regisvine-commission"
+          "electro-regisvine-commission",
+          "aeonblight-commission"
         ]
       },
       {

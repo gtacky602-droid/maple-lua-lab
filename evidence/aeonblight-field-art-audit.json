@@ -1,0 +1,180 @@
+{
+  "stage": "Sumeru / Wing Mechanism Chamber",
+  "referenceAudit": "evidence/aeonblight-reference-audit.json",
+  "modelLookup": "Search did not yield usable matching 3D model. Official front/side/back design sheet inspected, not a model inspection.",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/877aa3b4516f11f648402744bf831af7_544803337684316244.png",
+      "sha256": "4e18b2f630ec1349116f1a4459caf585099bb0359e1f81bb92c92a2313846601",
+      "observed": "rendered flying full body",
+      "use": "Wing, tail ring and two-legged anatomy"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/cae03477dc7510211623dc5146604ee5_8067619225793687904.png",
+      "sha256": "3c989ba89732cbdfb7006b9ef64d3eb183e20792b870a134ab67afb0edffadbc",
+      "observed": "in-game flying and grounded comparison",
+      "use": "Action poses and chamber palette"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/98a751d1b3e7f0c6a86876fdc4024ae8_6452483385338579408.png",
+      "sha256": "05ac607e1f1f45ee4adcdc5a1ff35ca5b3711812c8d2c804d9ce964759d092b8",
+      "observed": "final official design sheet front/side/back, foot and wing assemblies",
+      "use": "Wing, tail ring and two-legged anatomy"
+    }
+  ],
+  "generated": [
+    {
+      "path": "assets/aeonblight-field-poses-source-v1.png",
+      "sha256": "d55f933455b6b5d1627f61406e50c671af87e8c4f2a6b5bdcf5e21ef82f8680e",
+      "size": [
+        1230,
+        1278
+      ],
+      "mode": "RGBA",
+      "prompt": "Original transparent pixel-art sprite sheet of a two-legged mechanical drake for a side-scrolling RPG, exactly SIX sprites separated in 2 columns x 3 rows with generous transparent gutters. Follow the supplied official Aeonblight Drake design and game images for silhouette: short horned mechanical head pointing LEFT, mossy gray and sand-bronze stone-and-metal panels, charcoal joints, molten orange cores, exactly TWO stout hindlegs, exactly two raised orange turbine wing pods with paired long blade fins, segmented tail ending with a visibly hollow counterweight ring, NO arms or hands, no flesh, no organic dragon wings or webbing. Same left-facing profile/three-quarter, palette and scale every cell. TOP LEFT: grounded, the near wing pod swings blade forward LEFT beside lowered head, paws planted. TOP RIGHT: grounded second sweep, far wing blade distinctly crosses forward left and the near fin folds back behind shoulder, paws planted. MIDDLE LEFT: chest-cannon charging, knees deeply bent and feet planted, orange amber chest aperture (on front-left underside of torso, very low, about one-third of the height above the feet), head low, turbine pods carry paired rigid fins. MIDDLE RIGHT: crouched forward with wings neatly folding back, about to accelerate, head LOW aimed left, knees bent. BOTTOM LEFT: airborne horizontal attack diving LEFT with blades swept back and legs tucked, orange chest visible, tail ring trails right. BOTTOM RIGHT: low staggered resting, legs folded on floor and head lowered even further, turbine pods dim, tail stretched behind. Deliberate crisp block pixel clusters, limited colors, readable black outlines, clear shape detail. No glow outside outline, no firing effects or sparks, no dust, no text, no labels, no backdrop, no floor, no dividing lines. Actual alpha."
+    },
+    {
+      "path": "assets/aeonblight-field-background-v1.png",
+      "sha256": "c3d4f980dcf8b41fafd419385c737d01c6c86bcc7276d506ff0c8ff0a7e8b149",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "prompt": "Original 16:9 horizontal side-scrolling 2D RPG stage inside an ancient machine chamber under Sumeru rainforest. Refer to the supplied game screenshot for moss stone, slate teal shades and flat cavern ground, not its composition. Build a continuous ancient rectangular grey-green tile floor at lower 18 percent with no visual obstacles, large angular stone door frames receding into deep teal shade, a few ferns and moss tucked far to the edges, traces of stone machinery hidden high in the walls. Ensure amber and cream combat cues read clearly against low saturation deep jade-blue. Matte stepped pixel-painted forms, no creature, no monsters, no hero, no doors or columns in the foreground walking strip, no elements firing, no beams or magic circles, no UI, text, border or giant bright feature."
+    }
+  ],
+  "poses": {
+    "wing-first": {
+      "crop": [
+        10,
+        27,
+        603,
+        408
+      ],
+      "box": [
+        23,
+        39,
+        576,
+        377
+      ],
+      "height": 145,
+      "anchorX": 0.526,
+      "commands": {
+        "legacy": 7032,
+        "h48c32": 4426,
+        "h32c16": 1880
+      }
+    },
+    "wing-second": {
+      "crop": [
+        644,
+        77,
+        532,
+        356
+      ],
+      "box": [
+        675,
+        96,
+        484,
+        322
+      ],
+      "height": 143,
+      "anchorX": 0.445,
+      "commands": {
+        "legacy": 8499,
+        "h48c32": 5337,
+        "h32c16": 2248
+      }
+    },
+    "cannon": {
+      "crop": [
+        66,
+        488,
+        512,
+        365
+      ],
+      "box": [
+        78,
+        502,
+        483,
+        330
+      ],
+      "height": 159,
+      "anchorX": 0.495,
+      "commands": {
+        "legacy": 10616,
+        "h48c32": 6571,
+        "h32c16": 2846
+      }
+    },
+    "windup": {
+      "crop": [
+        629,
+        550,
+        567,
+        300
+      ],
+      "box": [
+        642,
+        567,
+        538,
+        264
+      ],
+      "height": 123,
+      "anchorX": 0.445,
+      "commands": {
+        "legacy": 8591,
+        "h48c32": 5245,
+        "h32c16": 2200
+      }
+    },
+    "dash": {
+      "crop": [
+        8,
+        892,
+        588,
+        317
+      ],
+      "box": [
+        20,
+        914,
+        554,
+        279
+      ],
+      "height": 113,
+      "anchorX": 0.491,
+      "commands": {
+        "legacy": 6676,
+        "h48c32": 4031,
+        "h32c16": 1749
+      }
+    },
+    "down": {
+      "crop": [
+        638,
+        966,
+        583,
+        272
+      ],
+      "box": [
+        651,
+        993,
+        551,
+        232
+      ],
+      "height": 93,
+      "anchorX": 0.309,
+      "commands": {
+        "legacy": 6209,
+        "h48c32": 3861,
+        "h32c16": 1634
+      }
+    }
+  },
+  "alignment": "Feet share the ground plane or move with the airborne body. The active chest aperture is highlighted at the center and radius of its actual hit region.",
+  "limits": [
+    "Temporary 2D ruin background. Original 3D model and live Miliastra unverified.",
+    "Six discrete action poses. In-betweens, hurt and defeat art pending."
+  ]
+}

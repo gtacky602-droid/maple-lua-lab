@@ -1,5 +1,5 @@
 {
-  "count": 55,
+  "count": 56,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -18,6 +18,7 @@
     "Ruin Serpent is reachable through the field route",
     "The paired vishaps share a field encounter entrance",
     "Electro Regisvine is reachable through the field route",
+    "Aeonblight Drake is reachable through the field route",
     "public roster matched without merging Icewind modes or Dottore challenges",
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",

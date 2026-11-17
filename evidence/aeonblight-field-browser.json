@@ -1,0 +1,34 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "coreInterrupted": true,
+    "seconds": 70.58,
+    "moves": [
+      "FAD01",
+      "FAD02",
+      "FAD03"
+    ],
+    "dodgeWindows": 6,
+    "finished": true,
+    "hp": 112,
+    "returns": 0
+  },
+  "fieldKill": {
+    "xp": 46150,
+    "mora": 235
+  },
+  "commissionReport": {
+    "xp": 4000,
+    "mora": 300
+  },
+  "persistedCooldown": true,
+  "sameSceneCommands": {
+    "png": 20,
+    "standard": 11272,
+    "light": 2943
+  },
+  "coreGeometryMatched": true,
+  "airbornePoseTracksBody": true,
+  "viewport390": true,
+  "errors": []
+}

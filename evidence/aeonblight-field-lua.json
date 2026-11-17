@@ -1,0 +1,29 @@
+{
+  "attacks": [
+    "FAD01",
+    "FAD02",
+    "FAD03"
+  ],
+  "twoLockedWingHits": true,
+  "allThreeShotsWithoutInterrupt": true,
+  "bodyOnlyMissesCore": true,
+  "bodyAndCoreLoseHpOnce": true,
+  "coreOnlyHitIsValid": true,
+  "lungingBodyAndArtRiseTogether": true,
+  "frozenChargeEndpoint": true,
+  "interruptCancelsShots": true,
+  "downTicks": 150,
+  "riseTicks": 24,
+  "rearmTicks": 1200,
+  "lethalHitBeatsStagger": true,
+  "normalAttackSoloWithoutInterrupt": {
+    "seconds": 114.38,
+    "hp": 140
+  },
+  "questReportOnce": true,
+  "commands": {
+    "standard": 7904,
+    "light": 2093
+  },
+  "killXp": 46150
+}

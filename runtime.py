@@ -185,6 +185,9 @@ def runtime():
     hydro_hypostasis=lua.execute((ROOT/'field-hydro-hypostasis.lua').read_text(encoding='utf-8'))(core)
     wolflord_field=lua.execute((ROOT/'field-wolflord.lua').read_text(encoding='utf-8'))(core)
     ruin_serpent=lua.execute((ROOT/'field-ruin-serpent.lua').read_text(encoding='utf-8'))(core)
+    aeonblight=lua.execute((ROOT/'field-aeonblight.lua').read_text(encoding='utf-8'))(core)
+    core.aeonblightFieldArt=field_art(lua,'aeonblight',('wing_first','wing_second','cannon','windup','dash','down'),
+                                     idle='aeonblight-idle-sprites.json')
     bathysmal=lua.execute((ROOT/'field-bathysmal.lua').read_text(encoding='utf-8'))(core)
     core.rimebiterFieldArt=field_art(lua,'rimebiter',('tail','breath','leap'),idle='rimebiter-idle-sprites.json')
     core.bolteaterFieldArt=field_art(lua,'bolteater',('tail','breath','leap'),idle='bolteater-idle-sprites.json')
@@ -206,7 +209,7 @@ def runtime():
                         'array':array_field,'thunder':thunder_field,'cryoHypostasis':cryo_hypostasis,
                         'pyroHypostasis':pyro_hypostasis,'hydroHypostasis':hydro_hypostasis,
                         'wolflord':wolflord_field,'ruinSerpent':ruin_serpent,'bathysmal':bathysmal,
-                        'electroRegisvine':electro_vine})
+                        'electroRegisvine':electro_vine,'aeonblight':aeonblight})
     )
     return lua, core
 

@@ -2,10 +2,12 @@
   "version": 1,
   "entries": {
     "boss-24030301": {
+      "remaining": ["連続アニメーション・被弾・撃破作画", "装備とWebマルチの実測", "幻境実機"],
+      "extra_evidence": ["evidence/aeonblight-field-lua.json", "evidence/aeonblight-field-browser.json"],
       "art_candidate": {
         "item": "aeonblight",
-        "audit": "evidence/aeonblight-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/aeonblight-field-art-audit.json",
+        "status": "Web field prototype using idle and six action poses"
       }
     },
     "boss-24050101": {

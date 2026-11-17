@@ -302,6 +302,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "aeonblight-field-chamber",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "fontaine-entry",
       "count": 0,
       "fallback": false,

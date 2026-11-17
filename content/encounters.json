@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 19,
+    "partial": 20,
     "complete": 0
   },
   "encounters": [
@@ -24,23 +24,26 @@
       "entity_ids": [
         "24030301"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/aeonblightdrake.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/aeonblightdrake.json",
+        "evidence/aeonblight-field-lua.json",
+        "evidence/aeonblight-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "連続アニメーション・被弾・撃破作画",
+        "装備とWebマルチの実測",
+        "幻境実機"
       ],
+      "fieldNode": "aeonblight-field-chamber",
+      "fieldEntrance": "スメール・機翼の間（Lv66）",
       "art_candidate": {
         "source": "assets/aeonblight-idle-source-v2.png",
         "encoding": "assets/aeonblight-idle-sprites.json",
-        "audit": "evidence/aeonblight-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/aeonblight-field-art-audit.json",
+        "status": "Web field prototype using idle and six action poses"
       }
     },
     {

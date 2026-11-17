@@ -60,6 +60,10 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local h=pose=='idle' and 110 or art.profiles.legacy.height
   draw(f,art,x,y,h,mode,profile,flip)
  end
+ function C.drawAeonblightFieldArt(f,x,y,pose,mode,profile,flip)
+  local art=C.aeonblightFieldArt[pose]
+  draw(f,art,x,y,pose=='idle' and 144 or art.profiles.legacy.height,mode,profile,flip)
+ end
  function C.drawThunderFieldArt(f,x,y,h,mode,profile,pose,dir)
   draw(f,pose and C.thunderFieldArt[pose] or C.thunderArt,x,y,h,mode,profile,pose=='dash' and dir>0)
  end

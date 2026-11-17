@@ -935,6 +935,35 @@
         {"id":"FER02","pattern":"bolts","title":"双枝の雷弾","reach":246,"lock":42,"active":[],"shotTicks":[84,132],"shotLife":48,"shotOrigin":0.35,"shotSpeed":4,"shotHeight":0.7,"recover":192,"total":264,"damage":0,"shotDamage":14},
         {"id":"FER03","pattern":"rain","title":"三点の落雷","reach":268,"lock":48,"active":[[108,114],[150,156],[192,198]],"recover":210,"total":300,"damage":19}
       ]
+    },
+    {
+      "id": "boss-24030301",
+      "controller": "aeonblight",
+      "entity": 24030301,
+      "name": "兆載永劫ドレイク",
+      "node": "aeonblight-field-chamber",
+      "storyChallenge": "aeonblight",
+      "level": 66,
+      "hp": 1310,
+      "mora": 235,
+      "artHeight": 144,
+      "floorY": 480,
+      "home": 800,
+      "arenaMin": 352,
+      "arenaMax": 1490,
+      "noticeRange": 280,
+      "noticeTicks": 36,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 64,
+      "contactDamage": 0,
+      "core": {"down": 150, "rise": 24, "rearm": 1200, "close": 162, "offset": 0.32},
+      "moves": [
+        {"id":"FAD01","kind":"wings","title":"双翼刃の二連","reach":192,"lock":48,"active":[[96,102],[156,162]],"recover":180,"total":264,"damage":20},
+        {"id":"FAD02","kind":"cannon","title":"胸砲の三射","reach":230,"lock":48,"active":[],"fire":[90,126,162],"life":48,"recover":228,"total":300,"damage":14},
+        {"id":"FAD03","kind":"charge","title":"低空の機竜突進","reach":238,"lock":60,"active":[[120,144]],"air":[84,120],"recover":168,"total":312,"damage":25}
+      ]
     }
   ]
 }

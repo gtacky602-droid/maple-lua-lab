@@ -97,16 +97,35 @@ function C.canTargetEnemy(e) return e.hp>0 and not e.underground end
 function C.targetHeight(a,e)
  return math.max(e.hitTop or e.y,math.min(e.hitBottom or e.y,a.y))
 end
+function C.hitFieldWeakpoint(cast,e,range)
+ local point=e.weakpoint
+ if not point or cast.persistentTarget then return false end
+ if cast.upward and point.y-point.radius-cast.y>=75 then return false end
+ local reach=range or cast.range
+ local left=cast.x-((cast.radial or cast.dir<0) and reach or math.min(25,reach))
+ local right=cast.x+((cast.radial or cast.dir>0) and reach or math.min(25,reach))
+ local vertical=cast.vertical or 75
+ local dx=max(0,left-point.x,point.x-right)
+ local dy=max(0,abs(point.y-cast.y)-vertical)
+ return dx*dx+dy*dy<point.radius*point.radius
+end
 local function receiver(e) return e.sharedHealth or e end
 local function firstContact(a,e)
  if not a.travelSpeed or not a.lastPulseX then return 0 end
  return max(0,(e.x-a.lastPulseX)*a.dir-a.range)
 end
+local function hitRegion(a,e,range)
+ local y=C.targetHeight(a,e)-a.y
+ if (not a.upward or y<75) and abs(y)<(a.vertical or 75) and abs(e.x-a.x)<range and
+    (a.radial or (e.x-a.x)*a.dir>-25) then return true end
+ return e.weakpoint and C.hitFieldWeakpoint(a,e,range)
+end
 local function targets(s,a,range,limit,includePartners)
  local out={}
  local contacts={}
  for _,e in ipairs(s.enemies) do
-  if (C.canTargetEnemy(e) or (a.persistentTarget==e and e.hp>0)) and (not a.targetId or e.id==a.targetId) and (not a.groundOnly or not e.flying) and (not a.upward or C.targetHeight(a,e)-a.y<75) and abs(C.targetHeight(a,e)-a.y)<(a.vertical or 75) and abs(e.x-a.x)<range and (a.radial or (e.x-a.x)*a.dir>-25) then
+  if (C.canTargetEnemy(e) or (a.persistentTarget==e and e.hp>0)) and (not a.targetId or e.id==a.targetId) and
+     (not a.groundOnly or not e.flying) and hitRegion(a,e,range) then
    out[#out+1]=e
    if not includePartners and (e.sharedHealth or e.fieldPartner) then
     local key=receiver(e)

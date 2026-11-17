@@ -206,6 +206,7 @@ return function(C,configs,controllers)
    if not slot or e~=slot.enemy or e.hp>0 or slot.waitUntil then return end
    slot.waitUntil=s.t+spec.respawnTicks/60
    slot.cast=nil;slot.phase='respawn'
+   e.weakpoint=nil
    e.respawn=math.huge
    if spec.storyChallenge then C.storyBossDefeated(s,spec.storyChallenge) end
   end
@@ -217,7 +218,7 @@ return function(C,configs,controllers)
   local spec=e.fieldBoss and byId[e.fieldBoss]
   if not spec or e.hp<=0 or e.invulnerable then return end
   local behavior=controllers[spec.controller]
-  if behavior.onHit then behavior.onHit(cast,e,spec) end
+  if behavior.onHit then behavior.onHit(cast,e,spec,s.fieldSlots[spec.id]) end
  end
 
  local function waitTicks(s,slot)
@@ -271,7 +272,8 @@ return function(C,configs,controllers)
   if boss.hp>0 and slot.phase=='combat' and behavior.label then label=behavior.label(boss,cast) or label end
   f.fieldBoss={id=spec.id,name=boss.displayName or spec.name,element=boss.element,form=boss.form,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
    generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(s,slot)/60,label=label,
-   move=cast and cast.move.id,tick=cast and cast.tick,underground=boss.underground}
+   move=cast and cast.move.id,tick=cast and cast.tick,underground=boss.underground,
+   weakpoint=boss.hp>0 and boss.weakpoint or nil}
   if partner then
    f.fieldBoss.bodies={{id=boss.id,x=boss.x,y=boss.y,element=boss.element},{id=partner.id,x=partner.x,y=partner.y,element=partner.element}}
   end
