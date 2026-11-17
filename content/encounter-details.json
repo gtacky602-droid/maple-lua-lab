@@ -217,23 +217,29 @@
       }
     },
     "icewind-coppelia": {
+      "remaining": ["連続モーション・音", "難度・報酬の調整", "複数人と幻境実機の検証"],
       "extra_evidence": [
-        "https://genshin.hoyoverse.com/en/news/detail/112690"
+        "https://genshin.hoyoverse.com/en/news/detail/112690",
+        "evidence/icewind-field-lua.json",
+        "evidence/icewind-field-browser.json"
       ],
       "art_candidate": {
         "item": "coppelia",
-        "audit": "evidence/icewind-reference-audit.json",
-        "status": "Individual idle candidate; partner available separately in gallery, paired choreography and combat not implemented"
+        "audit": "evidence/icewind-field-art-audit.json",
+        "status": "Web field prototype. Coppelia leads the duet and sets three fixed Anemo swirls during the finale."
       }
     },
     "icewind-coppelius": {
+      "remaining": ["連続モーション・音", "難度・報酬の調整", "複数人と幻境実機の検証"],
       "extra_evidence": [
-        "https://genshin.hoyoverse.com/en/news/detail/112690"
+        "https://genshin.hoyoverse.com/en/news/detail/112690",
+        "evidence/icewind-field-lua.json",
+        "evidence/icewind-field-browser.json"
       ],
       "art_candidate": {
         "item": "coppelius",
-        "audit": "evidence/icewind-reference-audit.json",
-        "status": "Individual idle candidate; partner available separately in gallery, paired choreography and combat not implemented"
+        "audit": "evidence/icewind-field-art-audit.json",
+        "status": "Web field prototype. Coppelius leads the duet and gains temporary Cryo armor during the finale."
       }
     },
     "boss-29150101": {

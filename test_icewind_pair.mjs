@@ -12,7 +12,7 @@ try{
  assert.equal(await p.evaluate(()=>window.mapArt.count),before+2);
  for(const profile of ['legacy','h48c32','h32c16']){
   await p.selectOption('#profile',profile);
-  const s=await p.evaluate(()=>window.mapArt);assert.deepEqual(s.placements.slice(-2).map(e=>e.species),['boss-coppelia','boss-coppelius']);assert.deepEqual(s.visuals.slice(-2).map(e=>e.hover),[24,0]);
+ const s=await p.evaluate(()=>window.mapArt);assert.deepEqual(s.placements.slice(-2).map(e=>e.species),['boss-coppelia','boss-coppelius']);assert.deepEqual(s.visuals.slice(-2).map(e=>e.hover),[9,0]);
  }
  await p.locator('main').screenshot({path:'evidence/icewind-pair-map.png'});
  assert.deepEqual(errors,[]);await fs.writeFile('evidence/icewind-pair-test.json',JSON.stringify({bothPlaced:true,profiles:3,independentHover:[24,0],errors},null,2));console.log('Icewind pair placed together across three profiles');

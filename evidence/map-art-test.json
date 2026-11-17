@@ -374,6 +374,24 @@
       "backgroundState": "ready"
     },
     {
+      "id": "icewind-promenade",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "icewind-coppelia-field",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "icewind-coppelius-field",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "natlan-entry",
       "count": 0,
       "fallback": false,

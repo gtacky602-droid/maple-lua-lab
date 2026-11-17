@@ -4,6 +4,18 @@ return function(C,configs,controllers)
  local damageFactor=C.damageFactor
  local byId,byNode={},{}
  for _,spec in ipairs(configs) do byId[spec.id]=spec;byNode[spec.node]=spec end
+ local shared={hp=true,invulnerable=true}
+ local healthProxy={
+  __index=function(body,key) if shared[key] then return body.sharedHealth[key] end end,
+  __newindex=function(body,key,value)
+   if shared[key] then body.sharedHealth[key]=value else rawset(body,key,value) end
+  end
+ }
+ function C.bindFieldPartner(primary,partner)
+  partner.sharedHealth=primary
+  primary.fieldPartner=setmetatable(partner,healthProxy)
+  return primary.fieldPartner
+ end
  function C.damageFactor(s,cast,e)
   local factor=damageFactor and damageFactor(s,cast,e) or 1
   local spec=byId[e.fieldBoss]

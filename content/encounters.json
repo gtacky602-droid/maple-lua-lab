@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 28,
+    "partial": 30,
     "complete": 0
   },
   "encounters": [
@@ -690,25 +690,28 @@
       "entity_ids": [
         "24070301"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "selectable_variant",
       "evidence": [
         "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/icewindsuite.json",
         "sources/boss-research/english-boss-candidates.json:24070301 investigation.description",
-        "https://genshin.hoyoverse.com/en/news/detail/112690"
+        "https://genshin.hoyoverse.com/en/news/detail/112690",
+        "evidence/icewind-field-lua.json",
+        "evidence/icewind-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "連続モーション・音",
+        "難度・報酬の調整",
+        "複数人と幻境実機の検証"
       ],
+      "fieldNode": "icewind-coppelia-field",
+      "fieldEntrance": "氷風組曲・コッペリアの葬送（Lv90）",
       "art_candidate": {
-        "source": "assets/coppelia-idle-source-v1.png",
-        "encoding": "assets/coppelia-idle-sprites.json",
-        "audit": "evidence/icewind-reference-audit.json",
-        "status": "Individual idle candidate; partner available separately in gallery, paired choreography and combat not implemented"
+        "source": "assets/coppelia-field-poses-source-v1.png",
+        "encoding": "assets/coppelia-field-idle-sprites-v1.json",
+        "audit": "evidence/icewind-field-art-audit.json",
+        "status": "Web field prototype. Coppelia leads the duet and sets three fixed Anemo swirls during the finale."
       }
     },
     {
@@ -718,25 +721,28 @@
       "entity_ids": [
         "24070301"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "selectable_variant",
       "evidence": [
         "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/icewindsuite.json",
         "sources/boss-research/english-boss-candidates.json:24070301 investigation.description",
-        "https://genshin.hoyoverse.com/en/news/detail/112690"
+        "https://genshin.hoyoverse.com/en/news/detail/112690",
+        "evidence/icewind-field-lua.json",
+        "evidence/icewind-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "連続モーション・音",
+        "難度・報酬の調整",
+        "複数人と幻境実機の検証"
       ],
+      "fieldNode": "icewind-coppelius-field",
+      "fieldEntrance": "氷風組曲・コペリウスの劫罰（Lv90）",
       "art_candidate": {
-        "source": "assets/coppelius-idle-source-v1.png",
-        "encoding": "assets/coppelius-idle-sprites.json",
-        "audit": "evidence/icewind-reference-audit.json",
-        "status": "Individual idle candidate; partner available separately in gallery, paired choreography and combat not implemented"
+        "source": "assets/coppelius-field-poses-source-v1.png",
+        "encoding": "assets/coppelius-field-idle-sprites-v1.json",
+        "audit": "evidence/icewind-field-art-audit.json",
+        "status": "Web field prototype. Coppelius leads the duet and gains temporary Cryo armor during the finale."
       }
     },
     {

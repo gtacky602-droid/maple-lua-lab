@@ -1194,6 +1194,30 @@
         {"id":"FHT02","kind":"hammer","title":"水槌の二打","reach":224,"lock":54,"active":[[102,114],[156,168]],"spacing":1.32,"width":0.85,"height":0.78,"recover":198,"total":288,"damage":20,"element":"hydro"},
         {"id":"FHT03","kind":"merge","title":"半身の合流・奔流","reach":246,"lock":48,"active":[[204,216]],"height":0.68,"width":1.8,"absorbedWidth":3.6,"recover":240,"total":384,"damage":20,"absorbedDamage":28,"element":"hydro","summon":{"spawn":54,"merge":174,"distance":2.65,"hp":26}}
       ]
+    },
+    {
+      "id":"icewind-coppelia","controller":"icewind","entity":24070301,"lead":"anemo",
+      "name":"氷風組曲：コッペリアの葬送","node":"icewind-coppelia-field","storyChallenge":"icewind-coppelia",
+      "level":90,"hp":1030,"mora":325,"artHeight":125,"floorY":480,"home":840,"partnerOffset":200,
+      "arenaMin":350,"arenaMax":1560,"noticeRange":300,"noticeTicks":36,"restTicks":36,
+      "leashTicks":300,"respawnTicks":3600,"walkSpeed":62,"contactDamage":0,
+      "moves":[
+        {"id":"FIC01","kind":"lead","title":"風扇の横払い","reach":220,"lock":42,"near":0.3,"far":2.1,"height":0.68,"low":0.17,"active":[[96,110]],"recover":144,"total":264,"damage":20},
+        {"id":"FIC02","kind":"duet","title":"交差の二歩","reach":230,"lock":48,"travelEnd":90,"width":1.28,"height":0.7,"active":[[108,120],[152,164]],"recover":194,"total":294,"damage":18},
+        {"id":"FIC03","kind":"wind","title":"終幕・三つの旋風","reach":239,"lock":54,"travelEnd":94,"width":0.72,"spacing":1.5,"height":1.2,"active":[[108,117],[150,159],[192,201]],"recover":228,"total":372,"damage":22}
+      ]
+    },
+    {
+      "id":"icewind-coppelius","controller":"icewind","entity":24070301,"lead":"cryo",
+      "name":"氷風組曲：コペリウスの劫罰","node":"icewind-coppelius-field","storyChallenge":"icewind-coppelius",
+      "level":90,"hp":1030,"mora":325,"artHeight":125,"floorY":480,"home":940,"partnerOffset":-195,
+      "arenaMin":350,"arenaMax":1560,"noticeRange":300,"noticeTicks":36,"restTicks":36,
+      "leashTicks":300,"respawnTicks":3600,"walkSpeed":62,"contactDamage":0,"guardFactor":0.6,"guardCasts":3,
+      "moves":[
+        {"id":"FIP01","kind":"ice","title":"氷杖の双弾","reach":230,"lock":48,"height":0.65,"active":[],"fire":[90,138],"life":44,"speed":4.1,"radius":0.15,"recover":198,"total":288,"damage":17},
+        {"id":"FIP02","kind":"duet","title":"氷風の交差","reach":230,"lock":48,"travelEnd":94,"width":1.32,"height":0.73,"active":[[112,124],[156,168]],"recover":198,"total":294,"damage":19},
+        {"id":"FIP03","kind":"guard","title":"終幕・氷装甲と二振り","reach":220,"lock":54,"width":3.55,"height":0.67,"active":[[120,132],[174,186]],"recover":198,"total":342,"damage":22}
+      ]
     }
   ]
 }

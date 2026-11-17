@@ -143,16 +143,16 @@
     },
     {
       "id": "coppelia",
-      "name": "氷風組曲：コッペリア（待機候補）",
-      "file": "coppelia-idle-sprites.json",
-      "height": 160,
-      "mapHover": 24
+      "name": "氷風組曲：コッペリア（待機）",
+      "file": "coppelia-field-idle-sprites-v1.json",
+      "height": 118,
+      "mapHover": 9
     },
     {
       "id": "coppelius",
-      "name": "氷風組曲：コペリウス（待機候補）",
-      "file": "coppelius-idle-sprites.json",
-      "height": 180,
+      "name": "氷風組曲：コペリウス（待機）",
+      "file": "coppelius-field-idle-sprites-v1.json",
+      "height": 130,
       "mapHover": 0
     },
     {

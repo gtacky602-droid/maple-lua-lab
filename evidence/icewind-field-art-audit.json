@@ -1,0 +1,219 @@
+{
+  "date": "2026-11-18",
+  "references": [
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/17/94675339/377f3a8f5ea5fc082951815af746a2ae_2749286724487014087.png",
+      "sha256": "4e550f61e57dc0f844d70552d6f6dea826cd4975c05b3ceef6e1b750829b5137",
+      "directly_viewed": true,
+      "generation_input": true,
+      "use": "paired silhouette and colors"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/17/94675339/818c4cd8bee5b1176372d903e84e45df_5262098392740983409.png",
+      "sha256": "d6e6ffae1e192caa4e07b8e6f84b0b95c4a4f895e7f0ff29b7b9773986ec8010",
+      "directly_viewed": true,
+      "generation_input": true,
+      "use": "lakeside theater"
+    },
+    {
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/29/94675339/cea7c9cd37f54431d50a051266ec5257_6934457885082896802.png",
+      "sha256": "7cdd120c8bf9b709169ed16afc8f3f4f046a848bf3d28950cab54a1c307d2f17",
+      "directly_viewed": true,
+      "generation_input": true,
+      "use": "final front, side and rear artwork"
+    }
+  ],
+  "generated": {
+    "icewind-field-background-v1.png": "34e8ccb8633e32e8652347d6991303767663b7a7999d7611eac5e9806ca7e1b3",
+    "coppelia-field-poses-source-v1.png": "175cdf28b74d4b2465f6294d0c591b19f2068c6503ec813307fd061412a8c612",
+    "coppelius-field-poses-source-v1.png": "dee10a831896665bd72340f7cdc44c5f51498edc165bec19e2f387436b7f1e58"
+  },
+  "poses": {
+    "coppelia": {
+      "idle": {
+        "crop": [
+          0,
+          0,
+          630,
+          570
+        ],
+        "box": [
+          180,
+          28,
+          308,
+          508
+        ],
+        "anchorX": 0.5048701298701299,
+        "anchorSourceX": 335.5,
+        "height": 118,
+        "profiles": {
+          "legacy": 2544,
+          "h48c32": 1476,
+          "h32c16": 696
+        }
+      },
+      "attack": {
+        "crop": [
+          630,
+          0,
+          631,
+          570
+        ],
+        "box": [
+          680,
+          32,
+          473,
+          505
+        ],
+        "anchorX": 0.4904862579281184,
+        "anchorSourceX": 912.0,
+        "height": 117,
+        "profiles": {
+          "legacy": 3246,
+          "h48c32": 1975,
+          "h32c16": 853
+        }
+      },
+      "focus": {
+        "crop": [
+          0,
+          570,
+          630,
+          677
+        ],
+        "box": [
+          156,
+          599,
+          346,
+          551
+        ],
+        "anchorX": 0.5361271676300579,
+        "anchorSourceX": 341.5,
+        "height": 132,
+        "profiles": {
+          "legacy": 3005,
+          "h48c32": 1797,
+          "h32c16": 819
+        }
+      },
+      "bow": {
+        "crop": [
+          630,
+          570,
+          631,
+          677
+        ],
+        "box": [
+          754,
+          673,
+          287,
+          481
+        ],
+        "anchorX": 0.5017421602787456,
+        "anchorSourceX": 898.0,
+        "height": 114,
+        "profiles": {
+          "legacy": 2594,
+          "h48c32": 1570,
+          "h32c16": 710
+        }
+      }
+    },
+    "coppelius": {
+      "idle": {
+        "crop": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "box": [
+          240,
+          23,
+          345,
+          447
+        ],
+        "anchorX": 0.4,
+        "anchorSourceX": 378,
+        "height": 130,
+        "profiles": {
+          "legacy": 4101,
+          "h48c32": 2572,
+          "h32c16": 1133
+        }
+      },
+      "attack": {
+        "crop": [
+          768,
+          0,
+          768,
+          512
+        ],
+        "box": [
+          830,
+          56,
+          545,
+          411
+        ],
+        "anchorX": 0.22568807339449543,
+        "anchorSourceX": 953,
+        "height": 123,
+        "profiles": {
+          "legacy": 4454,
+          "h48c32": 2710,
+          "h32c16": 1245
+        }
+      },
+      "focus": {
+        "crop": [
+          0,
+          512,
+          768,
+          512
+        ],
+        "box": [
+          287,
+          544,
+          272,
+          444
+        ],
+        "anchorX": 0.31985294117647056,
+        "anchorSourceX": 374,
+        "height": 130,
+        "profiles": {
+          "legacy": 3642,
+          "h48c32": 2325,
+          "h32c16": 1017
+        }
+      },
+      "bow": {
+        "crop": [
+          768,
+          512,
+          768,
+          512
+        ],
+        "box": [
+          921,
+          564,
+          303,
+          424
+        ],
+        "anchorX": 0.41914191419141916,
+        "anchorSourceX": 1048,
+        "height": 129,
+        "profiles": {
+          "legacy": 3909,
+          "h48c32": 2453,
+          "h32c16": 1067
+        }
+      }
+    }
+  },
+  "notes": [
+    "Coppelia is anchored on the floating spindle. Coppelius is anchored between wheels and excludes the cane.",
+    "Coppelia faces right and Coppelius faces left in the source. Mirroring changes their asymmetric details.",
+    "The mechanical skirts, necks and hats retain distinct original silhouettes. Head-to-height ratios were not certified.",
+    "The stage is a temporary raster background. The official turnaround was available, and no actual 3D model was inspected."
+  ]
+}

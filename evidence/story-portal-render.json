@@ -563,12 +563,12 @@
     {
       "node": "fontaine-hub",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "fontaine-hub",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "fontaine-field",
@@ -617,6 +617,36 @@
     },
     {
       "node": "tulpa-field-grotto",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "icewind-promenade",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "icewind-promenade",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "icewind-coppelia-field",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "icewind-coppelia-field",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "icewind-coppelius-field",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "icewind-coppelius-field",
       "mode": "rect",
       "visible_portals": 1
     },

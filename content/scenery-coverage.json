@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 138 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 136,
+  "scope": "Authored 141 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 139,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -374,6 +374,24 @@
     {
       "id": "tulpa-field-grotto",
       "name": "フォンテーヌ・潮影の洞",
+      "region": "フォンテーヌ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "icewind-promenade",
+      "name": "フォンテーヌ・氷風の舞台入口",
+      "region": "フォンテーヌ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "icewind-coppelia-field",
+      "name": "氷風組曲・コッペリアの葬送",
+      "region": "フォンテーヌ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "icewind-coppelius-field",
+      "name": "氷風組曲・コペリウスの劫罰",
       "region": "フォンテーヌ",
       "status": "regional_temporary_image"
     },

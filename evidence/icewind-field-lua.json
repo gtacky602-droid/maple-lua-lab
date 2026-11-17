@@ -1,0 +1,35 @@
+{
+  "sharedHpAndOneAoeHit": true,
+  "distinctElementSources": true,
+  "lockedSweepAndWind": true,
+  "duetPositionsAndHitOrder": true,
+  "cryoBolts": true,
+  "armorAndDistinctCasts": true,
+  "exitClearsArmorWhileKeepingHp": true,
+  "variantQuestAndSaveIsolation": true,
+  "normalAttackSolo": {
+    "icewind-coppelia": {
+      "seconds": 80.83,
+      "hp": 140,
+      "moves": [
+        "FIC01",
+        "FIC02",
+        "FIC03"
+      ]
+    },
+    "icewind-coppelius": {
+      "seconds": 87.72,
+      "hp": 55,
+      "moves": [
+        "FIP01",
+        "FIP02",
+        "FIP03"
+      ]
+    }
+  },
+  "sameSceneCommands": {
+    "png": 34,
+    "standard": 8362,
+    "light": 2315
+  }
+}

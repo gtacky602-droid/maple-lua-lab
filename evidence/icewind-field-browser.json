@@ -1,0 +1,73 @@
+{
+  "browser": "Chrome",
+  "variants": {
+    "icewind-coppelia": {
+      "play": {
+        "win": true,
+        "seconds": 45.87,
+        "moves": [
+          "FIC01",
+          "FIC02",
+          "FIC03"
+        ],
+        "hp": 82,
+        "returns": 0
+      },
+      "scenery": {
+        "key": "icewindField",
+        "file": "icewind-field-background-v1.png",
+        "state": "ready"
+      },
+      "orderedElements": [
+        "anemo",
+        "cryo"
+      ],
+      "sameSceneCommands": {
+        "png": 39,
+        "standard": 11605,
+        "light": 3067
+      },
+      "savedRespawn": true,
+      "variantQuestIsolation": true,
+      "questReport": {
+        "xp": 6000,
+        "mora": 400
+      },
+      "viewport390": true
+    },
+    "icewind-coppelius": {
+      "play": {
+        "win": true,
+        "seconds": 48.17,
+        "moves": [
+          "FIP01",
+          "FIP02",
+          "FIP03"
+        ],
+        "hp": 89,
+        "returns": 0
+      },
+      "scenery": {
+        "key": "icewindField",
+        "file": "icewind-field-background-v1.png",
+        "state": "ready"
+      },
+      "orderedElements": [
+        "cryo",
+        "anemo"
+      ],
+      "sameSceneCommands": {
+        "png": 44,
+        "standard": 11261,
+        "light": 3027
+      },
+      "savedRespawn": true,
+      "variantQuestIsolation": true,
+      "questReport": {
+        "xp": 6000,
+        "mora": 400
+      },
+      "viewport390": true
+    }
+  }
+}

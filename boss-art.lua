@@ -104,6 +104,11 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local art=C.tulpaFieldArt[pose]
   draw(f,art,x,y,pose=='idle' and 155 or art.profiles.legacy.height,mode,profile,flip)
  end
+ function C.drawIcewindFieldArt(f,x,y,element,pose,mode,profile,flip)
+  local anemo=element=='anemo'
+  local art=(anemo and C.coppeliaFieldArt or C.coppeliusFieldArt)[pose]
+  draw(f,art,x,y-(anemo and 9 or 0),art.profiles.legacy.height,mode,profile,flip==anemo)
+ end
  function C.drawThunderFieldArt(f,x,y,h,mode,profile,pose,dir)
   draw(f,pose and C.thunderFieldArt[pose] or C.thunderArt,x,y,h,mode,profile,pose=='dash' and dir>0)
  end

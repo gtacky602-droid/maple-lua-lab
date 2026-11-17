@@ -4,13 +4,6 @@ return function(C)
  local ice,thunder='#83eeff','#dcabff'
  local function clamp(x,a,b) return math.min(b,math.max(a,x)) end
  local function advance(x,dest,step) return x+clamp(dest-x,-step,step) end
- local shared={hp=true,invulnerable=true}
- local healthProxy={
-  __index=function(body,key) if shared[key] then return body.sharedHealth[key] end end,
-  __newindex=function(body,key,value)
-   if shared[key] then body.sharedHealth[key]=value else rawset(body,key,value) end
-  end
- }
  local function place(body,s,lift)
   body.y=s.floorY-lift
   body.hitBottom=body.y-.25*U
@@ -21,10 +14,9 @@ return function(C)
   b.element='cryo'
   local spec=s.partner
   local home=s.home+spec.offset
-  local pair=setmetatable({id=spec.id,element='electro',fieldBoss=b.fieldBoss,sharedHealth=b,boss=true,custom=true,
+  local pair=C.bindFieldPartner(b,{id=spec.id,element='electro',fieldBoss=b.fieldBoss,boss=true,custom=true,
    x=home,home=home,facing=-1,warning=0,cd=0,respawn=math.huge,maxhp=b.maxhp,
-   drawHeight=b.drawHeight,level=b.level,resist=spec.resist},healthProxy)
-  b.fieldPartner=pair
+   drawHeight=b.drawHeight,level=b.level,resist=spec.resist})
   place(b,s,0);place(pair,s,0)
  end
  function herd.cancel(b,s)
