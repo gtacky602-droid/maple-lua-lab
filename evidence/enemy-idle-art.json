@@ -179,6 +179,24 @@
       "profile": "h32c16",
       "runs": 207,
       "height": 40
+    },
+    {
+      "art": "fanged-beast",
+      "profile": "legacy",
+      "runs": 4382,
+      "height": 112
+    },
+    {
+      "art": "fanged-beast",
+      "profile": "h48c32",
+      "runs": 2780,
+      "height": 112
+    },
+    {
+      "art": "fanged-beast",
+      "profile": "h32c16",
+      "runs": 1334,
+      "height": 112
     }
   ],
   "checks": [

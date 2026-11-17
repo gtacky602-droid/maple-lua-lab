@@ -541,6 +541,60 @@
       "barrier_y": 280
     },
     {
+      "asset": "fanged-beast",
+      "mode": "sprite",
+      "profile": "legacy",
+      "head_y": 238,
+      "bar_y": 229,
+      "warning_y": 215,
+      "barrier_y": 223
+    },
+    {
+      "asset": "fanged-beast",
+      "mode": "sprite",
+      "profile": "h48c32",
+      "head_y": 238,
+      "bar_y": 229,
+      "warning_y": 215,
+      "barrier_y": 223
+    },
+    {
+      "asset": "fanged-beast",
+      "mode": "sprite",
+      "profile": "h32c16",
+      "head_y": 238,
+      "bar_y": 229,
+      "warning_y": 215,
+      "barrier_y": 223
+    },
+    {
+      "asset": "fanged-beast",
+      "mode": "rect",
+      "profile": "legacy",
+      "head_y": 238,
+      "bar_y": 229,
+      "warning_y": 215,
+      "barrier_y": 223
+    },
+    {
+      "asset": "fanged-beast",
+      "mode": "rect",
+      "profile": "h48c32",
+      "head_y": 238,
+      "bar_y": 229,
+      "warning_y": 215,
+      "barrier_y": 223
+    },
+    {
+      "asset": "fanged-beast",
+      "mode": "rect",
+      "profile": "h32c16",
+      "head_y": 238,
+      "bar_y": 229,
+      "warning_y": 215,
+      "barrier_y": 223
+    },
+    {
       "asset": "legacy-atlas",
       "mode": "sprite",
       "profile": "legacy",

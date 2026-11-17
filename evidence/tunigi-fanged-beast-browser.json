@@ -1,0 +1,33 @@
+{
+  "fixture": "Level 60 checkpoint set up at Tunigi camp",
+  "mappings": [
+    {
+      "id": "tunigi-camp",
+      "key": "tunigi"
+    },
+    {
+      "id": "tunigi-depth",
+      "key": "tunigi"
+    }
+  ],
+  "total": 6,
+  "draw": {
+    "anchorX": 0.377212389380531,
+    "kind": "boss_sprite",
+    "flip": false,
+    "y": 480,
+    "x": 525.7163936311352,
+    "w": 201.42175066312998,
+    "box": [
+      286,
+      72,
+      1356,
+      754
+    ],
+    "h": 112,
+    "source": "fanged-beast-idle-source-v1.png"
+  },
+  "questReported": true,
+  "placementProfiles": 3,
+  "errors": []
+}

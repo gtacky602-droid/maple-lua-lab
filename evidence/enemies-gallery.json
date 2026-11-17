@@ -2,8 +2,8 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 12,
-    "visibleCount": 12,
+    "count": 13,
+    "visibleCount": 13,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
@@ -80,6 +80,12 @@
         "h": 96,
         "w": 163.32972972972973,
         "ratio": 1.7013513513513514
+      },
+      {
+        "id": "fanged-beast",
+        "h": 112,
+        "w": 201.42175066312998,
+        "ratio": 1.7984084880636604
       }
     ]
   },

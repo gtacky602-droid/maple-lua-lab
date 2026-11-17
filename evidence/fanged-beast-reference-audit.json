@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-17",
+  "label": "聖骸牙獣 / Consecrated Fanged Beast",
+  "references": [
+    {
+      "role": "HoYoWiki full-body render. Ivory bone mask and ankle armor, jade body, black dorsal patches, hind-thigh spiral and leaf blade tail.",
+      "page": "https://wiki.hoyolab.com/pc/genshin/entry/3703?lang=ja-jp",
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/04/06/35428890/22531b083db2d94f528910fb67926cd6_3564287659342876519.png",
+      "sha256": "4295fa57edc86aefff79dc5982babe2cae605fe7274a527f27e6f1a0490fa39d",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "role": "Game8 author's field capture at Tunigi Hollow. Near-side profile, planted posture and tail reaching high. Some overlap from grass and game UI.",
+      "page": "https://game8.jp/genshin/507069",
+      "url": "https://img.game8.jp/7934865/aed1af642a685ac4888d2eef5d164054.jpeg/original",
+      "sha256": "4faa1133278ebf3bfd3ea8061cdd8880a9a893edd10346d0d85cbd1a5bff406d",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "role": "Additional HoYoWiki upload of the same full-body pose. Confirms the placement of the spiral and upper tail barbs; does not supply a new viewing angle.",
+      "page": "https://wiki.hoyolab.com/pc/genshin/entry/3703?lang=ja-jp",
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/12/13/94675339/7051defcd76fd9162c6ab877af89db77_6060880922598547943.png",
+      "sha256": "a814e047aa3c376e2303b7c5b126001f901f77e991b1fea8058701f2cfcfbfa7",
+      "directly_viewed": true,
+      "generation_input": false
+    }
+  ],
+  "model": "No matching rotatable model was located in The Models Resource or targeted PMX/model searches. Full rear, underside and obscured far-side armor not verified.",
+  "generation": {
+    "tool": "built-in ImageGen",
+    "prompt": "Produce one full-body isolated pixel-art sprite of Genshin Impact's Consecrated Fanged Beast (聖骸牙獣) for a MapleStory-inspired side-scrolling RPG lab. Reference 1 is the full silhouette and source for bone crest, tusks, green swirls, bone ankle guards, lime toes and distinctive leaf blade tail. Reference 2 is a game capture of this exact creature in Tunigi Hollow; adopt the planted, nearly lateral pose of the green beast behind the player. Face LEFT, in a slightly three-quarter side view that shows the bone mask and splayed angular cheek crests, green forelegs, long body with the visible dark green spiral on hind thigh, broad hind paws, four full legs, and the whole thin rising tail ending in a serrated lime leaf blade. Two nearer paws and the visible farther paws should reach nearly the same flat baseline, neutral low idle, no airborne or attack pose. Keep the charcoal patches on the upper back and sparse bone dorsal armor. Match the reference colors: near-black forest shadows, jade-green body, ivory bone, a few distinctly bright lime highlights (not overall glow). Use deliberate chunky hard pixel clusters, controlled shading, bold clean silhouette readable at 56px sprite height; thin curls and ornate details may be simplified, but keep the recognizable tail-leaf outline and thigh spiral. Center the entire creature with generous transparent margins, no ground, no shadow, no frame, no reflection, no effects, no text, no UI, no background, no other characters.",
+    "output": "assets/fanged-beast-idle-source-v1.png",
+    "sha256": "b22198726275277b0008bb607cdc24b0fda48b6e60b6db38e620cdbabd318ca5",
+    "imageSize": [1774, 887],
+    "opaqueBox": [286, 72, 1356, 754],
+    "poseDecision": "Full-body side-biased idle with paw row flattened onto one support; far-side armor and tail curve adapted for readability. Reserved leaf green #c4d458 within the original palette budget.",
+    "anchorX": 0.377212389380531
+  },
+  "encoding": "assets/fanged-beast-idle-sprites.json",
+  "profiles": {
+    "legacy": { "height": 112, "runs": 4382 },
+    "h48c32": { "height": 84, "runs": 2780 },
+    "h32c16": { "height": 56, "runs": 1334 }
+  },
+  "placement": "One provisional resting appearance at tunigi-depth-2, x510 on ground y480. The original game's post-quest entrance spawn is not reproduced by the prototype visit survey.",
+  "limits": [
+    "Draw-rectangle reduction is approximately 69.6 percent relative to the full-height rectangle profile. No FPS measurement.",
+    "Existing generic movement, collision, barrier and attacks; dedicated enemy mechanics and animation are pending."
+  ],
+  "validation": [
+    "evidence/branches-test.json",
+    "evidence/tunigi-fanged-beast-browser.json",
+    "evidence/fanged-beast-placement.png",
+    "evidence/enemies-gallery.json"
+  ]
+}

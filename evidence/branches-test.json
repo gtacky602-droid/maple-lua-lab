@@ -1,5 +1,5 @@
 {
-  "count": 13,
+  "count": 15,
   "checks": [
     "low-level player can enter high-light branch",
     "branch encounter carries barrier threshold",
@@ -13,8 +13,10 @@
     "above fifty rejected",
     "nine requested branch regions represented",
     "every branch depth has a return edge to safe camp",
-    "branch threshold is independent of entry level"
+    "branch threshold is independent of entry level",
+    "Tunigi visit advances survey and loads the authored ground enemy",
+    "Tunigi survey completes on return to camp"
   ],
-  "nodes": 55,
-  "quests": 41
+  "nodes": 61,
+  "quests": 47
 }

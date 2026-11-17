@@ -38,5 +38,9 @@
   "cryo-slime": {
     "height": 40,
     "hover": 0
+  },
+  "fanged-beast": {
+    "height": 112,
+    "hover": 0
   }
 }

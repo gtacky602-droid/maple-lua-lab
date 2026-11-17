@@ -21,6 +21,7 @@ try{
   await add('armored-crab','重甲ヤドカニ（全身参照v2・フォンテーヌに仮配置）',await json('assets/armored-crab-idle-sprites.json'),64);
   await add('frostarm-lawachurl','ヒルチャール・霜鎧の王（ドラゴンスパインに仮配置）',await json('assets/frostarm-lawachurl-idle-sprites.json'),layouts['frostarm-lawachurl'].height);
   await add('hunter-seeker','秘源機兵・ハンターシーカー（ナタに仮配置）',await json('assets/hunter-seeker-idle-sprites.json'),layouts['hunter-seeker'].height);
+  await add('fanged-beast','聖骸牙獣（トゥニギの黒淵に仮配置）',await json('assets/fanged-beast-idle-sprites.json'),layouts['fanged-beast'].height);
  }else{
  for(const item of (await json('content/character-art-gallery.json')).items)await add(item.id,item.name,await json('assets/'+item.file),item.height);
  }

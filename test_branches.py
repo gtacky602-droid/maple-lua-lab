@@ -18,4 +18,12 @@ c.action(r,'barrier_trial:51');check('above fifty rejected',r.imprintTrial is No
 g=json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8'));nodes={n['id']:n for n in g['nodes']};branches={n['region'] for n in nodes.values() if n.get('branch')};check('nine requested branch regions represented',len(branches)==9)
 check('every branch depth has a return edge to safe camp',all(any(nodes[e['to']]['hub'] for e in n['exits']) for n in nodes.values() if n.get('branch') and not n['hub']))
 check('branch threshold is independent of entry level',nodes['dornman-depth']['lightReference']==30 and nodes['dornman-depth']['level']==1)
+t=c.new(12);c.action(t,'story_start');c.grantExp(t,sum(c.expNeeded(i) for i in range(1,60)),'quest')
+c.enterStoryNode(t,'tunigi-camp')
+d=c.checkpoint(t);validate_save(native(d));(ROOT/'work/tunigi-fixture.json').write_text(json.dumps(native(d)),encoding='utf8')
+q='tunigi-survey';c.action(t,'story_accept:'+q);t.actors[1].x=1380;c.action(t,'story_portal:tunigi-depth')
+e=t.enemies[2]
+check('Tunigi visit advances survey and loads the authored ground enemy',t.story.node=='tunigi-depth' and t.story.quests[q].count==1 and (e.spawnId,e.art,e.y,e.kind,e.barrier)==('tunigi-depth-2','fanged-beast',480,1,13))
+c.action(t,'story_fast:tunigi-camp');c.action(t,'story_report:'+q)
+check('Tunigi survey completes on return to camp',t.story.quests[q].status=='complete')
 (ROOT/'work/branch-fixture.json').write_text(json.dumps(native(c.checkpoint(r))),encoding='utf8');(ROOT/'evidence/branches-test.json').write_text(json.dumps({'count':len(checks),'checks':checks,'nodes':len(nodes),'quests':len(g['quests'])},indent=2));print(len(checks),'branch checks passed')
