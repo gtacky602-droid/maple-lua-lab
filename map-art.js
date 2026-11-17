@@ -2,6 +2,7 @@ import {placementSignature} from './placement-signature.js';
 import {setupPlacementPosition} from './placement-position.js';
 import {setupMapNodePicker} from './map-node-picker.js';
 import {loadImageSet} from './sprite-images.js';
+import {spriteBounds,paintSprite} from './sprite-layers.js';
 import {setupPlacementPicker} from './placement-picker.js';
 import {scenery,sceneryKey,sceneryDefinitions,sceneryStatus,backgroundReady} from './scenery.js';
 import {comparePlacements,liveNodeDraft,validatePlacementDraft,MAX_DRAFT_BYTES,MAX_NODE_PLACEMENTS,MAX_TOTAL_PLACEMENTS} from './placement-drafts.js';
@@ -23,14 +24,17 @@ try{
  for(const [kind,label,file] of [['boss','ボス待機候補（比較用の大きさ）','boss-art-gallery.json'],['character','主人公・味方（待機候補）','character-art-gallery.json']]){
   const gallery=await json('content/'+file),group=document.createElement('optgroup');group.label=label;
   const loaded=await Promise.all(gallery.items.map(async item=>{
-   const [data,left]=await Promise.all([json('assets/'+item.file),item.leftFile&&json('assets/'+item.leftFile)]);
-   const size={h:item.height,hover:item.mapHover??0};return {item,art:{...data,...size,left:left&&{...left,...size}}};
+   const [data,left,rear]=await Promise.all([
+    json('assets/'+item.file),item.leftFile&&json('assets/'+item.leftFile),item.rear&&json('assets/'+item.rear.file)
+   ]);
+   const size={h:item.height,hover:item.mapHover??0,rear:rear&&{...rear,height:item.rear.height,bottom:item.rear.bottom}};
+   return {item,art:{...data,...size,left:left&&{...left,...size}}};
   }));
   for(const {item,art} of loaded){const id=kind+'-'+item.id;assets[id]=art;const option=document.createElement('option');option.value=id;option.textContent=item.name;group.append(option)}
   $('species').append(group);
  }
  setupPlacementPicker($('species'));
- const imageArt=Object.values(assets).flatMap(data=>data.left?[data,data.left]:[data]);
+ const imageArt=Object.values(assets).flatMap(data=>[data,data.left,data.rear].filter(Boolean));
  const images=await loadImageSet(imageArt.map(data=>data.source),{onProgress:(done,total)=>{$('status').textContent=`画像を読み込み中 ${done} / ${total}`}});
  for(const data of imageArt)data.image=images[data.source];
  drafts=validatePlacementDraft(drafts,graph,Object.keys(assets));
@@ -71,9 +75,22 @@ try{
   const mapped=Object.values(sceneryDefinitions).some(d=>d.region===n.region),valid=items.every(e=>n.platforms.some(p=>p.y===e.y&&e.x>=p.x&&e.x<=p.x+p.w));
   $('cameraValue').value=camera;$('context').textContent=`${n.name} ／ 幅${n.width}px ／ ${n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${background.state!=='ready'?'背景画像を読み込めません：単色で表示（'+background.file+'）':mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用'}。配置${items.length}体（見た目確認用）。`;
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame);ctx.imageSmoothingEnabled=false;
-   for(const e of items){const a=placementArt(e),flip=e.flip&&a===assets[e.species],w=a.h*a.box[2]/a.box[3],anchor=a.anchorX??.5,x=e.x-camera;ctx.save();ctx.translate(x,e.y-a.hover);if(flip)ctx.scale(-1,1);
-    if(mode==='png')ctx.drawImage(a.image,...a.box,-w*anchor,-a.h,w,a.h);else{const p=a.profiles[profile];for(const r of p.runs){ctx.fillStyle=r[4];ctx.fillRect(-w*anchor+r[0]*w/p.width,-a.h+r[1]*a.h/p.height,r[2]*w/p.width+.05,r[3]*a.h/p.height+.05)}}ctx.restore();
-    if(e.id===selected){ctx.strokeStyle='#ffe08a';ctx.lineWidth=2;ctx.strokeRect(x-w*(flip?1-anchor:anchor)-3,e.y-a.hover-a.h-3,w+6,a.h+6)}
+   for(const e of items){
+    const a=placementArt(e),flip=e.flip&&a===assets[e.species],x=e.x-camera,y=e.y-a.hover;
+    const body=spriteBounds(a,a.h),rear=a.rear&&spriteBounds(a.rear,a.rear.height,a.rear.bottom);
+    const quality=mode==='png'?null:profile;
+    ctx.save();ctx.translate(x,y);
+    if(rear)paintSprite(ctx,a.rear,a.rear.image,rear,quality);
+    if(flip)ctx.scale(-1,1);
+    paintSprite(ctx,a,a.image,body,quality);ctx.restore();
+    if(e.id===selected){
+     const left=flip?-body.x-body.width:body.x;
+     const minX=rear?Math.min(left,rear.x):left;
+     const maxX=rear?Math.max(left+body.width,rear.x+rear.width):left+body.width;
+     const top=Math.min(body.y,rear?.y??0);
+     ctx.strokeStyle='#ffe08a';ctx.lineWidth=2;
+     ctx.strokeRect(x+minX-3,y+top-3,maxX-minX+6,-top+6);
+    }
     ctx.fillStyle='#ffffff';ctx.fillRect(x-3,e.y-1,6,2);
    }
   }
@@ -87,7 +104,11 @@ try{
   const line=text=>{const li=document.createElement('li');li.textContent=text;$('diffDetails').append(li)};
   if(diff){for(const e of diff.added)line(`追加 ${e.id}：${describe(e)}`);for(const e of diff.removed)line(`削除 ${e.id}：${describe(e)}`);for(const e of diff.changed){const names={species:'敵種',x:'横位置',y:'足場の高さ',flip:'向き'};line(`変更 ${e.id}［${e.fields.map(k=>names[k]).join('・')}］：${describe(e.before)} → ${describe(e.after)}`)}}
   nodePicker.update();positionEditor.update();
-  const visuals=items.map(e=>{const a=placementArt(e);return {id:e.id,source:a.source,y:e.y-a.hover,hover:a.hover,height:a.h}});
+  const visuals=items.map(e=>{
+   const a=placementArt(e),y=e.y-a.hover;
+   const rear=a.rear&&{source:a.rear.source,top:y+a.rear.bottom-a.rear.height,bottom:y+a.rear.bottom};
+   return {id:e.id,source:a.source,y,hover:a.hover,height:a.h,...(rear&&{rear})};
+  });
   window.mapArt={diff,dirty,ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,selected,editMode:$('editMode').value,placements:structuredClone(items),visuals,grounded:valid,background:sceneryKey(frame),backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file};
  }
  function remember(id){const history=histories[id]??=[];history.push(structuredClone(drafts.nodes[id]??[]));if(history.length>100)history.shift();delete redos[id]}

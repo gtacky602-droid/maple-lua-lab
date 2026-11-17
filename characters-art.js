@@ -1,8 +1,13 @@
 import {setupGalleryUrl} from './gallery-url.js';
+import {spriteBounds,paintSprite} from './sprite-layers.js';
 const $=id=>document.getElementById(id),assets=[];
 async function json(path){const r=await fetch(path);if(!r.ok)throw Error(path);return r.json()}
 async function art(data){const image=new Image();image.src='assets/'+data.source;await image.decode();return {data,image}}
-async function add(id,name,data,h,leftData){const [right,left]=await Promise.all([art(data),leftData&&art(leftData)]);const article=document.createElement('article');article.dataset.id=id;article.innerHTML=`<h2>${name}</h2><div class="pair"><div><small>元PNG</small><canvas width="340" height="300"></canvas></div><div><small>矩形版</small><canvas width="340" height="300"></canvas></div></div><div class="stats"></div>`;$('cards').append(article);assets.push({id,name,right,left,article,h})}
+async function add(id,name,data,h,leftData,rear){
+ const [right,left,layer]=await Promise.all([art(data),leftData&&art(leftData),rear&&art(rear.data)]);
+ const article=document.createElement('article');article.dataset.id=id;article.innerHTML=`<h2>${name}</h2><div class="pair"><div><small>元PNG</small><canvas width="340" height="300"></canvas></div><div><small>矩形版</small><canvas width="340" height="300"></canvas></div></div><div class="stats"></div>`;
+ $('cards').append(article);assets.push({id,name,right,left,article,h,rear:layer&&{...layer,height:rear.height,bottom:rear.bottom}});
+}
 let layouts={};
 const enemies=document.documentElement.dataset.gallery==='enemies';
 try{
@@ -24,8 +29,10 @@ try{
  }else{
   const catalog=document.documentElement.dataset.gallery==='bosses'?'boss-art-gallery.json':'character-art-gallery.json';
   for(const item of (await json('content/'+catalog)).items){
-   const [data,left]=await Promise.all([json('assets/'+item.file),item.leftFile&&json('assets/'+item.leftFile)]);
-   await add(item.id,item.name,data,item.height,left);
+   const [data,left,rearData]=await Promise.all([
+    json('assets/'+item.file),item.leftFile&&json('assets/'+item.leftFile),item.rear&&json('assets/'+item.rear.file)
+   ]);
+   await add(item.id,item.name,data,item.height,left,item.rear&&{...item.rear,data:rearData});
   }
  }
  const searchControls=document.createElement('div');searchControls.className='gallery-search';
@@ -39,12 +46,25 @@ try{
  const updateUrl=setupGalleryUrl({search,render});
  function render(){const terms=normalize(search.value).trim().split(/\s+/u).filter(Boolean);let visible=0;const profile=$('profile').value,zoom=Number($('zoom').value),flip=$('flip').checked;
   updateUrl();const dimensions=[];
-  for(const {id,name,right,left,article,h} of assets){const {data,image}=flip&&left?left:right;const ratio=data.box[2]/data.box[3],w=h*ratio;
-   dimensions.push({id,h,w,ratio,source:data.source});article.hidden=!terms.every(term=>normalize(name+' '+id).includes(term));if(article.hidden)continue;visible++;const a=data.profiles[profile],hover=(layouts[id.replace('-reference','')]?.hover??0)*zoom,height=h*zoom,width=w*zoom,anchor=data.anchorX??.5;
-   for(const [i,canvas] of [...article.querySelectorAll('canvas')].entries()){canvas.width=Math.max(340,Math.ceil(width*2*Math.max(anchor,1-anchor)+30));canvas.height=Math.max(300,Math.ceil(height+hover+30));const ctx=canvas.getContext('2d');ctx.clearRect(0,0,canvas.width,canvas.height);ctx.imageSmoothingEnabled=false;ctx.save();ctx.translate(canvas.width/2,canvas.height-15-hover);if(flip&&!left)ctx.scale(-1,1);const x=-width*anchor,y=-height;
-    if(i===0)ctx.drawImage(image,...data.box,x,y,width,height);else for(const r of a.runs){ctx.fillStyle=r[4];ctx.fillRect(x+r[0]*width/a.width,y+r[1]*height/a.height,r[2]*width/a.width+.05,r[3]*height/a.height+.05)}ctx.restore();ctx.fillStyle='#dae5cc';ctx.fillRect(0,canvas.height-15,canvas.width,1);
+  for(const {id,name,right,left,article,h,rear} of assets){const {data,image}=flip&&left?left:right;const ratio=data.box[2]/data.box[3],w=h*ratio;
+   dimensions.push({id,h,w,ratio,source:data.source,...(rear&&{rearSource:rear.data.source})});
+   article.hidden=!terms.every(term=>normalize(name+' '+id).includes(term));if(article.hidden)continue;visible++;
+   const a=data.profiles[profile],hover=(layouts[id.replace('-reference','')]?.hover??0)*zoom;
+   const body=spriteBounds(data,h*zoom);
+   const layer=rear&&spriteBounds(rear.data,rear.height*zoom,rear.bottom*zoom);
+   const halfWidth=Math.max(-body.x,body.x+body.width,(layer?.width??0)/2);
+   const top=Math.min(body.y,layer?.y??0);
+   for(const [i,canvas] of [...article.querySelectorAll('canvas')].entries()){
+    canvas.width=Math.max(340,Math.ceil(halfWidth*2+30));canvas.height=Math.max(300,Math.ceil(hover-top+30));
+    const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.save();ctx.translate(canvas.width/2,canvas.height-15-hover);
+    if(layer)paintSprite(ctx,rear.data,rear.image,layer,i===0?null:profile);
+    if(flip&&!left)ctx.scale(-1,1);
+    paintSprite(ctx,data,image,body,i===0?null:profile);
+    ctx.restore();ctx.fillStyle='#dae5cc';ctx.fillRect(0,canvas.height-15,canvas.width,1);
    }
-   article.querySelector('.stats').textContent=`表示${h}px高 ／ ${a.width}×${a.height}px ／ ${a.runs.length.toLocaleString()}矩形 ／ ${(100*(1-a.runs.length/data.profiles.legacy.runs.length)).toFixed(1)}%減`;
+   const runs=a.runs.length+(rear?.data.profiles[profile].runs.length??0);
+   const standard=data.profiles.legacy.runs.length+(rear?.data.profiles.legacy.runs.length??0);
+   article.querySelector('.stats').textContent=`表示${h}px高${rear?'（本体）':''} ／ ${a.width}×${a.height}px${rear?`・各素材${a.colors}色`:''} ／ ${runs.toLocaleString()}矩形${rear?'（翼込み）':''} ／ ${(100*(1-runs/standard)).toFixed(1)}%減`;
   }result.textContent=visible?`${visible} / ${assets.length}候補を表示`: '該当する素材がありません。名前を短くするか、絞り込みを解除してください。';clear.disabled=!search.value; $('status').textContent=`${visible} / ${assets.length}候補を表示。原画像を変更せず比較しています。`;window.charactersGallery={ready:true,count:assets.length,visibleCount:visible,query:search.value,profile,zoom,flip,dimensions};
  }
  for(const id of ['profile','zoom','flip'])$(id).onchange=render;render();

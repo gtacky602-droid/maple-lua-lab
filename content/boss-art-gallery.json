@@ -482,6 +482,19 @@
       "mapHover": 0
     },
     {
+      "id": "ronova",
+      "name": "ロノヴァ（浮遊待機候補）",
+      "file": "ronova-idle-right-sprites-v1.json",
+      "leftFile": "ronova-idle-left-sprites-v1.json",
+      "height": 144,
+      "mapHover": 17.6,
+      "rear": {
+        "file": "ronova-wings-sprites-v1.json",
+        "height": 112,
+        "bottom": -98
+      }
+    },
+    {
       "id": "anemo",
       "name": "無相の風・外殻（既存候補）",
       "file": "anemo-shell-sprites.json",

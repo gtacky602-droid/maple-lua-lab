@@ -12,7 +12,7 @@ for(const encounter of data.encounters){
   assert(catalogs[art.gallery??'bosses']?.some(item=>'assets/'+item.file===art.encoding),'Missing registered art '+art.encoding);
  }
 }
-assert.deepEqual(expected.filter(e=>!e.items.length).map(e=>e.id),['stygian-ronova']);
+assert.equal(expected.filter(e=>!e.items.length).length,0);
 assert.equal(expected.find(e=>e.id==='bathysmal-herd').items.length,2);
 assert.deepEqual(encounterArtItems({art_candidate:{encoding:'javascript:alert(1)'}},catalogs),[]);
 const browser=await chromium.launch({headless:true,channel:'chrome'}),context=await browser.newContext({viewport:{width:1440,height:1080}}),p=await context.newPage(),errors=[];
@@ -49,7 +49,7 @@ try{
   assert.match(await row.locator('.encounter-art').innerText(),/同行キャラの待機絵を共用/);
   await verifyPopup(row.locator('.encounter-art a'),'characters-art.html',id);
  }
- for(const [id,asset] of [['capitano','capitano-coat'],['xbalanque','xbalanque'],['rerir','rerir']]){
+ for(const [id,asset] of [['capitano','capitano-coat'],['xbalanque','xbalanque'],['rerir','rerir'],['ronova','ronova']]){
   const row=panel.locator(`[data-encounter="stygian-${id}"]`);
   assert(await row.getByRole('button',{name:'制作中',exact:true}).isDisabled());
   await verifyPopup(row.locator('.encounter-art a'),'bosses-art.html',asset);
@@ -76,6 +76,6 @@ try{
   }finally{await faultPage.close()}
  }
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/encounter-art-test.json',JSON.stringify({rows:expected.length,rowsWithArt:expected.filter(e=>e.items.length).length,artLinks:expected.reduce((n,e)=>n+e.items.length,0),bossPopupsVerified:5,characterPopupsVerified:2,mobilePanelOverflow:false,catalogFailuresPreserveOtherLinksAndLaunch:true,errors},null,2));
+ await fs.writeFile('evidence/encounter-art-test.json',JSON.stringify({rows:expected.length,rowsWithArt:expected.filter(e=>e.items.length).length,artLinks:expected.reduce((n,e)=>n+e.items.length,0),bossPopupsVerified:6,characterPopupsVerified:2,mobilePanelOverflow:false,catalogFailuresPreserveOtherLinksAndLaunch:true,errors},null,2));
  console.log('Encounter art links, boss and character navigation, mobile and catalog failures passed');
 }finally{await browser.close()}

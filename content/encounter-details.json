@@ -637,6 +637,20 @@
         "マルチ・記録"
       ],
       "review_note": "第一幕の爪を下げた待機を144pxの比較サイズで左右別に試作。"
+    },
+    "stygian-ronova": {
+      "art_candidate": {
+        "item": "ronova",
+        "audit": "evidence/ronova-idle-reference-audit.json",
+        "status": "directional hover idle with separate rear wing art"
+      },
+      "remaining": [
+        "姿勢の変化・台詞・瞳と羽の演出",
+        "専用戦闘行動・命と復活の仕組み",
+        "4難度・報酬",
+        "マルチ・記録"
+      ],
+      "review_note": "144pxの本体と赤い翼を分け、仮背景で17.6pxの浮きを比較。"
     }
   }
 }

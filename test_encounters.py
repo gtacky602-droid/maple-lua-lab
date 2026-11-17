@@ -23,9 +23,7 @@ check('generated file matches builder',d==json.loads((ROOT/'content/encounters.j
 check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':70,'partial':11,'complete':0})
 by_id={r['id']:r for r in rows}
 check('both paired encounters retain two art references',all(len(by_id[id]['art_components'])==2 for id in ('bathysmal-herd','boss-29122000')))
-check('only new design-only candidates lack art',{
- r['id'] for r in rows if not (r.get('art_candidate') or r.get('art_components'))
-}=={'stygian-ronova'})
+check('every candidate has a gallery reference',all(r.get('art_candidate') or r.get('art_components') for r in rows))
 check('Capitano art and design linked without a playable action',
       by_id['stygian-capitano']['art_candidate']['encoding']=='assets/capitano-coat-right-sprites-v1.json'
       and by_id['stygian-capitano']['evidence']==['docs/stygian-motion-v1/CAPITANO.md']
@@ -38,6 +36,10 @@ check('Rerir art and design linked without a playable action',
       by_id['stygian-rerir']['art_candidate']['encoding']=='assets/rerir-idle-right-sprites-v1.json'
       and by_id['stygian-rerir']['evidence']==['docs/stygian-motion-v1/RERIR.md']
       and by_id['stygian-rerir']['action'] is None)
+check('Ronova art and design linked without a playable action',
+      by_id['stygian-ronova']['art_candidate']['encoding']=='assets/ronova-idle-right-sprites-v1.json'
+      and by_id['stygian-ronova']['evidence']==['docs/stygian-motion-v1/RONOVA.md']
+      and by_id['stygian-ronova']['action'] is None)
 
 read_json=build_encounters.read_json
 def read_previous_beidou_art(path):

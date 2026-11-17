@@ -1,0 +1,102 @@
+{
+  "subject": "Ronova / ロノヴァ",
+  "design": "docs/stygian-motion-v1/RONOVA.md",
+  "status": "directional static hover prototype with a separate shared wing pair",
+  "reference": [
+    {
+      "page": "https://skowt.cc/a/QeBnBEiBw",
+      "version": "The Unyielding boss model",
+      "preview_sha256": "43f696e882455523c10265a5ac6937d4e99ca19cc62295962947cff552423214",
+      "views": {
+        "front": "a953543ffe6bfe8c19d1c77edbca1cd6adddbdd87265aa5b4c8af5c437473bb6",
+        "side": "03c3ee8fdf1c02c1046477933230047c08e06898e52e4acaaded7048aa162167",
+        "back": "81dc851833fbc2574803c3b8b869604422234e3119500ab11dbe6938117efc63",
+        "other_side": "856481ecb1a3642aa4bf9e9aa3fe3604ac417ad08347c4490dead68929c5e775"
+      },
+      "use": "Observed live from four angles; layers of silver hair, ivory feathers, long red skirt and wing contours confirmed. Unmodified preview passed to ImageGen. Viewer lists COGNOSPHERE with non-commercial fan usage and publisher policy. All model references kept local."
+    },
+    {
+      "page": "https://www.gosugamers.net/news/79152-genshin-impact-7-1-to-launch-on-23-september-with-vesna-vodyanitsa-and-sixth-anniversary-event",
+      "image": "https://static.gosugamers.net/f9/67/a1/dd5a214ad8f3af272c66043010ae71c412a70a8f15c1094478bf2a402f.jpg",
+      "sha256": "dc08fc9c12ee9b213dfc908d76ee1fbcd53a6a8a248f7e067abc912f589349de",
+      "use": "Observed and passed to generation for the upright levitation pose and reference environment. Birds and scene excluded."
+    },
+    {
+      "page": "https://www.youtube.com/watch?v=YWjchPcLhas",
+      "use": "Observed published cover; it features the other character, so it was not supplied to generation. No claims about full playback or timing."
+    }
+  ],
+  "generation": {
+    "tool": "built-in ImageGen",
+    "body_prompts": [
+      "Create one horizontal transparent old-school pixel-art JRPG sheet with exactly two separate full-body idle sprites of Ronova (white-haired Ruler of Death from Genshin Impact 7.1). Left cell faces screen right in three-quarter view. Right cell faces screen left in three-quarter view. Use the white-haired figure in the center of the first game still for standing silhouette and second model image for costume detail only. Both hover calmly with legs nearly straight, short solid tapering boots and visible feet on equal baseline. Rest both black-gloved hands near the front of her waist without hiding them. Anatomical body height at display 144px: face crown to chin exactly about one third of silhouette height for compact 3-head adult chibi proportional to pixel platform party; keep a mature composed face, head about as wide as the natural shoulders, short torso and short legs. Very long silver-white tapered hair behind the body, golden amber eyes with pale highlight, dark-red diamond-shaped temple piece as in reference, black high collar and pointed muted red shoulders, black and dark burgundy costume with thin silver angular front bands, pale ivory separated feather panels over hips, split scarlet-lined petal skirt tapering on either side behind the boots. Shorten the skirt and hair to stay above the foot line. Draw the BODY only: two narrow red wing-shaped objects floating around head in sample are separate assets and MUST be absent here. No wings or birds, no projected eyes, no aura, no weapon, no ring, no cast shadow or text. Crisp bold pixel clusters, hard pixel edges and high silhouette readability in a 72px reduction, real alpha, wide transparent gutter between whole figures.",
+      "Redraw these exact Ronova sprites with clearly chibi, three-head-high proportions. Current height is about 800 pixels with a 200 pixel head height, which is four heads. Required result at the same source scale is about 700 total pixels with a 225–238 pixel head. Enlarge face and crown 15%, move belt up closer to chest and shorten the long legs below the skirt by at least 110 pixels, especially foreleg and ankle. Keep the female adult calm face, golden iris, sharp red hair ornaments, same long white hair, black boots and exact outfit, both gloves clearly visible at waist, hair and red black skirt tips ABOVE boots, fully visible two flat shoes total per sprite. Preserve both figures facing existing opposite directions, hip and leg silhouettes and wide blank central gutter. Firm coarse square pixels. No wings, no magic, no motion, no ground, no shadows, alpha background.",
+      "Make a targeted proportion adjustment to this exact transparent two-direction pixel sprite sheet of Ronova. Keep the small compact clothed body, arms with hands at waist, hair lower ends, skirt and boots exactly as drawn. From jaw UP only, reduce height of each head by about one quarter and reduce width slightly, then align both heads on the existing necks. Her current heads take about 40% of each sprite and look too young; the target is about 32–34% crown to chin, maintaining a calm adult face. Preserve tightly layered silver bangs, curved side lock, gold eyes, and red pointed hair clips, but lower rounded hairline rather than inflate it. Same two opposite facing complete sprites on common bottom baseline, same sharp pixel shapes, clean cutout transparency, no wings, no floor, no shadows, no text."
+    ],
+    "wing_prompt": "Draw exactly one paired OVERHEAD rear accessory for Ronova from the provided Genshin Impact 7.1 screenshots. Isolate ONLY her two ornate black-red feather blades (the red open floating pair above/behind the white-haired character), in frontal 2D, same shape as reference. Genuine smooth transparent cutout outside, deliberately low-resolution handmade PIXEL ART inside. Shape is two narrow sharp inward-tapering ribbon arcs, pointing up and inward but never touching, ragged outer curves with two distinct small almond-eye cutouts on each upper wing, dark garnet core and crimson hard edge pixels, subtle peach-red slits. Leave a clear central transparent opening at least a third of the full width so a chibi character head and hands fit in front. Wings point up, broadest at the middle, tips outer or curved as reference. All feathers gathered toward shoulder area at the lower ends. Mirrored general pair, top tips separate. Transparent background, completely isolated accessory with ample margins, no character, no big external eye, no birds, no floor, no effects, no logos, no letters. Draw a clean, legible, lightly simplified pair for 112px tall display.",
+    "body_sheet_px": [
+      1774,
+      887
+    ],
+    "body_split_x": 887,
+    "body_sheet_sha256": "763e3186c08d7bcc8e2561c974fd912f638a64ece01b3217edf4f43debb7e861",
+    "wing_sha256": "d621ad9c3efbe6bfc4cfacf7e40c78d31e6596342959174976eb03b2afca181a"
+  },
+  "display": {
+    "body_height": 144,
+    "approximate_heads": 3,
+    "wing_height": 112,
+    "wing_bottom_relative_to_body_bottom": -98,
+    "floating_offset": 17.6,
+    "reference_U_px": 88,
+    "floor_y": 480,
+    "body_bottom_y": 462.4,
+    "wing_top_y": 252.4,
+    "body_profiles_px": [
+      144,
+      108,
+      72
+    ],
+    "wing_profiles_px": [
+      112,
+      84,
+      56
+    ],
+    "colors_per_sprite": [
+      32,
+      32,
+      16
+    ],
+    "reserves": {
+      "body": "#d7a743",
+      "wing": "#ed183c"
+    },
+    "body_right_rects": [
+      6464,
+      4014,
+      1782
+    ],
+    "body_left_rects": [
+      6320,
+      4032,
+      1731
+    ],
+    "wing_rects": [
+      2504,
+      1557,
+      626
+    ],
+    "total_right_rects": [
+      8968,
+      5571,
+      2408
+    ],
+    "total_left_rects": [
+      8824,
+      5589,
+      2357
+    ],
+    "map_background": "snezhnaya-background-v1.png"
+  },
+  "limits": "Feet support anchors are defined at the floor for editing; the 17.6px lift changes drawing only. Same rear wings for both directions. Outfit and wings simplified, with thinner panel-edge details in the light profile. Static neutral hovering pose, no background eye, animation, collision or combat mechanics. Per-asset palette budgets do not limit the union of colors across layers."
+}
