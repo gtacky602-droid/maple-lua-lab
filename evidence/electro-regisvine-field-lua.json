@@ -1,0 +1,27 @@
+{
+  "attacks": [
+    "FER01",
+    "FER02",
+    "FER03"
+  ],
+  "slamAndWaveSharedHit": true,
+  "waveHitsOutsideImpact": true,
+  "distinctBolts": true,
+  "fixedThreeColumns": true,
+  "distinctCastsToBreakCore": 3,
+  "interruptCancelsLiveWave": true,
+  "downTicks": 240,
+  "rearmTicks": 1200,
+  "lethalHitTakesPriority": true,
+  "normalAttackSolo": {
+    "seconds": 95.32,
+    "hp": 140,
+    "coreHitsLeft": 3
+  },
+  "questReportOnce": true,
+  "commands": {
+    "standard": 6641,
+    "light": 1903
+  },
+  "killXp": 39950
+}

@@ -2,6 +2,36 @@
   "errors": [],
   "cases": [
     {
+      "key": "electroVineField",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "electroVineField",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "electroVineField",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "electroVineField",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "electroVineField",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "electroVineField",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "bathysmalField",
       "camera": -960,
       "transparent": 0

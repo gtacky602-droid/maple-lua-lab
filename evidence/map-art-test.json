@@ -296,6 +296,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "electro-regisvine-field-cave",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "fontaine-entry",
       "count": 0,
       "fallback": false,

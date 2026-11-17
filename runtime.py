@@ -167,6 +167,9 @@ def runtime():
     core.primoFieldArt=field_art(lua,'primo',('windup','claw_first','claw_second','tail_ready','tail_sweep','charge','burst','down'),
                                 idle='primo-sprites.json',idle_anchor=.43)
     lua.execute((ROOT/'field-regisvine.lua').read_text(encoding='utf8'))(core)
+    core.electroRegisvineFieldArt=field_art(lua,'electro-regisvine',('gather','bowed','impact','branches','rain','down'),
+                                         idle='electro-regisvine-idle-sprites.json',idle_anchor=.51)
+    electro_vine=lua.execute((ROOT/'field-electro-regisvine.lua').read_text(encoding='utf-8'))(core)
     cryo_field=lua.execute((ROOT/'field-cryo-regisvine.lua').read_text(encoding='utf8'))(core)
     pyro_field=lua.execute((ROOT/'field-pyro-regisvine.lua').read_text(encoding='utf8'))(core)
     anemo_field=lua.execute((ROOT/'field-anemo-hypostasis.lua').read_text(encoding='utf-8'))(core)
@@ -202,7 +205,8 @@ def runtime():
                         'primoGeovishap':primo_field,'oceanid':oceanid_field,'maguu':maguu_field,
                         'array':array_field,'thunder':thunder_field,'cryoHypostasis':cryo_hypostasis,
                         'pyroHypostasis':pyro_hypostasis,'hydroHypostasis':hydro_hypostasis,
-                        'wolflord':wolflord_field,'ruinSerpent':ruin_serpent,'bathysmal':bathysmal})
+                        'wolflord':wolflord_field,'ruinSerpent':ruin_serpent,'bathysmal':bathysmal,
+                        'electroRegisvine':electro_vine})
     )
     return lua, core
 

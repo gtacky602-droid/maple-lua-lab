@@ -993,3 +993,11 @@ Chromeではアンバー同行で48.58秒で討伐し、通常攻撃と回避を
 旋尾、同じ方向へ時間差で撃つ氷雷の吐息、二体が順に跳ぶ攻撃を実装し、床と行動中の個体に番号を表示した。Chromeではアンバー同行で60.95秒で討伐し、17,450EXPと195モラ、報告4,000EXPと300モラ、再出現待ちの保存を確認した。同一フレームの描画指示は標準矩形17,145件、軽量16色4,754件。氷と雷の輪郭、尾、結晶の色は残り、細い縁が簡略化された。128地点の表示と背景294条件を検査した。 [Chrome検証](evidence/bathysmal-field-browser.json)・[PNG](evidence/bathysmal-field-png.png)・[軽量16色](evidence/bathysmal-field-light.png)
 
 レベル46・共有HP1,120・報酬・石庭の背景はラボ用の仮設定。ゲーム画像を参照して各個体に旋尾、吐息、跳躍の3姿勢を追加した。各動作の中割り、被弾・撃破の作画、3Dモデル照合、Webマルチ、幻境実機は未確認。次は迅電樹のフィールド戦を進める。 [美術参照](evidence/bathysmal-field-art-audit.json)
+
+## 迅電樹のフィールド戦
+
+スメールの樹陰の広場から雨林の道を経て、紫脈の石窟へ入る。首落とし・走雷、双枝の雷弾、三点の落雷を実装した。首落としと走雷は一対象につき一度だけ当たる。落雷の位置は予告時に固定し、表示と実判定の高さを114.4pxに揃えた。根元核を別々の近距離攻撃3回で割ると、進行中の攻撃が消えて4秒間ダウンする。ダウン終了後20秒で核が戻る。Luaの通常攻撃のみのソロ試験では核を残して95.32秒で討伐した。 [設計](docs/field-boss-v1/DEEP_RUINS_MOVESETS.md)・[Lua検証](evidence/electro-regisvine-field-lua.json)
+
+Chromeではアンバー同行で71.45秒で討伐し、39,950EXPと225モラ、依頼報告の4,000EXPと300モラ、再出現待ちの保存を確認。首落とし予告の同一フレームは標準矩形9,956件、軽量16色2,686件。花冠の紫と黄白い芯が残り、葉や花びらの細い線が簡略化された。129地点の表示と背景300条件を確認した。 [Chrome検証](evidence/electro-regisvine-field-browser.json)・[PNG](evidence/electro-regisvine-field-png.png)・[軽量16色](evidence/electro-regisvine-field-light.png)
+
+レベル62・HP1,240・報酬・石窟の背景はラボ用の仮設定。ゲーム画像を参照して6姿勢を作り、各姿勢で根元の位置を合わせた。動作の中割り、被弾・撃破の作画、3Dモデルとの照合、Webマルチ、幻境実機は未確認。次は兆載永劫ドレイクのフィールド戦へ進む。 [美術参照](evidence/electro-regisvine-field-art-audit.json)

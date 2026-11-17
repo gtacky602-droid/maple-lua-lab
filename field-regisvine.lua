@@ -43,7 +43,7 @@ return function(C)
    behavior.updateHeight(boss,spec,slot.cast)
    if boss.coreHits>0 or boss.rearm>0 then return false end
    local cast=slot.cast
-   if cast then
+   if cast and not spec.core.interrupt then
     local move=cast.move
     local active=move.active[#move.active]
     local lastShot=move.shotTicks and move.shotTicks[#move.shotTicks]+move.shotLife or 0

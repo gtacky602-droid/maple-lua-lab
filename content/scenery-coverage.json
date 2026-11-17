@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 128 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 126,
+  "scope": "Authored 129 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 127,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -296,6 +296,12 @@
     {
       "id": "sumeru-jadeplume-grove",
       "name": "スメール・菌傘の谷",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "electro-regisvine-field-cave",
+      "name": "スメール・紫脈の石窟",
       "region": "スメール",
       "status": "regional_temporary_image"
     },

@@ -905,6 +905,36 @@
         {"id":"FBH02","kind":"volley","title":"氷雷の二吐息","reach":235,"lock":48,"active":[],"fire":[84,156],"life":54,"recover":228,"total":300,"damage":14},
         {"id":"FBH03","kind":"relay","title":"二体の跳躍リレー","reach":240,"lock":54,"active":[[114,126],[234,246]],"air":[[78,114],[198,234]],"recover":270,"total":390,"damage":21}
       ]
+    },
+    {
+      "id": "boss-26020301",
+      "controller": "electroRegisvine",
+      "entity": 26020301,
+      "name": "迅電樹",
+      "node": "electro-regisvine-field-cave",
+      "storyChallenge": "electro-regisvine",
+      "level": 62,
+      "hp": 1240,
+      "mora": 225,
+      "artHeight": 174,
+      "floorY": 480,
+      "home": 800,
+      "arenaMin": 318,
+      "arenaMax": 1390,
+      "noticeRange": 272,
+      "noticeTicks": 36,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 0,
+      "contactDamage": 0,
+      "resist": {"electro": 0.4},
+      "core": {"hits": 3, "down": 240, "rise": 24, "rearm": 1200, "hurtboxClearance": 30.8, "interrupt": true},
+      "moves": [
+        {"id":"FER01","pattern":"slam","title":"首落とし・走雷","reach":245,"lock":48,"active":[[96,108]],"shotTicks":[108],"shotLife":48,"shotOrigin":1.6,"shotSpeed":3,"shotHeight":0.25,"recover":180,"total":300,"damage":23,"shotDamage":16},
+        {"id":"FER02","pattern":"bolts","title":"双枝の雷弾","reach":246,"lock":42,"active":[],"shotTicks":[84,132],"shotLife":48,"shotOrigin":0.35,"shotSpeed":4,"shotHeight":0.7,"recover":192,"total":264,"damage":0,"shotDamage":14},
+        {"id":"FER03","pattern":"rain","title":"三点の落雷","reach":268,"lock":48,"active":[[108,114],[150,156],[192,198]],"recover":210,"total":300,"damage":19}
+      ]
     }
   ]
 }

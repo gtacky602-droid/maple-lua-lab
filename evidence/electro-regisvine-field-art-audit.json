@@ -1,0 +1,174 @@
+{
+  "stage": "Sumeru / Violet Vein Cave",
+  "referenceAudit": "evidence/electro-regisvine-reference-audit.json",
+  "modelLookup": "Web search did not yield a usable matching model; no 3D or back inspected",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/a6dab617161e7123dd39e16e628b09a9_7793940901606517531.png",
+      "sha256": "b30db5736847424cb920107e9fa854f74f0ea6501cb341231ca9e5976654e595",
+      "observed": "full-body rendered frontal appearance",
+      "use": "Flower and stem structure"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/0a96a2f3db38b662cc9d56cf02c70d34_4199020660964722638.png",
+      "sha256": "5c0a72cfb14309f7c538e4d506028b7ec3a4eb612f1a74371c55f13daaabdafd",
+      "observed": "in-game frontal view with combat effects",
+      "use": "Action poses and cave palette"
+    }
+  ],
+  "generated": [
+    {
+      "path": "assets/electro-regisvine-field-poses-source-v1.png",
+      "sha256": "a2d2005d203175e3ca3981799086bc7d75948769230293efede22252994a69b8",
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGBA",
+      "prompt": "Original transparent pixel-art sprite sheet with exactly six full separate creature sprites, a regular 2 column by 3 row grid with wide empty gutters. All sprites depict the same original 2D interpretation of Genshin Electro Regisvine in the game reference. Preserve four huge angular violet and magenta petals, ivory-yellow center, twisted lilac stalk anchored to the same small dark plum root cluster with blue basal leaves, two thorny side branches with small lilac three-point buds. Very crisp deliberate square pixels, grouped flat shadows and dark violet edges. TOP LEFT: upright gathered flower, petals and leaves close toward the central stem as it charges. TOP RIGHT: leans sharply LEFT with jagged flower down and out, stem curved from fixed right root, face low at the LEFT near ground, before impact. MIDDLE LEFT: actual leftward ground impact, crown flat and wide on the ground at LEFT, twisted low stem leading to right anchored root. MIDDLE RIGHT: tall with both thin side buds raised prominently, their pointed tips pale yellow, front open purple crown pointed slightly LEFT. BOTTOM LEFT: roots planted, crown tilted UP and showing pale center, moon-shaped petals above branches. BOTTOM RIGHT: limp collapsed low flower tilted LEFT, subdued amber center, wilted purple crown near ground and supported fixed root to the right. Keep root foot in each cell clearly visible, remove all soil and backdrop. No external lighting glow, no effects, no lightning shapes, no floor, no UI, no lettering, no borders. Actual alpha."
+    },
+    {
+      "path": "assets/electro-regisvine-field-background-v1.png",
+      "sha256": "6385b3db896f2ae96a59f320d536f664dfce829ce95c84f4c8597a35991ade10",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "prompt": "Original 16:9 side-scroll RPG battleground deep in the Lokapala part of Sumeru. Attached combat screenshot is reference only for dark slate violet cave walls and a broad old flat stone floor. Design a flat ridge of stone slabs in a dark tunnel below a rainforest, small faint amethyst veins on the sides, sprawling old root bridges and blue stone ribs recede in background, sparse moss and fern tips tucked on side rocks, quiet dark indigo backdrop so pale lilac and white-yellow combat signals are legible. Smooth horizontal walkable shale floor in the lowest 18 percent; no obstacle across the floor. No flower or creature, no beams, no emitters, no lightning marks, no text, UI, framing, foreground giant rocks or giant luminous feature. Original independent pixel-painted composition, matte grouped shadows."
+    }
+  ],
+  "poses": {
+    "gather": {
+      "crop": [
+        104,
+        18,
+        354,
+        432
+      ],
+      "box": [
+        126,
+        31,
+        315,
+        401
+      ],
+      "height": 166,
+      "anchorX": 0.49,
+      "commands": {
+        "legacy": 5512,
+        "h48c32": 3522,
+        "h32c16": 1650
+      }
+    },
+    "bowed": {
+      "crop": [
+        531,
+        64,
+        524,
+        389
+      ],
+      "box": [
+        550,
+        87,
+        486,
+        342
+      ],
+      "height": 137,
+      "anchorX": 0.803,
+      "commands": {
+        "legacy": 5700,
+        "h48c32": 3575,
+        "h32c16": 1607
+      }
+    },
+    "impact": {
+      "crop": [
+        4,
+        677,
+        530,
+        253
+      ],
+      "box": [
+        12,
+        695,
+        509,
+        211
+      ],
+      "height": 86,
+      "anchorX": 0.828,
+      "commands": {
+        "legacy": 5224,
+        "h48c32": 3266,
+        "h32c16": 1512
+      }
+    },
+    "branches": {
+      "crop": [
+        583,
+        468,
+        476,
+        465
+      ],
+      "box": [
+        604,
+        483,
+        431,
+        428
+      ],
+      "height": 172,
+      "anchorX": 0.474,
+      "commands": {
+        "legacy": 6225,
+        "h48c32": 3914,
+        "h32c16": 1820
+      }
+    },
+    "rain": {
+      "crop": [
+        54,
+        960,
+        436,
+        477
+      ],
+      "box": [
+        72,
+        977,
+        403,
+        432
+      ],
+      "height": 178,
+      "anchorX": 0.501,
+      "commands": {
+        "legacy": 6091,
+        "h48c32": 3920,
+        "h32c16": 1830
+      }
+    },
+    "down": {
+      "crop": [
+        542,
+        1167,
+        513,
+        254
+      ],
+      "box": [
+        560,
+        1191,
+        479,
+        199
+      ],
+      "height": 85,
+      "anchorX": 0.798,
+      "commands": {
+        "legacy": 4941,
+        "h48c32": 3234,
+        "h32c16": 1439
+      }
+    }
+  },
+  "alignment": "Horizontal anchors match the midpoint of the roots; Y aligns to the ground. The impact crown lies toward the locked ground band.",
+  "limits": [
+    "Temporary 2D cave background. Original 3D model and live Miliastra behavior unverified.",
+    "Six discrete action poses. In-betweens, hurt animation and defeat art pending."
+  ]
+}

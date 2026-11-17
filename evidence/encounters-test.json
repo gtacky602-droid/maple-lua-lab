@@ -1,5 +1,5 @@
 {
-  "count": 54,
+  "count": 55,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -17,6 +17,7 @@
     "Golden Wolflord is reachable through the field route",
     "Ruin Serpent is reachable through the field route",
     "The paired vishaps share a field encounter entrance",
+    "Electro Regisvine is reachable through the field route",
     "public roster matched without merging Icewind modes or Dottore challenges",
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",

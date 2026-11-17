@@ -103,10 +103,12 @@
       }
     },
     "boss-26020301": {
+      "remaining": ["連続アニメーション・被弾・撃破作画", "装備別・Webマルチの実測", "幻境実機"],
+      "extra_evidence": ["evidence/electro-regisvine-field-lua.json", "evidence/electro-regisvine-field-browser.json"],
       "art_candidate": {
         "item": "electro-regisvine",
-        "audit": "evidence/electro-regisvine-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/electro-regisvine-field-art-audit.json",
+        "status": "Web field prototype using idle and six action poses"
       }
     },
     "boss-26160302": {
