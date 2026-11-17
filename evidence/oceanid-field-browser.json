@@ -1,0 +1,38 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 43.92,
+    "moves": [
+      "FO01",
+      "FO02",
+      "FO03"
+    ],
+    "forms": [
+      "boar",
+      "crane",
+      "frog"
+    ],
+    "finished": true,
+    "hp": 128,
+    "returns": 0
+  },
+  "fieldKill": {
+    "xp": 12250,
+    "mora": 170
+  },
+  "commissionReport": {
+    "xp": 4000,
+    "mora": 300
+  },
+  "singleForegroundMimicPerCheckedPose": true,
+  "airborneSpriteFollowsReceiverHeight": true,
+  "persistedCooldown": true,
+  "directTrialHp": 500,
+  "sameSceneCommands": {
+    "png": 45,
+    "standard": 8764,
+    "light": 2369
+  },
+  "viewport390": true,
+  "errors": []
+}

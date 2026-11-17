@@ -261,6 +261,50 @@
          "lock": 66, "active": [[132, 144]], "recover": 168, "total": 288,
          "radius": 2.2, "low": 0, "high": 0.65, "damage": 22, "bonusTicks": 60, "element": "variant"}
       ]
+    },
+    {
+      "id": "boss-20050101",
+      "controller": "oceanid",
+      "entity": 20050101,
+      "name": "純水精霊",
+      "node": "oceanid-field-reservoir",
+      "storyChallenge": "oceanid",
+      "level": 38,
+      "hp": 900,
+      "mora": 170,
+      "artHeight": 60,
+      "floorY": 480,
+      "home": 860,
+      "arenaMin": 392,
+      "arenaMax": 1456,
+      "noticeRange": 280,
+      "noticeTicks": 36,
+      "restTicks": 32,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 65,
+      "contactDamage": 0,
+      "immune": "hydro",
+      "resist": {"pyro": 0.15, "cryo": 0.15, "geo": 0.15, "electro": 0.15, "anemo": 0.15, "dendro": 0.15},
+      "forms": {
+        "boar": {"name": "水猪", "height": 60, "clearance": 0.12},
+        "crane": {"name": "水鶴", "height": 76, "clearance": 0.18},
+        "frog": {"name": "水蛙", "height": 69, "clearance": 0.10}
+      },
+      "transformTicks": 18,
+      "moves": [
+        {"id": "FO01", "form": "boar", "title": "水猪の短突進", "reach": 200,
+         "lock": 42, "active": [[90, 114]], "recover": 132, "total": 216,
+         "distance": 1.8, "halfWidth": 0.3, "height": 0.6, "damage": 14},
+        {"id": "FO02", "form": "crane", "title": "水鶴の二波", "reach": 226,
+         "lock": 42, "active": [], "recover": 192, "total": 264,
+         "shotTicks": [78, 126], "shotLife": 48, "shotSpeed": 3.5,
+         "shotHeight": 0.35, "shotRadius": 0.14, "shotOffset": 0.35, "damage": 12},
+        {"id": "FO03", "form": "frog", "title": "水蛙の跳ね落ち", "reach": 206,
+         "lock": 54, "active": [[114, 126]], "recover": 150, "total": 270,
+         "airborne": [78, 114], "distance": 1.5, "rise": 112,
+         "halfWidth": 0.7, "height": 0.6, "damage": 21}
+      ]
     }
   ]
 }

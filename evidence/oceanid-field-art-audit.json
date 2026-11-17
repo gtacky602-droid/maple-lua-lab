@@ -1,0 +1,65 @@
+{
+  "stage": "璃月・軽策の水鏡",
+  "scope": "A Web lab backdrop and reuse of existing pixel sprites. The stage name, composition and level are provisional.",
+  "references": [
+    {
+      "kind": "game screenshot",
+      "page": "https://gamewith.net/genshin-impact/article/show/30027",
+      "image": "https://img.gamewith.net/img/79c06cd3d56a6e1e4c0d1ece7d9225ee.jpg",
+      "sha256": "a2eba6ab80aa65665e4b2d4c45055bac945f542db51e3e0d7a5cfbfb3c4a5665",
+      "observed": "blue-green mist, water around the stone platform, floating Oceanid",
+      "usedForBackground": true
+    },
+    {
+      "kind": "game minimap",
+      "page": "https://gamewith.net/genshin-impact/article/show/30027",
+      "image": "https://img.gamewith.net/img/19a7de6121982b86d75985ab07a57280.jpg",
+      "sha256": "40afb905549877821a87d61e0b8469f70396e1a3b8fddf4135dbd4ab8c1d245a",
+      "observed": "the basin east of Qingce and north of Wuwang Hill",
+      "usedForBackground": true
+    },
+    {
+      "kind": "game combat screenshot",
+      "page": "https://gamewith.net/genshin-impact/article/show/30027",
+      "image": "https://img.gamewith.net/img/fc1cd40dd91f6bd4ae87ff2cd111b7e8.jpg",
+      "sha256": "e8ce4eae62af1cce3cd3f4e92699b7fe7d916eed4eea4ff3d2cfe9dcdef04a80",
+      "observed": "lighting and edge contrast for the translucent water creature"
+    },
+    {
+      "kind": "3D reference search",
+      "page": "https://models.spriters-resource.com/pc_computer/genshinimpact/",
+      "status": "No Oceanid model was located in the checked listing. No model or three-dimensional angle verified."
+    }
+  ],
+  "background": {
+    "path": "assets/oceanid-field-background-v1.png",
+    "size": [
+      1672,
+      941
+    ],
+    "sha256": "0eff4738b6aabc20622a89cdfa70a4ce6b867333fe4b551209e46e6b392f4cba",
+    "generator": "imagegen",
+    "prompt": "Original wide panoramic 16:9 background for a side-scrolling pixel-painted fantasy RPG, inspired by the provided game screenshot ONLY for the calm cyan lake palette, dim tall cliffs and weathered stone platform at a deeply sunken Liyue reservoir. Show a still open lake behind a single flat wide ancient slate causeway just at the bottom 13 percent, with teal reflected light in the seams. Distant silhouettes of natural limestone pinnacles, carved stone gateways along the far banks, mossy dark green rock, blue-green haze. Leave the central lower half an even relatively dim muted teal water surface with subtle gentle horizontal ripples for one bright blue floating game sprite and a small blue water animal at floor level. Side-on camera, can scroll horizontally. Restrained square pixel-paint clusters and airy atmospheric perspective. No character, no creatures, no foreground plants, no text, no logos, no HUD, no copy of screenshot layouts, no large highlights near the play lane.",
+    "editPrompt": "Edit out the TWO figures entirely from this scenery. Erase the hovering bright blue winged figure just above the center horizon, replacing it with the same softly hazy cliff edge and teal lake behind it. Erase the little blue swimming creature and its wake in the lower right of the lake, replacing them with calm flat uninterrupted teal water. The finished image is a completely uninhabited environment. Preserve all the remaining scenery exactly, including the existing atmospheric moody palette, the distant gates and natural cliffs, the low-detail lake and the stone walkway across the bottom. Preserve the wide 16:9 framing. No people, monsters, figures, marks, letters, or decoration to replace the removed subjects.",
+    "review": "Initial version contained two creatures, removed from the final scenery. The host and water form appear through separate draw commands."
+  },
+  "reusedSprites": [
+    {
+      "path": "assets/oceanid-source-v1.png",
+      "sha256": "24d0bcc39710f0e34a8bb824c3837895d345ec064518e2bfe312187967969411"
+    },
+    {
+      "path": "assets/oceanid-boar-source-v1.png",
+      "sha256": "9f84b7065c019de881abd57fe539082de753065599b6f6e32f6700b303f7f2e6"
+    },
+    {
+      "path": "assets/oceanid-crane-source-v1.png",
+      "sha256": "3b38d9f5a773adb0735c72f571852575c4c6d7ba85efa397f5611741338df0d2"
+    },
+    {
+      "path": "assets/oceanid-frog-source-v1.png",
+      "sha256": "9b4d2d50164e8455d0a5e3599c7e23a3999d47d7ecc0f2dc1fc48f6fb3fecfb3"
+    }
+  ],
+  "limitations": "The Web prototype animates three existing animal sprites with movement, brief size changes and water cues. Dedicated frame-by-frame attack, hurt and defeat art and production 3D scenery remain unbuilt."
+}

@@ -30,7 +30,7 @@ return function(C)
    end
    if not blocked then
     for _,victim in ipairs(s.actors) do if victim.hp>0 and intersects(p.x,p.y,nx,ny,{x=victim.x-halfWidth,y=victim.y-height,w=2*halfWidth,h=height},radius) then
-     C.damageActor(s,victim,p.damage,{id=p.source or 0,x=p.x,y=p.y+30},true);blocked=true;break
+     C.damageActor(s,victim,p.damage,{id=p.source or 0,x=p.x,y=p.y+30,damageElement=p.damageElement},true);blocked=true;break
     end end
    end
   return blocked

@@ -668,6 +668,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "oceanid-field-reservoir",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "primo-approach",
       "count": 0,
       "fallback": false,

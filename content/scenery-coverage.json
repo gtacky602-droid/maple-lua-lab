@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 116 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 114,
+  "scope": "Authored 117 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 115,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -668,6 +668,12 @@
     {
       "id": "oceanid-approach",
       "name": "純水精霊・湖畔入口",
+      "region": "璃月",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "oceanid-field-reservoir",
+      "name": "璃月・軽策の水鏡",
       "region": "璃月",
       "status": "regional_temporary_image"
     },

@@ -21,7 +21,8 @@ for _ in range(3000):
  s.actors[1].inv=1;s.actors[2].inv=1
  c.step(s,1/60,lua.table())
  if b.phase=='mimics' and b.wave not in waves:
-  f=c.frame(s,'sprite','legacy');sources=[f.draws[i].source for i in range(1,len(f.draws)+1) if f.draws[i].kind=='boss_sprite']
+  f=c.frame(s,'sprite','legacy')
+  sources=[d.source for d in f.draws.values() if d.source and d.source.startswith('oceanid-')]
   living=[s.enemies[i] for i in range(2,len(s.enemies)+1) if s.enemies[i].hp>0]
   assert len(sources)==len(living)+1
   for e in living:assert f'oceanid-{e.mimic}-source-v1.png' in sources;seen.add(e.mimic)

@@ -4,7 +4,8 @@ return function(C,configs,controllers)
  local byId,byNode={},{}
  for _,spec in ipairs(configs) do byId[spec.id]=spec;byNode[spec.node]=spec end
  local function current(s)
-  return s.story and s.story.active and s.story.node or nil
+  local node=s.story and s.story.active and s.story.node
+  return node and s.campaign and s.campaign.zone=='story:'..node and node or nil
  end
 
  local function spawn(slot,spec,hp)
@@ -24,7 +25,18 @@ return function(C,configs,controllers)
   s.enemies[#s.enemies+1]=slot.enemy
  end
 
+ local function cancelCast(spec,slot)
+  local behavior=controllers[spec.controller]
+  if slot.cast and behavior.cancel then
+   behavior.cancel(slot.enemy,spec)
+   slot.cast=nil;slot.index=1;slot.delay=spec.restTicks
+  end
+ end
+
  function C.enterFieldBossNode(s,id)
+  for other,slot in pairs(s.fieldSlots or {}) do
+   if byId[other].node~=id then cancelCast(byId[other],slot) end
+  end
   local spec=byNode[id]
   if not spec then return end
   s.fieldSlots=s.fieldSlots or {}
@@ -85,10 +97,10 @@ return function(C,configs,controllers)
   end
  end
 
- function C.stepFieldBolt(s,boss,cast,index,x,y,radius,damage)
+ function C.stepFieldBolt(s,boss,cast,index,x,y,radius,damage,element)
   local p=cast.projectiles[index]
   if not p then
-   p={x=x,y=y,source=boss.id,damage=damage}
+   p={x=x,y=y,source=boss.id,damage=damage,damageElement=element}
    cast.projectiles[index]=p
   end
   cast.shots[index]=C.resolveEnemyProjectileSegment(s,p,x,y,radius,10,68)
@@ -106,6 +118,7 @@ return function(C,configs,controllers)
    return
   end
   if slot.phase=='leash' then returnHome(s,spec,slot,here);return end
+  if not here then cancelCast(spec,slot) end
   local target,distance
   if here then target,distance=nearest(s,spec,boss) end
   if slot.phase=='available' then
@@ -150,10 +163,12 @@ return function(C,configs,controllers)
    return
   end
   slot.delay=math.max(0,slot.delay-1)
-  for _,a in ipairs(s.actors) do
-   if a.hp>0 and a.y>=spec.floorY-35 and math.abs(a.x-boss.x)<27 and s.t+1e-8>=(slot.contact[a.id] or 0) then
-    slot.contact[a.id]=s.t+1
-    C.damageActor(s,a,spec.contactDamage,boss,false,false)
+  if spec.contactDamage>0 then
+   for _,a in ipairs(s.actors) do
+    if a.hp>0 and a.y>=spec.floorY-35 and math.abs(a.x-boss.x)<27 and s.t+1e-8>=(slot.contact[a.id] or 0) then
+     slot.contact[a.id]=s.t+1
+     C.damageActor(s,a,spec.contactDamage,boss,false,false)
+    end
    end
   end
  end
@@ -238,7 +253,7 @@ return function(C,configs,controllers)
   local label=slot.phase=='notice' and '振り向き' or slot.phase=='leash' and '巣へ戻っている' or
    slot.phase=='available' and '警戒前' or cast and cast.move.title or '息継ぎ'
   if boss.hp>0 and slot.phase=='combat' and behavior.label then label=behavior.label(boss,cast) or label end
-  f.fieldBoss={id=spec.id,name=boss.displayName or spec.name,element=boss.element,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
+  f.fieldBoss={id=spec.id,name=boss.displayName or spec.name,element=boss.element,form=boss.form,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
    generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(s,slot)/60,label=label,
    move=cast and cast.move.id,tick=cast and cast.tick}
   if boss.hp>0 and boss.x>=s.camera-180 and boss.x<=s.camera+1140 then

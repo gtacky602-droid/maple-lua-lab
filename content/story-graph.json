@@ -4295,13 +4295,26 @@
         {
           "to": "liyue-field",
           "x": 60
-        }
+        },
+        {"to": "oceanid-field-reservoir", "x": 1270}
       ],
       "checkpoint": "liyue-harbor",
       "challenge": "oceanid",
       "challengeName": "純水精霊",
       "challengeAction": "boss_oceanid",
       "challengeX": 720
+    },
+    {
+      "id": "oceanid-field-reservoir",
+      "name": "璃月・軽策の水鏡",
+      "region": "璃月",
+      "level": 38,
+      "hub": false,
+      "peaceful": true,
+      "width": 1640,
+      "platforms": [{"x": 0, "y": 480, "w": 1640}],
+      "exits": [{"to": "oceanid-approach", "x": 65}],
+      "checkpoint": "liyue-harbor"
     },
     {
       "id": "primo-approach",
@@ -5464,7 +5477,7 @@
       "goal": 1,
       "xp": 4000,
       "mora": 300,
-      "note": "本編入口から挑戦した討伐のみ対象。報酬/入口位置は試作。"
+      "note": "軽策の水鏡、または本編入口の挑戦碑での討伐が対象。"
     },
     {
       "id": "primo-commission",

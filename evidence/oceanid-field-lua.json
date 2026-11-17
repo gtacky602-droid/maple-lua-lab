@@ -1,0 +1,39 @@
+{
+  "matches_manifest_timing": true,
+  "one_target_in_enemy_list": true,
+  "host_only_visual": true,
+  "physical_route_and_hydro_immunity": true,
+  "preserved_target_and_aura_through_transform": true,
+  "multihit": {
+    "pulses": 2,
+    "hits": 2,
+    "resulting_damage": 38
+  },
+  "boar_locked_low_charge": true,
+  "crane_waves": 2,
+  "projectiles_expire_at_tick": 174,
+  "frog_moves_hurtbox": true,
+  "frog_land_reachable": true,
+  "airborne_kill_cancels_landing": true,
+  "interrupted_cast_and_projectiles_cleared": true,
+  "can_win_before_form_change": true,
+  "normal_attack_solo": {
+    "seconds": 75.37,
+    "hp": 140,
+    "returns": 0
+  },
+  "normal_attack_amber": {
+    "seconds": 45.97,
+    "hp": 140,
+    "returns": 0
+  },
+  "field_kill": {
+    "xp": 12250,
+    "mora": 170
+  },
+  "commission_report_once": {
+    "xp": 4000,
+    "mora": 300
+  },
+  "restored_respawn_ticks": 3600
+}
