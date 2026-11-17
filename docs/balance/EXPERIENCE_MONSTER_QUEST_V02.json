@@ -1,0 +1,3192 @@
+{
+  "schema_version": 2,
+  "date": "2026-11-17",
+  "status": "design_draft_not_runtime",
+  "based_on": "docs/balance/EXPERIENCE_50H_V01.json",
+  "references": [
+    "https://www.whackybeanz.com/calc/everything-exp/exp-tnl",
+    "https://maplestorywiki.net/w/Experience/Tables",
+    "https://maplestory.nexon.co.jp/gameguide/tip/levelup/"
+  ],
+  "cap": 200,
+  "reference_total_exp_to_cap": 11462335230,
+  "design": {
+    "formula_normal_mob_exp": "max(1,round(exp_to_next[enemy_level] * band.hunt_share / (band.hunt_hours * 60 * kills_per_minute / band_level_count)))",
+    "enemy_level_200_exp_rule": "Use normal_enemy_base_exp[199] rather than MapleSEA exp_to_next[200] (an abrupt +286% step) to prevent sudden Lv200 leaderboard EXP inflation.",
+    "level_gap_factors_draft": {
+      "player_higher_by_0_to_4": 1,
+      "player_higher_by_5_to_10": 0.9,
+      "player_higher_by_11_to_20": 0.65,
+      "player_higher_by_21_to_40": 0.2,
+      "player_higher_by_over_40": 0.03,
+      "enemy_higher_by_1_to_5": 1,
+      "enemy_higher_by_6_to_10": 1,
+      "enemy_higher_by_11_to_20": 0.6,
+      "enemy_higher_by_over_20": 0.2
+    },
+    "role_multipliers_draft": {
+      "normal": 1,
+      "elite": 7,
+      "large_elite": 14,
+      "field_boss": 50,
+      "chapter_boss": 70,
+      "weekly_boss": 150
+    },
+    "quest_standard_path": "3 main quests + S01/S03/S05 side quests + independent first-clear boss subreward; completing 2 additional sides accelerates progression.",
+    "quest_payout_weighting": "Normalize current region fixed XP pool across target-level weighted M01(2), M02(1.8), M03(2), S01(.7), S03(.7), S05(.7), Boss(1.5); S02/S04 are extra optional acceleration.",
+    "quest_reward_level_lock": "fixed by quest ID/recommended level and version; report at Lv200 must not upscale early region reward.",
+    "daily_extra_exp_draft": {
+      "main_200_kills_normal_enemy_equivalent": 120,
+      "each_of_two_additionals_enemy_equivalent": 30,
+      "total_bonus_normal_enemy_equivalent": 180,
+      "bonus_sources": "reference eligible target enemy level; ignore paid EXP potion",
+      "reset_rule": "one main + two extras per day globally, no next-day hard gate"
+    },
+    "leaderboard_and_potion": "Separate lifetime base EXP from actual boosted EXP; include fixed quest rewards in base once; preserve Level200 overflow tally; rankings / paid EXP implementation subject to in-game ability and terms.",
+    "max_level_exp": 0,
+    "endgame_fixed_reward_budget_policy": "Unallocated target budget, not automatically granted. High-difficulty/Spiral first clears are optional; missing share may be earned by hunting instead. Values are not assignments to individual boss quests.",
+    "next_step": "Simulate actual stage order, quest acceptance, gear-limited kill speeds, daily resets, and co-op, then adjust XP. Cap/quest totals not silently converted to production balance."
+  },
+  "bands": [
+    {
+      "from_level": 1,
+      "to_level": 20,
+      "active_hours_goal": 1,
+      "expected_kills_per_hunting_minute": 40,
+      "expected_hunt_minutes": 12,
+      "exp_goal": 20642,
+      "quest_share": 0.75,
+      "hunt_share": 0.25
+    },
+    {
+      "from_level": 20,
+      "to_level": 40,
+      "active_hours_goal": 1.5,
+      "expected_kills_per_hunting_minute": 45,
+      "expected_hunt_minutes": 25.2,
+      "exp_goal": 362380,
+      "quest_share": 0.65,
+      "hunt_share": 0.35
+    },
+    {
+      "from_level": 40,
+      "to_level": 60,
+      "active_hours_goal": 2,
+      "expected_kills_per_hunting_minute": 50,
+      "expected_hunt_minutes": 42,
+      "exp_goal": 2350066,
+      "quest_share": 0.55,
+      "hunt_share": 0.45
+    },
+    {
+      "from_level": 60,
+      "to_level": 80,
+      "active_hours_goal": 2.5,
+      "expected_kills_per_hunting_minute": 50,
+      "expected_hunt_minutes": 55.5,
+      "exp_goal": 7289187,
+      "quest_share": 0.5,
+      "hunt_share": 0.5
+    },
+    {
+      "from_level": 80,
+      "to_level": 100,
+      "active_hours_goal": 3.5,
+      "expected_kills_per_hunting_minute": 52,
+      "expected_hunt_minutes": 84,
+      "exp_goal": 27582204,
+      "quest_share": 0.45,
+      "hunt_share": 0.55
+    },
+    {
+      "from_level": 100,
+      "to_level": 120,
+      "active_hours_goal": 4.5,
+      "expected_kills_per_hunting_minute": 55,
+      "expected_hunt_minutes": 121.5,
+      "exp_goal": 72751710,
+      "quest_share": 0.4,
+      "hunt_share": 0.6
+    },
+    {
+      "from_level": 120,
+      "to_level": 140,
+      "active_hours_goal": 5.5,
+      "expected_kills_per_hunting_minute": 55,
+      "expected_hunt_minutes": 165,
+      "exp_goal": 251564583,
+      "quest_share": 0.35,
+      "hunt_share": 0.65
+    },
+    {
+      "from_level": 140,
+      "to_level": 160,
+      "active_hours_goal": 7,
+      "expected_kills_per_hunting_minute": 60,
+      "expected_hunt_minutes": 231,
+      "exp_goal": 860753510,
+      "quest_share": 0.3,
+      "hunt_share": 0.7
+    },
+    {
+      "from_level": 160,
+      "to_level": 180,
+      "active_hours_goal": 9.5,
+      "expected_kills_per_hunting_minute": 60,
+      "expected_hunt_minutes": 353.4,
+      "exp_goal": 2766430428,
+      "quest_share": 0.22,
+      "hunt_share": 0.78
+    },
+    {
+      "from_level": 180,
+      "to_level": 200,
+      "active_hours_goal": 13,
+      "expected_kills_per_hunting_minute": 60,
+      "expected_hunt_minutes": 546,
+      "exp_goal": 7473230520,
+      "quest_share": 0.15,
+      "hunt_share": 0.85
+    }
+  ],
+  "quest_region_budgets": [
+    {
+      "region": "モンド",
+      "code": "MON",
+      "from_level": 1,
+      "to_level": 20,
+      "reference_total_exp": 20642,
+      "standard_fixed_exp_budget": 15482,
+      "standard_side_path": [
+        "S01",
+        "S03",
+        "S05"
+      ],
+      "main_payouts": [
+        76,
+        2486,
+        4771
+      ],
+      "side_payouts": [
+        26,
+        290,
+        967,
+        967,
+        2004
+      ],
+      "chapter_boss_first_clear": 5152,
+      "extra_optional_side_exp": 1257
+    },
+    {
+      "region": "璃月",
+      "code": "LIY",
+      "from_level": 20,
+      "to_level": 40,
+      "reference_total_exp": 362380,
+      "standard_fixed_exp_budget": 235547,
+      "standard_side_path": [
+        "S01",
+        "S03",
+        "S05"
+      ],
+      "main_payouts": [
+        10929,
+        35235,
+        67646
+      ],
+      "side_payouts": [
+        3825,
+        7931,
+        16443,
+        16443,
+        28412
+      ],
+      "chapter_boss_first_clear": 73057,
+      "extra_optional_side_exp": 24374
+    },
+    {
+      "region": "稲妻",
+      "code": "INA",
+      "from_level": 40,
+      "to_level": 60,
+      "reference_total_exp": 2350066,
+      "standard_fixed_exp_budget": 1292536,
+      "standard_side_path": [
+        "S01",
+        "S03",
+        "S05"
+      ],
+      "main_payouts": [
+        120956,
+        186561,
+        383670
+      ],
+      "side_payouts": [
+        42335,
+        57595,
+        78355,
+        106600,
+        145027
+      ],
+      "chapter_boss_first_clear": 335632,
+      "extra_optional_side_exp": 164195
+    },
+    {
+      "region": "スメール",
+      "code": "SUM",
+      "from_level": 60,
+      "to_level": 80,
+      "reference_total_exp": 7289187,
+      "standard_fixed_exp_budget": 3644594,
+      "standard_side_path": [
+        "S01",
+        "S03",
+        "S05"
+      ],
+      "main_payouts": [
+        437849,
+        526257,
+        1033165
+      ],
+      "side_payouts": [
+        153247,
+        164740,
+        220004,
+        293808,
+        386920
+      ],
+      "chapter_boss_first_clear": 887152,
+      "extra_optional_side_exp": 458548
+    },
+    {
+      "region": "フォンテーヌ",
+      "code": "FON",
+      "from_level": 80,
+      "to_level": 100,
+      "reference_total_exp": 27582204,
+      "standard_fixed_exp_budget": 12411992,
+      "standard_side_path": [
+        "S01",
+        "S03",
+        "S05"
+      ],
+      "main_payouts": [
+        1329885,
+        1921946,
+        3550820
+      ],
+      "side_payouts": [
+        465460,
+        610121,
+        799743,
+        1028841,
+        1323568
+      ],
+      "chapter_boss_first_clear": 3020570,
+      "extra_optional_side_exp": 1638962
+    },
+    {
+      "region": "ナタ",
+      "code": "NAT",
+      "from_level": 100,
+      "to_level": 120,
+      "reference_total_exp": 72751710,
+      "standard_fixed_exp_budget": 29100684,
+      "standard_side_path": [
+        "S01",
+        "S03",
+        "S05"
+      ],
+      "main_payouts": [
+        3768926,
+        4363734,
+        8024394
+      ],
+      "side_payouts": [
+        1319124,
+        1404867,
+        1807313,
+        2325046,
+        2991093
+      ],
+      "chapter_boss_first_clear": 6826100,
+      "extra_optional_side_exp": 3729913
+    },
+    {
+      "region": "ナド・クライ",
+      "code": "NOD",
+      "from_level": 120,
+      "to_level": 140,
+      "reference_total_exp": 251564583,
+      "standard_fixed_exp_budget": 88047604,
+      "standard_side_path": [
+        "S01",
+        "S03",
+        "S05"
+      ],
+      "main_payouts": [
+        9733199,
+        13612730,
+        25032225
+      ],
+      "side_payouts": [
+        3406620,
+        4382501,
+        5637939,
+        7253017,
+        9330761
+      ],
+      "chapter_boss_first_clear": 21294130,
+      "extra_optional_side_exp": 11635518
+    },
+    {
+      "region": "スネージナヤ",
+      "code": "SNE",
+      "from_level": 140,
+      "to_level": 160,
+      "reference_total_exp": 860753510,
+      "standard_fixed_exp_budget": 258226053,
+      "standard_side_path": [
+        "S01",
+        "S03",
+        "S05"
+      ],
+      "main_payouts": [
+        29336014,
+        40359534,
+        72834160
+      ],
+      "side_payouts": [
+        10267605,
+        13085336,
+        16676335,
+        21252810,
+        27085203
+      ],
+      "chapter_boss_first_clear": 61667202,
+      "extra_optional_side_exp": 34338146
+    }
+  ],
+  "quest_rewards": [
+    {
+      "id": "Q-MON-M01",
+      "region": "モンド",
+      "stage": "M01",
+      "reference_recommended_player_level": 2,
+      "base_exp_first_clear": 76,
+      "title": "配達は、スライム待ち！",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-MON-M02",
+      "region": "モンド",
+      "stage": "M02",
+      "reference_recommended_player_level": 9,
+      "base_exp_first_clear": 2486,
+      "title": "看板の向こうに、何がある？",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-MON-M03",
+      "region": "モンド",
+      "stage": "M03",
+      "reference_recommended_player_level": 17,
+      "base_exp_first_clear": 4771,
+      "title": "街道を取り戻せ！",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-MON-S01",
+      "region": "モンド",
+      "stage": "S01",
+      "reference_recommended_player_level": 2,
+      "base_exp_first_clear": 26,
+      "title": "休憩するための大仕事",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-MON-S02",
+      "region": "モンド",
+      "stage": "S02",
+      "reference_recommended_player_level": 6,
+      "base_exp_first_clear": 290,
+      "title": "返却箱の小さな逃亡者",
+      "in_standard_path": false,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-MON-S03",
+      "region": "モンド",
+      "stage": "S03",
+      "reference_recommended_player_level": 10,
+      "base_exp_first_clear": 967,
+      "title": "大当たりは、帰り道",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-MON-S04",
+      "region": "モンド",
+      "stage": "S04",
+      "reference_recommended_player_level": 14,
+      "base_exp_first_clear": 967,
+      "title": "断罪の皇女と、夜の大怪鳥",
+      "in_standard_path": false,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-MON-S05",
+      "region": "モンド",
+      "stage": "S05",
+      "reference_recommended_player_level": 18,
+      "base_exp_first_clear": 2004,
+      "title": "風車の上まで、あと一跳び！",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-MON-M03:BOSS_FIRST",
+      "region": "モンド",
+      "stage": "BOSS_FIRST",
+      "reference_recommended_player_level": 19,
+      "base_exp_first_clear": 5152,
+      "title": "街道を取り戻せ！ — 章ボス初回討伐",
+      "in_standard_path": true,
+      "grant_type": "independent_first_clear_subreward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-LIY-M01",
+      "region": "璃月",
+      "stage": "M01",
+      "reference_recommended_player_level": 21,
+      "base_exp_first_clear": 10929,
+      "title": "港に着いたら、ひと仕事！",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-LIY-M02",
+      "region": "璃月",
+      "stage": "M02",
+      "reference_recommended_player_level": 28,
+      "base_exp_first_clear": 35235,
+      "title": "山道に消えた商隊",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-LIY-M03",
+      "region": "璃月",
+      "stage": "M03",
+      "reference_recommended_player_level": 36,
+      "base_exp_first_clear": 67646,
+      "title": "開幕！ 山海の大市",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-LIY-S01",
+      "region": "璃月",
+      "stage": "S01",
+      "reference_recommended_player_level": 21,
+      "base_exp_first_clear": 3825,
+      "title": "南十字の、ひと仕事",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-LIY-S02",
+      "region": "璃月",
+      "stage": "S02",
+      "reference_recommended_player_level": 25,
+      "base_exp_first_clear": 7931,
+      "title": "山のごちそう、港の一皿",
+      "in_standard_path": false,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-LIY-S03",
+      "region": "璃月",
+      "stage": "S03",
+      "reference_recommended_player_level": 29,
+      "base_exp_first_clear": 16443,
+      "title": "侠客の宝は、箱の中",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-LIY-S04",
+      "region": "璃月",
+      "stage": "S04",
+      "reference_recommended_player_level": 33,
+      "base_exp_first_clear": 16443,
+      "title": "ただの石にも、旅はある",
+      "in_standard_path": false,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-LIY-S05",
+      "region": "璃月",
+      "stage": "S05",
+      "reference_recommended_player_level": 37,
+      "base_exp_first_clear": 28412,
+      "title": "荷車だって、近道したい！",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-LIY-M03:BOSS_FIRST",
+      "region": "璃月",
+      "stage": "BOSS_FIRST",
+      "reference_recommended_player_level": 38,
+      "base_exp_first_clear": 73057,
+      "title": "開幕！ 山海の大市 — 章ボス初回討伐",
+      "in_standard_path": true,
+      "grant_type": "independent_first_clear_subreward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-INA-M01",
+      "region": "稲妻",
+      "stage": "M01",
+      "reference_recommended_player_level": 41,
+      "base_exp_first_clear": 120956,
+      "title": "その灯籠、今、動きました？",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-INA-M02",
+      "region": "稲妻",
+      "stage": "M02",
+      "reference_recommended_player_level": 48,
+      "base_exp_first_clear": 186561,
+      "title": "くぐって、戻って、もう一度？",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-INA-M03",
+      "region": "稲妻",
+      "stage": "M03",
+      "reference_recommended_player_level": 56,
+      "base_exp_first_clear": 383670,
+      "title": "今宵、化かし合いの大勝負！",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-INA-S01",
+      "region": "稲妻",
+      "stage": "S01",
+      "reference_recommended_player_level": 41,
+      "base_exp_first_clear": 42335,
+      "title": "絵図にない、ひとつの景色",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-INA-S02",
+      "region": "稲妻",
+      "stage": "S02",
+      "reference_recommended_player_level": 45,
+      "base_exp_first_clear": 57595,
+      "title": "遠くの人にも、届く一発",
+      "in_standard_path": false,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-INA-S03",
+      "region": "稲妻",
+      "stage": "S03",
+      "reference_recommended_player_level": 49,
+      "base_exp_first_clear": 78355,
+      "title": "最短ルートは、静かなルート",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-INA-S04",
+      "region": "稲妻",
+      "stage": "S04",
+      "reference_recommended_player_level": 53,
+      "base_exp_first_clear": 106600,
+      "title": "荒瀧天下一・本気の三番勝負！",
+      "in_standard_path": false,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-INA-S05",
+      "region": "稲妻",
+      "stage": "S05",
+      "reference_recommended_player_level": 57,
+      "base_exp_first_clear": 145027,
+      "title": "歩く茶屋の事件簿",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-INA-M03:BOSS_FIRST",
+      "region": "稲妻",
+      "stage": "BOSS_FIRST",
+      "reference_recommended_player_level": 58,
+      "base_exp_first_clear": 335632,
+      "title": "今宵、化かし合いの大勝負！ — 章ボス初回討伐",
+      "in_standard_path": true,
+      "grant_type": "independent_first_clear_subreward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SUM-M01",
+      "region": "スメール",
+      "stage": "M01",
+      "reference_recommended_player_level": 61,
+      "base_exp_first_clear": 437849,
+      "title": "地図には、道があるんだけど？",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SUM-M02",
+      "region": "スメール",
+      "stage": "M02",
+      "reference_recommended_player_level": 68,
+      "base_exp_first_clear": 526257,
+      "title": "森の上にも、森がある",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SUM-M03",
+      "region": "スメール",
+      "stage": "M03",
+      "reference_recommended_player_level": 76,
+      "base_exp_first_clear": 1033165,
+      "title": "空の観測所へ！",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SUM-S01",
+      "region": "スメール",
+      "stage": "S01",
+      "reference_recommended_player_level": 61,
+      "base_exp_first_clear": 153247,
+      "title": "上から見るだけじゃ、分からない",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SUM-S02",
+      "region": "スメール",
+      "stage": "S02",
+      "reference_recommended_player_level": 65,
+      "base_exp_first_clear": 164740,
+      "title": "観測器に、お客さん？",
+      "in_standard_path": false,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SUM-S03",
+      "region": "スメール",
+      "stage": "S03",
+      "reference_recommended_player_level": 69,
+      "base_exp_first_clear": 220004,
+      "title": "今日の案内役は、私！",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SUM-S04",
+      "region": "スメール",
+      "stage": "S04",
+      "reference_recommended_player_level": 73,
+      "base_exp_first_clear": 293808,
+      "title": "模型の中では、大冒険",
+      "in_standard_path": false,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SUM-S05",
+      "region": "スメール",
+      "stage": "S05",
+      "reference_recommended_player_level": 77,
+      "base_exp_first_clear": 386920,
+      "title": "教科書にない、大発見",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SUM-M03:BOSS_FIRST",
+      "region": "スメール",
+      "stage": "BOSS_FIRST",
+      "reference_recommended_player_level": 78,
+      "base_exp_first_clear": 887152,
+      "title": "空の観測所へ！ — 章ボス初回討伐",
+      "in_standard_path": true,
+      "grant_type": "independent_first_clear_subreward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-FON-M01",
+      "region": "フォンテーヌ",
+      "stage": "M01",
+      "reference_recommended_player_level": 81,
+      "base_exp_first_clear": 1329885,
+      "title": "お届け先は、どちらですか？",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-FON-M02",
+      "region": "フォンテーヌ",
+      "stage": "M02",
+      "reference_recommended_player_level": 88,
+      "base_exp_first_clear": 1921946,
+      "title": "客席の下は、大忙し！",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-FON-M03",
+      "region": "フォンテーヌ",
+      "stage": "M03",
+      "reference_recommended_player_level": 96,
+      "base_exp_first_clear": 3550820,
+      "title": "大舞台機関、ただいま暴走中！",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-FON-S01",
+      "region": "フォンテーヌ",
+      "stage": "S01",
+      "reference_recommended_player_level": 81,
+      "base_exp_first_clear": 465460,
+      "title": "旅の香りを、ひとしずく",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-FON-S02",
+      "region": "フォンテーヌ",
+      "stage": "S02",
+      "reference_recommended_player_level": 85,
+      "base_exp_first_clear": 610121,
+      "title": "拍手は、まだ早い！",
+      "in_standard_path": false,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-FON-S03",
+      "region": "フォンテーヌ",
+      "stage": "S03",
+      "reference_recommended_player_level": 89,
+      "base_exp_first_clear": 799743,
+      "title": "集合写真は、まだ撮れない！",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-FON-S04",
+      "region": "フォンテーヌ",
+      "stage": "S04",
+      "reference_recommended_player_level": 93,
+      "base_exp_first_clear": 1028841,
+      "title": "秘密を知っても、驚ける？",
+      "in_standard_path": false,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-FON-S05",
+      "region": "フォンテーヌ",
+      "stage": "S05",
+      "reference_recommended_player_level": 97,
+      "base_exp_first_clear": 1323568,
+      "title": "小さな潜航艇の、初めての海",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-FON-M03:BOSS_FIRST",
+      "region": "フォンテーヌ",
+      "stage": "BOSS_FIRST",
+      "reference_recommended_player_level": 98,
+      "base_exp_first_clear": 3020570,
+      "title": "大舞台機関、ただいま暴走中！ — 章ボス初回討伐",
+      "in_standard_path": true,
+      "grant_type": "independent_first_clear_subreward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NAT-M01",
+      "region": "ナタ",
+      "stage": "M01",
+      "reference_recommended_player_level": 101,
+      "base_exp_first_clear": 3768926,
+      "title": "その旗、取りに行ってみない？",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NAT-M02",
+      "region": "ナタ",
+      "stage": "M02",
+      "reference_recommended_player_level": 108,
+      "base_exp_first_clear": 4363734,
+      "title": "得意な道だけじゃ、もったいない！",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NAT-M03",
+      "region": "ナタ",
+      "stage": "M03",
+      "reference_recommended_player_level": 116,
+      "base_exp_first_clear": 8024394,
+      "title": "夕映えの一番勝負！",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NAT-S01",
+      "region": "ナタ",
+      "stage": "S01",
+      "reference_recommended_player_level": 101,
+      "base_exp_first_clear": 1319124,
+      "title": "並べてみよう、冒険のしるし",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NAT-S02",
+      "region": "ナタ",
+      "stage": "S02",
+      "reference_recommended_player_level": 105,
+      "base_exp_first_clear": 1404867,
+      "title": "もう一回！ 水しぶきの寄り道",
+      "in_standard_path": false,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NAT-S03",
+      "region": "ナタ",
+      "stage": "S03",
+      "reference_recommended_player_level": 109,
+      "base_exp_first_clear": 1807313,
+      "title": "追いつくより、先回り",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NAT-S04",
+      "region": "ナタ",
+      "stage": "S04",
+      "reference_recommended_player_level": 113,
+      "base_exp_first_clear": 2325046,
+      "title": "試作品、思い切り使ってみて",
+      "in_standard_path": false,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NAT-S05",
+      "region": "ナタ",
+      "stage": "S05",
+      "reference_recommended_player_level": 117,
+      "base_exp_first_clear": 2991093,
+      "title": "昨日の自分に、挑戦状！",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NAT-M03:BOSS_FIRST",
+      "region": "ナタ",
+      "stage": "BOSS_FIRST",
+      "reference_recommended_player_level": 118,
+      "base_exp_first_clear": 6826100,
+      "title": "夕映えの一番勝負！ — 章ボス初回討伐",
+      "in_standard_path": true,
+      "grant_type": "independent_first_clear_subreward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NOD-M01",
+      "region": "ナド・クライ",
+      "stage": "M01",
+      "reference_recommended_player_level": 121,
+      "base_exp_first_clear": 9733199,
+      "title": "その宝の話、確かめてみる？",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NOD-M02",
+      "region": "ナド・クライ",
+      "stage": "M02",
+      "reference_recommended_player_level": 128,
+      "base_exp_first_clear": 13612730,
+      "title": "近道、寄り道、月の道",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NOD-M03",
+      "region": "ナド・クライ",
+      "stage": "M03",
+      "reference_recommended_player_level": 136,
+      "base_exp_first_clear": 25032225,
+      "title": "宝箱には、脚がある！",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NOD-S01",
+      "region": "ナド・クライ",
+      "stage": "S01",
+      "reference_recommended_player_level": 121,
+      "base_exp_first_clear": 3406620,
+      "title": "宝探しの前に、寄り道を",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NOD-S02",
+      "region": "ナド・クライ",
+      "stage": "S02",
+      "reference_recommended_player_level": 125,
+      "base_exp_first_clear": 4382501,
+      "title": "お宝判定機は、今日も正直！",
+      "in_standard_path": false,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NOD-S03",
+      "region": "ナド・クライ",
+      "stage": "S03",
+      "reference_recommended_player_level": 129,
+      "base_exp_first_clear": 5637939,
+      "title": "月を盗んだ旅人？",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NOD-S04",
+      "region": "ナド・クライ",
+      "stage": "S04",
+      "reference_recommended_player_level": 133,
+      "base_exp_first_clear": 7253017,
+      "title": "花見の席が、埋まっています",
+      "in_standard_path": false,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NOD-S05",
+      "region": "ナド・クライ",
+      "stage": "S05",
+      "reference_recommended_player_level": 137,
+      "base_exp_first_clear": 9330761,
+      "title": "夜道の先に、温かい一杯",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-NOD-M03:BOSS_FIRST",
+      "region": "ナド・クライ",
+      "stage": "BOSS_FIRST",
+      "reference_recommended_player_level": 138,
+      "base_exp_first_clear": 21294130,
+      "title": "宝箱には、脚がある！ — 章ボス初回討伐",
+      "in_standard_path": true,
+      "grant_type": "independent_first_clear_subreward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SNE-M01",
+      "region": "スネージナヤ",
+      "stage": "M01",
+      "reference_recommended_player_level": 141,
+      "base_exp_first_clear": 29336014,
+      "title": "この切符は、冒険行き！",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SNE-M02",
+      "region": "スネージナヤ",
+      "stage": "M02",
+      "reference_recommended_player_level": 148,
+      "base_exp_first_clear": 40359534,
+      "title": "雪の向こうに、道が続いてる",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SNE-M03",
+      "region": "スネージナヤ",
+      "stage": "M03",
+      "reference_recommended_player_level": 156,
+      "base_exp_first_clear": 72834160,
+      "title": "終着駅の、その先へ！",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SNE-S01",
+      "region": "スネージナヤ",
+      "stage": "S01",
+      "reference_recommended_player_level": 141,
+      "base_exp_first_clear": 10267605,
+      "title": "休憩のためなら、ひと工夫",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SNE-S02",
+      "region": "スネージナヤ",
+      "stage": "S02",
+      "reference_recommended_player_level": 145,
+      "base_exp_first_clear": 13085336,
+      "title": "相棒の仕事、見ていくか？",
+      "in_standard_path": false,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SNE-S03",
+      "region": "スネージナヤ",
+      "stage": "S03",
+      "reference_recommended_player_level": 149,
+      "base_exp_first_clear": 16676335,
+      "title": "旅する足取り、踊る雪",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SNE-S04",
+      "region": "スネージナヤ",
+      "stage": "S04",
+      "reference_recommended_player_level": 153,
+      "base_exp_first_clear": 21252810,
+      "title": "定刻どおりの、ひと休み",
+      "in_standard_path": false,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SNE-S05",
+      "region": "スネージナヤ",
+      "stage": "S05",
+      "reference_recommended_player_level": 157,
+      "base_exp_first_clear": 27085203,
+      "title": "今日は、雪玉で勝負しよう",
+      "in_standard_path": true,
+      "grant_type": "one_time_quest_reward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    },
+    {
+      "id": "Q-SNE-M03:BOSS_FIRST",
+      "region": "スネージナヤ",
+      "stage": "BOSS_FIRST",
+      "reference_recommended_player_level": 158,
+      "base_exp_first_clear": 61667202,
+      "title": "終着駅の、その先へ！ — 章ボス初回討伐",
+      "in_standard_path": true,
+      "grant_type": "independent_first_clear_subreward",
+      "event_id_rule": "per_player_per_quest_and_reward_version"
+    }
+  ],
+  "endgame_budgets": [
+    {
+      "from_level": 160,
+      "to_level": 180,
+      "expected_total_exp": 2766430428,
+      "optional_first_clear_and_repeatable_exploration_budget": 608614694,
+      "hunting_budget": 2157815734,
+      "policy": "Endgame high-difficulty and challenge first-clears are optional; skipping them increases normal hunting time. Exact distribution across branch quests unresolved."
+    },
+    {
+      "from_level": 180,
+      "to_level": 200,
+      "expected_total_exp": 7473230520,
+      "optional_first_clear_and_repeatable_exploration_budget": 1120984578,
+      "hunting_budget": 6352245942,
+      "policy": "Endgame high-difficulty and challenge first-clears are optional; skipping them increases normal hunting time. Exact distribution across branch quests unresolved."
+    }
+  ],
+  "levels": [
+    {
+      "level": 1,
+      "required_exp_to_next": 15,
+      "maple_reference_total_exp_to_reach": 0,
+      "normal_enemy_base_exp": 1,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 15
+    },
+    {
+      "level": 2,
+      "required_exp_to_next": 34,
+      "maple_reference_total_exp_to_reach": 15,
+      "normal_enemy_base_exp": 1,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 34
+    },
+    {
+      "level": 3,
+      "required_exp_to_next": 57,
+      "maple_reference_total_exp_to_reach": 49,
+      "normal_enemy_base_exp": 1,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 57
+    },
+    {
+      "level": 4,
+      "required_exp_to_next": 92,
+      "maple_reference_total_exp_to_reach": 106,
+      "normal_enemy_base_exp": 1,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 92
+    },
+    {
+      "level": 5,
+      "required_exp_to_next": 135,
+      "maple_reference_total_exp_to_reach": 198,
+      "normal_enemy_base_exp": 1,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 135
+    },
+    {
+      "level": 6,
+      "required_exp_to_next": 372,
+      "maple_reference_total_exp_to_reach": 333,
+      "normal_enemy_base_exp": 4,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 93
+    },
+    {
+      "level": 7,
+      "required_exp_to_next": 560,
+      "maple_reference_total_exp_to_reach": 705,
+      "normal_enemy_base_exp": 6,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 94
+    },
+    {
+      "level": 8,
+      "required_exp_to_next": 840,
+      "maple_reference_total_exp_to_reach": 1265,
+      "normal_enemy_base_exp": 8,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 105
+    },
+    {
+      "level": 9,
+      "required_exp_to_next": 1242,
+      "maple_reference_total_exp_to_reach": 2105,
+      "normal_enemy_base_exp": 12,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 104
+    },
+    {
+      "level": 10,
+      "required_exp_to_next": 1242,
+      "maple_reference_total_exp_to_reach": 3347,
+      "normal_enemy_base_exp": 12,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 104
+    },
+    {
+      "level": 11,
+      "required_exp_to_next": 1242,
+      "maple_reference_total_exp_to_reach": 4589,
+      "normal_enemy_base_exp": 12,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 104
+    },
+    {
+      "level": 12,
+      "required_exp_to_next": 1242,
+      "maple_reference_total_exp_to_reach": 5831,
+      "normal_enemy_base_exp": 12,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 104
+    },
+    {
+      "level": 13,
+      "required_exp_to_next": 1242,
+      "maple_reference_total_exp_to_reach": 7073,
+      "normal_enemy_base_exp": 12,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 104
+    },
+    {
+      "level": 14,
+      "required_exp_to_next": 1242,
+      "maple_reference_total_exp_to_reach": 8315,
+      "normal_enemy_base_exp": 12,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 104
+    },
+    {
+      "level": 15,
+      "required_exp_to_next": 1490,
+      "maple_reference_total_exp_to_reach": 9557,
+      "normal_enemy_base_exp": 15,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 100
+    },
+    {
+      "level": 16,
+      "required_exp_to_next": 1788,
+      "maple_reference_total_exp_to_reach": 11047,
+      "normal_enemy_base_exp": 18,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 100
+    },
+    {
+      "level": 17,
+      "required_exp_to_next": 2145,
+      "maple_reference_total_exp_to_reach": 12835,
+      "normal_enemy_base_exp": 21,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 103
+    },
+    {
+      "level": 18,
+      "required_exp_to_next": 2574,
+      "maple_reference_total_exp_to_reach": 14980,
+      "normal_enemy_base_exp": 25,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 103
+    },
+    {
+      "level": 19,
+      "required_exp_to_next": 3088,
+      "maple_reference_total_exp_to_reach": 17554,
+      "normal_enemy_base_exp": 31,
+      "band_from": 1,
+      "band_to": 20,
+      "assumed_kills_per_level": 25.263,
+      "required_normal_kills_without_fixed_quests": 100
+    },
+    {
+      "level": 20,
+      "required_exp_to_next": 3705,
+      "maple_reference_total_exp_to_reach": 20642,
+      "normal_enemy_base_exp": 23,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 162
+    },
+    {
+      "level": 21,
+      "required_exp_to_next": 4446,
+      "maple_reference_total_exp_to_reach": 24347,
+      "normal_enemy_base_exp": 27,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 165
+    },
+    {
+      "level": 22,
+      "required_exp_to_next": 5335,
+      "maple_reference_total_exp_to_reach": 28793,
+      "normal_enemy_base_exp": 33,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 162
+    },
+    {
+      "level": 23,
+      "required_exp_to_next": 6402,
+      "maple_reference_total_exp_to_reach": 34128,
+      "normal_enemy_base_exp": 40,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 161
+    },
+    {
+      "level": 24,
+      "required_exp_to_next": 7682,
+      "maple_reference_total_exp_to_reach": 40530,
+      "normal_enemy_base_exp": 47,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 164
+    },
+    {
+      "level": 25,
+      "required_exp_to_next": 9218,
+      "maple_reference_total_exp_to_reach": 48212,
+      "normal_enemy_base_exp": 57,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 162
+    },
+    {
+      "level": 26,
+      "required_exp_to_next": 11061,
+      "maple_reference_total_exp_to_reach": 57430,
+      "normal_enemy_base_exp": 68,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 163
+    },
+    {
+      "level": 27,
+      "required_exp_to_next": 13273,
+      "maple_reference_total_exp_to_reach": 68491,
+      "normal_enemy_base_exp": 82,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 162
+    },
+    {
+      "level": 28,
+      "required_exp_to_next": 15927,
+      "maple_reference_total_exp_to_reach": 81764,
+      "normal_enemy_base_exp": 98,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 163
+    },
+    {
+      "level": 29,
+      "required_exp_to_next": 19112,
+      "maple_reference_total_exp_to_reach": 97691,
+      "normal_enemy_base_exp": 118,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 162
+    },
+    {
+      "level": 30,
+      "required_exp_to_next": 19112,
+      "maple_reference_total_exp_to_reach": 116803,
+      "normal_enemy_base_exp": 118,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 162
+    },
+    {
+      "level": 31,
+      "required_exp_to_next": 19112,
+      "maple_reference_total_exp_to_reach": 135915,
+      "normal_enemy_base_exp": 118,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 162
+    },
+    {
+      "level": 32,
+      "required_exp_to_next": 19112,
+      "maple_reference_total_exp_to_reach": 155027,
+      "normal_enemy_base_exp": 118,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 162
+    },
+    {
+      "level": 33,
+      "required_exp_to_next": 19112,
+      "maple_reference_total_exp_to_reach": 174139,
+      "normal_enemy_base_exp": 118,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 162
+    },
+    {
+      "level": 34,
+      "required_exp_to_next": 19112,
+      "maple_reference_total_exp_to_reach": 193251,
+      "normal_enemy_base_exp": 118,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 162
+    },
+    {
+      "level": 35,
+      "required_exp_to_next": 22934,
+      "maple_reference_total_exp_to_reach": 212363,
+      "normal_enemy_base_exp": 142,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 162
+    },
+    {
+      "level": 36,
+      "required_exp_to_next": 27520,
+      "maple_reference_total_exp_to_reach": 235297,
+      "normal_enemy_base_exp": 170,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 162
+    },
+    {
+      "level": 37,
+      "required_exp_to_next": 33024,
+      "maple_reference_total_exp_to_reach": 262817,
+      "normal_enemy_base_exp": 204,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 162
+    },
+    {
+      "level": 38,
+      "required_exp_to_next": 39628,
+      "maple_reference_total_exp_to_reach": 295841,
+      "normal_enemy_base_exp": 245,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 162
+    },
+    {
+      "level": 39,
+      "required_exp_to_next": 47553,
+      "maple_reference_total_exp_to_reach": 335469,
+      "normal_enemy_base_exp": 294,
+      "band_from": 20,
+      "band_to": 40,
+      "assumed_kills_per_level": 56.7,
+      "required_normal_kills_without_fixed_quests": 162
+    },
+    {
+      "level": 40,
+      "required_exp_to_next": 51357,
+      "maple_reference_total_exp_to_reach": 383022,
+      "normal_enemy_base_exp": 220,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 41,
+      "required_exp_to_next": 55465,
+      "maple_reference_total_exp_to_reach": 434379,
+      "normal_enemy_base_exp": 238,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 42,
+      "required_exp_to_next": 59902,
+      "maple_reference_total_exp_to_reach": 489844,
+      "normal_enemy_base_exp": 257,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 43,
+      "required_exp_to_next": 64694,
+      "maple_reference_total_exp_to_reach": 549746,
+      "normal_enemy_base_exp": 277,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 44,
+      "required_exp_to_next": 69869,
+      "maple_reference_total_exp_to_reach": 614440,
+      "normal_enemy_base_exp": 299,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 45,
+      "required_exp_to_next": 75458,
+      "maple_reference_total_exp_to_reach": 684309,
+      "normal_enemy_base_exp": 323,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 46,
+      "required_exp_to_next": 81494,
+      "maple_reference_total_exp_to_reach": 759767,
+      "normal_enemy_base_exp": 349,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 47,
+      "required_exp_to_next": 88013,
+      "maple_reference_total_exp_to_reach": 841261,
+      "normal_enemy_base_exp": 377,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 48,
+      "required_exp_to_next": 95054,
+      "maple_reference_total_exp_to_reach": 929274,
+      "normal_enemy_base_exp": 407,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 49,
+      "required_exp_to_next": 102658,
+      "maple_reference_total_exp_to_reach": 1024328,
+      "normal_enemy_base_exp": 440,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 50,
+      "required_exp_to_next": 110870,
+      "maple_reference_total_exp_to_reach": 1126986,
+      "normal_enemy_base_exp": 475,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 51,
+      "required_exp_to_next": 119739,
+      "maple_reference_total_exp_to_reach": 1237856,
+      "normal_enemy_base_exp": 513,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 52,
+      "required_exp_to_next": 129318,
+      "maple_reference_total_exp_to_reach": 1357595,
+      "normal_enemy_base_exp": 554,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 53,
+      "required_exp_to_next": 139663,
+      "maple_reference_total_exp_to_reach": 1486913,
+      "normal_enemy_base_exp": 599,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 54,
+      "required_exp_to_next": 150836,
+      "maple_reference_total_exp_to_reach": 1626576,
+      "normal_enemy_base_exp": 646,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 55,
+      "required_exp_to_next": 162902,
+      "maple_reference_total_exp_to_reach": 1777412,
+      "normal_enemy_base_exp": 698,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 56,
+      "required_exp_to_next": 175934,
+      "maple_reference_total_exp_to_reach": 1940314,
+      "normal_enemy_base_exp": 754,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 57,
+      "required_exp_to_next": 190008,
+      "maple_reference_total_exp_to_reach": 2116248,
+      "normal_enemy_base_exp": 814,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 58,
+      "required_exp_to_next": 205208,
+      "maple_reference_total_exp_to_reach": 2306256,
+      "normal_enemy_base_exp": 879,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 59,
+      "required_exp_to_next": 221624,
+      "maple_reference_total_exp_to_reach": 2511464,
+      "normal_enemy_base_exp": 950,
+      "band_from": 40,
+      "band_to": 60,
+      "assumed_kills_per_level": 105,
+      "required_normal_kills_without_fixed_quests": 234
+    },
+    {
+      "level": 60,
+      "required_exp_to_next": 221624,
+      "maple_reference_total_exp_to_reach": 2733088,
+      "normal_enemy_base_exp": 799,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 61,
+      "required_exp_to_next": 221624,
+      "maple_reference_total_exp_to_reach": 2954712,
+      "normal_enemy_base_exp": 799,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 62,
+      "required_exp_to_next": 221624,
+      "maple_reference_total_exp_to_reach": 3176336,
+      "normal_enemy_base_exp": 799,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 63,
+      "required_exp_to_next": 221624,
+      "maple_reference_total_exp_to_reach": 3397960,
+      "normal_enemy_base_exp": 799,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 64,
+      "required_exp_to_next": 221624,
+      "maple_reference_total_exp_to_reach": 3619584,
+      "normal_enemy_base_exp": 799,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 65,
+      "required_exp_to_next": 238245,
+      "maple_reference_total_exp_to_reach": 3841208,
+      "normal_enemy_base_exp": 859,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 66,
+      "required_exp_to_next": 256113,
+      "maple_reference_total_exp_to_reach": 4079453,
+      "normal_enemy_base_exp": 923,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 67,
+      "required_exp_to_next": 275321,
+      "maple_reference_total_exp_to_reach": 4335566,
+      "normal_enemy_base_exp": 992,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 68,
+      "required_exp_to_next": 295970,
+      "maple_reference_total_exp_to_reach": 4610887,
+      "normal_enemy_base_exp": 1067,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 69,
+      "required_exp_to_next": 318167,
+      "maple_reference_total_exp_to_reach": 4906857,
+      "normal_enemy_base_exp": 1147,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 70,
+      "required_exp_to_next": 342029,
+      "maple_reference_total_exp_to_reach": 5225024,
+      "normal_enemy_base_exp": 1233,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 71,
+      "required_exp_to_next": 367681,
+      "maple_reference_total_exp_to_reach": 5567053,
+      "normal_enemy_base_exp": 1325,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 72,
+      "required_exp_to_next": 395257,
+      "maple_reference_total_exp_to_reach": 5934734,
+      "normal_enemy_base_exp": 1424,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 73,
+      "required_exp_to_next": 424901,
+      "maple_reference_total_exp_to_reach": 6329991,
+      "normal_enemy_base_exp": 1531,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 74,
+      "required_exp_to_next": 456768,
+      "maple_reference_total_exp_to_reach": 6754892,
+      "normal_enemy_base_exp": 1646,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 75,
+      "required_exp_to_next": 488741,
+      "maple_reference_total_exp_to_reach": 7211660,
+      "normal_enemy_base_exp": 1761,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 76,
+      "required_exp_to_next": 522952,
+      "maple_reference_total_exp_to_reach": 7700401,
+      "normal_enemy_base_exp": 1885,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 77,
+      "required_exp_to_next": 559558,
+      "maple_reference_total_exp_to_reach": 8223353,
+      "normal_enemy_base_exp": 2016,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 78,
+      "required_exp_to_next": 598727,
+      "maple_reference_total_exp_to_reach": 8782911,
+      "normal_enemy_base_exp": 2158,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 79,
+      "required_exp_to_next": 640637,
+      "maple_reference_total_exp_to_reach": 9381638,
+      "normal_enemy_base_exp": 2309,
+      "band_from": 60,
+      "band_to": 80,
+      "assumed_kills_per_level": 138.75,
+      "required_normal_kills_without_fixed_quests": 278
+    },
+    {
+      "level": 80,
+      "required_exp_to_next": 685481,
+      "maple_reference_total_exp_to_reach": 10022275,
+      "normal_enemy_base_exp": 1726,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 81,
+      "required_exp_to_next": 733464,
+      "maple_reference_total_exp_to_reach": 10707756,
+      "normal_enemy_base_exp": 1847,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 82,
+      "required_exp_to_next": 784806,
+      "maple_reference_total_exp_to_reach": 11441220,
+      "normal_enemy_base_exp": 1976,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 83,
+      "required_exp_to_next": 839742,
+      "maple_reference_total_exp_to_reach": 12226026,
+      "normal_enemy_base_exp": 2115,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 84,
+      "required_exp_to_next": 898523,
+      "maple_reference_total_exp_to_reach": 13065768,
+      "normal_enemy_base_exp": 2263,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 85,
+      "required_exp_to_next": 961419,
+      "maple_reference_total_exp_to_reach": 13964291,
+      "normal_enemy_base_exp": 2421,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 86,
+      "required_exp_to_next": 1028718,
+      "maple_reference_total_exp_to_reach": 14925710,
+      "normal_enemy_base_exp": 2591,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 87,
+      "required_exp_to_next": 1100728,
+      "maple_reference_total_exp_to_reach": 15954428,
+      "normal_enemy_base_exp": 2772,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 88,
+      "required_exp_to_next": 1177778,
+      "maple_reference_total_exp_to_reach": 17055156,
+      "normal_enemy_base_exp": 2966,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 89,
+      "required_exp_to_next": 1260222,
+      "maple_reference_total_exp_to_reach": 18232934,
+      "normal_enemy_base_exp": 3174,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 90,
+      "required_exp_to_next": 1342136,
+      "maple_reference_total_exp_to_reach": 19493156,
+      "normal_enemy_base_exp": 3380,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 91,
+      "required_exp_to_next": 1429374,
+      "maple_reference_total_exp_to_reach": 20835292,
+      "normal_enemy_base_exp": 3600,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 92,
+      "required_exp_to_next": 1522283,
+      "maple_reference_total_exp_to_reach": 22264666,
+      "normal_enemy_base_exp": 3834,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 93,
+      "required_exp_to_next": 1621231,
+      "maple_reference_total_exp_to_reach": 23786949,
+      "normal_enemy_base_exp": 4083,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 94,
+      "required_exp_to_next": 1726611,
+      "maple_reference_total_exp_to_reach": 25408180,
+      "normal_enemy_base_exp": 4348,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 95,
+      "required_exp_to_next": 1838840,
+      "maple_reference_total_exp_to_reach": 27134791,
+      "normal_enemy_base_exp": 4631,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 96,
+      "required_exp_to_next": 1958364,
+      "maple_reference_total_exp_to_reach": 28973631,
+      "normal_enemy_base_exp": 4932,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 97,
+      "required_exp_to_next": 2085657,
+      "maple_reference_total_exp_to_reach": 30931995,
+      "normal_enemy_base_exp": 5252,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 98,
+      "required_exp_to_next": 2221224,
+      "maple_reference_total_exp_to_reach": 33017652,
+      "normal_enemy_base_exp": 5594,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 99,
+      "required_exp_to_next": 2365603,
+      "maple_reference_total_exp_to_reach": 35238876,
+      "normal_enemy_base_exp": 5957,
+      "band_from": 80,
+      "band_to": 100,
+      "assumed_kills_per_level": 218.4,
+      "required_normal_kills_without_fixed_quests": 398
+    },
+    {
+      "level": 100,
+      "required_exp_to_next": 2365603,
+      "maple_reference_total_exp_to_reach": 37604479,
+      "normal_enemy_base_exp": 4248,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 101,
+      "required_exp_to_next": 2365603,
+      "maple_reference_total_exp_to_reach": 39970082,
+      "normal_enemy_base_exp": 4248,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 102,
+      "required_exp_to_next": 2365603,
+      "maple_reference_total_exp_to_reach": 42335685,
+      "normal_enemy_base_exp": 4248,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 103,
+      "required_exp_to_next": 2365603,
+      "maple_reference_total_exp_to_reach": 44701288,
+      "normal_enemy_base_exp": 4248,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 104,
+      "required_exp_to_next": 2365603,
+      "maple_reference_total_exp_to_reach": 47066891,
+      "normal_enemy_base_exp": 4248,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 105,
+      "required_exp_to_next": 2519367,
+      "maple_reference_total_exp_to_reach": 49432494,
+      "normal_enemy_base_exp": 4524,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 106,
+      "required_exp_to_next": 2683125,
+      "maple_reference_total_exp_to_reach": 51951861,
+      "normal_enemy_base_exp": 4818,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 107,
+      "required_exp_to_next": 2857528,
+      "maple_reference_total_exp_to_reach": 54634986,
+      "normal_enemy_base_exp": 5131,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 108,
+      "required_exp_to_next": 3043267,
+      "maple_reference_total_exp_to_reach": 57492514,
+      "normal_enemy_base_exp": 5465,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 109,
+      "required_exp_to_next": 3241079,
+      "maple_reference_total_exp_to_reach": 60535781,
+      "normal_enemy_base_exp": 5820,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 110,
+      "required_exp_to_next": 3451749,
+      "maple_reference_total_exp_to_reach": 63776860,
+      "normal_enemy_base_exp": 6198,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 111,
+      "required_exp_to_next": 3676112,
+      "maple_reference_total_exp_to_reach": 67228609,
+      "normal_enemy_base_exp": 6601,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 112,
+      "required_exp_to_next": 3915059,
+      "maple_reference_total_exp_to_reach": 70904721,
+      "normal_enemy_base_exp": 7030,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 113,
+      "required_exp_to_next": 4169537,
+      "maple_reference_total_exp_to_reach": 74819780,
+      "normal_enemy_base_exp": 7487,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 114,
+      "required_exp_to_next": 4440556,
+      "maple_reference_total_exp_to_reach": 78989317,
+      "normal_enemy_base_exp": 7974,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 115,
+      "required_exp_to_next": 4729192,
+      "maple_reference_total_exp_to_reach": 83429873,
+      "normal_enemy_base_exp": 8492,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 116,
+      "required_exp_to_next": 5036589,
+      "maple_reference_total_exp_to_reach": 88159065,
+      "normal_enemy_base_exp": 9044,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 117,
+      "required_exp_to_next": 5363967,
+      "maple_reference_total_exp_to_reach": 93195654,
+      "normal_enemy_base_exp": 9632,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 118,
+      "required_exp_to_next": 5712624,
+      "maple_reference_total_exp_to_reach": 98559621,
+      "normal_enemy_base_exp": 10258,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 119,
+      "required_exp_to_next": 6083944,
+      "maple_reference_total_exp_to_reach": 104272245,
+      "normal_enemy_base_exp": 10925,
+      "band_from": 100,
+      "band_to": 120,
+      "assumed_kills_per_level": 334.125,
+      "required_normal_kills_without_fixed_quests": 557
+    },
+    {
+      "level": 120,
+      "required_exp_to_next": 6479400,
+      "maple_reference_total_exp_to_reach": 110356189,
+      "normal_enemy_base_exp": 9282,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 121,
+      "required_exp_to_next": 6900561,
+      "maple_reference_total_exp_to_reach": 116835589,
+      "normal_enemy_base_exp": 9885,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 122,
+      "required_exp_to_next": 7349097,
+      "maple_reference_total_exp_to_reach": 123736150,
+      "normal_enemy_base_exp": 10528,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 123,
+      "required_exp_to_next": 7826788,
+      "maple_reference_total_exp_to_reach": 131085247,
+      "normal_enemy_base_exp": 11212,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 124,
+      "required_exp_to_next": 8335529,
+      "maple_reference_total_exp_to_reach": 138912035,
+      "normal_enemy_base_exp": 11941,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 125,
+      "required_exp_to_next": 8877338,
+      "maple_reference_total_exp_to_reach": 147247564,
+      "normal_enemy_base_exp": 12717,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 126,
+      "required_exp_to_next": 9454364,
+      "maple_reference_total_exp_to_reach": 156124902,
+      "normal_enemy_base_exp": 13543,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 127,
+      "required_exp_to_next": 10068897,
+      "maple_reference_total_exp_to_reach": 165579266,
+      "normal_enemy_base_exp": 14424,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 128,
+      "required_exp_to_next": 10723375,
+      "maple_reference_total_exp_to_reach": 175648163,
+      "normal_enemy_base_exp": 15361,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 129,
+      "required_exp_to_next": 11420394,
+      "maple_reference_total_exp_to_reach": 186371538,
+      "normal_enemy_base_exp": 16360,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 130,
+      "required_exp_to_next": 12162719,
+      "maple_reference_total_exp_to_reach": 197791932,
+      "normal_enemy_base_exp": 17423,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 131,
+      "required_exp_to_next": 12953295,
+      "maple_reference_total_exp_to_reach": 209954651,
+      "normal_enemy_base_exp": 18556,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 132,
+      "required_exp_to_next": 13795259,
+      "maple_reference_total_exp_to_reach": 222907946,
+      "normal_enemy_base_exp": 19762,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 133,
+      "required_exp_to_next": 14691950,
+      "maple_reference_total_exp_to_reach": 236703205,
+      "normal_enemy_base_exp": 21046,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 134,
+      "required_exp_to_next": 15646926,
+      "maple_reference_total_exp_to_reach": 251395155,
+      "normal_enemy_base_exp": 22414,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 135,
+      "required_exp_to_next": 16663976,
+      "maple_reference_total_exp_to_reach": 267042081,
+      "normal_enemy_base_exp": 23871,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 136,
+      "required_exp_to_next": 17747134,
+      "maple_reference_total_exp_to_reach": 283706057,
+      "normal_enemy_base_exp": 25423,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 137,
+      "required_exp_to_next": 18900697,
+      "maple_reference_total_exp_to_reach": 301453191,
+      "normal_enemy_base_exp": 27075,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 138,
+      "required_exp_to_next": 20129242,
+      "maple_reference_total_exp_to_reach": 320353888,
+      "normal_enemy_base_exp": 28835,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 139,
+      "required_exp_to_next": 21437642,
+      "maple_reference_total_exp_to_reach": 340483130,
+      "normal_enemy_base_exp": 30710,
+      "band_from": 120,
+      "band_to": 140,
+      "assumed_kills_per_level": 453.75,
+      "required_normal_kills_without_fixed_quests": 699
+    },
+    {
+      "level": 140,
+      "required_exp_to_next": 22777494,
+      "maple_reference_total_exp_to_reach": 361920772,
+      "normal_enemy_base_exp": 23008,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 990
+    },
+    {
+      "level": 141,
+      "required_exp_to_next": 24201087,
+      "maple_reference_total_exp_to_reach": 384698266,
+      "normal_enemy_base_exp": 24446,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 990
+    },
+    {
+      "level": 142,
+      "required_exp_to_next": 25713654,
+      "maple_reference_total_exp_to_reach": 408899353,
+      "normal_enemy_base_exp": 25973,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 991
+    },
+    {
+      "level": 143,
+      "required_exp_to_next": 27320757,
+      "maple_reference_total_exp_to_reach": 434613007,
+      "normal_enemy_base_exp": 27597,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 990
+    },
+    {
+      "level": 144,
+      "required_exp_to_next": 29028304,
+      "maple_reference_total_exp_to_reach": 461933764,
+      "normal_enemy_base_exp": 29322,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 990
+    },
+    {
+      "level": 145,
+      "required_exp_to_next": 30842573,
+      "maple_reference_total_exp_to_reach": 490962068,
+      "normal_enemy_base_exp": 31154,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 991
+    },
+    {
+      "level": 146,
+      "required_exp_to_next": 32770233,
+      "maple_reference_total_exp_to_reach": 521804641,
+      "normal_enemy_base_exp": 33101,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 991
+    },
+    {
+      "level": 147,
+      "required_exp_to_next": 34818372,
+      "maple_reference_total_exp_to_reach": 554574874,
+      "normal_enemy_base_exp": 35170,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 991
+    },
+    {
+      "level": 148,
+      "required_exp_to_next": 36994520,
+      "maple_reference_total_exp_to_reach": 589393246,
+      "normal_enemy_base_exp": 37368,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 991
+    },
+    {
+      "level": 149,
+      "required_exp_to_next": 39306677,
+      "maple_reference_total_exp_to_reach": 626387766,
+      "normal_enemy_base_exp": 39704,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 990
+    },
+    {
+      "level": 150,
+      "required_exp_to_next": 41763344,
+      "maple_reference_total_exp_to_reach": 665694443,
+      "normal_enemy_base_exp": 42185,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 991
+    },
+    {
+      "level": 151,
+      "required_exp_to_next": 44373553,
+      "maple_reference_total_exp_to_reach": 707457787,
+      "normal_enemy_base_exp": 44822,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 990
+    },
+    {
+      "level": 152,
+      "required_exp_to_next": 47146900,
+      "maple_reference_total_exp_to_reach": 751831340,
+      "normal_enemy_base_exp": 47623,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 991
+    },
+    {
+      "level": 153,
+      "required_exp_to_next": 50093581,
+      "maple_reference_total_exp_to_reach": 798978240,
+      "normal_enemy_base_exp": 50600,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 990
+    },
+    {
+      "level": 154,
+      "required_exp_to_next": 53224429,
+      "maple_reference_total_exp_to_reach": 849071821,
+      "normal_enemy_base_exp": 53762,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 991
+    },
+    {
+      "level": 155,
+      "required_exp_to_next": 56550955,
+      "maple_reference_total_exp_to_reach": 902296250,
+      "normal_enemy_base_exp": 57122,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 991
+    },
+    {
+      "level": 156,
+      "required_exp_to_next": 60085389,
+      "maple_reference_total_exp_to_reach": 958847205,
+      "normal_enemy_base_exp": 60692,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 991
+    },
+    {
+      "level": 157,
+      "required_exp_to_next": 63840725,
+      "maple_reference_total_exp_to_reach": 1018932594,
+      "normal_enemy_base_exp": 64486,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 990
+    },
+    {
+      "level": 158,
+      "required_exp_to_next": 67830770,
+      "maple_reference_total_exp_to_reach": 1082773319,
+      "normal_enemy_base_exp": 68516,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 990
+    },
+    {
+      "level": 159,
+      "required_exp_to_next": 72070193,
+      "maple_reference_total_exp_to_reach": 1150604089,
+      "normal_enemy_base_exp": 72798,
+      "band_from": 140,
+      "band_to": 160,
+      "assumed_kills_per_level": 693,
+      "required_normal_kills_without_fixed_quests": 991
+    },
+    {
+      "level": 160,
+      "required_exp_to_next": 76574580,
+      "maple_reference_total_exp_to_reach": 1222674282,
+      "normal_enemy_base_exp": 56337,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 161,
+      "required_exp_to_next": 81360491,
+      "maple_reference_total_exp_to_reach": 1299248862,
+      "normal_enemy_base_exp": 59858,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 162,
+      "required_exp_to_next": 86445521,
+      "maple_reference_total_exp_to_reach": 1380609353,
+      "normal_enemy_base_exp": 63599,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 163,
+      "required_exp_to_next": 91848366,
+      "maple_reference_total_exp_to_reach": 1467054874,
+      "normal_enemy_base_exp": 67574,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 164,
+      "required_exp_to_next": 97588888,
+      "maple_reference_total_exp_to_reach": 1558903240,
+      "normal_enemy_base_exp": 71797,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 165,
+      "required_exp_to_next": 103688193,
+      "maple_reference_total_exp_to_reach": 1656492128,
+      "normal_enemy_base_exp": 76284,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 166,
+      "required_exp_to_next": 110168705,
+      "maple_reference_total_exp_to_reach": 1760180321,
+      "normal_enemy_base_exp": 81052,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 167,
+      "required_exp_to_next": 117054249,
+      "maple_reference_total_exp_to_reach": 1870349026,
+      "normal_enemy_base_exp": 86118,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 168,
+      "required_exp_to_next": 124370139,
+      "maple_reference_total_exp_to_reach": 1987403275,
+      "normal_enemy_base_exp": 91500,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 169,
+      "required_exp_to_next": 132143272,
+      "maple_reference_total_exp_to_reach": 2111773414,
+      "normal_enemy_base_exp": 97219,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 170,
+      "required_exp_to_next": 138750435,
+      "maple_reference_total_exp_to_reach": 2243916686,
+      "normal_enemy_base_exp": 102080,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 171,
+      "required_exp_to_next": 145687956,
+      "maple_reference_total_exp_to_reach": 2382667121,
+      "normal_enemy_base_exp": 107184,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 172,
+      "required_exp_to_next": 152972353,
+      "maple_reference_total_exp_to_reach": 2528355077,
+      "normal_enemy_base_exp": 112543,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 173,
+      "required_exp_to_next": 160620970,
+      "maple_reference_total_exp_to_reach": 2681327430,
+      "normal_enemy_base_exp": 118170,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 174,
+      "required_exp_to_next": 168652018,
+      "maple_reference_total_exp_to_reach": 2841948400,
+      "normal_enemy_base_exp": 124079,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 175,
+      "required_exp_to_next": 177084618,
+      "maple_reference_total_exp_to_reach": 3010600418,
+      "normal_enemy_base_exp": 130283,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 176,
+      "required_exp_to_next": 185938848,
+      "maple_reference_total_exp_to_reach": 3187685036,
+      "normal_enemy_base_exp": 136797,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 177,
+      "required_exp_to_next": 195235790,
+      "maple_reference_total_exp_to_reach": 3373623884,
+      "normal_enemy_base_exp": 143637,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 178,
+      "required_exp_to_next": 204997579,
+      "maple_reference_total_exp_to_reach": 3568859674,
+      "normal_enemy_base_exp": 150819,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 179,
+      "required_exp_to_next": 215247457,
+      "maple_reference_total_exp_to_reach": 3773857253,
+      "normal_enemy_base_exp": 158360,
+      "band_from": 160,
+      "band_to": 180,
+      "assumed_kills_per_level": 1060.2,
+      "required_normal_kills_without_fixed_quests": 1360
+    },
+    {
+      "level": 180,
+      "required_exp_to_next": 226009829,
+      "maple_reference_total_exp_to_reach": 3989104710,
+      "normal_enemy_base_exp": 117282,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 181,
+      "required_exp_to_next": 237310320,
+      "maple_reference_total_exp_to_reach": 4215114539,
+      "normal_enemy_base_exp": 123146,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 182,
+      "required_exp_to_next": 249175836,
+      "maple_reference_total_exp_to_reach": 4452424859,
+      "normal_enemy_base_exp": 129304,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 183,
+      "required_exp_to_next": 261634627,
+      "maple_reference_total_exp_to_reach": 4701600695,
+      "normal_enemy_base_exp": 135769,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 184,
+      "required_exp_to_next": 274716358,
+      "maple_reference_total_exp_to_reach": 4963235322,
+      "normal_enemy_base_exp": 142557,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 185,
+      "required_exp_to_next": 288452175,
+      "maple_reference_total_exp_to_reach": 5237951680,
+      "normal_enemy_base_exp": 149685,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 186,
+      "required_exp_to_next": 302874783,
+      "maple_reference_total_exp_to_reach": 5526403855,
+      "normal_enemy_base_exp": 157169,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 187,
+      "required_exp_to_next": 318018522,
+      "maple_reference_total_exp_to_reach": 5829278638,
+      "normal_enemy_base_exp": 165028,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 188,
+      "required_exp_to_next": 333919448,
+      "maple_reference_total_exp_to_reach": 6147297160,
+      "normal_enemy_base_exp": 173279,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 189,
+      "required_exp_to_next": 350615420,
+      "maple_reference_total_exp_to_reach": 6481216608,
+      "normal_enemy_base_exp": 181943,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 190,
+      "required_exp_to_next": 368146191,
+      "maple_reference_total_exp_to_reach": 6831832028,
+      "normal_enemy_base_exp": 191040,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 191,
+      "required_exp_to_next": 386553500,
+      "maple_reference_total_exp_to_reach": 7199978219,
+      "normal_enemy_base_exp": 200592,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 192,
+      "required_exp_to_next": 405881175,
+      "maple_reference_total_exp_to_reach": 7586531719,
+      "normal_enemy_base_exp": 210622,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 193,
+      "required_exp_to_next": 426175233,
+      "maple_reference_total_exp_to_reach": 7992412894,
+      "normal_enemy_base_exp": 221153,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 194,
+      "required_exp_to_next": 447483994,
+      "maple_reference_total_exp_to_reach": 8418588127,
+      "normal_enemy_base_exp": 232211,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 195,
+      "required_exp_to_next": 469858193,
+      "maple_reference_total_exp_to_reach": 8866072121,
+      "normal_enemy_base_exp": 243821,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 196,
+      "required_exp_to_next": 493351102,
+      "maple_reference_total_exp_to_reach": 9335930314,
+      "normal_enemy_base_exp": 256012,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 197,
+      "required_exp_to_next": 518018657,
+      "maple_reference_total_exp_to_reach": 9829281416,
+      "normal_enemy_base_exp": 268813,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 198,
+      "required_exp_to_next": 543919589,
+      "maple_reference_total_exp_to_reach": 10347300073,
+      "normal_enemy_base_exp": 282254,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 199,
+      "required_exp_to_next": 571115568,
+      "maple_reference_total_exp_to_reach": 10891219662,
+      "normal_enemy_base_exp": 296366,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": 1928
+    },
+    {
+      "level": 200,
+      "required_exp_to_next": 0,
+      "maple_reference_total_exp_to_reach": 11462335230,
+      "normal_enemy_base_exp": 296366,
+      "band_from": 180,
+      "band_to": 200,
+      "assumed_kills_per_level": 1638,
+      "required_normal_kills_without_fixed_quests": null
+    }
+  ],
+  "static_validation": {
+    "reference_checkpoints_matched": true,
+    "quest_budget_matched": true,
+    "normal_enemy_exp_expected_to_match_hunt_budget_roughly": true,
+    "in_game_kill_rate_measured": false,
+    "plot_or_earnings_tested_with_real_users": false,
+    "terms_verified": false
+  }
+}
