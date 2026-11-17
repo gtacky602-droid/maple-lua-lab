@@ -34,7 +34,7 @@ try{
   await page.locator('[name="direction"]').selectOption('one_way');
   await page.locator('[name="kind"]').selectOption('level');
   await page.locator('[name="min_level"]').fill('8');
-  await page.locator('#edgeForm button[type=submit]').click();
+  await page.locator('#edgeForm button.primary').click();
   await page.locator('#reviewConsent').waitFor();
   assert.equal(await page.locator('#edgeCount').textContent(),'0');
   await approve();
@@ -57,7 +57,7 @@ try{
   assert.equal(await page.locator('[name="direction"]').inputValue(),'one_way');
   assert.equal(await page.locator('[name="min_level"]').inputValue(),'8');
   await page.locator('#modal [name="notes"]').fill('QA: right click edits the existing edge');
-  await page.locator('#edgeForm button[type=submit]').click();
+  await page.locator('#edgeForm button.primary').click();
   await approve({protectedValue:true});
   assert.equal(await page.locator('#edgeCount').textContent(),'1');
   await page.mouse.click(x,y);
@@ -108,6 +108,63 @@ try{
  await node('teyvat:3').click();await page.screenshot({path:output+'/editor-with-field.png',fullPage:true});
  await check('Narrow viewport has no horizontal document overflow',async()=>{await page.setViewportSize({width:390,height:844});await page.screenshot({path:output+'/mobile.png',fullPage:true});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1))});
  assert.deepEqual(errors,[]);
- await writeFile('evidence/field-editor/browser.json',JSON.stringify({passed:checks.length,checks,page_errors:errors,terrain_failures:network,screenshots:output,production_data_modified:false},null,2)+'\n');
+ await check('Create a waypoint and multiple dragged connections in one reviewed transaction',async()=>{
+  await page.setViewportSize({width:1680,height:1100});
+  await page.locator('[data-map="region-01-map"]').click();
+  await page.locator('[data-view="geo"]').click();
+  const snapshot=()=>page.evaluate(()=>fetch('/api/bootstrap').then(r=>r.json()).then(b=>b.project));
+  const before=await snapshot();
+  await page.locator('#addWaypoint').click();
+  await page.locator('#mapCanvas').click({position:{x:250,y:125}});
+  await page.locator('#waypointForm [name="name"]').fill('QA・ワープ狩場');
+  const x=Number(await page.locator('#waypointForm [name="x"]').inputValue());
+  const y=Number(await page.locator('#waypointForm [name="y"]').inputValue());
+  await page.locator('#waypointForm button.primary').click();
+  const marker=page.locator('.map-node[data-field-id^="waypoint-"]');
+  await marker.waitFor();
+  const waypoint=await marker.getAttribute('data-field-id');
+  assert.equal(await page.locator('.map-node.statue').count(),6);
+  assert.match(await marker.getAttribute('class'),/waypoint.*preview/);
+  for(const to of ['teyvat:3','teyvat:7']){
+   const a=await marker.boundingBox(),b=await node(to).boundingBox();
+   await page.mouse.move(a.x+a.width/2,a.y+a.height/2);
+   await page.mouse.down();
+   await page.mouse.move(b.x+b.width/2,b.y+b.height/2,{steps:12});
+   await page.mouse.up();
+   await page.locator('#edgeForm').waitFor();
+   assert.equal(await page.locator('#edgeForm [name="from_field"]').inputValue(),waypoint);
+   assert.equal(await page.locator('#edgeForm [name="to_field"]').inputValue(),to);
+   await page.locator('#queueEdge').click();
+  }
+  assert.equal((await snapshot()).revision,before.revision);
+  assert.equal((await snapshot()).field_definitions[waypoint],undefined);
+  await page.locator('#reviewMapDrafts').click();
+  assert.equal(await page.locator('.map-drafts li').count(),3);
+  await page.screenshot({path:output+'/waypoint-and-connections.png',fullPage:true});
+  await page.locator('#submitMapDrafts').click();
+  await page.locator('#reviewConsent').waitFor();
+  assert.equal((await snapshot()).revision,before.revision);
+  await approve();
+  const after=await snapshot();
+  assert.equal(after.revision,before.revision+1);
+  assert.deepEqual(after.field_definitions[waypoint].waypoint_position,{map_id:'region-01-map',x,y});
+  assert.equal(Object.values(after.field_edges).filter(e=>e.from_field===waypoint).length,2);
+  await page.reload({waitUntil:'networkidle'});
+  await marker.waitFor();
+  assert.equal(await page.locator('#fieldForm [name="name"]').inputValue(),'QA・ワープ狩場');
+  const exported=await page.evaluate(async()=>{
+   const {ui_token}=await fetch('/api/bootstrap').then(r=>r.json());
+   return fetch('/api/export?map_id=region-01-map',{headers:{'X-Editor-UI':ui_token}}).then(r=>r.json());
+  });
+  assert.equal(exported.map_nodes[waypoint].custom,true);
+  assert.ok(exported.map_definition.node_ids.includes(waypoint));
+  await page.locator('#undo').click();
+  await marker.waitFor({state:'detached'});
+  assert.equal(Object.values((await snapshot()).field_edges).filter(e=>e.from_field===waypoint).length,0);
+  await page.locator('#redo').click();
+  await marker.waitFor();
+  assert.equal(Object.values((await snapshot()).field_edges).filter(e=>e.from_field===waypoint).length,2);
+ });
+ await writeFile(process.env.FIELD_EDITOR_BROWSER_REPORT||'evidence/field-editor/browser.json',JSON.stringify({passed:checks.length,checks,page_errors:errors,terrain_failures:network,screenshots:output,production_data_modified:false},null,2)+'\n');
  console.log(JSON.stringify({passed:checks.length,page_errors:errors}));
-}catch(e){await page.screenshot({path:output+'/failure.png',fullPage:true});await writeFile('evidence/field-editor/browser.json',JSON.stringify({passed:checks.length,checks,error:e.stack,page_errors:errors,terrain_failures:network},null,2)+'\n');throw e}finally{await browser.close()}
+}catch(e){await page.screenshot({path:output+'/failure.png',fullPage:true});await writeFile(process.env.FIELD_EDITOR_BROWSER_REPORT||'evidence/field-editor/browser.json',JSON.stringify({passed:checks.length,checks,error:e.stack,page_errors:errors,terrain_failures:network},null,2)+'\n');throw e}finally{await browser.close()}

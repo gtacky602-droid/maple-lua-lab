@@ -1,7 +1,7 @@
 """Regenerate the published JSON Schema, OpenAPI document and MCP tool contracts."""
 from pathlib import Path
 import json
-from .model import COLLECTIONS, IDS, EDITABLE, STATES
+from .model import COLLECTIONS, IDS, EDITABLE, OPTIONAL, STATES
 from .commands import READ_TOOLS, WRITE_TOOLS
 P=Path(__file__).parent/'schemas'
 S={'type':'string'}; NUM={'type':['number','null'],'minimum':0,'maximum':1e12}; LV={'type':['integer','null'],'minimum':1,'maximum':200}; OBJ={'type':'object'}
@@ -13,6 +13,7 @@ for k in ('drops','quests','required_route'):props[k]={'type':'array','items':{}
 for k in ('conditions','area','defaults'):props[k]=OBJ
 for k in ('exit_position','entrance_position'):props[k]={'type':'object','required':['x','y'],'properties':{'x':{'type':'number'},'y':{'type':'number'}},'additionalProperties':False}
 for k in ('x','y'):props[k]={'type':'number','exclusiveMinimum':-1e7,'exclusiveMaximum':1e7}
+props['waypoint_position']={'type':'object','required':['map_id','x','y'],'properties':{'map_id':S,'x':props['x'],'y':props['y']},'additionalProperties':False}
 props['special']={'type':'boolean'};props['count']={'type':'integer','minimum':1,'maximum':10000}
 props['direction']={'enum':['both','one_way']};props['kind']={'enum':['portal','level','quest','hidden','boat','temporary']}
 props['classification']={'enum':['normal','elite','local_legend','boss','weekly_boss']}
@@ -21,7 +22,7 @@ props['code']={'enum':['unreachable','dead_end','no_return','level_jump','quest_
 meta={'type':'object','required':['state','source','actor','updated_at'],'properties':{'state':{'enum':list(STATES)},'source':S,'actor':{'enum':['user','Codex','ChatGPT']},'updated_at':{'type':'string','format':'date-time'}},'additionalProperties':False}
 defs={'decision':meta}
 for c in COLLECTIONS:
- defs[c]={'type':'object','required':[IDS[c],*sorted(EDITABLE[c]),'_meta'],'properties':{IDS[c]:S,**{k:props[k] for k in sorted(EDITABLE[c])},'_meta':{'type':'object','additionalProperties':{'$ref':'#/$defs/decision'}}},'additionalProperties':False}
+ defs[c]={'type':'object','required':[IDS[c],*sorted(EDITABLE[c] - OPTIONAL.get(c, set())),'_meta'],'properties':{IDS[c]:S,**{k:props[k] for k in sorted(EDITABLE[c])},'_meta':{'type':'object','additionalProperties':{'$ref':'#/$defs/decision'}}},'additionalProperties':False}
 defs['monster_variants']['properties']['drops']={'type':['array','null'],'items':{}}
 props['drops']={'type':['array','null'],'items':{}}
 op={'oneOf':[]}

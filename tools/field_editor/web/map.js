@@ -1,9 +1,9 @@
 // Official projection: pixel = (catalogue coordinate + detail_v2.origin) * 2^zoom.
 // Graph layouts use their own coordinates and never modify map_nodes.
 export class FieldMap {
- constructor(viewport,{getScene,onSelect,onEdge,onEditEdge,onConnect,onLayout}){
+ constructor(viewport,{getScene,onPlace,onSelect,onEdge,onEditEdge,onConnect,onLayout}){
   this.host=viewport;this.canvas=viewport.querySelector('canvas');this.ctx=this.canvas.getContext('2d');this.layer=viewport.querySelector('#nodeLayer');
-  Object.assign(this,{getScene,onSelect,onEdge,onEditEdge,onConnect,onLayout});this.scale=.4;this.cx=0;this.cy=0;this.tiles=new Map();this.buttons=new Map();this.positions=new Map();this.pending=false;this.mode='geo';this.drag=null;this.lastMap=null;
+  Object.assign(this,{getScene,onPlace,onSelect,onEdge,onEditEdge,onConnect,onLayout});this.scale=.4;this.cx=0;this.cy=0;this.tiles=new Map();this.buttons=new Map();this.positions=new Map();this.pending=false;this.mode='geo';this.drag=null;this.lastMap=null;
   this.resize();
   new ResizeObserver(()=>{this.resize();if(!this.fitted)this.fit();}).observe(viewport);
   viewport.addEventListener('pointerdown',e=>this.down(e));viewport.addEventListener('pointermove',e=>this.move(e));viewport.addEventListener('pointerup',e=>this.up(e));
@@ -63,7 +63,7 @@ export class FieldMap {
    const high=f.region_id.startsWith('branch-'),elite=f.elite||f.local_legend||Object.values(s.data.field_spawns).some(sp=>sp.field_id===n.id&&['elite','local_legend'].includes(s.data.monster_variants[sp.monster_id]?.classification));
    btn.className=['map-node',n.kind,this.mode!=='geo'?'graph':'',n.id===s.selected?'selected':'',high?'high':'',elite?'elite':'',s.changed.has('field_definitions:'+n.id)||s.changedFields.has(n.id)?'preview':''].filter(Boolean).join(' ');
    btn.classList.toggle('connection-target',n.id===this.drag?.targetId);
-   btn.style.left=at.x+'px';btn.style.top=at.y+'px';btn.setAttribute('aria-label',n.id+' '+(f.name||'フィールド名未設定')+' Lv'+(f.recommended_level??'未設定'));btn.setAttribute('aria-pressed',String(n.id===s.selected));btn.title=`${n.id} / 名称未確認\nX=${n.x} Y=${n.y}\n${f.name||'フィールド名未設定'}`;
+   btn.style.left=at.x+'px';btn.style.top=at.y+'px';btn.setAttribute('aria-label',n.id+' '+(f.name||'フィールド名未設定')+' Lv'+(f.recommended_level??'未設定'));btn.setAttribute('aria-pressed',String(n.id===s.selected));btn.title=`${n.id} / ${n.custom?'追加したワープポイント':'名称未確認'}\nX=${n.x} Y=${n.y}\n${f.name||'フィールド名未設定'}`;
    const label=btn.querySelector('.node-label'),lv=f.recommended_level;const spawned=Object.values(s.data.field_spawns).filter(sp=>sp.field_id===n.id);let lvText=lv!=null?'Lv'+lv:'Lv未設定';
    if(spawned.length){const levels=spawned.map(sp=>sp.level_override??s.data.monster_variants[sp.monster_id]?.base_level).filter(x=>x!=null);if(levels.length)lvText='敵Lv'+Math.min(...levels)+(Math.max(...levels)!==Math.min(...levels)?'–'+Math.max(...levels):'')}
    label.replaceChildren();label.append(document.createTextNode((f.name||n.id)+(n.point_group?' ⧉':'')));const small=document.createElement('small');small.textContent=' '+lvText+(spawned.length?' / '+spawned.map(sp=>(s.data.monster_variants[sp.monster_id]?.name||'?')+'×'+sp.count).join('・'):'');label.append(document.createElement('br'),small);
@@ -114,6 +114,10 @@ export class FieldMap {
   if(this.drag||e.button!==0||e.target.closest('.map-controls'))return;
   const b=e.target.closest('[data-field-id]'),p=this.pointer(e);
   const drag={pointerId:e.pointerId,start:p,pointer:p};
+  if(this.getScene().placingWaypoint){
+   this.drag={...drag,kind:'place'};
+   this.host.setPointerCapture(e.pointerId);return;
+  }
   if(b){
    e.preventDefault();
    const id=b.dataset.fieldId;
@@ -136,7 +140,9 @@ export class FieldMap {
   this.drag=null;
   if(this.host.hasPointerCapture(e.pointerId))this.host.releasePointerCapture(e.pointerId);
   this.draw();
-  if(d.kind==='connect'&&d.moved){
+  if(d.kind==='place'){
+   if(!d.moved)this.onPlace(this.world(d.start.x,d.start.y));
+  }else if(d.kind==='connect'&&d.moved){
    const target=this.dropTarget(e,d.id);
    if(target)this.onConnect(d.id,target);
   }else if(d.kind==='node'&&d.moved)this.onLayout(d.id,d.world);

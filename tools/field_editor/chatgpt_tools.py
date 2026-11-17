@@ -112,7 +112,7 @@ def call_tool(store, name, args, allow_proposals):
     revision = {'revision': data['revision']}
     fields = data['field_definitions']
     map_id, region_id = args.get('map_id'), args.get('region_id')
-    maps = {m['map_id']: m for m in store.maps}
+    maps = {m['map_id']: m for m in store.design_maps(data)}
     require(map_id is None or map_id in maps, 'Unknown map_id')
     require(region_id is None or region_id in store.regions, 'Unknown region_id')
     map_nodes = set(maps[map_id]['node_ids']) if map_id else None
@@ -124,21 +124,22 @@ def call_tool(store, name, args, allow_proposals):
     if name == 'list_regions':
         return {**revision, 'regions': [
             {**{k: m[k] for k in ('map_id', 'region_id', 'name', 'official_map_id', 'kind', 'level_guide')},
-             'field_count': len(m['node_ids'])} for m in store.maps
+             'field_count': len(m['node_ids'])} for m in maps.values()
         ]}
     if name == 'list_fields':
         ids = maps[map_id]['node_ids'] if map_id else fields
         rows = [
             {**{k: fields[i][k] for k in ('field_id', 'name', 'location_alias', 'region_id', 'recommended_level')},
-             'official_name_ja': store.nodes[i].get('name_ja'),
-             'official_map_id': store.nodes[i]['map_id'],
-             **{k: store.nodes[i][k] for k in ('x', 'y', 'kind')}}
-            for i in ids if region_id is None or fields[i]['region_id'] == region_id
+             'official_name_ja': node.get('name_ja'),
+             'official_map_id': node['map_id'],
+             **{k: node[k] for k in ('x', 'y', 'kind')},
+             **({'custom': True} if node.get('custom') else {})}
+            for i in ids for node in [store.map_node(i, data)] if region_id is None or fields[i]['region_id'] == region_id
         ]
         return {**revision, 'design_map_id': map_id, **page(rows, args)}
     if name == 'get_field':
         return {**revision, 'field': store.field(field_id, data),
-                'design_map_ids': [m['map_id'] for m in store.maps if field_id in m['node_ids']]}
+                'design_map_ids': [m['map_id'] for m in maps.values() if field_id in m['node_ids']]}
     if name == 'list_monsters':
         families = data['monster_families']
         family = args.get('family_id')

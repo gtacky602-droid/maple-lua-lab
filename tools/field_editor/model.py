@@ -20,7 +20,7 @@ ACCEPTED = STATES[2:]
 COLLECTIONS = ('field_definitions', 'field_edges', 'monster_families', 'monster_variants', 'field_spawns', 'graph_layouts', 'graph_exceptions')
 IDS = dict(zip(COLLECTIONS, ('field_id', 'edge_id', 'family_id', 'monster_id', 'spawn_id', 'layout_id', 'exception_id')))
 EDITABLE = {
-    'field_definitions': {'name', 'location_alias', 'region_id', 'recommended_level', 'enemy_level_min', 'enemy_level_max', 'respawn_seconds', 'elite', 'local_legend', 'terrain', 'quests', 'notes', 'production_state', 'required_route'},
+    'field_definitions': {'name', 'location_alias', 'region_id', 'recommended_level', 'enemy_level_min', 'enemy_level_max', 'respawn_seconds', 'elite', 'local_legend', 'terrain', 'quests', 'notes', 'production_state', 'required_route', 'waypoint_position'},
     'field_edges': {'from_field', 'to_field', 'direction', 'kind', 'conditions', 'exit_position', 'entrance_position', 'notes'},
     'monster_families': {'name', 'element', 'behavior', 'sprite', 'animation', 'defaults'},
     'monster_variants': {'family_id', 'region_id', 'name', 'base_level', 'hp', 'attack', 'defense', 'exp', 'drops', 'behavior', 'sprite', 'animation', 'classification', 'element'},
@@ -29,6 +29,8 @@ EDITABLE = {
     'graph_exceptions': {'code', 'target_id', 'reason'},
 }
 
+
+OPTIONAL = {"field_definitions": {"waypoint_position"}}
 
 def now():
     return datetime.now(timezone.utc).isoformat(timespec='microseconds')
@@ -96,6 +98,7 @@ class Store:
             if m.get('map_source'):
                 self.sources[str(m['official_map_id'])] = m['map_source']
         require(len({m['map_id'] for m in self.maps}) == len(self.maps), 'Duplicate map_id')
+        self.maps_by_id = {m['map_id']: m for m in self.maps}
         self.regions = {m['region_id'] for m in self.maps}
         self.data = json.loads(self.path.read_text(encoding='utf8')) if self.path.exists() else self.initial()
         self.fingerprint = hashlib.sha256(self.path.read_bytes()).hexdigest() if self.path.exists() else None
@@ -120,11 +123,30 @@ class Store:
         return data
 
     def new_field(self, i):
-        n = self.nodes[i]
         maps = [m for m in self.maps if i in m['node_ids']]
         own = next((m for m in maps if m['kind'] == 'high_level_branch'), maps[0] if maps else None)
-        values = {'name': '', 'location_alias': '', 'region_id': own['region_id'] if own else '', 'recommended_level': None, 'enemy_level_min': None, 'enemy_level_max': None, 'respawn_seconds': None, 'elite': '', 'local_legend': '', 'terrain': '', 'quests': [], 'notes': '', 'production_state': '未着手', 'required_route': []}
+        values = self.field_defaults(own['region_id'] if own else '')
         return {'field_id': i, **values, '_meta': {k: decision('unassigned', '地点IDのみ公式カタログから参照。個別Lv・名称・接続は未決定', 'Codex') for k in values}}
+
+    @staticmethod
+    def field_defaults(region_id):
+        return {'name': '', 'location_alias': '', 'region_id': region_id, 'recommended_level': None, 'enemy_level_min': None, 'enemy_level_max': None, 'respawn_seconds': None, 'elite': '', 'local_legend': '', 'terrain': '', 'quests': [], 'notes': '', 'production_state': '未着手', 'required_route': []}
+    def map_node(self, i, data):
+        if i in self.nodes:
+            return self.nodes[i]
+        f = data['field_definitions'][i]
+        p = f['waypoint_position']
+        m = self.maps_by_id[p['map_id']]
+        return {'id': i, 'kind': 'waypoint', 'custom': True, 'design_map_id': m['map_id'],
+                'source_id': None, 'map_id': m['official_map_id'], 'region': m['name'],
+                'x': p['x'], 'y': p['y']}
+
+    def design_maps(self, data):
+        custom = {m['map_id']: [] for m in self.maps}
+        for i, f in data['field_definitions'].items():
+            if i not in self.nodes:
+                custom[f['waypoint_position']['map_id']].append(i)
+        return [{**m, 'node_ids': m['node_ids'] + custom[m['map_id']]} for m in self.maps]
 
     def snapshot(self):
         with self.lock:
@@ -181,9 +203,10 @@ class Store:
             for i, r in d[c].items():
                 require(isinstance(r, dict) and r.get(IDS[c]) == i, 'Invalid fixed ID: ' + i)
                 require(set(r) <= EDITABLE[c] | {IDS[c], '_meta'}, 'Unknown properties: ' + c)
-                require(EDITABLE[c] <= set(r), 'Missing record properties: ' + ', '.join(sorted(EDITABLE[c] - set(r))))
+                required = EDITABLE[c] - OPTIONAL.get(c, set())
+                require(required <= set(r), 'Missing record properties: ' + ', '.join(sorted(required - set(r))))
                 require(isinstance(r.get('_meta'), dict), 'Missing item decision metadata')
-                require(EDITABLE[c] <= set(r['_meta']), 'Missing per-item decision metadata')
+                require(set(r) - {IDS[c], '_meta'} <= set(r['_meta']), 'Missing per-item decision metadata')
                 for prop, meta in r['_meta'].items():
                     require(prop in EDITABLE[c] and isinstance(meta, dict) and meta['state'] in STATES and isinstance(meta['source'], str) and bool(meta['source']) and meta.get('actor') in ('user', 'Codex', 'ChatGPT') and isinstance(meta.get('updated_at'), str), 'Invalid decision metadata')
                 for k, value in r.items():
@@ -194,7 +217,16 @@ class Store:
                     if k in ('name', 'notes', 'terrain', 'location_alias', 'elite', 'local_legend', 'element') and value is not None:
                         require(isinstance(value, str) and len(value) <= 10000, 'Invalid text: ' + k)
         for i, f in d['field_definitions'].items():
-            require(i in self.nodes and f['region_id'] in self.regions, 'Unknown field or region')
+            require(f['region_id'] in self.regions, 'Unknown field region')
+            if i in self.nodes:
+                require('waypoint_position' not in f, 'Official coordinates cannot be changed')
+            else:
+                p = f.get('waypoint_position')
+                require(i.startswith('waypoint-') and isinstance(p, dict)
+                        and set(p) == {'map_id', 'x', 'y'}, 'Invalid custom waypoint')
+                require(isinstance(p['map_id'], str) and p['map_id'] in self.maps_by_id
+                        and all(type(p[k]) in (int, float) and -1e7 < p[k] < 1e7 for k in ('x', 'y')),
+                        'Invalid custom waypoint map or coordinates')
             require(f['production_state'] in ('未着手', '設計中', '制作中', '完成'), 'Invalid production state')
             require(isinstance(f['quests'], list) and all(isinstance(x, str) for x in f['quests']), 'quests must be IDs')
             require(isinstance(f['required_route'], list) and all(x in d['field_definitions'] for x in f['required_route']), 'Unknown required route field')
@@ -256,7 +288,7 @@ class Store:
             require(action in ('upsert', 'delete'), 'Invalid operation action')
             before = deepcopy(candidate[c].get(i))
             if action == 'delete':
-                require(c != 'field_definitions', 'Official field IDs cannot be deleted')
+                require(c != 'field_definitions' or i not in self.nodes, 'Official field IDs cannot be deleted')
                 require(before is not None, 'Record does not exist')
                 del candidate[c][i]
                 changes.append({'collection': c, 'id': i, 'item': '*', 'before': before, 'after': None})
@@ -265,6 +297,13 @@ class Store:
             states = op.get('states', {})
             require(isinstance(patch, dict) and isinstance(states, dict) and bool(patch or states), 'Empty operation')
             require(set(patch) <= EDITABLE[c] and set(states) <= EDITABLE[c], 'Cannot modify fixed/official/unknown properties')
+            if c == 'field_definitions' and before is None and 'waypoint_position' in patch:
+                pos = patch['waypoint_position']
+                map_id = pos.get('map_id') if isinstance(pos, dict) else None
+                require(isinstance(map_id, str) and map_id in self.maps_by_id, 'Unknown waypoint map')
+                defaults = self.field_defaults(self.maps_by_id[map_id]['region_id'])
+                states = {**{k: 'unassigned' for k in defaults.keys() - patch.keys()}, **states}
+                patch = {**defaults, **patch}
             r = candidate[c].setdefault(i, {IDS[c]: i, '_meta': {}})
             for k in sorted(set(patch) | set(states)):
                 desired = states.get(k, 'approved' if state == 'proposed' else state)
@@ -362,7 +401,7 @@ class Store:
                 r = self.data[x['collection']].get(x['id'])
                 if x['item'] == '*':
                     require(r is None, 'Rollback conflicts with a later record')
-                    records[key] = {'collection': key[0], 'id': key[1], 'changes': {k: v for k, v in x['before'].items() if k in EDITABLE[key[0]]}}
+                    records[key] = {'collection': key[0], 'id': key[1], 'changes': {k: v for k, v in x['before'].items() if k in EDITABLE[key[0]]}, 'states': {k: m['state'] if m['state'] not in ACCEPTED else 'approved' for k, m in x['before']['_meta'].items()}}
                 else:
                     require(r is not None and r.get(x['item']) == x['after'], 'Rollback conflicts with a later edit')
                     op = records.setdefault(key, {'collection': key[0], 'id': key[1], 'changes': {}, 'states': {}})
@@ -376,9 +415,11 @@ class Store:
     def field(self, i, data=None):
         d = data if data is not None else self.snapshot()
         require(i in d['field_definitions'], 'Field not found')
-        f = deepcopy(d['field_definitions'][i]); f['map_node'] = self.nodes[i]
-        f['official_location_name_ja'] = self.nodes[i].get('name_ja', '名称未確認')
-        f['official_layer'] = 'group:' + str(self.nodes[i]['point_group']['group_id']) + '/floor:' + str(self.nodes[i]['point_group']['floor_id']) if self.nodes[i].get('point_group') else self.nodes[i].get('layer', 'unknown')
+        f = deepcopy(d['field_definitions'][i])
+        node = f['map_node'] = self.map_node(i, d)
+        f['official_location_name_ja'] = node.get('name_ja', '名称未確認') if not node.get('custom') else None
+        group = node.get('point_group')
+        f['official_layer'] = f'group:{group["group_id"]}/floor:{group["floor_id"]}' if group else node.get('layer', 'unknown')
         f['spawns'] = []
         for s in d['field_spawns'].values():
             if s['field_id'] != i: continue
@@ -397,15 +438,15 @@ class Store:
         with self.lock:
             self.sync()
             if map_id == 'all' and format == 'runtime':
-                return self.runtime_export(set(self.nodes))
-            m = next((m for m in self.maps if m['map_id'] == map_id), None)
+                return self.runtime_export(set(self.data['field_definitions']))
+            m = next((m for m in self.design_maps(self.data) if m['map_id'] == map_id), None)
             require(m is not None, 'Map not found')
             ids = set(m['node_ids'])
             fields = [self.field(i, self.data) for i in m['node_ids']]
             if format == 'markdown':
                 lines = ['# ' + m['name'] + ' 設計相談', '', f'正本: design/field-editor/project.json / revision {self.data["revision"]}', f'地図: {map_id} / region: {m["region_id"]} / 公式map: {m["official_map_id"]}', '公式名称が未確認の地点は推測で確定しない。変更JSONは提案としてインポートし、地図で承認する。', '', '## 地域Lv基準', json.dumps(m['level_guide'], ensure_ascii=False), '', '## 地点・確定事項・未決定事項']
                 for f in fields:
-                    lines += ['', '### ' + f['field_id'] + ' ' + (f['name'] or 'フィールド名未設定'), '公式地点名: 名称未確認 / 設計上の別名: ' + (f['location_alias'] or '未設定'), f'座標: ({f["map_node"]["x"]}, {f["map_node"]["y"]}) / 階層: {f["map_node"].get("point_group", "未確認")}', '確定: ' + ' / '.join(k + '=' + json.dumps(f[k], ensure_ascii=False) for k, v in f['_meta'].items() if v['state'] in ACCEPTED), '未決定: ' + ', '.join(k for k, v in f['_meta'].items() if v['state'] not in ACCEPTED), '敵: ' + ', '.join(f'{s["monster"]["name"]} Lv{s["effective_level"]} ×{s["count"]} [{s["spawn_id"]}]' for s in f['spawns']), '接続: ' + ', '.join(e['edge_id'] + ' ' + e['from_field'] + (' ↔ ' if e['direction'] == 'both' else ' → ') + e['to_field'] for e in f['edges']), 'メモ: ' + f['notes']]
+                    lines += ['', '### ' + f['field_id'] + ' ' + (f['name'] or 'フィールド名未設定'), ('追加したワープポイント' if f['map_node'].get('custom') else '公式地点名: 名称未確認') + ' / 設計上の別名: ' + (f['location_alias'] or '未設定'), f'座標: ({f["map_node"]["x"]}, {f["map_node"]["y"]}) / 階層: {f["map_node"].get("point_group", "未確認")}', '確定: ' + ' / '.join(k + '=' + json.dumps(f[k], ensure_ascii=False) for k, v in f['_meta'].items() if v['state'] in ACCEPTED), '未決定: ' + ', '.join(k for k, v in f['_meta'].items() if v['state'] not in ACCEPTED), '敵: ' + ', '.join(f'{s["monster"]["name"]} Lv{s["effective_level"]} ×{s["count"]} [{s["spawn_id"]}]' for s in f['spawns']), '接続: ' + ', '.join(e['edge_id'] + ' ' + e['from_field'] + (' ↔ ' if e['direction'] == 'both' else ' → ') + e['to_field'] for e in f['edges']), 'メモ: ' + f['notes']]
                 lines += ['', '## 直近の変更'] + [json.dumps(h, ensure_ascii=False) for h in self.data['design_history'][-10:] if ids.intersection(h['field_ids'])]
                 return '\n'.join(lines)
             if format == 'csv':
@@ -418,7 +459,7 @@ class Store:
             edges = {i: e for i, e in self.data['field_edges'].items() if e['from_field'] in ids or e['to_field'] in ids}
             if format == 'edges': return {'revision': self.data['revision'], 'field_edges': edges}
             if format == 'runtime': return self.runtime_export(ids)
-            return {'schema_version': 1, 'revision': self.data['revision'], 'exported_at': now(), 'catalog_provenance': {k: self.catalog[k] for k in ('version', 'source', 'captured_at')}, 'official_map_source': self.sources.get(str(m['official_map_id'])), 'map_definition': m, 'map_nodes': {i: self.nodes[i] for i in ids}, 'map_node_details': {f['field_id']: {'name_ja': f['official_location_name_ja'], 'layer': f['official_layer']} for f in fields}, 'field_definitions': {i: self.data['field_definitions'][i] for i in ids}, 'field_edges': edges, 'field_spawns': {i: s for i, s in self.data['field_spawns'].items() if s['field_id'] in ids}, 'monster_families': self.data['monster_families'], 'monster_variants': self.data['monster_variants'], 'graph_layouts': {i: l for i, l in self.data['graph_layouts'].items() if l['field_id'] in ids}, 'design_history': [h for h in self.data['design_history'] if ids.intersection(h['field_ids'])], 'proposals': [p for p in self.data['proposals'].values() if p['status'] == 'proposed' and ids.intersection(p['impact']['affected_fields'])]}
+            return {'schema_version': 1, 'revision': self.data['revision'], 'exported_at': now(), 'catalog_provenance': {k: self.catalog[k] for k in ('version', 'source', 'captured_at')}, 'official_map_source': self.sources.get(str(m['official_map_id'])), 'map_definition': m, 'map_nodes': {i: self.map_node(i, self.data) for i in ids}, 'map_node_details': {f['field_id']: {'name_ja': f['official_location_name_ja'], 'layer': f['official_layer']} for f in fields}, 'field_definitions': {i: self.data['field_definitions'][i] for i in ids}, 'field_edges': edges, 'field_spawns': {i: s for i, s in self.data['field_spawns'].items() if s['field_id'] in ids}, 'monster_families': self.data['monster_families'], 'monster_variants': self.data['monster_variants'], 'graph_layouts': {i: l for i, l in self.data['graph_layouts'].items() if l['field_id'] in ids}, 'design_history': [h for h in self.data['design_history'] if ids.intersection(h['field_ids'])], 'proposals': [p for p in self.data['proposals'].values() if p['status'] == 'proposed' and ids.intersection(p['impact']['affected_fields'])]}
 
     def runtime_export(self, ids):
         d = self.data
@@ -439,10 +480,11 @@ class Store:
                     cv.pop(k, None)
                     if accepted(family, source_prop): cv[k] = deepcopy(resolved.get(k))
             variants[i] = cv
+        ids = {i for i in ids if i in self.nodes or accepted(d['field_definitions'][i], 'waypoint_position')}
         fields = {i: clean(d['field_definitions'][i], 'field_definitions') for i in ids}
         edges = {i: clean(e, 'field_edges') for i, e in d['field_edges'].items() if e['from_field'] in ids and e['to_field'] in ids and all(accepted(e, k) for k in EDITABLE['field_edges'] - {'notes'})}
         spawns = {i: clean(s, 'field_spawns') for i, s in d['field_spawns'].items() if s['field_id'] in ids and s['monster_id'] in variants and all(accepted(s, k) for k in EDITABLE['field_spawns'])}
-        return {'schema_version': 1, 'revision': d['revision'], 'production_import': 'manual_review_required', 'map_nodes': {i: self.nodes[i] for i in ids}, 'field_definitions': fields, 'field_edges': edges, 'monster_families': families, 'monster_variants': variants, 'field_spawns': spawns, 'fast_travel_policy': 'destination_must_be_discovered', 'excluded_unapproved': True}
+        return {'schema_version': 1, 'revision': d['revision'], 'production_import': 'manual_review_required', 'map_nodes': {i: self.map_node(i, self.data) for i in ids}, 'field_definitions': fields, 'field_edges': edges, 'monster_families': families, 'monster_variants': variants, 'field_spawns': spawns, 'fast_travel_policy': 'destination_must_be_discovered', 'excluded_unapproved': True}
 
     def report(self, start=None, level_jump=15):
         d = self.snapshot(); fs = d['field_definitions']; start = start or next(iter(fs))

@@ -148,6 +148,30 @@
           "additionalProperties": {
             "$ref": "#/$defs/decision"
           }
+        },
+        "waypoint_position": {
+          "type": "object",
+          "required": [
+            "map_id",
+            "x",
+            "y"
+          ],
+          "properties": {
+            "map_id": {
+              "type": "string"
+            },
+            "x": {
+              "type": "number",
+              "exclusiveMinimum": -10000000.0,
+              "exclusiveMaximum": 10000000.0
+            },
+            "y": {
+              "type": "number",
+              "exclusiveMinimum": -10000000.0,
+              "exclusiveMaximum": 10000000.0
+            }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
@@ -651,6 +675,30 @@
                   "items": {
                     "type": "string"
                   }
+                },
+                "waypoint_position": {
+                  "type": "object",
+                  "required": [
+                    "map_id",
+                    "x",
+                    "y"
+                  ],
+                  "properties": {
+                    "map_id": {
+                      "type": "string"
+                    },
+                    "x": {
+                      "type": "number",
+                      "exclusiveMinimum": -10000000.0,
+                      "exclusiveMaximum": 10000000.0
+                    },
+                    "y": {
+                      "type": "number",
+                      "exclusiveMinimum": -10000000.0,
+                      "exclusiveMaximum": 10000000.0
+                    }
+                  },
+                  "additionalProperties": false
                 }
               },
               "additionalProperties": false
@@ -672,7 +720,8 @@
                   "region_id",
                   "required_route",
                   "respawn_seconds",
-                  "terrain"
+                  "terrain",
+                  "waypoint_position"
                 ]
               },
               "additionalProperties": {

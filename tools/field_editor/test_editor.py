@@ -48,6 +48,29 @@ class ModelTests(unittest.TestCase):
         with self.assertRaises(DesignError):self.propose([{'collection':'map_nodes','id':self.a,'changes':{'x':0}}])
         with self.assertRaises(DesignError):self.propose([{'collection':'field_definitions','id':self.a,'changes':{'x':0}}])
 
+    def test_custom_waypoint_is_visible_to_map_queries_only_after_approval(self):
+        field_id = 'waypoint-new'
+        p = {'map_id': 'region-01-map', 'x': 123.25, 'y': -456}
+        op = {'collection': 'field_definitions', 'id': field_id,
+              'changes': {'name': 'ワープ狩場', 'waypoint_position': p}}
+        for invalid in ({**op, 'id': self.a}, {**op, 'changes': {'waypoint_position': {**p, 'x': True}}},
+                        {**op, 'changes': {'waypoint_position': {**p, 'map_id': 'missing'}}}):
+            with self.assertRaises(DesignError):
+                self.propose([invalid])
+        draft = self.propose([op])
+        self.assertNotIn(field_id, self.s.export(p['map_id'])['map_nodes'])
+        self.s.approve(draft['proposal_id'], 0)
+        reloaded = Store(self.path)
+        node = reloaded.field(field_id)['map_node']
+        self.assertTrue(node['custom'])
+        self.assertEqual(('waypoint', 123.25, -456), (node['kind'], node['x'], node['y']))
+        self.assertNotIn(field_id, reloaded.nodes)
+        self.assertIn(field_id, reloaded.export('all', 'runtime')['map_nodes'])
+        from .chatgpt_tools import call_tool
+        listing = call_tool(reloaded, 'list_fields', {'map_id': p['map_id'], 'limit': 100}, False)
+        self.assertEqual(52, listing['total'])
+        self.assertTrue(next(f for f in listing['items'] if f['field_id'] == field_id)['custom'])
+
     def test_region_level_guides_not_individual_enemy_assignments(self):
         maps={m['region_id']:m for m in self.s.maps}
         self.assertEqual((1,20),(maps['region-01']['level_guide']['enemy_min'],maps['region-01']['level_guide']['enemy_max']))

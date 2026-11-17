@@ -104,7 +104,7 @@ class Handler(BaseHTTPRequestHandler):
             if path == '/api/bootstrap':
                 # Browser-only bootstrap. Bearer agents receive no approval credential.
                 if self.headers.get('Authorization') or self.headers.get('Sec-Fetch-Site') != 'same-origin': raise DesignError('Open the local editor page to initialize a UI session; agents use documented API operations', 403)
-                return self.send(200, {'ui_token': self.server.ui_token, 'maps': store.maps, 'map_sources': store.sources, 'map_nodes': store.nodes, 'catalog': {k: store.catalog[k] for k in ('version', 'source', 'captured_at', 'complete_world_verified')}, 'project': store.snapshot()})
+                return self.send(200, {'ui_token': self.server.ui_token, 'custom_waypoints': True, 'maps': store.maps, 'map_sources': store.sources, 'map_nodes': store.nodes, 'catalog': {k: store.catalog[k] for k in ('version', 'source', 'captured_at', 'complete_world_verified')}, 'project': store.snapshot()})
             if path.startswith('/tiles/'):
                 return self.tile(path)
             if path.startswith('/api/'):
