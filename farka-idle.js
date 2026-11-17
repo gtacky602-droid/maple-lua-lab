@@ -18,64 +18,61 @@ try{
   const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;return ctx;
  });
 
- function paint(ctx,art,mode,left,top,w,h){
+ function paint(ctx,command,mode){
+  const {file,left,top,width:w,height:h,origin,angle}=command,art=sprites[file];
+  ctx.save();
+  if(origin){ctx.translate(...origin);ctx.rotate(angle)}
   if(mode==='png'){
    ctx.drawImage(images[art.source],...art.box,left,top,w,h);
-   return 0;
+  }else{
+   const profile=art.profiles[mode],sx=w/profile.width,sy=h/profile.height;
+   for(const [x,y,width,height,color] of profile.runs){
+    ctx.fillStyle=color;ctx.fillRect(left+x*sx,top+y*sy,width*sx+.05,height*sy+.05);
+   }
   }
-  const profile=art.profiles[mode],sx=w/profile.width,sy=h/profile.height;
-  for(const [x,y,width,height,color] of profile.runs){
-   ctx.fillStyle=color;ctx.fillRect(left+x*sx,top+y*sy,width*sx+.05,height*sy+.05);
-  }
-  return profile.runs.length;
- }
-
- function standing(ctx,art,mode){
-  const [x,y]=pose.root,h=pose.displayHeight,w=h*art.box[2]/art.box[3];
-  return paint(ctx,art,mode,x-art.anchorX*w,y-h,w,h);
- }
-
- function sword(ctx,mode,hand,target,offset){
-  const art=sprites[pose.sword.file],[left,top,w,h]=art.box;
-  const {grip:[gx,gy],tip:[tx,ty],widthScale}=pose.sword;
-  const sx=tx-gx,sy=(ty-gy)*widthScale;
-  const dx=target[0]-hand[0],dy=target[1]-hand[1];
-  const length=Math.hypot(dx,dy),scale=length/Math.hypot(sx,sy);
-  const angle=Math.atan2(dy,dx)+offset*Math.PI/180;
-  ctx.save();ctx.translate(...hand);ctx.rotate(angle-Math.atan2(sy,sx));
-  const rectangles=paint(ctx,art,mode,(left-gx)*scale,(top-gy)*scale*widthScale,w*scale,h*scale*widthScale);
   ctx.restore();
-  return {hand,tip:[hand[0]+Math.cos(angle)*length,hand[1]+Math.sin(angle)*length],rectangles};
  }
 
- function render(){
-  const [reference,result]=contexts,side=$('facing').value,mode=$('profile').value;
-  const facing=pose.facings[side],sockets=facing.sockets;
+ function show(frame){
+  const [reference,result]=contexts,{root,mode,hands,weapons,draws,rectangles}=frame;
   for(const ctx of contexts){
    ctx.clearRect(0,0,...pose.cell);
-   ctx.fillStyle='#77958a';ctx.fillRect(9,pose.root[1],pose.cell[0]-18,1);
+   ctx.fillStyle='#77958a';ctx.fillRect(9,root[1],pose.cell[0]-18,1);
   }
-  standing(reference,sprites[facing.reference],'png');
-  const weapons={};let rectangles=0;
-  for(const [hand,tip] of [['back','weapon_tip_B'],['front','weapon_tip_A']]){
-   if(!$(hand).checked)continue;
-   weapons[hand]=sword(result,mode,sockets[`hand_${hand}`],sockets[tip],Number($(`${hand}Angle`).value));
-   rectangles+=weapons[hand].rectangles;
-  }
-  const body=$('body').checked;
-  if(body)rectangles+=standing(result,sprites[facing.body],mode);
+  paint(reference,frame.reference,'png');
+  for(const command of draws)paint(result,command,mode);
   if($('markers').checked){
-   for(const [color,points] of [['#e6e8c4',[pose.root]],['#68e6e6',[sockets.hand_front,sockets.hand_back]],['#fff0ad',Object.values(weapons).map(w=>w.tip)]]){
+   for(const [color,points] of [['#e6e8c4',[root]],['#68e6e6',hands],['#fff0ad',Object.values(weapons).map(w=>w.tip)]]){
     result.fillStyle=color;
     for(const [x,y] of points)result.fillRect(x-1,y-1,3,3);
    }
   }
-  const layers=Object.keys(weapons).length+Number(body);
-  $('status').textContent=mode==='png'?`透過PNG ${layers}枚を表示`:`身体と武器の合計 ${rectangles.toLocaleString()}矩形`;
-  window.farkaIdle={side,mode,root:pose.root,body,weapons,rectangles};
+  $('status').textContent=mode==='png'?`透過PNG ${draws.length}枚を表示`:`身体と武器の合計 ${rectangles.toLocaleString()}矩形`;
+  window.farkaIdle=frame;
  }
 
- $('pose').addEventListener('input',render);
+ let request;
+ async function render(){
+  request?.abort();
+  const current=request=new AbortController();
+  const options={side:$('facing').value,mode:$('profile').value,body:$('body').checked,
+   front:$('front').checked,back:$('back').checked,
+   frontAngle:Number($('frontAngle').value),backAngle:Number($('backAngle').value)};
+  try{
+   const response=await fetch('/api/farka-idle',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(options),signal:current.signal});
+   if(!response.ok)throw new Error(`HTTP ${response.status}`);
+   const frame=await response.json();
+   if(request===current)show(frame);
+  }catch(error){
+   if(request===current)$('status').textContent=`Luaの描画指示を取得できませんでした。${error.message}`;
+  }
+ }
+
+ $('pose').addEventListener('input',event=>{
+  if(event.target===$('markers')&&window.farkaIdle)show(window.farkaIdle);
+  else render();
+ });
  $('pose').addEventListener('reset',()=>requestAnimationFrame(render));
  render();
 }catch(error){

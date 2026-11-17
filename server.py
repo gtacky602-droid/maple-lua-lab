@@ -1,6 +1,7 @@
 import json, time, uuid, threading
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from runtime import ROOT, runtime, native
+from farka_idle import render_farka_idle
 from savegame import validate_save
 SESSIONS = {}
 LOCK = threading.RLock()
@@ -8,15 +9,20 @@ LOCK = threading.RLock()
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self,*a,**kw): super().__init__(*a,directory=str(ROOT),**kw)
     def log_message(self,*a): pass
+    def send_json(self,status,result):
+        data=json.dumps(result,ensure_ascii=False).encode('utf8')
+        self.send_response(status);self.send_header('Content-Type','application/json; charset=utf-8');self.send_header('Content-Length',str(len(data)));self.end_headers();self.wfile.write(data)
     def do_POST(self):
-        if self.path not in ('/api/frame','/api/release'): self.send_error(404); return
+        if self.path not in ('/api/frame','/api/release','/api/farka-idle'): self.send_error(404); return
         if self.headers.get('Origin') not in (None, f'http://127.0.0.1:{self.server.server_port}', f'http://localhost:{self.server.server_port}'):
             self.send_error(403); return
         try:
             size=int(self.headers.get('Content-Length',0))
-            if size>65536: raise ValueError('request too large')
+            if not 0<=size<=65536: raise ValueError('invalid request size')
             req=json.loads(self.rfile.read(size))
             if not isinstance(req,dict): raise ValueError('request must be an object')
+            if self.path=='/api/farka-idle':
+                self.send_json(200,render_farka_idle(req));return
             owner=req.get('owner')
             if owner is not None and (not isinstance(owner,str) or len(owner)>80): raise ValueError('invalid owner')
             if self.path == '/api/release':
@@ -70,11 +76,9 @@ class Handler(SimpleHTTPRequestHandler):
                         ms=(time.perf_counter()-start)*1000
                         comparisons.append({'profile':profile,'draw_ms':ms,'commands':f.commands,'draws':native(f.draws),'t':state.t})
                     out['comparisons']=comparisons
-                data=json.dumps(out,ensure_ascii=False).encode()
-            self.send_response(200);self.send_header('Content-Type','application/json');self.send_header('Content-Length',str(len(data)));self.end_headers();self.wfile.write(data)
+            self.send_json(200,out)
         except (ValueError,TypeError,KeyError) as e:
-            data=json.dumps({'error':str(e)},ensure_ascii=False).encode('utf8')
-            self.send_response(400);self.send_header('Content-Type','application/json; charset=utf-8');self.send_header('Content-Length',str(len(data)));self.end_headers();self.wfile.write(data)
+            self.send_json(400,{'error':str(e)})
 
 if __name__=='__main__':
     print('Lua lab: http://127.0.0.1:8769',flush=True)

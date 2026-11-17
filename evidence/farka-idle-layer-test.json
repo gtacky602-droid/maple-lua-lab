@@ -1,4 +1,5 @@
 {
+  "renderer": "Lua",
   "checks": [
     {
       "side": "right",
@@ -41,8 +42,11 @@
       "rectangles": 1503
     }
   ],
+  "largestResponse": 994,
   "independentRotation": true,
   "independentVisibility": true,
+  "rapidInputs": true,
+  "invalidInputsRejected": true,
   "mobileOverflow": false,
   "errors": []
 }
