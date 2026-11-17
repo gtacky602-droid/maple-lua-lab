@@ -8,8 +8,73 @@
     },
     {
       "profile": "h32c16",
-      "commands": 1360
+      "commands": 1735
     }
   ],
-  "pngBoss": true
+  "pngBoss": true,
+  "directionChecks": [
+    {
+      "side": "right",
+      "profile": "legacy",
+      "source": "farka-chibi-right-source-v1.png"
+    },
+    {
+      "side": "left",
+      "profile": "legacy",
+      "source": "farka-chibi-left-source-v1.png"
+    },
+    {
+      "side": "right",
+      "profile": "h48c32",
+      "source": "farka-chibi-right-source-v1.png"
+    },
+    {
+      "side": "left",
+      "profile": "h48c32",
+      "source": "farka-chibi-left-source-v1.png"
+    },
+    {
+      "side": "right",
+      "profile": "h32c16",
+      "source": "farka-chibi-right-source-v1.png"
+    },
+    {
+      "side": "left",
+      "profile": "h32c16",
+      "source": "farka-chibi-left-source-v1.png"
+    }
+  ],
+  "map": {
+    "grounded": true,
+    "visuals": [
+      {
+        "id": "added-1",
+        "source": "traveler-idle-source-v3.png",
+        "y": 480,
+        "hover": 0,
+        "height": 88
+      },
+      {
+        "id": "added-2",
+        "source": "farka-source-v1.png",
+        "y": 480,
+        "hover": 0,
+        "height": 110
+      },
+      {
+        "id": "added-3",
+        "source": "farka-chibi-right-source-v1.png",
+        "y": 480,
+        "hover": 0,
+        "height": 152
+      },
+      {
+        "id": "added-4",
+        "source": "farka-chibi-left-source-v1.png",
+        "y": 480,
+        "hover": 0,
+        "height": 152
+      }
+    ]
+  }
 }

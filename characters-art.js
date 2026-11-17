@@ -6,9 +6,7 @@ async function add(id,name,data,h,leftData){const [right,left]=await Promise.all
 let layouts={};
 const enemies=document.documentElement.dataset.gallery==='enemies';
 try{
- if(document.documentElement.dataset.gallery==='bosses'){
-  for(const item of (await json('content/boss-art-gallery.json')).items)await add(item.id,item.name,await json('assets/'+item.file),item.height);
- }else if(enemies){
+ if(enemies){
   layouts=await json('content/enemy-art-layout.json');
   const variants=(await json('assets/variants.json')).variants;
   for(const [id,name,index] of [['hydro-slime','水スライム（既存候補）',4],['pyro-slime','炎スライム（既存候補）',6]]){const profiles=Object.fromEntries(['legacy','h48c32','h32c16'].map(k=>[k,variants[k].sprites[index]]));await add(id,name,{source:'atlas-transparent.png',box:profiles.legacy.box,profiles},40)}
@@ -24,7 +22,8 @@ try{
   await add('hunter-seeker','秘源機兵・ハンターシーカー（ナタに仮配置）',await json('assets/hunter-seeker-idle-sprites.json'),layouts['hunter-seeker'].height);
   await add('fanged-beast','聖骸牙獣（トゥニギの黒淵に仮配置）',await json('assets/fanged-beast-idle-sprites.json'),layouts['fanged-beast'].height);
  }else{
-  for(const item of (await json('content/character-art-gallery.json')).items){
+  const catalog=document.documentElement.dataset.gallery==='bosses'?'boss-art-gallery.json':'character-art-gallery.json';
+  for(const item of (await json('content/'+catalog)).items){
    const [data,left]=await Promise.all([json('assets/'+item.file),item.leftFile&&json('assets/'+item.leftFile)]);
    await add(item.id,item.name,data,item.height,left);
   }

@@ -1,0 +1,89 @@
+{
+  "design": "docs/stygian-motion-v1/FARKA.md",
+  "common": "docs/stygian-motion-v1/COMMON.md",
+  "status": "two directional idle comparison candidates; old mock battle still uses its prior set",
+  "model": {
+    "discovery": "https://api.mmdfr.fr/api/character/varka",
+    "version": "64",
+    "url": "https://i0.hdslb.com/bfs/activity-plat/static/20260213/d32c2bb79f59192cb072d7bf79b61c6d/Z10P505Pe8.zip",
+    "creator": "观海子; final attribution miHoYo",
+    "archive_sha256": "fd75e2acf5d477a119b29236e4f6c7d9206bfb23f4e4b52e6037091aa6ed3f9f",
+    "pmx_sha256": "41bd1e094cffd86c4324049a137c8720ef4d3065ae0b678fdd963c5f9e2d805e",
+    "readme_sha256": "ed1bd41854fd56946b32047216aca2b5e7d143621d9c1c0fe1eabc7d390ae629",
+    "terms": "Read from bundled text. No re-distribution or commercial use; model and textures stored locally only.",
+    "render": "Blender neutral front, back and both sides. Flat textures; not the game shader or action timings.",
+    "views": {
+      "front": "2622b47ae4e87699d86807f7f572195c246784fa8c0a0e3bb75188fb0e54fe44",
+      "left": "d886c08224c5b67732c0180a95daf427cb4771b43a37a21c8abdd20bcced92fb",
+      "right": "77cab30e362710d42ac400f160de42784aa0949941946ecd03cab47b99d122ed",
+      "back": "70167c944d254401ad0cbd39b78f1334ca78e37dd340eb3aa5a0df600cd05668"
+    }
+  },
+  "other_refs": [
+    {
+      "page": "https://paimon.moe/images/characters/full/varka.png",
+      "local": "work/references/farka-illustration.png",
+      "sha256": "e56d05410784f93905faa26f268dff62da1d2dd094292b6e6305d8eecf209829",
+      "use": "directly viewed; included as weapon-shape reference"
+    },
+    {
+      "page": "https://www.youtube.com/watch?v=NLZad3MENnA",
+      "local": "work/references/farka-trailer.jpg",
+      "sha256": "8376f709d7a201c64d14ff048e25c29c61e4b2acdc561dda2e340cb4bcc8742f",
+      "use": "directly viewed official Japanese trailer thumbnail for face and right pauldron; no frame timing inferred"
+    },
+    {
+      "local": "assets/traveler-idle-source-v3.png",
+      "use": "used as style and scale reference"
+    },
+    {
+      "local": "assets/farka-source-v1.png",
+      "use": "directly inspected and retained as comparison"
+    }
+  ],
+  "tool": "ImageGen; separate directions with source-guided proportion edits",
+  "display": "152px including the tuft so the estimated anatomy is near 140px. The body and two swords are flattened in the preview images; production weapon layers and sockets are pending.",
+  "directions": {
+    "left": {
+      "source": "assets/farka-chibi-left-source-v1.png",
+      "encoding": "assets/farka-chibi-left-sprites-v1.json",
+      "sha256": "cc93d6a348db816bc25ce3aa22034a194b91e9d74b2629048ff186a74bcbb3c2",
+      "pmx_camera": "right",
+      "approximate_crown_chin_sole_y": [
+        118,
+        434,
+        1001
+      ],
+      "approximate_heads": 2.79,
+      "body_display_px": 138.2,
+      "anchor_x": 0.4833147942157953,
+      "anchor_method": "Sole midpoint in the bottom 0.6% of opacity to avoid including blade tips",
+      "runs152_114_76": [
+        5962,
+        3680,
+        1600
+      ]
+    },
+    "right": {
+      "source": "assets/farka-chibi-right-source-v1.png",
+      "encoding": "assets/farka-chibi-right-sprites-v1.json",
+      "sha256": "0e41e2736c803a325e6e3c778b9eeb835cc20ec59cdf9ff5ac09cb39bb10b3a6",
+      "pmx_camera": "left",
+      "approximate_crown_chin_sole_y": [
+        114,
+        427,
+        992
+      ],
+      "approximate_heads": 2.81,
+      "body_display_px": 141.5,
+      "anchor_x": 0.5312815338042381,
+      "anchor_method": "Sole midpoint in the bottom 0.6% of opacity to avoid including blade tips",
+      "runs152_114_76": [
+        6737,
+        4100,
+        1833
+      ]
+    }
+  },
+  "limits": "Gear engraving and the cheek scar are simplified; hand assignment and exact blades were not validated against original gameplay frames. Lightest profile softens face and armor detail. Existing attack timeline and pose assets were not replaced."
+}

@@ -2,7 +2,7 @@
 
 Requires MMD Tools checkout under work/tools/blender_mmd_tools.
 Model files stay under ignored work/references; no model redistribution.
-Run Blender --background --factory-startup --python this_file -- character_id.
+Run Blender --background --factory-startup --python this_file -- character_id [pmx_filename].
 Flat texture renders are reference views, not game-engine shading validation.
 """
 from pathlib import Path
@@ -16,8 +16,9 @@ sys.path.insert(0, str(ROOT / 'work/tools/python'))
 sys.path.insert(0, str(ROOT / 'work/tools/blender_mmd_tools'))
 import mmd_tools
 mmd_tools.register()
-name = sys.argv[sys.argv.index('--') + 1]
-model_files = list((ROOT / 'work/references' / (name + '-model')).rglob('*.pmx'))
+name, *model_names = sys.argv[sys.argv.index('--') + 1:]
+model_files = [path for path in (ROOT / 'work/references' / (name + '-model')).rglob('*.pmx')
+               if not model_names or path.name == model_names[0]]
 if len(model_files) != 1:
     raise ValueError(f'Expected one unambiguous PMX for {name}; found {len(model_files)}')
 model = model_files[0]

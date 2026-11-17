@@ -450,6 +450,14 @@
       "mapHover": 0
     },
     {
+      "id": "farka-chibi",
+      "name": "ファルカ（低頭身・二刀の待機候補）",
+      "file": "farka-chibi-right-sprites-v1.json",
+      "leftFile": "farka-chibi-left-sprites-v1.json",
+      "height": 152,
+      "mapHover": 0
+    },
+    {
       "id": "anemo",
       "name": "無相の風・外殻（既存候補）",
       "file": "anemo-shell-sprites.json",

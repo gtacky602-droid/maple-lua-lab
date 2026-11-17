@@ -562,7 +562,15 @@
       "art_candidate": {
         "item": "farka",
         "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
-      }
+      },
+      "art_variants": [
+        {
+          "id": "chibi-idle",
+          "item": "farka-chibi",
+          "audit": "evidence/farka-chibi-reference-audit.json",
+          "status": "directional dual-sword idle comparison candidate"
+        }
+      ]
     },
     "stygian-beidou": {
       "remaining": [
