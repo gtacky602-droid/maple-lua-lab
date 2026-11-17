@@ -156,7 +156,7 @@ assert not session.story.quests['beidou-join']
 balance, xp = session.mora, session.progression.questXp
 core.action(session, 'story_report:'+qid)
 core.action(session, 'story_report:'+qid)
-assert (q.status, q.cycles, session.mora, session.progression.questXp) == ('complete', 1, balance+500, xp+4000)
+assert (q.status, q.cycles, session.mora, session.progression.questXp) == ('complete', 1, balance+500, xp+67646)
 session = core.restore(lua.table_from(saved(), recursive=True))
 assert core.frame(session).storyMarketOpen
 walk(1270)
@@ -171,6 +171,6 @@ assert not core.frame(session).storyCartX and len(session.platforms) == base_pla
     'released_bridge_reachable_with_normal_jump': True, 'changed_enemy_placements': True,
     'keeper_defeated_with_normal_attack': True, 'return_gate_opens_after_dispatch': True,
     'market_and_safe_revisit_persist': True, 'requires_beidou_join': False,
-    'one_time_reward': {'xp': 4000, 'mora': 500},
+    'one_time_reward': {'xp': 67646, 'mora': 500},
 }, indent=2)+'\n', encoding='utf8')
 print('Liyue M03 rail, new platform and enemy phase, market, and checkpoint passed')

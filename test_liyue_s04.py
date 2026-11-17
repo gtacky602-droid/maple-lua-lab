@@ -177,7 +177,7 @@ through(port)
 cash,xp=s.mora,s.progression.questXp
 core.action(s,'story_report:'+qid)
 core.action(s,'story_report:'+qid)
-assert (q.status,q.cycles,s.mora,s.progression.questXp)==('complete',1,cash+240,xp+1800)
+assert (q.status,q.cycles,s.mora,s.progression.questXp)==('complete',1,cash+240,xp+16443)
 s=load(save())
 walk(335)
 inspect('model-exhibit')
@@ -204,6 +204,6 @@ assert core.frame(s).storyStone.modelTaken
     'wrong_sequence_resets_without_losing_marks':True,'remote_unknown_and_paused_input_rejected':True,
     'partial_sequence_survives_restore':True,'model_reachable_on_fixed_platforms':True,
     'pre_market_and_market_exhibits':True,'revisit_retains_open_mural':True,
-    'one_time_reward':{'xp':1800,'mora':240},
+    'one_time_reward':{'xp':16443,'mora':240},
 },indent=2)+'\n',encoding='utf8')
 print('Liyue S04 marks, sequence, ordinary jumps, two exhibits and checkpoints passed')

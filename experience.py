@@ -29,3 +29,25 @@ RUNTIME_EXP = {
     'legacyBossExp': 10,
     'trainingQuestExp': 500,
 }
+
+QUEST_EXP_VERSION = 'monster-quest-v02'
+QUEST_REPORT_EXP = {}
+for reward in MODEL['quest_rewards']:
+    if reward['grant_type'] != 'one_time_quest_reward':
+        continue
+    key, amount = reward['id'], reward['base_exp_first_clear']
+    if key in QUEST_REPORT_EXP or type(amount) is not int or not 0 < amount <= MAX_SAVED_EXP:
+        raise ValueError(f'Invalid fixed quest reward for {key}')
+    QUEST_REPORT_EXP[key] = amount
+
+
+def resolve_quest_report_exp(graph):
+    for quest in graph['quests']:
+        amount = QUEST_REPORT_EXP.get(quest.get('designId'))
+        if amount is None:
+            continue
+        if quest.get('repeatable'):
+            raise ValueError(f"First-report EXP applied to repeatable quest {quest['id']}")
+        quest['xp'] = amount
+        quest['xpVersion'] = QUEST_EXP_VERSION
+    return graph

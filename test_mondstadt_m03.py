@@ -101,7 +101,7 @@ mora,xp=s.mora,s.progression.questXp
 core.action(s,'story_report:'+quest)
 core.action(s,'story_report:'+quest)
 assert progress.status=='complete' and progress.cycles==1
-assert (s.mora,s.progression.questXp)==(mora+220,xp+2000)
+assert (s.mora,s.progression.questXp)==(mora+220,xp+4771)
 saved=validate_save(native(core.checkpoint(s)))
 s=core.restore(lua.table_from(saved,recursive=True))
 assert s.story.quests[quest].status=='complete'
@@ -118,7 +118,7 @@ assert len(s.enemies)>0
 
 checks={'M02_prerequisite':True,'physical_tower_gate':True,'only_named_enemy_counts':True,
         'ordinary_combat':True,'clear_before_report':True,'ready_checkpoint':True,
-        'peaceful_shortcut':True,'single_reward':{'xp':2000,'mora':220},
+        'peaceful_shortcut':True,'single_reward':{'xp':4771,'mora':220},
         'completed_checkpoint':True,'persistent_clear_on_reentry':True,'peripheral_field_still_hostile':True}
 (ROOT/'evidence/mondstadt-m03-lua.json').write_text(json.dumps(checks,indent=2)+'\n',encoding='utf8')
 print('M03 named enemy, cleared tower, restored road, one-time reward and save passed')

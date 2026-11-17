@@ -115,7 +115,7 @@ try{
  await page.waitForSelector('[data-quest="mond-old-trail"][data-status="complete"]');
  const paid=await frame();
  assert.equal(paid.mora-before.mora,140);
- assert.equal(paid.progression.questXp-before.progression.questXp,1300);
+ assert.equal(paid.progression.questXp-before.progression.questXp,2486);
  await page.locator('#saveProgress').click();
  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('保存しました'));
  await page.reload();
@@ -128,6 +128,6 @@ try{
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/mondstadt-m02-browser.json',JSON.stringify({errors,prerequisiteShown:true,
   realUpperRoute:true,inspectedRedCloth:true,ordinaryGuardCombat:true,shortcut:true,
-  reporting:{xp:1300,mora:140},saveRestored:true,mobileWidth:true,backdrop},null,2)+'\n');
+  reporting:{xp:2486,mora:140},saveRestored:true,mobileWidth:true,backdrop},null,2)+'\n');
  console.log('M02 upper route by keyboard, guard combat, shortcut, report, reload and hill background passed');
 }finally{await browser.close()}

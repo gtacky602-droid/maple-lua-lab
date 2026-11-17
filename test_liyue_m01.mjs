@@ -106,7 +106,7 @@ try{
  const paid=await frame();
  assert.match(await row.innerText(),/石切り場/);
  assert.equal(paid.mora-before.mora,300);
- assert.equal(paid.progression.questXp-before.progression.questXp,2200);
+ assert.equal(paid.progression.questXp-before.progression.questXp,10929);
  await page.locator('#saveProgress').click();
  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('保存しました'));
  await page.reload();
@@ -121,7 +121,7 @@ try{
  await fs.writeFile('evidence/liyue-m01-browser.json',JSON.stringify({
   errors,wrongLabelRejected:true,delivered:['鍋','器','車輪'],guardedJumpCache:true,
   stockedThreeStalls:true,partialSave:true,beidouQuestOpensOnAcceptance:true,
-  report:{xp:2200,mora:300},completeSave:true,mobileWidth:true
+  report:{xp:10929,mora:300},completeSave:true,mobileWidth:true
  },null,2)+'\n');
  console.log('Liyue M01 browser matching labels, guarded crate, report and reload passed');
 }finally{await browser.close()}

@@ -98,7 +98,7 @@ assert s.story.node == 'mond-town'
 before, xp = s.mora, s.progression.questXp
 core.action(s, 'story_report:' + QUEST)
 core.action(s, 'story_report:' + QUEST)
-assert (s.mora, s.progression.questXp) == (before+100, xp+1000)
+assert (s.mora, s.progression.questXp) == (before+100, xp+76)
 assert core.frame(s).storyJoined.amber and core.frame(s).companion.id == 'beidou'
 complete = validate_save(native(core.checkpoint(s)))
 restored = core.restore(lua.table_from(complete, recursive=True))

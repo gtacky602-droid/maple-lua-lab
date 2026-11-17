@@ -95,7 +95,7 @@ try{
  assert.match(await quest.innerText(),/奥の扉/);
  const paid=await frame();
  assert.equal(paid.mora-before.mora,380);
- assert.equal(paid.progression.questXp-before.progression.questXp,3000);
+ assert.equal(paid.progression.questXp-before.progression.questXp,35235);
  await page.locator('#saveProgress').click();
  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('保存しました'));
  await page.reload();
@@ -111,6 +111,6 @@ try{
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/liyue-m02-browser.json',JSON.stringify({errors,riverTrail:true,
   caravanTalk:true,namedGuard:true,liftPanelAndPause:true,savedSafeReturn:true,
-  reward:{xp:3000,mora:380},mobileWidth:true,background},null,2)+'\n');
+  reward:{xp:35235,mora:380},mobileWidth:true,background},null,2)+'\n');
  console.log('Liyue M02 browser clue, caravan, combat, lift, report and reload passed');
 }finally{await browser.close()}

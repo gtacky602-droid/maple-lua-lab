@@ -138,7 +138,7 @@ through(port)
 cash,xp=s.mora,s.progression.questXp
 core.action(s,'story_report:'+qid)
 core.action(s,'story_report:'+qid)
-assert (q.status,q.cycles,s.mora,s.progression.questXp)==('complete',1,cash+220,xp+1600)
+assert (q.status,q.cycles,s.mora,s.progression.questXp)==('complete',1,cash+220,xp+16443)
 walk(485)
 assert not core.frame(s).storyBook
 inspect('read-stand')
@@ -180,6 +180,6 @@ assert core.frame(s).storyBook.title=='石門を越えた侠客'
     'requires_M01':True,'wrong_landmark_can_be_retried':True,'camp_only_after_matching_print':True,
     'all_three_guards_once_with_normal_attacks':True,'midfight_save_retains_defeated_guards':True,
     'optional_reading_and_market_relocation':True,'no_repeat_fight_after_report':True,
-    'one_time_reward':{'xp':1600,'mora':220},
+    'one_time_reward':{'xp':16443,'mora':220},
 },indent=2)+'\n',encoding='utf8')
 print('Liyue S03 landmark, camp, partial save, book retrieval and optional reading passed')

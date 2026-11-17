@@ -123,7 +123,7 @@ for flavor in ('herbal','spicy'):
     cash, xp = s.mora, s.progression.questXp
     core.action(s, 'story_report:'+qid)
     core.action(s, 'story_report:'+qid)
-    assert (q.status,q.cooking.meals,s.mora,s.progression.questXp) == ('complete',1,cash+180,xp+1200)
+    assert (q.status,q.cooking.meals,s.mora,s.progression.questXp) == ('complete',1,cash+180,xp+7931)
     recipes.append((core.frame(s).storyCooking.meal, core.frame(s).storyCooking.price, core.frame(s).storyCooking.heal))
     saved = save()
     bad = deepcopy(saved)
@@ -194,6 +194,6 @@ assert s.story.quests[qid].cooking.meals == 3
     'flavors_differ_cosmetically_with_same_cost_and_healing': True,
     'stall_moves_at_market_opening': True, 'limit_and_insufficient_funds': True,
     'healing_after_field_damage_and_full_dead_paused_rejected': True,
-    'one_time_reward': {'xp':1200,'mora':180,'free_meals':1},
+    'one_time_reward': {'xp':7931,'mora':180,'free_meals':1},
 }, indent=2)+'\n', encoding='utf8')
 print('Liyue S02 gathering, both flavors, market, purchase, healing and checkpoints passed')

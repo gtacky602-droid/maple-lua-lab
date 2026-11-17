@@ -2,6 +2,7 @@
   "questCount": 64,
   "visibleCount": 61,
   "allObjectivesResolved": true,
+  "paidPreviewHidden": true,
   "liveAcceptance": true,
   "filters": true,
   "fixture": {

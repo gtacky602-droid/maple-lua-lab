@@ -133,7 +133,7 @@ for branch,clue in [(river,'cart-ruts'),(cliff,'rest-tag')]:
     balance,xp=s.mora,s.progression.questXp
     core.action(s,'story_report:'+qid)
     core.action(s,'story_report:'+qid)
-    assert (q.status,q.cycles,s.mora,s.progression.questXp)==('complete',1,balance+380,xp+3000)
+    assert (q.status,q.cycles,s.mora,s.progression.questXp)==('complete',1,balance+380,xp+35235)
     saved=validate_save(native(core.checkpoint(s)))
     s=core.restore(lua.table_from(saved,recursive=True))
     walk(1165)
@@ -154,6 +154,6 @@ for branch,clue in [(river,'cart-ruts'),(cliff,'rest-tag')]:
 
 (ROOT/'evidence/liyue-m02-lua.json').write_text(json.dumps({
     'routes':routes,'M01_prerequisite':True,'lifts_roundtrip':True,'timing_pause_and_no_movement':True,
-    'partial_save':True,'one_time_reward':{'xp':3000,'mora':380},
+    'partial_save':True,'one_time_reward':{'xp':35235,'mora':380},
 },indent=2)+'\n',encoding='utf8')
 print('Liyue M02 both routes, rescue, all lift directions, and checkpoint passed')

@@ -130,7 +130,7 @@ through(port)
 xp,mora = s.progression.questXp,s.mora
 for _ in range(2):
     core.action(s,'story_report:'+qid)
-assert (q.status,q.cycles,s.progression.questXp,s.mora)==('complete',1,xp+2500,mora+200)
+assert (q.status,q.cycles,s.progression.questXp,s.mora)==('complete',1,xp+42335,mora+200)
 assert core.frame(s).storyJoined.ayaka and core.frame(s).storySightNote.name=='屋根越しの高台'
 assert s.companion=='amber' and not core.frame(s).starterEquipment
 item_count = len(s.inventory['items'])

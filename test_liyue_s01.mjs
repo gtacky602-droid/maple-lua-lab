@@ -96,7 +96,7 @@ try{
  assert.equal(reported.storyJoined.beidou,true);
  assert.equal(reported.companion.id,'amber');
  assert.equal(reported.mora-before.mora,150);
- assert.equal(reported.progression.questXp-before.progression.questXp,1500);
+ assert.equal(reported.progression.questXp-before.progression.questXp,3825);
  await button('北斗を同行に選ぶ').click();
  await button('北斗が同行中').waitFor();
  await page.locator('#saveProgress').click();

@@ -119,7 +119,7 @@ mora,xp=s.mora,s.progression.questXp
 core.action(s,'story_report:'+qid)
 core.action(s,'story_report:'+qid)
 assert q.status=='complete' and q.cycles==1
-assert (s.mora,s.progression.questXp)==(mora+300,xp+2200)
+assert (s.mora,s.progression.questXp)==(mora+300,xp+10929)
 saved=validate_save(native(core.checkpoint(s)))
 r=core.restore(lua.table_from(saved,recursive=True))
 assert r.companion=='beidou'
@@ -151,6 +151,6 @@ assert core.restore(lua.table_from(validate_save(legacy),recursive=True)).story.
 checks={'level_gate':True,'arrival_without_previous_chapter':True,'wrong_and_remote_delivery_rejected':True,
         'stocked_three_stalls':True,'guarded_recovery_with_jump':True,'beidou_quest_available_at_acceptance':True,
         'existing_quest_and_gear_kept':True,'partial_and_complete_restore':True,
-        'reward':{'xp':2200,'mora':300},'invalid_cargo_saves_rejected':4}
+        'reward':{'xp':10929,'mora':300},'invalid_cargo_saves_rejected':4}
 (ROOT/'evidence/liyue-m01-lua.json').write_text(json.dumps(checks,indent=2)+'\n',encoding='utf8')
 print('Liyue M01 deliveries, cache, reward, and compatible gear/quest saves passed')

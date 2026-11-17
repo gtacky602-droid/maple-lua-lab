@@ -162,7 +162,7 @@ for plan,route,entry,other,other_x,far_x in (
     cash,xp=s.mora,s.progression.questXp
     core.action(s,'story_report:'+qid)
     core.action(s,'story_report:'+qid)
-    assert (q.status,q.cycles,s.mora,s.progression.questXp)==('complete',1,cash+240,xp+1800)
+    assert (q.status,q.cycles,s.mora,s.progression.questXp)==('complete',1,cash+240,xp+28412)
     finished=save()
     bad=deepcopy(finished)
     bad['story']['quests'][qid]['construction']['plan']='roof'
@@ -206,6 +206,6 @@ for plan,route,entry,other,other_x,far_x in (
     'roof_rejected_for_carts':True,'choice_saved_before_construction':True,
     'construction_then_report_opens_one_route':True,'routes':verified,
     'lift_pause_and_safe_elevated_arrival':True,
-    'same_one_time_reward':{'xp':1800,'mora':240},
+    'same_one_time_reward':{'xp':28412,'mora':240},
 },indent=2)+'\n',encoding='utf8')
 print('Liyue S05 all surveys and both saved, exclusive, bidirectional routes passed')

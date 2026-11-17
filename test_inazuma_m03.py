@@ -145,7 +145,7 @@ through(port)
 q = s.story.quests[qid]
 xp, mora = s.progression.questXp, s.mora
 for _ in range(2): core.action(s,'story_report:'+qid)
-assert (q.status,q.cycles,s.progression.questXp,s.mora)==('complete',1,xp+4500,mora+550)
+assert (q.status,q.cycles,s.progression.questXp,s.mora)==('complete',1,xp+383670,mora+550)
 
 s = restore(save())
 reach_shore()
@@ -168,7 +168,7 @@ evidence = {
     'requires_M02':True, 'cave_and_cape_gates':True, 'first_and_final_battle':True,
     'wrong_answers_retry':True, 'observation_has_no_combat_targets':True,
     'observation_survives_restore':True, 'cape_visit_and_revisit':True,
-    'replay_without_repeat_rewards':True, 'one_time_reward':{'xp':4500,'mora':550},
+    'replay_without_repeat_rewards':True, 'one_time_reward':{'xp':383670,'mora':550},
 }
 (ROOT/'evidence/inazuma-m03-lua.json').write_text(json.dumps(evidence, indent=2)+'\n', encoding='utf8')
 print('Inazuma M03 battles, reflection, checkpoint, scenic exit and rewardless rematch passed')

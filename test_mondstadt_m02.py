@@ -133,7 +133,7 @@ for branch, clue in [('mond-old-ground','wheel-ruts'),('mond-old-canopy','red-cl
     before, xp=s.mora,s.progression.questXp
     core.action(s,'story_report:' + M02)
     core.action(s,'story_report:' + M02)
-    assert (s.mora,s.progression.questXp)==(before+140,xp+1300)
+    assert (s.mora,s.progression.questXp)==(before+140,xp+2486)
     assert (q.status,q.cycles)==('complete',1)
     saved=validate_save(native(core.checkpoint(s)))
     restored=core.restore(lua.table_from(saved, recursive=True))
@@ -156,7 +156,7 @@ for branch, clue in [('mond-old-ground','wheel-ruts'),('mond-old-canopy','red-cl
         else:
             raise AssertionError(f'Accepted {mutate}')
     reports.append({'route':branch,'clue':clue,'fight':True,'shortcut_after_report':True,
-                    'partial_save':True,'reward_xp':1300,'reward_mora':140})
+                    'partial_save':True,'reward_xp':2486,'reward_mora':140})
 
 (ROOT/'evidence/mondstadt-m02-lua.json').write_text(json.dumps({'routes':reports,'prerequisite':True,
     'hill_requires_clue':True,'elevated_gate_requires_correct_height':True,

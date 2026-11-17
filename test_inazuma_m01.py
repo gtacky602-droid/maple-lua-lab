@@ -151,7 +151,7 @@ through(port)
 cash,xp=s.mora,s.progression.questXp
 core.action(s,'story_report:'+qid)
 core.action(s,'story_report:'+qid)
-assert (q.status,q.cycles,s.mora,s.progression.questXp)==('complete',1,cash+350,xp+2800)
+assert (q.status,q.cycles,s.mora,s.progression.questXp)==('complete',1,cash+350,xp+120956)
 finished=save()
 bad=deepcopy(finished)
 del bad['story']['quests'][qid]['lantern']['inspected']['eaten-nuts']
@@ -186,6 +186,6 @@ assert core.frame(s).storyJoined.ayaka
     'lantern_moves_while_unwatched_and_stops_when_faced':True,'three_clues_ordinary_controls':True,
     'partial_save_and_scenic_return_gate':True,'wrong_lantern_retry_and_danuki_reveal':True,
     'invitation_smile_and_peaceful_revisit_persist':True,'legacy_ayaka_join_compatible':True,
-    'one_time_reward':{'xp':2800,'mora':350},
+    'one_time_reward':{'xp':120956,'mora':350},
 },indent=2)+'\n',encoding='utf8')
 print('Inazuma M01 voyage, watched lantern, clues, Danuki, note and legacy saves passed')

@@ -159,7 +159,7 @@ through(port)
 cash,xp=s.mora,s.progression.questXp
 core.action(s,'story_report:'+qid)
 core.action(s,'story_report:'+qid)
-assert (q.status,q.cycles,s.mora,s.progression.questXp)==('complete',1,cash+440,xp+3400)
+assert (q.status,q.cycles,s.mora,s.progression.questXp)==('complete',1,cash+440,xp+186561)
 finished=save()
 bad=deepcopy(finished)
 bad['story']['quests'][qid]['forest']['looped']=False
@@ -188,6 +188,6 @@ assert core.frame(s).storyForest.solved
     'requires_M01':True,'first_loop_once_even_after_restore':True,'exit_always_available':True,
     'optional_hint_and_three_two_choice_rooms':True,'wrong_choices_do_not_reset':True,
     'partial_combat_save_and_cleared_revisit':True,'bidirectional_shore_shortcut':True,
-    'challenge_note_persists':True,'one_time_reward':{'xp':3400,'mora':440},
+    'challenge_note_persists':True,'one_time_reward':{'xp':186561,'mora':440},
 },indent=2)+'\n',encoding='utf8')
 print('Inazuma M02 one-time loop, three clues, fight, shortcut and checkpoints passed')

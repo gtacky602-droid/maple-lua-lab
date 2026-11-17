@@ -97,7 +97,7 @@ try{
  await page.waitForSelector(`[data-quest="${qid}"][data-status="complete"]`);
  const paid=await frame();
  assert.equal(paid.mora-paidBefore.mora,500);
- assert.equal(paid.progression.questXp-paidBefore.progression.questXp,4000);
+ assert.equal(paid.progression.questXp-paidBefore.progression.questXp,67646);
  await page.locator('#saveProgress').click();
  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('保存しました'));
  await page.reload();

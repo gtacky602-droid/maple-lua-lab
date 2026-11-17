@@ -1,6 +1,6 @@
 from pathlib import Path
 import sys, json
-from experience import RUNTIME_EXP
+from experience import RUNTIME_EXP, resolve_quest_report_exp
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / 'lua-limit-break-20261026-r1/work/python'))
 from lupa.lua53 import LuaRuntime
@@ -46,7 +46,8 @@ def runtime():
     forest = lua.execute((ROOT / 'story-forest.lua').read_text(encoding='utf-8'))(core)
     contest=lua.execute((ROOT / 'story-contest.lua').read_text(encoding='utf-8'))(core)
     sights = lua.execute((ROOT / 'story-sights.lua').read_text(encoding='utf-8'))(core)
-    graph = lua.table_from(json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8')),recursive=True)
+    story_data = json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8'))
+    graph = lua.table_from(resolve_quest_report_exp(story_data),recursive=True)
     lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights)
     lua.execute((ROOT / 'barrier.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'farka.lua').read_text(encoding='utf-8'))(core)
@@ -101,7 +102,7 @@ def runtime():
     core.maguuStanceArt=lua.table_from(json.loads((ROOT/'assets/maguu-stance-sprites.json').read_text(encoding='utf8')),recursive=True)
     core.maguuSlashArt=lua.table_from(json.loads((ROOT/'assets/maguu-slash-sprites.json').read_text(encoding='utf8')),recursive=True)
     core.oceanidArt=lua.table_from({part:json.loads((ROOT/'assets'/name).read_text(encoding='utf8')) for part,name in {'host':'oceanid-sprites.json','boar':'oceanid-boar-sprites.json','crane':'oceanid-crane-sprites.json','mallard':'oceanid-mallard-sprites.json','ferret':'oceanid-ferret-sprites.json','crab':'oceanid-crab-sprites.json','raptor':'oceanid-raptor-sprites.json','frog':'oceanid-frog-sprites.json','finch':'oceanid-finch-sprites.json'}.items()},recursive=True)
-    lua.execute((ROOT/'world-bosses.lua').read_text(encoding='utf8'))(core,lua.table_from(json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8')),recursive=True))
+    lua.execute((ROOT/'world-bosses.lua').read_text(encoding='utf8'))(core,graph)
     return lua, core
 
 def native(value):

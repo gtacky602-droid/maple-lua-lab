@@ -1,0 +1,117 @@
+{
+  "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
+  "version": "monster-quest-v02",
+  "quests_tested": 15,
+  "old_completed_not_reissued": true,
+  "old_unreported_uses_current_preview": true,
+  "unlinked_trial_fallback": true,
+  "by_region": {
+    "MON": {
+      "linked": 3,
+      "legacy_xp": 4300,
+      "report_xp": 7333
+    },
+    "LIY": {
+      "linked": 8,
+      "legacy_xp": 17100,
+      "report_xp": 186864
+    },
+    "INA": {
+      "linked": 4,
+      "legacy_xp": 13200,
+      "report_xp": 733522
+    }
+  },
+  "reports": [
+    {
+      "design_id": "Q-MON-M01",
+      "quest_id": "amber-join",
+      "legacy_xp": 1000,
+      "report_xp": 76
+    },
+    {
+      "design_id": "Q-MON-M02",
+      "quest_id": "mond-old-trail",
+      "legacy_xp": 1300,
+      "report_xp": 2486
+    },
+    {
+      "design_id": "Q-MON-M03",
+      "quest_id": "mond-watchtower-clear",
+      "legacy_xp": 2000,
+      "report_xp": 4771
+    },
+    {
+      "design_id": "Q-LIY-M01",
+      "quest_id": "liyue-market-delivery",
+      "legacy_xp": 2200,
+      "report_xp": 10929
+    },
+    {
+      "design_id": "Q-LIY-M02",
+      "quest_id": "liyue-caravan-search",
+      "legacy_xp": 3000,
+      "report_xp": 35235
+    },
+    {
+      "design_id": "Q-LIY-M03",
+      "quest_id": "liyue-market-opening",
+      "legacy_xp": 4000,
+      "report_xp": 67646
+    },
+    {
+      "design_id": "Q-LIY-S02",
+      "quest_id": "liyue-harbor-meal",
+      "legacy_xp": 1200,
+      "report_xp": 7931
+    },
+    {
+      "design_id": "Q-LIY-S03",
+      "quest_id": "liyue-book-rescue",
+      "legacy_xp": 1600,
+      "report_xp": 16443
+    },
+    {
+      "design_id": "Q-LIY-S04",
+      "quest_id": "liyue-stone-marks",
+      "legacy_xp": 1800,
+      "report_xp": 16443
+    },
+    {
+      "design_id": "Q-LIY-S05",
+      "quest_id": "liyue-hauling-shortcut",
+      "legacy_xp": 1800,
+      "report_xp": 28412
+    },
+    {
+      "design_id": "Q-LIY-S01",
+      "quest_id": "beidou-join",
+      "legacy_xp": 1500,
+      "report_xp": 3825
+    },
+    {
+      "design_id": "Q-INA-M01",
+      "quest_id": "inazuma-moving-lantern",
+      "legacy_xp": 2800,
+      "report_xp": 120956
+    },
+    {
+      "design_id": "Q-INA-M02",
+      "quest_id": "inazuma-torii-maze",
+      "legacy_xp": 3400,
+      "report_xp": 186561
+    },
+    {
+      "design_id": "Q-INA-M03",
+      "quest_id": "inazuma-lantern-contest",
+      "legacy_xp": 4500,
+      "report_xp": 383670
+    },
+    {
+      "design_id": "Q-INA-S01",
+      "quest_id": "ayaka-join",
+      "legacy_xp": 2500,
+      "report_xp": 42335
+    }
+  ]
+}

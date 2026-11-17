@@ -131,7 +131,7 @@ gate(port)
 before, xp = s.mora, s.progression.questXp
 core.action(s, 'story_report:'+q_id)
 core.action(s, 'story_report:'+q_id)
-assert (q.status, q.cycles, s.mora, s.progression.questXp) == ('complete', 1, before+150, xp+1500)
+assert (q.status, q.cycles, s.mora, s.progression.questXp) == ('complete', 1, before+150, xp+3825)
 assert core.frame(s).storyJoined.beidou and s.companion != 'beidou'
 core.action(s, 'story_select_joined:'+q_id)
 assert core.frame(s).companion.id == 'beidou' and len(s.actors) == 2
@@ -171,6 +171,6 @@ for initial in (2, 4):
     'partial_recovery_and_return_enemy_restore': True, 'beidou_story_npc': True,
     'report_does_not_replace_current_companion': True,
     'story_join_selection_persists': True, 'safe_revisit': True,
-    'legacy_active_and_complete': True, 'reward_once': {'xp': 1500, 'mora': 150},
+    'legacy_active_and_complete': True, 'reward_once': {'xp': 3825, 'mora': 150},
 }, indent=2)+'\n', encoding='utf8')
 print('Crux recovery, return fight, join and legacy checkpoints passed')

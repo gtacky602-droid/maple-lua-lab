@@ -116,10 +116,13 @@ try{
  await through(road);
  await walk(110,true);
  await through(port);
+ assert.match(await quest.innerText(),/42,335EXP/);
+ const before=await frame();
  await quest.getByRole('button',{name:'報告',exact:true}).click();
  await quest.getByRole('button',{name:'綾華を同行に選ぶ',exact:true}).click();
  await page.waitForFunction(()=>window.lab.frame.companion.id==='ayaka'&&window.lab.frame.starterEquipment?.useFlower);
  assert.equal((await frame()).actors[1].maxhp,150);
+ assert.equal((await frame()).progression.questXp-before.progression.questXp,42335);
  assert.match(await page.locator('#starterEquipmentStatus').textContent(),/初期刀.*ATK \+1.*入門の花.*HP \+10/);
  await page.locator('#saveProgress').click();
  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('保存しました'));
@@ -133,7 +136,7 @@ try{
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/inazuma-s01-browser.json',JSON.stringify({
-  browser:'Chrome', actual_controls:true, three_sights_and_rooftop_jump:true, bridge_and_notebook:true, dedicated_town_background:true,
+  browser:'Chrome', actual_controls:true, three_sights_and_rooftop_jump:true, bridge_and_notebook:true, reportXp:42335, dedicated_town_background:true,
   recruitment_starter_equipment_and_restore:true, viewport_390:true, errors
  },null,2)+'\n');
  console.log('Inazuma S01 Chrome sights, bridge, recruitment and starter gear passed');

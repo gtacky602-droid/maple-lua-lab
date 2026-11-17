@@ -108,11 +108,12 @@ try{
  await gate('モンド・城門広場').click();
  await page.waitForFunction(()=>window.lab.frame.story.node==='mond-town');
  const before=await frame();
+ assert.match(await quest.innerText(),/仮報酬 76EXP \/ 100モラ/);
  await quest.getByRole('button',{name:'報告',exact:true}).click();
  await page.waitForSelector('[data-quest="amber-join"][data-status="complete"]');
  const reported=await frame();
  assert.equal(reported.mora-before.mora,100);
- assert.equal(reported.progression.questXp-before.progression.questXp,1000);
+ assert.equal(reported.progression.questXp-before.progression.questXp,76);
  assert.equal(reported.storyJoined.amber,true);
  assert.match(await quest.innerText(),/アンバー加入済み/);
  await page.locator('#saveProgress').click();
@@ -129,7 +130,7 @@ try{
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/mondstadt-m01-browser.json',JSON.stringify({
   errors,protectedCargoBeforeCombat:true,usedJump:true,cargoRecovery:['keyboard G','nearby button'],
-  actualCombat:true,finishedAtTown:true,amberJoined:true,reward:{mora:100,xp:1000},saveRestored:true,mobileWidth:true
+  actualCombat:true,finishedAtTown:true,amberJoined:true,reward:{mora:100,xp:76},saveRestored:true,mobileWidth:true
  },null,2)+'\n');
  console.log('Mondstadt M01: moving, actual combat, jumping, cargo, report, and save passed');
 }finally{await browser.close()}

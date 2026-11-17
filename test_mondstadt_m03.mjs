@@ -101,7 +101,7 @@ try{
  await page.waitForSelector('[data-quest="mond-watchtower-clear"][data-status="complete"]');
  const paid=await frame();
  assert.equal(paid.mora-balance.mora,220);
- assert.equal(paid.progression.questXp-balance.progression.questXp,2000);
+ assert.equal(paid.progression.questXp-balance.progression.questXp,4771);
  await page.locator('#saveProgress').click();
  await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('保存しました'));
  await page.reload();
@@ -120,7 +120,7 @@ try{
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/mondstadt-m03-browser.json',JSON.stringify({
   errors,prerequisiteShown:true,ordinaryCombat:true,backgroundChange:[before.file,after.file],
-  peacefulRoad:true,reward:{xp:2000,mora:220},saveRestored:true,clearedTowerOnReturn:true,mobileWidth:true
+  peacefulRoad:true,reward:{xp:4771,mora:220},saveRestored:true,clearedTowerOnReturn:true,mobileWidth:true
  },null,2)+'\n');
  console.log('M03 browser combat, changed scenery, peaceful return, report and reload passed');
 }finally{await browser.close()}
