@@ -1,0 +1,353 @@
+{
+  "source_commit": "9c810e929237dc2b710851a75acabfb6ef613d79",
+  "scope": "14-boss design cross-check: selected mandatory mechanics and opportunities; NOT 227 full combat moves, NOT Lua execution, no boss damage/HP balance or live AI/network/visual QA. Manually transcribed source parameters. 60Hz base core, no moveActorOverride or buffs. Empty-ground routes are constructive examples, not proof for complete hazard geometry.",
+  "grid": {
+    "starts_u": [
+      0.0,
+      0.5,
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0,
+      3.5,
+      4.0,
+      4.5,
+      5.0,
+      5.5,
+      6.0,
+      6.5,
+      7.0,
+      7.5,
+      8.0,
+      8.5,
+      9.0,
+      9.5,
+      10.0
+    ],
+    "reaction_ticks": [
+      0,
+      12,
+      24,
+      36
+    ],
+    "single_midtask_pause_ticks": [
+      0,
+      60,
+      120
+    ],
+    "contributors": [
+      1,
+      2,
+      4
+    ],
+    "contributors_note": "co-located baseline-normal users; not current companion AI, not network latency; additional proxy uses base actor2 cadence42 and hit offsets9/14 on six explicitly assisted mechanisms, perfect co-location/target obedience assumed; not a live AI test"
+  },
+  "tasks": [
+    {
+      "id": "WR14",
+      "open": 60,
+      "deadline": 600,
+      "min_gap": 30,
+      "dedup_cast": false,
+      "targets": [
+        {
+          "x_u": 5,
+          "need": 5
+        }
+      ],
+      "ai_credit": false
+    },
+    {
+      "id": "WN15",
+      "open": 60,
+      "deadline": 1440,
+      "min_gap": 0,
+      "dedup_cast": true,
+      "targets": [
+        {
+          "x_u": 1,
+          "need": 4
+        },
+        {
+          "x_u": 3.5,
+          "need": 4
+        },
+        {
+          "x_u": 6.5,
+          "need": 4
+        },
+        {
+          "x_u": 9,
+          "need": 4
+        }
+      ],
+      "sort_route": true,
+      "tail_ticks": 120,
+      "ai_credit": true
+    },
+    {
+      "id": "WV05",
+      "open": 60,
+      "deadline": 480,
+      "min_gap": 0,
+      "dedup_cast": false,
+      "targets": [
+        {
+          "x_u": 5,
+          "need": 8
+        }
+      ],
+      "ai_credit": false
+    },
+    {
+      "id": "WV11",
+      "open": 60,
+      "deadline": 240,
+      "min_gap": 12,
+      "dedup_cast": true,
+      "targets": [
+        {
+          "x_u": 5,
+          "need": 4
+        }
+      ],
+      "ai_credit": false
+    },
+    {
+      "id": "WG05",
+      "open": 60,
+      "deadline": 660,
+      "min_gap": 24,
+      "dedup_cast": true,
+      "targets": [
+        {
+          "x_u": 5,
+          "need": 24
+        }
+      ],
+      "ai_credit": true
+    },
+    {
+      "id": "WG16",
+      "open": 60,
+      "deadline": 600,
+      "min_gap": 24,
+      "dedup_cast": true,
+      "targets": [
+        {
+          "x_u": 5,
+          "need": 24
+        }
+      ],
+      "ai_credit": true
+    },
+    {
+      "id": "WG06",
+      "open": 60,
+      "deadline": 720,
+      "min_gap": 24,
+      "dedup_cast": true,
+      "targets": [
+        {
+          "x_u": 2,
+          "need": 4
+        },
+        {
+          "x_u": 5,
+          "need": 4
+        },
+        {
+          "x_u": 8,
+          "need": 4
+        }
+      ],
+      "sort_route": true,
+      "ai_credit": true
+    },
+    {
+      "id": "WG14",
+      "open": 60,
+      "deadline": 1080,
+      "min_gap": 24,
+      "dedup_cast": true,
+      "targets": [
+        {
+          "x_u": 2,
+          "need": 6
+        },
+        {
+          "x_u": 5,
+          "need": 6
+        },
+        {
+          "x_u": 8,
+          "need": 6
+        }
+      ],
+      "sort_route": true,
+      "ai_credit": true
+    },
+    {
+      "id": "WH13",
+      "open": 60,
+      "deadline": 1800,
+      "min_gap": 12,
+      "dedup_cast": false,
+      "targets": [
+        {
+          "x_u": 2,
+          "need": 3
+        },
+        {
+          "x_u": 8,
+          "need": 3
+        }
+      ],
+      "nearest_one": true,
+      "next_target": {
+        "x_u": 9,
+        "need": 24
+      },
+      "ai_credit": true
+    },
+    {
+      "id": "WG05_PROPOSED_G12_12S",
+      "open": 60,
+      "deadline": 780,
+      "min_gap": 24,
+      "dedup_cast": true,
+      "targets": [
+        {
+          "x_u": 5,
+          "need": 12
+        }
+      ],
+      "ai_credit": false
+    },
+    {
+      "id": "WG16_PROPOSED_G12_12S",
+      "open": 60,
+      "deadline": 780,
+      "min_gap": 24,
+      "dedup_cast": true,
+      "targets": [
+        {
+          "x_u": 5,
+          "need": 12
+        }
+      ],
+      "ai_credit": false
+    },
+    {
+      "id": "WG16_PROPOSED_G24_18S",
+      "open": 60,
+      "deadline": 1140,
+      "min_gap": 24,
+      "dedup_cast": true,
+      "targets": [
+        {
+          "x_u": 5,
+          "need": 24
+        }
+      ],
+      "ai_credit": false
+    }
+  ],
+  "opportunities": [
+    [
+      "トワリン",
+      "WD03(体勢のみ)",
+      72
+    ],
+    [
+      "北風の王狼",
+      "WA06",
+      120
+    ],
+    [
+      "公子",
+      "WC01",
+      60
+    ],
+    [
+      "若陀龍王",
+      "WZ02",
+      72
+    ],
+    [
+      "淑女",
+      "WS14",
+      120
+    ],
+    [
+      "禍津御建鳴神命",
+      "WR16",
+      480
+    ],
+    [
+      "正機の神",
+      "WN17",
+      600
+    ],
+    [
+      "アペプの守護者",
+      "WP18",
+      480
+    ],
+    [
+      "呑星の鯨",
+      "WV15",
+      600
+    ],
+    [
+      "召使",
+      "WK17",
+      216
+    ],
+    [
+      "蝕まれし源焔の主",
+      "WG17",
+      480
+    ],
+    [
+      "扉に通ずる対局",
+      "WT18",
+      360
+    ],
+    [
+      "偽月の異端者",
+      "WM16",
+      360
+    ],
+    [
+      "左道の真諦者",
+      "WH19",
+      720
+    ]
+  ],
+  "sources": {
+    "core.lua": "8119a471f2476350307d023521fea5036dfe1fbc",
+    "DVALIN.md": null,
+    "ANDRIUS.md": null,
+    "CHILDE.md": "5f6787b9a008fee117ef15f6da2a8cca2c8a93d6",
+    "AZHDAHA.md": "359dd896965e7955175996a4d1aeeffd513b7cc4",
+    "SIGNORA.md": "a6f6d5d6b22e547df54ff8227690adf1c6661987",
+    "RAIDEN_SHOGUN.md": "a0e65bcf333732936bd10c534cca0de62f119d9e",
+    "SHOUKI_NO_KAMI.md": "e90bd5502c530a278eddf2211649d30438f4d1d4",
+    "APEP_GUARDIAN.md": "e69892d1fbe61797402384529c6431f9b9e4583d",
+    "ALL_DEVOURING_NARWHAL.md": "ea179c9f2dc8f51cf3860f5786a189674a9e75f6",
+    "THE_KNAVE.md": "39bb062be0d60462be6fe5ecacf7fe121e3f1fe6",
+    "LORD_OF_ERODED_PRIMAL_FIRE.md": "79a52b4b11d4d1687865a9a22f5d9ba9281bd1c0",
+    "GAME_BEFORE_THE_GATE.md": "a192cc6c320e64ef8d579c84f55a668b87bb9c54",
+    "DOCTOR_FALSE_MOON.md": "e9074412e8621e3f379593c1f65742a8d414ab87",
+    "DOTTORE_HERETIC.md": "0ffb1c2f15f2e9365bf985accf89eeb50f49defb"
+  },
+  "source_parameter_notes": {
+    "WV11": "Timing model assumes a reachable target; a separate test checks the 0.9U point-target/75px discrepancy.",
+    "WT17": "Lamp x=.5/9.5U are explicit placement assumptions; source says left/right but does not specify x. Original lock s+72; proposed lock s+210 is simulated only.",
+    "collider": "12px movement-collision margin is a proxy, not a verified boss hurtbox. No hitbox is assumed from sprite size.",
+    "fixed_physics": "Baseline semi-implicit gravity and held jump from core only, not runtime overrides.",
+    "missing_blob_ids": "DVALIN/ANDRIUS contents were read at source_commit; their individual blob IDs were not recorded."
+  }
+}
