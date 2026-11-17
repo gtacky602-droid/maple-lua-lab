@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "created_date": "2026-11-17",
+  "classification": "design_proposal_not_runtime_data",
+  "user_goals": {
+    "level_cap": 200,
+    "active_playtime_target_hours": 50,
+    "continue_recording_experience_after_cap": true,
+    "lifetime_exp_leaderboard": true,
+    "paid_double_exp_potion_interest": true
+  },
+  "data_sources": [
+    {
+      "name": "MapleSEA EXP to Next Level, updated 2026-06-03",
+      "url": "https://www.whackybeanz.com/calc/everything-exp/exp-tnl"
+    },
+    {
+      "name": "MapleStory Wiki Experience/Leveling Tables, cross-check Lv1-200",
+      "url": "https://maplestorywiki.net/w/Experience/Tables"
+    },
+    {
+      "name": "Nexon Japan official leveling guide",
+      "url": "https://maplestory.nexon.co.jp/gameguide/tip/levelup/"
+    }
+  ],
+  "reference_levels": {
+    "1": 0,
+    "20": 20642,
+    "40": 383022,
+    "60": 2733088,
+    "80": 10022275,
+    "100": 37604479,
+    "120": 110356189,
+    "140": 361920772,
+    "160": 1222674282,
+    "180": 3989104710,
+    "200": 11462335230
+  },
+  "reference_exp_to_next_selected": {
+    "1": 15,
+    "20": 3705,
+    "40": 51357,
+    "60": 221624,
+    "80": 685481,
+    "100": 2365603,
+    "120": 6479400,
+    "140": 22777494,
+    "160": 76574580,
+    "180": 226009829,
+    "199": 571115568
+  },
+  "expected_total_exp_required_reference": 11462335230,
+  "bands": [
+    {
+      "from_level": 1,
+      "to_level": 20,
+      "active_hours_goal": 1,
+      "maple_reference_exp_required": 20642,
+      "fixed_reward_exp_share_draft": 0.75,
+      "hunt_exp_share_draft": 0.25,
+      "hunt_time_fraction_draft": 0.2,
+      "modeled_kills_per_hunting_minute": 40,
+      "estimated_hunt_kills": 480,
+      "benchmark_base_exp_per_normal_kill": 11
+    },
+    {
+      "from_level": 20,
+      "to_level": 40,
+      "active_hours_goal": 1.5,
+      "maple_reference_exp_required": 362380,
+      "fixed_reward_exp_share_draft": 0.65,
+      "hunt_exp_share_draft": 0.35,
+      "hunt_time_fraction_draft": 0.28,
+      "modeled_kills_per_hunting_minute": 45,
+      "estimated_hunt_kills": 1134,
+      "benchmark_base_exp_per_normal_kill": 112
+    },
+    {
+      "from_level": 40,
+      "to_level": 60,
+      "active_hours_goal": 2,
+      "maple_reference_exp_required": 2350066,
+      "fixed_reward_exp_share_draft": 0.55,
+      "hunt_exp_share_draft": 0.45,
+      "hunt_time_fraction_draft": 0.35,
+      "modeled_kills_per_hunting_minute": 50,
+      "estimated_hunt_kills": 2100,
+      "benchmark_base_exp_per_normal_kill": 504
+    },
+    {
+      "from_level": 60,
+      "to_level": 80,
+      "active_hours_goal": 2.5,
+      "maple_reference_exp_required": 7289187,
+      "fixed_reward_exp_share_draft": 0.5,
+      "hunt_exp_share_draft": 0.5,
+      "hunt_time_fraction_draft": 0.37,
+      "modeled_kills_per_hunting_minute": 50,
+      "estimated_hunt_kills": 2775,
+      "benchmark_base_exp_per_normal_kill": 1313
+    },
+    {
+      "from_level": 80,
+      "to_level": 100,
+      "active_hours_goal": 3.5,
+      "maple_reference_exp_required": 27582204,
+      "fixed_reward_exp_share_draft": 0.45,
+      "hunt_exp_share_draft": 0.55,
+      "hunt_time_fraction_draft": 0.4,
+      "modeled_kills_per_hunting_minute": 52,
+      "estimated_hunt_kills": 4368,
+      "benchmark_base_exp_per_normal_kill": 3473
+    },
+    {
+      "from_level": 100,
+      "to_level": 120,
+      "active_hours_goal": 4.5,
+      "maple_reference_exp_required": 72751710,
+      "fixed_reward_exp_share_draft": 0.4,
+      "hunt_exp_share_draft": 0.6,
+      "hunt_time_fraction_draft": 0.45,
+      "modeled_kills_per_hunting_minute": 55,
+      "estimated_hunt_kills": 6683,
+      "benchmark_base_exp_per_normal_kill": 6532
+    },
+    {
+      "from_level": 120,
+      "to_level": 140,
+      "active_hours_goal": 5.5,
+      "maple_reference_exp_required": 251564583,
+      "fixed_reward_exp_share_draft": 0.35,
+      "hunt_exp_share_draft": 0.65,
+      "hunt_time_fraction_draft": 0.5,
+      "modeled_kills_per_hunting_minute": 55,
+      "estimated_hunt_kills": 9075,
+      "benchmark_base_exp_per_normal_kill": 18018
+    },
+    {
+      "from_level": 140,
+      "to_level": 160,
+      "active_hours_goal": 7,
+      "maple_reference_exp_required": 860753510,
+      "fixed_reward_exp_share_draft": 0.3,
+      "hunt_exp_share_draft": 0.7,
+      "hunt_time_fraction_draft": 0.55,
+      "modeled_kills_per_hunting_minute": 60,
+      "estimated_hunt_kills": 13860,
+      "benchmark_base_exp_per_normal_kill": 43472
+    },
+    {
+      "from_level": 160,
+      "to_level": 180,
+      "active_hours_goal": 9.5,
+      "maple_reference_exp_required": 2766430428,
+      "fixed_reward_exp_share_draft": 0.22,
+      "hunt_exp_share_draft": 0.78,
+      "hunt_time_fraction_draft": 0.62,
+      "modeled_kills_per_hunting_minute": 60,
+      "estimated_hunt_kills": 21204,
+      "benchmark_base_exp_per_normal_kill": 101765
+    },
+    {
+      "from_level": 180,
+      "to_level": 200,
+      "active_hours_goal": 13,
+      "maple_reference_exp_required": 7473230520,
+      "fixed_reward_exp_share_draft": 0.15,
+      "hunt_exp_share_draft": 0.85,
+      "hunt_time_fraction_draft": 0.7,
+      "modeled_kills_per_hunting_minute": 60,
+      "estimated_hunt_kills": 32760,
+      "benchmark_base_exp_per_normal_kill": 193903
+    }
+  ],
+  "model_totals": {
+    "active_hours": 50,
+    "hunting_hours": 27.26,
+    "nonhunting_hours": 22.74,
+    "estimated_kills": 94439,
+    "all_hunts_boosted_2x_total_hours_floor": 36.37
+  },
+  "ranking_draft": {
+    "primary": "base_xp_received_after_level_gap_correction_before_bonuses",
+    "profile": "actual_total_xp_including_bonuses",
+    "overflow_record": "actual_exp_after_cap",
+    "note": "do not automatically apply overflow after level cap update"
+  },
+  "potion_draft": {
+    "factor": 2,
+    "duration_minutes": 30,
+    "eligible_exp_sources": [
+      "normal_enemy_kill",
+      "elite_enemy_kill"
+    ],
+    "noneligible": [
+      "quest_fixed_exp",
+      "daily_fixed_exp",
+      "first_clear_exp",
+      "ranking_base_exp"
+    ],
+    "official_sale_allowed": "unverified_in_client_terms"
+  },
+  "validation": {
+    "verified_reference_checkpoints": true,
+    "verified_ref_total": true,
+    "playtime_and_kill_speed_verified_in_game": false,
+    "terms_verified_in_client": false
+  }
+}
