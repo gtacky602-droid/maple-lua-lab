@@ -2,6 +2,20 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "gate-queen",
+      "name": "扉に通ずる対局・クイーン（待機候補）",
+      "file": "gate-queen-idle-sprites.json",
+      "height": 230,
+      "mapHover": 0
+    },
+    {
+      "id": "gate-king",
+      "name": "扉に通ずる対局・キング（待機候補）",
+      "file": "gate-king-idle-sprites.json",
+      "height": 170,
+      "mapHover": 0
+    },
+    {
       "id": "dottore-heretical",
       "name": "ドットーレ（待機候補）",
       "file": "dottore-heretical-idle-sprites.json",

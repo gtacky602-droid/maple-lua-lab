@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-17",
+  "encounter": "boss-29122000",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/06/04/94675339/41417171db40007198ba516141708c94_611850599322826954.png",
+      "page": "https://wiki.hoyolab.com/pc/genshin/entry/7672?lang=ja-jp",
+      "view": "Full 3D-render image, queen left and king right. Static image only.",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "2880afbb96f5a836991264e71619072e2883ff0f86fbe0fe33dced61aaedf51c"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/original_a2021dc4afaa26a8a3e66f6151e2b842.jpg",
+      "page": null,
+      "view": "Japanese showcase, king foreground and queen behind. Equipment and upper-body colors.",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "51357ff558aeb61b88dd2fccd6f68f24ef396b742ec83750ca15018ab034b75f"
+    },
+    {
+      "url": "https://staticg.sportskeeda.com/editor/2025/05/88256-17466136099569-1920.jpg?w=1600",
+      "page": null,
+      "view": "In-game pair view showing relative size and grounded stance.",
+      "directly_viewed": true,
+      "generation_input": false,
+      "sha256": "9f9ade40febbfbf26d44f6f8fcd6e6ec3d2ae2db729be646b684250bfa864d59"
+    }
+  ],
+  "model_lookup": "The Models Resource indexes the matching Game Before the Gate set (602828). Its ZIP returned HTTP 403. Static model imagery was viewed; interactive 3D and rear detail remain unverified.",
+  "source": "assets/gate-king-idle-source-v1.png",
+  "sha256": "01b2bc2f50724ca93672919885238b80038064142b87f942212625e8432f4193",
+  "profiles": {
+    "legacy": {
+      "height": 170,
+      "runs": 10976
+    },
+    "h48c32": {
+      "height": 128,
+      "runs": 7137
+    },
+    "h32c16": {
+      "height": 85,
+      "runs": 3229
+    }
+  },
+  "rectangle_reduction_percent": 70.58,
+  "reserved_colors": [
+    "#e34240",
+    "#ebc080"
+  ],
+  "hover": 0,
+  "anchorX": 0.6358208955223881,
+  "anchor_method": "midpoint of opaque pixels in bottom 2 percent band",
+  "visual_review": "The broad white chest, short stance and shoulder-held sword remain clear at 85px. The facial plates and gold engraving become coarser.",
+  "provisional_details": "Shoulder and sword angle are adapted for 2D idle; art depicts the red-and-gold pair from the reference.",
+  "measurement_scope": "Local rectangle counts at fixed display size. Native frame time remains unmeasured."
+}

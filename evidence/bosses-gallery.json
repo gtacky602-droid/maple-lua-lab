@@ -2,13 +2,25 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 70,
-    "visibleCount": 70,
+    "count": 72,
+    "visibleCount": 72,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
     "flip": false,
     "dimensions": [
+      {
+        "id": "gate-queen",
+        "h": 230,
+        "w": 114.69536423841059,
+        "ratio": 0.4986754966887417
+      },
+      {
+        "id": "gate-king",
+        "h": 170,
+        "w": 215.92417061611374,
+        "ratio": 1.2701421800947867
+      },
       {
         "id": "dottore-heretical",
         "h": 200,
