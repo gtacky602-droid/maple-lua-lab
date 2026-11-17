@@ -219,6 +219,9 @@ def runtime():
     qucusaur=lua.execute((ROOT/'field-qucusaur.lua').read_text(encoding='utf-8'))(core)
     core.qucusaurFieldArt=field_art(lua,'qucusaur',('wing','ready','rest','gold-hover','gold-dive','feather'),
                                    idle='qucusaur-idle-sprites.json')
+    yumka=lua.execute((ROOT/'field-yumka.lua').read_text(encoding='utf-8'))(core)
+    core.yumkaFieldArt=field_art(lua,'yumka',('tail','crouch','leap','land','fruit','seed'),
+                                idle='yumka-idle-sprites.json')
     core.aeonblightFieldArt=field_art(lua,'aeonblight',('wing_first','wing_second','cannon','windup','dash','down'),
                                      idle='aeonblight-idle-sprites.json')
     bathysmal=lua.execute((ROOT/'field-bathysmal.lua').read_text(encoding='utf-8'))(core)
@@ -245,7 +248,7 @@ def runtime():
                         'electroRegisvine':electro_vine,'aeonblight':aeonblight,
                         'dendroHypostasis':dendro_hypostasis,'asimon':asimon,'wenut':wenut,'baptist':baptist,
                         'emperor':emperor,'seahorse':seahorse,'generator':generator,'tulpa':tulpa,
-                        'icewind':icewind,'legatus':legatus,'suanni':suanni,'qucusaur':qucusaur})
+                        'icewind':icewind,'legatus':legatus,'suanni':suanni,'qucusaur':qucusaur,'yumka':yumka})
     )
     return lua, core
 

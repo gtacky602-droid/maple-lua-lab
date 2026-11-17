@@ -1,5 +1,5 @@
 {
-  "count": 69,
+  "count": 70,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -32,6 +32,7 @@
     "The Legatus Golem is reachable through the castle route",
     "The Solitary Suanni is reachable through Chenyu Vale",
     "The Goldflame Qucusaur is reachable through the Natlan field",
+    "The Mountain King is reachable through the Natlan field",
     "public roster matched without merging Icewind modes or Dottore challenges",
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",

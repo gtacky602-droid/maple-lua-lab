@@ -1261,6 +1261,18 @@
         {"id":"FQT03","kind":"flight","title":"金焔・羽根と降下","reach":260,"lock":54,"height":0.8,"width":1.7,"active":[[220,232],[300,312]],"recover":322,"total":466,"damage":24,"element":"pyro",
          "feather":{"hp":14,"lift":0.94,"rise":54,"spawn":78,"commit":186,"land":220,"rebound":256,"again":272,"landAgain":300,"fall":24,"rest":144}}
       ]
+    },
+    {
+      "id":"boss-26220301","controller":"yumka","entity":26220301,
+      "name":"山の王・貪食のユムカ竜","node":"yumka-field-ravine","storyChallenge":"yumka",
+      "level":104,"hp":1035,"mora":370,"artHeight":162,"floorY":480,"home":895,
+      "arenaMin":345,"arenaMax":1590,"noticeRange":310,"noticeTicks":36,"restTicks":36,
+      "leashTicks":300,"respawnTicks":3600,"walkSpeed":59,"contactDamage":0,"resist":{"dendro":0.45},
+      "moves":[
+        {"id":"FYM01","kind":"tail","title":"重尾の一回し","reach":190,"lock":48,"width":2.5,"height":0.65,"low":0.1,"active":[[108,126]],"recover":144,"total":264,"damage":21,"element":"physical"},
+        {"id":"FYM02","kind":"belly","title":"山王の腹落ち","reach":215,"lock":60,"width":1.5,"height":0.65,"air":[84,120],"distance":1.4,"lift":0.9,"active":[[120,132]],"recover":168,"total":312,"damage":25,"element":"physical"},
+        {"id":"FYM03","kind":"fruit","title":"二果の火吐き","reach":234,"lock":54,"first":1,"second":2,"width":0.6,"height":0.65,"fire":[90,144],"active":[[126,138],[180,192]],"recover":204,"total":312,"damage":20,"element":"pyro"}
+      ]
     }
   ]
 }

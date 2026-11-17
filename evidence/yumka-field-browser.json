@@ -1,0 +1,36 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "won": true,
+    "seconds": 46.52,
+    "moves": [
+      "FYM01",
+      "FYM02",
+      "FYM03"
+    ],
+    "hp": 140,
+    "returns": 0
+  },
+  "scenery": {
+    "key": "yumkaField",
+    "file": "yumka-field-background-v1.png",
+    "state": "ready"
+  },
+  "questAcceptedInUi": true,
+  "questReport": {
+    "xp": 7400,
+    "mora": 470
+  },
+  "sameSceneCommands": {
+    "png": 37,
+    "standard": 11424,
+    "light": 3160
+  },
+  "fruitInFlightAt": {
+    "tick": 104,
+    "noIndependentTarget": true
+  },
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}

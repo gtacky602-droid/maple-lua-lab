@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 145 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 143,
+  "scope": "Authored 146 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 144,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -428,6 +428,12 @@
     {
       "id": "qucusaur-field-cavern",
       "name": "ナタ・金焔の岩窟",
+      "region": "ナタ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "yumka-field-ravine",
+      "name": "ナタ・山王の峡谷",
       "region": "ナタ",
       "status": "regional_temporary_image"
     },

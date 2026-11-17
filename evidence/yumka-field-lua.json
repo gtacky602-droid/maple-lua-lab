@@ -1,0 +1,26 @@
+{
+  "designTimingsMatch": true,
+  "lockedTail": true,
+  "fixedBellyLanding": true,
+  "airborneArtAndHurtbox": true,
+  "recoveryTicks": 144,
+  "fruitArcHasNoDamage": true,
+  "fixedFruitImpacts": true,
+  "eachImpactHitsOnce": true,
+  "airborneCleanupOnExitAndKill": true,
+  "questReportAndSavedCooldown": true,
+  "normalAttackSolo": {
+    "seconds": 81.08,
+    "hp": 140,
+    "moves": [
+      "FYM01",
+      "FYM02",
+      "FYM03"
+    ]
+  },
+  "sameSceneCommands": {
+    "png": 25,
+    "standard": 8874,
+    "light": 2551
+  }
+}

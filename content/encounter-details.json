@@ -153,10 +153,12 @@
       }
     },
     "boss-26220301": {
+      "extra_evidence": ["https://wiki.hoyolab.com/pc/genshin/entry/6583?lang=ja-jp","evidence/yumka-field-lua.json","evidence/yumka-field-browser.json"],
+      "remaining": ["連続モーション・音", "難度・報酬の調整", "複数人と幻境実機の検証"],
       "art_candidate": {
         "item": "yumka",
-        "audit": "evidence/yumka-reference-audit.json",
-        "status": "normal blue-crest idle candidate only; charged form, attacks and animation not implemented"
+        "audit": "evidence/yumka-field-art-audit.json",
+        "status": "Web field prototype. Blue idle, orange charged flower, and two timed fruit impacts."
       }
     },
     "boss-22060101": {

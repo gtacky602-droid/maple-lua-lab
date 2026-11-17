@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 33,
+    "partial": 34,
     "complete": 0
   },
   "encounters": [
@@ -483,23 +483,27 @@
       "entity_ids": [
         "26220301"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/gluttonousyumkasaurmountainking.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/gluttonousyumkasaurmountainking.json",
+        "https://wiki.hoyolab.com/pc/genshin/entry/6583?lang=ja-jp",
+        "evidence/yumka-field-lua.json",
+        "evidence/yumka-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "連続モーション・音",
+        "難度・報酬の調整",
+        "複数人と幻境実機の検証"
       ],
+      "fieldNode": "yumka-field-ravine",
+      "fieldEntrance": "ナタ・山王の峡谷（Lv104）",
       "art_candidate": {
         "source": "assets/yumka-idle-source-v1.png",
         "encoding": "assets/yumka-idle-sprites.json",
-        "audit": "evidence/yumka-reference-audit.json",
-        "status": "normal blue-crest idle candidate only; charged form, attacks and animation not implemented"
+        "audit": "evidence/yumka-field-art-audit.json",
+        "status": "Web field prototype. Blue idle, orange charged flower, and two timed fruit impacts."
       },
       "aliases": [
         "山の王・貪食のユムカ竜"
