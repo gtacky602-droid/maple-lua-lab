@@ -901,3 +901,11 @@ HP870とモラはラボの試算。Lv16の固定ステータスで通常攻撃�
 HP900とモラはラボの試算。Lv18の固定ステータスで通常攻撃を使い、ソロ79.33秒、アンバー同行48.98秒だった。1個体の撃破で1,250EXPと140モラ。再出現までの60秒はセーブに残る。戦闘範囲から離れ続けると、ドリルで移動した先から元の位置へ戻る。フィールドでも既存の討伐調査が進み、町での初回報告は1,500EXPと300モラ。構えは既存の核・外殻のドット絵を組み替える。岩棚の名称と背景はラボ用の仮案。 [設計](docs/field-boss-v1/STARTER_MOVESETS.md)・[美術参照と背景の生成記録](evidence/electro-hypostasis-field-art-audit.json)・[Lua検証](evidence/electro-hypostasis-field-lua.json)・[Chrome検証](evidence/electro-hypostasis-field-browser.json)
 
 再現するには `python test_electro_field.py` でLv18の検証用セーブを作る。ラボを起動し、`node test_electro_field.mjs` で入場、討伐、保存、模擬戦起動まで確認する。Chromeで一往路のドリルが193.6px動くことと、グーの予兆を固定したフレームで標準16,695件・軽量4,497件の描画指示を確認した。
+
+## 爆炎樹のフィールド戦
+
+「璃月・港の広場」から狩場を経由して「爆炎樹・挑戦入口」へ入り、右端の門でLv28の「璃月・燠火の岩窟」へ進む。首落としと火走りは同じ相手に合計一回当たる。双火弾は固定射線に二発を送り、岩壁で止められる。半円の薙ぎは予告した側を一度払う。根元を別々の攻撃で三回狙うと、その技の炎が消えたあと4秒伏せる。核を狙わず通常攻撃だけでも討伐できる。ボス一覧と挑戦碑からは火種と噴火がある従来のHP800模擬戦も遊べる。
+
+HP710とモラはラボの試算。Lv28の通常攻撃によるソロ試行は108.87秒、アンバー同行は71.67秒。1個体の撃破で4,900EXPと150モラ、再出現までのゲーム内60秒はセーブに残る。既存の討伐調査は洞窟と挑戦碑の双方で進み、璃月港での初回報告は4,000EXPと300モラ。待機絵に8姿勢を加え、岩窟の仮背景を用意した。 [設計](docs/field-boss-v1/LIYUE_MOVESETS.md)・[美術参照と生成プロンプト](evidence/pyro-regisvine-field-art-audit.json)・[Lua検証](evidence/pyro-regisvine-field-lua.json)・[Chrome検証](evidence/pyro-regisvine-field-browser.json)
+
+`python test_pyro_field.py` でLv28の検証用セーブを作り、起動したラボに `node test_pyro_field.mjs` を向けて往復と討伐、描画比較を確認できる。Chromeで首落としの予兆を止めて比較したところ、描画指示は標準10,784件、軽量2,958件だった。

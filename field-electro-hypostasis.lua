@@ -47,21 +47,6 @@ return function(C)
   return math.min(x1,x2),math.max(x1,x2)
  end
 
- local function capsuleHit(s,boss,cast,x0,x1,y,radius)
-  local left,right=math.min(x0,x1),math.max(x0,x1)
-  local seen=cast.seen[1]
-  for _,a in ipairs(s.actors) do
-   if a.hp>0 and not seen[a.id] then
-    local dx=math.max(0,left-a.x-10,a.x-10-right)
-    local dy=math.max(0,a.y-50-y,y-a.y)
-    if dx*dx+dy*dy<radius*radius then
-     seen[a.id]=true
-     C.damageActor(s,a,cast.move.damage,boss,false,true)
-    end
-   end
-  end
- end
-
  local function waveX(cast,age)
   return cast.origin+cast.dir*(.35+age*cast.move.speed/60)*U
  end
@@ -83,7 +68,7 @@ return function(C)
    if t>=window[1] and t<window[2] then
     local previous=boss.x
     boss.x=cast.origin+(cast.dest-cast.origin)*ramp(t,window[1],window[2]-1)
-    capsuleHit(s,boss,cast,previous,boss.x,boss.y-move.height*U,move.radius*U)
+    C.hitFieldCapsule(s,boss,cast.seen[1],previous,boss.x,boss.y-move.height*U,move.radius*U,move.damage)
    end
   else
    local half=move.width*U/2

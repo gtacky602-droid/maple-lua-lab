@@ -526,6 +526,11 @@
       "rightCamera": 480
     },
     {
+      "node": "pyro-field-grotto",
+      "width": 1460,
+      "rightCamera": 500
+    },
+    {
       "node": "electro-approach",
       "width": 1440,
       "rightCamera": 480

@@ -1,0 +1,383 @@
+{
+  "sheet": {
+    "source": "assets/pyro-regisvine-field-actions-source-v1.png",
+    "sha256": "722c625ab41341c65c43f9899710b2bf884e0828c48fbba5d74781098503c2f8",
+    "size": [
+      1774,
+      887
+    ],
+    "alpha_range": [
+      0,
+      255
+    ],
+    "method": "built-in imagegen",
+    "prompt": "Create an eight-pose game-ready pixel sprite sheet for the Pyro Regisvine creature using reference 1 as the established local sprite style and silhouette and reference 2 as the shape of its ivory inner floral bracts. Four equal columns and two equal rows in 2:1 landscape composition with very generous fully-transparent gutters, each creature contained in its cell. Exact true RGBA transparency. Hard blocky pixel shading, dark maroon outlines, bright warm orange flame petals, ivory inner bracts, two red curled branch buds with ivory leaves and a dark thick twisted woody brown stem with a few amber lines. The roots stay attached at a consistent bottom anchor, left-facing throughout. Keep the scale of individual parts as constant as possible while the pose height changes. Upper row in reading order: (1) flower held high with arched stem preparing to slam, (2) flower tilted downward and stretched forward left over the floor about to slam, (3) flower flattened against ground toward the left after a powerful impact with stem bent taut, (4) completely slumped with stem limp and curled, flattened floral crown resting at floor left, still planted roots. Lower row: (5) one raised side bud curled forward for shot, other branch lifted back, (6) other side bud extends forward while the prior bud retracts, flower upright, (7) stem bends far left sideways and crown cocks back to wind up for a sweep, (8) stretched horizontal bent stem with tilted wide crown sweeping low toward the left. Only the creature in every cell, no spark, beams, fireballs, floating elements, shadows, floor grids, letters or text. Keep every pose at least 20px away from any cell boundary, roots separate."
+  },
+  "references": [
+    {
+      "source": "assets/pyro-regisvine-source-v1.png",
+      "sha256": "86a097337edcf82fc3c90b1d9af131d6fc94f8d1b851828ccaf3e204ea2d2640",
+      "size": [
+        1122,
+        1402
+      ],
+      "role": "existing proportions and fiery petal colors"
+    },
+    {
+      "url": "https://library.keqingmains.com/assets/images/Enemy_Pyro_Regisvine_Icon-e097dc710c645bda9cb6e7b77e7ba367.webp",
+      "sha256": "ccdfa934f741b089b9e949514704a90dbaa670caf272dde27f14d5218806f595",
+      "role": "published game icon, frontal ivory inner bracts and corolla markings"
+    }
+  ],
+  "background": {
+    "source": "assets/pyro-regisvine-field-background-v1.png",
+    "sha256": "cc70e06d069d7cb23aba2871f12f0487adc18fd8e0e4742eb11856774c570555",
+    "size": [
+      1672,
+      941
+    ],
+    "method": "built-in imagegen",
+    "prompt": "Create a new opaque 16:9 painterly pixel art game background for a 2D side-view fantasy RPG. Reference the supplied Liyue quarry bitmap for its art style and limestone palette only. New scene with no human structures: a quiet cavern amphitheater, broad charcoal gray and rust-colored flat limestone shelf, deep rock recesses and shadowed warm gray walls, a single gentle shaft of late-afternoon daylight entering from a high opening at left, sparse dark grass and pale fossil seams in the sides. Muted dusty terracotta, slate, amber light, ample subdued fairly dark horizontal foreground toward the lower middle so bright orange attacks and the character sprites stand out. No red-hot pool, no large flames, no magma on the floor, no props or trees in the playable center. No creatures, collision rails, HUD, signage or text.",
+    "reference": {
+      "source": "assets/liyue-quarry-background-v1.png",
+      "sha256": "30a86b4c7dee00d9c0b02c011d4552ad6b3c058e49ed686f20183fb172a15b20",
+      "size": [
+        1672,
+        941
+      ],
+      "role": "Liyue limestone palette and background style"
+    },
+    "scope": "temporary Web host image for an original field proxy"
+  },
+  "poses": {
+    "raised": {
+      "encoding": "assets/pyro-field-raised-sprites-v1.json",
+      "crop": [
+        0,
+        0,
+        423,
+        443
+      ],
+      "bounds": [
+        102,
+        22,
+        283,
+        387
+      ],
+      "root_x_source": 226,
+      "root_anchor": 0.43816254,
+      "profiles": {
+        "legacy": {
+          "dimensions": [
+            136,
+            186
+          ],
+          "rectangles": 6954
+        },
+        "h48c32": {
+          "dimensions": [
+            102,
+            140
+          ],
+          "rectangles": 4360
+        },
+        "h32c16": {
+          "dimensions": [
+            68,
+            93
+          ],
+          "rectangles": 1889
+        }
+      }
+    },
+    "bowed": {
+      "encoding": "assets/pyro-field-bowed-sprites-v1.json",
+      "crop": [
+        423,
+        0,
+        434,
+        443
+      ],
+      "bounds": [
+        465,
+        110,
+        380,
+        299
+      ],
+      "root_x_source": 697,
+      "root_anchor": 0.61052632,
+      "profiles": {
+        "legacy": {
+          "dimensions": [
+            183,
+            144
+          ],
+          "rectangles": 6513
+        },
+        "h48c32": {
+          "dimensions": [
+            137,
+            108
+          ],
+          "rectangles": 4094
+        },
+        "h32c16": {
+          "dimensions": [
+            92,
+            72
+          ],
+          "rectangles": 1864
+        }
+      }
+    },
+    "impact": {
+      "encoding": "assets/pyro-field-impact-sprites-v1.json",
+      "crop": [
+        857,
+        0,
+        443,
+        443
+      ],
+      "bounds": [
+        887,
+        215,
+        393,
+        194
+      ],
+      "root_x_source": 1197,
+      "root_anchor": 0.78880407,
+      "profiles": {
+        "legacy": {
+          "dimensions": [
+            188,
+            93
+          ],
+          "rectangles": 5388
+        },
+        "h48c32": {
+          "dimensions": [
+            142,
+            70
+          ],
+          "rectangles": 3315
+        },
+        "h32c16": {
+          "dimensions": [
+            93,
+            46
+          ],
+          "rectangles": 1437
+        }
+      }
+    },
+    "down": {
+      "encoding": "assets/pyro-field-down-sprites-v1.json",
+      "crop": [
+        1300,
+        0,
+        474,
+        443
+      ],
+      "bounds": [
+        1339,
+        287,
+        389,
+        122
+      ],
+      "root_x_source": 1646,
+      "root_anchor": 0.78920308,
+      "profiles": {
+        "legacy": {
+          "dimensions": [
+            188,
+            59
+          ],
+          "rectangles": 4272
+        },
+        "h48c32": {
+          "dimensions": [
+            140,
+            44
+          ],
+          "rectangles": 2590
+        },
+        "h32c16": {
+          "dimensions": [
+            92,
+            29
+          ],
+          "rectangles": 1147
+        }
+      }
+    },
+    "bud-first": {
+      "encoding": "assets/pyro-field-bud-first-sprites-v1.json",
+      "crop": [
+        0,
+        454,
+        430,
+        433
+      ],
+      "bounds": [
+        67,
+        478,
+        300,
+        358
+      ],
+      "root_x_source": 225,
+      "root_anchor": 0.52666667,
+      "profiles": {
+        "legacy": {
+          "dimensions": [
+            144,
+            172
+          ],
+          "rectangles": 6330
+        },
+        "h48c32": {
+          "dimensions": [
+            108,
+            129
+          ],
+          "rectangles": 3933
+        },
+        "h32c16": {
+          "dimensions": [
+            72,
+            86
+          ],
+          "rectangles": 1792
+        }
+      }
+    },
+    "bud-second": {
+      "encoding": "assets/pyro-field-bud-second-sprites-v1.json",
+      "crop": [
+        430,
+        454,
+        425,
+        433
+      ],
+      "bounds": [
+        515,
+        478,
+        285,
+        358
+      ],
+      "root_x_source": 642,
+      "root_anchor": 0.44561404,
+      "profiles": {
+        "legacy": {
+          "dimensions": [
+            137,
+            172
+          ],
+          "rectangles": 6359
+        },
+        "h48c32": {
+          "dimensions": [
+            103,
+            129
+          ],
+          "rectangles": 4029
+        },
+        "h32c16": {
+          "dimensions": [
+            68,
+            86
+          ],
+          "rectangles": 1763
+        }
+      }
+    },
+    "sweep-ready": {
+      "encoding": "assets/pyro-field-sweep-ready-sprites-v1.json",
+      "crop": [
+        855,
+        478,
+        415,
+        409
+      ],
+      "bounds": [
+        910,
+        502,
+        325,
+        334
+      ],
+      "root_x_source": 1119,
+      "root_anchor": 0.64307692,
+      "profiles": {
+        "legacy": {
+          "dimensions": [
+            156,
+            160
+          ],
+          "rectangles": 6159
+        },
+        "h48c32": {
+          "dimensions": [
+            117,
+            120
+          ],
+          "rectangles": 3922
+        },
+        "h32c16": {
+          "dimensions": [
+            78,
+            80
+          ],
+          "rectangles": 1740
+        }
+      }
+    },
+    "sweep": {
+      "encoding": "assets/pyro-field-sweep-sprites-v1.json",
+      "crop": [
+        1270,
+        454,
+        504,
+        433
+      ],
+      "bounds": [
+        1310,
+        576,
+        433,
+        260
+      ],
+      "root_x_source": 1631,
+      "root_anchor": 0.74133949,
+      "profiles": {
+        "legacy": {
+          "dimensions": [
+            208,
+            125
+          ],
+          "rectangles": 6344
+        },
+        "h48c32": {
+          "dimensions": [
+            157,
+            94
+          ],
+          "rectangles": 4012
+        },
+        "h32c16": {
+          "dimensions": [
+            103,
+            62
+          ],
+          "rectangles": 1700
+        }
+      }
+    }
+  },
+  "encoding": {
+    "tool": "compile_boss_assets.py",
+    "display_scale_of_source_crops": 0.48,
+    "reserved_colors": [
+      "#42232b",
+      "#ffdf8c"
+    ]
+  },
+  "unverified": "Multiple-view 3D model match, additional hit and defeat animation, production 3D scene."
+}

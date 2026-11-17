@@ -35,10 +35,9 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
  end
  function C.drawEnemyIdleArt(f,s,e,mode,profile) local layout=C.enemyArtLayout[e.art];draw(f,C.enemyIdleArt[e.art],e.x-s.camera,e.y-layout.hover,layout.height,mode,profile,false) end
  function C.drawDanukiArt(f,x,y,mode,profile) draw(f,C.danukiArt,x,y,56,mode,profile,false) end
- function C.drawCryoFieldArt(f,x,y,h,flip,pose,mode,profile)
-  local art=C.cryoFieldArt[pose]
-  local height=pose=='idle' and h or art.profiles.legacy.height
-  draw(f,art,x,y,height,mode,profile,flip)
+ function C.drawFieldRegisvine(f,data,x,y,h,flip,pose,mode,profile)
+  local art=data[pose]
+  draw(f,art,x,y,pose=='idle' and h or art.profiles.legacy.height,mode,profile,flip)
  end
  function C.drawJadeplumeArt(f,x,y,h,flip,pose,mode,profile)
   local art=C.jadeplumeArt[pose] or C.jadeplumeArt.idle

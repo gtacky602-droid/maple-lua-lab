@@ -1873,6 +1873,12 @@
       "ground_both_directions": true
     },
     {
+      "node": "pyro-field-grotto",
+      "platforms": 1,
+      "jump_routes": [],
+      "ground_both_directions": true
+    },
+    {
       "node": "electro-approach",
       "platforms": 1,
       "jump_routes": [],

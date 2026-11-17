@@ -133,6 +133,49 @@
           "width": 0.18, "height": 0.45, "speed": 4, "damage": 9
         }
       ]
+    },
+    {
+      "id": "boss-26020201",
+      "controller": "pyroRegisvine",
+      "entity": 26020201,
+      "name": "爆炎樹",
+      "node": "pyro-field-grotto",
+      "storyChallenge": "pyro",
+      "level": 28,
+      "hp": 710,
+      "mora": 150,
+      "artHeight": 188,
+      "floorY": 480,
+      "home": 840,
+      "arenaMin": 440,
+      "arenaMax": 1330,
+      "noticeRange": 250,
+      "noticeTicks": 36,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 0,
+      "contactDamage": 3,
+      "resist": {"physical": 0.3, "pyro": 0.7, "cryo": 0.1, "geo": 0.1, "anemo": 0.1, "dendro": 0.1, "hydro": 0.1, "electro": 0.1},
+      "core": {"hits": 3, "down": 240, "rise": 24, "rearm": 1200, "hurtboxClearance": 30.8},
+      "moves": [
+        {
+          "id": "FP01", "pattern": "slam", "title": "首落としと火走り", "reach": 220,
+          "lock": 42, "active": [[84, 96]], "recover": 180, "total": 300, "damage": 18,
+          "near": 0.4, "far": 1.6, "low": 0, "high": 0.65,
+          "shotTicks": [96], "shotLife": 60, "shotOrigin": 1.6, "shotHeight": 0.25, "shotSpeed": 3, "shotDamage": 13
+        },
+        {
+          "id": "FP02", "pattern": "bolts", "title": "双火弾", "reach": 355,
+          "lock": 42, "active": [], "recover": 180, "total": 252,
+          "shotTicks": [72, 108], "shotLife": 60, "shotOrigin": 0.49, "shotHeight": 0.75, "shotSpeed": 4, "shotDamage": 12
+        },
+        {
+          "id": "FP03", "pattern": "sweep", "title": "半円の薙ぎ", "reach": 182,
+          "lock": 42, "active": [[84, 102]], "recover": 120, "total": 216, "damage": 14,
+          "near": 0.25, "far": 1.7, "low": 0.15, "high": 0.75
+        }
+      ]
     }
   ]
 }

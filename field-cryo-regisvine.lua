@@ -1,29 +1,5 @@
 return function(C)
- local cryo={}
  local U=88
-
- function cryo.spawn(boss,spec)
-  boss.coreHits=spec.core.hits;boss.down=0;boss.rise=0;boss.rearm=0
- end
-
- function cryo.farMove(spec)
-  return spec.moves[3]
- end
-
- function cryo.begin(boss,spec,move,target)
-  local direction=target.x<boss.x and -1 or 1
-  boss.facing=direction
-  return {move=move,tick=0,dir=direction,seen={},shots={},projectiles={}}
- end
-
- -- This hook sees the same cast table for every hit in a multi-pulse action.
- -- The common hit pipeline alone changes the main HP.
- function cryo.onHit(cast,boss,spec)
-  if boss.coreHits<=0 or cast.reaction or cast.cryoFieldCore or
-     math.abs(cast.x-boss.x)>94 or math.abs(cast.y-spec.floorY)>38 then return end
-  cast.cryoFieldCore=true
-  boss.coreHits=boss.coreHits-1
- end
 
  local function poseFor(boss,cast)
   if boss.down>0 or boss.rise>12 then return 'down' end
@@ -34,45 +10,16 @@ return function(C)
   return move.pattern..(t<move.active[1][1] and '_ready' or '')
  end
 
- local function updateHeight(boss,spec,cast)
-  local pose=poseFor(boss,cast)
-  boss.drawHeight=pose=='idle' and spec.artHeight or C.cryoFieldArt[pose].profiles.legacy.height
-  boss.hitTop=boss.y-boss.drawHeight
+ local cryo=C.fieldRegisvine(C.cryoFieldArt,poseFor)
+
+ function cryo.farMove(spec)
+  return spec.moves[3]
  end
 
- function cryo.preempt(boss,spec,slot)
-  if boss.down>0 then
-   boss.down=boss.down-1
-   if boss.down==0 then boss.rise=spec.core.rise;boss.rearm=spec.core.rearm end
-   updateHeight(boss,spec,nil)
-   return true
-  end
-  if boss.rearm>0 then
-   boss.rearm=boss.rearm-1
-   if boss.rearm==0 then boss.coreHits=spec.core.hits end
-  end
-  if boss.rise>0 then
-   boss.rise=boss.rise-1
-   updateHeight(boss,spec,nil)
-   return true
-  end
-  updateHeight(boss,spec,slot.cast)
-  if boss.coreHits>0 or boss.rearm>0 then return false end
-  local cast=slot.cast
-  if cast then
-   local move=cast.move
-   local untilTick=move.shotTicks and move.shotTicks[#move.shotTicks]+move.shotLife or move.active[#move.active][2]
-   -- If the final active tick just ran, no future hit belongs to this attack.
-   if cast.tick<untilTick-1 then return false end
-  end
-  slot.cast=nil;slot.delay=0
-  boss.down=spec.core.down;updateHeight(boss,spec,nil)
-  return true
- end
-
- function cryo.label(boss)
-  if boss.down>0 then return '核を破壊・ダウン' end
-  if boss.rise>0 then return '起き上がり' end
+ function cryo.begin(boss,spec,move,target)
+  local direction=target.x<boss.x and -1 or 1
+  boss.facing=direction
+  return {move=move,tick=0,dir=direction,seen={},shots={},projectiles={}}
  end
 
  local function attackBounds(boss,cast)
@@ -99,13 +46,7 @@ return function(C)
     local age=t-fired
     if age>=0 and age<cast.move.shotLife and not cast.shots[i] then
      local x,y=bulletPosition(boss,cast,age)
-     local p=cast.projectiles[i]
-     if not p then
-      p={x=x,y=y,source=boss.id,damage=cast.move.damage}
-      cast.projectiles[i]=p
-     end
-     cast.shots[i]=C.resolveEnemyProjectileSegment(s,p,x,y,radius,10,68)
-     p.x=x;p.y=y
+     C.stepFieldBolt(s,boss,cast,i,x,y,radius,cast.move.damage)
     end
    end
   else
@@ -119,7 +60,7 @@ return function(C)
     end
    end
   end
-  updateHeight(boss,spec,t<cast.move.total and cast or nil)
+  cryo.updateHeight(boss,spec,t<cast.move.total and cast or nil)
   return t>=cast.move.total
  end
 
@@ -159,7 +100,7 @@ return function(C)
     end
    end
   end
-  C.drawCryoFieldArt(f,x,boss.y,spec.artHeight,boss.facing>0,pose,mode,profile)
+  C.drawFieldRegisvine(f,C.cryoFieldArt,x,boss.y,spec.artHeight,boss.facing>0,pose,mode,profile)
   if boss.coreHits>0 then
    local y=boss.y-.35*U
    rect(f,x-8,y-7,16,14,'#5476a1')

@@ -969,6 +969,14 @@
       "to": "liyue-field"
     },
     {
+      "node": "pyro-approach",
+      "to": "pyro-field-grotto"
+    },
+    {
+      "node": "pyro-field-grotto",
+      "to": "pyro-approach"
+    },
+    {
       "node": "electro-approach",
       "to": "mond-road"
     },

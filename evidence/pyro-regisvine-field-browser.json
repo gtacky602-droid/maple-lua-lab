@@ -1,0 +1,29 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 68.04999999999615,
+    "moves": [
+      "FP01",
+      "FP02",
+      "FP03"
+    ],
+    "finished": true,
+    "returns": 0,
+    "hp": 92
+  },
+  "fieldKill": {
+    "xp": 4900,
+    "mora": 150
+  },
+  "commissionReportXp": 4000,
+  "persistedCooldown": true,
+  "nucleusDown": true,
+  "directTrialHp": 800,
+  "sameSceneCommands": {
+    "png": 51,
+    "standard": 10784,
+    "light": 2958
+  },
+  "viewport390": true,
+  "errors": []
+}

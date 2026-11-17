@@ -4175,13 +4175,26 @@
         {
           "to": "liyue-field",
           "x": 60
-        }
+        },
+        {"to": "pyro-field-grotto", "x": 1270}
       ],
       "checkpoint": "liyue-harbor",
       "challenge": "pyro",
       "challengeName": "爆炎樹",
       "challengeAction": "boss_pyro_regisvine",
       "challengeX": 720
+    },
+    {
+      "id": "pyro-field-grotto",
+      "name": "璃月・燠火の岩窟",
+      "region": "璃月",
+      "level": 28,
+      "hub": false,
+      "peaceful": true,
+      "width": 1460,
+      "platforms": [{"x": 0, "y": 480, "w": 1460}],
+      "exits": [{"to": "pyro-approach", "x": 65}],
+      "checkpoint": "liyue-harbor"
     },
     {
       "id": "electro-approach",
@@ -5392,7 +5405,7 @@
       "goal": 1,
       "xp": 4000,
       "mora": 300,
-      "note": "本編入口から挑戦した討伐のみ対象。報酬/入口位置は試作。"
+      "note": "燠火の岩窟、または本編入口の挑戦碑での討伐が対象。"
     },
     {
       "id": "electro-commission",

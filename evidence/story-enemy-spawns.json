@@ -424,6 +424,11 @@
       "enemy_count": 0
     },
     {
+      "node": "pyro-field-grotto",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
       "node": "electro-approach",
       "enemy_count": 0
     },

@@ -59,11 +59,26 @@ return function(C,configs,controllers)
   end
  end
 
- function C.hitFieldArea(s,boss,seen,left,right,top,damage)
+ function C.hitFieldArea(s,boss,seen,left,right,top,damage,bottom)
+  bottom=bottom or boss.y
   for _,a in ipairs(s.actors) do
-   if a.hp>0 and not seen[a.id] and a.x+10>left and a.x-10<right and a.y>top and a.y-50<boss.y then
+   if a.hp>0 and not seen[a.id] and a.x+10>left and a.x-10<right and a.y>top and a.y-50<bottom then
     seen[a.id]=true
     C.damageActor(s,a,damage,boss,false,true)
+   end
+  end
+ end
+
+ function C.hitFieldCapsule(s,boss,seen,x0,x1,y,radius,damage)
+  local left,right=math.min(x0,x1),math.max(x0,x1)
+  for _,a in ipairs(s.actors) do
+   if a.hp>0 and not seen[a.id] then
+    local dx=math.max(0,left-a.x-10,a.x-10-right)
+    local dy=math.max(0,a.y-50-y,y-a.y)
+    if dx*dx+dy*dy<radius*radius then
+     seen[a.id]=true
+     C.damageActor(s,a,damage,boss,false,true)
+    end
    end
   end
  end

@@ -2,6 +2,36 @@
   "errors": [],
   "cases": [
     {
+      "key": "pyroField",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "pyroField",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "pyroField",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "pyroField",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "pyroField",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "pyroField",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "electroField",
       "camera": -960,
       "transparent": 0

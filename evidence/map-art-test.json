@@ -632,6 +632,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "pyro-field-grotto",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "electro-approach",
       "count": 0,
       "fallback": false,

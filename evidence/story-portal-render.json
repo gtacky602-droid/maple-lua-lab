@@ -1043,10 +1043,20 @@
     {
       "node": "pyro-approach",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "pyro-approach",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "pyro-field-grotto",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "pyro-field-grotto",
       "mode": "rect",
       "visible_portals": 1
     },

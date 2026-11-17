@@ -415,9 +415,12 @@
     },
     "boss-26020201": {
       "action": "boss_pyro_regisvine",
+      "remaining": ["被弾・撃破の追加作画", "装備差・周回報酬のバランス", "Webマルチと幻境実機"],
+      "extra_evidence": ["evidence/pyro-regisvine-field-lua.json", "evidence/pyro-regisvine-field-browser.json"],
       "art_candidate": {
         "item": "pyro-regisvine",
-        "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
+        "audit": "evidence/pyro-regisvine-field-art-audit.json",
+        "status": "idle and keyed poses for the Web field encounter"
       }
     },
     "boss-26301101": {

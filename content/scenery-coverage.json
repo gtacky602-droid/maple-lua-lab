@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 113 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 111,
+  "scope": "Authored 114 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 112,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -632,6 +632,12 @@
     {
       "id": "pyro-approach",
       "name": "爆炎樹・挑戦入口",
+      "region": "璃月",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "pyro-field-grotto",
+      "name": "璃月・燠火の岩窟",
       "region": "璃月",
       "status": "regional_temporary_image"
     },

@@ -1,0 +1,35 @@
+{
+  "matches_manifest_timing": true,
+  "low_hurtbox_and_normal_damage": true,
+  "slam_and_wave_share_hit": true,
+  "wave_damage_outside_head": 13,
+  "double_fireballs": true,
+  "wall_can_stop_both_fireballs": true,
+  "sweep_jump": true,
+  "nucleus_one_hit_per_cast": true,
+  "stagger_waits_until_wave_expires": true,
+  "down_ticks": 240,
+  "rearm_ticks": 1200,
+  "lethal_hit_cleans_wave": true,
+  "solo_normal": {
+    "seconds": 108.87,
+    "hp": 56,
+    "damage": 710,
+    "coreHitsLeft": 3
+  },
+  "amber_companion": {
+    "seconds": 71.67,
+    "hp": 80,
+    "damage": 710,
+    "coreHitsLeft": 0
+  },
+  "field_kill": {
+    "xp": 4900,
+    "mora": 150
+  },
+  "report_once": {
+    "xp": 4000,
+    "mora": 300
+  },
+  "restored_respawn_ticks": 3600
+}
