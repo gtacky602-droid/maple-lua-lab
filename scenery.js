@@ -23,7 +23,17 @@ export const sceneryDefinitions={
  sumeru:{file:'sumeru-background-v1.png',region:'スメール',zones:[]}
 };
 const backgrounds={},backgroundStates={};
-export const backgroundReady=Promise.all(Object.entries(sceneryDefinitions).map(async([key,definition])=>{const image=new Image();backgrounds[key]=image;backgroundStates[key]='loading';image.src='assets/'+definition.file;try{await image.decode();backgroundStates[key]=image.naturalWidth&&image.naturalHeight?'ready':'error'}catch{backgroundStates[key]='error'}}));
+const grayCrystal={image:new Image(),box:[382,175,762,667]};
+grayCrystal.image.src='assets/tunigi-gray-crystal-source-v1.png';
+const decorations=new Map([['tunigi-depth',[
+ {art:grayCrystal,x:207,y:480,height:78},
+ {art:grayCrystal,x:742,y:480,height:94,flip:true},
+ {art:grayCrystal,x:1250,y:480,height:112},
+]]]);
+export const backgroundReady=Promise.all([
+ ...Object.entries(sceneryDefinitions).map(async([key,definition])=>{const image=new Image();backgrounds[key]=image;backgroundStates[key]='loading';image.src='assets/'+definition.file;try{await image.decode();backgroundStates[key]=image.naturalWidth&&image.naturalHeight?'ready':'error'}catch{backgroundStates[key]='error'}}),
+ grayCrystal.image.decode().catch(()=>{}), // An optional prop may be absent while its region remains playable.
+]);
 // Explicit prototype mappings; stale story state must not recolor unrelated lab fights.
 export function sceneryKey(frame){
  const zone=frame.campaign?.zone;
@@ -37,6 +47,21 @@ export function sceneryKey(frame){
 export function sceneryStatus(frame){
  const key=sceneryKey(frame);return {key,file:sceneryDefinitions[key].file,state:backgroundStates[key]??'loading'};
 }
+function drawDecorations(ctx,frame,camera){
+ const node=frame.story?.node,placements=decorations.get(node);
+ if(!placements||!frame.story.active||frame.campaign?.zone!==`story:${node}`)return;
+ ctx.imageSmoothingEnabled=false;
+ for(const {art,x,y,height,flip} of placements){
+  const {image,box}=art;
+  if(!image.complete||!image.naturalWidth)continue;
+  const width=height*box[2]/box[3],screenX=x-camera;
+  if(screenX+width/2<=0||screenX-width/2>=960)continue;
+  ctx.save();ctx.translate(screenX,y);
+  if(flip)ctx.scale(-1,1);
+  ctx.drawImage(image,...box,-width/2,-height,width,height);
+  ctx.restore();
+ }
+}
 export function scenery(ctx,frame){
  ctx.save();ctx.imageSmoothingEnabled=true;
  const key=sceneryKey(frame),background=backgrounds[key];
@@ -48,6 +73,7 @@ export function scenery(ctx,frame){
  }else{ctx.fillStyle='#c5decc';ctx.fillRect(0,0,960,540)}
  // Lab-only terrain proxies. These will be 3D set dressing and colliders in the game.
  const camera=frame.camera||0,snow=key==='snezhnaya'||key==='dragonspine';
+ drawDecorations(ctx,frame,camera);
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
   ctx.fillStyle=key==='bygone'?'#436c7b':key==='ochkanatlan'?'#687275':key==='tunigi'?'#94704f':key==='golden'?'#ad9064':(key==='enkanomiya'||key==='nodspecial'||key==='novokichev')?'#555d80':key==='voyage'?'#765641':snow?'#6f8197':key==='natlan'?'#a16646':key==='fontaine'?'#9c9b9e':key==='liyue'?'#887653':key==='inazuma'?'#686174':p.y===480?'#655c43':'#756d56';ctx.fillRect(x,p.y,p.w,p.y===480?60:24);

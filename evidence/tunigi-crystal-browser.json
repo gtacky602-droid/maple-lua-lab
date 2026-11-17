@@ -1,0 +1,76 @@
+{
+  "fixture": "Level 60 checkpoint set up at Tunigi camp",
+  "mappings": [
+    {
+      "id": "tunigi-camp",
+      "key": "tunigi"
+    },
+    {
+      "id": "tunigi-depth",
+      "key": "tunigi"
+    }
+  ],
+  "total": 6,
+  "draw": {
+    "source": "fanged-beast-idle-source-v1.png",
+    "kind": "boss_sprite",
+    "y": 480,
+    "x": 525.1619477694596,
+    "w": 201.42175066312998,
+    "anchorX": 0.377212389380531,
+    "box": [
+      286,
+      72,
+      1356,
+      754
+    ],
+    "h": 112,
+    "flip": false
+  },
+  "questReported": true,
+  "placementProfiles": 3,
+  "decorations": {
+    "start": [
+      {
+        "x": 207,
+        "base": 480,
+        "height": 78,
+        "flip": false,
+        "smoothing": false
+      },
+      {
+        "x": 742,
+        "base": 480,
+        "height": 94,
+        "flip": true,
+        "smoothing": false
+      }
+    ],
+    "end": [
+      {
+        "x": 262,
+        "base": 480,
+        "height": 94,
+        "flip": true,
+        "smoothing": false
+      },
+      {
+        "x": 770,
+        "base": 480,
+        "height": 112,
+        "flip": false,
+        "smoothing": false
+      }
+    ],
+    "camp": [],
+    "staleStory": [],
+    "inactive": [],
+    "inLua": false
+  },
+  "comparisonLayers": {
+    "png": 2,
+    "rect": 2
+  },
+  "missingAssetRetainsBackgroundAndPlacement": true,
+  "errors": []
+}

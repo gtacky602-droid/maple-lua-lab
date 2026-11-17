@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-17",
+  "label": "灰残晶 / Gray Crystals",
+  "references": [
+    {
+      "role": "Tunigi Hollow gameplay capture; large irregular gray-blue slabs growing diagonally out of sandstone, with smaller shards near the base.",
+      "page": "https://landofgames.ru/articles/guides/22941-roskoshnyj-sunduk-v-prolome-tunigi-v-genshin-impact-zagadka-s-chudovischami-iz-seryh-kristallov.html",
+      "url": "https://landofgames.ru/uploads/posts/2023-04/1681799545_5-1.jpg",
+      "sha256": "f57019b8f495beac9680577914ddb8bd6769ff62360df86e0dea9c18065a46e9",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "role": "Cave gameplay screenshot showing the Gray Crystals tutorial objective and low, broken crystal surfaces. Cave lighting and characters were ignored.",
+      "page": "https://www.hoyolab.com/article/17827755",
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2023/04/20/146947669/fdd0789c0755d8144aeb5be581d7cce8_2090321027855277083.jpg",
+      "sha256": "e777a2544041b9f7ac6d7179420fac4b7930fd7433252312387afa05dc6e0082",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "role": "Approach screenshot: the small crystals near the opening confirm a smaller prop can be placed without making a large wall. Overlay arrow and UI serve no visual role in the prop.",
+      "page": "https://altema.jp/gensin/gakahyoryuki",
+      "url": "https://img.altema.jp/gensin/kakudai/041501.jpg",
+      "sha256": "e7980f3c360d0722e234d1503e29721775a3ea4dcbd1138238067a029b797732",
+      "directly_viewed": true,
+      "generation_input": false
+    }
+  ],
+  "generation": {
+    "tool": "built-in ImageGen",
+    "prompt": "Make one small isolated 2D pixel-art scenery prop for a MapleStory-inspired side-scrolling RPG: a cluster of the gray crystals (灰残晶) at Tunigi Hollow in Genshin Impact. Reference 1 is the primary reference: use only the long asymmetric slate-blue opaque crystal plates growing diagonally out of the brown cliff (upper right and lower right), with their irregular elongated ridges and sharp ragged tips. Reference 2 is supplemental for shallow broken faces and scattered slabs, not for the cave lighting. Create a compact cluster of 3 or 4 fused irregular tabular blades with one long tallest blade tilted up and to the left, uneven stepped tips, subdued cool slate blue-gray and muted gray-lilac facets, worn non-glowing stone, with a few rusty tan grit pixels tightly at the base so it fits the sand. Readable dark blue-gray outline and deliberate chunky pixel steps at roughly 60 to 90 pixels tall. Side-on orthographic 2D prop with a level bottom baseline, natural asymmetric silhouette, no background terrain, no ground plane or cast shadow, no arrow, no red circles, no text, no HUD, no characters, no plants, no free-floating particles, no sparkles, no glow, no bright gems, no gradients outside silhouette. Keep the complete prop centered with generous true transparent margins. One cluster only.",
+    "output": "assets/tunigi-gray-crystal-source-v1.png",
+    "sha256": "80d9c1c7d801c015b628d9585592458a7971babafd393f3e8e4ba5b7ee52227b",
+    "imageSize": [1536, 1024],
+    "sourceCrop": [382, 175, 762, 667]
+  },
+  "placement": {
+    "node": "tunigi-depth",
+    "layer": "Host scenery after parallax background and before terrain and actors",
+    "items": [
+      {"x": 207, "y": 480, "height": 78, "flip": false},
+      {"x": 742, "y": 480, "height": 94, "flip": true},
+      {"x": 1250, "y": 480, "height": 112, "flip": false}
+    ],
+    "native3D": "Visual reference for future scenery placement. These are lab pixel coordinates and visual scales; native asset, position, rotation and scale need separate authoring."
+  },
+  "limits": [
+    "One image reused at three scales and mirrored for the central cluster; no source model or rear faces inspected.",
+    "These lab props have no collision or interaction. Gray Crystal removal and native map layout remain outside this prototype."
+  ],
+  "validation": [
+    "evidence/tunigi-crystal-browser.json",
+    "evidence/tunigi-crystal-placement.png",
+    "evidence/tunigi-crystal-placement-east.png"
+  ]
+}
