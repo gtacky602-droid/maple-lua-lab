@@ -7,7 +7,7 @@ from tempfile import TemporaryDirectory
 ROOT = Path(__file__).resolve().parent
 ART_LISTS = ('art_components', 'art_variants')
 ART_KEYS = {'art_candidate', *ART_LISTS}
-DETAIL_KEYS = {'action', 'variants', 'variantLabel', 'grouping', 'remaining', 'review_note', 'extra_evidence', *ART_KEYS}
+DETAIL_KEYS = {'name', 'aliases', 'action', 'variants', 'variantLabel', 'grouping', 'remaining', 'review_note', 'extra_evidence', *ART_KEYS}
 
 
 def read_json(path):
@@ -58,10 +58,41 @@ def resolve_art(ref, galleries):
     return {**result, **{k: v for k, v in ref.items() if k not in ('gallery', 'item')}}
 
 
+def apply_roster_review(rows, review):
+    totals = {}
+    unmatched = []
+    for kind in ('normal', 'weekly'):
+        by_id = {row['id']: row for row in rows if row['kind'] == kind}
+        matched = set()
+        names = set()
+        for entry in review[kind]:
+            name = entry['name']
+            if not name or name in names or not entry['rows']:
+                raise ValueError(f'{kind}: missing or duplicate roster name {name!r}')
+            names.add(name)
+            for row_id in entry['rows']:
+                if row_id not in by_id or row_id in matched:
+                    raise ValueError(f'{kind}: invalid or duplicate roster mapping for {row_id}')
+                matched.add(row_id)
+                row = by_id[row_id]
+                if name not in row['name'] and name not in row.get('aliases', []):
+                    row['aliases'] = [*row.get('aliases', []), name]
+        totals[kind] = len(names)
+        unmatched.extend(sorted(by_id.keys() - matched))
+    return {
+        'game_version': review['game_version'],
+        'reviewed_on': review['reviewed_on'],
+        'field_boss_families': totals['normal'],
+        'weekly_challenges': totals['weekly'],
+        'unmatched_rows': unmatched,
+    }
+
+
 def build():
     source = read_json('content/boss-catalog.json')
     original = read_json('content/stygian-encounters.json')
     details = read_json('content/encounter-details.json')['entries']
+    review = read_json('content/encounter-roster-review.json')
     galleries = {
         gallery: {item['id']: item for item in read_json(path)['items']}
         for gallery, path in [('bosses', 'content/boss-art-gallery.json'),
@@ -104,9 +135,11 @@ def build():
                 raise ValueError(f'{row_id}: invalid art reference for {key}: {error}') from error
             row[key] = value
 
+    roster_review = apply_roster_review(rows, review)
     return {
         'version': 1, 'snapshot_commit': source['snapshot_commit'], 'complete_roster_verified': False,
-        'warning': '制作候補一覧。最新の全ボス網羅・戦闘単位の最終確認は未完。未実装を挑戦可能として表示しない。',
+        'warning': '未実装の戦闘は制作中。ゲーム内の冒険の証との照合は未実施。',
+        'roster_review': roster_review,
         'counts': {
             'source_entities': len(entities), 'encounter_candidates': len(rows),
             'partial': sum(row['status'] == 'partial' for row in rows), 'complete': 0,

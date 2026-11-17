@@ -1,5 +1,5 @@
 {
-  "count": 44,
+  "count": 48,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -11,6 +11,8 @@
     "evidence on every row",
     "generated file matches builder",
     "counts retained",
+    "public roster matched without merging Icewind modes or Dottore challenges",
+    "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",
     "every candidate has a gallery reference",
     "Capitano art and design linked without a playable action",
@@ -18,6 +20,8 @@
     "Rerir art and design linked without a playable action",
     "Ronova art and design linked without a playable action",
     "gallery revision automatically updates reference",
+    "new unreviewed row is reported",
+    "overlapping entries rejected",
     "launch boss_anemo",
     "launch boss_cryo_regisvine",
     "launch boss_electro",

@@ -1,6 +1,9 @@
 {
   "errors": [],
   "allCandidates": 70,
+  "fieldBossFamilies": 48,
+  "weeklyChallenges": 14,
+  "dottoreAliasMatches": 2,
   "suiteVariants": 2,
   "stygianCandidates": 7,
   "disabledUnimplemented": true,

@@ -22,6 +22,14 @@ check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
 check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':70,'partial':11,'complete':0})
 by_id={r['id']:r for r in rows}
+check('public roster matched without merging Icewind modes or Dottore challenges',d['roster_review']=={
+ 'game_version':'7.2','reviewed_on':'2026-11-17','field_boss_families':48,'weekly_challenges':14,'unmatched_rows':[],
+} and len([r for r in rows if r['kind']=='normal'])==49)
+check('both Dottore domains keep separate candidate IDs and aliases',
+      by_id['boss-29130201']['name']=='「博士」（偽月の異端者）'
+      and by_id['boss-29150101']['name']=='ドットーレ（左道の真諦者）'
+      and 'ドットーレ' in by_id['boss-29130201']['aliases']
+      and '博士' in by_id['boss-29150101']['aliases'])
 check('both paired encounters retain two art references',all(len(by_id[id]['art_components'])==2 for id in ('bathysmal-herd','boss-29122000')))
 check('every candidate has a gallery reference',all(r.get('art_candidate') or r.get('art_components') for r in rows))
 check('Capitano art and design linked without a playable action',
@@ -50,6 +58,17 @@ def read_previous_beidou_art(path):
 with patch.object(build_encounters,'read_json',side_effect=read_previous_beidou_art):
  revision=next(r for r in build()['encounters'] if r['id']=='stygian-beidou')
  check('gallery revision automatically updates reference',revision['art_candidate']['encoding']=='assets/beidou-idle-sprites.json' and revision['action'] is None)
+
+review=read_json('content/encounter-roster-review.json')
+unreviewed=d['encounters']+[{'id':'new-boss','kind':'normal'}]
+check('new unreviewed row is reported',build_encounters.apply_roster_review(unreviewed,review)['unmatched_rows']==['new-boss'])
+review['normal'].append({'name':'重複','rows':['boss-26020101']})
+try:
+ build_encounters.apply_roster_review(unreviewed,review)
+except ValueError as error:
+ check('overlapping entries rejected','duplicate roster mapping' in str(error))
+else:
+ raise AssertionError('accepted overlapping roster entries')
 
 lua,c=runtime()
 launches=[]

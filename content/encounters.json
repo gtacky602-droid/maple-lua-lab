@@ -2,7 +2,14 @@
   "version": 1,
   "snapshot_commit": "8e5badd60b5d894284ccc927a56c9683529d2592",
   "complete_roster_verified": false,
-  "warning": "制作候補一覧。最新の全ボス網羅・戦闘単位の最終確認は未完。未実装を挑戦可能として表示しない。",
+  "warning": "未実装の戦闘は制作中。ゲーム内の冒険の証との照合は未実施。",
+  "roster_review": {
+    "game_version": "7.2",
+    "reviewed_on": "2026-11-17",
+    "field_boss_families": 48,
+    "weekly_challenges": 14,
+    "unmatched_rows": []
+  },
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
@@ -454,7 +461,10 @@
         "encoding": "assets/yumka-idle-sprites.json",
         "audit": "evidence/yumka-reference-audit.json",
         "status": "normal blue-crest idle candidate only; charged form, attacks and animation not implemented"
-      }
+      },
+      "aliases": [
+        "山の王・貪食のユムカ竜"
+      ]
     },
     {
       "id": "boss-22060101",
@@ -506,7 +516,10 @@
         "encoding": "assets/qucusaur-idle-sprites.json",
         "audit": "evidence/qucusaur-reference-audit.json",
         "status": "normal red-form idle candidate only; gold form, attacks and animation not implemented"
-      }
+      },
+      "aliases": [
+        "暴君・金焔のクク竜"
+      ]
     },
     {
       "id": "boss-25135202",
@@ -633,7 +646,8 @@
       "grouping": "selectable_variant",
       "evidence": [
         "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/icewindsuite.json",
-        "sources/boss-research/english-boss-candidates.json:24070301 investigation.description"
+        "sources/boss-research/english-boss-candidates.json:24070301 investigation.description",
+        "https://genshin.hoyoverse.com/en/news/detail/112690"
       ],
       "remaining": [
         "固有戦闘",
@@ -660,7 +674,8 @@
       "grouping": "selectable_variant",
       "evidence": [
         "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/icewindsuite.json",
-        "sources/boss-research/english-boss-candidates.json:24070301 investigation.description"
+        "sources/boss-research/english-boss-candidates.json:24070301 investigation.description",
+        "https://genshin.hoyoverse.com/en/news/detail/112690"
       ],
       "remaining": [
         "固有戦闘",
@@ -677,7 +692,7 @@
     },
     {
       "id": "boss-29150101",
-      "name": "ドットーレ",
+      "name": "ドットーレ（左道の真諦者）",
       "kind": "weekly",
       "entity_ids": [
         "29150101"
@@ -686,7 +701,8 @@
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/ildottore.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/ildottore.json",
+        "https://gamewith.jp/genshin/article/show/560976"
       ],
       "remaining": [
         "固有戦闘",
@@ -694,7 +710,11 @@
         "報酬・難度",
         "通し検証"
       ],
-      "review_note": "同一人物の別データ。報酬IDが異なるため別候補のまま保持。挑戦枠の公式照合が必要。",
+      "aliases": [
+        "博士",
+        "万有涅槃縛境"
+      ],
+      "review_note": "スメールの征討領域「万有涅槃縛境」の挑戦。",
       "art_candidate": {
         "source": "assets/dottore-heretical-idle-source-v1.png",
         "encoding": "assets/dottore-heretical-idle-sprites.json",
@@ -839,6 +859,9 @@
           "audit": "evidence/signora-flame-reference-audit.json",
           "status": "idle body candidate only; no fire effects, phase transitions, attacks or animation"
         }
+      ],
+      "aliases": [
+        "シニョーラ"
       ]
     },
     {
@@ -978,7 +1001,10 @@
         "encoding": "assets/andrius-idle-sprites.json",
         "audit": "evidence/andrius-reference-audit.json",
         "status": "normal-form idle candidate only; no live combat or animations"
-      }
+      },
+      "aliases": [
+        "アンドリアス"
+      ]
     },
     {
       "id": "boss-29060201",
@@ -1004,7 +1030,10 @@
         "encoding": "assets/raiden-boss-idle-sprites.json",
         "audit": "evidence/raiden-boss-reference-audit.json",
         "status": "Baleful Shadowlord idle candidate; normal form, attacks and animation not implemented"
-      }
+      },
+      "aliases": [
+        "雷電将軍"
+      ]
     },
     {
       "id": "boss-25090101",
@@ -1490,7 +1519,10 @@
         "encoding": "assets/dvalin-idle-sprites.json",
         "audit": "evidence/dvalin-reference-audit.json",
         "status": "purified idle body candidate only; corrupted crystals, attacks and animation not implemented"
-      }
+      },
+      "aliases": [
+        "トワリン"
+      ]
     },
     {
       "id": "boss-23090101",
@@ -1546,7 +1578,7 @@
     },
     {
       "id": "boss-29130201",
-      "name": "「博士」",
+      "name": "「博士」（偽月の異端者）",
       "kind": "weekly",
       "entity_ids": [
         "29130201"
@@ -1555,7 +1587,9 @@
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/thedoctor.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/thedoctor.json",
+        "https://genshin.hoyoverse.com/ja/news/detail/162159",
+        "https://game8.jp/genshin/754116"
       ],
       "remaining": [
         "固有戦闘",
@@ -1563,7 +1597,10 @@
         "報酬・難度",
         "通し検証"
       ],
-      "review_note": "同一人物の別データ。報酬IDが異なるため別候補のまま保持。挑戦枠の公式照合が必要。",
+      "aliases": [
+        "ドットーレ"
+      ],
+      "review_note": "ナド・クライ「煙雲の山」の征討領域の挑戦。",
       "art_candidate": {
         "source": "assets/doctor-false-moon-idle-source-v1.png",
         "encoding": "assets/doctor-false-moon-idle-sprites.json",
@@ -1583,7 +1620,8 @@
       "grouping": "multi_phase_paired_encounter",
       "evidence": [
         "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/thegamebeforethegate.json",
-        "https://wiki.hoyolab.com/pc/genshin/entry/7672?lang=ja-jp"
+        "https://wiki.hoyolab.com/pc/genshin/entry/7672?lang=ja-jp",
+        "https://genshin.hoyoverse.com/ja/news/detail/157064"
       ],
       "remaining": [
         "固有戦闘",
@@ -1694,7 +1732,8 @@
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/wavebinder.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/wavebinder.json",
+        "https://genshin.hoyoverse.com/ja/news/detail/167187"
       ],
       "remaining": [
         "固有戦闘",

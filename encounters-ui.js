@@ -8,6 +8,12 @@ async function initEncounters(){
   const response=await fetch('content/encounters.json');if(!response.ok)throw Error(response.status);
   const data=await response.json(),note=document.createElement('p');note.className='note';
   note.textContent=`候補 ${data.counts.encounter_candidates}戦／部分実装 ${data.counts.partial}戦／完成 ${data.counts.complete}戦。${data.warning}`;panel.append(note);
+  if(data.roster_review){
+   const review=data.roster_review,scope=document.createElement('p');scope.className='note';
+   scope.textContent=`原作Ver.${review.game_version}の公開一覧で照合済み　通常${review.field_boss_families}系統・週ボス${review.weekly_challenges}戦。氷風組曲の2演目は個別に表示。`;
+   if(review.unmatched_rows.length)scope.textContent+=` 未照合の登録 ${review.unmatched_rows.length}件。`;
+   panel.append(scope);
+  }
   const galleries=Object.entries(encounterArtGalleries);
   const results=await Promise.allSettled(galleries.map(async ([,gallery])=>{
    const response=await fetch(gallery.catalog);if(!response.ok)throw Error(response.status);
@@ -31,7 +37,9 @@ async function initEncounters(){
   }
   window.addEventListener('lab-ready',updateReadiness);
   function render(){
-   const rows=data.encounters.filter(r=>(kind.value==='all'||r.kind===kind.value)&&(!playable.checked||r.action)&&r.name.includes(search.value.trim()));
+   const query=search.value.trim().normalize('NFKC');
+   const rows=data.encounters.filter(r=>(kind.value==='all'||r.kind===kind.value)&&(!playable.checked||r.action)
+    &&[r.name,...(r.aliases??[])].some(name=>name.normalize('NFKC').includes(query)));
    count.textContent=`表示 ${rows.length}戦`;list.replaceChildren();
    for(const r of rows){
     const row=document.createElement('div');row.className='controls';row.dataset.encounter=r.id;

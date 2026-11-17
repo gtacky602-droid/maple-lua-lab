@@ -184,6 +184,9 @@
       }
     },
     "icewind-coppelia": {
+      "extra_evidence": [
+        "https://genshin.hoyoverse.com/en/news/detail/112690"
+      ],
       "art_candidate": {
         "item": "coppelia",
         "audit": "evidence/icewind-reference-audit.json",
@@ -191,6 +194,9 @@
       }
     },
     "icewind-coppelius": {
+      "extra_evidence": [
+        "https://genshin.hoyoverse.com/en/news/detail/112690"
+      ],
       "art_candidate": {
         "item": "coppelius",
         "audit": "evidence/icewind-reference-audit.json",
@@ -198,7 +204,12 @@
       }
     },
     "boss-29150101": {
-      "review_note": "同一人物の別データ。報酬IDが異なるため別候補のまま保持。挑戦枠の公式照合が必要。",
+      "name": "ドットーレ（左道の真諦者）",
+      "aliases": ["博士", "万有涅槃縛境"],
+      "review_note": "スメールの征討領域「万有涅槃縛境」の挑戦。",
+      "extra_evidence": [
+        "https://gamewith.jp/genshin/article/show/560976"
+      ],
       "art_candidate": {
         "item": "dottore-heretical",
         "audit": "evidence/dottore-heretical-reference-audit.json",
@@ -491,7 +502,13 @@
       }
     },
     "boss-29130201": {
-      "review_note": "同一人物の別データ。報酬IDが異なるため別候補のまま保持。挑戦枠の公式照合が必要。",
+      "name": "「博士」（偽月の異端者）",
+      "aliases": ["ドットーレ"],
+      "review_note": "ナド・クライ「煙雲の山」の征討領域の挑戦。",
+      "extra_evidence": [
+        "https://genshin.hoyoverse.com/ja/news/detail/162159",
+        "https://game8.jp/genshin/754116"
+      ],
       "art_candidate": {
         "item": "doctor-false-moon",
         "audit": "evidence/doctor-false-moon-reference-audit.json",
@@ -501,7 +518,8 @@
     "boss-29122000": {
       "grouping": "multi_phase_paired_encounter",
       "extra_evidence": [
-        "https://wiki.hoyolab.com/pc/genshin/entry/7672?lang=ja-jp"
+        "https://wiki.hoyolab.com/pc/genshin/entry/7672?lang=ja-jp",
+        "https://genshin.hoyoverse.com/ja/news/detail/157064"
       ],
       "art_components": [
         {
@@ -544,6 +562,9 @@
       }
     },
     "boss-25134601": {
+      "extra_evidence": [
+        "https://genshin.hoyoverse.com/ja/news/detail/167187"
+      ],
       "art_candidate": {
         "item": "wavebinder",
         "audit": "evidence/wavebinder-reference-audit.json",

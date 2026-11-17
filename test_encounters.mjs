@@ -3,6 +3,12 @@ const browser=await chromium.launch({headless:true,channel:'chrome'}),page=await
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769');await page.waitForFunction(()=>window.lab?.frame);
  const panel=page.locator('#encountersPanel');await panel.locator('summary').click();await page.waitForFunction(()=>document.querySelectorAll('[data-encounter]').length===70);
+ if(!await panel.getByText(/Ver\.7\.2.*通常48系統・週ボス14戦/).isVisible())throw Error('roster review missing');
+ for(const query of ['博士','ドットーレ']){
+  await panel.getByLabel('ボス名で検索').fill(query);
+  const ids=await panel.locator('[data-encounter]').evaluateAll(rows=>rows.map(row=>row.dataset.encounter).sort());
+  if(ids.join(',')!=='boss-29130201,boss-29150101')throw Error('Dottore domains not independently searchable');
+ }
  await panel.getByLabel('ボス名で検索').fill('氷風組曲');if(await panel.locator('[data-encounter]').count()!==2)throw Error('suite variants missing');
  if(await panel.getByRole('button',{name:'制作中'}).count()!==2)throw Error('unimplemented state missing');
  for(const b of await panel.getByRole('button',{name:'制作中'}).all())if(await b.isEnabled())throw Error('unimplemented battle enabled');
@@ -18,5 +24,5 @@ try{
  await panel.getByLabel('挑戦可能のみ').check();if(await panel.locator('[data-encounter]').count()!==1)throw Error('playable filter');
  await panel.getByRole('button',{name:'試作に挑戦'}).click();await page.waitForFunction(()=>window.lab.frame.boss?.name==='ファルカ模擬戦');
  await panel.screenshot({path:'evidence/encounters-browser.png'});if(errors.length)throw Error(errors.join('/'));
- await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:70,suiteVariants:2,stygianCandidates:7,disabledUnimplemented:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter filters, variant dropdowns and launch verified');
+ await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:70,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,stygianCandidates:7,disabledUnimplemented:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');
 }finally{await browser.close()}
