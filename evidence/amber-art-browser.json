@@ -1,1 +1,22 @@
-{"errors":[],"method":"Town UI companion selection, idle art display"}
+{
+  "errors": [],
+  "method": "Town UI companion selection and existing fire-arrow action; art switches at the preexisting lock",
+  "pose": {
+    "source": "amber-bow-source-v3.png",
+    "w": 79.785501489573,
+    "x": 200,
+    "y": 480,
+    "box": [
+      226,
+      79,
+      913,
+      1007
+    ],
+    "kind": "boss_sprite",
+    "anchorX": 0.4430449069003286,
+    "h": 88,
+    "flip": false
+  },
+  "rectMode": true,
+  "idleRestored": true
+}

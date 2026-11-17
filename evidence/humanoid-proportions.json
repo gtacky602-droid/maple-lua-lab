@@ -1,0 +1,123 @@
+{
+  "method": "Approximate visual landmarks. Crown excludes Aether’s hair tuft and Amber’s ribbon. Head-size change compares head share at equal standing anatomy height; picture uses equal in-game bounding-box height. Bow span excludes the red tassel.",
+  "subjects": [
+    {
+      "id": "traveler",
+      "name": "旅人",
+      "before": {
+        "crown": 116,
+        "chin": 450,
+        "source": "traveler-idle-source-v2.png",
+        "box": [
+          367,
+          25,
+          542,
+          1142
+        ],
+        "anchor": 0.6226937269372693,
+        "headHeight": 334,
+        "heads": 3.1467065868263475,
+        "runs": {
+          "legacy": 1588,
+          "h48c32": 914,
+          "h32c16": 405
+        }
+      },
+      "after": {
+        "crown": 132,
+        "chin": 529,
+        "source": "traveler-idle-source-v3.png",
+        "box": [
+          267,
+          33,
+          619,
+          1221
+        ],
+        "anchor": 0.6001615508885298,
+        "headHeight": 397,
+        "heads": 2.8261964735516374,
+        "runs": {
+          "legacy": 1684,
+          "h48c32": 998,
+          "h32c16": 448
+        }
+      },
+      "headIncreasePercent": 11.340687608739742
+    },
+    {
+      "id": "amber",
+      "name": "アンバー",
+      "before": {
+        "crown": 245,
+        "chin": 540,
+        "source": "amber-idle-source-v2.png",
+        "box": [
+          269,
+          45,
+          555,
+          1190
+        ],
+        "anchor": 0.6270270270270271,
+        "headHeight": 295,
+        "heads": 3.3559322033898304,
+        "runs": {
+          "legacy": 1378,
+          "h48c32": 821,
+          "h32c16": 360
+        }
+      },
+      "after": {
+        "crown": 214,
+        "chin": 550,
+        "source": "amber-idle-source-v3.png",
+        "box": [
+          247,
+          86,
+          592,
+          1118
+        ],
+        "anchor": 0.597972972972973,
+        "headHeight": 336,
+        "heads": 2.9464285714285716,
+        "runs": {
+          "legacy": 1751,
+          "h48c32": 1043,
+          "h32c16": 428
+        }
+      },
+      "headIncreasePercent": 13.898305084745743
+    }
+  ],
+  "bow": {
+    "name": "アンバーの弓の構え",
+    "before": {
+      "source": "atlas-transparent.png",
+      "box": [
+        1367,
+        24,
+        370,
+        412
+      ],
+      "anchor": 0.5,
+      "bowSpan": [
+        81,
+        346
+      ]
+    },
+    "after": {
+      "source": "amber-bow-source-v3.png",
+      "box": [
+        226,
+        79,
+        913,
+        1007
+      ],
+      "anchor": 0.4430449069003286,
+      "bowSpan": [
+        176,
+        901
+      ]
+    },
+    "increasePercent": 11.933447003054077
+  }
+}

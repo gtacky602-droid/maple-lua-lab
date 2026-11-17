@@ -30,7 +30,7 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
  function C.drawThunderArt(f,b,mode,profile) draw(f,C.thunderArt,b.x,465,150,mode,profile,false) end
  function C.drawCompanionArt(f,s,a,mode,profile) draw(f,C.companionArt[s.companion],a.x-s.camera,a.y,s.companion=='kachina' and 76 or 88,mode,profile,a.dir<0) end
  function C.drawEnemyIdleArt(f,s,e,mode,profile) local layout=C.enemyArtLayout[e.art];draw(f,C.enemyIdleArt[e.art],e.x-s.camera,e.y-layout.hover,layout.height,mode,profile,false) end
- function C.drawAmberIdleArt(f,s,a,mode,profile) draw(f,C.amberIdleArt,a.x-s.camera,a.y,88,mode,profile,a.dir<0) end
+ function C.drawAmberArt(f,s,a,mode,profile,art) draw(f,art,a.x-s.camera,a.y,88,mode,profile,a.dir<0) end
  function C.drawTravelerIdleArt(f,s,a,mode,profile) draw(f,C.travelerIdleArt,a.x-s.camera,a.y,88,mode,profile,a.dir<0) end
  function C.drawArrayArt(f,b,mode,profile)
   draw(f,C.arrayArt,b.x,b.phase=='rocket' and 280 or b.phase=='down' and 480 or 465,b.phase=='down' and 90 or b.phase=='split' and 75 or 140,mode,profile,false)

@@ -1,11 +1,11 @@
 {
   "updated": "2026-11-17",
   "traveler": {
-    "status": "v2 idle model-informed candidate; old atlas run retained; 88px/3 profiles",
-    "reference_audit": "Four PMX views inspected; front/back/side supplied to generator; shoulder asymmetry and cape motifs revised; mirrored left facing and old run costume mismatch remain"
+    "status": "v3 idle uses larger head, shorter torso and shins, fuller cuffs and soles; 88px/3 profiles. Existing run pose still uses the old atlas.",
+    "reference_audit": "Directly viewed the v2 idle and PMX front; art comparison and measurements in evidence/humanoid-proportions.json. Asymmetry still mirrors on left-facing draw."
   },
   "companions": {
-    "amber": "v2 idle from directly viewed default PMX front/side; white-red boots/corset/ribbons corrected; 88px/3 profiles; old atlas bow pose retained and visually inconsistent; mirrored asymmetry unresolved",
+    "amber": "v3 idle and bow stance; larger head, fuller limbs and shorter shins; 88px/3 profiles. The bow is larger and thicker in the preexisting aiming display. Mirrored asymmetry remains.",
     "beidou": "v3 idle: red/dark split tails, silver chest ornament and gold hairpin revised using viewed PMX front/back; mirror asymmetry remains; 88px/3 profiles",
     "ayaka": "v3 idle: white forearm guard, side armor gold crest and chest crest revised using viewed PMX front/side; mirror asymmetry remains; 88px/3 profiles",
     "wanderer": "v2 idle revised from illustration and four viewed PMX angles; hat/shoulder/sleeve/waist colors corrected; 88px/3 profiles; float tracking verified; mirror asymmetry remains",

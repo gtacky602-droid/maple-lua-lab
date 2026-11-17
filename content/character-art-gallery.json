@@ -4,13 +4,13 @@
     {
       "id": "traveler",
       "name": "旅人",
-      "file": "traveler-idle-sprites.json",
+      "file": "traveler-idle-sprites-v3.json",
       "height": 88
     },
     {
       "id": "amber",
       "name": "アンバー",
-      "file": "amber-idle-sprites.json",
+      "file": "amber-idle-sprites-v3.json",
       "height": 88
     },
     {

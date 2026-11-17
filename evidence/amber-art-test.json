@@ -26,5 +26,33 @@
       "h32c16"
     ]
   ],
-  "dead_hidden": true
+  "dead_hidden": true,
+  "bow_grounded": true,
+  "bow_png_and_rect_profiles": [
+    [
+      -1,
+      "legacy"
+    ],
+    [
+      -1,
+      "h48c32"
+    ],
+    [
+      -1,
+      "h32c16"
+    ],
+    [
+      1,
+      "legacy"
+    ],
+    [
+      1,
+      "h48c32"
+    ],
+    [
+      1,
+      "h32c16"
+    ]
+  ],
+  "idle_restored": true
 }

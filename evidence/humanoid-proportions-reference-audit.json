@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-17",
+  "direction": "User-approved humanoid target: 2.8–3.2 heads, enlarge head by 10–20 percent at equal standing anatomy height, compress torso and shins, fuller shoulders, hands and feet; make weapon silhouettes slightly larger in weapon poses. Existing monster proportions remain in scope as established art.",
+  "tool": "built-in ImageGen",
+  "modelReferenceAudit": "evidence/traveler-amber-reference-audit.json",
+  "measurement": "evidence/humanoid-proportions.json",
+  "outputs": [
+    {
+      "id": "traveler",
+      "editTarget": "assets/traveler-idle-source-v2.png",
+      "modelReference": "work/references/aether-views/front.png",
+      "modelReferenceSHA256": "3d033e89a30607681987c76691208933f28875bec1656c46903bceed7061898e",
+      "output": "assets/traveler-idle-source-v3.png",
+      "encoding": "assets/traveler-idle-sprites-v3.json",
+      "prompt": "Edit the first image, the current Aether Traveler idle pixel sprite, into the next sprite for the same MapleStory-inspired 2D RPG. The second image is the costume reference, only for established garment details. Retain his precise identity, same blond hair including the upturned single tuft and long braid, amber eyes, white and gold split cape and hanging front panel, asymmetrical one-shoulder armor, exposed midriff, brown trousers, dark gloves, gold-trimmed boots and face turned RIGHT in the same neutral three-quarter side stance. Make a deliberate proportion change from image 1: head visibly about 15 percent bigger and rounder, shoulders slightly broader, short compact torso with less distance from shoulders to belt, shorten the shin from knee to ankle and make the boots wider and slightly fuller for a grounded base. Simplify and thicken forearms and calves modestly and enlarge hands a little, keeping five-finger detail implied by chunky pixel clusters. Target about 2.9 heads from top of the head mass to boot soles; ignore the isolated vertical hair tuft when thinking of head height and body height. The main head mass should occupy just over one third of that standing anatomy height. Keep two boot soles on a common level and a narrow leg gap. Preserve the palette, silhouette accents and crisp stepped pixel art with only medium-sized clusters, clear at 88px runtime display. Same neutral unarmed idle. Single whole figure centered with padding and clean transparent alpha; no sword, extra props, effects, shadow, UI, labels, background or guides. Do not use a new costume or a new action."
+    },
+    {
+      "id": "amber",
+      "editTarget": "assets/amber-idle-source-v2.png",
+      "modelReference": "work/references/amber-views/front.png",
+      "modelReferenceSHA256": "d30568fdfd2100d7c3d9281b621137118ff6e0b3da5d04f878f29fba704dec36",
+      "output": "assets/amber-idle-source-v3.png",
+      "encoding": "assets/amber-idle-sprites-v3.json",
+      "prompt": "Edit the first image, the current Amber idle pixel sprite, into the next sprite for the same MapleStory-inspired 2D RPG. The second image is the costume reference; use it for established garment details, not realistic human proportions. Retain her precise identity: long brown hair, red rabbit bow with gold tips, gold-rimmed collar goggles, smooth white chest panel, short red jacket, broad dark cuffs, fitted brown corset with branching gold emblem and brown shorts, hip pouch, red-to-orange hip ribbons, tall white boots with red upper panels and gold toe trim. Same neutral standing pose facing RIGHT in a three-quarter side view, hands lowered. Make a deliberate proportion change from image 1: head visibly about 15 percent bigger, rounder and wider, shoulders slightly broader, compact torso with less distance from shoulders to belt, shorten the shin from knee to ankle, make calves less thin, make gloves a little larger, and widen the boot toes and soles with solid feet on ground. Simplify limb and costume linework into readable chunky groups. Target about 2.9 heads from the top of the skull hair mass to the boot soles; exclude the tall red bunny ribbon from that ratio and keep that bow's height modest relative to the current one. The main head should occupy just over one third of the anatomy's standing height. Keep two distinct boots against the same level ground baseline, with a narrow leg gap. Maintain current colors and silhouette accents, crisp hard steps, a defined outer contour, medium pixel clusters suitable for a runtime height of 88px. Same neutral unarmed idle, full isolated figure with ample margin and clean transparent alpha. No bow weapon, quiver, attack effects, floor, background, text, panels or guides."
+    },
+    {
+      "id": "amber-bow",
+      "editTarget": "assets/atlas-transparent.png (upper-right Amber aiming pose)",
+      "styleReference": "assets/amber-idle-source-v3.png",
+      "output": "assets/amber-bow-source-v3.png",
+      "encoding": "assets/amber-bow-sprites-v3.json",
+      "prompt": "Create ONE transparent pixel-art replacement for the fourth character in the second reference (Amber's existing right-facing bow aim pose). Reference one, the new Amber idle, is authoritative for her new about 2.9-head-tall body (excluding the red rabbit-ear ribbon), broader shoulder line, short compact torso and shins, rounded larger head, fuller gloves and sturdy flat boot soles. Carry the identity and exact red-brown-white-gold clothes, smooth white chest, red rabbit ribbon, golden collar goggles, white boots, and brown long hair straight over. Use ONLY the existing Amber bow pose at top right of reference two for the pose and weapon. Same right-facing view, balanced two planted boots with knees slightly bent, left front arm extended holding the curved upright bow grip at shoulder height, back hand drawing one straight horizontal arrow near the face. Depict the same brown wooden recurved bow with gold caps and a small red ribbon, but make the bow about 10–15% bigger than before at the same character scale and give both limbs a bolder uninterrupted silhouette at small runtime size. Keep the top bow tip below her tall head ribbon and the bottom bow tip just above the boot soles; the bow must never extend lower than the feet. Preserve a clean negative space between the body and the bow, one visible string, one horizontal arrow and no other effects. Crisp hard pixel clusters, medium chunky details, noticeably chibi, readable at 88 pixels high. No scene, ground shadow, grid, text, UI, blaze, projectile trails, or other figures. Full figure and complete bow with wide transparent margin, no cropping."
+    }
+  ],
+  "scope": "First pair of neutral idle assets and Amber's existing aim-pose display. The Traveler's existing run pose, other weapon-bearing poses and remaining humanoids still need the style."
+}
