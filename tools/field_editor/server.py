@@ -110,7 +110,7 @@ class Handler(BaseHTTPRequestHandler):
             if path == '/api/bootstrap':
                 # Browser-only bootstrap. Bearer agents receive no approval credential.
                 if self.headers.get('Authorization') or self.headers.get('Sec-Fetch-Site') != 'same-origin': raise DesignError('Open the local editor page to initialize a UI session; agents use documented API operations', 403)
-                return self.send(200, {'ui_token': self.server.ui_token, 'custom_waypoints': True, 'maps': store.maps, 'map_sources': store.sources, 'map_floors': store.floors, 'map_nodes': store.nodes, 'catalog': {k: store.catalog[k] for k in ('version', 'source', 'captured_at', 'complete_world_verified')}, 'project': store.snapshot()})
+                return self.send(200, {'ui_token': self.server.ui_token, 'custom_waypoints': True, 'remove_pending_connection': True, 'maps': store.maps, 'map_sources': store.sources, 'map_floors': store.floors, 'map_nodes': store.nodes, 'catalog': {k: store.catalog[k] for k in ('version', 'source', 'captured_at', 'complete_world_verified')}, 'project': store.snapshot()})
             if path.startswith('/floors/'):
                 return self.floor_image(path)
             if path.startswith('/tiles/'):
@@ -142,7 +142,7 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         try:
             path = urlparse(self.path).path
-            self.authorize(approve=path in ('/api/approve', '/api/undo', '/api/chatgpt/test', '/api/chatgpt/stop'))
+            self.authorize(approve=path in ('/api/approve', '/api/undo', '/api/chatgpt/test', '/api/chatgpt/stop', '/api/proposals/remove-connection'))
             req = self.request_json(); store = self.server.store
             if path in ('/api/chatgpt/test', '/api/chatgpt/stop'):
                 remote = self.server.remote_mcp
@@ -153,6 +153,8 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send(200, self.chatgpt_status())
                 return self.send(200, {'ok': remote.test_access(), **self.chatgpt_status()})
             if path == '/api/proposals': return self.send(201, store.propose(req))
+            if path == '/api/proposals/remove-connection':
+                return self.send(200, {'proposal': store.remove_pending_connection(req['proposal_id'], req['edge_id'])})
             if path == '/api/approve': return self.send(200, store.approve(req['proposal_id'], req['revision'], req.get('overwrite_approved', False)))
             if path == '/api/operations': return self.send(200, operation(store, req['operation'], req.get('arguments', {})))
             if path == '/api/compile':

@@ -13,7 +13,19 @@ async function api(path,body){const res=await fetch(path,{method:body?'POST':'GE
 async function refresh(){project=await api('/api/project');renderHeader();renderRegions();graph.draw();renderInspector();renderDock()}
 function badge(state){return `<span class="badge ${esc(state)}">${esc(statusLabels[state]||state)}</span>`}
 function activeMap(){return maps.find(m=>m.map_id===currentMap)||maps[0]}
-function previewData(){const d={...project};for(const c of ['field_definitions','field_edges','monster_families','monster_variants','field_spawns','graph_layouts','graph_exceptions'])d[c]={...project[c]};const changes=new Set();if(preview?.status==='proposed')for(const op of preview.operations){changes.add(op.collection+':'+op.id);if(op.action==='delete')delete d[op.collection][op.id];else d[op.collection][op.id]={...(d[op.collection][op.id]||{}),...op.changes}}
+function previewData(){
+ const d={...project};
+ for(const c of ['field_definitions','field_edges','monster_families','monster_variants','field_spawns','graph_layouts','graph_exceptions'])d[c]={...project[c]};
+ const changes=new Set();
+ if(preview?.status==='proposed')for(const op of preview.operations){
+  changes.add(op.collection+':'+op.id);
+  if(op.action==='delete'){
+   delete d[op.collection][op.id];
+   continue;
+  }
+  const record=d[op.collection][op.id]={...d[op.collection][op.id],...op.changes};
+  if(op.collection==='field_edges')record.edge_id=op.id;
+ }
  if(preview?.status==='proposed')for(const x of preview.diff){
   const record=d[x.collection][x.id];
   if(record&&x.collection==='field_definitions'&&!project.field_definitions[x.id]&&x.item!=='*'){
@@ -111,8 +123,9 @@ function showProposalMap(p){
  if(floorId)setFloor('');
  persistView();renderHeader();renderInspector();renderDock();graph.draw();
 }
-function renderEdgeInspector(i){const d=previewData().data,e=d.field_edges[i];if(!e){selectedEdge=null;renderInspector();return}$('#inspectorBody').innerHTML=`<div class="field-tag">${esc(i)}</div><h3 style="margin-top:16px">${esc(fieldName(e.from_field,d))} ${e.direction==='both'?'↔':'→'} ${esc(fieldName(e.to_field,d))}</h3><p class="help">${esc(e.kind)} / ${esc(JSON.stringify(e.conditions))}</p><button id="editSelectedEdge">接続を編集</button><p class="help">線の削除も差分を確認して採用します。</p>`;$('#editSelectedEdge').onclick=()=>edgeEditor(i)}
+function renderEdgeInspector(i){const d=previewData().data,e=d.field_edges[i];if(!e){selectedEdge=null;renderInspector();return}$('#inspectorBody').innerHTML=`<div class="field-tag">${esc(i)}</div><h3 style="margin-top:16px">${esc(fieldName(e.from_field,d))} ${e.direction==='both'?'↔':'→'} ${esc(fieldName(e.to_field,d))}</h3><p class="help">${esc(e.kind)} / ${esc(JSON.stringify(e.conditions))}</p><button id="editSelectedEdge">接続を編集</button><p class="help">${project.field_edges[i]?'線の削除も差分を確認して採用します。':'未採用の線は変更案から外せます。'}</p>`;$('#editSelectedEdge').onclick=()=>edgeEditor(i)}
 function edgeEditor(edgeId,from,to){const d=previewData().data,queued=mapDrafts.has(edgeId),creating=!edgeId||queued;const e=edgeId?d.field_edges[edgeId]:{edge_id:id('edge'),from_field:from||selected||mapFieldIds(activeMap(),d)[0],to_field:to||'',direction:'both',kind:'portal',conditions:{requires_discovery:true},exit_position:{x:0,y:0},entrance_position:{x:0,y:0},notes:''};
+ const pending=edgeId&&!queued&&!project.field_edges[edgeId]?preview:null;
  const eligible=new Set(Object.keys(d.field_definitions).filter(i=>project.field_definitions[i]||mapDrafts.has(i)));
  const byMap=new Map(maps.map(m=>[m.map_id,mapFieldIds(m,d).filter(i=>eligible.has(i))]));
  const mapFor=i=>{
@@ -125,7 +138,7 @@ function edgeEditor(edgeId,from,to){const d=previewData().data,queued=mapDrafts.
   const mapId=mapFor(fieldId);
   return `<div><label>${label}地域<select name="${key}_map"><option value="">すべての地点</option>${maps.map(m=>`<option value="${esc(m.map_id)}" ${m.map_id===mapId?'selected':''} ${byMap.get(m.map_id).length?'':'disabled'}>${esc(m.name)}</option>`).join('')}</select></label><label>${label}地点<select name="${key}_field" required>${fieldOpts(mapId,fieldId)}</select></label></div>`;
  };
- openModal(creating?'フィールドを接続':'接続を編集',`<form id="edgeForm"><div class="row">${endpoint('from','出発',e.from_field)}${endpoint('to','到着',e.to_field)}</div><div class="row"><label>方向<select name="direction"><option value="both" ${e.direction==='both'?'selected':''}>双方向 ↔</option><option value="one_way" ${e.direction==='one_way'?'selected':''}>一方通行 →</option></select></label><label>移動方法<select name="kind">${Object.entries({portal:'通常ポータル',level:'Lv条件付き',quest:'クエスト解放',hidden:'隠し通路',boat:'船・特殊移動',temporary:'一時的な接続'}).map(([k,v])=>`<option value="${k}" ${e.kind===k?'selected':''}>${v}</option>`).join('')}</select></label></div><div class="row"><label>必要Lv<input name="min_level" type="number" min="1" max="200" value="${e.conditions.min_level??''}"></label><label>必要クエストID<input name="quest_id" value="${esc(e.conditions.quest_id||'')}"></label></div><label>一時的な利用条件・条件式<input name="expression" value="${esc(e.conditions.expression||'')}"></label><p class="help">ファストトラベルは目的地の発見を必須にします。</p><div class="row"><label>出口 X<input type="number" step="any" name="exit_x" value="${e.exit_position.x}"></label><label>出口 Y<input type="number" step="any" name="exit_y" value="${e.exit_position.y}"></label><label>入口 X<input type="number" step="any" name="entry_x" value="${e.entrance_position.x}"></label><label>入口 Y<input type="number" step="any" name="entry_y" value="${e.entrance_position.y}"></label></div><label>接続メモ<textarea name="notes">${esc(e.notes)}</textarea></label><label>変更理由<input name="reason" required value="${esc(mapDrafts.get(edgeId)?.reason||(creating?'地図で指定したフィールド間の接続':'接続設定の変更'))}"></label><div class="modal-actions">${creating?'<button type="submit" id="queueEdge">追加して地図に戻る</button>':'<button type="button" id="deleteEdge" class="danger">接続を削除</button>'}<button type="submit" class="primary">変更案の差分を見る</button></div></form>`);
+ openModal(creating?'フィールドを接続':'接続を編集',`<form id="edgeForm"><div class="row">${endpoint('from','出発',e.from_field)}${endpoint('to','到着',e.to_field)}</div><div class="row"><label>方向<select name="direction"><option value="both" ${e.direction==='both'?'selected':''}>双方向 ↔</option><option value="one_way" ${e.direction==='one_way'?'selected':''}>一方通行 →</option></select></label><label>移動方法<select name="kind">${Object.entries({portal:'通常ポータル',level:'Lv条件付き',quest:'クエスト解放',hidden:'隠し通路',boat:'船・特殊移動',temporary:'一時的な接続'}).map(([k,v])=>`<option value="${k}" ${e.kind===k?'selected':''}>${v}</option>`).join('')}</select></label></div><div class="row"><label>必要Lv<input name="min_level" type="number" min="1" max="200" value="${e.conditions.min_level??''}"></label><label>必要クエストID<input name="quest_id" value="${esc(e.conditions.quest_id||'')}"></label></div><label>一時的な利用条件・条件式<input name="expression" value="${esc(e.conditions.expression||'')}"></label><p class="help">ファストトラベルは目的地の発見を必須にします。</p><div class="row"><label>出口 X<input type="number" step="any" name="exit_x" value="${e.exit_position.x}"></label><label>出口 Y<input type="number" step="any" name="exit_y" value="${e.exit_position.y}"></label><label>入口 X<input type="number" step="any" name="entry_x" value="${e.entrance_position.x}"></label><label>入口 Y<input type="number" step="any" name="entry_y" value="${e.entrance_position.y}"></label></div><label>接続メモ<textarea name="notes">${esc(e.notes)}</textarea></label><label>変更理由<input name="reason" required value="${esc(mapDrafts.get(edgeId)?.reason||(creating?'地図で指定したフィールド間の接続':'接続設定の変更'))}"></label><div class="modal-actions">${creating?'<button type="submit" id="queueEdge">追加して地図に戻る</button>':'<button type="button" id="deleteEdge" class="danger">'+(pending?'変更案からこの接続を外す':'接続を削除')+'</button>'}<button type="submit" class="primary">変更案の差分を見る</button></div></form>`);
  const form=$('#edgeForm');
  for(const key of ['from','to']){
   const mapSelect=form.elements[key+'_map'],fieldSelect=form.elements[key+'_field'];
@@ -143,7 +156,24 @@ function edgeEditor(edgeId,from,to){const d=previewData().data,queued=mapDrafts.
    await submitMapDrafts();
   }else try{await propose([op],reason)}catch(e){toast(e.message)}
  };
- if($('#deleteEdge'))$('#deleteEdge').onclick=()=>propose([{collection:'field_edges',id:e.edge_id,action:'delete'}],'接続の解除: '+e.edge_id).catch(e=>toast(e.message));
+ if($('#deleteEdge'))$('#deleteEdge').onclick=()=>removeConnection(edgeId,pending);
+}
+async function removeConnection(edgeId,pending){
+ if(apiBusy)return;
+ if(pending&&!boot.remove_pending_connection){
+  toast('変更案から接続を外すには、設計室を再起動してください');return;
+ }
+ const button=$('#deleteEdge');
+ apiBusy=true;button.disabled=true;
+ try{
+  if(pending){
+   const result=await api('/api/proposals/remove-connection',{proposal_id:pending.proposal_id,edge_id:edgeId});
+   preview=result.proposal;selectedEdge=null;redoOps=null;dock='proposals';
+   persistView();closeModal();await refresh();toast('この接続を変更案から外しました');
+  }else{
+   await propose([{collection:'field_edges',id:edgeId,action:'delete'}],'接続の解除: '+edgeId);
+  }
+ }catch(e){toast(e.message)}finally{apiBusy=false;button.disabled=false}
 }
 function spawnEditor(spawnId,monsterId){const d=previewData().data,s=spawnId?d.field_spawns[spawnId]:{spawn_id:id('spawn'),field_id:selected,monster_id:monsterId,count:1,level_override:null,special:false,respawn_seconds:null,area:{},conditions:{}};if(!s.monster_id)return;const v=resolveVariant(d,s.monster_id);
  openModal('フィールドの敵配置',`<form id="spawnForm"><h3>${esc(v.name)} <span class="badge">${esc(v.classification)}</span></h3><p class="help">${esc(s.monster_id)} / 基準Lv ${v.base_level??'未設定'}<br>HP ${v.hp??'未設定'} / 攻撃 ${v.attack??'未設定'} / 防御 ${v.defense??'未設定'} / EXP ${v.exp??'未設定'}</p><p>${esc(fieldName(s.field_id,d))}</p><div class="row"><label>出現数<input name="count" type="number" min="1" max="10000" required value="${s.count}"></label><label>リスポーン秒数<input name="respawn_seconds" type="number" min="0" step="0.1" value="${s.respawn_seconds??''}"></label></div><label class="check"><input name="special" type="checkbox" ${s.special?'checked':''}> 特殊個体（個別Lv上書きを許可）</label><label>特殊個体のLv（空欄はVariant参照）<input name="level_override" type="number" min="1" max="200" value="${s.level_override??''}"></label><label>出現エリア・位置 JSON<textarea name="area">${esc(JSON.stringify(s.area))}</textarea></label><label>出現条件 JSON<textarea name="conditions">${esc(JSON.stringify(s.conditions))}</textarea></label><label>変更理由<input name="reason" required value="${spawnId?'敵配置の調整':'敵Variantをフィールドへ追加'}"></label><div class="modal-actions">${spawnId?'<button type="button" id="removeSpawn" class="danger">配置を削除</button>':''}<button type="submit" class="primary">差分を確認</button></div></form>`);

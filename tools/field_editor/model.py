@@ -367,25 +367,49 @@ class Store:
         self.validate(candidate)
         return candidate, changes
 
+    def _build_proposal(self, request):
+        require(isinstance(request, dict), 'Request must be an object')
+        base = request.get('base_revision')
+        if type(base) is not int or base != self.data['revision']:
+            raise DesignError('正本が更新されています。最新データで差分を再作成してください。', 409, current_revision=self.data['revision'])
+        reason, actor = request.get('reason', ''), request.get('actor', 'ChatGPT')
+        require(isinstance(reason, str) and 0 < len(reason.strip()) <= 2000, '変更理由を指定してください')
+        require(actor in ('user', 'Codex', 'ChatGPT'), 'Invalid actor')
+        source = request.get('source') or reason
+        require(isinstance(source, str) and len(source) <= 10000, 'Invalid source')
+        candidate, diff = self.simulate(self.data, request.get('operations'), 'proposed', actor, source)
+        require(diff, 'No changes')
+        p = {'proposal_id': uid('proposal'), 'base_revision': base, 'reason': reason, 'actor': actor, 'source': source, 'operations': deepcopy(request['operations']), 'diff': diff, 'status': 'proposed', 'created_at': now()}
+        p['impact'] = self.impact(p['operations'], candidate)
+        return p
+
     def propose(self, request):
         with self.lock:
             self.sync()
-            require(isinstance(request, dict), 'Request must be an object')
-            base = request.get('base_revision')
-            if type(base) is not int or base != self.data['revision']:
-                raise DesignError('正本が更新されています。最新データで差分を再作成してください。', 409, current_revision=self.data['revision'])
-            reason, actor = request.get('reason', ''), request.get('actor', 'ChatGPT')
-            require(isinstance(reason, str) and 0 < len(reason.strip()) <= 2000, '変更理由を指定してください')
-            require(actor in ('user', 'Codex', 'ChatGPT'), 'Invalid actor')
-            source = request.get('source') or reason
-            require(isinstance(source, str) and len(source) <= 10000, 'Invalid source')
-            candidate, diff = self.simulate(self.data, request.get('operations'), 'proposed', actor, source)
-            require(diff, 'No changes')
-            p = {'proposal_id': uid('proposal'), 'base_revision': base, 'reason': reason, 'actor': actor, 'source': source, 'operations': deepcopy(request['operations']), 'diff': diff, 'status': 'proposed', 'created_at': now()}
-            p['impact'] = self.impact(p['operations'], candidate)
-            d = self.snapshot(); d['proposals'][p['proposal_id']] = p
-            self.persist(d)
+            p = self._build_proposal(request)
+            data = deepcopy(self.data)
+            data['proposals'][p['proposal_id']] = p
+            self.persist(data)
             return deepcopy(p)
+
+    def remove_pending_connection(self, proposal_id, edge_id):
+        with self.lock:
+            self.sync()
+            require(isinstance(proposal_id, str) and isinstance(edge_id, str), 'Invalid proposal or connection ID')
+            p = self.data['proposals'].get(proposal_id)
+            require(p is not None and p['status'] == 'proposed', 'この変更案はすでに更新されています。変更案を開き直してください。')
+            require(edge_id not in self.data['field_edges'], '採用済みの接続は削除案を作成してください。')
+            operations = [op for op in p['operations']
+                          if not (op['collection'] == 'field_edges' and op['id'] == edge_id
+                                  and op.get('action', 'upsert') == 'upsert')]
+            require(len(operations) < len(p['operations']), 'この変更案に追加された接続が見つかりません。')
+            replacement = self._build_proposal({**p, 'operations': operations}) if operations else None
+            data = deepcopy(self.data)
+            del data['proposals'][proposal_id]
+            if replacement is not None:
+                data['proposals'][replacement['proposal_id']] = replacement
+            self.persist(data)
+            return deepcopy(replacement)
 
     def impact(self, operations, candidate):
         fields = set()

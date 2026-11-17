@@ -20,6 +20,31 @@ try{
  await check('Click and save field proposal, approve, reload',async()=>{
   await node('teyvat:3').click();await page.locator('[name="name"]').fill('QA・風の狩場');await page.locator('[name="recommended_level"]').fill('8');await page.locator('[name="reason"]').fill('QA: 地点編集と再読込');await page.locator('#fieldForm button[type=submit]').click();await page.locator('#reviewConsent').waitFor();assert.match(await page.locator('#modalBody').innerText(),/QA・風の狩場/);await approve();await page.reload({waitUntil:'networkidle'});assert.equal(await page.locator('[name="name"]').inputValue(),'QA・風の狩場');assert.equal(await page.locator('[name="recommended_level"]').inputValue(),'8');
  });
+ await check('Right-click removes only the selected unapproved line and keeps the rest of the proposal',async()=>{
+  const p=await page.evaluate(async()=>{
+   const {ui_token,project}=await fetch('/api/bootstrap').then(r=>r.json());
+   const edges=[['qa-pending-remove','teyvat:7'],['qa-pending-keep','teyvat:8']];
+   const operations=edges.map(([id,to_field])=>({collection:'field_edges',id,changes:{from_field:'teyvat:3',to_field,direction:'both',kind:'portal',conditions:{requires_discovery:true},exit_position:{x:0,y:0},entrance_position:{x:0,y:0},notes:''}}));
+   return fetch('/api/proposals',{method:'POST',headers:{'Content-Type':'application/json','X-Editor-UI':ui_token},body:JSON.stringify({base_revision:project.revision,reason:'QA・採用前の接続を外す',operations})}).then(r=>r.json());
+  });
+  await page.locator('[data-dock="proposals"]').click();
+  await page.locator('#refreshProposals').click();
+  await page.locator('[data-preview="'+p.proposal_id+'"]').click();
+  await page.locator('#zoomIn').click();
+  await page.locator('#zoomIn').click();
+  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+  const a=await node('teyvat:3').boundingBox(),b=await node('teyvat:7').boundingBox();
+  await page.mouse.click((a.x+b.x+a.width)/2,(a.y+b.y+a.height)/2,{button:'right'});
+  await page.getByRole('button',{name:'変更案からこの接続を外す'}).click();
+  await page.getByRole('status').filter({hasText:'この接続を変更案から外しました'}).waitFor();
+  const final=await page.evaluate(()=>fetch('/api/bootstrap').then(r=>r.json()).then(r=>r.project));
+  assert.equal(final.revision,p.base_revision);
+  assert.equal(final.proposals[p.proposal_id],undefined);
+  assert.deepEqual(Object.values(final.proposals).find(q=>q.reason===p.reason).operations.map(o=>o.id),['qa-pending-keep']);
+  assert.equal(Object.keys(final.field_edges).length,0);
+  await page.locator('#hidePreview').click();
+  await page.reload({waitUntil:'networkidle'});
+ });
  await check('Drag one map marker directly onto another to propose a connection',async()=>{
   assert.equal(await page.locator('#connectMode').isChecked(),false);
   const a=await node('teyvat:3').boundingBox(),b=await node('teyvat:7').boundingBox();

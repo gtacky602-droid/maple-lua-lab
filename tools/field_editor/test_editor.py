@@ -115,6 +115,23 @@ class ModelTests(unittest.TestCase):
         mid=self.monster()
         with self.assertRaises(DesignError):self.propose([{'collection':'field_spawns','id':'bad','changes':spawn(self.a,mid,level_override=8)}])
 
+    def test_remove_pending_connection_preserves_other_changes_and_invalidates_old_review(self):
+        p = self.propose([
+            {'collection': 'field_edges', 'id': 'first', 'changes': connection(self.a, self.b)},
+            {'collection': 'field_edges', 'id': 'second', 'changes': connection(self.a, self.c)},
+        ])
+        replacement = self.s.remove_pending_connection(p['proposal_id'], 'first')
+        self.assertNotEqual(p['proposal_id'], replacement['proposal_id'])
+        self.assertEqual(['second'], [o['id'] for o in replacement['operations']])
+        self.assertEqual({'second'}, {row['id'] for row in replacement['diff']})
+        reopened = Store(self.path)
+        self.assertEqual(0, reopened.data['revision'])
+        self.assertFalse(reopened.data['field_edges'])
+        with self.assertRaises(DesignError):
+            reopened.approve(p['proposal_id'], 0)
+        self.assertIsNone(reopened.remove_pending_connection(replacement['proposal_id'], 'second'))
+        self.assertEqual({}, Store(self.path).data['proposals'])
+
     def test_connection_direction_conditions_endpoints_persist(self):
         self.apply([{'collection':'field_edges','id':'edge-test','changes':connection(self.a,self.b,direction='one_way',kind='level',conditions={'requires_discovery':True,'min_level':8})}])
         e=Store(self.path).data['field_edges']['edge-test'];self.assertEqual('one_way',e['direction']);self.assertEqual(8,e['conditions']['min_level'])
@@ -245,6 +262,9 @@ class HTTPTests(unittest.TestCase):
         status,boot=self.req('/api/bootstrap',headers={'Sec-Fetch-Site':'same-origin'});self.assertEqual(200,status);self.assertIn('ui_token',boot)
         status,data=self.req('/api/operations',{'operation':'get_field','arguments':{'field_id':'teyvat:3'}},{'Authorization':'Bearer test-proposal-token'});self.assertEqual(200,status);self.assertNotIn('ui_token',data)
         status,_=self.req('/api/approve',{'proposal_id':'none','revision':0},{'Authorization':'Bearer test-proposal-token','X-Editor-UI':self.server.ui_token});self.assertEqual(403,status)
+        status, _ = self.req('/api/proposals/remove-connection', {'proposal_id': 'none', 'edge_id': 'a'},
+                             {'Authorization': 'Bearer test-proposal-token'})
+        self.assertEqual(403, status)
         status,_=self.req('/api/operations',{'operation':'get_field','arguments':{'field_id':'teyvat:3'}},{'Authorization':'Bearer test-proposal-token','Origin':'https://evil.example'});self.assertEqual(403,status)
         self.assertEqual(404,self.req('/.env')[0]);self.assertEqual(404,self.req('/content/enemy-spawns.json')[0])
     def test_common_api_proposal_approval_reopen(self):

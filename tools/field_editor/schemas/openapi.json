@@ -315,6 +315,57 @@
         }
       }
     },
+    "/api/proposals/remove-connection": {
+      "post": {
+        "summary": "Remove a new connection from a pending proposal in the local editor",
+        "operationId": "proposals_remove-connection",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation failed; no mutation"
+          },
+          "409": {
+            "description": "Stale revision, protected decision or rollback conflict"
+          },
+          "401": {
+            "description": "Invalid or missing API token"
+          },
+          "403": {
+            "description": "Untrusted Host/Origin or local-only approval permission"
+          }
+        },
+        "security": [
+          {
+            "localUI": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "proposal_id": {
+                    "type": "string"
+                  },
+                  "edge_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "proposal_id",
+                  "edge_id"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/compile": {
       "post": {
         "summary": "Compile supported Japanese commands or return candidate IDs",
