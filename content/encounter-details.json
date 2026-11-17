@@ -574,10 +574,12 @@
       }
     },
     "boss-23090101": {
+      "extra_evidence": ["https://genshin.hoyoverse.com/m/ja/news/detail/162806","evidence/battleship-field-lua.json","evidence/battleship-field-browser.json"],
+      "remaining": ["連続モーション・音", "難度・報酬の調整", "複数人と幻境実機の検証"],
       "art_candidate": {
         "item": "battleship",
-        "audit": "evidence/battleship-reference-audit.json",
-        "status": "idle candidate"
+        "audit": "evidence/battleship-field-art-audit.json",
+        "status": "Web field prototype. Amber cog sweep, twin frost shots, overheating, and a breakable Cryo ward."
       }
     },
     "boss-22120101": {

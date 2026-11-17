@@ -1,0 +1,36 @@
+{
+  "browser": "Chrome",
+  "companion": "wanderer",
+  "play": {
+    "won": true,
+    "seconds": 42.53,
+    "moves": [
+      "FBT01",
+      "FBT02",
+      "FBT03"
+    ],
+    "hp": 140,
+    "returns": 0,
+    "melting": true,
+    "down": true
+  },
+  "scenery": {
+    "key": "battleshipField",
+    "file": "battleship-field-background-v1.png",
+    "state": "ready"
+  },
+  "questAcceptedInUi": true,
+  "questReport": {
+    "xp": 8800,
+    "mora": 590
+  },
+  "sameSceneCommands": {
+    "png": 29,
+    "standard": 23561,
+    "light": 6292
+  },
+  "wardBrokenAt": 186,
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}

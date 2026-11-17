@@ -1,0 +1,24 @@
+{
+  "fixedSweepAndTwinFrostShots": true,
+  "pyroCastsDeduplicated": true,
+  "burningAddsHeat": true,
+  "sameReceiverAtOverheatAndWard": true,
+  "normalTestDamage": {
+    "base": 22,
+    "heated": 28,
+    "ward": 10
+  },
+  "brokenWardCancelsDischarge": true,
+  "unbrokenWardDischargesLocallyAndResets": true,
+  "exitAndSaveKeepHp": true,
+  "oneRewardAndReport": true,
+  "normalAttackWithoutHeating": {
+    "seconds": 87.62,
+    "hp": 140
+  },
+  "sameSceneCommands": {
+    "png": 35,
+    "standard": 21531,
+    "light": 5724
+  }
+}

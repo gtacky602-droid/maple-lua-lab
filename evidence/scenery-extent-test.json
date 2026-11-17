@@ -332,6 +332,36 @@
       "transparent": 0
     },
     {
+      "key": "battleshipField",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "battleshipField",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "battleshipField",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "battleshipField",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "battleshipField",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "battleshipField",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "generatorField",
       "camera": -960,
       "transparent": 0

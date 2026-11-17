@@ -10,6 +10,7 @@
   "lavaDragonFieldRoute": true,
   "overseerFieldRoute": true,
   "knuckleDuckleFieldRoute": true,
+  "battleshipFieldRoute": true,
   "stygianCandidates": 7,
   "disabledUnimplemented": true,
   "launchesVerified": [

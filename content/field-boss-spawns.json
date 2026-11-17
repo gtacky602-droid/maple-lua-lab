@@ -1337,6 +1337,19 @@
         {"id":"FDK02","kind":"stomp","title":"跳び込みハンマー","reach":219,"lock":60,"distance":1.45,"width":1.65,"height":0.77,"air":[92,128],"lift":0.83,"active":[[128,144]],"recover":172,"total":296,"damage":26,"element":"physical"},
         {"id":"FDK03","kind":"ward","title":"メカダックの補修","reach":222,"lock":64,"guard":40,"deploy":62,"roll":94,"distance":1.8,"width":1.86,"height":0.96,"active":[[340,360]],"recover":384,"total":480,"damage":32,"element":"electro"}
       ]
+    },
+    {
+      "id":"boss-23090101","controller":"battleship","entity":23090101,
+      "name":"重量級陸巡艦「バトルシップ」","node":"nod-battleship-depot","storyChallenge":"battleship",
+      "level":124,"hp":1170,"mora":455,"artHeight":190,"floorY":480,"home":930,
+      "arenaMin":335,"arenaMax":1600,"noticeRange":340,"noticeTicks":36,"restTicks":42,
+      "leashTicks":300,"respawnTicks":3600,"walkSpeed":61,"contactDamage":0,
+      "thermal":{"max":4,"hotAt":2,"hotFactor":1.25,"wardHp":5,"wardFactor":0.45,"pyroChip":2,"downTicks":168},
+      "moves":[
+        {"id":"FBT01","kind":"saw","title":"歯車刃の薙ぎ払い","pose":"saw-ready","reach":196,"lock":48,"near":0.25,"far":2.1,"height":0.74,"active":[[114,130]],"recover":172,"total":268,"damage":24,"element":"pyro"},
+        {"id":"FBT02","kind":"fire","title":"冷却砲の二連射","pose":"cannon","reach":230,"lock":56,"offsets":[0.8,2.22],"width":1.05,"height":0.74,"active":[[116,130],[184,198]],"recover":224,"total":320,"damage":21,"element":"cryo"}
+      ],
+      "coolingMove":{"id":"FBT03","kind":"ward","title":"氷バリア・冷却放出","pose":"ward","lock":60,"distance":2.05,"width":2.0,"height":1.17,"active":[[252,270]],"recover":340,"total":424,"damage":33,"element":"cryo","coolEvery":84}
     }
   ]
 }

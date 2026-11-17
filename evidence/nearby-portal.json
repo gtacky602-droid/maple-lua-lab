@@ -841,7 +841,15 @@
       "to": "nod-duckle-workyard"
     },
     {
+      "node": "nod-field",
+      "to": "nod-battleship-depot"
+    },
+    {
       "node": "nod-duckle-workyard",
+      "to": "nod-field"
+    },
+    {
+      "node": "nod-battleship-depot",
       "to": "nod-field"
     },
     {

@@ -813,12 +813,12 @@
     {
       "node": "nod-field",
       "mode": "sprite",
-      "visible_portals": 4
+      "visible_portals": 5
     },
     {
       "node": "nod-field",
       "mode": "rect",
-      "visible_portals": 4
+      "visible_portals": 5
     },
     {
       "node": "nod-duckle-workyard",
@@ -827,6 +827,16 @@
     },
     {
       "node": "nod-duckle-workyard",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "nod-battleship-depot",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "nod-battleship-depot",
       "mode": "rect",
       "visible_portals": 1
     },

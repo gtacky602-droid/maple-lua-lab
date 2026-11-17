@@ -500,6 +500,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "nod-battleship-depot",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "nod-town",
       "count": 0,
       "fallback": false,

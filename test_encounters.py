@@ -20,7 +20,7 @@ check('completion not overclaimed',d['counts']['complete']==0 and not d['complet
 check('not implemented rows cannot launch',all(r['action'] is None for r in rows if r['status']=='not_implemented'))
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
-check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':70,'partial':39,'complete':0})
+check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':70,'partial':40,'complete':0})
 by_id={r['id']:r for r in rows}
 ice=by_id['boss-20040501']
 check('Cryo Hypostasis is reachable through the field route',
@@ -101,6 +101,9 @@ check('The Overseer Device has its own Atocpan field route',
 duck=by_id['boss-24100101']
 check('Knuckle Duckle has a Nod-Krai workshop route',
       duck['status']=='partial' and duck['fieldNode']=='nod-duckle-workyard' and duck['action'] is None)
+ship=by_id['boss-23090101']
+check('The Landrover has a Nod-Krai depot route',
+      ship['status']=='partial' and ship['fieldNode']=='nod-battleship-depot' and ship['action'] is None)
 check('public roster matched without merging Icewind modes or Dottore challenges',d['roster_review']=={
  'game_version':'7.2','reviewed_on':'2026-11-17','field_boss_families':48,'weekly_challenges':14,'unmatched_rows':[],
 } and len([r for r in rows if r['kind']=='normal'])==49)

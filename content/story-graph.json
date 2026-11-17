@@ -2202,10 +2202,12 @@
           "to": "nod-special-camp",
           "x": 720
         },
-        {"to":"nod-duckle-workyard","x":1110}
+        {"to":"nod-duckle-workyard","x":1110},
+        {"to":"nod-battleship-depot","x":945}
       ]
     },
     {"id":"nod-duckle-workyard","name":"ナド・クライ・工房裏の試運転場","region":"ナド・クライ","level":122,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"nod-field","x":65}],"checkpoint":"nod-town"},
+    {"id":"nod-battleship-depot","name":"ナド・クライ・陸巡艦の整備庫","region":"ナド・クライ","level":124,"hub":false,"peaceful":true,"width":1780,"platforms":[{"x":0,"y":480,"w":1780}],"exits":[{"to":"nod-field","x":65}],"checkpoint":"nod-town"},
     {
       "id": "nod-town",
       "name": "ナド・クライ・町の広場",
@@ -5625,6 +5627,7 @@
     {"id":"papilla-commission","name":"深遠なるミミックパピラ・I型の討伐調査","hub":"natlan-hub","target":"papilla","kind":"boss","goal":1,"xp":7800,"mora":500,"note":"岩場の道から紫影の石窟へ入り、ミミックパピラを倒す。"},
     {"id":"lava-dragon-commission","name":"輝ける溶岩の龍像の討伐調査","hub":"natlan-hub","target":"lava-dragon","kind":"boss","goal":1,"xp":8000,"mora":520,"note":"岩場の道からアトクパンの溶岩棚へ入り、龍像を倒す。"},
     {"id":"overseer-commission","name":"秘源機兵・統御デバイスの討伐調査","hub":"natlan-hub","target":"overseer","kind":"boss","goal":1,"xp":8200,"mora":540,"note":"アトクパンの溶岩棚の分岐から統御の遺構へ入り、統御デバイスを倒す。"},
-    {"id":"knuckle-duckle-commission","name":"ボコボコダックの試運転調査","hub":"nod-town","target":"knuckle-duckle","kind":"boss","goal":1,"xp":8500,"mora":570,"note":"月明かりの道から工房裏の試運転場に入り、ボコボコダックを止める。"}
+    {"id":"knuckle-duckle-commission","name":"ボコボコダックの試運転調査","hub":"nod-town","target":"knuckle-duckle","kind":"boss","goal":1,"xp":8500,"mora":570,"note":"月明かりの道から工房裏の試運転場に入り、ボコボコダックを止める。"},
+    {"id":"battleship-commission","name":"重量級陸巡艦「バトルシップ」の調査","hub":"nod-town","target":"battleship","kind":"boss","goal":1,"xp":8800,"mora":590,"note":"月明かりの道から陸巡艦の整備庫に入り、バトルシップを止める。"}
   ]
 }
