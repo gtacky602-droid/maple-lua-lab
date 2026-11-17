@@ -7,13 +7,14 @@ const profiles=['legacy','h48c32','h32c16'];
 const cases={
  'capitano-coat':{prefix:'capitano-coat',height:152},
  xbalanque:{prefix:'xbalanque-idle',height:84},
+ rerir:{prefix:'rerir-idle',height:144,node:'nod-field',background:'nodkrai-background-v1.png'},
 };
 const ids=process.argv.slice(2);
 const selected=ids.length?Object.entries(cases).filter(([id])=>ids.includes(id)):Object.entries(cases);
 assert(selected.length&&ids.every(id=>Object.hasOwn(cases,id)),'Unknown Stygian art selection');
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 try{
- for(const [id,{prefix,height:displayHeight}] of selected){
+ for(const [id,{prefix,height:displayHeight,node='natlan-entry',background='natlan-background-v1.png'}] of selected){
   const image=side=>`${prefix}-${side}-source-v1.png`;
   const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
@@ -36,7 +37,7 @@ try{
     directions.push({side,profile,rectangles:runs.length});
    }
   }
-  await page.goto(new URL('map-art.html?node=natlan-entry',base).href);
+  await page.goto(new URL(`map-art.html?node=${node}`,base).href);
   await page.waitForFunction(()=>window.mapArt?.ready,null,{timeout:60000});
   const canvas=page.locator('#png');
   const {width,height}=await canvas.boundingBox();
@@ -63,7 +64,7 @@ try{
    await page.selectOption('#profile',profile);
    const state=await map();
    assert.equal(state.grounded,true);
-   assert.equal(state.backgroundFile,'natlan-background-v1.png');
+   assert.equal(state.backgroundFile,background);
    assert.equal(state.backgroundState,'ready');
    assert.deepEqual(state.visuals.slice(-expected.length).map(v=>[v.source,v.height,v.y]),expected);
   }
@@ -72,7 +73,7 @@ try{
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   assert.deepEqual(errors,[]);
   await fs.writeFile(`evidence/${prefix}-browser.json`,JSON.stringify({directions,map:await map(),mobileOverflow:false,errors},null,2));
-  console.log(`${id}: both directions and three profiles, shared Natlan floor and background passed`);
+  console.log(`${id}: both directions and three profiles, shared floor and background at ${node} passed`);
   await page.close();
  }
 }finally{await browser.close()}

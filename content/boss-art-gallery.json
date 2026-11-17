@@ -474,6 +474,14 @@
       "mapHover": 0
     },
     {
+      "id": "rerir",
+      "name": "レリル（第一幕・爪の待機候補）",
+      "file": "rerir-idle-right-sprites-v1.json",
+      "leftFile": "rerir-idle-left-sprites-v1.json",
+      "height": 144,
+      "mapHover": 0
+    },
+    {
       "id": "anemo",
       "name": "無相の風・外殻（既存候補）",
       "file": "anemo-shell-sprites.json",

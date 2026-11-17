@@ -1872,11 +1872,18 @@
         "docs/stygian-motion-v1/RERIR.md"
       ],
       "remaining": [
-        "完成ドット絵・台詞",
+        "爪の動作・第二幕の槍と姿勢、台詞",
+        "霧と灯・回収試練・専用戦闘行動",
         "4難度・報酬",
-        "マルチ・記録",
-        "専用戦闘行動"
-      ]
+        "マルチ・記録"
+      ],
+      "art_candidate": {
+        "source": "assets/rerir-idle-right-source-v1.png",
+        "encoding": "assets/rerir-idle-right-sprites-v1.json",
+        "audit": "evidence/rerir-idle-reference-audit.json",
+        "status": "directional first-act claw idle candidate"
+      },
+      "review_note": "第一幕の爪を下げた待機を144pxの比較サイズで左右別に試作。"
     },
     {
       "id": "stygian-ronova",

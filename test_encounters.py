@@ -25,7 +25,7 @@ by_id={r['id']:r for r in rows}
 check('both paired encounters retain two art references',all(len(by_id[id]['art_components'])==2 for id in ('bathysmal-herd','boss-29122000')))
 check('only new design-only candidates lack art',{
  r['id'] for r in rows if not (r.get('art_candidate') or r.get('art_components'))
-}=={'stygian-rerir','stygian-ronova'})
+}=={'stygian-ronova'})
 check('Capitano art and design linked without a playable action',
       by_id['stygian-capitano']['art_candidate']['encoding']=='assets/capitano-coat-right-sprites-v1.json'
       and by_id['stygian-capitano']['evidence']==['docs/stygian-motion-v1/CAPITANO.md']
@@ -34,6 +34,10 @@ check('Xbalanque art and design linked without a playable action',
       by_id['stygian-xbalanque']['art_candidate']['encoding']=='assets/xbalanque-idle-right-sprites-v1.json'
       and by_id['stygian-xbalanque']['evidence']==['docs/stygian-motion-v1/XBALANQUE.md']
       and by_id['stygian-xbalanque']['action'] is None)
+check('Rerir art and design linked without a playable action',
+      by_id['stygian-rerir']['art_candidate']['encoding']=='assets/rerir-idle-right-sprites-v1.json'
+      and by_id['stygian-rerir']['evidence']==['docs/stygian-motion-v1/RERIR.md']
+      and by_id['stygian-rerir']['action'] is None)
 
 read_json=build_encounters.read_json
 def read_previous_beidou_art(path):

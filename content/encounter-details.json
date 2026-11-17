@@ -623,6 +623,20 @@
         "マルチ・記録"
       ],
       "review_note": "少年マソウの衣装で、素手の待機を84pxの比較サイズで左右別に試作。"
+    },
+    "stygian-rerir": {
+      "art_candidate": {
+        "item": "rerir",
+        "audit": "evidence/rerir-idle-reference-audit.json",
+        "status": "directional first-act claw idle candidate"
+      },
+      "remaining": [
+        "爪の動作・第二幕の槍と姿勢、台詞",
+        "霧と灯・回収試練・専用戦闘行動",
+        "4難度・報酬",
+        "マルチ・記録"
+      ],
+      "review_note": "第一幕の爪を下げた待機を144pxの比較サイズで左右別に試作。"
     }
   }
 }

@@ -1,0 +1,86 @@
+{
+  "subject": "Rerir / レリル",
+  "design": "docs/stygian-motion-v1/RERIR.md",
+  "style": "DESIGN_MAPLE_CHIBI_STYLE_GUIDE_V01.md",
+  "status": "first-act claw stance, directional idle prototype",
+  "references": [
+    {
+      "page": "https://skowt.cc/a/Jz5tTpLNg",
+      "version": "Blasphemy Against Death (boss)",
+      "preview": "https://pack.skowt.cc/asset/01a17739-99e8-7650-a176-84acca130042-preview.webp?v=0b5fddfe36",
+      "sha256": "331eb1196963d64d5521adafa7a9888b3df751e18fbb517961b77423e45d0bb7",
+      "details": "Four live-viewer directions checked, observing layered dark wraps, raised crimson shoulders and long split cape tails. Preview render was a direct reference to generation.",
+      "terms": "Viewer credits COGNOSPHERE and indicates non-commercial fan use with the publisher policy. Model and reference captures kept local.",
+      "views": {
+        "front": "362b6df8f58a64f1e47032a081e9690262dc47506d5709b4e9887fbd96d5754e",
+        "side": "fa3011d945c472ecf738da6e3e7c5090d457070a40531056b792b9755ceb0dd8",
+        "rear": "1ba6a3436362f7e5dac9be176679c472d87e93eab6af4ceeb841737c3d4bc0db",
+        "other_side": "008f7ec96acfa4c54f10ac370eb4f0da2794f63db7d361f6fc48d1550ff143e7"
+      }
+    },
+    {
+      "page": "https://www.youtube.com/watch?v=w50jW_iEXns",
+      "image": "https://i.ytimg.com/vi/w50jW_iEXns/maxresdefault.jpg",
+      "sha256": "a946aa4c56345ef3b8b8bbe9932d3c735f23705bc15d08ffb85688e7efc6acf6",
+      "details": "Luna II official trailer cover, upper right figure. Silver hair, wrapped face and pale pink detailing used in generation; no animation timings inferred."
+    },
+    {
+      "page": "https://www.youtube.com/watch?v=QDaO2NmSc9c",
+      "details": "Official teaser cover was inspected and not used because that cover shows the historical version."
+    }
+  ],
+  "generation": {
+    "tool": "built-in ImageGen",
+    "prompts": [
+      "Create one horizontal pixel-art sprite sheet for an old-school 2D side-scrolling RPG, containing exactly two directional idle frames of Genshin Impact's Rerir in the Blasphemy Against Death boss form shown in reference 1, with its hand claws and standing outfit. Reference 2 is official illustration, use only the huge white-haired, face-wrapped figure in upper right to verify colors, pointed coat collar and pink inlays. Keep all other characters out. Left half faces screen right in three-quarter view, right half faces screen left. Use fresh deliberate crisp square pixel shapes, dark fine outlines, fewer colors, plain genuine alpha transparency and broad gutter; show every extremity and both broad flat boots on one ground line. Compact adult boss at 144px in game: hair crown to chin ~one third of body height measured along stance excluding long loose strands; large face and short torso and shins, thick shoulders and hands. Identifying details: pale silver-white curtain bangs and a few long ash locks, face partially wrapped with dark grey strips and one small pink visible eye, asymmetric wrapped layers across chest and shins, tall wine-red split pointed collar and crimson shoulder flares (not gold paladin armor), muted brass trim, red-black finger claws held low and apart from cape, vivid small pink crystalline inlays on arms/chest, dark grey wrapped thigh and calf armor, pointed long burgundy ragged coat tails trailing behind and separated from hands and boots. Preserve the model's version and actual garment asymmetries rather than reflecting pixels; keep the two drawings matched in style. Both normalized as P0 idle before claw moves, planted feet, upright, hand claws relaxed, no spear, no movement, no glowing effects or particles, no text, no ground, no shadows. Keep the silver hair, mask, red cape and claws distinct at 72 pixel height without smooth gradients or noise.",
+      "Edit the attached ORIGINAL two-sprite sheet of Rerir. Keep the exact stance, body widths, head directions, hair layering in silver-white, facial wrap, armor palette, claw pose, and cape. Retain a mature warrior look with a visible waist and proportionate hands. Only moderately enlarge each head (+15% vertical, +12% width) and shorten the narrow lower legs and thighs (-24% of their length), raising the two flat soles so the new whole figure is about 735 pixels in source height and each head measures about 230 pixels crown to chin. The target reads about 3.1 to 3.2 heads tall. Do NOT make the head shoulder-width or give the figure enormous fists. The eye is a small rose-pink pixel cluster, with thin pink inlays on the forearms. Shorten the two ragged burgundy trailing strips to stop above each boot. Preserve gold trim and face bandage, with two original directions far apart in individual halves and feet all on one baseline. Transparent alpha only, without shadows, ground, text, weapons, moves or auras. Crisp no-blur pixel art.",
+      "Edit the attached third Rerir pixel sheet only from each jaw downward. Leave both heads completely as drawn: identical silver hair, crown, bangs, face wrap and pink eye. Redraw both bodies BELOW each chin about 75 to 80 percent of their current length at the same body width. Raise the shoulders and the belt moderately; shorten thigh plus lower leg by about a quarter so the boots reach higher; keep broad planted flat shoe soles. Neither head nor upper hair can get taller. The crown-to-chin zone is currently about 210 pixels; each sprite should now have roughly 657 to 680 pixels from crown to shoe soles, nearly three heads tall (each body below chin about 435 to 465 pixels total). Preserve same armor patterns, red shoulder flares, charcoal bands, hot pink narrow inlays, small low claws, long split trailing coat just above the new shoe soles. Keep the same two three-quarter directions, shared baseline and wide genuine transparent gutter. Clean illustrated pixel clusters, no words, aura, weapons, or backdrop.",
+      "One very small localized edit to this transparent sprite sheet: give each identical head a slightly taller crown and subtly wider silver hairstyle while keeping the jaw, dark wrap, small pink eye and all body below it unchanged. Add about 26 pixels of round crown HEIGHT above the existing hair outline on both heads (original head roughly 215 pixels tall, target 240-244px, 3.1 to 3.2 total head lengths) and a little width by thickening the sides. Preserve silver hair tapered individual locks and genuine coarsely drawn pixel style. Both characters remain identical from the chin to soles (same positions, same cut of coat, same relaxed claws). Both faces stay at same angles. Two complete sprites, no overlap, transparency everywhere outside them, no shadows, no text. Do not make giant child-like heads."
+    ],
+    "sheet_px": [
+      1774,
+      887
+    ],
+    "split_x": 887,
+    "sheet_sha256": "7f47a54ee4fdeb10beede61c0b4366d010da0b2bda3a215dd56fa01cd4f6e47a"
+  },
+  "render": {
+    "height_px": 144,
+    "visual_heads_approximate": 3.2,
+    "foot_anchor": "midpoint of opaque pixels in bottom 1.8% of height",
+    "profile_heights": [
+      144,
+      108,
+      72
+    ],
+    "profile_colors": [
+      32,
+      32,
+      16
+    ],
+    "reserved_pink": "#eb527f",
+    "right": [
+      4841,
+      3015,
+      1235
+    ],
+    "left": [
+      4804,
+      2970,
+      1248
+    ],
+    "right_without_accent": [
+      4891,
+      3033,
+      1256
+    ],
+    "left_without_accent": [
+      4843,
+      2985,
+      1265
+    ],
+    "map": "nod-field",
+    "floor_y": 480
+  },
+  "limits": "The standing height, shoulder shapes and shortened cape trailing length are sprite-design approximations. Two new drawings, with stylized markings and claw shapes. 16 colors keep hair and cape separation and the pink accent; wraps and gold-line detail are simplified. Phase-two spear, motion, FX and combat are pending."
+}
