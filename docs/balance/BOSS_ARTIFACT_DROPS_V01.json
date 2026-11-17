@@ -1,0 +1,426 @@
+{
+  "schema_version": 1,
+  "status": "design_only_not_runtime",
+  "date": "2026-11-17",
+  "parent": "docs/balance/BOSS_FARM_REWARDS_V01.json",
+  "user_intent": "Boss artifact farming should be moderately more attractive than ordinary monster farming when defeats are consistent; per-difficulty first clear already provides EXP and Mora.",
+  "baseline_normal_enemy": {
+    "dropChancePerEnemy": 0.0075,
+    "range": [
+      0.005,
+      0.01
+    ],
+    "rateHighStar5": 0.55,
+    "killsPerMin": 60,
+    "slots": 5,
+    "usableStatRate": 0.75
+  },
+  "set_policy": {
+    "player_selects_target_set": true,
+    "target_set_applies_to_every_boss_drop": true,
+    "target_set_snapshot": "per player on encounter entry; freely change outside combat",
+    "choose_artifact_slot_on_first_clear": true,
+    "random_slot_per_repeat_artifact": true,
+    "roll_main_and_substats_normally": true,
+    "item_level_rule": "min(220,enemyLevel+20+delta), delta in {-6,-4,-2,0,2,4,6} with existing weights",
+    "not_exclusive_to_bosses": true,
+    "first_bonus_rarity_floor": "4 stars for effective boss levels below 160; 5 stars at 160+",
+    "dupe_payout": false
+  },
+  "field_artifact_rarity_comparison": {
+    "level_1_39": {
+      "star3": 0.96,
+      "star4": 0.04,
+      "star5": 0
+    },
+    "level_40_79": {
+      "star3": 0.65,
+      "star4": 0.34,
+      "star5": 0.01
+    },
+    "level_80_119": {
+      "star3": 0.25,
+      "star4": 0.65,
+      "star5": 0.1
+    },
+    "level_120_159": {
+      "star3": 0.05,
+      "star4": 0.65,
+      "star5": 0.3
+    },
+    "level_160_200": {
+      "star3": 0,
+      "star4": 0.45,
+      "star5": 0.55
+    }
+  },
+  "weekly": [
+    {
+      "tier": "入門",
+      "lv": 40,
+      "cycle_min": 3,
+      "items": 2,
+      "rarity": {
+        "star3": 0.45,
+        "star4": 0.54,
+        "star5": 0.01
+      },
+      "first_floor": 4,
+      "expected_star5_per_clear": 0.02,
+      "expected_star5_per_hour": 0.4,
+      "vs_normal_reference_ratio": 0.027,
+      "expected_desired_slot_usable_star5_per_hour": 0.06,
+      "expected_total_artifacts_per_hour": 40
+    },
+    {
+      "tier": "標準",
+      "lv": 100,
+      "cycle_min": 3,
+      "items": 2,
+      "rarity": {
+        "star3": 0.15,
+        "star4": 0.73,
+        "star5": 0.12
+      },
+      "first_floor": 4,
+      "expected_star5_per_clear": 0.24,
+      "expected_star5_per_hour": 4.8,
+      "vs_normal_reference_ratio": 0.323,
+      "expected_desired_slot_usable_star5_per_hour": 0.72,
+      "expected_total_artifacts_per_hour": 40
+    },
+    {
+      "tier": "上級",
+      "lv": 160,
+      "cycle_min": 3,
+      "items": 2,
+      "rarity": {
+        "star3": 0,
+        "star4": 0.25,
+        "star5": 0.75
+      },
+      "first_floor": 5,
+      "expected_star5_per_clear": 1.5,
+      "expected_star5_per_hour": 30,
+      "vs_normal_reference_ratio": 2.02,
+      "expected_desired_slot_usable_star5_per_hour": 4.5,
+      "expected_total_artifacts_per_hour": 40
+    },
+    {
+      "tier": "最上級",
+      "lv": 180,
+      "cycle_min": 3,
+      "items": 2,
+      "rarity": {
+        "star3": 0,
+        "star4": 0.15,
+        "star5": 0.85
+      },
+      "first_floor": 5,
+      "expected_star5_per_clear": 1.7,
+      "expected_star5_per_hour": 34,
+      "vs_normal_reference_ratio": 2.29,
+      "expected_desired_slot_usable_star5_per_hour": 5.1,
+      "expected_total_artifacts_per_hour": 40
+    }
+  ],
+  "stygian": [
+    {
+      "tier": "通常",
+      "lv": 160,
+      "cycle_min": 3,
+      "items": 2,
+      "rarity": {
+        "star3": 0,
+        "star4": 0.25,
+        "star5": 0.75
+      },
+      "first_floor": 5,
+      "expected_star5_per_clear": 1.5,
+      "expected_star5_per_hour": 30,
+      "vs_normal_reference_ratio": 2.02,
+      "expected_desired_slot_usable_star5_per_hour": 4.5,
+      "expected_total_artifacts_per_hour": 40
+    },
+    {
+      "tier": "ハード",
+      "lv": 175,
+      "cycle_min": 4,
+      "items": 3,
+      "rarity": {
+        "star3": 0,
+        "star4": 0.2,
+        "star5": 0.8
+      },
+      "first_floor": 5,
+      "expected_star5_per_clear": 2.4,
+      "expected_star5_per_hour": 36,
+      "vs_normal_reference_ratio": 2.424,
+      "expected_desired_slot_usable_star5_per_hour": 5.4,
+      "expected_total_artifacts_per_hour": 45
+    },
+    {
+      "tier": "マスター",
+      "lv": 190,
+      "cycle_min": 5,
+      "items": 3,
+      "rarity": {
+        "star3": 0,
+        "star4": 0.1,
+        "star5": 0.9
+      },
+      "first_floor": 5,
+      "expected_star5_per_clear": 2.7,
+      "expected_star5_per_hour": 32.4,
+      "vs_normal_reference_ratio": 2.182,
+      "expected_desired_slot_usable_star5_per_hour": 4.86,
+      "expected_total_artifacts_per_hour": 36
+    },
+    {
+      "tier": "極限",
+      "lv": 200,
+      "cycle_min": 6,
+      "items": 4,
+      "rarity": {
+        "star3": 0,
+        "star4": 0.05,
+        "star5": 0.95
+      },
+      "first_floor": 5,
+      "expected_star5_per_clear": 3.8,
+      "expected_star5_per_hour": 38,
+      "vs_normal_reference_ratio": 2.559,
+      "expected_desired_slot_usable_star5_per_hour": 5.7,
+      "expected_total_artifacts_per_hour": 40
+    }
+  ],
+  "special_branch": [
+    {
+      "id": "branch-01",
+      "name": "ドラゴンスパイン",
+      "lv": 60,
+      "cycle_min": 1.5,
+      "items": 1,
+      "rarity": {
+        "star3": 0.6,
+        "star4": 0.39,
+        "star5": 0.01
+      },
+      "first_floor": 4,
+      "expected_star5_per_clear": 0.01,
+      "expected_star5_per_hour": 0.4,
+      "vs_normal_reference_ratio": 0.027,
+      "expected_desired_slot_usable_star5_per_hour": 0.06,
+      "expected_total_artifacts_per_hour": 40
+    },
+    {
+      "id": "branch-02",
+      "name": "沈玉の谷",
+      "lv": 95,
+      "cycle_min": 1.5,
+      "items": 1,
+      "rarity": {
+        "star3": 0.2,
+        "star4": 0.69,
+        "star5": 0.11
+      },
+      "first_floor": 4,
+      "expected_star5_per_clear": 0.11,
+      "expected_star5_per_hour": 4.4,
+      "vs_normal_reference_ratio": 0.296,
+      "expected_desired_slot_usable_star5_per_hour": 0.66,
+      "expected_total_artifacts_per_hour": 40
+    },
+    {
+      "id": "branch-03",
+      "name": "淵下宮",
+      "lv": 110,
+      "cycle_min": 1.5,
+      "items": 1,
+      "rarity": {
+        "star3": 0.15,
+        "star4": 0.73,
+        "star5": 0.12
+      },
+      "first_floor": 4,
+      "expected_star5_per_clear": 0.12,
+      "expected_star5_per_hour": 4.8,
+      "vs_normal_reference_ratio": 0.323,
+      "expected_desired_slot_usable_star5_per_hour": 0.72,
+      "expected_total_artifacts_per_hour": 40
+    },
+    {
+      "id": "branch-04",
+      "name": "トゥニギの黒淵",
+      "lv": 130,
+      "cycle_min": 1.5,
+      "items": 1,
+      "rarity": {
+        "star3": 0.05,
+        "star4": 0.55,
+        "star5": 0.4
+      },
+      "first_floor": 4,
+      "expected_star5_per_clear": 0.4,
+      "expected_star5_per_hour": 16,
+      "vs_normal_reference_ratio": 1.077,
+      "expected_desired_slot_usable_star5_per_hour": 2.4,
+      "expected_total_artifacts_per_hour": 40
+    },
+    {
+      "id": "branch-05",
+      "name": "往日の海",
+      "lv": 160,
+      "cycle_min": 1.5,
+      "items": 1,
+      "rarity": {
+        "star3": 0,
+        "star4": 0.3,
+        "star5": 0.7
+      },
+      "first_floor": 5,
+      "expected_star5_per_clear": 0.7,
+      "expected_star5_per_hour": 28,
+      "vs_normal_reference_ratio": 1.886,
+      "expected_desired_slot_usable_star5_per_hour": 4.2,
+      "expected_total_artifacts_per_hour": 40
+    },
+    {
+      "id": "branch-06",
+      "name": "ドーンマンポート",
+      "lv": 175,
+      "cycle_min": 1.5,
+      "items": 1,
+      "rarity": {
+        "star3": 0,
+        "star4": 0.25,
+        "star5": 0.75
+      },
+      "first_floor": 5,
+      "expected_star5_per_clear": 0.75,
+      "expected_star5_per_hour": 30,
+      "vs_normal_reference_ratio": 2.02,
+      "expected_desired_slot_usable_star5_per_hour": 4.5,
+      "expected_total_artifacts_per_hour": 40
+    },
+    {
+      "id": "branch-07",
+      "name": "オシカ・ナタ",
+      "lv": 185,
+      "cycle_min": 1.5,
+      "items": 1,
+      "rarity": {
+        "star3": 0,
+        "star4": 0.2,
+        "star5": 0.8
+      },
+      "first_floor": 5,
+      "expected_star5_per_clear": 0.8,
+      "expected_star5_per_hour": 32,
+      "vs_normal_reference_ratio": 2.155,
+      "expected_desired_slot_usable_star5_per_hour": 4.8,
+      "expected_total_artifacts_per_hour": 40
+    },
+    {
+      "id": "branch-08",
+      "name": "ナド・クライ特別地域（仮）",
+      "lv": 195,
+      "cycle_min": 1.5,
+      "items": 1,
+      "rarity": {
+        "star3": 0,
+        "star4": 0.15,
+        "star5": 0.85
+      },
+      "first_floor": 5,
+      "expected_star5_per_clear": 0.85,
+      "expected_star5_per_hour": 34,
+      "vs_normal_reference_ratio": 2.29,
+      "expected_desired_slot_usable_star5_per_hour": 5.1,
+      "expected_total_artifacts_per_hour": 40
+    },
+    {
+      "id": "branch-09",
+      "name": "ノヴォキッチェヴ最深部（構造未定）",
+      "lv": 200,
+      "cycle_min": 1.5,
+      "items": 1,
+      "rarity": {
+        "star3": 0,
+        "star4": 0.1,
+        "star5": 0.9
+      },
+      "first_floor": 5,
+      "expected_star5_per_clear": 0.9,
+      "expected_star5_per_hour": 36,
+      "vs_normal_reference_ratio": 2.424,
+      "expected_desired_slot_usable_star5_per_hour": 5.4,
+      "expected_total_artifacts_per_hour": 40
+    }
+  ],
+  "normal_drop_sensitivity": [
+    {
+      "normal_drop": 0.005,
+      "normal_star5_per_hour": 9.9,
+      "weekly_advanced_ratio": 3.03,
+      "stygian_extreme_ratio": 3.838
+    },
+    {
+      "normal_drop": 0.0075,
+      "normal_star5_per_hour": 14.85,
+      "weekly_advanced_ratio": 2.02,
+      "stygian_extreme_ratio": 2.559
+    },
+    {
+      "normal_drop": 0.01,
+      "normal_star5_per_hour": 19.8,
+      "weekly_advanced_ratio": 1.515,
+      "stygian_extreme_ratio": 1.919
+    }
+  ],
+  "reference_efficiency": {
+    "expected_field_artifacts_per_hour": 27,
+    "expected_field_star5_per_hour": 14.85,
+    "expected_field_usable_correct_slot_star5_per_hour": 2.228,
+    "expected_field_minutes_to_one_usable_correct_slot_star5": 26.936,
+    "expected_weekly_advanced_minutes_to_one_usable_correct_slot_star5": 13.333,
+    "expected_weekly_top_minutes_to_one_usable_correct_slot_star5": 11.765,
+    "expected_stygian_extreme_minutes_to_one_usable_correct_slot_star5": 10.526
+  },
+  "first_clear_grant": {
+    "item_count": 1,
+    "per_boss_difficulty": true,
+    "slot_selected_by_player": true,
+    "set_uses_snapshot": true,
+    "at_least_star4_at_lv40_to_159": true,
+    "guaranteed_star5_at_lv160_plus": true,
+    "main_and_substat_random": true,
+    "adds_to_xp_mora_bonuses": true,
+    "special_branch_first_bonus_integrated_in_Q_Bxx_03": true,
+    "story_boss_no_duplicate_first_clear": false
+  },
+  "reward_safety": {
+    "individual_multiplayer_rolls": true,
+    "party_size_does_not_scale_boss_hp": true,
+    "booster_does_not_increase_drop_rate": true,
+    "reward_generate_once_on_victory": true,
+    "pending_bundle_if_bag_full": true,
+    "pending_item_count_max": 5,
+    "permit_explicit_keep_or_sell": true,
+    "no_silent_discard": true,
+    "reroll_on_disconnect": false,
+    "log_xp_mora_separately": true,
+    "prevent_duplicate_payouts": true,
+    "implement_claim_transaction_after_server_test": true
+  },
+  "balancing_constraints": {
+    "drops_not_mandatory_for_skill_unlock": true,
+    "no_extreme_only_required_set": true,
+    "max_item_quality_not_boss_exclusive": true,
+    "elite_and_regular_monsters_retained": true,
+    "challenge_runs_use_actual_cycle_time_including_loading": true,
+    "rewards_at_stable_cycle_should_be_roughly_1_5_to_3x_normal_star5_rate": true,
+    "highest_difficulty_not_guaranteed_highest_star5_rate_per_minute": true,
+    "first_clear_items_should_not_be_unbounded_in_submissions": true
+  }
+}
