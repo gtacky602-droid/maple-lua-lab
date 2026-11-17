@@ -131,6 +131,40 @@
       "ground_both_directions": true
     },
     {
+      "node": "mond-bennett-ledge",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 1,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "mond-bennett-depth",
+      "platforms": 2,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
       "node": "mond-watchtower",
       "platforms": 6,
       "jump_routes": [

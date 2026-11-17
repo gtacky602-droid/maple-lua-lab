@@ -49,7 +49,8 @@ def runtime():
     rest = lua.execute((ROOT / 'story-rest.lua').read_text(encoding='utf-8'))(core)
     story_data = json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8'))
     graph = lua.table_from(resolve_story_exp(story_data),recursive=True)
-    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest)
+    cave=lua.execute((ROOT/'story-cave.lua').read_text(encoding='utf8'))(core)
+    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave)
     lua.execute((ROOT / 'barrier.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'farka.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'regisvine.lua').read_text(encoding='utf-8'))(core)
@@ -94,6 +95,7 @@ def runtime():
     core.enemyArtLayout=lua.table_from(enemy_layout,recursive=True)
     core.enemyIdleArt=lua.table_from({key:json.loads((ROOT/'assets'/f'{key}-idle-sprites.json').read_text(encoding='utf8')) for key in enemy_layout},recursive=True)
     core.danukiArt=lua.table_from(json.loads((ROOT/'assets/danuki-dance-sprites-v1.json').read_text(encoding='utf8')),recursive=True)
+    core.bennettArt=lua.table_from(json.loads((ROOT/'assets/bennett-cave-guide-sprites-v1.json').read_text(encoding='utf8')),recursive=True)
     core.noelleArt=lua.table_from({
         pose: json.loads((ROOT/f'assets/noelle-rest-{pose}-sprites-v1.json').read_text(encoding='utf8'))
         for pose in ('standing','seated')

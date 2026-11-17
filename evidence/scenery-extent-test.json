@@ -2,6 +2,36 @@
   "errors": [],
   "cases": [
     {
+      "key": "windsplit",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "windsplit",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "windsplit",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "windsplit",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "windsplit",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "windsplit",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "mondrest",
       "camera": -960,
       "transparent": 0

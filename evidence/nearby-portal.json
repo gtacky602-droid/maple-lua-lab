@@ -77,6 +77,10 @@
       "to": "mond-hill"
     },
     {
+      "node": "mond-old-ground",
+      "to": "mond-bennett-depth"
+    },
+    {
       "node": "mond-hill",
       "to": "mond-old-ground"
     },
@@ -91,6 +95,26 @@
     {
       "node": "mond-hill",
       "to": "mond-watchtower"
+    },
+    {
+      "node": "mond-hill",
+      "to": "mond-bennett-ledge"
+    },
+    {
+      "node": "mond-bennett-ledge",
+      "to": "mond-hill"
+    },
+    {
+      "node": "mond-bennett-ledge",
+      "to": "mond-bennett-depth"
+    },
+    {
+      "node": "mond-bennett-depth",
+      "to": "mond-bennett-ledge"
+    },
+    {
+      "node": "mond-bennett-depth",
+      "to": "mond-old-ground"
     },
     {
       "node": "mond-watchtower",

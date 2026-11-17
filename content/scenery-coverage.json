@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 105 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 103,
+  "scope": "Authored 107 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 105,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -44,6 +44,18 @@
     {
       "id": "mond-hill",
       "name": "モンド・風見の丘",
+      "region": "モンド",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "mond-bennett-ledge",
+      "name": "モンド・風裂き洞窟の上段",
+      "region": "モンド",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "mond-bennett-depth",
+      "name": "モンド・風裂き洞窟の鉱脈",
       "region": "モンド",
       "status": "regional_temporary_image"
     },

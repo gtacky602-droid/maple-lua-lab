@@ -1,11 +1,11 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
   local out={};for k,item in pairs(v) do out[k]=copy(item) end;return out
  end
  local nodes,quests,starterQuests={},{},{}
- local lanternQuest,contestQuest,sightQuest,restQuest
+ local lanternQuest,contestQuest,sightQuest,restQuest,caveQuest
  for _,n in ipairs(data.nodes) do nodes[n.id]=n end
  for _,q in ipairs(data.quests) do
   quests[q.id]=q
@@ -13,6 +13,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if q.contest then contestQuest=q end
   if q.sights then sightQuest=q end
   if q.rest then restQuest=q end
+  if q.cave then caveQuest=q end
   if q.join and q.starter then starterQuests[q.join]=q end
  end
  local function setup(s)
@@ -65,7 +66,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local n=nodes[edge.to];local dx=math.abs(a.x-edge.x)
    if dx<distance and nearGate(a,edge) and (not n.hiddenGroup or s.story.discovered[n.hiddenGroup]) then
     local reason=nil
-    if s.paused then reason='一時停止中'
+    if s.caveFall then reason='崩落中'
+    elseif s.paused then reason='一時停止中'
     elseif a.hp<=0 then reason='戦闘不能中'
     elseif not s.progression or s.progression.level<n.level then reason='必要レベル '..n.level
     else reason=gateRestriction(s,edge) end
@@ -199,6 +201,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.storyFirstClear=nil
   s.sightNotice=nil
   s.restNotice=nil
+  s.caveNotice=nil
+  s.caveRockHit=nil
+  s.caveFall=nil
+  local caveState=caveQuest and s.story.quests[caveQuest.id]
+  if caveState and id==caveQuest.target and caveState.count>=3 then cave.removeBrittle(s,caveQuest.cave) end
   s.sightMenu=nil
   s.storyDeliveryNotice=nil
   local railConfig,railState=railQuest(s,n)
@@ -220,7 +227,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  function C.storyBossDefeated(s,id) setup(s);progress(s,'boss',id) end
  function C.action(s,key)
   setup(s)
-  if s.lift then
+  if s.lift or s.caveFall then
    if key=='pause' then action(s,key) end
    return
   end
@@ -232,6 +239,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if contestQuest and contest.interact(s,contestQuest,s.story.quests[contestQuest.id]) then return end
    if sightQuest and sights.inspect(s,sightQuest,s.story.quests[sightQuest.id]) then return end
    if restQuest and rest.interact(s,restQuest,s.story.quests[restQuest.id]) then return end
+   if caveQuest and cave.interact(s,caveQuest,s.story.quests[caveQuest.id]) then return end
    for id,state in pairs(s.story.quests) do
     local q=quests[id]
     if q.cooking then
@@ -451,7 +459,18 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    return
   end
+  if s.caveFall then
+   if cave.stepFall(s,dt) then
+    local spec=caveQuest.cave
+    enter(s,spec.depth,spec.landing.x,nil,spec.landing.y)
+    s.caveNotice='ベネット「大丈夫か？ ほら、奥に鉱石が光ってる。風も吹き込んでるぞ！」'
+   end
+   return
+  end
   local returns=s.returns;step(s,dt,input)
+  if caveQuest and s.story and s.story.active and s.returns==returns then
+   cave.update(s,caveQuest,s.story.quests[caveQuest.id])
+  end
   if lanternQuest and s.story and s.story.active then
    local state=s.story.quests[lanternQuest.id]
    if state then lantern.step(s,lanternQuest,state,dt) end
@@ -549,6 +568,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if contestQuest then contest.observe(s,f,markers,n,contestQuest,s.story.quests[contestQuest.id],mode,profile) end
    if sightQuest then sights.observe(s,f,markers,sightQuest,s.story.quests[sightQuest.id],mode,profile) end
    if restQuest then rest.observe(s,f,markers,restQuest,s.story.quests[restQuest.id],mode,profile) end
+   if caveQuest then cave.observe(s,f,markers,caveQuest,s.story.quests[caveQuest.id],mode,profile) end
    local recoveryQuest=quests[n.clearedBy]
    local recoveryState=recoveryQuest and recoveryQuest.recovery and s.story.quests[recoveryQuest.id]
    if recoveryState and recoveryState.recovered and recoveryState.count==recoveryQuest.goal-1 and s.companion~='beidou' then

@@ -29,6 +29,14 @@
       "enemy_count": 3
     },
     {
+      "node": "mond-bennett-ledge",
+      "enemy_count": 0
+    },
+    {
+      "node": "mond-bennett-depth",
+      "enemy_count": 2
+    },
+    {
       "node": "mond-watchtower",
       "enemy_count": 5
     },

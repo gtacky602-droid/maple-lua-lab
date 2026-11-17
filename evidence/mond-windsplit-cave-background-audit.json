@@ -1,0 +1,21 @@
+{
+  "scope": "Web/Lua temporary host-rendered scene shared by the upper ledge and lower mineral chamber",
+  "source_style_reference": {
+    "file": "assets/inazuma-sea-cave-background-v1.png",
+    "sha256": "711a888a7ab02f0001af310c8c2bcb0cd49ed1ce8bce2c4561179aabc956cadb",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "imagegen": {
+    "prompt": "Create an original wide 16:9 temporary background plate for a 2D side-scrolling RPG, a dry small limestone cave in a temperate Mondstadt landscape, after a strong wind uncovered the entrance. Match the supplied pixel-painted side-scroller cave's subdued graphic texture and depth, but replace its water and ocean view with layers of deep slate and burgundy-grey stone, sparse moss, angular stalactites, and a few warm shafts of daylight from a high side crevice lighting softly green sunlit dust. The central/lower game area must be low-contrast and generally mid-dark violet stone, wide enough for easily read character sprites and separate foreground platform overlays, with a shadowed stone floor at the lower edge. Add a few faint teal mineral specks deep in the walls. No treasure chest, passage frame, platforms, ladders, foliage foreground, text, characters, battle effects or HUD. Painted pixel clusters and earthy adventurous mood, fully opaque.",
+    "file": "assets/mond-windsplit-cave-background-v1.png",
+    "sha256": "a7bcd9d84e551572aebda287523a0670cf28ad1fcbf15261b1ef79eefcd8407a",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "notes": "A dry inland limestone cavern in a new composition. Floor collision, rockfall, chests and ore props are independent Web/Lua layers."
+}

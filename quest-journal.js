@@ -11,6 +11,11 @@ const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready
 export function questObjective(q,graph,state){
  const destination=graph.nodes.find(n=>q.kind==='boss'?n.challenge===q.target:n.id===q.target);
  const place=destination?.name||'目的地未登録';
+ if(q.cave){
+  if(state?.status==='complete')return '洞窟の鉱脈を探索し、旧道への近道を使える';
+  return ['風見の丘から小洞窟へ入り、ベネットに話を聞く','落石を避けて上段の宝箱を開ける',
+   '空の宝箱から引き返す','崩れた床の下で光る鉱石を拾う','旧道から城門広場に戻って報告する'][state?.count??0];
+ }
  if(q.rest){
   if(state?.status==='complete')return '街道脇の休憩所でお茶を飲んで回復できる';
   return ['南の街道から休憩所に入り、魔物を退ける','低い足場の板を拾う','ベンチのそばの落ち葉を掃く',

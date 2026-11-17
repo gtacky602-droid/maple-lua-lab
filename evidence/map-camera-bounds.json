@@ -36,6 +36,16 @@
       "rightCamera": 800
     },
     {
+      "node": "mond-bennett-ledge",
+      "width": 1320,
+      "rightCamera": 360
+    },
+    {
+      "node": "mond-bennett-depth",
+      "width": 1250,
+      "rightCamera": 290
+    },
+    {
       "node": "mond-watchtower",
       "width": 1760,
       "rightCamera": 800

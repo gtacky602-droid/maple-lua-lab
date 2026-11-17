@@ -1,0 +1,14 @@
+{
+  "rockfall_damage": 12,
+  "collapse_hp_bag_and_mora_preserved": true,
+  "paused_collapse_resumes": true,
+  "mid_collapse_save_resumes_through_shaft": true,
+  "two_way_shortcut_and_repeatable_hunting": true,
+  "ore_once": 1,
+  "ore_upgrade_discount_mora": 400,
+  "one_time_report": {
+    "xp": 967,
+    "mora": 160
+  },
+  "legacy_save_without_ore_loads": true
+}

@@ -1,6 +1,7 @@
 -- Inventory / main-stat prototype. No final set/substat/crit implementation claim.
 return function(C)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
+ local oreDiscount=400
  local caps={[3]=12,[4]=16,[5]=20};local rarity={[3]=.6,[4]=.8,[5]=1}
  local feather={{1,0},{10,133.333333},{20,208.333333},{30,268},{40,393},{60,454.545455},{80,1250},{100,2343.75},{110,6250},{120,6250},{140,29800},{160,71400},{170,100000},{180,170000},{200,300000},{220,520000}}
  local flower={{1,80},{20,160},{40,600},{60,1800},{80,5000},{100,16000},{120,32000},{140,56000},{160,84480},{180,160000},{200,300000},{220,520000}}
@@ -9,6 +10,11 @@ return function(C)
   s.inventory.ground=s.inventory.ground or {}
   s.inventory.targetSet=s.inventory.targetSet or 'gladiator'
   s.inventory.combatRng=s.inventory.combatRng or 1973
+  s.inventory.upgradeOre=s.inventory.upgradeOre or 0
+ end
+ function C.grantUpgradeOre(s,quantity)
+  setup(s)
+  s.inventory.upgradeOre=s.inventory.upgradeOre+quantity
  end
  local function roll(s,n)
   local bag=s.inventory;bag.rng=(bag.rng*48271)%2147483647;return bag.rng%n+1
@@ -123,11 +129,19 @@ return function(C)
     elseif command=='sell' then
      if item.owner~=0 or item.locked then bag.message='装備中・ロック中の品は売却できません。'
      else local price=C.artifactSalePrice(item);table.remove(bag.items,index);s.mora=s.mora+price;bag.message=price..'モラで売却しました（試算価格）。' end
-    elseif command=='upgrade' then
-     local next=item.enhance+4;local cost=next*200*item.rarity^2
+    elseif command=='upgrade' or command=='useore' then
+     local ore=command=='useore'
+     local next=item.enhance+4
+     local cost=math.max(0,next*200*item.rarity^2-(ore and oreDiscount or 0))
      if next>caps[item.rarity] then bag.message='通常強化の上限です。'
+     elseif ore and bag.upgradeOre<1 then bag.message='強化鉱石を持っていません。'
      elseif s.mora<cost then bag.message='強化には'..cost..'モラ必要です。'
-     else s.mora=s.mora-math.floor(cost);item.enhance=next;C.refreshArtifactStats(s);bag.message='+4強化しました。' end
+     else
+      s.mora=s.mora-math.floor(cost);item.enhance=next
+      if ore then bag.upgradeOre=bag.upgradeOre-1 end
+      C.refreshArtifactStats(s)
+      bag.message=ore and '強化鉱石を1個使い、+4強化しました。' or '+4強化しました。'
+     end
     end
     return
    end end
@@ -151,7 +165,7 @@ return function(C)
   end
  end
  function C.frame(s,mode,profile)
-  setup(s);local f=frame(s,mode,profile);f.inventory=s.inventory
+  setup(s);local f=frame(s,mode,profile);f.inventory=s.inventory;f.upgradeOreDiscount=oreDiscount
   local starter=C.starterEquipment and C.starterEquipment(s,s.companion)
   if starter then
    local useFlower=true

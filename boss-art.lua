@@ -35,6 +35,9 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
  end
  function C.drawEnemyIdleArt(f,s,e,mode,profile) local layout=C.enemyArtLayout[e.art];draw(f,C.enemyIdleArt[e.art],e.x-s.camera,e.y-layout.hover,layout.height,mode,profile,false) end
  function C.drawDanukiArt(f,x,y,mode,profile) draw(f,C.danukiArt,x,y,56,mode,profile,false) end
+ function C.drawBennettArt(f,x,y,mode,profile)
+  draw(f,C.bennettArt,x,y,C.bennettArt.profiles.legacy.height,mode,profile)
+ end
  function C.drawNoelleArt(f,x,y,seated,mode,profile)
   local art=C.noelleArt[seated and 'seated' or 'standing']
   draw(f,art,x,y,art.profiles.legacy.height,mode,profile)

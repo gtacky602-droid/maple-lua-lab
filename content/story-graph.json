@@ -289,6 +289,11 @@
             "quest": "mond-old-trail",
             "count": 1
           }
+        },
+        {
+          "to": "mond-bennett-depth",
+          "x": 1100,
+          "requires": {"quest": "mond-bennett-cave", "count": 4}
         }
       ],
       "checkpoint": "mond-town"
@@ -352,7 +357,50 @@
             "quest": "mond-watchtower-clear",
             "count": 0
           }
+        },
+        {
+          "to": "mond-bennett-ledge",
+          "x": 895,
+          "requires": {"quest": "mond-bennett-cave", "count": 0}
         }
+      ],
+      "checkpoint": "mond-town"
+    },
+    {
+      "id": "mond-bennett-ledge",
+      "name": "モンド・風裂き洞窟の上段",
+      "region": "モンド",
+      "level": 1,
+      "hub": false,
+      "peaceful": true,
+      "width": 1320,
+      "platforms": [
+        {"x": 0, "y": 480, "w": 1320},
+        {"x": 370, "y": 400, "w": 245},
+        {"x": 550, "y": 315, "w": 120},
+        {"x": 670, "y": 315, "w": 220},
+        {"x": 890, "y": 315, "w": 380}
+      ],
+      "exits": [
+        {"to": "mond-hill", "x": 65},
+        {"to": "mond-bennett-depth", "x": 785, "requires": {"quest": "mond-bennett-cave", "count": 3}}
+      ],
+      "checkpoint": "mond-town"
+    },
+    {
+      "id": "mond-bennett-depth",
+      "name": "モンド・風裂き洞窟の鉱脈",
+      "region": "モンド",
+      "level": 1,
+      "hub": false,
+      "width": 1250,
+      "platforms": [
+        {"x": 0, "y": 480, "w": 1250},
+        {"x": 670, "y": 400, "w": 270}
+      ],
+      "exits": [
+        {"to": "mond-bennett-ledge", "x": 65},
+        {"to": "mond-old-ground", "x": 1190, "requires": {"quest": "mond-bennett-cave", "count": 4}}
       ],
       "checkpoint": "mond-town"
     },
@@ -4343,6 +4391,30 @@
             "line": "枝の赤い布は荷物を包んでいた布と同じです。"
           }
         ]
+      }
+    },
+    {
+      "id": "mond-bennett-cave",
+      "designId": "Q-MON-S03",
+      "name": "大当たりは、帰り道",
+      "giver": "ベネット",
+      "hub": "mond-town",
+      "target": "mond-bennett-ledge",
+      "kind": "cave",
+      "requires": "mond-old-trail",
+      "goal": 4,
+      "xp": 967,
+      "mora": 160,
+      "briefing": "ベネット「強い風で丘の岩がずれて、洞窟が見つかったんだ。奥に宝箱が見えた。足元に気をつけて行こうぜ！」",
+      "closing": "ベネット「宝箱は空だったけど、道は当たりだったな！」",
+      "cave": {
+        "depth": "mond-bennett-depth",
+        "guide": {"x": 270, "y": 480, "label": "ベネットに洞窟の道を聞く"},
+        "chest": {"x": 1170, "y": 315, "label": "宝箱を開ける"},
+        "brittle": {"x": 670, "y": 315, "w": 220},
+        "rockfall": {"x": 505, "radius": 42, "period": 2.4, "damage": 12},
+        "landing": {"x": 350, "y": 480},
+        "ore": {"x": 480, "y": 480, "label": "光る鉱石を拾う", "quantity": 1}
       }
     },
     {

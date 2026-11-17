@@ -857,3 +857,9 @@ Lv40で璃月から既存の30秒航路に乗ると、離島の綾華から「�
 [旅人の低頭身比較](traveler-proportions.html)で、現行の右向きとB・C案を、同じ表示高88pxと足元位置で比べられる。B・C案は正面・右向き・背面を用意。モンド・璃月・稲妻・フォンテーヌの仮背景、実寸・2倍・3倍、元PNGと標準88px・中間66px・軽量44pxの矩形表示を確認した。
 
 右向きの見かけは現行約2.4頭身、B約2.5、C約2.1。Bは現行と頭の高さが近く、Cは髪と目が大きく、足元が短く見える。右向きの矩形数はBが1,880→472、Cが1,953→503。服の小さい縁飾りは44px版で簡略化される。候補の採用と待機以外の姿勢は今後の比較対象。 [スタイルガイド](DESIGN_MAPLE_CHIBI_STYLE_GUIDE_V01.md)・[作画参照と測定](evidence/traveler-proportions-reference-audit.json)・[Chrome検証](evidence/traveler-proportions-browser.json)
+
+## モンドS03 風裂き洞窟と旧道への抜け道
+
+「大当たりは、帰り道」はM02を報告すると城門広場でベネットから受けられる。風見の丘から小洞窟に入り、ベネットに落石の間合いを聞く。上段の宝箱は空で、引き返す途中に足場が崩れる。崩落でHPや持ち物を失わず、途中で保存した場合は町から再開して開いた縦穴を通れる。下の鉱脈で強化鉱石を拾うと、旧道の下段との往復が解放される。鉱脈には通常スライムが再出現する。
+
+強化鉱石は一度だけ受け取り、町の聖遺物バッグにある「鉱石で+4強化」で使える。強化が成功したときに1個を消費し、今回は400モラ分を割り引く。報告はv0.2の967EXPと試算の160モラ。ベネットは3Dモデル4方向と立ち絵を確認した80px表示の待機絵。上段と鉱脈は同じ仮背景を使う。 [物語設計](docs/quest-v1/regions/01_MONDSTADT.md)・[ベネットの参照記録](evidence/bennett-cave-guide-reference-audit.json)・[背景の記録](evidence/mond-windsplit-cave-background-audit.json)・[Lua検証](evidence/mondstadt-s03-lua.json)・[Chrome検証](evidence/mondstadt-s03-browser.json)

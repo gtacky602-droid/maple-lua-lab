@@ -53,22 +53,42 @@
     {
       "node": "mond-old-ground",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "mond-old-ground",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "mond-hill",
       "mode": "sprite",
-      "visible_portals": 4
+      "visible_portals": 5
     },
     {
       "node": "mond-hill",
       "mode": "rect",
-      "visible_portals": 4
+      "visible_portals": 5
+    },
+    {
+      "node": "mond-bennett-ledge",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "mond-bennett-ledge",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "mond-bennett-depth",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "mond-bennett-depth",
+      "mode": "rect",
+      "visible_portals": 2
     },
     {
       "node": "mond-watchtower",

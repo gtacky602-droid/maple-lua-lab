@@ -64,7 +64,9 @@ def validate_save(data):
             raise ValueError('経験値報酬の状態が一致しません')
     if 'inventory' in data:
         bag=data['inventory']
-        if not isinstance(bag,dict) or set(bag)-{'ground','targetSet','combatRng'}!={'items','nextId','rng','sampleKit','message'}: raise ValueError('装備保存形式が不正です')
+        if not isinstance(bag,dict) or set(bag)-{'ground','targetSet','combatRng','upgradeOre'}!={'items','nextId','rng','sampleKit','message'}: raise ValueError('装備保存形式が不正です')
+        ore=bag.get('upgradeOre',0)
+        if type(ore) is not int or not 0<=ore<=10**9: raise ValueError('強化鉱石の所持数が不正です')
         if not isinstance(bag['items'],list) or len(bag['items'])>80: raise ValueError('バッグ上限を超えています')
         if type(bag['nextId']) is not int or not 1<=bag['nextId']<=10**9 or type(bag['rng']) is not int or not 1<=bag['rng']<2147483647: raise ValueError('装備ID/乱数状態が不正です')
         if type(bag['sampleKit']) is not bool or not isinstance(bag['message'],str) or len(bag['message'])>200: raise ValueError('装備状態が不正です')

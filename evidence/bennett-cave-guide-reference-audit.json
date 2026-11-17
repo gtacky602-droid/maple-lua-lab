@@ -1,0 +1,81 @@
+{
+  "character": "Bennett, default outfit, quest NPC",
+  "guide": "DESIGN_MAPLE_CHIBI_STYLE_GUIDE_V01.md",
+  "illustration": {
+    "url": "https://paimon.moe/images/characters/full/bennett.png",
+    "file": "work/references/bennett-full.png",
+    "sha256": "96b00f26f1fe68d3d43d062e40b79bc25bf351ec645bce2cf72a8bf8a72404e1",
+    "dimensions": [
+      416,
+      800
+    ]
+  },
+  "model": {
+    "index": "https://mmdfr.fr/genshin-mmd/",
+    "archive_url": "https://activity.hdslb.com/blackboard/static/20240827/d32c2bb79f59192cb072d7bf79b61c6d/wBLVVmc3xu.zip",
+    "archive_sha256": "917057bd3c1761d522c7c9238bf91ba127b18c8bb702c4d448b8556e4e756cf9",
+    "file": "班尼特.pmx",
+    "copyright": "miHoYo / model editor 观海",
+    "terms": "Reference only. Model terms forbid redistribution, extracting parts for other models, and commercial model use. PMX, textures and local renders are excluded from Git.",
+    "inspected_views": [
+      "front",
+      "right",
+      "back",
+      "left"
+    ],
+    "views_passed_to_imagegen": [
+      "front",
+      "right",
+      "back"
+    ]
+  },
+  "style_reference": "assets/noelle-rest-poses-source-v1.png",
+  "imagegen": {
+    "prompt": "Generate a single transparent pixel-art sprite for a 2D side-scrolling RPG of Genshin Impact Bennett in his original adventurer outfit. Face SCREEN LEFT in three-quarter view, both eyes partly visible, standing relaxed, gloved hands near sides, friendly confident cave guide, unarmed. Use the PMX and illustration for pale off-white swept hair, turquoise lenses in bronze goggles on top of head, true green eyes and a small nose bandage, sleeveless off-white front laced top and dark navy edging, mustard band tied at HIS right bicep, red ribbon on his right wrist, brown fingerless gloves, dark cobalt knee breeches with red ties and mustard accents, tool pouch and bedroll behind belt, gold motifs on short dark boots. Use Noelle's supplied art solely as pixel style and game proportions. Classic chibi game design, head from hair tip to chin around 40% of visible total height (~2.5 head lengths), a compact short torso, short lower legs, broad feet and gloves. Authentic chunky pixel clusters, clean warm-dark outline and flat simple warm and cool color clusters. Keep goggles symbol in 16 colors and silhouette when sampled to 44 pixels. No weapon, border, text, platform, glow, shadow, environmental effects or background. Full transparent alpha, opaque inside the sprite, padding on all edges, flat soles on a baseline.",
+    "file": "assets/bennett-cave-guide-source-v1.png",
+    "sha256": "606b5e62932e7aad83325cadf78d24446e06875a2a5d8cdeef9cb648315d44f3",
+    "dimensions": [
+      1122,
+      1402
+    ]
+  },
+  "observations": [
+    "Bronze goggles and teal lenses, white hair, bandage across nose, green eyes.",
+    "Asymmetric mustard upper-arm band and red wrist ribbon, white lace-up front, dark blue breeches and boots, shoulder and waist tools.",
+    "Single left-facing guide pose with a bottom foot anchor. Approximately 2.5 heads tall by hair tip to chin; no dedicated walk or weapon pose."
+  ],
+  "bounds": [
+    269,
+    93,
+    552,
+    1249
+  ],
+  "anchorX": 0.4782608695652174,
+  "profiles": {
+    "legacy": {
+      "size": [
+        35,
+        80
+      ],
+      "rectangles": 1183,
+      "palette_budget": 32
+    },
+    "h48c32": {
+      "size": [
+        27,
+        60
+      ],
+      "rectangles": 747,
+      "palette_budget": 32
+    },
+    "h32c16": {
+      "size": [
+        18,
+        40
+      ],
+      "rectangles": 339,
+      "palette_budget": 16
+    }
+  },
+  "retained_teal": "#178086 reserved within existing palette budget; opaque source pixel picked from goggles area"
+}

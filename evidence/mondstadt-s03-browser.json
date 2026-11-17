@@ -1,0 +1,19 @@
+{
+  "browser": "Chrome",
+  "actual_controls": true,
+  "cave_platforms_and_collapse": true,
+  "shared_temporary_background": true,
+  "collapse_hp_preserved": true,
+  "two_way_shortcut": true,
+  "save_restore_and_ore_consumption": true,
+  "report": {
+    "xp": 967,
+    "mora": 160
+  },
+  "guideComparison": {
+    "standard": 4649,
+    "light": 4646
+  },
+  "viewport_390": true,
+  "errors": []
+}
