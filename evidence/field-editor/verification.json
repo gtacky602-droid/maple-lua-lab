@@ -61,5 +61,7 @@
     "field_count": 873,
     "map_definition_count": 24,
     "contains_official_images": false
-  }
+  },
+  "integrated_main_commit": "e49d8750ab9f56dc0e3180c74c0738cb1755c8fd",
+  "post_merge_editor_inputs_unchanged": true
 }
