@@ -11,8 +11,9 @@
     "mora": 160
   },
   "guideComparison": {
+    "sameTick": 13.016666666666893,
     "standard": 4649,
-    "light": 4646
+    "light": 1246
   },
   "viewport_390": true,
   "errors": []

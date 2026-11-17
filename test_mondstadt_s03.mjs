@@ -88,16 +88,23 @@ try{
  await interact('ベネットに洞窟の道を聞く',1);
  assert.ok((await frame()).draws.some(d=>d.source==='bennett-cave-guide-source-v1.png'));
  await walk(405);
+ await focus();
+ await page.keyboard.press('KeyP');
+ await page.waitForFunction(()=>window.lab.frame.paused);
  await canvas.screenshot({path:'evidence/mondstadt-s03-guide.png'});
  const guideSource='bennett-cave-guide-source-v1.png';
  await page.locator('#renderMode').selectOption('rect');
  await page.waitForFunction(source=>!window.lab.frame.draws.some(d=>d.source===source),guideSource);
- const standard=(await frame()).commands;
+ const frozen=await frame(),standard=frozen.commands;
  await page.locator('#renderMode').selectOption('h32c16');
- await page.waitForFunction(standard=>window.lab.frame.commands<standard,standard);
- const light=(await frame()).commands;
+ await page.waitForFunction(standard=>window.lab.frame.commands<standard*.65,standard);
+ const lightFrame=await frame(),light=lightFrame.commands;
+ assert.equal(lightFrame.t,frozen.t);
  await canvas.screenshot({path:'evidence/mondstadt-s03-guide-light.png'});
  await page.locator('#renderMode').selectOption('sprite');
+ await focus();
+ await page.keyboard.press('KeyP');
+ await page.waitForFunction(()=>!window.lab.frame.paused);
  await walk(590);
  await jump(400);
  await jump(315);
@@ -166,7 +173,7 @@ try{
  await fs.writeFile('evidence/mondstadt-s03-browser.json',JSON.stringify({
   browser:'Chrome',actual_controls:true,cave_platforms_and_collapse:true,shared_temporary_background:true,
   collapse_hp_preserved:true,two_way_shortcut:true,save_restore_and_ore_consumption:true,report:{xp:967,mora:160},
-  guideComparison:{standard,light}, viewport_390:true,errors
+  guideComparison:{sameTick:frozen.t,standard,light}, viewport_390:true,errors
  },null,2)+'\n');
  console.log('Mondstadt S03 browser cave, safe collapse, shortcut, and ore enhancement passed');
 }catch(error){
