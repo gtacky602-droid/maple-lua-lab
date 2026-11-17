@@ -524,6 +524,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "ruin-serpent-field-pit",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "chasm-wp-25266",
       "count": 0,
       "fallback": false,
