@@ -1,0 +1,164 @@
+{
+  "date": "2026-11-18",
+  "tool": "built-in image_gen",
+  "prompts": [
+    "Make a fully transparent 3-column 2-row pixel-game sprite atlas for the Lava Dragon Statue, huge rocky nonhuman boss, all cells face RIGHT and have extremely generous padding inside their cell. First 2 reference images are current lab Earth Golem and Molten Dragon sprites, the third shows both game models; retain circular glowing gold core, dark angular basalt, angular gray and reddish boulder forearms, tall amber crystals, and distinct yellow-green patches on rock form. Upper left ROCK FORM: broad low stone golem with right arm cocked before a slam; upper middle ROCK FORM: one boulder fist striking down to the right, other arm supporting, three dark rock feet planted; upper right ROCK FORM: bracing its arms with head held low over an amber fissure, no drawn ground or effects. Lower left MOLTEN DRAGON: horned rock crest, two jagged forearms and upright body of orange flowing rock, leaning heavily forward for a lunge; lower middle MOLTEN DRAGON: raising both thick claws, very tall fire-orange fissure in lower torso, centered with a clearly readable narrow molten base; lower right OVERHEATED DRAGON: same creature, folded low to the ground, dimming stone outer shell and conspicuous almost-white orange core in center of dark rock. True alpha with no backdrop/no grid/no text/no outlines of cells, nothing outside characters, no shadows/no motion particles/no ground cracks detached. Strong golds and red-orange over dark basalt, crisp intentionally designed pixels.",
+    "Create a side-view 16:9 pixel-art arena for exploration on an Atocpan volcanic shelf, loosely inspired by the natural environment behind the golem in the supplied image. Huge basalt arches high up the screen, dark warm brown and umber distant sheer cliffs, thin far-off gold-orange lava falls near the edges, rusty distant strata and tiny deep-red volcanic flowers far behind the player, faint cool lavender haze in distant cracks. Flat continuously visible cooled dark terracotta stone across bottom quarter, middle play space subdued to separate yellow crystals, characters and bright orange attack indicators. Restrained lighting, rich pixel clusters. No characters, logos, labels, player HUD, no erupting hazard in foreground."
+  ],
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/01/94675339/c7e89256cd20ec515c24edf43e09c55d_1487850328215530107.png",
+      "sha256": "96be3e72ef7c554580cfb2b265f73dbd273b0d4d44d52f74dce60a3089557de6",
+      "use": "Both in-game forms and the volcanic shelf",
+      "directly_viewed": true,
+      "generation_input": true
+    }
+  ],
+  "lab_references": {
+    "lava-dragon-idle-source-v1.png": "bef7761b7c35ef1a1617828c4db76f7538c9bb253164637ee66b6328b46a8036",
+    "lava-dragon-molten-idle-source-v1.png": "044bd926ddfdb2ae4d9155ae0fc1f0868d749b00c55bd105b768a6ccd1304ced"
+  },
+  "outputs": {
+    "lava-dragon-field-poses-source-v1.png": "76560115bb031c31e6a1c3720f35a4a55e5e8825d5fe4fb6ee36dc666ea5cb0c",
+    "lava-dragon-field-background-v1.png": "b01963e8cf0ebf26adbe7c9a213a0ce432bd819875a4e1c2caa1e3bea91fc449"
+  },
+  "poses": {
+    "slam-ready": {
+      "crop": [
+        0,
+        0,
+        512,
+        442
+      ],
+      "box": [
+        44,
+        112,
+        429,
+        275
+      ],
+      "height": 161,
+      "anchor": 0.46853146853146854,
+      "anchor_source": 245,
+      "profiles": {
+        "legacy": 10960,
+        "h48c32": 7052,
+        "h32c16": 2885
+      }
+    },
+    "slam-strike": {
+      "crop": [
+        512,
+        0,
+        512,
+        442
+      ],
+      "box": [
+        537,
+        136,
+        435,
+        266
+      ],
+      "height": 151,
+      "anchor": 0.43448275862068964,
+      "anchor_source": 726,
+      "profiles": {
+        "legacy": 10476,
+        "h48c32": 6537,
+        "h32c16": 2808
+      }
+    },
+    "fissure": {
+      "crop": [
+        1024,
+        0,
+        512,
+        442
+      ],
+      "box": [
+        1079,
+        166,
+        393,
+        224
+      ],
+      "height": 138,
+      "anchor": 0.4681933842239186,
+      "anchor_source": 1263,
+      "profiles": {
+        "legacy": 11132,
+        "h48c32": 7059,
+        "h32c16": 3031
+      }
+    },
+    "lunge": {
+      "crop": [
+        0,
+        442,
+        512,
+        582
+      ],
+      "box": [
+        72,
+        536,
+        380,
+        397
+      ],
+      "height": 175,
+      "anchor": 0.3026315789473684,
+      "anchor_source": 187,
+      "profiles": {
+        "legacy": 7580,
+        "h48c32": 4647,
+        "h32c16": 1987
+      }
+    },
+    "eruption": {
+      "crop": [
+        512,
+        442,
+        512,
+        582
+      ],
+      "box": [
+        552,
+        490,
+        421,
+        443
+      ],
+      "height": 191,
+      "anchor": 0.44418052256532065,
+      "anchor_source": 739,
+      "profiles": {
+        "legacy": 7815,
+        "h48c32": 4815,
+        "h32c16": 2097
+      }
+    },
+    "overburn": {
+      "crop": [
+        1024,
+        442,
+        512,
+        582
+      ],
+      "box": [
+        1041,
+        634,
+        434,
+        295
+      ],
+      "height": 122,
+      "anchor": 0.4930875576036866,
+      "anchor_source": 1255,
+      "profiles": {
+        "legacy": 6661,
+        "h48c32": 4237,
+        "h32c16": 1771
+      }
+    }
+  },
+  "notes": [
+    "The source portrait sheet is unchanged. Pose crops fit inside their measured alpha bounds.",
+    "Amber crystal and lit core colors are reserved within both palette budgets.",
+    "A matching 3D model was not confirmed. The volcanic shelf is a temporary static lab background."
+  ]
+}

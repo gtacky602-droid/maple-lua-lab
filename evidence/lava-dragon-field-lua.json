@@ -1,0 +1,20 @@
+{
+  "twoFormsOneReceiver": true,
+  "normalAttackWithoutHeat": {
+    "seconds": 82.22,
+    "hp": 140
+  },
+  "multiHitAndReactionDedup": true,
+  "freezeAndCoolWithRealHydroAndCryoHits": true,
+  "saveKeepsHpAndResetsHeat": true,
+  "fixedRockAndMoltenWindows": true,
+  "overburnCancelsPendingEruption": true,
+  "overburnTicks": 180,
+  "earlyKillOneReward": true,
+  "questReportAndSavedCooldown": true,
+  "sameSceneCommands": {
+    "png": 37,
+    "standard": 9534,
+    "light": 2580
+  }
+}

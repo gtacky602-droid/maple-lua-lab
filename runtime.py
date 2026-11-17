@@ -10,13 +10,15 @@ def asset_entries(container):
     return ((key, value, isinstance(value, (dict, list))) for key, value in rows)
 
 
-def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None):
+def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None, variants=None):
     filenames = {
         pose: f'{prefix}-field-{pose.replace("_", "-")}-sprites-v1.json'
         for pose in poses
     }
     if idle:
         filenames['idle'] = idle
+    if variants:
+        filenames.update(variants)
 
     def read(key):
         filename = filenames.get(key)
@@ -228,6 +230,9 @@ def runtime():
     papilla=lua.execute((ROOT/'field-papilla.lua').read_text(encoding='utf-8'))(core)
     core.papillaFieldArt=field_art(lua,'papilla',('stem-ready','stem-strike','wing-ready','wing-strike',
                                                'fungus-ready','fungus-strike'),idle='papilla-idle-sprites.json')
+    lava_dragon=lua.execute((ROOT/'field-lava-dragon.lua').read_text(encoding='utf-8'))(core)
+    core.lavaDragonFieldArt=field_art(lua,'lava-dragon',('slam-ready','slam-strike','fissure','lunge','eruption','overburn'),
+                                    idle='lava-dragon-sprites.json',variants={'molten':'lava-dragon-molten-sprites.json'})
     core.aeonblightFieldArt=field_art(lua,'aeonblight',('wing_first','wing_second','cannon','windup','dash','down'),
                                      idle='aeonblight-idle-sprites.json')
     bathysmal=lua.execute((ROOT/'field-bathysmal.lua').read_text(encoding='utf-8'))(core)
@@ -255,7 +260,7 @@ def runtime():
                         'dendroHypostasis':dendro_hypostasis,'asimon':asimon,'wenut':wenut,'baptist':baptist,
                         'emperor':emperor,'seahorse':seahorse,'generator':generator,'tulpa':tulpa,
                         'icewind':icewind,'legatus':legatus,'suanni':suanni,'qucusaur':qucusaur,'yumka':yumka,
-                        'configDevice':config_device,'papilla':papilla})
+                        'configDevice':config_device,'papilla':papilla,'lavaDragon':lava_dragon})
     )
     return lua, core
 

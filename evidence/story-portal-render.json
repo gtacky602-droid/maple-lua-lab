@@ -693,12 +693,12 @@
     {
       "node": "natlan-field",
       "mode": "sprite",
-      "visible_portals": 6
+      "visible_portals": 7
     },
     {
       "node": "natlan-field",
       "mode": "rect",
-      "visible_portals": 6
+      "visible_portals": 7
     },
     {
       "node": "qucusaur-field-cavern",
@@ -737,6 +737,16 @@
     },
     {
       "node": "papilla-field-hollow",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "atocpan-lava-field",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "atocpan-lava-field",
       "mode": "rect",
       "visible_portals": 1
     },

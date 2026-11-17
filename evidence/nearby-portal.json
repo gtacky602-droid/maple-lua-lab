@@ -753,6 +753,10 @@
       "to": "papilla-field-hollow"
     },
     {
+      "node": "natlan-field",
+      "to": "atocpan-lava-field"
+    },
+    {
       "node": "qucusaur-field-cavern",
       "to": "natlan-field"
     },
@@ -766,6 +770,10 @@
     },
     {
       "node": "papilla-field-hollow",
+      "to": "natlan-field"
+    },
+    {
+      "node": "atocpan-lava-field",
       "to": "natlan-field"
     },
     {

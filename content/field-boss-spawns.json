@@ -1297,6 +1297,20 @@
         {"id":"FMP02","kind":"wing","title":"機竜影の刃翼二連","reach":174,"morph":48,"lock":60,"near":0.25,"far":1.65,"low":0.15,"height":1,"bottom":0.3,"active":[[126,138],[186,198]],"recover":216,"returnMorph":300,"total":324,"damage":18,"element":"physical"},
         {"id":"FMP03","kind":"fungus","title":"菌獣影の跳ね落ち","reach":200,"morph":48,"lock":60,"distance":1.4,"width":1.4,"height":0.65,"bottom":0.25,"air":[96,132],"lift":0.83,"active":[[132,144]],"recover":180,"returnMorph":300,"total":324,"damage":26,"element":"dendro"}
       ]
+    },
+    {
+      "id":"boss-26270301","controller":"lavaDragon","entity":26270301,
+      "name":"輝ける溶岩の龍像","node":"atocpan-lava-field","storyChallenge":"lava-dragon",
+      "level":110,"hp":1100,"mora":410,"artHeight":180,"floorY":480,"home":925,
+      "arenaMin":335,"arenaMax":1580,"noticeRange":320,"noticeTicks":36,"restTicks":42,
+      "leashTicks":300,"respawnTicks":3600,"walkSpeed":56,"contactDamage":0,
+      "heat":{"moltenAt":2,"overburnAt":4,"overburnTicks":180,"damageFactor":1.25},
+      "moves":[
+        {"id":"FLD01","kind":"slam","title":"岩腕の打ち下ろし","pose":"slam-ready","reach":174,"lock":48,"near":0.22,"far":1.9,"height":0.76,"active":[[108,124]],"recover":150,"total":258,"damage":22,"element":"geo",
+         "molten":{"id":"FLD03","kind":"lunge","title":"熔焰の突進","pose":"lunge","reach":218,"lock":54,"distance":2.1,"width":0.88,"height":0.85,"active":[[108,134]],"recover":155,"total":270,"damage":27,"element":"pyro"}},
+        {"id":"FLD02","kind":"fissure","title":"地割れの二連","pose":"fissure","reach":220,"lock":54,"first":0.72,"second":2.18,"width":1.05,"height":0.58,"active":[[108,122],[174,188]],"recover":214,"total":306,"damage":21,"element":"geo",
+         "molten":{"id":"FLD04","kind":"eruption","title":"熔岩の二連噴出","pose":"eruption","reach":232,"lock":60,"first":0.95,"second":2.45,"width":0.86,"height":1.42,"active":[[126,144],[192,210]],"recover":232,"total":324,"damage":31,"element":"pyro"}}
+      ]
     }
   ]
 }

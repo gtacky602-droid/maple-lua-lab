@@ -7,6 +7,7 @@
   "suiteVariants": 2,
   "configDeviceFieldRoute": true,
   "papillaFieldRoute": true,
+  "lavaDragonFieldRoute": true,
   "stygianCandidates": 7,
   "disabledUnimplemented": true,
   "launchesVerified": [

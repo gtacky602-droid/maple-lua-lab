@@ -1,5 +1,5 @@
 {
-  "count": 72,
+  "count": 73,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -35,6 +35,7 @@
     "The Mountain King is reachable through the Natlan field",
     "The Configuration Device is reachable through the Natlan field",
     "The Type I Papilla is reachable through the Natlan field",
+    "The Lava Dragon Statue is reachable through the Natlan field",
     "public roster matched without merging Icewind modes or Dottore challenges",
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",

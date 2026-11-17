@@ -307,16 +307,18 @@
       ]
     },
     "boss-26270301": {
+      "extra_evidence": ["https://genshin.hoyoverse.com/ja/news/detail/155172","evidence/lava-dragon-field-lua.json","evidence/lava-dragon-field-browser.json"],
+      "remaining": ["連続モーション・音", "難度・報酬の調整", "複数人と幻境実機の検証"],
       "art_candidate": {
         "item": "lava-dragon",
-        "audit": "evidence/lava-dragon-reference-audit.json",
-        "status": "normal Earth Golem idle candidate; molten idle variant separate; attacks and animation not implemented"
+        "audit": "evidence/lava-dragon-field-art-audit.json",
+        "status": "Web field prototype. Earth Golem slam and fissures, Molten Dragon lunge and eruptions, and an overburn pose."
       },
       "art_variants": [
         {
           "item": "lava-dragon-molten",
           "audit": "evidence/lava-dragon-molten-reference-audit.json",
-          "status": "molten dragon idle candidate only; transformation, attacks and animation not implemented",
+          "status": "Molten idle used in the Web fight, with separate attack and overburn poses.",
           "id": "molten"
         }
       ]

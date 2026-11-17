@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 36,
+    "partial": 37,
     "complete": 0
   },
   "encounters": [
@@ -940,30 +940,34 @@
       "entity_ids": [
         "26270301"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/lavadragonstatue.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/lavadragonstatue.json",
+        "https://genshin.hoyoverse.com/ja/news/detail/155172",
+        "evidence/lava-dragon-field-lua.json",
+        "evidence/lava-dragon-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "連続モーション・音",
+        "難度・報酬の調整",
+        "複数人と幻境実機の検証"
       ],
+      "fieldNode": "atocpan-lava-field",
+      "fieldEntrance": "ナタ・アトクパンの溶岩棚（Lv110）",
       "art_candidate": {
         "source": "assets/lava-dragon-idle-source-v1.png",
         "encoding": "assets/lava-dragon-sprites.json",
-        "audit": "evidence/lava-dragon-reference-audit.json",
-        "status": "normal Earth Golem idle candidate; molten idle variant separate; attacks and animation not implemented"
+        "audit": "evidence/lava-dragon-field-art-audit.json",
+        "status": "Web field prototype. Earth Golem slam and fissures, Molten Dragon lunge and eruptions, and an overburn pose."
       },
       "art_variants": [
         {
           "source": "assets/lava-dragon-molten-idle-source-v1.png",
           "encoding": "assets/lava-dragon-molten-sprites.json",
           "audit": "evidence/lava-dragon-molten-reference-audit.json",
-          "status": "molten dragon idle candidate only; transformation, attacks and animation not implemented",
+          "status": "Molten idle used in the Web fight, with separate attack and overburn poses.",
           "id": "molten"
         }
       ]

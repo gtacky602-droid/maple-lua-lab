@@ -8,6 +8,7 @@ export const sceneryDefinitions={
  yumkaField:{file:'yumka-field-background-v1.png',zones:['story:yumka-field-ravine'],note:'山王の峡谷の仮背景'},
  configDeviceField:{file:'config-device-field-background-v1.png',zones:['story:config-device-field-workshop'],note:'秘源の機構室の仮背景'},
  papillaField:{file:'papilla-field-background-v1.png',zones:['story:papilla-field-hollow'],note:'紫影の石窟の仮背景'},
+ lavaDragonField:{file:'lava-dragon-field-background-v1.png',zones:['story:atocpan-lava-field'],note:'アトクパンの溶岩棚の仮背景'},
  generatorField:{file:'field-generator-field-background-v1.png',zones:['story:field-generator-field-chamber'],note:'重力試験室の仮背景'},
  seahorseField:{file:'seahorse-field-background-v1.png',zones:['story:seahorse-field-cavern'],note:'真珠珊瑚の洞の仮背景'},
  emperorField:{file:'emperor-field-background-v1.png',zones:['story:emperor-field-cove'],note:'熔殻の洞の仮背景'},
@@ -120,7 +121,7 @@ export function scenery(ctx,frame){
  // Lab-only terrain proxies. These will be 3D set dressing and colliders in the game.
  const inazuma=key==='inazumatown'||key==='inazuma'||key==='toriiforest'||key==='shiomicape';
  const stone=['seacave','windsplit','cryoField','pyroField','electroField','geoField','primoField','oceanidField','maguuField','arrayField','thunderField','pyroHypostasisField','hydroHypostasisField','wolflordField','ruinSerpentField','bathysmalField','electroVineField','aeonblightField','dendroHypostasisField','baptistField','seahorseField','generatorField','tulpaField','icewindField','legatusField','suanniField','qucusaurField','configDeviceField','papillaField','enkanomiya','nodspecial','novokichev','chasm'].includes(key);
- const roof=key==='mondroof',lookout=key==='mondlookout',sandstone=['asimonField','wenutField','emperorField'].includes(key);
+ const roof=key==='mondroof',lookout=key==='mondlookout',sandstone=['asimonField','wenutField','emperorField','lavaDragonField'].includes(key);
  const camera=frame.camera||0,snow=['snezhnaya','dragonspine','cryoHypostasisField','wingspan'].includes(key);
  drawDecorations(ctx,frame,camera);
  for(const p of frame.platforms||[]){

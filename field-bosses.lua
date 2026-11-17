@@ -201,6 +201,7 @@ return function(C,configs,controllers)
   end
   if not target then return end
   local move=spec.moves[slot.index]
+  if behavior.selectMove then move=behavior.selectMove(boss,move) end
   local reach=move.reach
   if distance>reach-18 then
    local dir=target.x<boss.x and -1 or 1

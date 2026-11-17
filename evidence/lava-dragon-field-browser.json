@@ -1,0 +1,57 @@
+{
+  "browser": "Chrome",
+  "companion": "wanderer",
+  "play": {
+    "won": true,
+    "seconds": 39.6,
+    "moves": [
+      "FLD01",
+      "FLD02",
+      "FLD03",
+      "FLD04"
+    ],
+    "forms": [
+      "rock",
+      "molten",
+      "overburn"
+    ],
+    "hp": 140,
+    "returns": 0,
+    "coolingTime": 0.9,
+    "waterHit": true
+  },
+  "scenery": {
+    "key": "lavaDragonField",
+    "file": "lava-dragon-field-background-v1.png",
+    "state": "ready"
+  },
+  "sameActorId": "boss-26270301",
+  "questAcceptedInUi": true,
+  "hpByState": [
+    {
+      "form": "rock",
+      "hp": 1049
+    },
+    {
+      "form": "molten",
+      "hp": 516
+    },
+    {
+      "form": "overburn",
+      "hp": 341
+    }
+  ],
+  "questReport": {
+    "xp": 8000,
+    "mora": 520
+  },
+  "sameSceneCommands": {
+    "png": 43,
+    "standard": 11660,
+    "light": 3157
+  },
+  "eruptionShownAt": 131,
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}
