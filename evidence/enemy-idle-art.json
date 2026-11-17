@@ -125,6 +125,24 @@
       "profile": "h32c16",
       "runs": 432,
       "height": 64
+    },
+    {
+      "art": "frostarm-lawachurl",
+      "profile": "legacy",
+      "runs": 4663,
+      "height": 128
+    },
+    {
+      "art": "frostarm-lawachurl",
+      "profile": "h48c32",
+      "runs": 2860,
+      "height": 128
+    },
+    {
+      "art": "frostarm-lawachurl",
+      "profile": "h32c16",
+      "runs": 1267,
+      "height": 128
     }
   ],
   "checks": [

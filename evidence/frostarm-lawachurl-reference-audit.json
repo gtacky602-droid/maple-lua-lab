@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-17",
+  "label": "ヒルチャール・霜鎧の王 (Frostarm Lawachurl)",
+  "regional_basis": "https://genshin.hoyoverse.com/m/ja/news/detail/103799",
+  "references": [
+    {
+      "role": "HoYoWiki clean full-body pose; horns, silver mask, belt and fur color",
+      "page": "https://wiki.hoyolab.com/pc/genshin/entry/2105?lang=ja-jp",
+      "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/05/22/237301566/873f10c4fbe4d75a77c7cc10b39fa3a5_6608480079045199222.png",
+      "sha256": "ea1d7a2c6dc5162ee61861e51b3dd30c06ba88ddf67e8bfae9cdf6f8bf77f8b1",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "role": "In-game Dragonspine capture; upright proportions and feet on the ground; some overlapping UI",
+      "url": "https://staticg.sportskeeda.com/editor/2021/03/e6d4b-16164659947722-800.jpg",
+      "sha256": "116930fe125775c66f8512080f041e5166b62985a99fdc027d902c475f149055",
+      "directly_viewed": true,
+      "generation_input": true
+    },
+    {
+      "role": "Lawachurl comparison on HoYoLAB; corroborates the blue and white Frostarm variant, uses the same pose as the wiki render",
+      "page": "https://www.hoyolab.com/article/274973",
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2021/03/30/107037532/1043f5ef769f6228351d275f57e9ed50_921859626624370665.png",
+      "sha256": "3891e2f65114798e24c6bb542aec4c4bf263effc62c7d097776d36483c5a5220",
+      "directly_viewed": true,
+      "generation_input": false
+    }
+  ],
+  "model": {
+    "page": "https://models.spriters-resource.com/pc_computer/genshinimpact/asset/584715/",
+    "author": "Adverse56",
+    "status": "Model listing verified; archive request returned HTTP 403. No direct mesh or rear view inspection."
+  },
+  "generation": {
+    "tool": "built-in ImageGen",
+    "prompt": "Create one isolated full-body hand-pixelled sprite of Genshin Frostarm Lawachurl for a MapleStory-like 2D sidescrolling RPG prototype. Reference A is the HoYoWiki full-body appearance and detail authority, reference B is the creature on the right of the actual Dragonspine screenshot for planted proportions; ignore all other figures, scenery and UI. Invent a compact neutral idle pose, facing LEFT in side/three-quarter view so both feet and the stone mask are visible. Thick large shoulders, inky navy muscular torso, jagged white-blue fur on mane, forearms and shins, two unmistakable translucent cyan crystalline horns sweeping up from the face, blue eyes recessed in silver-blue angular narrow mask, stone necklace, muted brown waist wrap and blue belt, black hands and black split feet. Two arms relaxed low, both feet firmly planted on almost the same baseline, silhouette weighted forward with broad fur mantle. Do not copy the floating arms-wide action pose. Full figure centrally framed with generous transparent margins, crisp stepped pixel clusters and restrained 16-bit shades, strong navy/white/cyan contrast to preserve readability at 64px downsample; no isolated specks, blur, anti-aliased glow, base, ground, shadows on ground, background, text, logos, weapons or extra effects. Single sprite only. Transparent alpha.",
+    "output": "assets/frostarm-lawachurl-idle-source-v1.png",
+    "sha256": "cc40d260f0cdb13aaf7bf0d8824dcdff6ac2210284399bdc1b7e4c244d412ef9",
+    "imageSize": [1206, 1305],
+    "opaqueBox": [141, 70, 896, 1160],
+    "poseDecision": "Three-quarter idle with two grounded feet; reconstructed near-side mask and mantle overlap for the 2D pose."
+  },
+  "encoding": "assets/frostarm-lawachurl-idle-sprites.json",
+  "profiles": {
+    "legacy": { "height": 128, "runs": 4663 },
+    "h48c32": { "height": 96, "runs": 2860 },
+    "h32c16": { "height": 64, "runs": 1267 }
+  },
+  "placement": "dragonspine-depth-1, x365 at y480, visual height 128px. This gives the horns clearance from the slime above at its initial position.",
+  "limits": [
+    "Lightest profile uses 72.83 percent fewer rectangles than the full-height rectangular profile; no FPS claim.",
+    "Existing generic patrol, collision and combat behavior remain a placeholder. Dedicated animations and native placement are pending."
+  ],
+  "validation": [
+    "evidence/enemy-idle-art.json",
+    "evidence/story-enemy-spawns.json",
+    "evidence/enemies-gallery.json",
+    "evidence/frostarm-live-browser.json",
+    "evidence/frostarm-placement.png"
+  ]
+}

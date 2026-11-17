@@ -13,13 +13,13 @@ try{
  const layouts=await json('content/enemy-art-layout.json');
  let drafts=structuredClone(initial),serial=0,importTicket=0,selected=null;const nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  for(const [id,index] of [['hydro-slime',4],['pyro-slime',6]]){const profiles=Object.fromEntries(Object.entries(variants.variants).map(([k,v])=>[k,v.sprites[index]]));assets[id]={source:'atlas-transparent.png',box:profiles.legacy.box,profiles,h:40}}
- assets['ruin-guard']={...await json('assets/ruin-guard-idle-sprites.json'),h:144};
- assets['dendro-fungus']={...await json('assets/dendro-fungus-idle-sprites.json'),h:64};
- assets.nobushi={...await json('assets/nobushi-idle-sprites.json'),h:104};
- assets['armored-crab']={...await json('assets/armored-crab-idle-sprites.json'),h:64};
- assets.hilichurl={...await json('assets/hilichurl-idle-sprites.json'),h:76};
- for(const element of ['hydro','pyro'])assets[`${element}-slime-reference`]={...await json(`assets/${element}-slime-idle-sprites.json`),h:40};
- for(const [id,data] of Object.entries(assets)){const layout=layouts[id.replace('-reference','')];data.h=layout.height;data.hover=layout.hover}
+ for(const [id,{height,hover}] of Object.entries(layouts)){
+  const data=await json(`assets/${id}-idle-sprites.json`),art={...data,h:height,hover};
+  if(assets[id]){
+   Object.assign(assets[id],{h:height,hover});
+   assets[id+'-reference']=art;
+  }else assets[id]=art;
+ }
  for(const [kind,label,file] of [['boss','ボス待機候補（比較用の大きさ）','boss-art-gallery.json'],['character','主人公・味方（待機候補）','character-art-gallery.json']]){
   const gallery=await json('content/'+file),group=document.createElement('optgroup');group.label=label;
   const loaded=await Promise.all(gallery.items.map(async item=>({item,data:await json('assets/'+item.file)})));

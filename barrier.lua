@@ -15,7 +15,8 @@ return function(C)
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile);f.imprintTrial=s.imprintTrial or 0
   for _,e in ipairs(s.enemies) do if e.hp>0 and (e.barrier or 0)>0 then
-   f.draws[#f.draws+1]={kind='rect',x=e.x-s.camera-25,y=e.y-70,w=50,h=3,color='#ccb6fa'}
+   local y=math.min(e.y-70,C.enemyHeadY(e)-15)
+   f.draws[#f.draws+1]={kind='rect',x=e.x-s.camera-25,y=y,w=50,h=3,color='#ccb6fa'}
   end end
   f.commands=#f.draws;return f
  end

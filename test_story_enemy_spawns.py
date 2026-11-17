@@ -4,6 +4,7 @@ from runtime import runtime, ROOT
 lua, c = runtime()
 graph = json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf-8'))
 spawns = json.loads((ROOT/'content/enemy-spawns.json').read_text())['nodes']
+layouts = json.loads((ROOT/'content/enemy-art-layout.json').read_text(encoding='utf8'))
 hostile = {n['id'] for n in graph['nodes'] if not n.get('hub') and not n.get('peaceful')}
 assert set(spawns) == hostile
 results = []
@@ -17,7 +18,7 @@ for n in graph['nodes']:
     for i, p in enumerate(expected, 1):
         support = n['platforms'][p['platform']]
         e = s.enemies[i]
-        assert p['kind'] in (1, 2) and p['art'] in ('hydro-slime', 'pyro-slime', 'hilichurl', 'ruin-guard', 'dendro-fungus', 'nobushi', 'armored-crab')
+        assert p['kind'] in (1, 2) and p['art'] in layouts and e.art == p['art']
         assert support['x']+24 <= p['x'] <= support['x']+support['w']-24
         assert (e.home,e.y,e.kind,e.spawnId) == (p['x'],support['y'],p['kind'],p['id'])
         # Existing lure movement must not pull an elevated enemy beyond its support.

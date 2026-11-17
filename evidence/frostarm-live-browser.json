@@ -1,0 +1,39 @@
+{
+  "frostarm": {
+    "total": 6,
+    "draw": {
+      "x": 353.33333333333314,
+      "y": 480,
+      "source": "frostarm-lawachurl-idle-source-v1.png",
+      "box": [
+        141,
+        70,
+        896,
+        1160
+      ],
+      "kind": "boss_sprite",
+      "h": 128,
+      "w": 98.86896551724138,
+      "flip": false,
+      "anchorX": 0.46316964285714285
+    },
+    "barrier": {
+      "x": 328.33333333333314,
+      "kind": "rect",
+      "color": "#ccb6fa",
+      "w": 50,
+      "h": 3,
+      "y": 337
+    }
+  },
+  "errors": [],
+  "portalTraversal": [
+    "mond-town",
+    "mond-road",
+    "mond-border",
+    "dragonspine-camp",
+    "dragonspine-depth"
+  ],
+  "questReady": true,
+  "placementProfiles": 3
+}

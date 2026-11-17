@@ -32,7 +32,7 @@
     "veluriyam-play",
     "simulanka-play"
   ],
-  "current_story_assignment": "26 hostile nodes, 156 provisional placements: 143 slime, 3 Hilichurl, 2 Ruin Guard, 3 Floating Dendro Fungus, 2 Nobushi, 3 Armored Crab idle. Generic numeric kind/behavior unchanged; not canonical distribution.",
+  "current_story_assignment": "26 hostile nodes, 156 provisional placements: 142 slime, 3 Hilichurl, 2 Ruin Guard, 3 Floating Dendro Fungus, 2 Nobushi, 3 Armored Crab, 1 Frostarm Lawachurl. Art selection is provisional; generic numeric kind determines behavior.",
   "assets": [
     {
       "id": "hydro-slime",
@@ -82,6 +82,12 @@
       "audit": "evidence/armored-crab-v2-reference-audit.json"
     },
     {
+      "id": "frostarm-lawachurl",
+      "status": "Full-body illustration and game-scene references; 128px idle at dragonspine-depth ground spawn 1. Generic placeholder behavior and hitbox. Back detail and dedicated animation pending.",
+      "art": "assets/frostarm-lawachurl-idle-sprites.json",
+      "audit": "evidence/frostarm-lawachurl-reference-audit.json"
+    },
+    {
       "id": "tepetlisaurus",
       "status": "References directly inspected; idle image generation failed at provider output safety check. No sprite, gallery entry or live spawn created.",
       "audit": "evidence/tepetlisaurus-reference-audit.json"
@@ -99,7 +105,8 @@
       "ruin-guard",
       "dendro-fungus",
       "nobushi",
-      "armored-crab"
+      "armored-crab",
+      "frostarm-lawachurl"
     ],
     "live_copy": "Current-node authored spawns can be copied into the visual draft with referenced asset mapping, support-derived y, undo and JSON export. Editing does not write live spawn data.",
     "editing": "Select individual from list, move by clicking either preview with platform snapping, mirror, delete, undo and export/import; all visual-only drafts."

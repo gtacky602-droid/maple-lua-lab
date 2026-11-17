@@ -26,5 +26,9 @@
   "armored-crab": {
     "height": 64,
     "hover": 0
+  },
+  "frostarm-lawachurl": {
+    "height": 128,
+    "hover": 0
   }
 }
