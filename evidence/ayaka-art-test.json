@@ -1,30 +1,43 @@
 {
   "hash_alpha": true,
   "facings_profiles": [
-    [
-      -1,
-      "legacy"
-    ],
-    [
-      -1,
-      "h48c32"
-    ],
-    [
-      -1,
-      "h32c16"
-    ],
-    [
-      1,
-      "legacy"
-    ],
-    [
-      1,
-      "h48c32"
-    ],
-    [
-      1,
-      "h32c16"
-    ]
+    {
+      "side": "left",
+      "profile": "legacy",
+      "source": "ayaka-idle-left-source-v4.png",
+      "rectangles": 1646
+    },
+    {
+      "side": "left",
+      "profile": "h48c32",
+      "source": "ayaka-idle-left-source-v4.png",
+      "rectangles": 983
+    },
+    {
+      "side": "left",
+      "profile": "h32c16",
+      "source": "ayaka-idle-left-source-v4.png",
+      "rectangles": 415
+    },
+    {
+      "side": "right",
+      "profile": "legacy",
+      "source": "ayaka-idle-right-source-v4.png",
+      "rectangles": 1717
+    },
+    {
+      "side": "right",
+      "profile": "h48c32",
+      "source": "ayaka-idle-right-source-v4.png",
+      "rectangles": 1026
+    },
+    {
+      "side": "right",
+      "profile": "h32c16",
+      "source": "ayaka-idle-right-source-v4.png",
+      "rectangles": 444
+    }
   ],
+  "foot_anchor": true,
   "dead_hidden": true
 }

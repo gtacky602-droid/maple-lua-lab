@@ -24,7 +24,8 @@
     {
       "id": "ayaka",
       "name": "神里綾華",
-      "file": "ayaka-idle-sprites.json",
+      "file": "ayaka-idle-right-sprites-v4.json",
+      "leftFile": "ayaka-idle-left-sprites-v4.json",
       "height": 88
     },
     {

@@ -37,10 +37,72 @@
     "Mirrored sword and armor reverse sides",
     "Back vision mostly occluded in current idle; no back animation"
   ],
-  "active_revision": "v3",
+  "active_revision": "v4",
   "v3_observed": [
     "White patterned forearm panel over dark glove",
     "Broad side armor with large gold crest below red-laced plates",
     "Chest crest angular surround added"
-  ]
+  ],
+  "v4": {
+    "guide": "DESIGN_MAPLE_CHIBI_STYLE_GUIDE_V01.md",
+    "tool": "built-in ImageGen; separate three-quarter portraits followed by two proportion passes",
+    "model_provenance": "evidence/model-reference-audit.json",
+    "observed_models": [
+      "work/references/ayaka-views/front.png",
+      "work/references/ayaka-views/left.png",
+      "work/references/ayaka-views/right.png",
+      "work/references/ayaka-views/back.png"
+    ],
+    "initial_tool_refs": [
+      "assets/ayaka-idle-source-v3.png",
+      "assets/traveler-idle-source-v3.png",
+      "work/references/ayaka-views/front.png"
+    ],
+    "previous_crown_chin_sole_y": [
+      138,
+      511,
+      1278
+    ],
+    "measurement": "Manual Y landmarks on the PNG excluding the elevated ponytail, bow and pins. The measured relative head height increases modestly, roughly 1–5%, with the more visible differences in width and shape.",
+    "directions": {
+      "right": {
+        "encoding": "assets/ayaka-idle-right-sprites-v4.json",
+        "source": "assets/ayaka-idle-right-source-v4.png",
+        "sha256": "cdd86676cac4a5f9b3eeba6598f33b93cf3d0454c0b78c22dc5506cb330c5749",
+        "side_tool_ref": "work/references/ayaka-views/left.png",
+        "crown_chin_sole_y": [
+          185,
+          538,
+          1214
+        ],
+        "approx_heads": 2.92,
+        "runs88_66_44": [
+          1717,
+          1026,
+          444
+        ],
+        "anchor_x": 0.6581967213114754
+      },
+      "left": {
+        "encoding": "assets/ayaka-idle-left-sprites-v4.json",
+        "source": "assets/ayaka-idle-left-source-v4.png",
+        "sha256": "6e535ec5cd52683336e87ea11ee68f2e31e6cd68da9c99546024d2b3ebd8728e",
+        "side_tool_ref": "work/references/ayaka-views/right.png",
+        "crown_chin_sole_y": [
+          190,
+          532,
+          1222
+        ],
+        "approx_heads": 3.02,
+        "runs88_66_44": [
+          1646,
+          983,
+          415
+        ],
+        "anchor_x": 0.3625
+      }
+    },
+    "lab_costume": "Sheathed hilt retained as the same left-hip accessory in both directions. The reference PMX model did not show the hilt in its neutral pose.",
+    "limitations": "Thin outlines in the wave, flower and gold crest patterns merge at 44px. Standing pose reused during movement."
+  }
 }

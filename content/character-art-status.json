@@ -7,7 +7,7 @@
   "companions": {
     "amber": "v3 idle and bow stance; larger head, fuller limbs and shorter shins; 88px/3 profiles. The bow is larger and thicker in the preexisting aiming display. Mirrored asymmetry remains.",
     "beidou": "v4 idle: two PMX-informed directions at 88px and three rectangle profiles; compact legs and wider boots; left eye patch, hair ornament and Vision follow the facing; idle art only",
-    "ayaka": "v3 idle: white forearm guard, side armor gold crest and chest crest revised using viewed PMX front/side; mirror asymmetry remains; 88px/3 profiles",
+    "ayaka": "v4 idle: two PMX-informed directions, revised head/body proportions and foot silhouette; one left-hip sword hilt on both views; 88px/3 profiles; idle art only",
     "wanderer": "v2 idle revised from illustration and four viewed PMX angles; hat/shoulder/sleeve/waist colors corrected; 88px/3 profiles; float tracking verified; mirror asymmetry remains",
     "emilie": "v2 idle revised from illustration and 4 PMX views; hat/eyes/dress/legs/shoes corrected; slender proportions vs traveler remain; 88px/3 profiles",
     "kachina": "v2 idle revised from illustration and 4 PMX views; cap/blue eyes/green scarf/ponytail/tied jacket corrected; 76px/3 profiles; source style consistency still candidate",

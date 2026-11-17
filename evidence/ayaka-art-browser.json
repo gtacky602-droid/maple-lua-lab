@@ -1,1 +1,110 @@
-{"errors":[],"method":"Town UI companion selection, idle art display"}
+{
+  "errors": [],
+  "poses": [
+    {
+      "side": "right",
+      "moving": {
+        "box": [
+          220,
+          71,
+          610,
+          1143
+        ],
+        "flip": false,
+        "h": 88,
+        "x": 207,
+        "kind": "boss_sprite",
+        "w": 46.964129483814524,
+        "source": "ayaka-idle-right-source-v4.png",
+        "y": 480,
+        "anchorX": 0.6581967213114754
+      },
+      "waiting": {
+        "box": [
+          220,
+          71,
+          610,
+          1143
+        ],
+        "flip": false,
+        "h": 88,
+        "x": 207,
+        "kind": "boss_sprite",
+        "w": 46.964129483814524,
+        "source": "ayaka-idle-right-source-v4.png",
+        "y": 480,
+        "anchorX": 0.6581967213114754
+      }
+    },
+    {
+      "side": "left",
+      "moving": {
+        "box": [
+          328,
+          76,
+          600,
+          1146
+        ],
+        "flip": false,
+        "h": 88,
+        "x": 200,
+        "kind": "boss_sprite",
+        "w": 46.07329842931937,
+        "source": "ayaka-idle-left-source-v4.png",
+        "y": 480,
+        "anchorX": 0.3625
+      },
+      "waiting": {
+        "box": [
+          328,
+          76,
+          600,
+          1146
+        ],
+        "flip": false,
+        "h": 88,
+        "x": 200,
+        "kind": "boss_sprite",
+        "w": 46.07329842931937,
+        "source": "ayaka-idle-left-source-v4.png",
+        "y": 480,
+        "anchorX": 0.3625
+      }
+    }
+  ],
+  "galleryBothFacings": true,
+  "mapFacing": {
+    "right": {
+      "pose": {
+        "id": "added-1",
+        "source": "ayaka-idle-right-source-v4.png",
+        "y": 480,
+        "hover": 0,
+        "height": 88
+      },
+      "item": {
+        "id": "added-1",
+        "species": "character-ayaka",
+        "x": 401,
+        "y": 480,
+        "flip": false
+      }
+    },
+    "left": {
+      "pose": {
+        "id": "added-1",
+        "source": "ayaka-idle-left-source-v4.png",
+        "y": 480,
+        "hover": 0,
+        "height": 88
+      },
+      "item": {
+        "id": "added-1",
+        "species": "character-ayaka",
+        "x": 401,
+        "y": 480,
+        "flip": true
+      }
+    }
+  }
+}
