@@ -19,5 +19,5 @@ s=c.new(12);s.enemies=lua.table();s.actors[1].x=2860;c.step(s,1/60,lua.table());
 # Wider future maps and narrow arenas use the declared dimensions, not 1920.
 for width in [960,1440,2880,4800]:
  s=c.new(12);s.enemies=lua.table();s.worldwidth=width;s.platforms=lua.table_from([{'x':0,'y':480,'w':width}],recursive=True);s.actors[1].x=width-20;c.step(s,1/60,lua.table());assert s.camera==width-960
-(ROOT/'evidence/map-camera-bounds.json').write_text(json.dumps({'nodes':results,'checks':['61 nodes left/middle/right ground covers viewport','player stays on screen','node entry clears prior camera immediately','return portal first frame clamped','original 2880 test field unchanged','declared widths 960 through 4800']},indent=2)+'\n')
-print('61 node camera bounds, ground coverage, immediate return and legacy field passed')
+(ROOT/'evidence/map-camera-bounds.json').write_text(json.dumps({'nodes':results,'checks':['All story nodes: left/middle/right ground covers viewport','player stays on screen','node entry clears prior camera immediately','return portal first frame clamped','original 2880 test field unchanged','declared widths 960 through 4800']},indent=2)+'\n')
+print(f'{len(results)} node camera bounds, ground coverage, immediate return and legacy field passed')

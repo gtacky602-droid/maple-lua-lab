@@ -272,6 +272,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "wingspan-camp",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "wingspan-lookout",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "golden-hub",
       "count": 0,
       "fallback": false,

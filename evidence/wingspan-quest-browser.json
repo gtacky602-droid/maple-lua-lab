@@ -1,0 +1,21 @@
+{
+  "errors": [],
+  "start": "level 140 checkpoint at snezhnaya-hub",
+  "walkedRoute": [
+    "snezhnaya-hub",
+    "snezhnaya-field",
+    "wingspan-camp",
+    "wingspan-lookout",
+    "wingspan-camp",
+    "snezhnaya-field"
+  ],
+  "remoteGateRejected": true,
+  "rewardMora": 700,
+  "rewardXp": 6000,
+  "reports": 1,
+  "saveRestoredQuest": true,
+  "comparison": [
+    "PNG",
+    "h32c16"
+  ]
+}

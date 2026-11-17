@@ -1,0 +1,13 @@
+{
+  "prompt": "A wide landscape 16:9 temporary environment backdrop for a side-scrolling pixel-sprite RPG, no characters. Use the attached official reference only for the silhouette of the immense dragon remains (long arch of spine, a horned skull, ribs, and angular wing forms) and the cold violet-gray atmosphere. Paint an original wide, side-on view of a windswept alpine basin with distant layered ice ridges, dark fractured snowy hills, and the enormous fossilized dragon spanning them across upper center. Keep the entire horned skull near the upper center-right, away from frame edges. Add a very small cluster of warm-lit timber lodges left in the middle distance to hint at the sheltered oasis. Use dusk with a muted blue-slate and violet palette and subtle amber lights. Lower third must be continuous, quiet mid-dark slate snowy foothill shapes with low contrast so small pixel sprites and independently drawn pale platforms are legible. Painterly game environment, atmospheric depth, horizontal composition, fill full canvas seamlessly. No text, watermark, logo, poster borders, characters, beams, foreground platforms, interface, or overlaid panels.",
+  "references": [
+    {
+      "publisher": "HoYoverse",
+      "source": "https://genshin.hoyoverse.com/ja/news/detail/167140",
+      "image": "https://gaming-st.com/wp-content/uploads/2026/11/genshin-ver72-novokitchev-tsubasa-no-mine-yamiiki-unlock-dragon.webp",
+      "review": "Visually reviewed the official poster as reproduced by Gaming-ST. Used the dragon silhouette and cool palette."
+    }
+  ],
+  "releaseNotes": "https://genshin.hoyoverse.com/ja/news/detail/167187",
+  "status": "temporary 2D lab image; original viewpoint and layout; production 3D pending"
+}

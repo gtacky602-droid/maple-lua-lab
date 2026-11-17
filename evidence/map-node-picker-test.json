@@ -1,7 +1,7 @@
 {
   "errors": [],
   "checks": [
-    "all61 nodes listed",
+    "all authored nodes listed",
     "region and placed intersection",
     "filter preserves map/draft/save status",
     "NFKC AND search",

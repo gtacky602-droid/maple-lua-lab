@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 61 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 59,
+  "scope": "Authored 63 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 61,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -273,6 +273,18 @@
       "id": "novokichev-depth",
       "name": "ノヴォキッチェヴ（仮構造）・探索路",
       "region": "ノヴォキッチェヴ（仮構造）",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "wingspan-camp",
+      "name": "翼の峰・入口拠点",
+      "region": "翼の峰",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "wingspan-lookout",
+      "name": "翼の峰・峡谷の展望路",
+      "region": "翼の峰",
       "status": "regional_temporary_image"
     },
     {

@@ -181,6 +181,14 @@
       "enemy_count": 6
     },
     {
+      "node": "wingspan-camp",
+      "enemy_count": 0
+    },
+    {
+      "node": "wingspan-lookout",
+      "enemy_count": 0
+    },
+    {
       "node": "golden-hub",
       "enemy_count": 0
     },

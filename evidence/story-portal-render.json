@@ -283,12 +283,12 @@
     {
       "node": "snezhnaya-field",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "snezhnaya-field",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "dragonspine-camp",
@@ -447,6 +447,26 @@
     },
     {
       "node": "novokichev-depth",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "wingspan-camp",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "wingspan-camp",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "wingspan-lookout",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "wingspan-lookout",
       "mode": "rect",
       "visible_portals": 1
     },

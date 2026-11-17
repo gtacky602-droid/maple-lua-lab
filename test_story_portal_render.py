@@ -15,4 +15,4 @@ for n in graph['nodes']:
   assert not any(d.color=='#83dbe1' and d.w>3 and d.h>3 for d in f.draws.values())
   results.append({'node':n['id'],'mode':mode,'visible_portals':count})
 (ROOT/'evidence/story-portal-render.json').write_text(json.dumps({'results':results,'checks':['all gates outlined with no opaque interior','gate commands before character/enemy commands','command count accurate'],'scope':'render order only; existing story tests cover portal interaction'},indent=2)+'\n')
-print('61 nodes x 2 modes: portal outlines and background draw order passed')
+print(f"{len(graph['nodes'])} nodes x 2 modes: portal outlines and background draw order passed")

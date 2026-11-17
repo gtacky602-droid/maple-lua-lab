@@ -226,6 +226,16 @@
       "rightCamera": 480
     },
     {
+      "node": "wingspan-camp",
+      "width": 1280,
+      "rightCamera": 320
+    },
+    {
+      "node": "wingspan-lookout",
+      "width": 1720,
+      "rightCamera": 760
+    },
+    {
       "node": "golden-hub",
       "width": 1440,
       "rightCamera": 480
@@ -307,7 +317,7 @@
     }
   ],
   "checks": [
-    "61 nodes left/middle/right ground covers viewport",
+    "All story nodes: left/middle/right ground covers viewport",
     "player stays on screen",
     "node entry clears prior camera immediately",
     "return portal first frame clamped",

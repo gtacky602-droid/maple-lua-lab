@@ -2,6 +2,36 @@
   "errors": [],
   "cases": [
     {
+      "key": "wingspan",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "wingspan",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "wingspan",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "wingspan",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "wingspan",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "wingspan",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "novokichev",
       "camera": -960,
       "transparent": 0
@@ -632,5 +662,5 @@
       "transparent": 0
     }
   ],
-  "note": "All pixels alpha255 for 21 actual host images at six camera positions; no platform fill masks background gaps. This is lab background coverage, not native 3D."
+  "note": "All pixels alpha255 for all actual host images at six camera positions; no platform fill masks background gaps. This is lab background coverage, not native 3D."
 }

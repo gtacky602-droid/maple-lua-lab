@@ -1301,6 +1301,10 @@
         {
           "to": "novokichev-camp",
           "x": 720
+        },
+        {
+          "to": "wingspan-camp",
+          "x": 1380
         }
       ],
       "checkpoint": "snezhnaya-hub"
@@ -1971,6 +1975,85 @@
       "branch": true,
       "lightReference": 50,
       "barrier": 50
+    },
+    {
+      "id": "wingspan-camp",
+      "name": "翼の峰・入口拠点",
+      "region": "翼の峰",
+      "level": 140,
+      "hub": true,
+      "width": 1280,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1280
+        },
+        {
+          "x": 265,
+          "y": 398,
+          "w": 275
+        },
+        {
+          "x": 650,
+          "y": 374,
+          "w": 315
+        }
+      ],
+      "exits": [
+        {
+          "to": "snezhnaya-field",
+          "x": 60
+        },
+        {
+          "to": "wingspan-lookout",
+          "x": 1220
+        }
+      ],
+      "checkpoint": "wingspan-camp"
+    },
+    {
+      "id": "wingspan-lookout",
+      "name": "翼の峰・峡谷の展望路",
+      "region": "翼の峰",
+      "level": 140,
+      "hub": false,
+      "width": 1720,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1720
+        },
+        {
+          "x": 205,
+          "y": 397,
+          "w": 325
+        },
+        {
+          "x": 425,
+          "y": 310,
+          "w": 320
+        },
+        {
+          "x": 655,
+          "y": 225,
+          "w": 340
+        },
+        {
+          "x": 1070,
+          "y": 387,
+          "w": 415
+        }
+      ],
+      "exits": [
+        {
+          "to": "wingspan-camp",
+          "x": 60
+        }
+      ],
+      "checkpoint": "wingspan-camp",
+      "peaceful": true
     },
     {
       "id": "golden-hub",
@@ -2850,6 +2933,16 @@
       "name": "ノヴォキッチェヴ（仮構造）の探索路を調べる",
       "hub": "novokichev-camp",
       "target": "novokichev-depth",
+      "kind": "visit",
+      "goal": 1,
+      "xp": 6000,
+      "mora": 700
+    },
+    {
+      "id": "wingspan-survey",
+      "name": "翼の峰の展望路を調べる",
+      "hub": "wingspan-camp",
+      "target": "wingspan-lookout",
       "kind": "visit",
       "goal": 1,
       "xp": 6000,

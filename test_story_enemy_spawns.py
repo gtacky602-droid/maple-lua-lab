@@ -49,5 +49,5 @@ for profile in ['legacy','h48c32','h32c16']:
 s.enemies[1].hp=0
 assert not any(d.source==source for d in c.frame(s,'sprite','legacy').draws.values())
 (ROOT/'evidence/story-enemy-spawns.json').write_text(json.dumps({'nodes':results,'render_profiles':['legacy','h48c32','h32c16'],'lure_support_and_respawn':True,'scope':'isolated fixtures, not canonical species or full combat playtest'},indent=2)+'\n')
-print('61 node spawn sets, support/lure/respawn and Hilichurl art profiles passed')
+print(f'{len(results)} node spawn sets, support/lure/respawn and Hilichurl art profiles passed')
 
