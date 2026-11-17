@@ -584,7 +584,8 @@
           "x": 955,
           "requires": {
             "quest": "liyue-caravan-search",
-            "count": 0
+            "count": 0,
+            "alternative": {"quest": "liyue-harbor-meal", "count": 0}
           }
         },
         {
@@ -593,7 +594,8 @@
           "y": 350,
           "requires": {
             "quest": "liyue-caravan-search",
-            "count": 0
+            "count": 0,
+            "alternative": {"quest": "liyue-harbor-meal", "count": 0}
           }
         },
         {
@@ -4218,6 +4220,37 @@
         "exitX": 1720,
         "seconds": [2.4, 3.2],
         "bridge": {"x": 950, "y": 411, "w": 220}
+      }
+    },
+    {
+      "id": "liyue-harbor-meal",
+      "designId": "Q-LIY-S02",
+      "name": "山のごちそう、港の一皿",
+      "giver": "香菱",
+      "requires": "liyue-market-delivery",
+      "hub": "liyue-harbor",
+      "target": "liyue-harbor",
+      "kind": "cooking",
+      "goal": 4,
+      "xp": 1200,
+      "mora": 180,
+      "briefing": "香菱「山と海の食材を合わせた料理を作ってみたいの。川魚と香草とキノコ、集めてきてくれる？」",
+      "closing": "香菱「これなら荷運びの合間に片手で食べられるね！ 屋台でも出すから、まずは一つ持っていって。」",
+      "cooking": {
+        "stall": {"x": 245, "y": 480},
+        "marketStall": {"x": 925, "y": 480, "quest": "liyue-market-opening", "count": 3},
+        "ingredients": [
+          {"id": "fish", "name": "川魚", "node": "liyue-river-trail", "x": 365, "y": 480},
+          {"id": "herb", "name": "山の香草", "node": "liyue-cliff-planks", "x": 560, "y": 305},
+          {"id": "mushroom", "name": "木陰のキノコ", "node": "liyue-field", "x": 270, "y": 480}
+        ],
+        "flavors": [
+          {"id": "herbal", "label": "香草の香り", "name": "香草香る山海包み", "color": "#5b9875"},
+          {"id": "spicy", "label": "ピリ辛", "name": "ピリ辛の山海包み", "color": "#ba6047"}
+        ],
+        "price": 45,
+        "heal": 35,
+        "capacity": 5
       }
     },
     {

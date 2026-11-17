@@ -10,15 +10,19 @@ export function questRouteText(f,q,status){
   if(q.delivery.packages.some(p=>!state?.delivered[p.id]&&(p.id!==cache||state?.recovered)))target=q.hub;
  }
  const lookingForClues=status==='active'&&q.trail&&!f.story.quests?.[q.id]?.count;
- const targets=new Set((lookingForClues?q.trail.clues.map(item=>item.node):[target]).filter(id=>nodes.has(id)));
+ const ingredients=status==='active'&&q.cooking?.ingredients.filter(item=>!f.story.quests?.[q.id]?.cooking.gathered[item.id]);
+ const destinations=ingredients?.length?ingredients.map(item=>item.node):lookingForClues?q.trail.clues.map(item=>item.node):[target];
+ const targets=new Set(destinations.filter(id=>nodes.has(id)));
  if(!targets.size)return '目的地は未公開または未登録です。';
  const from=f.story.node;if(!nodes.has(from))return '';
  if(targets.has(from))return status==='active'?'目的地に到着しています。':'受注・報告の拠点にいます。';
+ function meetsRule(rule){
+  const state=f.story.quests?.[rule.quest];
+  return state?.status==='complete'||(rule.count!==undefined&&state?.count>=rule.count&&(!rule.recovery||state?.recovered));
+ }
  function gateOpen(edge){
-  if(!edge.requires)return true;
-  const state=f.story.quests?.[edge.requires.quest];
-  return state?.status==='complete'||(edge.requires.count!==undefined&&state?.count>=edge.requires.count&&
-   (!edge.requires.recovery||state?.recovered));
+  const rule=edge.requires;
+  return !rule||meetsRule(rule)||(rule.alternative&&meetsRule(rule.alternative));
  }
  const level=f.progression?.level??0;
  function routeAtLevel(limit){

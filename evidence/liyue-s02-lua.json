@@ -1,0 +1,15 @@
+{
+  "M01_required_M02_independent": true,
+  "normal_inputs_gather_all_three": true,
+  "caravan_deeper_gate_unchanged": true,
+  "partial_save": true,
+  "flavors_differ_cosmetically_with_same_cost_and_healing": true,
+  "stall_moves_at_market_opening": true,
+  "limit_and_insufficient_funds": true,
+  "healing_after_field_damage_and_full_dead_paused_rejected": true,
+  "one_time_reward": {
+    "xp": 1200,
+    "mora": 180,
+    "free_meals": 1
+  }
+}

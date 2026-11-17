@@ -9,6 +9,13 @@ const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready
 export function questObjective(q,graph,state){
  const destination=graph.nodes.find(n=>q.kind==='boss'?n.challenge===q.target:n.id===q.target);
  const place=destination?.name||'目的地未登録';
+ if(q.cooking){
+  if(state?.status==='complete')return '港の屋台で山海包みを購入できる';
+  if(state?.count===q.goal)return '香菱に試作を報告する';
+  const remaining=q.cooking.ingredients.filter(item=>!state?.cooking?.gathered[item.id]);
+  if(!remaining.length)return '港の香菱の屋台で、山海包みの味を選ぶ';
+  return 'Gキーで食材を集める（残り：'+remaining.map(item=>item.name).join('、')+'）';
+ }
  if(q.recovery){
   if(state?.status==='complete')return '北斗が同行を申し出た';
   if(state&&!state.recovered)return state.count===q.goal?'港で北斗に報告する':`旧依頼：${place}で敵を${q.goal}体倒す`;

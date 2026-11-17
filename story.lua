@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail)
+return function(C,data,delivery,rail,cooking)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -15,14 +15,21 @@ return function(C,data,delivery,rail)
   local state=s.story.quests[id]
   return state and state.status=='complete'
  end
+ local function meetsGateRule(s,rule)
+  local state=s.story.quests[rule.quest]
+  return completed(s,rule.quest) or
+   (rule.count and state and state.count>=rule.count and (not rule.recovery or state.recovered))
+ end
  local function gateRestriction(s,edge)
   local rule=edge.requires
   if rule then
    local state=s.story.quests[rule.quest]
-   local allowed=completed(s,rule.quest) or
-    (rule.count and state and state.count>=rule.count and (not rule.recovery or state.recovered))
+   local allowed=meetsGateRule(s,rule) or (rule.alternative and meetsGateRule(s,rule.alternative))
    if not allowed then
     if rule.recovery and state and not state.recovered then return '受注済みの旧依頼は岩間の狩場で進められます。' end
+    if rule.alternative then
+     return '「'..quests[rule.quest].name..'」か「'..quests[rule.alternative.quest].name..'」を受注してください。'
+    end
     return '依頼「'..quests[rule.quest].name..'」'..(rule.count and 'を進めてください。' or 'を報告してください。')
    end
   end
@@ -185,6 +192,10 @@ return function(C,data,delivery,rail)
    if railConfig then rail.start(s,railConfig,railState);return end
    for id,state in pairs(s.story.quests) do
     local q=quests[id]
+    if q.cooking then
+     local item=cooking.nearbyIngredient(s,q,state)
+     if item then cooking.gather(s,q,state,item);return end
+    end
     if q.delivery and state.status=='active' and q.target==s.story.node then
      delivery.recover(s,q,state.delivery)
      return
@@ -216,6 +227,12 @@ return function(C,data,delivery,rail)
     beginChase(s,q)
     s.storyNotice='赤い布を引きずるヒルチャールを、街道の奥へ追いましょう。'
    else s.storyNotice=item.name..'を回収しました。' end
+   return
+  end
+  local command,mealQuest,flavor=key:match('^story_([%a_]+):([%w%-]+):?([%w%-]*)$')
+  if command=='cook' or command=='buy_meal' or command=='eat_meal' then
+   local q,state=quests[mealQuest],s.story.quests[mealQuest]
+   if s.story.active and not s.paused and q and q.cooking and state then cooking.action(s,q,state,command,flavor) end
    return
   end
   local deliveryId,packageId=key:match('^story_deliver:([%w%-]+):([%w%-]+)$')
@@ -283,8 +300,10 @@ return function(C,data,delivery,rail)
     if q.opensAfter and not s.story.quests[q.opensAfter] then return end
     if q.level and (not s.progression or s.progression.level<q.level) then return end
     s.story.quests[id]={status='active',count=0,cycles=state and state.cycles or 0,
-                       recovered=q.cargo and {} or nil,inspected=q.trail and {} or nil,delivery=q.delivery and delivery.new() or nil}
+                       recovered=q.cargo and {} or nil,inspected=q.trail and {} or nil,delivery=q.delivery and delivery.new() or nil,
+                       cooking=q.cooking and cooking.new() or nil}
    elseif report and state and state.status=='active' and state.count==q.goal then
+    if q.cooking then state.cooking.meals=1 end
     state.status='complete';state.cycles=(state.cycles or 0)+1;s.mora=s.mora+q.mora;C.grantExp(s,q.xp,'quest');s.storyNotice=q.closing or q.name..'：報酬を受け取りました。'
    end
    return
@@ -405,10 +424,11 @@ return function(C,data,delivery,rail)
     markers[#markers+1]={kind='rect',x=x-5,y=y-10,w=10,h=7,color=elevated and '#f76859' or '#b69765'}
    end
    for _,q in ipairs(data.quests) do
-    if q.delivery or q.rail then
+    if q.delivery or q.rail or q.cooking then
      local state=s.story.quests[q.id]
      if q.delivery then delivery.observe(s,f,markers,q,state and state.delivery)
-     else rail.observe(s,f,markers,q,state) end
+     elseif q.rail then rail.observe(s,f,markers,q,state)
+     elseif state then cooking.observe(s,f,markers,q,state) end
     end
    end
    local recoveryQuest=quests[n.clearedBy]

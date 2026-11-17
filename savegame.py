@@ -82,7 +82,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -120,6 +120,24 @@ def validate_save(data):
                     raise ValueError('Invalid trail progress')
             if quest.get('level', 0) > data.get('progression', {}).get('level', 0):
                 raise ValueError('Unmet story quest level')
+            if quest.get('cooking') or 'cooking' in q:
+                recipe = quest.get('cooking')
+                stock = q.get('cooking')
+                if not recipe or not isinstance(stock, dict) or set(stock)-{'flavor'} != {'gathered','meals'}:
+                    raise ValueError('Invalid cooking state')
+                gathered = stock['gathered']
+                ingredients = {item['id'] for item in recipe['ingredients']}
+                if (not isinstance(gathered, dict) or len(gathered) != min(q['count'], len(ingredients))
+                        or any(key not in ingredients or value is not True for key, value in gathered.items())):
+                    raise ValueError('Invalid gathered ingredients')
+                if q['count'] == quest['goal']:
+                    if stock.get('flavor') not in [flavor['id'] for flavor in recipe['flavors']]:
+                        raise ValueError('Invalid dish flavor')
+                elif 'flavor' in stock:
+                    raise ValueError('Premature dish flavor')
+                cap = recipe['capacity'] if q['status'] == 'complete' else 0
+                if type(stock['meals']) is not int or not 0 <= stock['meals'] <= cap:
+                    raise ValueError('Invalid meal stock')
             if quest.get('delivery') or 'delivery' in q:
                 state = q.get('delivery')
                 if not quest.get('delivery') or not isinstance(state, dict) or set(state) != {'guardCleared','recovered','delivered'}:

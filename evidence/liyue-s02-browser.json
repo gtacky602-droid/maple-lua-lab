@@ -1,0 +1,12 @@
+{
+  "browser": "Chrome",
+  "actual_controls": true,
+  "all_three_ingredients": true,
+  "stall_choice": "spicy",
+  "report_and_buy": true,
+  "full_hp_blocks_consumption": true,
+  "stock_available_on_the_road": true,
+  "save_restore": true,
+  "viewport_390": true,
+  "errors": []
+}
