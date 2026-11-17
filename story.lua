@@ -92,6 +92,7 @@ return function(C,data)
   return a.hp>0 and math.abs(a.x-item.x)<54 and math.abs(a.y-item.y)<34
  end
  local function questKillCounts(q,state,enemy)
+  if q.enemy then return enemy.spawnId==q.enemy end
   if not state.recovered then return true end -- Already accepted under the original four-kill contract.
   if state.count==q.goal-1 then return enemy.spawnId==q.chase.enemy and recoveredAll(q,state) end
   for _,art in ipairs(q.openingArts) do if enemy.art==art then return true end end
@@ -102,8 +103,13 @@ return function(C,data)
    if state.status=='active' and q.kind==kind and q.target==target and state.count<q.goal
     and (kind~='kill' or questKillCounts(q,state,enemy)) then
     state.count=state.count+1
+    if state.count==q.goal and q.clearedNotice then s.storyNotice=q.clearedNotice end
    end
   end
+ end
+ local function cleared(s,n)
+  local state=n.clearedBy and s.story.quests[n.clearedBy]
+  return state and state.count>=quests[n.clearedBy].goal
  end
  local function enter(s,id,spawn,elapsed)
   local n=nodes[id];s.campaign.zone='story:transition';action(s,n.hub and 'town' or 'field')
@@ -111,12 +117,14 @@ return function(C,data)
   s.story.active=true;s.story.node=id;s.story.visited[id]=true;s.worldwidth=n.width
   s.platforms={};for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]={x=p.x,y=p.y,w=p.w} end
   s.enemies={}
-  if not n.hub and not n.peaceful then
+  if not n.hub and not n.peaceful and not cleared(s,n) then
    local fresh=C.new(12)
    local placements=assert(C.enemySpawns and C.enemySpawns[id],'Missing story enemy placements: '..id)
    for i,placement in ipairs(placements) do
     local e=fresh.enemies[i];local p=assert(n.platforms[placement.platform+1],'Invalid enemy support')
     e.x=placement.x;e.home=e.x;e.y=p.y;e.kind=placement.kind;e.art=placement.art;e.spawnId=placement.id
+    e.storyName=placement.name
+    if placement.hp then e.hp=placement.hp;e.maxhp=placement.hp end
     e.patrolMin=p.x+24;e.patrolMax=p.x+p.w-24
     e.level=n.level;e.barrier=n.barrier or 0;if e.barrier>0 then e.hp=60;e.maxhp=60 end;s.enemies[i]=e
    end
@@ -216,6 +224,7 @@ return function(C,data)
  function C.step(s,dt,input)
   local returns=s.returns;step(s,dt,input)
   if s.story and s.story.active and s.voyage and not s.paused and s.t+1e-8>=s.voyage.arrives then enter(s,s.voyage.destination) end
+  if s.story and s.story.active and #s.enemies>0 and cleared(s,nodes[s.story.node]) then s.enemies={} end
   if s.story and s.story.active and s.returns~=returns then enter(s,s.story.visited[nodes[s.story.node].checkpoint] and nodes[s.story.node].checkpoint or 'mond-town') end
  end
  function C.frame(s,mode,profile)
@@ -226,6 +235,15 @@ return function(C,data)
   f.storyGraph=visible;f.storyNotice=s.storyNotice;f.storyJoined={};f.voyage=s.voyage and {seconds=math.max(0,s.voyage.arrives-s.t),destination=s.voyage.destination,elapsed=s.t-s.voyage.started,stopover=s.voyage.stopStart and s.t-s.voyage.started+1e-8>=s.voyage.stopStart and s.t-s.voyage.started+1e-8<s.voyage.stopEnd or false} or nil
   for id,q in pairs(quests) do if q.join and s.story.quests[id] and s.story.quests[id].status=='complete' then f.storyJoined[q.join]=true end end
   if s.story.active then local n=nodes[s.story.node];f.location=n.name..'（本編試作）'
+   f.storyCleared=cleared(s,n) and true or nil
+   if n.clearedBy and not f.storyCleared then
+    for _,e in ipairs(s.enemies) do
+     if e.storyName and e.hp>0 then
+      f.storyElite={name=e.storyName,hp=e.hp,maxhp=e.maxhp}
+      break
+     end
+    end
+   end
    f.storyNearbyPortal=nearbyPortal(s)
    local markers={};f.storyPortals={}
    local function marker(x,y,w,h) markers[#markers+1]={kind='rect',x=x,y=y,w=w,h=h,color='#83dbe1'} end

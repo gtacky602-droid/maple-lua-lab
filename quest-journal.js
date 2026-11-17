@@ -8,6 +8,7 @@ const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready
 export function questObjective(q,graph,state){
  const destination=graph.nodes.find(n=>q.kind==='boss'?n.challenge===q.target:n.id===q.target);
  const place=destination?.name||'目的地未登録';
+ if(q.enemyName)return `${place}で${q.enemyName}を倒す`;
  if(q.trail){
   if(state?.status==='complete')return '森から風見の丘への近道を開いた';
   if(!state?.count)return '旧道の下段で車輪跡、または上段で枝の赤い布をGキーで調べる';

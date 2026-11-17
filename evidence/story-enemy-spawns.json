@@ -25,6 +25,14 @@
       "enemy_count": 3
     },
     {
+      "node": "mond-watchtower",
+      "enemy_count": 5
+    },
+    {
+      "node": "mond-restored-road",
+      "enemy_count": 0
+    },
+    {
       "node": "mond-border",
       "enemy_count": 6
     },

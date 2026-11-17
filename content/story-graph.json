@@ -47,6 +47,14 @@
         {
           "to": "mond-road",
           "x": 1380
+        },
+        {
+          "to": "mond-restored-road",
+          "x": 1150,
+          "requires": {
+            "quest": "mond-watchtower-clear",
+            "count": 1
+          }
         }
       ],
       "checkpoint": "mond-town"
@@ -321,9 +329,111 @@
             "quest": "mond-old-trail",
             "count": 2
           }
+        },
+        {
+          "to": "mond-watchtower",
+          "x": 1160,
+          "y": 377,
+          "requires": {
+            "quest": "mond-watchtower-clear",
+            "count": 0
+          }
         }
       ],
       "checkpoint": "mond-town"
+    },
+    {
+      "id": "mond-watchtower",
+      "name": "モンド・丘の見張り台",
+      "region": "モンド",
+      "level": 1,
+      "hub": false,
+      "width": 1760,
+      "checkpoint": "mond-town",
+      "clearedBy": "mond-watchtower-clear",
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1760
+        },
+        {
+          "x": 200,
+          "y": 391,
+          "w": 334
+        },
+        {
+          "x": 467,
+          "y": 301,
+          "w": 346
+        },
+        {
+          "x": 735,
+          "y": 215,
+          "w": 322
+        },
+        {
+          "x": 1100,
+          "y": 388,
+          "w": 278
+        },
+        {
+          "x": 1320,
+          "y": 303,
+          "w": 294
+        }
+      ],
+      "exits": [
+        {
+          "to": "mond-hill",
+          "x": 60
+        },
+        {
+          "to": "mond-restored-road",
+          "x": 1700,
+          "requires": {
+            "quest": "mond-watchtower-clear",
+            "count": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "mond-restored-road",
+      "name": "モンド・荷馬車の街道",
+      "region": "モンド",
+      "level": 1,
+      "hub": false,
+      "peaceful": true,
+      "width": 1440,
+      "checkpoint": "mond-town",
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 285,
+          "y": 395,
+          "w": 309
+        },
+        {
+          "x": 850,
+          "y": 386,
+          "w": 340
+        }
+      ],
+      "exits": [
+        {
+          "to": "mond-watchtower",
+          "x": 60
+        },
+        {
+          "to": "mond-town",
+          "x": 1380
+        }
+      ]
     },
     {
       "id": "mond-border",
@@ -3632,6 +3742,24 @@
           }
         ]
       }
+    },
+    {
+      "id": "mond-watchtower-clear",
+      "designId": "Q-MON-M03",
+      "name": "街道を取り戻せ！",
+      "requires": "mond-old-trail",
+      "giver": "アンバー",
+      "hub": "mond-town",
+      "target": "mond-watchtower",
+      "kind": "kill",
+      "goal": 1,
+      "enemy": "mond-watchtower-1",
+      "enemyName": "街道の大親分",
+      "clearedNotice": "見張り台が静かになりました。荷馬車の街道から城へ戻れます。",
+      "briefing": "アンバー「修理班が倒木を片づける間に、風見の丘から見張り台へ登って、大親分を退けよう！」",
+      "closing": "商人トビアス「この看板、目立つようにはなったな。さあ、街道が開いたぞ！」",
+      "xp": 2000,
+      "mora": 220
     },
     {
       "id": "mond-patrol",

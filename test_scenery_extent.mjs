@@ -11,7 +11,7 @@ try{
   const results=[];
   for(const [key,definition] of Object.entries(sceneryDefinitions))for(const camera of [-960,0,480,1920,3840,99999]){
    ctx.clearRect(0,0,960,540);
-   const frame={camera,platforms:[],campaign:{zone:'story:extent'},story:{active:true,node:'extent'},storyGraph:{nodes:[{id:'extent',region:definition.region,width:4800}]}};
+   const frame={camera,platforms:[],campaign:{zone:definition.region?'story:extent':definition.zones[0]},story:{active:true,node:'extent'},storyGraph:{nodes:[{id:'extent',region:definition.region,width:4800}]}};
    const status=sceneryStatus(frame);if(status.key!==key||status.state!=='ready')throw Error('Background not loaded: '+key);
    scenery(ctx,frame);
    const data=ctx.getImageData(0,0,960,540).data;let transparent=0;for(let i=3;i<data.length;i+=4)if(data[i]<255)transparent++;

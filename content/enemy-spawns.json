@@ -1484,6 +1484,45 @@
         "art": "pyro-slime",
         "kind": 2
       }
+    ],
+    "mond-watchtower": [
+      {
+        "id": "mond-watchtower-1",
+        "name": "街道の大親分",
+        "hp": 45,
+        "x": 820,
+        "platform": 0,
+        "art": "hilichurl",
+        "kind": 1
+      },
+      {
+        "id": "mond-watchtower-2",
+        "x": 500,
+        "platform": 0,
+        "art": "hydro-slime",
+        "kind": 1
+      },
+      {
+        "id": "mond-watchtower-3",
+        "x": 340,
+        "platform": 1,
+        "art": "hilichurl",
+        "kind": 1
+      },
+      {
+        "id": "mond-watchtower-4",
+        "x": 675,
+        "platform": 2,
+        "art": "pyro-slime",
+        "kind": 2
+      },
+      {
+        "id": "mond-watchtower-5",
+        "x": 950,
+        "platform": 3,
+        "art": "hilichurl",
+        "kind": 1
+      }
     ]
   }
 }

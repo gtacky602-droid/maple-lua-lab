@@ -1,0 +1,16 @@
+{
+  "M02_prerequisite": true,
+  "physical_tower_gate": true,
+  "only_named_enemy_counts": true,
+  "ordinary_combat": true,
+  "clear_before_report": true,
+  "ready_checkpoint": true,
+  "peaceful_shortcut": true,
+  "single_reward": {
+    "xp": 2000,
+    "mora": 220
+  },
+  "completed_checkpoint": true,
+  "persistent_clear_on_reentry": true,
+  "peripheral_field_still_hostile": true
+}

@@ -3,12 +3,12 @@
     {
       "node": "mond-town",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "mond-town",
       "mode": "rect",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "mond-road",
@@ -53,12 +53,32 @@
     {
       "node": "mond-hill",
       "mode": "sprite",
-      "visible_portals": 3
+      "visible_portals": 4
     },
     {
       "node": "mond-hill",
       "mode": "rect",
-      "visible_portals": 3
+      "visible_portals": 4
+    },
+    {
+      "node": "mond-watchtower",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "mond-watchtower",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "mond-restored-road",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "mond-restored-road",
+      "mode": "rect",
+      "visible_portals": 2
     },
     {
       "node": "mond-border",

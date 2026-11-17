@@ -31,6 +31,16 @@
       "rightCamera": 800
     },
     {
+      "node": "mond-watchtower",
+      "width": 1760,
+      "rightCamera": 800
+    },
+    {
+      "node": "mond-restored-road",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
       "node": "mond-border",
       "width": 1440,
       "rightCamera": 480

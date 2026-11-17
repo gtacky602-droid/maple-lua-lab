@@ -1,0 +1,17 @@
+{
+  "errors": [],
+  "prerequisiteShown": true,
+  "ordinaryCombat": true,
+  "backgroundChange": [
+    "mond-hill-background-v1.png",
+    "mond-restored-road-background-v1.png"
+  ],
+  "peacefulRoad": true,
+  "reward": {
+    "xp": 2000,
+    "mora": 220
+  },
+  "saveRestored": true,
+  "clearedTowerOnReturn": true,
+  "mobileWidth": true
+}

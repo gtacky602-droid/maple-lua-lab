@@ -1,0 +1,10 @@
+{
+  "prompt": "Edit this existing original painterly background into the SAME hill, camera composition and late-afternoon lighting shortly after the bandit blockade has been lifted. Keep the same limestone slopes and silhouette of the wooden tower in the same part of frame. Remove the large red flag completely so the tower has an empty pole instead. Return the cart wheel and yellow wooden board to a small, repaired canvas-topped merchant wagon halfway along the road in the middle distance; wagon travelling toward town, no visible figures. Add a short neatly mended rail and small neatly stacked wood beside the clear trail. Keep the lower quarter quiet and muted for separately drawn pixel sprites, distinct against brighter scenery. Keep wide 16:9. No text, HUD, logos, transitions, or new buildings.",
+  "references": [
+    {
+      "image": "assets/mond-hill-background-v1.png",
+      "use": "Local M02 image as layout, lighting and tower reference. See that image's generation record for the previously reviewed in-game tower screenshot."
+    }
+  ],
+  "status": "lab host image after quest objective; fixed background, no wagon animation"
+}

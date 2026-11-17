@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 83 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 81,
+  "scope": "Authored 85 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 83,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -38,6 +38,18 @@
     {
       "id": "mond-hill",
       "name": "モンド・風見の丘",
+      "region": "モンド",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "mond-watchtower",
+      "name": "モンド・丘の見張り台",
+      "region": "モンド",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "mond-restored-road",
+      "name": "モンド・荷馬車の街道",
       "region": "モンド",
       "status": "regional_temporary_image"
     },

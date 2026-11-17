@@ -38,6 +38,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "mond-watchtower",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "mond-restored-road",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "mond-border",
       "count": 0,
       "fallback": false,
