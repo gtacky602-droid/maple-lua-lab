@@ -1350,6 +1350,19 @@
         {"id":"FBT02","kind":"fire","title":"冷却砲の二連射","pose":"cannon","reach":230,"lock":56,"offsets":[0.8,2.22],"width":1.05,"height":0.74,"active":[[116,130],[184,198]],"recover":224,"total":320,"damage":21,"element":"cryo"}
       ],
       "coolingMove":{"id":"FBT03","kind":"ward","title":"氷バリア・冷却放出","pose":"ward","lock":60,"distance":2.05,"width":2.0,"height":1.17,"active":[[252,270]],"recover":340,"total":424,"damage":33,"element":"cryo","coolEvery":84}
+    },
+    {
+      "id":"boss-20081001","controller":"frostnightHerra","entity":20081001,
+      "name":"霜夜の空を巡る霊主","node":"nod-herra-terrace","storyChallenge":"frostnight-herra",
+      "level":126,"hp":1200,"mora":465,"artHeight":220,"floorY":480,"home":920,
+      "arenaMin":320,"arenaMax":1570,"noticeRange":350,"noticeTicks":36,"restTicks":44,
+      "leashTicks":360,"respawnTicks":3600,"walkSpeed":65,"contactDamage":0,"keepHpOnExit":true,
+      "gloom":{"charges":3,"factor":0.65,"adaptFactor":0.58,"adaptTicks":210,"downTicks":144},
+      "moves":[
+        {"id":"FHR01","kind":"wing","title":"銀翼の二連薙ぎ","reach":205,"lock":52,"near":0.16,"far":2.12,"height":0.68,"active":[[108,120],[174,186]],"recover":212,"total":290,"damage":19,"element":"cryo"},
+        {"id":"FHR02","kind":"dive","title":"飛翔からの着地","reach":216,"lock":60,"distance":1.55,"width":1.72,"height":0.83,"air":[96,138],"lift":1.48,"active":[[138,151]],"recover":182,"total":288,"damage":27,"element":"cryo"},
+        {"id":"FHR03","kind":"gloom","title":"薄闇の二連波","reach":222,"lock":60,"distance":1.48,"width":2.35,"height":0.72,"active":[[184,198],[272,286]],"recover":324,"total":418,"damage":24,"element":"cryo"}
+      ]
     }
   ]
 }

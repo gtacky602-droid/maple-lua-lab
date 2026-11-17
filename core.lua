@@ -83,14 +83,14 @@ local function hit(s,a,e,mult,color,element)
  local critMultiplier=critical and (1.5+(a.critDamageBonus or 0)) or 1
  if a.coldBonus and ((e.chill or 0)>0 or (e.frozen or 0)>0 or (e.aura and e.aura.element=='cryo' and e.aura.expires>s.t)) then mult=mult*(1+a.coldBonus) end
  local defense=(e.defense or 5)*((e.armorBreak or 0)>0 and .85 or 1)
- local n=max(1,floor(a.atk*mult*100/(100+defense)*(1-resist)*(1+bonus)*critMultiplier*(C.damageFactor and C.damageFactor(s,a,e) or 1)+1e-9))
+ local n=max(1,floor(a.atk*mult*100/(100+defense)*(1-resist)*(1+bonus)*critMultiplier*(C.damageFactor and C.damageFactor(s,a,e,element) or 1)+1e-9))
  n=min(n,max(0,e.hp-(e.minhp or 0)))
  if n<=0 then return false end
  local remaining=max(e.minhp or 0,e.hp-n);s.hits=s.hits+1;s.damage=s.damage+n
  if not e.underground then number(s,e,critical and (tostring(n)..'!') or n,color) end
  event(s,'hit',a.id,e.id,n);s.events[#s.events].element=element;s.events[#s.events].critical=not not critical;s.events[#s.events].reaction=a.reaction or false
  if remaining==0 then C.defeatEnemy(s,e,a.id) else e.hp=remaining end
- if C.afterElementHit then C.afterElementHit(s,a,e,a.applicationElement or element) end
+ if C.afterElementHit then C.afterElementHit(s,a,e,a.applicationElement or element,element,n) end
  return true
 end
 function C.enemyRate(e) return (e.slow or 0)>0 and .7 or 1 end

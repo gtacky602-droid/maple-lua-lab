@@ -1,0 +1,154 @@
+return function(C)
+ local herra={}
+ local U=88
+ local ice,light,gloom='#b6edff','#f4f9ff','#c6aaff'
+ local names={pyro='炎',hydro='水',electro='雷',cryo='氷',anemo='風',geo='岩',dendro='草'}
+
+ local function clamp(x,low,high)
+  return math.max(low,math.min(high,x))
+ end
+ local function place(b,s,form,pose,y)
+  b.form,b.pose,b.y=form,pose,y or s.floorY
+  b.hitTop,b.hitBottom=b.y-C.frostnightHerraFieldArt[pose].profiles.legacy.height,b.y
+ end
+ function herra.spawn(b,s)
+  b.gloomCharges,b.adaptedElement,b.adaptUntil=0,nil,nil
+  place(b,s,'idle','idle')
+ end
+ herra.cancel=herra.spawn
+ function herra.onDefeat(_,b,s) herra.spawn(b,s) end
+
+ function herra.begin(b,s,m)
+  return {move=m,tick=0,origin=b.x,dir=b.facing,seen={{},{}},
+   source={id=b.id,owner=b,y=s.floorY,damageElement=m.element}}
+ end
+
+ local function lock(c,s,a)
+  local m=c.move
+  if m.kind=='wing' then
+   local near,far=c.origin+c.dir*m.near*U,c.origin+c.dir*m.far*U
+   c.left,c.right=math.min(near,far),math.max(near,far)
+   return
+  end
+  local radius=m.width*U/2
+  local dx=clamp((a and a.x or c.origin)-c.origin,-m.distance*U,m.distance*U)
+  c.center=clamp(c.origin+dx,s.arenaMin+radius,s.arenaMax-radius)
+  c.left,c.right=c.center-radius,c.center+radius
+ end
+
+ function herra.onHit(cast,b,s,slot,element,damage)
+  local c=slot.cast
+  if b.form~='gloom' or not c or c.broken then return end
+  if names[element] then
+   local sum=(c.damageByElement[element] or 0)+damage
+   c.damageByElement[element]=sum
+   if sum>c.dominantDamage then
+    c.dominant,c.dominantDamage=element,sum
+   end
+  end
+  if (element~='cryo' and element~='lunar') or cast.reaction or c.contacts[cast] then return end
+  c.contacts[cast]=true
+  b.gloomCharges=b.gloomCharges+1
+  if b.gloomCharges<s.gloom.charges then return end
+  c.broken=c.tick
+  b.gloomCharges,b.adaptedElement,b.adaptUntil=0,nil,nil
+  place(b,s,'down','down')
+ end
+
+ function herra.damageFactor(state,_,b,s,element)
+  if b.form=='gloom' then return s.gloom.factor end
+  if b.adaptedElement==element and state.t<b.adaptUntil then return s.gloom.adaptFactor end
+  return 1
+ end
+
+ function herra.tick(state,b,s,c,a)
+  local m,t=c.move,c.tick+1
+  c.tick=t
+  if c.broken then
+   if t-c.broken<s.gloom.downTicks then return false end
+   place(b,s,'idle','idle')
+   return true
+  end
+  if t<=m.lock and a then
+   c.dir=a.x<c.origin and -1 or 1
+   b.facing=c.dir
+  end
+  if t==m.lock then lock(c,s,a) end
+
+  local form,pose,y='attack','ready',s.floorY
+  if m.kind=='dive' and t>=m.air[1] then
+   local q=clamp((t-m.air[1])/(m.air[2]-m.air[1]),0,1)
+   b.x=c.origin+(c.center-c.origin)*q
+   if t<m.air[2] then
+    form,pose,y='airborne','leap',s.floorY-4*q*(1-q)*m.lift*U
+   else
+    pose='land'
+   end
+  elseif m.kind=='gloom' and t>=m.lock and t<m.recover then
+   if t==m.lock then c.damageByElement,c.dominantDamage,c.contacts={},0,{} end
+   form,pose='gloom','gloom'
+  end
+  for i,w in ipairs(m.active) do
+   if t>=w[1] and t<w[2] then
+    if m.kind=='wing' then pose='sweep' end
+    C.hitFieldArea(state,c.source,c.seen[i],c.left,c.right,s.floorY-m.height*U,m.damage)
+   end
+  end
+  if t==m.recover and m.kind=='gloom' then
+   b.gloomCharges=0
+   if c.dominant then
+    b.adaptedElement,b.adaptUntil=c.dominant,state.t+s.gloom.adaptTicks/60
+   end
+  end
+  if t>=m.recover then form,pose='recover','down' end
+  place(b,s,form,pose,y)
+  if t<m.total then return false end
+  place(b,s,'idle','idle')
+  return true
+ end
+
+ function herra.label(b,c,s,state)
+  if b.form=='gloom' then return '薄闇・氷／月 '..b.gloomCharges..'／'..s.gloom.charges end
+  if b.form=='down' then return '薄闇解除・反撃の好機' end
+  if b.adaptedElement and state.t<b.adaptUntil then
+   local adaptation='元素適応・'..names[b.adaptedElement]
+   return c and adaptation..' ／ '..c.move.title or adaptation
+  end
+  if b.form=='recover' then return '硬直中・反撃の好機' end
+ end
+
+ local function rect(f,x,y,w,h,color)
+  f.draws[#f.draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}
+ end
+ local function warning(f,c,cam,y)
+  if c.broken or not c.left then return end
+  local m=c.move
+  for i,w in ipairs(m.active) do
+   if c.tick<w[2] then
+    local l,r=c.left-cam,c.right-cam
+    local top=y-m.height*U
+    local tint=m.kind=='gloom' and gloom or ice
+    if c.tick>=w[1] then rect(f,l,top,r-l,y-top,tint..'55');rect(f,l,top,r-l,3,light) end
+    for x=l+2,r-5,13 do rect(f,x,y-5,8,3,tint) end
+    if #m.active>1 then
+     f.draws[#f.draws+1]={kind='text',x=(l+r)/2,y=top-7,text=i..' / '..#m.active,size=13,color=light}
+    end
+    return
+   end
+  end
+ end
+ function herra.draw(f,state,b,s,c,mode,profile)
+  local x=b.x-state.camera
+  if c then warning(f,c,state.camera,s.floorY) end
+  local nativeLeft=b.pose=='idle'
+  C.drawFrostnightHerraFieldArt(f,x,b.y,b.pose,mode,profile,(b.facing<0)~=nativeLeft)
+  if b.form~='gloom' then return end
+  local count=s.gloom.charges
+  local y=b.hitTop-14
+  rect(f,x-count*7-2,y,count*14+4,8,'#242033')
+  for i=1,count do
+   rect(f,x-count*7+(i-1)*14+1,y+2,11,4,i<=b.gloomCharges and ice or '#594a70')
+  end
+ end
+ return herra
+end

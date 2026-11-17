@@ -1,0 +1,37 @@
+{
+  "browser": "Chrome",
+  "companion": "wanderer",
+  "play": {
+    "won": true,
+    "seconds": 57.25,
+    "moves": [
+      "FHR01",
+      "FHR02",
+      "FHR03"
+    ],
+    "hp": 116,
+    "returns": 0,
+    "casts": 3,
+    "down": true
+  },
+  "scenery": {
+    "key": "herraField",
+    "file": "frostnight-herra-field-background-v1.png",
+    "state": "ready"
+  },
+  "questAcceptedInUi": true,
+  "questReport": {
+    "xp": 9000,
+    "mora": 610
+  },
+  "sameSceneCommands": {
+    "png": 35,
+    "standard": 21994,
+    "light": 5550
+  },
+  "flightY": 350.05532879818594,
+  "dispelTick": 266,
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}

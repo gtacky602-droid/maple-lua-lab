@@ -845,11 +845,19 @@
       "to": "nod-battleship-depot"
     },
     {
+      "node": "nod-field",
+      "to": "nod-herra-terrace"
+    },
+    {
       "node": "nod-duckle-workyard",
       "to": "nod-field"
     },
     {
       "node": "nod-battleship-depot",
+      "to": "nod-field"
+    },
+    {
+      "node": "nod-herra-terrace",
       "to": "nod-field"
     },
     {

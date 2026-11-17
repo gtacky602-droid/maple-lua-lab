@@ -1,0 +1,202 @@
+{
+  "tool": "built-in image_gen",
+  "references": [
+    {
+      "url": "https://pbs.twimg.com/media/G25V2EUXMAAqCj2.jpg",
+      "page": "https://x.com/Genshin_7/status/1976624002010370520",
+      "view": "Official preview artwork: tail, curved silver frames and iridescence; wing tips cropped",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "fbed3b8856be3bac16000bf61a75b41f28accf0007747b0d1377a74b865b1b0e",
+      "use": "Silver wing frames, iridescence and silhouette"
+    },
+    {
+      "url": "https://gamedaily.com/.image/c_fill%2Cw_2048%2Ch_1152%2Cg_faces%3Acenter/MTU6MDAwMDAwMDAwMDI0MjMy/genshin-impact-luna-ii-frostnight-herra-boss.jpg",
+      "page": "https://gamedaily.com/games/everything-you-need-to-know-about-genshin-impact-version-6-1-luna-ii-an-elegy-for-fated-moonlight",
+      "view": "Game image: frontal armor and grounded hooves; near wing foreshortened",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "506f2a2cb57abe29cae15916f8dc966fa6870025770ae0bbb46047ab06951748",
+      "use": "Grounded hooves, chest and nocturnal setting"
+    }
+  ],
+  "prompts": [
+    "An exact transparent pixel-art sprite atlas, 3 columns by 2 rows, with plenty of blank gutters between all cells. Adapt Frostnight Herra as shown in the attached official preview, gameplay artwork, and lab sprite. A noble winged quadruped, narrow tall horned head, layered gray-silver and lilac armor, four hooves, broad curved frames with visible clear gaps, long pale blue-pink iridescent tail, blue illuminated chest and no rider or human anatomy. Grounded and airborne poses all face RIGHT. Upper left: grounded anticipation, one front hoof raised, wings askew, head ready for a sweep. Upper middle: the same quadruped in a low forward wing-sweep position, head down and main wing blade projecting right. Upper right: compact airborne leap, blue and white hooves tucked under the torso, spread curving wings. Lower left: grounded landing with bent legs, one hoof pushed forward, wings lower. Lower middle: distinct gloom form, same anatomy and recognizably disconnected wing frame segments, cool dark navy/violet body with pale pink and violet rims, two bright lavender eyes, lowered toward the floor. Lower right: exhausted grounded recovery, lowered head, folded silver wings and front knee bent. Actual alpha transparent background, no floor, shadows, fog, shine outside silhouettes, labels, grid, lines, logos or detached effect objects. Pixel clusters and clean dark outlines.",
+    "Create an original wide 16:9 side-on pixel RPG backdrop inspired by the attached blue nocturnal Nod-Krai arena. Broad empty ancient stone terrace below high slate-blue irregular rock columns shaped like jagged basalt, violet and indigo layers, faint cold moonlight from the opening above, small luminous cyan flowers tucked in rock seams and far edge only. A flat uninterrupted dark gray-blue flagstone footpath starts around 72 percent from the top. No creatures, doors that resemble UI, readable marks, labels, logos, HUD, combat effects or floating foreground debris. Muted layered stone, original atmosphere and strong contrast for silver sprites and violet telegraphs."
+  ],
+  "idle_sha256": "f5b5fc1f6b983f3b913bcc6c78eb85f22153abfb4f1b2f89ff241d28b99ece9e",
+  "raw_atlas_sha256": "a636104a594266730466dcedaca935e7ac5f60e8584642fb5f1b880e7d4ec715",
+  "outputs": {
+    "frostnight-herra-field-poses-source-v1.png": "0d887037f3990a66de29984ecf4f9d906e67bddcb94975717d9f71b0a1ac4e88",
+    "frostnight-herra-field-background-v1.png": "acb1887494e9b2655de0e453644ad5194bb8fb8f3f3a6d3eeb7c90c765675a29"
+  },
+  "poses": {
+    "ready": {
+      "crop": [
+        0,
+        0,
+        620,
+        500
+      ],
+      "original": [
+        51,
+        102,
+        433,
+        464
+      ],
+      "box": [
+        25,
+        25,
+        382,
+        362
+      ],
+      "height": 215,
+      "anchor": 0.5863874345549738,
+      "profiles": {
+        "legacy": 13533,
+        "h48c32": 8439,
+        "h32c16": 3617
+      }
+    },
+    "sweep": {
+      "crop": [
+        620,
+        0,
+        620,
+        500
+      ],
+      "original": [
+        506,
+        199,
+        1040,
+        464
+      ],
+      "box": [
+        645,
+        25,
+        534,
+        265
+      ],
+      "height": 165,
+      "anchor": 0.4250936329588015,
+      "profiles": {
+        "legacy": 13495,
+        "h48c32": 8277,
+        "h32c16": 3523
+      }
+    },
+    "leap": {
+      "crop": [
+        1240,
+        0,
+        620,
+        500
+      ],
+      "original": [
+        1072,
+        72,
+        1518,
+        405
+      ],
+      "box": [
+        1265,
+        25,
+        446,
+        333
+      ],
+      "height": 196,
+      "anchor": 0.47533632286995514,
+      "profiles": {
+        "legacy": 12848,
+        "h48c32": 7953,
+        "h32c16": 3467
+      }
+    },
+    "land": {
+      "crop": [
+        0,
+        500,
+        620,
+        500
+      ],
+      "original": [
+        28,
+        669,
+        461,
+        943
+      ],
+      "box": [
+        25,
+        525,
+        433,
+        274
+      ],
+      "height": 152,
+      "anchor": 0.5681293302540416,
+      "profiles": {
+        "legacy": 11801,
+        "h48c32": 7313,
+        "h32c16": 3182
+      }
+    },
+    "gloom": {
+      "crop": [
+        620,
+        500,
+        620,
+        500
+      ],
+      "original": [
+        522,
+        665,
+        970,
+        945
+      ],
+      "box": [
+        645,
+        525,
+        448,
+        280
+      ],
+      "height": 187,
+      "anchor": 0.48660714285714285,
+      "profiles": {
+        "legacy": 18241,
+        "h48c32": 11020,
+        "h32c16": 4495
+      }
+    },
+    "down": {
+      "crop": [
+        1240,
+        500,
+        620,
+        500
+      ],
+      "original": [
+        1033,
+        710,
+        1467,
+        941
+      ],
+      "box": [
+        1265,
+        525,
+        434,
+        231
+      ],
+      "height": 140,
+      "anchor": 0.5483870967741935,
+      "profiles": {
+        "legacy": 13078,
+        "h48c32": 8090,
+        "h32c16": 3390
+      }
+    }
+  },
+  "notes": [
+    "Six connected silhouettes repacked into transparent cells.",
+    "Combat poses face right; the previously approved idle source faces left.",
+    "This terrace is an original lab background. Exact 3D geometry is unverified."
+  ]
+}

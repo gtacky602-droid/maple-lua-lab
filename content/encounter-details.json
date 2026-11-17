@@ -136,10 +136,12 @@
       }
     },
     "boss-20081001": {
+      "remaining": ["薄闇の解除条件・元素耐性・報酬の調整", "被弾・撃破の追加作画と音", "Webマルチと幻境実機"],
+      "extra_evidence": ["https://gi.gachabase.net/tutorials/enemies/3099/frostnight-herra/release?lang=en","evidence/frostnight-herra-field-lua.json","evidence/frostnight-herra-field-browser.json"],
       "art_candidate": {
         "item": "frostnight-herra",
-        "audit": "evidence/frostnight-herra-reference-audit.json",
-        "status": "idle candidate"
+        "audit": "evidence/frostnight-herra-field-art-audit.json",
+        "status": "Web field prototype with grounded, airborne, gloom and recovery poses"
       }
     },
     "boss-20040301": {

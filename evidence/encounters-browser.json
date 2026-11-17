@@ -11,6 +11,7 @@
   "overseerFieldRoute": true,
   "knuckleDuckleFieldRoute": true,
   "battleshipFieldRoute": true,
+  "frostnightHerraFieldRoute": true,
   "stygianCandidates": 7,
   "disabledUnimplemented": true,
   "launchesVerified": [

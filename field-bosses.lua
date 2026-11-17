@@ -28,11 +28,11 @@ return function(C,configs,controllers)
   C.removeFieldSummon(state,summon)
   cast.summon=nil
  end
- function C.damageFactor(s,cast,e)
-  local factor=damageFactor and damageFactor(s,cast,e) or 1
+ function C.damageFactor(s,cast,e,element)
+  local factor=damageFactor and damageFactor(s,cast,e,element) or 1
   local spec=byId[e.fieldBoss]
   local behavior=spec and controllers[spec.controller]
-  return behavior and behavior.damageFactor and factor*behavior.damageFactor(s,cast,e,spec) or factor
+  return behavior and behavior.damageFactor and factor*behavior.damageFactor(s,cast,e,spec,element) or factor
  end
  local function current(s)
   local node=s.story and s.story.active and s.story.node
@@ -259,12 +259,12 @@ return function(C,configs,controllers)
   if onKill then onKill(s,e) end
  end
 
- function C.afterElementHit(s,cast,e,element)
-  if after then after(s,cast,e,element) end
+ function C.afterElementHit(s,cast,e,element,damageElement,damage)
+  if after then after(s,cast,e,element,damageElement,damage) end
   local spec=e.fieldBoss and byId[e.fieldBoss]
   if not spec or e.hp<=0 or e.invulnerable then return end
   local behavior=controllers[spec.controller]
-  if behavior.onHit then behavior.onHit(cast,e,spec,s.fieldSlots[spec.id]) end
+  if behavior.onHit then behavior.onHit(cast,e,spec,s.fieldSlots[spec.id],damageElement,damage) end
  end
 
  local function waitTicks(s,slot)
@@ -315,7 +315,7 @@ return function(C,configs,controllers)
   local behavior=controllers[spec.controller]
   local label=slot.phase=='notice' and '振り向き' or slot.phase=='leash' and '巣へ戻っている' or
    slot.phase=='available' and '警戒前' or cast and cast.move.title or '息継ぎ'
-  if boss.hp>0 and slot.phase=='combat' and behavior.label then label=behavior.label(boss,cast,spec) or label end
+  if boss.hp>0 and slot.phase=='combat' and behavior.label then label=behavior.label(boss,cast,spec,s) or label end
   f.fieldBoss={id=spec.id,name=boss.displayName or spec.name,element=boss.element,form=boss.form,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
    generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(s,slot)/60,label=label,elementSlots=boss.elementSlots,
    move=cast and cast.move.id,tick=cast and cast.tick,underground=boss.underground,

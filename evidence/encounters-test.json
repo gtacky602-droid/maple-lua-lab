@@ -1,5 +1,5 @@
 {
-  "count": 76,
+  "count": 77,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -39,6 +39,7 @@
     "The Overseer Device has its own Atocpan field route",
     "Knuckle Duckle has a Nod-Krai workshop route",
     "The Landrover has a Nod-Krai depot route",
+    "Frostnight Herra has a Nod-Krai terrace route",
     "public roster matched without merging Icewind modes or Dottore challenges",
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",

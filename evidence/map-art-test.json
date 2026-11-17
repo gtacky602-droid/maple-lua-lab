@@ -506,6 +506,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "nod-herra-terrace",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "nod-town",
       "count": 0,
       "fallback": false,

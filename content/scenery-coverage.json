@@ -510,6 +510,12 @@
       "status": "regional_temporary_image"
     },
     {
+      "id": "nod-herra-terrace",
+      "name": "ナド・クライ・霜夜の石壇",
+      "region": "ナド・クライ",
+      "status": "regional_temporary_image"
+    },
+    {
       "id": "nod-town",
       "name": "ナド・クライ・町の広場",
       "region": "ナド・クライ",

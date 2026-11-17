@@ -1,0 +1,21 @@
+{
+  "fixedWarnedAreas": true,
+  "airborneHeightAndLandingDamage": true,
+  "normalDamage": {
+    "base": 22,
+    "gloom": 14
+  },
+  "chargesOncePerDirectCast": true,
+  "brokenGloomStopsWave": true,
+  "adaptationByTotalDamageAndExpires": true,
+  "saveAndReportOnce": true,
+  "normalAttackWithoutDispel": {
+    "seconds": 102.15,
+    "hp": 140
+  },
+  "sameSceneCommands": {
+    "png": 41,
+    "standard": 19964,
+    "light": 4982
+  }
+}

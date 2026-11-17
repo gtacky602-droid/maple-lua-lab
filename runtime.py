@@ -242,6 +242,9 @@ def runtime():
     battleship=lua.execute((ROOT/'field-battleship.lua').read_text(encoding='utf-8'))(core)
     core.battleshipFieldArt=field_art(lua,'battleship',('saw-ready','sweep','cannon','heated','ward','down'),
                                      idle='battleship-idle-sprites.json')
+    frostnight_herra=lua.execute((ROOT/'field-frostnight-herra.lua').read_text(encoding='utf-8'))(core)
+    core.frostnightHerraFieldArt=field_art(lua,'frostnight-herra',('ready','sweep','leap','land','gloom','down'),
+                                          idle='frostnight-herra-idle-sprites.json')
     core.aeonblightFieldArt=field_art(lua,'aeonblight',('wing_first','wing_second','cannon','windup','dash','down'),
                                      idle='aeonblight-idle-sprites.json')
     bathysmal=lua.execute((ROOT/'field-bathysmal.lua').read_text(encoding='utf-8'))(core)
@@ -270,7 +273,7 @@ def runtime():
                         'emperor':emperor,'seahorse':seahorse,'generator':generator,'tulpa':tulpa,
                         'icewind':icewind,'legatus':legatus,'suanni':suanni,'qucusaur':qucusaur,'yumka':yumka,
                         'configDevice':config_device,'papilla':papilla,'lavaDragon':lava_dragon,'overseer':overseer,
-                        'knuckleDuck':knuckle_duck,'battleship':battleship})
+                        'knuckleDuck':knuckle_duck,'battleship':battleship,'frostnightHerra':frostnight_herra})
     )
     return lua, core
 
