@@ -5,3 +5,5 @@
 幽境5ボスのモーション・演出は [DESIGN_STYGIAN_MOTION_VFX_MASTER_V1.md](DESIGN_STYGIAN_MOTION_VFX_MASTER_V1.md) を入口にする。共通規格、ボス別49項目、旧ID対応、MANIFEST、QAを参照し、古い個別案の曖昧な時間・番号と混在させない。具体値は本作の制作開始値であり、原作フレーム解析・作画完成・実機検証済みの値ではない。この仕様の追加は技ロジック実装の保留を解除しない。
 
 週ボスの初期設計は [DESIGN_WEEKLY_BOSS_MASTER_V01.md](DESIGN_WEEKLY_BOSS_MASTER_V01.md) を入口にする。初回はトワリン8項目・北風の王狼11項目。docs/weekly-boss-v1/QA.mdの追補・未試験項目も読む。非人型へ人間の頭身を適用せず、体勢ゲージとHP攻撃先、四足の接地、足場移動を区別する。設計書の追加は実装・素材完成を意味せず、既存の技実装保留を解除しない。
+
+週ボス第2回は `docs/weekly-boss-v1/CHILDE.md`（公子14項目）と `AZHDAHA.md`（若陀龍王14項目）。`MANIFEST_LIYUE.json` は28項目・10分岐の設計索引で実行データではない。`QA_LIYUE.md` の静的検査・未試験・WC14の変身終端の例外も読む。既存IDを再利用し、三形態のHP、断流の解除、四元素差分、尻尾の重複命中、刻印と盾を区別する。今回もコード・素材・技ロジックの変更許可ではない。
