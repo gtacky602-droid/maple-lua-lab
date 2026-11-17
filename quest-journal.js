@@ -9,6 +9,16 @@ const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready
 export function questObjective(q,graph,state){
  const destination=graph.nodes.find(n=>q.kind==='boss'?n.challenge===q.target:n.id===q.target);
  const place=destination?.name||'目的地未登録';
+ if(q.lantern){
+  if(state?.status==='complete')return '狸の招待状を稲妻みちくさ帳に収めた';
+  const count=state?.count??0;
+  if(count===0)return '離島の波止場で綾華に話しかける';
+  if(count===4)return '広場の三つの灯籠から、葉っぱが落ちる灯籠を探す';
+  if(count===5)return '現れた化け狸から絵を受け取る';
+  if(count===6)return '離島の綾華に招待状を見せる';
+  const left=q.lantern.clues.filter(item=>!state.lantern.inspected[item.id]);
+  return '灯隠れの小径で手がかりを調べる（残り：'+left.map(item=>item.name).join('、')+'）';
+ }
  if(q.construction){
   const plan=q.construction.plans.find(p=>p.id===state?.construction?.plan);
   if(state?.status==='complete')return `${plan?.name??''}案で港の近道が開いた`;

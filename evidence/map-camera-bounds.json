@@ -131,6 +131,16 @@
       "rightCamera": 480
     },
     {
+      "node": "inazuma-lantern-trail",
+      "width": 1680,
+      "rightCamera": 720
+    },
+    {
+      "node": "inazuma-lantern-clearing",
+      "width": 1320,
+      "rightCamera": 360
+    },
+    {
       "node": "sumeru-entry",
       "width": 1440,
       "rightCamera": 480

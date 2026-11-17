@@ -1,0 +1,12 @@
+{
+  "browser": "Chrome",
+  "actual_controls": true,
+  "existing_voyage": true,
+  "moving_lantern_and_turning": true,
+  "three_clues_and_wrong_lantern_retry": true,
+  "danuki_visible_and_invitation_collected": true,
+  "smile_survives_restore": true,
+  "viewport_390": true,
+  "png_and_28px_comparison": true,
+  "errors": []
+}

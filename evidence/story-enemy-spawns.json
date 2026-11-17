@@ -105,6 +105,14 @@
       "enemy_count": 0
     },
     {
+      "node": "inazuma-lantern-trail",
+      "enemy_count": 4
+    },
+    {
+      "node": "inazuma-lantern-clearing",
+      "enemy_count": 0
+    },
+    {
       "node": "sumeru-entry",
       "enemy_count": 6
     },

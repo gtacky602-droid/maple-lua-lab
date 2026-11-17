@@ -1,0 +1,48 @@
+{
+  "references": [
+    {
+      "page": "https://wiki.hoyolab.com/pc/genshin/entry/2448?lang=th-th",
+      "image": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/05/26/10257458/59b88cb8fc9bc661a0d855494287724e_9171985140836275548.PNG",
+      "view": "cropped three-quarter archive body, facial markings and indigo cloth",
+      "viewed_and_supplied": true,
+      "sha256": "8adb5e42eb804904b07df3563a596ff85ca2d0420e7b1c2cf9e7e23dd6e24bb8"
+    },
+    {
+      "page": "https://www.hobbyconsolas.com/guias-trucos/como-completar-ritual-limpieza-sakura-genshin-impact-911213",
+      "image": "https://imagenes.hobbyconsolas.com/files/image_1920_1080/uploads/imagenes/2023/04/25/6901355b2466f.jpeg",
+      "view": "full frontal in-game dance and foot placement",
+      "viewed_and_supplied": true,
+      "sha256": "19ca5eceb9387897a596c7245bc71be3b699eb3959570dfd2de7f786e8cd7e5e"
+    }
+  ],
+  "method": "built-in imagegen",
+  "prompt": "Create a single transparent sprite for a classic 2D pixel-art side-scrolling RPG. Subject is a friendly Bake-Danuki inspired by these two Genshin Impact in-game reference images. Keep the squat nonhuman body proportions, dark charcoal brown rounded body, light cream eye patch and belly markings, round ears, little fangs and nose, rich indigo-purple scarf with a simple large pale spiral, one bright green leaf on the head, and a short broad tail partly seen. Depict a cheerful noncombat dancing pose like the second frame, one arm raised to wave, one foot planted fully visible; facing slightly left, seen from the side-scrolling view. Make the shape bold and legible when reduced to 56 or 28 pixels tall, moderate chunky non-antialiased pixel clusters, few color steps, warm but dark outline, no noise. Only one isolated full-body sprite, true alpha, centered with breathing room, no scenery, no floor, no shadow, no lettering, no effects, no music symbols, no text, no watermark.",
+  "source": "assets/danuki-dance-source-v1.png",
+  "sha256": "c523295ef6917aee196dd6f40e23614bd1f8177c4b00bf1428bec2be54b49bb3",
+  "box": [
+    146,
+    103,
+    776,
+    1278
+  ],
+  "anchor_x": 0.4948453608247423,
+  "visual_height": 56,
+  "profiles": {
+    "legacy": {
+      "height": 56,
+      "colors": 32,
+      "rectangles": 763
+    },
+    "h48c32": {
+      "height": 42,
+      "colors": 32,
+      "rectangles": 458
+    },
+    "h32c16": {
+      "height": 28,
+      "colors": 16,
+      "rectangles": 188
+    }
+  },
+  "limits": "Nonhuman pose preserves the rounded body. Two views; no separate rotatable model/rear view. One sprite with runtime bobbing, no independent body frames."
+}

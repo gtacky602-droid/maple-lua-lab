@@ -75,8 +75,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 6,
-      "prototype_quest_count": 6,
+      "prototype_stage_count": 8,
+      "prototype_quest_count": 7,
       "official_map2_markers": {
         "waypoints": 47,
         "statues": 6
@@ -558,8 +558,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 95,
-    "provisional_quests": 61,
+    "authored_stages": 97,
+    "provisional_quests": 62,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -684,11 +684,14 @@
           "inazuma-port",
           "inazuma-road",
           "inazuma-town",
+          "inazuma-lantern-trail",
+          "inazuma-lantern-clearing",
           "maguu-approach",
           "array-approach",
           "thunder-approach"
         ],
         "quest_ids": [
+          "inazuma-moving-lantern",
           "ayaka-join",
           "inazuma-delivery",
           "inazuma-contract",

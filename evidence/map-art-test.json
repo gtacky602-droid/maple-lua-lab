@@ -158,6 +158,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "inazuma-lantern-trail",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "inazuma-lantern-clearing",
+      "count": 1,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "sumeru-entry",
       "count": 0,
       "fallback": false,

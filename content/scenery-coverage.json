@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 95 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 93,
+  "scope": "Authored 97 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 95,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -162,6 +162,18 @@
       "status": "regional_temporary_image"
     },
     {
+        "id": "inazuma-lantern-trail",
+        "name": "稲妻・灯隠れの小径",
+        "region": "稲妻",
+        "status": "regional_temporary_image"
+      },
+      {
+        "id": "inazuma-lantern-clearing",
+        "name": "稲妻・三つ灯籠の広場",
+        "region": "稲妻",
+        "status": "regional_temporary_image"
+      },
+      {
       "id": "sumeru-entry",
       "name": "スメール・地域の入口",
       "region": "スメール",

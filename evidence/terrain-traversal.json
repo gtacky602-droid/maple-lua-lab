@@ -475,6 +475,36 @@
       "ground_both_directions": true
     },
     {
+      "node": "inazuma-lantern-trail",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "inazuma-lantern-clearing",
+      "platforms": 2,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
       "node": "sumeru-entry",
       "platforms": 4,
       "jump_routes": [

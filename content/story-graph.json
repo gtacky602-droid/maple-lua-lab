@@ -1208,11 +1208,60 @@
           "x": 60
         },
         {
+          "to": "inazuma-lantern-trail",
+          "x": 580,
+          "requires": {"quest": "inazuma-moving-lantern", "count": 1}
+        },
+        {
+          "to": "inazuma-lantern-clearing",
+          "x": 1080,
+          "requires": {"quest": "inazuma-moving-lantern", "count": 6}
+        },
+        {
           "to": "sumeru-entry",
           "x": 1380
         }
       ],
       "checkpoint": "inazuma-town"
+    },
+    {
+      "id": "inazuma-lantern-trail",
+      "name": "稲妻・灯隠れの小径",
+      "region": "稲妻",
+      "level": 40,
+      "hub": false,
+      "width": 1680,
+      "checkpoint": "inazuma-port",
+      "platforms": [
+        {"x": 0, "y": 480, "w": 1680},
+        {"x": 400, "y": 391, "w": 415},
+        {"x": 720, "y": 306, "w": 260},
+        {"x": 1020, "y": 386, "w": 395}
+      ],
+      "exits": [
+        {"to": "inazuma-town", "x": 70},
+        {"to": "inazuma-lantern-clearing", "x": 1605,
+         "requires": {"quest": "inazuma-moving-lantern", "count": 4}}
+      ]
+    },
+    {
+      "id": "inazuma-lantern-clearing",
+      "name": "稲妻・三つ灯籠の広場",
+      "region": "稲妻",
+      "level": 40,
+      "hub": false,
+      "peaceful": true,
+      "width": 1320,
+      "checkpoint": "inazuma-port",
+      "platforms": [
+        {"x": 0, "y": 480, "w": 1320},
+        {"x": 950, "y": 395, "w": 300}
+      ],
+      "exits": [
+        {"to": "inazuma-lantern-trail", "x": 65},
+        {"to": "inazuma-town", "x": 1245,
+         "requires": {"quest": "inazuma-moving-lantern", "count": 6}}
+      ]
     },
     {
       "id": "sumeru-entry",
@@ -4523,6 +4572,36 @@
       "repeatable": true
     },
     {
+      "id": "inazuma-moving-lantern",
+      "designId": "Q-INA-M01",
+      "name": "その灯籠、今、動きました？",
+      "giver": "綾華",
+      "level": 40,
+      "hub": "inazuma-port",
+      "target": "inazuma-lantern-clearing",
+      "kind": "lantern",
+      "goal": 6,
+      "xp": 2800,
+      "mora": 350,
+      "briefing": "波止場で綾華が話しかけてきた。背後の灯籠が、さっきより近い気がする。",
+      "closing": "綾華「やはり、招待だったのですね。驚かせずに案内してほしいと伝えたら、笑顔を描き足してくれました。」",
+      "lantern": {
+        "scene": {"id": "ayaka-lantern", "x": 410, "y": 480, "guideX": 455, "startX": 240},
+        "trail": "inazuma-lantern-trail",
+        "clues": [
+          {"id": "box-leaf", "name": "箱に残った葉っぱ", "x": 305, "y": 480, "line": "灯籠の下に落ちていたのと同じ葉っぱです。"},
+          {"id": "stone-shadow", "name": "石像の揺れる影", "x": 670, "y": 391, "line": "石像は動いていませんが、影だけが小さく揺れています。"},
+          {"id": "eaten-nuts", "name": "木の実の食べ跡", "x": 1100, "y": 480, "line": "小さな歯形のついた木の実が、広場まで点々と続いています。"}
+        ],
+        "lanterns": [
+          {"id": "left-lantern", "name": "左の灯籠", "x": 440, "y": 480},
+          {"id": "leaf-lantern", "name": "中央の灯籠", "x": 680, "y": 480, "leaf": true},
+          {"id": "right-lantern", "name": "右の灯籠", "x": 920, "y": 480}
+        ],
+        "guest": {"id": "tanuki-invitation", "x": 680, "y": 480}
+      }
+    },
+    {
       "id": "ayaka-join",
       "name": "綾華と海辺の安全を確かめる",
       "hub": "inazuma-port",
@@ -4531,7 +4610,8 @@
       "goal": 4,
       "xp": 2500,
       "mora": 200,
-      "join": "ayaka"
+      "join": "ayaka",
+      "opensAfter": "inazuma-moving-lantern"
     },
     {
       "id": "inazuma-delivery",

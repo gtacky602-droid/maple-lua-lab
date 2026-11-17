@@ -338,7 +338,31 @@
     },
     {
       "node": "inazuma-town",
+      "to": "inazuma-lantern-trail"
+    },
+    {
+      "node": "inazuma-town",
+      "to": "inazuma-lantern-clearing"
+    },
+    {
+      "node": "inazuma-town",
       "to": "sumeru-entry"
+    },
+    {
+      "node": "inazuma-lantern-trail",
+      "to": "inazuma-town"
+    },
+    {
+      "node": "inazuma-lantern-trail",
+      "to": "inazuma-lantern-clearing"
+    },
+    {
+      "node": "inazuma-lantern-clearing",
+      "to": "inazuma-lantern-trail"
+    },
+    {
+      "node": "inazuma-lantern-clearing",
+      "to": "inazuma-town"
     },
     {
       "node": "sumeru-entry",

@@ -14,6 +14,9 @@
     "mitya": "v2 idle revised from directly viewed published character introduction image; cyan jewelry/teal ribbons/dark torso/boots corrected; 88px/3 profiles; rear/model and mirror asymmetry unverified",
     "columbina": "v2 idle revised from illustration and 4 PMX views; short inner/open outer dress and pale leg ribbons; unmasked closed-eye pose; 88px/3 profiles; details and style consistency remain"
   },
+  "npcs": {
+    "bake-danuki": "Referenced 56px dance pose for Inazuma M01. In-game archive and dance image inspected. One pose with Lua bobbing, reserved green and indigo at 28px. See evidence/danuki-reference-audit.json."
+  },
   "regular_enemies": "Water/fire slime atlas candidates plus model-informed hilichurl idle candidate in enemies-art.html; see enemy-art-status.json; hilichurl not placed in story",
   "hold": "skill changes and attack animation detail pending ChatGPT design",
   "reference_audit": "Existing sprites are candidates; visual comparison against images and available 3D models is pending. Rendering tests do not establish costume accuracy."

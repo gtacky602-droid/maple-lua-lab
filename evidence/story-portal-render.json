@@ -253,10 +253,30 @@
     {
       "node": "inazuma-town",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 4
     },
     {
       "node": "inazuma-town",
+      "mode": "rect",
+      "visible_portals": 4
+    },
+    {
+      "node": "inazuma-lantern-trail",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-lantern-trail",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-lantern-clearing",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-lantern-clearing",
       "mode": "rect",
       "visible_portals": 2
     },

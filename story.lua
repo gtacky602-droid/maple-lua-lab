@@ -1,12 +1,15 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
   local out={};for k,item in pairs(v) do out[k]=copy(item) end;return out
  end
- local nodes,quests={},{}
+ local nodes,quests,lanternQuest={},{},nil
  for _,n in ipairs(data.nodes) do nodes[n.id]=n end
- for _,q in ipairs(data.quests) do quests[q.id]=q end
+ for _,q in ipairs(data.quests) do
+  quests[q.id]=q
+  if q.lantern then lanternQuest=q end
+ end
  local function setup(s)
   if not s.story then s.story={active=false,node='mond-town',visited={['mond-town']=true},quests={}} end
   s.story.discovered=s.story.discovered or {}
@@ -169,6 +172,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction)
   s.railTrip=nil
   s.readingQuest=nil
   s.stoneNotice=nil
+  s.portLanternX=nil
+  s.danukiDanceAt=nil
   s.storyDeliveryNotice=nil
   local railConfig,railState=railQuest(s,n)
   if railState and railState.count>=1 then s.platforms[#s.platforms+1]=copy(railConfig.rail.bridge) end
@@ -214,6 +219,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction)
     if q.construction then
      local item=construction.nearby(s,q,state)
      if item then construction.interact(s,q,state,item);return end
+    end
+    if q.lantern then
+     local item=lantern.nearby(s,q,state)
+     if item then lantern.inspect(s,q,state,item);return end
     end
     if q.delivery and state.status=='active' and q.target==s.story.node then
      delivery.recover(s,q,state.delivery)
@@ -333,7 +342,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction)
     s.story.quests[id]={status='active',count=0,cycles=state and state.cycles or 0,
                        recovered=q.cargo and {} or nil,inspected=q.trail and {} or nil,delivery=q.delivery and delivery.new() or nil,
                        cooking=q.cooking and cooking.new() or nil,book=q.book and {defeated={}} or nil,
-                       stone=q.stone and {marked={},sequence=0} or nil,construction=q.construction and {surveyed={}} or nil}
+                       stone=q.stone and {marked={},sequence=0} or nil,construction=q.construction and {surveyed={}} or nil,
+                       lantern=q.lantern and {inspected={}} or nil}
    elseif report and state and state.status=='active' and state.count==q.goal then
     if q.cooking then state.cooking.meals=1 end
     state.status='complete';state.cycles=(state.cycles or 0)+1;s.mora=s.mora+q.mora;C.grantExp(s,q.xp,'quest');s.storyNotice=q.closing or q.name..'：報酬を受け取りました。'
@@ -385,6 +395,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction)
    return
   end
   local returns=s.returns;step(s,dt,input)
+  if lanternQuest and s.story and s.story.active then
+   local state=s.story.quests[lanternQuest.id]
+   if state then lantern.step(s,lanternQuest,state,dt) end
+  end
   if s.railTrip and s.story.active and s.returns==returns then
    local n=nodes[s.story.node];local q,state=railQuest(s,n)
    if rail.step(s,dt,state) then
@@ -457,14 +471,15 @@ return function(C,data,delivery,rail,cooking,book,stone,construction)
     markers[#markers+1]={kind='rect',x=x-5,y=y-10,w=10,h=7,color=elevated and '#f76859' or '#b69765'}
    end
    for _,q in ipairs(data.quests) do
-    if q.delivery or q.rail or q.cooking or q.book or q.stone or q.construction then
+    if q.delivery or q.rail or q.cooking or q.book or q.stone or q.construction or q.lantern then
      local state=s.story.quests[q.id]
      if q.delivery then delivery.observe(s,f,markers,q,state and state.delivery)
      elseif q.rail then rail.observe(s,f,markers,q,state)
      elseif q.cooking and state then cooking.observe(s,f,markers,q,state)
      elseif q.book and state then book.observe(s,f,markers,q,state)
      elseif q.stone and state then stone.observe(s,f,markers,q,state)
-     elseif q.construction and state then construction.observe(s,f,markers,q,state) end
+     elseif q.construction and state then construction.observe(s,f,markers,q,state)
+     elseif q.lantern and state then lantern.observe(s,f,markers,q,state,mode,profile) end
     end
    end
    local recoveryQuest=quests[n.clearedBy]

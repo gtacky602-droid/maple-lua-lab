@@ -2,8 +2,8 @@
   "errors": [],
   "state": {
     "ready": true,
-    "count": 9,
-    "visibleCount": 9,
+    "count": 10,
+    "visibleCount": 10,
     "query": "",
     "profile": "h32c16",
     "zoom": 2,
@@ -26,23 +26,23 @@
       {
         "id": "beidou",
         "h": 88,
-        "w": 47.9774011299435,
-        "ratio": 0.5451977401129944,
-        "source": "beidou-idle-source-v3.png"
+        "w": 51.683902439024386,
+        "ratio": 0.5873170731707317,
+        "source": "beidou-idle-right-source-v4.png"
       },
       {
         "id": "ayaka",
         "h": 88,
-        "w": 44.5352798053528,
-        "ratio": 0.5060827250608273,
-        "source": "ayaka-idle-source-v3.png"
+        "w": 46.964129483814524,
+        "ratio": 0.5336832895888014,
+        "source": "ayaka-idle-right-source-v4.png"
       },
       {
         "id": "wanderer",
         "h": 88,
-        "w": 61.51747655583973,
-        "ratio": 0.6990622335890878,
-        "source": "wanderer-idle-source-v2.png"
+        "w": 63.318996415770606,
+        "ratio": 0.7195340501792115,
+        "source": "wanderer-idle-right-source-v3.png"
       },
       {
         "id": "emilie",
@@ -71,6 +71,13 @@
         "w": 37.921052631578945,
         "ratio": 0.4309210526315789,
         "source": "mitya-idle-source-v2.png"
+      },
+      {
+        "id": "bake-danuki",
+        "h": 56,
+        "w": 34.003129890453835,
+        "ratio": 0.6071987480438185,
+        "source": "danuki-dance-source-v1.png"
       }
     ]
   },

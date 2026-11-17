@@ -237,6 +237,12 @@
         "platform": 2
       }
     ],
+    "inazuma-lantern-trail": [
+      {"id": "inazuma-lantern-trail-1", "kind": 1, "art": "hydro-slime", "x": 365, "platform": 0},
+      {"id": "inazuma-lantern-trail-2", "kind": 2, "art": "pyro-slime", "x": 920, "platform": 0},
+      {"id": "inazuma-lantern-trail-3", "kind": 1, "art": "nobushi", "x": 1230, "platform": 0},
+      {"id": "inazuma-lantern-trail-4", "kind": 1, "art": "hydro-slime", "x": 1325, "platform": 3}
+    ],
     "sumeru-entry": [
       {
         "id": "sumeru-entry-1",

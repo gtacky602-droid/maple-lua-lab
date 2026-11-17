@@ -21,7 +21,7 @@ try{
    assets[id+'-reference']=art;
   }else assets[id]=art;
  }
- for(const [kind,label,file] of [['boss','ボス待機候補（比較用の大きさ）','boss-art-gallery.json'],['character','主人公・味方（待機候補）','character-art-gallery.json']]){
+ for(const [kind,label,file] of [['boss','ボス待機候補（比較用の大きさ）','boss-art-gallery.json'],['character','主人公・同行者・NPC','character-art-gallery.json']]){
   const gallery=await json('content/'+file),group=document.createElement('optgroup');group.label=label;
   const loaded=await Promise.all(gallery.items.map(async item=>{
    const [data,left,rear]=await Promise.all([

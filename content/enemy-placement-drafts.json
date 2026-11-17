@@ -2,6 +2,9 @@
   "version": 1,
   "status": "visual-only draft; not canonical spawn geography or live combat placement",
   "nodes": {
+    "inazuma-lantern-clearing": [
+      {"id": "preview-danuki", "species": "character-bake-danuki", "x": 680, "y": 480, "flip": false}
+    ],
     "liyue-book-camp": [
       {"id": "liyue-book-scout-1", "species": "treasure-scout", "x": 420, "y": 480, "flip": false},
       {"id": "liyue-book-scout-2", "species": "treasure-scout", "x": 845, "y": 392, "flip": false},

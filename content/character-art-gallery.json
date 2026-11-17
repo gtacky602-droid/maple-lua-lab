@@ -58,6 +58,12 @@
       "name": "ミティヤ",
       "file": "mitya-idle-sprites.json",
       "height": 88
+    },
+    {
+      "id": "bake-danuki",
+      "name": "化け狸（稲妻のイベント）",
+      "file": "danuki-dance-sprites-v1.json",
+      "height": 56
     }
   ]
 }

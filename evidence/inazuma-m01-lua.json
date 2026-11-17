@@ -1,0 +1,14 @@
+{
+  "Lv40_existing_30_second_voyage": true,
+  "ayaka_opens_after_first_meeting": true,
+  "lantern_moves_while_unwatched_and_stops_when_faced": true,
+  "three_clues_ordinary_controls": true,
+  "partial_save_and_scenic_return_gate": true,
+  "wrong_lantern_retry_and_danuki_reveal": true,
+  "invitation_smile_and_peaceful_revisit_persist": true,
+  "legacy_ayaka_join_compatible": true,
+  "one_time_reward": {
+    "xp": 2800,
+    "mora": 350
+  }
+}

@@ -144,12 +144,35 @@ function updateConstruction(view){
   row.append(button,detail);plans.append(row);
  }
 }
+let lanternNote='';
+function updateLanternNote(note){
+ const panel=$('storyLanternNotes');
+ panel.hidden=!note;
+ const signature=JSON.stringify(note??null);
+ if(signature===lanternNote)return;
+ lanternNote=signature;
+ if(!note){panel.open=false;return}
+ const canvas=$('storyLanternPicture'),pen=canvas.getContext('2d');
+ canvas.setAttribute('aria-label',note.smile?'鳥居、大灯籠、海、狸の笑顔の絵':'鳥居、大灯籠、海の絵');
+ $('storyLanternNoteText').textContent=note.smile?'鳥居、大灯籠、海。狸が招待状に笑顔を描き足した。':'鳥居、大灯籠、海。化け狸が渡してくれた絵。';
+ pen.fillStyle='#e9dab4';pen.fillRect(0,0,180,64);
+ pen.fillStyle='#a25245';
+ pen.fillRect(14,15,40,5);pen.fillRect(18,26,32,3);pen.fillRect(22,20,5,29);pen.fillRect(41,20,5,29);
+ pen.fillStyle='#5b4c45';pen.fillRect(73,16,31,34);
+ pen.fillStyle='#d5a35d';pen.fillRect(79,22,19,21);
+ pen.fillStyle='#497d87';pen.fillRect(121,32,40,4);pen.fillRect(126,41,38,4);pen.fillRect(119,49,35,3);
+ if(note.smile){
+  pen.fillStyle='#765b44';pen.fillRect(160,12,3,3);pen.fillRect(169,12,3,3);
+  pen.fillRect(160,19,3,2);pen.fillRect(163,21,6,2);pen.fillRect(169,19,3,2);
+ }
+}
 function hud(f,calls,renderMs){
  updateDelivery(f);
  updateCooking(f.storyCooking);
  updateBook(f.storyBook);
  updateStone(f.storyStone);
  updateConstruction(f.storyConstruction);
+ updateLanternNote(f.storyLanternNote);
  const lift=f.storyLift;
  const rail=f.storyRailTransit;
  const market=$('storyMarket');
@@ -172,7 +195,7 @@ function hud(f,calls,renderMs){
  const book=f.storyNearbyBook;
  const stone=f.storyNearbyStone;
  const construction=f.storyNearbyConstruction;
- const interact=construction??stone??book;
+ const interact=f.storyNearbyLantern??construction??stone??book;
  $('nearbyCargo').hidden=!(interact||ingredient||cargo||clue);
  if(interact||ingredient||cargo||clue)$('nearbyCargoGo').textContent=interact?`G：${interact.label}`:ingredient?`G：${ingredient.name}を集める`:clue?'G：'+(clue.label??clue.name+'を調べる'):
   cargo.guarded?`${cargo.name} ｜ 先に魔物を退ける`:`G：${cargo.name}を回収`;

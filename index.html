@@ -24,6 +24,11 @@
  <p>屋根は途中で跳ぶ必要があります。荷車が通れる経路を選んで工事を始めます。</p>
  <div class="controls" id="storyConstructionPlans"></div>
 </section>
+<details id="storyLanternNotes" hidden style="padding:10px 18px;background:#173a3b">
+ <summary>稲妻みちくさ帳</summary>
+ <canvas id="storyLanternPicture" width="180" height="64" role="img" aria-label="鳥居、大灯籠、海の絵" style="width:min(180px,100%);aspect-ratio:180/64;margin-top:8px"></canvas>
+ <p id="storyLanternNoteText"></p>
+</details>
 <div id="trackedQuest" hidden style="padding:10px 18px;background:#173a3b;overflow-wrap:anywhere"><span id="trackedQuestText"></span> <button id="clearTrackedQuest">追跡を解除</button></div>
 <div class="bottom"><div class="gauge">光界・共通ゲージ <span id="gaugeText">60 / 100</span><div class="bar"><i id="gaugeBar"></i></div><small>光界は検証用に解放</small></div><div class="skills"><button class="skill" data-action="normal"><kbd>J</kbd><span>通常攻撃</span><em id="cd-normal"></em></button><button class="skill" data-action="skill1"><kbd>K</kbd><span id="name1">旋風斬り</span><em id="cd-skill1"></em></button><button class="skill" data-action="skill2"><kbd>L</kbd><span id="name2">竜巻</span><em id="cd-skill2"></em></button><button class="skill" data-action="light"><kbd>Q</kbd><span>光界解放</span><em id="cd-light"></em></button><button class="skill" data-action="swap"><kbd>E</kbd><span>操作交代</span></button><button class="skill" data-action="dodge"><kbd>SHIFT</kbd><span>回避</span></button></div></div></div>
 <div class="controls"><button class="skill" data-amber data-action="skill3"><kbd>M</kbd><span>ウサギ伯爵</span><em id="cd-skill3"></em></button><button class="skill" data-amber data-action="skill4"><kbd>N</kbd><span>跳躍射撃</span><em id="cd-skill4"></em></button><span>仲間操作中に使用。追加仲間の外見は仮図形です。</span></div><div class="touch"><button data-hold="left">←</button><button data-hold="right">→</button><button data-action="jump">ジャンプ</button><button data-hold="attack">攻撃</button></div>
