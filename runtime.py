@@ -201,6 +201,9 @@ def runtime():
     seahorse=lua.execute((ROOT/'field-seahorse.lua').read_text(encoding='utf-8'))(core)
     core.seahorseFieldArt=field_art(lua,'seahorse',('sweep','charge','dive','dim'),
                                    idle='seahorse-idle-sprites.json',idle_anchor=.28)
+    generator=lua.execute((ROOT/'field-generator.lua').read_text(encoding='utf-8'))(core)
+    core.generatorFieldArt=field_art(lua,'field-generator',('sweep','stones','quake','recover'),
+                                    idle='field-generator-idle-sprites.json')
     core.aeonblightFieldArt=field_art(lua,'aeonblight',('wing_first','wing_second','cannon','windup','dash','down'),
                                      idle='aeonblight-idle-sprites.json')
     bathysmal=lua.execute((ROOT/'field-bathysmal.lua').read_text(encoding='utf-8'))(core)
@@ -226,7 +229,7 @@ def runtime():
                         'wolflord':wolflord_field,'ruinSerpent':ruin_serpent,'bathysmal':bathysmal,
                         'electroRegisvine':electro_vine,'aeonblight':aeonblight,
                         'dendroHypostasis':dendro_hypostasis,'asimon':asimon,'wenut':wenut,'baptist':baptist,
-                        'emperor':emperor,'seahorse':seahorse})
+                        'emperor':emperor,'seahorse':seahorse,'generator':generator})
     )
     return lua, core
 

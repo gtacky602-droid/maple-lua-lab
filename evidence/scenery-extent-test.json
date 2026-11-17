@@ -2,6 +2,36 @@
   "errors": [],
   "cases": [
     {
+      "key": "generatorField",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "generatorField",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "generatorField",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "generatorField",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "generatorField",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "generatorField",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "seahorseField",
       "camera": -960,
       "transparent": 0

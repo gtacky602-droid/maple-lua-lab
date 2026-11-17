@@ -283,14 +283,54 @@
     {
       "node": "inazuma-port",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 4
     },
     {
       "node": "inazuma-port",
       "mode": "rect",
+      "visible_portals": 4
+    },
+    {
+      "node": "tsurumi-coast",
+      "mode": "sprite",
       "visible_portals": 2
     },
     {
+      "node": "tsurumi-coast",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "wolflord-field-ruins",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "wolflord-field-ruins",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "watatsumi-landing",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "watatsumi-landing",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "hydro-hypostasis-field-cove",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "hydro-hypostasis-field-cove",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
       "node": "inazuma-road",
       "mode": "sprite",
       "visible_portals": 6
@@ -303,12 +343,22 @@
     {
       "node": "inazuma-town",
       "mode": "sprite",
-      "visible_portals": 5
+      "visible_portals": 6
     },
     {
       "node": "inazuma-town",
       "mode": "rect",
-      "visible_portals": 5
+      "visible_portals": 6
+    },
+    {
+      "node": "pyro-hypostasis-field-terrace",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "pyro-hypostasis-field-terrace",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "inazuma-lantern-trail",
@@ -403,12 +453,12 @@
     {
       "node": "sumeru-entry",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 5
     },
     {
       "node": "sumeru-entry",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 5
     },
     {
       "node": "sumeru-hub",
@@ -423,12 +473,12 @@
     {
       "node": "sumeru-field",
       "mode": "sprite",
-      "visible_portals": 4
+      "visible_portals": 7
     },
     {
       "node": "sumeru-field",
       "mode": "rect",
-      "visible_portals": 4
+      "visible_portals": 7
     },
     {
       "node": "sumeru-jadeplume-grove",
@@ -437,6 +487,66 @@
     },
     {
       "node": "sumeru-jadeplume-grove",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "electro-regisvine-field-cave",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "electro-regisvine-field-cave",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "aeonblight-field-chamber",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "aeonblight-field-chamber",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "dendro-hypostasis-field-den",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "dendro-hypostasis-field-den",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "asimon-field-ruins",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "asimon-field-ruins",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "wenut-field-cavern",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "wenut-field-cavern",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "baptist-field-sanctuary",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "baptist-field-sanctuary",
       "mode": "rect",
       "visible_portals": 1
     },
@@ -463,12 +573,42 @@
     {
       "node": "fontaine-field",
       "mode": "sprite",
-      "visible_portals": 3
+      "visible_portals": 6
     },
     {
       "node": "fontaine-field",
       "mode": "rect",
-      "visible_portals": 3
+      "visible_portals": 6
+    },
+    {
+      "node": "emperor-field-cove",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "emperor-field-cove",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "seahorse-field-cavern",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "seahorse-field-cavern",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "field-generator-field-chamber",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "field-generator-field-chamber",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "natlan-entry",
@@ -613,11 +753,21 @@
     {
       "node": "dragonspine-depth",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "dragonspine-depth",
       "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "cryo-hypostasis-field-basin",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "cryo-hypostasis-field-basin",
+      "mode": "rect",
       "visible_portals": 1
     },
     {
@@ -653,10 +803,20 @@
     {
       "node": "enkanomiya-depth",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "enkanomiya-depth",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "bathysmal-field-sanctum",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "bathysmal-field-sanctum",
       "mode": "rect",
       "visible_portals": 1
     },
@@ -803,10 +963,20 @@
     {
       "node": "chasm-wp-25264",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "chasm-wp-25264",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "ruin-serpent-field-pit",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "ruin-serpent-field-pit",
       "mode": "rect",
       "visible_portals": 1
     },
@@ -1103,50 +1273,100 @@
     {
       "node": "oceanid-approach",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "oceanid-approach",
       "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "oceanid-field-reservoir",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "oceanid-field-reservoir",
+      "mode": "rect",
       "visible_portals": 1
     },
     {
       "node": "primo-approach",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "primo-approach",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "primo-field-vault",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "primo-field-vault",
       "mode": "rect",
       "visible_portals": 1
     },
     {
       "node": "maguu-approach",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "maguu-approach",
       "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "maguu-field-dojo",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "maguu-field-dojo",
+      "mode": "rect",
       "visible_portals": 1
     },
     {
       "node": "array-approach",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "array-approach",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "array-field-court",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "array-field-court",
       "mode": "rect",
       "visible_portals": 1
     },
     {
       "node": "thunder-approach",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "thunder-approach",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "thunder-field-crest",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "thunder-field-crest",
       "mode": "rect",
       "visible_portals": 1
     }

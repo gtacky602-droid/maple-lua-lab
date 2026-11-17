@@ -362,6 +362,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "field-generator-field-chamber",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "natlan-entry",
       "count": 0,
       "fallback": false,

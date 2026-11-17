@@ -14,6 +14,15 @@ return function(C,configs,controllers)
   local node=s.story and s.story.active and s.story.node
   return node and s.campaign and s.campaign.zone=='story:'..node and node or nil
  end
+ function C.fieldGravityFactor(s,a)
+  local spec=byNode[current(s)]
+  local slot=spec and s.fieldSlots and s.fieldSlots[spec.id]
+  local zone=slot and slot.cast and slot.cast.gravity
+  if zone and a.x>=zone.left and a.x<=zone.right and a.y>=zone.top and a.y<=zone.bottom then
+   return zone.factor
+  end
+  return 1
+ end
 
  local function spawn(slot,spec,hp)
   slot.enemy={id=spec.entity,fieldBoss=spec.id,boss=true,custom=true,x=spec.home,home=spec.home,y=spec.floorY,
@@ -280,7 +289,7 @@ return function(C,configs,controllers)
   f.fieldBoss={id=spec.id,name=boss.displayName or spec.name,element=boss.element,form=boss.form,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
    generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(s,slot)/60,label=label,elementSlots=boss.elementSlots,
    move=cast and cast.move.id,tick=cast and cast.tick,underground=boss.underground,
-   weakpoint=boss.hp>0 and boss.weakpoint or nil}
+   weakpoint=boss.hp>0 and boss.weakpoint or nil,gravity=cast and cast.gravity}
   if partner then
    f.fieldBoss.bodies={{id=boss.id,x=boss.x,y=boss.y,element=boss.element},{id=partner.id,x=partner.x,y=partner.y,element=partner.element}}
   end

@@ -1137,6 +1137,34 @@
         {"id":"FSH02","kind":"charge","title":"真珠の双雷弾","reach":230,"lock":48,"active":[],"fire":[90,138],"life":44,"speed":3.5,"radius":0.14,"height":0.7,"recover":192,"total":276,"damage":16,"element":"electro"},
         {"id":"FSH03","kind":"dive","title":"真珠の雷落とし","reach":212,"lock":54,"air":[96,132],"active":[[132,144]],"distance":1.5,"lift":70,"width":1.7,"height":0.65,"recover":168,"total":312,"damage":24,"element":"electro"}
       ]
+    },
+    {
+      "id":"boss-24080101",
+      "controller":"generator",
+      "entity":24080101,
+      "name":"実験用フィールド生成装置",
+      "node":"field-generator-field-chamber",
+      "storyChallenge":"field-generator",
+      "level":86,
+      "hp":1020,
+      "mora":305,
+      "artHeight":141,
+      "floorY":480,
+      "home":860,
+      "arenaMin":360,
+      "arenaMax":1490,
+      "noticeRange":290,
+      "noticeTicks":36,
+      "restTicks":36,
+      "leashTicks":300,
+      "respawnTicks":3600,
+      "walkSpeed":53,
+      "contactDamage":0,
+      "moves":[
+        {"id":"FFG01","kind":"sweep","title":"外輪の低い走査","reach":212,"lock":42,"active":[[90,104],[144,158]],"near":0.4,"far":2.15,"low":0.22,"height":0.6,"recover":180,"total":264,"damage":17,"element":"physical"},
+        {"id":"FFG02","kind":"stones","title":"岩弾の二連","reach":239,"lock":48,"active":[],"fire":[84,132],"life":48,"speed":4.4,"radius":0.15,"height":0.63,"recover":198,"total":282,"damage":18,"element":"geo"},
+        {"id":"FFG03","kind":"quake","title":"低重力場・三連地震","reach":232,"lock":54,"active":[[114,124],[146,156],[178,188]],"height":0.44,"gravity":{"width":6,"height":4,"start":72,"finish":216,"factor":0.55},"recover":216,"total":360,"damage":19,"element":"geo"}
+      ]
     }
   ]
 }

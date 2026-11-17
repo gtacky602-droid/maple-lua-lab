@@ -1,0 +1,113 @@
+{
+  "date": "2026-11-18",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/479f18656abc91a37b668bc36241d3ec_3220441381654762284.png",
+      "sha256": "b7b3ca9a5ba2c0b5507a83c19bfa5f52976cb14b1756bc49a2debffd13138d25",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full-body render",
+      "use": "ring, two cones, gyro and hanging plumb"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/b9343626fef0c50226fa9dcdc51f9b9f_8287150332565135704.png",
+      "sha256": "cd9d18d985de0bfd2dbf997afed3db260b360cc83a2b2d28ade8aaf1eeac352d",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "in-game field scene",
+      "use": "scene colors and materials"
+    }
+  ],
+  "idle": "assets/field-generator-idle-source-v1.png",
+  "generated": {
+    "field-generator-field-poses-source-v1.png": "5476dbb430d6129623e6c96b4923aef1b44717f533043809e9eb7dbe121e9930",
+    "field-generator-field-background-v1.png": "af3b7d66ac90fe6ffc9faeba3bdf67652b58098c133ed88cfded79c098ef8ad1"
+  },
+  "poses": {
+    "sweep": {
+      "crop": [
+        0,
+        0,
+        656,
+        599
+      ],
+      "box": [
+        22,
+        39,
+        600,
+        518
+      ],
+      "anchor": 0.5187466666666667,
+      "profiles": {
+        "legacy": 5233,
+        "h48c32": 3233,
+        "h32c16": 1423
+      }
+    },
+    "stones": {
+      "crop": [
+        656,
+        0,
+        656,
+        599
+      ],
+      "box": [
+        666,
+        41,
+        619,
+        516
+      ],
+      "anchor": 0.5179709208400647,
+      "profiles": {
+        "legacy": 5196,
+        "h48c32": 3278,
+        "h32c16": 1382
+      }
+    },
+    "quake": {
+      "crop": [
+        0,
+        599,
+        656,
+        599
+      ],
+      "box": [
+        25,
+        631,
+        608,
+        528
+      ],
+      "anchor": 0.504828947368421,
+      "profiles": {
+        "legacy": 4940,
+        "h48c32": 2933,
+        "h32c16": 1353
+      }
+    },
+    "recover": {
+      "crop": [
+        656,
+        599,
+        656,
+        599
+      ],
+      "box": [
+        671,
+        668,
+        609,
+        490
+      ],
+      "anchor": 0.5182660098522168,
+      "profiles": {
+        "legacy": 4210,
+        "h48c32": 2625,
+        "h32c16": 1138
+      }
+    }
+  },
+  "notes": [
+    "The brass ring banks through key poses. A continuous ring rotation model is still pending.",
+    "The visible boundary, translucent field fill and amber damage strip are derived from Lua simulation coordinates.",
+    "No matching 3D model or rear view was inspected. The research chamber is a temporary host image."
+  ]
+}

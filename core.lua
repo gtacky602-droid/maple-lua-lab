@@ -315,7 +315,8 @@ local function physics(s,a,dt,move,held)
  if a.buffer>0 and a.coyote>0 then a.vy=-650;a.buffer=0;a.ground=false;a.coyote=0 end
  a.buffer=max(0,a.buffer-dt);a.drop=max(0,a.drop-dt)
  if not held and a.vy < -210 then a.vy=-210 end
- a.vy=a.vy+1300*dt
+ local gravity=C.fieldGravityFactor and C.fieldGravityFactor(s,a) or 1
+ a.vy=a.vy+1300*gravity*dt
  if (a.glide or 0)>0 then a.vy=min(a.vy,90);a.glide=max(0,a.glide-dt) end
  a.y=a.y+a.vy*dt;a.ground=false
  if a.vy>=0 then for _,p in ipairs(s.platforms) do

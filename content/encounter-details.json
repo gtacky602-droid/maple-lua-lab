@@ -127,10 +127,12 @@
       }
     },
     "boss-24080101": {
+      "remaining": ["連続アニメーション・被弾・撃破作画", "装備別・Webマルチの実測", "幻境実機"],
+      "extra_evidence": ["evidence/field-generator-field-lua.json", "evidence/field-generator-field-browser.json"],
       "art_candidate": {
         "item": "field-generator",
-        "audit": "evidence/field-generator-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/field-generator-field-art-audit.json",
+        "status": "Web field prototype with a local low-gravity volume and four action poses"
       }
     },
     "boss-20081001": {

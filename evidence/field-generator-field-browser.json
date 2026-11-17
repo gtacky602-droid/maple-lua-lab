@@ -1,0 +1,35 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 41,
+    "moves": [
+      "FFG03",
+      "FFG01",
+      "FFG02"
+    ],
+    "dodgeWindows": 3,
+    "finished": true,
+    "hp": 68,
+    "returns": 0
+  },
+  "fieldKill": {
+    "xp": 129550,
+    "mora": 305
+  },
+  "commissionReport": {
+    "xp": 5400,
+    "mora": 380
+  },
+  "persistedCooldown": true,
+  "sameSceneCommands": {
+    "png": 27,
+    "standard": 9480,
+    "light": 2493
+  },
+  "jumpHeight": {
+    "normal": 157.08,
+    "inside": 290.06
+  },
+  "viewport390": true,
+  "errors": []
+}

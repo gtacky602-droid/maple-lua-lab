@@ -1,0 +1,36 @@
+{
+  "attacks": [
+    "FFG01",
+    "FFG02",
+    "FFG03"
+  ],
+  "twoLockedScans": true,
+  "twoLockedGeoStones": true,
+  "gravityFactor": 0.55,
+  "jumpHeight": {
+    "normal": 157.08,
+    "inside": 290.06
+  },
+  "gravityVolumeUsesWorldCoordinates": true,
+  "threeQuakeWindows": true,
+  "outsideEdgeSafe": true,
+  "gravityEndsOnTimerKillAndExit": true,
+  "gravityDoesNotCarryOverOnRestore": true,
+  "normalAttackSolo": {
+    "groundRetreat": {
+      "seconds": 95.4,
+      "hp": 140
+    },
+    "lowGravityJump": {
+      "seconds": 89.08,
+      "hp": 140
+    }
+  },
+  "questReportOnce": true,
+  "commands": {
+    "png": 87,
+    "standard": 6709,
+    "light": 1886
+  },
+  "killXp": 129550
+}

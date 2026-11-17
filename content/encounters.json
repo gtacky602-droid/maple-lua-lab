@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 26,
+    "partial": 27,
     "complete": 0
   },
   "encounters": [
@@ -399,23 +399,26 @@
       "entity_ids": [
         "24080101"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/experimentalfieldgenerator.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/experimentalfieldgenerator.json",
+        "evidence/field-generator-field-lua.json",
+        "evidence/field-generator-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "連続アニメーション・被弾・撃破作画",
+        "装備別・Webマルチの実測",
+        "幻境実機"
       ],
+      "fieldNode": "field-generator-field-chamber",
+      "fieldEntrance": "フォンテーヌ・重力試験室（Lv86）",
       "art_candidate": {
         "source": "assets/field-generator-idle-source-v1.png",
         "encoding": "assets/field-generator-idle-sprites.json",
-        "audit": "evidence/field-generator-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/field-generator-field-art-audit.json",
+        "status": "Web field prototype with a local low-gravity volume and four action poses"
       }
     },
     {
