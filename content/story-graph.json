@@ -1924,13 +1924,15 @@
         },
         {"to":"qucusaur-field-cavern","x":1030},
         {"to":"yumka-field-ravine","x":690},
-        {"to":"config-device-field-workshop","x":435}
+        {"to":"config-device-field-workshop","x":435},
+        {"to":"papilla-field-hollow","x":235}
       ],
       "checkpoint": "natlan-hub"
     },
     {"id":"qucusaur-field-cavern","name":"ナタ・金焔の岩窟","region":"ナタ","level":102,"hub":false,"peaceful":true,"width":1720,"platforms":[{"x":0,"y":480,"w":1720}],"exits":[{"to":"natlan-field","x":65}],"checkpoint":"natlan-hub"},
     {"id":"yumka-field-ravine","name":"ナタ・山王の峡谷","region":"ナタ","level":104,"hub":false,"peaceful":true,"width":1740,"platforms":[{"x":0,"y":480,"w":1740}],"exits":[{"to":"natlan-field","x":65}],"checkpoint":"natlan-hub"},
     {"id":"config-device-field-workshop","name":"ナタ・秘源の機構室","region":"ナタ","level":106,"hub":false,"peaceful":true,"width":1700,"platforms":[{"x":0,"y":480,"w":1700}],"exits":[{"to":"natlan-field","x":65}],"checkpoint":"natlan-hub"},
+    {"id":"papilla-field-hollow","name":"ナタ・紫影の石窟","region":"ナタ","level":108,"hub":false,"peaceful":true,"width":1720,"platforms":[{"x":0,"y":480,"w":1720}],"exits":[{"to":"natlan-field","x":65}],"checkpoint":"natlan-hub"},
     {
       "id": "natlan-port",
       "name": "ナタ・花翼の集付近の港（仮）",
@@ -5614,6 +5616,7 @@
     {"id":"suanni-commission","name":"山隠れの猊獣の討伐調査","hub":"chenyu-camp","target":"suanni","kind":"boss","goal":1,"xp":2900,"mora":240,"note":"沈玉の谷の探索路を抜け、懸練山の石庭で猊獣を倒す。"},
     {"id":"qucusaur-commission","name":"暴君・金焔のクク竜の討伐調査","hub":"natlan-hub","target":"qucusaur","kind":"boss","goal":1,"xp":7200,"mora":460,"note":"岩場の道から金焔の岩窟へ入り、クク竜を倒す。"},
     {"id":"yumka-commission","name":"山の王・貪食のユムカ竜の討伐調査","hub":"natlan-hub","target":"yumka","kind":"boss","goal":1,"xp":7400,"mora":470,"note":"岩場の道から山王の峡谷へ入り、ユムカ竜を倒す。"},
-    {"id":"config-device-commission","name":"秘源機兵・機巧デバイスの討伐調査","hub":"natlan-hub","target":"config-device","kind":"boss","goal":1,"xp":7600,"mora":480,"note":"岩場の道から秘源の機構室へ入り、機巧デバイスを倒す。"}
+    {"id":"config-device-commission","name":"秘源機兵・機巧デバイスの討伐調査","hub":"natlan-hub","target":"config-device","kind":"boss","goal":1,"xp":7600,"mora":480,"note":"岩場の道から秘源の機構室へ入り、機巧デバイスを倒す。"},
+    {"id":"papilla-commission","name":"深遠なるミミックパピラ・I型の討伐調査","hub":"natlan-hub","target":"papilla","kind":"boss","goal":1,"xp":7800,"mora":500,"note":"岩場の道から紫影の石窟へ入り、ミミックパピラを倒す。"}
   ]
 }

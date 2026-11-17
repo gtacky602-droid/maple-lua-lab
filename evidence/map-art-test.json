@@ -440,6 +440,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "papilla-field-hollow",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "natlan-port",
       "count": 0,
       "fallback": false,

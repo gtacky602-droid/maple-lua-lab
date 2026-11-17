@@ -129,6 +129,9 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local art=C.configDeviceFieldArt[pose]
   draw(f,art,x,y,pose=='idle' and 156 or art.profiles.legacy.height,mode,profile,flip)
  end
+ function C.drawPapillaFieldArt(f,x,y,pose,height,mode,profile,flip)
+  draw(f,C.papillaFieldArt[pose],x,y,height,mode,profile,flip)
+ end
  function C.drawThunderFieldArt(f,x,y,h,mode,profile,pose,dir)
   draw(f,pose and C.thunderFieldArt[pose] or C.thunderArt,x,y,h,mode,profile,pose=='dash' and dir>0)
  end

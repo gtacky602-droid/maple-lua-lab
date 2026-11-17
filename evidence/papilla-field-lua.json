@@ -1,0 +1,25 @@
+{
+  "designTimingsMatch": true,
+  "oneActorAndReceiver": true,
+  "auraBurnAndPendingTargetPreserved": true,
+  "noCopiedImmunityOrWeakpoint": true,
+  "groundAndAirHurtboxes": true,
+  "firstAttackLocked": true,
+  "strikesPerAttack": [
+    1,
+    2,
+    1
+  ],
+  "restoresRootWithoutRestoringHp": true,
+  "earlyKillOneReward": true,
+  "questReportAndSavedCooldown": true,
+  "normalAttackSolo": {
+    "seconds": 78.75,
+    "hp": 140
+  },
+  "sameSceneCommands": {
+    "png": 25,
+    "standard": 9442,
+    "light": 2528
+  }
+}

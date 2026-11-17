@@ -444,6 +444,12 @@
       "status": "regional_temporary_image"
     },
     {
+      "id": "papilla-field-hollow",
+      "name": "ナタ・紫影の石窟",
+      "region": "ナタ",
+      "status": "regional_temporary_image"
+    },
+    {
       "id": "natlan-port",
       "name": "ナタ・花翼の集付近の港（仮）",
       "region": "ナタ",

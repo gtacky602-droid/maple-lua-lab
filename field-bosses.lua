@@ -167,7 +167,10 @@ return function(C,configs,controllers)
    return
   end
   if slot.phase=='leash' then returnHome(s,spec,slot,here);return end
-  if not here then cancelCast(s,spec,slot) end
+  if not here then
+   cancelCast(s,spec,slot)
+   if spec.keepHpOnExit then slot.out=0;return end
+  end
   local target,distance
   if here then target,distance=nearest(s,spec,boss) end
   if slot.phase=='available' then

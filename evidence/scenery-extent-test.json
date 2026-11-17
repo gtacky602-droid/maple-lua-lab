@@ -212,6 +212,36 @@
       "transparent": 0
     },
     {
+      "key": "papillaField",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "papillaField",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "papillaField",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "papillaField",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "papillaField",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "papillaField",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "generatorField",
       "camera": -960,
       "transparent": 0

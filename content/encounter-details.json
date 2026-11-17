@@ -575,10 +575,12 @@
       }
     },
     "boss-22120101": {
+      "extra_evidence": ["https://genshin.hoyoverse.com/en/news/detail/126992","evidence/papilla-field-lua.json","evidence/papilla-field-browser.json"],
+      "remaining": ["連続モーション・音", "難度・報酬の調整", "複数人と幻境実機の検証"],
       "art_candidate": {
         "item": "papilla",
-        "audit": "evidence/papilla-reference-audit.json",
-        "status": "idle base-form candidate; projected branches, transformations, attacks and animation not implemented"
+        "audit": "evidence/papilla-field-art-audit.json",
+        "status": "Web field prototype. One root form and six combat poses across the three mimicked silhouettes."
       }
     },
     "boss-29130201": {

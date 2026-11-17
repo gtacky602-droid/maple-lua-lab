@@ -693,12 +693,12 @@
     {
       "node": "natlan-field",
       "mode": "sprite",
-      "visible_portals": 5
+      "visible_portals": 6
     },
     {
       "node": "natlan-field",
       "mode": "rect",
-      "visible_portals": 5
+      "visible_portals": 6
     },
     {
       "node": "qucusaur-field-cavern",
@@ -727,6 +727,16 @@
     },
     {
       "node": "config-device-field-workshop",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "papilla-field-hollow",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "papilla-field-hollow",
       "mode": "rect",
       "visible_portals": 1
     },

@@ -225,6 +225,9 @@ def runtime():
     config_device=lua.execute((ROOT/'field-config-device.lua').read_text(encoding='utf-8'))(core)
     core.configDeviceFieldArt=field_art(lua,'config-device',('claw-a','claw-b','beam','charge','down','collector'),
                                        idle='config-device-idle-sprites.json')
+    papilla=lua.execute((ROOT/'field-papilla.lua').read_text(encoding='utf-8'))(core)
+    core.papillaFieldArt=field_art(lua,'papilla',('stem-ready','stem-strike','wing-ready','wing-strike',
+                                               'fungus-ready','fungus-strike'),idle='papilla-idle-sprites.json')
     core.aeonblightFieldArt=field_art(lua,'aeonblight',('wing_first','wing_second','cannon','windup','dash','down'),
                                      idle='aeonblight-idle-sprites.json')
     bathysmal=lua.execute((ROOT/'field-bathysmal.lua').read_text(encoding='utf-8'))(core)
@@ -252,7 +255,7 @@ def runtime():
                         'dendroHypostasis':dendro_hypostasis,'asimon':asimon,'wenut':wenut,'baptist':baptist,
                         'emperor':emperor,'seahorse':seahorse,'generator':generator,'tulpa':tulpa,
                         'icewind':icewind,'legatus':legatus,'suanni':suanni,'qucusaur':qucusaur,'yumka':yumka,
-                        'configDevice':config_device})
+                        'configDevice':config_device,'papilla':papilla})
     )
     return lua, core
 

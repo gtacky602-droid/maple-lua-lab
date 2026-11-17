@@ -749,6 +749,10 @@
       "to": "config-device-field-workshop"
     },
     {
+      "node": "natlan-field",
+      "to": "papilla-field-hollow"
+    },
+    {
       "node": "qucusaur-field-cavern",
       "to": "natlan-field"
     },
@@ -758,6 +762,10 @@
     },
     {
       "node": "config-device-field-workshop",
+      "to": "natlan-field"
+    },
+    {
+      "node": "papilla-field-hollow",
       "to": "natlan-field"
     },
     {

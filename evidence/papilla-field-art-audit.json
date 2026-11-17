@@ -1,0 +1,232 @@
+{
+  "date": "2026-11-18",
+  "tool": "built-in image_gen",
+  "prompts": [
+    "Produce six independent isolated transparent sprites in a perfectly spaced 3 COLUMN x 2 ROW atlas. Dark indigo violet Tenebrous Papilla metamorphoses for a pixel-art action RPG. Reference one is the current black-purple fern with cyan low crystal and eye orbs; reference two shows the game boss forming purple projected limbs; the last three are silhouette references for electric regisvine, aeonblight drake, and jadeplume terrorshroom. All face RIGHT in profile; all share the exact same lavender eyes and bold cyan core, black-violet body, lilac highlights and short root motifs. Top left tall twisting electric flower stem reared up; top center same stem arcing low to the right with crown and bent rooted stem; top right mechanical drake that stands on two violet feet, blade-like wings raised, metallic armored dragon head, only restrained dull copper accents. Bottom left same wind-up drake in sweeping wing silhouette, wings diagonally forward/right, feet grounded; bottom center squat airborne-ready mushroom bird with dark purple plate petals and mossy chartreuse fringe; bottom right same purple mushroom bird belly low, short legs splayed after landing. Root hints are part of each silhouette. Keep generous safety margins in every exact cell, no baseline, shadows, bars, lettering, particles, alpha background fully transparent, no grid, dark contour and crisply defined pixel clusters. Do not fill the sheet background.",
+    "Create a wide 16:9 original low-lit violet cavern static background, 2D pixel RPG side view. Reference is the Natlan Quahuacan Cliff cave in the attached screenshot. Use distant carved indigo stone pillars cut into the walls, two narrow rock arches framing a misty purple mining cavern, restrained blue violet crystals only at far edges and in the distance, dark purple and cool blue tonal layers, a continuous flat ground plane across width at about 75 percent from top with a darker continuous stone apron at bottom. Silhouette and attack markers must read above ground, leave middle area quiet. No characters, effects in the foreground, logos, HUD or readable marks."
+  ],
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/11/21/94675339/3cc99049f9bb8a6255fcdd62dca3557e_5141964521164767175.png",
+      "sha256": "a6f0eb83a50b077ea870e3dacc1682278a732ab26b999e4dd98cdced77470028",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "game projected branches excluded",
+      "use": "indigo cavern, carved columns, layered violet terrain"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/03/05/94675339/ab2e36c9c1b6719d0bf03106ff216c59_902385719593470512.png",
+      "sha256": "bcf556f702d4a77118ff4a41d987e6df6fc05b57dc113ea86a7cd24c7bb8ee1b",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "combat/transformation comparison excluded",
+      "use": "purple outlines and bright marks shared across the original and mimic form"
+    }
+  ],
+  "lab_references": {
+    "papilla-idle-source-v1.png": "3e3282edd1b8579d8c537a2376699d37e0fd81ef7187ed7545f864294760c83b",
+    "electro-regisvine-idle-source-v1.png": "6fa53e10dd29418b61e1a80bd65519455b97d3e17c0531b27fbf268a8088e4a1",
+    "aeonblight-idle-source-v2.png": "bd7f9b3e9754216a436f0a354ad415cfe91c2642f45e6f4774ca6ca2e0a9a7b5",
+    "jadeplume-idle-source-v1.png": "f8a7411ba0b212db05757c0a916072ee4bbf526ef3dafeaa071988a05dd3ccff"
+  },
+  "raw_atlas_sha256": "c75d87e077752f38442748181530ab310087f13e7ed0ea6279d17901503cba1a",
+  "outputs": {
+    "papilla-field-poses-source-v1.png": "5f03c42497d790be07413e601edbbfe25cb47d3eac4862d0d1143d04451aebad",
+    "papilla-field-background-v1.png": "90058bd4a33bfbda9682ef36da4db53c1a4cafc86b5c2306c811bf5de65440ab"
+  },
+  "poses": {
+    "stem-ready": {
+      "crop": [
+        0,
+        0,
+        576,
+        552
+      ],
+      "source_area": [
+        88,
+        10,
+        396,
+        494
+      ],
+      "box": [
+        24,
+        23,
+        306,
+        482
+      ],
+      "height": 175,
+      "anchor": 0.5359477124183006,
+      "native_facing": "right",
+      "accents": [
+        "#79e4e5"
+      ],
+      "profiles": {
+        "legacy": 6237,
+        "h48c32": 3850,
+        "h32c16": 1678
+      }
+    },
+    "stem-strike": {
+      "crop": [
+        576,
+        0,
+        576,
+        552
+      ],
+      "source_area": [
+        454,
+        122,
+        973,
+        487
+      ],
+      "box": [
+        600,
+        23,
+        517,
+        363
+      ],
+      "height": 123,
+      "anchor": 0.32495164410058025,
+      "native_facing": "right",
+      "accents": [
+        "#79e4e5"
+      ],
+      "profiles": {
+        "legacy": 5850,
+        "h48c32": 3553,
+        "h32c16": 1556
+      }
+    },
+    "wing-ready": {
+      "crop": [
+        1152,
+        0,
+        576,
+        552
+      ],
+      "source_area": [
+        1040,
+        30,
+        1491,
+        482
+      ],
+      "box": [
+        1176,
+        23,
+        449,
+        450
+      ],
+      "height": 153,
+      "anchor": 0.31403118040089084,
+      "native_facing": "left",
+      "accents": [
+        "#79e4e5"
+      ],
+      "profiles": {
+        "legacy": 8042,
+        "h48c32": 4797,
+        "h32c16": 2145
+      }
+    },
+    "wing-strike": {
+      "crop": [
+        0,
+        552,
+        576,
+        552
+      ],
+      "source_area": [
+        28,
+        549,
+        548,
+        985
+      ],
+      "box": [
+        24,
+        575,
+        518,
+        434
+      ],
+      "height": 141,
+      "anchor": 0.44594594594594594,
+      "native_facing": "right",
+      "accents": [
+        "#79e4e5"
+      ],
+      "profiles": {
+        "legacy": 8185,
+        "h48c32": 4936,
+        "h32c16": 2103
+      }
+    },
+    "fungus-ready": {
+      "crop": [
+        576,
+        552,
+        576,
+        552
+      ],
+      "source_area": [
+        538,
+        533,
+        967,
+        985
+      ],
+      "box": [
+        600,
+        575,
+        427,
+        450
+      ],
+      "height": 154,
+      "anchor": 0.4449648711943794,
+      "native_facing": "right",
+      "accents": [
+        "#79e4e5",
+        "#a0c743"
+      ],
+      "profiles": {
+        "legacy": 7735,
+        "h48c32": 4747,
+        "h32c16": 2057
+      }
+    },
+    "fungus-strike": {
+      "crop": [
+        1152,
+        552,
+        576,
+        552
+      ],
+      "source_area": [
+        1006,
+        660,
+        1512,
+        987
+      ],
+      "box": [
+        1176,
+        575,
+        504,
+        325
+      ],
+      "height": 113,
+      "anchor": 0.5416666666666666,
+      "native_facing": "right",
+      "accents": [
+        "#79e4e5",
+        "#a0c743"
+      ],
+      "profiles": {
+        "legacy": 7405,
+        "h48c32": 4638,
+        "h32c16": 1959
+      }
+    }
+  },
+  "notes": [
+    "Repacked opaque connected components into separate cells because two silhouettes had overlapping x bounds.",
+    "The existing blue-violet root sprite is used during transformation. The wing ready pose is mirrored in play.",
+    "A usable matching 3D model was not confirmed. The static cavern is a lab placeholder."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "browser": "Chrome",
+  "companion": "columbina",
+  "play": {
+    "won": true,
+    "seconds": 49.95,
+    "moves": [
+      "FMP01",
+      "FMP02",
+      "FMP03"
+    ],
+    "hp": 140,
+    "returns": 0,
+    "hpMonotonic": true
+  },
+  "scenery": {
+    "key": "papillaField",
+    "file": "papilla-field-background-v1.png",
+    "state": "ready"
+  },
+  "sameActorId": "boss-22120101",
+  "questAcceptedInUi": true,
+  "hpByForm": [
+    {
+      "form": "stem",
+      "hp": 1000
+    },
+    {
+      "form": "wing",
+      "hp": 894
+    },
+    {
+      "form": "airborne",
+      "hp": 758
+    }
+  ],
+  "questReport": {
+    "xp": 7800,
+    "mora": 500
+  },
+  "sameSceneCommands": {
+    "png": 31,
+    "standard": 11479,
+    "light": 3061
+  },
+  "fungusAirborneAt": 112,
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}

@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 35,
+    "partial": 36,
     "complete": 0
   },
   "encounters": [
@@ -1675,23 +1675,27 @@
       "entity_ids": [
         "22120101"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/tenebrouspapillatypei.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/tenebrouspapillatypei.json",
+        "https://genshin.hoyoverse.com/en/news/detail/126992",
+        "evidence/papilla-field-lua.json",
+        "evidence/papilla-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "連続モーション・音",
+        "難度・報酬の調整",
+        "複数人と幻境実機の検証"
       ],
+      "fieldNode": "papilla-field-hollow",
+      "fieldEntrance": "ナタ・紫影の石窟（Lv108）",
       "art_candidate": {
         "source": "assets/papilla-idle-source-v1.png",
         "encoding": "assets/papilla-idle-sprites.json",
-        "audit": "evidence/papilla-reference-audit.json",
-        "status": "idle base-form candidate; projected branches, transformations, attacks and animation not implemented"
+        "audit": "evidence/papilla-field-art-audit.json",
+        "status": "Web field prototype. One root form and six combat poses across the three mimicked silhouettes."
       }
     },
     {
