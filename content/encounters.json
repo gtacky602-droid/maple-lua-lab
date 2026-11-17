@@ -1074,6 +1074,8 @@
         "精密AI・挑発・吸引",
         "報酬・難度調整"
       ],
+      "fieldNode": "maguu-field-dojo",
+      "fieldEntrance": "稲妻・剣鬼の古庭（Lv44）",
       "review_note": "5行動と第二段階分身、同行AI予告退避。通常入力49.22秒撃破・帰還報告、両者生存。静止絵128/96/64px比較。遠距離防御220pxは代用。",
       "art_candidate": {
         "source": "assets/maguu-source-v1.png",

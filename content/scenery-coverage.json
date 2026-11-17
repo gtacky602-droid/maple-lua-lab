@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 117 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 115,
+  "scope": "Authored 118 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 116,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -692,6 +692,12 @@
     {
       "id": "maguu-approach",
       "name": "魔偶剣鬼・挑戦入口",
+      "region": "稲妻",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "maguu-field-dojo",
+      "name": "稲妻・剣鬼の古庭",
       "region": "稲妻",
       "status": "regional_temporary_image"
     },

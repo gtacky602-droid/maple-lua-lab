@@ -1,0 +1,21 @@
+{
+  "attacks": [
+    "FMK01",
+    "FMK02",
+    "FMK03"
+  ],
+  "lockSide": true,
+  "damages": [
+    22,
+    13,
+    13,
+    17
+  ],
+  "maskExpiresTick": 144,
+  "commands": {
+    "standard": 7373,
+    "light": 2047
+  },
+  "questReportOnce": true,
+  "savedRespawnTicks": 3600
+}

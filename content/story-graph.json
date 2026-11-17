@@ -4375,7 +4375,7 @@
         {
           "to": "inazuma-road",
           "x": 60
-        }
+        }, {"to":"maguu-field-dojo","x":1270}
       ],
       "checkpoint": "inazuma-port",
       "challenge": "maguu",
@@ -4383,6 +4383,7 @@
       "challengeAction": "boss_maguu",
       "challengeX": 720
     },
+    {"id":"maguu-field-dojo","name":"稲妻・剣鬼の古庭","region":"稲妻","level":44,"hub":false,"peaceful":true,"width":1580,"platforms":[{"x":0,"y":480,"w":1580}],"exits":[{"to":"maguu-approach","x":65}],"checkpoint":"inazuma-port"},
     {
       "id": "array-approach",
       "name": "恒常からくり陣形・挑戦入口",
