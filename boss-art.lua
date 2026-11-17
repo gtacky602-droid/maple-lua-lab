@@ -86,6 +86,10 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local height=pose=='idle' and 146 or art.profiles.legacy.height
   draw(f,art,x,y-22,height,mode,profile,flip)
  end
+ function C.drawEmperorFieldArt(f,x,y,pose,mode,profile,flip)
+  local art=C.emperorFieldArt[pose]
+  draw(f,art,x,y,art.profiles.legacy.height,mode,profile,flip)
+ end
  function C.drawThunderFieldArt(f,x,y,h,mode,profile,pose,dir)
   draw(f,pose and C.thunderFieldArt[pose] or C.thunderArt,x,y,h,mode,profile,pose=='dash' and dir>0)
  end

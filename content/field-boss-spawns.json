@@ -1079,6 +1079,35 @@
         {"id":"FIB02","kind":"fall","title":"斜列の落晶","reach":226,"lock":48,"active":[[108,114],[150,156],[192,198]],"slot":2,"spacing":1.04,"width":0.55,"height":1.25,"recover":210,"total":288,"damage":20},
         {"id":"FIB03","kind":"rings","title":"三環の順爆","reach":221,"lock":60,"active":[[120,126],[156,162],[192,198]],"spacing":1.5,"width":0.7,"height":1.1,"recover":210,"total":354,"damage":22}
       ]
+    },
+    {
+      "id":"boss-26160302",
+      "controller":"emperor",
+      "entity":26160302,
+      "name":"鉄甲熔炎帝王",
+      "node":"emperor-field-cove",
+      "storyChallenge":"emperor",
+      "level":82,
+      "hp":980,
+      "mora":280,
+      "artHeight":146,
+      "floorY":480,
+      "home":850,
+      "arenaMin":365,
+      "arenaMax":1500,
+      "noticeRange":286,
+      "noticeTicks":36,
+      "restTicks":36,
+      "leashTicks":300,
+      "respawnTicks":3600,
+      "walkSpeed":54,
+      "contactDamage":0,
+      "frontDamageFactor":0.72,
+      "moves":[
+        {"id":"FEC01","kind":"claw","title":"白鋏の挟み込み","reach":205,"lock":42,"active":[[102,120]],"near":0.35,"far":1.95,"low":0.15,"height":0.65,"recover":144,"total":264,"damage":21,"element":"physical"},
+        {"id":"FEC02","kind":"fire","title":"熔弾の二落ち","reach":232,"lock":48,"active":[[108,118],[156,166]],"spacing":1.25,"width":0.72,"height":0.55,"recover":192,"total":288,"damage":19,"element":"pyro"},
+        {"id":"FEC03","kind":"eruption","title":"双角の噴火","reach":216,"lock":54,"active":[[120,132]],"width":3.4,"height":0.6,"recover":168,"total":312,"damage":24,"element":"pyro"}
+      ]
     }
   ]
 }

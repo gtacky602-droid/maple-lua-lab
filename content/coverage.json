@@ -123,8 +123,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 3,
-      "prototype_quest_count": 3,
+      "prototype_stage_count": 4,
+      "prototype_quest_count": 4,
       "official_map2_markers": {
         "waypoints": 92,
         "statues": 8
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 134,
-    "provisional_quests": 79,
+    "authored_stages": 135,
+    "provisional_quests": 80,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -790,12 +790,14 @@
         "stage_ids": [
           "fontaine-entry",
           "fontaine-hub",
-          "fontaine-field"
+          "fontaine-field",
+          "emperor-field-cove"
         ],
         "quest_ids": [
           "emilie-join",
           "fontaine-entry-check",
-          "fontaine-contract"
+          "fontaine-contract",
+          "emperor-commission"
         ]
       },
       {

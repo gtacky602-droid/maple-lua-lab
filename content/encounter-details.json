@@ -118,10 +118,12 @@
       }
     },
     "boss-26160302": {
+      "remaining": ["連続アニメーション・被弾・撃破作画", "装備別・Webマルチの実測", "幻境実機"],
+      "extra_evidence": ["evidence/emperor-field-lua.json", "evidence/emperor-field-browser.json"],
       "art_candidate": {
         "item": "emperor",
-        "audit": "evidence/emperor-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/emperor-field-art-audit.json",
+        "status": "Web field prototype with guarded, claw, fire and exposed poses"
       }
     },
     "boss-24080101": {

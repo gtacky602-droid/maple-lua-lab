@@ -1,0 +1,36 @@
+{
+  "attacks": [
+    "FEC01",
+    "FEC02",
+    "FEC03"
+  ],
+  "guardedDirectHit": {
+    "front": 68,
+    "rear": 95
+  },
+  "guardFollowsFacing": true,
+  "reactionUnaffected": true,
+  "clawDirectionLocked": true,
+  "fireLocationsFixed": true,
+  "airborneFireHarmless": true,
+  "eruptionJumpable": true,
+  "exposureTicks": 144,
+  "sameHpReceiver": true,
+  "questReportOnce": true,
+  "normalAttackSolo": {
+    "front": {
+      "seconds": 100.52,
+      "hp": 140
+    },
+    "flanking": {
+      "seconds": 89.7,
+      "hp": 140
+    }
+  },
+  "commands": {
+    "png": 15,
+    "standard": 6485,
+    "light": 1777
+  },
+  "killXp": 98800
+}

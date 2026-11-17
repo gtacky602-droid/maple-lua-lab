@@ -1,0 +1,33 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 72.62,
+    "moves": [
+      "FEC01",
+      "FEC02",
+      "FEC03"
+    ],
+    "dodgeWindows": 4,
+    "finished": true,
+    "hp": 83,
+    "returns": 0
+  },
+  "fieldKill": {
+    "xp": 98800,
+    "mora": 280
+  },
+  "commissionReport": {
+    "xp": 5000,
+    "mora": 360
+  },
+  "persistedCooldown": true,
+  "sameSceneCommands": {
+    "png": 32,
+    "standard": 12227,
+    "light": 3277
+  },
+  "guardedAndExposed": true,
+  "fallArcVisible": true,
+  "viewport390": true,
+  "errors": []
+}

@@ -1,0 +1,122 @@
+{
+  "date": "2026-11-18",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/05283303651868289e98e479102f8a85_2299744219400153644.png",
+      "sha256": "b468b3c88baf7e3d8c1c654204328b930754059704eb666c61a17a728500f2d9",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full-body render",
+      "use": "full silhouette"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/7f6b0bc9f359366c425e43d0db070bd0_8656368991305402662.png",
+      "sha256": "d2b08250a4030602f6cac5cdb9eb9ec595974c0e29fab0c6cb8ff8f720be0365",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "final official design sheet with front/back, components and states",
+      "use": "asymmetric claws, shell and horn states"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/617999f9eb5b7dbecdd89be845ad9643_3037050255939949406.png",
+      "sha256": "5c7f57146169e061dbdd21f3b62973d7c9c3872f83d74c749674574c6184485a",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "in-game intact/broken shell comparison",
+      "use": "cave palette"
+    }
+  ],
+  "idle_style_input": "assets/emperor-idle-source-v1.png",
+  "generated": {
+    "emperor-field-poses-source-v1.png": "9da8d427dfeaad629826d405a7f7b7a0440078af686e628391b7254933c4eee8",
+    "emperor-field-background-v1.png": "27e7fc708e28f30165e868682c6ad7bde1e70eab0938dda75b9fea357c1eb3a8"
+  },
+  "poses": {
+    "guard": {
+      "crop": [
+        0,
+        0,
+        710,
+        554
+      ],
+      "box": [
+        86,
+        30,
+        533,
+        478
+      ],
+      "anchor": 0.5712945590994373,
+      "profiles": {
+        "legacy": 8275,
+        "h48c32": 5175,
+        "h32c16": 2261
+      }
+    },
+    "claw": {
+      "crop": [
+        710,
+        0,
+        710,
+        554
+      ],
+      "box": [
+        749,
+        42,
+        621,
+        470
+      ],
+      "anchor": 0.48827697262479874,
+      "profiles": {
+        "legacy": 7975,
+        "h48c32": 5066,
+        "h32c16": 2202
+      }
+    },
+    "fire": {
+      "crop": [
+        0,
+        554,
+        710,
+        554
+      ],
+      "box": [
+        80,
+        606,
+        573,
+        437
+      ],
+      "anchor": 0.5294938917975568,
+      "profiles": {
+        "legacy": 7647,
+        "h48c32": 4841,
+        "h32c16": 2045
+      }
+    },
+    "exposed": {
+      "crop": [
+        710,
+        554,
+        710,
+        554
+      ],
+      "box": [
+        755,
+        745,
+        564,
+        298
+      ],
+      "anchor": 0.5345390070921986,
+      "profiles": {
+        "legacy": 4788,
+        "h48c32": 3018,
+        "h32c16": 1316
+      }
+    }
+  },
+  "notes": [
+    "Mirroring the same directional sprite switches claw sides; separate left art is pending.",
+    "The horns visibly cool and lower after the third attack. The lab places the same HP receiver under both forms.",
+    "No suitable 3D model was obtained; the front/back official design sheet is a 2D reference.",
+    "The Fontaine cavern is a temporary lab background."
+  ]
+}

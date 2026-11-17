@@ -1,8 +1,15 @@
 return function(C,configs,controllers)
  local step,frame,onKill,checkpoint,restore=C.step,C.frame,C.onKill,C.checkpoint,C.restore
  local after=C.afterElementHit
+ local damageFactor=C.damageFactor
  local byId,byNode={},{}
  for _,spec in ipairs(configs) do byId[spec.id]=spec;byNode[spec.node]=spec end
+ function C.damageFactor(s,cast,e)
+  local factor=damageFactor and damageFactor(s,cast,e) or 1
+  local spec=byId[e.fieldBoss]
+  local behavior=spec and controllers[spec.controller]
+  return behavior and behavior.damageFactor and factor*behavior.damageFactor(s,cast,e,spec) or factor
+ end
  local function current(s)
   local node=s.story and s.story.active and s.story.node
   return node and s.campaign and s.campaign.zone=='story:'..node and node or nil
