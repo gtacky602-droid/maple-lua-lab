@@ -234,6 +234,79 @@
       "ground_both_directions": true
     },
     {
+      "node": "liyue-river-trail",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 0,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "liyue-cliff-planks",
+      "platforms": 6,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        },
+        {
+          "from": 0,
+          "to": 4
+        },
+        {
+          "from": 3,
+          "to": 5
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
+      "node": "liyue-quarry-post",
+      "platforms": 5,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 1,
+          "to": 2
+        },
+        {
+          "from": 0,
+          "to": 3
+        },
+        {
+          "from": 3,
+          "to": 4
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
       "node": "liyue-field",
       "platforms": 5,
       "jump_routes": [

@@ -1,0 +1,18 @@
+{
+  "errors": [],
+  "riverTrail": true,
+  "caravanTalk": true,
+  "namedGuard": true,
+  "liftPanelAndPause": true,
+  "savedSafeReturn": true,
+  "reward": {
+    "xp": 3000,
+    "mora": 380
+  },
+  "mobileWidth": true,
+  "background": {
+    "key": "liyuequarry",
+    "file": "liyue-quarry-background-v1.png",
+    "state": "ready"
+  }
+}

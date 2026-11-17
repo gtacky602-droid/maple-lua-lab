@@ -21,6 +21,13 @@ export function questObjective(q,graph,state){
   return parts.join('。');
  }
  if(q.enemyName)return `${place}で${q.enemyName}を倒す`;
+ if(q.trail?.meeting){
+  if(state?.status==='complete')return '商隊は帰還し、昇降台が復旧した';
+  if(!state?.count)return '川沿いの荷車跡か、桟道の荷札をGキーで調べる';
+  if(state.count===1)return '石切り場の詰所で商隊の話を聞く';
+  if(state.count===q.goal)return '復旧した昇降台で港へ戻り、北斗に報告する';
+  return '詰所の見張りを退け、商隊を退避させる';
+ }
  if(q.trail){
   if(state?.status==='complete')return '森から風見の丘への近道を開いた';
   if(!state?.count)return '旧道の下段で車輪跡、または上段で枝の赤い布をGキーで調べる';

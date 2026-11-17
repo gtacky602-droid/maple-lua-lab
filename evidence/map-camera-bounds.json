@@ -61,6 +61,21 @@
       "rightCamera": 480
     },
     {
+      "node": "liyue-river-trail",
+      "width": 1760,
+      "rightCamera": 800
+    },
+    {
+      "node": "liyue-cliff-planks",
+      "width": 1760,
+      "rightCamera": 800
+    },
+    {
+      "node": "liyue-quarry-post",
+      "width": 1760,
+      "rightCamera": 800
+    },
+    {
       "node": "liyue-field",
       "width": 1440,
       "rightCamera": 480

@@ -43,7 +43,7 @@ return function(C,data,delivery)
     elseif a.hp<=0 then reason='戦闘不能中'
     elseif not s.progression or s.progression.level<n.level then reason='必要レベル '..n.level
     else reason=gateRestriction(s,edge) end
-    best={to=edge.to,name=n.name,level=n.level,available=not reason,reason=reason};distance=dx
+    best={to=edge.to,name=n.name,level=n.level,available=not reason,reason=reason,liftSeconds=edge.liftSeconds};distance=dx
    end
   end
   return best
@@ -82,8 +82,11 @@ return function(C,data,delivery)
   for id,state in pairs(s.story.quests) do
    local trail=quests[id].trail
    if trail and state.status=='active' and state.count<quests[id].goal then
-    for _,item in ipairs(trail.clues) do
-     if item.node==s.story.node and not state.inspected[item.id] then return item,state end
+    if trail.meeting and state.count==1 and s.story.node==quests[id].target then return trail.meeting,state,2 end
+    if state.count<=1 then
+     for _,item in ipairs(trail.clues) do
+      if item.node==s.story.node and not state.inspected[item.id] then return item,state,1 end
+     end
     end
    end
   end
@@ -111,12 +114,13 @@ return function(C,data,delivery)
   local state=n.clearedBy and s.story.quests[n.clearedBy]
   return state and state.count>=quests[n.clearedBy].goal
  end
- local function enter(s,id,spawn,elapsed)
+ local function enter(s,id,spawn,elapsed,arrivalY)
   local n=nodes[id];s.campaign.zone='story:transition';action(s,n.hub and 'town' or 'field')
   s.campaign.zone=n.hub and 'town' or ('story:'..id);s.campaign.message='本編ルートの試作。隣の地点へは門の近くで移動。'
   s.story.active=true;s.story.node=id;s.story.visited[id]=true;s.worldwidth=n.width
   s.platforms={};for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]={x=p.x,y=p.y,w=p.w} end
   s.enemies={}
+  s.lift=nil
   s.storyDeliveryNotice=nil
   if not n.hub and not n.peaceful and not cleared(s,n) then
    local fresh=C.new(12)
@@ -132,7 +136,7 @@ return function(C,data,delivery)
   end
   local cargo,state=cargoQuest(s)
   if cargo and recoveredAll(cargo,state) then beginChase(s,cargo) end
-  for i,a in ipairs(s.actors) do a.x=(spawn or 160)-(i-1)*40;a.y=480;a.vy=0;a.ground=true end
+  for i,a in ipairs(s.actors) do a.x=(spawn or 160)-(i-1)*40;a.y=arrivalY or 480;a.vy=0;a.ground=true;if arrivalY then a.drop=0 end end
   s.camera=math.max(0,math.min(s.actors[s.active].x-400,math.max(0,n.width-960)))
   s.macro=nil;s.encounter=nil;s.voyage=n.voyage and {destination=n.voyage.destination,arrives=s.t+n.voyage.seconds-(elapsed or 0),started=s.t-(elapsed or 0),source=n.voyage.source,stopStart=n.voyage.stopStart,stopEnd=n.voyage.stopEnd} or nil;progress(s,'visit',id)
  end
@@ -140,6 +144,10 @@ return function(C,data,delivery)
  function C.storyBossDefeated(s,id) setup(s);progress(s,'boss',id) end
  function C.action(s,key)
   setup(s)
+  if s.lift then
+   if key=='pause' then action(s,key) end
+   return
+  end
   if key=='story_nearby_portal' then local p=nearbyPortal(s);if p then C.action(s,'story_portal:'..p.to) end;return end
   if key=='story_collect' then
    if s.paused or not s.story.active then return end
@@ -152,11 +160,11 @@ return function(C,data,delivery)
    end
    local q,state=cargoQuest(s)
    if not q then
-    local clue,progress=trailClue(s)
+    local clue,progress,nextCount=trailClue(s)
     if not clue then return end
     if not canInspect(s.actors[s.active],clue) then s.storyNotice='手がかりのそばまで移動してください。';return end
     progress.inspected[clue.id]=true
-    progress.count=1
+    progress.count=nextCount
     s.storyNotice=clue.line
     return
    end
@@ -187,7 +195,7 @@ return function(C,data,delivery)
   local dest=key:match('^story_portal:([%w%-]+)$');local fast=key:match('^story_fast:([%w%-]+)$')
   if dest or fast then
    if s.paused or not s.story.active or s.actors[s.active].hp<=0 then return end
-   local resume=0;dest=dest or fast;local n=nodes[dest];if not n then return end
+   local resume,departure=0,nil;dest=dest or fast;local n=nodes[dest];if not n then return end
    if n.hiddenGroup and not s.story.discovered[n.hiddenGroup] then s.storyNotice='この入口はまだ発見していません。';return end
    if not s.progression or s.progression.level<n.level then s.storyNotice='必要レベル '..n.level..' に達していません。';return end
    if fast then if not n.hub or not s.story.visited[dest] then s.storyNotice='到達済みの拠点だけ移動できます。';return end
@@ -197,13 +205,23 @@ return function(C,data,delivery)
      if edge.to==dest and nearGate(a,edge) then
       local reason=gateRestriction(s,edge)
       if reason then s.storyNotice=reason;return end
-      allowed=true;resume=edge.resumeSeconds or 0
+      allowed=true;departure=edge;resume=edge.resumeSeconds or 0
      end
     end
     if not allowed then s.storyNotice='接続する門の近くまで歩いてください。';return end
    end
-   local previous=s.story.node;local spawn=160
-   for _,edge in ipairs(n.exits) do if edge.to==previous then spawn=edge.x<720 and 160 or n.width-160 end end
+   local previous=s.story.node;local spawn,arrival=160,nil
+   for _,edge in ipairs(n.exits) do
+    if edge.to==previous then spawn=edge.x<720 and 160 or n.width-160;arrival=edge end
+   end
+   if departure and departure.liftSeconds then
+    local seconds=departure.liftSeconds
+    s.lift={destination=dest,name=n.name,seconds=seconds,remaining=seconds,
+            x=arrival and arrival.x or spawn,y=arrival and arrival.y or 480}
+    for _,actor in ipairs(s.actors) do actor.walk=0 end
+    s.storyNotice=nil
+    return
+   end
    enter(s,dest,spawn,resume);s.storyNotice=nil;return
   end
   local accept=key:match('^story_accept:([%w%-]+)$');local report=key:match('^story_report:([%w%-]+)$')
@@ -235,14 +253,22 @@ return function(C,data,delivery)
      if not state.delivery.guardCleared then s.storyNotice='見張りを倒しました。足場の荷箱を回収できます。' end
      state.delivery.guardCleared=true
     end
-    if q.trail and state.status=='active' and state.count==1 and q.target==s.story.node and e.spawnId==q.trail.guard then
+    if q.trail and state.status=='active' and state.count==(q.trail.meeting and 2 or 1) and q.target==s.story.node and e.spawnId==q.trail.guard then
      state.count=q.goal
-     s.storyNotice='見張りを倒して柵が開きました。森への近道から戻れます。'
+     s.storyNotice=q.clearedNotice or '見張りを倒して柵が開きました。森への近道から戻れます。'
     end
    end
   end
  end
  function C.step(s,dt,input)
+  if s.lift then
+   if not s.paused then
+    local ride=s.lift
+    ride.remaining=math.max(0,ride.remaining-dt)
+    if ride.remaining<=1e-8 then enter(s,ride.destination,ride.x,nil,ride.y) end
+   end
+   return
+  end
   local returns=s.returns;step(s,dt,input)
   if s.story and s.story.active and s.voyage and not s.paused and s.t+1e-8>=s.voyage.arrives then enter(s,s.voyage.destination) end
   if s.story and s.story.active and #s.enemies>0 and cleared(s,nodes[s.story.node]) then s.enemies={} end
@@ -265,7 +291,10 @@ return function(C,data,delivery)
      end
     end
    end
-   f.storyNearbyPortal=nearbyPortal(s)
+   if s.lift then
+    local ride=s.lift
+    f.storyLift={destination=ride.name,remaining=ride.remaining,seconds=ride.seconds}
+   else f.storyNearbyPortal=nearbyPortal(s) end
    local markers={};f.storyPortals={}
    local function marker(x,y,w,h) markers[#markers+1]={kind='rect',x=x,y=y,w=w,h=h,color='#83dbe1'} end
    for _,edge in ipairs(n.exits) do if shown(nodes[edge.to]) then
@@ -293,9 +322,11 @@ return function(C,data,delivery)
      end
     end
    end
-   local clue=trailClue(s)
+   local clue,_,nextCount=trailClue(s)
    if clue then
-    if not s.paused and canInspect(s.actors[s.active],clue) then f.storyNearbyClue={id=clue.id,name=clue.name} end
+    if not s.paused and canInspect(s.actors[s.active],clue) then
+     f.storyNearbyClue={id=clue.id,name=clue.name,label=nextCount==2 and clue.name..'と話す' or nil}
+    end
     local x,y=clue.x-s.camera,clue.y
     local elevated=y<480
     markers[#markers+1]={kind='rect',x=x-10,y=y-14,w=20,h=4,color=elevated and '#a93634' or '#634936'}

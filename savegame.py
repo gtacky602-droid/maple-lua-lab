@@ -105,9 +105,13 @@ def validate_save(data):
                 if not quest.get('trail') or not isinstance(inspected, dict):
                     raise ValueError('Invalid trail clues')
                 clue_ids = {clue['id'] for clue in quest['trail']['clues']}
-                if any(key not in clue_ids or flag is not True for key, flag in inspected.items()):
+                meeting = quest['trail'].get('meeting')
+                allowed = clue_ids | ({meeting['id']} if meeting else set())
+                if any(key not in allowed or flag is not True for key, flag in inspected.items()):
                     raise ValueError('Invalid trail clue ID')
-                if bool(inspected) != (q['count'] > 0):
+                if meeting and (bool(inspected.get(meeting['id'])) != (q['count'] >= 2)):
+                    raise ValueError('Invalid trail meeting')
+                if bool(clue_ids & inspected.keys()) != (q['count'] > 0):
                     raise ValueError('Invalid trail progress')
             if quest.get('level', 0) > data.get('progression', {}).get('level', 0):
                 raise ValueError('Unmet story quest level')

@@ -1,0 +1,11 @@
+{
+  "prompt": "Create an original wide 16:9 painterly parallax environment backdrop for a Liyue-inspired side-scrolling RPG. Take the attached gameplay screenshot as a visual reference only for the vertically stacked timber scaffolding, ropes, weathered stone and warm lanterns. Design an original open-air limestone quarry on a Liyue mountainside in soft sunny afternoon light. Layered rock terraces with wooden plank catwalks up the distant midground, an unmistakable timber pulley-and-rope freight lift supported by wooden trestles, and a small Chinese-style quarry outpost with tiled roof and grouped cargo crates. A quiet blue-green river along the left midground leads into atmospheric mountains with amber-leaf trees. Make the lowest quarter calm desaturated limestone and muted earth so small pixel sprites and independently rendered collision platforms stand out. Full landscape canvas. No characters, text, HUD, borders, arrows, magical effects or loud foreground.",
+  "references": [
+    {
+      "source": "https://gamewith.net/genshin-impact/article/show/22464",
+      "image": "https://img.gamewith.net/img/original_427be04426aec700d9c67bb4f7d95d6a.jpg",
+      "use": "Viewed in-game plank bridges, timber scaffolding, stone and lanterns. Quarry river, shelter, freight lift and layout are original."
+    }
+  ],
+  "status": "shared temporary host scenery; current PNG has no collider"
+}

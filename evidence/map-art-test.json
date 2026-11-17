@@ -74,6 +74,24 @@
       "backgroundState": "ready"
     },
     {
+      "id": "liyue-river-trail",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "liyue-cliff-planks",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "liyue-quarry-post",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "liyue-field",
       "count": 0,
       "fallback": false,

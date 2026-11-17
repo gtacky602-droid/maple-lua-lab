@@ -2,6 +2,36 @@
   "errors": [],
   "cases": [
     {
+      "key": "liyuequarry",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "liyuequarry",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "liyuequarry",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "liyuequarry",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "liyuequarry",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "liyuequarry",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "mondrestored",
       "camera": -960,
       "transparent": 0

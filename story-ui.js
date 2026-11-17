@@ -8,7 +8,7 @@ const panel=document.getElementById('storyPanel');let previous='';
 function button(label,action){const b=document.createElement('button');b.textContent=label;b.onclick=()=>{window.lab.action(action);b.blur()};return b}
 function update(){
  const f=window.lab?.frame;if(!f?.story)return;
- const signature=JSON.stringify([f.story,f.bossJourney,f.storyNotice,f.imprintTrial,f.progression?.level,Math.ceil(f.voyage?.seconds||0)]);if(signature===previous)return;previous=signature;
+ const signature=JSON.stringify([f.story,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.imprintTrial,f.progression?.level,Math.ceil(f.voyage?.seconds||0)]);if(signature===previous)return;previous=signature;
  const tracked=document.getElementById('trackedQuest'),text=trackedQuestText(f,trackedId);tracked.hidden=!text;document.getElementById('trackedQuestText').textContent=text;
  panel.replaceChildren();const title=document.createElement('p');title.textContent=`本編ルート試作：モンド → スネージナヤ（${f.storyGraph.nodes.length}表示地点・${f.storyGraph.quests.length}表示依頼）。配置・敵・報酬は仮設定。背景画像は共用。`;panel.append(title,button('本編ルートへ','story_start'));
  if(f.bossJourney){const notice=document.createElement('p');notice.textContent=f.bossJourney.name+'・本編挑戦'+(f.bossJourney.defeated?'／討伐済み':'');panel.append(notice,button('挑戦入口へ戻る','world_boss_return'));}

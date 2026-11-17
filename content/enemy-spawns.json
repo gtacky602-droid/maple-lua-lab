@@ -1567,6 +1567,147 @@
         "art": "hydro-slime",
         "kind": 1
       }
+    ],
+    "liyue-river-trail": [
+      {
+        "id": "liyue-river-trail-1",
+        "kind": 1,
+        "x": 290,
+        "platform": 0,
+        "art": "hydro-slime"
+      },
+      {
+        "id": "liyue-river-trail-2",
+        "kind": 1,
+        "x": 365,
+        "platform": 0,
+        "art": "hilichurl"
+      },
+      {
+        "id": "liyue-river-trail-3",
+        "kind": 1,
+        "x": 470,
+        "platform": 0,
+        "art": "hydro-slime"
+      },
+      {
+        "id": "liyue-river-trail-4",
+        "kind": 1,
+        "x": 520,
+        "platform": 0,
+        "art": "hilichurl"
+      },
+      {
+        "id": "liyue-river-trail-5",
+        "kind": 1,
+        "x": 790,
+        "platform": 0,
+        "art": "hydro-slime"
+      },
+      {
+        "id": "liyue-river-trail-6",
+        "kind": 1,
+        "x": 870,
+        "platform": 0,
+        "art": "hilichurl"
+      },
+      {
+        "id": "liyue-river-trail-7",
+        "kind": 1,
+        "x": 1000,
+        "platform": 0,
+        "art": "hilichurl"
+      },
+      {
+        "id": "liyue-river-trail-8",
+        "kind": 1,
+        "x": 1210,
+        "platform": 0,
+        "art": "hydro-slime"
+      },
+      {
+        "id": "liyue-river-trail-9",
+        "kind": 1,
+        "x": 1400,
+        "platform": 0,
+        "art": "hilichurl"
+      },
+      {
+        "id": "liyue-river-trail-10",
+        "kind": 1,
+        "x": 1480,
+        "platform": 0,
+        "art": "hydro-slime"
+      },
+      {
+        "id": "liyue-river-trail-11",
+        "kind": 1,
+        "x": 298,
+        "platform": 1,
+        "art": "hydro-slime"
+      },
+      {
+        "id": "liyue-river-trail-12",
+        "kind": 1,
+        "x": 555,
+        "platform": 2,
+        "art": "hilichurl"
+      }
+    ],
+    "liyue-cliff-planks": [
+      {
+        "id": "liyue-cliff-planks-1",
+        "kind": 1,
+        "x": 485,
+        "platform": 0,
+        "art": "hilichurl"
+      },
+      {
+        "id": "liyue-cliff-planks-2",
+        "kind": 1,
+        "x": 740,
+        "platform": 2,
+        "art": "hilichurl"
+      },
+      {
+        "id": "liyue-cliff-planks-3",
+        "kind": 1,
+        "x": 1175,
+        "platform": 3,
+        "art": "hydro-slime"
+      },
+      {
+        "id": "liyue-cliff-planks-4",
+        "kind": 1,
+        "x": 1490,
+        "platform": 5,
+        "art": "hilichurl"
+      }
+    ],
+    "liyue-quarry-post": [
+      {
+        "id": "liyue-quarry-post-1",
+        "kind": 1,
+        "x": 910,
+        "platform": 0,
+        "art": "hilichurl",
+        "hp": 30,
+        "name": "詰所の見張り"
+      },
+      {
+        "id": "liyue-quarry-post-2",
+        "kind": 1,
+        "x": 1150,
+        "platform": 3,
+        "art": "hydro-slime"
+      },
+      {
+        "id": "liyue-quarry-post-3",
+        "kind": 1,
+        "x": 660,
+        "platform": 2,
+        "art": "hilichurl"
+      }
     ]
   }
 }

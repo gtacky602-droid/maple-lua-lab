@@ -1,0 +1,24 @@
+{
+  "routes": [
+    {
+      "branch": "liyue-river-trail",
+      "clue": "cart-ruts",
+      "ordinary_combat": true,
+      "rescue_restored": true
+    },
+    {
+      "branch": "liyue-cliff-planks",
+      "clue": "rest-tag",
+      "ordinary_combat": true,
+      "rescue_restored": true
+    }
+  ],
+  "M01_prerequisite": true,
+  "lifts_roundtrip": true,
+  "timing_pause_and_no_movement": true,
+  "partial_save": true,
+  "one_time_reward": {
+    "xp": 3000,
+    "mora": 380
+  }
+}

@@ -573,6 +573,32 @@
             "quest": "liyue-market-delivery",
             "count": 0
           }
+        },
+        {
+          "to": "liyue-river-trail",
+          "x": 955,
+          "requires": {
+            "quest": "liyue-caravan-search",
+            "count": 0
+          }
+        },
+        {
+          "to": "liyue-cliff-planks",
+          "x": 490,
+          "y": 350,
+          "requires": {
+            "quest": "liyue-caravan-search",
+            "count": 0
+          }
+        },
+        {
+          "to": "liyue-quarry-post",
+          "x": 1165,
+          "requires": {
+            "quest": "liyue-caravan-search",
+            "count": 3
+          },
+          "liftSeconds": 2.0
         }
       ],
       "checkpoint": "liyue-harbor"
@@ -613,6 +639,187 @@
           "x": 60
         }
       ]
+    },
+    {
+      "id": "liyue-river-trail",
+      "name": "璃月・川沿いの荷運び道",
+      "region": "璃月",
+      "level": 20,
+      "hub": false,
+      "width": 1760,
+      "checkpoint": "liyue-harbor",
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1760
+        },
+        {
+          "x": 155,
+          "y": 394,
+          "w": 325
+        },
+        {
+          "x": 466,
+          "y": 315,
+          "w": 265
+        },
+        {
+          "x": 850,
+          "y": 391,
+          "w": 390
+        },
+        {
+          "x": 1285,
+          "y": 374,
+          "w": 321
+        }
+      ],
+      "exits": [
+        {
+          "to": "liyue-harbor",
+          "x": 60
+        },
+        {
+          "to": "liyue-cliff-planks",
+          "x": 1120,
+          "requires": {
+            "quest": "liyue-caravan-search",
+            "count": 3
+          },
+          "liftSeconds": 1.6
+        },
+        {
+          "to": "liyue-quarry-post",
+          "x": 1700,
+          "requires": {
+            "quest": "liyue-caravan-search",
+            "count": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "liyue-cliff-planks",
+      "name": "璃月・山腹の桟道",
+      "region": "璃月",
+      "level": 20,
+      "hub": false,
+      "width": 1760,
+      "checkpoint": "liyue-harbor",
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1760
+        },
+        {
+          "x": 190,
+          "y": 395,
+          "w": 370
+        },
+        {
+          "x": 480,
+          "y": 305,
+          "w": 490
+        },
+        {
+          "x": 900,
+          "y": 215,
+          "w": 370
+        },
+        {
+          "x": 1170,
+          "y": 390,
+          "w": 410
+        },
+        {
+          "x": 1260,
+          "y": 305,
+          "w": 420
+        }
+      ],
+      "exits": [
+        {
+          "to": "liyue-harbor",
+          "x": 60
+        },
+        {
+          "to": "liyue-river-trail",
+          "x": 340,
+          "y": 395,
+          "requires": {
+            "quest": "liyue-caravan-search",
+            "count": 3
+          },
+          "liftSeconds": 1.6
+        },
+        {
+          "to": "liyue-quarry-post",
+          "x": 1580,
+          "y": 305,
+          "requires": {
+            "quest": "liyue-caravan-search",
+            "count": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "liyue-quarry-post",
+      "name": "璃月・石切り場の詰所",
+      "region": "璃月",
+      "level": 20,
+      "hub": false,
+      "width": 1760,
+      "checkpoint": "liyue-harbor",
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1760
+        },
+        {
+          "x": 220,
+          "y": 391,
+          "w": 340
+        },
+        {
+          "x": 525,
+          "y": 305,
+          "w": 300
+        },
+        {
+          "x": 1040,
+          "y": 389,
+          "w": 360
+        },
+        {
+          "x": 1320,
+          "y": 305,
+          "w": 280
+        }
+      ],
+      "exits": [
+        {
+          "to": "liyue-river-trail",
+          "x": 60
+        },
+        {
+          "to": "liyue-cliff-planks",
+          "x": 270
+        },
+        {
+          "to": "liyue-harbor",
+          "x": 1700,
+          "requires": {
+            "quest": "liyue-caravan-search",
+            "count": 3
+          },
+          "liftSeconds": 2.0
+        }
+      ],
+      "clearedBy": "liyue-caravan-search"
     },
     {
       "id": "liyue-field",
@@ -3876,6 +4083,50 @@
           "x": 735,
           "y": 380,
           "guard": "liyue-loading-yard-1"
+        }
+      }
+    },
+    {
+      "id": "liyue-caravan-search",
+      "designId": "Q-LIY-M02",
+      "name": "山道に消えた商隊",
+      "giver": "北斗",
+      "requires": "liyue-market-delivery",
+      "hub": "liyue-harbor",
+      "target": "liyue-quarry-post",
+      "kind": "trail",
+      "goal": 3,
+      "xp": 3000,
+      "mora": 380,
+      "briefing": "北斗「川沿いか山腹の桟道で、商隊の手がかりを探そう。どっちも石切り場へ続いてる。」",
+      "clearedNotice": "商隊が無事に退避しました。復旧した昇降台から港へ戻れます。",
+      "closing": "北斗「人は全員戻った。あとは下層へ流された荷車だ。奥の扉から、何か音がしたね。」",
+      "trail": {
+        "guard": "liyue-quarry-post-1",
+        "clues": [
+          {
+            "id": "cart-ruts",
+            "name": "荷車跡",
+            "node": "liyue-river-trail",
+            "x": 680,
+            "y": 480,
+            "line": "何台もの荷車の跡が、石切り場の方向に重なっています。"
+          },
+          {
+            "id": "rest-tag",
+            "name": "休憩の石に置かれた荷札",
+            "node": "liyue-cliff-planks",
+            "x": 720,
+            "y": 305,
+            "line": "荷札には全員で詰所へ向かうと書かれています。"
+          }
+        ],
+        "meeting": {
+          "id": "caravan",
+          "name": "詰所の商隊",
+          "x": 385,
+          "y": 480,
+          "line": "商隊は全員無事でした。荷車は下層へ流されたそうです。見張りを退ければ商人が退避できます。"
         }
       }
     },

@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 86 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 84,
+  "scope": "Authored 89 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 87,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -74,6 +74,24 @@
     {
       "id": "liyue-loading-yard",
       "name": "璃月・港外の仮置き場",
+      "region": "璃月",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "liyue-river-trail",
+      "name": "璃月・川沿いの荷運び道",
+      "region": "璃月",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "liyue-cliff-planks",
+      "name": "璃月・山腹の桟道",
+      "region": "璃月",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "liyue-quarry-post",
+      "name": "璃月・石切り場の詰所",
       "region": "璃月",
       "status": "regional_temporary_image"
     },
