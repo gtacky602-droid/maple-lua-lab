@@ -1,12 +1,14 @@
 // Official projection: pixel = (catalogue coordinate + detail_v2.origin) * 2^zoom.
 // Graph layouts use their own coordinates and never modify map_nodes.
 export class FieldMap {
- constructor(viewport,{getScene,onSelect,onEdge,onConnect,onLayout}){
+ constructor(viewport,{getScene,onSelect,onEdge,onEditEdge,onConnect,onLayout}){
   this.host=viewport;this.canvas=viewport.querySelector('canvas');this.ctx=this.canvas.getContext('2d');this.layer=viewport.querySelector('#nodeLayer');
-  Object.assign(this,{getScene,onSelect,onEdge,onConnect,onLayout});this.scale=.4;this.cx=0;this.cy=0;this.tiles=new Map();this.buttons=new Map();this.positions=new Map();this.pending=false;this.mode='geo';this.drag=null;this.lastMap=null;
+  Object.assign(this,{getScene,onSelect,onEdge,onEditEdge,onConnect,onLayout});this.scale=.4;this.cx=0;this.cy=0;this.tiles=new Map();this.buttons=new Map();this.positions=new Map();this.pending=false;this.mode='geo';this.drag=null;this.lastMap=null;
   this.resize();
   new ResizeObserver(()=>{this.resize();if(!this.fitted)this.fit();}).observe(viewport);
-  viewport.addEventListener('pointerdown',e=>this.down(e));viewport.addEventListener('pointermove',e=>this.move(e));viewport.addEventListener('pointerup',e=>this.up(e));viewport.addEventListener('pointercancel',()=>{this.drag=null;this.draw()});
+  viewport.addEventListener('pointerdown',e=>this.down(e));viewport.addEventListener('pointermove',e=>this.move(e));viewport.addEventListener('pointerup',e=>this.up(e));
+  viewport.addEventListener('lostpointercapture',e=>{if(this.drag?.pointerId===e.pointerId){this.drag=null;this.draw()}});
+  viewport.addEventListener('contextmenu',e=>this.contextMenu(e));
   viewport.addEventListener('wheel',e=>{e.preventDefault();const r=viewport.getBoundingClientRect();this.zoom(Math.exp(-e.deltaY*.0015),e.clientX-r.left,e.clientY-r.top)}, {passive:false});
  }
  resize(){this.width=this.host.clientWidth;this.height=this.host.clientHeight;const d=Math.min(devicePixelRatio||1,2);this.canvas.width=this.width*d;this.canvas.height=this.height*d;this.ctx.setTransform(d,0,0,d,0,0);this.draw()}
@@ -52,20 +54,21 @@ export class FieldMap {
   }
   // Deletions are still visible as red dashes during review.
   for(const e of s.deletedEdges||[]){const a=this.positions.get(e.from_field),b=this.positions.get(e.to_field);if(!a||!b)continue;const p=this.point(a.x,a.y),q=this.point(b.x,b.y);ctx.strokeStyle='#ed837c';ctx.setLineDash([4,5]);ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();ctx.setLineDash([])}
-  if(this.drag?.kind==='connect'){const p=this.positions.get(this.drag.id);if(p&&this.drag.pointer){const a=this.point(p.x,p.y);ctx.strokeStyle='#f0ce8c';ctx.setLineDash([5,5]);ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(this.drag.pointer.x,this.drag.pointer.y);ctx.stroke();ctx.setLineDash([])}}
+  if(this.drag?.kind==='connect'&&this.drag.moved){const p=this.positions.get(this.drag.id);if(p){const a=this.point(p.x,p.y);ctx.strokeStyle='#f0ce8c';ctx.setLineDash([5,5]);ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(this.drag.pointer.x,this.drag.pointer.y);ctx.stroke();ctx.setLineDash([])}}
   const active=new Set(),labels=[];
   for(const n of s.nodes){
    const f=s.data.field_definitions[n.id],p=this.positions.get(n.id);if(!p)continue;const at=this.point(p.x,p.y);if(at.x < -170||at.x>this.width+170||at.y< -60||at.y>this.height+60)continue;
    active.add(n.id);let btn=this.buttons.get(n.id);
-   if(!btn){btn=document.createElement('button');btn.type='button';btn.dataset.fieldId=n.id;btn.innerHTML='<span class="node-symbol"></span><span class="node-label"></span><span class="connection-handle" title="ここから別の地点へドラッグ"></span>';this.buttons.set(n.id,btn);this.layer.append(btn)}
+   if(!btn){btn=document.createElement('button');btn.type='button';btn.dataset.fieldId=n.id;btn.innerHTML='<span class="node-symbol"></span><span class="node-label"></span><span class="connection-handle" title="ここから別の地点へドラッグ"></span>';btn.addEventListener('click',e=>{if(e.detail===0)this.onSelect(n.id,false)});this.buttons.set(n.id,btn);this.layer.append(btn)}
    const high=f.region_id.startsWith('branch-'),elite=f.elite||f.local_legend||Object.values(s.data.field_spawns).some(sp=>sp.field_id===n.id&&['elite','local_legend'].includes(s.data.monster_variants[sp.monster_id]?.classification));
    btn.className=['map-node',n.kind,this.mode!=='geo'?'graph':'',n.id===s.selected?'selected':'',high?'high':'',elite?'elite':'',s.changed.has('field_definitions:'+n.id)||s.changedFields.has(n.id)?'preview':''].filter(Boolean).join(' ');
+   btn.classList.toggle('connection-target',n.id===this.drag?.targetId);
    btn.style.left=at.x+'px';btn.style.top=at.y+'px';btn.setAttribute('aria-label',n.id+' '+(f.name||'フィールド名未設定')+' Lv'+(f.recommended_level??'未設定'));btn.setAttribute('aria-pressed',String(n.id===s.selected));btn.title=`${n.id} / 名称未確認\nX=${n.x} Y=${n.y}\n${f.name||'フィールド名未設定'}`;
    const label=btn.querySelector('.node-label'),lv=f.recommended_level;const spawned=Object.values(s.data.field_spawns).filter(sp=>sp.field_id===n.id);let lvText=lv!=null?'Lv'+lv:'Lv未設定';
    if(spawned.length){const levels=spawned.map(sp=>sp.level_override??s.data.monster_variants[sp.monster_id]?.base_level).filter(x=>x!=null);if(levels.length)lvText='敵Lv'+Math.min(...levels)+(Math.max(...levels)!==Math.min(...levels)?'–'+Math.max(...levels):'')}
    label.replaceChildren();label.append(document.createTextNode((f.name||n.id)+(n.point_group?' ⧉':'')));const small=document.createElement('small');small.textContent=' '+lvText+(spawned.length?' / '+spawned.map(sp=>(s.data.monster_variants[sp.monster_id]?.name||'?')+'×'+sp.count).join('・'):'');label.append(document.createElement('br'),small);
    const labelAt={x:at.x,y:at.y+32};const collide=labels.some(q=>Math.abs(q.x-labelAt.x)<92&&Math.abs(q.y-labelAt.y)<32);const show=this.mode!=='geo'||n.id===s.selected||!collide;label.hidden=!show;if(show)labels.push(labelAt);
-   btn.querySelector('.connection-handle').hidden=!s.connectMode;
+   btn.querySelector('.connection-handle').hidden=this.mode!=='graph'&&!s.connectMode;
   }
   for(const [id,btn] of this.buttons){if(!active.has(id)){btn.remove();this.buttons.delete(id)}}
  }
@@ -85,19 +88,63 @@ export class FieldMap {
  }
  arrow(p,q,color){const ctx=this.ctx,a=Math.atan2(q.y-p.y,q.x-p.x),x=p.x+(q.x-p.x)*.6,y=p.y+(q.y-p.y)*.6;ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(x+7*Math.cos(a),y+7*Math.sin(a));ctx.lineTo(x-6*Math.cos(a-.6),y-6*Math.sin(a-.6));ctx.lineTo(x-6*Math.cos(a+.6),y-6*Math.sin(a+.6));ctx.closePath();ctx.fill()}
  pointer(e){const r=this.host.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
- down(e){if(e.button!==0||e.target.closest('.map-controls'))return;const b=e.target.closest('[data-field-id]'),p=this.pointer(e),s=this.getScene();
-  if(b){e.preventDefault();this.onSelect(b.dataset.fieldId,false);const handle=e.target.closest('.connection-handle');this.drag={kind:handle&&s.connectMode?'connect':this.mode==='graph'&&!s.connectMode?'node':'select',id:b.dataset.fieldId,start:p,pointer:p,origin:{...this.positions.get(b.dataset.fieldId)}}}
-  else this.drag={kind:'pan',start:p,cx:this.cx,cy:this.cy,pointer:p};
+ edgeAt(p){
+  let closest=null,distance=9;
+  for(const edge of this.edgeSegments||[]){
+   const {p:a,q:b}=edge,vx=b.x-a.x,vy=b.y-a.y,len=vx*vx+vy*vy;
+   const t=len?Math.max(0,Math.min(1,((p.x-a.x)*vx+(p.y-a.y)*vy)/len)):0;
+   const hit=Math.hypot(p.x-a.x-t*vx,p.y-a.y-t*vy);
+   if(hit<distance){closest=edge.id;distance=hit}
+  }
+  return closest;
+ }
+ contextMenu(e){
+  if(e.target.closest('.map-controls, [data-field-id]'))return;
+  const edge=this.edgeAt(this.pointer(e));
+  if(!edge)return;
+  e.preventDefault();this.onEditEdge(edge);
+ }
+ dropTarget(e,sourceId){
+  // Pointer capture keeps the drag alive outside the source marker.
+  const node=this.host.ownerDocument.elementFromPoint(e.clientX,e.clientY)?.closest('[data-field-id]');
+  const id=node?.dataset.fieldId;
+  return node&&this.layer.contains(node)&&id!==sourceId?id:null;
+ }
+ down(e){
+  if(this.drag||e.button!==0||e.target.closest('.map-controls'))return;
+  const b=e.target.closest('[data-field-id]'),p=this.pointer(e);
+  const drag={pointerId:e.pointerId,start:p,pointer:p};
+  if(b){
+   e.preventDefault();
+   const id=b.dataset.fieldId;
+   const layout=this.mode==='graph'&&!this.getScene().connectMode&&!e.target.closest('.connection-handle');
+   this.drag={...drag,kind:layout?'node':'connect',id,origin:{...this.positions.get(id)}};
+  }else this.drag={...drag,kind:'pan',cx:this.cx,cy:this.cy};
   this.host.setPointerCapture(e.pointerId);
  }
- move(e){if(!this.drag)return;const p=this.pointer(e),d=this.drag;d.pointer=p;d.moved=Math.hypot(p.x-d.start.x,p.y-d.start.y)>4;
+ move(e){
+  const d=this.drag;if(d?.pointerId!==e.pointerId)return;
+  const p=this.pointer(e);d.pointer=p;d.moved||=Math.hypot(p.x-d.start.x,p.y-d.start.y)>4;
+  if(!d.moved)return;
   if(d.kind==='pan'){this.cx=d.cx-(p.x-d.start.x)/this.scale;this.cy=d.cy-(p.y-d.start.y)/this.scale}
-  if(d.kind==='node')d.world={x:d.origin.x+(p.x-d.start.x)/this.scale,y:d.origin.y+(p.y-d.start.y)/this.scale};this.draw();
+  if(d.kind==='node')d.world={x:d.origin.x+(p.x-d.start.x)/this.scale,y:d.origin.y+(p.y-d.start.y)/this.scale};
+  if(d.kind==='connect')d.targetId=this.dropTarget(e,d.id);
+  this.draw();
  }
- up(e){const d=this.drag;if(!d)return;this.drag=null;const p=this.pointer(e);if(d.kind==='connect'&&d.moved){let closest=null,dist=45;for(const [id,w] of this.positions){if(id===d.id)continue;const q=this.point(w.x,w.y),v=Math.hypot(q.x-p.x,q.y-p.y);if(v<dist){dist=v;closest=id}}if(closest)this.onConnect(d.id,closest)}
-  else if(d.kind==='node'&&d.moved)this.onLayout(d.id,d.world);
-  else if(d.kind==='pan'&&!d.moved){for(const e of this.edgeSegments||[]){const vx=e.q.x-e.p.x,vy=e.q.y-e.p.y,len=vx*vx+vy*vy,t=len?Math.max(0,Math.min(1,((p.x-e.p.x)*vx+(p.y-e.p.y)*vy)/len)):0;if(Math.hypot(p.x-e.p.x-t*vx,p.y-e.p.y-t*vy)<9){this.onEdge(e.id);break}}}
-  if(this.host.hasPointerCapture(e.pointerId))this.host.releasePointerCapture(e.pointerId);this.draw();
+ up(e){
+  const d=this.drag;if(d?.pointerId!==e.pointerId)return;
+  this.drag=null;
+  if(this.host.hasPointerCapture(e.pointerId))this.host.releasePointerCapture(e.pointerId);
+  this.draw();
+  if(d.kind==='connect'&&d.moved){
+   const target=this.dropTarget(e,d.id);
+   if(target)this.onConnect(d.id,target);
+  }else if(d.kind==='node'&&d.moved)this.onLayout(d.id,d.world);
+  else if(d.id)this.onSelect(d.id,false);
+  else if(!d.moved){
+   const edge=this.edgeAt(this.pointer(e));
+   if(edge)this.onEdge(edge);
+  }
  }
  async exportPNG(){
   this.render();const current=this.getScene(),manualActive=this.manual?.mapId===current.map.map_id;if(this.mode==='geo'&&!manualActive&&(!current.source?.map_version||!this.tileStatus||!this.tileStatus.total||this.tileStatus.failed||this.tileStatus.loaded!==this.tileStatus.total))throw Error('公式地形が未取得、または読込が未完了です。読込完了後に再実行するか、公式画像を手動で読み込んでください。');

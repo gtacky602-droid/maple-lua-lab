@@ -20,17 +20,63 @@ try{
  await check('Click and save field proposal, approve, reload',async()=>{
   await node('teyvat:3').click();await page.locator('[name="name"]').fill('QA・風の狩場');await page.locator('[name="recommended_level"]').fill('8');await page.locator('[name="reason"]').fill('QA: 地点編集と再読込');await page.locator('#fieldForm button[type=submit]').click();await page.locator('#reviewConsent').waitFor();assert.match(await page.locator('#modalBody').innerText(),/QA・風の狩場/);await approve();await page.reload({waitUntil:'networkidle'});assert.equal(await page.locator('[name="name"]').inputValue(),'QA・風の狩場');assert.equal(await page.locator('[name="recommended_level"]').inputValue(),'8');
  });
- await check('Drag connection handle to another node',async()=>{
-  await page.locator('#connectMode').check();const a=await node('teyvat:3').locator('.connection-handle').boundingBox(),b=await node('teyvat:7').boundingBox();await page.mouse.move(a.x+a.width/2,a.y+a.height/2);await page.mouse.down();await page.mouse.move(b.x+b.width/2,b.y+b.height/2,{steps:15});await page.mouse.up();await page.locator('#edgeForm').waitFor();assert.equal(await page.locator('[name="from_field"]').inputValue(),'teyvat:3');assert.equal(await page.locator('[name="to_field"]').inputValue(),'teyvat:7');await page.locator('[name="direction"]').selectOption('one_way');await page.locator('[name="kind"]').selectOption('level');await page.locator('[name="min_level"]').fill('8');await page.locator('#edgeForm button[type=submit]').click();await approve();assert.equal(await page.locator('#edgeCount').textContent(),'1');await page.reload({waitUntil:'networkidle'});assert.equal(await page.locator('#edgeCount').textContent(),'1');
+ await check('Drag one map marker directly onto another to propose a connection',async()=>{
+  assert.equal(await page.locator('#connectMode').isChecked(),false);
+  const a=await node('teyvat:3').boundingBox(),b=await node('teyvat:7').boundingBox();
+  await page.mouse.move(a.x+a.width/2,a.y+a.height/2);
+  await page.mouse.down();
+  await page.mouse.move(b.x+b.width/2,b.y+b.height/2,{steps:15});
+  await page.locator('[data-field-id="teyvat:7"].connection-target').waitFor();
+  await page.mouse.up();
+  await page.locator('#edgeForm').waitFor();
+  assert.equal(await page.locator('[name="from_field"]').inputValue(),'teyvat:3');
+  assert.equal(await page.locator('[name="to_field"]').inputValue(),'teyvat:7');
+  await page.locator('[name="direction"]').selectOption('one_way');
+  await page.locator('[name="kind"]').selectOption('level');
+  await page.locator('[name="min_level"]').fill('8');
+  await page.locator('#edgeForm button[type=submit]').click();
+  await page.locator('#reviewConsent').waitFor();
+  assert.equal(await page.locator('#edgeCount').textContent(),'0');
+  await approve();
+  assert.equal(await page.locator('#edgeCount').textContent(),'1');
+  await page.reload({waitUntil:'networkidle'});
+  assert.equal(await page.locator('#edgeCount').textContent(),'1');
  });
  await check('Ctrl+Z and Ctrl+Y reverse and restore approved connection with history',async()=>{
   await page.locator('[data-view="geo"]').click();await page.keyboard.press('Control+z');await page.waitForFunction(()=>document.querySelector('#edgeCount').textContent==='0');await page.keyboard.press('Control+y');await page.waitForFunction(()=>document.querySelector('#edgeCount').textContent==='1');
  });
- await check('Click a connection line and edit its saved settings',async()=>{
-  await page.locator('#zoomIn').click();await page.locator('#zoomIn').click();await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));const a=await node('teyvat:3').boundingBox(),b=await node('teyvat:7').boundingBox();await page.mouse.click((a.x+b.x+a.width)/2,(a.y+b.y+a.height)/2);await page.locator('#editSelectedEdge').click();await page.locator('#modal [name="notes"]').fill('QA: line selection edits the existing edge');await page.locator('#edgeForm button[type=submit]').click();await approve({protectedValue:true});assert.equal(await page.locator('#edgeCount').textContent(),'1');
+ await check('Right-click a connection line to open and edit its saved settings',async()=>{
+  await page.locator('#zoomIn').click();
+  await page.locator('#zoomIn').click();
+  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+  const a=await node('teyvat:3').boundingBox(),b=await node('teyvat:7').boundingBox();
+  const x=(a.x+b.x+a.width)/2,y=(a.y+b.y+a.height)/2;
+  await page.mouse.click(x,y,{button:'right'});
+  await page.locator('#edgeForm').waitFor();
+  assert.equal(await page.locator('[name="from_field"]').inputValue(),'teyvat:3');
+  assert.equal(await page.locator('[name="direction"]').inputValue(),'one_way');
+  assert.equal(await page.locator('[name="min_level"]').inputValue(),'8');
+  await page.locator('#modal [name="notes"]').fill('QA: right click edits the existing edge');
+  await page.locator('#edgeForm button[type=submit]').click();
+  await approve({protectedValue:true});
+  assert.equal(await page.locator('#edgeCount').textContent(),'1');
+  await page.mouse.click(x,y);
+  await page.locator('#editSelectedEdge').waitFor();
  });
  await check('Graph view and independent draggable node layout',async()=>{
   await page.locator('[data-view="graph"]').click();await page.locator('#fitMap').click();const b=await node('teyvat:3').boundingBox();await page.mouse.move(b.x+30,b.y+20);await page.mouse.down();await page.mouse.move(b.x+60,b.y+45,{steps:10});await page.mouse.up();await page.locator('#reviewConsent').waitFor();await approve();await page.reload({waitUntil:'networkidle'});assert.match(await node('teyvat:3').getAttribute('class'),/graph/);await page.screenshot({path:output+'/connection-graph.png',fullPage:true});
+ });
+ await check('Graph connection handle works with connection mode off',async()=>{
+  assert.equal(await page.locator('#connectMode').isChecked(),false);
+  const a=await node('teyvat:3').locator('.connection-handle').boundingBox(),b=await node('teyvat:7').boundingBox();
+  await page.mouse.move(a.x+a.width/2,a.y+a.height/2);
+  await page.mouse.down();
+  await page.mouse.move(b.x+b.width/2,b.y+b.height/2,{steps:15});
+  await page.mouse.up();
+  await page.locator('#edgeForm').waitFor();
+  assert.equal(await page.locator('[name="from_field"]').inputValue(),'teyvat:3');
+  assert.equal(await page.locator('[name="to_field"]').inputValue(),'teyvat:7');
+  await page.locator('#modalClose').click();
  });
  await check('Create monster family through editor',async()=>{
   await page.locator('#monsterOpen').click();await page.locator('#newFamily').click();await page.locator('#modal [name="family_id"]').fill('qa-family');await page.locator('#modal [name="name"]').fill('QAヒルチャール系統');await page.locator('#modal [name="defaults"]').fill('{"hp":100,"attack":10,"defense":5}');await page.locator('#familyForm button[type=submit]').click();await approve();
