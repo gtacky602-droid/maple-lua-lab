@@ -1,0 +1,26 @@
+{
+  "twoSweepWindowsAndFixedIceCenters": true,
+  "fourDistinctReflections": true,
+  "hiddenBodyUntargetable": true,
+  "distinctCastsBreakWards": true,
+  "pyroRemovesTwoLayers": true,
+  "oldCastsAndReactionsRejected": true,
+  "onlyAllFourRevealBody": true,
+  "downIncreasesDamage": true,
+  "noFalseKillRewards": true,
+  "finalTickBreakCancelsStrike": true,
+  "hiddenBodyTerminalDefeatCancelsStrike": true,
+  "timeoutRevealsBody": true,
+  "saveExitAndDefeatCleanUp": true,
+  "oneRewardAndReport": true,
+  "normalAttackWithoutHealing": {
+    "seconds": 112.35,
+    "hp": 30,
+    "reflectionInterruptions": 5
+  },
+  "sameSceneCommands": {
+    "png": 17,
+    "standard": 7844,
+    "light": 2105
+  }
+}

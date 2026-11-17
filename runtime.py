@@ -255,6 +255,9 @@ def runtime():
     moongecko=lua.execute((ROOT/'field-moongecko.lua').read_text(encoding='utf-8'))(core)
     core.moongeckoFieldArt=field_art(lua,'moongecko',('ready','tail','leap','charge','down','anchor'),
                                    idle='moongecko-idle-sprites.json')
+    spiritspeaker=lua.execute((ROOT/'field-spiritspeaker.lua').read_text(encoding='utf-8'))(core)
+    core.spiritspeakerFieldArt=field_art(lua,'spiritspeaker',('ready','sweep','cast','ritual','reflection','down'),
+                                      idle='spiritspeaker-field-ready-sprites-v1.json')
     core.aeonblightFieldArt=field_art(lua,'aeonblight',('wing_first','wing_second','cannon','windup','dash','down'),
                                      idle='aeonblight-idle-sprites.json')
     bathysmal=lua.execute((ROOT/'field-bathysmal.lua').read_text(encoding='utf-8'))(core)
@@ -284,7 +287,7 @@ def runtime():
                         'icewind':icewind,'legatus':legatus,'suanni':suanni,'qucusaur':qucusaur,'yumka':yumka,
                         'configDevice':config_device,'papilla':papilla,'lavaDragon':lava_dragon,'overseer':overseer,
                         'knuckleDuck':knuckle_duck,'battleship':battleship,'frostnightHerra':frostnight_herra,
-                        'whispererNightmares':whisperer_nightmares,'moonfly':moonfly,'moongecko':moongecko})
+                        'whispererNightmares':whisperer_nightmares,'moonfly':moonfly,'moongecko':moongecko,'spiritspeaker':spiritspeaker})
     )
     return lua, core
 

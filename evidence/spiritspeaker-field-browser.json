@@ -1,0 +1,38 @@
+{
+  "browser": "Chrome",
+  "companion": "wanderer",
+  "play": {
+    "won": true,
+    "seconds": 51.58,
+    "moves": [
+      "FSP01",
+      "FSP02",
+      "FSP03"
+    ],
+    "hp": 126,
+    "returns": 0,
+    "interrupted": true,
+    "fireCasts": 2
+  },
+  "scenery": {
+    "key": "spiritspeakerField",
+    "file": "spiritspeaker-field-background-v1.png",
+    "state": "ready"
+  },
+  "questAcceptedInUi": true,
+  "questReport": {
+    "xp": 8600,
+    "mora": 560
+  },
+  "sameSceneCommands": {
+    "png": 36,
+    "standard": 28331,
+    "light": 7621
+  },
+  "fourReflections": true,
+  "hiddenBody": true,
+  "reflectionsBrokenTick": 285,
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}

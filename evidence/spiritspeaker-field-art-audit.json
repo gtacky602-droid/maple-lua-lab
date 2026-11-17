@@ -1,0 +1,211 @@
+{
+  "tool": "built-in image_gen",
+  "references": [
+    {
+      "url": "https://fastcdn.hoyoverse.com/content-v2/hk4e/127545/3f751b88a7b7395ff7c4d94ccba87713_707048637475117345.jpg",
+      "page": null,
+      "view": "Official Japanese illustration: mask, shoulder discs and cloth layers",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "d7c72ee6b61b710af526e876249d029aefc4ad0d649d6ca7a5537569f563e31b"
+    },
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2025/08/16/417404204/f34bea82464d85f97f30a633cb01aecf_4714858121432823633.png",
+      "page": null,
+      "view": "Full-body illustration reused in a community graphic: staff, feet and cloth tips",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "4dcdec874b213d1f03b40e1a574ef240d62a9cfed9db42c6501d66a7107c16ea"
+    },
+    {
+      "url": "https://image.thenerdstash.com/2025/01/genshin-Genshin-Impact-Wayward-Hermetic-Spiritspeaker-Attacks.jpg",
+      "page": null,
+      "view": "Gameplay: confirms floating and oblique clothing silhouette",
+      "directly_viewed": true,
+      "generation_input": false,
+      "sha256": "6bbf48129326f32e805a7035908cd9d97828a545f45742f691d0876a8d202c13"
+    }
+  ],
+  "poses": {
+    "ready": {
+      "height": 160,
+      "crop": [
+        0,
+        0,
+        620,
+        550
+      ],
+      "original": [
+        51,
+        19,
+        483,
+        465
+      ],
+      "box": [
+        25,
+        25,
+        432,
+        446
+      ],
+      "anchor": 0.46064814814814814,
+      "profiles": {
+        "legacy": 5355,
+        "h48c32": 3330,
+        "h32c16": 1527
+      }
+    },
+    "sweep": {
+      "height": 128,
+      "crop": [
+        620,
+        0,
+        620,
+        550
+      ],
+      "original": [
+        536,
+        105,
+        1047,
+        463
+      ],
+      "box": [
+        645,
+        25,
+        511,
+        358
+      ],
+      "anchor": 0.36007827788649704,
+      "profiles": {
+        "legacy": 4995,
+        "h48c32": 3108,
+        "h32c16": 1435
+      }
+    },
+    "cast": {
+      "height": 157,
+      "crop": [
+        1240,
+        0,
+        620,
+        550
+      ],
+      "original": [
+        1105,
+        15,
+        1515,
+        454
+      ],
+      "box": [
+        1265,
+        25,
+        410,
+        439
+      ],
+      "anchor": 0.35365853658536583,
+      "profiles": {
+        "legacy": 5537,
+        "h48c32": 3381,
+        "h32c16": 1576
+      }
+    },
+    "ritual": {
+      "height": 164,
+      "crop": [
+        0,
+        550,
+        620,
+        550
+      ],
+      "original": [
+        74,
+        523,
+        487,
+        981
+      ],
+      "box": [
+        25,
+        575,
+        413,
+        458
+      ],
+      "anchor": 0.4261501210653753,
+      "profiles": {
+        "legacy": 5831,
+        "h48c32": 3688,
+        "h32c16": 1658
+      }
+    },
+    "reflection": {
+      "height": 161,
+      "crop": [
+        620,
+        550,
+        620,
+        550
+      ],
+      "original": [
+        566,
+        525,
+        971,
+        974
+      ],
+      "box": [
+        645,
+        575,
+        405,
+        449
+      ],
+      "anchor": 0.454320987654321,
+      "profiles": {
+        "legacy": 6145,
+        "h48c32": 3789,
+        "h32c16": 1642
+      }
+    },
+    "down": {
+      "height": 118,
+      "crop": [
+        1240,
+        550,
+        620,
+        550
+      ],
+      "original": [
+        1049,
+        626,
+        1522,
+        954
+      ],
+      "box": [
+        1265,
+        575,
+        473,
+        328
+      ],
+      "anchor": 0.5095137420718816,
+      "profiles": {
+        "legacy": 4572,
+        "h48c32": 2847,
+        "h32c16": 1307
+      }
+    }
+  },
+  "shared_scale": 0.35874439461883406,
+  "prompts": [
+    "Create an exactly 3-column by 2-row transparent PIXEL ART sprite atlas with wide generous gutters, six variations of Genshin Wayward Hermetic Spiritspeaker based on the attached official masked priestess image, full-body illustration and game battle screenshot. REDRAW all body anatomy in consistent stylized 2D chibi RPG proportions, large masked head +20%, compact short torso and short lower legs, about THREE anatomical heads tall excluding the separate tall head ornament. Slightly broader shoulder, substantial simplified hands and bare feet. Preserve the identifiable features: navy and cyan lotus-like headdress with a conspicuous hollow heart-shaped upper gap, pale ice diamond on forehead, pointed blue mask, cyan eyes, small visible chin, long dark cyan/blue twin braids, circular bronze shoulder ornaments, lavender icy pale blue opaque ritual tunic, long teal gloves, pale stockings with turquoise diamond markings, large teal bare feet, long split blue cape edged in lavender angular designs. One oversized dark-blue ceremonial staff with leaf-shaped pale blue/purple feather tip, held as a perch or brush. All face RIGHT. Top left seated sideways on floating horizontal staff, legs short and crossed at ankles, free hand lifted for anticipation, this is also the neutral idle. Top middle standing slightly crouched in a low forward staff sweep, the feather tip extending RIGHT, short chunky feet and bent knees. Top right STANDING UPRIGHT with both feet hanging just beneath the body and both hands holding staff diagonally right preparing an ice projectile, so all short body proportions and large head are clearly visible. Bottom left ritual pose seated cross-legged above staff, palms open, headdress and cape spread, no outer effects or circles. Bottom center a compact icy CYAN/LILAC reflection copy with identical head and staff silhouette, seated on staff, light palette and strong contour to distinguish it from true body. Bottom right staggered low kneeling exhausted pose, head lowered, staff tip touching the baseline, headdress and braids retain their shapes. Entire isolated bodies with actual alpha transparency, crisp pixel clusters, no scene, haze, words, labels, grids or floating separate effects.",
+    "Create a wide 16:9 side-view original pixel RPG underground battle background inspired by the supplied Wayward Hermetic Spiritspeaker game arena. A secluded Natlan cave chamber near the Masters of the Night-Wind. Dark deep blue-purple rock walls in the distance, subtle teal cave plants and tiny glowing cold blue flowers along back edges, a few subdued violet mineral seams, low rock shelves only at far back. A broad continuous flat muted brown-gray stone and packed earth fighting floor occupies the bottom quarter, center unobstructed, flat foreground edge. No prominent icy crystal foreground pillars, characters, masks, staff props, enemies, text, symbols, HUD, white effects or hazard marks. Use restrained violet-blue colors so cyan reflections and orange combat effects have clear silhouettes. Crisp consistent layered pixel textures."
+  ],
+  "raw_atlas_sha256": "dfe64c543a7103642f66d0cedb8de993efa67b58d57b2cef133ff5ed8035fbdd",
+  "legacy_idle_sha256": "b9005b1ad1cc04cf2c4e162c0b67d3f8a005a9e3a5cc981955f493367ebd038e",
+  "outputs": {
+    "spiritspeaker-field-poses-source-v1.png": "fb28327f2c320c5fd1152a4c27cd13be3db912a61fe21530cee95750353560f6",
+    "spiritspeaker-field-background-v1.png": "c5cd2ed9fedb3135910678696d3da3cc9b9c1f2c857b3378515153c3b0f5dca1"
+  },
+  "model_lookup": "Models Resource asset 557087 returned HTTP 403 again. Geometry, rear and depth unverified.",
+  "notes": [
+    "Six connected silhouettes repacked with transparent gutters. Original alpha retained inside each outline.",
+    "New battle idle uses ready pose; the old tall idle is preserved in the art gallery.",
+    "Compact humanoid redraw with oversized mask, short torso and lower legs; crown is not counted as anatomical head.",
+    "The cavern is a temporary lab background based on the viewed game scene."
+  ]
+}

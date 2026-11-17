@@ -693,12 +693,12 @@
     {
       "node": "natlan-field",
       "mode": "sprite",
-      "visible_portals": 7
+      "visible_portals": 8
     },
     {
       "node": "natlan-field",
       "mode": "rect",
-      "visible_portals": 7
+      "visible_portals": 8
     },
     {
       "node": "qucusaur-field-cavern",
@@ -1557,6 +1557,16 @@
     },
     {
       "node": "thunder-field-crest",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "spiritspeaker-field-grotto",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "spiritspeaker-field-grotto",
       "mode": "rect",
       "visible_portals": 1
     }

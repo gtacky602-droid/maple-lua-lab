@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 44,
+    "partial": 45,
     "complete": 0
   },
   "encounters": [
@@ -1914,23 +1914,27 @@
       "entity_ids": [
         "25520101"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/waywardhermeticspiritspeaker.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/waywardhermeticspiritspeaker.json",
+        "https://genshin.hoyoverse.com/ja/news/detail/127791",
+        "evidence/spiritspeaker-field-lua.json",
+        "evidence/spiritspeaker-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "分身の層数・時刻・報酬の調整",
+        "左右・被弾・撃破の追加作画と音",
+        "Webマルチと幻境実機"
       ],
+      "fieldNode": "spiritspeaker-field-grotto",
+      "fieldEntrance": "ナタ・謎煙の修練窟（Lv114）",
       "art_candidate": {
         "source": "assets/spiritspeaker-idle-source-v1.png",
         "encoding": "assets/spiritspeaker-idle-sprites.json",
-        "audit": "evidence/spiritspeaker-reference-audit.json",
-        "status": "idle candidate"
+        "audit": "evidence/spiritspeaker-field-art-audit.json",
+        "status": "Legacy gallery idle retained; Web battle uses six compact humanoid poses, four reflections and a redrawn ready idle"
       }
     },
     {

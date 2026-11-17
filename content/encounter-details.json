@@ -672,10 +672,12 @@
       }
     },
     "boss-25520101": {
+      "remaining": ["分身の層数・時刻・報酬の調整", "左右・被弾・撃破の追加作画と音", "Webマルチと幻境実機"],
+      "extra_evidence": ["https://genshin.hoyoverse.com/ja/news/detail/127791", "evidence/spiritspeaker-field-lua.json", "evidence/spiritspeaker-field-browser.json"],
       "art_candidate": {
         "item": "spiritspeaker",
-        "audit": "evidence/spiritspeaker-reference-audit.json",
-        "status": "idle candidate"
+        "audit": "evidence/spiritspeaker-field-art-audit.json",
+        "status": "Legacy gallery idle retained; Web battle uses six compact humanoid poses, four reflections and a redrawn ready idle"
       }
     },
     "stygian-farka": {

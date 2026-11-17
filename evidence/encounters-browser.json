@@ -14,12 +14,13 @@
   "frostnightHerraFieldRoute": true,
   "whispererNightmaresFieldRoute": true,
   "moonflyFieldRoute": true,
+  "moongeckoFieldRoute": true,
+  "spiritspeakerFieldRoute": true,
   "stygianCandidates": 7,
   "disabledUnimplemented": true,
   "launchesVerified": [
     "boss_array_3",
     "boss_primo_electro",
     "boss_farka"
-  ],
-  "moongeckoFieldRoute": true
+  ]
 }

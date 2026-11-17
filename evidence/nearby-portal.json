@@ -757,6 +757,10 @@
       "to": "atocpan-lava-field"
     },
     {
+      "node": "natlan-field",
+      "to": "spiritspeaker-field-grotto"
+    },
+    {
       "node": "qucusaur-field-cavern",
       "to": "natlan-field"
     },
@@ -1347,6 +1351,10 @@
     {
       "node": "thunder-field-crest",
       "to": "thunder-approach"
+    },
+    {
+      "node": "spiritspeaker-field-grotto",
+      "to": "natlan-field"
     }
   ],
   "hidden_connections_checked": 9,

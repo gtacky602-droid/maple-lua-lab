@@ -1,5 +1,5 @@
 {
-  "count": 80,
+  "count": 81,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -43,6 +43,7 @@
     "The Whisperer of Nightmares has a Smokecloud Mountain shore route",
     "Radiant Moonfly has a Nod-Krai cavern route",
     "Radiant Moongecko has a Nod-Krai moonstone cavern route",
+    "Spiritspeaker has a Natlan grotto route",
     "public roster matched without merging Icewind modes or Dottore challenges",
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",

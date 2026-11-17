@@ -1407,6 +1407,132 @@
         {"id":"FMG02","kind":"leap","title":"岩尾の跳び込み","reach":220,"lock":56,"distance":1.55,"width":1.8,"height":0.78,"air":[90,134],"lift":1.0,"active":[[134,148]],"recover":182,"total":286,"damage":26,"element":"geo"},
         {"id":"FMG03","kind":"anchor","title":"月石の錨・空虚の残響","reach":230,"lock":60,"radius":2.4,"bind":96,"deploy":112,"height":0.74,"active":[[480,496]],"recover":520,"total":640,"damage":34,"element":"geo"}
       ]
+    },
+{
+  "id": "boss-25520101",
+  "controller": "spiritspeaker",
+  "entity": 25520101,
+  "name": "迷える霊覚の修験者",
+  "node": "spiritspeaker-field-grotto",
+  "storyChallenge": "spiritspeaker",
+  "level": 114,
+  "hp": 1060,
+  "mora": 420,
+  "artHeight": 160,
+  "floorY": 480,
+  "hover": 24,
+  "home": 940,
+  "arenaMin": 325,
+  "arenaMax": 1580,
+  "noticeRange": 350,
+  "noticeTicks": 36,
+  "restTicks": 42,
+  "leashTicks": 360,
+  "respawnTicks": 3600,
+  "walkSpeed": 60,
+  "contactDamage": 0,
+  "keepHpOnExit": true,
+  "resist": {
+    "cryo": 0.4
+  },
+  "reflections": {
+    "layers": 3,
+    "pyroLayers": 2,
+    "offsets": [
+      -2.3,
+      -0.75,
+      0.75,
+      2.3
+    ],
+    "downTicks": 180,
+    "downFactor": 1.25
+  },
+  "moves": [
+    {
+      "id": "FSP01",
+      "kind": "sweep",
+      "title": "霊筆の二連薙ぎ",
+      "reach": 210,
+      "lock": 48,
+      "near": 0.15,
+      "far": 2.1,
+      "height": 0.68,
+      "active": [
+        [
+          104,
+          116
+        ],
+        [
+          172,
+          186
+        ]
+      ],
+      "recover": 212,
+      "total": 288,
+      "damage": 19,
+      "element": "cryo"
+    },
+    {
+      "id": "FSP02",
+      "kind": "ice",
+      "title": "二つの氷色の筆跡",
+      "reach": 225,
+      "lock": 54,
+      "offsets": [
+        0.85,
+        2.2
+      ],
+      "width": 1.0,
+      "height": 0.7,
+      "active": [
+        [
+          112,
+          126
+        ],
+        [
+          184,
+          198
+        ]
+      ],
+      "recover": 226,
+      "total": 310,
+      "damage": 21,
+      "element": "cryo"
+    },
+    {
+      "id": "FSP03",
+      "kind": "reflections",
+      "title": "色彩の分身",
+      "reach": 230,
+      "lock": 60,
+      "deploy": 64,
+      "tell": 60,
+      "reachU": 1.65,
+      "height": 0.7,
+      "active": [
+        [
+          240,
+          254
+        ],
+        [
+          320,
+          334
+        ],
+        [
+          400,
+          414
+        ],
+        [
+          480,
+          494
+        ]
+      ],
+      "recover": 660,
+      "total": 780,
+      "damage": 22,
+      "element": "cryo"
     }
+  ]
+}
   ]
 }

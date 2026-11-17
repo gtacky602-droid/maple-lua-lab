@@ -936,6 +936,12 @@
       "count": 0,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "spiritspeaker-field-grotto",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,
