@@ -1,0 +1,843 @@
+{
+  "get_field": {
+    "type": "object",
+    "properties": {
+      "field_id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "field_id"
+    ],
+    "additionalProperties": false
+  },
+  "list_fields": {
+    "type": "object",
+    "properties": {
+      "region_id": {
+        "type": "string"
+      },
+      "query": {
+        "type": "string"
+      },
+      "min_level": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "minimum": 1,
+        "maximum": 200
+      },
+      "max_level": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "minimum": 1,
+        "maximum": 200
+      }
+    },
+    "required": [],
+    "additionalProperties": false
+  },
+  "compare_fields": {
+    "type": "object",
+    "properties": {
+      "field_ids": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "field_ids"
+    ],
+    "additionalProperties": false
+  },
+  "export_map": {
+    "type": "object",
+    "properties": {
+      "map_id": {
+        "type": "string"
+      },
+      "format": {
+        "enum": [
+          "json",
+          "markdown",
+          "csv",
+          "edges",
+          "runtime"
+        ]
+      }
+    },
+    "required": [
+      "map_id"
+    ],
+    "additionalProperties": false
+  },
+  "get_change_history": {
+    "type": "object",
+    "properties": {
+      "field_id": {
+        "type": "string"
+      }
+    },
+    "required": [],
+    "additionalProperties": false
+  },
+  "check_connections": {
+    "type": "object",
+    "properties": {
+      "start_field_id": {
+        "type": "string"
+      }
+    },
+    "required": [],
+    "additionalProperties": false
+  },
+  "update_field": {
+    "type": "object",
+    "properties": {
+      "base_revision": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "reason": {
+        "type": "string",
+        "minLength": 1
+      },
+      "actor": {
+        "enum": [
+          "user",
+          "Codex",
+          "ChatGPT"
+        ]
+      },
+      "source": {
+        "type": "string"
+      },
+      "field_id": {
+        "type": "string"
+      },
+      "changes": {
+        "type": "object",
+        "properties": {
+          "enemy_level_max": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 200
+          },
+          "region_id": {
+            "type": "string"
+          },
+          "location_alias": {
+            "type": "string"
+          },
+          "enemy_level_min": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 200
+          },
+          "local_legend": {
+            "type": "string"
+          },
+          "recommended_level": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 200
+          },
+          "quests": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "elite": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "terrain": {
+            "type": "string"
+          },
+          "production_state": {
+            "enum": [
+              "未着手",
+              "設計中",
+              "制作中",
+              "完成"
+            ]
+          },
+          "respawn_seconds": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1000000000000.0
+          },
+          "notes": {
+            "type": "string"
+          },
+          "required_route": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "base_revision",
+      "reason",
+      "changes",
+      "field_id"
+    ],
+    "additionalProperties": false
+  },
+  "register_monster_family": {
+    "type": "object",
+    "properties": {
+      "base_revision": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "reason": {
+        "type": "string",
+        "minLength": 1
+      },
+      "actor": {
+        "enum": [
+          "user",
+          "Codex",
+          "ChatGPT"
+        ]
+      },
+      "source": {
+        "type": "string"
+      },
+      "family_id": {
+        "type": "string"
+      },
+      "changes": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "element": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "defaults": {
+            "type": "object"
+          },
+          "behavior": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sprite": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "animation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "base_revision",
+      "reason",
+      "changes"
+    ],
+    "additionalProperties": false
+  },
+  "register_monster_variant": {
+    "type": "object",
+    "properties": {
+      "base_revision": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "reason": {
+        "type": "string",
+        "minLength": 1
+      },
+      "actor": {
+        "enum": [
+          "user",
+          "Codex",
+          "ChatGPT"
+        ]
+      },
+      "source": {
+        "type": "string"
+      },
+      "monster_id": {
+        "type": "string"
+      },
+      "changes": {
+        "type": "object",
+        "properties": {
+          "base_level": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 200
+          },
+          "region_id": {
+            "type": "string"
+          },
+          "exp": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1000000000000.0
+          },
+          "hp": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1000000000000.0
+          },
+          "attack": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1000000000000.0
+          },
+          "animation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "classification": {
+            "enum": [
+              "normal",
+              "elite",
+              "local_legend",
+              "boss",
+              "weekly_boss"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "element": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "behavior": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "drops": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {}
+          },
+          "sprite": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "family_id": {
+            "type": "string"
+          },
+          "defense": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1000000000000.0
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "base_revision",
+      "reason",
+      "changes"
+    ],
+    "additionalProperties": false
+  },
+  "update_monster_variant": {
+    "type": "object",
+    "properties": {
+      "base_revision": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "reason": {
+        "type": "string",
+        "minLength": 1
+      },
+      "actor": {
+        "enum": [
+          "user",
+          "Codex",
+          "ChatGPT"
+        ]
+      },
+      "source": {
+        "type": "string"
+      },
+      "monster_id": {
+        "type": "string"
+      },
+      "changes": {
+        "type": "object",
+        "properties": {
+          "base_level": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 200
+          },
+          "region_id": {
+            "type": "string"
+          },
+          "exp": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1000000000000.0
+          },
+          "hp": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1000000000000.0
+          },
+          "attack": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1000000000000.0
+          },
+          "animation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "classification": {
+            "enum": [
+              "normal",
+              "elite",
+              "local_legend",
+              "boss",
+              "weekly_boss"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "element": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "behavior": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "drops": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {}
+          },
+          "sprite": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "family_id": {
+            "type": "string"
+          },
+          "defense": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1000000000000.0
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "base_revision",
+      "reason",
+      "changes",
+      "monster_id"
+    ],
+    "additionalProperties": false
+  },
+  "add_enemy": {
+    "type": "object",
+    "properties": {
+      "base_revision": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "reason": {
+        "type": "string",
+        "minLength": 1
+      },
+      "actor": {
+        "enum": [
+          "user",
+          "Codex",
+          "ChatGPT"
+        ]
+      },
+      "source": {
+        "type": "string"
+      },
+      "spawn_id": {
+        "type": "string"
+      },
+      "monster_id": {
+        "type": "string"
+      },
+      "level_override": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "minimum": 1,
+        "maximum": 200
+      },
+      "count": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10000
+      },
+      "area": {
+        "type": "object"
+      },
+      "conditions": {
+        "type": "object"
+      },
+      "respawn_seconds": {
+        "type": [
+          "number",
+          "null"
+        ],
+        "minimum": 0,
+        "maximum": 1000000000000.0
+      },
+      "field_id": {
+        "type": "string"
+      },
+      "special": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "base_revision",
+      "reason",
+      "field_id",
+      "monster_id"
+    ],
+    "additionalProperties": false
+  },
+  "remove_enemy": {
+    "type": "object",
+    "properties": {
+      "base_revision": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "reason": {
+        "type": "string",
+        "minLength": 1
+      },
+      "actor": {
+        "enum": [
+          "user",
+          "Codex",
+          "ChatGPT"
+        ]
+      },
+      "source": {
+        "type": "string"
+      },
+      "spawn_id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "base_revision",
+      "reason",
+      "spawn_id"
+    ],
+    "additionalProperties": false
+  },
+  "set_enemy_level": {
+    "type": "object",
+    "properties": {
+      "base_revision": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "reason": {
+        "type": "string",
+        "minLength": 1
+      },
+      "actor": {
+        "enum": [
+          "user",
+          "Codex",
+          "ChatGPT"
+        ]
+      },
+      "source": {
+        "type": "string"
+      },
+      "spawn_id": {
+        "type": "string"
+      },
+      "level": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "minimum": 1,
+        "maximum": 200
+      }
+    },
+    "required": [
+      "base_revision",
+      "reason",
+      "spawn_id",
+      "level"
+    ],
+    "additionalProperties": false
+  },
+  "set_elite": {
+    "type": "object",
+    "properties": {
+      "base_revision": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "reason": {
+        "type": "string",
+        "minLength": 1
+      },
+      "actor": {
+        "enum": [
+          "user",
+          "Codex",
+          "ChatGPT"
+        ]
+      },
+      "source": {
+        "type": "string"
+      },
+      "field_id": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "classification": {
+        "enum": [
+          "elite",
+          "local_legend"
+        ]
+      }
+    },
+    "required": [
+      "base_revision",
+      "reason",
+      "field_id",
+      "name"
+    ],
+    "additionalProperties": false
+  },
+  "connect_fields": {
+    "type": "object",
+    "properties": {
+      "base_revision": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "reason": {
+        "type": "string",
+        "minLength": 1
+      },
+      "actor": {
+        "enum": [
+          "user",
+          "Codex",
+          "ChatGPT"
+        ]
+      },
+      "source": {
+        "type": "string"
+      },
+      "edge_id": {
+        "type": "string"
+      },
+      "exit_position": {
+        "type": "object",
+        "required": [
+          "x",
+          "y"
+        ],
+        "properties": {
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "to_field": {
+        "type": "string"
+      },
+      "direction": {
+        "enum": [
+          "both",
+          "one_way"
+        ]
+      },
+      "kind": {
+        "enum": [
+          "portal",
+          "level",
+          "quest",
+          "hidden",
+          "boat",
+          "temporary"
+        ]
+      },
+      "entrance_position": {
+        "type": "object",
+        "required": [
+          "x",
+          "y"
+        ],
+        "properties": {
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "conditions": {
+        "type": "object"
+      },
+      "notes": {
+        "type": "string"
+      },
+      "from_field": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "base_revision",
+      "reason",
+      "from_field",
+      "to_field"
+    ],
+    "additionalProperties": false
+  },
+  "delete_connection": {
+    "type": "object",
+    "properties": {
+      "base_revision": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "reason": {
+        "type": "string",
+        "minLength": 1
+      },
+      "actor": {
+        "enum": [
+          "user",
+          "Codex",
+          "ChatGPT"
+        ]
+      },
+      "source": {
+        "type": "string"
+      },
+      "edge_id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "base_revision",
+      "reason",
+      "edge_id"
+    ],
+    "additionalProperties": false
+  }
+}

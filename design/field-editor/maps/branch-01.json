@@ -1,0 +1,40 @@
+{
+  "map_id": "branch-01-map",
+  "region_id": "branch-01",
+  "name": "ドラゴンスパイン",
+  "kind": "high_level_branch",
+  "official_map_id": 2,
+  "node_ids": [
+    "teyvat:6537",
+    "teyvat:6538",
+    "teyvat:6540",
+    "teyvat:6594",
+    "teyvat:6596",
+    "teyvat:6599",
+    "teyvat:6600",
+    "teyvat:6601",
+    "teyvat:6603",
+    "teyvat:6604",
+    "teyvat:6606",
+    "teyvat:6608",
+    "teyvat:6609"
+  ],
+  "level_guide": {
+    "recommended": 35,
+    "enemy_min": 40,
+    "enemy_max": 55,
+    "deepest": 60,
+    "state": "approved",
+    "source": "User request 2026-11-17"
+  },
+  "layers": [
+    "all",
+    "surface",
+    "underground",
+    "unknown"
+  ],
+  "temporary": false,
+  "membership_source": "Explicit editor grouping by pinned marker IDs; official area_id remains 1; review on terrain",
+  "membership_state": "proposed",
+  "exclude_from_normal": []
+}

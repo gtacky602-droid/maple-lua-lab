@@ -1,0 +1,40 @@
+{
+  "map_id": "branch-06-map",
+  "region_id": "branch-06",
+  "name": "ドーンマンポート",
+  "kind": "high_level_branch",
+  "official_map_id": 2,
+  "node_ids": [
+    "teyvat:95782",
+    "teyvat:95792",
+    "teyvat:95793",
+    "teyvat:95794",
+    "teyvat:95795",
+    "teyvat:95796",
+    "teyvat:95797",
+    "teyvat:95798",
+    "teyvat:95799",
+    "teyvat:95800",
+    "teyvat:95801",
+    "teyvat:95802",
+    "teyvat:95803"
+  ],
+  "level_guide": {
+    "recommended": 150,
+    "enemy_min": 155,
+    "enemy_max": 170,
+    "deepest": 175,
+    "state": "approved",
+    "source": "User request 2026-11-17"
+  },
+  "layers": [
+    "all",
+    "surface",
+    "underground",
+    "unknown"
+  ],
+  "temporary": false,
+  "membership_source": "Explicit editor grouping by pinned marker IDs; official area_id remains 1; review on terrain",
+  "membership_state": "proposed",
+  "exclude_from_normal": []
+}

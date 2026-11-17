@@ -1,0 +1,26 @@
+{
+  "map_id": "hidden-02-map",
+  "region_id": "hidden-02",
+  "name": "ヴェルーリヤ・ミラージュ",
+  "kind": "hidden_world",
+  "official_map_id": null,
+  "node_ids": [],
+  "level_guide": {
+    "recommended": null,
+    "enemy_min": null,
+    "enemy_max": null,
+    "deepest": null,
+    "state": "unassigned",
+    "source": "No assigned level"
+  },
+  "layers": [
+    "all",
+    "surface",
+    "underground",
+    "unknown"
+  ],
+  "temporary": true,
+  "membership_source": "Official node membership not yet confirmed; no coordinates invented",
+  "membership_state": "unassigned",
+  "exclude_from_normal": []
+}
