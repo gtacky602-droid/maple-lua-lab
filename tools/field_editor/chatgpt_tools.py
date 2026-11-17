@@ -1,7 +1,7 @@
 """Allowlisted ChatGPT tools over the same Store used by the editor."""
 from collections import Counter
 
-from .model import accepted, integer, require, resolve_variant
+from .model import NODE_KINDS, accepted, integer, require, resolve_variant
 
 STRING = {'type': 'string', 'minLength': 1, 'maxLength': 160}
 PAGE = {
@@ -23,16 +23,25 @@ PROPOSAL_OPERATION = object_schema({
     'collection': {'type': 'string', 'enum': list(PROPOSAL_COLLECTIONS)},
     'id': STRING,
     'action': {'type': 'string', 'enum': ['upsert', 'delete']},
-    'changes': {'type': 'object', 'description': 'Fields to change. Required for upsert. Omit for delete.'},
+    'changes': {'type': 'object',
+                'description': 'Design values for upsert. Omit for delete. To create a custom waypoint, '
+                               'use field_definitions with a new waypoint-* ID, name and waypoint_position. '
+                               'For new field_edges provide both field IDs, direction, kind, conditions, '
+                               'exit_position, entrance_position and notes.',
+                'properties': {
+                    'waypoint_position': object_schema({
+                        'map_id': STRING, 'x': {'type': 'number'}, 'y': {'type': 'number'},
+                    }, ('map_id', 'x', 'y')),
+                }},
 }, ('collection', 'id'))
 
 TOOLS = {
     'get_revision': ('Get the current authoritative field-design revision and update time.', {}, ()),
-    'list_regions': ('List regions and map IDs. For all 51 Mondstadt map points use region-01-map with list_fields.',
+    'list_regions': ('List the eight main regions and all additional maps. Use the returned map_id with list_fields.',
                      {}, ()),
     'list_fields': ('List field IDs, map coordinates and recommended levels. map_id selects map membership, '
-                    'region_id selects design region. Use offset and limit to page.',
-                    {'map_id': STRING, 'region_id': STRING, **PAGE}, ()),
+                    'region_id selects design region. kind filters waypoints, statues or domains. Use offset and limit to page.',
+                    {'map_id': STRING, 'region_id': STRING, 'kind': {'type': 'string', 'enum': list(NODE_KINDS)}, **PAGE}, ()),
     'get_field': ('Read one field by ID, including official coordinates, map memberships, current connections, '
                   'and placed enemies with resolved levels.', {'field_id': STRING}, ('field_id',)),
     'get_connection_graph': ('Read accepted edges and node IDs, including edges that cross the selected map boundary.',
@@ -47,7 +56,9 @@ TOOLS = {
                      'By default a selected map starts at its first point.',
                      {'map_id': STRING, 'start_field_id': STRING, **PAGE}, ()),
     'create_proposal': ('Save a pending change proposal for the local editor to review. '
-                        'Get the current revision first. Local approval is required for every design change.',
+                        'Read the current revision and resolve country and field IDs first. Use list_fields coordinates or '
+                        'coordinates provided by the user for custom waypoints. A batch may add waypoints and '
+                        'connect them across maps. Local approval is required for every design change.',
                         {'base_revision': {'type': 'integer', 'minimum': 0},
                          'reason': {'type': 'string', 'minLength': 1, 'maxLength': 2000},
                          'operations': {'type': 'array', 'minItems': 1, 'maxItems': PROPOSAL_LIMIT,
@@ -104,7 +115,8 @@ def call_tool(store, name, args, allow_proposals):
                 ), None)
             if proposal is None:
                 proposal = store.propose({**args, 'actor': 'ChatGPT', 'source': 'ChatGPT MCP'})
-        return {k: proposal[k] for k in ('proposal_id', 'base_revision', 'status', 'reason')}
+        return {**{k: proposal[k] for k in ('proposal_id', 'base_revision', 'status', 'reason')},
+                'affected_field_ids': proposal['impact']['affected_fields']}
 
     # Keep the revision, graph report and all returned records on the same snapshot.
     # report() obtains its own snapshot, so use its revision for report responses.
@@ -127,6 +139,8 @@ def call_tool(store, name, args, allow_proposals):
              'field_count': len(m['node_ids'])} for m in maps.values()
         ]}
     if name == 'list_fields':
+        kind = args.get('kind')
+        require('kind' not in args or kind in NODE_KINDS, 'Unknown field kind')
         ids = maps[map_id]['node_ids'] if map_id else fields
         rows = [
             {**{k: fields[i][k] for k in ('field_id', 'name', 'location_alias', 'region_id', 'recommended_level')},
@@ -134,7 +148,7 @@ def call_tool(store, name, args, allow_proposals):
              'official_map_id': node['map_id'],
              **{k: node[k] for k in ('x', 'y', 'kind')},
              **({'custom': True} if node.get('custom') else {})}
-            for i in ids for node in [store.map_node(i, data)] if region_id is None or fields[i]['region_id'] == region_id
+            for i in ids for node in [store.map_node(i, data)] if (kind is None or node['kind'] == kind) and (region_id is None or fields[i]['region_id'] == region_id)
         ]
         return {**revision, 'design_map_id': map_id, **page(rows, args)}
     if name == 'get_field':

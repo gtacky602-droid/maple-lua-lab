@@ -10,16 +10,22 @@ import os
 import secrets
 import threading
 from urllib.parse import parse_qs, unquote, urlparse
-from urllib.request import Request, urlopen
+from urllib.request import HTTPRedirectHandler, Request, build_opener, urlopen
 from urllib.error import HTTPError, URLError
 
-from .model import ROOT, Store, DesignError, require
+from .model import ROOT, Store, DesignError, floor_image_url, require
 from .commands import operation, compile_japanese
 from .remote_mcp import RemoteMCP
 
 WEB = Path(__file__).parent / 'web'
 MAX_BODY = 4 * 1024 * 1024
 TILE_LOCK = threading.Lock()
+
+
+class FloorImageRedirect(HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        require(floor_image_url(newurl), 'Unapproved floor image redirect')
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
 class EditorServer(ThreadingHTTPServer):
@@ -104,7 +110,9 @@ class Handler(BaseHTTPRequestHandler):
             if path == '/api/bootstrap':
                 # Browser-only bootstrap. Bearer agents receive no approval credential.
                 if self.headers.get('Authorization') or self.headers.get('Sec-Fetch-Site') != 'same-origin': raise DesignError('Open the local editor page to initialize a UI session; agents use documented API operations', 403)
-                return self.send(200, {'ui_token': self.server.ui_token, 'custom_waypoints': True, 'maps': store.maps, 'map_sources': store.sources, 'map_nodes': store.nodes, 'catalog': {k: store.catalog[k] for k in ('version', 'source', 'captured_at', 'complete_world_verified')}, 'project': store.snapshot()})
+                return self.send(200, {'ui_token': self.server.ui_token, 'custom_waypoints': True, 'maps': store.maps, 'map_sources': store.sources, 'map_floors': store.floors, 'map_nodes': store.nodes, 'catalog': {k: store.catalog[k] for k in ('version', 'source', 'captured_at', 'complete_world_verified')}, 'project': store.snapshot()})
+            if path.startswith('/floors/'):
+                return self.floor_image(path)
             if path.startswith('/tiles/'):
                 return self.tile(path)
             if path.startswith('/api/'):
@@ -170,6 +178,35 @@ class Handler(BaseHTTPRequestHandler):
         if isinstance(e, DesignError): return self.send(e.status, {'error': str(e), **e.details})
         if isinstance(e, (ValueError, TypeError, KeyError, AttributeError, json.JSONDecodeError)): return self.send(400, {'error': 'Invalid request: ' + str(e)})
         self.send(500, {'error': 'Internal error; no design transaction was committed'})
+
+    def floor_image(self, path):
+        parts = path.split('/')
+        require(len(parts) == 4, 'Invalid floor image path')
+        map_id, floor_id = map(int, parts[2:])
+        floor = self.server.store.floors.get(str(map_id), {}).get(floor_id)
+        require(floor is not None, 'Official floor image unavailable')
+        url = floor['url']
+        require(floor_image_url(url), 'Unapproved floor image host')
+        key = hashlib.sha256(url.encode()).hexdigest()
+        cache = self.server.store.root / 'work/field-editor-tiles' / 'floors'
+        target = cache / (key + '.png')
+        if target.exists():
+            return self.send(200, target.read_bytes(), 'image/png')
+        try:
+            opener = build_opener(FloorImageRedirect())
+            request = Request(url, headers={'User-Agent': 'FieldDesignEditor/1 (local design preview)'})
+            with opener.open(request, timeout=15) as response:
+                raw = response.read(12 * 1024 * 1024 + 1)
+            require(len(raw) <= 12 * 1024 * 1024 and raw.startswith(bytes.fromhex('89504e470d0a1a0a')), 'Invalid floor image')
+        except (HTTPError, URLError, TimeoutError):
+            return self.send(502, {'error': 'Official floor image unavailable'})
+        with TILE_LOCK:
+            cache.mkdir(parents=True, exist_ok=True)
+            if not target.exists():
+                tmp = target.with_suffix('.tmp')
+                tmp.write_bytes(raw)
+                tmp.replace(target)
+        return self.send(200, raw, 'image/png')
 
     def tile(self, path):
         parts = path.split('/')

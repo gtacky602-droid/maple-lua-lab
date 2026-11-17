@@ -106,12 +106,15 @@ class ChatGPTMCPTests(unittest.TestCase):
         self.assertEqual(rev, self.tool('get_revision')[1]['revision'])
         regions = self.tool('list_regions')[1]['regions']
         mond = next(m for m in regions if m['map_id'] == 'region-01-map')
-        self.assertEqual(51, mond['field_count'])
+        self.assertEqual(64, mond['field_count'])
         _, data = self.tool('list_fields', {'map_id': mond['map_id']})
-        self.assertEqual((51, 51, rev), (data['total'], len(data['items']), data['revision']))
+        self.assertEqual((64, 64, rev), (data['total'], len(data['items']), data['revision']))
         first = self.tool('list_fields', {'map_id': mond['map_id'], 'limit': 50})[1]
         self.assertEqual(50, first['next_offset'])
-        self.assertEqual(1, len(self.tool('list_fields', {'map_id': mond['map_id'], 'offset': 50})[1]['items']))
+        self.assertEqual(14, len(self.tool('list_fields', {'map_id': mond['map_id'], 'offset': 50})[1]['items']))
+        domains = self.tool('list_fields', {'map_id': mond['map_id'], 'kind': 'domain'})[1]
+        self.assertEqual(13, domains['total'])
+        self.assertTrue(all(f['kind'] == 'domain' for f in domains['items']))
         field = self.tool('get_field', {'field_id': 'teyvat:3'})[1]['field']
         self.assertEqual((373.5, 145.5), (field['map_node']['x'], field['map_node']['y']))
         self.assertEqual(field['spawns'], self.store.field('teyvat:3')['spawns'])
@@ -175,6 +178,41 @@ class ChatGPTMCPTests(unittest.TestCase):
         self.assertTrue(self.tool('approve')[0])
         self.assertTrue(self.tool('undo')[0])
         self.assertTrue(self.tool('redo')[0])
+
+    def test_write_waypoint_and_cross_country_connections(self):
+        self.remote.proposals = True
+        origin_map, destination_map = 'region-02-map', 'region-08-map'
+        revision = self.tool('get_revision')[1]['revision']
+        origin = self.tool('list_fields', {'map_id': origin_map, 'limit': 1})[1]['items'][0]
+        destination = self.tool('list_fields', {'map_id': destination_map, 'kind': 'domain', 'limit': 1})[1]['items'][0]
+        waypoint = 'waypoint-qa-liyue'
+        edge_id = 'edge-qa-cross-country'
+        args = {
+            'base_revision': revision, 'reason': 'QA cross-country route',
+            'operations': [
+                {'collection': 'field_definitions', 'id': waypoint, 'changes': {
+                    'name': 'QA 璃月のフィールド',
+                    'waypoint_position': {'map_id': origin_map, 'x': origin['x'], 'y': origin['y']},
+                }},
+                {'collection': 'field_edges', 'id': edge_id, 'changes': connection(waypoint, destination['field_id'])},
+            ],
+        }
+        error, proposal = self.tool('create_proposal', args)
+        self.assertFalse(error, proposal)
+        self.assertEqual('proposed', proposal['status'])
+        self.assertEqual(sorted([waypoint, destination['field_id']]), proposal['affected_field_ids'])
+        self.assertTrue(self.tool('get_field', {'field_id': waypoint})[0])
+        self.assertEqual(revision, self.tool('get_revision')[1]['revision'])
+        approval = json.dumps({'proposal_id': proposal['proposal_id'], 'revision': revision}).encode()
+        self.assertEqual(200, self.request(
+            self.editor_url + '/api/approve', body=approval,
+            headers={'X-Editor-UI': self.editor.ui_token, 'Content-Type': 'application/json'},
+        )[0])
+        self.assertEqual([origin_map], self.tool('get_field', {'field_id': waypoint})[1]['design_map_ids'])
+        for map_id in (origin_map, destination_map):
+            graph = self.tool('get_connection_graph', {'map_id': map_id})[1]
+            self.assertIn(edge_id, {e['edge_id'] for e in graph['items']})
+            self.assertEqual(revision + 1, graph['revision'])
 
     def test_auth_isolation_request_limits_and_stop(self):
         ui = {'X-Editor-UI': self.editor.ui_token}

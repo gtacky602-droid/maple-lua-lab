@@ -36,3 +36,11 @@
 
 .view-toolbar { flex-wrap: wrap; }
 .view-toolbar > #addWaypoint, .view-toolbar > #reviewMapDrafts { font-size: 12px; }
+
+.floor-picker { display: flex; align-items: center; gap: 6px; margin: 0; }
+.floor-picker select { width: auto; max-width: min(230px, 65vw); }
+#showFieldFloor { margin-top: 6px; }
+
+.map-node.domain .node-symbol, .map-legend .domain-key { background: #b87546; transform: none; border-radius: 2px; }
+
+.map-node.domain:not(.graph, .selected, :focus-visible) { z-index: 1; }

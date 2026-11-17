@@ -1510,7 +1510,8 @@
               "kind": {
                 "enum": [
                   "waypoint",
-                  "statue"
+                  "statue",
+                  "domain"
                 ]
               },
               "x": {

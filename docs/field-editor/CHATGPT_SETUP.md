@@ -41,16 +41,19 @@ Runtime API keyは、起動後に表示される非表示入力欄に入れま�
 
 次のようにツール名とIDを指定します。
 
-> 「テイワット・フィールド設計室」を使い、`list_fields` を `map_id=region-01-map` で呼び出してください。取得件数が51か確認し、`get_field` で `teyvat:3` の公式座標、推奨Lv、出現敵とLvを取得してください。続けて `get_connection_graph` を同じ地図IDで、`list_monsters` を `region_id=region-01` で実行してください。最後に `get_revision` と `check_design` を呼び出してください。
+> 「テイワット・フィールド設計室」を使い、`list_fields` を `map_id=region-01-map` で呼び出してください。ワープ45・七天神像6・秘境13の計64件か確認し、`get_field` で `teyvat:3` の公式座標、推奨Lv、出現敵とLvを取得してください。続けて `get_connection_graph` を同じ地図IDで、`list_monsters` を `region_id=region-01` で実行してください。最後に `get_revision` と `check_design` を呼び出してください。
 
-`list_fields` の `map_id` は地図に載る地点を返します。 `region_id` は各地点の設計上の分類で絞り込むため、モンドの通常地域だけを指定すると件数が異なります。接続や敵Variantがまだ登録されていない場合、返る一覧は空です。未設定のLvは `null` です。
+`list_fields` の `map_id` は地図に載る地点を返します。`kind=domain` で秘境に絞り込めます。 `region_id` は各地点の設計上の分類で絞り込むため、モンドの通常地域だけを指定すると件数が異なります。接続や敵Variantがまだ登録されていない場合、返る一覧は空です。未設定のLvは `null` です。
 
 ### アカウントで変更提案が許可されている場合
 
-1. 起動コマンドに `--allow-proposals` を付けて再起動します。ChatGPTのプラグイン設定でツール一覧を更新し、`create_proposal` が使えることを確認します。
-2. 受入試験はコピーしたJSONを `--data` で指定して実施します。ChatGPTから `get_revision` を呼び、試験用の変更だけを `create_proposal` で送ります。返った提案IDと `base_revision` を控えます。
-3. ローカルの設計室で「変更案」タブの「更新」を押し、同じ提案を開きます。差分を確認して採用します。
-4. ChatGPTから `get_revision` と `get_change_history` を再実行します。revisionが1つ進み、採用した取引が履歴に表示されることを確認します。
+1. このPCではいつもの起動ショートカットを使い、端末でトンネルIDとRuntime API keyを入力します。コマンドで起動する場合は `--allow-proposals` を付けます。設計室の「ChatGPT連携」で「読み取り・変更案の作成」を確認します。
+2. ChatGPTのワークスペース設定でMapleのツール一覧を更新し、`create_proposal` を有効にします。書き込みを利用できるのは、BusinessまたはEnterprise/Eduで該当する権限を付与された場合です。
+3. 受入試験はコピーしたJSONを `--data` で指定して実施します。ChatGPTから `get_revision` を呼び、試験用の変更だけを `create_proposal` で送ります。返った提案IDと `base_revision` を控えます。
+4. ローカルの設計室で「変更案」タブの「更新」を押し、同じ提案を開きます。差分を確認して採用します。
+5. ChatGPTから `get_revision` と `get_change_history` を再実行します。revisionが1つ進み、採用した取引が履歴に表示されることを確認します。
+
+会話ではプラグインのMapleを選び、たとえば「璃月とスネージナヤの対象地点を確認して、指定した2地点を双方向につなぐ変更案を設計室に送って」と依頼できます。地点名が未設定の場合はフィールドIDを使えます。ワープポイントを追加する場合は地図IDと地図上のX/Yを指定します。新しい地点とそれにつながる経路は一つの変更案にできます。
 
 ### 読み取り専用で変更案を受け取る場合
 

@@ -41,10 +41,12 @@ class ModelTests(unittest.TestCase):
     def test_official_51_coordinates_immutable_and_zero_edges(self):
         m=next(m for m in self.s.maps if m['map_id']=='region-01-map')
         ns=[self.s.nodes[i] for i in m['node_ids']]
-        self.assertEqual(51,len(ns));self.assertEqual(45,sum(n['kind']=='waypoint' for n in ns));self.assertEqual(6,sum(n['kind']=='statue' for n in ns))
+        self.assertEqual(64,len(ns));self.assertEqual(45,sum(n['kind']=='waypoint' for n in ns));self.assertEqual(6,sum(n['kind']=='statue' for n in ns))
         self.assertFalse(self.s.data['field_edges'])
         catalog={n['id']:n for n in json.loads((ROOT/'content/map-catalog.json').read_text(encoding='utf-8'))['nodes']}
-        self.assertEqual(catalog,self.s.nodes)
+        self.assertEqual(catalog, {i: self.s.nodes[i] for i in catalog})
+        self.assertEqual(13, sum(n['kind'] == 'domain' for n in ns))
+        self.assertEqual(74, sum(n['kind'] == 'domain' for n in self.s.nodes.values()))
         with self.assertRaises(DesignError):self.propose([{'collection':'map_nodes','id':self.a,'changes':{'x':0}}])
         with self.assertRaises(DesignError):self.propose([{'collection':'field_definitions','id':self.a,'changes':{'x':0}}])
 
@@ -68,7 +70,7 @@ class ModelTests(unittest.TestCase):
         self.assertIn(field_id, reloaded.export('all', 'runtime')['map_nodes'])
         from .chatgpt_tools import call_tool
         listing = call_tool(reloaded, 'list_fields', {'map_id': p['map_id'], 'limit': 100}, False)
-        self.assertEqual(52, listing['total'])
+        self.assertEqual(65, listing['total'])
         self.assertTrue(next(f for f in listing['items'] if f['field_id'] == field_id)['custom'])
 
     def test_region_level_guides_not_individual_enemy_assignments(self):
@@ -212,7 +214,7 @@ class ModelTests(unittest.TestCase):
 
     def test_csv_markdown_json_and_api_operation(self):
         self.apply([{'collection':'field_definitions','id':self.a,'changes':{'name':'=SUM(A1)','recommended_level':8}}])
-        self.assertIn("'=SUM(A1)",self.s.export('region-01-map','csv'));self.assertIn('rev',self.s.export('region-01-map','markdown'));self.assertEqual(51,len(self.s.export('region-01-map')['field_definitions']))
+        self.assertIn("'=SUM(A1)",self.s.export('region-01-map','csv'));self.assertIn('rev',self.s.export('region-01-map','markdown'));self.assertEqual(64,len(self.s.export('region-01-map')['field_definitions']))
         result=operation(self.s,'get_field',{'field_id':self.a});self.assertEqual(8,result['recommended_level'])
         result=operation(self.s,'update_field',{'base_revision':1,'reason':'external tool','field_id':self.a,'changes':{'recommended_level':9}});self.assertEqual('proposed',result['status']);self.assertEqual(8,self.s.field(self.a)['recommended_level'])
 

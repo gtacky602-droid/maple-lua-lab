@@ -14,7 +14,7 @@ async function approve({protectedValue=false}={}){await page.locator('#reviewCon
 const node=i=>page.locator(`[data-field-id="${i}"]`);
 try{
  await page.goto(url,{waitUntil:'networkidle'});
- await check('51 official Mondstadt nodes and zero default connections',async()=>{assert.equal(await page.locator('#pointCount').textContent(),'51');assert.equal(await page.locator('.map-node').count(),51);assert.equal(await page.locator('.map-node.statue').count(),6);assert.equal(await page.locator('#edgeCount').textContent(),'0');const a=await node('teyvat:3').boundingBox(),b=await node('teyvat:7').boundingBox();assert.ok(Math.abs(a.x-b.x)>10);assert.ok(Math.abs((b.x-a.x)/(b.y-a.y)-(756.5-373.5)/(46.5-145.5))<0.01)});
+ await check('Mondstadt shows 51 navigation points, 13 domains and zero default connections',async()=>{assert.equal(await page.locator('#pointCount').textContent(),'64');assert.equal(await page.locator('.map-node:not(.domain)').count(),51);assert.equal(await page.locator('.map-node.domain').count(),13);assert.equal(await page.locator('.map-node.statue').count(),6);assert.equal(await page.locator('#edgeCount').textContent(),'0');const a=await node('teyvat:3').boundingBox(),b=await node('teyvat:7').boundingBox();assert.ok(Math.abs(a.x-b.x)>10);assert.ok(Math.abs((b.x-a.x)/(b.y-a.y)-(756.5-373.5)/(46.5-145.5))<0.01)});
  await check('Official terrain loads successfully',async()=>{await page.waitForFunction(()=>{const t=document.querySelector('#mapLoading').textContent,m=t.match(/(\d+)\/(\d+)タイル/);return m&&Number(m[2])>0&&m[1]===m[2]&&!t.includes('失敗')},{timeout:60000});assert.equal(network.length,0)});
  await page.screenshot({path:output+'/mondstadt-overview.png',fullPage:true});
  await check('Click and save field proposal, approve, reload',async()=>{
@@ -164,6 +164,79 @@ try{
   await page.locator('#redo').click();
   await marker.waitFor();
   assert.equal(Object.values((await snapshot()).field_edges).filter(e=>e.from_field===waypoint).length,2);
+ });
+ await check('All eight countries open directly; create a waypoint and connect across countries',async()=>{
+  for(let i=1;i<=8;i++){
+   await page.locator('[data-map="region-0'+i+'-map"]').click();
+   assert.ok(Number(await page.locator('#pointCount').textContent())>0);
+   await page.locator('#addWaypoint').click();
+   assert.match(await page.locator('#mapHint').textContent(),/追加したい位置/);
+   await page.keyboard.press('Escape');
+  }
+  await page.locator('[data-map="region-02-map"]').click();
+  await page.locator('#addWaypoint').click();
+  await page.locator('#mapCanvas').click({position:{x:240,y:115}});
+  await page.locator('#waypointForm [name="name"]').fill('QA・璃月の新フィールド');
+  await page.locator('#waypointForm button.primary').click();
+  await page.locator('#inspectorBody').getByRole('button',{name:'接続を作成'}).click();
+  const form=page.locator('#edgeForm');
+  const waypoint=await form.locator('[name="from_field"]').inputValue();
+  assert.match(waypoint,/^waypoint-/);
+  assert.equal(await form.locator('[name="from_map"]').inputValue(),'region-02-map');
+  await form.locator('[name="to_map"]').selectOption('region-08-map');
+  assert.ok(await form.locator('[name="to_field"] option').count()>1);
+  const destination=await form.locator('[name="to_field"] option').nth(1).getAttribute('value');
+  await form.locator('[name="to_field"]').selectOption(destination);
+  await form.locator('[name="entry_x"]').fill('12.75');
+  await page.screenshot({path:output+'/country-connection.png',fullPage:true});
+  await form.locator('button.primary').click();
+  await approve();
+  await page.locator('[data-view="graph"]').click();
+  await node(destination).waitFor();
+  const {project}=await page.evaluate(()=>fetch('/api/bootstrap').then(r=>r.json()));
+  assert.equal(project.field_definitions[waypoint].waypoint_position.map_id,'region-02-map');
+  assert.equal(Object.values(project.field_edges).find(e=>e.from_field===waypoint&&e.to_field===destination).entrance_position.x,12.75);
+ });
+ await check('Previously missing maps show confirmed official points and floor images',async()=>{
+  await page.locator('[data-view="geo"]').click();
+  for(const [mapId,fieldId,floorId] of [
+   ['branch-02-map','teyvat:64832','150'],
+   ['branch-04-map','teyvat:46523','64'],
+   ['branch-07-map','teyvat:79548','202'],
+   ['branch-09-map','teyvat:106184','349']
+  ]){
+   await page.locator('[data-map="'+mapId+'"]').click();
+   assert.ok(Number(await page.locator('#pointCount').textContent())>0);
+   await page.locator('#floorSelect').selectOption(floorId);
+   await page.waitForFunction(()=>document.querySelector('#mapLoading').textContent.includes('公式階層画像'));
+   await node(fieldId).waitFor();
+  }
+  await page.screenshot({path:output+'/official-floor.png',fullPage:true});
+  await page.locator('#exportOpen').click();
+  const [png]=await Promise.all([page.waitForEvent('download'),page.locator('[data-export="png"]').click()]);
+  assert.ok(png.suggestedFilename().endsWith('.png'));
+  await page.locator('#modalClose').click();
+  await page.locator('#floorSelect').selectOption('');
+  await node('teyvat:106220').waitFor();
+  await page.locator('[data-point="teyvat:106220"]').evaluate(button=>button.click());
+  await page.locator('#showFieldFloor').click();
+  assert.equal(await page.locator('#floorSelect').inputValue(),'350');
+  await page.waitForFunction(()=>document.querySelector('#mapLoading').textContent.includes('公式階層画像'));
+ });
+ await check('Official domain markers can be selected, named and approved as editable fields',async()=>{
+  await page.locator('[data-map="region-02-map"]').click();
+  await page.locator('#kindFilter').selectOption('domain');
+  assert.equal(await page.locator('#pointCount').textContent(),'11');
+  const domain=await page.locator('.map-node.domain').first().getAttribute('data-field-id');
+  await page.locator('[data-point="'+domain+'"]').evaluate(button=>button.click());
+  assert.match(await page.locator('#inspectorBody .field-source').textContent(),/秘境/);
+  await page.locator('#fieldForm [name="name"]').fill('QA・秘境フィールド');
+  await page.locator('#fieldForm [name="recommended_level"]').fill('43');
+  await page.locator('#fieldForm [name="reason"]').fill('QA・秘境をフィールドとして編集');
+  await page.locator('#fieldForm button.primary').click();
+  await approve();
+  assert.equal(await page.locator('#fieldForm [name="recommended_level"]').inputValue(),'43');
+  await page.screenshot({path:output+'/domain-fields.png',fullPage:true});
  });
  await writeFile(process.env.FIELD_EDITOR_BROWSER_REPORT||'evidence/field-editor/browser.json',JSON.stringify({passed:checks.length,checks,page_errors:errors,terrain_failures:network,screenshots:output,production_data_modified:false},null,2)+'\n');
  console.log(JSON.stringify({passed:checks.length,page_errors:errors}));

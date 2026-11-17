@@ -3,7 +3,7 @@
 export class FieldMap {
  constructor(viewport,{getScene,onPlace,onSelect,onEdge,onEditEdge,onConnect,onLayout}){
   this.host=viewport;this.canvas=viewport.querySelector('canvas');this.ctx=this.canvas.getContext('2d');this.layer=viewport.querySelector('#nodeLayer');
-  Object.assign(this,{getScene,onPlace,onSelect,onEdge,onEditEdge,onConnect,onLayout});this.scale=.4;this.cx=0;this.cy=0;this.tiles=new Map();this.buttons=new Map();this.positions=new Map();this.pending=false;this.mode='geo';this.drag=null;this.lastMap=null;
+  Object.assign(this,{getScene,onPlace,onSelect,onEdge,onEditEdge,onConnect,onLayout});this.scale=.4;this.cx=0;this.cy=0;this.tiles=new Map();this.overlays=new Map();this.buttons=new Map();this.positions=new Map();this.pending=false;this.mode='geo';this.drag=null;this.lastMap=null;
   this.resize();
   new ResizeObserver(()=>{this.resize();if(!this.fitted)this.fit();}).observe(viewport);
   viewport.addEventListener('pointerdown',e=>this.down(e));viewport.addEventListener('pointermove',e=>this.move(e));viewport.addEventListener('pointerup',e=>this.up(e));
@@ -29,7 +29,7 @@ export class FieldMap {
  }
  fit(){
   if(!this.width||!this.height)this.resize();
-  const s=this.getScene();this.positions=this.positionsFor(s);const ps=[...this.positions.values()];
+  const s=this.getScene();this.positions=this.positionsFor(s);const ps=s.floor?[{x:s.floor.bounds[0],y:s.floor.bounds[1]},{x:s.floor.bounds[2],y:s.floor.bounds[3]}]:[...this.positions.values()];
   if(!ps.length){this.cx=0;this.cy=0;this.scale=1;this.draw();return}
   const xs=ps.map(p=>p.x),ys=ps.map(p=>p.y),minx=Math.min(...xs),maxx=Math.max(...xs),miny=Math.min(...ys),maxy=Math.max(...ys);
   this.cx=(minx+maxx)/2;this.cy=(miny+maxy)/2;const pad=this.mode==='geo'?95:140;
@@ -43,7 +43,7 @@ export class FieldMap {
  render(){
   if(!this.width)return;const s=this.getScene(),ctx=this.ctx;this.positions=this.positionsFor(s);if(this.drag?.kind==='node'&&this.drag.world)this.positions.set(this.drag.id,this.drag.world);
   ctx.clearRect(0,0,this.width,this.height);ctx.fillStyle=this.mode==='geo'?'#314436':'#15251f';ctx.fillRect(0,0,this.width,this.height);
-  if(this.mode==='geo')this.drawTerrain(s);else this.drawGrid();
+  if(this.mode==='geo'){if(s.floor)this.drawFloor(s);else this.drawTerrain(s)}else this.drawGrid();
   this.edgeSegments=[];
   for(const [id,e] of Object.entries(s.data.field_edges)){
    const a=this.positions.get(e.from_field),b=this.positions.get(e.to_field);if(!a||!b)continue;
@@ -63,16 +63,32 @@ export class FieldMap {
    const high=f.region_id.startsWith('branch-'),elite=f.elite||f.local_legend||Object.values(s.data.field_spawns).some(sp=>sp.field_id===n.id&&['elite','local_legend'].includes(s.data.monster_variants[sp.monster_id]?.classification));
    btn.className=['map-node',n.kind,this.mode!=='geo'?'graph':'',n.id===s.selected?'selected':'',high?'high':'',elite?'elite':'',s.changed.has('field_definitions:'+n.id)||s.changedFields.has(n.id)?'preview':''].filter(Boolean).join(' ');
    btn.classList.toggle('connection-target',n.id===this.drag?.targetId);
-   btn.style.left=at.x+'px';btn.style.top=at.y+'px';btn.setAttribute('aria-label',n.id+' '+(f.name||'フィールド名未設定')+' Lv'+(f.recommended_level??'未設定'));btn.setAttribute('aria-pressed',String(n.id===s.selected));btn.title=`${n.id} / ${n.custom?'追加したワープポイント':'名称未確認'}\nX=${n.x} Y=${n.y}\n${f.name||'フィールド名未設定'}`;
+   btn.style.left=at.x+'px';btn.style.top=at.y+'px';btn.setAttribute('aria-label',n.id+' '+(f.name||'フィールド名未設定')+' Lv'+(f.recommended_level??'未設定'));btn.setAttribute('aria-pressed',String(n.id===s.selected));btn.title=`${n.id} / ${n.custom?'追加したワープポイント':n.name_ja||'名称未確認'}\nX=${n.x} Y=${n.y}\n${f.name||'フィールド名未設定'}`;
    const label=btn.querySelector('.node-label'),lv=f.recommended_level;const spawned=Object.values(s.data.field_spawns).filter(sp=>sp.field_id===n.id);let lvText=lv!=null?'Lv'+lv:'Lv未設定';
    if(spawned.length){const levels=spawned.map(sp=>sp.level_override??s.data.monster_variants[sp.monster_id]?.base_level).filter(x=>x!=null);if(levels.length)lvText='敵Lv'+Math.min(...levels)+(Math.max(...levels)!==Math.min(...levels)?'–'+Math.max(...levels):'')}
-   label.replaceChildren();label.append(document.createTextNode((f.name||n.id)+(n.point_group?' ⧉':'')));const small=document.createElement('small');small.textContent=' '+lvText+(spawned.length?' / '+spawned.map(sp=>(s.data.monster_variants[sp.monster_id]?.name||'?')+'×'+sp.count).join('・'):'');label.append(document.createElement('br'),small);
+   label.replaceChildren();label.append(document.createTextNode((f.name||n.name_ja||n.id)+(n.point_group?' ⧉':'')));const small=document.createElement('small');small.textContent=' '+lvText+(spawned.length?' / '+spawned.map(sp=>(s.data.monster_variants[sp.monster_id]?.name||'?')+'×'+sp.count).join('・'):'');label.append(document.createElement('br'),small);
    const labelAt={x:at.x,y:at.y+32};const collide=labels.some(q=>Math.abs(q.x-labelAt.x)<92&&Math.abs(q.y-labelAt.y)<32);const show=this.mode!=='geo'||n.id===s.selected||!collide;label.hidden=!show;if(show)labels.push(labelAt);
    btn.querySelector('.connection-handle').hidden=this.mode!=='graph'&&!s.connectMode;
   }
   for(const [id,btn] of this.buttons){if(!active.has(id)){btn.remove();this.buttons.delete(id)}}
  }
  drawGrid(){const ctx=this.ctx;ctx.fillStyle='#45604a';for(let x=0;x<this.width;x+=24)for(let y=0;y<this.height;y+=24){ctx.globalAlpha=.35;ctx.fillRect(x,y,1,1)}ctx.globalAlpha=1;if(this.mode==='route'){ctx.fillStyle='#b4c4ad';ctx.font='10px system-ui';for(let lv=0;lv<=200;lv+=10){const p=this.point(lv*35,0);if(p.x<0||p.x>this.width)continue;ctx.fillText(lv===0?'Lv未設定':'Lv'+lv,p.x,25)}}}
+ drawFloor(s){
+  const f=s.floor,key=s.map.official_map_id+'/'+f.id;
+  let overlay=this.overlays.get(key);
+  if(!overlay){
+   const image=new Image();
+   overlay={image,state:'loading'};this.overlays.set(key,overlay);
+   image.onload=()=>{overlay.state='ready';this.draw()};
+   image.onerror=()=>{overlay.state='failed';this.draw()};
+   image.src='/floors/'+key;
+  }
+  if(overlay.state==='ready'){
+   const [x,y,r,b]=f.bounds,p=this.point(x,y);
+   this.ctx.drawImage(overlay.image,p.x,p.y,(r-x)*this.scale,(b-y)*this.scale);
+  }
+  document.querySelector('#mapLoading').textContent='© HoYoverse · '+f.name+' · '+({loading:'階層画像を読み込み中',failed:'階層画像の取得に失敗',ready:'公式階層画像'}[overlay.state]);
+ }
  drawTerrain(s){
   const meta=s.source,ctx=this.ctx;
   if(this.manual&&this.manual.mapId===s.map.map_id){const im=this.manual,p=this.point(im.x,im.y);ctx.drawImage(im.image,p.x,p.y,im.w*this.scale,im.h*this.scale);document.querySelector('#mapLoading').textContent='手動画像 / 座標範囲はユーザー指定';return}
@@ -153,10 +169,10 @@ export class FieldMap {
   }
  }
  async exportPNG(){
-  this.render();const current=this.getScene(),manualActive=this.manual?.mapId===current.map.map_id;if(this.mode==='geo'&&!manualActive&&(!current.source?.map_version||!this.tileStatus||!this.tileStatus.total||this.tileStatus.failed||this.tileStatus.loaded!==this.tileStatus.total))throw Error('公式地形が未取得、または読込が未完了です。読込完了後に再実行するか、公式画像を手動で読み込んでください。');
+  this.render();const current=this.getScene(),manualActive=this.manual?.mapId===current.map.map_id;if(current.floor&&this.overlays.get(current.map.official_map_id+'/'+current.floor.id)?.state!=='ready')throw Error('公式階層画像の読込完了後に再実行してください。');if(this.mode==='geo'&&!current.floor&&!manualActive&&(!current.source?.map_version||!this.tileStatus||!this.tileStatus.total||this.tileStatus.failed||this.tileStatus.loaded!==this.tileStatus.total))throw Error('公式地形が未取得、または読込が未完了です。読込完了後に再実行するか、公式画像を手動で読み込んでください。');
   const out=document.createElement('canvas'),d=2;out.width=this.width*d;out.height=this.height*d;const c=out.getContext('2d');c.scale(d,d);c.drawImage(this.canvas,0,0,this.width,this.height);const s=this.getScene();c.font='10px sans-serif';
-  for(const n of s.nodes){const p=this.positions.get(n.id);if(!p)continue;const q=this.point(p.x,p.y);if(q.x<0||q.x>this.width||q.y<0||q.y>this.height)continue;const f=s.data.field_definitions[n.id];c.fillStyle=n.kind==='statue'?'#63cea3':f.region_id.startsWith('branch-')?'#b496df':'#74c8f1';c.beginPath();c.arc(q.x,q.y,5,0,Math.PI*2);c.fill();c.strokeStyle='#fff';c.stroke();let text=n.id+' Lv'+(f.recommended_level??'未設定');const sp=Object.values(s.data.field_spawns).filter(x=>x.field_id===n.id);if(sp.length)text+=' '+sp.map(x=>(s.data.monster_variants[x.monster_id]?.name||'?')+'×'+x.count).join(',');if(f.elite||f.local_legend)text+=' ◆'+(f.elite||f.local_legend);const w=c.measureText(text).width;c.fillStyle='#17251edc';c.fillRect(q.x+8,q.y-11,w+6,16);c.fillStyle='#fff1c8';c.fillText(text,q.x+11,q.y+1)}
-  c.fillStyle='#11291fe8';c.fillRect(0,this.height-25,this.width,25);c.fillStyle='#d9e4cc';c.fillText(`© HoYoverse / ${s.map.name} / ${s.preview?'提案プレビュー / ':''}revision ${s.revision} / 公式名称・階層の未確認あり`,10,this.height-9);
+  for(const n of s.nodes){const p=this.positions.get(n.id);if(!p)continue;const q=this.point(p.x,p.y);if(q.x<0||q.x>this.width||q.y<0||q.y>this.height)continue;const f=s.data.field_definitions[n.id];c.fillStyle=n.kind==='statue'?'#63cea3':n.kind==='domain'?'#e8ae76':f.region_id.startsWith('branch-')?'#b496df':'#74c8f1';c.beginPath();c.arc(q.x,q.y,5,0,Math.PI*2);c.fill();c.strokeStyle='#fff';c.stroke();let text=n.id+' Lv'+(f.recommended_level??'未設定');const sp=Object.values(s.data.field_spawns).filter(x=>x.field_id===n.id);if(sp.length)text+=' '+sp.map(x=>(s.data.monster_variants[x.monster_id]?.name||'?')+'×'+x.count).join(',');if(f.elite||f.local_legend)text+=' ◆'+(f.elite||f.local_legend);const w=c.measureText(text).width;c.fillStyle='#17251edc';c.fillRect(q.x+8,q.y-11,w+6,16);c.fillStyle='#fff1c8';c.fillText(text,q.x+11,q.y+1)}
+  c.fillStyle='#11291fe8';c.fillRect(0,this.height-25,this.width,25);c.fillStyle='#d9e4cc';c.fillText(`© HoYoverse / ${s.map.name}${s.floor?' / '+s.floor.name:''} / ${s.preview?'提案プレビュー / ':''}revision ${s.revision} / 公式名称・階層の未確認あり`,10,this.height-9);
   return await new Promise((resolve,reject)=>out.toBlob(b=>b?resolve(b):reject(Error('PNG出力に失敗しました')),'image/png'));
  }
 }
