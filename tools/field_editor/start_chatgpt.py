@@ -128,7 +128,7 @@ def main():
         '--mcp.extra-headers', 'X-Field-MCP-Token: env:FIELD_EDITOR_MCP_TOKEN',
         '--health.listen-addr', f'127.0.0.1:{args.health_port}',
         '--allow-remote-ui=false', '--log.http-raw-unsafe=false',
-        '--log.level', 'warn',
+        '--log.format', 'struct-text', '--log.level', 'warn',
     ]
     editor = subprocess.Popen(editor_command, cwd=ROOT, env=editor_env)
     tunnel = None
