@@ -169,10 +169,12 @@
       }
     },
     "boss-26230301": {
+      "extra_evidence": ["https://wiki.hoyolab.com/pc/genshin/entry/6584?lang=en-us","evidence/qucusaur-field-lua.json","evidence/qucusaur-field-browser.json"],
+      "remaining": ["連続モーション・音", "難度・報酬の調整", "複数人と幻境実機の検証"],
       "art_candidate": {
         "item": "qucusaur",
-        "audit": "evidence/qucusaur-reference-audit.json",
-        "status": "normal red-form idle candidate only; gold form, attacks and animation not implemented"
+        "audit": "evidence/qucusaur-field-art-audit.json",
+        "status": "Web field prototype. Red grounded and gold aerial poses, with an optional destructible flamewind feather."
       }
     },
     "boss-25135202": {

@@ -693,12 +693,22 @@
     {
       "node": "natlan-field",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "natlan-field",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 3
+    },
+    {
+      "node": "qucusaur-field-cavern",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "qucusaur-field-cavern",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "natlan-port",

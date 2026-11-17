@@ -20,7 +20,7 @@ check('completion not overclaimed',d['counts']['complete']==0 and not d['complet
 check('not implemented rows cannot launch',all(r['action'] is None for r in rows if r['status']=='not_implemented'))
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
-check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':70,'partial':32,'complete':0})
+check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':70,'partial':33,'complete':0})
 by_id={r['id']:r for r in rows}
 ice=by_id['boss-20040501']
 check('Cryo Hypostasis is reachable through the field route',
@@ -80,6 +80,9 @@ check('The Legatus Golem is reachable through the castle route',
 suanni=by_id['boss-26190101']
 check('The Solitary Suanni is reachable through Chenyu Vale',
       suanni['status']=='partial' and suanni['fieldNode']=='suanni-field-sanctum' and suanni['action'] is None)
+qucusaur=by_id['boss-26230301']
+check('The Goldflame Qucusaur is reachable through the Natlan field',
+      qucusaur['status']=='partial' and qucusaur['fieldNode']=='qucusaur-field-cavern' and qucusaur['action'] is None)
 check('public roster matched without merging Icewind modes or Dottore challenges',d['roster_review']=={
  'game_version':'7.2','reviewed_on':'2026-11-17','field_boss_families':48,'weekly_challenges':14,'unmatched_rows':[],
 } and len([r for r in rows if r['kind']=='normal'])==49)

@@ -1,0 +1,170 @@
+{
+  "date": "2026-11-18",
+  "tool": "built-in image_gen",
+  "prompts": [
+    "Use case: stylized-concept. Transparent 3-column by 2-row atlas for a side-view pixel RPG, with six individually framed fully visible poses of Goldflame Qucusaur Tyrant. Image 1 is source art style, image 2 shows bright vermilion skin with cream patterned wing membranes, dark hooked beak, orange blade crest, cyan eye feathers and claws, image 3 shows the same anatomy alight in golden form. Every pose faces RIGHT, tail behind to the LEFT, same anatomy and pixel clusters. Top row: wing-swipe pose on two hind talons with one outstretched forewing; grounded lowered windup with both hind talons down and pronounced crest; weary red form crouched with wing tips supporting its weight. Bottom row: full gold airborne hovering with pale gold eyes, forked orange-gold wings, folded feet and thin warm outline; gold diagonal dive heading right, narrow body and crest led forward; isolated pointed golden flamewind feather, slanted slightly to the right, cream-white core and red-gold outer edge, game target object. A strict vacant 30px gutter between cells and edges, all tails/wings wholly inside intended cell. Landscape, alpha transparent, garment-free creature design, no text, ground, shadow or scattering fire effect.",
+    "Use case: stylized-concept. Wide 16:9 side-view bitmap for a 2D pixel RPG battle arena inspired by the Natlan cavern in the supplied official reference. Deep red-purple stone cave walls, high hanging vines, a few muted teal plants, an amber daylight opening behind fractured pillars, warm muted rock and flat uninterrupted red-sand floor across the bottom quarter. Shadowed cave-depth layers with crisp pixel groupings so a bright gold flying dragon and orange floor cues are readable. Keep clean space above the floor for flight. No characters, foreground boulders, captions, logos, interface or fire hazards."
+  ],
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/08/30/94675339/5ef968cd07bc91c07a2a46ebd6e0c4ed_1268032306677905706.png",
+      "sha256": "1498e8753e0827e378e30d852529ae1782cbbce425fb844822970a4cd3d9e3e6",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "normal red appearance",
+      "use": "red wing/crest and the cave palette"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/08/30/94675339/781ce9c04132cf65e0fdea6210a92db3_3547940086233864330.png",
+      "sha256": "b52bb7c68a0327c3dde21b893672018b978af7fb660bb2da0defa0c911674b10",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "gold flying state excluded",
+      "use": "gold body, wings and flamewind feather motif"
+    }
+  ],
+  "generated": {
+    "qucusaur-field-poses-source-v1.png": "ce6163b49f12e63db744b378251a1aa7b497e377cf6ade4cdbcb31e06d9ac82d",
+    "qucusaur-field-background-v1.png": "4c679241cabcd75409371401767c4932c40b69d443b3c0bae23a0a911f717861"
+  },
+  "idle": "assets/qucusaur-idle-source-v1.png",
+  "poses": {
+    "wing": {
+      "crop": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "box": [
+        39,
+        58,
+        458,
+        386
+      ],
+      "height": 157,
+      "anchor": 0.5305676855895196,
+      "anchor_source": 282,
+      "profiles": {
+        "legacy": 6998,
+        "h48c32": 4444,
+        "h32c16": 1834
+      }
+    },
+    "ready": {
+      "crop": [
+        512,
+        0,
+        512,
+        512
+      ],
+      "box": [
+        542,
+        115,
+        448,
+        327
+      ],
+      "height": 133,
+      "anchor": 0.5357142857142857,
+      "anchor_source": 782,
+      "profiles": {
+        "legacy": 6348,
+        "h48c32": 4000,
+        "h32c16": 1721
+      }
+    },
+    "rest": {
+      "crop": [
+        1024,
+        0,
+        512,
+        512
+      ],
+      "box": [
+        1041,
+        138,
+        453,
+        301
+      ],
+      "height": 105,
+      "anchor": 0.6181015452538632,
+      "anchor_source": 1321,
+      "profiles": {
+        "legacy": 4020,
+        "h48c32": 2474,
+        "h32c16": 1035
+      }
+    },
+    "gold-hover": {
+      "crop": [
+        0,
+        512,
+        512,
+        512
+      ],
+      "box": [
+        42,
+        532,
+        451,
+        429
+      ],
+      "height": 154,
+      "anchor": 0.5299334811529933,
+      "anchor_source": 281,
+      "profiles": {
+        "legacy": 4620,
+        "h48c32": 2795,
+        "h32c16": 1248
+      }
+    },
+    "gold-dive": {
+      "crop": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "box": [
+        544,
+        597,
+        439,
+        256
+      ],
+      "height": 117,
+      "anchor": 0.5330296127562643,
+      "anchor_source": 778,
+      "profiles": {
+        "legacy": 4917,
+        "h48c32": 2987,
+        "h32c16": 1321
+      }
+    },
+    "feather": {
+      "crop": [
+        1024,
+        512,
+        512,
+        512
+      ],
+      "box": [
+        1146,
+        593,
+        293,
+        311
+      ],
+      "height": 52,
+      "anchor": 0.09897610921501707,
+      "anchor_source": 1175,
+      "profiles": {
+        "legacy": 600,
+        "h48c32": 363,
+        "h32c16": 160
+      }
+    }
+  },
+  "notes": [
+    "Existing idle faces left. All combat poses face right and use a runtime mirror when needed.",
+    "Generated cell frames are excluded from the alpha atlas. The separate feather uses its pointed base as anchor.",
+    "No matching 3D model was inspected. The cave is a temporary lab bitmap."
+  ]
+}

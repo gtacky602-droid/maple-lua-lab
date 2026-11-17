@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 144 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 142,
+  "scope": "Authored 145 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 143,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -422,6 +422,12 @@
     {
       "id": "natlan-field",
       "name": "ナタ・岩場の道",
+      "region": "ナタ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "qucusaur-field-cavern",
+      "name": "ナタ・金焔の岩窟",
       "region": "ナタ",
       "status": "regional_temporary_image"
     },

@@ -1247,6 +1247,20 @@
          "bands":[{"start":108,"finish":120,"near":-1,"far":1,"height":0.6,"damage":17,"element":"anemo"},{"start":192,"finish":204,"near":-0.7,"far":0.7,"height":0.65,"damage":20,"element":"hydro","landing":true}],
          "bolts":[{"fire":204,"life":24,"offset":0.7,"speed":3,"height":0.25,"radius":0.12,"damage":20,"landing":true,"group":2}]}
       ]
+    },
+    {
+      "id":"boss-26230301","controller":"qucusaur","entity":26230301,
+      "name":"暴君・金焔のクク竜","node":"qucusaur-field-cavern","storyChallenge":"qucusaur",
+      "level":102,"hp":1020,"mora":360,"artHeight":156,"floorY":480,"home":865,
+      "arenaMin":340,"arenaMax":1590,"noticeRange":310,"noticeTicks":36,"restTicks":36,
+      "leashTicks":300,"respawnTicks":3600,"walkSpeed":65,"contactDamage":0,
+      "wardFactor":0.65,"resist":{"pyro":0.45},
+      "moves":[
+        {"id":"FQT01","kind":"wing","title":"翼爪の横薙ぎ","reach":230,"lock":44,"near":0.2,"far":2.15,"height":0.71,"low":0.1,"active":[[96,110]],"recover":144,"total":252,"damage":20,"element":"physical"},
+        {"id":"FQT02","kind":"quills","title":"炎羽の二連","reach":265,"lock":48,"height":0.58,"active":[],"fire":[92,151],"life":49,"speed":4.2,"radius":0.14,"recover":210,"total":294,"damage":17,"element":"pyro"},
+        {"id":"FQT03","kind":"flight","title":"金焔・羽根と降下","reach":260,"lock":54,"height":0.8,"width":1.7,"active":[[220,232],[300,312]],"recover":322,"total":466,"damage":24,"element":"pyro",
+         "feather":{"hp":14,"lift":0.94,"rise":54,"spawn":78,"commit":186,"land":220,"rebound":256,"again":272,"landAgain":300,"fall":24,"rest":144}}
+      ]
     }
   ]
 }

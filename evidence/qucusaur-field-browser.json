@@ -1,0 +1,37 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "won": true,
+    "seconds": 54.82,
+    "moves": [
+      "FQT01",
+      "FQT02",
+      "FQT03"
+    ],
+    "hp": 140,
+    "returns": 0
+  },
+  "scenery": {
+    "key": "qucusaurField",
+    "file": "qucusaur-field-background-v1.png",
+    "state": "ready"
+  },
+  "questAcceptedInUi": true,
+  "questReport": {
+    "xp": 7200,
+    "mora": 460
+  },
+  "sameSceneCommands": {
+    "png": 49,
+    "standard": 9488,
+    "light": 2499
+  },
+  "goldAndFeatherAt": {
+    "tick": 79,
+    "y": 397.28,
+    "hp": 14
+  },
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}

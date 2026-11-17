@@ -1,0 +1,34 @@
+{
+  "attacks": [
+    "FQT01",
+    "FQT02",
+    "FQT03"
+  ],
+  "flightHitboxMoves": true,
+  "goldWardFactor": 0.65,
+  "lastTickFeatherStopsBothDives": true,
+  "featherHasNoReward": true,
+  "fixedLandingLocations": true,
+  "twoDivesWithoutInterruption": true,
+  "cleanupOnExitAndKill": true,
+  "questReportAndSavedCooldown": true,
+  "normalAttackSolo": {
+    "breakFeather": {
+      "seconds": 86.95,
+      "hp": 140,
+      "interrupted": 5,
+      "completedFlights": 0
+    },
+    "dodgeDives": {
+      "seconds": 98.42,
+      "hp": 140,
+      "interrupted": 0,
+      "completedFlights": 5
+    }
+  },
+  "sameSceneCommands": {
+    "png": 39,
+    "standard": 6940,
+    "light": 1892
+  }
+}
