@@ -43,7 +43,7 @@ class ModelTests(unittest.TestCase):
         ns=[self.s.nodes[i] for i in m['node_ids']]
         self.assertEqual(51,len(ns));self.assertEqual(45,sum(n['kind']=='waypoint' for n in ns));self.assertEqual(6,sum(n['kind']=='statue' for n in ns))
         self.assertFalse(self.s.data['field_edges'])
-        catalog={n['id']:n for n in json.loads((ROOT/'content/map-catalog.json').read_text())['nodes']}
+        catalog={n['id']:n for n in json.loads((ROOT/'content/map-catalog.json').read_text(encoding='utf-8'))['nodes']}
         self.assertEqual(catalog,self.s.nodes)
         with self.assertRaises(DesignError):self.propose([{'collection':'map_nodes','id':self.a,'changes':{'x':0}}])
         with self.assertRaises(DesignError):self.propose([{'collection':'field_definitions','id':self.a,'changes':{'x':0}}])
@@ -196,7 +196,7 @@ class ModelTests(unittest.TestCase):
     def test_published_json_schema_matches_data_and_rejects_unknown_fields(self):
         try:import jsonschema
         except ImportError:self.skipTest('Optional jsonschema package not installed')
-        schema=json.loads((ROOT/'tools/field_editor/schemas/schema.json').read_text());jsonschema.validate(self.s.snapshot(),schema)
+        schema=json.loads((ROOT/'tools/field_editor/schemas/schema.json').read_text(encoding='utf-8'));jsonschema.validate(self.s.snapshot(),schema)
         bad=self.s.snapshot();bad['field_definitions'][self.a]['official_x']=0
         with self.assertRaises(jsonschema.ValidationError):jsonschema.validate(bad,schema)
         for m in self.s.maps:jsonschema.Draft202012Validator({'$ref':'#/$defs/map_definition','$defs':schema['$defs']}).validate(m)

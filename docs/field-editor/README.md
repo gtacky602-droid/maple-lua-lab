@@ -62,7 +62,9 @@ python -m tools.field_editor.server --port 8771 --data work/my-field-design.json
 
 同名の地点・Variantが複数あれば更新せず候補を返します。未知の地名は地理から推測しません。候補ボタンで地図を確認し、「選択中の地点を明示的な対象にする」を選んで再送できます。複数の同名敵がある場合は図鑑/変更JSONで `monster_id` を指定してください。一般的な自由文や曖昧な「少し難しく」はJSON/手動編集で具体化します。
 
-継続相談は「ChatGPT相談用Markdown」と「地域別設計JSON」を渡し、ChatGPTに**最新revision付き変更指示JSON**を作ってもらい、エディタで取り込んでレビューします。会話履歴ではなく `design/field-editor/project.json` が正本です。実際に接続するAPI/MCP、権限、認証の設定は [API_AND_MCP.md](API_AND_MCP.md)。
+ChatGPTから現在の設計データを参照するには、エディタ上部の「ChatGPT連携」を開き、[Windowsでの接続手順](CHATGPT_SETUP.md)に沿ってSecure MCP Tunnelを設定します。許可されたアカウントからは変更案も送れます。採用するときはローカルの設計室で差分を確認します。
+
+ファイルを使う場合は「ChatGPT相談用Markdown」または「地域別設計JSON」を渡し、最新revision付きの変更指示JSONを取り込んでレビューします。正本は `design/field-editor/project.json` です。stdio MCPとHTTP APIの設定は [API・MCP](API_AND_MCP.md) を参照してください。
 
 ## 出力
 
