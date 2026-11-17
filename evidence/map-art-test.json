@@ -374,6 +374,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "cryo-hypostasis-field-basin",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "chenyu-camp",
       "count": 0,
       "fallback": false,

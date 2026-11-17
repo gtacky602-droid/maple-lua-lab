@@ -66,10 +66,13 @@
       }
     },
     "boss-20040501": {
+      "review_note": "Lv20のフィールドで氷輪、氷挟み、固定三地点の落氷。核への通常攻撃と氷無効を検証。",
+      "remaining": ["連続モーションと被弾・撃破作画", "装備差と周回報酬のバランス", "Webマルチと幻境実機"],
+      "extra_evidence": ["evidence/cryo-hypostasis-field-lua.json", "evidence/cryo-hypostasis-field-browser.json"],
       "art_candidate": {
         "item": "cryo-hypostasis",
-        "audit": "evidence/cryo-hypostasis-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/cryo-hypostasis-field-art-audit.json",
+        "status": "existing idle and four new poses in the Web field encounter"
       }
     },
     "boss-26020101": {

@@ -477,6 +477,89 @@
           "damage": 22
         }
       ]
+    },
+    {
+      "id": "boss-20040501",
+      "controller": "cryoHypostasis",
+      "entity": 20040501,
+      "name": "無相の氷",
+      "node": "cryo-hypostasis-field-basin",
+      "storyChallenge": "cryo-hypostasis",
+      "level": 20,
+      "hp": 785,
+      "mora": 145,
+      "artHeight": 98,
+      "floorY": 480,
+      "home": 835,
+      "arenaMin": 400,
+      "arenaMax": 1440,
+      "noticeRange": 270,
+      "noticeTicks": 34,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 66,
+      "contactDamage": 0,
+      "immune": "cryo",
+      "moves": [
+        {
+          "id": "FHC01",
+          "kind": "wheel",
+          "title": "氷輪の直走",
+          "reach": 208,
+          "lock": 54,
+          "active": [
+            [
+              108,
+              144
+            ]
+          ],
+          "recover": 150,
+          "total": 270,
+          "distance": 2,
+          "damage": 18
+        },
+        {
+          "id": "FHC02",
+          "kind": "clap",
+          "title": "双掌の氷挟み",
+          "reach": 180,
+          "lock": 42,
+          "active": [
+            [
+              90,
+              102
+            ]
+          ],
+          "recover": 120,
+          "total": 240,
+          "damage": 17
+        },
+        {
+          "id": "FHC03",
+          "kind": "fall",
+          "title": "三本の落氷",
+          "reach": 210,
+          "lock": 48,
+          "active": [
+            [
+              108,
+              114
+            ],
+            [
+              144,
+              150
+            ],
+            [
+              180,
+              186
+            ]
+          ],
+          "recover": 198,
+          "total": 252,
+          "damage": 12
+        }
+      ]
     }
   ]
 }

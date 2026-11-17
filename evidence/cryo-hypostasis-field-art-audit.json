@@ -1,0 +1,97 @@
+{
+  "stage": "ドラゴンスパイン・霜輪の窪地",
+  "references": [
+    {
+      "page": "https://wiki.hoyolab.com/pc/genshin/entry/2158?lang=en-us",
+      "asset": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/e8b1f7ddbfc4b91676343091db8a57f9_5570998829617861669.png",
+      "sha256": "d84eaeccf884f60112943abf327ced5297733bfb4ff8123376bc69077a1abffe",
+      "observed": "Snowflake engraving, frosty bevels on cyan slabs, diamond core through the gap."
+    },
+    {
+      "page": "https://wiki.hoyolab.com/pc/genshin/entry/2158?lang=en-us",
+      "asset": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/09b9a688597c7c5b0dce4766136acc97_3779395987355700549.png",
+      "sha256": "c437414540b79bba6acbbd7f34b9d22c5d26dd90b6a83a34c83a03c05b50cca3",
+      "observed": "In-game shell configurations and dark blue ice ground."
+    },
+    {
+      "path": "assets/dragonspine-background-v1.png",
+      "observed": "Alpine silhouettes and local palette."
+    }
+  ],
+  "generated": [
+    {
+      "path": "assets/cryo-hypostasis-field-background-v1.png",
+      "sha256": "0da4dab9eabaa5d242fc259cd1a0a70e62d155254947382a9f7d1fae6c7938ce",
+      "prompt": "Original panoramic 16:9 environment-only side view for a 2D fantasy RPG. Use input game screenshot for cool dark ice slate and depth, and supplied existing Dragonspine art for snowy alpine stone only. A secluded frost basin at twilight, snow-covered cliffs with a few ruins on one far edge, dark desaturated steel-blue mountains, small frosted evergreens far away, slate ice and short snow banks at edges. Flat broad walking surface horizontally along bottom 16 percent, no holes. Visually subdued center with enough value contrast for bright cyan mechanical ice sprite and warm orange warning marks. Layered pixel-painted atmospheric shading. Absolutely no actors, floating cubes, monsters, UI, text, glyphs or combat effects."
+    },
+    {
+      "path": "assets/cryo-hypostasis-field-poses-source-v1.png",
+      "sha256": "320e4e18e3e83bebe83afc873c4277d94c3c0a619f6bd93e9826af34f664f653",
+      "prompt": "A single transparent 2 by 2 sprite sheet, four distinct independent poses of one ice cube boss, with ample transparent gutters, crisp chunky pixel art. Use attached original game views for deep cyan beveled square slabs, engraved frosted snowflake faces and bright white-cyan central diamond. No aura, no gradients, no objects outside each pose, no text, no framing, no colored backgrounds. TOP LEFT: a compact circular vertical wheel made of ice cube segments, white diamond visible in center, wheel facing viewer, clean near-circle silhouette. TOP RIGHT: two large inward-pointing ice block palms with broad angular fingers, separated left-right with open air, small bright diamond centered in the same cell between them. BOTTOM LEFT: diamond low at center with three short sharp icicles raised in a fan above it, very clear gap; a pair of small support plates by core. BOTTOM RIGHT: low crouching scattered protective slabs to the sides and the exposed diamond center, lower and wider than the others. Use pale highlights, turquoise main and dark blue shadow edges. Each strictly fits in its quarter, fully visible in one unified arcade pixel-art scale."
+    }
+  ],
+  "poses": {
+    "wheel": {
+      "crop": [
+        0,
+        0,
+        568,
+        620
+      ],
+      "height": 86,
+      "commands": [
+        3758,
+        2230,
+        947
+      ]
+    },
+    "clap": {
+      "crop": [
+        568,
+        0,
+        710,
+        620
+      ],
+      "height": 89,
+      "commands": [
+        5092,
+        3143,
+        1347
+      ]
+    },
+    "fall": {
+      "crop": [
+        0,
+        620,
+        530,
+        610
+      ],
+      "height": 104,
+      "commands": [
+        2165,
+        1309,
+        571
+      ]
+    },
+    "recover": {
+      "crop": [
+        530,
+        620,
+        748,
+        610
+      ],
+      "height": 55,
+      "commands": [
+        4103,
+        2584,
+        1100
+      ]
+    }
+  },
+  "profiles": [
+    "legacy",
+    "h48c32",
+    "h32c16"
+  ],
+  "limitations": "Original stand-alone 3D model was not present in the prior reference audit. Four posed designs with no new hurt or defeat frames. Background is a Web lab proxy."
+}

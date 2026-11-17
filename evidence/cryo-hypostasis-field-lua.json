@@ -1,0 +1,18 @@
+{
+  "attacks": [
+    "FHC01",
+    "FHC02",
+    "FHC03"
+  ],
+  "wheelLockedSingleHit": true,
+  "wheelJumpable": true,
+  "clapBoundedSingleHit": true,
+  "threeDistinctFixedPoints": true,
+  "physicalReachesIceImmuneCore": true,
+  "commands": {
+    "standard": 5798,
+    "light": 1559
+  },
+  "questReportOnce": true,
+  "killXp": 1150
+}

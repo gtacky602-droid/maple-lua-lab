@@ -1,5 +1,5 @@
 {
-  "count": 48,
+  "count": 49,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -11,6 +11,7 @@
     "evidence on every row",
     "generated file matches builder",
     "counts retained",
+    "Cryo Hypostasis is reachable through the field route",
     "public roster matched without merging Icewind modes or Dottore challenges",
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",

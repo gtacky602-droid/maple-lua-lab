@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 120 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 118,
+  "scope": "Authored 121 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 119,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -374,6 +374,12 @@
     {
       "id": "dragonspine-depth",
       "name": "ドラゴンスパイン・探索路",
+      "region": "ドラゴンスパイン",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "cryo-hypostasis-field-basin",
+      "name": "ドラゴンスパイン・霜輪の窪地",
       "region": "ドラゴンスパイン",
       "status": "regional_temporary_image"
     },

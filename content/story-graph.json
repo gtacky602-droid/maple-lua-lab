@@ -2400,13 +2400,15 @@
         {
           "to": "dragonspine-camp",
           "x": 60
-        }
+        },
+        {"to":"cryo-hypostasis-field-basin","x":1320}
       ],
       "checkpoint": "dragonspine-camp",
       "branch": true,
       "lightReference": 3,
       "barrier": 3
     },
+    {"id":"cryo-hypostasis-field-basin","name":"ドラゴンスパイン・霜輪の窪地","region":"ドラゴンスパイン","level":20,"hub":false,"peaceful":true,"width":1540,"platforms":[{"x":0,"y":480,"w":1540}],"exits":[{"to":"dragonspine-depth","x":65}],"checkpoint":"dragonspine-camp"},
     {
       "id": "chenyu-camp",
       "name": "沈玉の谷・入口拠点",
@@ -5527,6 +5529,7 @@
       "xp": 4000,
       "mora": 300,
       "note": "雷鳴の岩峰、または本編入口の挑戦碑での討伐が対象。"
-    }
+    },
+    {"id":"cryo-hypostasis-commission","name":"無相の氷の討伐調査","hub":"dragonspine-camp","target":"cryo-hypostasis","kind":"boss","goal":1,"xp":1500,"mora":300,"note":"霜輪の窪地での討伐が対象。"}
   ]
 }

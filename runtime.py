@@ -148,6 +148,12 @@ def runtime():
     maguu_field=lua.execute((ROOT/'field-maguu.lua').read_text(encoding='utf-8'))(core)
     array_field=lua.execute((ROOT/'field-array.lua').read_text(encoding='utf-8'))(core)
     thunder_field=lua.execute((ROOT/'field-thunder.lua').read_text(encoding='utf-8'))(core)
+    cryo_hypostasis=lua.execute((ROOT/'field-cryo-hypostasis.lua').read_text(encoding='utf-8'))(core)
+    core.cryoHypostasisFieldArt=lua.table_from({
+        'idle':json.loads((ROOT/'assets/cryo-hypostasis-idle-sprites.json').read_text(encoding='utf8')),
+        **{pose:json.loads((ROOT/'assets'/f'cryo-hypostasis-field-{pose}-sprites-v1.json').read_text(encoding='utf8'))
+           for pose in ('wheel','clap','fall','recover')}
+    },recursive=True)
     core.thunderFieldArt=lua.table_from({
         pose:json.loads((ROOT/'assets'/f'thunder-field-{pose}-sprites-v1.json').read_text(encoding='utf8'))
         for pose in ('wing','feathers','dash','recover')
@@ -161,7 +167,7 @@ def runtime():
         lua.table_from({'jadeplume':jade,'cryoRegisvine':cryo_field,'pyroRegisvine':pyro_field,
                         'anemoHypostasis':anemo_field,'electroHypostasis':electro_field,'geoHypostasis':geo_field,
                         'primoGeovishap':primo_field,'oceanid':oceanid_field,'maguu':maguu_field,
-                        'array':array_field,'thunder':thunder_field})
+                        'array':array_field,'thunder':thunder_field,'cryoHypostasis':cryo_hypostasis})
     )
     return lua, core
 

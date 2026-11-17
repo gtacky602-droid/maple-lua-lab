@@ -953,3 +953,9 @@ Chromeで稲妻港から入場、アンバー同行で49.4秒の討伐、17,450E
 ゲーム画像を参考に、翼を畳む構え、翼を開く、雷走、息継ぎの4姿勢と岩峰の仮背景を作成。専用の連続モーション・被弾・撃破と3D照合は未実施。次は無相の氷のフィールド戦に進む。 [設計](docs/field-boss-v1/OCEANID_INAZUMA_MOVESETS.md)・[美術参照](evidence/thunder-field-art-audit.json)・[Lua検証](evidence/thunder-field-lua.json)・[Chrome検証](evidence/thunder-field-browser.json)
 
 Chromeではアンバー同行の57.37秒で討伐し、20,350EXPと190モラを受け取った。報告で4,000EXPと300モラを受け取り、再出現待ちを保存した。翼を畳んだ同一コマの描画指示は標準矩形6,792件、軽量矩形1,718件。`python test_thunder_field.py` で検証用セーブを用意し、`node test_thunder_field.mjs` で稲妻港からの往復を再現できる。
+
+## 無相の氷のフィールド戦
+
+ドラゴンスパインの入口拠点から探索路を通り、右端の門でLv20の「霜輪の窪地」へ入る。入口拠点に「無相の氷の討伐調査」を追加。氷輪は予告した終点へ一方向に進み、通常ジャンプで越えられる。双掌は中央で一度だけ当たり、三本の落氷は床に番号で示した固定3地点へ順に落ちる。氷は無効で、核への通常攻撃が通る。Lv20、HP785、145モラ、依頼の報酬とマップ名称はラボの試案。
+
+Chromeで入場、アンバー同行40.6秒で討伐、1,150EXP・145モラ、依頼報告1,500EXP・300モラ、再出現待ちの保存まで確認。氷輪を止めた同一コマの描画指示は標準矩形8,002件、軽量矩形2,014件。4姿勢と夕暮れの氷盆地の仮背景をゲーム画像から起こした。連続作画・被弾・撃破、3D照合と幻境実機は未検証。次は無相の炎を稲妻のフィールドへつなぐ。 [設計](docs/field-boss-v1/HYPOSTASES_WOLFLORD_MOVESETS.md)・[美術参照](evidence/cryo-hypostasis-field-art-audit.json)・[Lua検証](evidence/cryo-hypostasis-field-lua.json)・[Chrome検証](evidence/cryo-hypostasis-field-browser.json)

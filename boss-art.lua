@@ -31,6 +31,11 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
  function C.drawMaguuMask(f,x,y,h,facing,mode,profile) draw(f,C.maguuMaskArt,x,y,h,mode,profile,(facing or -1)>0) end
  function C.drawGeoPart(f,part,x,y,h,mode,profile) draw(f,geo[part],x,y,h,mode,profile) end
  function C.drawThunderArt(f,b,mode,profile) draw(f,C.thunderArt,b.x,465,150,mode,profile,false) end
+ function C.drawCryoHypostasisFieldArt(f,x,y,pose,mode,profile)
+  local art=C.cryoHypostasisFieldArt[pose]
+  local bottom=y-(pose=='wheel' and 2 or 13)
+  draw(f,art,x,bottom,art.profiles.legacy.height,mode,profile,false)
+ end
  function C.drawThunderFieldArt(f,x,y,h,mode,profile,pose,dir)
   draw(f,pose and C.thunderFieldArt[pose] or C.thunderArt,x,y,h,mode,profile,pose=='dash' and dir>0)
  end
