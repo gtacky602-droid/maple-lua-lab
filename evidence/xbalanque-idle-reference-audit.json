@@ -1,0 +1,81 @@
+{
+  "subject": "Xbalanque / シュバランケ（少年マソウの衣装）",
+  "design": "docs/stygian-motion-v1/XBALANQUE.md",
+  "style": "DESIGN_MAPLE_CHIBI_STYLE_GUIDE_V01.md",
+  "status": "directional unarmed idle sprite candidate",
+  "references": [
+    {
+      "page": "https://www.youtube.com/watch?v=J4QJuzvxV3I",
+      "viewed": "Official cutscene cover and sampled thumbnail did not show usable detail of Mausau. Linked for scene context; no frame timings or outfit details were inferred from those images."
+    },
+    {
+      "page": "https://www.youtube.com/watch?v=yV2JYfz14xs",
+      "image": "https://i.ytimg.com/vi/yV2JYfz14xs/maxresdefault.jpg",
+      "sha256": "d7a180206c5b8be9b115c6a2ba4012b9f12d6056ab67b082c70469fbd04d81da",
+      "viewed": "Creator's in-game quest thumbnail; the boy on the left shows hood, red fringe, blue and yellow feather, and right cheek triangle. Passed to generation."
+    },
+    {
+      "page": "https://www.youtube.com/watch?v=71aqWtpagww",
+      "sha256": "a812032fc6d76e506ddff2f7641285035f05022cc6049f5273fd4f790dac0690",
+      "viewed": "Creator's in-game sparring thumbnail. Observed hood-down flaming form on left; excluded from idle generation to avoid baked-in effects."
+    },
+    {
+      "page": "https://www.hoyolab.com/article/36459823",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2025/01/19/195915409/520fc7f37b3e10cc581bc21032f6ec8d_8856656703109355658.jpg",
+      "sha256": "7bb40a015165e3eb1f65f2b4baaa01f301cb5cd26cb75f71f16c9dabb5848459",
+      "viewed": "Community model render, front. Used to cross-check trousers, neckline, waist accents, wrist wraps, shoes, anatomy of right feather and left thigh strap. Passed to generation."
+    },
+    {
+      "page": "https://x.com/GemazuKurabu/status/1873730066460373192",
+      "image": "https://pbs.twimg.com/media/GgDRG9NXwAAqIMq.jpg",
+      "sha256": "4226646d7ffa5398b2c76388ade4e721459e5ff5d61e1a70aa319bd98944491c",
+      "viewed": "Four-angle community model render, originally labeled as tentative. Clothing checked against the game capture and second render; no claim about release files or independent model provenance. Passed to generation."
+    }
+  ],
+  "model_limit": "No directly controlled 3D model. MMD discovery request returned 404; live Skowt search for Mausau returned no match. Four static model angles were observed. Source images and any downloads are kept in ignored work only.",
+  "generation": {
+    "tool": "built-in ImageGen",
+    "prompts": [
+      "Create a single alpha-transparent pixel-art game sprite sheet with two standalone full-body idle sprites of the boy Mausau as Xbalanque in Genshin Impact. Left cell faces screen right in three-quarter view; right cell faces screen left in three-quarter view. Keep both characters entirely inside their respective halves separated by a wide blank gutter, both feet on the same baseline. Follow the provided game-model renders and the left person in the game still; copy his recognizable hairstyle and costume shapes into freshly drawn pixel art, with no other characters or text. Youthful face, narrow child's shoulders, short sturdy legs, big flat shoes, compact 2D side-scrolling scale for an 84-pixel display. Actual head roughly one third of the body height when the hood is excluded. Main silhouette: oversized dark warm-brown hood and scarf with stepped pale cream edging, short vivid red front fringe peeking out, navy headband, red-orange eyes and the small upside-down orange triangle on HIS RIGHT cheek, dark sleeveless top with cream diamond and geometric trim, ochre sash and silver round buckle, baggy sapphire-blue pants with large blue-black diamonds, two short yellow and black boots, short triangular brown cape behind. Preserve the source tiny blue and yellow feathers on his right upper arm only, and the black band on his left thigh only. No mirrored asymmetrical details. Bare unarmed hands in a small relaxed guard near the hips, matching the young build. Small wrist wraps and hardware per reference, no giant gauntlets, no weapon, no fire, no luminous VFX, no long hair. Draw deliberately chunky, hard-edged pixel clusters with slope stair-steps and simple readable highlights, using warm reds, deep browns, ochre and saturated muted blue. Keep the color groups readable at 42 pixels tall. No antialiasing look, no shadows, no horizon, no backdrop, no subtitle, no label or watermark.",
+      "Make one local correction to this exact transparent sprite sheet of the two directions. Only modify the right-half figure (facing screen left). Its large near-side cheek on the screen-RIGHT side of its face, directly beneath the eye nearest the right image edge, currently has an orange triangle. Replace just that misplaced near-side triangle with matching flat skin pixel clusters. Keep its far cheek as drawn, preserve the left-half sprite exactly with its orange painted triangle, and keep all other pixels, silhouettes, clear gutter, proportions, arms, navy trousers, headband, hood, boots, four glued foot soles and alpha backdrop the same. No other change.",
+      "Refine the body proportions of these exact two directional pixel-art sprites for a short 84px sprite. Keep all asymmetry and identifying marks, same artwork, exact faces, same painted RIGHT cheek only (DO NOT add the cheek triangle on the visible near cheek of the right-half boy), same red fringe and brown hood. Shorten the body under the chin by around 13% while retaining overall width. Specifically trim height of baggy pants and shins considerably, raise the belt slightly and widen each flat shoe, and shorten the lower edges of the cape to match. The hood stays the SAME size, the head is prominent relative to the small compact body. Maintain the single yellow and blue feather on his right arm and black strap on his left thigh, hands resting at hips. Both standing directions, same clear central gutter, same horizontal foot contact line. No background, no shadows, no lighting effects, no text. Crisp square pixel art and transparent alpha."
+    ],
+    "sheet_px": [
+      1774,
+      887
+    ],
+    "split_x": 887,
+    "sheet_sha256": "24a533eb941acb2048003fca70d68af7d99343e7d0d118eb4f0075a817a06aa3"
+  },
+  "render": {
+    "height_px": 84,
+    "foot_anchor": "midpoint of opaque pixels in bottom 1.8% of height",
+    "profile_heights": [
+      84,
+      63,
+      42
+    ],
+    "profile_colors": [
+      32,
+      32,
+      16
+    ],
+    "right": [
+      1719,
+      1069,
+      496
+    ],
+    "left": [
+      1740,
+      1066,
+      477
+    ],
+    "map": "natlan-entry",
+    "floor_y": 480,
+    "neighbors": {
+      "traveler_px": 88,
+      "capitano_px": 152
+    }
+  },
+  "limits": "Head crown is hidden by hood, so a precise anatomical head count is not claimed. Cheek marking is largest on the near right cheek and occluded on the left-facing sprite. At 42px the hood, red fringe and blue trousers remain clear, but feather, cheek paint and chest ornament lose definition. The two idle frames contain no gameplay or effects."
+}

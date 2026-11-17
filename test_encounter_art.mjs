@@ -12,7 +12,7 @@ for(const encounter of data.encounters){
   assert(catalogs[art.gallery??'bosses']?.some(item=>'assets/'+item.file===art.encoding),'Missing registered art '+art.encoding);
  }
 }
-assert.deepEqual(expected.filter(e=>!e.items.length).map(e=>e.id),['stygian-xbalanque','stygian-rerir','stygian-ronova']);
+assert.deepEqual(expected.filter(e=>!e.items.length).map(e=>e.id),['stygian-rerir','stygian-ronova']);
 assert.equal(expected.find(e=>e.id==='bathysmal-herd').items.length,2);
 assert.deepEqual(encounterArtItems({art_candidate:{encoding:'javascript:alert(1)'}},catalogs),[]);
 const browser=await chromium.launch({headless:true,channel:'chrome'}),context=await browser.newContext({viewport:{width:1440,height:1080}}),p=await context.newPage(),errors=[];
@@ -49,9 +49,11 @@ try{
   assert.match(await row.locator('.encounter-art').innerText(),/同行キャラの待機絵を共用/);
   await verifyPopup(row.locator('.encounter-art a'),'characters-art.html',id);
  }
- const captain=panel.locator('[data-encounter="stygian-capitano"]');
- assert(await captain.getByRole('button',{name:'制作中',exact:true}).isDisabled());
- await verifyPopup(captain.locator('.encounter-art a'),'bosses-art.html','capitano-coat');
+ for(const [id,asset] of [['capitano','capitano-coat'],['xbalanque','xbalanque']]){
+  const row=panel.locator(`[data-encounter="stygian-${id}"]`);
+  assert(await row.getByRole('button',{name:'制作中',exact:true}).isDisabled());
+  await verifyPopup(row.locator('.encounter-art a'),'bosses-art.html',asset);
+ }
  await panel.screenshot({path:'evidence/encounter-art-desktop.png'});
  await p.setViewportSize({width:390,height:844});await panel.screenshot({path:'evidence/encounter-art-mobile.png'});
  assert.equal(await panel.evaluate(el=>el.scrollWidth>el.clientWidth),false);
@@ -66,6 +68,6 @@ try{
   await p.unroute(routePattern);
  }
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/encounter-art-test.json',JSON.stringify({rows:expected.length,rowsWithArt:expected.filter(e=>e.items.length).length,artLinks:expected.reduce((n,e)=>n+e.items.length,0),bossPopupsVerified:3,characterPopupsVerified:2,mobilePanelOverflow:false,catalogFailuresPreserveOtherLinksAndLaunch:true,errors},null,2));
+ await fs.writeFile('evidence/encounter-art-test.json',JSON.stringify({rows:expected.length,rowsWithArt:expected.filter(e=>e.items.length).length,artLinks:expected.reduce((n,e)=>n+e.items.length,0),bossPopupsVerified:4,characterPopupsVerified:2,mobilePanelOverflow:false,catalogFailuresPreserveOtherLinksAndLaunch:true,errors},null,2));
  console.log('Encounter art links, boss and character navigation, mobile and catalog failures passed');
 }finally{await browser.close()}

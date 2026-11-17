@@ -1,5 +1,5 @@
 {
-  "count": 41,
+  "count": 42,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -14,6 +14,7 @@
     "both paired encounters retain two art references",
     "only new design-only candidates lack art",
     "Capitano art and design linked without a playable action",
+    "Xbalanque art and design linked without a playable action",
     "gallery revision automatically updates reference",
     "launch boss_anemo",
     "launch boss_cryo_regisvine",

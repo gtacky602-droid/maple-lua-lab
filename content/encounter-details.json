@@ -609,6 +609,20 @@
         "マルチ・記録"
       ],
       "review_note": "外套ありの入場待機を152pxの比較サイズで左右別に試作。"
+    },
+    "stygian-xbalanque": {
+      "art_candidate": {
+        "item": "xbalanque",
+        "audit": "evidence/xbalanque-idle-reference-audit.json",
+        "status": "directional unarmed idle candidate in Mausau's form"
+      },
+      "remaining": [
+        "動作・台詞・炎の別素材",
+        "専用戦闘行動",
+        "4難度・報酬",
+        "マルチ・記録"
+      ],
+      "review_note": "少年マソウの衣装で、素手の待機を84pxの比較サイズで左右別に試作。"
     }
   }
 }

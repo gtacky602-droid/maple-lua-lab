@@ -466,6 +466,14 @@
       "mapHover": 0
     },
     {
+      "id": "xbalanque",
+      "name": "シュバランケ（少年マソウの姿・待機候補）",
+      "file": "xbalanque-idle-right-sprites-v1.json",
+      "leftFile": "xbalanque-idle-left-sprites-v1.json",
+      "height": 84,
+      "mapHover": 0
+    },
+    {
       "id": "anemo",
       "name": "無相の風・外殻（既存候補）",
       "file": "anemo-shell-sprites.json",
