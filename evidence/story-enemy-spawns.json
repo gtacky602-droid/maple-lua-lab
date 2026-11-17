@@ -61,6 +61,10 @@
       "enemy_count": 3
     },
     {
+      "node": "liyue-quarry-storage",
+      "enemy_count": 2
+    },
+    {
       "node": "liyue-field",
       "enemy_count": 6
     },

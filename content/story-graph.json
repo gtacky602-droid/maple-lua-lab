@@ -599,6 +599,14 @@
             "count": 3
           },
           "liftSeconds": 2.0
+        },
+        {
+          "to": "liyue-quarry-storage",
+          "x": 1270,
+          "requires": {
+            "quest": "liyue-market-opening",
+            "count": 3
+          }
         }
       ],
       "checkpoint": "liyue-harbor"
@@ -810,6 +818,15 @@
           "x": 270
         },
         {
+          "to": "liyue-quarry-storage",
+          "x": 1490,
+          "y": 305,
+          "requires": {
+            "quest": "liyue-market-opening",
+            "count": 0
+          }
+        },
+        {
           "to": "liyue-harbor",
           "x": 1700,
           "requires": {
@@ -820,6 +837,32 @@
         }
       ],
       "clearedBy": "liyue-caravan-search"
+    },
+    {
+      "id": "liyue-quarry-storage",
+      "name": "璃月・奥の保管区画",
+      "region": "璃月",
+      "level": 20,
+      "hub": false,
+      "width": 1760,
+      "checkpoint": "liyue-harbor",
+      "platforms": [
+        {"x": 0, "y": 480, "w": 1760},
+        {"x": 215, "y": 397, "w": 340},
+        {"x": 440, "y": 312, "w": 340},
+        {"x": 1140, "y": 397, "w": 356},
+        {"x": 1350, "y": 311, "w": 290}
+      ],
+      "exits": [
+        {"to": "liyue-quarry-post", "x": 70},
+        {
+          "to": "liyue-harbor",
+          "x": 1690,
+          "requires": {"quest": "liyue-market-opening", "count": 3}
+        }
+      ],
+      "clearedBy": "liyue-market-opening",
+      "clearCount": 2
     },
     {
       "id": "liyue-field",
@@ -4128,6 +4171,30 @@
           "y": 480,
           "line": "商隊は全員無事でした。荷車は下層へ流されたそうです。見張りを退ければ商人が退避できます。"
         }
+      }
+    },
+    {
+      "id": "liyue-market-opening",
+      "designId": "Q-LIY-M03",
+      "name": "開幕！ 山海の大市",
+      "giver": "北斗",
+      "requires": "liyue-caravan-search",
+      "hub": "liyue-harbor",
+      "target": "liyue-quarry-storage",
+      "kind": "rail",
+      "goal": 3,
+      "xp": 4000,
+      "mora": 500,
+      "briefing": "北斗「茶葉も器も、あの荷車の中だ。保管区画の上段に上がって、留め具を外そう。」",
+      "closing": "北斗「茶も料理もそろった。ひと息ついたら、今度は海の向こうの話をしようか。」",
+      "rail": {
+        "release": {"id": "cart-latch", "label": "荷車の留め具を外す", "x": 658, "y": 312},
+        "dispatch": {"id": "market-switch", "label": "荷車を港へ送り出す", "x": 1030, "y": 480},
+        "guard": "liyue-quarry-storage-keeper",
+        "startX": 750,
+        "exitX": 1720,
+        "seconds": [2.4, 3.2],
+        "bridge": {"x": 950, "y": 411, "w": 220}
       }
     },
     {

@@ -55,6 +55,10 @@ function updateDelivery(f){
 function hud(f,calls,renderMs){
  updateDelivery(f);
  const lift=f.storyLift;
+ const rail=f.storyRailTransit;
+ const market=$('storyMarket');
+ market.hidden=!(rail||f.storyMarketOpen);
+ if(!market.hidden)market.textContent=rail?(rail.release?'荷車が分岐へ移動中':'荷車が港へ移動中'):'山海の大市 開催中 ｜ 茶器・料理・布';
  $('storyLift').hidden=!lift;
  if(lift){
   $('storyLiftText').textContent='昇降台で移動中 ｜ '+lift.destination;

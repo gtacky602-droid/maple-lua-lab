@@ -92,6 +92,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "liyue-quarry-storage",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "liyue-field",
       "count": 0,
       "fallback": false,

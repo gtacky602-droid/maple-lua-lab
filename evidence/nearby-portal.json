@@ -5,6 +5,10 @@
       "to": "mond-road"
     },
     {
+      "node": "mond-town",
+      "to": "mond-restored-road"
+    },
+    {
       "node": "mond-road",
       "to": "mond-town"
     },
@@ -27,6 +31,74 @@
     {
       "node": "mond-road",
       "to": "electro-approach"
+    },
+    {
+      "node": "mond-road",
+      "to": "mond-old-road"
+    },
+    {
+      "node": "mond-road",
+      "to": "mond-hill"
+    },
+    {
+      "node": "mond-old-road",
+      "to": "mond-road"
+    },
+    {
+      "node": "mond-old-road",
+      "to": "mond-old-canopy"
+    },
+    {
+      "node": "mond-old-road",
+      "to": "mond-old-ground"
+    },
+    {
+      "node": "mond-old-canopy",
+      "to": "mond-old-road"
+    },
+    {
+      "node": "mond-old-canopy",
+      "to": "mond-hill"
+    },
+    {
+      "node": "mond-old-ground",
+      "to": "mond-old-road"
+    },
+    {
+      "node": "mond-old-ground",
+      "to": "mond-hill"
+    },
+    {
+      "node": "mond-hill",
+      "to": "mond-old-ground"
+    },
+    {
+      "node": "mond-hill",
+      "to": "mond-old-canopy"
+    },
+    {
+      "node": "mond-hill",
+      "to": "mond-road"
+    },
+    {
+      "node": "mond-hill",
+      "to": "mond-watchtower"
+    },
+    {
+      "node": "mond-watchtower",
+      "to": "mond-hill"
+    },
+    {
+      "node": "mond-watchtower",
+      "to": "mond-restored-road"
+    },
+    {
+      "node": "mond-restored-road",
+      "to": "mond-watchtower"
+    },
+    {
+      "node": "mond-restored-road",
+      "to": "mond-town"
     },
     {
       "node": "mond-border",
@@ -69,6 +141,78 @@
       "to": "liyue-ferry"
     },
     {
+      "node": "liyue-harbor",
+      "to": "liyue-loading-yard"
+    },
+    {
+      "node": "liyue-harbor",
+      "to": "liyue-river-trail"
+    },
+    {
+      "node": "liyue-harbor",
+      "to": "liyue-cliff-planks"
+    },
+    {
+      "node": "liyue-harbor",
+      "to": "liyue-quarry-post"
+    },
+    {
+      "node": "liyue-harbor",
+      "to": "liyue-quarry-storage"
+    },
+    {
+      "node": "liyue-loading-yard",
+      "to": "liyue-harbor"
+    },
+    {
+      "node": "liyue-river-trail",
+      "to": "liyue-harbor"
+    },
+    {
+      "node": "liyue-river-trail",
+      "to": "liyue-cliff-planks"
+    },
+    {
+      "node": "liyue-river-trail",
+      "to": "liyue-quarry-post"
+    },
+    {
+      "node": "liyue-cliff-planks",
+      "to": "liyue-harbor"
+    },
+    {
+      "node": "liyue-cliff-planks",
+      "to": "liyue-river-trail"
+    },
+    {
+      "node": "liyue-cliff-planks",
+      "to": "liyue-quarry-post"
+    },
+    {
+      "node": "liyue-quarry-post",
+      "to": "liyue-river-trail"
+    },
+    {
+      "node": "liyue-quarry-post",
+      "to": "liyue-cliff-planks"
+    },
+    {
+      "node": "liyue-quarry-post",
+      "to": "liyue-quarry-storage"
+    },
+    {
+      "node": "liyue-quarry-post",
+      "to": "liyue-harbor"
+    },
+    {
+      "node": "liyue-quarry-storage",
+      "to": "liyue-quarry-post"
+    },
+    {
+      "node": "liyue-quarry-storage",
+      "to": "liyue-harbor"
+    },
+    {
       "node": "liyue-field",
       "to": "liyue-harbor"
     },
@@ -87,6 +231,10 @@
     {
       "node": "liyue-field",
       "to": "primo-approach"
+    },
+    {
+      "node": "liyue-field",
+      "to": "chasm-camp"
     },
     {
       "node": "liyue-ferry",
@@ -309,6 +457,10 @@
       "to": "novokichev-camp"
     },
     {
+      "node": "snezhnaya-field",
+      "to": "wingspan-camp"
+    },
+    {
       "node": "dragonspine-camp",
       "to": "mond-border"
     },
@@ -403,6 +555,150 @@
     {
       "node": "novokichev-depth",
       "to": "novokichev-camp"
+    },
+    {
+      "node": "wingspan-camp",
+      "to": "snezhnaya-field"
+    },
+    {
+      "node": "wingspan-camp",
+      "to": "wingspan-lookout"
+    },
+    {
+      "node": "wingspan-lookout",
+      "to": "wingspan-camp"
+    },
+    {
+      "node": "chasm-camp",
+      "to": "liyue-field"
+    },
+    {
+      "node": "chasm-camp",
+      "to": "chasm-depth"
+    },
+    {
+      "node": "chasm-depth",
+      "to": "chasm-camp"
+    },
+    {
+      "node": "chasm-depth",
+      "to": "chasm-wp-25266"
+    },
+    {
+      "node": "chasm-depth",
+      "to": "chasm-wp-25264"
+    },
+    {
+      "node": "chasm-wp-25264",
+      "to": "chasm-depth"
+    },
+    {
+      "node": "chasm-wp-25266",
+      "to": "chasm-depth"
+    },
+    {
+      "node": "chasm-wp-25266",
+      "to": "chasm-wp-25267"
+    },
+    {
+      "node": "chasm-wp-25267",
+      "to": "chasm-wp-25266"
+    },
+    {
+      "node": "chasm-wp-25267",
+      "to": "chasm-wp-25268"
+    },
+    {
+      "node": "chasm-wp-25267",
+      "to": "chasm-wp-25270"
+    },
+    {
+      "node": "chasm-wp-25268",
+      "to": "chasm-wp-25267"
+    },
+    {
+      "node": "chasm-wp-25268",
+      "to": "chasm-wp-25269"
+    },
+    {
+      "node": "chasm-wp-25269",
+      "to": "chasm-wp-25268"
+    },
+    {
+      "node": "chasm-wp-25269",
+      "to": "chasm-wp-25277"
+    },
+    {
+      "node": "chasm-wp-25270",
+      "to": "chasm-wp-25267"
+    },
+    {
+      "node": "chasm-wp-25270",
+      "to": "chasm-wp-26463"
+    },
+    {
+      "node": "chasm-wp-25271",
+      "to": "chasm-wp-26463"
+    },
+    {
+      "node": "chasm-wp-25271",
+      "to": "chasm-wp-25274"
+    },
+    {
+      "node": "chasm-wp-25271",
+      "to": "chasm-wp-25273"
+    },
+    {
+      "node": "chasm-wp-25272",
+      "to": "chasm-wp-25273"
+    },
+    {
+      "node": "chasm-wp-25273",
+      "to": "chasm-wp-25271"
+    },
+    {
+      "node": "chasm-wp-25273",
+      "to": "chasm-wp-25272"
+    },
+    {
+      "node": "chasm-wp-25274",
+      "to": "chasm-wp-25271"
+    },
+    {
+      "node": "chasm-wp-25275",
+      "to": "chasm-wp-25276"
+    },
+    {
+      "node": "chasm-wp-25276",
+      "to": "chasm-wp-25277"
+    },
+    {
+      "node": "chasm-wp-25276",
+      "to": "chasm-wp-25275"
+    },
+    {
+      "node": "chasm-wp-25276",
+      "to": "chasm-wp-26463"
+    },
+    {
+      "node": "chasm-wp-25277",
+      "to": "chasm-wp-25269"
+    },
+    {
+      "node": "chasm-wp-25277",
+      "to": "chasm-wp-25276"
+    },
+    {
+      "node": "chasm-wp-26463",
+      "to": "chasm-wp-25270"
+    },
+    {
+      "node": "chasm-wp-26463",
+      "to": "chasm-wp-25276"
+    },
+    {
+      "node": "chasm-wp-26463",
+      "to": "chasm-wp-25271"
     },
     {
       "node": "golden-hub",

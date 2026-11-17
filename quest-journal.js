@@ -9,6 +9,13 @@ const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready
 export function questObjective(q,graph,state){
  const destination=graph.nodes.find(n=>q.kind==='boss'?n.challenge===q.target:n.id===q.target);
  const place=destination?.name||'目的地未登録';
+ if(q.rail){
+  if(state?.status==='complete')return '荷車が帰り、山海の大市が開いた';
+  if(state?.count===q.goal)return '市場への帰り道から港へ戻り、北斗に報告する';
+  if(state?.count===2)return '分岐に止まった荷車をGキーで港へ送り出す';
+  if(state?.count===1)return '保管区画で石切り場の番人を倒す';
+  return '保管区画の上段に上がり、Gキーで荷車の留め具を外す';
+ }
  if(q.delivery){
   if(state?.status==='complete')return '三店舗への配達を終えた';
   if(state?.count===q.goal)return '港の広場で刻晴に報告する';

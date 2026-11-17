@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 89 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 87,
+  "scope": "Authored 90 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 88,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -96,6 +96,12 @@
       "status": "regional_temporary_image"
     },
     {
+        "id": "liyue-quarry-storage",
+        "name": "璃月・奥の保管区画",
+        "region": "璃月",
+        "status": "regional_temporary_image"
+      },
+      {
       "id": "liyue-field",
       "name": "璃月・岩間の狩場",
       "region": "璃月",

@@ -1,0 +1,17 @@
+{
+  "M02_prerequisite": true,
+  "latch_elevation_required": true,
+  "rail_moves_while_player_controls_remain_available": true,
+  "rail_pauses": true,
+  "moving_cart_resumes_at_previous_committed_station": true,
+  "released_bridge_reachable_with_normal_jump": true,
+  "changed_enemy_placements": true,
+  "keeper_defeated_with_normal_attack": true,
+  "return_gate_opens_after_dispatch": true,
+  "market_and_safe_revisit_persist": true,
+  "requires_beidou_join": false,
+  "one_time_reward": {
+    "xp": 4000,
+    "mora": 500
+  }
+}

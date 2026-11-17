@@ -1684,6 +1684,42 @@
         "art": "hilichurl"
       }
     ],
+    "liyue-quarry-storage": [
+      {
+        "id": "liyue-quarry-storage-1",
+        "kind": 1,
+        "art": "hilichurl",
+        "x": 440,
+        "platform": 0,
+        "railPhase": 0
+      },
+      {
+        "id": "liyue-quarry-storage-2",
+        "kind": 2,
+        "art": "pyro-slime",
+        "x": 440,
+        "platform": 1,
+        "railPhase": 0
+      },
+      {
+        "id": "liyue-quarry-storage-keeper",
+        "name": "石切り場の番人",
+        "kind": 1,
+        "art": "ruin-guard",
+        "x": 1295,
+        "platform": 0,
+        "hp": 70,
+        "railPhase": 1
+      },
+      {
+        "id": "liyue-quarry-storage-3",
+        "kind": 2,
+        "art": "pyro-slime",
+        "x": 1390,
+        "platform": 3,
+        "railPhase": 1
+      }
+    ],
     "liyue-quarry-post": [
       {
         "id": "liyue-quarry-post-1",

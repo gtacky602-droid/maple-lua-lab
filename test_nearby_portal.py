@@ -8,10 +8,16 @@ for n in g['nodes']:
  s=state(n['id']);s.progression.level=999
  for group in {x.get('hiddenGroup') for x in g['nodes']} - {None}:s.story.discovered[group]=True
  for edge in n['exits']:
-  s.actors[1].x=edge['x'];s.actors[1].y=480
+  s.actors[1].x=edge['x'];s.actors[1].y=edge.get('y',480)
   p=c.frame(s,'sprite','h32c16').storyNearbyPortal
-  assert p is not None and p.name==nodes[p.to]['name']
-  if not edge.get('windowStart') and not edge.get('requiresArrival'):assert p.available
+  assert p is not None and p.to==edge['to'] and p.name==nodes[p.to]['name']
+  rule=edge.get('requires')
+  if rule:
+   assert not p.available
+   s.story.quests[rule['quest']]=lua.table_from({'status':'complete','count':rule.get('count',0)})
+   assert c.frame(s,'sprite','h32c16').storyNearbyPortal.available
+   s.story.quests[rule['quest']]=None
+  elif not edge.get('windowStart') and not edge.get('requiresArrival'):assert p.available
   checked.append({'node':n['id'],'to':p.to})
 s=state('mond-town');edge=nodes['mond-town']['exits'][0];s.actors[1].x=edge['x']
 assert c.frame(s,'sprite','legacy').storyNearbyPortal.available

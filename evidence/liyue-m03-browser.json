@@ -1,0 +1,12 @@
+{
+  "browser": "Chrome",
+  "controls": "ordinary keyboard and HUD buttons",
+  "checkpoint": "M02 completion fixture",
+  "keeper_hp_hud": true,
+  "animated_cart_and_dispatch": true,
+  "market_visible": true,
+  "report_and_restore": true,
+  "safe_revisit": true,
+  "viewport_390": true,
+  "errors": []
+}

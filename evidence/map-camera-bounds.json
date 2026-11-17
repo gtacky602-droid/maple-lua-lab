@@ -76,6 +76,11 @@
       "rightCamera": 800
     },
     {
+      "node": "liyue-quarry-storage",
+      "width": 1760,
+      "rightCamera": 800
+    },
+    {
       "node": "liyue-field",
       "width": 1440,
       "rightCamera": 480

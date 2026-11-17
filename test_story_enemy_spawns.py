@@ -12,7 +12,7 @@ for n in graph['nodes']:
     s = c.new(12)
     c.action(s, 'story_start')
     c.enterStoryNode(s, n['id'])
-    expected = spawns.get(n['id'], [])
+    expected = [p for p in spawns.get(n['id'], []) if p.get('railPhase', 0) == 0]
     assert len(s.enemies) == len(expected)
     assert len({e['id'] for e in expected}) == len(expected)
     for i, p in enumerate(expected, 1):

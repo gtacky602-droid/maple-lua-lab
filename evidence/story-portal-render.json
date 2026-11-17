@@ -103,12 +103,12 @@
     {
       "node": "liyue-harbor",
       "mode": "sprite",
-      "visible_portals": 7
+      "visible_portals": 8
     },
     {
       "node": "liyue-harbor",
       "mode": "rect",
-      "visible_portals": 7
+      "visible_portals": 8
     },
     {
       "node": "liyue-loading-yard",
@@ -143,12 +143,22 @@
     {
       "node": "liyue-quarry-post",
       "mode": "sprite",
-      "visible_portals": 3
+      "visible_portals": 4
     },
     {
       "node": "liyue-quarry-post",
       "mode": "rect",
-      "visible_portals": 3
+      "visible_portals": 4
+    },
+    {
+      "node": "liyue-quarry-storage",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "liyue-quarry-storage",
+      "mode": "rect",
+      "visible_portals": 2
     },
     {
       "node": "liyue-field",

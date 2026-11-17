@@ -1,4 +1,4 @@
-return function(C,data,delivery)
+return function(C,data,delivery,rail)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -112,28 +112,41 @@ return function(C,data,delivery)
  end
  local function cleared(s,n)
   local state=n.clearedBy and s.story.quests[n.clearedBy]
-  return state and state.count>=quests[n.clearedBy].goal
+  return state and state.count>=(n.clearCount or quests[n.clearedBy].goal)
+ end
+ local function railQuest(s,n)
+  local q=quests[n.clearedBy]
+  if q and q.rail then return q,s.story.quests[q.id] end
+ end
+ local function spawnEnemies(s,n,railPhase)
+  s.enemies={}
+  if not n.hub and not n.peaceful and not cleared(s,n) then
+   local fresh=C.new(12)
+   local placements=assert(C.enemySpawns and C.enemySpawns[n.id],'Missing story enemy placements: '..n.id)
+   for i,placement in ipairs(placements) do
+    if not placement.railPhase or placement.railPhase==railPhase then
+     local e=fresh.enemies[i];local p=assert(n.platforms[placement.platform+1],'Invalid enemy support')
+     e.x=placement.x;e.home=e.x;e.y=p.y;e.kind=placement.kind;e.art=placement.art;e.spawnId=placement.id
+     e.storyName=placement.name
+     if placement.hp then e.hp=placement.hp;e.maxhp=placement.hp end
+     e.patrolMin=p.x+24;e.patrolMax=p.x+p.w-24
+     e.level=n.level;e.barrier=n.barrier or 0;if e.barrier>0 then e.hp=60;e.maxhp=60 end
+     s.enemies[#s.enemies+1]=e
+    end
+   end
+  end
  end
  local function enter(s,id,spawn,elapsed,arrivalY)
   local n=nodes[id];s.campaign.zone='story:transition';action(s,n.hub and 'town' or 'field')
   s.campaign.zone=n.hub and 'town' or ('story:'..id);s.campaign.message='本編ルートの試作。隣の地点へは門の近くで移動。'
   s.story.active=true;s.story.node=id;s.story.visited[id]=true;s.worldwidth=n.width
-  s.platforms={};for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]={x=p.x,y=p.y,w=p.w} end
-  s.enemies={}
+  s.platforms={};for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]=copy(p) end
   s.lift=nil
+  s.railTrip=nil
   s.storyDeliveryNotice=nil
-  if not n.hub and not n.peaceful and not cleared(s,n) then
-   local fresh=C.new(12)
-   local placements=assert(C.enemySpawns and C.enemySpawns[id],'Missing story enemy placements: '..id)
-   for i,placement in ipairs(placements) do
-    local e=fresh.enemies[i];local p=assert(n.platforms[placement.platform+1],'Invalid enemy support')
-    e.x=placement.x;e.home=e.x;e.y=p.y;e.kind=placement.kind;e.art=placement.art;e.spawnId=placement.id
-    e.storyName=placement.name
-    if placement.hp then e.hp=placement.hp;e.maxhp=placement.hp end
-    e.patrolMin=p.x+24;e.patrolMax=p.x+p.w-24
-    e.level=n.level;e.barrier=n.barrier or 0;if e.barrier>0 then e.hp=60;e.maxhp=60 end;s.enemies[i]=e
-   end
-  end
+  local railConfig,railState=railQuest(s,n)
+  if railState and railState.count>=1 then s.platforms[#s.platforms+1]=copy(railConfig.rail.bridge) end
+  spawnEnemies(s,n,railConfig and (railState and railState.count or 0))
   local cargo,state=cargoQuest(s)
   if cargo and recoveredAll(cargo,state) then beginChase(s,cargo) end
   for i,a in ipairs(s.actors) do a.x=(spawn or 160)-(i-1)*40;a.y=arrivalY or 480;a.vy=0;a.ground=true;if arrivalY then a.drop=0 end end
@@ -151,6 +164,8 @@ return function(C,data,delivery)
   if key=='story_nearby_portal' then local p=nearbyPortal(s);if p then C.action(s,'story_portal:'..p.to) end;return end
   if key=='story_collect' then
    if s.paused or not s.story.active then return end
+   local railConfig,railState=railQuest(s,nodes[s.story.node])
+   if railConfig then rail.start(s,railConfig,railState);return end
    for id,state in pairs(s.story.quests) do
     local q=quests[id]
     if q.delivery and state.status=='active' and q.target==s.story.node then
@@ -240,7 +255,7 @@ return function(C,data,delivery)
    end
    return
   end
-  if key=='campaign' or key=='town' or key=='field' or key=='arena' or key=='boss_anemo' then s.story.active=false;s.voyage=nil end
+  if key=='campaign' or key=='town' or key=='field' or key=='arena' or key=='boss_anemo' then s.story.active=false;s.voyage=nil;s.railTrip=nil end
   action(s,key)
  end
  function C.onKill(s,e)
@@ -257,6 +272,10 @@ return function(C,data,delivery)
      state.count=q.goal
      s.storyNotice=q.clearedNotice or '見張りを倒して柵が開きました。森への近道から戻れます。'
     end
+    if q.rail and state.status=='active' and state.count==1 and q.target==s.story.node and e.spawnId==q.rail.guard then
+     state.count=2
+     s.storyNotice='石切り場の番人を倒しました。分岐に止まった荷車を港へ送り出しましょう。'
+    end
    end
   end
  end
@@ -270,6 +289,13 @@ return function(C,data,delivery)
    return
   end
   local returns=s.returns;step(s,dt,input)
+  if s.railTrip and s.story.active and s.returns==returns then
+   local n=nodes[s.story.node];local q,state=railQuest(s,n)
+   if rail.step(s,dt,state) then
+    s.platforms[#s.platforms+1]=copy(q.rail.bridge)
+    spawnEnemies(s,n,state.count)
+   end
+  end
   if s.story and s.story.active and s.voyage and not s.paused and s.t+1e-8>=s.voyage.arrives then enter(s,s.voyage.destination) end
   if s.story and s.story.active and #s.enemies>0 and cleared(s,nodes[s.story.node]) then s.enemies={} end
   if s.story and s.story.active and s.returns~=returns then enter(s,s.story.visited[nodes[s.story.node].checkpoint] and nodes[s.story.node].checkpoint or 'mond-town') end
@@ -333,9 +359,10 @@ return function(C,data,delivery)
     markers[#markers+1]={kind='rect',x=x-5,y=y-10,w=10,h=7,color=elevated and '#f76859' or '#b69765'}
    end
    for _,q in ipairs(data.quests) do
-    if q.delivery then
+    if q.delivery or q.rail then
      local state=s.story.quests[q.id]
-     delivery.observe(s,f,markers,q,state and state.delivery)
+     if q.delivery then delivery.observe(s,f,markers,q,state and state.delivery)
+     else rail.observe(s,f,markers,q,state) end
     end
    end
    -- Navigation and quest objects precede actors, enemies, and effects.
