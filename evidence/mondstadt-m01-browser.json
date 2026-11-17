@@ -1,0 +1,18 @@
+{
+  "errors": [],
+  "protectedCargoBeforeCombat": true,
+  "usedJump": true,
+  "cargoRecovery": [
+    "keyboard G",
+    "nearby button"
+  ],
+  "actualCombat": true,
+  "finishedAtTown": true,
+  "amberJoined": true,
+  "reward": {
+    "mora": 100,
+    "xp": 1000
+  },
+  "saveRestored": true,
+  "mobileWidth": true
+}

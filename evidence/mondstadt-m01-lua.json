@@ -1,0 +1,11 @@
+{
+  "regular_combat": true,
+  "three_cargo_items": true,
+  "toolbox_jump": true,
+  "chase": true,
+  "early_and_remote_report_rejected": true,
+  "duplicate_reward_rejected": true,
+  "restored_partial_and_complete": true,
+  "legacy_active_and_complete": true,
+  "selected_companion_unchanged": true
+}

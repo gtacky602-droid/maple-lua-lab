@@ -5,16 +5,25 @@ export function questStatus(q,state){
  return state.count>=q.goal?'ready':'active';
 }
 const labels={unaccepted:'未受注',active:'進行中',ready:'報告待ち',complete:'完了'};
-export function questObjective(q,graph){
+export function questObjective(q,graph,state){
  const destination=graph.nodes.find(n=>q.kind==='boss'?n.challenge===q.target:n.id===q.target);
  const place=destination?.name||'目的地未登録';
+ if(q.cargo&&(!state||state.recovered)){
+  if(state?.status==='complete')return '荷馬車を街へ戻した';
+  const opening=q.goal-1;
+  if(!state||state.count<opening)return `アンバーと南の街道へ出発し、スライムを${opening}体倒す（${state?.count??0}/${opening}）`;
+  const remaining=q.cargo.filter(item=>!state.recovered[item.id]);
+  if(remaining.length)return `Gキーで荷物を回収する（${q.cargo.length-remaining.length}/${q.cargo.length}）・残り ${remaining.map(item=>item.name).join('、')}`;
+  if(state.count===q.goal)return '城門広場に戻り、アンバーに報告する';
+  return '赤い布を引きずるヒルチャールを街道の奥で倒す';
+ }
  return q.kind==='visit'?`${place}を訪れる`:q.kind==='kill'?`${place}で敵を${q.goal}体倒す`:`${place}の本編入口から挑戦し、ボスを討伐する`;
 }
 export function trackedQuestText(f,id){
  if(!f.story?.active)return '';
  const q=f.storyGraph.quests.find(q=>q.id===id);if(!q)return '';
  const st=f.story.quests[q.id],status=questStatus(q,st),hub=f.storyGraph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
- const next=status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph);
+ const next=status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph,st);
  const route=questRouteText(f,q,status);
  return `${q.name} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''} ｜ ${next}`+(route?' ｜ '+route:'');
 }
@@ -31,10 +40,16 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
   if(filter==='relevant'?q.hub!==story.node&&!st:filter!=='all'&&filter!==status)continue;
   shown++;const row=document.createElement('p');row.dataset.quest=q.id;row.dataset.status=status;
   const hub=graph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
-  row.textContent=`${q.name} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''}${q.repeatable?` ／ 報告${st?.cycles||0}回`:''}${q.join&&status==='complete'?'（加入済み／初期装備は未実装）':''} ｜ ${questObjective(q,graph)} ｜ 受注・報告：${hub} ｜ 仮報酬 ${q.xp}EXP / ${q.mora}モラ `;
+  row.textContent=`${q.name} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''}${q.repeatable?` ／ 報告${st?.cycles||0}回`:''}${q.join&&status==='complete'?(q.giver?`（${q.giver}加入済み）`:'（加入済み／初期装備は未実装）'):''} ｜ ${questObjective(q,graph,st)} ｜ 受注・報告：${hub} ｜ 仮報酬 ${q.xp}EXP / ${q.mora}モラ `;
   if(status==='unaccepted'||(status==='complete'&&q.repeatable)){const b=button('受注','story_accept:'+q.id);b.disabled=q.hub!==story.node;b.title=b.disabled?`${hub}で受注してください`:'';row.append(b)}
   if(status==='ready'){const b=button('報告','story_report:'+q.id);b.disabled=q.hub!==story.node;b.title=b.disabled?`${hub}へ戻って報告してください`:'';row.append(b)}
   if(onTrack){const b=document.createElement('button');b.textContent=trackedId===q.id?'追跡を解除':'この依頼を追跡';b.setAttribute('aria-pressed',String(trackedId===q.id));b.onclick=()=>onTrack(trackedId===q.id?null:q.id);row.append(b)}
+  if(q.briefing&&(status==='unaccepted'||status==='complete')){
+   const line=document.createElement('small');
+   line.style.display='block';
+   line.textContent=status==='complete'?q.closing:q.briefing;
+   row.append(line);
+  }
   if(q.note){const note=document.createElement('small');note.style.display='block';note.textContent=q.note;row.append(note)}
   section.append(row);
  }

@@ -29,9 +29,48 @@ return function(C,data)
   end
   return best
  end
- local function progress(s,kind,target,amount)
+ local function recoveredAll(q,state)
+  for _,item in ipairs(q.cargo) do if not state.recovered[item.id] then return false end end
+  return true
+ end
+ local function beginChase(s,q)
+  for _,e in ipairs(s.enemies) do
+   if e.spawnId==q.chase.enemy then
+    e.x=q.chase.x;e.home=q.chase.x;e.patrolMin=q.chase.min;e.patrolMax=q.chase.max
+    return
+   end
+  end
+ end
+ local function cargoQuest(s)
+  for id,state in pairs(s.story.quests) do
+   local q=quests[id]
+   if q.cargo and state.recovered and state.status=='active' and state.count==q.goal-1 and q.target==s.story.node then
+    return q,state
+   end
+  end
+ end
+ local function nearbyCargo(s,q,state)
+  local a=s.actors[s.active]
+  if a.hp<=0 then return nil end
+  local best,distance=nil,54
+  for _,item in ipairs(q.cargo) do
+   local dx=math.abs(a.x-item.x)
+   if not state.recovered[item.id] and math.abs(a.y-item.y)<34 and dx<distance then best,distance=item,dx end
+  end
+  return best
+ end
+ local function questKillCounts(q,state,enemy)
+  if not state.recovered then return true end -- Already accepted under the original four-kill contract.
+  if state.count==q.goal-1 then return enemy.spawnId==q.chase.enemy and recoveredAll(q,state) end
+  for _,art in ipairs(q.openingArts) do if enemy.art==art then return true end end
+  return false
+ end
+ local function progress(s,kind,target,enemy)
   for id,state in pairs(s.story.quests) do local q=quests[id]
-   if state.status=='active' and q.kind==kind and q.target==target then state.count=math.min(q.goal,state.count+amount) end
+   if state.status=='active' and q.kind==kind and q.target==target and state.count<q.goal
+    and (kind~='kill' or questKillCounts(q,state,enemy)) then
+    state.count=state.count+1
+   end
   end
  end
  local function enter(s,id,spawn,elapsed)
@@ -50,15 +89,30 @@ return function(C,data)
     e.level=n.level;e.barrier=n.barrier or 0;if e.barrier>0 then e.hp=60;e.maxhp=60 end;s.enemies[i]=e
    end
   end
+  local cargo,state=cargoQuest(s)
+  if cargo and recoveredAll(cargo,state) then beginChase(s,cargo) end
   for i,a in ipairs(s.actors) do a.x=(spawn or 160)-(i-1)*40;a.y=480;a.vy=0;a.ground=true end
   s.camera=math.max(0,math.min(s.actors[s.active].x-400,math.max(0,n.width-960)))
-  s.macro=nil;s.encounter=nil;s.voyage=n.voyage and {destination=n.voyage.destination,arrives=s.t+n.voyage.seconds-(elapsed or 0),started=s.t-(elapsed or 0),source=n.voyage.source,stopStart=n.voyage.stopStart,stopEnd=n.voyage.stopEnd} or nil;progress(s,'visit',id,1)
+  s.macro=nil;s.encounter=nil;s.voyage=n.voyage and {destination=n.voyage.destination,arrives=s.t+n.voyage.seconds-(elapsed or 0),started=s.t-(elapsed or 0),source=n.voyage.source,stopStart=n.voyage.stopStart,stopEnd=n.voyage.stopEnd} or nil;progress(s,'visit',id)
  end
  function C.enterStoryNode(s,id) setup(s);enter(s,id) end
- function C.storyBossDefeated(s,id) setup(s);progress(s,'boss',id,1) end
+ function C.storyBossDefeated(s,id) setup(s);progress(s,'boss',id) end
  function C.action(s,key)
   setup(s)
   if key=='story_nearby_portal' then local p=nearbyPortal(s);if p then C.action(s,'story_portal:'..p.to) end;return end
+  if key=='story_collect' then
+   if s.paused or not s.story.active then return end
+   local q,state=cargoQuest(s)
+   if not q then return end
+   local item=nearbyCargo(s,q,state)
+   if not item then s.storyNotice='荷物のそばまで移動してください。';return end
+   state.recovered[item.id]=true
+   if recoveredAll(q,state) then
+    beginChase(s,q)
+    s.storyNotice='赤い布を引きずるヒルチャールを、街道の奥へ追いましょう。'
+   else s.storyNotice=item.name..'を回収しました。' end
+   return
+  end
   local discovery=key:match('^story_discover:([%w%-]+)$')
   if discovery then
    if s.paused or not s.story.active or s.actors[s.active].hp<=0 then return end
@@ -89,9 +143,10 @@ return function(C,data)
    if s.paused or not s.story.active then return end
    local id=accept or report;local q=quests[id];if not q or s.story.node~=q.hub then return end
    local state=s.story.quests[id]
-   if accept and (not state or (q.repeatable and state.status=='complete')) then s.story.quests[id]={status='active',count=0,cycles=state and state.cycles or 0}
+   if accept and (not state or (q.repeatable and state.status=='complete')) then
+    s.story.quests[id]={status='active',count=0,cycles=state and state.cycles or 0,recovered=q.cargo and {} or nil}
    elseif report and state and state.status=='active' and state.count==q.goal then
-    state.status='complete';state.cycles=(state.cycles or 0)+1;s.mora=s.mora+q.mora;C.grantExp(s,q.xp,'quest');s.storyNotice=q.name..'：報酬を受け取りました。'
+    state.status='complete';state.cycles=(state.cycles or 0)+1;s.mora=s.mora+q.mora;C.grantExp(s,q.xp,'quest');s.storyNotice=q.closing or q.name..'：報酬を受け取りました。'
    end
    return
   end
@@ -100,7 +155,7 @@ return function(C,data)
  end
  function C.onKill(s,e)
   if onKill then onKill(s,e) end
-  if s.story and s.story.active then progress(s,'kill',s.story.node,1) end
+  if s.story and s.story.active then progress(s,'kill',s.story.node,e) end
  end
  function C.step(s,dt,input)
   local returns=s.returns;step(s,dt,input)
@@ -125,7 +180,25 @@ return function(C,data)
     f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=480}
    end
    end
-   -- Navigation markers sit behind actors, enemies and effects in both render modes.
+   local q,state=cargoQuest(s)
+   if q then
+    local nearby=nearbyCargo(s,q,state)
+    if nearby and not s.paused then f.storyNearbyCargo={id=nearby.id,name=nearby.name} end
+    f.storyCargo={}
+    for _,item in ipairs(q.cargo) do
+     if not state.recovered[item.id] then
+      f.storyCargo[item.id]={x=item.x,y=item.y}
+      local x,y=item.x-s.camera,item.y
+      if x>=-20 and x<=980 then
+       markers[#markers+1]={kind='rect',x=x-15,y=y-24,w=30,h=24,color='#453020'}
+       markers[#markers+1]={kind='rect',x=x-13,y=y-22,w=26,h=19,color='#bb7950'}
+       markers[#markers+1]={kind='rect',x=x-13,y=y-16,w=26,h=4,color='#f2cc7a'}
+       markers[#markers+1]={kind='rect',x=x-3,y=y-22,w=6,h=19,color='#79502f'}
+      end
+     end
+    end
+   end
+   -- Gates and cargo sit behind actors, enemies and effects in both render modes.
    for _,draw in ipairs(f.draws) do markers[#markers+1]=draw end;f.draws=markers
    for _,h in ipairs(n.hints or {}) do f.draws[#f.draws+1]={kind='rect',x=h.x-s.camera-8,y=h.y-48,w=16,h=16,color='#ffe4a0'} end
    f.commands=#f.draws

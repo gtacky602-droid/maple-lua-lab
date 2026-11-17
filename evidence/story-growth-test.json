@@ -1,5 +1,5 @@
 {
-  "count": 38,
+  "count": 37,
   "checks": [
     "cycle 0 pays fixed reward",
     "cycle 0 duplicate report blocked",
@@ -36,14 +36,13 @@
     "cycle 16 pays fixed reward",
     "cycle 16 duplicate report blocked",
     "natural combat and reports reach twenty",
-    "amber join recorded",
-    "cycles and join survive save",
+    "repeatable cycles survive save",
     "earned level unlocks Liyue without all quests"
   ],
   "rounds": 17,
   "kills": 205,
   "level": 20,
-  "simulation_seconds": 290.1,
-  "quest_xp": 44000,
+  "simulation_seconds": 393.43333333333334,
+  "quest_xp": 43000,
   "kill_xp": 2050
 }

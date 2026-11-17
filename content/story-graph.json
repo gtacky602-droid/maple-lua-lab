@@ -3344,6 +3344,51 @@
   ],
   "quests": [
     {
+      "id": "amber-join",
+      "name": "配達は、スライム待ち！",
+      "hub": "mond-town",
+      "target": "mond-road",
+      "kind": "kill",
+      "goal": 4,
+      "xp": 1000,
+      "mora": 100,
+      "join": "amber",
+      "designId": "Q-MON-M01",
+      "giver": "アンバー",
+      "briefing": "アンバー「荷馬車を城へ戻したいんだ。こっちは私に任せて、街道のスライムと落ちた荷物をお願い！」",
+      "closing": "アンバー「初仕事、大成功！ ……看板まで持っていかれるのは珍しいね」",
+      "cargo": [
+        {
+          "id": "basket",
+          "name": "食料籠",
+          "x": 335,
+          "y": 480
+        },
+        {
+          "id": "toolbox",
+          "name": "工具箱",
+          "x": 650,
+          "y": 390
+        },
+        {
+          "id": "crate",
+          "name": "木箱",
+          "x": 975,
+          "y": 480
+        }
+      ],
+      "openingArts": [
+        "hydro-slime",
+        "pyro-slime"
+      ],
+      "chase": {
+        "enemy": "mond-road-1",
+        "x": 1210,
+        "min": 1130,
+        "max": 1320
+      }
+    },
+    {
       "id": "mond-patrol",
       "name": "街道の安全確認",
       "hub": "mond-town",
@@ -3382,17 +3427,6 @@
       "goal": 1,
       "xp": 400,
       "mora": 150
-    },
-    {
-      "id": "amber-join",
-      "name": "アンバーと街道を見回る",
-      "hub": "mond-town",
-      "target": "mond-road",
-      "kind": "kill",
-      "goal": 4,
-      "xp": 1000,
-      "mora": 100,
-      "join": "amber"
     },
     {
       "id": "beidou-join",

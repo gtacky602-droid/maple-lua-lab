@@ -82,6 +82,17 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
+            if 'recovered' in q:
+                cargo = quests[id].get('cargo')
+                found = q['recovered']
+                if not cargo or not isinstance(found, dict):
+                    raise ValueError('Invalid quest cargo')
+                cargo_ids = {item['id'] for item in cargo}
+                if any(item not in cargo_ids or flag is not True for item, flag in found.items()):
+                    raise ValueError('Invalid quest cargo ID')
+                if (found and q['count'] < quests[id]['goal'] - 1
+                        or q['count'] == quests[id]['goal'] and set(found) != cargo_ids):
+                    raise ValueError('Invalid quest cargo progress')
     return data.copy()
