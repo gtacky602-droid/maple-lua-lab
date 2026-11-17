@@ -8,6 +8,25 @@
     "tip": [2074, 367],
     "widthScale": 1.4
   },
+  "guide": {
+    "displayHeight": 136,
+    "facings": {
+      "left": {
+        "body": "farka-guide-left-sprites-v1.json",
+        "sockets": {
+          "hand_front": [169.8, 186.8], "hand_back": [95.8, 186.6],
+          "weapon_tip_A": [212.8, 219.8], "weapon_tip_B": [52.8, 219.6]
+        }
+      },
+      "right": {
+        "body": "farka-guide-right-sprites-v1.json",
+        "sockets": {
+          "hand_front": [88.8, 187.2], "hand_back": [158.0, 187.0],
+          "weapon_tip_A": [45.8, 220.2], "weapon_tip_B": [201.0, 220.0]
+        }
+      }
+    }
+  },
   "facings": {
     "left": {
       "reference": "farka-chibi-left-sprites-v1.json",

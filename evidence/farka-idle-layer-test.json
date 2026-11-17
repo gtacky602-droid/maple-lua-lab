@@ -42,7 +42,58 @@
       "rectangles": 1503
     }
   ],
-  "largestResponse": 994,
+  "largestResponse": 1031,
+  "guideChecks": [
+    {
+      "side": "right",
+      "mode": "png",
+      "current": 0,
+      "guide": 0
+    },
+    {
+      "side": "right",
+      "mode": "legacy",
+      "current": 6241,
+      "guide": 5762
+    },
+    {
+      "side": "right",
+      "mode": "h48c32",
+      "current": 4025,
+      "guide": 3602
+    },
+    {
+      "side": "right",
+      "mode": "h32c16",
+      "current": 1715,
+      "guide": 1569
+    },
+    {
+      "side": "left",
+      "mode": "png",
+      "current": 0,
+      "guide": 0
+    },
+    {
+      "side": "left",
+      "mode": "legacy",
+      "current": 5664,
+      "guide": 5601
+    },
+    {
+      "side": "left",
+      "mode": "h48c32",
+      "current": 3571,
+      "guide": 3750
+    },
+    {
+      "side": "left",
+      "mode": "h32c16",
+      "current": 1503,
+      "guide": 1679
+    }
+  ],
+  "guideSharedBackground": true,
   "independentRotation": true,
   "independentVisibility": true,
   "rapidInputs": true,

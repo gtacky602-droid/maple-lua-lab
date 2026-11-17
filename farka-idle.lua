@@ -1,7 +1,6 @@
 return function(pose, sprites)
- local function standing(file)
+ local function standing(file,h)
   local art=sprites[file]
-  local h=pose.displayHeight
   local w=h*art.box[3]/art.box[4]
   return {file=file,left=pose.root[1]-art.anchorX*w,top=pose.root[2]-h,width=w,height=h}
  end
@@ -22,12 +21,11 @@ return function(pose, sprites)
   return command,{hand=hand,tip={hand[1]+math.cos(angle)*length,hand[2]+math.sin(angle)*length}}
  end
 
- return function(options)
-  local facing=pose.facings[options.side]
+ local function compose(variant,options)
+  local facing=variant.facings[options.side]
   local sockets=facing.sockets
-  local frame={side=options.side,mode=options.mode,root=pose.root,body=options.body,
-   hands={sockets.hand_front,sockets.hand_back},weapons={},draws={},rectangles=0,
-   reference=standing(facing.reference),frontAngle=options.frontAngle,backAngle=options.backAngle}
+  local frame={height=variant.displayHeight,hands={sockets.hand_front,sockets.hand_back},
+   weapons={},draws={},rectangles=0}
   local function append(command)
    frame.draws[#frame.draws+1]=command
    if options.mode~='png' then
@@ -42,7 +40,20 @@ return function(pose, sprites)
     frame.weapons[hand]=landmarks
    end
   end
-  if options.body then append(standing(facing.body)) end
+  if options.body then append(standing(facing.body,variant.displayHeight)) end
+  return frame
+ end
+
+ return function(options)
+  local guide=options.variant=='guide'
+  local frame=compose(guide and pose.guide or pose,options)
+  frame.side,frame.mode,frame.root,frame.body=options.side,options.mode,pose.root,options.body
+  frame.variant,frame.frontAngle,frame.backAngle=options.variant,options.frontAngle,options.backAngle
+  if guide then
+   frame.baseline=compose(pose,options)
+  else
+   frame.reference=standing(pose.facings[options.side].reference,pose.displayHeight)
+  end
   return frame
  end
 end

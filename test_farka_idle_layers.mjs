@@ -82,7 +82,61 @@ try{
  assert.equal(empty.status(),200);
  const blank=await empty.json();
  assert.deepEqual([blank.draws,blank.weapons,blank.rectangles],[[],{},0]);
+ const emptyGuide=await page.request.post(api,{data:{variant:'guide',body:false,front:false,back:false}});
+ assert.equal(emptyGuide.status(),200);
+ const emptyFrame=await emptyGuide.json();
+ assert.deepEqual([emptyFrame.draws,emptyFrame.baseline.draws],[[],[]]);
+ assert.equal((await page.request.post(api,{data:{variant:'future'}})).status(),400);
+
+ await page.goto(gallery.href);
+ await page.getByRole('link',{name:'ファルカの低頭身候補を比較'}).click();
+ await wait({variant:'guide',side:'right',mode:'png'});
+ const guideChecks=[];
+ for(const side of ['right','left']){
+  await page.selectOption('#facing',side);
+  const guide=pose.guide.facings[side];
+  const art=await fromJson(`assets/${guide.body}`);
+  for(const mode of ['png','legacy','h48c32','h32c16']){
+   await page.selectOption('#profile',mode);
+   const frame=await wait({variant:'guide',side,mode});
+   assert.deepEqual(frame.root,[128,224]);
+   assert.deepEqual([frame.baseline.height,frame.height],[152,136]);
+   assert.deepEqual(frame.draws.slice(0,2).map(draw=>draw.origin),[guide.sockets.hand_back,guide.sockets.hand_front]);
+   for(const [layer,file,height] of [[frame,guide.body,136],[frame.baseline,pose.facings[side].body,152]]){
+    const body=layer.draws.at(-1);
+    assert.equal(body.file,file);
+    assert.equal(body.height,height);
+    assert.equal(body.top+body.height,frame.root[1]);
+   }
+   const recorded=mode==='png'?0:art.profiles[mode].runs.length+2*sword.profiles[mode].runs.length;
+   assert.equal(frame.rectangles,recorded);
+   assert.equal(frame.baseline.rectangles,legacyCounts[side][guideChecks.length%4]);
+   guideChecks.push({side,mode,current:frame.baseline.rectangles,guide:frame.rectangles});
+  }
+ }
+ await page.locator('#backAngle').fill('-15');
+ const turned=await wait({backAngle:-15,variant:'guide'});
+ assert.deepEqual(turned.weapons.back.hand,pose.guide.facings.left.sockets.hand_back);
+ assert.deepEqual(turned.baseline.weapons.back.hand,pose.facings.left.sockets.hand_back);
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+ await page.setViewportSize({width:1200,height:1000});
+ await page.locator('#backAngle').fill('0');
+ await page.selectOption('#facing','right');
+ const backgrounds=await page.locator('.scenes canvas').evaluateAll(async canvases=>{
+  const styles=canvases.map(canvas=>getComputedStyle(canvas).backgroundImage);
+  const image=new Image();
+  image.src=styles[0].slice(5,-2);
+  await image.decode();
+  return styles;
+ });
+ assert.equal(backgrounds[0],backgrounds[1]);
+ assert.match(backgrounds[0],/mondstadt-background.png/);
+ for(const [mode,suffix] of [['png','png'],['h32c16','light']]){
+  await page.selectOption('#profile',mode);
+  await wait({side:'right',mode,backAngle:0,variant:'guide'});
+  await page.locator('.scenes').screenshot({path:`evidence/farka-guide-idle-${suffix}.png`});
+ }
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/farka-idle-layer-test.json',JSON.stringify({renderer:'Lua',checks,largestResponse,independentRotation:true,independentVisibility:true,rapidInputs:true,invalidInputsRejected:true,mobileOverflow:false,errors},null,2));
- console.log('Farka layered idle: Lua draw commands, both facings, 4 render modes, fixed grip, layers, rapid inputs and reset passed');
+ await fs.writeFile('evidence/farka-idle-layer-test.json',JSON.stringify({renderer:'Lua',checks,largestResponse,guideChecks,guideSharedBackground:true,independentRotation:true,independentVisibility:true,rapidInputs:true,invalidInputsRejected:true,mobileOverflow:false,errors},null,2));
+ console.log('Farka layered idle: both facings and 4 render modes passed for both sizes, including shared background and floor anchor');
 }finally{await browser.close()}

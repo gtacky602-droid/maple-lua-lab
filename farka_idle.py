@@ -14,8 +14,11 @@ LOCK = Lock()
 def _renderer():
     pose = json.loads((ROOT / 'content/farka-idle-layers.json').read_text(encoding='utf8'))
     files = {pose['sword']['file']}
-    for facing in pose['facings'].values():
-        files.update((facing['reference'], facing['body']))
+    for variant in (pose, pose['guide']):
+        for facing in variant['facings'].values():
+            files.add(facing['body'])
+            if 'reference' in facing:
+                files.add(facing['reference'])
     sprites = {}
     for file in files:
         art = json.loads((ROOT / 'assets' / file).read_text(encoding='utf8'))
@@ -31,9 +34,10 @@ def _renderer():
 def render_farka_idle(request):
     side = request.get('side', 'right')
     mode = request.get('mode', 'png')
-    if side not in ('left', 'right') or mode not in MODES:
-        raise ValueError('invalid facing or render mode')
-    options = {'side': side, 'mode': mode}
+    variant = request.get('variant', 'current')
+    if side not in ('left', 'right') or mode not in MODES or variant not in ('current', 'guide'):
+        raise ValueError('invalid facing, render mode or proportions')
+    options = {'side': side, 'mode': mode, 'variant': variant}
     for layer in ('front', 'back', 'body'):
         visible = request.get(layer, True)
         if type(visible) is not bool:
@@ -49,4 +53,6 @@ def render_farka_idle(request):
         lua, draw = _renderer()
         frame = native(draw(lua.table_from(options)))
     frame['draws'] = frame['draws'] or []
+    if 'baseline' in frame:
+        frame['baseline']['draws'] = frame['baseline']['draws'] or []
     return frame

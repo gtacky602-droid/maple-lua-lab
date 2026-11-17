@@ -1,0 +1,91 @@
+{
+  "style_guide": "DESIGN_MAPLE_CHIBI_STYLE_GUIDE_V01.md",
+  "status": "comparison prototype, pending adoption",
+  "tool": "built-in ImageGen; retained draft lineage in order",
+  "prompts": [
+    "One transparent pixel-art game sprite sheet, exactly TWO separate full-body sprites of Genshin Impact's Varka in neutral idle. Left HALF: faces viewer's RIGHT in three-quarter view. Right HALF: faces viewer's LEFT in three-quarter view. Separate by a wide completely clear transparent gutter; keep both wholly in their respective halves and align their two shoe bottoms on the same horizontal baseline. First two inputs show current sprite silhouettes; other inputs show actual asymmetric costume and side views. Redraw both facing poses with heavily compact old-school 2D side-scrolling MMORPG pixel art proportions. Goal for either pose at 136 pixels displayed: TOP OF HAIR through chin is 52px (38% of the entire sprite height), chin to belt is 34px (25%), belt to soles is 50px (37%). Render deliberate coarse square pixels, clean dark outline, solid color clusters, blond spiky hair with just a modest tuft, blue eyes, sturdy blunt jaw, clear wide shoulders, strong exaggerated fists, short shins and oversized flat-soled armored shoes. White fur mantle behind the shoulders, teal outer coat with gold edges, dark chest with cyan gem at the center, pale upper thighs and dark shin armor. On the sprite facing RIGHT the near shoulder on screen LEFT and its arm wear the huge pointed silver-gold pauldron and continuous full armored sleeve. On the sprite facing LEFT the near arm on screen RIGHT has a visible muscular bare forearm and fingerless glove beneath the pale sleeve cuff, with the opposite full armored arm remaining visible. Both fists loosely clenched at equal hip height away from torso, positioned to accept separately composited swords. Draw only the TWO characters, empty hands; no swords or hilts, no holsters, a transparent background, no shadow, no ground, no guides, no text, no boxes, no labels, no magical effects. Pixel art looks sharp at thumbnail size. All shoes fully shown, nearly parallel under the body, both soles fully on ground.",
+    "Edit attached two-sprite Varka sheet (the FIRST draft with the medium heads). Keep each head exactly like this input, including hair height, face and jaw. Keep original outfit, two opposite facings, skin on one forearm and armor on the other, hands empty. Change only the distance from chin to shoe soles: redraw a body around 85% of its current height while retaining WIDTH. Bring the belt upward a little, move knees upward, make thigh and shin significantly shorter, and leave the heavy boots large and flat. Keep the untouched hair top to chin about 38% of the new overall sprite height, for around 2.62 heads tall. Visually compact lower body. The two sprites must be on a common baseline: if a sprite has one shoe offset vertically, bring the higher foot down so both soles are flat. Exactly two full characters, spaced well apart in separate halves, no props, alpha transparent, no text, no guides, no floor, no shadows, crisp same pixel art style.",
+    "Make a precise local edit to the supplied transparent Varka game-sprite sheet. Keep both figures unchanged from forehead through boots, including head width, eyes, coat, costume, hands, shoes, all positions and body height. Only remove the exaggerated vertical cowlick on each head and redraw that SMALL top section as a short low swept-back wedge blending with the existing golden hair. Lower the highest point on each sprite by about forty pixels (roughly 5% of figure height). Main hair remains pointy and swept. Keep sprite locations, all other marks, original color clusters, crisp pixels and transparent alpha. No background, no shadows, no props, no text. Return the same sprite sheet with this tiny correction only."
+  ],
+  "reference_audit": "evidence/farka-chibi-reference-audit.json",
+  "image_inputs": [
+    "assets/farka-chibi-right-source-v1.png",
+    "assets/farka-chibi-left-source-v1.png",
+    "work/references/farka-views/front.png",
+    "work/references/farka-views/left.png",
+    "work/references/farka-views/right.png"
+  ],
+  "model_crosscheck": "The local back view was also observed. The near right pauldron and bare left forearm are visible in their respective directions. Model and renders are retained only in local work; bundled model terms and provenance are in the previous audit.",
+  "background": "assets/mondstadt-background.png",
+  "sheet": {
+    "size": [
+      1774,
+      887
+    ],
+    "split_x": 887,
+    "source_alpha_preserved": true
+  },
+  "comparison": {
+    "display_px": 136,
+    "current_display_px": 152,
+    "root": [
+      128,
+      224
+    ],
+    "profiles_px": [
+      136,
+      102,
+      68
+    ],
+    "existing_sword": "assets/farka-sword-sprites-v1.json",
+    "right": {
+      "body": "assets/farka-guide-right-source-v1.png",
+      "approximate_hair_chin_sole_source_y": [
+        139,
+        389,
+        801
+      ],
+      "heads": 2.65,
+      "hand_points_sheet_xy": [
+        [
+          317,
+          622
+        ],
+        [
+          654,
+          621
+        ]
+      ],
+      "total_rectangles": [
+        5762,
+        3602,
+        1569
+      ]
+    },
+    "left": {
+      "body": "assets/farka-guide-left-source-v1.png",
+      "approximate_hair_chin_sole_source_y": [
+        147,
+        390,
+        801
+      ],
+      "heads": 2.69,
+      "hand_points_sheet_xy": [
+        [
+          1481,
+          622
+        ],
+        [
+          1125,
+          621
+        ]
+      ],
+      "total_rectangles": [
+        5601,
+        3750,
+        1679
+      ]
+    }
+  },
+  "notes": "The hair tip is included and the chin is read visually. The much taller cowlick of the 152px prototype changes the ratio under this measurement. Relative to the same sprite's 32-color standard profile, the 16-color profile preserves both blades and flat boots, while blue irises and fine gold details become less distinct. The left 16-color candidate uses more rectangles than the current left layered art. Idle comparison only. Sword grip placement is provisional, existing combat poses and hitboxes are untouched."
+}
