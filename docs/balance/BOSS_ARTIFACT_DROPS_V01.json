@@ -68,9 +68,10 @@
       "first_floor": 4,
       "expected_star5_per_clear": 0.02,
       "expected_star5_per_hour": 0.4,
-      "vs_normal_reference_ratio": 0.027,
       "expected_desired_slot_usable_star5_per_hour": 0.06,
-      "expected_total_artifacts_per_hour": 40
+      "expected_total_artifacts_per_hour": 40,
+      "same_level_normal_star5_per_hour": 0.225,
+      "vs_same_level_normal_star5_ratio": 1.778
     },
     {
       "tier": "標準",
@@ -85,9 +86,10 @@
       "first_floor": 4,
       "expected_star5_per_clear": 0.24,
       "expected_star5_per_hour": 4.8,
-      "vs_normal_reference_ratio": 0.323,
       "expected_desired_slot_usable_star5_per_hour": 0.72,
-      "expected_total_artifacts_per_hour": 40
+      "expected_total_artifacts_per_hour": 40,
+      "same_level_normal_star5_per_hour": 2.475,
+      "vs_same_level_normal_star5_ratio": 1.939
     },
     {
       "tier": "上級",
@@ -102,9 +104,10 @@
       "first_floor": 5,
       "expected_star5_per_clear": 1.5,
       "expected_star5_per_hour": 30,
-      "vs_normal_reference_ratio": 2.02,
       "expected_desired_slot_usable_star5_per_hour": 4.5,
-      "expected_total_artifacts_per_hour": 40
+      "expected_total_artifacts_per_hour": 40,
+      "same_level_normal_star5_per_hour": 14.85,
+      "vs_same_level_normal_star5_ratio": 2.02
     },
     {
       "tier": "最上級",
@@ -119,9 +122,10 @@
       "first_floor": 5,
       "expected_star5_per_clear": 1.7,
       "expected_star5_per_hour": 34,
-      "vs_normal_reference_ratio": 2.29,
       "expected_desired_slot_usable_star5_per_hour": 5.1,
-      "expected_total_artifacts_per_hour": 40
+      "expected_total_artifacts_per_hour": 40,
+      "same_level_normal_star5_per_hour": 14.85,
+      "vs_same_level_normal_star5_ratio": 2.29
     }
   ],
   "stygian": [
@@ -138,9 +142,10 @@
       "first_floor": 5,
       "expected_star5_per_clear": 1.5,
       "expected_star5_per_hour": 30,
-      "vs_normal_reference_ratio": 2.02,
       "expected_desired_slot_usable_star5_per_hour": 4.5,
-      "expected_total_artifacts_per_hour": 40
+      "expected_total_artifacts_per_hour": 40,
+      "same_level_normal_star5_per_hour": 14.85,
+      "vs_same_level_normal_star5_ratio": 2.02
     },
     {
       "tier": "ハード",
@@ -155,9 +160,10 @@
       "first_floor": 5,
       "expected_star5_per_clear": 2.4,
       "expected_star5_per_hour": 36,
-      "vs_normal_reference_ratio": 2.424,
       "expected_desired_slot_usable_star5_per_hour": 5.4,
-      "expected_total_artifacts_per_hour": 45
+      "expected_total_artifacts_per_hour": 45,
+      "same_level_normal_star5_per_hour": 14.85,
+      "vs_same_level_normal_star5_ratio": 2.424
     },
     {
       "tier": "マスター",
@@ -172,9 +178,10 @@
       "first_floor": 5,
       "expected_star5_per_clear": 2.7,
       "expected_star5_per_hour": 32.4,
-      "vs_normal_reference_ratio": 2.182,
       "expected_desired_slot_usable_star5_per_hour": 4.86,
-      "expected_total_artifacts_per_hour": 36
+      "expected_total_artifacts_per_hour": 36,
+      "same_level_normal_star5_per_hour": 14.85,
+      "vs_same_level_normal_star5_ratio": 2.182
     },
     {
       "tier": "極限",
@@ -189,9 +196,10 @@
       "first_floor": 5,
       "expected_star5_per_clear": 3.8,
       "expected_star5_per_hour": 38,
-      "vs_normal_reference_ratio": 2.559,
       "expected_desired_slot_usable_star5_per_hour": 5.7,
-      "expected_total_artifacts_per_hour": 40
+      "expected_total_artifacts_per_hour": 40,
+      "same_level_normal_star5_per_hour": 14.85,
+      "vs_same_level_normal_star5_ratio": 2.559
     }
   ],
   "special_branch": [
@@ -209,9 +217,10 @@
       "first_floor": 4,
       "expected_star5_per_clear": 0.01,
       "expected_star5_per_hour": 0.4,
-      "vs_normal_reference_ratio": 0.027,
       "expected_desired_slot_usable_star5_per_hour": 0.06,
-      "expected_total_artifacts_per_hour": 40
+      "expected_total_artifacts_per_hour": 40,
+      "same_level_normal_star5_per_hour": 0.225,
+      "vs_same_level_normal_star5_ratio": 1.778
     },
     {
       "id": "branch-02",
@@ -227,9 +236,10 @@
       "first_floor": 4,
       "expected_star5_per_clear": 0.11,
       "expected_star5_per_hour": 4.4,
-      "vs_normal_reference_ratio": 0.296,
       "expected_desired_slot_usable_star5_per_hour": 0.66,
-      "expected_total_artifacts_per_hour": 40
+      "expected_total_artifacts_per_hour": 40,
+      "same_level_normal_star5_per_hour": 2.34,
+      "vs_same_level_normal_star5_ratio": 1.88
     },
     {
       "id": "branch-03",
@@ -245,9 +255,10 @@
       "first_floor": 4,
       "expected_star5_per_clear": 0.12,
       "expected_star5_per_hour": 4.8,
-      "vs_normal_reference_ratio": 0.323,
       "expected_desired_slot_usable_star5_per_hour": 0.72,
-      "expected_total_artifacts_per_hour": 40
+      "expected_total_artifacts_per_hour": 40,
+      "same_level_normal_star5_per_hour": 2.475,
+      "vs_same_level_normal_star5_ratio": 1.939
     },
     {
       "id": "branch-04",
@@ -263,9 +274,10 @@
       "first_floor": 4,
       "expected_star5_per_clear": 0.4,
       "expected_star5_per_hour": 16,
-      "vs_normal_reference_ratio": 1.077,
       "expected_desired_slot_usable_star5_per_hour": 2.4,
-      "expected_total_artifacts_per_hour": 40
+      "expected_total_artifacts_per_hour": 40,
+      "same_level_normal_star5_per_hour": 7.425,
+      "vs_same_level_normal_star5_ratio": 2.155
     },
     {
       "id": "branch-05",
@@ -281,9 +293,10 @@
       "first_floor": 5,
       "expected_star5_per_clear": 0.7,
       "expected_star5_per_hour": 28,
-      "vs_normal_reference_ratio": 1.886,
       "expected_desired_slot_usable_star5_per_hour": 4.2,
-      "expected_total_artifacts_per_hour": 40
+      "expected_total_artifacts_per_hour": 40,
+      "same_level_normal_star5_per_hour": 14.85,
+      "vs_same_level_normal_star5_ratio": 1.886
     },
     {
       "id": "branch-06",
@@ -299,9 +312,10 @@
       "first_floor": 5,
       "expected_star5_per_clear": 0.75,
       "expected_star5_per_hour": 30,
-      "vs_normal_reference_ratio": 2.02,
       "expected_desired_slot_usable_star5_per_hour": 4.5,
-      "expected_total_artifacts_per_hour": 40
+      "expected_total_artifacts_per_hour": 40,
+      "same_level_normal_star5_per_hour": 14.85,
+      "vs_same_level_normal_star5_ratio": 2.02
     },
     {
       "id": "branch-07",
@@ -317,9 +331,10 @@
       "first_floor": 5,
       "expected_star5_per_clear": 0.8,
       "expected_star5_per_hour": 32,
-      "vs_normal_reference_ratio": 2.155,
       "expected_desired_slot_usable_star5_per_hour": 4.8,
-      "expected_total_artifacts_per_hour": 40
+      "expected_total_artifacts_per_hour": 40,
+      "same_level_normal_star5_per_hour": 14.85,
+      "vs_same_level_normal_star5_ratio": 2.155
     },
     {
       "id": "branch-08",
@@ -335,9 +350,10 @@
       "first_floor": 5,
       "expected_star5_per_clear": 0.85,
       "expected_star5_per_hour": 34,
-      "vs_normal_reference_ratio": 2.29,
       "expected_desired_slot_usable_star5_per_hour": 5.1,
-      "expected_total_artifacts_per_hour": 40
+      "expected_total_artifacts_per_hour": 40,
+      "same_level_normal_star5_per_hour": 14.85,
+      "vs_same_level_normal_star5_ratio": 2.29
     },
     {
       "id": "branch-09",
@@ -353,9 +369,10 @@
       "first_floor": 5,
       "expected_star5_per_clear": 0.9,
       "expected_star5_per_hour": 36,
-      "vs_normal_reference_ratio": 2.424,
       "expected_desired_slot_usable_star5_per_hour": 5.4,
-      "expected_total_artifacts_per_hour": 40
+      "expected_total_artifacts_per_hour": 40,
+      "same_level_normal_star5_per_hour": 14.85,
+      "vs_same_level_normal_star5_ratio": 2.424
     }
   ],
   "normal_drop_sensitivity": [
@@ -397,7 +414,7 @@
     "main_and_substat_random": true,
     "adds_to_xp_mora_bonuses": true,
     "special_branch_first_bonus_integrated_in_Q_Bxx_03": true,
-    "story_boss_no_duplicate_first_clear": false
+    "story_boss_no_duplicate_first_clear": true
   },
   "reward_safety": {
     "individual_multiplayer_rolls": true,
@@ -422,5 +439,7 @@
     "rewards_at_stable_cycle_should_be_roughly_1_5_to_3x_normal_star5_rate": true,
     "highest_difficulty_not_guaranteed_highest_star5_rate_per_minute": true,
     "first_clear_items_should_not_be_unbounded_in_submissions": true
-  }
+  },
+  "field_rarity_ladder_source": "sources/20261113-master.md section 18.1; 2026-11-16 amendment section 5. 0.75% normal drop is a comparison point, not a fixed production setting.",
+  "boss_rarity_changes_are_draft": true
 }
