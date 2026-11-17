@@ -1,0 +1,30 @@
+{
+  "schema_version":"1.0","date":"2026-11-18","status":"design_only_not_runtime",
+  "source_commit":"96bdda082a6abc2ccda17a8288755028ed48d509",
+  "source_of_truth":["../../DESIGN_FIELD_BOSS_MASTER_V01.md","COMMON.md","NATLAN_ORIGINS_MOVESETS.md"],
+  "tick_rate_hz":60,"unit_U_pixels":88,"interval_semantics":"half_open",
+  "counts":{"encounters":4,"attack_cards":12,"optional_interrupts":1,"cumulative_encounters":35,"cumulative_attack_cards":105,"catalog_reference_rows":49,"all_catalog_rows_detailed":false},
+  "shared":{"max_attack_patterns":3,"max_concurrent_casts":1,"hp_bars":1,"multiplayer_hp_scaling":false,"required_special_element":false,"forced_revive_phase":false,"hp_zero_priority":true,"normal_damage_pipeline":true,"runtime_or_visual_tested":false},
+  "bosses":[
+    {"id":"boss-26220301","name":"山の王・貪食のユムカ竜","attacks":["FYM01","FYM02","FYM03"],"signature":"FYM02","hurtbox_bottom_u":0.2,"required_fruit_ignition":false},
+    {"id":"boss-26230301","name":"暴君・金焔のクク竜","attacks":["FQT01","FQT02","FQT03"],"signature":"FQT03","hurtbox_bottom_u":0.35,"required_feather_break":false,"minimum_ground_casts_between_flights":2},
+    {"id":"boss-24090201","name":"秘源機兵・機巧デバイス","attacks":["FSC01","FSC02","FSC03"],"signature":"FSC03","hurtbox_bottom_u":0.4,"required_nightsoul":false,"mandatory_pillars":0},
+    {"id":"boss-22120101","name":"深遠なるミミックパピラ・I型","attacks":["FMP01","FMP02","FMP03"],"signature":"FMP03","hurtbox_bottom_u":0.3,"required_void_ward":false,"attrition_added":false}
+  ],
+  "mimic_contract":{"same_actor":true,"same_receiver":true,"same_hp":true,"preserve_aura":true,"preserve_dot":true,"preserve_target":true,"inherit_source_ai":false,"inherit_source_resistance":false,"spawn_new_enemy":false,"full_invisible_ticks":0,"invulnerable_ticks":0,"reward_count":1},
+  "interrupt":{"move_id":"FSC03","spawn_tick":48,"acceptance":[60,300],"needed_distinct_casts":3,"new_casts_after_window_only":true,"physical_allowed":true,"required_for_victory":false,"progress_carries_to_new_spawn":false,"down_ticks":180,"standup_ticks":24,"rearm_ticks":1200,"target_bottom_u":0.15,"cancel_parent_reservations":true,"cancel_projectiles":true,"hp_zero_priority":true,"reward_count":0},
+  "attacks":[
+    {"id":"FYM01","owner":"boss-26220301","title":"重尾の一回し","total":264,"lock":48,"active":[[108,126,"tail"]],"projectiles":[],"air":[],"recovery":[144,264],"groups":{"tail":1},"hit_cap":1,"element":"Physical"},
+    {"id":"FYM02","owner":"boss-26220301","title":"山王の腹落ち","total":312,"lock":60,"active":[[120,132,"belly"]],"projectiles":[],"air":[[84,120]],"recovery":[168,312],"groups":{"belly":1},"hit_cap":1,"element":"Physical"},
+    {"id":"FYM03","owner":"boss-26220301","title":"二果の火吐き","total":312,"lock":54,"active":[[126,138,"fruit1"],[180,192,"fruit2"]],"projectiles":[],"air":[],"recovery":[204,312],"groups":{"fruit1":1,"fruit2":1},"hit_cap":2,"element":"Pyro","decorative_lobs":[[90,126],[144,180]]},
+    {"id":"FQT01","owner":"boss-26230301","title":"双翼の刈払い","total":276,"lock":48,"active":[[96,108,"wing1"],[156,168,"wing2"]],"projectiles":[],"air":[],"recovery":[192,276],"groups":{"wing1":1,"wing2":1},"hit_cap":2,"element":"Pyro"},
+    {"id":"FQT02","owner":"boss-26230301","title":"風焔の二羽","total":288,"lock":48,"active":[],"projectiles":[{"spawn":96,"ttl":48,"group":"feather1"},{"spawn":156,"ttl":48,"group":"feather2"}],"air":[],"recovery":[216,288],"groups":{"feather1":1,"feather2":1},"hit_cap":2,"element":"Pyro"},
+    {"id":"FQT03","owner":"boss-26230301","title":"金焔降下・爪止め","total":312,"lock":60,"active":[[132,150,"dive"]],"projectiles":[],"air":[[96,132]],"recovery":[168,312],"groups":{"dive":1},"hit_cap":1,"element":"Pyro"},
+    {"id":"FSC01","owner":"boss-24090201","title":"鉤爪の交差打ち","total":282,"lock":48,"active":[[102,114,"claw1"],[162,174,"claw2"]],"projectiles":[],"air":[],"recovery":[198,282],"groups":{"claw1":1,"claw2":1},"hit_cap":2,"element":"Electro"},
+    {"id":"FSC02","owner":"boss-24090201","title":"照準・二連線","total":288,"lock":54,"active":[[108,120,"beam1"],[168,180,"beam2"]],"projectiles":[],"air":[],"recovery":[204,288],"groups":{"beam1":1,"beam2":1},"hit_cap":2,"element":"Electro"},
+    {"id":"FSC03","owner":"boss-24090201","title":"集積・球雷砲","total":504,"lock":60,"active":[[324,342,"cannon"]],"projectiles":[],"air":[],"recovery":[360,504],"groups":{"cannon":1},"hit_cap":1,"element":"Electro"},
+    {"id":"FMP01","owner":"boss-22120101","title":"樹影の首落とし","total":300,"lock":60,"active":[[132,144,"head"]],"projectiles":[],"air":[],"recovery":[156,300],"groups":{"head":1},"hit_cap":1,"element":"Electro","morph":[0,48],"return_morph":[276,300],"source_form":"electro_regisvine"},
+    {"id":"FMP02","owner":"boss-22120101","title":"機竜影の刃翼二連","total":324,"lock":60,"active":[[126,138,"wing1"],[186,198,"wing2"]],"projectiles":[],"air":[],"recovery":[216,324],"groups":{"wing1":1,"wing2":1},"hit_cap":2,"element":"Physical","morph":[0,48],"return_morph":[300,324],"source_form":"aeonblight_drake"},
+    {"id":"FMP03","owner":"boss-22120101","title":"菌獣影の跳ね落ち","total":324,"lock":60,"active":[[132,144,"landing"]],"projectiles":[],"air":[[96,132]],"recovery":[180,324],"groups":{"landing":1},"hit_cap":1,"element":"Dendro","morph":[0,48],"return_morph":[300,324],"source_form":"jadeplume_terroshroom"}
+  ]
+}
