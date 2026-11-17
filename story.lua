@@ -1,4 +1,4 @@
-return function(C,data)
+return function(C,data,delivery)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -117,6 +117,7 @@ return function(C,data)
   s.story.active=true;s.story.node=id;s.story.visited[id]=true;s.worldwidth=n.width
   s.platforms={};for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]={x=p.x,y=p.y,w=p.w} end
   s.enemies={}
+  s.storyDeliveryNotice=nil
   if not n.hub and not n.peaceful and not cleared(s,n) then
    local fresh=C.new(12)
    local placements=assert(C.enemySpawns and C.enemySpawns[id],'Missing story enemy placements: '..id)
@@ -142,6 +143,13 @@ return function(C,data)
   if key=='story_nearby_portal' then local p=nearbyPortal(s);if p then C.action(s,'story_portal:'..p.to) end;return end
   if key=='story_collect' then
    if s.paused or not s.story.active then return end
+   for id,state in pairs(s.story.quests) do
+    local q=quests[id]
+    if q.delivery and state.status=='active' and q.target==s.story.node then
+     delivery.recover(s,q,state.delivery)
+     return
+    end
+   end
    local q,state=cargoQuest(s)
    if not q then
     local clue,progress=trailClue(s)
@@ -159,6 +167,13 @@ return function(C,data)
     beginChase(s,q)
     s.storyNotice='赤い布を引きずるヒルチャールを、街道の奥へ追いましょう。'
    else s.storyNotice=item.name..'を回収しました。' end
+   return
+  end
+  local deliveryId,packageId=key:match('^story_deliver:([%w%-]+):([%w%-]+)$')
+  if deliveryId then
+   if s.paused or not s.story.active then return end
+   local q,state=quests[deliveryId],s.story.quests[deliveryId]
+   if q and q.delivery and state and state.status=='active' then delivery.deliver(s,q,state.delivery,packageId) end
    return
   end
   local discovery=key:match('^story_discover:([%w%-]+)$')
@@ -198,8 +213,10 @@ return function(C,data)
    local state=s.story.quests[id]
    if accept and (not state or (q.repeatable and state.status=='complete')) then
     if q.requires and not completed(s,q.requires) then return end
+    if q.opensAfter and not s.story.quests[q.opensAfter] then return end
+    if q.level and (not s.progression or s.progression.level<q.level) then return end
     s.story.quests[id]={status='active',count=0,cycles=state and state.cycles or 0,
-                       recovered=q.cargo and {} or nil,inspected=q.trail and {} or nil}
+                       recovered=q.cargo and {} or nil,inspected=q.trail and {} or nil,delivery=q.delivery and delivery.new() or nil}
    elseif report and state and state.status=='active' and state.count==q.goal then
     state.status='complete';state.cycles=(state.cycles or 0)+1;s.mora=s.mora+q.mora;C.grantExp(s,q.xp,'quest');s.storyNotice=q.closing or q.name..'：報酬を受け取りました。'
    end
@@ -214,6 +231,10 @@ return function(C,data)
    progress(s,'kill',s.story.node,e)
    for id,state in pairs(s.story.quests) do
     local q=quests[id]
+    if q.delivery and state.status=='active' and q.target==s.story.node and e.spawnId==q.delivery.cache.guard then
+     if not state.delivery.guardCleared then s.storyNotice='見張りを倒しました。足場の荷箱を回収できます。' end
+     state.delivery.guardCleared=true
+    end
     if q.trail and state.status=='active' and state.count==1 and q.target==s.story.node and e.spawnId==q.trail.guard then
      state.count=q.goal
      s.storyNotice='見張りを倒して柵が開きました。森への近道から戻れます。'
@@ -279,6 +300,12 @@ return function(C,data)
     local elevated=y<480
     markers[#markers+1]={kind='rect',x=x-10,y=y-14,w=20,h=4,color=elevated and '#a93634' or '#634936'}
     markers[#markers+1]={kind='rect',x=x-5,y=y-10,w=10,h=7,color=elevated and '#f76859' or '#b69765'}
+   end
+   for _,q in ipairs(data.quests) do
+    if q.delivery then
+     local state=s.story.quests[q.id]
+     delivery.observe(s,f,markers,q,state and state.delivery)
+    end
    end
    -- Navigation and quest objects precede actors, enemies, and effects.
    for _,draw in ipairs(f.draws) do markers[#markers+1]=draw end;f.draws=markers

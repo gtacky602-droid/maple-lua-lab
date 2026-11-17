@@ -215,6 +215,25 @@
       "ground_both_directions": true
     },
     {
+      "node": "liyue-loading-yard",
+      "platforms": 4,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        },
+        {
+          "from": 0,
+          "to": 2
+        },
+        {
+          "from": 2,
+          "to": 3
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
       "node": "liyue-field",
       "platforms": 5,
       "jump_routes": [

@@ -45,6 +45,10 @@
       "enemy_count": 0
     },
     {
+      "node": "liyue-loading-yard",
+      "enemy_count": 6
+    },
+    {
       "node": "liyue-field",
       "enemy_count": 6
     },

@@ -565,9 +565,54 @@
         {
           "to": "liyue-ferry",
           "x": 720
+        },
+        {
+          "to": "liyue-loading-yard",
+          "x": 400,
+          "requires": {
+            "quest": "liyue-market-delivery",
+            "count": 0
+          }
         }
       ],
       "checkpoint": "liyue-harbor"
+    },
+    {
+      "id": "liyue-loading-yard",
+      "name": "璃月・港外の仮置き場",
+      "region": "璃月",
+      "level": 20,
+      "hub": false,
+      "width": 1440,
+      "checkpoint": "liyue-harbor",
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1440
+        },
+        {
+          "x": 220,
+          "y": 393,
+          "w": 270
+        },
+        {
+          "x": 620,
+          "y": 380,
+          "w": 366
+        },
+        {
+          "x": 920,
+          "y": 290,
+          "w": 320
+        }
+      ],
+      "exits": [
+        {
+          "to": "liyue-harbor",
+          "x": 60
+        }
+      ]
     },
     {
       "id": "liyue-field",
@@ -3782,6 +3827,59 @@
       "mora": 100
     },
     {
+      "id": "liyue-market-delivery",
+      "designId": "Q-LIY-M01",
+      "name": "港に着いたら、ひと仕事！",
+      "giver": "刻晴",
+      "level": 20,
+      "hub": "liyue-harbor",
+      "target": "liyue-loading-yard",
+      "kind": "delivery",
+      "goal": 3,
+      "xp": 2200,
+      "mora": 300,
+      "briefing": "刻晴「山海市の荷揚げが始まったわ。荷札を見て三軒に届けて。車輪の箱は港外の仮置き場にあるわ。」",
+      "closing": "刻晴「三軒とも、山の商隊を待っているのね。帳面では石切り場の分岐まで。次は北斗に会ってちょうだい。」",
+      "delivery": {
+        "packages": [
+          {
+            "id": "pot",
+            "label": "鍋",
+            "stall": "料理屋",
+            "hint": "大きな鍋を待っている。",
+            "x": 245,
+            "y": 480,
+            "color": "#d59760"
+          },
+          {
+            "id": "vessel",
+            "label": "器",
+            "stall": "器の店",
+            "hint": "茶を出す器が届く予定。",
+            "x": 615,
+            "y": 480,
+            "color": "#779dc7"
+          },
+          {
+            "id": "wheel",
+            "label": "車輪",
+            "stall": "荷車の修理屋",
+            "hint": "荷車の替えの車輪が必要。",
+            "x": 1050,
+            "y": 480,
+            "color": "#b58359"
+          }
+        ],
+        "cache": {
+          "id": "wheel",
+          "name": "車輪の荷箱",
+          "x": 735,
+          "y": 380,
+          "guard": "liyue-loading-yard-1"
+        }
+      }
+    },
+    {
       "id": "liyue-supply",
       "name": "港への補給路",
       "hub": "liyue-harbor",
@@ -3810,7 +3908,8 @@
       "goal": 4,
       "xp": 1500,
       "mora": 150,
-      "join": "beidou"
+      "join": "beidou",
+      "opensAfter": "liyue-market-delivery"
     },
     {
       "id": "mond-contract",

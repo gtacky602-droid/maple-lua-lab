@@ -2,7 +2,12 @@
 export function questRouteText(f,q,status){
  if(!f.story?.active||!q||(status==='complete'&&!q.repeatable))return '';
  const graph=f.storyGraph,nodes=new Map(graph.nodes.map(n=>[n.id,n]));
- const target=status==='active'?(q.kind==='boss'?graph.nodes.find(n=>n.challenge===q.target)?.id:q.target):q.hub;
+ let target=status==='active'?(q.kind==='boss'?graph.nodes.find(n=>n.challenge===q.target)?.id:q.target):q.hub;
+ if(status==='active'&&q.delivery){
+  const state=f.story.quests?.[q.id]?.delivery;
+  const cache=q.delivery.cache.id;
+  if(q.delivery.packages.some(p=>!state?.delivered[p.id]&&(p.id!==cache||state?.recovered)))target=q.hub;
+ }
  const lookingForClues=status==='active'&&q.trail&&!f.story.quests?.[q.id]?.count;
  const targets=new Set((lookingForClues?q.trail.clues.map(item=>item.node):[target]).filter(id=>nodes.has(id)));
  if(!targets.size)return '目的地は未公開または未登録です。';

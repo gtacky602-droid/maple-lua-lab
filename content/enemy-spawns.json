@@ -1523,6 +1523,50 @@
         "art": "hilichurl",
         "kind": 1
       }
+    ],
+    "liyue-loading-yard": [
+      {
+        "id": "liyue-loading-yard-1",
+        "x": 470,
+        "platform": 0,
+        "art": "hilichurl",
+        "kind": 1
+      },
+      {
+        "id": "liyue-loading-yard-2",
+        "x": 545,
+        "platform": 0,
+        "art": "hydro-slime",
+        "kind": 1
+      },
+      {
+        "id": "liyue-loading-yard-3",
+        "x": 810,
+        "platform": 0,
+        "art": "hilichurl",
+        "kind": 1
+      },
+      {
+        "id": "liyue-loading-yard-4",
+        "x": 325,
+        "platform": 1,
+        "art": "hydro-slime",
+        "kind": 1
+      },
+      {
+        "id": "liyue-loading-yard-5",
+        "x": 875,
+        "platform": 2,
+        "art": "hilichurl",
+        "kind": 1
+      },
+      {
+        "id": "liyue-loading-yard-6",
+        "x": 1080,
+        "platform": 3,
+        "art": "hydro-slime",
+        "kind": 1
+      }
     ]
   }
 }

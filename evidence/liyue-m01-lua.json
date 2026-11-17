@@ -1,0 +1,15 @@
+{
+  "level_gate": true,
+  "arrival_without_previous_chapter": true,
+  "wrong_and_remote_delivery_rejected": true,
+  "stocked_three_stalls": true,
+  "guarded_recovery_with_jump": true,
+  "beidou_quest_available_at_acceptance": true,
+  "existing_quest_and_gear_kept": true,
+  "partial_and_complete_restore": true,
+  "reward": {
+    "xp": 2200,
+    "mora": 300
+  },
+  "invalid_cargo_saves_rejected": 4
+}

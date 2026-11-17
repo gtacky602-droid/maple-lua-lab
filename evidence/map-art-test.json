@@ -68,6 +68,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "liyue-loading-yard",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "liyue-field",
       "count": 0,
       "fallback": false,

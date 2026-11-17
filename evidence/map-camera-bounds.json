@@ -56,6 +56,11 @@
       "rightCamera": 480
     },
     {
+      "node": "liyue-loading-yard",
+      "width": 1440,
+      "rightCamera": 480
+    },
+    {
       "node": "liyue-field",
       "width": 1440,
       "rightCamera": 480

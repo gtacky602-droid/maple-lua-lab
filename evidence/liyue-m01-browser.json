@@ -1,0 +1,19 @@
+{
+  "errors": [],
+  "wrongLabelRejected": true,
+  "delivered": [
+    "鍋",
+    "器",
+    "車輪"
+  ],
+  "guardedJumpCache": true,
+  "stockedThreeStalls": true,
+  "partialSave": true,
+  "beidouQuestOpensOnAcceptance": true,
+  "report": {
+    "xp": 2200,
+    "mora": 300
+  },
+  "completeSave": true,
+  "mobileWidth": true
+}

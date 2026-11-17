@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 85 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 83,
+  "scope": "Authored 86 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 84,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -68,6 +68,12 @@
     {
       "id": "liyue-harbor",
       "name": "璃月・港の広場",
+      "region": "璃月",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "liyue-loading-yard",
+      "name": "璃月・港外の仮置き場",
       "region": "璃月",
       "status": "regional_temporary_image"
     },
