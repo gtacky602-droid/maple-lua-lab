@@ -30,31 +30,131 @@
   "run_profiles": [
     [
       "left",
+      1,
       "legacy"
     ],
     [
       "left",
+      1,
       "h48c32"
     ],
     [
       "left",
+      1,
+      "h32c16"
+    ],
+    [
+      "left",
+      2,
+      "legacy"
+    ],
+    [
+      "left",
+      2,
+      "h48c32"
+    ],
+    [
+      "left",
+      2,
+      "h32c16"
+    ],
+    [
+      "left",
+      3,
+      "legacy"
+    ],
+    [
+      "left",
+      3,
+      "h48c32"
+    ],
+    [
+      "left",
+      3,
+      "h32c16"
+    ],
+    [
+      "left",
+      4,
+      "legacy"
+    ],
+    [
+      "left",
+      4,
+      "h48c32"
+    ],
+    [
+      "left",
+      4,
       "h32c16"
     ],
     [
       "right",
+      1,
       "legacy"
     ],
     [
       "right",
+      1,
       "h48c32"
     ],
     [
       "right",
+      1,
+      "h32c16"
+    ],
+    [
+      "right",
+      2,
+      "legacy"
+    ],
+    [
+      "right",
+      2,
+      "h48c32"
+    ],
+    [
+      "right",
+      2,
+      "h32c16"
+    ],
+    [
+      "right",
+      3,
+      "legacy"
+    ],
+    [
+      "right",
+      3,
+      "h48c32"
+    ],
+    [
+      "right",
+      3,
+      "h32c16"
+    ],
+    [
+      "right",
+      4,
+      "legacy"
+    ],
+    [
+      "right",
+      4,
+      "h48c32"
+    ],
+    [
+      "right",
+      4,
       "h32c16"
     ]
   ],
   "native_facing": true,
   "actor_anchor": true,
   "light_outline": true,
-  "idle_restored": true
+  "idle_restored": true,
+  "right_left_reversal": true,
+  "travel_rate": true,
+  "airborne_first_frame": true,
+  "at_boundary_frozen": true
 }

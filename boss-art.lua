@@ -33,8 +33,12 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
  function C.drawAmberArt(f,s,a,mode,profile,art) draw(f,art,a.x-s.camera,a.y,88,mode,profile,a.dir<0) end
  function C.drawTravelerIdleArt(f,s,a,mode,profile) draw(f,C.travelerIdleArt,a.x-s.camera,a.y,88,mode,profile,a.dir<0) end
  function C.drawTravelerRunArt(f,s,a,mode,profile)
-  local art=C.travelerRunArt[a.dir<0 and 'left' or 'right']
-  draw(f,art,a.x-s.camera,a.y,88,mode,profile,false)
+  local frames=C.travelerRunArt[a.dir<0 and 'left' or 'right']
+  local phase=a.ground and math.floor((a.runDistance or 0)/16)%#frames or 0
+  local art=frames[phase+1]
+  -- The generated frames share a 100px scale, with small height changes during the stride.
+  local h=phase==0 and 88 or 88*art.box[4]/100
+  draw(f,art,a.x-s.camera,a.y,h,mode,profile,false)
   if mode~='rect' and a.light>0 then f.draws[#f.draws].glow=true end
  end
  function C.drawArrayArt(f,b,mode,profile)

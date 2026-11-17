@@ -227,8 +227,9 @@ function C.action(s,key)
  elseif key=='normal' or key=='skill1' or key=='skill2' or key=='skill3' or key=='skill4' then C.attack(s,a,key) end
 end
 local function physics(s,a,dt,move,held)
- if C.moveActorOverride and C.moveActorOverride(s,a,dt,move,held) then return end
+ if C.moveActorOverride and C.moveActorOverride(s,a,dt,move,held) then a.runDistance=nil;return end
  local oldy=a.y
+ local wasGrounded,previousMove=a.ground,a.walk
  if a.channel then move=0;a.buffer=0 end
  if (a.dash or 0)>0 then
   local nx=clamp(a.x+a.dashDir*650*dt,20,(s.worldwidth or 2880)-20)
@@ -248,6 +249,7 @@ local function physics(s,a,dt,move,held)
    elseif a.x>w.x+w.w/2 and nx-12<w.x+w.w and a.x+12>w.x then nx=math.max(nx,w.x+w.w+12) end
   end
  end
+ local dx=nx-a.x
  a.x=nx
  if move~=0 then a.dir=move>0 and 1 or -1 end
  a.coyote=a.ground and .08 or max(0,a.coyote-dt)
@@ -260,6 +262,10 @@ local function physics(s,a,dt,move,held)
  if a.vy>=0 then for _,p in ipairs(s.platforms) do
   if (p.y==480 or a.drop<=0) and a.x>=p.x and a.x<=p.x+p.w and oldy<=p.y and a.y>=p.y then a.y=p.y;a.vy=0;a.ground=true;a.glide=0;break end
  end end
+ -- The run art advances by actual ground travel, including when slowed by a wall.
+ if a.id==1 then
+  a.runDistance=wasGrounded and a.ground and move~=0 and move==previousMove and ((a.runDistance or 0)+abs(dx)) or 0
+ end
 end
 function C.step(s,dt,input)
  if s.paused then return end

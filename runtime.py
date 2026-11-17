@@ -57,7 +57,12 @@ def runtime():
     core.maguuArt=lua.table_from(json.loads((ROOT/'assets/maguu-sprites.json').read_text(encoding='utf8')),recursive=True)
     core.companionArt=lua.table_from({key:json.loads((ROOT/'assets'/f'{key}-idle-sprites.json').read_text(encoding='utf8')) for key in ['beidou','ayaka','wanderer','emilie','kachina','columbina','mitya']},recursive=True)
     core.travelerIdleArt=lua.table_from(json.loads((ROOT/'assets/traveler-idle-sprites-v3.json').read_text(encoding='utf8')),recursive=True)
-    core.travelerRunArt=lua.table_from({side:json.loads((ROOT/'assets'/f'traveler-run-{side}-sprites-v3.json').read_text(encoding='utf8')) for side in ('left','right')},recursive=True)
+    run_cycles={}
+    for side in ('left','right'):
+        prefix=f'traveler-run-{side}'
+        files=[f'{prefix}-sprites-v3.json',*(f'{prefix}-{phase}-sprites-v1.json' for phase in range(2,5))]
+        run_cycles[side]=[json.loads((ROOT/'assets'/name).read_text(encoding='utf8')) for name in files]
+    core.travelerRunArt=lua.table_from(run_cycles,recursive=True)
     core.enemySpawns=lua.table_from(json.loads((ROOT/'content/enemy-spawns.json').read_text(encoding='utf8'))['nodes'],recursive=True)
     core.hilichurlArt=lua.table_from(json.loads((ROOT/'assets/hilichurl-idle-sprites.json').read_text(encoding='utf8')),recursive=True)
     enemy_layout=json.loads((ROOT/'content/enemy-art-layout.json').read_text(encoding='utf8'))

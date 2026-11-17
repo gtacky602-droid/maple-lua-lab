@@ -5,23 +5,95 @@
     {
       "side": "right",
       "draw": {
-        "source": "traveler-run-right-source-v3.png",
-        "flip": false,
-        "y": 480,
-        "x": 361,
+        "anchorX": 0.5568181818181818,
+        "x": 235,
+        "w": 77.44,
+        "source": "traveler-run-right-2-source-v1.png",
         "kind": "boss_sprite",
+        "box": [
+          6,
+          2,
+          88,
+          98
+        ],
+        "h": 86.24,
+        "y": 480,
+        "flip": false
+      },
+      "actor": {
+        "x": 235,
+        "y": 480,
+        "walk": 1
+      }
+    },
+    {
+      "side": "right",
+      "draw": {
+        "anchorX": 0.5955056179775281,
+        "x": 249,
+        "w": 78.32,
+        "source": "traveler-run-right-3-source-v1.png",
+        "kind": "boss_sprite",
+        "box": [
+          5,
+          2,
+          89,
+          98
+        ],
+        "h": 86.24,
+        "y": 480,
+        "flip": false
+      },
+      "actor": {
+        "x": 249,
+        "y": 480,
+        "walk": 1
+      }
+    },
+    {
+      "side": "right",
+      "draw": {
+        "anchorX": 0.5647058823529412,
+        "x": 263,
+        "w": 74.8,
+        "source": "traveler-run-right-4-source-v1.png",
+        "kind": "boss_sprite",
+        "box": [
+          7,
+          0,
+          85,
+          100
+        ],
         "h": 88,
+        "y": 480,
+        "flip": false
+      },
+      "actor": {
+        "x": 263,
+        "y": 480,
+        "walk": 1
+      }
+    },
+    {
+      "side": "right",
+      "draw": {
+        "anchorX": 0.667090216010165,
+        "x": 270,
+        "w": 84.66503667481662,
+        "source": "traveler-run-right-source-v3.png",
+        "kind": "boss_sprite",
         "box": [
           292,
           98,
           787,
           818
         ],
-        "w": 84.66503667481662,
-        "anchorX": 0.667090216010165
+        "h": 88,
+        "y": 480,
+        "flip": false
       },
       "actor": {
-        "x": 361,
+        "x": 270,
         "y": 480,
         "walk": 1
       }
@@ -29,27 +101,121 @@
     {
       "side": "left",
       "draw": {
+        "anchorX": 0.349707602339181,
+        "x": 256,
+        "w": 84.53932584269663,
         "source": "traveler-run-left-source-v3.png",
-        "flip": false,
-        "y": 480,
-        "x": 298,
         "kind": "boss_sprite",
-        "h": 88,
         "box": [
           400,
           53,
           855,
           890
         ],
-        "w": 84.53932584269663,
-        "anchorX": 0.349707602339181
+        "h": 88,
+        "y": 480,
+        "flip": false
       },
       "actor": {
-        "x": 298,
+        "x": 256,
+        "y": 480,
+        "walk": -1
+      }
+    },
+    {
+      "side": "left",
+      "draw": {
+        "anchorX": 0.38271604938271603,
+        "x": 235,
+        "w": 71.28,
+        "source": "traveler-run-left-2-source-v1.png",
+        "kind": "boss_sprite",
+        "box": [
+          9,
+          0,
+          81,
+          100
+        ],
+        "h": 88,
+        "y": 480,
+        "flip": false
+      },
+      "actor": {
+        "x": 235,
+        "y": 480,
+        "walk": -1
+      }
+    },
+    {
+      "side": "left",
+      "draw": {
+        "anchorX": 0.4,
+        "x": 221,
+        "w": 79.19999999999999,
+        "source": "traveler-run-left-3-source-v1.png",
+        "kind": "boss_sprite",
+        "box": [
+          5,
+          2,
+          90,
+          98
+        ],
+        "h": 86.24,
+        "y": 480,
+        "flip": false
+      },
+      "actor": {
+        "x": 221,
+        "y": 480,
+        "walk": -1
+      }
+    },
+    {
+      "side": "left",
+      "draw": {
+        "anchorX": 0.37662337662337664,
+        "x": 217.5,
+        "w": 67.76,
+        "source": "traveler-run-left-4-source-v1.png",
+        "kind": "boss_sprite",
+        "box": [
+          11,
+          0,
+          77,
+          100
+        ],
+        "h": 88,
+        "y": 480,
+        "flip": false
+      },
+      "actor": {
+        "x": 217.5,
         "y": 480,
         "walk": -1
       }
     }
   ],
-  "idleRestored": true
+  "idleRestored": true,
+  "comparison": {
+    "sprite": {
+      "anchorX": 0.5568181818181818,
+      "flip": false,
+      "kind": "boss_sprite",
+      "y": 480,
+      "x": 221,
+      "w": 77.44,
+      "box": [
+        6,
+        2,
+        88,
+        98
+      ],
+      "h": 86.24,
+      "source": "traveler-run-right-2-source-v1.png"
+    },
+    "sameFrame": 0.09999999999999999,
+    "a": 30,
+    "b": 3556,
+    "rectangles": 3551
+  }
 }
