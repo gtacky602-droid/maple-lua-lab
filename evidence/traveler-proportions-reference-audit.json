@@ -1,0 +1,343 @@
+{
+  "guide": "DESIGN_MAPLE_CHIBI_STYLE_GUIDE_V01.md",
+  "scope": "Aether default outfit; static Web/Lua preview candidates",
+  "reference": {
+    "model_url": "https://static.biligame.com/caster_custom_assets/ys/gczj/kong.rar",
+    "version": "10",
+    "archive_sha256": "0c28320d623a01f4d496368fbaf28dde6b6e328edbd78364d6798be2585f75c9",
+    "pmx_sha256": "4a78a8e791497c03026c1b7e12eb7eb567464c21ee4a329fea617304ccf6912d",
+    "views_inspected": [
+      "front",
+      "right",
+      "back",
+      "left"
+    ],
+    "views_passed_to_initial_generation": [
+      "front",
+      "right",
+      "back"
+    ],
+    "record": "evidence/traveler-amber-reference-audit.json",
+    "current_art_reference": "assets/traveler-idle-source-v3.png",
+    "notes": "Side render names follow the reference camera. The sprite gallery names the direction the sprite faces on screen."
+  },
+  "prompts": {
+    "DRAFT_B": "Create a pixel-art model sheet of Aether (male Traveler from Genshin Impact) for a classic side-scrolling chibi RPG, strictly following the supplied Genshin model for clothing and hair. Draw exactly THREE full-body static unarmed idle sprites of the same proportions and costume, evenly spaced in thirds within a wide transparent 3:1 sheet: left front view facing screen/camera directly, center gameplay side view looking to SCREEN RIGHT (slight three-quarter, both grounded boots readable, match supplied existing sprite's angle), right direct rear view. Visible hair tip and flat soles on identical horizontal lines on the three. Lots of transparent separation. No text, no props, no shadows below feet, no extra characters, no marks or guides. Large clear amber eyes, rounded chin, thick angular blond clumps and short curled ahoge, thick single braided ponytail (rear down center, side trails opposite face), asymmetric LEFT gold shoulder armor, other arm has dark sleeve, cropped dark brown top, one long white-gold vertical front panel, tan and white two-panel cape, golden knee motifs and thick dark boots. Keep pale panels and gold grouped, four shades in hair, warm brown dark outlines, hard pixel corners, restrained bright palette, no smoothing. Hands at sides, compact slightly wide torso with shoulders and gloves, heavy short flat boots. All three are neutral grounded poses with matched body height and stance. Draw three bodies with clothing sewn correctly and every landmark visible enough to measure. Proportion variant B: total from highest hair tip to flat soles 88 game pixels. Place jaw at 41 percent of full height, waist/hip line at 66 percent. Head is 36 out of 88 pixels, torso 22 and legs 30. Crop the long cape at lower shin. Broad hair and compact torso, short below knee; preserve the gold cape and costume geometry of the current Aether reference. Clearly this is 2.44 heads tall.",
+    "DRAFT_C": "Create a pixel-art model sheet of Aether (male Traveler from Genshin Impact) for a classic side-scrolling chibi RPG, strictly following the supplied Genshin model for clothing and hair. Draw exactly THREE full-body static unarmed idle sprites of the same proportions and costume, evenly spaced in thirds within a wide transparent 3:1 sheet: left front view facing screen/camera directly, center gameplay side view looking to SCREEN RIGHT (slight three-quarter, both grounded boots readable, match supplied existing sprite's angle), right direct rear view. Visible hair tip and flat soles on identical horizontal lines on the three. Lots of transparent separation. No text, no props, no shadows below feet, no extra characters, no marks or guides. Large clear amber eyes, rounded chin, thick angular blond clumps and short curled ahoge, thick single braided ponytail (rear down center, side trails opposite face), asymmetric LEFT gold shoulder armor, other arm has dark sleeve, cropped dark brown top, one long white-gold vertical front panel, tan and white two-panel cape, golden knee motifs and thick dark boots. Keep pale panels and gold grouped, four shades in hair, warm brown dark outlines, hard pixel corners, restrained bright palette, no smoothing. Hands at sides, compact slightly wide torso with shoulders and gloves, heavy short flat boots. All three are neutral grounded poses with matched body height and stance. Draw three bodies with clothing sewn correctly and every landmark visible enough to measure. Proportion variant C, distinctly squat and more exaggerated: total from highest hair tip to flat soles 88 game pixels. Place jaw at 45.5 percent of full height, waist/hip line at 68 percent. Head is 40 out of 88 pixels, torso 20 and legs 28. Broad rounded head, eyes very readable, hands mitten-like, shortest shin, short cloak at mid calf, boots look broad and grounded. Shorten torso and legs enough that chin is near half-height, 2.20 heads tall. Use bigger pale and gold contrast blocks on the cloak and reduce tiny stitching.",
+    "B": "Create a pixel-art model sheet of Aether (male Traveler from Genshin Impact) for a classic side-scrolling chibi RPG, strictly following the supplied Genshin model for clothing and hair. Draw exactly THREE full-body static unarmed idle sprites of the same proportions and costume, evenly spaced in thirds within a wide transparent 3:1 sheet: left front view facing screen/camera directly, center gameplay side view looking to SCREEN RIGHT (slight three-quarter, both grounded boots readable, match supplied existing sprite's angle), right direct rear view. Visible hair tip and flat soles on identical horizontal lines on the three. Lots of transparent separation. No text, no props, no shadows below feet, no extra characters, no marks or guides. Large clear amber eyes, rounded chin, thick angular blond clumps and short curled ahoge, thick single braided ponytail (rear down center, side trails opposite face), asymmetric LEFT gold shoulder armor, other arm has dark sleeve, cropped dark brown top, one long white-gold vertical front panel, tan and white two-panel cape, golden knee motifs and thick dark boots. Keep pale panels and gold grouped, four shades in hair, warm brown dark outlines, hard pixel corners, restrained bright palette, no smoothing. Hands at sides, compact slightly wide torso with shoulders and gloves, heavy short flat boots. All three are neutral grounded poses with matched body height and stance. Draw three bodies with clothing sewn correctly and every landmark visible enough to measure. Proportion variant B: total from highest hair tip to flat soles 88 game pixels. Place jaw at 41 percent of full height, waist/hip line at 66 percent. Head is 36 out of 88 pixels, torso 22 and legs 30. Crop the long cape at lower shin. Broad hair and compact torso, short below knee; preserve the gold cape and costume geometry of the current Aether reference. Clearly this is 2.44 heads tall. This is an edit of the matching supplied 3-view sprite sheet. Keep its exact rendering style, locations and visual baseline, the clean fully transparent background, and the costume. Enlarge the head height by 6% while preserving overall dimensions. Compare jaw positions against the existing sheet: the current jaw is 39% from top. Move it down by about 3% of visible full height. Maintain the short and single asymmetric pauldron, the leg shape, and hands next to the hip. In front and right view the chin landmark must be visibly lower relative to fixed ground and the hair. Preserve clean margins between the poses. No labels.",
+    "INTERMEDIATE_C": "Create a pixel-art model sheet of Aether (male Traveler from Genshin Impact) for a classic side-scrolling chibi RPG, strictly following the supplied Genshin model for clothing and hair. Draw exactly THREE full-body static unarmed idle sprites of the same proportions and costume, evenly spaced in thirds within a wide transparent 3:1 sheet: left front view facing screen/camera directly, center gameplay side view looking to SCREEN RIGHT (slight three-quarter, both grounded boots readable, match supplied existing sprite's angle), right direct rear view. Visible hair tip and flat soles on identical horizontal lines on the three. Lots of transparent separation. No text, no props, no shadows below feet, no extra characters, no marks or guides. Large clear amber eyes, rounded chin, thick angular blond clumps and short curled ahoge, thick single braided ponytail (rear down center, side trails opposite face), asymmetric LEFT gold shoulder armor, other arm has dark sleeve, cropped dark brown top, one long white-gold vertical front panel, tan and white two-panel cape, golden knee motifs and thick dark boots. Keep pale panels and gold grouped, four shades in hair, warm brown dark outlines, hard pixel corners, restrained bright palette, no smoothing. Hands at sides, compact slightly wide torso with shoulders and gloves, heavy short flat boots. All three are neutral grounded poses with matched body height and stance. Draw three bodies with clothing sewn correctly and every landmark visible enough to measure. Proportion variant C, distinctly squat and more exaggerated: total from highest hair tip to flat soles 88 game pixels. Place jaw at 45.5 percent of full height, waist/hip line at 68 percent. Head is 40 out of 88 pixels, torso 20 and legs 28. Broad rounded head, eyes very readable, hands mitten-like, shortest shin, short cloak at mid calf, boots look broad and grounded. Shorten torso and legs enough that chin is near half-height, 2.20 heads tall. Use bigger pale and gold contrast blocks on the cloak and reduce tiny stitching. This is an edit of the matching supplied 3-view sprite sheet. Keep its exact rendering style, locations and visual baseline, the clean fully transparent background, and the costume. Enlarge the head dramatically in all three views. Aim jaw at ~47 percent of height, compared to the current ~41 percent, with head about half the height, and with flatter wide boots and shorter sub-knee shins. The resulting silhouette should clearly resemble very squat 2005 era chibi RPG game sprites, with huge fluffy round head on a tiny body. Crop cape at mid calf. Show truly compact torso and legs, gold panels still clear. In front and right view the chin landmark must be visibly lower relative to fixed ground and the hair. Preserve clean margins between the poses. No labels.",
+    "C": "Extract the three Aether sprite poses from this opaque sheet to a TRANSPARENT RGBA sprite sheet. Keep the exact three poses and bright pixel art. The white/off-white background and faint gray halo are to be entirely removed, not drawn. There must be true alpha=0 from every edge of the sheet to the dark sprite contours, around each boot and in the gaps; do not draw a checkerboard. Maintain one figure per third, with wide spacing, no text, no shadows, no separate props. Also adjust the proportions very slightly: relative to the current exaggerated 1.8-heads-tall sprites, reduce head height by ~12 percent and lengthen the tiny torso and stumpy legs by the same amount. The new jaw should fall at 45–47% of total hair-tip-to-boot-sole height, about 2.2 heads tall. Keep hair and cape recognizably Aether, especially the single braid, one golden shoulder plate, warm amber eyes and dark boots. Keep gameplay side pose looking right in the center, front to camera on left and straight back on right. Use landscape 3:1, three poses fully contained with ~20px breathing room at top and bottom."
+  },
+  "selected_art": {
+    "b": "first transparent edit of the B draft",
+    "c": "transparency and proportion edit of the third C sheet"
+  },
+  "measurement": "Manual estimate of chin y in front/right crops. Includes hair tuft measured from the opaque bounds top. Back has no visible chin. Values are approximate and design targets are separate.",
+  "targets": {
+    "b": {
+      "head_px": 36,
+      "torso_px": 22,
+      "legs_px": 30
+    },
+    "c": {
+      "head_px": 40,
+      "torso_px": 20,
+      "legs_px": 28
+    }
+  },
+  "observations": [
+    "B is close to the present right-facing head ratio, with a compact head/body balance and matched front/back poses.",
+    "C has broader hair, shorter shins in the visible silhouette and larger eyes. Final C is slightly squatter than its 2.20-head target.",
+    "Both show blond hair and braid, an asymmetric shoulder, a pale cape and gold boots. The 44px profile preserves larger blocks and loses small seam lines; palette is automatic.",
+    "Motion and independent left-facing candidates remain open."
+  ],
+  "poses": {
+    "current": {
+      "right": {
+        "encoding": "traveler-idle-sprites-v3.json",
+        "source": "traveler-idle-source-v3.png",
+        "sha256": "44632c99fc1f7911435e6cf7e668f14eaca3be78da1090aa37f482adb62a332a",
+        "bounds": [
+          267,
+          33,
+          619,
+          1221
+        ],
+        "anchorX": 0.6001615508885298,
+        "profiles": {
+          "legacy": {
+            "size": [
+              45,
+              88
+            ],
+            "palette_budget": 32,
+            "rectangles": 1684
+          },
+          "h48c32": {
+            "size": [
+              33,
+              66
+            ],
+            "palette_budget": 32,
+            "rectangles": 998
+          },
+          "h32c16": {
+            "size": [
+              22,
+              44
+            ],
+            "palette_budget": 16,
+            "rectangles": 448
+          }
+        },
+        "estimated_chin_source_y": 535,
+        "head_px_at_88": 36.2,
+        "approx_head_ratio": 2.43
+      }
+    },
+    "b": {
+      "front": {
+        "encoding": "traveler-proportion-b-front-sprites-v1.json",
+        "source": "traveler-proportion-b-source-v1.png",
+        "sha256": "cdfe5265c7d49013a57d15a4583de4f8f8339fc269b98cd9b08d5cec6c6a8d6a",
+        "bounds": [
+          253,
+          16,
+          308,
+          657
+        ],
+        "anchorX": 0.49837662337662336,
+        "profiles": {
+          "legacy": {
+            "size": [
+              41,
+              88
+            ],
+            "palette_budget": 32,
+            "rectangles": 1756
+          },
+          "h48c32": {
+            "size": [
+              31,
+              66
+            ],
+            "palette_budget": 32,
+            "rectangles": 1055
+          },
+          "h32c16": {
+            "size": [
+              21,
+              44
+            ],
+            "palette_budget": 16,
+            "rectangles": 447
+          }
+        },
+        "estimated_chin_source_y": 282,
+        "head_px_at_88": 35.6,
+        "approx_head_ratio": 2.47
+      },
+      "right": {
+        "encoding": "traveler-proportion-b-right-sprites-v1.json",
+        "source": "traveler-proportion-b-source-v1.png",
+        "sha256": "cdfe5265c7d49013a57d15a4583de4f8f8339fc269b98cd9b08d5cec6c6a8d6a",
+        "bounds": [
+          906,
+          16,
+          316,
+          657
+        ],
+        "anchorX": 0.6281645569620253,
+        "profiles": {
+          "legacy": {
+            "size": [
+              42,
+              88
+            ],
+            "palette_budget": 32,
+            "rectangles": 1880
+          },
+          "h48c32": {
+            "size": [
+              32,
+              66
+            ],
+            "palette_budget": 32,
+            "rectangles": 1146
+          },
+          "h32c16": {
+            "size": [
+              21,
+              44
+            ],
+            "palette_budget": 16,
+            "rectangles": 472
+          }
+        },
+        "estimated_chin_source_y": 282,
+        "head_px_at_88": 35.6,
+        "approx_head_ratio": 2.47
+      },
+      "back": {
+        "encoding": "traveler-proportion-b-back-sprites-v1.json",
+        "source": "traveler-proportion-b-source-v1.png",
+        "sha256": "cdfe5265c7d49013a57d15a4583de4f8f8339fc269b98cd9b08d5cec6c6a8d6a",
+        "bounds": [
+          1626,
+          16,
+          277,
+          657
+        ],
+        "anchorX": 0.5054151624548736,
+        "profiles": {
+          "legacy": {
+            "size": [
+              37,
+              88
+            ],
+            "palette_budget": 32,
+            "rectangles": 1757
+          },
+          "h48c32": {
+            "size": [
+              28,
+              66
+            ],
+            "palette_budget": 32,
+            "rectangles": 1062
+          },
+          "h32c16": {
+            "size": [
+              19,
+              44
+            ],
+            "palette_budget": 16,
+            "rectangles": 439
+          }
+        }
+      }
+    },
+    "c": {
+      "front": {
+        "encoding": "traveler-proportion-c-front-sprites-v1.json",
+        "source": "traveler-proportion-c-source-v1.png",
+        "sha256": "8a9876050fadd3295c85054b9e268a65065639af23ac7abbbd1795aa7304ab61",
+        "bounds": [
+          207,
+          10,
+          390,
+          695
+        ],
+        "anchorX": 0.514102564102564,
+        "profiles": {
+          "legacy": {
+            "size": [
+              49,
+              88
+            ],
+            "palette_budget": 32,
+            "rectangles": 1897
+          },
+          "h48c32": {
+            "size": [
+              37,
+              66
+            ],
+            "palette_budget": 32,
+            "rectangles": 1175
+          },
+          "h32c16": {
+            "size": [
+              25,
+              44
+            ],
+            "palette_budget": 16,
+            "rectangles": 505
+          }
+        },
+        "estimated_chin_source_y": 341,
+        "head_px_at_88": 41.9,
+        "approx_head_ratio": 2.1
+      },
+      "right": {
+        "encoding": "traveler-proportion-c-right-sprites-v1.json",
+        "source": "traveler-proportion-c-source-v1.png",
+        "sha256": "8a9876050fadd3295c85054b9e268a65065639af23ac7abbbd1795aa7304ab61",
+        "bounds": [
+          889,
+          10,
+          395,
+          695
+        ],
+        "anchorX": 0.5518987341772152,
+        "profiles": {
+          "legacy": {
+            "size": [
+              50,
+              88
+            ],
+            "palette_budget": 32,
+            "rectangles": 1953
+          },
+          "h48c32": {
+            "size": [
+              38,
+              66
+            ],
+            "palette_budget": 32,
+            "rectangles": 1163
+          },
+          "h32c16": {
+            "size": [
+              25,
+              44
+            ],
+            "palette_budget": 16,
+            "rectangles": 503
+          }
+        },
+        "estimated_chin_source_y": 339,
+        "head_px_at_88": 41.7,
+        "approx_head_ratio": 2.11
+      },
+      "back": {
+        "encoding": "traveler-proportion-c-back-sprites-v1.json",
+        "source": "traveler-proportion-c-source-v1.png",
+        "sha256": "8a9876050fadd3295c85054b9e268a65065639af23ac7abbbd1795aa7304ab61",
+        "bounds": [
+          1576,
+          10,
+          395,
+          695
+        ],
+        "anchorX": 0.4911392405063291,
+        "profiles": {
+          "legacy": {
+            "size": [
+              50,
+              88
+            ],
+            "palette_budget": 32,
+            "rectangles": 1943
+          },
+          "h48c32": {
+            "size": [
+              38,
+              66
+            ],
+            "palette_budget": 32,
+            "rectangles": 1142
+          },
+          "h32c16": {
+            "size": [
+              25,
+              44
+            ],
+            "palette_budget": 16,
+            "rectangles": 479
+          }
+        }
+      }
+    }
+  }
+}

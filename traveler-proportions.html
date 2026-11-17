@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>旅人の低頭身比較</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#102b33;color:#e3f4f4;font:16px 'Yu Gothic UI',sans-serif}
+main{max-width:1240px;margin:auto;padding:clamp(14px,3vw,32px)}
+a{color:#94e8e5}
+nav,fieldset{display:flex;gap:12px 20px;flex-wrap:wrap;align-items:center}
+h1{font-size:clamp(24px,4vw,32px);margin:18px 0 4px}
+p{margin:8px 0 16px}
+fieldset{min-width:0;border:1px solid #527980;border-radius:8px;margin:0 0 20px;padding:8px 12px 12px}
+legend{color:#b4d3d5}
+label{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+select{padding:8px;color:inherit;background:#24515b;border:1px solid #638991;border-radius:7px;font:inherit}
+:focus-visible{outline:2px solid #f1d486;outline-offset:2px}
+#cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,var(--card-width,362px)),1fr));gap:14px}
+article{min-width:0;padding:12px;background:#193c45;border:1px solid #527980;border-radius:10px}
+h2{margin:0 0 6px;font-size:19px}
+.measurement,.stats,#status{color:#b4d3d5;font-size:14px}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+figure{min-width:0;margin:0}
+figcaption{margin-bottom:4px;font-size:14px}
+.preview{display:flex;overflow:auto;background:#294c55;border-radius:5px}
+canvas{display:block;flex:none;margin-inline:auto;image-rendering:pixelated}
+@media(max-width:560px){#cards[data-zoom="3"] .pair{grid-template-columns:minmax(0,1fr)}}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+<nav><a href="characters-art.html">人物素材</a><a href="index.html">Luaラボ</a></nav>
+<h1>旅人の低頭身比較</h1>
+<p>現行・B案・C案を、表示高88pxと足元の位置をそろえて比較します。</p>
+<fieldset id="controls" disabled>
+<legend>表示設定</legend>
+<label>向き <select id="direction"><option value="right">右向き</option><option value="front">正面</option><option value="back">背面</option></select></label>
+<label>仮背景 <select id="backdrop"><option value="plain">無地</option><option value="mond">モンド</option><option value="liyue">璃月</option><option value="inazuma">稲妻</option><option value="fontaine">フォンテーヌ</option></select></label>
+<label>矩形版 <select id="profile"><option value="legacy">標準・88px</option><option value="h48c32">中間・66px</option><option value="h32c16" selected>軽量・44px</option></select></label>
+<label>倍率 <select id="zoom"><option value="1">実寸</option><option value="2">2倍</option><option value="3">3倍</option></select></label>
+</fieldset>
+<section id="cards" aria-label="旅人の待機絵"></section>
+<p id="status" role="status">素材を読み込んでいます</p>
+<script type="module" src="traveler-proportions.js"></script>
+</main>
+</body>
+</html>
