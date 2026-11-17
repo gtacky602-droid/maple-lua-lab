@@ -1,0 +1,51 @@
+{
+  "map_id": "branch-03-map",
+  "region_id": "branch-03",
+  "name": "淵下宮",
+  "kind": "high_level_branch",
+  "official_map_id": 7,
+  "node_ids": [
+    "map7:21571",
+    "map7:21572",
+    "map7:21573",
+    "map7:21574",
+    "map7:21575",
+    "map7:21576",
+    "map7:21577",
+    "map7:21578",
+    "map7:21579",
+    "map7:21580",
+    "map7:21581",
+    "map7:21582",
+    "map7:21583",
+    "map7:21584",
+    "map7:21585",
+    "map7:21586",
+    "map7:21587",
+    "map7:21588",
+    "map7:21589",
+    "map7:21590",
+    "map7:21591",
+    "map7:21592",
+    "map7:21593",
+    "map7:21594"
+  ],
+  "level_guide": {
+    "recommended": 85,
+    "enemy_min": 90,
+    "enemy_max": 105,
+    "deepest": 110,
+    "state": "proposed",
+    "source": "content/coverage.json; docs/quest-v1/SIX_DECISIONS_DRAFT_V01.md D02 (draft)"
+  },
+  "layers": [
+    "all",
+    "surface",
+    "underground",
+    "unknown"
+  ],
+  "temporary": false,
+  "membership_source": "Official area IDs from content/map-catalog.json",
+  "membership_state": "approved",
+  "exclude_from_normal": []
+}

@@ -1,0 +1,1519 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.field-design/schema.json",
+  "title": "Field design repository contract",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/project"
+    },
+    {
+      "$ref": "#/$defs/proposal_request"
+    }
+  ],
+  "$defs": {
+    "decision": {
+      "type": "object",
+      "required": [
+        "state",
+        "source",
+        "actor",
+        "updated_at"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "unassigned",
+            "proposed",
+            "approved",
+            "implemented",
+            "verified"
+          ]
+        },
+        "source": {
+          "type": "string"
+        },
+        "actor": {
+          "enum": [
+            "user",
+            "Codex",
+            "ChatGPT"
+          ]
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    },
+    "field_definitions": {
+      "type": "object",
+      "required": [
+        "field_id",
+        "elite",
+        "enemy_level_max",
+        "enemy_level_min",
+        "local_legend",
+        "location_alias",
+        "name",
+        "notes",
+        "production_state",
+        "quests",
+        "recommended_level",
+        "region_id",
+        "required_route",
+        "respawn_seconds",
+        "terrain",
+        "_meta"
+      ],
+      "properties": {
+        "field_id": {
+          "type": "string"
+        },
+        "elite": {
+          "type": "string"
+        },
+        "enemy_level_max": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 200
+        },
+        "enemy_level_min": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 200
+        },
+        "local_legend": {
+          "type": "string"
+        },
+        "location_alias": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "production_state": {
+          "enum": [
+            "未着手",
+            "設計中",
+            "制作中",
+            "完成"
+          ]
+        },
+        "quests": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recommended_level": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 200
+        },
+        "region_id": {
+          "type": "string"
+        },
+        "required_route": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "respawn_seconds": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1000000000000.0
+        },
+        "terrain": {
+          "type": "string"
+        },
+        "_meta": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/decision"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "field_edges": {
+      "type": "object",
+      "required": [
+        "edge_id",
+        "conditions",
+        "direction",
+        "entrance_position",
+        "exit_position",
+        "from_field",
+        "kind",
+        "notes",
+        "to_field",
+        "_meta"
+      ],
+      "properties": {
+        "edge_id": {
+          "type": "string"
+        },
+        "conditions": {
+          "type": "object"
+        },
+        "direction": {
+          "enum": [
+            "both",
+            "one_way"
+          ]
+        },
+        "entrance_position": {
+          "type": "object",
+          "required": [
+            "x",
+            "y"
+          ],
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "exit_position": {
+          "type": "object",
+          "required": [
+            "x",
+            "y"
+          ],
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "from_field": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "portal",
+            "level",
+            "quest",
+            "hidden",
+            "boat",
+            "temporary"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        },
+        "to_field": {
+          "type": "string"
+        },
+        "_meta": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/decision"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "monster_families": {
+      "type": "object",
+      "required": [
+        "family_id",
+        "animation",
+        "behavior",
+        "defaults",
+        "element",
+        "name",
+        "sprite",
+        "_meta"
+      ],
+      "properties": {
+        "family_id": {
+          "type": "string"
+        },
+        "animation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "behavior": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "defaults": {
+          "type": "object"
+        },
+        "element": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "sprite": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "_meta": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/decision"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "monster_variants": {
+      "type": "object",
+      "required": [
+        "monster_id",
+        "animation",
+        "attack",
+        "base_level",
+        "behavior",
+        "classification",
+        "defense",
+        "drops",
+        "element",
+        "exp",
+        "family_id",
+        "hp",
+        "name",
+        "region_id",
+        "sprite",
+        "_meta"
+      ],
+      "properties": {
+        "monster_id": {
+          "type": "string"
+        },
+        "animation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "attack": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1000000000000.0
+        },
+        "base_level": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 200
+        },
+        "behavior": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "classification": {
+          "enum": [
+            "normal",
+            "elite",
+            "local_legend",
+            "boss",
+            "weekly_boss"
+          ]
+        },
+        "defense": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1000000000000.0
+        },
+        "drops": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {}
+        },
+        "element": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "exp": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1000000000000.0
+        },
+        "family_id": {
+          "type": "string"
+        },
+        "hp": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1000000000000.0
+        },
+        "name": {
+          "type": "string"
+        },
+        "region_id": {
+          "type": "string"
+        },
+        "sprite": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "_meta": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/decision"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "field_spawns": {
+      "type": "object",
+      "required": [
+        "spawn_id",
+        "area",
+        "conditions",
+        "count",
+        "field_id",
+        "level_override",
+        "monster_id",
+        "respawn_seconds",
+        "special",
+        "_meta"
+      ],
+      "properties": {
+        "spawn_id": {
+          "type": "string"
+        },
+        "area": {
+          "type": "object"
+        },
+        "conditions": {
+          "type": "object"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10000
+        },
+        "field_id": {
+          "type": "string"
+        },
+        "level_override": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 200
+        },
+        "monster_id": {
+          "type": "string"
+        },
+        "respawn_seconds": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1000000000000.0
+        },
+        "special": {
+          "type": "boolean"
+        },
+        "_meta": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/decision"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "graph_layouts": {
+      "type": "object",
+      "required": [
+        "layout_id",
+        "field_id",
+        "view_id",
+        "x",
+        "y",
+        "_meta"
+      ],
+      "properties": {
+        "layout_id": {
+          "type": "string"
+        },
+        "field_id": {
+          "type": "string"
+        },
+        "view_id": {
+          "type": "string"
+        },
+        "x": {
+          "type": "number",
+          "exclusiveMinimum": -10000000.0,
+          "exclusiveMaximum": 10000000.0
+        },
+        "y": {
+          "type": "number",
+          "exclusiveMinimum": -10000000.0,
+          "exclusiveMaximum": 10000000.0
+        },
+        "_meta": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/decision"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "graph_exceptions": {
+      "type": "object",
+      "required": [
+        "exception_id",
+        "code",
+        "reason",
+        "target_id",
+        "_meta"
+      ],
+      "properties": {
+        "exception_id": {
+          "type": "string"
+        },
+        "code": {
+          "enum": [
+            "unreachable",
+            "dead_end",
+            "no_return",
+            "level_jump",
+            "quest_route"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        },
+        "target_id": {
+          "type": "string"
+        },
+        "_meta": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/decision"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "operation": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "collection",
+            "id"
+          ],
+          "properties": {
+            "collection": {
+              "const": "field_definitions"
+            },
+            "id": {
+              "type": "string"
+            },
+            "action": {
+              "enum": [
+                "upsert",
+                "delete"
+              ]
+            },
+            "changes": {
+              "type": "object",
+              "properties": {
+                "enemy_level_max": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1,
+                  "maximum": 200
+                },
+                "region_id": {
+                  "type": "string"
+                },
+                "location_alias": {
+                  "type": "string"
+                },
+                "enemy_level_min": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1,
+                  "maximum": 200
+                },
+                "local_legend": {
+                  "type": "string"
+                },
+                "recommended_level": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1,
+                  "maximum": 200
+                },
+                "quests": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "elite": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "terrain": {
+                  "type": "string"
+                },
+                "production_state": {
+                  "enum": [
+                    "未着手",
+                    "設計中",
+                    "制作中",
+                    "完成"
+                  ]
+                },
+                "respawn_seconds": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 1000000000000.0
+                },
+                "notes": {
+                  "type": "string"
+                },
+                "required_route": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "additionalProperties": false
+            },
+            "states": {
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "elite",
+                  "enemy_level_max",
+                  "enemy_level_min",
+                  "local_legend",
+                  "location_alias",
+                  "name",
+                  "notes",
+                  "production_state",
+                  "quests",
+                  "recommended_level",
+                  "region_id",
+                  "required_route",
+                  "respawn_seconds",
+                  "terrain"
+                ]
+              },
+              "additionalProperties": {
+                "enum": [
+                  "unassigned",
+                  "proposed",
+                  "approved",
+                  "implemented",
+                  "verified"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "collection",
+            "id"
+          ],
+          "properties": {
+            "collection": {
+              "const": "field_edges"
+            },
+            "id": {
+              "type": "string"
+            },
+            "action": {
+              "enum": [
+                "upsert",
+                "delete"
+              ]
+            },
+            "changes": {
+              "type": "object",
+              "properties": {
+                "exit_position": {
+                  "type": "object",
+                  "required": [
+                    "x",
+                    "y"
+                  ],
+                  "properties": {
+                    "x": {
+                      "type": "number"
+                    },
+                    "y": {
+                      "type": "number"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "to_field": {
+                  "type": "string"
+                },
+                "direction": {
+                  "enum": [
+                    "both",
+                    "one_way"
+                  ]
+                },
+                "kind": {
+                  "enum": [
+                    "portal",
+                    "level",
+                    "quest",
+                    "hidden",
+                    "boat",
+                    "temporary"
+                  ]
+                },
+                "entrance_position": {
+                  "type": "object",
+                  "required": [
+                    "x",
+                    "y"
+                  ],
+                  "properties": {
+                    "x": {
+                      "type": "number"
+                    },
+                    "y": {
+                      "type": "number"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "conditions": {
+                  "type": "object"
+                },
+                "notes": {
+                  "type": "string"
+                },
+                "from_field": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "states": {
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "conditions",
+                  "direction",
+                  "entrance_position",
+                  "exit_position",
+                  "from_field",
+                  "kind",
+                  "notes",
+                  "to_field"
+                ]
+              },
+              "additionalProperties": {
+                "enum": [
+                  "unassigned",
+                  "proposed",
+                  "approved",
+                  "implemented",
+                  "verified"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "collection",
+            "id"
+          ],
+          "properties": {
+            "collection": {
+              "const": "monster_families"
+            },
+            "id": {
+              "type": "string"
+            },
+            "action": {
+              "enum": [
+                "upsert",
+                "delete"
+              ]
+            },
+            "changes": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "element": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "defaults": {
+                  "type": "object"
+                },
+                "behavior": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "sprite": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "animation": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "states": {
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "animation",
+                  "behavior",
+                  "defaults",
+                  "element",
+                  "name",
+                  "sprite"
+                ]
+              },
+              "additionalProperties": {
+                "enum": [
+                  "unassigned",
+                  "proposed",
+                  "approved",
+                  "implemented",
+                  "verified"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "collection",
+            "id"
+          ],
+          "properties": {
+            "collection": {
+              "const": "monster_variants"
+            },
+            "id": {
+              "type": "string"
+            },
+            "action": {
+              "enum": [
+                "upsert",
+                "delete"
+              ]
+            },
+            "changes": {
+              "type": "object",
+              "properties": {
+                "base_level": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1,
+                  "maximum": 200
+                },
+                "region_id": {
+                  "type": "string"
+                },
+                "exp": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 1000000000000.0
+                },
+                "hp": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 1000000000000.0
+                },
+                "attack": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 1000000000000.0
+                },
+                "animation": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "classification": {
+                  "enum": [
+                    "normal",
+                    "elite",
+                    "local_legend",
+                    "boss",
+                    "weekly_boss"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "element": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "behavior": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "drops": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {}
+                },
+                "sprite": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "family_id": {
+                  "type": "string"
+                },
+                "defense": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 1000000000000.0
+                }
+              },
+              "additionalProperties": false
+            },
+            "states": {
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "animation",
+                  "attack",
+                  "base_level",
+                  "behavior",
+                  "classification",
+                  "defense",
+                  "drops",
+                  "element",
+                  "exp",
+                  "family_id",
+                  "hp",
+                  "name",
+                  "region_id",
+                  "sprite"
+                ]
+              },
+              "additionalProperties": {
+                "enum": [
+                  "unassigned",
+                  "proposed",
+                  "approved",
+                  "implemented",
+                  "verified"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "collection",
+            "id"
+          ],
+          "properties": {
+            "collection": {
+              "const": "field_spawns"
+            },
+            "id": {
+              "type": "string"
+            },
+            "action": {
+              "enum": [
+                "upsert",
+                "delete"
+              ]
+            },
+            "changes": {
+              "type": "object",
+              "properties": {
+                "monster_id": {
+                  "type": "string"
+                },
+                "level_override": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "minimum": 1,
+                  "maximum": 200
+                },
+                "count": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 10000
+                },
+                "area": {
+                  "type": "object"
+                },
+                "conditions": {
+                  "type": "object"
+                },
+                "respawn_seconds": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0,
+                  "maximum": 1000000000000.0
+                },
+                "field_id": {
+                  "type": "string"
+                },
+                "special": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
+            },
+            "states": {
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "area",
+                  "conditions",
+                  "count",
+                  "field_id",
+                  "level_override",
+                  "monster_id",
+                  "respawn_seconds",
+                  "special"
+                ]
+              },
+              "additionalProperties": {
+                "enum": [
+                  "unassigned",
+                  "proposed",
+                  "approved",
+                  "implemented",
+                  "verified"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "collection",
+            "id"
+          ],
+          "properties": {
+            "collection": {
+              "const": "graph_layouts"
+            },
+            "id": {
+              "type": "string"
+            },
+            "action": {
+              "enum": [
+                "upsert",
+                "delete"
+              ]
+            },
+            "changes": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "exclusiveMinimum": -10000000.0,
+                  "exclusiveMaximum": 10000000.0
+                },
+                "field_id": {
+                  "type": "string"
+                },
+                "y": {
+                  "type": "number",
+                  "exclusiveMinimum": -10000000.0,
+                  "exclusiveMaximum": 10000000.0
+                },
+                "view_id": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "states": {
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "field_id",
+                  "view_id",
+                  "x",
+                  "y"
+                ]
+              },
+              "additionalProperties": {
+                "enum": [
+                  "unassigned",
+                  "proposed",
+                  "approved",
+                  "implemented",
+                  "verified"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "collection",
+            "id"
+          ],
+          "properties": {
+            "collection": {
+              "const": "graph_exceptions"
+            },
+            "id": {
+              "type": "string"
+            },
+            "action": {
+              "enum": [
+                "upsert",
+                "delete"
+              ]
+            },
+            "changes": {
+              "type": "object",
+              "properties": {
+                "target_id": {
+                  "type": "string"
+                },
+                "code": {
+                  "enum": [
+                    "unreachable",
+                    "dead_end",
+                    "no_return",
+                    "level_jump",
+                    "quest_route"
+                  ]
+                },
+                "reason": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            },
+            "states": {
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "code",
+                  "reason",
+                  "target_id"
+                ]
+              },
+              "additionalProperties": {
+                "enum": [
+                  "unassigned",
+                  "proposed",
+                  "approved",
+                  "implemented",
+                  "verified"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "proposal_request": {
+      "type": "object",
+      "required": [
+        "base_revision",
+        "reason",
+        "operations"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "base_revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "actor": {
+          "enum": [
+            "user",
+            "Codex",
+            "ChatGPT"
+          ]
+        },
+        "source": {
+          "type": "string"
+        },
+        "operations": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2000,
+          "items": {
+            "$ref": "#/$defs/operation"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "project": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "revision",
+        "updated_at",
+        "field_definitions",
+        "field_edges",
+        "monster_families",
+        "monster_variants",
+        "field_spawns",
+        "graph_layouts",
+        "graph_exceptions",
+        "design_history",
+        "proposals"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "field_definitions": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/field_definitions"
+          }
+        },
+        "field_edges": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/field_edges"
+          }
+        },
+        "monster_families": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/monster_families"
+          }
+        },
+        "monster_variants": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/monster_variants"
+          }
+        },
+        "field_spawns": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/field_spawns"
+          }
+        },
+        "graph_layouts": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/graph_layouts"
+          }
+        },
+        "graph_exceptions": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/graph_exceptions"
+          }
+        },
+        "design_history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "change_id",
+              "revision",
+              "field_ids",
+              "changes",
+              "reason",
+              "actor",
+              "approved_by",
+              "approval_state",
+              "timestamp"
+            ]
+          }
+        },
+        "proposals": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": [
+              "proposal_id",
+              "base_revision",
+              "reason",
+              "actor",
+              "source",
+              "operations",
+              "diff",
+              "status",
+              "created_at",
+              "impact"
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "map_definition": {
+      "type": "object",
+      "required": [
+        "map_id",
+        "region_id",
+        "name",
+        "kind",
+        "official_map_id",
+        "node_ids",
+        "level_guide"
+      ],
+      "properties": {
+        "map_id": {
+          "type": "string"
+        },
+        "region_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "main",
+            "high_level_branch",
+            "hidden_world",
+            "official_layer"
+          ]
+        },
+        "official_map_id": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "node_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "map_nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "source_id",
+              "map_id",
+              "kind",
+              "x",
+              "y",
+              "area_id",
+              "region"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "source_id": {
+                "type": "integer"
+              },
+              "map_id": {
+                "type": "integer"
+              },
+              "kind": {
+                "enum": [
+                  "waypoint",
+                  "statue"
+                ]
+              },
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              },
+              "area_id": {
+                "type": "integer"
+              },
+              "region": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "map_source": {
+          "type": "object"
+        },
+        "level_guide": {
+          "type": "object"
+        },
+        "layers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "temporary": {
+          "type": "boolean"
+        },
+        "membership_source": {
+          "type": "string"
+        },
+        "membership_state": {
+          "enum": [
+            "unassigned",
+            "proposed",
+            "approved",
+            "implemented",
+            "verified"
+          ]
+        },
+        "exclude_from_normal": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

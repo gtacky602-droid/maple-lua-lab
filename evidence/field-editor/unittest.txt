@@ -1,0 +1,32 @@
+test_auth_origin_approval_and_static_whitelist (tools.field_editor.test_editor.HTTPTests.test_auth_origin_approval_and_static_whitelist) ... ok
+test_common_api_proposal_approval_reopen (tools.field_editor.test_editor.HTTPTests.test_common_api_proposal_approval_reopen) ... ok
+test_mcp_tools_share_operation_contract (tools.field_editor.test_editor.HTTPTests.test_mcp_tools_share_operation_contract) ... ok
+test_all_world_runtime_retains_cross_region_edge (tools.field_editor.test_editor.ModelTests.test_all_world_runtime_retains_cross_region_edge) ... ok
+test_approval_history_and_reopen (tools.field_editor.test_editor.ModelTests.test_approval_history_and_reopen) ... ok
+test_connection_direction_conditions_endpoints_persist (tools.field_editor.test_editor.ModelTests.test_connection_direction_conditions_endpoints_persist) ... ok
+test_csv_markdown_json_and_api_operation (tools.field_editor.test_editor.ModelTests.test_csv_markdown_json_and_api_operation) ... ok
+test_editing_record_preserves_unchanged_item_provenance (tools.field_editor.test_editor.ModelTests.test_editing_record_preserves_unchanged_item_provenance) ... ok
+test_external_edits_reloaded_and_two_processes_cannot_overwrite (tools.field_editor.test_editor.ModelTests.test_external_edits_reloaded_and_two_processes_cannot_overwrite) ... ok
+test_family_inheritance_only_approved_properties_export (tools.field_editor.test_editor.ModelTests.test_family_inheritance_only_approved_properties_export) ... ok
+test_graph_layout_never_modifies_official_positions (tools.field_editor.test_editor.ModelTests.test_graph_layout_never_modifies_official_positions) ... ok
+test_graph_reports_cycles_branches_returnability_and_exceptions (tools.field_editor.test_editor.ModelTests.test_graph_reports_cycles_branches_returnability_and_exceptions) ... ok
+test_japanese_ambiguity_returns_coordinates_and_never_guesses (tools.field_editor.test_editor.ModelTests.test_japanese_ambiguity_returns_coordinates_and_never_guesses) ... ok
+test_json_only_map_addition_adds_verified_nodes_without_code_changes (tools.field_editor.test_editor.ModelTests.test_json_only_map_addition_adds_verified_nodes_without_code_changes) ... ok
+test_lifecycle_not_automatic (tools.field_editor.test_editor.ModelTests.test_lifecycle_not_automatic) ... ok
+test_no_nonfinite_invalid_levels_or_wrong_enemy_overrides (tools.field_editor.test_editor.ModelTests.test_no_nonfinite_invalid_levels_or_wrong_enemy_overrides) ... ok
+test_official_51_coordinates_immutable_and_zero_edges (tools.field_editor.test_editor.ModelTests.test_official_51_coordinates_immutable_and_zero_edges) ... ok
+test_proposals_do_not_apply_or_escalate_approval (tools.field_editor.test_editor.ModelTests.test_proposals_do_not_apply_or_escalate_approval) ... ok
+test_published_json_schema_matches_data_and_rejects_unknown_fields (tools.field_editor.test_editor.ModelTests.test_published_json_schema_matches_data_and_rejects_unknown_fields) ... ok
+test_region_level_guides_not_individual_enemy_assignments (tools.field_editor.test_editor.ModelTests.test_region_level_guides_not_individual_enemy_assignments) ... ok
+test_rollback_creates_inverse_and_detects_later_conflicts (tools.field_editor.test_editor.ModelTests.test_rollback_creates_inverse_and_detects_later_conflicts) ... ok
+test_rollback_deleted_edge_and_redo (tools.field_editor.test_editor.ModelTests.test_rollback_deleted_edge_and_redo) ... ok
+test_runtime_excludes_all_proposed_values_and_unapproved_edges (tools.field_editor.test_editor.ModelTests.test_runtime_excludes_all_proposed_values_and_unapproved_edges) ... ok
+test_stale_proposal_and_protected_approved_values (tools.field_editor.test_editor.ModelTests.test_stale_proposal_and_protected_approved_values) ... ok
+test_stat_changes_include_special_spawns_in_impact (tools.field_editor.test_editor.ModelTests.test_stat_changes_include_special_spawns_in_impact) ... ok
+test_undo_unassigned_state_is_restored (tools.field_editor.test_editor.ModelTests.test_undo_unassigned_state_is_restored) ... ok
+test_variant_reference_bulk_impact_and_special_preservation (tools.field_editor.test_editor.ModelTests.test_variant_reference_bulk_impact_and_special_preservation) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 18.052s
+
+OK

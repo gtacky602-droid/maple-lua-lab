@@ -1,0 +1,47 @@
+{
+  "map_id": "official-37",
+  "region_id": "official-area-14",
+  "name": "空の神殿",
+  "kind": "official_layer",
+  "official_map_id": 37,
+  "node_ids": [
+    "map37:96365",
+    "map37:96366",
+    "map37:96367",
+    "map37:96368",
+    "map37:96369",
+    "map37:96370",
+    "map37:96371",
+    "map37:96372",
+    "map37:96373",
+    "map37:96374",
+    "map37:96375",
+    "map37:96376",
+    "map37:96377",
+    "map37:96378",
+    "map37:96379",
+    "map37:96380",
+    "map37:96381",
+    "map37:96382",
+    "map37:96383",
+    "map37:96384"
+  ],
+  "level_guide": {
+    "recommended": null,
+    "enemy_min": null,
+    "enemy_max": null,
+    "deepest": null,
+    "state": "unassigned",
+    "source": "Not assigned"
+  },
+  "layers": [
+    "all",
+    "surface",
+    "underground",
+    "unknown"
+  ],
+  "temporary": false,
+  "membership_source": "content/map-catalog.json",
+  "membership_state": "approved",
+  "exclude_from_normal": []
+}

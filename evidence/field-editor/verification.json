@@ -1,0 +1,59 @@
+{
+  "verified_at": "2026-11-17T08:30:51.703737+00:00",
+  "base_main_commit": "29c756c0aef187195dd0c4c43c4300e4bfddfa1a",
+  "backend": {
+    "command": "python -m unittest tools.field_editor.test_editor -v",
+    "passed": 27,
+    "failed": 0,
+    "skipped": 0,
+    "includes": [
+      "MCP HTTP round trip",
+      "stale revision and protected approved values",
+      "variant level and stat impacts including special overrides",
+      "atomic save/reopen and cross-process update detection",
+      "JSON-only future map addition",
+      "rollback/lifecycle/per-property provenance",
+      "approved-only world runtime and cross-region edges"
+    ]
+  },
+  "browser": {
+    "command": "python -m tools.field_editor.run_browser_checks",
+    "passed": 17,
+    "page_errors": [],
+    "terrain_failures": [],
+    "scope": "Desktop Chromium 1680x1100 and mobile 390x844; isolated data"
+  },
+  "official_nodes": {
+    "mondstadt_total": 51,
+    "waypoints": 45,
+    "statues": 6,
+    "coordinate_changes": 0,
+    "catalog_sha256": "6aea9a92c7ca48d9b6491c834ac82d79915b5bd2b8707aa2b1d573100d02a2a6"
+  },
+  "progress_before_after": {
+    "game_scope_complete_unchanged": false,
+    "game_region_count_unchanged": 20,
+    "editor_map_definitions_added": 24,
+    "editor_field_ids_added": 873,
+    "production_runtime_files_changed": [],
+    "production_spawn_data_changed": false,
+    "canonical_design_revision": 0,
+    "canonical_approved_edges": 0,
+    "canonical_spawn_entries": 0,
+    "canonical_monster_variants": 0,
+    "qa_fixture_data_in_canonical": false
+  },
+  "unverified": [
+    "Shared Cloud preview relay unavailable; deliver local start and ZIP instead",
+    "Official Japanese point names, missing underground plans and historical event snapshots",
+    "Direct remote ChatGPT/LLM and authenticated HTTPS deployment not connected",
+    "Game runtime adapter and in-game acceptance remain separate from editor acceptance"
+  ],
+  "screenshots_not_committed": "work/field-editor-qa (official terrain redistribution permission unverified)",
+  "standalone_bundle": {
+    "startup": "PASS",
+    "field_count": 873,
+    "map_definition_count": 24,
+    "contains_official_images": false
+  }
+}

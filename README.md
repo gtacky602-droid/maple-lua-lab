@@ -12,6 +12,10 @@
 
 2026-11-16。ゲーム全体の完成版ではなく、幻境へ持ち込む前に操作・ロジック・描画データを試す最初の検証室。
 
+## 公式マップ連動フィールド設計室
+
+`python -m tools.field_editor.server` → http://127.0.0.1:8770 。ゲーム本体とは独立した、公式地形・モンド51地点・ドラッグ接続・地域別モンスター・提案/採用/履歴の設計ツールです。[起動・操作](docs/field-editor/README.md)、[データ構造](docs/field-editor/DATA_MODEL.md)、[API/MCP](docs/field-editor/API_AND_MCP.md)、[公式地図の取得と権利確認](docs/field-editor/MAP_PROVENANCE.md)を参照。未承認値を本番へ自動反映しません。
+
 ## 起動
 
 `Start-Lab.ps1` をPowerShellで実行。起動中は http://127.0.0.1:8769 を開く。

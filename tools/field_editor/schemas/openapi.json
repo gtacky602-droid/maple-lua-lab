@@ -1,0 +1,2444 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Teyvat Field Design API",
+    "version": "1.0.0",
+    "description": "Repository is canonical. Bearer/MCP agents may read and propose. Only the local editor review can approve. Not an official HoYoLAB API. Never directly writes game runtime."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:8770"
+    }
+  ],
+  "paths": {
+    "/api/health": {
+      "get": {
+        "summary": "Read server health",
+        "operationId": "health",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation failed; no mutation"
+          },
+          "409": {
+            "description": "Stale revision, protected decision or rollback conflict"
+          },
+          "401": {
+            "description": "Invalid or missing API token"
+          },
+          "403": {
+            "description": "Untrusted Host/Origin or local-only approval permission"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/project": {
+      "get": {
+        "summary": "Bulk repository snapshot",
+        "operationId": "project",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation failed; no mutation"
+          },
+          "409": {
+            "description": "Stale revision, protected decision or rollback conflict"
+          },
+          "401": {
+            "description": "Invalid or missing API token"
+          },
+          "403": {
+            "description": "Untrusted Host/Origin or local-only approval permission"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/api/fields": {
+      "get": {
+        "summary": "List fields by region_id or query",
+        "operationId": "fields",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation failed; no mutation"
+          },
+          "409": {
+            "description": "Stale revision, protected decision or rollback conflict"
+          },
+          "401": {
+            "description": "Invalid or missing API token"
+          },
+          "403": {
+            "description": "Untrusted Host/Origin or local-only approval permission"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "region_id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/fields/{field_id}": {
+      "get": {
+        "summary": "Get field with resolved enemies and connections",
+        "operationId": "fields_field_id",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation failed; no mutation"
+          },
+          "409": {
+            "description": "Stale revision, protected decision or rollback conflict"
+          },
+          "401": {
+            "description": "Invalid or missing API token"
+          },
+          "403": {
+            "description": "Untrusted Host/Origin or local-only approval permission"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "field_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/history": {
+      "get": {
+        "summary": "Read item-level change history",
+        "operationId": "history",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation failed; no mutation"
+          },
+          "409": {
+            "description": "Stale revision, protected decision or rollback conflict"
+          },
+          "401": {
+            "description": "Invalid or missing API token"
+          },
+          "403": {
+            "description": "Untrusted Host/Origin or local-only approval permission"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "field_id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/report": {
+      "get": {
+        "summary": "Check graph and regional level consistency",
+        "operationId": "report",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation failed; no mutation"
+          },
+          "409": {
+            "description": "Stale revision, protected decision or rollback conflict"
+          },
+          "401": {
+            "description": "Invalid or missing API token"
+          },
+          "403": {
+            "description": "Untrusted Host/Origin or local-only approval permission"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/api/export": {
+      "get": {
+        "summary": "Export map design, Markdown, CSV, graph or approved runtime JSON",
+        "operationId": "export",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation failed; no mutation"
+          },
+          "409": {
+            "description": "Stale revision, protected decision or rollback conflict"
+          },
+          "401": {
+            "description": "Invalid or missing API token"
+          },
+          "403": {
+            "description": "Untrusted Host/Origin or local-only approval permission"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "map_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "schema": {
+              "enum": [
+                "json",
+                "markdown",
+                "csv",
+                "edges",
+                "runtime"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "/api/proposals": {
+      "post": {
+        "summary": "Validate and persist a proposal without applying it",
+        "operationId": "proposals",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation failed; no mutation"
+          },
+          "409": {
+            "description": "Stale revision, protected decision or rollback conflict"
+          },
+          "401": {
+            "description": "Invalid or missing API token"
+          },
+          "403": {
+            "description": "Untrusted Host/Origin or local-only approval permission"
+          },
+          "201": {
+            "description": "Proposal persisted"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProposalRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/compile": {
+      "post": {
+        "summary": "Compile supported Japanese commands or return candidate IDs",
+        "operationId": "compile",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation failed; no mutation"
+          },
+          "409": {
+            "description": "Stale revision, protected decision or rollback conflict"
+          },
+          "401": {
+            "description": "Invalid or missing API token"
+          },
+          "403": {
+            "description": "Untrusted Host/Origin or local-only approval permission"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "region_id": {
+                    "type": "string"
+                  },
+                  "selected_field_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "target_field_id": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "base_revision": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "text",
+                  "base_revision"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/rollback": {
+      "post": {
+        "summary": "Create a reviewed inverse proposal; reject conflicts",
+        "operationId": "rollback",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation failed; no mutation"
+          },
+          "409": {
+            "description": "Stale revision, protected decision or rollback conflict"
+          },
+          "401": {
+            "description": "Invalid or missing API token"
+          },
+          "403": {
+            "description": "Untrusted Host/Origin or local-only approval permission"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "change_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "change_id"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/operations": {
+      "post": {
+        "summary": "Common ChatGPT/MCP operation gateway",
+        "operationId": "operations",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation failed; no mutation"
+          },
+          "409": {
+            "description": "Stale revision, protected decision or rollback conflict"
+          },
+          "401": {
+            "description": "Invalid or missing API token"
+          },
+          "403": {
+            "description": "Untrusted Host/Origin or local-only approval permission"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "operation": {
+                        "const": "get_field"
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "properties": {
+                          "field_id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "field_id"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "operation",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "operation": {
+                        "const": "list_fields"
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "properties": {
+                          "region_id": {
+                            "type": "string"
+                          },
+                          "query": {
+                            "type": "string"
+                          },
+                          "min_level": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
+                            "minimum": 1,
+                            "maximum": 200
+                          },
+                          "max_level": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
+                            "minimum": 1,
+                            "maximum": 200
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "operation",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "operation": {
+                        "const": "compare_fields"
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "properties": {
+                          "field_ids": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "required": [
+                          "field_ids"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "operation",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "operation": {
+                        "const": "export_map"
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "properties": {
+                          "map_id": {
+                            "type": "string"
+                          },
+                          "format": {
+                            "enum": [
+                              "json",
+                              "markdown",
+                              "csv",
+                              "edges",
+                              "runtime"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "map_id"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "operation",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "operation": {
+                        "const": "get_change_history"
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "properties": {
+                          "field_id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "operation",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "operation": {
+                        "const": "check_connections"
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "properties": {
+                          "start_field_id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "operation",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "operation": {
+                        "const": "update_field"
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "properties": {
+                          "base_revision": {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          "reason": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "actor": {
+                            "enum": [
+                              "user",
+                              "Codex",
+                              "ChatGPT"
+                            ]
+                          },
+                          "source": {
+                            "type": "string"
+                          },
+                          "field_id": {
+                            "type": "string"
+                          },
+                          "changes": {
+                            "type": "object",
+                            "properties": {
+                              "enemy_level_max": {
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ],
+                                "minimum": 1,
+                                "maximum": 200
+                              },
+                              "region_id": {
+                                "type": "string"
+                              },
+                              "location_alias": {
+                                "type": "string"
+                              },
+                              "enemy_level_min": {
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ],
+                                "minimum": 1,
+                                "maximum": 200
+                              },
+                              "local_legend": {
+                                "type": "string"
+                              },
+                              "recommended_level": {
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ],
+                                "minimum": 1,
+                                "maximum": 200
+                              },
+                              "quests": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "elite": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "terrain": {
+                                "type": "string"
+                              },
+                              "production_state": {
+                                "enum": [
+                                  "未着手",
+                                  "設計中",
+                                  "制作中",
+                                  "完成"
+                                ]
+                              },
+                              "respawn_seconds": {
+                                "type": [
+                                  "number",
+                                  "null"
+                                ],
+                                "minimum": 0,
+                                "maximum": 1000000000000.0
+                              },
+                              "notes": {
+                                "type": "string"
+                              },
+                              "required_route": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "base_revision",
+                          "reason",
+                          "changes",
+                          "field_id"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "operation",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "operation": {
+                        "const": "add_enemy"
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "properties": {
+                          "base_revision": {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          "reason": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "actor": {
+                            "enum": [
+                              "user",
+                              "Codex",
+                              "ChatGPT"
+                            ]
+                          },
+                          "source": {
+                            "type": "string"
+                          },
+                          "spawn_id": {
+                            "type": "string"
+                          },
+                          "monster_id": {
+                            "type": "string"
+                          },
+                          "level_override": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
+                            "minimum": 1,
+                            "maximum": 200
+                          },
+                          "count": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 10000
+                          },
+                          "area": {
+                            "type": "object"
+                          },
+                          "conditions": {
+                            "type": "object"
+                          },
+                          "respawn_seconds": {
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "minimum": 0,
+                            "maximum": 1000000000000.0
+                          },
+                          "field_id": {
+                            "type": "string"
+                          },
+                          "special": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "base_revision",
+                          "reason",
+                          "field_id",
+                          "monster_id"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "operation",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "operation": {
+                        "const": "remove_enemy"
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "properties": {
+                          "base_revision": {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          "reason": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "actor": {
+                            "enum": [
+                              "user",
+                              "Codex",
+                              "ChatGPT"
+                            ]
+                          },
+                          "source": {
+                            "type": "string"
+                          },
+                          "spawn_id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "base_revision",
+                          "reason",
+                          "spawn_id"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "operation",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "operation": {
+                        "const": "set_enemy_level"
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "properties": {
+                          "base_revision": {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          "reason": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "actor": {
+                            "enum": [
+                              "user",
+                              "Codex",
+                              "ChatGPT"
+                            ]
+                          },
+                          "source": {
+                            "type": "string"
+                          },
+                          "spawn_id": {
+                            "type": "string"
+                          },
+                          "level": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
+                            "minimum": 1,
+                            "maximum": 200
+                          }
+                        },
+                        "required": [
+                          "base_revision",
+                          "reason",
+                          "spawn_id",
+                          "level"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "operation",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "operation": {
+                        "const": "set_elite"
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "properties": {
+                          "base_revision": {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          "reason": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "actor": {
+                            "enum": [
+                              "user",
+                              "Codex",
+                              "ChatGPT"
+                            ]
+                          },
+                          "source": {
+                            "type": "string"
+                          },
+                          "field_id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "classification": {
+                            "enum": [
+                              "elite",
+                              "local_legend"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "base_revision",
+                          "reason",
+                          "field_id",
+                          "name"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "operation",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "operation": {
+                        "const": "connect_fields"
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "properties": {
+                          "base_revision": {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          "reason": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "actor": {
+                            "enum": [
+                              "user",
+                              "Codex",
+                              "ChatGPT"
+                            ]
+                          },
+                          "source": {
+                            "type": "string"
+                          },
+                          "edge_id": {
+                            "type": "string"
+                          },
+                          "exit_position": {
+                            "type": "object",
+                            "required": [
+                              "x",
+                              "y"
+                            ],
+                            "properties": {
+                              "x": {
+                                "type": "number"
+                              },
+                              "y": {
+                                "type": "number"
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "to_field": {
+                            "type": "string"
+                          },
+                          "direction": {
+                            "enum": [
+                              "both",
+                              "one_way"
+                            ]
+                          },
+                          "kind": {
+                            "enum": [
+                              "portal",
+                              "level",
+                              "quest",
+                              "hidden",
+                              "boat",
+                              "temporary"
+                            ]
+                          },
+                          "entrance_position": {
+                            "type": "object",
+                            "required": [
+                              "x",
+                              "y"
+                            ],
+                            "properties": {
+                              "x": {
+                                "type": "number"
+                              },
+                              "y": {
+                                "type": "number"
+                              }
+                            },
+                            "additionalProperties": false
+                          },
+                          "conditions": {
+                            "type": "object"
+                          },
+                          "notes": {
+                            "type": "string"
+                          },
+                          "from_field": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "base_revision",
+                          "reason",
+                          "from_field",
+                          "to_field"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "operation",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "operation": {
+                        "const": "delete_connection"
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "properties": {
+                          "base_revision": {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          "reason": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "actor": {
+                            "enum": [
+                              "user",
+                              "Codex",
+                              "ChatGPT"
+                            ]
+                          },
+                          "source": {
+                            "type": "string"
+                          },
+                          "edge_id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "base_revision",
+                          "reason",
+                          "edge_id"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "operation",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "operation": {
+                        "const": "register_monster_family"
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "properties": {
+                          "base_revision": {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          "reason": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "actor": {
+                            "enum": [
+                              "user",
+                              "Codex",
+                              "ChatGPT"
+                            ]
+                          },
+                          "source": {
+                            "type": "string"
+                          },
+                          "family_id": {
+                            "type": "string"
+                          },
+                          "changes": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "element": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "defaults": {
+                                "type": "object"
+                              },
+                              "behavior": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "sprite": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "animation": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "base_revision",
+                          "reason",
+                          "changes"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "operation",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "operation": {
+                        "const": "register_monster_variant"
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "properties": {
+                          "base_revision": {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          "reason": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "actor": {
+                            "enum": [
+                              "user",
+                              "Codex",
+                              "ChatGPT"
+                            ]
+                          },
+                          "source": {
+                            "type": "string"
+                          },
+                          "monster_id": {
+                            "type": "string"
+                          },
+                          "changes": {
+                            "type": "object",
+                            "properties": {
+                              "base_level": {
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ],
+                                "minimum": 1,
+                                "maximum": 200
+                              },
+                              "region_id": {
+                                "type": "string"
+                              },
+                              "exp": {
+                                "type": [
+                                  "number",
+                                  "null"
+                                ],
+                                "minimum": 0,
+                                "maximum": 1000000000000.0
+                              },
+                              "hp": {
+                                "type": [
+                                  "number",
+                                  "null"
+                                ],
+                                "minimum": 0,
+                                "maximum": 1000000000000.0
+                              },
+                              "attack": {
+                                "type": [
+                                  "number",
+                                  "null"
+                                ],
+                                "minimum": 0,
+                                "maximum": 1000000000000.0
+                              },
+                              "animation": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "classification": {
+                                "enum": [
+                                  "normal",
+                                  "elite",
+                                  "local_legend",
+                                  "boss",
+                                  "weekly_boss"
+                                ]
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "element": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "behavior": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "drops": {
+                                "type": [
+                                  "array",
+                                  "null"
+                                ],
+                                "items": {}
+                              },
+                              "sprite": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "family_id": {
+                                "type": "string"
+                              },
+                              "defense": {
+                                "type": [
+                                  "number",
+                                  "null"
+                                ],
+                                "minimum": 0,
+                                "maximum": 1000000000000.0
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "base_revision",
+                          "reason",
+                          "changes"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "operation",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "operation": {
+                        "const": "update_monster_variant"
+                      },
+                      "arguments": {
+                        "type": "object",
+                        "properties": {
+                          "base_revision": {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          "reason": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "actor": {
+                            "enum": [
+                              "user",
+                              "Codex",
+                              "ChatGPT"
+                            ]
+                          },
+                          "source": {
+                            "type": "string"
+                          },
+                          "monster_id": {
+                            "type": "string"
+                          },
+                          "changes": {
+                            "type": "object",
+                            "properties": {
+                              "base_level": {
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ],
+                                "minimum": 1,
+                                "maximum": 200
+                              },
+                              "region_id": {
+                                "type": "string"
+                              },
+                              "exp": {
+                                "type": [
+                                  "number",
+                                  "null"
+                                ],
+                                "minimum": 0,
+                                "maximum": 1000000000000.0
+                              },
+                              "hp": {
+                                "type": [
+                                  "number",
+                                  "null"
+                                ],
+                                "minimum": 0,
+                                "maximum": 1000000000000.0
+                              },
+                              "attack": {
+                                "type": [
+                                  "number",
+                                  "null"
+                                ],
+                                "minimum": 0,
+                                "maximum": 1000000000000.0
+                              },
+                              "animation": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "classification": {
+                                "enum": [
+                                  "normal",
+                                  "elite",
+                                  "local_legend",
+                                  "boss",
+                                  "weekly_boss"
+                                ]
+                              },
+                              "name": {
+                                "type": "string"
+                              },
+                              "element": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "behavior": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "drops": {
+                                "type": [
+                                  "array",
+                                  "null"
+                                ],
+                                "items": {}
+                              },
+                              "sprite": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "family_id": {
+                                "type": "string"
+                              },
+                              "defense": {
+                                "type": [
+                                  "number",
+                                  "null"
+                                ],
+                                "minimum": 0,
+                                "maximum": 1000000000000.0
+                              }
+                            },
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "base_revision",
+                          "reason",
+                          "changes",
+                          "monster_id"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "operation",
+                      "arguments"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/approve": {
+      "post": {
+        "summary": "Local UI only; explicit user review; API token is rejected",
+        "operationId": "approve",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation failed; no mutation"
+          },
+          "409": {
+            "description": "Stale revision, protected decision or rollback conflict"
+          },
+          "401": {
+            "description": "Invalid or missing API token"
+          },
+          "403": {
+            "description": "Untrusted Host/Origin or local-only approval permission"
+          }
+        },
+        "security": [
+          {
+            "localUI": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "proposal_id": {
+                    "type": "string"
+                  },
+                  "revision": {
+                    "type": "integer"
+                  },
+                  "overwrite_approved": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "proposal_id",
+                  "revision"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/undo": {
+      "post": {
+        "summary": "Local UI Ctrl+Z/Ctrl+Y; inverse of an already reviewed transaction; keeps audit history",
+        "operationId": "undo",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation failed; no mutation"
+          },
+          "409": {
+            "description": "Stale revision, protected decision or rollback conflict"
+          },
+          "401": {
+            "description": "Invalid or missing API token"
+          },
+          "403": {
+            "description": "Untrusted Host/Origin or local-only approval permission"
+          }
+        },
+        "security": [
+          {
+            "localUI": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "change_id": {
+                    "type": "string"
+                  },
+                  "revision": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "change_id",
+                  "revision"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/validate-travel": {
+      "post": {
+        "summary": "Check travel conditions; discovery is required for fast travel only",
+        "operationId": "validate-travel",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Validation failed; no mutation"
+          },
+          "409": {
+            "description": "Stale revision, protected decision or rollback conflict"
+          },
+          "401": {
+            "description": "Invalid or missing API token"
+          },
+          "403": {
+            "description": "Untrusted Host/Origin or local-only approval permission"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "edge_id": {
+                    "type": "string"
+                  },
+                  "level": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 200
+                  },
+                  "completed_quests": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "discovered_fields": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "temporary_conditions": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "fast_travel": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "edge_id",
+                  "level"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "localUI": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Editor-UI",
+        "description": "Ephemeral local editor credential. Not distributed to AI integrations."
+      }
+    },
+    "schemas": {
+      "ProposalRequest": {
+        "type": "object",
+        "required": [
+          "base_revision",
+          "reason",
+          "operations"
+        ],
+        "properties": {
+          "schema_version": {
+            "const": 1
+          },
+          "base_revision": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "actor": {
+            "enum": [
+              "user",
+              "Codex",
+              "ChatGPT"
+            ]
+          },
+          "source": {
+            "type": "string"
+          },
+          "operations": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 2000,
+            "items": {
+              "$ref": "#/components/schemas/Operation"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "Operation": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [
+              "collection",
+              "id"
+            ],
+            "properties": {
+              "collection": {
+                "const": "field_definitions"
+              },
+              "id": {
+                "type": "string"
+              },
+              "action": {
+                "enum": [
+                  "upsert",
+                  "delete"
+                ]
+              },
+              "changes": {
+                "type": "object",
+                "properties": {
+                  "enemy_level_max": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 1,
+                    "maximum": 200
+                  },
+                  "region_id": {
+                    "type": "string"
+                  },
+                  "location_alias": {
+                    "type": "string"
+                  },
+                  "enemy_level_min": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 1,
+                    "maximum": 200
+                  },
+                  "local_legend": {
+                    "type": "string"
+                  },
+                  "recommended_level": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 1,
+                    "maximum": 200
+                  },
+                  "quests": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "elite": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "terrain": {
+                    "type": "string"
+                  },
+                  "production_state": {
+                    "enum": [
+                      "未着手",
+                      "設計中",
+                      "制作中",
+                      "完成"
+                    ]
+                  },
+                  "respawn_seconds": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1000000000000.0
+                  },
+                  "notes": {
+                    "type": "string"
+                  },
+                  "required_route": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "additionalProperties": false
+              },
+              "states": {
+                "type": "object",
+                "propertyNames": {
+                  "enum": [
+                    "elite",
+                    "enemy_level_max",
+                    "enemy_level_min",
+                    "local_legend",
+                    "location_alias",
+                    "name",
+                    "notes",
+                    "production_state",
+                    "quests",
+                    "recommended_level",
+                    "region_id",
+                    "required_route",
+                    "respawn_seconds",
+                    "terrain"
+                  ]
+                },
+                "additionalProperties": {
+                  "enum": [
+                    "unassigned",
+                    "proposed",
+                    "approved",
+                    "implemented",
+                    "verified"
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "collection",
+              "id"
+            ],
+            "properties": {
+              "collection": {
+                "const": "field_edges"
+              },
+              "id": {
+                "type": "string"
+              },
+              "action": {
+                "enum": [
+                  "upsert",
+                  "delete"
+                ]
+              },
+              "changes": {
+                "type": "object",
+                "properties": {
+                  "exit_position": {
+                    "type": "object",
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "properties": {
+                      "x": {
+                        "type": "number"
+                      },
+                      "y": {
+                        "type": "number"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "to_field": {
+                    "type": "string"
+                  },
+                  "direction": {
+                    "enum": [
+                      "both",
+                      "one_way"
+                    ]
+                  },
+                  "kind": {
+                    "enum": [
+                      "portal",
+                      "level",
+                      "quest",
+                      "hidden",
+                      "boat",
+                      "temporary"
+                    ]
+                  },
+                  "entrance_position": {
+                    "type": "object",
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "properties": {
+                      "x": {
+                        "type": "number"
+                      },
+                      "y": {
+                        "type": "number"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "conditions": {
+                    "type": "object"
+                  },
+                  "notes": {
+                    "type": "string"
+                  },
+                  "from_field": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "states": {
+                "type": "object",
+                "propertyNames": {
+                  "enum": [
+                    "conditions",
+                    "direction",
+                    "entrance_position",
+                    "exit_position",
+                    "from_field",
+                    "kind",
+                    "notes",
+                    "to_field"
+                  ]
+                },
+                "additionalProperties": {
+                  "enum": [
+                    "unassigned",
+                    "proposed",
+                    "approved",
+                    "implemented",
+                    "verified"
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "collection",
+              "id"
+            ],
+            "properties": {
+              "collection": {
+                "const": "monster_families"
+              },
+              "id": {
+                "type": "string"
+              },
+              "action": {
+                "enum": [
+                  "upsert",
+                  "delete"
+                ]
+              },
+              "changes": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "element": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "defaults": {
+                    "type": "object"
+                  },
+                  "behavior": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "sprite": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "animation": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              },
+              "states": {
+                "type": "object",
+                "propertyNames": {
+                  "enum": [
+                    "animation",
+                    "behavior",
+                    "defaults",
+                    "element",
+                    "name",
+                    "sprite"
+                  ]
+                },
+                "additionalProperties": {
+                  "enum": [
+                    "unassigned",
+                    "proposed",
+                    "approved",
+                    "implemented",
+                    "verified"
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "collection",
+              "id"
+            ],
+            "properties": {
+              "collection": {
+                "const": "monster_variants"
+              },
+              "id": {
+                "type": "string"
+              },
+              "action": {
+                "enum": [
+                  "upsert",
+                  "delete"
+                ]
+              },
+              "changes": {
+                "type": "object",
+                "properties": {
+                  "base_level": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 1,
+                    "maximum": 200
+                  },
+                  "region_id": {
+                    "type": "string"
+                  },
+                  "exp": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1000000000000.0
+                  },
+                  "hp": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1000000000000.0
+                  },
+                  "attack": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1000000000000.0
+                  },
+                  "animation": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "classification": {
+                    "enum": [
+                      "normal",
+                      "elite",
+                      "local_legend",
+                      "boss",
+                      "weekly_boss"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "element": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "behavior": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "drops": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {}
+                  },
+                  "sprite": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "family_id": {
+                    "type": "string"
+                  },
+                  "defense": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1000000000000.0
+                  }
+                },
+                "additionalProperties": false
+              },
+              "states": {
+                "type": "object",
+                "propertyNames": {
+                  "enum": [
+                    "animation",
+                    "attack",
+                    "base_level",
+                    "behavior",
+                    "classification",
+                    "defense",
+                    "drops",
+                    "element",
+                    "exp",
+                    "family_id",
+                    "hp",
+                    "name",
+                    "region_id",
+                    "sprite"
+                  ]
+                },
+                "additionalProperties": {
+                  "enum": [
+                    "unassigned",
+                    "proposed",
+                    "approved",
+                    "implemented",
+                    "verified"
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "collection",
+              "id"
+            ],
+            "properties": {
+              "collection": {
+                "const": "field_spawns"
+              },
+              "id": {
+                "type": "string"
+              },
+              "action": {
+                "enum": [
+                  "upsert",
+                  "delete"
+                ]
+              },
+              "changes": {
+                "type": "object",
+                "properties": {
+                  "monster_id": {
+                    "type": "string"
+                  },
+                  "level_override": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 1,
+                    "maximum": 200
+                  },
+                  "count": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 10000
+                  },
+                  "area": {
+                    "type": "object"
+                  },
+                  "conditions": {
+                    "type": "object"
+                  },
+                  "respawn_seconds": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 1000000000000.0
+                  },
+                  "field_id": {
+                    "type": "string"
+                  },
+                  "special": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "states": {
+                "type": "object",
+                "propertyNames": {
+                  "enum": [
+                    "area",
+                    "conditions",
+                    "count",
+                    "field_id",
+                    "level_override",
+                    "monster_id",
+                    "respawn_seconds",
+                    "special"
+                  ]
+                },
+                "additionalProperties": {
+                  "enum": [
+                    "unassigned",
+                    "proposed",
+                    "approved",
+                    "implemented",
+                    "verified"
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "collection",
+              "id"
+            ],
+            "properties": {
+              "collection": {
+                "const": "graph_layouts"
+              },
+              "id": {
+                "type": "string"
+              },
+              "action": {
+                "enum": [
+                  "upsert",
+                  "delete"
+                ]
+              },
+              "changes": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "exclusiveMinimum": -10000000.0,
+                    "exclusiveMaximum": 10000000.0
+                  },
+                  "field_id": {
+                    "type": "string"
+                  },
+                  "y": {
+                    "type": "number",
+                    "exclusiveMinimum": -10000000.0,
+                    "exclusiveMaximum": 10000000.0
+                  },
+                  "view_id": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "states": {
+                "type": "object",
+                "propertyNames": {
+                  "enum": [
+                    "field_id",
+                    "view_id",
+                    "x",
+                    "y"
+                  ]
+                },
+                "additionalProperties": {
+                  "enum": [
+                    "unassigned",
+                    "proposed",
+                    "approved",
+                    "implemented",
+                    "verified"
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "collection",
+              "id"
+            ],
+            "properties": {
+              "collection": {
+                "const": "graph_exceptions"
+              },
+              "id": {
+                "type": "string"
+              },
+              "action": {
+                "enum": [
+                  "upsert",
+                  "delete"
+                ]
+              },
+              "changes": {
+                "type": "object",
+                "properties": {
+                  "target_id": {
+                    "type": "string"
+                  },
+                  "code": {
+                    "enum": [
+                      "unreachable",
+                      "dead_end",
+                      "no_return",
+                      "level_jump",
+                      "quest_route"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "states": {
+                "type": "object",
+                "propertyNames": {
+                  "enum": [
+                    "code",
+                    "reason",
+                    "target_id"
+                  ]
+                },
+                "additionalProperties": {
+                  "enum": [
+                    "unassigned",
+                    "proposed",
+                    "approved",
+                    "implemented",
+                    "verified"
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  }
+}

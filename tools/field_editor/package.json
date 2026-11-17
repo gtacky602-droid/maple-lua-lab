@@ -1,0 +1,10 @@
+{
+  "name": "teyvat-field-design-editor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "cd ../.. && python -m tools.field_editor.server --host 0.0.0.0 --port ${PORT:-3000} --data work/field-editor-preview.json",
+    "test": "cd ../.. && python -m unittest tools.field_editor.test_editor"
+  }
+}

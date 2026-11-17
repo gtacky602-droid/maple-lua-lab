@@ -1,0 +1,821 @@
+{
+  "catalog_version": 2,
+  "catalog_sha256": "6aea9a92c7ca48d9b6491c834ac82d79915b5bd2b8707aa2b1d573100d02a2a6",
+  "catalog_captured_at": "2026-11-17T03:56:46+00:00",
+  "official_metadata": {
+    "official_map_id": 2,
+    "name": "テイワットマップ",
+    "total_size": [
+      36864,
+      32768
+    ],
+    "padding": [
+      7625,
+      6881
+    ],
+    "origin": [
+      24207,
+      16411
+    ],
+    "map_version": "bd70cde160dbd523926208d9fa8961a1",
+    "min_zoom": -4,
+    "max_zoom": 0,
+    "original_map_size": [
+      21613,
+      19006
+    ],
+    "source_url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v3/map/info?app_sn=ys_obc&lang=ja-jp&map_id=2",
+    "retrieved_at": "2026-11-17T07:43:42+00:00",
+    "sha256": "6a7b1b963edb1b03e99397aa1ca8470e093409a9291b805c4e388fafd4389bbb",
+    "tile_template": "https://act-webstatic.hoyoverse.com/map_manage/map/{map_id}/{map_version}/{x}_{y}_{suffix}.webp"
+  },
+  "projection_source": {
+    "url": "https://act.hoyolab.com/ys/app/interactive-map/1_6be3a4156dff00602a2f.js",
+    "sha256": "4341cae2a8dfe272dee6a847d8f970b9e5986010043fa4f05b28af42e9cdd692",
+    "observed_projection": "Point(lng + origin[0], lat + origin[1]); Transformation(1,0,1,0); CRS.Simple scale 2^zoom",
+    "marker_order": "[y_pos,x_pos]",
+    "tile_size": 256
+  },
+  "tile_base_source": {
+    "url": "https://act.hoyolab.com/ys/app/interactive-map/bundle_cecaae550a4003092d80.js",
+    "sha256": "a7a74e01799276a76991ecf26e4691046ef4a62ca3f160dee4574459a16f40fe",
+    "observed_tile_base": "https://act-webstatic.hoyoverse.com/map_manage/map/"
+  },
+  "counts": {
+    "waypoints": 45,
+    "statues": 6,
+    "total": 51
+  },
+  "coordinate_differences_from_catalog": 0,
+  "verified_scope": "Projection formula and IDs checked against official client source; real terrain rendered in Playwright. Not a verification of Japanese waypoint names or every underground floor image.",
+  "nodes": [
+    {
+      "node_id": "teyvat:3",
+      "source_id": 3,
+      "kind": "waypoint",
+      "catalog_x": 373.5,
+      "catalog_y": 145.5,
+      "pixel_x_at_z0": 24580.5,
+      "pixel_y_at_z0": 16556.5,
+      "tile_at_N2": [
+        24,
+        16
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:7",
+      "source_id": 7,
+      "kind": "waypoint",
+      "catalog_x": 756.5,
+      "catalog_y": 46.5,
+      "pixel_x_at_z0": 24963.5,
+      "pixel_y_at_z0": 16457.5,
+      "tile_at_N2": [
+        24,
+        16
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:8",
+      "source_id": 8,
+      "kind": "waypoint",
+      "catalog_x": 521.5,
+      "catalog_y": -392.5,
+      "pixel_x_at_z0": 24728.5,
+      "pixel_y_at_z0": 16018.5,
+      "tile_at_N2": [
+        24,
+        15
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:9",
+      "source_id": 9,
+      "kind": "waypoint",
+      "catalog_x": 891.5,
+      "catalog_y": -352.5,
+      "pixel_x_at_z0": 25098.5,
+      "pixel_y_at_z0": 16058.5,
+      "tile_at_N2": [
+        24,
+        15
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:10",
+      "source_id": 10,
+      "kind": "waypoint",
+      "catalog_x": 889,
+      "catalog_y": -483.5,
+      "pixel_x_at_z0": 25096,
+      "pixel_y_at_z0": 15927.5,
+      "tile_at_N2": [
+        24,
+        15
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:12",
+      "source_id": 12,
+      "kind": "statue",
+      "catalog_x": 577,
+      "catalog_y": -233,
+      "pixel_x_at_z0": 24784,
+      "pixel_y_at_z0": 16178,
+      "tile_at_N2": [
+        24,
+        15
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:13",
+      "source_id": 13,
+      "kind": "statue",
+      "catalog_x": 516.5,
+      "catalog_y": 404,
+      "pixel_x_at_z0": 24723.5,
+      "pixel_y_at_z0": 16815,
+      "tile_at_N2": [
+        24,
+        16
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:14",
+      "source_id": 14,
+      "kind": "waypoint",
+      "catalog_x": 162,
+      "catalog_y": 540,
+      "pixel_x_at_z0": 24369,
+      "pixel_y_at_z0": 16951,
+      "tile_at_N2": [
+        23,
+        16
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:15",
+      "source_id": 15,
+      "kind": "waypoint",
+      "catalog_x": 783,
+      "catalog_y": 353.5068263548728,
+      "pixel_x_at_z0": 24990,
+      "pixel_y_at_z0": 16764.506826354875,
+      "tile_at_N2": [
+        24,
+        16
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:16",
+      "source_id": 16,
+      "kind": "waypoint",
+      "catalog_x": 121.24912839945864,
+      "catalog_y": 328.4942630165706,
+      "pixel_x_at_z0": 24328.24912839946,
+      "pixel_y_at_z0": 16739.49426301657,
+      "tile_at_N2": [
+        23,
+        16
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:17",
+      "source_id": 17,
+      "kind": "waypoint",
+      "catalog_x": 1254,
+      "catalog_y": 897.5,
+      "pixel_x_at_z0": 25461,
+      "pixel_y_at_z0": 17308.5,
+      "tile_at_N2": [
+        24,
+        16
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:18",
+      "source_id": 18,
+      "kind": "waypoint",
+      "catalog_x": 689,
+      "catalog_y": 875.5,
+      "pixel_x_at_z0": 24896,
+      "pixel_y_at_z0": 17286.5,
+      "tile_at_N2": [
+        24,
+        16
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:19",
+      "source_id": 19,
+      "kind": "statue",
+      "catalog_x": -173.5,
+      "catalog_y": 475.5,
+      "pixel_x_at_z0": 24033.5,
+      "pixel_y_at_z0": 16886.5,
+      "tile_at_N2": [
+        23,
+        16
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:20",
+      "source_id": 20,
+      "kind": "waypoint",
+      "catalog_x": -218,
+      "catalog_y": 158,
+      "pixel_x_at_z0": 23989,
+      "pixel_y_at_z0": 16569,
+      "tile_at_N2": [
+        23,
+        16
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:21",
+      "source_id": 21,
+      "kind": "waypoint",
+      "catalog_x": -366,
+      "catalog_y": 45.69917174997249,
+      "pixel_x_at_z0": 23841,
+      "pixel_y_at_z0": 16456.699171749973,
+      "tile_at_N2": [
+        23,
+        16
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:22",
+      "source_id": 22,
+      "kind": "waypoint",
+      "catalog_x": -313,
+      "catalog_y": -251.5,
+      "pixel_x_at_z0": 23894,
+      "pixel_y_at_z0": 16159.5,
+      "tile_at_N2": [
+        23,
+        15
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:23",
+      "source_id": 23,
+      "kind": "waypoint",
+      "catalog_x": -659,
+      "catalog_y": -454.5,
+      "pixel_x_at_z0": 23548,
+      "pixel_y_at_z0": 15956.5,
+      "tile_at_N2": [
+        22,
+        15
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:24",
+      "source_id": 24,
+      "kind": "waypoint",
+      "catalog_x": -871,
+      "catalog_y": -318.55477049488263,
+      "pixel_x_at_z0": 23336,
+      "pixel_y_at_z0": 16092.445229505118,
+      "tile_at_N2": [
+        22,
+        15
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:25",
+      "source_id": 25,
+      "kind": "statue",
+      "catalog_x": -925,
+      "catalog_y": -306,
+      "pixel_x_at_z0": 23282,
+      "pixel_y_at_z0": 16105,
+      "tile_at_N2": [
+        22,
+        15
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:26",
+      "source_id": 26,
+      "kind": "waypoint",
+      "catalog_x": -1090,
+      "catalog_y": -247.5,
+      "pixel_x_at_z0": 23117,
+      "pixel_y_at_z0": 16163.5,
+      "tile_at_N2": [
+        22,
+        15
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:27",
+      "source_id": 27,
+      "kind": "waypoint",
+      "catalog_x": -1013,
+      "catalog_y": -588.5,
+      "pixel_x_at_z0": 23194,
+      "pixel_y_at_z0": 15822.5,
+      "tile_at_N2": [
+        22,
+        15
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:28",
+      "source_id": 28,
+      "kind": "waypoint",
+      "catalog_x": -787,
+      "catalog_y": -35.14179092048266,
+      "pixel_x_at_z0": 23420,
+      "pixel_y_at_z0": 16375.858209079517,
+      "tile_at_N2": [
+        22,
+        15
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:55",
+      "source_id": 55,
+      "kind": "waypoint",
+      "catalog_x": 2.5,
+      "catalog_y": 70.5,
+      "pixel_x_at_z0": 24209.5,
+      "pixel_y_at_z0": 16481.5,
+      "tile_at_N2": [
+        23,
+        16
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:57",
+      "source_id": 57,
+      "kind": "waypoint",
+      "catalog_x": 128.00000750728577,
+      "catalog_y": 46.9984947520702,
+      "pixel_x_at_z0": 24335.000007507286,
+      "pixel_y_at_z0": 16457.99849475207,
+      "tile_at_N2": [
+        23,
+        16
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:116",
+      "source_id": 116,
+      "kind": "waypoint",
+      "catalog_x": -545.1000061035156,
+      "catalog_y": 459.300048828125,
+      "pixel_x_at_z0": 23661.899993896484,
+      "pixel_y_at_z0": 16870.300048828125,
+      "tile_at_N2": [
+        23,
+        16
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:6537",
+      "source_id": 6537,
+      "kind": "statue",
+      "catalog_x": 276.25050672077487,
+      "catalog_y": 1146.255028978634,
+      "pixel_x_at_z0": 24483.250506720775,
+      "pixel_y_at_z0": 17557.255028978634,
+      "tile_at_N2": [
+        23,
+        17
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:6538",
+      "source_id": 6538,
+      "kind": "waypoint",
+      "catalog_x": 389,
+      "catalog_y": 732,
+      "pixel_x_at_z0": 24596,
+      "pixel_y_at_z0": 17143,
+      "tile_at_N2": [
+        24,
+        16
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:6540",
+      "source_id": 6540,
+      "kind": "waypoint",
+      "catalog_x": -174.5,
+      "catalog_y": 869,
+      "pixel_x_at_z0": 24032.5,
+      "pixel_y_at_z0": 17280,
+      "tile_at_N2": [
+        23,
+        16
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:6594",
+      "source_id": 6594,
+      "kind": "waypoint",
+      "catalog_x": 96.5,
+      "catalog_y": 1059,
+      "pixel_x_at_z0": 24303.5,
+      "pixel_y_at_z0": 17470,
+      "tile_at_N2": [
+        23,
+        17
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:6596",
+      "source_id": 6596,
+      "kind": "waypoint",
+      "catalog_x": -192,
+      "catalog_y": 1093,
+      "pixel_x_at_z0": 24015,
+      "pixel_y_at_z0": 17504,
+      "tile_at_N2": [
+        23,
+        17
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:6599",
+      "source_id": 6599,
+      "kind": "waypoint",
+      "catalog_x": -337.5,
+      "catalog_y": 1171.5,
+      "pixel_x_at_z0": 23869.5,
+      "pixel_y_at_z0": 17582.5,
+      "tile_at_N2": [
+        23,
+        17
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:6600",
+      "source_id": 6600,
+      "kind": "waypoint",
+      "catalog_x": 260,
+      "catalog_y": 1473,
+      "pixel_x_at_z0": 24467,
+      "pixel_y_at_z0": 17884,
+      "tile_at_N2": [
+        23,
+        17
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:6601",
+      "source_id": 6601,
+      "kind": "waypoint",
+      "catalog_x": 265,
+      "catalog_y": 991.5,
+      "pixel_x_at_z0": 24472,
+      "pixel_y_at_z0": 17402.5,
+      "tile_at_N2": [
+        23,
+        16
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:6603",
+      "source_id": 6603,
+      "kind": "waypoint",
+      "catalog_x": 265.5,
+      "catalog_y": 1302,
+      "pixel_x_at_z0": 24472.5,
+      "pixel_y_at_z0": 17713,
+      "tile_at_N2": [
+        23,
+        17
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:6604",
+      "source_id": 6604,
+      "kind": "waypoint",
+      "catalog_x": 587.5,
+      "catalog_y": 1497.5,
+      "pixel_x_at_z0": 24794.5,
+      "pixel_y_at_z0": 17908.5,
+      "tile_at_N2": [
+        24,
+        17
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:6606",
+      "source_id": 6606,
+      "kind": "waypoint",
+      "catalog_x": -260.5,
+      "catalog_y": 1472,
+      "pixel_x_at_z0": 23946.5,
+      "pixel_y_at_z0": 17883,
+      "tile_at_N2": [
+        23,
+        17
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:6608",
+      "source_id": 6608,
+      "kind": "waypoint",
+      "catalog_x": -42,
+      "catalog_y": 1406,
+      "pixel_x_at_z0": 24165,
+      "pixel_y_at_z0": 17817,
+      "tile_at_N2": [
+        23,
+        17
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:6609",
+      "source_id": 6609,
+      "kind": "waypoint",
+      "catalog_x": 46,
+      "catalog_y": 1295,
+      "pixel_x_at_z0": 24253,
+      "pixel_y_at_z0": 17706,
+      "tile_at_N2": [
+        23,
+        17
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:95782",
+      "source_id": 95782,
+      "kind": "statue",
+      "catalog_x": -672,
+      "catalog_y": -978,
+      "pixel_x_at_z0": 23535,
+      "pixel_y_at_z0": 15433,
+      "tile_at_N2": [
+        22,
+        15
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:95792",
+      "source_id": 95792,
+      "kind": "waypoint",
+      "catalog_x": -8,
+      "catalog_y": -555.5,
+      "pixel_x_at_z0": 24199,
+      "pixel_y_at_z0": 15855.5,
+      "tile_at_N2": [
+        23,
+        15
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:95793",
+      "source_id": 95793,
+      "kind": "waypoint",
+      "catalog_x": -283,
+      "catalog_y": -665,
+      "pixel_x_at_z0": 23924,
+      "pixel_y_at_z0": 15746,
+      "tile_at_N2": [
+        23,
+        15
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:95794",
+      "source_id": 95794,
+      "kind": "waypoint",
+      "catalog_x": -437,
+      "catalog_y": -555.5,
+      "pixel_x_at_z0": 23770,
+      "pixel_y_at_z0": 15855.5,
+      "tile_at_N2": [
+        23,
+        15
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:95795",
+      "source_id": 95795,
+      "kind": "waypoint",
+      "catalog_x": -597,
+      "catalog_y": -760.5,
+      "pixel_x_at_z0": 23610,
+      "pixel_y_at_z0": 15650.5,
+      "tile_at_N2": [
+        23,
+        15
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:95796",
+      "source_id": 95796,
+      "kind": "waypoint",
+      "catalog_x": -546,
+      "catalog_y": -1185,
+      "pixel_x_at_z0": 23661,
+      "pixel_y_at_z0": 15226,
+      "tile_at_N2": [
+        23,
+        14
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:95797",
+      "source_id": 95797,
+      "kind": "waypoint",
+      "catalog_x": -455.5,
+      "catalog_y": -1218.5,
+      "pixel_x_at_z0": 23751.5,
+      "pixel_y_at_z0": 15192.5,
+      "tile_at_N2": [
+        23,
+        14
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:95798",
+      "source_id": 95798,
+      "kind": "waypoint",
+      "catalog_x": -500.5,
+      "catalog_y": -1266,
+      "pixel_x_at_z0": 23706.5,
+      "pixel_y_at_z0": 15145,
+      "tile_at_N2": [
+        23,
+        14
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:95799",
+      "source_id": 95799,
+      "kind": "waypoint",
+      "catalog_x": -229,
+      "catalog_y": -1271,
+      "pixel_x_at_z0": 23978,
+      "pixel_y_at_z0": 15140,
+      "tile_at_N2": [
+        23,
+        14
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:95800",
+      "source_id": 95800,
+      "kind": "waypoint",
+      "catalog_x": -558.5,
+      "catalog_y": -1466,
+      "pixel_x_at_z0": 23648.5,
+      "pixel_y_at_z0": 14945,
+      "tile_at_N2": [
+        23,
+        14
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:95801",
+      "source_id": 95801,
+      "kind": "waypoint",
+      "catalog_x": -219,
+      "catalog_y": -1550,
+      "pixel_x_at_z0": 23988,
+      "pixel_y_at_z0": 14861,
+      "tile_at_N2": [
+        23,
+        14
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:95802",
+      "source_id": 95802,
+      "kind": "waypoint",
+      "catalog_x": -532,
+      "catalog_y": -1782,
+      "pixel_x_at_z0": 23675,
+      "pixel_y_at_z0": 14629,
+      "tile_at_N2": [
+        23,
+        14
+      ],
+      "point_group": null,
+      "official_name_status": "unconfirmed"
+    },
+    {
+      "node_id": "teyvat:95803",
+      "source_id": 95803,
+      "kind": "waypoint",
+      "catalog_x": -431,
+      "catalog_y": -1303.5,
+      "pixel_x_at_z0": 23776,
+      "pixel_y_at_z0": 15107.5,
+      "tile_at_N2": [
+        23,
+        14
+      ],
+      "point_group": {
+        "group_id": 196,
+        "floor_id": 276
+      },
+      "official_name_status": "unconfirmed"
+    }
+  ]
+}

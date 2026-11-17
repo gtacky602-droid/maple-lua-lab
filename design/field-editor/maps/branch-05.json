@@ -1,0 +1,44 @@
+{
+  "map_id": "branch-05-map",
+  "region_id": "branch-05",
+  "name": "往日の海",
+  "kind": "high_level_branch",
+  "official_map_id": 34,
+  "node_ids": [
+    "map34:68599",
+    "map34:68600",
+    "map34:68601",
+    "map34:68602",
+    "map34:68603",
+    "map34:68604",
+    "map34:68605",
+    "map34:68606",
+    "map34:68607",
+    "map34:68608",
+    "map34:68609",
+    "map34:68610",
+    "map34:68611",
+    "map34:68612",
+    "map34:68613",
+    "map34:68614",
+    "map34:68615"
+  ],
+  "level_guide": {
+    "recommended": 135,
+    "enemy_min": 140,
+    "enemy_max": 155,
+    "deepest": 160,
+    "state": "proposed",
+    "source": "content/coverage.json; docs/quest-v1/SIX_DECISIONS_DRAFT_V01.md D02 (draft)"
+  },
+  "layers": [
+    "all",
+    "surface",
+    "underground",
+    "unknown"
+  ],
+  "temporary": false,
+  "membership_source": "Official area IDs from content/map-catalog.json",
+  "membership_state": "approved",
+  "exclude_from_normal": []
+}

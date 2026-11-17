@@ -1,0 +1,206 @@
+{
+  "2": {
+    "official_map_id": 2,
+    "name": "テイワットマップ",
+    "total_size": [
+      36864,
+      32768
+    ],
+    "padding": [
+      7625,
+      6881
+    ],
+    "origin": [
+      24207,
+      16411
+    ],
+    "map_version": "bd70cde160dbd523926208d9fa8961a1",
+    "min_zoom": -4,
+    "max_zoom": 0,
+    "original_map_size": [
+      21613,
+      19006
+    ],
+    "source_url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v3/map/info?app_sn=ys_obc&lang=ja-jp&map_id=2",
+    "retrieved_at": "2026-11-17T07:43:42+00:00",
+    "sha256": "6a7b1b963edb1b03e99397aa1ca8470e093409a9291b805c4e388fafd4389bbb",
+    "tile_template": "https://act-webstatic.hoyoverse.com/map_manage/map/{map_id}/{map_version}/{x}_{y}_{suffix}.webp"
+  },
+  "7": {
+    "official_map_id": 7,
+    "name": "淵下宮",
+    "total_size": [
+      4096,
+      4096
+    ],
+    "padding": [
+      0,
+      0
+    ],
+    "origin": [
+      1849,
+      1779
+    ],
+    "map_version": "2d0a83cf40ca8f5a2ef0b1a5199fc407",
+    "min_zoom": -4,
+    "max_zoom": 0,
+    "original_map_size": [
+      4096,
+      4096
+    ],
+    "source_url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v3/map/info?app_sn=ys_obc&lang=ja-jp&map_id=7",
+    "retrieved_at": "2026-11-17T07:43:42+00:00",
+    "sha256": "d291723f3eaa6a1ea2814feef91b2c6331be717e222c834af6dcc588f7b3a201",
+    "tile_template": "https://act-webstatic.hoyoverse.com/map_manage/map/{map_id}/{map_version}/{x}_{y}_{suffix}.webp"
+  },
+  "9": {
+    "official_map_id": 9,
+    "name": "層岩巨淵・地下鉱区",
+    "total_size": [
+      4096,
+      4096
+    ],
+    "padding": [
+      512,
+      512
+    ],
+    "origin": [
+      2016,
+      1956
+    ],
+    "map_version": "96733f1194aed673f3cdafee4f56b2d2",
+    "min_zoom": -4,
+    "max_zoom": 0,
+    "original_map_size": [
+      3072,
+      3072
+    ],
+    "source_url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v3/map/info?app_sn=ys_obc&lang=ja-jp&map_id=9",
+    "retrieved_at": "2026-11-17T07:43:42+00:00",
+    "sha256": "fff1e880863500ce58126147d09fc4402f779dd13ab15fa02f6def05f9f290f7",
+    "tile_template": "https://act-webstatic.hoyoverse.com/map_manage/map/{map_id}/{map_version}/{x}_{y}_{suffix}.webp"
+  },
+  "10": {
+    "official_map_id": 10,
+    "name": "金リンゴ群島",
+    "total_size": [],
+    "padding": [],
+    "origin": [],
+    "map_version": "",
+    "min_zoom": 0,
+    "max_zoom": 0,
+    "original_map_size": [],
+    "source_url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v3/map/info?app_sn=ys_obc&lang=ja-jp&map_id=10",
+    "retrieved_at": "2026-11-17T07:43:42+00:00",
+    "sha256": "241caddd863fa8ca1ecc545cf5d96d021c79def27c140920b07181e940055153",
+    "tile_template": "https://act-webstatic.hoyoverse.com/map_manage/map/{map_id}/{map_version}/{x}_{y}_{suffix}.webp"
+  },
+  "34": {
+    "official_map_id": 34,
+    "name": "往日の海",
+    "total_size": [
+      4096,
+      4096
+    ],
+    "padding": [
+      0,
+      512
+    ],
+    "origin": [
+      2144,
+      2140
+    ],
+    "map_version": "9af6a4747bab91f96c598f8e8a9b7ce5",
+    "min_zoom": -4,
+    "max_zoom": 0,
+    "original_map_size": [
+      4096,
+      3072
+    ],
+    "source_url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v3/map/info?app_sn=ys_obc&lang=ja-jp&map_id=34",
+    "retrieved_at": "2026-11-17T07:43:42+00:00",
+    "sha256": "4e453b48478e0a974159a6daefd6691f2af138636c954f430e38bbe2fbc5308f",
+    "tile_template": "https://act-webstatic.hoyoverse.com/map_manage/map/{map_id}/{map_version}/{x}_{y}_{suffix}.webp"
+  },
+  "36": {
+    "official_map_id": 36,
+    "name": "古の聖山",
+    "total_size": [
+      4096,
+      4096
+    ],
+    "padding": [
+      0,
+      0
+    ],
+    "origin": [
+      2200,
+      1823
+    ],
+    "map_version": "bb19ccbed47e8d9dca730050219d0b90",
+    "min_zoom": -4,
+    "max_zoom": 0,
+    "original_map_size": [
+      4095,
+      4095
+    ],
+    "source_url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v3/map/info?app_sn=ys_obc&lang=ja-jp&map_id=36",
+    "retrieved_at": "2026-11-17T07:43:42+00:00",
+    "sha256": "4ecd4ecc2b73aa3ae6d1905f83d25bb08b8e162b4b1010dbc48128b4c80c7b32",
+    "tile_template": "https://act-webstatic.hoyoverse.com/map_manage/map/{map_id}/{map_version}/{x}_{y}_{suffix}.webp"
+  },
+  "37": {
+    "official_map_id": 37,
+    "name": "空の神殿",
+    "total_size": [
+      3072,
+      3072
+    ],
+    "padding": [
+      274,
+      461
+    ],
+    "origin": [
+      1515,
+      1416
+    ],
+    "map_version": "03b79379a7f32cee23e5fed9e6a41e38",
+    "min_zoom": -2,
+    "max_zoom": 0,
+    "original_map_size": [
+      2524,
+      2150
+    ],
+    "source_url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v3/map/info?app_sn=ys_obc&lang=ja-jp&map_id=37",
+    "retrieved_at": "2026-11-17T07:43:42+00:00",
+    "sha256": "1bcfb456e7eeb9d5dc060f6fcadf485fb8b72b3f9d9a3de0f86fc9ba2fd7d4e5",
+    "tile_template": "https://act-webstatic.hoyoverse.com/map_manage/map/{map_id}/{map_version}/{x}_{y}_{suffix}.webp"
+  },
+  "40": {
+    "official_map_id": 40,
+    "name": "霜月",
+    "total_size": [
+      10240,
+      8192
+    ],
+    "padding": [
+      123,
+      1449
+    ],
+    "origin": [
+      2617,
+      4155
+    ],
+    "map_version": "ddd32df1233f47e4f6dd5bbf7294112f",
+    "min_zoom": -3,
+    "max_zoom": 0,
+    "original_map_size": [
+      9994,
+      5293
+    ],
+    "source_url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v3/map/info?app_sn=ys_obc&lang=ja-jp&map_id=40",
+    "retrieved_at": "2026-11-17T07:43:42+00:00",
+    "sha256": "747a342925702efe21f0da925b1cf0fa67eca55b899b823b9b658d04b22c383c",
+    "tile_template": "https://act-webstatic.hoyoverse.com/map_manage/map/{map_id}/{map_version}/{x}_{y}_{suffix}.webp"
+  }
+}

@@ -7,3 +7,6 @@ work/
 *.pid
 *.log
 sources/attachments/
+# Field-editor process locks and interrupted atomic writes; design JSON remains tracked.
+design/field-editor/*.lock
+design/field-editor/*.json.tmp

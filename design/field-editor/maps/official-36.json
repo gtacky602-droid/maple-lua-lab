@@ -1,0 +1,46 @@
+{
+  "map_id": "official-36",
+  "region_id": "official-area-12",
+  "name": "古の聖山",
+  "kind": "official_layer",
+  "official_map_id": 36,
+  "node_ids": [
+    "map36:84103",
+    "map36:84104",
+    "map36:84105",
+    "map36:84106",
+    "map36:84107",
+    "map36:84108",
+    "map36:84109",
+    "map36:84110",
+    "map36:84111",
+    "map36:84112",
+    "map36:84113",
+    "map36:84114",
+    "map36:84115",
+    "map36:84116",
+    "map36:84117",
+    "map36:84118",
+    "map36:84119",
+    "map36:84120",
+    "map36:84121"
+  ],
+  "level_guide": {
+    "recommended": null,
+    "enemy_min": null,
+    "enemy_max": null,
+    "deepest": null,
+    "state": "unassigned",
+    "source": "Not assigned"
+  },
+  "layers": [
+    "all",
+    "surface",
+    "underground",
+    "unknown"
+  ],
+  "temporary": false,
+  "membership_source": "content/map-catalog.json",
+  "membership_state": "approved",
+  "exclude_from_normal": []
+}

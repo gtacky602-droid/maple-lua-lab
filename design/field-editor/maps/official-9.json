@@ -1,0 +1,42 @@
+{
+  "map_id": "official-9",
+  "region_id": "official-area-6",
+  "name": "層岩巨淵・地下鉱区",
+  "kind": "official_layer",
+  "official_map_id": 9,
+  "node_ids": [
+    "map9:25264",
+    "map9:25265",
+    "map9:25266",
+    "map9:25267",
+    "map9:25268",
+    "map9:25269",
+    "map9:25270",
+    "map9:25271",
+    "map9:25272",
+    "map9:25273",
+    "map9:25274",
+    "map9:25275",
+    "map9:25276",
+    "map9:25277",
+    "map9:26463"
+  ],
+  "level_guide": {
+    "recommended": null,
+    "enemy_min": null,
+    "enemy_max": null,
+    "deepest": null,
+    "state": "unassigned",
+    "source": "Not assigned"
+  },
+  "layers": [
+    "all",
+    "surface",
+    "underground",
+    "unknown"
+  ],
+  "temporary": false,
+  "membership_source": "content/map-catalog.json",
+  "membership_state": "approved",
+  "exclude_from_normal": []
+}

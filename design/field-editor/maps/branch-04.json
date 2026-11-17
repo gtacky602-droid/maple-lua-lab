@@ -1,0 +1,26 @@
+{
+  "map_id": "branch-04-map",
+  "region_id": "branch-04",
+  "name": "トゥニギの黒淵",
+  "kind": "high_level_branch",
+  "official_map_id": null,
+  "node_ids": [],
+  "level_guide": {
+    "recommended": 105,
+    "enemy_min": 110,
+    "enemy_max": 125,
+    "deepest": 130,
+    "state": "proposed",
+    "source": "content/coverage.json; docs/quest-v1/SIX_DECISIONS_DRAFT_V01.md D02 (draft)"
+  },
+  "layers": [
+    "all",
+    "surface",
+    "underground",
+    "unknown"
+  ],
+  "temporary": false,
+  "membership_source": "Official node membership not yet confirmed; no coordinates invented",
+  "membership_state": "unassigned",
+  "exclude_from_normal": []
+}

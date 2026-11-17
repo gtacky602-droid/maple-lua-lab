@@ -1,0 +1,26 @@
+{
+  "map_id": "hidden-01-map",
+  "region_id": "hidden-01",
+  "name": "金リンゴ群島",
+  "kind": "hidden_world",
+  "official_map_id": 10,
+  "node_ids": [],
+  "level_guide": {
+    "recommended": null,
+    "enemy_min": null,
+    "enemy_max": null,
+    "deepest": null,
+    "state": "unassigned",
+    "source": "No assigned level"
+  },
+  "layers": [
+    "all",
+    "surface",
+    "underground",
+    "unknown"
+  ],
+  "temporary": true,
+  "membership_source": "Official node membership not yet confirmed; no coordinates invented",
+  "membership_state": "unassigned",
+  "exclude_from_normal": []
+}

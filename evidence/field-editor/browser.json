@@ -1,0 +1,26 @@
+{
+  "passed": 17,
+  "checks": [
+    "51 official Mondstadt nodes and zero default connections",
+    "Official terrain loads successfully",
+    "Click and save field proposal, approve, reload",
+    "Drag connection handle to another node",
+    "Ctrl+Z and Ctrl+Y reverse and restore approved connection with history",
+    "Click a connection line and edit its saved settings",
+    "Graph view and independent draggable node layout",
+    "Create monster family through editor",
+    "Create regional variant and inherited stats",
+    "Add spawn from bestiary with automatic base level",
+    "Variant base level change previews impact then updates reference",
+    "Japanese instruction becomes protected proposal and has undo/redo preview",
+    "Import ChatGPT change JSON; approved data changes only after review",
+    "Route display, graph checks and high-level branch isolation",
+    "Export PNG, JSON, CSV, Markdown, edges and approved runtime",
+    "Missing historical terrain cannot be exported as an official overlay",
+    "Narrow viewport has no horizontal document overflow"
+  ],
+  "page_errors": [],
+  "terrain_failures": [],
+  "screenshots": "work/field-editor-qa",
+  "production_data_modified": false
+}

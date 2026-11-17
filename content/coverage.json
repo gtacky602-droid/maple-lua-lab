@@ -1085,5 +1085,36 @@
       "Q-MON-S05": "mond-windmill"
     },
     "scope": "Explicit links to runtime quests only; no claim of completed or tested content."
+  },
+  "field_design_editor": {
+    "status": "verified_local",
+    "entry": "docs/field-editor/README.md",
+    "launch": "python -m tools.field_editor.server",
+    "official_mondstadt_nodes": 51,
+    "official_coordinate_changes": 0,
+    "map_definitions": 24,
+    "design_data": "design/field-editor/project.json",
+    "production_runtime_changed": false,
+    "features": [
+      "official_tile_projection",
+      "manual_field_and_spawn_editing",
+      "directed_connection_editor",
+      "separate_graph_layouts",
+      "reviewed_proposals_and_item_decisions",
+      "history_undo_redo",
+      "json_markdown_csv_png_runtime_exports",
+      "shared_http_api_and_stdio_mcp"
+    ],
+    "pending": [
+      "official Japanese names for unnamed nodes",
+      "unavailable underground terrain and historical event map snapshots",
+      "authenticated remote ChatGPT/LLM connection deployment",
+      "manual game runtime adapter and gameplay verification"
+    ],
+    "verification": {
+      "backend": "evidence/field-editor/unittest.txt",
+      "browser": "evidence/field-editor/browser.json",
+      "coordinates": "evidence/field-editor/map-alignment.json"
+    }
   }
 }
