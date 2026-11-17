@@ -188,6 +188,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "pyro-hypostasis-field-terrace",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "inazuma-lantern-trail",
       "count": 0,
       "fallback": false,

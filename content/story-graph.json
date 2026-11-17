@@ -1330,10 +1330,12 @@
         {
           "to": "sumeru-entry",
           "x": 1380
-        }
+        },
+        {"to":"pyro-hypostasis-field-terrace","x":1230}
       ],
       "checkpoint": "inazuma-town"
     },
+    {"id":"pyro-hypostasis-field-terrace","name":"稲妻・燎火の石浜","region":"稲妻","level":50,"hub":false,"peaceful":true,"width":1590,"platforms":[{"x":0,"y":480,"w":1590}],"exits":[{"to":"inazuma-town","x":65}],"checkpoint":"inazuma-town"},
     {
       "id": "inazuma-lantern-trail",
       "name": "稲妻・灯隠れの小径",
@@ -5530,6 +5532,7 @@
       "mora": 300,
       "note": "雷鳴の岩峰、または本編入口の挑戦碑での討伐が対象。"
     },
-    {"id":"cryo-hypostasis-commission","name":"無相の氷の討伐調査","hub":"dragonspine-camp","target":"cryo-hypostasis","kind":"boss","goal":1,"xp":1500,"mora":300,"note":"霜輪の窪地での討伐が対象。"}
+    {"id":"cryo-hypostasis-commission","name":"無相の氷の討伐調査","hub":"dragonspine-camp","target":"cryo-hypostasis","kind":"boss","goal":1,"xp":1500,"mora":300,"note":"霜輪の窪地での討伐が対象。"},
+    {"id":"pyro-hypostasis-commission","name":"無相の炎の討伐調査","hub":"inazuma-town","target":"pyro-hypostasis","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"燎火の石浜での討伐が対象。"}
   ]
 }

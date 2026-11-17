@@ -2,6 +2,36 @@
   "errors": [],
   "cases": [
     {
+      "key": "pyroHypostasisField",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "pyroHypostasisField",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "pyroHypostasisField",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "pyroHypostasisField",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "pyroHypostasisField",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "pyroHypostasisField",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "cryoHypostasisField",
       "camera": -960,
       "transparent": 0

@@ -560,6 +560,88 @@
           "damage": 12
         }
       ]
+    },
+    {
+      "id": "boss-20040601",
+      "controller": "pyroHypostasis",
+      "entity": 20040601,
+      "name": "無相の炎",
+      "node": "pyro-hypostasis-field-terrace",
+      "storyChallenge": "pyro-hypostasis",
+      "level": 50,
+      "hp": 990,
+      "mora": 195,
+      "artHeight": 115,
+      "floorY": 480,
+      "home": 845,
+      "arenaMin": 405,
+      "arenaMax": 1450,
+      "noticeRange": 272,
+      "noticeTicks": 34,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 66,
+      "contactDamage": 0,
+      "immune": "pyro",
+      "moves": [
+        {
+          "id": "FHP01",
+          "kind": "boar",
+          "title": "炎猪の駆け抜け",
+          "reach": 200,
+          "lock": 54,
+          "active": [
+            [
+              108,
+              132
+            ]
+          ],
+          "recover": 150,
+          "total": 270,
+          "distance": 1.8,
+          "damage": 18
+        },
+        {
+          "id": "FHP02",
+          "kind": "snake",
+          "title": "炎蛇の三射",
+          "reach": 227,
+          "lock": 48,
+          "active": [],
+          "recover": 228,
+          "total": 288,
+          "fire": [
+            96,
+            132,
+            168
+          ],
+          "life": 48,
+          "damage": 12
+        },
+        {
+          "id": "FHP03",
+          "kind": "fist",
+          "title": "炎拳の跳ね落ち",
+          "reach": 205,
+          "lock": 54,
+          "active": [
+            [
+              114,
+              126
+            ]
+          ],
+          "recover": 144,
+          "total": 288,
+          "air": [
+            78,
+            114
+          ],
+          "rise": 112,
+          "distance": 1.6,
+          "damage": 23
+        }
+      ]
     }
   ]
 }

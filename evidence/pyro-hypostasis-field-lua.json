@@ -1,0 +1,17 @@
+{
+  "attacks": [
+    "FHP01",
+    "FHP02",
+    "FHP03"
+  ],
+  "boarLockedSingleHit": true,
+  "threeFixedLineProjectiles": true,
+  "fistTracksHeightAndCancelsOnKill": true,
+  "physicalReachesFireImmuneCore": true,
+  "commands": {
+    "standard": 4614,
+    "light": 1229
+  },
+  "questReportOnce": true,
+  "killXp": 23750
+}

@@ -1,0 +1,101 @@
+{
+  "stage": "稲妻・燎火の石浜",
+  "references": [
+    {
+      "page": "https://wiki.hoyolab.com/pc/genshin/entry/2161?lang=en-us",
+      "asset": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/fcd1d6fd2915911793d52c672bdeac3f_8786506688074737339.png",
+      "sha256": "a18029535e70a57243f931c74a293a519951e86278d18d7265e1da5fef7780e4",
+      "observed": "Warm shell bevels, flame engraving and diamond core."
+    },
+    {
+      "page": "https://wiki.hoyolab.com/pc/genshin/entry/2161?lang=en-us",
+      "asset": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/7cae94e7f107fb2afc306eb4c31f29d1_8883988312826943737.png",
+      "sha256": "8c22ea2994a1f2fe8610ba3c4654da0c8eab2f97fb991cdd4d8372e3dc93d245",
+      "observed": "Loose shell and exposed core, sunlit rough stone at an open coast."
+    }
+  ],
+  "generated": [
+    {
+      "path": "assets/pyro-hypostasis-field-background-v1.png",
+      "sha256": "2a54a23247fea267031488b0970b36ba23129f4da9ddd83fa93a91e612833edf",
+      "prompt": "Original panoramic 16:9 environment-only side-scrolling RPG background. The supplied gameplay frame is a reference only for the old broken grey stone flooring and open rocky island setting. Reimagine a secluded Inazuma island stone terrace on a rugged coast at blue-grey twilight, cool slate slabs underfoot, muted dark reed banks, distant layered cliffs and a dim indigo sea beyond. Weathered low ruin stones at edges and distant clouds. Keep the central lower half desaturated and even in contrast so bright orange boss sprites and floor attack warnings stay legible. Flat uninterrupted stone path along bottom 15 percent. Beautiful crisp pixel-painted grouped shadows, no people, no creature, no flame effects, no cubes, no UI, no lettering."
+    },
+    {
+      "path": "assets/pyro-hypostasis-field-poses-source-v1.png",
+      "sha256": "b052329c5809490b5d27cde245c8830fd11558346ee7bb51809edea5e8d146fb",
+      "size": [
+        1263,
+        1246
+      ],
+      "prompt": "A true alpha-transparent four-posе 2x2 sprite sheet, all quadrants isolated with generous empty gutters, no labels, no shadows, no colored background. Original chunky clean 2D pixel art of a floating enchanted Pyro cube boss. Attached game references define burnt vermilion stone with orange bevels, gold incised flame whorl motifs, near-black joints, amber crystal core. Same material and diamond core in all 4. TOP LEFT: left-facing low four-legged boar made of floating fitted cube segments, chunky squared snout, small upward stone tusks, very clearly four feet and warm amber eye. TOP RIGHT: left-facing serpent head on a short S-curved articulated column of cube segments, clear open mouth at about 65 percent of full body height, little amber core low at the base. BOTTOM LEFT: compact closed downward-pointing clenched fist, stone four knuckles on lower edge, target core visible in wrist. BOTTOM RIGHT: low open disassembled rest form with 4 short red cubes framing a bright low diamond core. Clean silhouette differences. Each entirely within its own cell. No extra flames, sparks, projectiles, large glow, floor, text or scenery."
+    }
+  ],
+  "poses": {
+    "boar": {
+      "crop": [
+        0,
+        0,
+        640,
+        615
+      ],
+      "height": 72,
+      "anchorX": 0.57,
+      "commands": [
+        3367,
+        2071,
+        884
+      ]
+    },
+    "snake": {
+      "crop": [
+        640,
+        0,
+        623,
+        615
+      ],
+      "height": 99,
+      "anchorX": 0.59,
+      "commands": [
+        2887,
+        1737,
+        746
+      ]
+    },
+    "fist": {
+      "crop": [
+        0,
+        615,
+        640,
+        631
+      ],
+      "height": 102,
+      "anchorX": 0.5,
+      "commands": [
+        3928,
+        2401,
+        1024
+      ]
+    },
+    "recover": {
+      "crop": [
+        640,
+        615,
+        623,
+        631
+      ],
+      "height": 68,
+      "anchorX": 0.5,
+      "commands": [
+        2919,
+        1792,
+        770
+      ]
+    }
+  },
+  "profiles": [
+    "legacy",
+    "h48c32",
+    "h32c16"
+  ],
+  "limitations": "No usable source 3D model was identified in the idle art audit. Four poses use game image reference and lab-specific forms; in-between, hurt and defeat art are pending. Background is an original temporary image."
+}

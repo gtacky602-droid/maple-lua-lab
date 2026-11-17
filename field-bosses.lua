@@ -83,14 +83,15 @@ return function(C,configs,controllers)
   end
  end
 
- function C.hitFieldCapsule(s,source,seen,x0,x1,y,radius,damage)
+ function C.hitFieldCapsule(s,source,seen,x0,x1,y,radius,damage,verticalRadius)
   local left,right=math.min(x0,x1),math.max(x0,x1)
   local owner=source.owner or source
+  local verticalScale=radius/(verticalRadius or radius)
   for _,a in ipairs(s.actors) do
    if owner.hp<=0 then break end
    if a.hp>0 and not seen[a.id] then
     local dx=math.max(0,left-a.x-10,a.x-10-right)
-    local dy=math.max(0,a.y-50-y,y-a.y)
+    local dy=math.max(0,a.y-50-y,y-a.y)*verticalScale
     if dx*dx+dy*dy<radius*radius then
      seen[a.id]=true
      C.damageActor(s,a,damage,source,false,true)

@@ -959,3 +959,9 @@ Chromeではアンバー同行の57.37秒で討伐し、20,350EXPと190モラを
 ドラゴンスパインの入口拠点から探索路を通り、右端の門でLv20の「霜輪の窪地」へ入る。入口拠点に「無相の氷の討伐調査」を追加。氷輪は予告した終点へ一方向に進み、通常ジャンプで越えられる。双掌は中央で一度だけ当たり、三本の落氷は床に番号で示した固定3地点へ順に落ちる。氷は無効で、核への通常攻撃が通る。Lv20、HP785、145モラ、依頼の報酬とマップ名称はラボの試案。
 
 Chromeで入場、アンバー同行40.6秒で討伐、1,150EXP・145モラ、依頼報告1,500EXP・300モラ、再出現待ちの保存まで確認。氷輪を止めた同一コマの描画指示は標準矩形8,002件、軽量矩形2,014件。4姿勢と夕暮れの氷盆地の仮背景をゲーム画像から起こした。連続作画・被弾・撃破、3D照合と幻境実機は未検証。次は無相の炎を稲妻のフィールドへつなぐ。 [設計](docs/field-boss-v1/HYPOSTASES_WOLFLORD_MOVESETS.md)・[美術参照](evidence/cryo-hypostasis-field-art-audit.json)・[Lua検証](evidence/cryo-hypostasis-field-lua.json)・[Chrome検証](evidence/cryo-hypostasis-field-browser.json)
+
+## 無相の炎のフィールド戦
+
+稲妻・城下の広場の右側からLv50の「稲妻・燎火の石浜」へ入る。城下の広場に討伐調査を追加。炎猪は予告した方向に一度進み、炎蛇は固定した射線へ三発、炎拳は跳んで予告地点へ一度落ちる。跳躍中は核の当たり判定も上がり、そこで倒すと着地攻撃が消える。炎は無効で、通常攻撃で核を削れる。名称・Lv50・HP990・報酬195モラはラボの試案。
+
+Chromeではアンバー同行で59.85秒で討伐し、23,750EXPと195モラを獲得。報告で4,000EXPと300モラを受け取り、再出現待ちを保存した。炎猪の同一フレームの描画指示は標準矩形7,608件、軽量矩形1,948件。ゲーム画像を見て猪・蛇・拳・息継ぎの4姿勢と石浜の仮背景を作った。連続アニメーション・被弾・撃破と3D照合は未実施。次は無相の水を稲妻に接続する。 [設計](docs/field-boss-v1/HYPOSTASES_WOLFLORD_MOVESETS.md)・[美術参照](evidence/pyro-hypostasis-field-art-audit.json)・[Lua検証](evidence/pyro-hypostasis-field-lua.json)・[Chrome検証](evidence/pyro-hypostasis-field-browser.json)

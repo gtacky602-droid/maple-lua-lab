@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 121 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 119,
+  "scope": "Authored 122 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 120,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -192,7 +192,13 @@
       "status": "regional_temporary_image"
     },
     {
-        "id": "inazuma-lantern-trail",
+      "id": "pyro-hypostasis-field-terrace",
+      "name": "稲妻・燎火の石浜",
+      "region": "稲妻",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "inazuma-lantern-trail",
         "name": "稲妻・灯隠れの小径",
         "region": "稲妻",
         "status": "regional_temporary_image"

@@ -422,10 +422,13 @@
       }
     },
     "boss-20040601": {
+      "review_note": "Lv50のフィールドで炎猪・炎蛇・炎拳。炎無効、核を通常攻撃で削れる。",
+      "remaining": ["連続モーションと被弾・撃破作画", "装備差と周回報酬のバランス", "Webマルチと幻境実機"],
+      "extra_evidence": ["evidence/pyro-hypostasis-field-lua.json", "evidence/pyro-hypostasis-field-browser.json"],
       "art_candidate": {
         "item": "pyro-hypostasis",
-        "audit": "evidence/pyro-hypostasis-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/pyro-hypostasis-field-art-audit.json",
+        "status": "existing idle and four new poses in the Web field encounter"
       }
     },
     "boss-26020201": {
