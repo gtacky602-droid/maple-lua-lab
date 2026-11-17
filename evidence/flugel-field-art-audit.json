@@ -1,0 +1,209 @@
+{
+  "tool": "built-in image_gen",
+  "references": [
+    {
+      "url": "https://img.gamewith.jp/img/original_633707bad4f074b41d015878c2bfc26e.jpeg",
+      "page": "https://gamewith.jp/genshin/article/show/235614",
+      "view": "Version preview artwork: face, crystalline wings and violet weapon",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "6e05fc6f562d6588ce051fd5969e9ed38f00803caaf897da10bb75f6063aef35"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/original_d080c517277329c11eb84bc3255ac325.png",
+      "page": "https://gamewith.jp/genshin/article/show/571066",
+      "view": "Gameplay side angle: hindquarters and wings, partially obscured by combat effects",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "21a53ae10f5785161f9bab3b8585a7ecda77ab3f152db7d25e642e372b62ce59"
+    }
+  ],
+  "poses": {
+    "ready": {
+      "height": 220,
+      "crop": [
+        0,
+        0,
+        660,
+        600
+      ],
+      "raw_box": [
+        29,
+        88,
+        505,
+        464
+      ],
+      "box": [
+        25,
+        25,
+        476,
+        376
+      ],
+      "anchor": 0.569327731092437,
+      "profiles": {
+        "legacy": 15492,
+        "h48c32": 9927,
+        "h32c16": 4338
+      }
+    },
+    "slash": {
+      "height": 174,
+      "crop": [
+        660,
+        0,
+        660,
+        600
+      ],
+      "raw_box": [
+        459,
+        170,
+        991,
+        467
+      ],
+      "box": [
+        685,
+        25,
+        532,
+        297
+      ],
+      "anchor": 0.6409774436090225,
+      "profiles": {
+        "legacy": 12132,
+        "h48c32": 7642,
+        "h32c16": 3295
+      }
+    },
+    "dive": {
+      "height": 255,
+      "crop": [
+        0,
+        600,
+        660,
+        600
+      ],
+      "raw_box": [
+        56,
+        547,
+        446,
+        982
+      ],
+      "box": [
+        25,
+        625,
+        390,
+        435
+      ],
+      "anchor": 0.6256410256410256,
+      "profiles": {
+        "legacy": 12247,
+        "h48c32": 7881,
+        "h32c16": 3514
+      }
+    },
+    "charge": {
+      "height": 239,
+      "crop": [
+        660,
+        600,
+        660,
+        600
+      ],
+      "raw_box": [
+        511,
+        588,
+        995,
+        996
+      ],
+      "box": [
+        685,
+        625,
+        484,
+        408
+      ],
+      "anchor": 0.5144628099173554,
+      "profiles": {
+        "legacy": 17801,
+        "h48c32": 11251,
+        "h32c16": 5038
+      }
+    },
+    "down": {
+      "height": 142,
+      "crop": [
+        0,
+        1200,
+        660,
+        600
+      ],
+      "raw_box": [
+        40,
+        1184,
+        493,
+        1426
+      ],
+      "box": [
+        25,
+        1225,
+        453,
+        242
+      ],
+      "anchor": 0.5518763796909493,
+      "profiles": {
+        "legacy": 12090,
+        "h48c32": 7746,
+        "h32c16": 3408
+      }
+    },
+    "orb": {
+      "height": 54,
+      "crop": [
+        660,
+        1200,
+        660,
+        600
+      ],
+      "raw_box": [
+        667,
+        1202,
+        856,
+        1392
+      ],
+      "box": [
+        685,
+        1225,
+        189,
+        190
+      ],
+      "anchor": 0.49206349206349204,
+      "profiles": {
+        "legacy": 1184,
+        "h48c32": 740,
+        "h32c16": 317
+      }
+    }
+  },
+  "shared_scale": 0.5851063829787234,
+  "prompts": [
+    "Create one PORTRAIT transparent pixel-art sprite atlas, exactly TWO COLUMNS by THREE ROWS, six isolated sprites, wide gutters and generous margins. Subject is Genshin Chimeric Winged Lion based on attached official identity preview, actual in-game view and existing pixel-art seed. Preserve the nonhuman beast anatomy: a roaring white feline mask face with mint brow gems, long dark navy mane, large jagged green/mint crystalline neck crest, powerful blue-gray quadruped body with four clawed paws and black wrist guards, dark plum and violet chest armor, a curved blue-gray tail, two large wings of layered pale lavender-white feathers with dark spars and long curved emerald faceted blade tips. It carries ONE narrow-gripped angular violet crystal SWORD in one front claw, not a duplicate weapon or a human knight. Keep wings, claw paws, green crest and violet sword consistent in all five body poses. All face LEFT, same character palette and common body scale. Reading order: row1 left ready stance with hindquarters grounded, wings half spread upward, sword angled up-left and claws braced; row1 right low forward sword slash follow-through LEFT, wings folding back, all four limbs clear; row2 left airborne short dive, knees/paws tucked and sword pointing down-left, wings lifted but fully in frame; row2 right wind-gathering crouch with wings high and open and mouth open, sword close to body, no floating particles or aura; row3 left exhausted/downed quadruped resting low with drooping folded wings, head lowered, sword laid along front paw but entire blade in frame; row3 right ONE separate small pale mint Anemo Orb, a solid readable faceted green sphere with a simple dark-teal curled wind motif and crisp outline, no body or huge outer glow. Entire figures and weapon/wing/tail tips inside their separate cells. Crisp chunky pixel clusters, readable at a 220px body height. No scene, matte color, fog, radiance outside silhouettes, labels, text, UI, grid, shadows or ground. Genuine alpha transparency in all outside and internal gaps. This is a set of game key poses, not a promotional poster.",
+    "Create a wide 16:9 original pixel-art side-view RPG battle backdrop inspired by the supplied actual Chimeric Winged Lion battle screenshot in Snezhnaya. A secluded frozen basin in the western tundra: pale blue towering ice and dark blue-gray rock walls in the far background, sparse bare black trees near distant edges, a little snow gathering on ledges and rocks, cold diffuse sky light. Broad flat dark blue-gray stone and packed snow floor occupies bottom quarter, continuous clear foreground edge. Keep center empty and lighting restrained so white wings, green crystal tips and purple weapons have readable outlines. No boss, people, balls, giant foreground crystals, flames, auras, beams, floating magic devices, UI, text, marks, floor symbols or hazard patterns. Muted cool layered pixel textures and clear side-on ground. Temporary independent lab background, not an exact original map replica."
+  ],
+  "raw_atlas_sha256": "a6eb2f4ec0a798061d45a53c9d532d28e006053e99ed8a5ab4f9fa0c408f9370",
+  "legacy_idle_sha256": "f637af9d70fd04954b39d1447463a41234aea5a4867b14b62b17b3dced0aa485",
+  "outputs": {
+    "flugel-field-poses-source-v1.png": "e63ae5643dfb1c3a33f0c26a3c0b1d2041e5347665074437c977fa89aca5e8c0",
+    "flugel-field-background-v1.png": "0f09c3fdb4a54bb2a65cecf87df076cbbb2c8fd2e84621fa49aaa45dbc693b95"
+  },
+  "model_lookup": {
+    "page": "https://models.spriters-resource.com/pc_computer/genshinimpact/asset/603978/",
+    "listing": "Chimeric Winged Lion; readable listing, Monster_Chimera_Manticore_01 textures, FBX/DAE",
+    "local_page_status": 403,
+    "local_zip_status": 403,
+    "geometry_viewed": false
+  },
+  "notes": [
+    "Five nonhuman beast poses share one scale; a separate Anemo Orb is 54px. Six silhouettes repacked with gutters.",
+    "New ready pose is battle idle; legacy gallery idle retained. All body poses face left.",
+    "No human head-ratio conversion. Rear and wing attachment geometry remain unverified.",
+    "Background is an independent temporary frozen-basin interpretation, not exact geography or native 3D."
+  ]
+}

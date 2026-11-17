@@ -1,0 +1,41 @@
+{
+  "browser": "Chrome",
+  "companion": "wanderer",
+  "play": {
+    "won": true,
+    "seconds": 54.75,
+    "moves": [
+      "FL01",
+      "FL02",
+      "FL03"
+    ],
+    "hp": 140,
+    "returns": 0,
+    "wardBroken": true,
+    "orbsBroken": true,
+    "maxBrokenOrbs": 3,
+    "fireCasts": 7
+  },
+  "scenery": {
+    "key": "flugelField",
+    "file": "flugel-field-background-v1.png",
+    "state": "ready"
+  },
+  "questAcceptedInUi": true,
+  "questReport": {
+    "xp": 10400,
+    "mora": 710
+  },
+  "electroWardAndAnemoMode": true,
+  "fiveReachableOrbs": true,
+  "threeOrbsInterrupt": true,
+  "orbsBrokenTick": 162,
+  "sameSceneCommands": {
+    "png": 33,
+    "standard": 28022,
+    "light": 7786
+  },
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}

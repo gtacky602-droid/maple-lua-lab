@@ -2382,6 +2382,10 @@
         {
           "to": "wingspan-camp",
           "x": 1380
+        },
+        {
+          "to": "flugel-tundra-basin",
+          "x": 440
         }
       ],
       "checkpoint": "snezhnaya-hub"
@@ -4529,7 +4533,8 @@
     },
     {"id":"thunder-field-crest","name":"稲妻・雷鳴の岩峰","region":"稲妻","level":48,"hub":false,"peaceful":true,"width":1580,"platforms":[{"x":0,"y":480,"w":1580}],"exits":[{"to":"thunder-approach","x":65}],"checkpoint":"inazuma-port"},
     {"id":"spiritspeaker-field-grotto","name":"ナタ・謎煙の修練窟","region":"ナタ","level":114,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"natlan-field","x":65}],"checkpoint":"natlan-hub"},
-    {"id":"windrest-vigil-court","name":"ドーンマンポート・風息山の石庭","region":"ドーンマンポート","level":18,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"dornman-camp","x":65}],"checkpoint":"dornman-camp"}
+    {"id":"windrest-vigil-court","name":"ドーンマンポート・風息山の石庭","region":"ドーンマンポート","level":18,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"dornman-camp","x":65}],"checkpoint":"dornman-camp"},
+    {"id":"flugel-tundra-basin","name":"スネージナヤ・古獣の氷原の西谷","region":"スネージナヤ","level":144,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"snezhnaya-field","x":65}],"checkpoint":"snezhnaya-hub"}
   ],
   "quests": [
     {
@@ -5649,6 +5654,7 @@
     {"id":"moonfly-commission","name":"集光の幻月蝶の討伐調査","hub":"nod-town","target":"moonfly","kind":"boss","goal":1,"xp":9400,"mora":650,"note":"月明かりの道の西側から幻月蝶の岩窟へ進み、集光の幻月蝶を倒す。"},
     {"id":"moongecko-commission","name":"集光の月ヤモリの討伐調査","hub":"nod-town","target":"moongecko","kind":"boss","goal":1,"xp":9600,"mora":670,"note":"月明かりの道から波追いの峠の月石洞へ入り、集光の月ヤモリを倒す。"},
     {"id":"spiritspeaker-commission","name":"迷える霊覚の修験者の討伐調査","hub":"natlan-hub","target":"spiritspeaker","kind":"boss","goal":1,"xp":8600,"mora":560,"note":"岩場の道から謎煙の修練窟へ入り、迷える霊覚の修験者を倒す。"},
-    {"id":"fallen-vigil-commission","name":"守護者・堕天の討伐調査","hub":"dornman-camp","target":"fallen-vigil","kind":"boss","goal":1,"xp":1400,"mora":220,"note":"入口拠点から風息山の石庭へ進み、守護者・堕天を倒す。元素星は通常攻撃でも壊せる。"}
+    {"id":"fallen-vigil-commission","name":"守護者・堕天の討伐調査","hub":"dornman-camp","target":"fallen-vigil","kind":"boss","goal":1,"xp":1400,"mora":220,"note":"入口拠点から風息山の石庭へ進み、守護者・堕天を倒す。元素星は通常攻撃でも壊せる。"},
+    {"id":"flugel-commission","name":"合成獣・フリューゲルレーヴェの討伐調査","hub":"snezhnaya-hub","target":"flugel","kind":"boss","goal":1,"xp":10400,"mora":710,"note":"凍った街道から古獣の氷原の西谷へ進み、フリューゲルレーヴェを倒す。守りと風の球は通常攻撃でも対処できる。"}
   ]
 }

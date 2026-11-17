@@ -925,6 +925,10 @@
       "to": "wingspan-camp"
     },
     {
+      "node": "snezhnaya-field",
+      "to": "flugel-tundra-basin"
+    },
+    {
       "node": "dragonspine-camp",
       "to": "mond-border"
     },
@@ -1363,6 +1367,10 @@
     {
       "node": "windrest-vigil-court",
       "to": "dornman-camp"
+    },
+    {
+      "node": "flugel-tundra-basin",
+      "to": "snezhnaya-field"
     }
   ],
   "hidden_connections_checked": 9,

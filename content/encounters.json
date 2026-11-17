@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 46,
+    "partial": 47,
     "complete": 0
   },
   "encounters": [
@@ -198,23 +198,28 @@
       "entity_ids": [
         "26310501"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/chimericwingedlion.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/chimericwingedlion.json",
+        "https://genshin.hoyoverse.com/m/th/news/detail/165655",
+        "evidence/flugel-field-lua.json",
+        "evidence/flugel-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "原作の星反応による中断と本作技の対応",
+        "守り・球・時刻・報酬の調整",
+        "左右・連続・被弾・撃破の追加作画と音",
+        "Webマルチと幻境実機"
       ],
+      "fieldNode": "flugel-tundra-basin",
+      "fieldEntrance": "スネージナヤ・古獣の氷原の西谷（Lv144）",
       "art_candidate": {
         "source": "assets/flugel-idle-source-v1.png",
         "encoding": "assets/flugel-idle-sprites.json",
-        "audit": "evidence/flugel-reference-audit.json",
-        "status": "idle candidate"
+        "audit": "evidence/flugel-field-art-audit.json",
+        "status": "Legacy gallery idle retained; Web battle uses five beast poses, a redrawn ready idle and five Anemo Orbs"
       }
     },
     {

@@ -913,12 +913,12 @@
     {
       "node": "snezhnaya-field",
       "mode": "sprite",
-      "visible_portals": 3
+      "visible_portals": 4
     },
     {
       "node": "snezhnaya-field",
       "mode": "rect",
-      "visible_portals": 3
+      "visible_portals": 4
     },
     {
       "node": "dragonspine-camp",
@@ -1577,6 +1577,16 @@
     },
     {
       "node": "windrest-vigil-court",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "flugel-tundra-basin",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "flugel-tundra-basin",
       "mode": "rect",
       "visible_portals": 1
     }

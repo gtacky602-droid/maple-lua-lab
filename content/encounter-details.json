@@ -63,10 +63,12 @@
       ]
     },
     "boss-26310501": {
+      "remaining": ["原作の星反応による中断と本作技の対応", "守り・球・時刻・報酬の調整", "左右・連続・被弾・撃破の追加作画と音", "Webマルチと幻境実機"],
+      "extra_evidence": ["https://genshin.hoyoverse.com/m/th/news/detail/165655", "evidence/flugel-field-lua.json", "evidence/flugel-field-browser.json"],
       "art_candidate": {
         "item": "flugel",
-        "audit": "evidence/flugel-reference-audit.json",
-        "status": "idle candidate"
+        "audit": "evidence/flugel-field-art-audit.json",
+        "status": "Legacy gallery idle retained; Web battle uses five beast poses, a redrawn ready idle and five Anemo Orbs"
       }
     },
     "boss-20040501": {

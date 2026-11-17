@@ -1,0 +1,32 @@
+{
+  "wardAllowsBodyDamage": true,
+  "wardDistinctCastsAndElementalAdvantage": true,
+  "wardIgnoresElectroAndReactions": true,
+  "wardBreakInterruptsAndChangesMode": true,
+  "twoSlashWindowsAndLockedDive": true,
+  "airborneHurtbox": true,
+  "thunderHasThreePulsesAndFiniteModeChange": true,
+  "fiveGroundReachableOrbs": true,
+  "oldCastsAndReactionsExcludedFromOrbs": true,
+  "PECHBreaksOrbInOneCast": true,
+  "physicalBreaksOrbInTwoCasts": true,
+  "threeOfFiveCancelAndStagger": true,
+  "finalTickBreakCancelsAbsorption": true,
+  "twoBrokenStillAllowRelease": true,
+  "rearmedWardRejectsOldCasts": true,
+  "HPZeroBeatsWardAndWindRelease": true,
+  "noFalseKillRewards": true,
+  "saveExitAndDefeatCleanUp": true,
+  "oneRewardAndReport": true,
+  "normalAttackWithoutHealing": {
+    "seconds": 95.42,
+    "hp": 140,
+    "wardInterruptions": 5,
+    "orbInterruptions": 4
+  },
+  "sameSceneCommands": {
+    "png": 22,
+    "standard": 23054,
+    "light": 6454
+  }
+}
