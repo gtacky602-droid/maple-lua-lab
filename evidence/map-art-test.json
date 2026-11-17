@@ -434,6 +434,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "config-device-field-workshop",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "natlan-port",
       "count": 0,
       "fallback": false,

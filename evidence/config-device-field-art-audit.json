@@ -1,0 +1,170 @@
+{
+  "date": "2026-11-18",
+  "tool": "built-in image_gen",
+  "prompts": [
+    "Create a borderless transparent pixel RPG sprite sheet, strict 3 columns and 2 rows, for the Secret Source Automaton Configuration Device. Image 1 supplies current clean dark-outlined pixel style and compact machine. Images 2 and 3 are visual references for separate pale ivory stone modules, gold inlay, navy recesses, orange and cyan core. Draw the same machine in a right-facing three-quarter profile, non-humanoid with low hovering pointed central body and exactly two suspended articulated limbs. Top left one limb stretched as hook-claw while opposite is curled; top center opposite hooked arm lunges with head still pointing right; top right two aligned gold-lined cannon muzzles aimed right. Bottom left arms form a frame around a clearly visible large amber energy sphere while the central pointed machinery remains below; bottom center low shutdown pose with both arms unlocked and lowered, core dark; bottom right small standalone Accretion Mechanism, a squat dark stone spindle with gold bands and a small bright amber cube held between three dark brackets. Genuine alpha. Whole silhouettes fit with generous empty gutters. Dark pixel contours, crisp shapes. No grid lines, frames, labels, shadows, ground, scattered sparks or trails.",
+    "Wide original 16:9 pixel RPG arena background inspired by the supplied gameplay reference from a Natlan underground workshop. Side-view quiet turquoise cavern with ancient geometric ivory and black pillars set back in deep shadow, a little cold waterfall from a high fissure, copper seams in dark teal rock, faint warm carvings. Continuous flat muted ochre ground across the bottom quarter and clear uncluttered lower half for luminous amber attack warnings. Layered crisp pixel clusters. Avoid monsters, people, foreground occluders, HUD, labels, logos or bright attack effects."
+  ],
+  "references": [
+    {
+      "url": "https://image.thenerdstash.com/2024/10/Genshin-Impact-Secret-Source-Automaton-Configuration-Device-1024x576.jpg",
+      "sha256": "284fcd4455edc6f06db4f34e047da3eb4d39652b23065381fe549285207fb269",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "spread archive configuration material details only",
+      "use": "Separated ivory armor and dark navy joints"
+    },
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2024/10/09/32414073/5f5fa87d8519091c18acd93249a4dd12_2252782114026929848.png",
+      "sha256": "06597c1a86b1afe8424c7cbaef547c37ac08a753a44c75ca7c02626cc34c20f5",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "game upright hover",
+      "use": "Upright hover, side limbs and cavern backdrop"
+    }
+  ],
+  "generated": {
+    "config-device-field-poses-source-v1.png": "20721855ab70fca2fe622902c5b63b898bd8e910cfcf1d2e4fe7f2e85f0fd1af",
+    "config-device-field-background-v1.png": "7c12ca913bc00fbc0c25931267590a8260c6d27bef16eaeae46d544adfb16c3a"
+  },
+  "idle": "assets/config-device-idle-source-v1.png",
+  "poses": {
+    "claw-a": {
+      "crop": [
+        0,
+        0,
+        520,
+        453
+      ],
+      "box": [
+        45,
+        54,
+        452,
+        375
+      ],
+      "height": 156,
+      "anchor": 0.3672566371681416,
+      "anchor_source": 211,
+      "profiles": {
+        "legacy": 6559,
+        "h48c32": 4139,
+        "h32c16": 1787
+      }
+    },
+    "claw-b": {
+      "crop": [
+        520,
+        0,
+        536,
+        453
+      ],
+      "box": [
+        545,
+        54,
+        483,
+        373
+      ],
+      "height": 156,
+      "anchor": 0.28778467908902694,
+      "anchor_source": 684,
+      "profiles": {
+        "legacy": 7015,
+        "h48c32": 4544,
+        "h32c16": 1972
+      }
+    },
+    "beam": {
+      "crop": [
+        1056,
+        0,
+        480,
+        453
+      ],
+      "box": [
+        1068,
+        54,
+        425,
+        373
+      ],
+      "height": 146,
+      "anchor": 0.3952941176470588,
+      "anchor_source": 1236,
+      "profiles": {
+        "legacy": 5815,
+        "h48c32": 3735,
+        "h32c16": 1580
+      }
+    },
+    "charge": {
+      "crop": [
+        0,
+        453,
+        525,
+        571
+      ],
+      "box": [
+        45,
+        482,
+        427,
+        431
+      ],
+      "height": 166,
+      "anchor": 0.48711943793911006,
+      "anchor_source": 253,
+      "profiles": {
+        "legacy": 8954,
+        "h48c32": 5593,
+        "h32c16": 2388
+      }
+    },
+    "down": {
+      "crop": [
+        525,
+        453,
+        475,
+        571
+      ],
+      "box": [
+        575,
+        489,
+        344,
+        430
+      ],
+      "height": 109,
+      "anchor": 0.5203488372093024,
+      "anchor_source": 754,
+      "profiles": {
+        "legacy": 3215,
+        "h48c32": 2019,
+        "h32c16": 838
+      }
+    },
+    "collector": {
+      "crop": [
+        1000,
+        453,
+        536,
+        571
+      ],
+      "box": [
+        1166,
+        601,
+        209,
+        249
+      ],
+      "height": 47,
+      "anchor": 0.49282296650717705,
+      "anchor_source": 1269,
+      "profiles": {
+        "legacy": 677,
+        "h48c32": 408,
+        "h32c16": 172
+      }
+    }
+  },
+  "notes": [
+    "Attack poses point right, whereas the existing idle is front-facing.",
+    "The charged pose and collector preserve an amber accent across palette profiles.",
+    "A matching 3D model was not verified. The cavern is a temporary lab bitmap."
+  ]
+}

@@ -438,6 +438,12 @@
       "status": "regional_temporary_image"
     },
     {
+      "id": "config-device-field-workshop",
+      "name": "ナタ・秘源の機構室",
+      "region": "ナタ",
+      "status": "regional_temporary_image"
+    },
+    {
       "id": "natlan-port",
       "name": "ナタ・花翼の集付近の港（仮）",
       "region": "ナタ",

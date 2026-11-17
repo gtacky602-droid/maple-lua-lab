@@ -22,7 +22,7 @@ return function(C)
   local ok,reason=C.skillPrerequisite(s,a,key)
   if not ok then s.skillNotice=reason;return false end
   if s.paused or a.hp<=0 or a.lock>0 or (a.cd.SK59 or 0)>0 or #s.pending>=64 or (C.canAttack and not C.canAttack(s)) then return false end
-  local source=s.echoSource;local cast=copy(source.cast)
+  local source=s.echoSource;local cast=copy(source.cast);cast.startedAt=s.t
   for _,k in ipairs({'atk','elementBonus','normalBonus','skillBonus','troupe4','critRate','critDamageBonus'}) do cast[k]=a[k] end
   cast.key='SK59';cast.echoOf=source.cast.key;cast.mult=cast.mult*.55;cast.x=a.x;cast.y=a.y;cast.dir=a.dir;cast.color='#e9dcff';cast.next=s.t+.12
   a.cd.SK59=24;a.lock=cast.channel and source.lock or .35;s.skillNotice=nil

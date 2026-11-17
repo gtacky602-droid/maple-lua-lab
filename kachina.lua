@@ -16,7 +16,7 @@ return function(C)
    for i=#s.pending,1,-1 do if s.pending[i].placed==cast.placed then table.remove(s.pending,i) end end
    s.drillTop={x=cast.x,y=cast.y,expires=s.t+9}
   end
-  s.pending[#s.pending+1]=cast;return true
+  cast.startedAt=s.t;s.pending[#s.pending+1]=cast;return true
  end
  function C.companionAI(s,a,nearest)
   if s.companion~='kachina' then return ai(s,a,nearest) end

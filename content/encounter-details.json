@@ -520,10 +520,12 @@
       }
     },
     "boss-24090201": {
+      "extra_evidence": ["https://genshin.hoyoverse.com/m/en/news/detail/126305","evidence/config-device-field-lua.json","evidence/config-device-field-browser.json"],
+      "remaining": ["連続モーション・音", "難度・報酬の調整", "複数人と幻境実機の検証"],
       "art_candidate": {
         "item": "config-device",
-        "audit": "evidence/config-device-reference-audit.json",
-        "status": "compact upright idle candidate; separated configurations, attacks and animation not implemented"
+        "audit": "evidence/config-device-field-art-audit.json",
+        "status": "Web field prototype. Articulated claws, twin barrels, a charged sphere, a disabled pose and the collector."
       }
     },
     "boss-24090501": {

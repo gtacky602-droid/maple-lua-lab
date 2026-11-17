@@ -125,6 +125,10 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local art=C.yumkaFieldArt[pose]
   draw(f,art,x,y,pose=='idle' and 162 or art.profiles.legacy.height,mode,profile,flip~=(pose=='idle'))
  end
+ function C.drawConfigDeviceFieldArt(f,x,y,pose,mode,profile,flip)
+  local art=C.configDeviceFieldArt[pose]
+  draw(f,art,x,y,pose=='idle' and 156 or art.profiles.legacy.height,mode,profile,flip)
+ end
  function C.drawThunderFieldArt(f,x,y,h,mode,profile,pose,dir)
   draw(f,pose and C.thunderFieldArt[pose] or C.thunderArt,x,y,h,mode,profile,pose=='dash' and dir>0)
  end

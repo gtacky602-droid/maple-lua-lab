@@ -14,7 +14,7 @@ return function(C)
    for i=#s.pending,1,-1 do if s.pending[i].placed==cast.placed then table.remove(s.pending,i) end end
    s.stellarField={x=cast.x,y=cast.y,expires=s.t+10,range=360,vertical=160}
   end
-  s.pending[#s.pending+1]=cast;return true
+  cast.startedAt=s.t;s.pending[#s.pending+1]=cast;return true
  end
  function C.damageBonus(s,cast,element,e)
   local amount=bonus(s,cast,element,e);local f=s.stellarField;local a=s.actors[1]

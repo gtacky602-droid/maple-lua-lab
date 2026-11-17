@@ -5,6 +5,7 @@
   "weeklyChallenges": 14,
   "dottoreAliasMatches": 2,
   "suiteVariants": 2,
+  "configDeviceFieldRoute": true,
   "stygianCandidates": 7,
   "disabledUnimplemented": true,
   "launchesVerified": [

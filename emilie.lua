@@ -19,7 +19,7 @@ return function(C)
    for i=#s.pending,1,-1 do if s.pending[i].placed==cast.key then table.remove(s.pending,i) end end
    s.perfume=s.perfume or {};s.perfume[key]={x=cast.x,y=cast.y,expires=s.t+d.duration}
   end
-  s.pending[#s.pending+1]=cast;return true
+  cast.startedAt=s.t;s.pending[#s.pending+1]=cast;return true
  end
  function C.damageBonus(s,cast,element,e)
   local amount=bonus(s,cast,element,e)

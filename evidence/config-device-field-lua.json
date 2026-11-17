@@ -1,0 +1,27 @@
+{
+  "designTimingsMatch": true,
+  "twoClawAndBeamWindows": true,
+  "fixedAim": true,
+  "groundedPhysicalHits": true,
+  "prewindowAndReactionRejected": true,
+  "distinctPlayerAndCompanionCasts": true,
+  "bossAndCollectorOneContactEach": true,
+  "lastTickInterrupt": true,
+  "downTicks": 180,
+  "standupTicks": 24,
+  "rearmTicks": 1200,
+  "unbrokenLocalHit": true,
+  "missedColumnWithoutDamage": true,
+  "exitClearsProgress": true,
+  "bossDeathPriority": true,
+  "questReportAndSavedCooldown": true,
+  "normalAttackWithoutInterrupt": {
+    "seconds": 83.45,
+    "hp": 140
+  },
+  "sameSceneCommands": {
+    "png": 40,
+    "standard": 11352,
+    "light": 3045
+  }
+}

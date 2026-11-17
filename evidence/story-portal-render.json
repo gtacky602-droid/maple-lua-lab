@@ -693,12 +693,12 @@
     {
       "node": "natlan-field",
       "mode": "sprite",
-      "visible_portals": 4
+      "visible_portals": 5
     },
     {
       "node": "natlan-field",
       "mode": "rect",
-      "visible_portals": 4
+      "visible_portals": 5
     },
     {
       "node": "qucusaur-field-cavern",
@@ -717,6 +717,16 @@
     },
     {
       "node": "yumka-field-ravine",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "config-device-field-workshop",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "config-device-field-workshop",
       "mode": "rect",
       "visible_portals": 1
     },

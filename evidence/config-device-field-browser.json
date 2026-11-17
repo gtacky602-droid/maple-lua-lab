@@ -1,0 +1,38 @@
+{
+  "browser": "Chrome",
+  "companion": "columbina",
+  "play": {
+    "won": true,
+    "seconds": 49.22,
+    "moves": [
+      "FSC01",
+      "FSC02",
+      "FSC03"
+    ],
+    "hp": 140,
+    "returns": 0,
+    "interrupted": true
+  },
+  "scenery": {
+    "key": "configDeviceField",
+    "file": "config-device-field-background-v1.png",
+    "state": "ready"
+  },
+  "questAcceptedInUi": true,
+  "questReport": {
+    "xp": 7600,
+    "mora": 480
+  },
+  "sameSceneCommands": {
+    "png": 40,
+    "standard": 13938,
+    "light": 3687
+  },
+  "chargeAt": {
+    "tick": 71,
+    "hitsRemaining": 3
+  },
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}

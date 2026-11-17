@@ -66,6 +66,7 @@ function C.defeatEnemy(s,e,owner)
 end
 local function hit(s,a,e,mult,color,element)
  if e.hp<=0 or e.invulnerable then return false end
+ if e.onCastContact then return e.onCastContact(s,a,e) end
  if C.interceptHit and C.interceptHit(s,a,e,element) then return true end
  local resist=(e.resist and e.resist[element]) or 0
  if a.damageElements then
@@ -125,6 +126,7 @@ local function targets(s,a,range,limit,includePartners)
  local contacts={}
  for _,e in ipairs(s.enemies) do
   if (C.canTargetEnemy(e) or (a.persistentTarget==e and e.hp>0)) and (not a.targetId or e.id==a.targetId) and
+     (not e.acceptsCast or e.acceptsCast(a)) and
      (not a.groundOnly or not e.flying) and hitRegion(a,e,range) then
    out[#out+1]=e
    if not includePartners and (e.sharedHealth or e.fieldPartner) then
@@ -230,7 +232,7 @@ function C.attack(s,a,key)
  local ts=targets(s,a,range,limit)
  a.cd[key]=ct;a.lock=lock;a.walk=0
  s.effects[#s.effects+1]={x=a.x+a.dir*range/2,y=a.y-40,w=range,h=60,life=.3,color=color}
- local cast={id=a.id,atk=a.atk,elementBonus=a.elementBonus,x=a.x,y=a.y,dir=a.dir,range=range,limit=limit,mult=mult,color=color,
+ local cast={id=a.id,startedAt=s.t,atk=a.atk,elementBonus=a.elementBonus,x=a.x,y=a.y,dir=a.dir,range=range,limit=limit,mult=mult,color=color,
   key=key,isNormal=key=='normal',normalBonus=a.normalBonus,skillBonus=a.skillBonus,troupe4=a.troupe4,critRate=a.critRate,critDamageBonus=a.critDamageBonus,
   element=key=='normal' and 'physical' or (a.id==1 and 'anemo' or 'pyro'),
   remaining=hits,interval=interval,gain=key=='normal' and 2 or 5}

@@ -361,6 +361,38 @@
       "to": "inazuma-road"
     },
     {
+      "node": "inazuma-port",
+      "to": "watatsumi-landing"
+    },
+    {
+      "node": "inazuma-port",
+      "to": "tsurumi-coast"
+    },
+    {
+      "node": "tsurumi-coast",
+      "to": "inazuma-port"
+    },
+    {
+      "node": "tsurumi-coast",
+      "to": "wolflord-field-ruins"
+    },
+    {
+      "node": "wolflord-field-ruins",
+      "to": "tsurumi-coast"
+    },
+    {
+      "node": "watatsumi-landing",
+      "to": "inazuma-port"
+    },
+    {
+      "node": "watatsumi-landing",
+      "to": "hydro-hypostasis-field-cove"
+    },
+    {
+      "node": "hydro-hypostasis-field-cove",
+      "to": "watatsumi-landing"
+    },
+    {
       "node": "inazuma-road",
       "to": "inazuma-port"
     },
@@ -403,6 +435,14 @@
     {
       "node": "inazuma-town",
       "to": "sumeru-entry"
+    },
+    {
+      "node": "inazuma-town",
+      "to": "pyro-hypostasis-field-terrace"
+    },
+    {
+      "node": "pyro-hypostasis-field-terrace",
+      "to": "inazuma-town"
     },
     {
       "node": "inazuma-lantern-trail",
@@ -493,6 +533,18 @@
       "to": "veluriyam-hub"
     },
     {
+      "node": "sumeru-entry",
+      "to": "baptist-field-sanctuary"
+    },
+    {
+      "node": "sumeru-entry",
+      "to": "wenut-field-cavern"
+    },
+    {
+      "node": "sumeru-entry",
+      "to": "asimon-field-ruins"
+    },
+    {
       "node": "sumeru-hub",
       "to": "sumeru-entry"
     },
@@ -517,8 +569,44 @@
       "to": "sumeru-jadeplume-grove"
     },
     {
+      "node": "sumeru-field",
+      "to": "electro-regisvine-field-cave"
+    },
+    {
+      "node": "sumeru-field",
+      "to": "aeonblight-field-chamber"
+    },
+    {
+      "node": "sumeru-field",
+      "to": "dendro-hypostasis-field-den"
+    },
+    {
       "node": "sumeru-jadeplume-grove",
       "to": "sumeru-field"
+    },
+    {
+      "node": "electro-regisvine-field-cave",
+      "to": "sumeru-field"
+    },
+    {
+      "node": "aeonblight-field-chamber",
+      "to": "sumeru-field"
+    },
+    {
+      "node": "dendro-hypostasis-field-den",
+      "to": "sumeru-field"
+    },
+    {
+      "node": "asimon-field-ruins",
+      "to": "sumeru-entry"
+    },
+    {
+      "node": "wenut-field-cavern",
+      "to": "sumeru-entry"
+    },
+    {
+      "node": "baptist-field-sanctuary",
+      "to": "sumeru-entry"
     },
     {
       "node": "fontaine-entry",
@@ -541,6 +629,14 @@
       "to": "simulanka-hub"
     },
     {
+      "node": "fontaine-hub",
+      "to": "icewind-promenade"
+    },
+    {
+      "node": "fontaine-hub",
+      "to": "nostoi-castle-approach"
+    },
+    {
       "node": "fontaine-field",
       "to": "fontaine-hub"
     },
@@ -551,6 +647,70 @@
     {
       "node": "fontaine-field",
       "to": "bygone-camp"
+    },
+    {
+      "node": "fontaine-field",
+      "to": "tulpa-field-grotto"
+    },
+    {
+      "node": "fontaine-field",
+      "to": "emperor-field-cove"
+    },
+    {
+      "node": "fontaine-field",
+      "to": "seahorse-field-cavern"
+    },
+    {
+      "node": "fontaine-field",
+      "to": "field-generator-field-chamber"
+    },
+    {
+      "node": "emperor-field-cove",
+      "to": "fontaine-field"
+    },
+    {
+      "node": "seahorse-field-cavern",
+      "to": "fontaine-field"
+    },
+    {
+      "node": "field-generator-field-chamber",
+      "to": "fontaine-field"
+    },
+    {
+      "node": "tulpa-field-grotto",
+      "to": "fontaine-field"
+    },
+    {
+      "node": "icewind-promenade",
+      "to": "fontaine-hub"
+    },
+    {
+      "node": "icewind-promenade",
+      "to": "icewind-coppelia-field"
+    },
+    {
+      "node": "icewind-promenade",
+      "to": "icewind-coppelius-field"
+    },
+    {
+      "node": "icewind-coppelia-field",
+      "to": "icewind-promenade"
+    },
+    {
+      "node": "icewind-coppelius-field",
+      "to": "icewind-promenade"
+    },
+    {
+      "node": "nostoi-castle-approach",
+      "to": "fontaine-hub"
+    },
+    {
+      "node": "nostoi-castle-approach",
+      "to": "legatus-field-hall"
+    },
+    {
+      "node": "legatus-field-hall",
+      "to": "nostoi-castle-approach"
     },
     {
       "node": "natlan-entry",
@@ -575,6 +735,30 @@
     {
       "node": "natlan-field",
       "to": "natlan-port"
+    },
+    {
+      "node": "natlan-field",
+      "to": "qucusaur-field-cavern"
+    },
+    {
+      "node": "natlan-field",
+      "to": "yumka-field-ravine"
+    },
+    {
+      "node": "natlan-field",
+      "to": "config-device-field-workshop"
+    },
+    {
+      "node": "qucusaur-field-cavern",
+      "to": "natlan-field"
+    },
+    {
+      "node": "yumka-field-ravine",
+      "to": "natlan-field"
+    },
+    {
+      "node": "config-device-field-workshop",
+      "to": "natlan-field"
     },
     {
       "node": "natlan-port",
@@ -677,6 +861,14 @@
       "to": "dragonspine-camp"
     },
     {
+      "node": "dragonspine-depth",
+      "to": "cryo-hypostasis-field-basin"
+    },
+    {
+      "node": "cryo-hypostasis-field-basin",
+      "to": "dragonspine-depth"
+    },
+    {
       "node": "chenyu-camp",
       "to": "liyue-entry"
     },
@@ -689,6 +881,14 @@
       "to": "chenyu-camp"
     },
     {
+      "node": "chenyu-depth",
+      "to": "suanni-field-sanctum"
+    },
+    {
+      "node": "suanni-field-sanctum",
+      "to": "chenyu-depth"
+    },
+    {
       "node": "enkanomiya-camp",
       "to": "inazuma-road"
     },
@@ -699,6 +899,14 @@
     {
       "node": "enkanomiya-depth",
       "to": "enkanomiya-camp"
+    },
+    {
+      "node": "enkanomiya-depth",
+      "to": "bathysmal-field-sanctum"
+    },
+    {
+      "node": "bathysmal-field-sanctum",
+      "to": "enkanomiya-depth"
     },
     {
       "node": "tunigi-camp",
@@ -795,6 +1003,14 @@
     {
       "node": "chasm-wp-25264",
       "to": "chasm-depth"
+    },
+    {
+      "node": "chasm-wp-25264",
+      "to": "ruin-serpent-field-pit"
+    },
+    {
+      "node": "ruin-serpent-field-pit",
+      "to": "chasm-wp-25264"
     },
     {
       "node": "chasm-wp-25266",
@@ -1005,20 +1221,60 @@
       "to": "liyue-field"
     },
     {
+      "node": "oceanid-approach",
+      "to": "oceanid-field-reservoir"
+    },
+    {
+      "node": "oceanid-field-reservoir",
+      "to": "oceanid-approach"
+    },
+    {
       "node": "primo-approach",
       "to": "liyue-field"
+    },
+    {
+      "node": "primo-approach",
+      "to": "primo-field-vault"
+    },
+    {
+      "node": "primo-field-vault",
+      "to": "primo-approach"
     },
     {
       "node": "maguu-approach",
       "to": "inazuma-road"
     },
     {
+      "node": "maguu-approach",
+      "to": "maguu-field-dojo"
+    },
+    {
+      "node": "maguu-field-dojo",
+      "to": "maguu-approach"
+    },
+    {
       "node": "array-approach",
       "to": "inazuma-road"
     },
     {
+      "node": "array-approach",
+      "to": "array-field-court"
+    },
+    {
+      "node": "array-field-court",
+      "to": "array-approach"
+    },
+    {
       "node": "thunder-approach",
       "to": "inazuma-road"
+    },
+    {
+      "node": "thunder-approach",
+      "to": "thunder-field-crest"
+    },
+    {
+      "node": "thunder-field-crest",
+      "to": "thunder-approach"
     }
   ],
   "hidden_connections_checked": 9,

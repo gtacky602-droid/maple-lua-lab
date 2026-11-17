@@ -32,7 +32,7 @@ return function(C)
    cast.key='wanderer:'..key;cast.element='anemo';cast.color='#b2e8d4';cast.vertical=150
    if key=='normal' and (a.floatUntil or 0)>s.t then cast.normalBonus=(cast.normalBonus or 0)+.15 end
   end
-  s.pending[#s.pending+1]=cast;return true
+  cast.startedAt=s.t;s.pending[#s.pending+1]=cast;return true
  end
  function C.companionAI(s,a,nearest)
   if s.companion=='wanderer' then

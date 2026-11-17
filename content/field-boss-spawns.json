@@ -1273,6 +1273,18 @@
         {"id":"FYM02","kind":"belly","title":"山王の腹落ち","reach":215,"lock":60,"width":1.5,"height":0.65,"air":[84,120],"distance":1.4,"lift":0.9,"active":[[120,132]],"recover":168,"total":312,"damage":25,"element":"physical"},
         {"id":"FYM03","kind":"fruit","title":"二果の火吐き","reach":234,"lock":54,"first":1,"second":2,"width":0.6,"height":0.65,"fire":[90,144],"active":[[126,138],[180,192]],"recover":204,"total":312,"damage":20,"element":"pyro"}
       ]
+    },
+    {
+      "id":"boss-24090201","controller":"configDevice","entity":24090201,
+      "name":"秘源機兵・機巧デバイス","node":"config-device-field-workshop","storyChallenge":"config-device",
+      "level":106,"hp":1020,"mora":380,"artHeight":156,"floorY":480,"home":890,
+      "arenaMin":340,"arenaMax":1570,"noticeRange":310,"noticeTicks":36,"restTicks":36,
+      "leashTicks":300,"respawnTicks":3600,"walkSpeed":60,"contactDamage":0,
+      "moves":[
+        {"id":"FSC01","kind":"claw","title":"鉤爪の交差打ち","reach":162,"lock":48,"near":0.25,"far":1.6,"height":1,"low":0.2,"active":[[102,114],[162,174]],"recover":198,"total":282,"damage":18,"element":"electro"},
+        {"id":"FSC02","kind":"beam","title":"照準・二連線","reach":208,"lock":54,"near":0.45,"far":2.4,"height":0.65,"low":0.25,"active":[[108,120],[168,180]],"recover":204,"total":288,"damage":19,"element":"electro"},
+        {"id":"FSC03","kind":"charge","title":"集積・球雷砲","reach":210,"lock":60,"distance":2,"width":1.6,"height":1.2,"spawn":48,"close":300,"active":[[324,342]],"recover":360,"total":504,"damage":34,"element":"electro"}
+      ]
     }
   ]
 }

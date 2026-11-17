@@ -5,6 +5,7 @@ return function(C)
   local d=defs[key]
   local c={id=2,key='beidou:'..key,atk=a.atk,elementBonus=a.elementBonus,normalBonus=a.normalBonus,skillBonus=a.skillBonus,troupe4=a.troupe4,critRate=a.critRate,critDamageBonus=a.critDamageBonus,isNormal=key=='normal',x=a.x,y=a.y,dir=a.dir,range=key=='skill4' and 220 or 180,limit=d.targets,mult=d.mult,color='#bc9de6',element=key=='normal' and 'physical' or 'electro',remaining=d.hits,interval=d.interval or .08,next=s.t+(d.delay or .15),gain=key=='normal' and 2 or 5}
   if key=='skill4' then c.follow=true;c.radial=true;c.placed='beidou:shield' end
+  c.startedAt=s.t
   return c
  end
  function C.companionAttack(s,a,key)
