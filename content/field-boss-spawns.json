@@ -1939,6 +1939,125 @@
       "damage": 23
     }
   ]
+},
+{
+  "id": "boss-25140101",
+  "controller": "immortalConstruct",
+  "entity": 25140101,
+  "name": "不滅の副産物",
+  "node": "immortal-construct-root-hollow",
+  "storyChallenge": "immortal-construct",
+  "level": 142,
+  "hp": 1260,
+  "mora": 550,
+  "artHeight": 200,
+  "bodyHeight": 140,
+  "floorY": 480,
+  "home": 940,
+  "arenaMin": 325,
+  "arenaMax": 1580,
+  "noticeRange": 350,
+  "noticeTicks": 36,
+  "restTicks": 42,
+  "leashTicks": 360,
+  "respawnTicks": 3600,
+  "walkSpeed": 60,
+  "contactDamage": 0,
+  "keepHpOnExit": true,
+  "resist": {},
+  "life": {
+    "cost": 96,
+    "layers": 6,
+    "unitsPerLayer": 2,
+    "chantUnits": 4,
+    "damageFactor": 0.85,
+    "healOnHit": 18,
+    "healBudget": 72,
+    "layerStaggerTicks": 36,
+    "downTicks": 180,
+    "downFactor": 1.2
+  },
+  "moves": [
+    {
+      "id": "IC01",
+      "kind": "rake",
+      "title": "根爪の二連掻き",
+      "reach": 210,
+      "lock": 48,
+      "near": 0.1,
+      "far": 2.2,
+      "height": 0.68,
+      "active": [
+        [
+          104,
+          116
+        ],
+        [
+          174,
+          186
+        ]
+      ],
+      "recover": 212,
+      "total": 288,
+      "damage": 21
+    },
+    {
+      "id": "IC02",
+      "kind": "seeds",
+      "title": "赤葉の二粒",
+      "reach": 250,
+      "lock": 48,
+      "spacing": 1.2,
+      "width": 1.4,
+      "height": 0.6,
+      "active": [
+        [
+          128,
+          144
+        ],
+        [
+          208,
+          224
+        ]
+      ],
+      "recover": 250,
+      "total": 326,
+      "damage": 23
+    },
+    {
+      "id": "IC03",
+      "kind": "life",
+      "title": "輝かしき命の姿と灼焔の華",
+      "reach": 230,
+      "lock": 48,
+      "near": 0.1,
+      "far": 2.2,
+      "deploy": 60,
+      "chantAt": 360,
+      "waveRadius": 1.8,
+      "radius": 2.5,
+      "height": 0.68,
+      "active": [
+        [
+          140,
+          154
+        ],
+        [
+          220,
+          234
+        ],
+        [
+          300,
+          314
+        ]
+      ],
+      "damage": 22,
+      "releaseDelay": 156,
+      "releaseTicks": 18,
+      "releaseDamage": 32,
+      "recovery": 96
+    }
+  ]
 }
   ]
 }

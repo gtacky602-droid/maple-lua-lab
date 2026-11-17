@@ -1,0 +1,36 @@
+{
+  "browser": "Chrome",
+  "companion": "wanderer",
+  "play": {
+    "won": true,
+    "seconds": 35.47,
+    "moves": [
+      "IC01",
+      "IC02",
+      "IC03"
+    ],
+    "hp": 140,
+    "returns": 0,
+    "shieldBroken": true,
+    "fireCasts": 10
+  },
+  "scenery": {
+    "key": "immortalConstructField",
+    "file": "immortal-construct-field-background-v1.png",
+    "state": "ready"
+  },
+  "questAcceptedInUi": true,
+  "questReport": {
+    "xp": 10600,
+    "mora": 720
+  },
+  "shieldInterrupted": true,
+  "sameSceneCommands": {
+    "png": 30,
+    "standard": 18597,
+    "light": 5109
+  },
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}

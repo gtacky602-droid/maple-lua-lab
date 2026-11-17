@@ -933,6 +933,10 @@
       "to": "drifting-snow-court"
     },
     {
+      "node": "snezhnaya-field",
+      "to": "immortal-construct-root-hollow"
+    },
+    {
       "node": "dragonspine-camp",
       "to": "mond-border"
     },
@@ -1378,6 +1382,10 @@
     },
     {
       "node": "drifting-snow-court",
+      "to": "snezhnaya-field"
+    },
+    {
+      "node": "immortal-construct-root-hollow",
       "to": "snezhnaya-field"
     }
   ],

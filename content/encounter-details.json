@@ -266,10 +266,12 @@
       }
     },
     "boss-25140101": {
+      "remaining": ["原作の星反応と本作の採用技の対応", "守り・自傷・回復・時刻・地域数値・周回報酬の調整", "左右別・連続動作・被弾・撃破の作画と音", "背面モデル照合・Webマルチ・幻境実機"],
+      "extra_evidence": ["https://genshin.hoyoverse.com/m/th/news/detail/165655", "evidence/immortal-construct-field-lua.json", "evidence/immortal-construct-field-browser.json"],
       "art_candidate": {
         "item": "immortal-construct",
-        "audit": "evidence/immortal-construct-reference-audit.json",
-        "status": "idle candidate"
+        "audit": "evidence/immortal-construct-field-art-audit.json",
+        "status": "Legacy gallery idle retained; Web battle uses five nonhuman beast poses and an eye-marked leaf seed"
       }
     },
     "boss-22100501": {

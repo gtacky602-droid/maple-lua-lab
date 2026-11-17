@@ -913,12 +913,12 @@
     {
       "node": "snezhnaya-field",
       "mode": "sprite",
-      "visible_portals": 5
+      "visible_portals": 6
     },
     {
       "node": "snezhnaya-field",
       "mode": "rect",
-      "visible_portals": 5
+      "visible_portals": 6
     },
     {
       "node": "dragonspine-camp",
@@ -1597,6 +1597,16 @@
     },
     {
       "node": "drifting-snow-court",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "immortal-construct-root-hollow",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "immortal-construct-root-hollow",
       "mode": "rect",
       "visible_portals": 1
     }

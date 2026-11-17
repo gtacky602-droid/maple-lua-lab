@@ -602,6 +602,36 @@
       "transparent": 0
     },
     {
+      "key": "immortalConstructField",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "immortalConstructField",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "immortalConstructField",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "immortalConstructField",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "immortalConstructField",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "immortalConstructField",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "generatorField",
       "camera": -960,
       "transparent": 0

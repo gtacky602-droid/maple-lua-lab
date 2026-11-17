@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 160 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 158,
+  "scope": "Authored 161 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 159,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -962,6 +962,12 @@
     {
       "id": "drifting-snow-court",
       "name": "スネージナヤ・氷冠の雪庭",
+      "region": "スネージナヤ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "immortal-construct-root-hollow",
+      "name": "スネージナヤ・赤葉の根洞",
       "region": "スネージナヤ",
       "status": "regional_temporary_image"
     }

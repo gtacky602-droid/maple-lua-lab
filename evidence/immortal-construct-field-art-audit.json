@@ -1,0 +1,210 @@
+{
+  "tool": "built-in image_gen",
+  "references": [
+    {
+      "url": "https://img.gamewith.jp/img/original_a6350a05c80be6d3eaf496c53bc2bb32.jpeg",
+      "page": "https://gamewith.jp/genshin/article/show/235614",
+      "view": "Version preview artwork, leaf wings and chest details; tips partly cropped",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "2b11d8f1570a602c012ce1b667848f1c5fbff1ca9a934a58d3de64b1d9130cd3"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/original_7d0072b5274a9e8bb3a46e18edf7054c.png",
+      "page": "https://gamewith.jp/genshin/article/show/571058",
+      "view": "Gameplay, side angle, legs and torso; left side obscured by effects",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "78952322cd6fabdc14b849a8d970f9fdd0f8869f63a437dbd6785ca8af94c5ea"
+    }
+  ],
+  "poses": {
+    "ready": {
+      "height": 200,
+      "crop": [
+        0,
+        0,
+        660,
+        600
+      ],
+      "raw_box": [
+        10,
+        85,
+        501,
+        455
+      ],
+      "box": [
+        25,
+        25,
+        491,
+        370
+      ],
+      "anchor": 0.4786150712830957,
+      "profiles": {
+        "legacy": 13892,
+        "h48c32": 8634,
+        "h32c16": 3726
+      }
+    },
+    "rake": {
+      "height": 175,
+      "crop": [
+        660,
+        0,
+        660,
+        600
+      ],
+      "raw_box": [
+        533,
+        133,
+        1012,
+        457
+      ],
+      "box": [
+        685,
+        25,
+        479,
+        324
+      ],
+      "anchor": 0.5365344467640919,
+      "profiles": {
+        "legacy": 12570,
+        "h48c32": 7768,
+        "h32c16": 3317
+      }
+    },
+    "wing": {
+      "height": 211,
+      "crop": [
+        0,
+        600,
+        660,
+        600
+      ],
+      "raw_box": [
+        33,
+        577,
+        497,
+        968
+      ],
+      "box": [
+        25,
+        625,
+        464,
+        391
+      ],
+      "anchor": 0.521551724137931,
+      "profiles": {
+        "legacy": 13761,
+        "h48c32": 8449,
+        "h32c16": 3696
+      }
+    },
+    "bloom": {
+      "height": 237,
+      "crop": [
+        660,
+        600,
+        660,
+        600
+      ],
+      "raw_box": [
+        533,
+        543,
+        1009,
+        981
+      ],
+      "box": [
+        685,
+        625,
+        476,
+        438
+      ],
+      "anchor": 0.5399159663865546,
+      "profiles": {
+        "legacy": 14849,
+        "h48c32": 9243,
+        "h32c16": 4059
+      }
+    },
+    "down": {
+      "height": 134,
+      "crop": [
+        0,
+        1200,
+        660,
+        600
+      ],
+      "raw_box": [
+        17,
+        1145,
+        504,
+        1393
+      ],
+      "box": [
+        25,
+        1225,
+        487,
+        248
+      ],
+      "anchor": 0.4681724845995893,
+      "profiles": {
+        "legacy": 11434,
+        "h48c32": 6979,
+        "h32c16": 3120
+      }
+    },
+    "seed": {
+      "height": 61,
+      "crop": [
+        660,
+        1200,
+        660,
+        600
+      ],
+      "raw_box": [
+        634,
+        1208,
+        922,
+        1320
+      ],
+      "box": [
+        685,
+        1225,
+        288,
+        112
+      ],
+      "anchor": 0.5069444444444444,
+      "profiles": {
+        "legacy": 2193,
+        "h48c32": 1418,
+        "h32c16": 560
+      }
+    }
+  },
+  "shared_scale": 0.5405405405405406,
+  "prompts": {
+    "sprite": "Use case: stylized-concept. Asset: transparent pixel-art boss atlas for a Maple-like sidescroller. Images 1 and 2 are authentic costume/anatomy references; image 3 is the existing approved-style lab seed, match its palette and creature silhouette. Same Immortal Construct in ALL five body poses: a NONHUMAN gnarled bark-and-root winged beast, hooked dark birdlike talon feet, angular woody hind legs and clawed forelimbs, dark slate root tendrils, ochre seams, huge pink magenta chest flower supporting a slender tiny ivory-and-gold faceless crowned plant figure, branching dark spars ending in broad autumn-red leaf fans with bright cream-orange eye-shaped inlays, carved tan fin with diamond opening, thin orange streamer tail. Preserve beast proportions, NOT human chibi anatomy, NOT a generic feathered phoenix. All body poses face LEFT in consistent 3/4 side view and share the same body/root/head scale and palette family. Generate ONE coherent atlas at 1024x1536, exact 2 columns by 3 rows, SIX isolated sprites, generous transparent gutters. Row 1: left grounded ready crouch with both feet planted; right claw raking strongly left, leafy wings swept back. Row 2: left raising wings to scatter seeds, pink chest flower visible; right blazing-life bloom pose, flower open and red leafy wings raised with brighter cream inlays, solid small flame-shaped petals but NO surrounding fog. Row 3: left exhausted low crouch with wings drooped, chest flower folded, both feet grounded; right ONE standalone red-and-gold eye-marked leaf seed projectile pointing LEFT, NO character. All wings/tail/claws fit entirely within their slot; no overlap with neighbors. Crisp square pixel clusters, warm limited red/pink/gold/dark-bark palette and clear dark outline. True transparent background around/between every limb, no ground plane, no shadows, no text, no numbers, no UI, no poster, no scenery, no diffuse glow. Same character and outfit/branch proportions across poses, intended battle body height about 200px.",
+    "background": "Use case: stylized-concept. Asset: wide temporary background for a 2D pixel RPG, 1536x1024 landscape. Reference screenshot is only for environmental colors and root-cavern mood; exclude all people, enemies, damage numbers, interface and text. Empty northern valley hollow beneath huge weathered twisted tree roots, muted ochre/red reeds and a few pink flowers far behind, dark teal stone walls and worn alchemical ruin traces at the back, small opening to pale snowy daylight above-left. A quiet court west of a northern station, an independent layout, not exact original geography. Crisp painted game background, restrained autumn red and charcoal-teal colors, low contrast at center so pink/red beast remains readable. Clear uninterrupted flat dull stone bottom quarter, no foreground branches or tall objects across the play area. No characters, no monsters, no magical barriers, no HUD, no text. This is a provisional image for a lab whose final backgrounds will be 3D."
+  },
+  "raw_atlas_sha256": "e0c7a73d057cdd08a9585af81522b1aad1a026ac1cae7ea67d2832abee969c8f",
+  "legacy_idle_sha256": "8cefb9b754a4a1c1b1ac4f062f631312ff5a15a517a7f2ce6cd110f51202f540",
+  "outputs": {
+    "immortal-construct-field-poses-source-v1.png": "a52b108f47fd2b3fbc77c42bacc2748b891473b43ff4b19436b0f92c49f05dc5",
+    "immortal-construct-field-background-v1.png": "12fc37102fe5224965212430f4b024ed2d2dacc89710892ea0978400614059db"
+  },
+  "model_lookup": {
+    "page": "https://models.spriters-resource.com/pc_computer/genshinimpact/asset/604015/",
+    "listing": "Immortal Construct, DAE/FBX, Monster_Zharptitsa_01_Flower01 and _02_Body01/_Wing01 textures",
+    "zip": "https://models.spriters-resource.com/media/assets/581/604015.zip?updated=1789012021",
+    "local_zip_status": 403,
+    "geometry_viewed": false
+  },
+  "notes": [
+    "Five nonhuman beast poses and one leaf seed share one scale. Main connected silhouettes repacked with transparent gutters; disconnected decorative particles excluded.",
+    "Red leaf fans, eye-shaped cream marks, magenta flower, ivory crowned plant figure, root limbs and talons retained. No human chibi conversion.",
+    "New ready is battle idle only; legacy gallery idle preserved. All poses face left; opposite-side geometry and rear attachments remain unverified.",
+    "Body hurtbox height140 excludes tall wing/crown tips. Minor support-root shifts between poses are provisional key-pose animation.",
+    "Background is a temporary independent root-cavern interpretation, not precise original geography or native 3D."
+  ]
+}

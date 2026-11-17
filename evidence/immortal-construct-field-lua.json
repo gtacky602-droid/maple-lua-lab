@@ -1,0 +1,27 @@
+{
+  "twoFixedRakeWindows": true,
+  "twoFixedSeedWindows": true,
+  "selfSpendKeepsBodyDamageable": true,
+  "shieldDistinctCastsOldReactionExclusion": true,
+  "ordinaryElementsEachRemoveOneUnit": true,
+  "eachLayerCancelsMinorWave": true,
+  "actualEnemyHitHealsWithinBudget": true,
+  "playerHitsDoNotHealBoss": true,
+  "iframeMissDoesNotHeal": true,
+  "fewerLayersStartEarlyChant": true,
+  "oneLayerDoesNotCancelFinalBloom": true,
+  "lastTickFullBreakCancelsBloom": true,
+  "unbrokenShieldStillEndsInFiniteTime": true,
+  "HPZeroBeatsDeployAndBloom": true,
+  "saveExitAndOneRewardReportRespawn": true,
+  "normalAttackWithoutHealing": {
+    "seconds": 75.75,
+    "hp": 140,
+    "shieldInterrupted": true
+  },
+  "sameSceneCommands": {
+    "png": 57,
+    "standard": 16588,
+    "light": 4562
+  }
+}

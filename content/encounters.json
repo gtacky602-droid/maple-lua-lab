@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 48,
+    "partial": 49,
     "complete": 0
   },
   "encounters": [
@@ -806,23 +806,28 @@
       "entity_ids": [
         "25140101"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/immortalconstruct.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/immortalconstruct.json",
+        "https://genshin.hoyoverse.com/m/th/news/detail/165655",
+        "evidence/immortal-construct-field-lua.json",
+        "evidence/immortal-construct-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "原作の星反応と本作の採用技の対応",
+        "守り・自傷・回復・時刻・地域数値・周回報酬の調整",
+        "左右別・連続動作・被弾・撃破の作画と音",
+        "背面モデル照合・Webマルチ・幻境実機"
       ],
+      "fieldNode": "immortal-construct-root-hollow",
+      "fieldEntrance": "スネージナヤ・赤葉の根洞（Lv142）",
       "art_candidate": {
         "source": "assets/immortal-construct-idle-source-v1.png",
         "encoding": "assets/immortal-construct-idle-sprites.json",
-        "audit": "evidence/immortal-construct-reference-audit.json",
-        "status": "idle candidate"
+        "audit": "evidence/immortal-construct-field-art-audit.json",
+        "status": "Legacy gallery idle retained; Web battle uses five nonhuman beast poses and an eye-marked leaf seed"
       }
     },
     {

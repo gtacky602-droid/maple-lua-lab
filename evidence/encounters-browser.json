@@ -19,6 +19,7 @@
   "fallenVigilFieldRoute": true,
   "flugelFieldRoute": true,
   "driftingSnowFieldRoute": true,
+  "immortalConstructFieldRoute": true,
   "stygianCandidates": 7,
   "disabledUnimplemented": true,
   "launchesVerified": [
