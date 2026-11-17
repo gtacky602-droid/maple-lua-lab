@@ -33,12 +33,12 @@
     {
       "node": "mond-road",
       "mode": "sprite",
-      "visible_portals": 9
+      "visible_portals": 10
     },
     {
       "node": "mond-road",
       "mode": "rect",
-      "visible_portals": 9
+      "visible_portals": 10
     },
     {
       "node": "mond-roadside-rest",
@@ -1627,6 +1627,16 @@
     },
     {
       "node": "dvalin-sky-arena",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "andrius-wolf-ring",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "andrius-wolf-ring",
       "mode": "rect",
       "visible_portals": 1
     }

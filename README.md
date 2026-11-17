@@ -970,3 +970,12 @@ HoYoWiki3993の全身レンダー、ゲーム内正面、最終設定画の正�
 Luaで通常攻撃のみ・同行戦闘不能・回復なし186.6秒、残HP112、7ダウン、落下0で8行動を検査。ChromeのUI通し、163マップ表示、486背景条件、保存23件と49通常ボスcontrollerの保存復元も確認。6体勢と前景部位をPNG/軽量矩形で比較できる。背景は仮画像。本番3D、連続アニメーション、難度別報酬、装備別とWebマルチは未完。全体は163マップ/106試作依頼、ボス70候補中51件部分実装・完成0。次は北風の王狼の最新設計をWebへ接続する。
 
 最新ラボ: http://127.0.0.1:8848/ 。[実装と検証の詳細](docs/weekly-boss-v1/DVALIN_WEB.md)、[Lua](evidence/dvalin-weekly-lua.json)、[Chrome](evidence/dvalin-weekly-browser.json)、[同一時刻PNG](evidence/dvalin-weekly-png.png)、[軽量16色](evidence/dvalin-weekly-light.png)。
+
+
+## 2026-11-18 北風の王狼の週ボス試作
+
+モンド城門広場で「王狼の再現戦・氷と北風」を受注し、南の街道x940から狼の領へ入る。WA01〜11、HP半分で一度だけの疾走試練、二形態、上段への通常ジャンプ、低/高/低の風刃、有限の端の冷気床、咆哮、単体幻影を接続した。14姿勢を追加し、後半の前脚/尾も白い鬣を保つ。Lv24/HP900/風・氷無効と報酬は比較用設定で、物理通常や他元素は有効。
+
+Luaの通常攻撃のみ・同行戦闘不能・回復なしは147.08秒、残HP116、移行1回、落下0で11行動を通過。風刃はQA追補の90tick間隔にし、2回の実ジャンプと着地で回避。AIの上段退避、Chromeの受注/戦闘/帰還報告/保存、164マップ表示、492背景条件、保存23件/49通常ボスcontrollerの保存復元を確認した。全体は164マップ/107試作依頼、ボス70候補中52件部分実装・完成0。
+
+最新ラボ: http://127.0.0.1:8850/ 。[実装と仮値](docs/weekly-boss-v1/ANDRIUS_WEB.md)、[Lua](evidence/andrius-weekly-lua.json)、[Chrome](evidence/andrius-weekly-browser.json)、[PNG](evidence/andrius-weekly-png.png)、[軽量16色](evidence/andrius-weekly-light.png)。背景はラボ仮画像、本番は3D配置の方針を維持。連続作画・装備別/難度別バランス・本番報酬・Webマルチ・幻境実機は未完。次は公子の三形態と14行動を進める。

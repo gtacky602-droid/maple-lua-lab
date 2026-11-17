@@ -363,11 +363,21 @@
       }
     },
     "boss-29020101": {
+      "remaining": [
+        "連続アニメーション・被弾・試練終了の作画",
+        "装備別・難度別報酬とバランス",
+        "Webマルチ・幻境実機"
+      ],
+      "extra_evidence": [
+        "evidence/andrius-weekly-lua.json",
+        "evidence/andrius-weekly-browser.json"
+      ],
       "art_candidate": {
         "item": "andrius",
-        "audit": "evidence/andrius-reference-audit.json",
-        "status": "normal-form idle candidate only; no live combat or animations"
-      }
+        "audit": "evidence/andrius-weekly-art-audit.json",
+        "status": "Web weekly prototype: fourteen quadruped key poses across blue-mane and white-mane phases; legacy gallery idle preserved"
+      },
+      "review_note": "WA01〜11、HP半分で一度の疾走試練、上段と低/高/低の風刃をWebへ接続。Lv24/HP900/風・氷無効は比較用設定。物理通常は有効。"
     },
     "boss-29060201": {
       "art_candidate": {

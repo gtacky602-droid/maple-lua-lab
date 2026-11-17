@@ -1,0 +1,56 @@
+[
+  {
+    "test": "test_andrius_weekly.py",
+    "returncode": 0,
+    "output": "{'normalAttackWithoutHealing': {'seconds': 147.08, 'hp': 116, 'transitions': 1, 'falls': 0, 'moves': ['WA01', 'WA02', 'WA03', 'WA04', 'WA05', 'WA06', 'WA07', 'WA08', 'WA09', 'WA10', 'WA11']}, 'ordinaryWindBladeJumpsAndLandings': 2, 'aiUpperLanding': True, 'aiMaxHorizontalStep': 3.5, 'provisionalOriginalResistancesAndMixedComponents': True, 'closeAttackWindows': {'WA01': 20, 'WA02': 19, 'WA03': 24, 'WA04': 25, 'WA05': 22}, 'actualLeapAndLockedLanding': True, 'tailFacingAndThreePieceCap': True, 'oneSafeHP50Transition': True, 'transitionTwoDashesLandingAnd504Counter': True, 'upperFloorOrdinaryJumpAndRoarSafe': True, 'lowWaveMatchesFloorHeight': True, 'windBladesSpawns': [96, 186, 276], 'threeLockedRainPointsAndTwoFiniteEdges': True, 'edgeFloorOneSecondCooldown': True, 'roarRespectsExistingHurtImmunity': True, 'onePhantomNoAddRewards': True, 'lethalDamagePrecedesTransition': True, 'unfinishedSaveExitWipeAndVictoryReportRespawn': True, 'sameSceneCommands': {'png': 67, 'standard': 16646, 'light': 4472}}\n",
+    "error": ""
+  },
+  {
+    "test": "test_dvalin_weekly.py",
+    "returncode": 0,
+    "output": "{'normalAttackWithoutHealing': {'seconds': 186.6, 'hp': 112, 'breaks': 7, 'falls': 0, 'moves': ['WD01', 'WD02', 'WD03', 'WD04', 'WD05', 'WD06', 'WD07', 'WD08']}, 'aiActualPadLandingAndDamage': 87, 'aiMaxHorizontalStep': 3.5, 'realScheduledNormalGuard': 20, 'sharedGuardEventDedup': True, 'crystalWindow': [42, 462], 'actualGroundReachRejected': True, 'sharedPadLoweringBothActors': True, 'unfinishedSaveAndExitRestart': True, 'strictSaveValidation': True, 'bothGapsBothDirections': True, 'lockedHitWindows': {'WD01': 24, 'WD02': 20, 'WD06': 28, 'WD07': 18}, 'breathHitTicks': [132, 168], 'fourBoltsTwoPairCap': True, 'hazardPauseAndRewarning': True, 'oneVictoryReportAndRespawn': True, 'postVictoryFallRecovery': True, 'wipeResetsAtHub': True, 'aiCloseFollowCrossesGap': True, 'sameSceneCommands': {'png': 12, 'standard': 12702, 'light': 3448}}\n",
+    "error": ""
+  },
+  {
+    "test": "test_savegame.py",
+    "returncode": 0,
+    "output": "23 save checks passed\n",
+    "error": ""
+  },
+  {
+    "test": "test_field_save_contract.py",
+    "returncode": 0,
+    "output": "49 field-controller checkpoint round-trips passed\n",
+    "error": ""
+  },
+  {
+    "test": "test_story_portal_render.py",
+    "returncode": 0,
+    "output": "164 nodes x 2 modes: portal outlines and background draw order passed\n",
+    "error": ""
+  },
+  {
+    "test": "test_story_growth.py",
+    "returncode": 0,
+    "output": "21 growth checks passed 9 contracts 220.76666666666668 sim seconds\n",
+    "error": ""
+  },
+  {
+    "test": "test_timed_combat.py",
+    "returncode": 0,
+    "output": "16 timed combat checks passed\n",
+    "error": ""
+  },
+  {
+    "test": "test_companion.py",
+    "returncode": 0,
+    "output": "16 companion checks passed\n",
+    "error": ""
+  },
+  {
+    "test": "test_encounters.py",
+    "returncode": 0,
+    "output": "89 encounter checks passed\n",
+    "error": ""
+  }
+]

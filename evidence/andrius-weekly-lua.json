@@ -1,0 +1,54 @@
+{
+  "normalAttackWithoutHealing": {
+    "seconds": 147.08,
+    "hp": 116,
+    "transitions": 1,
+    "falls": 0,
+    "moves": [
+      "WA01",
+      "WA02",
+      "WA03",
+      "WA04",
+      "WA05",
+      "WA06",
+      "WA07",
+      "WA08",
+      "WA09",
+      "WA10",
+      "WA11"
+    ]
+  },
+  "ordinaryWindBladeJumpsAndLandings": 2,
+  "aiUpperLanding": true,
+  "aiMaxHorizontalStep": 3.5,
+  "provisionalOriginalResistancesAndMixedComponents": true,
+  "closeAttackWindows": {
+    "WA01": 20,
+    "WA02": 19,
+    "WA03": 24,
+    "WA04": 25,
+    "WA05": 22
+  },
+  "actualLeapAndLockedLanding": true,
+  "tailFacingAndThreePieceCap": true,
+  "oneSafeHP50Transition": true,
+  "transitionTwoDashesLandingAnd504Counter": true,
+  "upperFloorOrdinaryJumpAndRoarSafe": true,
+  "lowWaveMatchesFloorHeight": true,
+  "windBladesSpawns": [
+    96,
+    186,
+    276
+  ],
+  "threeLockedRainPointsAndTwoFiniteEdges": true,
+  "edgeFloorOneSecondCooldown": true,
+  "roarRespectsExistingHurtImmunity": true,
+  "onePhantomNoAddRewards": true,
+  "lethalDamagePrecedesTransition": true,
+  "unfinishedSaveExitWipeAndVictoryReportRespawn": true,
+  "sameSceneCommands": {
+    "png": 67,
+    "standard": 16646,
+    "light": 4472
+  }
+}

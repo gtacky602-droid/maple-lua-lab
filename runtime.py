@@ -306,8 +306,10 @@ def runtime():
     )
     dvalin=lua.execute((ROOT/'weekly-dvalin.lua').read_text(encoding='utf-8'))(core)
     core.dvalinWeeklyArt=field_art(lua,'dvalin-weekly',(),variants={pose:'dvalin-weekly-'+pose+'-sprites-v1.json' for pose in ('hover','glide','perch','breath','roar','down','claw','head','crystal','orb','perch-body','breath-body')})
+    andrius=lua.execute((ROOT/'weekly-andrius.lua').read_text(encoding='utf8'))(core)
+    core.andriusWeeklyArt=field_art(lua,'andrius-weekly',(),variants={phase+'-'+pose:'andrius-weekly-'+phase+'-'+pose+'-sprites-v1.json' for phase,poses in [('normal',('ready','swipe','tail','leap','run','land')),('awake',('ready','rise','howl','run','leap','land','swipe','tail'))] for pose in poses})
     weekly_specs=json.loads((ROOT/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses']
-    lua.execute((ROOT/'weekly-bosses.lua').read_text(encoding='utf8'))(core,lua.table_from(weekly_specs,recursive=True),lua.table_from({'dvalin':dvalin}))
+    lua.execute((ROOT/'weekly-bosses.lua').read_text(encoding='utf8'))(core,lua.table_from(weekly_specs,recursive=True),lua.table_from({'dvalin':dvalin,'andrius':andrius}))
     return lua, core
 
 def native(value):

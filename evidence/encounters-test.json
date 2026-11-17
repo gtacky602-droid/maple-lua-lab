@@ -1,5 +1,5 @@
 {
-  "count": 88,
+  "count": 89,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -51,6 +51,7 @@
     "Wavebinder has a Novokitezhgrad tide cavern route",
     "all 49 current normal rows have registered field routes, still partial",
     "Dvalin has a separate weekly arena",
+    "Andrius has a separate weekly arena",
     "public roster matched without merging Icewind modes or Dottore challenges",
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",

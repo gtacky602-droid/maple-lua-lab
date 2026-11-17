@@ -1,0 +1,463 @@
+{
+  "tool": "built-in image_gen",
+  "references": {
+    "date": "2026-11-17",
+    "page": "https://wiki.hoyolab.com/pc/genshin/entry/2117?lang=en-us",
+    "discovery": "Related enemy2117 found in cached pyro ascension material links",
+    "references": [
+      {
+        "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/14/35428890/932835ab9e285a2ed49e43f6ed120b08_7488843023951856070.png",
+        "sha256": "384655588900a9f69a87cf89113d9b6bf0f6005a34e5965b6a7f3eb1d9c210e3",
+        "directly_viewed": true,
+        "generation_input": true,
+        "note": "illustration with effects and cutout artifacts excluded"
+      },
+      {
+        "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/14/35428890/76abef0c8f6d24f45919c2759fba3c5c_915471270331020682.png",
+        "sha256": "1477053af9b4c627ecaea313626a22d81866e8acc3c14a4d52ac3317dd135b44",
+        "directly_viewed": true,
+        "generation_input": true,
+        "note": "full normal-form render"
+      },
+      {
+        "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/14/35428890/11333ade280a0b510fde317df655dac2_2011469616017862166.png",
+        "sha256": "9e3f06ac7ec49491634f5d7e3de38f39fc4d82dd85489d1da07ac56495893003",
+        "directly_viewed": true,
+        "generation_input": false,
+        "note": "duplicate illustration, not another angle"
+      }
+    ],
+    "other_reference": {
+      "page": "https://www.hoyolab.com/article/8058853",
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2022/09/03/9590267/289810c70965b39c98a12891369285d4_4781608738624915263.png",
+      "sha256": "ffc54741dd9d455dcea2b94bb667ae573f1cd458e3411c9de5c1d92626bfdb7b",
+      "directly_viewed": true,
+      "generation_input": false,
+      "note": "glowing white howling phase, not selected for idle normal form"
+    },
+    "failed_reference": "PlayerAssist andrius.jpg returned404",
+    "model_lookup": {
+      "url": "https://www.cgtrader.com/3d-models/character/fantasy-character/andrius",
+      "result": "Listing located, no model downloaded or inspected. No back-view verification."
+    },
+    "output": "assets/andrius-idle-source-v1.png",
+    "sha256": "f595bdc15082fc4a69fb960d442b34916b44745808e0a8d928ebf755e64c98a9",
+    "profiles": {
+      "legacy": {
+        "height": 180,
+        "runs": 9173
+      },
+      "h48c32": {
+        "height": 135,
+        "runs": 5797
+      },
+      "h32c16": {
+        "height": 90,
+        "runs": 2643
+      }
+    },
+    "alpha_samples": {
+      "points": [
+        [
+          100,
+          100
+        ],
+        [
+          700,
+          100
+        ],
+        [
+          1300,
+          700
+        ],
+        [
+          300,
+          980
+        ]
+      ],
+      "alpha": 0
+    },
+    "limits": [
+      "180px display height provisional",
+      "Taller upright pose; broader mane and simpler flank markings than reference",
+      "No model/back view inspection",
+      "No movement, howling, glowing phase, attacks or live combat; map rainforest is temporary comparison fixture"
+    ],
+    "visual_review": "Source, PNG/90px comparison and temporary map placement directly viewed. Four legs, dark mane, curled narrow tail and cyan decorations remain; flank lines, ankle crystals and thin ribbons are coarse in16 colors. Browser background gaps clean despite RGB glow in generation preview. Upright taller pose and broad mane are adapted from crouched source.",
+    "validation": {
+      "gallery": "33 candidates, 3 profiles, 3 zooms, both facings, aspect, clipping, 390px passed",
+      "placement": "33 candidates: placement, profiles, flip, JSON roundtrip, undo and mobile passed"
+    }
+  },
+  "model_previews": [
+    {
+      "url": "https://img-new.cgtrader.com/items/5106394/dddd42a055/thumb/andrius-3d-model-dddd42a055.webp",
+      "path": "work\\references\\andrius-model-preview-0.webp",
+      "sha256": "5b59dd75cc09c348876e95e4ea0e553cf0c37b47291c6e3fe4f253c172be6594"
+    },
+    {
+      "url": "https://img-new.cgtrader.com/items/5106394/490e8e64a7/thumb/andrius-3d-model-490e8e64a7.jpg",
+      "path": "work\\references\\andrius-model-preview-1.jpg",
+      "sha256": "336d960e5601c840c79e219aa20cb4e0c3988fac13d4a4e4a032911b82066a86"
+    },
+    {
+      "url": "https://img-new.cgtrader.com/items/5106394/ebb2787c96/thumb/andrius-3d-model-ebb2787c96.jpg",
+      "path": "work\\references\\andrius-model-preview-2.jpg",
+      "sha256": "425ffa7ffff98a8c653ac3a9b1c9d96bdc1794b614aa6114991376fe153be751"
+    }
+  ],
+  "prompts": {
+    "normal": "Create a production pixel-art sprite atlas for a side-view 2D action RPG. References are visual references, not edit targets: first the established pixel-art Andrius idle for consistent crisp cluster rendering, second the actual normal-form full-body render for anatomy, third the gameplay glowing white phase for the phase difference. This is Andrius/Boreas: a long quadruped white wolf, huge pointed indigo mane/crown, cyan eyes and forehead gem, turquoise flank markings, ice-blue front-leg armor and crystalline ankle cuffs on hind legs, long thin curled tail with ice diamonds and three thin cyan mane streamers. Exactly four legs, canine head, no human proportions, no bipedal torso. Same character, same anatomy scale across all six slots, facing LEFT in all poses (howl head may point upward). Crisp pixel clusters, navy outline, limited cool palette, no blurred glow outside silhouette. Transparent background. Atlas 1536x1536, EXACTLY 2 columns by 3 rows with wide transparent gutters, six separated whole-body silhouettes, no clipping, no text, no frames, no scenery, no attack trails or detached sparkles. Each pose must fit its 768x512 slot with generous transparent margins. Low grounded combat stance, strong shoulder and haunch gesture; preserve four-leg support rather than stretching the idle image. NORMAL blue-mane phase, not glowing white. Six poses in reading order: (1) battle ready on four planted paws, head low; (2) forepaw swipe with one near shoulder high, near paw reaching left, other three paws supporting; (3) rear hip twist and broad curled tail sweeping behind to the right, head remains left; (4) leap tuck with front and rear paws folded under chest/haunch, fully airborne; (5) full forward running stride low long body, front paws stretched toward left, hind paws push to right, belly above ground; (6) heavy landing, both front paws firmly planted, shoulders low and hind legs compressed. Keep entire tail and ribbons inside each slot, they must not join neighboring poses.",
+    "awakened": "Create a production pixel-art sprite atlas for a side-view 2D action RPG. References are visual references, not edit targets: first the established pixel-art Andrius idle for consistent crisp cluster rendering, second the actual normal-form full-body render for anatomy, third the gameplay glowing white phase for the phase difference. This is Andrius/Boreas: a long quadruped white wolf, huge pointed indigo mane/crown, cyan eyes and forehead gem, turquoise flank markings, ice-blue front-leg armor and crystalline ankle cuffs on hind legs, long thin curled tail with ice diamonds and three thin cyan mane streamers. Exactly four legs, canine head, no human proportions, no bipedal torso. Same character, same anatomy scale across all six slots, facing LEFT in all poses (howl head may point upward). Crisp pixel clusters, navy outline, limited cool palette, no blurred glow outside silhouette. Transparent background. Atlas 1536x1536, EXACTLY 2 columns by 3 rows with wide transparent gutters, six separated whole-body silhouettes, no clipping, no text, no frames, no scenery, no attack trails or detached sparkles. Each pose must fit its 768x512 slot with generous transparent margins. Low grounded combat stance, strong shoulder and haunch gesture; preserve four-leg support rather than stretching the idle image. AWAKENED luminous-white-mane phase from reference gameplay, retain distinct pale-blue shadows and cyan markings; NOT a featureless white blob. Six poses in reading order: (1) awakened battle ready four paws, broad white mane; (2) forelegs lifted together for ice-wave casting with weight on crouched hind legs; (3) long howling neck raised upward, all four paws grounded, mane flared; (4) full running stride facing left, stretched shoulder and haunch, useful for the single spectral wolf attack; (5) airborne landing preparation, tucked haunch and forepaws reaching toward floor; (6) recovery rest, head lowered calmly, four paws grounding, small gentle mane. Whole-body proportions and scale must remain stable within the sheet.",
+    "background": "Create a wide 1536x1024 pixel-art background plate for a side-view action RPG, a temporary interpretation of Wolvendom's ancient wolf trial clearing. Moonlit blue spruce forest with tall stone wolf-relief ruins, broken circular stone enclosure seen in distant side-view, cyan moonlight and sparse mist, a quiet sacred northern wolf arena in Mondstadt. No wolf, no characters, no enemies, no text, no HUD, no icons. Upper two thirds readable layered forest and ruin silhouettes with atmospheric perspective; lower third an empty unobstructed dark-blue clearing with soft low-contrast distant ground texture; no painted foreground platforms, stairs, ledges or collision objects. The actual arena floor and raised side platforms will be drawn separately by the game. Strong cool indigo/teal palette, little bright detail in the lower third so combat telegraphs remain clear. Crisp pixel-art clusters compatible with chibi character sprites, painterly depth only in distant forest, not a screenshot or a photograph.",
+    "awakened_actions": "Create a production pixel-art sprite strip of Andrius/Boreas for the same side-view RPG. Reference 1 is the APPROVED AWAKENED WHITE-MANE atlas: match its exact quadruped anatomy, crisp pixel clusters, icy white mane with blue shadows, cyan eyes, white body, turquoise flank markings, hind ankle ice crystals, ice-blue foreleg guards, thin curled white tail with ice diamonds, three cyan mane streamers. Reference 2 is the normal phase pose sheet: copy ONLY its shoulder/hip gestures, do NOT copy its dark blue mane. Make EXACTLY TWO separate complete full-body sprites, in one row, 2 columns, 1536x768 or wider landscape sheet with generous transparent gutters and no overlap: LEFT: awakened forepaw swipe, one near shoulder raised and near paw reaching strongly LEFT, other three paws supporting the body. RIGHT: awakened rear-hip twist and full sweeping tail to the RIGHT behind him while his head keeps facing LEFT, four-leg grounded support. Same character and anatomy scale in both cells and matching the white-mane atlas. Full mane, tail and ribbons inside each cell, no clipping. True transparent background, no glow cloud, no detached particles, no scenery, no lettering, no frames, no human pose or bipedal torso. Key pose assets for game implementation, not concept art."
+  },
+  "poses": {
+    "normal-ready": {
+      "source": "andrius-weekly-normal-source-v1.png",
+      "anchor": 0.5121951219512195,
+      "height": 180,
+      "crop": [
+        0,
+        0,
+        660,
+        600
+      ],
+      "raw_box": [
+        68,
+        57,
+        560,
+        380
+      ],
+      "scale": 0.5572755417956656,
+      "profiles": {
+        "legacy": 13306,
+        "h48c32": 8248,
+        "h32c16": 3644
+      }
+    },
+    "normal-swipe": {
+      "source": "andrius-weekly-normal-source-v1.png",
+      "anchor": 0.5488721804511278,
+      "height": 196,
+      "crop": [
+        660,
+        0,
+        660,
+        600
+      ],
+      "raw_box": [
+        668,
+        26,
+        1200,
+        377
+      ],
+      "scale": 0.5572755417956656,
+      "profiles": {
+        "legacy": 12953,
+        "h48c32": 8070,
+        "h32c16": 3569
+      }
+    },
+    "normal-tail": {
+      "source": "andrius-weekly-normal-source-v1.png",
+      "anchor": 0.4749498997995992,
+      "height": 192,
+      "crop": [
+        0,
+        600,
+        660,
+        600
+      ],
+      "raw_box": [
+        63,
+        453,
+        562,
+        798
+      ],
+      "scale": 0.5572755417956656,
+      "profiles": {
+        "legacy": 14680,
+        "h48c32": 9062,
+        "h32c16": 3894
+      }
+    },
+    "normal-leap": {
+      "source": "andrius-weekly-normal-source-v1.png",
+      "anchor": 0.5060483870967742,
+      "height": 170,
+      "crop": [
+        660,
+        600,
+        660,
+        600
+      ],
+      "raw_box": [
+        714,
+        432,
+        1210,
+        737
+      ],
+      "scale": 0.5572755417956656,
+      "profiles": {
+        "legacy": 11582,
+        "h48c32": 7244,
+        "h32c16": 3030
+      }
+    },
+    "normal-run": {
+      "source": "andrius-weekly-normal-source-v1.png",
+      "anchor": 0.5164835164835165,
+      "height": 167,
+      "crop": [
+        0,
+        1200,
+        660,
+        600
+      ],
+      "raw_box": [
+        38,
+        913,
+        584,
+        1213
+      ],
+      "scale": 0.5572755417956656,
+      "profiles": {
+        "legacy": 11819,
+        "h48c32": 7413,
+        "h32c16": 3153
+      }
+    },
+    "normal-land": {
+      "source": "andrius-weekly-normal-source-v1.png",
+      "anchor": 0.525096525096525,
+      "height": 173,
+      "crop": [
+        660,
+        1200,
+        660,
+        600
+      ],
+      "raw_box": [
+        698,
+        897,
+        1216,
+        1208
+      ],
+      "scale": 0.5572755417956656,
+      "profiles": {
+        "legacy": 12458,
+        "h48c32": 7876,
+        "h32c16": 3281
+      }
+    },
+    "awake-ready": {
+      "source": "andrius-weekly-awake-source-v1.png",
+      "anchor": 0.47058823529411764,
+      "height": 180,
+      "crop": [
+        0,
+        0,
+        660,
+        600
+      ],
+      "raw_box": [
+        76,
+        53,
+        552,
+        374
+      ],
+      "scale": 0.5607476635514018,
+      "profiles": {
+        "legacy": 14373,
+        "h48c32": 8721,
+        "h32c16": 3707
+      }
+    },
+    "awake-rise": {
+      "source": "andrius-weekly-awake-source-v1.png",
+      "anchor": 0.5448275862068965,
+      "height": 203,
+      "crop": [
+        660,
+        0,
+        660,
+        600
+      ],
+      "raw_box": [
+        743,
+        15,
+        1178,
+        377
+      ],
+      "scale": 0.5607476635514018,
+      "profiles": {
+        "legacy": 12973,
+        "h48c32": 7868,
+        "h32c16": 3282
+      }
+    },
+    "awake-howl": {
+      "source": "andrius-weekly-awake-source-v1.png",
+      "anchor": 0.48423423423423423,
+      "height": 197,
+      "crop": [
+        0,
+        600,
+        660,
+        600
+      ],
+      "raw_box": [
+        95,
+        435,
+        539,
+        786
+      ],
+      "scale": 0.5607476635514018,
+      "profiles": {
+        "legacy": 14897,
+        "h48c32": 9103,
+        "h32c16": 3959
+      }
+    },
+    "awake-run": {
+      "source": "andrius-weekly-awake-source-v1.png",
+      "anchor": 0.49310344827586206,
+      "height": 153,
+      "crop": [
+        660,
+        600,
+        660,
+        600
+      ],
+      "raw_box": [
+        639,
+        473,
+        1219,
+        745
+      ],
+      "scale": 0.5607476635514018,
+      "profiles": {
+        "legacy": 13349,
+        "h48c32": 8144,
+        "h32c16": 3501
+      }
+    },
+    "awake-leap": {
+      "source": "andrius-weekly-awake-source-v1.png",
+      "anchor": 0.48306997742663654,
+      "height": 193,
+      "crop": [
+        0,
+        1200,
+        660,
+        600
+      ],
+      "raw_box": [
+        106,
+        827,
+        549,
+        1171
+      ],
+      "scale": 0.5607476635514018,
+      "profiles": {
+        "legacy": 13795,
+        "h48c32": 8536,
+        "h32c16": 3596
+      }
+    },
+    "awake-land": {
+      "source": "andrius-weekly-awake-source-v1.png",
+      "anchor": 0.4777327935222672,
+      "height": 188,
+      "crop": [
+        660,
+        1200,
+        660,
+        600
+      ],
+      "raw_box": [
+        704,
+        870,
+        1198,
+        1205
+      ],
+      "scale": 0.5607476635514018,
+      "profiles": {
+        "legacy": 14807,
+        "h48c32": 9098,
+        "h32c16": 3945
+      }
+    },
+    "awake-swipe": {
+      "source": "andrius-weekly-awake-actions-source-v1.png",
+      "anchor": 0.5748730964467005,
+      "height": 180,
+      "crop": [
+        0,
+        0,
+        900,
+        600
+      ],
+      "raw_box": [
+        47,
+        201,
+        835,
+        694
+      ],
+      "profiles": {
+        "legacy": 13910,
+        "h48c32": 8557,
+        "h32c16": 3643
+      }
+    },
+    "awake-tail": {
+      "source": "andrius-weekly-awake-actions-source-v1.png",
+      "anchor": 0.38125,
+      "height": 182,
+      "crop": [
+        900,
+        0,
+        900,
+        600
+      ],
+      "raw_box": [
+        945,
+        194,
+        1745,
+        692
+      ],
+      "profiles": {
+        "legacy": 14713,
+        "h48c32": 9148,
+        "h32c16": 3855
+      }
+    }
+  },
+  "raw_outputs": {
+    "exec-ff8e3c30-ed87-43b4-b966-78daa9c92dbd.png": "a0f48ffd02b2fc60f67d3102d2e4e6d16d9cff6e2f8e81377144ecdde5d4f941",
+    "exec-7e8c9116-3fda-4fec-8720-2dc79169b5cf.png": "615619351f48b4712bb664e47b6f3df5c6cc187ba9b1d54f9472265948a77164",
+    "exec-2d7496d8-696a-42f4-8ce7-b78e1e7923a3.png": "ae0cce474d224d5a7250d254b41d3f578f0d9a091984aa56b5c6f44af647b78e"
+  },
+  "outputs": {
+    "andrius-weekly-normal-source-v1.png": "2b382724717644bb57ea72606df54cc81c750894a837e338de2d3370db67c081",
+    "andrius-weekly-awake-source-v1.png": "30ff0c3d047d16464b84b05a6a1b6dc68d1fc076248bb077a15e6c69b2f74621",
+    "andrius-weekly-background-v1.png": "f5c7fe6c6d5b072e7cc6c06cac46bd276b129e8c9fbeba97c0aa341cf1286e4a",
+    "andrius-weekly-awake-actions-source-v1.png": "2292dbaa83a64f512f969cba15bd175cf00705d84b57c21266165143cc607708"
+  },
+  "notes": [
+    "Normal full-body render, glowing howling gameplay frame and established pixel idle inspected and passed as generation references.",
+    "Public CGTrader model previews inspected at 100x75px: head, side and three-quarter. Model itself is paid and was not downloaded; back and underside geometry unverified. Preview files remain ignored local research.",
+    "Fourteen four-legged key poses across two phases. The blue-mane normal and pale-mane awakened silhouettes remain distinct; humanoid chibi ratios are not applied.",
+    "Main connected alpha silhouettes repacked. Each phase uses a common anatomy scale with explicit body roots; pose dimensions do not stretch the original idle.",
+    "Legacy gallery idle preserved. Ribbons, curled tail, hind ankle crystals and cyan markings retained. Full animation, alternate-side geometry, impacts and trial-end animation remain unfinished.",
+    "Background is temporary independent moonlit wolf-ruin scenery, not precise original terrain or native 3D.",
+    "Two additional awakened swipe/tail poses match the white-mane phase, avoiding a return to blue mane during P1 moves used in P2. Forepaw and tail remain separate gestures."
+  ],
+  "source_observations": {
+    "combat_reference": "https://library.keqingmains.com/enemy-data/bosses/weekly-bosses/andrius-boreas",
+    "model_listing": "https://www.cgtrader.com/3d-models/character/fantasy-character/andrius",
+    "model_access": "Public preview images only; no model purchase, download or redistribution.",
+    "phase_reference_note": "Glowing howling in-game screenshot distinguishes white P2 mane from blue P1. Community screenshots/model previews are references, not verified official animation frames."
+  }
+}

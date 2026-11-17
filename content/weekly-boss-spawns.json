@@ -122,6 +122,163 @@
           "total": 534
         }
       }
+    },
+    {
+      "id": "boss-29020101",
+      "controller": "andrius",
+      "entity": 29020101,
+      "name": "北風の王狼・アンドリアス",
+      "node": "andrius-wolf-ring",
+      "storyChallenge": "andrius-weekly",
+      "level": 24,
+      "hp": 900,
+      "mora": 330,
+      "expRole": "weekly_boss",
+      "center": 480,
+      "floorY": 480,
+      "noticeTicks": 48,
+      "respawnTicks": 3600,
+      "floorDamage": 8,
+      "fallDamage": 18,
+      "resist": {
+        "physical": 0.1,
+        "pyro": 0.1,
+        "hydro": 0.1,
+        "electro": 0.1,
+        "dendro": 0.1,
+        "geo": 0.1,
+        "anemo": 1,
+        "cryo": 1
+      },
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 960
+        },
+        {
+          "x": 40,
+          "y": 356.8,
+          "w": 176
+        },
+        {
+          "x": 744,
+          "y": 356.8,
+          "w": 176
+        }
+      ],
+      "opening": [
+        "WA01",
+        "WA02",
+        "WA03",
+        "WA04",
+        "WA05"
+      ],
+      "rotation": [
+        "WA07",
+        "WA08",
+        "WA09",
+        "WA10",
+        "WA11",
+        "WA01",
+        "WA02",
+        "WA03",
+        "WA04",
+        "WA05"
+      ],
+      "moves": {
+        "WA01": {
+          "id": "WA01",
+          "kind": "swipe",
+          "title": "前脚の薙ぎ",
+          "lock": 36,
+          "total": 138,
+          "damage": 20
+        },
+        "WA02": {
+          "id": "WA02",
+          "kind": "tail",
+          "title": "尾の払い",
+          "lock": 48,
+          "total": 156,
+          "damage": 19,
+          "rangedTotal": 204,
+          "rangedDamage": 18
+        },
+        "WA03": {
+          "id": "WA03",
+          "kind": "leap",
+          "title": "氷輪への跳躍",
+          "lock": 48,
+          "total": 216,
+          "damage": 24
+        },
+        "WA04": {
+          "id": "WA04",
+          "kind": "dash",
+          "title": "霜路の突進",
+          "lock": 42,
+          "total": 204,
+          "damage": 25
+        },
+        "WA05": {
+          "id": "WA05",
+          "kind": "spin",
+          "title": "周身の旋爪",
+          "lock": 54,
+          "total": 192,
+          "damage": 22
+        },
+        "WA06": {
+          "id": "WA06",
+          "kind": "interlude",
+          "title": "王狼の疾走試練",
+          "lock": 108,
+          "total": 624,
+          "damage": 20,
+          "landingDamage": 24
+        },
+        "WA07": {
+          "id": "WA07",
+          "kind": "wave",
+          "title": "凍土の波",
+          "lock": 54,
+          "total": 240,
+          "damage": 20
+        },
+        "WA08": {
+          "id": "WA08",
+          "kind": "blades",
+          "title": "北風の三刃",
+          "lock": 60,
+          "total": 408,
+          "damage": 18
+        },
+        "WA09": {
+          "id": "WA09",
+          "kind": "rain",
+          "title": "霜天の雨",
+          "lock": 72,
+          "total": 336,
+          "damage": 18
+        },
+        "WA10": {
+          "id": "WA10",
+          "kind": "roar",
+          "title": "北風の咆哮",
+          "lock": 72,
+          "total": 252,
+          "damage": 12
+        },
+        "WA11": {
+          "id": "WA11",
+          "kind": "phantom",
+          "title": "群狼の残影",
+          "lock": 36,
+          "total": 180,
+          "damage": 18
+        }
+      }
     }
   ]
 }

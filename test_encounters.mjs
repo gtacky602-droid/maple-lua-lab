@@ -65,6 +65,9 @@ try{
  await panel.getByLabel('ボス名で検索').fill('トワリン');
  const dvalin=panel.locator('[data-encounter="boss-29010101"]').getByRole('link',{name:/風龍の空域/});
  if(await dvalin.getAttribute('href')!=='map-art.html?node=dvalin-sky-arena')throw Error('Dvalin weekly arena route missing');
+ await panel.getByLabel('ボス名で検索').fill('北風の王狼');
+ const andrius=panel.locator('[data-encounter="boss-29020101"]').getByRole('link',{name:/狼の領の試練場/});
+ if(await andrius.getAttribute('href')!=='map-art.html?node=andrius-wolf-ring')throw Error('Andrius weekly route missing');
  await panel.getByLabel('ボス名で検索').fill('恒常からくり陣形');
  await panel.getByLabel('恒常からくり陣形の弱点個体').selectOption('boss_array_3');
  await panel.getByRole('button',{name:'模擬戦に挑戦'}).click();

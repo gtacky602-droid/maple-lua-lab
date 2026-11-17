@@ -189,6 +189,10 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local art=C.wavebinderFieldArt[pose]
   draw(f,art,x,y+(pose=='down' and 12 or 0),art.profiles.legacy.height,mode,profile,flip)
  end
+ function C.drawAndriusWeeklyArt(f,x,y,pose,height,mode,profile,flip)
+  local art=C.andriusWeeklyArt[pose]
+  draw(f,art,x,y,art.profiles.legacy.height*(height/180),mode,profile,flip)
+ end
  function C.drawDvalinWeeklyArt(f,x,y,pose,height,mode,profile,flip)
   draw(f,C.dvalinWeeklyArt[pose],x,y,height,mode,profile,flip)
  end

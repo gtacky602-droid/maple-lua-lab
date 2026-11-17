@@ -1,0 +1,51 @@
+{
+  "browser": "Chrome",
+  "companion": "amber",
+  "play": {
+    "won": true,
+    "seconds": 81.12,
+    "hp": 140,
+    "returns": 0,
+    "moves": [
+      "WA01",
+      "WA02",
+      "WA03",
+      "WA04",
+      "WA05",
+      "WA06",
+      "WA07",
+      "WA08",
+      "WA09",
+      "WA10",
+      "WA11"
+    ],
+    "transitions": 1,
+    "falls": 0,
+    "aiUpper": true,
+    "manualUpper": true,
+    "immuneEvent": true
+  },
+  "scenery": {
+    "key": "andriusWeekly",
+    "file": "andrius-weekly-background-v1.png",
+    "state": "ready"
+  },
+  "uiQuestAccepted": true,
+  "questReport": {
+    "xp": 1600,
+    "mora": 390
+  },
+  "savedWeeklyRespawn": true,
+  "sameSceneCommands": {
+    "png": 143,
+    "standard": 17336,
+    "light": 4468
+  },
+  "viewport390": true,
+  "errors": [],
+  "awakenedActionShots": {
+    "andrius-weekly-awake-swipe.png": "db6a616f00797c49fda94f7fb462739cc3927bcf87fa10b04c9e3b5e536e7cc1",
+    "andrius-weekly-awake-tail.png": "7b7d9ff6fd34d7396a4cfd99daa8e68725402fc870910c36c69bdfcacbd02505"
+  },
+  "scope_note": "The browser deliberately stops manual normal attacks after the first blade comparison until the P2 swipe/tail screenshots, then resumes them; the separate Lua run is the continuous physical-only reference."
+}
