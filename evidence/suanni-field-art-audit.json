@@ -1,0 +1,178 @@
+{
+  "date": "2026-11-18",
+  "tool": "built-in image_gen",
+  "prompts": [
+    "Use case: stylized-concept. One transparent 3 columns by 2 rows animation-key atlas of the Solitary Suanni for a side-scrolling pixel RPG, all six poses face LEFT with the tail to the RIGHT. Use image 1 for the established pixel-ink style and color clusters. Official images 2/3 show the precise face, body and long elemental fin tail. Keep the blue-teal fur, pale chest mane, flowing gold whiskers, golden flame-shaped forehead marking, layered navy fin-horns, cloud curl on outer shoulders and long fin-tipped tail in each cell. Preserve lean feline hips and exactly four anatomically readable paws. 1 top left front shoulder lowered claw swiping toward left; 2 top center turning torso in place, looking left, long tail lashes visibly behind to the right; 3 top right balanced ground stance releasing water, tail arched behind, mouth shut; 4 bottom left spring crouch weight low on all paws; 5 bottom center airborne bound with four folded paws, tail stretched back up slightly; 6 bottom right grounded recovery, low head, both forepaws down, hips lowered. Grounded cells attach near their bottom center. Full silhouettes including tail and whiskers have 25px clear padding from all cell boundaries, strict visible empty gutters between rows and columns. Landscape 3:2 rectangle. Clean pixel clusters and dark readable outlines. Genuine alpha, no lettering, dividers, shadow or effects. Water and wind effects will be separate.",
+    "Use case: stylized-concept. Wide 16:9 bitmap background for a fixed-side-view pixel RPG battle near Mt. Xuanlian in Chenyu Vale. Official image 1 is a reference for green stone ring motifs, yellow trees, distant foggy karst peaks and ancient paved arena; official image 2 is a reference for subdued dusk-blue hills. Create an original Chenyu-inspired ruined shrine as a wide flat stone terrace spanning the bottom quarter, distant karst ridgelines in fog and a thin waterfall, one weathered carved ring in the upper background and a few muted golden trees. Lower areas behind sprites should be darker desaturated grey-jade with enough contrast for pale cyan wind and water marks. Dramatic depth with readable pixel clusters, diagonal natural daylight behind the scene. No foreground occlusion, characters, monster, railings at foot level, lettering, logos, UI or damage effects."
+  ],
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/04/06/94675339/a5e872147760ee1767e244667c4ca5a0_8936645043557265791.png",
+      "sha256": "81157fc7ceb472dd3380c51aae3f8dddee75200681c722a10170113975cd206e",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full standing image, white cutout artifacts not copied",
+      "use": "standing face, cloud emblems and golden whiskers"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/02/02/94675339/ce433b7b8115e3c0b23e130487a17403_7340956306740056027.png",
+      "sha256": "7f009421f9e1350a68435417a150f5f16d83bbbf857c861bcb0af5adc520304c",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "resting in-game scene",
+      "use": "resting pose and atmospheric hills"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2024/02/02/94675339/cf330aa8d487feba6af54492f0f4715d_3922595138552237366.png",
+      "sha256": "7818b529d3ab8fb9edd95ddef703942505ff3dbe8d9656b148338de4ead4cc40",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "airborne side scene, full tail",
+      "use": "airborne four-leg anatomy, fin tail and terrace"
+    }
+  ],
+  "idle": "assets/suanni-idle-source-v1.png",
+  "generated": {
+    "suanni-field-poses-source-v1.png": "d475b6caeeb4736d9b7ed6bd85cac43dfc2c08a8b929c5b9a06a528b460b5b1f",
+    "suanni-field-background-v1.png": "d2b79221926c115df005e0bc3d6b1db27f43082adc11b06f8dd0091cff58c8d6"
+  },
+  "poses": {
+    "claw": {
+      "crop": [
+        0,
+        0,
+        533,
+        512
+      ],
+      "box": [
+        34,
+        165,
+        485,
+        267
+      ],
+      "anchor": 0.38762886597938145,
+      "anchor_source": 222,
+      "height": 146,
+      "profiles": {
+        "legacy": 7600,
+        "h48c32": 4778,
+        "h32c16": 2035
+      }
+    },
+    "tail": {
+      "crop": [
+        533,
+        0,
+        483,
+        512
+      ],
+      "box": [
+        548,
+        141,
+        433,
+        288
+      ],
+      "anchor": 0.2909930715935335,
+      "anchor_source": 674,
+      "height": 155,
+      "profiles": {
+        "legacy": 8194,
+        "h48c32": 5003,
+        "h32c16": 2223
+      }
+    },
+    "water": {
+      "crop": [
+        1016,
+        0,
+        520,
+        512
+      ],
+      "box": [
+        1053,
+        136,
+        434,
+        295
+      ],
+      "anchor": 0.2926267281105991,
+      "anchor_source": 1180,
+      "height": 153,
+      "profiles": {
+        "legacy": 8573,
+        "h48c32": 5245,
+        "h32c16": 2257
+      }
+    },
+    "crouch": {
+      "crop": [
+        0,
+        512,
+        508,
+        512
+      ],
+      "box": [
+        19,
+        700,
+        486,
+        203
+      ],
+      "anchor": 0.3374485596707819,
+      "anchor_source": 183,
+      "height": 126,
+      "profiles": {
+        "legacy": 8583,
+        "h48c32": 5371,
+        "h32c16": 2326
+      }
+    },
+    "leap": {
+      "crop": [
+        508,
+        512,
+        490,
+        512
+      ],
+      "box": [
+        511,
+        578,
+        477,
+        223
+      ],
+      "anchor": 0.34591194968553457,
+      "anchor_source": 676,
+      "height": 142,
+      "profiles": {
+        "legacy": 9077,
+        "h48c32": 5743,
+        "h32c16": 2486
+      }
+    },
+    "rest": {
+      "crop": [
+        998,
+        512,
+        538,
+        512
+      ],
+      "box": [
+        1007,
+        727,
+        510,
+        178
+      ],
+      "anchor": 0.3254901960784314,
+      "anchor_source": 1173,
+      "height": 113,
+      "profiles": {
+        "legacy": 8844,
+        "h48c32": 5635,
+        "h32c16": 2378
+      }
+    }
+  },
+  "notes": [
+    "Full-body standing, resting and airborne images inspected. A matching 3D viewer/model was unverified.",
+    "All six poses are left-facing. Grounded poses use chest and hoof grouping to hold position; airborne art lifts with the hurtbox.",
+    "Stone terrace is a temporary bitmap for the lab. Attack effect geometry is rendered by Lua."
+  ]
+}

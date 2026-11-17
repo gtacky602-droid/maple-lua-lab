@@ -213,6 +213,9 @@ def runtime():
     legatus=lua.execute((ROOT/'field-legatus.lua').read_text(encoding='utf-8'))(core)
     core.legatusFieldArt=field_art(lua,'legatus',('sweep','charge','conduct','stagger'),
                                   idle='legatus-idle-sprites.json')
+    suanni=lua.execute((ROOT/'field-suanni.lua').read_text(encoding='utf-8'))(core)
+    core.suanniFieldArt=field_art(lua,'suanni',('claw','tail','water','crouch','leap','rest'),
+                                 idle='suanni-idle-sprites.json')
     core.aeonblightFieldArt=field_art(lua,'aeonblight',('wing_first','wing_second','cannon','windup','dash','down'),
                                      idle='aeonblight-idle-sprites.json')
     bathysmal=lua.execute((ROOT/'field-bathysmal.lua').read_text(encoding='utf-8'))(core)
@@ -239,7 +242,7 @@ def runtime():
                         'electroRegisvine':electro_vine,'aeonblight':aeonblight,
                         'dendroHypostasis':dendro_hypostasis,'asimon':asimon,'wenut':wenut,'baptist':baptist,
                         'emperor':emperor,'seahorse':seahorse,'generator':generator,'tulpa':tulpa,
-                        'icewind':icewind,'legatus':legatus})
+                        'icewind':icewind,'legatus':legatus,'suanni':suanni})
     )
     return lua, core
 

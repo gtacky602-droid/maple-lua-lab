@@ -1,0 +1,36 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "won": true,
+    "seconds": 32,
+    "moves": [
+      "FSU01",
+      "FSU02",
+      "FSU03"
+    ],
+    "hp": 140,
+    "returns": 0
+  },
+  "scenery": {
+    "key": "suanniField",
+    "file": "suanni-field-background-v1.png",
+    "state": "ready"
+  },
+  "questAcceptedInUi": true,
+  "questReport": {
+    "xp": 2900,
+    "mora": 240
+  },
+  "sameSceneCommands": {
+    "png": 36,
+    "standard": 13333,
+    "light": 3565
+  },
+  "airborneAt": {
+    "tick": 171,
+    "y": 411.55555555555554
+  },
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}

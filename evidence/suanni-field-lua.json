@@ -1,0 +1,26 @@
+{
+  "lockedForeAndRear": true,
+  "separateWaterBlades": true,
+  "windAndWaterWindows": true,
+  "fixedLanding": true,
+  "airborneHurtbox": true,
+  "landingAndWaveShareOneHit": true,
+  "waveCanHitOnItsOwn": true,
+  "recoveryTicks": 144,
+  "exitRestoresGround": true,
+  "oneQuestReportAndSavedRespawn": true,
+  "normalAttackSolo": {
+    "seconds": 59.93,
+    "hp": 140,
+    "moves": [
+      "FSU01",
+      "FSU02",
+      "FSU03"
+    ]
+  },
+  "sameSceneCommands": {
+    "png": 31,
+    "standard": 10790,
+    "light": 2963
+  }
+}

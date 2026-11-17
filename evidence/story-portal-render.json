@@ -843,10 +843,20 @@
     {
       "node": "chenyu-depth",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "chenyu-depth",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "suanni-field-sanctum",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "suanni-field-sanctum",
       "mode": "rect",
       "visible_portals": 1
     },

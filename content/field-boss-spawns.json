@@ -1230,6 +1230,23 @@
         {"id":"FLG02","kind":"charge","title":"四蹄の突進","reach":285,"lock":54,"distance":3.7,"margin":0.48,"height":0.58,"active":[112,151],"recover":166,"total":282,"damage":21,"element":"physical"},
         {"id":"FLG03","kind":"resonance","title":"響奏・共鳴器の炎","reach":248,"lock":54,"width":3.2,"height":1.18,"active":[166,180],"recover":204,"total":348,"damage":24,"element":"pyro","resonator":{"distance":2.5,"spawn":54,"release":166,"hp":14,"stagger":144}}
       ]
+    },
+    {
+      "id":"boss-26190101","controller":"suanni","entity":26190101,
+      "name":"山隠れの猊獣","node":"suanni-field-sanctum","storyChallenge":"suanni",
+      "level":32,"hp":738,"mora":196,"artHeight":154,"floorY":480,"home":863,
+      "arenaMin":335,"arenaMax":1550,"noticeRange":294,"noticeTicks":36,"restTicks":36,
+      "leashTicks":300,"respawnTicks":3600,"walkSpeed":61,"contactDamage":0,
+      "resist":{"anemo":0.45,"hydro":0.45},
+      "moves":[
+        {"id":"FSU01","kind":"claw","title":"前爪・風尾","reach":146,"lock":48,"recover":204,"total":288,
+         "bands":[{"start":96,"finish":108,"near":0.2,"far":1.1,"height":0.7,"damage":16,"element":"physical"},{"start":168,"finish":180,"near":-1.5,"far":-0.2,"height":0.65,"low":0.1,"damage":16,"element":"anemo"}],"bolts":[]},
+        {"id":"FSU02","kind":"blades","title":"双水刃","reach":234,"lock":48,"recover":216,"total":300,
+         "bands":[],"bolts":[{"fire":96,"life":48,"offset":0.42,"speed":3.5,"height":0.5,"radius":0.14,"damage":16},{"fire":156,"life":48,"offset":0.42,"speed":3.5,"height":0.5,"radius":0.14,"damage":16}]},
+        {"id":"FSU03","kind":"fall","title":"風環・飛泉落とし","reach":177,"lock":60,"distance":1.4,"lift":0.8,"air":[156,192],"recover":228,"total":372,
+         "bands":[{"start":108,"finish":120,"near":-1,"far":1,"height":0.6,"damage":17,"element":"anemo"},{"start":192,"finish":204,"near":-0.7,"far":0.7,"height":0.65,"damage":20,"element":"hydro","landing":true}],
+         "bolts":[{"fire":204,"life":24,"offset":0.7,"speed":3,"height":0.25,"radius":0.12,"damage":20,"landing":true,"group":2}]}
+      ]
     }
   ]
 }

@@ -546,10 +546,12 @@
       }
     },
     "boss-26190101": {
+      "extra_evidence": ["https://www.hoyoverse.com/en-us/news/122237", "evidence/suanni-field-lua.json", "evidence/suanni-field-browser.json"],
+      "remaining": ["連続モーション・音", "難度・報酬の調整", "複数人と幻境実機の検証"],
       "art_candidate": {
         "item": "suanni",
-        "audit": "evidence/suanni-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/suanni-field-art-audit.json",
+        "status": "Web field prototype. Wind and water attacks with a locked landing and one hit shared by landing and the outgoing wave."
       }
     },
     "boss-29010101": {

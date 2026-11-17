@@ -113,6 +113,10 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local art=C.legatusFieldArt[pose]
   draw(f,art,x,y,pose=='idle' and 155 or art.profiles.legacy.height,mode,profile,flip)
  end
+ function C.drawSuanniFieldArt(f,x,y,pose,mode,profile,flip)
+  local art=C.suanniFieldArt[pose]
+  draw(f,art,x,y,pose=='idle' and 154 or art.profiles.legacy.height,mode,profile,flip)
+ end
  function C.drawThunderFieldArt(f,x,y,h,mode,profile,pose,dir)
   draw(f,pose and C.thunderFieldArt[pose] or C.thunderArt,x,y,h,mode,profile,pose=='dash' and dir>0)
  end

@@ -2530,13 +2530,15 @@
         {
           "to": "chenyu-camp",
           "x": 60
-        }
+        },
+        {"to":"suanni-field-sanctum","x":1310}
       ],
       "checkpoint": "chenyu-camp",
       "branch": true,
       "lightReference": 8,
       "barrier": 8
     },
+    {"id":"suanni-field-sanctum","name":"沈玉の谷・懸練山の石庭","region":"沈玉の谷","level":32,"hub":false,"peaceful":true,"width":1680,"platforms":[{"x":0,"y":480,"w":1680}],"exits":[{"to":"chenyu-depth","x":65}],"checkpoint":"chenyu-camp"},
     {
       "id": "enkanomiya-camp",
       "name": "淵下宮・入口拠点",
@@ -5602,6 +5604,7 @@
     {"id":"tulpa-commission","name":"水形タルパの討伐調査","hub":"fontaine-hub","target":"tulpa","kind":"boss","goal":1,"xp":5600,"mora":390,"note":"水路沿いから入る潮影の洞での討伐が対象。"},
     {"id":"icewind-coppelia-commission","name":"コッペリアの葬送の討伐調査","hub":"fontaine-hub","target":"icewind-coppelia","kind":"boss","goal":1,"xp":6000,"mora":400,"note":"水辺の広場から舞台入口へ。コッペリアの葬送を選ぶ。"},
     {"id":"icewind-coppelius-commission","name":"コペリウスの劫罰の討伐調査","hub":"fontaine-hub","target":"icewind-coppelius","kind":"boss","goal":1,"xp":6000,"mora":400,"note":"水辺の広場から舞台入口へ。コペリウスの劫罰を選ぶ。"},
-    {"id":"legatus-commission","name":"魔像レガトゥスの討伐調査","hub":"fontaine-hub","target":"legatus","kind":"boss","goal":1,"xp":6200,"mora":420,"note":"水辺の広場からノストイ地区へ。色褪せた城の展示広間で魔像を倒す。"}
+    {"id":"legatus-commission","name":"魔像レガトゥスの討伐調査","hub":"fontaine-hub","target":"legatus","kind":"boss","goal":1,"xp":6200,"mora":420,"note":"水辺の広場からノストイ地区へ。色褪せた城の展示広間で魔像を倒す。"},
+    {"id":"suanni-commission","name":"山隠れの猊獣の討伐調査","hub":"chenyu-camp","target":"suanni","kind":"boss","goal":1,"xp":2900,"mora":240,"note":"沈玉の谷の探索路を抜け、懸練山の石庭で猊獣を倒す。"}
   ]
 }
