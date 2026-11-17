@@ -1722,17 +1722,22 @@
       "action": "boss_thunder",
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/thundermanifestation.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/thundermanifestation.json",
+        "evidence/thunder-field-lua.json",
+        "evidence/thunder-field-browser.json"
       ],
       "remaining": [
-        "羽弾・回転斬り・追加衝撃波等",
-        "専用素材・動作",
+        "連続モーションと被弾・撃破作画",
+        "装備差と周回報酬のバランス",
         "精密な数値・AIと実機検証"
       ],
-      "review_note": "本編入口・依頼接続、三連落雷/直線突進経由の通常入力33.97秒撃破・帰還報告、旅人/アンバー生存。図形と数値は試作。",
+      "fieldNode": "thunder-field-crest",
+      "fieldEntrance": "稲妻・雷鳴の岩峰（Lv48）",
+      "review_note": "Lv48フィールドで翼の一旋、三枚の雷羽、低空の雷走。雷無効と地上近接経路を確認。従来の模擬戦は別に選べる。",
       "art_candidate": {
         "source": "assets/thunder-source-v1.png",
         "encoding": "assets/thunder-sprites.json",
+        "audit": "evidence/thunder-field-art-audit.json",
         "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
       }
     },

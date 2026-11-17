@@ -1,0 +1,108 @@
+{
+  "stage": "稲妻・雷鳴の岩峰",
+  "references": [
+    {
+      "page": "https://gamewith.net/genshin-impact/article/show/29616",
+      "asset": "https://s3.us-east-1.amazonaws.com/gamewith-en/article_tools/genshin-impact/gacha/29616_e.png",
+      "sha256": "6e416e279925462ef03553a43fd43c86965185d6fbf63a9935e69d89e1ba37d6",
+      "observed": "Front silhouette with violet horns, luminous head and wing forks."
+    },
+    {
+      "page": "https://gamewith.net/genshin-impact/article/show/29616",
+      "asset": "https://upload-os-bbs.hoyolab.com/upload/2021/08/25/1015537/9129641d284826ea8358dabfc28ad233_6301186478740054189.gif",
+      "frame": 36,
+      "observed": "Selected attack frame shows the lavender cores and bright effect over slate."
+    },
+    {
+      "page": "https://gamewith.net/genshin-impact/article/show/29616",
+      "asset": "https://upload-os-bbs.hoyolab.com/upload/2021/08/25/1015537/83d30cdb78f8a7fe137c54db91b88e52_1169909963649099177.gif",
+      "frame": 12,
+      "frameSha256": "233ba69dd820a64966459d3390f740c7bf1b7da6752a7964299c03dd130dbe41",
+      "observed": "Side of the wing and cool slate under violet storm clouds."
+    },
+    {
+      "path": "assets/thunder-source-v1.png",
+      "observed": "Existing front pose and palette for continuity."
+    }
+  ],
+  "generated": [
+    {
+      "path": "assets/thunder-field-background-v1.png",
+      "sha256": "28945334ee064fc5a1d53cade8f79d9d5ef5259ffa2a2eca4b7a637f20af73c1",
+      "prompt": "Unoccupied panoramic 16:9 environment for a 2D side-scrolling fantasy RPG. Inspired by the high storm-torn island arena in the supplied game frame, borrowing only its cold slate stone and violet-blue storm atmosphere. Wide windswept mountain summit with a layer of clouds FAR below, broken silhouetted peaks and very distant floating stone fragments at the corners, thick cool slate blue clouds and dim indigo horizon. A single flat weathered slate shelf across the bottom 14 percent. Keep the central playfield significantly darker and less saturated than a lavender winged sprite; no foreground obstruction. Pixel-painted with crisply grouped shadows. No character, creature, boss, weapon, combat effects, bright lightning near center, beams, text, UI or border. Original scenery."
+    },
+    {
+      "path": "assets/thunder-field-poses-source-v1.png",
+      "sha256": "34abb43c9245087afa50391fb434684429ad7a36faff8e88ecf054ffc1546786",
+      "prompt": "A true transparent alpha 2x2 sprite sheet with exactly four complete separated sprites, wide clear gutters, each sprite centered entirely in its own cell. Same magical violet angular electric bird as the existing lab sprite, using the game image for pointed horns, central facial light, pale lavender blade-like wings and dark violet edge structure. Pixel art, hard discrete purple and lavender clusters, no atmospheric haze or shadows, no scenery, no text, no visible grid. TOP LEFT: compact low tuck pose, inward pointed wings nearly meet around the breast, shell curved like it is about to turn. TOP RIGHT: open wide almost frontal aimed wing posture, forked tips swept upward, body stays low, sharp lavender edges. BOTTOM LEFT: distinct horizontal left-facing converged dash shape, angular pointed head forward and sharply swept overlapping wings trailing to right. BOTTOM RIGHT: low frontal hover recovering with its open wings drooping toward ground, faceted breast centered; coherent and same identity. Only the four body sprites, no projectiles, streaks or electricity off the silhouettes."
+    }
+  ],
+  "poses": {
+    "wing": {
+      "crop": [
+        0,
+        0,
+        650,
+        510
+      ],
+      "anchorX": 0.5,
+      "height": 92,
+      "commands": [
+        2552,
+        1525,
+        655
+      ]
+    },
+    "feathers": {
+      "crop": [
+        650,
+        0,
+        886,
+        510
+      ],
+      "anchorX": 0.5,
+      "height": 118,
+      "commands": [
+        6858,
+        4312,
+        1901
+      ]
+    },
+    "dash": {
+      "crop": [
+        0,
+        510,
+        760,
+        514
+      ],
+      "anchorX": 0.4,
+      "height": 89,
+      "commands": [
+        3134,
+        2125,
+        869
+      ]
+    },
+    "recover": {
+      "crop": [
+        760,
+        510,
+        776,
+        514
+      ],
+      "anchorX": 0.5,
+      "height": 108,
+      "commands": [
+        4148,
+        2578,
+        1147
+      ]
+    }
+  },
+  "profiles": [
+    "legacy",
+    "h48c32",
+    "h32c16"
+  ],
+  "limitations": "Still game frames and the current sprite informed the art. No original 3D model or full source animation checked. Four key poses without in-between or defeat art. Browser background is a temporary host image."
+}

@@ -387,6 +387,96 @@
           "damage": 22
         }
       ]
+    },
+    {
+      "id": "boss-20070101",
+      "controller": "thunder",
+      "entity": 20070101,
+      "name": "雷音権現",
+      "node": "thunder-field-crest",
+      "storyChallenge": "thunder",
+      "level": 48,
+      "hp": 940,
+      "mora": 190,
+      "artHeight": 118,
+      "floorY": 480,
+      "home": 860,
+      "arenaMin": 408,
+      "arenaMax": 1450,
+      "noticeRange": 275,
+      "noticeTicks": 36,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 65,
+      "contactDamage": 0,
+      "immune": "electro",
+      "resist": {
+        "physical": 0.1,
+        "pyro": 0.1,
+        "hydro": 0.1,
+        "cryo": 0.1,
+        "anemo": 0.1,
+        "geo": 0.1,
+        "dendro": 0.1
+      },
+      "moves": [
+        {
+          "id": "FTM01",
+          "kind": "wing",
+          "title": "翼の一旋",
+          "reach": 185,
+          "lock": 48,
+          "active": [
+            [
+              96,
+              114
+            ]
+          ],
+          "recover": 132,
+          "total": 240,
+          "damage": 17
+        },
+        {
+          "id": "FTM02",
+          "kind": "feathers",
+          "title": "三枚の雷羽",
+          "reach": 230,
+          "lock": 42,
+          "active": [],
+          "recover": 192,
+          "total": 264,
+          "fire": [
+            84,
+            108,
+            132
+          ],
+          "life": 48,
+          "damage": 11
+        },
+        {
+          "id": "FTM03",
+          "kind": "dash",
+          "title": "低空の雷走",
+          "reach": 228,
+          "lock": 54,
+          "active": [
+            [
+              108,
+              132
+            ]
+          ],
+          "recover": 156,
+          "total": 300,
+          "air": [
+            72,
+            108
+          ],
+          "distance": 2.4,
+          "rise": 66,
+          "damage": 22
+        }
+      ]
     }
   ]
 }

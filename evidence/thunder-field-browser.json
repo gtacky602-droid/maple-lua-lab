@@ -1,0 +1,33 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 57.37,
+    "moves": [
+      "FTM01",
+      "FTM02",
+      "FTM03"
+    ],
+    "dodgeWindows": 3,
+    "finished": true,
+    "hp": 107,
+    "returns": 0
+  },
+  "fieldKill": {
+    "xp": 20350,
+    "mora": 190
+  },
+  "commissionReport": {
+    "xp": 4000,
+    "mora": 300
+  },
+  "persistedCooldown": true,
+  "directTrialHp": 700,
+  "sameSceneCommands": {
+    "png": 20,
+    "standard": 6792,
+    "light": 1718
+  },
+  "airborneSprite": true,
+  "viewport390": true,
+  "errors": []
+}

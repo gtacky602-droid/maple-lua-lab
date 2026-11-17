@@ -1,0 +1,18 @@
+{
+  "attacks": [
+    "FTM01",
+    "FTM02",
+    "FTM03"
+  ],
+  "wingBounded": true,
+  "threeFeathers": true,
+  "immuneToElectro": true,
+  "airborneHurtbox": true,
+  "dashLockedNoTeleport": true,
+  "commands": {
+    "standard": 5843,
+    "light": 1606
+  },
+  "questReportOnce": true,
+  "killXp": 20350
+}

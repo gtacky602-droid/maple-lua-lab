@@ -569,13 +569,15 @@
     "boss-20070101": {
       "action": "boss_thunder",
       "remaining": [
-        "羽弾・回転斬り・追加衝撃波等",
-        "専用素材・動作",
+        "連続モーションと被弾・撃破作画",
+        "装備差と周回報酬のバランス",
         "精密な数値・AIと実機検証"
       ],
-      "review_note": "本編入口・依頼接続、三連落雷/直線突進経由の通常入力33.97秒撃破・帰還報告、旅人/アンバー生存。図形と数値は試作。",
+      "review_note": "Lv48フィールドで翼の一旋、三枚の雷羽、低空の雷走。雷無効と地上近接経路を確認。従来の模擬戦は別に選べる。",
+      "extra_evidence": ["evidence/thunder-field-lua.json", "evidence/thunder-field-browser.json"],
       "art_candidate": {
         "item": "thunder",
+        "audit": "evidence/thunder-field-art-audit.json",
         "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
       }
     },

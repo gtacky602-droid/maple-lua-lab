@@ -4432,14 +4432,16 @@
         {
           "to": "inazuma-road",
           "x": 60
-        }
+        },
+        {"to":"thunder-field-crest","x":1270}
       ],
       "checkpoint": "inazuma-port",
       "challenge": "thunder",
       "challengeName": "雷音権現",
       "challengeAction": "boss_thunder",
       "challengeX": 720
-    }
+    },
+    {"id":"thunder-field-crest","name":"稲妻・雷鳴の岩峰","region":"稲妻","level":48,"hub":false,"peaceful":true,"width":1580,"platforms":[{"x":0,"y":480,"w":1580}],"exits":[{"to":"thunder-approach","x":65}],"checkpoint":"inazuma-port"}
   ],
   "quests": [
     {
@@ -5524,7 +5526,7 @@
       "goal": 1,
       "xp": 4000,
       "mora": 300,
-      "note": "本編入口から挑戦した討伐のみ対象。報酬・地理配置は試案。"
+      "note": "雷鳴の岩峰、または本編入口の挑戦碑での討伐が対象。"
     }
   ]
 }
