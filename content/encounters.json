@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 15,
+    "partial": 16,
     "complete": 0
   },
   "encounters": [
@@ -494,23 +494,26 @@
       "entity_ids": [
         "22060101"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/goldenwolflord.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/goldenwolflord.json",
+        "evidence/wolflord-field-lua.json",
+        "evidence/wolflord-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "動作の中割り・被弾・撃破の追加作画",
+        "装備差・報酬のバランス",
+        "Webマルチと幻境実機"
       ],
+      "fieldNode": "wolflord-field-ruins",
+      "fieldEntrance": "稲妻・鶴観の霧浜遺跡（Lv54）",
       "art_candidate": {
         "source": "assets/wolflord-idle-source-v2.png",
         "encoding": "assets/wolflord-idle-sprites.json",
-        "audit": "evidence/wolflord-reference-audit.json",
-        "status": "idle body candidate only; no live combat or animations"
+        "audit": "evidence/wolflord-field-art-audit.json",
+        "status": "Web field encounter with five body poses and a separate skull projectile sprite"
       }
     },
     {

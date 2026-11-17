@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 124 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 122,
+  "scope": "Authored 126 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 124,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -176,6 +176,18 @@
     {
       "id": "inazuma-port",
       "name": "稲妻・離島の波止場",
+      "region": "稲妻",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "tsurumi-coast",
+      "name": "稲妻・鶴観の浜",
+      "region": "稲妻",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "wolflord-field-ruins",
+      "name": "稲妻・鶴観の霧浜遺跡",
       "region": "稲妻",
       "status": "regional_temporary_image"
     },

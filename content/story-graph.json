@@ -1228,10 +1228,13 @@
           "to": "inazuma-road",
           "x": 1380
         },
-        {"to":"watatsumi-landing","x":1050}
+        {"to":"watatsumi-landing","x":1050},
+        {"to":"tsurumi-coast","x":1205}
       ],
       "checkpoint": "inazuma-port"
     },
+    {"id":"tsurumi-coast","name":"稲妻・鶴観の浜","region":"稲妻","level":54,"hub":false,"peaceful":true,"width":1440,"platforms":[{"x":0,"y":480,"w":1440},{"x":420,"y":391,"w":285}],"exits":[{"to":"inazuma-port","x":65},{"to":"wolflord-field-ruins","x":1340}],"checkpoint":"inazuma-port"},
+    {"id":"wolflord-field-ruins","name":"稲妻・鶴観の霧浜遺跡","region":"稲妻","level":54,"hub":false,"peaceful":true,"width":1640,"platforms":[{"x":0,"y":480,"w":1640}],"exits":[{"to":"tsurumi-coast","x":65}],"checkpoint":"inazuma-port"},
     {"id":"watatsumi-landing","name":"稲妻・海祇島の浜","region":"稲妻","level":52,"hub":false,"peaceful":true,"width":1440,"platforms":[{"x":0,"y":480,"w":1440},{"x":480,"y":382,"w":310}],"exits":[{"to":"inazuma-port","x":65},{"to":"hydro-hypostasis-field-cove","x":1340}],"checkpoint":"inazuma-port"},
     {"id":"hydro-hypostasis-field-cove","name":"稲妻・潮紋の洞","region":"稲妻","level":52,"hub":false,"peaceful":true,"width":1600,"platforms":[{"x":0,"y":480,"w":1600}],"exits":[{"to":"watatsumi-landing","x":65}],"checkpoint":"inazuma-port"},
     {
@@ -5537,6 +5540,7 @@
     },
     {"id":"cryo-hypostasis-commission","name":"無相の氷の討伐調査","hub":"dragonspine-camp","target":"cryo-hypostasis","kind":"boss","goal":1,"xp":1500,"mora":300,"note":"霜輪の窪地での討伐が対象。"},
     {"id":"pyro-hypostasis-commission","name":"無相の炎の討伐調査","hub":"inazuma-town","target":"pyro-hypostasis","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"燎火の石浜での討伐が対象。"},
-    {"id":"hydro-hypostasis-commission","name":"無相の水の討伐調査","hub":"inazuma-port","target":"hydro-hypostasis","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"海祇島の浜から進む潮紋の洞での討伐が対象。"}
+    {"id":"hydro-hypostasis-commission","name":"無相の水の討伐調査","hub":"inazuma-port","target":"hydro-hypostasis","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"海祇島の浜から進む潮紋の洞での討伐が対象。"},
+    {"id":"wolflord-commission","name":"黄金王獣の討伐調査","hub":"inazuma-port","target":"wolflord","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"鶴観の浜から進む霧浜遺跡での討伐が対象。"}
   ]
 }

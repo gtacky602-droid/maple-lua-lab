@@ -1,0 +1,181 @@
+{
+  "stage": "稲妻・鶴観の霧浜遺跡",
+  "referenceAudit": "evidence/wolflord-reference-audit.json",
+  "references": [
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2022/12/24/152636517/86ecb137e2f26cd0e01c7f6fa3d4a3f9_1976827223088506134.png",
+      "sha256": "1738113686e39d9955483c46106140da62326a6ed04b7ec3a31583ef09b48348",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "archive screenshot full coiled body, community posted"
+    },
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2021/11/25/1561847/034f221eba64eae827cc0e595beddbbb_1733239887874021669.jpg",
+      "sha256": "735e81fc58785f0619a1252a6274dbb426d0798b422904fcbdf062e2ca8da899",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "announcement screenshot frontal head, community posted"
+    }
+  ],
+  "modelLookup": "No usable matching 3D model found. Back view and actual model not inspected.",
+  "generated": [
+    {
+      "path": "assets/wolflord-field-background-v1.png",
+      "sha256": "666d7372a2d5516341630f64f4d2333fe5189c49107e528f86da883e971c98e7",
+      "size": [
+        1672,
+        941
+      ],
+      "prompt": "Original 16:9 pixel-painted side-scrolling RPG battleground, unoccupied. The supplied gameplay image serves as atmosphere reference for a foggy Inazuma coastal island at twilight, lilac-grey windswept sky and dark stone. Compose isolated flat ruins in front of a remote grey coast below layered fog, a distant line of leaning dark pillars, cool charcoal slab floor forming a straight unobstructed run along lower edge. Muted slate blue midground with subdued value so golden warning bars and black-and-gold creature read. No humans, animals, monsters, weapons, characters, floating gold, fighting effects, text or UI. No foreground obstacles. Independent composition."
+    },
+    {
+      "path": "assets/wolflord-field-poses-source-v1.png",
+      "sha256": "e3dd7c525033ead0f2264669c1b5379b25eae2f8f07526d122fe7978580d6996",
+      "size": [
+        1536,
+        1024
+      ],
+      "prompt": "Make a transparent two-column three-row pixel art sprite sheet with exactly six separate fully contained poses. Distinctive original game sprite based on the supplied screenshots: a long serpentine flying wolf made of separated angular charcoal-violet plates, low narrow black pointed muzzle, glowing amber eyes, spiky antique gold mane mixed with sparse purple angular spines, long tapering tail of floating rock segments. Faces LEFT in every full-body cell. Keep head in left third and low within each bounding silhouette; feet are tiny suspended claws tucked under the segmented flying body. Crisp stepped shadows, black edges, one consistent golden mane. Cell 1 top-left: low floating idle with visible S-curve whole body and tail. Cell 2 top-right: very long horizontal leftward dive stretched like an arrow, muzzle low and front, tail trailing right. Cell 3 middle-left: body curling horizontally with tail extended hard to RIGHT and head looking back over shoulder, keep low charcoal head on LEFT end. Cell 4 middle-right: low body with jaw distinctly open to fire, tail hangs behind. Cell 5 bottom-left: head low and long body resting extended just above ground, jaw shut. Cell 6 bottom-right: isolated left-facing small golden angular wolf skull without a body, orange shaded carved bony plates and purple outline. No floor, text, border, scenery, sparks or glow haze. Wide clear gutters (no touching adjoining cells), actual alpha, keep full silhouettes."
+    }
+  ],
+  "poses": {
+    "idle": {
+      "crop": [
+        24,
+        8,
+        646,
+        330
+      ],
+      "box": [
+        61,
+        25,
+        581,
+        290
+      ],
+      "height": 105,
+      "anchorX": 0.102,
+      "bottomOffset": 36,
+      "commands": {
+        "legacy": 4456,
+        "h48c32": 2727,
+        "h32c16": 1171
+      }
+    },
+    "ram": {
+      "crop": [
+        680,
+        80,
+        856,
+        258
+      ],
+      "box": [
+        712,
+        116,
+        798,
+        195
+      ],
+      "height": 86,
+      "anchorX": 0.091,
+      "bottomOffset": 44,
+      "commands": {
+        "legacy": 5302,
+        "h48c32": 3315,
+        "h32c16": 1478
+      }
+    },
+    "tail": {
+      "crop": [
+        20,
+        352,
+        720,
+        333
+      ],
+      "box": [
+        48,
+        377,
+        675,
+        279
+      ],
+      "height": 100,
+      "anchorX": 0.243,
+      "bottomOffset": -8,
+      "commands": {
+        "legacy": 4246,
+        "h48c32": 2621,
+        "h32c16": 1193
+      }
+    },
+    "jaw": {
+      "crop": [
+        780,
+        374,
+        735,
+        320
+      ],
+      "box": [
+        799,
+        412,
+        678,
+        251
+      ],
+      "height": 97,
+      "anchorX": 0.105,
+      "bottomOffset": 14,
+      "commands": {
+        "legacy": 4776,
+        "h48c32": 3021,
+        "h32c16": 1275
+      }
+    },
+    "recover": {
+      "crop": [
+        20,
+        735,
+        860,
+        265
+      ],
+      "box": [
+        60,
+        780,
+        785,
+        182
+      ],
+      "height": 84,
+      "anchorX": 0.096,
+      "bottomOffset": 34,
+      "commands": {
+        "legacy": 5912,
+        "h48c32": 3717,
+        "h32c16": 1623
+      }
+    },
+    "skull": {
+      "crop": [
+        990,
+        714,
+        350,
+        271
+      ],
+      "box": [
+        1037,
+        745,
+        253,
+        218
+      ],
+      "height": 27,
+      "anchorX": 0.368,
+      "bottomOffset": 0,
+      "commands": {
+        "legacy": 328,
+        "h48c32": 204,
+        "h32c16": 83
+      }
+    }
+  },
+  "alignment": "Horizontal anchors use a visible eye or skull center. Bottom offsets keep the head in the moving head hurtbox; the projectile sprite is centered on the projectile path. Tail pose turns its head toward the rear.",
+  "limits": [
+    "Temporary 2D scene for the local lab",
+    "Five discrete body poses and one projectile sprite. In-betweens, hit reactions and death art pending.",
+    "Playable prototype based on the draft field moveset. Matching 3D model, original animation fidelity and live Miliastra behavior are unverified."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "attacks": [
+    "FWL01",
+    "FWL02",
+    "FWL03"
+  ],
+  "ramLockedAndAirborneHurtbox": true,
+  "tailHitsRearOnly": true,
+  "twoFixedLineSkulls": true,
+  "physicalReachesHeadAtRest": true,
+  "commands": {
+    "standard": 7607,
+    "light": 2082
+  },
+  "questReportOnce": true,
+  "killXp": 32300
+}

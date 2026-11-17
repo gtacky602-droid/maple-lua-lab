@@ -737,6 +737,85 @@
           "damage": 12
         }
       ]
+    },
+    {
+      "id": "boss-22060101",
+      "controller": "wolflord",
+      "entity": 22060101,
+      "name": "黄金王獣",
+      "node": "wolflord-field-ruins",
+      "storyChallenge": "wolflord",
+      "level": 54,
+      "hp": 1100,
+      "mora": 210,
+      "artHeight": 110,
+      "floorY": 480,
+      "home": 850,
+      "arenaMin": 396,
+      "arenaMax": 1480,
+      "noticeRange": 285,
+      "noticeTicks": 36,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 62,
+      "contactDamage": 0,
+      "moves": [
+        {
+          "id": "FWL01",
+          "kind": "ram",
+          "title": "低空の蛇行突進",
+          "reach": 235,
+          "lock": 60,
+          "active": [
+            [
+              120,
+              156
+            ]
+          ],
+          "recover": 168,
+          "total": 312,
+          "air": [
+            84,
+            120
+          ],
+          "distance": 2.6,
+          "rise": 70,
+          "damage": 22
+        },
+        {
+          "id": "FWL02",
+          "kind": "tail",
+          "title": "尾の一薙ぎ",
+          "reach": 230,
+          "lock": 48,
+          "active": [
+            [
+              108,
+              126
+            ]
+          ],
+          "recover": 144,
+          "total": 264,
+          "damage": 20
+        },
+        {
+          "id": "FWL03",
+          "kind": "jaw",
+          "title": "二つの黄金首",
+          "reach": 236,
+          "lock": 48,
+          "active": [],
+          "recover": 180,
+          "total": 264,
+          "fire": [
+            84,
+            120
+          ],
+          "life": 48,
+          "damage": 14
+        }
+      ]
     }
   ]
 }

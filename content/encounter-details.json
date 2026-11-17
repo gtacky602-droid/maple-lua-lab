@@ -148,10 +148,12 @@
       }
     },
     "boss-22060101": {
+      "remaining": ["動作の中割り・被弾・撃破の追加作画", "装備差・報酬のバランス", "Webマルチと幻境実機"],
+      "extra_evidence": ["evidence/wolflord-field-lua.json", "evidence/wolflord-field-browser.json"],
       "art_candidate": {
         "item": "wolflord",
-        "audit": "evidence/wolflord-reference-audit.json",
-        "status": "idle body candidate only; no live combat or animations"
+        "audit": "evidence/wolflord-field-art-audit.json",
+        "status": "Web field encounter with five body poses and a separate skull projectile sprite"
       }
     },
     "boss-26230301": {

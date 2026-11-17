@@ -176,6 +176,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "tsurumi-coast",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "wolflord-field-ruins",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "watatsumi-landing",
       "count": 0,
       "fallback": false,

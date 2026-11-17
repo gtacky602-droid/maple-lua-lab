@@ -45,6 +45,11 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local art=C.hydroHypostasisFieldArt[pose]
   draw(f,art,x,y-15,art.profiles.legacy.height,mode,profile,(pose=='dolphin' or pose=='ray') and dir==1)
  end
+ local wolflordPoseOffsets={idle=36,ram=44,tail=-8,jaw=14,recover=34,skull=0}
+ function C.drawWolflordFieldArt(f,x,y,pose,mode,profile,dir)
+  local art=C.wolflordFieldArt[pose]
+  draw(f,art,x,y-wolflordPoseOffsets[pose],art.profiles.legacy.height,mode,profile,dir>0)
+ end
  function C.drawThunderFieldArt(f,x,y,h,mode,profile,pose,dir)
   draw(f,pose and C.thunderFieldArt[pose] or C.thunderArt,x,y,h,mode,profile,pose=='dash' and dir>0)
  end

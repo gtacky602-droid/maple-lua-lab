@@ -6,6 +6,10 @@ from savegame import validate_save
 SESSIONS = {}
 LOCK = threading.RLock()
 
+class LabServer(ThreadingHTTPServer):
+    # The map and sprite views load several image and JSON groups in parallel.
+    request_queue_size = 64
+
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self,*a,**kw): super().__init__(*a,directory=str(ROOT),**kw)
     def log_message(self,*a): pass
@@ -86,6 +90,6 @@ if __name__=='__main__':
     parser=ArgumentParser(description='Run the local Lua lab.')
     parser.add_argument('--port',type=int,default=8769,help='Loopback port (default: 8769)')
     args=parser.parse_args()
-    with ThreadingHTTPServer(('127.0.0.1',args.port),Handler) as server:
+    with LabServer(('127.0.0.1',args.port),Handler) as server:
         print(f'Lua lab: http://127.0.0.1:{server.server_port}',flush=True)
         server.serve_forever()

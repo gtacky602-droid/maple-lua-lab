@@ -75,8 +75,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 21,
-      "prototype_quest_count": 11,
+      "prototype_stage_count": 23,
+      "prototype_quest_count": 12,
       "official_map2_markers": {
         "waypoints": 47,
         "statues": 6
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 124,
-    "provisional_quests": 70,
+    "authored_stages": 126,
+    "provisional_quests": 71,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -717,6 +717,8 @@
         "kind": "main",
         "stage_ids": [
           "inazuma-port",
+          "tsurumi-coast",
+          "wolflord-field-ruins",
           "watatsumi-landing",
           "hydro-hypostasis-field-cove",
           "inazuma-road",
@@ -749,7 +751,8 @@
           "array-commission",
           "thunder-commission",
           "pyro-hypostasis-commission",
-          "hydro-hypostasis-commission"
+          "hydro-hypostasis-commission",
+          "wolflord-commission"
         ]
       },
       {

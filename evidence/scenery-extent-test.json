@@ -2,6 +2,36 @@
   "errors": [],
   "cases": [
     {
+      "key": "wolflordField",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "wolflordField",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "wolflordField",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "wolflordField",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "wolflordField",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "wolflordField",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "hydroHypostasisField",
       "camera": -960,
       "transparent": 0
