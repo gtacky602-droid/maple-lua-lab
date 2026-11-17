@@ -11,6 +11,11 @@
       "rightCamera": 480
     },
     {
+      "node": "mond-roadside-rest",
+      "width": 1260,
+      "rightCamera": 300
+    },
+    {
       "node": "mond-old-road",
       "width": 1440,
       "rightCamera": 480

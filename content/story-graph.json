@@ -98,6 +98,11 @@
           "x": 1380
         },
         {
+          "to": "mond-roadside-rest",
+          "x": 555,
+          "requires": {"quest": "mond-rest-stop", "count": 0}
+        },
+        {
           "to": "dornman-camp",
           "x": 720
         },
@@ -139,6 +144,15 @@
           "label": "古い船着き場の跡"
         }
       ]
+    },
+    {
+      "id": "mond-roadside-rest",
+      "name": "モンド・街道脇の休憩所",
+      "region": "モンド", "level": 1, "hub": false,
+      "width": 1260, "checkpoint": "mond-town",
+      "platforms": [{"x": 0, "y": 480, "w": 1260}, {"x": 390, "y": 392, "w": 260}],
+      "exits": [{"to": "mond-road", "x": 65}],
+      "clearedBy": "mond-rest-stop", "clearCount": 1
     },
     {
       "id": "mond-old-road",
@@ -4270,6 +4284,29 @@
         "x": 1210,
         "min": 1130,
         "max": 1320
+      }
+    },
+    {
+      "id": "mond-rest-stop",
+      "designId": "Q-MON-S01",
+      "name": "休憩するための大仕事",
+      "giver": "ノエル",
+      "hub": "mond-town",
+      "target": "mond-roadside-rest",
+      "requires": "amber-join",
+      "kind": "rest",
+      "goal": 5,
+      "xp": 26,
+      "mora": 120,
+      "briefing": "ノエル「街道脇の休憩所が荒れているんです。もう一度、旅の方が腰を下ろせる場所にしませんか？」",
+      "closing": "ノエル「椅子とお茶を用意しておきました。道の途中で、いつでもひと休みしてくださいね。」",
+      "rest": {
+        "guards": ["mond-rest-slime", "mond-rest-hilichurl"],
+        "planks": {"x": 515, "y": 392, "label": "ベンチ用の板を拾う"},
+        "leaves": {"x": 750, "y": 480, "label": "落ち葉を掃除する"},
+        "bench": {"x": 925, "y": 480, "label": "ノエルに声をかける"},
+        "chair": {"x": 1050, "y": 480, "label": "ノエルの椅子を置く"},
+        "tea": {"x": 990, "y": 480, "label": "お茶を飲んで休む", "heal": 35}
       }
     },
     {

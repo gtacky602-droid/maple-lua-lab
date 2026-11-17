@@ -1,15 +1,15 @@
 {
   "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
   "version": "monster-quest-v02",
-  "quests_tested": 15,
+  "quests_tested": 16,
   "old_completed_not_reissued": true,
   "old_unreported_uses_current_preview": true,
   "unlinked_trial_fallback": true,
   "by_region": {
     "MON": {
-      "linked": 3,
-      "legacy_xp": 4300,
-      "report_xp": 7333
+      "linked": 4,
+      "legacy_xp": 4326,
+      "report_xp": 7359
     },
     "LIY": {
       "linked": 8,
@@ -28,6 +28,12 @@
       "quest_id": "amber-join",
       "legacy_xp": 1000,
       "report_xp": 76
+    },
+    {
+      "design_id": "Q-MON-S01",
+      "quest_id": "mond-rest-stop",
+      "legacy_xp": 26,
+      "report_xp": 26
     },
     {
       "design_id": "Q-MON-M02",

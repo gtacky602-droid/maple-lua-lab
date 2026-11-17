@@ -18,6 +18,10 @@
     },
     {
       "node": "mond-road",
+      "to": "mond-roadside-rest"
+    },
+    {
+      "node": "mond-road",
       "to": "dornman-camp"
     },
     {
@@ -39,6 +43,10 @@
     {
       "node": "mond-road",
       "to": "mond-hill"
+    },
+    {
+      "node": "mond-roadside-rest",
+      "to": "mond-road"
     },
     {
       "node": "mond-old-road",

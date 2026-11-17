@@ -1,0 +1,18 @@
+{
+  "browser": "Chrome",
+  "actual_controls": true,
+  "platform_jump_and_guards": true,
+  "quest_and_room_restore": true,
+  "dedicated_temporary_background": true,
+  "standing_and_seated_png": true,
+  "same_scene_commands": {
+    "standard": 5436,
+    "light": 1385
+  },
+  "report": {
+    "xp": 26,
+    "mora": 120
+  },
+  "viewport_390": true,
+  "errors": []
+}

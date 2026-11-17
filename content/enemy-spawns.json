@@ -2,6 +2,10 @@
   "version": 1,
   "status": "Provisional live placement; existing generic behavior; not canonical regional species or attacks",
   "nodes": {
+    "mond-roadside-rest": [
+      {"id": "mond-rest-slime", "kind": 1, "art": "hydro-slime", "x": 350, "platform": 0, "hp": 12},
+      {"id": "mond-rest-hilichurl", "kind": 1, "art": "hilichurl", "x": 790, "platform": 0, "hp": 18}
+    ],
     "mond-road": [
       {
         "id": "mond-road-1",

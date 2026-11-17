@@ -27,8 +27,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 12,
-      "prototype_quest_count": 9,
+      "prototype_stage_count": 13,
+      "prototype_quest_count": 10,
       "official_map2_markers": {
         "waypoints": 45,
         "statues": 6
@@ -401,9 +401,26 @@
       "id": "progression",
       "status": "partial_web_exp_curve_and_save",
       "acceptance": "shared level, gear, targeted loot, save/load, nonduplicate rewards",
-      "verified": ["Lv1 to 200 draft curve", "normal and named elite kill EXP", "15 linked quest reports using fixed draft EXP", "3 chapter bosses with independent first-clear EXP", "legacy progression migration", "Lv200 overflow and lifetime EXP"],
-      "pending": ["remaining quest rewards, regional boss rewards and dailies", "50-hour balance playthrough", "online ranking and Miliastra validation"],
-      "evidence": ["evidence/progression-test.json", "evidence/progression-browser.json", "evidence/story-growth-test.json", "evidence/quest-exp-rewards.json", "evidence/chapter-first-clear-exp.json"]
+      "verified": [
+        "Lv1 to 200 draft curve",
+        "normal and named elite kill EXP",
+        "15 linked quest reports using fixed draft EXP",
+        "3 chapter bosses with independent first-clear EXP",
+        "legacy progression migration",
+        "Lv200 overflow and lifetime EXP"
+      ],
+      "pending": [
+        "remaining quest rewards, regional boss rewards and dailies",
+        "50-hour balance playthrough",
+        "online ranking and Miliastra validation"
+      ],
+      "evidence": [
+        "evidence/progression-test.json",
+        "evidence/progression-browser.json",
+        "evidence/story-growth-test.json",
+        "evidence/quest-exp-rewards.json",
+        "evidence/chapter-first-clear-exp.json"
+      ]
     },
     {
       "id": "world",
@@ -561,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 104,
-    "provisional_quests": 64,
+    "authored_stages": 105,
+    "provisional_quests": 65,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -615,6 +632,7 @@
         "stage_ids": [
           "mond-town",
           "mond-road",
+          "mond-roadside-rest",
           "mond-old-road",
           "mond-old-canopy",
           "mond-old-ground",
@@ -628,6 +646,7 @@
         ],
         "quest_ids": [
           "amber-join",
+          "mond-rest-stop",
           "mond-old-trail",
           "mond-watchtower-clear",
           "mond-patrol",
@@ -1037,8 +1056,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 15,
-    "without_explicit_mapping": 138,
+    "linked": 16,
+    "without_explicit_mapping": 137,
     "runtime_id_by_design_id": {
       "Q-INA-M01": "inazuma-moving-lantern",
       "Q-INA-M02": "inazuma-torii-maze",
@@ -1054,7 +1073,8 @@
       "Q-LIY-S05": "liyue-hauling-shortcut",
       "Q-MON-M01": "amber-join",
       "Q-MON-M02": "mond-old-trail",
-      "Q-MON-M03": "mond-watchtower-clear"
+      "Q-MON-M03": "mond-watchtower-clear",
+      "Q-MON-S01": "mond-rest-stop"
     },
     "scope": "Explicit links to runtime quests only; no claim of completed or tested content."
   }

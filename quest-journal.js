@@ -11,6 +11,11 @@ const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready
 export function questObjective(q,graph,state){
  const destination=graph.nodes.find(n=>q.kind==='boss'?n.challenge===q.target:n.id===q.target);
  const place=destination?.name||'目的地未登録';
+ if(q.rest){
+  if(state?.status==='complete')return '街道脇の休憩所でお茶を飲んで回復できる';
+  return ['南の街道から休憩所に入り、魔物を退ける','低い足場の板を拾う','ベンチのそばの落ち葉を掃く',
+   '直ったベンチのそばでノエルに声をかける','ノエルの分の椅子を置く','城門広場でノエルに報告する'][state?.count??0];
+ }
  if(q.sights){
   if(state&&!state.sights){
    const road=graph.nodes.find(node=>node.id===q.sights.legacyTarget)?.name;

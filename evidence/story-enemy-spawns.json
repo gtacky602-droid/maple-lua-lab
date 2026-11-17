@@ -9,6 +9,10 @@
       "enemy_count": 6
     },
     {
+      "node": "mond-roadside-rest",
+      "enemy_count": 2
+    },
+    {
       "node": "mond-old-road",
       "enemy_count": 0
     },

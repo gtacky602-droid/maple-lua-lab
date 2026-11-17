@@ -5,7 +5,7 @@ def state(node):
  s=c.new(12);c.action(s,'story_start');c.enterStoryNode(s,node);return s
 # Every visible connection exposes the nearest name at the same range as traversal.
 for n in g['nodes']:
- s=state(n['id']);s.progression.level=999
+ s=state(n['id']);s.progression.level=c.frame(s).levelCap
  for group in {x.get('hiddenGroup') for x in g['nodes']} - {None}:s.story.discovered[group]=True
  for edge in n['exits']:
   s.actors[1].x=edge['x'];s.actors[1].y=edge.get('y',480)
@@ -43,7 +43,7 @@ for n in g['nodes']:
 s=state('mond-border');e=next(e for e in nodes['mond-border']['exits'] if e['to']=='liyue-entry');s.actors[1].x=e['x'];p=c.frame(s,'sprite','legacy').storyNearbyPortal;assert not p.available and '20' in p.reason;c.action(s,'story_nearby_portal');assert s.story.node=='mond-border'
 # Time windows use the same inclusive start/exclusive end as traversal.
 for node,dest,times in [('natlan-voyage','ochkanatlan-dock',[(29.9,False),(30,True),(49.9,True),(50,False)]),('liyue-ferry','inazuma-port',[(29.9,False),(30,True)])]:
- s=state(node);s.progression.level=999;s.actors[1].x=next(e['x'] for e in nodes[node]['exits'] if e['to']==dest)
+ s=state(node);s.progression.level=c.frame(s).levelCap;s.actors[1].x=next(e['x'] for e in nodes[node]['exits'] if e['to']==dest)
  for elapsed,allowed in times:
   s.t=s.voyage.started+elapsed;p=c.frame(s,'sprite','legacy').storyNearbyPortal;assert p.to==dest and p.available==allowed
 (ROOT/'evidence/nearby-portal.json').write_text(json.dumps({'connections':checked,'hidden_connections_checked':hidden,'checks':['nearest name from graph','strict distance/height boundaries','pause/dead blocks','keyboard action delegates existing traversal','level blocks','undiscovered names hidden','arrival and stopover boundaries']},indent=2)+'\n')

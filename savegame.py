@@ -104,7 +104,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -158,6 +158,14 @@ def validate_save(data):
                         raise ValueError('Invalid favorite sight')
                 elif 'favorite' in state:
                     raise ValueError('Premature favorite sight')
+            if quest.get('rest') or 'rest' in q:
+                spec, state = quest.get('rest'), q.get('rest')
+                if not spec or not isinstance(state,dict) or set(state)!={'defeated'}:
+                    raise ValueError('Invalid roadside rest progress')
+                guards, defeated = set(spec['guards']), state['defeated']
+                if (not isinstance(defeated,dict) or any(k not in guards or v is not True for k,v in defeated.items())
+                        or (q['count']>=1)!=(guards==defeated.keys())):
+                    raise ValueError('Invalid roadside rest guards')
             if quest.get('forest') or 'forest' in q:
                 spec, state = quest.get('forest'), q.get('forest')
                 if not spec or not isinstance(state, dict) or set(state) != {'looped','defeated'}:

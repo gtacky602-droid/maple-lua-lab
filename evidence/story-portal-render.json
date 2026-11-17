@@ -13,12 +13,22 @@
     {
       "node": "mond-road",
       "mode": "sprite",
-      "visible_portals": 7
+      "visible_portals": 8
     },
     {
       "node": "mond-road",
       "mode": "rect",
-      "visible_portals": 7
+      "visible_portals": 8
+    },
+    {
+      "node": "mond-roadside-rest",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "mond-roadside-rest",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "mond-old-road",

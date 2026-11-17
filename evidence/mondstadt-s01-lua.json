@@ -1,0 +1,13 @@
+{
+  "prerequisite_and_gate": true,
+  "ordinary_combat": true,
+  "defeated_guard_survives_save": true,
+  "grounded_jump_for_boards": true,
+  "sweeping_bench_and_chair": true,
+  "chair_and_healing_survive_restore": true,
+  "healing_active_actor_and_capped": true,
+  "one_time_report": {
+    "xp": 26,
+    "mora": 120
+  }
+}

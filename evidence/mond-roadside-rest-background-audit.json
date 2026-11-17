@@ -1,0 +1,13 @@
+{
+  "method": "built-in imagegen",
+  "reference": "assets/mond-restored-road-background-v1.png",
+  "prompt": "Create a wide (16:9) original side-on RPG background for a small Mondstadt roadside picnic clearing. Use the local reference image only for the region's warm green grass, chalky stone and yellow-green deciduous trees. The scene is half afternoon shade, a quiet clearing along a side road, with a huge leafy oak framing the upper left, a distant low stone wall and rolling green hills and a tiny windmill beyond on the right. Use hand-clustered pixel-art style with hard color steps and crisp silhouettes, nuanced moss green, golden light and clear sky. Lower third is low-contrast deep olive grass or dirt on level horizon. No benches, tables, people, stalls, games signs, text, UI or logos; mutable furniture and obstacle collision are game-provided separately. Original composition with open low central floor for campsite props. Landscape filled edge to edge.",
+  "source": "assets/mond-roadside-rest-background-v1.png",
+  "scope": "Original roadside clearing for the lab. Furniture and terrain collision are separate.",
+  "sha256": "8622d958db6399bf58fde91890e7446d03d58d337a74e6d7e119d196393c4080",
+  "size": [
+    1672,
+    941
+  ],
+  "reference_sha256": "b0eb6781b2c925b0c3bfe7344bc67f6faf5c48e8fb8a42cc595fdc14d091f28d"
+}

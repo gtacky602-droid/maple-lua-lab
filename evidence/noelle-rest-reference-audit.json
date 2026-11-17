@@ -1,0 +1,116 @@
+{
+  "scope": "Web/Lua noncommercial art candidate for Q-MON-S01",
+  "character": "Noelle",
+  "style_guide": "DESIGN_MAPLE_CHIBI_STYLE_GUIDE_V01.md",
+  "illustration": {
+    "page": "https://genshin.hoyoverse.com/en/character/mondstadt?char=9",
+    "reference_image": "https://paimon.moe/images/characters/full/noelle.png",
+    "sha256": "cf44c6f8b3a6473891716e23a1702f3cd76e07e4341eefca6e47fa46ea0d6468"
+  },
+  "model": {
+    "archive_url": "https://activity.hdslb.com/blackboard/static/20240621/d32c2bb79f59192cb072d7bf79b61c6d/ULlGITsyJm.zip",
+    "sha256": "02c8c0dc89b114cf933a9d45b0ab303f708dcb619c6c0a0ea1a8fce0fdbf4959",
+    "file": "诺艾尔.pmx",
+    "copyright": "miHoYo",
+    "model_editor": "神帝宇",
+    "bundled_terms": "使用规则.txt forbids redistribution and commercial model use. Archive, 3D model, textures and Blender inspection renders are kept in the ignored local work directory.",
+    "directions_inspected": [
+      "front",
+      "right",
+      "back",
+      "left"
+    ],
+    "render": "Blender 4.2, base textures without game shaders or pose"
+  },
+  "design_observations": [
+    "Silver bob and large red roses, white-gold maid headpiece, green eyes.",
+    "Larger pauldron on the anatomical left, segmented boot armor, dark dress, white apron and back ribbon."
+  ],
+  "imagegen": {
+    "first_draft_prompt": "Transparent-background 2D pixel-art NPC sprite sheet with exactly two separated full-body sprites of Genshin Noelle, left column STANDING and right column SITTING, nothing else, fully contained in their respective halves with wide transparent space at midpoint. Use first image official illustration hosted by the community as costume color reference, second image Noelle's flat MMD front, third MMD side facing screen left (dominant single left pauldron), fourth MMD back with an asymmetric ribbon and train, fifth existing original Aether pixel asset for style and scale proportions only. Both Noelle sprites face SCREEN LEFT in 3/4 profile, larger head but about THREE heads tall excluding the headdress (user 2.8-3.2), short torso and shin, broad grounded steel boots and hands. Green eyes, soft silver-lilac bob, small white-and-gold pointed headband with crimson roses, asymmetrical large armor shoulder on her left, crimson necktie, silver breastplate with muted warm rims, dark charcoal dress, white apron and red panels. Standing has both feet near level, hands folded low. Sitting has her torso upright, lowered hips and both knees bent forward toward the left, flat feet and hands folded in lap; draw her body alone, with NO chair, table, cups, weapon, floor, shadow or any other prop. Full-head and full-foot clearance and matching head sizes across poses. Crisp semantic pixel clusters, subtle stepped shading with dark purplish outline. They will be downsampled to a standing appearance height of 88 game pixels. Fully transparent background, no gradient, no writing, no multicolor grid, no colored placeholder background, no UI. Wide horizontal sheet.",
+    "revision_prompt": "Redraw this existing transparent game sprite sheet of Genshin Impact Noelle, keeping the recognizable costume and exact two pose layout, both facing left, standing on the left and sitting in midair on the right, no chair included. Make the head visibly BIGGER and compact the body greatly to old-school MapleStory proportions in BOTH poses. Concrete mandatory pixel proportions for the standing pose: from highest silver HAIR (excluding tiara) to bottom of the chin is 40–42% of the full standing visible height, from chin to hips is 24%, hips to soles 34%. This is about 2.4 heads tall. To accomplish that increase the head/face mass ~30%, shorten the torso, heavily shorten legs below the knees and broaden shoes and gloves. Use a very broad and round silver bob, large clear green eyes on light skin, simple facial features, recognizable roses, compact gold-and-white maid headdress (short tiara so it adds almost no height), gold-and-white pauldron, white apron over dark dress, red ribbon. Make the dress short and compact, no slender long legs. Seated pose same large head scale, thighs horizontal, boots on same baseline as the other pose. Two sprites separated by a wide transparent gap, each centered in its own half, no accessories outside sprite or any background/shadows, authentic chunky pixel clusters with a tight limited palette, good 44-pixel resampling readability. Preserve canvas wide 2:1 aspect.",
+    "file": "assets/noelle-rest-poses-source-v1.png",
+    "sha256": "afdb1676e2d6f44cb8dbbc41d36fa86f9107bcc59a7eaedd32add193601c34f2",
+    "sheet_dimensions": [
+      1774,
+      887
+    ],
+    "approx_standing_head_ratio": 2.3,
+    "measurement": "Artwork bounding box 780px high including headwear, divided by approximately 335px from top of visible silver hair to chin. Manual landmark estimate.",
+    "candidate_note": "Near the guide’s C comparison range. One fixed left-facing angle per pose. Seated hip and boot placement were made for this quest, with a separate Lua chair prop."
+  },
+  "poses": {
+    "standing": {
+      "bounds": [
+        177,
+        92,
+        529,
+        780
+      ],
+      "anchorX": 0.4281663516068053,
+      "anchor_method": "midpoint of opaque pixels in bottom 3.5 percent band",
+      "profiles": {
+        "legacy": {
+          "size": [
+            60,
+            88
+          ],
+          "palette_budget": 32,
+          "rectangles": 1982
+        },
+        "h48c32": {
+          "size": [
+            45,
+            66
+          ],
+          "palette_budget": 32,
+          "rectangles": 1227
+        },
+        "h32c16": {
+          "size": [
+            30,
+            44
+          ],
+          "palette_budget": 16,
+          "rectangles": 528
+        }
+      }
+    },
+    "seated": {
+      "bounds": [
+        1087,
+        133,
+        528,
+        739
+      ],
+      "anchorX": 0.5,
+      "anchor_method": "explicit normalized anchor; source landmark recorded in reference audit",
+      "profiles": {
+        "legacy": {
+          "size": [
+            59,
+            83
+          ],
+          "palette_budget": 32,
+          "rectangles": 1889
+        },
+        "h48c32": {
+          "size": [
+            44,
+            62
+          ],
+          "palette_budget": 32,
+          "rectangles": 1149
+        },
+        "h32c16": {
+          "size": [
+            29,
+            41
+          ],
+          "palette_budget": 16,
+          "rectangles": 484
+        }
+      }
+    }
+  }
+}

@@ -1,17 +1,18 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
   local out={};for k,item in pairs(v) do out[k]=copy(item) end;return out
  end
  local nodes,quests,starterQuests={},{},{}
- local lanternQuest,contestQuest,sightQuest
+ local lanternQuest,contestQuest,sightQuest,restQuest
  for _,n in ipairs(data.nodes) do nodes[n.id]=n end
  for _,q in ipairs(data.quests) do
   quests[q.id]=q
   if q.lantern then lanternQuest=q end
   if q.contest then contestQuest=q end
   if q.sights then sightQuest=q end
+  if q.rest then restQuest=q end
   if q.join and q.starter then starterQuests[q.join]=q end
  end
  local function setup(s)
@@ -197,6 +198,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.contestFlash=nil
   s.storyFirstClear=nil
   s.sightNotice=nil
+  s.restNotice=nil
   s.sightMenu=nil
   s.storyDeliveryNotice=nil
   local railConfig,railState=railQuest(s,n)
@@ -205,7 +207,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local stageState=stageQuest and s.story.quests[stageQuest.id]
   local phase=railState and railState.count or 0
   if stageQuest and stageQuest.recovery and stageState and stageState.recovered and stageState.count==stageQuest.goal-1 then phase=1 end
-  local group=stageState and (stageState.book or stageState.forest)
+  local group=stageState and (stageState.book or stageState.forest or stageState.rest)
   spawnEnemies(s,n,phase,stageState and stageState.recovered,group and group.defeated)
   local cargo,state=cargoQuest(s)
   if cargo and cargo.chase and recoveredAll(cargo,state) then beginChase(s,cargo) end
@@ -229,6 +231,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if railConfig then rail.start(s,railConfig,railState);return end
    if contestQuest and contest.interact(s,contestQuest,s.story.quests[contestQuest.id]) then return end
    if sightQuest and sights.inspect(s,sightQuest,s.story.quests[sightQuest.id]) then return end
+   if restQuest and rest.interact(s,restQuest,s.story.quests[restQuest.id]) then return end
    for id,state in pairs(s.story.quests) do
     local q=quests[id]
     if q.cooking then
@@ -391,7 +394,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
                        stone=q.stone and {marked={},sequence=0} or nil,construction=q.construction and {surveyed={}} or nil,
                        lantern=q.lantern and {inspected={}} or nil,
                        forest=q.forest and {looped=false,defeated={}} or nil,
-                       sights=q.sights and {seen={}} or nil}
+                       sights=q.sights and {seen={}} or nil,rest=q.rest and {defeated={}} or nil}
    elseif report and state and state.status=='active' and state.count==q.goal then
     if q.cooking then state.cooking.meals=1 end
     if state.sights then sights.report(s,q) end
@@ -412,6 +415,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     local q=quests[id]
     if q.book and s.story.node==q.target then book.defeat(s,q,state,e) end
     if q.forest and s.story.node==q.target then forest.defeat(s,q,state,e) end
+    if q.rest and s.story.node==q.target then rest.defeat(s,q,state,e) end
     if q.delivery and state.status=='active' and q.target==s.story.node and e.spawnId==q.delivery.cache.guard then
      if not state.delivery.guardCleared then s.storyNotice='見張りを倒しました。足場の荷箱を回収できます。' end
      state.delivery.guardCleared=true
@@ -544,6 +548,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    if contestQuest then contest.observe(s,f,markers,n,contestQuest,s.story.quests[contestQuest.id],mode,profile) end
    if sightQuest then sights.observe(s,f,markers,sightQuest,s.story.quests[sightQuest.id],mode,profile) end
+   if restQuest then rest.observe(s,f,markers,restQuest,s.story.quests[restQuest.id],mode,profile) end
    local recoveryQuest=quests[n.clearedBy]
    local recoveryState=recoveryQuest and recoveryQuest.recovery and s.story.quests[recoveryQuest.id]
    if recoveryState and recoveryState.recovered and recoveryState.count==recoveryQuest.goal-1 and s.companion~='beidou' then
