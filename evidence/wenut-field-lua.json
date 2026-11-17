@@ -1,0 +1,30 @@
+{
+  "attacks": [
+    "FWN01",
+    "FWN02",
+    "FWN03"
+  ],
+  "designTiming": true,
+  "normalHitsSurfaceHead": true,
+  "sweptBandOneHit": true,
+  "fixedDirectionAndJumpableWindLine": true,
+  "noUndergroundHurtbox": true,
+  "auraSurvivesBurrow": true,
+  "noDamageOnReemergence": true,
+  "twoLockedWindProjectiles": true,
+  "groundCastsBetweenBurrows": 2,
+  "burningKillsUnderground": true,
+  "noLateProjectilesAfterKill": true,
+  "exitCancelsBurrow": true,
+  "questReportOnce": true,
+  "normalAttackSolo": {
+    "seconds": 88.1,
+    "hp": 140
+  },
+  "commands": {
+    "png": 27,
+    "standard": 5472,
+    "light": 1600
+  },
+  "killXp": 71200
+}

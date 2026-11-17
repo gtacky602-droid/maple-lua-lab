@@ -192,6 +192,8 @@ def runtime():
     asimon=lua.execute((ROOT/'field-asimon.lua').read_text(encoding='utf-8'))(core)
     core.asimonFieldArt=field_art(lua,'asimon',('ray','pillars','cloak','recover'),
                                  idle='asimon-idle-sprites.json')
+    wenut=lua.execute((ROOT/'field-wenut.lua').read_text(encoding='utf-8'))(core)
+    core.wenutFieldArt=field_art(lua,'wenut',('idle','sweep','stream','dive','emerge','orb'))
     core.aeonblightFieldArt=field_art(lua,'aeonblight',('wing_first','wing_second','cannon','windup','dash','down'),
                                      idle='aeonblight-idle-sprites.json')
     bathysmal=lua.execute((ROOT/'field-bathysmal.lua').read_text(encoding='utf-8'))(core)
@@ -216,7 +218,7 @@ def runtime():
                         'pyroHypostasis':pyro_hypostasis,'hydroHypostasis':hydro_hypostasis,
                         'wolflord':wolflord_field,'ruinSerpent':ruin_serpent,'bathysmal':bathysmal,
                         'electroRegisvine':electro_vine,'aeonblight':aeonblight,
-                        'dendroHypostasis':dendro_hypostasis,'asimon':asimon})
+                        'dendroHypostasis':dendro_hypostasis,'asimon':asimon,'wenut':wenut})
     )
     return lua, core
 

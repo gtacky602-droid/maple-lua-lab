@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 132 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 130,
+  "scope": "Authored 133 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 131,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -320,6 +320,12 @@
     {
       "id": "asimon-field-ruins",
       "name": "スメール・砂鏡の遺構",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "wenut-field-cavern",
+      "name": "スメール・風蝕の砂洞",
       "region": "スメール",
       "status": "regional_temporary_image"
     },

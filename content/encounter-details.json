@@ -508,10 +508,12 @@
       }
     },
     "boss-26130101": {
+      "remaining": ["連続アニメーション・被弾・撃破作画", "装備別・Webマルチの実測", "幻境実機"],
+      "extra_evidence": ["evidence/wenut-field-lua.json", "evidence/wenut-field-browser.json"],
       "art_candidate": {
         "item": "wenut",
-        "audit": "evidence/wenut-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/wenut-field-art-audit.json",
+        "status": "Web field prototype with five body poses and a wind orb"
       }
     },
     "boss-29070101": {

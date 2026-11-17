@@ -76,6 +76,11 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local h=pose=='idle' and 120 or art.profiles.legacy.height
   draw(f,art,x,y-asimonOffsets[pose],h,mode,profile,flip,nil,nil,opacity)
  end
+ local wenutOffsets={idle=6,sweep=21,stream=0,dive=16,emerge=0,orb=0}
+ function C.drawWenutFieldArt(f,x,y,pose,scale,mode,profile,flip)
+  local art=C.wenutFieldArt[pose]
+  draw(f,art,x,y-wenutOffsets[pose]*scale,art.profiles.legacy.height*scale,mode,profile,flip)
+ end
  function C.drawThunderFieldArt(f,x,y,h,mode,profile,pose,dir)
   draw(f,pose and C.thunderFieldArt[pose] or C.thunderArt,x,y,h,mode,profile,pose=='dash' and dir>0)
  end

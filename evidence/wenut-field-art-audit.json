@@ -1,0 +1,157 @@
+{
+  "date": "2026-11-18",
+  "source_references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/e3c20a313eef1f3445257605eee8552f_8193689525135362730.png",
+      "sha256": "c7cc569c058a6436a31d3e3fc77e602620dc61c9ba00d465668ff872482f0d11",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "full body render"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/b841caa8a47944eb87b4acf71c5835e8_1929847918223266999.png",
+      "sha256": "045640c1469bf945ff4fe6f117eb4c641b66df63ee7e31a6181f6eaf8400ae2d",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "in-game side view with full tail"
+    }
+  ],
+  "style_input": "assets/wenut-idle-source-v1.png",
+  "generated": {
+    "wenut-field-poses-source-v1.png": "2d2dce2071a1a60bc904fab116b87402dc326ebab57e3c02b8f61dc5b1a9b4af",
+    "wenut-field-background-v1.png": "a21fc605cda7e07cbf0364a6d14f261332bb96c95d5c2679c73ffc8aa1ae79bb"
+  },
+  "poses": {
+    "idle": {
+      "crop": [
+        0,
+        85,
+        470,
+        404
+      ],
+      "box": [
+        36,
+        165,
+        402,
+        269
+      ],
+      "head_x": 385,
+      "anchor_x": 0.8681592039800995,
+      "profiles": {
+        "legacy": 4403,
+        "h48c32": 2903,
+        "h32c16": 1351
+      }
+    },
+    "sweep": {
+      "crop": [
+        470,
+        85,
+        600,
+        404
+      ],
+      "box": [
+        489,
+        181,
+        557,
+        212
+      ],
+      "head_x": 986,
+      "anchor_x": 0.8922800718132855,
+      "profiles": {
+        "legacy": 4759,
+        "h48c32": 3115,
+        "h32c16": 1436
+      }
+    },
+    "stream": {
+      "crop": [
+        1070,
+        63,
+        466,
+        426
+      ],
+      "box": [
+        1093,
+        85,
+        402,
+        361
+      ],
+      "head_x": 1426,
+      "anchor_x": 0.8283582089552238,
+      "profiles": {
+        "legacy": 3815,
+        "h48c32": 2552,
+        "h32c16": 1139
+      }
+    },
+    "dive": {
+      "crop": [
+        0,
+        520,
+        531,
+        504
+      ],
+      "box": [
+        47,
+        578,
+        434,
+        340
+      ],
+      "head_x": 422,
+      "anchor_x": 0.8640552995391705,
+      "profiles": {
+        "legacy": 3682,
+        "h48c32": 2375,
+        "h32c16": 1059
+      }
+    },
+    "emerge": {
+      "crop": [
+        550,
+        550,
+        505,
+        474
+      ],
+      "box": [
+        596,
+        647,
+        390,
+        224
+      ],
+      "head_x": 917,
+      "anchor_x": 0.823076923076923,
+      "profiles": {
+        "legacy": 3763,
+        "h48c32": 2521,
+        "h32c16": 1127
+      }
+    },
+    "orb": {
+      "crop": [
+        1110,
+        570,
+        380,
+        430
+      ],
+      "box": [
+        1184,
+        666,
+        207,
+        193
+      ],
+      "head_x": null,
+      "anchor_x": 0.5,
+      "profiles": {
+        "legacy": 380,
+        "h48c32": 223,
+        "h32c16": 96
+      }
+    }
+  },
+  "notes": [
+    "Supplied side view was also the color reference for the temporary arena.",
+    "No matching 3D model was retrieved. Laboratory geometry and cave image are provisional.",
+    "Head anchors stay aligned with the combat receiver across five poses. The wind orb has a centered anchor."
+  ]
+}

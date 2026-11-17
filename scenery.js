@@ -1,5 +1,6 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ wenutField:{file:'wenut-field-background-v1.png',zones:['story:wenut-field-cavern'],note:'風蝕の砂洞の仮背景'},
  asimonField:{file:'asimon-field-background-v1.png',zones:['story:asimon-field-ruins'],note:'砂鏡の遺構の仮背景'},
  dendroHypostasisField:{file:'dendro-hypostasis-field-background-v1.png',zones:['story:dendro-hypostasis-field-den'],note:'枯蔓の洞の仮背景'},
  aeonblightField:{file:'aeonblight-field-background-v1.png',zones:['story:aeonblight-field-chamber'],note:'機翼の間の仮背景'},
@@ -107,7 +108,7 @@ export function scenery(ctx,frame){
  // Lab-only terrain proxies. These will be 3D set dressing and colliders in the game.
  const inazuma=key==='inazumatown'||key==='inazuma'||key==='toriiforest'||key==='shiomicape';
  const stone=['seacave','windsplit','cryoField','pyroField','electroField','geoField','primoField','oceanidField','maguuField','arrayField','thunderField','pyroHypostasisField','hydroHypostasisField','wolflordField','ruinSerpentField','bathysmalField','electroVineField','aeonblightField','dendroHypostasisField','enkanomiya','nodspecial','novokichev','chasm'].includes(key);
- const roof=key==='mondroof',lookout=key==='mondlookout',sandstone=key==='asimonField';
+ const roof=key==='mondroof',lookout=key==='mondlookout',sandstone=key==='asimonField'||key==='wenutField';
  const camera=frame.camera||0,snow=['snezhnaya','dragonspine','cryoHypostasisField','wingspan'].includes(key);
  drawDecorations(ctx,frame,camera);
  for(const p of frame.platforms||[]){
