@@ -131,16 +131,24 @@ def runtime():
     core.cryoFieldArt=regisvine_art('cryo','boss-sprites.json',0.54,('slam_ready','slam','sweep_ready','sweep','bolts','down'))
     core.pyroFieldArt=regisvine_art('pyro','pyro-regisvine-sprites.json',0.49,
                                    ('raised','bowed','impact','down','bud_first','bud_second','sweep_ready','sweep'))
+    primo_field_art={'idle':json.loads((ROOT/'assets/primo-sprites.json').read_text(encoding='utf8'))}
+    primo_field_art['idle']['anchorX']=0.43
+    for pose in ('windup','claw_first','claw_second','tail_ready','tail_sweep','charge','burst','down'):
+        filename='primo-field-'+pose.replace('_','-')+'-sprites-v1.json'
+        primo_field_art[pose]=json.loads((ROOT/'assets'/filename).read_text(encoding='utf8'))
+    core.primoFieldArt=lua.table_from(primo_field_art,recursive=True)
     lua.execute((ROOT/'field-regisvine.lua').read_text(encoding='utf8'))(core)
     cryo_field=lua.execute((ROOT/'field-cryo-regisvine.lua').read_text(encoding='utf8'))(core)
     pyro_field=lua.execute((ROOT/'field-pyro-regisvine.lua').read_text(encoding='utf8'))(core)
     anemo_field=lua.execute((ROOT/'field-anemo-hypostasis.lua').read_text(encoding='utf-8'))(core)
     electro_field=lua.execute((ROOT/'field-electro-hypostasis.lua').read_text(encoding='utf-8'))(core)
     geo_field=lua.execute((ROOT/'field-geo-hypostasis.lua').read_text(encoding='utf-8'))(core)
+    primo_field=lua.execute((ROOT/'field-primo-geovishap.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(
         core,lua.table_from(field_specs,recursive=True),
         lua.table_from({'jadeplume':jade,'cryoRegisvine':cryo_field,'pyroRegisvine':pyro_field,
-                        'anemoHypostasis':anemo_field,'electroHypostasis':electro_field,'geoHypostasis':geo_field})
+                        'anemoHypostasis':anemo_field,'electroHypostasis':electro_field,'geoHypostasis':geo_field,
+                        'primoGeovishap':primo_field})
     )
     return lua, core
 

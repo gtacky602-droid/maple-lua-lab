@@ -14,7 +14,7 @@ return function(C,configs,controllers)
    hitBottom=spec.floorY,drawHeight=spec.artHeight,facing=-1}
   slot.phase='available';slot.index=1;slot.out=0;slot.delay=0;slot.contact={};slot.cast=nil;slot.waitUntil=nil
   local behavior=controllers[spec.controller]
-  if behavior.spawn then behavior.spawn(slot.enemy,spec) end
+  if behavior.spawn then behavior.spawn(slot.enemy,spec,slot.generation) end
  end
 
  local function attach(s,spec,slot)
@@ -59,12 +59,14 @@ return function(C,configs,controllers)
   end
  end
 
- function C.hitFieldArea(s,boss,seen,left,right,top,damage,bottom)
-  bottom=bottom or boss.y
+ function C.hitFieldArea(s,source,seen,left,right,top,damage,bottom)
+  bottom=bottom or source.y
+  local owner=source.owner or source
   for _,a in ipairs(s.actors) do
+   if owner.hp<=0 then break end
    if a.hp>0 and not seen[a.id] and a.x+10>left and a.x-10<right and a.y>top and a.y-50<bottom then
     seen[a.id]=true
-    C.damageActor(s,a,damage,boss,false,true)
+    C.damageActor(s,a,damage,source,false,true)
    end
   end
  end
@@ -236,7 +238,7 @@ return function(C,configs,controllers)
   local label=slot.phase=='notice' and '振り向き' or slot.phase=='leash' and '巣へ戻っている' or
    slot.phase=='available' and '警戒前' or cast and cast.move.title or '息継ぎ'
   if boss.hp>0 and slot.phase=='combat' and behavior.label then label=behavior.label(boss,cast) or label end
-  f.fieldBoss={id=spec.id,name=spec.name,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
+  f.fieldBoss={id=spec.id,name=boss.displayName or spec.name,element=boss.element,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
    generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(s,slot)/60,label=label,
    move=cast and cast.move.id,tick=cast and cast.tick}
   if boss.hp>0 and boss.x>=s.camera-180 and boss.x<=s.camera+1140 then

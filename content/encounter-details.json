@@ -386,6 +386,8 @@
     },
     "boss-26050101": {
       "action": "boss_primo",
+      "remaining": ["被弾・撃破の追加作画", "装備差・周回報酬のバランス", "Webマルチと幻境実機"],
+      "extra_evidence": ["evidence/primo-geovishap-field-lua.json", "evidence/primo-geovishap-field-browser.json"],
       "variants": [
         {
           "label": "水",
@@ -406,7 +408,8 @@
       ],
       "art_candidate": {
         "item": "primo",
-        "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
+        "audit": "evidence/primo-geovishap-field-art-audit.json",
+        "status": "field encounter uses eight key poses and four elemental scale palettes"
       }
     },
     "boss-20040601": {

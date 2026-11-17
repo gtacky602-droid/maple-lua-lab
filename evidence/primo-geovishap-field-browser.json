@@ -1,0 +1,52 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 73.05,
+    "moves": [
+      "FV01",
+      "FV02",
+      "FV03"
+    ],
+    "bonus": true,
+    "finished": true,
+    "hp": 110,
+    "returns": 0
+  },
+  "fieldKill": {
+    "xp": 8500,
+    "mora": 165
+  },
+  "commissionReport": {
+    "xp": 4000,
+    "mora": 300
+  },
+  "persistedCooldown": true,
+  "directTrialHp": 800,
+  "sameSceneCommands": {
+    "png": 20,
+    "standard": 16694,
+    "light": 4377
+  },
+  "tint": [
+    {
+      "changed": 30603,
+      "stone": 513197,
+      "transparencyErrors": 0,
+      "cached": true
+    },
+    {
+      "changed": 30603,
+      "stone": 513197,
+      "transparencyErrors": 0,
+      "cached": true
+    },
+    {
+      "changed": 30603,
+      "stone": 513197,
+      "transparencyErrors": 0,
+      "cached": true
+    }
+  ],
+  "viewport390": true,
+  "errors": []
+}

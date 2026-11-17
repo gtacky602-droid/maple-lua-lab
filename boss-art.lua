@@ -1,10 +1,10 @@
 return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
- local function draw(f,assetData,x,y,h,mode,profile,flip)
+ local function draw(f,assetData,x,y,h,mode,profile,flip,palette,tint)
   local w=h*assetData.box[3]/assetData.box[4];local anchor=assetData.anchorX or .5;local left=x-(flip and (1-anchor) or anchor)*w
   if mode=='rect' then
    local asset=assetData.profiles[profile] or assetData.profiles.legacy
-   for _,r in ipairs(asset.runs) do f.draws[#f.draws+1]={kind='rect',x=left+(flip and (asset.width-r[1]-r[3]) or r[1])*w/asset.width,y=y-h+r[2]*h/asset.height,w=r[3]*w/asset.width+.05,h=r[4]*h/asset.height+.05,color=r[5]} end
-  else f.draws[#f.draws+1]={kind='boss_sprite',source=assetData.source,anchorX=anchor,flip=not not flip,x=x,y=y,w=w,h=h,box=assetData.box} end
+   for _,r in ipairs(asset.runs) do f.draws[#f.draws+1]={kind='rect',x=left+(flip and (asset.width-r[1]-r[3]) or r[1])*w/asset.width,y=y-h+r[2]*h/asset.height,w=r[3]*w/asset.width+.05,h=r[4]*h/asset.height+.05,color=palette and palette[r[5]] or r[5]} end
+  else f.draws[#f.draws+1]={kind='boss_sprite',source=assetData.source,anchorX=anchor,flip=not not flip,x=x,y=y,w=w,h=h,box=assetData.box,tint=tint} end
  end
  function C.drawRegisvineArt(f,b,mode,profile) draw(f,data,b.x,480,b.phase=='down' and 100 or 200,mode,profile) end
  function C.drawPyroRegisvineArt(f,b,mode,profile) draw(f,pyro,b.x,480,b.phase=='down' and 100 or 200,mode,profile) end
@@ -20,6 +20,9 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   if C.oceanidArt and C.oceanidArt[part] then draw(f,C.oceanidArt[part],x,y,h,mode,profile,flip);return true end
  end
  function C.drawPrimoArt(f,b,mode,profile) draw(f,C.primoArt,b.x,480,140,mode,profile,(b.facing or -1)>0) end
+ function C.drawPrimoFieldArt(f,b,x,pose,height,mode,profile,palette)
+  draw(f,C.primoFieldArt[pose],x,b.y,height,mode,profile,b.facing>0,palette,b.tint)
+ end
  function C.drawMaguuArt(f,b,mode,profile)
   local stance=b.phase=='iai_warning' or b.phase=='sweep_warning' or b.phase=='combo_warning'
   local slash=(b.slashTime or 0)>0

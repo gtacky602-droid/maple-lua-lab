@@ -674,6 +674,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "primo-field-vault",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "maguu-approach",
       "count": 0,
       "fallback": false,

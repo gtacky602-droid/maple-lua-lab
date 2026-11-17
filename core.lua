@@ -38,10 +38,17 @@ function C.damageActor(s,a,amount,source,blockable,telegraphed)
    if wall.hp<=0 then s.rockWall=nil end
   end
  end
- if damage>0 and C.absorbDamage then damage=C.absorbDamage(s,a,damage,source) end
+ if damage>0 and C.absorbDamage then
+  local incoming=damage
+  damage=C.absorbDamage(s,a,damage,source)
+  if damage<incoming and source and source.onShieldAbsorb then source.onShieldAbsorb(incoming-damage) end
+ end
  a.hp=math.max(0,a.hp-damage);a.inv=.6
  if damage>0 and C.interruptChannel then C.interruptChannel(s,a) end
- if damage>0 then event(s,'hurt',a.id,source and source.id or 0,damage) end
+ if damage>0 then
+  event(s,'hurt',a.id,source and source.id or 0,damage)
+  if source and source.damageElement then s.events[#s.events].element=source.damageElement end
+ end
  return damage
 end
 function C.defeatEnemy(s,e,owner)

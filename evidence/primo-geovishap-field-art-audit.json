@@ -1,0 +1,171 @@
+{
+  "stage": "璃月・伏竜の石窟",
+  "referencePolicy": "ART_REFERENCE_POLICY.md",
+  "references": [
+    {
+      "type": "game render",
+      "page": "https://gamewith.net/genshin-impact/article/show/24394",
+      "image": "https://s3.us-east-1.amazonaws.com/gamewith-en/article_tools/genshin-impact/gacha/24394_e.png",
+      "sha256": "3f355a1a30e7164721e656665ff91f716827ff5f6a6053bcd7497d0d00d0b046",
+      "observed": "horn silhouette, wide forelimbs, overlapping rock plates and crystalline scale placement"
+    },
+    {
+      "type": "in-game combat capture",
+      "page": "https://gamewith.net/genshin-impact/article/show/24394",
+      "image": "https://img.gamewith.net/img/cc8f7fa9c2a6929a6ee5f0b9b9a93fa6.jpg",
+      "sha256": "348741c7d562927d1f9e0bb21915155b16764661e8f245fa960d2679dfff04bb",
+      "observed": "low wide stance and player shield during the original encounter"
+    },
+    {
+      "type": "existing lab idle",
+      "path": "assets/primo-source-v1.png",
+      "sha256": "6a46b36e4919666d2d6f3839370d797a137eee1c11c090e211e8d4ec78828e4a"
+    },
+    {
+      "type": "3D model listing",
+      "page": "https://models.spriters-resource.com/pc_computer/genshinimpact/asset/601625/",
+      "status": "Listing found; archive request returned HTTP 403. No model or additional angles verified."
+    }
+  ],
+  "generated": [
+    {
+      "path": "assets/primo-geovishap-field-actions-source-v1.png",
+      "sha256": "7411562008704d5886acb94135e0a348af7807ecfa1cd5730c0e987c9f6fdd60",
+      "size": [
+        1536,
+        1024
+      ],
+      "layout": "two columns by four rows in reading order",
+      "prompt": "An eight-cell original chunky pixel-art sprite sheet of the same dark rock-armored quadruped in reference picture 1. Game reference 2 informs the real face plates, broad powerful forelimbs, angular shoulder armor and back crystals. Use exactly TWO equal columns and FOUR equal rows, each cell holds one wide left-facing side-view quadruped, no crop or overlap, 30px clear padding around every pose. Vary pose but lock trunk size, stone horn identity and foot anchor. Dark brown-gray stone, warm ochre rune edges, small clearly separated saturated turquoise-blue crystalline seams and scales with no blue on neutral gray stone. Hard stepped pixels and blocky shadows. In reading order: (1) crouch with one shoulder lifted and forward arm gathering, (2) right foreclaw stabbing far left while hindlegs plant firmly, (3) torso twisted with opposite left claw thrust far forward, (4) looking over the right shoulder toward raised heavy tail with sturdy bent legs, (5) sweeping long heavy tail stretched hard to the right behind low grounded body and enlarged plated tail silhouette, (6) head and chest held up to gather power with forefeet spread wide, throat open, (7) chest thrust down and head open for a floor-level roar, paws planted wide, (8) head and chest lowered almost to the ground, small visible open jaw and forepaws bracing after exhaustion. Same huge body proportions, including visible claws, gold angled horn trims and craggy tail. All facing left except head looking backward in (4). Transparent alpha everywhere outside each body. No sparks, dust, effects, fire, ground, text, guides, shadows or backgrounds. Wide enough for shapes, visually separate all eight."
+    },
+    {
+      "path": "assets/primo-geovishap-field-background-v1.png",
+      "sha256": "0b22075baaf87b5fba2faac2fcf5a472029ae2a7b1bc958dd7ed4de917a84559",
+      "purpose": "Temporary lab scene image. Production backgrounds are planned for 3D placement.",
+      "prompt": "An original wide 16:9 opaque background for a side-scrolling 2D fantasy RPG. Use the attached Liyue quarry as palette and pixel paving reference only. A vast sunken mountain vault with fractured ochre stone columns, dark blue-gray limestone under a craggy overhang, dim natural reflected light through high crevices, a few faint amber mineral clusters toward the corners. Suggest immense space with layered distant jagged arches and rubble shelves. Leave lower center wide and flat in muted dusky cool gray for a large dark brown rock monster and bright amber and cyan attack cues. No people, no monster, no water puddles or lava, no platform rails, no foreground objects in the combat strip, no UI or text. Pixel painted edge clusters, soft depth and quiet amount of foreground detail."
+    }
+  ],
+  "poses": {
+    "windup": {
+      "box": [
+        183,
+        9,
+        492,
+        229
+      ],
+      "anchorX": 0.49,
+      "height": 132,
+      "commands": {
+        "legacy": 12454,
+        "h48c32": 7722,
+        "h32c16": 3314
+      }
+    },
+    "claw-first": {
+      "box": [
+        788,
+        15,
+        634,
+        223
+      ],
+      "anchorX": 0.5,
+      "height": 128,
+      "commands": {
+        "legacy": 13812,
+        "h48c32": 8589,
+        "h32c16": 3692
+      }
+    },
+    "claw-second": {
+      "box": [
+        97,
+        267,
+        603,
+        227
+      ],
+      "anchorX": 0.48,
+      "height": 130,
+      "commands": {
+        "legacy": 12353,
+        "h48c32": 7789,
+        "h32c16": 3213
+      }
+    },
+    "tail-ready": {
+      "box": [
+        887,
+        259,
+        490,
+        235
+      ],
+      "anchorX": 0.49,
+      "height": 135,
+      "commands": {
+        "legacy": 13466,
+        "h48c32": 8378,
+        "h32c16": 3525
+      }
+    },
+    "tail-sweep": {
+      "box": [
+        82,
+        531,
+        644,
+        218
+      ],
+      "anchorX": 0.45,
+      "height": 124,
+      "commands": {
+        "legacy": 14252,
+        "h48c32": 8800,
+        "h32c16": 3733
+      }
+    },
+    "charge": {
+      "box": [
+        850,
+        512,
+        589,
+        236
+      ],
+      "anchorX": 0.46,
+      "height": 135,
+      "commands": {
+        "legacy": 12731,
+        "h48c32": 7914,
+        "h32c16": 3371
+      }
+    },
+    "burst": {
+      "box": [
+        89,
+        782,
+        620,
+        223
+      ],
+      "anchorX": 0.48,
+      "height": 127,
+      "commands": {
+        "legacy": 13201,
+        "h48c32": 8204,
+        "h32c16": 3534
+      }
+    },
+    "down": {
+      "box": [
+        846,
+        790,
+        595,
+        213
+      ],
+      "anchorX": 0.52,
+      "height": 123,
+      "commands": {
+        "legacy": 13019,
+        "h48c32": 8017,
+        "h32c16": 3368
+      }
+    }
+  },
+  "limitations": "Anchors are chosen per pose around the grounded body. The attack poses are first-pass keyframes, without in-between, hurt or defeat animation. Command totals are for each sprite encoding and are not frame rate measurements."
+}

@@ -4,6 +4,7 @@ return function(C)
  local base={physical=.3,geo=.5,hydro=.1,pyro=.1,cryo=.1,electro=.1,anemo=.1,dendro=.1}
  local names={hydro='水',pyro='炎',cryo='氷',electro='雷'}
  local colors={hydro='#83d6ea',pyro='#f39163',cryo='#c4eeff',electro='#c2a0ef'}
+ C.primoTraits={names=names,colors=colors,resistance=base}
  local function phase(b,p,t)
   b.phase=p;b.timer=t;b.invulnerable=p=='awake' or p=='burrow'
   for k,v in pairs(base) do b.resist[k]=v+(k==b.element and .2 or 0)-(p=='stunned' and .5 or 0) end

@@ -1,0 +1,48 @@
+{
+  "matches_manifest_timing": true,
+  "ground_normal_reaches_body": true,
+  "claw_two_fixed_front_hits": true,
+  "tail_rear_only": true,
+  "shower_jumpable": true,
+  "shower_one_hit_per_actor": true,
+  "shield_partial_absorption_counts": true,
+  "invulnerability_consumes_no_shield": true,
+  "two_shields_one_extension": true,
+  "extra_recovery_ticks": 60,
+  "shield_extension_extra_boss_damage": 0,
+  "fixed_generation_elements": [
+    "hydro",
+    "pyro",
+    "cryo",
+    "electro",
+    "hydro"
+  ],
+  "variant_hit_tags_match": true,
+  "solo_normal": {
+    "seconds": 148.07,
+    "hp": 140,
+    "returns": 0,
+    "shieldBonusCasts": 0
+  },
+  "amber_companion": {
+    "seconds": 77.27,
+    "hp": 140,
+    "returns": 0,
+    "shieldBonusCasts": 0
+  },
+  "amber_and_shield": {
+    "seconds": 77.27,
+    "hp": 40,
+    "returns": 0,
+    "shieldBonusCasts": 2
+  },
+  "field_kill": {
+    "xp": 8500,
+    "mora": 165
+  },
+  "commission_report_once": {
+    "xp": 4000,
+    "mora": 300
+  },
+  "restored_respawn_ticks": 3600
+}

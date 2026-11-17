@@ -4322,13 +4322,26 @@
         {
           "to": "liyue-field",
           "x": 60
-        }
+        },
+        {"to": "primo-field-vault", "x": 1270}
       ],
       "checkpoint": "liyue-harbor",
       "challenge": "primo",
       "challengeName": "エンシェントヴィシャップ",
       "challengeAction": "boss_primo",
       "challengeX": 720
+    },
+    {
+      "id": "primo-field-vault",
+      "name": "璃月・伏竜の石窟",
+      "region": "璃月",
+      "level": 36,
+      "hub": false,
+      "peaceful": true,
+      "width": 1580,
+      "platforms": [{"x": 0, "y": 480, "w": 1580}],
+      "exits": [{"to": "primo-approach", "x": 65}],
+      "checkpoint": "liyue-harbor"
     },
     {
       "id": "maguu-approach",
@@ -5462,7 +5475,7 @@
       "goal": 1,
       "xp": 4000,
       "mora": 300,
-      "note": "本編入口から挑戦した討伐のみ対象。報酬/入口位置は試作。"
+      "note": "伏竜の石窟、または本編入口の挑戦碑での討伐が対象。"
     },
     {
       "id": "maguu-commission",

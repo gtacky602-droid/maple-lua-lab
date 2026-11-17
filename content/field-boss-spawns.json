@@ -221,6 +221,46 @@
                      "closeRange": 86, "hits": 3, "expose": 150, "reform": 24}
         }
       ]
+    },
+    {
+      "id": "boss-26050101",
+      "controller": "primoGeovishap",
+      "entity": 26050101,
+      "name": "エンシェントヴィシャップ・岩",
+      "node": "primo-field-vault",
+      "storyChallenge": "primo",
+      "level": 36,
+      "hp": 970,
+      "mora": 165,
+      "artHeight": 134,
+      "floorY": 480,
+      "home": 880,
+      "arenaMin": 430,
+      "arenaMax": 1440,
+      "noticeRange": 270,
+      "noticeTicks": 36,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 58,
+      "contactDamage": 2,
+      "variants": [
+        {"element": "hydro"},
+        {"element": "pyro", "tint": [255, 92, 25]},
+        {"element": "cryo", "tint": [140, 224, 255]},
+        {"element": "electro", "tint": [199, 90, 255]}
+      ],
+      "moves": [
+        {"id": "FV01", "pattern": "claw", "title": "前爪二連", "reach": 205,
+         "lock": 42, "active": [[84, 90], [144, 150]], "recover": 168, "total": 240,
+         "near": 0.3, "far": 1.65, "low": 0.2, "high": 1.2, "damage": 13, "element": "physical"},
+        {"id": "FV02", "pattern": "tail", "title": "後方の尾払い", "reach": 215,
+         "lock": 42, "active": [[96, 114]], "recover": 132, "total": 240,
+         "near": -1.8, "far": -0.35, "low": 0.1, "high": 0.65, "damage": 17, "element": "physical"},
+        {"id": "FV03", "pattern": "shower", "title": "原岩の噴出", "reach": 244,
+         "lock": 66, "active": [[132, 144]], "recover": 168, "total": 288,
+         "radius": 2.2, "low": 0, "high": 0.65, "damage": 22, "bonusTicks": 60, "element": "variant"}
+      ]
     }
   ]
 }
