@@ -1,0 +1,63 @@
+{
+  "attacks": [
+    "FIB01",
+    "FIB02",
+    "FIB03"
+  ],
+  "designTiming": true,
+  "physicalHitsThroughRings": true,
+  "twoLockedBolts": true,
+  "fallUsesOneSlot": true,
+  "damageTags": {
+    "bolts": [
+      "pyro",
+      "pyro"
+    ],
+    "falls": [
+      "cryo",
+      "cryo",
+      "cryo"
+    ],
+    "rings": [
+      "pyro",
+      "cryo",
+      "electro"
+    ]
+  },
+  "validRingGaps": true,
+  "edgeTelegraphsRemainInBounds": true,
+  "fourVariantsDealMatchingDamageAfterRestore": [
+    [
+      "pyro",
+      "cryo",
+      "electro"
+    ],
+    [
+      "cryo",
+      "hydro",
+      "pyro"
+    ],
+    [
+      "pyro",
+      "electro",
+      "hydro"
+    ],
+    [
+      "hydro",
+      "cryo",
+      "electro"
+    ]
+  ],
+  "respawnAdvancesVariant": true,
+  "questReportOnce": true,
+  "normalAttackSolo": {
+    "seconds": 85.88,
+    "hp": 60
+  },
+  "commands": {
+    "png": 70,
+    "standard": 7033,
+    "light": 1929
+  },
+  "killXp": 82300
+}

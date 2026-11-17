@@ -271,7 +271,7 @@ return function(C,configs,controllers)
    slot.phase=='available' and '警戒前' or cast and cast.move.title or '息継ぎ'
   if boss.hp>0 and slot.phase=='combat' and behavior.label then label=behavior.label(boss,cast) or label end
   f.fieldBoss={id=spec.id,name=boss.displayName or spec.name,element=boss.element,form=boss.form,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
-   generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(s,slot)/60,label=label,
+   generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(s,slot)/60,label=label,elementSlots=boss.elementSlots,
    move=cast and cast.move.id,tick=cast and cast.tick,underground=boss.underground,
    weakpoint=boss.hp>0 and boss.weakpoint or nil}
   if partner then

@@ -81,6 +81,11 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local art=C.wenutFieldArt[pose]
   draw(f,art,x,y-wenutOffsets[pose]*scale,art.profiles.legacy.height*scale,mode,profile,flip)
  end
+ function C.drawBaptistFieldArt(f,x,y,pose,mode,profile,flip)
+  local art=C.baptistFieldArt[pose]
+  local height=pose=='idle' and 146 or art.profiles.legacy.height
+  draw(f,art,x,y-22,height,mode,profile,flip)
+ end
  function C.drawThunderFieldArt(f,x,y,h,mode,profile,pose,dir)
   draw(f,pose and C.thunderFieldArt[pose] or C.thunderArt,x,y,h,mode,profile,pose=='dash' and dir>0)
  end

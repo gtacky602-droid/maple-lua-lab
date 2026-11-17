@@ -1509,6 +1509,7 @@
           "to": "veluriyam-hub",
           "x": 1050
         },
+        {"to":"baptist-field-sanctuary","x":510},
         {"to":"wenut-field-cavern","x":800},
         {"to":"asimon-field-ruins","x":1210}
       ],
@@ -1646,6 +1647,7 @@
     {"id":"dendro-hypostasis-field-den","name":"スメール・枯蔓の洞","region":"スメール","level":68,"hub":false,"peaceful":true,"width":1520,"platforms":[{"x":0,"y":480,"w":1520}],"exits":[{"to":"sumeru-field","x":65}],"checkpoint":"sumeru-hub"},
     {"id":"asimon-field-ruins","name":"スメール・砂鏡の遺構","region":"スメール","level":70,"hub":false,"peaceful":true,"width":1560,"platforms":[{"x":0,"y":480,"w":1560}],"exits":[{"to":"sumeru-entry","x":65}],"checkpoint":"sumeru-hub"},
     {"id":"wenut-field-cavern","name":"スメール・風蝕の砂洞","region":"スメール","level":72,"hub":false,"peaceful":true,"width":1640,"platforms":[{"x":0,"y":480,"w":1640}],"exits":[{"to":"sumeru-entry","x":65}],"checkpoint":"sumeru-hub"},
+    {"id":"baptist-field-sanctuary","name":"スメール・三環の祭場","region":"スメール","level":74,"hub":false,"peaceful":true,"width":1590,"platforms":[{"x":0,"y":480,"w":1590}],"exits":[{"to":"sumeru-entry","x":65}],"checkpoint":"sumeru-hub"},
     {
       "id": "fontaine-entry",
       "name": "フォンテーヌ・地域の入口",
@@ -5577,6 +5579,7 @@
     {"id":"aeonblight-commission","name":"兆載永劫ドレイクの討伐調査","hub":"sumeru-hub","target":"aeonblight","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"雨林の道から入る機翼の間での討伐が対象。"},
     {"id":"dendro-hypostasis-commission","name":"無相の草の討伐調査","hub":"sumeru-hub","target":"dendro-hypostasis","kind":"boss","goal":1,"xp":4000,"mora":300,"note":"雨林の道から入る枯蔓の洞での討伐が対象。"},
     {"id":"asimon-commission","name":"半永久統制マトリックスの討伐調査","hub":"sumeru-hub","target":"asimon","kind":"boss","goal":1,"xp":4200,"mora":310,"note":"地域の入口から入る砂鏡の遺構での討伐が対象。"},
-    {"id":"wenut-commission","name":"風蝕ウェネトの討伐調査","hub":"sumeru-hub","target":"wenut","kind":"boss","goal":1,"xp":4400,"mora":320,"note":"地域の入口から入る風蝕の砂洞での討伐が対象。"}
+    {"id":"wenut-commission","name":"風蝕ウェネトの討伐調査","hub":"sumeru-hub","target":"wenut","kind":"boss","goal":1,"xp":4400,"mora":320,"note":"地域の入口から入る風蝕の砂洞での討伐が対象。"},
+    {"id":"baptist-commission","name":"深罪の浸礼者の討伐調査","hub":"sumeru-hub","target":"baptist","kind":"boss","goal":1,"xp":4600,"mora":330,"note":"地域の入口から入る三環の祭場での討伐が対象。"}
   ]
 }

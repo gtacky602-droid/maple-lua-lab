@@ -253,7 +253,9 @@ function hud(f,calls,renderMs){
  if(field){
   const status=field.phase==='respawn'?`再出現まで ${Math.ceil(field.remaining)}秒`:
    `HP ${field.hp} / ${field.maxhp} ｜ ${field.label}`;
-  const elements=field.bodies?.length===2?' ❄ 氷① / ⚡ 雷②':'';
+  const elementNames={pyro:'炎',cryo:'氷',hydro:'水',electro:'雷'};
+  const elements=field.elementSlots?(' ｜ '+field.elementSlots.map(e=>elementNames[e]).join(' → ')):
+   field.bodies?.length===2?' ❄ 氷① / ⚡ 雷②':'';
   const line=`${field.name}（Lv${field.level}）${elements} ｜ ${status}`;
   if(fieldLabel.textContent!==line)fieldLabel.textContent=line;
   fieldHp.hidden=field.phase==='respawn';

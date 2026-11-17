@@ -1,0 +1,114 @@
+{
+  "date": "2026-11-18",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/07/07/237301566/fed2662bcd43eae1835dda089bf2e4fc_6037388472376249834.png",
+      "sha256": "ce1747b01dd9aaac0e89dfe31fd2d6fb411a73f24136bddd6a5fd21a5987769f",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "whole-body render, four arms",
+      "use": "mask, silhouette and four arms"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/c316daf006406941873e86f3d138c1fc_2035578636618610558.png",
+      "sha256": "974a50245d3f5666f45879ceacf0311615152f2e7ba58a1fe4b9ae3e397124b7",
+      "directly_viewed": true,
+      "generation_input": true,
+      "note": "in-game frontal scene",
+      "use": "cavern color and material"
+    }
+  ],
+  "variants_observed": "https://www.hoyolab.com/article/17709060",
+  "idle_style_input": "assets/baptist-idle-source-v1.png",
+  "generated": {
+    "baptist-field-poses-source-v1.png": "3f39ddb902f011fe81c7045aa694a90cf9791e3641233bead364c7bb99fadfe7",
+    "baptist-field-background-v1.png": "b6ca2608807b5b222df8f39fb69f8acdae072664a4465895c1cd59a06bf65d26"
+  },
+  "poses": {
+    "bolt": {
+      "crop": [
+        0,
+        0,
+        656,
+        599
+      ],
+      "box": [
+        135,
+        13,
+        403,
+        586
+      ],
+      "anchor_x": 0.5798312655086849,
+      "profiles": {
+        "legacy": 3818,
+        "h48c32": 2226,
+        "h32c16": 1004
+      }
+    },
+    "fall": {
+      "crop": [
+        656,
+        0,
+        656,
+        599
+      ],
+      "box": [
+        768,
+        12,
+        400,
+        531
+      ],
+      "anchor_x": 0.6187200000000002,
+      "profiles": {
+        "legacy": 4795,
+        "h48c32": 2845,
+        "h32c16": 1268
+      }
+    },
+    "rings": {
+      "crop": [
+        0,
+        599,
+        656,
+        599
+      ],
+      "box": [
+        119,
+        599,
+        428,
+        533
+      ],
+      "anchor_x": 0.5833457943925234,
+      "profiles": {
+        "legacy": 5281,
+        "h48c32": 3124,
+        "h32c16": 1413
+      }
+    },
+    "recover": {
+      "crop": [
+        656,
+        599,
+        656,
+        599
+      ],
+      "box": [
+        793,
+        600,
+        364,
+        534
+      ],
+      "anchor_x": 0.614835164835165,
+      "profiles": {
+        "legacy": 3940,
+        "h48c32": 2365,
+        "h32c16": 1017
+      }
+    }
+  },
+  "notes": [
+    "Four variants retain Hydro and rotate by lab respawn generation. Slot order is a lab setting.",
+    "Rings are visible local damage warnings and do not have HP or a required shield phase.",
+    "No matching 3D model or back view was inspected. The arena image is temporary scenery."
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 133 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 131,
+  "scope": "Authored 134 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 132,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -326,6 +326,12 @@
     {
       "id": "wenut-field-cavern",
       "name": "スメール・風蝕の砂洞",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "baptist-field-sanctuary",
+      "name": "スメール・三環の祭場",
       "region": "スメール",
       "status": "regional_temporary_image"
     },

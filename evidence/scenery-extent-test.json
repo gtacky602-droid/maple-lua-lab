@@ -2,6 +2,36 @@
   "errors": [],
   "cases": [
     {
+      "key": "baptistField",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "baptistField",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "baptistField",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "baptistField",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "baptistField",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "baptistField",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "wenutField",
       "camera": -960,
       "transparent": 0

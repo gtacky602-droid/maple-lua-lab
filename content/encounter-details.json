@@ -251,10 +251,12 @@
       }
     },
     "boss-22100501": {
+      "remaining": ["連続アニメーション・被弾・撃破作画", "装備別・Webマルチの実測", "幻境実機"],
+      "extra_evidence": ["evidence/baptist-field-lua.json", "evidence/baptist-field-browser.json"],
       "art_candidate": {
         "item": "baptist",
-        "audit": "evidence/baptist-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/baptist-field-art-audit.json",
+        "status": "Web field prototype with idle, four action poses and dynamic elemental glyphs"
       }
     },
     "boss-26110101": {

@@ -326,6 +326,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "baptist-field-sanctuary",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "fontaine-entry",
       "count": 0,
       "fallback": false,

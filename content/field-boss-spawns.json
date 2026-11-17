@@ -1049,6 +1049,36 @@
         {"id":"FWN02","kind":"stream","title":"低い風線","reach":230,"lock":54,"active":[[108,132]],"near":0.5,"far":2.4,"low":0.25,"height":0.65,"recover":156,"total":276,"damage":21,"element":"anemo"},
         {"id":"FWN03","kind":"burrow","title":"砂潜り・双風弾","reach":190,"lock":54,"active":[],"hidden":[78,114],"fire":[144,192],"life":36,"distance":1.4,"speed":3.5,"radius":0.15,"height":0.65,"recover":240,"total":384,"damage":18,"element":"anemo"}
       ]
+    },
+    {
+      "id":"boss-22100501",
+      "controller":"baptist",
+      "entity":22100501,
+      "name":"深罪の浸礼者",
+      "node":"baptist-field-sanctuary",
+      "storyChallenge":"baptist",
+      "level":74,
+      "hp":1090,
+      "mora":255,
+      "artHeight":146,
+      "floorY":480,
+      "home":830,
+      "arenaMin":360,
+      "arenaMax":1430,
+      "noticeRange":280,
+      "noticeTicks":36,
+      "restTicks":36,
+      "leashTicks":300,
+      "respawnTicks":3600,
+      "walkSpeed":55,
+      "contactDamage":0,
+      "elementFallback":["pyro","cryo","electro"],
+      "elementVariants":[["pyro","cryo","electro"],["cryo","hydro","pyro"],["pyro","electro","hydro"],["hydro","cryo","electro"]],
+      "moves":[
+        {"id":"FIB01","kind":"bolt","title":"二つの詠弾","reach":225,"lock":42,"active":[],"fire":[84,132],"life":48,"slot":1,"speed":3.5,"radius":0.14,"height":0.7,"recover":192,"total":264,"damage":16},
+        {"id":"FIB02","kind":"fall","title":"斜列の落晶","reach":226,"lock":48,"active":[[108,114],[150,156],[192,198]],"slot":2,"spacing":1.04,"width":0.55,"height":1.25,"recover":210,"total":288,"damage":20},
+        {"id":"FIB03","kind":"rings","title":"三環の順爆","reach":221,"lock":60,"active":[[120,126],[156,162],[192,198]],"spacing":1.5,"width":0.7,"height":1.1,"recover":210,"total":354,"damage":22}
+      ]
     }
   ]
 }
