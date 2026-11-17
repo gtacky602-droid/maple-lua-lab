@@ -93,6 +93,8 @@ def build():
     original = read_json('content/stygian-encounters.json')
     details = read_json('content/encounter-details.json')['entries']
     review = read_json('content/encounter-roster-review.json')
+    fields = {spec['id']:spec for spec in read_json('content/field-boss-spawns.json')['fieldBosses']}
+    nodes = {node['id']:node for node in read_json('content/story-graph.json')['nodes']}
     galleries = {
         gallery: {item['id']: item for item in read_json(path)['items']}
         for gallery, path in [('bosses', 'content/boss-art-gallery.json'),
@@ -106,7 +108,7 @@ def build():
             'entity_ids': [], 'status': 'not_implemented', 'action': None, 'grouping': 'original_design',
             'evidence': [entry.get('source', original['source'])], 'remaining': ['完成ドット絵・台詞', '4難度・報酬', 'マルチ・記録'],
         })
-    unknown = details.keys() - {row['id'] for row in rows}
+    unknown = (details.keys() | fields.keys()) - {row['id'] for row in rows}
     if unknown:
         raise ValueError(f'Encounter details refer to unknown IDs: {sorted(unknown)}')
 
@@ -116,7 +118,12 @@ def build():
         if extra.keys() - DETAIL_KEYS:
             raise ValueError(f'{row_id}: unknown encounter fields {sorted(extra.keys() - DETAIL_KEYS)}')
         row['action'] = extra.get('action')
-        if row['action']:
+        field = fields.get(row_id)
+        if field:
+            node = nodes[field['node']]
+            row['fieldNode'] = node['id']
+            row['fieldEntrance'] = f"{node['name']}（Lv{node['level']}）"
+        if row['action'] or field:
             row['status'] = 'partial'
         elif row['kind'] == 'stygian':
             row['remaining'].append('専用戦闘行動')

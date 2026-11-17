@@ -713,6 +713,12 @@
       "ground_both_directions": true
     },
     {
+      "node": "sumeru-jadeplume-grove",
+      "platforms": 1,
+      "jump_routes": [],
+      "ground_both_directions": true
+    },
+    {
       "node": "fontaine-entry",
       "platforms": 4,
       "jump_routes": [

@@ -1,0 +1,31 @@
+{
+  "attack_windows_match_design": true,
+  "peck_rounded_corner_does_not_hit": true,
+  "lock_and_avoided_leap": true,
+  "two_peck_hits_and_three_spore_hits": true,
+  "same_y_sprite_and_airborne_hurtbox": true,
+  "ground_hurtbox_at_recovery": true,
+  "alive_target_prevents_leash": true,
+  "retreat_no_reward": true,
+  "hp_zero_priority": true,
+  "same_generation_map_reentry_and_restore": true,
+  "pause_freezes_timer": true,
+  "second_generation_reward": true,
+  "regional_level": 60,
+  "boss_hp": 800,
+  "per_generation": {
+    "exp": 39950,
+    "mora": 180,
+    "artifact_chance_pct": 25
+  },
+  "normal_only_at_level_60": {
+    "seconds": 83.0,
+    "hp": 77,
+    "damage": 800
+  },
+  "normal_with_default_amber": {
+    "seconds": 47.52,
+    "hp": 104,
+    "damage": 800
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "fieldBosses": [
+    {
+      "id": "boss-26110101",
+      "entity": 26110101,
+      "name": "マッシュラプトル",
+      "node": "sumeru-jadeplume-grove",
+      "level": 60,
+      "hp": 800,
+      "mora": 180,
+      "artHeight": 156,
+      "floorY": 480,
+      "home": 835,
+      "arenaMin": 500,
+      "arenaMax": 1330,
+      "noticeRange": 240,
+      "noticeTicks": 36,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 88,
+      "contactDamage": 3,
+      "resist": {"physical": 0.25, "dendro": 0.8, "anemo": 0.25, "geo": 0.25, "electro": 0.25, "hydro": 0.25, "pyro": 0.25, "cryo": 0.25},
+      "moves": [
+        {"id": "FJ01", "pattern": "peck", "title": "二度ついばむ", "lock": 36, "active": [[66, 72], [108, 114]], "recover": 126, "total": 180, "damage": 9},
+        {"id": "FJ02", "pattern": "leap", "title": "跳びかかり", "lock": 48, "active": [[108, 120]], "recover": 132, "total": 228, "damage": 16},
+        {"id": "FJ03", "pattern": "spores", "title": "三粒の胞子", "lock": 48, "active": [[108, 114], [144, 150], [180, 186]], "recover": 198, "total": 252, "damage": 10}
+      ]
+    }
+  ]
+}

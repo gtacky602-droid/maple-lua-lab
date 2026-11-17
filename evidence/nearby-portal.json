@@ -513,6 +513,14 @@
       "to": "tunigi-camp"
     },
     {
+      "node": "sumeru-field",
+      "to": "sumeru-jadeplume-grove"
+    },
+    {
+      "node": "sumeru-jadeplume-grove",
+      "to": "sumeru-field"
+    },
+    {
       "node": "fontaine-entry",
       "to": "sumeru-field"
     },

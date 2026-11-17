@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 109 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 107,
+  "scope": "Authored 110 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 108,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -260,6 +260,12 @@
     {
       "id": "sumeru-field",
       "name": "スメール・雨林の道",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "sumeru-jadeplume-grove",
+      "name": "スメール・菌傘の谷",
       "region": "スメール",
       "status": "regional_temporary_image"
     },

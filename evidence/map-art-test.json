@@ -260,6 +260,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "sumeru-jadeplume-grove",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "fontaine-entry",
       "count": 0,
       "fallback": false,

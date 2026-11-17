@@ -43,9 +43,9 @@ return function(C,config)
   local p=s.progression
   if p then
    local amount=config.legacyBossExp
-   if not enemy.boss then
+   if enemy.expRole or not enemy.boss then
     local level=math.max(1,math.min(cap,enemy.level or 1))
-    local role=enemy.storyName and 'elite' or 'normal'
+    local role=enemy.expRole or (enemy.storyName and 'elite' or 'normal')
     amount=math.max(1,math.floor(levels[level].normal_enemy_base_exp*config.roles[role]*levelFactor(p.level-level)+.5))
    end
    C.grantExp(s,amount,'kill')

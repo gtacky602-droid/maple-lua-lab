@@ -111,6 +111,15 @@ def runtime():
     core.maguuSlashArt=lua.table_from(json.loads((ROOT/'assets/maguu-slash-sprites.json').read_text(encoding='utf8')),recursive=True)
     core.oceanidArt=lua.table_from({part:json.loads((ROOT/'assets'/name).read_text(encoding='utf8')) for part,name in {'host':'oceanid-sprites.json','boar':'oceanid-boar-sprites.json','crane':'oceanid-crane-sprites.json','mallard':'oceanid-mallard-sprites.json','ferret':'oceanid-ferret-sprites.json','crab':'oceanid-crab-sprites.json','raptor':'oceanid-raptor-sprites.json','frog':'oceanid-frog-sprites.json','finch':'oceanid-finch-sprites.json'}.items()},recursive=True)
     lua.execute((ROOT/'world-bosses.lua').read_text(encoding='utf8'))(core,graph)
+    field_specs=json.loads((ROOT/'content/field-boss-spawns.json').read_text(encoding='utf-8-sig'))['fieldBosses']
+    jade=lua.execute((ROOT/'field-jadeplume.lua').read_text(encoding='utf-8'))(core)
+    jade_art={'idle':'jadeplume-idle-sprites.json'}
+    for pose in ('peck_ready','peck','crouch','spring','stagger','spores'):
+        jade_art[pose]="jadeplume-field-"+pose.replace('_','-')+"-sprites-v1.json"
+    core.jadeplumeArt=lua.table_from({
+        pose:json.loads((ROOT/'assets'/filename).read_text(encoding='utf8')) for pose,filename in jade_art.items()
+    },recursive=True)
+    lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(core,lua.table_from(field_specs,recursive=True),jade)
     return lua, core
 
 def native(value):

@@ -1,0 +1,37 @@
+{
+  "browser": "Chrome",
+  "physical_normal_with_default_amber": {
+    "seconds": 44.366666666664415,
+    "order": [
+      "FJ01",
+      "FJ02",
+      "FJ03",
+      "FJ01",
+      "FJ02",
+      "FJ03",
+      "FJ01",
+      "FJ02",
+      "FJ03",
+      "FJ01",
+      "FJ02"
+    ],
+    "returns": 0,
+    "maxGap": 0.09999999999999432,
+    "finished": true
+  },
+  "airborne_sprite_tracks_boss_y": true,
+  "normal_route_and_sumeru_backdrop": true,
+  "save_and_game_clock_respawn": true,
+  "remainingAfterReload": 49.21666666666667,
+  "reward": {
+    "xp": 39950,
+    "mora": 180
+  },
+  "sameSceneCommands": {
+    "standard": 9591,
+    "light": 2780
+  },
+  "accessible_from_playable_catalog": true,
+  "viewport_390": true,
+  "errors": []
+}

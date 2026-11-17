@@ -1599,8 +1599,24 @@
         {
           "to": "tunigi-camp",
           "x": 720
+        },
+        {
+          "to": "sumeru-jadeplume-grove",
+          "x": 1080
         }
       ],
+      "checkpoint": "sumeru-hub"
+    },
+    {
+      "id": "sumeru-jadeplume-grove",
+      "name": "スメール・菌傘の谷",
+      "region": "スメール",
+      "level": 60,
+      "hub": false,
+      "peaceful": true,
+      "width": 1460,
+      "platforms": [{"x": 0, "y": 480, "w": 1460}],
+      "exits": [{"to": "sumeru-field", "x": 70}],
       "checkpoint": "sumeru-hub"
     },
     {
