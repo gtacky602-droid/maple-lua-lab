@@ -134,6 +134,16 @@
         "platform": 2
       }
     ],
+    "liyue-crux-wharf": [
+      {"id": "liyue-crux-pier", "kind": 1, "art": "hydro-slime",
+       "x": 335, "platform": 0, "hp": 18, "questPhase": 0, "cargo": "pier"},
+      {"id": "liyue-crux-rocks", "kind": 1, "art": "hilichurl",
+       "x": 715, "platform": 0, "hp": 20, "questPhase": 0, "cargo": "rocks"},
+      {"id": "liyue-crux-ledge", "kind": 2, "art": "pyro-slime",
+       "x": 1000, "platform": 1, "hp": 18, "questPhase": 0, "cargo": "ledge"},
+      {"id": "liyue-crux-return", "name": "桟橋を塞ぐヒルチャール", "kind": 1, "art": "hilichurl",
+       "x": 260, "platform": 0, "hp": 28, "questPhase": 1}
+    ],
     "liyue-field": [
       {
         "id": "liyue-field-1",
@@ -1691,7 +1701,7 @@
         "art": "hilichurl",
         "x": 440,
         "platform": 0,
-        "railPhase": 0
+        "questPhase": 0
       },
       {
         "id": "liyue-quarry-storage-2",
@@ -1699,7 +1709,7 @@
         "art": "pyro-slime",
         "x": 440,
         "platform": 1,
-        "railPhase": 0
+        "questPhase": 0
       },
       {
         "id": "liyue-quarry-storage-keeper",
@@ -1709,7 +1719,7 @@
         "x": 1295,
         "platform": 0,
         "hp": 70,
-        "railPhase": 1
+        "questPhase": 1
       },
       {
         "id": "liyue-quarry-storage-3",
@@ -1717,7 +1727,7 @@
         "art": "pyro-slime",
         "x": 1390,
         "platform": 3,
-        "railPhase": 1
+        "questPhase": 1
       }
     ],
     "liyue-quarry-post": [

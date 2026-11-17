@@ -1,0 +1,11 @@
+{
+  "browser": "Chrome",
+  "early_acceptance": true,
+  "guarded_cargo_with_keyboard_and_buttons": true,
+  "npc_scene_without_party_change": true,
+  "report_and_explicit_selection": true,
+  "joined_and_selected_after_restore": true,
+  "safe_revisit": true,
+  "viewport_390": true,
+  "errors": []
+}

@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 90 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 88,
+  "scope": "Authored 91 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 89,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -98,6 +98,12 @@
     {
         "id": "liyue-quarry-storage",
         "name": "璃月・奥の保管区画",
+        "region": "璃月",
+        "status": "regional_temporary_image"
+      },
+      {
+        "id": "liyue-crux-wharf",
+        "name": "璃月・南十字の荷受け場",
         "region": "璃月",
         "status": "regional_temporary_image"
       },

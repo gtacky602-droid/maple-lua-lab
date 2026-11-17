@@ -98,6 +98,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "liyue-crux-wharf",
+      "count": 3,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "liyue-field",
       "count": 0,
       "fallback": false,

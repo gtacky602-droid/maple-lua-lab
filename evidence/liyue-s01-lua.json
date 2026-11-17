@@ -1,0 +1,14 @@
+{
+  "available_before_m01_report": true,
+  "three_guarded_items_and_elevation": true,
+  "partial_recovery_and_return_enemy_restore": true,
+  "beidou_story_npc": true,
+  "report_does_not_replace_current_companion": true,
+  "story_join_selection_persists": true,
+  "safe_revisit": true,
+  "legacy_active_and_complete": true,
+  "reward_once": {
+    "xp": 1500,
+    "mora": 150
+  }
+}

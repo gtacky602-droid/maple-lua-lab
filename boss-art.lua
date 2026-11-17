@@ -28,8 +28,8 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
  function C.drawMaguuMask(f,x,y,h,facing,mode,profile) draw(f,C.maguuMaskArt,x,y,h,mode,profile,(facing or -1)>0) end
  function C.drawGeoPart(f,part,x,y,h,mode,profile) draw(f,geo[part],x,y,h,mode,profile) end
  function C.drawThunderArt(f,b,mode,profile) draw(f,C.thunderArt,b.x,465,150,mode,profile,false) end
- function C.drawCompanionArt(f,s,a,mode,profile)
-  local art=C.companionArt[s.companion]
+ function C.drawCompanionArt(f,s,a,mode,profile,id)
+  local art=C.companionArt[id or s.companion]
   local left=a.dir<0 and art.left
   draw(f,left or art,a.x-s.camera,a.y,art.height,mode,profile,a.dir<0 and not left)
  end

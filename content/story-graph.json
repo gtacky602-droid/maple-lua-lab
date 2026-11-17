@@ -575,6 +575,11 @@
           }
         },
         {
+          "to": "liyue-crux-wharf",
+          "x": 570,
+          "requires": {"quest": "beidou-join", "count": 0, "recovery": true}
+        },
+        {
           "to": "liyue-river-trail",
           "x": 955,
           "requires": {
@@ -863,6 +868,24 @@
       ],
       "clearedBy": "liyue-market-opening",
       "clearCount": 2
+    },
+    {
+      "id": "liyue-crux-wharf",
+      "name": "璃月・南十字の荷受け場",
+      "region": "璃月",
+      "level": 20,
+      "hub": false,
+      "width": 1560,
+      "checkpoint": "liyue-harbor",
+      "platforms": [
+        {"x": 0, "y": 480, "w": 1560},
+        {"x": 810, "y": 382, "w": 350},
+        {"x": 1090, "y": 298, "w": 315}
+      ],
+      "exits": [
+        {"to": "liyue-harbor", "x": 70}
+      ],
+      "clearedBy": "beidou-join"
     },
     {
       "id": "liyue-field",
@@ -4219,7 +4242,9 @@
     },
     {
       "id": "beidou-join",
-      "name": "北斗と補給路を開く",
+      "designId": "Q-LIY-S01",
+      "name": "南十字の、ひと仕事",
+      "giver": "北斗",
       "hub": "liyue-harbor",
       "target": "liyue-field",
       "kind": "kill",
@@ -4227,7 +4252,21 @@
       "xp": 1500,
       "mora": 150,
       "join": "beidou",
-      "opensAfter": "liyue-market-delivery"
+      "opensAfter": "liyue-market-delivery",
+      "briefing": "北斗「桟橋、岩場、低い足場に荷物が残ってる。港に着いたばかりだけど、ひと仕事付き合ってくれないか？」",
+      "closing": "北斗「あんたとなら、退屈しない旅になりそうだ。次も声をかけてくれよ。」",
+      "clearedNotice": "港への道が開きました。荷運び人は北斗が先に港へ帰しました。",
+      "recovery": {
+        "node": "liyue-crux-wharf",
+        "guard": "liyue-crux-return",
+        "guide": {"id": "beidou", "name": "北斗", "x": 670, "y": 480},
+        "allRecovered": "荷物がそろいました。北斗が荷運び人を避難させます。帰りの桟橋を塞ぐ魔物を退けましょう。"
+      },
+      "cargo": [
+        {"id": "pier", "name": "桟橋の樽", "x": 315, "y": 480, "guard": "liyue-crux-pier"},
+        {"id": "rocks", "name": "岩場の木箱", "x": 690, "y": 480, "guard": "liyue-crux-rocks"},
+        {"id": "ledge", "name": "足場の帆布", "x": 975, "y": 382, "guard": "liyue-crux-ledge"}
+      ]
     },
     {
       "id": "mond-contract",

@@ -92,7 +92,12 @@ def validate_save(data):
                 cargo_ids = {item['id'] for item in cargo}
                 if any(item not in cargo_ids or flag is not True for item, flag in found.items()):
                     raise ValueError('Invalid quest cargo ID')
-                if (found and q['count'] < quests[id]['goal'] - 1
+                if quests[id].get('recovery'):
+                    if len(found) != min(q['count'], len(cargo_ids)):
+                        raise ValueError('Invalid recovery progress')
+                    if quests[id]['opensAfter'] not in st['quests']:
+                        raise ValueError('Missing recovery prerequisite')
+                elif (found and q['count'] < quests[id]['goal'] - 1
                         or q['count'] == quests[id]['goal'] and set(found) != cargo_ids):
                     raise ValueError('Invalid quest cargo progress')
             quest = quests[id]

@@ -81,6 +81,11 @@
       "rightCamera": 800
     },
     {
+      "node": "liyue-crux-wharf",
+      "width": 1560,
+      "rightCamera": 600
+    },
+    {
       "node": "liyue-field",
       "width": 1440,
       "rightCamera": 480

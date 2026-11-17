@@ -3,6 +3,7 @@ export function questRouteText(f,q,status){
  if(!f.story?.active||!q||f.storyLift||(status==='complete'&&!q.repeatable))return '';
  const graph=f.storyGraph,nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  let target=status==='active'?(q.kind==='boss'?graph.nodes.find(n=>n.challenge===q.target)?.id:q.target):q.hub;
+ if(status==='active'&&q.recovery&&f.story.quests?.[q.id]?.recovered)target=q.recovery.node;
  if(status==='active'&&q.delivery){
   const state=f.story.quests?.[q.id]?.delivery;
   const cache=q.delivery.cache.id;
@@ -16,7 +17,8 @@ export function questRouteText(f,q,status){
  function gateOpen(edge){
   if(!edge.requires)return true;
   const state=f.story.quests?.[edge.requires.quest];
-  return state?.status==='complete'||(edge.requires.count!==undefined&&state?.count>=edge.requires.count);
+  return state?.status==='complete'||(edge.requires.count!==undefined&&state?.count>=edge.requires.count&&
+   (!edge.requires.recovery||state?.recovered));
  }
  const level=f.progression?.level??0;
  function routeAtLevel(limit){

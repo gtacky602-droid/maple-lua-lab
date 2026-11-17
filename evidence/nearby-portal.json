@@ -146,6 +146,10 @@
     },
     {
       "node": "liyue-harbor",
+      "to": "liyue-crux-wharf"
+    },
+    {
+      "node": "liyue-harbor",
       "to": "liyue-river-trail"
     },
     {
@@ -210,6 +214,10 @@
     },
     {
       "node": "liyue-quarry-storage",
+      "to": "liyue-harbor"
+    },
+    {
+      "node": "liyue-crux-wharf",
       "to": "liyue-harbor"
     },
     {

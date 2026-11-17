@@ -103,12 +103,12 @@
     {
       "node": "liyue-harbor",
       "mode": "sprite",
-      "visible_portals": 8
+      "visible_portals": 9
     },
     {
       "node": "liyue-harbor",
       "mode": "rect",
-      "visible_portals": 8
+      "visible_portals": 9
     },
     {
       "node": "liyue-loading-yard",
@@ -159,6 +159,16 @@
       "node": "liyue-quarry-storage",
       "mode": "rect",
       "visible_portals": 2
+    },
+    {
+      "node": "liyue-crux-wharf",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "liyue-crux-wharf",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "liyue-field",

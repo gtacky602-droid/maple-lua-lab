@@ -9,6 +9,14 @@ const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready
 export function questObjective(q,graph,state){
  const destination=graph.nodes.find(n=>q.kind==='boss'?n.challenge===q.target:n.id===q.target);
  const place=destination?.name||'目的地未登録';
+ if(q.recovery){
+  if(state?.status==='complete')return '北斗が同行を申し出た';
+  if(state&&!state.recovered)return state.count===q.goal?'港で北斗に報告する':`旧依頼：${place}で敵を${q.goal}体倒す`;
+  const remaining=q.cargo.filter(item=>!state?.recovered?.[item.id]);
+  if(remaining.length)return `南十字の荷受け場で魔物を退け、荷物をGキーで回収する（残り：${remaining.map(item=>item.name).join('、')}）`;
+  if(state.count===q.goal)return '港へ戻り、北斗に報告する';
+  return '北斗が荷運び人を避難させている間に、帰りの桟橋の魔物を退ける';
+ }
  if(q.rail){
   if(state?.status==='complete')return '荷車が帰り、山海の大市が開いた';
   if(state?.count===q.goal)return '市場への帰り道から港へ戻り、北斗に報告する';
@@ -81,6 +89,11 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
   row.textContent=`${q.name} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''}${q.repeatable?` ／ 報告${st?.cycles||0}回`:''}${q.join&&status==='complete'?(q.giver?`（${q.giver}加入済み）`:'（加入済み／初期装備は未実装）'):''} ｜ ${status==='locked'?prerequisiteText(q,graph,f.progression?.level??0):questObjective(q,graph,st)} ｜ 受注・報告：${hub} ｜ 仮報酬 ${q.xp}EXP / ${q.mora}モラ `;
   if(status==='unaccepted'||(status==='complete'&&q.repeatable)){const b=button('受注','story_accept:'+q.id);b.disabled=q.hub!==story.node;b.title=b.disabled?`${hub}で受注してください`:'';row.append(b)}
   if(status==='ready'){const b=button('報告','story_report:'+q.id);b.disabled=q.hub!==story.node;b.title=b.disabled?`${hub}へ戻って報告してください`:'';row.append(b)}
+  if(status==='complete'&&q.recovery&&q.join){
+   const b=button(f.companion?.id===q.join?`${q.giver}が同行中`:`${q.giver}を同行に選ぶ`,'story_select_joined:'+q.id);
+   b.disabled=!graph.nodes.find(n=>n.id===story.node)?.hub||f.companion?.id===q.join;
+   row.append(b);
+  }
   if(onTrack){const b=document.createElement('button');b.textContent=trackedId===q.id?'追跡を解除':'この依頼を追跡';b.setAttribute('aria-pressed',String(trackedId===q.id));b.onclick=()=>onTrack(trackedId===q.id?null:q.id);row.append(b)}
   if(q.briefing&&(status==='unaccepted'||status==='complete')){
    const line=document.createElement('small');

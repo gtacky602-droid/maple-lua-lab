@@ -19,8 +19,10 @@ return function(C,data,delivery,rail)
   local rule=edge.requires
   if rule then
    local state=s.story.quests[rule.quest]
-   local allowed=completed(s,rule.quest) or (rule.count and state and state.count>=rule.count)
+   local allowed=completed(s,rule.quest) or
+    (rule.count and state and state.count>=rule.count and (not rule.recovery or state.recovered))
    if not allowed then
+    if rule.recovery and state and not state.recovered then return '受注済みの旧依頼は岩間の狩場で進められます。' end
     return '依頼「'..quests[rule.quest].name..'」'..(rule.count and 'を進めてください。' or 'を報告してください。')
    end
   end
@@ -63,8 +65,10 @@ return function(C,data,delivery,rail)
  local function cargoQuest(s)
   for id,state in pairs(s.story.quests) do
    local q=quests[id]
-   if q.cargo and state.recovered and state.status=='active' and state.count==q.goal-1 and q.target==s.story.node then
-    return q,state
+   if q.cargo and state.recovered and state.status=='active' then
+    if q.recovery then
+     if q.recovery.node==s.story.node and state.count<q.goal-1 then return q,state end
+    elseif state.count==q.goal-1 and q.target==s.story.node then return q,state end
    end
   end
  end
@@ -94,9 +98,17 @@ return function(C,data,delivery,rail)
  local function canInspect(a,item)
   return a.hp>0 and math.abs(a.x-item.x)<54 and math.abs(a.y-item.y)<34
  end
+ local function guarding(s,item)
+  if item.guard then
+   for _,e in ipairs(s.enemies) do
+    if e.spawnId==item.guard and e.hp>0 then return true end
+   end
+  end
+ end
  local function questKillCounts(q,state,enemy)
   if q.enemy then return enemy.spawnId==q.enemy end
   if not state.recovered then return true end -- Already accepted under the original four-kill contract.
+  if q.recovery then return false end
   if state.count==q.goal-1 then return enemy.spawnId==q.chase.enemy and recoveredAll(q,state) end
   for _,art in ipairs(q.openingArts) do if enemy.art==art then return true end end
   return false
@@ -118,13 +130,14 @@ return function(C,data,delivery,rail)
   local q=quests[n.clearedBy]
   if q and q.rail then return q,s.story.quests[q.id] end
  end
- local function spawnEnemies(s,n,railPhase)
+ local function spawnEnemies(s,n,phase,recovered)
   s.enemies={}
   if not n.hub and not n.peaceful and not cleared(s,n) then
    local fresh=C.new(12)
    local placements=assert(C.enemySpawns and C.enemySpawns[n.id],'Missing story enemy placements: '..n.id)
    for i,placement in ipairs(placements) do
-    if not placement.railPhase or placement.railPhase==railPhase then
+    if (not placement.questPhase or placement.questPhase==phase) and
+       not (placement.cargo and recovered and recovered[placement.cargo]) then
      local e=fresh.enemies[i];local p=assert(n.platforms[placement.platform+1],'Invalid enemy support')
      e.x=placement.x;e.home=e.x;e.y=p.y;e.kind=placement.kind;e.art=placement.art;e.spawnId=placement.id
      e.storyName=placement.name
@@ -146,9 +159,13 @@ return function(C,data,delivery,rail)
   s.storyDeliveryNotice=nil
   local railConfig,railState=railQuest(s,n)
   if railState and railState.count>=1 then s.platforms[#s.platforms+1]=copy(railConfig.rail.bridge) end
-  spawnEnemies(s,n,railConfig and (railState and railState.count or 0))
+  local recoveryQuest=quests[n.clearedBy]
+  local recoveryState=recoveryQuest and recoveryQuest.recovery and s.story.quests[recoveryQuest.id]
+  local phase=railState and railState.count or 0
+  if recoveryState and recoveryState.recovered and recoveryState.count==recoveryQuest.goal-1 then phase=1 end
+  spawnEnemies(s,n,phase,recoveryState and recoveryState.recovered)
   local cargo,state=cargoQuest(s)
-  if cargo and recoveredAll(cargo,state) then beginChase(s,cargo) end
+  if cargo and cargo.chase and recoveredAll(cargo,state) then beginChase(s,cargo) end
   for i,a in ipairs(s.actors) do a.x=(spawn or 160)-(i-1)*40;a.y=arrivalY or 480;a.vy=0;a.ground=true;if arrivalY then a.drop=0 end end
   s.camera=math.max(0,math.min(s.actors[s.active].x-400,math.max(0,n.width-960)))
   s.macro=nil;s.encounter=nil;s.voyage=n.voyage and {destination=n.voyage.destination,arrives=s.t+n.voyage.seconds-(elapsed or 0),started=s.t-(elapsed or 0),source=n.voyage.source,stopStart=n.voyage.stopStart,stopEnd=n.voyage.stopEnd} or nil;progress(s,'visit',id)
@@ -185,7 +202,16 @@ return function(C,data,delivery,rail)
    end
    local item=nearbyCargo(s,q,state)
    if not item then s.storyNotice='荷物のそばまで移動してください。';return end
+   if guarding(s,item) then s.storyNotice='荷物のそばにいる魔物を退けてください。';return end
    state.recovered[item.id]=true
+   if q.recovery then
+    state.count=state.count+1
+    if state.count==q.goal-1 then
+     spawnEnemies(s,nodes[s.story.node],1)
+     s.storyNotice=q.recovery.allRecovered
+    else s.storyNotice=item.name..'を回収しました。' end
+    return
+   end
    if recoveredAll(q,state) then
     beginChase(s,q)
     s.storyNotice='赤い布を引きずるヒルチャールを、街道の奥へ追いましょう。'
@@ -240,6 +266,14 @@ return function(C,data,delivery,rail)
    enter(s,dest,spawn,resume);s.storyNotice=nil;return
   end
   local accept=key:match('^story_accept:([%w%-]+)$');local report=key:match('^story_report:([%w%-]+)$')
+  local selectJoined=key:match('^story_select_joined:([%w%-]+)$')
+  if selectJoined then
+   local q=quests[selectJoined]
+   if s.story.active and not s.paused and nodes[s.story.node].hub and q and q.join and completed(s,q.id) then
+    action(s,'companion:'..q.join)
+   end
+   return
+  end
   if accept or report then
    if s.paused or not s.story.active then return end
    local id=accept or report;local q=quests[id];if not q or s.story.node~=q.hub then return end
@@ -275,6 +309,16 @@ return function(C,data,delivery,rail)
     if q.rail and state.status=='active' and state.count==1 and q.target==s.story.node and e.spawnId==q.rail.guard then
      state.count=2
      s.storyNotice='石切り場の番人を倒しました。分岐に止まった荷車を港へ送り出しましょう。'
+    end
+    if q.recovery and state.recovered and state.status=='active' and q.recovery.node==s.story.node then
+     if state.count==q.goal-1 and e.spawnId==q.recovery.guard then
+      state.count=q.goal
+      s.storyNotice=q.clearedNotice
+     else
+      for _,item in ipairs(q.cargo) do
+       if item.guard==e.spawnId then e.respawn=math.huge;break end
+      end
+     end
     end
    end
   end
@@ -333,7 +377,9 @@ return function(C,data,delivery,rail)
    local q,state=cargoQuest(s)
    if q then
     local nearby=nearbyCargo(s,q,state)
-    if nearby and not s.paused then f.storyNearbyCargo={id=nearby.id,name=nearby.name} end
+    if nearby and not s.paused then
+     f.storyNearbyCargo={id=nearby.id,name=nearby.name,guarded=guarding(s,nearby) or nil}
+    end
     f.storyCargo={}
     for _,item in ipairs(q.cargo) do
      if not state.recovered[item.id] then
@@ -363,6 +409,15 @@ return function(C,data,delivery,rail)
      local state=s.story.quests[q.id]
      if q.delivery then delivery.observe(s,f,markers,q,state and state.delivery)
      else rail.observe(s,f,markers,q,state) end
+    end
+   end
+   local recoveryQuest=quests[n.clearedBy]
+   local recoveryState=recoveryQuest and recoveryQuest.recovery and s.story.quests[recoveryQuest.id]
+   if recoveryState and recoveryState.recovered and recoveryState.count==recoveryQuest.goal-1 and s.companion~='beidou' then
+    local guide=recoveryQuest.recovery.guide
+    if math.abs(guide.x-s.camera-480)<540 then
+     C.drawCompanionArt({draws=markers},s,{x=guide.x,y=guide.y,dir=-1},mode,profile,guide.id)
+     markers[#markers+1]={kind='text',x=guide.x-s.camera,y=guide.y-94,size=15,color='#ffe7a2',text=guide.name}
     end
    end
    -- Navigation and quest objects precede actors, enemies, and effects.

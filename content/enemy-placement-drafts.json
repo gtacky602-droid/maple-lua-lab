@@ -2,6 +2,11 @@
   "version": 1,
   "status": "visual-only draft; not canonical spawn geography or live combat placement",
   "nodes": {
+    "liyue-crux-wharf": [
+      {"id": "preview-crux-pier", "species": "hydro-slime", "x": 335, "y": 480, "flip": false},
+      {"id": "preview-crux-rocks", "species": "hilichurl", "x": 715, "y": 480, "flip": true},
+      {"id": "preview-crux-ledge", "species": "pyro-slime", "x": 1000, "y": 382, "flip": false}
+    ],
     "mond-road": [
       {"id": "preview-hilichurl-1", "species": "hilichurl", "x": 470, "y": 480, "flip": true},
       {"id": "preview-hydro-1", "species": "hydro-slime", "x": 335, "y": 350, "flip": false},

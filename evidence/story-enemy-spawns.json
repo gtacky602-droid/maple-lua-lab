@@ -65,6 +65,10 @@
       "enemy_count": 2
     },
     {
+      "node": "liyue-crux-wharf",
+      "enemy_count": 3
+    },
+    {
       "node": "liyue-field",
       "enemy_count": 6
     },
