@@ -1,6 +1,6 @@
 -- Inventory / main-stat prototype. No final set/substat/crit implementation claim.
 return function(C)
- local action,step,frame,checkpoint,restore=C.action,C.step,C.frame,C.checkpoint,C.restore
+ local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local caps={[3]=12,[4]=16,[5]=20};local rarity={[3]=.6,[4]=.8,[5]=1}
  local feather={{1,0},{10,133.333333},{20,208.333333},{30,268},{40,393},{60,454.545455},{80,1250},{100,2343.75},{110,6250},{120,6250},{140,29800},{160,71400},{170,100000},{180,170000},{200,300000},{220,520000}}
  local flower={{1,80},{20,160},{40,600},{60,1800},{80,5000},{100,16000},{120,32000},{140,56000},{160,84480},{180,160000},{200,300000},{220,520000}}
@@ -81,6 +81,7 @@ return function(C)
  end
  function C.artifactSalePrice(item) return item.itemLv*item.rarity*10 end
  C.onKill=function(s,e)
+  if onKill then onKill(s,e) end
   if not s.campaign then return end
   setup(s)
   if roll(s,100)>(e.boss and 25 or 1) then return end

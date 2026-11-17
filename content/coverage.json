@@ -399,8 +399,11 @@
     },
     {
       "id": "progression",
-      "status": "partial_checkpoint_only",
-      "acceptance": "shared level, gear, targeted loot, save/load, nonduplicate rewards"
+      "status": "partial_web_exp_curve_and_save",
+      "acceptance": "shared level, gear, targeted loot, save/load, nonduplicate rewards",
+      "verified": ["Lv1 to 200 draft curve", "normal and named elite kill EXP", "legacy progression migration", "Lv200 overflow and lifetime EXP"],
+      "pending": ["regional quest and boss EXP calibration", "50-hour balance playthrough", "online ranking and Miliastra validation"],
+      "evidence": ["evidence/progression-test.json", "evidence/progression-browser.json", "evidence/story-growth-test.json"]
     },
     {
       "id": "world",

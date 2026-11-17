@@ -27,6 +27,6 @@
     "every edge and checkpoint references existing stage",
     "every quest target and hub exist"
   ],
-  "nodes": 61,
-  "quests": 47
+  "nodes": 104,
+  "quests": 64
 }

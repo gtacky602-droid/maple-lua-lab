@@ -1,5 +1,6 @@
 from pathlib import Path
 import sys, json
+from experience import RUNTIME_EXP
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / 'lua-limit-break-20261026-r1/work/python'))
 from lupa.lua53 import LuaRuntime
@@ -23,7 +24,7 @@ def runtime():
     lua.execute((ROOT / 'lunar.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'reactions.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'loadout.lua').read_text(encoding='utf-8'))(core)
-    lua.execute((ROOT / 'progression.lua').read_text(encoding='utf-8'))(core)
+    lua.execute((ROOT / 'progression.lua').read_text(encoding='utf-8'))(core,lua.table_from(RUNTIME_EXP,recursive=True))
     lua.execute((ROOT / 'artifacts.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'companions.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'star-seed.lua').read_text(encoding='utf-8'))(core)

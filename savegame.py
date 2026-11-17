@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from experience import CAP, CAP_EXP, CURVE_ID, LEVELS, MAX_SAVED_EXP
 _STORY_GRAPH=json.loads((Path(__file__).parent/"content/story-graph.json").read_text(encoding="utf8"))
 _STORY_ZONES={"story:"+n["id"] for n in _STORY_GRAPH["nodes"]}
 import math
@@ -28,15 +29,36 @@ def validate_save(data):
                 raise ValueError('スキル枠が不正です')
     if 'progression' in data:
         p=data['progression']
-        if not isinstance(p,dict) or set(p)!={'level','xp','total','killXp','questXp','lastKills','questRewarded'}:
+        legacy_fields={'level','xp','total','killXp','questXp','lastKills','questRewarded'}
+        curve_fields={'curve','baseXp','overflowXp','curveAdjustment'}
+        if not isinstance(p,dict) or set(p) not in (legacy_fields,legacy_fields | curve_fields):
             raise ValueError('経験値の保存項目が不正です')
-        for k in ('level','xp','total','killXp','questXp','lastKills'):
-            if type(p[k]) is not int or not 0<=p[k]<=10**12: raise ValueError('経験値の数値が不正です')
+        current='curve' in p
+        numeric=(legacy_fields-{'questRewarded'}) | ({'baseXp','overflowXp'} if current else set())
+        for key in numeric:
+            if type(p[key]) is not int or not 0<=p[key]<=MAX_SAVED_EXP:
+                raise ValueError('経験値の数値が不正です: '+key)
         level=p['level']
-        if not 1<=level<=200: raise ValueError('検証範囲外のレベルです')
-        needed=100+20*(level-1)**2
-        spent=sum(100+20*(n-1)**2 for n in range(1,level))
-        if (level<200 and p['xp']>=needed) or spent+p['xp']!=p['total'] or p['killXp']+p['questXp']!=p['total']:
+        if not 1<=level<=CAP:
+            raise ValueError('検証範囲外のレベルです')
+        if current:
+            if (p['curve']!=CURVE_ID or type(p['curveAdjustment']) is not int
+                    or abs(p['curveAdjustment'])>CAP_EXP
+                    or not p['questXp']<=p['baseXp']<=p['total']):
+                raise ValueError('経験値表または基礎累計が不正です')
+            row=LEVELS[level-1]
+            spent=row['maple_reference_total_exp_to_reach']
+            if level==CAP:
+                aligned=p['xp']==0
+            else:
+                aligned=p['overflowXp']==0 and p['xp']<row['required_exp_to_next']
+            balanced=spent+p['xp']+p['overflowXp']==p['total']+p['curveAdjustment']
+        else:
+            needed=100+20*(level-1)**2
+            spent=sum(100+20*(n-1)**2 for n in range(1,level))
+            aligned=level==CAP or p['xp']<needed
+            balanced=spent+p['xp']==p['total']
+        if not aligned or not balanced or p['killXp']+p['questXp']!=p['total']:
             raise ValueError('レベルと累計経験値が一致しません')
         if type(p['questRewarded']) is not bool or p['questRewarded']!=(data['quest']=='complete') or p['lastKills']!=data['kills']:
             raise ValueError('経験値報酬の状態が一致しません')

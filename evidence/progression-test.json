@@ -1,5 +1,5 @@
 {
-  "count": 13,
+  "count": 41,
   "checks": [
     "lab kills not retroactively credited",
     "companion kill awards shared EXP",
@@ -13,7 +13,37 @@
     "inconsistent EXP rejected",
     "old saves migrate without replaying rewarded quest",
     "region eligibility follows shared level",
-    "eligibility does not claim map exists"
+    "eligibility does not claim map exists",
+    "all 199 transitions match the design table",
+    "Lv200 cap target totals 11.46 billion",
+    "legacy Lv2 preserves level and lifetime",
+    "legacy Lv2 preserves relative progress or overflow",
+    "legacy Lv2 migration is idempotent",
+    "legacy Lv40 preserves level and lifetime",
+    "legacy Lv40 preserves relative progress or overflow",
+    "legacy Lv40 migration is idempotent",
+    "legacy Lv199 preserves level and lifetime",
+    "legacy Lv199 preserves relative progress or overflow",
+    "legacy Lv199 migration is idempotent",
+    "legacy Lv200 preserves level and lifetime",
+    "legacy Lv200 preserves relative progress or overflow",
+    "legacy Lv200 migration is idempotent",
+    "level gap 20 vs 20",
+    "level gap 25 vs 20",
+    "level gap 31 vs 20",
+    "level gap 41 vs 20",
+    "level gap 61 vs 20",
+    "level gap 9 vs 20",
+    "level gap 1 vs 22",
+    "named story elite uses the draft multiplier",
+    "overflow is recorded separately at cap",
+    "base excludes the granted bonus",
+    "fixed quest EXP excludes the bonus",
+    "level 200 mob continues lifetime and overflow",
+    "large whole numbers survive cap round trip",
+    "inconsistent overflow rejected"
   ],
-  "model": "provisional, not official EXP table"
+  "curve": "maplesea-reference-v02",
+  "exp_to_level_200": 11462335230,
+  "scope": "Lua thresholds, draft enemy EXP, save and migration. Playtime and Miliastra unmeasured."
 }

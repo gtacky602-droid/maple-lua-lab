@@ -1,14 +1,19 @@
 {
   "errors": [],
-  "progress": {
-    "questXp": 0,
-    "total": 100,
-    "questRewarded": false,
-    "level": 2,
-    "xp": 0,
-    "killXp": 100,
-    "lastKills": 10
-  },
   "killLevelUp": true,
-  "saveReload": true
+  "saveReload": true,
+  "level200ContinuesEarning": true,
+  "capRoundtrip": {
+    "level": 200,
+    "total": 11462632105,
+    "curveAdjustment": 0,
+    "curve": "maplesea-reference-v02",
+    "lastKills": 3,
+    "questRewarded": false,
+    "overflowXp": 296875,
+    "baseXp": 11462632101,
+    "questXp": 11462335729,
+    "killXp": 296376,
+    "xp": 0
+  }
 }

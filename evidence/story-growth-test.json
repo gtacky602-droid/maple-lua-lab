@@ -1,5 +1,5 @@
 {
-  "count": 37,
+  "count": 21,
   "checks": [
     "cycle 0 pays fixed reward",
     "cycle 0 duplicate report blocked",
@@ -19,30 +19,14 @@
     "cycle 7 duplicate report blocked",
     "cycle 8 pays fixed reward",
     "cycle 8 duplicate report blocked",
-    "cycle 9 pays fixed reward",
-    "cycle 9 duplicate report blocked",
-    "cycle 10 pays fixed reward",
-    "cycle 10 duplicate report blocked",
-    "cycle 11 pays fixed reward",
-    "cycle 11 duplicate report blocked",
-    "cycle 12 pays fixed reward",
-    "cycle 12 duplicate report blocked",
-    "cycle 13 pays fixed reward",
-    "cycle 13 duplicate report blocked",
-    "cycle 14 pays fixed reward",
-    "cycle 14 duplicate report blocked",
-    "cycle 15 pays fixed reward",
-    "cycle 15 duplicate report blocked",
-    "cycle 16 pays fixed reward",
-    "cycle 16 duplicate report blocked",
     "natural combat and reports reach twenty",
     "repeatable cycles survive save",
     "earned level unlocks Liyue without all quests"
   ],
-  "rounds": 17,
-  "kills": 205,
+  "rounds": 9,
+  "kills": 108,
   "level": 20,
-  "simulation_seconds": 393.43333333333334,
-  "quest_xp": 43000,
-  "kill_xp": 2050
+  "simulation_seconds": 220.76666666666668,
+  "quest_xp": 23000,
+  "kill_xp": 108
 }
