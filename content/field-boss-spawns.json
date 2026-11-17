@@ -1378,6 +1378,19 @@
         {"id":"FWN02","kind":"rift","title":"裂け目からの奇襲","reach":225,"lock":56,"distance":1.65,"width":1.75,"height":0.8,"hide":[84,138],"active":[[138,152]],"recover":184,"total":280,"damage":28,"element":"electro"},
         {"id":"FWN03","kind":"ward","title":"暗黒のシールド・深淵の放出","reach":230,"lock":60,"deploy":64,"height":0.72,"active":[[840,858]],"recover":880,"total":968,"damage":38,"element":"electro"}
       ]
+    },
+    {
+      "id":"boss-26301101","controller":"moonfly","entity":26301101,
+      "name":"集光の幻月蝶","node":"nod-moonfly-hollow","storyChallenge":"moonfly",
+      "level":130,"hp":1050,"mora":485,"artHeight":160,"floorY":480,"hover":36,"home":920,
+      "arenaMin":325,"arenaMax":1580,"noticeRange":350,"noticeTicks":36,"restTicks":42,
+      "leashTicks":360,"respawnTicks":3600,"walkSpeed":62,"contactDamage":0,"keepHpOnExit":true,
+      "cocoon":{"damage":12,"damageFactor":0.75,"healFactor":0.7,"escapeFactor":1.2,"escapeTicks":480},
+      "moves":[
+        {"id":"FMF01","kind":"kick","title":"二連の回し蹴り","reach":196,"lock":48,"near":0.14,"far":1.92,"height":0.7,"active":[[100,112],[166,180]],"recover":208,"total":284,"damage":19,"element":"dendro"},
+        {"id":"FMF02","kind":"bolts","title":"二つの月光弾","reach":226,"lock":54,"offsets":[0.85,2.15],"width":1.0,"height":0.7,"active":[[112,126],[180,194]],"recover":222,"total":306,"damage":22,"element":"dendro"},
+        {"id":"FMF03","kind":"cocoon","title":"集光の繭・羽の解放","reach":230,"lock":60,"radius":2.35,"bind":96,"flare":170,"charge":398,"height":0.76,"active":[[214,228],[322,336],[450,466]],"recover":490,"total":640,"damage":25,"element":"pyro"}
+      ]
     }
   ]
 }

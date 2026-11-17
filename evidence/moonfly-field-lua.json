@@ -1,0 +1,26 @@
+{
+  "twoKicksAndMoonlightAreas": true,
+  "cocoonOnlyAffectsInRangeLivingActor": true,
+  "partyCocoonsHealIndependently": true,
+  "damage": {
+    "base": 22,
+    "bound": 17,
+    "escaped": 27
+  },
+  "healingReductionAndHydroSkillEscape": true,
+  "cookingHealsAndEscapesThroughStoryAction": true,
+  "fullHealthEscapeExpires": true,
+  "elementSwitchUpdatesSpriteAndDamage": true,
+  "chargedExplosionOnce": true,
+  "exitAndSavePreserveHpAndClearEffects": true,
+  "oneRewardAndReport": true,
+  "normalAttackWithoutHealing": {
+    "seconds": 100.22,
+    "hp": 92
+  },
+  "sameSceneCommands": {
+    "png": 52,
+    "standard": 8765,
+    "light": 2384
+  }
+}

@@ -13,6 +13,7 @@
   "battleshipFieldRoute": true,
   "frostnightHerraFieldRoute": true,
   "whispererNightmaresFieldRoute": true,
+  "moonflyFieldRoute": true,
   "stygianCandidates": 7,
   "disabledUnimplemented": true,
   "launchesVerified": [

@@ -51,6 +51,13 @@ function C.damageActor(s,a,amount,source,blockable,telegraphed)
  end
  return damage
 end
+function C.healActor(s,a,amount)
+ if a.hp<=0 or amount<=0 then return 0 end
+ local factor=C.healingFactor and C.healingFactor(s,a) or 1
+ local before=a.hp
+ a.hp=min(a.maxhp,a.hp+amount*factor)
+ return a.hp-before
+end
 function C.defeatEnemy(s,e,owner)
  e=e.sharedHealth or e
  if e.hp<=0 then return false end

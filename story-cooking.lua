@@ -42,7 +42,7 @@ function M.gather(s,q,state,item)
  end
 end
 
-function M.action(s,q,state,command,flavorId)
+function M.action(s,q,state,command,flavorId,healActor)
  local spec,stock=q.cooking,state.cooking
  if command=='cook' then
   if state.status~='active' or state.count~=q.goal-1 or not nearStall(s,q) then return end
@@ -61,7 +61,7 @@ function M.action(s,q,state,command,flavorId)
   local a=s.actors[s.active]
   if a.hp<=0 or a.hp>=a.maxhp then return end
   local hp=a.hp
-  a.hp=math.min(a.maxhp,hp+spec.heal)
+  healActor(s,a,spec.heal)
   stock.meals=stock.meals-1
   s.storyNotice='山海包みを食べて、操作中のキャラのHPが'..(a.hp-hp)..'回復しました。'
  end

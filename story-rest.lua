@@ -39,7 +39,7 @@ return function(C)
   if item==q.rest.tea then
    local actor=s.actors[s.active]
    local hp=actor.hp
-   actor.hp=math.min(actor.maxhp,hp+item.heal)
+   C.healActor(s,actor,item.heal)
    local amount=actor.hp-hp
    s.restNotice=amount>0 and 'お茶を飲んで、HPが'..math.floor(amount)..'回復しました。' or '温かいお茶でひと休みしました。'
    return true

@@ -9,7 +9,7 @@ return function(C)
   table.sort(candidates,function(x,y)return math.abs(x.x-a.x)<math.abs(y.x-a.x) end)
   local count=math.min(3,#candidates);if count==0 then return false end
   for i=1,count do candidates[i].burning=nil end
-  a.hp=math.min(a.maxhp,a.hp+a.maxhp*.16*count/3);a.cd[key]=20;a.lock=.4
+  C.healActor(s,a,a.maxhp*.16*count/3);a.cd[key]=20;a.lock=.4
   s.effects[#s.effects+1]={x=a.x,y=a.y-40,w=60,h=80,color='#c9e6a0',life=.3}
   return true
  end

@@ -14,6 +14,7 @@ export const sceneryDefinitions={
  battleshipField:{file:'battleship-field-background-v1.png',zones:['story:nod-battleship-depot'],note:'陸巡艦の整備庫の仮背景'},
  herraField:{file:'frostnight-herra-field-background-v1.png',zones:['story:nod-herra-terrace'],note:'霜夜の石壇の仮背景'},
  nightmareField:{file:'whisperer-nightmares-field-background-v1.png',zones:['story:nod-nightmare-shore'],note:'煙雲の山の昏き浜の仮背景'},
+ moonflyField:{file:'moonfly-field-background-v1.png',zones:['story:nod-moonfly-hollow'],note:'幻月蝶の岩窟の仮背景'},
  generatorField:{file:'field-generator-field-background-v1.png',zones:['story:field-generator-field-chamber'],note:'重力試験室の仮背景'},
  seahorseField:{file:'seahorse-field-background-v1.png',zones:['story:seahorse-field-cavern'],note:'真珠珊瑚の洞の仮背景'},
  emperorField:{file:'emperor-field-background-v1.png',zones:['story:emperor-field-cove'],note:'熔殻の洞の仮背景'},
@@ -125,7 +126,7 @@ export function scenery(ctx,frame){
  }else{ctx.fillStyle='#c5decc';ctx.fillRect(0,0,960,540)}
  // Lab-only terrain proxies. These will be 3D set dressing and colliders in the game.
  const inazuma=key==='inazumatown'||key==='inazuma'||key==='toriiforest'||key==='shiomicape';
- const stone=['seacave','windsplit','cryoField','pyroField','electroField','geoField','primoField','oceanidField','maguuField','arrayField','thunderField','pyroHypostasisField','hydroHypostasisField','wolflordField','ruinSerpentField','bathysmalField','electroVineField','aeonblightField','dendroHypostasisField','baptistField','seahorseField','generatorField','tulpaField','icewindField','legatusField','suanniField','qucusaurField','configDeviceField','papillaField','overseerField','duckleField','battleshipField','herraField','nightmareField','enkanomiya','nodspecial','novokichev','chasm'].includes(key);
+ const stone=['seacave','windsplit','cryoField','pyroField','electroField','geoField','primoField','oceanidField','maguuField','arrayField','thunderField','pyroHypostasisField','hydroHypostasisField','wolflordField','ruinSerpentField','bathysmalField','electroVineField','aeonblightField','dendroHypostasisField','baptistField','seahorseField','generatorField','tulpaField','icewindField','legatusField','suanniField','qucusaurField','configDeviceField','papillaField','overseerField','duckleField','battleshipField','herraField','nightmareField','moonflyField','enkanomiya','nodspecial','novokichev','chasm'].includes(key);
  const roof=key==='mondroof',lookout=key==='mondlookout',sandstone=['asimonField','wenutField','emperorField','lavaDragonField'].includes(key);
  const camera=frame.camera||0,snow=['snezhnaya','dragonspine','cryoHypostasisField','wingspan'].includes(key);
  drawDecorations(ctx,frame,camera);

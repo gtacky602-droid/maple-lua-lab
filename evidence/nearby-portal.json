@@ -853,6 +853,10 @@
       "to": "nod-nightmare-shore"
     },
     {
+      "node": "nod-field",
+      "to": "nod-moonfly-hollow"
+    },
+    {
       "node": "nod-duckle-workyard",
       "to": "nod-field"
     },
@@ -866,6 +870,10 @@
     },
     {
       "node": "nod-nightmare-shore",
+      "to": "nod-field"
+    },
+    {
+      "node": "nod-moonfly-hollow",
       "to": "nod-field"
     },
     {

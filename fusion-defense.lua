@@ -39,7 +39,7 @@ return function(C)
     if w.pulses<8 and w.elapsed+1e-8>=w.pulses+1 then
      w.pulses=w.pulses+1
      for _,a in ipairs(s.actors) do local behind=(w.x-a.x)*w.dir
-      if a.hp>0 and behind>=0 and behind<=220 and math.abs(a.y-w.y)<75 then a.hp=math.min(a.maxhp,a.hp+a.maxhp*.006) end
+      if a.hp>0 and behind>=0 and behind<=220 and math.abs(a.y-w.y)<75 then C.healActor(s,a,a.maxhp*.006) end
      end
     end
     if w.pulses==8 then s.coralWall=nil end

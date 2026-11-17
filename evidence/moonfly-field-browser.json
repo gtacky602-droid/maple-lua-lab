@@ -1,0 +1,38 @@
+{
+  "browser": "Chrome",
+  "companion": "wanderer",
+  "play": {
+    "won": true,
+    "seconds": 76.05,
+    "moves": [
+      "FMF01",
+      "FMF02",
+      "FMF03"
+    ],
+    "hp": 116,
+    "returns": 0,
+    "healed": true,
+    "escaped": true
+  },
+  "scenery": {
+    "key": "moonflyField",
+    "file": "moonfly-field-background-v1.png",
+    "state": "ready"
+  },
+  "questAcceptedInUi": true,
+  "questReport": {
+    "xp": 9400,
+    "mora": 650
+  },
+  "sameSceneCommands": {
+    "png": 50,
+    "standard": 11239,
+    "light": 3073
+  },
+  "healedToFull": true,
+  "escapedAt": 28.98333333333297,
+  "cocoonActor": 1,
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}

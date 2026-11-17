@@ -325,7 +325,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local command,mealQuest,flavor=key:match('^story_([%a_]+):([%w%-]+):?([%w%-]*)$')
   if command=='cook' or command=='buy_meal' or command=='eat_meal' then
    local q,state=quests[mealQuest],s.story.quests[mealQuest]
-   if s.story.active and not s.paused and q and q.cooking and state then cooking.action(s,q,state,command,flavor) end
+   if s.story.active and not s.paused and q and q.cooking and state then cooking.action(s,q,state,command,flavor,C.healActor) end
    return
   end
   local deliveryId,packageId=key:match('^story_deliver:([%w%-]+):([%w%-]+)$')

@@ -1,5 +1,5 @@
 {
-  "count": 78,
+  "count": 79,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -41,6 +41,7 @@
     "The Landrover has a Nod-Krai depot route",
     "Frostnight Herra has a Nod-Krai terrace route",
     "The Whisperer of Nightmares has a Smokecloud Mountain shore route",
+    "Radiant Moonfly has a Nod-Krai cavern route",
     "public roster matched without merging Icewind modes or Dottore challenges",
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",

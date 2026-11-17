@@ -489,10 +489,12 @@
       }
     },
     "boss-26301101": {
+      "remaining": ["繭の減少量・回復量・強化時間と報酬の調整", "被弾・撃破の追加作画と音", "Webマルチと幻境実機"],
+      "extra_evidence": ["https://genshin.hoyoverse.com/ja/news/detail/159349","evidence/moonfly-field-lua.json","evidence/moonfly-field-browser.json"],
       "art_candidate": {
         "item": "moonfly",
-        "audit": "evidence/moonfly-reference-audit.json",
-        "status": "idle candidate"
+        "audit": "evidence/moonfly-field-art-audit.json",
+        "status": "Web field prototype with grounded, green-winged, flame-winged, cocoon and recovery poses"
       }
     },
     "boss-26302101": {

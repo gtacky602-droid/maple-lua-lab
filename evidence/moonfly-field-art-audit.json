@@ -1,0 +1,225 @@
+{
+  "tool": "built-in image_gen",
+  "references": [
+    {
+      "url": "https://img.gamewith.net/img/c96cc52bb8e25060a51dacc585447e46.png",
+      "page": "https://gamewith.net/genshin-impact/article/show/69569",
+      "view": "Preview design and wing pattern",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "4090c26b460bda8f9abee325b328a417a4cbbce57f6dfdd0eafc0457cd28306d"
+    },
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2025/09/19/157251052/3b141a1d866c62c39dacd0744ae00e3c_4946543808464340114.png",
+      "page": "https://www.hoyolab.com/article/41241218",
+      "view": "In-game tutorial shows floating posture amid effects",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "c02f8ec97ed74b3db2c6ac68c60eb7dc1e302a6d544d1b2e8d3c6830c7d6e475"
+    },
+    {
+      "local": "work/references/moonfly-field.jpg",
+      "sha256": "e48757dd039873a724894b54a9684df6315e159f1f1d7d1dcd38c9ef5f3073ef",
+      "page": null,
+      "view": "In-game cave screenshot with flame wings",
+      "directly_viewed": true,
+      "generation_input": true,
+      "provenance": "Original URL absent from the previous audit; the retained local screenshot was viewed and supplied."
+    }
+  ],
+  "poses": {
+    "ready": {
+      "height": 156,
+      "crop": [
+        0,
+        0,
+        620,
+        550
+      ],
+      "original": [
+        116,
+        26,
+        417,
+        416
+      ],
+      "box": [
+        25,
+        25,
+        301,
+        390
+      ],
+      "anchor": 0.5581395348837209,
+      "profiles": {
+        "legacy": 4410,
+        "h48c32": 2715,
+        "h32c16": 1203
+      }
+    },
+    "kick": {
+      "height": 156,
+      "crop": [
+        620,
+        0,
+        620,
+        550
+      ],
+      "original": [
+        567,
+        22,
+        924,
+        417
+      ],
+      "box": [
+        645,
+        25,
+        357,
+        395
+      ],
+      "anchor": 0.5238095238095238,
+      "profiles": {
+        "legacy": 4192,
+        "h48c32": 2592,
+        "h32c16": 1146
+      }
+    },
+    "green": {
+      "height": 170,
+      "crop": [
+        1240,
+        0,
+        620,
+        550
+      ],
+      "original": [
+        1074,
+        12,
+        1505,
+        416
+      ],
+      "box": [
+        1265,
+        25,
+        431,
+        404
+      ],
+      "anchor": 0.43155452436194897,
+      "profiles": {
+        "legacy": 7471,
+        "h48c32": 4490,
+        "h32c16": 2003
+      }
+    },
+    "flame": {
+      "height": 170,
+      "crop": [
+        0,
+        550,
+        620,
+        550
+      ],
+      "original": [
+        65,
+        504,
+        498,
+        929
+      ],
+      "box": [
+        25,
+        575,
+        433,
+        425
+      ],
+      "anchor": 0.49653579676674364,
+      "profiles": {
+        "legacy": 7031,
+        "h48c32": 4322,
+        "h32c16": 1886
+      }
+    },
+    "cocoon": {
+      "height": 162,
+      "crop": [
+        620,
+        550,
+        620,
+        550
+      ],
+      "original": [
+        689,
+        513,
+        866,
+        944
+      ],
+      "box": [
+        645,
+        575,
+        177,
+        431
+      ],
+      "anchor": 0.4858757062146893,
+      "profiles": {
+        "legacy": 3423,
+        "h48c32": 2094,
+        "h32c16": 943
+      }
+    },
+    "down": {
+      "height": 90,
+      "crop": [
+        1240,
+        550,
+        620,
+        550
+      ],
+      "original": [
+        1057,
+        696,
+        1483,
+        902
+      ],
+      "box": [
+        1265,
+        575,
+        426,
+        206
+      ],
+      "anchor": 0.4953051643192488,
+      "profiles": {
+        "legacy": 4419,
+        "h48c32": 2760,
+        "h32c16": 1177
+      }
+    }
+  },
+  "prompts": [
+    "Make an exact transparent pixel-art sprite atlas with 3 columns and 2 rows, generous clear gutters inside all cells and NO matte, colored haze, outer glow, floor or labels. Six alternate poses of the same Radiant Moonfly from the attached official announcement, tutorial/game screenshot and current lab pixel sprite. This is a butterfly-like monster, with narrow charcoal visor head without a human face, two long lime swept antennae, fluffy white layered collar and abdomen, slender lavender-gray segmented insect limbs ending in clawlike feet, dark blue wing frameworks and beautiful lime/chartreuse/pale-lilac patterned membranes. Preserve monster anatomy and existing proportions. All face RIGHT in 3/4 side view. Upper left is grounded combat preparation with wings folded back, one leg drawn up. Upper middle grounded two-part kicking pose with long front foot kicked right and wings still mostly folded. Upper right hovering wing attack, wings opened like actual reference, green-yellow center eye markings and faint pale lilac lower wing tips, body vertical with toes lowered. Lower left the hovering FIRE variant of same open wing position, amber and orange-red wing membranes and antenna tips, retain charcoal frames and white body. Lower middle insect folded in a tight luminous green closed-wing cocoon-like posture, feet tucked, the enclosed silhouette itself made from patterned folded wings (no exterior effects). Lower right exhausted monster lowered toward the ground, antennae tilted forward, wings folded down and white body drooping. No sprites touching. Hard crisp pixels, clean alpha, no text or extra objects.",
+    "Original wide 16:9 side-on pixel RPG scene inspired by the attached Radiant Moonfly cavern gameplay scene. A tranquil deep teal and blue-green limestone hollow in Nod-Krai's Lempo Isle, a distant ancient stone ring segment half-covered by moss on far left, dark rounded rock hollows, low moist grass, tiny pale bluish cave flowers along back margins, faint shafts of cyan moonlight from a high opening. Make a continuous level broad flagstone and dark moss combat floor in the bottom quarter, unobstructed middle and flat front edge. Background colors are subdued cool turquoise with clear value contrast for bright yellow-green butterfly wings and orange fire. No characters, monsters, treasure, readable signs, HUD, falling particles or obvious glowing hazard marks. Crisp coherent finely textured pixel artwork."
+  ],
+  "raw_atlas_sha256": "66cade1e63b4c06f2fe820a58857294441c199a062262e81d4dabcca72d03ad0",
+  "idle_sha256": "e57a0a714c17cdfa7f81a27644a211e795deeea588df3f6b41d2f7dccbf6e6d3",
+  "outputs": {
+    "moonfly-field-poses-source-v1.png": "fea5a155fbd814964e990e8bf6109c067c93027efeb6877e92746f87893a8688",
+    "moonfly-field-background-v1.png": "279e823c60501e8ab3cc6d021a24949d93cb96bb9528ac4345fa799a7adb7907"
+  },
+  "model_lookup": "Exact-name and Models Resource searches did not yield a usable model. Underside and wing depth unverified.",
+  "notes": [
+    "Six connected silhouettes repacked with transparent gutters. Matte outside connected outlines removed.",
+    "The insect body keeps the existing monster proportions.",
+    "The turquoise cavern is a temporary lab background inspired by the viewed in-game cave scene."
+  ],
+  "visual_review": {
+    "reviewed": [
+      "moonfly-field-png.png",
+      "moonfly-field-light.png",
+      "moonfly-field-flame.png",
+      "moonfly-field-escape.png"
+    ],
+    "observations": [
+      "Green and orange wing states are distinct against the turquoise cave.",
+      "The lightweight profile retains the white insect body, lime antennae and eye-shaped wing markings.",
+      "Fine antenna and wing veins merge at the lower resolution.",
+      "The affected player has a yellow cocoon label; full-health recovery shows the pale-blue escape label."
+    ],
+    "scope": "Local fixed-state drawing command counts; native frame timing unverified."
+  }
+}

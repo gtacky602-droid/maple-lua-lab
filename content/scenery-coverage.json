@@ -522,6 +522,12 @@
       "status": "regional_temporary_image"
     },
     {
+      "id": "nod-moonfly-hollow",
+      "name": "ナド・クライ・幻月蝶の岩窟",
+      "region": "ナド・クライ",
+      "status": "regional_temporary_image"
+    },
+    {
       "id": "nod-town",
       "name": "ナド・クライ・町の広場",
       "region": "ナド・クライ",

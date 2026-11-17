@@ -51,7 +51,7 @@ return function(C)
     if field.pulses<6 and field.elapsed+1e-8>=field.pulses+1 then
      field.pulses=field.pulses+1;local count=0
      for _,a in ipairs(s.actors) do if count<8 and a.hp>0 and math.abs(a.x-field.x)<=field.radius and math.abs(a.y-field.y)<75 then
-      a.hp=math.min(a.maxhp,a.hp+a.maxhp*.025);count=count+1
+      C.healActor(s,a,a.maxhp*.025);count=count+1
      end end
     end
     if field.pulses>=6 then s.healingField=nil end
