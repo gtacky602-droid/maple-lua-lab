@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-11-17",
+  "status": "design_only_not_runtime",
+  "source_commit": "0fbf972da9b46cb0919a1f83bd45ef3e6a0af3f8",
+  "source_of_truth": ["../../DESIGN_FIELD_BOSS_MASTER_V01.md", "COMMON.md", "LIYUE_MOVESETS.md"],
+  "tick_rate_hz": 60,
+  "unit_U_pixels": 88,
+  "interval_semantics": "half_open",
+  "counts": {"bosses":3,"attack_cards":9,"conditional_branches":2,"cumulative_bosses":7,"cumulative_attack_cards":21,"catalog_reference_rows":49,"all_catalog_rows_detailed":false},
+  "shared": {"max_attack_patterns":3,"max_concurrent_casts":1,"hp_bars":1,"multiplayer_hp_scaling":false,"required_special_element":false,"forced_revive_phase":false,"hp_zero_priority":true,"normal_damage_pipeline":true,"runtime_or_visual_tested":false},
+  "bosses": [
+    {"encounter_id":"boss-26020201","name":"爆炎樹","attack_ids":["FP01","FP02","FP03"],"signature":"FP01","hurtbox_bottom_u":0.35,"hp_attackable_during_combat":true,"optional_core":{"distinct_casts":3,"stagger_ticks":240,"rearm_after_stagger_ticks":1200,"required_for_victory":false}},
+    {"encounter_id":"boss-20040301","name":"無相の岩","attack_ids":["FG01","FG02","FG03"],"signature":"FG01","hurtbox_bottom_u":0.5,"hp_attackable_during_combat":true,"pillars_required_for_victory":false},
+    {"encounter_id":"boss-26050101","name":"エンシェントヴィシャップ・岩","attack_ids":["FV01","FV02","FV03"],"signature":"FV03","hurtbox_bottom_u":0.3,"hp_attackable_during_combat":true,"shield_required_for_victory":false,"element_variants":["pyro","hydro","cryo","electro"],"variant_geometry_and_timing_shared":true}
+  ],
+  "attacks": [
+    {"id":"FP01","encounter_id":"boss-26020201","title":"首落としと火走り","total_ticks":300,"lock_tick":42,"active_windows":[[84,96]],"recovery":[180,300],"projectiles":[{"spawn_ticks":[96],"ttl_ticks":60,"speed_u_per_second":3,"center_z_u":0.25,"radius_u":0.12}],"hit_cap":1,"shared_hit_group":"slam_and_wave_per_actor","hp_attackable_during_recovery":true,"detached_damage_hazards":false},
+    {"id":"FP02","encounter_id":"boss-26020201","title":"双火弾","total_ticks":252,"lock_tick":42,"active_windows":[],"recovery":[180,252],"projectiles":[{"spawn_ticks":[72,108],"ttl_ticks":60,"speed_u_per_second":4,"center_z_u":0.75,"radius_u":0.12}],"hit_cap":2,"hp_attackable_during_recovery":true,"detached_damage_hazards":false},
+    {"id":"FP03","encounter_id":"boss-26020201","title":"半円の薙ぎ","total_ticks":216,"lock_tick":42,"active_windows":[[84,102]],"recovery":[120,216],"projectiles":[],"hit_cap":1,"hp_attackable_during_recovery":true,"detached_damage_hazards":false},
+    {"id":"FG01","encounter_id":"boss-20040301","title":"岩槌の落下","total_ticks":264,"lock_tick":48,"active_windows":[[96,108]],"recovery":[144,264],"projectiles":[],"hit_cap":1,"hp_attackable_during_recovery":true,"detached_damage_hazards":false},
+    {"id":"FG02","encounter_id":"boss-20040301","title":"三つの石弾","total_ticks":264,"lock_tick":42,"active_windows":[],"recovery":[192,264],"projectiles":[{"spawn_ticks":[72,96,120],"ttl_ticks":60,"speed_u_per_second":4,"center_z_u":0.7,"radius_u":0.13}],"hit_cap":3,"hp_attackable_during_recovery":true,"detached_damage_hazards":false},
+    {"id":"FG03","encounter_id":"boss-20040301","title":"単柱の震動","total_ticks":300,"lock_tick":48,"active_windows":[[150,162]],"recovery":[180,300],"projectiles":[],"hit_cap":1,"hp_attackable_during_recovery":true,"detached_damage_hazards":false,"optional_interrupt":{"accept_window":[36,150],"distinct_casts":3,"object_expiry_tick":162,"object_height_u":0.45,"object_is_solid":false,"required_for_victory":false,"cancel_pending_hazards":true,"success_offsets":{"exposure":[0,150],"non_damage_reform":[150,174],"end_tick":174},"success_resolved_separately_from_base_total":true}},
+    {"id":"FV01","encounter_id":"boss-26050101","title":"前爪二連","total_ticks":240,"lock_tick":42,"active_windows":[[84,90],[144,150]],"recovery":[168,240],"projectiles":[],"hit_cap":2,"hp_attackable_during_recovery":true,"detached_damage_hazards":false},
+    {"id":"FV02","encounter_id":"boss-26050101","title":"後方の尾払い","total_ticks":240,"lock_tick":42,"active_windows":[[96,114]],"recovery":[132,240],"projectiles":[],"hit_cap":1,"hp_attackable_during_recovery":true,"detached_damage_hazards":false},
+    {"id":"FV03","encounter_id":"boss-26050101","title":"原岩の噴出","total_ticks":288,"lock_tick":66,"active_windows":[[132,144]],"recovery":[168,288],"projectiles":[],"hit_cap":1,"hp_attackable_during_recovery":true,"detached_damage_hazards":false,"shield_bonus":{"requires_actual_absorbed_damage_positive":true,"requires_this_attack_group":true,"trigger_window":[132,144],"max_applications_per_cast_all_players":1,"extended_total_ticks":348,"extended_recovery":[168,348],"bonus_ticks":60,"extra_hp_damage":0,"required_for_victory":false}}
+  ]
+}
