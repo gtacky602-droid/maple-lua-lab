@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-11-17",
+  "status": "design_only_not_runtime",
+  "source_commit": "29c756c0aef187195dd0c4c43c4300e4bfddfa1a",
+  "source_of_truth": ["../../DESIGN_FIELD_BOSS_MASTER_V01.md","COMMON.md","OCEANID_INAZUMA_MOVESETS.md"],
+  "tick_rate_hz": 60,
+  "unit_U_pixels": 88,
+  "interval_semantics": "half_open",
+  "counts": {"bosses":4,"attack_cards":12,"cumulative_bosses":11,"cumulative_attack_cards":33,"catalog_reference_rows":49,"all_catalog_rows_detailed":false},
+  "shared": {"max_attack_patterns":3,"max_concurrent_casts":1,"hp_bars":1,"multiplayer_hp_scaling":false,"required_special_element":false,"difficulty_selector":false,"forced_revive_phase":false,"hp_zero_priority":true,"normal_damage_pipeline":true,"runtime_or_visual_tested":false,"max_ground_melee_unreachable_ticks":36},
+  "bosses": [
+    {"encounter_id":"boss-20050101","name":"純水精霊","attack_ids":["FO01","FO02","FO03"],"signature":"FO03","neutral_hurtbox_bottom_u":0.25,"damage_proxy":{"logical_receivers":1,"max_active_mimics":1,"shared_boss_hp":true,"independent_mimic_hp":false,"receiver_persistent_across_forms":true,"reset_hp_on_form_change":false,"form_change_max_ticks":18,"targetless_transition_ticks":0,"damage_pipeline_calls_per_event":1,"dedup_key":["actorId","castId","hitEventId","receiverId"],"extra_kill_rewards":false,"minimum_waves_to_win":0}},
+    {"encounter_id":"boss-25090101","name":"魔偶剣鬼","attack_ids":["FMK01","FMK02","FMK03"],"signature":"FMK01","neutral_hurtbox_bottom_u":0,"hp_threshold_lock":false,"phantom_extra_hits":false,"ranged_auto_guard":false},
+    {"encounter_id":"boss-24021101","name":"恒常からくり陣形","attack_ids":["FPA01","FPA02","FPA03"],"signature":"FPA03","neutral_hurtbox_bottom_u":0.45,"required_sentinel_clear":false,"component_extra_hp":false},
+    {"encounter_id":"boss-20070101","name":"雷音権現","attack_ids":["FTM01","FTM02","FTM03"],"signature":"FTM03","neutral_hurtbox_bottom_u":0.4,"required_fury_meter":false,"automatic_teleport_after_dash":false}
+  ],
+  "attacks": [
+    {"id":"FO01","encounter_id":"boss-20050101","title":"水猪の短突進","total_ticks":216,"lock_tick":42,"active_windows":[[90,114]],"recovery":[132,216],"projectiles":[],"hit_cap":1,"temporary_ground_melee_out_of_range":[],"hp_attackable_during_recovery":true,"new_invulnerability_flag":false,"detached_damage_hazards":false},
+    {"id":"FO02","encounter_id":"boss-20050101","title":"水鶴の二波","total_ticks":264,"lock_tick":42,"active_windows":[],"recovery":[192,264],"projectiles":[{"spawn_ticks":[78,126],"ttl_ticks":48}],"hit_cap":2,"temporary_ground_melee_out_of_range":[],"hp_attackable_during_recovery":true,"new_invulnerability_flag":false,"detached_damage_hazards":false},
+    {"id":"FO03","encounter_id":"boss-20050101","title":"水蛙の跳ね落ち","total_ticks":270,"lock_tick":54,"active_windows":[[114,126]],"recovery":[150,270],"projectiles":[],"hit_cap":1,"temporary_ground_melee_out_of_range":[[78,114]],"hp_attackable_during_recovery":true,"new_invulnerability_flag":false,"detached_damage_hazards":false},
+    {"id":"FMK01","encounter_id":"boss-25090101","title":"一息の居合","total_ticks":300,"lock_tick":54,"active_windows":[[126,138]],"recovery":[180,300],"projectiles":[],"hit_cap":1,"temporary_ground_melee_out_of_range":[],"hp_attackable_during_recovery":true,"new_invulnerability_flag":false,"detached_damage_hazards":false},
+    {"id":"FMK02","encounter_id":"boss-25090101","title":"二段の斬り返し","total_ticks":240,"lock_tick":42,"active_windows":[[84,90],[144,150]],"recovery":[168,240],"projectiles":[],"hit_cap":2,"temporary_ground_melee_out_of_range":[],"hp_attackable_during_recovery":true,"new_invulnerability_flag":false,"detached_damage_hazards":false},
+    {"id":"FMK03","encounter_id":"boss-25090101","title":"押し出す仮面","total_ticks":252,"lock_tick":48,"active_windows":[],"recovery":[156,252],"projectiles":[{"spawn_ticks":[90],"ttl_ticks":54}],"hit_cap":1,"temporary_ground_melee_out_of_range":[],"hp_attackable_during_recovery":true,"new_invulnerability_flag":false,"detached_damage_hazards":false},
+    {"id":"FPA01","encounter_id":"boss-24021101","title":"機刃の横断","total_ticks":264,"lock_tick":48,"active_windows":[[96,108]],"recovery":[144,264],"projectiles":[],"hit_cap":1,"temporary_ground_melee_out_of_range":[],"hp_attackable_during_recovery":true,"new_invulnerability_flag":false,"detached_damage_hazards":false},
+    {"id":"FPA02","encounter_id":"boss-24021101","title":"回転刃の一走","total_ticks":252,"lock_tick":42,"active_windows":[[90,126]],"recovery":[144,252],"projectiles":[],"hit_cap":1,"temporary_ground_melee_out_of_range":[],"hp_attackable_during_recovery":true,"new_invulnerability_flag":false,"detached_damage_hazards":false},
+    {"id":"FPA03","encounter_id":"boss-24021101","title":"機核の跳躍落下","total_ticks":270,"lock_tick":54,"active_windows":[[114,126]],"recovery":[150,270],"projectiles":[],"hit_cap":1,"temporary_ground_melee_out_of_range":[[78,114]],"hp_attackable_during_recovery":true,"new_invulnerability_flag":false,"detached_damage_hazards":false},
+    {"id":"FTM01","encounter_id":"boss-20070101","title":"翼の一旋","total_ticks":240,"lock_tick":48,"active_windows":[[96,114]],"recovery":[132,240],"projectiles":[],"hit_cap":1,"temporary_ground_melee_out_of_range":[],"hp_attackable_during_recovery":true,"new_invulnerability_flag":false,"detached_damage_hazards":false},
+    {"id":"FTM02","encounter_id":"boss-20070101","title":"三枚の雷羽","total_ticks":264,"lock_tick":42,"active_windows":[],"recovery":[192,264],"projectiles":[{"spawn_ticks":[84,108,132],"ttl_ticks":48}],"hit_cap":3,"temporary_ground_melee_out_of_range":[],"hp_attackable_during_recovery":true,"new_invulnerability_flag":false,"detached_damage_hazards":false},
+    {"id":"FTM03","encounter_id":"boss-20070101","title":"低空の雷走","total_ticks":300,"lock_tick":54,"active_windows":[[108,132]],"recovery":[156,300],"projectiles":[],"hit_cap":1,"temporary_ground_melee_out_of_range":[[72,108]],"hp_attackable_during_recovery":true,"new_invulnerability_flag":false,"detached_damage_hazards":false}
+  ]
+}
