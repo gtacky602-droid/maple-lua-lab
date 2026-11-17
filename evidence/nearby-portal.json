@@ -993,6 +993,14 @@
       "to": "liyue-field"
     },
     {
+      "node": "geo-approach",
+      "to": "geo-field-court"
+    },
+    {
+      "node": "geo-field-court",
+      "to": "geo-approach"
+    },
+    {
       "node": "oceanid-approach",
       "to": "liyue-field"
     },

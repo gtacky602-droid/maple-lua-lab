@@ -1,0 +1,37 @@
+{
+  "matches_manifest_timing": true,
+  "ground_normal_during_hammer": true,
+  "hammer_locks_side": true,
+  "three_bolts": true,
+  "short_pillar_is_passable": true,
+  "simultaneous_core_hit_not_doubled": true,
+  "pending_hit_at_150_cannot_interrupt": true,
+  "optional_recovery_ticks": [
+    150,
+    24
+  ],
+  "no_pillar_rewards": true,
+  "ground_wave_jumpable": true,
+  "lethal_hit_at_pillar_break_settles_once": true,
+  "solo_normal": {
+    "seconds": 75.85,
+    "hp": 90,
+    "damage": 980,
+    "brokenPillars": 0
+  },
+  "amber_companion": {
+    "seconds": 47.05,
+    "hp": 110,
+    "damage": 980,
+    "brokenPillars": 3
+  },
+  "field_kill": {
+    "xp": 5900,
+    "mora": 160
+  },
+  "commission_report_once": {
+    "xp": 4000,
+    "mora": 300
+  },
+  "restored_respawn_ticks": 3600
+}

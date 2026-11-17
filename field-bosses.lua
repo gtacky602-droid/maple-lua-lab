@@ -83,6 +83,16 @@ return function(C,configs,controllers)
   end
  end
 
+ function C.stepFieldBolt(s,boss,cast,index,x,y,radius,damage)
+  local p=cast.projectiles[index]
+  if not p then
+   p={x=x,y=y,source=boss.id,damage=damage}
+   cast.projectiles[index]=p
+  end
+  cast.shots[index]=C.resolveEnemyProjectileSegment(s,p,x,y,radius,10,68)
+  p.x=x;p.y=y
+ end
+
  local function advance(s,spec,slot,here)
   local boss=slot.enemy
   if slot.waitUntil then
@@ -133,7 +143,7 @@ return function(C,configs,controllers)
   local farShot=slot.delay<=0 and distance>reach and spec.walkSpeed==0 and behavior.farMove
   if farShot then move=behavior.farMove(spec,move);reach=move.reach end
   if slot.delay<=0 and distance<=reach then
-   slot.cast=behavior.begin(boss,spec,move,target)
+   slot.cast=behavior.begin(boss,spec,move,target,s)
    if not farShot then slot.index=slot.index%#spec.moves+1 end
    return
   end

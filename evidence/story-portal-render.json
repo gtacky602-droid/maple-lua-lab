@@ -1083,10 +1083,20 @@
     {
       "node": "geo-approach",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "geo-approach",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "geo-field-court",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "geo-field-court",
       "mode": "rect",
       "visible_portals": 1
     },

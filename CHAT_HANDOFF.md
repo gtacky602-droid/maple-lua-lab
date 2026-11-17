@@ -909,3 +909,11 @@ HP900とモラはラボの試算。Lv18の固定ステータスで通常攻撃�
 HP710とモラはラボの試算。Lv28の通常攻撃によるソロ試行は108.87秒、アンバー同行は71.67秒。1個体の撃破で4,900EXPと150モラ、再出現までのゲーム内60秒はセーブに残る。既存の討伐調査は洞窟と挑戦碑の双方で進み、璃月港での初回報告は4,000EXPと300モラ。待機絵に8姿勢を加え、岩窟の仮背景を用意した。 [設計](docs/field-boss-v1/LIYUE_MOVESETS.md)・[美術参照と生成プロンプト](evidence/pyro-regisvine-field-art-audit.json)・[Lua検証](evidence/pyro-regisvine-field-lua.json)・[Chrome検証](evidence/pyro-regisvine-field-browser.json)
 
 `python test_pyro_field.py` でLv28の検証用セーブを作り、起動したラボに `node test_pyro_field.mjs` を向けて往復と討伐、描画比較を確認できる。Chromeで首落としの予兆を止めて比較したところ、描画指示は標準10,784件、軽量2,958件だった。
+
+## 無相の岩のフィールド戦
+
+璃月港から狩場を経由して「無相の岩・挑戦入口」に入り、右端の門でLv32の「璃月・層石の円庭」へ進む。岩槌の落下、三つの石弾、単柱の震動の3技。核は足場から44px上にあり、どの技の最中も地上から通常攻撃が届く。柱の近くで別々の攻撃を3回当てると、震動の前に柱が崩れ、核が2.5秒静止する。離れて核を攻撃し、震動をジャンプで避けることもできる。柱を通り抜けられ、破壊時に報酬は発生しない。ボス一覧と挑戦碑には四柱と復活柱を使う従来のHP500模擬戦もある。
+
+HP980とモラは試算。Lv32の固定ステータスで、柱を破壊せず通常攻撃で倒したソロは75.85秒、柱も狙ったアンバー同行は47.05秒だった。撃破で5,900EXPと160モラ。再出現までのゲーム内60秒はセーブに残る。璃月港での討伐調査の初回報告は4,000EXPと300モラ。殻・核・柱の既存絵を組み直し、円庭の仮背景を作成した。 [設計](docs/field-boss-v1/LIYUE_MOVESETS.md)・[美術参照と生成プロンプト](evidence/geo-hypostasis-field-art-audit.json)・[Lua検証](evidence/geo-hypostasis-field-lua.json)・[Chrome検証](evidence/geo-hypostasis-field-browser.json)
+
+`python test_geo_field.py` でLv32の検証用セーブを作り、起動したラボに `node test_geo_field.mjs` を向けて入場、柱破壊、討伐、保存と描画比較を再現できる。Chromeで岩槌の予兆を止めて比較した結果、描画指示は標準15,548件、軽量4,048件だった。全115地点の配置プレビューと228通りの背景・カメラの組み合わせも検査した。

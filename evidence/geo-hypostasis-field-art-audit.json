@@ -1,0 +1,151 @@
+{
+  "assets": {
+    "shell": {
+      "source": "assets/geo-shell-source-v1.png",
+      "sha256": "9ff95d812cf54d94f38d369e247aaa17b05a9d7e2741dce6e7198cabce7aee70",
+      "size": [
+        1312,
+        1199
+      ],
+      "encoding": "assets/geo-shell-sprites.json",
+      "box": [
+        248,
+        187,
+        809,
+        837
+      ],
+      "profiles": {
+        "legacy": {
+          "dimensions": [
+            62,
+            64
+          ],
+          "rectangles": 1753
+        },
+        "h48c32": {
+          "dimensions": [
+            46,
+            48
+          ],
+          "rectangles": 1109
+        },
+        "h32c16": {
+          "dimensions": [
+            31,
+            32
+          ],
+          "rectangles": 452
+        }
+      }
+    },
+    "core": {
+      "source": "assets/geo-core-source-v1.png",
+      "sha256": "288def864d31d9c1ccf65b9ac5399b203204f00b719477d34dbca1f4d2d4d9e6",
+      "size": [
+        1536,
+        1024
+      ],
+      "encoding": "assets/geo-core-sprites.json",
+      "box": [
+        462,
+        170,
+        612,
+        684
+      ],
+      "profiles": {
+        "legacy": {
+          "dimensions": [
+            57,
+            64
+          ],
+          "rectangles": 789
+        },
+        "h48c32": {
+          "dimensions": [
+            43,
+            48
+          ],
+          "rectangles": 565
+        },
+        "h32c16": {
+          "dimensions": [
+            29,
+            32
+          ],
+          "rectangles": 272
+        }
+      }
+    },
+    "pillar": {
+      "source": "assets/geo-pillar-source-v1.png",
+      "sha256": "27d91eb8739dd3cbce6be875911696feff64cf0d76a1cca424a7a176c75387ed",
+      "size": [
+        1024,
+        1536
+      ],
+      "encoding": "assets/geo-pillar-sprites.json",
+      "box": [
+        275,
+        92,
+        473,
+        1354
+      ],
+      "profiles": {
+        "legacy": {
+          "dimensions": [
+            45,
+            128
+          ],
+          "rectangles": 2100
+        },
+        "h48c32": {
+          "dimensions": [
+            34,
+            96
+          ],
+          "rectangles": 1366
+        },
+        "h32c16": {
+          "dimensions": [
+            22,
+            64
+          ],
+          "rectangles": 569
+        }
+      }
+    }
+  },
+  "visual_reference": {
+    "url": "https://library.keqingmains.com/assets/images/Enemy_Geo_Hypostasis_Icon-341441ee0099a2f66be29e1faa891651.webp",
+    "sha256": "050d8e1385ff9cd75caaefe1fe8b1eb7dbd2d1fe1fabc1dc1b55fdaa414c629b",
+    "observed": "Three-quarter game icon: etched dark golden stone blocks and a bright core."
+  },
+  "design": "docs/field-boss-v1/LIYUE_MOVESETS.md#4-無相の岩一つの低い柱で岩を崩す手応えだけ残す",
+  "composition": {
+    "draw_code": "field-geo-hypostasis.lua",
+    "shell_motion": "six-block drift, hammer with a stepped handle, three stones, reforming orbit",
+    "core": "48px display height, bottom 44px above floor in every cast",
+    "pillar": "low stone base with the existing pillar rune inlay; three cracks indicate successful nearby casts"
+  },
+  "background": {
+    "source": "assets/geo-hypostasis-field-background-v1.png",
+    "sha256": "1e88b178c54d2979ca3f9fbbc2d731a32b6f1a2e23c204ae43c3f933d7e2be7c",
+    "size": [
+      1672,
+      941
+    ],
+    "method": "built-in imagegen",
+    "prompt": "Create a new 16:9 opaque painterly pixel-art landscape background for a side-view 2D fantasy RPG combat scene. The provided Liyue harbor image is a palette and worldbuilding style reference only. New scene: a broad, ancient, circular gray-blue slate terrace on a high Liyue mountainside, viewed from the side at dusk. Distant silhouettes of layered limestone needles and shaded golden ginkgo on cliffs at left and right. Keep the long, fairly level lower center available for small amber and brown sprites; center slate surface should be cool gray and muted with understated paving seams. A few short eroded square stone plinths at the outer margins and soft fog in the ravine beyond. No buildings, people, enemy, flowers, glowing sigils, giant foreground props, red markers, collision lines, letters or UI. Pixel painting with crisp clustered highlights in wide distance and legible flat foreground.",
+    "reference": {
+      "source": "assets/liyue-background-v1.png",
+      "sha256": "b5b53dee78ddb415e257718128c96a31038c10439d4d054e9908f3f083a74beb",
+      "size": [
+        1672,
+        941
+      ],
+      "role": "Liyue crags, ginkgo palette and pixel painting style"
+    },
+    "scope": "temporary host image for an original lab field"
+  },
+  "unverified": "Multiple 3D view angles, dedicated hit and defeat motion, production 3D scene."
+}

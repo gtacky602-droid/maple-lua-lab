@@ -176,6 +176,51 @@
           "near": 0.25, "far": 1.7, "low": 0.15, "high": 0.75
         }
       ]
+    },
+    {
+      "id": "boss-20040301",
+      "controller": "geoHypostasis",
+      "entity": 20040301,
+      "name": "無相の岩",
+      "node": "geo-field-court",
+      "storyChallenge": "geo",
+      "level": 32,
+      "hp": 980,
+      "mora": 160,
+      "artHeight": 135,
+      "floorY": 480,
+      "home": 835,
+      "arenaMin": 430,
+      "arenaMax": 1330,
+      "noticeRange": 265,
+      "noticeTicks": 36,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 0,
+      "contactDamage": 2,
+      "immune": "geo",
+      "resist": {"pyro": 0.1, "cryo": 0.1, "electro": 0.1, "hydro": 0.1, "dendro": 0.1, "anemo": 0.1},
+      "moves": [
+        {
+          "id": "FG01", "pattern": "hammer", "title": "岩槌の落下", "reach": 222,
+          "lock": 48, "active": [[96, 108]], "recover": 144, "total": 264,
+          "near": 0.4, "far": 2, "height": 0.65, "damage": 18
+        },
+        {
+          "id": "FG02", "pattern": "bolts", "title": "三つの石弾", "reach": 345,
+          "lock": 42, "active": [], "recover": 192, "total": 264,
+          "shotTicks": [72, 96, 120], "shotLife": 60, "shotSpeed": 4,
+          "shotHeight": 0.7, "shotRadius": 0.13, "damage": 10
+        },
+        {
+          "id": "FG03", "pattern": "pillar", "title": "単柱の震動", "reach": 185,
+          "lock": 48, "active": [[150, 162]], "recover": 180, "total": 300,
+          "radius": 1.6, "height": 0.45, "damage": 15,
+          "pillar": {"open": 36, "expires": 162, "height": 0.45, "width": 0.65,
+                     "closeRange": 86, "hits": 3, "expose": 150, "reform": 24}
+        }
+      ]
     }
   ]
 }

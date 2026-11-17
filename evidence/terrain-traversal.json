@@ -1897,6 +1897,12 @@
       "ground_both_directions": true
     },
     {
+      "node": "geo-field-court",
+      "platforms": 1,
+      "jump_routes": [],
+      "ground_both_directions": true
+    },
+    {
       "node": "oceanid-approach",
       "platforms": 1,
       "jump_routes": [],

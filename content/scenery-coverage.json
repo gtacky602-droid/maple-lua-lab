@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 114 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 112,
+  "scope": "Authored 115 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 113,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -656,6 +656,12 @@
     {
       "id": "geo-approach",
       "name": "無相の岩・挑戦入口",
+      "region": "璃月",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "geo-field-court",
+      "name": "璃月・層石の円庭",
       "region": "璃月",
       "status": "regional_temporary_image"
     },

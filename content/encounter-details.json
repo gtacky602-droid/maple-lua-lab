@@ -129,9 +129,12 @@
     },
     "boss-20040301": {
       "action": "boss_geo",
+      "remaining": ["被弾・撃破の追加作画", "装備差・周回報酬のバランス", "Webマルチと幻境実機"],
+      "extra_evidence": ["evidence/geo-hypostasis-field-lua.json", "evidence/geo-hypostasis-field-browser.json"],
       "art_candidate": {
         "item": "geo",
-        "status": "existing prototype artwork; visual candidate only, not completed animations or combat"
+        "audit": "evidence/geo-hypostasis-field-art-audit.json",
+        "status": "existing cube, core and pillar sprites composed for the Web field encounter"
       }
     },
     "boss-26220301": {

@@ -1,14 +1,4 @@
 return function(C)
- function C.stepFieldBolt(s,boss,cast,index,x,y,radius,damage)
-  local p=cast.projectiles[index]
-  if not p then
-   p={x=x,y=y,source=boss.id,damage=damage}
-   cast.projectiles[index]=p
-  end
-  cast.shots[index]=C.resolveEnemyProjectileSegment(s,p,x,y,radius,10,68)
-  p.x=x;p.y=y
- end
-
  function C.fieldRegisvine(art,poseFor)
   local behavior={}
 

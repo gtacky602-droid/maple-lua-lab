@@ -4255,13 +4255,26 @@
         {
           "to": "liyue-field",
           "x": 60
-        }
+        },
+        {"to": "geo-field-court", "x": 1270}
       ],
       "checkpoint": "liyue-harbor",
       "challenge": "geo",
       "challengeName": "無相の岩",
       "challengeAction": "boss_geo",
       "challengeX": 720
+    },
+    {
+      "id": "geo-field-court",
+      "name": "璃月・層石の円庭",
+      "region": "璃月",
+      "level": 32,
+      "hub": false,
+      "peaceful": true,
+      "width": 1460,
+      "platforms": [{"x": 0, "y": 480, "w": 1460}],
+      "exits": [{"to": "geo-approach", "x": 65}],
+      "checkpoint": "liyue-harbor"
     },
     {
       "id": "oceanid-approach",
@@ -5427,7 +5440,7 @@
       "goal": 1,
       "xp": 4000,
       "mora": 300,
-      "note": "本編入口から挑戦した討伐のみ対象。報酬/入口位置は試作。"
+      "note": "層石の円庭、または本編入口の挑戦碑での討伐が対象。"
     },
     {
       "id": "oceanid-commission",

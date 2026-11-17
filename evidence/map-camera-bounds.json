@@ -546,6 +546,11 @@
       "rightCamera": 480
     },
     {
+      "node": "geo-field-court",
+      "width": 1460,
+      "rightCamera": 500
+    },
+    {
       "node": "oceanid-approach",
       "width": 1440,
       "rightCamera": 480
