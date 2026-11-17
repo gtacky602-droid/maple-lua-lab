@@ -1818,6 +1818,127 @@
       }
     }
   ]
+},
+{
+  "id": "boss-25135202",
+  "controller": "driftingSnow",
+  "entity": 25135202,
+  "name": "游雪のブレードガーディアン",
+  "node": "drifting-snow-court",
+  "storyChallenge": "drifting-snow",
+  "level": 148,
+  "hp": 1200,
+  "mora": 560,
+  "artHeight": 180,
+  "floorY": 480,
+  "home": 940,
+  "arenaMin": 325,
+  "arenaMax": 1580,
+  "noticeRange": 350,
+  "noticeTicks": 36,
+  "restTicks": 42,
+  "leashTicks": 360,
+  "respawnTicks": 3600,
+  "walkSpeed": 60,
+  "contactDamage": 0,
+  "keepHpOnExit": true,
+  "resist": {
+    "cryo": 0.5
+  },
+  "saveFlags": [
+    "coffinUsed"
+  ],
+  "coffin": {
+    "threshold": 0.55,
+    "layers": 8,
+    "effectiveLayers": 2,
+    "damageFactor": 0.75,
+    "heal": 96,
+    "downTicks": 180,
+    "downFactor": 1.2,
+    "move": {
+      "id": "FDS03",
+      "kind": "coffin",
+      "title": "氷の棺と氷剣の反撃",
+      "reach": 230,
+      "lock": 48,
+      "near": 0.15,
+      "far": 3.1,
+      "radius": 2.2,
+      "deploy": 60,
+      "deadline": 420,
+      "height": 0.68,
+      "active": [
+        [
+          182,
+          196
+        ],
+        [
+          292,
+          306
+        ],
+        [
+          462,
+          476
+        ],
+        [
+          534,
+          548
+        ]
+      ],
+      "recover": 562,
+      "total": 642,
+      "damage": 25
+    }
+  },
+  "moves": [
+    {
+      "id": "FDS01",
+      "kind": "slash",
+      "title": "氷剣の二連薙ぎ",
+      "reach": 210,
+      "lock": 48,
+      "near": 0.1,
+      "far": 2.2,
+      "height": 0.68,
+      "active": [
+        [
+          104,
+          116
+        ],
+        [
+          174,
+          186
+        ]
+      ],
+      "recover": 212,
+      "total": 288,
+      "damage": 21
+    },
+    {
+      "id": "FDS02",
+      "kind": "projectiles",
+      "title": "二条の氷剣",
+      "reach": 250,
+      "lock": 48,
+      "spacing": 1.2,
+      "width": 1.4,
+      "height": 0.6,
+      "active": [
+        [
+          128,
+          144
+        ],
+        [
+          208,
+          224
+        ]
+      ],
+      "recover": 250,
+      "total": 326,
+      "damage": 23
+    }
+  ]
 }
   ]
 }

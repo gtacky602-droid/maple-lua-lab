@@ -277,6 +277,9 @@ return function(C,configs,controllers)
    data.fieldBosses={}
    for id,slot in pairs(s.fieldSlots) do
     data.fieldBosses[id]={generation=slot.generation,hp=slot.enemy.hp,waitTicks=waitTicks(s,slot)}
+    local spec=byId[id]
+    local behavior=controllers[spec.controller]
+    if behavior.checkpoint then data.fieldBosses[id].flags=behavior.checkpoint(slot.enemy,spec,slot) end
    end
   end
   return data
@@ -289,6 +292,8 @@ return function(C,configs,controllers)
    for id,saved in pairs(data.fieldBosses) do
     local slot={generation=saved.generation}
     spawn(slot,byId[id],saved.hp)
+    local behavior=controllers[byId[id].controller]
+    if behavior.restore then behavior.restore(slot.enemy,byId[id],saved.flags,slot) end
     if saved.waitTicks>0 then
      slot.waitUntil=s.t+saved.waitTicks/60;slot.phase='respawn'
     elseif saved.hp<byId[id].hp then

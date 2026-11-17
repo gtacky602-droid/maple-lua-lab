@@ -1,0 +1,37 @@
+{
+  "browser": "Chrome",
+  "companion": "wanderer",
+  "play": {
+    "won": true,
+    "seconds": 39.6,
+    "moves": [
+      "FDS01",
+      "FDS02",
+      "FDS03"
+    ],
+    "hp": 140,
+    "returns": 0,
+    "coffinBroken": true,
+    "fireCasts": 11
+  },
+  "scenery": {
+    "key": "driftingSnowField",
+    "file": "drifting-snow-field-background-v1.png",
+    "state": "ready"
+  },
+  "questAcceptedInUi": true,
+  "questReport": {
+    "xp": 10800,
+    "mora": 730
+  },
+  "coffinInterrupted": true,
+  "sameSceneCommands": {
+    "png": 31,
+    "standard": 12813,
+    "light": 3600
+  },
+  "savedRespawn": true,
+  "savedCoffinUsed": true,
+  "viewport390": true,
+  "errors": []
+}

@@ -18,6 +18,7 @@
   "spiritspeakerFieldRoute": true,
   "fallenVigilFieldRoute": true,
   "flugelFieldRoute": true,
+  "driftingSnowFieldRoute": true,
   "stygianCandidates": 7,
   "disabledUnimplemented": true,
   "launchesVerified": [

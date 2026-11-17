@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 159 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 157,
+  "scope": "Authored 160 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 158,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -956,6 +956,12 @@
     {
       "id": "flugel-tundra-basin",
       "name": "スネージナヤ・古獣の氷原の西谷",
+      "region": "スネージナヤ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "drifting-snow-court",
+      "name": "スネージナヤ・氷冠の雪庭",
       "region": "スネージナヤ",
       "status": "regional_temporary_image"
     }

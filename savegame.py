@@ -272,10 +272,16 @@ def validate_save(data):
             raise ValueError('フィールドボスの保存形式が不正です')
         for id, slot in slots.items():
             spec=_FIELD_BOSSES.get(id)
-            if (not spec or not isinstance(slot,dict) or set(slot)!={'generation','hp','waitTicks'}
-                    or any(type(v) is not int for v in slot.values())
+            if (not spec or not isinstance(slot,dict) or set(slot)-{'flags'}!={'generation','hp','waitTicks'}
+                    or any(type(slot[k]) is not int for k in ('generation','hp','waitTicks'))
                     or not 1<=slot['generation']<=10**9 or not 0<=slot['hp']<=spec['hp']
                     or not 0<=slot['waitTicks']<=spec['respawnTicks']
                     or bool(slot['hp'])==bool(slot['waitTicks'])):
                 raise ValueError('フィールドボスの個体情報が不正です')
+            if 'flags' in slot:
+                flags=slot['flags']
+                allowed=spec.get('saveFlags',[])
+                if (not allowed or not isinstance(flags,dict) or set(flags)!=set(allowed)
+                        or any(type(value) is not bool for value in flags.values())):
+                    raise ValueError('フィールドボスの保存フラグが不正です')
     return data.copy()

@@ -1,5 +1,5 @@
 {
-  "count": 83,
+  "count": 84,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -46,6 +46,7 @@
     "Spiritspeaker has a Natlan grotto route",
     "Fallen Vigil has a Windrest Peak field route",
     "Chimeric Winged Lion has a Snezhnaya tundra route",
+    "Guardian Blade has a Snezhnaya snow court route",
     "public roster matched without merging Icewind modes or Dottore challenges",
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",

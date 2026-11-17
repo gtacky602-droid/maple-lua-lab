@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 47,
+    "partial": 48,
     "complete": 0
   },
   "encounters": [
@@ -587,23 +587,28 @@
       "entity_ids": [
         "25135202"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/guardianbladeofdriftingsnow.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/guardianbladeofdriftingsnow.json",
+        "https://genshin.hoyoverse.com/m/ja/news/detail/166383",
+        "evidence/drifting-snow-field-lua.json",
+        "evidence/drifting-snow-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "原作の星反応と本作の採用技の対応",
+        "棺・時刻・固定地域数値・周回報酬の調整",
+        "左右別・連続動作・被弾・撃破の作画と音",
+        "背面モデル照合・Webマルチ・幻境実機"
       ],
+      "fieldNode": "drifting-snow-court",
+      "fieldEntrance": "スネージナヤ・氷冠の雪庭（Lv148）",
       "art_candidate": {
         "source": "assets/drifting-snow-idle-source-v1.png",
         "encoding": "assets/drifting-snow-idle-sprites.json",
-        "audit": "evidence/drifting-snow-reference-audit.json",
-        "status": "idle candidate"
+        "audit": "evidence/drifting-snow-field-art-audit.json",
+        "status": "Legacy gallery idle retained; Web battle uses five compact humanoid poses and an ice spear"
       }
     },
     {

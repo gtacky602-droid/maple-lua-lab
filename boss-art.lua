@@ -176,6 +176,11 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local art=C.flugelFieldArt[pose]
   draw(f,art,x,y,art.profiles.legacy.height,mode,profile,flip)
  end
+ function C.drawDriftingSnowFieldArt(f,x,y,pose,mode,profile,flip)
+  local art=C.driftingSnowFieldArt[pose]
+  local offsets={idle=2,ready=2,slash=0,cast=0,coffin=11,down=0,spear=0}
+  draw(f,art,x,y+offsets[pose],art.profiles.legacy.height,mode,profile,flip)
+ end
  function C.drawThunderFieldArt(f,x,y,h,mode,profile,pose,dir)
   draw(f,pose and C.thunderFieldArt[pose] or C.thunderArt,x,y,h,mode,profile,pose=='dash' and dir>0)
  end

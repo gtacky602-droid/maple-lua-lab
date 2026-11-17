@@ -913,12 +913,12 @@
     {
       "node": "snezhnaya-field",
       "mode": "sprite",
-      "visible_portals": 4
+      "visible_portals": 5
     },
     {
       "node": "snezhnaya-field",
       "mode": "rect",
-      "visible_portals": 4
+      "visible_portals": 5
     },
     {
       "node": "dragonspine-camp",
@@ -1587,6 +1587,16 @@
     },
     {
       "node": "flugel-tundra-basin",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "drifting-snow-court",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "drifting-snow-court",
       "mode": "rect",
       "visible_portals": 1
     }

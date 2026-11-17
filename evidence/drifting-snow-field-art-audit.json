@@ -1,0 +1,205 @@
+{
+  "tool": "built-in image_gen",
+  "references": [
+    {
+      "url": "https://img.gamewith.jp/img/fd88f2fa2ab73f6cf367587958567e14.jpg",
+      "page": "https://gamewith.jp/genshin/article/show/232413",
+      "view": "Version preview artwork: helmet, layered armor and sword guard; feet cropped",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "f258b4e3dcec6110ccc41dcec44ad79b2ba03294305b6781e8e0a053fb769ba3"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/original_cb543445b63e955339cd5dfa35735af1.png",
+      "page": "https://gamewith.jp/genshin/article/show/577196",
+      "view": "Gameplay standing pose: boots and blade trajectory",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "5e7a58feae981d023bf5656fb6348dcfbeb86b9ac318a696b4329d1ab7f59473"
+    }
+  ],
+  "poses": {
+    "ready": {
+      "height": 180,
+      "crop": [
+        0,
+        0,
+        660,
+        560
+      ],
+      "raw_box": [
+        29,
+        16,
+        435,
+        483
+      ],
+      "box": [
+        25,
+        25,
+        406,
+        467
+      ],
+      "anchor": 0.6477832512315271,
+      "profiles": {
+        "legacy": 6980,
+        "h48c32": 4486,
+        "h32c16": 2029
+      }
+    },
+    "slash": {
+      "height": 164,
+      "crop": [
+        660,
+        0,
+        660,
+        560
+      ],
+      "raw_box": [
+        453,
+        51,
+        1045,
+        477
+      ],
+      "box": [
+        685,
+        25,
+        592,
+        426
+      ],
+      "anchor": 0.7010135135135135,
+      "profiles": {
+        "legacy": 7410,
+        "h48c32": 4750,
+        "h32c16": 2155
+      }
+    },
+    "cast": {
+      "height": 176,
+      "crop": [
+        1320,
+        0,
+        660,
+        560
+      ],
+      "raw_box": [
+        1117,
+        21,
+        1511,
+        477
+      ],
+      "box": [
+        1345,
+        25,
+        394,
+        456
+      ],
+      "anchor": 0.5152284263959391,
+      "profiles": {
+        "legacy": 7452,
+        "h48c32": 4746,
+        "h32c16": 2200
+      }
+    },
+    "coffin": {
+      "height": 190,
+      "crop": [
+        0,
+        560,
+        660,
+        560
+      ],
+      "raw_box": [
+        75,
+        509,
+        398,
+        1003
+      ],
+      "box": [
+        25,
+        585,
+        323,
+        494
+      ],
+      "anchor": 0.4984520123839009,
+      "profiles": {
+        "legacy": 9064,
+        "h48c32": 5749,
+        "h32c16": 2549
+      }
+    },
+    "down": {
+      "height": 127,
+      "crop": [
+        660,
+        560,
+        660,
+        560
+      ],
+      "raw_box": [
+        465,
+        649,
+        1054,
+        979
+      ],
+      "box": [
+        685,
+        585,
+        589,
+        330
+      ],
+      "anchor": 0.6162988115449916,
+      "profiles": {
+        "legacy": 5723,
+        "h48c32": 3699,
+        "h32c16": 1646
+      }
+    },
+    "spear": {
+      "height": 42,
+      "crop": [
+        1320,
+        560,
+        660,
+        560
+      ],
+      "raw_box": [
+        1136,
+        723,
+        1505,
+        833
+      ],
+      "box": [
+        1345,
+        585,
+        369,
+        110
+      ],
+      "anchor": 0.4986449864498645,
+      "profiles": {
+        "legacy": 1213,
+        "h48c32": 733,
+        "h32c16": 324
+      }
+    }
+  },
+  "shared_scale": 0.3854389721627409,
+  "prompts": {
+    "sprite": "Use case: style-transfer. Asset: production pixel-art 2D sidescroller boss atlas, six isolated slots, transparent background. Input images 1 and 2 are authentic costume/armor references. Image 3 is the older tall lab sprite: preserve the costume and palette but REDRAW the anatomy as compact chunky Maple-like chibi, about 2.8-3.0 anatomical heads EXCLUDING the pointed ice crown. Much bigger helmeted head, short torso and shins, broad shoulders, thick simplified hands and broad grounded boots. Same female armored ice spirit in every body pose, no exposed skin, white-silver face mask, blue crystal crown, asymmetric crescent silver pauldrons with cyan cores, silver filigree waist plate, cyan tassets and deep blue split coat tails. Oversized cyan ice sword silhouette, no thin needle legs. Same LEFT facing 3/4 view across ALL poses. Exact 3 columns by 2 rows atlas in 1536x1024 landscape canvas, generous transparent gutters between every slot, each subject strictly within its slot. Top row: 1 ready standing with lowered sword, 2 strong horizontal sword slash pointing left (blade fits slot), 3 casting with raised open left hand and sword angled up. Bottom row: 4 same knight sealed standing inside a faceted upright blue ice coffin (knight visible through crystal, no diffuse glow), 5 kneeling exhausted with helmet lowered and sword on ground, 6 ONE standalone small cyan ice spear projectile pointing left (no character). Shared anatomical body scale and crown/head size across five poses, kneeling simply lower. Crisp square pixel clusters, dark navy outlines, limited blue/cyan/silver palette. Real alpha transparency. No ground planes, no labels, no lettering, no shadows, no background scene, no extra sprites. Keep ice effects solid sharply bounded crystal polygons, never fog or soft glow.",
+    "background": "Use case: stylized-concept. Asset: wide 2D sidescroller temporary lab background, 1536x1024. Reference input is an authentic screenshot of the ice guardian's snow court, use it ONLY for blue snow/ice cavern color and environment reference; do not copy HUD, people, text, arrows, enemies or scene layout. Build a quiet empty frozen stone court near a northern mountain manor with distant weathered pale walls and blue crystal outcrops, snowy pine silhouettes far behind through an open rock arch, soft wintry blue sky light. Crisp painted pixel-game scenery, readable midground silhouettes, muted low contrast. Flat uninterrupted empty stone and sparse snow in bottom quarter, a lateral walkable presentation, no foreground pillars or props covering the play area. No actors, no enemy, no swords, no text, no interfaces, no symbols. This is a provisional visual interpretation, not exact original geography."
+  },
+  "raw_atlas_sha256": "5dd411babc139bbed899dadd594ea102ecedbd114b33381b9324c3e35fbd9a9c",
+  "legacy_idle_sha256": "b8dde97536398444ef24a1a3e5c019bfe1c8f95de0026d13d2a3a2e201931a1d",
+  "outputs": {
+    "drifting-snow-field-poses-source-v1.png": "51ae698924875a72e6ab6d6a31ac758bd504e86da2da75a37eb1fedf9257ecc6",
+    "drifting-snow-field-background-v1.png": "c542278e13f7d9218d23c59366248bc5845c5133cb518d3f1d81efe9c02ab530"
+  },
+  "model_lookup": "Exact English and Chinese searches found no usable 3D model. Rear armor and cloth attachment depth unverified.",
+  "notes": [
+    "Five compact armored humanoid poses and one spear; shared scale, connected silhouettes repacked with transparent gutters. Original alpha preserved.",
+    "Ready replaces battle idle only; legacy tall gallery idle remains. Oversized helmet/head, short torso and shins, broad hands and boots, large sword.",
+    "Ready head estimate: helmet/skull y116-238, anatomical top-to-sole y116-477, about 2.96 heads excluding crown. Boundaries visually estimated, not model measurements.",
+    "Ground corrections: ready +2px for sword tip below boots; coffin +11px for crystal base below feet. Common body hurtbox excludes sword and coffin shell.",
+    "Left-facing poses use mirroring at runtime; exact opposite-side armor is not authored.",
+    "Temporary cavern/court background is a color-and-environment interpretation, not precise Hesperides geography or native 3D."
+  ]
+}

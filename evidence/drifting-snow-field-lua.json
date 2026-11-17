@@ -1,0 +1,27 @@
+{
+  "twoLockedSlashWindows": true,
+  "twoFixedProjectileWindows": true,
+  "HPThresholdPreemptsAndPreservesRoutine": true,
+  "directCastDedupAndOldReactionCryoExclusion": true,
+  "pyroElectroAnemoAdvantage": true,
+  "physicalCoffinAlternative": true,
+  "lastTickBreakBeatsHealAndRelease": true,
+  "twoIcePulsesAndTwoReleaseWindows": true,
+  "oneBoundedHealAndFiniteEnd": true,
+  "persistentOnceFlagAboveAndBelowThreshold": true,
+  "oldSavesAccepted": true,
+  "strictFlagsRejectInvalidAndForeign": true,
+  "exitAndMidCoffinSaveCancelWithoutResettingUsed": true,
+  "HPZeroBeatsPhaseAndTimeout": true,
+  "oneKillReportAndRespawnGenerationReset": true,
+  "normalAttackWithoutHealing": {
+    "seconds": 90.15,
+    "hp": 140,
+    "coffinInterrupted": true
+  },
+  "sameSceneCommands": {
+    "png": 31,
+    "standard": 9165,
+    "light": 2677
+  }
+}

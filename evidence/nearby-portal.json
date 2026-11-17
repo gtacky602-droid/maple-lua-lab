@@ -929,6 +929,10 @@
       "to": "flugel-tundra-basin"
     },
     {
+      "node": "snezhnaya-field",
+      "to": "drifting-snow-court"
+    },
+    {
       "node": "dragonspine-camp",
       "to": "mond-border"
     },
@@ -1370,6 +1374,10 @@
     },
     {
       "node": "flugel-tundra-basin",
+      "to": "snezhnaya-field"
+    },
+    {
+      "node": "drifting-snow-court",
       "to": "snezhnaya-field"
     }
   ],
