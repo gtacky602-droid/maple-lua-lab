@@ -1,0 +1,22 @@
+{
+  "threeBladeWindowsOneHitEach": true,
+  "waveFixedAndTravels": true,
+  "threeFixedPurgeColumns": true,
+  "thirdPurgeDamage": {
+    "uncool": 33,
+    "cooled": 27
+  },
+  "multiHitCountsOneCryoCast": true,
+  "cryoReactionExcluded": true,
+  "exitAndSaveClearFlowWithoutResettingHp": true,
+  "oneRewardAndSave": true,
+  "normalAttackWithoutCooling": {
+    "seconds": 84.15,
+    "hp": 140
+  },
+  "sameSceneCommands": {
+    "png": 28,
+    "standard": 12847,
+    "light": 3386
+  }
+}

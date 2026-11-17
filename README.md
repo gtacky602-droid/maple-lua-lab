@@ -909,3 +909,5 @@ HoYoWiki3993の全身レンダー、ゲーム内正面、最終設定画の正�
 図鑑全身とゲーム内側面寄り画像を直接確認し、参照付き内蔵image_genで生成。3Dモデル・背面・内部は未確認。白い分割外殻、橙色リング、分離浮遊部品を保持。原画を保存し、200/150/100pxで8227/5181/2280矩形（最軽量72.29%減）。橙#ff9f00を既存32/16色枠内に確保。100pxで内部彫刻と輪郭の細線が劣化。浮遊40pxは配置比較用。
 
 美術候補55件。55候補の3profile/3zoom/左右、配置・JSON往復・390px幅を検証し比較/マップ画像を目視。boss-24090501の美術候補として一覧にも接続。技・動作・実戦は未制作。矩形削減は実機FPS改善を証明しない。仮背景・本番3D方針を維持。根拠: evidence/overseer-reference-audit.json、evidence/overseer-comparison.png、evidence/overseer-map-comparison.png。生成記録: assets/overseer-generation-v1.json。
+
+2026-11-18追記。アトクパンの溶岩棚の分岐から「統御の遺構」へ入り、秘源機兵・統御デバイスを討伐できる。掃討時の液流が噴流の威力を上げ、氷攻撃で蓄積を抑えられる。 [戦闘と行き方](docs/field-boss-v1/NATLAN_OVERSEER.md)

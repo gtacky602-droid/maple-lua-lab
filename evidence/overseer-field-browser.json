@@ -1,0 +1,36 @@
+{
+  "browser": "Chrome",
+  "companion": "wanderer",
+  "play": {
+    "won": true,
+    "seconds": 43.3,
+    "moves": [
+      "FOV01",
+      "FOV02",
+      "FOV03"
+    ],
+    "hp": 140,
+    "returns": 0,
+    "sawCooling": true,
+    "usedCryo": true
+  },
+  "scenery": {
+    "key": "overseerField",
+    "file": "overseer-field-background-v1.png",
+    "state": "ready"
+  },
+  "questAcceptedInUi": true,
+  "questReport": {
+    "xp": 8200,
+    "mora": 540
+  },
+  "sameSceneCommands": {
+    "png": 39,
+    "standard": 13171,
+    "light": 3529
+  },
+  "cooledJetAt": 335,
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}

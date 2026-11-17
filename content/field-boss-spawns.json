@@ -1311,6 +1311,19 @@
         {"id":"FLD02","kind":"fissure","title":"地割れの二連","pose":"fissure","reach":220,"lock":54,"first":0.72,"second":2.18,"width":1.05,"height":0.58,"active":[[108,122],[174,188]],"recover":214,"total":306,"damage":21,"element":"geo",
          "molten":{"id":"FLD04","kind":"eruption","title":"熔岩の二連噴出","pose":"eruption","reach":232,"lock":60,"first":0.95,"second":2.45,"width":0.86,"height":1.42,"active":[[126,144],[192,210]],"recover":232,"total":324,"damage":31,"element":"pyro"}}
       ]
+    },
+    {
+      "id":"boss-24090501","controller":"overseer","entity":24090501,
+      "name":"秘源機兵・統御デバイス","node":"atocpan-overseer-ruin","storyChallenge":"overseer",
+      "level":112,"hp":1125,"mora":420,"artHeight":172,"floorY":480,"home":915,
+      "arenaMin":335,"arenaMax":1590,"noticeRange":325,"noticeTicks":36,"restTicks":42,
+      "leashTicks":300,"respawnTicks":3600,"walkSpeed":58,"contactDamage":0,
+      "flow":{"max":5,"interval":50,"coolTicks":72,"damagePerLevel":3},
+      "moves":[
+        {"id":"FOV01","kind":"blade","title":"水刃の三連","reach":198,"lock":48,"near":0.25,"far":2.0,"height":0.91,"low":0.12,"active":[[108,120],[179,191],[250,266]],"recover":288,"total":370,"damage":17,"element":"hydro"},
+        {"id":"FOV02","kind":"wave","title":"滑走水刃","reach":238,"lock":54,"near":0.58,"far":2.75,"width":0.62,"height":0.25,"active":[[104,152]],"recover":174,"total":270,"damage":23,"element":"hydro"},
+        {"id":"FOV03","kind":"purge","title":"掃討・三連噴流","reach":250,"lock":60,"positions":[0.72,1.72,2.74],"width":0.88,"height":1.38,"active":[[160,174],[246,260],[332,346]],"recover":372,"total":475,"damage":18,"element":"hydro"}
+      ]
     }
   ]
 }

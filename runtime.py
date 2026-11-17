@@ -233,6 +233,9 @@ def runtime():
     lava_dragon=lua.execute((ROOT/'field-lava-dragon.lua').read_text(encoding='utf-8'))(core)
     core.lavaDragonFieldArt=field_art(lua,'lava-dragon',('slam-ready','slam-strike','fissure','lunge','eruption','overburn'),
                                     idle='lava-dragon-sprites.json',variants={'molten':'lava-dragon-molten-sprites.json'})
+    overseer=lua.execute((ROOT/'field-overseer.lua').read_text(encoding='utf-8'))(core)
+    core.overseerFieldArt=field_art(lua,'overseer',('blade-ready','blade-cross','purge','cooled','crest','plume'),
+                                   idle='overseer-idle-sprites.json')
     core.aeonblightFieldArt=field_art(lua,'aeonblight',('wing_first','wing_second','cannon','windup','dash','down'),
                                      idle='aeonblight-idle-sprites.json')
     bathysmal=lua.execute((ROOT/'field-bathysmal.lua').read_text(encoding='utf-8'))(core)
@@ -260,7 +263,7 @@ def runtime():
                         'dendroHypostasis':dendro_hypostasis,'asimon':asimon,'wenut':wenut,'baptist':baptist,
                         'emperor':emperor,'seahorse':seahorse,'generator':generator,'tulpa':tulpa,
                         'icewind':icewind,'legatus':legatus,'suanni':suanni,'qucusaur':qucusaur,'yumka':yumka,
-                        'configDevice':config_device,'papilla':papilla,'lavaDragon':lava_dragon})
+                        'configDevice':config_device,'papilla':papilla,'lavaDragon':lava_dragon,'overseer':overseer})
     )
     return lua, core
 

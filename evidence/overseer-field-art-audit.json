@@ -1,0 +1,176 @@
+{
+  "date": "2026-11-18",
+  "tool": "built-in image_gen",
+  "prompts": [
+    "Make a transparent 3-column by 2-row atlas of isolated pixel art for a side-view RPG, very wide gutters between exact cell centers. References show the Secret Source Automaton Overseer Device: an angular ivory circular motor with orange concentric seams, black and navy inside, a long downward central keel and detached curved pieces of the ring at different heights. Preserve this distinctive asymmetric silhouette, avoid humanoid arms, brass tubes, extra eyes, or the Configuration Device's elongated arms. Each large pose faces right in three-quarter view. Upper left blade-ready: a detached long ivory quarter ring poised overhead on right. Upper middle cross-blade: two detached pale ring crescents extend diagonally right in different directions, central motor and keel stay together. Upper right purge: motor open and segmented ivory rims spread wider, blue cyan fluid visible in the core while rim orange accents remain. Lower left cooled: detached ring partly folded inward toward its motor, edges dusted pale cyan, darker blue core, lower silhouette with keel and no added bases. Lower middle isolated narrow turquoise water crescent, pointed to the right close to transparent ground, no floor. Lower right isolated translucent-looking tall cyan water plume with readable white crest, irregular straight base and tapering top, no floor. Dark pixel outlines, chunky crisp color clusters with clean silhouettes, alpha background. No floor, smoke, particles, grids, labels or water effects outside the two effect cells.",
+    "Create a wide 16:9 side-view pixel background of an original dark basalt and crimson canyon ruin inspired by the terrain in the attached combat screenshot. Across the far side half-buried pale stone geometric segments and the silhouette of an enormous broken ring, sparse russet grass, a recess with dull teal mineral light, deep brick-red cliffs and a soft blue-grey shaft of light from above. Ground is continuously flat and walkable across width, a dark slate-red stone approach starting in the lower quarter. Uncluttered middle and lower area for ivory boss sprite and cyan attack marks, the water arena should feel distinct from a hot volcano or bright turquoise cave. No characters, foreground blockage, ambient battle effects, grid, labels, text, logo, HUD or borders."
+  ],
+  "references": [
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2025/05/12/205556113/461f01931d0274ea7cd089a162d2cfff_2193966571056670134.png",
+      "sha256": "5cc2eb8799b31447afc8f253765b868a5345a05f200f383014fb401e447a4069",
+      "directly_viewed": true,
+      "generation_input": true,
+      "view": "full-body archive three-quarter",
+      "use": "Long central keel and split ivory ring plates"
+    },
+    {
+      "url": "https://upload-os-bbs.hoyolab.com/upload/2025/05/12/108040188/a16aaa0e4d825e60760242dd778e374d_7699947219709996060.jpg",
+      "sha256": "944657531bb1a90e8f75166654d7ae2916f449d94226650303e557b3cb4aebfb",
+      "directly_viewed": true,
+      "generation_input": true,
+      "view": "game screenshot, side angle partly occluded by effects",
+      "use": "Water accents, battle angle and red stone floor"
+    }
+  ],
+  "idle_sha256": "a6be8c1620782a9ca482fcb7d005dfe014bb802c44c527a7c21d0f90126a00c9",
+  "outputs": {
+    "overseer-field-poses-source-v1.png": "03833bd7f26e77c57b2c2008f717e2ca71f8184bc54880ef196c8040631f8855",
+    "overseer-field-background-v1.png": "c52979d0edcfa1f85c49f483e196b2bbd542ed5081a111f16e04c75fd9286139"
+  },
+  "poses": {
+    "blade-ready": {
+      "crop": [
+        0,
+        0,
+        693,
+        378
+      ],
+      "box": [
+        239,
+        7,
+        302,
+        349
+      ],
+      "height": 174,
+      "anchor": 0.2980132450331126,
+      "anchor_source": 329,
+      "accent": "#ff9f00",
+      "profiles": {
+        "legacy": 6939,
+        "h48c32": 4048,
+        "h32c16": 1880
+      }
+    },
+    "blade-cross": {
+      "crop": [
+        693,
+        0,
+        693,
+        378
+      ],
+      "box": [
+        871,
+        23,
+        345,
+        321
+      ],
+      "height": 167,
+      "anchor": 0.22318840579710145,
+      "anchor_source": 948,
+      "accent": "#ff9f00",
+      "profiles": {
+        "legacy": 7755,
+        "h48c32": 4685,
+        "h32c16": 2001
+      }
+    },
+    "purge": {
+      "crop": [
+        1386,
+        0,
+        693,
+        378
+      ],
+      "box": [
+        1505,
+        19,
+        338,
+        325
+      ],
+      "height": 168,
+      "anchor": 0.35502958579881655,
+      "anchor_source": 1625,
+      "accent": "#73dfff",
+      "profiles": {
+        "legacy": 8326,
+        "h48c32": 5029,
+        "h32c16": 2162
+      }
+    },
+    "cooled": {
+      "crop": [
+        0,
+        378,
+        693,
+        378
+      ],
+      "box": [
+        249,
+        419,
+        240,
+        305
+      ],
+      "height": 151,
+      "anchor": 0.3458333333333333,
+      "anchor_source": 332,
+      "accent": "#73dfff",
+      "profiles": {
+        "legacy": 6603,
+        "h48c32": 3922,
+        "h32c16": 1720
+      }
+    },
+    "crest": {
+      "crop": [
+        693,
+        378,
+        693,
+        378
+      ],
+      "box": [
+        878,
+        532,
+        298,
+        125
+      ],
+      "height": 22,
+      "anchor": 0.5,
+      "anchor_source": 1027,
+      "accent": "#73dfff",
+      "profiles": {
+        "legacy": 324,
+        "h48c32": 184,
+        "h32c16": 82
+      }
+    },
+    "plume": {
+      "crop": [
+        1386,
+        378,
+        693,
+        378
+      ],
+      "box": [
+        1557,
+        387,
+        206,
+        322
+      ],
+      "height": 118,
+      "anchor": 0.49514563106796117,
+      "anchor_source": 1659,
+      "accent": "#73dfff",
+      "profiles": {
+        "legacy": 2812,
+        "h48c32": 1718,
+        "h32c16": 751
+      }
+    }
+  },
+  "notes": [
+    "All six transparent cells have clear margins.",
+    "The crest and plume are scaled to approximately the active contact boxes; the pre-impact timer uses a separate marker.",
+    "A matching 3D model was not confirmed. The ruin is an original temporary static lab background."
+  ]
+}

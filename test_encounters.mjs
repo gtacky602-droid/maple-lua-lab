@@ -23,6 +23,9 @@ try{
  await panel.getByLabel('ボス名で検索').fill('溶岩の龍像');
  const lava=panel.locator('[data-encounter="boss-26270301"]').getByRole('link',{name:/アトクパンの溶岩棚/});
  if(await lava.getAttribute('href')!=='map-art.html?node=atocpan-lava-field')throw Error('volcanic shelf route missing');
+ await panel.getByLabel('ボス名で検索').fill('統御デバイス');
+ const ruin=panel.locator('[data-encounter="boss-24090501"]').getByRole('link',{name:/統御の遺構/});
+ if(await ruin.getAttribute('href')!=='map-art.html?node=atocpan-overseer-ruin')throw Error('overseer ruin route missing');
  await panel.getByLabel('ボス名で検索').fill('恒常からくり陣形');
  await panel.getByLabel('恒常からくり陣形の弱点個体').selectOption('boss_array_3');
  await panel.getByRole('button',{name:'模擬戦に挑戦'}).click();
@@ -35,5 +38,5 @@ try{
  await panel.getByLabel('挑戦可能のみ').check();if(await panel.locator('[data-encounter]').count()!==1)throw Error('playable filter');
  await panel.getByRole('button',{name:'試作に挑戦'}).click();await page.waitForFunction(()=>window.lab.frame.boss?.name==='ファルカ模擬戦');
  await panel.screenshot({path:'evidence/encounters-browser.png'});if(errors.length)throw Error(errors.join('/'));
- await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:70,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,configDeviceFieldRoute:true,papillaFieldRoute:true,lavaDragonFieldRoute:true,stygianCandidates:7,disabledUnimplemented:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');
+ await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:70,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,configDeviceFieldRoute:true,papillaFieldRoute:true,lavaDragonFieldRoute:true,overseerFieldRoute:true,stygianCandidates:7,disabledUnimplemented:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');
 }finally{await browser.close()}

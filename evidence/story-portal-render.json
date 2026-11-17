@@ -743,10 +743,20 @@
     {
       "node": "atocpan-lava-field",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "atocpan-lava-field",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "atocpan-overseer-ruin",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "atocpan-overseer-ruin",
       "mode": "rect",
       "visible_portals": 1
     },

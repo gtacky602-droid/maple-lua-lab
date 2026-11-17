@@ -8,6 +8,7 @@
   "configDeviceFieldRoute": true,
   "papillaFieldRoute": true,
   "lavaDragonFieldRoute": true,
+  "overseerFieldRoute": true,
   "stygianCandidates": 7,
   "disabledUnimplemented": true,
   "launchesVerified": [

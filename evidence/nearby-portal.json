@@ -777,6 +777,14 @@
       "to": "natlan-field"
     },
     {
+      "node": "atocpan-lava-field",
+      "to": "atocpan-overseer-ruin"
+    },
+    {
+      "node": "atocpan-overseer-ruin",
+      "to": "atocpan-lava-field"
+    },
+    {
       "node": "natlan-port",
       "to": "natlan-field"
     },

@@ -20,7 +20,7 @@ check('completion not overclaimed',d['counts']['complete']==0 and not d['complet
 check('not implemented rows cannot launch',all(r['action'] is None for r in rows if r['status']=='not_implemented'))
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
-check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':70,'partial':37,'complete':0})
+check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':70,'partial':38,'complete':0})
 by_id={r['id']:r for r in rows}
 ice=by_id['boss-20040501']
 check('Cryo Hypostasis is reachable through the field route',
@@ -95,6 +95,9 @@ check('The Type I Papilla is reachable through the Natlan field',
 lava_dragon=by_id['boss-26270301']
 check('The Lava Dragon Statue is reachable through the Natlan field',
       lava_dragon['status']=='partial' and lava_dragon['fieldNode']=='atocpan-lava-field' and lava_dragon['action'] is None)
+overseer=by_id['boss-24090501']
+check('The Overseer Device has its own Atocpan field route',
+      overseer['status']=='partial' and overseer['fieldNode']=='atocpan-overseer-ruin' and overseer['action'] is None)
 check('public roster matched without merging Icewind modes or Dottore challenges',d['roster_review']=={
  'game_version':'7.2','reviewed_on':'2026-11-17','field_boss_families':48,'weekly_challenges':14,'unmatched_rows':[],
 } and len([r for r in rows if r['kind']=='normal'])==49)

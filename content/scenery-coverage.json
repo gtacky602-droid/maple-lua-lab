@@ -456,6 +456,12 @@
       "status": "regional_temporary_image"
     },
     {
+      "id": "atocpan-overseer-ruin",
+      "name": "ナタ・統御の遺構",
+      "region": "ナタ",
+      "status": "regional_temporary_image"
+    },
+    {
       "id": "natlan-port",
       "name": "ナタ・花翼の集付近の港（仮）",
       "region": "ナタ",

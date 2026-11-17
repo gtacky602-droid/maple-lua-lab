@@ -531,10 +531,12 @@
       }
     },
     "boss-24090501": {
+      "extra_evidence": ["https://genshin.hoyoverse.com/zh-tw/news/detail/155739","evidence/overseer-field-lua.json","evidence/overseer-field-browser.json"],
+      "remaining": ["連続モーション・音", "難度・報酬の調整", "複数人と幻境実機の検証"],
       "art_candidate": {
         "item": "overseer",
-        "audit": "evidence/overseer-reference-audit.json",
-        "status": "idle candidate only; no attacks, animations or live combat"
+        "audit": "evidence/overseer-field-art-audit.json",
+        "status": "Web field prototype. Segmented wheel, water blades, traveling crest and purge with optional cooling."
       }
     },
     "boss-26130101": {
