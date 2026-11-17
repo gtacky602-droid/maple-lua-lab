@@ -1,0 +1,28 @@
+{
+  "matches_manifest_timing": true,
+  "ground_normal_during_shell_and_recovery": true,
+  "anemo_immunity": true,
+  "clap_lock_walk_away_and_single_hit": true,
+  "low_drop_jump_and_single_hit": true,
+  "vortex_locked_side_two_independent_hits_and_expiry": true,
+  "lethal_hit_cancels_cast": true,
+  "solo_normal": {
+    "seconds": 78.95,
+    "hp": 44,
+    "damage": 870
+  },
+  "amber_companion": {
+    "seconds": 46.6,
+    "hp": 76,
+    "damage": 870
+  },
+  "kill_reward": {
+    "xp": 900,
+    "mora": 125
+  },
+  "commission_report_once": {
+    "xp": 1500,
+    "mora": 300
+  },
+  "respawn_after_reload_ticks": 3600
+}

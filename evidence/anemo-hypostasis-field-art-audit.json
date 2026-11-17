@@ -1,0 +1,91 @@
+{
+  "assets": {
+    "shell": {
+      "source": "assets/anemo-shell-source-v1.png",
+      "sha256": "1137026bbc59a681ba3b0979ddcb1c74541ac1c2b417e30eb9632e8f64038508",
+      "encoding": "assets/anemo-shell-sprites.json",
+      "box": [
+        251,
+        260,
+        736,
+        766
+      ],
+      "profiles": {
+        "legacy": {
+          "dimensions": [
+            61,
+            64
+          ],
+          "rectangles": 1668
+        },
+        "h48c32": {
+          "dimensions": [
+            46,
+            48
+          ],
+          "rectangles": 986
+        },
+        "h32c16": {
+          "dimensions": [
+            31,
+            32
+          ],
+          "rectangles": 427
+        }
+      }
+    },
+    "core": {
+      "source": "assets/anemo-core-source-v1.png",
+      "sha256": "33e8747ab3bbb02665724f1b51787a80f1a37b7e689c845c041afb251f87ee98",
+      "encoding": "assets/anemo-core-sprites.json",
+      "box": [
+        206,
+        296,
+        710,
+        878
+      ],
+      "profiles": {
+        "legacy": {
+          "dimensions": [
+            52,
+            64
+          ],
+          "rectangles": 857
+        },
+        "h48c32": {
+          "dimensions": [
+            39,
+            48
+          ],
+          "rectangles": 570
+        },
+        "h32c16": {
+          "dimensions": [
+            26,
+            32
+          ],
+          "rectangles": 243
+        }
+      }
+    }
+  },
+  "visual_reference": {
+    "url": "https://library.keqingmains.com/assets/images/Enemy_Anemo_Hypostasis_Icon-b684a6556c30e8bce2248a9c7d67f30a.webp",
+    "sha256": "d350e8808fb214fe5cb9aea15fb568f47322fbdbfe949dcaf3cfabe9bcbd46aa",
+    "observed": "Game icon with dark floating engraved turquoise cubes and bright central glow; one three-quarter view."
+  },
+  "design": "docs/field-boss-v1/STARTER_MOVESETS.md#2-無相の風boss-20040201",
+  "composition": {
+    "input": "existing shell and core PNG encodings",
+    "draw_code": "field-anemo-hypostasis.lua",
+    "shell_motion": "idle ring, two three-piece jaws, descending ring and launch orbit",
+    "core": "44px high, bottom 18px above the floor throughout all three casts",
+    "vortices": "procedural four-band spirals over the moving footprint"
+  },
+  "background": {
+    "source": "assets/mond-hill-background-v1.png",
+    "sha256": "7833f558dba0b99a2c6a6ca0684f8ebc6a9a72e5302136f37e2974e4651c08b1",
+    "scope": "reused temporary regional host image"
+  },
+  "unverified": "Multi-angle 3D model, bespoke hit and defeat animation, production 3D scene."
+}

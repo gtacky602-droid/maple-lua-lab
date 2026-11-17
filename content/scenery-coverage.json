@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 111 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 109,
+  "scope": "Authored 112 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 110,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -608,6 +608,12 @@
     {
       "id": "anemo-approach",
       "name": "無相の風・挑戦入口",
+      "region": "モンド",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "anemo-field-basin",
+      "name": "モンド・風鳴りの広場",
       "region": "モンド",
       "status": "regional_temporary_image"
     },

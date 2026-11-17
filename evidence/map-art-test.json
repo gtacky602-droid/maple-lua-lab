@@ -608,6 +608,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "anemo-field-basin",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "cryo-approach",
       "count": 0,
       "fallback": false,

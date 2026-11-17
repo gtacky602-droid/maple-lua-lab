@@ -945,6 +945,14 @@
       "to": "mond-road"
     },
     {
+      "node": "anemo-approach",
+      "to": "anemo-field-basin"
+    },
+    {
+      "node": "anemo-field-basin",
+      "to": "anemo-approach"
+    },
+    {
       "node": "cryo-approach",
       "to": "mond-border"
     },

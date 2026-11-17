@@ -506,6 +506,11 @@
       "rightCamera": 480
     },
     {
+      "node": "anemo-field-basin",
+      "width": 1400,
+      "rightCamera": 440
+    },
+    {
       "node": "cryo-approach",
       "width": 1440,
       "rightCamera": 480

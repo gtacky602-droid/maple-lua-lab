@@ -4095,13 +4095,26 @@
         {
           "to": "mond-road",
           "x": 60
-        }
+        },
+        {"to": "anemo-field-basin", "x": 1270}
       ],
       "checkpoint": "mond-town",
       "challenge": "anemo",
       "challengeName": "無相の風",
       "challengeAction": "boss_anemo",
       "challengeX": 720
+    },
+    {
+      "id": "anemo-field-basin",
+      "name": "モンド・風鳴りの広場",
+      "region": "モンド",
+      "level": 16,
+      "hub": false,
+      "peaceful": true,
+      "width": 1400,
+      "platforms": [{"x": 0, "y": 480, "w": 1400}],
+      "exits": [{"to": "anemo-approach", "x": 65}],
+      "checkpoint": "mond-town"
     },
     {
       "id": "cryo-approach",
@@ -5344,7 +5357,7 @@
       "goal": 1,
       "xp": 1500,
       "mora": 300,
-      "note": "本編入口から挑戦した討伐のみ対象。報酬/入口位置は試作。"
+      "note": "風鳴りの広場、または本編入口の挑戦碑での討伐が対象。"
     },
     {
       "id": "cryo-commission",

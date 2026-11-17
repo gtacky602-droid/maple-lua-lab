@@ -57,6 +57,36 @@
         {"id": "FC02", "pattern": "sweep", "title": "低い薙ぎ", "reach": 185, "lock": 42, "active": [[78, 96]], "recover": 108, "total": 192, "damage": 11},
         {"id": "FC03", "pattern": "bolts", "title": "二つの氷弾", "reach": 360, "lock": 36, "active": [], "shotTicks": [66, 90], "shotLife": 60, "recover": 156, "total": 216, "damage": 9}
       ]
+    },
+    {
+      "id": "boss-20040201",
+      "controller": "anemoHypostasis",
+      "entity": 20040201,
+      "name": "無相の風",
+      "node": "anemo-field-basin",
+      "storyChallenge": "anemo",
+      "level": 16,
+      "hp": 870,
+      "mora": 125,
+      "artHeight": 126,
+      "floorY": 480,
+      "home": 800,
+      "arenaMin": 420,
+      "arenaMax": 1280,
+      "noticeRange": 260,
+      "noticeTicks": 36,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 0,
+      "contactDamage": 2,
+      "immune": "anemo",
+      "resist": {"pyro": 0.1, "geo": 0.1, "electro": 0.1, "dendro": 0.1, "hydro": 0.1, "cryo": 0.1},
+      "moves": [
+        {"id": "FA01", "pattern": "clap", "title": "挟み掌", "reach": 235, "lock": 42, "active": [[84, 96]], "recover": 108, "total": 198, "damage": 13, "width": 1.2, "height": 1},
+        {"id": "FA02", "pattern": "drop", "title": "落圧", "reach": 235, "lock": 48, "active": [[96, 108]], "recover": 120, "total": 216, "damage": 16, "width": 1.5, "height": 0.6},
+        {"id": "FA03", "pattern": "vortices", "title": "二つの小旋風", "reach": 270, "lock": 42, "active": [], "shotTicks": [72, 96], "shotLife": 60, "recover": 168, "total": 240, "damage": 9, "width": 0.45, "height": 0.8, "speed": 2.5}
+      ]
     }
   ]
 }

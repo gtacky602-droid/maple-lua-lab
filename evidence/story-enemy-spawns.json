@@ -406,6 +406,11 @@
       "enemy_count": 0
     },
     {
+      "node": "anemo-field-basin",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
       "node": "cryo-approach",
       "enemy_count": 0
     },

@@ -1849,6 +1849,12 @@
       "ground_both_directions": true
     },
     {
+      "node": "anemo-field-basin",
+      "platforms": 1,
+      "jump_routes": [],
+      "ground_both_directions": true
+    },
+    {
       "node": "cryo-approach",
       "platforms": 1,
       "jump_routes": [],
