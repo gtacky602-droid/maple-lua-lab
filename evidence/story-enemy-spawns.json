@@ -77,6 +77,14 @@
       "enemy_count": 6
     },
     {
+      "node": "liyue-cart-road",
+      "enemy_count": 0
+    },
+    {
+      "node": "liyue-cart-lift",
+      "enemy_count": 0
+    },
+    {
       "node": "liyue-book-camp",
       "enemy_count": 3
     },

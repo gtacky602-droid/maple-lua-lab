@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-17",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 93 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 91,
+  "scope": "Authored 95 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 93,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -120,6 +120,18 @@
       "status": "regional_temporary_image"
     },
     {
+        "id": "liyue-cart-road",
+        "name": "璃月・港の荷車道",
+        "region": "璃月",
+        "status": "regional_temporary_image"
+      },
+      {
+        "id": "liyue-cart-lift",
+        "name": "璃月・港の荷揚げ台",
+        "region": "璃月",
+        "status": "regional_temporary_image"
+      },
+      {
         "id": "liyue-book-camp",
         "name": "璃月・石門裏の宝盗団の拠点",
         "region": "璃月",

@@ -96,6 +96,16 @@
       "rightCamera": 480
     },
     {
+      "node": "liyue-cart-road",
+      "width": 960,
+      "rightCamera": 0
+    },
+    {
+      "node": "liyue-cart-lift",
+      "width": 960,
+      "rightCamera": 0
+    },
+    {
       "node": "liyue-book-camp",
       "width": 1520,
       "rightCamera": 560

@@ -37,7 +37,7 @@ local function draw(boxes,x,y,w,h,color)
  boxes[#boxes+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}
 end
 
-local function cart(boxes,x,y)
+function R.drawCart(boxes,x,y)
  draw(boxes,x-32,y-39,64,28,'#422c23')
  draw(boxes,x-29,y-36,58,19,'#b97b49')
  draw(boxes,x-28,y-27,56,5,'#e4a762')
@@ -68,7 +68,7 @@ function R.observe(s,f,boxes,q,state)
   market(boxes,810-c,480,'#2e8382',{{-25,14,16,'#8bc6c3'},{-4,9,8,'#f6dfbf'},{10,9,8,'#e6c293'}})
   market(boxes,925-c,480,'#ae5543',{{-21,7,19,'#f2b254'},{6,13,17,'#553b2d'},{10,20,3,'#c9d6c7'}})
   market(boxes,1120-c,480,'#316d6a',{{-22,8,42,'#ca744e'},{-15,14,35,'#79accc'},{-7,20,27,'#eed288'}})
-  cart(boxes,995-c,480)
+  R.drawCart(boxes,995-c,480)
   return
  end
  if s.story.node~=q.target or not state then return end
@@ -82,7 +82,7 @@ function R.observe(s,f,boxes,q,state)
  local c=s.camera
  draw(boxes,spec.startX-45-c,477,spec.exitX-spec.startX+75,3,'#9b8461')
  for tie=spec.startX-40,spec.exitX+20,40 do draw(boxes,tie-c,472,6,8,'#594336') end
- if state.count<q.goal then cart(boxes,x-c,480);f.storyCartX=x end
+ if state.count<q.goal then R.drawCart(boxes,x-c,480);f.storyCartX=x end
  if state.count==0 then
   local latch=spec.release
   draw(boxes,latch.x-7-c,latch.y-25,14,25,'#5b4736')

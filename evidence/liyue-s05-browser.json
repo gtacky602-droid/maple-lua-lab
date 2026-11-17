@@ -1,0 +1,11 @@
+{
+  "browser": "Chrome",
+  "actual_controls": true,
+  "all_surveys": true,
+  "ground_and_lift_there_and_back": true,
+  "both_routes_built_and_restored_via_ui": true,
+  "only_chosen_route_opens": true,
+  "lift_progress_visible": true,
+  "viewport_390": true,
+  "errors": []
+}

@@ -4,6 +4,8 @@ export function questRouteText(f,q,status){
  const graph=f.storyGraph,nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  let target=status==='active'?(q.kind==='boss'?graph.nodes.find(n=>n.challenge===q.target)?.id:q.target):q.hub;
  if(status==='active'&&q.book&&(f.story.quests?.[q.id]?.count??0)<2)target=q.book.proof.node;
+ const work=status==='active'&&f.story.quests?.[q.id]?.construction;
+ if(work?.plan)target=q.construction.plans.find(plan=>plan.id===work.plan)?.site.node??target;
  if(status==='active'&&q.recovery&&f.story.quests?.[q.id]?.recovered)target=q.recovery.node;
  if(status==='active'&&q.delivery){
   const state=f.story.quests?.[q.id]?.delivery;
@@ -13,7 +15,8 @@ export function questRouteText(f,q,status){
  const lookingForClues=status==='active'&&q.trail&&!f.story.quests?.[q.id]?.count;
  const ingredients=status==='active'&&q.cooking?.ingredients.filter(item=>!f.story.quests?.[q.id]?.cooking.gathered[item.id]);
  const marks=status==='active'&&q.stone?.marks.filter(item=>!f.story.quests?.[q.id]?.stone.marked[item.id]);
- const unfinished=ingredients?.length?ingredients:marks?.length?marks:lookingForClues?q.trail.clues:null;
+ const surveys=work&&q.construction.surveys.filter(item=>!work.surveyed[item.id]);
+ const unfinished=ingredients?.length?ingredients:marks?.length?marks:surveys?.length?surveys:lookingForClues?q.trail.clues:null;
  const destinations=unfinished?unfinished.map(item=>item.node):[target];
  const targets=new Set(destinations.filter(id=>nodes.has(id)));
  if(!targets.size)return '目的地は未公開または未登録です。';
@@ -21,6 +24,7 @@ export function questRouteText(f,q,status){
  if(targets.has(from))return status==='active'?'目的地に到着しています。':'受注・報告の拠点にいます。';
  function meetsRule(rule){
   const state=f.story.quests?.[rule.quest];
+  if(rule.construction)return state?.status==='complete'&&state.construction?.plan===rule.construction;
   return state?.status==='complete'||(rule.count!==undefined&&state?.count>=rule.count&&(!rule.recovery||state?.recovered));
  }
  function gateOpen(edge){

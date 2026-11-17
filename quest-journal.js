@@ -9,6 +9,16 @@ const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready
 export function questObjective(q,graph,state){
  const destination=graph.nodes.find(n=>q.kind==='boss'?n.challenge===q.target:n.id===q.target);
  const place=destination?.name||'目的地未登録';
+ if(q.construction){
+  const plan=q.construction.plans.find(p=>p.id===state?.construction?.plan);
+  if(state?.status==='complete')return `${plan?.name??''}案で港の近道が開いた`;
+  if(state?.count===6)return '港の刻晴に工事完了を報告する';
+  if(state?.count===5)return '同じ作業場所で職人に資材を渡す';
+  if(state?.count===4)return `${graph.nodes.find(n=>n.id===plan?.site.node)?.name??place}で作業場所を片付ける`;
+  if(state?.count===3)return '港の施工案を調べ、地上路か昇降台を選ぶ';
+  const left=q.construction.surveys.filter(item=>!state?.construction?.surveyed[item.id]);
+  return 'Gキーで荷運びの経路を調べる（残り：'+left.map(item=>item.name).join('、')+'）';
+ }
  if(q.stone){
   if(state?.status==='complete')return '港に職人の模型を飾った';
   if(state?.count===q.goal)return '港で鍾離に模型を見せる';

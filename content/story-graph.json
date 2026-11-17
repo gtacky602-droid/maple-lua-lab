@@ -559,6 +559,17 @@
           "x": 60
         },
         {
+          "to": "liyue-cart-road",
+          "x": 170,
+          "requires": {"quest": "liyue-hauling-shortcut", "construction": "ground"}
+        },
+        {
+          "to": "liyue-cart-lift",
+          "x": 840,
+          "requires": {"quest": "liyue-hauling-shortcut", "construction": "lift"},
+          "liftSeconds": 1.8
+        },
+        {
           "to": "liyue-field",
           "x": 1380
         },
@@ -969,6 +980,16 @@
           "requires": {"quest": "liyue-book-rescue", "count": 2}
         },
         {
+          "to": "liyue-cart-road",
+          "x": 1320,
+          "requires": {"quest": "liyue-hauling-shortcut", "construction": "ground"}
+        },
+        {
+          "to": "liyue-cart-lift",
+          "x": 1110,
+          "requires": {"quest": "liyue-hauling-shortcut", "construction": "lift"}
+        },
+        {
           "to": "oceanid-approach",
           "x": 900
         },
@@ -982,6 +1003,39 @@
         }
       ],
       "checkpoint": "liyue-harbor"
+    },
+    {
+      "id": "liyue-cart-road",
+      "name": "璃月・港の荷車道",
+      "region": "璃月",
+      "level": 20,
+      "hub": false,
+      "peaceful": true,
+      "width": 960,
+      "checkpoint": "liyue-harbor",
+      "platforms": [{"x": 0, "y": 480, "w": 960}],
+      "exits": [
+        {"to": "liyue-harbor", "x": 75},
+        {"to": "liyue-field", "x": 875}
+      ]
+    },
+    {
+      "id": "liyue-cart-lift",
+      "name": "璃月・港の荷揚げ台",
+      "region": "璃月",
+      "level": 20,
+      "hub": false,
+      "peaceful": true,
+      "width": 960,
+      "checkpoint": "liyue-harbor",
+      "platforms": [
+        {"x": 0, "y": 480, "w": 960},
+        {"x": 80, "y": 350, "w": 300}
+      ],
+      "exits": [
+        {"to": "liyue-harbor", "x": 180, "y": 350, "liftSeconds": 1.8},
+        {"to": "liyue-field", "x": 535}
+      ]
     },
     {
       "id": "liyue-book-camp",
@@ -4364,6 +4418,38 @@
         "model": {"id": "overlook-model", "name": "展望所の建物模型", "x": 980, "y": 231},
         "stand": {"id": "model-exhibit", "name": "職人の模型展示", "x": 335, "y": 480},
         "marketStand": {"id": "model-exhibit", "name": "職人の模型展示", "x": 1190, "y": 480, "quest": "liyue-market-opening", "count": 3}
+      }
+    },
+    {
+      "id": "liyue-hauling-shortcut",
+      "designId": "Q-LIY-S05",
+      "name": "荷車だって、近道したい！",
+      "giver": "刻晴",
+      "requires": "liyue-caravan-search",
+      "hub": "liyue-harbor",
+      "target": "liyue-harbor",
+      "kind": "construction",
+      "goal": 6,
+      "xp": 1800,
+      "mora": 240,
+      "briefing": "刻晴「市場へ向かう荷が増えます。屋根伝いの道、地上の遠回り、古い昇降台を、荷運びに使えるか見てきてください。」",
+      "closing": "刻晴「職人たちのおかげで道が開きました。今度は荷車で市場まで運べますね。」",
+      "construction": {
+        "surveys": [
+          {"id": "roof", "name": "屋根伝いの近道", "node": "liyue-harbor", "x": 855, "y": 300,
+           "result": "短い道ですが、屋根と屋根の間は跳ぶ必要があります。荷車を引いては通れません。"},
+          {"id": "detour", "name": "平らな遠回り", "node": "liyue-harbor", "x": 1300, "y": 480,
+           "result": "段差のない道です。入口に積まれた木箱を移し、門を開ければ荷車が通れます。"},
+          {"id": "old-lift", "name": "古い荷揚げ用の昇降台", "node": "liyue-quarry-post", "x": 1535, "y": 480,
+           "result": "荷車を載せられる幅があります。古い滑車と縄を取り替えれば段差を越えられます。"}
+        ],
+        "desk": {"id": "work-plan", "name": "刻晴の施工案", "node": "liyue-harbor", "x": 875, "y": 480},
+        "plans": [
+          {"id": "ground", "name": "地上路を整備する", "description": "段差なし。港の西側から岩間の狩場へ。",
+           "site": {"node": "liyue-harbor", "x": 170, "y": 480}, "entrance": 170, "route": "liyue-cart-road"},
+          {"id": "lift", "name": "昇降台を修理する", "description": "荷車を吊り上げ、途中の段差を越える。",
+           "site": {"node": "liyue-quarry-post", "x": 1535, "y": 480}, "entrance": 840, "route": "liyue-cart-lift"}
+        ]
       }
     },
     {

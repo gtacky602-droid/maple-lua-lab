@@ -134,6 +134,14 @@
     },
     {
       "node": "liyue-harbor",
+      "to": "liyue-cart-road"
+    },
+    {
+      "node": "liyue-harbor",
+      "to": "liyue-cart-lift"
+    },
+    {
+      "node": "liyue-harbor",
       "to": "liyue-field"
     },
     {
@@ -246,6 +254,14 @@
     },
     {
       "node": "liyue-field",
+      "to": "liyue-cart-road"
+    },
+    {
+      "node": "liyue-field",
+      "to": "liyue-cart-lift"
+    },
+    {
+      "node": "liyue-field",
       "to": "oceanid-approach"
     },
     {
@@ -255,6 +271,22 @@
     {
       "node": "liyue-field",
       "to": "chasm-camp"
+    },
+    {
+      "node": "liyue-cart-road",
+      "to": "liyue-harbor"
+    },
+    {
+      "node": "liyue-cart-road",
+      "to": "liyue-field"
+    },
+    {
+      "node": "liyue-cart-lift",
+      "to": "liyue-harbor"
+    },
+    {
+      "node": "liyue-cart-lift",
+      "to": "liyue-field"
     },
     {
       "node": "liyue-book-camp",

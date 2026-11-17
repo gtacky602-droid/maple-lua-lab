@@ -14,7 +14,10 @@ for n in g['nodes']:
   rule=edge.get('requires')
   if rule:
    assert not p.available
-   s.story.quests[rule['quest']]=lua.table_from({'status':'complete','count':rule.get('count',0)})
+   finished={'status':'complete','count':rule.get('count',0)}
+   if rule.get('construction'):
+    finished['construction']={'plan':rule['construction'],'surveyed':{}}
+   s.story.quests[rule['quest']]=lua.table_from(finished,recursive=True)
    assert c.frame(s,'sprite','h32c16').storyNearbyPortal.available
    s.story.quests[rule['quest']]=None
   elif not edge.get('windowStart') and not edge.get('requiresArrival'):assert p.available

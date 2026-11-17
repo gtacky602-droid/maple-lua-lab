@@ -103,92 +103,112 @@
     {
       "node": "liyue-harbor",
       "mode": "sprite",
-      "visible_portals": 9
+      "visible_portals": 11
     },
     {
       "node": "liyue-harbor",
       "mode": "rect",
+      "visible_portals": 11
+    },
+    {
+      "node": "liyue-loading-yard",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "liyue-loading-yard",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "liyue-river-trail",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "liyue-river-trail",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "liyue-cliff-planks",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "liyue-cliff-planks",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "liyue-quarry-post",
+      "mode": "sprite",
+      "visible_portals": 5
+    },
+    {
+      "node": "liyue-quarry-post",
+      "mode": "rect",
+      "visible_portals": 5
+    },
+    {
+      "node": "liyue-craftsmen-overlook",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "liyue-craftsmen-overlook",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "liyue-quarry-storage",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "liyue-quarry-storage",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "liyue-crux-wharf",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "liyue-crux-wharf",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "liyue-field",
+      "mode": "sprite",
       "visible_portals": 9
     },
     {
-      "node": "liyue-loading-yard",
-      "mode": "sprite",
-      "visible_portals": 1
-    },
-    {
-      "node": "liyue-loading-yard",
+      "node": "liyue-field",
       "mode": "rect",
-      "visible_portals": 1
+      "visible_portals": 9
     },
     {
-      "node": "liyue-river-trail",
-      "mode": "sprite",
-      "visible_portals": 3
-    },
-    {
-      "node": "liyue-river-trail",
-      "mode": "rect",
-      "visible_portals": 3
-    },
-    {
-      "node": "liyue-cliff-planks",
-      "mode": "sprite",
-      "visible_portals": 3
-    },
-    {
-      "node": "liyue-cliff-planks",
-      "mode": "rect",
-      "visible_portals": 3
-    },
-    {
-      "node": "liyue-quarry-post",
-      "mode": "sprite",
-      "visible_portals": 5
-    },
-    {
-      "node": "liyue-quarry-post",
-      "mode": "rect",
-      "visible_portals": 5
-    },
-    {
-      "node": "liyue-craftsmen-overlook",
-      "mode": "sprite",
-      "visible_portals": 1
-    },
-    {
-      "node": "liyue-craftsmen-overlook",
-      "mode": "rect",
-      "visible_portals": 1
-    },
-    {
-      "node": "liyue-quarry-storage",
+      "node": "liyue-cart-road",
       "mode": "sprite",
       "visible_portals": 2
     },
     {
-      "node": "liyue-quarry-storage",
+      "node": "liyue-cart-road",
       "mode": "rect",
       "visible_portals": 2
     },
     {
-      "node": "liyue-crux-wharf",
+      "node": "liyue-cart-lift",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
-      "node": "liyue-crux-wharf",
+      "node": "liyue-cart-lift",
       "mode": "rect",
-      "visible_portals": 1
-    },
-    {
-      "node": "liyue-field",
-      "mode": "sprite",
-      "visible_portals": 7
-    },
-    {
-      "node": "liyue-field",
-      "mode": "rect",
-      "visible_portals": 7
+      "visible_portals": 2
     },
     {
       "node": "liyue-book-camp",

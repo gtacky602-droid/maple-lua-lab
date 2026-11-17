@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone)
+return function(C,data,delivery,rail,cooking,book,stone,construction)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -17,6 +17,9 @@ return function(C,data,delivery,rail,cooking,book,stone)
  end
  local function meetsGateRule(s,rule)
   local state=s.story.quests[rule.quest]
+  if rule.construction then
+   return completed(s,rule.quest) and state.construction and state.construction.plan==rule.construction
+  end
   return completed(s,rule.quest) or
    (rule.count and state and state.count>=rule.count and (not rule.recovery or state.recovered))
  end
@@ -26,6 +29,7 @@ return function(C,data,delivery,rail,cooking,book,stone)
    local state=s.story.quests[rule.quest]
    local allowed=meetsGateRule(s,rule) or (rule.alternative and meetsGateRule(s,rule.alternative))
    if not allowed then
+    if rule.construction and completed(s,rule.quest) then return '今回はもう一方の道を整備しました。' end
     if rule.recovery and state and not state.recovered then return '受注済みの旧依頼は岩間の狩場で進められます。' end
     if rule.alternative then
      return '「'..quests[rule.quest].name..'」か「'..quests[rule.alternative.quest].name..'」を受注してください。'
@@ -207,6 +211,10 @@ return function(C,data,delivery,rail,cooking,book,stone)
      local item=stone.nearby(s,q,state)
      if item then stone.inspect(s,q,state,item);return end
     end
+    if q.construction then
+     local item=construction.nearby(s,q,state)
+     if item then construction.interact(s,q,state,item);return end
+    end
     if q.delivery and state.status=='active' and q.target==s.story.node then
      delivery.recover(s,q,state.delivery)
      return
@@ -244,6 +252,12 @@ return function(C,data,delivery,rail,cooking,book,stone)
   if puzzleId then
    local q,state=quests[puzzleId],s.story.quests[puzzleId]
    if s.story.active and not s.paused and q and q.stone and state then stone.press(s,q,state,tile) end
+   return
+  end
+  local workId,plan=key:match('^story_construction_plan:([%w%-]+):([%w%-]+)$')
+  if workId then
+   local q,state=quests[workId],s.story.quests[workId]
+   if s.story.active and not s.paused and q and q.construction and state then construction.choose(s,q,state,plan) end
    return
   end
   local command,mealQuest,flavor=key:match('^story_([%a_]+):([%w%-]+):?([%w%-]*)$')
@@ -319,7 +333,7 @@ return function(C,data,delivery,rail,cooking,book,stone)
     s.story.quests[id]={status='active',count=0,cycles=state and state.cycles or 0,
                        recovered=q.cargo and {} or nil,inspected=q.trail and {} or nil,delivery=q.delivery and delivery.new() or nil,
                        cooking=q.cooking and cooking.new() or nil,book=q.book and {defeated={}} or nil,
-                       stone=q.stone and {marked={},sequence=0} or nil}
+                       stone=q.stone and {marked={},sequence=0} or nil,construction=q.construction and {surveyed={}} or nil}
    elseif report and state and state.status=='active' and state.count==q.goal then
     if q.cooking then state.cooking.meals=1 end
     state.status='complete';state.cycles=(state.cycles or 0)+1;s.mora=s.mora+q.mora;C.grantExp(s,q.xp,'quest');s.storyNotice=q.closing or q.name..'：報酬を受け取りました。'
@@ -443,13 +457,14 @@ return function(C,data,delivery,rail,cooking,book,stone)
     markers[#markers+1]={kind='rect',x=x-5,y=y-10,w=10,h=7,color=elevated and '#f76859' or '#b69765'}
    end
    for _,q in ipairs(data.quests) do
-    if q.delivery or q.rail or q.cooking or q.book or q.stone then
+    if q.delivery or q.rail or q.cooking or q.book or q.stone or q.construction then
      local state=s.story.quests[q.id]
      if q.delivery then delivery.observe(s,f,markers,q,state and state.delivery)
      elseif q.rail then rail.observe(s,f,markers,q,state)
      elseif q.cooking and state then cooking.observe(s,f,markers,q,state)
      elseif q.book and state then book.observe(s,f,markers,q,state)
-     elseif q.stone and state then stone.observe(s,f,markers,q,state) end
+     elseif q.stone and state then stone.observe(s,f,markers,q,state)
+     elseif q.construction and state then construction.observe(s,f,markers,q,state) end
     end
    end
    local recoveryQuest=quests[n.clearedBy]

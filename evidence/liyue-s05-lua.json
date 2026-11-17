@@ -1,0 +1,26 @@
+{
+  "M02_prerequisite": true,
+  "all_survey_positions_with_normal_movement": true,
+  "roof_rejected_for_carts": true,
+  "choice_saved_before_construction": true,
+  "construction_then_report_opens_one_route": true,
+  "routes": [
+    {
+      "plan": "ground",
+      "bidirectional": true,
+      "cart_animation": true,
+      "exclusive": true
+    },
+    {
+      "plan": "lift",
+      "bidirectional": true,
+      "cart_animation": true,
+      "exclusive": true
+    }
+  ],
+  "lift_pause_and_safe_elevated_arrival": true,
+  "same_one_time_reward": {
+    "xp": 1800,
+    "mora": 240
+  }
+}

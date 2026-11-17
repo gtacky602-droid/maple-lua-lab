@@ -51,8 +51,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 15,
-      "prototype_quest_count": 14,
+      "prototype_stage_count": 17,
+      "prototype_quest_count": 15,
       "official_map2_markers": {
         "waypoints": 75,
         "statues": 8
@@ -558,8 +558,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 93,
-    "provisional_quests": 60,
+    "authored_stages": 95,
+    "provisional_quests": 61,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -650,6 +650,8 @@
           "liyue-quarry-storage",
           "liyue-crux-wharf",
           "liyue-field",
+          "liyue-cart-road",
+          "liyue-cart-lift",
           "liyue-book-camp",
           "pyro-approach",
           "geo-approach",
@@ -663,6 +665,7 @@
           "liyue-harbor-meal",
           "liyue-book-rescue",
           "liyue-stone-marks",
+          "liyue-hauling-shortcut",
           "liyue-supply",
           "liyue-entry-check",
           "beidou-join",

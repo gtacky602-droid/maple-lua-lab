@@ -116,6 +116,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "liyue-cart-road",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "liyue-cart-lift",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "liyue-book-camp",
       "count": 3,
       "fallback": false,

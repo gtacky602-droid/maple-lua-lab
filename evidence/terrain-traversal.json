@@ -391,6 +391,23 @@
       "ground_both_directions": true
     },
     {
+      "node": "liyue-cart-road",
+      "platforms": 1,
+      "jump_routes": [],
+      "ground_both_directions": true
+    },
+    {
+      "node": "liyue-cart-lift",
+      "platforms": 2,
+      "jump_routes": [
+        {
+          "from": 0,
+          "to": 1
+        }
+      ],
+      "ground_both_directions": true
+    },
+    {
       "node": "liyue-book-camp",
       "platforms": 3,
       "jump_routes": [
