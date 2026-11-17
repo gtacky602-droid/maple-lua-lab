@@ -1,0 +1,112 @@
+{
+  "stage": "Sumeru / Withered Vine Den",
+  "referenceAudit": "evidence/dendro-hypostasis-reference-audit.json",
+  "modelLookup": "Web search for Dendro Hypostasis 3D model did not yield a matching usable model; no 3D/back view inspected",
+  "references": [
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/99e1871becaf063e6dbd0cd56abe2993_8743137714830182421.png",
+      "sha256": "34084dce5a9e7d28c572d8bf3087bb19781cefb40b6f35ed2d5c47c269259ff4",
+      "observed": "primary shell view",
+      "use": "Shell and exposed core"
+    },
+    {
+      "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/04/16/35428890/6ef73d53a18ab1b5a98a35b5495f1ab8_7655128978627998624.png",
+      "sha256": "59dfebc8e5d2d8da14878c2b1f28a8b63e307dce77055928328f99a1274a2e73",
+      "observed": "in-game composite: spread shell and alternate states",
+      "use": "Attack, bud and cave palette"
+    }
+  ],
+  "generated": [
+    {
+      "path": "assets/dendro-hypostasis-field-poses-source-v1.png",
+      "sha256": "0f5b5d5cfe59572d268b2ad4abb06c922195bb79c2d69b683119bd568680648f",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "prompt": "Transparent pixel art sheet for a side scrolling RPG, exactly four separated cells in a 2 by 2 grid with large transparent gutters. Match the provided green Dendro Hypostasis game references: chipped olive-green blocks with bright curled leaf emblems, angular bright lime diamond core, dark green root bands and moss. Top left: entity transformed into a single thick segmented thorny vine sweeping LEFT, low central faceted core remains exposed, bend of vine trails to the right; no other particle effects. Top right: entity tightly wrapped in a compact roughly spherical thorn-covered vine ball, broad angled curled leaves grasp it; glowing core shows through a thin slit; exactly one isolated ball. Bottom left: damaged shell scattered as a few restrained open green plates with a clearly isolated bright lime core in the center no higher than half of the silhouette. Bottom right: one slim dark leafy bud emerging from a low three-petal cradle, small pale lime seed suspended between two upward-pointing leaves, a simplified restorative pith. Side-on with crisp large pixel groups, deliberate dark outlines, no external glow, see-through background, dust, shadows, UI, text, backdrop or division lines."
+    },
+    {
+      "path": "assets/dendro-hypostasis-field-background-v1.png",
+      "sha256": "7b78aa62a7f8ef05f1f311ddd315f4c1ee5771c63060df3cc3f5d725f11900bd",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "prompt": "Original horizontal 16:9 side-scrolling pixel-painted RPG environment. Reference gameplay only for pale ochre cavern floor, earth-brown grooved rock and muted olive moss. Compose deep Sumeru dry cavern, scattered roots hanging high and low pale fern tufts only at far sides, clay-brown rock folds layered into a shadowy open chamber. Broad level tan stone floor across bottom fifth, no foreground obstacles. Matte warm umber and muted olive palette with dark midground so bright lime combat effects read. No light blooms on the ground, no characters, no artifacts, no blocks, no buds, no fog obscuring silhouettes, no UI, text, border or warnings."
+    }
+  ],
+  "poses": {
+    "vine": {
+      "crop": [
+        35,
+        78,
+        708,
+        386
+      ],
+      "box": [
+        56,
+        107,
+        657,
+        333
+      ],
+      "height": 105,
+      "anchorX": 0.57,
+      "commands": {
+        "legacy": 6233,
+        "h48c32": 3966,
+        "h32c16": 1719
+      }
+    },
+    "ball": {
+      "crop": [
+        930,
+        52,
+        472,
+        408
+      ],
+      "box": [
+        961,
+        79,
+        407,
+        360
+      ],
+      "height": 82,
+      "anchorX": 0.506,
+      "commands": {
+        "legacy": 3579,
+        "h48c32": 2226,
+        "h32c16": 955
+      }
+    },
+    "core": {
+      "crop": [
+        120,
+        558,
+        558,
+        416
+      ],
+      "box": [
+        153,
+        590,
+        494,
+        363
+      ],
+      "height": 85,
+      "anchorX": 0.484,
+      "commands": {
+        "legacy": 3065,
+        "h48c32": 1875,
+        "h32c16": 799
+      }
+    }
+  },
+  "alignment": "The body anchor follows the faceted core in both normal and airborne poses.",
+  "limits": [
+    "Temporary 2D cave. Matching model and live Miliastra unverified.",
+    "Three body poses. The unused bud study remains in the source sheet; no bud encoding is shipped. In-betweens, hurt and defeat art pending."
+  ],
+  "date": "2026-11-18"
+}

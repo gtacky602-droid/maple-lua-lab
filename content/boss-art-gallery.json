@@ -395,7 +395,7 @@
     },
     {
       "id": "dendro-hypostasis",
-      "name": "無相の草（参照付き待機候補・戦闘未実装）",
+      "name": "無相の草（フィールド戦の待機絵）",
       "file": "dendro-hypostasis-idle-sprites.json",
       "height": 128,
       "mapHover": 48

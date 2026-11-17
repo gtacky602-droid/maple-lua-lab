@@ -1,8 +1,8 @@
 {
-  "updated": "2026-11-17",
+  "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 130 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 128,
+  "scope": "Authored 131 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 129,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -308,6 +308,12 @@
     {
       "id": "aeonblight-field-chamber",
       "name": "スメール・機翼の間",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "dendro-hypostasis-field-den",
+      "name": "スメール・枯蔓の洞",
       "region": "スメール",
       "status": "regional_temporary_image"
     },

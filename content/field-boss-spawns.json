@@ -964,6 +964,35 @@
         {"id":"FAD02","kind":"cannon","title":"胸砲の三射","reach":230,"lock":48,"active":[],"fire":[90,126,162],"life":48,"recover":228,"total":300,"damage":14},
         {"id":"FAD03","kind":"charge","title":"低空の機竜突進","reach":238,"lock":60,"active":[[120,144]],"air":[84,120],"recover":168,"total":312,"damage":25}
       ]
+    },
+    {
+      "id": "boss-20040701",
+      "controller": "dendroHypostasis",
+      "entity": 20040701,
+      "name": "無相の草",
+      "node": "dendro-hypostasis-field-den",
+      "storyChallenge": "dendro-hypostasis",
+      "level": 68,
+      "hp": 1120,
+      "mora": 240,
+      "artHeight": 108,
+      "floorY": 480,
+      "home": 800,
+      "arenaMin": 335,
+      "arenaMax": 1392,
+      "noticeRange": 277,
+      "noticeTicks": 36,
+      "restTicks": 36,
+      "leashTicks": 300,
+      "respawnTicks": 3600,
+      "walkSpeed": 58,
+      "contactDamage": 0,
+      "immune": "dendro",
+      "moves": [
+        {"id":"FHD01","kind":"vine","title":"蔓鞭の二振り","reach":200,"lock":48,"active":[[96,102],[150,156]],"height":0.8,"low":0.15,"recover":180,"total":264,"damage":20},
+        {"id":"FHD02","kind":"plunge","title":"蔓球の一落ち","reach":225,"lock":54,"active":[[114,126]],"air":[78,114],"distance":1.5,"height":0.65,"recover":144,"total":288,"damage":24},
+        {"id":"FHD03","kind":"seeds","title":"三粒の草弾","reach":234,"lock":48,"active":[],"fire":[96,132,168],"life":48,"recover":228,"total":288,"damage":14}
+      ]
     }
   ]
 }

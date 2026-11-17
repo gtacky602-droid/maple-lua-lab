@@ -1,0 +1,33 @@
+{
+  "browser": "Chrome",
+  "play": {
+    "seconds": 59.38,
+    "moves": [
+      "FHD01",
+      "FHD02",
+      "FHD03"
+    ],
+    "dodgeWindows": 6,
+    "finished": true,
+    "hp": 44,
+    "returns": 0
+  },
+  "fieldKill": {
+    "xp": 53350,
+    "mora": 240
+  },
+  "commissionReport": {
+    "xp": 4000,
+    "mora": 300
+  },
+  "persistedCooldown": true,
+  "sameSceneCommands": {
+    "png": 20,
+    "standard": 10473,
+    "light": 2782
+  },
+  "threeSeedsInTell": true,
+  "airborneBallVisible": true,
+  "viewport390": true,
+  "errors": []
+}

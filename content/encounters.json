@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 20,
+    "partial": 21,
     "complete": 0
   },
   "encounters": [
@@ -280,23 +280,26 @@
       "entity_ids": [
         "20040701"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/dendrohypostasis.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/dendrohypostasis.json",
+        "evidence/dendro-hypostasis-field-lua.json",
+        "evidence/dendro-hypostasis-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "連続アニメーション・被弾・撃破作画",
+        "装備別・Webマルチの実測",
+        "幻境実機"
       ],
+      "fieldNode": "dendro-hypostasis-field-den",
+      "fieldEntrance": "スメール・枯蔓の洞（Lv68）",
       "art_candidate": {
         "source": "assets/dendro-hypostasis-idle-source-v1.png",
         "encoding": "assets/dendro-hypostasis-idle-sprites.json",
-        "audit": "evidence/dendro-hypostasis-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/dendro-hypostasis-field-art-audit.json",
+        "status": "Web field prototype with vine, thorn ball and exposed core art"
       }
     },
     {

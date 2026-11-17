@@ -308,6 +308,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "dendro-hypostasis-field-den",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "fontaine-entry",
       "count": 0,
       "fallback": false,

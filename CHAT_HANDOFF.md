@@ -1009,3 +1009,13 @@ Chromeではアンバー同行で71.45秒で討伐し、39,950EXPと225モラ、
 Chromeで胸部コアの中断と浮上中の当たり判定に追従するドット絵、アンバー同行70.58秒での討伐、46,150EXPと235モラ、依頼報告の4,000EXPと300モラ、再出現待ちの保存を確認した。同一フレームの描画指示は標準矩形11,272件、軽量16色2,943件。機械翼と尾のリングは見分けられ、装甲と関節の細い縁が簡略化された。130地点の表示と背景306条件を確認した。 [Chrome検証](evidence/aeonblight-field-browser.json)・[PNG](evidence/aeonblight-field-png.png)・[軽量16色](evidence/aeonblight-field-light.png)
 
 レベル66・HP1,310・報酬・背景はラボ用の仮設定。公式設定画とゲーム画像を参照し、6つの動作姿勢を追加した。中割り、被弾・撃破の作画、3Dモデル照合、Webマルチ、幻境実機は未確認。次は無相の草のフィールド戦を進める。 [美術参照](evidence/aeonblight-field-art-audit.json)
+
+## 無相の草のフィールド戦
+
+スメールの雨林の道から枯蔓の洞へ入る。スメール4戦の設計票に合わせ、蔓鞭の二振り、蔓球の一落ち、三粒の草弾を実装した。蔓鞭は予告した側に二回当たり、蔓球は0.6秒だけ浮いて予告位置に一度落ちる。三粒は固定した射線へ順番に出る。地上に降りた核には通常攻撃が届き、草元素は無効。Luaで通常攻撃だけのソロ討伐92.48秒を確認した。45〜90秒の目安との比較は継続する。 [設計](docs/field-boss-v1/SUMERU_QUARTET_MOVESETS.md)・[Lua検証](evidence/dendro-hypostasis-field-lua.json)
+
+再生の芽は先行試作で動作確認し、設計票を取り込んだ時点で三粒の草弾に差し替えた。現在の討伐は本体のHP0で完了する。 [原作プレイ観察](https://www.hoyolab.com/article/13298317)
+
+Chromeでアンバー同行59.38秒で討伐し、53,350EXPと240モラ、依頼報告の4,000EXPと300モラ、再出現待ちの保存を確認した。蔓鞭予告の同一フレームは標準矩形10,473件、軽量16色2,782件。輪郭と黄緑の核が見分けられ、葉の刻印が簡略化された。131地点の表示と背景312条件も確認した。 [Chrome検証](evidence/dendro-hypostasis-field-browser.json)・[PNG](evidence/dendro-hypostasis-field-png.png)・[軽量16色](evidence/dendro-hypostasis-field-light.png)
+
+レベル68、HP1,120、報酬と背景はラボ用の仮設定。ゲーム画像を参照し、蔓、蔓球、核露出のドット絵を追加した。動作の中割り、被弾・撃破作画、3Dモデル照合、Webマルチ、幻境実機は未確認。次は同じ設計票の半永久統制マトリックスのフィールド戦へ進む。 [美術参照](evidence/dendro-hypostasis-field-art-audit.json)

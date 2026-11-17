@@ -88,10 +88,12 @@
       }
     },
     "boss-20040701": {
+      "remaining": ["連続アニメーション・被弾・撃破作画", "装備別・Webマルチの実測", "幻境実機"],
+      "extra_evidence": ["evidence/dendro-hypostasis-field-lua.json", "evidence/dendro-hypostasis-field-browser.json"],
       "art_candidate": {
         "item": "dendro-hypostasis",
-        "audit": "evidence/dendro-hypostasis-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "audit": "evidence/dendro-hypostasis-field-art-audit.json",
+        "status": "Web field prototype with vine, thorn ball and exposed core art"
       }
     },
     "boss-20040101": {

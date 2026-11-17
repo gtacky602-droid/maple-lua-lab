@@ -1,0 +1,24 @@
+{
+  "attacks": [
+    "FHD01",
+    "FHD02",
+    "FHD03"
+  ],
+  "physicalReachesCore": true,
+  "dendroImmunity": true,
+  "matchesDesignTiming": true,
+  "bothVineSwingsOnLockedSide": true,
+  "lockedAirborneBall": true,
+  "oneLandingHit": true,
+  "threeStraightSeeds": true,
+  "normalAttackSolo": {
+    "seconds": 92.48,
+    "hp": 140
+  },
+  "questReportOnce": true,
+  "commands": {
+    "standard": 4760,
+    "light": 1258
+  },
+  "killXp": 53350
+}
