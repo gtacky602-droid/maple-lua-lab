@@ -1,0 +1,32 @@
+{
+  "schema_version":"1.0","date":"2026-11-18","status":"design_only_not_runtime",
+  "source_commit":"555b7cdeed603d6994fc5de27be12eb215c5c063",
+  "source_of_truth":["../../DESIGN_FIELD_BOSS_MASTER_V01.md","COMMON.md","DANCE_STONE_MOVESETS.md"],
+  "tick_rate_hz":60,"unit_U_pixels":88,"interval_semantics":"half_open",
+  "counts":{"encounters":4,"attack_cards":12,"cumulative_encounters":31,"cumulative_attack_cards":93,"catalog_reference_rows":49,"all_catalog_rows_detailed":false},
+  "shared":{"max_attack_patterns":3,"max_concurrent_casts":1,"hp_bars":1,"multiplayer_hp_scaling":false,"required_special_element":false,"forced_revive_phase":false,"hp_zero_priority":true,"normal_damage_pipeline":true,"runtime_or_visual_tested":false},
+  "pair_contract":{"shared_hp":true,"single_selector":true,"passive_contact":false,"reaction_selection":"earliest_collision_then_stable_body_id","dedup_key":["encounterEpoch","sourceActorId","castId","hitEventId","sharedReceiverId"],"aura_per_body":true,"reward_count":1,"performance_locked_for_encounter":true},
+  "bosses":[
+    {"encounter_id":"icewind-coppelia","name":"氷風組曲：コッペリアの葬送","bodies":["coppelia","coppelius"],"attack_ids":["FIC01","FIC02","FIC03"],"signature":"FIC03","hurtbox_bottom_u":0.25,"hp_attackable_during_combat":true},
+    {"encounter_id":"icewind-coppelius","name":"氷風組曲：コペリウスの劫罰","bodies":["coppelia","coppelius"],"attack_ids":["FIP01","FIP02","FIP03"],"signature":"FIP03","hurtbox_bottom_u":0.25,"hp_attackable_during_combat":true},
+    {"encounter_id":"boss-26140101","name":"魔像レガトゥス","bodies":["legatus"],"attack_ids":["FLG01","FLG02","FLG03"],"signature":"FLG03","hurtbox_bottom_u":0.25,"hp_attackable_during_combat":true},
+    {"encounter_id":"boss-26190101","name":"山隠れの猊獣","bodies":["suanni"],"attack_ids":["FSU01","FSU02","FSU03"],"signature":"FSU03","hurtbox_bottom_u":0.25,"hp_attackable_during_combat":true}
+  ],
+  "attacks":[
+    {"id":"FIC01","encounter_id":"icewind-coppelia","title":"扇の二旋","total":276,"lock":48,"active":[[96,108,"coppelia","fan1"],[156,168,"coppelia","fan2"]],"projectiles":[],"motion":[],"recovery":[192,276],"hit_cap":2},
+    {"id":"FIC02","encounter_id":"icewind-coppelia","title":"ふた筋の風舞","total":288,"lock":48,"active":[],"projectiles":[[96,48,"coppelia","wind1"],[156,48,"coppelia","wind2"]],"motion":[],"recovery":[216,288],"hit_cap":2},
+    {"id":"FIC03","encounter_id":"icewind-coppelia","title":"葬送・風輪と氷走","total":420,"lock":60,"active":[[120,144,"coppelia","wind_ring"],[216,240,"coppelius","ice_glide"]],"projectiles":[],"motion":[[216,240,"coppelius","ground_attack_move",1.4]],"recovery":[276,420],"hit_cap":2},
+    {"id":"FIP01","encounter_id":"icewind-coppelius","title":"杖と外套の返し","total":282,"lock":48,"active":[[96,108,"coppelius","cane"],[162,174,"coppelius","cape"]],"projectiles":[],"motion":[],"recovery":[198,282],"hit_cap":2},
+    {"id":"FIP02","encounter_id":"icewind-coppelius","title":"一滑り・氷刃","total":300,"lock":54,"active":[],"projectiles":[[150,48,"coppelius","ice_blade"]],"motion":[[90,126,"coppelius","non_damage_ground_move",1.2]],"recovery":[216,300],"hit_cap":1},
+    {"id":"FIP03","encounter_id":"icewind-coppelius","title":"劫罰・霜花と返風","total":444,"lock":60,"active":[[120,126,"coppelius","frost1"],[168,174,"coppelius","frost2"]],"projectiles":[[228,48,"coppelia","wind_return"]],"motion":[],"recovery":[300,444],"hit_cap":3},
+    {"id":"FLG01","encounter_id":"boss-26140101","title":"石剣の二断","total":288,"lock":48,"active":[[102,114,"legatus","cleave"],[162,174,"legatus","sweep"]],"projectiles":[],"motion":[],"recovery":[198,288],"hit_cap":2},
+    {"id":"FLG02","encounter_id":"boss-26140101","title":"二拍の火弦","total":312,"lock":48,"active":[],"projectiles":[[96,48,"legatus","fire1"],[168,48,"legatus","fire2"]],"motion":[],"recovery":[228,312],"hit_cap":2},
+    {"id":"FLG03","encounter_id":"boss-26140101","title":"共鳴器・終奏落剣","total":504,"lock":60,"active":[[324,336,"legatus","blade_wave"]],"projectiles":[[336,24,"legatus","blade_wave"]],"motion":[],"recovery":[360,504],"hit_cap":1},
+    {"id":"FSU01","encounter_id":"boss-26190101","title":"前爪・風尾","total":288,"lock":48,"active":[[96,108,"suanni","claw"],[168,180,"suanni","tail"]],"projectiles":[],"motion":[],"recovery":[204,288],"hit_cap":2},
+    {"id":"FSU02","encounter_id":"boss-26190101","title":"双水刃","total":300,"lock":48,"active":[],"projectiles":[[96,48,"suanni","water1"],[156,48,"suanni","water2"]],"motion":[],"recovery":[216,300],"hit_cap":2},
+    {"id":"FSU03","encounter_id":"boss-26190101","title":"風環・飛泉落とし","total":372,"lock":60,"active":[[108,120,"suanni","wind_tail"],[192,204,"suanni","water_landing"]],"projectiles":[[204,24,"suanni","water_landing"]],"motion":[[156,192,"suanni","airborne",1.4]],"recovery":[228,372],"hit_cap":2}
+  ],
+  "interrupts":[{"parent":"FLG03","mechanism":"resonator","spawn_tick":48,"accept":[60,300],"required_distinct_new_casts":3,"progress_scope":"current_resonator_instance","hold_progress_to_next_cast":false,"minimum_target_bottom_u":0.15,"required_for_victory":false,"any_attack_element":true,"cancel_parent_events":true,"clear_projectiles":true,"relative_stagger":[0,180],"standup_ticks":24,"rearm_after_stagger_ticks":1200,"damage_transfer_to_boss":false,"reward_on_destroy":false,"death_priority":true}],
+  "damage_contract":{"group_max_hits_per_target":1,"normal_iframes_preserved":true,"lifetime_before_recovery":true,"cleanup_on_epoch_end":true,"element_from_explicit_tag_not_color":true},
+  "exclusions":["mandatory_arkhe","recurring_cryo_shield","golem_added_geo_ward","mandatory_suanni_freeze","spiritwind_pearl_collection","two_independent_boss_AIs"]
+}
