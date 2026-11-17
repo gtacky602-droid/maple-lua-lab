@@ -1,0 +1,33 @@
+{
+  "cell": [256, 256],
+  "root": [128, 224],
+  "displayHeight": 152,
+  "sword": {
+    "file": "farka-sword-sprites-v1.json",
+    "grip": [383, 365],
+    "tip": [2074, 367],
+    "widthScale": 1.4
+  },
+  "facings": {
+    "left": {
+      "reference": "farka-chibi-left-sprites-v1.json",
+      "body": "farka-body-left-sprites-v1.json",
+      "sockets": {
+        "pelvis": [128, 179], "chest": [127, 153], "head": [125, 112],
+        "hand_front": [162.0, 182.9], "hand_back": [97.9, 182.2],
+        "foot_front": [145, 224], "foot_back": [111, 224],
+        "weapon_tip_A": [199.5, 221.7], "weapon_tip_B": [60.3, 222.0]
+      }
+    },
+    "right": {
+      "reference": "farka-chibi-right-sprites-v1.json",
+      "body": "farka-body-right-sprites-v1.json",
+      "sockets": {
+        "pelvis": [131, 178], "chest": [130, 151], "head": [136, 109],
+        "hand_front": [85.7, 182.8], "hand_back": [159.9, 183.3],
+        "foot_front": [111, 224], "foot_back": [143, 224],
+        "weapon_tip_A": [44.5, 216.8], "weapon_tip_B": [201.8, 217.0]
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "checks": [
+    {
+      "side": "right",
+      "mode": "png",
+      "rectangles": 0
+    },
+    {
+      "side": "right",
+      "mode": "legacy",
+      "rectangles": 6241
+    },
+    {
+      "side": "right",
+      "mode": "h48c32",
+      "rectangles": 4025
+    },
+    {
+      "side": "right",
+      "mode": "h32c16",
+      "rectangles": 1715
+    },
+    {
+      "side": "left",
+      "mode": "png",
+      "rectangles": 0
+    },
+    {
+      "side": "left",
+      "mode": "legacy",
+      "rectangles": 5664
+    },
+    {
+      "side": "left",
+      "mode": "h48c32",
+      "rectangles": 3571
+    },
+    {
+      "side": "left",
+      "mode": "h32c16",
+      "rectangles": 1503
+    }
+  ],
+  "independentRotation": true,
+  "independentVisibility": true,
+  "mobileOverflow": false,
+  "errors": []
+}
