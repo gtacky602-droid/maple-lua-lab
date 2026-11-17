@@ -1,0 +1,52 @@
+{
+  "normalAttackWithoutHealing": {
+    "seconds": 186.6,
+    "hp": 112,
+    "breaks": 7,
+    "falls": 0,
+    "moves": [
+      "WD01",
+      "WD02",
+      "WD03",
+      "WD04",
+      "WD05",
+      "WD06",
+      "WD07",
+      "WD08"
+    ]
+  },
+  "aiActualPadLandingAndDamage": 87,
+  "aiMaxHorizontalStep": 3.5,
+  "realScheduledNormalGuard": 20,
+  "sharedGuardEventDedup": true,
+  "crystalWindow": [
+    42,
+    462
+  ],
+  "actualGroundReachRejected": true,
+  "sharedPadLoweringBothActors": true,
+  "unfinishedSaveAndExitRestart": true,
+  "strictSaveValidation": true,
+  "bothGapsBothDirections": true,
+  "lockedHitWindows": {
+    "WD01": 24,
+    "WD02": 20,
+    "WD06": 28,
+    "WD07": 18
+  },
+  "breathHitTicks": [
+    132,
+    168
+  ],
+  "fourBoltsTwoPairCap": true,
+  "hazardPauseAndRewarning": true,
+  "oneVictoryReportAndRespawn": true,
+  "postVictoryFallRecovery": true,
+  "wipeResetsAtHub": true,
+  "aiCloseFollowCrossesGap": true,
+  "sameSceneCommands": {
+    "png": 12,
+    "standard": 12702,
+    "light": 3448
+  }
+}

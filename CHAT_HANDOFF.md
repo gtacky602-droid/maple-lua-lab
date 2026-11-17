@@ -1,5 +1,14 @@
 # ChatGPTへの引き継ぎ
 
+## 2026-11-18 トワリンの週ボス試作
+
+モンド城門広場で「風龍の再現戦・首の結晶」を受注し、南の街道x1280から風龍の空域へ入る。WD01〜08、前脚/頭の体勢と結晶のHPの分離、3区画、通常ジャンプで上がる共有踏み場、危険床の停止/再予告、未完挑戦の初期化、討伐・帰還報告・再出現待ち保存を接続した。Lv20/HP600/体勢24と報酬は比較用仮値。週制限や樹脂消費は追加していない。
+
+Luaで通常攻撃のみ・同行戦闘不能・回復なし186.6秒、残HP112、7ダウン、落下0で8行動を検査。ChromeのUI通し、163マップ表示、486背景条件、保存23件と49通常ボスcontrollerの保存復元も確認。6体勢と前景部位をPNG/軽量矩形で比較できる。背景は仮画像。本番3D、連続アニメーション、難度別報酬、装備別とWebマルチは未完。全体は163マップ/106試作依頼、ボス70候補中51件部分実装・完成0。次は北風の王狼の最新設計をWebへ接続する。
+
+最新ラボ: http://127.0.0.1:8848/ 。[実装と検証の詳細](docs/weekly-boss-v1/DVALIN_WEB.md)、[Lua](evidence/dvalin-weekly-lua.json)、[Chrome](evidence/dvalin-weekly-browser.json)、[同一時刻PNG](evidence/dvalin-weekly-png.png)、[軽量16色](evidence/dvalin-weekly-light.png)。
+
+
 ## 公式地図連動の設計室（今回の独立ツール）
 
 入口は [docs/field-editor/README.md](docs/field-editor/README.md)。`python -m tools.field_editor.server` で8770。公式地形と既存モンド51地点の座標を同じ公式投影で表示し、接続グラフ・敵系統/地域別Variant/出現設定・提案の差分採用・履歴・Undo/Redo・JSON/Markdown/CSV/PNG/承認済みランタイムJSONを扱う。正本は `design/field-editor/project.json`、マップ定義は同 `maps/*.json`。ゲームのLua・本番敵配置・公式カタログ座標は変更しない。初期接続は0。地域Lv基準と個別の未設定値を区別し、正式地名の推測・未承認値の自動確定をしない。

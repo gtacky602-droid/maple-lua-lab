@@ -33,12 +33,12 @@
     {
       "node": "mond-road",
       "mode": "sprite",
-      "visible_portals": 8
+      "visible_portals": 9
     },
     {
       "node": "mond-road",
       "mode": "rect",
-      "visible_portals": 8
+      "visible_portals": 9
     },
     {
       "node": "mond-roadside-rest",
@@ -1617,6 +1617,16 @@
     },
     {
       "node": "wavebinder-tide-cavern",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "dvalin-sky-arena",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "dvalin-sky-arena",
       "mode": "rect",
       "visible_portals": 1
     }

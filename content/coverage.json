@@ -27,8 +27,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 20,
-      "prototype_quest_count": 12,
+      "prototype_stage_count": 21,
+      "prototype_quest_count": 13,
       "official_map2_markers": {
         "waypoints": 45,
         "statues": 6
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 162,
-    "provisional_quests": 105,
+    "authored_stages": 163,
+    "provisional_quests": 106,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -649,7 +649,8 @@
           "cryo-approach",
           "cryo-field-grove",
           "electro-approach",
-          "electro-field-shelf"
+          "electro-field-shelf",
+          "dvalin-sky-arena"
         ],
         "quest_ids": [
           "amber-join",
@@ -663,7 +664,8 @@
           "mond-contract",
           "anemo-commission",
           "cryo-commission",
-          "electro-commission"
+          "electro-commission",
+          "dvalin-weekly-commission"
         ]
       },
       {

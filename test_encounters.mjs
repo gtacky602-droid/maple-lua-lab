@@ -62,6 +62,9 @@ try{
  await panel.getByLabel('ボス名で検索').fill('波濤の投錨者');
  const tideCavern=panel.locator('[data-encounter="boss-25134601"]').getByRole('link',{name:/西港の潮洞/});
  if(await tideCavern.getAttribute('href')!=='map-art.html?node=wavebinder-tide-cavern')throw Error('Wavebinder tide route missing');
+ await panel.getByLabel('ボス名で検索').fill('トワリン');
+ const dvalin=panel.locator('[data-encounter="boss-29010101"]').getByRole('link',{name:/風龍の空域/});
+ if(await dvalin.getAttribute('href')!=='map-art.html?node=dvalin-sky-arena')throw Error('Dvalin weekly arena route missing');
  await panel.getByLabel('ボス名で検索').fill('恒常からくり陣形');
  await panel.getByLabel('恒常からくり陣形の弱点個体').selectOption('boss_array_3');
  await panel.getByRole('button',{name:'模擬戦に挑戦'}).click();

@@ -71,16 +71,18 @@ function C.defeatEnemy(s,e,owner)
  end
  return true
 end
-local function hit(s,a,e,mult,color,element)
- if e.hp<=0 or e.invulnerable then return false end
- if e.onCastContact then return e.onCastContact(s,a,e) end
- if C.interceptHit and C.interceptHit(s,a,e,element) then return true end
+function C.enemyResistance(a,e,element)
  local resist=(e.resist and e.resist[element]) or 0
  if a.damageElements then
   resist=0
   for _,part in ipairs(a.damageElements) do resist=resist+(e.immune==part and 1 or ((e.resist and e.resist[part]) or 0))/#a.damageElements end
  elseif e.immune==element then resist=1 end
- if resist>=1 then number(s,e,'無効','#b6e9df');event(s,'immune:'..element,a.id,e.id);return false end
+
+ return resist
+end
+function C.enemyHitDamage(s,a,e,mult,element,resist)
+ resist=resist or C.enemyResistance(a,e,element)
+ if resist>=1 then return 0,false end
  if element=='physical' and (e.physicalBreak or 0)>0 then resist=resist-.12 end
  local bonus=element~='physical' and (a.elementBonus or 0) or 0
  bonus=bonus+(a.isNormal and (a.normalBonus or 0) or (a.skillBonus or 0))
@@ -91,6 +93,17 @@ local function hit(s,a,e,mult,color,element)
  if a.coldBonus and ((e.chill or 0)>0 or (e.frozen or 0)>0 or (e.aura and e.aura.element=='cryo' and e.aura.expires>s.t)) then mult=mult*(1+a.coldBonus) end
  local defense=(e.defense or 5)*((e.armorBreak or 0)>0 and .85 or 1)
  local n=max(1,floor(a.atk*mult*100/(100+defense)*(1-resist)*(1+bonus)*critMultiplier*(C.damageFactor and C.damageFactor(s,a,e,element) or 1)+1e-9))
+ return n,critical
+end
+C.combatEvent=event
+C.combatNumber=number
+local function hit(s,a,e,mult,color,element)
+ if e.hp<=0 or e.invulnerable then return false end
+ if e.onCastContact then return e.onCastContact(s,a,e,mult,color,element) end
+ if C.interceptHit and C.interceptHit(s,a,e,element) then return true end
+ local resist=C.enemyResistance(a,e,element)
+ if resist>=1 then number(s,e,'無効','#b6e9df');event(s,'immune:'..element,a.id,e.id);return false end
+ local n,critical=C.enemyHitDamage(s,a,e,mult,element,resist)
  if (e.damageShield or 0)>0 then
   if element=='physical' then
    number(s,e,'シールド','#d6b4ff')
@@ -360,7 +373,7 @@ function C.step(s,dt,input)
   if cast.travelSpeed then cast.x=cast.x+cast.dir*cast.travelSpeed*dt end
   if s.actors[cast.id].hp<=0 or (cast.gliding and s.actors[cast.id].ground) then table.remove(s.pending,i)
   elseif s.t+1e-8>=cast.next then
-   pulse(s,cast);cast.remaining=cast.remaining-1;cast.next=cast.next+cast.interval
+    C.resolveCast(s,cast);cast.remaining=cast.remaining-1;cast.next=cast.next+cast.interval
    if cast.remaining<=0 then if cast.channel then s.actors[cast.id].channel=nil end;table.remove(s.pending,i) end
   end
  end

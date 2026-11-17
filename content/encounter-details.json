@@ -581,11 +581,22 @@
       }
     },
     "boss-29010101": {
+      "remaining": [
+        "連続アニメーション・被弾と浄化演出の作画",
+        "装備別・Webマルチの実測",
+        "報酬難度・バランスの確定",
+        "幻境実機"
+      ],
+      "extra_evidence": [
+        "evidence/dvalin-weekly-lua.json",
+        "evidence/dvalin-weekly-browser.json"
+      ],
       "art_candidate": {
         "item": "dvalin",
-        "audit": "evidence/dvalin-reference-audit.json",
-        "status": "purified idle body candidate only; corrupted crystals, attacks and animation not implemented"
-      }
+        "audit": "evidence/dvalin-weekly-art-audit.json",
+        "status": "Web weekly prototype: six body key poses, foreground head/claws, crystal and wind orb; legacy purified gallery idle retained"
+      },
+      "review_note": "WD01〜08、体勢/HPの分離、3区画と共有踏み場をWebへ接続。Lv20/HP600/体勢24は比較用仮値。週制限・樹脂は追加しない。"
     },
     "boss-23090101": {
       "extra_evidence": ["https://genshin.hoyoverse.com/m/ja/news/detail/162806","evidence/battleship-field-lua.json","evidence/battleship-field-browser.json"],

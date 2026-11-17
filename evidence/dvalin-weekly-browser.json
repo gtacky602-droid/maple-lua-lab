@@ -1,0 +1,42 @@
+{
+  "browser": "Chrome",
+  "companion": "amber",
+  "play": {
+    "won": true,
+    "seconds": 119.15,
+    "hp": 128,
+    "returns": 0,
+    "moves": [
+      "WD01",
+      "WD04",
+      "WD02",
+      "WD08",
+      "WD05",
+      "WD06",
+      "WD07",
+      "WD03"
+    ],
+    "breaks": 5,
+    "falls": 0,
+    "aiLanded": true,
+    "manualLanded": true
+  },
+  "scenery": {
+    "key": "dvalinWeekly",
+    "file": "dvalin-weekly-background-v1.png",
+    "state": "ready"
+  },
+  "uiQuestAccepted": true,
+  "questReport": {
+    "xp": 1400,
+    "mora": 360
+  },
+  "savedWeeklyRespawn": true,
+  "sameSceneCommands": {
+    "png": 29,
+    "standard": 15257,
+    "light": 4062
+  },
+  "viewport390": true,
+  "errors": []
+}

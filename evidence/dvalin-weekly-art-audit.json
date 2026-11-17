@@ -1,0 +1,337 @@
+{
+  "tool": "built-in image_gen",
+  "references": {
+    "date": "2026-11-17",
+    "page": "https://wiki.hoyolab.com/pc/genshin/entry/2217?lang=ja-jp",
+    "references": [
+      {
+        "url": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2023/12/15/132746206/497160d9f34a61f72b6943c550530da9_8927643173446645653.png",
+        "sha256": "cd76193b4004eb2c48cb1ac71f3833daa06adef539c73983ba984c075f3884e5",
+        "directly_viewed": true,
+        "generation_input": false
+      },
+      {
+        "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/18/94675339/1f5ae2ed15ff5d933bce695182892ec7_5910052411813239060.png",
+        "sha256": "90e8d26ae7256baa3ea9779ae5a44c234f9196775f5e78d9911be39ad82fb5a0",
+        "directly_viewed": true,
+        "generation_input": true
+      },
+      {
+        "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/18/94675339/ae2159dd659817bff3a408303c0d5322_5150645270380479562.png",
+        "sha256": "3482f24d9803f169d2934697480dac42219bcc08114c3048c19c22c0a2d7ba05",
+        "directly_viewed": true,
+        "generation_input": true
+      },
+      {
+        "url": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/11/27/94675339/ef105517f4c30d0580344f73fe596712_8563586887864987921.png",
+        "sha256": "49742a574e22e6bd433f4e6404eb0812ddbcf3710bb47a638d08bb75a26a251d",
+        "directly_viewed": true,
+        "generation_input": true
+      }
+    ],
+    "model_lookup": {
+      "page": "https://models.spriters-resource.com/pc_computer/genshinimpact/asset/328740/",
+      "download": "https://models.spriters-resource.com/media/assets/326/328740.zip?updated=1785180104",
+      "result": "HTTP403; no model downloaded or multiple-angle/back inspection",
+      "other_listing": "https://sketchfab.com/3d-models/dvalin-from-genshin-impact-d5636e933c0f4dbf867da15e3bb21673"
+    },
+    "output": "assets/dvalin-idle-source-v1.png",
+    "sha256": "02ee0d92aa06509eb760c80674868538c3fab2cbb0845b0a264818b219905e4c",
+    "profiles": {
+      "legacy": {
+        "height": 220,
+        "runs": 9940
+      },
+      "h48c32": {
+        "height": 165,
+        "runs": 6201
+      },
+      "h32c16": {
+        "height": 110,
+        "runs": 2872
+      }
+    },
+    "limits": [
+      "Purified body candidate; no corrupted purple crystals",
+      "Upright compact pose and larger tail leaf than reference; underside/back unverified",
+      "220px display height and 48px hover provisional; not canon scale",
+      "No flight/attacks/animation/live combat; temporary map only"
+    ],
+    "visual_review": "Source and final browser gallery/map comparison directly viewed. Three wing pairs, pale chest and leaf tail remain at 110px; tiny wing droplets, eye, claws and streamers become coarse. Render has clean transparent surround. Source more upright/compact, tail leaf larger than reference. Rainforest screenshot is a generic comparison fixture, not Dvalin geography.",
+    "source_bounds": {
+      "size": [
+        1312,
+        1199
+      ],
+      "alpha128_bbox": [
+        58,
+        8,
+        1288,
+        1187
+      ]
+    },
+    "validation": {
+      "gallery": "evidence/bosses-gallery.json",
+      "placement": "evidence/boss-placement-test.json",
+      "candidates": 36,
+      "distinct_bosses": 33
+    }
+  },
+  "prompts": {
+    "body": "Use case: stylized-concept. Asset: transparent 2D pixel RPG boss body atlas, SIX body key poses in one coherent sheet, exact 2 columns x 3 rows, 1536x1536. Image1 is authentic full-body Dvalin, image2 is his boss arena/front view showing a purple crystal at rear neck, image3 is the existing lab sprite for palette/pixel style. Same NONHUMAN long-necked six-winged dragon across all six poses, facing LEFT in 3/4 side view. Preserve three DISTINCT pairs of blue/indigo petal-feather wings, cyan teardrop markings, narrow icy-blue head with two swept horns, turquoise serpentine neck, ivory chest, dark foreclaws, long tail with pale leaf tip and twin streamers. Do NOT impose human chibi anatomy. Separate all silhouettes with large transparent gutters, preserve common body/head/anatomy scale, wings/tail never cropped. Row1 left distant hovering with three wing pairs open; right low horizontal swooping glide with wings folded back. Row2 left perched with forelegs braced and long neck pulled back before bite; right breath pose with head extended LEFT and mouth open, NO beam attached. Row3 left rising/roaring with wings high and chest open; right exhausted/down pose with long neck lowered horizontally to LEFT, head and back of neck clearly visible, wings relaxed behind. Body is purified teal/ivory; purple corruption crystal is a separate prop, do not attach a large ambiguous cluster to every pose. All poses production pixel-art, chunky crisp square clusters and dark navy outline, limited cool palette, no blur, no fog, no full-screen attack aura. True transparent exterior and spaces between wing pairs, no ground, no shadow, no words, no labels, no UI, no background. Intended body display 220-250px; head/claw components will be separate layers.",
+    "parts": "Use case: stylized-concept. Asset: four isolated modular pixel-art parts for the SAME Dvalin dragon in a 2D boss fight. Images1 and2 are authentic appearance references; image3 gives the lab pixel style/palette. Exact 2x2 atlas on transparent 1024x1024 with very wide gutters and no overlap, four sprites only. Top-left: ONE large Dvalin foreclaw resting on a flat implied surface, dark blue-grey plated forearm, teal scales and three distinct long cyan talons; vertical arm ends cleanly at upper socket, claws face LEFT, no body/ground. Top-right: Dvalin's narrow pale icy-blue horned head with a short turquoise/ivory neck segment curving back RIGHT, facing LEFT with mouth slightly open; clean rear neck socket, NO body or wings. Bottom-left: ONE tall faceted purple corrupted spike crystal emerging from a small dark violet rocky base, matching the crystal behind his head in boss reference; sharp bounded magenta/violet highlights, no surrounding glow or surface. Bottom-right: ONE compact wind orb with pale cyan core, turquoise segmented ring and two short curved wind fins; no trail/cloud. Match restrained pixel clusters and dark outlines, same palette family, visible talon/eye/crystal edges at small game scale. True transparent alpha, no ground/shadows/checkerboard, no text, no labels, no other assets.",
+    "background": "Use case: stylized-concept. Asset: wide 1536x1024 temporary game background for a 2D Dvalin arena. Reference screenshot supplies storm-blue sky, distant ruined stone arches, floating masonry and high-altitude temple mood. Create a new quiet composition with layered distant broken ring arches and drifting small stone fragments under a deep blue/teal storm sky. ALL arches are far in the background. Bottom third is open cloud-filled sky/void so three separate gameplay platforms will be drawn by the host. Do not paint a continuous floor, foreground bridge, foreground pillars, playable platforms or people. Keep center low contrast with clear empty space for a large six-wing dragon and two 2D players. No dragon, no enemies, no text, no logo, no UI. Painterly pixel-game scenery with clear shapes; provisional lab background, not exact original arena or final 3D."
+  },
+  "poses": {
+    "hover": {
+      "height": 220,
+      "anchor": 0.5,
+      "crop": [
+        0,
+        0,
+        660,
+        600
+      ],
+      "raw_box": [
+        109,
+        6,
+        544,
+        401
+      ],
+      "profiles": {
+        "legacy": 12636,
+        "h48c32": 7915,
+        "h32c16": 3472
+      }
+    },
+    "glide": {
+      "height": 134,
+      "anchor": 0.12,
+      "crop": [
+        660,
+        0,
+        660,
+        600
+      ],
+      "raw_box": [
+        633,
+        94,
+        1205,
+        335
+      ],
+      "profiles": {
+        "legacy": 9855,
+        "h48c32": 6093,
+        "h32c16": 2620
+      }
+    },
+    "perch": {
+      "height": 186,
+      "anchor": 0.5,
+      "crop": [
+        0,
+        600,
+        660,
+        600
+      ],
+      "raw_box": [
+        106,
+        428,
+        519,
+        762
+      ],
+      "profiles": {
+        "legacy": 10374,
+        "h48c32": 6708,
+        "h32c16": 2997
+      }
+    },
+    "breath": {
+      "height": 193,
+      "anchor": 0.5,
+      "crop": [
+        660,
+        600,
+        660,
+        600
+      ],
+      "raw_box": [
+        612,
+        415,
+        1189,
+        762
+      ],
+      "profiles": {
+        "legacy": 12158,
+        "h48c32": 7594,
+        "h32c16": 3473
+      }
+    },
+    "roar": {
+      "height": 260,
+      "anchor": 0.5,
+      "crop": [
+        0,
+        1200,
+        660,
+        600
+      ],
+      "raw_box": [
+        74,
+        779,
+        539,
+        1246
+      ],
+      "profiles": {
+        "legacy": 14681,
+        "h48c32": 9255,
+        "h32c16": 4250
+      }
+    },
+    "down": {
+      "height": 141,
+      "anchor": 0.35,
+      "crop": [
+        660,
+        1200,
+        660,
+        600
+      ],
+      "raw_box": [
+        615,
+        920,
+        1196,
+        1173
+      ],
+      "profiles": {
+        "legacy": 10615,
+        "h48c32": 6803,
+        "h32c16": 2880
+      }
+    },
+    "claw": {
+      "height": 100,
+      "anchor": 0.5,
+      "crop": [
+        0,
+        0,
+        660,
+        600
+      ],
+      "raw_box": [
+        91,
+        75,
+        489,
+        584
+      ],
+      "profiles": {
+        "legacy": 2034,
+        "h48c32": 1260,
+        "h32c16": 575
+      }
+    },
+    "head": {
+      "height": 115,
+      "anchor": 0.5,
+      "crop": [
+        660,
+        0,
+        660,
+        600
+      ],
+      "raw_box": [
+        732,
+        72,
+        1179,
+        552
+      ],
+      "profiles": {
+        "legacy": 3602,
+        "h48c32": 2255,
+        "h32c16": 971
+      }
+    },
+    "crystal": {
+      "height": 48,
+      "anchor": 0.5,
+      "crop": [
+        0,
+        600,
+        660,
+        600
+      ],
+      "raw_box": [
+        170,
+        718,
+        441,
+        1145
+      ],
+      "profiles": {
+        "legacy": 394,
+        "h48c32": 263,
+        "h32c16": 111
+      }
+    },
+    "orb": {
+      "height": 28,
+      "anchor": 0.5,
+      "crop": [
+        660,
+        600,
+        660,
+        600
+      ],
+      "raw_box": [
+        778,
+        769,
+        1103,
+        1127
+      ],
+      "profiles": {
+        "legacy": 347,
+        "h48c32": 208,
+        "h32c16": 87
+      }
+    },
+    "perch-body": {
+      "crop": [
+        179,
+        600,
+        481,
+        600
+      ],
+      "anchor": 0.1,
+      "height": 210,
+      "note": "Torso/wing/tail crop; head drawn once at foreground socket."
+    },
+    "breath-body": {
+      "crop": [
+        923,
+        600,
+        397,
+        600
+      ],
+      "anchor": 0.1,
+      "height": 210,
+      "note": "Torso/wing/tail crop; head drawn once at foreground socket."
+    }
+  },
+  "raw_outputs": {
+    "exec-d973281b-bb9b-4564-8b5f-82cd79dad9ed.png": "eae49ce59ba5ce0d095fcb9ca7dafd7736495eaf3132c097c2fde57eabe6376a",
+    "exec-7dd9e3d2-6c76-4fbe-8952-738547bfc830.png": "95e3de9ddbe9cd0d098aecefd018449bd1b6344d697ee681951965987165b5bd"
+  },
+  "outputs": {
+    "dvalin-weekly-body-source-v1.png": "1e7002332864b3fa391e613da3ed1dd5d2eaea0967907d1416f2c78c27b49183",
+    "dvalin-weekly-parts-source-v1.png": "643fe6d7c602e83785f55212bbc61e10140a527c3b9853847a831afe0c9f2911",
+    "dvalin-weekly-background-v1.png": "26c32e543e59bdd5851501783886bf0f68d27d5b8bf142dae66a04acbf14bedc"
+  },
+  "notes": [
+    "Six body poses share one anatomy scale before scene perspective scaling; separate foreground sockets use explicit display heights.",
+    "Six-winged nonhuman silhouette retained. Purple neck crystal is a separate target layer. Legacy purified idle unchanged.",
+    "Main alpha silhouettes repacked with transparent gutters; no creative pixel repainting.",
+    "Viewed full-body render, front gameplay crystal reference, illustration and existing purified sprite. Model download returned HTTP403; rear and underside model geometry unverified.",
+    "Background is temporary sky/ruin scenery; final background planned in native 3D.",
+    "Key poses only, not a completed full animation strip.",
+    "Perch and breath torso crops omit the original head; one foreground head/neck joins the cropped chest. Down crest anchor .35 aligned with separate crystal at y400."
+  ]
+}

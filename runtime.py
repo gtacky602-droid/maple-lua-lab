@@ -304,6 +304,10 @@ def runtime():
                         'knuckleDuck':knuckle_duck,'battleship':battleship,'frostnightHerra':frostnight_herra,
                         'whispererNightmares':whisperer_nightmares,'moonfly':moonfly,'moongecko':moongecko,'spiritspeaker':spiritspeaker,'fallenVigil':fallen_vigil,'flugel':flugel,'driftingSnow':drifting_snow,'immortalConstruct':immortal_construct,'wavebinder':wavebinder})
     )
+    dvalin=lua.execute((ROOT/'weekly-dvalin.lua').read_text(encoding='utf-8'))(core)
+    core.dvalinWeeklyArt=field_art(lua,'dvalin-weekly',(),variants={pose:'dvalin-weekly-'+pose+'-sprites-v1.json' for pose in ('hover','glide','perch','breath','roar','down','claw','head','crystal','orb','perch-body','breath-body')})
+    weekly_specs=json.loads((ROOT/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses']
+    lua.execute((ROOT/'weekly-bosses.lua').read_text(encoding='utf8'))(core,lua.table_from(weekly_specs,recursive=True),lua.table_from({'dvalin':dvalin}))
     return lua, core
 
 def native(value):

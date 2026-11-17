@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "status": "Web prototype; combat numbers provisional; no resin or weekly lock",
+  "weeklyBosses": [
+    {
+      "id": "boss-29010101",
+      "controller": "dvalin",
+      "entity": 29010101,
+      "name": "空を裂く魔龍・トワリン",
+      "node": "dvalin-sky-arena",
+      "storyChallenge": "dvalin-weekly",
+      "level": 20,
+      "hp": 600,
+      "guard": 24,
+      "mora": 300,
+      "expRole": "weekly_boss",
+      "center": 480,
+      "floorY": 480,
+      "noticeTicks": 36,
+      "respawnTicks": 3600,
+      "stepY": 420,
+      "stepWidth": 138,
+      "crystalY": 400,
+      "crystalHeight": 48,
+      "floorDamage": 10,
+      "fallDamage": 18,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 264
+        },
+        {
+          "x": 303.6,
+          "y": 480,
+          "w": 264
+        },
+        {
+          "x": 607.2,
+          "y": 480,
+          "w": 264
+        }
+      ],
+      "opening": [
+        "WD01",
+        "WD04",
+        "WD02",
+        "WD03"
+      ],
+      "rotation": [
+        "WD05",
+        "WD06",
+        "WD02",
+        "WD07",
+        "WD03",
+        "WD04",
+        "WD02",
+        "WD01",
+        "WD03"
+      ],
+      "moves": {
+        "WD01": {
+          "id": "WD01",
+          "kind": "dive",
+          "title": "低空急襲",
+          "lock": 42,
+          "total": 198,
+          "damage": 24
+        },
+        "WD02": {
+          "id": "WD02",
+          "kind": "bite",
+          "title": "首振りの牙",
+          "lock": 36,
+          "total": 192,
+          "damage": 20
+        },
+        "WD03": {
+          "id": "WD03",
+          "kind": "breath",
+          "title": "蒼嵐の吐息",
+          "lock": 48,
+          "total": 324,
+          "damage": 12
+        },
+        "WD04": {
+          "id": "WD04",
+          "kind": "bolts",
+          "title": "連なる風弾",
+          "lock": 54,
+          "total": 240,
+          "damage": 16
+        },
+        "WD05": {
+          "id": "WD05",
+          "kind": "floor",
+          "title": "終天の嵐",
+          "lock": 60,
+          "total": 180
+        },
+        "WD06": {
+          "id": "WD06",
+          "kind": "giant",
+          "title": "巨大風弾",
+          "lock": 60,
+          "total": 300,
+          "damage": 28
+        },
+        "WD07": {
+          "id": "WD07",
+          "kind": "rain",
+          "title": "嵐の降雨",
+          "lock": 60,
+          "total": 300,
+          "damage": 18
+        },
+        "WD08": {
+          "id": "WD08",
+          "kind": "exposure",
+          "title": "首の結晶・露出",
+          "lock": 0,
+          "total": 534
+        }
+      }
+    }
+  ]
+}

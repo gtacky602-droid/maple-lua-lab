@@ -3,12 +3,13 @@ from pathlib import Path
 from experience import CAP, CAP_EXP, CURVE_ID, LEVELS, MAX_SAVED_EXP
 _STORY_GRAPH=json.loads((Path(__file__).parent/"content/story-graph.json").read_text(encoding="utf8"))
 _FIELD_BOSSES={slot["id"]:slot for slot in json.loads((Path(__file__).parent/"content/field-boss-spawns.json").read_text(encoding="utf-8-sig"))["fieldBosses"]}
+_WEEKLY_BOSSES={slot['id']:slot for slot in json.loads((Path(__file__).parent/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses']}
 _STORY_ZONES={"story:"+n["id"] for n in _STORY_GRAPH["nodes"]}
 import math
 """Versioned local checkpoint validation; this is not a production multiplayer save."""
 FIELDS={'version','quest','count','mora','kills','hits','damage','gauge','active'}
 def validate_save(data):
-    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses'}!=FIELDS:
+    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses'}!=FIELDS:
         raise ValueError('保存データの項目が一致しません')
     if type(data['version']) is not int or data['version']!=1:
         raise ValueError('対応していない保存バージョンです')
@@ -284,4 +285,15 @@ def validate_save(data):
                 if (not allowed or not isinstance(flags,dict) or set(flags)!=set(allowed)
                         or any(type(value) is not bool for value in flags.values())):
                     raise ValueError('フィールドボスの保存フラグが不正です')
+    if 'weeklyBosses' in data:
+        slots=data['weeklyBosses']
+        if not isinstance(slots,dict): raise ValueError('週ボス保存形式が不正です')
+        for id,slot in slots.items():
+            spec=_WEEKLY_BOSSES.get(id)
+            if (not spec or not isinstance(slot,dict) or set(slot)!={'generation','hp','waitTicks'}
+                    or any(type(v) is not int for v in slot.values())
+                    or not 1<=slot['generation']<=10**9
+                    or not 0<=slot['waitTicks']<=spec['respawnTicks']
+                    or slot['hp']!=(0 if slot['waitTicks'] else spec['hp'])):
+                raise ValueError('週ボス個体情報が不正です')
     return data.copy()

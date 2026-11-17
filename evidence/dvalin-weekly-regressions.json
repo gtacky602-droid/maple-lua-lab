@@ -1,0 +1,86 @@
+[
+  {
+    "test": "test_dvalin_weekly.py",
+    "returncode": 0,
+    "output": "{'normalAttackWithoutHealing': {'seconds': 186.6, 'hp': 112, 'breaks': 7, 'falls': 0, 'moves': ['WD01', 'WD02', 'WD03', 'WD04', 'WD05', 'WD06', 'WD07', 'WD08']}, 'aiActualPadLandingAndDamage': 87, 'aiMaxHorizontalStep': 3.5, 'realScheduledNormalGuard': 20, 'sharedGuardEventDedup': True, 'crystalWindow': [42, 462], 'actualGroundReachRejected': True, 'sharedPadLoweringBothActors': True, 'unfinishedSaveAndExitRestart': True, 'strictSaveValidation': True, 'bothGapsBothDirections': True, 'lockedHitWindows': {'WD01': 24, 'WD02': 20, 'WD06': 28, 'WD07': 18}, 'breathHitTicks': [132, 168], 'fourBoltsTwoPairCap': True, 'hazardPauseAndRewarning': True, 'oneVictoryReportAndRespawn': True, 'sameSceneCommands': {'png': 18, 'standard': 12708, 'light': 3454}}\n",
+    "error": ""
+  },
+  {
+    "test": "test_savegame.py",
+    "returncode": 0,
+    "output": "23 save checks passed\n",
+    "error": ""
+  },
+  {
+    "test": "test_field_save_contract.py",
+    "returncode": 0,
+    "output": "49 field-controller checkpoint round-trips passed\n",
+    "error": ""
+  },
+  {
+    "test": "test_story_portal_render.py",
+    "returncode": 0,
+    "output": "163 nodes x 2 modes: portal outlines and background draw order passed\n",
+    "error": ""
+  },
+  {
+    "test": "test_story_growth.py",
+    "returncode": 0,
+    "output": "21 growth checks passed 9 contracts 220.76666666666668 sim seconds\n",
+    "error": ""
+  },
+  {
+    "test": "test_timed_combat.py",
+    "returncode": 0,
+    "output": "16 timed combat checks passed\n",
+    "error": ""
+  },
+  {
+    "test": "test_projectiles.py",
+    "returncode": 0,
+    "output": "14 projectile checks passed\n",
+    "error": ""
+  },
+  {
+    "test": "test_reactions.py",
+    "returncode": 0,
+    "output": "15 reaction checks passed\n",
+    "error": ""
+  },
+  {
+    "test": "test_fusion.py",
+    "returncode": 0,
+    "output": "17 fusion checks passed\n",
+    "error": ""
+  },
+  {
+    "test": "test_ultimate.py",
+    "returncode": 0,
+    "output": "20 ultimate checks passed\n",
+    "error": ""
+  },
+  {
+    "test": "test_companion.py",
+    "returncode": 0,
+    "output": "16 companion checks passed\n",
+    "error": ""
+  },
+  {
+    "test": "test_immortal_construct_field.py",
+    "returncode": 0,
+    "output": "{'twoFixedRakeWindows': True, 'twoFixedSeedWindows': True, 'selfSpendKeepsBodyDamageable': True, 'shieldDistinctCastsOldReactionExclusion': True, 'ordinaryElementsEachRemoveOneUnit': True, 'eachLayerCancelsMinorWave': True, 'actualEnemyHitHealsWithinBudget': True, 'playerHitsDoNotHealBoss': True, 'iframeMissDoesNotHeal': True, 'fewerLayersStartEarlyChant': True, 'oneLayerDoesNotCancelFinalBloom': True, 'lastTickFullBreakCancelsBloom': True, 'unbrokenShieldStillEndsInFiniteTime': True, 'HPZeroBeatsDeployAndBloom': True, 'saveExitAndOneRewardReportRespawn': True, 'normalAttackWithoutHealing': {'seconds': 75.75, 'hp': 140, 'shieldInterrupted': True}, 'sameSceneCommands': {'png': 57, 'standard': 16588, 'light': 4562}}\n",
+    "error": ""
+  },
+  {
+    "test": "test_wavebinder_field.py",
+    "returncode": 0,
+    "output": "{'twoFixedAnchorSweeps': True, 'lockedThrowAndPull': True, 'physicalFreshDrinkInterrupt': True, 'oldReactionsAndMultiHitExcluded': True, 'electroDrainsCourageAndSpeedsDrinkInterrupt': True, 'partialDrinkRetainsCourage': True, 'fullDrinkEntersValiantAndThreeSweeps': True, 'valiantThrowAndPullBothHit': True, 'natural720TickRageEnd': True, 'earlyRageDoesNotRefillOnLaterSip': True, 'electroStaggerBeatsNextDamageWindow': True, 'HPZeroBeatsDrinkAndRageEnd': True, 'saveExitAndOneRewardReportRespawn': True, 'normalAttackWithoutHealing': {'seconds': 89.55, 'hp': 140, 'drinkInterrupts': 3, 'naturalRageEnds': 2}, 'physicalWithoutDrinkInterrupt': {'seconds': 125.88, 'hp': 140, 'drinkInterrupts': 0, 'naturalRageEnds': 6}, 'sameSceneCommands': {'png': 29, 'standard': 12458, 'light': 3478}}\n",
+    "error": ""
+  },
+  {
+    "test": "test_encounters.py",
+    "returncode": 0,
+    "output": "88 encounter checks passed\n",
+    "error": ""
+  }
+]
