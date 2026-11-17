@@ -131,12 +131,14 @@ core.action(session, 'drop')
 for _ in range(80):
     step()
 assert session.actors[session.active].y == 480
+xp_before_victory = session.progression.questXp
 walk(1250, attack=True)
 for _ in range(520):
     if q.count == 2:
         break
     step(attack=True)
 assert q.count == 2
+assert session.progression.questXp==xp_before_victory+73057 and core.frame(session).storyFirstClear.xp==73057
 assert core.frame(session).storyCleared and len(session.enemies) == 0
 walk(1670)
 assert not core.frame(session).storyNearbyPortal.available
@@ -150,6 +152,7 @@ assert saved()['story']['quests'][qid]['count'] == 2
 for _ in range(220):
     step()
 assert q.count == 3 and not session.railTrip
+assert session.progression.questXp==xp_before_victory+73057
 go(port)
 assert core.frame(session).storyMarketOpen
 assert not session.story.quests['beidou-join']
@@ -171,6 +174,6 @@ assert not core.frame(session).storyCartX and len(session.platforms) == base_pla
     'released_bridge_reachable_with_normal_jump': True, 'changed_enemy_placements': True,
     'keeper_defeated_with_normal_attack': True, 'return_gate_opens_after_dispatch': True,
     'market_and_safe_revisit_persist': True, 'requires_beidou_join': False,
-    'one_time_reward': {'xp': 67646, 'mora': 500},
+    'first_clear_xp': 73057, 'one_time_reward': {'xp': 67646, 'mora': 500},
 }, indent=2)+'\n', encoding='utf8')
 print('Liyue M03 rail, new platform and enemy phase, market, and checkpoint passed')

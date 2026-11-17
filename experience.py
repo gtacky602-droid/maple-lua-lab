@@ -32,22 +32,35 @@ RUNTIME_EXP = {
 
 QUEST_EXP_VERSION = 'monster-quest-v02'
 QUEST_REPORT_EXP = {}
+CHAPTER_CLEAR_EXP = {}
 for reward in MODEL['quest_rewards']:
-    if reward['grant_type'] != 'one_time_quest_reward':
-        continue
+    kind = reward['grant_type']
     key, amount = reward['id'], reward['base_exp_first_clear']
-    if key in QUEST_REPORT_EXP or type(amount) is not int or not 0 < amount <= MAX_SAVED_EXP:
-        raise ValueError(f'Invalid fixed quest reward for {key}')
-    QUEST_REPORT_EXP[key] = amount
+    if kind == 'one_time_quest_reward':
+        amounts = QUEST_REPORT_EXP
+    elif kind == 'independent_first_clear_subreward':
+        amounts = CHAPTER_CLEAR_EXP
+    else:
+        continue
+    if key in amounts or type(amount) is not int or not 0 < amount <= MAX_SAVED_EXP:
+        raise ValueError(f'Invalid fixed EXP reward for {key}')
+    amounts[key] = amount
 
 
-def resolve_quest_report_exp(graph):
+def resolve_story_exp(graph):
     for quest in graph['quests']:
-        amount = QUEST_REPORT_EXP.get(quest.get('designId'))
-        if amount is None:
-            continue
-        if quest.get('repeatable'):
-            raise ValueError(f"First-report EXP applied to repeatable quest {quest['id']}")
-        quest['xp'] = amount
-        quest['xpVersion'] = QUEST_EXP_VERSION
+        design_id = quest.get('designId')
+        amount = QUEST_REPORT_EXP.get(design_id)
+        if amount is not None:
+            if quest.get('repeatable'):
+                raise ValueError(f"First-report EXP applied to repeatable quest {quest['id']}")
+            quest['xp'] = amount
+            quest['xpVersion'] = QUEST_EXP_VERSION
+        if 'chapterClearCount' in quest:
+            threshold = quest['chapterClearCount']
+            amount = CHAPTER_CLEAR_EXP.get(f'{design_id}:BOSS_FIRST')
+            if (quest.get('repeatable') or quest['kind'] not in ('kill','rail','contest')
+                    or type(threshold) is not int or not 1 <= threshold <= quest['goal'] or amount is None):
+                raise ValueError(f"Invalid chapter clear for {quest['id']}")
+            quest['chapterClearXp'] = amount
     return graph

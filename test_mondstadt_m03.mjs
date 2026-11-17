@@ -77,6 +77,8 @@ try{
  await through('mond-watchtower');
  const before=await backdrop();
  assert.deepEqual([before.key,before.state],['mondhill','ready']);
+ assert.match(await quest.innerText(),/章ボス初回勝利 5,152EXP/);
+ const beforeVictory=await frame();
  assert.match(await page.locator('#storyElite').innerText(),/街道の大親分.*45 \/ 45/);
  await page.locator('.game').screenshot({path:'evidence/mondstadt-m03-before.png'});
  await walk(780,true);
@@ -87,6 +89,9 @@ try{
  }finally{await page.keyboard.up('KeyJ')}
  await page.waitForSelector('[data-quest="mond-watchtower-clear"][data-status="ready"]');
  assert.equal(await page.locator('#storyElite').isVisible(),false);
+ assert.match(await page.locator('#storyChapterReward').innerText(),/5,152 EXP/);
+ assert.equal((await frame()).progression.questXp-beforeVictory.progression.questXp,5152);
+ assert.doesNotMatch(await quest.innerText(),/章ボス初回勝利/);
  const after=await backdrop();
  assert.deepEqual([after.key,after.state],['mondrestored','ready']);
  await walk(160);
@@ -120,7 +125,7 @@ try{
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/mondstadt-m03-browser.json',JSON.stringify({
   errors,prerequisiteShown:true,ordinaryCombat:true,backgroundChange:[before.file,after.file],
-  peacefulRoad:true,reward:{xp:4771,mora:220},saveRestored:true,clearedTowerOnReturn:true,mobileWidth:true
+  peacefulRoad:true,firstClearXp:5152,reward:{xp:4771,mora:220},saveRestored:true,clearedTowerOnReturn:true,mobileWidth:true
  },null,2)+'\n');
  console.log('M03 browser combat, changed scenery, peaceful return, report and reload passed');
 }finally{await browser.close()}

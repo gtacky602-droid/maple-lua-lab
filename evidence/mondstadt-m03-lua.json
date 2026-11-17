@@ -4,6 +4,7 @@
   "only_named_enemy_counts": true,
   "ordinary_combat": true,
   "clear_before_report": true,
+  "first_clear_xp": 5152,
   "ready_checkpoint": true,
   "peaceful_shortcut": true,
   "single_reward": {

@@ -156,7 +156,9 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
   shown++;const row=document.createElement('p');row.dataset.quest=q.id;row.dataset.status=status;
   const hub=graph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
   const payout=status==='complete'&&!q.repeatable?'':` ｜ 仮報酬 ${rewardNumber.format(q.xp)}EXP / ${rewardNumber.format(q.mora)}モラ`;
-  row.textContent=`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''}${q.repeatable?` ／ 報告${st?.cycles||0}回`:''}${q.join&&status==='complete'?(q.giver?`（${q.giver}加入済み）`:'（加入済み／初期装備は未実装）'):''} ｜ ${status==='locked'?prerequisiteText(q,graph,f.progression?.level??0):questObjective(q,graph,st)} ｜ 受注・報告：${hub}${payout} `;
+  const firstClear=q.chapterClearXp&&(st?.count??0)<q.chapterClearCount
+   ?` ｜ 章ボス初回勝利 ${rewardNumber.format(q.chapterClearXp)}EXP`:'';
+  row.textContent=`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''}${q.repeatable?` ／ 報告${st?.cycles||0}回`:''}${q.join&&status==='complete'?(q.giver?`（${q.giver}加入済み）`:'（加入済み／初期装備は未実装）'):''} ｜ ${status==='locked'?prerequisiteText(q,graph,f.progression?.level??0):questObjective(q,graph,st)} ｜ 受注・報告：${hub}${payout}${firstClear} `;
   if(status==='unaccepted'||(status==='complete'&&q.repeatable)){const b=button('受注','story_accept:'+q.id);b.disabled=q.hub!==story.node;b.title=b.disabled?`${hub}で受注してください`:'';row.append(b)}
   if(status==='ready'){const b=button('報告','story_report:'+q.id);b.disabled=q.hub!==story.node;b.title=b.disabled?`${hub}へ戻って報告してください`:'';row.append(b)}
   if(status==='complete'&&q.join&&(q.recovery||q.sights)){

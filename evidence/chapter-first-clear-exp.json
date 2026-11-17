@@ -1,0 +1,27 @@
+{
+  "legacy_saved_milestones": [
+    {
+      "design_id": "Q-MON-M03",
+      "first_clear_count": 1,
+      "first_clear_xp": 5152,
+      "old_battle_won_and_reported_saves_not_reissued": true
+    },
+    {
+      "design_id": "Q-LIY-M03",
+      "first_clear_count": 2,
+      "first_clear_xp": 73057,
+      "old_battle_won_and_reported_saves_not_reissued": true
+    },
+    {
+      "design_id": "Q-INA-M03",
+      "first_clear_count": 4,
+      "first_clear_xp": 335632,
+      "old_battle_won_and_reported_saves_not_reissued": true
+    }
+  ],
+  "validated_quest_routes": [
+    "test_mondstadt_m03.py",
+    "test_liyue_m03.py",
+    "test_inazuma_m03.py"
+  ]
+}

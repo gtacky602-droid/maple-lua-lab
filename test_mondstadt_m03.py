@@ -67,6 +67,7 @@ jump(377)
 gate('mond-watchtower')
 elite=core.frame(s).storyElite
 assert elite.name=='街道の大親分' and elite.maxhp==45
+xp_before_victory=s.progression.questXp
 walk(455,attack=True)
 kills=s.kills
 for _ in range(300):
@@ -74,12 +75,14 @@ for _ in range(300):
         break
     step(attack=True)
 assert s.kills>kills and progress.count==0
+assert s.progression.questXp==xp_before_victory
 walk(780,attack=True)
 for _ in range(540):
     if progress.count==1:
         break
     step(attack=True)
 assert progress.count==1 and s.returns==0
+assert s.progression.questXp==xp_before_victory+5152 and core.frame(s).storyFirstClear.xp==5152
 step()
 assert len(s.enemies)==0 and core.frame(s).storyCleared and not core.frame(s).storyElite
 for _ in range(500):
@@ -91,6 +94,7 @@ saved=validate_save(native(core.checkpoint(s)))
 resumed=core.restore(lua.table_from(saved,recursive=True))
 assert resumed.story.node=='mond-town' and resumed.story.quests[quest].status=='active'
 assert resumed.story.quests[quest].count==1
+assert resumed.progression.questXp==xp_before_victory+5152 and not core.frame(resumed).storyFirstClear
 
 walk(1650)
 gate('mond-restored-road')
@@ -117,7 +121,7 @@ gate('mond-road')
 assert len(s.enemies)>0
 
 checks={'M02_prerequisite':True,'physical_tower_gate':True,'only_named_enemy_counts':True,
-        'ordinary_combat':True,'clear_before_report':True,'ready_checkpoint':True,
+        'ordinary_combat':True,'clear_before_report':True,'first_clear_xp':5152,'ready_checkpoint':True,
         'peaceful_shortcut':True,'single_reward':{'xp':4771,'mora':220},
         'completed_checkpoint':True,'persistent_clear_on_reentry':True,'peripheral_field_still_hostile':True}
 (ROOT/'evidence/mondstadt-m03-lua.json').write_text(json.dumps(checks,indent=2)+'\n',encoding='utf8')

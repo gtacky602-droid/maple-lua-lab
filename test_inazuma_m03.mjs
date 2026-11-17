@@ -98,7 +98,10 @@ try{
  await page.locator('.game').screenshot({path:'evidence/inazuma-m03-reflection.png'});
  await inspect(960,'右の灯籠を調べる');
  await phase(3);
+ const beforeVictory=await frame();
  await fight(4);
+ assert.match(await page.locator('#storyChapterReward').innerText(),/335,632 EXP/);
+ assert.equal((await frame()).progression.questXp-beforeVictory.progression.questXp,335632);
  assert.ok(!(await frame()).draws.some(d=>d.color==='#243b35' && d.h===90));
  await walk(1320);
  await through(cape);
@@ -134,7 +137,7 @@ try{
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/inazuma-m03-browser.json',JSON.stringify({
   browser:'Chrome', actual_controls:true, first_and_final_battle:true, reflection_retry:true, leaf_curtain_reveal:true,
-  cape_visit:true, report_and_restore:true, replay_entry:true, viewport_390:true, errors
+  cape_visit:true, first_clear_xp:335632, report_and_restore:true, replay_entry:true, viewport_390:true, errors
  },null,2)+'\n');
  console.log('Inazuma M03 Chrome battles, reflection, cape, report and rematch entry passed');
 }catch(error){

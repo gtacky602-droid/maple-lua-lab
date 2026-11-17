@@ -10,6 +10,7 @@
   "return_gate_opens_after_dispatch": true,
   "market_and_safe_revisit_persist": true,
   "requires_beidou_join": false,
+  "first_clear_xp": 73057,
   "one_time_reward": {
     "xp": 67646,
     "mora": 500

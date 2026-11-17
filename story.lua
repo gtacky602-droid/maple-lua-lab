@@ -136,6 +136,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   for _,art in ipairs(q.openingArts) do if enemy.art==art then return true end end
   return false
  end
+ -- Count is the saved record of the battle milestone. Award only when a battle crosses it.
+ local function chapterVictory(s,q,state)
+  if not q.chapterClearXp or state.count~=q.chapterClearCount then return end
+  C.grantExp(s,q.chapterClearXp,'quest')
+  s.storyFirstClear={quest=q.id,xp=q.chapterClearXp,untilTime=s.t+7}
+ end
  local function progress(s,kind,target,enemy)
   for id,state in pairs(s.story.quests) do local q=quests[id]
    local legacySights=kind=='kill' and q.sights and not state.sights and target==q.sights.legacyTarget
@@ -143,6 +149,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if state.status=='active' and matches and state.count<q.goal
     and (kind~='kill' or questKillCounts(q,state,enemy)) then
     state.count=state.count+1
+    if kind=='kill' then chapterVictory(s,q,state) end
     if state.count==q.goal and q.clearedNotice then s.storyNotice=q.clearedNotice end
    end
   end
@@ -188,6 +195,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.forestFeedback=nil
   s.contestReplay=nil
   s.contestFlash=nil
+  s.storyFirstClear=nil
   s.sightNotice=nil
   s.sightMenu=nil
   s.storyDeliveryNotice=nil
@@ -414,6 +422,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     end
     if q.rail and state.status=='active' and state.count==1 and q.target==s.story.node and e.spawnId==q.rail.guard then
      state.count=2
+     chapterVictory(s,q,state)
      s.storyNotice='石切り場の番人を倒しました。分岐に止まった荷車を港へ送り出しましょう。'
     end
     if q.recovery and state.recovered and state.status=='active' and q.recovery.node==s.story.node then
@@ -444,7 +453,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if state then lantern.step(s,lanternQuest,state,dt) end
   end
   if contestQuest and s.story and s.story.active and s.returns==returns then
-   contest.step(s,contestQuest,s.story.quests[contestQuest.id])
+   local state=s.story.quests[contestQuest.id]
+   if contest.step(s,contestQuest,state) then chapterVictory(s,contestQuest,state) end
   end
   if s.railTrip and s.story.active and s.returns==returns then
    local n=nodes[s.story.node];local q,state=railQuest(s,n)
@@ -466,6 +476,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   for id,q in pairs(quests) do if q.join and s.story.quests[id] and s.story.quests[id].status=='complete' then f.storyJoined[q.join]=true end end
   if s.story.active then local n=nodes[s.story.node];f.location=n.name..'（本編試作）'
    f.storyCleared=cleared(s,n) and true or nil
+   local reward=s.storyFirstClear
+   if reward and s.t<reward.untilTime then f.storyFirstClear={quest=reward.quest,xp=reward.xp} end
    if n.clearedBy and not f.storyCleared then
     for _,e in ipairs(s.enemies) do
      if e.storyName and e.hp>0 then

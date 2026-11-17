@@ -105,8 +105,9 @@ walk(440)
 interact('勝負を申し込む')
 assert phase()==1 and len(s.enemies)==1
 kills, mora, combat_exp = s.kills, s.mora, s.progression.killXp
+xp_before_victory=s.progression.questXp
 fight(2)
-assert len(s.enemies)==0
+assert len(s.enemies)==0 and s.progression.questXp==xp_before_victory
 walk(560)
 interact('左の灯籠')
 assert '紙吹雪' in core.frame(s).storyContest.message
@@ -126,6 +127,7 @@ assert phase()==3 and len(s.enemies)==1
 combat_exp, kills, mora = s.progression.killXp,s.kills,s.mora
 fight(4)
 assert len(s.enemies)==0
+assert s.progression.questXp==xp_before_victory+335632 and core.frame(s).storyFirstClear.xp==335632
 assert s.kills==kills and (s.mora,s.progression.killXp)==(mora,combat_exp)
 walk(1320)
 through(cape)
@@ -168,7 +170,7 @@ evidence = {
     'requires_M02':True, 'cave_and_cape_gates':True, 'first_and_final_battle':True,
     'wrong_answers_retry':True, 'observation_has_no_combat_targets':True,
     'observation_survives_restore':True, 'cape_visit_and_revisit':True,
-    'replay_without_repeat_rewards':True, 'one_time_reward':{'xp':383670,'mora':550},
+    'replay_without_repeat_rewards':True, 'first_clear_xp':335632, 'one_time_reward':{'xp':383670,'mora':550},
 }
 (ROOT/'evidence/inazuma-m03-lua.json').write_text(json.dumps(evidence, indent=2)+'\n', encoding='utf8')
 print('Inazuma M03 battles, reflection, checkpoint, scenic exit and rewardless rematch passed')

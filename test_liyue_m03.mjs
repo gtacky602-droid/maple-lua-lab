@@ -80,9 +80,12 @@ try{
  assert.match(await page.locator('#storyElite').innerText(),/石切り場の番人/);
  await walk(1070);
  await atHeight(480);
+ const beforeVictory=await frame();
  await walk(1250,true);
  await page.keyboard.down('KeyJ');
  try{await progress(2)}finally{await page.keyboard.up('KeyJ')}
+ assert.match(await page.locator('#storyChapterReward').innerText(),/73,057 EXP/);
+ assert.equal((await frame()).progression.questXp-beforeVictory.progression.questXp,73057);
  await walk(1030);
  await page.keyboard.press('KeyG');
  await page.waitForFunction(()=>window.lab.frame.storyRailTransit?.release===false);
@@ -113,7 +116,7 @@ try{
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/liyue-m03-browser.json',JSON.stringify({
   browser:'Chrome', controls:'ordinary keyboard and HUD buttons', checkpoint:'M02 completion fixture',
-  keeper_hp_hud:true, animated_cart_and_dispatch:true, market_visible:true,
+  keeper_hp_hud:true, first_clear_xp:73057, animated_cart_and_dispatch:true, market_visible:true,
   report_and_restore:true, safe_revisit:true, viewport_390:true, errors
  },null,2)+'\n');
  console.log('Liyue M03 Chrome playthrough and save restore passed');

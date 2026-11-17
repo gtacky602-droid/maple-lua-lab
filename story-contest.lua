@@ -88,6 +88,7 @@ return function(C)
    if stage==3 then
     s.storyNotice=replay and '再戦はここまで。親分は笑ってお辞儀をしました。'
      or '化け力が尽き、親分は尻もち。笑い声とともに葉の幕が開きました。'
+    return not replay
    end
   end
  end

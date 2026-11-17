@@ -7,6 +7,7 @@
   "observation_survives_restore": true,
   "cape_visit_and_revisit": true,
   "replay_without_repeat_rewards": true,
+  "first_clear_xp": 335632,
   "one_time_reward": {
     "xp": 383670,
     "mora": 550

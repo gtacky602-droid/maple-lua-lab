@@ -4311,6 +4311,7 @@
     {
       "id": "mond-watchtower-clear",
       "designId": "Q-MON-M03",
+      "chapterClearCount": 1,
       "name": "街道を取り戻せ！",
       "requires": "mond-old-trail",
       "giver": "アンバー",
@@ -4446,6 +4447,7 @@
     {
       "id": "liyue-market-opening",
       "designId": "Q-LIY-M03",
+      "chapterClearCount": 2,
       "name": "開幕！ 山海の大市",
       "giver": "北斗",
       "requires": "liyue-caravan-search",
@@ -4722,6 +4724,7 @@
     {
       "id": "inazuma-lantern-contest",
       "designId": "Q-INA-M03",
+      "chapterClearCount": 4,
       "name": "今宵、化かし合いの大勝負！",
       "giver": "綾華",
       "requires": "inazuma-torii-maze",
