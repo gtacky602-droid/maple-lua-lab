@@ -2,47 +2,6 @@ return function(C)
  local moonfly={}
  local U=88
  local lime,fire,pale='#c9db48','#ffad57','#eef6c4'
- local damageFactor,healingFactor,step,action,frame=C.damageFactor,C.healingFactor,C.step,C.action,C.frame
- local function clear(state) state.moonflyEffects=nil;state.moonflyEffectSpec=nil end
- local function effect(state,id)
-  return state.moonflyEffects and state.moonflyEffects[id]
- end
- function C.damageFactor(state,cast,e,element)
-  local factor=damageFactor and damageFactor(state,cast,e,element) or 1
-  local mark=effect(state,cast.id)
-  if not mark then return factor end
-  local spec=state.moonflyEffectSpec
-  if mark.bound then return factor*spec.damageFactor end
-  return state.t<mark.untilTime and factor*spec.escapeFactor or factor
- end
- function C.healingFactor(state,a)
-  local factor=healingFactor and healingFactor(state,a) or 1
-  local mark=effect(state,a.id)
-  return mark and mark.bound and factor*state.moonflyEffectSpec.healFactor or factor
- end
- local function updateEffects(state)
-  if not state.moonflyEffects then return end
-  local spec=state.moonflyEffectSpec
-  if not state.story or state.story.node~=spec.node then clear(state);return end
-  for id,mark in pairs(state.moonflyEffects) do
-   local a=state.actors[id]
-   if a.hp<=0 or (not mark.bound and state.t>=mark.untilTime) then
-    state.moonflyEffects[id]=nil
-   elseif mark.bound and a.hp>=a.maxhp then
-    mark.bound=false
-    mark.untilTime=state.t+spec.escapeTicks/60
-   end
-  end
-  if not next(state.moonflyEffects) then clear(state) end
- end
- function C.step(state,dt,input)
-  step(state,dt,input)
-  if not state.paused then updateEffects(state) end
- end
- function C.action(state,key)
-  action(state,key)
-  updateEffects(state)
- end
  local function place(b,s,form,pose)
   b.form,b.pose=form,pose
   local hover=(pose=='green' or pose=='flame' or pose=='cocoon' or pose=='idle') and s.hover or 0
@@ -55,7 +14,7 @@ return function(C)
   place(b,s,'idle','idle')
  end
  function moonfly.cancel(b,s,state)
-  clear(state)
+  C.clearRadiantCocoons(state)
   moonfly.spawn(b,s)
  end
  function moonfly.onDefeat(state,b,s) moonfly.cancel(b,s,state) end
@@ -84,18 +43,6 @@ return function(C)
   end
   return c.left,c.right
  end
- local function bind(state,b,s,c)
-  state.moonflyEffects=state.moonflyEffects or {}
-  state.moonflyEffectSpec={node=s.node,damageFactor=s.cocoon.damageFactor,healFactor=s.cocoon.healFactor,
-                          escapeFactor=s.cocoon.escapeFactor,escapeTicks=s.cocoon.escapeTicks}
-  for _,a in ipairs(state.actors) do
-   if a.hp>0 and a.x>=c.left and a.x<=c.right then
-    C.damageActor(state,a,s.cocoon.damage,c.source,false,true)
-    if a.hp>0 then state.moonflyEffects[a.id]={bound=true} end
-   end
-  end
-  if not next(state.moonflyEffects) then clear(state) end
- end
  function moonfly.onHit(cast,b,_,slot,element)
   local c=slot.cast
   if not c or c.move.kind~='cocoon' or b.form~='winged' or cast.reaction or c.contacts[cast] then return end
@@ -111,7 +58,7 @@ return function(C)
   if t==m.lock then lock(c,s,a);b.facing=c.dir end
   local form,pose='attack','ready'
   if m.kind=='cocoon' then
-   if t==m.bind then bind(state,b,s,c) end
+   if t==m.bind then C.bindRadiantCocoon(state,s,c.source,c.left,c.right) end
    if t==m.flare then b.element='pyro' end
    if t>=m.bind then form,pose='winged',b.element=='pyro' and 'flame' or 'green' end
    if t>=m.charge then form,pose='charging','cocoon' end
@@ -133,7 +80,7 @@ return function(C)
   return true
  end
  function moonfly.label(b,c,_,state)
-  local mark=effect(state,state.active)
+  local mark=C.radiantCocoonEffect(state,state.active)
   if mark and mark.bound then return '集光の繭・HPを満タンまで回復' end
   if mark and state.t<mark.untilTime then return '脱出・与えるダメージ強化' end
   if b.form=='winged' then return (b.element=='pyro' and '炎の羽' or '草の羽')..'・'..c.move.title end
@@ -163,24 +110,6 @@ return function(C)
   local color=b.element=='pyro' and fire or lime
   if c then warning(f,c,state.camera,s.floorY,color) end
   C.drawMoonflyFieldArt(f,b.x-state.camera,b.y,b.pose,mode,profile,b.facing<0)
- end
- function C.frame(state,mode,profile)
-  local f=frame(state,mode,profile)
-  if not state.moonflyEffects then return f end
-  f.radiantCocoons={}
-  for id,mark in pairs(state.moonflyEffects) do
-   local a=state.actors[id]
-   local x=a.x-state.camera
-   local bound=mark.bound
-   local color=bound and lime or '#a4eaff'
-   rect(f,x-18,a.y-55,3,50,color)
-   rect(f,x+15,a.y-55,3,50,color)
-   f.draws[#f.draws+1]={kind='text',x=x,y=a.y-65,text=bound and '集光の繭' or '脱出',size=12,color=color}
-   f.radiantCocoons[#f.radiantCocoons+1]={actor=id,bound=not not bound,
-     remaining=mark.untilTime and math.max(0,mark.untilTime-state.t) or nil}
-  end
-  f.commands=#f.draws
-  return f
  end
  return moonfly
 end

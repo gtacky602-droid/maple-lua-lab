@@ -1,0 +1,28 @@
+{
+  "twoTailWindowsAndLockedLanding": true,
+  "airborneHurtbox": true,
+  "distinctCastsBreakAnchor": true,
+  "anchorBacklashDealsDamageAndCanDefeat": true,
+  "previousCastsAndReactionsRejected": true,
+  "geoRemovesTwoLayers": true,
+  "anchorHasNoKillRewards": true,
+  "finalTickBreakCancelsRelease": true,
+  "fullHealthEscapeLowersGeoResistance": true,
+  "geoDamage": {
+    "base": 13,
+    "escaped": 24
+  },
+  "unbrokenAnchorHasOneRelease": true,
+  "saveExitAndDeathCleanUp": true,
+  "oneRewardAndReport": true,
+  "normalAttackWithoutHealing": {
+    "seconds": 94.82,
+    "hp": 80,
+    "anchorInterruptions": 5
+  },
+  "sameSceneCommands": {
+    "png": 53,
+    "standard": 12435,
+    "light": 3401
+  }
+}

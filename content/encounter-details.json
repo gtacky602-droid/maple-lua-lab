@@ -498,10 +498,12 @@
       }
     },
     "boss-26302101": {
+      "remaining": ["錨の層数・繭の倍率・時刻と報酬の調整", "被弾・撃破の追加作画と音", "Webマルチと幻境実機"],
+      "extra_evidence": ["https://genshin.hoyoverse.com/m/ja/news/detail/162806","evidence/moongecko-field-lua.json","evidence/moongecko-field-browser.json"],
       "art_candidate": {
         "item": "moongecko",
-        "audit": "evidence/moongecko-reference-audit.json",
-        "status": "idle candidate"
+        "audit": "evidence/moongecko-field-art-audit.json",
+        "status": "Web field prototype with five boss poses and a Moonstone Anchor"
       }
     },
     "bathysmal-herd": {

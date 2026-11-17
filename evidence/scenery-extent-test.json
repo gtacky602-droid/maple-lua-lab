@@ -452,6 +452,36 @@
       "transparent": 0
     },
     {
+      "key": "moongeckoField",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "moongeckoField",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "moongeckoField",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "moongeckoField",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "moongeckoField",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "moongeckoField",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "generatorField",
       "camera": -960,
       "transparent": 0

@@ -1,5 +1,5 @@
 {
-  "count": 79,
+  "count": 80,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -42,6 +42,7 @@
     "Frostnight Herra has a Nod-Krai terrace route",
     "The Whisperer of Nightmares has a Smokecloud Mountain shore route",
     "Radiant Moonfly has a Nod-Krai cavern route",
+    "Radiant Moongecko has a Nod-Krai moonstone cavern route",
     "public roster matched without merging Icewind modes or Dottore challenges",
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",

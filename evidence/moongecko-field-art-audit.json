@@ -1,0 +1,218 @@
+{
+  "tool": "built-in image_gen",
+  "references": [
+    {
+      "url": "https://img.gamewith.jp/img/original_60253542d65f5f449b9739201fc3e1ea.jpg",
+      "page": "https://gamewith.jp/genshin/article/show/232413",
+      "view": "Japanese preview design and angular tail; some upper detail cropped",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "1673f0740069d338f7ace67c5a607807b2e50e02a8fd0f7a290bdd1ffd038148"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/3d5ffee48b8f18e832eea509d2114e35.png",
+      "page": "https://gamewith.jp/genshin/article/show/545469",
+      "view": "Gameplay reveals low front crouch and leg spread",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "5d8a6d088953cf81be08c3c5c1332718df748af897898dc790f4f751d2628452"
+    }
+  ],
+  "poses": {
+    "ready": {
+      "height": 170,
+      "crop": [
+        0,
+        0,
+        620,
+        550
+      ],
+      "original": [
+        15,
+        115,
+        458,
+        436
+      ],
+      "box": [
+        25,
+        25,
+        443,
+        321
+      ],
+      "anchor": 0.5485327313769752,
+      "profiles": {
+        "legacy": 10162,
+        "h48c32": 6401,
+        "h32c16": 2763
+      }
+    },
+    "tail": {
+      "height": 140,
+      "crop": [
+        620,
+        0,
+        620,
+        550
+      ],
+      "original": [
+        527,
+        222,
+        998,
+        453
+      ],
+      "box": [
+        645,
+        25,
+        471,
+        231
+      ],
+      "anchor": 0.5456475583864119,
+      "profiles": {
+        "legacy": 11763,
+        "h48c32": 7659,
+        "h32c16": 3220
+      }
+    },
+    "leap": {
+      "height": 140,
+      "crop": [
+        1240,
+        0,
+        620,
+        550
+      ],
+      "original": [
+        1053,
+        130,
+        1521,
+        387
+      ],
+      "box": [
+        1265,
+        25,
+        468,
+        257
+      ],
+      "anchor": 0.48504273504273504,
+      "profiles": {
+        "legacy": 8719,
+        "h48c32": 5447,
+        "h32c16": 2388
+      }
+    },
+    "charge": {
+      "height": 175,
+      "crop": [
+        0,
+        550,
+        620,
+        550
+      ],
+      "original": [
+        53,
+        567,
+        452,
+        944
+      ],
+      "box": [
+        25,
+        575,
+        399,
+        377
+      ],
+      "anchor": 0.518796992481203,
+      "profiles": {
+        "legacy": 8655,
+        "h48c32": 5440,
+        "h32c16": 2351
+      }
+    },
+    "down": {
+      "height": 95,
+      "crop": [
+        620,
+        550,
+        620,
+        550
+      ],
+      "original": [
+        502,
+        711,
+        1049,
+        944
+      ],
+      "box": [
+        645,
+        575,
+        547,
+        233
+      ],
+      "anchor": 0.5191956124314442,
+      "profiles": {
+        "legacy": 5853,
+        "h48c32": 3621,
+        "h32c16": 1590
+      }
+    },
+    "anchor": {
+      "height": 92,
+      "crop": [
+        1240,
+        550,
+        620,
+        550
+      ],
+      "original": [
+        1127,
+        569,
+        1450,
+        940
+      ],
+      "box": [
+        1265,
+        575,
+        323,
+        371
+      ],
+      "anchor": 0.5046439628482973,
+      "profiles": {
+        "legacy": 2046,
+        "h48c32": 1253,
+        "h32c16": 552
+      }
+    }
+  },
+  "prompts": [
+    "Exact transparent pixel-art sprite atlas with 3 columns and 2 rows and generous clear gutters in every cell. Six keyed poses based on the attached Japanese official monster illustration, game scene and existing idle pixel sprite of Radiant Moongecko. Same squat quadrupedal rock gecko with slate blue-gray heavy segmented carapace, broad dark crest and long bladed golden eyebrows, small lavender eye, gold diamond shoulder crystals, four broad clawed feet, and long tail ending in large OPEN gold angular lattice frames around an amber crystal (do not turn the tail into a solid blob). Preserve monster proportions. All five creature bodies face RIGHT, tail left, with footprints aligned to clear individual baselines. Top left anticipatory low crouch, forelegs bent and head drawing back, tail lifted. Top middle tail-sweep attack, low head and chest, tail lowered and swung toward the right while hips twist; all feet remain readable. Top right compact leaping pose with all four feet tucked under the body and tail extending backward-left. Bottom left charging crouch, bright amber eyebrow crystals and tail lattice raised upright to channel light, no outside glow. Bottom middle exhausted grounded recovery with chin and chest near floor, feet spread and tail lattice dim and lowered. Bottom right one separate Moonstone Anchor device inspired by the gecko's angular gold motifs, a squat stepped slate-gray stone pillar base with a gold diamond core and angular GOLD OPEN ring and four flat petal-like crystal braces. No creature in this last cell. Exact transparent alpha, no background matte, outer glow, text, shadows, rubble, grid, divider lines or shared strokes. Hard crisp pixel clusters, clear dark contour and warm gold accents.",
+    "Original 16:9 side-on pixel RPG battle backdrop inspired by the attached underground Radiant Moongecko game screenshot. Deep limestone and weathered slate chamber beneath Nod-Krai's Wavechaser Plain. Subdued olive-gold sandy stone floor across lower quarter, slate-gray pillars and layered cave walls, sparse dark moss in cracks, a few very small pale cyan mineral glints high on the back wall, broad central empty fighting space. The walls have soft diffuse cool shadows so gold crystals on a foreground lizard will read clearly, with no bright gold foreground props. A continuous horizontal flat sandstone apron starts around 72 percent down. No characters, UI, symbols, text, bright hazard stripes or floor obstructions. Crisp coherent finely textured pixel art."
+  ],
+  "raw_atlas_sha256": "39c9d7e8d2deb3b7c67ee27d5343c7d8063a62ce5e6bad5929b754d1321210cb",
+  "idle_sha256": "858c210a8c4f63d5964cdcb6f4c1f2464c287df818d21e5372683fa125e7d076",
+  "outputs": {
+    "moongecko-field-poses-source-v1.png": "77c63fbaa0b87aad9c26f686bb2d6e38d0e885bf8523dbc3b651229723d60d8c",
+    "moongecko-field-background-v1.png": "296e792c3794e30ad0588589cf2d25bc9b4048bad0b04741ec33b9762fd51c91"
+  },
+  "model_lookup": "Exact-name and Models Resource searches did not yield a usable model. Underside and wing depth unverified.",
+  "notes": [
+    "Six connected silhouettes repacked with transparent gutters. Matte outside connected outlines removed.",
+    "The quadruped keeps the existing monster proportions. Five bodies and a standalone anchor were generated.",
+    "The sandstone cavern is a temporary lab background inspired by the viewed in-game cave scene.",
+    "The charge pose is a frontal crouch. Idle is left-facing; other side-view poses face right."
+  ],
+  "visual_review": {
+    "reviewed": [
+      "moongecko-field-png.png",
+      "moongecko-field-light.png",
+      "moongecko-field-down.png",
+      "moongecko-field-escape.png"
+    ],
+    "observations": [
+      "The amber tail lattice and squat slate carapace remain readable in both render modes.",
+      "The standalone Moonstone Anchor has a distinct diamond core and five visible layer marks.",
+      "The down pose is lower and the surviving cocoon remains on affected characters until healing.",
+      "The pale-blue escape indicator appears when the controlled character reaches full health.",
+      "Small eye, crystal facets and ring gaps merge in the lightweight profile."
+    ],
+    "scope": "Local fixed-state drawing commands; native frame timing unverified."
+  }
+}

@@ -813,12 +813,12 @@
     {
       "node": "nod-field",
       "mode": "sprite",
-      "visible_portals": 8
+      "visible_portals": 9
     },
     {
       "node": "nod-field",
       "mode": "rect",
-      "visible_portals": 8
+      "visible_portals": 9
     },
     {
       "node": "nod-duckle-workyard",
@@ -867,6 +867,16 @@
     },
     {
       "node": "nod-moonfly-hollow",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "nod-gecko-depths",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "nod-gecko-depths",
       "mode": "rect",
       "visible_portals": 1
     },

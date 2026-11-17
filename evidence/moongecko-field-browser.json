@@ -1,0 +1,40 @@
+{
+  "browser": "Chrome",
+  "companion": "wanderer",
+  "play": {
+    "won": true,
+    "seconds": 63.58,
+    "moves": [
+      "FMG01",
+      "FMG02",
+      "FMG03"
+    ],
+    "hp": 116,
+    "returns": 0,
+    "healed": true,
+    "escaped": true,
+    "anchorBroken": true
+  },
+  "scenery": {
+    "key": "moongeckoField",
+    "file": "moongecko-field-background-v1.png",
+    "state": "ready"
+  },
+  "questAcceptedInUi": true,
+  "questReport": {
+    "xp": 9600,
+    "mora": 670
+  },
+  "sameSceneCommands": {
+    "png": 61,
+    "standard": 14479,
+    "light": 3983
+  },
+  "healedToFull": true,
+  "escapedAt": 25.533333333333164,
+  "cocoonActor": 1,
+  "anchorBrokenTick": 206,
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}

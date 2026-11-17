@@ -1391,6 +1391,22 @@
         {"id":"FMF02","kind":"bolts","title":"二つの月光弾","reach":226,"lock":54,"offsets":[0.85,2.15],"width":1.0,"height":0.7,"active":[[112,126],[180,194]],"recover":222,"total":306,"damage":22,"element":"dendro"},
         {"id":"FMF03","kind":"cocoon","title":"集光の繭・羽の解放","reach":230,"lock":60,"radius":2.35,"bind":96,"flare":170,"charge":398,"height":0.76,"active":[[214,228],[322,336],[450,466]],"recover":490,"total":640,"damage":25,"element":"pyro"}
       ]
+    },
+    {
+      "id":"boss-26302101","controller":"moongecko","entity":26302101,
+      "name":"集光の月ヤモリ","node":"nod-gecko-depths","storyChallenge":"moongecko",
+      "level":132,"hp":1160,"mora":495,"artHeight":170,"floorY":480,"home":940,
+      "arenaMin":325,"arenaMax":1580,"noticeRange":350,"noticeTicks":36,"restTicks":42,
+      "leashTicks":360,"respawnTicks":3600,"walkSpeed":62,"contactDamage":0,"keepHpOnExit":true,
+      "resist":{"geo":0.4},
+      "cocoon":{"damage":12,"damageFactor":0.75,"healFactor":0.7,"escapeFactor":1.2,"escapeTicks":480,
+                "geoEscapeFactor":1.5,"color":"#ffc440"},
+      "anchor":{"layers":5,"geoLayers":2,"offset":1.2,"downTicks":180,"backlashAttack":80},
+      "moves":[
+        {"id":"FMG01","kind":"tail","title":"月石尾の二連薙ぎ","reach":209,"lock":48,"near":0.1,"far":2.2,"height":0.68,"active":[[104,116],[174,186]],"recover":212,"total":288,"damage":21,"element":"geo"},
+        {"id":"FMG02","kind":"leap","title":"岩尾の跳び込み","reach":220,"lock":56,"distance":1.55,"width":1.8,"height":0.78,"air":[90,134],"lift":1.0,"active":[[134,148]],"recover":182,"total":286,"damage":26,"element":"geo"},
+        {"id":"FMG03","kind":"anchor","title":"月石の錨・空虚の残響","reach":230,"lock":60,"radius":2.4,"bind":96,"deploy":112,"height":0.74,"active":[[480,496]],"recover":520,"total":640,"damage":34,"element":"geo"}
+      ]
     }
   ]
 }

@@ -524,6 +524,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "nod-gecko-depths",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "nod-town",
       "count": 0,
       "fallback": false,

@@ -97,8 +97,8 @@ c=until(state,slot,'FMF03',60)
 spot(hero,boss.x-88)
 hero.hp,hero.inv=hero.maxhp,0
 until(state,slot,'FMF03',96)
-assert hero.hp==128 and state.moonflyEffects[1].bound
-assert state.moonflyEffects[2] is None
+assert hero.hp==128 and state.radiantCocoonEffects[1].bound
+assert state.radiantCocoonEffects[2] is None
 bound=strike(state,boss)
 assert bound==math.floor(24*100/105*.75)<base
 assert math.isclose(core.healActor(state,hero,10),7)
@@ -106,7 +106,7 @@ assert hero.hp==135
 spot(hero,boss.x+300)
 assert core.attack(state,hero,'SK18')
 ticks(state,180)
-mark=state.moonflyEffects[1]
+mark=state.radiantCocoonEffects[1]
 assert hero.hp==hero.maxhp and not mark.bound
 escaped=strike(state,boss)
 assert escaped==math.floor(24*100/105*1.2)>base
@@ -126,7 +126,7 @@ assert png.t==standard.t==light.t and light.commands<standard.commands
 assert any(d.source=='moonfly-field-poses-source-v1.png' for d in png.draws.values())
 assert png.fieldBoss.hp==boss.hp and lua.eval('rawequal')(boss,slot.enemy)
 ticks(state,482)
-assert state.moonflyEffects is None and strike(state,boss)==base
+assert state.radiantCocoonEffects is None and strike(state,boss)==base
 
 # Avoiding the initial flash leaves the actor unaffected.
 state,slot,boss,hero=make()
@@ -134,7 +134,7 @@ c=until(state,slot,'FMF03',60)
 spot(hero,c.right+60)
 hp=hero.hp
 until(state,slot,'FMF03',96)
-assert hero.hp==hp and state.moonflyEffects is None
+assert hero.hp==hp and state.radiantCocoonEffects is None
 until(state,slot,'FMF03',398)
 assert boss.form=='charging' and boss.pose=='cocoon'
 spot(hero,boss.x)
@@ -151,10 +151,10 @@ for a in state.actors.values():
     a.hp,a.inv=a.maxhp,0
     spot(a,boss.x-88)
 until(state,slot,'FMF03',96)
-assert state.moonflyEffects[1].bound and state.moonflyEffects[2].bound
+assert state.radiantCocoonEffects[1].bound and state.radiantCocoonEffects[2].bound
 core.healActor(state,hero,100)
 ticks(state)
-assert not state.moonflyEffects[1].bound and state.moonflyEffects[2].bound
+assert not state.radiantCocoonEffects[1].bound and state.radiantCocoonEffects[2].bound
 assert state.actors[2].hp<state.actors[2].maxhp
 meal_quest='liyue-harbor-meal'
 state.story.quests[meal_quest]=lua.table_from(
@@ -162,9 +162,9 @@ state.story.quests[meal_quest]=lua.table_from(
 state.active=2
 state.actors[2].hp=100
 core.action(state,'story_eat_meal:'+meal_quest)
-assert math.isclose(state.actors[2].hp,124.5) and state.moonflyEffects[2].bound
+assert math.isclose(state.actors[2].hp,124.5) and state.radiantCocoonEffects[2].bound
 core.action(state,'story_eat_meal:'+meal_quest)
-assert state.actors[2].hp==140 and not state.moonflyEffects[2].bound
+assert state.actors[2].hp==140 and not state.radiantCocoonEffects[2].bound
 assert state.story.quests[meal_quest].cooking.meals==0
 
 # Saving and exiting cancel the transient effects while preserving boss HP.
@@ -177,14 +177,14 @@ until(state,slot,'FMF03',96)
 hp=boss.hp
 snap=validate_save(native(core.checkpoint(state)))
 restored=core.restore(lua.table_from(snap,recursive=True),12)
-assert restored.fieldSlots[boss_id].enemy.hp==hp and restored.moonflyEffects is None
+assert restored.fieldSlots[boss_id].enemy.hp==hp and restored.radiantCocoonEffects is None
 portal(state,65,road)
-assert state.moonflyEffects is None and slot.cast is None and boss.hp==hp
+assert state.radiantCocoonEffects is None and slot.cast is None and boss.hp==hp
 portal(state,180,arena)
 boss.hp=1
 mora=state.mora
 assert strike(state,boss)==1 and slot.phase=='respawn' and slot.cast is None
-assert state.moonflyEffects is None and state.story.quests[quest].count==1 and state.mora==mora+485
+assert state.radiantCocoonEffects is None and state.story.quests[quest].count==1 and state.mora==mora+485
 snap=validate_save(native(core.checkpoint(state)))
 assert snap['fieldBosses'][boss_id]['waitTicks']==3600
 restored=core.restore(lua.table_from(snap,recursive=True),12)

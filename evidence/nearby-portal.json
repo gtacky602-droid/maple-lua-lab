@@ -857,6 +857,10 @@
       "to": "nod-moonfly-hollow"
     },
     {
+      "node": "nod-field",
+      "to": "nod-gecko-depths"
+    },
+    {
       "node": "nod-duckle-workyard",
       "to": "nod-field"
     },
@@ -874,6 +878,10 @@
     },
     {
       "node": "nod-moonfly-hollow",
+      "to": "nod-field"
+    },
+    {
+      "node": "nod-gecko-depths",
       "to": "nod-field"
     },
     {
