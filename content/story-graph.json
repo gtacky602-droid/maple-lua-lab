@@ -3071,6 +3071,10 @@
         {
           "to": "novokichev-camp",
           "x": 60
+        },
+        {
+          "to": "wavebinder-tide-cavern",
+          "x": 1030
         }
       ],
       "checkpoint": "novokichev-camp",
@@ -4544,7 +4548,8 @@
     {"id":"windrest-vigil-court","name":"ドーンマンポート・風息山の石庭","region":"ドーンマンポート","level":18,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"dornman-camp","x":65}],"checkpoint":"dornman-camp"},
     {"id":"flugel-tundra-basin","name":"スネージナヤ・古獣の氷原の西谷","region":"スネージナヤ","level":144,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"snezhnaya-field","x":65}],"checkpoint":"snezhnaya-hub"},
     {"id":"drifting-snow-court","name":"スネージナヤ・氷冠の雪庭","region":"スネージナヤ","level":148,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"snezhnaya-field","x":65}],"checkpoint":"snezhnaya-hub"},
-    {"id":"immortal-construct-root-hollow","name":"スネージナヤ・赤葉の根洞","region":"スネージナヤ","level":142,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"snezhnaya-field","x":65}],"checkpoint":"snezhnaya-hub"}
+    {"id":"immortal-construct-root-hollow","name":"スネージナヤ・赤葉の根洞","region":"スネージナヤ","level":142,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"snezhnaya-field","x":65}],"checkpoint":"snezhnaya-hub"},
+    {"id":"wavebinder-tide-cavern","name":"ノヴォキッチェヴ・西港の潮洞（仮配置）","region":"ノヴォキッチェヴ（仮構造）","level":152,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"novokichev-depth","x":65}],"checkpoint":"novokichev-camp","branch":true,"lightReference":50,"barrier":0}
   ],
   "quests": [
     {
@@ -5667,6 +5672,7 @@
     {"id":"fallen-vigil-commission","name":"守護者・堕天の討伐調査","hub":"dornman-camp","target":"fallen-vigil","kind":"boss","goal":1,"xp":1400,"mora":220,"note":"入口拠点から風息山の石庭へ進み、守護者・堕天を倒す。元素星は通常攻撃でも壊せる。"},
     {"id":"flugel-commission","name":"合成獣・フリューゲルレーヴェの討伐調査","hub":"snezhnaya-hub","target":"flugel","kind":"boss","goal":1,"xp":10400,"mora":710,"note":"凍った街道から古獣の氷原の西谷へ進み、フリューゲルレーヴェを倒す。守りと風の球は通常攻撃でも対処できる。"},
     {"id":"drifting-snow-commission","name":"游雪のブレードガーディアンの討伐調査","hub":"snezhnaya-hub","target":"drifting-snow","kind":"boss","goal":1,"xp":10800,"mora":730,"note":"凍った街道から氷冠の雪庭へ進む。氷の棺は通常攻撃でも破壊でき、炎・雷・風が有効。壊せば反撃の好機。"},
-    {"id":"immortal-construct-commission","name":"不滅の副産物の討伐調査","hub":"snezhnaya-hub","target":"immortal-construct","kind":"boss","goal":1,"xp":10600,"mora":720,"note":"凍った街道から赤葉の根洞へ進む。蘇生の守りを削って小波を止め、すべて壊せば灼焔の華を中断できる。通常攻撃でも対処可。"}
+    {"id":"immortal-construct-commission","name":"不滅の副産物の討伐調査","hub":"snezhnaya-hub","target":"immortal-construct","kind":"boss","goal":1,"xp":10600,"mora":720,"note":"凍った街道から赤葉の根洞へ進む。蘇生の守りを削って小波を止め、すべて壊せば灼焔の華を中断できる。通常攻撃でも対処可。"},
+    {"id":"wavebinder-commission","name":"波濤の投錨者の討伐調査","hub":"novokichev-camp","target":"wavebinder","kind":"boss","goal":1,"xp":11200,"mora":750,"note":"探索路から西港の潮洞へ。飲み物は直接攻撃で妨害できる。豪胆値が満ちると強化されるが、雷や時間経過で解除でき、通常攻撃でも討伐可。"}
   ]
 }

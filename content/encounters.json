@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 70,
-    "partial": 49,
+    "partial": 50,
     "complete": 0
   },
   "encounters": [
@@ -1906,24 +1906,28 @@
       "entity_ids": [
         "25134601"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
         "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/wavebinder.json",
-        "https://genshin.hoyoverse.com/ja/news/detail/167187"
+        "https://genshin.hoyoverse.com/ja/news/detail/167187",
+        "evidence/wavebinder-field-lua.json",
+        "evidence/wavebinder-field-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "原作の星反応と本作の採用技の対応",
+        "豪胆値・物理代替・時刻・地域数値・周回報酬の調整",
+        "左右別・連続動作・被弾・撃破の作画と音",
+        "背面モデル照合・Webマルチ・幻境実機"
       ],
+      "fieldNode": "wavebinder-tide-cavern",
+      "fieldEntrance": "ノヴォキッチェヴ・西港の潮洞（仮配置）（Lv152）",
       "art_candidate": {
         "source": "assets/wavebinder-idle-source-v1.png",
         "encoding": "assets/wavebinder-idle-sprites.json",
-        "audit": "evidence/wavebinder-reference-audit.json",
-        "status": "idle candidate"
+        "audit": "evidence/wavebinder-field-art-audit.json",
+        "status": "Legacy gallery idle retained; Web battle uses five stocky sea-beast poses and a separate anchor"
       }
     },
     {

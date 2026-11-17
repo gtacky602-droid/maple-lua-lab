@@ -2058,6 +2058,174 @@
       "recovery": 96
     }
   ]
+},
+{
+  "id": "boss-25134601",
+  "controller": "wavebinder",
+  "entity": 25134601,
+  "name": "波濤の投錨者",
+  "node": "wavebinder-tide-cavern",
+  "storyChallenge": "wavebinder",
+  "level": 152,
+  "hp": 1160,
+  "mora": 570,
+  "artHeight": 200,
+  "bodyHeight": 145,
+  "floorY": 480,
+  "home": 940,
+  "arenaMin": 325,
+  "arenaMax": 1580,
+  "noticeRange": 350,
+  "noticeTicks": 36,
+  "restTicks": 42,
+  "leashTicks": 360,
+  "respawnTicks": 3600,
+  "walkSpeed": 60,
+  "contactDamage": 0,
+  "keepHpOnExit": true,
+  "resist": {},
+  "courage": {
+    "max": 12,
+    "gain": 4,
+    "electroDrain": 3,
+    "drinkHits": 4,
+    "electroDrinkHits": 2,
+    "drainTicks": 60,
+    "damageFactor": 0.75,
+    "downTicks": 180,
+    "drinkDownTicks": 120,
+    "downFactor": 1.2
+  },
+  "moves": [
+    {
+      "id": "WB01",
+      "kind": "sweep",
+      "title": "錨の二連薙ぎ",
+      "reach": 220,
+      "lock": 48,
+      "near": 0.1,
+      "far": 2.3,
+      "height": 0.68,
+      "active": [
+        [
+          104,
+          116
+        ],
+        [
+          174,
+          186
+        ]
+      ],
+      "recover": 212,
+      "total": 288,
+      "damage": 21,
+      "valiant": {
+        "id": "WB01",
+        "kind": "sweep",
+        "title": "勇躍・錨の三連薙ぎ",
+        "reach": 220,
+        "lock": 48,
+        "near": 0.1,
+        "far": 2.3,
+        "height": 0.68,
+        "active": [
+          [
+            104,
+            116
+          ],
+          [
+            174,
+            186
+          ],
+          [
+            244,
+            256
+          ]
+        ],
+        "recover": 282,
+        "total": 350,
+        "damage": 26
+      }
+    },
+    {
+      "id": "WB02",
+      "kind": "throw",
+      "title": "投錨と鎖の引き戻し",
+      "reach": 250,
+      "lock": 54,
+      "distance": 2.5,
+      "width": 1.6,
+      "height": 0.68,
+      "flight": 76,
+      "land": 126,
+      "active": [
+        [
+          126,
+          140
+        ],
+        [
+          204,
+          218
+        ]
+      ],
+      "recover": 246,
+      "total": 322,
+      "damage": 23,
+      "element": "hydro",
+      "valiant": {
+        "id": "WB02",
+        "kind": "throw",
+        "title": "勇躍・投錨と鎖の引き戻し",
+        "reach": 250,
+        "lock": 54,
+        "distance": 2.5,
+        "width": 1.6,
+        "height": 0.68,
+        "flight": 76,
+        "land": 126,
+        "active": [
+          [
+            126,
+            140
+          ],
+          [
+            204,
+            218
+          ]
+        ],
+        "recover": 246,
+        "total": 322,
+        "damage": 29,
+        "element": "hydro"
+      }
+    },
+    {
+      "id": "WB03",
+      "kind": "drink",
+      "title": "熱い飲み物",
+      "reach": 250,
+      "lock": 48,
+      "open": 60,
+      "gains": [
+        100,
+        160,
+        220
+      ],
+      "close": 220,
+      "recover": 240,
+      "total": 288,
+      "active": [],
+      "valiant": {
+        "id": "WB03",
+        "kind": "rest",
+        "title": "勇躍・熱い息継ぎ",
+        "reach": 250,
+        "lock": 0,
+        "total": 60,
+        "active": []
+      }
+    }
+  ]
 }
   ]
 }

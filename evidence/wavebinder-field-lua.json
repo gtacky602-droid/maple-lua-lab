@@ -1,0 +1,32 @@
+{
+  "twoFixedAnchorSweeps": true,
+  "lockedThrowAndPull": true,
+  "physicalFreshDrinkInterrupt": true,
+  "oldReactionsAndMultiHitExcluded": true,
+  "electroDrainsCourageAndSpeedsDrinkInterrupt": true,
+  "partialDrinkRetainsCourage": true,
+  "fullDrinkEntersValiantAndThreeSweeps": true,
+  "valiantThrowAndPullBothHit": true,
+  "natural720TickRageEnd": true,
+  "earlyRageDoesNotRefillOnLaterSip": true,
+  "electroStaggerBeatsNextDamageWindow": true,
+  "HPZeroBeatsDrinkAndRageEnd": true,
+  "saveExitAndOneRewardReportRespawn": true,
+  "normalAttackWithoutHealing": {
+    "seconds": 89.55,
+    "hp": 140,
+    "drinkInterrupts": 3,
+    "naturalRageEnds": 2
+  },
+  "physicalWithoutDrinkInterrupt": {
+    "seconds": 125.88,
+    "hp": 140,
+    "drinkInterrupts": 0,
+    "naturalRageEnds": 6
+  },
+  "sameSceneCommands": {
+    "png": 29,
+    "standard": 12458,
+    "light": 3478
+  }
+}

@@ -632,6 +632,36 @@
       "transparent": 0
     },
     {
+      "key": "wavebinderField",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "wavebinderField",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "wavebinderField",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "wavebinderField",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "wavebinderField",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "wavebinderField",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "generatorField",
       "camera": -960,
       "transparent": 0

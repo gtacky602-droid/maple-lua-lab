@@ -670,13 +670,12 @@
       }
     },
     "boss-25134601": {
-      "extra_evidence": [
-        "https://genshin.hoyoverse.com/ja/news/detail/167187"
-      ],
+      "remaining": ["原作の星反応と本作の採用技の対応", "豪胆値・物理代替・時刻・地域数値・周回報酬の調整", "左右別・連続動作・被弾・撃破の作画と音", "背面モデル照合・Webマルチ・幻境実機"],
+      "extra_evidence": ["https://genshin.hoyoverse.com/ja/news/detail/167187", "evidence/wavebinder-field-lua.json", "evidence/wavebinder-field-browser.json"],
       "art_candidate": {
         "item": "wavebinder",
-        "audit": "evidence/wavebinder-reference-audit.json",
-        "status": "idle candidate"
+        "audit": "evidence/wavebinder-field-art-audit.json",
+        "status": "Legacy gallery idle retained; Web battle uses five stocky sea-beast poses and a separate anchor"
       }
     },
     "boss-25520101": {

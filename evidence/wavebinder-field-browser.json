@@ -1,0 +1,39 @@
+{
+  "browser": "Chrome",
+  "companion": "wanderer",
+  "play": {
+    "won": true,
+    "seconds": 46.35,
+    "moves": [
+      "WB01",
+      "WB02",
+      "WB03"
+    ],
+    "hp": 140,
+    "returns": 0,
+    "drinkBroken": true,
+    "valiantBroken": true,
+    "sawValiant": true,
+    "electroCasts": 4
+  },
+  "scenery": {
+    "key": "wavebinderField",
+    "file": "wavebinder-field-background-v1.png",
+    "state": "ready"
+  },
+  "questAcceptedInUi": true,
+  "questReport": {
+    "xp": 11200,
+    "mora": 750
+  },
+  "drinkInterrupted": true,
+  "valiantInterrupted": true,
+  "sameSceneCommands": {
+    "png": 37,
+    "standard": 14502,
+    "light": 4060
+  },
+  "savedRespawn": true,
+  "viewport390": true,
+  "errors": []
+}

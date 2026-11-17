@@ -1,5 +1,5 @@
 {
-  "controllers": 48,
+  "controllers": 49,
   "ids": [
     "boss-26110101",
     "boss-26020101",
@@ -48,7 +48,8 @@
     "boss-24111101",
     "boss-26310501",
     "boss-25135202",
-    "boss-25140101"
+    "boss-25140101",
+    "boss-25134601"
   ],
   "hpAndGenerationRoundTrip": true,
   "optionalFlagsOnlyOnDeclaredControllers": true,

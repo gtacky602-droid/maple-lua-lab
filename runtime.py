@@ -270,6 +270,9 @@ def runtime():
     immortal_construct=lua.execute((ROOT/'field-immortal-construct.lua').read_text(encoding='utf-8'))(core)
     core.immortalConstructFieldArt=field_art(lua,'immortal-construct',('ready','rake','wing','bloom','down','seed'),
                                            idle='immortal-construct-field-ready-sprites-v1.json')
+    wavebinder=lua.execute((ROOT/'field-wavebinder.lua').read_text(encoding='utf-8'))(core)
+    core.wavebinderFieldArt=field_art(lua,'wavebinder',('ready','sweep','throw','drink','down','anchor'),
+                                    idle='wavebinder-field-ready-sprites-v1.json')
     core.aeonblightFieldArt=field_art(lua,'aeonblight',('wing_first','wing_second','cannon','windup','dash','down'),
                                      idle='aeonblight-idle-sprites.json')
     bathysmal=lua.execute((ROOT/'field-bathysmal.lua').read_text(encoding='utf-8'))(core)
@@ -299,7 +302,7 @@ def runtime():
                         'icewind':icewind,'legatus':legatus,'suanni':suanni,'qucusaur':qucusaur,'yumka':yumka,
                         'configDevice':config_device,'papilla':papilla,'lavaDragon':lava_dragon,'overseer':overseer,
                         'knuckleDuck':knuckle_duck,'battleship':battleship,'frostnightHerra':frostnight_herra,
-                        'whispererNightmares':whisperer_nightmares,'moonfly':moonfly,'moongecko':moongecko,'spiritspeaker':spiritspeaker,'fallenVigil':fallen_vigil,'flugel':flugel,'driftingSnow':drifting_snow,'immortalConstruct':immortal_construct})
+                        'whispererNightmares':whisperer_nightmares,'moonfly':moonfly,'moongecko':moongecko,'spiritspeaker':spiritspeaker,'fallenVigil':fallen_vigil,'flugel':flugel,'driftingSnow':drifting_snow,'immortalConstruct':immortal_construct,'wavebinder':wavebinder})
     )
     return lua, core
 

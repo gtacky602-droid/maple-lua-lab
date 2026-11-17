@@ -1103,12 +1103,12 @@
     {
       "node": "novokichev-depth",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "novokichev-depth",
       "mode": "rect",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "wingspan-camp",
@@ -1607,6 +1607,16 @@
     },
     {
       "node": "immortal-construct-root-hollow",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "wavebinder-tide-cavern",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "wavebinder-tide-cavern",
       "mode": "rect",
       "visible_portals": 1
     }

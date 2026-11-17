@@ -1,0 +1,204 @@
+{
+  "tool": "built-in image_gen",
+  "references": [
+    {
+      "url": "https://img.gamewith.jp/img/original_b51d25827e041c5630a24bfd1ed9fd48.jpeg",
+      "page": "https://gamewith.jp/genshin/article/show/235614",
+      "view": "Preview: anchor, cap, belly emblem and clothing; tips and boots partially cropped",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "958a59e26f72da604c636c5b26283c0d1065236456c3220e366e95f22d1e8d07"
+    },
+    {
+      "url": "https://img.gamewith.jp/img/2e0cdd48122d87e994e4bed001d41556.png",
+      "page": "https://gamewith.jp/genshin/article/show/585942",
+      "view": "Gameplay: side shape and tail; combat effects obscure some parts",
+      "directly_viewed": true,
+      "generation_input": true,
+      "sha256": "2587bcc97a9f51a0ffe06f24c6fb3da7e5fe9778c2938860fe06d674a14786c8"
+    }
+  ],
+  "poses": {
+    "ready": {
+      "height": 200,
+      "crop": [
+        0,
+        0,
+        660,
+        600
+      ],
+      "raw_box": [
+        17,
+        24,
+        446,
+        502
+      ],
+      "box": [
+        25,
+        25,
+        429,
+        478
+      ],
+      "anchor": 0.4731934731934732,
+      "profiles": {
+        "legacy": 10747,
+        "h48c32": 6818,
+        "h32c16": 3003
+      }
+    },
+    "sweep": {
+      "height": 149,
+      "crop": [
+        660,
+        0,
+        660,
+        600
+      ],
+      "raw_box": [
+        439,
+        141,
+        1018,
+        496
+      ],
+      "box": [
+        685,
+        25,
+        579,
+        355
+      ],
+      "anchor": 0.5889464594127807,
+      "profiles": {
+        "legacy": 9341,
+        "h48c32": 5849,
+        "h32c16": 2536
+      }
+    },
+    "throw": {
+      "height": 168,
+      "crop": [
+        0,
+        600,
+        660,
+        600
+      ],
+      "raw_box": [
+        9,
+        624,
+        540,
+        1025
+      ],
+      "box": [
+        25,
+        625,
+        531,
+        401
+      ],
+      "anchor": 0.5103578154425612,
+      "profiles": {
+        "legacy": 9551,
+        "h48c32": 5996,
+        "h32c16": 2704
+      }
+    },
+    "drink": {
+      "height": 209,
+      "crop": [
+        660,
+        600,
+        660,
+        600
+      ],
+      "raw_box": [
+        595,
+        528,
+        1020,
+        1027
+      ],
+      "box": [
+        685,
+        625,
+        425,
+        499
+      ],
+      "anchor": 0.49411764705882355,
+      "profiles": {
+        "legacy": 11613,
+        "h48c32": 7384,
+        "h32c16": 3259
+      }
+    },
+    "down": {
+      "height": 167,
+      "crop": [
+        0,
+        1200,
+        660,
+        600
+      ],
+      "raw_box": [
+        11,
+        1121,
+        574,
+        1519
+      ],
+      "box": [
+        25,
+        1225,
+        563,
+        398
+      ],
+      "anchor": 0.522202486678508,
+      "profiles": {
+        "legacy": 11185,
+        "h48c32": 7116,
+        "h32c16": 3071
+      }
+    },
+    "anchor": {
+      "height": 101,
+      "crop": [
+        660,
+        1200,
+        660,
+        600
+      ],
+      "raw_box": [
+        601,
+        1152,
+        966,
+        1394
+      ],
+      "box": [
+        685,
+        1225,
+        365,
+        242
+      ],
+      "anchor": 0.5178082191780822,
+      "profiles": {
+        "legacy": 2935,
+        "h48c32": 1880,
+        "h32c16": 780
+      }
+    }
+  },
+  "shared_scale": 0.41841004184100417,
+  "prompts": {
+    "sprite": "Use case: stylized-concept. Asset: transparent six-slot pixel-art boss atlas for a Maple-like 2D sidescroller. Images 1 and 2 are authentic design/gameplay references; image 3 is the lab seed, match its chunky pixel style and costume silhouette. SAME Wavebinder in all five body poses: a NONHUMAN huge stocky round-bellied anthropomorphic sea-fey beast with broad projecting fish muzzle, stern cyan eyes, swept pale icy-blue side fins, maroon-black sailor cap with tiny gold ring, huge brass chain collar, brown leather shoulder/bracer armor with grey spikes, ivory white round belly bearing a LARGE angular cyan faceted motif, brown/plum waist tabs, short thick trouser legs and wide dark webbed clawed feet. Tough grey tail with steel-like forked fin and cyan inset. Oversized angular dull silver two-barbed anchor on a long shaft with chain. Preserve these burly beast proportions, NOT a human chibi or realistic human. All poses face LEFT in consistent 3/4 side view, same head, belly, limbs, clothing and scale. ONE coherent atlas, 1024x1536, exact 2 columns by 3 rows, six isolated sprites with wide transparent gutters and full margins. Row1 left: ready grounded, anchor over shoulder; right: strongly sweeping anchor to left horizontally, weapon fits entirely in slot. Row2 left: throwing posture leaning slightly back, near hand extended left holding a stretched chain, anchor NOT attached because it will be a separate prop; right: drinking a small wooden/brown metal mug held at mouth, other hand keeps anchor resting over shoulder, feet grounded. Row3 left: exhausted sitting/slumped crouch, cap down, anchor low across ground, both big feet visible; right: ONE standalone same silver two-barbed anchor head and short shaft/chain stub, point oriented LEFT, NO character. Common anatomical scale across five body poses, not common bounding-box height. Crisp square pixel clusters, dark blue outlines, controlled navy/ivory/cyan/maroon/brown/gold palette. True transparent background and gaps between chain links, no ground plane, no cast shadow, no fog or aura, no text, no labels, no UI, no other sprites. Intended standing body display approx200px including raised anchor; anatomy and feet retain scale in action poses.",
+    "background": "Use case: stylized-concept. Asset: 1536x1024 wide temporary pixel-RPG background for a 2D sidescroller. Reference screenshot only supplies ice-blue cave palette and watery floor mood. Remove all characters, enemies, numbers, arrows and HUD; invent an independent scene. Empty sheltered tidal cavern below the western port of a cold northern land, icy blue translucent rock and crystalline pillars in the FAR background, old iron mooring rings and broken dock beams at distant edges, a broad dark blue pool behind an uninterrupted flat slate-stone forecourt, cold daylight entering from a small upper-left opening. Quiet atmospheric low-contrast midground so white/cyan sea-beast and players remain readable. Bottom quarter empty flat dull blue-grey stone with only fine frost texture, no foreground pillars, no tall objects obscuring play, no bright glowing floor. Crisp painted game scenery, not exact original geography or completed 3D production art. No people, no monsters, no anchors as foreground subjects, no signs, no text, no UI."
+  },
+  "raw_atlas_sha256": "d63f26b785a25e2351a909be5c19b6828995ba13966c208cedd0b4130370def4",
+  "legacy_idle_sha256": "30bb2ffc200c04146360abb16c108c0aaf26ff5f6d5954b4638b5c1650536da2",
+  "outputs": {
+    "wavebinder-field-poses-source-v1.png": "26ccf9c65c2bddc18480272288a20472f4474bdb4e9418675549611064a9b7a5",
+    "wavebinder-field-background-v1.png": "7f8b956f1f21feac112e681f4dd915d1e5124fe1b3d36cac3d4502788b3ff2ac"
+  },
+  "model_lookup": "Exact English-name searches, including Models Resource, found no usable Wavebinder model. Rear armor and tail geometry unverified.",
+  "notes": [
+    "Five stocky nonhuman sea-beast poses and one anchor share one scale. Main connected silhouettes repacked with transparent gutters.",
+    "Sailor cap, pale blue fins, chain collar, cyan belly mark, round body, thick limbs, clawed feet, forked tail and oversized anchor retained. No human head-ratio conversion.",
+    "New ready is battle idle only; legacy gallery idle preserved. All poses face left; opposite-side geometry unverified.",
+    "Body hurtbox height145 excludes tall anchor. Sitting pose uses +12px vertical correction for its anchor below the soles.",
+    "Background is a temporary independent tidal-cave interpretation, not precise original geography or native 3D."
+  ]
+}

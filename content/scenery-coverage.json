@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 161 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 159,
+  "scope": "Authored 162 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 160,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -969,6 +969,12 @@
       "id": "immortal-construct-root-hollow",
       "name": "スネージナヤ・赤葉の根洞",
       "region": "スネージナヤ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "wavebinder-tide-cavern",
+      "name": "ノヴォキッチェヴ・西港の潮洞（仮配置）",
+      "region": "ノヴォキッチェヴ（仮構造）",
       "status": "regional_temporary_image"
     }
   ],

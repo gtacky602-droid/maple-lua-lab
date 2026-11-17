@@ -1061,6 +1061,10 @@
       "to": "novokichev-camp"
     },
     {
+      "node": "novokichev-depth",
+      "to": "wavebinder-tide-cavern"
+    },
+    {
       "node": "wingspan-camp",
       "to": "snezhnaya-field"
     },
@@ -1387,6 +1391,10 @@
     {
       "node": "immortal-construct-root-hollow",
       "to": "snezhnaya-field"
+    },
+    {
+      "node": "wavebinder-tide-cavern",
+      "to": "novokichev-depth"
     }
   ],
   "hidden_connections_checked": 9,

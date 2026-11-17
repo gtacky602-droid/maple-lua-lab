@@ -20,6 +20,7 @@
   "flugelFieldRoute": true,
   "driftingSnowFieldRoute": true,
   "immortalConstructFieldRoute": true,
+  "wavebinderFieldRoute": true,
   "stygianCandidates": 7,
   "disabledUnimplemented": true,
   "launchesVerified": [
