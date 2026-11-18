@@ -1,0 +1,18 @@
+{
+  "twoOrderedQuests": true,
+  "lockedUntilReport": true,
+  "realJumpToFuse": true,
+  "gatesRequireMilestones": true,
+  "wrongPhaseAndNodeIgnored": true,
+  "saveAfterFirstAndBoss": true,
+  "unvisitedMilestoneRejected": true,
+  "persistentLitLamp": true,
+  "surveyorReward": [
+    1300,
+    250
+  ],
+  "restorationReward": [
+    2300,
+    480
+  ]
+}

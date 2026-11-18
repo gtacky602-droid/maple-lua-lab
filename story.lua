@@ -4,11 +4,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if type(v)~='table' then return v end
   local out={};for k,item in pairs(v) do out[k]=copy(item) end;return out
  end
- local nodes,quests,starterQuests={},{},{}
+ local nodes,quests,starterQuests,itineraries={},{},{},{}
  local lanternQuest,contestQuest,sightQuest,restQuest,caveQuest,roofQuest
  for _,n in ipairs(data.nodes) do nodes[n.id]=n end
  for _,q in ipairs(data.quests) do
   quests[q.id]=q
+  if q.itinerary then itineraries[#itineraries+1]=q end
   if q.lantern then lanternQuest=q end
   if q.contest then contestQuest=q end
   if q.sights then sightQuest=q end
@@ -127,6 +128,25 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local function canInspect(a,item)
   return a.hp>0 and math.abs(a.x-item.x)<54 and math.abs(a.y-item.y)<34
  end
+ local function nextMilestone(s,q)
+  local state=s.story.quests[q.id]
+  if state and state.status=='active' then return q.itinerary[state.count+1],state end
+ end
+ local function completeMilestone(s,state,milestone)
+  state.count=state.count+1
+  s.storyNotice=milestone.notice
+ end
+ local function inspectMilestone(s)
+  for _,q in ipairs(itineraries) do
+   local milestone,state=nextMilestone(s,q)
+   if milestone and milestone.kind=='inspect' and milestone.node==s.story.node
+       and canInspect(s.actors[s.active],milestone) then
+    completeMilestone(s,state,milestone)
+    return true
+   end
+  end
+  return false
+ end
  local function guarding(s,item)
   if item.guard then
    for _,e in ipairs(s.enemies) do
@@ -230,7 +250,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.macro=nil;s.encounter=nil;s.voyage=n.voyage and {destination=n.voyage.destination,arrives=s.t+n.voyage.seconds-(elapsed or 0),started=s.t-(elapsed or 0),source=n.voyage.source,stopStart=n.voyage.stopStart,stopEnd=n.voyage.stopEnd} or nil;progress(s,'visit',id)
  end
  function C.enterStoryNode(s,id) setup(s);enter(s,id) end
- function C.storyBossDefeated(s,id) setup(s);progress(s,'boss',id) end
+ function C.storyBossDefeated(s,id)
+  setup(s)
+  progress(s,'boss',id)
+  for _,q in ipairs(itineraries) do
+   local milestone,state=nextMilestone(s,q)
+   if milestone and milestone.kind=='boss' and milestone.boss==id and milestone.node==s.story.node then
+    completeMilestone(s,state,milestone)
+   end
+  end
+ end
  function C.action(s,key)
   setup(s)
   if s.lift or s.caveFall or s.roofFlight then
@@ -240,6 +269,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if key=='story_nearby_portal' then local p=nearbyPortal(s);if p then C.action(s,'story_portal:'..p.to) end;return end
   if key=='story_collect' then
    if s.paused or not s.story.active then return end
+   if inspectMilestone(s) then return end
    local railConfig,railState=railQuest(s,nodes[s.story.node])
    if railConfig then rail.start(s,railConfig,railState);return end
    if contestQuest and contest.interact(s,contestQuest,s.story.quests[contestQuest.id]) then return end
@@ -592,6 +622,35 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if math.abs(guide.x-s.camera-480)<540 then
      C.drawCompanionArt({draws=markers},s,{x=guide.x,y=guide.y,dir=-1},mode,profile,guide.id)
      markers[#markers+1]={kind='text',x=guide.x-s.camera,y=guide.y-94,size=15,color='#ffe7a2',text=guide.name}
+    end
+   end
+   for _,q in ipairs(itineraries) do
+    local state=s.story.quests[q.id]
+    local milestone=nextMilestone(s,q)
+    if milestone and milestone.kind=='inspect' and milestone.node==s.story.node then
+     local x,y=milestone.x-s.camera,milestone.y
+     if x>=-25 and x<=985 then
+      markers[#markers+1]={kind='rect',x=x-13,y=y-28,w=26,h=28,color='#5a3648'}
+      markers[#markers+1]={kind='rect',x=x-10,y=y-24,w=20,h=16,color='#eed5a8'}
+      markers[#markers+1]={kind='rect',x=x-6,y=y-20,w=12,h=4,color='#767462'}
+      markers[#markers+1]={kind='text',x=x,y=y-41,text=milestone.name,color='#fff0b9',size=14}
+     end
+     if not f.storyNearbyMilestone and not s.paused and canInspect(s.actors[s.active],milestone) then
+      f.storyNearbyMilestone={label=milestone.action}
+     end
+    end
+    if state then
+     for index=1,state.count do
+      local done=q.itinerary[index]
+      if done.completedLabel and done.node==s.story.node then
+       local x,y=done.x-s.camera,done.y
+       if x>=-25 and x<=985 then
+        markers[#markers+1]={kind='rect',x=x-11,y=y-28,w=22,h=28,color='#5a3648'}
+        markers[#markers+1]={kind='rect',x=x-7,y=y-25,w=14,h=12,color='#b9ffce'}
+        markers[#markers+1]={kind='text',x=x,y=y-41,text=done.completedLabel,color='#b9ffce',size=14}
+       end
+      end
+     end
     end
    end
    -- Navigation and quest objects precede actors, enemies, and effects.

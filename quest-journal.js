@@ -9,6 +9,7 @@ const rewardNumber=new Intl.NumberFormat('ja-JP');
 const questName=(q,state)=>q.sights&&state&&!state.sights?q.sights.legacyName:q.name;
 const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready:'報告待ち',complete:'完了'};
 export function questObjective(q,graph,state){
+ if(q.itinerary)return q.itinerary[state?.count??0]?.objective??'拠点で報告する';
  const destination=graph.nodes.find(n=>q.kind==='boss'?n.challenge===q.target:n.id===q.target);
  const place=destination?.name||'目的地未登録';
  if(q.roof){

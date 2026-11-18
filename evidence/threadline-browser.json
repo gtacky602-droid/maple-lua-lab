@@ -1,0 +1,26 @@
+{
+  "battle": {
+    "won": true,
+    "seconds": 15.37,
+    "hp": 140,
+    "returns": 0
+  },
+  "keyboardJump": true,
+  "lockedGates": true,
+  "updatedTracking": true,
+  "reloadMidSurvey": true,
+  "completedAfterReload": true,
+  "litLamp": true,
+  "backgroundsLoaded": 2,
+  "reported": {
+    "survey": [
+      1300,
+      250
+    ],
+    "restore": [
+      2300,
+      480
+    ]
+  },
+  "errors": []
+}

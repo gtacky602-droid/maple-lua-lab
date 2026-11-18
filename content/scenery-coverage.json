@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 166 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 164,
+  "scope": "Authored 168 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 166,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -990,7 +990,9 @@
       "status": "regional_temporary_image"
     },
     {"id":"tide-calibration-hall","name":"潮位較正室","region":"璃月","status":"regional_temporary_image"},
-    {"id":"buried-weaving-room","name":"埋もれた織房","region":"璃月","status":"regional_temporary_image"}
+    {"id":"buried-weaving-room","name":"埋もれた織房","region":"璃月","status":"regional_temporary_image"},
+    {"id":"cloth-service-walk","name":"布巻きの作業路","region":"璃月","status":"regional_temporary_image"},
+    {"id":"threadline-relay","name":"糸道の配電室","region":"璃月","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 2
 }

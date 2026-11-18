@@ -1,0 +1,12 @@
+{
+  "stage": "prototype background plates",
+  "tool": "Built-in image generation",
+  "prompts": {
+    "route": "Create an original wide 1536x1024 pixel-art background for a side-view platform game in the quiet remains of an original textile workshop. The route is an outdoor service alley tucked between reddish brick and rosewood workshop walls, hanging plain white and plum bolts of cloth in sheltered upper galleries, overhead narrow iron walkways in the distance, late sunset with warm ochre light. Deliberate stepped pixel clusters, dark low contrast lower third for the separate collision floor, no people, enemies, text, HUD, no recognizable existing game assets, no painted foreground platform or visible flat foreground floor that could be confused with actual ground. Atmospheric but readable.",
+    "relay": "Create an original wide 1536x1024 pixel-art background for a side-scrolling RPG. Interior of a textile mill's eerie historic service relay room, in depth: two huge aged ceramic knife switches recessed behind translucent dusty glass, a fan of heavy cloth-covered conductors descending from rafters, iron catwalk silhouettes high in background, purple and charcoal walls, faded apricot lamps, pale teal reflections, deliberate textless industrial pixel art. Bottom third dark simple wall backdrop for interactive foreground added in engine. Do not draw the foreground control panel or gameplay platforms, no people, no lettering or numbers, no logos, no recognisable existing game levels."
+  },
+  "hashes": {
+    "cloth-service-walk-background-v1.png": "e5d7c281a93a542df25ec5497af4d56463821b5c063cb824e6456ce147a9ecf4",
+    "threadline-relay-background-v1.png": "02002c5277160d895b9ad63e5493dace38f08c3ee9c31799ca889f44d28c8613"
+  }
+}

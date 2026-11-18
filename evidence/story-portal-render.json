@@ -153,12 +153,12 @@
     {
       "node": "liyue-harbor",
       "mode": "sprite",
-      "visible_portals": 13
+      "visible_portals": 14
     },
     {
       "node": "liyue-harbor",
       "mode": "rect",
-      "visible_portals": 13
+      "visible_portals": 14
     },
     {
       "node": "liyue-loading-yard",
@@ -1653,12 +1653,32 @@
     {
       "node": "buried-weaving-room",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "buried-weaving-room",
       "mode": "rect",
-      "visible_portals": 1
+      "visible_portals": 2
+    },
+    {
+      "node": "cloth-service-walk",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "cloth-service-walk",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "threadline-relay",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "threadline-relay",
+      "mode": "rect",
+      "visible_portals": 2
     }
   ],
   "checks": [

@@ -127,6 +127,10 @@ def validate_save(data):
                         or q['count'] == quests[id]['goal'] and set(found) != cargo_ids):
                     raise ValueError('Invalid quest cargo progress')
             quest = quests[id]
+            if quest.get('itinerary'):
+                required_nodes = {quest['hub'], *(item['node'] for item in quest['itinerary'][:q['count']])}
+                if not required_nodes <= st['visited'].keys():
+                    raise ValueError('未訪問の地点が調査済みになっています')
             if quest.get('requires'):
                 predecessor = st['quests'].get(quest['requires'])
                 if not isinstance(predecessor, dict) or predecessor.get('status') != 'complete':

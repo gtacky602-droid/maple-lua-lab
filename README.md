@@ -986,4 +986,6 @@ Luaの通常攻撃のみ・同行戦闘不能・回復なしは147.08秒、残HP
 
 ## ラボ独自の週ボス「双杼織機」
 
+織房周辺には、璃月港で受注する連続依頼「織房の停電調査」（Lv32）と「糸道に灯を戻す」（Lv34）があります。作業路と配電室を調べ、双杼織機を止めたあとに試験灯を確認して港へ戻ります。設定と検証手順は [織房の連続依頼](docs/THREADLINE_QUEST_CHAIN.md) にあります。
+
 港で「夜明けまでに織機を止める」を受注し、埋もれた織房へ。左右の杼の破壊で個別の糸攻撃が止まり、両方を破壊すると13秒間だけ芯を攻撃できる。部位の復帰と本体HPの継続、帰還報告と保存を接続した。[遊び方と仮値](docs/weekly-boss-v1/TWIN_SHUTTLE_LOOM_WEB.md) · [Lua](evidence/twin-shuttle-loom-lua.json) · [Chrome](evidence/twin-shuttle-loom-browser.json)。

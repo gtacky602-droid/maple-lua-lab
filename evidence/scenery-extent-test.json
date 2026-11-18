@@ -662,6 +662,66 @@
       "transparent": 0
     },
     {
+      "key": "clothService",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "clothService",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "clothService",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "clothService",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "clothService",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "clothService",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "threadlineRelay",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "threadlineRelay",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "threadlineRelay",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "threadlineRelay",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "threadlineRelay",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "threadlineRelay",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "buriedWeaving",
       "camera": -960,
       "transparent": 0
