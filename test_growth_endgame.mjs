@@ -59,6 +59,7 @@ try{
   await button('次の区画へ').click();
  }
  await wait(()=>window.lab.frame.endgameRun?.room===3);
+ await wait(()=>document.getElementById('endgameRunStatus').textContent.includes('3/3・精鋭の広間'));
  await page.locator('.game').screenshot({path:'evidence/growth-abyss-entry.png'});
  await wait(()=>window.lab.frame.endgameRun?.status==='clear');
  const cleared=await frame();
