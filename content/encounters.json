@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 87,
-    "partial": 72,
+    "partial": 73,
     "complete": 0
   },
   "encounters": [
@@ -1134,23 +1134,28 @@
       "entity_ids": [
         "29060201"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/magatsumitakenarukaminomikoto.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/magatsumitakenarukaminomikoto.json",
+        "docs/weekly-boss-v1/RAIDEN_WEB.md",
+        "evidence/raiden-weekly-lua.json",
+        "evidence/raiden-weekly-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "通常・悪曜の連続作画と武器の取付位置、音",
+        "難度と報酬の調整",
+        "本番3D背景、多人数と幻境実機の検証"
       ],
+      "weeklyNode": "raiden-thunder-echo-arena",
+      "weeklyEntrance": "悪曜の再現戦（Lv48）",
+      "review_note": "稲妻の専用マップに凶運、悪曜装甲、雷眼、残影、花蕊と大太刀、8秒ダウンを接続。通常姿はラボ独自の2.85頭身候補。",
       "art_candidate": {
         "source": "assets/raiden-boss-idle-source-v1.png",
         "encoding": "assets/raiden-boss-idle-sprites.json",
         "audit": "evidence/raiden-boss-reference-audit.json",
-        "status": "Baleful Shadowlord idle candidate; normal form, attacks and animation not implemented"
+        "status": "Existing armored idle and original new normal idle are both used in the Lua trial. Weapon and attack effects are prototype geometry."
       },
       "aliases": [
         "雷電将軍"

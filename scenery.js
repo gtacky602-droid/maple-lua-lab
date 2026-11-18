@@ -60,7 +60,7 @@ export const sceneryDefinitions={
  hydroHypostasisField:{file:'hydro-hypostasis-field-background-v1.png',zones:['story:hydro-hypostasis-field-cove'],note:'潮紋の洞の仮背景'},
  pyroHypostasisField:{file:'pyro-hypostasis-field-background-v1.png',zones:['story:pyro-hypostasis-field-terrace'],note:'燎火の石浜の仮背景'},
  cryoHypostasisField:{file:'cryo-hypostasis-field-background-v1.png',zones:['story:cryo-hypostasis-field-basin'],note:'霜輪の窪地の仮背景'},
- thunderField:{file:'thunder-field-background-v1.png',zones:['story:thunder-field-crest'],note:'雷鳴の岩峰の仮背景'},
+ thunderField:{file:'thunder-field-background-v1.png',zones:['story:raiden-thunder-echo-arena','story:thunder-field-crest'],note:'雷鳴の岩峰の仮背景'},
  arrayField:{file:'array-field-background-v1.png',zones:['story:array-field-court'],note:'機巧の石庭の仮背景'},
  maguuField:{file:'maguu-field-background-v1.png',zones:['story:maguu-field-dojo'],note:'剣鬼の古庭の仮背景'},
  oceanidField:{file:'oceanid-field-background-v1.png',zones:['story:oceanid-field-reservoir'],note:'軽策の水鏡の仮背景'},

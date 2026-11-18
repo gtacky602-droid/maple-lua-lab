@@ -479,10 +479,13 @@ def runtime():
     signora=lua.execute((ROOT/'weekly-signora.lua').read_text(encoding='utf8'))(core)
     core.signoraWeeklyArt=field_art(lua,'signora',(),variants={
         'cryo':'signora-idle-sprites.json','pyro':'signora-flame-idle-sprites.json'})
+    raiden=lua.execute((ROOT/'weekly-raiden.lua').read_text(encoding='utf8'))(core)
+    core.raidenWeeklyArt=field_art(lua,'raiden-boss',(),variants={
+        'armored':'raiden-boss-idle-sprites.json','normal':'raiden-weekly-normal-sprites-v1.json'})
     lua.execute((ROOT/'weekly-bosses.lua').read_text(encoding='utf8'))(
         core,lua.table_from(weekly_specs,recursive=True),
         lua.table_from({'dvalin':dvalin,'andrius':andrius,'surveyor':surveyor,'loom':loom,
-                        'childe':childe,'azhdaha':azhdaha,'signora':signora}))
+                        'childe':childe,'azhdaha':azhdaha,'signora':signora,'raiden':raiden}))
     core.installToyDiveGuard()
     daily=json.loads((ROOT/'content/daily-quests.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'daily-quests.lua').read_text(encoding='utf8'))(core,lua.table_from(daily,recursive=True),graph)

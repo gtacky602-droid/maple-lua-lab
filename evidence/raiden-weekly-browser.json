@@ -1,0 +1,22 @@
+{
+  "questEntry": true,
+  "ordinaryAndArmored": true,
+  "fivePhysicalFlowerHits": true,
+  "protectedAtSlash": true,
+  "attackableArmorDown": true,
+  "clears": 1,
+  "reportAndRestore": true,
+  "viewport390": true,
+  "scene": {
+    "key": "thunderField",
+    "file": "thunder-field-background-v1.png",
+    "state": "ready"
+  },
+  "remainingHp": 363,
+  "sameStateCommands": {
+    "png": 78,
+    "standard": 11668,
+    "light": 3450
+  },
+  "errors": []
+}

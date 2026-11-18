@@ -1,0 +1,50 @@
+{
+  "tool": "Codex built-in ImageGen",
+  "output": "assets/raiden-weekly-normal-source-v1.png",
+  "design": "Original normal costume for the Lua lab. The existing armored design is retained separately.",
+  "prompts": [
+    "Game asset: create one original transparent-background idle pixel sprite of an indigo-haired thunder duelist for a side-scrolling fantasy prototype. Use reference 1 (3D model view) and reference 2 (armor close-up) only for the indigo-purple/ivory color relationship and the contrast between fabric and metal. Design an independent ground-form costume: cropped lavender jacket with wide cuffs, simple charcoal-and-plum overlap skirt over opaque dark leggings, wide flat boots, small rhomboid gold clasp at the shoulder, blunt indigo braid silhouette, and a light ivory waist sash. Full-body three-quarter side view, facing right, relaxed combat-ready stance, one compact empty gauntleted hand held forward near the hip so a game layer can show the current weapon. Use 2.8–3.2 heads measured from crown to chin, broad head and shoulders, short torso, short shins, thick simplified hands and large feet. Clear separation of legs. No weapon, halo, detached armor, robotic arms, background, shadow, special effects, logos or text. Don't replicate the reference costume, its ornament layout, symbols, render pose, or its armored avatar. Crisp hand-placed-looking color clusters and a dark outline, about 22–28 color appearance, low detail (meant to read at 96–112px displayed height), no antialiased glow. Adult character, neutral face, whole figure with generous transparent margins.",
+    "Revise this prototype pixel-art sprite to read immediately as a short, big-headed 2D side-scrolling character, with distinctly stocky 3.0 head proportions. Make the head physically 40 percent bigger, and compress the entire body below the chin. Specifically place the top of the head at 5 percent of canvas height, the base of chin at 34 percent (nearly one full third of total character height), the belt at 55 percent, the knees at 74 percent, and the bottom of the boots at 91 percent. Enlarge the face and visible eye along with the head. Shorten the shins and torso strongly, widen the boot toes and gloves. Keep the same adult attitude, facing right, independent costume design, reversed side as supplied, color palette, choppy pixel shading, profile stance, hair color and braid. Do not add clothes, weapons, armor or props. Whole figure isolated on true transparent background with padding, no shadow. This is an idle sprite at 112 pixels tall. Clean solid pixel steps, no smoothing or glow.",
+    "Make a moderate-proportion intermediate version of the same original purple-haired pixel-art duelist shown in these two assets. Use the first image as the garment and pose master. The second only establishes the far upper limit of head size; it is too short. Preserve the first version's face, braid, empty glove held out near the hip, outfit blocks and boots. Increase head-to-chin length by only 20 percent relative to the first image, and reduce below-chin length by 24 percent relative to the first, mostly by compacting the torso and lower legs. At the final scale the crown-to-chin face and hair must be about one third of crown-to-sole height, measured excluding the braid. Legs must clearly emerge from the coat and have some length. Coordinate targets in the full-body crop: crown 0, chin 33, belt 57, knee 76, soles 100. Ratio 3.0 heads. Side view facing right, transparent PNG, whole figure with padding. Designed for a crisp side-scrolling RPG idle with distinct pixel clusters at 112 pixels, solid colors, no weapon or magical effects."
+  ],
+  "referenceAudit": "evidence/raiden-boss-reference-audit.json",
+  "references": [
+    {
+      "file": "work/references/raiden-boss-0.png",
+      "kind": "3D model preview image",
+      "directlyViewed": true,
+      "role": "general color and material contrast"
+    },
+    {
+      "file": "work/references/raiden-boss-1.png",
+      "kind": "HoYoLAB armor and face image",
+      "directlyViewed": true,
+      "role": "general indigo, plum, and ivory relationships"
+    }
+  ],
+  "measurement": {
+    "imageSize": [
+      1199,
+      1312
+    ],
+    "alphaBox": [
+      216,
+      94,
+      704,
+      1125
+    ],
+    "estimatedCrownY": 94,
+    "estimatedChinY": 489,
+    "ratio": 2.85,
+    "measuredFrom": "Crown to chin and sole on the final PNG, excluding braid."
+  },
+  "render": {
+    "height": 112,
+    "rectangles": {
+      "legacy": 2355,
+      "h48c32": 1483,
+      "h32c16": 675
+    }
+  },
+  "remaining": "Art is a new costume prototype with an idle frame and a separately drawn weapon. It has no dedicated back view or continuous animation."
+}

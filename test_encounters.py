@@ -20,7 +20,7 @@ check('completion not overclaimed',d['counts']['complete']==0 and not d['complet
 check('not implemented rows cannot launch',all(r['action'] is None for r in rows if r['status']=='not_implemented'))
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
-check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':87,'partial':72,'complete':0})
+check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':87,'partial':73,'complete':0})
 by_id={r['id']:r for r in rows}
 childe=by_id['boss-29030101']
 check('Childe has a distinct weekly route',
@@ -34,6 +34,10 @@ signora=by_id['boss-29050101']
 check('Signora has a distinct weekly route',
       signora['kind']=='weekly' and signora['weeklyNode']=='signora-ten-shrine-arena'
       and signora['status']=='partial' and signora['action'] is None)
+raiden=by_id['boss-29060201']
+check('Raiden has a distinct weekly route',
+      raiden['kind']=='weekly' and raiden['weeklyNode']=='raiden-thunder-echo-arena'
+      and raiden['status']=='partial' and raiden['action'] is None)
 loom=by_id['original-twin-shuttle-loom']
 check('loom trial is separate from the imported list',
       loom['weeklyNode']=='buried-weaving-room' and not loom['entity_ids'] and loom['status']=='partial')

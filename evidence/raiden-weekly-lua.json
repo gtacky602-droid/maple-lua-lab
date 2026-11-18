@@ -1,0 +1,33 @@
+{
+  "live_card_duration": {
+    "WR01": 240,
+    "WR02": 300,
+    "WR03": 222,
+    "WR04": 312,
+    "WR05": 480,
+    "WR05.triple": 480,
+    "WR06": 540,
+    "WR07": 360,
+    "WR10": 300,
+    "WR11": 288,
+    "WR11.sweep": 348,
+    "WR12": 600,
+    "WR13": 360
+  },
+  "early_lethal_no_hp_lock": true,
+  "eye_four_normals_and_safe_lane": true,
+  "shade_aoe_nearest_only": true,
+  "final_wave_jumped": true,
+  "flower_five_normals": true,
+  "reject_old_reaction_and_ai": true,
+  "dome_and_drain_once": true,
+  "unprotected_standard_damage": true,
+  "missing_flower_cancel": true,
+  "electro_flower_single_hit": true,
+  "armor_zero_cancels_flower": true,
+  "armor_four_per_second_budget": true,
+  "vulnerable_down_ticks": 480,
+  "no_repair_heal": true,
+  "exit_cleans_old_trial": true,
+  "weekly_report_and_restore": true
+}

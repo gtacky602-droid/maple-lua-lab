@@ -34,8 +34,8 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
  function C.drawPlateTailArt(f,x,y,height,mode,profile,flip)
   draw(f,C.plateTailArt.idle,x,y,height,mode,profile,flip)
  end
- function C.drawFieldDisplayArt(f,art,x,y,height,mode,profile,flip)
-  draw(f,art,x,y,height,mode,profile,flip)
+ function C.drawFieldDisplayArt(f,art,x,y,height,mode,profile,flip,palette,tint,opacity)
+  draw(f,art,x,y,height,mode,profile,flip,palette,tint,opacity)
  end
  function C.drawPyroRegisvineArt(f,b,mode,profile) draw(f,pyro,b.x,480,b.phase=='down' and 100 or 200,mode,profile) end
  function C.drawFarkaArt(f,b,mode,profile)

@@ -19,6 +19,9 @@
 #weeklyTemperature[hidden],#weeklySeal[hidden]{display:none}
 #weeklyTemperature meter,#weeklySeal progress{width:105px;vertical-align:middle}
 #weeklyTemperature button{justify-self:start;touch-action:none}
+#weeklyRaiden{display:grid;gap:6px;margin-top:8px}
+#weeklyRaiden[hidden],#weeklyFlower[hidden],#weeklyRaidenHint[hidden]{display:none}
+#weeklyRaiden meter,#weeklyRaiden progress{width:105px;vertical-align:middle}
 #expeditionDesk th,#expeditionDesk td{padding:4px 8px;border-bottom:1px solid #426466;overflow-wrap:anywhere}
 #expeditionDesk thead th{color:#ffebba}
 #expeditionTrial{margin-inline-start:6px}
@@ -153,6 +156,11 @@
   <small id="weeklyDevices"></small>
   <button data-hold="interact" id="weeklyDeviceButton" type="button">装置を放出（G長押し）</button>
   <div id="weeklySeal" hidden><label>氷の繭 <progress id="weeklySealHp"></progress></label> <span id="weeklySealText"></span></div>
+ </div>
+ <div id="weeklyRaiden" hidden>
+  <label><span id="weeklyRaidenText"></span> <meter id="weeklyRaidenMeter" min="0" max="100"></meter></label>
+  <div id="weeklyFlower" hidden><label>追念の花蕊 <progress id="weeklyFlowerMeter"></progress></label> <span id="weeklyFlowerText"></span></div>
+  <small id="weeklyRaidenHint" hidden></small>
  </div>
 </div>
 <section id="expeditionDesk" class="note" aria-label="遠征の装備比較" hidden>

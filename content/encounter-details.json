@@ -438,10 +438,13 @@
       "review_note": "WA01〜11、HP半分で一度の疾走試練、上段と低/高/低の風刃をWebへ接続。Lv24/HP900/風・氷無効は比較用設定。物理通常は有効。"
     },
     "boss-29060201": {
+      "extra_evidence": ["docs/weekly-boss-v1/RAIDEN_WEB.md", "evidence/raiden-weekly-lua.json", "evidence/raiden-weekly-browser.json"],
+      "remaining": ["通常・悪曜の連続作画と武器の取付位置、音", "難度と報酬の調整", "本番3D背景、多人数と幻境実機の検証"],
+      "review_note": "稲妻の専用マップに凶運、悪曜装甲、雷眼、残影、花蕊と大太刀、8秒ダウンを接続。通常姿はラボ独自の2.85頭身候補。",
       "art_candidate": {
         "item": "raiden-boss",
         "audit": "evidence/raiden-boss-reference-audit.json",
-        "status": "Baleful Shadowlord idle candidate; normal form, attacks and animation not implemented"
+        "status": "Existing armored idle and original new normal idle are both used in the Lua trial. Weapon and attack effects are prototype geometry."
       }
     },
     "boss-25090101": {

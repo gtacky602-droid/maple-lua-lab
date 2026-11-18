@@ -362,8 +362,10 @@ function hud(f,calls,renderMs){
  const field=f.weeklyBoss||f.fieldBoss,fieldPanel=$('fieldBoss'),fieldLabel=$('fieldBossLabel'),fieldHp=$('fieldBossHp');
  const phases=$('weeklyPhases');
  const temperature=$('weeklyTemperature');
+ const raiden=$('weeklyRaiden');
  phases.hidden=!field?.phaseHp||field.phase==='respawn';
  temperature.hidden=field?.temperature===undefined||field.phase==='respawn'||field.hp===0;
+ raiden.hidden=!field?.raidenMeter||field.phase==='respawn'||field.hp===0;
  fieldPanel.hidden=!field;
  if(field){
   const status=field.phase==='respawn'?`再出現まで ${Math.ceil(field.remaining)}秒`:
@@ -410,6 +412,21 @@ function hud(f,calls,renderMs){
     $('weeklySealHp').max=field.seal.max;$('weeklySealHp').value=field.seal.hp;
     $('weeklySealText').textContent=!field.seal.ready?'結晶化中':field.seal.carrying?'紅蓮蛾を所持。繭に攻撃':'紅蓮蛾を拾って攻撃';
    }
+  }
+  if(!raiden.hidden){
+   const gauge=field.raidenMeter,flower=field.flower,hint=$('weeklyRaidenHint');
+   $('weeklyRaidenText').textContent=gauge.name+' '+Math.round(gauge.value)+'%';
+   $('weeklyRaidenMeter').value=gauge.value;
+   $('weeklyFlower').hidden=!flower;
+   if(flower){
+    $('weeklyFlowerMeter').max=flower.max;$('weeklyFlowerMeter').value=flower.value;
+    $('weeklyFlowerText').textContent=flower.protected?'保護域の内側へ':field.move==='WR15'?'保護なし・大太刀に備える':
+     flower.ready?`通常攻撃で充填 ${flower.value} / ${flower.max} ｜ 残り${Math.ceil(flower.limit/60)}秒`:flower.limit?'花蕊が現れるまで待つ':'充填受付終了';
+   }
+   const targets=Array.isArray(field.targets)?field.targets:[];
+   hint.textContent=field.move==='WR16'?(field.damageable?`攻撃の好機 ｜ 残り${Math.ceil(field.down/60)}秒`:'装甲の崩壊中'):
+    targets[0]?.kind==='eye'?'雷眼を攻撃するか、予兆の外へ':targets[0]?.kind==='shade'?'╳を出した残影に近づいて攻撃':'';
+   hint.hidden=!hint.textContent;
   }
  }
  const cargo=f.storyNearbyCargo??f.storyNearbyParcel,clue=f.storyNearbyClue;

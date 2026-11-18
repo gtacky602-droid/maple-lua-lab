@@ -1902,6 +1902,389 @@
           "damage": 18
         }
       }
+    },
+    {
+      "controller": "raiden",
+      "id": "boss-29060201",
+      "entity": 29060201,
+      "node": "raiden-thunder-echo-arena",
+      "name": "禍津御建鳴神命",
+      "storyChallenge": "raiden-weekly",
+      "level": 48,
+      "hp": 1500,
+      "mora": 980,
+      "expRole": "weekly_boss",
+      "floorY": 480,
+      "center": 480,
+      "noticeTicks": 42,
+      "restTicks": 24,
+      "respawnTicks": 3600,
+      "normalOrders": [
+        [
+          "WR01",
+          "WR02",
+          "WR05",
+          "WR01",
+          "WR07",
+          "WR05.triple"
+        ],
+        [
+          "WR03",
+          "WR04",
+          "WR06"
+        ]
+      ],
+      "armorOrder": [
+        "WR10",
+        "WR11",
+        "WR12",
+        "WR13",
+        "WR11.sweep"
+      ],
+      "omen": {
+        "max": 100,
+        "period": 30,
+        "onHit": 5,
+        "switchAfter": 3,
+        "switchTicks": 24
+      },
+      "armor": {
+        "max": 100,
+        "perSecond": 1,
+        "limit": 3600,
+        "firstFlowerAfter": 4,
+        "flowerSpacing": 1200,
+        "flowerLimit": 2,
+        "hitInterval": 30,
+        "hitBudget": 4,
+        "slashDrain": 30
+      },
+      "objects": {
+        "eyeHits": 4,
+        "eyePause": 108,
+        "shadePause": 120,
+        "shadeClue": 96,
+        "shadeReady": 126,
+        "flowerHits": 5,
+        "flowerLockout": 600,
+        "flowerProtectUntil": 108,
+        "flowerRadius": 105,
+        "cooldown": 30
+      },
+      "moves": {
+        "WR01": {
+          "title": "薙刀の三連",
+          "total": 240,
+          "locks": [
+            36
+          ],
+          "windows": [
+            [
+              60,
+              66
+            ],
+            [
+              96,
+              102
+            ],
+            [
+              138,
+              144
+            ]
+          ],
+          "recovery": 168,
+          "launches": [],
+          "damage": 11
+        },
+        "WR02": {
+          "title": "薙刀跳躍・落雷",
+          "total": 300,
+          "locks": [
+            54
+          ],
+          "windows": [
+            [
+              120,
+              132
+            ],
+            [
+              192,
+              198
+            ]
+          ],
+          "recovery": 216,
+          "launches": [],
+          "damage": 15
+        },
+        "WR03": {
+          "title": "居合の三閃",
+          "total": 222,
+          "locks": [
+            30
+          ],
+          "windows": [
+            [
+              60,
+              66
+            ],
+            [
+              84,
+              90
+            ],
+            [
+              126,
+              132
+            ]
+          ],
+          "recovery": 150,
+          "launches": [],
+          "damage": 11
+        },
+        "WR04": {
+          "title": "雷歩の切り返し",
+          "total": 312,
+          "locks": [
+            42,
+            132
+          ],
+          "windows": [
+            [
+              90,
+              102
+            ],
+            [
+              174,
+              186
+            ]
+          ],
+          "recovery": 216,
+          "launches": [],
+          "damage": 13
+        },
+        "WR05": {
+          "title": "禍津の雷眼",
+          "total": 480,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              360,
+              372
+            ]
+          ],
+          "recovery": 396,
+          "launches": [],
+          "damage": 17
+        },
+        "WR05.triple": {
+          "title": "禍津の雷眼",
+          "total": 480,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              360,
+              372
+            ]
+          ],
+          "recovery": 396,
+          "launches": [],
+          "damage": 17
+        },
+        "WR06": {
+          "title": "残影の見破り",
+          "total": 540,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              180,
+              186
+            ],
+            [
+              300,
+              306
+            ]
+          ],
+          "recovery": 480,
+          "launches": [],
+          "damage": 13
+        },
+        "WR07": {
+          "title": "夢想の雷域",
+          "total": 360,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              120,
+              132
+            ],
+            [
+              228,
+              240
+            ]
+          ],
+          "recovery": 264,
+          "launches": [],
+          "damage": 15
+        },
+        "WR09": {
+          "title": "悪曜の顕現",
+          "total": 180,
+          "locks": [],
+          "windows": [],
+          "recovery": 120,
+          "launches": [],
+          "damage": 0
+        },
+        "WR10": {
+          "title": "魔腕の薙ぎ",
+          "total": 300,
+          "locks": [
+            54
+          ],
+          "windows": [
+            [
+              96,
+              108
+            ],
+            [
+              174,
+              186
+            ]
+          ],
+          "recovery": 210,
+          "launches": [],
+          "damage": 17
+        },
+        "WR11": {
+          "title": "雷槍の貫き／大薙ぎ",
+          "total": 288,
+          "locks": [
+            54
+          ],
+          "windows": [
+            [
+              108,
+              120
+            ]
+          ],
+          "recovery": 180,
+          "launches": [],
+          "damage": 18
+        },
+        "WR11.sweep": {
+          "title": "雷槍の貫き／大薙ぎ",
+          "total": 348,
+          "locks": [
+            66
+          ],
+          "windows": [
+            [
+              120,
+              132
+            ],
+            [
+              210,
+              222
+            ]
+          ],
+          "recovery": 252,
+          "launches": [],
+          "damage": 18
+        },
+        "WR12": {
+          "title": "三杭の雷波",
+          "total": 600,
+          "locks": [
+            60
+          ],
+          "windows": [],
+          "recovery": 510,
+          "launches": [
+            120,
+            210,
+            300,
+            390
+          ],
+          "projectileTtl": 96,
+          "damage": 12
+        },
+        "WR13": {
+          "title": "天魔連斬",
+          "total": 360,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              96,
+              102
+            ],
+            [
+              138,
+              144
+            ],
+            [
+              240,
+              252
+            ]
+          ],
+          "recovery": 276,
+          "launches": [],
+          "damage": 18
+        },
+        "WR14": {
+          "title": "追念の花蕊",
+          "total": 720,
+          "locks": [
+            60
+          ],
+          "windows": [],
+          "recovery": 600,
+          "launches": [],
+          "damage": 0
+        },
+        "WR15": {
+          "title": "終結の一太刀",
+          "total": 240,
+          "locks": [
+            0
+          ],
+          "windows": [
+            [
+              60,
+              66
+            ]
+          ],
+          "recovery": 120,
+          "launches": [],
+          "damage": 62
+        },
+        "WR16": {
+          "title": "悪曜装甲の崩壊",
+          "total": 576,
+          "locks": [],
+          "windows": [],
+          "recovery": 96,
+          "launches": [],
+          "damage": 0
+        },
+        "WR17": {
+          "title": "修復と再始動",
+          "total": 180,
+          "locks": [],
+          "windows": [],
+          "recovery": 120,
+          "launches": [],
+          "damage": 0
+        }
+      }
     }
   ]
 }
