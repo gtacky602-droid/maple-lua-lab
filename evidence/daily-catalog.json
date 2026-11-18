@@ -1,0 +1,169 @@
+{
+  "designMappings": 40,
+  "acceptedAtEachStartingLevel": true,
+  "eligibleDefeatWitnesses": {
+    "Q-MON-D01": {
+      "node": "mond-road",
+      "spawn": "mond-road-1"
+    },
+    "Q-MON-D02": {
+      "node": "mond-road",
+      "spawn": "mond-road-2"
+    },
+    "Q-MON-D03": {
+      "node": "mond-old-ground",
+      "spawn": "mond-old-ground-daily-elite"
+    },
+    "Q-MON-D04": {
+      "node": "mond-road",
+      "spawn": "mond-road-1"
+    },
+    "Q-MON-D05": {
+      "node": "mond-old-ground",
+      "spawn": "mond-old-ground-1"
+    },
+    "Q-LIY-D01": {
+      "node": "liyue-entry",
+      "spawn": "liyue-entry-1"
+    },
+    "Q-LIY-D02": {
+      "node": "liyue-loading-yard",
+      "spawn": "liyue-loading-yard-1"
+    },
+    "Q-LIY-D03": {
+      "node": "liyue-loading-yard",
+      "spawn": "liyue-loading-yard-daily-scout"
+    },
+    "Q-LIY-D04": {
+      "node": "liyue-river-trail",
+      "spawn": "liyue-river-trail-1"
+    },
+    "Q-LIY-D05": {
+      "node": "liyue-entry",
+      "spawn": "liyue-entry-4"
+    },
+    "Q-INA-D01": {
+      "node": "inazuma-road",
+      "spawn": "inazuma-road-1"
+    },
+    "Q-INA-D02": {
+      "node": "inazuma-road",
+      "spawn": "inazuma-road-1"
+    },
+    "Q-INA-D03": {
+      "node": "inazuma-shore-hunt",
+      "spawn": "ina-shore-nobushi-west"
+    },
+    "Q-INA-D04": {
+      "node": "inazuma-road",
+      "spawn": "inazuma-road-1"
+    },
+    "Q-INA-D05": {
+      "node": "inazuma-road",
+      "spawn": "inazuma-road-1"
+    },
+    "Q-SUM-D01": {
+      "node": "sumeru-entry",
+      "spawn": "sumeru-entry-1"
+    },
+    "Q-SUM-D02": {
+      "node": "sumeru-field",
+      "spawn": "sumeru-field-1"
+    },
+    "Q-SUM-D03": {
+      "node": "sumeru-field",
+      "spawn": "sumeru-field-1"
+    },
+    "Q-SUM-D04": {
+      "node": "sum-kaveh-timberyard",
+      "spawn": "sum-yard-fungus-west"
+    },
+    "Q-SUM-D05": {
+      "node": "sumeru-field",
+      "spawn": "sumeru-field-1"
+    },
+    "Q-FON-D01": {
+      "node": "fontaine-entry",
+      "spawn": "fontaine-entry-1"
+    },
+    "Q-FON-D02": {
+      "node": "fontaine-field",
+      "spawn": "fontaine-field-1"
+    },
+    "Q-FON-D03": {
+      "node": "fontaine-entry",
+      "spawn": "fontaine-entry-1"
+    },
+    "Q-FON-D04": {
+      "node": "fontaine-outskirts-loading",
+      "spawn": "fon-loading-meka-west"
+    },
+    "Q-FON-D05": {
+      "node": "fontaine-field",
+      "spawn": "fontaine-field-1"
+    },
+    "Q-NAT-D01": {
+      "node": "natlan-entry",
+      "spawn": "natlan-entry-1"
+    },
+    "Q-NAT-D02": {
+      "node": "natlan-field",
+      "spawn": "natlan-field-1"
+    },
+    "Q-NAT-D03": {
+      "node": "natlan-riverside-range",
+      "spawn": "nat-river-crawler-west"
+    },
+    "Q-NAT-D04": {
+      "node": "natlan-field",
+      "spawn": "natlan-field-2"
+    },
+    "Q-NAT-D05": {
+      "node": "natlan-quarry-road",
+      "spawn": "nat-quarry-pebble-west"
+    },
+    "Q-NOD-D01": {
+      "node": "nod-field",
+      "spawn": "nod-field-1"
+    },
+    "Q-NOD-D02": {
+      "node": "nod-tide-scrapyard",
+      "spawn": "nod-scrap-cart-west"
+    },
+    "Q-NOD-D03": {
+      "node": "nod-tide-scrapyard",
+      "spawn": "nod-scrap-elite"
+    },
+    "Q-NOD-D04": {
+      "node": "nod-forest-outer",
+      "spawn": "nod-forest-beetle-west"
+    },
+    "Q-NOD-D05": {
+      "node": "nod-tide-scrapyard",
+      "spawn": "nod-scrap-cart-west"
+    },
+    "Q-SNE-D01": {
+      "node": "snezhnaya-entry",
+      "spawn": "snezhnaya-entry-1"
+    },
+    "Q-SNE-D02": {
+      "node": "sne-survey-outskirts",
+      "spawn": "sne-outskirts-beetle-west"
+    },
+    "Q-SNE-D03": {
+      "node": "snezhnaya-entry",
+      "spawn": "snezhnaya-entry-1"
+    },
+    "Q-SNE-D04": {
+      "node": "snezhnaya-field",
+      "spawn": "snezhnaya-field-1"
+    },
+    "Q-SNE-D05": {
+      "node": "white-pass-cut",
+      "spawn": "white-pass-route-cart"
+    }
+  },
+  "sameProfileHubCount": 8,
+  "globalMainLimit": 1,
+  "globalExtraLimit": 2
+}

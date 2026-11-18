@@ -1,0 +1,16 @@
+{
+  "townOffers": 5,
+  "companionGiverVisible": true,
+  "walkedToOutskirtsAndReturned": true,
+  "threeObjectivesOverlap": true,
+  "namedEliteVisible": true,
+  "mapPlacementComparisonProfiles": 3,
+  "staleSaveRetainsProgress": true,
+  "rewardsDoNotReplay": true,
+  "mobileFits": true,
+  "reward": {
+    "xp": 2945020,
+    "mora": 11250
+  },
+  "errors": []
+}

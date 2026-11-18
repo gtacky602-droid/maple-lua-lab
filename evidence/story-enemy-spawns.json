@@ -1402,6 +1402,10 @@
       "enemy_count": 0
     },
     {
+      "node": "sne-survey-outskirts",
+      "enemy_count": 8
+    },
+    {
       "node": "sne-survey-yard",
       "enemy_count": 0
     },

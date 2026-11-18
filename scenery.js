@@ -32,7 +32,7 @@ export const sceneryDefinitions={
  windwardWorks:{file:'windward-works-background-v1.png',zones:['story:dornman-windworks'],note:'機関室の仮背景'},
  whitePassSnow:{file:'white-pass-wood-background-v1.png',zones:['story:winter-frontier-switchback', 'story:white-pass-cut', 'story:white-pass-woods', 'story:white-pass-ridge','story:sne-survey-yard'],note:'白虹峠へ続く雪道と観測広場の仮背景'},
  sneSurveyShed:{file:'sne-survey-shed-background-v1.png',zones:['story:sne-survey-shed'],note:'駅脇の観測小屋の仮背景'},
- sneSurveyRidge:{file:'sne-survey-ridge-background-v1.png',zones:['story:sne-survey-ridge'],note:'雪棚の見晴らしの仮背景'},
+ sneSurveyRidge:{file:'sne-survey-ridge-background-v1.png',zones:['story:sne-survey-ridge','story:sne-survey-outskirts'],note:'観測路と雪棚の見晴らしの仮背景'},
  sneSnowMatch:{file:'sne-snow-match-background-v1.png',zones:['story:sne-snow-match'],note:'雪合戦広場の仮背景'},
  whitePassCoach:{file:'white-pass-coach-background-v1.png',zones:['story:white-pass-coach'],note:'列車内の仮背景'},
  whitePassStation:{file:'steam-stabling-depot-background-v1.png',zones:['story:white-pass-station'],note:'終着駅の共用仮背景'},

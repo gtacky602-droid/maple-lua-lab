@@ -3333,12 +3333,22 @@
     {
       "node": "sne-survey-shed",
       "mode": "sprite",
-      "visible_portals": 3
+      "visible_portals": 4
     },
     {
       "node": "sne-survey-shed",
       "mode": "rect",
-      "visible_portals": 3
+      "visible_portals": 4
+    },
+    {
+      "node": "sne-survey-outskirts",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "sne-survey-outskirts",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "sne-survey-yard",

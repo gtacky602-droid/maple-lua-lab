@@ -195,7 +195,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 27,
+      "prototype_stage_count": 28,
       "prototype_quest_count": 16,
       "official_map2_markers": {
         "waypoints": 101,
@@ -578,7 +578,7 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 337,
+    "authored_stages": 338,
     "provisional_quests": 192,
     "companion_join_records": 8,
     "scope_complete": false,
@@ -590,7 +590,7 @@
       "production balance",
       "native Lua limits"
     ],
-    "daily_candidates": 35
+    "daily_candidates": 40
   },
   "stygian_summary": {
     "partial": [
@@ -1056,6 +1056,7 @@
           "dawn-glass-divide",
           "dawn-crystal-field",
           "sne-survey-shed",
+          "sne-survey-outskirts",
           "sne-survey-yard",
           "sne-survey-ridge",
           "sne-snow-match"
@@ -1429,8 +1430,8 @@
       "content/daily-quests.json"
     ],
     "design_entries": 153,
-    "linked": 132,
-    "without_explicit_mapping": 21,
+    "linked": 137,
+    "without_explicit_mapping": 16,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1543,6 +1544,11 @@
       "Q-NOD-S03": "nod-moon-rumor",
       "Q-NOD-S04": "nod-moon-bloom",
       "Q-NOD-S05": "nod-lantern-patrol",
+      "Q-SNE-D01": "daily-sne-patrol",
+      "Q-SNE-D02": "daily-sne-survey-road",
+      "Q-SNE-D03": "daily-sne-forest-road",
+      "Q-SNE-D04": "daily-sne-tour-route",
+      "Q-SNE-D05": "daily-sne-elites",
       "Q-SNE-M01": "white-pass-ticket",
       "Q-SNE-M02": "white-pass-trail",
       "Q-SNE-M03": "white-pass-summit",

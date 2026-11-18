@@ -1977,7 +1977,7 @@
       {"id":"white-pass-cut-2","kind":1,"art":"snow-mantle-beetle","x":289,"platform":0,"hp":11},
       {"id":"white-pass-cut-3","kind":1,"art":"snow-mantle-beetle","x":365,"platform":0,"hp":11},
       {"id":"white-pass-cut-4","kind":1,"art":"snow-mantle-beetle","x":441,"platform":0,"hp":11},
-      {"id":"white-pass-route-cart","kind":2,"art":"sled-maintenance-cart","x":517,"platform":0,"hp":21},
+      {"id":"white-pass-route-cart","kind":2,"art":"sled-maintenance-cart","x":517,"platform":0,"hp":21,"name":"切通しの暴走カート","dailyElite":true},
       {"id":"white-pass-cut-6","kind":1,"art":"snow-mantle-beetle","x":593,"platform":0,"hp":11},
       {"id":"white-pass-cut-7","kind":1,"art":"snow-mantle-beetle","x":669,"platform":0,"hp":11},
       {"id":"white-pass-cut-8","kind":1,"art":"snow-mantle-beetle","x":745,"platform":0,"hp":11},
@@ -2512,6 +2512,16 @@
       {"id":"nod-patrol-bend-slime-1","kind":1,"art":"hydro-slime","x":1321,"platform":0,"hp":26,"pursuit":{"range":223,"leash":365,"speed":80}},
       {"id":"nod-patrol-bend-slime-2","kind":2,"art":"pyro-slime","x":1448,"platform":0,"hp":31,"pursuit":{"range":223,"leash":365,"speed":80}},
       {"id":"nod-patrol-bend-slime-3","kind":1,"art":"hydro-slime","x":1569,"platform":0,"hp":26,"pursuit":{"range":223,"leash":365,"speed":80}}
+    ],
+    "sne-survey-outskirts": [
+      {"id":"sne-outskirts-beetle-west","kind":1,"art":"snow-mantle-beetle","x":342,"platform":0,"hp":39},
+      {"id":"sne-outskirts-slime-west","kind":1,"art":"cryo-slime","x":506,"platform":0,"hp":33},
+      {"id":"sne-outskirts-beetle-ledge","kind":1,"art":"snow-mantle-beetle","x":577,"platform":1,"hp":39},
+      {"id":"sne-outskirts-slime-upper","kind":1,"art":"cryo-slime","x":804,"platform":2,"hp":36},
+      {"id":"sne-outskirts-elite","kind":2,"art":"frostarm-lawachurl","x":965,"platform":0,"hp":96,"name":"観測路の霜鎧の精鋭","dailyElite":true},
+      {"id":"sne-outskirts-cart-ledge","kind":2,"art":"sled-maintenance-cart","x":1170,"platform":3,"hp":43},
+      {"id":"sne-outskirts-beetle-east","kind":1,"art":"snow-mantle-beetle","x":1310,"platform":0,"hp":40},
+      {"id":"sne-outskirts-slime-east","kind":1,"art":"cryo-slime","x":1488,"platform":0,"hp":38}
     ],
     "sne-survey-ridge": [
       {"id":"sne-survey-ice-slime","kind":1,"art":"cryo-slime","x":685,"platform":0,"hp":23,"pursuit":{"range":238,"leash":404,"speed":76}},

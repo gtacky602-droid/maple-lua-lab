@@ -32,6 +32,10 @@
     "nod-krai": {
       "label": "ナド・クライ",
       "includeRegions": ["ナド・クライ", "ナド・クライ特別地域（仮）"]
+    },
+    "snezhnaya": {
+      "label": "スネージナヤ",
+      "includeRegions": ["スネージナヤ", "ノヴォキッチェヴ（仮構造）"]
     }
   },
   "quests": [
@@ -609,6 +613,87 @@
       "goal": 60,
       "xp": 222770,
       "mora": 1690
+    },
+    {
+      "id": "daily-sne-patrol",
+      "designId": "Q-SNE-D01",
+      "kind": "main",
+      "region": "snezhnaya",
+      "hub": "snezhnaya-hub",
+      "level": 140,
+      "giver": "バレリー",
+      "name": "本日の巡回確認",
+      "intro": "バレリー「雪道の巡回をお願いします。遠くへ行くなら、帰りの道も確認しておいてください。」",
+      "target": "スネージナヤとノヴォキッチェヴの実戦の敵",
+      "filter": {"kind": "region"},
+      "goal": 200,
+      "xp": 1840640,
+      "mora": 6500
+    },
+    {
+      "id": "daily-sne-survey-road",
+      "designId": "Q-SNE-D02",
+      "kind": "extra",
+      "region": "snezhnaya",
+      "hub": "snezhnaya-hub",
+      "level": 140,
+      "giver": "ミティヤ",
+      "companion": "mitya",
+      "name": "観測の邪魔だけ、頼める？",
+      "intro": "ミティヤ「観測塔から見える範囲を見回ってくれる？　機材はこちらで見ておくよ。」",
+      "target": "郊外の観測路・雪棚の見晴らしの実戦の敵",
+      "filter": {"kind": "nodes", "nodes": ["sne-survey-outskirts", "sne-survey-ridge"]},
+      "goal": 60,
+      "xp": 552190,
+      "mora": 2400
+    },
+    {
+      "id": "daily-sne-forest-road",
+      "designId": "Q-SNE-D03",
+      "kind": "extra",
+      "region": "snezhnaya",
+      "hub": "snezhnaya-hub",
+      "level": 140,
+      "giver": "アリョーシャ",
+      "name": "林を抜ける道のために",
+      "intro": "アリョーシャ「雪原から林を抜ける道を、今日は先に見てきてくれるか？」",
+      "target": "雪原の入口・雪線の切通し・白虹峠の樹林の道の実戦の敵",
+      "filter": {"kind": "nodes", "nodes": ["snezhnaya-entry", "white-pass-cut", "white-pass-woods"]},
+      "goal": 80,
+      "xp": 736260,
+      "mora": 3000
+    },
+    {
+      "id": "daily-sne-tour-route",
+      "designId": "Q-SNE-D04",
+      "kind": "extra",
+      "region": "snezhnaya",
+      "hub": "snezhnaya-hub",
+      "level": 140,
+      "giver": "オデット",
+      "name": "巡演へ向かう、その前に",
+      "intro": "オデット「雪の町を出る前に、荷物を運ぶ道を見ておいてもらえる？」",
+      "target": "凍った街道・郊外の観測路の実戦の敵",
+      "filter": {"kind": "nodes", "nodes": ["snezhnaya-field", "sne-survey-outskirts"]},
+      "goal": 60,
+      "xp": 552190,
+      "mora": 2350
+    },
+    {
+      "id": "daily-sne-elites",
+      "designId": "Q-SNE-D05",
+      "kind": "extra",
+      "region": "snezhnaya",
+      "hub": "snezhnaya-hub",
+      "level": 140,
+      "giver": "タルタリヤ",
+      "name": "面白い相手を見つけたよ",
+      "intro": "タルタリヤ「切通しと観測路に面白い相手がいる。先に手合わせしてくるかい？」",
+      "target": "雪線の切通し・郊外の観測路の指定精鋭",
+      "filter": {"kind": "elite", "nodes": ["white-pass-cut", "sne-survey-outskirts"]},
+      "goal": 3,
+      "xp": 345120,
+      "mora": 3300
     }
   ]
 }

@@ -3154,11 +3154,19 @@
     },
     {
       "node": "sne-survey-shed",
+      "to": "sne-survey-outskirts"
+    },
+    {
+      "node": "sne-survey-shed",
       "to": "sne-survey-yard"
     },
     {
       "node": "sne-survey-shed",
       "to": "sne-survey-ridge"
+    },
+    {
+      "node": "sne-survey-outskirts",
+      "to": "sne-survey-shed"
     },
     {
       "node": "sne-survey-yard",

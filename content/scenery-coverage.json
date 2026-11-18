@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-19",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 337 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 329,
+  "scope": "Authored 338 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 330,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -2006,6 +2006,12 @@
     {
       "id": "sne-survey-shed",
       "name": "スネージナヤ・駅脇の観測小屋",
+      "region": "スネージナヤ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "sne-survey-outskirts",
+      "name": "スネージナヤ・郊外の観測路",
       "region": "スネージナヤ",
       "status": "regional_temporary_image"
     },

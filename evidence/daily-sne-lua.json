@@ -1,0 +1,25 @@
+{
+  "completedGoals": {
+    "Q-SNE-D01": 200,
+    "Q-SNE-D02": 60,
+    "Q-SNE-D03": 80,
+    "Q-SNE-D04": 60,
+    "Q-SNE-D05": 3
+  },
+  "level140PublicRouteToOutskirts": true,
+  "mityaCompanionGiver": true,
+  "novokichevCountsForMain": true,
+  "surveyAndTourOverlapAtOutskirts": true,
+  "namedElitesRespawn": true,
+  "claimAtHubOnce": true,
+  "ordinaryInput200KillRun": {
+    "start": "snezhnaya-hub",
+    "hunt": "white-pass-cut",
+    "startingLevel": 140,
+    "companion": "amber",
+    "controls": "walk, nearby portal, hold normal attack",
+    "secondsToGoalSimulated": 136.5,
+    "roundTripSecondsSimulated": 148.0,
+    "partyWipeReturns": 1
+  }
+}
