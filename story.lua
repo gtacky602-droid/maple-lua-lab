@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -32,6 +32,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  local function meetsGateRule(s,rule)
   local state=s.story.quests[rule.quest]
+  if rule.path then state=state and state.pathProgress and state.pathProgress[rule.path] end
   if rule.before and state and state.count>=rule.before then return false end
   if rule.construction then
    return completed(s,rule.quest) and state.construction and state.construction.plan==rule.construction
@@ -180,7 +181,18 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  local function nextMilestone(s,q)
   local state=s.story.quests[q.id]
-  if state and state.status=='active' then return milestoneAt(q.itinerary[state.count+1],s.story.node),state end
+  if not state or state.status~='active' then return end
+  local step=q.itinerary[state.count+1]
+  if step and step.kind=='paths' then
+   if not state.pathProgress then return end
+   for _,path in ipairs(q.paths) do
+    local progress=state.pathProgress[path.id]
+    local nextStep=milestoneAt(path.steps[progress.count+1],s.story.node)
+    if nextStep and nextStep.node==s.story.node then return nextStep,progress,state,q end
+   end
+   return
+  end
+  return milestoneAt(step,s.story.node),state
  end
  local function installBridge(s,bridge)
   if bridge.track then
@@ -190,7 +202,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   s.platforms[#s.platforms+1]=copy(bridge)
  end
- local function completeMilestone(s,state,milestone)
+ local function completeMilestone(s,state,milestone,parent,quest)
   state.count=state.count+1
   s.storyNotice=milestone.notice
   if milestone.bridge then installBridge(s,milestone.bridge) end
@@ -198,9 +210,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local stage=nodes[s.story.node].theater
   if stage and s.story.quests[stage.quest]==state then theater.sync(s,stage,true) end
   if milestone.reflect then s.reflection=nil end
+  if milestone.riverTurn then s.riverTurnAt=s.t end
+  if parent then
+   for _,path in ipairs(quest.paths) do
+    if parent.pathProgress[path.id].count<#path.steps then return end
+   end
+   s.storyNotice=quest.itinerary[parent.count+1].notice
+   parent.count=parent.count+1
+  end
  end
- local function recordKill(s,state,milestone,enemy)
-  if milestone.enemy==enemy then completeMilestone(s,state,milestone);return end
+ local function recordKill(s,state,milestone,enemy,parent,quest)
+  if milestone.enemy==enemy then completeMilestone(s,state,milestone,parent,quest);return end
   local group=milestone.enemies
   if not group then return end
   for _,id in ipairs(group) do if id==enemy then
@@ -210,19 +230,19 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local count=0
    for _,member in ipairs(group) do if defeated[member] then count=count+1 end end
    if count==#group then
-    state.sweep=nil;completeMilestone(s,state,milestone)
+    state.sweep=nil;completeMilestone(s,state,milestone,parent,quest)
    else s.storyNotice='通路の群れを整理中 '..count..' / '..#group end
    return
   end end
  end
  local function inspectMilestone(s,command)
   for _,q in ipairs(itineraries) do
-   local milestone,state=nextMilestone(s,q)
+   local milestone,state,parent,quest=nextMilestone(s,q)
    if milestone and milestone.paperFold and milestone.node==s.story.node
        and (command=='rotate' or command=='paper_confirm') then
     local board=nodes[s.story.node].paperBoard
     local handled,complete=paper.adjust(s,board,command)
-    if complete then paper.install(s,board);completeMilestone(s,state,milestone) end
+     if complete then paper.install(s,board);completeMilestone(s,state,milestone,parent,quest) end
     if handled then return true end
    end
    if milestone and (milestone.resonanceOrder or milestone.shadowChoice) and milestone.node==s.story.node and command=='rotate' then
@@ -230,7 +250,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     local handled,complete
     if milestone.shadowChoice then handled,complete=rockViews.choose(s,node.rockViews)
     else handled,complete=resonance.light(s,node.resonance,emitCue) end
-    if complete then completeMilestone(s,state,milestone) end
+     if complete then completeMilestone(s,state,milestone,parent,quest) end
     if handled then return true end
    end
    if milestone and milestone.kind=='inspect' and milestone.node==s.story.node
@@ -241,14 +261,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      local selected=paper.gift(s,milestone,command)
      if selected then
       state.paperSouvenir=selected
-      completeMilestone(s,state,milestone)
+      completeMilestone(s,state,milestone,parent,quest)
      end
      return true
     elseif milestone.airflow then
      local confirmed,plan=airflow.interact(s,milestone,command,emitCue)
      if confirmed then
       if plan then state.stagePlan=plan end
-      completeMilestone(s,state,milestone)
+      completeMilestone(s,state,milestone,parent,quest)
      end
      return true
     elseif milestone.followCart then
@@ -258,14 +278,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      if command=='rotate' then flagCourse.lower(s,milestone,state) end
      return true
     elseif milestone.performance then
-     if command=='rotate' and theater.performance(s,milestone.performance) then completeMilestone(s,state,milestone) end
+     if command=='rotate' and theater.performance(s,milestone.performance) then completeMilestone(s,state,milestone,parent,quest) end
      return true
     elseif milestone.reflect then
-     if reflection.interact(s,milestone,command) then completeMilestone(s,state,milestone) end
+     if reflection.interact(s,milestone,command) then completeMilestone(s,state,milestone,parent,quest) end
      return true
     elseif command=='rotate' then
      if milestone.resonanceStone then resonance.record(s,milestone,emitCue) end
-     completeMilestone(s,state,milestone)
+      completeMilestone(s,state,milestone,parent,quest)
      return true
     end
    end
@@ -320,18 +340,24 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
   end
  end
- local function cleared(s,n)
+ local function clearState(s,n)
   local state=n.clearedBy and s.story.quests[n.clearedBy]
+  if n.practiceAfterReport and state and state.status=='complete' then return end
+  if n.clearPath then return state and state.pathProgress and state.pathProgress[n.clearPath] end
+  return state
+ end
+ local function cleared(s,n)
+  local state=clearState(s,n)
   return state and state.count>=(n.clearCount or quests[n.clearedBy].goal)
  end
  local function railQuest(s,n)
   local q=quests[n.clearedBy]
   if q and q.rail then return q,s.story.quests[q.id] end
  end
- local function defeatedMilestones(q,state,node)
+ local function defeatedMilestones(itinerary,state,node)
   local defeated=copy(state.sweep or {})
   for i=1,state.count do
-   local step=q.itinerary[i]
+   local step=itinerary[i]
    if step.kind=='kill' and step.node==node then
     if step.enemy then defeated[step.enemy]=true end
     for _,id in ipairs(step.enemies or {}) do defeated[id]=true end
@@ -379,6 +405,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   theater.enter(s,n.theater)
   flagCourse.enter(s,n.flagCourse)
+  movingPlatforms.enter(s,n.riverCrossing)
   s.reflection=nil
   s.expeditionPractice=false
   s.lift=nil
@@ -404,12 +431,18 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local railConfig,railState=railQuest(s,n)
   if railState and railState.count>=1 then s.platforms[#s.platforms+1]=copy(railConfig.rail.bridge) end
   local stageQuest=quests[n.clearedBy]
-  local stageState=stageQuest and s.story.quests[stageQuest.id]
+  local stageState=clearState(s,n)
   local phase=railState and railState.count or 0
   if stageQuest and stageQuest.recovery and stageState and stageState.recovered and stageState.count==stageQuest.goal-1 then phase=1 end
   local group=stageState and (stageState.book or stageState.forest or stageState.rest)
   local defeated=group and group.defeated
-  if stageState and stageQuest.itinerary then defeated=defeatedMilestones(stageQuest,stageState,id) end
+  if stageState and stageQuest.itinerary then
+   local itinerary=stageQuest.itinerary
+   if n.clearPath then
+    for _,path in ipairs(stageQuest.paths) do if path.id==n.clearPath then itinerary=path.steps;break end end
+   end
+   defeated=defeatedMilestones(itinerary,stageState,id)
+  end
   spawnEnemies(s,n,phase,stageState and stageState.recovered,defeated)
   local cargo,state=cargoQuest(s)
   if cargo and cargo.chase and recoveredAll(cargo,state) then beginChase(s,cargo) end
@@ -665,6 +698,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
                        forest=q.forest and {looped=false,defeated={}} or nil,
                        sights=q.sights and {seen={}} or nil,rest=q.rest and {defeated={}} or nil,
                        roof=q.roof and {ticks=0,falls=0} or nil}
+    if q.paths then
+     local record={}
+     for _,path in ipairs(q.paths) do record[path.id]={count=0} end
+     s.story.quests[id].pathProgress=record
+    end
    elseif report and state and state.status=='active' and state.count==q.goal then
     if q.cooking then state.cooking.meals=1 end
     if state.sights then sights.report(s,q) end
@@ -683,9 +721,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if s.story and s.story.active then
    progress(s,'kill',s.story.node,e)
    for _,q in ipairs(itineraries) do
-    local milestone,state=nextMilestone(s,q)
+    local milestone,state,parent,quest=nextMilestone(s,q)
     if milestone and milestone.kind=='kill' and milestone.node==s.story.node and e.spawnId then
-     recordKill(s,state,milestone,e.spawnId)
+     recordKill(s,state,milestone,e.spawnId,parent,quest)
     end
    end
    for id,state in pairs(s.story.quests) do
@@ -757,6 +795,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    return
   end
+  if s.story and s.story.active then movingPlatforms.move(s,dt) end
   local returns,previous=s.returns,s.t;step(s,dt,input)
   if s.story and s.story.active and s.returns==returns and not s.paused then
    local milestone,state=theater.step(s,s.t-previous,nodes[s.story.node].theater)
@@ -795,6 +834,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local node=nodes[s.story.node]
    local anchor=node.fallReturn or node.paperRescue
    if anchor then paper.rescue(s,anchor) end
+   movingPlatforms.rescue(s,node.riverCrossing)
   end
  end
  local function drawOutcrop(draws,x,y,angle)
@@ -904,6 +944,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    theater.frame(s,f,markers,n.theater,mode,profile)
    flagCourse.observe(s,f,markers,n.flagCourse,mode,profile)
+   movingPlatforms.observe(s,f,markers,n.riverCrossing,mode,profile)
+   local pathQuest=n.pathsQuest and quests[n.pathsQuest]
+   local pathState=pathQuest and s.story.quests[pathQuest.id]
+   if pathState and pathState.pathProgress and pathState.count>0 then
+    local notes={}
+    for _,path in ipairs(pathQuest.paths) do
+     local count=pathState.pathProgress[path.id].count
+     notes[#notes+1]=path.label..' '..(count==#path.steps and '達成' or count..' / '..#path.steps)
+    end
+    f.storyPathStatus=table.concat(notes,'　｜　')
+   end
    if n.localLight then localLight.observe(s,f,markers,n.localLight) end
    if n.paperBoard then
     local board=n.paperBoard

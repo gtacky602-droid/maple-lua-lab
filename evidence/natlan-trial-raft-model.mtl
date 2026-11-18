@@ -1,0 +1,23 @@
+newmtl wood
+Kd 0.54510 0.34902 0.23529
+illum 1
+
+newmtl deck
+Kd 0.82353 0.62353 0.39216
+illum 1
+
+newmtl rope
+Kd 0.91765 0.76863 0.48235
+illum 1
+
+newmtl teal
+Kd 0.28235 0.61176 0.60784
+illum 1
+
+newmtl red
+Kd 0.69412 0.30980 0.21176
+illum 1
+
+newmtl metal
+Kd 0.30196 0.31765 0.29020
+illum 1

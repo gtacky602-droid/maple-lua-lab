@@ -1,0 +1,20 @@
+{
+  "highThenWater": true,
+  "waterThenHigh": true,
+  "partialBranchSweepAfterReload": true,
+  "lockedUntilBoth": true,
+  "inconsistentJoinRejected": true,
+  "waterRescueBothBanks": true,
+  "pausedRaftFreezes": true,
+  "movingDeckCarriesActor": true,
+  "rockToFinalRaft": true,
+  "turnCue": true,
+  "threeMarksAndMatchCard": true,
+  "reportOnce": true,
+  "rematchHuntingRoutes": true,
+  "reward": [
+    4363734,
+    7300,
+    5
+  ]
+}

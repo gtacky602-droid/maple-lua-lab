@@ -3452,6 +3452,36 @@
       "transparent": 0
     },
     {
+      "key": "natlanRiverTrial",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "natlanRiverTrial",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "natlanRiverTrial",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "natlanRiverTrial",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "natlanRiverTrial",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "natlanRiverTrial",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "natlan",
       "camera": -960,
       "transparent": 0

@@ -4,6 +4,8 @@ export function questRouteText(f,q,status){
  const graph=f.storyGraph,nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  const activeCount=f.story.quests?.[q.id]?.count??0;
  const milestone=status==='active'?q.itinerary?.[activeCount]:null;
+ const pathProgress=f.story.quests?.[q.id]?.pathProgress;
+ const branches=milestone?.kind==='paths'&&q.paths.map(path=>path.steps[pathProgress?.[path.id]?.count??0]).filter(Boolean);
  let target=status==='active'?(q.kind==='boss'?graph.nodes.find(n=>n.challenge===q.target)?.id:q.target):q.hub;
  if(status==='active'&&q.itinerary)target=q.itinerary[activeCount]?.node;
  if(status==='active'&&q.sights&&f.story.quests?.[q.id]&&!f.story.quests[q.id].sights)target=q.sights.legacyTarget;
@@ -27,16 +29,18 @@ export function questRouteText(f,q,status){
  const marks=status==='active'&&q.stone?.marks.filter(item=>!f.story.quests?.[q.id]?.stone.marked[item.id]);
  const surveys=work&&q.construction.surveys.filter(item=>!work.surveyed[item.id]);
  const unfinished=ingredients?.length?ingredients:marks?.length?marks:surveys?.length?surveys:lookingForClues?q.trail.clues:null;
- const destinations=unfinished?unfinished.map(item=>item.node):[target,...(milestone?.alternatives??[]).map(item=>item.node)];
+ const destinations=branches?branches.flatMap(item=>[item.node,...(item.alternatives??[]).map(place=>place.node)])
+  :unfinished?unfinished.map(item=>item.node):[target,...(milestone?.alternatives??[]).map(item=>item.node)];
  const targets=new Set(destinations.filter(id=>nodes.has(id)));
  if(!targets.size)return '目的地は未公開または未登録です。';
  const from=f.story.node;if(!nodes.has(from))return '';
  if(targets.has(from))return status==='active'?'目的地に到着しています。':'受注・報告の拠点にいます。';
  function meetsRule(rule){
-  const state=f.story.quests?.[rule.quest];
+  const questState=f.story.quests?.[rule.quest];
+  const state=rule.path?questState?.pathProgress?.[rule.path]:questState;
   if(rule.before!==undefined&&state?.count>=rule.before)return false;
   if(rule.construction)return state?.status==='complete'&&state.construction?.plan===rule.construction;
-  return state?.status==='complete'||(rule.count!==undefined&&state?.count>=rule.count&&(!rule.recovery||state?.recovered));
+  return questState?.status==='complete'||(rule.count!==undefined&&state?.count>=rule.count&&(!rule.recovery||state?.recovered));
  }
  function gateOpen(edge){
   const rule=edge.requires;

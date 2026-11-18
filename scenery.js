@@ -116,9 +116,11 @@ export const sceneryDefinitions={
  ]},
  fontaine:{file:'fontaine-background-v1.png',region:'フォンテーヌ',zones:[]},
  natlanRaceRidge:{file:'natlan-race-ridge-background-v1.png',zones:[
-  'story:natlan-flag-slope','story:natlan-flag-ledges','story:natlan-flag-cleft'
+  'story:natlan-flag-slope','story:natlan-flag-ledges','story:natlan-flag-cleft',
+  'story:natlan-high-trial-steps','story:natlan-high-trial-field'
  ]},
- natlanRaceSummit:{file:'natlan-race-summit-background-v1.png',zones:['story:natlan-flag-summit']},
+ natlanRaceSummit:{file:'natlan-race-summit-background-v1.png',zones:['story:natlan-flag-summit','story:natlan-duel-entry']},
+ natlanRiverTrial:{file:'natlan-riverside-trial-background-v1.png',zones:['story:natlan-river-float-run','story:natlan-river-turn-basin']},
  natlan:{file:'natlan-background-v1.png',region:'ナタ',zones:[]},
  sumeruRiverside:{file:'sumeru-riverside-background-v1.png',zones:['story:sumeru-river-roots','story:sumeru-river-bank','story:sumeru-root-slope']},
  sumeruCanopy:{file:'sumeru-canopy-background-v1.png',zones:['story:sumeru-canopy-junction','story:sumeru-branch-run','story:sumeru-observation-stop','story:sumeru-observatory-approach','story:sumeru-observatory-terrace','story:sumeru-sky-observatory']},
@@ -187,6 +189,7 @@ export function scenery(ctx,frame){
  drawDecorations(ctx,frame,camera);
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
+  if(p.riverDeck)continue;
   if(p.raceRock){
    ctx.fillStyle=p.raceBridge?'#8e593e':'#a96548';ctx.fillRect(x,p.y,p.w,p.y===480?56:16);
    ctx.fillStyle=p.raceBridge?'#e2ad71':'#c8a052';ctx.fillRect(x,p.y,p.w,5);

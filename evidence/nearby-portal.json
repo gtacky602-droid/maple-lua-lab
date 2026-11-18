@@ -809,6 +809,18 @@
       "to": "natlan-flag-summit"
     },
     {
+      "node": "natlan-hub",
+      "to": "natlan-high-trial-field"
+    },
+    {
+      "node": "natlan-hub",
+      "to": "natlan-river-turn-basin"
+    },
+    {
+      "node": "natlan-hub",
+      "to": "natlan-duel-entry"
+    },
+    {
       "node": "natlan-field",
       "to": "natlan-hub"
     },
@@ -2406,6 +2418,58 @@
     },
     {
       "node": "natlan-flag-summit",
+      "to": "natlan-hub"
+    },
+    {
+      "node": "natlan-flag-summit",
+      "to": "natlan-high-trial-steps"
+    },
+    {
+      "node": "natlan-flag-summit",
+      "to": "natlan-river-float-run"
+    },
+    {
+      "node": "natlan-flag-summit",
+      "to": "natlan-duel-entry"
+    },
+    {
+      "node": "natlan-high-trial-steps",
+      "to": "natlan-flag-summit"
+    },
+    {
+      "node": "natlan-high-trial-steps",
+      "to": "natlan-high-trial-field"
+    },
+    {
+      "node": "natlan-high-trial-field",
+      "to": "natlan-high-trial-steps"
+    },
+    {
+      "node": "natlan-high-trial-field",
+      "to": "natlan-flag-summit"
+    },
+    {
+      "node": "natlan-river-float-run",
+      "to": "natlan-flag-summit"
+    },
+    {
+      "node": "natlan-river-float-run",
+      "to": "natlan-river-turn-basin"
+    },
+    {
+      "node": "natlan-river-turn-basin",
+      "to": "natlan-river-float-run"
+    },
+    {
+      "node": "natlan-river-turn-basin",
+      "to": "natlan-flag-summit"
+    },
+    {
+      "node": "natlan-duel-entry",
+      "to": "natlan-flag-summit"
+    },
+    {
+      "node": "natlan-duel-entry",
       "to": "natlan-hub"
     }
   ],

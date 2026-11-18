@@ -683,12 +683,12 @@
     {
       "node": "natlan-hub",
       "mode": "sprite",
-      "visible_portals": 4
+      "visible_portals": 7
     },
     {
       "node": "natlan-hub",
       "mode": "rect",
-      "visible_portals": 4
+      "visible_portals": 7
     },
     {
       "node": "natlan-field",
@@ -2613,12 +2613,62 @@
     {
       "node": "natlan-flag-summit",
       "mode": "sprite",
-      "visible_portals": 3
+      "visible_portals": 6
     },
     {
       "node": "natlan-flag-summit",
       "mode": "rect",
-      "visible_portals": 3
+      "visible_portals": 6
+    },
+    {
+      "node": "natlan-high-trial-steps",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-high-trial-steps",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-high-trial-field",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-high-trial-field",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-river-float-run",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-river-float-run",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-river-turn-basin",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-river-turn-basin",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-duel-entry",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-duel-entry",
+      "mode": "rect",
+      "visible_portals": 2
     }
   ],
   "checks": [

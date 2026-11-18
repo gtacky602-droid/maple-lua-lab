@@ -1112,6 +1112,26 @@
     {
       "node": "natlan-flag-summit",
       "enemy_count": 0
+    },
+    {
+      "node": "natlan-high-trial-steps",
+      "enemy_count": 0
+    },
+    {
+      "node": "natlan-high-trial-field",
+      "enemy_count": 3
+    },
+    {
+      "node": "natlan-river-float-run",
+      "enemy_count": 3
+    },
+    {
+      "node": "natlan-river-turn-basin",
+      "enemy_count": 2
+    },
+    {
+      "node": "natlan-duel-entry",
+      "enemy_count": 0
     }
   ],
   "render_profiles": [

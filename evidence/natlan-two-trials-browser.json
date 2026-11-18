@@ -1,0 +1,26 @@
+{
+  "waterThenHigh": true,
+  "realMovingDeck": true,
+  "bankRescue": true,
+  "rockRouteBoardsFinalRaft": true,
+  "waterSavedBeforeHigh": true,
+  "highStepsAndThreeGuards": true,
+  "threeMarksAndMatchCard": true,
+  "shortcutAndReadback": true,
+  "riverside": {
+    "key": "natlanRiverTrial",
+    "file": "natlan-riverside-trial-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 19,
+    "standard": 6275,
+    "light": 1531
+  },
+  "reward": [
+    4363734,
+    7300,
+    5
+  ],
+  "errors": []
+}

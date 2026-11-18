@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 262 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 254,
+  "scope": "Authored 267 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 259,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1086,7 +1086,12 @@
     {"id":"natlan-flag-slope","name":"旗取りの広い坂道","region":"ナタ","status":"regional_temporary_image"},
     {"id":"natlan-flag-ledges","name":"旗取りの岩棚道","region":"ナタ","status":"regional_temporary_image"},
     {"id":"natlan-flag-cleft","name":"カチーナの切れ目足場","region":"ナタ","status":"regional_temporary_image"},
-    {"id":"natlan-flag-summit","name":"二つの旗を望む頂上","region":"ナタ","status":"regional_temporary_image"}
+    {"id":"natlan-flag-summit","name":"二つの旗を望む頂上","region":"ナタ","status":"regional_temporary_image"},
+    {"id":"natlan-high-trial-steps","name":"高台の段差と標的","region":"ナタ","status":"regional_temporary_image"},
+    {"id":"natlan-high-trial-field","name":"高台の三段狩場","region":"ナタ","status":"regional_temporary_image"},
+    {"id":"natlan-river-float-run","name":"浮き台と最初の岸","region":"ナタ","status":"regional_temporary_image"},
+    {"id":"natlan-river-turn-basin","name":"折り返しの瀬と岩渡り","region":"ナタ","status":"regional_temporary_image"},
+    {"id":"natlan-duel-entry","name":"夕映え会場の控え広場","region":"ナタ","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 8
 }

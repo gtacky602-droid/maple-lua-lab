@@ -10,6 +10,50 @@ _COMPANIONS=('amber','columbina','wanderer','beidou','ayaka','emilie','kachina',
 import math
 """Versioned local checkpoint validation; this is not a production multiplayer save."""
 FIELDS={'version','quest','count','mora','kills','hits','damage','gauge','active'}
+
+
+def validate_steps_visited(steps, count, visited):
+    for item in steps[:count]:
+        places=[item, *item.get('alternatives',[])]
+        if not any(place['node'] in visited for place in places):
+            raise ValueError('未訪問の地点が調査済みになっています')
+
+
+def validate_sweep(record, steps, visited):
+    if 'sweep' not in record:
+        return
+    count=record['count']
+    step=steps[count] if count<len(steps) else {}
+    allowed=set(step.get('enemies',[])) if step.get('kind')=='kill' else set()
+    defeated=record['sweep']
+    if (not isinstance(defeated,dict) or not defeated or not defeated.keys()<allowed
+            or any(flag is not True for flag in defeated.values()) or step['node'] not in visited):
+        raise ValueError('遠征の討伐記録が不正です')
+
+
+def validate_paths(record, quest, visited):
+    paths=quest.get('paths')
+    if not paths and 'pathProgress' not in record:
+        return
+    progress=record.get('pathProgress')
+    if not paths or not isinstance(progress,dict) or progress.keys()!={path['id'] for path in paths}:
+        raise ValueError('分岐の進行記録が不正です')
+    join_index=next(i for i,step in enumerate(quest['itinerary']) if step['kind']=='paths')
+    finished=True
+    for path in paths:
+        steps=path['steps']
+        branch=progress[path['id']]
+        if (not isinstance(branch,dict) or set(branch)-{'sweep'}!={'count'}
+                or type(branch['count']) is not int or not 0<=branch['count']<=len(steps)
+                or (record['count']<join_index and (branch['count'] or 'sweep' in branch))):
+            raise ValueError('分岐の進行記録が不正です')
+        validate_steps_visited(steps,branch['count'],visited)
+        validate_sweep(branch,steps,visited)
+        finished=finished and branch['count']==len(steps)
+    if finished!=(record['count']>join_index):
+        raise ValueError('分岐と合流の記録が一致しません')
+
+
 def validate_save(data):
     if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses'}!=FIELDS:
         raise ValueError('保存データの項目が一致しません')
@@ -121,7 +165,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -142,11 +186,10 @@ def validate_save(data):
             quest = quests[id]
             if quest.get('itinerary'):
                 visited=st['visited']
-                if quest['hub'] not in visited or any(
-                    item['node'] not in visited and not any(place['node'] in visited for place in item.get('alternatives',[]))
-                    for item in quest['itinerary'][:q['count']]
-                ):
+                if quest['hub'] not in visited:
                     raise ValueError('未訪問の地点が調査済みになっています')
+                validate_steps_visited(quest['itinerary'],q['count'],visited)
+            validate_paths(q,quest,st['visited'])
             if 'flagBestTicks' in q:
                 ticks=q['flagBestTicks']
                 if not quest.get('flagTrial') or q['status']!='complete' or type(ticks) is not int or not 1<=ticks<=10**9:
@@ -158,14 +201,7 @@ def validate_save(data):
                        if step.get('airflow',{}).get('stagePlan') for choice in step['airflow']['choices']]
             if (layouts and q.get('stagePlan') not in layouts) or (not layouts and 'stagePlan' in q):
                 raise ValueError('舞台設備の記録が不正です')
-            if 'sweep' in q:
-                itinerary=quest.get('itinerary',[])
-                step=itinerary[q['count']] if q['count']<len(itinerary) else {}
-                allowed=set(step.get('enemies',[])) if step.get('kind')=='kill' else set()
-                defeated=q['sweep']
-                if (not isinstance(defeated,dict) or not defeated or not defeated.keys()<allowed
-                        or any(flag is not True for flag in defeated.values()) or step['node'] not in st['visited']):
-                    raise ValueError('遠征の討伐記録が不正です')
+            validate_sweep(q,quest.get('itinerary',[]),st['visited'])
             if quest.get('requires'):
                 predecessor = st['quests'].get(quest['requires'])
                 if not isinstance(predecessor, dict) or predecessor.get('status') != 'complete':

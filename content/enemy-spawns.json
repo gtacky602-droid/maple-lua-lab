@@ -2303,6 +2303,20 @@
     ],
     "natlan-flag-ledges": [
       {"id":"ridge-ledge-pebble-1","kind":1,"x":840,"platform":1,"hp":35,"art":"pebble-courier"}
+    ],
+    "natlan-high-trial-field": [
+      {"id":"natlan-high-mark-1","kind":1,"x":310,"platform":0,"hp":24,"art":"pebble-courier"},
+      {"id":"natlan-high-mark-2","kind":1,"x":610,"platform":1,"hp":28,"art":"fanged-beast"},
+      {"id":"natlan-high-mark-3","kind":1,"x":975,"platform":2,"hp":30,"art":"pebble-courier"}
+    ],
+    "natlan-river-float-run": [
+      {"id":"natlan-river-bank-1","kind":1,"x":1105,"platform":1,"hp":23,"art":"sail-shell-crawler"},
+      {"id":"natlan-river-bank-2","kind":1,"x":1295,"platform":1,"hp":27,"art":"pebble-courier"},
+      {"id":"natlan-river-bank-3","kind":1,"x":1450,"platform":1,"hp":30,"art":"sail-shell-crawler"}
+    ],
+    "natlan-river-turn-basin": [
+      {"id":"natlan-turn-bank-1","kind":1,"x":1242,"platform":1,"hp":28,"art":"sail-shell-crawler"},
+      {"id":"natlan-turn-bank-2","kind":1,"x":1392,"platform":1,"hp":32,"art":"pebble-courier"}
     ]
   }
 }

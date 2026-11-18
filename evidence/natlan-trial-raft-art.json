@@ -1,0 +1,62 @@
+{
+  "generator": "built-in imagegen",
+  "originalModel": {
+    "path": "evidence/natlan-trial-raft-model.obj",
+    "sha256": "1b36621e6ce6f266faa24d59612f462efdfbd3aedbdc9e7f269e743c47e4eb3e"
+  },
+  "materials": {
+    "path": "evidence/natlan-trial-raft-model.mtl",
+    "sha256": "56ee7fbd4a2f7cb55f28022ef0ef937077922a2bc4947f747625bb00ba49b806"
+  },
+  "vertices": 136,
+  "faces": 102,
+  "reference": {
+    "path": "evidence/natlan-trial-raft-views.png",
+    "sha256": "c979650456ebb3a94791f247e0bcbbf3a317876902bc7be77f9156b0463ba243"
+  },
+  "views": [
+    "front",
+    "front three-quarter",
+    "rear three-quarter"
+  ],
+  "source": {
+    "path": "assets/natlan-trial-raft-source-v1.png",
+    "sha256": "b5a80e21ce43808aac91e597248e1327a7741e7dbf83c10f9126178084f152fb"
+  },
+  "sourceSize": [
+    2176,
+    722
+  ],
+  "outsideAlphaSamples": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "box": [
+    122,
+    255,
+    1933,
+    240
+  ],
+  "drawHeight": 20,
+  "artWidth": 161.08333333333334,
+  "collisionWidth": 160,
+  "encoding": {
+    "path": "assets/natlan-trial-raft-sprites-v1.json",
+    "sha256": "eae904c49858d461fcb86caa8b8af131a842720c733a96e7cc70cb60e75ce985"
+  },
+  "runs": {
+    "legacy": 1060,
+    "h48c32": 641,
+    "h32c16": 227
+  },
+  "background": {
+    "path": "assets/natlan-riverside-trial-background-v1.png",
+    "sha256": "cbe3d0701c8ada5ddf7183ac952ea2aab6d809816483af4e9579b7ef61d8629e"
+  },
+  "backgroundSize": [
+    1672,
+    941
+  ]
+}

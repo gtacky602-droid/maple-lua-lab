@@ -107,7 +107,8 @@ def runtime():
     paper_folds=lua.execute((ROOT/'story-paper-folds.lua').read_text(encoding='utf8'))
     theater=lua.execute((ROOT/'story-theater.lua').read_text(encoding='utf8'))(core)
     flag_course=lua.execute((ROOT/'story-flag-course.lua').read_text(encoding='utf8'))(core)
-    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course)
+    moving_platforms=lua.execute((ROOT/'story-moving-platforms.lua').read_text(encoding='utf8'))(core)
+    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms)
     lua.execute((ROOT / 'barrier.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'farka.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'regisvine.lua').read_text(encoding='utf-8'))(core)
@@ -329,6 +330,7 @@ def runtime():
     core.stageWaveArt=field_art(lua,'stage-wave',('idle',),idle='stage-wave-sprites-v1.json').idle
     core.grandFinaleArt=field_art(lua,'grand-finale',('idle',)).idle
     core.natlanRaceFlagArt=field_art(lua,'natlan-race-flag',('idle',),idle='natlan-race-flag-sprites-v1.json').idle
+    core.natlanTrialRaftArt=field_art(lua,'natlan-trial-raft',('idle',),idle='natlan-trial-raft-sprites-v1.json').idle
     core.paperLanternArt=field_art(lua,'paper-lantern',('idle',),idle='paper-lantern-sprites-v1.json').idle
     lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(
         core,lua.table_from(field_specs,recursive=True),

@@ -80,5 +80,14 @@ race.story.quests[ridge.id].count=2;
 assert.match(questRouteText(race,ridge,'active'),/目的地に到着/);
 race.story.quests[ridge.id].count=3;
 assert.match(questRouteText(race,ridge,'active'),/次は カチーナの切れ目足場/);
+const trials=graph.quests.find(q=>q.id==='natlan-two-trials');
+const oneDone={count:1,pathProgress:{high:{count:4},water:{count:1}}};
+const trialFrame={story:{active:true,node:'natlan-flag-summit',quests:{[trials.id]:oneDone}},
+ storyGraph:graph,progression:{level:100}};
+assert.match(questRouteText(trialFrame,trials,'active'),/次は 浮き台と最初の岸/);
+oneDone.pathProgress.water.count=2;
+assert.match(questRouteText(trialFrame,trials,'active'),/目的地：折り返しの瀬と岩渡り/);
+oneDone.count=2;oneDone.pathProgress.water.count=4;
+assert.match(questRouteText(trialFrame,trials,'active'),/次は 夕映え会場の控え広場/);
 const original=JSON.stringify(frame);let checked=0;for(const quest of graph.quests)for(const status of ['unaccepted','active','ready','complete']){assert.equal(typeof questRouteText(frame,quest,status),'string');checked++}assert.equal(JSON.stringify(frame),original);
 await fs.writeFile('evidence/quest-route-test.json',JSON.stringify({checked,checks:['accept/report hub destination','active visit/kill destination','boss challenge entrance','one-time complete hidden','repeatable complete points to hub','missing/hidden target no leak','level gate indication','level-eligible detour preferred','shortest route at eligible level','blocked fallback minimizes required level','high-level origin permits exit','cycles terminate','voyage pre/during/post stopover and arrival','arrival zero switches to disembark; positive fraction waits','active companion position drives gate direction','ground proximity and elevated descent guidance','missing actors omit directional guidance','pause indication','disconnected graph','chapter finale tracks the cape after the contest','town walk and legacy hunt use their respective targets','no frame mutation']},null,2));console.log('Quest routing fixtures passed');
