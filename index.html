@@ -9,6 +9,8 @@
 #artifactPreview th,#artifactPreview td{padding:3px 5px;border-bottom:1px solid #416169}
 #growthTrialHud,#growthBranchObserve{padding:10px 18px;background:#173a3b;color:#eaf7ee}
 #growthTrialHelp{margin:0 0 8px}
+#endgameDesk,#endgameRun{padding:10px 18px;background:#173a3b;color:#eaf7ee}
+#endgameDesk h2,#endgameRun p{margin:0 0 8px}
 #expeditionDesk th,#expeditionDesk td{padding:4px 8px;border-bottom:1px solid #426466;overflow-wrap:anywhere}
 #expeditionDesk thead th{color:#ffebba}
 #expeditionTrial{margin-inline-start:6px}
@@ -107,6 +109,28 @@
  <button data-action="growth_practice_exit">練習を終える</button>
 </section>
 <div id="growthBranchObserve" class="note" hidden><button data-action="growth_branch_observe">高難度地域の観測地点を調べる</button></div>
+<section id="endgameRun" hidden aria-label="挑戦状況">
+ <p id="endgameRunStatus" role="status"></p>
+ <button id="abyssNext" data-action="endgame_next" hidden>次の区画へ</button>
+ <button data-action="endgame_exit">挑戦入口に戻る</button>
+</section>
+<section id="endgameDesk" hidden aria-label="挑戦受付">
+ <h2>挑戦受付</h2>
+ <div class="controls">
+  <label>報酬の聖遺物セット <select id="abyssSet"><option value="gladiator">剣闘士のフィナーレ</option><option value="troupe">黄金の劇団</option></select></label>
+  <button id="abyssEntry" type="button">深境螺旋・入門</button>
+  <button id="abyssElite" type="button">深境螺旋・精鋭</button>
+  <button data-action="endgame_farka">幽境・ファルカ通常模擬戦</button>
+ </div>
+ <details><summary>週ボスの入口・自己記録</summary><ul id="endgameWeekly"></ul></details>
+ <p id="endgamePersonal" hidden></p>
+ <div id="endgameGoals" class="controls" hidden>
+  <span id="endgameGoalHelp"></span>
+  <button data-action="endgame_goal:gear">狙うセットの装備を更新</button>
+  <button data-action="endgame_goal:discover">未発見の寄り道を探す</button>
+  <button data-action="endgame_goal:boss">ボスの自己記録を更新</button>
+ </div>
+</section>
 <div id="nearbyPortal" hidden style="padding:10px 18px;background:#173a3b"><span id="nearbyPortalText"></span> <button id="nearbyPortalGo" data-action="story_nearby_portal">F：この門を通る</button></div>
 <div id="storyLift" hidden style="padding:10px 18px;background:#173a3b"><span id="storyLiftText"></span> <progress id="storyLiftProgress" aria-label="昇降台の移動進捗"></progress></div>
 <div id="storyMarket" hidden style="padding:10px 18px;background:#173a3b"></div>

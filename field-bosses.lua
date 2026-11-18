@@ -62,11 +62,13 @@ return function(C,configs,controllers)
    rewardMora=spec.mora,expRole=spec.expRole or 'field_boss',resist=spec.resist,immune=spec.immune,hitTop=spec.floorY-spec.artHeight,
    hitBottom=spec.floorY,drawHeight=spec.artHeight,facing=-1}
   slot.phase='available';slot.index=1;slot.out=0;slot.delay=0;slot.contact={};slot.cast=nil;slot.waitUntil=nil
+  slot.entryAt=nil
   local behavior=controllers[spec.controller]
   if behavior.spawn then behavior.spawn(slot.enemy,spec,slot.generation) end
  end
 
  local function attach(s,spec,slot)
+  if slot.enemy.hp==spec.hp and not slot.waitUntil then slot.entryAt=s.t end
   local function place(body)
    for i,e in ipairs(s.enemies) do
     if e.fieldBoss==spec.id and e.id==body.id then s.enemies[i]=body;return end
@@ -267,6 +269,7 @@ return function(C,configs,controllers)
    slot.cast=nil;slot.phase='respawn'
    e.weakpoint=nil
    e.respawn=math.huge
+   if not spec.presentationOnly and C.recordChallengeBoss then C.recordChallengeBoss(s,spec.id,slot.entryAt) end
    if spec.storyChallenge then C.storyBossDefeated(s,spec.storyChallenge) end
    if C.finishDuelReplay then C.finishDuelReplay(s,spec.id) end
    if spec.presentationOnly then return end

@@ -7,6 +7,7 @@ _FIELD_BOSSES={slot["id"]:slot for slot in json.loads((Path(__file__).parent/"co
 _WEEKLY_BOSSES={slot['id']:slot for slot in json.loads((Path(__file__).parent/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses']}
 _STORY_ZONES={"story:"+n["id"] for n in _STORY_GRAPH["nodes"]}
 _IMPRINT_CAPS=json.loads((Path(__file__).parent/'content/imprint-settings.json').read_text(encoding='utf8'))['caps']
+_ABYSS_MODES=json.loads((Path(__file__).parent/'content/abyss-settings.json').read_text(encoding='utf8'))['modes']
 _COMPANIONS=('amber','columbina','wanderer','beidou','ayaka','emilie','kachina','mitya')
 import math
 """Versioned local checkpoint validation; this is not a production multiplayer save."""
@@ -341,8 +342,35 @@ def validate_itto_contest(record, quest, spec, visited):
         raise ValueError('三番勝負の最多勝と完走回数が不正です')
 
 
+def validate_endgame(data):
+    record = data['endgame']
+    if not isinstance(record, dict) or set(record)-{'goal'} != {'abyss', 'bosses'}:
+        raise ValueError('Invalid challenge records')
+    if 'goal' in record and record['goal'] not in ('gear', 'discover', 'boss'):
+        raise ValueError('Invalid selected adventure goal')
+    growth = data.get('story', {}).get('growth', {})
+    if not isinstance(growth, dict) or ('goal' in record) != (growth.get('postgame-goal') is True):
+        raise ValueError('Inconsistent adventure goal')
+    for category, known in [('abyss', _ABYSS_MODES), ('bosses', set(_FIELD_BOSSES)|set(_WEEKLY_BOSSES)|{'farka'})]:
+        entries = record[category]
+        fields = {'clears', 'bestTicks', 'companion'} | ({'bestStars'} if category == 'abyss' else set())
+        if not isinstance(entries, dict) or set(entries)-set(known):
+            raise ValueError('Unknown challenge record')
+        for id, entry in entries.items():
+            if (not isinstance(entry, dict) or set(entry)!=fields or entry['companion'] not in _COMPANIONS
+                    or type(entry['clears']) is not int or not 1<=entry['clears']<=1000000
+                    or type(entry['bestTicks']) is not int or not 1<=entry['bestTicks']<=10**9):
+                raise ValueError('Invalid challenge time')
+            if category == 'abyss':
+                mode = known[id]
+                ticks = entry['bestTicks']
+                expected = 3 if ticks<=mode['threeStars']*60 else 2 if ticks<=mode['twoStars']*60 else 1
+                if type(entry['bestStars']) is not int or entry['bestStars']!=expected or ticks>mode['limit']*60:
+                    raise ValueError('Invalid chamber result')
+
+
 def validate_save(data):
-    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses','daily'}!=FIELDS:
+    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses','daily','endgame'}!=FIELDS:
         raise ValueError('保存データの項目が一致しません')
     if type(data['version']) is not int or data['version']!=1:
         raise ValueError('対応していない保存バージョンです')
@@ -713,4 +741,8 @@ def validate_save(data):
                     or not 0<=slot['waitTicks']<=spec['respawnTicks']
                     or slot['hp']!=(0 if slot['waitTicks'] else spec['hp'])):
                 raise ValueError('週ボス個体情報が不正です')
+    if 'endgame' in data:
+        validate_endgame(data)
+    elif 'postgame-goal' in data.get('story', {}).get('growth', {}):
+        raise ValueError('Missing selected adventure goal')
     return data.copy()

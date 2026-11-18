@@ -178,11 +178,12 @@ return function(C,imprint)
   bag.items[#bag.items+1]=item;bag.nextId=bag.nextId+1
   return true
  end
- function C.dropArtifact(s,slot,level,rank,x,y)
+ function C.dropArtifact(s,slot,level,rank,x,y,preset,zone)
   setup(s);local bag=s.inventory
-  local item=properties(s,{id=bag.nextId,slot=slot,itemLv=level,rarity=rank,enhance=0,owner=0})
+  local item={id=bag.nextId,slot=slot,itemLv=level,rarity=rank,enhance=0,owner=0}
+  if preset then item.setId,item.subpair=preset.setId,preset.subpair else properties(s,item) end
   bag.nextId=bag.nextId+1
-  bag.ground[#bag.ground+1]={item=item,x=x,y=y,zone=s.campaign and s.campaign.zone or 'field'}
+  bag.ground[#bag.ground+1]={item=item,x=x,y=y,zone=zone or (s.campaign and s.campaign.zone or 'field')}
  end
  C.canAttack=function(s)
   setup(s)
@@ -289,11 +290,16 @@ return function(C,imprint)
     end
     s.artifactPreview=nil
     if command=='equip' then
+     local improved=item.setId==bag.targetSet and equippedRole(s,item)~=s.active
      for _,other in ipairs(bag.items) do
-      if equippedRole(s,other)==s.active and other.slot==item.slot then other.owner,other.companionId=0,nil end
+      if equippedRole(s,other)==s.active and other.slot==item.slot then
+       if C.artifactStats(other)>=C.artifactStats(item) then improved=false end
+       other.owner,other.companionId=0,nil
+      end
      end
      item.owner=s.active;item.companionId=s.active==2 and (s.companion or 'amber') or nil
      bag.message='操作中キャラに装備しました。';C.refreshArtifactStats(s)
+     if improved and C.endgameGoalEvent then C.endgameGoalEvent(s,'gear') end
     elseif command=='remove' then item.owner,item.companionId=0,nil;C.refreshArtifactStats(s)
     elseif command=='lock' then item.locked=not item.locked
     elseif command=='sell' then

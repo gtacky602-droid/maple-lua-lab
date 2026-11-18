@@ -1,0 +1,12 @@
+{
+  "three_rooms_lv1": true,
+  "entry_best_ticks": 1370,
+  "one_star_can_report": true,
+  "specified_set_and_full_bag_recovery": true,
+  "elite_clear_and_timeout": true,
+  "farka_recovery_hit_before_win": true,
+  "weekly_participation_before_win": true,
+  "goal_choices_gear_discovery_boss": true,
+  "save_outside_unfinished_instances": true,
+  "one_reward_per_report_and_clear": true
+}

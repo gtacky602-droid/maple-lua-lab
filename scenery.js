@@ -107,7 +107,7 @@ export const sceneryDefinitions={
  bygone:{file:'bygone-background-v1.png',region:'往日の海',zones:[]},
  enkanLampDark:{file:'enkan-lamp-chamber-dark-v1.png',region:null,zones:['story:enkan-lamp-chamber'],lightMode:'dark',note:'消灯した灯室の仮背景'},
  enkanLamp:{file:'enkan-lamp-chamber-background-v1.png',region:null,zones:['story:enkan-lamp-chamber','story:enkan-route-gallery'],note:'局所の灯室と小間の仮背景'},
- enkanomiya:{file:'enkanomiya-background-v1.png',region:'淵下宮',zones:[]},
+ enkanomiya:{file:'enkanomiya-background-v1.png',region:'淵下宮',zones:['abyss']},
  chenyuPavilion:{file:'chenyu-tea-pavilion-background-v1.png',region:null,zones:['story:chenyu-tea-pavilion'],note:'展望亭と茶畑の仮背景'},
  chenyu:{file:'chenyu-background-v1.png',region:'沈玉の谷',zones:[]},
  spineRidge:{file:'spine-ridge-background-v1.png',region:null,zones:['story:spine-trace-ridge'],note:'霜紋の稜線の仮背景'},

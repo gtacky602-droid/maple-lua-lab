@@ -65,7 +65,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local reached,missing={},{}
   for id in pairs(s.story.visited) do
    local node=nodes[id]
-   if node and not node.branch and not node.hidden then reached[node.region]=true end
+   if node and not node.branch and not node.hiddenGroup then reached[node.region]=true end
   end
   local level=s.progression and s.progression.level or 0
   for _,element in ipairs(elementalRegions) do
@@ -79,6 +79,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end,
   lunarJoin=lunarJoined,
   lightElements=function(s) return #learnedElements(s)==0 end,
+  weeklyAccess=function(s)
+   return not not (s.progression and s.progression.level>=20 and s.story.visited['mond-road'])
+  end,
  }
  local function milestoneReached(s,milestone)
   if milestone.elements then
@@ -89,7 +92,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  function C.growthSkillCondition(s,key)
   local milestone=advancedGrowth[key]
-  if not milestone or not s.story or not s.story.active or milestoneReached(s,milestone) then return true end
+  if not milestone or not s.story or not (s.story.active or s.endgameRun) or milestoneReached(s,milestone) then return true end
   if milestone.elements then
    local missing=learnedElements(s)
    if #missing>0 then return false,'未習得の元素：'..table.concat(missing,'・')..'。各地域で旅を始めると習得できます。' end
@@ -110,7 +113,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    s.growthPracticeMarks[id]=true
    return
   end
-  if not growthEvidence[id] or not s.story or not s.story.active or s.paused then return end
+  if not growthEvidence[id] or not s.story or not (s.story.active or s.endgameRun) or s.paused then return end
   local records=s.story.growth or {}
   if records[id] then return end
   records[id]=true;s.story.growth=records
@@ -679,7 +682,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   iansanTraining.enter(s,n.iansanQuest and not n.hub)
   s.campaign.zone='story:transition';action(s,n.hub and 'town' or 'field')
   s.campaign.zone=n.hub and 'town' or ('story:'..id);s.campaign.message='本編ルートの試作。隣の地点へは門の近くで移動。'
+  local firstVisit=not s.story.visited[id]
   s.story.active=true;s.story.node=id;s.story.visited[id]=true;s.worldwidth=n.width
+  if firstVisit and (n.branch or n.hiddenGroup) and C.endgameGoalEvent then C.endgameGoalEvent(s,'discover') end
   s.storyEnteredAt=s.t
   s.storyBoxGlimpseStart=nil
   s.storyPatrolShot=nil
@@ -1136,7 +1141,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if discovery then
    if s.paused or not s.story.active or s.actors[s.active].hp<=0 then return end
    local a=s.actors[s.active]
-   for _,h in ipairs(nodes[s.story.node].hints or {}) do if h.group==discovery and nearHint(a,h) then s.story.discovered[discovery]=true;s.storyNotice='隠し入口を発見しました。';return end end
+   for _,h in ipairs(nodes[s.story.node].hints or {}) do
+    if h.group==discovery and nearHint(a,h) then
+     local newlyFound=not s.story.discovered[discovery]
+     s.story.discovered[discovery]=true;s.storyNotice='隠し入口を発見しました。'
+     if newlyFound and C.endgameGoalEvent then C.endgameGoalEvent(s,'discover') end
+     return
+    end
+   end
    s.storyNotice='手がかりの近くで調べてください。';return
   end
   if key=='story_start' then if not s.campaign then action(s,'campaign') end;enter(s,'mond-town');return end

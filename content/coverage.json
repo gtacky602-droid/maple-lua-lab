@@ -28,7 +28,7 @@
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
       "prototype_stage_count": 25,
-      "prototype_quest_count": 21,
+      "prototype_quest_count": 25,
       "official_map2_markers": {
         "waypoints": 45,
         "statues": 6
@@ -345,18 +345,28 @@
     {
       "id": "abyss",
       "name": "深境螺旋",
-      "status": "not_implemented"
+      "status": "playable_intro_floor_prototype",
+      "room_count": 3,
+      "available_modes": [
+        "entry",
+        "elite"
+      ],
+      "config": "content/abyss-settings.json"
     },
     {
       "id": "stygian",
       "name": "幽境の激戦",
-      "status": "not_implemented",
+      "status": "farka_normal_duel_with_story_intro_prototype",
       "boss_candidates": [
         "ファルカ",
-        "北斗",
-        "放浪者"
+        "隊長",
+        "レリル",
+        "シュバランケ",
+        "ロノヴァ",
+        "北斗（保留）",
+        "放浪者（保留）"
       ],
-      "candidate_status": "examples, not exhaustive final list"
+      "candidate_status": "latest five priority; two legacy candidates retained"
     }
   ],
   "boss_catalog": {
@@ -579,7 +589,7 @@
   "main_route_summary": {
     "connected_main_regions": 8,
     "authored_stages": 338,
-    "provisional_quests": 204,
+    "provisional_quests": 208,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -597,6 +607,12 @@
       "farka"
     ],
     "not_implemented": [
+      "capitano",
+      "rerir",
+      "xbalanque",
+      "ronova"
+    ],
+    "legacy_candidates": [
       "beidou",
       "wanderer"
     ],
@@ -662,6 +678,10 @@
           "growth-first-imprint",
           "growth-light-release",
           "growth-branch-visit",
+          "growth-abyss",
+          "growth-stygian",
+          "growth-weekly",
+          "growth-next-goal",
           "amber-join",
           "mond-return-box-quest",
           "mond-night-banner-quest",
@@ -1442,8 +1462,8 @@
       "content/daily-quests.json"
     ],
     "design_entries": 153,
-    "linked": 149,
-    "without_explicit_mapping": 4,
+    "linked": 153,
+    "without_explicit_mapping": 0,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1497,6 +1517,10 @@
       "Q-G10": "growth-branch-visit",
       "Q-G11": "growth-light-echo",
       "Q-G12": "growth-seven-strike",
+      "Q-G13": "growth-abyss",
+      "Q-G14": "growth-stygian",
+      "Q-G15": "growth-weekly",
+      "Q-G16": "growth-next-goal",
       "Q-H01-01": "golden-little-boat",
       "Q-H01-02": "golden-trace-shadows",
       "Q-H02-01": "veluriyam-bottle-ticket",

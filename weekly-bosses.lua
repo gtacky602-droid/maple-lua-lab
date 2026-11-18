@@ -23,6 +23,10 @@ return function(C,configs,controllers)
   controllers[spec.controller].cleanup(s,slot,spec)
   slot.cast=nil
  end
+ local function attach(s,slot,spec)
+  slot.attemptAt=s.t;slot.lastDamage=s.damage
+  controllers[spec.controller].attach(s,slot,spec);slot.attached=true
+ end
  function C.enterWeeklyBossNode(s,id)
   if enter then enter(s,id) end
   for key,slot in pairs(s.weeklySlots or {}) do
@@ -37,7 +41,7 @@ return function(C,configs,controllers)
   s.weeklySlots=s.weeklySlots or {}
   local slot=s.weeklySlots[spec.id]
   if not slot then slot={generation=1};s.weeklySlots[spec.id]=slot;spawn(s,spec,slot) end
-  if not slot.waitUntil then controllers[spec.controller].attach(s,slot,spec);slot.attached=true end
+  if not slot.waitUntil then attach(s,slot,spec) end
  end
  function C.step(s,dt,input)
   local slot,spec=C.currentWeeklyBoss(s)
@@ -49,11 +53,15 @@ return function(C,configs,controllers)
   for id,stored in pairs(s.weeklySlots or {}) do
    if stored.waitUntil and s.t+1e-8>=stored.waitUntil then
     stored.waitUntil=nil;stored.generation=stored.generation+1;spawn(s,byId[id],stored)
-    if current(s)==byId[id] then controllers[byId[id].controller].attach(s,stored,byId[id]);stored.attached=true end
+    if current(s)==byId[id] then attach(s,stored,byId[id]) end
    end
   end
   if active and returns==s.returns and current(s)==spec and not slot.waitUntil then
    controllers[spec.controller].finish(s,slot,spec,dt)
+   if s.damage>slot.lastDamage then
+    C.noteGrowth(s,'weekly-participation')
+    slot.lastDamage=s.damage
+   end
   end
   if slot and current(s)==spec and controllers[spec.controller].afterStep then
    controllers[spec.controller].afterStep(s,slot,spec)
@@ -65,6 +73,8 @@ return function(C,configs,controllers)
    if not slot or e~=slot.primary or e.hp>0 or slot.waitUntil then return end
    slot.waitUntil=s.t+spec.respawnTicks/60;slot.phase='respawn'
    cleanup(s,spec,slot)
+   C.noteGrowth(s,'weekly-participation')
+   if C.recordChallengeBoss then C.recordChallengeBoss(s,spec.id,slot.attemptAt) end
    C.storyBossDefeated(s,spec.storyChallenge)
   end
   if onKill then onKill(s,e) end

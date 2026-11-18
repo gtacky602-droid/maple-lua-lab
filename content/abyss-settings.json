@@ -1,0 +1,25 @@
+{
+  "status": "Web prototype for accepted points 70-1 to 70-3. Room geometry, timings and rewards are provisional.",
+  "modes": {
+    "entry": {"name": "入門", "limit": 180, "threeStars": 65, "twoStars": 110, "healthFactor": 1, "extraPerGroup": 0, "mora": 650, "itemLevel": 21, "rarity": 3},
+    "elite": {"name": "精鋭", "limit": 240, "threeStars": 90, "twoStars": 150, "healthFactor": 3, "extraPerGroup": 1, "mora": 2400, "itemLevel": 48, "rarity": 4}
+  },
+  "rooms": [
+    {"name":"群れの回廊","platforms":[{"x":0,"y":480,"w":960}],"groups":[
+      {"x":310,"y":480,"count":4,"spacing":34,"hp":15,"kind":1},
+      {"x":480,"y":480,"count":4,"spacing":34,"hp":15,"kind":1},
+      {"x":660,"y":480,"count":4,"spacing":34,"hp":17,"kind":2}
+    ]},
+    {"name":"上下の交差路","platforms":[{"x":0,"y":480,"w":960},{"x":330,"y":390,"w":265},{"x":635,"y":365,"w":240}],"groups":[
+      {"x":300,"y":480,"count":5,"spacing":37,"hp":18,"kind":1},
+      {"x":435,"y":390,"count":4,"spacing":27,"hp":14,"kind":2},
+      {"x":687,"y":365,"count":4,"spacing":29,"hp":18,"kind":2}
+    ]},
+    {"name":"精鋭の広間","platforms":[{"x":0,"y":480,"w":960},{"x":310,"y":390,"w":240},{"x":675,"y":390,"w":225}],"groups":[
+      {"x":305,"y":480,"count":5,"spacing":37,"hp":19,"kind":1},
+      {"x":570,"y":480,"count":4,"spacing":38,"hp":19,"kind":2},
+      {"x":730,"y":390,"count":4,"spacing":28,"hp":17,"kind":1},
+      {"x":834,"y":480,"count":1,"spacing":38,"hp":100,"kind":3,"art":"frostarm-lawachurl","elite":true}
+    ]}
+  ]
+}

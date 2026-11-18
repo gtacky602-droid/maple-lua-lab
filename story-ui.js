@@ -1,4 +1,6 @@
 import {renderQuestJournal,trackedQuestText} from './quest-journal.js';
+import {initEndgameUI} from './endgame-ui.js';
+const updateEndgame=initEndgameUI(action=>window.lab.action(action));
 let questFilter='relevant',trackedId=null;
 const trackingKey='maple-lua-lab-tracked-quest';
 try{trackedId=localStorage.getItem(trackingKey)}catch{}
@@ -26,6 +28,7 @@ function renderGrowthPractice(frame){
 }
 function update(){
  const f=window.lab?.frame;if(!f?.story)return;
+ updateEndgame(f);
  const signature=JSON.stringify([f.story,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.growthTrial,f.growthBranchObserve,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
  renderGrowthPractice(f);
  const tracked=document.getElementById('trackedQuest'),text=trackedQuestText(f,trackedId);tracked.hidden=!text;document.getElementById('trackedQuestText').textContent=text;

@@ -475,6 +475,9 @@ def runtime():
     core.installToyDiveGuard()
     daily=json.loads((ROOT/'content/daily-quests.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'daily-quests.lua').read_text(encoding='utf8'))(core,lua.table_from(daily,recursive=True),graph)
+    abyss=json.loads((ROOT/'content/abyss-settings.json').read_text(encoding='utf8'))
+    lua.execute((ROOT/'endgame.lua').read_text(encoding='utf8'))(
+        core,lua.table_from(abyss,recursive=True),lua.table_from(weekly_specs,recursive=True))
     lua.execute((ROOT/'growth-trials.lua').read_text(encoding='utf8'))(core)
     return lua, core
 
