@@ -22,6 +22,12 @@
 #weeklyRaiden{display:grid;gap:6px;margin-top:8px}
 #weeklyRaiden[hidden],#weeklyFlower[hidden],#weeklyRaidenHint[hidden]{display:none}
 #weeklyRaiden meter,#weeklyRaiden progress{width:105px;vertical-align:middle}
+#weeklyShouki{display:grid;gap:6px;margin-top:8px}
+#weeklyShouki[hidden],#weeklyShoukiArmor[hidden],#weeklyShoukiAim[hidden],#weeklyShoukiPods[hidden],#weeklyShoukiAction[hidden]{display:none}
+#weeklyShouki meter{width:105px;vertical-align:middle}
+#weeklyShoukiAim:not([hidden]),#weeklyShoukiPods:not([hidden]){display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#weeklyShouki [aria-pressed="true"]{background:#3d6060;border-color:#d7e6be}
+#weeklyShoukiAction{justify-self:start}
 #expeditionDesk th,#expeditionDesk td{padding:4px 8px;border-bottom:1px solid #426466;overflow-wrap:anywhere}
 #expeditionDesk thead th{color:#ffebba}
 #expeditionTrial{margin-inline-start:6px}
@@ -161,6 +167,26 @@
   <label><span id="weeklyRaidenText"></span> <meter id="weeklyRaidenMeter" min="0" max="100"></meter></label>
   <div id="weeklyFlower" hidden><label>追念の花蕊 <progress id="weeklyFlowerMeter"></progress></label> <span id="weeklyFlowerText"></span></div>
   <small id="weeklyRaidenHint" hidden></small>
+ </div>
+ <div id="weeklyShouki" hidden>
+  <label><span id="weeklyShoukiChargeText"></span> <meter id="weeklyShoukiCharge" min="0" max="100"></meter></label>
+  <label id="weeklyShoukiArmor" hidden><span id="weeklyShoukiArmorText"></span> <meter id="weeklyShoukiArmorMeter" min="0" max="100"></meter></label>
+  <small id="weeklyShoukiHint"></small>
+  <button id="weeklyShoukiAction" type="button" data-action="encounter_interact" hidden>端末を構える</button>
+  <div id="weeklyShoukiPods" hidden aria-label="同行の支援先">
+   <span>同行の支援先</span>
+   <button type="button" data-action="encounter_target:pod1" aria-label="滅度機1を支援指定">1</button>
+   <button type="button" data-action="encounter_target:pod2" aria-label="滅度機2を支援指定">2</button>
+   <button type="button" data-action="encounter_target:pod3" aria-label="滅度機3を支援指定">3</button>
+   <button type="button" data-action="encounter_target:pod4" aria-label="滅度機4を支援指定">4</button>
+  </div>
+  <div id="weeklyShoukiAim" hidden aria-label="端末の照準">
+   <button type="button" data-action="encounter_target:left">左</button>
+   <button type="button" data-action="encounter_target:core">胸部</button>
+   <button type="button" data-action="encounter_target:right">右</button>
+   <button type="button" data-action="encounter_confirm">射撃を確定</button>
+   <button type="button" data-action="encounter_cancel">照準を中止</button>
+  </div>
  </div>
 </div>
 <section id="expeditionDesk" class="note" aria-label="遠征の装備比較" hidden>

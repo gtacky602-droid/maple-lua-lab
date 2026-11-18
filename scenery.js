@@ -171,7 +171,7 @@ export const sceneryDefinitions={
  sumeruKavehWorkshop:{file:'sum-kaveh-room-workshop-background-v1.png',zones:['story:sum-kaveh-workshop'],note:'樹上の模型工房の仮背景'},
  sumeruKavehRoom:{file:'sum-kaveh-room-room-background-v1.png',zones:['story:sum-kaveh-reading-room'],note:'木漏れ日の閲覧室の仮背景'},
  sumeruNahidaGlade:{file:'sum-nahida-map-glade-background-v1.png',zones:['story:sum-nahida-dew-glade'],note:'朝露のくぼみの仮背景'},
- sumeruCanopy:{file:'sumeru-canopy-background-v1.png',zones:['story:sumeru-canopy-junction','story:sumeru-branch-run','story:sumeru-observation-stop','story:sumeru-observatory-approach','story:sumeru-observatory-terrace','story:sumeru-sky-observatory']},
+ sumeruCanopy:{file:'sumeru-canopy-background-v1.png',zones:['story:shouki-godmaking-arena','story:sumeru-canopy-junction','story:sumeru-branch-run','story:sumeru-observation-stop','story:sumeru-observatory-approach','story:sumeru-observatory-terrace','story:sumeru-sky-observatory']},
  sumeru:{file:'sumeru-background-v1.png',region:'スメール',zones:[]}
 };
 const backgrounds={},backgroundStates={};

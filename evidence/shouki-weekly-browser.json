@@ -1,0 +1,24 @@
+{
+  "entry": true,
+  "manualMatrix": true,
+  "twoPhases": true,
+  "reservedAndCancelled": true,
+  "terminalHitArmor": true,
+  "manualTrialParts": 4,
+  "terminalHitCore": true,
+  "exposureTicks": 595,
+  "clearReportRestore": true,
+  "remainingHp": 961,
+  "viewport390": true,
+  "scene": {
+    "key": "sumeruCanopy",
+    "file": "sumeru-canopy-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 11,
+    "standard": 11646,
+    "light": 2888
+  },
+  "errors": []
+}

@@ -363,9 +363,11 @@ function hud(f,calls,renderMs){
  const phases=$('weeklyPhases');
  const temperature=$('weeklyTemperature');
  const raiden=$('weeklyRaiden');
+ const shouki=$('weeklyShouki');
  phases.hidden=!field?.phaseHp||field.phase==='respawn';
  temperature.hidden=field?.temperature===undefined||field.phase==='respawn'||field.hp===0;
  raiden.hidden=!field?.raidenMeter||field.phase==='respawn'||field.hp===0;
+ shouki.hidden=!field?.shouki||field.phase==='respawn'||field.hp===0;
  fieldPanel.hidden=!field;
  if(field){
   const status=field.phase==='respawn'?`再出現まで ${Math.ceil(field.remaining)}秒`:
@@ -387,7 +389,8 @@ function hud(f,calls,renderMs){
   fieldHp.hidden=field.phase==='respawn'||!phases.hidden;
   fieldHp.max=field.maxhp;fieldHp.value=field.hp;
   if(!phases.hidden){
-   if(phases.childElementCount!==field.phaseHp.length){
+   if(phases.childElementCount!==field.phaseHp.length||phases.dataset.boss!==field.id){
+    phases.dataset.boss=field.id;
     const labels=['水弓','邪眼','魔王武装'];
     phases.replaceChildren(...field.phaseHp.map((phase,i)=>{
      const label=document.createElement('label');
@@ -427,6 +430,40 @@ function hud(f,calls,renderMs){
    hint.textContent=field.move==='WR16'?(field.damageable?`攻撃の好機 ｜ 残り${Math.ceil(field.down/60)}秒`:'装甲の崩壊中'):
     targets[0]?.kind==='eye'?'雷眼を攻撃するか、予兆の外へ':targets[0]?.kind==='shade'?'╳を出した残影に近づいて攻撃':'';
    hint.hidden=!hint.textContent;
+  }
+  if(!shouki.hidden){
+   const v=field.shouki,aim=v.aim,device=v.device;
+   const use=$('weeklyShoukiAction');
+   $('weeklyShoukiChargeText').textContent=`共有充填 ${v.charge} / ${v.max}${aim&&!aim.fired?'（予約中）':''}`;
+   $('weeklyShoukiCharge').value=v.charge;
+   $('weeklyShoukiArmor').hidden=!v.p2;
+   $('weeklyShoukiArmorText').textContent=`装甲 ${v.shield} / ${v.shieldMax}`;
+   $('weeklyShoukiArmorMeter').value=v.shield;
+   const effects={pyro:'氷床を解除',anemo:'ジャンプを補助',left:'左腕を抑制',hydro:'回復場を展開',cryo:'炎床を解除',right:'右腕を抑制'};
+   const info=device?`${device.title}・${effects[device.id]}${device.cooldown?` ｜ 再使用まで${Math.ceil(device.cooldown/60)}秒`:''}`:'';
+   const hands=v.left||v.right?` ｜ 抑制中 ${v.left?'雷A':''}${v.right?'雷B':''}`:'';
+   const trial=v.trialTime===undefined?'':v.trialLeft?`滅度機 残り${v.trialLeft}基 ｜ ${Math.ceil(v.trialTime/60)}秒`:
+    v.trialTime<120?'端末の発射受付終了':`胸部を照準 ｜ 残り${Math.ceil(v.trialTime/60)}秒`;
+   $('weeklyShoukiHint').textContent=v.exposure?`攻撃できる時間 残り${Math.ceil(v.exposure/60)}秒`:
+    aim?(aim.fired?'端末を発射':aim.confirmed?'端末を発射準備中':'照準先を選んで射撃を確定'):
+    trial||(info?info+hands:field.shoukiStage==='p1'||field.shoukiStage==='p2'?'充填ブロックを拾う'+hands:'');
+   use.hidden=!device&&!v.canAim;
+   use.disabled=!!device&&(device.cooldown>0||v.charge<v.max)||f.paused||f.auto;
+   use.textContent=device?device.title+'装置を起動':'端末を構える';
+   const pods=$('weeklyShoukiPods'),targets=Array.isArray(v.targets)?v.targets:[];
+   pods.hidden=targets.length===0||f.actors[2-f.active]?.hp<=0;
+   for(const button of pods.querySelectorAll('button')){
+    const index=Number(button.dataset.action.slice(-1));
+    button.disabled=f.paused||f.auto||!targets.some(target=>target.index===index);
+    button.setAttribute('aria-pressed',String(v.assist===index));
+   }
+   const panel=$('weeklyShoukiAim');
+   panel.hidden=!aim||aim.fired;
+   for(const button of panel.querySelectorAll('button')){
+    const action=button.dataset.action;
+    button.disabled=f.paused||f.auto||aim?.owner!==f.active||aim?.confirmed&&action!=='encounter_cancel';
+    if(action.startsWith('encounter_target:'))button.setAttribute('aria-pressed',String(action.endsWith(':'+aim?.target)));
+   }
   }
  }
  const cargo=f.storyNearbyCargo??f.storyNearbyParcel,clue=f.storyNearbyClue;

@@ -482,10 +482,13 @@ def runtime():
     raiden=lua.execute((ROOT/'weekly-raiden.lua').read_text(encoding='utf8'))(core)
     core.raidenWeeklyArt=field_art(lua,'raiden-boss',(),variants={
         'armored':'raiden-boss-idle-sprites.json','normal':'raiden-weekly-normal-sprites-v1.json'})
+    shouki=lua.execute((ROOT/'weekly-shouki.lua').read_text(encoding='utf8'))(core)
+    core.shoukiWeeklyArt=field_art(lua,'shouki',(),variants={
+        'full':'shouki-idle-sprites.json','upper':'shouki-weekly-upper-sprites-v1.json'})
     lua.execute((ROOT/'weekly-bosses.lua').read_text(encoding='utf8'))(
         core,lua.table_from(weekly_specs,recursive=True),
         lua.table_from({'dvalin':dvalin,'andrius':andrius,'surveyor':surveyor,'loom':loom,
-                        'childe':childe,'azhdaha':azhdaha,'signora':signora,'raiden':raiden}))
+                        'childe':childe,'azhdaha':azhdaha,'signora':signora,'raiden':raiden,'shouki':shouki}))
     core.installToyDiveGuard()
     daily=json.loads((ROOT/'content/daily-quests.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'daily-quests.lua').read_text(encoding='utf8'))(core,lua.table_from(daily,recursive=True),graph)

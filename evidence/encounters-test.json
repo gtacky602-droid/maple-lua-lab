@@ -1,5 +1,5 @@
 {
-  "count": 100,
+  "count": 101,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -15,6 +15,7 @@
     "Azhdaha has a distinct weekly route",
     "Signora has a distinct weekly route",
     "Raiden has a distinct weekly route",
+    "Shouki has a distinct weekly route",
     "loom trial is separate from the imported list",
     "original trial is independent of the imported roster",
     "Cryo Hypostasis is reachable through the field route",

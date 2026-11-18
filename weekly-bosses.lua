@@ -2,6 +2,7 @@
 return function(C,configs,controllers)
  local enter=C.enterWeeklyBossNode
  local step,frame,checkpoint,restore,onKill=C.step,C.frame,C.checkpoint,C.restore,C.onKill
+ local action=C.action
  local byId,byNode={},{}
  for _,spec in ipairs(configs) do byId[spec.id]=spec;byNode[spec.node]=spec end
  local function current(s)
@@ -42,6 +43,15 @@ return function(C,configs,controllers)
   local slot=s.weeklySlots[spec.id]
   if not slot then slot={generation=1};s.weeklySlots[spec.id]=slot;spawn(s,spec,slot) end
   if not slot.waitUntil then attach(s,slot,spec) end
+ end
+ function C.action(s,key)
+  if key=='encounter_interact' or key=='encounter_confirm' or key=='encounter_cancel' or key:match('^encounter_target:') then
+   local slot,spec=C.currentWeeklyBoss(s)
+   local controller=spec and controllers[spec.controller]
+   if slot and not s.paused and not slot.waitUntil and controller.interact then controller.interact(s,slot,spec,key) end
+   return
+  end
+  return action(s,key)
  end
  function C.step(s,dt,input)
   local slot,spec=C.currentWeeklyBoss(s)
