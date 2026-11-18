@@ -2226,6 +2226,7 @@
       }
     }
   ]
-}
+},
+    {"id":"original-snow-sweeper","original":true,"controller":"snowSweeper","entity":95000001,"design":"docs/field-boss-v1/SNOW_RAIL_WEB.md","name":"鉱殻除雪機","node":"steam-stabling-depot","storyChallenge":"original-snow-sweeper","level":142,"hp":345,"mora":425,"artHeight":96,"floorY":480,"home":788,"arenaMin":285,"arenaMax":1374,"noticeRange":305,"noticeTicks":36,"restTicks":40,"leashTicks":300,"respawnTicks":3600,"walkSpeed":66,"contactDamage":0,"railMargin":85,"coolingDamageFactor":1.25,"moves":[{"id":"SR01","title":"排雪突進","kind":"plow","reach":220,"distance":290,"radius":64,"height":46,"windup":63,"activeTicks":30,"coolingTicks":132,"damage":16,"element":"physical"},{"id":"SR02","title":"床側面への蒸気噴出","kind":"steam","reach":175,"radius":134,"height":42,"windup":51,"activeTicks":24,"coolingTicks":144,"damage":14,"element":"physical"}]}
   ]
 }

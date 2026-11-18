@@ -1008,6 +1008,18 @@
       "count": 0,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "snow-rail-transfer",
+      "count": 3,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "steam-stabling-depot",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,

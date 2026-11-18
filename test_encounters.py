@@ -20,7 +20,7 @@ check('completion not overclaimed',d['counts']['complete']==0 and not d['complet
 check('not implemented rows cannot launch',all(r['action'] is None for r in rows if r['status']=='not_implemented'))
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
-check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':72,'partial':54,'complete':0})
+check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':73,'partial':55,'complete':0})
 by_id={r['id']:r for r in rows}
 loom=by_id['original-twin-shuttle-loom']
 check('loom trial is separate from the imported list',
@@ -143,14 +143,17 @@ check('Wavebinder has a Novokitezhgrad tide cavern route',
       wave['status']=='partial' and wave['fieldNode']=='wavebinder-tide-cavern' and wave['action'] is None)
 fields={s['id']:s for s in json.loads((ROOT/'content/field-boss-spawns.json').read_text(encoding='utf8'))['fieldBosses']}
 normal=[r for r in rows if r['kind']=='normal']
-check('all 49 current normal rows have registered field routes, still partial',
-      len(normal)==49 and set(fields)=={r['id'] for r in normal}
+check('49 imported field rows plus the original plow have registered field routes, still partial',
+      len(normal)==50 and set(fields)=={r['id'] for r in normal}
       and all(r['status']=='partial' and r['fieldNode']==fields[r['id']]['node'] for r in normal))
+check('original field boss is not counted in the imported roster',
+      by_id['original-snow-sweeper']['entity_ids']==[]
+      and by_id['original-snow-sweeper']['grouping']=='original_design')
 check('Dvalin has a separate weekly arena',by_id['boss-29010101']['weeklyNode']=='dvalin-sky-arena' and by_id['boss-29010101']['status']=='partial')
 check('Andrius has a separate weekly arena',by_id['boss-29020101']['weeklyNode']=='andrius-wolf-ring' and by_id['boss-29020101']['status']=='partial')
 check('public roster matched without merging Icewind modes or Dottore challenges',d['roster_review']=={
  'game_version':'7.2','reviewed_on':'2026-11-17','field_boss_families':48,'weekly_challenges':14,'unmatched_rows':[],
-} and len([r for r in rows if r['kind']=='normal'])==49)
+    } and len([r for r in normal if r.get('grouping')!='original_design'])==49)
 check('both Dottore domains keep separate candidate IDs and aliases',
       by_id['boss-29130201']['name']=='「博士」（偽月の異端者）'
       and by_id['boss-29150101']['name']=='ドットーレ（左道の真諦者）'

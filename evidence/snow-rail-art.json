@@ -1,0 +1,103 @@
+{
+  "reference": "evidence/snow-rail-shape-study.png",
+  "reference_notes": "Original orthographic side/front concept blocks for trolley and plow. The two left figures set chassis colors and proportion. Front silhouettes inform wheel spacing. A separate 3D model was not used.",
+  "prompts": {
+    "sprites": "Create a crisp original pixel art sprite sheet on a transparent background, exactly 2 columns by 2 rows, 1536x1024 landscape. Leave broad blank transparent gutters, all artwork confined separately to its quadrant, no shadows outside the objects, no typography, no nameplates. This is for a side-scrolling game so all four individual objects face LEFT and are seen in strict lateral profile, not front facing or isometric. Reference input is a shape and color study (side views in the left column, orthogonal front views right); use these original designs, with your own refinement. Top left: SMALL copper orange maintenance trolley enemy, wheels touching a flat floor line, aquamarine compact rectangular battery pack, low amber facing headlamp on the left. Top right: LARGE armored autonomous 19th-century industrial tram snow sweeper boss, squat and wide, copper orange steel chassis with pale gray porcelain exhaust tower, round broad orange pressure gauge inset, short thick steel bumper protruding left, two huge wheels touching floor, detailed moving rods and tiny frost patches, no operator, no face. Bottom left: same exact large boss in clean left-facing side profile, bumper/ram extended to the left, orange gauge red hot, exact same copper body and wheels, no motion lines. Bottom right: same large boss left-facing side profile, vertical porcelain tower's cooling doors flipped downward, mint pressure gauging cooling vent open in the middle; same footprint and wheels. Old-fashioned 24-color palette, packs of deliberate stepped square pixels, high silhouette contrast matching hand-edited platformer sprite work yet wholly new design, each fully visible. No backdrop, no snow environment, no effects or outline artifact, clean alpha outside.",
+    "yard": "Original 2D side-scrolling game background, 1536x1024 wide, cold snowy tram transfer yard in original turn-of-century industrial fantasy. Continuous side-on composition with dark indigo iron overhead supports, rows of rust-and-yellow closed freight sheds in distance, a small muted lantern on every loading frame, windblown pockets of blue late-afternoon snow and pale ashen sky. Layered low contrast and pixels on snow-covered roofs. Main lower third is empty cool desaturated dark navy wall for gameplay floor and tiles drawn separately. No drawn foreground floor or fake playable ledges. Crisp clustered pixel-art atmosphere, with a muted slate blue gray and amber palette. No writing, UI, symbols, people, engine vehicle or signage. Existing games are not reference.",
+    "depot": "Original 2D platform game background. Wide 1536x1024 historic heavy steam railway maintenance depot carved deep into a snowbound ridge. Side elevation with deep rows of riveted iron pillars, huge overhead wet copper pipes under a pale frosted skylight, hanging defunct pulley chains, violet brick shop bays at the back, an orange pressure furnace through frosty glass. Low contrast open lower third with cool blue charcoal wall as a backdrop for playable floor and actors to be composited separately. Do not draw a platform in the lower area. Side-scrolling orthogonal camera. Authentic chunky hand-placed 24-color pixel clusters in atmospheric distant architecture. No scene actors, engines, lettering, symbols, animation, no existing game visuals."
+  },
+  "files_sha256": {
+    "snow-rail-shape-study.png": "503198cb88684eca1755a80a369a40071686f92a093831b854255080235199b7",
+    "snow-rail-sprites-source-v1.png": "2d2f8848ad03549f82bf540e343e54128c8fbe7b330f2744fa70d04dd0ae761c",
+    "snow-rail-transfer-background-v1.png": "b59e9d0ac147b52e1473f8007af6f131dcfd376df9964a26b31f534203d17b06",
+    "steam-stabling-depot-background-v1.png": "ce9a9a9fe6663a0facb2bd1ea01c1b467269e6240d31ebc34641a7804974b476"
+  },
+  "encodings": {
+    "sled-maintenance-cart-idle-sprites.json": {
+      "arguments": [
+        "--source",
+        "snow-rail-sprites-source-v1.png",
+        "--output",
+        "sled-maintenance-cart-idle-sprites.json",
+        "--height",
+        "48",
+        "--foot-anchor",
+        "--crop",
+        "0",
+        "0",
+        "768",
+        "512"
+      ],
+      "runs": {
+        "legacy": 1004,
+        "h48c32": 624,
+        "h32c16": 260
+      }
+    },
+    "snow-sweeper-field-idle-sprites-v1.json": {
+      "arguments": [
+        "--source",
+        "snow-rail-sprites-source-v1.png",
+        "--output",
+        "snow-sweeper-field-idle-sprites-v1.json",
+        "--height",
+        "96",
+        "--foot-anchor",
+        "--crop",
+        "768",
+        "0",
+        "768",
+        "512"
+      ],
+      "runs": {
+        "legacy": 4160,
+        "h48c32": 2690,
+        "h32c16": 1099
+      }
+    },
+    "snow-sweeper-field-plow-sprites-v1.json": {
+      "arguments": [
+        "--source",
+        "snow-rail-sprites-source-v1.png",
+        "--output",
+        "snow-sweeper-field-plow-sprites-v1.json",
+        "--height",
+        "96",
+        "--foot-anchor",
+        "--crop",
+        "0",
+        "512",
+        "768",
+        "512"
+      ],
+      "runs": {
+        "legacy": 3974,
+        "h48c32": 2608,
+        "h32c16": 1096
+      }
+    },
+    "snow-sweeper-field-vent-sprites-v1.json": {
+      "arguments": [
+        "--source",
+        "snow-rail-sprites-source-v1.png",
+        "--output",
+        "snow-sweeper-field-vent-sprites-v1.json",
+        "--height",
+        "96",
+        "--foot-anchor",
+        "--crop",
+        "768",
+        "512",
+        "768",
+        "512",
+        "--accent-color",
+        "#82f5b6"
+      ],
+      "runs": {
+        "legacy": 4368,
+        "h48c32": 2763,
+        "h32c16": 1154
+      }
+    }
+  }
+}

@@ -652,6 +652,11 @@
         "platform": 2
       }
     ],
+    "snow-rail-transfer": [
+      {"id":"snow-rail-cart-1","kind":2,"art":"sled-maintenance-cart","name":"保線カート","x":355,"platform":0,"hp":45},
+      {"id":"snow-rail-cart-2","kind":2,"art":"sled-maintenance-cart","name":"保線カート","x":695,"platform":0,"hp":45},
+      {"id":"snow-rail-cart-3","kind":2,"art":"sled-maintenance-cart","name":"保線カート","x":1015,"platform":0,"hp":45}
+    ],
     "snezhnaya-field": [
       {
         "id": "snezhnaya-field-1",

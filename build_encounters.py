@@ -104,13 +104,15 @@ def build():
     }
     entities = source['boss_entities']
     rows = list(imported_encounters(entities))
-    for spec in weeklies.values():
-        if spec.get('original'):
-            rows.append({
-                'id': spec['id'], 'name': spec['name'], 'kind': 'weekly', 'entity_ids': [],
-                'status': 'not_implemented', 'action': None, 'grouping': 'original_design',
-                'evidence': [spec['design']], 'remaining': ['連続アニメーション', '難度別報酬', 'マルチ検証'],
-            })
+    for kind, specs in [('normal', fields), ('weekly', weeklies)]:
+        for spec in specs.values():
+            if spec.get('original'):
+                rows.append({
+                    'id': spec['id'], 'name': spec['name'], 'kind': kind, 'entity_ids': [],
+                    'status': 'not_implemented', 'action': None, 'grouping': 'original_design',
+                    'evidence': [spec['design']],
+                    'remaining': ['連続アニメーション', '難度別報酬' if kind == 'weekly' else '報酬の調整', 'マルチ検証'],
+                })
     for entry in original['encounters']:
         rows.append({
             'id': 'stygian-' + entry['id'], 'name': entry['name'], 'kind': 'stygian',

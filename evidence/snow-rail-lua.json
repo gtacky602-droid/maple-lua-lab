@@ -1,0 +1,21 @@
+{
+  "threeRealCarts": true,
+  "wrongMapKillIgnored": true,
+  "blockedBeforeSignal": true,
+  "surveyRestored": true,
+  "plowWarnThenHitOnce": true,
+  "avoidedSteamWithRealJump": true,
+  "coolingAmplifiesDamage": true,
+  "bossRewardOnce": true,
+  "defeatPersisted": true,
+  "questRewards": [
+    [
+      8400,
+      460
+    ],
+    [
+      11400,
+      740
+    ]
+  ]
+}

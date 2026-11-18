@@ -158,7 +158,7 @@ export function trackedQuestText(f,id){
  return `${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''} ｜ ${next}`+(route?' ｜ '+route:'');
 }
 function prerequisiteText(q,graph,level){
- if(q.level!==undefined&&level<q.level)return q.roof?`Lv${q.level}になる`:`Lv${q.level}で港に到着する`;
+ if(q.level!==undefined&&level<q.level)return `Lv${q.level}になる`;
  const previous=graph.quests.find(quest=>quest.id===(q.requires??q.opensAfter));
  return `先に「${previous?.name??q.requires??q.opensAfter}」を${q.requires?'報告':'受注'}する`;
 }

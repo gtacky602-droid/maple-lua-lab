@@ -913,12 +913,12 @@
     {
       "node": "snezhnaya-field",
       "mode": "sprite",
-      "visible_portals": 6
+      "visible_portals": 7
     },
     {
       "node": "snezhnaya-field",
       "mode": "rect",
-      "visible_portals": 6
+      "visible_portals": 7
     },
     {
       "node": "dragonspine-camp",
@@ -1679,6 +1679,26 @@
       "node": "threadline-relay",
       "mode": "rect",
       "visible_portals": 2
+    },
+    {
+      "node": "snow-rail-transfer",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "snow-rail-transfer",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "steam-stabling-depot",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "steam-stabling-depot",
+      "mode": "rect",
+      "visible_portals": 1
     }
   ],
   "checks": [

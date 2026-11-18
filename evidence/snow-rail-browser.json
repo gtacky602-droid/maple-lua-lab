@@ -1,0 +1,28 @@
+{
+  "carts": {
+    "defeated": true,
+    "seconds": 8.22,
+    "hp": 126,
+    "returns": 0,
+    "moves": []
+  },
+  "battle": {
+    "defeated": true,
+    "seconds": 12.52,
+    "hp": 80,
+    "returns": 0,
+    "moves": [
+      "SR01",
+      "SR02"
+    ]
+  },
+  "commands": {
+    "png": 20,
+    "standard": 8608,
+    "light": 2217
+  },
+  "confirmedPressure": true,
+  "reportedBoth": true,
+  "restored": true,
+  "errors": []
+}

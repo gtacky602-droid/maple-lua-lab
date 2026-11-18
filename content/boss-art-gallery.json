@@ -275,6 +275,13 @@
       "mapHover": 32
     },
     {
+      "id": "snow-sweeper",
+      "name": "鉱殻除雪機（ラボ独自）",
+      "file": "snow-sweeper-field-idle-sprites-v1.json",
+      "height": 96,
+      "mapHover": 0
+    },
+    {
       "id": "twin-shuttle-loom",
       "name": "双杼織機（ラボ独自）",
       "file": "twin-shuttle-loom-closed-sprites-v1.json",

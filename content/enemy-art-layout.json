@@ -46,5 +46,6 @@
   "fanged-beast": {
     "height": 112,
     "hover": 0
-  }
+  },
+  "sled-maintenance-cart": {"height":48,"hover":0}
 }

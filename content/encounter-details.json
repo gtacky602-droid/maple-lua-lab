@@ -1,6 +1,13 @@
 {
   "version": 1,
   "entries": {
+    "original-snow-sweeper": {
+      "art_candidate": {
+        "item": "snow-sweeper",
+        "audit": "evidence/snow-rail-art.json",
+        "status": "original field boss, idle, plowing and open cooling vents"
+      }
+    },
     "original-twin-shuttle-loom": {
       "art_candidate": {
         "item": "twin-shuttle-loom",
