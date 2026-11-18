@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule,furinaCuesModule,naviaPhotoModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule,furinaCuesModule,naviaPhotoModule,lyneyMagicModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -194,6 +194,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local emilieScent=emilieScentModule(C,canInspect)
  local furinaCues=furinaCuesModule(C,canInspect)
  local naviaPhoto=naviaPhotoModule(C,canInspect)
+ local lyneyMagic=lyneyMagicModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -364,6 +365,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      return true
     elseif milestone.photoTimer then
      if command=='rotate' then naviaPhoto.start(s,q) end
+     return true
+    elseif milestone.magicCue then
+     if command=='rotate' then lyneyMagic.start(s,q,state,milestone) end
      return true
     elseif milestone.rehearsalCue then
      if command=='rotate' then furinaCues.open(s,milestone) end
@@ -551,6 +555,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.nahidaMapOpen=nil
   s.furinaRun=nil
   s.photoPanel,s.photoTimer=nil,nil
+  s.lyneyRun=nil
   s.storyLightMode=n.localLight and 'bright' or nil
   s.airflowTrial,s.storyCue=nil,nil
   s.resonanceOrder,s.resonancePage=nil,nil
@@ -664,6 +669,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   if s.voyage and s.voyage.kind=='trolley' and key~='pause' and key~='story_nearby_portal'
       and not key:match('^story_portal:') and not key:match('^story_fast:') then return end
+  if s.lyneyRun and key~='pause' and key~='story_collect' then return end
   local photoCommand,photoId=key:match('^story_photo_(%a+):(%a+)$')
   photoCommand=photoCommand or key:match('^story_photo_(%a+)$')
   if photoCommand then
@@ -782,6 +788,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if flagCourse.interact(s,node.flagCourse) then return end
    local spawnState=node.spawnAt and clearState(s,node)
    local wasSpawnPhase=spawnState and spawnState.count==node.spawnAt
+   if node.magicScene then
+    local id=node.magicScene.quest
+    if lyneyMagic.replay(s,node.magicScene,quests[id],s.story.quests[id]) then return end
+   end
    if theater.encore(s,node.theater,canInspect) then return end
    if inspectMilestone(s,'rotate') then
     if spawnState and not wasSpawnPhase and spawnState.count==node.spawnAt then spawnEnemies(s,node,1) end
@@ -1104,7 +1114,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     companion.buffer=.1
    end
   end
-  local returns,previous=s.returns,s.t;step(s,dt,(s.fireworkShow or s.sayuHatch or s.kavehModelOpen or s.nahidaMapOpen or s.furinaRun or s.photoPanel) and {} or input)
+  local returns,previous=s.returns,s.t;step(s,dt,(s.fireworkShow or s.sayuHatch or s.kavehModelOpen or s.nahidaMapOpen or s.furinaRun or s.photoPanel or s.lyneyRun) and {} or input)
   if s.story and s.story.active and s.returns==returns and not s.paused then
    local node=nodes[s.story.node]
    duel.step(s,node.duel)
@@ -1172,6 +1182,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     local q=quests[node.groupPhotoQuest]
     local state=s.story.quests[q.id]
     local milestone=naviaPhoto.step(s,q,state)
+    if milestone then completeMilestone(s,state,milestone) end
+   end
+   if node.magicScene then
+    local id=node.magicScene.quest
+    local state=s.story.quests[id]
+    local milestone=lyneyMagic.step(s,quests[id],state)
     if milestone then completeMilestone(s,state,milestone) end
    end
    local milestone,state=theater.step(s,s.t-previous,node.theater)
@@ -1338,6 +1354,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if n.groupPhotoQuest then
     local q=quests[n.groupPhotoQuest]
     naviaPhoto.observe(f,s,markers,q,s.story.quests[q.id],mode,profile)
+   end
+   if n.magicScene then
+    local id=n.magicScene.quest
+    lyneyMagic.observe(f,s,markers,n.magicScene,quests[id],s.story.quests[id],mode,profile)
    end
    flagCourse.observe(s,f,markers,n.flagCourse,mode,profile)
    movingPlatforms.observe(s,f,markers,n.riverCrossing,mode,profile)
@@ -1545,11 +1565,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
        if x>=-25 and x<=985 then
         if option.detourGift then coastDetour.drawGift(markers,x,y,option.id,mode,profile)
         elseif option.scentArt then emilieScent.choice({draws=markers},s,option,mode,profile)
+        elseif option.magicChoice then lyneyMagic.choice(markers,s,option,mode,profile)
         else
          markers[#markers+1]={kind='rect',x=x-12,y=y-25,w=24,h=25,color='#423951'}
          markers[#markers+1]={kind='rect',x=x-8,y=y-21,w=16,h=12,color='#d3dbf5'}
         end
-        markers[#markers+1]={kind='text',x=x,y=y-(option.detourGift and 79 or option.scentArt and 82 or 43),text=option.name,color='#fff0b9',size=14}
+        markers[#markers+1]={kind='text',x=x,y=y-(option.detourGift and 79 or (option.scentArt or option.magicChoice) and 82 or 43),text=option.name,color='#fff0b9',size=14}
        end
       end
       local option=not s.paused and nearbyChoice(s,milestone)
@@ -1572,7 +1593,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup
         and not milestone.nightClue and not milestone.fireworkSight and not milestone.stealthNap
         and not milestone.teaClue and not milestone.teaCup and not milestone.surveyProp and not milestone.visitorProp
-        and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp and not milestone.photoProp
+        and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp and not milestone.photoProp and not milestone.magicProp
         and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
@@ -1594,6 +1615,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
          and (not milestone.compareAfterStorage or visitors.quiet(s,q))
          and canInspect(s.actors[s.active],milestone) then
       f.storyNearbyMilestone={label=milestone.performance and theater.performanceLabel(s,milestone.performance)
+         or milestone.magicCue and s.lyneyRun and '演目の進行中'
          or milestone.photoTimer and s.photoTimer and '撮影タイマー作動中'
          or milestone.photoPanel and s.photoPanel and '写真を閉じる'
          or milestone.discoveryBoard and s.nahidaMapOpen and '絵地図を閉じる'

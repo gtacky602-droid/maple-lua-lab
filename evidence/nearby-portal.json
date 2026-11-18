@@ -2605,6 +2605,10 @@
       "to": "fontaine-hub"
     },
     {
+      "node": "fontaine-rehearsal-room",
+      "to": "fon-magic-wings"
+    },
+    {
       "node": "fontaine-stage-watch",
       "to": "fontaine-hub"
     },
@@ -2627,6 +2631,22 @@
     {
       "node": "fontaine-grand-stage-approach",
       "to": "fontaine-grand-stage"
+    },
+    {
+      "node": "fon-magic-wings",
+      "to": "fontaine-rehearsal-room"
+    },
+    {
+      "node": "fon-magic-wings",
+      "to": "fon-magic-seats"
+    },
+    {
+      "node": "fon-magic-seats",
+      "to": "fon-magic-wings"
+    },
+    {
+      "node": "fon-magic-seats",
+      "to": "fontaine-hub"
     },
     {
       "node": "fontaine-grand-stage",

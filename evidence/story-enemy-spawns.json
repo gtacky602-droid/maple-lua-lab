@@ -1178,6 +1178,14 @@
       "enemy_count": 2
     },
     {
+      "node": "fon-magic-wings",
+      "enemy_count": 0
+    },
+    {
+      "node": "fon-magic-seats",
+      "enemy_count": 0
+    },
+    {
       "node": "fontaine-grand-stage",
       "enemy_count": 0
     },

@@ -1,0 +1,31 @@
+newmtl wood
+Kd 0.40000 0.28235 0.21961
+illum 1
+
+newmtl edge
+Kd 0.61961 0.41176 0.27451
+illum 1
+
+newmtl brass
+Kd 0.85490 0.63137 0.29804
+illum 1
+
+newmtl navy
+Kd 0.22353 0.31373 0.40784
+illum 1
+
+newmtl stone
+Kd 0.28235 0.29804 0.34510
+illum 1
+
+newmtl linen
+Kd 0.84706 0.81176 0.68235
+illum 1
+
+newmtl paper
+Kd 0.94902 0.83529 0.57647
+illum 1
+
+newmtl paperShade
+Kd 0.76863 0.54902 0.29020
+illum 1

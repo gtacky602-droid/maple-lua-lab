@@ -1,0 +1,22 @@
+{
+  "quest": "fon-lyney-magic",
+  "wingBackground": {
+    "key": "fontaineMagicWings",
+    "file": "fon-lyney-magic-wings-background-v1.png",
+    "state": "ready"
+  },
+  "seatsBackground": {
+    "key": "fontaineMagicSeats",
+    "file": "fon-lyney-magic-seats-background-v1.png",
+    "state": "ready"
+  },
+  "upperAisleAndWheel": true,
+  "storedLightPlan": true,
+  "audienceShowAndChapterEncore": true,
+  "calls": {
+    "png": 22,
+    "rect": 17690,
+    "light": 4121
+  },
+  "errors": []
+}

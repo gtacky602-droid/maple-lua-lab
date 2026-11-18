@@ -1,0 +1,121 @@
+{
+  "tool": "built-in image generation with original 3D shapes",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/fon-lyney-magic-model.obj",
+    "sha256": "c78d03253e9451aaa5a8b06706e3e37596fb4a53a17de82bfde5102ea936194a"
+  },
+  "materials": {
+    "path": "evidence/fon-lyney-magic-model.mtl",
+    "sha256": "775ae4366669734427975bd73eeea231d95e26b90fe975243915b32d3b788394"
+  },
+  "contactSheet": {
+    "path": "evidence/fon-lyney-magic-views.png",
+    "sha256": "cb31e849a697c04e59037106a6b2acb60e60378c420d57d1a91326f6f924a609"
+  },
+  "propsSource": {
+    "path": "assets/fon-lyney-magic-props-source-v1.png",
+    "sha256": "31f19a19b07d7984eec627f54aae25b65b5d9da7d75f97762af36f5cca71a9ed"
+  },
+  "alphaCorners": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "backgrounds": [
+    {
+      "path": "assets/fon-lyney-magic-wings-background-v1.png",
+      "sha256": "556ad11a19d4136a1ccf06396b857056139273f3d472ff915b8f1325d769ac7e"
+    },
+    {
+      "path": "assets/fon-lyney-magic-seats-background-v1.png",
+      "sha256": "715377b804cb206d42b4e77691b06f555c65c9d136a76acb279187604b1f5f77"
+    }
+  ],
+  "backgroundReferences": [
+    {
+      "path": "assets/fontaine-backstage-background-v1.png",
+      "sha256": "aa58b2941a5da39e379470f4fc78db0d59a46d1200b1b0b346d18c82c9015af1"
+    },
+    {
+      "path": "assets/fontaine-grand-stage-background-v1.png",
+      "sha256": "d9dcf4df79823470dc7ae14e7d83cd8c134587553f544148bd08d68e54cb5b20"
+    }
+  ],
+  "status": "Four original props with three-direction 3D references. The two backgrounds are lab placeholders.",
+  "profiles": {
+    "cart": {
+      "encoding": {
+        "path": "assets/fon-lyney-magic-cart-sprites-v1.json",
+        "sha256": "58a856d0cbbc75d060ffa71916c9c3f0d7738e30c2bfedd68925eb5e4da18b60"
+      },
+      "box": [
+        124,
+        162,
+        417,
+        369
+      ],
+      "runs": {
+        "legacy": 4084,
+        "h48c32": 2470,
+        "h32c16": 982
+      }
+    },
+    "broken": {
+      "encoding": {
+        "path": "assets/fon-lyney-magic-broken-sprites-v1.json",
+        "sha256": "eab8127ebf3fa515232b827eaf7d9ee144fc58ce086f21682e8e49310bb418aa"
+      },
+      "box": [
+        719,
+        162,
+        423,
+        374
+      ],
+      "runs": {
+        "legacy": 3664,
+        "h48c32": 2295,
+        "h32c16": 921
+      }
+    },
+    "screen": {
+      "encoding": {
+        "path": "assets/fon-lyney-magic-screen-sprites-v1.json",
+        "sha256": "3e8d628ea5de453b1f606b47bc07f4d607d46c0a5fad6070681e4f89133ea035"
+      },
+      "box": [
+        100,
+        708,
+        448,
+        420
+      ],
+      "runs": {
+        "legacy": 9522,
+        "h48c32": 5556,
+        "h32c16": 2038
+      }
+    },
+    "birds": {
+      "encoding": {
+        "path": "assets/fon-lyney-magic-birds-sprites-v1.json",
+        "sha256": "6c100189aaef7b54447c56552cb5bb6cc01ba7805e8818ce135ae0a2b71674a0"
+      },
+      "box": [
+        690,
+        732,
+        502,
+        350
+      ],
+      "runs": {
+        "legacy": 2216,
+        "h48c32": 1371,
+        "h32c16": 600
+      }
+    }
+  }
+}

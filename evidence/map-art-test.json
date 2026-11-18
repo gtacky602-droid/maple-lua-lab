@@ -1670,6 +1670,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "fon-magic-wings",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "fon-magic-seats",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "fontaine-grand-stage",
       "count": 0,
       "fallback": false,

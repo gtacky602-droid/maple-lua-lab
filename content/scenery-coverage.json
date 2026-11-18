@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 320 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 312,
+  "scope": "Authored 322 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 314,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1163,6 +1163,8 @@
     {"id":"fontaine-stage-watch","name":"幕裏の監視所","region":"フォンテーヌ","status":"regional_temporary_image"},
     {"id":"fontaine-scenery-booth","name":"大道具の操作室","region":"フォンテーヌ","status":"regional_temporary_image"},
     {"id":"fontaine-grand-stage-approach","name":"主舞台の二段通路","region":"フォンテーヌ","status":"regional_temporary_image"},
+    {"id":"fon-magic-wings","name":"フォンテーヌ・小劇場の舞台裏","region":"フォンテーヌ","status":"regional_temporary_image"},
+    {"id":"fon-magic-seats","name":"フォンテーヌ・小劇場の客席","region":"フォンテーヌ","status":"regional_temporary_image"},
     {"id":"fontaine-grand-stage","name":"グラン・フィナーレの主舞台","region":"フォンテーヌ","status":"regional_temporary_image"},
     {"id":"natlan-flag-staging","name":"旗取りのスタート広場","region":"ナタ","status":"regional_temporary_image"},
     {"id":"natlan-flag-slope","name":"旗取りの広い坂道","region":"ナタ","status":"regional_temporary_image"},

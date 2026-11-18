@@ -1,0 +1,21 @@
+{
+  "quest": "fon-lyney-magic",
+  "requiresMain2": true,
+  "upperWingRoute": true,
+  "audienceOcclusion": true,
+  "wheelFailureLocksCart": true,
+  "twoSafePlans": true,
+  "pauseAndEarlyCueHandled": true,
+  "storedPlanReplays": true,
+  "chapterFirstShowAndEncore": true,
+  "sameRewards": [
+    [
+      1028841,
+      4200
+    ],
+    [
+      1028841,
+      4200
+    ]
+  ]
+}

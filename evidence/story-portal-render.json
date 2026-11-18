@@ -2743,12 +2743,12 @@
     {
       "node": "fontaine-rehearsal-room",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "fontaine-rehearsal-room",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "fontaine-stage-watch",
@@ -2777,6 +2777,26 @@
     },
     {
       "node": "fontaine-grand-stage-approach",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "fon-magic-wings",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "fon-magic-wings",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "fon-magic-seats",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "fon-magic-seats",
       "mode": "rect",
       "visible_portals": 2
     },
