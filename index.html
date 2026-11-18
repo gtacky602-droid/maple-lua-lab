@@ -11,6 +11,10 @@
 #growthTrialHelp{margin:0 0 8px}
 #endgameDesk,#endgameRun{padding:10px 18px;background:#173a3b;color:#eaf7ee}
 #endgameDesk h2,#endgameRun p{margin:0 0 8px}
+#weeklyPhases{gap:8px;flex-wrap:wrap;padding-top:4px}
+#weeklyPhases:not([hidden]){display:flex}
+#weeklyPhases label{display:grid;gap:3px;font-size:.85rem}
+#weeklyPhases progress{width:105px;accent-color:#94cbea}
 #expeditionDesk th,#expeditionDesk td{padding:4px 8px;border-bottom:1px solid #426466;overflow-wrap:anywhere}
 #expeditionDesk thead th{color:#ffebba}
 #expeditionTrial{margin-inline-start:6px}
@@ -136,7 +140,7 @@
 <div id="storyMarket" hidden style="padding:10px 18px;background:#173a3b"></div>
 <p id="storyChapterReward" role="status" hidden style="margin:0;padding:10px 18px;background:#173a3b"></p>
 <div id="storyElite" hidden style="padding:10px 18px;background:#173a3b"></div>
-<div id="fieldBoss" hidden style="padding:10px 18px;background:#173a3b"><p id="fieldBossLabel" style="margin:0 0 4px"></p><progress id="fieldBossHp" aria-label="フィールドボスのHP" style="width:min(100%,280px);accent-color:#efbd78"></progress></div>
+<div id="fieldBoss" hidden style="padding:10px 18px;background:#173a3b"><p id="fieldBossLabel" style="margin:0 0 4px"></p><progress id="fieldBossHp" aria-label="ボスのHP" style="width:min(100%,280px);accent-color:#efbd78"></progress><div id="weeklyPhases" hidden aria-label="三形態のHP"></div></div>
 <section id="expeditionDesk" class="note" aria-label="遠征の装備比較" hidden>
  <p id="expeditionLight"></p>
  <table aria-label="旅人と同行者の10部位"><thead><tr><th scope="col">部位</th><th scope="col">旅人</th><th id="expeditionCompanion" scope="col">同行者</th></tr></thead><tbody id="expeditionGear"></tbody></table>

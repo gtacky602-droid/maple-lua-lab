@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 87,
-    "partial": 69,
+    "partial": 70,
     "complete": 0
   },
   "encounters": [
@@ -163,23 +163,27 @@
       "entity_ids": [
         "29030101"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/childe.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/childe.json",
+        "evidence/childe-weekly-lua.json",
+        "evidence/childe-weekly-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "低頭身の三形態別アクションと連続アニメーション、装飾音",
+        "装備・難度別バランスと本番報酬",
+        "Webマルチ・幻境実機"
       ],
+      "weeklyNode": "childe-golden-house-arena",
+      "weeklyEntrance": "黄金屋・公子の再現戦（Lv28）",
+      "review_note": "WC01〜14を週ボスへ接続。三形態HP240/300/420、断流の両端解除、巨鯨の二領域、追雷の固定地点、発動由来を見た障壁反撃。Lv28とHP960は比較用設定。",
       "art_candidate": {
         "source": "assets/childe-idle-source-v1.png",
         "encoding": "assets/childe-idle-sprites.json",
         "audit": "evidence/childe-reference-audit.json",
-        "status": "first human form idle candidate only; no weapon, live combat or animations"
+        "status": "Existing human idle candidate used for forms 1 and 2 with separate provisional combat weapon overlays"
       },
       "art_variants": [
         {
@@ -187,7 +191,7 @@
           "encoding": "assets/childe-foul-idle-sprites.json",
           "id": "foul-legacy",
           "audit": "evidence/childe-foul-reference-audit.json",
-          "status": "idle body candidate only; no weapon, transitions, live combat or animations"
+          "status": "Existing Foul Legacy idle candidate used in form 3 with a separate provisional polearm overlay"
         }
       ]
     },

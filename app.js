@@ -360,6 +360,8 @@ function hud(f,calls,renderMs){
   if(encounter.textContent!==line)encounter.textContent=line;
  }
  const field=f.weeklyBoss||f.fieldBoss,fieldPanel=$('fieldBoss'),fieldLabel=$('fieldBossLabel'),fieldHp=$('fieldBossHp');
+ const phases=$('weeklyPhases');
+ phases.hidden=!field?.phaseHp||field.phase==='respawn';
  fieldPanel.hidden=!field;
  if(field){
   const status=field.phase==='respawn'?`再出現まで ${Math.ceil(field.remaining)}秒`:
@@ -368,10 +370,24 @@ function hud(f,calls,renderMs){
   const bodyNames={anemo:'風',cryo:'❄ 氷',electro:'⚡ 雷'};
   const elements=field.elementSlots?(' ｜ '+field.elementSlots.map(e=>elementNames[e]).join(' → ')):
    field.bodies?.length===2?' '+field.bodies.map((body,i)=>bodyNames[body.element]+['①','②'][i]).join(' / '):'';
-  const line=`${field.name}（Lv${field.level}）${elements} ｜ ${status}`;
+  const mark=field.mark?` ｜ ${elementNames[field.mark]}断流・両端で解除`:'';
+  const form=field.formName?`・${field.formName}`:'';
+  const line=`${field.name}${form}（Lv${field.level}）${elements} ｜ ${status}${mark}`;
   if(fieldLabel.textContent!==line)fieldLabel.textContent=line;
-  fieldHp.hidden=field.phase==='respawn';
+  fieldHp.hidden=field.phase==='respawn'||!phases.hidden;
   fieldHp.max=field.maxhp;fieldHp.value=field.hp;
+  if(!phases.hidden){
+   if(phases.childElementCount!==field.phaseHp.length){
+    const labels=['水弓','邪眼','魔王武装'];
+    phases.replaceChildren(...labels.map(name=>{
+     const label=document.createElement('label');
+     label.append(name,document.createElement('progress'));return label;
+    }));
+   }
+   [...phases.querySelectorAll('progress')].forEach((meter,i)=>{
+    meter.max=field.phaseHp[i].max;meter.value=field.phaseHp[i].hp;
+   });
+  }
  }
  const cargo=f.storyNearbyCargo??f.storyNearbyParcel,clue=f.storyNearbyClue;
  const ingredient=f.storyNearbyIngredient;

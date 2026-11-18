@@ -487,6 +487,416 @@
           "damage": 19
         }
       }
+    },
+    {
+      "id": "boss-29030101",
+      "controller": "childe",
+      "entity": 29030101,
+      "name": "「公子」",
+      "node": "childe-golden-house-arena",
+      "storyChallenge": "childe-weekly",
+      "level": 28,
+      "hp": 960,
+      "phaseHp": [
+        240,
+        300,
+        420
+      ],
+      "mora": 560,
+      "expRole": "weekly_boss",
+      "center": 480,
+      "floorY": 480,
+      "noticeTicks": 42,
+      "respawnTicks": 3600,
+      "edge": 44,
+      "restTicks": 24,
+      "directionApproach": 145,
+      "guardFactor": 0.45,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 960
+        },
+        {
+          "x": 135,
+          "y": 372,
+          "w": 176
+        },
+        {
+          "x": 649,
+          "y": 372,
+          "w": 176
+        }
+      ],
+      "orders": [
+        [
+          "WC01",
+          "WC04",
+          "WC03",
+          "WC02",
+          "WC06",
+          "WC05"
+        ],
+        [
+          "WC07",
+          "WC08",
+          "WC09",
+          "WC06",
+          "WC10"
+        ],
+        [
+          "WC12",
+          "WC11",
+          "WC01",
+          "WC07",
+          "WC05",
+          "WC09",
+          "WC10",
+          "WC02",
+          "WC03"
+        ]
+      ],
+      "transitions": [
+        {
+          "total": 180,
+          "swap": 120,
+          "title": "邪眼解放"
+        },
+        {
+          "total": 240,
+          "swap": 180,
+          "title": "魔王武装"
+        }
+      ],
+      "branches": {
+        "unguarded": {
+          "total": 198,
+          "recovery": 120
+        },
+        "cleansed": {
+          "total": 144,
+          "recovery": 84
+        }
+      },
+      "moves": {
+        "WC01": {
+          "title": "水弓の四連射",
+          "total": 270,
+          "locks": [
+            36
+          ],
+          "windows": [
+            [
+              60,
+              61,
+              "spawn"
+            ],
+            [
+              90,
+              91,
+              "spawn"
+            ],
+            [
+              120,
+              121,
+              "spawn"
+            ],
+            [
+              150,
+              151,
+              "spawn"
+            ]
+          ],
+          "recovery": 210,
+          "damage": 9
+        },
+        "WC02": {
+          "title": "断流の追雨",
+          "total": 336,
+          "locks": [
+            54
+          ],
+          "windows": [
+            [
+              90,
+              96,
+              "damage"
+            ],
+            [
+              138,
+              144,
+              "damage"
+            ],
+            [
+              186,
+              192,
+              "damage"
+            ],
+            [
+              234,
+              240,
+              "damage"
+            ]
+          ],
+          "recovery": 252,
+          "damage": 14
+        },
+        "WC03": {
+          "title": "連なる波刃",
+          "total": 384,
+          "locks": [
+            36
+          ],
+          "windows": [
+            [
+              60,
+              61,
+              "spawn"
+            ],
+            [
+              150,
+              151,
+              "spawn"
+            ],
+            [
+              240,
+              241,
+              "spawn"
+            ]
+          ],
+          "recovery": 312,
+          "damage": 12
+        },
+        "WC04": {
+          "title": "水刃の払い",
+          "total": 174,
+          "locks": [
+            30
+          ],
+          "windows": [
+            [
+              54,
+              60,
+              "damage"
+            ],
+            [
+              90,
+              96,
+              "damage"
+            ]
+          ],
+          "recovery": 108,
+          "damage": 13
+        },
+        "WC05": {
+          "title": "巨鯨の潮躍",
+          "total": 432,
+          "locks": [
+            72
+          ],
+          "windows": [
+            [
+              120,
+              132,
+              "damage"
+            ],
+            [
+              204,
+              216,
+              "damage"
+            ]
+          ],
+          "recovery": 252,
+          "damage": 26
+        },
+        "WC06": {
+          "title": "元素障壁・反撃",
+          "total": 270,
+          "locks": [
+            156
+          ],
+          "windows": [
+            [
+              180,
+              186,
+              "damage"
+            ]
+          ],
+          "recovery": 192,
+          "damage": 19
+        },
+        "WC07": {
+          "title": "雷刃二連",
+          "total": 144,
+          "locks": [
+            24
+          ],
+          "windows": [
+            [
+              48,
+              54,
+              "damage"
+            ],
+            [
+              78,
+              84,
+              "damage"
+            ]
+          ],
+          "recovery": 90,
+          "damage": 14
+        },
+        "WC08": {
+          "title": "雷歩・五連",
+          "total": 342,
+          "locks": [
+            36
+          ],
+          "windows": [
+            [
+              90,
+              96,
+              "damage"
+            ],
+            [
+              120,
+              126,
+              "damage"
+            ],
+            [
+              150,
+              156,
+              "damage"
+            ],
+            [
+              192,
+              198,
+              "damage"
+            ],
+            [
+              228,
+              234,
+              "damage"
+            ]
+          ],
+          "recovery": 246,
+          "damage": 15
+        },
+        "WC09": {
+          "title": "雷走連撃",
+          "total": 390,
+          "locks": [
+            36,
+            132,
+            228
+          ],
+          "windows": [
+            [
+              72,
+              90,
+              "damage"
+            ],
+            [
+              168,
+              186,
+              "damage"
+            ],
+            [
+              264,
+              282,
+              "damage"
+            ]
+          ],
+          "recovery": 294,
+          "damage": 15
+        },
+        "WC10": {
+          "title": "追雷落撃",
+          "total": 294,
+          "locks": [
+            84
+          ],
+          "windows": [
+            [
+              144,
+              156,
+              "damage"
+            ]
+          ],
+          "recovery": 174,
+          "damage": 26
+        },
+        "WC11": {
+          "title": "魔装・輪刃往還",
+          "total": 288,
+          "locks": [
+            36,
+            132
+          ],
+          "windows": [
+            [
+              72,
+              96,
+              "damage"
+            ],
+            [
+              168,
+              192,
+              "damage"
+            ]
+          ],
+          "recovery": 204,
+          "damage": 16
+        },
+        "WC12": {
+          "title": "魔装・水雷交奏",
+          "total": 486,
+          "locks": [
+            36,
+            210
+          ],
+          "windows": [
+            [
+              60,
+              66,
+              "damage"
+            ],
+            [
+              96,
+              97,
+              "spawn"
+            ],
+            [
+              126,
+              127,
+              "spawn"
+            ],
+            [
+              240,
+              246,
+              "damage"
+            ],
+            [
+              276,
+              282,
+              "damage"
+            ],
+            [
+              312,
+              318,
+              "damage"
+            ],
+            [
+              348,
+              354,
+              "damage"
+            ]
+          ],
+          "recovery": 366,
+          "damage": 16
+        }
+      }
     }
   ]
 }

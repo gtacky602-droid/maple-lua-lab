@@ -41,7 +41,7 @@ export const sceneryDefinitions={
  steamStablingDepot:{file:'steam-stabling-depot-background-v1.png',zones:['story:steam-stabling-depot'],note:'蒸気留置庫の仮背景'},
  clothService:{file:'cloth-service-walk-background-v1.png',zones:['story:cloth-service-walk'],note:'作業路の仮背景'},
  threadlineRelay:{file:'threadline-relay-background-v1.png',zones:['story:threadline-relay'],note:'配電室の仮背景'},
- buriedWeaving:{file:'buried-weaving-background-v1.png',zones:['story:buried-weaving-room'],note:'織房の仮背景'},
+ buriedWeaving:{file:'buried-weaving-background-v1.png',zones:['story:buried-weaving-room','story:childe-golden-house-arena'],note:'織房の仮背景'},
  tideCalibration:{file:'tide-calibration-background-v1.png',zones:['story:tide-calibration-hall'],note:'潮位較正室の仮背景'},
  andriusWeekly:{file:'andrius-weekly-background-v1.png',zones:['story:andrius-wolf-ring'],note:'狼の領の仮背景'},
  dvalinWeekly:{file:'dvalin-weekly-background-v1.png',zones:['story:dvalin-sky-arena'],note:'風龍の空域の仮背景'},

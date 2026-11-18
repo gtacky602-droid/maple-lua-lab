@@ -83,17 +83,27 @@
       }
     },
     "boss-29030101": {
+      "remaining": [
+        "低頭身の三形態別アクションと連続アニメーション、装飾音",
+        "装備・難度別バランスと本番報酬",
+        "Webマルチ・幻境実機"
+      ],
+      "extra_evidence": [
+        "evidence/childe-weekly-lua.json",
+        "evidence/childe-weekly-browser.json"
+      ],
+      "review_note": "WC01〜14を週ボスへ接続。三形態HP240/300/420、断流の両端解除、巨鯨の二領域、追雷の固定地点、発動由来を見た障壁反撃。Lv28とHP960は比較用設定。",
       "art_candidate": {
         "item": "childe",
         "audit": "evidence/childe-reference-audit.json",
-        "status": "first human form idle candidate only; no weapon, live combat or animations"
+        "status": "Existing human idle candidate used for forms 1 and 2 with separate provisional combat weapon overlays"
       },
       "art_variants": [
         {
           "item": "childe-foul",
           "id": "foul-legacy",
           "audit": "evidence/childe-foul-reference-audit.json",
-          "status": "idle body candidate only; no weapon, transitions, live combat or animations"
+          "status": "Existing Foul Legacy idle candidate used in form 3 with a separate provisional polearm overlay"
         }
       ]
     },

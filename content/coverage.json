@@ -51,8 +51,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 25,
-      "prototype_quest_count": 20,
+      "prototype_stage_count": 26,
+      "prototype_quest_count": 21,
       "official_map2_markers": {
         "waypoints": 75,
         "statues": 8
@@ -588,8 +588,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 338,
-    "provisional_quests": 208,
+    "authored_stages": 339,
+    "provisional_quests": 209,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -633,7 +633,7 @@
     "status": "partial",
     "design": "content/world-bosses-design.json"
   },
-  "current_priority": "Sprites, maps, shared systems; skill authoring on hold pending ChatGPT design",
+  "current_priority": "Remaining weekly and Stygian encounters, consistent sprites, and whole-game map and playthrough verification",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",
@@ -730,9 +730,11 @@
           "tide-calibration-hall",
           "buried-weaving-room",
           "cloth-service-walk",
-          "threadline-relay"
+          "threadline-relay",
+          "childe-golden-house-arena"
         ],
         "quest_ids": [
+          "childe-weekly-commission",
           "growth-targeted-gear",
           "liyue-market-delivery",
           "liyue-caravan-search",

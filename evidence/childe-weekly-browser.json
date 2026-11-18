@@ -1,0 +1,20 @@
+{
+  "entry": true,
+  "threeForms": true,
+  "markLeftAfterSwapAndCleanse": true,
+  "actualBattleAndReport": true,
+  "endedHp": 58,
+  "storedBestAndRespawn": true,
+  "viewport390": true,
+  "sameStateCommands": {
+    "png": 19,
+    "standard": 8800,
+    "light": 2262
+  },
+  "backdrop": {
+    "key": "buriedWeaving",
+    "file": "buried-weaving-background-v1.png",
+    "state": "ready"
+  },
+  "errors": []
+}

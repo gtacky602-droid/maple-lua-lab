@@ -1,0 +1,29 @@
+{
+  "timelines": {
+    "WC01": 210,
+    "WC02": 252,
+    "WC03": 312,
+    "WC04": 108,
+    "WC05": 252,
+    "WC06": 120,
+    "WC07": 90,
+    "WC08": 246,
+    "WC09": 294,
+    "WC10": 174,
+    "WC11": 204,
+    "WC12": 366
+  },
+  "riptide_swap_boundary": true,
+  "rain_platform_only": true,
+  "whale_two_windows": true,
+  "guard_reservation_filters": true,
+  "locked_drop_position": true,
+  "phase_overspill_and_invulnerability": true,
+  "one_clear_and_reload": true,
+  "normal_only_solo": {
+    "atk": 42,
+    "seconds": 13.88,
+    "hp": 94,
+    "returns": 0
+  }
+}

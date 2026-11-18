@@ -740,6 +740,7 @@
         }
       ],
       "exits": [
+        {"to":"childe-golden-house-arena","x":1040},
         {
           "to": "liyue-entry",
           "x": 60
@@ -5575,9 +5576,11 @@
     },
     {"id":"sne-survey-yard","name":"スネージナヤ・雪よけ屋根と観測広場","region":"スネージナヤ","level":140,"hub":false,"peaceful":true,"checkpoint":"sne-survey-shed","width":1390,"platforms":[{"x":0,"y":480,"w":1390}],"exits":[{"to":"sne-survey-shed","x":61,"arrivalX":973},{"to":"sne-survey-ridge","x":1316,"rideLabel":"雪棚の見晴らしへ","requires":{"quest":"sne-mitya-observation","count":3}}],"survey":{"quest":"sne-mitya-observation"}},
     {"id":"sne-survey-ridge","name":"スネージナヤ・雪棚の見晴らし","region":"スネージナヤ","level":140,"hub":false,"peaceful":false,"checkpoint":"sne-survey-shed","width":1810,"platforms":[{"x":0,"y":480,"w":1810},{"x":525,"y":386,"w":459},{"x":857,"y":291,"w":506},{"x":1250,"y":386,"w":529}],"exits":[{"to":"sne-survey-yard","x":62,"arrivalX":1234},{"to":"sne-survey-shed","x":1656,"y":386,"arrivalX":791,"rideLabel":"観測小屋へ戻る近道","requires":{"quest":"sne-mitya-observation","count":8}}],"survey":{"quest":"sne-mitya-observation","scout":{"x":1531,"y":386,"after":6}},"clearedBy":"sne-mitya-observation","clearCount":4,"practiceAfterReport":true},
-    {"id":"sne-snow-match","name":"スネージナヤ・雪合戦広場","region":"スネージナヤ","level":148,"hub":false,"peaceful":true,"checkpoint":"white-pass-station","width":960,"platforms":[{"x":0,"y":480,"w":960},{"x":350,"y":398,"w":186}],"exits":[{"to":"white-pass-station","x":57,"arrivalX":677}],"snowMatch":{"quest":"sne-snow-match-quest","bell":178,"y":480,"playerX":207,"hostX":808,"hostY":480,"seconds":36,"score":5,"collapseAfter":17,"collapseScore":3,"walls":[{"x":256,"y":419,"w":121,"h":61},{"x":524,"y":419,"w":121,"h":61}],"flags":[{"x":476,"y":398},{"x":713,"y":480}]}}
+    {"id":"sne-snow-match","name":"スネージナヤ・雪合戦広場","region":"スネージナヤ","level":148,"hub":false,"peaceful":true,"checkpoint":"white-pass-station","width":960,"platforms":[{"x":0,"y":480,"w":960},{"x":350,"y":398,"w":186}],"exits":[{"to":"white-pass-station","x":57,"arrivalX":677}],"snowMatch":{"quest":"sne-snow-match-quest","bell":178,"y":480,"playerX":207,"hostX":808,"hostY":480,"seconds":36,"score":5,"collapseAfter":17,"collapseScore":3,"walls":[{"x":256,"y":419,"w":121,"h":61},{"x":524,"y":419,"w":121,"h":61}],"flags":[{"x":476,"y":398},{"x":713,"y":480}]}},
+    {"id":"childe-golden-house-arena","peaceful":true,"name":"黄金屋・公子の再現戦","region":"璃月","hub":false,"level":28,"width":960,"platforms":[{"x":0,"y":480,"w":960},{"x":135,"y":372,"w":176},{"x":649,"y":372,"w":176}],"checkpoint":"liyue-harbor","exits":[{"to":"liyue-harbor","x":116}]}
   ],
   "quests": [
+    {"id":"childe-weekly-commission","name":"黄金屋の再現戦・水と雷","giver":"北斗","hub":"liyue-harbor","target":"childe-weekly","kind":"boss","goal":1,"level":28,"xp":18000,"mora":1800,"ore":1,"briefing":"黄金屋の再現戦で、水と雷を切り替える公子を測る。断流印は戦場の左右の金の灯に触れると消える。"},
     {"id":"growth-partner-swap","designId":"Q-G01","giver":"アンバー","name":"相棒と、もう一つの手","hub":"mond-town","target":"mond-road","requires":"amber-join","level":1,"xp":200,"mora":120,"briefing":"アンバー「Eキーで操作を交代してみよう。操作していないほうも戦ってくれるよ。HPや技の待ち時間は、それぞれのままね。」","kind":"growth","goal":2,"lesson":[{"id":"manual-swap","text":"Eキーで操作キャラを交代する"},{"id":"ai-hit","text":"戦闘で操作していない仲間の攻撃を当てる"}]},
     {"id":"growth-targeted-gear","designId":"Q-G02","giver":"北斗","name":"狙う装備を、決めてから","hub":"liyue-harbor","target":"liyue-harbor","level":20,"xp":2400,"mora":450,"ore":1,"briefing":"北斗「狙うセットを決めたら、拾った品を着ている装備と見比べてみな。手持ちが少なければ教材もあるよ。」","kind":"growth","goal":2,"lesson":[{"id":"target-set","text":"狙うセットを選ぶ"},{"id":"gear-compare","text":"聖遺物バッグで装備を比較する（教材でも可）"}]},
     {"id":"growth-upgrade-gear","designId":"Q-G03","giver":"神里綾華","name":"その一着を、もう一段","hub":"inazuma-port","target":"inazuma-port","level":40,"xp":12800,"mora":1700,"ore":1,"briefing":"綾華「強化にかかる費用と、能力がどのくらい上がるかを確かめてみましょう。」","kind":"growth","goal":1,"lesson":[{"id":"enhance-preview","text":"聖遺物の強化を試算する（教材や実際の強化でも可）"}]},
