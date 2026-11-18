@@ -1,6 +1,7 @@
 {
   "version": 1,
   "entries": {
+    "original-canopy-fungus": {"remaining":["ボスの技","連続アニメーション","報酬の調整","マルチ検証"],"art_candidate":{"item":"canopy-fungus","audit":"evidence/canopy-fungus-art.json","status":"original mushroom with canopy foliage; appearance and quest progression"}},
     "original-bellgate": {"remaining":["ボスの技","連続アニメーション","素材報酬の選択","マルチ検証"],"art_candidate":{"item":"bellgate","audit":"evidence/bellgate-art.json","status":"original low-poly form reference; appearance and quest progression"}},
     "original-wind-ring": {"remaining":["ボスの技","連続アニメーション","報酬の調整","マルチ検証"],"art_candidate":{"item":"wind-ring","audit":"evidence/wind-ring-art.json","status":"original sandstone split ring and mint core; appearance and story progression only"}},
     "original-plate-tail": {"art_candidate":{"item":"plate-tail","audit":"evidence/plate-tail-art.json","status":"original basalt animal with two teal slate plates and collision-limited charge"}},

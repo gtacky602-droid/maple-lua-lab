@@ -243,6 +243,15 @@
     "simulanka-fold-valley": [
       {"id":"preview-simulanka-fold-guard-1","species":"pebble-courier","x":1587,"y":270,"flip":false},
       {"id":"preview-simulanka-fold-guard-2","species":"sail-shell-crawler","x":1780,"y":270,"flip":false}
+    ],
+    "sumeru-river-bank": [
+      {"id":"preview-sumeru-bank-guard-1","species":"pebble-courier","x":353,"y":480,"flip":false},
+      {"id":"preview-sumeru-bank-guard-2","species":"sail-shell-crawler","x":811,"y":390,"flip":false}
+    ],
+    "sumeru-observatory-approach": [
+      {"id":"preview-sumeru-observatory-guard-1","species":"pebble-courier","x":302,"y":480,"flip":false},
+      {"id":"preview-sumeru-observatory-guard-2","species":"sail-shell-crawler","x":802,"y":390,"flip":false},
+      {"id":"preview-sumeru-observatory-guard-3","species":"pebble-courier","x":1400,"y":391,"flip":false}
     ]
   }
 }

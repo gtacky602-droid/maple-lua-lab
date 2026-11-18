@@ -748,7 +748,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if s.story and s.story.active and #s.enemies>0 and cleared(s,nodes[s.story.node]) then s.enemies={} end
   if s.story and s.story.active and s.returns~=returns then enter(s,s.story.visited[nodes[s.story.node].checkpoint] and nodes[s.story.node].checkpoint or 'mond-town') end
   if s.story and s.story.active and not s.paused then
-   local anchor=nodes[s.story.node].paperRescue
+   local node=nodes[s.story.node]
+   local anchor=node.fallReturn or node.paperRescue
    if anchor then paper.rescue(s,anchor) end
   end
  end
@@ -979,6 +980,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      if not f.storyNearbyMilestone and not s.paused and canInspect(s.actors[s.active],milestone) then
       f.storyNearbyMilestone={label=milestone.action}
       if milestone.paperSouvenir then paper.observeGift(s,f,milestone) end
+      if milestone.surveyMap then f.storySurveyMap=milestone.surveyMap end
      end
     end
     if state then
@@ -1006,6 +1008,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
            and canInspect(s.actors[s.active],done) then
         if done.resonancePages then resonance.book(s,f,done) else f.storyNearbyMilestone={label=done.readLabel} end
        end
+       if done.surveyMap and canInspect(s.actors[s.active],done) then f.storySurveyMap=done.surveyMap end
       end
      end
     end

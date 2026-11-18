@@ -580,7 +580,8 @@
     {"id":"tea-boulder","name":"苔衣の踏石獣（ラボ独自）","file":"tea-boulder-field-idle-sprites-v1.json","height":125,"mapHover":0},
     {"id":"plate-tail","name":"灯断ちの盤尾獣（ラボ独自）","file":"plate-tail-field-idle-sprites-v1.json","height":132,"mapHover":0},
     {"id":"wind-ring","name":"風礫の割輪機（ラボ独自）","file":"wind-ring-field-idle-sprites-v1.json","height":139,"mapHover":0},
-    {"id":"bellgate","name":"潮鐘の門像（ラボ独自）","file":"bellgate-field-idle-sprites-v1.json","height":152,"mapHover":0}
+    {"id":"bellgate","name":"潮鐘の門像（ラボ独自）","file":"bellgate-field-idle-sprites-v1.json","height":152,"mapHover":0},
+    {"id":"canopy-fungus","name":"枝傘の大キノコン（ラボ独自）","file":"canopy-fungus-field-idle-sprites-v1.json","height":149,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }

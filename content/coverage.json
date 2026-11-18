@@ -99,8 +99,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 11,
-      "prototype_quest_count": 10,
+      "prototype_stage_count": 20,
+      "prototype_quest_count": 13,
       "official_map2_markers": {
         "waypoints": 112,
         "statues": 13
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 235,
-    "provisional_quests": 152,
+    "authored_stages": 244,
+    "provisional_quests": 155,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -784,7 +784,16 @@
           "asimon-field-ruins",
           "wenut-field-cavern",
           "baptist-field-sanctuary",
-          "veluriyam-bottle-yard"
+          "veluriyam-bottle-yard",
+          "sumeru-river-roots",
+          "sumeru-river-bank",
+          "sumeru-canopy-junction",
+          "sumeru-root-slope",
+          "sumeru-branch-run",
+          "sumeru-observation-stop",
+          "sumeru-observatory-approach",
+          "sumeru-observatory-terrace",
+          "sumeru-sky-observatory"
         ],
         "quest_ids": [
           "wanderer-join",
@@ -796,7 +805,10 @@
           "asimon-commission",
           "wenut-commission",
           "baptist-commission",
-          "veluriyam-bottle-ticket"
+          "veluriyam-bottle-ticket",
+          "sumeru-leaf-crossing",
+          "sumeru-forest-levels",
+          "sumeru-observatory-map"
         ]
       },
       {
@@ -1285,8 +1297,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 57,
-    "without_explicit_mapping": 96,
+    "linked": 60,
+    "without_explicit_mapping": 93,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1344,7 +1356,10 @@
       "Q-SNE-M03": "white-pass-summit",
       "Q-SNE-S02": "white-pass-footprints",
       "Q-SNE-S03": "white-pass-footwork",
-      "Q-SNE-S04": "white-pass-rest"
+      "Q-SNE-S04": "white-pass-rest",
+      "Q-SUM-M01": "sumeru-leaf-crossing",
+      "Q-SUM-M02": "sumeru-forest-levels",
+      "Q-SUM-M03": "sumeru-observatory-map"
     },
     "scope": "Explicit links to runtime quests only; no claim of completed or tested content."
   },

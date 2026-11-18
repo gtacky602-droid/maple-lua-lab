@@ -153,7 +153,7 @@ return function(canInspect)
     a.x,a.y,a.vy,a.ground=anchor.x-(i-1)*40,anchor.y,0,true
     a.dash,a.drop,a.glide,a.buffer=0,0,0,0
     if a.id==s.active then
-     s.storyNotice='紙の谷から手前の足場に戻りました。'
+     s.storyNotice=anchor.notice or '紙の谷から手前の足場に戻りました。'
      s.camera=math.max(0,math.min(a.x-400,s.worldwidth-960))
     end
    end

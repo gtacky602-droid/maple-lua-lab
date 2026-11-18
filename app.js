@@ -5,6 +5,7 @@ import {loadSpriteImages,elementTintedSprite,combatOpacity} from './sprite-image
 import {initInventoryUI} from './inventory-ui.js';
 import {initAirflowAudio} from './airflow-audio.js';
 import {initRockView} from './rock-view.js';
+import {initSurveyMap} from './survey-map.js';
 import {initWorldUI} from './world-ui.js';
 import {initSkillUI} from './loadout-ui.js';
 import {scenery} from './scenery.js';
@@ -17,6 +18,7 @@ await initWorldUI(a=>actions.push(a));
 const inventoryUI=initInventoryUI(a=>actions.push(a));
 const airflowAudio=initAirflowAudio();
 const updateRockView=initRockView();
+const updateSurveyMap=initSurveyMap();
 const SAVE_KEY='maple-lua-lab.checkpoint.v1';
 $('saveProgress').onclick=()=>{checkpointRequested=true;$('saveStatus').textContent='保存中…'};
 $('loadProgress').onclick=()=>{try{const raw=localStorage.getItem(SAVE_KEY);if(!raw)throw Error('保存データがありません');restoreRequested=JSON.parse(raw);if(!restoreRequested||typeof restoreRequested!=='object')throw Error('保存データを読み取れません');$('saveStatus').textContent='読み込み中…'}catch(e){restoreRequested=null;$('saveStatus').textContent=e.message}};
@@ -299,6 +301,7 @@ function hud(f,calls,renderMs){
  }
  airflowAudio.update(f);
  updateRockView(f.storyRockView);
+ updateSurveyMap(f.storySurveyMap);
  const reflection=f.storyReflection;
  $('reflectionControls').hidden=!reflection?.record;
  if(reflection?.record)$('reflectionLight').textContent=reflection.lit?'消灯する':'点灯する';

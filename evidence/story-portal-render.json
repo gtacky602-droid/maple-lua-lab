@@ -463,12 +463,12 @@
     {
       "node": "sumeru-hub",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 6
     },
     {
       "node": "sumeru-hub",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 6
     },
     {
       "node": "sumeru-field",
@@ -2349,6 +2349,96 @@
       "node": "simulanka-lantern-perch",
       "mode": "rect",
       "visible_portals": 0
+    },
+    {
+      "node": "sumeru-river-roots",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-river-roots",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-river-bank",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-river-bank",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-canopy-junction",
+      "mode": "sprite",
+      "visible_portals": 4
+    },
+    {
+      "node": "sumeru-canopy-junction",
+      "mode": "rect",
+      "visible_portals": 4
+    },
+    {
+      "node": "sumeru-root-slope",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-root-slope",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-branch-run",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-branch-run",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-observation-stop",
+      "mode": "sprite",
+      "visible_portals": 5
+    },
+    {
+      "node": "sumeru-observation-stop",
+      "mode": "rect",
+      "visible_portals": 5
+    },
+    {
+      "node": "sumeru-observatory-approach",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-observatory-approach",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-observatory-terrace",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-observatory-terrace",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-sky-observatory",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "sumeru-sky-observatory",
+      "mode": "rect",
+      "visible_portals": 2
     }
   ],
   "checks": [

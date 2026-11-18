@@ -1,0 +1,30 @@
+{
+  "leafAfterReload": true,
+  "walkedLeafBridge": true,
+  "riverFallRecovery": true,
+  "wrongAdjustmentRejected": true,
+  "bothRoutesConverge": true,
+  "liftRoundTrip": true,
+  "bossAppearanceAndDefeat": true,
+  "observatoryHeals": true,
+  "savedSurvey": true,
+  "oldGate": true,
+  "oneTimePayouts": true,
+  "rewards": [
+    [
+      437849,
+      1600,
+      2
+    ],
+    [
+      526257,
+      2200,
+      3
+    ],
+    [
+      1033165,
+      3800,
+      4
+    ]
+  ]
+}

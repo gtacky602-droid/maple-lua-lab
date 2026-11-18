@@ -12,8 +12,8 @@
   },
   "counts": {
     "source_entities": 63,
-    "encounter_candidates": 83,
-    "partial": 65,
+    "encounter_candidates": 84,
+    "partial": 66,
     "complete": 0
   },
   "encounters": [
@@ -2244,6 +2244,32 @@
         "encoding": "assets/bellgate-field-idle-sprites-v1.json",
         "audit": "evidence/bellgate-art.json",
         "status": "original low-poly form reference; appearance and quest progression"
+      }
+    },
+    {
+      "id": "original-canopy-fungus",
+      "name": "枝傘の大キノコン",
+      "kind": "normal",
+      "entity_ids": [],
+      "status": "partial",
+      "action": null,
+      "grouping": "original_design",
+      "evidence": [
+        "docs/balance/SUMERU_CANOPY_WEB.md"
+      ],
+      "remaining": [
+        "ボスの技",
+        "連続アニメーション",
+        "報酬の調整",
+        "マルチ検証"
+      ],
+      "fieldNode": "sumeru-observatory-terrace",
+      "fieldEntrance": "枝傘の止まり台（Lv60）",
+      "art_candidate": {
+        "source": "assets/canopy-fungus-source-v1.png",
+        "encoding": "assets/canopy-fungus-field-idle-sprites-v1.json",
+        "audit": "evidence/canopy-fungus-art.json",
+        "status": "original mushroom with canopy foliage; appearance and quest progression"
       }
     },
     {

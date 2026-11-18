@@ -1003,6 +1003,43 @@
     {
       "node": "simulanka-lantern-perch",
       "enemy_count": 0
+    },
+    {
+      "node": "sumeru-river-roots",
+      "enemy_count": 0
+    },
+    {
+      "node": "sumeru-river-bank",
+      "enemy_count": 2
+    },
+    {
+      "node": "sumeru-canopy-junction",
+      "enemy_count": 0
+    },
+    {
+      "node": "sumeru-root-slope",
+      "enemy_count": 0
+    },
+    {
+      "node": "sumeru-branch-run",
+      "enemy_count": 0
+    },
+    {
+      "node": "sumeru-observation-stop",
+      "enemy_count": 0
+    },
+    {
+      "node": "sumeru-observatory-approach",
+      "enemy_count": 3
+    },
+    {
+      "node": "sumeru-observatory-terrace",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "sumeru-sky-observatory",
+      "enemy_count": 0
     }
   ],
   "render_profiles": [

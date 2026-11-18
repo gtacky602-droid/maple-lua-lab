@@ -1,0 +1,74 @@
+{
+  "generator": "built-in imagegen",
+  "originalModel": {
+    "path": "evidence/canopy-fungus-model.obj",
+    "sha256": "55d48f2152780d1e943c4c610a8a8aa5d7a445343bfa9d939a501ed69ad0decd"
+  },
+  "materials": {
+    "path": "evidence/canopy-fungus-model.mtl",
+    "sha256": "00ff044d09fe4a150775d8f48f0803bad0547f5269c98b867e986f6b0b3caaf7"
+  },
+  "vertices": 318,
+  "faces": 243,
+  "reference": {
+    "path": "evidence/canopy-fungus-views.png",
+    "sha256": "79e84c3898e55fb4ea4883669a62d6d7c23ed1ce119d026a5e21f75c821da5fa"
+  },
+  "views": [
+    "front",
+    "front three-quarter",
+    "rear three-quarter"
+  ],
+  "source": {
+    "path": "assets/canopy-fungus-source-v1.png",
+    "sha256": "70be9f4e1f42437186c08f98beb44c1e2856b55aa2442c621d557dfd08c608fe"
+  },
+  "sourceSize": [
+    1312,
+    1199
+  ],
+  "outsideAlphaSamples": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "box": [
+    114,
+    86,
+    1071,
+    1002
+  ],
+  "anchorX": 0.46591970121381887,
+  "encoding": {
+    "path": "assets/canopy-fungus-field-idle-sprites-v1.json",
+    "sha256": "2cd94188407ca3e2cac5584ab1ee5395d25ae7f16753965b0651a0cc9ad052f6"
+  },
+  "runs": {
+    "legacy": 3393,
+    "h48c32": 2365,
+    "h32c16": 1120
+  },
+  "backgrounds": [
+    {
+      "path": "assets/sumeru-riverside-background-v1.png",
+      "sha256": "b3831abb40cc606d81ddfb56c5513b51f351cf474458b58d954596edceaa52e8",
+      "size": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "assets/sumeru-canopy-background-v1.png",
+      "sha256": "6d0cae4ad6e056051310d625684117aa6a1dad5bc93c076d9c694eaaeabc9f02",
+      "size": [
+        1672,
+        941
+      ]
+    }
+  ],
+  "paletteReference": {
+    "path": "assets/sumeru-background-v1.png",
+    "sha256": "ae70f0df77eaaa358ab10e93c9affa80cf3097244dec529667e6ac2bbb41e75b"
+  }
+}

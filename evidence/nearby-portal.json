@@ -581,6 +581,22 @@
       "to": "sumeru-field"
     },
     {
+      "node": "sumeru-hub",
+      "to": "sumeru-river-roots"
+    },
+    {
+      "node": "sumeru-hub",
+      "to": "sumeru-canopy-junction"
+    },
+    {
+      "node": "sumeru-hub",
+      "to": "sumeru-observation-stop"
+    },
+    {
+      "node": "sumeru-hub",
+      "to": "sumeru-sky-observatory"
+    },
+    {
       "node": "sumeru-field",
       "to": "sumeru-hub"
     },
@@ -2107,6 +2123,98 @@
     {
       "node": "simulanka-lantern-perch",
       "to": "simulanka-hub"
+    },
+    {
+      "node": "sumeru-river-roots",
+      "to": "sumeru-hub"
+    },
+    {
+      "node": "sumeru-river-roots",
+      "to": "sumeru-river-bank"
+    },
+    {
+      "node": "sumeru-river-bank",
+      "to": "sumeru-river-roots"
+    },
+    {
+      "node": "sumeru-river-bank",
+      "to": "sumeru-hub"
+    },
+    {
+      "node": "sumeru-canopy-junction",
+      "to": "sumeru-hub"
+    },
+    {
+      "node": "sumeru-canopy-junction",
+      "to": "sumeru-observation-stop"
+    },
+    {
+      "node": "sumeru-canopy-junction",
+      "to": "sumeru-branch-run"
+    },
+    {
+      "node": "sumeru-canopy-junction",
+      "to": "sumeru-root-slope"
+    },
+    {
+      "node": "sumeru-root-slope",
+      "to": "sumeru-canopy-junction"
+    },
+    {
+      "node": "sumeru-root-slope",
+      "to": "sumeru-observation-stop"
+    },
+    {
+      "node": "sumeru-branch-run",
+      "to": "sumeru-canopy-junction"
+    },
+    {
+      "node": "sumeru-branch-run",
+      "to": "sumeru-observation-stop"
+    },
+    {
+      "node": "sumeru-observation-stop",
+      "to": "sumeru-hub"
+    },
+    {
+      "node": "sumeru-observation-stop",
+      "to": "sumeru-canopy-junction"
+    },
+    {
+      "node": "sumeru-observation-stop",
+      "to": "sumeru-branch-run"
+    },
+    {
+      "node": "sumeru-observation-stop",
+      "to": "sumeru-root-slope"
+    },
+    {
+      "node": "sumeru-observation-stop",
+      "to": "sumeru-observatory-approach"
+    },
+    {
+      "node": "sumeru-observatory-approach",
+      "to": "sumeru-observation-stop"
+    },
+    {
+      "node": "sumeru-observatory-approach",
+      "to": "sumeru-observatory-terrace"
+    },
+    {
+      "node": "sumeru-observatory-terrace",
+      "to": "sumeru-observatory-approach"
+    },
+    {
+      "node": "sumeru-observatory-terrace",
+      "to": "sumeru-sky-observatory"
+    },
+    {
+      "node": "sumeru-sky-observatory",
+      "to": "sumeru-hub"
+    },
+    {
+      "node": "sumeru-sky-observatory",
+      "to": "sumeru-observatory-terrace"
     }
   ],
   "hidden_connections_checked": 38,

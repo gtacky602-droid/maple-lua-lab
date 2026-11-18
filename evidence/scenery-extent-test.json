@@ -3272,6 +3272,66 @@
       "transparent": 0
     },
     {
+      "key": "sumeruRiverside",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruRiverside",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruRiverside",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruRiverside",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruRiverside",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruRiverside",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruCanopy",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruCanopy",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruCanopy",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruCanopy",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruCanopy",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruCanopy",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "sumeru",
       "camera": -960,
       "transparent": 0

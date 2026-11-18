@@ -109,6 +109,8 @@ export const sceneryDefinitions={
  inazuma:{file:'inazuma-background-v1.png',region:'稲妻',zones:['thunder','array','maguu']},
  fontaine:{file:'fontaine-background-v1.png',region:'フォンテーヌ',zones:[]},
  natlan:{file:'natlan-background-v1.png',region:'ナタ',zones:[]},
+ sumeruRiverside:{file:'sumeru-riverside-background-v1.png',zones:['story:sumeru-river-roots','story:sumeru-river-bank','story:sumeru-root-slope']},
+ sumeruCanopy:{file:'sumeru-canopy-background-v1.png',zones:['story:sumeru-canopy-junction','story:sumeru-branch-run','story:sumeru-observation-stop','story:sumeru-observatory-approach','story:sumeru-observatory-terrace','story:sumeru-sky-observatory']},
  sumeru:{file:'sumeru-background-v1.png',region:'スメール',zones:[]}
 };
 const backgrounds={},backgroundStates={};
@@ -174,6 +176,14 @@ export function scenery(ctx,frame){
  drawDecorations(ctx,frame,camera);
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
+  if(p.leafBridge||p.rootShelf){
+   const leaf=p.leafBridge;
+   ctx.fillStyle=leaf?'#437466':'#77624a';ctx.fillRect(x,p.y,p.w,18);
+   ctx.fillStyle=p.preview?'#d8bd85':leaf?'#add382':'#a6a974';ctx.fillRect(x,p.y,p.w,5);
+   ctx.fillStyle=leaf?'#86a96b':'#aa8d67';
+   for(let i=9;i+26<p.w;i+=39){ctx.fillRect(x+i,p.y+6,17,3);ctx.fillRect(x+i+15,p.y+9,8,3)}
+   continue;
+  }
   if(p.paperFold){
    ctx.fillStyle=p.paperPreview?'#ab7f9e':'#66877e';ctx.fillRect(x,p.y,p.w,14);
    ctx.fillStyle=p.paperPreview?'#e5c4d0':'#dce9c3';ctx.fillRect(x,p.y,p.w,4);

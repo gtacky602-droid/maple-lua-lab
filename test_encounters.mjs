@@ -2,7 +2,7 @@ import {chromium} from 'playwright';import fs from 'node:fs/promises';
 const browser=await chromium.launch({headless:true,channel:'chrome'}),page=await browser.newPage({viewport:{width:1440,height:1080}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769');await page.waitForFunction(()=>window.lab?.frame);
- const panel=page.locator('#encountersPanel');await panel.locator('summary').click();await page.waitForFunction(()=>document.querySelectorAll('[data-encounter]').length===83);
+ const panel=page.locator('#encountersPanel');await panel.locator('summary').click();await page.waitForFunction(()=>document.querySelectorAll('[data-encounter]').length===84);
  if(!await panel.getByText(/Ver\.7\.2.*通常48系統・週ボス14戦/).isVisible())throw Error('roster review missing');
  for(const query of ['博士','ドットーレ']){
   await panel.getByLabel('ボス名で検索').fill(query);
@@ -62,6 +62,9 @@ try{
  await panel.getByLabel('ボス名で検索').fill('波濤の投錨者');
  const tideCavern=panel.locator('[data-encounter="boss-25134601"]').getByRole('link',{name:/西港の潮洞/});
  if(await tideCavern.getAttribute('href')!=='map-art.html?node=wavebinder-tide-cavern')throw Error('Wavebinder tide route missing');
+ await panel.getByLabel('ボス名で検索').fill('枝傘の大キノコン');
+ const canopyTerrace=panel.locator('[data-encounter="original-canopy-fungus"]').getByRole('link',{name:/枝傘の止まり台/});
+ if(await canopyTerrace.getAttribute('href')!=='map-art.html?node=sumeru-observatory-terrace')throw Error('Canopy Fungus terrace route missing');
  await panel.getByLabel('ボス名で検索').fill('トワリン');
  const dvalin=panel.locator('[data-encounter="boss-29010101"]').getByRole('link',{name:/風龍の空域/});
  if(await dvalin.getAttribute('href')!=='map-art.html?node=dvalin-sky-arena')throw Error('Dvalin weekly arena route missing');
@@ -119,5 +122,5 @@ try{
  await panel.getByLabel('挑戦可能のみ').check();if(await panel.locator('[data-encounter]').count()!==1)throw Error('playable filter');
  await panel.getByRole('button',{name:'試作に挑戦'}).click();await page.waitForFunction(()=>window.lab.frame.boss?.name==='ファルカ模擬戦');
  await panel.screenshot({path:'evidence/encounters-browser.png'});if(errors.length)throw Error(errors.join('/'));
- await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:83,bellgateRoute:true,windRingFieldRoute:true,plateTailFieldRoute:true,teaBoulderFieldRoute:true,rimeHareFieldRoute:true,iceCrawlerFieldRoute:true,prismWalkerFieldRoute:true,rubbleSifterFieldRoute:true,originalFieldRoute:true,originalWeeklyRoute:true,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,configDeviceFieldRoute:true,papillaFieldRoute:true,lavaDragonFieldRoute:true,overseerFieldRoute:true,knuckleDuckleFieldRoute:true,battleshipFieldRoute:true,frostnightHerraFieldRoute:true,whispererNightmaresFieldRoute:true,moonflyFieldRoute:true,moongeckoFieldRoute:true,spiritspeakerFieldRoute:true,fallenVigilFieldRoute:true,flugelFieldRoute:true,driftingSnowFieldRoute:true,immortalConstructFieldRoute:true,wavebinderFieldRoute:true,stygianCandidates:7,disabledUnimplemented:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');
+ await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:84,bellgateRoute:true,windRingFieldRoute:true,plateTailFieldRoute:true,teaBoulderFieldRoute:true,rimeHareFieldRoute:true,iceCrawlerFieldRoute:true,prismWalkerFieldRoute:true,rubbleSifterFieldRoute:true,originalFieldRoute:true,originalWeeklyRoute:true,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,configDeviceFieldRoute:true,papillaFieldRoute:true,lavaDragonFieldRoute:true,overseerFieldRoute:true,knuckleDuckleFieldRoute:true,battleshipFieldRoute:true,frostnightHerraFieldRoute:true,whispererNightmaresFieldRoute:true,moonflyFieldRoute:true,moongeckoFieldRoute:true,spiritspeakerFieldRoute:true,fallenVigilFieldRoute:true,flugelFieldRoute:true,driftingSnowFieldRoute:true,immortalConstructFieldRoute:true,wavebinderFieldRoute:true,canopyFungusFieldRoute:true,stygianCandidates:7,disabledUnimplemented:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');
 }finally{await browser.close()}

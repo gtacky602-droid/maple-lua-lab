@@ -1,0 +1,45 @@
+{
+  "reloadedLeaf": true,
+  "walkedLeafBridge": true,
+  "wrongAdjustmentRejected": true,
+  "upperGate": true,
+  "bothRoutesConverge": true,
+  "liftRoundTrip": true,
+  "bossAppearanceAndDefeat": true,
+  "readbackAfterReload": true,
+  "scenes": [
+    {
+      "key": "sumeruRiverside",
+      "file": "sumeru-riverside-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "key": "sumeruCanopy",
+      "file": "sumeru-canopy-background-v1.png",
+      "state": "ready"
+    }
+  ],
+  "commands": {
+    "png": 28,
+    "standard": 7641,
+    "light": 2191
+  },
+  "rewards": [
+    [
+      437849,
+      1600,
+      2
+    ],
+    [
+      526257,
+      2200,
+      3
+    ],
+    [
+      1033165,
+      3800,
+      4
+    ]
+  ],
+  "errors": []
+}
