@@ -701,6 +701,14 @@
       "to": "fontaine-rehearsal-room"
     },
     {
+      "node": "fontaine-hub",
+      "to": "fontaine-stage-watch"
+    },
+    {
+      "node": "fontaine-hub",
+      "to": "fontaine-grand-stage"
+    },
+    {
       "node": "fontaine-field",
       "to": "fontaine-hub"
     },
@@ -2306,6 +2314,38 @@
     },
     {
       "node": "fontaine-rehearsal-room",
+      "to": "fontaine-hub"
+    },
+    {
+      "node": "fontaine-stage-watch",
+      "to": "fontaine-hub"
+    },
+    {
+      "node": "fontaine-stage-watch",
+      "to": "fontaine-scenery-booth"
+    },
+    {
+      "node": "fontaine-scenery-booth",
+      "to": "fontaine-stage-watch"
+    },
+    {
+      "node": "fontaine-scenery-booth",
+      "to": "fontaine-grand-stage-approach"
+    },
+    {
+      "node": "fontaine-grand-stage-approach",
+      "to": "fontaine-scenery-booth"
+    },
+    {
+      "node": "fontaine-grand-stage-approach",
+      "to": "fontaine-grand-stage"
+    },
+    {
+      "node": "fontaine-grand-stage",
+      "to": "fontaine-grand-stage-approach"
+    },
+    {
+      "node": "fontaine-grand-stage",
       "to": "fontaine-hub"
     }
   ],

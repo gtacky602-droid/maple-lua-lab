@@ -111,6 +111,9 @@ export const sceneryDefinitions={
  fontaineBackstage:{file:'fontaine-backstage-background-v1.png',zones:['story:fontaine-old-scenery-door','story:fontaine-moon-fly-loft','story:fontaine-stage-wings','story:fontaine-lift-catwalk']},
  fontaineUnderstage:{file:'fontaine-understage-background-v1.png',zones:['story:fontaine-understage-workfloor','story:fontaine-parcel-storeroom']},
  fontaineRehearsal:{file:'fontaine-rehearsal-background-v1.png',zones:['story:fontaine-rehearsal-room']},
+ fontaineGrandStage:{file:'fontaine-grand-stage-background-v1.png',zones:[
+  'story:fontaine-scenery-booth','story:fontaine-grand-stage-approach','story:fontaine-grand-stage'
+ ]},
  fontaine:{file:'fontaine-background-v1.png',region:'フォンテーヌ',zones:[]},
  natlan:{file:'natlan-background-v1.png',region:'ナタ',zones:[]},
  sumeruRiverside:{file:'sumeru-riverside-background-v1.png',zones:['story:sumeru-river-roots','story:sumeru-river-bank','story:sumeru-root-slope']},
@@ -182,7 +185,7 @@ export function scenery(ctx,frame){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
   if(p.stageDeck){
    ctx.fillStyle='#664739';ctx.fillRect(x,p.y,p.w,20);
-   ctx.fillStyle='#bd9563';ctx.fillRect(x,p.y,p.w,5);
+   ctx.fillStyle=p.arrangementDeck?'#d7b67b':'#bd9563';ctx.fillRect(x,p.y,p.w,5);
    ctx.fillStyle='#8e6245';
    for(let i=8;i+12<p.w;i+=42){ctx.fillRect(x+i,p.y+8,30,3);ctx.fillRect(x+i,p.y+14,2,4)}
    continue;

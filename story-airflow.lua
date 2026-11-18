@@ -29,7 +29,11 @@ return function()
    if trial.deck then s.platforms[#s.platforms+1]=trial.deck end
    s.storyNotice=choice.label..'　'..choice.result
   elseif command=='airflow_commit' and config.confirm then
-   if trial.index==config.correct then removePreview(s,trial);s.airflowTrial=nil;return true end
+   local choice=config.choices[trial.index]
+   if trial.index==config.correct or (config.stagePlan and choice and choice.id) then
+    removePreview(s,trial);s.airflowTrial=nil
+    return true,config.stagePlan and choice.id or nil
+   end
    s.storyNotice=config.confirmationHint or '行きと帰りの両方で昇降台へ通れる位置を試してください。'
   end
   return false

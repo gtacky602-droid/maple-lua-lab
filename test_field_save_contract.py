@@ -7,11 +7,33 @@ from savegame import validate_save
 
 lua, core = runtime()
 specs = json.loads((ROOT/'content/field-boss-spawns.json').read_text(encoding='utf8'))['fieldBosses']
+quests = {quest['id']: quest for quest in
+          json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8'))['quests']}
+
+
+def seed_chapter(state, quest_id, completed_count, status):
+    quest = quests[quest_id]
+    if previous := quest.get('requires'):
+        seed_chapter(state, previous, quests[previous]['goal'], 'complete')
+    record = dict(status=status,count=completed_count,cycles=int(status=='complete'))
+    state.story.visited[quest['hub']] = True
+    for item in quest.get('itinerary',[])[:completed_count]:
+        state.story.visited[item['node']] = True
+        config = item.get('airflow',{})
+        if config.get('stagePlan'):
+            record['stagePlan'] = config['choices'][0]['id']
+    state.story.quests[quest_id] = lua.table_from(record)
+
+
 checked = []
 for spec in specs:
     state = core.new(12)
     core.action(state, 'story_start')
     core.grantExp(state, LEVELS[199]['maple_reference_total_exp_to_reach'], 'quest')
+    if window := spec.get('storyWindow'):
+        core.enterStoryNode(state, spec['node'])
+        assert not state.fieldSlots or state.fieldSlots[spec['id']] is None
+        seed_chapter(state, window['quest'], window['first'], 'active')
     core.enterStoryNode(state, spec['node'])
     slot = state.fieldSlots[spec['id']]
     slot.enemy.hp = spec['hp']-1

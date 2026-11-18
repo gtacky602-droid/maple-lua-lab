@@ -184,7 +184,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.storyNotice=milestone.notice
   if milestone.bridge then installBridge(s,milestone.bridge) end
   for _,bridge in ipairs(milestone.bridges or {}) do installBridge(s,bridge) end
-  theater.sync(s,nodes[s.story.node].theater,true)
+  local stage=nodes[s.story.node].theater
+  if stage and s.story.quests[stage.quest]==state then theater.sync(s,stage,true) end
   if milestone.reflect then s.reflection=nil end
  end
  local function recordKill(s,state,milestone,enemy)
@@ -233,12 +234,19 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      end
      return true
     elseif milestone.airflow then
-     if airflow.interact(s,milestone,command,emitCue) then completeMilestone(s,state,milestone) end
+     local confirmed,plan=airflow.interact(s,milestone,command,emitCue)
+     if confirmed then
+      if plan then state.stagePlan=plan end
+      completeMilestone(s,state,milestone)
+     end
      return true
-     elseif milestone.followCart then
-      if command=='rotate' then theater.start(s,milestone,state) end
-      return true
-     elseif milestone.reflect then
+    elseif milestone.followCart then
+     if command=='rotate' then theater.start(s,milestone,state) end
+     return true
+    elseif milestone.performance then
+     if command=='rotate' and theater.performance(s,milestone.performance) then completeMilestone(s,state,milestone) end
+     return true
+    elseif milestone.reflect then
      if reflection.interact(s,milestone,command) then completeMilestone(s,state,milestone) end
      return true
     elseif command=='rotate' then
@@ -344,7 +352,6 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.airflowTrial,s.storyCue=nil,nil
   s.resonanceOrder,s.resonancePage=nil,nil
   paper.reset(s)
-  theater.enter(s,n.theater)
   s.platforms={};for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]=copy(p) end
   for _,q in ipairs(itineraries) do
    local state=s.story.quests[q.id]
@@ -355,6 +362,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if step.node==id and step.paperFold then paper.install(s,n.paperBoard) end
    end
   end
+  theater.enter(s,n.theater)
   s.reflection=nil
   s.expeditionPractice=false
   s.lift=nil
@@ -992,7 +1000,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      end
      if not f.storyNearbyMilestone and not s.paused and not (milestone.followCart and s.theaterCart)
          and canInspect(s.actors[s.active],milestone) then
-      f.storyNearbyMilestone={label=milestone.action}
+      f.storyNearbyMilestone={label=milestone.performance and theater.performanceLabel(s,milestone.performance) or milestone.action}
       if milestone.paperSouvenir then paper.observeGift(s,f,milestone) end
       if milestone.surveyMap then f.storySurveyMap=milestone.surveyMap end
      end

@@ -1,0 +1,27 @@
+{
+  "evacuation": true,
+  "deckAfterReload": true,
+  "twoGuardLevels": true,
+  "scene": {
+    "key": "fontaineGrandStage",
+    "file": "fontaine-grand-stage-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 20,
+    "standard": 16038,
+    "light": 4098
+  },
+  "firstClearExp": 3020570,
+  "shutdownConfetti": true,
+  "earlyCueRejected": true,
+  "performance": true,
+  "performanceAfterReload": true,
+  "noBossAfterShow": true,
+  "reward": [
+    3550820,
+    6100,
+    5
+  ],
+  "errors": []
+}

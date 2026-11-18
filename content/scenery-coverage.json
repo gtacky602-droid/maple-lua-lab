@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 253 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 245,
+  "scope": "Authored 257 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 249,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1077,7 +1077,11 @@
     {"id":"fontaine-lift-catwalk","name":"昇降台の上段通路","region":"フォンテーヌ","status":"regional_temporary_image"},
     {"id":"fontaine-understage-workfloor","name":"波板の作業床","region":"フォンテーヌ","status":"regional_temporary_image"},
     {"id":"fontaine-parcel-storeroom","name":"舞台下の荷物保管室","region":"フォンテーヌ","status":"regional_temporary_image"},
-    {"id":"fontaine-rehearsal-room","name":"窓明かりの別稽古場","region":"フォンテーヌ","status":"regional_temporary_image"}
+    {"id":"fontaine-rehearsal-room","name":"窓明かりの別稽古場","region":"フォンテーヌ","status":"regional_temporary_image"},
+    {"id":"fontaine-stage-watch","name":"幕裏の監視所","region":"フォンテーヌ","status":"regional_temporary_image"},
+    {"id":"fontaine-scenery-booth","name":"大道具の操作室","region":"フォンテーヌ","status":"regional_temporary_image"},
+    {"id":"fontaine-grand-stage-approach","name":"主舞台の二段通路","region":"フォンテーヌ","status":"regional_temporary_image"},
+    {"id":"fontaine-grand-stage","name":"グラン・フィナーレの主舞台","region":"フォンテーヌ","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 8
 }

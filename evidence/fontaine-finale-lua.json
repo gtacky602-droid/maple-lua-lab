@@ -1,0 +1,23 @@
+{
+  "requiresPrevious": true,
+  "staffEvacuation": true,
+  "twoPlayableLayouts": true,
+  "stagePlanValidation": true,
+  "waveCollisionAndDeck": true,
+  "dropFromShelfAndGroundSafe": true,
+  "bossOnlyDuringChapterStep": true,
+  "bossHpAfterReload": true,
+  "firstClearOnce": true,
+  "shutdownAfterReload": true,
+  "delayedConfetti": true,
+  "earlyAndLateCuesRetry": true,
+  "showAndReadbackAfterReload": true,
+  "noBossRespawnAfterShow": true,
+  "reportOnce": true,
+  "firstClearExp": 3020570,
+  "reward": [
+    3550820,
+    6100,
+    5
+  ]
+}

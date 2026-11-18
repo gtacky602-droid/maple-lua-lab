@@ -20,7 +20,7 @@ check('completion not overclaimed',d['counts']['complete']==0 and not d['complet
 check('not implemented rows cannot launch',all(r['action'] is None for r in rows if r['status']=='not_implemented'))
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
-check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':84,'partial':66,'complete':0})
+check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':85,'partial':67,'complete':0})
 by_id={r['id']:r for r in rows}
 loom=by_id['original-twin-shuttle-loom']
 check('loom trial is separate from the imported list',
@@ -147,8 +147,12 @@ fungus=by_id['original-canopy-fungus']
 check('Canopy Fungus is a presentation encounter attached to the observatory route',
       fungus['status']=='partial' and fungus['fieldNode']=='sumeru-observatory-terrace' and fungus['action'] is None
       and fields[fungus['id']]['presentationOnly'] and not fields[fungus['id']]['moves'])
-check('49 imported and twelve original field rows have registered field routes, still partial',
-      len(normal)==61 and set(fields)=={r['id'] for r in normal}
+finale=by_id['original-grand-finale']
+check('Grand Finale is connected to one chapter and remains partial',
+      finale['status']=='partial' and finale['fieldNode']=='fontaine-grand-stage' and finale['action'] is None
+      and fields[finale['id']]['storyWindow']=={'quest':'fontaine-grand-finale','first':3,'after':4})
+check('49 imported and thirteen original field rows have registered field routes, still partial',
+      len(normal)==62 and set(fields)=={r['id'] for r in normal}
       and all(r['status']=='partial' and r['fieldNode']==fields[r['id']]['node'] for r in normal))
 check('original field boss is not counted in the imported roster',
       by_id['original-snow-sweeper']['entity_ids']==[]

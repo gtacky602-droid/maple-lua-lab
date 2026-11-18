@@ -1,0 +1,64 @@
+{
+  "generator": "built-in imagegen",
+  "originalModel": {
+    "path": "evidence/grand-finale-model.obj",
+    "sha256": "0f81c46a9c7bd03ac47991e9c3787064e7c8d17727dddcd996d2c93449e187de"
+  },
+  "materials": {
+    "path": "evidence/grand-finale-model.mtl",
+    "sha256": "8a02875c675a28bd3d7d2967f005ea34ffa692bd4d415a6eaa7354bfc6f62f0c"
+  },
+  "vertices": 664,
+  "faces": 452,
+  "reference": {
+    "path": "evidence/grand-finale-views.png",
+    "sha256": "ae57c146bd307893ab51f6137c65ed4544128428b3c2379a5c2a2cef018f7c3f"
+  },
+  "views": [
+    "front",
+    "front three-quarter",
+    "rear three-quarter"
+  ],
+  "source": {
+    "path": "assets/grand-finale-source-v1.png",
+    "sha256": "121832f202a1396cfa82e9d51288678be471016eb98b9ab80df06643072d944e"
+  },
+  "sourceSize": [
+    1321,
+    1191
+  ],
+  "outsideAlphaSamples": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "box": [
+    103,
+    24,
+    1107,
+    1153
+  ],
+  "anchorX": 0.4896115627822945,
+  "encoding": {
+    "path": "assets/grand-finale-field-idle-sprites-v1.json",
+    "sha256": "9f9e83706e379ff1abc11230070571e63fd7476f3fa76b0b2a685a4d0e83693c"
+  },
+  "runs": {
+    "legacy": 11798,
+    "h48c32": 7225,
+    "h32c16": 3035
+  },
+  "background": {
+    "path": "assets/fontaine-grand-stage-background-v1.png",
+    "sha256": "d9dcf4df79823470dc7ae14e7d83cd8c134587553f544148bd08d68e54cb5b20"
+  },
+  "backgroundSize": [
+    1672,
+    941
+  ],
+  "visualReference": {
+    "path": "assets/fontaine-backstage-background-v1.png",
+    "sha256": "aa58b2941a5da39e379470f4fc78db0d59a46d1200b1b0b346d18c82c9015af1"
+  }
+}

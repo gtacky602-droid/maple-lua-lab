@@ -14,6 +14,11 @@ return function(C)
   return state and state.count or 0
  end
 
+ local function layout(s,stage)
+  local state=s.story.quests[stage.quest]
+  return state and state.stagePlan
+ end
+
  local function setSolid(s,previous,nextSolid)
   if previous==nextSolid then return previous end
   for i,solid in ipairs(s.solids or {}) do
@@ -34,15 +39,22 @@ return function(C)
   s.theaterShutter=setSolid(s,s.theaterShutter,blocking)
   local wave=stage.wave
   local cover=wave and count>=wave.raiseAt and wave.cover or nil
+  if stage.arrangement and layout(s,stage)=='cover' then cover=stage.arrangement.wave.cover end
   s.theaterWaveWall=setSolid(s,s.theaterWaveWall,cover)
   if transition and stage.flats and count==stage.flats.changeAt then s.theaterFlatsAt=s.t end
   if transition and stage.curtain and count==stage.curtain.openAt then s.theaterCurtainAt=s.t end
+  if transition and stage.finale and count==stage.finale.stoppedAt then s.theaterStoppedAt=s.t end
+  if transition and stage.finale and count==stage.finale.performedAt then s.theaterPerformedAt=s.t end
  end
 
  function theater.enter(s,stage)
   s.theaterCart,s.theaterShutter,s.theaterWaveWall=nil,nil,nil
   s.theaterFlatsAt,s.theaterCurtainAt,s.theaterShotAt=nil,nil,nil
+  s.theaterStoppedAt,s.theaterPerformance,s.theaterPerformedAt=nil,nil,nil
   theater.sync(s,stage,false)
+  if stage and stage.arrangement and layout(s,stage)=='deck' then
+   for _,deck in ipairs(stage.arrangement.decks) do s.platforms[#s.platforms+1]=deck end
+  end
  end
 
  function theater.start(s,milestone,state)
@@ -78,6 +90,35 @@ return function(C)
   if cart.x<cart.spec.stop then return end
   s.theaterCart=nil
   return cart.step,cart.state
+ end
+
+ local function performancePhase(s,spec)
+  if not s.theaterPerformance then return 'ready' end
+  local elapsed=s.t-s.theaterPerformance
+  if elapsed+1e-8<spec.delay then return 'wait' end
+  if elapsed<spec.delay+spec.window then return 'cue' end
+  return 'missed'
+ end
+
+ function theater.performance(s,spec)
+  local phase=performancePhase(s,spec)
+  if phase=='ready' or phase=='missed' then
+   s.theaterPerformance=s.t
+   s.storyNotice='舞台の合図灯が緑に変わったら、Gで幕を上げます。'
+  elseif phase=='wait' then
+   s.storyNotice='まだ合図の前です。緑の灯りを待ちましょう。'
+  else
+   return true
+  end
+  return false
+ end
+
+ function theater.performanceLabel(s,spec)
+  local phase=performancePhase(s,spec)
+  if phase=='wait' then return '合図灯が緑になるのを待つ' end
+  if phase=='cue' then return '合図に合わせて幕を上げる' end
+  if phase=='missed' then return '上演の合図をやり直す' end
+  return '短い上演の準備をする'
  end
 
  local function drawShutter(draws,x,y,w,h)
@@ -159,6 +200,70 @@ return function(C)
   box(draws,x+3,y-22,12,9,idle and '#81a390' or imminent and '#ffd294' or '#b97357')
  end
 
+ local function drawStaff(s,draws,stage,count,mode,profile)
+  local staff=stage.staff
+  local function place(x) return x-s.camera end
+  for i,worker in ipairs(staff.workers) do
+   local x=place(count>=staff.safeAt and worker.safeX or worker.x)
+   local y=worker.y
+   if x>=-35 and x<=995 then
+    box(draws,x-12,y-53,24,9,'#af8c63')
+    box(draws,x-8,y-47,16,12,'#d6ae81')
+    box(draws,x-13,y-35,26,22,i==1 and '#4d8783' or '#76495a')
+    box(draws,x-10,y-12,7,12,'#584c51')
+    box(draws,x+3,y-12,7,12,'#584c51')
+   end
+  end
+  local x=place(staff.emilieX)
+  if s.companion~='emilie' and x>=-65 and x<=1025 then
+   C.drawCompanionArt({draws=draws},s,{x=staff.emilieX,y=staff.y,dir=1},mode,profile,'emilie')
+   label(draws,'エミリエ',x,staff.y-102,'#f3e0b7')
+  end
+ end
+
+ local function drawFinale(s,f,draws,finale,count,mode,profile)
+  local show=count>=finale.performedAt
+  local stopped=count>=finale.stoppedAt
+  local exposed=count>=finale.exposedAt
+  local x=finale.x-s.camera
+  local y=finale.y
+  if exposed and x>=-110 and x<=1070 then
+   C.drawFieldDisplayArt({draws=draws},C.grandFinaleArt,x,y,finale.height,mode,profile,false)
+   box(draws,x-27,y-93,54,34,'#3c4c59')
+   box(draws,x-21,y-87,42,22,'#193946')
+   box(draws,x-12,y-80,24,8,stopped and '#6e9e9a' or '#f2ad7c')
+   label(draws,stopped and '停止済み' or '制御部が見えた',x,y-finale.height-12,'#f4d9ae')
+  end
+  local elapsed=s.theaterStoppedAt and s.t-s.theaterStoppedAt-.43
+  if elapsed and elapsed>=0 and elapsed<1.7 then
+   local colors={'#d995a3','#95d3c1','#f6d392','#a8bbe7'}
+   for i=1,28 do
+    local offset=(i*47%277)-138
+    box(draws,x+offset+math.sin(elapsed*4+i)*18,y-188+(i*39%66)+elapsed*(70+i%4*15),
+        5+i%4,3,colors[i%4+1])
+   end
+  end
+  if not stopped then return end
+  local spec=finale.performance
+  local phase=show and 'performed' or performancePhase(s,spec)
+  f.storyTheaterPerformance={phase=phase}
+  local lx=spec.x-s.camera
+  local ly=spec.y-145
+  if lx>=-70 and lx<=1030 then
+   local progress=show and (s.theaterPerformedAt and math.min(1,(s.t-s.theaterPerformedAt)/.65) or 1) or 0
+   drawCurtain(draws,lx-148,finale.curtain,progress)
+   box(draws,lx-18,ly,36,26,'#6d553f')
+   box(draws,lx-12,ly+5,24,14,(phase=='cue' or show) and '#84d6a3' or '#cba265')
+   local caption=phase=='cue' and '合図' or phase=='wait' and '待機' or show and '上演済み' or '幕の合図灯'
+   label(draws,caption,lx,ly-9,'#f9dca6')
+  end
+  if show and x>=-170 and x<=1130 then
+   drawMoon(draws,x+192,327,s.t)
+   box(draws,x-215,110,430,5,'#d8af71')
+   for i=-4,4 do box(draws,x+49*i,115,18,7,'#f6cf81') end
+  end
+ end
+
  function theater.frame(s,f,draws,stage,mode,profile)
   if not stage then return end
   local count=stageCount(s,stage.quest)
@@ -181,7 +286,16 @@ return function(C)
    if x>=-curtain.w and x<=960 then drawCurtain(draws,x,curtain,progress) end
   end
   if stage.wave then drawWave(s,f,draws,stage.wave,count,mode,profile) end
+  if stage.arrangement then
+   local plan=layout(s,stage)
+   f.storyStageLayout=plan
+   if plan=='cover' then
+    drawWave(s,f,draws,stage.arrangement.wave,count,mode,profile)
+   end
+  end
   if stage.emitter then drawEmitter(s,draws,stage.emitter,count) end
+  if stage.staff then drawStaff(s,draws,stage,count,mode,profile) end
+  if stage.finale then drawFinale(s,f,draws,stage.finale,count,mode,profile) end
   if stage.lift and s.lift and s.lift.riders then
    local a=s.actors[1]
    box(draws,a.x-s.camera-58,a.y,92,12,'#a57a55')

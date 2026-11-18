@@ -316,7 +316,11 @@ function C.action(s,key)
   s.gauge=s.gauge-60;a.light=12;a.cd.light=60;event(s,'light',1)
  elseif key=='dodge' and (a.cd.dodge or 0)<=0 then a.inv=.45;a.cd.dodge=2;a.x=clamp(a.x+a.dir*100,20,(s.worldwidth or 2880)-20);a.lock=0
  elseif key=='jump' then a.buffer=.1
- elseif key=='drop' then a.drop=.25;a.ground=false;a.y=a.y+3
+ elseif key=='drop' then
+  if not a.ground or a.y~=480 then
+   a.drop=.25
+   if a.ground then a.ground=false;a.y=a.y+3 end
+  end
  elseif key=='auto' then s.auto=not s.auto
  elseif key=='pause' then s.paused=not s.paused
  elseif key=='normal' or key=='skill1' or key=='skill2' or key=='skill3' or key=='skill4' then C.attack(s,a,key) end

@@ -1076,6 +1076,22 @@
     {
       "node": "fontaine-rehearsal-room",
       "enemy_count": 0
+    },
+    {
+      "node": "fontaine-stage-watch",
+      "enemy_count": 0
+    },
+    {
+      "node": "fontaine-scenery-booth",
+      "enemy_count": 0
+    },
+    {
+      "node": "fontaine-grand-stage-approach",
+      "enemy_count": 2
+    },
+    {
+      "node": "fontaine-grand-stage",
+      "enemy_count": 0
     }
   ],
   "render_profiles": [

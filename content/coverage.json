@@ -123,8 +123,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 22,
-      "prototype_quest_count": 13,
+      "prototype_stage_count": 26,
+      "prototype_quest_count": 14,
       "official_map2_markers": {
         "waypoints": 92,
         "statues": 8
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 253,
-    "provisional_quests": 157,
+    "authored_stages": 257,
+    "provisional_quests": 158,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -837,7 +837,11 @@
           "fontaine-lift-catwalk",
           "fontaine-understage-workfloor",
           "fontaine-parcel-storeroom",
-          "fontaine-rehearsal-room"
+          "fontaine-rehearsal-room",
+          "fontaine-stage-watch",
+          "fontaine-scenery-booth",
+          "fontaine-grand-stage-approach",
+          "fontaine-grand-stage"
         ],
         "quest_ids": [
           "emilie-join",
@@ -852,7 +856,8 @@
           "legatus-commission",
           "simulanka-open-page",
           "fontaine-moon-parcel",
-          "fontaine-understage-crew"
+          "fontaine-understage-crew",
+          "fontaine-grand-finale"
         ]
       },
       {
@@ -1308,8 +1313,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 62,
-    "without_explicit_mapping": 91,
+    "linked": 63,
+    "without_explicit_mapping": 90,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1340,6 +1345,7 @@
       "Q-B09-03": "novo-return-report",
       "Q-FON-M01": "fontaine-moon-parcel",
       "Q-FON-M02": "fontaine-understage-crew",
+      "Q-FON-M03": "fontaine-grand-finale",
       "Q-H01-01": "golden-little-boat",
       "Q-H01-02": "golden-trace-shadows",
       "Q-H02-01": "veluriyam-bottle-ticket",

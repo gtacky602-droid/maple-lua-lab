@@ -260,6 +260,10 @@
     "fontaine-understage-workfloor": [
       {"id":"preview-fontaine-understage-guard-left","species":"sled-maintenance-cart","x":961,"y":390,"flip":false},
       {"id":"preview-fontaine-understage-guard-right","species":"sled-maintenance-cart","x":1363,"y":480,"flip":false}
+    ],
+    "fontaine-grand-stage-approach": [
+      {"id":"preview-fontaine-mainstage-guard-left","species":"sled-maintenance-cart","x":999,"y":391,"flip":false},
+      {"id":"preview-fontaine-mainstage-guard-right","species":"sled-maintenance-cart","x":1347,"y":480,"flip":false}
     ]
   }
 }

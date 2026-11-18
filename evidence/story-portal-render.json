@@ -563,12 +563,12 @@
     {
       "node": "fontaine-hub",
       "mode": "sprite",
-      "visible_portals": 8
+      "visible_portals": 10
     },
     {
       "node": "fontaine-hub",
       "mode": "rect",
-      "visible_portals": 8
+      "visible_portals": 10
     },
     {
       "node": "fontaine-field",
@@ -2527,6 +2527,46 @@
     },
     {
       "node": "fontaine-rehearsal-room",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-stage-watch",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-stage-watch",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-scenery-booth",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-scenery-booth",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-grand-stage-approach",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-grand-stage-approach",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-grand-stage",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-grand-stage",
       "mode": "rect",
       "visible_portals": 2
     }
