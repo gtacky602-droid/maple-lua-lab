@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 306 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 298,
+  "scope": "Authored 308 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 300,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -302,6 +302,18 @@
     {
       "id": "sumeru-hub",
       "name": "スメール・樹陰の広場",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "sum-wanderer-trail",
+      "name": "スメール・大樹の裏道",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "sum-wanderer-hollow",
+      "name": "スメール・枝切れの洞穴",
       "region": "スメール",
       "status": "regional_temporary_image"
     },

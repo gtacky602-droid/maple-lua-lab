@@ -1,0 +1,30 @@
+{
+  "scenes": [
+    {
+      "key": "sumeruObservationTrail",
+      "file": "sum-wanderer-sign-trail-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "key": "sumeruObservationHollow",
+      "file": "sum-wanderer-sign-hollow-background-v1.png",
+      "state": "ready"
+    }
+  ],
+  "mainMeeting": true,
+  "markersAndRouteReveal": true,
+  "leverAndVerticalAssistance": true,
+  "recordedFromRaisedPath": true,
+  "partyPreserved": true,
+  "starterAfterReload": true,
+  "commands": {
+    "png": 23,
+    "standard": 8882,
+    "light": 2356
+  },
+  "reward": [
+    153247,
+    1850
+  ],
+  "errors": []
+}

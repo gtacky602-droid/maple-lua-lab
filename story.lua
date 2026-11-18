@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -82,7 +82,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   return math.abs(a.x-edge.x)<90 and math.abs(a.y-(edge.y or 480))<60
  end
  local function shownNode(s,n)
-  return not n.hiddenGroup or s.story.discovered[n.hiddenGroup]
+  return (not n.hiddenGroup or s.story.discovered[n.hiddenGroup])
+     and (not n.revealAfter or meetsGateRule(s,n.revealAfter))
  end
  local function shownEdge(s,edge)
   return shownNode(s,nodes[edge.to]) and (not edge.visitedOnly or s.story.visited[edge.to])
@@ -185,6 +186,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local stealth=stealthModule(C,canInspect)
  local itto=ittoModule(C,canInspect)
  local teaCase=teaCaseModule(C,canInspect)
+ local wandererSurvey=wandererSurveyModule(C)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -353,6 +355,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       teaCase.firstCup(s,q)
      end
      return true
+    elseif milestone.assistLever then
+     if command=='rotate' then wandererSurvey.start(s) end
+     return true
     elseif milestone.reflect then
       if reflection.interact(s,milestone,command,state) then completeMilestone(s,state,milestone,parent,quest) end
      return true
@@ -498,6 +503,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.fireworkShow=nil
   itto.enter(s,n.ittoGames)
   teaCase.enter(s)
+  s.wandererAssistAt=nil
   s.storyLightMode=n.localLight and 'bright' or nil
   s.airflowTrial,s.storyCue=nil,nil
   s.resonanceOrder,s.resonancePage=nil,nil
@@ -795,7 +801,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if dest or fast then
    if s.paused or not s.story.active or s.actors[s.active].hp<=0 then return end
    local resume,departure=0,nil;dest=dest or fast;local n=nodes[dest];if not n then return end
-   if n.hiddenGroup and not s.story.discovered[n.hiddenGroup] then s.storyNotice='この入口はまだ発見していません。';return end
+   if not shownNode(s,n) then s.storyNotice='この入口はまだ発見していません。';return end
    if not s.progression or s.progression.level<n.level then s.storyNotice='必要レベル '..n.level..' に達していません。';return end
    if fast then
     local restPoint=n.restWaypoint and completed(s,n.restWaypoint.quest)
@@ -890,7 +896,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    return
   end
   if key=='campaign' or key=='town' or key=='field' or key=='arena' or key=='boss_anemo' then
-   s.story.active=false;s.voyage=nil;s.railTrip=nil;paper.reset(s);stealth.clear(s);itto.enter(s,nil)
+   s.story.active=false;s.voyage=nil;s.railTrip=nil;s.wandererAssistAt=nil;paper.reset(s);stealth.clear(s);itto.enter(s,nil)
   end
   action(s,key)
   local route=s.story.active and nodes[s.story.node].stealthRoute
@@ -997,6 +1003,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    duel.step(s,node.duel)
    patrol.update(s,node.patrol)
    if node.teaQuest and s.teaArrival then teaCase.step(s,quests[node.teaQuest]) end
+   if node.wandererSurveyQuest and s.wandererAssistAt then
+    local q=quests[node.wandererSurveyQuest]
+    local state=s.story.quests[q.id]
+    local milestone=wandererSurvey.update(s,q,state)
+    if milestone then completeMilestone(s,state,milestone) end
+   end
    if node.ittoGames then
     local quest=quests[node.ittoGames.quest]
     local state=s.story.quests[quest.id]
@@ -1239,6 +1251,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    if n.ittoGames then itto.observe(s,f,markers,n.ittoGames,s.story.quests[n.ittoGames.quest],mode,profile) end
    if n.teaQuest then teaCase.observe(s,f,markers,quests[n.teaQuest],s.story.quests[n.teaQuest],mode,profile) end
+   if n.wandererSurveyQuest then
+    local q=quests[n.wandererSurveyQuest]
+    wandererSurvey.observe(f,s,q,s.story.quests[q.id],mode,profile)
+   end
     if n.moonInlet then moonInlet.observe(s,f,markers,n.moonInlet,s.story.quests[n.moonInlet.quest]) end
     if n.shoreLights then moonInlet.lights(s,markers,n.shoreLights) end
     if n.coastDetour then coastDetour.observe(s,f,markers,n.coastDetour,quests[n.coastDetour.quest],mode,profile) end
@@ -1403,11 +1419,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and not milestone.resonanceOrder and not milestone.shadowChoice and not milestone.paperFold
         and (not milestone.roomLight or milestone.roomLight==s.storyLightMode) then
      local x,y=milestone.x-s.camera,milestone.y
+     if milestone.surveyGuide then wandererSurvey.guide({draws=markers},s,milestone.surveyGuide,mode,profile) end
      if not milestone.rumorBoard and not milestone.bloomProp and not milestone.patrolLamp and not milestone.patrolTable
         and not milestone.surveySample and not milestone.surveyPad and not milestone.surveyRig and not milestone.surveySeat
         and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup
         and not milestone.nightClue and not milestone.fireworkSight and not milestone.stealthNap
-        and not milestone.teaClue and not milestone.teaCup
+        and not milestone.teaClue and not milestone.teaCup and not milestone.surveyProp
         and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
@@ -1425,6 +1442,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      if not f.storyNearbyMilestone and not s.paused and not (milestone.followCart and s.theaterCart)
          and not (milestone.flagLowerSeconds and s.flagLowering)
          and (not milestone.teaCup or teaCase.allowed(s,q,state))
+         and not (milestone.assistLever and s.wandererAssistAt)
          and canInspect(s.actors[s.active],milestone) then
       f.storyNearbyMilestone={label=milestone.performance and theater.performanceLabel(s,milestone.performance) or milestone.action}
       if milestone.paperSouvenir then paper.observeGift(s,f,milestone) end
@@ -1445,7 +1463,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       if done.completedLabel and done.node==s.story.node and not done.resonanceOrder
           and (not done.roomLight or done.roomLight==s.storyLightMode) then
        local x,y=done.x-s.camera,done.y
-        if not q.appraisal and not done.flagProp and (not done.resonanceStone or done.resonanceControl) and x>=-25 and x<=985 then
+        if not q.appraisal and not done.flagProp and not done.surveyProp
+            and (not done.resonanceStone or done.resonanceControl) and x>=-25 and x<=985 then
         if done.outcrop then drawOutcrop(markers,x,y,done.outcrop)
         elseif done.teaCups then drawTeaSetting(markers,x,y,done.teaCups)
         elseif done.islandTreasure then drawIslandChest(markers,x,y,true)

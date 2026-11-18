@@ -1,0 +1,39 @@
+newmtl bark
+Kd 0.43529 0.30588 0.21176
+illum 1
+
+newmtl moss
+Kd 0.43529 0.55294 0.28627
+illum 1
+
+newmtl sage
+Kd 0.65098 0.75686 0.45490
+illum 1
+
+newmtl stone
+Kd 0.58824 0.60392 0.50588
+illum 1
+
+newmtl rim
+Kd 0.35686 0.39608 0.38431
+illum 1
+
+newmtl bronze
+Kd 0.71765 0.49804 0.25490
+illum 1
+
+newmtl gold
+Kd 0.95686 0.78824 0.43529
+illum 1
+
+newmtl teal
+Kd 0.18824 0.45098 0.42353
+illum 1
+
+newmtl glass
+Kd 0.51765 0.81176 0.71373
+illum 1
+
+newmtl navy
+Kd 0.16863 0.29412 0.29020
+illum 1

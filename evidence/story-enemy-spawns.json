@@ -224,6 +224,14 @@
       "enemy_count": 0
     },
     {
+      "node": "sum-wanderer-trail",
+      "enemy_count": 0
+    },
+    {
+      "node": "sum-wanderer-hollow",
+      "enemy_count": 0
+    },
+    {
       "node": "sumeru-field",
       "enemy_count": 6
     },

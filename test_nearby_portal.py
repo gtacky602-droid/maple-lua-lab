@@ -16,6 +16,10 @@ for n in g['nodes']:
   if edge.get('wind'):s.storyEnteredAt=s.t-edge['wind']['calmStart']
   if edge.get('darkOnly'):s.storyLightMode='dark'
   s.actors[1].x=edge['x'];s.actors[1].y=edge.get('y',480)
+  reveal=nodes[edge['to']].get('revealAfter')
+  if reveal:
+   s.story.quests[reveal['quest']]=lua.table_from({
+       'status':'active' if 'count' in reveal else 'complete','count':reveal.get('count',0)})
   rule=edge.get('requires')
   if edge.get('hideUntilAllowed'):
    unseen=c.frame(s,'sprite','h32c16').storyNearbyPortal
@@ -41,6 +45,7 @@ for n in g['nodes']:
    assert updated.available,(n['id'],edge,updated.reason)
    s.story.quests[rule['quest']]=None
   elif not edge.get('windowStart') and not edge.get('requiresArrival'):assert p.available
+  if reveal:s.story.quests[reveal['quest']]=None
   checked.append({'node':n['id'],'to':p.to})
 s=state('mond-town');edge=nodes['mond-town']['exits'][0];s.actors[1].x=edge['x']
 assert c.frame(s,'sprite','legacy').storyNearbyPortal.available
@@ -54,8 +59,8 @@ hidden=0
 for n in g['nodes']:
  for edge in n['exits']:
   target=nodes[edge['to']]
-  if target.get('hiddenGroup'):
-   s=state(n['id']);s.actors[1].x=edge['x'];p=c.frame(s,'sprite','legacy').storyNearbyPortal
+  if target.get('hiddenGroup') or target.get('revealAfter'):
+   s=state(n['id']);s.actors[1].x=edge['x'];s.actors[1].y=edge.get('y',480);p=c.frame(s,'sprite','legacy').storyNearbyPortal
    assert p is None or p.to!=edge['to'];hidden+=1
 # Each level-gated destination remains gated through the shortcut.
 s=state('mond-border');e=next(e for e in nodes['mond-border']['exits'] if e['to']=='liyue-entry');s.actors[1].x=e['x'];p=c.frame(s,'sprite','legacy').storyNearbyPortal;assert not p.available and '20' in p.reason;c.action(s,'story_nearby_portal');assert s.story.node=='mond-border'

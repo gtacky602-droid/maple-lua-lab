@@ -147,6 +147,8 @@ export const sceneryDefinitions={
  natlanRiverTrial:{file:'natlan-riverside-trial-background-v1.png',zones:['story:natlan-river-float-run','story:natlan-river-turn-basin']},
  natlan:{file:'natlan-background-v1.png',region:'ナタ',zones:[]},
  sumeruRiverside:{file:'sumeru-riverside-background-v1.png',zones:['story:sumeru-river-roots','story:sumeru-river-bank','story:sumeru-root-slope']},
+ sumeruObservationTrail:{file:'sum-wanderer-sign-trail-background-v1.png',zones:['story:sum-wanderer-trail'],note:'大樹の裏道の仮背景'},
+ sumeruObservationHollow:{file:'sum-wanderer-sign-hollow-background-v1.png',zones:['story:sum-wanderer-hollow'],note:'枝切れの洞穴の仮背景'},
  sumeruCanopy:{file:'sumeru-canopy-background-v1.png',zones:['story:sumeru-canopy-junction','story:sumeru-branch-run','story:sumeru-observation-stop','story:sumeru-observatory-approach','story:sumeru-observatory-terrace','story:sumeru-sky-observatory']},
  sumeru:{file:'sumeru-background-v1.png',region:'スメール',zones:[]}
 };

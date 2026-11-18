@@ -1,0 +1,159 @@
+{
+  "tool": "built-in image generation and reference-guided proportion edits",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/sum-wanderer-sign-model.obj",
+    "sha256": "0b04df02d5fb66a1881afff167927af7d5ddecd34d6fd6a25793e85f7a3a4408"
+  },
+  "materials": {
+    "path": "evidence/sum-wanderer-sign-model.mtl",
+    "sha256": "5c1b519e83f8280bb85b8cb2a24418f25357d3a29dab0698ef4452599b1e13bb"
+  },
+  "contactSheet": {
+    "path": "evidence/sum-wanderer-sign-views.png",
+    "sha256": "5383b1de5fc3b865558ac9040ea979dcdb42ebbf54fdaafbfa7715217bf77421"
+  },
+  "propsSource": {
+    "path": "assets/sum-wanderer-sign-props-source-v1.png",
+    "sha256": "dc4e61bebf5d0c478c2faf1c6f437e36ee304569792f17d9b2da3eda2a831923"
+  },
+  "alphaCorners": [
+    0,
+    0,
+    0,
+    1
+  ],
+  "backgrounds": [
+    {
+      "path": "assets/sum-wanderer-sign-trail-background-v1.png",
+      "sha256": "7d3deeb3d51f62544134e90261583f4a3d27eecb433f440a473a89658458edbd"
+    },
+    {
+      "path": "assets/sum-wanderer-sign-hollow-background-v1.png",
+      "sha256": "b43922c649532cae4c67f83c349052de25aeccf32022b2ca337dc2b6e8664b3a"
+    }
+  ],
+  "backgroundReferences": [
+    {
+      "path": "assets/sumeru-riverside-background-v1.png",
+      "sha256": "b3831abb40cc606d81ddfb56c5513b51f351cf474458b58d954596edceaa52e8"
+    }
+  ],
+  "status": "Original props based on original five-object 3D blockout. Both background images are Web placeholders.",
+  "guide": {
+    "path": "evidence/wanderer-reference-audit.json",
+    "sha256": "7012f016d354632f4087f2ca3dc204f3bf163225d66913037b9113e3abebd76f"
+  },
+  "fungus": {
+    "path": "assets/dendro-fungus-idle-sprites.json",
+    "sha256": "1e4e2771451ed1c1e5649976f4b16585c6b9fed047ff35cc14315946d3206cf6"
+  },
+  "profiles": {
+    "root": {
+      "encoding": {
+        "path": "assets/sum-wanderer-sign-root-sprites-v1.json",
+        "sha256": "79fc7ac37f80aa0f086a9eded2a8a8a93b1235248ae60954860320df05726d6e"
+      },
+      "box": [
+        199,
+        168,
+        220,
+        181
+      ],
+      "runs": {
+        "legacy": 926,
+        "h48c32": 568,
+        "h32c16": 233
+      }
+    },
+    "stone": {
+      "encoding": {
+        "path": "assets/sum-wanderer-sign-stone-sprites-v1.json",
+        "sha256": "900775f31d0d1739eda33e9c9308429925f71fadf2500c86222d7c04a5f0e6eb"
+      },
+      "box": [
+        759,
+        73,
+        248,
+        295
+      ],
+      "runs": {
+        "legacy": 1641,
+        "h48c32": 1022,
+        "h32c16": 407
+      }
+    },
+    "ring": {
+      "encoding": {
+        "path": "assets/sum-wanderer-sign-ring-sprites-v1.json",
+        "sha256": "19eeddbe8449671569024e9f13b0be2f2c528453ab5e403150786158eade6940"
+      },
+      "box": [
+        1333,
+        95,
+        261,
+        274
+      ],
+      "runs": {
+        "legacy": 1561,
+        "h48c32": 1003,
+        "h32c16": 409
+      }
+    },
+    "lever": {
+      "encoding": {
+        "path": "assets/sum-wanderer-sign-lever-sprites-v1.json",
+        "sha256": "8a41a0a80dac9683b558196836ffd886f3f75a27a0fb106f9ef1cd94cbba13e9"
+      },
+      "box": [
+        171,
+        535,
+        265,
+        280
+      ],
+      "runs": {
+        "legacy": 1031,
+        "h48c32": 618,
+        "h32c16": 255
+      }
+    },
+    "leverOn": {
+      "encoding": {
+        "path": "assets/sum-wanderer-sign-leverOn-sprites-v1.json",
+        "sha256": "a25ecdbf6c01a69d04ab9ba2ccd5c9d885875325034ed568a0c02301e5da9bd4"
+      },
+      "box": [
+        744,
+        543,
+        267,
+        272
+      ],
+      "runs": {
+        "legacy": 1089,
+        "h48c32": 684,
+        "h32c16": 316
+      }
+    },
+    "sign": {
+      "encoding": {
+        "path": "assets/sum-wanderer-sign-sign-sprites-v1.json",
+        "sha256": "6ddf7bb9164b63a8393b0bb8b4d6c6ec2d73e38652904c067c3ca9259ca49e65"
+      },
+      "box": [
+        1315,
+        475,
+        331,
+        373
+      ],
+      "runs": {
+        "legacy": 2209,
+        "h48c32": 1358,
+        "h32c16": 615
+      }
+    }
+  }
+}

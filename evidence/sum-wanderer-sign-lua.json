@@ -1,0 +1,17 @@
+{
+  "mainMeetingBeforeReport": true,
+  "threeMarkersAndHeight": true,
+  "hiddenUntilExamined": true,
+  "noCombatRewardsForAssist": true,
+  "pausedAssist": true,
+  "midAssistanceRestart": true,
+  "openedShelfPersists": true,
+  "partyPreserved": true,
+  "starterEquipmentAndSelection": true,
+  "completedRecordReadable": true,
+  "legacyCanReportAndSelect": true,
+  "reward": [
+    153247,
+    1850
+  ]
+}

@@ -543,12 +543,32 @@
     {
       "node": "sumeru-hub",
       "mode": "sprite",
-      "visible_portals": 6
+      "visible_portals": 7
     },
     {
       "node": "sumeru-hub",
       "mode": "rect",
-      "visible_portals": 6
+      "visible_portals": 7
+    },
+    {
+      "node": "sum-wanderer-trail",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "sum-wanderer-trail",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "sum-wanderer-hollow",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "sum-wanderer-hollow",
+      "mode": "rect",
+      "visible_portals": 2
     },
     {
       "node": "sumeru-field",

@@ -1,7 +1,7 @@
 {
   "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
   "version": "monster-quest-v02",
-  "quests_tested": 49,
+  "quests_tested": 50,
   "old_completed_not_reissued": true,
   "old_unreported_uses_current_preview": true,
   "unlinked_trial_fallback": true,
@@ -21,15 +21,15 @@
       "legacy_xp": 400777,
       "report_xp": 1121099
     },
+    "SUM": {
+      "linked": 4,
+      "legacy_xp": 474847,
+      "report_xp": 2150518
+    },
     "SNE": {
       "linked": 8,
       "legacy_xp": 37352814,
       "report_xp": 230896997
-    },
-    "SUM": {
-      "linked": 3,
-      "legacy_xp": 321600,
-      "report_xp": 1997271
     },
     "FON": {
       "linked": 3,
@@ -191,6 +191,12 @@
       "quest_id": "ayaka-join",
       "legacy_xp": 2500,
       "report_xp": 42335
+    },
+    {
+      "design_id": "Q-SUM-S01",
+      "quest_id": "sum-wanderer-observation",
+      "legacy_xp": 153247,
+      "report_xp": 153247
     },
     {
       "design_id": "Q-SNE-M01",

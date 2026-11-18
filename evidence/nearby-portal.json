@@ -681,6 +681,26 @@
       "to": "sumeru-sky-observatory"
     },
     {
+      "node": "sumeru-hub",
+      "to": "sum-wanderer-trail"
+    },
+    {
+      "node": "sum-wanderer-trail",
+      "to": "sumeru-hub"
+    },
+    {
+      "node": "sum-wanderer-trail",
+      "to": "sum-wanderer-hollow"
+    },
+    {
+      "node": "sum-wanderer-hollow",
+      "to": "sum-wanderer-trail"
+    },
+    {
+      "node": "sum-wanderer-hollow",
+      "to": "sumeru-hub"
+    },
+    {
       "node": "sumeru-field",
       "to": "sumeru-hub"
     },
@@ -2873,7 +2893,7 @@
       "to": "white-pass-station"
     }
   ],
-  "hidden_connections_checked": 38,
+  "hidden_connections_checked": 39,
   "checks": [
     "nearest name from graph",
     "strict distance/height boundaries",

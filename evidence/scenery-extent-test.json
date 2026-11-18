@@ -4202,6 +4202,66 @@
       "transparent": 0
     },
     {
+      "key": "sumeruObservationTrail",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruObservationTrail",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruObservationTrail",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruObservationTrail",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruObservationTrail",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruObservationTrail",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruObservationHollow",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruObservationHollow",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruObservationHollow",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruObservationHollow",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruObservationHollow",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruObservationHollow",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "sumeruCanopy",
       "camera": -960,
       "transparent": 0

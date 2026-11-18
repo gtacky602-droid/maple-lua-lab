@@ -332,6 +332,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "sum-wanderer-trail",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "sum-wanderer-hollow",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "sumeru-field",
       "count": 0,
       "fallback": false,
