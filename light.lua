@@ -13,6 +13,7 @@ return function(C)
   if not ok then s.skillNotice=reason;return false end
   if s.paused or a.hp<=0 or a.lock>0 or (a.cd.light or 0)>0 then return false end
   s.gauge=s.gauge-60;a.light=12;a.cd.light=60;a.cd.SK58=60;a.lock=.35;s.skillNotice=nil
+  if C.noteGrowth then C.noteGrowth(s,'light-release') end
   return true
  end
  function C.action(s,key)

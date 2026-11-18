@@ -32,10 +32,10 @@
     "echo cannot record this skill",
     "death/map transition cancels all segments",
     "pause freezes timers",
-    "no invulnerability; switching does not cancel; fixed cast origin"
+    "no invulnerability; switching does not cancel; fixed cast origin",
+    "story unlock requires Lv180 and mastery of the seven region elements"
   ],
   "unfinished": [
-    "Lv180/all-seven-elements learning gate",
     "final visual/sound assets",
     "native Miliastra performance and behavior verification"
   ]

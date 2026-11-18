@@ -11,6 +11,10 @@ return function(C)
  end
  function C.skillPrerequisite(s,a,key)
   if key=='SK59' then
+   if C.growthSkillCondition then
+    local ok,reason=C.growthSkillCondition(s,key)
+    if not ok then return false,reason end
+   end
    if a.id~=1 or a.light<=0 then return false,'光界反響は光界解放中に使えます。' end
    if not s.echoSource then return false,'先に反響できる直接攻撃・照射を使ってください。' end
    return prerequisite(s,a,s.echoSource.cast.key)

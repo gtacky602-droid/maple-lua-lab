@@ -1,0 +1,16 @@
+{
+  "skill_levels": [
+    160,
+    170,
+    180
+  ],
+  "seven_elements_require_region_start": true,
+  "open_world_use_before_quest": true,
+  "light_activation_and_effective_normal": true,
+  "branch_observe_and_separate_ordinary_hunt": true,
+  "actual_eligible_echo_hit": true,
+  "shared_gauge_and_seven_strike": true,
+  "practice_state_hp_ct_loadout_inventory_currency_saved_safely": true,
+  "no_dependency_on_previous_growth_quests": true,
+  "all_four_reports": true
+}

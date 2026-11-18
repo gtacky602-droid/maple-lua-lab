@@ -10,17 +10,17 @@
     "190%x4 normal/max5 replaces110%x2/max2",
     "traveler elemental hits and empowered normal +18% once",
     "AI companion damage +10%; manual companion excluded",
-    "pause freezes timer; death/map exit clears form; save only preserves gauge and loadout"
+    "pause freezes timer; death/map exit clears form; save only preserves gauge and loadout",
+    "story unlock requires Lv160 and arrival in the seven regions that teach elements"
   ],
   "draft": [
     "bonus evaluated at hit time and added to existing damage bonus pool",
-    "empowered normal retains physical resistance calculation; no eighth elemental aura, suppresses extra aura applications",
-    "Lv160 and all-seven-elements gate bypassed by lab unlock"
+    "empowered normal retains physical resistance calculation; no eighth elemental aura, suppresses extra aura applications"
   ],
   "unfinished": [
-    "first learning event",
+    "first learning notification",
     "final transformation artwork/animation",
-    "production unlock/AI gauge reservation policy",
+    "AI gauge reservation policy",
     "native Miliastra verification"
   ]
 }

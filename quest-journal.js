@@ -202,6 +202,11 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
   }
   if(status==='unaccepted'||(status==='complete'&&q.repeatable)){const b=button('受注','story_accept:'+q.id);b.disabled=q.hub!==story.node;b.title=b.disabled?`${hub}で受注してください`:'';row.append(b)}
   if(status==='ready'){const b=button('報告','story_report:'+q.id);b.disabled=q.hub!==story.node;b.title=b.disabled?`${hub}へ戻って報告してください`:'';row.append(b)}
+  if(q.practice&&st&&q.hub===story.node&&!f.growthTrial){
+   const practice=button('練習場に入る','growth_practice_start:'+q.id);
+   practice.addEventListener('click',()=>document.getElementById('game')?.scrollIntoView({block:'center'}));
+   row.append(practice);
+  }
   if(status==='complete'&&q.join&&(q.recovery||q.sights||q.starter||q.legacyOnly)){
    const b=button(f.companion?.id===q.join?`${q.giver}が同行中`:`${q.giver}を同行に選ぶ`,'story_select_joined:'+q.id);
    b.disabled=!graph.nodes.find(n=>n.id===story.node)?.hub||f.companion?.id===q.join;

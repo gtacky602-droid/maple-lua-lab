@@ -11,6 +11,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   SK55={level=133,region='nod-port',alternate='nod-town',mark='lunar-ring'},
   SK56={level=149,region='snezhnaya-entry',alternate='snezhnaya-hub',mark='star-wind'},
   SK57={level=155,region='snezhnaya-entry',alternate='snezhnaya-hub',mark='star-electro'},
+  SK58={level=160,elements=true},
+  SK59={level=170,elements=true},
+  SK60={level=180,elements=true},
+ }
+ local elementalRegions={
+  {'モンド','風',1},{'璃月','岩',20},{'稲妻','雷',40},{'スメール','草',60},
+  {'フォンテーヌ','水',80},{'ナタ','炎',100},{'スネージナヤ','氷',140},
  }
  local moonReactions={['reaction:moon-electro']=true,['reaction:moon-dendro']=true,['reaction:moon-geo']=true}
  local barrierTargets={}
@@ -54,19 +61,40 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   for _,id in ipairs(lunarJoin) do if completed(s,id) then return true end end
   return false
  end
+ local function learnedElements(s)
+  local reached,missing={},{}
+  for id in pairs(s.story.visited) do
+   local node=nodes[id]
+   if node and not node.branch and not node.hidden then reached[node.region]=true end
+  end
+  local level=s.progression and s.progression.level or 0
+  for _,element in ipairs(elementalRegions) do
+   if not reached[element[1]] or level<element[3] then missing[#missing+1]=element[2] end
+  end
+  return missing
+ end
  local growthRequirements={
   imprintLesson=function(s)
    return not not ((s.story.growth and s.story.growth['first-imprint']) or completed(s,'growth-first-imprint') or C.hasImprintedArtifact(s))
   end,
   lunarJoin=lunarJoined,
+  lightElements=function(s) return #learnedElements(s)==0 end,
  }
  local function milestoneReached(s,milestone)
+  if milestone.elements then
+   return s.progression and s.progression.level>=milestone.level and growthRequirements.lightElements(s)
+  end
   return s.progression and s.progression.level>=milestone.level
     and (s.story.visited[milestone.region] or s.story.visited[milestone.alternate])
  end
  function C.growthSkillCondition(s,key)
   local milestone=advancedGrowth[key]
   if not milestone or not s.story or not s.story.active or milestoneReached(s,milestone) then return true end
+  if milestone.elements then
+   local missing=learnedElements(s)
+   if #missing>0 then return false,'未習得の元素：'..table.concat(missing,'・')..'。各地域で旅を始めると習得できます。' end
+   return false,'Lv'..milestone.level..'になると使えます。'
+  end
   local name=nodes[milestone.region].region
   return false,name..'に到達し、Lv'..milestone.level..'になると使えます。'
  end
@@ -78,6 +106,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   return count
  end
  function C.noteGrowth(s,id)
+  if s.growthPracticeMarks then
+   s.growthPracticeMarks[id]=true
+   return
+  end
   if not growthEvidence[id] or not s.story or not s.story.active or s.paused then return end
   local records=s.story.growth or {}
   if records[id] then return end
@@ -88,15 +120,26 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
  end
  function C.noteGrowthHit(s,cast)
-  if not s.story or not s.story.active then return end
+  if not (s.growthPracticeMarks or s.story and s.story.active) then return end
+  if cast.lightNormal then C.noteGrowth(s,'light-normal') end
+  if cast.key=='SK59' and cast.echoOf then C.noteGrowth(s,'light-echo') end
+  if s.growthPracticeMarks then return end
   if moonReactions[cast.key] and lunarJoined(s) then C.noteGrowth(s,'lunar-reaction') end
   local milestone=advancedGrowth[cast.key]
-  if not milestone or cast.id~=1 or not milestoneReached(s,milestone) then return end
+  if not milestone or milestone.elements or cast.id~=1 or not milestoneReached(s,milestone) then return end
   local mark=milestone.mark
   if mark=='lunar-orb' or mark=='lunar-ring' then
    if lunarJoined(s) then C.noteGrowth(s,mark);C.noteGrowth(s,'lunar-reaction') end
   else C.noteGrowth(s,mark);C.noteGrowth(s,'star-strike') end
  end
+ function C.canStartGrowthTrial(s,id)
+  local quest=quests[id]
+  if not quest or not quest.practice or s.paused or not s.story or not s.story.active
+   or s.story.node~=quest.hub or s.lift or s.voyage or not s.story.quests[id] then return end
+  if not milestoneReached(s,advancedGrowth[quest.practice]) then return end
+  return quest.practice
+ end
+ C.frameGrowthBattle=frame
  function C.starterEquipment(s,companion)
   local q=starterQuests[companion]
   if q and s.story and completed(s,q.id) then return q.starter end
@@ -232,6 +275,21 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  local function canInspect(a,item)
   return a.hp>0 and math.abs(a.x-item.x)<54 and math.abs(a.y-item.y)<34
+ end
+ local function growthViewpoint(s)
+  local node=nodes[s.story.node]
+  local quest=s.story.quests['growth-branch-visit']
+  if quest and quest.status=='active' and quest.count==0 and not s.lift and (node.barrier or 0)>0 then
+   return {x=math.min(node.width-65,540),y=480}
+  end
+ end
+ local function observeGrowthBranch(s)
+  local point=growthViewpoint(s)
+  if point and canInspect(s.actors[s.active],point) then
+   C.noteGrowth(s,'branch-practice')
+   s.storyNotice='観測地点で地形を記録しました。モンドのアンバーに報告できます。'
+   return true
+  end
  end
  local function nearbyChoice(s,step)
   for _,option in ipairs(step.choices) do
@@ -904,6 +962,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    return
   end
+  if key=='growth_branch_observe' then
+   if s.story.active and not s.paused then observeGrowthBranch(s) end
+   return
+  end
   if key=='story_collect' then
    if s.paused or not s.story.active then return end
    local node=nodes[s.story.node]
@@ -1012,6 +1074,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if not q then
     local clue,progress,nextCount=trailClue(s)
     if not clue then
+     if observeGrowthBranch(s) then return end
      if C.dailyObserve then C.dailyObserve(s) end
      return
     end
@@ -1199,6 +1262,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  function C.onKill(s,e)
   if onKill then onKill(s,e) end
   if s.story and s.story.active then
+   if nodes[s.story.node].branch and not nodes[s.story.node].hub and e.spawnId and not e.boss then
+    C.noteGrowth(s,'branch-practice')
+   end
    local route=nodes[s.story.node].stealthRoute
    if route then stealth.defeat(s,quests[route.quest],s.story.quests[route.quest],e) end
    progress(s,'kill',s.story.node,e)
@@ -1539,6 +1605,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
                  waterway=ride.waterway or nil,boat=ride.boat or nil}
    else f.storyNearbyPortal=nearbyPortal(s) end
    local markers={};f.storyPortals={}
+   local growthPoint=growthViewpoint(s)
+   if growthPoint then
+    local x,y=growthPoint.x-s.camera,growthPoint.y
+    markers[#markers+1]={kind='rect',x=x-1,y=y-45,w=3,h=45,color='#f3cb78'}
+    markers[#markers+1]={kind='text',x=x,y=y-58,text='観測地点',size=15,color='#ffe2a0'}
+    if not s.paused and canInspect(s.actors[s.active],growthPoint) then f.growthBranchObserve=true end
+   end
    local cue=s.storyCue
    if cue and s.t<cue.untilTime then
     if cue.channel=='airflow' then f.storyAirflowCue=cue else f.storyResonanceCue=cue end
@@ -1916,6 +1989,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     end
    end
    for _,draw in ipairs(f.draws) do markers[#markers+1]=draw end;f.draws=markers
+   if f.growthBranchObserve and not f.storyNearbyMilestone and not f.storyNearbyCargo and not f.storyNearbyClue then
+    f.storyNearbyMilestone={label='高難度地域の観測地点を調べる'}
+   end
    for _,h in ipairs(n.hints or {}) do f.draws[#f.draws+1]={kind='rect',x=h.x-s.camera-8,y=h.y-48,w=16,h=16,color='#ffe4a0'} end
    f.commands=#f.draws
   end

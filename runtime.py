@@ -475,6 +475,7 @@ def runtime():
     core.installToyDiveGuard()
     daily=json.loads((ROOT/'content/daily-quests.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'daily-quests.lua').read_text(encoding='utf8'))(core,lua.table_from(daily,recursive=True),graph)
+    lua.execute((ROOT/'growth-trials.lua').read_text(encoding='utf8'))(core)
     return lua, core
 
 def native(value):

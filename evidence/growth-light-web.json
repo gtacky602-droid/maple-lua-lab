@@ -1,0 +1,10 @@
+{
+  "reports": 4,
+  "acceptedAndFoughtThroughNormalBindings": true,
+  "realBranchWalkAndObservation": true,
+  "isolatedCheckpointAndResources": true,
+  "sharedGaugeAfterSevenStrike": true,
+  "mobileTrialControlsFit": true,
+  "reloadPersistsCompletion": true,
+  "pageErrors": []
+}

@@ -24,12 +24,12 @@
     "record taken before hits so original execution cannot mutate it",
     "record cleared on death/map change; not checkpointed",
     "new position/facing/target acquisition; source elemental partner condition still checked",
-    "copied channel interruptible; dash movement retained; gauge gained once as skill"
+    "copied channel interruptible; dash movement retained; gauge gained once as skill",
+    "story unlock requires Lv170 and mastery of the seven region elements"
   ],
   "unfinished": [
     "deployment copy policy is undecided, not permanently rejected",
     "final art and animation",
-    "Lv170/all-seven unlock gates",
     "native Miliastra verification"
   ]
 }

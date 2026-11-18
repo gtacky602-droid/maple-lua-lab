@@ -6,9 +6,28 @@ function trackQuest(id){trackedId=id;try{if(id)localStorage.setItem(trackingKey,
 document.getElementById('clearTrackedQuest').onclick=()=>trackQuest(null);
 const panel=document.getElementById('storyPanel');let previous='';
 function button(label,action){const b=document.createElement('button');b.textContent=label;b.onclick=()=>{window.lab.action(action);b.blur()};return b}
+const practiceGuides={
+ SK58:'攻撃で共通ゲージを60までため、Qで光界解放。近い標的にJで強化通常攻撃を当てます。',
+ SK59:'ゲージ60でQ、1で雷撃、2で光界反響。光界解放が切れる前に反響を当てます。',
+ SK60:'攻撃で共通ゲージを100までため、3で七律開天。Qの光界解放でも同じゲージを使います。',
+};
+function renderGrowthPractice(frame){
+ const trial=frame.growthTrial,hud=document.getElementById('growthTrialHud');
+ hud.hidden=!trial;
+ document.getElementById('growthBranchObserve').hidden=!frame.growthBranchObserve;
+ if(!trial)return;
+ document.getElementById('growthTrialEcho').hidden=trial.skill!=='SK59';
+ document.getElementById('growthTrialSeven').hidden=trial.skill!=='SK60';
+ const quest=frame.storyGraph.quests.find(q=>q.id===trial.quest);
+ const done=quest.lesson.every(lesson=>trial.marks?.[lesson.id]);
+ document.getElementById('growthTrialHelp').textContent=done?
+  '練習目標を達成しました。練習を終えると依頼手帳から報告できます。':
+  practiceGuides[trial.skill]+' 冒険のHP・技の待ち時間・ゲージ・装備は入場前のままです。';
+}
 function update(){
  const f=window.lab?.frame;if(!f?.story)return;
- const signature=JSON.stringify([f.story,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
+ const signature=JSON.stringify([f.story,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.growthTrial,f.growthBranchObserve,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
+ renderGrowthPractice(f);
  const tracked=document.getElementById('trackedQuest'),text=trackedQuestText(f,trackedId);tracked.hidden=!text;document.getElementById('trackedQuestText').textContent=text;
  panel.replaceChildren();const title=document.createElement('p');title.textContent=`本編ルート試作：モンド → スネージナヤ（${f.storyGraph.nodes.length}表示地点・${f.storyGraph.quests.length}表示依頼）。配置・敵・報酬は仮設定。背景画像は共用。`;panel.append(title,button('本編ルートへ','story_start'));
  if(f.bossJourney){const notice=document.createElement('p');notice.textContent=f.bossJourney.name+'・本編挑戦'+(f.bossJourney.defeated?'／討伐済み':'');panel.append(notice,button('挑戦入口へ戻る','world_boss_return'));}

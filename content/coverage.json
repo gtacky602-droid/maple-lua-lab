@@ -28,7 +28,7 @@
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
       "prototype_stage_count": 25,
-      "prototype_quest_count": 19,
+      "prototype_quest_count": 21,
       "official_map2_markers": {
         "waypoints": 45,
         "statues": 6
@@ -196,7 +196,7 @@
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
       "prototype_stage_count": 28,
-      "prototype_quest_count": 17,
+      "prototype_quest_count": 19,
       "official_map2_markers": {
         "waypoints": 101,
         "statues": 7
@@ -579,7 +579,7 @@
   "main_route_summary": {
     "connected_main_regions": 8,
     "authored_stages": 338,
-    "provisional_quests": 200,
+    "provisional_quests": 204,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -660,6 +660,8 @@
         "quest_ids": [
           "growth-partner-swap",
           "growth-first-imprint",
+          "growth-light-release",
+          "growth-branch-visit",
           "amber-join",
           "mond-return-box-quest",
           "mond-night-banner-quest",
@@ -1070,6 +1072,8 @@
         ],
         "quest_ids": [
           "growth-star-practice",
+          "growth-light-echo",
+          "growth-seven-strike",
           "mitya-join",
           "snezhnaya-entry-check",
           "snezhnaya-contract",
@@ -1438,8 +1442,8 @@
       "content/daily-quests.json"
     ],
     "design_entries": 153,
-    "linked": 145,
-    "without_explicit_mapping": 8,
+    "linked": 149,
+    "without_explicit_mapping": 4,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1489,6 +1493,10 @@
       "Q-G06": "growth-pair-imprint",
       "Q-G07": "growth-lunar-practice",
       "Q-G08": "growth-star-practice",
+      "Q-G09": "growth-light-release",
+      "Q-G10": "growth-branch-visit",
+      "Q-G11": "growth-light-echo",
+      "Q-G12": "growth-seven-strike",
       "Q-H01-01": "golden-little-boat",
       "Q-H01-02": "golden-trace-shadows",
       "Q-H02-01": "veluriyam-bottle-ticket",
