@@ -1,0 +1,1039 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-11-18",
+  "status": "design_only_not_runtime",
+  "source_commit": "fe8141be8853181a32a06748dd0d74d2d748e527",
+  "source_of_truth": [
+    "../../DESIGN_FIELD_BOSS_MASTER_V01.md",
+    "COMMON.md",
+    "NOD_KRAI_QUARTET_MOVESETS.md"
+  ],
+  "tick_rate_hz": 60,
+  "unit_U_pixels": 88,
+  "interval_semantics": "half_open",
+  "counts": {
+    "encounters": 4,
+    "attack_cards": 12,
+    "direct_windows": 18,
+    "damaging_projectiles": 0,
+    "air_routes": 2,
+    "hidden_routes": 1,
+    "optional_interrupt_rules": 3,
+    "cumulative_encounters": 42,
+    "cumulative_attack_cards": 126,
+    "catalog_reference_rows": 49,
+    "remaining_reference_rows": 7,
+    "all_catalog_rows_detailed": false
+  },
+  "shared": {
+    "max_attack_patterns": 3,
+    "max_concurrent_casts": 1,
+    "boss_hp_bars": 1,
+    "multiplayer_hp_scaling": false,
+    "required_special_element": false,
+    "forced_revive_phase": false,
+    "hp_zero_priority": true,
+    "normal_damage_pipeline": true,
+    "runtime_or_visual_tested": false,
+    "passive_contact_damage": 0,
+    "signature_recovery_ticks": 144,
+    "max_air_or_hidden_ticks": 36,
+    "selector": "two_normals_then_signature_when_not_killed",
+    "hp_lock_to_force_signature": false,
+    "all_arena_attack": false,
+    "body_blocking_crossing_required": false,
+    "unreachable_cast_policy": "cancel_before_lock_reposition_then_new_tell",
+    "retreat_margin_u": 0.1,
+    "lock_freezes_facing_and_targets": true,
+    "cleanup": [
+      "pending_hits",
+      "summons",
+      "plate",
+      "gloom",
+      "ground_markers",
+      "old_epoch_events"
+    ],
+    "same_tick_order": [
+      "apply_eligible_player_damage",
+      "hp_zero",
+      "valid_unit_deaths_and_plate_chips",
+      "optional_interrupt",
+      "deadline_cleanup",
+      "scheduled_enemy_hits"
+    ],
+    "geometry_origin": "boss_lock_origin_even_for_child_owners",
+    "hit_history": "allocate_by_event_group_not_fixed_two_slots"
+  },
+  "identity_contract": {
+    "same_actor": true,
+    "same_receiver": true,
+    "same_hp": true,
+    "preserve_aura": true,
+    "preserve_dot": true,
+    "preserve_target": true,
+    "air_hurtbox_follows_visible_body": true,
+    "hidden_accepts_new_direct_hits": false,
+    "hidden_dot_continues": true,
+    "hidden_marker_is_receiver": false,
+    "transformation_invulnerable_ticks": 0,
+    "reward_count": 1
+  },
+  "bosses": [
+    {
+      "id": "boss-24100101",
+      "name": "ボコボコダック",
+      "attacks": [
+        "FDK01",
+        "FDK02",
+        "FDK03"
+      ],
+      "signature": "FDK03",
+      "existing_runtime": "field-knuckle-duckle.lua",
+      "preserve_source_fields": {
+        "controller": "knuckleDuck",
+        "node": "nod-duckle-workyard",
+        "storyChallenge": "knuckle-duckle",
+        "level": 122,
+        "hp": 1135,
+        "mora": 445
+      },
+      "signature_boss_damage_factor": 1,
+      "signature_boss_hp_shield": 0
+    },
+    {
+      "id": "boss-23090101",
+      "name": "重量級陸巡艦「バトルシップ」",
+      "attacks": [
+        "FBT01",
+        "FBT02",
+        "FBT03"
+      ],
+      "signature": "FBT03",
+      "existing_runtime": "field-battleship.lua",
+      "preserve_source_fields": {
+        "controller": "battleship",
+        "node": "nod-battleship-depot",
+        "storyChallenge": "battleship",
+        "level": 124,
+        "hp": 1170,
+        "mora": 455
+      },
+      "signature_boss_damage_factor": 1,
+      "signature_boss_hp_shield": 0
+    },
+    {
+      "id": "boss-20081001",
+      "name": "霜夜の空を巡る霊主",
+      "attacks": [
+        "FHR01",
+        "FHR02",
+        "FHR03"
+      ],
+      "signature": "FHR03",
+      "existing_runtime": "field-frostnight-herra.lua",
+      "preserve_source_fields": {
+        "controller": "frostnightHerra",
+        "node": "nod-herra-terrace",
+        "storyChallenge": "frostnight-herra",
+        "level": 126,
+        "hp": 1200,
+        "mora": 465
+      },
+      "signature_boss_damage_factor": 1,
+      "signature_boss_hp_shield": 0
+    },
+    {
+      "id": "boss-22150101",
+      "name": "昏き魘夢の主",
+      "attacks": [
+        "FWN01",
+        "FWN02",
+        "FWN03"
+      ],
+      "signature": "FWN03",
+      "existing_runtime": "field-whisperer-nightmares.lua",
+      "preserve_source_fields": {
+        "controller": "whispererNightmares",
+        "node": "nod-nightmare-shore",
+        "storyChallenge": "whisperer-nightmares",
+        "level": 128,
+        "hp": 1340,
+        "mora": 475
+      },
+      "signature_boss_damage_factor": 1,
+      "signature_boss_hp_shield": 0
+    }
+  ],
+  "repair_ducks": {
+    "move_id": "FDK03",
+    "count": 2,
+    "spawn_tick": 76,
+    "despawn_tick": 300,
+    "death_interrupt_window": [
+      76,
+      300
+    ],
+    "offsets_u": [
+      1.3,
+      2.5
+    ],
+    "side": "locked_facing_only",
+    "source_hp_comparison": 16,
+    "actual_damage_receivers": true,
+    "normal_damage_pipeline": true,
+    "targetable": true,
+    "body_collision": false,
+    "contact_damage": 0,
+    "transfers_damage_to_boss": false,
+    "independent_ai": false,
+    "independent_aura": true,
+    "reward_count": 0,
+    "counts_as_quest_kill": false,
+    "counts_as_progression_kill": false,
+    "heals_boss_hp": false,
+    "required_valid_deaths": 2,
+    "valid_death_causes": [
+      "player_damage",
+      "active_companion_damage"
+    ],
+    "dot_and_reaction_deaths_count": true,
+    "special_lunar_multiplier": 1,
+    "arrival_counts_as_death": false,
+    "cleanup_counts_as_death": false,
+    "death_dedup_key": [
+      "epoch",
+      "parent_cast_id",
+      "unit_id"
+    ],
+    "cancel_with_parent": true,
+    "per_unit_attack_count": 0,
+    "interrupt": {
+      "down_ticks": 144,
+      "standup_ticks": 24,
+      "cancel_all_pending_hits": true,
+      "once_per_parent_cast": true,
+      "returns_to_normal_selector": true
+    },
+    "roll": [
+      94,
+      300
+    ],
+    "arrival_tick": 300,
+    "arrival_u": 0.65,
+    "travel_policy": "each_lerps_from_own_spawn_to_arrival",
+    "stop_on_valid_death": true,
+    "failure_buffs_boss": false,
+    "instance_key": [
+      "epoch",
+      "encounter_id",
+      "parent_cast_id",
+      "slot"
+    ]
+  },
+  "fishers": {
+    "move_id": "FWN03",
+    "count": 2,
+    "spawn_tick": 72,
+    "despawn_tick": 300,
+    "death_interrupt_window": [
+      72,
+      300
+    ],
+    "offsets_u": [
+      0.85,
+      2.35
+    ],
+    "side": "locked_facing_only",
+    "source_hp_comparison": 60,
+    "actual_damage_receivers": true,
+    "normal_damage_pipeline": true,
+    "targetable": true,
+    "body_collision": false,
+    "contact_damage": 0,
+    "transfers_damage_to_boss": false,
+    "independent_ai": false,
+    "independent_aura": true,
+    "reward_count": 0,
+    "counts_as_quest_kill": false,
+    "counts_as_progression_kill": false,
+    "heals_boss_hp": false,
+    "required_valid_deaths": 2,
+    "valid_death_causes": [
+      "player_damage",
+      "active_companion_damage"
+    ],
+    "dot_and_reaction_deaths_count": true,
+    "special_lunar_multiplier": 1,
+    "arrival_counts_as_death": false,
+    "cleanup_counts_as_death": false,
+    "death_dedup_key": [
+      "epoch",
+      "parent_cast_id",
+      "unit_id"
+    ],
+    "cancel_with_parent": true,
+    "per_unit_attack_count": 1,
+    "interrupt": {
+      "down_ticks": 180,
+      "standup_ticks": 24,
+      "cancel_all_pending_hits": true,
+      "once_per_parent_cast": true,
+      "returns_to_normal_selector": true
+    },
+    "attack_groups": [
+      "fisher_1",
+      "fisher_2"
+    ],
+    "individual_death_cancels_own_hit": true,
+    "attack_schedule": "parent_fixed_slots",
+    "tracks_player_after_lock": false,
+    "repeated_attacks": false,
+    "shield_on_summons": false,
+    "instance_key": [
+      "epoch",
+      "encounter_id",
+      "parent_cast_id",
+      "slot"
+    ]
+  },
+  "cooling_plate": {
+    "move_id": "FBT03",
+    "window": [
+      60,
+      300
+    ],
+    "layers": 5,
+    "physical_or_other_direct_chip": 1,
+    "pyro_direct_chip": 2,
+    "shape": {
+      "kind": "locked_rect",
+      "u": [
+        0.3,
+        0.9
+      ],
+      "z": [
+        0.2,
+        0.6
+      ]
+    },
+    "body_damage_independent": true,
+    "is_hp_receiver": false,
+    "transfers_damage_to_boss": false,
+    "new_direct_casts_only": true,
+    "cast_start_at_or_after_window_start": true,
+    "same_epoch_required": true,
+    "requires_actual_plate_overlap": true,
+    "allowed_sources": [
+      "real_player",
+      "active_companion"
+    ],
+    "accept_reactions": false,
+    "accept_dot_ticks": false,
+    "duplicate_cast_counts": false,
+    "cast_dedup_key": [
+      "epoch",
+      "source_actor_id",
+      "cast_id"
+    ],
+    "emits_duplicate_hit_hooks": false,
+    "reward_count": 0,
+    "interrupt": {
+      "down_ticks": 168,
+      "standup_ticks": 24,
+      "cancel_all_pending_hits": true,
+      "once_per_parent_cast": true,
+      "returns_to_normal_selector": true
+    },
+    "cast_time_basis": "encounter_tick_minus_parent_start_tick"
+  },
+  "removed_runtime_gates": {
+    "duck_ward_factor": false,
+    "duck_hp_repair": false,
+    "duck_ward_chip_gauge": false,
+    "ship_pyro_heat_gate": false,
+    "ship_onhit_cast_replacement": false,
+    "ship_hot_damage_factor": false,
+    "ship_ward_damage_factor": false,
+    "herra_gloom_damage_factor": false,
+    "herra_element_adaptation": false,
+    "herra_three_charge_gate": false,
+    "nightmare_hp_shield": false,
+    "nightmare_full_arena_release": false,
+    "nightmare_four_add_loop": false
+  },
+  "attacks": [
+    {
+      "id": "FDK01",
+      "name": "ミットの二連打",
+      "kind": "normal",
+      "lock": 48,
+      "recovery": [
+        212,
+        294
+      ],
+      "total": 294,
+      "events": [
+        {
+          "group": "punch_1",
+          "active": [
+            101,
+            115
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.24,
+              1.85
+            ],
+            "z": [
+              0.18,
+              0.92
+            ]
+          },
+          "element": "physical",
+          "source_damage_comparison": 18,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "punch_2",
+          "active": [
+            170,
+            183
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.24,
+              1.85
+            ],
+            "z": [
+              0.18,
+              0.92
+            ]
+          },
+          "element": "physical",
+          "source_damage_comparison": 18,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    },
+    {
+      "id": "FDK02",
+      "name": "跳び込みハンマー",
+      "kind": "normal",
+      "lock": 60,
+      "recovery": [
+        172,
+        296
+      ],
+      "total": 296,
+      "events": [
+        {
+          "group": "landing",
+          "active": [
+            128,
+            144
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_target_rect",
+            "center_policy": "front_target_at_lock",
+            "max_center_distance_u": 1.45,
+            "width_u": 1.65,
+            "z": [
+              0,
+              0.77
+            ],
+            "arena_clamp": false
+          },
+          "element": "physical",
+          "source_damage_comparison": 26,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ],
+      "air": [
+        92,
+        128
+      ],
+      "lift_u": 0.83,
+      "body_moves_to_locked_center": true
+    },
+    {
+      "id": "FDK03",
+      "name": "メカダック補修・放電",
+      "kind": "signature",
+      "lock": 64,
+      "recovery": [
+        384,
+        528
+      ],
+      "total": 528,
+      "events": [
+        {
+          "group": "discharge",
+          "active": [
+            340,
+            360
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_target_rect",
+            "center_policy": "front_target_at_lock",
+            "max_center_distance_u": 1.8,
+            "width_u": 1.86,
+            "z": [
+              0,
+              0.96
+            ],
+            "arena_clamp": false
+          },
+          "element": "electro",
+          "source_damage_comparison": 32,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    },
+    {
+      "id": "FBT01",
+      "name": "歯車刃の薙ぎ払い",
+      "kind": "normal",
+      "lock": 48,
+      "recovery": [
+        172,
+        268
+      ],
+      "total": 268,
+      "events": [
+        {
+          "group": "blade",
+          "active": [
+            114,
+            130
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.25,
+              2.1
+            ],
+            "z": [
+              0,
+              0.74
+            ]
+          },
+          "element": "pyro",
+          "source_damage_comparison": 24,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    },
+    {
+      "id": "FBT02",
+      "name": "冷却砲の二連射",
+      "kind": "normal",
+      "lock": 56,
+      "recovery": [
+        224,
+        320
+      ],
+      "total": 320,
+      "events": [
+        {
+          "group": "cryo_1",
+          "active": [
+            116,
+            130
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.275,
+              1.325
+            ],
+            "z": [
+              0,
+              0.74
+            ]
+          },
+          "element": "cryo",
+          "source_damage_comparison": 21,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "cryo_2",
+          "active": [
+            184,
+            198
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              1.695,
+              2.745
+            ],
+            "z": [
+              0,
+              0.74
+            ]
+          },
+          "element": "cryo",
+          "source_damage_comparison": 21,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    },
+    {
+      "id": "FBT03",
+      "name": "氷装甲・冷却放出",
+      "kind": "signature",
+      "lock": 60,
+      "recovery": [
+        360,
+        504
+      ],
+      "total": 504,
+      "events": [
+        {
+          "group": "coolant",
+          "active": [
+            324,
+            342
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_target_rect",
+            "center_policy": "front_target_at_lock",
+            "max_center_distance_u": 2.05,
+            "width_u": 2,
+            "z": [
+              0,
+              1.17
+            ],
+            "arena_clamp": false
+          },
+          "element": "cryo",
+          "source_damage_comparison": 33,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    },
+    {
+      "id": "FHR01",
+      "name": "銀翼の二連薙ぎ",
+      "kind": "normal",
+      "lock": 52,
+      "recovery": [
+        212,
+        290
+      ],
+      "total": 290,
+      "events": [
+        {
+          "group": "wing_1",
+          "active": [
+            108,
+            120
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.16,
+              2.12
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "cryo",
+          "source_damage_comparison": 19,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "wing_2",
+          "active": [
+            174,
+            186
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.16,
+              2.12
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "cryo",
+          "source_damage_comparison": 19,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    },
+    {
+      "id": "FHR02",
+      "name": "飛翔からの着地",
+      "kind": "normal",
+      "lock": 60,
+      "recovery": [
+        176,
+        282
+      ],
+      "total": 282,
+      "events": [
+        {
+          "group": "landing",
+          "active": [
+            132,
+            145
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_target_rect",
+            "center_policy": "front_target_at_lock",
+            "max_center_distance_u": 1.55,
+            "width_u": 1.72,
+            "z": [
+              0,
+              0.83
+            ],
+            "arena_clamp": false
+          },
+          "element": "cryo",
+          "source_damage_comparison": 27,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ],
+      "air": [
+        96,
+        132
+      ],
+      "lift_u": 1.48,
+      "body_moves_to_locked_center": true
+    },
+    {
+      "id": "FHR03",
+      "name": "薄闇の二連波",
+      "kind": "signature",
+      "lock": 60,
+      "recovery": [
+        324,
+        468
+      ],
+      "total": 468,
+      "events": [
+        {
+          "group": "gloom_1",
+          "active": [
+            184,
+            198
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_target_rect",
+            "center_policy": "front_target_at_lock",
+            "max_center_distance_u": 1.48,
+            "width_u": 2.35,
+            "z": [
+              0,
+              0.72
+            ],
+            "arena_clamp": false
+          },
+          "element": "cryo",
+          "source_damage_comparison": 24,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "gloom_2",
+          "active": [
+            272,
+            286
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_target_rect",
+            "center_policy": "front_target_at_lock",
+            "max_center_distance_u": 1.48,
+            "width_u": 2.35,
+            "z": [
+              0,
+              0.72
+            ],
+            "arena_clamp": false
+          },
+          "element": "cryo",
+          "source_damage_comparison": 24,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ],
+      "gloom_visual_window": [
+        60,
+        324
+      ],
+      "same_center_for_all_events": true
+    },
+    {
+      "id": "FWN01",
+      "name": "刃角の突進",
+      "kind": "normal",
+      "lock": 48,
+      "recovery": [
+        156,
+        252
+      ],
+      "total": 252,
+      "events": [
+        {
+          "group": "lunge",
+          "active": [
+            100,
+            126
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.35
+            ],
+            "z": [
+              0,
+              0.7
+            ]
+          },
+          "element": "electro",
+          "source_damage_comparison": 24,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ],
+      "advance": [
+        100,
+        123
+      ],
+      "travel_u": 0.95,
+      "hitbox_anchor": "lock_origin_not_moving_body"
+    },
+    {
+      "id": "FWN02",
+      "name": "裂け目からの奇襲",
+      "kind": "normal",
+      "lock": 56,
+      "recovery": [
+        190,
+        286
+      ],
+      "total": 286,
+      "events": [
+        {
+          "group": "emergence",
+          "active": [
+            144,
+            158
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_target_rect",
+            "center_policy": "front_target_at_lock",
+            "max_center_distance_u": 1.65,
+            "width_u": 1.75,
+            "z": [
+              0,
+              0.8
+            ],
+            "arena_clamp": false
+          },
+          "element": "electro",
+          "source_damage_comparison": 28,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ],
+      "hidden": [
+        84,
+        120
+      ],
+      "visible_reappear_tell_ticks": 24,
+      "ground_marker_persists": true,
+      "body_moves_to_locked_center": true
+    },
+    {
+      "id": "FWN03",
+      "name": "二漁手・深淵放出",
+      "kind": "signature",
+      "lock": 60,
+      "recovery": [
+        360,
+        504
+      ],
+      "total": 504,
+      "events": [
+        {
+          "group": "fisher_1",
+          "active": [
+            156,
+            168
+          ],
+          "owner": "fisher_1",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.4,
+              1.3
+            ],
+            "z": [
+              0,
+              0.58
+            ]
+          },
+          "element": "electro",
+          "source_damage_comparison": 9,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "fisher_2",
+          "active": [
+            228,
+            240
+          ],
+          "owner": "fisher_2",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              1.9,
+              2.8
+            ],
+            "z": [
+              0,
+              0.58
+            ]
+          },
+          "element": "electro",
+          "source_damage_comparison": 9,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "abyss_release",
+          "active": [
+            324,
+            342
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.4,
+              2.8
+            ],
+            "z": [
+              0,
+              0.72
+            ]
+          },
+          "element": "electro",
+          "source_damage_comparison": 38,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    }
+  ],
+  "migration": {
+    "runtime_changes_applied": false,
+    "keep_existing_ids": true,
+    "preserve_level_hp_rewards_save_and_placement": true,
+    "source_move_ids": {
+      "boss-24100101": [
+        "FDK01",
+        "FDK02",
+        "FDK03"
+      ],
+      "boss-23090101": [
+        "FBT01",
+        "FBT02",
+        "FBT03"
+      ],
+      "boss-20081001": [
+        "FHR01",
+        "FHR02",
+        "FHR03"
+      ],
+      "boss-22150101": [
+        "FWN01",
+        "FWN02",
+        "FWN03"
+      ]
+    },
+    "source_extra_move_fields": {
+      "boss-23090101": [
+        "coolingMove"
+      ]
+    },
+    "source_attack_card_count": 12,
+    "target_attack_card_count": 12,
+    "source_signature_totals": {
+      "FDK03": 480,
+      "FBT03": 424,
+      "FHR03": 418,
+      "FWN03": 968
+    },
+    "target_signature_totals": {
+      "FDK03": 528,
+      "FBT03": 504,
+      "FHR03": 468,
+      "FWN03": 504
+    },
+    "source_air_ticks": {
+      "FDK02": 36,
+      "FHR02": 42
+    },
+    "source_hidden_ticks": {
+      "FWN02": 54
+    },
+    "remove_zero_shield_auto_down_hooks": true,
+    "remove_legacy_independent_fisher_loop": true
+  }
+}
