@@ -1,0 +1,109 @@
+{
+  "tool": "builtin imagegen",
+  "model": {
+    "path": "evidence/nod-lantern-patrol-model.obj",
+    "sha256": "c4a53ceadc62f80222f8c7fe4fe73edbdb3e2e821eede33bd01cc1d9c2aec021"
+  },
+  "materials": {
+    "path": "evidence/nod-lantern-patrol-model.mtl",
+    "sha256": "9b15d0986cf20c9817561488bae5d4f87c0fb6ae68cc09dc6191fc843ad52258"
+  },
+  "views": {
+    "path": "evidence/nod-lantern-patrol-views.png",
+    "sha256": "e66228d633283a8d8bf20a4f5a0c84347b27ea636371f3273e57a32ccf31b646"
+  },
+  "angles": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "source": {
+    "path": "assets/nod-lantern-patrol-props-source-v1.png",
+    "sha256": "651287d60fcb36efd3da5ef7f3323626ad88389ccf352d2c2770a7bb4d6cd93e",
+    "size": [
+      2172,
+      724
+    ],
+    "alphaCorners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "profiles": {
+    "lantern": {
+      "encoding": {
+        "path": "assets/nod-lantern-patrol-lantern-sprites-v1.json",
+        "sha256": "7f10ef31cf8eb90ace8cb0a8b6bc56f4c9266a1f944a01894106b222e013ae1e"
+      },
+      "box": [
+        202,
+        100,
+        316,
+        525
+      ],
+      "height": 53,
+      "runs": {
+        "legacy": 596,
+        "h48c32": 362,
+        "h32c16": 151
+      }
+    },
+    "tea": {
+      "encoding": {
+        "path": "assets/nod-lantern-patrol-tea-sprites-v1.json",
+        "sha256": "e05ed37accae946a93eed6000196f9ba7ef002da1c3abb6422dd805a261462ef"
+      },
+      "box": [
+        811,
+        206,
+        535,
+        419
+      ],
+      "height": 51,
+      "runs": {
+        "legacy": 1159,
+        "h48c32": 727,
+        "h32c16": 301
+      }
+    },
+    "biscuits": {
+      "encoding": {
+        "path": "assets/nod-lantern-patrol-biscuits-sprites-v1.json",
+        "sha256": "36e70bff328c8ce12d4107aa77f8cb66ad849af099efe88fd9833199b291a69d"
+      },
+      "box": [
+        1555,
+        347,
+        457,
+        266
+      ],
+      "height": 27,
+      "runs": {
+        "legacy": 623,
+        "h48c32": 370,
+        "h32c16": 167
+      }
+    }
+  },
+  "scenery": {
+    "coast": {
+      "path": "assets/nod-lantern-patrol-coast-background-v1.png",
+      "sha256": "eab4745e96a69502b8a1cbe8229623ba707de89995fea904ff82edda3bd9e687",
+      "reference": {
+        "path": "assets/nod-far-sea-background-v1.png",
+        "sha256": "352a9a14afcf67ba602f2f34ceab544328fcfe5b1be205f66c73f70124586b16"
+      }
+    },
+    "cabin": {
+      "path": "assets/nod-lantern-patrol-cabin-background-v1.png",
+      "sha256": "a1503773af58eca463b927be8c22eb77497fd1ab83156b661b7d942c5a8a2af8",
+      "reference": {
+        "path": "assets/nod-appraisal-workshop-background-v1.png",
+        "sha256": "ae6b6e2afeff5f8f312f4ad4e2d42128fd4f0a224ff5c4ce88ec48a0f1ad950d"
+      }
+    },
+    "status": "Temporary images. Final game uses 3D placement."
+  }
+}

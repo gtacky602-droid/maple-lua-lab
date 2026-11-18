@@ -1,0 +1,22 @@
+{
+  "m02Prerequisite": true,
+  "bothSignposts": true,
+  "normalJumps": [
+    386,
+    290
+  ],
+  "visibleFixedWarning": true,
+  "pauseFreezesWarning": true,
+  "projectileEvaded": true,
+  "standingHitDamage": 12,
+  "highGroundSurvey": true,
+  "partialClearSaved": true,
+  "connectedShortcuts": true,
+  "oneOreGrant": 5,
+  "reportReward": [
+    9330761,
+    8400
+  ],
+  "revisitAndRest": true,
+  "practiceAfterReport": true
+}

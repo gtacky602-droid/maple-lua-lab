@@ -1,0 +1,43 @@
+newmtl iron
+Kd 0.25882 0.30588 0.40000
+illum 1
+
+newmtl trim
+Kd 0.45098 0.49020 0.60000
+illum 1
+
+newmtl glass
+Kd 0.96471 0.75294 0.42745
+illum 1
+
+newmtl bright
+Kd 1.00000 0.88627 0.64314
+illum 1
+
+newmtl metal
+Kd 0.34118 0.49804 0.54902
+illum 1
+
+newmtl metalrim
+Kd 0.61176 0.74902 0.74118
+illum 1
+
+newmtl tea
+Kd 0.58824 0.31373 0.21176
+illum 1
+
+newmtl ceramic
+Kd 0.68235 0.81961 0.78824
+illum 1
+
+newmtl cookie
+Kd 0.87059 0.58039 0.29020
+illum 1
+
+newmtl chip
+Kd 0.38431 0.23137 0.21569
+illum 1
+
+newmtl tray
+Kd 0.40392 0.27451 0.29804
+illum 1

@@ -171,8 +171,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 30,
-      "prototype_quest_count": 16,
+      "prototype_stage_count": 34,
+      "prototype_quest_count": 17,
       "official_map2_markers": {
         "waypoints": 83,
         "statues": 7
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 290,
-    "provisional_quests": 168,
+    "authored_stages": 294,
+    "provisional_quests": 169,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -940,7 +940,11 @@
           "nod-rumor-ledge",
           "nod-bloom-gate",
           "nod-bloom-trail",
-          "nod-bloom-grove"
+          "nod-bloom-grove",
+          "nod-patrol-cabin",
+          "nod-patrol-shore",
+          "nod-patrol-bend",
+          "nod-patrol-post"
         ],
         "quest_ids": [
           "columbina-join",
@@ -958,7 +962,8 @@
           "columbina-coast-detour",
           "nod-treasure-appraisal",
           "nod-moon-rumor",
-          "nod-moon-bloom"
+          "nod-moon-bloom",
+          "nod-lantern-patrol"
         ]
       },
       {
@@ -1356,8 +1361,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 73,
-    "without_explicit_mapping": 80,
+    "linked": 74,
+    "without_explicit_mapping": 79,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1423,6 +1428,7 @@
       "Q-NOD-S02": "nod-treasure-appraisal",
       "Q-NOD-S03": "nod-moon-rumor",
       "Q-NOD-S04": "nod-moon-bloom",
+      "Q-NOD-S05": "nod-lantern-patrol",
       "Q-SNE-M01": "white-pass-ticket",
       "Q-SNE-M02": "white-pass-trail",
       "Q-SNE-M03": "white-pass-summit",

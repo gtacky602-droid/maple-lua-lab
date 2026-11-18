@@ -111,6 +111,8 @@ export const sceneryDefinitions={
  nodMoonVault:{file:'nod-moon-vault-background-v1.png',zones:['story:nod-moon-vault'],note:'探検家の貯蔵所のラボ用仮背景'},
  nodNightStalls:{file:'nod-night-stalls-background-v1.png',zones:['story:nod-night-stalls','story:nod-rumor-quay'],note:'夜店と波止場のラボ用仮背景'},
  nodFarSea:{file:'nod-far-sea-background-v1.png',zones:['story:nod-far-sea-bench'],note:'沖を眺める腰掛けのラボ用仮背景'},
+ nodPatrolCoast:{file:'nod-lantern-patrol-coast-background-v1.png',zones:['story:nod-patrol-shore','story:nod-patrol-bend','story:nod-patrol-post'],note:'灯台が照らす海岸・風よけの曲がり角・合流標の仮背景'},
+ nodPatrolCabin:{file:'nod-lantern-patrol-cabin-background-v1.png',zones:['story:nod-patrol-cabin'],note:'暖房小屋の仮背景'},
  nodAppraisal:{file:'nod-appraisal-workshop-background-v1.png',zones:['story:nod-appraisal-workshop'],note:'アイノの部品工房のラボ用仮背景'},
  mondstadt:{file:'mondstadt-background.png',region:'モンド',zones:[]},
  liyue:{file:'liyue-background-v1.png',region:'璃月',zones:['geo','oceanid','primo','pyro_regisvine']},
@@ -201,10 +203,20 @@ export function scenery(ctx,frame){
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
   if(p.riverDeck)continue;
-   if(key==='nodAppraisal'){
+   if(key==='nodAppraisal'||key==='nodPatrolCabin'){
     ctx.fillStyle='#5d474d';ctx.fillRect(x,p.y,p.w,p.y===480?60:17);
     ctx.fillStyle='#bd906b';ctx.fillRect(x,p.y,p.w,4);
     ctx.fillStyle='#916a59';for(let i=10;i+14<p.w;i+=41)ctx.fillRect(x+i,p.y+7,15,3);
+    continue;
+   }
+   if(key==='nodPatrolCoast'){
+    ctx.fillStyle='#252e48';ctx.fillRect(x,p.y,p.w,p.y===480?61:19);
+    ctx.fillStyle='#798597';ctx.fillRect(x,p.y,p.w,3);
+    ctx.fillStyle='#445671';
+    for(let i=7;i+21<p.w;i+=51){
+     ctx.fillRect(x+i,p.y+6,20,3);
+     ctx.fillRect(x+i+12,p.y+10,15,3);
+    }
     continue;
    }
    if(p.moonDeck){

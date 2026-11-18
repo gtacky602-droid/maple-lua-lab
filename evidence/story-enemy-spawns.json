@@ -1224,6 +1224,22 @@
     {
       "node": "nod-bloom-grove",
       "enemy_count": 0
+    },
+    {
+      "node": "nod-patrol-cabin",
+      "enemy_count": 0
+    },
+    {
+      "node": "nod-patrol-shore",
+      "enemy_count": 0
+    },
+    {
+      "node": "nod-patrol-bend",
+      "enemy_count": 4
+    },
+    {
+      "node": "nod-patrol-post",
+      "enemy_count": 0
     }
   ],
   "render_profiles": [

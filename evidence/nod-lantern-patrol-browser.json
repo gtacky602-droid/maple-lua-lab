@@ -1,0 +1,32 @@
+{
+  "cabinScene": {
+    "key": "nodPatrolCabin",
+    "file": "nod-lantern-patrol-cabin-background-v1.png",
+    "state": "ready"
+  },
+  "coastScene": {
+    "key": "nodPatrolCoast",
+    "file": "nod-lantern-patrol-coast-background-v1.png",
+    "state": "ready"
+  },
+  "bothSignposts": true,
+  "warningShown": true,
+  "highBeforeGround": true,
+  "shortcutAfterReload": true,
+  "restAfterReload": true,
+  "commands": {
+    "png": 28,
+    "standard": 5325,
+    "light": 1365
+  },
+  "warningCommands": {
+    "png": 42,
+    "standard": 7161,
+    "light": 1813
+  },
+  "reward": [
+    9330761,
+    8400
+  ],
+  "errors": []
+}

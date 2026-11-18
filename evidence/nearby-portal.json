@@ -1033,6 +1033,10 @@
       "to": "nod-bloom-gate"
     },
     {
+      "node": "nod-town",
+      "to": "nod-patrol-cabin"
+    },
+    {
       "node": "snezhnaya-entry",
       "to": "nod-town"
     },
@@ -2707,6 +2711,42 @@
     {
       "node": "nod-bloom-grove",
       "to": "nod-bloom-gate"
+    },
+    {
+      "node": "nod-patrol-cabin",
+      "to": "nod-town"
+    },
+    {
+      "node": "nod-patrol-cabin",
+      "to": "nod-patrol-shore"
+    },
+    {
+      "node": "nod-patrol-cabin",
+      "to": "nod-patrol-post"
+    },
+    {
+      "node": "nod-patrol-shore",
+      "to": "nod-patrol-cabin"
+    },
+    {
+      "node": "nod-patrol-shore",
+      "to": "nod-patrol-bend"
+    },
+    {
+      "node": "nod-patrol-bend",
+      "to": "nod-patrol-shore"
+    },
+    {
+      "node": "nod-patrol-bend",
+      "to": "nod-patrol-post"
+    },
+    {
+      "node": "nod-patrol-post",
+      "to": "nod-patrol-bend"
+    },
+    {
+      "node": "nod-patrol-post",
+      "to": "nod-patrol-cabin"
     }
   ],
   "hidden_connections_checked": 38,
