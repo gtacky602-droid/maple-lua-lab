@@ -683,12 +683,12 @@
     {
       "node": "natlan-hub",
       "mode": "sprite",
-      "visible_portals": 7
+      "visible_portals": 9
     },
     {
       "node": "natlan-hub",
       "mode": "rect",
-      "visible_portals": 7
+      "visible_portals": 9
     },
     {
       "node": "natlan-field",
@@ -2663,10 +2663,40 @@
     {
       "node": "natlan-duel-entry",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "natlan-duel-entry",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "natlan-sunset-review",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-sunset-review",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-sunset-arena",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-sunset-arena",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-sunset-rostrum",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-sunset-rostrum",
       "mode": "rect",
       "visible_portals": 2
     }

@@ -1,0 +1,64 @@
+{
+  "generator": "built-in imagegen",
+  "originalModel": {
+    "path": "evidence/river-racer-model.obj",
+    "sha256": "6da459febd2ddcaf15b34137848091d257887026616c2d923d2b0a736d840bd9"
+  },
+  "materials": {
+    "path": "evidence/river-racer-model.mtl",
+    "sha256": "b1577689b8d9e3acb1e44d75f36c2c1d9b378837b77e3b86aab612b231568ba0"
+  },
+  "vertices": 268,
+  "faces": 204,
+  "reference": {
+    "path": "evidence/river-racer-views.png",
+    "sha256": "4c6f3bb1c712ddfc9bfc8887da4fb3252ba18735bcff9fd18d6b808136410919"
+  },
+  "views": [
+    "front",
+    "front three-quarter",
+    "rear three-quarter"
+  ],
+  "source": {
+    "path": "assets/river-racer-source-v1.png",
+    "sha256": "8684a4be259f771b4f38c175936dd22f4671a1d798ad67818d68e43c377dc77d"
+  },
+  "sourceSize": [
+    1159,
+    1358
+  ],
+  "outsideAlphaSamples": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "box": [
+    209,
+    73,
+    762,
+    1217
+  ],
+  "anchorX": 0.5091863517060368,
+  "encoding": {
+    "path": "assets/river-racer-field-idle-sprites-v1.json",
+    "sha256": "75761bbb9da5185c90ae80b03d474510f553f786b8c70d2aaec45945f68badcd"
+  },
+  "runs": {
+    "legacy": 1700,
+    "h48c32": 1036,
+    "h32c16": 417
+  },
+  "background": {
+    "path": "assets/natlan-sunset-arena-background-v1.png",
+    "sha256": "c7cdd76081c1f67af2191f3c04da6c16062239e79757cab3e6d82308a82077dc",
+    "size": [
+      1672,
+      941
+    ]
+  },
+  "localVisualReference": {
+    "path": "work/natlan-duel-arena-background-candidate.png",
+    "sha256": "c7cdd76081c1f67af2191f3c04da6c16062239e79757cab3e6d82308a82077dc"
+  }
+}

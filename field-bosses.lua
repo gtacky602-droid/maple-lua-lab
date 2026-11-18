@@ -40,6 +40,7 @@ return function(C,configs,controllers)
  end
  local function available(s,spec)
   if not spec.storyWindow then return true end
+  if s.storyDuelReplay==spec.id then return true end
   local window=spec.storyWindow
   local state=s.story and s.story.quests[window.quest]
   return state and state.status=='active' and state.count>=window.first and state.count<window.after
@@ -97,6 +98,10 @@ return function(C,configs,controllers)
    s.fieldSlots[spec.id]=slot
   end
   attach(s,spec,slot)
+ end
+
+ function C.resetFieldTrial(s,id)
+  if s.fieldSlots then s.fieldSlots[id]=nil end
  end
 
  local function nearest(s,spec,boss)
@@ -262,6 +267,7 @@ return function(C,configs,controllers)
    e.weakpoint=nil
    e.respawn=math.huge
    if spec.storyChallenge then C.storyBossDefeated(s,spec.storyChallenge) end
+   if C.finishDuelReplay then C.finishDuelReplay(s,spec.id) end
    if spec.presentationOnly then return end
   end
   if onKill then onKill(s,e) end

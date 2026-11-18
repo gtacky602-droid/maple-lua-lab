@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -385,6 +385,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
  end
  local function enter(s,id,spawn,elapsed,arrivalY)
+  local sameArena=s.story.node==id
   local n=nodes[id];s.campaign.zone='story:transition';action(s,n.hub and 'town' or 'field')
   s.campaign.zone=n.hub and 'town' or ('story:'..id);s.campaign.message='本編ルートの試作。隣の地点へは門の近くで移動。'
   s.story.active=true;s.story.node=id;s.story.visited[id]=true;s.worldwidth=n.width
@@ -406,6 +407,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   theater.enter(s,n.theater)
   flagCourse.enter(s,n.flagCourse)
   movingPlatforms.enter(s,n.riverCrossing)
+  duel.enter(s,n.duel,sameArena)
   s.reflection=nil
   s.expeditionPractice=false
   s.lift=nil
@@ -516,6 +518,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    local lamp=node.localLight
    if lamp and localLight.interact(s,lamp) then return end
+   if duel.ring(s,node.duel) then return end
    if flagCourse.interact(s,node.flagCourse) then return end
    if inspectMilestone(s,'rotate') then return end
    local railConfig,railState=railQuest(s,nodes[s.story.node])
@@ -798,6 +801,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if s.story and s.story.active then movingPlatforms.move(s,dt) end
   local returns,previous=s.returns,s.t;step(s,dt,input)
   if s.story and s.story.active and s.returns==returns and not s.paused then
+   duel.step(s,nodes[s.story.node].duel)
    local milestone,state=theater.step(s,s.t-previous,nodes[s.story.node].theater)
    if milestone then completeMilestone(s,state,milestone) end
    milestone,state=flagCourse.step(s)
@@ -828,7 +832,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if s.story and s.story.active and #s.enemies>0 and cleared(s,nodes[s.story.node]) then s.enemies={} end
   if s.story and s.story.active and s.returns~=returns then
    s.flagTrial=nil
-   enter(s,s.story.visited[nodes[s.story.node].checkpoint] and nodes[s.story.node].checkpoint or 'mond-town')
+   local node=nodes[s.story.node]
+   if duel.active(s,node.duel) then
+    C.resetFieldTrial(s,node.duel.encounter)
+    enter(s,node.id,node.duel.bellX)
+    s.storyNotice='同じ会場で仕切り直します。水路の予告を見てください。'
+   else
+    enter(s,s.story.visited[node.checkpoint] and node.checkpoint or 'mond-town')
+   end
   end
   if s.story and s.story.active and not s.paused then
    local node=nodes[s.story.node]
@@ -945,6 +956,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    theater.frame(s,f,markers,n.theater,mode,profile)
    flagCourse.observe(s,f,markers,n.flagCourse,mode,profile)
    movingPlatforms.observe(s,f,markers,n.riverCrossing,mode,profile)
+   duel.frame(s,f,markers,n.duel)
    local pathQuest=n.pathsQuest and quests[n.pathsQuest]
    local pathState=pathQuest and s.story.quests[pathQuest.id]
    if pathState and pathState.pathProgress and pathState.count>0 then

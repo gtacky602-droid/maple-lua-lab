@@ -231,7 +231,7 @@ function hud(f,calls,renderMs){
  updateLanternNote(f.storyLanternNote,f.storySightNote);
  const forest=$('storyForest');
  const observation=f.storyContest??f.storyForest??f.storyRest??f.storyCave??f.storyRoof;
- const fieldNote=observation?.message??f.storyPathStatus??f.storyFlagStatus;
+ const fieldNote=observation?.message??f.storyDuel?.label??f.storyPathStatus??f.storyFlagStatus;
  forest.hidden=!fieldNote;
  if(fieldNote&&forest.textContent!==fieldNote)forest.textContent=fieldNote;
  const trolley=f.voyage?.kind==='trolley'?f.voyage:null;

@@ -1,6 +1,6 @@
 {
   "errors": [],
-  "allCandidates": 85,
+  "allCandidates": 86,
   "bellgateRoute": true,
   "windRingFieldRoute": true,
   "plateTailFieldRoute": true,
@@ -33,6 +33,7 @@
   "wavebinderFieldRoute": true,
   "canopyFungusFieldRoute": true,
   "grandFinaleFieldRoute": true,
+  "riverRacerFieldRoute": true,
   "stygianCandidates": 7,
   "disabledUnimplemented": true,
   "launchesVerified": [

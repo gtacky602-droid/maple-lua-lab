@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 267 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 259,
+  "scope": "Authored 270 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 262,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1091,7 +1091,10 @@
     {"id":"natlan-high-trial-field","name":"高台の三段狩場","region":"ナタ","status":"regional_temporary_image"},
     {"id":"natlan-river-float-run","name":"浮き台と最初の岸","region":"ナタ","status":"regional_temporary_image"},
     {"id":"natlan-river-turn-basin","name":"折り返しの瀬と岩渡り","region":"ナタ","status":"regional_temporary_image"},
-    {"id":"natlan-duel-entry","name":"夕映え会場の控え広場","region":"ナタ","status":"regional_temporary_image"}
+    {"id":"natlan-duel-entry","name":"夕映え会場の控え広場","region":"ナタ","status":"regional_temporary_image"},
+    {"id":"natlan-sunset-review","name":"夕映え会場の水路見張り台","region":"ナタ","status":"regional_temporary_image"},
+    {"id":"natlan-sunset-arena","name":"夕映えの模擬戦会場","region":"ナタ","status":"regional_temporary_image"},
+    {"id":"natlan-sunset-rostrum","name":"夕映え会場の記録台","region":"ナタ","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 8
 }

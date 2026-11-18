@@ -1,0 +1,20 @@
+{
+  "prerequisite": true,
+  "realLaneDamage": true,
+  "upperShelfSafety": true,
+  "pauseFreezes": true,
+  "hydroWorksAndOpeningHelps": true,
+  "lossResetsSameArena": true,
+  "keepsRewards": true,
+  "activeHpAfterSave": true,
+  "firstWinOnce": true,
+  "arenaCalmAfterWin": true,
+  "recordAfterSave": true,
+  "replaysWithoutRewards": true,
+  "firstClearExp": 6826100,
+  "reward": [
+    8024394,
+    10800,
+    6
+  ]
+}

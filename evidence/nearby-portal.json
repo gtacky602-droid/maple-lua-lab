@@ -821,6 +821,14 @@
       "to": "natlan-duel-entry"
     },
     {
+      "node": "natlan-hub",
+      "to": "natlan-sunset-arena"
+    },
+    {
+      "node": "natlan-hub",
+      "to": "natlan-sunset-rostrum"
+    },
+    {
       "node": "natlan-field",
       "to": "natlan-hub"
     },
@@ -2470,6 +2478,34 @@
     },
     {
       "node": "natlan-duel-entry",
+      "to": "natlan-hub"
+    },
+    {
+      "node": "natlan-duel-entry",
+      "to": "natlan-sunset-review"
+    },
+    {
+      "node": "natlan-sunset-review",
+      "to": "natlan-duel-entry"
+    },
+    {
+      "node": "natlan-sunset-review",
+      "to": "natlan-sunset-arena"
+    },
+    {
+      "node": "natlan-sunset-arena",
+      "to": "natlan-sunset-review"
+    },
+    {
+      "node": "natlan-sunset-arena",
+      "to": "natlan-sunset-rostrum"
+    },
+    {
+      "node": "natlan-sunset-rostrum",
+      "to": "natlan-sunset-arena"
+    },
+    {
+      "node": "natlan-sunset-rostrum",
       "to": "natlan-hub"
     }
   ],

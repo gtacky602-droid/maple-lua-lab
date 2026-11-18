@@ -22,7 +22,15 @@ def seed_chapter(state, quest_id, completed_count, status):
         config = item.get('airflow',{})
         if config.get('stagePlan'):
             record['stagePlan'] = config['choices'][0]['id']
-    state.story.quests[quest_id] = lua.table_from(record)
+    if paths := quest.get('paths'):
+        joined=any(item['kind']=='paths' for item in quest['itinerary'][:completed_count])
+        record['pathProgress']={}
+        for path in paths:
+            record['pathProgress'][path['id']]=dict(count=len(path['steps']) if joined else 0)
+            if joined:
+                for item in path['steps']:
+                    state.story.visited[item['node']]=True
+    state.story.quests[quest_id] = lua.table_from(record,recursive=True)
 
 
 checked = []

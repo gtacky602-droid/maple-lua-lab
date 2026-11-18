@@ -120,6 +120,9 @@ export const sceneryDefinitions={
   'story:natlan-high-trial-steps','story:natlan-high-trial-field'
  ]},
  natlanRaceSummit:{file:'natlan-race-summit-background-v1.png',zones:['story:natlan-flag-summit','story:natlan-duel-entry']},
+ natlanSunset:{file:'natlan-sunset-arena-background-v1.png',zones:[
+  'story:natlan-sunset-review','story:natlan-sunset-arena','story:natlan-sunset-rostrum'
+ ]},
  natlanRiverTrial:{file:'natlan-riverside-trial-background-v1.png',zones:['story:natlan-river-float-run','story:natlan-river-turn-basin']},
  natlan:{file:'natlan-background-v1.png',region:'ナタ',zones:[]},
  sumeruRiverside:{file:'sumeru-riverside-background-v1.png',zones:['story:sumeru-river-roots','story:sumeru-river-bank','story:sumeru-root-slope']},

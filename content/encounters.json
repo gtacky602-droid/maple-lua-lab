@@ -12,8 +12,8 @@
   },
   "counts": {
     "source_entities": 63,
-    "encounter_candidates": 85,
-    "partial": 67,
+    "encounter_candidates": 86,
+    "partial": 68,
     "complete": 0
   },
   "encounters": [
@@ -2296,6 +2296,32 @@
         "encoding": "assets/grand-finale-field-idle-sprites-v1.json",
         "audit": "evidence/grand-finale-art.json",
         "status": "original stage carrier; shutdown and performance route"
+      }
+    },
+    {
+      "id": "original-river-racer",
+      "name": "夕映えの水走者（模擬役）",
+      "kind": "normal",
+      "entity_ids": [],
+      "status": "partial",
+      "action": null,
+      "grouping": "original_design",
+      "evidence": [
+        "docs/balance/NATLAN_SUNSET_DUEL_WEB.md"
+      ],
+      "remaining": [
+        "本役の美術と動き",
+        "固有攻撃と足場切り替え",
+        "装備別の難度調整",
+        "協力検証"
+      ],
+      "fieldNode": "natlan-sunset-arena",
+      "fieldEntrance": "夕映えの模擬戦会場（Lv100）",
+      "art_candidate": {
+        "source": "assets/river-racer-source-v1.png",
+        "encoding": "assets/river-racer-field-idle-sprites-v1.json",
+        "audit": "evidence/river-racer-art.json",
+        "status": "Original placeholder for the chapter practice opponent"
       }
     },
     {

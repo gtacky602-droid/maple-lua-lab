@@ -1,0 +1,24 @@
+{
+  "firstRunAndReplay": true,
+  "warningsAndOpening": true,
+  "sameFrameComparison": true,
+  "firstClearExp": 6826100,
+  "recordAndReport": true,
+  "noRepeatReward": true,
+  "scene": {
+    "key": "natlanSunset",
+    "file": "natlan-sunset-arena-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 24,
+    "standard": 5944,
+    "light": 1484
+  },
+  "reward": [
+    8024394,
+    10800,
+    6
+  ],
+  "errors": []
+}

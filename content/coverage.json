@@ -147,8 +147,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 21,
-      "prototype_quest_count": 12,
+      "prototype_stage_count": 24,
+      "prototype_quest_count": 13,
       "official_map2_markers": {
         "waypoints": 126,
         "statues": 9
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 267,
-    "provisional_quests": 160,
+    "authored_stages": 270,
+    "provisional_quests": 161,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -885,7 +885,10 @@
           "natlan-high-trial-field",
           "natlan-river-float-run",
           "natlan-river-turn-basin",
-          "natlan-duel-entry"
+          "natlan-duel-entry",
+          "natlan-sunset-review",
+          "natlan-sunset-arena",
+          "natlan-sunset-rostrum"
         ],
         "quest_ids": [
           "kachina-join",
@@ -899,7 +902,8 @@
           "overseer-commission",
           "spiritspeaker-commission",
           "natlan-ridge-flag",
-          "natlan-two-trials"
+          "natlan-two-trials",
+          "natlan-sunset-duel"
         ]
       },
       {
@@ -1325,8 +1329,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 65,
-    "without_explicit_mapping": 88,
+    "linked": 66,
+    "without_explicit_mapping": 87,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1384,6 +1388,7 @@
       "Q-MON-S05": "mond-windmill",
       "Q-NAT-M01": "natlan-ridge-flag",
       "Q-NAT-M02": "natlan-two-trials",
+      "Q-NAT-M03": "natlan-sunset-duel",
       "Q-SNE-M01": "white-pass-ticket",
       "Q-SNE-M02": "white-pass-trail",
       "Q-SNE-M03": "white-pass-summit",

@@ -1132,6 +1132,18 @@
     {
       "node": "natlan-duel-entry",
       "enemy_count": 0
+    },
+    {
+      "node": "natlan-sunset-review",
+      "enemy_count": 0
+    },
+    {
+      "node": "natlan-sunset-arena",
+      "enemy_count": 0
+    },
+    {
+      "node": "natlan-sunset-rostrum",
+      "enemy_count": 0
     }
   ],
   "render_profiles": [
