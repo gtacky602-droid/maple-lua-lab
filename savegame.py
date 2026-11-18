@@ -120,6 +120,33 @@ def validate_stealth(record, quest, visited):
         raise ValueError('見回り役の記録が巡回の進行と一致しません')
 
 
+def validate_itto_contest(record, quest, spec, visited):
+    rounds_done = max(0, record['count'] - 1)
+    if not spec or spec['quest'] != quest['id'] or not rounds_done:
+        if 'ittoContest' in record:
+            raise ValueError('三番勝負の記録が進行と一致しません')
+        return
+    log = record.get('ittoContest')
+    if (quest['target'] not in visited or not isinstance(log, dict) or log.keys() != {'last', 'best', 'series'}
+            or not isinstance(log['last'], list) or len(log['last']) != rounds_done
+            or type(log['best']) is not int or not 0 <= log['best'] <= 3
+            or type(log['series']) is not int or not 0 <= log['series'] <= 10**9):
+        raise ValueError('三番勝負の成績が不正です')
+    caps = (len(spec['flags']), len(spec['targets']), len(spec['relay']['marks']))
+    for score, cap in zip(log['last'], caps):
+        if (not isinstance(score, dict) or score.keys() != {'player', 'rival'}
+                or any(type(points) is not int or not 0 <= points <= cap for points in score.values())):
+            raise ValueError('三番勝負の得点が不正です')
+    wins = sum(score['player'] > score['rival'] for score in log['last'])
+    if (rounds_done < 3 and (log['series'] or log['best'])
+            or rounds_done == 3 and (
+                log['series'] < 1 or log['best'] < wins
+                or log['series'] == 1 and log['best'] != wins
+                or record['status'] == 'active' and log['series'] != 1
+            )):
+        raise ValueError('三番勝負の最多勝と完走回数が不正です')
+
+
 def validate_save(data):
     if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses'}!=FIELDS:
         raise ValueError('保存データの項目が一致しません')
@@ -231,7 +258,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord','fireworkDesign','stealthEncounter'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord','fireworkDesign','stealthEncounter','ittoContest'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -260,6 +287,7 @@ def validate_save(data):
             validate_snow_match(q,quest,nodes.get(quest.get('target'),{}).get('snowMatch'))
             validate_firework(q,quest,st['visited'])
             validate_stealth(q,quest,st['visited'])
+            validate_itto_contest(q,quest,nodes.get(quest.get('target'),{}).get('ittoGames'),st['visited'])
             if 'flagBestTicks' in q:
                 ticks=q['flagBestTicks']
                 if not quest.get('flagTrial') or q['status']!='complete' or type(ticks) is not int or not 1<=ticks<=10**9:

@@ -1,7 +1,7 @@
 {
   "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
   "version": "monster-quest-v02",
-  "quests_tested": 47,
+  "quests_tested": 48,
   "old_completed_not_reissued": true,
   "old_unreported_uses_current_preview": true,
   "unlinked_trial_fallback": true,
@@ -17,9 +17,9 @@
       "report_xp": 186864
     },
     "INA": {
-      "linked": 6,
-      "legacy_xp": 149150,
-      "report_xp": 869472
+      "linked": 7,
+      "legacy_xp": 255750,
+      "report_xp": 976072
     },
     "SNE": {
       "linked": 8,
@@ -155,6 +155,12 @@
       "quest_id": "ina-sayu-quiet-route",
       "legacy_xp": 78355,
       "report_xp": 78355
+    },
+    {
+      "design_id": "Q-INA-S04",
+      "quest_id": "ina-itto-three-games",
+      "legacy_xp": 106600,
+      "report_xp": 106600
     },
     {
       "design_id": "Q-INA-M01",

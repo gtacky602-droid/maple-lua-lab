@@ -1,0 +1,144 @@
+{
+  "tool": "built-in image generation and reference-guided proportion edits",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/ina-itto-games-model.obj",
+    "sha256": "b0fac406f45353ddf2fdf7d71b24b985f90cd142851522132beb3a1b41b0b974"
+  },
+  "materials": {
+    "path": "evidence/ina-itto-games-model.mtl",
+    "sha256": "2c24f814a7446ed8ac7ccd5b27878fc611fa8f575c7bc5443b9e09c80e239a92"
+  },
+  "contactSheet": {
+    "path": "evidence/ina-itto-games-views.png",
+    "sha256": "9ef5b25601b7e04a1d52231ab07d92b73a511c611aca311ae57ee11d8fa7406b"
+  },
+  "propsSource": {
+    "path": "assets/ina-itto-games-props-source-v1.png",
+    "sha256": "18b4effbb1f9c45f7ae8690b779659bb847ff6c52225671d50358bc7fac1a078"
+  },
+  "alphaCorners": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "background": {
+    "path": "assets/ina-itto-games-background-v1.png",
+    "sha256": "879156063ff858fa63cbb138a99b2d6f52e15e48e83ca4d40eeff5ce8eaac483"
+  },
+  "backgroundReference": {
+    "path": "assets/inazuma-castle-town-background-v1.png",
+    "sha256": "c7eed52f600c5e97526f743acff263ecc6726df4e4e6850fa8038702221b9341"
+  },
+  "status": "Original reference models and two original relay runners. Background is a Web placeholder.",
+  "chibiNote": "Roughly three heads high by visual inspection, excluding the bun. Static running pose with timed vertical motion.",
+  "profiles": {
+    "flag": {
+      "encoding": {
+        "path": "assets/ina-itto-games-flag-sprites-v1.json",
+        "sha256": "9bd0a2627fec292f751eb1b7c0a928d7dbe69a647cb959f6f2a153f1c8d0f956"
+      },
+      "box": [
+        173,
+        115,
+        177,
+        344
+      ],
+      "runs": {
+        "legacy": 433,
+        "h48c32": 264,
+        "h32c16": 130
+      }
+    },
+    "target": {
+      "encoding": {
+        "path": "assets/ina-itto-games-target-sprites-v1.json",
+        "sha256": "4411535c3747e4c26717b1dd7127c0c132dd3923c477f9f6e09dacd53a04a65b"
+      },
+      "box": [
+        664,
+        161,
+        185,
+        298
+      ],
+      "runs": {
+        "legacy": 1005,
+        "h48c32": 589,
+        "h32c16": 279
+      }
+    },
+    "blue": {
+      "encoding": {
+        "path": "assets/ina-itto-games-blue-sprites-v1.json",
+        "sha256": "654a3b0ec61934b407635654e6b16424185bc78d6ab499d8889f31b8aaa87db7"
+      },
+      "box": [
+        1150,
+        158,
+        192,
+        301
+      ],
+      "runs": {
+        "legacy": 1078,
+        "h48c32": 641,
+        "h32c16": 263
+      }
+    },
+    "orange": {
+      "encoding": {
+        "path": "assets/ina-itto-games-orange-sprites-v1.json",
+        "sha256": "aae51b8ed912e365bc61d9263049f461957dea21d4606f8f959c205478243d1d"
+      },
+      "box": [
+        153,
+        607,
+        208,
+        323
+      ],
+      "runs": {
+        "legacy": 957,
+        "h48c32": 624,
+        "h32c16": 254
+      }
+    },
+    "bell": {
+      "encoding": {
+        "path": "assets/ina-itto-games-bell-sprites-v1.json",
+        "sha256": "3a1a03f87b41f26b915ce0f2144766cf9749129ba18f164f8fcd5c85f5c17e4c"
+      },
+      "box": [
+        655,
+        616,
+        189,
+        311
+      ],
+      "runs": {
+        "legacy": 601,
+        "h48c32": 396,
+        "h32c16": 147
+      }
+    },
+    "prize": {
+      "encoding": {
+        "path": "assets/ina-itto-games-prize-sprites-v1.json",
+        "sha256": "a1e72929ae7d965492b676565799c358449c6836dab6e85e64348642f02ffc92"
+      },
+      "box": [
+        1105,
+        676,
+        298,
+        228
+      ],
+      "runs": {
+        "legacy": 1300,
+        "h48c32": 916,
+        "h32c16": 258
+      }
+    }
+  }
+}

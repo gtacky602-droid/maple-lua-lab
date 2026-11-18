@@ -1,0 +1,21 @@
+{
+  "scene": {
+    "key": "ittoFestival",
+    "file": "ina-itto-games-background-v1.png",
+    "state": "ready"
+  },
+  "collectedFiveFlags": true,
+  "trainingObjectsNoKill": true,
+  "assistedAtThreeMarks": true,
+  "titleAndReplayAfterReload": true,
+  "commands": {
+    "png": 26,
+    "standard": 5492,
+    "light": 1415
+  },
+  "reward": [
+    106600,
+    1550
+  ],
+  "errors": []
+}

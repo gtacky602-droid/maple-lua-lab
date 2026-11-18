@@ -1,0 +1,16 @@
+{
+  "prerequisite": true,
+  "flagHeightAndPause": true,
+  "partialRoundResultsRestore": true,
+  "multiTargetNormal": true,
+  "trainingIsRewardless": true,
+  "manualRelaySupport": true,
+  "winningAndLosingSameReward": true,
+  "partialReplayDoesNotReplaceRecord": true,
+  "replayTitleRemains": true,
+  "forgedScoreRejected": true,
+  "reward": [
+    106600,
+    1550
+  ]
+}

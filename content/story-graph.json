@@ -1448,7 +1448,8 @@
         {"to":"ina-firework-lookouts","x":755,"arrivalX":120,"requires":{"quest":"ina-window-fireworks","count":1}},
         {"to":"ina-firework-beach","x":266,"arrivalX":702,"requires":{"quest":"ina-window-fireworks","count":5}},
         {"to":"ina-sayu-watchpath","x":454,"arrivalX":118,"requires":{"quest":"ina-sayu-quiet-route","count":1}},
-        {"to":"ina-sayu-watchpath","x":1148,"arrivalX":2150,"requires":{"quest":"ina-sayu-quiet-route","count":5},"rideLabel":"開いた裏柵から見回り道へ"}
+        {"to":"ina-sayu-watchpath","x":1148,"arrivalX":2150,"requires":{"quest":"ina-sayu-quiet-route","count":5},"rideLabel":"開いた裏柵から見回り道へ"},
+        {"to":"ina-festival-games","x":828,"arrivalX":108,"requires":{"quest":"ina-itto-three-games","count":1}}
       ],
       "checkpoint": "inazuma-town"
     },
@@ -1457,6 +1458,20 @@
       "width":2130,"checkpoint":"inazuma-town","fireworkLookouts":"ina-window-fireworks",
       "platforms":[{"x":0,"y":480,"w":2130},{"x":422,"y":395,"w":453},{"x":752,"y":307,"w":521},{"x":1360,"y":414,"w":510}],
       "exits":[{"to":"inazuma-town","x":63,"arrivalX":700},{"to":"ina-firework-beach","x":2064,"arrivalX":126,"requires":{"quest":"ina-window-fireworks","count":4}}]
+    },
+    {
+      "id":"ina-festival-games","name":"稲妻・荒瀧の競技広場","region":"稲妻","level":40,"hub":false,"peaceful":true,
+      "width":960,"checkpoint":"inazuma-town",
+      "platforms":[{"x":0,"y":480,"w":960},{"x":322,"y":396,"w":237},{"x":550,"y":399,"w":336},{"x":498,"y":310,"w":182}],
+      "exits":[{"to":"inazuma-town","x":56,"arrivalX":828}],
+      "ittoGames":{
+        "quest":"ina-itto-three-games","bell":{"x":174,"y":480},"prizeX":838,
+        "seconds":[22,20,18],"flagTimes":[2.4,5.3,9.8,14],"targetTimes":[1.7,3.6,7,10,14.5],"targetHp":4,
+        "flags":[{"x":263,"y":480},{"x":431,"y":396},{"x":588,"y":310},{"x":773,"y":399},{"x":906,"y":480}],
+        "targets":[{"x":332,"y":480},{"x":381,"y":480},{"x":426,"y":480},{"x":649,"y":399},{"x":700,"y":399},{"x":748,"y":399}],
+        "relay":{"startX":236,"playerY":480,"rivalY":283,"playerSpeed":109,"rivalSpeed":83,
+          "marks":[{"x":347},{"x":530},{"x":725}],"rivalDelays":[1.2,1.32,1.76]}
+      }
     },
     {
       "id":"ina-sayu-watchpath","name":"稲妻・木陰の見回り道","region":"稲妻","level":40,"hub":false,
@@ -5497,6 +5512,20 @@
         {"kind":"stealthCheck","node":"ina-sayu-watchpath","x":1589,"y":480,"name":"大木の確認点","action":"木陰の確認点を調べる","objective":"木の裏に回り、三つ目の確認点を調べる","approach":"早柚「最後の確認点は大木の後ろ。低い道をそのまま進むよ。」","notice":"早柚「三つ、見終わった。柵の手前まで来て。あの狭い穴なら私だけ通れそう。」","cover":{"art":"tree","name":"木の裏","x":1530,"y":480,"w":126,"height":139,"front":true},"stealthGuard":{"id":"sayu-watch-tree","art":"nobushi","x":1751,"roam":57,"offset":3.5,"period":5.0,"range":169,"notice":0.62}},
         {"kind":"stealthHatch","node":"ina-sayu-watchpath","x":1943,"y":480,"name":"根元の小さな抜け穴","action":"狭い抜け穴で早柚に声をかける","objective":"抜け穴から早柚に先回りしてもらい、柵を開ける","notice":"柵が上がり、城下の広場へ直接戻れる近道が開きました。"},
         {"kind":"inspect","node":"inazuma-town","x":1135,"y":480,"name":"早柚の昼寝場所","action":"木の実のそばのお礼を読む","objective":"近道から広場に戻り、眠っている早柚のお礼を読む","notice":"早柚は眠っています。木の実のそばに『起こさなくていいよ。手伝ってくれてありがとう』と書いた葉があります。報告できます。","stealthNap":true}
+      ]
+    },
+    {
+      "id":"ina-itto-three-games","designId":"Q-INA-S04","name":"荒瀧天下一・本気の三番勝負！","giver":"一斗",
+      "hub":"inazuma-town","target":"ina-festival-games","requires":"inazuma-torii-maze","level":40,
+      "kind":"itinerary","goal":4,"xp":106600,"mora":1550,
+      "briefing":"一斗「狸の試練を抜けてきたって？ なら次は俺たちの三番勝負だ。広場に集まれ！」",
+      "closing":"一斗「みんな、よく遊んだ！ 勝っても負けても景品は受け取っていけ。もう一度やりたくなったら合図台へな！」",
+      "completedObjective":"競技広場の合図台で再戦できる。完走と最多勝利を記録",
+      "itinerary":[
+        {"kind":"inspect","node":"inazuma-town","x":681,"y":480,"name":"一斗の競技札","action":"一斗から三番勝負の話を聞く","objective":"城下の広場で一斗から競技の案内を受ける","notice":"一斗「旗集め、訓練的、それから最後はお楽しみだ。競技広場の合図台を調べて始めようぜ。」"},
+        {"kind":"festivalGame","node":"ina-festival-games","objective":"合図台から旗集めを始め、石段と高台の旗を集める","notice":"旗集めが終わりました。"},
+        {"kind":"festivalGame","node":"ina-festival-games","objective":"合図台で訓練的を始め、地上と石段の的を攻撃でまとめて壊す","notice":"訓練的が終わりました。"},
+        {"kind":"festivalGame","node":"ina-festival-games","objective":"最後の競走で子どもを応援する。完走後は城下の広場へ戻る","notice":"表彰を終えました。"}
       ]
     },
     {

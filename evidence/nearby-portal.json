@@ -497,12 +497,20 @@
       "to": "ina-sayu-watchpath"
     },
     {
+      "node": "inazuma-town",
+      "to": "ina-festival-games"
+    },
+    {
       "node": "ina-firework-lookouts",
       "to": "inazuma-town"
     },
     {
       "node": "ina-firework-lookouts",
       "to": "ina-firework-beach"
+    },
+    {
+      "node": "ina-festival-games",
+      "to": "inazuma-town"
     },
     {
       "node": "ina-sayu-watchpath",
