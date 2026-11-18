@@ -1,0 +1,30 @@
+{
+  "threeAngles": true,
+  "threeQuests": true,
+  "gustDisablesCrossing": true,
+  "calmLift": true,
+  "alternateLeeRoute": true,
+  "battle": {
+    "won": true,
+    "seconds": 51.98,
+    "hp": 89,
+    "bossHp": 0,
+    "moves": [
+      "RH01",
+      "RH02"
+    ],
+    "returns": 0
+  },
+  "commands": {
+    "png": 23,
+    "standard": 7472,
+    "light": 1961
+  },
+  "firstReport": [
+    6649,
+    153675,
+    3
+  ],
+  "savedExhibit": true,
+  "errors": []
+}

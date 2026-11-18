@@ -923,12 +923,12 @@
     {
       "node": "dragonspine-camp",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "dragonspine-camp",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "dragonspine-depth",
@@ -1979,6 +1979,56 @@
       "node": "novo-ice-vault",
       "mode": "rect",
       "visible_portals": 2
+    },
+    {
+      "node": "spine-observation-shelf",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "spine-observation-shelf",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "spine-wind-notch",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "spine-wind-notch",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "spine-lee-walk",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "spine-lee-walk",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "spine-shelter",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "spine-shelter",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "spine-trace-ridge",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "spine-trace-ridge",
+      "mode": "rect",
+      "visible_portals": 1
     }
   ],
   "checks": [

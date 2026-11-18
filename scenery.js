@@ -90,6 +90,7 @@ export const sceneryDefinitions={
  bygone:{file:'bygone-background-v1.png',region:'往日の海',zones:[]},
  enkanomiya:{file:'enkanomiya-background-v1.png',region:'淵下宮',zones:[]},
  chenyu:{file:'chenyu-background-v1.png',region:'沈玉の谷',zones:[]},
+ spineRidge:{file:'spine-ridge-background-v1.png',region:null,zones:['story:spine-trace-ridge'],note:'霜紋の稜線の仮背景'},
  dragonspine:{file:'dragonspine-background-v1.png',region:'ドラゴンスパイン',zones:[]},
  voyage:{file:'voyage-background-v1.png',region:'航路',zones:[]},
  snezhnaya:{file:'snezhnaya-background-v1.png',region:'スネージナヤ',zones:[]},
@@ -155,7 +156,7 @@ export function scenery(ctx,frame){
  const inazuma=key==='inazumatown'||key==='inazuma'||key==='toriiforest'||key==='shiomicape';
  const stone=['seacave','windsplit','cryoField','pyroField','electroField','geoField','primoField','oceanidField','maguuField','arrayField','thunderField','pyroHypostasisField','hydroHypostasisField','wolflordField','ruinSerpentField','bathysmalField','electroVineField','aeonblightField','dendroHypostasisField','baptistField','seahorseField','generatorField','tulpaField','icewindField','legatusField','suanniField','qucusaurField','configDeviceField','papillaField','overseerField','duckleField','battleshipField','herraField','nightmareField','moonflyField','moongeckoField','spiritspeakerField','vigilField','flugelField','driftingSnowField','immortalConstructField','wavebinderField','dvalinWeekly','andriusWeekly','tideCalibration','buriedWeaving','clothService','threadlineRelay','dawnVein','ochkaCliff','ochkaKiln','coastalLookout','windwardWorks','thermalRavine','whitePassCoach','whitePassStation','steamStablingDepot','enkanomiya','nodspecial','novokichev','chasm'].includes(key);
  const roof=key==='mondroof',lookout=key==='mondlookout',sandstone=['asimonField','wenutField','emperorField','lavaDragonField'].includes(key);
- const camera=frame.camera||0,snow=['snezhnaya','dragonspine','cryoHypostasisField','wingspan','snowRailTransfer','whitePassSnow','whiteRainbowBasin','auroraGlass','dawnGlass'].includes(key);
+ const camera=frame.camera||0,snow=['snezhnaya','dragonspine','cryoHypostasisField','wingspan','snowRailTransfer','spineRidge','whitePassSnow','whiteRainbowBasin','auroraGlass','dawnGlass'].includes(key);
  drawDecorations(ctx,frame,camera);
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;

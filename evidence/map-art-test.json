@@ -1188,6 +1188,36 @@
       "count": 0,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "spine-observation-shelf",
+      "count": 3,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "spine-wind-notch",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "spine-lee-walk",
+      "count": 4,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "spine-shelter",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "spine-trace-ridge",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,

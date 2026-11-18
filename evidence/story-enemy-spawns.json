@@ -850,6 +850,27 @@
       "node": "novo-ice-vault",
       "enemy_count": 0,
       "field_boss_count": 1
+    },
+    {
+      "node": "spine-observation-shelf",
+      "enemy_count": 3
+    },
+    {
+      "node": "spine-wind-notch",
+      "enemy_count": 0
+    },
+    {
+      "node": "spine-lee-walk",
+      "enemy_count": 4
+    },
+    {
+      "node": "spine-shelter",
+      "enemy_count": 0
+    },
+    {
+      "node": "spine-trace-ridge",
+      "enemy_count": 0,
+      "field_boss_count": 1
     }
   ],
   "render_profiles": [

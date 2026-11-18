@@ -1,6 +1,7 @@
 {
   "errors": [],
-  "allCandidates": 78,
+  "allCandidates": 79,
+  "rimeHareFieldRoute": true,
   "iceCrawlerFieldRoute": true,
   "prismWalkerFieldRoute": true,
   "rubbleSifterFieldRoute": true,

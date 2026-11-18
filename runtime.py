@@ -302,10 +302,12 @@ def runtime():
     core.prismWalkerArt=field_art(lua,'prism-walker',('idle',))
     ice_crawler=lua.execute((ROOT/'field-ice-crawler.lua').read_text(encoding='utf8'))(core)
     core.iceCrawlerArt=field_art(lua,'ice-crawler',('idle','open'))
+    rime_hare=lua.execute((ROOT/'field-rime-hare.lua').read_text(encoding='utf8'))(core)
+    core.rimeHareArt=field_art(lua,'rime-hare',('idle',))
     lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(
         core,lua.table_from(field_specs,recursive=True),
         lua.table_from({'snowSweeper':snow_sweeper,'frostAntler':frost_antler,'windwardTower':windward_tower,
-                        'rubbleSifter':rubble_sifter,'prismWalker':prism_walker,'iceCrawler':ice_crawler,
+                        'rubbleSifter':rubble_sifter,'prismWalker':prism_walker,'iceCrawler':ice_crawler,'rimeHare':rime_hare,
                         'jadeplume':jade,'cryoRegisvine':cryo_field,'pyroRegisvine':pyro_field,
                         'anemoHypostasis':anemo_field,'electroHypostasis':electro_field,'geoHypostasis':geo_field,
                         'primoGeovishap':primo_field,'oceanid':oceanid_field,'maguu':maguu_field,

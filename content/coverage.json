@@ -209,8 +209,8 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 3,
-      "prototype_quest_count": 2,
+      "prototype_stage_count": 8,
+      "prototype_quest_count": 5,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
     {
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 198,
-    "provisional_quests": 131,
+    "authored_stages": 203,
+    "provisional_quests": 134,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -937,11 +937,19 @@
         "stage_ids": [
           "dragonspine-camp",
           "dragonspine-depth",
-          "cryo-hypostasis-field-basin"
+          "cryo-hypostasis-field-basin",
+          "spine-observation-shelf",
+          "spine-wind-notch",
+          "spine-lee-walk",
+          "spine-shelter",
+          "spine-trace-ridge"
         ],
         "quest_ids": [
           "dragonspine-survey",
-          "cryo-hypostasis-commission"
+          "cryo-hypostasis-commission",
+          "spine-noon-pattern",
+          "spine-wind-route",
+          "spine-ridge-record"
         ]
       },
       {
@@ -1215,9 +1223,12 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 36,
-    "without_explicit_mapping": 117,
+    "linked": 39,
+    "without_explicit_mapping": 114,
     "runtime_id_by_design_id": {
+      "Q-B01-01": "spine-noon-pattern",
+      "Q-B01-02": "spine-wind-route",
+      "Q-B01-03": "spine-ridge-record",
       "Q-B06-01": "windward-lookouts",
       "Q-B06-02": "windward-flags",
       "Q-B06-03": "windward-tower-clear",

@@ -1,6 +1,7 @@
 {
   "version": 1,
   "entries": {
+    "original-rime-hare": {"art_candidate":{"item":"rime-hare","audit":"evidence/rime-hare-art.json","status":"original rock hare against mountain ridge with distinct floor telegraphs"}},
     "original-ice-crawler": {"art_candidate":{"item":"ice-crawler","audit":"evidence/ice-crawler-art.json","status":"original field boss, visible armor and exposed core"}},
     "original-prism-walker": {"art_candidate":{"item":"prism-walker","audit":"evidence/prism-walker-art.json","status":"original field boss and local reflection outline"}},
     "original-rubble-sifter": {"art_candidate":{"item":"rubble-sifter","audit":"evidence/cap-stopover-art.json","status":"original optional encounter, heating and exposed rotor poses"}},

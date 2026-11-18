@@ -1,0 +1,20 @@
+{
+  "legacyLevelOneAccess": true,
+  "optionalBarrierTest": true,
+  "shelfThreeAngles": true,
+  "observationsSaved": true,
+  "gustGateRejected": true,
+  "calmLift": true,
+  "pauseFreezesWind": true,
+  "leeRouteOpenInGust": true,
+  "twoBossTelegraphs": true,
+  "zeroImprintRecovery": true,
+  "belowLedgeOnly": true,
+  "exhibitSaved": true,
+  "firstReport": [
+    6649,
+    153675,
+    3
+  ],
+  "noSecondPayout": true
+}

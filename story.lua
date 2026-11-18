@@ -38,6 +38,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   return completed(s,rule.quest) or
    (rule.count and state and state.count>=rule.count and (not rule.recovery or state.recovered))
  end
+ local function windWindow(s,wind)
+  local t=(s.t-s.storyEnteredAt)%wind.period
+  local calm=t>=wind.calmStart and t<wind.calmEnd
+  local nextChange=calm and wind.calmEnd or (t<wind.calmStart and wind.calmStart or wind.period+wind.calmStart)
+  return calm,nextChange-t
+ end
  local function gateRestriction(s,edge)
   if edge.roofTrialStage and s.roofTrial and s.roofTrial.count<edge.roofTrialStage then return '屋根の目印を先に調べてください。' end
   local rule=edge.requires
@@ -54,6 +60,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     return '依頼「'..quests[rule.quest].name..'」'..(rule.count and 'を進めてください。' or 'を報告してください。')
    end
   end
+  if edge.wind and not windWindow(s,edge.wind) then return '吹雪のため通れません。風が止むまで待つか、下の風よけ道へ。' end
   local passed=s.voyage and s.t-s.voyage.started or -1
   if edge.windowStart and not (passed+1e-8>=edge.windowStart and passed+1e-8<edge.windowEnd) then return '寄港時間外' end
   if edge.requiresArrival and not (s.voyage and s.t>=s.voyage.arrives) then return '到着待ち' end
@@ -76,6 +83,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif not s.progression or s.progression.level<n.level then reason='必要レベル '..n.level
     else reason=gateRestriction(s,edge) end
     best={to=edge.to,name=n.name,level=n.level,available=not reason,reason=reason,liftSeconds=edge.liftSeconds};distance=dx
+    if edge.wind then
+     local calm,seconds=windWindow(s,edge.wind)
+     best.wind={calm=calm,seconds=seconds}
+    end
    end
   end
   return best
@@ -245,6 +256,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local n=nodes[id];s.campaign.zone='story:transition';action(s,n.hub and 'town' or 'field')
   s.campaign.zone=n.hub and 'town' or ('story:'..id);s.campaign.message='本編ルートの試作。隣の地点へは門の近くで移動。'
   s.story.active=true;s.story.node=id;s.story.visited[id]=true;s.worldwidth=n.width
+  s.storyEnteredAt=s.t
   s.platforms={};for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]=copy(p) end
   for _,q in ipairs(itineraries) do
    local state=s.story.quests[q.id]
@@ -600,6 +612,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if s.story and s.story.active and #s.enemies>0 and cleared(s,nodes[s.story.node]) then s.enemies={} end
   if s.story and s.story.active and s.returns~=returns then enter(s,s.story.visited[nodes[s.story.node].checkpoint] and nodes[s.story.node].checkpoint or 'mond-town') end
  end
+ local function drawOutcrop(draws,x,y,angle)
+  local shade=({faint='#8199af',partial='#536e91',clear='#24456c'})[angle]
+  draws[#draws+1]={kind='rect',x=x-23,y=y-30,w=46,h=30,color='#68869b'}
+  draws[#draws+1]={kind='rect',x=x-17,y=y-39,w=34,h=27,color='#b9d8e3'}
+  for i=-1,1 do
+   for z=0,3 do
+    draws[#draws+1]={kind='rect',x=x+i*9+z,y=y-30-z*2,w=4,h=2,color=shade}
+   end
+  end
+ end
+
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile);setup(s);f.story=s.story;local visible={version=data.version,status=data.status,nodes={},quests={}}
   local function shown(n) return not n.hiddenGroup or s.story.discovered[n.hiddenGroup] end
@@ -636,6 +659,15 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     marker(x-18,y-90,36,3);marker(x-21,y-3,42,3)
     f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=y}
    end
+   end
+   for _,edge in ipairs(n.exits) do
+    if edge.wind and not windWindow(s,edge.wind) then
+     local x,y=edge.x-s.camera,edge.y or 480
+     for i=1,11 do
+      local drift=(i*53+s.t*236)%320
+      markers[#markers+1]={kind='rect',x=x-144+drift,y=y-100+(i*29)%87,w=29+(i%5)*12,h=2,color='#e1f7ffd4'}
+     end
+    end
    end
    local q,state=cargoQuest(s)
    if q then
@@ -702,10 +734,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif milestone and milestone.kind=='inspect' and milestone.node==s.story.node then
      local x,y=milestone.x-s.camera,milestone.y
      if x>=-25 and x<=985 then
-      markers[#markers+1]={kind='rect',x=x-13,y=y-28,w=26,h=28,color='#5a3648'}
-      markers[#markers+1]={kind='rect',x=x-10,y=y-24,w=20,h=16,color='#eed5a8'}
-      markers[#markers+1]={kind='rect',x=x-6,y=y-20,w=12,h=4,color='#767462'}
-      markers[#markers+1]={kind='text',x=x,y=y-41,text=milestone.name,color='#fff0b9',size=14}
+      if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
+      else
+       markers[#markers+1]={kind='rect',x=x-13,y=y-28,w=26,h=28,color='#5a3648'}
+       markers[#markers+1]={kind='rect',x=x-10,y=y-24,w=20,h=16,color='#eed5a8'}
+       markers[#markers+1]={kind='rect',x=x-6,y=y-20,w=12,h=4,color='#767462'}
+      end
+      markers[#markers+1]={kind='text',x=x,y=y-(milestone.outcrop and 48 or 41),text=milestone.name,color='#fff0b9',size=14}
      end
      if not f.storyNearbyMilestone and not s.paused and canInspect(s.actors[s.active],milestone) then
       f.storyNearbyMilestone={label=milestone.action}
@@ -717,9 +752,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       if done.completedLabel and done.node==s.story.node then
        local x,y=done.x-s.camera,done.y
        if x>=-25 and x<=985 then
-        markers[#markers+1]={kind='rect',x=x-11,y=y-28,w=22,h=28,color='#5a3648'}
-        markers[#markers+1]={kind='rect',x=x-7,y=y-25,w=14,h=12,color='#b9ffce'}
-        markers[#markers+1]={kind='text',x=x,y=y-41,text=done.completedLabel,color='#b9ffce',size=14}
+        if done.outcrop then drawOutcrop(markers,x,y,done.outcrop)
+        else
+         markers[#markers+1]={kind='rect',x=x-11,y=y-28,w=22,h=28,color='#5a3648'}
+         markers[#markers+1]={kind='rect',x=x-7,y=y-25,w=14,h=12,color='#b9ffce'}
+        end
+        markers[#markers+1]={kind='text',x=x,y=y-(done.outcrop and 48 or 41),text=done.completedLabel,color='#b9ffce',size=14}
        end
       end
      end

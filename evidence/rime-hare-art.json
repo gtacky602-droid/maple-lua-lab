@@ -1,0 +1,53 @@
+{
+  "generator": "built-in imagegen",
+  "reference": {
+    "path": "evidence/rime-hare-shape.png",
+    "sha256": "a2b17693a29d1076b7496253e81c9351ad3dd9379c6a6125f4c725188c5f20dc"
+  },
+  "referenceViews": [
+    "left three-quarter",
+    "front three-quarter"
+  ],
+  "subject": "Original crouching rock hare with a repeatable frosted band pattern",
+  "source": {
+    "path": "assets/rime-hare-source-v1.png",
+    "sha256": "d3ab2737bae13529137dd656a2180862a3b4f2f80179497962e19fa171eb940f"
+  },
+  "sourceSize": [
+    1536,
+    1024
+  ],
+  "outsideAlphaSamples": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "box": [
+    297,
+    40,
+    939,
+    923
+  ],
+  "anchorX": 0.48881789137380194,
+  "encoding": {
+    "path": "assets/rime-hare-field-idle-sprites-v1.json",
+    "sha256": "7e89f6ca7f4353e54d28907e45b43191c158da6d571be40260a294b861166d5a"
+  },
+  "runs": {
+    "legacy": 3229,
+    "h48c32": 1973,
+    "h32c16": 895
+  },
+  "background": {
+    "path": "assets/spine-ridge-background-v1.png",
+    "sha256": "0ed9cdae502fab283d42d04ec9b1b197ce2ef080b803961c8df3dbb47c28c3cf",
+    "size": [
+      1774,
+      887
+    ],
+    "mode": "RGB"
+  },
+  "backgroundPrompt": "Original snowy ridge with three diagonal strata and contrasting foothills. Host background; production plans use a 3D arrangement."
+}

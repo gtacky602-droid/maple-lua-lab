@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 198 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 190,
+  "scope": "Authored 203 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 195,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1022,7 +1022,12 @@
     {"id":"nod-quiet-rim","name":"庭の外周・静かな道","region":"ナド・クライ特別地域（仮）","status":"unconfirmed_concept_image"},
     {"id":"novo-frozen-works","name":"凍止設備の通路","region":"ノヴォキッチェヴ（仮構造）","status":"unconfirmed_concept_image"},
     {"id":"novo-drift-passage","name":"吹き溜まりの連絡坑","region":"ノヴォキッチェヴ（仮構造）","status":"unconfirmed_concept_image"},
-    {"id":"novo-ice-vault","name":"氷殻の最深室","region":"ノヴォキッチェヴ（仮構造）","status":"unconfirmed_concept_image"}
+    {"id":"novo-ice-vault","name":"氷殻の最深室","region":"ノヴォキッチェヴ（仮構造）","status":"unconfirmed_concept_image"},
+    {"id":"spine-observation-shelf","name":"霜筋の観測棚","region":"ドラゴンスパイン","status":"regional_temporary_image"},
+    {"id":"spine-wind-notch","name":"風待ちの岩棚","region":"ドラゴンスパイン","status":"regional_temporary_image"},
+    {"id":"spine-lee-walk","name":"雪壁の風よけ道","region":"ドラゴンスパイン","status":"regional_temporary_image"},
+    {"id":"spine-shelter","name":"峰下の観測小屋","region":"ドラゴンスパイン","status":"regional_temporary_image"},
+    {"id":"spine-trace-ridge","name":"霜紋の稜線","region":"ドラゴンスパイン","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 8
 }

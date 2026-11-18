@@ -2702,6 +2702,36 @@
       "transparent": 0
     },
     {
+      "key": "spineRidge",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "spineRidge",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "spineRidge",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "spineRidge",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "spineRidge",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "spineRidge",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "dragonspine",
       "camera": -960,
       "transparent": 0
