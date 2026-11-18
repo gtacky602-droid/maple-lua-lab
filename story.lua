@@ -138,6 +138,22 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if milestone.bridge then s.platforms[#s.platforms+1]=copy(milestone.bridge) end
   if milestone.reflect then s.reflection=nil end
  end
+ local function recordKill(s,state,milestone,enemy)
+  if milestone.enemy==enemy then completeMilestone(s,state,milestone);return end
+  local group=milestone.enemies
+  if not group then return end
+  for _,id in ipairs(group) do if id==enemy then
+   local defeated=state.sweep or {}
+   if defeated[enemy] then return end
+   defeated[enemy]=true;state.sweep=defeated
+   local count=0
+   for _,member in ipairs(group) do if defeated[member] then count=count+1 end end
+   if count==#group then
+    state.sweep=nil;completeMilestone(s,state,milestone)
+   else s.storyNotice='通路の群れを整理中 '..count..' / '..#group end
+   return
+  end end
+ end
  local function inspectMilestone(s,command)
   for _,q in ipairs(itineraries) do
    local milestone,state=nextMilestone(s,q)
@@ -195,6 +211,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local q=quests[n.clearedBy]
   if q and q.rail then return q,s.story.quests[q.id] end
  end
+ local function defeatedMilestones(q,state,node)
+  local defeated=copy(state.sweep or {})
+  for i=1,state.count do
+   local step=q.itinerary[i]
+   if step.kind=='kill' and step.node==node then
+    if step.enemy then defeated[step.enemy]=true end
+    for _,id in ipairs(step.enemies or {}) do defeated[id]=true end
+   end
+  end
+  return defeated
+ end
  local function spawnEnemies(s,n,phase,recovered,defeated)
   s.enemies={}
   if not n.hub and not n.peaceful and not cleared(s,n) then
@@ -227,6 +254,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
   end
   s.reflection=nil
+  s.expeditionPractice=false
   s.lift=nil
   s.railTrip=nil
   s.readingQuest=nil
@@ -254,7 +282,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local phase=railState and railState.count or 0
   if stageQuest and stageQuest.recovery and stageState and stageState.recovered and stageState.count==stageQuest.goal-1 then phase=1 end
   local group=stageState and (stageState.book or stageState.forest or stageState.rest)
-  spawnEnemies(s,n,phase,stageState and stageState.recovered,group and group.defeated)
+  local defeated=group and group.defeated
+  if stageState and stageQuest.itinerary then defeated=defeatedMilestones(stageQuest,stageState,id) end
+  spawnEnemies(s,n,phase,stageState and stageState.recovered,defeated)
   local cargo,state=cargoQuest(s)
   if cargo and cargo.chase and recoveredAll(cargo,state) then beginChase(s,cargo) end
   for i,a in ipairs(s.actors) do a.x=(spawn or 160)-(i-1)*40;a.y=arrivalY or 480;a.vy=0;a.ground=true;if arrivalY then a.drop=0 end end
@@ -284,6 +314,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    return
   end
   if key=='story_nearby_portal' then local p=nearbyPortal(s);if p then C.action(s,'story_portal:'..p.to) end;return end
+  if key=='story_expedition_trial' then
+   local desk=s.story.active and nodes[s.story.node].expeditionDesk
+   if desk and not s.paused and canInspect(s.actors[s.active],desk) then s.expeditionPractice=true end
+   return
+  end
   if key=='story_reflection_light' or key=='story_reflection_confirm' then
    if s.story.active and not s.paused then
     inspectMilestone(s,key=='story_reflection_light' and 'light' or 'confirm')
@@ -427,7 +462,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     end
    end
    for _,edge in ipairs(n.exits) do
-    if edge.to==previous then spawn=edge.x<720 and 160 or n.width-160;arrival=edge end
+    if edge.to==previous and not edge.returnOnly then spawn=edge.x<720 and 160 or n.width-160;arrival=edge end
    end
    if departure and departure.liftSeconds then
     local seconds=departure.liftSeconds
@@ -468,6 +503,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if q.cooking then state.cooking.meals=1 end
     if state.sights then sights.report(s,q) end
     state.status='complete';state.cycles=(state.cycles or 0)+1;s.mora=s.mora+q.mora;C.grantExp(s,q.xp,'quest')
+    if q.ore then C.grantUpgradeOre(s,q.ore) end
     if not state.sights then s.storyNotice=(not q.sights and q.closing) or (q.sights and q.sights.legacyName or q.name)..'：報酬を受け取りました。' end
     if q.starter and s.companion==q.join then C.refreshArtifactStats(s,true) end
    end
@@ -482,8 +518,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    progress(s,'kill',s.story.node,e)
    for _,q in ipairs(itineraries) do
     local milestone,state=nextMilestone(s,q)
-    if milestone and milestone.kind=='kill' and milestone.node==s.story.node and milestone.enemy==e.spawnId then
-     completeMilestone(s,state,milestone)
+    if milestone and milestone.kind=='kill' and milestone.node==s.story.node and e.spawnId then
+     recordKill(s,state,milestone,e.spawnId)
     end
    end
    for id,state in pairs(s.story.quests) do
@@ -573,6 +609,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   for id,q in pairs(quests) do if q.join and s.story.quests[id] and s.story.quests[id].status=='complete' then f.storyJoined[q.join]=true end end
   if s.story.active then local n=nodes[s.story.node];f.location=n.name..'（本編試作）'
    f.storyCleared=cleared(s,n) and true or nil
+   if n.expeditionDesk and canInspect(s.actors[s.active],n.expeditionDesk) then
+    local barrier=n.expeditionDesk.barrier
+    f.storyExpeditionDesk={barrier=barrier,
+     practice=s.expeditionPractice and math.floor(100*C.barrierMultiplier(C.partyImprint(s),barrier)+.5) or nil}
+   end
    local reward=s.storyFirstClear
    if reward and s.t<reward.untilTime then f.storyFirstClear={quest=reward.quest,xp=reward.xp} end
    if n.clearedBy and not f.storyCleared then

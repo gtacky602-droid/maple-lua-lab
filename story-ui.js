@@ -8,7 +8,7 @@ const panel=document.getElementById('storyPanel');let previous='';
 function button(label,action){const b=document.createElement('button');b.textContent=label;b.onclick=()=>{window.lab.action(action);b.blur()};return b}
 function update(){
  const f=window.lab?.frame;if(!f?.story)return;
- const signature=JSON.stringify([f.story,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.imprintTrial,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0)]);if(signature===previous)return;previous=signature;
+ const signature=JSON.stringify([f.story,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0)]);if(signature===previous)return;previous=signature;
  const tracked=document.getElementById('trackedQuest'),text=trackedQuestText(f,trackedId);tracked.hidden=!text;document.getElementById('trackedQuestText').textContent=text;
  panel.replaceChildren();const title=document.createElement('p');title.textContent=`本編ルート試作：モンド → スネージナヤ（${f.storyGraph.nodes.length}表示地点・${f.storyGraph.quests.length}表示依頼）。配置・敵・報酬は仮設定。背景画像は共用。`;panel.append(title,button('本編ルートへ','story_start'));
  if(f.bossJourney){const notice=document.createElement('p');notice.textContent=f.bossJourney.name+'・本編挑戦'+(f.bossJourney.defeated?'／討伐済み':'');panel.append(notice,button('挑戦入口へ戻る','world_boss_return'));}
@@ -29,7 +29,8 @@ function update(){
   const p=coords.get(n.id),circle=document.createElementNS(svg.namespaceURI,'circle');Object.entries({cx:p.x,cy:p.y,r:12,fill:n.id===node.id?'#ffe296':f.story.visited[n.id]?'#83dbe1':'#66727b'}).forEach(([k,v])=>circle.setAttribute(k,v));svg.append(circle);
   const text=document.createElementNS(svg.namespaceURI,'text');text.setAttribute('x',p.x);text.setAttribute('y',p.y+35);text.setAttribute('text-anchor','middle');text.setAttribute('fill','currentColor');text.setAttribute('font-size','11');text.textContent=n.name;svg.append(text);
  });panel.append(svg);
- const barrier=document.createElement('p');barrier.textContent='障壁の検証値 '+f.imprintTrial+' / 50（刻印装備は未連動・保存しません）。仮式：0で10%、基準値で100%のダメージ。';panel.append(barrier);
+ const barrier=document.createElement('p');barrier.textContent=`装備の光界値 ${f.imprintGrowth?.total??0} / 50${f.imprintOverride?` ｜ 障壁に使う検証値 ${f.imprintTrial}（保存対象外）`:''}。試作の障壁は0で10%、基準値以上で100%のダメージ。`;panel.append(barrier);
+ if(f.imprintOverride){const b=button('装備の光界値を使う','barrier_from_equipment');b.disabled=!node.hub;panel.append(b)}
  for(const value of [0,3,8,10,13,25,30,35,40,50]){const b=button('検証値 '+value,'barrier_trial:'+value);b.disabled=!node.hub;panel.append(b)}
  if(node.lightReference){const note=document.createElement('p');note.textContent='この分岐の光界値目安：'+node.lightReference+'。入場条件ではありません。敵/障壁は試作です。';panel.append(note)}
 

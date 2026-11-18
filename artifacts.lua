@@ -1,5 +1,5 @@
 -- Inventory / main-stat prototype. No final set/substat/crit implementation claim.
-return function(C)
+return function(C,imprint)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local oreDiscount=400
  local pendingAttackLimit=16
@@ -20,6 +20,11 @@ return function(C)
  local function roll(s,n)
   local bag=s.inventory;bag.rng=(bag.rng*48271)%2147483647;return bag.rng%n+1
  end
+ local function equippedRole(s,item)
+  if item.owner==2 and item.companionId~=(s.companion or 'amber') then return 0 end
+  return item.owner
+ end
+ function C.partyImprint(s) return (s.actors[1].imprint or 0)+(s.actors[2].imprint or 0) end
  local function anchor(points,level)
   for i=2,#points do local a,b=points[i-1],points[i]
    if level<=b[1] then local t=(level-a[1])/(b[1]-a[1]);if a[2]==0 then return b[2]*t end;return a[2]*(b[2]/a[2])^t end
@@ -29,6 +34,8 @@ return function(C)
  function C.artifactStats(item)
   local factor=rarity[item.rarity]*(.2+.8*item.enhance/caps[item.rarity])
   local base=item.slot==1 and anchor(flower,item.itemLv) or item.slot==2 and anchor(feather,item.itemLv) or ({[3]=25,[4]=12,[5]=30})[item.slot]
+  local multipliers=item.slot<=2 and imprint.fixedMainStatMultipliers or imprint.percentMainStatMultipliers
+  factor=factor*multipliers[(item.imprintStars or 0)+1]
   if item.slot<=2 then return math.floor(base*factor+.5) end
   return math.floor(base*factor*100+.5)/100
  end
@@ -36,10 +43,11 @@ return function(C)
   setup(s)
   local starter=C.starterEquipment and C.starterEquipment(s,s.companion)
   for i,a in ipairs(s.actors) do
-   local hp,atk,pct,element,crit,rate=0,0,0,0,0,0
+   local hp,atk,pct,element,crit,rate,stars=0,0,0,0,0,0,0
    local sets={gladiator=0,troupe=0};local hpPct=0
    local hasFlower=false
-   for _,item in ipairs(s.inventory.items) do if item.owner==i then
+   for _,item in ipairs(s.inventory.items) do if equippedRole(s,item)==i then
+    stars=stars+(item.imprintStars or 0)
     local v=C.artifactStats(item)
     if item.slot==1 then hp=hp+v;hasFlower=true elseif item.slot==2 then atk=atk+v elseif item.slot==3 then pct=pct+v elseif item.slot==4 then element=element+v elseif item.slot==5 then crit=crit+v end
     if item.setId then sets[item.setId]=sets[item.setId]+1 end
@@ -56,6 +64,7 @@ return function(C)
    a.maxhp=math.floor((140+hp)*(1+hpPct/100))
    a.hp=math.min(a.maxhp,keepHp and a.hp or math.floor(a.hp/old*a.maxhp))
    a.atk=math.floor(((i==1 and 4 or 3)+atk)*(1+pct/100));a.elementBonus=element/100;a.critDamageBonus=crit/100
+   a.imprint=stars
   end
  end
  local function properties(s,item)
@@ -126,13 +135,27 @@ return function(C)
    if not s.campaign or s.campaign.zone~='town' then bag.message='町で装備を変更してください。';return end
    for index,item in ipairs(bag.items) do if item.id==tonumber(id) then
     if command=='equip' then
-     for _,other in ipairs(bag.items) do if other.owner==s.active and other.slot==item.slot then other.owner=0 end end
-     item.owner=s.active;bag.message='操作中キャラに装備しました。';C.refreshArtifactStats(s)
-    elseif command=='remove' then item.owner=0;C.refreshArtifactStats(s)
+     for _,other in ipairs(bag.items) do
+      if equippedRole(s,other)==s.active and other.slot==item.slot then other.owner,other.companionId=0,nil end
+     end
+     item.owner=s.active;item.companionId=s.active==2 and (s.companion or 'amber') or nil
+     bag.message='操作中キャラに装備しました。';C.refreshArtifactStats(s)
+    elseif command=='remove' then item.owner,item.companionId=0,nil;C.refreshArtifactStats(s)
     elseif command=='lock' then item.locked=not item.locked
     elseif command=='sell' then
      if item.owner~=0 or item.locked then bag.message='装備中・ロック中の品は売却できません。'
      else local price=C.artifactSalePrice(item);table.remove(bag.items,index);s.mora=s.mora+price;bag.message=price..'モラで売却しました（試算価格）。' end
+    elseif command=='imprint' then
+     local nextStar=(item.imprintStars or 0)+1
+     local cost=nextStar*imprint.costPerStar
+     if item.enhance<caps[item.rarity] then bag.message='通常強化を上限まで進めると刻印できます。'
+     elseif nextStar>imprint.caps[tostring(item.rarity)] then bag.message='刻印の上限です。'
+     elseif s.mora<cost then bag.message='刻印には'..cost..'モラ必要です。'
+     else
+      s.mora=s.mora-cost;item.imprintStars=nextStar
+      C.refreshArtifactStats(s)
+      bag.message='光界刻印を'..nextStar..'星にしました。'
+     end
     elseif command=='upgrade' or command=='useore' then
      local ore=command=='useore'
      local next=item.enhance+4
@@ -170,12 +193,14 @@ return function(C)
  end
  function C.frame(s,mode,profile)
   setup(s);local f=frame(s,mode,profile);f.inventory=s.inventory;f.upgradeOreDiscount=oreDiscount
+  f.imprintGrowth={total=C.partyImprint(s),byActor={s.actors[1].imprint or 0,s.actors[2].imprint or 0},
+   caps=imprint.caps,costPerStar=imprint.costPerStar}
   f.artifactAttackBlocked=#s.inventory.ground>=pendingAttackLimit
   local starter=C.starterEquipment and C.starterEquipment(s,s.companion)
   if starter then
    local useFlower=true
    for _,item in ipairs(s.inventory.items) do
-    if item.owner==2 and item.slot==1 then useFlower=false;break end
+    if equippedRole(s,item)==2 and item.slot==1 then useFlower=false;break end
    end
    f.starterEquipment={weapon=starter.weapon,flower=starter.flower,useFlower=useFlower}
   end
@@ -189,7 +214,14 @@ return function(C)
  end
  function C.restore(d,density)
   local s=restore(d,density);setup(s)
-  if d.inventory then s.inventory=d.inventory;C.refreshArtifactStats(s) end
+  s.companion=d.companion or 'amber'
+  if d.inventory then
+   s.inventory=d.inventory
+   for _,item in ipairs(s.inventory.items) do
+    if item.owner==2 and not item.companionId then item.companionId=s.companion end
+   end
+   C.refreshArtifactStats(s)
+  end
   return s
  end
 end

@@ -6,5 +6,8 @@
   "lockAndSale": true,
   "fieldLootStop": true,
   "returnedByInventoryAction": true,
-  "allDropsRecovered": true
+  "allDropsRecovered": true,
+  "imprintFee": 200000,
+  "imprintChangesStats": true,
+  "companionsKeepSeparateEquipment": true
 }

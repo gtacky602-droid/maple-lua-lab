@@ -60,10 +60,8 @@ return function(C)
   if id then
    if not s.campaign or s.campaign.zone~='town' or (id~='amber' and id~='columbina' and id~='wanderer' and id~='beidou' and id~='ayaka' and id~='emilie' and id~='kachina' and id~='mitya') then return end
    if (s.companion or 'amber')==id then return end
-   local starter=C.starterEquipment
-   local changedStarter=starter and starter(s,s.companion)~=starter(s,id)
    s.companion=id
-   if changedStarter then C.refreshArtifactStats(s,true) end
+   C.refreshArtifactStats(s,true)
    clear(s);s.actors[2].cd={};s.actors[2].lock=0;s.decoys={}
    for i=#s.pending,1,-1 do if s.pending[i].id==2 then table.remove(s.pending,i) end end
    return

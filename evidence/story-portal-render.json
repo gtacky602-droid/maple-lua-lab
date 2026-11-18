@@ -1093,12 +1093,12 @@
     {
       "node": "novokichev-camp",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "novokichev-camp",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "novokichev-depth",
@@ -1947,6 +1947,36 @@
     },
     {
       "node": "nod-quiet-rim",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "novo-frozen-works",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "novo-frozen-works",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "novo-drift-passage",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "novo-drift-passage",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "novo-ice-vault",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "novo-ice-vault",
       "mode": "rect",
       "visible_portals": 2
     }

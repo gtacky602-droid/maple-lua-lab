@@ -1,5 +1,5 @@
 {
-  "controllers": 54,
+  "controllers": 55,
   "ids": [
     "boss-26110101",
     "boss-26020101",
@@ -54,7 +54,8 @@
     "original-frost-antler",
     "original-windward-tower",
     "original-rubble-sifter",
-    "original-prism-walker"
+    "original-prism-walker",
+    "original-ice-crawler"
   ],
   "hpAndGenerationRoundTrip": true,
   "optionalFlagsOnlyOnDeclaredControllers": true,

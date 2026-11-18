@@ -1,0 +1,32 @@
+{
+  "deskRows": 5,
+  "practiceDamage": 10,
+  "imprint": 0,
+  "equipmentRoute": true,
+  "savedGroup": true,
+  "threeQuests": true,
+  "directReturn": true,
+  "battle": {
+    "won": true,
+    "seconds": 67.3,
+    "hp": 68,
+    "bossHp": 0,
+    "moves": [
+      "IC01",
+      "IC02"
+    ],
+    "returns": 0
+  },
+  "commands": {
+    "png": 21,
+    "standard": 8813,
+    "light": 2333
+  },
+  "firstReport": [
+    17133467,
+    882270,
+    8
+  ],
+  "savedReport": true,
+  "errors": []
+}

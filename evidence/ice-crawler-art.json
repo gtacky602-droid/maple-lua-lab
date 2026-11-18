@@ -1,0 +1,52 @@
+{
+  "generator": "built-in imagegen with original side-view blockout for both poses",
+  "reference": {
+    "path": "evidence/ice-crawler-shape.png",
+    "sha256": "85ffe20cb16e641d13f84710f2e2b3f4e4d315fb2d3f5129ecd316fc3643944a"
+  },
+  "source": {
+    "path": "assets/ice-crawler-source-v1.png",
+    "sha256": "cf6e7594d61917253b81a486173f86b6e388c111e76294f142563bb13f6b0b8b"
+  },
+  "sourceSize": [
+    2172,
+    724
+  ],
+  "subject": "Original low glacial trilobite with four ceramic joints and four translucent mineral plates",
+  "referenceScope": "Original profile and silhouette only; no existing game model or art was supplied.",
+  "openHeight": "Matched to the idle sprite body width and grounded feet. Orange reserved inside the palette.",
+  "poses": {
+    "idle": {
+      "path": "assets/ice-crawler-field-idle-sprites-v1.json",
+      "height": 116,
+      "box": [
+        145,
+        198,
+        795,
+        440
+      ],
+      "anchorX": 0.4742138364779874,
+      "runs": {
+        "legacy": 4479,
+        "h48c32": 2952,
+        "h32c16": 1283
+      }
+    },
+    "open": {
+      "path": "assets/ice-crawler-field-open-sprites-v1.json",
+      "height": 151,
+      "box": [
+        1211,
+        63,
+        809,
+        574
+      ],
+      "anchorX": 0.4758961681087763,
+      "runs": {
+        "legacy": 4572,
+        "h48c32": 3073,
+        "h32c16": 1269
+      }
+    }
+  }
+}

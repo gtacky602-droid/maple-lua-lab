@@ -2202,6 +2202,15 @@
       {"id":"ochka-court-blocking-carrier","x":816,"platform":0,"hp":68,"kind":2,"art":"pebble-courier"},
       {"id":"ochka-court-side-carrier","x":1030,"platform":0,"hp":32,"kind":1,"art":"pebble-courier"},
       {"id":"ochka-court-upper-carrier","x":1350,"platform":2,"hp":36,"kind":2,"art":"pebble-courier"}
+    ],
+    "novo-frozen-works": [
+      {"id":"novo-works-hoist-guard","name":"巻き上げ機の見張り","x":758,"platform":1,"hp":51,"kind":2,"art":"snow-mantle-beetle"},
+      {"id":"novo-works-wheel-guard","name":"送風輪の見張り","x":1158,"platform":0,"hp":59,"kind":2,"art":"pebble-courier"}
+    ],
+    "novo-drift-passage": [
+      {"id":"novo-drift-west-guard","name":"西の氷殻虫","x":377,"platform":0,"hp":31,"kind":2,"art":"snow-mantle-beetle"},
+      {"id":"novo-drift-upper-guard","name":"上段の氷殻虫","x":810,"platform":1,"hp":34,"kind":2,"art":"snow-mantle-beetle"},
+      {"id":"novo-drift-east-guard","name":"東の氷殻虫","x":1188,"platform":0,"hp":38,"kind":2,"art":"snow-mantle-beetle"}
     ]
   }
 }

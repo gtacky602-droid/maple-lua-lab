@@ -1,0 +1,19 @@
+{
+  "realEquipmentOpticalScore": true,
+  "imprintStatsAndCaps": true,
+  "companionEquipPersists": true,
+  "tenSlots": 50,
+  "legacyOwnerMigrates": true,
+  "zeroImprintTrial": 10,
+  "bridgesAndGuardsRestored": true,
+  "guardGroupAnyOrderAndSaved": true,
+  "closedHit": 9,
+  "openPlateBypassesBarrier": true,
+  "directReturnAndReport": true,
+  "firstReport": [
+    17133467,
+    882270,
+    8
+  ],
+  "killDoesNotGrantFirstReport": true
+}

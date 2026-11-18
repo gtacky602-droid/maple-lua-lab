@@ -5,6 +5,8 @@ _STORY_GRAPH=json.loads((Path(__file__).parent/"content/story-graph.json").read_
 _FIELD_BOSSES={slot["id"]:slot for slot in json.loads((Path(__file__).parent/"content/field-boss-spawns.json").read_text(encoding="utf-8-sig"))["fieldBosses"]}
 _WEEKLY_BOSSES={slot['id']:slot for slot in json.loads((Path(__file__).parent/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses']}
 _STORY_ZONES={"story:"+n["id"] for n in _STORY_GRAPH["nodes"]}
+_IMPRINT_CAPS=json.loads((Path(__file__).parent/'content/imprint-settings.json').read_text(encoding='utf8'))['caps']
+_COMPANIONS=('amber','columbina','wanderer','beidou','ayaka','emilie','kachina','mitya')
 import math
 """Versioned local checkpoint validation; this is not a production multiplayer save."""
 FIELDS={'version','quest','count','mora','kills','hits','damage','gauge','active'}
@@ -15,7 +17,8 @@ def validate_save(data):
         raise ValueError('対応していない保存バージョンです')
     if data['quest'] not in ('available','hunt','boss','report','complete'):
         raise ValueError('依頼の状態が不正です')
-    if data.get('companion','amber') not in ('amber','columbina','wanderer','beidou','ayaka','emilie','kachina','mitya'): raise ValueError('仲間が不正です')
+    companion=data.get('companion','amber')
+    if companion not in _COMPANIONS: raise ValueError('仲間が不正です')
     for key,maximum in [('count',8),('mora',10**12),('kills',10**9),('hits',10**12),('damage',10**15),('gauge',100),('active',2)]:
         if type(data[key]) is not int or not 0<=data[key]<=maximum:
             raise ValueError('保存数値が不正です: '+key)
@@ -84,14 +87,24 @@ def validate_save(data):
         if type(bag.get('combatRng',1973)) is not int or not 1<=bag.get('combatRng',1973)<2147483647: raise ValueError('会心乱数が不正です')
         ids=set();equipped=set()
         for item in bag['items']+[d['item'] for d in ground]:
-            if not isinstance(item,dict) or set(item)-{'locked','setId','subpair'}!={'id','slot','itemLv','rarity','enhance','owner'} or any(type(v) is not int for k,v in item.items() if k not in ('locked','setId','subpair')): raise ValueError('聖遺物形式が不正です')
+            optional={'locked','setId','subpair','companionId','imprintStars'}
+            required={'id','slot','itemLv','rarity','enhance','owner'}
+            if not isinstance(item,dict) or set(item)-optional!=required or any(type(item[k]) is not int for k in required): raise ValueError('聖遺物形式が不正です')
             if not 0<item['id']<bag['nextId'] or item['id'] in ids or not 1<=item['slot']<=5 or not 1<=item['itemLv']<=220 or item['rarity'] not in (3,4,5) or item['owner'] not in (0,1,2): raise ValueError('聖遺物の値が不正です')
-            if item['enhance'] not in range(0,{3:12,4:16,5:20}[item['rarity']]+1,4): raise ValueError('強化値が不正です')
+            cap={3:12,4:16,5:20}[item['rarity']]
+            if item['enhance'] not in range(0,cap+1,4): raise ValueError('強化値が不正です')
+            stars=item.get('imprintStars',0)
+            if (type(stars) is not int or not 0<=stars<=_IMPRINT_CAPS[str(item['rarity'])]
+                    or (stars and item['enhance']!=cap)):
+                raise ValueError('光界刻印の星数が不正です')
+            bound=item.get('companionId',companion) if item['owner']==2 else None
+            if 'companionId' in item and (item['owner']!=2 or item['companionId'] not in _COMPANIONS):
+                raise ValueError('聖遺物の装備者が不正です')
             if 'setId' in item and item['setId'] not in ('gladiator','troupe'): raise ValueError('セットが不正です')
             if 'subpair' in item and item['subpair'] not in ('atk_crit','hp_crit'): raise ValueError('サブ効果が不正です')
             if item.get('subpair')=='atk_crit' and item['slot']==3: raise ValueError('主効果とサブ効果の重複です')
             if 'locked' in item and type(item['locked']) is not bool: raise ValueError('装備ロックが不正です')
-            ids.add(item['id']);slot=(item['owner'],item['slot'])
+            ids.add(item['id']);slot=(item['owner'],bound,item['slot'])
             if item['owner'] and slot in equipped: raise ValueError('装備部位が重複しています')
             if item['owner']: equipped.add(slot)
     if 'story' in data:
@@ -108,7 +121,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -131,6 +144,14 @@ def validate_save(data):
                 required_nodes = {quest['hub'], *(item['node'] for item in quest['itinerary'][:q['count']])}
                 if not required_nodes <= st['visited'].keys():
                     raise ValueError('未訪問の地点が調査済みになっています')
+            if 'sweep' in q:
+                itinerary=quest.get('itinerary',[])
+                step=itinerary[q['count']] if q['count']<len(itinerary) else {}
+                allowed=set(step.get('enemies',[])) if step.get('kind')=='kill' else set()
+                defeated=q['sweep']
+                if (not isinstance(defeated,dict) or not defeated or not defeated.keys()<allowed
+                        or any(flag is not True for flag in defeated.values()) or step['node'] not in st['visited']):
+                    raise ValueError('遠征の討伐記録が不正です')
             if quest.get('requires'):
                 predecessor = st['quests'].get(quest['requires'])
                 if not isinstance(predecessor, dict) or predecessor.get('status') != 'complete':

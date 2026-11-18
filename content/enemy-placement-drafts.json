@@ -173,6 +173,15 @@
       {"id":"preview-ochka-court-blocking-carrier","species":"pebble-courier","x":816,"y":480,"flip":false},
       {"id":"preview-ochka-court-side-carrier","species":"pebble-courier","x":1030,"y":480,"flip":false},
       {"id":"preview-ochka-court-upper-carrier","species":"pebble-courier","x":1350,"y":393,"flip":false}
+    ],
+    "novo-frozen-works": [
+      {"id":"preview-novo-works-hoist-guard","species":"snow-mantle-beetle","x":758,"y":294,"flip":false},
+      {"id":"preview-novo-works-wheel-guard","species":"pebble-courier","x":1158,"y":480,"flip":false}
+    ],
+    "novo-drift-passage": [
+      {"id":"preview-novo-drift-west-guard","species":"snow-mantle-beetle","x":377,"y":480,"flip":false},
+      {"id":"preview-novo-drift-upper-guard","species":"snow-mantle-beetle","x":810,"y":389,"flip":false},
+      {"id":"preview-novo-drift-east-guard","species":"snow-mantle-beetle","x":1188,"y":480,"flip":false}
     ]
   }
 }

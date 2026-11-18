@@ -52,8 +52,35 @@ try{
   return !f.artifactAttackBlocked&&f.inventory.ground.length===0&&f.inventory.items.length===21;
  });
  if(await warning.isVisible())throw Error('loot warning remained after recovery');
+
+ // A capped feather in a legal checkpoint isolates the browser imprint action from ordinary upgrade costs.
+ await page.evaluate(()=>{
+  const key='maple-lua-lab.checkpoint.v1',save=JSON.parse(localStorage.getItem(key));
+  save.mora=400000;
+  save.inventory.items[1].enhance=12;
+  save.inventory.ground=[];
+  localStorage.setItem(key,JSON.stringify(save));
+ });
+ await page.click('#loadProgress');
+ await page.waitForFunction(()=>window.lab.frame.mora===400000);
+ await page.locator('[data-action="swap"]').click();
+ await page.waitForFunction(()=>window.lab.frame.active===2);
+ const feather=page.locator('#inventoryRows > div').nth(1);
+ await feather.getByRole('button',{name:'操作中キャラに装備'}).click();
+ await page.waitForFunction(()=>window.lab.frame.inventory.items[1].companionId==='amber');
+ const armorBefore=await page.evaluate(()=>window.lab.frame.actors[1].atk);
+ await feather.getByRole('button',{name:/刻印 1星/}).click();
+ await page.waitForFunction(before=>{
+  const f=window.lab.frame;
+  return f.imprintGrowth.total===1&&f.imprintTrial===1&&f.mora===200000&&f.actors[1].atk>before;
+ },armorBefore);
+ await page.locator('[data-action="companion:columbina"]').click();
+ await page.waitForFunction(()=>window.lab.frame.companion?.id==='columbina'&&window.lab.frame.imprintGrowth.total===0);
+ await page.locator('[data-action="companion:amber"]').click();
+ await page.waitForFunction(()=>window.lab.frame.companion?.id==='amber'&&window.lab.frame.imprintGrowth.total===1);
  if(errors.length)throw Error(errors.join('\n'));
  await fs.writeFile('evidence/artifacts-browser.json',JSON.stringify({errors,kitItems:5,equippedAttack:attack,saveReload:true,lockAndSale:true,
-  fieldLootStop:true,returnedByInventoryAction:true,allDropsRecovered:true},null,2));
+  fieldLootStop:true,returnedByInventoryAction:true,allDropsRecovered:true,imprintFee:200000,
+  imprintChangesStats:true,companionsKeepSeparateEquipment:true},null,2));
  console.log('Artifact kit, equip stat change and persisted equipment passed');
 }finally{await browser.close()}

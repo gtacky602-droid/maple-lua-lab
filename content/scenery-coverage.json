@@ -1,7 +1,7 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 195 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "scope": "Authored 198 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
   "regional_temporary_image": 190,
   "fallback_mondstadt": 0,
   "nodes": [
@@ -1019,7 +1019,10 @@
     {"id":"ochka-sifting-kiln","name":"焚き口の選鉱室","region":"オシカ・ナタ","status":"regional_temporary_image"},
     {"id":"nod-reflector-shore","name":"照り返しの波打ち際","region":"ナド・クライ特別地域（仮）","status":"unconfirmed_concept_image"},
     {"id":"nod-reflection-garden","name":"月映りの庭（仮）","region":"ナド・クライ特別地域（仮）","status":"unconfirmed_concept_image"},
-    {"id":"nod-quiet-rim","name":"庭の外周・静かな道","region":"ナド・クライ特別地域（仮）","status":"unconfirmed_concept_image"}
+    {"id":"nod-quiet-rim","name":"庭の外周・静かな道","region":"ナド・クライ特別地域（仮）","status":"unconfirmed_concept_image"},
+    {"id":"novo-frozen-works","name":"凍止設備の通路","region":"ノヴォキッチェヴ（仮構造）","status":"unconfirmed_concept_image"},
+    {"id":"novo-drift-passage","name":"吹き溜まりの連絡坑","region":"ノヴォキッチェヴ（仮構造）","status":"unconfirmed_concept_image"},
+    {"id":"novo-ice-vault","name":"氷殻の最深室","region":"ノヴォキッチェヴ（仮構造）","status":"unconfirmed_concept_image"}
   ],
-  "unconfirmed_concept_image": 5
+  "unconfirmed_concept_image": 8
 }

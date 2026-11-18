@@ -1170,6 +1170,24 @@
       "count": 0,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "novo-frozen-works",
+      "count": 2,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "novo-drift-passage",
+      "count": 3,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "novo-ice-vault",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,

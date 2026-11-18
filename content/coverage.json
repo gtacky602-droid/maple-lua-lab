@@ -298,8 +298,8 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 3,
-      "prototype_quest_count": 2,
+      "prototype_stage_count": 6,
+      "prototype_quest_count": 5,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
     {
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 195,
-    "provisional_quests": 128,
+    "authored_stages": 198,
+    "provisional_quests": 131,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -1058,11 +1058,17 @@
         "stage_ids": [
           "novokichev-camp",
           "novokichev-depth",
-          "wavebinder-tide-cavern"
+          "wavebinder-tide-cavern",
+          "novo-frozen-works",
+          "novo-drift-passage",
+          "novo-ice-vault"
         ],
         "quest_ids": [
           "novokichev-survey",
-          "wavebinder-commission"
+          "wavebinder-commission",
+          "novo-expedition-ready",
+          "novo-equipment-route",
+          "novo-return-report"
         ]
       },
       {
@@ -1209,8 +1215,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 33,
-    "without_explicit_mapping": 120,
+    "linked": 36,
+    "without_explicit_mapping": 117,
     "runtime_id_by_design_id": {
       "Q-B06-01": "windward-lookouts",
       "Q-B06-02": "windward-flags",
@@ -1221,6 +1227,9 @@
       "Q-B08-01": "nod-light-path",
       "Q-B08-02": "nod-light-record",
       "Q-B08-03": "nod-rim-return",
+      "Q-B09-01": "novo-expedition-ready",
+      "Q-B09-02": "novo-equipment-route",
+      "Q-B09-03": "novo-return-report",
       "Q-INA-M01": "inazuma-moving-lantern",
       "Q-INA-M02": "inazuma-torii-maze",
       "Q-INA-M03": "inazuma-lantern-contest",

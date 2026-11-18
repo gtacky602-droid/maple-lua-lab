@@ -72,7 +72,8 @@ def runtime():
     lua.execute((ROOT / 'reactions.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'loadout.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'progression.lua').read_text(encoding='utf-8'))(core,lua.table_from(RUNTIME_EXP,recursive=True))
-    lua.execute((ROOT / 'artifacts.lua').read_text(encoding='utf-8'))(core)
+    imprint=json.loads((ROOT/'content/imprint-settings.json').read_text(encoding='utf8'))
+    lua.execute((ROOT / 'artifacts.lua').read_text(encoding='utf-8'))(core,lua.table_from(imprint,recursive=True))
     lua.execute((ROOT / 'companions.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'star-seed.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'beidou.lua').read_text(encoding='utf-8'))(core)
@@ -299,10 +300,12 @@ def runtime():
     core.rubbleSifterArt=field_art(lua,'rubble-sifter',('idle','heating','open'))
     prism_walker=lua.execute((ROOT/'field-prism-walker.lua').read_text(encoding='utf8'))(core)
     core.prismWalkerArt=field_art(lua,'prism-walker',('idle',))
+    ice_crawler=lua.execute((ROOT/'field-ice-crawler.lua').read_text(encoding='utf8'))(core)
+    core.iceCrawlerArt=field_art(lua,'ice-crawler',('idle','open'))
     lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(
         core,lua.table_from(field_specs,recursive=True),
         lua.table_from({'snowSweeper':snow_sweeper,'frostAntler':frost_antler,'windwardTower':windward_tower,
-                        'rubbleSifter':rubble_sifter,'prismWalker':prism_walker,
+                        'rubbleSifter':rubble_sifter,'prismWalker':prism_walker,'iceCrawler':ice_crawler,
                         'jadeplume':jade,'cryoRegisvine':cryo_field,'pyroRegisvine':pyro_field,
                         'anemoHypostasis':anemo_field,'electroHypostasis':electro_field,'geoHypostasis':geo_field,
                         'primoGeovishap':primo_field,'oceanid':oceanid_field,'maguu':maguu_field,
