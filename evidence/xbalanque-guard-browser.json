@@ -1,0 +1,85 @@
+{
+  "directions": [
+    {
+      "side": "right",
+      "profile": "legacy",
+      "rectangles": 1565
+    },
+    {
+      "side": "right",
+      "profile": "h48c32",
+      "rectangles": 1020
+    },
+    {
+      "side": "right",
+      "profile": "h32c16",
+      "rectangles": 471
+    },
+    {
+      "side": "left",
+      "profile": "legacy",
+      "rectangles": 1573
+    },
+    {
+      "side": "left",
+      "profile": "h48c32",
+      "rectangles": 969
+    },
+    {
+      "side": "left",
+      "profile": "h32c16",
+      "rectangles": 455
+    }
+  ],
+  "map": {
+    "diff": null,
+    "dirty": true,
+    "ready": true,
+    "node": "natlan-solar-court",
+    "nodeCount": 355,
+    "camera": 0,
+    "profile": "h32c16",
+    "count": 2,
+    "selected": null,
+    "editMode": "add",
+    "placements": [
+      {
+        "id": "added-1",
+        "species": "boss-xbalanque-guard",
+        "x": 271,
+        "y": 480,
+        "flip": false
+      },
+      {
+        "id": "added-2",
+        "species": "boss-xbalanque-guard",
+        "x": 656,
+        "y": 480,
+        "flip": true
+      }
+    ],
+    "visuals": [
+      {
+        "id": "added-1",
+        "source": "xbalanque-guard-right-source-v1.png",
+        "y": 480,
+        "hover": 0,
+        "height": 84
+      },
+      {
+        "id": "added-2",
+        "source": "xbalanque-guard-left-source-v1.png",
+        "y": 480,
+        "hover": 0,
+        "height": 84
+      }
+    ],
+    "grounded": true,
+    "background": "solarSparringCourt",
+    "backgroundFallback": false,
+    "backgroundState": "ready",
+    "backgroundFile": "xbalanque-court-background-v1.png"
+  },
+  "mobileOverflow": false,
+  "errors": []
+}

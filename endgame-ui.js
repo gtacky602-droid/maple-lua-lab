@@ -58,15 +58,15 @@ export function initEndgameUI(action){
    duelHp.value=health.hp;
    get('stygianHealth').textContent=`${fight.mode}${fight.stageName?` ｜ ${fight.stageName}`:''} ｜ HP ${health.hp} / ${health.maxhp}`;
    get('stygianClock').textContent=fight.status==='fighting'
-    ? `残り ${Math.ceil(fight.remaining)}秒` : fight.elapsed?`${fight.elapsed.toFixed(1)}秒`:'';
-   get('stygianDialogue').textContent=fight.dialogue||'';
+    ? (fight.remaining!==undefined?`残り ${Math.ceil(fight.remaining)}秒`:'') : fight.elapsed?`${fight.elapsed.toFixed(1)}秒`:'';
+   get('stygianDialogue').textContent=fight.dialogue||fight.chain?.join(' → ')||'';
   }
   if(fight){
    next.hidden=fight.kind!=='abyss'||fight.status!=='between';
    const prize=fight.matchReward;
    const result=fight.match?(fight.status==='clear'
     ? `勝利 ｜ ${prize.mora.toLocaleString()}モラ・★${prize.rank} ${prize.set}${prize.bag?'':'（広場で受取）'}`
-    : fight.status==='failed'?(fight.remaining<=0?'時間切れ。入口から再挑戦できます。':'挑戦終了。入口から再挑戦できます。')
+    : fight.status==='failed'?(fight.remaining===0?'時間切れ。入口から再挑戦できます。':'挑戦終了。入口から再挑戦できます。')
     :fight.hint)
     :fight.status==='clear'?`突破：${fight.reward?`星${fight.stars}・${fight.reward}`:'自己記録を保存しました'}`:
     fight.status==='failed'?'挑戦終了。入口から再挑戦できます。':

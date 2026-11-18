@@ -531,7 +531,8 @@ def runtime():
         'idle':{'left':companion_art['beidou']['left'],'right':companion_art['beidou']},
         'guard':guard_assets,
     },recursive=True)
-    capitano_moves=lua.execute((ROOT/'stygian-capitano-moves.lua').read_text(encoding='utf8'))(core)
+    stygian_geometry=lua.execute((ROOT/'stygian-geometry.lua').read_text(encoding='utf8'))
+    capitano_moves=lua.execute((ROOT/'stygian-capitano-moves.lua').read_text(encoding='utf8'))(core,stygian_geometry)
     capitano=lua.execute((ROOT/'stygian-capitano.lua').read_text(encoding='utf8'))(core,capitano_moves)
     capitano_audit=json.loads((ROOT/'assets/capitano-stygian-generation-v1.json').read_text(encoding='utf8'))
     core.stygianCapitanoArt=lua.table_from({
@@ -542,9 +543,17 @@ def runtime():
         'sword':json.loads((ROOT/'assets/capitano-ice-sword-sprites-v1.json').read_text(encoding='utf8')),
         'hands':capitano_audit['hand_sockets'],
     },recursive=True)
+    xbalanque_moves=lua.execute((ROOT/'stygian-xbalanque-moves.lua').read_text(encoding='utf8'))(core,stygian_geometry)
+    xbalanque=lua.execute((ROOT/'stygian-xbalanque.lua').read_text(encoding='utf8'))(core,stygian_geometry,xbalanque_moves)
+    xbalanque_audit=json.loads((ROOT/'assets/xbalanque-stygian-generation-v1.json').read_text(encoding='utf8'))
+    core.stygianXbalanqueArt=lua.table_from({
+        kind:{side:json.loads((ROOT/'assets'/f'xbalanque-{kind}-{side}-sprites-v1.json').read_text(encoding='utf8'))
+              for side in ('left','right')}
+        for kind in ('idle','guard','punch')
+    } | {'hands':xbalanque_audit['hand_sockets']},recursive=True)
     lua.execute((ROOT/'endgame.lua').read_text(encoding='utf8'))(
         core,lua.table_from(abyss,recursive=True),lua.table_from(weekly_specs,recursive=True),
-        lua.table_from(stygian,recursive=True),lua.table_from({'beidou':stygian_beidou,'capitano':capitano}))
+        lua.table_from(stygian,recursive=True),lua.table_from({'beidou':stygian_beidou,'capitano':capitano,'xbalanque':xbalanque}))
     lua.execute((ROOT/'growth-trials.lua').read_text(encoding='utf8'))(core)
     return lua, core
 

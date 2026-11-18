@@ -859,15 +859,15 @@
       "art_candidate": {
         "item": "xbalanque",
         "audit": "evidence/xbalanque-idle-reference-audit.json",
-        "status": "directional unarmed idle candidate in Mausau's form"
+        "status": "Directional unarmed idle"
       },
-      "remaining": [
-        "動作・台詞・炎の別素材",
-        "専用戦闘行動",
-        "4難度・報酬",
-        "マルチ・記録"
+      "art_variants": [
+        {"item":"xbalanque-guard","audit":"assets/xbalanque-stygian-generation-v1.json","status":"Directional guard key"},
+        {"item":"xbalanque-punch","audit":"assets/xbalanque-stygian-generation-v1.json","status":"Directional punch key"}
       ],
-      "review_note": "少年マソウの衣装で、素手の待機を84pxの比較サイズで左右別に試作。"
+      "extra_evidence": ["docs/stygian-motion-v1/XBALANQUE_WEB.md","evidence/stygian-xbalanque-lua.json","evidence/stygian-xbalanque-browser.json"],
+      "remaining": ["連続キー作画・効果音","上位難度の通しプレイ・報酬調整","マルチ・本番3D配置と幻境実機"],
+      "review_note": "少年の拳の三段階、八つの技と三つの連携。聖火は背景演出。"
     },
     "stygian-rerir": {
       "art_candidate": {

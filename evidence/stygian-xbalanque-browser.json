@@ -1,0 +1,39 @@
+{
+  "background": {
+    "key": "solarSparringCourt",
+    "file": "xbalanque-court-background-v1.png",
+    "state": "ready"
+  },
+  "normalClear": true,
+  "trail": {
+    "stages": [
+      1,
+      2,
+      3
+    ],
+    "cards": [
+      "XB01",
+      "XB04",
+      "XB06",
+      "XB08"
+    ],
+    "centralLeft": true,
+    "centralRight": true,
+    "groundedCentral": true,
+    "guard": true,
+    "punch": true,
+    "left": true,
+    "right": true
+  },
+  "noCountdown": true,
+  "standingEnd": true,
+  "avoidedAllFinaleWindows": true,
+  "questReportSaveRestore": true,
+  "viewport390": true,
+  "commands": {
+    "png": 54,
+    "standard": 5205,
+    "light": 1417
+  },
+  "errors": []
+}

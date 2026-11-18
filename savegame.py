@@ -374,8 +374,9 @@ def validate_endgame(data):
                 raise ValueError('Invalid challenge time')
             if category == 'stygian':
                 key=entry['mainSkill']
+                limit=known[id].get('limit')
                 if (not isinstance(key,str) or not re.fullmatch(r'[A-Za-z0-9:_-]{1,48}',key)
-                        or entry['bestTicks']>known[id]['limit']*60):
+                        or limit is not None and entry['bestTicks']>limit*60):
                     raise ValueError('Invalid Stygian result')
             if category == 'abyss':
                 mode = known[id]

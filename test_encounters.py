@@ -20,7 +20,7 @@ check('completion not overclaimed',d['counts']['complete']==0 and not d['complet
 check('not implemented rows cannot launch',all(r['action'] is None for r in rows if r['status']=='not_implemented'))
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
-check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':87,'partial':83,'complete':0})
+check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':87,'partial':84,'complete':0})
 by_id={r['id']:r for r in rows}
 childe=by_id['boss-29030101']
 check('Childe has a distinct weekly route',
@@ -233,7 +233,9 @@ check('Capitano art and design linked without a playable action',
       and by_id['stygian-capitano']['action'] is None)
 check('Xbalanque art and design linked without a playable action',
       by_id['stygian-xbalanque']['art_candidate']['encoding']=='assets/xbalanque-idle-right-sprites-v1.json'
-      and by_id['stygian-xbalanque']['evidence']==['docs/stygian-motion-v1/XBALANQUE.md']
+      and by_id['stygian-xbalanque']['evidence'][0]=='docs/stygian-motion-v1/XBALANQUE.md'
+      and by_id['stygian-xbalanque']['status']=='partial'
+      and by_id['stygian-xbalanque']['stygianNode']=='natlan-solar-court'
       and by_id['stygian-xbalanque']['action'] is None)
 check('Rerir art and design linked without a playable action',
       by_id['stygian-rerir']['art_candidate']['encoding']=='assets/rerir-idle-right-sprites-v1.json'

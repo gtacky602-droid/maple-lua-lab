@@ -147,8 +147,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 34,
-      "prototype_quest_count": 20,
+      "prototype_stage_count": 35,
+      "prototype_quest_count": 21,
       "official_map2_markers": {
         "waypoints": 126,
         "statues": 9
@@ -356,7 +356,7 @@
     {
       "id": "stygian",
       "name": "幽境の激戦",
-      "status": "farka_normal_and_beidou_capitano_four_mode_prototypes",
+      "status": "farka_normal_and_beidou_capitano_xbalanque_four_mode_prototypes",
       "boss_candidates": [
         "ファルカ",
         "隊長",
@@ -588,8 +588,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 354,
-    "provisional_quests": 222,
+    "authored_stages": 355,
+    "provisional_quests": 223,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -606,11 +606,11 @@
     "partial": [
       "farka",
       "beidou",
-      "capitano"
+      "capitano",
+      "xbalanque"
     ],
     "not_implemented": [
       "wanderer",
-      "xbalanque",
       "rerir",
       "ronova"
     ],
@@ -625,7 +625,7 @@
     "catalog": "content/encounters.json",
     "source_entities": 63,
     "candidates": 87,
-    "partial": 83,
+    "partial": 84,
     "complete": 0,
     "complete_roster_verified": false
   },
@@ -995,9 +995,11 @@
           "natlan-sunset-review",
           "natlan-sunset-arena",
           "natlan-sunset-rostrum",
-          "primal-fire-sundered-forge"
+          "primal-fire-sundered-forge",
+          "natlan-solar-court"
         ],
         "quest_ids": [
+          "stygian-xbalanque-commission",
           "primal-fire-weekly-commission",
           "growth-pair-imprint",
           "kachina-join",

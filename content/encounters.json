@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 87,
-    "partial": 83,
+    "partial": 84,
     "complete": 0
   },
   "encounters": [
@@ -2646,25 +2646,43 @@
       "name": "シュバランケ",
       "kind": "stygian",
       "entity_ids": [],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "docs/stygian-motion-v1/XBALANQUE.md"
+        "docs/stygian-motion-v1/XBALANQUE.md",
+        "docs/stygian-motion-v1/XBALANQUE_WEB.md",
+        "evidence/stygian-xbalanque-lua.json",
+        "evidence/stygian-xbalanque-browser.json"
       ],
       "remaining": [
-        "動作・台詞・炎の別素材",
-        "専用戦闘行動",
-        "4難度・報酬",
-        "マルチ・記録"
+        "連続キー作画・効果音",
+        "上位難度の通しプレイ・報酬調整",
+        "マルチ・本番3D配置と幻境実機"
       ],
+      "stygianNode": "natlan-solar-court",
+      "stygianEntrance": "幽境・烈日の手合わせ場（Lv112）",
       "art_candidate": {
         "source": "assets/xbalanque-idle-right-source-v1.png",
         "encoding": "assets/xbalanque-idle-right-sprites-v1.json",
         "audit": "evidence/xbalanque-idle-reference-audit.json",
-        "status": "directional unarmed idle candidate in Mausau's form"
+        "status": "Directional unarmed idle"
       },
-      "review_note": "少年マソウの衣装で、素手の待機を84pxの比較サイズで左右別に試作。"
+      "art_variants": [
+        {
+          "source": "assets/xbalanque-guard-right-source-v1.png",
+          "encoding": "assets/xbalanque-guard-right-sprites-v1.json",
+          "audit": "assets/xbalanque-stygian-generation-v1.json",
+          "status": "Directional guard key"
+        },
+        {
+          "source": "assets/xbalanque-punch-right-source-v1.png",
+          "encoding": "assets/xbalanque-punch-right-sprites-v1.json",
+          "audit": "assets/xbalanque-stygian-generation-v1.json",
+          "status": "Directional punch key"
+        }
+      ],
+      "review_note": "少年の拳の三段階、八つの技と三つの連携。聖火は背景演出。"
     },
     {
       "id": "stygian-rerir",

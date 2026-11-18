@@ -186,11 +186,12 @@ return function(C,abyss,weekly,matches,controllers)
   step(s,dt,input)
   if run.match then
    local spec=matches[run.match]
+   local limit=run.rules.limit
    if s.returns~=returns then
     run.status='failed';s.campaign.message='挑戦終了。入口から再挑戦できます。'
-   elseif run.boss.hp<=0 and s.t-run.start<=run.rules.limit+1e-8 then
+   elseif run.boss.hp<=0 and (not limit or s.t-run.start<=limit+1e-8) then
     stygianClear(s,run,spec)
-   elseif s.t-run.start>=run.rules.limit then
+   elseif limit and s.t-run.start>=limit then
     run.status='failed';s.campaign.message='時間切れ。入口から再挑戦できます。'
    else controllers[run.match].finish(s,run,spec,dt) end
    return
@@ -250,7 +251,8 @@ return function(C,abyss,weekly,matches,controllers)
    if run.match then
     local spec=matches[run.match]
     v.match,v.name,v.mode,v.elapsed=run.match,spec.name,run.rules.name,run.elapsed
-    v.remaining=math.max(0,run.rules.limit-(s.t-run.start));v.matchReward=run.reward
+    v.remaining=run.rules.limit and math.max(0,run.rules.limit-(s.t-run.start)) or nil
+    v.matchReward=run.reward
     controllers[run.match].observe(f,s,run,spec,mode,profile)
    end
   elseif s.story and s.story.active and byNode[s.story.node] then

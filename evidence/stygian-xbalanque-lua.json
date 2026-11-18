@@ -1,0 +1,42 @@
+{
+  "cards": [
+    "XB01",
+    "XB02",
+    "XB03",
+    "XB04",
+    "XB05",
+    "XB06",
+    "XB07",
+    "XB08"
+  ],
+  "rank_levels": [
+    112,
+    138,
+    163,
+    188
+  ],
+  "locked_direction": true,
+  "ground_beam_single_contact": true,
+  "three_fireballs": true,
+  "jump_root_height_px": 149.6,
+  "landing_only_contact_tick": 84,
+  "parent_card_lengths": {
+    "A": 318,
+    "B": 456,
+    "C": 420
+  },
+  "child_recoveries_and_exact_offsets": true,
+  "first_solo_before_chain": true,
+  "finale_windows": [
+    144,
+    228,
+    300,
+    390
+  ],
+  "central_safe_width_U": 1.6,
+  "finale_recovery": 180,
+  "three_ordinary_cards_between_finales": true,
+  "no_limit_late_record_restores": true,
+  "clear_cancels_live_child_projectile": true,
+  "standing_end_pose_84px": true
+}

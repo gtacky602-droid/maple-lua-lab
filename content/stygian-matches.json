@@ -645,6 +645,512 @@
         "CP02",
         "CP04"
       ]
+    },
+    "xbalanque": {
+      "entity": 990004,
+      "node": "natlan-solar-court",
+      "hub": "natlan-hub",
+      "challenge": "stygian-xbalanque",
+      "name": "シュバランケ・烈日の手合わせ",
+      "design": "docs/stygian-motion-v1/XBALANQUE.md",
+      "arena": {
+        "unit": 88,
+        "left": 40,
+        "right": 920,
+        "floor": 480,
+        "bossX": 680,
+        "playerX": 270
+      },
+      "timing": {
+        "enter": 120,
+        "phase": 90,
+        "defeat": 120,
+        "ordinaryBeforeFinale": 3,
+        "walkSpeed": 155
+      },
+      "thresholds": [
+        0.65,
+        0.3
+      ],
+      "dialogue": {
+        "enter": "よし、手合わせしよう。拳の動き、よく見ていて。",
+        "p2": "炎の来る場所を、足元でも確かめて。",
+        "p3": "さあ、最後の型を見せるよ。",
+        "clear": "見事だった。今日はここまでにしよう。"
+      },
+      "moves": {
+        "XB01": {
+          "title": "双焔拳",
+          "total": 108,
+          "locks": [
+            12
+          ],
+          "windows": [
+            [
+              36,
+              42
+            ],
+            [
+              54,
+              60
+            ]
+          ],
+          "recovery": 66,
+          "shapes": [
+            {
+              "kind": "rect",
+              "u0": 0.05,
+              "u1": 0.95,
+              "v0": 0.25,
+              "v1": 0.8
+            },
+            {
+              "kind": "rect",
+              "u0": 0.05,
+              "u1": 1.25,
+              "v0": 0.2,
+              "v1": 0.9
+            }
+          ],
+          "root": [
+            0.08,
+            0.08
+          ],
+          "damage": 23
+        },
+        "XB02": {
+          "title": "烈陽連拳",
+          "total": 156,
+          "locks": [
+            18
+          ],
+          "windows": [
+            [
+              42,
+              48
+            ],
+            [
+              66,
+              72
+            ],
+            [
+              90,
+              96
+            ]
+          ],
+          "recovery": 102,
+          "shapes": [
+            {
+              "kind": "rect",
+              "u0": 0.05,
+              "u1": 1.05,
+              "v0": 0.05,
+              "v1": 0.55
+            },
+            {
+              "kind": "rect",
+              "u0": 0.05,
+              "u1": 1.3,
+              "v0": 0.35,
+              "v1": 1.1
+            },
+            {
+              "kind": "capsule",
+              "u0": 0.1,
+              "u1": 1.15,
+              "v0": 0.1,
+              "v1": 1.45,
+              "radius": 0.2
+            }
+          ],
+          "root": [
+            0.1,
+            0.1,
+            0.1
+          ],
+          "damage": 27,
+          "raiseTell": 54
+        },
+        "XB03": {
+          "title": "灼光弾",
+          "total": 240,
+          "locks": [
+            18
+          ],
+          "windows": [
+            [
+              48,
+              138
+            ],
+            [
+              72,
+              162
+            ],
+            [
+              96,
+              186
+            ]
+          ],
+          "recovery": 192,
+          "shapes": [],
+          "projectile": {
+            "height": 0.7,
+            "start": 0.35,
+            "speed": 4,
+            "radius": 0.16,
+            "ttl": 90
+          },
+          "damage": 29
+        },
+        "XB04": {
+          "title": "熾光拳・放射",
+          "total": 204,
+          "locks": [
+            30
+          ],
+          "windows": [
+            [
+              78,
+              120
+            ]
+          ],
+          "recovery": 120,
+          "shapes": [
+            {
+              "kind": "rect",
+              "u0": 0.15,
+              "u1": 5,
+              "v0": 0.2,
+              "v1": 1
+            }
+          ],
+          "root": [
+            0.12
+          ],
+          "damage": 35
+        },
+        "XB05": {
+          "title": "墜陽拳",
+          "total": 180,
+          "locks": [
+            18
+          ],
+          "windows": [
+            [
+              84,
+              90
+            ]
+          ],
+          "recovery": 102,
+          "shapes": [
+            {
+              "kind": "rect",
+              "u0": -1.1,
+              "u1": 1.1,
+              "v0": 0,
+              "v1": 0.6
+            }
+          ],
+          "jump": [
+            54,
+            84
+          ],
+          "reach": 2.4,
+          "height": 1.7,
+          "damage": 38
+        },
+        "XB06": {
+          "title": "太陽の拳",
+          "total": 240,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              90,
+              102
+            ]
+          ],
+          "recovery": 132,
+          "shapes": [
+            {
+              "kind": "rect",
+              "u0": 0.1,
+              "u1": 2.3,
+              "v0": 0.15,
+              "v1": 1.35
+            }
+          ],
+          "root": [
+            0.25
+          ],
+          "damage": 44
+        },
+        "XB07": {
+          "title": "烈日連携",
+          "total": 318,
+          "locks": [
+            12,
+            126
+          ],
+          "windows": [
+            [
+              36,
+              42
+            ],
+            [
+              54,
+              60
+            ],
+            [
+              150,
+              156
+            ],
+            [
+              174,
+              180
+            ],
+            [
+              198,
+              204
+            ]
+          ],
+          "recovery": 210,
+          "variants": {
+            "A": {
+              "total": 318,
+              "recovery": 210,
+              "children": [
+                {
+                  "key": "XB01",
+                  "at": 0
+                },
+                {
+                  "key": "XB02",
+                  "at": 108
+                }
+              ]
+            },
+            "B": {
+              "total": 456,
+              "recovery": 348,
+              "children": [
+                {
+                  "key": "XB02",
+                  "at": 0
+                },
+                {
+                  "key": "XB03",
+                  "at": 156
+                }
+              ]
+            },
+            "C": {
+              "total": 420,
+              "recovery": 312,
+              "children": [
+                {
+                  "key": "XB05",
+                  "at": 0
+                },
+                {
+                  "key": "XB06",
+                  "at": 180
+                }
+              ]
+            }
+          }
+        },
+        "XB08": {
+          "title": "烈日激突",
+          "total": 600,
+          "locks": [
+            60,
+            330
+          ],
+          "windows": [
+            [
+              144,
+              150
+            ],
+            [
+              228,
+              240
+            ],
+            [
+              300,
+              312
+            ],
+            [
+              390,
+              402
+            ]
+          ],
+          "recovery": 420,
+          "shapes": [
+            {
+              "kind": "rect",
+              "u0": 0,
+              "u1": 1.3,
+              "v0": 0.1,
+              "v1": 1.1
+            },
+            {
+              "kind": "rect",
+              "u0": 0,
+              "u1": 4.2,
+              "v0": 0,
+              "v1": 0.5
+            },
+            {
+              "kind": "rect",
+              "u0": 5.8,
+              "u1": 10,
+              "v0": 0,
+              "v1": 0.5
+            },
+            {
+              "kind": "rect",
+              "u0": 0,
+              "u1": 4,
+              "v0": 0.15,
+              "v1": 1.1
+            }
+          ],
+          "dash": [
+            120,
+            144
+          ],
+          "reach": 3,
+          "damage": 49,
+          "leads": [
+            0,
+            156,
+            228,
+            312
+          ],
+          "finalAim": 312
+        }
+      },
+      "p1Order": [
+        "XB01",
+        "XB02",
+        "XB03"
+      ],
+      "modes": [
+        {
+          "id": "normal",
+          "name": "通常",
+          "level": 112,
+          "hp": 1780,
+          "rest": 38,
+          "attackScale": 1,
+          "mora": 1640,
+          "firstMora": 890,
+          "itemLevel": 112,
+          "rarity": 4,
+          "p2Order": [
+            "XB04",
+            "XB05",
+            "XB02",
+            "XB03"
+          ],
+          "p3Order": [
+            "XB01",
+            "XB04",
+            "XB02",
+            "XB07:A",
+            "XB03",
+            "XB05",
+            "XB07:B",
+            "XB07:C"
+          ]
+        },
+        {
+          "id": "hard",
+          "name": "ハード",
+          "level": 138,
+          "hp": 2510,
+          "rest": 30,
+          "attackScale": 1.13,
+          "mora": 2310,
+          "firstMora": 1260,
+          "itemLevel": 138,
+          "rarity": 4,
+          "p2Order": [
+            "XB04",
+            "XB05",
+            "XB03",
+            "XB02"
+          ],
+          "p3Order": [
+            "XB07:A",
+            "XB03",
+            "XB05",
+            "XB07:B",
+            "XB04",
+            "XB01",
+            "XB07:C",
+            "XB02"
+          ]
+        },
+        {
+          "id": "master",
+          "name": "マスター",
+          "level": 163,
+          "hp": 3410,
+          "rest": 19,
+          "attackScale": 1.25,
+          "mora": 3600,
+          "firstMora": 2040,
+          "itemLevel": 162,
+          "rarity": 5,
+          "p2Order": [
+            "XB05",
+            "XB04",
+            "XB02",
+            "XB03"
+          ],
+          "p3Order": [
+            "XB07:B",
+            "XB04",
+            "XB05",
+            "XB07:C",
+            "XB02",
+            "XB03",
+            "XB07:A",
+            "XB01"
+          ]
+        },
+        {
+          "id": "extreme",
+          "name": "極限",
+          "level": 188,
+          "hp": 4480,
+          "rest": 11,
+          "attackScale": 1.39,
+          "mora": 5180,
+          "firstMora": 2770,
+          "itemLevel": 186,
+          "rarity": 5,
+          "p2Order": [
+            "XB05",
+            "XB04",
+            "XB03",
+            "XB02"
+          ],
+          "p3Order": [
+            "XB07:C",
+            "XB03",
+            "XB04",
+            "XB07:B",
+            "XB05",
+            "XB01",
+            "XB07:A",
+            "XB02"
+          ]
+        }
+      ]
     }
   }
 }

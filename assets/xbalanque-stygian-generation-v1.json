@@ -1,0 +1,78 @@
+{
+  "tool": "Codex built-in ImageGen",
+  "status": "Web 84px unarmed action keys with independent fire effects",
+  "refs": {
+    "design": "docs/stygian-motion-v1/XBALANQUE.md",
+    "previousArt": "evidence/xbalanque-idle-reference-audit.json",
+    "directlyViewed": [
+      "assets/xbalanque-idle-left-source-v1.png",
+      "assets/xbalanque-idle-right-source-v1.png",
+      "work/references/xbalanque/hoyolab-render.jpg",
+      "work/references/xbalanque/model-turnaround.jpg",
+      "work/references/xbalanque/quest-yV2JYfz14xs.jpg"
+    ],
+    "modelViewsSource": "https://x.com/GemazuKurabu/status/1873730066460373192",
+    "chapter": "https://genshin.hoyoverse.com/ja/news/detail/127791",
+    "limit": "Community static model views and one quest still, plus the authored idle. Body-front/side/rear detail only. A live model and full motion audit remain unverified."
+  },
+  "directions": "Independent left/right chamber and straight-punch keys, narrow shoulders and short ankles under the hood. Right-cheek triangle, right-arm feathers and left-thigh band use the existing design.",
+  "bodyHeight": 84,
+  "hand_sockets": {
+    "idle": {
+      "left": {
+        "x": 15,
+        "y": 21
+      },
+      "right": {
+        "x": 14,
+        "y": 22
+      }
+    },
+    "guard": {
+      "left": {
+        "x": 17,
+        "y": 37
+      },
+      "right": {
+        "x": 15,
+        "y": 40
+      }
+    },
+    "punch": {
+      "left": {
+        "x": 31,
+        "y": 46
+      },
+      "right": {
+        "x": 31,
+        "y": 46
+      }
+    }
+  },
+  "rectangles": {
+    "guardLeft": [
+      1573,
+      969,
+      455
+    ],
+    "guardRight": [
+      1565,
+      1020,
+      471
+    ],
+    "punchLeft": [
+      1607,
+      1014,
+      480
+    ],
+    "punchRight": [
+      1665,
+      1024,
+      477
+    ]
+  },
+  "background": {
+    "source": "assets/xbalanque-court-background-v1.png",
+    "role": "Host-rendered fictional basalt terrace. The existing production plan uses 3D placement."
+  }
+}

@@ -9,6 +9,8 @@ const cases={
  'capitano-battle':{prefix:'capitano-battle',height:152,node:'sne-stygian-frost-court',background:'capitano-court-background-v1.png'},
  'capitano-strike':{prefix:'capitano-strike',height:145,node:'sne-stygian-frost-court',background:'capitano-court-background-v1.png'},
  xbalanque:{prefix:'xbalanque-idle',height:84},
+ 'xbalanque-guard':{prefix:'xbalanque-guard',height:84,node:'natlan-solar-court',background:'xbalanque-court-background-v1.png'},
+ 'xbalanque-punch':{prefix:'xbalanque-punch',height:84,node:'natlan-solar-court',background:'xbalanque-court-background-v1.png'},
  rerir:{prefix:'rerir-idle',height:144,node:'nod-field',background:'nodkrai-background-v1.png'},
  ronova:{prefix:'ronova-idle',height:144,node:'snezhnaya-field',background:'snezhnaya-background-v1.png',hover:17.6},
 };
