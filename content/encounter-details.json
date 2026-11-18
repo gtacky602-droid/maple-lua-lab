@@ -318,13 +318,18 @@
       "aliases": ["博士", "万有涅槃縛境"],
       "review_note": "スメールの征討領域「万有涅槃縛境」の挑戦。",
       "extra_evidence": [
-        "https://gamewith.jp/genshin/article/show/560976"
+        "docs/weekly-boss-v1/HERETIC_WEB.md",
+        "evidence/heretic-weekly-lua.json",
+        "evidence/heretic-weekly-browser.json",
+        "https://wiki.hoyolab.com/pc/genshin/entry/3799?lang=ja-jp"
       ],
+      "remaining": ["攻撃ごとの連続ドット作画、効果音、背面モデル照合", "戦闘中の保存と再開、実マルチでの押し戻しと攻撃受付", "難度と報酬の調整、本番の3D配置と幻境実機検証"],
       "art_candidate": {
-        "item": "dottore-heretical",
-        "audit": "evidence/dottore-heretical-reference-audit.json",
-        "status": "idle candidate"
-      }
+        "item": "heretic-weekly",
+        "audit": "assets/heretic-weekly-generation-v1.json",
+        "status": "Web prototype idle sprite with a separate second-form halo"
+      },
+      "art_variants": [{"item":"dottore-heretical","audit":"evidence/dottore-heretical-reference-audit.json","status":"Earlier armor reference study"}]
     },
     "boss-25140101": {
       "remaining": ["原作の星反応と本作の採用技の対応", "守り・自傷・回復・時刻・地域数値・周回報酬の調整", "左右別・連続動作・被弾・撃破の作画と音", "背面モデル照合・Webマルチ・幻境実機"],

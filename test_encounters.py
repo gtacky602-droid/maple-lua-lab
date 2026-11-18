@@ -20,7 +20,7 @@ check('completion not overclaimed',d['counts']['complete']==0 and not d['complet
 check('not implemented rows cannot launch',all(r['action'] is None for r in rows if r['status']=='not_implemented'))
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
-check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':87,'partial':80,'complete':0})
+check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':87,'partial':81,'complete':0})
 by_id={r['id']:r for r in rows}
 childe=by_id['boss-29030101']
 check('Childe has a distinct weekly route',
@@ -66,6 +66,10 @@ doctor=by_id['boss-29130201']
 check('False Moon has a distinct weekly route from the Heretic',
       doctor['kind']=='weekly' and doctor['weeklyNode']=='nod-false-moon-court'
       and doctor['status']=='partial' and by_id['boss-29150101'].get('weeklyNode')!=doctor['weeklyNode'])
+heretic=by_id['boss-29150101']
+check('Heretic has a separate Sumeru weekly route',
+      heretic['kind']=='weekly' and heretic['weeklyNode']=='sumeru-heretic-lattice'
+      and heretic['status']=='partial' and heretic['action'] is None)
 loom=by_id['original-twin-shuttle-loom']
 check('loom trial is separate from the imported list',
       loom['weeklyNode']=='buried-weaving-room' and not loom['entity_ids'] and loom['status']=='partial')

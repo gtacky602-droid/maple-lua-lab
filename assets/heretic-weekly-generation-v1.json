@@ -1,0 +1,29 @@
+{
+  "tool": "Codex built-in ImageGen",
+  "sprites": {
+    "source": "assets/heretic-weekly-idle-source-v1.png",
+    "encoding": "assets/heretic-weekly-idle-sprites-v1.json",
+    "reference": "assets/dottore-heretical-idle-source-v1.png",
+    "proportions_reference": "assets/false-moon-weekly-idle-source-v1.png",
+    "prior_reference_audit": "evidence/dottore-heretical-reference-audit.json",
+    "direction": "Low-bodied armored artificer with swept cyan hair, red single-eye visor, block-like shoulders and gauntlets. The second-form branches and lattice are separate Lua effects.",
+    "bodyLandmarkY": {
+      "hairTop": 116,
+      "chin": 505,
+      "sole": 1256
+    },
+    "approximateHeads": 2.93,
+    "rectangles": {
+      "legacy": 4838,
+      "h48c32": 3084,
+      "h32c16": 1422
+    }
+  },
+  "backgrounds": [
+    {
+      "source": "assets/heretic-lattice-background-v1.png",
+      "direction": "Teal ruin and moss-covered square lattice around a low-contrast floor",
+      "role": "Host-rendered placeholder for 3D scenery"
+    }
+  ]
+}

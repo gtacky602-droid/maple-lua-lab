@@ -372,6 +372,25 @@ function hud(f,calls,renderMs){
  const knave=field?.knave;
  const primal=field?.primal;
  const gate=field?.gate;
+ const heretic=field?.heretic,hereticHint=$('weeklyHeretic');
+ let hereticText='';
+ if(heretic&&field.phase!=='respawn'){
+  if(heretic.deadline){
+   const remainder=`残り ${Math.max(0,Math.ceil((heretic.deadline-heretic.tick)/60))}秒`;
+   const anchors=Array.isArray(heretic.anchors)?heretic.anchors.map(a=>a.hp).join(' / '):'';
+   const gap=heretic.hole?` ｜ 押し壁の穴は${heretic.hole.upper?'上段':'床側'}`:'';
+   hereticText=heretic.open?`詠唱 ${heretic.chant} / ${heretic.maxChant} ｜ 本体へ攻撃を当てる ｜ ${remainder}`:
+    anchors?`結合点 左・右 ${anchors} ｜ 片方を壊す ｜ ${remainder}${gap}`:`結合点が現れる ｜ ${remainder}`;
+  }else if(heretic.exposure){
+   hereticText=`反撃できる時間 ${(heretic.exposure/60).toFixed(1)}秒`;
+  }else if(heretic.card==='WH10'){
+   hereticText='光背を構築中';
+  }else if(heretic.card==='WH18'){
+   hereticText='詠唱が完了した ｜ 衝撃に備える';
+  }
+ }
+ hereticHint.hidden=!hereticText;
+ hereticHint.textContent=hereticText;
  const falseMoon=field?.falseMoon;
  $('weeklyFalseMoon').hidden=!falseMoon||field.phase==='respawn';
  if(falseMoon&&field.phase!=='respawn'){

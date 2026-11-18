@@ -44,6 +44,13 @@
       "mapHover": 40
     },
     {
+      "id": "heretic-weekly",
+      "name": "ドットーレ・左道の真諦者（再現戦）",
+      "file": "heretic-weekly-idle-sprites-v1.json",
+      "height": 144,
+      "mapHover": 0
+    },
+    {
       "id": "false-moon-weekly",
       "name": "「博士」・偽月の異端者（再現戦）",
       "file": "false-moon-weekly-idle-sprites-v1.json",

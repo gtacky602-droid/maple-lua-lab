@@ -1,0 +1,41 @@
+{
+  "manifest_cards": [
+    "WH01",
+    "WH02",
+    "WH03",
+    "WH04",
+    "WH05",
+    "WH06",
+    "WH07",
+    "WH08",
+    "WH09",
+    "WH10",
+    "WH11",
+    "WH12",
+    "WH13",
+    "WH14",
+    "WH15",
+    "WH16",
+    "WH17",
+    "WH18",
+    "WH19",
+    "WH20"
+  ],
+  "p1_floor_p2_invulnerable_transition": true,
+  "two_cores_any_one": true,
+  "dedup_no_synthetic_reaction_credit": true,
+  "minimum_actor_target_gap_ticks": 12,
+  "first_projectile_volley_single_hit": true,
+  "wall_floor_path_no_push": true,
+  "wall_upper_path_push_30_8_px_no_damage": true,
+  "wall_and_reservations_cleared_on_break": true,
+  "deadline_inclusive_tick": 1800,
+  "exposure_half_open": [
+    60,
+    780
+  ],
+  "ordinary_damage_on_timeout": true,
+  "mimic_only_attacks": true,
+  "two_ordinary_before_repeat": true,
+  "clear_report_restore": true
+}

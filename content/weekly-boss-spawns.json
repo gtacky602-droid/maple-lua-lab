@@ -5147,6 +5147,420 @@
           "recovery": null
         }
       }
+    },
+    {
+      "id": "boss-29150101",
+      "entity": 29150101,
+      "controller": "heretic",
+      "node": "sumeru-heretic-lattice",
+      "storyChallenge": "heretic-weekly",
+      "name": "ドットーレ・左道の真諦者",
+      "level": 144,
+      "hp": 3900,
+      "p2Hp": 2250,
+      "mora": 6600,
+      "expRole": "weekly_boss",
+      "center": 480,
+      "floorY": 480,
+      "noticeTicks": 36,
+      "restTicks": 25,
+      "respawnTicks": 3600,
+      "p1Order": [
+        "WH01",
+        "WH02",
+        "WH03",
+        "WH04",
+        "WH05",
+        "WH06",
+        "WH07",
+        "WH08",
+        "WH09"
+      ],
+      "p2Order": [
+        "WH16",
+        "WH17",
+        "WH12",
+        "WH15",
+        "WH11"
+      ],
+      "board": {
+        "left": 40,
+        "right": 920,
+        "unit": 88,
+        "platformY": 339
+      },
+      "trial": {
+        "pointsU": [
+          2,
+          8
+        ],
+        "bodyU": 9,
+        "childGap": 60,
+        "repeatGap": 900,
+        "ordinaryCount": 2,
+        "holeHeightU": 1.4,
+        "upperHoleBaseU": 1.48,
+        "wallSpeedU": 3,
+        "wallHalfWidth": 15
+      },
+      "damage": {
+        "base": 35,
+        "projectile": 33,
+        "mimic": 41,
+        "failure": 125
+      },
+      "moves": {
+        "WH01": {
+          "title": "座標の折返し",
+          "total": 150,
+          "locks": [
+            42
+          ],
+          "windows": [],
+          "recovery": 96,
+          "shots": []
+        },
+        "WH02": {
+          "title": "炎立方の散射",
+          "total": 300,
+          "locks": [
+            42
+          ],
+          "windows": [],
+          "recovery": 240,
+          "shots": [
+            {
+              "spawn_ticks": [
+                72,
+                108,
+                144
+              ],
+              "ttl_ticks": 90,
+              "count_per_spawn": 3,
+              "hit_cap_per_spawn": 1
+            }
+          ]
+        },
+        "WH03": {
+          "title": "空中の雷片",
+          "total": 360,
+          "locks": [
+            60
+          ],
+          "windows": [],
+          "recovery": 288,
+          "shots": [
+            {
+              "spawn_ticks": [
+                108,
+                168
+              ],
+              "ttl_ticks": 90
+            }
+          ]
+        },
+        "WH04": {
+          "title": "氷棘の扇",
+          "total": 270,
+          "locks": [
+            54
+          ],
+          "windows": [
+            [
+              108,
+              120
+            ]
+          ],
+          "recovery": 168,
+          "shots": []
+        },
+        "WH05": {
+          "title": "方形の雷震",
+          "total": 300,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              144,
+              156
+            ]
+          ],
+          "recovery": 216,
+          "shots": []
+        },
+        "WH06": {
+          "title": "雷波から氷へ",
+          "total": 360,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              96,
+              102
+            ],
+            [
+              168,
+              174
+            ],
+            [
+              252,
+              258
+            ]
+          ],
+          "recovery": 288,
+          "shots": []
+        },
+        "WH07": {
+          "title": "氷壁の圧迫",
+          "total": 360,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              144,
+              240
+            ]
+          ],
+          "recovery": 288,
+          "shots": []
+        },
+        "WH08": {
+          "title": "三つの氷環",
+          "total": 420,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              120,
+              126
+            ],
+            [
+              210,
+              216
+            ],
+            [
+              300,
+              306
+            ]
+          ],
+          "recovery": 348,
+          "shots": []
+        },
+        "WH09": {
+          "title": "位相の二波",
+          "total": 420,
+          "locks": [
+            42,
+            204
+          ],
+          "windows": [],
+          "recovery": 348,
+          "shots": [
+            {
+              "spawn_ticks": [
+                96,
+                240
+              ],
+              "ttl_ticks": 90
+            }
+          ]
+        },
+        "WH10": {
+          "title": "光背の構築",
+          "total": 240,
+          "locks": [],
+          "windows": [],
+          "recovery": 180,
+          "shots": []
+        },
+        "WH11": {
+          "title": "三重の低潮",
+          "total": 420,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              108,
+              114
+            ],
+            [
+              198,
+              204
+            ],
+            [
+              288,
+              294
+            ]
+          ],
+          "recovery": 336,
+          "shots": []
+        },
+        "WH12": {
+          "title": "四点の座標攻撃",
+          "total": 420,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              108,
+              114
+            ],
+            [
+              180,
+              186
+            ],
+            [
+              252,
+              258
+            ],
+            [
+              324,
+              330
+            ]
+          ],
+          "recovery": 360,
+          "shots": []
+        },
+        "WH13": {
+          "title": "結合点と新世界の詠唱",
+          "total": 1800,
+          "locks": [],
+          "windows": [],
+          "recovery": 1800,
+          "shots": [],
+          "spawn_tick": 60,
+          "anchor_count": 2,
+          "anchor_count_hp": 3,
+          "chant_count": 24,
+          "hit_interval_ticks": 12,
+          "children_before_break": [
+            "WH14"
+          ],
+          "children_after_break": [
+            "WH15"
+          ]
+        },
+        "WH14": {
+          "title": "穴のある押し壁",
+          "total": 300,
+          "locks": [
+            60
+          ],
+          "windows": [],
+          "recovery": 240,
+          "shots": [],
+          "moving_walls": [
+            {
+              "spawn_tick": 90,
+              "ttl_ticks": 144,
+              "damage": false
+            }
+          ],
+          "max_push_U": 0.35,
+          "push_interval_ticks": 60
+        },
+        "WH15": {
+          "title": "模倣・王と后",
+          "total": 540,
+          "locks": [
+            60,
+            204
+          ],
+          "windows": [],
+          "recovery": 420,
+          "shots": [
+            {
+              "spawn_ticks": [
+                108,
+                252
+              ],
+              "ttl_ticks": 108
+            }
+          ]
+        },
+        "WH16": {
+          "title": "模倣・源焔の双剣",
+          "total": 540,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              120,
+              132
+            ],
+            [
+              252,
+              264
+            ]
+          ],
+          "recovery": 444,
+          "shots": [
+            {
+              "spawn_ticks": [
+                330
+              ],
+              "ttl_ticks": 96,
+              "count_per_spawn": 3,
+              "hit_cap_per_spawn": 1
+            }
+          ]
+        },
+        "WH17": {
+          "title": "模倣・夢想の刃",
+          "total": 420,
+          "locks": [
+            90
+          ],
+          "windows": [
+            [
+              180,
+              192
+            ]
+          ],
+          "recovery": 276,
+          "shots": []
+        },
+        "WH18": {
+          "title": "腐敗の衝撃・失敗側",
+          "total": 360,
+          "locks": [],
+          "windows": [
+            [
+              180,
+              186
+            ]
+          ],
+          "recovery": 240,
+          "shots": []
+        },
+        "WH19": {
+          "title": "詠唱崩れ・露出",
+          "total": 840,
+          "locks": [],
+          "windows": [],
+          "recovery": 780,
+          "shots": [],
+          "exposure": [
+            60,
+            780
+          ]
+        },
+        "WH20": {
+          "title": "形態・模倣・終了管理",
+          "total": null,
+          "locks": [],
+          "windows": [],
+          "recovery": null,
+          "shots": []
+        }
+      }
     }
   ]
 }

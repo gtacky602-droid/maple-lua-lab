@@ -188,6 +188,7 @@ local function targets(s,a,range,limit,includePartners)
  return out
 end
 local function pulse(s,cast)
+ cast.impactEvent=(cast.impactEvent or 0)+1
  local touched=false
  if cast.follow then local owner=s.actors[cast.id];cast.x=owner.x;cast.y=owner.y end
  if cast.trail then s.effects[#s.effects+1]={x=cast.x-cast.dir*30,y=cast.y-15,w=80,h=30,life=.3,color=cast.color} end

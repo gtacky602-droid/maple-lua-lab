@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 87,
-    "partial": 80,
+    "partial": 81,
     "complete": 0
   },
   "encounters": [
@@ -792,30 +792,42 @@
       "entity_ids": [
         "29150101"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
         "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/ildottore.json",
-        "https://gamewith.jp/genshin/article/show/560976"
+        "docs/weekly-boss-v1/HERETIC_WEB.md",
+        "evidence/heretic-weekly-lua.json",
+        "evidence/heretic-weekly-browser.json",
+        "https://wiki.hoyolab.com/pc/genshin/entry/3799?lang=ja-jp"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "攻撃ごとの連続ドット作画、効果音、背面モデル照合",
+        "戦闘中の保存と再開、実マルチでの押し戻しと攻撃受付",
+        "難度と報酬の調整、本番の3D配置と幻境実機検証"
       ],
+      "weeklyNode": "sumeru-heretic-lattice",
+      "weeklyEntrance": "左道の再現戦・結合格子（Lv144）",
       "aliases": [
         "博士",
         "万有涅槃縛境"
       ],
       "review_note": "スメールの征討領域「万有涅槃縛境」の挑戦。",
       "art_candidate": {
-        "source": "assets/dottore-heretical-idle-source-v1.png",
-        "encoding": "assets/dottore-heretical-idle-sprites.json",
-        "audit": "evidence/dottore-heretical-reference-audit.json",
-        "status": "idle candidate"
-      }
+        "source": "assets/heretic-weekly-idle-source-v1.png",
+        "encoding": "assets/heretic-weekly-idle-sprites-v1.json",
+        "audit": "assets/heretic-weekly-generation-v1.json",
+        "status": "Web prototype idle sprite with a separate second-form halo"
+      },
+      "art_variants": [
+        {
+          "source": "assets/dottore-heretical-idle-source-v1.png",
+          "encoding": "assets/dottore-heretical-idle-sprites.json",
+          "audit": "evidence/dottore-heretical-reference-audit.json",
+          "status": "Earlier armor reference study"
+        }
+      ]
     },
     {
       "id": "boss-25140101",

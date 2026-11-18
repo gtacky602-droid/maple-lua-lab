@@ -1,0 +1,26 @@
+{
+  "background": {
+    "key": "hereticLattice",
+    "file": "heretic-lattice-background-v1.png",
+    "state": "ready"
+  },
+  "cards": [
+    "WH01",
+    "WH02",
+    "WH10",
+    "WH11",
+    "WH13",
+    "WH19",
+    "WH16"
+  ],
+  "acceptedChantHits": 24,
+  "deadline": 1800,
+  "clearReportRestore": true,
+  "viewport390": true,
+  "commands": {
+    "png": 115,
+    "standard": 9482,
+    "light": 2680
+  },
+  "errors": []
+}

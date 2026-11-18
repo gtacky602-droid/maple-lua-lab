@@ -99,8 +99,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 34,
-      "prototype_quest_count": 21,
+      "prototype_stage_count": 35,
+      "prototype_quest_count": 22,
       "official_map2_markers": {
         "waypoints": 112,
         "statues": 13
@@ -588,8 +588,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 351,
-    "provisional_quests": 219,
+    "authored_stages": 352,
+    "provisional_quests": 220,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -859,9 +859,11 @@
           "sumeru-observatory-terrace",
           "sumeru-sky-observatory",
           "shouki-godmaking-arena",
-          "apep-oasis-heart-arena"
+          "apep-oasis-heart-arena",
+          "sumeru-heretic-lattice"
         ],
         "quest_ids": [
+          "heretic-weekly-commission",
           "apep-weekly-commission",
           "shouki-weekly-commission",
           "growth-inherit-gear",
