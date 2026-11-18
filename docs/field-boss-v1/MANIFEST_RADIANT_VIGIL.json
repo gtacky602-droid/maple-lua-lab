@@ -1,0 +1,1048 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-11-18",
+  "status": "design_only_not_runtime",
+  "source_commit": "ab04a9b20bedb83a64311cfb46e5458a13196888",
+  "source_of_truth": [
+    "../../DESIGN_FIELD_BOSS_MASTER_V01.md",
+    "COMMON.md",
+    "RADIANT_VIGIL_MOVESETS.md"
+  ],
+  "tick_rate_hz": 60,
+  "unit_U_pixels": 88,
+  "interval_semantics": "half_open",
+  "counts": {
+    "encounters": 3,
+    "attack_cards": 9,
+    "direct_windows": 17,
+    "damaging_projectiles": 0,
+    "air_routes": 2,
+    "hidden_routes": 0,
+    "optional_interrupt_rules": 2,
+    "temporary_status_rules": 1,
+    "cumulative_encounters": 45,
+    "cumulative_attack_cards": 135,
+    "catalog_reference_rows": 49,
+    "remaining_reference_rows": 4,
+    "all_catalog_rows_detailed": false
+  },
+  "shared": {
+    "max_attack_patterns": 3,
+    "max_concurrent_casts": 1,
+    "boss_hp_bars": 1,
+    "multiplayer_hp_scaling": false,
+    "required_special_element": false,
+    "forced_revive_phase": false,
+    "hp_zero_priority": true,
+    "normal_damage_pipeline": true,
+    "runtime_or_visual_tested": false,
+    "passive_contact_damage": 0,
+    "signature_recovery_ticks": 144,
+    "max_air_ticks": 36,
+    "full_hidden_ticks": 0,
+    "selector": "two_normals_then_signature_when_not_killed",
+    "hp_lock_to_force_signature": false,
+    "all_arena_attack": false,
+    "body_blocking_crossing_required": false,
+    "unreachable_cast_policy": "cancel_before_lock_reposition_then_new_tell",
+    "retreat_margin_u": 0.1,
+    "lock_freezes_facing_and_targets": true,
+    "geometry_origin": "boss_lock_origin_even_for_child_owners",
+    "hit_history": "allocate_by_event_group",
+    "cleanup": [
+      "pending_hits",
+      "devices",
+      "source_owned_cocoons",
+      "records",
+      "form",
+      "old_epoch_events"
+    ],
+    "same_tick_order": [
+      "terminal_state_guard",
+      "prepare_scheduled_windows_and_devices",
+      "expire_status",
+      "apply_existing_heals_and_status_removal",
+      "apply_eligible_player_damage",
+      "boss_hp_zero",
+      "eligible_recordings_and_device_contacts",
+      "optional_interrupt",
+      "deadline_cleanup",
+      "scheduled_enemy_hits_then_surviving_actor_status"
+    ]
+  },
+  "identity_contract": {
+    "same_actor": true,
+    "same_receiver": true,
+    "same_hp": true,
+    "preserve_aura": true,
+    "preserve_dot": true,
+    "preserve_target": true,
+    "air_hurtbox_follows_visible_body": true,
+    "invisible_ground_receiver": false,
+    "transformation_invulnerable_ticks": 0,
+    "reward_count": 1
+  },
+  "bosses": [
+    {
+      "id": "boss-26301101",
+      "name": "集光の幻月蝶",
+      "attacks": [
+        "FMF01",
+        "FMF02",
+        "FMF03"
+      ],
+      "signature": "FMF03",
+      "existing_runtime": "field-moonfly.lua",
+      "preserve_source_fields": {
+        "controller": "moonfly",
+        "node": "nod-moonfly-hollow",
+        "storyChallenge": "moonfly",
+        "level": 130,
+        "hp": 1050,
+        "mora": 485
+      },
+      "signature_boss_damage_factor": 1,
+      "signature_boss_hp_shield": 0,
+      "max_ground_hurtbox_bottom_u": 0.45
+    },
+    {
+      "id": "boss-26302101",
+      "name": "集光の月ヤモリ",
+      "attacks": [
+        "FMG01",
+        "FMG02",
+        "FMG03"
+      ],
+      "signature": "FMG03",
+      "existing_runtime": "field-moongecko.lua",
+      "preserve_source_fields": {
+        "controller": "moongecko",
+        "node": "nod-gecko-depths",
+        "storyChallenge": "moongecko",
+        "level": 132,
+        "hp": 1160,
+        "mora": 495
+      },
+      "signature_boss_damage_factor": 1,
+      "signature_boss_hp_shield": 0,
+      "max_ground_hurtbox_bottom_u": 0
+    },
+    {
+      "id": "boss-24111101",
+      "name": "守護者・堕天",
+      "attacks": [
+        "FV01",
+        "FV02",
+        "FV03"
+      ],
+      "signature": "FV03",
+      "existing_runtime": "field-fallen-vigil.lua",
+      "preserve_source_fields": {
+        "controller": "fallenVigil",
+        "node": "windrest-vigil-court",
+        "storyChallenge": "fallen-vigil",
+        "level": 18,
+        "hp": 700,
+        "mora": 155
+      },
+      "signature_boss_damage_factor": 1,
+      "signature_boss_hp_shield": 0,
+      "max_ground_hurtbox_bottom_u": 0.45
+    }
+  ],
+  "radiant_cocoon": {
+    "move_id": "FMF03",
+    "application_group": "green_wave",
+    "requires_accepted_hit": true,
+    "requires_positive_actual_hp_loss": true,
+    "requires_surviving_same_life_receiver": true,
+    "max_duration_ticks": 180,
+    "outgoing_damage_factor": 0.9,
+    "incoming_healing_factor": 1,
+    "damage_factor_application": "once_at_damage_resolution_from_source_owner",
+    "accepts_direct_reaction_dot_damage": true,
+    "movement_locked": false,
+    "attack_input_locked": false,
+    "stacks": false,
+    "refreshes": false,
+    "applications_per_parent_cast_per_actor": 1,
+    "instance_key": [
+      "epoch",
+      "encounter_id",
+      "parent_cast_id",
+      "actor_id",
+      "actor_life_generation"
+    ],
+    "shared_between_characters": false,
+    "changes_on_active_actor_swap": false,
+    "early_clear": "authorized_heal_event_with_post_clamp_hp_gain_gt_zero",
+    "requires_full_hp": false,
+    "overheal_zero_clears": false,
+    "max_hp_change_clears": false,
+    "respawn_hp_assignment_clears_as_heal": false,
+    "escape_buff": false,
+    "source_owned_cleanup": true,
+    "clear_at_recovery": true,
+    "cleanup_generates_healing_or_rewards": false,
+    "clear_on": [
+      "expiry",
+      "valid_heal",
+      "actor_death",
+      "parent_cancel",
+      "boss_death",
+      "retreat",
+      "map_exit",
+      "reset"
+    ],
+    "extra_bind_damage": 0,
+    "expiration_clock": "shared_combat_tick_paused_with_game"
+  },
+  "moonstone_anchor": {
+    "move_id": "FMG03",
+    "window": [
+      84,
+      300
+    ],
+    "spawn_tick": 84,
+    "cleanup_tick": 300,
+    "devices": [
+      {
+        "slot": "anchor",
+        "center_u": 1.2,
+        "shape": {
+          "kind": "locked_rect",
+          "u": [
+            0.85,
+            1.55
+          ],
+          "z": [
+            0,
+            0.9
+          ]
+        },
+        "layers": 5,
+        "cancels_groups": [
+          "void_sweep"
+        ]
+      }
+    ],
+    "side": "locked_facing_only",
+    "receives_contact": true,
+    "targetable_as_enemy": false,
+    "auto_target": false,
+    "is_hp_receiver": false,
+    "body_collision": false,
+    "contact_damage": 0,
+    "blocks_player_projectiles": false,
+    "consumes_pierce_budget": false,
+    "transfers_damage_to_boss": false,
+    "backlash_damage": 0,
+    "reward_count": 0,
+    "counts_as_quest_kill": false,
+    "new_direct_casts_only": true,
+    "same_epoch_required": true,
+    "requires_actual_overlap": true,
+    "cast_start_at_or_after_window_start": true,
+    "cast_time_basis": "encounter_tick_minus_parent_start_tick",
+    "allowed_sources": [
+      "real_player",
+      "active_companion"
+    ],
+    "accept_reactions": false,
+    "accept_dot_ticks": false,
+    "duplicate_cast_counts": false,
+    "cast_dedup_key": [
+      "epoch",
+      "parent_cast_id",
+      "device_slot",
+      "source_actor_id",
+      "cast_id"
+    ],
+    "instance_key": [
+      "epoch",
+      "encounter_id",
+      "parent_cast_id",
+      "device_slot"
+    ],
+    "emits_duplicate_hit_hooks": false,
+    "cleanup_counts_as_break": false,
+    "per_device_break_once": true,
+    "interruption_requires_all_devices": true,
+    "ordinary_direct_chip": 1,
+    "interrupt": {
+      "down_ticks": 180,
+      "standup_ticks": 24,
+      "cancel_all_pending_hits": true,
+      "once_per_parent_cast": true,
+      "returns_to_normal_selector": true,
+      "damage_multiplier": 1
+    },
+    "geo_direct_chip": 2,
+    "full_hp_heal_gate": false,
+    "cocoon_on_player": false,
+    "geo_exposure_bonus": false
+  },
+  "elemental_stars": {
+    "move_id": "FV03",
+    "window": [
+      216,
+      396
+    ],
+    "spawn_tick": 216,
+    "cleanup_tick": 396,
+    "devices": [
+      {
+        "slot": "star_1",
+        "center_u": 0.8,
+        "shape": {
+          "kind": "locked_rect",
+          "u": [
+            0.45,
+            1.15
+          ],
+          "z": [
+            0,
+            0.8
+          ]
+        },
+        "layers": 2,
+        "cancels_groups": [
+          "star_1_light"
+        ]
+      },
+      {
+        "slot": "star_2",
+        "center_u": 2.2,
+        "shape": {
+          "kind": "locked_rect",
+          "u": [
+            1.85,
+            2.55
+          ],
+          "z": [
+            0,
+            0.8
+          ]
+        },
+        "layers": 2,
+        "cancels_groups": [
+          "star_2_light"
+        ]
+      }
+    ],
+    "side": "locked_facing_only",
+    "receives_contact": true,
+    "targetable_as_enemy": false,
+    "auto_target": false,
+    "is_hp_receiver": false,
+    "body_collision": false,
+    "contact_damage": 0,
+    "blocks_player_projectiles": false,
+    "consumes_pierce_budget": false,
+    "transfers_damage_to_boss": false,
+    "backlash_damage": 0,
+    "reward_count": 0,
+    "counts_as_quest_kill": false,
+    "new_direct_casts_only": true,
+    "same_epoch_required": true,
+    "requires_actual_overlap": true,
+    "cast_start_at_or_after_window_start": true,
+    "cast_time_basis": "encounter_tick_minus_parent_start_tick",
+    "allowed_sources": [
+      "real_player",
+      "active_companion"
+    ],
+    "accept_reactions": false,
+    "accept_dot_ticks": false,
+    "duplicate_cast_counts": false,
+    "cast_dedup_key": [
+      "epoch",
+      "parent_cast_id",
+      "device_slot",
+      "source_actor_id",
+      "cast_id"
+    ],
+    "instance_key": [
+      "epoch",
+      "encounter_id",
+      "parent_cast_id",
+      "device_slot"
+    ],
+    "emits_duplicate_hit_hooks": false,
+    "cleanup_counts_as_break": false,
+    "per_device_break_once": true,
+    "interruption_requires_all_devices": true,
+    "ordinary_direct_chip": 1,
+    "interrupt": {
+      "down_ticks": 180,
+      "standup_ticks": 24,
+      "cancel_all_pending_hits": true,
+      "once_per_parent_cast": true,
+      "returns_to_normal_selector": true,
+      "damage_multiplier": 1
+    },
+    "same_element_chip": 1,
+    "other_element_chip": 1,
+    "unrecorded_layers": 2,
+    "record_changes_layers": false,
+    "record_grants_immunity": false,
+    "child_attack_schedule": "parent_fixed_slots",
+    "independent_ai": false,
+    "break_cancels_own_active_and_future_hits": true,
+    "simultaneous_aoe_chips_each_device_once": true
+  },
+  "monitor": {
+    "move_id": "FV03",
+    "windows": [
+      [
+        60,
+        132
+      ],
+      [
+        132,
+        204
+      ]
+    ],
+    "selection": "first_eligible_direct_hit_per_window",
+    "records": 2,
+    "eligible_elements": [
+      "pyro",
+      "hydro",
+      "electro",
+      "cryo"
+    ],
+    "default_record": "none",
+    "default_attack_element": "physical",
+    "new_direct_casts_only": true,
+    "cast_start_at_or_after_each_window_start": true,
+    "same_epoch_required": true,
+    "requires_positive_boss_hp_damage": true,
+    "accept_reactions": false,
+    "accept_dot_ticks": false,
+    "allowed_sources": [
+      "real_player",
+      "active_companion"
+    ],
+    "same_element_repeat_allowed": true,
+    "first_hit_seals_window": true,
+    "record_resets_each_parent_cast": true,
+    "cast_time_basis": "encounter_tick_minus_parent_start_tick",
+    "tie_break": "authoritative_server_event_sequence",
+    "alters_only": [
+      "star_color",
+      "star_attack_element"
+    ],
+    "old_3_and_6_hit_thresholds": false
+  },
+  "attacks": [
+    {
+      "id": "FMF01",
+      "name": "二連の回し蹴り",
+      "kind": "normal",
+      "lock": 48,
+      "recovery": [
+        208,
+        284
+      ],
+      "total": 284,
+      "events": [
+        {
+          "group": "kick_1",
+          "active": [
+            100,
+            112
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.14,
+              1.92
+            ],
+            "z": [
+              0,
+              0.7
+            ]
+          },
+          "element": "dendro",
+          "source_damage_comparison": 19,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "kick_2",
+          "active": [
+            166,
+            180
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.14,
+              1.92
+            ],
+            "z": [
+              0,
+              0.7
+            ]
+          },
+          "element": "dendro",
+          "source_damage_comparison": 19,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    },
+    {
+      "id": "FMF02",
+      "name": "二つの月光弾",
+      "kind": "normal",
+      "lock": 54,
+      "recovery": [
+        222,
+        306
+      ],
+      "total": 306,
+      "events": [
+        {
+          "group": "moonlight_1",
+          "active": [
+            112,
+            126
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.35,
+              1.35
+            ],
+            "z": [
+              0,
+              0.7
+            ]
+          },
+          "element": "dendro",
+          "source_damage_comparison": 22,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "moonlight_2",
+          "active": [
+            180,
+            194
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              1.65,
+              2.65
+            ],
+            "z": [
+              0,
+              0.7
+            ]
+          },
+          "element": "dendro",
+          "source_damage_comparison": 22,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    },
+    {
+      "id": "FMF03",
+      "name": "集光の繭・三拍の羽解放",
+      "kind": "signature",
+      "lock": 60,
+      "recovery": [
+        336,
+        480
+      ],
+      "total": 480,
+      "events": [
+        {
+          "group": "green_wave",
+          "active": [
+            132,
+            146
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.25,
+              2.25
+            ],
+            "z": [
+              0,
+              0.76
+            ]
+          },
+          "element": "dendro",
+          "source_damage_comparison": 25,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false,
+          "applies_status": "radiant_cocoon"
+        },
+        {
+          "group": "flame_wave",
+          "active": [
+            216,
+            230
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.25,
+              2.25
+            ],
+            "z": [
+              0,
+              0.76
+            ]
+          },
+          "element": "pyro",
+          "source_damage_comparison": 25,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "wing_release",
+          "active": [
+            300,
+            316
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.7
+            ],
+            "z": [
+              0,
+              0.76
+            ]
+          },
+          "element": "pyro",
+          "source_damage_comparison": 25,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ],
+      "green_wing_window": [
+        60,
+        168
+      ],
+      "flame_wing_window": [
+        168,
+        240
+      ],
+      "self_cocoon_window": [
+        240,
+        336
+      ],
+      "player_hit_overrides_element": false
+    },
+    {
+      "id": "FMG01",
+      "name": "月石尾の二連薙ぎ",
+      "kind": "normal",
+      "lock": 48,
+      "recovery": [
+        212,
+        288
+      ],
+      "total": 288,
+      "events": [
+        {
+          "group": "tail_1",
+          "active": [
+            104,
+            116
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.2
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "geo",
+          "source_damage_comparison": 21,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "tail_2",
+          "active": [
+            174,
+            186
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.2
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "geo",
+          "source_damage_comparison": 21,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    },
+    {
+      "id": "FMG02",
+      "name": "岩尾の跳び込み",
+      "kind": "normal",
+      "lock": 56,
+      "recovery": [
+        174,
+        278
+      ],
+      "total": 278,
+      "events": [
+        {
+          "group": "landing",
+          "active": [
+            126,
+            140
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_target_rect",
+            "center_policy": "front_target_at_lock",
+            "max_center_distance_u": 1.55,
+            "width_u": 1.8,
+            "z": [
+              0,
+              0.78
+            ],
+            "arena_clamp": false
+          },
+          "element": "geo",
+          "source_damage_comparison": 26,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ],
+      "air": [
+        90,
+        126
+      ],
+      "lift_u": 1,
+      "body_moves_to_locked_center": true,
+      "landing_hurtbox_bottom_u": 0
+    },
+    {
+      "id": "FMG03",
+      "name": "錨月の岩・空虚な掃蕩",
+      "kind": "signature",
+      "lock": 60,
+      "recovery": [
+        360,
+        504
+      ],
+      "total": 504,
+      "events": [
+        {
+          "group": "void_sweep",
+          "active": [
+            324,
+            342
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.7
+            ],
+            "z": [
+              0,
+              0.74
+            ]
+          },
+          "element": "geo",
+          "source_damage_comparison": 34,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    },
+    {
+      "id": "FV01",
+      "name": "金槍の二連突進",
+      "kind": "normal",
+      "lock": 48,
+      "recovery": [
+        212,
+        288
+      ],
+      "total": 288,
+      "events": [
+        {
+          "group": "spear_1",
+          "active": [
+            104,
+            116
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.15
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "physical",
+          "source_damage_comparison": 14,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "spear_2",
+          "active": [
+            174,
+            186
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.15
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "physical",
+          "source_damage_comparison": 14,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    },
+    {
+      "id": "FV02",
+      "name": "槍落としと降下",
+      "kind": "normal",
+      "lock": 54,
+      "recovery": [
+        218,
+        306
+      ],
+      "total": 306,
+      "events": [
+        {
+          "group": "spear_drop",
+          "active": [
+            112,
+            126
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_target_rect",
+            "center_policy": "front_target_at_lock",
+            "max_center_distance_u": 1.5,
+            "width_u": 1.8,
+            "z": [
+              0,
+              0.74
+            ],
+            "arena_clamp": false
+          },
+          "element": "physical",
+          "source_damage_comparison": 18,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "landing",
+          "active": [
+            178,
+            192
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_target_rect",
+            "center_policy": "front_target_at_lock",
+            "max_center_distance_u": 1.5,
+            "width_u": 1.8,
+            "z": [
+              0,
+              0.74
+            ],
+            "arena_clamp": false
+          },
+          "element": "physical",
+          "source_damage_comparison": 18,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ],
+      "air": [
+        142,
+        178
+      ],
+      "lift_u": 0.9,
+      "body_moves_to_locked_center": true,
+      "landing_hurtbox_bottom_u": 0,
+      "ground_spear_then_air": true,
+      "same_center_for_all_events": true
+    },
+    {
+      "id": "FV03",
+      "name": "監視統制・二星の落光",
+      "kind": "signature",
+      "lock": 60,
+      "recovery": [
+        408,
+        552
+      ],
+      "total": 552,
+      "events": [
+        {
+          "group": "star_1_light",
+          "active": [
+            288,
+            300
+          ],
+          "owner": "star_1",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.3,
+              1.3
+            ],
+            "z": [
+              0,
+              0.72
+            ]
+          },
+          "element": "record_1_or_physical",
+          "source_damage_comparison": 26,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "star_2_light",
+          "active": [
+            360,
+            372
+          ],
+          "owner": "star_2",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              1.7,
+              2.7
+            ],
+            "z": [
+              0,
+              0.72
+            ]
+          },
+          "element": "record_2_or_physical",
+          "source_damage_comparison": 26,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    }
+  ],
+  "migration": {
+    "runtime_changes_applied": false,
+    "keep_existing_ids": true,
+    "preserve_level_hp_rewards_save_and_placement": true,
+    "source_move_ids": {
+      "boss-26301101": [
+        "FMF01",
+        "FMF02",
+        "FMF03"
+      ],
+      "boss-26302101": [
+        "FMG01",
+        "FMG02",
+        "FMG03"
+      ],
+      "boss-24111101": [
+        "FV01",
+        "FV02",
+        "FV03"
+      ]
+    },
+    "source_signature_totals": {
+      "FMF03": 640,
+      "FMG03": 640,
+      "FV03": 1150
+    },
+    "target_signature_totals": {
+      "FMF03": 480,
+      "FMG03": 504,
+      "FV03": 552
+    },
+    "source_air_ticks": {
+      "FMG02": 44,
+      "FV02": 66
+    },
+    "target_air_ticks": {
+      "FMG02": 36,
+      "FV02": 36
+    },
+    "source_bind_damage": {
+      "boss-26301101": 12,
+      "boss-26302101": 12
+    },
+    "target_unlisted_bind_damage": 0,
+    "remove_legacy_full_heal_cocoon_hook": true,
+    "remove_global_cross_owner_cocoon_cleanup": true,
+    "remove_player_hit_element_override": true,
+    "remove_gecko_escape_callback": true,
+    "remove_device_backlash_resolve_cast": true,
+    "remove_down_damage_multiplier": true,
+    "remove_legacy_star_immunity_and_layer_variants": true,
+    "replace_negative_enemy_ids_with_device_instances": true,
+    "source_shared_module": "radiant-cocoon.lua"
+  }
+}
