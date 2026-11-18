@@ -103,10 +103,11 @@ def runtime():
         for target in (spec['id'],spec.get('storyChallenge')) if target}
     stygian=json.loads((ROOT/'content/stygian-matches.json').read_text(encoding='utf8'))['matches']
     stygian_timing=json.loads((ROOT/'docs/stygian-motion-v1/MANIFEST.json').read_text(encoding='utf8'))
-    stygian['rerir']['cards']={
-        card['id']: card | {'variants':{variant['name']:variant for variant in card.get('variants',[])}}
-        for card in stygian_timing['entries'] if card['boss']=='rerir'
-    }
+    for scripted_match in ('rerir','ronova'):
+        stygian[scripted_match]['cards']={
+            card['id']: card | {'variants':{variant['name']:variant for variant in card.get('variants',[])}}
+            for card in stygian_timing['entries'] if card['boss']==scripted_match
+        }
     story_data['bossNodes'].update({spec['challenge']:spec['node'] for spec in stygian.values()})
     graph = lua.table_from(resolve_story_exp(story_data),recursive=True)
     cave=lua.execute((ROOT/'story-cave.lua').read_text(encoding='utf8'))(core)
@@ -563,10 +564,18 @@ def runtime():
         side:json.loads((ROOT/'assets'/f'rerir-idle-{side}-sprites-v1.json').read_text(encoding='utf8'))
         for side in ('left','right')
     },recursive=True)
+    ronova_party=lua.execute((ROOT/'stygian-ronova-party.lua').read_text(encoding='utf8'))(core)
+    ronova_moves=lua.execute((ROOT/'stygian-ronova-moves.lua').read_text(encoding='utf8'))(core,stygian_geometry,ronova_party)
+    ronova_view=lua.execute((ROOT/'stygian-ronova-view.lua').read_text(encoding='utf8'))(core,stygian_geometry,ronova_moves)
+    ronova=lua.execute((ROOT/'stygian-ronova.lua').read_text(encoding='utf8'))(core,stygian_geometry,ronova_party,ronova_moves,ronova_view)
+    core.stygianRonovaArt=lua.table_from({
+        kind:json.loads((ROOT/'assets'/f'ronova-{suffix}-sprites-v1.json').read_text(encoding='utf8'))
+        for kind,suffix in {'left':'idle-left','right':'idle-right','wings':'wings'}.items()
+    },recursive=True)
     lua.execute((ROOT/'endgame.lua').read_text(encoding='utf8'))(
         core,lua.table_from(abyss,recursive=True),lua.table_from(weekly_specs,recursive=True),
         lua.table_from(stygian,recursive=True),
-        lua.table_from({'beidou':stygian_beidou,'capitano':capitano,'xbalanque':xbalanque,'rerir':rerir}))
+        lua.table_from({'beidou':stygian_beidou,'capitano':capitano,'xbalanque':xbalanque,'rerir':rerir,'ronova':ronova}))
     lua.execute((ROOT/'growth-trials.lua').read_text(encoding='utf8'))(core)
     return lua, core
 

@@ -6,6 +6,7 @@ export function initEndgameUI(action){
  const duelDesk=get('stygianDesk'),duelMode=get('stygianMode'),duelStart=get('stygianStart');
  const duelBattle=get('stygianBattle'),duelHp=get('stygianHp');
  const mechanic=get('stygianMechanic'),lamp=get('stygianLamp');
+ const lives=get('stygianLives'),life=get('stygianLife'),aid=get('stygianAid');
  let duel,previousDuel='';
  const companion={amber:'アンバー',columbina:'コロンビーナ',wanderer:'放浪者',beidou:'北斗',
   ayaka:'綾華',emilie:'エミリエ',kachina:'カチーナ',mitya:'ミティヤ'};
@@ -62,20 +63,35 @@ export function initEndgameUI(action){
     ? (fight.remaining!==undefined?`残り ${Math.ceil(fight.remaining)}秒`:'') : fight.elapsed?`${fight.elapsed.toFixed(1)}秒`:'';
    get('stygianDialogue').textContent=fight.dialogue||fight.chain?.join(' → ')||'';
    const active=fight.status==='fighting';
-   mechanic.hidden=!active||(fight.ward===undefined&&fight.trial===undefined);
+   mechanic.hidden=!active||(fight.ward===undefined&&fight.trial===undefined&&fight.found===undefined&&fight.road===undefined);
    if(!mechanic.hidden){
-    mechanic.textContent=fight.trial ? `第${fight.trial}局面 ｜ 光 ${fight.collected} / 3` : `結界 ${fight.ward} / 2`;
+    mechanic.textContent=fight.trial ? `第${fight.trial}局面 ｜ 光 ${fight.collected} / 3`
+     : fight.road ? `通過 ${fight.road.passed} / ${fight.road.total}`
+     : fight.found!==undefined ? `命の影 ${fight.found} / ${fight.goal}${fight.untilTick?` ｜ 残り ${Math.ceil(fight.untilTick/60)}秒`:''}`
+     : `結界 ${fight.ward} / 2`;
    }
    lamp.hidden=!active||!fight.lampVisible;
    lamp.disabled=frame.paused;
    lamp.classList.toggle('accent',!!fight.lampReady);
+   lives.hidden=fight.life===undefined;
+   if(!lives.hidden){
+    life.max=fight.maxLife;
+    life.value=fight.life;
+    get('stygianLifeText').textContent=`命 ${fight.life} / ${fight.maxLife}`;
+    get('stygianFuel').textContent=`復活の灯 ${fight.lamps} / ${fight.maxLamps}`;
+    aid.hidden=!fight.aidVisible;
+    aid.disabled=frame.paused||!fight.aidReady;
+    get('stygianAidHint').textContent=fight.aidVisible&&!fight.aidReady&&fight.aidTicks===undefined
+     ? '相方のそばで救助できます' : '';
+   }
   }
   if(fight){
    next.hidden=fight.kind!=='abyss'||fight.status!=='between';
    const prize=fight.matchReward;
    const result=fight.match?(fight.status==='clear'
     ? `勝利 ｜ ${prize.mora.toLocaleString()}モラ・★${prize.rank} ${prize.set}${prize.bag?'':'（広場で受取）'}`
-    : fight.status==='failed'?(fight.remaining===0?'時間切れ。入口から再挑戦できます。':'挑戦終了。入口から再挑戦できます。')
+    : fight.status==='failed'?(fight.phase==='spectate'?fight.hint
+      :fight.remaining===0?'時間切れ。入口から再挑戦できます。':'挑戦終了。入口から再挑戦できます。')
     :fight.hint)
     :fight.status==='clear'?`突破：${fight.reward?`星${fight.stars}・${fight.reward}`:'自己記録を保存しました'}`:
     fight.status==='failed'?'挑戦終了。入口から再挑戦できます。':

@@ -41,7 +41,7 @@
     {
       "id": "ronova",
       "name": "ロノヴァ",
-      "status": "not_implemented",
+      "status": "partial",
       "source": "docs/stygian-motion-v1/RONOVA.md"
     }
   ],

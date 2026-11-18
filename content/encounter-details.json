@@ -885,13 +885,9 @@
         "audit": "evidence/ronova-idle-reference-audit.json",
         "status": "directional hover idle with separate rear wing art"
       },
-      "remaining": [
-        "姿勢の変化・台詞・瞳と羽の演出",
-        "専用戦闘行動・命と復活の仕組み",
-        "4難度・報酬",
-        "マルチ・記録"
-      ],
-      "review_note": "144pxの本体と赤い翼を分け、仮背景で17.6pxの浮きを比較。"
+      "extra_evidence": ["docs/stygian-motion-v1/RONOVA_WEB.md","evidence/stygian-ronova-lua.json","evidence/stygian-ronova-browser.json"],
+      "remaining": ["本人の連続作画と効果音","難度ごとの通しプレイと調整","実マルチ、本番3D配置と幻境実機"],
+      "review_note": "四段階の一ゲージ戦。個別HPと共有Life、ペア全滅時の有限復活、回収と安全門、四難度の報酬と個人記録を試す。"
     }
   }
 }

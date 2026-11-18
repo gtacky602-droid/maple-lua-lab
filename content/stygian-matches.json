@@ -1315,6 +1315,183 @@
           "rarity": 5
         }
       ]
+    },
+    "ronova": {
+      "entity": 990006,
+      "node": "sne-stygian-last-gate",
+      "hub": "snezhnaya-hub",
+      "challenge": "stygian-ronova",
+      "name": "死の執政・ロノヴァ",
+      "arena": {
+        "left": 40,
+        "right": 920,
+        "floor": 480,
+        "unit": 88,
+        "bossX": 575,
+        "playerX": 272,
+        "returnX": [
+          160,
+          480,
+          794
+        ],
+        "shadowSlots": [
+          [
+            206,
+            480
+          ],
+          [
+            480,
+            374
+          ],
+          [
+            754,
+            480
+          ]
+        ],
+        "road": [
+          [
+            235,
+            480
+          ],
+          [
+            480,
+            374
+          ],
+          [
+            725,
+            480
+          ],
+          [
+            856,
+            480
+          ]
+        ],
+        "gateX": [
+          224,
+          480,
+          736
+        ]
+      },
+      "life": {
+        "max": 100,
+        "afterZero": 35,
+        "waveLoss": 18,
+        "waveEchoTicks": 360,
+        "splitMax": 36,
+        "trialEcho": 12
+      },
+      "revive": {
+        "lamps": 5,
+        "wait": 120,
+        "protection": 120,
+        "aidTime": 180,
+        "aidFraction": 0.25,
+        "aidCooldown": 3600,
+        "aidRange": 92
+      },
+      "timing": {
+        "enter": 66,
+        "shift": 42,
+        "finaleBetween": 3
+      },
+      "thresholds": [
+        0.75,
+        0.45,
+        0.15
+      ],
+      "orders": [
+        [
+          "RN01",
+          "RN02",
+          "RN03"
+        ],
+        [
+          "RN04",
+          "RN05",
+          "RN06",
+          "RN10"
+        ],
+        [
+          "RN07",
+          "RN11",
+          "RN12",
+          "RN02"
+        ],
+        [
+          "RN07",
+          "RN04",
+          "RN10",
+          "RN11",
+          "RN05",
+          "RN02",
+          "RN06",
+          "RN12",
+          "RN01"
+        ]
+      ],
+      "damage": {
+        "RN01": 22,
+        "RN04": 36,
+        "RN07": 33,
+        "RN08": 23,
+        "RN10": 26,
+        "RN11": 32,
+        "RN12": 41
+      },
+      "modes": [
+        {
+          "id": "normal",
+          "name": "通常",
+          "level": 164,
+          "hp": 5460,
+          "damageScale": 1,
+          "rest": 38,
+          "mora": 29600,
+          "firstMora": 24700,
+          "itemLevel": 185,
+          "rarity": 5,
+          "extraCards": false
+        },
+        {
+          "id": "hard",
+          "name": "ハード",
+          "level": 179,
+          "hp": 7340,
+          "damageScale": 1.18,
+          "rest": 33,
+          "mora": 43800,
+          "firstMora": 36800,
+          "itemLevel": 199,
+          "rarity": 5,
+          "extraCards": true
+        },
+        {
+          "id": "master",
+          "name": "マスター",
+          "level": 192,
+          "hp": 9610,
+          "damageScale": 1.37,
+          "rest": 29,
+          "mora": 62600,
+          "firstMora": 48000,
+          "itemLevel": 200,
+          "rarity": 5,
+          "extraCards": true
+        },
+        {
+          "id": "extreme",
+          "name": "極限",
+          "level": 200,
+          "hp": 12300,
+          "damageScale": 1.6,
+          "rest": 25,
+          "mora": 85100,
+          "firstMora": 63200,
+          "itemLevel": 200,
+          "rarity": 5,
+          "extraCards": true
+        }
+      ]
     }
   }
 }

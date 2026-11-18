@@ -20,6 +20,9 @@
 #stygianBattle{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 10px}
 #stygianHp{flex:1 1 120px;max-width:270px;height:9px}
 #stygianLamp.accent{background:#685138;border-color:#ffe1a1;color:#fff4d2}
+#stygianLife{width:94px;height:9px;accent-color:#da7192}
+#stygianLives:not([hidden]){display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#stygianFuel{color:#ffe1a1}
 #weeklyPhases{gap:8px;flex-wrap:wrap;padding-top:4px}
 #weeklyPhases:not([hidden]){display:flex}
 #weeklyPhases label{display:grid;gap:3px;font-size:.85rem}
@@ -164,6 +167,11 @@
   <span id="stygianClock"></span><small id="stygianDialogue"></small>
   <span id="stygianMechanic" hidden></span>
   <button id="stygianLamp" data-action="encounter_interact" type="button" hidden>灯を掲げる（H）</button>
+  <div id="stygianLives" hidden>
+   <span id="stygianLifeText"></span><progress id="stygianLife" max="100" value="100" aria-label="ペアの命"></progress>
+   <span id="stygianFuel"></span><span id="stygianAidHint"></span>
+   <button id="stygianAid" data-action="encounter_interact" type="button" hidden>相方を救助（H）</button>
+  </div>
  </div>
  <button id="abyssNext" data-action="endgame_next" hidden>次の区画へ</button>
  <button data-action="endgame_exit">挑戦入口に戻る</button>

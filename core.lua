@@ -346,6 +346,7 @@ function C.action(s,key)
   s.gauge=s.gauge-60;a.light=12;a.cd.light=60;event(s,'light',1)
  elseif key=='dodge' and (a.cd.dodge or 0)<=0 then
   a.inv=.45;a.cd.dodge=2;a.x=clamp(a.x+a.dir*100,20,(s.worldwidth or 2880)-20);a.lock=0
+  a.dodgeInvUntil=s.t+.45
   reportMotion(s,a,'dodge',C.playerAttackAt(s,a))
  elseif key=='jump' then a.buffer=.1;a.jumpInputAt=C.playerAttackAt(s,a)
  elseif key=='drop' then
@@ -513,7 +514,10 @@ function C.step(s,dt,input)
  end
  if s.actors[s.active].hp<=0 then
   if s.actors[3-s.active].hp>0 then s.active=3-s.active
-  else for _,a in ipairs(s.actors) do a.hp=a.maxhp;a.x=140+a.id*60;a.y=480;a.inv=3 end;s.returns=s.returns+1;event(s,'return') end
+  elseif not (C.handlesPartyWipe and C.handlesPartyWipe(s)) then
+   for _,a in ipairs(s.actors) do a.hp=a.maxhp;a.x=140+a.id*60;a.y=480;a.inv=3 end
+   s.returns=s.returns+1;event(s,'return')
+  end
  end
  for _,list in ipairs({s.numbers,s.effects}) do for i=#list,1,-1 do list[i].life=list[i].life-dt;if list[i].life<=0 then table.remove(list,i) end end end
  local player=s.actors[s.active];s.camera=clamp(player.x-400,0,math.max(0,(s.worldwidth or 2880)-960))

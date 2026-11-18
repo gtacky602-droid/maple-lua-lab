@@ -1,0 +1,49 @@
+{
+  "background": {
+    "key": "lastJudgment",
+    "file": "false-moon-rift-background-v1.png",
+    "state": "ready"
+  },
+  "normalClear": true,
+  "trail": {
+    "stages": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "moves": [
+      "RN01",
+      "RN02",
+      "RN03",
+      "RN04",
+      "RN05",
+      "RN06",
+      "RN07",
+      "RN12",
+      "RN08"
+    ],
+    "authority": 0,
+    "lamps": 0,
+    "pickups": {
+      "RN03": 3,
+      "RN06": 2,
+      "RN08": 2
+    },
+    "down": 0,
+    "road": 4,
+    "lifeMin": 46,
+    "lifeMax": 100,
+    "gate": true,
+    "wing": true
+  },
+  "questReportSaveRestore": true,
+  "lampsAtWin": 5,
+  "viewport390": true,
+  "commands": {
+    "png": 160,
+    "standard": 12499,
+    "light": 3386
+  },
+  "errors": []
+}

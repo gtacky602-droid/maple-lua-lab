@@ -1,0 +1,30 @@
+{
+  "cards": [
+    "RN01",
+    "RN02",
+    "RN03",
+    "RN04",
+    "RN05",
+    "RN06",
+    "RN07",
+    "RN08",
+    "RN09",
+    "RN10",
+    "RN11",
+    "RN12"
+  ],
+  "peak_hp": 12300,
+  "life_separate_from_hp": true,
+  "aid_interrupt_and_completion": true,
+  "shadow_split_and_third_optional_return_echo": true,
+  "all_four_threshold_stages": true,
+  "safe_gate_at_840_and_recovery_864": true,
+  "partner_death_does_not_spend_lamp": true,
+  "five_returns_and_spectate_on_sixth_wipe": true,
+  "wait_and_protection_ticks": 120,
+  "hp_phase_ct_and_shared_light_gauge_preserved": true,
+  "stale_verdict_cancelled": true,
+  "life_one_no_split": true,
+  "missed_return_verdict_at_708": true,
+  "record_and_save": true
+}

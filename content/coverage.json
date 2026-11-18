@@ -195,8 +195,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 29,
-      "prototype_quest_count": 20,
+      "prototype_stage_count": 30,
+      "prototype_quest_count": 21,
       "official_map2_markers": {
         "waypoints": 101,
         "statues": 7
@@ -588,8 +588,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 356,
-    "provisional_quests": 224,
+    "authored_stages": 357,
+    "provisional_quests": 225,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -608,11 +608,11 @@
       "beidou",
       "capitano",
       "xbalanque",
-      "rerir"
+      "rerir",
+      "ronova"
     ],
     "not_implemented": [
-      "wanderer",
-      "ronova"
+      "wanderer"
     ],
     "legacy_candidates": [
       "beidou",
@@ -625,7 +625,7 @@
     "catalog": "content/encounters.json",
     "source_entities": 63,
     "candidates": 87,
-    "partial": 85,
+    "partial": 86,
     "complete": 0,
     "complete_roster_verified": false
   },
@@ -1123,9 +1123,11 @@
           "sne-survey-yard",
           "sne-survey-ridge",
           "sne-snow-match",
+          "sne-stygian-last-gate",
           "sne-stygian-frost-court"
         ],
         "quest_ids": [
+          "stygian-ronova-commission",
           "stygian-capitano-commission",
           "growth-star-practice",
           "growth-light-echo",

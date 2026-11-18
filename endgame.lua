@@ -41,7 +41,8 @@ return function(C,abyss,weekly,matches,controllers)
   local trial=s.endgameRun
   s.endgameRun=nil
   s.farka=nil
-  C.enterStoryNode(s,trial.origin)
+  local bothDown=s.actors[1].hp<=0 and s.actors[2].hp<=0
+  C.enterStoryNode(s,bothDown and trial.match and matches[trial.match].hub or trial.origin)
   s.storyNotice=trial.status=='clear' and '挑戦記録を保存しました。依頼は拠点で報告できます。' or '挑戦入口へ戻りました。'
  end
  local function openRoom(s,run)
@@ -129,7 +130,10 @@ return function(C,abyss,weekly,matches,controllers)
    elseif (key=='endgame_next' or key=='story_nearby_portal') and not s.paused and run.kind=='abyss' and run.status=='between' then
     run.room=run.room+1;openRoom(s,run)
    elseif key=='pause' or ((run.status=='fighting' or run.status=='between')
-       and (battleActions[key] or key:match('^slot[1-8]$'))) then action(s,key) end
+       and (battleActions[key] or key:match('^slot[1-8]$'))) then
+    local controller=run.match and controllers[run.match]
+    if not (controller and controller.blocksAction and controller.blocksAction(s,run,key)) then action(s,key) end
+   end
    return
   end
   local mode,set=key:match('^abyss_start:(%a+):(%a+)$')

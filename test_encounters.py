@@ -20,7 +20,7 @@ check('completion not overclaimed',d['counts']['complete']==0 and not d['complet
 check('not implemented rows cannot launch',all(r['action'] is None for r in rows if r['status']=='not_implemented'))
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
-check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':87,'partial':85,'complete':0})
+check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':87,'partial':86,'complete':0})
 by_id={r['id']:r for r in rows}
 childe=by_id['boss-29030101']
 check('Childe has a distinct weekly route',
@@ -245,7 +245,9 @@ check('Rerir art and design linked without a playable action',
       and by_id['stygian-rerir']['action'] is None)
 check('Ronova art and design linked without a playable action',
       by_id['stygian-ronova']['art_candidate']['encoding']=='assets/ronova-idle-right-sprites-v1.json'
-      and by_id['stygian-ronova']['evidence']==['docs/stygian-motion-v1/RONOVA.md']
+      and by_id['stygian-ronova']['evidence'][0]=='docs/stygian-motion-v1/RONOVA.md'
+      and by_id['stygian-ronova']['status']=='partial'
+      and by_id['stygian-ronova']['stygianNode']=='sne-stygian-last-gate'
       and by_id['stygian-ronova']['action'] is None)
 
 check('Beidou has an original Stygian deck separate from weekly routes',
