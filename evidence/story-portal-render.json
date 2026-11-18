@@ -543,12 +543,12 @@
     {
       "node": "sumeru-hub",
       "mode": "sprite",
-      "visible_portals": 8
+      "visible_portals": 9
     },
     {
       "node": "sumeru-hub",
       "mode": "rect",
-      "visible_portals": 8
+      "visible_portals": 9
     },
     {
       "node": "sum-wanderer-trail",
@@ -597,6 +597,36 @@
     },
     {
       "node": "sum-visitors-store",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "sum-collei-trail",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "sum-collei-trail",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "sum-collei-rainfork",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "sum-collei-rainfork",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "sum-collei-welcome",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "sum-collei-welcome",
       "mode": "rect",
       "visible_portals": 2
     },

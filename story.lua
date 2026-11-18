@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -65,7 +65,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if rule.alternative then
      return '「'..quests[rule.quest].name..'」か「'..quests[rule.alternative.quest].name..'」を受注してください。'
     end
-    return '依頼「'..quests[rule.quest].name..'」'..(rule.count and 'を進めてください。' or 'を報告してください。')
+    return rule.unavailableNotice or '依頼「'..quests[rule.quest].name..'」'..(rule.count and 'を進めてください。' or 'を報告してください。')
    end
   end
   if edge.wind and not windWindow(s,edge.wind) then return edge.wind.notice or '吹雪のため通れません。風が止むまで待つか、下の風よけ道へ。' end
@@ -188,6 +188,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local teaCase=teaCaseModule(C,canInspect)
  local wandererSurvey=wandererSurveyModule(C)
  local visitors=visitorsModule(C,canInspect)
+ local colleiGuide=colleiGuideModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -286,6 +287,15 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local function inspectMilestone(s,command)
   for _,q in ipairs(itineraries) do
    local milestone,state,parent,quest=nextMilestone(s,q)
+   if milestone and milestone.kind=='guideChoice' and milestone.node==s.story.node and command=='rotate' then
+    local option=nearbyChoice(s,milestone)
+    if option then
+     if option.correct then completeMilestone(s,state,milestone,parent,quest) end
+     local recovery=option.restStop and colleiGuide.rest(s,q)
+     s.storyNotice=option.notice..(recovery and (' '..recovery) or '')
+     return true
+    end
+   end
    if milestone and milestone.appraisalStage and milestone.node==s.story.node and command=='rotate' then
     local handled,finished=appraisal.interact(s,q,state,milestone.appraisalStage)
     if finished then completeMilestone(s,state,milestone,parent,quest) end
@@ -374,6 +384,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      if milestone.resonanceStone then resonance.record(s,milestone,emitCue) end
       completeMilestone(s,state,milestone,parent,quest)
       if milestone.storeSpecimen then visitors.store(s,q) end
+      if milestone.guideWelcome then s.colleiWelcomeAt=s.t end
       if milestone.detourRest then coastDetour.rest(s,q,state,emitCue) end
      return true
     end
@@ -515,6 +526,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   teaCase.enter(s)
   s.wandererAssistAt=nil
   s.visitorDeparture=nil
+  s.colleiWelcomeAt,s.colleiLetterNotice=nil,nil
   s.storyLightMode=n.localLight and 'bright' or nil
   s.airflowTrial,s.storyCue=nil,nil
   s.resonanceOrder,s.resonancePage=nil,nil
@@ -703,6 +715,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if node.nightBanner and nightBanner.read(s,node,quests[node.clearedBy],spawnState) then return end
    if node.teaQuest and teaCase.read(s,quests[node.teaQuest],s.story.quests[node.teaQuest]) then return end
    if node.visitorSite and visitors.reread(s,quests[node.clearedBy],s.story.quests[node.clearedBy],emitCue) then return end
+   if node.colleiGuideQuest and colleiGuide.revisit(s,quests[node.colleiGuideQuest],s.story.quests[node.colleiGuideQuest]) then return end
+   if node.colleiLetterQuest and colleiGuide.letter(s,quests[node.colleiLetterQuest],s.story.quests[node.colleiLetterQuest]) then return end
    local archive=node.returnBoxArchive
    if archive and returnBox.read(s,archive,s.story.quests[archive.quest]) then return end
    local railConfig,railState=railQuest(s,nodes[s.story.node])
@@ -909,6 +923,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   if key=='campaign' or key=='town' or key=='field' or key=='arena' or key=='boss_anemo' then
    s.story.active=false;s.voyage=nil;s.railTrip=nil;s.wandererAssistAt=nil;s.visitorDeparture=nil
+   s.colleiWelcomeAt,s.colleiLetterNotice=nil,nil
    paper.reset(s);stealth.clear(s);itto.enter(s,nil)
   end
   action(s,key)
@@ -1269,6 +1284,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     wandererSurvey.observe(f,s,q,s.story.quests[q.id],mode,profile)
    end
    if n.visitorSite then visitors.observe(f,s,n.visitorSite,quests[n.clearedBy],s.story.quests[n.clearedBy],mode,profile) end
+   if n.colleiGuideQuest then
+    local q=quests[n.colleiGuideQuest]
+    colleiGuide.observe(f,s,n.guideScene,q,s.story.quests[q.id],mode,profile)
+   end
+   if n.colleiLetterQuest then
+    local q=quests[n.colleiLetterQuest]
+    colleiGuide.observeLetter(f,s,q,s.story.quests[q.id],mode,profile)
+   end
     if n.moonInlet then moonInlet.observe(s,f,markers,n.moonInlet,s.story.quests[n.moonInlet.quest]) end
     if n.shoreLights then moonInlet.lights(s,markers,n.shoreLights) end
     if n.coastDetour then coastDetour.observe(s,f,markers,n.coastDetour,quests[n.coastDetour.quest],mode,profile) end
@@ -1423,6 +1446,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         markers[#markers+1]={kind='text',x=x,y=y-(option.detourGift and 79 or 43),text=option.name,color='#fff0b9',size=14}
        end
       end
+      local option=not s.paused and nearbyChoice(s,milestone)
+      if option and not f.storyNearbyMilestone then f.storyNearbyMilestone={label=option.action} end
+     elseif milestone and milestone.kind=='guideChoice' and milestone.node==s.story.node then
       local option=not s.paused and nearbyChoice(s,milestone)
       if option and not f.storyNearbyMilestone then f.storyNearbyMilestone={label=option.action} end
      elseif milestone and milestone.airflow and milestone.node==s.story.node then

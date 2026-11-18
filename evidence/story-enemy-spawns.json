@@ -244,6 +244,18 @@
       "enemy_count": 3
     },
     {
+      "node": "sum-collei-trail",
+      "enemy_count": 0
+    },
+    {
+      "node": "sum-collei-rainfork",
+      "enemy_count": 0
+    },
+    {
+      "node": "sum-collei-welcome",
+      "enemy_count": 0
+    },
+    {
       "node": "sumeru-field",
       "enemy_count": 6
     },

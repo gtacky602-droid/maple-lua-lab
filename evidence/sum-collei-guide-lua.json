@@ -1,0 +1,14 @@
+{
+  "prerequisiteAndWrongChoices": true,
+  "jumpAndSafeRest": true,
+  "rainGateAndRestore": true,
+  "guestMovesAndPauses": true,
+  "finishedBeforeLetter": true,
+  "mapRestAndDryShortcut": true,
+  "optionalLetterAndReread": true,
+  "letterRestoresAndRejectsInvalid": true,
+  "reward": [
+    220004,
+    2100
+  ]
+}

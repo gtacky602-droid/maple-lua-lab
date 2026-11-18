@@ -362,6 +362,24 @@
       "backgroundState": "ready"
     },
     {
+      "id": "sum-collei-trail",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "sum-collei-rainfork",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "sum-collei-welcome",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "sumeru-field",
       "count": 0,
       "fallback": false,

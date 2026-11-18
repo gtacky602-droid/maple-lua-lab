@@ -1,0 +1,43 @@
+newmtl wood
+Kd 0.45882 0.30196 0.18824
+illum 1
+
+newmtl roof
+Kd 0.19216 0.40392 0.36471
+illum 1
+
+newmtl cream
+Kd 0.87059 0.78824 0.62745
+illum 1
+
+newmtl blue
+Kd 0.26667 0.50196 0.57255
+illum 1
+
+newmtl pale
+Kd 0.57647 0.74118 0.71373
+illum 1
+
+newmtl gray
+Kd 0.58039 0.57647 0.49020
+illum 1
+
+newmtl leaf
+Kd 0.41176 0.57647 0.32157
+illum 1
+
+newmtl red
+Kd 0.65882 0.39216 0.26275
+illum 1
+
+newmtl ink
+Kd 0.24314 0.23137 0.22745
+illum 1
+
+newmtl tan
+Kd 0.86275 0.66667 0.48627
+illum 1
+
+newmtl gold
+Kd 0.89020 0.69804 0.38039
+illum 1

@@ -152,6 +152,9 @@ export const sceneryDefinitions={
  sumeruVisitorsMeadow:{file:'sum-fungus-visitors-meadow-background-v1.png',zones:['story:sum-visitors-meadow'],note:'観測器の草地の仮背景'},
  sumeruVisitorsTerrace:{file:'sum-fungus-visitors-terrace-background-v1.png',zones:['story:sum-visitors-terrace'],note:'標本台の段丘の仮背景'},
  sumeruVisitorsStore:{file:'sum-fungus-visitors-store-background-v1.png',zones:['story:sum-visitors-store'],note:'標本の保管所の仮背景'},
+ sumeruColleiTrail:{file:'sum-collei-guide-trail-background-v1.png',zones:['story:sum-collei-trail'],note:'林巡りの練習道の仮背景'},
+ sumeruColleiRain:{file:'sum-collei-guide-rain-background-v1.png',zones:['story:sum-collei-rainfork'],note:'水音の分かれ道の仮背景'},
+ sumeruColleiWelcome:{file:'sum-collei-guide-welcome-background-v1.png',zones:['story:sum-collei-welcome'],note:'巡林の集合所の仮背景'},
  sumeruCanopy:{file:'sumeru-canopy-background-v1.png',zones:['story:sumeru-canopy-junction','story:sumeru-branch-run','story:sumeru-observation-stop','story:sumeru-observatory-approach','story:sumeru-observatory-terrace','story:sumeru-sky-observatory']},
  sumeru:{file:'sumeru-background-v1.png',region:'スメール',zones:[]}
 };
@@ -326,6 +329,17 @@ export function scenery(ctx,frame){
   ctx.fillStyle=bygone?'#436c7b':key==='ochkanatlan'?'#687275':key==='tunigi'?'#94704f':golden?'#ad9064':sandstone?'#765540':stone?'#555d80':key==='voyage'?'#765641':roof?'#866058':lookout?'#776b61':snow?'#6f8197':key==='natlan'?'#a16646':key==='fontaine'?'#9c9b9e':key==='liyue'?'#887653':inazuma?'#686174':p.y===480?'#655c43':'#756d56';ctx.fillRect(x,p.y,p.w,p.y===480?60:24);
   ctx.fillStyle=bygone?'#92aea9':key==='ochkanatlan'?'#8d9b82':key==='tunigi'?'#bd966c':golden?'#d7b981':sandstone?'#ad7952':stone?'#858cab':key==='voyage'?'#ac8258':roof?'#b2846c':lookout?'#ab9e86':snow?'#c9dded':key==='fontaine'?'#bbbfc5':inazuma?'#697b79':'#508451';ctx.fillRect(x,p.y,p.w,7);ctx.fillStyle=bygone?'#e0d6a3':key==='ochkanatlan'?'#c7d0be':key==='tunigi'?'#ead2a0':golden?'#f7e3b1':sandstone?'#dfae73':stone?'#c4c8dd':key==='voyage'?'#d6b17a':roof?'#efbb94':lookout?'#dfcba6':snow?'#f1f7ff':key==='fontaine'?'#f0e9da':inazuma?'#c5bbd2':'#bed088';ctx.fillRect(x,p.y,p.w,2);
   ctx.fillStyle=bygone?'#b6baaa':key==='ochkanatlan'?'#a5ada5':key==='tunigi'?'#c2a17c':golden?'#dfc998':sandstone?'#886047':stone?'#949bb9':key==='voyage'?'#b69069':roof?'#ac796d':lookout?'#a19583':snow?'#a1b7cc':'#a09675';for(let n=0;n<p.w;n+=40){if(x+n>-40&&x+n<960)ctx.fillRect(x+n+5,p.y+11,27,5)}
+ }
+ if(frame.storyColleiGuide?.rain){
+  ctx.fillStyle='#283e5940';ctx.fillRect(0,0,960,540);
+  ctx.strokeStyle='#d1ece95e';ctx.lineWidth=1.3;ctx.beginPath();
+  const drift=frame.t*310;
+  for(let i=0;i<88;i++){
+   const x=(i*197+Math.floor(drift/65)*12)%980;
+   const y=(i*87+drift)%568-24;
+   ctx.moveTo(x,y);ctx.lineTo(x-5,y+12+i%8);
+  }
+  ctx.stroke();
  }
  ctx.restore();
 }

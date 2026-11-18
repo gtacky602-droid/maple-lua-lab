@@ -20,6 +20,7 @@
       "region": "モンド",
       "level": 1,
       "hub": true,
+      "colleiLetterQuest":"sum-collei-guide",
       "width": 1440,
       "returnBoxArchive": {
         "quest": "mond-return-box-quest",
@@ -1692,6 +1693,7 @@
       "level": 60,
       "hub": true,
       "wandererSurveyQuest":"sum-wanderer-observation",
+      "colleiLetterQuest":"sum-collei-guide",
       "width": 1440,
       "platforms": [
         {
@@ -1729,6 +1731,7 @@
         {"to":"sumeru-observation-stop","x":1162,"requires":{"quest":"sumeru-forest-levels"}},
         {"to":"sumeru-sky-observatory","x":1282,"requires":{"quest":"sumeru-observatory-map"}},
         {"to":"sum-visitors-meadow","x":332,"arrivalX":123,"requires":{"quest":"sum-fungus-visitors","count":1}},
+        {"to":"sum-collei-trail","x":528,"arrivalX":119,"requires":{"quest":"sum-collei-guide","count":1}},
         {"to":"sum-wanderer-trail","x":618,"arrivalX":124,"requires":{"quest":"sum-wanderer-observation","count":1}}
       ],
       "checkpoint": "sumeru-hub"
@@ -1780,6 +1783,31 @@
         "observer":{"x":1197,"y":432,"restX":742}},
       "exits":[{"to":"sum-visitors-terrace","x":62,"arrivalX":1379},
         {"to":"sumeru-hub","x":1547,"arrivalX":383,"returnOnly":true,"requires":{"quest":"sum-fungus-visitors","count":11}}]
+    },
+    {
+      "id":"sum-collei-trail","name":"スメール・林巡りの練習道","region":"スメール","level":60,"hub":false,"peaceful":true,
+      "width":1460,"checkpoint":"sumeru-hub","colleiGuideQuest":"sum-collei-guide","guideScene":{},
+      "platforms":[{"x":0,"y":480,"w":1460},{"x":542,"y":396,"w":198,"rootShelf":true},{"x":782,"y":390,"w":174,"rootShelf":true}],
+      "restWaypoint":{"quest":"sum-collei-guide","label":"林巡りの休憩所","arrivalX":934},
+      "exits":[{"to":"sumeru-hub","x":58,"arrivalX":500},
+        {"to":"sum-collei-rainfork","x":1384,"arrivalX":122,"requires":{"quest":"sum-collei-guide","count":3}}]
+    },
+    {
+      "id":"sum-collei-rainfork","name":"スメール・水音の分かれ道","region":"スメール","level":60,"hub":false,"peaceful":true,
+      "width":1370,"checkpoint":"sumeru-hub","colleiGuideQuest":"sum-collei-guide",
+      "guideScene":{"rain":true},
+      "platforms":[{"x":0,"y":480,"w":1370},{"x":440,"y":389,"w":238,"rootShelf":true}],
+      "exits":[{"to":"sum-collei-trail","x":58,"arrivalX":1310},
+        {"to":"sum-collei-welcome","x":553,"y":389,"arrivalX":321,"rideLabel":"川沿いの近道",
+          "requires":{"quest":"sum-collei-guide","unavailableNotice":"雨で川が増水しています。根の下の道へ回ってください。"}},
+        {"to":"sum-collei-welcome","x":1272,"arrivalX":122,"rideLabel":"根の下の迂回路","requires":{"quest":"sum-collei-guide","count":5}}]
+    },
+    {
+      "id":"sum-collei-welcome","name":"スメール・巡林の集合所","region":"スメール","level":60,"hub":false,"peaceful":true,
+      "width":1050,"checkpoint":"sumeru-hub","colleiGuideQuest":"sum-collei-guide","guideScene":{"guest":{"x":581,"y":480,"stopX":708,"seconds":1.9}},
+      "platforms":[{"x":0,"y":480,"w":1050}],
+      "exits":[{"to":"sum-collei-rainfork","x":65,"arrivalX":1209},
+        {"to":"sumeru-hub","x":965,"arrivalX":691,"returnOnly":true,"requires":{"quest":"sum-collei-guide","count":6}}]
     },
     {
       "id": "sumeru-field",
@@ -5811,6 +5839,33 @@
         {"kind":"inspect","node":"sum-visitors-store","x":1124,"y":480,"name":"香りのある星葉草","action":"星葉草の標本を持つ","objective":"観測器の横の標本を持って、奥の棚に運ぶ","notice":"星葉草の標本を手に取りました。観察中のキノコンも袋の方へ移動します。棚に入れて観察を続けます。","visitorProp":true},
         {"kind":"inspect","node":"sum-visitors-store","x":1326,"y":480,"name":"標本棚","action":"標本を棚へ入れて扉を閉じる","objective":"保管所の奥で、標本を棚に入れる","notice":"棚に標本を入れて扉を閉じると、キノコンが袋のそばから離れていきます。音は手前の観測器で聞き直せます。","visitorProp":true,"storeSpecimen":true},
         {"kind":"inspect","node":"sum-visitors-store","x":1006,"y":480,"name":"保管所の観測器","action":"観測器の音と周りの変化を確かめる","objective":"観測器に戻って、音が同じか、標本をしまった後に寄ってくるかを確かめる","notice":"三つの音の順と間隔は同じです。キノコンは棚から離れ、周りが落ち着きました。右の門から広場へ報告に戻れます。","visitorProp":true,"observationTone":true,"compareAfterStorage":true}
+      ]
+    },
+    {
+      "id":"sum-collei-guide","designId":"Q-SUM-S03","name":"今日の案内役は、私！","giver":"コレイ",
+      "hub":"sumeru-hub","target":"sum-collei-welcome","requires":"sumeru-leaf-crossing","level":60,
+      "kind":"itinerary","goal":6,"xp":220004,"mora":2100,
+      "briefing":"コレイ「今度、森に初めて来る人を案内することになったんだ。迷いそうなところがないか、一緒に一周してくれる？」",
+      "closing":"コレイ「集合所でちゃんと挨拶できたよ。次からは雨の道も案内できそう。アンバーへの手紙は、モンドへ行くついでがあったらお願い。」",
+      "completedObjective":"地図から林巡りの休憩所を再訪できる。手紙は樹陰の広場で任意に預かる",
+      "guideRestHp":32,
+      "guideLetter":{"sender":{"node":"sumeru-hub","x":748,"y":480},"recipient":{"node":"mond-town","x":232,"y":480},
+        "pickup":"コレイ『アンバーへ。今日は森の案内役をしたよ。次に会えたら、道を一緒に歩こう。』アンバーへの手紙を預かりました。",
+        "delivery":"アンバー「コレイが案内役になったんだ！ 次にスメールへ行ったら、まず色糸を探してみるね。」アンバーに手紙を渡しました。",
+        "reply":"アンバー「手紙、何度も読んだよ。どの道を案内したか、今度コレイに聞いてみようかな。」"},
+      "itinerary":[
+        {"kind":"inspect","node":"sumeru-hub","x":515,"y":480,"name":"コレイの見取り図","action":"コレイの案内の練習に付き合う","objective":"樹陰の広場でコレイから巡林案内の話を聞く","notice":"コレイ「初めて来た人が遠くから見分けられる目印を探してみよう。見取り図の右の門から出発！」"},
+        {"kind":"guideChoice","node":"sum-collei-trail","objective":"初めて森を歩く人にも見つけやすい目印を、近くで調べて選ぶ","choices":[
+          {"x":441,"y":480,"art":"root","name":"青い色糸を巻いた根","action":"青い色糸を目印に選ぶ","correct":true,"notice":"コレイ「青い色糸なら、初めて来た人も下の道から見えるね。次は腰を下ろせる場所を探そう。」"},
+          {"x":647,"y":396,"art":"stones","name":"高い棚の三つ石","action":"三つ石を目印に選ぶ","notice":"コレイ「近くまで登ってみると三つあるね。下の道からは他の石と見分けにくかった。段を下りて色のある目印を見てみよう。」"}]},
+        {"kind":"guideChoice","node":"sum-collei-trail","objective":"急に雨が降っても休める場所を、近くで調べて選ぶ","choices":[
+          {"x":982,"y":480,"art":"shelter","name":"屋根付きの休憩所","action":"屋根の下で休む","correct":true,"restStop":true,"notice":"コレイ「雨が降ってもここなら休めるね。座ってひと息ついたら、右の門から川の分かれ道へ。」"},
+          {"x":864,"y":390,"art":"bench","name":"川を見下ろす腰掛け","action":"川辺の腰掛けで休む","notice":"コレイ「景色はきれいだけど、雨宿りできる場所も必要だね。右下に屋根が見えるよ。」"}]},
+        {"kind":"inspect","node":"sum-collei-rainfork","x":331,"y":480,"name":"雨で増えた水音","action":"コレイと雨の様子を確かめる","objective":"雨の分かれ道で、水かさが増えた川の様子を確認する","notice":"コレイ「この音だと川沿いはすぐに水が上がる。大きな根の下なら、雨が降っても道が残るんだ。」"},
+        {"kind":"guideChoice","node":"sum-collei-rainfork","objective":"川の水かさを見て、安全に歩ける道を選ぶ","choices":[
+          {"x":802,"y":480,"art":"root","name":"大きな根の下の道","action":"根の下を通る迂回路を選ぶ","correct":true,"notice":"コレイ「この根が雨をよけてくれるよ。今日はこの道で集合所へ案内しよう。」"},
+          {"x":536,"y":389,"art":"barrier","name":"水が上がった川沿い","action":"川沿いの予定道を確かめる","rainOnly":true,"notice":"コレイ「水が柵の下まで来てる。ここは待たずに下へ戻ろう。大きな根が目印だよ。」"}]},
+        {"kind":"inspect","node":"sum-collei-welcome","x":512,"y":480,"name":"集合所の待ち合わせ","action":"コレイと新人の案内を始める","objective":"集合所で、コレイが初めての客を迎えるところを見届ける","notice":"コレイ「こんにちは！ 青い色糸と、屋根のある休憩所を覚えてね。今日は根の下の道を通ろう。」新人はうなずいて案内を聞きに歩き出しました。右の門から広場へ報告に戻れます。","guideWelcome":true}
       ]
     },
     {

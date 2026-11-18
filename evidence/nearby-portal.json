@@ -686,6 +686,10 @@
     },
     {
       "node": "sumeru-hub",
+      "to": "sum-collei-trail"
+    },
+    {
+      "node": "sumeru-hub",
       "to": "sum-wanderer-trail"
     },
     {
@@ -726,6 +730,34 @@
     },
     {
       "node": "sum-visitors-store",
+      "to": "sumeru-hub"
+    },
+    {
+      "node": "sum-collei-trail",
+      "to": "sumeru-hub"
+    },
+    {
+      "node": "sum-collei-trail",
+      "to": "sum-collei-rainfork"
+    },
+    {
+      "node": "sum-collei-rainfork",
+      "to": "sum-collei-trail"
+    },
+    {
+      "node": "sum-collei-rainfork",
+      "to": "sum-collei-welcome"
+    },
+    {
+      "node": "sum-collei-rainfork",
+      "to": "sum-collei-welcome"
+    },
+    {
+      "node": "sum-collei-welcome",
+      "to": "sum-collei-rainfork"
+    },
+    {
+      "node": "sum-collei-welcome",
       "to": "sumeru-hub"
     },
     {

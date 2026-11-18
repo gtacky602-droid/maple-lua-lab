@@ -1,0 +1,36 @@
+{
+  "scenes": [
+    {
+      "key": "sumeruColleiTrail",
+      "file": "sum-collei-guide-trail-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "key": "sumeruColleiRain",
+      "file": "sum-collei-guide-rain-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "key": "sumeruColleiWelcome",
+      "file": "sum-collei-guide-welcome-background-v1.png",
+      "state": "ready"
+    }
+  ],
+  "wrongChoicesThenSuccess": true,
+  "rainClosesOriginalRoute": true,
+  "realJumps": true,
+  "movingGuest": true,
+  "reportedBeforeLetter": true,
+  "restAndShortcutAfterReload": true,
+  "optionalLetterAcrossRegionsAndReload": true,
+  "commands": {
+    "png": 27,
+    "standard": 7058,
+    "light": 1842
+  },
+  "reward": [
+    220004,
+    2100
+  ],
+  "errors": []
+}

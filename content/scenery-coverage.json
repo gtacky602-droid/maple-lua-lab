@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 311 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 303,
+  "scope": "Authored 314 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 306,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -332,6 +332,24 @@
     {
       "id": "sum-visitors-store",
       "name": "スメール・標本の保管所",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "sum-collei-trail",
+      "name": "スメール・林巡りの練習道",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "sum-collei-rainfork",
+      "name": "スメール・水音の分かれ道",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "sum-collei-welcome",
+      "name": "スメール・巡林の集合所",
       "region": "スメール",
       "status": "regional_temporary_image"
     },
