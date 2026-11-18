@@ -1,0 +1,641 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-11-18",
+  "status": "design_only_not_runtime",
+  "source_commit": "6a6fb176cdcfd6381132b5fea48abe19e4315fa5",
+  "source_of_truth": [
+    "../../DESIGN_FIELD_BOSS_MASTER_V01.md",
+    "COMMON.md",
+    "NATLAN_REMAINING_MOVESETS.md"
+  ],
+  "tick_rate_hz": 60,
+  "unit_U_pixels": 88,
+  "interval_semantics": "half_open",
+  "counts": {
+    "encounters": 3,
+    "attack_cards": 9,
+    "direct_windows": 17,
+    "damaging_projectiles": 0,
+    "proxy_routes": 2,
+    "optional_cooling_rules": 1,
+    "cumulative_encounters": 38,
+    "cumulative_attack_cards": 114,
+    "catalog_reference_rows": 49,
+    "all_catalog_rows_detailed": false
+  },
+  "shared": {
+    "max_attack_patterns": 3,
+    "max_concurrent_casts": 1,
+    "hp_bars": 1,
+    "multiplayer_hp_scaling": false,
+    "required_special_element": false,
+    "forced_revive_phase": false,
+    "hp_zero_priority": true,
+    "normal_damage_pipeline": true,
+    "runtime_or_visual_tested": false,
+    "passive_contact_damage": 0,
+    "body_blocking_crossing_required": false,
+    "unreachable_cast_policy": "cancel_before_lock_reposition_then_new_tell",
+    "cleanup": [
+      "pending_hits",
+      "proxy_actors",
+      "flow",
+      "morph",
+      "old_epoch_events"
+    ]
+  },
+  "bosses": [
+    {
+      "id": "boss-26270301",
+      "name": "輝ける溶岩の龍像",
+      "attacks": [
+        "FLD01",
+        "FLD02",
+        "FLD03"
+      ],
+      "signature": "FLD03",
+      "hurtbox_bottom_u": 0.18,
+      "heat_gate": false,
+      "mode_scope": "signature_cast",
+      "existing_runtime": "field-lava-dragon.lua"
+    },
+    {
+      "id": "boss-24090501",
+      "name": "秘源機兵・統御デバイス",
+      "attacks": [
+        "FOV01",
+        "FOV02",
+        "FOV03"
+      ],
+      "signature": "FOV03",
+      "hurtbox_bottom_u": 0.44,
+      "required_cryo": false,
+      "required_nightsoul": false,
+      "existing_runtime": "field-overseer.lua"
+    },
+    {
+      "id": "boss-25520101",
+      "name": "迷える霊覚の修験者",
+      "attacks": [
+        "FSP01",
+        "FSP02",
+        "FSP03"
+      ],
+      "signature": "FSP03",
+      "hurtbox_bottom_u": 0.28,
+      "full_invisible_ticks": 0,
+      "required_reflection_break": false,
+      "existing_runtime": "field-spiritspeaker.lua"
+    }
+  ],
+  "identity_contract": {
+    "same_actor": true,
+    "same_receiver": true,
+    "same_hp": true,
+    "preserve_aura": true,
+    "preserve_dot": true,
+    "preserve_target": true,
+    "transformation_invulnerable_ticks": 0,
+    "reward_count": 1
+  },
+  "reflection_contract": {
+    "parent_move": "FSP03",
+    "proxy_count": 2,
+    "independent_ai": false,
+    "receives_damage": false,
+    "transfers_damage_to_boss": false,
+    "body_collision": false,
+    "contact_damage": 0,
+    "reward_count": 0,
+    "full_invisible_ticks": 0,
+    "mandatory_shield_layers": 0,
+    "side": "locked_facing_only",
+    "spawn_tick": 64,
+    "despawn_tick": 240,
+    "cancel_with_parent": true,
+    "targetable": false,
+    "blocks_player_projectiles": false,
+    "consumes_pierce_budget": false
+  },
+  "cooling": {
+    "move_id": "FOV03",
+    "window": [
+      60,
+      372
+    ],
+    "initial": 0,
+    "max": 5,
+    "accumulate_every_ticks": 50,
+    "cryo_reduces": 1,
+    "freeze_ticks": 72,
+    "new_direct_casts_only": true,
+    "allowed_sources": [
+      "real_player",
+      "active_companion"
+    ],
+    "accept_reactions": false,
+    "accept_dot_ticks": false,
+    "duplicate_cast_counts": false,
+    "freeze_refresh": "max_existing_end_hit_plus_72",
+    "clock_during_freeze": "pause_no_catchup",
+    "same_tick_order": [
+      "hp_zero",
+      "eligible_cooling",
+      "flow_accumulation",
+      "event_damage_snapshot",
+      "hit"
+    ],
+    "damage_snapshot": "at_event_start",
+    "late_cooling_changes_active_event": false,
+    "damage_formula": "base_damage + flow * existing_damage_per_level",
+    "resets_at_recovery": true,
+    "required_for_victory": false,
+    "interrupts_cast": false,
+    "adds_attack_pattern": false,
+    "same_epoch_only": true,
+    "cast_start_min_tick": 60,
+    "first_uncooled_increment_tick": 110,
+    "freeze_interval_semantics": "half_open"
+  },
+  "attacks": [
+    {
+      "id": "FLD01",
+      "owner": "boss-26270301",
+      "title": "岩腕の打ち下ろし",
+      "element": "Geo",
+      "total": 258,
+      "lock": 48,
+      "active": [
+        [
+          108,
+          124,
+          "arm"
+        ]
+      ],
+      "projectiles": [],
+      "air": [],
+      "recovery": [
+        150,
+        258
+      ],
+      "groups": {
+        "arm": 1
+      },
+      "hit_cap": 1,
+      "geometry": {
+        "kind": "fixed_lane",
+        "u": [
+          0.22,
+          1.9
+        ],
+        "z": [
+          0,
+          0.76
+        ]
+      }
+    },
+    {
+      "id": "FLD02",
+      "owner": "boss-26270301",
+      "title": "地割れの二連",
+      "element": "Geo",
+      "total": 306,
+      "lock": 54,
+      "active": [
+        [
+          108,
+          122,
+          "fissure1"
+        ],
+        [
+          174,
+          188,
+          "fissure2"
+        ]
+      ],
+      "projectiles": [],
+      "air": [],
+      "recovery": [
+        214,
+        306
+      ],
+      "groups": {
+        "fissure1": 1,
+        "fissure2": 1
+      },
+      "hit_cap": 2,
+      "geometry": {
+        "kind": "fixed_points",
+        "centers_u": [
+          0.72,
+          2.18
+        ],
+        "width_u": 1.05,
+        "z": [
+          0,
+          0.58
+        ]
+      }
+    },
+    {
+      "id": "FLD03",
+      "owner": "boss-26270301",
+      "title": "熔焰化・一突進",
+      "element": "Pyro",
+      "total": 336,
+      "lock": 72,
+      "active": [
+        [
+          132,
+          156,
+          "lunge"
+        ]
+      ],
+      "projectiles": [],
+      "air": [],
+      "recovery": [
+        192,
+        336
+      ],
+      "groups": {
+        "lunge": 1
+      },
+      "hit_cap": 1,
+      "morph": [
+        0,
+        60
+      ],
+      "return_morph": [
+        156,
+        192
+      ],
+      "geometry": {
+        "kind": "swept_body",
+        "distance_u": 2.1,
+        "width_u": 0.88,
+        "z": [
+          0,
+          0.85
+        ]
+      },
+      "morph_needs_element": false,
+      "leaves_damage_trail": false
+    },
+    {
+      "id": "FOV01",
+      "owner": "boss-24090501",
+      "title": "水刃の三連",
+      "element": "Hydro",
+      "total": 370,
+      "lock": 48,
+      "active": [
+        [
+          108,
+          120,
+          "blade1"
+        ],
+        [
+          179,
+          191,
+          "blade2"
+        ],
+        [
+          250,
+          266,
+          "blade3"
+        ]
+      ],
+      "projectiles": [],
+      "air": [],
+      "recovery": [
+        288,
+        370
+      ],
+      "groups": {
+        "blade1": 1,
+        "blade2": 1,
+        "blade3": 1
+      },
+      "hit_cap": 3,
+      "geometry": {
+        "kind": "fixed_lane",
+        "u": [
+          0.25,
+          2
+        ],
+        "z": [
+          0.12,
+          0.91
+        ]
+      }
+    },
+    {
+      "id": "FOV02",
+      "owner": "boss-24090501",
+      "title": "滑走水刃",
+      "element": "Hydro",
+      "total": 270,
+      "lock": 54,
+      "active": [
+        [
+          104,
+          152,
+          "wave"
+        ]
+      ],
+      "projectiles": [],
+      "air": [],
+      "recovery": [
+        174,
+        270
+      ],
+      "groups": {
+        "wave": 1
+      },
+      "hit_cap": 1,
+      "geometry": {
+        "kind": "traveling_lane",
+        "from_u": 0.58,
+        "to_u": 2.75,
+        "width_u": 0.62,
+        "z": [
+          0,
+          0.25
+        ]
+      },
+      "hit_checks": "swept_interval_between_previous_and_current_positions"
+    },
+    {
+      "id": "FOV03",
+      "owner": "boss-24090501",
+      "title": "掃討・三連噴流",
+      "element": "Hydro",
+      "total": 516,
+      "lock": 60,
+      "active": [
+        [
+          160,
+          174,
+          "plume1"
+        ],
+        [
+          246,
+          260,
+          "plume2"
+        ],
+        [
+          332,
+          346,
+          "plume3"
+        ]
+      ],
+      "projectiles": [],
+      "air": [],
+      "recovery": [
+        372,
+        516
+      ],
+      "groups": {
+        "plume1": 1,
+        "plume2": 1,
+        "plume3": 1
+      },
+      "hit_cap": 3,
+      "geometry": {
+        "kind": "fixed_points",
+        "centers_u": [
+          0.72,
+          1.72,
+          2.74
+        ],
+        "width_u": 0.88,
+        "z": [
+          0,
+          1.38
+        ]
+      }
+    },
+    {
+      "id": "FSP01",
+      "owner": "boss-25520101",
+      "title": "霊筆の二連薙ぎ",
+      "element": "Cryo",
+      "total": 288,
+      "lock": 48,
+      "active": [
+        [
+          104,
+          116,
+          "brush1"
+        ],
+        [
+          172,
+          186,
+          "brush2"
+        ]
+      ],
+      "projectiles": [],
+      "air": [],
+      "recovery": [
+        212,
+        288
+      ],
+      "groups": {
+        "brush1": 1,
+        "brush2": 1
+      },
+      "hit_cap": 2,
+      "geometry": {
+        "kind": "fixed_lane",
+        "u": [
+          0.15,
+          2.1
+        ],
+        "z": [
+          0,
+          0.68
+        ]
+      }
+    },
+    {
+      "id": "FSP02",
+      "owner": "boss-25520101",
+      "title": "二つの氷色の筆跡",
+      "element": "Cryo",
+      "total": 310,
+      "lock": 54,
+      "active": [
+        [
+          112,
+          126,
+          "mark1"
+        ],
+        [
+          184,
+          198,
+          "mark2"
+        ]
+      ],
+      "projectiles": [],
+      "air": [],
+      "recovery": [
+        226,
+        310
+      ],
+      "groups": {
+        "mark1": 1,
+        "mark2": 1
+      },
+      "hit_cap": 2,
+      "geometry": {
+        "kind": "fixed_points",
+        "centers_u": [
+          0.85,
+          2.2
+        ],
+        "width_u": 1,
+        "z": [
+          0,
+          0.7
+        ]
+      }
+    },
+    {
+      "id": "FSP03",
+      "owner": "boss-25520101",
+      "title": "色彩の二影・順筆",
+      "element": "Cryo",
+      "total": 384,
+      "lock": 60,
+      "active": [
+        [
+          144,
+          158,
+          "echo1"
+        ],
+        [
+          216,
+          230,
+          "echo2"
+        ]
+      ],
+      "projectiles": [],
+      "air": [],
+      "recovery": [
+        240,
+        384
+      ],
+      "groups": {
+        "echo1": 1,
+        "echo2": 1
+      },
+      "hit_cap": 2,
+      "geometry": {
+        "kind": "proxy_lanes",
+        "z": [
+          0,
+          0.7
+        ]
+      },
+      "proxies": [
+        {
+          "id": "echo1",
+          "spawn": 64,
+          "active": [
+            144,
+            158
+          ],
+          "u": [
+            0.85,
+            1.75
+          ],
+          "side": "locked_facing_only",
+          "minimum_visible_tell_ticks": 60
+        },
+        {
+          "id": "echo2",
+          "spawn": 64,
+          "active": [
+            216,
+            230
+          ],
+          "u": [
+            1.85,
+            2.75
+          ],
+          "side": "locked_facing_only",
+          "minimum_visible_tell_ticks": 60
+        }
+      ]
+    }
+  ],
+  "migration": [
+    {
+      "runtime_file": "field-lava-dragon.lua",
+      "config_ids": [
+        "FLD01",
+        "FLD02",
+        "FLD03",
+        "FLD04"
+      ],
+      "target_ids": [
+        "FLD01",
+        "FLD02",
+        "FLD03"
+      ],
+      "status": "pending_runtime",
+      "retire_ids": [
+        "FLD04"
+      ],
+      "changes": [
+        "replace_heat_driven_selectMove_with_three_pattern_selector",
+        "signature_driven_morph_without_hp_or_aura_reset",
+        "remove_heat_required_form_change",
+        "use_FLD04_eruption_art_only_as_non_damaging_detail",
+        "remove_old_heat_onHit_preempt_damageFactor_and_heat_ui",
+        "disable_old_hydro_cryo_form_reset_hooks"
+      ]
+    },
+    {
+      "runtime_file": "field-overseer.lua",
+      "config_ids": [
+        "FOV01",
+        "FOV02",
+        "FOV03"
+      ],
+      "target_ids": [
+        "FOV01",
+        "FOV02",
+        "FOV03"
+      ],
+      "status": "pending_runtime",
+      "changes": [
+        "extend_signature_recovery_to_144_ticks",
+        "deduplicate_only_new_direct_cooling_casts",
+        "snapshot_each_event_damage_after_same_tick_cooling",
+        "check_escape_route_before_lock"
+      ]
+    },
+    {
+      "runtime_file": "field-spiritspeaker.lua",
+      "config_ids": [
+        "FSP01",
+        "FSP02",
+        "FSP03"
+      ],
+      "target_ids": [
+        "FSP01",
+        "FSP02",
+        "FSP03"
+      ],
+      "status": "pending_runtime",
+      "changes": [
+        "replace_four_shielded_entities_with_two_visual_attack_proxies",
+        "keep_body_visible_targetable_and_damageable",
+        "remove_reflection_hp_and_element_shield_gate",
+        "preserve_existing_physical_route_without_claiming_ttk",
+        "same_epoch_parent_cleanup"
+      ]
+    }
+  ]
+}
