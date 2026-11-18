@@ -1,0 +1,20 @@
+{
+  "firstMeetingBeforeMain": true,
+  "threeReadings": true,
+  "normalJumpLandings": [
+    386,
+    291
+  ],
+  "twoFailuresDiffer": true,
+  "inProgressSetupRestored": true,
+  "badSetupRejected": true,
+  "unexpectedReading": true,
+  "joinedAndStarter": true,
+  "noDuplicateMitya": true,
+  "revisitFixedRig": true,
+  "legacyCompletionAndSelection": true,
+  "reward": [
+    10267605,
+    9200
+  ]
+}

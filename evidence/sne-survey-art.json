@@ -1,0 +1,115 @@
+{
+  "tool": "builtin imagegen",
+  "angles": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/sne-survey-model.obj",
+    "sha256": "b2ebf6f3edfa0dab33d4891a4ddf580e8e27c1ec25d42cc7f991b070383df3c1"
+  },
+  "materials": {
+    "path": "evidence/sne-survey-model.mtl",
+    "sha256": "0515a35b521c8dd3fd941c2c21a76ac73ad3c6e0959062f3d4a74c59a477c2cc"
+  },
+  "views": {
+    "path": "evidence/sne-survey-views.png",
+    "sha256": "3a9d77ec25fa17e027c8520c26952d79903cd4ffd18f53add994d28adeac3b0c"
+  },
+  "source": {
+    "path": "assets/sne-survey-props-source-v1.png",
+    "sha256": "79d219131679a78c71c5730682391d87007df573b435909dec14857853ceb483",
+    "size": [
+      2172,
+      724
+    ],
+    "alphaCorners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "profiles": {
+    "lens": {
+      "encoding": {
+        "path": "assets/sne-survey-lens-sprites-v1.json",
+        "sha256": "42adb6918b33f914f03d306f91d5d8ca6895aa6755d655739414c8ea60e28b50"
+      },
+      "box": [
+        129,
+        230,
+        480,
+        288
+      ],
+      "height": 42,
+      "runs": {
+        "legacy": 792,
+        "h48c32": 501,
+        "h32c16": 220
+      }
+    },
+    "clamp": {
+      "encoding": {
+        "path": "assets/sne-survey-clamp-sprites-v1.json",
+        "sha256": "48306166497e107dde64cc78af66464524ac9c4a317b25811eb63ada96052bf2"
+      },
+      "box": [
+        889,
+        237,
+        378,
+        266
+      ],
+      "height": 22,
+      "runs": {
+        "legacy": 252,
+        "h48c32": 153,
+        "h32c16": 64
+      }
+    },
+    "blanket": {
+      "encoding": {
+        "path": "assets/sne-survey-blanket-sprites-v1.json",
+        "sha256": "6dfef3b9b1d134b16e020671af171361d0d3e7cd94b8452c86be22df4facfc2e"
+      },
+      "box": [
+        1572,
+        259,
+        471,
+        249
+      ],
+      "height": 24,
+      "runs": {
+        "legacy": 606,
+        "h48c32": 349,
+        "h32c16": 175
+      }
+    }
+  },
+  "mitya": {
+    "path": "assets/mitya-idle-source-v2.png",
+    "sha256": "9c3b0b78724078285be67e69d1da2d7ffad673ebbdb5f65e6cfb892ffd834141"
+  },
+  "backgroundReferences": [
+    {
+      "path": "assets/white-pass-coach-background-v1.png",
+      "sha256": "737c08249b8f03be2d5a74888e3e48a5e4503c0fc0d9ad673590f2c0c6cf90fb"
+    },
+    {
+      "path": "assets/white-pass-wood-background-v1.png",
+      "sha256": "1a18abfea089a660fc0bea9f832bb89d4cbd4f55bbd1fb5a34f1ca53ff1f749a"
+    }
+  ],
+  "status": "Temporary backgrounds, production planned with 3D placement. Existing Mitya idle art reused.",
+  "backgrounds": [
+    {
+      "path": "assets/sne-survey-ridge-background-v1.png",
+      "sha256": "9edb5e91d3fce95f7b21c41d598895daf7bba1464f39883ac256e17d4664abbd"
+    },
+    {
+      "path": "assets/sne-survey-shed-background-v1.png",
+      "sha256": "f99d98456cb34fa5a22d638f5f6a5ae70d02778bd73a9ec1dc9a480cd7aee88a"
+    }
+  ]
+}

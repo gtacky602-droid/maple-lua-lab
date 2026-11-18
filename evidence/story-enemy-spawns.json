@@ -1240,6 +1240,18 @@
     {
       "node": "nod-patrol-post",
       "enemy_count": 0
+    },
+    {
+      "node": "sne-survey-shed",
+      "enemy_count": 0
+    },
+    {
+      "node": "sne-survey-yard",
+      "enemy_count": 0
+    },
+    {
+      "node": "sne-survey-ridge",
+      "enemy_count": 2
     }
   ],
   "render_profiles": [

@@ -1,0 +1,39 @@
+newmtl brass
+Kd 0.65490 0.46275 0.29412
+illum 1
+
+newmtl trim
+Kd 0.86667 0.71373 0.43529
+illum 1
+
+newmtl body
+Kd 0.29804 0.40784 0.49804
+illum 1
+
+newmtl tube
+Kd 0.34902 0.49804 0.56863
+illum 1
+
+newmtl lens
+Kd 0.58431 0.89412 0.94902
+illum 1
+
+newmtl steel
+Kd 0.30980 0.39216 0.49804
+illum 1
+
+newmtl strap
+Kd 0.58824 0.37255 0.29412
+illum 1
+
+newmtl blanket
+Kd 0.57255 0.45490 0.64314
+illum 1
+
+newmtl dark
+Kd 0.26667 0.23529 0.36078
+illum 1
+
+newmtl wool
+Kd 0.79216 0.67843 0.74902
+illum 1

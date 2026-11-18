@@ -190,7 +190,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -239,6 +239,12 @@ def validate_save(data):
                         or type(angle) is not int or not 1 <= angle <= len(mirror['faces'])
                         or angle == mirror['align']):
                     raise ValueError('反射板の向きが不正です')
+            if 'surveySupport' in q:
+                next_step = itinerary[q['count']] if q['count'] < len(itinerary) else {}
+                rig, choice = next_step.get('surveyRig'), q['surveySupport']
+                if (not rig or next_step['node'] not in st['visited']
+                        or type(choice) is not int or not 1 <= choice <= len(rig['options'])):
+                    raise ValueError('観測器の設置方法が不正です')
             validate_sweep(q,quest.get('itinerary',[]),st['visited'])
             if quest.get('requires'):
                 predecessor = st['quests'].get(quest['requires'])

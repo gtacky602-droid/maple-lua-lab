@@ -903,12 +903,12 @@
     {
       "node": "snezhnaya-hub",
       "mode": "sprite",
-      "visible_portals": 3
+      "visible_portals": 4
     },
     {
       "node": "snezhnaya-hub",
       "mode": "rect",
-      "visible_portals": 3
+      "visible_portals": 4
     },
     {
       "node": "snezhnaya-field",
@@ -2937,6 +2937,36 @@
     },
     {
       "node": "nod-patrol-post",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "sne-survey-shed",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "sne-survey-shed",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "sne-survey-yard",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "sne-survey-yard",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "sne-survey-ridge",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "sne-survey-ridge",
       "mode": "rect",
       "visible_portals": 2
     }

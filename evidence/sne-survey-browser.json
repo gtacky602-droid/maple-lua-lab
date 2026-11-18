@@ -1,0 +1,27 @@
+{
+  "shedScene": {
+    "key": "sneSurveyShed",
+    "file": "sne-survey-shed-background-v1.png",
+    "state": "ready"
+  },
+  "ridgeScene": {
+    "key": "sneSurveyRidge",
+    "file": "sne-survey-ridge-background-v1.png",
+    "state": "ready"
+  },
+  "firstMeetingBeforeMain": true,
+  "threeSamples": true,
+  "wrongSetupsRejected": true,
+  "joinedAndStarter": true,
+  "shortcutAndFixedReadback": true,
+  "commands": {
+    "png": 41,
+    "standard": 7360,
+    "light": 1952
+  },
+  "reward": [
+    10267605,
+    9200
+  ],
+  "errors": []
+}

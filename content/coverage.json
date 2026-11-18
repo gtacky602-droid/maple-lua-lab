@@ -195,8 +195,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 23,
-      "prototype_quest_count": 14,
+      "prototype_stage_count": 26,
+      "prototype_quest_count": 15,
       "official_map2_markers": {
         "waypoints": 101,
         "statues": 7
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 294,
-    "provisional_quests": 169,
+    "authored_stages": 297,
+    "provisional_quests": 170,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -993,7 +993,10 @@
           "dawn-vein-deep",
           "dawn-glass-ridge",
           "dawn-glass-divide",
-          "dawn-crystal-field"
+          "dawn-crystal-field",
+          "sne-survey-shed",
+          "sne-survey-yard",
+          "sne-survey-ridge"
         ],
         "quest_ids": [
           "mitya-join",
@@ -1009,7 +1012,8 @@
           "white-pass-summit",
           "white-pass-footprints",
           "white-pass-footwork",
-          "white-pass-rest"
+          "white-pass-rest",
+          "sne-mitya-observation"
         ]
       },
       {
@@ -1361,8 +1365,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 74,
-    "without_explicit_mapping": 79,
+    "linked": 75,
+    "without_explicit_mapping": 78,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1432,6 +1436,7 @@
       "Q-SNE-M01": "white-pass-ticket",
       "Q-SNE-M02": "white-pass-trail",
       "Q-SNE-M03": "white-pass-summit",
+      "Q-SNE-S01": "sne-mitya-observation",
       "Q-SNE-S02": "white-pass-footprints",
       "Q-SNE-S03": "white-pass-footwork",
       "Q-SNE-S04": "white-pass-rest",

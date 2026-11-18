@@ -1057,6 +1057,10 @@
       "to": "white-pass-coach"
     },
     {
+      "node": "snezhnaya-hub",
+      "to": "sne-survey-shed"
+    },
+    {
       "node": "snezhnaya-field",
       "to": "snezhnaya-hub"
     },
@@ -2747,6 +2751,34 @@
     {
       "node": "nod-patrol-post",
       "to": "nod-patrol-cabin"
+    },
+    {
+      "node": "sne-survey-shed",
+      "to": "snezhnaya-hub"
+    },
+    {
+      "node": "sne-survey-shed",
+      "to": "sne-survey-yard"
+    },
+    {
+      "node": "sne-survey-shed",
+      "to": "sne-survey-ridge"
+    },
+    {
+      "node": "sne-survey-yard",
+      "to": "sne-survey-shed"
+    },
+    {
+      "node": "sne-survey-yard",
+      "to": "sne-survey-ridge"
+    },
+    {
+      "node": "sne-survey-ridge",
+      "to": "sne-survey-yard"
+    },
+    {
+      "node": "sne-survey-ridge",
+      "to": "sne-survey-shed"
     }
   ],
   "hidden_connections_checked": 38,

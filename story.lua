@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -177,6 +177,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local rumor=rumorModule(C,canInspect)
  local bloom=bloomModule(C,canInspect)
  local patrol=patrolModule(C,canInspect)
+ local survey=surveyModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -336,6 +337,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif milestone.performance then
      if command=='rotate' and theater.performance(s,milestone.performance) then completeMilestone(s,state,milestone,parent,quest) end
      return true
+    elseif milestone.surveyRig then
+     if survey.adjust(s,milestone,state,command) then completeMilestone(s,state,milestone,parent,quest) end
+     return true
     elseif milestone.reflect then
       if reflection.interact(s,milestone,command,state) then completeMilestone(s,state,milestone,parent,quest) end
      return true
@@ -362,6 +366,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if bloomQuest and bloom.rest(s,bloomQuest,s.story.quests[bloomQuest.id]) then return true end
    local config=nodes[s.story.node].patrol
    if config and patrol.rest(s,config,quests[config.quest],s.story.quests[config.quest]) then return true end
+   local surveyScene=nodes[s.story.node].survey
+   if surveyScene and survey.read(s,quests[surveyScene.quest],s.story.quests[surveyScene.quest]) then return true end
    for _,q in ipairs(itineraries) do
     if completed(s,q.id) then
      local state=s.story.quests[q.id]
@@ -582,6 +588,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   if key=='story_paper_confirm' then
    if s.story.active and not s.paused then inspectMilestone(s,'paper_confirm') end
+   return
+  end
+  if key=='story_survey_confirm' then
+   if s.story.active and not s.paused then inspectMilestone(s,'survey_confirm') end
    return
   end
   if key=='story_reflection_light' or key=='story_reflection_confirm' then
@@ -1087,6 +1097,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      local q=quests[n.patrol.quest]
      patrol.observe(s,f,markers,n.patrol,q,s.story.quests[q.id],mode,profile)
     end
+    if n.survey then
+     local q=quests[n.survey.quest]
+     survey.observe(s,f,markers,n.survey,q,s.story.quests[q.id],mode,profile)
+    end
    local pathQuest=n.pathsQuest and quests[n.pathsQuest]
    local pathState=pathQuest and s.story.quests[pathQuest.id]
    if pathState and pathState.pathProgress and pathState.count>0 then
@@ -1222,6 +1236,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and (not milestone.roomLight or milestone.roomLight==s.storyLightMode) then
      local x,y=milestone.x-s.camera,milestone.y
      if not milestone.rumorBoard and not milestone.bloomProp and not milestone.patrolLamp and not milestone.patrolTable
+        and not milestone.surveySample and not milestone.surveyPad and not milestone.surveyRig and not milestone.surveySeat
         and not milestone.flagProp and not milestone.shadowView and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)

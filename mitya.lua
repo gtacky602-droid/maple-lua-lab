@@ -46,7 +46,7 @@ return function(C)
  end
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile)
-  if s.companion=='mitya' then f.companion.name='ミティア（仮表示）';f.companion.skills={'通常雷球','雷連射','極星フィールド','雷の跳躍','星電導奥義'} end
+  if s.companion=='mitya' then f.companion.name='ミティヤ';f.companion.skills={'通常雷球','雷連射','極星フィールド','雷の跳躍','星電導奥義'} end
   if s.stellarField then local p=s.stellarField;f.stellarField={seconds=math.max(0,p.expires-s.t)};f.draws[#f.draws+1]={kind='rect',x=p.x-s.camera-p.range,y=p.y-4,w=p.range*2,h=4,color='#bba8f4'} end
   f.commands=#f.draws;return f
  end

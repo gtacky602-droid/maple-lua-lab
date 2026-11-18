@@ -2354,6 +2354,10 @@
       {"id":"nod-patrol-bend-slime-1","kind":1,"art":"hydro-slime","x":1321,"platform":0,"hp":26,"pursuit":{"range":223,"leash":365,"speed":80}},
       {"id":"nod-patrol-bend-slime-2","kind":2,"art":"pyro-slime","x":1448,"platform":0,"hp":31,"pursuit":{"range":223,"leash":365,"speed":80}},
       {"id":"nod-patrol-bend-slime-3","kind":1,"art":"hydro-slime","x":1569,"platform":0,"hp":26,"pursuit":{"range":223,"leash":365,"speed":80}}
+    ],
+    "sne-survey-ridge": [
+      {"id":"sne-survey-ice-slime","kind":1,"art":"cryo-slime","x":685,"platform":0,"hp":23,"pursuit":{"range":238,"leash":404,"speed":76}},
+      {"id":"sne-survey-hydro-slime","kind":1,"art":"hydro-slime","x":874,"platform":0,"hp":25,"pursuit":{"range":238,"leash":404,"speed":76}}
     ]
   }
 }
