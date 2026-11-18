@@ -485,10 +485,14 @@ def runtime():
     shouki=lua.execute((ROOT/'weekly-shouki.lua').read_text(encoding='utf8'))(core)
     core.shoukiWeeklyArt=field_art(lua,'shouki',(),variants={
         'full':'shouki-idle-sprites.json','upper':'shouki-weekly-upper-sprites-v1.json'})
+    apep_defense=lua.execute((ROOT/'weekly-apep-defense.lua').read_text(encoding='utf8'))(core)
+    apep=lua.execute((ROOT/'weekly-apep.lua').read_text(encoding='utf8'))(core,apep_defense)
+    core.apepWeeklyArt=field_art(lua,'apep',(),variants={
+        'dark':'apep-dark-idle-sprites.json','prime':'apep-prime-idle-sprites.json','seed':'dendro-fungus-idle-sprites.json'})
     lua.execute((ROOT/'weekly-bosses.lua').read_text(encoding='utf8'))(
         core,lua.table_from(weekly_specs,recursive=True),
         lua.table_from({'dvalin':dvalin,'andrius':andrius,'surveyor':surveyor,'loom':loom,
-                        'childe':childe,'azhdaha':azhdaha,'signora':signora,'raiden':raiden,'shouki':shouki}))
+                        'childe':childe,'azhdaha':azhdaha,'signora':signora,'raiden':raiden,'shouki':shouki,'apep':apep}))
     core.installToyDiveGuard()
     daily=json.loads((ROOT/'content/daily-quests.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'daily-quests.lua').read_text(encoding='utf8'))(core,lua.table_from(daily,recursive=True),graph)

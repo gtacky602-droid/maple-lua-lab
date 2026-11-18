@@ -248,17 +248,20 @@
       }
     },
     "boss-29080101": {
+      "extra_evidence": ["docs/weekly-boss-v1/APEP_WEB.md", "evidence/apep-weekly-lua.json", "evidence/apep-weekly-browser.json"],
+      "remaining": ["暗色と緑の守護者・取り巻きの連続作画、音", "難度と報酬の調整", "本番3D背景、多人数と幻境実機の検証"],
+      "review_note": "専用マップに初戦、心の防衛、緑の守護者を接続。取り巻きの役割、進行の加算と後退、三つのドームと8秒の反撃を検証。",
       "art_candidate": {
         "item": "apep-prime",
         "audit": "evidence/apep-prime-reference-audit.json",
-        "status": "verdant idle candidate; dark idle variant separate; defense phase, attacks and animation absent"
+        "status": "Existing original prime idle serves as the final form. Attack and shield layers are prototype geometry."
       },
       "art_variants": [
         {
           "item": "apep-dark",
           "id": "dark",
           "audit": "evidence/apep-dark-reference-audit.json",
-          "status": "dark crawling idle candidate; transformations, defense phase, attacks and animations absent"
+          "status": "Existing original dark idle is mounted in the opening fight. Continuous transition and attack animation are pending."
         }
       ]
     },

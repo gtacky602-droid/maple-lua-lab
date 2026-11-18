@@ -28,6 +28,12 @@
 #weeklyShoukiAim:not([hidden]),#weeklyShoukiPods:not([hidden]){display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 #weeklyShouki [aria-pressed="true"]{background:#3d6060;border-color:#d7e6be}
 #weeklyShoukiAction{justify-self:start}
+#weeklyApep{display:grid;gap:6px;margin-top:8px}
+#weeklyApep[hidden],#weeklyApepProgress[hidden],#weeklyApepRetry[hidden],#weeklyApepWalls[hidden]{display:none}
+#weeklyApep progress{width:120px;vertical-align:middle}
+#weeklyApepRetry{justify-self:start}
+#weeklyApepWalls:not([hidden]){display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#weeklyApepWalls [aria-pressed="true"]{background:#3d6060;border-color:#d7e6be}
 #expeditionDesk th,#expeditionDesk td{padding:4px 8px;border-bottom:1px solid #426466;overflow-wrap:anywhere}
 #expeditionDesk thead th{color:#ffebba}
 #expeditionTrial{margin-inline-start:6px}
@@ -186,6 +192,16 @@
    <button type="button" data-action="encounter_target:right">右</button>
    <button type="button" data-action="encounter_confirm">射撃を確定</button>
    <button type="button" data-action="encounter_cancel">照準を中止</button>
+  </div>
+ </div>
+ <div id="weeklyApep" hidden>
+  <label id="weeklyApepProgress" hidden><span id="weeklyApepProgressText"></span> <progress id="weeklyApepMeter" max="100"></progress></label>
+  <small id="weeklyApepHint"></small>
+  <button id="weeklyApepRetry" type="button" data-action="encounter_interact" hidden>防衛をやり直す</button>
+  <div id="weeklyApepWalls" hidden aria-label="同行の支援先">
+   <span>同行の支援先</span>
+   <button type="button" data-action="encounter_target:wall1">壁1</button>
+   <button type="button" data-action="encounter_target:wall2">壁2</button>
   </div>
  </div>
 </div>

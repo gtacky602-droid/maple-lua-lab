@@ -1731,6 +1731,7 @@
         }
       ],
       "exits": [
+        {"to":"apep-oasis-heart-arena","x":780},
         {"to":"shouki-godmaking-arena","x":950},
         {
           "to": "sumeru-entry",
@@ -5585,9 +5586,11 @@
     {"id":"azhdaha-dragon-seal-arena","name":"伏龍の封印・若陀龍王の再現戦","region":"璃月","hub":false,"peaceful":true,"level":32,"width":1056,"platforms":[{"x":0,"y":480,"w":1056},{"x":100,"y":368,"w":190},{"x":766,"y":368,"w":190}],"checkpoint":"liyue-harbor","exits":[{"to":"liyue-harbor","x":88}]},
     {"id":"signora-ten-shrine-arena","name":"天守の再現戦・淑女","region":"稲妻","hub":false,"peaceful":true,"level":44,"width":960,"platforms":[{"x":0,"y":480,"w":960},{"x":135,"y":368,"w":176},{"x":649,"y":368,"w":176}],"checkpoint":"inazuma-town","exits":[{"to":"inazuma-town","x":126}]},
     {"id":"raiden-thunder-echo-arena","name":"悪曜の再現戦","region":"稲妻","hub":false,"peaceful":true,"level":48,"width":960,"platforms":[{"x":0,"y":480,"w":960},{"x":100,"y":355,"w":176},{"x":684,"y":355,"w":176}],"checkpoint":"inazuma-town","exits":[{"to":"inazuma-town","x":126}]},
-    {"id":"shouki-godmaking-arena","name":"工房の再現戦・正機の神","region":"スメール","hub":false,"peaceful":true,"level":64,"width":960,"platforms":[{"x":0,"y":480,"w":960},{"x":96,"y":355,"w":176},{"x":688,"y":355,"w":176},{"x":392,"y":428,"w":176}],"checkpoint":"sumeru-hub","exits":[{"to":"sumeru-hub","x":126}]}
+    {"id":"shouki-godmaking-arena","name":"工房の再現戦・正機の神","region":"スメール","hub":false,"peaceful":true,"level":64,"width":960,"platforms":[{"x":0,"y":480,"w":960},{"x":96,"y":355,"w":176},{"x":688,"y":355,"w":176},{"x":392,"y":428,"w":176}],"checkpoint":"sumeru-hub","exits":[{"to":"sumeru-hub","x":126}]},
+    {"id":"apep-oasis-heart-arena","name":"オアシスの再現戦","region":"スメール","hub":false,"peaceful":true,"level":68,"width":960,"platforms":[{"x":0,"y":480,"w":960},{"x":98,"y":355,"w":176},{"x":686,"y":355,"w":176}],"checkpoint":"sumeru-hub","exits":[{"to":"sumeru-hub","x":58}]}
   ],
   "quests": [
+    {"id":"apep-weekly-commission","name":"オアシスの再現戦・心の防衛","giver":"ナヒーダ","hub":"sumeru-hub","target":"apep-weekly","kind":"boss","goal":1,"level":68,"xp":90000,"mora":5600,"ore":2,"briefing":"初戦の後、取り巻きを倒してオアシスの心を守ります。終末の余波ではドームの内側へ入ってください。"},
     {"id":"shouki-weekly-commission","name":"工房の再現戦・端末と胸部","giver":"ナヒーダ","hub":"sumeru-hub","target":"shouki-weekly","kind":"boss","goal":1,"level":64,"xp":80000,"mora":5200,"ore":2,"briefing":"充填を拾って端末を使い、装甲を崩します。滅度機を4基破壊したら、胸部を照準して撃ってください。"},
     {"id":"raiden-weekly-commission","name":"悪曜の再現戦・追念の花蕊","giver":"神里綾華","hub":"inazuma-town","target":"raiden-weekly","kind":"boss","goal":1,"level":48,"xp":44000,"mora":3400,"ore":1,"briefing":"悪曜が顕現したら装甲を崩してください。追念の花蕊は通常攻撃で充填し、光の内側で大太刀をしのぎます。"},
     {"id":"signora-weekly-commission","name":"天守の再現戦・氷と焔","giver":"神里綾華","hub":"inazuma-town","target":"signora-weekly","kind":"boss","goal":1,"level":44,"xp":36000,"mora":3000,"ore":1,"briefing":"再現戦では、左右の装置で体温を落ち着かせてください。氷の繭には紅蓮蛾を取り、次の一撃を当てます。"},

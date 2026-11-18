@@ -100,7 +100,7 @@ export const sceneryDefinitions={
  goldenDock:{file:'golden-dock-background-v1.png',zones:['story:golden-mainland-coast'],note:'小舟の桟橋の仮背景'},
  goldenGrotto:{file:'golden-grotto-background-v1.png',zones:['story:golden-shadow-grotto','story:golden-tide-pocket'],note:'小洞窟と小浜の仮背景'},
  golden:{file:'golden-background-v1.png',region:'金リンゴ群島',zones:[]},
- tunigiExcavation:{file:'tunigi-excavation-background-v1.png',zones:['story:tunigi-vent-shelf','story:tunigi-baffle-workshop','story:tunigi-elite-passage','story:tunigi-fragment-vault','story:tunigi-return-shelter']},
+ tunigiExcavation:{file:'tunigi-excavation-background-v1.png',zones:['story:apep-oasis-heart-arena','story:tunigi-vent-shelf','story:tunigi-baffle-workshop','story:tunigi-elite-passage','story:tunigi-fragment-vault','story:tunigi-return-shelter']},
  tunigi:{file:'tunigi-background-v1.png',region:'トゥニギの黒淵',zones:[]},
  ochkanatlan:{file:'ochkanatlan-background-v1.png',region:'オシカ・ナタ',zones:[]},
  bygoneResonance:{file:'bygone-resonance-background-v1.png',zones:['story:bygone-resonance-chamber','story:bygone-inscribed-hall','story:bygone-listening-gallery','story:bygone-bell-archive'],note:'共鳴石と記録室の仮背景'},

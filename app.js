@@ -364,13 +364,16 @@ function hud(f,calls,renderMs){
  const temperature=$('weeklyTemperature');
  const raiden=$('weeklyRaiden');
  const shouki=$('weeklyShouki');
+ const apep=$('weeklyApep');
  phases.hidden=!field?.phaseHp||field.phase==='respawn';
  temperature.hidden=field?.temperature===undefined||field.phase==='respawn'||field.hp===0;
  raiden.hidden=!field?.raidenMeter||field.phase==='respawn'||field.hp===0;
  shouki.hidden=!field?.shouki||field.phase==='respawn'||field.hp===0;
+ const oasis=field?.apep;
+ apep.hidden=!oasis||field.phase==='respawn'||!(oasis.defense||oasis.domes||oasis.exposure)||field.hp===0;
  fieldPanel.hidden=!field;
  if(field){
-  const status=field.phase==='respawn'?`再出現まで ${Math.ceil(field.remaining)}秒`:
+  const status=field.phase==='respawn'?`再出現まで ${Math.ceil(field.remaining)}秒`:oasis?.defense?field.label:
    `HP ${field.hp} / ${field.maxhp} ｜ ${field.label}`;
   const elementNames={pyro:'炎',cryo:'氷',hydro:'水',electro:'雷'};
   const bodyNames={anemo:'風',cryo:'❄ 氷',electro:'⚡ 雷'};
@@ -386,7 +389,7 @@ function hud(f,calls,renderMs){
   const form=field.formName?`・${field.formName}`:'';
   const line=`${field.name}${form}（Lv${field.level}）${elements} ｜ ${status}${mark}`;
   if(fieldLabel.textContent!==line)fieldLabel.textContent=line;
-  fieldHp.hidden=field.phase==='respawn'||!phases.hidden;
+  fieldHp.hidden=field.phase==='respawn'||!phases.hidden||!!oasis?.defense;
   fieldHp.max=field.maxhp;fieldHp.value=field.hp;
   if(!phases.hidden){
    if(phases.childElementCount!==field.phaseHp.length||phases.dataset.boss!==field.id){
@@ -463,6 +466,28 @@ function hud(f,calls,renderMs){
     const action=button.dataset.action;
     button.disabled=f.paused||f.auto||aim?.owner!==f.active||aim?.confirmed&&action!=='encounter_cancel';
     if(action.startsWith('encounter_target:'))button.setAttribute('aria-pressed',String(action.endsWith(':'+aim?.target)));
+   }
+  }
+  if(!apep.hidden){
+   const v=oasis,units=Array.isArray(v.units)?v.units:[];
+   $('weeklyApepProgress').hidden=!v.defense;
+   $('weeklyApepProgressText').textContent=`オアシスの蘇生 ${v.progress} / ${v.max}`;
+   $('weeklyApepMeter').value=v.progress??0;
+   const roleNames={warden:'護衛',breeder:'飼育',eater:'捕食',barrier:'障壁',burst:'自爆'};
+   const special=[...new Set(units.map(e=>roleNames[e.role]).filter(Boolean))];
+   $('weeklyApepHint').textContent=v.failed?'心を守りきれませんでした。':v.defense?
+    `残り${units.length}体${special.length?' ｜ '+special.join('、'):''}${v.incoming?' ｜ 次の増殖体が接近中':''}`:
+    v.exposure?`攻撃の好機 ｜ 残り${Math.ceil(v.exposure/60)}秒`:
+    (v.domes[0].open?(v.protected?'保護域の内側':'ドームの内側へ'):'ドームが開くまで待つ')+
+     (v.nextPulse?` ｜ 次の余波まで${Math.ceil(v.nextPulse/60)}秒`:'');
+   $('weeklyApepRetry').hidden=!v.failed;
+   $('weeklyApepRetry').disabled=f.paused||f.auto;
+   const walls=$('weeklyApepWalls'),placed=Array.isArray(v.walls)?v.walls:[];
+   walls.hidden=placed.length===0||f.actors[2-f.active]?.hp<=0;
+   for(const button of walls.querySelectorAll('button')){
+    const part=placed.find(w=>w.index===Number(button.dataset.action.slice(-1)));
+    button.disabled=!part||f.paused||f.auto;
+    button.setAttribute('aria-pressed',String(!!part?.selected));
    }
   }
  }

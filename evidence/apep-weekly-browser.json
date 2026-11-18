@@ -1,0 +1,29 @@
+{
+  "entered": true,
+  "phases": [
+    "dark",
+    "expose",
+    "defense",
+    "rebirth",
+    "prime",
+    "shelter",
+    "weak"
+  ],
+  "defenseRetries": 0,
+  "finalPulseProtected": true,
+  "eightSecondOpening": true,
+  "clearReportRestore": true,
+  "remainingHp": 780,
+  "viewport390": true,
+  "scene": {
+    "key": "tunigiExcavation",
+    "file": "tunigi-excavation-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 96,
+    "standard": 16307,
+    "light": 4675
+  },
+  "errors": []
+}
