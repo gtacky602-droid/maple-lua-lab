@@ -1,0 +1,33 @@
+{
+  "live_timings": {
+    "WV01": 360,
+    "WV02": 420,
+    "WV03": 480,
+    "WV04": 420,
+    "WV04.constellation": 480,
+    "WV05": 720,
+    "WV08": 300,
+    "WV09": 360,
+    "WV10": 336,
+    "WV12": 456,
+    "WV12.vishap": 432,
+    "WV12.jellyfish": 480
+  },
+  "shared_segments": true,
+  "hostility_one_per_cast_low_hp_cancel": true,
+  "eye_eight_real_hits": true,
+  "real_story_scene_and_preserved_hp_ct": true,
+  "kernel_ground_reach_four_new_casts": true,
+  "kernel_half_open_ticks": [
+    60,
+    360
+  ],
+  "kernel_failed_transition": 420,
+  "shadow_hp_separate_and_second_halves": true,
+  "return_damage_once": true,
+  "exposure_ticks": 600,
+  "scene_exit_resets_trial": true,
+  "scene_casts_cleared": true,
+  "low_hp_uses_close_range_moves": true,
+  "return_lethal_and_report_restore": true
+}

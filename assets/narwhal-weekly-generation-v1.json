@@ -1,0 +1,41 @@
+{
+  "tool": "Codex built-in ImageGen",
+  "assets": [
+    {
+      "file": "assets/narwhal-phantom-idle-source-v1.png",
+      "prompt": "Create one original transparent pixel-art sprite for a 2D side-scrolling adventure: a void guardian knight made of midnight-indigo armor with a quiet glowing lavender visor, bold angular shoulders, one larger angular forearm shield, clear black-violet torso, wide steel shoes and a short divided deep-violet waist drape. The idea is an independent, slightly unreal inner echo guarding the belly of a cosmic whale. Full body, facing right in a strong side-view stance, a single oversized, sturdy greatsword clearly held by its hilt diagonally up toward the right with the edge separated from the head. Preserve character anatomy and readable large gauntlets. First supplied sprite is the proportional scale reference only: match its adult 2.85-ish head units, keep crown-to-jaw of the enclosed helmet 32–35 percent of body height from crown to soles (exactly three head units), compact torso and short substantial shins. Second supplied 3D preview is only a reference for dark/light armor planes and violet accents. Design your own helmet and armor silhouette, without borrowing the reference character or the references' ornament shapes. Distinct strong head silhouette, no crown spikes, body and weapon in frame, transparent padding. Crisp low-detail pixel clusters in 18–26 color appearance, reads clearly at 140px high; no scenery, text, weapon glow haze, shadow, logos, second character, or cropping.",
+      "references": [
+        {
+          "file": "assets/raiden-weekly-normal-source-v1.png",
+          "role": "proportions and pixel density only",
+          "directlyViewed": true
+        },
+        {
+          "audit": "evidence/raiden-boss-reference-audit.json",
+          "reference": "3D model preview, first image",
+          "role": "armor plane lighting only",
+          "directlyViewed": true
+        }
+      ],
+      "measurement": {
+        "approximateHeads": 3.09,
+        "helmetCrownY": 150,
+        "chinY": 500,
+        "soleY": 1230,
+        "excludesSword": true
+      },
+      "renderRectangles": {
+        "legacy": 4450,
+        "h48c32": 2753,
+        "h32c16": 1349
+      }
+    },
+    {
+      "file": "assets/narwhal-inner-background-v1.png",
+      "prompt": "A 16:9 landscape background plate only for an original side-scrolling pixel-art boss arena, a hollow cavern inside a cosmic leviathan rendered as an abstract mineral void. Indigo-violet glass striations imply vast arches without literal anatomy, distant concentric cracked amethyst ring softly lit behind the center around y=42%, horizontally layered smooth dark blue stone, a sparse dusting of star-like flecks high in the cave, soft clusters of slate-blue crystals at the far left and far right edges. Main palette near-black midnight blue and medium indigo with restrained violet contrasts. The lower third is quiet uncluttered hazy dark indigo so a purple armored sprite and lavender attack lines are very readable when rendered on top. Keep the side-view stage flat level, art scenery behind an invisible platform layer to be added by the game. No floor tiles, floating platforms, characters, enemies, props in the foreground, HUD, text, logos or bright white features. Wide painterly pixel-art clusters and flat clean swatches with atmospheric perspective. Independent fantasy scenery, not a replica of any game stage.",
+      "references": [],
+      "role": "Provisional browser background, drawn by the host"
+    }
+  ],
+  "limits": "The phantom is an original lab design. It has a single sprite with its sword attached. The projectile is drawn separately. A weaponless pose, a rear view, continuous animation and sound remain to be made."
+}

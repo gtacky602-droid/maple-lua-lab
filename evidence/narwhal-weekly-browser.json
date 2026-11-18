@@ -1,0 +1,33 @@
+{
+  "stages": [
+    "outer",
+    "swallow",
+    "inner",
+    "expel",
+    "weak"
+  ],
+  "outer": {
+    "key": "tulpaField",
+    "file": "tulpa-field-background-v1.png",
+    "state": "ready"
+  },
+  "inner": {
+    "key": "narwhalInner",
+    "file": "narwhal-inner-background-v1.png",
+    "state": "ready"
+  },
+  "eyeEightHits": true,
+  "kernelFourCastPhysical": true,
+  "kernelLoss": 190,
+  "returnLoss": 440,
+  "exposure": 600,
+  "clearReportRestore": true,
+  "viewport390": true,
+  "remainingHp": 1690,
+  "commands": {
+    "png": 15,
+    "standard": 7897,
+    "light": 2237
+  },
+  "errors": []
+}

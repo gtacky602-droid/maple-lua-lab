@@ -154,8 +154,9 @@ local function firstContact(a,e)
 end
 local function hitRegion(a,e,range)
  local y=C.targetHeight(a,e)-a.y
- if (not a.upward or y<75) and abs(y)<(a.vertical or 75) and abs(e.x-a.x)<range and
-    (a.radial or (e.x-a.x)*a.dir>-25) then return true end
+ local half=e.hitHalfWidth or 0
+ if (not a.upward or y<75) and abs(y)<(a.vertical or 75) and abs(e.x-a.x)<range+half and
+    (a.radial or (e.x-a.x)*a.dir>-25-half) then return true end
  return e.weakpoint and C.hitFieldWeakpoint(a,e,range)
 end
 local function targets(s,a,range,limit,includePartners)

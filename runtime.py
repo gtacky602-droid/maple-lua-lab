@@ -489,10 +489,14 @@ def runtime():
     apep=lua.execute((ROOT/'weekly-apep.lua').read_text(encoding='utf8'))(core,apep_defense)
     core.apepWeeklyArt=field_art(lua,'apep',(),variants={
         'dark':'apep-dark-idle-sprites.json','prime':'apep-prime-idle-sprites.json','seed':'dendro-fungus-idle-sprites.json'})
+    narwhal=lua.execute((ROOT/'weekly-narwhal.lua').read_text(encoding='utf8'))(core)
+    core.narwhalWeeklyArt=field_art(lua,'narwhal',(),variants={
+        'whale':'narwhal-idle-sprites.json','shadow':'narwhal-phantom-idle-sprites-v1.json'})
     lua.execute((ROOT/'weekly-bosses.lua').read_text(encoding='utf8'))(
         core,lua.table_from(weekly_specs,recursive=True),
         lua.table_from({'dvalin':dvalin,'andrius':andrius,'surveyor':surveyor,'loom':loom,
-                        'childe':childe,'azhdaha':azhdaha,'signora':signora,'raiden':raiden,'shouki':shouki,'apep':apep}))
+                        'childe':childe,'azhdaha':azhdaha,'signora':signora,'raiden':raiden,'shouki':shouki,
+                        'apep':apep,'narwhal':narwhal}))
     core.installToyDiveGuard()
     daily=json.loads((ROOT/'content/daily-quests.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'daily-quests.lua').read_text(encoding='utf8'))(core,lua.table_from(daily,recursive=True),graph)

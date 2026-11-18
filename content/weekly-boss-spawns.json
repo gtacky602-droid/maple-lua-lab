@@ -3111,6 +3111,395 @@
           "damage": 7
         }
       }
+    },
+    {
+      "controller": "narwhal",
+      "id": "boss-29090101",
+      "entity": 29090101,
+      "node": "narwhal-star-sea",
+      "innerNode": "narwhal-inner-echo",
+      "storyChallenge": "narwhal-weekly",
+      "name": "呑星の鯨",
+      "level": 84,
+      "hp": 2200,
+      "shadowHp": 760,
+      "mora": 2500,
+      "expRole": "weekly_boss",
+      "center": 480,
+      "floorY": 480,
+      "noticeTicks": 42,
+      "restTicks": 24,
+      "respawnTicks": 3600,
+      "hostility": {
+        "max": 100,
+        "period": 60,
+        "perCast": 5,
+        "gap": 24,
+        "eyeBonus": 25,
+        "lowRatio": 0.2
+      },
+      "eye": {
+        "spawn": 60,
+        "close": 480,
+        "expiry": 522,
+        "hits": 8,
+        "successRest": 36
+      },
+      "kernel": {
+        "open": 60,
+        "close": 360,
+        "failure": 420,
+        "casts": 4,
+        "gap": 12,
+        "stagger": 96,
+        "lossRatio": 0.25,
+        "rangeHalf": 30.799999999999997,
+        "top": 101.19999999999999,
+        "bottom": 57.2,
+        "center": 79.2
+      },
+      "transition": {
+        "sceneTick": 96,
+        "lossTick": 120,
+        "lossRatio": 0.2,
+        "weakOpen": 60,
+        "weakClose": 660,
+        "secondShadowRatio": 0.5
+      },
+      "outerOrder": [
+        "WV01",
+        "WV05",
+        "WV02",
+        "WV03",
+        "WV04",
+        "WV01",
+        "WV04.constellation"
+      ],
+      "innerOrder": [
+        "WV11",
+        "WV08",
+        "WV09",
+        "WV10"
+      ],
+      "finalOrder": [
+        "WV01",
+        "WV02",
+        "WV03"
+      ],
+      "variants": [
+        "WV12",
+        "WV12.vishap",
+        "WV12.jellyfish"
+      ],
+      "moves": {
+        "WV01": {
+          "title": "星海の飛び出し",
+          "total": 360,
+          "locks": [
+            54
+          ],
+          "windows": [
+            [
+              108,
+              120
+            ],
+            [
+              174,
+              186
+            ]
+          ],
+          "recovery": 276,
+          "launches": [],
+          "ttl": 0,
+          "damage": 19
+        },
+        "WV02": {
+          "title": "巨鯨の飛び込み",
+          "total": 420,
+          "locks": [
+            72
+          ],
+          "windows": [
+            [
+              156,
+              168
+            ],
+            [
+              228,
+              240
+            ]
+          ],
+          "recovery": 300,
+          "launches": [],
+          "ttl": 0,
+          "damage": 23
+        },
+        "WV03": {
+          "title": "境界の遊泳",
+          "total": 480,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              96,
+              126
+            ],
+            [
+              300,
+              312
+            ]
+          ],
+          "recovery": 336,
+          "launches": [],
+          "ttl": 0,
+          "damage": 19
+        },
+        "WV04": {
+          "title": "潮吹きと星座の雨",
+          "total": 420,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              108,
+              114
+            ],
+            [
+              180,
+              186
+            ],
+            [
+              252,
+              258
+            ]
+          ],
+          "recovery": 300,
+          "launches": [],
+          "ttl": 0,
+          "damage": 17
+        },
+        "WV04.constellation": {
+          "title": "潮吹きと星座の雨",
+          "total": 480,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              120,
+              126
+            ],
+            [
+              210,
+              216
+            ],
+            [
+              300,
+              306
+            ]
+          ],
+          "recovery": 360,
+          "launches": [],
+          "ttl": 0,
+          "damage": 19
+        },
+        "WV05": {
+          "title": "渦の眼",
+          "total": 720,
+          "locks": [
+            480
+          ],
+          "windows": [
+            [
+              510,
+              522
+            ]
+          ],
+          "recovery": 540,
+          "launches": [],
+          "ttl": 0,
+          "damage": 27
+        },
+        "WV07": {
+          "title": "呑噬・腹中への移行",
+          "total": 180,
+          "locks": [],
+          "windows": [],
+          "recovery": 144,
+          "launches": [],
+          "ttl": 0,
+          "damage": 0
+        },
+        "WV08": {
+          "title": "幻影の三斬・遅裂",
+          "total": 300,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              84,
+              90
+            ],
+            [
+              108,
+              114
+            ],
+            [
+              132,
+              138
+            ],
+            [
+              156,
+              162
+            ],
+            [
+              180,
+              186
+            ],
+            [
+              204,
+              210
+            ]
+          ],
+          "recovery": 228,
+          "launches": [],
+          "ttl": 0,
+          "damage": 16
+        },
+        "WV09": {
+          "title": "巨剣の往還",
+          "total": 360,
+          "locks": [
+            54
+          ],
+          "windows": [],
+          "recovery": 288,
+          "launches": [
+            90
+          ],
+          "ttl": 180,
+          "damage": 17
+        },
+        "WV10": {
+          "title": "雷裂の三柱",
+          "total": 336,
+          "locks": [
+            48,
+            108,
+            168
+          ],
+          "windows": [
+            [
+              108,
+              114
+            ],
+            [
+              168,
+              174
+            ],
+            [
+              228,
+              234
+            ]
+          ],
+          "recovery": 252,
+          "launches": [],
+          "ttl": 0,
+          "damage": 17
+        },
+        "WV12": {
+          "title": "幻形の襲来",
+          "total": 456,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              348,
+              354
+            ]
+          ],
+          "recovery": 384,
+          "launches": [
+            84,
+            144,
+            204,
+            264
+          ],
+          "ttl": 60,
+          "damage": 14
+        },
+        "WV12.vishap": {
+          "title": "幻形の襲来",
+          "total": 432,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              108,
+              120
+            ],
+            [
+              228,
+              240
+            ],
+            [
+              300,
+              306
+            ]
+          ],
+          "recovery": 336,
+          "launches": [],
+          "ttl": 0,
+          "damage": 21
+        },
+        "WV12.jellyfish": {
+          "title": "幻形の襲来",
+          "total": 480,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              384,
+              390
+            ]
+          ],
+          "recovery": 408,
+          "launches": [
+            90,
+            150,
+            210,
+            270
+          ],
+          "ttl": 90,
+          "damage": 15
+        },
+        "WV14": {
+          "title": "内部崩落・帰還",
+          "total": 180,
+          "locks": [],
+          "windows": [],
+          "recovery": 144,
+          "launches": [],
+          "ttl": 0,
+          "damage": 0
+        },
+        "WV15": {
+          "title": "巨鯨の衰弱",
+          "total": 720,
+          "locks": [],
+          "windows": [],
+          "recovery": 660,
+          "launches": [],
+          "ttl": 0,
+          "damage": 0
+        }
+      }
     }
   ]
 }

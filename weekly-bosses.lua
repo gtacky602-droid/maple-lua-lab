@@ -4,7 +4,10 @@ return function(C,configs,controllers)
  local step,frame,checkpoint,restore,onKill=C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local action=C.action
  local byId,byNode={},{}
- for _,spec in ipairs(configs) do byId[spec.id]=spec;byNode[spec.node]=spec end
+ for _,spec in ipairs(configs) do
+  byId[spec.id]=spec;byNode[spec.node]=spec
+  if spec.innerNode then byNode[spec.innerNode]=spec end
+ end
  local function current(s)
   local id=s.story and s.story.active and s.story.node
   return id and s.campaign and s.campaign.zone=='story:'..id and byNode[id] or nil
@@ -12,6 +15,11 @@ return function(C,configs,controllers)
  function C.currentWeeklyBoss(s)
   local spec=current(s)
   return spec and s.weeklySlots and s.weeklySlots[spec.id],spec
+ end
+ function C.moveWeeklyScene(s,id,spawn)
+  local slot,spec=C.currentWeeklyBoss(s)
+  if not slot or not spec.innerNode or byNode[id]~=spec then return false end
+  return C.switchWeeklyStoryScene(s,id,spawn)
  end
  local function spawn(s,spec,slot)
   slot.primary={id=spec.entity,weeklyBoss=spec.id,boss=true,custom=true,x=spec.center,y=spec.floorY,
@@ -32,7 +40,7 @@ return function(C,configs,controllers)
   if enter then enter(s,id) end
   for key,slot in pairs(s.weeklySlots or {}) do
    local spec=byId[key]
-   if spec.node~=id then
+   if byNode[id]~=spec then
     cleanup(s,spec,slot)
     if not slot.waitUntil then spawn(s,spec,slot);slot.attached=false end
    end

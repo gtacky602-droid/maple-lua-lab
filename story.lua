@@ -796,6 +796,31 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
  end
  function C.enterStoryNode(s,id) setup(s);enter(s,id) end
+ function C.clearWeeklySceneCasts(s)
+  s.pending={};s.effects={};s.numbers={};s.decoys={}
+  s.rockWall=nil;s.healingField=nil;s.echoSource=nil;s.ultimate=nil;s.starSeed=nil;s.macro=nil
+  s.blizzard=nil;s.stellarField=nil;s.drillTop=nil;s.perfume=nil
+  s.moonDomain=nil;s.moonMark=nil;s.lastMoonReaction=nil
+  s.grappleNodes={};s.selectedGrapple=nil
+  for _,a in ipairs(s.actors) do a.grapple=nil;a.channel=nil end
+ end
+ function C.switchWeeklyStoryScene(s,id,spawn)
+  local n=nodes[id]
+  if not n or not s.story or not s.story.active or n.hub or not n.peaceful then return false end
+  local before=nodes[s.story.node]
+  if (before.weeklySceneOf or s.story.node)~=(n.weeklySceneOf or id) then return false end
+  s.story.node=id;s.story.visited[id]=true;s.campaign.zone='story:'..id
+  s.storyEnteredAt=s.t;s.worldwidth=n.width;s.camera=0
+  s.platforms={};s.solids={}
+  for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]=copy(p) end
+  C.clearWeeklySceneCasts(s)
+  for i,a in ipairs(s.actors) do
+   if a.hp>0 then
+    a.x=spawn-(i-1)*44;a.y=480;a.vy=0;a.drop=0;a.ground=true
+   end
+  end
+  return true
+ end
  function C.storyBossDefeated(s,id)
   setup(s)
   progress(s,'boss',id)

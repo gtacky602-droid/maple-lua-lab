@@ -55,10 +55,13 @@
       }
     },
     "boss-29090101": {
+      "extra_evidence": ["docs/weekly-boss-v1/NARWHAL_WEB.md", "evidence/narwhal-weekly-lua.json", "evidence/narwhal-weekly-browser.json"],
+      "remaining": ["鯨・幻影の連続作画と武器分離、音", "難度と報酬の調整", "本番3D背景、多人数と幻境実機の検証"],
+      "review_note": "星海と腹中の二地点、渦の眼8命中、核4回・受付5秒、帰還損傷と10秒の反撃を接続。",
       "art_candidate": {
         "item": "narwhal",
         "audit": "evidence/narwhal-reference-audit.json",
-        "status": "whale idle candidate; portal, inner enemy, attacks and animation not implemented"
+        "status": "Existing whale idle and new original three-head phantom are used in the Lua arena. Continuous animation is pending."
       }
     },
     "boss-20040201": {

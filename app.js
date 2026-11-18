@@ -365,15 +365,17 @@ function hud(f,calls,renderMs){
  const raiden=$('weeklyRaiden');
  const shouki=$('weeklyShouki');
  const apep=$('weeklyApep');
+ const narwhal=$('weeklyNarwhal'),journey=field?.narwhal;
  phases.hidden=!field?.phaseHp||field.phase==='respawn';
  temperature.hidden=field?.temperature===undefined||field.phase==='respawn'||field.hp===0;
  raiden.hidden=!field?.raidenMeter||field.phase==='respawn'||field.hp===0;
  shouki.hidden=!field?.shouki||field.phase==='respawn'||field.hp===0;
  const oasis=field?.apep;
  apep.hidden=!oasis||field.phase==='respawn'||!(oasis.defense||oasis.domes||oasis.exposure)||field.hp===0;
+ narwhal.hidden=!journey||field.phase==='respawn'||field.hp===0;
  fieldPanel.hidden=!field;
  if(field){
-  const status=field.phase==='respawn'?`再出現まで ${Math.ceil(field.remaining)}秒`:oasis?.defense?field.label:
+  const status=field.phase==='respawn'?`再出現まで ${Math.ceil(field.remaining)}秒`:oasis?.defense||journey?.scene==='inner'?field.label:
    `HP ${field.hp} / ${field.maxhp} ｜ ${field.label}`;
   const elementNames={pyro:'炎',cryo:'氷',hydro:'水',electro:'雷'};
   const bodyNames={anemo:'風',cryo:'❄ 氷',electro:'⚡ 雷'};
@@ -389,7 +391,7 @@ function hud(f,calls,renderMs){
   const form=field.formName?`・${field.formName}`:'';
   const line=`${field.name}${form}（Lv${field.level}）${elements} ｜ ${status}${mark}`;
   if(fieldLabel.textContent!==line)fieldLabel.textContent=line;
-  fieldHp.hidden=field.phase==='respawn'||!phases.hidden||!!oasis?.defense;
+  fieldHp.hidden=field.phase==='respawn'||!phases.hidden||!!oasis?.defense||journey?.scene==='inner';
   fieldHp.max=field.maxhp;fieldHp.value=field.hp;
   if(!phases.hidden){
    if(phases.childElementCount!==field.phaseHp.length||phases.dataset.boss!==field.id){
@@ -489,6 +491,28 @@ function hud(f,calls,renderMs){
     button.disabled=!part||f.paused||f.auto;
     button.setAttribute('aria-pressed',String(!!part?.selected));
    }
+  }
+  if(!narwhal.hidden){
+   const v=journey,shadow=v.shadow,object=v.object;
+   $('weeklyNarwhalGauge').hidden=v.scene==='inner'&&!shadow;
+   $('weeklyNarwhalGaugeText').textContent=v.scene==='inner'?
+    `幻影の耐久 ${shadow?Math.ceil(shadow.hp*100/shadow.max):0}%`:`敵意 ${v.h} / ${v.maxH}`;
+   $('weeklyNarwhalMeter').max=v.scene==='inner'?shadow?.max||100:v.maxH;
+   $('weeklyNarwhalMeter').value=v.scene==='inner'?shadow?.hp||0:v.h;
+   $('weeklyNarwhalObject').hidden=!object;
+   if(object){
+    const n=object.max-object.hp;
+    $('weeklyNarwhalObjectText').textContent=object.kind==='kernel'?
+     `幻形の核　通常攻撃 ${n} / ${object.max}回 ｜ 残り${Math.ceil(object.time/60)}秒`:
+     object.time?`渦の眼　命中 ${n} / ${object.max}回 ｜ 残り${Math.ceil(object.time/60)}秒`:'渦の眼の爆発範囲から離れる';
+    $('weeklyNarwhalObjectMeter').max=object.max;
+    $('weeklyNarwhalObjectMeter').value=n;
+   }
+   const forms={WV12:'獣の突進','WV12.vishap':'竜の跳躍','WV12.jellyfish':'クラゲの水弾'};
+   $('weeklyNarwhalHint').textContent=v.incoming?`核の受付終了 ｜ ${forms[v.incoming]}`:
+    v.exposure?`反撃できる時間 残り${Math.ceil(v.exposure/60)}秒`:
+    field.narwhalStage==='swallow'?'腹中へ移動中':field.narwhalStage==='expel'?'星海へ帰還中':
+    v.scene==='inner'?'幻影を倒すと星海へ帰還':v.low?'鯨が衰弱。以後は星海で戦う':v.queued?'現在の技の後に腹中へ':'';
   }
  }
  const cargo=f.storyNearbyCargo??f.storyNearbyParcel,clue=f.storyNearbyClue;

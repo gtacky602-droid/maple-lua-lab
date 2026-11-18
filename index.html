@@ -34,6 +34,9 @@
 #weeklyApepRetry{justify-self:start}
 #weeklyApepWalls:not([hidden]){display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 #weeklyApepWalls [aria-pressed="true"]{background:#3d6060;border-color:#d7e6be}
+#weeklyNarwhal{display:grid;gap:6px;margin-top:8px}
+#weeklyNarwhal[hidden],#weeklyNarwhalGauge[hidden],#weeklyNarwhalObject[hidden]{display:none}
+#weeklyNarwhal progress{width:120px;vertical-align:middle;accent-color:#c1a2ee}
 #expeditionDesk th,#expeditionDesk td{padding:4px 8px;border-bottom:1px solid #426466;overflow-wrap:anywhere}
 #expeditionDesk thead th{color:#ffebba}
 #expeditionTrial{margin-inline-start:6px}
@@ -203,6 +206,11 @@
    <button type="button" data-action="encounter_target:wall1">壁1</button>
    <button type="button" data-action="encounter_target:wall2">壁2</button>
   </div>
+ </div>
+ <div id="weeklyNarwhal" hidden>
+  <label id="weeklyNarwhalGauge"><span id="weeklyNarwhalGaugeText"></span> <progress id="weeklyNarwhalMeter" max="100"></progress></label>
+  <div id="weeklyNarwhalObject" hidden><span id="weeklyNarwhalObjectText"></span> <progress id="weeklyNarwhalObjectMeter" aria-label="中断の進捗"></progress></div>
+  <small id="weeklyNarwhalHint"></small>
  </div>
 </div>
 <section id="expeditionDesk" class="note" aria-label="遠征の装備比較" hidden>
