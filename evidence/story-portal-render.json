@@ -563,12 +563,12 @@
     {
       "node": "fontaine-hub",
       "mode": "sprite",
-      "visible_portals": 4
+      "visible_portals": 6
     },
     {
       "node": "fontaine-hub",
       "mode": "rect",
-      "visible_portals": 4
+      "visible_portals": 6
     },
     {
       "node": "fontaine-field",
@@ -2437,6 +2437,46 @@
     },
     {
       "node": "sumeru-sky-observatory",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-parcel-counter",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-parcel-counter",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-delivery-quay",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "fontaine-delivery-quay",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "fontaine-old-scenery-door",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-old-scenery-door",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-moon-fly-loft",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-moon-fly-loft",
       "mode": "rect",
       "visible_portals": 2
     }

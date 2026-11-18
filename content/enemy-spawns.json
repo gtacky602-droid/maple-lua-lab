@@ -2281,6 +2281,10 @@
       {"id":"sumeru-observatory-guard-1","x":302,"platform":0,"hp":22,"kind":1,"art":"pebble-courier"},
       {"id":"sumeru-observatory-guard-2","x":802,"platform":1,"hp":26,"kind":1,"art":"sail-shell-crawler"},
       {"id":"sumeru-observatory-guard-3","x":1400,"platform":2,"hp":32,"kind":1,"art":"pebble-courier"}
+    ],
+    "fontaine-old-scenery-door": [
+      {"id":"fontaine-old-door-patrol-1","kind":1,"x":417,"platform":0,"hp":25,"art":"sled-maintenance-cart"},
+      {"id":"fontaine-old-door-patrol-2","kind":1,"x":823,"platform":1,"hp":32,"art":"sled-maintenance-cart"}
     ]
   }
 }

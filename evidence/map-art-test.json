@@ -1464,6 +1464,30 @@
       "count": 0,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "fontaine-parcel-counter",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "fontaine-delivery-quay",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "fontaine-old-scenery-door",
+      "count": 2,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "fontaine-moon-fly-loft",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,

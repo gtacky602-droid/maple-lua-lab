@@ -105,7 +105,8 @@ def runtime():
     resonance=lua.execute((ROOT/'story-resonance.lua').read_text(encoding='utf8'))
     rock_views=lua.execute((ROOT/'story-rock-views.lua').read_text(encoding='utf8'))
     paper_folds=lua.execute((ROOT/'story-paper-folds.lua').read_text(encoding='utf8'))
-    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds)
+    theater=lua.execute((ROOT/'story-theater.lua').read_text(encoding='utf8'))(core)
+    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater)
     lua.execute((ROOT / 'barrier.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'farka.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'regisvine.lua').read_text(encoding='utf-8'))(core)
@@ -323,6 +324,7 @@ def runtime():
     bell_gate=field_display(core,field_art(lua,'bellgate',('idle',)).idle)
     canopy_fungus=field_display(core,field_art(lua,'canopy-fungus',('idle',)).idle)
     core.trolleyArt=field_art(lua,'mirage-trolley',('idle',),idle='mirage-trolley-sprites-v1.json').idle
+    core.parcelMekaArt=field_art(lua,'parcel-meka',('idle',),idle='parcel-meka-sprites-v1.json').idle
     core.paperLanternArt=field_art(lua,'paper-lantern',('idle',),idle='paper-lantern-sprites-v1.json').idle
     lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(
         core,lua.table_from(field_specs,recursive=True),

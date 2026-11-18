@@ -252,6 +252,10 @@
       {"id":"preview-sumeru-observatory-guard-1","species":"pebble-courier","x":302,"y":480,"flip":false},
       {"id":"preview-sumeru-observatory-guard-2","species":"sail-shell-crawler","x":802,"y":390,"flip":false},
       {"id":"preview-sumeru-observatory-guard-3","species":"pebble-courier","x":1400,"y":391,"flip":false}
+    ],
+    "fontaine-old-scenery-door": [
+      {"id":"preview-fontaine-old-door-patrol-1","species":"sled-maintenance-cart","x":417,"y":480,"flip":false},
+      {"id":"preview-fontaine-old-door-patrol-2","species":"sled-maintenance-cart","x":823,"y":390,"flip":false}
     ]
   }
 }

@@ -1040,6 +1040,22 @@
     {
       "node": "sumeru-sky-observatory",
       "enemy_count": 0
+    },
+    {
+      "node": "fontaine-parcel-counter",
+      "enemy_count": 0
+    },
+    {
+      "node": "fontaine-delivery-quay",
+      "enemy_count": 0
+    },
+    {
+      "node": "fontaine-old-scenery-door",
+      "enemy_count": 2
+    },
+    {
+      "node": "fontaine-moon-fly-loft",
+      "enemy_count": 0
     }
   ],
   "render_profiles": [

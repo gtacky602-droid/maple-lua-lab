@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -233,7 +233,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif milestone.airflow then
      if airflow.interact(s,milestone,command,emitCue) then completeMilestone(s,state,milestone) end
      return true
-    elseif milestone.reflect then
+     elseif milestone.followCart then
+      if command=='rotate' then theater.start(s,milestone,state) end
+      return true
+     elseif milestone.reflect then
      if reflection.interact(s,milestone,command) then completeMilestone(s,state,milestone) end
      return true
     elseif command=='rotate' then
@@ -339,6 +342,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.airflowTrial,s.storyCue=nil,nil
   s.resonanceOrder,s.resonancePage=nil,nil
   paper.reset(s)
+  theater.enter(s,n.theater)
   s.platforms={};for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]=copy(p) end
   for _,q in ipairs(itineraries) do
    local state=s.story.quests[q.id]
@@ -723,6 +727,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    return
   end
   local returns,previous=s.returns,s.t;step(s,dt,input)
+  if s.story and s.story.active and s.returns==returns and not s.paused then
+   local milestone,state=theater.step(s,s.t-previous)
+   if milestone then completeMilestone(s,state,milestone) end
+  end
   if roofQuest and s.story and s.story.active and s.returns==returns then
    roof.update(s,roofQuest,s.story.quests[roofQuest.id],s.t-previous)
   end
@@ -858,6 +866,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=y}
    end
    end
+   theater.frame(s,f,markers,n.theater,mode,profile)
    if n.localLight then localLight.observe(s,f,markers,n.localLight) end
    if n.paperBoard then
     local board=n.paperBoard
@@ -977,7 +986,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       end
       markers[#markers+1]={kind='text',x=x,y=y-(milestone.patternBottle and 66 or milestone.outcrop and 48 or 41),text=milestone.name,color='#fff0b9',size=14}
      end
-     if not f.storyNearbyMilestone and not s.paused and canInspect(s.actors[s.active],milestone) then
+     if not f.storyNearbyMilestone and not s.paused and not (milestone.followCart and s.theaterCart)
+         and canInspect(s.actors[s.active],milestone) then
       f.storyNearbyMilestone={label=milestone.action}
       if milestone.paperSouvenir then paper.observeGift(s,f,milestone) end
       if milestone.surveyMap then f.storySurveyMap=milestone.surveyMap end

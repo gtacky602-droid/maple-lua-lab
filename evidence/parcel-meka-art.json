@@ -1,0 +1,74 @@
+{
+  "generator": "built-in imagegen",
+  "originalModel": {
+    "path": "evidence/parcel-meka-model.obj",
+    "sha256": "f3d35f3b35036e21f3dbf92bf423d07f5435f36531c2cfa38098232c0793003d"
+  },
+  "materials": {
+    "path": "evidence/parcel-meka-model.mtl",
+    "sha256": "c0b8dfb49e65c469260513ff503f6dc83c3d9c3227ecf6b6965c9692bc1a5ebc"
+  },
+  "vertices": 304,
+  "faces": 198,
+  "reference": {
+    "path": "evidence/parcel-meka-views.png",
+    "sha256": "e9f2a628df07bac921d6523aeb13a6b00634c12241aa6ebd68b6e9a677b4d729"
+  },
+  "views": [
+    "rightward side",
+    "front three-quarter",
+    "rear three-quarter"
+  ],
+  "source": {
+    "path": "assets/parcel-meka-source-v1.png",
+    "sha256": "0ddc9cb66da40338c4d50386466ee0341ddb74a3424ecda1ad70b1eddf1534c6"
+  },
+  "sourceSize": [
+    1312,
+    1199
+  ],
+  "outsideAlphaSamples": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "box": [
+    164,
+    184,
+    964,
+    844
+  ],
+  "anchorX": 0.4994813278008299,
+  "encoding": {
+    "path": "assets/parcel-meka-sprites-v1.json",
+    "sha256": "e9a32bd08b565f7e469a5d70843491d58abdd8fd8b647c420ae079bb1c970540"
+  },
+  "runs": {
+    "legacy": 3162,
+    "h48c32": 1974,
+    "h32c16": 834
+  },
+  "backgrounds": [
+    {
+      "path": "assets/fontaine-delivery-quay-background-v1.png",
+      "sha256": "c86e79c995db3f316e32b9768f4b0246c626ecb5396dfc27ed7404c349762856",
+      "size": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "assets/fontaine-backstage-background-v1.png",
+      "sha256": "aa58b2941a5da39e379470f4fc78db0d59a46d1200b1b0b346d18c82c9015af1",
+      "size": [
+        1672,
+        941
+      ]
+    }
+  ],
+  "paletteReference": {
+    "path": "assets/fontaine-background-v1.png",
+    "sha256": "33ba0fcd4dd517ba8dc8610b0f0e48c6ca4f550daedc4dd50461216bb9e66207"
+  }
+}

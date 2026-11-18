@@ -685,6 +685,14 @@
       "to": "simulanka-book-room"
     },
     {
+      "node": "fontaine-hub",
+      "to": "fontaine-parcel-counter"
+    },
+    {
+      "node": "fontaine-hub",
+      "to": "fontaine-moon-fly-loft"
+    },
+    {
       "node": "fontaine-field",
       "to": "fontaine-hub"
     },
@@ -2215,6 +2223,38 @@
     {
       "node": "sumeru-sky-observatory",
       "to": "sumeru-observatory-terrace"
+    },
+    {
+      "node": "fontaine-parcel-counter",
+      "to": "fontaine-hub"
+    },
+    {
+      "node": "fontaine-parcel-counter",
+      "to": "fontaine-delivery-quay"
+    },
+    {
+      "node": "fontaine-delivery-quay",
+      "to": "fontaine-parcel-counter"
+    },
+    {
+      "node": "fontaine-delivery-quay",
+      "to": "fontaine-old-scenery-door"
+    },
+    {
+      "node": "fontaine-old-scenery-door",
+      "to": "fontaine-delivery-quay"
+    },
+    {
+      "node": "fontaine-old-scenery-door",
+      "to": "fontaine-moon-fly-loft"
+    },
+    {
+      "node": "fontaine-moon-fly-loft",
+      "to": "fontaine-old-scenery-door"
+    },
+    {
+      "node": "fontaine-moon-fly-loft",
+      "to": "fontaine-hub"
     }
   ],
   "hidden_connections_checked": 38,

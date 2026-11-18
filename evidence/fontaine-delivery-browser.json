@@ -1,0 +1,32 @@
+{
+  "receiptAndThreeClues": true,
+  "wrongLeadRejected": true,
+  "cartWaitsForPlayer": true,
+  "actualChaseOpensEntrance": true,
+  "twoGuards": true,
+  "moonFound": true,
+  "shortcutAndReadbackAfterReload": true,
+  "scenes": [
+    {
+      "key": "fontaineDelivery",
+      "file": "fontaine-delivery-quay-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "key": "fontaineBackstage",
+      "file": "fontaine-backstage-background-v1.png",
+      "state": "ready"
+    }
+  ],
+  "commands": {
+    "png": 51,
+    "standard": 6645,
+    "light": 1758
+  },
+  "reward": [
+    1329885,
+    3100,
+    3
+  ],
+  "errors": []
+}

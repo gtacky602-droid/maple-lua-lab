@@ -1,0 +1,17 @@
+{
+  "physicalShutter": true,
+  "wrongLeadsRejected": true,
+  "cartPauses": true,
+  "cartWaitsForPlayer": true,
+  "retryAfterReload": true,
+  "openedShutterPersists": true,
+  "partialClearPersists": true,
+  "oneTimeReport": true,
+  "recordAfterReload": true,
+  "oldFieldGate": true,
+  "reward": [
+    1329885,
+    3100,
+    3
+  ]
+}

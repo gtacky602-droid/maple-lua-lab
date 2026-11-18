@@ -123,8 +123,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 13,
-      "prototype_quest_count": 11,
+      "prototype_stage_count": 17,
+      "prototype_quest_count": 12,
       "official_map2_markers": {
         "waypoints": 92,
         "statues": 8
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 244,
-    "provisional_quests": 155,
+    "authored_stages": 248,
+    "provisional_quests": 156,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -828,7 +828,11 @@
           "icewind-coppelius-field",
           "nostoi-castle-approach",
           "legatus-field-hall",
-          "simulanka-book-room"
+          "simulanka-book-room",
+          "fontaine-parcel-counter",
+          "fontaine-delivery-quay",
+          "fontaine-old-scenery-door",
+          "fontaine-moon-fly-loft"
         ],
         "quest_ids": [
           "emilie-join",
@@ -841,7 +845,8 @@
           "icewind-coppelia-commission",
           "icewind-coppelius-commission",
           "legatus-commission",
-          "simulanka-open-page"
+          "simulanka-open-page",
+          "fontaine-moon-parcel"
         ]
       },
       {
@@ -1297,8 +1302,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 60,
-    "without_explicit_mapping": 93,
+    "linked": 61,
+    "without_explicit_mapping": 92,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1327,6 +1332,7 @@
       "Q-B09-01": "novo-expedition-ready",
       "Q-B09-02": "novo-equipment-route",
       "Q-B09-03": "novo-return-report",
+      "Q-FON-M01": "fontaine-moon-parcel",
       "Q-H01-01": "golden-little-boat",
       "Q-H01-02": "golden-trace-shadows",
       "Q-H02-01": "veluriyam-bottle-ticket",

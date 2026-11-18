@@ -107,6 +107,8 @@ export const sceneryDefinitions={
  mondstadt:{file:'mondstadt-background.png',region:'モンド',zones:[]},
  liyue:{file:'liyue-background-v1.png',region:'璃月',zones:['geo','oceanid','primo','pyro_regisvine']},
  inazuma:{file:'inazuma-background-v1.png',region:'稲妻',zones:['thunder','array','maguu']},
+ fontaineDelivery:{file:'fontaine-delivery-quay-background-v1.png',zones:['story:fontaine-parcel-counter','story:fontaine-delivery-quay']},
+ fontaineBackstage:{file:'fontaine-backstage-background-v1.png',zones:['story:fontaine-old-scenery-door','story:fontaine-moon-fly-loft']},
  fontaine:{file:'fontaine-background-v1.png',region:'フォンテーヌ',zones:[]},
  natlan:{file:'natlan-background-v1.png',region:'ナタ',zones:[]},
  sumeruRiverside:{file:'sumeru-riverside-background-v1.png',zones:['story:sumeru-river-roots','story:sumeru-river-bank','story:sumeru-root-slope']},
