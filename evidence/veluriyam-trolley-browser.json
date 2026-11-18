@@ -1,0 +1,31 @@
+{
+  "bottlePersists": true,
+  "wrongPatternRejected": true,
+  "revisit": true,
+  "missedStopReachedTerminal": true,
+  "reverseMidStop": true,
+  "lookoutChest": true,
+  "returnedByRail": true,
+  "readbackAfterReload": true,
+  "track": {
+    "key": "mirageTrack",
+    "file": "mirage-track-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 14,
+    "standard": 5930,
+    "light": 1486
+  },
+  "firstReport": [
+    13400,
+    510,
+    2
+  ],
+  "secondReport": [
+    18100,
+    680,
+    3
+  ],
+  "errors": []
+}

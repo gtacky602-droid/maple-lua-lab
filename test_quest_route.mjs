@@ -65,5 +65,12 @@ const boatQuest=graph.quests.find(q=>q.id==='golden-little-boat');
 const sailing={story:{active:true,node:boatQuest.hub,quests:{[boatQuest.id]:{count:3}}},
  storyGraph:graph,progression:{level:1},active:1,actors:[{id:1,x:1530,y:480}]};
 assert.match(questRouteText(sailing,boatQuest,'active'),/次は 金リンゴ群島・入口広場.*F：小舟に乗る/);
+const lookout=graph.quests.find(q=>q.id==='veluriyam-trolley-lookout');
+const trolley={story:{active:true,node:'veluriyam-trolley-out',quests:{[lookout.id]:{count:0}}},
+ storyGraph:graph,progression:{level:60},active:1,actors:[{id:1,x:160,y:480}],
+ voyage:{kind:'trolley',elapsed:2,seconds:6.4}};
+assert.match(questRouteText(trolley,lookout,'active'),/花棚の停留所.*F：途中下車する.*停車中/);
+trolley.story.node='veluriyam-trolley-back';trolley.story.quests[lookout.id].count=2;
+assert.match(questRouteText(trolley,lookout,'active'),/入口広場.*乗ったまま次の地点へ着きます/);
 const original=JSON.stringify(frame);let checked=0;for(const quest of graph.quests)for(const status of ['unaccepted','active','ready','complete']){assert.equal(typeof questRouteText(frame,quest,status),'string');checked++}assert.equal(JSON.stringify(frame),original);
 await fs.writeFile('evidence/quest-route-test.json',JSON.stringify({checked,checks:['accept/report hub destination','active visit/kill destination','boss challenge entrance','one-time complete hidden','repeatable complete points to hub','missing/hidden target no leak','level gate indication','level-eligible detour preferred','shortest route at eligible level','blocked fallback minimizes required level','high-level origin permits exit','cycles terminate','voyage pre/during/post stopover and arrival','arrival zero switches to disembark; positive fraction waits','active companion position drives gate direction','ground proximity and elevated descent guidance','missing actors omit directional guidance','pause indication','disconnected graph','chapter finale tracks the cape after the contest','town walk and legacy hunt use their respective targets','no frame mutation']},null,2));console.log('Quest routing fixtures passed');

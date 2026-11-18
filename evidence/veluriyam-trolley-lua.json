@@ -1,0 +1,29 @@
+{
+  "hiddenUntilBottleClue": true,
+  "wrongPatternBlocksGate": true,
+  "dialUnlockPersists": true,
+  "revisit": true,
+  "stopWindow": [
+    1.8,
+    6.3
+  ],
+  "pauseStopsRide": true,
+  "locksMovementInTransit": true,
+  "terminalBailout": true,
+  "saveDuringRideReturnsToHub": true,
+  "onwardAndReturnFromStop": true,
+  "noFastTravelCredit": true,
+  "readbackAfterSave": true,
+  "oldGateAndQuestKept": true,
+  "firstReport": [
+    13400,
+    510,
+    2
+  ],
+  "secondReport": [
+    18100,
+    680,
+    3
+  ],
+  "oneTimePayouts": true
+}

@@ -26,6 +26,18 @@ for group,hub,parent,x in [('golden','mond-town','mond-road',1380),('veluriyam',
    s.actors[s.active].x=mark['x'];s.actors[s.active].y=mark['y'];c.action(s,'story_collect')
   s.actors[s.active].x=1530;c.action(s,'story_portal:golden-hub')
   for _ in range(127): c.step(s,1/60,lua.table_from({}))
+ elif group=='veluriyam':
+  s.actors[s.active].x=1125
+  c.action(s,'story_portal:veluriyam-bottle-yard')
+  check('veluriyam clue leads to bottle yard',s.story.node=='veluriyam-bottle-yard')
+  q=next(q for q in graph['quests'] if q['id']=='veluriyam-bottle-ticket')
+  c.action(s,'story_accept:'+q['id'])
+  bottle,dial=q['itinerary'][:2]
+  s.actors[s.active].x=bottle['x'];c.action(s,'story_collect')
+  s.actors[s.active].x=dial['x'];s.actors[s.active].y=dial['y']
+  for _ in range(3):c.action(s,'story_collect')
+  c.action(s,'story_airflow_commit')
+  s.actors[s.active].x=1260;s.actors[s.active].y=480;c.action(s,'story_portal:veluriyam-hub')
  else:
   c.action(s,'story_portal:'+group+'-hub')
  check(group+' discovered portal enters',s.story.node==group+'-hub')

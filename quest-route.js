@@ -41,12 +41,17 @@ export function questRouteText(f,q,status){
   const rule=edge.requires;
   return !rule||meetsRule(rule)||(rule.alternative&&meetsRule(rule.alternative));
  }
+ function connections(node){
+  const exits=node.exits??[];
+  const ride=node.voyage;
+  return ride?.kind==='trolley'?[...exits,{to:ride.destination,trolleyArrival:true}]:exits;
+ }
  const level=f.progression?.level??0;
  function routeAtLevel(limit){
   const queue=[[from]],seen=new Set([from]);
   for(let i=0;i<queue.length;i++){
    const current=queue[i],node=nodes.get(current.at(-1));
-   for(const edge of node.exits||[]){
+   for(const edge of connections(node)){
     if(!nodes.has(edge.to)||seen.has(edge.to)||!gateOpen(edge)||(nodes.get(edge.to).level||1)>limit)continue;
     const next=[...current,edge.to];if(targets.has(edge.to))return next;
     seen.add(edge.to);queue.push(next);
@@ -60,7 +65,7 @@ export function questRouteText(f,q,status){
   path=routeAtLevel(limit);if(path)break;
  }
  if(!path)return '公開中の地点からつながる経路がありません。';
- const next=nodes.get(path[1]),edge=nodes.get(from).exits.find(e=>e.to===next.id);
+ const next=nodes.get(path[1]),edge=connections(nodes.get(from)).find(e=>e.to===next.id);
  const required=Math.max(...path.slice(1).map(id=>nodes.get(id).level||1));
  const notes=[];
  if(level<required)notes.push(`現在のレベルでは通れません。経路上にLv${required}が必要な地点があります`);
@@ -69,16 +74,24 @@ export function questRouteText(f,q,status){
   const dx=edge.x-actor.x;
   if(Math.abs(dx)>=90)notes.push(`次の門は${dx>0?'右':'左'}にあります`);
   else if(Math.abs(actor.y-(edge.y??480))>=60)notes.push(edge.y===undefined?'門の横位置まで来ています。地上へ降りてください':'門のある足場へ移動してください');
+  else if(f.voyage?.kind==='trolley'&&edge.windowStart!==undefined)notes.push('停車したら「F：途中下車する」で降りられます');
+  else if(next.voyage?.kind==='trolley')notes.push('乗り場に着きました。「F：トロッコに乗る」で進めます');
   else if(edge.boatSeconds)notes.push('桟橋に着きました。「F：小舟に乗る」で進めます');
   else if(edge.waterwaySeconds)notes.push('乗り継ぎ場に着きました。「F：水路を渡る」で進めます');
   else notes.push(edge.liftSeconds?'昇降台の近くです。「F：昇降台に乗る」で進めます':'次の門の近くです。移動条件を満たすと「F：この門を通る」で進めます');
  }
  if(edge.windowStart!==undefined){
   const elapsed=f.voyage?.elapsed;
-  if(elapsed===undefined)notes.push('寄港中のみ下船できます');
+  if(f.voyage?.kind==='trolley'){
+   if(elapsed+1e-8<edge.windowStart)notes.push('停留所に近づいています');
+   else if(elapsed+1e-8>=edge.windowEnd)notes.push('停留所を通過しました。終点から戻れます');
+   else notes.push('停車中。途中下車できます');
+  }else if(elapsed===undefined)notes.push('寄港中のみ下船できます');
   else if(elapsed+1e-8<edge.windowStart)notes.push(`寄港まで約${Math.ceil(edge.windowStart-elapsed)}秒`);
   else if(elapsed+1e-8>=edge.windowEnd)notes.push('寄港時間を過ぎています。出発港へ戻り、再乗船してください');
   else notes.push(`寄港中：下船できる残り時間は約${Math.ceil(edge.windowEnd-elapsed)}秒`);
+ }else if(edge.trolleyArrival){
+  notes.push(`乗ったまま次の地点へ着きます（約${Math.ceil(f.voyage?.seconds??0)}秒）`);
  }else if(edge.requiresArrival){
   const seconds=f.voyage?.seconds;
   if(f.voyage?.kind==='train')notes.push(`列車は到着後に自動で下車します（約${Math.ceil(seconds)}秒）`);

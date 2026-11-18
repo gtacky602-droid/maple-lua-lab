@@ -967,6 +967,30 @@
     {
       "node": "golden-tide-pocket",
       "enemy_count": 3
+    },
+    {
+      "node": "veluriyam-bottle-yard",
+      "enemy_count": 0
+    },
+    {
+      "node": "veluriyam-trolley-out",
+      "enemy_count": 0
+    },
+    {
+      "node": "veluriyam-petal-stop",
+      "enemy_count": 0
+    },
+    {
+      "node": "veluriyam-rail-end",
+      "enemy_count": 0
+    },
+    {
+      "node": "veluriyam-petal-lookout",
+      "enemy_count": 0
+    },
+    {
+      "node": "veluriyam-trolley-back",
+      "enemy_count": 0
     }
   ],
   "render_profiles": [

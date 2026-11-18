@@ -2492,6 +2492,36 @@
       "transparent": 0
     },
     {
+      "key": "mirageTrack",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "mirageTrack",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "mirageTrack",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "mirageTrack",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "mirageTrack",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "mirageTrack",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "veluriyam",
       "camera": -960,
       "transparent": 0

@@ -569,6 +569,10 @@
       "to": "asimon-field-ruins"
     },
     {
+      "node": "sumeru-entry",
+      "to": "veluriyam-bottle-yard"
+    },
+    {
       "node": "sumeru-hub",
       "to": "sumeru-entry"
     },
@@ -1357,6 +1361,14 @@
       "to": "veluriyam-play"
     },
     {
+      "node": "veluriyam-hub",
+      "to": "veluriyam-bottle-yard"
+    },
+    {
+      "node": "veluriyam-hub",
+      "to": "veluriyam-trolley-out"
+    },
+    {
       "node": "veluriyam-play",
       "to": "veluriyam-hub"
     },
@@ -2019,9 +2031,45 @@
     {
       "node": "golden-tide-pocket",
       "to": "golden-shadow-grotto"
+    },
+    {
+      "node": "veluriyam-bottle-yard",
+      "to": "sumeru-entry"
+    },
+    {
+      "node": "veluriyam-bottle-yard",
+      "to": "veluriyam-hub"
+    },
+    {
+      "node": "veluriyam-trolley-out",
+      "to": "veluriyam-petal-stop"
+    },
+    {
+      "node": "veluriyam-petal-stop",
+      "to": "veluriyam-trolley-back"
+    },
+    {
+      "node": "veluriyam-petal-stop",
+      "to": "veluriyam-trolley-out"
+    },
+    {
+      "node": "veluriyam-petal-stop",
+      "to": "veluriyam-petal-lookout"
+    },
+    {
+      "node": "veluriyam-rail-end",
+      "to": "veluriyam-trolley-back"
+    },
+    {
+      "node": "veluriyam-petal-lookout",
+      "to": "veluriyam-petal-stop"
+    },
+    {
+      "node": "veluriyam-trolley-back",
+      "to": "veluriyam-petal-stop"
     }
   ],
-  "hidden_connections_checked": 18,
+  "hidden_connections_checked": 29,
   "checks": [
     "nearest name from graph",
     "strict distance/height boundaries",

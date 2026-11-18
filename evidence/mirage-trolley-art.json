@@ -1,0 +1,53 @@
+{
+  "generator": "built-in imagegen",
+  "shapeSketch": {
+    "path": "evidence/mirage-trolley-reference.png",
+    "sha256": "2105a5adcf24a8503ff66f4f8b28e297e5c2bf809ed6e702e9fd3f4e05fc0d6a"
+  },
+  "views": [
+    "side",
+    "oblique"
+  ],
+  "paletteReference": {
+    "path": "assets/veluriyam-background-v1.png",
+    "sha256": "20d07637b1049f85ad468f7110e8bed65865acff0db4323c556b3152cd0f5d8e"
+  },
+  "source": {
+    "path": "assets/mirage-trolley-source-v1.png",
+    "sha256": "07c9aca75a7351af06454bffbc39cef9b1034abc316fa61f54ce91e04ae8aa8f"
+  },
+  "sourceSize": [
+    2078,
+    757
+  ],
+  "outsideAlphaSamples": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "encoding": {
+    "path": "assets/mirage-trolley-sprites-v1.json",
+    "sha256": "9dcc66da1f8defb443438ca2191c24acdc7461e50facdc52674d0d60b51368e1"
+  },
+  "box": [
+    197,
+    168,
+    1691,
+    443
+  ],
+  "anchorX": 0.48551153163808397,
+  "background": {
+    "path": "assets/mirage-track-background-v1.png",
+    "sha256": "88423f11f24dbb91afda772c423894713c752e0b67aa3e032eae601d50c431bd"
+  },
+  "backgroundSize": [
+    1672,
+    941
+  ],
+  "runs": {
+    "legacy": 2484,
+    "h48c32": 1515,
+    "h32c16": 599
+  }
+}

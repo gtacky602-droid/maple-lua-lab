@@ -83,6 +83,7 @@ export const sceneryDefinitions={
  nodspecial:{file:'nodspecial-background-v1.png',region:'ナド・クライ特別地域（仮）',zones:[],note:'場所・構造未確定の独自案（月明かりの湖畔）'},
  dornman:{file:'dornman-background-v1.png',region:'ドーンマンポート',zones:[]},
  simulanka:{file:'simulanka-background-v1.png',region:'シムランカ',zones:[]},
+ mirageTrack:{file:'mirage-track-background-v1.png',zones:['story:veluriyam-trolley-out','story:veluriyam-trolley-back','story:veluriyam-petal-stop','story:veluriyam-rail-end','story:veluriyam-petal-lookout']},
  veluriyam:{file:'veluriyam-background-v1.png',region:'ヴェルーリヤ・ミラージュ',zones:[]},
  goldenDock:{file:'golden-dock-background-v1.png',zones:['story:golden-mainland-coast'],note:'小舟の桟橋の仮背景'},
  goldenGrotto:{file:'golden-grotto-background-v1.png',zones:['story:golden-shadow-grotto','story:golden-tide-pocket'],note:'小洞窟と小浜の仮背景'},
@@ -159,7 +160,7 @@ export function scenery(ctx,frame){
  if(background.complete&&background.naturalWidth){
   // The temporary image has only 200px of overscan. Stop its parallax at
   // either image edge even when the playable map extends farther.
-  const w=1160,h=540,offset=Math.max(0,Math.min(1,(frame.camera||0)/1920))*(w-960);
+  const w=1160,h=540,offset=(frame.voyage?.scroll??Math.max(0,Math.min(1,(frame.camera||0)/1920)))*(w-960);
   ctx.drawImage(background,-offset,0,w,h);
  }else{ctx.fillStyle='#c5decc';ctx.fillRect(0,0,960,540)}
  // Lab-only terrain proxies. These will be 3D set dressing and colliders in the game.
@@ -172,6 +173,12 @@ export function scenery(ctx,frame){
  drawDecorations(ctx,frame,camera);
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
+  if(p.trolleyTrack){
+   ctx.fillStyle='#4a675f';ctx.fillRect(x,p.y+36,p.w,24);
+   ctx.fillStyle='#9b8066';for(let i=0;i<p.w;i+=29)ctx.fillRect(x+i,p.y+39,Math.min(14,p.w-i),7);
+   ctx.fillStyle='#657f82';ctx.fillRect(x,p.y+36,p.w,4);
+   continue;
+  }
   if(p.resonanceBridge){
    ctx.fillStyle='#365060';ctx.fillRect(x,p.y,p.w,18);
    ctx.fillStyle='#9bd3ba';ctx.fillRect(x,p.y,p.w,4);

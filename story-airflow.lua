@@ -30,7 +30,7 @@ return function()
    s.storyNotice=choice.label..'　'..choice.result
   elseif command=='airflow_commit' and config.confirm then
    if trial.index==config.correct then removePreview(s,trial);s.airflowTrial=nil;return true end
-   s.storyNotice='行きと帰りの両方で昇降台へ通れる位置を試してください。'
+   s.storyNotice=config.confirmationHint or '行きと帰りの両方で昇降台へ通れる位置を試してください。'
   end
   return false
  end
@@ -53,7 +53,8 @@ return function()
   if near then
    f.storyNearbyMilestone={label=item.action}
    f.storyAirflow={selection=choice and choice.label or '未調整',pattern=choice and choice.pattern,
-    target=config.target,confirm=config.confirm,result=choice and choice.result or config.hint}
+    target=config.target,sound=config.choices[1].notes~=nil,confirm=config.confirm,
+    confirmLabel=config.confirmLabel,result=choice and choice.result or config.hint}
   end
  end
 

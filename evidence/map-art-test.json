@@ -1356,6 +1356,42 @@
       "count": 3,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "veluriyam-bottle-yard",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "veluriyam-trolley-out",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "veluriyam-petal-stop",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "veluriyam-rail-end",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "veluriyam-petal-lookout",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "veluriyam-trolley-back",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,

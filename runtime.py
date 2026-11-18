@@ -320,6 +320,7 @@ def runtime():
     field_display=lua.execute((ROOT/'field-display.lua').read_text(encoding='utf8'))
     wind_ring=field_display(core,field_art(lua,'wind-ring',('idle',)).idle)
     bell_gate=field_display(core,field_art(lua,'bellgate',('idle',)).idle)
+    core.trolleyArt=field_art(lua,'mirage-trolley',('idle',),idle='mirage-trolley-sprites-v1.json').idle
     lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(
         core,lua.table_from(field_specs,recursive=True),
         lua.table_from({'snowSweeper':snow_sweeper,'frostAntler':frost_antler,'windwardTower':windward_tower,

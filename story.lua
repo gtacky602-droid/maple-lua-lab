@@ -65,7 +65,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   if edge.wind and not windWindow(s,edge.wind) then return edge.wind.notice or '吹雪のため通れません。風が止むまで待つか、下の風よけ道へ。' end
   local passed=s.voyage and s.t-s.voyage.started or -1
-  if edge.windowStart and not (passed+1e-8>=edge.windowStart and passed+1e-8<edge.windowEnd) then return '寄港時間外' end
+  if edge.windowStart and not (passed+1e-8>=edge.windowStart and passed+1e-8<edge.windowEnd) then
+   if s.voyage and s.voyage.kind=='trolley' then
+    return passed<edge.windowStart and '停留所に近づいています。' or '停留所を通過しました。終点から戻れます。'
+   end
+   return '寄港時間外'
+  end
   if edge.requiresArrival and not (s.voyage and s.t>=s.voyage.arrives) then return '到着待ち' end
  end
  local function nearGate(a,edge)
@@ -96,7 +101,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif not s.progression or s.progression.level<n.level then reason='必要レベル '..n.level
     else reason=gateRestriction(s,edge) end
     best={to=edge.to,name=edge.rideLabel or n.name,level=n.level,available=not reason,reason=reason,
-          liftSeconds=edge.liftSeconds,waterwaySeconds=edge.waterwaySeconds,boatSeconds=edge.boatSeconds};distance=dx
+          liftSeconds=edge.liftSeconds,waterwaySeconds=edge.waterwaySeconds,boatSeconds=edge.boatSeconds,
+          trolleyBoard=n.voyage and n.voyage.kind=='trolley' or nil,
+          trolleyStop=s.voyage and s.voyage.kind=='trolley' and edge.windowStart~=nil or nil};distance=dx
     if edge.wind then
      local calm,seconds=windWindow(s,edge.wind)
      best.wind={calm=calm,seconds=seconds}
@@ -361,7 +368,19 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if contestQuest and id==contestQuest.target then contest.populate(s,contestQuest,s.story.quests[contestQuest.id]) end
   if C.enterFieldBossNode then C.enterFieldBossNode(s,id) end
   if C.enterWeeklyBossNode then C.enterWeeklyBossNode(s,id) end
-  s.macro=nil;s.encounter=nil;s.voyage=n.voyage and {destination=n.voyage.destination,arrives=s.t+n.voyage.seconds-(elapsed or 0),started=s.t-(elapsed or 0),source=n.voyage.source,stopStart=n.voyage.stopStart,stopEnd=n.voyage.stopEnd,kind=n.voyage.kind} or nil;progress(s,'visit',id)
+  s.macro=nil;s.encounter=nil
+  local v=n.voyage
+  s.voyage=v and {destination=v.destination,arrives=s.t+v.seconds-(elapsed or 0),total=v.seconds,
+   started=s.t-(elapsed or 0),source=v.source,stopStart=v.stopStart,stopEnd=v.stopEnd,kind=v.kind,reverse=v.reverse} or nil
+  progress(s,'visit',id)
+ end
+ local function arrive(s)
+  local from,dest=s.story.node,s.voyage.destination
+  enter(s,dest)
+  for _,q in ipairs(itineraries) do
+   local step,state=nextMilestone(s,q)
+   if step and step.kind=='arrive' and step.node==dest and step.from==from then completeMilestone(s,state,step) end
+  end
  end
  function C.enterStoryNode(s,id) setup(s);enter(s,id) end
  function C.storyBossDefeated(s,id)
@@ -382,6 +401,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if key=='pause' then action(s,key) end
    return
   end
+  if s.voyage and s.voyage.kind=='trolley' and key~='pause' and key~='story_nearby_portal'
+      and not key:match('^story_portal:') and not key:match('^story_fast:') then return end
   if key=='story_nearby_portal' then local p=nearbyPortal(s);if p then C.action(s,'story_portal:'..p.to) end;return end
   if key=='story_expedition_trial' then
    local desk=s.story.active and nodes[s.story.node].expeditionDesk
@@ -640,6 +661,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
  end
  function C.step(s,dt,input)
+  if s.voyage and s.voyage.kind=='trolley' then
+   if not s.paused then
+    s.t=s.t+dt
+    if s.t+1e-8>=s.voyage.arrives then arrive(s) end
+   end
+   return
+  end
   if s.lift then
    if not s.paused then
     local ride=s.lift
@@ -692,7 +720,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     spawnEnemies(s,n,state.count)
    end
   end
-  if s.story and s.story.active and s.voyage and not s.paused and s.t+1e-8>=s.voyage.arrives then enter(s,s.voyage.destination) end
+  if s.story and s.story.active and s.voyage and not s.paused and s.t+1e-8>=s.voyage.arrives then arrive(s) end
   if s.story and s.story.active and #s.enemies>0 and cleared(s,nodes[s.story.node]) then s.enemies={} end
   if s.story and s.story.active and s.returns~=returns then enter(s,s.story.visited[nodes[s.story.node].checkpoint] and nodes[s.story.node].checkpoint or 'mond-town') end
  end
@@ -738,12 +766,25 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    rect(-13,-25,21,3,'#ba9270')
   end
  end
+ local function drawPatternBottle(draws,x,y,opened)
+  draws[#draws+1]={kind='rect',x=x-20,y=y-46,w=40,h=46,color='#39656a'}
+  draws[#draws+1]={kind='rect',x=x-15,y=y-43,w=30,h=35,color=opened and '#b38be0' or '#66a99c'}
+  draws[#draws+1]={kind='rect',x=x-9,y=y-59,w=18,h=13,color='#ac7d5e'}
+  draws[#draws+1]={kind='rect',x=x-13,y=y-39,w=3,h=23,color='#c1ece2'}
+  draws[#draws+1]={kind='text',x=x+1,y=y-20,text='✧',color='#fff5d9',size=21}
+ end
 
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile);setup(s);f.story=s.story;local visible={version=data.version,status=data.status,nodes={},quests={}}
   for _,n in ipairs(data.nodes) do if shownNode(s,n) then local out=copy(n);out.exits={};for _,edge in ipairs(n.exits) do if shownEdge(s,edge) then out.exits[#out.exits+1]=copy(edge) end end;visible.nodes[#visible.nodes+1]=out end end
   for _,q in ipairs(data.quests) do if shownNode(s,nodes[q.hub]) then visible.quests[#visible.quests+1]=q end end
   f.storyGraph=visible;f.storyNotice=s.storyNotice;f.storyJoined={};f.voyage=s.voyage and {seconds=math.max(0,s.voyage.arrives-s.t),destination=s.voyage.destination,elapsed=s.t-s.voyage.started,kind=s.voyage.kind,stopover=s.voyage.stopStart and s.t-s.voyage.started+1e-8>=s.voyage.stopStart and s.t-s.voyage.started+1e-8<s.voyage.stopEnd or false} or nil
+  if f.voyage and f.voyage.kind=='trolley' then
+   local v=s.voyage
+   local wait=math.max(0,math.min(f.voyage.elapsed,v.stopEnd)-v.stopStart)
+   local fraction=math.max(0,math.min(1,(f.voyage.elapsed-wait)/(v.total-v.stopEnd+v.stopStart)))
+   f.voyage.scroll=v.reverse and 1-fraction or fraction
+  end
   for id,q in pairs(quests) do if q.join and s.story.quests[id] and s.story.quests[id].status=='complete' then f.storyJoined[q.join]=true end end
   if s.story.active then local n=nodes[s.story.node];f.location=n.name..'（本編試作）'
    f.storyCleared=cleared(s,n) and true or nil
@@ -789,6 +830,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    end
    if n.localLight then localLight.observe(s,f,markers,n.localLight) end
+   if f.voyage and f.voyage.kind=='trolley' then
+    local a=s.actors[1]
+    C.drawFieldDisplayArt({draws=markers},C.trolleyArt,a.x-s.camera-20,a.y+36,62,mode,profile,s.voyage.reverse)
+   end
    if n.resonance then
     local quest=quests[n.resonance.quest]
     resonance.observe(s,f,markers,n.resonance,s.story.quests[quest.id],nextMilestone(s,quest))
@@ -884,12 +929,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
       elseif milestone.islandTreasure then drawIslandChest(markers,x,y,false)
       elseif milestone.shoreMark then drawShoreMark(markers,x,y,milestone.shoreMark)
+      elseif milestone.patternBottle then drawPatternBottle(markers,x,y,false)
       else
        markers[#markers+1]={kind='rect',x=x-13,y=y-28,w=26,h=28,color='#5a3648'}
        markers[#markers+1]={kind='rect',x=x-10,y=y-24,w=20,h=16,color='#eed5a8'}
        markers[#markers+1]={kind='rect',x=x-6,y=y-20,w=12,h=4,color='#767462'}
       end
-      markers[#markers+1]={kind='text',x=x,y=y-(milestone.outcrop and 48 or 41),text=milestone.name,color='#fff0b9',size=14}
+      markers[#markers+1]={kind='text',x=x,y=y-(milestone.patternBottle and 66 or milestone.outcrop and 48 or 41),text=milestone.name,color='#fff0b9',size=14}
      end
      if not f.storyNearbyMilestone and not s.paused and canInspect(s.actors[s.active],milestone) then
       f.storyNearbyMilestone={label=milestone.action}
@@ -906,11 +952,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         elseif done.teaCups then drawTeaSetting(markers,x,y,done.teaCups)
         elseif done.islandTreasure then drawIslandChest(markers,x,y,true)
         elseif done.shoreMark then drawShoreMark(markers,x,y,done.shoreMark)
+        elseif done.patternBottle then drawPatternBottle(markers,x,y,true)
         else
          markers[#markers+1]={kind='rect',x=x-11,y=y-28,w=22,h=28,color='#5a3648'}
          markers[#markers+1]={kind='rect',x=x-7,y=y-25,w=14,h=12,color='#b9ffce'}
         end
-        markers[#markers+1]={kind='text',x=x,y=y-(done.outcrop and 48 or 41),text=done.completedLabel,color='#b9ffce',size=14}
+        markers[#markers+1]={kind='text',x=x,y=y-(done.patternBottle and 66 or done.outcrop and 48 or 41),text=done.completedLabel,color='#b9ffce',size=14}
        end
        if (done.readback or done.resonancePages) and state.status=='complete' and not f.storyNearbyMilestone and not s.paused
            and canInspect(s.actors[s.active],done) then

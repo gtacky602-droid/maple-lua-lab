@@ -1,5 +1,5 @@
 {
-  "count": 26,
+  "count": 27,
   "checks": [
     "golden hidden nodes absent before discovery",
     "golden remote discovery rejected",
@@ -15,6 +15,7 @@
     "veluriyam remote discovery rejected",
     "veluriyam direct undiscovered portal rejected",
     "veluriyam clue unlocks exactly this group",
+    "veluriyam clue leads to bottle yard",
     "veluriyam discovered portal enters",
     "veluriyam exploration progresses",
     "veluriyam discovery persists and resumes safe hidden hub",

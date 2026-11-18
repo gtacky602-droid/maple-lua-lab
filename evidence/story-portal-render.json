@@ -2259,6 +2259,66 @@
       "node": "golden-tide-pocket",
       "mode": "rect",
       "visible_portals": 0
+    },
+    {
+      "node": "veluriyam-bottle-yard",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "veluriyam-bottle-yard",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "veluriyam-trolley-out",
+      "mode": "sprite",
+      "visible_portals": 0
+    },
+    {
+      "node": "veluriyam-trolley-out",
+      "mode": "rect",
+      "visible_portals": 0
+    },
+    {
+      "node": "veluriyam-petal-stop",
+      "mode": "sprite",
+      "visible_portals": 0
+    },
+    {
+      "node": "veluriyam-petal-stop",
+      "mode": "rect",
+      "visible_portals": 0
+    },
+    {
+      "node": "veluriyam-rail-end",
+      "mode": "sprite",
+      "visible_portals": 0
+    },
+    {
+      "node": "veluriyam-rail-end",
+      "mode": "rect",
+      "visible_portals": 0
+    },
+    {
+      "node": "veluriyam-petal-lookout",
+      "mode": "sprite",
+      "visible_portals": 0
+    },
+    {
+      "node": "veluriyam-petal-lookout",
+      "mode": "rect",
+      "visible_portals": 0
+    },
+    {
+      "node": "veluriyam-trolley-back",
+      "mode": "sprite",
+      "visible_portals": 0
+    },
+    {
+      "node": "veluriyam-trolley-back",
+      "mode": "rect",
+      "visible_portals": 0
     }
   ],
   "checks": [
