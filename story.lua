@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -174,6 +174,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local rockViews=rockViewsModule(canInspect)
  local paper=paperModule(canInspect)
  local appraisal=appraisalModule(C,canInspect)
+ local rumor=rumorModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -344,7 +345,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     end
    end
   end
+  local rumorQuest=quests[nodes[s.story.node].rumorQuest]
+  if rumorQuest and s.story.node~=rumorQuest.hub then
+   local state=s.story.quests[rumorQuest.id]
+   local mirror=rumorQuest.itinerary[rumorQuest.goal-1]
+   if state and state.count>=rumorQuest.goal-1 and mirror.node==s.story.node and canInspect(s.actors[s.active],mirror) then
+    if reflection.interact(s,mirror,command,state,true) then s.storyNotice='照射を再現しました。石の縁が月明かりを返しています。' end
+    return true
+   end
+  end
   if command=='rotate' then
+   if rumorQuest and s.story.node==rumorQuest.hub and rumor.read(s,rumorQuest,s.story.quests[rumorQuest.id]) then return true end
    for _,q in ipairs(itineraries) do
     if completed(s,q.id) then
      local state=s.story.quests[q.id]
@@ -1047,6 +1058,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      local q=quests[n.appraisalQuest]
      appraisal.observe(s,f,markers,q,s.story.quests[q.id],nextMilestone(s,q),mode,profile)
     end
+    if n.rumorQuest then
+     local q=quests[n.rumorQuest]
+     local state=s.story.quests[q.id]
+     if n.id==q.hub then rumor.observe(s,f,markers,q,state,mode,profile)
+     elseif state and state.count>=q.goal-1 then
+      local mirror=q.itinerary[q.goal-1]
+      if mirror.node==n.id then
+       reflection.draw(s,f,markers,mirror,not s.paused and canInspect(s.actors[s.active],mirror),state,mode,profile,true)
+      end
+     end
+    end
    local pathQuest=n.pathsQuest and quests[n.pathsQuest]
    local pathState=pathQuest and s.story.quests[pathQuest.id]
    if pathState and pathState.pathProgress and pathState.count>0 then
@@ -1176,12 +1198,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      elseif milestone and milestone.airflow and milestone.node==s.story.node then
      airflow.observe(s,f,markers,milestone,not s.paused and canInspect(s.actors[s.active],milestone))
     elseif milestone and milestone.reflect and milestone.node==s.story.node then
-      reflection.draw(s,f,markers,milestone,not s.paused and canInspect(s.actors[s.active],milestone),state)
+      reflection.draw(s,f,markers,milestone,not s.paused and canInspect(s.actors[s.active],milestone),state,mode,profile)
     elseif milestone and milestone.kind=='inspect' and milestone.node==s.story.node
         and not milestone.resonanceOrder and not milestone.shadowChoice and not milestone.paperFold
         and (not milestone.roomLight or milestone.roomLight==s.storyLightMode) then
      local x,y=milestone.x-s.camera,milestone.y
-     if not milestone.flagProp and not milestone.shadowView and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
+     if not milestone.rumorBoard and not milestone.flagProp and not milestone.shadowView and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
       elseif milestone.islandTreasure then drawIslandChest(markers,x,y,false)

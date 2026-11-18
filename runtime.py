@@ -104,7 +104,7 @@ def runtime():
     graph = lua.table_from(resolve_story_exp(story_data),recursive=True)
     cave=lua.execute((ROOT/'story-cave.lua').read_text(encoding='utf8'))(core)
     roof=lua.execute((ROOT/'story-roof.lua').read_text(encoding='utf8'))(core)
-    reflection=lua.execute((ROOT/'story-reflection.lua').read_text(encoding='utf8'))()
+    reflection=lua.execute((ROOT/'story-reflection.lua').read_text(encoding='utf8'))(core)
     local_light=lua.execute((ROOT/'story-local-light.lua').read_text(encoding='utf8'))()
     airflow=lua.execute((ROOT/'story-airflow.lua').read_text(encoding='utf8'))()
     resonance=lua.execute((ROOT/'story-resonance.lua').read_text(encoding='utf8'))
@@ -121,7 +121,11 @@ def runtime():
     appraisal=lua.execute((ROOT/'story-appraisal.lua').read_text(encoding='utf8'))
     core.appraisalArt=field_art(lua,'nod-appraisal',(),variants={
         kind:f'nod-appraisal-{kind}-sprites-v1.json' for kind in ('gear','plate','stone','machine','lamp')})
-    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms,duel,moon_inlet,coast_detour,appraisal)
+    rumor=lua.execute((ROOT/'story-rumor.lua').read_text(encoding='utf8'))
+    core.rumorArt=field_art(lua,'nod-rumor',(),variants={
+        kind:f'nod-rumor-{kind}-sprites-v1.json'
+        for kind in ('glint','little','stolen','boatkeeper','courier','painter')})
+    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms,duel,moon_inlet,coast_detour,appraisal,rumor)
     lua.execute((ROOT / 'barrier.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'farka.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'regisvine.lua').read_text(encoding='utf-8'))(core)

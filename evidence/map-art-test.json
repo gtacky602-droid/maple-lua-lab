@@ -1710,6 +1710,18 @@
       "count": 0,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "nod-rumor-quay",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "nod-rumor-ledge",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,

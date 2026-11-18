@@ -1,0 +1,20 @@
+{
+  "m02Prerequisite": true,
+  "threeEscalatingRumors": true,
+  "threeBoards": true,
+  "threeWitnessSprites": true,
+  "readback": true,
+  "witnessesSaved": true,
+  "wrongAimRejected": true,
+  "darkAndLightRequired": true,
+  "replayAfterReport": true,
+  "titles": [
+    "小さな月",
+    "波止場のひと光り",
+    "小石が旅した話"
+  ],
+  "firstReportReward": [
+    5637939,
+    5400
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "tool": "built-in imagegen",
+  "sources": {
+    "boards": {
+      "path": "assets/nod-rumor-boards-source-v1.png",
+      "sha256": "5570b2b6c6c411fd18f68044eee490f0810e94570ea05e98f179bdb36923e886",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaCorners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "witnesses": {
+      "path": "assets/nod-rumor-witnesses-source-v1.png",
+      "sha256": "39676575d735223faf04b21358fdec35c12c74348bd766224e55a4d8987220a9",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaCorners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "poses": {
+    "glint": {
+      "encoding": {
+        "path": "assets/nod-rumor-glint-sprites-v1.json",
+        "sha256": "907a97280f8381fff25c78df43ab09f8a0d7f4590195ac7a5bfb94b973563510"
+      },
+      "box": [
+        70,
+        80,
+        581,
+        590
+      ],
+      "height": 88,
+      "runs": {
+        "legacy": 3063,
+        "h48c32": 1825,
+        "h32c16": 729
+      }
+    },
+    "little": {
+      "encoding": {
+        "path": "assets/nod-rumor-little-sprites-v1.json",
+        "sha256": "f057ccf4f3b9b984395cfe20fb775716acec74223668f08a09726d6a9e20922c"
+      },
+      "box": [
+        795,
+        80,
+        580,
+        590
+      ],
+      "height": 88,
+      "runs": {
+        "legacy": 2965,
+        "h48c32": 1821,
+        "h32c16": 643
+      }
+    },
+    "stolen": {
+      "encoding": {
+        "path": "assets/nod-rumor-stolen-sprites-v1.json",
+        "sha256": "b30a3e5353f86e1d7cf1a0c5a47b7c236d9ad22b1092746fd9fd90baf9605f73"
+      },
+      "box": [
+        1519,
+        80,
+        580,
+        590
+      ],
+      "height": 88,
+      "runs": {
+        "legacy": 2943,
+        "h48c32": 1719,
+        "h32c16": 659
+      }
+    },
+    "boatkeeper": {
+      "encoding": {
+        "path": "assets/nod-rumor-boatkeeper-sprites-v1.json",
+        "sha256": "0438e05674e215977c8c3d63e09ddffdb5a7dd696982ffb19932d9c835fd4fd1"
+      },
+      "box": [
+        239,
+        50,
+        335,
+        647
+      ],
+      "height": 84,
+      "runs": {
+        "legacy": 1457,
+        "h48c32": 958,
+        "h32c16": 414
+      }
+    },
+    "courier": {
+      "encoding": {
+        "path": "assets/nod-rumor-courier-sprites-v1.json",
+        "sha256": "f965455721862a00346ca921da62e7fd91295513d822d220c481f8a034db396e"
+      },
+      "box": [
+        889,
+        57,
+        361,
+        642
+      ],
+      "height": 82,
+      "runs": {
+        "legacy": 1535,
+        "h48c32": 931,
+        "h32c16": 399
+      }
+    },
+    "painter": {
+      "encoding": {
+        "path": "assets/nod-rumor-painter-sprites-v1.json",
+        "sha256": "18ef9340145c3301158efd771f25c16570f3f6d1805e2ae7a3b58b448d96ca67"
+      },
+      "box": [
+        1558,
+        32,
+        401,
+        667
+      ],
+      "height": 83,
+      "runs": {
+        "legacy": 1654,
+        "h48c32": 972,
+        "h32c16": 398
+      }
+    }
+  },
+  "witnessProportionReference": {
+    "path": "assets/traveler-proportion-b-source-v1.png",
+    "sha256": "cdfe5265c7d49013a57d15a4583de4f8f8339fc269b98cd9b08d5cec6c6a8d6a"
+  },
+  "witnessDesign": "Original harbor town adults. Reference used for head-to-height ratio only. Provisional idle art."
+}

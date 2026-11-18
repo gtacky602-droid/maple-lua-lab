@@ -1,0 +1,26 @@
+{
+  "quayScene": {
+    "key": "nodNightStalls",
+    "file": "nod-night-stalls-background-v1.png",
+    "state": "ready"
+  },
+  "ledgeScene": {
+    "key": "nodMoonShallows",
+    "file": "nod-moon-shallows-background-v1.png",
+    "state": "ready"
+  },
+  "witnessesReloaded": true,
+  "rejectedBeforeComparison": true,
+  "comparisonReplay": true,
+  "published": "波止場のひと光り",
+  "commands": {
+    "png": 29,
+    "standard": 17073,
+    "light": 4139
+  },
+  "reward": [
+    5637939,
+    5400
+  ],
+  "errors": []
+}

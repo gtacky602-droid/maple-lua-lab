@@ -1204,6 +1204,14 @@
     {
       "node": "nod-appraisal-yard",
       "enemy_count": 3
+    },
+    {
+      "node": "nod-rumor-quay",
+      "enemy_count": 0
+    },
+    {
+      "node": "nod-rumor-ledge",
+      "enemy_count": 0
     }
   ],
   "render_profiles": [

@@ -1025,6 +1025,10 @@
       "to": "nod-appraisal-workshop"
     },
     {
+      "node": "nod-town",
+      "to": "nod-rumor-quay"
+    },
+    {
       "node": "snezhnaya-entry",
       "to": "nod-town"
     },
@@ -2659,6 +2663,18 @@
     {
       "node": "nod-appraisal-yard",
       "to": "nod-appraisal-workshop"
+    },
+    {
+      "node": "nod-rumor-quay",
+      "to": "nod-town"
+    },
+    {
+      "node": "nod-rumor-quay",
+      "to": "nod-rumor-ledge"
+    },
+    {
+      "node": "nod-rumor-ledge",
+      "to": "nod-rumor-quay"
     }
   ],
   "hidden_connections_checked": 38,
