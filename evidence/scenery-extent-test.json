@@ -662,6 +662,126 @@
       "transparent": 0
     },
     {
+      "key": "dawnVein",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "dawnVein",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "dawnVein",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "dawnVein",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "dawnVein",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "dawnVein",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "dawnGlass",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "dawnGlass",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "dawnGlass",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "dawnGlass",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "dawnGlass",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "dawnGlass",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "ochkaCliff",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "ochkaCliff",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "ochkaCliff",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "ochkaCliff",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "ochkaCliff",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "ochkaCliff",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "ochkaKiln",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "ochkaKiln",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "ochkaKiln",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "ochkaKiln",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "ochkaKiln",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "ochkaKiln",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "auroraGlass",
       "camera": -960,
       "transparent": 0

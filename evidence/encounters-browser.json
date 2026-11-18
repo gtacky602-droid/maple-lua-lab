@@ -1,6 +1,7 @@
 {
   "errors": [],
-  "allCandidates": 75,
+  "allCandidates": 76,
+  "rubbleSifterFieldRoute": true,
   "originalFieldRoute": true,
   "originalWeeklyRoute": true,
   "fieldBossFamilies": 48,

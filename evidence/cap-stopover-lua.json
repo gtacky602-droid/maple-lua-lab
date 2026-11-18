@@ -1,0 +1,19 @@
+{
+  "newCapField": true,
+  "earnedLv200": true,
+  "postCapHitExp": 296366,
+  "lateBoatContinues": true,
+  "disembarkedDuringStop": true,
+  "portWaitSafe": true,
+  "defendedHit": 9,
+  "exposedRotorHit": 123,
+  "safeCenter": true,
+  "threeHeatLanesOneHit": true,
+  "noBonusOnKill": true,
+  "firstReport": [
+    8653565,
+    797220
+  ],
+  "savedAfterBoss": true,
+  "continuedVoyage": true
+}

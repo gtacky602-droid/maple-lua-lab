@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 184 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 182,
+  "scope": "Authored 192 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 190,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1008,7 +1008,15 @@
     {"id":"aurora-mineral-terraces","name":"湯気谷・鉱泉段丘","region":"スネージナヤ","status":"regional_temporary_image"},
     {"id":"dornman-wind-stairs","name":"潮風の見晴らし道","region":"ドーンマンポート","status":"regional_temporary_image"},
     {"id":"dornman-flag-trestle","name":"合図旗の渡り廊下","region":"ドーンマンポート","status":"regional_temporary_image"},
-    {"id":"dornman-windworks","name":"潮風の機関室","region":"ドーンマンポート","status":"regional_temporary_image"}
+    {"id":"dornman-windworks","name":"潮風の機関室","region":"ドーンマンポート","status":"regional_temporary_image"},
+    {"id":"dawn-vein-mine","name":"星脈坑・凍てた坑口","region":"スネージナヤ","status":"regional_temporary_image"},
+    {"id":"dawn-vein-deep","name":"星脈坑・群青の採掘路","region":"スネージナヤ","status":"regional_temporary_image"},
+    {"id":"dawn-glass-ridge","name":"暁晶尾根・露頭の道","region":"スネージナヤ","status":"regional_temporary_image"},
+    {"id":"dawn-glass-divide","name":"暁晶尾根・稜線の段丘","region":"スネージナヤ","status":"regional_temporary_image"},
+    {"id":"dawn-crystal-field","name":"極地の暁晶原","region":"スネージナヤ","status":"regional_temporary_image"},
+    {"id":"ochka-tide-stairs","name":"潮待ちの石段","region":"オシカ・ナタ","status":"regional_temporary_image"},
+    {"id":"ochka-patched-court","name":"継ぎ壁の中庭","region":"オシカ・ナタ","status":"regional_temporary_image"},
+    {"id":"ochka-sifting-kiln","name":"焚き口の選鉱室","region":"オシカ・ナタ","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 2
 }

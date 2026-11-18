@@ -1,5 +1,5 @@
 {
-  "controllers": 52,
+  "controllers": 53,
   "ids": [
     "boss-26110101",
     "boss-26020101",
@@ -52,7 +52,8 @@
     "boss-25134601",
     "original-snow-sweeper",
     "original-frost-antler",
-    "original-windward-tower"
+    "original-windward-tower",
+    "original-rubble-sifter"
   ],
   "hpAndGenerationRoundTrip": true,
   "optionalFlagsOnlyOnDeclaredControllers": true,

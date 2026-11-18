@@ -791,6 +791,39 @@
       "node": "dornman-windworks",
       "enemy_count": 0,
       "field_boss_count": 1
+    },
+    {
+      "node": "dawn-vein-mine",
+      "enemy_count": 28
+    },
+    {
+      "node": "dawn-vein-deep",
+      "enemy_count": 28
+    },
+    {
+      "node": "dawn-glass-ridge",
+      "enemy_count": 28
+    },
+    {
+      "node": "dawn-glass-divide",
+      "enemy_count": 28
+    },
+    {
+      "node": "dawn-crystal-field",
+      "enemy_count": 28
+    },
+    {
+      "node": "ochka-tide-stairs",
+      "enemy_count": 6
+    },
+    {
+      "node": "ochka-patched-court",
+      "enemy_count": 5
+    },
+    {
+      "node": "ochka-sifting-kiln",
+      "enemy_count": 0,
+      "field_boss_count": 1
     }
   ],
   "render_profiles": [

@@ -783,12 +783,12 @@
     {
       "node": "ochkanatlan-dock",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "ochkanatlan-dock",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "ochkanatlan-ruins",
@@ -1803,12 +1803,12 @@
     {
       "node": "aurora-mineral-terraces",
       "mode": "sprite",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "aurora-mineral-terraces",
       "mode": "rect",
-      "visible_portals": 1
+      "visible_portals": 2
     },
     {
       "node": "dornman-wind-stairs",
@@ -1837,6 +1837,86 @@
     },
     {
       "node": "dornman-windworks",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "dawn-vein-mine",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "dawn-vein-mine",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "dawn-vein-deep",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "dawn-vein-deep",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "dawn-glass-ridge",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "dawn-glass-ridge",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "dawn-glass-divide",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "dawn-glass-divide",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "dawn-crystal-field",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "dawn-crystal-field",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "ochka-tide-stairs",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "ochka-tide-stairs",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "ochka-patched-court",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "ochka-patched-court",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "ochka-sifting-kiln",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "ochka-sifting-kiln",
       "mode": "rect",
       "visible_portals": 1
     }

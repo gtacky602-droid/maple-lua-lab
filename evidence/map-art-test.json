@@ -1104,6 +1104,54 @@
       "count": 0,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "dawn-vein-mine",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "dawn-vein-deep",
+      "count": 28,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "dawn-glass-ridge",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "dawn-glass-divide",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "dawn-crystal-field",
+      "count": 28,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "ochka-tide-stairs",
+      "count": 6,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "ochka-patched-court",
+      "count": 5,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "ochka-sifting-kiln",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,

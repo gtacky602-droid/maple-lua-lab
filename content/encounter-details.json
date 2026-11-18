@@ -1,6 +1,7 @@
 {
   "version": 1,
   "entries": {
+    "original-rubble-sifter": {"art_candidate":{"item":"rubble-sifter","audit":"evidence/cap-stopover-art.json","status":"original optional encounter, heating and exposed rotor poses"}},
     "original-windward-tower": {"art_candidate":{"item":"windward-tower","audit":"evidence/windward-art.json","status":"original optional branch boss with three poses"}},
     "original-frost-antler": {"art_candidate":{"item":"frost-antler","audit":"evidence/white-pass-art.json","status":"original story boss base and two key poses"}},
     "original-snow-sweeper": {

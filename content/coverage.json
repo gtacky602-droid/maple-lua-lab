@@ -195,7 +195,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 18,
+      "prototype_stage_count": 23,
       "prototype_quest_count": 14,
       "official_map2_markers": {
         "waypoints": 101,
@@ -275,8 +275,8 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 2,
-      "prototype_quest_count": 1,
+      "prototype_stage_count": 5,
+      "prototype_quest_count": 4,
       "waypoints_status": "global_catalog_imported; regional mapping unverified",
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 184,
-    "provisional_quests": 122,
+    "authored_stages": 192,
+    "provisional_quests": 125,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -905,7 +905,12 @@
           "aurora-ice-cut",
           "aurora-ice-shelf",
           "aurora-steam-channel",
-          "aurora-mineral-terraces"
+          "aurora-mineral-terraces",
+          "dawn-vein-mine",
+          "dawn-vein-deep",
+          "dawn-glass-ridge",
+          "dawn-glass-divide",
+          "dawn-crystal-field"
         ],
         "quest_ids": [
           "mitya-join",
@@ -1016,10 +1021,16 @@
         "kind": "high_level_branch",
         "stage_ids": [
           "ochkanatlan-dock",
-          "ochkanatlan-ruins"
+          "ochkanatlan-ruins",
+          "ochka-tide-stairs",
+          "ochka-patched-court",
+          "ochka-sifting-kiln"
         ],
         "quest_ids": [
-          "ochkanatlan-survey"
+          "ochkanatlan-survey",
+          "ochka-stopover-survey",
+          "ochka-wall-marks",
+          "ochka-sifter-clear"
         ]
       },
       {
@@ -1192,12 +1203,15 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 27,
-    "without_explicit_mapping": 126,
+    "linked": 30,
+    "without_explicit_mapping": 123,
     "runtime_id_by_design_id": {
       "Q-B06-01": "windward-lookouts",
       "Q-B06-02": "windward-flags",
       "Q-B06-03": "windward-tower-clear",
+      "Q-B07-01": "ochka-stopover-survey",
+      "Q-B07-02": "ochka-wall-marks",
+      "Q-B07-03": "ochka-sifter-clear",
       "Q-INA-M01": "inazuma-moving-lantern",
       "Q-INA-M02": "inazuma-torii-maze",
       "Q-INA-M03": "inazuma-lantern-contest",

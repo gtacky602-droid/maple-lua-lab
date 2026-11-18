@@ -1,0 +1,97 @@
+{
+  "method": "Lv180 fixture, built-in auto combat, default pair without gear changes. Ordinary portal positioning is scripted. Storage recovery and sale use game actions. Hunt simulation excludes walking/handling time.",
+  "samples": [
+    {
+      "node": "aurora-mineral-terraces",
+      "level": 195,
+      "enemies": 28,
+      "kills": 86,
+      "perMinute": 57.33,
+      "killXp": 7282824
+    },
+    {
+      "node": "dawn-vein-mine",
+      "level": 180,
+      "enemies": 28,
+      "kills": 80,
+      "perMinute": 53.33,
+      "killXp": 9382560
+    },
+    {
+      "node": "dawn-vein-deep",
+      "level": 185,
+      "enemies": 28,
+      "kills": 80,
+      "perMinute": 53.33,
+      "killXp": 11974800
+    },
+    {
+      "node": "dawn-glass-ridge",
+      "level": 190,
+      "enemies": 28,
+      "kills": 88,
+      "perMinute": 58.67,
+      "killXp": 16811520
+    },
+    {
+      "node": "dawn-glass-divide",
+      "level": 195,
+      "enemies": 28,
+      "kills": 78,
+      "perMinute": 52.0,
+      "killXp": 19018038
+    },
+    {
+      "node": "dawn-crystal-field",
+      "level": 200,
+      "enemies": 28,
+      "kills": 80,
+      "perMinute": 53.33,
+      "killXp": 23709280
+    }
+  ],
+  "trace": [
+    {
+      "node": "dawn-vein-mine",
+      "unlockedLv": 185,
+      "simSeconds": 13015.03,
+      "kills": 10649,
+      "totalExp": 5238040728
+    },
+    {
+      "node": "dawn-vein-deep",
+      "unlockedLv": 190,
+      "simSeconds": 25955.3,
+      "kills": 21297,
+      "totalExp": 6831886608
+    },
+    {
+      "node": "dawn-glass-ridge",
+      "unlockedLv": 195,
+      "simSeconds": 38903.23,
+      "kills": 31945,
+      "totalExp": 8866080528
+    },
+    {
+      "node": "dawn-glass-divide",
+      "unlockedLv": 200,
+      "simSeconds": 51950.78,
+      "kills": 42595,
+      "totalExp": 11462749796
+    }
+  ],
+  "level": 200,
+  "simSeconds": 51950.78,
+  "optionalQuestsCompleted": 0,
+  "usedStoredLootRecovery": 4,
+  "partyRests": 11,
+  "combatReturns": 1,
+  "capTrial": {
+    "node": "dawn-crystal-field",
+    "increment": 17781960,
+    "kills": 60,
+    "level": 200,
+    "overflow": 18196526,
+    "saveRoundTrip": true
+  }
+}

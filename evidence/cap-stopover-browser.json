@@ -1,0 +1,26 @@
+{
+  "threeQuests": true,
+  "battle": {
+    "won": true,
+    "seconds": 46.4,
+    "hp": 140,
+    "bossHp": 0,
+    "moves": [
+      "RK01",
+      "RK02"
+    ],
+    "returns": 0
+  },
+  "commands": {
+    "png": 20,
+    "standard": 14332,
+    "light": 3600
+  },
+  "firstReport": [
+    8653565,
+    797220
+  ],
+  "savedReport": true,
+  "voyageResumedSeconds": 39.98,
+  "errors": []
+}

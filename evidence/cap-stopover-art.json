@@ -1,0 +1,133 @@
+{
+  "originalReference": "evidence/sifter-shape-study.png",
+  "views": [
+    "side outline",
+    "front width study"
+  ],
+  "images": {
+    "rubble-sifter-source-v1.png": "4aafb2d9952cc78546bcb944489ffa8355b34f36adcc8ea2741ea97a2829b5a3",
+    "dawn-vein-background-v1.png": "00a816de51b633400e91d2e53db02b4bd34bc23a788683f8c1b8ce851c8e32e0",
+    "dawn-glass-background-v1.png": "92967740e5a1782a626bb2971a9eb4c127e9513dfa5b943d632a420aa0da0215",
+    "ochka-cliff-background-v1.png": "2bc1ff806e3c0a75e5cdb21341291c89ff92dfe58c444ac611ce8e816cef6cad",
+    "ochka-kiln-background-v1.png": "49b647266cc4b56b92958c28edf9a7b280a0d102aa51fe4d3396aeb5e433d3d1"
+  },
+  "prompts": {
+    "sprite": "Polished wholly original retro RPG bitmap sprite sheet, 1536x1024 with four independent objects in exact 2x2 quadrants, wide transparent empty gutters. No existing game visual references. All objects in strict lateral side view facing left. Use original reference for big silhouette, outline, palette, four feet, large rotating vent. Add detailed hand-placed pixel art shading and weathered blue-black stoneware with intense terracotta firebrick and warm brass; visible separated dark feet. Upper left SMALL low enemy pebble courier machine with two squat metal legs, a tiny sea green flywheel light, blue-black body and a few worn yellow bands, entire isolated silhouette. Upper right LARGE quadruped stationary ore-sifting kiln creature, like a sculpted lapis-blue forge on feet with curved terracotta breastplate, a single huge rotary vent lit cyan, three short horns or chimneys behind its forehead. Lower left exact same large kiln and height but chimneys tilt so it is prepared to discharge, vent bright orange grille. Lower right exact same large kiln and position with horizontal grate exposed, conspicuous turquoise fan-blade rotor on its side when cooling. Precisely the same character, grounded feet. Beautiful deliberate small pixel clusters, genuinely hand shaded appearance, no flat placeholder art. No effects, shadows, smoke, lettering, background, or scene. True alpha outside the four sprites.",
+    "mine": "Original retro pixel-art mountain mine backdrop for side view 2D RPG. Underground indigo galleries with layered frost-covered wooden track supports, shimmering violet and teal mineral seams, soft pools of distant copper torchlight, icy drops across broad blue stone vault. Atmospheric and richest details in upper two-thirds. Lower third is quieter dark desaturated slate back wall without continuous drawn foreground floors. No people, monsters, logos, symbols or text. Sophisticated small pixel clusters and soft parallax composition, original architecture. 1536x1024 wide.",
+    "rim": "Original wide 1536x1024 side-scrolling pixel backdrop for a far north alpine ridge at first light. Iridescent giant slate spires embedded in glacial slopes, pale golden sunrise tinging rose clouds and lavender mountains. Shadowy lower third with subdued muted mauve granite for a separate 2D gameplay floor. Absolutely no explicit foreground floor or staircase that looks playable. Distinct warm sunrise against deep cold mineral tones. Detailed small pixel clusters, atmospheric but crisp, original composition, no people, no creatures, no text or game references.",
+    "courtyard": "Original 2D RPG background, ancient ochre-clay terrace ruins above a bright turquoise volcanic sea, side-on silhouette. Stepped archways and old broken terracotta aqueducts partly covered in lush ferns, small yellow pennants, warm coral sun, distant blue cliffs. Lower third calm dark desaturated warm brown wall texture waiting for separately drawn platforms; no playable foreground floor. Pixel art with careful delicate but visible individual square clusters, high craft. No letters, people, enemies or existing game visuals. 1536x1024.",
+    "kiln": "Entirely new original side-scrolling 2D pixel art background of a volcanic harbor ore-sifting kiln in gently ruined clay hall. Giant pale ceramic funnels and circular grates on the upper wall, tarnished teal fittings, blue-white hot vents behind grilles, burnt coral hanging bricks, golden steam in the middle distance, sliver of sunset sea outside the arches. Open dark muted raisin lower third for separate player and platform silhouettes, don't draw any foreground floors or foreground objects. Crisp richly layered small hand-placed pixels. No characters, logos, text, or existing game design. 1536x1024 landscape."
+  },
+  "encodings": {
+    "pebble-courier-idle-sprites.json": {
+      "arguments": [
+        "--source",
+        "rubble-sifter-source-v1.png",
+        "--output",
+        "pebble-courier-idle-sprites.json",
+        "--height",
+        "49",
+        "--foot-anchor",
+        "--crop",
+        "0",
+        "0",
+        "768",
+        "512"
+      ],
+      "runs": {
+        "legacy": 1258,
+        "h48c32": 797,
+        "h32c16": 349
+      },
+      "bounds": [
+        262,
+        249,
+        236,
+        198
+      ]
+    },
+    "rubble-sifter-field-idle-sprites-v1.json": {
+      "arguments": [
+        "--source",
+        "rubble-sifter-source-v1.png",
+        "--output",
+        "rubble-sifter-field-idle-sprites-v1.json",
+        "--height",
+        "142",
+        "--foot-anchor",
+        "--crop",
+        "768",
+        "0",
+        "768",
+        "512"
+      ],
+      "runs": {
+        "legacy": 9609,
+        "h48c32": 5868,
+        "h32c16": 2538
+      },
+      "bounds": [
+        861,
+        47,
+        545,
+        419
+      ]
+    },
+    "rubble-sifter-field-heating-sprites-v1.json": {
+      "arguments": [
+        "--source",
+        "rubble-sifter-source-v1.png",
+        "--output",
+        "rubble-sifter-field-heating-sprites-v1.json",
+        "--height",
+        "142",
+        "--foot-anchor",
+        "--crop",
+        "0",
+        "512",
+        "768",
+        "512"
+      ],
+      "runs": {
+        "legacy": 10274,
+        "h48c32": 6240,
+        "h32c16": 2636
+      },
+      "bounds": [
+        93,
+        569,
+        545,
+        409
+      ]
+    },
+    "rubble-sifter-field-open-sprites-v1.json": {
+      "arguments": [
+        "--source",
+        "rubble-sifter-source-v1.png",
+        "--output",
+        "rubble-sifter-field-open-sprites-v1.json",
+        "--height",
+        "142",
+        "--foot-anchor",
+        "--crop",
+        "768",
+        "512",
+        "768",
+        "512",
+        "--accent-color",
+        "#40dccc"
+      ],
+      "runs": {
+        "legacy": 10092,
+        "h48c32": 6179,
+        "h32c16": 2537
+      },
+      "bounds": [
+        861,
+        564,
+        545,
+        414
+      ]
+    }
+  }
+}
