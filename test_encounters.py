@@ -20,7 +20,7 @@ check('completion not overclaimed',d['counts']['complete']==0 and not d['complet
 check('not implemented rows cannot launch',all(r['action'] is None for r in rows if r['status']=='not_implemented'))
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
-check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':86,'partial':68,'complete':0})
+check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':87,'partial':69,'complete':0})
 by_id={r['id']:r for r in rows}
 loom=by_id['original-twin-shuttle-loom']
 check('loom trial is separate from the imported list',
@@ -155,8 +155,12 @@ racer=by_id['original-river-racer']
 check('Original river racer is a chapter practice opponent',
       racer['fieldNode']=='natlan-sunset-arena' and racer['status']=='partial'
       and fields[racer['id']]['storyWindow']=={'quest':'natlan-sunset-duel','first':2,'after':3})
-check('49 imported and fourteen original field rows have registered field routes, still partial',
-      len(normal)==63 and set(fields)=={r['id'] for r in normal}
+crab=by_id['original-moon-crab']
+check('Original moon crab unlocks field retries after the chapter report',
+      crab['fieldNode']=='nod-moon-crab-arena' and crab['status']=='partial'
+      and fields[crab['id']]['storyWindow']=={'quest':'nod-moon-vault-quest','first':1,'after':2,'repeatAfterReport':True})
+check('49 imported and fifteen original field rows have registered field routes, still partial',
+      len(normal)==64 and set(fields)=={r['id'] for r in normal}
       and all(r['status']=='partial' and r['fieldNode']==fields[r['id']]['node'] for r in normal))
 check('original field boss is not counted in the imported roster',
       by_id['original-snow-sweeper']['entity_ids']==[]

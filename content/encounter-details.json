@@ -1,6 +1,7 @@
 {
   "version": 1,
   "entries": {
+    "original-moon-crab": {"remaining":["専用の歩行・ハサミ・被弾の連続作画","装備と編成ごとの数値調整","協力時の判定検証"],"art_candidate":{"item":"moon-crab","audit":"evidence/moon-crab-art.json","status":"Original creature with intact and exposed sprites"}},
     "original-river-racer": {"remaining":["本役の美術と動き","固有攻撃と足場切り替え","装備別の難度調整","協力検証"],"art_candidate":{"item":"river-racer","audit":"evidence/river-racer-art.json","status":"Original placeholder for the chapter practice opponent"}},
     "original-grand-finale": {"remaining":["腕と荷台の固有攻撃","外装と腕の連続アニメーション","再戦の試運転","協力検証"],"art_candidate":{"item":"grand-finale","audit":"evidence/grand-finale-art.json","status":"original stage carrier; shutdown and performance route"}},
     "original-canopy-fungus": {"remaining":["ボスの技","連続アニメーション","報酬の調整","マルチ検証"],"art_candidate":{"item":"canopy-fungus","audit":"evidence/canopy-fungus-art.json","status":"original mushroom with canopy foliage; appearance and quest progression"}},

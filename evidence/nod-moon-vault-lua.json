@@ -1,0 +1,19 @@
+{
+  "clawDamage": true,
+  "sideHitsStillWork": true,
+  "bodyWalks": true,
+  "boxLocksPosition": true,
+  "reflectionDelayedThreeBands": true,
+  "crackedHpRestored": true,
+  "newMoveAfterShell": true,
+  "firstChapterXp": 21294130,
+  "basicAmberParty": true,
+  "recoverAfterFullBag": true,
+  "bothRewardChoices": true,
+  "supplies": 8,
+  "cacheMora": 14500,
+  "reportXp": 25032225,
+  "chapterRewardAndChestOnlyOnce": true,
+  "repeatableAfterReport": true,
+  "tabletReadback": true
+}

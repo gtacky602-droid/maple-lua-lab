@@ -1,0 +1,9 @@
+{
+  "tool": "builtin imagegen",
+  "source": "nod-moon-vault-background-v1.png",
+  "reference": "nod-moon-cave-background-v1.png",
+  "reference_use": "Visually inspected and supplied as image input to establish violet slate, mint mineral streaks and nighttime ambient color.",
+  "description": "Original explorer storage room set into a blue-violet sea cavern, with carved alcoves, timber braces, a high moonlit shaft and distant warm lamp.",
+  "zone": "nod-moon-vault",
+  "status": "Temporary lab scenery. Production scenery uses 3D placement."
+}

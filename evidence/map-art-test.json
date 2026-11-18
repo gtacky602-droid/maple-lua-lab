@@ -1668,6 +1668,18 @@
       "count": 0,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "nod-moon-crab-arena",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "nod-moon-vault",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,

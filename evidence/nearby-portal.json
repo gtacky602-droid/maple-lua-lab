@@ -2591,6 +2591,26 @@
     {
       "node": "nod-moon-cave-mouth",
       "to": "nod-town"
+    },
+    {
+      "node": "nod-moon-cave-mouth",
+      "to": "nod-moon-crab-arena"
+    },
+    {
+      "node": "nod-moon-crab-arena",
+      "to": "nod-moon-cave-mouth"
+    },
+    {
+      "node": "nod-moon-crab-arena",
+      "to": "nod-moon-vault"
+    },
+    {
+      "node": "nod-moon-vault",
+      "to": "nod-moon-crab-arena"
+    },
+    {
+      "node": "nod-moon-vault",
+      "to": "nod-town"
     }
   ],
   "hidden_connections_checked": 38,

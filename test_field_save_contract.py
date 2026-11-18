@@ -22,6 +22,8 @@ def seed_chapter(state, quest_id, completed_count, status):
         config = item.get('airflow',{})
         if config.get('stagePlan'):
             record['stagePlan'] = config['choices'][0]['id']
+        if item['kind']=='choice':
+            record['storyChoice'] = item['choices'][0]['id']
     if paths := quest.get('paths'):
         joined=any(item['kind']=='paths' for item in quest['itinerary'][:completed_count])
         record['pathProgress']={}

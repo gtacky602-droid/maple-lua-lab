@@ -171,8 +171,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 18,
-      "prototype_quest_count": 11,
+      "prototype_stage_count": 20,
+      "prototype_quest_count": 12,
       "official_map2_markers": {
         "waypoints": 83,
         "statues": 7
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 278,
-    "provisional_quests": 163,
+    "authored_stages": 280,
+    "provisional_quests": 164,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -928,7 +928,9 @@
           "nod-spruce-clearing",
           "nod-lantern-shore",
           "nod-box-inlet",
-          "nod-moon-cave-mouth"
+          "nod-moon-cave-mouth",
+          "nod-moon-crab-arena",
+          "nod-moon-vault"
         ],
         "quest_ids": [
           "columbina-join",
@@ -941,7 +943,8 @@
           "moongecko-commission",
           "nod-rim-return",
           "nod-first-treasure",
-          "nod-moon-crossroads"
+          "nod-moon-crossroads",
+          "nod-moon-vault-quest"
         ]
       },
       {
@@ -1339,8 +1342,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 68,
-    "without_explicit_mapping": 85,
+    "linked": 69,
+    "without_explicit_mapping": 84,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1401,6 +1404,7 @@
       "Q-NAT-M03": "natlan-sunset-duel",
       "Q-NOD-M01": "nod-first-treasure",
       "Q-NOD-M02": "nod-moon-crossroads",
+      "Q-NOD-M03": "nod-moon-vault-quest",
       "Q-SNE-M01": "white-pass-ticket",
       "Q-SNE-M02": "white-pass-trail",
       "Q-SNE-M03": "white-pass-summit",

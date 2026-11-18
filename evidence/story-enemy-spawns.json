@@ -1176,6 +1176,14 @@
     {
       "node": "nod-moon-cave-mouth",
       "enemy_count": 0
+    },
+    {
+      "node": "nod-moon-crab-arena",
+      "enemy_count": 0
+    },
+    {
+      "node": "nod-moon-vault",
+      "enemy_count": 0
     }
   ],
   "render_profiles": [

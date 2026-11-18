@@ -335,6 +335,8 @@ def runtime():
     core.natlanTrialRaftArt=field_art(lua,'natlan-trial-raft',('idle',),idle='natlan-trial-raft-sprites-v1.json').idle
     river_racer=field_display(core,field_art(lua,'river-racer',('idle',)).idle)
     river_racer.damageFactor=lua.eval("function(s) return s.duelRound and s.duelRound.phase=='opening' and 1 or .65 end")
+    moon_crab=lua.execute((ROOT/'field-moon-crab.lua').read_text(encoding='utf8'))(core)
+    core.moonCrabArt=field_art(lua,'moon-crab',('idle','cracked'))
     core.paperLanternArt=field_art(lua,'paper-lantern',('idle',),idle='paper-lantern-sprites-v1.json').idle
     lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(
         core,lua.table_from(field_specs,recursive=True),
@@ -342,6 +344,7 @@ def runtime():
                         'rubbleSifter':rubble_sifter,'prismWalker':prism_walker,'iceCrawler':ice_crawler,'rimeHare':rime_hare,
                         'teaBoulder':tea_boulder,'plateTail':plate_tail,'windRing':wind_ring,'bellGate':bell_gate,
                         'canopyFungus':canopy_fungus,'grandFinale':field_display(core,core.grandFinaleArt),'riverRacer':river_racer,
+                        'moonCrab':moon_crab,
                         'jadeplume':jade,'cryoRegisvine':cryo_field,'pyroRegisvine':pyro_field,
                         'anemoHypostasis':anemo_field,'electroHypostasis':electro_field,'geoHypostasis':geo_field,
                         'primoGeovishap':primo_field,'oceanid':oceanid_field,'maguu':maguu_field,

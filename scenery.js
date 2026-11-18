@@ -106,7 +106,8 @@ export const sceneryDefinitions={
  nodkrai:{file:'nodkrai-background-v1.png',region:'ナド・クライ',zones:[]},
  nodMoonShallows:{file:'nod-moon-shallows-background-v1.png',zones:['story:nod-moon-shallows','story:nod-tide-rocks','story:nod-lantern-shore','story:nod-box-inlet'],note:'浅瀬と海岸のラボ用仮背景'},
  nodMoonWood:{file:'nod-moon-wood-background-v1.png',zones:['story:nod-lull-wood','story:nod-spruce-clearing'],note:'木陰の休息地とトウヒ林のラボ用仮背景'},
- nodMoonCave:{file:'nod-moon-cave-background-v1.png',zones:['story:nod-moon-cave-mouth'],note:'月渡りの岩窟口のラボ用仮背景'},
+ nodMoonCave:{file:'nod-moon-cave-background-v1.png',zones:['story:nod-moon-cave-mouth','story:nod-moon-crab-arena'],note:'月渡りの岩窟口と月殻の広間のラボ用仮背景'},
+ nodMoonVault:{file:'nod-moon-vault-background-v1.png',zones:['story:nod-moon-vault'],note:'探検家の貯蔵所のラボ用仮背景'},
  mondstadt:{file:'mondstadt-background.png',region:'モンド',zones:[]},
  liyue:{file:'liyue-background-v1.png',region:'璃月',zones:['geo','oceanid','primo','pyro_regisvine']},
  inazuma:{file:'inazuma-background-v1.png',region:'稲妻',zones:['thunder','array','maguu']},
@@ -207,8 +208,8 @@ export function scenery(ctx,frame){
     }
     continue;
    }
-   if(key==='nodMoonWood'||key==='nodMoonCave'){
-    const cave=key==='nodMoonCave',ground=p.y===480;
+   if(key==='nodMoonWood'||key==='nodMoonCave'||key==='nodMoonVault'){
+    const cave=key!=='nodMoonWood',ground=p.y===480;
     ctx.fillStyle=cave?'#3e485f':'#364f4b';ctx.fillRect(x,p.y,p.w,ground?61:17);
     ctx.fillStyle=cave?'#8897a5':'#8aa184';ctx.fillRect(x,p.y,p.w,3);
     ctx.fillStyle=cave?'#536579':'#547569';

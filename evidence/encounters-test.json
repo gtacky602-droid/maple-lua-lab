@@ -1,5 +1,5 @@
 {
-  "count": 95,
+  "count": 96,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -54,7 +54,8 @@
     "Canopy Fungus is a presentation encounter attached to the observatory route",
     "Grand Finale is connected to one chapter and remains partial",
     "Original river racer is a chapter practice opponent",
-    "49 imported and fourteen original field rows have registered field routes, still partial",
+    "Original moon crab unlocks field retries after the chapter report",
+    "49 imported and fifteen original field rows have registered field routes, still partial",
     "original field boss is not counted in the imported roster",
     "Dvalin has a separate weekly arena",
     "Andrius has a separate weekly arena",

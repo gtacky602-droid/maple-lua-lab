@@ -2773,10 +2773,30 @@
     {
       "node": "nod-moon-cave-mouth",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "nod-moon-cave-mouth",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "nod-moon-crab-arena",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "nod-moon-crab-arena",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "nod-moon-vault",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "nod-moon-vault",
       "mode": "rect",
       "visible_portals": 2
     }

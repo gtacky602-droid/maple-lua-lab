@@ -1,0 +1,88 @@
+{
+  "tool": "built-in imagegen",
+  "model": {
+    "path": "evidence/moon-crab-model.obj",
+    "sha256": "878f40dfe049cb071741f0f253e343ee36ef94a082d5b2eeb36b0c2315539d4b"
+  },
+  "materials": {
+    "path": "evidence/moon-crab-model.mtl",
+    "sha256": "e4e5903f424bb958eb0662e96b85295e9207335f6a21e9dff18e6e0edd3af82e"
+  },
+  "vertices": 453,
+  "faces": 356,
+  "reference": {
+    "path": "evidence/moon-crab-views.png",
+    "sha256": "2c4a89b9fed6d7fb772481ecd98fb30db7929016fb7e2887cfcb894dc42f79ed"
+  },
+  "views": [
+    "front",
+    "front three-quarter",
+    "rear three-quarter"
+  ],
+  "poses": {
+    "idle": {
+      "source": {
+        "path": "assets/moon-crab-source-v1.png",
+        "sha256": "41f92eddcd74b37080c63c4f28f479c667e2c1024842f56ab5a3f454143bda51"
+      },
+      "encoding": {
+        "path": "assets/moon-crab-field-idle-sprites-v1.json",
+        "sha256": "7c8284e639737b73b18dc1dc590b65f19ebb14f114eb180a6d0972ace001c863"
+      },
+      "size": [
+        1536,
+        1024
+      ],
+      "alphaCorners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "box": [
+        79,
+        110,
+        1352,
+        822
+      ],
+      "anchorX": 0.57,
+      "runs": {
+        "legacy": 5271,
+        "h48c32": 3541,
+        "h32c16": 1612
+      }
+    },
+    "cracked": {
+      "source": {
+        "path": "assets/moon-crab-cracked-source-v1.png",
+        "sha256": "7d105fa01d0cf56010aab17c43aeb8c06cfd24651e1d262b9fdc97a0ea03518d"
+      },
+      "encoding": {
+        "path": "assets/moon-crab-field-cracked-sprites-v1.json",
+        "sha256": "f60787d7816cbc9a1ec7f97b24094f26f89325c3b96576e8e07bcf6a10482403"
+      },
+      "size": [
+        1536,
+        1024
+      ],
+      "alphaCorners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "box": [
+        130,
+        258,
+        1190,
+        584
+      ],
+      "anchorX": 0.6,
+      "runs": {
+        "legacy": 4421,
+        "h48c32": 2710,
+        "h32c16": 1154
+      }
+    }
+  }
+}

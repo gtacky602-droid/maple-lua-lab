@@ -229,6 +229,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   state.count=state.count+1
   s.storyNotice=milestone.notice
   if milestone.ore then C.grantUpgradeOre(s,milestone.ore) end
+  if milestone.mora then s.mora=s.mora+milestone.mora end
   if milestone.bridge then
    local bridge=installBridge(s,milestone.bridge)
    if bridge.moonDeck then bridge.deployedAt=s.t end
@@ -273,6 +274,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if milestone and milestone.kind=='choice' and milestone.node==s.story.node and command=='rotate' then
     local option=nearbyChoice(s,milestone)
     if option then
+     local reward=option.artifact
+     if reward and not C.giveArtifact(s,reward.slot,reward.level,reward.rarity,reward) then
+      s.storyNotice='バッグ満杯。町で空きを作ると、小箱の報酬を受け取れます。'
+      return true
+     end
      state.storyChoice=option.id
      completeMilestone(s,state,milestone,parent,quest)
      s.storyNotice=option.notice
@@ -1131,6 +1137,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     local state=s.story.quests[q.id]
     local milestone=nextMilestone(s,q)
      if milestone and milestone.kind=='choice' and milestone.node==s.story.node then
+      if milestone.treasure then
+       local x=milestone.treasure.x-s.camera
+       if x>=-32 and x<=992 then drawIslandChest(markers,x,milestone.treasure.y,false) end
+      end
       for _,option in ipairs(milestone.choices) do
        local x,y=option.x-s.camera,option.y
        if x>=-25 and x<=985 then
@@ -1175,6 +1185,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       local steps=q.anyPath and completedSteps(q,state) or q.itinerary
       for index=1,q.anyPath and #steps or state.count do
        local done=milestoneAt(steps[index],s.story.node)
+       if done.treasure and done.node==s.story.node then
+        local x,y=done.treasure.x-s.camera,done.treasure.y
+        if x>=-32 and x<=992 then
+         drawIslandChest(markers,x,y,true)
+         markers[#markers+1]={kind='text',x=x,y=y-55,text='☾ 月模様の札・受取済み',color='#b9ffce',size=14}
+        end
+       end
       if done.completedLabel and done.node==s.story.node and not done.resonanceOrder
           and (not done.roomLight or done.roomLight==s.storyLightMode) then
        local x,y=done.x-s.camera,done.y

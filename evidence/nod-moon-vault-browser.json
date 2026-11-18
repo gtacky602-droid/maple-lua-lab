@@ -1,0 +1,22 @@
+{
+  "clawAndBox": true,
+  "reflection": true,
+  "chapterXp": 21294130,
+  "commands": {
+    "png": 72,
+    "standard": 8713,
+    "light": 2269
+  },
+  "vaultScene": {
+    "key": "nodMoonVault",
+    "file": "nod-moon-vault-background-v1.png",
+    "state": "ready"
+  },
+  "clearAndReport": true,
+  "chosen": "flower",
+  "artifactsAndSupplies": true,
+  "rewardAfterReload": true,
+  "repeatGeneration": true,
+  "reportXp": 25032225,
+  "errors": []
+}

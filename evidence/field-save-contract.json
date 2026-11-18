@@ -1,5 +1,5 @@
 {
-  "controllers": 63,
+  "controllers": 64,
   "ids": [
     "boss-26110101",
     "boss-26020101",
@@ -63,7 +63,8 @@
     "original-bellgate",
     "original-canopy-fungus",
     "original-grand-finale",
-    "original-river-racer"
+    "original-river-racer",
+    "original-moon-crab"
   ],
   "hpAndGenerationRoundTrip": true,
   "optionalFlagsOnlyOnDeclaredControllers": true,

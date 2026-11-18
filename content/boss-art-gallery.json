@@ -583,7 +583,9 @@
     {"id":"bellgate","name":"潮鐘の門像（ラボ独自）","file":"bellgate-field-idle-sprites-v1.json","height":152,"mapHover":0},
     {"id":"canopy-fungus","name":"枝傘の大キノコン（ラボ独自）","file":"canopy-fungus-field-idle-sprites-v1.json","height":149,"mapHover":0},
     {"id":"grand-finale","name":"グラン・フィナーレ（ラボ独自）","file":"grand-finale-field-idle-sprites-v1.json","height":167,"mapHover":0},
-    {"id":"river-racer","name":"夕映えの水走者（模擬役）","file":"river-racer-field-idle-sprites-v1.json","height":103,"mapHover":0}
+    {"id":"river-racer","name":"夕映えの水走者（模擬役）","file":"river-racer-field-idle-sprites-v1.json","height":103,"mapHover":0},
+    {"id":"moon-crab","name":"月殻の大ヤドカニ","file":"moon-crab-field-idle-sprites-v1.json","height":122,"mapHover":0},
+    {"id":"moon-crab-cracked","name":"月殻の大ヤドカニ（殻が割れた姿）","file":"moon-crab-field-cracked-sprites-v1.json","height":99,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }

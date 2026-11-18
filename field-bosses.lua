@@ -43,7 +43,8 @@ return function(C,configs,controllers)
   if s.storyDuelReplay==spec.id then return true end
   local window=spec.storyWindow
   local state=s.story and s.story.quests[window.quest]
-  return state and state.status=='active' and state.count>=window.first and state.count<window.after
+  return state and ((state.status=='active' and state.count>=window.first and state.count<window.after)
+    or (window.repeatAfterReport and state.status=='complete'))
  end
  function C.fieldGravityFactor(s,a)
   local spec=byNode[current(s)]

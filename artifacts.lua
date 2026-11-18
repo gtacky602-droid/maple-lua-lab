@@ -78,10 +78,12 @@ return function(C,imprint)
   setup(s);local b=s.inventory;b.combatRng=(b.combatRng*48271)%2147483647
   return b.combatRng/2147483647<rate
  end
- function C.giveArtifact(s,slot,level,rank)
+ function C.giveArtifact(s,slot,level,rank,preset)
   setup(s);local bag=s.inventory
   if #bag.items>=80 then bag.message='バッグ満杯。装備を整理してください。';return false end
-  bag.items[#bag.items+1]=properties(s,{id=bag.nextId,slot=slot,itemLv=level,rarity=rank,enhance=0,owner=0});bag.nextId=bag.nextId+1
+  local item={id=bag.nextId,slot=slot,itemLv=level,rarity=rank,enhance=0,owner=0}
+  if preset then item.setId,item.subpair=preset.setId,preset.subpair else properties(s,item) end
+  bag.items[#bag.items+1]=item;bag.nextId=bag.nextId+1
   return true
  end
  function C.dropArtifact(s,slot,level,rank,x,y)
