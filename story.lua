@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -175,6 +175,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local paper=paperModule(canInspect)
  local appraisal=appraisalModule(C,canInspect)
  local rumor=rumorModule(C,canInspect)
+ local bloom=bloomModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -356,6 +357,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   if command=='rotate' then
    if rumorQuest and s.story.node==rumorQuest.hub and rumor.read(s,rumorQuest,s.story.quests[rumorQuest.id]) then return true end
+   local bloomQuest=quests[nodes[s.story.node].bloomQuest]
+   if bloomQuest and bloom.rest(s,bloomQuest,s.story.quests[bloomQuest.id]) then return true end
    for _,q in ipairs(itineraries) do
     if completed(s,q.id) then
      local state=s.story.quests[q.id]
@@ -878,6 +881,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    return
   end
   if s.story and s.story.active then movingPlatforms.move(s,dt) end
+  if s.story and s.story.active and not s.paused and nodes[s.story.node].bloomQuest then bloom.follow(s) end
   local deck=s.story and s.story.active and s.storyMoonDeck
   if deck and not s.paused then
    local leader,companion=s.actors[s.active],s.actors[3-s.active]
@@ -1069,6 +1073,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       end
      end
     end
+    if n.bloomQuest then
+     local q=quests[n.bloomQuest]
+     bloom.observe(s,f,markers,q,s.story.quests[q.id],mode,profile)
+    end
    local pathQuest=n.pathsQuest and quests[n.pathsQuest]
    local pathState=pathQuest and s.story.quests[pathQuest.id]
    if pathState and pathState.pathProgress and pathState.count>0 then
@@ -1203,7 +1211,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and not milestone.resonanceOrder and not milestone.shadowChoice and not milestone.paperFold
         and (not milestone.roomLight or milestone.roomLight==s.storyLightMode) then
      local x,y=milestone.x-s.camera,milestone.y
-     if not milestone.rumorBoard and not milestone.flagProp and not milestone.shadowView and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
+     if not milestone.rumorBoard and not milestone.bloomProp and not milestone.flagProp and not milestone.shadowView and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
       elseif milestone.islandTreasure then drawIslandChest(markers,x,y,false)

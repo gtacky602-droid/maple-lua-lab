@@ -2343,6 +2343,11 @@
       {"id":"nod-appraisal-yard-1","kind":1,"art":"hydro-slime","x":587,"platform":0,"hp":30},
       {"id":"nod-appraisal-yard-2","kind":2,"art":"pyro-slime","x":942,"platform":0,"hp":37},
       {"id":"nod-appraisal-yard-3","kind":1,"art":"hydro-slime","x":1345,"platform":2,"hp":30}
+    ],
+    "nod-bloom-trail": [
+      {"id":"nod-bloom-trail-1","kind":1,"art":"hydro-slime","x":650,"platform":0,"hp":31,"pursuit":{"range":248,"leash":478,"speed":79}},
+      {"id":"nod-bloom-trail-2","kind":2,"art":"pyro-slime","x":805,"platform":0,"hp":37,"pursuit":{"range":248,"leash":478,"speed":79}},
+      {"id":"nod-bloom-trail-3","kind":1,"art":"hydro-slime","x":996,"platform":0,"hp":35,"pursuit":{"range":248,"leash":478,"speed":79}}
     ]
   }
 }

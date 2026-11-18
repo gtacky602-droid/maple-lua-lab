@@ -3182,6 +3182,36 @@
       "transparent": 0
     },
     {
+      "key": "nodBloomGrove",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "nodBloomGrove",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "nodBloomGrove",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "nodBloomGrove",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "nodBloomGrove",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "nodBloomGrove",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "nodMoonCave",
       "camera": -960,
       "transparent": 0

@@ -1029,6 +1029,10 @@
       "to": "nod-rumor-quay"
     },
     {
+      "node": "nod-town",
+      "to": "nod-bloom-gate"
+    },
+    {
       "node": "snezhnaya-entry",
       "to": "nod-town"
     },
@@ -2675,6 +2679,34 @@
     {
       "node": "nod-rumor-ledge",
       "to": "nod-rumor-quay"
+    },
+    {
+      "node": "nod-bloom-gate",
+      "to": "nod-town"
+    },
+    {
+      "node": "nod-bloom-gate",
+      "to": "nod-bloom-trail"
+    },
+    {
+      "node": "nod-bloom-gate",
+      "to": "nod-bloom-grove"
+    },
+    {
+      "node": "nod-bloom-trail",
+      "to": "nod-bloom-gate"
+    },
+    {
+      "node": "nod-bloom-trail",
+      "to": "nod-bloom-grove"
+    },
+    {
+      "node": "nod-bloom-grove",
+      "to": "nod-bloom-trail"
+    },
+    {
+      "node": "nod-bloom-grove",
+      "to": "nod-bloom-gate"
     }
   ],
   "hidden_connections_checked": 38,

@@ -1212,6 +1212,18 @@
     {
       "node": "nod-rumor-ledge",
       "enemy_count": 0
+    },
+    {
+      "node": "nod-bloom-gate",
+      "enemy_count": 0
+    },
+    {
+      "node": "nod-bloom-trail",
+      "enemy_count": 3
+    },
+    {
+      "node": "nod-bloom-grove",
+      "enemy_count": 0
     }
   ],
   "render_profiles": [

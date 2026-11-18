@@ -1,0 +1,219 @@
+{
+  "tool": "builtin imagegen",
+  "model": {
+    "path": "evidence/nod-moon-bloom-model.obj",
+    "sha256": "32f515569201e551827941217993c6ab88feed2f75dee8573e73e4981b43d8af"
+  },
+  "materials": {
+    "path": "evidence/nod-moon-bloom-model.mtl",
+    "sha256": "fc147f387421e5398f15248511409e81b8573df55bb67bf6bc8786dac3de6e19"
+  },
+  "views": {
+    "path": "evidence/nod-moon-bloom-views.png",
+    "sha256": "56e8ed20325287192895840709838ad66879155c823aeff336098624a47907e4"
+  },
+  "angles": [
+    "side",
+    "front three quarter",
+    "from above"
+  ],
+  "sources": {
+    "plants": {
+      "path": "assets/nod-moon-bloom-plants-source-v1.png",
+      "sha256": "849afd1898f054891b4908ed9869d31a28781c52e88956b130829aa1eba81492",
+      "size": [
+        2172,
+        724
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "wildlife": {
+      "path": "assets/nod-moon-bloom-wildlife-source-v1.png",
+      "sha256": "2fc20dd253f8880047c1a8a3904174f5da27ad52c1338088619ff09df3fe595e",
+      "size": [
+        2172,
+        724
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "bud": {
+      "path": "assets/nod-moon-bloom-bud-source-v1.png",
+      "sha256": "2509f3ef3831ce66e221d3d3e8e3bb2cf2d33cbe8540363d761ed851005715ae",
+      "size": [
+        1024,
+        1536
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "sprites": {
+    "flower": {
+      "encoding": {
+        "path": "assets/nod-moon-bloom-flower-sprites-v1.json",
+        "sha256": "e4e5b2f9494dc465688e120a4364c964d02f7a2ad0786425c228e815bf8a9f7e"
+      },
+      "box": [
+        105,
+        46,
+        481,
+        652
+      ],
+      "height": 120,
+      "runs": {
+        "legacy": 2037,
+        "h48c32": 1304,
+        "h32c16": 517
+      }
+    },
+    "overhead": {
+      "encoding": {
+        "path": "assets/nod-moon-bloom-overhead-sprites-v1.json",
+        "sha256": "d0937acaf0bfdaaea85c9867f822cbf51975662825e805effa9acd4cf191d777"
+      },
+      "box": [
+        760,
+        23,
+        668,
+        636
+      ],
+      "height": 82,
+      "runs": {
+        "legacy": 1895,
+        "h48c32": 1217,
+        "h32c16": 451
+      }
+    },
+    "charm": {
+      "encoding": {
+        "path": "assets/nod-moon-bloom-charm-sprites-v1.json",
+        "sha256": "a975131e84f8b414ad16ee1124a69fbd47d9abb15edcdbb5e17dd71b39360ae0"
+      },
+      "box": [
+        1688,
+        97,
+        316,
+        513
+      ],
+      "height": 38,
+      "runs": {
+        "legacy": 297,
+        "h48c32": 158,
+        "h32c16": 78
+      }
+    },
+    "rabbit": {
+      "encoding": {
+        "path": "assets/nod-moon-bloom-rabbit-sprites-v1.json",
+        "sha256": "356744363ee8cc4e21bb800669ceee8201e91427e8e0ec12b1bbd87cc053ca5b"
+      },
+      "box": [
+        107,
+        178,
+        363,
+        359
+      ],
+      "height": 30,
+      "runs": {
+        "legacy": 477,
+        "h48c32": 276,
+        "h32c16": 127
+      }
+    },
+    "fox": {
+      "encoding": {
+        "path": "assets/nod-moon-bloom-fox-sprites-v1.json",
+        "sha256": "af06e3add6a9d6d3e0043e9dd37da55e8a7955cb12eafb46a4308910f01dd5d6"
+      },
+      "box": [
+        651,
+        121,
+        355,
+        448
+      ],
+      "height": 38,
+      "runs": {
+        "legacy": 542,
+        "h48c32": 307,
+        "h32c16": 138
+      }
+    },
+    "petal": {
+      "encoding": {
+        "path": "assets/nod-moon-bloom-petal-sprites-v1.json",
+        "sha256": "4f901979524bf529ef846f4cd4c6e8a42bc1623d3bccda31701e55287e1ab1f0"
+      },
+      "box": [
+        1221,
+        260,
+        319,
+        265
+      ],
+      "height": 20,
+      "runs": {
+        "legacy": 248,
+        "h48c32": 141,
+        "h32c16": 64
+      }
+    },
+    "berry": {
+      "encoding": {
+        "path": "assets/nod-moon-bloom-berry-sprites-v1.json",
+        "sha256": "8ec83a09990f216994ee6a1777031a932c482b3ac29a631a6cbc3ada70f68159"
+      },
+      "box": [
+        1781,
+        281,
+        267,
+        223
+      ],
+      "height": 20,
+      "runs": {
+        "legacy": 153,
+        "h48c32": 103,
+        "h32c16": 42
+      }
+    },
+    "bud": {
+      "encoding": {
+        "path": "assets/nod-moon-bloom-bud-sprites-v1.json",
+        "sha256": "9d74bc99054bf33764048b8971755454992feb3edf57f3331b7e9970457c601b"
+      },
+      "box": [
+        228,
+        153,
+        568,
+        1217
+      ],
+      "height": 120,
+      "runs": {
+        "legacy": 1430,
+        "h48c32": 862,
+        "h32c16": 348
+      }
+    }
+  },
+  "background": {
+    "path": "assets/nod-moon-bloom-background-v1.png",
+    "sha256": "890acd90a54d8393d185abeb58c47b2a2bcef6df44acad8a7ebeb26e2fba1609"
+  },
+  "backgroundReference": {
+    "path": "assets/nod-moon-wood-background-v1.png",
+    "sha256": "52316ed10152dc381250471782bb25d780a3b92d1364cde8651fd8bfde96d78b"
+  },
+  "backgroundStatus": "Temporary 2D image. Production uses 3D placement."
+}

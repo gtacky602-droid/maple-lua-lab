@@ -1,0 +1,31 @@
+newmtl root
+Kd 0.18824 0.35686 0.33725
+illum 1
+
+newmtl stem
+Kd 0.32549 0.60392 0.50196
+illum 1
+
+newmtl dew
+Kd 0.61961 0.90980 0.76471
+illum 1
+
+newmtl outer
+Kd 0.32157 0.30196 0.58039
+illum 1
+
+newmtl edge
+Kd 0.60784 0.55294 0.86275
+illum 1
+
+newmtl inner
+Kd 0.83922 0.76078 0.97255
+illum 1
+
+newmtl vein
+Kd 0.60392 1.00000 0.81961
+illum 1
+
+newmtl heart
+Kd 1.00000 0.81961 0.48235
+illum 1

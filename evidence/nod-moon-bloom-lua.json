@@ -1,0 +1,22 @@
+{
+  "m01Prerequisite": true,
+  "combatBeforeGrove": true,
+  "partialFightSaved": true,
+  "peacefulGrove": true,
+  "animalSpritesUnaffected": true,
+  "normalJumps": [
+    386,
+    290
+  ],
+  "companionClimbed": true,
+  "flowersAndFruitSaved": true,
+  "twoPerspectives": true,
+  "viewNeedsElevation": true,
+  "permanentDecoration": true,
+  "restHealsWithoutReward": true,
+  "replayableTrail": true,
+  "reportReward": [
+    7253017,
+    6800
+  ]
+}

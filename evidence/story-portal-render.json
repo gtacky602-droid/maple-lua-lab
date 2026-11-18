@@ -883,12 +883,12 @@
     {
       "node": "nod-town",
       "mode": "sprite",
-      "visible_portals": 9
+      "visible_portals": 10
     },
     {
       "node": "nod-town",
       "mode": "rect",
-      "visible_portals": 9
+      "visible_portals": 10
     },
     {
       "node": "snezhnaya-entry",
@@ -2869,6 +2869,36 @@
       "node": "nod-rumor-ledge",
       "mode": "rect",
       "visible_portals": 1
+    },
+    {
+      "node": "nod-bloom-gate",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "nod-bloom-gate",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "nod-bloom-trail",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "nod-bloom-trail",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "nod-bloom-grove",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "nod-bloom-grove",
+      "mode": "rect",
+      "visible_portals": 2
     }
   ],
   "checks": [

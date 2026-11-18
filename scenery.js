@@ -105,7 +105,8 @@ export const sceneryDefinitions={
  snezhnaya:{file:'snezhnaya-background-v1.png',region:'スネージナヤ',zones:[]},
  nodkrai:{file:'nodkrai-background-v1.png',region:'ナド・クライ',zones:[]},
  nodMoonShallows:{file:'nod-moon-shallows-background-v1.png',zones:['story:nod-moon-shallows','story:nod-tide-rocks','story:nod-lantern-shore','story:nod-box-inlet','story:nod-detour-shore','story:nod-appraisal-yard','story:nod-rumor-ledge'],note:'浅瀬と海岸のラボ用仮背景'},
- nodMoonWood:{file:'nod-moon-wood-background-v1.png',zones:['story:nod-lull-wood','story:nod-spruce-clearing'],note:'木陰の休息地とトウヒ林のラボ用仮背景'},
+ nodMoonWood:{file:'nod-moon-wood-background-v1.png',zones:['story:nod-lull-wood','story:nod-spruce-clearing','story:nod-bloom-gate','story:nod-bloom-trail'],note:'木陰と花見道の外周のラボ用仮背景'},
+ nodBloomGrove:{file:'nod-moon-bloom-background-v1.png',zones:['story:nod-bloom-grove'],note:'月花の観賞区画のラボ用仮背景'},
  nodMoonCave:{file:'nod-moon-cave-background-v1.png',zones:['story:nod-moon-cave-mouth','story:nod-moon-crab-arena'],note:'月渡りの岩窟口と月殻の広間のラボ用仮背景'},
  nodMoonVault:{file:'nod-moon-vault-background-v1.png',zones:['story:nod-moon-vault'],note:'探検家の貯蔵所のラボ用仮背景'},
  nodNightStalls:{file:'nod-night-stalls-background-v1.png',zones:['story:nod-night-stalls','story:nod-rumor-quay'],note:'夜店と波止場のラボ用仮背景'},
@@ -217,7 +218,7 @@ export function scenery(ctx,frame){
     }
     continue;
    }
-   if(key==='nodMoonWood'||key==='nodMoonCave'||key==='nodMoonVault'||key==='nodFarSea'){
+   if(key==='nodMoonWood'||key==='nodMoonCave'||key==='nodMoonVault'||key==='nodFarSea'||key==='nodBloomGrove'){
     const cave=key==='nodMoonCave'||key==='nodMoonVault',ground=p.y===480;
     ctx.fillStyle=cave?'#3e485f':'#364f4b';ctx.fillRect(x,p.y,p.w,ground?61:17);
     ctx.fillStyle=cave?'#8897a5':'#8aa184';ctx.fillRect(x,p.y,p.w,3);
