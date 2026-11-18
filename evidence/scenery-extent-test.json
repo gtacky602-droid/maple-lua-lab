@@ -2402,6 +2402,36 @@
       "transparent": 0
     },
     {
+      "key": "sayuWatchpath",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "sayuWatchpath",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "sayuWatchpath",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "sayuWatchpath",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "sayuWatchpath",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "sayuWatchpath",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "toriiforest",
       "camera": -960,
       "transparent": 0

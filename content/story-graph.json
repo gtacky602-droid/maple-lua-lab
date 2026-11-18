@@ -1406,6 +1406,7 @@
       "region": "稲妻",
       "level": 40,
       "hub": true,
+      "stealthNap": "ina-sayu-quiet-route",
       "width": 1440,
       "platforms": [
         {
@@ -1445,7 +1446,9 @@
         },
         {"to":"pyro-hypostasis-field-terrace","x":1230},
         {"to":"ina-firework-lookouts","x":755,"arrivalX":120,"requires":{"quest":"ina-window-fireworks","count":1}},
-        {"to":"ina-firework-beach","x":266,"arrivalX":702,"requires":{"quest":"ina-window-fireworks","count":5}}
+        {"to":"ina-firework-beach","x":266,"arrivalX":702,"requires":{"quest":"ina-window-fireworks","count":5}},
+        {"to":"ina-sayu-watchpath","x":454,"arrivalX":118,"requires":{"quest":"ina-sayu-quiet-route","count":1}},
+        {"to":"ina-sayu-watchpath","x":1148,"arrivalX":2150,"requires":{"quest":"ina-sayu-quiet-route","count":5},"rideLabel":"開いた裏柵から見回り道へ"}
       ],
       "checkpoint": "inazuma-town"
     },
@@ -1454,6 +1457,13 @@
       "width":2130,"checkpoint":"inazuma-town","fireworkLookouts":"ina-window-fireworks",
       "platforms":[{"x":0,"y":480,"w":2130},{"x":422,"y":395,"w":453},{"x":752,"y":307,"w":521},{"x":1360,"y":414,"w":510}],
       "exits":[{"to":"inazuma-town","x":63,"arrivalX":700},{"to":"ina-firework-beach","x":2064,"arrivalX":126,"requires":{"quest":"ina-window-fireworks","count":4}}]
+    },
+    {
+      "id":"ina-sayu-watchpath","name":"稲妻・木陰の見回り道","region":"稲妻","level":40,"hub":false,
+      "width":2260,"checkpoint":"inazuma-town",
+      "platforms":[{"x":0,"y":480,"w":2260},{"x":758,"y":392,"w":515}],
+      "exits":[{"to":"inazuma-town","x":64,"arrivalX":404},{"to":"inazuma-town","x":2188,"arrivalX":1172,"requires":{"quest":"ina-sayu-quiet-route","count":5}}],
+      "stealthRoute":{"quest":"ina-sayu-quiet-route","opensAt":5,"seconds":1.4,"fence":{"x":2058,"y":480}}
     },
     {
       "id":"ina-firework-beach","name":"稲妻・窓灯りの花火浜","region":"稲妻","level":40,"hub":false,"peaceful":true,
@@ -5471,6 +5481,22 @@
         {"kind":"inspect","node":"ina-firework-lookouts","x":1040,"y":307,"name":"崖の高台","action":"一番高い場所の見通しを調べる","objective":"松の高台からもう一段上がり、崖の高台を調べる","notice":"一番高い場所ですが、家の窓からは手前の崖が空を遮ります。右下の海岸の高台も確かめましょう。","fireworkSight":{"window":{"x":42,"y":96},"burst":{"x":366,"y":29},"obstacle":{"x":174,"y":45,"w":68,"h":79,"label":"崖"}}},
         {"kind":"inspect","node":"ina-firework-lookouts","x":1608,"y":414,"name":"海岸の高台","action":"海岸側から窓の見通しを確かめる","objective":"奥の低い石段に上がり、海岸の高台を調べる","notice":"この場所なら、低くても崖が視線より下にあります。花火は窓から全体が見えます。右の門から打ち上げ場所へ。","fireworkSight":{"window":{"x":42,"y":96},"burst":{"x":366,"y":56},"obstacle":{"x":198,"y":98,"w":84,"h":26,"label":"低い岩場"}}},
         {"kind":"firework","node":"ina-firework-beach","x":475,"y":480,"name":"海辺の打ち上げ台","objective":"打ち上げ台で好きな色と形を選び、窓から見える花火を打ち上げる","notice":"宵宮「窓のところ、よう見えたみたいやな。」城下の広場へ戻って報告できます。"}
+      ]
+    },
+    {
+      "id":"ina-sayu-quiet-route","designId":"Q-INA-S03","name":"最短ルートは、静かなルート","giver":"早柚",
+      "hub":"inazuma-town","target":"ina-sayu-watchpath","requires":"inazuma-moving-lantern","level":40,
+      "kind":"itinerary","goal":6,"xp":78355,"mora":1050,
+      "briefing":"早柚「見回り、あと三か所。早く済ませたら、木陰で少し眠れる……。こっちの道を一緒に回ってくれる？」",
+      "closing":"早柚は木陰で眠っています。そばの葉には『見回り、ありがとう。木の実、どうぞ』と書かれています。",
+      "completedObjective":"木陰の見回り道と城下の広場を裏柵の近道で行き来できる",
+      "itinerary":[
+        {"kind":"inspect","node":"inazuma-town","x":346,"y":480,"name":"早柚の見回り札","action":"早柚から見回りの話を聞く","objective":"城下の広場で早柚の巡回に付き合う","notice":"早柚「先に草むらの近くへ行くね。見回り役がどっちを向いてるか、足元の点線を見て。草に入ったら身を隠せるよ。」"},
+        {"kind":"stealthCheck","node":"ina-sayu-watchpath","x":472,"y":480,"name":"草むらの確認点","action":"草むらの確認点を調べる","objective":"草むらを利用し、一つ目の確認点を調べる","approach":"早柚「最初の印は草むらの右端。足元の点線で見回り役の向きを見て。」","notice":"早柚「次は石段の上。小さな洞穴があるところに、印を付けとくね。」","cover":{"art":"brush","name":"草むら","x":326,"y":480,"w":168,"height":72,"front":true},"stealthGuard":{"id":"sayu-watch-brush","art":"nobushi","x":630,"roam":68,"offset":1.4,"period":4.8,"range":177,"notice":0.62}},
+        {"kind":"stealthCheck","node":"ina-sayu-watchpath","x":1012,"y":392,"name":"洞穴の確認点","action":"洞穴の確認点を調べる","objective":"低い石段に上がり、洞穴の確認点を調べる","approach":"早柚「洞穴は石段にあるよ。少し手前から跳んで、洞穴まで進んで。」","notice":"早柚「大丈夫そう。右では木の幹の裏に入れるから、そこも見てきて。」","cover":{"art":"cave","name":"洞穴","x":942,"y":392,"w":146,"height":96},"stealthGuard":{"id":"sayu-watch-cave","art":"nobushi","x":1168,"roam":52,"offset":0.5,"period":4.6,"range":173,"notice":0.62}},
+        {"kind":"stealthCheck","node":"ina-sayu-watchpath","x":1589,"y":480,"name":"大木の確認点","action":"木陰の確認点を調べる","objective":"木の裏に回り、三つ目の確認点を調べる","approach":"早柚「最後の確認点は大木の後ろ。低い道をそのまま進むよ。」","notice":"早柚「三つ、見終わった。柵の手前まで来て。あの狭い穴なら私だけ通れそう。」","cover":{"art":"tree","name":"木の裏","x":1530,"y":480,"w":126,"height":139,"front":true},"stealthGuard":{"id":"sayu-watch-tree","art":"nobushi","x":1751,"roam":57,"offset":3.5,"period":5.0,"range":169,"notice":0.62}},
+        {"kind":"stealthHatch","node":"ina-sayu-watchpath","x":1943,"y":480,"name":"根元の小さな抜け穴","action":"狭い抜け穴で早柚に声をかける","objective":"抜け穴から早柚に先回りしてもらい、柵を開ける","notice":"柵が上がり、城下の広場へ直接戻れる近道が開きました。"},
+        {"kind":"inspect","node":"inazuma-town","x":1135,"y":480,"name":"早柚の昼寝場所","action":"木の実のそばのお礼を読む","objective":"近道から広場に戻り、眠っている早柚のお礼を読む","notice":"早柚は眠っています。木の実のそばに『起こさなくていいよ。手伝ってくれてありがとう』と書いた葉があります。報告できます。","stealthNap":true}
       ]
     },
     {

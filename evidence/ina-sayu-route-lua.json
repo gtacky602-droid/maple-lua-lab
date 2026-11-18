@@ -1,0 +1,17 @@
+{
+  "prerequisite": true,
+  "coverCoolsAttention": true,
+  "quietRouteWithoutKills": true,
+  "heightMatters": true,
+  "detectedCanContinue": true,
+  "engagedAndClearedRestore": true,
+  "invalidAlertRejected": true,
+  "fenceAndPause": true,
+  "animatedGateLift": true,
+  "shortcutRoundTrip": true,
+  "singleReportReward": true,
+  "reward": [
+    78355,
+    1050
+  ]
+}

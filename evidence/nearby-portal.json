@@ -489,12 +489,28 @@
       "to": "ina-firework-beach"
     },
     {
+      "node": "inazuma-town",
+      "to": "ina-sayu-watchpath"
+    },
+    {
+      "node": "inazuma-town",
+      "to": "ina-sayu-watchpath"
+    },
+    {
       "node": "ina-firework-lookouts",
       "to": "inazuma-town"
     },
     {
       "node": "ina-firework-lookouts",
       "to": "ina-firework-beach"
+    },
+    {
+      "node": "ina-sayu-watchpath",
+      "to": "inazuma-town"
+    },
+    {
+      "node": "ina-sayu-watchpath",
+      "to": "inazuma-town"
     },
     {
       "node": "ina-firework-beach",

@@ -1,0 +1,147 @@
+{
+  "tool": "built-in image generation, with transparency checked against PNG alpha",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/ina-sayu-route-model.obj",
+    "sha256": "6f984365a245735b5a3e46b17a55fd5a50b5b2eae62702199c8072ea15d57cae"
+  },
+  "materials": {
+    "path": "evidence/ina-sayu-route-model.mtl",
+    "sha256": "3597221880c77913e4bfe8bf8f19fc34a81a71e3f2befc4be242ab3f244d0447"
+  },
+  "contactSheet": {
+    "path": "evidence/ina-sayu-route-views.png",
+    "sha256": "984878544190f0e7876e65cc0f7c2ee38ac72ce610a59f71a21ed03a23b4c77c"
+  },
+  "propsSource": {
+    "path": "assets/ina-sayu-route-props-source-v1.png",
+    "sha256": "b33a5a991b818d88a6b3ccdd50eddb17f466311f13c8114fc0e336a643e4f6f4"
+  },
+  "alphaCorners": [
+    0,
+    1,
+    0,
+    0
+  ],
+  "background": {
+    "path": "assets/ina-sayu-route-background-v1.png",
+    "sha256": "dbcb5521598c3506ae49f9c4a3b9f67cde1fb50b4af7a11f44ee6dcbd65c4aff"
+  },
+  "backgroundReference": {
+    "path": "assets/inazuma-torii-forest-background-v1.png",
+    "sha256": "4691a33089acef67f83553b17c2e3889443a5a3b1593cade47f29458c72c3741"
+  },
+  "patrolArt": {
+    "path": "assets/nobushi-idle-source-v1.png",
+    "sha256": "86a073014d8e06039c869243be7c4782d6972a517ef0bfa2f6bd8aa9bd39e342"
+  },
+  "status": "Original cover props, existing patrol sprite and temporary forest image.",
+  "profiles": {
+    "brush": {
+      "encoding": {
+        "path": "assets/ina-sayu-route-brush-sprites-v1.json",
+        "sha256": "5a3b16caed62732100490cb381d0f570b9c6a00d9e5d67eb12e2906d4d859312"
+      },
+      "box": [
+        70,
+        226,
+        377,
+        183
+      ],
+      "runs": {
+        "legacy": 5713,
+        "h48c32": 3475,
+        "h32c16": 1551
+      }
+    },
+    "cave": {
+      "encoding": {
+        "path": "assets/ina-sayu-route-cave-sprites-v1.json",
+        "sha256": "219ac50c867ce619b63efa22a776959a34f75ac80775f991e1e548c2f522e074"
+      },
+      "box": [
+        565,
+        199,
+        410,
+        211
+      ],
+      "runs": {
+        "legacy": 5650,
+        "h48c32": 3665,
+        "h32c16": 1429
+      }
+    },
+    "tree": {
+      "encoding": {
+        "path": "assets/ina-sayu-route-tree-sprites-v1.json",
+        "sha256": "4237e4819a2ad37991632ca1a2669808332a232efc963039b1fc6e977c89bde7"
+      },
+      "box": [
+        1096,
+        77,
+        366,
+        378
+      ],
+      "runs": {
+        "legacy": 6158,
+        "h48c32": 3821,
+        "h32c16": 1608
+      }
+    },
+    "gate": {
+      "encoding": {
+        "path": "assets/ina-sayu-route-gate-sprites-v1.json",
+        "sha256": "fd25e38a366d1dc33063c7506abfc39343d7fe35f8aeb06e704af5145fecdf99"
+      },
+      "box": [
+        122,
+        614,
+        277,
+        300
+      ],
+      "runs": {
+        "legacy": 6621,
+        "h48c32": 4143,
+        "h32c16": 1669
+      }
+    },
+    "leaf": {
+      "encoding": {
+        "path": "assets/ina-sayu-route-leaf-sprites-v1.json",
+        "sha256": "0f32366cb8f55b79aeb76d29aaedd6ebdf9271d8830374c0aafb620c8719a70f"
+      },
+      "box": [
+        679,
+        682,
+        161,
+        148
+      ],
+      "runs": {
+        "legacy": 361,
+        "h48c32": 218,
+        "h32c16": 93
+      }
+    },
+    "nap": {
+      "encoding": {
+        "path": "assets/ina-sayu-route-nap-sprites-v1.json",
+        "sha256": "4118d4736800719b98899daa190f3f4942349cb0073c3092be4f4ac7eedda4f0"
+      },
+      "box": [
+        1096,
+        697,
+        352,
+        166
+      ],
+      "runs": {
+        "legacy": 1653,
+        "h48c32": 1000,
+        "h32c16": 432
+      }
+    }
+  }
+}

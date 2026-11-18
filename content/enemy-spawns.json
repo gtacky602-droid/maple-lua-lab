@@ -2,6 +2,11 @@
   "version": 1,
   "status": "Provisional live placement; existing generic behavior; not canonical regional species or attacks",
   "nodes": {
+    "ina-sayu-watchpath":[
+      {"id":"sayu-watch-brush","kind":1,"art":"nobushi","x":630,"platform":0,"hp":46,"questPhase":1,"pursuit":{"range":220,"leash":300,"speed":96}},
+      {"id":"sayu-watch-cave","kind":1,"art":"nobushi","x":1168,"platform":1,"hp":55,"questPhase":2,"pursuit":{"range":220,"leash":300,"speed":96}},
+      {"id":"sayu-watch-tree","kind":1,"art":"nobushi","x":1751,"platform":0,"hp":61,"questPhase":3,"pursuit":{"range":220,"leash":300,"speed":96}}
+    ],
     "mond-library-orchard": [
       {"id":"mond-return-slime-a","kind":1,"art":"hydro-slime","x":1485,"platform":0,"hp":12,"questPhase":1},
       {"id":"mond-return-slime-b","kind":1,"art":"hydro-slime","x":1615,"platform":0,"hp":14,"questPhase":1},

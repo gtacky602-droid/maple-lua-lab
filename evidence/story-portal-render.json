@@ -363,12 +363,12 @@
     {
       "node": "inazuma-town",
       "mode": "sprite",
-      "visible_portals": 8
+      "visible_portals": 10
     },
     {
       "node": "inazuma-town",
       "mode": "rect",
-      "visible_portals": 8
+      "visible_portals": 10
     },
     {
       "node": "ina-firework-lookouts",
@@ -377,6 +377,16 @@
     },
     {
       "node": "ina-firework-lookouts",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "ina-sayu-watchpath",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "ina-sayu-watchpath",
       "mode": "rect",
       "visible_portals": 2
     },

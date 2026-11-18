@@ -109,6 +109,17 @@ def validate_firework(record, quest, visited):
         raise ValueError('花火の色・形と進行の記録が不正です')
 
 
+def validate_stealth(record, quest, visited):
+    if 'stealthEncounter' not in record:
+        return
+    steps = quest.get('itinerary', [])
+    count = record['count']
+    if (record['status'] != 'active' or count >= len(steps)
+            or steps[count]['kind'] != 'stealthCheck' or steps[count]['node'] not in visited
+            or record['stealthEncounter'] not in ('engaged', 'cleared')):
+        raise ValueError('見回り役の記録が巡回の進行と一致しません')
+
+
 def validate_save(data):
     if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses'}!=FIELDS:
         raise ValueError('保存データの項目が一致しません')
@@ -220,7 +231,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord','fireworkDesign'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord','fireworkDesign','stealthEncounter'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -248,6 +259,7 @@ def validate_save(data):
             validate_appraisal(q,quest,st['visited'])
             validate_snow_match(q,quest,nodes.get(quest.get('target'),{}).get('snowMatch'))
             validate_firework(q,quest,st['visited'])
+            validate_stealth(q,quest,st['visited'])
             if 'flagBestTicks' in q:
                 ticks=q['flagBestTicks']
                 if not quest.get('flagTrial') or q['status']!='complete' or type(ticks) is not int or not 1<=ticks<=10**9:

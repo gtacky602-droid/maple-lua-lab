@@ -230,6 +230,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "ina-sayu-watchpath",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "ina-firework-beach",
       "count": 0,
       "fallback": false,

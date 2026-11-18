@@ -1,0 +1,23 @@
+{
+  "scene": {
+    "key": "sayuWatchpath",
+    "file": "ina-sayu-route-background-v1.png",
+    "state": "ready"
+  },
+  "threeCovers": true,
+  "quietWithoutKills": true,
+  "openedGateAndNap": true,
+  "shortcutAfterReload": true,
+  "detectedBattleReloaded": true,
+  "continuedAfterNormalCombat": true,
+  "commands": {
+    "png": 35,
+    "standard": 16846,
+    "light": 4413
+  },
+  "reward": [
+    78355,
+    1050
+  ],
+  "errors": []
+}

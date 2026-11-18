@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 302 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 294,
+  "scope": "Authored 303 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 295,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -229,6 +229,7 @@
     },
     {"id":"ina-firework-lookouts","name":"稲妻・潮の見晴らし道","region":"稲妻","status":"regional_temporary_image"},
     {"id":"ina-firework-beach","name":"稲妻・窓灯りの花火浜","region":"稲妻","status":"regional_temporary_image"},
+    {"id":"ina-sayu-watchpath","name":"稲妻・木陰の見回り道","region":"稲妻","status":"regional_temporary_image"},
     {
       "id": "pyro-hypostasis-field-terrace",
       "name": "稲妻・燎火の石浜",
