@@ -1270,6 +1270,10 @@
     },
     {
       "node": "nod-field",
+      "to": "nod-tide-scrapyard"
+    },
+    {
+      "node": "nod-field",
       "to": "nod-nightmare-shore"
     },
     {
@@ -1347,6 +1351,18 @@
     {
       "node": "nod-town",
       "to": "nod-patrol-cabin"
+    },
+    {
+      "node": "nod-town",
+      "to": "nod-forest-outer"
+    },
+    {
+      "node": "nod-tide-scrapyard",
+      "to": "nod-field"
+    },
+    {
+      "node": "nod-forest-outer",
+      "to": "nod-town"
     },
     {
       "node": "snezhnaya-entry",

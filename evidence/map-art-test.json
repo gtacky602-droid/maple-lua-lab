@@ -716,6 +716,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "nod-tide-scrapyard",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "nod-forest-outer",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "snezhnaya-entry",
       "count": 0,
       "fallback": false,

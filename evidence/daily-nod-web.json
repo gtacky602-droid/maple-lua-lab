@@ -1,0 +1,16 @@
+{
+  "townOffers": 5,
+  "walkedToCoastAndForestAndReturned": true,
+  "killsCountAtCorrectArea": true,
+  "distinctNamedElites": true,
+  "threeScrapyardObjectivesOverlap": true,
+  "mapPlacementComparisonProfiles": 3,
+  "staleSaveRetainsProgress": true,
+  "rewardsDoNotReplay": true,
+  "mobileFits": true,
+  "reward": {
+    "xp": 1188100,
+    "mora": 8360
+  },
+  "errors": []
+}

@@ -988,7 +988,7 @@ Luaの通常攻撃のみ・同行戦闘不能・回復なしは147.08秒、残HP
 
 ## 日次依頼
 
-モンドからナタまでの六地域に、日次依頼が五つずつあります。受注枠は全地域で共通で、主依頼一件と追加依頼二件までです。ラボの更新は日本時間04:00で、達成済みの報酬は翌日まで受取可能です。 [モンドの依頼と保存仕様](docs/balance/DAILY_MONDSTADT_WEB.md) · [璃月の依頼](docs/balance/DAILY_LIYUE_WEB.md) · [稲妻の依頼](docs/balance/DAILY_INAZUMA_WEB.md) · [スメールの依頼](docs/balance/DAILY_SUMERU_WEB.md) · [フォンテーヌの依頼](docs/balance/DAILY_FONTAINE_WEB.md) · [ナタの依頼と新しい狩場](docs/balance/DAILY_NATLAN_WEB.md)
+モンドからナド・クライまでの七地域に、日次依頼が五つずつあります。受注枠は全地域で共通で、主依頼一件と追加依頼二件までです。ラボの更新は日本時間04:00で、達成済みの報酬は翌日まで受取可能です。 [モンドの依頼と保存仕様](docs/balance/DAILY_MONDSTADT_WEB.md) · [璃月の依頼](docs/balance/DAILY_LIYUE_WEB.md) · [稲妻の依頼](docs/balance/DAILY_INAZUMA_WEB.md) · [スメールの依頼](docs/balance/DAILY_SUMERU_WEB.md) · [フォンテーヌの依頼](docs/balance/DAILY_FONTAINE_WEB.md) · [ナタの依頼](docs/balance/DAILY_NATLAN_WEB.md) · [ナド・クライの依頼と狩場](docs/balance/DAILY_NOD_KRAI_WEB.md)
 
 ## ナタの旗取りと二つの中継印
 

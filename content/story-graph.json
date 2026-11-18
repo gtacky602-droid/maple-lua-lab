@@ -3017,6 +3017,7 @@
         {"to":"nod-duckle-workyard","x":1110},
         {"to":"nod-battleship-depot","x":945},
         {"to":"nod-herra-terrace","x":510},
+        {"to":"nod-tide-scrapyard","x":617,"arrivalX":124},
         {"to":"nod-nightmare-shore","x":330},
         {"to":"nod-moonfly-hollow","x":180},
         {"to":"nod-gecko-depths","x":1260}
@@ -3076,8 +3077,21 @@
         {"to":"nod-appraisal-workshop","x":286,"requires":{"quest":"nod-first-treasure"},"rideLabel":"アイノの部品工房へ"},
         {"to":"nod-rumor-quay","x":1039,"requires":{"quest":"nod-moon-crossroads"},"rideLabel":"噂の波止場へ"},
         {"to":"nod-bloom-gate","x":371,"requires":{"quest":"nod-first-treasure"},"rideLabel":"花見の入口へ"},
-        {"to":"nod-patrol-cabin","x":550,"requires":{"quest":"nod-moon-crossroads"},"rideLabel":"灯台守の暖房小屋へ"}
+        {"to":"nod-patrol-cabin","x":550,"requires":{"quest":"nod-moon-crossroads"},"rideLabel":"灯台守の暖房小屋へ"},
+        {"to":"nod-forest-outer","x":671,"arrivalX":126}
       ]
+    },
+    {
+      "id":"nod-tide-scrapyard","name":"ナド・クライ・月浜の部品置き場","region":"ナド・クライ","level":120,"hub":false,
+      "width":1760,"checkpoint":"nod-town",
+      "platforms":[{"x":0,"y":480,"w":1760},{"x":452,"y":393,"w":322},{"x":702,"y":302,"w":335},{"x":1170,"y":398,"w":350}],
+      "exits":[{"to":"nod-field","x":64,"arrivalX":617}]
+    },
+    {
+      "id":"nod-forest-outer","name":"ナド・クライ・トウヒ林の外周","region":"ナド・クライ","level":120,"hub":false,
+      "width":1680,"checkpoint":"nod-town",
+      "platforms":[{"x":0,"y":480,"w":1680},{"x":379,"y":394,"w":345},{"x":634,"y":298,"w":310},{"x":1040,"y":393,"w":355}],
+      "exits":[{"to":"nod-town","x":62,"arrivalX":671}]
     },
     {
       "id": "snezhnaya-entry",

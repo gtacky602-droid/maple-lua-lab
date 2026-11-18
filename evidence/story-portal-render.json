@@ -1113,12 +1113,12 @@
     {
       "node": "nod-field",
       "mode": "sprite",
-      "visible_portals": 9
+      "visible_portals": 10
     },
     {
       "node": "nod-field",
       "mode": "rect",
-      "visible_portals": 9
+      "visible_portals": 10
     },
     {
       "node": "nod-duckle-workyard",
@@ -1183,12 +1183,32 @@
     {
       "node": "nod-town",
       "mode": "sprite",
-      "visible_portals": 11
+      "visible_portals": 12
     },
     {
       "node": "nod-town",
       "mode": "rect",
-      "visible_portals": 11
+      "visible_portals": 12
+    },
+    {
+      "node": "nod-tide-scrapyard",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "nod-tide-scrapyard",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "nod-forest-outer",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "nod-forest-outer",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "snezhnaya-entry",

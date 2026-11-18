@@ -1,0 +1,17 @@
+{
+  "completedGoals": {
+    "Q-NOD-D01": 200,
+    "Q-NOD-D02": 60,
+    "Q-NOD-D03": 3,
+    "Q-NOD-D04": 80,
+    "Q-NOD-D05": 60
+  },
+  "level120RoundTripThroughBothFields": true,
+  "sharedSlotsAcrossNatlanAndNodKrai": true,
+  "columbinaCompanionGiver": true,
+  "specialRegionCountsForMain": true,
+  "partAndCoastOverlapInScrapyardButNotOtherTargets": true,
+  "forestRimAndBloomTrailCount": true,
+  "namedElitesRespawn": true,
+  "claimAtHubOnce": true
+}

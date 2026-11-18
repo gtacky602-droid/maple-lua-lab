@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-19",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 335 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 327,
+  "scope": "Authored 337 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 329,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -716,6 +716,18 @@
     {
       "id": "nod-town",
       "name": "ナド・クライ・町の広場",
+      "region": "ナド・クライ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "nod-tide-scrapyard",
+      "name": "ナド・クライ・月浜の部品置き場",
+      "region": "ナド・クライ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "nod-forest-outer",
+      "name": "ナド・クライ・トウヒ林の外周",
       "region": "ナド・クライ",
       "status": "regional_temporary_image"
     },

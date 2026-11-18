@@ -28,6 +28,10 @@
     "natlan": {
       "label": "ナタ",
       "includeRegions": ["ナタ", "オシカ・ナタ"]
+    },
+    "nod-krai": {
+      "label": "ナド・クライ",
+      "includeRegions": ["ナド・クライ", "ナド・クライ特別地域（仮）"]
     }
   },
   "quests": [
@@ -524,6 +528,87 @@
       "goal": 60,
       "xp": 110450,
       "mora": 1460
+    },
+    {
+      "id": "daily-nod-night-patrol",
+      "designId": "Q-NOD-D01",
+      "kind": "main",
+      "region": "nod-krai",
+      "hub": "nod-town",
+      "level": 120,
+      "giver": "フリンズ",
+      "name": "今宵の巡回",
+      "intro": "フリンズ「灯りの届かない道も気になります。今夜の巡回を手伝っていただけますか？」",
+      "target": "ナド・クライ・ナド・クライ特別地域の配置済みの実戦の敵",
+      "filter": {"kind": "region"},
+      "goal": 200,
+      "xp": 742560,
+      "mora": 4850
+    },
+    {
+      "id": "daily-nod-parts-route",
+      "designId": "Q-NOD-D02",
+      "kind": "extra",
+      "region": "nod-krai",
+      "hub": "nod-town",
+      "level": 120,
+      "giver": "アイノ",
+      "name": "部品を取りに行きたいんだけど！",
+      "intro": "アイノ「海岸の置き場に使えそうな部品があるんだ。先に道を空けてくれない？」",
+      "target": "月浜の部品置き場・潮風の部品回収場の実戦の敵",
+      "filter": {"kind": "nodes", "nodes": ["nod-tide-scrapyard", "nod-appraisal-yard"]},
+      "goal": 60,
+      "xp": 222770,
+      "mora": 1820
+    },
+    {
+      "id": "daily-nod-rumored-elites",
+      "designId": "Q-NOD-D03",
+      "kind": "extra",
+      "region": "nod-krai",
+      "hub": "nod-town",
+      "level": 120,
+      "giver": "ネフェル",
+      "name": "噂の強敵、確かめてきて",
+      "intro": "ネフェル「部品置き場の機兵と林の牙獣、どちらも見かけた人がいるそうよ。」",
+      "target": "月浜の部品置き場・トウヒ林の外周の指定精鋭",
+      "filter": {"kind": "elite", "nodes": ["nod-tide-scrapyard", "nod-forest-outer"]},
+      "goal": 3,
+      "xp": 139230,
+      "mora": 2380
+    },
+    {
+      "id": "daily-nod-forest-border",
+      "designId": "Q-NOD-D04",
+      "kind": "extra",
+      "region": "nod-krai",
+      "hub": "nod-town",
+      "level": 120,
+      "giver": "ラウマ",
+      "name": "森へ続く道のために",
+      "intro": "ラウマ「林の縁を見回って、森へ来る人が安心して通れるようにしてもらえますか？」",
+      "target": "トウヒ林の外周・花見道の外周の実戦の敵",
+      "filter": {"kind": "nodes", "nodes": ["nod-forest-outer", "nod-bloom-trail"]},
+      "goal": 80,
+      "xp": 297020,
+      "mora": 2140
+    },
+    {
+      "id": "daily-nod-coast-revisit",
+      "designId": "Q-NOD-D05",
+      "kind": "extra",
+      "region": "nod-krai",
+      "hub": "nod-town",
+      "level": 120,
+      "giver": "コロンビーナ",
+      "companion": "columbina",
+      "name": "あの海岸へ、もう一度",
+      "intro": "コロンビーナ「また月の見える海岸に行きたいの。先に、岸の道を見てきてくれる？」",
+      "target": "月浜の部品置き場・灯りの海岸旧道の実戦の敵",
+      "filter": {"kind": "nodes", "nodes": ["nod-tide-scrapyard", "nod-lantern-shore"]},
+      "goal": 60,
+      "xp": 222770,
+      "mora": 1690
     }
   ]
 }

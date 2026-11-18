@@ -726,6 +726,26 @@
         "platform": 2
       }
     ],
+    "nod-tide-scrapyard": [
+      {"id":"nod-scrap-cart-west","kind":1,"art":"sled-maintenance-cart","x":357,"platform":0,"hp":40},
+      {"id":"nod-scrap-slime-west","kind":1,"art":"hydro-slime","x":500,"platform":0,"hp":32},
+      {"id":"nod-scrap-cart-ledge","kind":2,"art":"sled-maintenance-cart","x":617,"platform":1,"hp":40},
+      {"id":"nod-scrap-pebble-upper","kind":1,"art":"pebble-courier","x":833,"platform":2,"hp":41},
+      {"id":"nod-scrap-elite","kind":1,"art":"ruin-guard","x":985,"platform":0,"hp":85,"name":"廃部品を守る遺跡機兵","dailyElite":true},
+      {"id":"nod-scrap-slime-ledge","kind":2,"art":"pyro-slime","x":1301,"platform":3,"hp":35},
+      {"id":"nod-scrap-cart-east","kind":1,"art":"sled-maintenance-cart","x":1388,"platform":0,"hp":43},
+      {"id":"nod-scrap-slime-east","kind":1,"art":"hydro-slime","x":1576,"platform":0,"hp":37}
+    ],
+    "nod-forest-outer": [
+      {"id":"nod-forest-beetle-west","kind":1,"art":"snow-mantle-beetle","x":333,"platform":0,"hp":39},
+      {"id":"nod-forest-slime-west","kind":1,"art":"hydro-slime","x":501,"platform":0,"hp":33},
+      {"id":"nod-forest-beetle-ledge","kind":1,"art":"snow-mantle-beetle","x":588,"platform":1,"hp":38},
+      {"id":"nod-forest-slime-upper","kind":2,"art":"pyro-slime","x":795,"platform":2,"hp":35},
+      {"id":"nod-forest-elite","kind":1,"art":"fanged-beast","x":934,"platform":0,"hp":80,"name":"林の縁をうろつく牙獣","dailyElite":true},
+      {"id":"nod-forest-beetle-east","kind":1,"art":"snow-mantle-beetle","x":1194,"platform":3,"hp":40},
+      {"id":"nod-forest-slime-east","kind":1,"art":"hydro-slime","x":1284,"platform":0,"hp":37},
+      {"id":"nod-forest-beast-east","kind":1,"art":"fanged-beast","x":1498,"platform":0,"hp":49}
+    ],
     "snezhnaya-entry": [
       {
         "id": "snezhnaya-entry-1",

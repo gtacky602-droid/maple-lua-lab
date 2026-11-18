@@ -506,6 +506,14 @@
       "enemy_count": 0
     },
     {
+      "node": "nod-tide-scrapyard",
+      "enemy_count": 8
+    },
+    {
+      "node": "nod-forest-outer",
+      "enemy_count": 8
+    },
+    {
       "node": "snezhnaya-entry",
       "enemy_count": 6
     },
