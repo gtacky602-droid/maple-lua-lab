@@ -29,7 +29,7 @@ function renderGrowthPractice(frame){
 function update(){
  const f=window.lab?.frame;if(!f?.story)return;
  updateEndgame(f);
- const signature=JSON.stringify([f.story,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.growthTrial,f.growthBranchObserve,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
+ const signature=JSON.stringify([f.story,f.bossJourney,f.storyNotice,f.storyLift?.destination,f.storyLocalLight?.mode,f.imprintTrial,f.imprintOverride,f.imprintGrowth?.total,f.growthEligibility,f.growthTrial,f.growthBranchObserve,f.azhdahaLobby,f.progression?.level,f.companion?.id,Math.ceil(f.voyage?.seconds||0),f.voyage?.stopover]);if(signature===previous)return;previous=signature;
  renderGrowthPractice(f);
  const tracked=document.getElementById('trackedQuest'),text=trackedQuestText(f,trackedId);tracked.hidden=!text;document.getElementById('trackedQuestText').textContent=text;
  panel.replaceChildren();const title=document.createElement('p');title.textContent=`本編ルート試作：モンド → スネージナヤ（${f.storyGraph.nodes.length}表示地点・${f.storyGraph.quests.length}表示依頼）。配置・敵・報酬は仮設定。背景画像は共用。`;panel.append(title,button('本編ルートへ','story_start'));
@@ -43,6 +43,18 @@ function update(){
   position.textContent+=' ／ 到着まで '+Math.ceil(f.voyage.seconds)+'秒（'+phase+'）';
  }
  panel.append(position);
+ if(f.azhdahaLobby){
+  const field=document.createElement('fieldset');field.id='azhdahaElements';
+  const legend=document.createElement('legend');legend.textContent='若陀龍王が吸収する元素';field.append(legend);
+  const element={pyro:'炎',hydro:'水',electro:'雷',cryo:'氷'};
+  for(const pair of f.azhdahaLobby.choices){
+   const choice=button(pair.map(key=>element[key]).join('＋'),'azhdaha_pair:'+pair.join(':'));
+   choice.setAttribute('aria-pressed',String(pair.every((key,i)=>f.azhdahaLobby.selected[i]===key)));
+   if(choice.getAttribute('aria-pressed')==='true')choice.className='selected';
+   field.append(choice);
+  }
+  panel.append(field);
+ }
  if(!f.bossJourney){
   const comparison=document.createElement('a');
   comparison.href='map-art.html?'+new URLSearchParams({node:node.id});

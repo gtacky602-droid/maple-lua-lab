@@ -1,0 +1,55 @@
+{
+  "phase_pairs": {
+    "pyro:cryo": [
+      "WZ04.infused",
+      "cryo"
+    ],
+    "pyro:electro": [
+      "WZ04.infused",
+      "electro"
+    ],
+    "hydro:cryo": [
+      "WZ04.infused",
+      "cryo"
+    ],
+    "hydro:electro": [
+      "WZ04.infused",
+      "electro"
+    ]
+  },
+  "attack_timelines": {
+    "WZ01": 144,
+    "WZ02": 300,
+    "WZ03": 132,
+    "WZ04": 126,
+    "WZ05": 192,
+    "WZ06": 150,
+    "WZ07": 228,
+    "WZ08": 384,
+    "WZ10": 420,
+    "WZ11": 312,
+    "WZ12": 564,
+    "WZ14": 288,
+    "WZ04.infused": 198,
+    "WZ05.electro": 192,
+    "WZ05.cryo": 192,
+    "WZ10.hydro": 420,
+    "WZ11.cryo": 312,
+    "WZ12.cryo": 564
+  },
+  "burrow_target_disabled": true,
+  "shield_break_no_mark_and_cleanse": true,
+  "mark_seven_ticks": true,
+  "fire_at_most_two": true,
+  "scale_impact_then_36_ticks": true,
+  "electro_three_safe_lanes_walked": true,
+  "cryo_group_once": true,
+  "tail_lethal_with_one_reward": true,
+  "lethal_before_absorption": true,
+  "normal_only_solo": {
+    "seconds": 24.42,
+    "hp": 114,
+    "atk": 47,
+    "returns": 0
+  }
+}

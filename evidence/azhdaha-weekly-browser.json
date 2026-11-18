@@ -1,0 +1,23 @@
+{
+  "entry": true,
+  "chosenPair": [
+    "hydro",
+    "electro"
+  ],
+  "bothAbsorptionsAndTargetableTail": true,
+  "normalKeyBattleAndReport": true,
+  "savedRespawn": true,
+  "remainingHp": 114,
+  "viewport390": true,
+  "scene": {
+    "key": "liyuequarry",
+    "file": "liyue-quarry-background-v1.png",
+    "state": "ready"
+  },
+  "sameStateCommands": {
+    "png": 29,
+    "standard": 23292,
+    "light": 6545
+  },
+  "errors": []
+}

@@ -370,7 +370,13 @@ function hud(f,calls,renderMs){
   const bodyNames={anemo:'風',cryo:'❄ 氷',electro:'⚡ 雷'};
   const elements=field.elementSlots?(' ｜ '+field.elementSlots.map(e=>elementNames[e]).join(' → ')):
    field.bodies?.length===2?' '+field.bodies.map((body,i)=>bodyNames[body.element]+['①','②'][i]).join(' / '):'';
-  const mark=field.mark?` ｜ ${elementNames[field.mark]}断流・両端で解除`:'';
+  let mark=field.mark?` ｜ ${elementNames[field.mark]}断流・両端で解除`:'';
+  if(field.marks){
+   for(const [id,item] of Object.entries(field.marks)){
+    const role=id==='1'?'旅人':'同行';
+    mark+=` ｜ ${role} ${elementNames[item.element]}刻印 ${Math.ceil(item.ticks/60)}秒`;
+   }
+  }
   const form=field.formName?`・${field.formName}`:'';
   const line=`${field.name}${form}（Lv${field.level}）${elements} ｜ ${status}${mark}`;
   if(fieldLabel.textContent!==line)fieldLabel.textContent=line;

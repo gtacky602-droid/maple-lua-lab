@@ -897,6 +897,574 @@
           "damage": 16
         }
       }
+    },
+    {
+      "id": "boss-29040101",
+      "controller": "azhdaha",
+      "entity": 29040101,
+      "name": "若陀龍王",
+      "node": "azhdaha-dragon-seal-arena",
+      "storyChallenge": "azhdaha-weekly",
+      "level": 32,
+      "hp": 1500,
+      "mora": 660,
+      "expRole": "weekly_boss",
+      "center": 528,
+      "width": 1056,
+      "floorY": 480,
+      "noticeTicks": 48,
+      "respawnTicks": 3600,
+      "restTicks": 24,
+      "markTicks": 480,
+      "markPeriod": 60,
+      "markDamage": 2,
+      "residualDamage": 5,
+      "secondaryDamage": 7,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1056
+        },
+        {
+          "x": 100,
+          "y": 368,
+          "w": 190
+        },
+        {
+          "x": 766,
+          "y": 368,
+          "w": 190
+        }
+      ],
+      "orders": [
+        [
+          "WZ01",
+          "WZ02",
+          "WZ06",
+          "WZ03",
+          "WZ04",
+          "WZ07",
+          "WZ05",
+          "WZ08"
+        ],
+        [
+          "WZ10",
+          "WZ01",
+          "WZ07",
+          "WZ02",
+          "WZ05",
+          "WZ08",
+          "WZ04",
+          "WZ06"
+        ],
+        [
+          "WZ11",
+          "WZ04",
+          "WZ12",
+          "WZ03",
+          "WZ14",
+          "WZ10",
+          "WZ02",
+          "WZ05",
+          "WZ06",
+          "WZ07",
+          "WZ08"
+        ]
+      ],
+      "moves": {
+        "WZ01": {
+          "title": "岩顎の地裂",
+          "total": 216,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              72,
+              78,
+              "damage"
+            ],
+            [
+              72,
+              73,
+              "spawn"
+            ]
+          ],
+          "recovery": 144,
+          "damage": 12
+        },
+        "WZ02": {
+          "title": "前脚の三震",
+          "total": 372,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              84,
+              85,
+              "spawn"
+            ],
+            [
+              174,
+              175,
+              "spawn"
+            ],
+            [
+              264,
+              265,
+              "spawn"
+            ]
+          ],
+          "recovery": 300,
+          "damage": 10
+        },
+        "WZ03": {
+          "title": "巨体の横打ち",
+          "total": 204,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              108,
+              120,
+              "damage"
+            ]
+          ],
+          "recovery": 132,
+          "damage": 15
+        },
+        "WZ04": {
+          "title": "樹尾の叩き付け",
+          "total": 204,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              90,
+              102,
+              "damage"
+            ]
+          ],
+          "recovery": 126,
+          "damage": 14
+        },
+        "WZ05": {
+          "title": "樹尾の掃引",
+          "total": 270,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              84,
+              102,
+              "damage"
+            ]
+          ],
+          "recovery": 192,
+          "damage": 13
+        },
+        "WZ06": {
+          "title": "岩牙の突進",
+          "total": 258,
+          "locks": [
+            54
+          ],
+          "windows": [
+            [
+              102,
+              138,
+              "damage"
+            ]
+          ],
+          "recovery": 150,
+          "damage": 19
+        },
+        "WZ07": {
+          "title": "大地を砕く跳躍",
+          "total": 360,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              132,
+              144,
+              "damage"
+            ],
+            [
+              204,
+              216,
+              "damage"
+            ]
+          ],
+          "recovery": 228,
+          "damage": 18
+        },
+        "WZ08": {
+          "title": "潜地・落岩",
+          "total": 480,
+          "locks": [
+            84,
+            156,
+            228,
+            282
+          ],
+          "windows": [
+            [
+              144,
+              150,
+              "damage"
+            ],
+            [
+              216,
+              222,
+              "damage"
+            ],
+            [
+              288,
+              294,
+              "damage"
+            ],
+            [
+              360,
+              372,
+              "damage"
+            ]
+          ],
+          "recovery": 384,
+          "damage": 14
+        },
+        "WZ09": {
+          "title": "地脈吸収・連震",
+          "total": 540,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              90,
+              96,
+              "damage"
+            ],
+            [
+              132,
+              138,
+              "damage"
+            ],
+            [
+              174,
+              180,
+              "damage"
+            ],
+            [
+              216,
+              222,
+              "damage"
+            ],
+            [
+              258,
+              264,
+              "damage"
+            ],
+            [
+              348,
+              360,
+              "damage"
+            ]
+          ],
+          "recovery": 396,
+          "damage": 15
+        },
+        "WZ10": {
+          "title": "地脈の咆哮",
+          "total": 492,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              132,
+              138,
+              "damage"
+            ],
+            [
+              204,
+              210,
+              "damage"
+            ],
+            [
+              276,
+              282,
+              "damage"
+            ]
+          ],
+          "recovery": 420,
+          "damage": 14
+        },
+        "WZ11": {
+          "title": "元素結晶の射出",
+          "total": 408,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              90,
+              91,
+              "spawn"
+            ],
+            [
+              150,
+              151,
+              "spawn"
+            ],
+            [
+              210,
+              211,
+              "spawn"
+            ]
+          ],
+          "recovery": 312,
+          "damage": 12
+        },
+        "WZ12": {
+          "title": "樹尾の戦場",
+          "total": 660,
+          "locks": [
+            144,
+            264,
+            384
+          ],
+          "windows": [
+            [
+              180,
+              192,
+              "damage"
+            ],
+            [
+              300,
+              312,
+              "damage"
+            ],
+            [
+              420,
+              432,
+              "damage"
+            ]
+          ],
+          "recovery": 564,
+          "damage": 15
+        },
+        "WZ14": {
+          "title": "元素鱗弾",
+          "total": 360,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              90,
+              91,
+              "spawn"
+            ],
+            [
+              126,
+              127,
+              "spawn"
+            ]
+          ],
+          "recovery": 288,
+          "damage": 14
+        },
+        "WZ04.infused": {
+          "title": "樹尾の叩き付け",
+          "total": 288,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              90,
+              102,
+              "damage"
+            ],
+            [
+              126,
+              132,
+              "damage"
+            ],
+            [
+              174,
+              180,
+              "damage"
+            ]
+          ],
+          "recovery": 198,
+          "damage": 14
+        },
+        "WZ05.electro": {
+          "title": "樹尾の掃引",
+          "total": 270,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              84,
+              102,
+              "damage"
+            ],
+            [
+              108,
+              180,
+              "hazard_contact_group"
+            ]
+          ],
+          "recovery": 192,
+          "damage": 13
+        },
+        "WZ05.cryo": {
+          "title": "樹尾の掃引",
+          "total": 270,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              84,
+              102,
+              "damage"
+            ],
+            [
+              174,
+              180,
+              "damage"
+            ]
+          ],
+          "recovery": 192,
+          "damage": 13
+        },
+        "WZ10.hydro": {
+          "title": "地脈の咆哮",
+          "total": 492,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              108,
+              109,
+              "spawn"
+            ],
+            [
+              180,
+              181,
+              "spawn"
+            ]
+          ],
+          "recovery": 420,
+          "damage": 14
+        },
+        "WZ11.cryo": {
+          "title": "元素結晶の射出",
+          "total": 408,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              90,
+              96,
+              "damage"
+            ],
+            [
+              132,
+              138,
+              "damage"
+            ],
+            [
+              174,
+              180,
+              "damage"
+            ],
+            [
+              216,
+              222,
+              "damage"
+            ],
+            [
+              258,
+              264,
+              "damage"
+            ]
+          ],
+          "recovery": 312,
+          "damage": 12
+        },
+        "WZ12.cryo": {
+          "title": "樹尾の戦場",
+          "total": 660,
+          "locks": [
+            144,
+            264,
+            384
+          ],
+          "windows": [
+            [
+              180,
+              186,
+              "damage"
+            ],
+            [
+              210,
+              216,
+              "damage"
+            ],
+            [
+              240,
+              246,
+              "damage"
+            ],
+            [
+              300,
+              306,
+              "damage"
+            ],
+            [
+              330,
+              336,
+              "damage"
+            ],
+            [
+              360,
+              366,
+              "damage"
+            ],
+            [
+              420,
+              426,
+              "damage"
+            ],
+            [
+              450,
+              456,
+              "damage"
+            ],
+            [
+              480,
+              486,
+              "damage"
+            ]
+          ],
+          "recovery": 564,
+          "damage": 15
+        }
+      }
     }
   ]
 }

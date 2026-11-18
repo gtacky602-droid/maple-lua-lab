@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 87,
-    "partial": 70,
+    "partial": 71,
     "complete": 0
   },
   "encounters": [
@@ -137,23 +137,27 @@
       "entity_ids": [
         "29040101"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/azhdaha.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/azhdaha.json",
+        "evidence/azhdaha-weekly-lua.json",
+        "evidence/azhdaha-weekly-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "四足の前脚・尾・潜行の専用作画、四元素の連続アニメーション、音",
+        "装備・難度別バランスと報酬",
+        "Webマルチ・幻境実機"
       ],
+      "weeklyNode": "azhdaha-dragon-seal-arena",
+      "weeklyEntrance": "伏龍の封印・若陀龍王の再現戦（Lv32）",
+      "review_note": "WZ01〜14、HP一本の二度の元素吸収、四組合せ、尾だけの被ダメージ、盾による刻印防護をWebの週ボスに接続。Lv32・HP1500と報酬は試作値。",
       "art_candidate": {
         "source": "assets/azhdaha-idle-source-v1.png",
         "encoding": "assets/azhdaha-idle-sprites.json",
         "audit": "evidence/azhdaha-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "status": "Existing quadruped idle candidate used in the Web encounter with separate provisional tail and element effects"
       }
     },
     {

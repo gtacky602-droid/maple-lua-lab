@@ -76,10 +76,20 @@
       }
     },
     "boss-29040101": {
+      "remaining": [
+        "四足の前脚・尾・潜行の専用作画、四元素の連続アニメーション、音",
+        "装備・難度別バランスと報酬",
+        "Webマルチ・幻境実機"
+      ],
+      "extra_evidence": [
+        "evidence/azhdaha-weekly-lua.json",
+        "evidence/azhdaha-weekly-browser.json"
+      ],
+      "review_note": "WZ01〜14、HP一本の二度の元素吸収、四組合せ、尾だけの被ダメージ、盾による刻印防護をWebの週ボスに接続。Lv32・HP1500と報酬は試作値。",
       "art_candidate": {
         "item": "azhdaha",
         "audit": "evidence/azhdaha-reference-audit.json",
-        "status": "idle candidate only; no live combat or animations"
+        "status": "Existing quadruped idle candidate used in the Web encounter with separate provisional tail and element effects"
       }
     },
     "boss-29030101": {
