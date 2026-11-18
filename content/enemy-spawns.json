@@ -7,6 +7,11 @@
       {"id":"mond-return-slime-b","kind":1,"art":"hydro-slime","x":1615,"platform":0,"hp":14,"questPhase":1},
       {"id":"mond-return-slime-c","kind":1,"art":"hydro-slime","x":1745,"platform":0,"hp":17,"questPhase":1}
     ],
+    "mond-night-hill": [
+      {"id":"mond-night-slime-a","kind":1,"art":"anemo-slime","x":1240,"platform":0,"hp":14,"questPhase":1,"flight":{"lift":4,"rise":28,"period":1.9}},
+      {"id":"mond-night-slime-b","kind":1,"art":"anemo-slime","x":1390,"platform":0,"hp":18,"questPhase":1,"flight":{"lift":12,"rise":30,"period":2.4,"offset":0.8}},
+      {"id":"mond-night-slime-c","kind":1,"art":"anemo-slime","x":1596,"platform":2,"hp":21,"questPhase":1,"flight":{"lift":7,"rise":23,"period":2.1,"offset":1.1}}
+    ],
     "mond-roadside-rest": [
       {"id": "mond-rest-slime", "kind": 1, "art": "hydro-slime", "x": 350, "platform": 0, "hp": 12},
       {"id": "mond-rest-hilichurl", "kind": 1, "art": "hilichurl", "x": 790, "platform": 0, "hp": 18}

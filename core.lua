@@ -367,6 +367,14 @@ local function physics(s,a,dt,move,held)
   a.runDistance=wasGrounded and a.ground and move~=0 and move==previousMove and ((a.runDistance or 0)+abs(dx)) or 0
  end
 end
+function C.moveOrdinaryFlier(e,dt)
+ local f=e.flight
+ e.flightTime=(e.flightTime+dt)%f.period
+ local lift=f.lift+f.rise*(1-math.cos(e.flightTime/f.period*2*math.pi))/2
+ e.y=e.flightHome-lift
+ e.flying=true
+end
+
 function C.step(s,dt,input)
  if s.paused then return end
  dt=clamp(dt,0,1/30);input=input or {};s.t=s.t+dt;s.swap=max(0,s.swap-dt)
@@ -420,6 +428,7 @@ function C.step(s,dt,input)
   local rate=C.enemyRate(e)
   if e.hp<=0 then e.respawn=e.respawn-dt;if e.respawn<=0 then e.hp=e.maxhp;e.x=e.home;e.cd=2 end
   elseif not e.custom then
+   if e.flight then C.moveOrdinaryFlier(e,e.root<=0 and dt*rate or 0) end
    e.cd=e.cd-dt*rate
    local near=nil;local attracted=false
    for _,a in ipairs(s.actors) do if a.hp>0 and abs(e.x-a.x)<60 and abs(e.y-a.y)<45 then near=a;break end end

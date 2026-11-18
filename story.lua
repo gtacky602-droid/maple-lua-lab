@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -180,6 +180,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local survey=surveyModule(C,canInspect)
  local snowMatch=snowMatchModule(C,canInspect)
  local returnBox=returnBoxModule(C,canInspect)
+ local nightBanner=nightBannerModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -459,7 +460,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      local e=fresh.enemies[i];local p=assert(n.platforms[placement.platform+1],'Invalid enemy support')
      e.x=placement.x;e.home=e.x;e.y=p.y;e.kind=placement.kind;e.art=placement.art;e.spawnId=placement.id
      e.storyName=placement.name
-      e.pursuit=placement.pursuit
+     e.pursuit=placement.pursuit
+     if placement.flight then
+      e.flight=placement.flight;e.flightHome=p.y
+      e.flightTime=placement.flight.offset or 0
+      C.moveOrdinaryFlier(e,0)
+     end
      if placement.hp then e.hp=placement.hp;e.maxhp=placement.hp end
      e.patrolMin=p.x+24;e.patrolMax=p.x+p.w-24
      e.level=n.level;e.barrier=n.barrier or 0;if e.barrier>0 then e.hp=60;e.maxhp=60 end
@@ -529,6 +535,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local stageState=clearState(s,n)
   local phase=railState and railState.count or 0
   if n.returnBox and stageState and stageState.count==n.returnBox.chaseAt+1 then phase=1 end
+  if n.spawnAt and stageState and stageState.count==n.spawnAt then phase=1 end
   if stageQuest and stageQuest.recovery and stageState and stageState.recovered and stageState.count==stageQuest.goal-1 then phase=1 end
   local group=stageState and (stageState.book or stageState.forest or stageState.rest)
   local defeated=group and group.defeated
@@ -624,7 +631,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if duel.ring(s,node.duel) then return end
    if node.snowMatch and snowMatch.start(s,node.snowMatch,s.story.quests[node.snowMatch.quest]) then return end
    if flagCourse.interact(s,node.flagCourse) then return end
-   if inspectMilestone(s,'rotate') then return end
+   local spawnState=node.spawnAt and clearState(s,node)
+   local wasSpawnPhase=spawnState and spawnState.count==node.spawnAt
+   if inspectMilestone(s,'rotate') then
+    if spawnState and not wasSpawnPhase and spawnState.count==node.spawnAt then spawnEnemies(s,node,1) end
+    return
+   end
+   if node.nightBanner and nightBanner.read(s,node,quests[node.clearedBy],spawnState) then return end
    local archive=node.returnBoxArchive
    if archive and returnBox.read(s,archive,s.story.quests[archive.quest]) then return end
    local railConfig,railState=railQuest(s,nodes[s.story.node])
@@ -1112,6 +1125,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if n.returnBoxArchive then
     returnBox.archive(s,f,markers,n.returnBoxArchive,s.story.quests[n.returnBoxArchive.quest],mode,profile)
    end
+   if n.nightBanner then
+    local q=quests[n.clearedBy]
+    nightBanner.observe(s,f,markers,n,q,s.story.quests[q.id],mode,profile)
+   end
     if n.moonInlet then moonInlet.observe(s,f,markers,n.moonInlet,s.story.quests[n.moonInlet.quest]) end
     if n.shoreLights then moonInlet.lights(s,markers,n.shoreLights) end
     if n.coastDetour then coastDetour.observe(s,f,markers,n.coastDetour,quests[n.coastDetour.quest],mode,profile) end
@@ -1278,7 +1295,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      local x,y=milestone.x-s.camera,milestone.y
      if not milestone.rumorBoard and not milestone.bloomProp and not milestone.patrolLamp and not milestone.patrolTable
         and not milestone.surveySample and not milestone.surveyPad and not milestone.surveyRig and not milestone.surveySeat
-        and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup
+        and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup and not milestone.nightClue
         and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)

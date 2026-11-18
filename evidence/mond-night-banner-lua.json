@@ -1,0 +1,15 @@
+{
+  "prerequisite": true,
+  "movingProjection": true,
+  "orderedCluesAndHeight": true,
+  "windSlimesHover": true,
+  "partialKillReload": true,
+  "normalAttackFromLedge": true,
+  "collectAndRepair": true,
+  "postAndDialoguePersist": true,
+  "reward": [
+    967,
+    170,
+    3
+  ]
+}

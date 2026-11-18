@@ -77,6 +77,12 @@
           "x": 758,
           "arrivalX": 120,
           "requires": {"quest": "mond-return-box-quest", "count": 1}
+        },
+        {
+          "to": "mond-night-hill",
+          "x": 851,
+          "arrivalX": 118,
+          "requires": {"quest": "mond-night-banner-quest", "count": 1}
         }
       ],
       "checkpoint": "mond-town"
@@ -107,6 +113,27 @@
         "leash": 295,
         "hops": 2.6,
         "lift": 20
+      }
+    },
+    {
+      "id": "mond-night-hill",
+      "name": "モンド・月影の風見丘",
+      "region": "モンド",
+      "level": 1,
+      "hub": false,
+      "checkpoint": "mond-town",
+      "width": 1930,
+      "platforms": [
+        {"x": 0, "y": 480, "w": 1930},
+        {"x": 562, "y": 396, "w": 298},
+        {"x": 1490, "y": 405, "w": 326}
+      ],
+      "exits": [{"to":"mond-town","x":61,"arrivalX":800}],
+      "clearedBy": "mond-night-banner-quest",
+      "clearCount": 5,
+      "spawnAt": 4,
+      "nightBanner": {
+        "note": "フィッシュル「黒き翼の正体を記したわ。これで夜道を行く者も、あの影に戸惑わずにすむでしょう。」オズ「灯りを背にすると大きな影ができる。風向きも調査の手がかりでしたね。」"
       }
     },
     {
@@ -4899,6 +4926,32 @@
         {"kind":"returnBoxChase","node":"mond-library-orchard","objective":"右へ跳ねる返却箱を追い、果樹道の奥まで走る","notice":"水スライムの群れが箱の下から飛び出しました。群れを退けて本を拾いましょう。"},
         {"kind":"kill","node":"mond-library-orchard","enemies":["mond-return-slime-a","mond-return-slime-b","mond-return-slime-c"],"objective":"返却箱を運んでいた水スライム3体を退ける","notice":"箱が止まりました。ふたの上の本は無事です。"},
         {"kind":"inspect","node":"mond-library-orchard","x":1640,"y":480,"name":"止まった返却箱","action":"返却箱の上の本を回収する","objective":"止まった返却箱から本を回収し、城門広場へ戻る","notice":"本を回収しました。西の門からリサのいる城門広場に戻れます。","returnPickup":true}
+      ]
+    },
+    {
+      "id": "mond-night-banner-quest",
+      "designId": "Q-MON-S04",
+      "name": "断罪の皇女と、夜の大怪鳥",
+      "giver": "フィッシュル",
+      "hub": "mond-town",
+      "target": "mond-night-hill",
+      "requires": "mond-old-trail",
+      "kind": "itinerary",
+      "goal": 7,
+      "xp": 967,
+      "mora": 170,
+      "ore": 3,
+      "briefing": "フィッシュル「月の下、丘に黒き翼が現れたと聞いたわ。私とともに、その正体を突き止めましょう。」",
+      "closing": "フィッシュル「黒き翼の正体を見届け、丘の目印も取り戻したわ。」オズ「幟は元どおりです。調べたことを、そばに記しておきましょう。」",
+      "completedObjective": "月影の風見丘に修繕した幟が残る。フィッシュルとオズの調査記録を読める",
+      "itinerary": [
+        {"kind":"inspect","node":"mond-town","x":1068,"y":480,"name":"夜の丘の聞き込み","action":"フィッシュルとオズから話を聞く","objective":"城門広場でフィッシュルとオズの話を聞く","notice":"オズ「丘の石垣に大きな鳥のような影が映るそうです。西寄りの門から、影が落ちる場所へ行きましょう。」"},
+        {"kind":"inspect","node":"mond-night-hill","x":225,"y":480,"name":"鳥のような影","action":"石垣に落ちる影を調べる","objective":"月影の風見丘で、石垣に映る大きな影を調べる","notice":"フィッシュル「羽ばたくたび、翼の端がほどける……。風がどこから来るか、石段の上で見ましょう。」","nightClue":"shadow"},
+        {"kind":"inspect","node":"mond-night-hill","x":718,"y":396,"name":"風の通り道","action":"高い石段で風向きを調べる","objective":"石段にジャンプし、風の流れる向きを確かめる","notice":"オズ「風は丘の奥から石垣へ吹いています。石段を下りた先に、同じ風で揺れる黒い布があります。」","nightClue":"wind"},
+        {"kind":"inspect","node":"mond-night-hill","x":1065,"y":480,"name":"黒い布の切れ端","action":"黒い布の切れ端を手に取る","objective":"地上に落ちている黒い布の切れ端を調べる","notice":"古い幟に浮かぶ風スライムが絡んでいました。幟が灯りをさえぎり、翼のような影を落としていたようです。","nightClue":"cloth"},
+        {"kind":"kill","node":"mond-night-hill","enemies":["mond-night-slime-a","mond-night-slime-b","mond-night-slime-c"],"objective":"地上近くと石段上の風スライムを退ける","notice":"最後の風スライムが離れ、幟が石段の下に落ちました。"},
+        {"kind":"inspect","node":"mond-night-hill","x":1470,"y":480,"name":"ほつれた古い幟","action":"ほどけた幟を回収する","objective":"地上に降り、石段の下に落ちた幟を回収する","notice":"フィッシュル「布は繕えそうね。丘の高台に目印を戻しましょう。」","nightClue":"pickup"},
+        {"kind":"inspect","node":"mond-night-hill","x":1705,"y":405,"name":"丘の幟台","action":"幟を繕い、丘の目印を立てる","objective":"高台に上がり、幟を修繕して所定の位置に戻す","notice":"オズ「幟が立ちました。城門広場に戻って、この調査を締めくくりましょう。」","nightClue":"post"}
       ]
     },
     {

@@ -2222,6 +2222,36 @@
       "transparent": 0
     },
     {
+      "key": "mondNightHill",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "mondNightHill",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "mondNightHill",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "mondNightHill",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "mondNightHill",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "mondNightHill",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "inazumatown",
       "camera": -960,
       "transparent": 0

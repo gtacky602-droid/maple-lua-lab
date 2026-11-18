@@ -14,6 +14,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "mond-night-hill",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "mond-roof-route",
       "count": 0,
       "fallback": false,

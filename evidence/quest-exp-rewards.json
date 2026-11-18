@@ -1,15 +1,15 @@
 {
   "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
   "version": "monster-quest-v02",
-  "quests_tested": 44,
+  "quests_tested": 45,
   "old_completed_not_reissued": true,
   "old_unreported_uses_current_preview": true,
   "unlinked_trial_fallback": true,
   "by_region": {
     "MON": {
-      "linked": 7,
-      "legacy_xp": 7587,
-      "report_xp": 10620
+      "linked": 8,
+      "legacy_xp": 8554,
+      "report_xp": 11587
     },
     "LIY": {
       "linked": 8,
@@ -59,6 +59,12 @@
       "quest_id": "mond-return-box-quest",
       "legacy_xp": 290,
       "report_xp": 290
+    },
+    {
+      "design_id": "Q-MON-S04",
+      "quest_id": "mond-night-banner-quest",
+      "legacy_xp": 967,
+      "report_xp": 967
     },
     {
       "design_id": "Q-MON-S01",

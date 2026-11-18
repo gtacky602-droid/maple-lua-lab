@@ -1,0 +1,103 @@
+{
+  "tool": "built-in image generation",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/mond-night-banner-model.obj",
+    "sha256": "06a3e126fdf0fecabb050b45f00e975cf3016b8b2f96cd8f168b57e0dbe87d73"
+  },
+  "materials": {
+    "path": "evidence/mond-night-banner-model.mtl",
+    "sha256": "e4e30f4e9f1330731b900d3be528fa576b5544ad07ee92f206323bee69c17fa2"
+  },
+  "contactSheet": {
+    "path": "evidence/mond-night-banner-views.png",
+    "sha256": "5163234fa15d84d64cae5f05d330dff857690702e0eb4ada67316c75a02d65c6"
+  },
+  "propsSource": {
+    "path": "assets/mond-night-banner-props-source-v1.png",
+    "sha256": "6e257bedcaf428f3e2f8d20dad20ce2e208686469b33693dc5e5a62de80274c1"
+  },
+  "background": {
+    "path": "assets/mond-night-banner-background-v1.png",
+    "sha256": "98df186c49e58edd90d7a5635427eff59ee3e5520c99616f02a14497eb0d70c1"
+  },
+  "backgroundReference": {
+    "path": "assets/mond-hill-background-v1.png",
+    "sha256": "7833f558dba0b99a2c6a6ca0684f8ebc6a9a72e5302136f37e2974e4651c08b1"
+  },
+  "status": "Original local models and prototype art. Temporary Web background.",
+  "profiles": {
+    "torn": {
+      "encoding": {
+        "path": "assets/mond-night-banner-torn-sprites-v1.json",
+        "sha256": "523cab275d90168c24ae17571fe3824132a2f28089812a6c18d6ce7dd52e074d"
+      },
+      "box": [
+        120,
+        223,
+        304,
+        323
+      ],
+      "runs": {
+        "legacy": 1242,
+        "h48c32": 757,
+        "h32c16": 317
+      }
+    },
+    "repaired": {
+      "encoding": {
+        "path": "assets/mond-night-banner-repaired-sprites-v1.json",
+        "sha256": "3f569f966d85f12887911ad38e40fe3e4ba5131e6e164876d44dc4807d062d1b"
+      },
+      "box": [
+        663,
+        99,
+        301,
+        531
+      ],
+      "runs": {
+        "legacy": 1115,
+        "h48c32": 671,
+        "h32c16": 263
+      }
+    },
+    "anemo-slime": {
+      "encoding": {
+        "path": "assets/anemo-slime-idle-sprites.json",
+        "sha256": "325f767e827130d7f2d1ed28dc9c53c93280e8669cad536c652551b29806055a"
+      },
+      "box": [
+        1117,
+        276,
+        382,
+        209
+      ],
+      "runs": {
+        "legacy": 925,
+        "h48c32": 595,
+        "h32c16": 242
+      }
+    },
+    "shadow": {
+      "encoding": {
+        "path": "assets/mond-night-banner-shadow-sprites-v1.json",
+        "sha256": "4f91c5ada01d49dd76d419a2da0b4b6cb3239c2c2b99f5674bf679eac22ee72e"
+      },
+      "box": [
+        1587,
+        242,
+        562,
+        259
+      ],
+      "runs": {
+        "legacy": 2461,
+        "h48c32": 1473,
+        "h32c16": 614
+      }
+    }
+  }
+}

@@ -74,6 +74,7 @@ export const sceneryDefinitions={
  windsplit:{file:'mond-windsplit-cave-background-v1.png',zones:['story:mond-bennett-ledge','story:mond-bennett-depth'],note:'風で入口が開いた石灰洞窟の仮背景'},
  mondrest:{file:'mond-roadside-rest-background-v1.png',zones:['story:mond-roadside-rest'],note:'木陰と街道を描いた休憩所の仮背景'},
  mondOrchard:{file:'mond-return-box-background-v1.png',zones:['story:mond-library-orchard'],note:'図書館裏の果樹道の仮背景'},
+ mondNightHill:{file:'mond-night-banner-background-v1.png',zones:['story:mond-night-hill'],note:'月影の風見丘の仮背景'},
  inazumatown:{file:'inazuma-castle-town-background-v1.png',zones:['story:inazuma-town'],note:'桜並木と港の夕方を描いた城下の仮背景'},
  seacave:{file:'inazuma-sea-cave-background-v1.png',zones:['story:inazuma-sea-cave'],note:'洞穴から夕暮れの海が見えるラボ仮背景'},
  shiomicape:{file:'inazuma-shiomi-cape-background-v1.png',zones:['story:inazuma-shiomi-cape'],note:'潮見の岬の夕景を描いたラボ仮背景'},
@@ -213,7 +214,7 @@ export function scenery(ctx,frame){
     ctx.fillStyle='#916a59';for(let i=10;i+14<p.w;i+=41)ctx.fillRect(x+i,p.y+7,15,3);
     continue;
    }
-   if(key==='nodPatrolCoast'){
+   if(key==='nodPatrolCoast'||key==='mondNightHill'){
     ctx.fillStyle='#252e48';ctx.fillRect(x,p.y,p.w,p.y===480?61:19);
     ctx.fillStyle='#798597';ctx.fillRect(x,p.y,p.w,3);
     ctx.fillStyle='#445671';

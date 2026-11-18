@@ -27,8 +27,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 24,
-      "prototype_quest_count": 16,
+      "prototype_stage_count": 25,
+      "prototype_quest_count": 17,
       "official_map2_markers": {
         "waypoints": 45,
         "statues": 6
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 299,
-    "provisional_quests": 172,
+    "authored_stages": 300,
+    "provisional_quests": 173,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -632,6 +632,7 @@
         "stage_ids": [
           "mond-town",
           "mond-library-orchard",
+          "mond-night-hill",
           "mond-roof-route",
           "mond-windmill-lookout",
           "mond-road",
@@ -658,6 +659,7 @@
         "quest_ids": [
           "amber-join",
           "mond-return-box-quest",
+          "mond-night-banner-quest",
           "mond-rest-stop",
           "mond-old-trail",
           "mond-bennett-cave",
@@ -1369,8 +1371,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 77,
-    "without_explicit_mapping": 76,
+    "linked": 78,
+    "without_explicit_mapping": 75,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1426,6 +1428,7 @@
       "Q-MON-S01": "mond-rest-stop",
       "Q-MON-S02": "mond-return-box-quest",
       "Q-MON-S03": "mond-bennett-cave",
+      "Q-MON-S04": "mond-night-banner-quest",
       "Q-MON-S05": "mond-windmill",
       "Q-NAT-M01": "natlan-ridge-flag",
       "Q-NAT-M02": "natlan-two-trials",

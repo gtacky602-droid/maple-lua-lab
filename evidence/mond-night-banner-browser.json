@@ -1,0 +1,23 @@
+{
+  "scene": {
+    "key": "mondNightHill",
+    "file": "mond-night-banner-background-v1.png",
+    "state": "ready"
+  },
+  "movingShadowFound": true,
+  "climbedForWind": true,
+  "threeSlimesWithNormalAttack": true,
+  "repairedBeforeReport": true,
+  "bannerAndDialogueAfterReload": true,
+  "commands": {
+    "png": 16,
+    "standard": 5909,
+    "light": 1503
+  },
+  "reward": [
+    967,
+    170,
+    3
+  ],
+  "errors": []
+}

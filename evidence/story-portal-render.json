@@ -3,12 +3,12 @@
     {
       "node": "mond-town",
       "mode": "sprite",
-      "visible_portals": 5
+      "visible_portals": 6
     },
     {
       "node": "mond-town",
       "mode": "rect",
-      "visible_portals": 5
+      "visible_portals": 6
     },
     {
       "node": "mond-library-orchard",
@@ -17,6 +17,16 @@
     },
     {
       "node": "mond-library-orchard",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "mond-night-hill",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "mond-night-hill",
       "mode": "rect",
       "visible_portals": 1
     },

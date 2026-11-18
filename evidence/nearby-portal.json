@@ -21,7 +21,15 @@
       "to": "mond-library-orchard"
     },
     {
+      "node": "mond-town",
+      "to": "mond-night-hill"
+    },
+    {
       "node": "mond-library-orchard",
+      "to": "mond-town"
+    },
+    {
+      "node": "mond-night-hill",
       "to": "mond-town"
     },
     {

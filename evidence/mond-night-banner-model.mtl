@@ -1,0 +1,31 @@
+newmtl wood
+Kd 0.42745 0.32157 0.30588
+illum 1
+
+newmtl iron
+Kd 0.29804 0.30196 0.44314
+illum 1
+
+newmtl cloth
+Kd 0.20784 0.19608 0.32549
+illum 1
+
+newmtl mend
+Kd 0.61569 0.46667 0.69804
+illum 1
+
+newmtl brass
+Kd 0.89020 0.65882 0.43137
+illum 1
+
+newmtl mint
+Kd 0.34118 0.75294 0.64706
+illum 1
+
+newmtl light
+Kd 0.73333 0.96471 0.80000
+illum 1
+
+newmtl ink
+Kd 0.18824 0.21569 0.35294
+illum 1
