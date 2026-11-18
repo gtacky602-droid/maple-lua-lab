@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule,furinaCuesModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -192,6 +192,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local kavehModel=kavehModelModule(C,canInspect)
  local nahidaMap=nahidaMapModule(C,canInspect)
  local emilieScent=emilieScentModule(C,canInspect)
+ local furinaCues=furinaCuesModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -356,6 +357,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      return true
     elseif milestone.flagLowerSeconds then
      if command=='rotate' then flagCourse.lower(s,milestone,state) end
+     return true
+    elseif milestone.rehearsalCue then
+     if command=='rotate' then furinaCues.open(s,milestone) end
      return true
     elseif milestone.performance then
      if command=='rotate' and theater.performance(s,milestone.performance) then completeMilestone(s,state,milestone,parent,quest) end
@@ -538,6 +542,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.colleiWelcomeAt,s.colleiLetterNotice=nil,nil
   s.kavehModelOpen=nil
   s.nahidaMapOpen=nil
+  s.furinaRun=nil
   s.storyLightMode=n.localLight and 'bright' or nil
   s.airflowTrial,s.storyCue=nil,nil
   s.resonanceOrder,s.resonancePage=nil,nil
@@ -651,6 +656,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   if s.voyage and s.voyage.kind=='trolley' and key~='pause' and key~='story_nearby_portal'
       and not key:match('^story_portal:') and not key:match('^story_fast:') then return end
+  local cue=key:match('^story_rehearsal:(%a+)$')
+  if cue or (s.furinaRun and key=='story_collect') then
+   local id=s.story.active and nodes[s.story.node].furinaRehearsal
+   if id then
+    local state=s.story.quests[id]
+    local milestone=furinaCues.action(s,quests[id],state,cue or 'next')
+    if milestone then completeMilestone(s,state,milestone) end
+   end
+   return
+  end
+  if s.furinaRun and key~='pause' then return end
   if key:match('^story_discovery_') then
    local id=s.story.active and nodes[s.story.node].nahidaMapQuest
    if id then
@@ -743,6 +759,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if flagCourse.interact(s,node.flagCourse) then return end
    local spawnState=node.spawnAt and clearState(s,node)
    local wasSpawnPhase=spawnState and spawnState.count==node.spawnAt
+   if theater.encore(s,node.theater,canInspect) then return end
    if inspectMilestone(s,'rotate') then
     if spawnState and not wasSpawnPhase and spawnState.count==node.spawnAt then spawnEnemies(s,node,1) end
     return
@@ -1063,7 +1080,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     companion.buffer=.1
    end
   end
-  local returns,previous=s.returns,s.t;step(s,dt,(s.fireworkShow or s.sayuHatch or s.kavehModelOpen or s.nahidaMapOpen) and {} or input)
+  local returns,previous=s.returns,s.t;step(s,dt,(s.fireworkShow or s.sayuHatch or s.kavehModelOpen or s.nahidaMapOpen or s.furinaRun) and {} or input)
   if s.story and s.story.active and s.returns==returns and not s.paused then
    local node=nodes[s.story.node]
    duel.step(s,node.duel)
@@ -1283,7 +1300,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=y}
    end
    end
-   theater.frame(s,f,markers,n.theater,mode,profile)
+   theater.frame(s,f,markers,n.theater,mode,profile,canInspect)
+   if n.furinaRehearsal then
+    local q=quests[n.furinaRehearsal]
+    furinaCues.observe(f,s,markers,q,s.story.quests[q.id],mode,profile)
+   end
    flagCourse.observe(s,f,markers,n.flagCourse,mode,profile)
    movingPlatforms.observe(s,f,markers,n.riverCrossing,mode,profile)
    duel.frame(s,f,markers,n.duel)
@@ -1517,7 +1538,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup
         and not milestone.nightClue and not milestone.fireworkSight and not milestone.stealthNap
         and not milestone.teaClue and not milestone.teaCup and not milestone.surveyProp and not milestone.visitorProp
-        and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp
+        and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp
         and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)

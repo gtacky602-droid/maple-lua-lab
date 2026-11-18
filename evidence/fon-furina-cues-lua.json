@@ -1,0 +1,15 @@
+{
+  "quest": "fon-furina-cues",
+  "main2Required": true,
+  "threeDevices": true,
+  "pauseFreezesQuiet": true,
+  "softRetryKeepsProgress": true,
+  "firstPerformanceUsesRehearsal": true,
+  "lateEncore": true,
+  "quietLightsWaveBow": true,
+  "noEncoreRewards": true,
+  "reportReward": [
+    610121,
+    3300
+  ]
+}

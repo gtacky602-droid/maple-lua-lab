@@ -124,7 +124,7 @@
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
       "prototype_stage_count": 28,
-      "prototype_quest_count": 15,
+      "prototype_quest_count": 16,
       "official_map2_markers": {
         "waypoints": 92,
         "statues": 8
@@ -579,7 +579,7 @@
   "main_route_summary": {
     "connected_main_regions": 8,
     "authored_stages": 319,
-    "provisional_quests": 183,
+    "provisional_quests": 184,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -888,6 +888,7 @@
           "legatus-commission",
           "simulanka-open-page",
           "fon-emilie-scent",
+          "fon-furina-cues",
           "fontaine-moon-parcel",
           "fontaine-understage-crew",
           "fontaine-grand-finale"
@@ -1400,8 +1401,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 88,
-    "without_explicit_mapping": 65,
+    "linked": 89,
+    "without_explicit_mapping": 64,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1434,6 +1435,7 @@
       "Q-FON-M02": "fontaine-understage-crew",
       "Q-FON-M03": "fontaine-grand-finale",
       "Q-FON-S01": "fon-emilie-scent",
+      "Q-FON-S02": "fon-furina-cues",
       "Q-H01-01": "golden-little-boat",
       "Q-H01-02": "golden-trace-shadows",
       "Q-H02-01": "veluriyam-bottle-ticket",

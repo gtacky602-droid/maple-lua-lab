@@ -1,0 +1,35 @@
+newmtl wood
+Kd 0.50196 0.30980 0.20392
+illum 1
+
+newmtl edge
+Kd 0.69804 0.45490 0.26275
+illum 1
+
+newmtl brass
+Kd 0.85882 0.65490 0.32157
+illum 1
+
+newmtl jade
+Kd 0.24706 0.49020 0.48235
+illum 1
+
+newmtl dark
+Kd 0.23137 0.27843 0.32941
+illum 1
+
+newmtl glass
+Kd 0.74118 0.85490 0.69412
+illum 1
+
+newmtl red
+Kd 0.55686 0.24706 0.32941
+illum 1
+
+newmtl wine
+Kd 0.41176 0.18824 0.27843
+illum 1
+
+newmtl coral
+Kd 0.80392 0.43922 0.44314
+illum 1

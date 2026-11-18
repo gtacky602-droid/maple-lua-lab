@@ -1,0 +1,19 @@
+{
+  "quest": "fon-furina-cues",
+  "background": {
+    "key": "fontaineRehearsal",
+    "file": "fontaine-rehearsal-background-v1.png",
+    "state": "ready"
+  },
+  "completedWithTextCues": true,
+  "earlyCueRetried": true,
+  "savedFirstRehearsal": true,
+  "mobileWidth": 390,
+  "addedAfterMainAndReplayed": true,
+  "calls": {
+    "png": 29,
+    "rect": 30279,
+    "light": 6815
+  },
+  "errors": []
+}

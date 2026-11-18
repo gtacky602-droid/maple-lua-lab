@@ -51,6 +51,7 @@ return function(C)
   s.theaterCart,s.theaterShutter,s.theaterWaveWall=nil,nil,nil
   s.theaterFlatsAt,s.theaterCurtainAt,s.theaterShotAt=nil,nil,nil
   s.theaterStoppedAt,s.theaterPerformance,s.theaterPerformedAt=nil,nil,nil
+  s.theaterEncoreAt=nil
   theater.sync(s,stage,false)
   if stage and stage.arrangement and layout(s,stage)=='deck' then
    for _,deck in ipairs(stage.arrangement.decks) do s.platforms[#s.platforms+1]=deck end
@@ -221,6 +222,53 @@ return function(C)
   end
  end
 
+ local function rehearsed(s,finale)
+  local extra=finale and finale.rehearsed
+  local state=extra and s.story.quests[extra.quest]
+  if state and state.status=='complete' then return extra end
+ end
+
+ local function encoreRunning(s,extra)
+  if s.theaterEncoreAt then return s.t-s.theaterEncoreAt<extra.quietSeconds+extra.bowDelay end
+  return s.theaterPerformedAt and s.t-s.theaterPerformedAt<extra.bowDelay
+ end
+
+ function theater.encore(s,stage,canInspect)
+  local finale=stage and stage.finale
+  local extra=rehearsed(s,finale)
+  if not extra or stageCount(s,stage.quest)<finale.performedAt
+      or not canInspect(s.actors[s.active],extra.console) then return false end
+  if not encoreRunning(s,extra) then s.theaterEncoreAt=s.t end
+  return true
+ end
+
+ local function drawRehearsed(s,f,draws,extra,elapsed,mode,profile)
+  local light=elapsed>=0
+  local wave=elapsed>=extra.waveDelay
+  local bow=elapsed>=extra.bowDelay
+  local spotX,waveX=extra.spotX-s.camera,extra.waveX-s.camera
+  local y=extra.stageY
+  if light and spotX>=-160 and spotX<=1090 then
+   for band=1,8 do
+    local w=20+band*17
+    box(draws,spotX+band*9-w/2,y-57-band*16,w,16,'#ffe1a031')
+   end
+   C.drawFieldDisplayArt({draws=draws},C.furinaCueArt.lamp,spotX,y,72,mode,profile,false)
+  end
+  if wave and waveX>=-125 and waveX<=1085 then
+   C.drawFieldDisplayArt({draws=draws},C.stageWaveArt,waveX,y,122,mode,profile,false)
+  end
+  if bow and waveX>=0 and waveX<=960 then
+   label(draws,'拍手は、裏方のみんなへ',waveX,y-169,'#fff1b9')
+  end
+  f.storyFurinaFinale={phase=bow and 'bow' or wave and 'wave' or light and 'lights' or 'quiet',
+    light=light,curtain=light,wave=wave,
+    message=bow and '出演者から、幕と照明と波を動かした舞台係へ拍手が送られました。'
+      or wave and '波がゆっくり立ち上がります。'
+      or light and '一拍のあと、光と幕がそろいました。'
+      or 'フリーナ「この静けさも、舞台の一部なんだ。」'}
+ end
+
  local function drawFinale(s,f,draws,finale,count,mode,profile)
   local show=count>=finale.performedAt
   local stopped=count>=finale.stoppedAt
@@ -234,37 +282,44 @@ return function(C)
    box(draws,x-12,y-80,24,8,stopped and '#6e9e9a' or '#f2ad7c')
    label(draws,stopped and '停止済み' or '制御部が見えた',x,y-finale.height-12,'#f4d9ae')
   end
-  local elapsed=s.theaterStoppedAt and s.t-s.theaterStoppedAt-.43
-  if elapsed and elapsed>=0 and elapsed<1.7 then
+  local confettiElapsed=s.theaterStoppedAt and s.t-s.theaterStoppedAt-.43
+  if confettiElapsed and confettiElapsed>=0 and confettiElapsed<1.7 then
    local colors={'#d995a3','#95d3c1','#f6d392','#a8bbe7'}
    for i=1,28 do
     local offset=(i*47%277)-138
-    box(draws,x+offset+math.sin(elapsed*4+i)*18,y-188+(i*39%66)+elapsed*(70+i%4*15),
+    box(draws,x+offset+math.sin(confettiElapsed*4+i)*18,y-188+(i*39%66)+confettiElapsed*(70+i%4*15),
         5+i%4,3,colors[i%4+1])
    end
   end
   if not stopped then return end
   local spec=finale.performance
+  local extra=rehearsed(s,finale)
+  local stagedAt=show and ((extra and s.theaterEncoreAt and s.theaterEncoreAt+extra.quietSeconds)
+                           or s.theaterPerformedAt)
+  local elapsed=stagedAt and (s.t-stagedAt) or math.huge
+  local open=show and elapsed>=0
   local phase=show and 'performed' or performancePhase(s,spec)
   f.storyTheaterPerformance={phase=phase}
   local lx=spec.x-s.camera
   local ly=spec.y-145
   if lx>=-70 and lx<=1030 then
-   local progress=show and (s.theaterPerformedAt and math.min(1,(s.t-s.theaterPerformedAt)/.65) or 1) or 0
+   local progress=open and math.min(1,elapsed/.65) or 0
    drawCurtain(draws,lx-148,finale.curtain,progress)
    box(draws,lx-18,ly,36,26,'#6d553f')
-   box(draws,lx-12,ly+5,24,14,(phase=='cue' or show) and '#84d6a3' or '#cba265')
-   local caption=phase=='cue' and '合図' or phase=='wait' and '待機' or show and '上演済み' or '幕の合図灯'
+   box(draws,lx-12,ly+5,24,14,(phase=='cue' or open) and '#84d6a3' or '#cba265')
+   local caption=phase=='cue' and '合図' or (phase=='wait' or show and not open) and '待機'
+      or open and '上演済み' or '幕の合図灯'
    label(draws,caption,lx,ly-9,'#f9dca6')
   end
-  if show and x>=-170 and x<=1130 then
+  if open and x>=-170 and x<=1130 then
    drawMoon(draws,x+192,327,s.t)
    box(draws,x-215,110,430,5,'#d8af71')
    for i=-4,4 do box(draws,x+49*i,115,18,7,'#f6cf81') end
   end
+  if extra and show then drawRehearsed(s,f,draws,extra,elapsed,mode,profile) end
  end
 
- function theater.frame(s,f,draws,stage,mode,profile)
+ function theater.frame(s,f,draws,stage,mode,profile,canInspect)
   if not stage then return end
   local count=stageCount(s,stage.quest)
   local shutter=stage.shutter
@@ -295,7 +350,25 @@ return function(C)
   end
   if stage.emitter then drawEmitter(s,draws,stage.emitter,count) end
   if stage.staff then drawStaff(s,draws,stage,count,mode,profile) end
-  if stage.finale then drawFinale(s,f,draws,stage.finale,count,mode,profile) end
+  if stage.finale then
+   local finale=stage.finale
+   drawFinale(s,f,draws,finale,count,mode,profile)
+   local extra=rehearsed(s,finale)
+   if extra and count>=finale.performedAt then
+    local console=extra.console
+    local x,y=console.x-s.camera,console.y-128
+    local playing=encoreRunning(s,extra)
+    if x>=-25 and x<=985 then
+     box(draws,x-12,y,24,20,'#715638')
+     box(draws,x-8,y+4,16,10,playing and '#d0a472' or '#84d6a3')
+     local caption=playing and (s.theaterEncoreAt and '再演中' or '上演中') or '再演の合図灯'
+     label(draws,caption,x,y-7,'#ffe8ab')
+    end
+    if not s.paused and not playing and canInspect(s.actors[s.active],console) then
+     f.storyNearbyMilestone={label='稽古の演出でもう一度上演する'}
+    end
+   end
+  end
   if stage.lift and s.lift and s.lift.riders then
    local a=s.actors[1]
    box(draws,a.x-s.camera-58,a.y,92,12,'#a57a55')

@@ -25,6 +25,12 @@
 #discoveryMapCards button[aria-pressed="true"]{border-color:#e4bc74;background:#51573e;color:#ffedbd}
 #discoveryMap button:disabled{opacity:.56;cursor:default}
 @media(max-width:850px){.discovery-layout{grid-template-columns:minmax(0,1fr);gap:12px}}
+#furinaRehearsal{padding:14px 18px;background:#243c3f;border-top:1px solid #677b68}
+#rehearsalTitle{font-size:18px;color:#f4d9a6;margin:0}
+#rehearsalCaption{margin:6px 0 12px}
+.rehearsal-controls{display:flex;flex-wrap:wrap;gap:8px}
+#furinaRehearsal button:disabled{opacity:.5;cursor:default}
+#furinaRehearsal .active-cue{color:#fbf1bf;border-color:#e9c680;background:#426755}
 </style>
 <main><header><div><div class="eyebrow">TEYVAT · 2D ADVENTURE LAB</div><h1>風の狩場</h1><p>3D背景を想定した画像と、Luaで動く2Dの旅人・アンバー。</p></div><span class="badge">Lua 5.3 / ローカル試作 A</span></header>
 <div class="game"><canvas id="game" width="960" height="540" aria-label="横スクロールのLua試作狩場"></canvas><div class="topline"><div class="card" id="a1"></div><div class="card" id="a2"></div></div><div class="location">モンド風・試験用狩場　/　3画面・2段足場</div>
@@ -68,6 +74,17 @@
    <button type="button" id="discoveryMapConfirm">三つの発見を記録する</button>
    <button type="button" id="discoveryMapClose">絵地図を閉じる</button>
   </div>
+ </div>
+</section>
+<section id="furinaRehearsal" hidden aria-labelledby="rehearsalTitle">
+ <h2 id="rehearsalTitle"></h2>
+ <p id="rehearsalCaption" role="status"></p>
+ <div class="rehearsal-controls">
+  <button type="button" data-rehearsal-cue="curtain" data-action="story_rehearsal:curtain">幕を上げる</button>
+  <button type="button" data-rehearsal-cue="lamp" data-action="story_rehearsal:lamp">照明をつける</button>
+  <button type="button" data-rehearsal-cue="pair" data-action="story_rehearsal:pair">光と幕を合わせる</button>
+  <button type="button" data-rehearsal-cue="wave" data-action="story_rehearsal:wave">波を出す</button>
+  <button type="button" data-action="story_rehearsal:close">稽古を閉じる</button>
  </div>
 </section>
 <section id="teaCaseBoard" hidden aria-label="茶屋の証拠を選ぶ" style="padding:10px 18px;background:#173a3b">

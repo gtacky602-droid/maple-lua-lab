@@ -1,7 +1,7 @@
 {
   "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
   "version": "monster-quest-v02",
-  "quests_tested": 55,
+  "quests_tested": 56,
   "old_completed_not_reissued": true,
   "old_unreported_uses_current_preview": true,
   "unlinked_trial_fallback": true,
@@ -32,9 +32,9 @@
       "report_xp": 230896997
     },
     "FON": {
-      "linked": 4,
-      "legacy_xp": 6098226,
-      "report_xp": 7268111
+      "linked": 5,
+      "legacy_xp": 6708347,
+      "report_xp": 7878232
     },
     "NAT": {
       "linked": 3,
@@ -281,6 +281,12 @@
       "quest_id": "fon-emilie-scent",
       "legacy_xp": 465460,
       "report_xp": 465460
+    },
+    {
+      "design_id": "Q-FON-S02",
+      "quest_id": "fon-furina-cues",
+      "legacy_xp": 610121,
+      "report_xp": 610121
     },
     {
       "design_id": "Q-FON-M01",

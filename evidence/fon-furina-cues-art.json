@@ -1,0 +1,94 @@
+{
+  "tool": "built-in image generation from original 3D equipment shapes",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/fon-furina-cues-model.obj",
+    "sha256": "2554caa0b4a4f3510162eb240f9ff5d3616d820a94c73a5b1de67260b90ef11f"
+  },
+  "materials": {
+    "path": "evidence/fon-furina-cues-model.mtl",
+    "sha256": "97e6befe179324077e4863c7b2ab18b97f0b081b7b89794a798ea474d0e0cf56"
+  },
+  "contactSheet": {
+    "path": "evidence/fon-furina-cues-views.png",
+    "sha256": "e7816c60997903effbd139bd8d587925e71041a06c29fddd00cc0446136f4259"
+  },
+  "propsSource": {
+    "path": "assets/fon-furina-cues-props-source-v1.png",
+    "sha256": "3b05b2c31dc27360e185b9f2690e5a2dab961c1dffac07a1f419c2eb9e7ebac5"
+  },
+  "alphaCorners": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "backgroundReferences": [
+    {
+      "path": "assets/fontaine-rehearsal-background-v1.png",
+      "sha256": "2d4ebf72dfd37d8621103cc389f775f0b66da89792d573c8316ad0404820d8c8"
+    }
+  ],
+  "reusedWave": {
+    "path": "assets/stage-wave-sprites-v1.json",
+    "sha256": "4f2daeae0cd23722463d2e6f48b06ed588f3ed7d69469b850a9ab212f226adeb"
+  },
+  "status": "Three original props from original reference models. The rehearsal room uses an existing lab background.",
+  "profiles": {
+    "console": {
+      "encoding": {
+        "path": "assets/fon-furina-cues-console-sprites-v1.json",
+        "sha256": "8f3699eba503e8fe6c99523cb111a963def7a7bc00914506f579682c870da47e"
+      },
+      "box": [
+        169,
+        139,
+        421,
+        460
+      ],
+      "runs": {
+        "legacy": 2500,
+        "h48c32": 1516,
+        "h32c16": 590
+      }
+    },
+    "lamp": {
+      "encoding": {
+        "path": "assets/fon-furina-cues-lamp-sprites-v1.json",
+        "sha256": "5f10677f68320728eb5ba41ad1cc01f832f83d388c55320fe81a2e3a2ca7985f"
+      },
+      "box": [
+        922,
+        132,
+        302,
+        478
+      ],
+      "runs": {
+        "legacy": 2069,
+        "h48c32": 1290,
+        "h32c16": 503
+      }
+    },
+    "curtain": {
+      "encoding": {
+        "path": "assets/fon-furina-cues-curtain-sprites-v1.json",
+        "sha256": "2b9b01f8adb6097b851b663cb9886b1cb79f4160df4e66a07b929863cee03644"
+      },
+      "box": [
+        1545,
+        191,
+        524,
+        365
+      ],
+      "runs": {
+        "legacy": 17569,
+        "h48c32": 10696,
+        "h32c16": 3664
+      }
+    }
+  }
+}
