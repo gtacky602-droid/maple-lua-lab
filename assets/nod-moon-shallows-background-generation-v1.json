@@ -1,0 +1,12 @@
+{
+  "tool": "builtin imagegen",
+  "source": "nod-moon-shallows-background-v1.png",
+  "reference": "nodkrai-background-v1.png",
+  "reference_use": "Visually inspected and supplied as image input for the local art direction, including northern coastline, indigo sky, and warm workshop lights.",
+  "prompt_summary": "Original 16:9 pixel art side-scrolling scene at moonrise, with a quiet inlet, low slate banks, sparse water highlights, a crescent moon, and a workshop silhouette far away. The center has room for the independently rendered bridge.",
+  "usage": [
+    "nod-moon-shallows",
+    "nod-tide-rocks"
+  ],
+  "status": "temporary lab scenery, with native 3D placement reserved for production"
+}

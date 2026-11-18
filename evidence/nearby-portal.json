@@ -1005,6 +1005,10 @@
       "to": "winter-frontier-switchback"
     },
     {
+      "node": "nod-town",
+      "to": "nod-workshop-coast"
+    },
+    {
       "node": "snezhnaya-entry",
       "to": "nod-town"
     },
@@ -2507,6 +2511,30 @@
     {
       "node": "natlan-sunset-rostrum",
       "to": "natlan-hub"
+    },
+    {
+      "node": "nod-workshop-coast",
+      "to": "nod-town"
+    },
+    {
+      "node": "nod-workshop-coast",
+      "to": "nod-moon-shallows"
+    },
+    {
+      "node": "nod-moon-shallows",
+      "to": "nod-workshop-coast"
+    },
+    {
+      "node": "nod-moon-shallows",
+      "to": "nod-tide-rocks"
+    },
+    {
+      "node": "nod-tide-rocks",
+      "to": "nod-moon-shallows"
+    },
+    {
+      "node": "nod-tide-rocks",
+      "to": "nod-town"
     }
   ],
   "hidden_connections_checked": 38,

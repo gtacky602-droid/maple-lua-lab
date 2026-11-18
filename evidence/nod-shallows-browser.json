@@ -1,0 +1,25 @@
+{
+  "heard": "merchant",
+  "orientationAfterReload": true,
+  "normalJumpCrossing": true,
+  "companionCrossing": true,
+  "battleAndChest": true,
+  "chestOre": 5,
+  "sameFrameComparison": true,
+  "reward": [
+    9733199,
+    8700,
+    0
+  ],
+  "art": {
+    "key": "nodMoonShallows",
+    "file": "nod-moon-shallows-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 20,
+    "standard": 3453,
+    "light": 894
+  },
+  "errors": []
+}

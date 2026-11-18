@@ -161,6 +161,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local function canInspect(a,item)
   return a.hp>0 and math.abs(a.x-item.x)<54 and math.abs(a.y-item.y)<34
  end
+ local function nearbyChoice(s,step)
+  for _,option in ipairs(step.choices) do
+   if canInspect(s.actors[s.active],option) then return option end
+  end
+ end
  local resonance=resonanceModule(canInspect)
  local rockViews=rockViewsModule(canInspect)
  local paper=paperModule(canInspect)
@@ -195,21 +200,28 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   return milestoneAt(step,s.story.node),state
  end
  local function installBridge(s,bridge)
+  local platform=copy(bridge)
   if bridge.track then
-   for i,platform in ipairs(s.platforms) do
-    if platform.track==bridge.track then s.platforms[i]=copy(bridge);return end
+   for i,existing in ipairs(s.platforms) do
+    if existing.track==bridge.track then s.platforms[i]=platform;return platform end
    end
   end
-  s.platforms[#s.platforms+1]=copy(bridge)
+  s.platforms[#s.platforms+1]=platform
+  if platform.moonDeck then s.storyMoonDeck=platform end
+  return platform
  end
  local function completeMilestone(s,state,milestone,parent,quest)
   state.count=state.count+1
   s.storyNotice=milestone.notice
-  if milestone.bridge then installBridge(s,milestone.bridge) end
+  if milestone.ore then C.grantUpgradeOre(s,milestone.ore) end
+  if milestone.bridge then
+   local bridge=installBridge(s,milestone.bridge)
+   if bridge.moonDeck then bridge.deployedAt=s.t end
+  end
   for _,bridge in ipairs(milestone.bridges or {}) do installBridge(s,bridge) end
   local stage=nodes[s.story.node].theater
   if stage and s.story.quests[stage.quest]==state then theater.sync(s,stage,true) end
-  if milestone.reflect then s.reflection=nil end
+  if milestone.reflect then s.reflection=nil;state.reflectAngle=nil end
   if milestone.riverTurn then s.riverTurnAt=s.t end
   if parent then
    for _,path in ipairs(quest.paths) do
@@ -220,7 +232,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
  end
  local function recordKill(s,state,milestone,enemy,parent,quest)
-  if milestone.enemy==enemy then completeMilestone(s,state,milestone,parent,quest);return end
+  if milestone.enemy==enemy then completeMilestone(s,state,milestone,parent,quest);return true end
   local group=milestone.enemies
   if not group then return end
   for _,id in ipairs(group) do if id==enemy then
@@ -232,12 +244,21 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if count==#group then
     state.sweep=nil;completeMilestone(s,state,milestone,parent,quest)
    else s.storyNotice='通路の群れを整理中 '..count..' / '..#group end
-   return
+    return true
   end end
  end
  local function inspectMilestone(s,command)
   for _,q in ipairs(itineraries) do
    local milestone,state,parent,quest=nextMilestone(s,q)
+   if milestone and milestone.kind=='choice' and milestone.node==s.story.node and command=='rotate' then
+    local option=nearbyChoice(s,milestone)
+    if option then
+     state.storyChoice=option.id
+     completeMilestone(s,state,milestone,parent,quest)
+     s.storyNotice=option.notice
+     return true
+    end
+   end
    if milestone and milestone.paperFold and milestone.node==s.story.node
        and (command=='rotate' or command=='paper_confirm') then
     local board=nodes[s.story.node].paperBoard
@@ -281,7 +302,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      if command=='rotate' and theater.performance(s,milestone.performance) then completeMilestone(s,state,milestone,parent,quest) end
      return true
     elseif milestone.reflect then
-     if reflection.interact(s,milestone,command) then completeMilestone(s,state,milestone,parent,quest) end
+      if reflection.interact(s,milestone,command,state) then completeMilestone(s,state,milestone,parent,quest) end
      return true
     elseif command=='rotate' then
      if milestone.resonanceStone then resonance.record(s,milestone,emitCue) end
@@ -376,6 +397,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      local e=fresh.enemies[i];local p=assert(n.platforms[placement.platform+1],'Invalid enemy support')
      e.x=placement.x;e.home=e.x;e.y=p.y;e.kind=placement.kind;e.art=placement.art;e.spawnId=placement.id
      e.storyName=placement.name
+      e.pursuit=placement.pursuit
      if placement.hp then e.hp=placement.hp;e.maxhp=placement.hp end
      e.patrolMin=p.x+24;e.patrolMax=p.x+p.w-24
      e.level=n.level;e.barrier=n.barrier or 0;if e.barrier>0 then e.hp=60;e.maxhp=60 end
@@ -394,6 +416,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.airflowTrial,s.storyCue=nil,nil
   s.resonanceOrder,s.resonancePage=nil,nil
   paper.reset(s)
+  s.storyMoonDeck=nil
   s.platforms={};for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]=copy(p) end
   for _,q in ipairs(itineraries) do
    local state=s.story.quests[q.id]
@@ -726,7 +749,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    for _,q in ipairs(itineraries) do
     local milestone,state,parent,quest=nextMilestone(s,q)
     if milestone and milestone.kind=='kill' and milestone.node==s.story.node and e.spawnId then
-     recordKill(s,state,milestone,e.spawnId,parent,quest)
+     if recordKill(s,state,milestone,e.spawnId,parent,quest) and nodes[s.story.node].clearedBy==q.id then
+      e.respawn=math.huge
+     end
     end
    end
    for id,state in pairs(s.story.quests) do
@@ -799,6 +824,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    return
   end
   if s.story and s.story.active then movingPlatforms.move(s,dt) end
+  local deck=s.story and s.story.active and s.storyMoonDeck
+  if deck and not s.paused then
+   local leader,companion=s.actors[s.active],s.actors[3-s.active]
+   local far=deck.x+deck.w
+   if companion.hp>0 and companion.ground and companion.y>deck.y and math.abs(leader.x-companion.x)>75
+       and ((leader.x>deck.x+24 and companion.x>deck.x-58 and companion.x<deck.x+30)
+        or (leader.x<far-24 and companion.x>far-30 and companion.x<far+58)) then
+    companion.buffer=.1
+   end
+  end
   local returns,previous=s.returns,s.t;step(s,dt,input)
   if s.story and s.story.active and s.returns==returns and not s.paused then
    duel.step(s,nodes[s.story.node].duel)
@@ -1064,10 +1099,21 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    for _,q in ipairs(itineraries) do
     local state=s.story.quests[q.id]
     local milestone=nextMilestone(s,q)
-    if milestone and milestone.airflow and milestone.node==s.story.node then
+     if milestone and milestone.kind=='choice' and milestone.node==s.story.node then
+      for _,option in ipairs(milestone.choices) do
+       local x,y=option.x-s.camera,option.y
+       if x>=-25 and x<=985 then
+        markers[#markers+1]={kind='rect',x=x-12,y=y-25,w=24,h=25,color='#423951'}
+        markers[#markers+1]={kind='rect',x=x-8,y=y-21,w=16,h=12,color='#d3dbf5'}
+        markers[#markers+1]={kind='text',x=x,y=y-43,text=option.name,color='#fff0b9',size=14}
+       end
+      end
+      local option=not s.paused and nearbyChoice(s,milestone)
+      if option and not f.storyNearbyMilestone then f.storyNearbyMilestone={label=option.action} end
+     elseif milestone and milestone.airflow and milestone.node==s.story.node then
      airflow.observe(s,f,markers,milestone,not s.paused and canInspect(s.actors[s.active],milestone))
     elseif milestone and milestone.reflect and milestone.node==s.story.node then
-     reflection.draw(s,f,markers,milestone,not s.paused and canInspect(s.actors[s.active],milestone))
+      reflection.draw(s,f,markers,milestone,not s.paused and canInspect(s.actors[s.active],milestone),state)
     elseif milestone and milestone.kind=='inspect' and milestone.node==s.story.node
         and not milestone.resonanceOrder and not milestone.shadowChoice and not milestone.paperFold
         and (not milestone.roomLight or milestone.roomLight==s.storyLightMode) then

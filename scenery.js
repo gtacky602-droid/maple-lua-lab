@@ -104,6 +104,7 @@ export const sceneryDefinitions={
  voyage:{file:'voyage-background-v1.png',region:'航路',zones:[]},
  snezhnaya:{file:'snezhnaya-background-v1.png',region:'スネージナヤ',zones:[]},
  nodkrai:{file:'nodkrai-background-v1.png',region:'ナド・クライ',zones:[]},
+ nodMoonShallows:{file:'nod-moon-shallows-background-v1.png',zones:['story:nod-moon-shallows','story:nod-tide-rocks'],note:'月映しの浅瀬と引き潮の岩場のラボ用仮背景'},
  mondstadt:{file:'mondstadt-background.png',region:'モンド',zones:[]},
  liyue:{file:'liyue-background-v1.png',region:'璃月',zones:['geo','oceanid','primo','pyro_regisvine']},
  inazuma:{file:'inazuma-background-v1.png',region:'稲妻',zones:['thunder','array','maguu']},
@@ -193,6 +194,17 @@ export function scenery(ctx,frame){
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
   if(p.riverDeck)continue;
+   if(p.moonDeck){
+    const spread=p.deployedAt===undefined?1:Math.max(0,Math.min(1,(frame.t-p.deployedAt)/.48));
+    const width=Math.ceil(p.w*spread);
+    ctx.fillStyle='#273b58';ctx.fillRect(x,p.y,width,18);
+    ctx.fillStyle='#b6cde2';ctx.fillRect(x,p.y,width,4);
+    for(let i=4;i+6<width;i+=34){
+     ctx.fillStyle='#4d6780';ctx.fillRect(x+i,p.y+6,Math.min(29,width-i),8);
+     ctx.fillStyle='#eac78a';ctx.fillRect(x+i,p.y+9,6,5);
+    }
+    continue;
+   }
   if(p.raceRock){
    ctx.fillStyle=p.raceBridge?'#8e593e':'#a96548';ctx.fillRect(x,p.y,p.w,p.y===480?56:16);
    ctx.fillStyle=p.raceBridge?'#e2ad71':'#c8a052';ctx.fillRect(x,p.y,p.w,5);

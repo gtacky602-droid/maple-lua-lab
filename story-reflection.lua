@@ -1,20 +1,22 @@
 return function()
  local reflection={}
- local function current(s,item)
+ local function current(s,item,progress)
   local state=s.reflection
   if state and state.item==item then return state end
-  return {item=item,angle=0,lit=true,darkSeen=false}
+  local angle=item.reflect.rememberAngle and progress.reflectAngle or 0
+  return {item=item,angle=angle,lit=true,darkSeen=false}
  end
  local function matches(item,state) return state.angle==item.reflect.align end
 
- function reflection.interact(s,item,action)
+ function reflection.interact(s,item,action,progress)
   local config=item.reflect
-  local state=current(s,item)
+  local state=current(s,item,progress)
   s.reflection=state
   if action=='rotate' then
    state.angle=state.angle%#config.faces+1
    state.darkSeen=false
    if not config.record and matches(item,state) then return true end
+   if config.rememberAngle then progress.reflectAngle=state.angle end
    s.storyNotice=config.faces[state.angle].label..'に向けました。'
   elseif config.record and action=='light' then
    state.lit=not state.lit
@@ -32,9 +34,9 @@ return function()
   draws[#draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}
  end
 
- function reflection.draw(s,f,draws,item,near)
+ function reflection.draw(s,f,draws,item,near,progress)
   local config=item.reflect
-  local state=current(s,item)
+  local state=current(s,item,progress)
   local face=config.faces[state.angle]
   local x,y=item.x-s.camera,item.y
   if x>=-180 and x<=1140 then

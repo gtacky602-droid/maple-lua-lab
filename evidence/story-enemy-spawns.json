@@ -1144,6 +1144,18 @@
     {
       "node": "natlan-sunset-rostrum",
       "enemy_count": 0
+    },
+    {
+      "node": "nod-workshop-coast",
+      "enemy_count": 0
+    },
+    {
+      "node": "nod-moon-shallows",
+      "enemy_count": 0
+    },
+    {
+      "node": "nod-tide-rocks",
+      "enemy_count": 3
     }
   ],
   "render_profiles": [

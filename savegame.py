@@ -165,7 +165,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -201,6 +201,18 @@ def validate_save(data):
                        if step.get('airflow',{}).get('stagePlan') for choice in step['airflow']['choices']]
             if (layouts and q.get('stagePlan') not in layouts) or (not layouts and 'stagePlan' in q):
                 raise ValueError('舞台設備の記録が不正です')
+            itinerary = quest.get('itinerary', [])
+            choices = [option['id'] for step in itinerary[:q['count']] for option in step.get('choices', [])
+                       if step['kind'] == 'choice']
+            if (choices and q.get('storyChoice') not in choices) or (not choices and 'storyChoice' in q):
+                raise ValueError('聞き込みの記録が不正です')
+            if 'reflectAngle' in q:
+                next_step = itinerary[q['count']] if q['count'] < len(itinerary) else {}
+                mirror, angle = next_step.get('reflect', {}), q['reflectAngle']
+                if (not mirror.get('rememberAngle') or next_step['node'] not in st['visited']
+                        or type(angle) is not int or not 1 <= angle <= len(mirror['faces'])
+                        or angle == mirror['align']):
+                    raise ValueError('反射板の向きが不正です')
             validate_sweep(q,quest.get('itinerary',[]),st['visited'])
             if quest.get('requires'):
                 predecessor = st['quests'].get(quest['requires'])

@@ -2317,6 +2317,11 @@
     "natlan-river-turn-basin": [
       {"id":"natlan-turn-bank-1","kind":1,"x":1242,"platform":1,"hp":28,"art":"sail-shell-crawler"},
       {"id":"natlan-turn-bank-2","kind":1,"x":1392,"platform":1,"hp":32,"art":"pebble-courier"}
+    ],
+    "nod-tide-rocks": [
+      {"id":"nod-tide-rocks-1","kind":1,"art":"hydro-slime","x":715,"platform":0,"hp":32,"pursuit":{"range":280,"leash":660,"speed":88}},
+      {"id":"nod-tide-rocks-2","kind":2,"art":"pyro-slime","x":817,"platform":0,"hp":42,"pursuit":{"range":280,"leash":660,"speed":88}},
+      {"id":"nod-tide-rocks-3","kind":1,"art":"hydro-slime","x":925,"platform":0,"hp":36,"pursuit":{"range":280,"leash":660,"speed":88}}
     ]
   }
 }

@@ -438,7 +438,21 @@ function C.step(s,dt,input)
      e.cd=3.2
     end
    end
-   if near==nil and not attracted and e.root<=0 then e.motionTime=(e.motionTime or 0)+dt*rate;e.x=e.home+math.sin(e.motionTime*1.2+e.id)*18 end
+   if near==nil and not attracted and e.root<=0 then
+    if e.pursuit then
+     local target,distance=e.home,e.pursuit.range
+     for _,a in ipairs(s.actors) do
+      local dx=abs(e.x-a.x)
+      if a.hp>0 and dx<distance and abs(e.y-a.y)<45 and abs(e.home-a.x)<e.pursuit.leash then
+       target,distance=a.x,dx
+      end
+     end
+     local speed=e.pursuit.speed*dt*rate
+     e.x=e.x+clamp(target-e.x,-speed,speed)
+    else
+     e.motionTime=(e.motionTime or 0)+dt*rate;e.x=e.home+math.sin(e.motionTime*1.2+e.id)*18
+    end
+   end
    if e.patrolMin then e.x=clamp(e.x,e.patrolMin,e.patrolMax) end
   end
  end

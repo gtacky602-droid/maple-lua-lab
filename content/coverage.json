@@ -171,8 +171,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 10,
-      "prototype_quest_count": 9,
+      "prototype_stage_count": 13,
+      "prototype_quest_count": 10,
       "official_map2_markers": {
         "waypoints": 83,
         "statues": 7
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 270,
-    "provisional_quests": 161,
+    "authored_stages": 273,
+    "provisional_quests": 162,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -920,7 +920,10 @@
           "nod-moonfly-hollow",
           "nod-gecko-depths",
           "nod-town",
-          "winter-frontier-switchback"
+          "winter-frontier-switchback",
+          "nod-workshop-coast",
+          "nod-moon-shallows",
+          "nod-tide-rocks"
         ],
         "quest_ids": [
           "columbina-join",
@@ -931,7 +934,8 @@
           "whisperer-nightmares-commission",
           "moonfly-commission",
           "moongecko-commission",
-          "nod-rim-return"
+          "nod-rim-return",
+          "nod-first-treasure"
         ]
       },
       {
@@ -1329,8 +1333,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 66,
-    "without_explicit_mapping": 87,
+    "linked": 67,
+    "without_explicit_mapping": 86,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1389,6 +1393,7 @@
       "Q-NAT-M01": "natlan-ridge-flag",
       "Q-NAT-M02": "natlan-two-trials",
       "Q-NAT-M03": "natlan-sunset-duel",
+      "Q-NOD-M01": "nod-first-treasure",
       "Q-SNE-M01": "white-pass-ticket",
       "Q-SNE-M02": "white-pass-trail",
       "Q-SNE-M03": "white-pass-summit",

@@ -1620,6 +1620,24 @@
       "count": 0,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "nod-workshop-coast",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "nod-moon-shallows",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "nod-tide-rocks",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,

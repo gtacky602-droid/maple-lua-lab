@@ -1,0 +1,27 @@
+{
+  "witnesses": [
+    "fisher",
+    "merchant",
+    "traveler"
+  ],
+  "noCost": true,
+  "nonMoonParty": true,
+  "timingIndependent": true,
+  "closedGate": true,
+  "fallRescue": true,
+  "reflectAngleAfterReload": true,
+  "solidBridgeAfterReload": true,
+  "crossedWithJump": true,
+  "playerLure": true,
+  "partialSweepAfterReload": true,
+  "chestOre": 5,
+  "remoteReportBlocked": true,
+  "reportOnce": true,
+  "returnToFarm": true,
+  "readbackWithoutReward": true,
+  "reward": [
+    9733199,
+    8700,
+    0
+  ]
+}
