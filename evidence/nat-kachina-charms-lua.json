@@ -1,0 +1,59 @@
+{
+  "firstMeetingWithoutMainQuest": true,
+  "highShelfAndGroundCombat": true,
+  "resumesPartialDefeat": true,
+  "guaranteedThreeMaterials": true,
+  "outcropReachedWithHeldJump": true,
+  "draftAndCompletedDisplaySurviveSave": true,
+  "oldCompanionQuestStillLoads": true,
+  "arrangementsAndEqualReward": [
+    {
+      "color": "amber",
+      "pattern": "fan",
+      "xp": 1319124,
+      "mora": 4800,
+      "gear": {
+        "weapon": {
+          "name": "山歩きの入門長柄",
+          "atk": 1
+        },
+        "flower": {
+          "name": "山道の石花",
+          "hp": 10
+        }
+      }
+    },
+    {
+      "color": "teal",
+      "pattern": "row",
+      "xp": 1319124,
+      "mora": 4800,
+      "gear": {
+        "weapon": {
+          "name": "山歩きの入門長柄",
+          "atk": 1
+        },
+        "flower": {
+          "name": "山道の石花",
+          "hp": 10
+        }
+      }
+    },
+    {
+      "color": "purple",
+      "pattern": "fan",
+      "xp": 1319124,
+      "mora": 4800,
+      "gear": {
+        "weapon": {
+          "name": "山歩きの入門長柄",
+          "atk": 1
+        },
+        "flower": {
+          "name": "山道の石花",
+          "hp": 10
+        }
+      }
+    }
+  ]
+}

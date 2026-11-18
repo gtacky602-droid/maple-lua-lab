@@ -1,0 +1,147 @@
+{
+  "tool": "built-in image generation and reference-guided proportion edits",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/nat-kachina-charms-model.obj",
+    "sha256": "c72bb8018426c8d9c35e150192a6d7ead13a087c49660fac1c2d7bc4afde6924"
+  },
+  "materials": {
+    "path": "evidence/nat-kachina-charms-model.mtl",
+    "sha256": "1dc3bd132e69446781fd4900bb904ecbecefae4b90acbf80a90a49015ee8263d"
+  },
+  "contactSheet": {
+    "path": "evidence/nat-kachina-charms-views.png",
+    "sha256": "49496bb8e75d5679db8771d658b1a61c4f0a1b3faf4cd4e80c5fd111a4608365"
+  },
+  "propsSource": {
+    "path": "assets/nat-kachina-charms-props-source-v1.png",
+    "sha256": "27942821baed0d93df5369dbc9dd13f4d66af1ae658ebd3bce2ac59c6f9eae36"
+  },
+  "alphaCorners": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "backgrounds": [
+    {
+      "path": "assets/nat-kachina-charms-trail-background-v1.png",
+      "sha256": "bd3434648c3027842518ff8984f2a0551840fd22ea913dacd827bcd714ffb8a2"
+    }
+  ],
+  "backgroundReferences": [
+    {
+      "path": "assets/natlan-race-ridge-background-v1.png",
+      "sha256": "057644692ca2abb52c377f88b4b73955a4a45ddc6ba53c21b318de80a946aae6"
+    }
+  ],
+  "status": "Original six props from local 3D blockouts. The background is a lab placeholder.",
+  "profiles": {
+    "table": {
+      "encoding": {
+        "path": "assets/nat-kachina-charms-table-sprites-v1.json",
+        "sha256": "5ef16c3e01ab60663a016fb225eb8b2b3cc7981b1937592865b259a791825f5e"
+      },
+      "box": [
+        92,
+        178,
+        367,
+        238
+      ],
+      "runs": {
+        "legacy": 2725,
+        "h48c32": 1675,
+        "h32c16": 667
+      }
+    },
+    "outcrop": {
+      "encoding": {
+        "path": "assets/nat-kachina-charms-outcrop-sprites-v1.json",
+        "sha256": "a54d9a428114655d05c06a1fb2aff83370d79b11879fd23cc48f688259f55412"
+      },
+      "box": [
+        583,
+        154,
+        353,
+        273
+      ],
+      "runs": {
+        "legacy": 4382,
+        "h48c32": 2897,
+        "h32c16": 1217
+      }
+    },
+    "pendant": {
+      "encoding": {
+        "path": "assets/nat-kachina-charms-pendant-sprites-v1.json",
+        "sha256": "808a75c00a04d6ca0541671447628476b18e36eb45762d692d793fb5539fc1a4"
+      },
+      "box": [
+        1102,
+        132,
+        299,
+        281
+      ],
+      "runs": {
+        "legacy": 2000,
+        "h48c32": 1252,
+        "h32c16": 460
+      }
+    },
+    "amber": {
+      "encoding": {
+        "path": "assets/nat-kachina-charms-amber-sprites-v1.json",
+        "sha256": "0799a0fedccc9f66a583fc7cbdf695498554a702f8247457eff6902f8ccf9118"
+      },
+      "box": [
+        202,
+        680,
+        164,
+        174
+      ],
+      "runs": {
+        "legacy": 346,
+        "h48c32": 220,
+        "h32c16": 98
+      }
+    },
+    "teal": {
+      "encoding": {
+        "path": "assets/nat-kachina-charms-teal-sprites-v1.json",
+        "sha256": "1a7363385b0c32dd2f4e3875c05cde5124c908db1757ead0df90272236f66096"
+      },
+      "box": [
+        682,
+        680,
+        159,
+        174
+      ],
+      "runs": {
+        "legacy": 368,
+        "h48c32": 228,
+        "h32c16": 100
+      }
+    },
+    "purple": {
+      "encoding": {
+        "path": "assets/nat-kachina-charms-purple-sprites-v1.json",
+        "sha256": "4a5a04d365f6e159c10cca84b1650f0f68098bb1e10c480dc9614fa61d0e7885"
+      },
+      "box": [
+        1168,
+        680,
+        163,
+        174
+      ],
+      "runs": {
+        "legacy": 373,
+        "h48c32": 223,
+        "h32c16": 101
+      }
+    }
+  }
+}

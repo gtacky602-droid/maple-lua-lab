@@ -44,6 +44,10 @@
 #groupPhotoLayout:not([hidden]){display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:10px}
 #groupPhoto button:disabled{opacity:.55;cursor:default}
 @media(max-width:680px){#groupPhotoPrints.group-photo-two{grid-template-columns:minmax(0,1fr)}}
+#stoneOrnaments{padding:14px 18px;background:#382a26;color:#fff0da}
+#stoneOrnamentsTitle{font-size:18px;margin:0 0 9px;color:#ffdc91}
+#stoneOrnaments canvas{display:block;width:min(100%,420px);height:auto;margin:0 0 9px}
+#stoneOrnamentsTools:not([hidden]){display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px}
 .game.toy-dive .bottom .skills,.game.toy-dive .bottom .gauge{display:none}
 #diveHelp{padding:10px 18px;background:#1c4c50;color:#e1f6e8}
 #diveHelp button{margin-inline-start:8px}
@@ -104,6 +108,16 @@
   <button type="button" data-rehearsal-cue="wave" data-action="story_rehearsal:wave">波を出す</button>
   <button type="button" data-action="story_rehearsal:close">稽古を閉じる</button>
  </div>
+</section>
+<section id="stoneOrnaments" hidden aria-labelledby="stoneOrnamentsTitle">
+ <h2 id="stoneOrnamentsTitle">二人分の石飾り</h2>
+ <canvas id="stoneOrnamentsPreview" width="420" height="152" role="img"></canvas>
+ <div id="stoneOrnamentsTools">
+  <label>中央の色 <select id="stoneColor"></select></label>
+  <label>並び <select id="stonePattern"></select></label>
+  <button id="stoneOrnamentsConfirm" type="button">この組み合わせで仕上げる</button>
+ </div>
+ <button id="stoneOrnamentsClose" type="button">閉じる</button>
 </section>
 <section id="groupPhoto" hidden aria-labelledby="groupPhotoTitle">
  <h2 id="groupPhotoTitle"></h2>

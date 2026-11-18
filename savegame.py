@@ -62,6 +62,20 @@ def validate_discovery_map(record, quest, story):
         raise ValueError('Incomplete discovery map')
 
 
+def validate_stone_pair(record, quest):
+    spec = quest.get('stoneOrnaments')
+    if 'stonePair' not in record:
+        if spec and record['count'] == quest['goal']:
+            raise ValueError('二人分の石飾りがありません')
+        return
+    pair = record['stonePair']
+    if not spec or record['count'] < quest['goal'] - 1 or not isinstance(pair, dict) or set(pair) != {'color', 'pattern'}:
+        raise ValueError('石飾りの進行が不正です')
+    for field, options in (('color', spec['colors']), ('pattern', spec['patterns'])):
+        if not any(option['id'] == pair[field] for option in options):
+            raise ValueError('石飾りの色か並びが不正です')
+
+
 def validate_group_photo(record, quest):
     spec = quest.get('groupPhoto')
     progress = record.get('groupPhoto')
@@ -344,7 +358,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord','fireworkDesign','stealthEncounter','ittoContest','colleiLetter','roomLayout','discoveryDraft','discoveryDew','groupPhoto'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord','fireworkDesign','stealthEncounter','ittoContest','colleiLetter','roomLayout','discoveryDraft','discoveryDew','groupPhoto','stonePair'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -374,6 +388,7 @@ def validate_save(data):
             validate_paths(q,quest,st['visited'])
             validate_reading_model(q,quest)
             validate_group_photo(q,quest)
+            validate_stone_pair(q,quest)
             validate_discovery_map(q,quest,st)
             validate_appraisal(q,quest,st['visited'])
             validate_snow_match(q,quest,nodes.get(quest.get('target'),{}).get('snowMatch'))

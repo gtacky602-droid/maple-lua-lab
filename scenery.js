@@ -134,6 +134,7 @@ export const sceneryDefinitions={
  fontaineDelivery:{file:'fontaine-delivery-quay-background-v1.png',zones:['story:fontaine-parcel-counter','story:fontaine-delivery-quay']},
  fontaineBackstage:{file:'fontaine-backstage-background-v1.png',zones:['story:fontaine-old-scenery-door','story:fontaine-moon-fly-loft','story:fontaine-stage-wings','story:fontaine-lift-catwalk']},
  fontaineUnderstage:{file:'fontaine-understage-background-v1.png',zones:['story:fontaine-understage-workfloor','story:fontaine-parcel-storeroom']},
+ natlanCharmTrail:{file:'nat-kachina-charms-trail-background-v1.png',zones:['story:natlan-charm-trail'],note:'彩石の採集路の仮背景'},
  fontaineToyShallows:{file:'fon-freminet-dive-shallows-background-v1.png',zones:['story:fon-toy-shallows'],note:'浅瀬の試験区画の仮背景'},
  fontaineMagicWings:{file:'fon-lyney-magic-wings-background-v1.png',zones:['story:fon-magic-wings'],note:'小劇場の舞台裏の仮背景'},
  fontaineMagicSeats:{file:'fon-lyney-magic-seats-background-v1.png',zones:['story:fon-magic-seats'],note:'小劇場の客席の仮背景'},

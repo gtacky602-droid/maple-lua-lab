@@ -10,6 +10,7 @@ import {initReadingModel} from './reading-model.js';
 import {initDiscoveryMap} from './discovery-map.js';
 import {updateFurinaRehearsal} from './furina-rehearsal.js';
 import {initGroupPhoto} from './group-photo.js';
+import {initStoneOrnaments} from './stone-ornaments.js';
 import {initWorldUI} from './world-ui.js';
 import {initSkillUI} from './loadout-ui.js';
 import {scenery} from './scenery.js';
@@ -46,6 +47,7 @@ const {bossImages,bossAtlas,atlas}=await loadSpriteImages($('status'));
 const updateReadingModel=initReadingModel(bossImages,key=>actions.push(key));
 const updateDiscoveryMap=initDiscoveryMap(bossImages,key=>actions.push(key));
 const updateGroupPhoto=initGroupPhoto(bossImages,key=>actions.push(key));
+const updateStoneOrnaments=initStoneOrnaments(bossImages,key=>actions.push(key));
 function updateTeaCase(view){
  const panel=$('teaCaseBoard'),cards=$('teaEvidenceCards');
  panel.hidden=!view;
@@ -88,7 +90,7 @@ function updateTeaCase(view){
 try{spriteData=await (await fetch('assets/sprites.json')).json()}catch{}
 const mapping={KeyF:'story_nearby_portal',KeyG:'story_collect',KeyK:'skill1',KeyL:'skill2',KeyM:'skill3',KeyN:'skill4',KeyQ:'light',KeyE:'swap',ShiftLeft:'dodge',ShiftRight:'dodge',KeyP:'pause'};
 for(let i=1;i<=8;i++)mapping['Digit'+i]='slot'+i;
-addEventListener('keydown',e=>{if(e.code==='Escape'&&frame?.storyNaviaPhoto?.panel){actions.push('story_photo_close');return}if(e.code==='Escape'&&frame?.storyFurinaRehearsal?.open){actions.push('story_rehearsal:close');return}if(e.code==='Escape'&&frame?.storyDiscoveryMap){actions.push('story_discovery_close');return}if(e.code==='Escape'&&frame?.storyKavehModel){actions.push('story_model_close');return}if(/INPUT|SELECT|BUTTON/.test(document.activeElement.tagName))return;if(['Space','ArrowLeft','ArrowRight','ArrowDown'].includes(e.code)||(e.code==='ArrowUp'&&frame?.storyToyDive))e.preventDefault();keys.add(e.code);if(!e.repeat){if(e.code==='Space')actions.push(keys.has('KeyS')||keys.has('ArrowDown')?'drop':'jump');else if(mapping[e.code])actions.push(mapping[e.code])}});
+addEventListener('keydown',e=>{if(e.code==='Escape'&&frame?.storyStonePair){actions.push('story_charm_close');return}if(e.code==='Escape'&&frame?.storyNaviaPhoto?.panel){actions.push('story_photo_close');return}if(e.code==='Escape'&&frame?.storyFurinaRehearsal?.open){actions.push('story_rehearsal:close');return}if(e.code==='Escape'&&frame?.storyDiscoveryMap){actions.push('story_discovery_close');return}if(e.code==='Escape'&&frame?.storyKavehModel){actions.push('story_model_close');return}if(/INPUT|SELECT|BUTTON/.test(document.activeElement.tagName))return;if(['Space','ArrowLeft','ArrowRight','ArrowDown'].includes(e.code)||(e.code==='ArrowUp'&&frame?.storyToyDive))e.preventDefault();keys.add(e.code);if(!e.repeat){if(e.code==='Space')actions.push(keys.has('KeyS')||keys.has('ArrowDown')?'drop':'jump');else if(mapping[e.code])actions.push(mapping[e.code])}});
 addEventListener('keyup',e=>keys.delete(e.code));addEventListener('blur',()=>keys.clear());
 document.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>{actions.push(b.dataset.action);b.blur()});
 let holds={};document.querySelectorAll('[data-hold]').forEach(b=>{b.onpointerdown=e=>{b.setPointerCapture(e.pointerId);holds[b.dataset.hold]=true};b.onpointerup=b.onpointercancel=()=>holds[b.dataset.hold]=false});
@@ -382,6 +384,7 @@ function hud(f,calls,renderMs){
  updateDiscoveryMap(f.storyDiscoveryMap);
  updateFurinaRehearsal(f.storyFurinaRehearsal);
  updateGroupPhoto(f.storyNaviaPhoto);
+ updateStoneOrnaments(f.storyStonePair);
  updateTeaCase(f.storyTeaBoard);
  updateFireworkDesign(f.storyFireworkDesign);
  const reflection=f.storyReflection;

@@ -1017,6 +1017,18 @@
       "to": "natlan-sunset-rostrum"
     },
     {
+      "node": "natlan-hub",
+      "to": "natlan-charm-trail"
+    },
+    {
+      "node": "natlan-charm-trail",
+      "to": "natlan-hub"
+    },
+    {
+      "node": "natlan-charm-trail",
+      "to": "natlan-hub"
+    },
+    {
       "node": "natlan-field",
       "to": "natlan-hub"
     },

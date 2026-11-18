@@ -147,8 +147,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 24,
-      "prototype_quest_count": 13,
+      "prototype_stage_count": 25,
+      "prototype_quest_count": 14,
       "official_map2_markers": {
         "waypoints": 126,
         "statues": 9
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 323,
-    "provisional_quests": 187,
+    "authored_stages": 324,
+    "provisional_quests": 188,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -908,6 +908,7 @@
         "stage_ids": [
           "natlan-entry",
           "natlan-hub",
+          "natlan-charm-trail",
           "natlan-field",
           "qucusaur-field-cavern",
           "yumka-field-ravine",
@@ -933,6 +934,7 @@
         ],
         "quest_ids": [
           "kachina-join",
+          "natlan-kachina-charms",
           "natlan-entry-check",
           "natlan-contract",
           "qucusaur-commission",
@@ -1408,8 +1410,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 92,
-    "without_explicit_mapping": 61,
+    "linked": 93,
+    "without_explicit_mapping": 60,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1479,6 +1481,7 @@
       "Q-NAT-M01": "natlan-ridge-flag",
       "Q-NAT-M02": "natlan-two-trials",
       "Q-NAT-M03": "natlan-sunset-duel",
+      "Q-NAT-S01": "natlan-kachina-charms",
       "Q-NOD-M01": "nod-first-treasure",
       "Q-NOD-M02": "nod-moon-crossroads",
       "Q-NOD-M03": "nod-moon-vault-quest",

@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule,furinaCuesModule,naviaPhotoModule,lyneyMagicModule,freminetDiveModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule,furinaCuesModule,naviaPhotoModule,lyneyMagicModule,freminetDiveModule,stoneOrnamentsModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -196,6 +196,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local naviaPhoto=naviaPhotoModule(C,canInspect)
  local lyneyMagic=lyneyMagicModule(C,canInspect)
  local freminetDive=freminetDiveModule(C,canInspect)
+ local stoneOrnaments=stoneOrnamentsModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -361,6 +362,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      return true
     elseif milestone.flagLowerSeconds then
      if command=='rotate' then flagCourse.lower(s,milestone,state) end
+     return true
+    elseif milestone.stonePairBoard then
+     if command=='rotate' then stoneOrnaments.open(s,q,state) end
      return true
     elseif milestone.photoPanel then
      if command=='rotate' then naviaPhoto.open(s,q,state,milestone.photoPanel) end
@@ -559,7 +563,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.kavehModelOpen=nil
   s.nahidaMapOpen=nil
   s.furinaRun=nil
-  s.photoPanel,s.photoTimer=nil,nil
+  s.photoPanel,s.photoTimer,s.stonePairOpen=nil,nil,nil
   s.lyneyRun=nil
   s.storyLightMode=n.localLight and 'bright' or nil
   s.airflowTrial,s.storyCue=nil,nil
@@ -677,6 +681,21 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if s.voyage and s.voyage.kind=='trolley' and key~='pause' and key~='story_nearby_portal'
       and not key:match('^story_portal:') and not key:match('^story_fast:') then return end
   if s.lyneyRun and key~='pause' and key~='story_collect' then return end
+  local charmCommand,charmId=key:match('^story_charm_(%a+):(%a+)$')
+  charmCommand=charmCommand or key:match('^story_charm_(%a+)$')
+  if charmCommand then
+   local id=s.story.active and nodes[s.story.node].stoneCharmQuest
+   if id then
+    local state=s.story.quests[id]
+    local milestone=stoneOrnaments.action(s,quests[id],state,charmCommand,charmId)
+    if milestone then completeMilestone(s,state,milestone) end
+   end
+   return
+  end
+  if s.stonePairOpen and key~='pause' then
+   if key=='story_collect' then s.stonePairOpen=nil end
+   return
+  end
   local photoCommand,photoId=key:match('^story_photo_(%a+):(%a+)$')
   photoCommand=photoCommand or key:match('^story_photo_(%a+)$')
   if photoCommand then
@@ -812,6 +831,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if node.nahidaMapQuest and nahidaMap.collect(s,quests[node.nahidaMapQuest],s.story.quests[node.nahidaMapQuest]) then return end
    if node.scentQuest and emilieScent.read(s,quests[node.scentQuest],s.story.quests[node.scentQuest]) then return end
    if node.groupPhotoQuest and naviaPhoto.read(s,quests[node.groupPhotoQuest],s.story.quests[node.groupPhotoQuest]) then return end
+   if node.stoneCharmQuest and stoneOrnaments.read(s,quests[node.stoneCharmQuest],s.story.quests[node.stoneCharmQuest]) then return end
    if node.toyDive and freminetDive.look(s,node,s.story.quests[node.toyDive.quest]) then return end
    if node.toyDisplay and freminetDive.readDisplay(s,node.toyDisplay,s.story.quests[node.toyDisplay.quest]) then return end
    if node.readingRoom and kavehModel.read(s,quests[node.kavehQuest],s.story.quests[node.kavehQuest]) then return end
@@ -1130,7 +1150,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     companion.buffer=.1
    end
   end
-  local returns,previous=s.returns,s.t;step(s,dt,(s.fireworkShow or s.sayuHatch or s.kavehModelOpen or s.nahidaMapOpen or s.furinaRun or s.photoPanel or s.lyneyRun) and {} or input)
+  local returns,previous=s.returns,s.t;step(s,dt,(s.fireworkShow or s.sayuHatch or s.kavehModelOpen or s.nahidaMapOpen or s.furinaRun or s.photoPanel or s.stonePairOpen or s.lyneyRun) and {} or input)
   if s.story and s.story.active and s.returns==returns and not s.paused then
    local node=nodes[s.story.node]
    duel.step(s,node.duel)
@@ -1379,6 +1399,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     local q=quests[n.toyDive.quest]
     freminetDive.observe(f,s,markers,n,q,s.story.quests[q.id],mode,profile)
    end
+   if n.stoneCharmQuest then
+    local q=quests[n.stoneCharmQuest]
+    stoneOrnaments.observe(f,s,markers,q,s.story.quests[q.id],mode,profile)
+   end
    if n.toyDisplay then
     freminetDive.display(f,s,markers,n.toyDisplay,s.story.quests[n.toyDisplay.quest],mode,profile)
    end
@@ -1617,7 +1641,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup
         and not milestone.nightClue and not milestone.fireworkSight and not milestone.stealthNap
         and not milestone.teaClue and not milestone.teaCup and not milestone.surveyProp and not milestone.visitorProp
-        and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp and not milestone.photoProp and not milestone.magicProp and not milestone.diveProp
+        and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp and not milestone.photoProp and not milestone.magicProp and not milestone.diveProp and not milestone.charmProp
         and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
@@ -1642,6 +1666,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
          or milestone.diveDock and not freminetDive.arrived(s,q,state) and '玩具の到着を待つ'
          or milestone.magicCue and s.lyneyRun and '演目の進行中'
          or milestone.photoTimer and s.photoTimer and '撮影タイマー作動中'
+         or milestone.stonePairBoard and s.stonePairOpen and '石飾りを閉じる'
          or milestone.photoPanel and s.photoPanel and '写真を閉じる'
          or milestone.discoveryBoard and s.nahidaMapOpen and '絵地図を閉じる'
          or milestone.modelBoard and s.kavehModelOpen and '模型を閉じる' or milestone.action}

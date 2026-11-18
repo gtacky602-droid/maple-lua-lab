@@ -2,6 +2,10 @@
   "version": 1,
   "status": "Provisional live placement; existing generic behavior; not canonical regional species or attacks",
   "nodes": {
+    "natlan-charm-trail": [
+      {"id": "charm-trail-beast-west", "kind": 1, "x": 570, "platform": 0, "hp": 25, "art": "fanged-beast", "questPhase": 1},
+      {"id": "charm-trail-beast-east", "kind": 1, "x": 933, "platform": 0, "hp": 31, "art": "fanged-beast", "questPhase": 1}
+    ],
     "fon-emilie-scent-shore":[
       {"id":"fon-scent-quay-crab","kind":1,"art":"armored-crab","name":"船着き場の重甲ヤドカニ","x":1030,"platform":0,"hp":20,"questPhase":1}
     ],

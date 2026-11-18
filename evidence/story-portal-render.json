@@ -863,12 +863,22 @@
     {
       "node": "natlan-hub",
       "mode": "sprite",
-      "visible_portals": 9
+      "visible_portals": 10
     },
     {
       "node": "natlan-hub",
       "mode": "rect",
-      "visible_portals": 9
+      "visible_portals": 10
+    },
+    {
+      "node": "natlan-charm-trail",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-charm-trail",
+      "mode": "rect",
+      "visible_portals": 2
     },
     {
       "node": "natlan-field",

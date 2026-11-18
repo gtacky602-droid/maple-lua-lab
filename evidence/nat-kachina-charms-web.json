@@ -1,0 +1,15 @@
+{
+  "ordinaryCombat": true,
+  "highShelfCameo": true,
+  "jumpToOutcrop": true,
+  "twoDistinctLooks": true,
+  "mobileWorkshop": true,
+  "draftReload": true,
+  "joinedAndPersistentDisplay": true,
+  "calls": {
+    "png": 33,
+    "rect": 14696,
+    "light": 4196
+  },
+  "errors": []
+}

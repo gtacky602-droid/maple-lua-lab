@@ -1,0 +1,27 @@
+newmtl wood
+Kd 0.59216 0.34902 0.21569
+illum 1
+
+newmtl end
+Kd 0.82745 0.59216 0.35686
+illum 1
+
+newmtl iron
+Kd 0.31765 0.25490 0.22745
+illum 1
+
+newmtl sand
+Kd 0.74118 0.46667 0.29412
+illum 1
+
+newmtl gold
+Kd 0.88627 0.61569 0.25098
+illum 1
+
+newmtl teal
+Kd 0.28627 0.65098 0.61569
+illum 1
+
+newmtl purple
+Kd 0.63137 0.44706 0.73725
+illum 1

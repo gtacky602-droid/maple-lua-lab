@@ -2148,15 +2148,130 @@
           "to": "natlan-field",
           "x": 1380
         },
-        {"to":"natlan-flag-staging","x":885,"requires":{"quest":"natlan-ridge-flag","count":0},"rideLabel":"旗取りのスタート広場"},
-        {"to":"natlan-flag-summit","x":1227,"requires":{"quest":"natlan-ridge-flag"},"rideLabel":"旗取りの頂上への近道"},
-        {"to":"natlan-high-trial-field","x":1040,"arrivalX":1183,"arrivalY":390,"requires":{"quest":"natlan-two-trials"},"rideLabel":"高台の狩場への近道"},
-        {"to":"natlan-river-turn-basin","x":1132,"arrivalX":1180,"arrivalY":480,"requires":{"quest":"natlan-two-trials"},"rideLabel":"水辺の狩場への近道"},
-        {"to":"natlan-duel-entry","x":1314,"requires":{"quest":"natlan-two-trials"},"rideLabel":"夕映え会場の控え広場"},
-        {"to":"natlan-sunset-arena","x":965,"requires":{"quest":"natlan-sunset-duel"},"rideLabel":"夕映え会場・練習の近道"},
-        {"to":"natlan-sunset-rostrum","x":775,"requires":{"quest":"natlan-sunset-duel"},"rideLabel":"夕映えの記録台への近道"}
+        {
+          "to": "natlan-flag-staging",
+          "x": 885,
+          "requires": {
+            "quest": "natlan-ridge-flag",
+            "count": 0
+          },
+          "rideLabel": "旗取りのスタート広場"
+        },
+        {
+          "to": "natlan-flag-summit",
+          "x": 1227,
+          "requires": {
+            "quest": "natlan-ridge-flag"
+          },
+          "rideLabel": "旗取りの頂上への近道"
+        },
+        {
+          "to": "natlan-high-trial-field",
+          "x": 1040,
+          "arrivalX": 1183,
+          "arrivalY": 390,
+          "requires": {
+            "quest": "natlan-two-trials"
+          },
+          "rideLabel": "高台の狩場への近道"
+        },
+        {
+          "to": "natlan-river-turn-basin",
+          "x": 1132,
+          "arrivalX": 1180,
+          "arrivalY": 480,
+          "requires": {
+            "quest": "natlan-two-trials"
+          },
+          "rideLabel": "水辺の狩場への近道"
+        },
+        {
+          "to": "natlan-duel-entry",
+          "x": 1314,
+          "requires": {
+            "quest": "natlan-two-trials"
+          },
+          "rideLabel": "夕映え会場の控え広場"
+        },
+        {
+          "to": "natlan-sunset-arena",
+          "x": 965,
+          "requires": {
+            "quest": "natlan-sunset-duel"
+          },
+          "rideLabel": "夕映え会場・練習の近道"
+        },
+        {
+          "to": "natlan-sunset-rostrum",
+          "x": 775,
+          "requires": {
+            "quest": "natlan-sunset-duel"
+          },
+          "rideLabel": "夕映えの記録台への近道"
+        },
+        {
+          "to": "natlan-charm-trail",
+          "x": 668,
+          "arrivalX": 96,
+          "requires": {
+            "quest": "natlan-kachina-charms",
+            "count": 1
+          },
+          "rideLabel": "石飾りを探す採集路"
+        }
       ],
-      "checkpoint": "natlan-hub"
+      "checkpoint": "natlan-hub",
+      "stoneCharmQuest": "natlan-kachina-charms"
+    },
+    {
+      "id": "natlan-charm-trail",
+      "name": "ナタ・彩石の採集路",
+      "region": "ナタ",
+      "level": 100,
+      "width": 1820,
+      "hub": false,
+      "peaceful": false,
+      "checkpoint": "natlan-hub",
+      "stoneCharmQuest": "natlan-kachina-charms",
+      "clearedBy": "natlan-kachina-charms",
+      "clearCount": 3,
+      "spawnAt": 2,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1820
+        },
+        {
+          "x": 699,
+          "y": 365,
+          "w": 387
+        },
+        {
+          "x": 1290,
+          "y": 386,
+          "w": 408
+        }
+      ],
+      "exits": [
+        {
+          "to": "natlan-hub",
+          "x": 64,
+          "arrivalX": 516,
+          "rideLabel": "谷の集落に戻る"
+        },
+        {
+          "to": "natlan-hub",
+          "x": 1740,
+          "arrivalX": 516,
+          "returnOnly": true,
+          "requires": {
+            "quest": "natlan-kachina-charms",
+            "count": 5
+          },
+          "rideLabel": "作業台への近道"
+        }
+      ]
     },
     {
       "id": "natlan-field",
@@ -6013,13 +6128,192 @@
     {
       "id": "kachina-join",
       "name": "ナタの仲間と道を確かめる",
+      "giver": "カチーナ",
       "hub": "natlan-hub",
       "target": "natlan-field",
       "kind": "kill",
       "goal": 4,
       "xp": 8400,
       "mora": 300,
-      "join": "kachina"
+      "join": "kachina",
+      "legacyOnly": true
+    },
+    {
+      "id": "natlan-kachina-charms",
+      "designId": "Q-NAT-S01",
+      "name": "並べてみよう、冒険のしるし",
+      "giver": "カチーナ",
+      "hub": "natlan-hub",
+      "target": "natlan-charm-trail",
+      "level": 100,
+      "kind": "itinerary",
+      "goal": 6,
+      "xp": 1319124,
+      "mora": 4800,
+      "join": "kachina",
+      "starter": {
+        "weapon": {
+          "name": "山歩きの入門長柄",
+          "atk": 1
+        },
+        "flower": {
+          "name": "山道の石花",
+          "hp": 10
+        }
+      },
+      "briefing": "カチーナ「一緒に歩いた記念に、石飾りを作ってみない？ 二人分なら、小片を分けっこできるよ。」",
+      "closing": "カチーナ「これでおそろい！ 知らない場所では今度は案内してくれる？」カチーナと初期装備を使えるようになります。",
+      "completedObjective": "谷の集落の作業台に二人分の石飾りを展示。加入済みの仲間からカチーナを編成できる",
+      "stoneOrnaments": {
+        "bench": {
+          "x": 452,
+          "y": 480
+        },
+        "shelf": {
+          "x": 924,
+          "y": 365
+        },
+        "handoff": {
+          "x": 1116,
+          "y": 480
+        },
+        "colors": [
+          {
+            "id": "amber",
+            "label": "琥珀が中央",
+            "stones": [
+              "teal",
+              "amber",
+              "purple"
+            ]
+          },
+          {
+            "id": "teal",
+            "label": "青緑が中央",
+            "stones": [
+              "purple",
+              "teal",
+              "amber"
+            ]
+          },
+          {
+            "id": "purple",
+            "label": "紫が中央",
+            "stones": [
+              "amber",
+              "purple",
+              "teal"
+            ]
+          }
+        ],
+        "patterns": [
+          {
+            "id": "fan",
+            "label": "扇形",
+            "points": [
+              [
+                -17,
+                -27
+              ],
+              [
+                0,
+                -39
+              ],
+              [
+                17,
+                -27
+              ]
+            ]
+          },
+          {
+            "id": "row",
+            "label": "横一列",
+            "points": [
+              [
+                -19,
+                -32
+              ],
+              [
+                0,
+                -32
+              ],
+              [
+                19,
+                -32
+              ]
+            ]
+          }
+        ]
+      },
+      "itinerary": [
+        {
+          "kind": "inspect",
+          "node": "natlan-hub",
+          "x": 452,
+          "y": 480,
+          "name": "石飾りの作業台",
+          "action": "カチーナと採集の相談をする",
+          "objective": "谷の集落の作業台で相談する",
+          "notice": "カチーナ「採集点は三つ。高い岩棚は任せて。谷底で魔物が出たら、旅人にお願い！」",
+          "charmProp": true
+        },
+        {
+          "kind": "inspect",
+          "node": "natlan-charm-trail",
+          "x": 331,
+          "y": 480,
+          "name": "谷底の青緑の小片",
+          "action": "足元の青緑の小片を拾う",
+          "objective": "彩石の採集路に入り、最初に足元の青緑の小片を拾う",
+          "notice": "青緑の小片を拾いました。カチーナが上段へ。谷底に来た魔物を引き受けましょう。",
+          "charmProp": true
+        },
+        {
+          "kind": "kill",
+          "node": "natlan-charm-trail",
+          "enemies": [
+            "charm-trail-beast-west",
+            "charm-trail-beast-east"
+          ],
+          "name": "谷底の魔物",
+          "objective": "カチーナが上段で採集する間に、谷底の魔物を二体倒す",
+          "notice": "二体を倒しました。岩棚の先でカチーナから小片を受け取りましょう。"
+        },
+        {
+          "kind": "inspect",
+          "node": "natlan-charm-trail",
+          "x": 1116,
+          "y": 480,
+          "name": "岩棚で採った紫の小片",
+          "action": "カチーナから紫の小片を受け取る",
+          "objective": "岩棚の右の谷底でカチーナから紫の小片を受け取る",
+          "notice": "カチーナ「上には紫の石があったよ。もう一か所、向こうの岩に光ってる石が見えるね。」",
+          "charmProp": true
+        },
+        {
+          "kind": "inspect",
+          "node": "natlan-charm-trail",
+          "x": 1480,
+          "y": 386,
+          "name": "琥珀色の大岩",
+          "action": "大岩のふもとで琥珀色の小片を拾う",
+          "objective": "右の足場に跳び乗り、琥珀色の大岩を調べる",
+          "notice": "カチーナ「この石は大きすぎるね。下の小片なら、他の二色と並べられそう。」作業台へ戻りましょう。",
+          "charmProp": true
+        },
+        {
+          "kind": "inspect",
+          "node": "natlan-hub",
+          "x": 452,
+          "y": 480,
+          "name": "二人分の石飾り",
+          "action": "石飾りの色と並びを選ぶ",
+          "objective": "集落の作業台で中央の色と並びを選び、二人分の石飾りを仕上げる",
+          "notice": "二人分の石飾りが完成しました。カチーナに報告しましょう。",
+          "charmProp": true,
+          "stonePairBoard": true
+        }
+      ]
     },
     {
       "id": "natlan-entry-check",
