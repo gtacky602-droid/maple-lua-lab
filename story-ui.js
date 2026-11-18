@@ -35,7 +35,7 @@ function update(){
  if(node.lightReference){const note=document.createElement('p');note.textContent='この分岐の光界値目安：'+node.lightReference+'。入場条件ではありません。敵/障壁は試作です。';panel.append(note)}
 
  for(const h of node.hints||[])panel.append(button('調べる：'+h.label,'story_discover:'+h.group));
- for(const e of node.exits){const n=graph.nodes.find(n=>n.id===e.to);const b=button('門：'+n.name+' Lv'+n.level,'story_portal:'+n.id);if(e.windowStart){b.disabled=!f.voyage?.stopover;b.title='出航30〜50秒の寄港中に下船できます。'}if(e.requiresArrival)b.disabled=!!f.voyage;panel.append(b)}
+ for(const e of node.exits){const n=graph.nodes.find(n=>n.id===e.to);const b=button('門：'+(e.rideLabel||n.name)+' Lv'+n.level,'story_portal:'+n.id);if(e.windowStart){b.disabled=!f.voyage?.stopover;b.title='出航30〜50秒の寄港中に下船できます。'}if(e.requiresArrival)b.disabled=!!f.voyage;panel.append(b)}
  for(const n of graph.nodes.filter(n=>n.hub&&f.story.visited[n.id]))panel.append(button('拠点へ：'+n.name,'story_fast:'+n.id));
  panel.append(renderQuestJournal(f,{filter:questFilter,button,trackedId,onTrack:trackQuest,onFilter:value=>{questFilter=value;previous='';update()}}));
 }

@@ -576,7 +576,8 @@
     {"id":"rubble-sifter","name":"礫脈の選鉱炉（ラボ独自）","file":"rubble-sifter-field-idle-sprites-v1.json","height":142,"mapHover":0},
     {"id":"prism-walker","name":"玻璃根の歩行晶（ラボ独自）","file":"prism-walker-field-idle-sprites-v1.json","height":129,"mapHover":0},
     {"id":"ice-crawler","name":"氷継ぎの岩這い（ラボ独自）","file":"ice-crawler-field-idle-sprites-v1.json","height":116,"mapHover":0},
-    {"id":"rime-hare","name":"霜紋の岩兎（ラボ独自）","file":"rime-hare-field-idle-sprites-v1.json","height":116,"mapHover":0}
+    {"id":"rime-hare","name":"霜紋の岩兎（ラボ独自）","file":"rime-hare-field-idle-sprites-v1.json","height":116,"mapHover":0},
+    {"id":"tea-boulder","name":"苔衣の踏石獣（ラボ独自）","file":"tea-boulder-field-idle-sprites-v1.json","height":125,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }

@@ -193,6 +193,26 @@
       {"id":"preview-spine-lee-beetle-2","species":"snow-mantle-beetle","x":675,"y":389,"flip":false},
       {"id":"preview-spine-lee-beetle-3","species":"snow-mantle-beetle","x":940,"y":480,"flip":false},
       {"id":"preview-spine-lee-beetle-4","species":"snow-mantle-beetle","x":1250,"y":392,"flip":false}
+    ],
+    "chenyu-tea-terraces": [
+      {"id":"preview-chenyu-tea-terraces-1","species":"sail-shell-crawler","x":375,"y":480,"flip":false},
+      {"id":"preview-chenyu-tea-terraces-2","species":"pebble-courier","x":483,"y":480,"flip":false},
+      {"id":"preview-chenyu-tea-terraces-3","species":"sail-shell-crawler","x":678,"y":480,"flip":false},
+      {"id":"preview-chenyu-tea-terraces-4","species":"pebble-courier","x":743,"y":390,"flip":false},
+      {"id":"preview-chenyu-tea-terraces-5","species":"sail-shell-crawler","x":963,"y":390,"flip":false},
+      {"id":"preview-chenyu-tea-terraces-6","species":"pebble-courier","x":1065,"y":480,"flip":false},
+      {"id":"preview-chenyu-tea-terraces-7","species":"sail-shell-crawler","x":1315,"y":384,"flip":false},
+      {"id":"preview-chenyu-tea-terraces-8","species":"pebble-courier","x":1598,"y":384,"flip":false}
+    ],
+    "chenyu-cart-road": [
+      {"id":"preview-chenyu-cart-road-1","species":"sail-shell-crawler","x":290,"y":480,"flip":false},
+      {"id":"preview-chenyu-cart-road-2","species":"pebble-courier","x":486,"y":480,"flip":false},
+      {"id":"preview-chenyu-cart-road-3","species":"sail-shell-crawler","x":620,"y":390,"flip":false},
+      {"id":"preview-chenyu-cart-road-4","species":"pebble-courier","x":808,"y":480,"flip":false},
+      {"id":"preview-chenyu-cart-road-5","species":"sail-shell-crawler","x":924,"y":480,"flip":false},
+      {"id":"preview-chenyu-cart-road-6","species":"pebble-courier","x":1196,"y":392,"flip":false},
+      {"id":"preview-chenyu-cart-road-7","species":"sail-shell-crawler","x":1348,"y":480,"flip":false},
+      {"id":"preview-chenyu-cart-road-8","species":"pebble-courier","x":1450,"y":480,"flip":false}
     ]
   }
 }

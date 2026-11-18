@@ -12,8 +12,8 @@
   },
   "counts": {
     "source_entities": 63,
-    "encounter_candidates": 79,
-    "partial": 61,
+    "encounter_candidates": 80,
+    "partial": 62,
     "complete": 0
   },
   "encounters": [
@@ -2142,6 +2142,31 @@
         "encoding": "assets/rime-hare-field-idle-sprites-v1.json",
         "audit": "evidence/rime-hare-art.json",
         "status": "original rock hare against mountain ridge with distinct floor telegraphs"
+      }
+    },
+    {
+      "id": "original-tea-boulder",
+      "name": "苔衣の踏石獣",
+      "kind": "normal",
+      "entity_ids": [],
+      "status": "partial",
+      "action": null,
+      "grouping": "original_design",
+      "evidence": [
+        "docs/balance/CHENYU_TEA_ROUTE_WEB.md"
+      ],
+      "remaining": [
+        "連続アニメーション",
+        "報酬の調整",
+        "マルチ検証"
+      ],
+      "fieldNode": "chenyu-boulder-gully",
+      "fieldEntrance": "段丘の岩陰（Lv95）",
+      "art_candidate": {
+        "source": "assets/tea-boulder-source-v1.png",
+        "encoding": "assets/tea-boulder-field-idle-sprites-v1.json",
+        "audit": "evidence/tea-boulder-art.json",
+        "status": "original limestone crawler, rock cover blocks a single direction of its pulse"
       }
     },
     {

@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 203 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 195,
+  "scope": "Authored 208 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 200,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1027,7 +1027,12 @@
     {"id":"spine-wind-notch","name":"風待ちの岩棚","region":"ドラゴンスパイン","status":"regional_temporary_image"},
     {"id":"spine-lee-walk","name":"雪壁の風よけ道","region":"ドラゴンスパイン","status":"regional_temporary_image"},
     {"id":"spine-shelter","name":"峰下の観測小屋","region":"ドラゴンスパイン","status":"regional_temporary_image"},
-    {"id":"spine-trace-ridge","name":"霜紋の稜線","region":"ドラゴンスパイン","status":"regional_temporary_image"}
+    {"id":"spine-trace-ridge","name":"霜紋の稜線","region":"ドラゴンスパイン","status":"regional_temporary_image"},
+    {"id":"chenyu-tea-terraces","name":"茶畑の段丘道","region":"沈玉の谷","status":"regional_temporary_image"},
+    {"id":"chenyu-cart-road","name":"谷沿いの荷車道","region":"沈玉の谷","status":"regional_temporary_image"},
+    {"id":"chenyu-tea-lift","name":"茶荷の昇降台","region":"沈玉の谷","status":"regional_temporary_image"},
+    {"id":"chenyu-tea-pavilion","name":"谷を望む茶亭","region":"沈玉の谷","status":"regional_temporary_image"},
+    {"id":"chenyu-boulder-gully","name":"段丘の岩陰","region":"沈玉の谷","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 8
 }

@@ -953,12 +953,12 @@
     {
       "node": "chenyu-camp",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 4
     },
     {
       "node": "chenyu-camp",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 4
     },
     {
       "node": "chenyu-depth",
@@ -2027,6 +2027,56 @@
     },
     {
       "node": "spine-trace-ridge",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "chenyu-tea-terraces",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "chenyu-tea-terraces",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "chenyu-cart-road",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "chenyu-cart-road",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "chenyu-tea-lift",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "chenyu-tea-lift",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "chenyu-tea-pavilion",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "chenyu-tea-pavilion",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "chenyu-boulder-gully",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "chenyu-boulder-gully",
       "mode": "rect",
       "visible_portals": 1
     }

@@ -161,6 +161,11 @@ def runtime():
     core.oceanidArt=lua.table_from({part:json.loads((ROOT/'assets'/name).read_text(encoding='utf8')) for part,name in {'host':'oceanid-sprites.json','boar':'oceanid-boar-sprites.json','crane':'oceanid-crane-sprites.json','mallard':'oceanid-mallard-sprites.json','ferret':'oceanid-ferret-sprites.json','crab':'oceanid-crab-sprites.json','raptor':'oceanid-raptor-sprites.json','frog':'oceanid-frog-sprites.json','finch':'oceanid-finch-sprites.json'}.items()},recursive=True)
     lua.execute((ROOT/'world-bosses.lua').read_text(encoding='utf8'))(core,graph)
     field_specs=json.loads((ROOT/'content/field-boss-spawns.json').read_text(encoding='utf-8-sig'))['fieldBosses']
+    story_nodes={node['id']:node for node in story_data['nodes']}
+    for spec in field_specs:
+        cover=[platform for platform in story_nodes[spec['node']]['platforms'] if platform.get('cover')]
+        if cover:
+            spec['cover']=cover
     jade=lua.execute((ROOT/'field-jadeplume.lua').read_text(encoding='utf-8'))(core)
     core.jadeplumeArt=field_art(lua,'jadeplume',('peck_ready','peck','crouch','spring','stagger','spores'),
                                idle='jadeplume-idle-sprites.json')
@@ -304,10 +309,13 @@ def runtime():
     core.iceCrawlerArt=field_art(lua,'ice-crawler',('idle','open'))
     rime_hare=lua.execute((ROOT/'field-rime-hare.lua').read_text(encoding='utf8'))(core)
     core.rimeHareArt=field_art(lua,'rime-hare',('idle',))
+    tea_boulder=lua.execute((ROOT/'field-tea-boulder.lua').read_text(encoding='utf8'))(core)
+    core.teaBoulderArt=field_art(lua,'tea-boulder',('idle',))
     lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(
         core,lua.table_from(field_specs,recursive=True),
         lua.table_from({'snowSweeper':snow_sweeper,'frostAntler':frost_antler,'windwardTower':windward_tower,
                         'rubbleSifter':rubble_sifter,'prismWalker':prism_walker,'iceCrawler':ice_crawler,'rimeHare':rime_hare,
+                        'teaBoulder':tea_boulder,
                         'jadeplume':jade,'cryoRegisvine':cryo_field,'pyroRegisvine':pyro_field,
                         'anemoHypostasis':anemo_field,'electroHypostasis':electro_field,'geoHypostasis':geo_field,
                         'primoGeovishap':primo_field,'oceanid':oceanid_field,'maguu':maguu_field,

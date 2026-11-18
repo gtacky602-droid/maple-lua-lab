@@ -1218,6 +1218,36 @@
       "count": 0,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "chenyu-tea-terraces",
+      "count": 8,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "chenyu-cart-road",
+      "count": 8,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "chenyu-tea-lift",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "chenyu-tea-pavilion",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "chenyu-boulder-gully",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,

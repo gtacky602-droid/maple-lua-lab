@@ -871,6 +871,27 @@
       "node": "spine-trace-ridge",
       "enemy_count": 0,
       "field_boss_count": 1
+    },
+    {
+      "node": "chenyu-tea-terraces",
+      "enemy_count": 8
+    },
+    {
+      "node": "chenyu-cart-road",
+      "enemy_count": 8
+    },
+    {
+      "node": "chenyu-tea-lift",
+      "enemy_count": 0
+    },
+    {
+      "node": "chenyu-tea-pavilion",
+      "enemy_count": 0
+    },
+    {
+      "node": "chenyu-boulder-gully",
+      "enemy_count": 0,
+      "field_boss_count": 1
     }
   ],
   "render_profiles": [

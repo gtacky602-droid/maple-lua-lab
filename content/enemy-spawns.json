@@ -2222,6 +2222,26 @@
       {"id":"spine-lee-beetle-2","x":675,"platform":1,"hp":26,"kind":2,"art":"snow-mantle-beetle"},
       {"id":"spine-lee-beetle-3","x":940,"platform":0,"hp":30,"kind":2,"art":"snow-mantle-beetle"},
       {"id":"spine-lee-beetle-4","x":1250,"platform":2,"hp":28,"kind":2,"art":"snow-mantle-beetle"}
+    ],
+    "chenyu-tea-terraces": [
+      {"id":"chenyu-tea-terraces-1","x":375,"platform":0,"hp":18,"kind":1,"art":"sail-shell-crawler"},
+      {"id":"chenyu-tea-terraces-2","x":483,"platform":0,"hp":21,"kind":1,"art":"pebble-courier"},
+      {"id":"chenyu-tea-terraces-3","x":678,"platform":0,"hp":24,"kind":1,"art":"sail-shell-crawler"},
+      {"id":"chenyu-tea-terraces-4","x":743,"platform":1,"hp":27,"kind":1,"art":"pebble-courier"},
+      {"id":"chenyu-tea-terraces-5","x":963,"platform":1,"hp":18,"kind":1,"art":"sail-shell-crawler"},
+      {"id":"chenyu-tea-terraces-6","x":1065,"platform":0,"hp":21,"kind":1,"art":"pebble-courier"},
+      {"id":"chenyu-tea-terraces-7","x":1315,"platform":2,"hp":24,"kind":1,"art":"sail-shell-crawler"},
+      {"id":"chenyu-tea-terraces-8","x":1598,"platform":2,"hp":27,"kind":1,"art":"pebble-courier"}
+    ],
+    "chenyu-cart-road": [
+      {"id":"chenyu-cart-road-1","x":290,"platform":0,"hp":18,"kind":1,"art":"sail-shell-crawler"},
+      {"id":"chenyu-cart-road-2","x":486,"platform":0,"hp":21,"kind":1,"art":"pebble-courier"},
+      {"id":"chenyu-cart-road-3","x":620,"platform":1,"hp":24,"kind":1,"art":"sail-shell-crawler"},
+      {"id":"chenyu-cart-road-4","x":808,"platform":0,"hp":27,"kind":1,"art":"pebble-courier"},
+      {"id":"chenyu-cart-road-5","x":924,"platform":0,"hp":18,"kind":1,"art":"sail-shell-crawler"},
+      {"id":"chenyu-cart-road-6","x":1196,"platform":2,"hp":21,"kind":1,"art":"pebble-courier"},
+      {"id":"chenyu-cart-road-7","x":1348,"platform":0,"hp":24,"kind":1,"art":"sail-shell-crawler"},
+      {"id":"chenyu-cart-road-8","x":1450,"platform":0,"hp":27,"kind":1,"art":"pebble-courier"}
     ]
   }
 }

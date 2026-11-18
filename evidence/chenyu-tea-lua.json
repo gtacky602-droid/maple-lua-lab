@@ -1,0 +1,20 @@
+{
+  "legacyLv20Access": true,
+  "independentLowRoute": true,
+  "threeMarksAndDelivery": true,
+  "cartReturn": true,
+  "actualLiftRiseAndLanding": true,
+  "pauseStopsLift": true,
+  "onePlatformAfterSwitch": true,
+  "placementSaved": true,
+  "sameRockGeometryAsScene": true,
+  "behindRockSafe": true,
+  "inBeamHit": true,
+  "restAndCupsSaved": true,
+  "firstReport": [
+    55165,
+    290472,
+    4
+  ],
+  "noSecondPayout": true
+}

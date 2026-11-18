@@ -1,0 +1,52 @@
+{
+  "generator": "built-in imagegen",
+  "reference": {
+    "path": "evidence/tea-boulder-shape.png",
+    "sha256": "b7b63a6047a751558312ec8dcd9751b75f082ce62bef20ee33c8175543483b3d"
+  },
+  "referenceViews": [
+    "left three-quarter",
+    "front three-quarter"
+  ],
+  "subject": "Original moss-covered sandstone creature with square feet and a single survey cairn",
+  "source": {
+    "path": "assets/tea-boulder-source-v1.png",
+    "sha256": "37e31ef6f1bb494c80458d5c0f952dc48069d6502ca513e308fe204b3b5ff7dd"
+  },
+  "sourceSize": [
+    1385,
+    1136
+  ],
+  "outsideAlphaSamples": [
+    1,
+    0,
+    0,
+    0
+  ],
+  "box": [
+    147,
+    142,
+    1065,
+    884
+  ],
+  "anchorX": 0.544131455399061,
+  "encoding": {
+    "path": "assets/tea-boulder-field-idle-sprites-v1.json",
+    "sha256": "3326bbc726293146c5f4be066bfe1d2ce94699a600515e9de3020de1dfa61cd3"
+  },
+  "runs": {
+    "legacy": 4868,
+    "h48c32": 2978,
+    "h32c16": 1301
+  },
+  "background": {
+    "path": "assets/chenyu-tea-pavilion-background-v1.png",
+    "sha256": "6ce15cce020b6a519945503c9bdcd64bb8dd38e1a59fc6faeb30e9218a370419",
+    "size": [
+      1774,
+      887
+    ],
+    "mode": "RGB"
+  },
+  "backgroundPrompt": "Original tea terraces, fogged karst hills, small glazed-roof pavilion at sunset. Host image for the lab; eventual scene uses a 3D arrangement."
+}

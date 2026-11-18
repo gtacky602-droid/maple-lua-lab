@@ -32,6 +32,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  local function meetsGateRule(s,rule)
   local state=s.story.quests[rule.quest]
+  if rule.before and state and state.count>=rule.before then return false end
   if rule.construction then
    return completed(s,rule.quest) and state.construction and state.construction.plan==rule.construction
   end
@@ -52,6 +53,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local allowed=meetsGateRule(s,rule) or (rule.alternative and meetsGateRule(s,rule.alternative))
     or (edge.loopOnce and forest.canLoop(state))
    if not allowed then
+    if rule.before and state and state.count>=rule.before then return '足場を中継位置へ移しました。' end
     if rule.construction and completed(s,rule.quest) then return '今回はもう一方の道を整備しました。' end
     if rule.recovery and state and not state.recovered then return '受注済みの旧依頼は岩間の狩場で進められます。' end
     if rule.alternative then
@@ -82,7 +84,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif a.hp<=0 then reason='戦闘不能中'
     elseif not s.progression or s.progression.level<n.level then reason='必要レベル '..n.level
     else reason=gateRestriction(s,edge) end
-    best={to=edge.to,name=n.name,level=n.level,available=not reason,reason=reason,liftSeconds=edge.liftSeconds};distance=dx
+    best={to=edge.to,name=edge.rideLabel or n.name,level=n.level,available=not reason,reason=reason,liftSeconds=edge.liftSeconds};distance=dx
     if edge.wind then
      local calm,seconds=windWindow(s,edge.wind)
      best.wind={calm=calm,seconds=seconds}
@@ -143,10 +145,18 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local state=s.story.quests[q.id]
   if state and state.status=='active' then return q.itinerary[state.count+1],state end
  end
+ local function installBridge(s,bridge)
+  if bridge.track then
+   for i,platform in ipairs(s.platforms) do
+    if platform.track==bridge.track then s.platforms[i]=copy(bridge);return end
+   end
+  end
+  s.platforms[#s.platforms+1]=copy(bridge)
+ end
  local function completeMilestone(s,state,milestone)
   state.count=state.count+1
   s.storyNotice=milestone.notice
-  if milestone.bridge then s.platforms[#s.platforms+1]=copy(milestone.bridge) end
+  if milestone.bridge then installBridge(s,milestone.bridge) end
   if milestone.reflect then s.reflection=nil end
  end
  local function recordKill(s,state,milestone,enemy)
@@ -262,7 +272,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local state=s.story.quests[q.id]
    for i=1,state and state.count or 0 do
     local step=q.itinerary[i]
-    if step.node==id and step.bridge then s.platforms[#s.platforms+1]=copy(step.bridge) end
+    if step.node==id and step.bridge then installBridge(s,step.bridge) end
    end
   end
   s.reflection=nil
@@ -478,9 +488,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    if departure and departure.liftSeconds then
     local seconds=departure.liftSeconds
-    s.lift={destination=dest,name=n.name,seconds=seconds,remaining=seconds,
-            x=arrival and arrival.x or spawn,y=arrival and arrival.y or 480}
-    for _,actor in ipairs(s.actors) do actor.walk=0 end
+    s.lift={destination=dest,name=departure.rideLabel or n.name,seconds=seconds,remaining=seconds,
+            x=departure.arrivalX or (arrival and arrival.x or spawn),y=departure.arrivalY or (arrival and arrival.y or 480)}
+    if dest==previous and departure.arrivalY then s.lift.riders={} end
+    for i,actor in ipairs(s.actors) do
+     actor.walk=0
+     if s.lift.riders then s.lift.riders[i]={x=actor.x,y=actor.y} end
+    end
     s.storyNotice=nil
     return
    end
@@ -570,6 +584,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if not s.paused then
     local ride=s.lift
     ride.remaining=math.max(0,ride.remaining-dt)
+    if ride.riders then
+     local p=1-ride.remaining/ride.seconds
+     p=p*p*(3-2*p)
+     for i,start in ipairs(ride.riders) do
+      local actor=s.actors[i]
+      actor.x=start.x+(ride.x-(i-1)*40-start.x)*p
+      actor.y=start.y+(ride.y-start.y)*p
+      actor.ground=false
+     end
+    end
     if ride.remaining<=1e-8 then enter(s,ride.destination,ride.x,nil,ride.y) end
    end
    return
@@ -623,6 +647,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
  end
 
+ local function drawTeaSetting(draws,x,y,cups)
+  draws[#draws+1]={kind='rect',x=x-24,y=y-16,w=48,h=8,color='#77553e'}
+  draws[#draws+1]={kind='rect',x=x-20,y=y-8,w=6,h=8,color='#594232'}
+  draws[#draws+1]={kind='rect',x=x+14,y=y-8,w=6,h=8,color='#594232'}
+  for i=1,cups do
+   local dx=x-19+(i-1)*13
+   draws[#draws+1]={kind='rect',x=dx,y=y-25,w=9,h=9,color='#e3e9cc'}
+   draws[#draws+1]={kind='rect',x=dx,y=y-25,w=9,h=3,color='#b18752'}
+  end
+ end
+
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile);setup(s);f.story=s.story;local visible={version=data.version,status=data.status,nodes={},quests={}}
   local function shown(n) return not n.hiddenGroup or s.story.discovered[n.hiddenGroup] end
@@ -668,6 +703,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       markers[#markers+1]={kind='rect',x=x-144+drift,y=y-100+(i*29)%87,w=29+(i%5)*12,h=2,color='#e1f7ffd4'}
      end
     end
+   end
+   if s.lift and s.lift.riders then
+    local rider=s.actors[1]
+    local x,y=rider.x-s.camera,rider.y
+    markers[#markers+1]={kind='rect',x=x-63,y=y,w=101,h=10,color='#5e5b48'}
+    markers[#markers+1]={kind='rect',x=x-63,y=y,w=101,h=3,color='#f0d18b'}
    end
    local q,state=cargoQuest(s)
    if q then
@@ -735,6 +776,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      local x,y=milestone.x-s.camera,milestone.y
      if x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
+      elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
       else
        markers[#markers+1]={kind='rect',x=x-13,y=y-28,w=26,h=28,color='#5a3648'}
        markers[#markers+1]={kind='rect',x=x-10,y=y-24,w=20,h=16,color='#eed5a8'}
@@ -753,6 +795,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
        local x,y=done.x-s.camera,done.y
        if x>=-25 and x<=985 then
         if done.outcrop then drawOutcrop(markers,x,y,done.outcrop)
+        elseif done.teaCups then drawTeaSetting(markers,x,y,done.teaCups)
         else
          markers[#markers+1]={kind='rect',x=x-11,y=y-28,w=22,h=28,color='#5a3648'}
          markers[#markers+1]={kind='rect',x=x-7,y=y-25,w=14,h=12,color='#b9ffce'}

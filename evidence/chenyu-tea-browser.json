@@ -1,0 +1,31 @@
+{
+  "outboundHillside": true,
+  "cartReturn": true,
+  "liftRiseAndLowerLanding": true,
+  "replacedPlatformAfterReload": true,
+  "rockStopsBeam": true,
+  "threeQuests": true,
+  "battle": {
+    "won": true,
+    "seconds": 51.35,
+    "hp": 121,
+    "bossHp": 0,
+    "moves": [
+      "TB01",
+      "TB02"
+    ],
+    "returns": 0
+  },
+  "commands": {
+    "png": 23,
+    "standard": 9111,
+    "light": 2367
+  },
+  "firstReport": [
+    55165,
+    290472,
+    4
+  ],
+  "savedCups": true,
+  "errors": []
+}

@@ -33,6 +33,7 @@ export function questRouteText(f,q,status){
  if(targets.has(from))return status==='active'?'目的地に到着しています。':'受注・報告の拠点にいます。';
  function meetsRule(rule){
   const state=f.story.quests?.[rule.quest];
+  if(rule.before!==undefined&&state?.count>=rule.before)return false;
   if(rule.construction)return state?.status==='complete'&&state.construction?.plan===rule.construction;
   return state?.status==='complete'||(rule.count!==undefined&&state?.count>=rule.count&&(!rule.recovery||state?.recovered));
  }

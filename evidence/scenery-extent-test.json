@@ -2672,6 +2672,36 @@
       "transparent": 0
     },
     {
+      "key": "chenyuPavilion",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "chenyuPavilion",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "chenyuPavilion",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "chenyuPavilion",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "chenyuPavilion",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "chenyuPavilion",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "chenyu",
       "camera": -960,
       "transparent": 0

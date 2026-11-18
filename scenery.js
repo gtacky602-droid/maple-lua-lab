@@ -89,6 +89,7 @@ export const sceneryDefinitions={
  ochkanatlan:{file:'ochkanatlan-background-v1.png',region:'オシカ・ナタ',zones:[]},
  bygone:{file:'bygone-background-v1.png',region:'往日の海',zones:[]},
  enkanomiya:{file:'enkanomiya-background-v1.png',region:'淵下宮',zones:[]},
+ chenyuPavilion:{file:'chenyu-tea-pavilion-background-v1.png',region:null,zones:['story:chenyu-tea-pavilion'],note:'展望亭と茶畑の仮背景'},
  chenyu:{file:'chenyu-background-v1.png',region:'沈玉の谷',zones:[]},
  spineRidge:{file:'spine-ridge-background-v1.png',region:null,zones:['story:spine-trace-ridge'],note:'霜紋の稜線の仮背景'},
  dragonspine:{file:'dragonspine-background-v1.png',region:'ドラゴンスパイン',zones:[]},
@@ -160,6 +161,15 @@ export function scenery(ctx,frame){
  drawDecorations(ctx,frame,camera);
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
+  if(p.cover){
+   const h=480-p.y;
+   ctx.fillStyle='#565e4c';ctx.fillRect(x,p.y,p.w,h);
+   ctx.fillStyle='#7c8067';ctx.fillRect(x,p.y+3,p.w-14,h-16);
+   ctx.fillStyle='#a9aa88';ctx.fillRect(x,p.y,p.w,7);
+   ctx.fillStyle='#687d4d';ctx.fillRect(x+6,p.y,p.w*.65,5);
+   ctx.fillStyle='#656b52';for(let i=14;i<p.w-15;i+=24)ctx.fillRect(x+i,p.y+23+(i%19),4,h*.44);
+   continue;
+  }
   ctx.fillStyle=key==='bygone'?'#436c7b':key==='ochkanatlan'?'#687275':key==='tunigi'?'#94704f':key==='golden'?'#ad9064':sandstone?'#765540':stone?'#555d80':key==='voyage'?'#765641':roof?'#866058':lookout?'#776b61':snow?'#6f8197':key==='natlan'?'#a16646':key==='fontaine'?'#9c9b9e':key==='liyue'?'#887653':inazuma?'#686174':p.y===480?'#655c43':'#756d56';ctx.fillRect(x,p.y,p.w,p.y===480?60:24);
   ctx.fillStyle=key==='bygone'?'#92aea9':key==='ochkanatlan'?'#8d9b82':key==='tunigi'?'#bd966c':key==='golden'?'#d7b981':sandstone?'#ad7952':stone?'#858cab':key==='voyage'?'#ac8258':roof?'#b2846c':lookout?'#ab9e86':snow?'#c9dded':key==='fontaine'?'#bbbfc5':inazuma?'#697b79':'#508451';ctx.fillRect(x,p.y,p.w,7);ctx.fillStyle=key==='bygone'?'#e0d6a3':key==='ochkanatlan'?'#c7d0be':key==='tunigi'?'#ead2a0':key==='golden'?'#f7e3b1':sandstone?'#dfae73':stone?'#c4c8dd':key==='voyage'?'#d6b17a':roof?'#efbb94':lookout?'#dfcba6':snow?'#f1f7ff':key==='fontaine'?'#f0e9da':inazuma?'#c5bbd2':'#bed088';ctx.fillRect(x,p.y,p.w,2);
   ctx.fillStyle=key==='bygone'?'#b6baaa':key==='ochkanatlan'?'#a5ada5':key==='tunigi'?'#c2a17c':key==='golden'?'#dfc998':sandstone?'#886047':stone?'#949bb9':key==='voyage'?'#b69069':roof?'#ac796d':lookout?'#a19583':snow?'#a1b7cc':'#a09675';for(let n=0;n<p.w;n+=40){if(x+n>-40&&x+n<960)ctx.fillRect(x+n+5,p.y+11,27,5)}
