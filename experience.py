@@ -59,8 +59,13 @@ def resolve_story_exp(graph):
         if 'chapterClearCount' in quest:
             threshold = quest['chapterClearCount']
             amount = CHAPTER_CLEAR_EXP.get(f'{design_id}:BOSS_FIRST')
-            if (quest.get('repeatable') or quest['kind'] not in ('kill','rail','contest')
-                    or type(threshold) is not int or not 1 <= threshold <= quest['goal'] or amount is None):
+            if (quest.get('repeatable') or type(threshold) is not int
+                    or not 1 <= threshold <= quest['goal'] or amount is None):
                 raise ValueError(f"Invalid chapter clear for {quest['id']}")
+            battle_step = (quest['kind'] in ('kill', 'rail', 'contest') or
+                           quest['kind'] == 'itinerary' and threshold <= len(quest['itinerary'])
+                           and quest['itinerary'][threshold - 1]['kind'] == 'boss')
+            if not battle_step:
+                raise ValueError(f"Chapter clear is not a battle step for {quest['id']}")
             quest['chapterClearXp'] = amount
     return graph

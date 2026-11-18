@@ -290,9 +290,11 @@ def runtime():
     core.arrayFieldArt=field_art(lua,'array',('blade','wheel','rocket','core'))
     snow_sweeper=lua.execute((ROOT/'field-snow-sweeper.lua').read_text(encoding='utf8'))(core)
     core.snowSweeperArt=field_art(lua,'snow-sweeper',('idle','plow','vent'))
+    frost_antler=lua.execute((ROOT/'field-frost-antler.lua').read_text(encoding='utf8'))(core)
+    core.frostAntlerArt=field_art(lua,'frost-antler',('idle','scrape','exposed'))
     lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(
         core,lua.table_from(field_specs,recursive=True),
-        lua.table_from({'snowSweeper':snow_sweeper,'jadeplume':jade,'cryoRegisvine':cryo_field,'pyroRegisvine':pyro_field,
+        lua.table_from({'snowSweeper':snow_sweeper,'frostAntler':frost_antler,'jadeplume':jade,'cryoRegisvine':cryo_field,'pyroRegisvine':pyro_field,
                         'anemoHypostasis':anemo_field,'electroHypostasis':electro_field,'geoHypostasis':geo_field,
                         'primoGeovishap':primo_field,'oceanid':oceanid_field,'maguu':maguu_field,
                         'array':array_field,'thunder':thunder_field,'cryoHypostasis':cryo_hypostasis,

@@ -1,0 +1,118 @@
+{
+  "secondsPerSample": 90,
+  "input": "Default party and built-in auto combat. No equipment or EXP modifiers.",
+  "samples": {
+    "original": [
+      {
+        "node": "nod-field",
+        "player": 139,
+        "placed": 6,
+        "kills": 18,
+        "perMinute": 12.0,
+        "killExp": 108594,
+        "returns": 0
+      },
+      {
+        "node": "snezhnaya-field",
+        "player": 140,
+        "placed": 6,
+        "kills": 18,
+        "perMinute": 12.0,
+        "killExp": 414144,
+        "returns": 0
+      },
+      {
+        "node": "snezhnaya-field",
+        "player": 148,
+        "placed": 6,
+        "kills": 18,
+        "perMinute": 12.0,
+        "killExp": 372726,
+        "returns": 0
+      },
+      {
+        "node": "snezhnaya-field",
+        "player": 155,
+        "placed": 6,
+        "kills": 18,
+        "perMinute": 12.0,
+        "killExp": 269190,
+        "returns": 0
+      },
+      {
+        "node": "snezhnaya-field",
+        "player": 159,
+        "placed": 6,
+        "kills": 18,
+        "perMinute": 12.0,
+        "killExp": 269190,
+        "returns": 0
+      }
+    ],
+    "new": [
+      {
+        "node": "winter-frontier-switchback",
+        "player": 139,
+        "placed": 28,
+        "kills": 82,
+        "perMinute": 54.67,
+        "killExp": 2084686,
+        "returns": 0
+      },
+      {
+        "node": "white-pass-cut",
+        "player": 140,
+        "placed": 28,
+        "kills": 92,
+        "perMinute": 61.33,
+        "killExp": 2116736,
+        "returns": 0
+      },
+      {
+        "node": "white-pass-cut",
+        "player": 145,
+        "placed": 28,
+        "kills": 92,
+        "perMinute": 61.33,
+        "killExp": 1905044,
+        "returns": 0
+      },
+      {
+        "node": "white-pass-woods",
+        "player": 148,
+        "placed": 28,
+        "kills": 89,
+        "perMinute": 59.33,
+        "killExp": 3325752,
+        "returns": 0
+      },
+      {
+        "node": "white-pass-woods",
+        "player": 152,
+        "placed": 28,
+        "kills": 89,
+        "perMinute": 59.33,
+        "killExp": 3325752,
+        "returns": 0
+      },
+      {
+        "node": "white-pass-ridge",
+        "player": 155,
+        "placed": 28,
+        "kills": 79,
+        "perMinute": 52.67,
+        "killExp": 4512638,
+        "returns": 0
+      },
+      {
+        "node": "white-pass-ridge",
+        "player": 159,
+        "placed": 28,
+        "kills": 79,
+        "perMinute": 52.67,
+        "killExp": 4512638,
+        "returns": 0
+      }
+    ]
+  }
+}

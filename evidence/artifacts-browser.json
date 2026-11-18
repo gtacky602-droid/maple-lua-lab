@@ -1,7 +1,10 @@
 {
   "errors": [],
   "kitItems": 5,
-  "equippedAttack": 30,
+  "equippedAttack": 32,
   "saveReload": true,
-  "lockAndSale": true
+  "lockAndSale": true,
+  "fieldLootStop": true,
+  "returnedByInventoryAction": true,
+  "allDropsRecovered": true
 }

@@ -1,0 +1,161 @@
+{
+  "method": "One Lv139 fixture. Real party automation, XP and enemy respawn on 60 Hz Lua ticks. Quest and gate positions are set by the test. The party rests at a visited hub if anyone is defeated or kills stall. No subsequent EXP grant, daily or gear injection.",
+  "trace": [
+    {
+      "label": "earned 140",
+      "level": 140,
+      "xp": 19370,
+      "combatAndRideSeconds": 971.17,
+      "kills": 844,
+      "returns": 0,
+      "killExp": 21457012,
+      "reportAndFirstClearExp": 0
+    },
+    {
+      "label": "earned 141",
+      "level": 141,
+      "xp": 19796,
+      "combatAndRideSeconds": 2116.23,
+      "kills": 1834,
+      "returns": 0,
+      "killExp": 44234932,
+      "reportAndFirstClearExp": 0
+    },
+    {
+      "label": "white-pass-ticket",
+      "level": 142,
+      "xp": 5292771,
+      "combatAndRideSeconds": 2119.23,
+      "kills": 1840,
+      "returns": 0,
+      "killExp": 44372980,
+      "reportAndFirstClearExp": 29336014
+    },
+    {
+      "label": "earned 145",
+      "level": 145,
+      "xp": 7752,
+      "combatAndRideSeconds": 5978.0,
+      "kills": 5177,
+      "returns": 0,
+      "killExp": 121150676,
+      "reportAndFirstClearExp": 29336014
+    },
+    {
+      "label": "white-pass-footprints",
+      "level": 145,
+      "xp": 13093088,
+      "combatAndRideSeconds": 5978.0,
+      "kills": 5177,
+      "returns": 0,
+      "killExp": 121150676,
+      "reportAndFirstClearExp": 42421350
+    },
+    {
+      "label": "earned 148",
+      "level": 148,
+      "xp": 16164,
+      "combatAndRideSeconds": 10757.63,
+      "kills": 9299,
+      "returns": 0,
+      "killExp": 206504930,
+      "reportAndFirstClearExp": 42421350
+    },
+    {
+      "label": "white-pass-trail",
+      "level": 149,
+      "xp": 3381178,
+      "combatAndRideSeconds": 10766.63,
+      "kills": 9299,
+      "returns": 0,
+      "killExp": 206504930,
+      "reportAndFirstClearExp": 82780884
+    },
+    {
+      "label": "earned 149",
+      "level": 149,
+      "xp": 3381178,
+      "combatAndRideSeconds": 10766.63,
+      "kills": 9299,
+      "returns": 0,
+      "killExp": 206504930,
+      "reportAndFirstClearExp": 82780884
+    },
+    {
+      "label": "white-pass-footwork",
+      "level": 149,
+      "xp": 20057513,
+      "combatAndRideSeconds": 10766.63,
+      "kills": 9299,
+      "returns": 0,
+      "killExp": 206504930,
+      "reportAndFirstClearExp": 99457219
+    },
+    {
+      "label": "earned 153",
+      "level": 153,
+      "xp": 3215,
+      "combatAndRideSeconds": 15680.73,
+      "kills": 13381,
+      "returns": 0,
+      "killExp": 359041106,
+      "reportAndFirstClearExp": 99457219
+    },
+    {
+      "label": "white-pass-rest",
+      "level": 153,
+      "xp": 21256025,
+      "combatAndRideSeconds": 15680.73,
+      "kills": 13381,
+      "returns": 0,
+      "killExp": 359041106,
+      "reportAndFirstClearExp": 120710029
+    },
+    {
+      "label": "earned 155",
+      "level": 155,
+      "xp": 31286,
+      "combatAndRideSeconds": 18597.53,
+      "kills": 15822,
+      "returns": 0,
+      "killExp": 441134377,
+      "reportAndFirstClearExp": 120710029
+    },
+    {
+      "label": "earned 156",
+      "level": 156,
+      "xp": 31111,
+      "combatAndRideSeconds": 19778.63,
+      "kills": 16812,
+      "returns": 0,
+      "killExp": 497685157,
+      "reportAndFirstClearExp": 120710029
+    },
+    {
+      "label": "white-pass-summit",
+      "level": 158,
+      "xp": 15402479,
+      "combatAndRideSeconds": 19803.63,
+      "kills": 16813,
+      "returns": 0,
+      "killExp": 502481277,
+      "reportAndFirstClearExp": 255211391
+    },
+    {
+      "label": "earned 160",
+      "level": 160,
+      "xp": 27476,
+      "combatAndRideSeconds": 22389.85,
+      "kills": 18993,
+      "returns": 0,
+      "killExp": 627007237,
+      "reportAndFirstClearExp": 255211391
+    }
+  ],
+  "secondsLv140To160": 21418.68,
+  "totalExp": 1222701758,
+  "seedExp": 340483130,
+  "stalls": [],
+  "partyResupplies": 2,
+  "inventoryStops": 1
+}

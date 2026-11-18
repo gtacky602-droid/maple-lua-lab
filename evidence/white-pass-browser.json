@@ -1,0 +1,23 @@
+{
+  "mainQuests": 3,
+  "battle": {
+    "won": true,
+    "hp": 7,
+    "seconds": 24.23,
+    "returns": 0,
+    "moves": [
+      "FR01",
+      "FR02",
+      "FR03"
+    ]
+  },
+  "commands": {
+    "png": 21,
+    "rect": 16380,
+    "light": 4522
+  },
+  "onceOnlyBossAward": 61667202,
+  "train": true,
+  "restored": true,
+  "errors": []
+}

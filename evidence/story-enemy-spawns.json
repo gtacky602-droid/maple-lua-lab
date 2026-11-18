@@ -117,12 +117,35 @@
       "enemy_count": 0
     },
     {
+      "node": "tsurumi-coast",
+      "enemy_count": 0
+    },
+    {
+      "node": "wolflord-field-ruins",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "watatsumi-landing",
+      "enemy_count": 0
+    },
+    {
+      "node": "hydro-hypostasis-field-cove",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
       "node": "inazuma-road",
       "enemy_count": 6
     },
     {
       "node": "inazuma-town",
       "enemy_count": 0
+    },
+    {
+      "node": "pyro-hypostasis-field-terrace",
+      "enemy_count": 0,
+      "field_boss_count": 1
     },
     {
       "node": "inazuma-lantern-trail",
@@ -178,6 +201,36 @@
       "field_boss_count": 1
     },
     {
+      "node": "electro-regisvine-field-cave",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "aeonblight-field-chamber",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "dendro-hypostasis-field-den",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "asimon-field-ruins",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "wenut-field-cavern",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "baptist-field-sanctuary",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
       "node": "fontaine-entry",
       "enemy_count": 6
     },
@@ -190,6 +243,49 @@
       "enemy_count": 6
     },
     {
+      "node": "emperor-field-cove",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "seahorse-field-cavern",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "field-generator-field-chamber",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "tulpa-field-grotto",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "icewind-promenade",
+      "enemy_count": 0
+    },
+    {
+      "node": "icewind-coppelia-field",
+      "enemy_count": 0,
+      "field_boss_count": 2
+    },
+    {
+      "node": "icewind-coppelius-field",
+      "enemy_count": 0,
+      "field_boss_count": 2
+    },
+    {
+      "node": "nostoi-castle-approach",
+      "enemy_count": 0
+    },
+    {
+      "node": "legatus-field-hall",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
       "node": "natlan-entry",
       "enemy_count": 6
     },
@@ -200,6 +296,36 @@
     {
       "node": "natlan-field",
       "enemy_count": 6
+    },
+    {
+      "node": "qucusaur-field-cavern",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "yumka-field-ravine",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "config-device-field-workshop",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "papilla-field-hollow",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "atocpan-lava-field",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "atocpan-overseer-ruin",
+      "enemy_count": 0,
+      "field_boss_count": 1
     },
     {
       "node": "natlan-port",
@@ -226,6 +352,36 @@
       "enemy_count": 6
     },
     {
+      "node": "nod-duckle-workyard",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "nod-battleship-depot",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "nod-herra-terrace",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "nod-nightmare-shore",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "nod-moonfly-hollow",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "nod-gecko-depths",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
       "node": "nod-town",
       "enemy_count": 0
     },
@@ -250,6 +406,11 @@
       "enemy_count": 6
     },
     {
+      "node": "cryo-hypostasis-field-basin",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
       "node": "chenyu-camp",
       "enemy_count": 0
     },
@@ -258,12 +419,22 @@
       "enemy_count": 6
     },
     {
+      "node": "suanni-field-sanctum",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
       "node": "enkanomiya-camp",
       "enemy_count": 0
     },
     {
       "node": "enkanomiya-depth",
       "enemy_count": 6
+    },
+    {
+      "node": "bathysmal-field-sanctum",
+      "enemy_count": 0,
+      "field_boss_count": 2
     },
     {
       "node": "tunigi-camp",
@@ -324,6 +495,11 @@
     {
       "node": "chasm-wp-25264",
       "enemy_count": 0
+    },
+    {
+      "node": "ruin-serpent-field-pit",
+      "enemy_count": 0,
+      "field_boss_count": 1
     },
     {
       "node": "chasm-wp-25266",
@@ -451,20 +627,141 @@
       "enemy_count": 0
     },
     {
+      "node": "oceanid-field-reservoir",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
       "node": "primo-approach",
       "enemy_count": 0
+    },
+    {
+      "node": "primo-field-vault",
+      "enemy_count": 0,
+      "field_boss_count": 1
     },
     {
       "node": "maguu-approach",
       "enemy_count": 0
     },
     {
+      "node": "maguu-field-dojo",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
       "node": "array-approach",
       "enemy_count": 0
     },
     {
+      "node": "array-field-court",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
       "node": "thunder-approach",
       "enemy_count": 0
+    },
+    {
+      "node": "thunder-field-crest",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "spiritspeaker-field-grotto",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "windrest-vigil-court",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "flugel-tundra-basin",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "drifting-snow-court",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "immortal-construct-root-hollow",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "wavebinder-tide-cavern",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "dvalin-sky-arena",
+      "enemy_count": 0,
+      "weekly_entity_count": 4
+    },
+    {
+      "node": "andrius-wolf-ring",
+      "enemy_count": 0,
+      "weekly_entity_count": 1
+    },
+    {
+      "node": "tide-calibration-hall",
+      "enemy_count": 0,
+      "weekly_entity_count": 1
+    },
+    {
+      "node": "buried-weaving-room",
+      "enemy_count": 0,
+      "weekly_entity_count": 3
+    },
+    {
+      "node": "cloth-service-walk",
+      "enemy_count": 0
+    },
+    {
+      "node": "threadline-relay",
+      "enemy_count": 0
+    },
+    {
+      "node": "snow-rail-transfer",
+      "enemy_count": 3
+    },
+    {
+      "node": "steam-stabling-depot",
+      "enemy_count": 0,
+      "field_boss_count": 1
+    },
+    {
+      "node": "winter-frontier-switchback",
+      "enemy_count": 28
+    },
+    {
+      "node": "white-pass-cut",
+      "enemy_count": 28
+    },
+    {
+      "node": "white-pass-coach",
+      "enemy_count": 0
+    },
+    {
+      "node": "white-pass-station",
+      "enemy_count": 0
+    },
+    {
+      "node": "white-pass-woods",
+      "enemy_count": 28
+    },
+    {
+      "node": "white-pass-ridge",
+      "enemy_count": 28
+    },
+    {
+      "node": "white-rainbow-basin",
+      "enemy_count": 0,
+      "field_boss_count": 1
     }
   ],
   "render_profiles": [

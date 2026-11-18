@@ -247,16 +247,18 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if contestQuest and id==contestQuest.target then contest.populate(s,contestQuest,s.story.quests[contestQuest.id]) end
   if C.enterFieldBossNode then C.enterFieldBossNode(s,id) end
   if C.enterWeeklyBossNode then C.enterWeeklyBossNode(s,id) end
-  s.macro=nil;s.encounter=nil;s.voyage=n.voyage and {destination=n.voyage.destination,arrives=s.t+n.voyage.seconds-(elapsed or 0),started=s.t-(elapsed or 0),source=n.voyage.source,stopStart=n.voyage.stopStart,stopEnd=n.voyage.stopEnd} or nil;progress(s,'visit',id)
+  s.macro=nil;s.encounter=nil;s.voyage=n.voyage and {destination=n.voyage.destination,arrives=s.t+n.voyage.seconds-(elapsed or 0),started=s.t-(elapsed or 0),source=n.voyage.source,stopStart=n.voyage.stopStart,stopEnd=n.voyage.stopEnd,kind=n.voyage.kind} or nil;progress(s,'visit',id)
  end
  function C.enterStoryNode(s,id) setup(s);enter(s,id) end
  function C.storyBossDefeated(s,id)
   setup(s)
   progress(s,'boss',id)
+  if not s.story.active then return end
   for _,q in ipairs(itineraries) do
    local milestone,state=nextMilestone(s,q)
    if milestone and milestone.kind=='boss' and milestone.boss==id and milestone.node==s.story.node then
     completeMilestone(s,state,milestone)
+    chapterVictory(s,q,state)
    end
   end
  end
@@ -457,6 +459,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if onKill then onKill(s,e) end
   if s.story and s.story.active then
    progress(s,'kill',s.story.node,e)
+   for _,q in ipairs(itineraries) do
+    local milestone,state=nextMilestone(s,q)
+    if milestone and milestone.kind=='kill' and milestone.node==s.story.node and milestone.enemy==e.spawnId then
+     completeMilestone(s,state,milestone)
+    end
+   end
    for id,state in pairs(s.story.quests) do
     local q=quests[id]
     if q.book and s.story.node==q.target then book.defeat(s,q,state,e) end
@@ -540,7 +548,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local function shown(n) return not n.hiddenGroup or s.story.discovered[n.hiddenGroup] end
   for _,n in ipairs(data.nodes) do if shown(n) then local out=copy(n);out.exits={};for _,edge in ipairs(n.exits) do if shown(nodes[edge.to]) then out.exits[#out.exits+1]=copy(edge) end end;visible.nodes[#visible.nodes+1]=out end end
   for _,q in ipairs(data.quests) do if shown(nodes[q.hub]) then visible.quests[#visible.quests+1]=q end end
-  f.storyGraph=visible;f.storyNotice=s.storyNotice;f.storyJoined={};f.voyage=s.voyage and {seconds=math.max(0,s.voyage.arrives-s.t),destination=s.voyage.destination,elapsed=s.t-s.voyage.started,stopover=s.voyage.stopStart and s.t-s.voyage.started+1e-8>=s.voyage.stopStart and s.t-s.voyage.started+1e-8<s.voyage.stopEnd or false} or nil
+  f.storyGraph=visible;f.storyNotice=s.storyNotice;f.storyJoined={};f.voyage=s.voyage and {seconds=math.max(0,s.voyage.arrives-s.t),destination=s.voyage.destination,elapsed=s.t-s.voyage.started,kind=s.voyage.kind,stopover=s.voyage.stopStart and s.t-s.voyage.started+1e-8>=s.voyage.stopStart and s.t-s.voyage.started+1e-8<s.voyage.stopEnd or false} or nil
   for id,q in pairs(quests) do if q.join and s.story.quests[id] and s.story.quests[id].status=='complete' then f.storyJoined[q.join]=true end end
   if s.story.active then local n=nodes[s.story.node];f.location=n.name..'（本編試作）'
    f.storyCleared=cleared(s,n) and true or nil

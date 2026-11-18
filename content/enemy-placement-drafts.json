@@ -24,6 +24,36 @@
       {"id":"preview-snow-rail-cart-1","species":"sled-maintenance-cart","x":355,"y":480,"flip":false},
       {"id":"preview-snow-rail-cart-2","species":"sled-maintenance-cart","x":695,"y":480,"flip":false},
       {"id":"preview-snow-rail-cart-3","species":"sled-maintenance-cart","x":1015,"y":480,"flip":false}
+    ],
+    "white-pass-cut": [
+      {"id":"preview-white-pass-cut-1","species":"snow-mantle-beetle","x":213,"y":480,"flip":false},
+      {"id":"preview-white-pass-cut-2","species":"snow-mantle-beetle","x":289,"y":480,"flip":false},
+      {"id":"preview-white-pass-cut-3","species":"snow-mantle-beetle","x":365,"y":480,"flip":false},
+      {"id":"preview-white-pass-cut-4","species":"snow-mantle-beetle","x":441,"y":480,"flip":false},
+      {"id":"preview-white-pass-route-cart","species":"sled-maintenance-cart","x":517,"y":480,"flip":false},
+      {"id":"preview-white-pass-cut-6","species":"snow-mantle-beetle","x":593,"y":480,"flip":false},
+      {"id":"preview-white-pass-cut-7","species":"snow-mantle-beetle","x":669,"y":480,"flip":false},
+      {"id":"preview-white-pass-cut-8","species":"snow-mantle-beetle","x":745,"y":480,"flip":false},
+      {"id":"preview-white-pass-cut-9","species":"snow-mantle-beetle","x":227,"y":382,"flip":false},
+      {"id":"preview-white-pass-cut-10","species":"snow-mantle-beetle","x":318,"y":382,"flip":false},
+      {"id":"preview-white-pass-cut-11","species":"snow-mantle-beetle","x":409,"y":382,"flip":false},
+      {"id":"preview-white-pass-cut-12","species":"snow-mantle-beetle","x":500,"y":382,"flip":false},
+      {"id":"preview-white-pass-cut-13","species":"snow-mantle-beetle","x":591,"y":382,"flip":false},
+      {"id":"preview-white-pass-cut-14","species":"snow-mantle-beetle","x":682,"y":382,"flip":false},
+      {"id":"preview-white-pass-cut-15","species":"snow-mantle-beetle","x":1038,"y":480,"flip":false},
+      {"id":"preview-white-pass-cut-16","species":"snow-mantle-beetle","x":1114,"y":480,"flip":false},
+      {"id":"preview-white-pass-cut-17","species":"snow-mantle-beetle","x":1190,"y":480,"flip":false},
+      {"id":"preview-white-pass-cut-18","species":"snow-mantle-beetle","x":1266,"y":480,"flip":false},
+      {"id":"preview-white-pass-cut-19","species":"snow-mantle-beetle","x":1342,"y":480,"flip":false},
+      {"id":"preview-white-pass-cut-20","species":"snow-mantle-beetle","x":1418,"y":480,"flip":false},
+      {"id":"preview-white-pass-cut-21","species":"snow-mantle-beetle","x":1494,"y":480,"flip":false},
+      {"id":"preview-white-pass-cut-22","species":"snow-mantle-beetle","x":1570,"y":480,"flip":false},
+      {"id":"preview-white-pass-cut-23","species":"snow-mantle-beetle","x":1052,"y":388,"flip":false},
+      {"id":"preview-white-pass-cut-24","species":"snow-mantle-beetle","x":1143,"y":388,"flip":false},
+      {"id":"preview-white-pass-cut-25","species":"snow-mantle-beetle","x":1234,"y":388,"flip":false},
+      {"id":"preview-white-pass-cut-26","species":"snow-mantle-beetle","x":1325,"y":388,"flip":false},
+      {"id":"preview-white-pass-cut-27","species":"snow-mantle-beetle","x":1416,"y":388,"flip":false},
+      {"id":"preview-white-pass-cut-28","species":"snow-mantle-beetle","x":1507,"y":388,"flip":false}
     ]
   }
 }

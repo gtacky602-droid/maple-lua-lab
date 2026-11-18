@@ -78,7 +78,8 @@ export function questRouteText(f,q,status){
   else notes.push(`寄港中：下船できる残り時間は約${Math.ceil(edge.windowEnd-elapsed)}秒`);
  }else if(edge.requiresArrival){
   const seconds=f.voyage?.seconds;
-  if(Number.isFinite(seconds)&&seconds<=0)notes.push('船は到着しています。下船する門へ進んでください');
+  if(f.voyage?.kind==='train')notes.push(`列車は到着後に自動で下車します（約${Math.ceil(seconds)}秒）`);
+  else if(Number.isFinite(seconds)&&seconds<=0)notes.push('船は到着しています。下船する門へ進んでください');
   else notes.push(`船の到着を待ちます${Number.isFinite(seconds)?`（約${Math.ceil(seconds)}秒）`:''}`);
  }
  else notes.push('次の地点の門へ歩いて移動してください');

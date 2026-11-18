@@ -12,8 +12,8 @@
   },
   "counts": {
     "source_entities": 63,
-    "encounter_candidates": 73,
-    "partial": 55,
+    "encounter_candidates": 74,
+    "partial": 56,
     "complete": 0
   },
   "encounters": [
@@ -1992,6 +1992,31 @@
         "encoding": "assets/snow-sweeper-field-idle-sprites-v1.json",
         "audit": "evidence/snow-rail-art.json",
         "status": "original field boss, idle, plowing and open cooling vents"
+      }
+    },
+    {
+      "id": "original-frost-antler",
+      "name": "霜鎧の大角獣",
+      "kind": "normal",
+      "entity_ids": [],
+      "status": "partial",
+      "action": null,
+      "grouping": "original_design",
+      "evidence": [
+        "docs/balance/WHITE_PASS_PROGRESSION_WEB.md"
+      ],
+      "remaining": [
+        "連続アニメーション",
+        "報酬の調整",
+        "マルチ検証"
+      ],
+      "fieldNode": "white-rainbow-basin",
+      "fieldEntrance": "白虹の高原（Lv156）",
+      "art_candidate": {
+        "source": "assets/frost-antler-source-v1.png",
+        "encoding": "assets/frost-antler-field-idle-sprites-v1.json",
+        "audit": "evidence/white-pass-art.json",
+        "status": "original story boss base and two key poses"
       }
     },
     {

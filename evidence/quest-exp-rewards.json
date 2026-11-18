@@ -1,7 +1,7 @@
 {
   "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
   "version": "monster-quest-v02",
-  "quests_tested": 18,
+  "quests_tested": 24,
   "old_completed_not_reissued": true,
   "old_unreported_uses_current_preview": true,
   "unlinked_trial_fallback": true,
@@ -20,6 +20,11 @@
       "linked": 4,
       "legacy_xp": 13200,
       "report_xp": 733522
+    },
+    "SNE": {
+      "linked": 6,
+      "legacy_xp": 6,
+      "report_xp": 193544189
     }
   },
   "reports": [
@@ -130,6 +135,42 @@
       "quest_id": "ayaka-join",
       "legacy_xp": 2500,
       "report_xp": 42335
+    },
+    {
+      "design_id": "Q-SNE-M01",
+      "quest_id": "white-pass-ticket",
+      "legacy_xp": 1,
+      "report_xp": 29336014
+    },
+    {
+      "design_id": "Q-SNE-M02",
+      "quest_id": "white-pass-trail",
+      "legacy_xp": 1,
+      "report_xp": 40359534
+    },
+    {
+      "design_id": "Q-SNE-M03",
+      "quest_id": "white-pass-summit",
+      "legacy_xp": 1,
+      "report_xp": 72834160
+    },
+    {
+      "design_id": "Q-SNE-S02",
+      "quest_id": "white-pass-footprints",
+      "legacy_xp": 1,
+      "report_xp": 13085336
+    },
+    {
+      "design_id": "Q-SNE-S03",
+      "quest_id": "white-pass-footwork",
+      "legacy_xp": 1,
+      "report_xp": 16676335
+    },
+    {
+      "design_id": "Q-SNE-S04",
+      "quest_id": "white-pass-rest",
+      "legacy_xp": 1,
+      "report_xp": 21252810
     }
   ]
 }

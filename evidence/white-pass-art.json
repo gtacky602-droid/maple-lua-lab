@@ -1,0 +1,135 @@
+{
+  "originalReference": "evidence/frost-antler-reference.png",
+  "views": [
+    "lateral silhouette",
+    "frontal width"
+  ],
+  "sourcePasses": [
+    "geometric study",
+    "pixel texture refinement"
+  ],
+  "images": {
+    "frost-antler-source-v1.png": "3fd75c99c635de4f4146b9289d8928239b06819a8f9af8471c0c82010d30782d",
+    "white-pass-wood-background-v1.png": "1a18abfea089a660fc0bea9f832bb89d4cbd4f55bbd1fb5a34f1ca53ff1f749a",
+    "white-pass-coach-background-v1.png": "737c08249b8f03be2d5a74888e3e48a5e4503c0fc0d9ad673590f2c0c6cf90fb",
+    "white-rainbow-background-v1.png": "88bd1349fdf3de96a36135aa5205d4fa260b442cf26d94bd2e4475ea4c7f81d6"
+  },
+  "prompts": {
+    "sprite": "Create a four-cell horizontal-landscape 1536x1024 exact 2x2 sprite sheet, genuine transparent background, wide blank transparent gutters. Original chunky hand-placed pixel art. Top left: compact little stocky frost beetle enemy with low short broad curved pale horns and blue body, all on floor, no effects. Top right bottom right bottom left: THREE poses of a completely original heavy four-legged blizzard creature with wide flat ground-scraping ivory brow horns instead of deer antlers, no wings, broad angular chalk-white armor lamellae over slate blue furry shoulders and clear dark blue leg silhouette, facing LEFT in strict side view as reference. Top right calm stance visible four legs; bottom left nose down ramming crouch, same body scale; bottom right foreleg high, exposing a pale blue seam near right shoulder, same individual and viewpoint. All animals in consistent crisp square pixel clusters as original vintage 2D RPG sprites, distinguishable at small scale, no typography, no HUD, no shadow, no gradients, no floor, no particle matter. Single object per quadrant, all visible.",
+    "pass": "Original side-scrolling platform game's background, a wide wooded snowbound mountain pass in side elevation. Silver sky, distant dusky mauve ridge, layered spruce stands, craggy light granite banks and soft white shelves in the distance, tiny amber trail cabins and cloth route pennants without text, a subtle blue stream winding away from camera in the middle distance. Dark lavender snow shade in the lower third without explicit foreground floor or false platform. Good negative space. Atmospheric deliberate stepped pixel cluster art, authentic pixel textures, no people/creatures/UI, no game assets or recognizable levels. 1536x1024.",
+    "coach": "Original 2D side view RPG background for a warmly lit turn-of-century expedition train coach, completely new design. Continuous horizontal shot showing rounded olive-copper carriage ribs, muted ruby upholstered booths receding into the upper background and a row of LARGE frost-laced windows with snowy pine and a distant bridge valley passing in static winter daylight. Amber brass lights. Sufficient negative space and dark charcoal plum wall across lower third for foreground actors and floor to be added by the game. Detailed stepped pixel clusters, authentic 2D background, no lettering, no people, no drawings of gameplay platforms. 1536x1024.",
+    "ridge": "Original layered 2D side-scrolling game background, an alpine ice plateau beyond a snowy wooded pass. The late-afternoon 'white rainbow' optical event is a subtle pale spectral arc low on the horizon above a field of upright blue transparent ice pillars. Stepped clusters of frost and slate outcrops fade into the soft blue mountains. Open lower third in muted dusk periwinkle as backdrop, with NO painted foreground terrain or gameplay colliders, no people or creatures or writing. Crisp quiet deeply layered pixel art, no existing game references. 1536x1024."
+  },
+  "encodings": {
+    "snow-mantle-beetle-idle-sprites.json": {
+      "arguments": [
+        "--source",
+        "frost-antler-source-v1.png",
+        "--output",
+        "snow-mantle-beetle-idle-sprites.json",
+        "--height",
+        "48",
+        "--foot-anchor",
+        "--crop",
+        "0",
+        "0",
+        "768",
+        "512"
+      ],
+      "runs": {
+        "legacy": 1835,
+        "h48c32": 1137,
+        "h32c16": 495
+      },
+      "bounds": [
+        212,
+        240,
+        301,
+        184
+      ]
+    },
+    "frost-antler-field-idle-sprites-v1.json": {
+      "arguments": [
+        "--source",
+        "frost-antler-source-v1.png",
+        "--output",
+        "frost-antler-field-idle-sprites-v1.json",
+        "--height",
+        "136",
+        "--foot-anchor",
+        "--crop",
+        "768",
+        "0",
+        "768",
+        "512"
+      ],
+      "runs": {
+        "legacy": 12004,
+        "h48c32": 7552,
+        "h32c16": 3339
+      },
+      "bounds": [
+        793,
+        91,
+        640,
+        333
+      ]
+    },
+    "frost-antler-field-scrape-sprites-v1.json": {
+      "arguments": [
+        "--source",
+        "frost-antler-source-v1.png",
+        "--output",
+        "frost-antler-field-scrape-sprites-v1.json",
+        "--height",
+        "136",
+        "--foot-anchor",
+        "--crop",
+        "0",
+        "512",
+        "768",
+        "512"
+      ],
+      "runs": {
+        "legacy": 12903,
+        "h48c32": 8411,
+        "h32c16": 3611
+      },
+      "bounds": [
+        76,
+        637,
+        605,
+        300
+      ]
+    },
+    "frost-antler-field-exposed-sprites-v1.json": {
+      "arguments": [
+        "--source",
+        "frost-antler-source-v1.png",
+        "--output",
+        "frost-antler-field-exposed-sprites-v1.json",
+        "--height",
+        "136",
+        "--foot-anchor",
+        "--crop",
+        "768",
+        "512",
+        "768",
+        "512",
+        "--accent-color",
+        "#73e4dc"
+      ],
+      "runs": {
+        "legacy": 12139,
+        "h48c32": 7770,
+        "h32c16": 3458
+      },
+      "bounds": [
+        793,
+        597,
+        663,
+        340
+      ]
+    }
+  }
+}

@@ -171,7 +171,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 9,
+      "prototype_stage_count": 10,
       "prototype_quest_count": 8,
       "official_map2_markers": {
         "waypoints": 83,
@@ -195,8 +195,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 8,
-      "prototype_quest_count": 8,
+      "prototype_stage_count": 14,
+      "prototype_quest_count": 14,
       "official_map2_markers": {
         "waypoints": 101,
         "statues": 7
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 170,
-    "provisional_quests": 113,
+    "authored_stages": 177,
+    "provisional_quests": 119,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -869,7 +869,8 @@
           "nod-nightmare-shore",
           "nod-moonfly-hollow",
           "nod-gecko-depths",
-          "nod-town"
+          "nod-town",
+          "winter-frontier-switchback"
         ],
         "quest_ids": [
           "columbina-join",
@@ -894,7 +895,13 @@
           "drifting-snow-court",
           "immortal-construct-root-hollow",
           "snow-rail-transfer",
-          "steam-stabling-depot"
+          "steam-stabling-depot",
+          "white-pass-cut",
+          "white-pass-coach",
+          "white-pass-station",
+          "white-pass-woods",
+          "white-pass-ridge",
+          "white-rainbow-basin"
         ],
         "quest_ids": [
           "mitya-join",
@@ -904,7 +911,13 @@
           "drifting-snow-commission",
           "immortal-construct-commission",
           "snow-rail-clear",
-          "snow-rail-pressure"
+          "snow-rail-pressure",
+          "white-pass-ticket",
+          "white-pass-trail",
+          "white-pass-summit",
+          "white-pass-footprints",
+          "white-pass-footwork",
+          "white-pass-rest"
         ]
       },
       {
@@ -1169,8 +1182,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 18,
-    "without_explicit_mapping": 135,
+    "linked": 24,
+    "without_explicit_mapping": 129,
     "runtime_id_by_design_id": {
       "Q-INA-M01": "inazuma-moving-lantern",
       "Q-INA-M02": "inazuma-torii-maze",
@@ -1189,7 +1202,13 @@
       "Q-MON-M03": "mond-watchtower-clear",
       "Q-MON-S01": "mond-rest-stop",
       "Q-MON-S03": "mond-bennett-cave",
-      "Q-MON-S05": "mond-windmill"
+      "Q-MON-S05": "mond-windmill",
+      "Q-SNE-M01": "white-pass-ticket",
+      "Q-SNE-M02": "white-pass-trail",
+      "Q-SNE-M03": "white-pass-summit",
+      "Q-SNE-S02": "white-pass-footprints",
+      "Q-SNE-S03": "white-pass-footwork",
+      "Q-SNE-S04": "white-pass-rest"
     },
     "scope": "Explicit links to runtime quests only; no claim of completed or tested content."
   },

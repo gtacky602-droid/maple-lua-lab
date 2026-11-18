@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 170 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 168,
+  "scope": "Authored 177 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 175,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -994,7 +994,14 @@
     {"id":"cloth-service-walk","name":"布巻きの作業路","region":"璃月","status":"regional_temporary_image"},
     {"id":"threadline-relay","name":"糸道の配電室","region":"璃月","status":"regional_temporary_image"},
     {"id":"snow-rail-transfer","name":"雪線の積替場","region":"スネージナヤ","status":"regional_temporary_image"},
-    {"id":"steam-stabling-depot","name":"蒸気留置庫","region":"スネージナヤ","status":"regional_temporary_image"}
+    {"id":"steam-stabling-depot","name":"蒸気留置庫","region":"スネージナヤ","status":"regional_temporary_image"},
+    {"id":"winter-frontier-switchback","name":"冬越えの折返し道","region":"ナド・クライ","status":"regional_temporary_image"},
+    {"id":"white-pass-cut","name":"雪線の切通し","region":"スネージナヤ","status":"regional_temporary_image"},
+    {"id":"white-pass-coach","name":"白虹行きの列車","region":"スネージナヤ","status":"regional_temporary_image"},
+    {"id":"white-pass-station","name":"雪原の終着駅","region":"スネージナヤ","status":"regional_temporary_image"},
+    {"id":"white-pass-woods","name":"白虹峠・樹林の道","region":"スネージナヤ","status":"regional_temporary_image"},
+    {"id":"white-pass-ridge","name":"白虹峠・雪棚の道","region":"スネージナヤ","status":"regional_temporary_image"},
+    {"id":"white-rainbow-basin","name":"白虹の高原","region":"スネージナヤ","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 2
 }

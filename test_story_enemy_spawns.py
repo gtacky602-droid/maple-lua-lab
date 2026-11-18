@@ -12,9 +12,12 @@ for n in graph['nodes']:
     s = c.new(12)
     c.action(s, 'story_start')
     c.enterStoryNode(s, n['id'])
+    # Isolate spawn/physics checks from combat and the defeat checkpoint.
+    s.actors[1].inv = float('inf')
+    s.actors[2].hp = 0
     expected = [p for p in spawns.get(n['id'], []) if p.get('questPhase', 0) == 0]
-    ordinary=[e for e in s.enemies.values() if not e.fieldBoss]
-    assert len(ordinary) == len(expected)
+    ordinary=[e for e in s.enemies.values() if not e.custom]
+    assert len(ordinary) == len(expected), (n['id'], len(ordinary), len(expected))
     assert len({e['id'] for e in expected}) == len(expected)
     for i, p in enumerate(expected, 1):
         support = n['platforms'][p['platform']]
@@ -29,9 +32,13 @@ for n in graph['nodes']:
         assert e.patrolMin <= e.x <= e.patrolMax and e.y == support['y']
         e.hp=0;e.respawn=.001
         c.step(s,1/60,lua.table())
-        assert e.hp == e.maxhp and e.x == e.home
+        assert e.hp == e.maxhp and e.x == e.home, (n['id'],e.spawnId,e.hp,e.x,e.home,s.story.node)
     row={'node':n['id'],'enemy_count':len(expected)}
-    if len(s.enemies)>len(ordinary):row['field_boss_count']=len(s.enemies)-len(ordinary)
+    custom = [e for e in s.enemies.values() if e.custom]
+    if custom:
+        field_count = sum(bool(e.fieldBoss) for e in custom)
+        if field_count: row['field_boss_count'] = field_count
+        if len(custom)>field_count: row['weekly_entity_count'] = len(custom)-field_count
     results.append(row)
 
 s=c.new(12);c.action(s,'story_start');c.enterStoryNode(s,'mond-road')

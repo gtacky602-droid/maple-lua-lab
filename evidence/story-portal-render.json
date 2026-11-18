@@ -883,12 +883,12 @@
     {
       "node": "nod-town",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "nod-town",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "snezhnaya-entry",
@@ -903,22 +903,22 @@
     {
       "node": "snezhnaya-hub",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "snezhnaya-hub",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "snezhnaya-field",
       "mode": "sprite",
-      "visible_portals": 7
+      "visible_portals": 8
     },
     {
       "node": "snezhnaya-field",
       "mode": "rect",
-      "visible_portals": 7
+      "visible_portals": 8
     },
     {
       "node": "dragonspine-camp",
@@ -1697,6 +1697,76 @@
     },
     {
       "node": "steam-stabling-depot",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "winter-frontier-switchback",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "winter-frontier-switchback",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "white-pass-cut",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "white-pass-cut",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "white-pass-coach",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "white-pass-coach",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "white-pass-station",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "white-pass-station",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "white-pass-woods",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "white-pass-woods",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "white-pass-ridge",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "white-pass-ridge",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "white-rainbow-basin",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "white-rainbow-basin",
       "mode": "rect",
       "visible_portals": 1
     }

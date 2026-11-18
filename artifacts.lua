@@ -2,6 +2,7 @@
 return function(C)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local oreDiscount=400
+ local pendingAttackLimit=16
  local caps={[3]=12,[4]=16,[5]=20};local rarity={[3]=.6,[4]=.8,[5]=1}
  local feather={{1,0},{10,133.333333},{20,208.333333},{30,268},{40,393},{60,454.545455},{80,1250},{100,2343.75},{110,6250},{120,6250},{140,29800},{160,71400},{170,100000},{180,170000},{200,300000},{220,520000}}
  local flower={{1,80},{20,160},{40,600},{60,1800},{80,5000},{100,16000},{120,32000},{140,56000},{160,84480},{180,160000},{200,300000},{220,520000}}
@@ -82,7 +83,10 @@ return function(C)
  end
  C.canAttack=function(s)
   setup(s)
-  if #s.inventory.ground>=16 then s.inventory.message='未回収品が16個以上あります。回収・町で整理してから攻撃を再開します。';return false end
+  if #s.inventory.ground>=pendingAttackLimit then
+   s.inventory.message='未回収品が'..pendingAttackLimit..'個以上あります。回収・町で整理してから攻撃を再開します。'
+   return false
+  end
   return true
  end
  function C.artifactSalePrice(item) return item.itemLv*item.rarity*10 end
@@ -166,6 +170,7 @@ return function(C)
  end
  function C.frame(s,mode,profile)
   setup(s);local f=frame(s,mode,profile);f.inventory=s.inventory;f.upgradeOreDiscount=oreDiscount
+  f.artifactAttackBlocked=#s.inventory.ground>=pendingAttackLimit
   local starter=C.starterEquipment and C.starterEquipment(s,s.companion)
   if starter then
    local useFlower=true
