@@ -4262,6 +4262,96 @@
       "transparent": 0
     },
     {
+      "key": "sumeruVisitorsMeadow",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruVisitorsMeadow",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruVisitorsMeadow",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruVisitorsMeadow",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruVisitorsMeadow",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruVisitorsMeadow",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruVisitorsTerrace",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruVisitorsTerrace",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruVisitorsTerrace",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruVisitorsTerrace",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruVisitorsTerrace",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruVisitorsTerrace",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruVisitorsStore",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruVisitorsStore",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruVisitorsStore",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruVisitorsStore",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruVisitorsStore",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "sumeruVisitorsStore",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "sumeruCanopy",
       "camera": -960,
       "transparent": 0

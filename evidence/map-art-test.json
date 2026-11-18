@@ -344,6 +344,24 @@
       "backgroundState": "ready"
     },
     {
+      "id": "sum-visitors-meadow",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "sum-visitors-terrace",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "sum-visitors-store",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "sumeru-field",
       "count": 0,
       "fallback": false,

@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 308 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 300,
+  "scope": "Authored 311 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 303,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -314,6 +314,24 @@
     {
       "id": "sum-wanderer-hollow",
       "name": "スメール・枝切れの洞穴",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "sum-visitors-meadow",
+      "name": "スメール・観測器の草地",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "sum-visitors-terrace",
+      "name": "スメール・標本台の段丘",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "sum-visitors-store",
+      "name": "スメール・標本の保管所",
       "region": "スメール",
       "status": "regional_temporary_image"
     },

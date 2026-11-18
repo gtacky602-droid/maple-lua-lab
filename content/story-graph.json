@@ -1728,6 +1728,7 @@
         {"to":"sumeru-canopy-junction","x":1026,"requires":{"quest":"sumeru-leaf-crossing"}},
         {"to":"sumeru-observation-stop","x":1162,"requires":{"quest":"sumeru-forest-levels"}},
         {"to":"sumeru-sky-observatory","x":1282,"requires":{"quest":"sumeru-observatory-map"}},
+        {"to":"sum-visitors-meadow","x":332,"arrivalX":123,"requires":{"quest":"sum-fungus-visitors","count":1}},
         {"to":"sum-wanderer-trail","x":618,"arrivalX":124,"requires":{"quest":"sum-wanderer-observation","count":1}}
       ],
       "checkpoint": "sumeru-hub"
@@ -1746,6 +1747,39 @@
       "platforms":[{"x":0,"y":480,"w":1360},{"x":215,"y":307,"w":200,"rootShelf":true},{"x":837,"y":297,"w":358,"rootShelf":true}],
       "exits":[{"to":"sum-wanderer-trail","x":60,"arrivalX":1280},
         {"to":"sumeru-hub","x":1288,"arrivalX":613,"returnOnly":true,"requires":{"quest":"sum-wanderer-observation","count":8}}]
+    },
+    {
+      "id":"sum-visitors-meadow","name":"スメール・観測器の草地","region":"スメール","level":60,"hub":false,
+      "width":1410,"checkpoint":"sumeru-hub","clearedBy":"sum-fungus-visitors","clearCount":2,
+      "platforms":[{"x":0,"y":480,"w":1410}],
+      "visitorSite":{"message":"草地ではキノコンが一か所に集まります。まとまった群れを退けて観測器を調べます。",
+        "nextMessage":"草地の観測を記録しました。右の門から標本台の段丘へ進みます。",
+        "props":[{"key":"instrument","x":1028,"y":480,"label":"草地の観測器"}]},
+      "exits":[{"to":"sumeru-hub","x":61,"arrivalX":383},
+        {"to":"sum-visitors-terrace","x":1340,"arrivalX":126,"requires":{"quest":"sum-fungus-visitors","count":3}}]
+    },
+    {
+      "id":"sum-visitors-terrace","name":"スメール・標本台の段丘","region":"スメール","level":60,"hub":false,
+      "width":1510,"checkpoint":"sumeru-hub","clearedBy":"sum-fungus-visitors","clearCount":4,
+      "platforms":[{"x":0,"y":480,"w":1510},{"x":430,"y":391,"w":500,"rootShelf":true},{"x":816,"y":299,"w":427,"rootShelf":true}],
+      "visitorSite":{"message":"段丘ではキノコンが上下に分かれます。根の段を二つ登り、高い棚も確かめます。",
+        "nextMessage":"標本袋を調べました。右の門から保管所へ進みます。",
+        "props":[{"key":"satchel","x":1152,"y":299,"label":"標本袋"}]},
+      "exits":[{"to":"sum-visitors-meadow","x":60,"arrivalX":1272},
+        {"to":"sum-visitors-store","x":1449,"arrivalX":123,"requires":{"quest":"sum-fungus-visitors","count":5}}]
+    },
+    {
+      "id":"sum-visitors-store","name":"スメール・標本の保管所","region":"スメール","level":60,"hub":false,
+      "width":1610,"checkpoint":"sumeru-hub","clearedBy":"sum-fungus-visitors","clearCount":6,
+      "platforms":[{"x":0,"y":480,"w":1610}],
+      "visitorSite":{"message":"保管所の手前ではキノコンが素早く移動します。近づいてくる群れを退けて周囲を観察します。",
+        "props":[{"key":"traces","x":919,"y":480,"label":"足跡と葉のかけら","after":5},
+          {"key":"instrument","x":1006,"y":480,"label":"保管所の観測器"},
+          {"key":"sample","x":1124,"y":480,"label":"星葉草の標本","after":6},
+          {"key":"cabinet","x":1326,"y":480,"label":"標本棚"}],
+        "observer":{"x":1197,"y":432,"restX":742}},
+      "exits":[{"to":"sum-visitors-terrace","x":62,"arrivalX":1379},
+        {"to":"sumeru-hub","x":1547,"arrivalX":383,"returnOnly":true,"requires":{"quest":"sum-fungus-visitors","count":11}}]
     },
     {
       "id": "sumeru-field",
@@ -5754,6 +5788,29 @@
             "marks":[{"name":"二股の根","x":48,"y":105,"below":true},{"name":"三日月の石","x":117,"y":72},
               {"name":"金色の輪","x":188,"y":38},{"name":"幹裏の洞穴","x":228,"y":101,"below":true},
               {"name":"レバー","x":279,"y":101},{"name":"標識","x":366,"y":29}]}}
+      ]
+    },
+    {
+      "id":"sum-fungus-visitors","designId":"Q-SUM-S02","name":"観測器に、お客さん？","giver":"ティナリ",
+      "hub":"sumeru-hub","target":"sum-visitors-store","requires":"sumeru-leaf-crossing","level":60,
+      "kind":"itinerary","goal":11,"xp":164740,"mora":2000,"ore":3,
+      "briefing":"ティナリ「観測器のそばにキノコンが集まる。観測は続けたいから、音と標本と周りの様子を一つずつ見てきてくれる？」",
+      "closing":"ティナリ「見たことと、そこから考えたことは、分けておこう。音は同じで、標本を棚に入れると寄ってこなくなった。星葉草の香りが手がかりだね。高い棚へ逃げる個体は、下の段から順に追うと見失わないよ。」",
+      "completedObjective":"保管所を再訪し、格納した標本と同じ観測器の音を確かめられる",
+      "observation":{"pickupCount":9,"storedCount":10,"followDistance":124,"departureSeconds":2.1,
+        "revisitNotice":"三つの音は今も同じ順で鳴ります。標本は棚に保管され、キノコンは離れたところにいます。","notes":[349,440,392],"pattern":"低い音 → 高い音 → 中くらいの音"},
+      "itinerary":[
+        {"kind":"inspect","node":"sumeru-hub","x":231,"y":480,"name":"ティナリの調査票","action":"ティナリから観測器の話を聞く","objective":"樹陰の広場でティナリに観測器の変化を聞く","notice":"ティナリ「キノコンが集まる草地、段丘、保管所の順に見てきて。まずは右の門から草地へ。」"},
+        {"kind":"kill","node":"sum-visitors-meadow","enemies":["sum-visitor-pack-1","sum-visitor-pack-2","sum-visitor-pack-3","sum-visitor-pack-4"],"objective":"観測器の草地でまとまっているキノコン四体を退ける","notice":"草地が落ち着きました。右の観測器で音を調べましょう。"},
+        {"kind":"inspect","node":"sum-visitors-meadow","x":1028,"y":480,"name":"草地の観測器","action":"観測器の音を記録する","objective":"草地で観測器の三つの音を記録する","notice":"低い音、高い音、中くらいの音が一回ずつ鳴ります。三つとも等間隔です。次は標本台の段丘へ。","visitorProp":true,"observationTone":true},
+        {"kind":"kill","node":"sum-visitors-terrace","enemies":["sum-visitor-tier-1","sum-visitor-tier-2","sum-visitor-tier-3"],"objective":"段丘の地上・中段・上段にいるキノコンを一体ずつ退ける","notice":"上下の道が空きました。上段にある標本袋を調べられます。"},
+        {"kind":"inspect","node":"sum-visitors-terrace","x":1152,"y":299,"name":"標本袋","action":"標本袋に付いた葉を調べる","objective":"上段に登って標本袋と付着した葉を調べる","notice":"袋の口に星形の葉が付いています。袋から甘い香りがします。右の門から保管所の周囲へ。","visitorProp":true},
+        {"kind":"kill","node":"sum-visitors-store","enemies":["sum-visitor-fast-1","sum-visitor-fast-2","sum-visitor-fast-3"],"objective":"保管所までの地上を素早く移動するキノコン三体を退ける","notice":"足元に足跡と葉のかけらが残っています。観測器の左を調べてみましょう。"},
+        {"kind":"inspect","node":"sum-visitors-store","x":919,"y":480,"name":"足跡の行き先","action":"足跡と葉のかけらの向きを見る","objective":"観測器の左で、足跡がどこへ続くかを調べる","notice":"足跡は観測器の脚を回り、星形の葉を入れた袋に続きます。キノコンが一体、袋のそばに浮かんでいます。","visitorProp":true},
+        {"kind":"inspect","node":"sum-visitors-store","x":1006,"y":480,"name":"保管所の観測器","action":"標本を移す前の音を記録する","objective":"標本は置いたまま、保管所の観測器の音を聞く","notice":"保管所の観測器も、低い音、高い音、中くらいの音を等間隔で出しています。この音を覚えてから標本を運びましょう。","visitorProp":true,"observationTone":true},
+        {"kind":"inspect","node":"sum-visitors-store","x":1124,"y":480,"name":"香りのある星葉草","action":"星葉草の標本を持つ","objective":"観測器の横の標本を持って、奥の棚に運ぶ","notice":"星葉草の標本を手に取りました。観察中のキノコンも袋の方へ移動します。棚に入れて観察を続けます。","visitorProp":true},
+        {"kind":"inspect","node":"sum-visitors-store","x":1326,"y":480,"name":"標本棚","action":"標本を棚へ入れて扉を閉じる","objective":"保管所の奥で、標本を棚に入れる","notice":"棚に標本を入れて扉を閉じると、キノコンが袋のそばから離れていきます。音は手前の観測器で聞き直せます。","visitorProp":true,"storeSpecimen":true},
+        {"kind":"inspect","node":"sum-visitors-store","x":1006,"y":480,"name":"保管所の観測器","action":"観測器の音と周りの変化を確かめる","objective":"観測器に戻って、音が同じか、標本をしまった後に寄ってくるかを確かめる","notice":"三つの音の順と間隔は同じです。キノコンは棚から離れ、周りが落ち着きました。右の門から広場へ報告に戻れます。","visitorProp":true,"observationTone":true,"compareAfterStorage":true}
       ]
     },
     {

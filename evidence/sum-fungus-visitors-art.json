@@ -1,0 +1,167 @@
+{
+  "tool": "built-in image generation and reference-guided proportion edits",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/sum-fungus-visitors-model.obj",
+    "sha256": "365235167dad0ceb1607188e9fa6bf0c4bf59a8658055653270d017e19bd86f4"
+  },
+  "materials": {
+    "path": "evidence/sum-fungus-visitors-model.mtl",
+    "sha256": "a620c84719dd0522e99f5b89eacdf9eb1456b01272e7ff06a2099b5f7868df4e"
+  },
+  "contactSheet": {
+    "path": "evidence/sum-fungus-visitors-views.png",
+    "sha256": "072e50cdbd08257e0d955d225c191b70ff67a09a8b97e87eaac95091f6410bf7"
+  },
+  "propsSource": {
+    "path": "assets/sum-fungus-visitors-props-source-v1.png",
+    "sha256": "bbf74148379878fd0b46930ccac0ac92224b2e318b502a4c28972f7b85922d97"
+  },
+  "alphaCorners": [
+    1,
+    0,
+    0,
+    0
+  ],
+  "backgrounds": [
+    {
+      "path": "assets/sum-fungus-visitors-meadow-background-v1.png",
+      "sha256": "92faeba3c7f520a4a6aece22b6a175a73fc2fb0f99c1dd8132bb6ca9ffb571e2"
+    },
+    {
+      "path": "assets/sum-fungus-visitors-terrace-background-v1.png",
+      "sha256": "ceaca6967d6ee801f5c9204c171d6453a69a861707e748ec6c3346c6e93bcd5d"
+    },
+    {
+      "path": "assets/sum-fungus-visitors-store-background-v1.png",
+      "sha256": "e19c816ab109c08acaeda5ed4e4e44049cafaee0c18256508ad34d3896610d15"
+    }
+  ],
+  "backgroundReferences": [
+    {
+      "path": "assets/sumeru-riverside-background-v1.png",
+      "sha256": "b3831abb40cc606d81ddfb56c5513b51f351cf474458b58d954596edceaa52e8"
+    },
+    {
+      "path": "assets/sumeru-canopy-background-v1.png",
+      "sha256": "6d0cae4ad6e056051310d625684117aa6a1dad5bc93c076d9c694eaaeabc9f02"
+    },
+    {
+      "path": "assets/sum-wanderer-sign-hollow-background-v1.png",
+      "sha256": "b43922c649532cae4c67f83c349052de25aeccf32022b2ca337dc2b6e8664b3a"
+    }
+  ],
+  "status": "Original props based on an original six-object 3D blockout. The three background images are Web placeholders.",
+  "fungus": {
+    "path": "assets/dendro-fungus-idle-sprites.json",
+    "sha256": "1e4e2771451ed1c1e5649976f4b16585c6b9fed047ff35cc14315946d3206cf6"
+  },
+  "profiles": {
+    "instrument": {
+      "encoding": {
+        "path": "assets/sum-fungus-visitors-instrument-sprites-v1.json",
+        "sha256": "2d4afca55b5a25832468ba333a821946e65fbb13f62cada3a6d367f8adc68c24"
+      },
+      "box": [
+        177,
+        68,
+        218,
+        306
+      ],
+      "runs": {
+        "legacy": 1980,
+        "h48c32": 1251,
+        "h32c16": 496
+      }
+    },
+    "satchel": {
+      "encoding": {
+        "path": "assets/sum-fungus-visitors-satchel-sprites-v1.json",
+        "sha256": "91c0936287c12a9f875b4dd6104e42fb7463608b8fc60e39b60d395b5b3cc23d"
+      },
+      "box": [
+        775,
+        131,
+        214,
+        231
+      ],
+      "runs": {
+        "legacy": 850,
+        "h48c32": 532,
+        "h32c16": 211
+      }
+    },
+    "traces": {
+      "encoding": {
+        "path": "assets/sum-fungus-visitors-traces-sprites-v1.json",
+        "sha256": "1ef565750f73f26014755083430d3a2d3c207a3a5fd76b6e649bb8d16d51369f"
+      },
+      "box": [
+        1263,
+        207,
+        398,
+        112
+      ],
+      "runs": {
+        "legacy": 606,
+        "h48c32": 355,
+        "h32c16": 152
+      }
+    },
+    "sample": {
+      "encoding": {
+        "path": "assets/sum-fungus-visitors-sample-sprites-v1.json",
+        "sha256": "5fa569204377bef88dd8b18f7ce77a2b120ae20117386aa97b2d4c9c80483012"
+      },
+      "box": [
+        177,
+        509,
+        242,
+        305
+      ],
+      "runs": {
+        "legacy": 1025,
+        "h48c32": 654,
+        "h32c16": 257
+      }
+    },
+    "cabinet": {
+      "encoding": {
+        "path": "assets/sum-fungus-visitors-cabinet-sprites-v1.json",
+        "sha256": "e7e6602238586195698c5ca6411af6d676ee1bcbf6b89e9f9b16bf26be3a81ad"
+      },
+      "box": [
+        694,
+        509,
+        361,
+        314
+      ],
+      "runs": {
+        "legacy": 3618,
+        "h48c32": 2266,
+        "h32c16": 825
+      }
+    },
+    "cabinetClosed": {
+      "encoding": {
+        "path": "assets/sum-fungus-visitors-cabinetClosed-sprites-v1.json",
+        "sha256": "2687135bdc0299d1ad441bca9e9ff8509a3981664415c742ffb92216d8b4eb25"
+      },
+      "box": [
+        1318,
+        509,
+        281,
+        314
+      ],
+      "runs": {
+        "legacy": 3439,
+        "h48c32": 2047,
+        "h32c16": 754
+      }
+    }
+  }
+}

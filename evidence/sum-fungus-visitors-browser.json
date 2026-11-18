@@ -1,0 +1,37 @@
+{
+  "scenes": [
+    {
+      "key": "sumeruVisitorsMeadow",
+      "file": "sum-fungus-visitors-meadow-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "key": "sumeruVisitorsTerrace",
+      "file": "sum-fungus-visitors-terrace-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "key": "sumeruVisitorsStore",
+      "file": "sum-fungus-visitors-store-background-v1.png",
+      "state": "ready"
+    }
+  ],
+  "battleKills": 10,
+  "returns": 0,
+  "mutedProgressAndWebAudioReplay": true,
+  "sameInstrumentBeforeAndAfter": true,
+  "realJumps": true,
+  "specimenCarryAndWithdrawal": true,
+  "storedAndClearedAfterReload": true,
+  "commands": {
+    "png": 28,
+    "standard": 11567,
+    "light": 2882
+  },
+  "reward": [
+    164740,
+    2000,
+    3
+  ],
+  "errors": []
+}

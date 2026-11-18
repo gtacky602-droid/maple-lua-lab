@@ -315,6 +315,22 @@
         "platform": 2
       }
     ],
+    "sum-visitors-meadow": [
+      {"id":"sum-visitor-pack-1","kind":1,"art":"dendro-fungus","name":"草地のキノコン","x":589,"platform":0,"hp":17,"pursuit":{"range":150,"leash":174,"speed":42}},
+      {"id":"sum-visitor-pack-2","kind":1,"art":"dendro-fungus","name":"草地のキノコン","x":629,"platform":0,"hp":19,"pursuit":{"range":158,"leash":174,"speed":42}},
+      {"id":"sum-visitor-pack-3","kind":1,"art":"dendro-fungus","name":"草地のキノコン","x":672,"platform":0,"hp":19,"pursuit":{"range":165,"leash":180,"speed":42}},
+      {"id":"sum-visitor-pack-4","kind":1,"art":"dendro-fungus","name":"草地のキノコン","x":709,"platform":0,"hp":22,"pursuit":{"range":162,"leash":178,"speed":42}}
+    ],
+    "sum-visitors-terrace": [
+      {"id":"sum-visitor-tier-1","kind":1,"art":"dendro-fungus","name":"地上のキノコン","x":323,"platform":0,"hp":20},
+      {"id":"sum-visitor-tier-2","kind":1,"art":"dendro-fungus","name":"中段のキノコン","x":662,"platform":1,"hp":23},
+      {"id":"sum-visitor-tier-3","kind":1,"art":"dendro-fungus","name":"上段のキノコン","x":985,"platform":2,"hp":24}
+    ],
+    "sum-visitors-store": [
+      {"id":"sum-visitor-fast-1","kind":1,"art":"dendro-fungus","name":"すばやいキノコン","x":388,"platform":0,"hp":17,"pursuit":{"range":237,"leash":264,"speed":122}},
+      {"id":"sum-visitor-fast-2","kind":1,"art":"dendro-fungus","name":"すばやいキノコン","x":652,"platform":0,"hp":19,"pursuit":{"range":260,"leash":284,"speed":135}},
+      {"id":"sum-visitor-fast-3","kind":1,"art":"dendro-fungus","name":"すばやいキノコン","x":844,"platform":0,"hp":20,"pursuit":{"range":246,"leash":286,"speed":148}}
+    ],
     "sumeru-field": [
       {
         "id": "sumeru-field-1",

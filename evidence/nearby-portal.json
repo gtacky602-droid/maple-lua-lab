@@ -682,6 +682,10 @@
     },
     {
       "node": "sumeru-hub",
+      "to": "sum-visitors-meadow"
+    },
+    {
+      "node": "sumeru-hub",
       "to": "sum-wanderer-trail"
     },
     {
@@ -698,6 +702,30 @@
     },
     {
       "node": "sum-wanderer-hollow",
+      "to": "sumeru-hub"
+    },
+    {
+      "node": "sum-visitors-meadow",
+      "to": "sumeru-hub"
+    },
+    {
+      "node": "sum-visitors-meadow",
+      "to": "sum-visitors-terrace"
+    },
+    {
+      "node": "sum-visitors-terrace",
+      "to": "sum-visitors-meadow"
+    },
+    {
+      "node": "sum-visitors-terrace",
+      "to": "sum-visitors-store"
+    },
+    {
+      "node": "sum-visitors-store",
+      "to": "sum-visitors-terrace"
+    },
+    {
+      "node": "sum-visitors-store",
       "to": "sumeru-hub"
     },
     {

@@ -232,6 +232,18 @@
       "enemy_count": 0
     },
     {
+      "node": "sum-visitors-meadow",
+      "enemy_count": 4
+    },
+    {
+      "node": "sum-visitors-terrace",
+      "enemy_count": 3
+    },
+    {
+      "node": "sum-visitors-store",
+      "enemy_count": 3
+    },
+    {
       "node": "sumeru-field",
       "enemy_count": 6
     },

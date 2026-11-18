@@ -1,0 +1,22 @@
+{
+  "requiresMainReport": true,
+  "threeFormations": true,
+  "partialGroupSave": true,
+  "sameToneAndReread": true,
+  "fastPursuit": true,
+  "carryFollowsAndRestores": true,
+  "sampleStoredAndObserverWithdraws": true,
+  "withdrawalPauses": true,
+  "noObserverKillReward": true,
+  "zonesRemainClear": true,
+  "tones": [
+    349,
+    440,
+    392
+  ],
+  "reward": [
+    164740,
+    2000,
+    3
+  ]
+}
