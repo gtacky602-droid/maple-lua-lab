@@ -1,4 +1,9 @@
 // Guidance over the published graph only. Never moves the player or unlocks gates.
+export function questTargetNode(q,graph){
+ if(q.kind!=='boss')return q.target;
+ return graph.nodes.find(n=>n.challenge===q.target)?.id??graph.bossNodes?.[q.target];
+}
+
 export function questRouteText(f,q,status){
  if(!f.story?.active||!q||f.storyLift||(status==='complete'&&!q.repeatable))return '';
  const graph=f.storyGraph,nodes=new Map(graph.nodes.map(n=>[n.id,n]));
@@ -6,7 +11,7 @@ export function questRouteText(f,q,status){
  const milestone=status==='active'?q.itinerary?.[activeCount]:null;
  const pathProgress=f.story.quests?.[q.id]?.pathProgress;
  const branches=milestone?.kind==='paths'&&q.paths.map(path=>path.steps[pathProgress?.[path.id]?.count??0]).filter(Boolean);
- let target=status==='active'?(q.kind==='boss'?graph.nodes.find(n=>n.challenge===q.target)?.id:q.target):q.hub;
+ let target=status==='active'?questTargetNode(q,graph):q.hub;
  if(status==='active'&&q.itinerary)target=q.itinerary[activeCount]?.node;
  if(status==='active'&&q.sights&&f.story.quests?.[q.id]&&!f.story.quests[q.id].sights)target=q.sights.legacyTarget;
  if(status==='active'&&q.contest&&activeCount===4)target=q.contest.cape;

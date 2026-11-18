@@ -96,6 +96,11 @@ def runtime():
     sights = lua.execute((ROOT / 'story-sights.lua').read_text(encoding='utf-8'))(core)
     rest = lua.execute((ROOT / 'story-rest.lua').read_text(encoding='utf-8'))(core)
     story_data = json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8'))
+    field_specs=json.loads((ROOT/'content/field-boss-spawns.json').read_text(encoding='utf-8-sig'))['fieldBosses']
+    weekly_specs=json.loads((ROOT/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses']
+    story_data['bossNodes']={
+        target:spec['node'] for spec in field_specs+weekly_specs
+        for target in (spec['id'],spec.get('storyChallenge')) if target}
     graph = lua.table_from(resolve_story_exp(story_data),recursive=True)
     cave=lua.execute((ROOT/'story-cave.lua').read_text(encoding='utf8'))(core)
     roof=lua.execute((ROOT/'story-roof.lua').read_text(encoding='utf8'))(core)
@@ -110,7 +115,10 @@ def runtime():
     moving_platforms=lua.execute((ROOT/'story-moving-platforms.lua').read_text(encoding='utf8'))(core)
     duel=lua.execute((ROOT/'story-sunset-duel.lua').read_text(encoding='utf8'))(core)
     moon_inlet=lua.execute((ROOT/'story-moon-inlet.lua').read_text(encoding='utf8'))()
-    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms,duel,moon_inlet)
+    coast_detour=lua.execute((ROOT/'story-coast-detour.lua').read_text(encoding='utf8'))(core)
+    core.coastalGifts=field_art(lua,'coastal-gifts',(),variants={
+        gift:f'coastal-gifts-{gift}-sprites-v1.json' for gift in ('biscuit','chime','tea')})
+    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms,duel,moon_inlet,coast_detour)
     lua.execute((ROOT / 'barrier.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'farka.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'regisvine.lua').read_text(encoding='utf-8'))(core)
@@ -170,7 +178,6 @@ def runtime():
     core.maguuSlashArt=lua.table_from(json.loads((ROOT/'assets/maguu-slash-sprites.json').read_text(encoding='utf8')),recursive=True)
     core.oceanidArt=lua.table_from({part:json.loads((ROOT/'assets'/name).read_text(encoding='utf8')) for part,name in {'host':'oceanid-sprites.json','boar':'oceanid-boar-sprites.json','crane':'oceanid-crane-sprites.json','mallard':'oceanid-mallard-sprites.json','ferret':'oceanid-ferret-sprites.json','crab':'oceanid-crab-sprites.json','raptor':'oceanid-raptor-sprites.json','frog':'oceanid-frog-sprites.json','finch':'oceanid-finch-sprites.json'}.items()},recursive=True)
     lua.execute((ROOT/'world-bosses.lua').read_text(encoding='utf8'))(core,graph)
-    field_specs=json.loads((ROOT/'content/field-boss-spawns.json').read_text(encoding='utf-8-sig'))['fieldBosses']
     story_nodes={node['id']:node for node in story_data['nodes']}
     for spec in field_specs:
         cover=[platform for platform in story_nodes[spec['node']]['platforms'] if platform.get('cover')]
@@ -369,7 +376,6 @@ def runtime():
     core.loomArt=field_art(lua,'twin-shuttle-loom',(),variants={
         pose:f'twin-shuttle-loom-{pose}-sprites-v1.json' for pose in ('closed','open','shuttle','broken')
     })
-    weekly_specs=json.loads((ROOT/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses']
     lua.execute((ROOT/'weekly-bosses.lua').read_text(encoding='utf8'))(core,lua.table_from(weekly_specs,recursive=True),lua.table_from({'dvalin':dvalin,'andrius':andrius,'surveyor':surveyor,'loom':loom}))
     return lua, core
 

@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -333,6 +333,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif command=='rotate' then
      if milestone.resonanceStone then resonance.record(s,milestone,emitCue) end
       completeMilestone(s,state,milestone,parent,quest)
+      if milestone.detourRest then coastDetour.rest(s,q,state,emitCue) end
      return true
     end
    end
@@ -746,9 +747,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if s.paused or not s.story.active then return end
    local id=accept or report;local q=quests[id];if not q or s.story.node~=q.hub then return end
    local state=s.story.quests[id]
-   if accept and (not state or (q.repeatable and state.status=='complete')) then
+   if accept and not q.legacyOnly and (not state or (q.repeatable and state.status=='complete')) then
     if q.requires and not completed(s,q.requires) then return end
     if q.opensAfter and not s.story.quests[q.opensAfter] then return end
+    if q.opensAfterCount and s.story.quests[q.opensAfter].count<q.opensAfterCount then return end
     if q.level and (not s.progression or s.progression.level<q.level) then return end
     s.story.quests[id]={status='active',count=0,cycles=state and state.cycles or 0,
                        recovered=q.cargo and {} or nil,inspected=q.trail and {} or nil,delivery=q.delivery and delivery.new() or nil,
@@ -968,9 +970,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
 
  function C.frame(s,mode,profile)
-  local f=frame(s,mode,profile);setup(s);f.story=s.story;local visible={version=data.version,status=data.status,nodes={},quests={}}
+  local f=frame(s,mode,profile);setup(s);f.story=s.story;local visible={version=data.version,status=data.status,nodes={},quests={},bossNodes={}}
   for _,n in ipairs(data.nodes) do if shownNode(s,n) then local out=copy(n);out.exits={};for _,edge in ipairs(n.exits) do if shownEdge(s,edge) then out.exits[#out.exits+1]=copy(edge) end end;visible.nodes[#visible.nodes+1]=out end end
-  for _,q in ipairs(data.quests) do if shownNode(s,nodes[q.hub]) then visible.quests[#visible.quests+1]=q end end
+  for target,node in pairs(data.bossNodes) do if shownNode(s,nodes[node]) then visible.bossNodes[target]=node end end
+  for _,q in ipairs(data.quests) do
+   if shownNode(s,nodes[q.hub]) and (not q.legacyOnly or s.story.quests[q.id]) then
+    visible.quests[#visible.quests+1]=q
+   end
+  end
   f.storyGraph=visible;f.storyNotice=s.storyNotice;f.storyJoined={};f.voyage=s.voyage and {seconds=math.max(0,s.voyage.arrives-s.t),destination=s.voyage.destination,elapsed=s.t-s.voyage.started,kind=s.voyage.kind,stopover=s.voyage.stopStart and s.t-s.voyage.started+1e-8>=s.voyage.stopStart and s.t-s.voyage.started+1e-8<s.voyage.stopEnd or false} or nil
   if f.voyage and f.voyage.kind=='trolley' then
    local v=s.voyage
@@ -1028,6 +1035,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    duel.frame(s,f,markers,n.duel)
     if n.moonInlet then moonInlet.observe(s,f,markers,n.moonInlet,s.story.quests[n.moonInlet.quest]) end
     if n.shoreLights then moonInlet.lights(s,markers,n.shoreLights) end
+    if n.coastDetour then coastDetour.observe(s,f,markers,n.coastDetour,quests[n.coastDetour.quest],mode,profile) end
    local pathQuest=n.pathsQuest and quests[n.pathsQuest]
    local pathState=pathQuest and s.story.quests[pathQuest.id]
    if pathState and pathState.pathProgress and pathState.count>0 then
@@ -1144,9 +1152,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       for _,option in ipairs(milestone.choices) do
        local x,y=option.x-s.camera,option.y
        if x>=-25 and x<=985 then
-        markers[#markers+1]={kind='rect',x=x-12,y=y-25,w=24,h=25,color='#423951'}
-        markers[#markers+1]={kind='rect',x=x-8,y=y-21,w=16,h=12,color='#d3dbf5'}
-        markers[#markers+1]={kind='text',x=x,y=y-43,text=option.name,color='#fff0b9',size=14}
+        if option.detourGift then coastDetour.drawGift(markers,x,y,option.id,mode,profile)
+        else
+         markers[#markers+1]={kind='rect',x=x-12,y=y-25,w=24,h=25,color='#423951'}
+         markers[#markers+1]={kind='rect',x=x-8,y=y-21,w=16,h=12,color='#d3dbf5'}
+        end
+        markers[#markers+1]={kind='text',x=x,y=y-(option.detourGift and 79 or 43),text=option.name,color='#fff0b9',size=14}
        end
       end
       local option=not s.paused and nearbyChoice(s,milestone)

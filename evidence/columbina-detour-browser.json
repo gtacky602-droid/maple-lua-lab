@@ -1,0 +1,30 @@
+{
+  "afterFirstMeeting": true,
+  "threeVisibleWares": true,
+  "choice": "chime",
+  "fightAndRest": true,
+  "restCue": true,
+  "joinedAndStarter": true,
+  "reloadAndReturn": true,
+  "mainUnfinished": true,
+  "marketScene": {
+    "key": "nodNightStalls",
+    "file": "nod-night-stalls-background-v1.png",
+    "state": "ready"
+  },
+  "restScene": {
+    "key": "nodFarSea",
+    "file": "nod-far-sea-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 33,
+    "standard": 6218,
+    "light": 1665
+  },
+  "reward": [
+    3406620,
+    3200
+  ],
+  "errors": []
+}

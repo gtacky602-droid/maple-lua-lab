@@ -3242,6 +3242,66 @@
       "transparent": 0
     },
     {
+      "key": "nodNightStalls",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "nodNightStalls",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "nodNightStalls",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "nodNightStalls",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "nodNightStalls",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "nodNightStalls",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "nodFarSea",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "nodFarSea",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "nodFarSea",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "nodFarSea",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "nodFarSea",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "nodFarSea",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "mondstadt",
       "camera": -960,
       "transparent": 0

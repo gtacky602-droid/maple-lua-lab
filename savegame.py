@@ -219,6 +219,11 @@ def validate_save(data):
                 predecessor = st['quests'].get(quest['requires'])
                 if not isinstance(predecessor, dict) or predecessor.get('status') != 'complete':
                     raise ValueError('Incomplete story quest prerequisite')
+            if 'opensAfterCount' in quest:
+                predecessor = st['quests'].get(quest['opensAfter'])
+                prior_count = predecessor.get('count') if isinstance(predecessor, dict) else None
+                if type(prior_count) is not int or prior_count < quest['opensAfterCount']:
+                    raise ValueError('同行の初対面記録がありません')
             if quest.get('trail') or 'inspected' in q:
                 inspected = q.get('inspected')
                 if not quest.get('trail') or not isinstance(inspected, dict):

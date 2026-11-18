@@ -1,7 +1,8 @@
-import {questRouteText} from './quest-route.js';
+import {questRouteText,questTargetNode} from './quest-route.js';
 export function questStatus(q,state,quests,level=Infinity){
- if(!state)return (q.requires&&quests?.[q.requires]?.status!=='complete')||
-  (q.opensAfter&&!quests?.[q.opensAfter])||(q.level!==undefined&&level<q.level)?'locked':'unaccepted';
+ if(!state)return q.legacyOnly||(q.requires&&quests?.[q.requires]?.status!=='complete')||
+  (q.opensAfter&&(!quests?.[q.opensAfter]||(quests[q.opensAfter].count??0)<(q.opensAfterCount??0)))||
+  (q.level!==undefined&&level<q.level)?'locked':'unaccepted';
  if(state.status==='complete')return 'complete';
  return state.count>=q.goal?'ready':'active';
 }
@@ -9,8 +10,9 @@ const rewardNumber=new Intl.NumberFormat('ja-JP');
 const questName=(q,state)=>q.sights&&state&&!state.sights?q.sights.legacyName:q.name;
 const labels={locked:'未解放',unaccepted:'未受注',active:'進行中',ready:'報告待ち',complete:'完了'};
 export function questObjective(q,graph,state){
+ if(state?.status==='complete'&&q.completedObjective)return q.completedObjective;
  if(q.itinerary)return q.itinerary[state?.count??0]?.objective??'拠点で報告する';
- const destination=graph.nodes.find(n=>q.kind==='boss'?n.challenge===q.target:n.id===q.target);
+ const destination=graph.nodes.find(n=>n.id===questTargetNode(q,graph));
  const place=destination?.name||'目的地未登録';
  if(q.roof){
   const ticks=state?.roof?.bestTicks;
@@ -159,6 +161,7 @@ export function trackedQuestText(f,id){
 }
 function prerequisiteText(q,graph,level){
  if(q.level!==undefined&&level<q.level)return `Lv${q.level}になる`;
+ if(q.unlockHint)return q.unlockHint;
  const previous=graph.quests.find(quest=>quest.id===(q.requires??q.opensAfter));
  return `先に「${previous?.name??q.requires??q.opensAfter}」を${q.requires?'報告':'受注'}する`;
 }
@@ -181,7 +184,7 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
   row.textContent=`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''}${q.repeatable?` ／ 報告${st?.cycles||0}回`:''}${q.join&&status==='complete'?(q.giver?`（${q.giver}加入済み）`:'（加入済み／初期装備は未実装）'):''} ｜ ${status==='locked'?prerequisiteText(q,graph,f.progression?.level??0):questObjective(q,graph,st)} ｜ 受注・報告：${hub}${payout}${firstClear} `;
   if(status==='unaccepted'||(status==='complete'&&q.repeatable)){const b=button('受注','story_accept:'+q.id);b.disabled=q.hub!==story.node;b.title=b.disabled?`${hub}で受注してください`:'';row.append(b)}
   if(status==='ready'){const b=button('報告','story_report:'+q.id);b.disabled=q.hub!==story.node;b.title=b.disabled?`${hub}へ戻って報告してください`:'';row.append(b)}
-  if(status==='complete'&&q.join&&(q.recovery||q.sights)){
+  if(status==='complete'&&q.join&&(q.recovery||q.sights||q.starter||q.legacyOnly)){
    const b=button(f.companion?.id===q.join?`${q.giver}が同行中`:`${q.giver}を同行に選ぶ`,'story_select_joined:'+q.id);
    b.disabled=!graph.nodes.find(n=>n.id===story.node)?.hub||f.companion?.id===q.join;
    row.append(b);

@@ -1184,6 +1184,18 @@
     {
       "node": "nod-moon-vault",
       "enemy_count": 0
+    },
+    {
+      "node": "nod-night-stalls",
+      "enemy_count": 0
+    },
+    {
+      "node": "nod-detour-shore",
+      "enemy_count": 3
+    },
+    {
+      "node": "nod-far-sea-bench",
+      "enemy_count": 0
     }
   ],
   "render_profiles": [

@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 280 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 272,
+  "scope": "Authored 283 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 275,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1104,7 +1104,10 @@
     {"id":"nod-box-inlet","name":"ナド・クライ・箱影の入江","region":"ナド・クライ","status":"regional_temporary_image"},
     {"id":"nod-moon-cave-mouth","name":"ナド・クライ・月渡りの岩窟口","region":"ナド・クライ","status":"regional_temporary_image"},
     {"id":"nod-moon-crab-arena","name":"ナド・クライ・月殻の広間","region":"ナド・クライ","status":"regional_temporary_image"},
-    {"id":"nod-moon-vault","name":"ナド・クライ・探検家の貯蔵所","region":"ナド・クライ","status":"regional_temporary_image"}
+    {"id":"nod-moon-vault","name":"ナド・クライ・探検家の貯蔵所","region":"ナド・クライ","status":"regional_temporary_image"},
+    {"id":"nod-night-stalls","name":"ナド・クライ・工房裏の夜店","region":"ナド・クライ","status":"regional_temporary_image"},
+    {"id":"nod-detour-shore","name":"ナド・クライ・岬へ曲がる道","region":"ナド・クライ","status":"regional_temporary_image"},
+    {"id":"nod-far-sea-bench","name":"ナド・クライ・沖を眺める腰掛け","region":"ナド・クライ","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 8
 }

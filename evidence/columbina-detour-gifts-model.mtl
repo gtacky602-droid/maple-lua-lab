@@ -1,0 +1,39 @@
+newmtl paper
+Kd 0.66667 0.49412 0.33725
+illum 1
+
+newmtl cookie
+Kd 0.92157 0.68235 0.41961
+illum 1
+
+newmtl tie
+Kd 0.58824 0.31373 0.31373
+illum 1
+
+newmtl dark
+Kd 0.29804 0.24314 0.29020
+illum 1
+
+newmtl shell
+Kd 0.60000 0.80392 0.80000
+illum 1
+
+newmtl cream
+Kd 0.91765 0.86275 0.72941
+illum 1
+
+newmtl bronze
+Kd 0.75294 0.57647 0.34118
+illum 1
+
+newmtl glass
+Kd 0.33333 0.60000 0.74902
+illum 1
+
+newmtl deep
+Kd 0.21961 0.37255 0.56863
+illum 1
+
+newmtl light
+Kd 0.64314 0.85098 0.85882
+illum 1

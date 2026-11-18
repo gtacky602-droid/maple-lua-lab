@@ -1,0 +1,19 @@
+{
+  "tool": "builtin imagegen",
+  "scenes": [
+    {
+      "source": "nod-night-stalls-background-v1.png",
+      "references": ["nodkrai-background-v1.png", "nod-moon-shallows-background-v1.png"],
+      "zone": "nod-night-stalls",
+      "description": "Warm textile stalls and workshop lamps against a violet-blue northern harbor, with an open path for three interactive items."
+    },
+    {
+      "source": "nod-far-sea-background-v1.png",
+      "references": ["nod-moon-shallows-background-v1.png", "nod-moon-wood-background-v1.png"],
+      "zone": "nod-far-sea-bench",
+      "description": "Open sea at moonrise with reeds and slate at the shore, leaving clear screen space for a separately drawn bench and chosen item."
+    }
+  ],
+  "reference_use": "Existing lab scenes were visually inspected and supplied as image inputs.",
+  "status": "Temporary lab scenery. Production scenery uses 3D placement."
+}

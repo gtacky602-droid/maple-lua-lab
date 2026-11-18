@@ -1,0 +1,25 @@
+{
+  "offeredAfterFirstMeeting": true,
+  "independentOfMainReport": true,
+  "noEarlySelection": true,
+  "threeChoices": [
+    "biscuit",
+    "chime",
+    "tea"
+  ],
+  "identicalStarterStats": [
+    4,
+    150
+  ],
+  "partialFightAndGiftRestored": true,
+  "safeBenchAndRestCue": true,
+  "helperIsNotAnExtraPartyActor": true,
+  "noDuplicateNpcForCurrentCompanion": true,
+  "keepsakeAfterReportAndReload": true,
+  "oldQuestReportedAndSelected": true,
+  "freshLegacyHidden": true,
+  "reward": [
+    3406620,
+    3200
+  ]
+}

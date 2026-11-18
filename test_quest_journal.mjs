@@ -1,21 +1,30 @@
 import {chromium} from 'playwright';import fs from 'node:fs/promises';
 import {questStatus,questObjective} from './quest-journal.js';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
+const fields=JSON.parse((await fs.readFile('content/field-boss-spawns.json','utf8')).replace(/^\uFEFF/,'')).fieldBosses;
+const weeklies=JSON.parse(await fs.readFile('content/weekly-boss-spawns.json','utf8')).weeklyBosses;
+graph.bossNodes=Object.fromEntries([...fields,...weeklies].flatMap(spec=>
+ [spec.id,spec.storyChallenge].filter(Boolean).map(target=>[target,spec.node])));
 for(const q of graph.quests){
- const gated=Boolean(q.requires||q.opensAfter||q.level!==undefined);
- const prerequisites=Object.fromEntries([q.requires,q.opensAfter].filter(Boolean).map(id=>[id,{status:'complete'}]));
+ const gated=Boolean(q.legacyOnly||q.requires||q.opensAfter||q.level!==undefined);
+ const prerequisites=Object.fromEntries([q.requires,q.opensAfter].filter(Boolean).map(id=>[id,{status:'complete',count:q.opensAfterCount??0}]));
  if(questStatus(q,null,{},0)!==(gated?'locked':'unaccepted')||
-    questStatus(q,null,prerequisites)!=='unaccepted'||
+    questStatus(q,null,prerequisites)!==(q.legacyOnly?'locked':'unaccepted')||
     questStatus(q,{status:'active',count:0})!=='active'||
     questStatus(q,{status:'active',count:q.goal})!=='ready'||
     questStatus(q,{status:'complete',count:q.goal})!=='complete')throw Error('status '+q.id);
  if(questObjective(q,graph).includes('未登録'))throw Error('missing destination '+q.id);
 }
+const detour=graph.quests.find(q=>q.id==='columbina-coast-detour');
+if(questStatus(detour,null,{[detour.opensAfter]:{status:'active',count:1}},120)!=='locked'||
+   questStatus(detour,null,{[detour.opensAfter]:{status:'active',count:2}},120)!=='unaccepted')throw Error('first meeting requirement');
 const b=await chromium.launch({headless:true,channel:'chrome'}),p=await b.newPage({viewport:{width:1200,height:1000}}),errors=[];p.on('pageerror',e=>errors.push(e.message));
 try{
  await p.goto(process.env.LAB_URL||'http://127.0.0.1:8769');await p.waitForFunction(()=>window.lab?.frame);
  await p.getByRole('button',{name:'本編ルートへ',exact:true}).click();await p.waitForSelector('#questFilter');
  const visibleCount=await p.evaluate(()=>window.lab.frame.storyGraph.quests.length);
+ const frost=await p.evaluate(()=>window.lab.frame.storyGraph.bossNodes?.['cryo-hypostasis']);
+ if(frost!==graph.bossNodes['cryo-hypostasis'])throw Error('field objective route missing from the live graph');
  await p.selectOption('#questFilter','all');if(await p.locator('#questJournal [data-quest]').count()!==visibleCount)throw Error('visible quest count');
  await p.selectOption('#questFilter','active');if(!(await p.locator('#questJournal').textContent()).includes('当てはまる依頼はありません'))throw Error('empty');
  await p.selectOption('#questFilter','relevant');await p.locator('[data-quest="mond-patrol"]').getByRole('button',{name:'受注',exact:true}).click();await p.waitForSelector('[data-quest="mond-patrol"][data-status="active"]');

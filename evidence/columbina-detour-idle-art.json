@@ -1,0 +1,34 @@
+{
+  "tool": "built-in imagegen",
+  "source": "assets/columbina-idle-source-v3.png",
+  "previous": "assets/columbina-idle-source-v2.png",
+  "encoding": "assets/columbina-idle-sprites-v3.json",
+  "sha256": "2ff1f8dd241227efa3d33867e947ab9d43e7fb2838933b7d7bc9ceae3bc182c4",
+  "size": [
+    1199,
+    1312
+  ],
+  "transparentCorners": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "seenReference": "evidence/columbina-reference-audit.json",
+  "referenceViewsRechecked": [
+    "front",
+    "left"
+  ],
+  "updates": [
+    "enlarged head",
+    "shortened torso and lower legs",
+    "wider hands and foot silhouettes"
+  ],
+  "proportions": "Visually estimated around 2.8 head lengths, excluding the feather ornaments.",
+  "scope": "Existing prototype costume and static idle pose, rendered with both facings.",
+  "profiles": {
+    "legacy": 2530,
+    "h48c32": 1575,
+    "h32c16": 706
+  }
+}

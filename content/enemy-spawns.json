@@ -2333,6 +2333,11 @@
       {"id":"nod-shore-lower","kind":1,"art":"hydro-slime","x":1012,"platform":0,"hp":40},
       {"id":"nod-shore-step","kind":2,"art":"pyro-slime","x":1073,"platform":1,"hp":48},
       {"id":"nod-shore-upper","kind":1,"art":"hydro-slime","x":1320,"platform":2,"hp":46}
+    ],
+    "nod-detour-shore": [
+      {"id":"nod-detour-foe-1","kind":1,"art":"hydro-slime","x":679,"platform":0,"hp":24,"pursuit":{"range":238,"leash":465,"speed":70}},
+      {"id":"nod-detour-foe-2","kind":2,"art":"pyro-slime","x":816,"platform":0,"hp":31,"pursuit":{"range":238,"leash":465,"speed":70}},
+      {"id":"nod-detour-foe-3","kind":1,"art":"hydro-slime","x":957,"platform":0,"hp":27,"pursuit":{"range":238,"leash":465,"speed":70}}
     ]
   }
 }

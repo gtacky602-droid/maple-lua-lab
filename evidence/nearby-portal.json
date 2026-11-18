@@ -2533,6 +2533,14 @@
       "to": "nod-moon-shallows"
     },
     {
+      "node": "nod-workshop-coast",
+      "to": "nod-night-stalls"
+    },
+    {
+      "node": "nod-workshop-coast",
+      "to": "nod-far-sea-bench"
+    },
+    {
       "node": "nod-moon-shallows",
       "to": "nod-workshop-coast"
     },
@@ -2611,6 +2619,30 @@
     {
       "node": "nod-moon-vault",
       "to": "nod-town"
+    },
+    {
+      "node": "nod-night-stalls",
+      "to": "nod-workshop-coast"
+    },
+    {
+      "node": "nod-night-stalls",
+      "to": "nod-detour-shore"
+    },
+    {
+      "node": "nod-detour-shore",
+      "to": "nod-night-stalls"
+    },
+    {
+      "node": "nod-detour-shore",
+      "to": "nod-far-sea-bench"
+    },
+    {
+      "node": "nod-far-sea-bench",
+      "to": "nod-detour-shore"
+    },
+    {
+      "node": "nod-far-sea-bench",
+      "to": "nod-workshop-coast"
     }
   ],
   "hidden_connections_checked": 38,
