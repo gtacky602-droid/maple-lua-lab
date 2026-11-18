@@ -231,8 +231,9 @@ function hud(f,calls,renderMs){
  updateLanternNote(f.storyLanternNote,f.storySightNote);
  const forest=$('storyForest');
  const observation=f.storyContest??f.storyForest??f.storyRest??f.storyCave??f.storyRoof;
- forest.hidden=!observation;
- if(observation&&forest.textContent!==observation.message)forest.textContent=observation.message;
+ const fieldNote=observation?.message??f.storyFlagStatus;
+ forest.hidden=!fieldNote;
+ if(fieldNote&&forest.textContent!==fieldNote)forest.textContent=fieldNote;
  const trolley=f.voyage?.kind==='trolley'?f.voyage:null;
  const lift=f.storyLift??(trolley&&{destination:trolley.destination,seconds:trolley.seconds+trolley.elapsed,remaining:trolley.seconds});
  const rail=f.storyRailTransit;

@@ -1,0 +1,22 @@
+{
+  "level100": true,
+  "bothRoutesAndDifferentEnemyCounts": true,
+  "ordinaryJumps": true,
+  "safeLedgeFall": true,
+  "canSwitchRoutes": true,
+  "alternateCheckpointPassesSaveValidation": true,
+  "cleftLockedUntilBothStamps": true,
+  "noMandatoryTimer": true,
+  "kachinaLowersPhysicalBridgeWithoutJoining": true,
+  "bridgeAfterReload": true,
+  "viewAndRewardOnce": true,
+  "trialRejectsMissingStamps": true,
+  "fastTravelCancelsTrial": true,
+  "optionalBestTimeSurvivesReload": true,
+  "shortcutAndExistingHunt": true,
+  "reward": [
+    3768926,
+    6200,
+    4
+  ]
+}

@@ -72,5 +72,13 @@ const trolley={story:{active:true,node:'veluriyam-trolley-out',quests:{[lookout.
 assert.match(questRouteText(trolley,lookout,'active'),/花棚の停留所.*F：途中下車する.*停車中/);
 trolley.story.node='veluriyam-trolley-back';trolley.story.quests[lookout.id].count=2;
 assert.match(questRouteText(trolley,lookout,'active'),/入口広場.*乗ったまま次の地点へ着きます/);
+const ridge=graph.quests.find(q=>q.id==='natlan-ridge-flag');
+const race={story:{active:true,node:'natlan-flag-ledges',quests:{[ridge.id]:{count:1}}},
+ storyGraph:graph,progression:{level:100}};
+assert.match(questRouteText(race,ridge,'active'),/目的地に到着/);
+race.story.quests[ridge.id].count=2;
+assert.match(questRouteText(race,ridge,'active'),/目的地に到着/);
+race.story.quests[ridge.id].count=3;
+assert.match(questRouteText(race,ridge,'active'),/次は カチーナの切れ目足場/);
 const original=JSON.stringify(frame);let checked=0;for(const quest of graph.quests)for(const status of ['unaccepted','active','ready','complete']){assert.equal(typeof questRouteText(frame,quest,status),'string');checked++}assert.equal(JSON.stringify(frame),original);
 await fs.writeFile('evidence/quest-route-test.json',JSON.stringify({checked,checks:['accept/report hub destination','active visit/kill destination','boss challenge entrance','one-time complete hidden','repeatable complete points to hub','missing/hidden target no leak','level gate indication','level-eligible detour preferred','shortest route at eligible level','blocked fallback minimizes required level','high-level origin permits exit','cycles terminate','voyage pre/during/post stopover and arrival','arrival zero switches to disembark; positive fraction waits','active companion position drives gate direction','ground proximity and elevated descent guidance','missing actors omit directional guidance','pause indication','disconnected graph','chapter finale tracks the cape after the contest','town walk and legacy hunt use their respective targets','no frame mutation']},null,2));console.log('Quest routing fixtures passed');

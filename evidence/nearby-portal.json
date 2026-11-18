@@ -801,6 +801,14 @@
       "to": "natlan-field"
     },
     {
+      "node": "natlan-hub",
+      "to": "natlan-flag-staging"
+    },
+    {
+      "node": "natlan-hub",
+      "to": "natlan-flag-summit"
+    },
+    {
       "node": "natlan-field",
       "to": "natlan-hub"
     },
@@ -2347,6 +2355,58 @@
     {
       "node": "fontaine-grand-stage",
       "to": "fontaine-hub"
+    },
+    {
+      "node": "natlan-flag-staging",
+      "to": "natlan-hub"
+    },
+    {
+      "node": "natlan-flag-staging",
+      "to": "natlan-flag-slope"
+    },
+    {
+      "node": "natlan-flag-staging",
+      "to": "natlan-flag-ledges"
+    },
+    {
+      "node": "natlan-flag-slope",
+      "to": "natlan-flag-staging"
+    },
+    {
+      "node": "natlan-flag-slope",
+      "to": "natlan-flag-cleft"
+    },
+    {
+      "node": "natlan-flag-ledges",
+      "to": "natlan-flag-staging"
+    },
+    {
+      "node": "natlan-flag-ledges",
+      "to": "natlan-flag-cleft"
+    },
+    {
+      "node": "natlan-flag-cleft",
+      "to": "natlan-flag-slope"
+    },
+    {
+      "node": "natlan-flag-cleft",
+      "to": "natlan-flag-ledges"
+    },
+    {
+      "node": "natlan-flag-cleft",
+      "to": "natlan-flag-summit"
+    },
+    {
+      "node": "natlan-flag-summit",
+      "to": "natlan-flag-cleft"
+    },
+    {
+      "node": "natlan-flag-summit",
+      "to": "natlan-field"
+    },
+    {
+      "node": "natlan-flag-summit",
+      "to": "natlan-hub"
     }
   ],
   "hidden_connections_checked": 38,

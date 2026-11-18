@@ -1542,6 +1542,36 @@
       "count": 0,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "natlan-flag-staging",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "natlan-flag-slope",
+      "count": 5,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "natlan-flag-ledges",
+      "count": 1,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "natlan-flag-cleft",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "natlan-flag-summit",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,

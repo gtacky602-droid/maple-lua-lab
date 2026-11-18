@@ -3392,6 +3392,66 @@
       "transparent": 0
     },
     {
+      "key": "natlanRaceRidge",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "natlanRaceRidge",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "natlanRaceRidge",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "natlanRaceRidge",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "natlanRaceRidge",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "natlanRaceRidge",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "natlanRaceSummit",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "natlanRaceSummit",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "natlanRaceSummit",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "natlanRaceSummit",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "natlanRaceSummit",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "natlanRaceSummit",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "natlan",
       "camera": -960,
       "transparent": 0

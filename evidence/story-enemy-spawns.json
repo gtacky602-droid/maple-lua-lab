@@ -1092,6 +1092,26 @@
     {
       "node": "fontaine-grand-stage",
       "enemy_count": 0
+    },
+    {
+      "node": "natlan-flag-staging",
+      "enemy_count": 0
+    },
+    {
+      "node": "natlan-flag-slope",
+      "enemy_count": 5
+    },
+    {
+      "node": "natlan-flag-ledges",
+      "enemy_count": 1
+    },
+    {
+      "node": "natlan-flag-cleft",
+      "enemy_count": 0
+    },
+    {
+      "node": "natlan-flag-summit",
+      "enemy_count": 0
     }
   ],
   "render_profiles": [

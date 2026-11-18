@@ -1,0 +1,23 @@
+newmtl stone
+Kd 0.46667 0.38039 0.32157
+illum 1
+
+newmtl pole
+Kd 0.52549 0.33725 0.23922
+illum 1
+
+newmtl brass
+Kd 0.89020 0.65490 0.34902
+illum 1
+
+newmtl cloth
+Kd 0.75294 0.32157 0.22353
+illum 1
+
+newmtl teal
+Kd 0.30196 0.62353 0.61961
+illum 1
+
+newmtl cream
+Kd 0.91765 0.82353 0.53333
+illum 1

@@ -683,12 +683,12 @@
     {
       "node": "natlan-hub",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 4
     },
     {
       "node": "natlan-hub",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 4
     },
     {
       "node": "natlan-field",
@@ -2569,6 +2569,56 @@
       "node": "fontaine-grand-stage",
       "mode": "rect",
       "visible_portals": 2
+    },
+    {
+      "node": "natlan-flag-staging",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "natlan-flag-staging",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "natlan-flag-slope",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-flag-slope",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-flag-ledges",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-flag-ledges",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-flag-cleft",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "natlan-flag-cleft",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "natlan-flag-summit",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "natlan-flag-summit",
+      "mode": "rect",
+      "visible_portals": 3
     }
   ],
   "checks": [

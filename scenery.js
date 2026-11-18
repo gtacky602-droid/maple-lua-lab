@@ -115,6 +115,10 @@ export const sceneryDefinitions={
   'story:fontaine-scenery-booth','story:fontaine-grand-stage-approach','story:fontaine-grand-stage'
  ]},
  fontaine:{file:'fontaine-background-v1.png',region:'フォンテーヌ',zones:[]},
+ natlanRaceRidge:{file:'natlan-race-ridge-background-v1.png',zones:[
+  'story:natlan-flag-slope','story:natlan-flag-ledges','story:natlan-flag-cleft'
+ ]},
+ natlanRaceSummit:{file:'natlan-race-summit-background-v1.png',zones:['story:natlan-flag-summit']},
  natlan:{file:'natlan-background-v1.png',region:'ナタ',zones:[]},
  sumeruRiverside:{file:'sumeru-riverside-background-v1.png',zones:['story:sumeru-river-roots','story:sumeru-river-bank','story:sumeru-root-slope']},
  sumeruCanopy:{file:'sumeru-canopy-background-v1.png',zones:['story:sumeru-canopy-junction','story:sumeru-branch-run','story:sumeru-observation-stop','story:sumeru-observatory-approach','story:sumeru-observatory-terrace','story:sumeru-sky-observatory']},
@@ -183,6 +187,13 @@ export function scenery(ctx,frame){
  drawDecorations(ctx,frame,camera);
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
+  if(p.raceRock){
+   ctx.fillStyle=p.raceBridge?'#8e593e':'#a96548';ctx.fillRect(x,p.y,p.w,p.y===480?56:16);
+   ctx.fillStyle=p.raceBridge?'#e2ad71':'#c8a052';ctx.fillRect(x,p.y,p.w,5);
+   ctx.fillStyle=p.raceBridge?'#b37e55':'#8a5342';
+   for(let i=11;i+20<p.w;i+=42){ctx.fillRect(x+i,p.y+7,19,3);ctx.fillRect(x+i+14,p.y+10,14,3)}
+   continue;
+  }
   if(p.stageDeck){
    ctx.fillStyle='#664739';ctx.fillRect(x,p.y,p.w,20);
    ctx.fillStyle=p.arrangementDeck?'#d7b67b':'#bd9563';ctx.fillRect(x,p.y,p.w,5);

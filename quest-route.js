@@ -3,6 +3,7 @@ export function questRouteText(f,q,status){
  if(!f.story?.active||!q||f.storyLift||(status==='complete'&&!q.repeatable))return '';
  const graph=f.storyGraph,nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  const activeCount=f.story.quests?.[q.id]?.count??0;
+ const milestone=status==='active'?q.itinerary?.[activeCount]:null;
  let target=status==='active'?(q.kind==='boss'?graph.nodes.find(n=>n.challenge===q.target)?.id:q.target):q.hub;
  if(status==='active'&&q.itinerary)target=q.itinerary[activeCount]?.node;
  if(status==='active'&&q.sights&&f.story.quests?.[q.id]&&!f.story.quests[q.id].sights)target=q.sights.legacyTarget;
@@ -26,7 +27,7 @@ export function questRouteText(f,q,status){
  const marks=status==='active'&&q.stone?.marks.filter(item=>!f.story.quests?.[q.id]?.stone.marked[item.id]);
  const surveys=work&&q.construction.surveys.filter(item=>!work.surveyed[item.id]);
  const unfinished=ingredients?.length?ingredients:marks?.length?marks:surveys?.length?surveys:lookingForClues?q.trail.clues:null;
- const destinations=unfinished?unfinished.map(item=>item.node):[target];
+ const destinations=unfinished?unfinished.map(item=>item.node):[target,...(milestone?.alternatives??[]).map(item=>item.node)];
  const targets=new Set(destinations.filter(id=>nodes.has(id)));
  if(!targets.size)return '目的地は未公開または未登録です。';
  const from=f.story.node;if(!nodes.has(from))return '';

@@ -1,0 +1,74 @@
+{
+  "generator": "built-in imagegen",
+  "originalModel": {
+    "path": "evidence/natlan-race-flag-model.obj",
+    "sha256": "8499c91f395769bf9e9f80fadc5a3783caf701f89b0ca9e706e28b10cbec62f1"
+  },
+  "materials": {
+    "path": "evidence/natlan-race-flag-model.mtl",
+    "sha256": "1cadb50a854038e4cefd1149f597b55a27e4fc8d8d0352130da11216c9e962a3"
+  },
+  "vertices": 93,
+  "faces": 66,
+  "reference": {
+    "path": "evidence/natlan-race-flag-views.png",
+    "sha256": "b137dfb3bffa483a825527fed37f5ff43edbec54b7842eb1d68e2127c235c4c0"
+  },
+  "views": [
+    "front",
+    "front three-quarter",
+    "rear three-quarter"
+  ],
+  "source": {
+    "path": "assets/natlan-race-flag-source-v1.png",
+    "sha256": "e3a5367e521a7ba0b0d3961c9e2c79ff3e2b86cf0161b89bd2532517d8fffc03"
+  },
+  "sourceSize": [
+    988,
+    1591
+  ],
+  "outsideAlphaSamples": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "box": [
+    138,
+    105,
+    637,
+    1332
+  ],
+  "anchorX": 0.2629513343799058,
+  "encoding": {
+    "path": "assets/natlan-race-flag-sprites-v1.json",
+    "sha256": "619e6f7a685ca81c9dc39cd1f5284983a4e21e74e0e3e60a80ca6f7dad600c25"
+  },
+  "runs": {
+    "legacy": 902,
+    "h48c32": 592,
+    "h32c16": 242
+  },
+  "backgrounds": [
+    {
+      "path": "assets/natlan-race-ridge-background-v1.png",
+      "sha256": "057644692ca2abb52c377f88b4b73955a4a45ddc6ba53c21b318de80a946aae6",
+      "size": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "assets/natlan-race-summit-background-v1.png",
+      "sha256": "acf3121412d4b2fc7d79f4a12bb13162612dcd4a2feb3c5398083c40bd13b77e",
+      "size": [
+        1672,
+        941
+      ]
+    }
+  ],
+  "visualReference": {
+    "path": "assets/natlan-background-v1.png",
+    "sha256": "334e1a0e99d17c8a14e540b8eadc1c7a93474965f4d7d2e44bf885f625ac667b"
+  }
+}

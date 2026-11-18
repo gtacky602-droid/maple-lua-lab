@@ -121,7 +121,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -141,9 +141,16 @@ def validate_save(data):
                     raise ValueError('Invalid quest cargo progress')
             quest = quests[id]
             if quest.get('itinerary'):
-                required_nodes = {quest['hub'], *(item['node'] for item in quest['itinerary'][:q['count']])}
-                if not required_nodes <= st['visited'].keys():
+                visited=st['visited']
+                if quest['hub'] not in visited or any(
+                    item['node'] not in visited and not any(place['node'] in visited for place in item.get('alternatives',[]))
+                    for item in quest['itinerary'][:q['count']]
+                ):
                     raise ValueError('未訪問の地点が調査済みになっています')
+            if 'flagBestTicks' in q:
+                ticks=q['flagBestTicks']
+                if not quest.get('flagTrial') or q['status']!='complete' or type(ticks) is not int or not 1<=ticks<=10**9:
+                    raise ValueError('旗取りの計測記録が不正です')
             gifts = [gift['id'] for step in quest.get('itinerary',[])[:q['count']] for gift in step.get('paperSouvenir',[])]
             if (gifts and q.get('paperSouvenir') not in gifts) or (not gifts and 'paperSouvenir' in q):
                 raise ValueError('折り紙飾りの記録が不正です')

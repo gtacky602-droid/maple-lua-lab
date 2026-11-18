@@ -1,0 +1,34 @@
+{
+  "bothRoutes": true,
+  "normalJumps": true,
+  "altMarkAfterReload": true,
+  "animatedBridge": true,
+  "firstRunUntimed": true,
+  "viewMap": true,
+  "optionalTimeAndReload": true,
+  "shortcutAndReadback": true,
+  "ticks": 1471,
+  "reward": [
+    3768926,
+    6200,
+    4
+  ],
+  "commands": {
+    "png": 22,
+    "standard": 4440,
+    "light": 1134
+  },
+  "scenes": [
+    {
+      "key": "natlanRaceRidge",
+      "file": "natlan-race-ridge-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "key": "natlanRaceSummit",
+      "file": "natlan-race-summit-background-v1.png",
+      "state": "ready"
+    }
+  ],
+  "errors": []
+}

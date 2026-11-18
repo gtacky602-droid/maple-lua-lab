@@ -264,6 +264,16 @@
     "fontaine-grand-stage-approach": [
       {"id":"preview-fontaine-mainstage-guard-left","species":"sled-maintenance-cart","x":999,"y":391,"flip":false},
       {"id":"preview-fontaine-mainstage-guard-right","species":"sled-maintenance-cart","x":1347,"y":480,"flip":false}
+    ],
+    "natlan-flag-slope": [
+      {"id":"preview-ridge-slope-beast-1","species":"fanged-beast","x":381,"y":480,"flip":false},
+      {"id":"preview-ridge-slope-beast-2","species":"fanged-beast","x":682,"y":480,"flip":false},
+      {"id":"preview-ridge-slope-pebble-1","species":"pebble-courier","x":993,"y":391,"flip":false},
+      {"id":"preview-ridge-slope-pebble-2","species":"pebble-courier","x":1352,"y":391,"flip":false},
+      {"id":"preview-ridge-slope-beast-3","species":"fanged-beast","x":1514,"y":480,"flip":false}
+    ],
+    "natlan-flag-ledges": [
+      {"id":"preview-ridge-ledge-pebble-1","species":"pebble-courier","x":840,"y":480,"flip":false}
     ]
   }
 }

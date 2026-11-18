@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -167,9 +167,20 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
  end
+ local function milestoneAt(milestone,node)
+  if not milestone or milestone.node==node then return milestone end
+  for _,place in ipairs(milestone.alternatives or {}) do
+   if place.node==node then
+    local step=copy(milestone)
+    step.node,step.x,step.y=place.node,place.x,place.y
+    return step
+   end
+  end
+  return milestone
+ end
  local function nextMilestone(s,q)
   local state=s.story.quests[q.id]
-  if state and state.status=='active' then return q.itinerary[state.count+1],state end
+  if state and state.status=='active' then return milestoneAt(q.itinerary[state.count+1],s.story.node),state end
  end
  local function installBridge(s,bridge)
   if bridge.track then
@@ -243,6 +254,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif milestone.followCart then
      if command=='rotate' then theater.start(s,milestone,state) end
      return true
+    elseif milestone.flagLowerSeconds then
+     if command=='rotate' then flagCourse.lower(s,milestone,state) end
+     return true
     elseif milestone.performance then
      if command=='rotate' and theater.performance(s,milestone.performance) then completeMilestone(s,state,milestone) end
      return true
@@ -259,7 +273,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if command=='rotate' then
    for _,q in ipairs(itineraries) do
     if completed(s,q.id) then
-     for _,done in ipairs(q.itinerary) do
+     for _,item in ipairs(q.itinerary) do
+      local done=milestoneAt(item,s.story.node)
       if (done.readback or done.resonancePages or done.paperDisplay) and done.node==s.story.node and canInspect(s.actors[s.active],done) then
        if done.resonancePages then resonance.turnPage(s,done,emitCue)
        elseif done.paperDisplay then s.storyNotice=paper.giftLabel(q,s.story.quests[q.id])..'を広場の飾り棚に置きました。'
@@ -363,6 +378,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
   end
   theater.enter(s,n.theater)
+  flagCourse.enter(s,n.flagCourse)
   s.reflection=nil
   s.expeditionPractice=false
   s.lift=nil
@@ -467,6 +483,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    local lamp=node.localLight
    if lamp and localLight.interact(s,lamp) then return end
+   if flagCourse.interact(s,node.flagCourse) then return end
    if inspectMilestone(s,'rotate') then return end
    local railConfig,railState=railQuest(s,nodes[s.story.node])
    if railConfig then rail.start(s,railConfig,railState);return end
@@ -591,6 +608,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if not allowed then s.storyNotice='接続する門の近くまで歩いてください。';return end
    end
    local previous=s.story.node;local spawn,arrival=160,nil
+   local cancelledTrial=fast and s.flagTrial~=nil
+   if cancelledTrial then s.flagTrial=nil end
    if departure and departure.loopOnce then
     local state=s.story.quests[departure.requires.quest]
     if forest.canLoop(state) then
@@ -619,7 +638,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     return
    end
    enter(s,dest,departure and departure.arrivalX or spawn,resume,departure and departure.arrivalY)
-   s.storyNotice=nil;return
+   s.storyNotice=cancelledTrial and '拠点移動でタイムの計測を終了しました。' or nil;return
   end
   local accept=key:match('^story_accept:([%w%-]+)$');local report=key:match('^story_report:([%w%-]+)$')
   local selectJoined=key:match('^story_select_joined:([%w%-]+)$')
@@ -742,6 +761,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if s.story and s.story.active and s.returns==returns and not s.paused then
    local milestone,state=theater.step(s,s.t-previous,nodes[s.story.node].theater)
    if milestone then completeMilestone(s,state,milestone) end
+   milestone,state=flagCourse.step(s)
+   if milestone then completeMilestone(s,state,milestone) end
   end
   if roofQuest and s.story and s.story.active and s.returns==returns then
    roof.update(s,roofQuest,s.story.quests[roofQuest.id],s.t-previous)
@@ -766,7 +787,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   if s.story and s.story.active and s.voyage and not s.paused and s.t+1e-8>=s.voyage.arrives then arrive(s) end
   if s.story and s.story.active and #s.enemies>0 and cleared(s,nodes[s.story.node]) then s.enemies={} end
-  if s.story and s.story.active and s.returns~=returns then enter(s,s.story.visited[nodes[s.story.node].checkpoint] and nodes[s.story.node].checkpoint or 'mond-town') end
+  if s.story and s.story.active and s.returns~=returns then
+   s.flagTrial=nil
+   enter(s,s.story.visited[nodes[s.story.node].checkpoint] and nodes[s.story.node].checkpoint or 'mond-town')
+  end
   if s.story and s.story.active and not s.paused then
    local node=nodes[s.story.node]
    local anchor=node.fallReturn or node.paperRescue
@@ -879,6 +903,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    end
    theater.frame(s,f,markers,n.theater,mode,profile)
+   flagCourse.observe(s,f,markers,n.flagCourse,mode,profile)
    if n.localLight then localLight.observe(s,f,markers,n.localLight) end
    if n.paperBoard then
     local board=n.paperBoard
@@ -984,7 +1009,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and not milestone.resonanceOrder and not milestone.shadowChoice and not milestone.paperFold
         and (not milestone.roomLight or milestone.roomLight==s.storyLightMode) then
      local x,y=milestone.x-s.camera,milestone.y
-     if not milestone.shadowView and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
+     if not milestone.flagProp and not milestone.shadowView and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
       elseif milestone.islandTreasure then drawIslandChest(markers,x,y,false)
@@ -999,6 +1024,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       markers[#markers+1]={kind='text',x=x,y=y-(milestone.patternBottle and 66 or milestone.outcrop and 48 or 41),text=milestone.name,color='#fff0b9',size=14}
      end
      if not f.storyNearbyMilestone and not s.paused and not (milestone.followCart and s.theaterCart)
+         and not (milestone.flagLowerSeconds and s.flagLowering)
          and canInspect(s.actors[s.active],milestone) then
       f.storyNearbyMilestone={label=milestone.performance and theater.performanceLabel(s,milestone.performance) or milestone.action}
       if milestone.paperSouvenir then paper.observeGift(s,f,milestone) end
@@ -1007,11 +1033,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     end
     if state then
      for index=1,state.count do
-      local done=q.itinerary[index]
+       local done=milestoneAt(q.itinerary[index],s.story.node)
       if done.completedLabel and done.node==s.story.node and not done.resonanceOrder
           and (not done.roomLight or done.roomLight==s.storyLightMode) then
        local x,y=done.x-s.camera,done.y
-       if (not done.resonanceStone or done.resonanceControl) and x>=-25 and x<=985 then
+        if not done.flagProp and (not done.resonanceStone or done.resonanceControl) and x>=-25 and x<=985 then
         if done.outcrop then drawOutcrop(markers,x,y,done.outcrop)
         elseif done.teaCups then drawTeaSetting(markers,x,y,done.teaCups)
         elseif done.islandTreasure then drawIslandChest(markers,x,y,true)
