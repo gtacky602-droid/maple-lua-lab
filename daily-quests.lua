@@ -70,7 +70,8 @@ return function(C,config,graph)
 
  local function entry(q,row)
   return {id=q.id,kind=q.kind,name=q.name,giver=q.giver,region=config.regions[q.region].label,hub=nodes[q.hub].name,
-          goal=q.goal,xp=q.xp,mora=q.mora,target=q.target,count=row and row.count,claimed=row and row.claimed or false}
+          goal=q.goal,xp=q.xp,mora=q.mora,target=q.target,material=q.material,
+          count=row and row.count,claimed=row and row.claimed or false}
  end
 
  function C.action(s,key)
@@ -102,11 +103,10 @@ return function(C,config,graph)
   local region=config.regions[q.region]
   if not includes(region.includeRegions,node.region) or includes(region.excludeNodes,node.id) then return false end
   local filter=q.filter
-  if filter.kind=='region' then return true end
-  if filter.kind=='nodes' then return includes(filter.nodes,node.id) end
-  if filter.kind=='art' then return includes(filter.art,placement.art) end
+  if filter.nodes and not includes(filter.nodes,node.id) then return false end
+  if filter.art and not includes(filter.art,placement.art) then return false end
   if filter.kind=='elite' then return placement.dailyElite==true end
-  return false
+  return filter.kind=='region' or filter.kind=='nodes' or filter.kind=='art'
  end
 
  local function placementIn(node,e)

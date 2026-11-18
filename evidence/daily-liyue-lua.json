@@ -1,0 +1,18 @@
+{
+  "completedGoals": {
+    "Q-LIY-D01": 200,
+    "Q-LIY-D02": 80,
+    "Q-LIY-D03": 40,
+    "Q-LIY-D04": 20,
+    "Q-LIY-D05": 3
+  },
+  "registeredDefeats": true,
+  "sharedSlotsAcrossMondstadtAndLiyue": true,
+  "materialRequiresMatchingMapAndEnemy": true,
+  "materialGrantedOncePerEligibleDefeat": true,
+  "materialsDoNotEnterInventory": true,
+  "treasureHoarderRespawns": true,
+  "chapterStorageKeeperCountsWhenPresent": true,
+  "chenyuCountsAsLiyue": true,
+  "rewardOnlyAtHubAndGrantedOnce": true
+}

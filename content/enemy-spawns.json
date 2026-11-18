@@ -160,7 +160,8 @@
         "kind": 1,
         "art": "ruin-guard",
         "x": 1230,
-        "platform": 0
+        "platform": 0,
+        "dailyElite": true
       },
       {
         "id": "liyue-entry-5",
@@ -193,7 +194,8 @@
         "kind": 1,
         "art": "ruin-guard",
         "x": 740,
-        "platform": 0
+        "platform": 0,
+        "dailyElite": true
       },
       {
         "id": "liyue-field-2",
@@ -229,6 +231,14 @@
         "art": "pyro-slime",
         "x": 575,
         "platform": 2
+      },
+      {
+        "id": "liyue-field-daily-scout",
+        "kind": 1,
+        "art": "treasure-scout",
+        "x": 955,
+        "platform": 0,
+        "hp": 24
       }
     ],
     "liyue-book-camp": [
@@ -1667,6 +1677,14 @@
         "platform": 3,
         "art": "hydro-slime",
         "kind": 1
+      },
+      {
+        "id": "liyue-loading-yard-daily-scout",
+        "kind": 1,
+        "art": "treasure-scout",
+        "x": 1170,
+        "platform": 0,
+        "hp": 24
       }
     ],
     "liyue-river-trail": [
@@ -1810,7 +1828,8 @@
         "x": 1295,
         "platform": 0,
         "hp": 70,
-        "questPhase": 1
+        "questPhase": 1,
+        "dailyElite": true
       },
       {
         "id": "liyue-quarry-storage-3",

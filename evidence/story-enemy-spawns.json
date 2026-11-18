@@ -74,7 +74,7 @@
     },
     {
       "node": "liyue-loading-yard",
-      "enemy_count": 6
+      "enemy_count": 7
     },
     {
       "node": "liyue-river-trail",
@@ -102,7 +102,7 @@
     },
     {
       "node": "liyue-field",
-      "enemy_count": 6
+      "enemy_count": 7
     },
     {
       "node": "liyue-cart-road",

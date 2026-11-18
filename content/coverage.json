@@ -590,7 +590,7 @@
       "production balance",
       "native Lua limits"
     ],
-    "daily_candidates": 5
+    "daily_candidates": 10
   },
   "stygian_summary": {
     "partial": [
@@ -1422,8 +1422,8 @@
       "content/daily-quests.json"
     ],
     "design_entries": 153,
-    "linked": 102,
-    "without_explicit_mapping": 51,
+    "linked": 107,
+    "without_explicit_mapping": 46,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1474,6 +1474,11 @@
       "Q-INA-S03": "ina-sayu-quiet-route",
       "Q-INA-S04": "ina-itto-three-games",
       "Q-INA-S05": "ina-walking-teahouse",
+      "Q-LIY-D01": "daily-liyue-cargo",
+      "Q-LIY-D02": "daily-liyue-route",
+      "Q-LIY-D03": "daily-liyue-treasure-hoarders",
+      "Q-LIY-D04": "daily-liyue-prep-materials",
+      "Q-LIY-D05": "daily-liyue-relics",
       "Q-LIY-M01": "liyue-market-delivery",
       "Q-LIY-M02": "liyue-caravan-search",
       "Q-LIY-M03": "liyue-market-opening",

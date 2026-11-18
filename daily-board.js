@@ -30,14 +30,16 @@ export function initDailyBoard(dispatch){
   node.append(element('h3',entry.name));
   node.append(element('p',`${kind} ｜ ${entry.giver} ｜ ${entry.region}`));
   node.append(element('p',entry.target));
+  const unit=entry.material?'個':'';
   if(mode==='offer'){
-   node.append(element('p',`目標 ${entry.goal} ｜ ${number.format(entry.xp)} EXP・${number.format(entry.mora)} モラ`));
+   node.append(element('p',`${entry.material??'目標'} ${entry.goal}${unit} ｜ ${number.format(entry.xp)} EXP・${number.format(entry.mora)} モラ`));
   }else{
    const progress=element('progress');
    progress.max=entry.goal;
    progress.value=entry.count;
-   progress.setAttribute('aria-label',entry.name+'の進み具合');
-   node.append(progress,element('p',`${entry.count} / ${entry.goal}${entry.claimed?' ｜ 受取済み':''}`));
+   progress.setAttribute('aria-label',entry.material??entry.name+'の進み具合');
+   const label=entry.material?entry.material+' ':'';
+   node.append(progress,element('p',`${label}${entry.count} / ${entry.goal}${unit}${entry.claimed?' ｜ 受取済み':''}`));
   }
   const isOffer=mode==='offer';
   if(isOffer||(!entry.claimed&&entry.count===entry.goal)){

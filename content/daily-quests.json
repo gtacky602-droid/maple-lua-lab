@@ -8,6 +8,10 @@
       "label": "モンド",
       "includeRegions": ["モンド", "ドラゴンスパイン", "ドーンマンポート"],
       "excludeNodes": ["golden-mainland-coast"]
+    },
+    "liyue": {
+      "label": "璃月",
+      "includeRegions": ["璃月", "沈玉の谷", "層岩巨淵・地下鉱区"]
     }
   },
   "quests": [
@@ -93,6 +97,88 @@
       "goal": 60,
       "xp": 260,
       "mora": 220
+    },
+    {
+      "id": "daily-liyue-cargo",
+      "designId": "Q-LIY-D01",
+      "kind": "main",
+      "region": "liyue",
+      "hub": "liyue-harbor",
+      "level": 20,
+      "giver": "北斗",
+      "companion": "beidou",
+      "name": "荷を積む前の、ひと回り",
+      "intro": "北斗「船に荷を積む前に、いつもの狩場をひと回りしてくれるか？」",
+      "target": "璃月・沈玉の谷・層岩巨淵の配置済みの実戦の敵",
+      "filter": {"kind": "region"},
+      "goal": 200,
+      "xp": 4200,
+      "mora": 760
+    },
+    {
+      "id": "daily-liyue-route",
+      "designId": "Q-LIY-D02",
+      "kind": "extra",
+      "region": "liyue",
+      "hub": "liyue-harbor",
+      "level": 20,
+      "giver": "刻晴",
+      "name": "運搬路の安全点検",
+      "intro": "刻晴「仮置き場と荷運び道を使う人が増えたわ。近くの狩場も含めて見回ってくれる？」",
+      "target": "港外の仮置き場・川沿いの荷運び道・岩間の狩場の実戦の敵",
+      "filter": {"kind": "nodes", "nodes": ["liyue-loading-yard", "liyue-river-trail", "liyue-field"]},
+      "goal": 80,
+      "xp": 1700,
+      "mora": 340
+    },
+    {
+      "id": "daily-liyue-treasure-hoarders",
+      "designId": "Q-LIY-D03",
+      "kind": "extra",
+      "region": "liyue",
+      "hub": "liyue-harbor",
+      "level": 20,
+      "giver": "行秋",
+      "name": "今日は、この道を頼むよ",
+      "intro": "行秋「荷札をのぞく宝盗団が出るそうだ。仮置き場と岩場を見てきてくれないか？」",
+      "target": "港外の仮置き場・岩間の狩場・石門裏の拠点の宝盗団",
+      "filter": {"kind": "art", "nodes": ["liyue-loading-yard", "liyue-field", "liyue-book-camp"], "art": ["treasure-scout"]},
+      "goal": 40,
+      "xp": 1550,
+      "mora": 310
+    },
+    {
+      "id": "daily-liyue-prep-materials",
+      "designId": "Q-LIY-D04",
+      "kind": "extra",
+      "region": "liyue",
+      "hub": "liyue-harbor",
+      "level": 20,
+      "giver": "香菱",
+      "name": "今日の仕込みを手伝って！",
+      "intro": "香菱「岩間の狩場か川沿いでスライムを倒して、仕込み用の素材を集めてくれる？」",
+      "target": "岩間の狩場・川沿いの荷運び道の水スライムと炎スライム。撃破ごとに素材1個",
+      "material": "仕込み用の素材",
+      "filter": {"kind": "art", "nodes": ["liyue-field", "liyue-river-trail"], "art": ["hydro-slime", "pyro-slime"]},
+      "goal": 20,
+      "xp": 1080,
+      "mora": 265
+    },
+    {
+      "id": "daily-liyue-relics",
+      "designId": "Q-LIY-D05",
+      "kind": "extra",
+      "region": "liyue",
+      "hub": "liyue-harbor",
+      "level": 20,
+      "giver": "鍾離",
+      "name": "古い道具の調査",
+      "intro": "鍾離「北の入口と岩場の古い機械が動いたらしい。周りを確かめておこう。」",
+      "target": "北の入口・岩間の狩場・奥の保管区画の指定精鋭",
+      "filter": {"kind": "elite"},
+      "goal": 3,
+      "xp": 1830,
+      "mora": 380
     }
   ]
 }

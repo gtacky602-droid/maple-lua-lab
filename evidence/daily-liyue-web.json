@@ -1,0 +1,14 @@
+{
+  "hubsShareSlots": true,
+  "ordinaryPortalAndAttack": true,
+  "materialProgress": true,
+  "threeGoalsOverlap": true,
+  "restoredProgress": true,
+  "oldSaveCannotReclaim": true,
+  "mobileFits": true,
+  "reward": {
+    "xp": 6980,
+    "mora": 1365
+  },
+  "errors": []
+}
