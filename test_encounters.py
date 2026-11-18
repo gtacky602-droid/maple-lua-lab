@@ -20,8 +20,11 @@ check('completion not overclaimed',d['counts']['complete']==0 and not d['complet
 check('not implemented rows cannot launch',all(r['action'] is None for r in rows if r['status']=='not_implemented'))
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
-check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':71,'partial':53,'complete':0})
+check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':72,'partial':54,'complete':0})
 by_id={r['id']:r for r in rows}
+loom=by_id['original-twin-shuttle-loom']
+check('loom trial is separate from the imported list',
+      loom['weeklyNode']=='buried-weaving-room' and not loom['entity_ids'] and loom['status']=='partial')
 surveyor=by_id['original-tide-surveyor']
 check('original trial is independent of the imported roster',
       surveyor['weeklyNode']=='tide-calibration-hall' and not surveyor['entity_ids']

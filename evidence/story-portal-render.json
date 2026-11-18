@@ -153,12 +153,12 @@
     {
       "node": "liyue-harbor",
       "mode": "sprite",
-      "visible_portals": 12
+      "visible_portals": 13
     },
     {
       "node": "liyue-harbor",
       "mode": "rect",
-      "visible_portals": 12
+      "visible_portals": 13
     },
     {
       "node": "liyue-loading-yard",
@@ -1647,6 +1647,16 @@
     },
     {
       "node": "tide-calibration-hall",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "buried-weaving-room",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "buried-weaving-room",
       "mode": "rect",
       "visible_portals": 1
     }

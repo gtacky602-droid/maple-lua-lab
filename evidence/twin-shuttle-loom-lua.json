@@ -1,0 +1,24 @@
+{
+  "closedBodyIgnoresHits": true,
+  "independentShuttles": true,
+  "brokenSourceCancelsOnlyItsLine": true,
+  "noPartRewards": true,
+  "openedTicks": 780,
+  "upperAndLowerPatterns": true,
+  "fixedColumnAndFloorJump": true,
+  "rebuildPreservesBodyHp": true,
+  "defeatAndReportOnce": true,
+  "unfinishedCheckpointRestarts": true,
+  "separateWeeklySlotsInOneSave": true,
+  "respawnGeneration": 2,
+  "solo": {
+    "seconds": 29.28,
+    "hp": 121,
+    "exposures": 2,
+    "patternIds": [
+      "LW01",
+      "LW02",
+      "LW04"
+    ]
+  }
+}

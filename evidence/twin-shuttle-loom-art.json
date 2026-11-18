@@ -1,0 +1,76 @@
+{
+  "tool": "Built-in image generation",
+  "generatedInputs": [],
+  "source": "twin-shuttle-loom-source-v1.png",
+  "background": "buried-weaving-background-v1.png",
+  "poses": {
+    "closed": {
+      "crop": [
+        0,
+        0,
+        768,
+        650
+      ],
+      "height": 150,
+      "alphaBounds": [
+        68,
+        62,
+        728,
+        612
+      ]
+    },
+    "open": {
+      "crop": [
+        768,
+        0,
+        768,
+        650
+      ],
+      "height": 150,
+      "alphaBounds": [
+        40,
+        62,
+        704,
+        612
+      ]
+    },
+    "shuttle": {
+      "crop": [
+        0,
+        650,
+        768,
+        374
+      ],
+      "height": 70,
+      "alphaBounds": [
+        136,
+        41,
+        628,
+        318
+      ]
+    },
+    "broken": {
+      "crop": [
+        768,
+        650,
+        768,
+        374
+      ],
+      "height": 53,
+      "alphaBounds": [
+        124,
+        110,
+        627,
+        318
+      ]
+    }
+  },
+  "hashes": {
+    "twin-shuttle-loom-source-v1.png": "f6fd3d1c2499a49eb251421f18fce9715f0b1e37df631994e5580387da5083a2",
+    "buried-weaving-background-v1.png": "bcadcf724bed2021a6baaef787e24ebf1f93c6470da24042c2daa652c34f3c6a"
+  },
+  "prompts": {
+    "art": "Original pixel-art game sprite atlas, transparent and exact 2 columns by 2 rows with large transparent gutters and four visually separate objects, no letters. A fantasy antique textile machine made of rosewood, pale ceramic, bronze and plum thread, completely original. Consistent crisp stepped outlines, few shades, deliberate large pixel clusters, side-view RPG. Top left: front-facing grounded compact wooden weaving loom, round thimble-shaped central housing with CLOSED red ceramic shutter, four distinct rosewood legs and bronze foot pads, pink thread spanning small side posts, broad symmetrical warm burgundy silhouette. Top right: EXACT same loom size, proportions and feet, but central ceramic shutters unfolded outward, exposing a large sparkling orange spool suspended horizontally, gold thread around it, clearly attackable. Bottom left: isolated bronze and wood mechanical weaving shuttle module on a pair of short feet, boat-like pointed ends, lavender upright ceramic thread spool, size about 50% smaller than loom, draw as isolated item. Bottom right: same shuttle with split ceramic pieces between feet and spent spool, contiguous silhouette, grounded. Use ample transparent margin. No landscape, cast shadows, dark haze, smoke, gradients, extra pieces beyond these four assets, characters, crowns, eyes, or recognizable franchise assets. Wide pixel silhouette suitable for downsampling.",
+    "bg": "Invent an original wide 1536x1024 pixel-art background for a side-scrolling battle in an abandoned underground textile workshop. Low contrast plum and slate rear wall, rosewood ribs and iron machinery, tall window slots behind translucent bolts of unpatterned cloth, hanging spools and winding wheels high above, pale apricot light beams and lavender ambient haze. A huge inactive textile roller in the architectural background. Keep bottom third quiet, dark, and unobstructed for foreground collision platforms added by the game. No apparent floors or platforms there, no characters, text, logo, interface, or recognizable game locations. Distinct pixel-art clusters and distance layering."
+  }
+}

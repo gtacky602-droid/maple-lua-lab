@@ -1,0 +1,31 @@
+{
+  "play": {
+    "won": true,
+    "seconds": 15.9,
+    "hp": 140,
+    "returns": 0,
+    "exposures": 1,
+    "moves": [
+      "LW01",
+      "LW02"
+    ],
+    "rebuild": false,
+    "firstOpenHP": 250
+  },
+  "scenery": {
+    "key": "buriedWeaving",
+    "file": "buried-weaving-background-v1.png",
+    "state": "ready"
+  },
+  "questReport": {
+    "xp": 2100,
+    "mora": 450
+  },
+  "savedDefeat": true,
+  "commands": {
+    "png": 24,
+    "standard": 14713,
+    "light": 4061
+  },
+  "errors": []
+}

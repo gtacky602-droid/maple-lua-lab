@@ -1,6 +1,13 @@
 {
   "version": 1,
   "entries": {
+    "original-twin-shuttle-loom": {
+      "art_candidate": {
+        "item": "twin-shuttle-loom",
+        "audit": "evidence/twin-shuttle-loom-art.json",
+        "status": "original weekly trial with a body and two independently breakable shuttles"
+      }
+    },
     "original-tide-surveyor": {
       "art_candidate": {
         "item": "tide-surveyor",

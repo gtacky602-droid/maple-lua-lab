@@ -662,6 +662,36 @@
       "transparent": 0
     },
     {
+      "key": "buriedWeaving",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "buriedWeaving",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "buriedWeaving",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "buriedWeaving",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "buriedWeaving",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "buriedWeaving",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "tideCalibration",
       "camera": -960,
       "transparent": 0

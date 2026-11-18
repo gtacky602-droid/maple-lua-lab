@@ -983,3 +983,7 @@ Luaの通常攻撃のみ・同行戦闘不能・回復なしは147.08秒、残HP
 ## ラボ独自の週ボス「測潮機関士」
 
 港の広場で「夜間の潮位点検」を受注し、潮位較正室へ。測距・振り子・排水制御の三段階、測距印と接地板、帰還報告と保存を接続した。6姿勢と仮背景、三つの矩形描画設定を収録。既存のボス台帳では独立したオリジナル枠とする。遊び方と試作値は [測潮機関士](docs/weekly-boss-v1/TIDE_SURVEYOR_WEB.md)、結果は [Lua](evidence/tide-surveyor-lua.json) と [Chrome](evidence/tide-surveyor-browser.json)。
+
+## ラボ独自の週ボス「双杼織機」
+
+港で「夜明けまでに織機を止める」を受注し、埋もれた織房へ。左右の杼の破壊で個別の糸攻撃が止まり、両方を破壊すると13秒間だけ芯を攻撃できる。部位の復帰と本体HPの継続、帰還報告と保存を接続した。[遊び方と仮値](docs/weekly-boss-v1/TWIN_SHUTTLE_LOOM_WEB.md) · [Lua](evidence/twin-shuttle-loom-lua.json) · [Chrome](evidence/twin-shuttle-loom-browser.json)。

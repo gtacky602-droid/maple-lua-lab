@@ -310,8 +310,12 @@ def runtime():
     core.andriusWeeklyArt=field_art(lua,'andrius-weekly',(),variants={phase+'-'+pose:'andrius-weekly-'+phase+'-'+pose+'-sprites-v1.json' for phase,poses in [('normal',('ready','swipe','tail','leap','run','land')),('awake',('ready','rise','howl','run','leap','land','swipe','tail'))] for pose in poses})
     surveyor=lua.execute((ROOT/'weekly-surveyor.lua').read_text(encoding='utf8'))(core)
     core.surveyorArt=field_art(lua,'tide-surveyor',(),variants={pose:f'tide-surveyor-{pose}-sprites-v1.json' for pose in ('meter','sight','pendulum','swing','stand','reset')})
+    loom=lua.execute((ROOT/'weekly-loom.lua').read_text(encoding='utf8'))(core)
+    core.loomArt=field_art(lua,'twin-shuttle-loom',(),variants={
+        pose:f'twin-shuttle-loom-{pose}-sprites-v1.json' for pose in ('closed','open','shuttle','broken')
+    })
     weekly_specs=json.loads((ROOT/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses']
-    lua.execute((ROOT/'weekly-bosses.lua').read_text(encoding='utf8'))(core,lua.table_from(weekly_specs,recursive=True),lua.table_from({'dvalin':dvalin,'andrius':andrius,'surveyor':surveyor}))
+    lua.execute((ROOT/'weekly-bosses.lua').read_text(encoding='utf8'))(core,lua.table_from(weekly_specs,recursive=True),lua.table_from({'dvalin':dvalin,'andrius':andrius,'surveyor':surveyor,'loom':loom}))
     return lua, core
 
 def native(value):

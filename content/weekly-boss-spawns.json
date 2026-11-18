@@ -418,6 +418,75 @@
           "damage": 21
         }
       }
+    },
+    {
+      "id": "original-twin-shuttle-loom",
+      "controller": "loom",
+      "entity": 99000002,
+      "original": true,
+      "name": "双杼織機",
+      "node": "buried-weaving-room",
+      "storyChallenge": "original-twin-shuttle-loom",
+      "design": "docs/weekly-boss-v1/TWIN_SHUTTLE_LOOM_WEB.md",
+      "level": 34,
+      "hp": 250,
+      "mora": 360,
+      "expRole": "weekly_boss",
+      "center": 480,
+      "floorY": 480,
+      "noticeTicks": 42,
+      "respawnTicks": 3600,
+      "openTicks": 780,
+      "shuttleHP": 24,
+      "shuttles": [
+        {
+          "entity": 99000003,
+          "name": "左の杼",
+          "x": 298
+        },
+        {
+          "entity": 99000004,
+          "name": "右の杼",
+          "x": 662
+        }
+      ],
+      "rotation": [
+        "LW01",
+        "LW02",
+        "LW03"
+      ],
+      "rewiredRotation": [
+        "LW04",
+        "LW02",
+        "LW03",
+        "LW01"
+      ],
+      "moves": {
+        "LW01": {
+          "id": "LW01",
+          "name": "左右の送り糸",
+          "total": 165,
+          "damage": 17
+        },
+        "LW02": {
+          "id": "LW02",
+          "name": "かがり糸の柱",
+          "total": 138,
+          "damage": 18
+        },
+        "LW03": {
+          "id": "LW03",
+          "name": "床を走る横糸",
+          "total": 154,
+          "damage": 18
+        },
+        "LW04": {
+          "id": "LW04",
+          "name": "上糸・中央の返し縫い",
+          "total": 192,
+          "damage": 19
+        }
+      }
     }
   ]
 }

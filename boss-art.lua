@@ -189,6 +189,10 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
   local art=C.wavebinderFieldArt[pose]
   draw(f,art,x,y+(pose=='down' and 12 or 0),art.profiles.legacy.height,mode,profile,flip)
  end
+ function C.drawLoomArt(f,x,y,pose,mode,profile)
+  local art=C.loomArt[pose]
+  draw(f,art,x,y,art.profiles.legacy.height,mode,profile,false)
+ end
  function C.drawSurveyorArt(f,x,y,pose,mode,profile,flip)
   local art=C.surveyorArt[pose]
   draw(f,art,x,y,art.profiles.legacy.height,mode,profile,flip)

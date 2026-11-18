@@ -275,6 +275,13 @@
       "mapHover": 32
     },
     {
+      "id": "twin-shuttle-loom",
+      "name": "双杼織機（ラボ独自）",
+      "file": "twin-shuttle-loom-closed-sprites-v1.json",
+      "height": 150,
+      "mapHover": 0
+    },
+    {
       "id": "tide-surveyor",
       "name": "測潮機関士（ラボ独自）",
       "file": "tide-surveyor-meter-sprites-v1.json",
