@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule,furinaCuesModule,naviaPhotoModule,lyneyMagicModule,freminetDiveModule,stoneOrnamentsModule,mualaniSurfModule,kinichAmbushModule,xilonenSpringsModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule,furinaCuesModule,naviaPhotoModule,lyneyMagicModule,freminetDiveModule,stoneOrnamentsModule,mualaniSurfModule,kinichAmbushModule,xilonenSpringsModule,iansanTrainingModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -200,6 +200,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local mualaniSurf=mualaniSurfModule(C,canInspect)
  local kinichAmbush=kinichAmbushModule(C,canInspect)
  local xilonenSprings=xilonenSpringsModule(C,canInspect)
+ local iansanTraining=iansanTrainingModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -548,7 +549,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  local function enter(s,id,spawn,elapsed,arrivalY)
   local sameArena=s.story.node==id
-  local n=nodes[id];s.campaign.zone='story:transition';action(s,n.hub and 'town' or 'field')
+  local n=nodes[id]
+  iansanTraining.enter(s,n.iansanQuest and not n.hub)
+  s.campaign.zone='story:transition';action(s,n.hub and 'town' or 'field')
   s.campaign.zone=n.hub and 'town' or ('story:'..id);s.campaign.message='本編ルートの試作。隣の地点へは門の近くで移動。'
   s.story.active=true;s.story.node=id;s.story.visited[id]=true;s.worldwidth=n.width
   s.storyEnteredAt=s.t
@@ -676,6 +679,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  function C.action(s,key)
   setup(s)
+  if s.iansanPanel then
+   if key=='pause' then action(s,key)
+   else
+    local q=quests[nodes[s.story.node].iansanQuest]
+    local state=s.story.quests[q.id]
+    local milestone=iansanTraining.panelAction(s,q,state,key)
+    if milestone then completeMilestone(s,state,milestone) end
+   end
+   return
+  end
+  if key:match('^story_iansan_') or (s.iansanRound and key=='auto') then return end
   if s.springRun or s.springPanel then
    local n=nodes[s.story.node]
    local q=quests[n.springQuest]
@@ -832,6 +846,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    local lamp=node.localLight
    if lamp and localLight.interact(s,lamp) then return end
+   if node.iansanQuest then
+    local q=quests[node.iansanQuest]
+    if iansanTraining.interact(s,q,s.story.quests[q.id]) then return end
+   end
    if node.springQuest then
     local q=quests[node.springQuest]
     if xilonenSprings.interact(s,q,s.story.quests[q.id]) then return end
@@ -1097,6 +1115,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    return
   end
   if key=='campaign' or key=='town' or key=='field' or key=='arena' or key=='boss_anemo' then
+   iansanTraining.enter(s)
    s.story.active=false;s.voyage=nil;s.railTrip=nil;s.wandererAssistAt=nil;s.visitorDeparture=nil
    s.colleiWelcomeAt,s.colleiLetterNotice=nil,nil
    paper.reset(s);stealth.clear(s);itto.enter(s,nil)
@@ -1223,9 +1242,15 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     companion.buffer=.1
    end
   end
-  local returns,previous=s.returns,s.t;step(s,dt,(s.fireworkShow or s.sayuHatch or s.kavehModelOpen or s.nahidaMapOpen or s.furinaRun or s.photoPanel or s.stonePairOpen or s.springPanel or s.lyneyRun) and {} or input)
+  local returns,previous=s.returns,s.t;step(s,dt,(s.fireworkShow or s.sayuHatch or s.kavehModelOpen or s.nahidaMapOpen or s.furinaRun or s.photoPanel or s.stonePairOpen or s.springPanel or s.iansanPanel or s.lyneyRun) and {} or input)
   if s.story and s.story.active and s.returns==returns and not s.paused then
    local node=nodes[s.story.node]
+   if s.iansanRound then
+    local q=quests[node.iansanQuest]
+    local state=s.story.quests[q.id]
+    local milestone=iansanTraining.step(s,q,state,s.t-previous)
+    if milestone then completeMilestone(s,state,milestone) end
+   end
    if s.kinichHunt then
     local q=quests[node.kinichQuest]
     kinichAmbush.step(s,s.t-previous,q,s.story.quests[q.id])
@@ -1483,6 +1508,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if n.toyDisplay then
     freminetDive.display(f,s,markers,n.toyDisplay,s.story.quests[n.toyDisplay.quest],mode,profile)
    end
+   if n.iansanQuest then
+    local q=quests[n.iansanQuest]
+    iansanTraining.observe(f,s,markers,n,q,s.story.quests[q.id],mode,profile)
+   end
    if n.springQuest then
     local q=quests[n.springQuest]
     xilonenSprings.observe(f,s,markers,n,q,s.story.quests[q.id],mode,profile)
@@ -1730,7 +1759,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup
         and not milestone.nightClue and not milestone.fireworkSight and not milestone.stealthNap
         and not milestone.teaClue and not milestone.teaCup and not milestone.surveyProp and not milestone.visitorProp
-        and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp and not milestone.photoProp and not milestone.magicProp and not milestone.diveProp and not milestone.charmProp and not milestone.surfProp and not milestone.huntProp and not milestone.springProp
+        and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp and not milestone.photoProp and not milestone.magicProp and not milestone.diveProp and not milestone.charmProp and not milestone.surfProp and not milestone.huntProp and not milestone.springProp and not milestone.iansanProp
         and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
@@ -1820,6 +1849,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   setup(s)
   if d then
    d.story=s.story
+   iansanTraining.checkpoint(s,d)
    if s.toyDive then d.active=s.toyDive.previousActive end
   end
   return d

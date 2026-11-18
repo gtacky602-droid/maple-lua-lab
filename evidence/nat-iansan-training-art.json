@@ -1,0 +1,147 @@
+{
+  "tool": "built-in image generation and reference-guided proportion edits",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/nat-iansan-training-model.obj",
+    "sha256": "4327f01c602e45511151cbf753fc6d43ff455378d7ff1c8296dc05fae496eedb"
+  },
+  "materials": {
+    "path": "evidence/nat-iansan-training-model.mtl",
+    "sha256": "a0f703ca745b627025be9dc2ff210fbd1d378e73f5bd4b03b5acb7f31f2c7668"
+  },
+  "contactSheet": {
+    "path": "evidence/nat-iansan-training-views.png",
+    "sha256": "9f96ad13c07e87fc742128a3aff5326cf0770856f911c63f429430ad873b4fb6"
+  },
+  "propsSource": {
+    "path": "assets/nat-iansan-training-props-source-v1.png",
+    "sha256": "7dde1e8b6e361b44582f182a66f22965b8f206706dd75534468aedadba416c9f"
+  },
+  "alphaCorners": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "backgrounds": [
+    {
+      "path": "assets/nat-iansan-training-course-background-v1.png",
+      "sha256": "17bedb2e9fae59a6395ba75b63c01f116a3b5d6b28f69cfb7691a026d1809a84"
+    }
+  ],
+  "backgroundReferences": [
+    {
+      "path": "assets/natlan-sunset-arena-background-v1.png",
+      "sha256": "c7cdd76081c1f67af2191f3c04da6c16062239e79757cab3e6d82308a82077dc"
+    }
+  ],
+  "status": "Six original training props informed by original 3D shapes. The training trail scenery is a lab placeholder.",
+  "profiles": {
+    "dummy": {
+      "encoding": {
+        "path": "assets/nat-iansan-training-dummy-sprites-v1.json",
+        "sha256": "8ecd0e011935f316a844e459637fa8210e2488dcb85522cf52897f4381ae0520"
+      },
+      "box": [
+        161,
+        76,
+        223,
+        381
+      ],
+      "runs": {
+        "legacy": 1503,
+        "h48c32": 908,
+        "h32c16": 351
+      }
+    },
+    "pad": {
+      "encoding": {
+        "path": "assets/nat-iansan-training-pad-sprites-v1.json",
+        "sha256": "199fc2b0f341bb8212000337bd01eddb321856574b7a28af24351a3d97a3f8e5"
+      },
+      "box": [
+        567,
+        207,
+        395,
+        180
+      ],
+      "runs": {
+        "legacy": 1244,
+        "h48c32": 724,
+        "h32c16": 260
+      }
+    },
+    "water": {
+      "encoding": {
+        "path": "assets/nat-iansan-training-water-sprites-v1.json",
+        "sha256": "f42a6227753806613799e00aaa7757df4f8b1638f3d530f0c36851af49fc0b7e"
+      },
+      "box": [
+        1126,
+        107,
+        275,
+        339
+      ],
+      "runs": {
+        "legacy": 2137,
+        "h48c32": 1292,
+        "h32c16": 523
+      }
+    },
+    "board": {
+      "encoding": {
+        "path": "assets/nat-iansan-training-board-sprites-v1.json",
+        "sha256": "c8f136ff06f9ea925fb700f3697761eb2340c89145e032b0107a118556a080eb"
+      },
+      "box": [
+        87,
+        601,
+        374,
+        323
+      ],
+      "runs": {
+        "legacy": 2941,
+        "h48c32": 1868,
+        "h32c16": 735
+      }
+    },
+    "flag": {
+      "encoding": {
+        "path": "assets/nat-iansan-training-flag-sprites-v1.json",
+        "sha256": "4966b38a5fef15bdd3923031176e86fb33f2abe4f39ef8035b6f29a66394613e"
+      },
+      "box": [
+        639,
+        576,
+        257,
+        348
+      ],
+      "runs": {
+        "legacy": 1087,
+        "h48c32": 717,
+        "h32c16": 253
+      }
+    },
+    "marker": {
+      "encoding": {
+        "path": "assets/nat-iansan-training-marker-sprites-v1.json",
+        "sha256": "489a8049cb142383cfd010e75524aec1179e3d0deb49be8a8fc1719503a55f0a"
+      },
+      "box": [
+        1146,
+        586,
+        224,
+        343
+      ],
+      "runs": {
+        "legacy": 772,
+        "h48c32": 486,
+        "h32c16": 189
+      }
+    }
+  }
+}

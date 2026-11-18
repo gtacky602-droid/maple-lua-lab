@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-19",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 329 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 321,
+  "scope": "Authored 330 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 322,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -524,6 +524,12 @@
     {
       "id": "natlan-hub",
       "name": "ナタ・谷の集落",
+      "region": "ナタ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "natlan-iansan-training",
+      "name": "ナタ・イアンサの訓練路",
       "region": "ナタ",
       "status": "regional_temporary_image"
     },

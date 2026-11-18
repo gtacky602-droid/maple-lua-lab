@@ -1033,6 +1033,14 @@
       "to": "natlan-xilonen-workshop"
     },
     {
+      "node": "natlan-hub",
+      "to": "natlan-iansan-training"
+    },
+    {
+      "node": "natlan-iansan-training",
+      "to": "natlan-hub"
+    },
+    {
       "node": "natlan-xilonen-workshop",
       "to": "natlan-hub"
     },

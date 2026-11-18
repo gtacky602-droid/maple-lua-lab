@@ -1,0 +1,15 @@
+{
+  "ordinaryTargetsAndUpperMarker": true,
+  "actualHitAndWaterStop": true,
+  "oneRecommendation": true,
+  "focusAndLogsAfterReload": true,
+  "slowerRetestReported": true,
+  "mobileTableFits": true,
+  "replayAfterReport": true,
+  "calls": {
+    "png": 20,
+    "rect": 12913,
+    "light": 3125
+  },
+  "errors": []
+}

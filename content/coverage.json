@@ -147,8 +147,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 30,
-      "prototype_quest_count": 17,
+      "prototype_stage_count": 31,
+      "prototype_quest_count": 18,
       "official_map2_markers": {
         "waypoints": 126,
         "statues": 9
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 329,
-    "provisional_quests": 191,
+    "authored_stages": 330,
+    "provisional_quests": 192,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -908,6 +908,7 @@
         "stage_ids": [
           "natlan-entry",
           "natlan-hub",
+          "natlan-iansan-training",
           "natlan-xilonen-workshop",
           "natlan-xilonen-course",
           "natlan-kinich-hunt",
@@ -943,6 +944,7 @@
           "natlan-mualani-surf",
           "natlan-kinich-ambush",
           "natlan-xilonen-springs",
+          "natlan-iansan-self-test",
           "natlan-entry-check",
           "natlan-contract",
           "qucusaur-commission",
@@ -1418,8 +1420,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 96,
-    "without_explicit_mapping": 57,
+    "linked": 97,
+    "without_explicit_mapping": 56,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1493,6 +1495,7 @@
       "Q-NAT-S02": "natlan-mualani-surf",
       "Q-NAT-S03": "natlan-kinich-ambush",
       "Q-NAT-S04": "natlan-xilonen-springs",
+      "Q-NAT-S05": "natlan-iansan-self-test",
       "Q-NOD-M01": "nod-first-treasure",
       "Q-NOD-M02": "nod-moon-crossroads",
       "Q-NOD-M03": "nod-moon-vault-quest",

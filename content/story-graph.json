@@ -2248,13 +2248,60 @@
             "quest": "natlan-xilonen-springs",
             "count": 1
           }
+        },
+        {
+          "to": "natlan-iansan-training",
+          "x": 724,
+          "arrivalX": 126,
+          "rideLabel": "イアンサの訓練路",
+          "requires": {
+            "quest": "natlan-iansan-self-test",
+            "count": 1
+          }
         }
       ],
       "checkpoint": "natlan-hub",
       "stoneCharmQuest": "natlan-kachina-charms",
       "surfQuest": "natlan-mualani-surf",
       "kinichQuest": "natlan-kinich-ambush",
-      "springQuest": "natlan-xilonen-springs"
+      "springQuest": "natlan-xilonen-springs",
+      "iansanQuest": "natlan-iansan-self-test"
+    },
+    {
+      "id": "natlan-iansan-training",
+      "name": "ナタ・イアンサの訓練路",
+      "region": "ナタ",
+      "level": 100,
+      "width": 1680,
+      "hub": false,
+      "peaceful": true,
+      "checkpoint": "natlan-hub",
+      "iansanQuest": "natlan-iansan-self-test",
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1680
+        },
+        {
+          "x": 331,
+          "y": 380,
+          "w": 203
+        },
+        {
+          "x": 915,
+          "y": 400,
+          "w": 108
+        }
+      ],
+      "exits": [
+        {
+          "to": "natlan-hub",
+          "x": 56,
+          "arrivalX": 723,
+          "rideLabel": "谷の集落へ戻る"
+        }
+      ]
     },
     {
       "id": "natlan-xilonen-workshop",
@@ -6958,6 +7005,148 @@
           "name": "組んだコースを踏破する",
           "objective": "試走路で三つの踏み台を使い、一周して旗に着く",
           "notice": "三つの足場をつないで走り切りました。右の門から集落へ戻って報告できます。"
+        }
+      ]
+    },
+    {
+      "id": "natlan-iansan-self-test",
+      "designId": "Q-NAT-S05",
+      "name": "昨日の自分に、挑戦状！",
+      "giver": "イアンサ",
+      "hub": "natlan-hub",
+      "target": "natlan-iansan-training",
+      "requires": "natlan-two-trials",
+      "level": 100,
+      "kind": "itinerary",
+      "goal": 4,
+      "xp": 2991093,
+      "mora": 6300,
+      "iansanTraining": {
+        "board": {
+          "x": 155,
+          "y": 480
+        },
+        "start": {
+          "x": 235,
+          "y": 480
+        },
+        "marker": {
+          "x": 419,
+          "y": 380
+        },
+        "finish": {
+          "x": 1526,
+          "y": 480
+        },
+        "recovery": {
+          "x": 1231,
+          "y": 480
+        },
+        "recoveryHp": 30,
+        "sectors": [
+          "段差",
+          "訓練的",
+          "予告床"
+        ],
+        "boundaries": [
+          570,
+          990
+        ],
+        "targets": [
+          {
+            "x": 698,
+            "y": 480,
+            "hp": 12
+          },
+          {
+            "x": 758,
+            "y": 480,
+            "hp": 14
+          },
+          {
+            "x": 816,
+            "y": 480,
+            "hp": 12
+          }
+        ],
+        "pads": [
+          {
+            "left": 1054,
+            "right": 1180,
+            "y": 480,
+            "period": 2.5,
+            "warning": 0.65,
+            "active": 0.22,
+            "offset": 0,
+            "damage": 13
+          },
+          {
+            "left": 1294,
+            "right": 1411,
+            "y": 480,
+            "period": 2.8,
+            "warning": 0.65,
+            "active": 0.23,
+            "offset": 1.25,
+            "damage": 13
+          }
+        ],
+        "focus": [
+          {
+            "id": "movement",
+            "label": "移動技を段差まで取っておく",
+            "sector": 1,
+            "advice": "イアンサ「手前で使わず、段差に近づいてから移動技を使ってみよう。」"
+          },
+          {
+            "id": "group",
+            "label": "的をまとめて攻撃する",
+            "sector": 2,
+            "advice": "イアンサ「的がまとまって見える場所まで寄って、同時に当ててみよう。」"
+          },
+          {
+            "id": "recovery",
+            "label": "予告を見てから回復地点を使う",
+            "sector": 3,
+            "advice": "イアンサ「床が光ったら跳ぶか待つ。間の水場なら落ち着いて体勢を戻せるよ。」"
+          }
+        ]
+      },
+      "briefing": "イアンサ「今日は誰かと競わなくていい。いつも通り走って、次の一周で何が変わったか見よう。」",
+      "closing": "イアンサ「速さだけが記録じゃない。どこで足が止まったか、それが分かれば次の選び方が増えるよ。」",
+      "completedObjective": "訓練路で何度でも試走し、初回・再試行と見比べられる",
+      "itinerary": [
+        {
+          "kind": "inspect",
+          "node": "natlan-hub",
+          "x": 715,
+          "y": 480,
+          "name": "イアンサとの打ち合わせ",
+          "action": "イアンサに訓練の話を聞く",
+          "objective": "谷の集落でイアンサに会う",
+          "notice": "イアンサ「段差の印、訓練的、光る床を通る一周だよ。まずはいつもの進み方で走ってみよう。」",
+          "iansanProp": true
+        },
+        {
+          "kind": "trainingLap",
+          "node": "natlan-iansan-training",
+          "name": "いつも通りの一周",
+          "objective": "訓練路で計測を始め、上段の印と三つの的を通って右の旗まで進む",
+          "notice": "最初の記録ができました。次の一周で意識することを一つ選びましょう。"
+        },
+        {
+          "kind": "trainingFocus",
+          "node": "natlan-iansan-training",
+          "name": "一つだけ変える",
+          "objective": "記録台で初回を見て、次に意識することを一つ選ぶ",
+          "notice": "次に意識することを決めました。記録台からもう一周できます。"
+        },
+        {
+          "kind": "trainingLap",
+          "node": "natlan-iansan-training",
+          "name": "自分の記録と比べる",
+          "objective": "同じコースをもう一周し、初回と時間・被弾・止まった場所を比べる",
+          "notice": "二つの記録を比べられます。集落に戻ってイアンサに報告しましょう。"
         }
       ]
     },

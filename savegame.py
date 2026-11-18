@@ -62,6 +62,36 @@ def validate_discovery_map(record, quest, story):
         raise ValueError('Incomplete discovery map')
 
 
+def validate_iansan_training(record, quest, visited):
+    spec, count = quest.get('iansanTraining'), record['count']
+    if 'trainingLog' not in record:
+        if spec and count >= 2:
+            raise ValueError('訓練の初回記録がありません')
+        return
+    log = record['trainingLog']
+    keys = {'baseline'}
+    if count >= 3:
+        keys.add('focus')
+    if count == quest['goal']:
+        keys.add('retest')
+    if not spec or count < 2 or quest['target'] not in visited or not isinstance(log, dict) or set(log) != keys:
+        raise ValueError('訓練の記録が不正です')
+    if 'focus' in log and log['focus'] not in [option['id'] for option in spec['focus']]:
+        raise ValueError('訓練の見直し項目が不正です')
+    for key in ('baseline', 'retest'):
+        if key not in log:
+            continue
+        attempt = log[key]
+        if not isinstance(attempt, dict) or set(attempt) != {'ticks', 'hits', 'stopped'}:
+            raise ValueError('訓練の試走記録が不正です')
+        ticks, hits, stopped = attempt['ticks'], attempt['hits'], attempt['stopped']
+        if (type(ticks) is not int or not 1 <= ticks <= 360000 or type(hits) is not int or not 0 <= hits <= ticks
+                or not isinstance(stopped, list) or len(stopped) != len(spec['sectors'])
+                or any(type(value) is not int or not 0 <= value <= ticks for value in stopped)
+                or sum(stopped) > ticks):
+            raise ValueError('訓練の計測値が不正です')
+
+
 def validate_spring_course(record, quest, visited):
     spec, count = quest.get('springCourse'), record['count']
     if 'springRecord' not in record:
@@ -421,7 +451,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord','fireworkDesign','stealthEncounter','ittoContest','colleiLetter','roomLayout','discoveryDraft','discoveryDew','groupPhoto','stonePair','huntNotes','springRecord'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord','fireworkDesign','stealthEncounter','ittoContest','colleiLetter','roomLayout','discoveryDraft','discoveryDew','groupPhoto','stonePair','huntNotes','springRecord','trainingLog'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -452,6 +482,7 @@ def validate_save(data):
             validate_reading_model(q,quest)
             validate_group_photo(q,quest)
             validate_stone_pair(q,quest)
+            validate_iansan_training(q,quest,st['visited'])
             validate_spring_course(q,quest,st['visited'])
             validate_kinich_hunt(q,quest,st['visited'])
             validate_discovery_map(q,quest,st)

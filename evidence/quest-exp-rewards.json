@@ -1,7 +1,7 @@
 {
   "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
   "version": "monster-quest-v02",
-  "quests_tested": 63,
+  "quests_tested": 64,
   "old_completed_not_reissued": true,
   "old_unreported_uses_current_preview": true,
   "unlinked_trial_fallback": true,
@@ -27,9 +27,9 @@
       "report_xp": 3215990
     },
     "NAT": {
-      "linked": 7,
-      "legacy_xp": 23013404,
-      "report_xp": 23013404
+      "linked": 8,
+      "legacy_xp": 26004497,
+      "report_xp": 26004497
     },
     "SNE": {
       "linked": 8,
@@ -245,6 +245,12 @@
       "quest_id": "natlan-xilonen-springs",
       "legacy_xp": 2325046,
       "report_xp": 2325046
+    },
+    {
+      "design_id": "Q-NAT-S05",
+      "quest_id": "natlan-iansan-self-test",
+      "legacy_xp": 2991093,
+      "report_xp": 2991093
     },
     {
       "design_id": "Q-SNE-M01",

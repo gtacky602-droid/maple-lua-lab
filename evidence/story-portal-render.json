@@ -863,12 +863,22 @@
     {
       "node": "natlan-hub",
       "mode": "sprite",
-      "visible_portals": 13
+      "visible_portals": 14
     },
     {
       "node": "natlan-hub",
       "mode": "rect",
-      "visible_portals": 13
+      "visible_portals": 14
+    },
+    {
+      "node": "natlan-iansan-training",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "natlan-iansan-training",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "natlan-xilonen-workshop",

@@ -1,0 +1,33 @@
+{
+  "mainReportPrerequisite": true,
+  "pauseStopsClock": true,
+  "markerAndTargetsRequired": true,
+  "realTargetHitsAndNoDailyKills": true,
+  "companionLeavesTargetsForPlayer": true,
+  "trainingOnlyRecovery": true,
+  "onePriorityAndSavedFocus": true,
+  "baseline": {
+    "hits": 1,
+    "stopped": [
+      10,
+      200,
+      230
+    ],
+    "ticks": 494
+  },
+  "retest": {
+    "hits": 0,
+    "stopped": [
+      410,
+      200,
+      0
+    ],
+    "ticks": 662
+  },
+  "slowerRetestAccepted": true,
+  "replayAndRestart": true,
+  "reward": [
+    2991093,
+    6300
+  ]
+}

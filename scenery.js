@@ -134,6 +134,7 @@ export const sceneryDefinitions={
  fontaineDelivery:{file:'fontaine-delivery-quay-background-v1.png',zones:['story:fontaine-parcel-counter','story:fontaine-delivery-quay']},
  fontaineBackstage:{file:'fontaine-backstage-background-v1.png',zones:['story:fontaine-old-scenery-door','story:fontaine-moon-fly-loft','story:fontaine-stage-wings','story:fontaine-lift-catwalk']},
  fontaineUnderstage:{file:'fontaine-understage-background-v1.png',zones:['story:fontaine-understage-workfloor','story:fontaine-parcel-storeroom']},
+ natlanIansanTraining:{file:'nat-iansan-training-course-background-v1.png',zones:['story:natlan-iansan-training'],note:'イアンサの訓練路の仮背景'},
  natlanXilonenLab:{file:'nat-xilonen-course-workshop-background-v1.png',zones:['story:natlan-xilonen-workshop'],note:'試作工房の仮背景'},
  natlanXilonenCourse:{file:'nat-xilonen-course-course-background-v1.png',zones:['story:natlan-xilonen-course'],note:'三段の試走路の仮背景'},
  natlanKinichHunt:{file:'nat-kinich-ambush-trail-background-v1.png',zones:['story:natlan-kinich-hunt'],note:'巡り岩の狩道の仮背景'},

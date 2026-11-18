@@ -63,6 +63,14 @@
 #springSlots>div{padding:9px 10px;background:#252b25;border:1px solid #63736a;border-radius:6px}
 #springSlots label{display:block;margin-bottom:6px}
 #springSlots p{margin:6px 0 0;color:#dae4ca}
+#iansanRun,#iansanReview{padding:11px 18px;background:#193a37}
+#iansanReview h2{font-size:18px;margin:0 0 10px;color:#ffdea3}
+#iansanResults{max-width:620px;width:100%;border-collapse:collapse;text-align:left}
+#iansanResults th,#iansanResults td{padding:5px 8px;border-bottom:1px solid #5d7569}
+#iansanResults tbody th{font-weight:400}
+#iansanChoices{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+#iansanChoices:empty{display:none}
+#iansanChoices .selected{border-color:#ffd387;color:#ffe3a8}
 [data-spring-touch]{display:none}
 @media(max-width:850px){[data-spring-touch]{display:flex;gap:8px;flex-wrap:wrap;margin-top:7px}
  [data-spring-touch] button{touch-action:none}}
@@ -91,6 +99,15 @@
 <div id="nearbyCargo" hidden style="padding:10px 18px;background:#173a3b"><button id="nearbyCargoGo" data-action="story_collect">G：荷物を回収</button><span id="reflectionControls" hidden> <button id="reflectionLight" data-action="story_reflection_light">消灯する</button> <button data-action="story_reflection_confirm">照合する</button></span> <span id="reflectionImage"></span> <button id="airflowSound" hidden aria-pressed="false">装置音を聞く</button><span id="airflowControls" hidden> <button id="airflowCommit" data-action="story_airflow_commit">この位置で固定する</button> <span id="airflowStatus"></span></span> <span id="resonanceStatus" aria-live="polite"></span> <span id="paperControls" hidden><button id="paperConfirm" data-action="story_paper_confirm">確定する</button> <span id="paperStatus"></span></span><span id="surveyRigControls" hidden> <button data-action="story_survey_confirm">この設置で確定する</button> <span id="surveyRigReading" role="status"></span></span></div>
 <div id="rockView" hidden style="padding:10px 18px;background:#173a3b"><p id="rockViewCaption" style="margin:0 0 8px"></p><canvas id="rockViewCanvas" width="340" height="108" aria-hidden="true" style="width:min(100%,340px);aspect-ratio:340/108"></canvas></div>
 <div id="diveHelp" hidden><span>WASD・方向キーで泳ぐ ｜ Gで調べる ｜ Fで浮上</span> <button id="diveReset" type="button" data-action="story_dive_reset">回収灯へ戻る</button></div>
+<div id="iansanRun" hidden aria-label="訓練の計測"></div>
+<section id="iansanReview" hidden aria-labelledby="iansanReviewTitle">
+ <h2 id="iansanReviewTitle">自分の記録</h2>
+ <table id="iansanResults" aria-label="時間・被弾・停止した区間"><tbody></tbody></table>
+ <p id="iansanInsight"></p>
+ <div id="iansanChoices" aria-label="次に意識すること"></div>
+ <button id="iansanReplay" type="button" data-action="story_iansan_replay" hidden>記録を残してもう一周する</button>
+ <button type="button" data-action="story_iansan_close">閉じる</button>
+</section>
 <div id="springCourseStatus" hidden><span id="springCourseText" role="status"></span><div id="springRunControls" hidden><div data-spring-touch><span id="springMove"><button data-hold="left" aria-label="試走で左へ移動">←</button> <button data-hold="right" aria-label="試走で右へ移動">→</button></span><button id="springJump" type="button" data-action="jump">ジャンプ</button></div></div></div>
 <section id="springLayout" hidden aria-labelledby="springLayoutTitle">
  <h2 id="springLayoutTitle">踏み台の配置</h2>
