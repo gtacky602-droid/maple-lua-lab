@@ -1,7 +1,7 @@
 {
   "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
   "version": "monster-quest-v02",
-  "quests_tested": 48,
+  "quests_tested": 49,
   "old_completed_not_reissued": true,
   "old_unreported_uses_current_preview": true,
   "unlinked_trial_fallback": true,
@@ -17,9 +17,9 @@
       "report_xp": 186864
     },
     "INA": {
-      "linked": 7,
-      "legacy_xp": 255750,
-      "report_xp": 976072
+      "linked": 8,
+      "legacy_xp": 400777,
+      "report_xp": 1121099
     },
     "SNE": {
       "linked": 8,
@@ -161,6 +161,12 @@
       "quest_id": "ina-itto-three-games",
       "legacy_xp": 106600,
       "report_xp": 106600
+    },
+    {
+      "design_id": "Q-INA-S05",
+      "quest_id": "ina-walking-teahouse",
+      "legacy_xp": 145027,
+      "report_xp": 145027
     },
     {
       "design_id": "Q-INA-M01",

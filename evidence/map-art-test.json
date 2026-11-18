@@ -236,6 +236,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "ina-tea-crossroads",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "ina-tea-landing",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "ina-sayu-watchpath",
       "count": 0,
       "fallback": false,

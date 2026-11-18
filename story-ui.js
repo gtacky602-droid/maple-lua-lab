@@ -28,11 +28,27 @@ function update(){
   panel.append(comparison);
  }
  if(node.challenge)panel.append(button('挑戦：'+node.challengeName,'world_boss:'+node.challenge));
+ const restPoints=new Set(graph.nodes.filter(n=>n.restWaypoint&&f.story.visited[n.id]&&
+  f.story.quests[n.restWaypoint.quest]?.status==='complete').map(n=>n.id));
+ for(const n of graph.nodes.filter(n=>restPoints.has(n.id))){
+  const rest=button('休憩へ：'+n.restWaypoint.label,'story_fast:'+n.id);
+  rest.dataset.restWaypoint=n.id;
+  panel.append(rest);
+ }
  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox',`0 0 780 ${Math.ceil(graph.nodes.length/6)*100}`);svg.style.width='100%';svg.style.maxWidth='780px';
  const coords=new Map(graph.nodes.map((n,i)=>[n.id,{x:65+(i%6)*130,y:30+Math.floor(i/6)*100}]));
  for(const n of graph.nodes)for(const edge of n.exits){const a=coords.get(n.id),b=coords.get(edge.to);const line=document.createElementNS(svg.namespaceURI,'line');Object.entries({x1:a.x,y1:a.y,x2:b.x,y2:b.y,stroke:'#83dbe1'}).forEach(([k,v])=>line.setAttribute(k,v));svg.append(line)}
  graph.nodes.forEach(n=>{
-  const p=coords.get(n.id),circle=document.createElementNS(svg.namespaceURI,'circle');Object.entries({cx:p.x,cy:p.y,r:12,fill:n.id===node.id?'#ffe296':f.story.visited[n.id]?'#83dbe1':'#66727b'}).forEach(([k,v])=>circle.setAttribute(k,v));svg.append(circle);
+  const p=coords.get(n.id),circle=document.createElementNS(svg.namespaceURI,'circle');Object.entries({cx:p.x,cy:p.y,r:12,fill:n.id===node.id?'#ffe296':restPoints.has(n.id)?'#ffc58a':f.story.visited[n.id]?'#83dbe1':'#66727b'}).forEach(([k,v])=>circle.setAttribute(k,v));svg.append(circle);
+  if(restPoints.has(n.id)){
+   circle.setAttribute('role','button');
+   circle.setAttribute('tabindex','0');
+   circle.setAttribute('aria-label',n.restWaypoint.label+'へ移動する');
+   circle.style.cursor='pointer';
+   const travel=()=>window.lab.action('story_fast:'+n.id);
+   circle.onclick=travel;
+   circle.onkeydown=event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();travel()}};
+  }
   const text=document.createElementNS(svg.namespaceURI,'text');text.setAttribute('x',p.x);text.setAttribute('y',p.y+35);text.setAttribute('text-anchor','middle');text.setAttribute('fill','currentColor');text.setAttribute('font-size','11');text.textContent=n.name;svg.append(text);
  });panel.append(svg);
  const barrier=document.createElement('p');barrier.textContent=`装備の光界値 ${f.imprintGrowth?.total??0} / 50${f.imprintOverride?` ｜ 障壁に使う検証値 ${f.imprintTrial}（保存対象外）`:''}。試作の障壁は0で10%、基準値以上で100%のダメージ。`;panel.append(barrier);

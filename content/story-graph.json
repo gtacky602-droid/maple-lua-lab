@@ -1407,6 +1407,7 @@
       "level": 40,
       "hub": true,
       "stealthNap": "ina-sayu-quiet-route",
+      "teaQuest": "ina-walking-teahouse",
       "width": 1440,
       "platforms": [
         {
@@ -1449,7 +1450,8 @@
         {"to":"ina-firework-beach","x":266,"arrivalX":702,"requires":{"quest":"ina-window-fireworks","count":5}},
         {"to":"ina-sayu-watchpath","x":454,"arrivalX":118,"requires":{"quest":"ina-sayu-quiet-route","count":1}},
         {"to":"ina-sayu-watchpath","x":1148,"arrivalX":2150,"requires":{"quest":"ina-sayu-quiet-route","count":5},"rideLabel":"開いた裏柵から見回り道へ"},
-        {"to":"ina-festival-games","x":828,"arrivalX":108,"requires":{"quest":"ina-itto-three-games","count":1}}
+        {"to":"ina-festival-games","x":828,"arrivalX":108,"requires":{"quest":"ina-itto-three-games","count":1}},
+        {"to":"ina-tea-crossroads","x":350,"arrivalX":110,"requires":{"quest":"ina-walking-teahouse","count":2}}
       ],
       "checkpoint": "inazuma-town"
     },
@@ -1472,6 +1474,19 @@
         "relay":{"startX":236,"playerY":480,"rivalY":283,"playerSpeed":109,"rivalSpeed":83,
           "marks":[{"x":347},{"x":530},{"x":725}],"rivalDelays":[1.2,1.32,1.76]}
       }
+    },
+    {
+      "id":"ina-tea-crossroads","name":"稲妻・昼陰の分かれ道","region":"稲妻","level":40,"hub":false,"peaceful":true,
+      "width":1240,"checkpoint":"inazuma-town","teaQuest":"ina-walking-teahouse",
+      "platforms":[{"x":0,"y":480,"w":1240},{"x":589,"y":403,"w":327}],
+      "exits":[{"to":"inazuma-town","x":58,"arrivalX":398},{"to":"ina-tea-landing","x":1166,"arrivalX":112,"requires":{"quest":"ina-walking-teahouse","count":4}}]
+    },
+    {
+      "id":"ina-tea-landing","name":"稲妻・夕灯りの船着き場","region":"稲妻","level":40,"hub":false,"peaceful":true,
+      "width":960,"checkpoint":"inazuma-town","teaQuest":"ina-walking-teahouse",
+      "restWaypoint":{"quest":"ina-walking-teahouse","label":"船着き場の茶屋","arrivalX":557},
+      "platforms":[{"x":0,"y":480,"w":960}],
+      "exits":[{"to":"ina-tea-crossroads","x":62,"arrivalX":1104},{"to":"inazuma-town","x":889,"arrivalX":310,"requires":{"quest":"ina-walking-teahouse","count":6}}]
     },
     {
       "id":"ina-sayu-watchpath","name":"稲妻・木陰の見回り道","region":"稲妻","level":40,"hub":false,
@@ -5526,6 +5541,24 @@
         {"kind":"festivalGame","node":"ina-festival-games","objective":"合図台から旗集めを始め、石段と高台の旗を集める","notice":"旗集めが終わりました。"},
         {"kind":"festivalGame","node":"ina-festival-games","objective":"合図台で訓練的を始め、地上と石段の的を攻撃でまとめて壊す","notice":"訓練的が終わりました。"},
         {"kind":"festivalGame","node":"ina-festival-games","objective":"最後の競走で子どもを応援する。完走後は城下の広場へ戻る","notice":"表彰を終えました。"}
+      ]
+    },
+    {
+      "id":"ina-walking-teahouse","designId":"Q-INA-S05","name":"歩く茶屋の事件簿","giver":"平蔵",
+      "hub":"inazuma-town","target":"ina-tea-landing","requires":"inazuma-torii-maze","level":40,
+      "kind":"itinerary","goal":7,"xp":145027,"mora":1750,
+      "briefing":"平蔵「同じ茶屋を違う場所で見た人がいる。似た話でも、全部同じ原因とは限らないよ。まずは見たものを絵札にして集めよう。」",
+      "closing":"平蔵「町に伝わるうちに、車輪の話が抜けて『茶屋が歩く』になったみたいだ。お茶が飲みたくなったら、夕灯りの船着き場へどうぞ。」",
+      "completedObjective":"本編の地図に船着き場の茶屋が登録され、再訪してお茶で休める",
+      "teaCase":{"trackClue":"ruts","arrivalClue":"dusk","startX":1060,"stopX":697,"y":480,"seconds":3.15,"heal":35},
+      "itinerary":[
+        {"kind":"inspect","node":"inazuma-town","x":169,"y":480,"name":"平蔵の事件帖","action":"平蔵から茶屋の噂を聞く","objective":"城下の広場で平蔵に茶屋の噂を聞く","notice":"平蔵「まずは同じお店だと分かるものを探そう。右の石畳に紙が落ちてるね。」"},
+        {"kind":"inspect","node":"inazuma-town","x":396,"y":480,"name":"菱印の包み紙","action":"包み紙の菱印を絵札に写す","objective":"石畳に落ちた包み紙を調べ、昼陰の分かれ道へ","notice":"包み紙には赤い菱印。お茶請けを包む紙らしい。分かれ道の木陰でも同じ印が見られたそうです。","teaClue":{"id":"paper","label":"菱印の包み紙","detail":"城下で拾った。赤い菱印は昼と夕の話で一致する。","art":"paper","height":29}},
+        {"kind":"inspect","node":"ina-tea-crossroads","x":345,"y":480,"name":"二筋の車輪跡","action":"二筋の車輪跡を絵札に写す","objective":"分かれ道の地面で、船着き場へ続く車輪跡を調べる","notice":"二筋の新しい車輪跡が、木陰から船着き場の方へ続いています。","teaClue":{"id":"ruts","label":"二筋の車輪跡","detail":"木陰から船着き場へ。同じ幅の車輪跡が続く。","art":"tracks","height":20}},
+        {"kind":"inspect","node":"ina-tea-crossroads","x":744,"y":403,"name":"昼の聞き込み札","action":"石段の上で昼の証言を読む","objective":"石段に上がり、木陰で茶屋を見た昼の証言を読む","notice":"昼の証言『昼は旅の人が多い木陰で、菱印の茶屋からお茶請けを買った。』","teaClue":{"id":"day","label":"昼の証言","detail":"昼は旅人が多い木陰で、菱印の茶屋が開いていた。","art":"day","height":54}},
+        {"kind":"inspect","node":"ina-tea-landing","x":284,"y":480,"name":"夕方の聞き込み札","action":"船着き場で夕方の証言を読む","objective":"夕灯りの船着き場で、夕方の証言を読む","notice":"夕方の証言『船を待つ人が増えた頃、菱印の屋台を店主が車輪で押してきたよ。』","teaClue":{"id":"dusk","label":"夕方の証言","detail":"船を待つ客が増えると、店主が菱印の屋台を押してきた。","art":"dusk","height":54}},
+        {"kind":"teaEvidence","node":"ina-tea-landing","x":469,"y":480,"name":"平蔵の絵札台","objective":"絵札台で、茶屋が移動したと分かる二枚を選ぶ","notice":"旅人は車輪跡と夕方の証言を重ねた。水際の道から、木の車輪が転がる音が聞こえます。"},
+        {"kind":"inspect","node":"ina-tea-landing","x":600,"y":480,"name":"茶屋のお茶","action":"店主からお茶を受け取る","objective":"屋台が止まったらお茶を飲み、平蔵と事件を振り返る","notice":"お茶を飲みました。","teaCup":true}
       ]
     },
     {

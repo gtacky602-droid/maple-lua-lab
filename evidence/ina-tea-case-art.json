@@ -1,0 +1,160 @@
+{
+  "tool": "built-in image generation and reference-guided proportion edits",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/ina-tea-case-model.obj",
+    "sha256": "cdf3190c29b6db146025c56b6878e7190335b1018bbafd2fda15014219c85ace"
+  },
+  "materials": {
+    "path": "evidence/ina-tea-case-model.mtl",
+    "sha256": "c6dc82e8cde34d3755af054048e12f07f91c9bf36f489df63df742b750180cc2"
+  },
+  "contactSheet": {
+    "path": "evidence/ina-tea-case-views.png",
+    "sha256": "a2bf363c12d385e5fca4ec020177392733381264cc807ed70a0f44514b740ef2"
+  },
+  "propsSource": {
+    "path": "assets/ina-tea-case-props-source-v1.png",
+    "sha256": "7de7e70685cb72df928f1e223ee38e985d6978ed1694c5785e1a0499d73d9e0f"
+  },
+  "alphaCorners": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "backgrounds": [
+    {
+      "path": "assets/ina-tea-case-crossroads-background-v1.png",
+      "sha256": "78fb3f5c89cb5ed96d0a3a458ab414f3d1883c53f40d31bc50ca0bb480dd1ca7"
+    },
+    {
+      "path": "assets/ina-tea-case-landing-background-v1.png",
+      "sha256": "b74e5e16d84ed0ba65716d1d926c9c85cbf99e2afef2cf583f8c0d6eea0719b3"
+    }
+  ],
+  "backgroundReferences": [
+    {
+      "path": "assets/inazuma-shiomi-cape-background-v1.png",
+      "sha256": "6486a85f1a12da295886e8c6a54a8f4f55d8d88aa608ed3b2382de19e40f8e87"
+    },
+    {
+      "path": "assets/ina-sayu-route-background-v1.png",
+      "sha256": "dbcb5521598c3506ae49f9c4a3b9f67cde1fb50b4af7a11f44ee6dcbd65c4aff"
+    }
+  ],
+  "status": "Original keeper and cart based on original 3D blockouts. Both background images are Web placeholders.",
+  "chibiNote": "Keeper is approximately 3 heads high. The cart and keeper move together, with vertical bob on the keeper during arrival.",
+  "cup": {
+    "path": "assets/nod-lantern-patrol-tea-sprites-v1.json",
+    "sha256": "e05ed37accae946a93eed6000196f9ba7ef002da1c3abb6422dd805a261462ef"
+  },
+  "profiles": {
+    "cart": {
+      "encoding": {
+        "path": "assets/ina-tea-case-cart-sprites-v1.json",
+        "sha256": "b57716e122f0e134deeecc70188fceca32fa6eed759e6087efc27bb355520ce3"
+      },
+      "box": [
+        137,
+        102,
+        358,
+        307
+      ],
+      "runs": {
+        "legacy": 2526,
+        "h48c32": 1626,
+        "h32c16": 585
+      }
+    },
+    "keeper": {
+      "encoding": {
+        "path": "assets/ina-tea-case-keeper-sprites-v1.json",
+        "sha256": "ebc16c0227ca78deedb0cc278832e184c4b0ac8d53253e6d41439c8059c341bc"
+      },
+      "box": [
+        750,
+        86,
+        287,
+        323
+      ],
+      "runs": {
+        "legacy": 1368,
+        "h48c32": 876,
+        "h32c16": 343
+      }
+    },
+    "paper": {
+      "encoding": {
+        "path": "assets/ina-tea-case-paper-sprites-v1.json",
+        "sha256": "769028a7ebc90ad5f99e107435255f68ebb751e649d49bff59916bd52413cb68"
+      },
+      "box": [
+        1359,
+        171,
+        259,
+        185
+      ],
+      "runs": {
+        "legacy": 714,
+        "h48c32": 449,
+        "h32c16": 180
+      }
+    },
+    "tracks": {
+      "encoding": {
+        "path": "assets/ina-tea-case-tracks-sprites-v1.json",
+        "sha256": "f518e716df9cd3b8b985eaa3be729b5b9c0a0b7553bc8d7505ade9c7eec64c5a"
+      },
+      "box": [
+        105,
+        593,
+        394,
+        170
+      ],
+      "runs": {
+        "legacy": 658,
+        "h48c32": 357,
+        "h32c16": 159
+      }
+    },
+    "day": {
+      "encoding": {
+        "path": "assets/ina-tea-case-day-sprites-v1.json",
+        "sha256": "cad41cda5aafafbfaa10ec3185fed0e06ee55868e0f82c44cfb1d326977c3168"
+      },
+      "box": [
+        751,
+        524,
+        283,
+        275
+      ],
+      "runs": {
+        "legacy": 1579,
+        "h48c32": 901,
+        "h32c16": 330
+      }
+    },
+    "dusk": {
+      "encoding": {
+        "path": "assets/ina-tea-case-dusk-sprites-v1.json",
+        "sha256": "80f7bc5c09a1ffd537a39fc8d4b6e04655ac4c7e5c9c4c27da85bdfbefd15b41"
+      },
+      "box": [
+        1347,
+        524,
+        282,
+        275
+      ],
+      "runs": {
+        "legacy": 1227,
+        "h48c32": 675,
+        "h32c16": 246
+      }
+    }
+  }
+}

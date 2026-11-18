@@ -501,6 +501,10 @@
       "to": "ina-festival-games"
     },
     {
+      "node": "inazuma-town",
+      "to": "ina-tea-crossroads"
+    },
+    {
       "node": "ina-firework-lookouts",
       "to": "inazuma-town"
     },
@@ -510,6 +514,22 @@
     },
     {
       "node": "ina-festival-games",
+      "to": "inazuma-town"
+    },
+    {
+      "node": "ina-tea-crossroads",
+      "to": "inazuma-town"
+    },
+    {
+      "node": "ina-tea-crossroads",
+      "to": "ina-tea-landing"
+    },
+    {
+      "node": "ina-tea-landing",
+      "to": "ina-tea-crossroads"
+    },
+    {
+      "node": "ina-tea-landing",
       "to": "inazuma-town"
     },
     {

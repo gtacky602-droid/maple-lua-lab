@@ -159,6 +159,14 @@
       "enemy_count": 0
     },
     {
+      "node": "ina-tea-crossroads",
+      "enemy_count": 0
+    },
+    {
+      "node": "ina-tea-landing",
+      "enemy_count": 0
+    },
+    {
       "node": "ina-sayu-watchpath",
       "enemy_count": 0
     },

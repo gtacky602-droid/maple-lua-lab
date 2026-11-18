@@ -82,6 +82,8 @@ export const sceneryDefinitions={
  fireworkBeach:{file:'ina-fireworks-beach-background-v1.png',zones:['story:ina-firework-beach'],note:'家の窓から見える花火浜の仮背景'},
  sayuWatchpath:{file:'ina-sayu-route-background-v1.png',zones:['story:ina-sayu-watchpath'],note:'木陰の巡回路の仮背景'},
  ittoFestival:{file:'ina-itto-games-background-v1.png',zones:['story:ina-festival-games'],note:'三番勝負の競技広場の仮背景'},
+ teaCrossroads:{file:'ina-tea-case-crossroads-background-v1.png',zones:['story:ina-tea-crossroads'],note:'昼の木陰の分かれ道の仮背景'},
+ teaLanding:{file:'ina-tea-case-landing-background-v1.png',zones:['story:ina-tea-landing'],note:'夕方の船着き場の仮背景'},
  toriiforest:{file:'inazuma-torii-forest-background-v1.png',zones:['story:inazuma-torii-footprints','story:inazuma-torii-statues','story:inazuma-torii-reflections','story:inazuma-torii-thicket'],note:'鎮守の森の色と鳥居を参照した共通の仮背景'},
  liyuequarry:{file:'liyue-quarry-background-v1.png',zones:['story:liyue-river-trail','story:liyue-cliff-planks','story:liyue-quarry-post','story:liyue-quarry-storage','story:liyue-book-camp'],note:'川沿い・桟道・石切り場・宝盗団の拠点で共用する仮背景'},
  mondrestored:{file:'mond-restored-road-background-v1.png',zones:['story:mond-restored-road'],clearedZones:['story:mond-watchtower'],note:'見張り討伐後の街道の仮画像'},
@@ -218,7 +220,7 @@ export function scenery(ctx,frame){
     ctx.fillStyle='#916a59';for(let i=10;i+14<p.w;i+=41)ctx.fillRect(x+i,p.y+7,15,3);
     continue;
    }
-   if(key==='nodPatrolCoast'||key==='mondNightHill'||key==='fireworkLookouts'||key==='fireworkBeach'){
+   if(key==='nodPatrolCoast'||key==='mondNightHill'||key==='fireworkLookouts'||key==='fireworkBeach'||key==='teaLanding'){
     ctx.fillStyle='#252e48';ctx.fillRect(x,p.y,p.w,p.y===480?61:19);
     ctx.fillStyle='#798597';ctx.fillRect(x,p.y,p.w,3);
     ctx.fillStyle='#445671';

@@ -39,6 +39,45 @@ $('saveProgress').onclick=()=>{checkpointRequested=true;$('saveStatus').textCont
 $('loadProgress').onclick=()=>{try{const raw=localStorage.getItem(SAVE_KEY);if(!raw)throw Error('保存データがありません');restoreRequested=JSON.parse(raw);if(!restoreRequested||typeof restoreRequested!=='object')throw Error('保存データを読み取れません');$('saveStatus').textContent='読み込み中…'}catch(e){restoreRequested=null;$('saveStatus').textContent=e.message}};
 initSaveTransfer({readSaved:()=>localStorage.getItem(SAVE_KEY),restore:data=>new Promise((resolve,reject)=>{restoreRequested=data;pendingImport={resolve,reject}})});
 const {bossImages,bossAtlas,atlas}=await loadSpriteImages($('status'));
+function updateTeaCase(view){
+ const panel=$('teaCaseBoard'),cards=$('teaEvidenceCards');
+ panel.hidden=!view;
+ if(!view){
+  if(cards.childElementCount)cards.replaceChildren();
+  return;
+ }
+ if(!cards.childElementCount){
+  for(const card of view.cards){
+   const button=document.createElement('button');
+   button.dataset.teaEvidence=card.id;
+   button.type='button';
+   const picture=document.createElement('canvas');
+   picture.width=104;picture.height=60;picture.setAttribute('aria-hidden','true');
+   const context=picture.getContext('2d'),[x,y,w,h]=card.box;
+   const scale=Math.min(picture.width/w,picture.height/h);
+   context.imageSmoothingEnabled=false;
+   context.drawImage(bossImages[card.source],x,y,w,h,(picture.width-w*scale)/2,(picture.height-h*scale)/2,w*scale,h*scale);
+   const label=document.createElement('strong');
+   label.textContent=card.label;
+   const detail=document.createElement('small');
+   detail.textContent=card.detail;
+   button.append(picture,label,detail);
+   button.style.cssText='display:grid;justify-items:start;gap:4px;text-align:left';
+   button.onclick=event=>{
+    actions.push('story_tea_card:'+card.id);
+    if(event.detail>0)button.blur();
+   };
+   cards.append(button);
+  }
+ }
+ for(const [index,card] of view.cards.entries()){
+  const button=cards.children[index];
+  button.setAttribute('aria-pressed',String(card.selected));
+  button.classList.toggle('tea-selected',card.selected);
+ }
+ $('teaEvidenceConfirm').disabled=!view.ready;
+ if($('teaCaseFeedback').textContent!==view.feedback)$('teaCaseFeedback').textContent=view.feedback;
+}
 try{spriteData=await (await fetch('assets/sprites.json')).json()}catch{}
 const mapping={KeyF:'story_nearby_portal',KeyG:'story_collect',KeyK:'skill1',KeyL:'skill2',KeyM:'skill3',KeyN:'skill4',KeyQ:'light',KeyE:'swap',ShiftLeft:'dodge',ShiftRight:'dodge',KeyP:'pause'};
 for(let i=1;i<=8;i++)mapping['Digit'+i]='slot'+i;
@@ -253,7 +292,7 @@ function hud(f,calls,renderMs){
  updateLanternNote(f.storyLanternNote,f.storySightNote);
  const forest=$('storyForest');
  const observation=f.storyContest??f.storyForest??f.storyRest??f.storyCave??f.storyRoof;
- const fieldNote=observation?.message??f.storyAppraisal?.message??f.storyRumor?.message??f.storyBloom?.message??f.storyPatrol?.message??f.storySurvey?.message??f.storySnowball?.message??f.storyReturnBox?.message??f.storyFireworkStatus?.message??f.storyStealth?.message??f.storyIttoGames?.message??f.storyDuel?.label??f.storyPathStatus??f.storyFlagStatus;
+ const fieldNote=observation?.message??f.storyAppraisal?.message??f.storyRumor?.message??f.storyBloom?.message??f.storyPatrol?.message??f.storySurvey?.message??f.storySnowball?.message??f.storyReturnBox?.message??f.storyFireworkStatus?.message??f.storyStealth?.message??f.storyIttoGames?.message??f.storyTeaCase?.message??f.storyDuel?.label??f.storyPathStatus??f.storyFlagStatus;
  forest.hidden=!fieldNote;
  if(fieldNote&&forest.textContent!==fieldNote)forest.textContent=fieldNote;
  const trolley=f.voyage?.kind==='trolley'?f.voyage:null;
@@ -325,6 +364,7 @@ function hud(f,calls,renderMs){
  airflowAudio.update(f);
  updateRockView(f.storyRockView);
  updateSurveyMap(f.storySurveyMap);
+ updateTeaCase(f.storyTeaBoard);
  updateFireworkDesign(f.storyFireworkDesign);
  const reflection=f.storyReflection;
  $('reflectionControls').hidden=!reflection?.record;

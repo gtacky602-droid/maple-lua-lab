@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -184,6 +184,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local fireworks=fireworksModule(C,canInspect)
  local stealth=stealthModule(C,canInspect)
  local itto=ittoModule(C,canInspect)
+ local teaCase=teaCaseModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -346,6 +347,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif milestone.surveyRig then
      if survey.adjust(s,milestone,state,command) then completeMilestone(s,state,milestone,parent,quest) end
      return true
+    elseif milestone.teaCup then
+     if command=='rotate' and teaCase.allowed(s,q,state) then
+      completeMilestone(s,state,milestone,parent,quest)
+      teaCase.firstCup(s,q)
+     end
+     return true
     elseif milestone.reflect then
       if reflection.interact(s,milestone,command,state) then completeMilestone(s,state,milestone,parent,quest) end
      return true
@@ -490,6 +497,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.returnBox=nil
   s.fireworkShow=nil
   itto.enter(s,n.ittoGames)
+  teaCase.enter(s)
   s.storyLightMode=n.localLight and 'bright' or nil
   s.airflowTrial,s.storyCue=nil,nil
   s.resonanceOrder,s.resonancePage=nil,nil
@@ -634,6 +642,19 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    return
   end
+  local teaCard=key:match('^story_tea_card:([%w%-]+)$')
+  if teaCard or key=='story_tea_confirm' then
+   local id=s.story.active and nodes[s.story.node].teaQuest
+   if id then
+    local q,state=quests[id],s.story.quests[id]
+    if teaCard then teaCase.select(s,q,state,teaCard)
+    else
+     local milestone=teaCase.confirm(s,q,state)
+     if milestone then completeMilestone(s,state,milestone) end
+    end
+   end
+   return
+  end
   if key=='story_collect' then
    if s.paused or not s.story.active then return end
    local node=nodes[s.story.node]
@@ -663,6 +684,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     return
    end
    if node.nightBanner and nightBanner.read(s,node,quests[node.clearedBy],spawnState) then return end
+   if node.teaQuest and teaCase.read(s,quests[node.teaQuest],s.story.quests[node.teaQuest]) then return end
    local archive=node.returnBoxArchive
    if archive and returnBox.read(s,archive,s.story.quests[archive.quest]) then return end
    local railConfig,railState=railQuest(s,nodes[s.story.node])
@@ -775,7 +797,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local resume,departure=0,nil;dest=dest or fast;local n=nodes[dest];if not n then return end
    if n.hiddenGroup and not s.story.discovered[n.hiddenGroup] then s.storyNotice='この入口はまだ発見していません。';return end
    if not s.progression or s.progression.level<n.level then s.storyNotice='必要レベル '..n.level..' に達していません。';return end
-   if fast then if not n.hub or not s.story.visited[dest] then s.storyNotice='到達済みの拠点だけ移動できます。';return end
+   if fast then
+    local restPoint=n.restWaypoint and completed(s,n.restWaypoint.quest)
+    if not (n.hub or restPoint) or not s.story.visited[dest] then
+     s.storyNotice='到達済みの拠点か、地図に登録した休憩場所を選んでください。';return
+    end
    else
     local allowed=false;local a=s.actors[s.active]
     for _,edge in ipairs(nodes[s.story.node].exits) do
@@ -803,6 +829,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    for _,edge in ipairs(n.exits) do
     if edge.to==previous and not edge.returnOnly then spawn=edge.x<720 and 160 or n.width-160;arrival=edge end
    end
+   if fast and n.restWaypoint then spawn=n.restWaypoint.arrivalX or spawn end
    local seconds=departure and (departure.liftSeconds or departure.waterwaySeconds or departure.boatSeconds)
    if seconds then
     s.lift={destination=dest,name=departure.rideLabel or n.name,seconds=seconds,remaining=seconds,
@@ -969,6 +996,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local node=nodes[s.story.node]
    duel.step(s,node.duel)
    patrol.update(s,node.patrol)
+   if node.teaQuest and s.teaArrival then teaCase.step(s,quests[node.teaQuest]) end
    if node.ittoGames then
     local quest=quests[node.ittoGames.quest]
     local state=s.story.quests[quest.id]
@@ -1210,6 +1238,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     stealth.nap(s,markers,q,s.story.quests[q.id],mode,profile)
    end
    if n.ittoGames then itto.observe(s,f,markers,n.ittoGames,s.story.quests[n.ittoGames.quest],mode,profile) end
+   if n.teaQuest then teaCase.observe(s,f,markers,quests[n.teaQuest],s.story.quests[n.teaQuest],mode,profile) end
     if n.moonInlet then moonInlet.observe(s,f,markers,n.moonInlet,s.story.quests[n.moonInlet.quest]) end
     if n.shoreLights then moonInlet.lights(s,markers,n.shoreLights) end
     if n.coastDetour then coastDetour.observe(s,f,markers,n.coastDetour,quests[n.coastDetour.quest],mode,profile) end
@@ -1378,6 +1407,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and not milestone.surveySample and not milestone.surveyPad and not milestone.surveyRig and not milestone.surveySeat
         and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup
         and not milestone.nightClue and not milestone.fireworkSight and not milestone.stealthNap
+        and not milestone.teaClue and not milestone.teaCup
         and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
@@ -1394,6 +1424,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      end
      if not f.storyNearbyMilestone and not s.paused and not (milestone.followCart and s.theaterCart)
          and not (milestone.flagLowerSeconds and s.flagLowering)
+         and (not milestone.teaCup or teaCase.allowed(s,q,state))
          and canInspect(s.actors[s.active],milestone) then
       f.storyNearbyMilestone={label=milestone.performance and theater.performanceLabel(s,milestone.performance) or milestone.action}
       if milestone.paperSouvenir then paper.observeGift(s,f,milestone) end

@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 304 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 296,
+  "scope": "Authored 306 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 298,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -231,6 +231,8 @@
     {"id":"ina-firework-beach","name":"稲妻・窓灯りの花火浜","region":"稲妻","status":"regional_temporary_image"},
     {"id":"ina-sayu-watchpath","name":"稲妻・木陰の見回り道","region":"稲妻","status":"regional_temporary_image"},
     {"id":"ina-festival-games","name":"稲妻・荒瀧の競技広場","region":"稲妻","status":"regional_temporary_image"},
+    {"id":"ina-tea-crossroads","name":"稲妻・昼陰の分かれ道","region":"稲妻","status":"regional_temporary_image"},
+    {"id":"ina-tea-landing","name":"稲妻・夕灯りの船着き場","region":"稲妻","status":"regional_temporary_image"},
     {
       "id": "pyro-hypostasis-field-terrace",
       "name": "稲妻・燎火の石浜",
