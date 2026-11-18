@@ -411,10 +411,12 @@
       }
     },
     "boss-29091101": {
+      "extra_evidence": ["docs/weekly-boss-v1/PRIMAL_FIRE_WEB.md", "evidence/primal-fire-weekly-lua.json", "evidence/primal-fire-weekly-browser.json"],
+      "remaining": ["剣・翼・霧化・崩落の連続作画と効果音", "同行・装備差・全回避経路の検証", "本番の3D配置と幻境実機検証"],
       "art_candidate": {
         "item": "gosoythoth",
         "audit": "evidence/gosoythoth-reference-audit.json",
-        "status": "idle candidate"
+        "status": "Reused live idle sprite with separate provisional blade effects"
       }
     },
     "boss-22150101": {

@@ -495,11 +495,13 @@ def runtime():
     knave=lua.execute((ROOT/'weekly-knave.lua').read_text(encoding='utf8'))(core)
     core.knaveWeeklyArt=field_art(lua,'knave-weekly',(),variants={
         'single':'knave-weekly-single-sprites-v1.json','double':'knave-weekly-double-sprites-v1.json'})
+    primal_fire=lua.execute((ROOT/'weekly-primal-fire.lua').read_text(encoding='utf8'))(core)
+    core.primalWeeklyArt=field_art(lua,'gosoythoth',(),idle='gosoythoth-idle-sprites.json')
     lua.execute((ROOT/'weekly-bosses.lua').read_text(encoding='utf8'))(
         core,lua.table_from(weekly_specs,recursive=True),
         lua.table_from({'dvalin':dvalin,'andrius':andrius,'surveyor':surveyor,'loom':loom,
                         'childe':childe,'azhdaha':azhdaha,'signora':signora,'raiden':raiden,'shouki':shouki,
-                        'apep':apep,'narwhal':narwhal,'knave':knave}))
+                        'apep':apep,'narwhal':narwhal,'knave':knave,'primal_fire':primal_fire}))
     core.installToyDiveGuard()
     daily=json.loads((ROOT/'content/daily-quests.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'daily-quests.lua').read_text(encoding='utf8'))(core,lua.table_from(daily,recursive=True),graph)

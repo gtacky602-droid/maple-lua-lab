@@ -9,7 +9,7 @@ export const sceneryDefinitions={
  yumkaField:{file:'yumka-field-background-v1.png',zones:['story:yumka-field-ravine'],note:'山王の峡谷の仮背景'},
  configDeviceField:{file:'config-device-field-background-v1.png',zones:['story:config-device-field-workshop'],note:'秘源の機構室の仮背景'},
  papillaField:{file:'papilla-field-background-v1.png',zones:['story:papilla-field-hollow'],note:'紫影の石窟の仮背景'},
- lavaDragonField:{file:'lava-dragon-field-background-v1.png',zones:['story:atocpan-lava-field'],note:'アトクパンの溶岩棚の仮背景'},
+ lavaDragonField:{file:'lava-dragon-field-background-v1.png',zones:['story:atocpan-lava-field','story:primal-fire-sundered-forge'],note:'溶岩棚と源焔の再現戦の仮背景'},
  overseerField:{file:'overseer-field-background-v1.png',zones:['story:atocpan-overseer-ruin'],note:'統御の遺構の仮背景'},
  duckleField:{file:'knuckle-duckle-field-background-v1.png',zones:['story:nod-duckle-workyard'],note:'工房裏の試運転場の仮背景'},
  battleshipField:{file:'battleship-field-background-v1.png',zones:['story:nod-battleship-depot'],note:'陸巡艦の整備庫の仮背景'},
@@ -235,6 +235,12 @@ export function scenery(ctx,frame){
  const bygone=key==='bygone'||key==='bygoneResonance';
  const golden=key==='golden'||key==='goldenDock';
  const camera=frame.camera||0,snow=['snezhnaya','dragonspine','cryoHypostasisField','wingspan','snowRailTransfer','spineRidge','whitePassSnow','whiteRainbowBasin','auroraGlass','dawnGlass','sneSurveyRidge','sneSnowMatch'].includes(key);
+ const forge=frame.weeklyBoss?.primal;
+ if(forge){
+  const pit=ctx.createLinearGradient(0,480,0,540);
+  pit.addColorStop(0,'rgba(45,21,37,0)');pit.addColorStop(1,'#211325');
+  ctx.fillStyle=pit;ctx.fillRect(0,480,forge.left-camera,60);
+ }
  drawDecorations(ctx,frame,camera);
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;

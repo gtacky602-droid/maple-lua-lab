@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 87,
-    "partial": 77,
+    "partial": 78,
     "complete": 0
   },
   "encounters": [
@@ -1055,23 +1055,27 @@
       "entity_ids": [
         "29091101"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/lordoferodedprimalfire.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/lordoferodedprimalfire.json",
+        "docs/weekly-boss-v1/PRIMAL_FIRE_WEB.md",
+        "evidence/primal-fire-weekly-lua.json",
+        "evidence/primal-fire-weekly-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "剣・翼・霧化・崩落の連続作画と効果音",
+        "同行・装備差・全回避経路の検証",
+        "本番の3D配置と幻境実機検証"
       ],
+      "weeklyNode": "primal-fire-sundered-forge",
+      "weeklyEntrance": "源焔の再現戦（Lv104）",
       "art_candidate": {
         "source": "assets/gosoythoth-idle-source-v1.png",
         "encoding": "assets/gosoythoth-idle-sprites.json",
         "audit": "evidence/gosoythoth-reference-audit.json",
-        "status": "idle candidate"
+        "status": "Reused live idle sprite with separate provisional blade effects"
       }
     },
     {

@@ -1,0 +1,45 @@
+{
+  "scenery": {
+    "key": "lavaDragonField",
+    "file": "lava-dragon-field-background-v1.png",
+    "state": "ready"
+  },
+  "trials": [
+    "WG05",
+    "WG14",
+    "WG16"
+  ],
+  "cuts": [
+    {
+      "left": 40,
+      "width": 880,
+      "collisionLeft": 40
+    },
+    {
+      "left": 128,
+      "width": 792,
+      "collisionLeft": 128
+    },
+    {
+      "left": 216,
+      "width": 704,
+      "collisionLeft": 216
+    },
+    {
+      "left": 304,
+      "width": 616,
+      "collisionLeft": 304
+    }
+  ],
+  "physicalBarrierConfirmed": true,
+  "firstExposedTicks": 478,
+  "commands": {
+    "png": 75,
+    "standard": 16349,
+    "light": 4399
+  },
+  "viewport390": true,
+  "clearReportRestore": true,
+  "remainingHp": 1214,
+  "errors": []
+}

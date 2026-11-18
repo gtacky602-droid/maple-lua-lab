@@ -1,0 +1,43 @@
+{
+  "manifest_cards": [
+    "WG01",
+    "WG02",
+    "WG03",
+    "WG04",
+    "WG05",
+    "WG06",
+    "WG07",
+    "WG08",
+    "WG09",
+    "WG10",
+    "WG11",
+    "WG12",
+    "WG13",
+    "WG14",
+    "WG15",
+    "WG16",
+    "WG17",
+    "WG18"
+  ],
+  "shared_hp_contact_dedup": true,
+  "physical_g12_from_tick_60": true,
+  "per_actor_barrier_gap": 24,
+  "failed_large_orb_tick": 840,
+  "deadline_tick_rejects_new_hit": 780,
+  "buds_remove_owned_shots_and_fail_into_palm": true,
+  "exposure_ticks": 480,
+  "erosion_owner_and_heal_independence": true,
+  "ground_has_300_tick_life": true,
+  "actual_floor_left": [
+    40,
+    128,
+    216,
+    304
+  ],
+  "last_floor_width": 616,
+  "cuts_spaced_by_at_least_600_ticks": true,
+  "fall_and_ledge_use_real_physics": true,
+  "fall_after_victory_returns_to_safe_floor": true,
+  "three_pillars_inside_final_floor": true,
+  "reward_report_restore": true
+}

@@ -3897,6 +3897,431 @@
           ]
         }
       }
+    },
+    {
+      "id": "boss-29091101",
+      "entity": 29091101,
+      "controller": "primal_fire",
+      "node": "primal-fire-sundered-forge",
+      "storyChallenge": "primal-fire-weekly",
+      "name": "蝕まれし源焔の主",
+      "level": 104,
+      "hp": 2900,
+      "mora": 3400,
+      "expRole": "weekly_boss",
+      "center": 540,
+      "floorY": 480,
+      "noticeTicks": 48,
+      "restTicks": 24,
+      "respawnTicks": 3600,
+      "first": [
+        "WG01",
+        "WG05",
+        "WG02",
+        "WG06",
+        "WG03",
+        "WG04",
+        "WG07"
+      ],
+      "second": [
+        "WG10",
+        "WG14",
+        "WG11",
+        "WG12",
+        "WG16",
+        "WG13",
+        "WG07"
+      ],
+      "arena": {
+        "left": 40,
+        "right": 920,
+        "upperY": 357,
+        "platformWidth": 141,
+        "platformInset": 70,
+        "cutStep": 88,
+        "cutTick": 216,
+        "cutThresholds": [
+          0.75,
+          0.5,
+          0.25
+        ],
+        "cutGap": 600,
+        "ordinaryBetween": 2,
+        "fallDepth": 45,
+        "fallRatio": 0.25,
+        "fallGrace": 60
+      },
+      "erosion": {
+        "delay": 120,
+        "cap": 4,
+        "gap": 30,
+        "ratio": 0.015
+      },
+      "ground": {
+        "limit": 3,
+        "ttl": 300,
+        "gap": 90,
+        "safeWidth": 106
+      },
+      "gate": {
+        "gap": 24,
+        "opens": 60,
+        "physical": 1,
+        "element": 2
+      },
+      "damage": {
+        "default": 31,
+        "wave": 26,
+        "orb": 29,
+        "catastrophe": 78,
+        "ground": 14
+      },
+      "moves": {
+        "WG01": {
+          "title": "紫焔の四珠",
+          "total": 330,
+          "locks": [
+            42
+          ],
+          "windows": [],
+          "recovery": 240,
+          "projectiles": [
+            {
+              "spawn_ticks": [
+                72,
+                102,
+                132,
+                162
+              ],
+              "ttl_ticks": 72
+            }
+          ],
+          "groundAt": 162
+        },
+        "WG02": {
+          "title": "焔剣の落断",
+          "total": 270,
+          "locks": [
+            54
+          ],
+          "windows": [
+            [
+              108,
+              120
+            ]
+          ],
+          "recovery": 168,
+          "projectiles": [],
+          "groundAt": 120
+        },
+        "WG03": {
+          "title": "炎剣の二薙ぎ",
+          "total": 300,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              84,
+              90
+            ],
+            [
+              144,
+              150
+            ]
+          ],
+          "recovery": 192,
+          "projectiles": [],
+          "groundAt": 150
+        },
+        "WG04": {
+          "title": "追剣と影移り",
+          "total": 300,
+          "locks": [
+            42,
+            180
+          ],
+          "windows": [
+            [
+              84,
+              90
+            ]
+          ],
+          "recovery": 228,
+          "projectiles": []
+        },
+        "WG05": {
+          "title": "刺剣の障壁試練",
+          "total": 1020,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              180,
+              186
+            ],
+            [
+              360,
+              366
+            ],
+            [
+              540,
+              546
+            ]
+          ],
+          "recovery": 948,
+          "projectiles": [
+            {
+              "spawn_ticks": [
+                840
+              ],
+              "ttl_ticks": 90
+            }
+          ],
+          "accept": [
+            60,
+            780
+          ],
+          "units": 12
+        },
+        "WG06": {
+          "title": "三体の擬態芽",
+          "total": 720,
+          "locks": [],
+          "windows": [],
+          "recovery": 720,
+          "projectiles": [
+            {
+              "relative_spawn_ticks": [
+                180,
+                360,
+                540
+              ],
+              "ttl_ticks": 72,
+              "max_sources": 3,
+              "cancel_on_resolve": true
+            }
+          ],
+          "units": 4,
+          "targets": 3,
+          "failure": "WG07"
+        },
+        "WG07": {
+          "title": "深淵の掌",
+          "total": 300,
+          "locks": [
+            72
+          ],
+          "windows": [
+            [
+              132,
+              144
+            ],
+            [
+              192,
+              198
+            ]
+          ],
+          "recovery": 228,
+          "projectiles": []
+        },
+        "WG08": {
+          "title": "焔雨と第二の剣",
+          "total": 360,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              90,
+              96
+            ],
+            [
+              138,
+              144
+            ],
+            [
+              186,
+              192
+            ]
+          ],
+          "recovery": 300,
+          "projectiles": []
+        },
+        "WG09": {
+          "title": "合剣・戦場の断裁",
+          "total": 360,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              180,
+              192
+            ]
+          ],
+          "recovery": 252,
+          "projectiles": []
+        },
+        "WG10": {
+          "title": "双剣の楔と吐息",
+          "total": 420,
+          "locks": [
+            54,
+            192
+          ],
+          "windows": [
+            [
+              108,
+              120
+            ],
+            [
+              240,
+              276
+            ]
+          ],
+          "recovery": 312,
+          "projectiles": [],
+          "groundAt": 120
+        },
+        "WG11": {
+          "title": "炎深淵の三連",
+          "total": 330,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              84,
+              90
+            ],
+            [
+              138,
+              144
+            ],
+            [
+              204,
+              210
+            ]
+          ],
+          "recovery": 240,
+          "projectiles": [],
+          "groundAt": 210
+        },
+        "WG12": {
+          "title": "深翼の散羽",
+          "total": 300,
+          "locks": [
+            42
+          ],
+          "windows": [],
+          "recovery": 240,
+          "projectiles": [
+            {
+              "spawn_ticks": [
+                84,
+                144
+              ],
+              "ttl_ticks": 90
+            }
+          ]
+        },
+        "WG13": {
+          "title": "剣舞・霧走・帰刃",
+          "total": 480,
+          "locks": [
+            42,
+            180,
+            318
+          ],
+          "windows": [
+            [
+              84,
+              90
+            ],
+            [
+              210,
+              216
+            ],
+            [
+              270,
+              276
+            ],
+            [
+              354,
+              360
+            ]
+          ],
+          "recovery": 396,
+          "projectiles": []
+        },
+        "WG14": {
+          "title": "三柱の虚界封鎖",
+          "total": 1080,
+          "locks": [],
+          "windows": [
+            [
+              300,
+              306
+            ],
+            [
+              660,
+              666
+            ],
+            [
+              960,
+              966
+            ]
+          ],
+          "recovery": 1080,
+          "projectiles": [],
+          "units": 6,
+          "targets": 3,
+          "failure": "WG15"
+        },
+        "WG15": {
+          "title": "暗黒星の墜落",
+          "total": 360,
+          "locks": [
+            90
+          ],
+          "windows": [
+            [
+              180,
+              192
+            ]
+          ],
+          "recovery": 252,
+          "projectiles": []
+        },
+        "WG16": {
+          "title": "剣を呑む終焔",
+          "total": 780,
+          "locks": [],
+          "windows": [],
+          "recovery": 780,
+          "projectiles": [],
+          "accept": [
+            60,
+            780
+          ],
+          "units": 12,
+          "failure": "WG15"
+        },
+        "WG17": {
+          "title": "虚界崩れ・露出",
+          "total": 600,
+          "locks": [],
+          "windows": [],
+          "recovery": 540,
+          "projectiles": [],
+          "exposure": [
+            60,
+            540
+          ]
+        }
+      }
     }
   ]
 }

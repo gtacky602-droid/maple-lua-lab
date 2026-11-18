@@ -2170,6 +2170,7 @@
         }
       ],
       "exits": [
+        {"to":"primal-fire-sundered-forge","x":351,"arrivalX":392},
         {
           "to": "natlan-entry",
           "x": 60
@@ -5592,9 +5593,11 @@
     {"id":"apep-oasis-heart-arena","name":"オアシスの再現戦","region":"スメール","hub":false,"peaceful":true,"level":68,"width":960,"platforms":[{"x":0,"y":480,"w":960},{"x":98,"y":355,"w":176},{"x":686,"y":355,"w":176}],"checkpoint":"sumeru-hub","exits":[{"to":"sumeru-hub","x":58}]},
     {"id":"narwhal-star-sea","name":"星海の再現戦","region":"フォンテーヌ","level":84,"width":960,"hub":false,"peaceful":true,"checkpoint":"fontaine-hub","platforms":[{"x":0,"y":480,"w":960},{"x":102,"y":355,"w":170},{"x":688,"y":355,"w":170}],"exits":[{"to":"fontaine-hub","x":66}]},
     {"id":"narwhal-inner-echo","name":"呑星の鯨・腹中","region":"フォンテーヌ","level":84,"width":960,"hub":false,"peaceful":true,"checkpoint":"fontaine-hub","platforms":[{"x":0,"y":480,"w":960},{"x":102,"y":355,"w":170},{"x":688,"y":355,"w":170}],"exits":[{"to":"fontaine-hub","x":66}],"weeklySceneOf":"narwhal-star-sea"},
-    {"id":"knave-crimson-court","name":"凶月の再現戦","region":"フォンテーヌ","level":88,"width":960,"hub":false,"peaceful":true,"checkpoint":"fontaine-hub","platforms":[{"x":0,"y":480,"w":960},{"x":98,"y":357,"w":158},{"x":704,"y":357,"w":158}],"exits":[{"to":"fontaine-hub","x":130}]}
+    {"id":"knave-crimson-court","name":"凶月の再現戦","region":"フォンテーヌ","level":88,"width":960,"hub":false,"peaceful":true,"checkpoint":"fontaine-hub","platforms":[{"x":0,"y":480,"w":960},{"x":98,"y":357,"w":158},{"x":704,"y":357,"w":158}],"exits":[{"to":"fontaine-hub","x":130}]},
+    {"id":"primal-fire-sundered-forge","name":"源焔の再現戦","region":"ナタ","level":104,"width":960,"hub":false,"peaceful":true,"checkpoint":"natlan-hub","platforms":[{"x":40,"y":480,"w":880},{"x":110,"y":357,"w":141},{"x":709,"y":357,"w":141}],"exits":[{"to":"natlan-hub","x":863,"arrivalX":351}]}
   ],
   "quests": [
+    {"id":"primal-fire-weekly-commission","name":"源焔の再現戦・虚界の障壁","giver":"マーヴィカ","hub":"natlan-hub","target":"primal-fire-weekly","kind":"boss","goal":1,"level":104,"xp":420000,"mora":12800,"ore":4,"briefing":"障壁は通常でも削れます。紫の予告を避け、床の左端が白線で区切られたら右側へ。障壁や三柱を壊して、体勢が崩れた隙に源焔の主を討伐してください。"},
     {"id":"knave-weekly-commission","name":"凶月の再現戦・命の契約","giver":"リネ","hub":"fontaine-hub","target":"knave-weekly","kind":"boss","goal":1,"level":88,"xp":280000,"mora":9600,"ore":3,"briefing":"命の契約は回復するか、両端の返済灯でGを長押しすると清算できます。羽印を持って敵の赤宴受付中にHの一撃を当て、二形態を倒してください。"},
     {"id":"narwhal-weekly-commission","name":"星海の再現戦・幻形の核","giver":"ヌヴィレット","hub":"fontaine-hub","target":"narwhal-weekly","kind":"boss","goal":1,"level":84,"xp":230000,"mora":8500,"ore":3,"briefing":"鯨の敵意が満ちたら腹中へ。幻形の核が開いたら通常攻撃を4回当て、外に戻って鯨を討伐してください。"},
     {"id":"apep-weekly-commission","name":"オアシスの再現戦・心の防衛","giver":"ナヒーダ","hub":"sumeru-hub","target":"apep-weekly","kind":"boss","goal":1,"level":68,"xp":90000,"mora":5600,"ore":2,"briefing":"初戦の後、取り巻きを倒してオアシスの心を守ります。終末の余波ではドームの内側へ入ってください。"},
