@@ -930,6 +930,27 @@
       "node": "tunigi-fragment-vault",
       "enemy_count": 0,
       "field_boss_count": 1
+    },
+    {
+      "node": "bygone-waterway-pier",
+      "enemy_count": 0
+    },
+    {
+      "node": "bygone-resonance-chamber",
+      "enemy_count": 0
+    },
+    {
+      "node": "bygone-inscribed-hall",
+      "enemy_count": 0
+    },
+    {
+      "node": "bygone-listening-gallery",
+      "enemy_count": 0
+    },
+    {
+      "node": "bygone-bell-archive",
+      "enemy_count": 0,
+      "field_boss_count": 1
     }
   ],
   "render_profiles": [

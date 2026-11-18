@@ -22,7 +22,7 @@ export function initAirflowAudio(){
   button.blur();
  };
  return {update(frame){
-  const cue=frame.storyAirflowCue;
+  const cue=frame.storyResonanceCue??frame.storyAirflowCue;
   if(!cue)return;
   const key=`${frame.session}:${cue.id}:${cue.untilTime}`;
   if(key===lastCue)return;

@@ -15,7 +15,7 @@ return function()
   trial.deck=nil
  end
 
- function airflow.interact(s,item,command)
+ function airflow.interact(s,item,command,emitCue)
   local config=item.airflow
   local trial=current(s,item)
   s.airflowTrial=trial
@@ -23,10 +23,7 @@ return function()
    removePreview(s,trial)
    trial.index=trial.index%#config.choices+1
    local choice=config.choices[trial.index]
-   if choice.notes then
-    s.airflowCueId=(s.airflowCueId or 0)+1
-    s.airflowCue={id=s.airflowCueId,notes=choice.notes,pattern=choice.pattern,untilTime=s.t+1.5}
-   end
+   if choice.notes then emitCue(s,'airflow',choice.notes,choice.pattern) end
    if trial.index==config.correct and not config.confirm then s.airflowTrial=nil;return true end
    trial.deck=choice.deck
    if trial.deck then s.platforms[#s.platforms+1]=trial.deck end

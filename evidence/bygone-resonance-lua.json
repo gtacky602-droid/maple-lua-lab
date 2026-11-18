@@ -1,0 +1,51 @@
+{
+  "legacyLv80Access": true,
+  "twoWayWaterway": true,
+  "pauseHoldsCrossing": true,
+  "reversedStoneSilent": true,
+  "turnedStoneNotes": [
+    392,
+    523,
+    587
+  ],
+  "wrongOrderClearsOnlyLights": true,
+  "bridgePersistsAfterLoad": true,
+  "recordOnUpperShelf": true,
+  "bossAppearanceOnly": true,
+  "bookPages": [
+    [
+      "≈",
+      [
+        330,
+        494
+      ]
+    ],
+    [
+      "◇",
+      [
+        294
+      ]
+    ],
+    [
+      "✧",
+      [
+        392,
+        523,
+        587
+      ]
+    ],
+    [
+      "≈",
+      [
+        330,
+        494
+      ]
+    ]
+  ],
+  "firstReport": [
+    2297237,
+    660060,
+    7
+  ],
+  "oneTimeReport": true
+}

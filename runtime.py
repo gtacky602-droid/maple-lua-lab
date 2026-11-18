@@ -102,7 +102,8 @@ def runtime():
     reflection=lua.execute((ROOT/'story-reflection.lua').read_text(encoding='utf8'))()
     local_light=lua.execute((ROOT/'story-local-light.lua').read_text(encoding='utf8'))()
     airflow=lua.execute((ROOT/'story-airflow.lua').read_text(encoding='utf8'))()
-    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow)
+    resonance=lua.execute((ROOT/'story-resonance.lua').read_text(encoding='utf8'))
+    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance)
     lua.execute((ROOT / 'barrier.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'farka.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'regisvine.lua').read_text(encoding='utf-8'))(core)
@@ -315,13 +316,14 @@ def runtime():
     core.teaBoulderArt=field_art(lua,'tea-boulder',('idle',))
     plate_tail=lua.execute((ROOT/'field-plate-tail.lua').read_text(encoding='utf8'))(core)
     core.plateTailArt=field_art(lua,'plate-tail',('idle',))
-    wind_ring=lua.execute((ROOT/'field-wind-ring.lua').read_text(encoding='utf8'))(core)
-    core.windRingArt=field_art(lua,'wind-ring',('idle',))
+    field_display=lua.execute((ROOT/'field-display.lua').read_text(encoding='utf8'))
+    wind_ring=field_display(core,field_art(lua,'wind-ring',('idle',)).idle)
+    bell_gate=field_display(core,field_art(lua,'bellgate',('idle',)).idle)
     lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(
         core,lua.table_from(field_specs,recursive=True),
         lua.table_from({'snowSweeper':snow_sweeper,'frostAntler':frost_antler,'windwardTower':windward_tower,
                         'rubbleSifter':rubble_sifter,'prismWalker':prism_walker,'iceCrawler':ice_crawler,'rimeHare':rime_hare,
-                        'teaBoulder':tea_boulder,'plateTail':plate_tail,'windRing':wind_ring,
+                        'teaBoulder':tea_boulder,'plateTail':plate_tail,'windRing':wind_ring,'bellGate':bell_gate,
                         'jadeplume':jade,'cryoRegisvine':cryo_field,'pyroRegisvine':pyro_field,
                         'anemoHypostasis':anemo_field,'electroHypostasis':electro_field,'geoHypostasis':geo_field,
                         'primoGeovishap':primo_field,'oceanid':oceanid_field,'maguu':maguu_field,

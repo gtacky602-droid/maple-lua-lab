@@ -1,0 +1,64 @@
+{
+  "generator": "built-in imagegen",
+  "originalModel": {
+    "path": "evidence/bellgate-model.obj",
+    "sha256": "69ebc26c46c026efecb2cff993ead51111ade252a5a298440e7cc67b1324ab0d"
+  },
+  "materials": {
+    "path": "evidence/bellgate-model.mtl",
+    "sha256": "16ebe84931ccdadc5f547bd92311db9948e9eeb6bb3ed53d81dcf0622abee0d4"
+  },
+  "vertices": 266,
+  "faces": 202,
+  "reference": {
+    "path": "evidence/bellgate-views.png",
+    "sha256": "7baee9e7b1298b71f2bfba87145592983472d1886cad9ebfdb81dba6dfaed050"
+  },
+  "views": [
+    "front",
+    "front three-quarter",
+    "rear three-quarter"
+  ],
+  "source": {
+    "path": "assets/bellgate-source-v1.png",
+    "sha256": "fafb806bc9defb5bf7013b1c82b32a8123ed5c4e43e2359c3b79170de3614a84"
+  },
+  "sourceSize": [
+    1312,
+    1199
+  ],
+  "outsideAlphaSamples": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "box": [
+    133,
+    107,
+    995,
+    1054
+  ],
+  "anchorX": 0.48542713567839196,
+  "encoding": {
+    "path": "assets/bellgate-field-idle-sprites-v1.json",
+    "sha256": "892d0411ce3936fbeffca8415bd66161bfa4aa35a3aa7acf93df5939afdcc3ed"
+  },
+  "runs": {
+    "legacy": 4665,
+    "h48c32": 3182,
+    "h32c16": 1094
+  },
+  "background": {
+    "path": "assets/bygone-resonance-background-v1.png",
+    "sha256": "ae257388e4abf2d2b20ae3f37a0f3a068d45bea466ea6a74701f41fdccd383fb"
+  },
+  "backgroundSize": [
+    1672,
+    941
+  ],
+  "paletteReference": {
+    "path": "assets/bygone-background-v1.png",
+    "sha256": "c42df5993ba3a4d5ae59f525911f4330ca5c9c57e5c92c9b7f1808423122242d"
+  }
+}

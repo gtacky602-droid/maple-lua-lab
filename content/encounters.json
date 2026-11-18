@@ -12,8 +12,8 @@
   },
   "counts": {
     "source_entities": 63,
-    "encounter_candidates": 82,
-    "partial": 64,
+    "encounter_candidates": 83,
+    "partial": 65,
     "complete": 0
   },
   "encounters": [
@@ -2218,6 +2218,32 @@
         "encoding": "assets/wind-ring-field-idle-sprites-v1.json",
         "audit": "evidence/wind-ring-art.json",
         "status": "original sandstone split ring and mint core; appearance and story progression only"
+      }
+    },
+    {
+      "id": "original-bellgate",
+      "name": "潮鐘の門像",
+      "kind": "normal",
+      "entity_ids": [],
+      "status": "partial",
+      "action": null,
+      "grouping": "original_design",
+      "evidence": [
+        "docs/balance/BYGONE_RESONANCE_WEB.md"
+      ],
+      "remaining": [
+        "ボスの技",
+        "連続アニメーション",
+        "素材報酬の選択",
+        "マルチ検証"
+      ],
+      "fieldNode": "bygone-bell-archive",
+      "fieldEntrance": "潮鐘の記録室（Lv160）",
+      "art_candidate": {
+        "source": "assets/bellgate-source-v1.png",
+        "encoding": "assets/bellgate-field-idle-sprites-v1.json",
+        "audit": "evidence/bellgate-art.json",
+        "status": "original low-poly form reference; appearance and quest progression"
       }
     },
     {

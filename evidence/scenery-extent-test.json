@@ -2642,6 +2642,36 @@
       "transparent": 0
     },
     {
+      "key": "bygoneResonance",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "bygoneResonance",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "bygoneResonance",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "bygoneResonance",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "bygoneResonance",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "bygoneResonance",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "bygone",
       "camera": -960,
       "transparent": 0

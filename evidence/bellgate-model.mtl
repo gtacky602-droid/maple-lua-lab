@@ -1,0 +1,23 @@
+newmtl stone
+Kd 0.35294 0.49412 0.56078
+illum 1
+
+newmtl edge
+Kd 0.63529 0.75686 0.75294
+illum 1
+
+newmtl dark
+Kd 0.21569 0.29804 0.35686
+illum 1
+
+newmtl bronze
+Kd 0.72157 0.45882 0.28235
+illum 1
+
+newmtl ring
+Kd 0.92549 0.63529 0.35294
+illum 1
+
+newmtl light
+Kd 0.52157 0.89020 0.82745
+illum 1

@@ -1,0 +1,40 @@
+{
+  "threeQuests": true,
+  "waterway": true,
+  "reversedSilent": true,
+  "repairedTones": [
+    330,
+    494,
+    392,
+    523,
+    587
+  ],
+  "wrongOrderResets": true,
+  "mutedOrder": true,
+  "bridgeAfterReload": true,
+  "firstReport": [
+    2297237,
+    660060,
+    7
+  ],
+  "bookAfterReload": true,
+  "bookTones": [
+    330,
+    494,
+    294,
+    392,
+    523,
+    587
+  ],
+  "background": {
+    "key": "bygoneResonance",
+    "file": "bygone-resonance-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 27,
+    "standard": 8912,
+    "light": 2164
+  },
+  "errors": []
+}

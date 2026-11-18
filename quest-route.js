@@ -69,6 +69,7 @@ export function questRouteText(f,q,status){
   const dx=edge.x-actor.x;
   if(Math.abs(dx)>=90)notes.push(`次の門は${dx>0?'右':'左'}にあります`);
   else if(Math.abs(actor.y-(edge.y??480))>=60)notes.push(edge.y===undefined?'門の横位置まで来ています。地上へ降りてください':'門のある足場へ移動してください');
+  else if(edge.waterwaySeconds)notes.push('乗り継ぎ場に着きました。「F：水路を渡る」で進めます');
   else notes.push(edge.liftSeconds?'昇降台の近くです。「F：昇降台に乗る」で進めます':'次の門の近くです。移動条件を満たすと「F：この門を通る」で進めます');
  }
  if(edge.windowStart!==undefined){

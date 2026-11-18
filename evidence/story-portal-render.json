@@ -1033,12 +1033,12 @@
     {
       "node": "bygone-camp",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 6
     },
     {
       "node": "bygone-camp",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 6
     },
     {
       "node": "bygone-depth",
@@ -2167,6 +2167,56 @@
     },
     {
       "node": "tunigi-fragment-vault",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "bygone-waterway-pier",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "bygone-waterway-pier",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "bygone-resonance-chamber",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "bygone-resonance-chamber",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "bygone-inscribed-hall",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "bygone-inscribed-hall",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "bygone-listening-gallery",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "bygone-listening-gallery",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "bygone-bell-archive",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "bygone-bell-archive",
       "mode": "rect",
       "visible_portals": 2
     }

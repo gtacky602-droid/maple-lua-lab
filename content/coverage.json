@@ -253,8 +253,8 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 2,
-      "prototype_quest_count": 1,
+      "prototype_stage_count": 7,
+      "prototype_quest_count": 4,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
     {
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 217,
-    "provisional_quests": 143,
+    "authored_stages": 222,
+    "provisional_quests": 146,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -1021,10 +1021,18 @@
         "kind": "high_level_branch",
         "stage_ids": [
           "bygone-camp",
-          "bygone-depth"
+          "bygone-depth",
+          "bygone-waterway-pier",
+          "bygone-resonance-chamber",
+          "bygone-inscribed-hall",
+          "bygone-listening-gallery",
+          "bygone-bell-archive"
         ],
         "quest_ids": [
-          "bygone-survey"
+          "bygone-survey",
+          "bygone-stone-rubbings",
+          "bygone-lit-passage",
+          "bygone-sound-book"
         ]
       },
       {
@@ -1206,7 +1214,12 @@
         },
         "prototype_stage_ids": [
           "bygone-camp",
-          "bygone-depth"
+          "bygone-depth",
+          "bygone-waterway-pier",
+          "bygone-resonance-chamber",
+          "bygone-inscribed-hall",
+          "bygone-listening-gallery",
+          "bygone-bell-archive"
         ]
       },
       {
@@ -1250,8 +1263,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 48,
-    "without_explicit_mapping": 105,
+    "linked": 51,
+    "without_explicit_mapping": 102,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1265,6 +1278,9 @@
       "Q-B04-01": "tunigi-vent-record",
       "Q-B04-02": "tunigi-return-design",
       "Q-B04-03": "tunigi-fragment-return",
+      "Q-B05-01": "bygone-stone-rubbings",
+      "Q-B05-02": "bygone-lit-passage",
+      "Q-B05-03": "bygone-sound-book",
       "Q-B06-01": "windward-lookouts",
       "Q-B06-02": "windward-flags",
       "Q-B06-03": "windward-tower-clear",

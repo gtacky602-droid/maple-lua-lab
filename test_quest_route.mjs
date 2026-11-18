@@ -57,5 +57,9 @@ const sightFrame={story:{active:true,node:sights.hub,quests:{[sights.id]:sightSt
 assert.match(questRouteText(sightFrame,sights,'active'),/目的地：稲妻・城下の広場/);
 delete sightState.sights;
 assert.match(questRouteText(sightFrame,sights,'active'),/目的地：稲妻・海辺の街道/);
+const rubbings=graph.quests.find(q=>q.id==='bygone-stone-rubbings');
+const waterway={story:{active:true,node:'bygone-waterway-pier',quests:{[rubbings.id]:{count:0}}},
+ storyGraph:graph,progression:{level:148},active:1,actors:[{id:1,x:821,y:480}]};
+assert.match(questRouteText(waterway,rubbings,'active'),/次は 共鳴石の足場室.*F：水路を渡る/);
 const original=JSON.stringify(frame);let checked=0;for(const quest of graph.quests)for(const status of ['unaccepted','active','ready','complete']){assert.equal(typeof questRouteText(frame,quest,status),'string');checked++}assert.equal(JSON.stringify(frame),original);
 await fs.writeFile('evidence/quest-route-test.json',JSON.stringify({checked,checks:['accept/report hub destination','active visit/kill destination','boss challenge entrance','one-time complete hidden','repeatable complete points to hub','missing/hidden target no leak','level gate indication','level-eligible detour preferred','shortest route at eligible level','blocked fallback minimizes required level','high-level origin permits exit','cycles terminate','voyage pre/during/post stopover and arrival','arrival zero switches to disembark; positive fraction waits','active companion position drives gate direction','ground proximity and elevated descent guidance','missing actors omit directional guidance','pause indication','disconnected graph','chapter finale tracks the cape after the contest','town walk and legacy hunt use their respective targets','no frame mutation']},null,2));console.log('Quest routing fixtures passed');

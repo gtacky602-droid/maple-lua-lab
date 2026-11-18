@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 217 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 209,
+  "scope": "Authored 222 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 214,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1041,7 +1041,12 @@
     {"id":"tunigi-baffle-workshop","name":"風よけ板の工房","region":"トゥニギの黒淵","status":"regional_temporary_image"},
     {"id":"tunigi-return-shelter","name":"発掘隊の風よけ所","region":"トゥニギの黒淵","status":"regional_temporary_image"},
     {"id":"tunigi-elite-passage","name":"岩陰の発掘通路","region":"トゥニギの黒淵","status":"regional_temporary_image"},
-    {"id":"tunigi-fragment-vault","name":"風礫の記録庫","region":"トゥニギの黒淵","status":"regional_temporary_image"}
+    {"id":"tunigi-fragment-vault","name":"風礫の記録庫","region":"トゥニギの黒淵","status":"regional_temporary_image"},
+    {"id":"bygone-waterway-pier","name":"水路の乗り継ぎ場","region":"往日の海","status":"regional_temporary_image"},
+    {"id":"bygone-resonance-chamber","name":"共鳴石の足場室","region":"往日の海","status":"regional_temporary_image"},
+    {"id":"bygone-inscribed-hall","name":"三つの印の回廊","region":"往日の海","status":"regional_temporary_image"},
+    {"id":"bygone-listening-gallery","name":"音をたどる観賞路","region":"往日の海","status":"regional_temporary_image"},
+    {"id":"bygone-bell-archive","name":"潮鐘の記録室","region":"往日の海","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 8
 }
