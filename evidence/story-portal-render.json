@@ -983,12 +983,12 @@
     {
       "node": "enkanomiya-camp",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 5
     },
     {
       "node": "enkanomiya-camp",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 5
     },
     {
       "node": "enkanomiya-depth",
@@ -2077,6 +2077,46 @@
     },
     {
       "node": "chenyu-boulder-gully",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "enkan-guide-shelf",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "enkan-guide-shelf",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "enkan-lamp-chamber",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "enkan-lamp-chamber",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "enkan-route-gallery",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "enkan-route-gallery",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "enkan-tablet-hollow",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "enkan-tablet-hollow",
       "mode": "rect",
       "visible_portals": 1
     }

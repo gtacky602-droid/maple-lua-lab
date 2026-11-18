@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -46,6 +46,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   return calm,nextChange-t
  end
  local function gateRestriction(s,edge)
+  if edge.darkOnly and s.storyLightMode~='dark' then return '消灯すると出口が見えます。' end
   if edge.roofTrialStage and s.roofTrial and s.roofTrial.count<edge.roofTrialStage then return '屋根の目印を先に調べてください。' end
   local rule=edge.requires
   if rule then
@@ -179,6 +180,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   for _,q in ipairs(itineraries) do
    local milestone,state=nextMilestone(s,q)
    if milestone and milestone.kind=='inspect' and milestone.node==s.story.node
+       and (not milestone.roomLight or milestone.roomLight==s.storyLightMode)
        and canInspect(s.actors[s.active],milestone) then
     if milestone.reflect then
      if reflection.interact(s,milestone,command) then completeMilestone(s,state,milestone) end
@@ -186,6 +188,18 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif command=='rotate' then
      completeMilestone(s,state,milestone)
      return true
+    end
+   end
+  end
+  if command=='rotate' then
+   for _,q in ipairs(itineraries) do
+    if completed(s,q.id) then
+     for _,done in ipairs(q.itinerary) do
+      if done.readback and done.node==s.story.node and canInspect(s.actors[s.active],done) then
+       s.storyNotice=done.readback
+       return true
+      end
+     end
     end
    end
   end
@@ -267,6 +281,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.campaign.zone=n.hub and 'town' or ('story:'..id);s.campaign.message='本編ルートの試作。隣の地点へは門の近くで移動。'
   s.story.active=true;s.story.node=id;s.story.visited[id]=true;s.worldwidth=n.width
   s.storyEnteredAt=s.t
+  s.storyLightMode=n.localLight and 'bright' or nil
   s.platforms={};for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]=copy(p) end
   for _,q in ipairs(itineraries) do
    local state=s.story.quests[q.id]
@@ -349,6 +364,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   if key=='story_collect' then
    if s.paused or not s.story.active then return end
+   local lamp=nodes[s.story.node].localLight
+   if lamp and localLight.interact(s,lamp) then return end
    if inspectMilestone(s,'rotate') then return end
    local railConfig,railState=railQuest(s,nodes[s.story.node])
    if railConfig then rail.start(s,railConfig,railState);return end
@@ -688,13 +705,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    else f.storyNearbyPortal=nearbyPortal(s) end
    local markers={};f.storyPortals={}
    local function marker(x,y,w,h) markers[#markers+1]={kind='rect',x=x,y=y,w=w,h=h,color='#83dbe1'} end
-   for _,edge in ipairs(n.exits) do if shown(nodes[edge.to]) then
+   for _,edge in ipairs(n.exits) do if shown(nodes[edge.to]) and (not edge.darkOnly or s.storyLightMode=='dark') then
     local x,y=edge.x-s.camera,edge.y or 480
     marker(x-18,y-90,3,90);marker(x+15,y-90,3,90)
     marker(x-18,y-90,36,3);marker(x-21,y-3,42,3)
     f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=y}
    end
    end
+   if n.localLight then localLight.observe(s,f,markers,n.localLight) end
    for _,edge in ipairs(n.exits) do
     if edge.wind and not windWindow(s,edge.wind) then
      local x,y=edge.x-s.camera,edge.y or 480
@@ -772,7 +790,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     local milestone=nextMilestone(s,q)
     if milestone and milestone.reflect and milestone.node==s.story.node then
      reflection.draw(s,f,markers,milestone,not s.paused and canInspect(s.actors[s.active],milestone))
-    elseif milestone and milestone.kind=='inspect' and milestone.node==s.story.node then
+    elseif milestone and milestone.kind=='inspect' and milestone.node==s.story.node
+        and (not milestone.roomLight or milestone.roomLight==s.storyLightMode) then
      local x,y=milestone.x-s.camera,milestone.y
      if x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
@@ -791,7 +810,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if state then
      for index=1,state.count do
       local done=q.itinerary[index]
-      if done.completedLabel and done.node==s.story.node then
+      if done.completedLabel and done.node==s.story.node and (not done.roomLight or done.roomLight==s.storyLightMode) then
        local x,y=done.x-s.camera,done.y
        if x>=-25 and x<=985 then
         if done.outcrop then drawOutcrop(markers,x,y,done.outcrop)
@@ -801,6 +820,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
          markers[#markers+1]={kind='rect',x=x-7,y=y-25,w=14,h=12,color='#b9ffce'}
         end
         markers[#markers+1]={kind='text',x=x,y=y-(done.outcrop and 48 or 41),text=done.completedLabel,color='#b9ffce',size=14}
+       end
+       if done.readback and state.status=='complete' and not f.storyNearbyMilestone and not s.paused
+           and canInspect(s.actors[s.active],done) then
+        f.storyNearbyMilestone={label=done.readLabel}
        end
       end
      end

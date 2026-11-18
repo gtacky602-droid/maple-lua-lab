@@ -1,5 +1,5 @@
 {
-  "controllers": 57,
+  "controllers": 58,
   "ids": [
     "boss-26110101",
     "boss-26020101",
@@ -57,7 +57,8 @@
     "original-prism-walker",
     "original-ice-crawler",
     "original-rime-hare",
-    "original-tea-boulder"
+    "original-tea-boulder",
+    "original-plate-tail"
   ],
   "hpAndGenerationRoundTrip": true,
   "optionalFlagsOnlyOnDeclaredControllers": true,

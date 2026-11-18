@@ -83,6 +83,7 @@ export function questRouteText(f,q,status){
   else if(Number.isFinite(seconds)&&seconds<=0)notes.push('船は到着しています。下船する門へ進んでください');
   else notes.push(`船の到着を待ちます${Number.isFinite(seconds)?`（約${Math.ceil(seconds)}秒）`:''}`);
  }
+ else if(edge.darkOnly)notes.push('室内の操作盤で灯りを消すと、この門が現れます');
  else notes.push('次の地点の門へ歩いて移動してください');
  if(f.paused)notes.push('一時停止中');
  return `次は ${next.name} → 目的地：${nodes.get(path.at(-1)).name}（残り${path.length-1}区間・拠点移動を除く接続経路）。${notes.join('。')}。`;

@@ -1248,6 +1248,30 @@
       "count": 0,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "enkan-guide-shelf",
+      "count": 5,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "enkan-lamp-chamber",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "enkan-route-gallery",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "enkan-tablet-hollow",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,

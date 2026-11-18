@@ -1,0 +1,61 @@
+{
+  "generator": "built-in imagegen",
+  "reference": {
+    "path": "evidence/plate-tail-shape.png",
+    "sha256": "3aac13c4e13ad52277068b54ec28dcc8236676dc8f42e28d2aca2cd1f8bc497f"
+  },
+  "referenceViews": [
+    "left three-quarter",
+    "front three-quarter"
+  ],
+  "subject": "Original basalt creature with upright teal plates and a flat tail",
+  "source": {
+    "path": "assets/plate-tail-source-v1.png",
+    "sha256": "fcb603e55eca1a039c9559531b79989ccd5db729619c569466801a97a6368439"
+  },
+  "sourceSize": [
+    1774,
+    887
+  ],
+  "outsideAlphaSamples": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "box": [
+    175,
+    70,
+    1425,
+    746
+  ],
+  "anchorX": 0.37087719298245614,
+  "encoding": {
+    "path": "assets/plate-tail-field-idle-sprites-v1.json",
+    "sha256": "ecd1f348370b5fefe24a2374eca4bbb3df9f247c04802b875d48af2d8a1104ad"
+  },
+  "runs": {
+    "legacy": 6284,
+    "h48c32": 4204,
+    "h32c16": 1840
+  },
+  "lit": {
+    "path": "assets/enkan-lamp-chamber-background-v1.png",
+    "sha256": "a625068f297716d86974b19c4ae49008298ca9693a7572c8cfd93a20ab0d1597",
+    "size": [
+      1672,
+      941
+    ],
+    "lanternLuma": 148.7
+  },
+  "dark": {
+    "path": "assets/enkan-lamp-chamber-dark-v1.png",
+    "sha256": "1589150a9296f42823f561535a6bc71cbe355e9d982ac2635fd807da997391d5",
+    "size": [
+      1671,
+      941
+    ],
+    "lanternLuma": 50.6
+  },
+  "lighting": "Generated the dark variant as a lighting edit of the lit artwork. Host chooses between static images; physics is declared separately."
+}

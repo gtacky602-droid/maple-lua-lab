@@ -2642,6 +2642,66 @@
       "transparent": 0
     },
     {
+      "key": "enkanLampDark",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "enkanLampDark",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "enkanLampDark",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "enkanLampDark",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "enkanLampDark",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "enkanLampDark",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "enkanLamp",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "enkanLamp",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "enkanLamp",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "enkanLamp",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "enkanLamp",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "enkanLamp",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "enkanomiya",
       "camera": -960,
       "transparent": 0

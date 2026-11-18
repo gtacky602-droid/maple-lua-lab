@@ -1,6 +1,7 @@
 {
   "errors": [],
-  "allCandidates": 80,
+  "allCandidates": 81,
+  "plateTailFieldRoute": true,
   "teaBoulderFieldRoute": true,
   "rimeHareFieldRoute": true,
   "iceCrawlerFieldRoute": true,

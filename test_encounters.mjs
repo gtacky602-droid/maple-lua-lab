@@ -2,7 +2,7 @@ import {chromium} from 'playwright';import fs from 'node:fs/promises';
 const browser=await chromium.launch({headless:true,channel:'chrome'}),page=await browser.newPage({viewport:{width:1440,height:1080}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
 try{
  await page.goto(process.env.LAB_URL||'http://127.0.0.1:8769');await page.waitForFunction(()=>window.lab?.frame);
- const panel=page.locator('#encountersPanel');await panel.locator('summary').click();await page.waitForFunction(()=>document.querySelectorAll('[data-encounter]').length===80);
+ const panel=page.locator('#encountersPanel');await panel.locator('summary').click();await page.waitForFunction(()=>document.querySelectorAll('[data-encounter]').length===81);
  if(!await panel.getByText(/Ver\.7\.2.*通常48系統・週ボス14戦/).isVisible())throw Error('roster review missing');
  for(const query of ['博士','ドットーレ']){
   await panel.getByLabel('ボス名で検索').fill(query);
@@ -98,6 +98,9 @@ try{
  await panel.getByLabel('ボス名で検索').fill('苔衣の踏石獣');
  const boulder=panel.locator('[data-encounter="original-tea-boulder"]').getByRole('link',{name:/段丘の岩陰/});
  if(await boulder.getAttribute('href')!=='map-art.html?node=chenyu-boulder-gully')throw Error('Tea boulder gully route missing');
+ await panel.getByLabel('ボス名で検索').fill('灯断ちの盤尾獣');
+ const plate=panel.locator('[data-encounter="original-plate-tail"]').getByRole('link',{name:/石版裏の窪み/});
+ if(await plate.getAttribute('href')!=='map-art.html?node=enkan-tablet-hollow')throw Error('Plate tail hollow route missing');
  await panel.getByLabel('ボス名で検索').fill('恒常からくり陣形');
  await panel.getByLabel('恒常からくり陣形の弱点個体').selectOption('boss_array_3');
  await panel.getByRole('button',{name:'模擬戦に挑戦'}).click();
@@ -110,5 +113,5 @@ try{
  await panel.getByLabel('挑戦可能のみ').check();if(await panel.locator('[data-encounter]').count()!==1)throw Error('playable filter');
  await panel.getByRole('button',{name:'試作に挑戦'}).click();await page.waitForFunction(()=>window.lab.frame.boss?.name==='ファルカ模擬戦');
  await panel.screenshot({path:'evidence/encounters-browser.png'});if(errors.length)throw Error(errors.join('/'));
- await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:80,teaBoulderFieldRoute:true,rimeHareFieldRoute:true,iceCrawlerFieldRoute:true,prismWalkerFieldRoute:true,rubbleSifterFieldRoute:true,originalFieldRoute:true,originalWeeklyRoute:true,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,configDeviceFieldRoute:true,papillaFieldRoute:true,lavaDragonFieldRoute:true,overseerFieldRoute:true,knuckleDuckleFieldRoute:true,battleshipFieldRoute:true,frostnightHerraFieldRoute:true,whispererNightmaresFieldRoute:true,moonflyFieldRoute:true,moongeckoFieldRoute:true,spiritspeakerFieldRoute:true,fallenVigilFieldRoute:true,flugelFieldRoute:true,driftingSnowFieldRoute:true,immortalConstructFieldRoute:true,wavebinderFieldRoute:true,stygianCandidates:7,disabledUnimplemented:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');
+ await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:81,plateTailFieldRoute:true,teaBoulderFieldRoute:true,rimeHareFieldRoute:true,iceCrawlerFieldRoute:true,prismWalkerFieldRoute:true,rubbleSifterFieldRoute:true,originalFieldRoute:true,originalWeeklyRoute:true,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,configDeviceFieldRoute:true,papillaFieldRoute:true,lavaDragonFieldRoute:true,overseerFieldRoute:true,knuckleDuckleFieldRoute:true,battleshipFieldRoute:true,frostnightHerraFieldRoute:true,whispererNightmaresFieldRoute:true,moonflyFieldRoute:true,moongeckoFieldRoute:true,spiritspeakerFieldRoute:true,fallenVigilFieldRoute:true,flugelFieldRoute:true,driftingSnowFieldRoute:true,immortalConstructFieldRoute:true,wavebinderFieldRoute:true,stygianCandidates:7,disabledUnimplemented:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');
 }finally{await browser.close()}

@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 208 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 200,
+  "scope": "Authored 212 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 204,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1032,7 +1032,11 @@
     {"id":"chenyu-cart-road","name":"谷沿いの荷車道","region":"沈玉の谷","status":"regional_temporary_image"},
     {"id":"chenyu-tea-lift","name":"茶荷の昇降台","region":"沈玉の谷","status":"regional_temporary_image"},
     {"id":"chenyu-tea-pavilion","name":"谷を望む茶亭","region":"沈玉の谷","status":"regional_temporary_image"},
-    {"id":"chenyu-boulder-gully","name":"段丘の岩陰","region":"沈玉の谷","status":"regional_temporary_image"}
+    {"id":"chenyu-boulder-gully","name":"段丘の岩陰","region":"沈玉の谷","status":"regional_temporary_image"},
+    {"id":"enkan-guide-shelf","name":"帰路しるべの棚","region":"淵下宮","status":"regional_temporary_image"},
+    {"id":"enkan-lamp-chamber","name":"照り影の灯室","region":"淵下宮","status":"regional_temporary_image"},
+    {"id":"enkan-route-gallery","name":"道順記録の小間","region":"淵下宮","status":"regional_temporary_image"},
+    {"id":"enkan-tablet-hollow","name":"石版裏の窪み","region":"淵下宮","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 8
 }

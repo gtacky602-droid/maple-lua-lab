@@ -213,6 +213,13 @@
       {"id":"preview-chenyu-cart-road-6","species":"pebble-courier","x":1196,"y":392,"flip":false},
       {"id":"preview-chenyu-cart-road-7","species":"sail-shell-crawler","x":1348,"y":480,"flip":false},
       {"id":"preview-chenyu-cart-road-8","species":"pebble-courier","x":1450,"y":480,"flip":false}
+    ],
+    "enkan-guide-shelf": [
+      {"id":"preview-enkan-shelf-crawler-1","species":"sail-shell-crawler","x":236,"y":480,"flip":false},
+      {"id":"preview-enkan-shelf-crawler-2","species":"sail-shell-crawler","x":559,"y":480,"flip":false},
+      {"id":"preview-enkan-shelf-crawler-3","species":"sail-shell-crawler","x":721,"y":480,"flip":false},
+      {"id":"preview-enkan-shelf-crawler-4","species":"sail-shell-crawler","x":1190,"y":480,"flip":false},
+      {"id":"preview-enkan-shelf-crawler-5","species":"sail-shell-crawler","x":1280,"y":480,"flip":false}
     ]
   }
 }

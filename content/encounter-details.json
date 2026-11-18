@@ -1,6 +1,7 @@
 {
   "version": 1,
   "entries": {
+    "original-plate-tail": {"art_candidate":{"item":"plate-tail","audit":"evidence/plate-tail-art.json","status":"original basalt animal with two teal slate plates and collision-limited charge"}},
     "original-tea-boulder": {"art_candidate":{"item":"tea-boulder","audit":"evidence/tea-boulder-art.json","status":"original limestone crawler, rock cover blocks a single direction of its pulse"}},
     "original-rime-hare": {"art_candidate":{"item":"rime-hare","audit":"evidence/rime-hare-art.json","status":"original rock hare against mountain ridge with distinct floor telegraphs"}},
     "original-ice-crawler": {"art_candidate":{"item":"ice-crawler","audit":"evidence/ice-crawler-art.json","status":"original field boss, visible armor and exposed core"}},

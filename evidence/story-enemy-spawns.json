@@ -892,6 +892,23 @@
       "node": "chenyu-boulder-gully",
       "enemy_count": 0,
       "field_boss_count": 1
+    },
+    {
+      "node": "enkan-guide-shelf",
+      "enemy_count": 5
+    },
+    {
+      "node": "enkan-lamp-chamber",
+      "enemy_count": 0
+    },
+    {
+      "node": "enkan-route-gallery",
+      "enemy_count": 0
+    },
+    {
+      "node": "enkan-tablet-hollow",
+      "enemy_count": 0,
+      "field_boss_count": 1
     }
   ],
   "render_profiles": [

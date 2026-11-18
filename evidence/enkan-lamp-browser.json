@@ -1,0 +1,39 @@
+{
+  "threeQuests": true,
+  "lit": {
+    "key": "enkanLamp",
+    "file": "enkan-lamp-chamber-background-v1.png",
+    "state": "ready"
+  },
+  "dark": {
+    "key": "enkanLampDark",
+    "file": "enkan-lamp-chamber-dark-v1.png",
+    "state": "ready"
+  },
+  "relightReturnsToSafeFloor": true,
+  "restoredClues": true,
+  "chargeStoppedAt": 708,
+  "battle": {
+    "won": true,
+    "seconds": 70.32,
+    "hp": 115,
+    "bossHp": 0,
+    "moves": [
+      "PT01",
+      "PT02"
+    ],
+    "returns": 0
+  },
+  "commands": {
+    "png": 27,
+    "standard": 10531,
+    "light": 2910
+  },
+  "firstReport": [
+    103552,
+    371745,
+    5
+  ],
+  "readableRecordAfterReload": true,
+  "errors": []
+}

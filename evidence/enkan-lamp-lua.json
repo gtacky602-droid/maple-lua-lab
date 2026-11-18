@@ -1,0 +1,19 @@
+{
+  "legacyLv40Access": true,
+  "threeSafetyMarks": true,
+  "phaseSpecificInspection": true,
+  "darkSupportAndExit": true,
+  "safeFloorOnRelight": true,
+  "saveRetainsCluesAndResetsLamp": true,
+  "permanentShortcut": true,
+  "movingRushStopsAtRealRock": true,
+  "behindRockSafe": true,
+  "damageInsideRush": true,
+  "recordReadableAfterRestore": true,
+  "firstReport": [
+    103552,
+    371745,
+    5
+  ],
+  "noSecondPayout": true
+}

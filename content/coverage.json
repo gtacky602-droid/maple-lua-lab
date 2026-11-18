@@ -231,8 +231,8 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 3,
-      "prototype_quest_count": 2,
+      "prototype_stage_count": 7,
+      "prototype_quest_count": 5,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
     {
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 208,
-    "provisional_quests": 137,
+    "authored_stages": 212,
+    "provisional_quests": 140,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -981,11 +981,18 @@
         "stage_ids": [
           "enkanomiya-camp",
           "enkanomiya-depth",
-          "bathysmal-field-sanctum"
+          "bathysmal-field-sanctum",
+          "enkan-guide-shelf",
+          "enkan-lamp-chamber",
+          "enkan-route-gallery",
+          "enkan-tablet-hollow"
         ],
         "quest_ids": [
           "enkanomiya-survey",
-          "bathysmal-commission"
+          "bathysmal-commission",
+          "enkan-safety-leaflet",
+          "enkan-shadow-crossing",
+          "enkan-coverless-log"
         ]
       },
       {
@@ -1136,7 +1143,11 @@
         "prototype_stage_ids": [
           "enkanomiya-camp",
           "enkanomiya-depth",
-          "bathysmal-field-sanctum"
+          "bathysmal-field-sanctum",
+          "enkan-guide-shelf",
+          "enkan-lamp-chamber",
+          "enkan-route-gallery",
+          "enkan-tablet-hollow"
         ]
       },
       {
@@ -1231,8 +1242,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 42,
-    "without_explicit_mapping": 111,
+    "linked": 45,
+    "without_explicit_mapping": 108,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1240,6 +1251,9 @@
       "Q-B02-01": "chenyu-tea-delivery",
       "Q-B02-02": "chenyu-loading-landing",
       "Q-B02-03": "chenyu-tea-with-friends",
+      "Q-B03-01": "enkan-safety-leaflet",
+      "Q-B03-02": "enkan-shadow-crossing",
+      "Q-B03-03": "enkan-coverless-log",
       "Q-B06-01": "windward-lookouts",
       "Q-B06-02": "windward-flags",
       "Q-B06-03": "windward-tower-clear",
