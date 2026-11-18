@@ -323,6 +323,10 @@
       "enemy_count": 6
     },
     {
+      "node": "fontaine-outskirts-loading",
+      "enemy_count": 8
+    },
+    {
       "node": "emperor-field-cove",
       "enemy_count": 0,
       "field_boss_count": 1

@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-19",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 332 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 324,
+  "scope": "Authored 333 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 325,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -470,6 +470,12 @@
     {
       "id": "fontaine-field",
       "name": "フォンテーヌ・水路沿い",
+      "region": "フォンテーヌ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "fontaine-outskirts-loading",
+      "name": "フォンテーヌ・郊外の搬入口",
       "region": "フォンテーヌ",
       "status": "regional_temporary_image"
     },

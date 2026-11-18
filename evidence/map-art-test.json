@@ -470,6 +470,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "fontaine-outskirts-loading",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "emperor-field-cove",
       "count": 0,
       "fallback": false,

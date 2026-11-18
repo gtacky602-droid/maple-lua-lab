@@ -1,0 +1,15 @@
+{
+  "townOffers": 5,
+  "walkedCanalToLoadingYardAndBack": true,
+  "normalAttackCountsThreeObjectives": true,
+  "namedMekaEliteVisible": true,
+  "placementComparisonProfiles": 3,
+  "staleSaveRetainsProgress": true,
+  "rewardsDoNotReplay": true,
+  "mobileFits": true,
+  "reward": {
+    "xp": 69040,
+    "mora": 2550
+  },
+  "errors": []
+}

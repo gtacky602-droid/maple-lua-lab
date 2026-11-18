@@ -479,7 +479,9 @@
         "kind": 1,
         "art": "armored-crab",
         "x": 620,
-        "platform": 0
+        "platform": 0,
+        "name": "水路沿いの重甲ヤドカニ",
+        "dailyElite": true
       },
       {
         "id": "fontaine-field-2",
@@ -516,6 +518,16 @@
         "x": 690,
         "platform": 2
       }
+    ],
+    "fontaine-outskirts-loading": [
+      {"id":"fon-loading-meka-west","kind":1,"art":"sled-maintenance-cart","x":360,"platform":0,"hp":38},
+      {"id":"fon-loading-crab","kind":1,"art":"armored-crab","x":540,"platform":0,"hp":38},
+      {"id":"fon-loading-meka-deck","kind":1,"art":"sled-maintenance-cart","x":575,"platform":1,"hp":36},
+      {"id":"fon-loading-meka-upper","kind":2,"art":"sled-maintenance-cart","x":872,"platform":2,"hp":38},
+      {"id":"fon-loading-meka-elite","kind":1,"art":"sled-maintenance-cart","x":1000,"platform":0,"hp":66,"name":"搬入口の精鋭メカ","dailyElite":true},
+      {"id":"fon-loading-slime-deck","kind":1,"art":"hydro-slime","x":1305,"platform":3,"hp":27},
+      {"id":"fon-loading-meka-east","kind":2,"art":"sled-maintenance-cart","x":1450,"platform":0,"hp":41},
+      {"id":"fon-loading-slime-east","kind":2,"art":"pyro-slime","x":1625,"platform":0,"hp":31}
     ],
     "natlan-entry": [
       {

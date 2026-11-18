@@ -1,0 +1,17 @@
+{
+  "completedGoals": {
+    "Q-FON-D01": 200,
+    "Q-FON-D02": 60,
+    "Q-FON-D03": 80,
+    "Q-FON-D04": 50,
+    "Q-FON-D05": 3
+  },
+  "level80TownAndLoadingYard": true,
+  "sharedSlotsAcrossSumeruAndFontaine": true,
+  "emilieCompanionGiver": true,
+  "bygoneCountsForMainOnly": true,
+  "sameMachineInTheaterDoesNotCountForMeka": true,
+  "onlyMarkedLandElitesCount": true,
+  "namedMachineRespawns": true,
+  "claimAtHubOnce": true
+}

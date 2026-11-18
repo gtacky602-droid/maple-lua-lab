@@ -663,12 +663,22 @@
     {
       "node": "sumeru-field",
       "mode": "sprite",
-      "visible_portals": 7
+      "visible_portals": 8
     },
     {
       "node": "sumeru-field",
       "mode": "rect",
-      "visible_portals": 7
+      "visible_portals": 8
+    },
+    {
+      "node": "sum-kaveh-timberyard",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "sum-kaveh-timberyard",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "sumeru-jadeplume-grove",
@@ -763,12 +773,22 @@
     {
       "node": "fontaine-field",
       "mode": "sprite",
-      "visible_portals": 7
+      "visible_portals": 8
     },
     {
       "node": "fontaine-field",
       "mode": "rect",
-      "visible_portals": 7
+      "visible_portals": 8
+    },
+    {
+      "node": "fontaine-outskirts-loading",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "fontaine-outskirts-loading",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "emperor-field-cove",

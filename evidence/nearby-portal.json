@@ -949,6 +949,14 @@
       "to": "field-generator-field-chamber"
     },
     {
+      "node": "fontaine-field",
+      "to": "fontaine-outskirts-loading"
+    },
+    {
+      "node": "fontaine-outskirts-loading",
+      "to": "fontaine-field"
+    },
+    {
       "node": "emperor-field-cove",
       "to": "fontaine-field"
     },

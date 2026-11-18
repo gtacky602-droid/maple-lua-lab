@@ -2071,9 +2071,16 @@
         {"to":"tulpa-field-grotto","x":320},
         {"to":"emperor-field-cove","x":510},
         {"to":"seahorse-field-cavern","x":985},
-        {"to":"field-generator-field-chamber","x":1165}
+        {"to":"field-generator-field-chamber","x":1165},
+        {"to":"fontaine-outskirts-loading","x":194,"arrivalX":123}
       ],
       "checkpoint": "fontaine-hub"
+    },
+    {
+      "id":"fontaine-outskirts-loading","name":"フォンテーヌ・郊外の搬入口","region":"フォンテーヌ","level":80,"hub":false,
+      "width":1810,"checkpoint":"fontaine-hub",
+      "platforms":[{"x":0,"y":480,"w":1810},{"x":402,"y":392,"w":369},{"x":660,"y":301,"w":360},{"x":1180,"y":392,"w":400}],
+      "exits":[{"to":"fontaine-field","x":62,"arrivalX":194}]
     },
     {"id":"emperor-field-cove","name":"フォンテーヌ・熔殻の洞","region":"フォンテーヌ","level":82,"hub":false,"peaceful":true,"width":1660,"platforms":[{"x":0,"y":480,"w":1660}],"exits":[{"to":"fontaine-field","x":65}],"checkpoint":"fontaine-hub"},
     {"id":"seahorse-field-cavern","name":"フォンテーヌ・真珠珊瑚の洞","region":"フォンテーヌ","level":84,"hub":false,"peaceful":true,"width":1640,"platforms":[{"x":0,"y":480,"w":1640}],"exits":[{"to":"fontaine-field","x":65}],"checkpoint":"fontaine-hub"},

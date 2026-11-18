@@ -20,6 +20,10 @@
     "sumeru": {
       "label": "スメール",
       "includeRegions": ["スメール", "トゥニギの黒淵"]
+    },
+    "fontaine": {
+      "label": "フォンテーヌ",
+      "includeRegions": ["フォンテーヌ", "往日の海"]
     }
   },
   "quests": [
@@ -354,6 +358,87 @@
       "goal": 3,
       "xp": 9590,
       "mora": 410
+    },
+    {
+      "id": "daily-fon-patrol",
+      "designId": "Q-FON-D01",
+      "kind": "main",
+      "region": "fontaine",
+      "hub": "fontaine-hub",
+      "level": 80,
+      "giver": "ナヴィア",
+      "name": "今日も安心して歩けるように",
+      "intro": "ナヴィア「みんなが安心して歩けるように、街の外をひと回りお願いできる？」",
+      "target": "フォンテーヌ・往日の海の配置済みの実戦の敵",
+      "filter": {"kind": "region"},
+      "goal": 200,
+      "xp": 138080,
+      "mora": 3050
+    },
+    {
+      "id": "daily-fon-gathering",
+      "designId": "Q-FON-D02",
+      "kind": "extra",
+      "region": "fontaine",
+      "hub": "fontaine-hub",
+      "level": 80,
+      "giver": "エミリエ",
+      "companion": "emilie",
+      "name": "採集に出る、その前に",
+      "intro": "エミリエ「水路脇で香り草を採りたいんです。先に道の様子を見ていただけますか？」",
+      "target": "水路沿い・郊外の搬入口の陸上の敵",
+      "filter": {"kind": "nodes", "nodes": ["fontaine-field", "fontaine-outskirts-loading"]},
+      "goal": 60,
+      "xp": 41420,
+      "mora": 1000
+    },
+    {
+      "id": "daily-fon-film-route",
+      "designId": "Q-FON-D03",
+      "kind": "extra",
+      "region": "fontaine",
+      "hub": "fontaine-hub",
+      "level": 80,
+      "giver": "フリーナ",
+      "name": "撮影場所は、ここにしよう！",
+      "intro": "フリーナ「郊外から水路を見渡せる場所を見つけたよ。撮影隊が来る前に、通り道を見回ってくれないか？」",
+      "target": "地域の入口・郊外の搬入口の実戦の敵",
+      "filter": {"kind": "nodes", "nodes": ["fontaine-entry", "fontaine-outskirts-loading"]},
+      "goal": 80,
+      "xp": 55230,
+      "mora": 1350
+    },
+    {
+      "id": "daily-fon-meka",
+      "designId": "Q-FON-D04",
+      "kind": "extra",
+      "region": "fontaine",
+      "hub": "fontaine-hub",
+      "level": 80,
+      "giver": "リネ",
+      "name": "搬入口を空けておこう",
+      "intro": "リネ「荷物を届けに行く前に、郊外の搬入口で故障した警備メカを止めてもらえるかな？」",
+      "target": "郊外の搬入口の故障メカ",
+      "filter": {"kind": "art", "nodes": ["fontaine-outskirts-loading"], "art": ["sled-maintenance-cart"]},
+      "goal": 50,
+      "xp": 43150,
+      "mora": 1150
+    },
+    {
+      "id": "daily-fon-land-elites",
+      "designId": "Q-FON-D05",
+      "kind": "extra",
+      "region": "fontaine",
+      "hub": "fontaine-hub",
+      "level": 80,
+      "giver": "フレミネ",
+      "name": "潜る前の安全確認",
+      "intro": "フレミネ「装備を水辺まで運ぶから、陸にいる大きなヤドカニとメカを先に片づけたいんだ。」",
+      "target": "水路沿いの重甲ヤドカニ・郊外の搬入口の指定精鋭メカ",
+      "filter": {"kind": "elite", "nodes": ["fontaine-field", "fontaine-outskirts-loading"]},
+      "goal": 3,
+      "xp": 25890,
+      "mora": 1400
     }
   ]
 }
