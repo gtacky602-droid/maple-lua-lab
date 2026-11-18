@@ -18,13 +18,15 @@ export function initInventoryUI(action){
  const previewStatus=document.createElement('div');
  previewStatus.id='artifactPreview';
  previewStatus.setAttribute('aria-live','polite');
- root.before(previewControls,previewStatus);
+ const imprintStatus=document.createElement('p');
+ imprintStatus.id='inventoryImprintStatus';
+ root.before(imprintStatus,previewControls,previewStatus);
  const control=(label,command)=>{
   const button=document.createElement('button');button.type='button';button.textContent=label;
   button.onclick=()=>{action(command);button.blur()};
   return button;
  };
- for(const [type,label] of [['compare','教材で装備を比較'],['upgrade','教材で強化を試算'],['inherit','教材で継承を試算']]){
+ for(const [type,label] of [['compare','教材で装備を比較'],['upgrade','教材で強化を試算'],['inherit','教材で継承を試算'],['imprint','教材で刻印の一星を試算']]){
   previewControls.append(control(label,`artifact_example:${type}`));
  }
  function gearSelect(id,text){
@@ -39,6 +41,11 @@ export function initInventoryUI(action){
  inspect.type='button';inspect.textContent='選んだ品で継承を試算';
  inspect.onclick=()=>{if(source.value&&target.value)action(`artifact_inherit_preview:${source.value}:${target.value}`);inspect.blur()};
  previewControls.append(inspect);
+ const lineup=gearSelect('artifactPairCompanion','比較する同行候補');
+ const compareLineup=document.createElement('button');
+ compareLineup.type='button';compareLineup.textContent='編成の光界値を比較';
+ compareLineup.onclick=()=>{if(lineup.value)action('artifact_pair_preview:'+lineup.value);compareLineup.blur()};
+ previewControls.append(compareLineup);
  let previewSignature='';
  const pairOptions=(select,items)=>{
   const previous=select.value;
@@ -48,6 +55,30 @@ export function initInventoryUI(action){
  };
  const describe=item=>item?
   `${item.id?'#'+item.id+' ':''}${names[item.slot]} ${number.format(item.stat)} ／ ${displaySet(item.setId)} ／ Lv${item.itemLv} ★${item.rarity} +${item.enhance}・刻印${item.stars}星${item.subpair?' ／ '+(item.subpair==='atk_crit'?'ATK':'HP')+'8%・会心4%':''}`:'空き';
+ function renderLineups(view){
+  const table=document.createElement('table');
+  const caption=table.createCaption();caption.textContent=`現在 ${view.before.total} / 50 → 比較先 ${view.after.total} / 50`;
+  const headers=table.createTHead().insertRow();
+  for(const label of ['聖遺物','旅人',`現在の${companionNames[view.before.companion]}`,`比較先の${companionNames[view.after.companion]}`]){
+   const cell=document.createElement('th');cell.scope='col';cell.textContent=label;headers.append(cell);
+  }
+  const slots=table.createTBody();
+  for(let i=0;i<5;i++){
+   const row=slots.insertRow();
+   const part=document.createElement('th');part.scope='row';part.textContent=names[i+1];row.append(part);
+   for(const stars of [view.before.traveler[i],view.before.partner[i],view.after.partner[i]])row.insertCell().textContent=stars+'星';
+  }
+  const label=document.createElement('label'),select=document.createElement('select'),result=document.createElement('p');
+  select.id='artifactBarrierTarget';
+  label.append('出発先の目安を比べる ',select);
+  select.replaceChildren(new Option('探索先を選ぶ',''),...view.barriers.map(target=>
+   new Option(`${target.name} ｜ 光界値${target.barrier}`,target.id)));
+  select.onchange=()=>{
+   const target=view.barriers.find(target=>target.id===select.value);
+   result.textContent=target?`障壁に威力100を当てた試算　現在 ${target.before} → 比較先 ${target.after}`:'';
+  };
+  previewStatus.append(table,label,result);
+ }
  function renderPreview(f){
   const inTown=f.campaign?.zone==='town';
   previewControls.hidden=!inTown;
@@ -60,6 +91,17 @@ export function initInventoryUI(action){
   if(!view)return;
   const message=text=>{const out=document.createElement('p');out.textContent=text;previewStatus.append(out)};
   if(view.error){message(view.error);return}
+  if(view.kind==='party'){
+   message('旅人と選んだ同行仲間それぞれの装備5部位を集計します。');
+   renderLineups(view);return;
+  }
+  if(view.kind==='imprint'){
+   message(view.earned?'最初の一星で上がった能力':`${view.example?'教材の':''}刻印の一星 ｜ ${number.format(view.cost)}モラ`);
+   message(`刻印前 ${describe(view.before)}`);
+   message(`刻印後 ${describe(view.after)}`);
+   message('刻印による主能力の伸びは固定です。追加効果の厳選は別の工程です。装備すると星の数が光界値に加わります。');
+   return;
+  }
   if(view.kind==='compare'){
    message(`${view.example?'教材の比較':'装備の比較'} ｜ 対象ドロップ ${displaySet(view.targetSet)}`);
    message(`装備中 ${view.starter?`${view.starter.name} HP +${view.starter.hp}`:describe(view.before)}`);
@@ -98,6 +140,8 @@ export function initInventoryUI(action){
   const ore=bag.upgradeOre??0;
   const companionName=f.companion?.name?.replace('（仮表示）','')??'アンバー';
   const growth=f.imprintGrowth;
+  const imprintLine=`装備の光界値 ${growth.total} / 50（旅人 ${growth.byActor[0]} ＋ ${companionName} ${growth.byActor[1]}） ｜ 共通戦闘ゲージ ${Math.floor(f.gauge??0)} / 100`;
+  if(imprintStatus.textContent!==imprintLine)imprintStatus.textContent=imprintLine;
   desk.hidden=!f.storyExpeditionDesk;
   if(f.storyExpeditionDesk){
    const {barrier,practice}=f.storyExpeditionDesk;
@@ -134,7 +178,14 @@ export function initInventoryUI(action){
    const line=`${starter.weapon.name}（ATK +${starter.weapon.atk}）・${starter.flower.name}（${flower}）`;
    if(starterText.textContent!==line)starterText.textContent=line;
   }
-  const sig=JSON.stringify([companionName,bag.items,ore]);if(sig===signature)return;signature=sig;
+  const companionId=f.companion?.id??'amber';
+  const sig=JSON.stringify([companionId,bag.items,ore]);if(sig===signature)return;signature=sig;
+  const previous=lineup.value;
+  lineup.replaceChildren(new Option('同行候補を選ぶ',''),...Object.entries(companionNames)
+   .filter(([id])=>id!==companionId).map(([id,name])=>new Option(name,id)));
+  if([...lineup.options].some(option=>option.value===previous)&&previous)lineup.value=previous;
+  compareLineup.disabled=!lineup.value;
+  lineup.onchange=()=>{compareLineup.disabled=!lineup.value};
   pairOptions(source,bag.items.filter(item=>item.owner===0&&!item.locked&&item.enhance>0));
   pairOptions(target,bag.items.filter(item=>!item.locked));
   inspect.disabled=!source.options[1]||!target.options[1];
@@ -144,6 +195,7 @@ export function initInventoryUI(action){
    const enhanceOptions=[['+4強化','upgrade']];
    if(ore)enhanceOptions.push([`鉱石で+4強化（${f.upgradeOreDiscount}モラ減）`,'useore']);
    const stars=item.imprintStars??0;
+   if(item.enhance===item.rarity*4)enhanceOptions.push(['刻印の一星を見る','stampview']);
    if(item.enhance===item.rarity*4&&stars<growth.caps[item.rarity])enhanceOptions.push([`刻印 ${stars+1}星（${((stars+1)*growth.costPerStar).toLocaleString()}モラ）`,'imprint']);
    for(const [label,cmd] of [['操作中キャラに装備','equip'],['外す','remove'],['装備と比較','compare'],['強化を試算','preview'],...enhanceOptions,[item.locked?'ロック解除':'ロック','lock'],[`売却 ${item.itemLv*item.rarity*10}モラ（仮）`,'sell']]){const b=control(label,`artifact_${cmd}:${item.id}`);b.disabled=cmd==='sell'&&(item.owner!==0||item.locked);row.append(b)}root.append(row);
   }

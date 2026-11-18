@@ -6,14 +6,16 @@ const weeklies=JSON.parse(await fs.readFile('content/weekly-boss-spawns.json','u
 graph.bossNodes=Object.fromEntries([...fields,...weeklies].flatMap(spec=>
  [spec.id,spec.storyChallenge].filter(Boolean).map(target=>[target,spec.node])));
 for(const q of graph.quests){
- const gated=Boolean(q.legacyOnly||q.requires||q.opensAfter||q.level!==undefined);
+ const gated=Boolean(q.legacyOnly||q.requires||q.opensAfter||q.level!==undefined||q.growthRequirement);
  const prerequisites=Object.fromEntries([q.requires,q.opensAfter].filter(Boolean).map(id=>[id,{status:'complete',count:q.opensAfterCount??0}]));
+ const growthEligibility=q.growthRequirement?{[q.growthRequirement]:true}:{};
  if(q.opensAfterAnyPath){
   const [path,count]=Object.entries(q.opensAfterAnyPath)[0];
   prerequisites[q.opensAfter].pathProgress={[path]:{count}};
  }
  if(questStatus(q,null,{},0)!==(gated?'locked':'unaccepted')||
-    questStatus(q,null,prerequisites)!==(q.legacyOnly?'locked':'unaccepted')||
+    questStatus(q,null,prerequisites,Infinity,growthEligibility)!==(q.legacyOnly?'locked':'unaccepted')||
+    (q.growthRequirement&&questStatus(q,null,prerequisites)!=='locked')||
     questStatus(q,{status:'active',count:0})!=='active'||
     questStatus(q,{status:'active',count:q.goal})!=='ready'||
     questStatus(q,{status:'complete',count:q.goal})!=='complete')throw Error('status '+q.id);

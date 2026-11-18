@@ -454,7 +454,8 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         growth = st.get('growth', {})
-        known_growth = {objective['id'] for quest in quests.values() for objective in quest.get('lesson', [])}
+        known_growth = {objective['id'] for quest in quests.values() for category in ('lesson', 'bonusLesson')
+                        for objective in quest.get(category, [])}
         if not isinstance(growth, dict) or any(key not in known_growth or value is not True for key, value in growth.items()):
             raise ValueError('Invalid growth evidence')
         for id,q in st['quests'].items():

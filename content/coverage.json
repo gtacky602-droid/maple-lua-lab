@@ -28,7 +28,7 @@
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
       "prototype_stage_count": 25,
-      "prototype_quest_count": 18,
+      "prototype_quest_count": 19,
       "official_map2_markers": {
         "waypoints": 45,
         "statues": 6
@@ -148,7 +148,7 @@
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
       "prototype_stage_count": 33,
-      "prototype_quest_count": 18,
+      "prototype_quest_count": 19,
       "official_map2_markers": {
         "waypoints": 126,
         "statues": 9
@@ -172,7 +172,7 @@
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
       "prototype_stage_count": 36,
-      "prototype_quest_count": 17,
+      "prototype_quest_count": 18,
       "official_map2_markers": {
         "waypoints": 83,
         "statues": 7
@@ -196,7 +196,7 @@
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
       "prototype_stage_count": 28,
-      "prototype_quest_count": 16,
+      "prototype_quest_count": 17,
       "official_map2_markers": {
         "waypoints": 101,
         "statues": 7
@@ -579,7 +579,7 @@
   "main_route_summary": {
     "connected_main_regions": 8,
     "authored_stages": 338,
-    "provisional_quests": 196,
+    "provisional_quests": 200,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -659,6 +659,7 @@
         ],
         "quest_ids": [
           "growth-partner-swap",
+          "growth-first-imprint",
           "amber-join",
           "mond-return-box-quest",
           "mond-night-banner-quest",
@@ -949,6 +950,7 @@
           "natlan-sunset-rostrum"
         ],
         "quest_ids": [
+          "growth-pair-imprint",
           "kachina-join",
           "natlan-kachina-charms",
           "natlan-mualani-surf",
@@ -1012,6 +1014,7 @@
           "nod-patrol-post"
         ],
         "quest_ids": [
+          "growth-lunar-practice",
           "columbina-join",
           "nod-contract",
           "knuckle-duckle-commission",
@@ -1066,6 +1069,7 @@
           "sne-snow-match"
         ],
         "quest_ids": [
+          "growth-star-practice",
           "mitya-join",
           "snezhnaya-entry-check",
           "snezhnaya-contract",
@@ -1434,8 +1438,8 @@
       "content/daily-quests.json"
     ],
     "design_entries": 153,
-    "linked": 141,
-    "without_explicit_mapping": 12,
+    "linked": 145,
+    "without_explicit_mapping": 8,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1481,6 +1485,10 @@
       "Q-G02": "growth-targeted-gear",
       "Q-G03": "growth-upgrade-gear",
       "Q-G04": "growth-inherit-gear",
+      "Q-G05": "growth-first-imprint",
+      "Q-G06": "growth-pair-imprint",
+      "Q-G07": "growth-lunar-practice",
+      "Q-G08": "growth-star-practice",
       "Q-H01-01": "golden-little-boat",
       "Q-H01-02": "golden-trace-shadows",
       "Q-H02-01": "veluriyam-bottle-ticket",

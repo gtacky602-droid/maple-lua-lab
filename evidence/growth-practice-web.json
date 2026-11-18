@@ -1,0 +1,18 @@
+{
+  "reports": 4,
+  "emptyBagImprintAtLevel1": true,
+  "separateCombatGauge": true,
+  "pairPower": [
+    26,
+    50
+  ],
+  "barrierTestDamage": [
+    57,
+    100
+  ],
+  "mobilePreviewFits": true,
+  "moonInOrdinaryField": "月感電",
+  "starInOrdinaryField": "星嵐の種",
+  "savesReportAndOptionalLesson": true,
+  "errors": []
+}

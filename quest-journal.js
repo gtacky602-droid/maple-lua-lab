@@ -1,10 +1,10 @@
 import {questRouteText,questTargetNode} from './quest-route.js';
-export function questStatus(q,state,quests,level=Infinity){
+export function questStatus(q,state,quests,level=Infinity,growthEligibility){
  if(!state)return q.legacyOnly||(q.requires&&quests?.[q.requires]?.status!=='complete')||
   (q.opensAfter&&(!quests?.[q.opensAfter]||(quests[q.opensAfter].count??0)<(q.opensAfterCount??0)))||
   (q.opensAfterAnyPath&&!Object.entries(q.opensAfterAnyPath).some(([path,count])=>
    (quests?.[q.opensAfter]?.pathProgress?.[path]?.count??0)>=count))||
-  (q.level!==undefined&&level<q.level)?'locked':'unaccepted';
+  (q.level!==undefined&&level<q.level)||(q.growthRequirement&&!growthEligibility?.[q.growthRequirement])?'locked':'unaccepted';
  if(state.status==='complete')return 'complete';
  return state.count>=q.goal?'ready':'active';
 }
@@ -161,7 +161,7 @@ export function questObjective(q,graph,state,growth={}){
 export function trackedQuestText(f,id){
  if(!f.story?.active)return '';
  const q=f.storyGraph.quests.find(q=>q.id===id);if(!q)return '';
- const st=f.story.quests[q.id],status=questStatus(q,st,f.story.quests,f.progression?.level??0),hub=f.storyGraph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
+ const st=f.story.quests[q.id],status=questStatus(q,st,f.story.quests,f.progression?.level??0,f.growthEligibility),hub=f.storyGraph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
  const next=status==='locked'?prerequisiteText(q,f.storyGraph,f.progression?.level??0):status==='unaccepted'?`${hub}で受注してください`:status==='ready'?`${hub}へ戻って報告してください`:status==='complete'?(q.repeatable?`${hub}で再受注できます`:'報酬受取済み'):questObjective(q,f.storyGraph,st,f.story.growth);
  const route=status==='locked'?'':questRouteText(f,q,status);
  return `${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''} ｜ ${next}`+(route?' ｜ '+route:'');
@@ -175,13 +175,14 @@ function prerequisiteText(q,graph,level){
 export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack}){
  const {story,storyGraph:graph}=f,section=document.createElement('section');section.id='questJournal';section.style.width='100%';
  const heading=document.createElement('h2');heading.textContent='依頼手帳';section.append(heading);
- const counts={locked:0,unaccepted:0,active:0,ready:0,complete:0};for(const q of graph.quests)counts[questStatus(q,story.quests[q.id],story.quests,f.progression?.level??0)]++;
+ const statusOf=q=>questStatus(q,story.quests[q.id],story.quests,f.progression?.level??0,f.growthEligibility);
+ const counts={locked:0,unaccepted:0,active:0,ready:0,complete:0};for(const q of graph.quests)counts[statusOf(q)]++;
  const summary=document.createElement('p');summary.textContent=Object.entries(labels).map(([key,label])=>`${label}${counts[key]}件`).join(' ／ ');section.append(summary);
  const label=document.createElement('label');label.textContent='表示する依頼 ';const select=document.createElement('select');select.id='questFilter';
  for(const [value,text] of Object.entries({relevant:'現在地の依頼＋受注済み',all:'すべて',...labels})){const o=document.createElement('option');o.value=value;o.textContent=text;select.append(o)}select.value=filter;select.onchange=()=>onFilter(select.value);label.append(select);section.append(label);
  let shown=0;
  for(const q of graph.quests){
-  const st=story.quests[q.id],status=questStatus(q,st,story.quests,f.progression?.level??0);
+  const st=story.quests[q.id],status=statusOf(q);
   if(filter==='relevant'?q.hub!==story.node&&!st:filter!=='all'&&filter!==status)continue;
   shown++;const row=document.createElement('p');row.dataset.quest=q.id;row.dataset.status=status;
   const hub=graph.nodes.find(n=>n.id===q.hub)?.name||q.hub;
@@ -189,6 +190,16 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
   const firstClear=q.chapterClearXp&&(st?.count??0)<q.chapterClearCount
    ?` ｜ 章ボス初回勝利 ${rewardNumber.format(q.chapterClearXp)}EXP`:'';
   row.textContent=`${questName(q,st)} ｜ ${labels[status]}${st?` ${st.count}/${q.goal}`:''}${q.repeatable?` ／ 報告${st?.cycles||0}回`:''}${q.join&&status==='complete'?(q.giver?`（${q.giver}加入済み）`:'（加入済み／初期装備は未実装）'):''} ｜ ${status==='locked'?prerequisiteText(q,graph,f.progression?.level??0):questObjective(q,graph,st,story.growth)} ｜ 受注・報告：${hub}${payout}${firstClear} `;
+  if(q.bonusLesson&&status!=='locked'){
+   const exercises=q.bonusLesson.filter(lesson=>f.progression?.level>=lesson.level);
+   if(exercises.length){
+    const note=document.createElement('small');
+    note.style.display='block';
+    note.textContent='任意の実戦練習　'+exercises.map(lesson=>
+     `${story.growth?.[lesson.id]?'✓ ':''}Lv${lesson.level} ${lesson.text}`).join(' ／ ');
+    row.append(note);
+   }
+  }
   if(status==='unaccepted'||(status==='complete'&&q.repeatable)){const b=button('受注','story_accept:'+q.id);b.disabled=q.hub!==story.node;b.title=b.disabled?`${hub}で受注してください`:'';row.append(b)}
   if(status==='ready'){const b=button('報告','story_report:'+q.id);b.disabled=q.hub!==story.node;b.title=b.disabled?`${hub}へ戻って報告してください`:'';row.append(b)}
   if(status==='complete'&&q.join&&(q.recovery||q.sights||q.starter||q.legacyOnly)){

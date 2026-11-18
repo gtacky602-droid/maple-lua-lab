@@ -3,6 +3,10 @@ return function(C)
  C.skillDefinitions.SK54={range=300,targets=8,mult=.9,hits=12,ct=22,lock=.5,interval=1,delay=1,color='#c6d0ff',element='lunar',damageElements={'electro','hydro'},applicationElement='hydro',follow=true,radial=true,placed=true,partnerRequired='columbina',special=true,suppressAura=true}
  C.skillDefinitions.SK55={range=180,targets=6,mult=1.25,hits=10,ct=24,lock=.5,interval=.8,delay=.8,color='#e3e3c0',element='lunar',damageElements={'geo','hydro'},applicationElement='hydro',follow=true,radial=true,placed=true,partnerRequired='columbina',special=true,suppressAura=true}
  function C.skillPrerequisite(s,a,key)
+  if C.growthSkillCondition then
+   local ok,reason=C.growthSkillCondition(s,key)
+   if not ok then return false,reason end
+  end
   if key=='SK54' or key=='SK55' then
    if s.companion~='columbina' then return false,'月技にはコロンビーナの同行が必要です。' end
    if s.actors[2].hp<=0 then return false,'同行するコロンビーナが戦闘不能です。' end

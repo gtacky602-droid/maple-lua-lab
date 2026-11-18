@@ -4,7 +4,6 @@ return function(C)
  function C.skillPrerequisite(s,a,key)
   if key=='SK56' then
    if s.companion~='wanderer' or s.actors[2].hp<=0 then return false,'星嵐の種には生存している放浪者の同行が必要です。' end
-   -- Lab unlock override: production cryo learning gate is not yet implemented.
   end
   return prerequisite(s,a,key)
  end

@@ -6,14 +6,29 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  local nodes,quests,starterQuests,itineraries={},{},{},{}
  local growthQuests,growthEvidence={},{}
+ local advancedGrowth={
+  SK54={level=127,region='nod-port',alternate='nod-town',mark='lunar-orb'},
+  SK55={level=133,region='nod-port',alternate='nod-town',mark='lunar-ring'},
+  SK56={level=149,region='snezhnaya-entry',alternate='snezhnaya-hub',mark='star-wind'},
+  SK57={level=155,region='snezhnaya-entry',alternate='snezhnaya-hub',mark='star-electro'},
+ }
+ local moonReactions={['reaction:moon-electro']=true,['reaction:moon-dendro']=true,['reaction:moon-geo']=true}
+ local barrierTargets={}
+ local lunarJoin={'columbina-join','columbina-coast-detour'}
  local pathJoins={}
  local lanternQuest,contestQuest,sightQuest,restQuest,caveQuest,roofQuest
- for _,n in ipairs(data.nodes) do nodes[n.id]=n end
+ for _,n in ipairs(data.nodes) do
+  nodes[n.id]=n
+  if (n.barrier or 0)>0 then barrierTargets[#barrierTargets+1]={id=n.id,name=n.name,barrier=n.barrier} end
+ end
+ table.sort(barrierTargets,function(a,b) return a.barrier<b.barrier end)
+ function C.growthBarrierTargets() return barrierTargets end
  for _,q in ipairs(data.quests) do
   quests[q.id]=q
   if q.lesson then
    growthQuests[#growthQuests+1]=q
    for _,objective in ipairs(q.lesson) do growthEvidence[objective.id]=true end
+   for _,objective in ipairs(q.bonusLesson or {}) do growthEvidence[objective.id]=true end
   end
   if q.itinerary then itineraries[#itineraries+1]=q end
   if q.anyPath then
@@ -35,6 +50,26 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local state=s.story.quests[id]
   return state and state.status=='complete'
  end
+ local function lunarJoined(s)
+  for _,id in ipairs(lunarJoin) do if completed(s,id) then return true end end
+  return false
+ end
+ local growthRequirements={
+  imprintLesson=function(s)
+   return not not ((s.story.growth and s.story.growth['first-imprint']) or completed(s,'growth-first-imprint') or C.hasImprintedArtifact(s))
+  end,
+  lunarJoin=lunarJoined,
+ }
+ local function milestoneReached(s,milestone)
+  return s.progression and s.progression.level>=milestone.level
+    and (s.story.visited[milestone.region] or s.story.visited[milestone.alternate])
+ end
+ function C.growthSkillCondition(s,key)
+  local milestone=advancedGrowth[key]
+  if not milestone or not s.story or not s.story.active or milestoneReached(s,milestone) then return true end
+  local name=nodes[milestone.region].region
+  return false,name..'に到達し、Lv'..milestone.level..'になると使えます。'
+ end
  local function growthCount(s,q)
   local count=0
   for _,objective in ipairs(q.lesson) do
@@ -51,6 +86,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local state=s.story.quests[q.id]
    if state and state.status=='active' then state.count=growthCount(s,q) end
   end
+ end
+ function C.noteGrowthHit(s,cast)
+  if not s.story or not s.story.active then return end
+  if moonReactions[cast.key] and lunarJoined(s) then C.noteGrowth(s,'lunar-reaction') end
+  local milestone=advancedGrowth[cast.key]
+  if not milestone or cast.id~=1 or not milestoneReached(s,milestone) then return end
+  local mark=milestone.mark
+  if mark=='lunar-orb' or mark=='lunar-ring' then
+   if lunarJoined(s) then C.noteGrowth(s,mark);C.noteGrowth(s,'lunar-reaction') end
+  else C.noteGrowth(s,mark);C.noteGrowth(s,'star-strike') end
  end
  function C.starterEquipment(s,companion)
   local q=starterQuests[companion]
@@ -1103,6 +1148,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local id=accept or report;local q=quests[id];if not q or s.story.node~=q.hub then return end
    local state=s.story.quests[id]
    if accept and not q.legacyOnly and (not state or (q.repeatable and state.status=='complete')) then
+    if q.growthRequirement and not growthRequirements[q.growthRequirement](s) then return end
     if q.requires and not completed(s,q.requires) then return end
     if q.opensAfter and not s.story.quests[q.opensAfter] then return end
     if q.opensAfterCount and s.story.quests[q.opensAfter].count<q.opensAfterCount then return end
@@ -1452,6 +1498,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
 
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile);setup(s);f.story=s.story;local visible={version=data.version,status=data.status,nodes={},quests={},bossNodes={}}
+  f.growthEligibility={}
+  for id,eligible in pairs(growthRequirements) do f.growthEligibility[id]=eligible(s) end
   for _,n in ipairs(data.nodes) do if shownNode(s,n) then local out=copy(n);out.exits={};for _,edge in ipairs(n.exits) do if shownEdge(s,edge) then out.exits[#out.exits+1]=copy(edge) end end;visible.nodes[#visible.nodes+1]=out end end
   for target,node in pairs(data.bossNodes) do if shownNode(s,nodes[node]) then visible.bossNodes[target]=node end end
   for _,q in ipairs(data.quests) do

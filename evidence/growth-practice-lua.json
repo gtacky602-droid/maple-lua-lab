@@ -1,0 +1,40 @@
+{
+  "imprint_lesson_level": 1,
+  "first_star_cost": 200000,
+  "empty_bag_dry_run": true,
+  "active_pair": [
+    26,
+    50
+  ],
+  "barriers": [
+    3,
+    8,
+    10,
+    13,
+    25,
+    30,
+    35,
+    40,
+    50
+  ],
+  "companion_hp_cooldowns_and_gauge": true,
+  "lunar_reactions": {
+    "SK05": "月結晶",
+    "SK09": "月感電",
+    "SK13": "月開花"
+  },
+  "moon_skill_levels": [
+    127,
+    133
+  ],
+  "star_skill_levels": [
+    149,
+    155
+  ],
+  "star_partners": [
+    "wanderer",
+    "beidou",
+    "mitya"
+  ],
+  "save_and_duplicate_report_verified": true
+}

@@ -16,7 +16,10 @@ return function(C)
    if #s.reactions>80 then table.remove(s.reactions,1) end
    return
   end
-  if colors[element] then e.aura={element=element,expires=s.t+6,owner=cast.id};return end
+  if colors[element] then
+   e.aura={element=element,expires=s.t+6,owner=cast.id,companion=cast.id==2 and s.companion or nil}
+   return
+  end
   local aura=e.aura
   if not aura or aura.expires<=s.t or aura.element=='dendro' then return end
   e.aura=nil

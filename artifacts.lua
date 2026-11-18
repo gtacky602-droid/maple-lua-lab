@@ -62,6 +62,16 @@ return function(C,imprint)
           after=previewItem(withGrowth(item,next,item.imprintStars)),
           cost=next>item.enhance and upgradeCost(item,next) or 0,capped=next==item.enhance}
  end
+ local function imprintPreview(item,example)
+  local stars=item.imprintStars or 0
+  if stars>0 then
+   return {kind='imprint',example=example,earned=true,
+           before=previewItem(withGrowth(item,item.enhance,0)),after=previewItem(item)}
+  end
+  if item.enhance<caps[item.rarity] then return nil,'通常強化を上限まで進めると刻印できます。' end
+  return {kind='imprint',example=example,before=previewItem(item),
+          after=previewItem(withGrowth(item,item.enhance,1)),cost=imprint.costPerStar}
+ end
  local function inheritancePreview(source,target,example)
   if not source or not target or source==target or source.slot~=target.slot then
    return nil,'同じ部位の異なる二品を選んでください。'
@@ -87,6 +97,26 @@ return function(C,imprint)
   if preview then training(s,id) end
  end
  function C.partyImprint(s) return (s.actors[1].imprint or 0)+(s.actors[2].imprint or 0) end
+ function C.hasImprintedArtifact(s)
+  setup(s)
+  for _,item in ipairs(s.inventory.items) do
+   if (item.imprintStars or 0)>0 then return true end
+  end
+  return false
+ end
+ local function lineUp(s,companion)
+  local traveler,partner={},{}
+  local total=0
+  for slot=1,5 do traveler[slot],partner[slot]=0,0 end
+  for _,item in ipairs(s.inventory.items) do
+   local stars=item.imprintStars or 0
+   if item.owner==1 then traveler[item.slot]=stars;total=total+stars
+   elseif item.owner==2 and item.companionId==companion then
+    partner[item.slot]=stars;total=total+stars
+   end
+  end
+  return {traveler=traveler,partner=partner,total=total,companion=companion}
+ end
  local function anchor(points,level)
   for i=2,#points do local a,b=points[i-1],points[i]
    if level<=b[1] then local t=(level-a[1])/(b[1]-a[1]);if a[2]==0 then return b[2]*t end;return a[2]*(b[2]/a[2])^t end
@@ -184,6 +214,20 @@ return function(C,imprint)
    end
    return
   end
+  local pair=key:match('^artifact_pair_preview:(%a+)$')
+  if pair then
+   if s.paused or not s.campaign or s.campaign.zone~='town' or not C.isCompanion(pair) then return end
+   local current=s.companion or 'amber'
+   if current==pair then return end
+   local before,after=lineUp(s,current),lineUp(s,pair)
+   local barriers={}
+   for _,target in ipairs(C.growthBarrierTargets()) do
+    local function damage(total) return math.floor(100*C.barrierMultiplier(total,target.barrier)+.5) end
+    barriers[#barriers+1]={id=target.id,name=target.name,barrier=target.barrier,before=damage(before.total),after=damage(after.total)}
+   end
+   showPreview(s,{kind='party',before=before,after=after,barriers=barriers},nil,'party-imprint-compare')
+   return
+  end
   local example=key:match('^artifact_example:(%a+)$')
   local transfer,sourceId,targetId=key:match('^artifact_inherit_(%a+):(%d+):(%d+)$')
   if example or transfer then
@@ -193,7 +237,10 @@ return function(C,imprint)
     local target={slot=2,itemLv=45,rarity=5,enhance=0,owner=0,setId='troupe',subpair='hp_crit'}
     if example=='compare' then showPreview(s,comparePreview(s,target,true),nil,'gear-compare')
     elseif example=='upgrade' then showPreview(s,upgradePreview(target,true),nil,'enhance-preview')
-    elseif example=='inherit' then showPreview(s,inheritancePreview(source,target,true),nil,'inherit-preview') end
+    elseif example=='inherit' then showPreview(s,inheritancePreview(source,target,true),nil,'inherit-preview')
+    elseif example=='imprint' then
+     showPreview(s,imprintPreview(withGrowth(target,caps[target.rarity],0),true),nil,'first-imprint')
+    end
    else
     local source,index=findItem(bag,tonumber(sourceId))
     local target=findItem(bag,tonumber(targetId))
@@ -230,10 +277,14 @@ return function(C,imprint)
   if command then
    if not s.campaign or s.campaign.zone~='town' then bag.message='町で装備を変更してください。';return end
    for index,item in ipairs(bag.items) do if item.id==tonumber(id) then
-    if command=='compare' or command=='preview' then
+    if command=='compare' or command=='preview' or command=='stampview' then
      if s.paused then return end
      if command=='compare' then showPreview(s,comparePreview(s,item),nil,'gear-compare')
-     else showPreview(s,upgradePreview(item),nil,'enhance-preview') end
+     elseif command=='preview' then showPreview(s,upgradePreview(item),nil,'enhance-preview')
+     else
+      local preview,error=imprintPreview(item)
+      showPreview(s,preview,error,'first-imprint')
+     end
      return
     end
     s.artifactPreview=nil
@@ -256,6 +307,7 @@ return function(C,imprint)
      elseif s.mora<cost then bag.message='刻印には'..cost..'モラ必要です。'
      else
       s.mora=s.mora-cost;item.imprintStars=nextStar
+      training(s,'first-imprint')
       C.refreshArtifactStats(s)
       bag.message='光界刻印を'..nextStar..'星にしました。'
      end

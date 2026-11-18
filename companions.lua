@@ -2,6 +2,13 @@ return function(C)
  local action,step,frame,checkpoint,restore,after=C.action,C.step,C.frame,C.checkpoint,C.restore,C.afterElementHit
  local skills={normal={mult=.9,hits=3,ct=0,lock=.8,targets=3,delay=.15,interval=.08},skill1={mult=.7,hits=10,ct=15,lock=.45,targets=6,delay=.4,interval=.6,deploy=true},skill2={mult=.45,hits=8,ct=20,lock=.5,targets=6,delay=.6,interval=1.2,deploy=true},skill3={mult=0,hits=0,ct=12,lock=.35,targets=0},skill4={mult=1.1,hits=10,ct=26,lock=.75,targets=8,delay=.15,interval=.08}}
  local windSkills={normal={mult=1.2,hits=3,ct=0,lock=.7,targets=3,delay=.15,interval=.08},skill1={hits=0,ct=18,lock=.35},skill2={mult=1.2,hits=6,ct=9,lock=.75,targets=6,delay=.15,interval=.08},skill3={mult=1,hits=3,ct=10,lock=.4,targets=4,delay=.15,interval=.08},skill4={mult=1.65,hits=8,ct=24,lock=.8,targets=8,delay=.15,interval=.08}}
+ local roster={amber=true,columbina=true,wanderer=true,beidou=true,ayaka=true,emilie=true,kachina=true,mitya=true}
+ function C.isCompanion(id) return roster[id] end
+ local moonElements={electro='月感電',dendro='月開花',geo='月結晶'}
+ local function moonElement(cast,element)
+  if moonElements[element] then return element end
+  for _,part in ipairs(cast.damageElements or {}) do if moonElements[part] then return part end end
+ end
  local movement=C.moveActorOverride
  function C.moveActorOverride(s,a,dt,move,held)
   if a.id==2 and s.companion=='wanderer' and (a.floatUntil or 0)>s.t then
@@ -46,23 +53,51 @@ return function(C)
   return true
  end
  function C.afterElementHit(s,cast,e,element)
+  local prior=e.aura
   after(s,cast,e,element)
-  if s.companion~='columbina' or s.actors[2].hp<=0 or cast.id~=1 or cast.reaction or cast.special or e.hp<=0 or s.t>=(s.moonDomain or 0) or s.t>=(s.moonMark or 0) or s.t<(s.moonICD or 0) then return end
-  local eligible=element=='electro' or element=='dendro' or element=='geo'
-  for _,part in ipairs(cast.damageElements or {}) do if part=='electro' or part=='dendro' or part=='geo' then eligible=true end end
-  if not eligible then return end
+  if s.companion~='columbina' or s.actors[2].hp<=0 or cast.reaction or cast.special or e.hp<=0 or s.t<(s.moonICD or 0) then return end
+  local derived,proxy
+  if cast.id==1 then
+   local part=moonElement(cast,element)
+   if part and prior and prior.expires>s.t and prior.element=='hydro' and prior.companion=='columbina' and prior.owner==2 then
+    derived=part
+   elseif part and s.t<(s.moonDomain or 0) and s.t<(s.moonMark or 0) then
+    proxy=true
+   end
+  elseif cast.id==2 and element=='hydro' and prior and prior.expires>s.t and prior.owner==1 and moonElements[prior.element] then
+   derived=prior.element
+  end
+  if not (derived or proxy) then return end
   s.moonICD=s.t+1
-  C.resolveCast(s,{id=1,key='moon_support_proxy',atk=cast.atk,x=e.x,y=e.y,targetId=e.id,dir=1,radial=true,range=1,limit=1,mult=1.2,color='#e2e4ff',element='hydro',gain=0,reaction=true,critRate=0})
+  if derived then e.aura=nil end
+  local before=s.damage
+  C.resolveCast(s,{id=cast.id,key=derived and 'reaction:moon-'..derived or 'moon_support_proxy',atk=cast.atk,
+   x=e.x,y=e.y,targetId=e.id,dir=1,radial=true,range=1,limit=1,mult=1.2,color='#e2e4ff',
+   element='hydro',gain=0,reaction=true,critRate=0})
+  if derived and s.damage>before then s.lastMoonReaction={name=moonElements[derived],untilTime=s.t+3} end
  end
- local function clear(s) s.moonDomain=0;s.moonMark=0;s.moonICD=0;s.actors[2].floatUntil=0 end
+ local function clear(s) s.moonDomain=0;s.moonMark=0;s.moonICD=0;s.lastMoonReaction=nil;s.actors[2].floatUntil=0 end
  function C.action(s,key)
   local id=string.match(key,'^companion:(%a+)$')
   if id then
-   if not s.campaign or s.campaign.zone~='town' or (id~='amber' and id~='columbina' and id~='wanderer' and id~='beidou' and id~='ayaka' and id~='emilie' and id~='kachina' and id~='mitya') then return end
-   if (s.companion or 'amber')==id then return end
+   if s.paused or not s.campaign or s.campaign.zone~='town' or not roster[id] then return end
+   local current=s.companion or 'amber'
+   if current==id then return end
+   local actor=s.actors[2]
+   s.companionRest=s.companionRest or {}
+   local stored=s.companionRest[id]
+   s.companionRest[current]={hp=actor.hp,cd=actor.cd,lock=actor.lock,time=s.t}
+   s.companionRest[id]=nil
    s.companion=id
+   s.artifactPreview=nil
    C.refreshArtifactStats(s,true)
-   clear(s);s.actors[2].cd={};s.actors[2].lock=0;s.decoys={}
+   clear(s);actor.cd={};actor.lock=0;s.decoys={}
+   if stored then
+    local elapsed=s.t-stored.time
+    actor.hp=math.min(actor.maxhp,stored.hp)
+    actor.lock=math.max(0,stored.lock-elapsed)
+    for skill,time in pairs(stored.cd) do actor.cd[skill]=math.max(0,time-elapsed) end
+   else actor.hp=actor.maxhp end
    for i=#s.pending,1,-1 do if s.pending[i].id==2 then table.remove(s.pending,i) end end
    return
   end
@@ -76,6 +111,7 @@ return function(C)
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile);local col=s.companion=='columbina'
   f.companion={id=s.companion or 'amber',name=col and 'コロンビーナ（仮表示）' or 'アンバー',skills=col and {'通常水弾','さざ波','月の領域','月の印','月光奥義'} or {'通常攻撃','火矢','矢の雨','ウサギ伯爵','跳躍射撃'},moonDomain=math.max(0,(s.moonDomain or 0)-s.t),moonMark=math.max(0,(s.moonMark or 0)-s.t)}
+  if s.lastMoonReaction and s.t<s.lastMoonReaction.untilTime then f.companion.moonReaction=s.lastMoonReaction.name end
   if s.companion=='wanderer' then f.companion.name='放浪者（仮表示）';f.companion.skills={'通常風弾','浮遊','空中連射','風圧回避','嵐の奥義'};f.companion.floatSeconds=math.max(0,(s.actors[2].floatUntil or 0)-s.t) end
   if not s.toyDive and (not (s.surfRound or s.springRun) or s.active==2) and (col or s.companion=='wanderer' or s.companion=='beidou' or s.companion=='ayaka' or s.companion=='emilie' or s.companion=='kachina' or s.companion=='mitya') then
    for i=#f.draws,1,-1 do local d=f.draws[i];if d.kind=='sprite' and (d.asset==3 or d.asset==4) then table.remove(f.draws,i) end end
