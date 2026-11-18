@@ -4022,6 +4022,66 @@
       "transparent": 0
     },
     {
+      "key": "natlanXilonenLab",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "natlanXilonenLab",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "natlanXilonenLab",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "natlanXilonenLab",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "natlanXilonenLab",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "natlanXilonenLab",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "natlanXilonenCourse",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "natlanXilonenCourse",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "natlanXilonenCourse",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "natlanXilonenCourse",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "natlanXilonenCourse",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "natlanXilonenCourse",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "natlanKinichHunt",
       "camera": -960,
       "transparent": 0

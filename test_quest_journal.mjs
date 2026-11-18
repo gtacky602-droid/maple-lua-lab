@@ -8,6 +8,10 @@ graph.bossNodes=Object.fromEntries([...fields,...weeklies].flatMap(spec=>
 for(const q of graph.quests){
  const gated=Boolean(q.legacyOnly||q.requires||q.opensAfter||q.level!==undefined);
  const prerequisites=Object.fromEntries([q.requires,q.opensAfter].filter(Boolean).map(id=>[id,{status:'complete',count:q.opensAfterCount??0}]));
+ if(q.opensAfterAnyPath){
+  const [path,count]=Object.entries(q.opensAfterAnyPath)[0];
+  prerequisites[q.opensAfter].pathProgress={[path]:{count}};
+ }
  if(questStatus(q,null,{},0)!==(gated?'locked':'unaccepted')||
     questStatus(q,null,prerequisites)!==(q.legacyOnly?'locked':'unaccepted')||
     questStatus(q,{status:'active',count:0})!=='active'||
@@ -18,6 +22,12 @@ for(const q of graph.quests){
 const detour=graph.quests.find(q=>q.id==='columbina-coast-detour');
 if(questStatus(detour,null,{[detour.opensAfter]:{status:'active',count:1}},120)!=='locked'||
    questStatus(detour,null,{[detour.opensAfter]:{status:'active',count:2}},120)!=='unaccepted')throw Error('first meeting requirement');
+const springs=graph.quests.find(q=>q.id==='natlan-xilonen-springs');
+const paths=pathProgress=>({[springs.opensAfter]:{status:'active',count:1,pathProgress}});
+for(const [path,count] of Object.entries(springs.opensAfterAnyPath)){
+ if(questStatus(springs,null,paths({[path]:{count}}),100)!=='unaccepted'||
+    questStatus(springs,null,paths({[path]:{count:count-1}}),100)!=='locked')throw Error('single branch requirement '+path);
+}
 const b=await chromium.launch({headless:true,channel:'chrome'}),p=await b.newPage({viewport:{width:1200,height:1000}}),errors=[];p.on('pageerror',e=>errors.push(e.message));
 try{
  await p.goto(process.env.LAB_URL||'http://127.0.0.1:8769');await p.waitForFunction(()=>window.lab?.frame);

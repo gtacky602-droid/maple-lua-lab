@@ -2,6 +2,8 @@ import {questRouteText,questTargetNode} from './quest-route.js';
 export function questStatus(q,state,quests,level=Infinity){
  if(!state)return q.legacyOnly||(q.requires&&quests?.[q.requires]?.status!=='complete')||
   (q.opensAfter&&(!quests?.[q.opensAfter]||(quests[q.opensAfter].count??0)<(q.opensAfterCount??0)))||
+  (q.opensAfterAnyPath&&!Object.entries(q.opensAfterAnyPath).some(([path,count])=>
+   (quests?.[q.opensAfter]?.pathProgress?.[path]?.count??0)>=count))||
   (q.level!==undefined&&level<q.level)?'locked':'unaccepted';
  if(state.status==='complete')return 'complete';
  return state.count>=q.goal?'ready':'active';

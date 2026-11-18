@@ -510,7 +510,7 @@ function C.frame(s,mode,profile)
   if e.warning>0 then add({kind='text',x=e.x-s.camera,y=headY-23,text='!',color='#e54b35',size=26}) end
  end end
  for _,a in ipairs(s.actors) do
-  if a.hp>0 and (not s.toyDive or a.id==1) and (not s.surfRound or a.id==s.active) then
+  if a.hp>0 and (not s.toyDive or a.id==1) and (not (s.surfRound or s.springRun) or a.id==s.active) then
    local asset=a.id==1 and (a.walk~=0 and 2 or 1) or (a.lock>0 and 4 or 3)
    local amberArt=asset==3 and C.amberIdleArt or asset==4 and C.amberBowArt
    local companionArt=a.id==2 and C.companionArt and C.companionArt[s.companion]

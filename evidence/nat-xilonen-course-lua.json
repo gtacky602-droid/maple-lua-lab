@@ -1,0 +1,29 @@
+{
+  "eitherMainBranch": true,
+  "sampleHeights": {
+    "low": 64,
+    "high": 152
+  },
+  "draftSurvivesSave": true,
+  "tooLowAndCeilingRecovery": true,
+  "twoLayoutsFinish": [
+    {
+      "best": 281,
+      "retries": 0,
+      "kind": "lap",
+      "ticks": 281
+    },
+    {
+      "best": 281,
+      "retries": 0,
+      "kind": "lap",
+      "ticks": 281
+    }
+  ],
+  "noDamageOrPartyMutation": true,
+  "bestPerLayoutAfterRestore": true,
+  "reward": [
+    2325046,
+    5900
+  ]
+}

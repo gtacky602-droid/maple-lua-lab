@@ -2238,12 +2238,114 @@
             "quest": "natlan-kinich-ambush",
             "count": 1
           }
+        },
+        {
+          "to": "natlan-xilonen-workshop",
+          "x": 173,
+          "arrivalX": 132,
+          "rideLabel": "シロネンの試作工房",
+          "requires": {
+            "quest": "natlan-xilonen-springs",
+            "count": 1
+          }
         }
       ],
       "checkpoint": "natlan-hub",
       "stoneCharmQuest": "natlan-kachina-charms",
       "surfQuest": "natlan-mualani-surf",
-      "kinichQuest": "natlan-kinich-ambush"
+      "kinichQuest": "natlan-kinich-ambush",
+      "springQuest": "natlan-xilonen-springs"
+    },
+    {
+      "id": "natlan-xilonen-workshop",
+      "name": "ナタ・シロネンの試作工房",
+      "region": "ナタ",
+      "level": 100,
+      "hub": false,
+      "peaceful": true,
+      "width": 1040,
+      "checkpoint": "natlan-hub",
+      "springQuest": "natlan-xilonen-springs",
+      "springVenue": "lab",
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1040
+        }
+      ],
+      "exits": [
+        {
+          "to": "natlan-hub",
+          "x": 55,
+          "arrivalX": 193,
+          "rideLabel": "谷の集落に戻る"
+        },
+        {
+          "to": "natlan-xilonen-course",
+          "x": 936,
+          "arrivalX": 115,
+          "rideLabel": "踏み台の試走路",
+          "requires": {
+            "quest": "natlan-xilonen-springs",
+            "count": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "natlan-xilonen-course",
+      "name": "ナタ・三段の試走路",
+      "region": "ナタ",
+      "level": 100,
+      "hub": false,
+      "peaceful": true,
+      "width": 1580,
+      "checkpoint": "natlan-hub",
+      "springQuest": "natlan-xilonen-springs",
+      "springVenue": "course",
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1580,
+          "catchDeck": 278
+        },
+        {
+          "x": 391,
+          "y": 345,
+          "w": 322
+        },
+        {
+          "x": 809,
+          "y": 307,
+          "w": 306
+        },
+        {
+          "x": 1226,
+          "y": 272,
+          "w": 354
+        }
+      ],
+      "exits": [
+        {
+          "to": "natlan-xilonen-workshop",
+          "x": 56,
+          "arrivalX": 869,
+          "rideLabel": "試作工房に戻る"
+        },
+        {
+          "to": "natlan-hub",
+          "x": 1526,
+          "arrivalX": 193,
+          "rideLabel": "集落へ降りる",
+          "requires": {
+            "quest": "natlan-xilonen-springs",
+            "count": 4
+          },
+          "y": 272
+        }
+      ]
     },
     {
       "id": "natlan-kinich-hunt",
@@ -6708,6 +6810,154 @@
           "enemy": "kinich-hunt-ridge-beast",
           "name": "巡り岩の大型魔物",
           "objective": "狩道の大型魔物を倒す。足跡と枝を調べて待てる場所を選ぶか、正面から挑む"
+        }
+      ]
+    },
+    {
+      "id": "natlan-xilonen-springs",
+      "designId": "Q-NAT-S04",
+      "name": "試作品、思い切り使ってみて",
+      "giver": "シロネン",
+      "hub": "natlan-hub",
+      "target": "natlan-xilonen-workshop",
+      "level": 100,
+      "opensAfter": "natlan-two-trials",
+      "opensAfterAnyPath": {
+        "high": 4,
+        "water": 4
+      },
+      "unlockHint": "高台か水辺の挑戦を一つ終える",
+      "kind": "itinerary",
+      "goal": 4,
+      "xp": 2325046,
+      "mora": 5900,
+      "springCourse": {
+        "lab": "natlan-xilonen-workshop",
+        "course": "natlan-xilonen-course",
+        "bench": {
+          "x": 650,
+          "y": 480
+        },
+        "start": {
+          "x": 139,
+          "y": 480
+        },
+        "finish": {
+          "x": 1456,
+          "y": 272
+        },
+        "types": {
+          "high": {
+            "label": "高い型",
+            "speed": 560,
+            "height": 48
+          },
+          "low": {
+            "label": "低い型",
+            "speed": 365,
+            "height": 31
+          }
+        },
+        "samples": [
+          {
+            "id": "high",
+            "x": 235,
+            "y": 480
+          },
+          {
+            "id": "low",
+            "x": 442,
+            "y": 480
+          }
+        ],
+        "speed": 282,
+        "gravity": 1000,
+        "bodyClearance": 76,
+        "sections": [
+          {
+            "id": "rise",
+            "label": "高い段差",
+            "hint": "着地する足場が高い。低い型では届かない。",
+            "launch": {
+              "x": 246,
+              "y": 480
+            },
+            "fromX": 0,
+            "edgeX": 278,
+            "left": 391,
+            "right": 713,
+            "landY": 345
+          },
+          {
+            "id": "roof",
+            "label": "低い天井",
+            "hint": "跳ね上がる位置の上に天井がある。",
+            "launch": {
+              "x": 665,
+              "y": 345
+            },
+            "fromX": 391,
+            "edgeX": 713,
+            "left": 809,
+            "right": 1115,
+            "landY": 307,
+            "roof": {
+              "left": 605,
+              "right": 788,
+              "bottom": 200
+            }
+          },
+          {
+            "id": "reach",
+            "label": "横に離れた足場",
+            "hint": "低い型なら踏み台の右寄りから跳ぶ。高い型なら余裕がある。",
+            "launch": {
+              "x": 1066,
+              "y": 307
+            },
+            "fromX": 809,
+            "edgeX": 1115,
+            "left": 1226,
+            "right": 1580,
+            "landY": 272
+          }
+        ]
+      },
+      "briefing": "シロネン「高く跳ぶ型と低く跳ぶ型がある。二つ使ってみてから、三段のコースに合わせてほしいんだ。」",
+      "closing": "シロネン「段差、天井、着地。三つがつながったね。配置は残しておくから、記録にも挑戦できるよ。」",
+      "completedObjective": "工房で三つの踏み台の配置を変更できる。試走路で配置ごとの最速記録に挑戦できる",
+      "itinerary": [
+        {
+          "kind": "inspect",
+          "node": "natlan-hub",
+          "name": "シロネンとの打ち合わせ",
+          "objective": "谷の集落でシロネンに会う",
+          "notice": "シロネン「工房の二台は試験済み。まず跳び心地を比べに行こう。」",
+          "x": 244,
+          "y": 480,
+          "action": "シロネンに試作品の話を聞く",
+          "springProp": true
+        },
+        {
+          "kind": "springSample",
+          "node": "natlan-xilonen-workshop",
+          "name": "二台の試作を比べる",
+          "objective": "工房で高い型と低い型に各一度乗り、ジャンプで試す",
+          "notice": "シロネン「高い型は上がりやすい。低い型は天井が近くても扱いやすい。右の設計台で組み合わせてみて。」"
+        },
+        {
+          "kind": "springLayout",
+          "node": "natlan-xilonen-workshop",
+          "name": "三か所を調整する",
+          "objective": "工房の設計台で段差・天井・着地点に合わせて三つの型を選ぶ",
+          "notice": "配置を保存しました。右の門から試走路へ行きましょう。"
+        },
+        {
+          "kind": "springLap",
+          "node": "natlan-xilonen-course",
+          "name": "組んだコースを踏破する",
+          "objective": "試走路で三つの踏み台を使い、一周して旗に着く",
+          "notice": "三つの足場をつないで走り切りました。右の門から集落へ戻って報告できます。"
         }
       ]
     },

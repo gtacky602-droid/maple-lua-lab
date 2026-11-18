@@ -55,6 +55,17 @@
 #surfControls{padding:10px 18px;background:#173a3b}
 #surfHit.selected{border-color:#ffe29b;color:#251c12;background:#ffdf8a}
 .surf-playing .bottom{display:none}
+.spring-playing .bottom{display:none}
+#springCourseStatus,#springLayout{padding:11px 18px;background:#173a3b}
+#springLayout{background:#34372e}
+#springLayout h2{margin:0;font-size:17px;color:#ffdd9f}
+#springSlots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:10px;margin:12px 0}
+#springSlots>div{padding:9px 10px;background:#252b25;border:1px solid #63736a;border-radius:6px}
+#springSlots label{display:block;margin-bottom:6px}
+#springSlots p{margin:6px 0 0;color:#dae4ca}
+[data-spring-touch]{display:none}
+@media(max-width:850px){[data-spring-touch]{display:flex;gap:8px;flex-wrap:wrap;margin-top:7px}
+ [data-spring-touch] button{touch-action:none}}
 [data-surf-touch]{display:none}
 @media(max-width:850px){[data-surf-touch]{display:flex;gap:8px;margin-top:8px}[data-surf-touch][hidden]{display:none}
  [data-surf-touch] button{touch-action:none}}
@@ -80,6 +91,14 @@
 <div id="nearbyCargo" hidden style="padding:10px 18px;background:#173a3b"><button id="nearbyCargoGo" data-action="story_collect">G：荷物を回収</button><span id="reflectionControls" hidden> <button id="reflectionLight" data-action="story_reflection_light">消灯する</button> <button data-action="story_reflection_confirm">照合する</button></span> <span id="reflectionImage"></span> <button id="airflowSound" hidden aria-pressed="false">装置音を聞く</button><span id="airflowControls" hidden> <button id="airflowCommit" data-action="story_airflow_commit">この位置で固定する</button> <span id="airflowStatus"></span></span> <span id="resonanceStatus" aria-live="polite"></span> <span id="paperControls" hidden><button id="paperConfirm" data-action="story_paper_confirm">確定する</button> <span id="paperStatus"></span></span><span id="surveyRigControls" hidden> <button data-action="story_survey_confirm">この設置で確定する</button> <span id="surveyRigReading" role="status"></span></span></div>
 <div id="rockView" hidden style="padding:10px 18px;background:#173a3b"><p id="rockViewCaption" style="margin:0 0 8px"></p><canvas id="rockViewCanvas" width="340" height="108" aria-hidden="true" style="width:min(100%,340px);aspect-ratio:340/108"></canvas></div>
 <div id="diveHelp" hidden><span>WASD・方向キーで泳ぐ ｜ Gで調べる ｜ Fで浮上</span> <button id="diveReset" type="button" data-action="story_dive_reset">回収灯へ戻る</button></div>
+<div id="springCourseStatus" hidden><span id="springCourseText" role="status"></span><div id="springRunControls" hidden><div data-spring-touch><span id="springMove"><button data-hold="left" aria-label="試走で左へ移動">←</button> <button data-hold="right" aria-label="試走で右へ移動">→</button></span><button id="springJump" type="button" data-action="jump">ジャンプ</button></div></div></div>
+<section id="springLayout" hidden aria-labelledby="springLayoutTitle">
+ <h2 id="springLayoutTitle">踏み台の配置</h2>
+ <p id="springSampleResult"></p>
+ <div id="springSlots"></div>
+ <button id="springLayoutSave" type="button" data-action="story_spring_confirm">この配置を保存する</button>
+ <button type="button" data-action="story_spring_close">閉じる</button>
+</section>
 <div id="surfControls" hidden aria-label="水遊びの操作"><span id="surfStatus" role="status"></span> <button id="surfHit" type="button" data-action="story_surf_hit" hidden>J：ボールを打ち返す</button><div data-surf-touch><button data-hold="left" aria-label="左へ移動">←</button><button data-hold="right" aria-label="右へ移動">→</button><button id="surfJump" type="button" data-action="jump">ジャンプ</button></div></div>
 <div id="surveyMap" hidden style="padding:10px 18px;background:#173a3b"><p id="surveyMapCaption" style="margin:0 0 8px"></p><canvas id="surveyMapCanvas" width="420" height="132" aria-hidden="true" style="width:min(100%,420px);aspect-ratio:420/132"></canvas></div>
 <section id="readingModel" hidden aria-label="閲覧室の模型" style="padding:12px 18px;background:#193b39">

@@ -1029,6 +1029,26 @@
       "to": "natlan-kinich-hunt"
     },
     {
+      "node": "natlan-hub",
+      "to": "natlan-xilonen-workshop"
+    },
+    {
+      "node": "natlan-xilonen-workshop",
+      "to": "natlan-hub"
+    },
+    {
+      "node": "natlan-xilonen-workshop",
+      "to": "natlan-xilonen-course"
+    },
+    {
+      "node": "natlan-xilonen-course",
+      "to": "natlan-xilonen-workshop"
+    },
+    {
+      "node": "natlan-xilonen-course",
+      "to": "natlan-hub"
+    },
+    {
       "node": "natlan-kinich-hunt",
       "to": "natlan-hub"
     },

@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule,furinaCuesModule,naviaPhotoModule,lyneyMagicModule,freminetDiveModule,stoneOrnamentsModule,mualaniSurfModule,kinichAmbushModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule,furinaCuesModule,naviaPhotoModule,lyneyMagicModule,freminetDiveModule,stoneOrnamentsModule,mualaniSurfModule,kinichAmbushModule,xilonenSpringsModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -199,6 +199,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local stoneOrnaments=stoneOrnamentsModule(C,canInspect)
  local mualaniSurf=mualaniSurfModule(C,canInspect)
  local kinichAmbush=kinichAmbushModule(C,canInspect)
+ local xilonenSprings=xilonenSpringsModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -568,6 +569,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.photoPanel,s.photoTimer,s.stonePairOpen=nil,nil,nil
   s.lyneyRun=nil
   mualaniSurf.enter(s)
+  xilonenSprings.enter(s)
   s.storyLightMode=n.localLight and 'bright' or nil
   s.airflowTrial,s.storyCue=nil,nil
   s.resonanceOrder,s.resonancePage=nil,nil
@@ -674,6 +676,21 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  function C.action(s,key)
   setup(s)
+  if s.springRun or s.springPanel then
+   local n=nodes[s.story.node]
+   local q=quests[n.springQuest]
+   local state=s.story.quests[q.id]
+   if key=='pause' then action(s,key)
+   elseif s.springRun and not s.paused then
+    if key=='jump' then xilonenSprings.jump(s)
+    elseif key=='story_collect' then xilonenSprings.interact(s,q,state) end
+   elseif s.springPanel then
+    local milestone=xilonenSprings.panelAction(s,q,state,key)
+    if milestone then completeMilestone(s,state,milestone) end
+   end
+   return
+  end
+  if key:match('^story_spring_') then return end
   if s.surfRound then
    if key=='pause' then action(s,key)
    elseif key=='story_collect' and not s.paused then
@@ -815,6 +832,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    local lamp=node.localLight
    if lamp and localLight.interact(s,lamp) then return end
+   if node.springQuest then
+    local q=quests[node.springQuest]
+    if xilonenSprings.interact(s,q,s.story.quests[q.id]) then return end
+   end
    if node.kinichQuest then
     local q=quests[node.kinichQuest]
     if kinichAmbush.interact(s,q,s.story.quests[q.id]) then return end
@@ -1041,6 +1062,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if q.requires and not completed(s,q.requires) then return end
     if q.opensAfter and not s.story.quests[q.opensAfter] then return end
     if q.opensAfterCount and s.story.quests[q.opensAfter].count<q.opensAfterCount then return end
+    if q.opensAfterAnyPath then
+     local progress=s.story.quests[q.opensAfter].pathProgress or {}
+     local unlocked=false
+     for path,required in pairs(q.opensAfterAnyPath) do
+      if progress[path] and progress[path].count>=required then unlocked=true;break end
+     end
+     if not unlocked then return end
+    end
     if q.level and (not s.progression or s.progression.level<q.level) then return end
     s.story.quests[id]={status='active',count=0,cycles=state and state.cycles or 0,
                        recovered=q.cargo and {} or nil,inspected=q.trail and {} or nil,delivery=q.delivery and delivery.new() or nil,
@@ -1123,6 +1152,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
  end
  function C.step(s,dt,input)
+  if s.springRun then
+   local node=nodes[s.story.node]
+   local q=quests[node.springQuest]
+   local state=s.story.quests[q.id]
+   local milestone=xilonenSprings.step(s,dt,input or {},q,state)
+   if milestone then completeMilestone(s,state,milestone) end
+   return
+  end
   if s.surfRound then
    local n=nodes[s.story.node]
    local q=quests[n.surfQuest]
@@ -1186,7 +1223,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     companion.buffer=.1
    end
   end
-  local returns,previous=s.returns,s.t;step(s,dt,(s.fireworkShow or s.sayuHatch or s.kavehModelOpen or s.nahidaMapOpen or s.furinaRun or s.photoPanel or s.stonePairOpen or s.lyneyRun) and {} or input)
+  local returns,previous=s.returns,s.t;step(s,dt,(s.fireworkShow or s.sayuHatch or s.kavehModelOpen or s.nahidaMapOpen or s.furinaRun or s.photoPanel or s.stonePairOpen or s.springPanel or s.lyneyRun) and {} or input)
   if s.story and s.story.active and s.returns==returns and not s.paused then
    local node=nodes[s.story.node]
    if s.kinichHunt then
@@ -1446,6 +1483,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if n.toyDisplay then
     freminetDive.display(f,s,markers,n.toyDisplay,s.story.quests[n.toyDisplay.quest],mode,profile)
    end
+   if n.springQuest then
+    local q=quests[n.springQuest]
+    xilonenSprings.observe(f,s,markers,n,q,s.story.quests[q.id],mode,profile)
+   end
    if n.kinichQuest then
     local q=quests[n.kinichQuest]
     kinichAmbush.observe(f,s,markers,n,q,s.story.quests[q.id],mode,profile)
@@ -1689,7 +1730,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup
         and not milestone.nightClue and not milestone.fireworkSight and not milestone.stealthNap
         and not milestone.teaClue and not milestone.teaCup and not milestone.surveyProp and not milestone.visitorProp
-        and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp and not milestone.photoProp and not milestone.magicProp and not milestone.diveProp and not milestone.charmProp and not milestone.surfProp and not milestone.huntProp
+        and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp and not milestone.photoProp and not milestone.magicProp and not milestone.diveProp and not milestone.charmProp and not milestone.surfProp and not milestone.huntProp and not milestone.springProp
         and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)

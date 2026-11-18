@@ -1,0 +1,27 @@
+newmtl brass
+Kd 0.83529 0.59608 0.20784
+illum 1
+
+newmtl steel
+Kd 0.22353 0.31373 0.34118
+illum 1
+
+newmtl blue
+Kd 0.23529 0.59216 0.65490
+illum 1
+
+newmtl orange
+Kd 0.82745 0.40000 0.19608
+illum 1
+
+newmtl wood
+Kd 0.52157 0.32157 0.20784
+illum 1
+
+newmtl cream
+Kd 0.91765 0.81176 0.58039
+illum 1
+
+newmtl red
+Kd 0.70588 0.28627 0.24314
+illum 1

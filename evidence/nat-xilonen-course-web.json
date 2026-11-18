@@ -1,0 +1,15 @@
+{
+  "acceptedWithOneMainBranch": true,
+  "samplingWithKeyboardAndTouch": true,
+  "draftReload": true,
+  "ceilingRecovery": true,
+  "configuredLapAndReport": true,
+  "bestAndReplayAfterReload": true,
+  "mobilePlanner": true,
+  "calls": {
+    "png": 23,
+    "rect": 6679,
+    "light": 1557
+  },
+  "errors": []
+}

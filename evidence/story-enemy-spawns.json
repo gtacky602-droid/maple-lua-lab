@@ -366,6 +366,14 @@
       "enemy_count": 0
     },
     {
+      "node": "natlan-xilonen-workshop",
+      "enemy_count": 0
+    },
+    {
+      "node": "natlan-xilonen-course",
+      "enemy_count": 0
+    },
+    {
       "node": "natlan-kinich-hunt",
       "enemy_count": 1
     },

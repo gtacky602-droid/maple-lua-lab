@@ -134,6 +134,8 @@ export const sceneryDefinitions={
  fontaineDelivery:{file:'fontaine-delivery-quay-background-v1.png',zones:['story:fontaine-parcel-counter','story:fontaine-delivery-quay']},
  fontaineBackstage:{file:'fontaine-backstage-background-v1.png',zones:['story:fontaine-old-scenery-door','story:fontaine-moon-fly-loft','story:fontaine-stage-wings','story:fontaine-lift-catwalk']},
  fontaineUnderstage:{file:'fontaine-understage-background-v1.png',zones:['story:fontaine-understage-workfloor','story:fontaine-parcel-storeroom']},
+ natlanXilonenLab:{file:'nat-xilonen-course-workshop-background-v1.png',zones:['story:natlan-xilonen-workshop'],note:'試作工房の仮背景'},
+ natlanXilonenCourse:{file:'nat-xilonen-course-course-background-v1.png',zones:['story:natlan-xilonen-course'],note:'三段の試走路の仮背景'},
  natlanKinichHunt:{file:'nat-kinich-ambush-trail-background-v1.png',zones:['story:natlan-kinich-hunt'],note:'巡り岩の狩道の仮背景'},
  natlanSurfRun:{file:'nat-mualani-surf-run-background-v1.png',zones:['story:natlan-surf-run'],note:'水しぶきの練習瀬の仮背景'},
  natlanSurfCove:{file:'nat-mualani-surf-cove-background-v1.png',zones:['story:natlan-surf-cove'],note:'コホラ竜の入り江の仮背景'},
@@ -235,6 +237,11 @@ export function scenery(ctx,frame){
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
   if(p.riverDeck)continue;
+  if(key==='natlanXilonenCourse'&&p.catchDeck&&frame.storySpringCourse?.phase==='lap'){
+   ctx.fillStyle='#925f4e';ctx.fillRect(x,p.y,p.w,60);
+   ctx.fillStyle='#f4bf86';ctx.fillRect(x,p.y,p.catchDeck,5);
+   continue;
+  }
   if(key==='natlanSurfRun'&&frame.storySurf?.phase==='run')continue;
   if(key==='natlanSurfCove'){
    ctx.fillStyle='#bd8558';ctx.fillRect(x,p.y,p.w,60);

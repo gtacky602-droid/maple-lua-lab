@@ -524,6 +524,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "natlan-xilonen-workshop",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "natlan-xilonen-course",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "natlan-kinich-hunt",
       "count": 0,
       "fallback": false,

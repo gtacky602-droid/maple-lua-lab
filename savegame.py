@@ -62,6 +62,44 @@ def validate_discovery_map(record, quest, story):
         raise ValueError('Incomplete discovery map')
 
 
+def validate_spring_course(record, quest, visited):
+    spec, count = quest.get('springCourse'), record['count']
+    if 'springRecord' not in record:
+        if spec and count >= 2:
+            raise ValueError('踏み台の試験記録がありません')
+        return
+    result = record['springRecord']
+    if (not spec or count < 1 or spec['lab'] not in visited or not isinstance(result, dict)
+            or set(result) - {'samples', 'draft', 'layout', 'best'} or 'samples' not in result):
+        raise ValueError('踏み台の試走記録が不正です')
+    samples = result['samples']
+    kinds = spec['types']
+    if (not isinstance(samples, dict) or not samples or set(samples) - kinds.keys()
+            or count >= 2 and set(samples) != kinds.keys()
+            or any(type(rise) is not int or not 1 <= rise <= 200 for rise in samples.values())):
+        raise ValueError('踏み台の比較記録が不正です')
+    slots = {section['id'] for section in spec['sections']}
+    for key, minimum in (('draft', 2), ('layout', 3)):
+        if key not in result:
+            if key == 'layout' and count >= minimum:
+                raise ValueError('確定した踏み台の配置がありません')
+            continue
+        layout = result[key]
+        if (count < minimum or not isinstance(layout, dict) or not layout or set(layout) - slots
+                or key == 'layout' and set(layout) != slots
+                or any(not isinstance(value, str) or value not in kinds for value in layout.values())):
+            raise ValueError('踏み台の組み合わせが不正です')
+    if 'best' not in result:
+        if count >= 4:
+            raise ValueError('踏み台の試走完了記録がありません')
+        return
+    best = result['best']
+    if (count < 4 or spec['course'] not in visited or not isinstance(best, dict) or not 1 <= len(best) <= 8
+            or any(len(key.split('-')) != len(slots) or set(key.split('-')) - kinds.keys()
+                   or type(ticks) is not int or not 1 <= ticks <= 360000 for key, ticks in best.items())):
+        raise ValueError('踏み台の計測記録が不正です')
+
+
 def validate_kinich_hunt(record, quest, visited):
     spec = quest.get('kinichHunt')
     finished = record['count'] == quest['goal']
@@ -383,7 +421,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord','fireworkDesign','stealthEncounter','ittoContest','colleiLetter','roomLayout','discoveryDraft','discoveryDew','groupPhoto','stonePair','huntNotes'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord','fireworkDesign','stealthEncounter','ittoContest','colleiLetter','roomLayout','discoveryDraft','discoveryDew','groupPhoto','stonePair','huntNotes','springRecord'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -414,6 +452,7 @@ def validate_save(data):
             validate_reading_model(q,quest)
             validate_group_photo(q,quest)
             validate_stone_pair(q,quest)
+            validate_spring_course(q,quest,st['visited'])
             validate_kinich_hunt(q,quest,st['visited'])
             validate_discovery_map(q,quest,st)
             validate_appraisal(q,quest,st['visited'])
@@ -455,6 +494,13 @@ def validate_save(data):
                 predecessor = st['quests'].get(quest['requires'])
                 if not isinstance(predecessor, dict) or predecessor.get('status') != 'complete':
                     raise ValueError('Incomplete story quest prerequisite')
+            if quest.get('opensAfterAnyPath'):
+                predecessor = st['quests'].get(quest['opensAfter'])
+                routes = predecessor.get('pathProgress') if isinstance(predecessor, dict) else None
+                if not isinstance(routes, dict) or not any(
+                        isinstance(routes.get(path), dict) and type(routes[path].get('count')) is int
+                        and routes[path]['count'] >= required for path, required in quest['opensAfterAnyPath'].items()):
+                    raise ValueError('試作工房を開く挑戦の記録がありません')
             if 'opensAfterCount' in quest:
                 predecessor = st['quests'].get(quest['opensAfter'])
                 prior_count = predecessor.get('count') if isinstance(predecessor, dict) else None

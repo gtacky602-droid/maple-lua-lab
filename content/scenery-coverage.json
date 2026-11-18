@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-19",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 327 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 319,
+  "scope": "Authored 329 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 321,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -524,6 +524,18 @@
     {
       "id": "natlan-hub",
       "name": "ナタ・谷の集落",
+      "region": "ナタ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "natlan-xilonen-workshop",
+      "name": "ナタ・シロネンの試作工房",
+      "region": "ナタ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "natlan-xilonen-course",
+      "name": "ナタ・三段の試走路",
       "region": "ナタ",
       "status": "regional_temporary_image"
     },

@@ -1,0 +1,155 @@
+{
+  "tool": "built-in image generation and reference-guided proportion edits",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/nat-xilonen-course-model.obj",
+    "sha256": "b24e25f2f912b2c449ba949ecdc4385ac4ca8c14a1e563313ea922e50a4b3fde"
+  },
+  "materials": {
+    "path": "evidence/nat-xilonen-course-model.mtl",
+    "sha256": "73be61dfc3c2d2b67e58969910ae146cced2e2aaf08c40ce0d1d1dc4f25194a1"
+  },
+  "contactSheet": {
+    "path": "evidence/nat-xilonen-course-views.png",
+    "sha256": "027e57fa383d46e708b430b38f5216ef1ee917aeb5c57ce94ab8e3c7d4099916"
+  },
+  "propsSource": {
+    "path": "assets/nat-xilonen-course-props-source-v1.png",
+    "sha256": "71d80441180d59646f1c2d2d6a2e1e951c25646f48dbdbc01500c1ebedfde24e"
+  },
+  "alphaCorners": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "backgrounds": [
+    {
+      "path": "assets/nat-xilonen-course-workshop-background-v1.png",
+      "sha256": "1672086f0016d7ad372f120fd35af7ce04783d55a04c0c32c553ef8ba381da26"
+    },
+    {
+      "path": "assets/nat-xilonen-course-course-background-v1.png",
+      "sha256": "ba1a93e5c13ba4d31acf7e09cf0d3b9b00d354b4cfe2664f0a8747e36ba75991"
+    }
+  ],
+  "backgroundReferences": [
+    {
+      "path": "assets/sum-kaveh-room-workshop-background-v1.png",
+      "sha256": "573bb4dde0c243e77af127488616035ad27c6c6cda0e4e3298ee2e2f1e7cffe4"
+    },
+    {
+      "path": "assets/natlan-race-ridge-background-v1.png",
+      "sha256": "057644692ca2abb52c377f88b4b73955a4a45ddc6ba53c21b318de80a946aae6"
+    }
+  ],
+  "status": "Six equipment sprites from original 3D shapes. Both scenery images are lab placeholders.",
+  "profiles": {
+    "high": {
+      "encoding": {
+        "path": "assets/nat-xilonen-course-high-sprites-v1.json",
+        "sha256": "2524532db7c7df0db1628957d9002b4ab10c192f35e7f52bea18bc119031a64a"
+      },
+      "box": [
+        85,
+        141,
+        342,
+        285
+      ],
+      "runs": {
+        "legacy": 1045,
+        "h48c32": 662,
+        "h32c16": 229
+      }
+    },
+    "low": {
+      "encoding": {
+        "path": "assets/nat-xilonen-course-low-sprites-v1.json",
+        "sha256": "474dbf1d3d4522d8319bc7599ec781294dec706ca6f2c5f37a18f3ca4ed2c694"
+      },
+      "box": [
+        594,
+        246,
+        345,
+        177
+      ],
+      "runs": {
+        "legacy": 938,
+        "h48c32": 631,
+        "h32c16": 196
+      }
+    },
+    "roof": {
+      "encoding": {
+        "path": "assets/nat-xilonen-course-roof-sprites-v1.json",
+        "sha256": "45e29b879e37a6abc10359c0f7db5f938e18397bbb5cda16ee9ec1e91da33ae2"
+      },
+      "box": [
+        1053,
+        254,
+        447,
+        92
+      ],
+      "runs": {
+        "legacy": 2529,
+        "h48c32": 1623,
+        "h32c16": 596
+      }
+    },
+    "bench": {
+      "encoding": {
+        "path": "assets/nat-xilonen-course-bench-sprites-v1.json",
+        "sha256": "b1d60dc5b63707a606b5cc9144a63771cca7089d26e0de85d8aff814ef979f05"
+      },
+      "box": [
+        94,
+        622,
+        344,
+        301
+      ],
+      "runs": {
+        "legacy": 2537,
+        "h48c32": 1584,
+        "h32c16": 543
+      }
+    },
+    "flag": {
+      "encoding": {
+        "path": "assets/nat-xilonen-course-flag-sprites-v1.json",
+        "sha256": "0a3f581cb47e4e27271f22307161deda8ce95657c5bdad878ba829f3068b40be"
+      },
+      "box": [
+        644,
+        596,
+        229,
+        327
+      ],
+      "runs": {
+        "legacy": 927,
+        "h48c32": 580,
+        "h32c16": 222
+      }
+    },
+    "timer": {
+      "encoding": {
+        "path": "assets/nat-xilonen-course-timer-sprites-v1.json",
+        "sha256": "5dc603712a919db241f235893833b5ea4ab04233e424b8086ce85538e9c41f25"
+      },
+      "box": [
+        1172,
+        632,
+        216,
+        291
+      ],
+      "runs": {
+        "legacy": 948,
+        "h48c32": 568,
+        "h32c16": 192
+      }
+    }
+  }
+}
