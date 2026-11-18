@@ -10,6 +10,12 @@ _IMPRINT_CAPS=json.loads((Path(__file__).parent/'content/imprint-settings.json')
 _ABYSS_MODES=json.loads((Path(__file__).parent/'content/abyss-settings.json').read_text(encoding='utf8'))['modes']
 _COMPANIONS=('amber','columbina','wanderer','beidou','ayaka','emilie','kachina','mitya')
 import math
+import re
+_STYGIAN_MODES={
+    f"{id}:{mode['id']}":mode
+    for id,match in json.loads((Path(__file__).parent/'content/stygian-matches.json').read_text(encoding='utf8'))['matches'].items()
+    for mode in match['modes']
+}
 """Versioned local checkpoint validation; this is not a production multiplayer save."""
 FIELDS={'version','quest','count','mora','kills','hits','damage','gauge','active'}
 
@@ -344,16 +350,21 @@ def validate_itto_contest(record, quest, spec, visited):
 
 def validate_endgame(data):
     record = data['endgame']
-    if not isinstance(record, dict) or set(record)-{'goal'} != {'abyss', 'bosses'}:
+    if not isinstance(record, dict) or set(record)-{'goal','stygian'} != {'abyss', 'bosses'}:
         raise ValueError('Invalid challenge records')
     if 'goal' in record and record['goal'] not in ('gear', 'discover', 'boss'):
         raise ValueError('Invalid selected adventure goal')
     growth = data.get('story', {}).get('growth', {})
     if not isinstance(growth, dict) or ('goal' in record) != (growth.get('postgame-goal') is True):
         raise ValueError('Inconsistent adventure goal')
-    for category, known in [('abyss', _ABYSS_MODES), ('bosses', set(_FIELD_BOSSES)|set(_WEEKLY_BOSSES)|{'farka'})]:
+    categories=[('abyss',_ABYSS_MODES),('bosses',set(_FIELD_BOSSES)|set(_WEEKLY_BOSSES)|{'farka'})]
+    if 'stygian' in record:
+        categories.append(('stygian',_STYGIAN_MODES))
+    for category, known in categories:
         entries = record[category]
-        fields = {'clears', 'bestTicks', 'companion'} | ({'bestStars'} if category == 'abyss' else set())
+        fields = {'clears', 'bestTicks', 'companion'}
+        if category=='abyss': fields.add('bestStars')
+        if category=='stygian': fields.add('mainSkill')
         if not isinstance(entries, dict) or set(entries)-set(known):
             raise ValueError('Unknown challenge record')
         for id, entry in entries.items():
@@ -361,6 +372,11 @@ def validate_endgame(data):
                     or type(entry['clears']) is not int or not 1<=entry['clears']<=1000000
                     or type(entry['bestTicks']) is not int or not 1<=entry['bestTicks']<=10**9):
                 raise ValueError('Invalid challenge time')
+            if category == 'stygian':
+                key=entry['mainSkill']
+                if (not isinstance(key,str) or not re.fullmatch(r'[A-Za-z0-9:_-]{1,48}',key)
+                        or entry['bestTicks']>known[id]['limit']*60):
+                    raise ValueError('Invalid Stygian result')
             if category == 'abyss':
                 mode = known[id]
                 ticks = entry['bestTicks']

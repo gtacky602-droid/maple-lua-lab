@@ -13,6 +13,15 @@ def read(name):
 def rebuild():
     coverage = read('coverage.json')
     graph = read('story-graph.json')
+    encounters = read('encounters.json')
+    counts = encounters['counts']
+    coverage['encounter_worklist'].update(
+        source_entities=counts['source_entities'],candidates=counts['encounter_candidates'],
+        partial=counts['partial'],complete=counts['complete'],
+        complete_roster_verified=encounters['complete_roster_verified'])
+    stygian = read('stygian-encounters.json')
+    for status in ('partial','not_implemented'):
+        coverage['stygian_summary'][status]=[row['id'] for row in stygian['encounters'] if row['status']==status]
     maps = read('map-catalog.json')
     marker_ids = {marker['id'] for marker in maps['nodes']}
     stage_by_marker = {}

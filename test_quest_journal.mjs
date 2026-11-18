@@ -5,6 +5,8 @@ const fields=JSON.parse((await fs.readFile('content/field-boss-spawns.json','utf
 const weeklies=JSON.parse(await fs.readFile('content/weekly-boss-spawns.json','utf8')).weeklyBosses;
 graph.bossNodes=Object.fromEntries([...fields,...weeklies].flatMap(spec=>
  [spec.id,spec.storyChallenge].filter(Boolean).map(target=>[target,spec.node])));
+const stygian=JSON.parse(await fs.readFile('content/stygian-matches.json','utf8')).matches;
+for(const spec of Object.values(stygian))graph.bossNodes[spec.challenge]=spec.node;
 for(const q of graph.quests){
  const gated=Boolean(q.legacyOnly||q.requires||q.opensAfter||q.level!==undefined||q.growthRequirement);
  const prerequisites=Object.fromEntries([q.requires,q.opensAfter].filter(Boolean).map(id=>[id,{status:'complete',count:q.opensAfterCount??0}]));
@@ -37,6 +39,8 @@ try{
  const visibleCount=await p.evaluate(()=>window.lab.frame.storyGraph.quests.length);
  const frost=await p.evaluate(()=>window.lab.frame.storyGraph.bossNodes?.['cryo-hypostasis']);
  if(frost!==graph.bossNodes['cryo-hypostasis'])throw Error('field objective route missing from the live graph');
+ const beidou=await p.evaluate(()=>window.lab.frame.storyGraph.bossNodes?.['stygian-beidou']);
+ if(beidou!==graph.bossNodes['stygian-beidou'])throw Error('Stygian objective route missing from the live graph');
  await p.selectOption('#questFilter','all');if(await p.locator('#questJournal [data-quest]').count()!==visibleCount)throw Error('visible quest count');
  await p.selectOption('#questFilter','active');if(!(await p.locator('#questJournal').textContent()).includes('当てはまる依頼はありません'))throw Error('empty');
  await p.selectOption('#questFilter','relevant');await p.locator('[data-quest="mond-patrol"]').getByRole('button',{name:'受注',exact:true}).click();await p.waitForSelector('[data-quest="mond-patrol"][data-status="active"]');
@@ -60,5 +64,5 @@ try{
  await p.locator('#questJournal').screenshot({path:'evidence/quest-journal.png'});
  await p.locator('#journalFixture [data-quest="mond-patrol"]').screenshot({path:'evidence/quest-journal-fixture.png'});
  await p.setViewportSize({width:390,height:844});const overflow=await p.locator('#journalFixture').evaluate(el=>el.scrollWidth>el.clientWidth);if(overflow)throw Error('journal mobile overflow');if(errors.length)throw Error(errors.join('/'));
- await fs.writeFile('evidence/quest-journal-test.json',JSON.stringify({questCount:graph.quests.length,visibleCount,allObjectivesResolved:true,paidPreviewHidden:true,liveAcceptance:true,filters:true,fixture:result,mobileOverflow:overflow,errors},null,2));console.log('Quest journal statuses, objectives, filters, live accept and explicit report fixture passed');
+ await fs.writeFile('evidence/quest-journal-test.json',JSON.stringify({questCount:graph.quests.length,visibleCount,allObjectivesResolved:true,stygianRoute:true,paidPreviewHidden:true,liveAcceptance:true,filters:true,fixture:result,mobileOverflow:overflow,errors},null,2));console.log('Quest journal statuses, objectives, filters, live accept and explicit report fixture passed');
 }finally{await b.close()}

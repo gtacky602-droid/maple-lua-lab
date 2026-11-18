@@ -1,0 +1,20 @@
+{
+  "difficulty_levels": [
+    30,
+    58,
+    103,
+    165
+  ],
+  "story_route_and_difficulty_gates": true,
+  "attempt_loads_at_the_harbor": true,
+  "old_reaction_auto_and_ai_excluded": true,
+  "manual_guard_commits_once": true,
+  "withheld_opening_ticks": 174,
+  "hard_baited_opening_ticks": 83,
+  "hard_wake_and_master_feint": true,
+  "dodge_and_actual_health_loss": true,
+  "first_reward_all_ranks_and_repeat_overflow": true,
+  "time_and_skill_records": true,
+  "quest_report_save_restore": true,
+  "time_limit_and_defeat_no_reward": true
+}

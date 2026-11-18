@@ -51,8 +51,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 27,
-      "prototype_quest_count": 22,
+      "prototype_stage_count": 28,
+      "prototype_quest_count": 23,
       "official_map2_markers": {
         "waypoints": 75,
         "statues": 8
@@ -356,14 +356,14 @@
     {
       "id": "stygian",
       "name": "幽境の激戦",
-      "status": "farka_normal_duel_with_story_intro_prototype",
+      "status": "farka_normal_and_beidou_four_mode_prototypes",
       "boss_candidates": [
         "ファルカ",
         "隊長",
         "レリル",
         "シュバランケ",
         "ロノヴァ",
-        "北斗（保留）",
+        "北斗（試作）",
         "放浪者（保留）"
       ],
       "candidate_status": "latest five priority; two legacy candidates retained"
@@ -588,8 +588,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 352,
-    "provisional_quests": 220,
+    "authored_stages": 353,
+    "provisional_quests": 221,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -604,12 +604,14 @@
   },
   "stygian_summary": {
     "partial": [
-      "farka"
+      "farka",
+      "beidou"
     ],
     "not_implemented": [
+      "wanderer",
       "capitano",
-      "rerir",
       "xbalanque",
+      "rerir",
       "ronova"
     ],
     "legacy_candidates": [
@@ -622,8 +624,8 @@
   "encounter_worklist": {
     "catalog": "content/encounters.json",
     "source_entities": 63,
-    "candidates": 66,
-    "partial": 11,
+    "candidates": 87,
+    "partial": 82,
     "complete": 0,
     "complete_roster_verified": false
   },
@@ -633,7 +635,7 @@
     "status": "partial",
     "design": "content/world-bosses-design.json"
   },
-  "current_priority": "Remaining weekly and Stygian encounters, consistent sprites, and whole-game map and playthrough verification",
+  "current_priority": "Remaining Stygian encounters, consistent sprites, and whole-game map and playthrough verification",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",
@@ -734,9 +736,11 @@
           "cloth-service-walk",
           "threadline-relay",
           "childe-golden-house-arena",
-          "azhdaha-dragon-seal-arena"
+          "azhdaha-dragon-seal-arena",
+          "liyue-stygian-deck"
         ],
         "quest_ids": [
+          "stygian-beidou-commission",
           "azhdaha-weekly-commission",
           "childe-weekly-commission",
           "growth-targeted-gear",

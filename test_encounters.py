@@ -20,7 +20,7 @@ check('completion not overclaimed',d['counts']['complete']==0 and not d['complet
 check('not implemented rows cannot launch',all(r['action'] is None for r in rows if r['status']=='not_implemented'))
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
-check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':87,'partial':81,'complete':0})
+check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':87,'partial':82,'complete':0})
 by_id={r['id']:r for r in rows}
 childe=by_id['boss-29030101']
 check('Childe has a distinct weekly route',
@@ -242,6 +242,9 @@ check('Ronova art and design linked without a playable action',
       and by_id['stygian-ronova']['evidence']==['docs/stygian-motion-v1/RONOVA.md']
       and by_id['stygian-ronova']['action'] is None)
 
+check('Beidou has an original Stygian deck separate from weekly routes',
+      by_id['stygian-beidou']['status']=='partial' and by_id['stygian-beidou']['stygianNode']=='liyue-stygian-deck'
+      and 'weeklyNode' not in by_id['stygian-beidou'])
 read_json=build_encounters.read_json
 def read_previous_beidou_art(path):
  data=read_json(path)

@@ -8,9 +8,8 @@ try{
   await panel.getByLabel('ボス名で検索').fill(query);
   const ids=await panel.locator('[data-encounter]').evaluateAll(rows=>rows.map(row=>row.dataset.encounter).sort());
   if(ids.join(',')!=='boss-29130201,boss-29150101')throw Error('Dottore domains not independently searchable');
-  const buttons=await panel.getByRole('button',{name:'制作中'}).all();
-  if(buttons.length!==2)throw Error('unimplemented state missing');
-  for(const b of buttons)if(await b.isEnabled())throw Error('unimplemented battle enabled');
+  const links=await panel.locator('[data-encounter] a[href^="map-art.html?node="]').evaluateAll(rows=>rows.map(a=>a.getAttribute('href')).sort());
+  if(links.join(',')!=='map-art.html?node=nod-false-moon-court,map-art.html?node=sumeru-heretic-lattice')throw Error('Dottore challenge routes missing');
  }
  await panel.getByLabel('ボス名で検索').fill('氷風組曲');if(await panel.locator('[data-encounter]').count()!==2)throw Error('suite variants missing');
  if(await panel.locator('[data-encounter] a[href^="map-art.html?node=icewind-"]').count()!==2)throw Error('suite field routes missing');
@@ -128,8 +127,11 @@ try{
  await panel.getByRole('button',{name:'模擬戦に挑戦'}).click();
  await page.waitForFunction(()=>window.lab.frame.boss?.element==='electro');
  await panel.getByLabel('ボス名で検索').fill('');await panel.getByLabel('ボスの分類').selectOption('stygian');if(await panel.locator('[data-encounter]').count()!==7)throw Error('stygian missing');
- await panel.getByLabel('挑戦可能のみ').check();if(await panel.locator('[data-encounter]').count()!==1)throw Error('playable filter');
+ if(await panel.locator('[data-encounter="stygian-wanderer"]').getByRole('button',{name:'制作中'}).isEnabled())throw Error('unimplemented fight enabled');
+ await panel.getByLabel('挑戦可能のみ').check();if(await panel.locator('[data-encounter]').count()!==2)throw Error('playable filter');
+ const beidou=panel.locator('[data-encounter="stygian-beidou"]').getByRole('link',{name:/南十字の試合甲板/});
+ if(await beidou.getAttribute('href')!=='map-art.html?node=liyue-stygian-deck')throw Error('Beidou arena route missing');
  await panel.getByRole('button',{name:'試作に挑戦'}).click();await page.waitForFunction(()=>window.lab.frame.boss?.name==='ファルカ模擬戦');
  await panel.screenshot({path:'evidence/encounters-browser.png'});if(errors.length)throw Error(errors.join('/'));
- await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:87,bellgateRoute:true,windRingFieldRoute:true,plateTailFieldRoute:true,teaBoulderFieldRoute:true,rimeHareFieldRoute:true,iceCrawlerFieldRoute:true,prismWalkerFieldRoute:true,rubbleSifterFieldRoute:true,originalFieldRoute:true,originalWeeklyRoute:true,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,configDeviceFieldRoute:true,papillaFieldRoute:true,lavaDragonFieldRoute:true,overseerFieldRoute:true,knuckleDuckleFieldRoute:true,battleshipFieldRoute:true,frostnightHerraFieldRoute:true,whispererNightmaresFieldRoute:true,moonflyFieldRoute:true,moongeckoFieldRoute:true,spiritspeakerFieldRoute:true,fallenVigilFieldRoute:true,flugelFieldRoute:true,driftingSnowFieldRoute:true,immortalConstructFieldRoute:true,wavebinderFieldRoute:true,canopyFungusFieldRoute:true,grandFinaleFieldRoute:true,riverRacerFieldRoute:true,moonCrabFieldRoute:true,stygianCandidates:7,disabledUnimplemented:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');
+ await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:87,bellgateRoute:true,windRingFieldRoute:true,plateTailFieldRoute:true,teaBoulderFieldRoute:true,rimeHareFieldRoute:true,iceCrawlerFieldRoute:true,prismWalkerFieldRoute:true,rubbleSifterFieldRoute:true,originalFieldRoute:true,originalWeeklyRoute:true,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,configDeviceFieldRoute:true,papillaFieldRoute:true,lavaDragonFieldRoute:true,overseerFieldRoute:true,knuckleDuckleFieldRoute:true,battleshipFieldRoute:true,frostnightHerraFieldRoute:true,whispererNightmaresFieldRoute:true,moonflyFieldRoute:true,moongeckoFieldRoute:true,spiritspeakerFieldRoute:true,fallenVigilFieldRoute:true,flugelFieldRoute:true,driftingSnowFieldRoute:true,immortalConstructFieldRoute:true,wavebinderFieldRoute:true,canopyFungusFieldRoute:true,grandFinaleFieldRoute:true,riverRacerFieldRoute:true,moonCrabFieldRoute:true,stygianCandidates:7,beidouStygianRoute:true,disabledUnimplemented:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');
 }finally{await browser.close()}

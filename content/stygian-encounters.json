@@ -12,7 +12,8 @@
     {
       "id": "beidou",
       "name": "北斗・反撃読み合い",
-      "status": "not_implemented"
+      "status": "partial",
+      "design": "content/stygian-matches.json"
     },
     {
       "id": "wanderer",

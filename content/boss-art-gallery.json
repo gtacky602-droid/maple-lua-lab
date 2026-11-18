@@ -2,6 +2,20 @@
   "status": "visual candidates only; does not establish complete combat or reference validation",
   "items": [
     {
+      "id": "beidou-stygian-guard-left",
+      "name": "北斗・幽境の構え 左向き",
+      "file": "beidou-stygian-left-sprites-v1.json",
+      "height": 118,
+      "mapHover": 0
+    },
+    {
+      "id": "beidou-stygian-guard-right",
+      "name": "北斗・幽境の構え 右向き",
+      "file": "beidou-stygian-right-sprites-v2.json",
+      "height": 151,
+      "mapHover": 0
+    },
+    {
       "id": "gate-queen",
       "name": "扉に通ずる対局・クイーン（待機候補）",
       "file": "gate-queen-idle-sprites.json",

@@ -1,0 +1,38 @@
+{
+  "background": {
+    "key": "cruxDuelDeck",
+    "file": "beidou-stygian-deck-background-v1.png",
+    "state": "ready"
+  },
+  "mode": "normal",
+  "levels": [
+    30,
+    58,
+    103,
+    165
+  ],
+  "commands": {
+    "png": 19,
+    "standard": 7826,
+    "light": 2090
+  },
+  "viewport390": true,
+  "avoidedCounter": true,
+  "manualBaited": true,
+  "independentLeftAndRight": true,
+  "firstReward": {
+    "rank": 3,
+    "set": "黄金の劇団",
+    "mora": 1210,
+    "bag": true,
+    "first": true
+  },
+  "questReportSaveRestore": true,
+  "record": {
+    "mainSkill": "normal",
+    "bestTicks": 451,
+    "clears": 1,
+    "companion": "amber"
+  },
+  "errors": []
+}

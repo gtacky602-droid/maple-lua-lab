@@ -101,6 +101,8 @@ def runtime():
     story_data['bossNodes']={
         target:spec['node'] for spec in field_specs+weekly_specs
         for target in (spec['id'],spec.get('storyChallenge')) if target}
+    stygian=json.loads((ROOT/'content/stygian-matches.json').read_text(encoding='utf8'))['matches']
+    story_data['bossNodes'].update({spec['challenge']:spec['node'] for spec in stygian.values()})
     graph = lua.table_from(resolve_story_exp(story_data),recursive=True)
     cave=lua.execute((ROOT/'story-cave.lua').read_text(encoding='utf8'))(core)
     roof=lua.execute((ROOT/'story-roof.lua').read_text(encoding='utf8'))(core)
@@ -517,8 +519,21 @@ def runtime():
     daily=json.loads((ROOT/'content/daily-quests.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'daily-quests.lua').read_text(encoding='utf8'))(core,lua.table_from(daily,recursive=True),graph)
     abyss=json.loads((ROOT/'content/abyss-settings.json').read_text(encoding='utf8'))
+    stygian_beidou=lua.execute((ROOT/'stygian-beidou.lua').read_text(encoding='utf8'))(core)
+    guard_assets={}
+    beidou_audit=json.loads((ROOT/'assets/beidou-stygian-generation-v1.json').read_text(encoding='utf8'))
+    for direction,pose in beidou_audit['poses'].items():
+        art=json.loads((ROOT/'assets'/pose['encoding']).read_text(encoding='utf8'))
+        crown,_,sole=pose['crownChinSoleY']
+        art['heightScale']=art['box'][3]/(sole-crown)
+        guard_assets[direction]=art
+    core.stygianBeidouArt=lua.table_from({
+        'idle':{'left':companion_art['beidou']['left'],'right':companion_art['beidou']},
+        'guard':guard_assets,
+    },recursive=True)
     lua.execute((ROOT/'endgame.lua').read_text(encoding='utf8'))(
-        core,lua.table_from(abyss,recursive=True),lua.table_from(weekly_specs,recursive=True))
+        core,lua.table_from(abyss,recursive=True),lua.table_from(weekly_specs,recursive=True),
+        lua.table_from(stygian,recursive=True),lua.table_from({'beidou':stygian_beidou}))
     lua.execute((ROOT/'growth-trials.lua').read_text(encoding='utf8'))(core)
     return lua, core
 

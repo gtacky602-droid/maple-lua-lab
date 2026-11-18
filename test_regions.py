@@ -49,6 +49,10 @@ for filename, collection in (('field-boss-spawns.json', 'fieldBosses'),
   boss_targets.add(spec['id'])
   if spec.get('storyChallenge'):
    boss_targets.add(spec['storyChallenge'])
+stygian=json.loads((ROOT/'content/stygian-matches.json').read_text(encoding='utf8'))['matches']
+for key,spec in stygian.items():
+ assert spec['node'] in ids and spec['hub'] in ids, key
+ boss_targets.add(spec['challenge'])
 missing_targets=[q['id'] for q in quests.values()
                  if q['hub'] not in ids or q['target'] not in (boss_targets if q['kind']=='boss' else ids)]
 check('every quest target and hub exist',not missing_targets)

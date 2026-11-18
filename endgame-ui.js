@@ -3,6 +3,9 @@ export function initEndgameUI(action){
  const desk=get('endgameDesk'),run=get('endgameRun'),status=get('endgameRunStatus');
  const next=get('abyssNext'),weekly=get('endgameWeekly'),personal=get('endgamePersonal');
  const goals=get('endgameGoals'),goalHelp=get('endgameGoalHelp');
+ const duelDesk=get('stygianDesk'),duelMode=get('stygianMode'),duelStart=get('stygianStart');
+ const duelBattle=get('stygianBattle'),duelHp=get('stygianHp');
+ let duel,previousDuel='';
  const companion={amber:'アンバー',columbina:'コロンビーナ',wanderer:'放浪者',beidou:'北斗',
   ayaka:'綾華',emilie:'エミリエ',kachina:'カチーナ',mitya:'ミティヤ'};
  const goalLabels={gear:'狙うセットから、より主能力の高い聖遺物を装備する',
@@ -10,15 +13,62 @@ export function initEndgameUI(action){
   boss:'好きなボスを初めて倒すか、自分の最速タイムを更新する'};
  const record=r=>`${(r.bestTicks/60).toFixed(1)}秒・${companion[r.companion]}同行・${r.clears}勝`;
  let previousDesk='';
+ function updateDuelSelection(){
+  const pick=duel?.modes.find(mode=>mode.id===duelMode.value);
+  if(!pick)return;
+  duelStart.disabled=!pick.available;
+  get('stygianReward').textContent=pick.available
+   ? `勝利 ${pick.mora.toLocaleString()}モラ・★${pick.rarity} 聖遺物Lv${pick.itemLevel}${pick.record?'':` ｜ 初回は+${pick.firstMora.toLocaleString()}モラ`}`
+   : `Lv${pick.level}で挑戦できます`;
+  const history=get('stygianRecord');
+  history.hidden=!pick.record;
+  const primary=pick.record?.mainSkill==='normal'?'通常攻撃':pick.record?.mainSkill;
+  if(pick.record)history.textContent=`自己記録 ${record(pick.record)} ｜ 主力 ${primary}`;
+ }
+ duelMode.onchange=updateDuelSelection;
+ duelStart.onclick=()=>{
+  if(!duel||duelStart.disabled)return;
+  action(`stygian_start:${duel.id}:${duelMode.value}:${get('stygianSet').value}`);
+  duelStart.blur();
+ };
+
  for(const [el,mode] of [[get('abyssEntry'),'entry'],[get('abyssElite'),'elite']]){
   el.onclick=()=>{action(`abyss_start:${mode}:${get('abyssSet').value}`);el.blur()};
  }
  return function update(frame){
   const fight=frame.endgameRun;
   run.hidden=!fight;desk.hidden=!frame.endgameDesk||!!frame.growthTrial;
+  duel=frame.stygianDesk;
+  duelDesk.hidden=!duel||!!frame.growthTrial;
+  if(!duelDesk.hidden){
+   const signature=JSON.stringify(duel);
+   if(signature!==previousDuel){
+    const before=duelMode.value;
+    get('stygianName').textContent=duel.name;
+    duelMode.replaceChildren(...duel.modes.map(mode=>new Option(`${mode.name} Lv${mode.level}〜`,mode.id)));
+    if(duel.modes.some(mode=>mode.id===before))duelMode.value=before;
+    previousDuel=signature;
+    updateDuelSelection();
+   }
+  }
+  duelBattle.hidden=!fight?.match;
+  if(fight?.match){
+   const health=frame.boss;
+   duelHp.max=health.maxhp;
+   duelHp.value=health.hp;
+   get('stygianHealth').textContent=`${fight.mode} ｜ HP ${health.hp} / ${health.maxhp}`;
+   get('stygianClock').textContent=fight.status==='fighting'
+    ? `残り ${Math.ceil(fight.remaining)}秒` : fight.elapsed?`${fight.elapsed.toFixed(1)}秒`:'';
+   get('stygianDialogue').textContent=fight.dialogue||'';
+  }
   if(fight){
    next.hidden=fight.kind!=='abyss'||fight.status!=='between';
-   const result=fight.status==='clear'?`突破：${fight.reward?`星${fight.stars}・${fight.reward}`:'自己記録を保存しました'}`:
+   const prize=fight.matchReward;
+   const result=fight.match?(fight.status==='clear'
+    ? `勝利 ｜ ${prize.mora.toLocaleString()}モラ・★${prize.rank} ${prize.set}${prize.bag?'':'（広場で受取）'}`
+    : fight.status==='failed'?(fight.remaining<=0?'時間切れ。入口から再挑戦できます。':'挑戦終了。入口から再挑戦できます。')
+    :fight.hint)
+    :fight.status==='clear'?`突破：${fight.reward?`星${fight.stars}・${fight.reward}`:'自己記録を保存しました'}`:
     fight.status==='failed'?'挑戦終了。入口から再挑戦できます。':
     fight.kind==='abyss'?`${fight.mode} ${fight.room}/3・${fight.name} ｜ 残り ${Math.ceil(fight.remaining)}秒・${fight.targets}体`:
      'ファルカの通常模擬戦。突進は進路を空け、低い斬撃は跳んで回避。攻撃後の隙を狙います。';

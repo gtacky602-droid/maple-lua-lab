@@ -1,5 +1,5 @@
 {
-  "count": 108,
+  "count": 109,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -79,6 +79,7 @@
     "Xbalanque art and design linked without a playable action",
     "Rerir art and design linked without a playable action",
     "Ronova art and design linked without a playable action",
+    "Beidou has an original Stygian deck separate from weekly routes",
     "gallery revision automatically updates reference",
     "new unreviewed row is reported",
     "overlapping entries rejected",

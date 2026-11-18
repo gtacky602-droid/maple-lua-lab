@@ -1,10 +1,14 @@
-return function(C,abyss,weekly)
+return function(C,abyss,weekly,matches,controllers)
  local action,step,frame,checkpoint,restore=C.action,C.step,C.frame,C.checkpoint,C.restore
  local choices={gear=true,discover=true,boss=true}
  local sets={troupe='黄金の劇団',gladiator='剣闘士のフィナーレ'}
  local battleActions={normal=true,skill1=true,skill2=true,skill3=true,skill4=true,light=true,pause=true,
   swap=true,dodge=true,jump=true,drop=true,auto=true,cancel_macro=true,cancel_channel=true}
  local finalQuest='growth-next-goal'
+ local byNode={}
+ for id,spec in pairs(matches) do
+  byNode[spec.node]=id
+ end
 
  local function records(s)
   if not s.endgame then s.endgame={abyss={},bosses={}} end
@@ -85,6 +89,32 @@ return function(C,abyss,weekly)
   s.campaign.message='三つの区画を突破しました。'
  end
 
+ local function stygianClear(s,run,spec)
+  local data=records(s)
+  data.stygian=data.stygian or {}
+  local key=run.match..':'..run.rules.id
+  local elapsed=s.t-run.start
+  local first=data.stygian[key]==nil
+  local improved,record=personalBest(s,data.stygian,key,elapsed)
+  if improved then
+   local best,amount='normal',-1
+   for skill,damage in pairs(run.skills) do
+    if damage>amount or damage==amount and skill<best then best,amount=skill,damage end
+   end
+   record.mainSkill=best
+   C.endgameGoalEvent(s,'boss')
+  end
+  local slot=(record.clears-1)%5+1
+  local preset={setId=run.set,subpair=slot==3 and 'hp_crit' or 'atk_crit'}
+  local reward=run.rules.mora+(first and run.rules.firstMora or 0)
+  s.mora=s.mora+reward
+  local equipped=C.giveArtifact(s,slot,run.rules.itemLevel,run.rules.rarity,preset)
+  if not equipped then C.dropArtifact(s,slot,run.rules.itemLevel,run.rules.rarity,180,480,preset,'town') end
+  run.status,run.elapsed,run.reward='clear',elapsed,{mora=reward,set=sets[run.set],first=first,bag=equipped,rank=run.rules.rarity}
+  C.storyBossDefeated(s,spec.challenge)
+  s.campaign.message=run.rules.name..'の模擬戦を突破しました。'
+ end
+
  local function atHub(s,id)
   return not s.paused and s.story and s.story.active and s.story.node==id and not s.lift and not s.voyage
     and s.actors[s.active].hp>0 and s.campaign.zone=='town'
@@ -106,6 +136,21 @@ return function(C,abyss,weekly)
     action(s,'field')
     s.endgameRun={kind='abyss',origin=origin,start=s.t,mode=mode,room=1,set=set}
     openRoom(s,s.endgameRun)
+   end
+   return
+  end
+  local match,level,chosenSet=key:match('^stygian_start:(%a+):(%a+):(%a+)$')
+  if match then
+   local spec=matches[match]
+   if spec and sets[chosenSet] and not s.paused and s.story and s.story.active and s.story.node==spec.node and
+      s.campaign.zone=='story:'..spec.node and s.actors[s.active].hp>0 and not s.lift and not s.voyage then
+    for _,rule in ipairs(spec.modes) do
+     if rule.id==level and s.progression.level>=rule.level then
+      s.endgameRun={kind='stygian',match=match,origin=spec.node,start=s.t,status='fighting',rules=rule,set=chosenSet}
+      controllers[match].spawn(s,s.endgameRun,spec)
+      break
+     end
+    end
    end
    return
   end
@@ -133,6 +178,17 @@ return function(C,abyss,weekly)
   if (run.status~='fighting' and run.status~='between') or s.paused then return end
   local returns,boss=s.returns,s.farka
   step(s,dt,input)
+  if run.match then
+   local spec=matches[run.match]
+   if s.returns~=returns then
+    run.status='failed';s.campaign.message='挑戦終了。入口から再挑戦できます。'
+   elseif run.boss.hp<=0 and s.t-run.start<=run.rules.limit+1e-8 then
+    stygianClear(s,run,spec)
+   elseif s.t-run.start>=run.rules.limit then
+    run.status='failed';s.campaign.message='時間切れ。入口から再挑戦できます。'
+   else controllers[run.match].finish(s,run,spec,dt) end
+   return
+  end
   if run.kind=='stygian' and boss then
    if boss.hp<=0 or (boss.hp<run.lastHp and boss.phase=='recover') then C.noteGrowth(s,'stygian-opening') end
    run.lastHp=boss.hp
@@ -158,7 +214,9 @@ return function(C,abyss,weekly)
   if d and s.endgameRun and d.story then
    local story={}
    for k,v in pairs(d.story) do story[k]=v end
-   story.active=true;story.node=s.endgameRun.origin;d.story=story
+   local current=s.endgameRun
+   story.active=true;story.node=current.match and matches[current.match].hub or current.origin
+   d.story=story
   end
   if d and s.endgame then d.endgame=s.endgame end
   return d
@@ -183,6 +241,20 @@ return function(C,abyss,weekly)
     f.location='深境螺旋・'..v.name..'（試作）'
    end
    f.endgameRun=v
+   if run.match then
+    local spec=matches[run.match]
+    v.match,v.name,v.mode,v.elapsed=run.match,spec.name,run.rules.name,run.elapsed
+    v.remaining=math.max(0,run.rules.limit-(s.t-run.start));v.matchReward=run.reward
+    controllers[run.match].observe(f,s,run,spec,mode,profile)
+   end
+  elseif s.story and s.story.active and byNode[s.story.node] then
+   local id=byNode[s.story.node];local spec=matches[id]
+   f.stygianDesk={id=id,name=spec.name,modes={}}
+   for _,r in ipairs(spec.modes) do
+    local record=s.endgame and s.endgame.stygian and s.endgame.stygian[id..':'..r.id]
+    f.stygianDesk.modes[#f.stygianDesk.modes+1]={id=r.id,name=r.name,level=r.level,available=s.progression.level>=r.level,
+     mora=r.mora,firstMora=r.firstMora,itemLevel=r.itemLevel,rarity=r.rarity,record=record}
+   end
   elseif s.story and s.story.active and s.story.node=='mond-town' then
    f.endgameDesk={weekly={}}
    for _,boss in ipairs(weekly) do

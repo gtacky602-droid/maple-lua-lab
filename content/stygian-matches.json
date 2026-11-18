@@ -1,0 +1,149 @@
+{
+  "status": "Web prototype. Approved theme: an original read-and-counter bout. Arena, timing, enemy stats and rewards are provisional.",
+  "matches": {
+    "beidou": {
+      "entity": 990002,
+      "node": "liyue-stygian-deck",
+      "hub": "liyue-harbor",
+      "challenge": "stygian-beidou",
+      "name": "北斗・反撃読み合い",
+      "dialogue": {
+        "intro": "さあ、一手目はあんたに譲るよ。",
+        "guard": "打ち込むかい？ それとも待つかい？",
+        "baited": "その一振り、もらった！",
+        "patient": "いい目だ。じゃあ、こっちから行くよ！",
+        "clear": "今の間合い、見事だったよ。"
+      },
+      "arena": {
+        "left": 58,
+        "right": 902,
+        "floor": 480,
+        "bossX": 689,
+        "playerX": 287
+      },
+      "timing": {
+        "intro": 75,
+        "approach": 88,
+        "speed": 142,
+        "range": 147,
+        "guardWithdrewRecovery": 174,
+        "guardStruckRecovery": 90,
+        "ordinaryRecovery": 110,
+        "action": 19,
+        "impactStart": 7,
+        "impactEnd": 13,
+        "feint": 31,
+        "baitedLock": 10,
+        "lateHealthFraction": 0.55,
+        "armorFactor": 0.42,
+        "targetReach": 238
+      },
+      "moves": {
+        "sweep": {
+          "name": "甲板すれすれの横薙ぎ",
+          "reach": 248,
+          "height": 53,
+          "damage": 30
+        },
+        "overhead": {
+          "name": "踏み込みの振り下ろし",
+          "radius": 71,
+          "height": 155,
+          "damage": 34
+        },
+        "quiet": {
+          "name": "見切りの一閃",
+          "radius": 88,
+          "height": 70,
+          "damage": 35
+        },
+        "baited": {
+          "name": "誘い返し",
+          "radius": 130,
+          "height": 118,
+          "damage": 42
+        },
+        "wake": {
+          "name": "返し波",
+          "radius": 122,
+          "height": 54,
+          "damage": 25
+        }
+      },
+      "modes": [
+        {
+          "id": "normal",
+          "name": "通常",
+          "level": 30,
+          "hp": 690,
+          "guard": 120,
+          "tell": 64,
+          "quickTell": 43,
+          "limit": 180,
+          "openScale": 1,
+          "attackScale": 1,
+          "reprise": false,
+          "feint": false,
+          "mora": 780,
+          "firstMora": 430,
+          "itemLevel": 33,
+          "rarity": 3
+        },
+        {
+          "id": "hard",
+          "name": "ハード",
+          "level": 58,
+          "hp": 1250,
+          "guard": 105,
+          "tell": 59,
+          "quickTell": 41,
+          "limit": 180,
+          "openScale": 0.92,
+          "attackScale": 1.15,
+          "reprise": true,
+          "feint": false,
+          "mora": 1450,
+          "firstMora": 820,
+          "itemLevel": 58,
+          "rarity": 4
+        },
+        {
+          "id": "master",
+          "name": "マスター",
+          "level": 103,
+          "hp": 1830,
+          "guard": 93,
+          "tell": 55,
+          "quickTell": 39,
+          "limit": 210,
+          "openScale": 0.85,
+          "attackScale": 1.3,
+          "reprise": true,
+          "feint": true,
+          "mora": 2450,
+          "firstMora": 1370,
+          "itemLevel": 99,
+          "rarity": 4
+        },
+        {
+          "id": "extreme",
+          "name": "極限",
+          "level": 165,
+          "hp": 2860,
+          "guard": 83,
+          "tell": 51,
+          "quickTell": 37,
+          "limit": 240,
+          "openScale": 0.8,
+          "attackScale": 1.45,
+          "reprise": true,
+          "feint": true,
+          "mora": 3900,
+          "firstMora": 2200,
+          "itemLevel": 166,
+          "rarity": 5
+        }
+      ]
+    }
+  }
+}

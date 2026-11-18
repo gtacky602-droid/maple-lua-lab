@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 87,
-    "partial": 81,
+    "partial": 82,
     "complete": 0
   },
   "encounters": [
@@ -2532,22 +2532,41 @@
       "name": "北斗・反撃読み合い",
       "kind": "stygian",
       "entity_ids": [],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "sources/20261116-amendment.md:94-101"
+        "sources/20261116-amendment.md:94-101",
+        "docs/stygian-motion-v1/BEIDOU_WEB.md",
+        "evidence/stygian-beidou-lua.json",
+        "evidence/stygian-beidou-browser.json"
       ],
       "remaining": [
-        "専用モーション・台詞",
-        "4難度・報酬",
-        "マルチ・記録",
-        "専用戦闘行動"
+        "連続ドット作画、被弾と撃破、効果音",
+        "全難度の手動プレイと報酬調整",
+        "実マルチ、順位表、本番3D配置と幻境実機"
       ],
+      "stygianNode": "liyue-stygian-deck",
+      "stygianEntrance": "幽境・南十字の試合甲板（Lv30）",
       "art_candidate": {
         "gallery": "characters",
         "encoding": "assets/beidou-idle-right-sprites-v4.json"
-      }
+      },
+      "art_variants": [
+        {
+          "source": "assets/beidou-stygian-left-source-v1.png",
+          "encoding": "assets/beidou-stygian-left-sprites-v1.json",
+          "audit": "assets/beidou-stygian-generation-v1.json",
+          "status": "Independent left-facing guard pose"
+        },
+        {
+          "source": "assets/beidou-stygian-right-source-v2.png",
+          "encoding": "assets/beidou-stygian-right-sprites-v2.json",
+          "audit": "assets/beidou-stygian-generation-v1.json",
+          "status": "Independent right-facing raised guard pose"
+        }
+      ],
+      "review_note": "旧候補を残した独自模擬戦。璃月に四つの難度と個人記録を実装。"
     },
     {
       "id": "stygian-wanderer",

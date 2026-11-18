@@ -96,6 +96,7 @@ def build():
     review = read_json('content/encounter-roster-review.json')
     fields = {spec['id']:spec for spec in read_json('content/field-boss-spawns.json')['fieldBosses']}
     weeklies = {spec['id']:spec for spec in read_json('content/weekly-boss-spawns.json')['weeklyBosses']}
+    stygian = {f'stygian-{id}': spec for id,spec in read_json('content/stygian-matches.json')['matches'].items()}
     nodes = {node['id']:node for node in read_json('content/story-graph.json')['nodes']}
     galleries = {
         gallery: {item['id']: item for item in read_json(path)['items']}
@@ -119,7 +120,7 @@ def build():
             'entity_ids': [], 'status': 'not_implemented', 'action': None, 'grouping': 'original_design',
             'evidence': [entry.get('source', original['source'])], 'remaining': ['完成ドット絵・台詞', '4難度・報酬', 'マルチ・記録'],
         })
-    unknown = (details.keys() | fields.keys() | weeklies.keys()) - {row['id'] for row in rows}
+    unknown = (details.keys() | fields.keys() | weeklies.keys() | stygian.keys()) - {row['id'] for row in rows}
     if unknown:
         raise ValueError(f'Encounter details refer to unknown IDs: {sorted(unknown)}')
 
@@ -139,7 +140,12 @@ def build():
             node = nodes[weekly['node']]
             row['weeklyNode'] = node['id']
             row['weeklyEntrance'] = f"{node['name']}（Lv{node['level']}）"
-        if row['action'] or field or weekly:
+        match = stygian.get(row_id)
+        if match:
+            node = nodes[match['node']]
+            row['stygianNode'] = node['id']
+            row['stygianEntrance'] = f"{node['name']}（Lv{node['level']}）"
+        if row['action'] or field or weekly or match:
             row['status'] = 'partial'
         elif row['kind'] == 'stygian':
             row['remaining'].append('専用戦闘行動')

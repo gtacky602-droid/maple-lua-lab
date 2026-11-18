@@ -816,16 +816,17 @@
       ]
     },
     "stygian-beidou": {
-      "remaining": [
-        "専用モーション・台詞",
-        "4難度・報酬",
-        "マルチ・記録",
-        "専用戦闘行動"
-      ],
+      "extra_evidence": ["docs/stygian-motion-v1/BEIDOU_WEB.md","evidence/stygian-beidou-lua.json","evidence/stygian-beidou-browser.json"],
+      "remaining": ["連続ドット作画、被弾と撃破、効果音","全難度の手動プレイと報酬調整","実マルチ、順位表、本番3D配置と幻境実機"],
       "art_candidate": {
         "gallery": "characters",
         "item": "beidou"
-      }
+      },
+      "art_variants": [
+        {"item":"beidou-stygian-guard-left","audit":"assets/beidou-stygian-generation-v1.json","status":"Independent left-facing guard pose"},
+        {"item":"beidou-stygian-guard-right","audit":"assets/beidou-stygian-generation-v1.json","status":"Independent right-facing raised guard pose"}
+      ],
+      "review_note": "旧候補を残した独自模擬戦。璃月に四つの難度と個人記録を実装。"
     },
     "stygian-wanderer": {
       "remaining": [

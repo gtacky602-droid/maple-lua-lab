@@ -1,5 +1,6 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ cruxDuelDeck:{file:'beidou-stygian-deck-background-v1.png',zones:['story:liyue-stygian-deck'],note:'南十字の試合甲板の仮背景'},
  hereticLattice:{file:'heretic-lattice-background-v1.png',zones:['story:sumeru-heretic-lattice'],note:'左道の結合格子の仮背景'},
  falseMoonCourt:{file:'false-moon-court-background-v1.png',zones:['story:nod-false-moon-court'],note:'偽月の外界の仮背景'},
  falseMoonRift:{file:'false-moon-rift-background-v1.png',zones:['story:nod-false-moon-rift'],note:'偽月の異界の仮背景'},
@@ -249,6 +250,14 @@ export function scenery(ctx,frame){
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
   if(p.riverDeck)continue;
+  if(key==='cruxDuelDeck'){
+   ctx.fillStyle='#3c2e35';ctx.fillRect(x,p.y,p.w,p.y===480?60:14);
+   ctx.fillStyle='#c29a6c';ctx.fillRect(x,p.y,p.w,3);
+   for(let board=0;board<p.w;board+=82){
+    ctx.fillStyle='#65505a';ctx.fillRect(x+board,p.y+6,1,p.y===480?28:7);
+   }
+   continue;
+  }
   if(key==='hereticLattice'){
    ctx.fillStyle='#15383d';ctx.fillRect(x,p.y,p.w,p.y===480?60:16);
    ctx.fillStyle='#628c85';ctx.fillRect(x,p.y,p.w,3);

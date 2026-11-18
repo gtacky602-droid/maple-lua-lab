@@ -1,7 +1,8 @@
 {
-  "questCount": 220,
-  "visibleCount": 207,
+  "questCount": 221,
+  "visibleCount": 208,
   "allObjectivesResolved": true,
+  "stygianRoute": true,
   "paidPreviewHidden": true,
   "liveAcceptance": true,
   "filters": true,

@@ -1,0 +1,56 @@
+{
+  "tool": "Codex built-in ImageGen",
+  "status": "Directional key poses for the lab duel",
+  "references": {
+    "policy": "ART_REFERENCE_POLICY.md",
+    "style": "DESIGN_MAPLE_CHIBI_STYLE_GUIDE_V01.md",
+    "modelAudit": "evidence/model-reference-audit.json",
+    "costumeAudit": "evidence/beidou-reference-audit.json",
+    "observedViews": [
+      "work/references/beidou-views/front.png",
+      "work/references/beidou-views/right.png",
+      "work/references/beidou-views/back.png"
+    ],
+    "directionalIdle": [
+      "assets/beidou-idle-left-source-v4.png",
+      "assets/beidou-idle-right-source-v4.png"
+    ]
+  },
+  "direction": "Independent directional poses with near eye patch on left, far patch edge on right, red panels and white fur, a matching charcoal practice sword with an amber ring guard. The weapon tip is excluded from body proportions.",
+  "poses": {
+    "left": {
+      "source": "beidou-stygian-left-source-v1.png",
+      "encoding": "beidou-stygian-left-sprites-v1.json",
+      "crownChinSoleY": [
+        89,
+        410,
+        991
+      ],
+      "approxHeads": 2.81,
+      "runs": [
+        4375,
+        2733,
+        1198
+      ]
+    },
+    "right": {
+      "source": "beidou-stygian-right-source-v2.png",
+      "encoding": "beidou-stygian-right-sprites-v2.json",
+      "crownChinSoleY": [
+        389,
+        663,
+        1239
+      ],
+      "approxHeads": 3.1,
+      "runs": [
+        4348,
+        2724,
+        1221
+      ]
+    }
+  },
+  "background": {
+    "source": "assets/beidou-stygian-deck-background-v1.png",
+    "role": "Host-rendered fictional harbor and sailing ship deck for testing. Production uses 3D placement."
+  }
+}
