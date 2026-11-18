@@ -353,22 +353,32 @@
     {
       "node": "inazuma-road",
       "mode": "sprite",
-      "visible_portals": 6
+      "visible_portals": 7
     },
     {
       "node": "inazuma-road",
       "mode": "rect",
-      "visible_portals": 6
+      "visible_portals": 7
     },
     {
       "node": "inazuma-town",
       "mode": "sprite",
-      "visible_portals": 12
+      "visible_portals": 13
     },
     {
       "node": "inazuma-town",
       "mode": "rect",
-      "visible_portals": 12
+      "visible_portals": 13
+    },
+    {
+      "node": "inazuma-shore-hunt",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "inazuma-shore-hunt",
+      "mode": "rect",
+      "visible_portals": 2
     },
     {
       "node": "ina-firework-lookouts",

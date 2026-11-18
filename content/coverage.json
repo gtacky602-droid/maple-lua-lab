@@ -75,7 +75,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 29,
+      "prototype_stage_count": 30,
       "prototype_quest_count": 16,
       "official_map2_markers": {
         "waypoints": 47,
@@ -578,7 +578,7 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 330,
+    "authored_stages": 331,
     "provisional_quests": 192,
     "companion_join_records": 8,
     "scope_complete": false,
@@ -590,7 +590,7 @@
       "production balance",
       "native Lua limits"
     ],
-    "daily_candidates": 10
+    "daily_candidates": 15
   },
   "stygian_summary": {
     "partial": [
@@ -742,6 +742,7 @@
           "hydro-hypostasis-field-cove",
           "inazuma-road",
           "inazuma-town",
+          "inazuma-shore-hunt",
           "ina-firework-lookouts",
           "ina-festival-games",
           "ina-tea-crossroads",
@@ -1422,8 +1423,8 @@
       "content/daily-quests.json"
     ],
     "design_entries": 153,
-    "linked": 107,
-    "without_explicit_mapping": 46,
+    "linked": 112,
+    "without_explicit_mapping": 41,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1466,6 +1467,11 @@
       "Q-H02-02": "veluriyam-trolley-lookout",
       "Q-H03-01": "simulanka-open-page",
       "Q-H03-02": "simulanka-folded-road",
+      "Q-INA-D01": "daily-ina-patrol",
+      "Q-INA-D02": "daily-ina-firework-road",
+      "Q-INA-D03": "daily-ina-short-patrol",
+      "Q-INA-D04": "daily-ina-trial",
+      "Q-INA-D05": "daily-ina-nobushi",
       "Q-INA-M01": "inazuma-moving-lantern",
       "Q-INA-M02": "inazuma-torii-maze",
       "Q-INA-M03": "inazuma-lantern-contest",

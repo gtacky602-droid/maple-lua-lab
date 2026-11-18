@@ -1,0 +1,16 @@
+{
+  "townOffers": 5,
+  "sharedLiyueLimits": true,
+  "walkedToShoreAndBack": true,
+  "nobushiKillAndAreaOverlap": true,
+  "namedEliteVisible": true,
+  "placementComparisonProfiles": 3,
+  "oldSaveRetainsProgress": true,
+  "oldSaveCannotReclaim": true,
+  "mobileFits": true,
+  "reward": {
+    "xp": 29920,
+    "mora": 1970
+  },
+  "errors": []
+}

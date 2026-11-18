@@ -12,6 +12,10 @@
     "liyue": {
       "label": "璃月",
       "includeRegions": ["璃月", "沈玉の谷", "層岩巨淵・地下鉱区"]
+    },
+    "inazuma": {
+      "label": "稲妻",
+      "includeRegions": ["稲妻", "淵下宮"]
     }
   },
   "quests": [
@@ -179,6 +183,87 @@
       "goal": 3,
       "xp": 1830,
       "mora": 380
+    },
+    {
+      "id": "daily-ina-patrol",
+      "designId": "Q-INA-D01",
+      "kind": "main",
+      "region": "inazuma",
+      "hub": "inazuma-town",
+      "level": 40,
+      "giver": "神里綾華",
+      "companion": "ayaka",
+      "name": "今日の見回り",
+      "intro": "綾華「町の外を見回っていただけますか。海辺を通る人たちも、これで安心できます。」",
+      "target": "稲妻・淵下宮の配置済みの実戦の敵",
+      "filter": {"kind": "region"},
+      "goal": 200,
+      "xp": 17600,
+      "mora": 1100
+    },
+    {
+      "id": "daily-ina-firework-road",
+      "designId": "Q-INA-D02",
+      "kind": "extra",
+      "region": "inazuma",
+      "hub": "inazuma-town",
+      "level": 40,
+      "giver": "宵宮",
+      "name": "花火を運ぶ道だから",
+      "intro": "宵宮「花火を運ぶ前に、潮風の浜と海辺の街道を見てきてくれへん？」",
+      "target": "潮風の浜・海辺の街道の実戦の敵",
+      "filter": {"kind": "nodes", "nodes": ["inazuma-shore-hunt", "inazuma-road"]},
+      "goal": 80,
+      "xp": 7040,
+      "mora": 480
+    },
+    {
+      "id": "daily-ina-short-patrol",
+      "designId": "Q-INA-D03",
+      "kind": "extra",
+      "region": "inazuma",
+      "hub": "inazuma-town",
+      "level": 40,
+      "giver": "早柚",
+      "name": "早く終わらせたい見回り",
+      "intro": "早柚「潮風の浜ならすぐ着くよ。灯隠れの小径に行くなら、そっちもお願い。」",
+      "target": "潮風の浜・灯隠れの小径の実戦の敵",
+      "filter": {"kind": "nodes", "nodes": ["inazuma-shore-hunt", "inazuma-lantern-trail"]},
+      "goal": 60,
+      "xp": 5280,
+      "mora": 390
+    },
+    {
+      "id": "daily-ina-trial",
+      "designId": "Q-INA-D04",
+      "kind": "extra",
+      "region": "inazuma",
+      "hub": "inazuma-town",
+      "level": 40,
+      "giver": "荒瀧一斗",
+      "name": "今日の腕試し！",
+      "intro": "一斗「街道と浜を仕切ってる野伏がいるってよ。今日の腕試しはそいつらだ！」",
+      "target": "海辺の街道・潮風の浜の指定精鋭",
+      "filter": {"kind": "elite", "nodes": ["inazuma-road", "inazuma-shore-hunt"]},
+      "goal": 3,
+      "xp": 3300,
+      "mora": 520
+    },
+    {
+      "id": "daily-ina-nobushi",
+      "designId": "Q-INA-D05",
+      "kind": "extra",
+      "region": "inazuma",
+      "hub": "inazuma-town",
+      "level": 40,
+      "giver": "鹿野院平蔵",
+      "name": "この辺りを調べておこう",
+      "intro": "平蔵「街道から浜へ野伏が出入りしてる。両方見ておくと、様子がつかめそうだ。」",
+      "target": "海辺の街道・潮風の浜の野伏",
+      "filter": {"kind": "art", "nodes": ["inazuma-road", "inazuma-shore-hunt"], "art": ["nobushi"]},
+      "goal": 60,
+      "xp": 5940,
+      "mora": 410
     }
   ]
 }

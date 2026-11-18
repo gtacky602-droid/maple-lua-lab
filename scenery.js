@@ -77,7 +77,7 @@ export const sceneryDefinitions={
  mondNightHill:{file:'mond-night-banner-background-v1.png',zones:['story:mond-night-hill'],note:'月影の風見丘の仮背景'},
  inazumatown:{file:'inazuma-castle-town-background-v1.png',zones:['story:inazuma-town'],note:'桜並木と港の夕方を描いた城下の仮背景'},
  seacave:{file:'inazuma-sea-cave-background-v1.png',zones:['story:inazuma-sea-cave'],note:'洞穴から夕暮れの海が見えるラボ仮背景'},
- shiomicape:{file:'inazuma-shiomi-cape-background-v1.png',zones:['story:inazuma-shiomi-cape'],note:'潮見の岬の夕景を描いたラボ仮背景'},
+ shiomicape:{file:'inazuma-shiomi-cape-background-v1.png',zones:['story:inazuma-shiomi-cape','story:inazuma-shore-hunt'],note:'潮見の岬と潮風の浜に使う海辺のラボ仮背景'},
  fireworkLookouts:{file:'ina-fireworks-lookouts-background-v1.png',zones:['story:ina-firework-lookouts'],note:'三つの見晴らしの仮背景'},
  fireworkBeach:{file:'ina-fireworks-beach-background-v1.png',zones:['story:ina-firework-beach'],note:'家の窓から見える花火浜の仮背景'},
  sayuWatchpath:{file:'ina-sayu-route-background-v1.png',zones:['story:ina-sayu-watchpath'],note:'木陰の巡回路の仮背景'},

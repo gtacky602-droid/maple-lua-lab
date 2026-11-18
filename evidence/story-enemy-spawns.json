@@ -151,6 +151,10 @@
       "enemy_count": 0
     },
     {
+      "node": "inazuma-shore-hunt",
+      "enemy_count": 8
+    },
+    {
       "node": "ina-firework-lookouts",
       "enemy_count": 0
     },

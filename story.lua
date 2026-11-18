@@ -533,6 +533,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      local e=fresh.enemies[i];local p=assert(n.platforms[placement.platform+1],'Invalid enemy support')
      e.x=placement.x;e.home=e.x;e.y=p.y;e.kind=placement.kind;e.art=placement.art;e.spawnId=placement.id
      e.storyName=placement.name
+     e.dailyElite=placement.dailyElite
      e.pursuit=placement.pursuit
      if placement.flight then
       e.flight=placement.flight;e.flightHome=p.y
@@ -1450,9 +1451,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    local reward=s.storyFirstClear
    if reward and s.t<reward.untilTime then f.storyFirstClear={quest=reward.quest,xp=reward.xp} end
-   if n.clearedBy and not f.storyCleared then
+   if not f.storyCleared then
+    local player=s.actors[s.active]
     for _,e in ipairs(s.enemies) do
-     if e.storyName and e.hp>0 then
+     if e.storyName and e.hp>0 and (n.clearedBy or e.dailyElite and math.abs(e.x-player.x)<=360) then
       f.storyElite={name=e.storyName,hp=e.hp,maxhp=e.maxhp}
       break
      end

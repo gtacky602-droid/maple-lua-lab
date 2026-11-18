@@ -457,12 +457,20 @@
       "to": "thunder-approach"
     },
     {
+      "node": "inazuma-road",
+      "to": "inazuma-shore-hunt"
+    },
+    {
       "node": "inazuma-town",
       "to": "inazuma-road"
     },
     {
       "node": "inazuma-town",
       "to": "inazuma-lantern-trail"
+    },
+    {
+      "node": "inazuma-town",
+      "to": "inazuma-shore-hunt"
     },
     {
       "node": "inazuma-town",
@@ -503,6 +511,14 @@
     {
       "node": "inazuma-town",
       "to": "ina-tea-crossroads"
+    },
+    {
+      "node": "inazuma-shore-hunt",
+      "to": "inazuma-town"
+    },
+    {
+      "node": "inazuma-shore-hunt",
+      "to": "inazuma-road"
     },
     {
       "node": "ina-firework-lookouts",

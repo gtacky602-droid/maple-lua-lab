@@ -1,0 +1,17 @@
+{
+  "completedGoals": {
+    "Q-INA-D01": 200,
+    "Q-INA-D02": 80,
+    "Q-INA-D03": 60,
+    "Q-INA-D04": 3,
+    "Q-INA-D05": 60
+  },
+  "level40TownAndWalkableShore": true,
+  "shoreConnectsWithCoastalRoadInBothDirections": true,
+  "ayakaCompanionGiver": true,
+  "sharedSlotsAcrossLiyueAndInazuma": true,
+  "exactAreaAndNobushiChecked": true,
+  "enkanomiyaCountsAsInazuma": true,
+  "namedEliteRespawnsAndCountsOnce": true,
+  "rewardAtHubOnly": true
+}

@@ -224,6 +224,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "inazuma-shore-hunt",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "ina-firework-lookouts",
       "count": 0,
       "fallback": false,

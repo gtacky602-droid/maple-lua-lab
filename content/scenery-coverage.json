@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-19",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 330 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 322,
+  "scope": "Authored 331 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 323,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -224,6 +224,12 @@
     {
       "id": "inazuma-town",
       "name": "稲妻・城下の広場",
+      "region": "稲妻",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "inazuma-shore-hunt",
+      "name": "稲妻・潮風の浜",
       "region": "稲妻",
       "status": "regional_temporary_image"
     },
