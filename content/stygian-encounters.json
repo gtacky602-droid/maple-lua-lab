@@ -23,7 +23,7 @@
     {
       "id": "capitano",
       "name": "隊長",
-      "status": "not_implemented",
+      "status": "partial",
       "source": "docs/stygian-motion-v1/CAPITANO.md"
     },
     {

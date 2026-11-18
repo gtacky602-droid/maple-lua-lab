@@ -6,6 +6,26 @@ return function(C,data,shell,core,farka,poses,pyro,electroShell,electroCore,geo)
    for _,r in ipairs(asset.runs) do f.draws[#f.draws+1]={kind='rect',x=left+(flip and (asset.width-r[1]-r[3]) or r[1])*w/asset.width,y=y-h+r[2]*h/asset.height,w=r[3]*w/asset.width+.05,h=r[4]*h/asset.height+.05,color=palette and palette[r[5]] or r[5],opacity=opacity} end
   else f.draws[#f.draws+1]={kind='boss_sprite',source=assetData.source,anchorX=anchor,flip=not not flip,x=x,y=y,w=w,h=h,box=assetData.box,tint=tint,opacity=opacity} end
  end
+ function C.drawSocketArt(f,art,x,y,w,dir,angle,mode,profile,opacity)
+  local h=w*art.box[4]/art.box[3]
+  local ax,ay=art.anchorX or .5,art.anchorY or .5
+  local theta=-dir*angle
+  if mode~='rect' then
+   f.draws[#f.draws+1]={kind='boss_sprite',source=art.source,anchorX=ax,anchorY=ay,rotation=theta,
+    x=x,y=y,w=w,h=h,box=art.box,flip=dir<0,opacity=opacity}
+   return
+  end
+  local co,si=math.cos(theta),math.sin(theta)
+  local runs=art.profiles[profile] or art.profiles.legacy
+  local sx,sy=w/runs.width,h/runs.height
+  for _,r in ipairs(runs.runs) do
+   local left=-w*ax+r[1]*sx
+   if dir<0 then left=-left-r[3]*sx end
+   local top=-h*ay+r[2]*sy
+   f.draws[#f.draws+1]={kind='rect',x=x+co*left-si*top,y=y+si*left+co*top,
+    w=r[3]*sx+.05,h=r[4]*sy+.05,color=r[5],rotation=theta,opacity=opacity}
+  end
+ end
  function C.drawRegisvineArt(f,b,mode,profile) draw(f,data,b.x,480,b.phase=='down' and 100 or 200,mode,profile) end
  function C.drawSnowSweeperArt(f,x,y,pose,height,mode,profile,flip)
   draw(f,C.snowSweeperArt[pose],x,y,height,mode,profile,flip)

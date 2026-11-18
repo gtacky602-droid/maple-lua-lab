@@ -1,5 +1,6 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ frostDrillCourt:{file:'capitano-court-background-v1.png',zones:['story:sne-stygian-frost-court'],note:'凍天の演武場の仮背景'},
  cruxDuelDeck:{file:'beidou-stygian-deck-background-v1.png',zones:['story:liyue-stygian-deck'],note:'南十字の試合甲板の仮背景'},
  hereticLattice:{file:'heretic-lattice-background-v1.png',zones:['story:sumeru-heretic-lattice'],note:'左道の結合格子の仮背景'},
  falseMoonCourt:{file:'false-moon-court-background-v1.png',zones:['story:nod-false-moon-court'],note:'偽月の外界の仮背景'},
@@ -250,6 +251,14 @@ export function scenery(ctx,frame){
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
   if(p.riverDeck)continue;
+  if(key==='frostDrillCourt'){
+   ctx.fillStyle='#253552';ctx.fillRect(x,p.y,p.w,p.y===480?60:13);
+   ctx.fillStyle='#99cbd9';ctx.fillRect(x,p.y,p.w,3);
+   for(let stone=0;stone<p.w;stone+=78){
+    ctx.fillStyle='#3c5370';ctx.fillRect(x+stone,p.y+5,2,p.y===480?35:7);
+   }
+   continue;
+  }
   if(key==='cruxDuelDeck'){
    ctx.fillStyle='#3c2e35';ctx.fillRect(x,p.y,p.w,p.y===480?60:14);
    ctx.fillStyle='#c29a6c';ctx.fillRect(x,p.y,p.w,3);

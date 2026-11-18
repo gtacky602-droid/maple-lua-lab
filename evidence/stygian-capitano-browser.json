@@ -1,0 +1,34 @@
+{
+  "background": {
+    "key": "frostDrillCourt",
+    "file": "capitano-court-background-v1.png",
+    "state": "ready"
+  },
+  "normalClear": true,
+  "stages": [
+    1,
+    2,
+    3
+  ],
+  "cards": [
+    "CP01",
+    "CP05",
+    "CP09"
+  ],
+  "groundWaveMinFeet": 323.27777777777777,
+  "finaleLowMinFeet": 333.02777777777777,
+  "finaleHighFeet": 480,
+  "avoidedAllFinaleWindows": true,
+  "lowAndHighFootworkInsideLane": true,
+  "strikePose": true,
+  "coatOff": true,
+  "independentRotatingBlade": true,
+  "questReportSaveRestore": true,
+  "viewport390": true,
+  "commands": {
+    "png": 31,
+    "standard": 9284,
+    "light": 2345
+  },
+  "errors": []
+}

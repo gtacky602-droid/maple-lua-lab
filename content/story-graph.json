@@ -3185,6 +3185,7 @@
           "to": "snezhnaya-field",
           "x": 1380
         },
+        {"to":"sne-stygian-frost-court","x":650,"arrivalX":272},
         {"to":"white-pass-coach","x":800,"requires":{"quest":"white-pass-ticket"}},
         {"to":"sne-survey-shed","x":417,"rideLabel":"駅脇の観測小屋へ"}
       ],
@@ -5600,12 +5601,14 @@
     {"id":"knave-crimson-court","name":"凶月の再現戦","region":"フォンテーヌ","level":88,"width":960,"hub":false,"peaceful":true,"checkpoint":"fontaine-hub","platforms":[{"x":0,"y":480,"w":960},{"x":98,"y":357,"w":158},{"x":704,"y":357,"w":158}],"exits":[{"to":"fontaine-hub","x":130}]},
     {"id":"primal-fire-sundered-forge","name":"源焔の再現戦","region":"ナタ","level":104,"width":960,"hub":false,"peaceful":true,"checkpoint":"natlan-hub","platforms":[{"x":40,"y":480,"w":880},{"x":110,"y":357,"w":141},{"x":709,"y":357,"w":141}],"exits":[{"to":"natlan-hub","x":863,"arrivalX":351}]},
     {"id":"mond-gate-chess-court","name":"扉の対局・再現盤","region":"モンド","level":112,"width":960,"hub":false,"peaceful":true,"checkpoint":"mond-town","platforms":[{"x":0,"y":480,"w":960},{"x":128,"y":357,"w":176},{"x":656,"y":357,"w":176}],"exits":[{"to":"mond-town","x":825,"arrivalX":442}]},
+    {"id":"sne-stygian-frost-court","name":"幽境・凍天の演武場","region":"スネージナヤ","level":144,"width":960,"hub":false,"peaceful":true,"checkpoint":"snezhnaya-hub","platforms":[{"x":0,"y":480,"w":960},{"x":128,"y":339,"w":176},{"x":656,"y":339,"w":176}],"exits":[{"to":"snezhnaya-hub","x":85,"arrivalX":650}]},
     {"id":"liyue-stygian-deck","name":"幽境・南十字の試合甲板","region":"璃月","level":30,"width":960,"hub":false,"peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":960},{"x":92,"y":364,"w":172},{"x":708,"y":364,"w":164}],"exits":[{"to":"liyue-harbor","x":85,"arrivalX":300}]},
     {"id":"sumeru-heretic-lattice","name":"左道の再現戦・結合格子","region":"スメール","level":144,"width":960,"hub":false,"peaceful":true,"checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":960},{"x":128,"y":339,"w":176},{"x":656,"y":339,"w":176}],"exits":[{"to":"sumeru-hub","x":80,"arrivalX":222}]},
     {"id":"nod-false-moon-court","name":"偽月の再現戦・外界","region":"ナド・クライ","level":132,"width":960,"hub":false,"peaceful":true,"checkpoint":"nod-town","platforms":[{"x":0,"y":480,"w":960},{"x":128,"y":339,"w":176},{"x":656,"y":339,"w":176}],"exits":[{"to":"nod-town","x":80,"arrivalX":210}]},
     {"id":"nod-false-moon-rift","name":"偽月の再現戦・異界","region":"ナド・クライ","level":132,"width":960,"hub":false,"peaceful":true,"checkpoint":"nod-town","platforms":[{"x":0,"y":480,"w":960},{"x":118,"y":357,"w":155},{"x":696,"y":357,"w":155}],"exits":[],"weeklySceneOf":"nod-false-moon-court"}
   ],
   "quests": [
+    {"id":"stygian-capitano-commission","name":"凍天の演武・三つの型","giver":"ミティヤ","hub":"snezhnaya-hub","target":"stygian-capitano","kind":"boss","goal":1,"level":144,"xp":1160000,"mora":24300,"ore":5,"briefing":"雪の町の演武場で隊長と手合わせを。氷線は高さで見分けよう。低い線は跳び、高い線は地上でかわす。最後の振り下ろしから離れたら、反撃の隙ができる。"},
     {"id":"stygian-beidou-commission","name":"南十字・一手先を読む","giver":"北斗","hub":"liyue-harbor","target":"stygian-beidou","kind":"boss","goal":1,"level":30,"xp":6900,"mora":1200,"ore":1,"briefing":"南十字の試合甲板で手合わせしよう。あたしが構えたら手を止めてみな。次の一振りをかわしたら、反撃のチャンスだ。"},
     {"id":"heretic-weekly-commission","name":"左道の再現戦・結合点","giver":"ナヒーダ","hub":"sumeru-hub","target":"heretic-weekly","kind":"boss","goal":1,"level":144,"xp":1230000,"mora":26500,"ore":6,"briefing":"光背が完成したら、左右どちらかの結合点に攻撃を3回当てましょう。続けて本体の詠唱を削れば12秒間反撃できます。押し壁は緑色の穴を通り抜けられます。"},
     {"id":"false-moon-weekly-commission","name":"偽月の再現戦・裂け目の向こう","giver":"ラウマ","hub":"nod-town","target":"false-moon-weekly","kind":"boss","goal":1,"level":132,"xp":840000,"mora":21200,"ore":5,"briefing":"禁令の表示に従いましょう。衝撃は柱の青い枠の中でしのげます。裂け目の前でHを押すと異界へ入り、倒した擬影の分だけ帰還時に博士のHPを削れます。"},

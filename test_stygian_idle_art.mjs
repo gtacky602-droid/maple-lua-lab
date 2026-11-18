@@ -6,6 +6,8 @@ const base=new URL(process.env.LAB_URL||'http://127.0.0.1:8769/');
 const profiles=['legacy','h48c32','h32c16'];
 const cases={
  'capitano-coat':{prefix:'capitano-coat',height:152},
+ 'capitano-battle':{prefix:'capitano-battle',height:152,node:'sne-stygian-frost-court',background:'capitano-court-background-v1.png'},
+ 'capitano-strike':{prefix:'capitano-strike',height:145,node:'sne-stygian-frost-court',background:'capitano-court-background-v1.png'},
  xbalanque:{prefix:'xbalanque-idle',height:84},
  rerir:{prefix:'rerir-idle',height:144,node:'nod-field',background:'nodkrai-background-v1.png'},
  ronova:{prefix:'ronova-idle',height:144,node:'snezhnaya-field',background:'snezhnaya-background-v1.png',hover:17.6},
@@ -34,7 +36,7 @@ try{
     assert.equal(sprite.h,displayHeight);
     assert(Math.abs(sprite.w/sprite.h-sprite.ratio)<1e-9);
     const {height,colors,runs}=encoding.profiles[profile];
-    assert.equal(height,[displayHeight,Math.round(displayHeight*.75),displayHeight/2][i]);
+    assert.equal(height,[displayHeight,Math.round(displayHeight*.75),Math.floor(displayHeight/2)][i]);
     assert.equal(colors,[32,32,16][i]);
     const rectangles=runs.length+(wing?wing.profiles[profile].runs.length:0);
     if(wing){

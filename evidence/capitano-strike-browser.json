@@ -1,0 +1,85 @@
+{
+  "directions": [
+    {
+      "side": "right",
+      "profile": "legacy",
+      "rectangles": 5223
+    },
+    {
+      "side": "right",
+      "profile": "h48c32",
+      "rectangles": 3237
+    },
+    {
+      "side": "right",
+      "profile": "h32c16",
+      "rectangles": 1440
+    },
+    {
+      "side": "left",
+      "profile": "legacy",
+      "rectangles": 4596
+    },
+    {
+      "side": "left",
+      "profile": "h48c32",
+      "rectangles": 2798
+    },
+    {
+      "side": "left",
+      "profile": "h32c16",
+      "rectangles": 1238
+    }
+  ],
+  "map": {
+    "diff": null,
+    "dirty": true,
+    "ready": true,
+    "node": "sne-stygian-frost-court",
+    "nodeCount": 354,
+    "camera": 0,
+    "profile": "h32c16",
+    "count": 2,
+    "selected": null,
+    "editMode": "add",
+    "placements": [
+      {
+        "id": "added-1",
+        "species": "boss-capitano-strike",
+        "x": 271,
+        "y": 480,
+        "flip": false
+      },
+      {
+        "id": "added-2",
+        "species": "boss-capitano-strike",
+        "x": 656,
+        "y": 480,
+        "flip": true
+      }
+    ],
+    "visuals": [
+      {
+        "id": "added-1",
+        "source": "capitano-strike-right-source-v1.png",
+        "y": 480,
+        "hover": 0,
+        "height": 145
+      },
+      {
+        "id": "added-2",
+        "source": "capitano-strike-left-source-v1.png",
+        "y": 480,
+        "hover": 0,
+        "height": 145
+      }
+    ],
+    "grounded": true,
+    "background": "frostDrillCourt",
+    "backgroundFallback": false,
+    "backgroundState": "ready",
+    "backgroundFile": "capitano-court-background-v1.png"
+  },
+  "mobileOverflow": false,
+  "errors": []
+}

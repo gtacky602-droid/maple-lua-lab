@@ -37,6 +37,7 @@
   "moonCrabFieldRoute": true,
   "stygianCandidates": 7,
   "beidouStygianRoute": true,
+  "capitanoStygianRoute": true,
   "disabledUnimplemented": true,
   "launchesVerified": [
     "boss_array_3",

@@ -56,7 +56,7 @@ export function initEndgameUI(action){
    const health=frame.boss;
    duelHp.max=health.maxhp;
    duelHp.value=health.hp;
-   get('stygianHealth').textContent=`${fight.mode} ｜ HP ${health.hp} / ${health.maxhp}`;
+   get('stygianHealth').textContent=`${fight.mode}${fight.stageName?` ｜ ${fight.stageName}`:''} ｜ HP ${health.hp} / ${health.maxhp}`;
    get('stygianClock').textContent=fight.status==='fighting'
     ? `残り ${Math.ceil(fight.remaining)}秒` : fight.elapsed?`${fight.elapsed.toFixed(1)}秒`:'';
    get('stygianDialogue').textContent=fight.dialogue||'';

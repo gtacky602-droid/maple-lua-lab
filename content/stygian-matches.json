@@ -144,6 +144,507 @@
           "rarity": 5
         }
       ]
+    },
+    "capitano": {
+      "entity": 990003,
+      "node": "sne-stygian-frost-court",
+      "hub": "snezhnaya-hub",
+      "challenge": "stygian-capitano",
+      "name": "隊長・凍天の演武",
+      "design": "docs/stygian-motion-v1/CAPITANO.md",
+      "arena": {
+        "unit": 88,
+        "left": 40,
+        "right": 920,
+        "floor": 480,
+        "bossX": 686,
+        "playerX": 272
+      },
+      "timing": {
+        "enter": 120,
+        "coatOff": 60,
+        "phase": 90,
+        "defeat": 120,
+        "normalBetweenFinale": 3,
+        "walkSpeed": 126
+      },
+      "thresholds": [
+        0.65,
+        0.3
+      ],
+      "dialogue": {
+        "enter": "剣を交えよう。次の一手を、君の目で見極めるといい。",
+        "p2": "ここからは、足元にも気を配れ。",
+        "p3": "これが最後の型だ。",
+        "clear": "いい剣だった。ここまでにしよう。"
+      },
+      "moves": {
+        "CP01": {
+          "title": "氷剣二連",
+          "total": 126,
+          "lock": 12,
+          "windows": [
+            [
+              36,
+              42
+            ],
+            [
+              54,
+              60
+            ]
+          ],
+          "recovery": 72,
+          "shapes": [
+            {
+              "kind": "rect",
+              "origin": "body",
+              "u0": 0.1,
+              "u1": 1.5,
+              "v0": 0.15,
+              "v1": 1.1
+            },
+            {
+              "kind": "rect",
+              "origin": "body",
+              "u0": 0.1,
+              "u1": 1.5,
+              "v0": 0.15,
+              "v1": 1.1
+            }
+          ],
+          "root": [
+            0.08,
+            0.08
+          ],
+          "damage": 25,
+          "angles": [
+            9,
+            25,
+            7
+          ]
+        },
+        "CP02": {
+          "title": "黒鋼三連",
+          "total": 204,
+          "lock": 24,
+          "windows": [
+            [
+              51,
+              57
+            ],
+            [
+              75,
+              81
+            ],
+            [
+              123,
+              129
+            ]
+          ],
+          "recovery": 129,
+          "shapes": [
+            {
+              "kind": "rect",
+              "origin": "body",
+              "u0": 0.1,
+              "u1": 1.6,
+              "v0": 0.1,
+              "v1": 1.1
+            },
+            {
+              "kind": "capsule",
+              "origin": "body",
+              "u0": 0.1,
+              "u1": 1.65,
+              "v0": 0.2,
+              "v1": 1.65,
+              "radius": 0.16
+            },
+            {
+              "kind": "capsule",
+              "origin": "body",
+              "u0": 0.1,
+              "u1": 1.95,
+              "v0": 0.7,
+              "v1": 0.7,
+              "radius": 0.16
+            }
+          ],
+          "root": [
+            0.08,
+            0.08,
+            0.09
+          ],
+          "damage": 32,
+          "angles": [
+            12,
+            52,
+            0
+          ],
+          "lateTell": 90
+        },
+        "CP03": {
+          "title": "霜影疾走",
+          "total": 180,
+          "lock": 24,
+          "windows": [
+            [
+              81,
+              87
+            ]
+          ],
+          "recovery": 90,
+          "shapes": [
+            {
+              "kind": "rect",
+              "origin": "landing",
+              "u0": 0,
+              "u1": 1.8,
+              "v0": 0.15,
+              "v1": 1.2
+            }
+          ],
+          "dash": [
+            60,
+            81
+          ],
+          "reach": 3,
+          "damage": 39,
+          "angles": [
+            13,
+            0
+          ]
+        },
+        "CP04": {
+          "title": "氷剣衝撃",
+          "total": 174,
+          "lock": 24,
+          "windows": [
+            [
+              66,
+              76
+            ]
+          ],
+          "recovery": 78,
+          "shapes": [
+            {
+              "kind": "sector",
+              "origin": "body",
+              "v": 0.55,
+              "radius": 2.3,
+              "a0": -25,
+              "a1": 55
+            }
+          ],
+          "root": [
+            0.15
+          ],
+          "damage": 42,
+          "angles": [
+            62,
+            -20
+          ]
+        },
+        "CP05": {
+          "title": "凍氷斬波",
+          "total": 222,
+          "lock": 18,
+          "windows": [
+            [
+              54,
+              144
+            ]
+          ],
+          "recovery": 156,
+          "shapes": [],
+          "projectile": {
+            "width": 0.28,
+            "height": 0.38,
+            "speed": 4,
+            "ttl": 90,
+            "reach": 6
+          },
+          "damage": 30,
+          "angles": [
+            8,
+            0
+          ]
+        },
+        "CP06": {
+          "title": "氷晶刺列",
+          "total": 216,
+          "lock": 30,
+          "windows": [
+            [
+              72,
+              84
+            ],
+            [
+              90,
+              102
+            ],
+            [
+              108,
+              120
+            ]
+          ],
+          "recovery": 126,
+          "shapes": [],
+          "pillars": {
+            "spacing": 1.65,
+            "width": 0.45,
+            "height": 1.5
+          },
+          "damage": 36,
+          "angles": [
+            -48,
+            -74
+          ]
+        },
+        "CP07": {
+          "title": "凛霜の剣壁",
+          "total": 240,
+          "lock": 30,
+          "windows": [
+            [
+              102,
+              138
+            ]
+          ],
+          "recovery": 138,
+          "shapes": [],
+          "plate": {
+            "front": 1,
+            "width": 0.25,
+            "height": 1.5,
+            "appear": 66,
+            "burst": 102
+          },
+          "projectile": {
+            "angles": [
+              -15,
+              5,
+              25,
+              45
+            ],
+            "speed": 4,
+            "ttl": 36,
+            "radius": 0.1
+          },
+          "damage": 37,
+          "angles": [
+            52,
+            8
+          ]
+        },
+        "CP08": {
+          "title": "黒鋼の構え",
+          "total": 264,
+          "lock": 120,
+          "windows": [
+            [
+              168,
+              174
+            ]
+          ],
+          "recovery": 186,
+          "shapes": [
+            {
+              "kind": "rect",
+              "origin": "body",
+              "u0": 0.1,
+              "u1": 1.7,
+              "v0": 0.1,
+              "v1": 1.2
+            }
+          ],
+          "guard": [
+            48,
+            120
+          ],
+          "damage": 39,
+          "angles": [
+            63,
+            10
+          ]
+        },
+        "CP09": {
+          "title": "終式・凍天一閃",
+          "total": 600,
+          "lock": 48,
+          "windows": [
+            [
+              138,
+              144
+            ],
+            [
+              210,
+              222
+            ],
+            [
+              282,
+              294
+            ],
+            [
+              348,
+              360
+            ]
+          ],
+          "recovery": 360,
+          "shapes": [
+            {
+              "kind": "rect",
+              "origin": "landing",
+              "u0": 0,
+              "u1": 1.8,
+              "v0": 0.15,
+              "v1": 1.2
+            },
+            {
+              "kind": "rect",
+              "origin": "body",
+              "u0": 0,
+              "u1": 3,
+              "v0": 0,
+              "v1": 0.45
+            },
+            {
+              "kind": "rect",
+              "origin": "body",
+              "u0": 0,
+              "u1": 3,
+              "v0": 1.2,
+              "v1": 2
+            },
+            {
+              "kind": "sector",
+              "origin": "body",
+              "v": 0.6,
+              "radius": 2.2,
+              "a0": -35,
+              "a1": 50
+            }
+          ],
+          "dash": [
+            120,
+            138
+          ],
+          "reach": 3,
+          "damage": 53,
+          "angles": [
+            14,
+            2,
+            65,
+            -30
+          ],
+          "leads": [
+            0,
+            150,
+            222,
+            294
+          ]
+        }
+      },
+      "modes": [
+        {
+          "id": "normal",
+          "name": "通常",
+          "level": 144,
+          "hp": 2430,
+          "rest": 35,
+          "attackScale": 1,
+          "limit": 240,
+          "mora": 2750,
+          "firstMora": 1450,
+          "itemLevel": 145,
+          "rarity": 4,
+          "p2Order": [
+            "CP05",
+            "CP06",
+            "CP07",
+            "CP08",
+            "CP03",
+            "CP01"
+          ]
+        },
+        {
+          "id": "hard",
+          "name": "ハード",
+          "level": 159,
+          "hp": 3250,
+          "rest": 26,
+          "attackScale": 1.12,
+          "limit": 255,
+          "mora": 3450,
+          "firstMora": 1950,
+          "itemLevel": 159,
+          "rarity": 4,
+          "p2Order": [
+            "CP05",
+            "CP07",
+            "CP06",
+            "CP08",
+            "CP02",
+            "CP04"
+          ]
+        },
+        {
+          "id": "master",
+          "name": "マスター",
+          "level": 176,
+          "hp": 4150,
+          "rest": 16,
+          "attackScale": 1.26,
+          "limit": 270,
+          "mora": 4700,
+          "firstMora": 2400,
+          "itemLevel": 174,
+          "rarity": 5,
+          "p2Order": [
+            "CP05",
+            "CP06",
+            "CP08",
+            "CP07",
+            "CP04",
+            "CP03"
+          ]
+        },
+        {
+          "id": "extreme",
+          "name": "極限",
+          "level": 195,
+          "hp": 5400,
+          "rest": 9,
+          "attackScale": 1.42,
+          "limit": 300,
+          "mora": 6100,
+          "firstMora": 3100,
+          "itemLevel": 191,
+          "rarity": 5,
+          "p2Order": [
+            "CP05",
+            "CP07",
+            "CP06",
+            "CP08",
+            "CP02",
+            "CP04"
+          ]
+        }
+      ],
+      "p1Order": [
+        "CP01",
+        "CP02",
+        "CP03",
+        "CP04"
+      ],
+      "p3Order": [
+        "CP05",
+        "CP06",
+        "CP08",
+        "CP07",
+        "CP02",
+        "CP04"
+      ]
     }
   }
 }

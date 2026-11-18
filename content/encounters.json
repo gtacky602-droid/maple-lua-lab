@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 87,
-    "partial": 82,
+    "partial": 83,
     "complete": 0
   },
   "encounters": [
@@ -2595,25 +2595,51 @@
       "name": "隊長",
       "kind": "stygian",
       "entity_ids": [],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "docs/stygian-motion-v1/CAPITANO.md"
+        "docs/stygian-motion-v1/CAPITANO.md",
+        "docs/stygian-motion-v1/CAPITANO_WEB.md",
+        "evidence/stygian-capitano-lua.json",
+        "evidence/stygian-capitano-browser.json"
       ],
       "remaining": [
-        "外套なし・氷剣の構え、専用モーション・台詞",
-        "専用戦闘行動",
-        "4難度・報酬",
-        "マルチ・記録"
+        "連続キー作画・独自効果音",
+        "上位難度の実プレイ・バランス",
+        "マルチ・順位表・本番3D配置と幻境実機"
       ],
+      "stygianNode": "sne-stygian-frost-court",
+      "stygianEntrance": "幽境・凍天の演武場（Lv144）",
       "art_candidate": {
         "source": "assets/capitano-coat-right-source-v1.png",
         "encoding": "assets/capitano-coat-right-sprites-v1.json",
         "audit": "evidence/capitano-coat-reference-audit.json",
         "status": "directional coat-on entrance idle candidate"
       },
-      "review_note": "外套ありの入場待機を152pxの比較サイズで左右別に試作。"
+      "art_variants": [
+        {
+          "source": "assets/capitano-battle-right-source-v1.png",
+          "encoding": "assets/capitano-battle-right-sprites-v1.json",
+          "audit": "assets/capitano-stygian-generation-v1.json",
+          "status": "Directional base battle pose"
+        },
+        {
+          "source": "assets/capitano-strike-right-source-v1.png",
+          "encoding": "assets/capitano-strike-right-sprites-v1.json",
+          "audit": "assets/capitano-stygian-generation-v1.json",
+          "status": "Directional key pose for strike and dash"
+        }
+      ],
+      "art_components": [
+        {
+          "source": "assets/capitano-ice-sword-source-v1.png",
+          "encoding": "assets/capitano-ice-sword-sprites-v1.json",
+          "audit": "assets/capitano-stygian-generation-v1.json",
+          "status": "Independent grip-pivot sword"
+        }
+      ],
+      "review_note": "外套から氷剣へ切り替わる三段階の独自演武。スネージナヤに四難度と個人記録を実装。"
     },
     {
       "id": "stygian-xbalanque",

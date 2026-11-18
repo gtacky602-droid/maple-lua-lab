@@ -1,0 +1,88 @@
+{
+  "tool": "Codex built-in ImageGen",
+  "status": "Web prototype directional ready and strike poses with independent ice sword",
+  "design": "docs/stygian-motion-v1/CAPITANO.md",
+  "references": {
+    "existingEntrance": "evidence/capitano-coat-reference-audit.json",
+    "officialCutscene": "https://www.youtube.com/watch?v=8qon5akq198",
+    "localViewed": [
+      "work/references/capitano/official-clash-thumb.jpg",
+      "work/references/capitano/viewer-front.png",
+      "work/references/capitano/viewer-side.png",
+      "work/references/capitano/viewer-rear.png"
+    ],
+    "existingSprites": [
+      "assets/capitano-coat-left-source-v1.png",
+      "assets/capitano-coat-right-source-v1.png"
+    ],
+    "scope": "The 3D stills show the entrance costume. The shorter duel armor and sword are original lab designs. Film-wide hand and motion analysis remains open."
+  },
+  "bodyLandmarks": {
+    "left": {
+      "crown": 176,
+      "jaw": 525,
+      "sole": 1215,
+      "approxHeads": 2.98
+    },
+    "right": {
+      "crown": 197,
+      "jaw": 531,
+      "sole": 1172,
+      "approxHeads": 2.92
+    }
+  },
+  "hand_sockets": {
+    "battle": {
+      "left": {
+        "x": 33,
+        "y": 0.32
+      },
+      "right": {
+        "x": 33,
+        "y": 0.245
+      }
+    },
+    "strike": {
+      "left": {
+        "x": 56,
+        "y": 0.49
+      },
+      "right": {
+        "x": 71,
+        "y": 0.488
+      }
+    }
+  },
+  "geometry": "body root stays at sole midpoint, x is positive forward pixels, y is height fraction above sole. The ice sword pivots at grip (0.09, 0.5) and is rendered separately.",
+  "profiles": {
+    "battleLeft": [
+      4478,
+      2766,
+      1200
+    ],
+    "battleRight": [
+      5393,
+      3311,
+      1481
+    ],
+    "strikeLeft": [
+      4596,
+      2798,
+      1238
+    ],
+    "strikeRight": [
+      5223,
+      3237,
+      1440
+    ],
+    "blade": [
+      472,
+      270,
+      75
+    ]
+  },
+  "background": {
+    "source": "assets/capitano-court-background-v1.png",
+    "role": "Fictional Snezhnayan frost court, rendered by the host as a prototype for future 3D placement."
+  }
+}

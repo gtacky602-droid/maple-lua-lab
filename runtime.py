@@ -531,9 +531,20 @@ def runtime():
         'idle':{'left':companion_art['beidou']['left'],'right':companion_art['beidou']},
         'guard':guard_assets,
     },recursive=True)
+    capitano_moves=lua.execute((ROOT/'stygian-capitano-moves.lua').read_text(encoding='utf8'))(core)
+    capitano=lua.execute((ROOT/'stygian-capitano.lua').read_text(encoding='utf8'))(core,capitano_moves)
+    capitano_audit=json.loads((ROOT/'assets/capitano-stygian-generation-v1.json').read_text(encoding='utf8'))
+    core.stygianCapitanoArt=lua.table_from({
+        kind:{side:json.loads((ROOT/'assets'/f'capitano-{kind}-{side}-sprites-v1.json').read_text(encoding='utf8'))
+              for side in ('left','right')}
+        for kind in ('coat','battle','strike')
+    } | {
+        'sword':json.loads((ROOT/'assets/capitano-ice-sword-sprites-v1.json').read_text(encoding='utf8')),
+        'hands':capitano_audit['hand_sockets'],
+    },recursive=True)
     lua.execute((ROOT/'endgame.lua').read_text(encoding='utf8'))(
         core,lua.table_from(abyss,recursive=True),lua.table_from(weekly_specs,recursive=True),
-        lua.table_from(stygian,recursive=True),lua.table_from({'beidou':stygian_beidou}))
+        lua.table_from(stygian,recursive=True),lua.table_from({'beidou':stygian_beidou,'capitano':capitano}))
     lua.execute((ROOT/'growth-trials.lua').read_text(encoding='utf8'))(core)
     return lua, core
 

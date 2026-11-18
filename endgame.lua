@@ -175,7 +175,13 @@ return function(C,abyss,weekly,matches,controllers)
  function C.step(s,dt,input)
   local run=s.endgameRun
   if not run then return step(s,dt,input) end
-  if (run.status~='fighting' and run.status~='between') or s.paused then return end
+  if s.paused then return end
+  if run.status=='clear' and run.match then
+   local controller=controllers[run.match]
+   if controller.afterClear then controller.afterClear(s,run,matches[run.match],dt) end
+   return
+  end
+  if run.status~='fighting' and run.status~='between' then return end
   local returns,boss=s.returns,s.farka
   step(s,dt,input)
   if run.match then

@@ -195,8 +195,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 28,
-      "prototype_quest_count": 19,
+      "prototype_stage_count": 29,
+      "prototype_quest_count": 20,
       "official_map2_markers": {
         "waypoints": 101,
         "statues": 7
@@ -356,7 +356,7 @@
     {
       "id": "stygian",
       "name": "幽境の激戦",
-      "status": "farka_normal_and_beidou_four_mode_prototypes",
+      "status": "farka_normal_and_beidou_capitano_four_mode_prototypes",
       "boss_candidates": [
         "ファルカ",
         "隊長",
@@ -588,8 +588,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 353,
-    "provisional_quests": 221,
+    "authored_stages": 354,
+    "provisional_quests": 222,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -605,11 +605,11 @@
   "stygian_summary": {
     "partial": [
       "farka",
-      "beidou"
+      "beidou",
+      "capitano"
     ],
     "not_implemented": [
       "wanderer",
-      "capitano",
       "xbalanque",
       "rerir",
       "ronova"
@@ -625,7 +625,7 @@
     "catalog": "content/encounters.json",
     "source_entities": 63,
     "candidates": 87,
-    "partial": 82,
+    "partial": 83,
     "complete": 0,
     "complete_roster_verified": false
   },
@@ -1118,9 +1118,11 @@
           "sne-survey-outskirts",
           "sne-survey-yard",
           "sne-survey-ridge",
-          "sne-snow-match"
+          "sne-snow-match",
+          "sne-stygian-frost-court"
         ],
         "quest_ids": [
+          "stygian-capitano-commission",
           "growth-star-practice",
           "growth-light-echo",
           "growth-seven-strike",

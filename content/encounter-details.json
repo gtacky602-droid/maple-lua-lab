@@ -846,13 +846,14 @@
         "audit": "evidence/capitano-coat-reference-audit.json",
         "status": "directional coat-on entrance idle candidate"
       },
-      "remaining": [
-        "外套なし・氷剣の構え、専用モーション・台詞",
-        "専用戦闘行動",
-        "4難度・報酬",
-        "マルチ・記録"
+      "art_variants": [
+        {"item":"capitano-battle","audit":"assets/capitano-stygian-generation-v1.json","status":"Directional base battle pose"},
+        {"item":"capitano-strike","audit":"assets/capitano-stygian-generation-v1.json","status":"Directional key pose for strike and dash"}
       ],
-      "review_note": "外套ありの入場待機を152pxの比較サイズで左右別に試作。"
+      "art_components": [{"item":"capitano-ice-sword","audit":"assets/capitano-stygian-generation-v1.json","status":"Independent grip-pivot sword"}],
+      "extra_evidence": ["docs/stygian-motion-v1/CAPITANO_WEB.md","evidence/stygian-capitano-lua.json","evidence/stygian-capitano-browser.json"],
+      "remaining": ["連続キー作画・独自効果音","上位難度の実プレイ・バランス","マルチ・順位表・本番3D配置と幻境実機"],
+      "review_note": "外套から氷剣へ切り替わる三段階の独自演武。スネージナヤに四難度と個人記録を実装。"
     },
     "stygian-xbalanque": {
       "art_candidate": {

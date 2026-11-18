@@ -1,0 +1,38 @@
+{
+  "manifest_cards": [
+    "CP01",
+    "CP02",
+    "CP03",
+    "CP04",
+    "CP05",
+    "CP06",
+    "CP07",
+    "CP08",
+    "CP09"
+  ],
+  "rank_levels": [
+    144,
+    159,
+    176,
+    195
+  ],
+  "coat_change_tick": 60,
+  "intro_end_tick": 120,
+  "direction_lock_honored": true,
+  "path_no_damage": true,
+  "ground_wave_jumped": true,
+  "ground_wave_actual_contact_once": true,
+  "pillar_gaps_min_U": 1.2,
+  "crossed_plate_on_foot_then_four_fragments": true,
+  "stance_unshielded_fixed_168": true,
+  "finale_hits": [
+    138,
+    210,
+    282,
+    348
+  ],
+  "finale_recovery_ticks": 240,
+  "ordinary_cards_before_repeat": 3,
+  "clear_cancels_mid_dash_and_keeps_record_after_pose": true,
+  "quest_report_restore": true
+}

@@ -20,7 +20,7 @@ check('completion not overclaimed',d['counts']['complete']==0 and not d['complet
 check('not implemented rows cannot launch',all(r['action'] is None for r in rows if r['status']=='not_implemented'))
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
-check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':87,'partial':82,'complete':0})
+check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':87,'partial':83,'complete':0})
 by_id={r['id']:r for r in rows}
 childe=by_id['boss-29030101']
 check('Childe has a distinct weekly route',
@@ -227,7 +227,9 @@ check('both paired encounters retain two art references',all(len(by_id[id]['art_
 check('every candidate has a gallery reference',all(r.get('art_candidate') or r.get('art_components') for r in rows))
 check('Capitano art and design linked without a playable action',
       by_id['stygian-capitano']['art_candidate']['encoding']=='assets/capitano-coat-right-sprites-v1.json'
-      and by_id['stygian-capitano']['evidence']==['docs/stygian-motion-v1/CAPITANO.md']
+      and by_id['stygian-capitano']['evidence'][0]=='docs/stygian-motion-v1/CAPITANO.md'
+      and by_id['stygian-capitano']['status']=='partial'
+      and by_id['stygian-capitano']['stygianNode']=='sne-stygian-frost-court'
       and by_id['stygian-capitano']['action'] is None)
 check('Xbalanque art and design linked without a playable action',
       by_id['stygian-xbalanque']['art_candidate']['encoding']=='assets/xbalanque-idle-right-sprites-v1.json'
