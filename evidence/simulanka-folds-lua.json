@@ -1,0 +1,27 @@
+{
+  "hiddenUntilDiscovery": true,
+  "frontBackPreview": true,
+  "committedPageRestored": true,
+  "safeFall": true,
+  "incorrectBridgeRejected": true,
+  "lockedFoldsSurviveReload": true,
+  "ordinaryJumpCrossing": true,
+  "solidBlocksProjectile": true,
+  "guardsAndChest": true,
+  "souvenir": "boat",
+  "souvenirValidation": true,
+  "souvenirReadback": true,
+  "twoWayShortcut": true,
+  "oldGateAndQuestKept": true,
+  "firstReport": [
+    25500,
+    790,
+    2
+  ],
+  "secondReport": [
+    33400,
+    1060,
+    3
+  ],
+  "oneTimePayouts": true
+}

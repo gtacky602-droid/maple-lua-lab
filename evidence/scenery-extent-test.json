@@ -2462,6 +2462,36 @@
       "transparent": 0
     },
     {
+      "key": "paperValley",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "paperValley",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "paperValley",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "paperValley",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "paperValley",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "paperValley",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "simulanka",
       "camera": -960,
       "transparent": 0

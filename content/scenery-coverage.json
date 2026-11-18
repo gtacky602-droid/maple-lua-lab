@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 232 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 224,
+  "scope": "Authored 235 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 227,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1056,7 +1056,10 @@
     {"id":"veluriyam-petal-stop","name":"花棚の停留所","region":"ヴェルーリヤ・ミラージュ","status":"regional_temporary_image"},
     {"id":"veluriyam-rail-end","name":"水車前の終点","region":"ヴェルーリヤ・ミラージュ","status":"regional_temporary_image"},
     {"id":"veluriyam-petal-lookout","name":"花びら越しの展望台","region":"ヴェルーリヤ・ミラージュ","status":"regional_temporary_image"},
-    {"id":"veluriyam-trolley-back","name":"広場へ戻るトロッコ","region":"ヴェルーリヤ・ミラージュ","status":"regional_temporary_image"}
+    {"id":"veluriyam-trolley-back","name":"広場へ戻るトロッコ","region":"ヴェルーリヤ・ミラージュ","status":"regional_temporary_image"},
+    {"id":"simulanka-book-room","name":"折り目の読書室","region":"フォンテーヌ","status":"regional_temporary_image"},
+    {"id":"simulanka-fold-valley","name":"三枚板の紙の谷","region":"シムランカ","status":"regional_temporary_image"},
+    {"id":"simulanka-lantern-perch","name":"紙の灯りの止まり木","region":"シムランカ","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 8
 }

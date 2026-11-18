@@ -665,6 +665,10 @@
       "to": "nostoi-castle-approach"
     },
     {
+      "node": "fontaine-hub",
+      "to": "simulanka-book-room"
+    },
+    {
       "node": "fontaine-field",
       "to": "fontaine-hub"
     },
@@ -1381,6 +1385,18 @@
       "to": "simulanka-play"
     },
     {
+      "node": "simulanka-hub",
+      "to": "simulanka-book-room"
+    },
+    {
+      "node": "simulanka-hub",
+      "to": "simulanka-fold-valley"
+    },
+    {
+      "node": "simulanka-hub",
+      "to": "simulanka-lantern-perch"
+    },
+    {
       "node": "simulanka-play",
       "to": "simulanka-hub"
     },
@@ -2067,9 +2083,33 @@
     {
       "node": "veluriyam-trolley-back",
       "to": "veluriyam-petal-stop"
+    },
+    {
+      "node": "simulanka-book-room",
+      "to": "fontaine-hub"
+    },
+    {
+      "node": "simulanka-book-room",
+      "to": "simulanka-hub"
+    },
+    {
+      "node": "simulanka-fold-valley",
+      "to": "simulanka-hub"
+    },
+    {
+      "node": "simulanka-fold-valley",
+      "to": "simulanka-lantern-perch"
+    },
+    {
+      "node": "simulanka-lantern-perch",
+      "to": "simulanka-fold-valley"
+    },
+    {
+      "node": "simulanka-lantern-perch",
+      "to": "simulanka-hub"
     }
   ],
-  "hidden_connections_checked": 29,
+  "hidden_connections_checked": 38,
   "checks": [
     "nearest name from graph",
     "strict distance/height boundaries",

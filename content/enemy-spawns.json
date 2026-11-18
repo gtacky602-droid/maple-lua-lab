@@ -2268,6 +2268,10 @@
       {"id":"golden-pocket-scavenger-1","x":272,"platform":0,"hp":14,"kind":1,"art":"sail-shell-crawler"},
       {"id":"golden-pocket-scavenger-2","x":508,"platform":1,"hp":14,"kind":1,"art":"pebble-courier"},
       {"id":"golden-pocket-scavenger-3","x":1040,"platform":2,"hp":16,"kind":1,"art":"sail-shell-crawler"}
+    ],
+    "simulanka-fold-valley": [
+      {"id":"simulanka-fold-guard-1","x":1587,"platform":1,"hp":26,"kind":1,"art":"pebble-courier"},
+      {"id":"simulanka-fold-guard-2","x":1780,"platform":1,"hp":28,"kind":1,"art":"sail-shell-crawler"}
     ]
   }
 }

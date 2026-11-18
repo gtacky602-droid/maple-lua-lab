@@ -82,6 +82,7 @@ export const sceneryDefinitions={
  novokichev:{file:'novokichev-background-v1.png',region:'ノヴォキッチェヴ（仮構造）',zones:[],note:'地下探索路の仮画像（市街地・最深部の採用未確定）'},
  nodspecial:{file:'nodspecial-background-v1.png',region:'ナド・クライ特別地域（仮）',zones:[],note:'場所・構造未確定の独自案（月明かりの湖畔）'},
  dornman:{file:'dornman-background-v1.png',region:'ドーンマンポート',zones:[]},
+ paperValley:{file:'paper-valley-background-v1.png',zones:['story:simulanka-fold-valley','story:simulanka-lantern-perch']},
  simulanka:{file:'simulanka-background-v1.png',region:'シムランカ',zones:[]},
  mirageTrack:{file:'mirage-track-background-v1.png',zones:['story:veluriyam-trolley-out','story:veluriyam-trolley-back','story:veluriyam-petal-stop','story:veluriyam-rail-end','story:veluriyam-petal-lookout']},
  veluriyam:{file:'veluriyam-background-v1.png',region:'ヴェルーリヤ・ミラージュ',zones:[]},
@@ -173,6 +174,12 @@ export function scenery(ctx,frame){
  drawDecorations(ctx,frame,camera);
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
+  if(p.paperFold){
+   ctx.fillStyle=p.paperPreview?'#ab7f9e':'#66877e';ctx.fillRect(x,p.y,p.w,14);
+   ctx.fillStyle=p.paperPreview?'#e5c4d0':'#dce9c3';ctx.fillRect(x,p.y,p.w,4);
+   ctx.fillStyle=p.paperPreview?'#cb9bae':'#8eaea0';for(let i=11;i+12<p.w;i+=37)ctx.fillRect(x+i,p.y+6,12,4);
+   continue;
+  }
   if(p.trolleyTrack){
    ctx.fillStyle='#4a675f';ctx.fillRect(x,p.y+36,p.w,24);
    ctx.fillStyle='#9b8066';for(let i=0;i<p.w;i+=29)ctx.fillRect(x+i,p.y+39,Math.min(14,p.w-i),7);

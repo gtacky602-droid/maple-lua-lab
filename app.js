@@ -276,8 +276,9 @@ function hud(f,calls,renderMs){
  const interact=f.storyNearbyMilestone??f.storyNearbyContest??f.storyNearbyForest??f.storyNearbyLantern??f.storyNearbySight??f.storyNearbyRest??f.storyNearbyCave??f.storyNearbyRoof??construction??stone??book;
  const airflow=f.storyAirflow,cue=f.storyAirflowCue;
  const resonance=f.storyResonance,resonanceCue=f.storyResonanceCue;
+ const paper=f.storyPaper;
  const collect=interact||ingredient||cargo||clue;
- $('nearbyCargo').hidden=!(collect||airflow||cue||resonance||resonanceCue);
+ $('nearbyCargo').hidden=!(collect||airflow||cue||resonance||resonanceCue||paper);
  $('nearbyCargoGo').hidden=!collect;
  $('airflowControls').hidden=!(airflow||cue);
  $('airflowSound').hidden=!(airflow?.sound||cue||resonance||resonanceCue);
@@ -291,6 +292,11 @@ function hud(f,calls,renderMs){
   [resonance?.page>0?`第${resonance.page}頁 / ${resonance.total}　${resonance.title}`:resonance?.title,
    resonance?.pattern||resonanceCue?.pattern,resonance?.line].filter(Boolean).join('　');
  if($('resonanceStatus').textContent!==resonanceText)$('resonanceStatus').textContent=resonanceText;
+ $('paperControls').hidden=!paper;
+ if(paper){
+  $('paperConfirm').textContent=paper.confirm;
+  $('paperStatus').textContent=[paper.choice,paper.line].filter(Boolean).join(' ｜ ');
+ }
  airflowAudio.update(f);
  updateRockView(f.storyRockView);
  const reflection=f.storyReflection;

@@ -38,6 +38,14 @@ for group,hub,parent,x in [('golden','mond-town','mond-road',1380),('veluriyam',
   for _ in range(3):c.action(s,'story_collect')
   c.action(s,'story_airflow_commit')
   s.actors[s.active].x=1260;s.actors[s.active].y=480;c.action(s,'story_portal:veluriyam-hub')
+ elif group=='simulanka':
+  s.actors[s.active].x=1138
+  c.action(s,'story_portal:simulanka-book-room')
+  check('simulanka clue leads to book room',s.story.node=='simulanka-book-room')
+  c.action(s,'story_accept:simulanka-open-page')
+  s.actors[s.active].x=321;c.action(s,'story_collect')
+  s.actors[s.active].x=497;c.action(s,'story_collect');c.action(s,'story_paper_confirm')
+  s.actors[s.active].x=1350;s.actors[s.active].y=389;c.action(s,'story_portal:simulanka-hub')
  else:
   c.action(s,'story_portal:'+group+'-hub')
  check(group+' discovered portal enters',s.story.node==group+'-hub')

@@ -20,7 +20,8 @@ for n in g['nodes']:
   if edge.get('hideUntilAllowed'):
    unseen=c.frame(s,'sprite','h32c16').storyNearbyPortal
    assert unseen is None or unseen.to!=edge['to']
-   s.story.quests[rule['quest']]=lua.table_from({'status':'active','count':rule['count']})
+   s.story.quests[rule['quest']]=lua.table_from({
+       'status':'active' if 'count' in rule else 'complete','count':rule.get('count',0)})
   p=c.frame(s,'sprite','h32c16').storyNearbyPortal
   assert p is not None and p.to==edge['to'] and p.name==edge.get('rideLabel',nodes[p.to]['name']),(n['id'],edge,p)
   if edge.get('hideUntilAllowed'):

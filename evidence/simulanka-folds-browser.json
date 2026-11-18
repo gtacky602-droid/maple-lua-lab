@@ -1,0 +1,34 @@
+{
+  "bookDiscovery": true,
+  "frontBack": true,
+  "pageAfterReload": true,
+  "wrongBridgeFailed": true,
+  "safeReturn": true,
+  "lockedFoldsAfterReload": true,
+  "normalJumpAcross": true,
+  "guardsAndChest": true,
+  "souvenir": "boat",
+  "readbackAfterReload": true,
+  "twoWayShortcut": true,
+  "scene": {
+    "key": "paperValley",
+    "file": "paper-valley-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 24,
+    "standard": 4905,
+    "light": 1324
+  },
+  "firstReport": [
+    25500,
+    790,
+    2
+  ],
+  "secondReport": [
+    33400,
+    1060,
+    3
+  ],
+  "errors": []
+}

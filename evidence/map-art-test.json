@@ -1392,6 +1392,24 @@
       "count": 0,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "simulanka-book-room",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "simulanka-fold-valley",
+      "count": 2,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "simulanka-lantern-perch",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,

@@ -1,0 +1,53 @@
+{
+  "generator": "built-in imagegen",
+  "shapeReference": {
+    "path": "evidence/paper-lantern-reference.png",
+    "sha256": "a377aa7b62b891cd009778cae3b57bfde42ffdb91e2b835bcbe1406a2f0d0a6e"
+  },
+  "views": [
+    "front",
+    "oblique"
+  ],
+  "paletteReference": {
+    "path": "assets/simulanka-background-v1.png",
+    "sha256": "fcae3305f5f537e22999e7f44f6fa89aded2e83084403dbae52f0ccc0a577cd2"
+  },
+  "source": {
+    "path": "assets/paper-lantern-source-v1.png",
+    "sha256": "e1609b9c7b55524a9a63c6be4d73d4e16f0140638aac170dfc8fea59c3aee508"
+  },
+  "sourceSize": [
+    1320,
+    1192
+  ],
+  "outsideAlphaSamples": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "box": [
+    255,
+    173,
+    801,
+    785
+  ],
+  "anchorX": 0.48813982521847693,
+  "encoded": {
+    "path": "assets/paper-lantern-sprites-v1.json",
+    "sha256": "70e57b7d15915b920f7b3f9a85f5c028e0bc63e933558ec732114344a0bba600"
+  },
+  "runs": {
+    "legacy": 1449,
+    "h48c32": 1023,
+    "h32c16": 427
+  },
+  "backdrop": {
+    "path": "assets/paper-valley-background-v1.png",
+    "sha256": "ee6bb88449bbfc909517e43bc4d603d1239f716116729e853376ae3f7d4ad626"
+  },
+  "backgroundSize": [
+    1672,
+    941
+  ]
+}

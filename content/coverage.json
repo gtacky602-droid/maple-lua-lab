@@ -123,8 +123,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 12,
-      "prototype_quest_count": 10,
+      "prototype_stage_count": 13,
+      "prototype_quest_count": 11,
       "official_map2_markers": {
         "waypoints": 92,
         "statues": 8
@@ -332,8 +332,8 @@
       "map_status": "partial_authored_proxy",
       "entry_conditions": "provisional clue at parent stage; proximity inspect; saved discovery",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 2,
-      "prototype_quest_count": 1
+      "prototype_stage_count": 4,
+      "prototype_quest_count": 2
     }
   ],
   "special_content": [
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 232,
-    "provisional_quests": 150,
+    "authored_stages": 235,
+    "provisional_quests": 152,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -815,7 +815,8 @@
           "icewind-coppelia-field",
           "icewind-coppelius-field",
           "nostoi-castle-approach",
-          "legatus-field-hall"
+          "legatus-field-hall",
+          "simulanka-book-room"
         ],
         "quest_ids": [
           "emilie-join",
@@ -827,7 +828,8 @@
           "tulpa-commission",
           "icewind-coppelia-commission",
           "icewind-coppelius-commission",
-          "legatus-commission"
+          "legatus-commission",
+          "simulanka-open-page"
         ]
       },
       {
@@ -1154,10 +1156,13 @@
         "kind": "hidden_world",
         "stage_ids": [
           "simulanka-hub",
-          "simulanka-play"
+          "simulanka-play",
+          "simulanka-fold-valley",
+          "simulanka-lantern-perch"
         ],
         "quest_ids": [
-          "simulanka-explore"
+          "simulanka-explore",
+          "simulanka-folded-road"
         ]
       }
     ],
@@ -1280,8 +1285,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 55,
-    "without_explicit_mapping": 98,
+    "linked": 57,
+    "without_explicit_mapping": 96,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1314,6 +1319,8 @@
       "Q-H01-02": "golden-trace-shadows",
       "Q-H02-01": "veluriyam-bottle-ticket",
       "Q-H02-02": "veluriyam-trolley-lookout",
+      "Q-H03-01": "simulanka-open-page",
+      "Q-H03-02": "simulanka-folded-road",
       "Q-INA-M01": "inazuma-moving-lantern",
       "Q-INA-M02": "inazuma-torii-maze",
       "Q-INA-M03": "inazuma-lantern-contest",

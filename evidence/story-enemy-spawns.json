@@ -991,6 +991,18 @@
     {
       "node": "veluriyam-trolley-back",
       "enemy_count": 0
+    },
+    {
+      "node": "simulanka-book-room",
+      "enemy_count": 0
+    },
+    {
+      "node": "simulanka-fold-valley",
+      "enemy_count": 2
+    },
+    {
+      "node": "simulanka-lantern-perch",
+      "enemy_count": 0
     }
   ],
   "render_profiles": [

@@ -239,6 +239,10 @@
       {"id":"preview-golden-pocket-scavenger-1","species":"sail-shell-crawler","x":272,"y":480,"flip":false},
       {"id":"preview-golden-pocket-scavenger-2","species":"pebble-courier","x":508,"y":387,"flip":false},
       {"id":"preview-golden-pocket-scavenger-3","species":"sail-shell-crawler","x":1040,"y":391,"flip":false}
+    ],
+    "simulanka-fold-valley": [
+      {"id":"preview-simulanka-fold-guard-1","species":"pebble-courier","x":1587,"y":270,"flip":false},
+      {"id":"preview-simulanka-fold-guard-2","species":"sail-shell-crawler","x":1780,"y":270,"flip":false}
     ]
   }
 }

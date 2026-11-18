@@ -1,5 +1,5 @@
 {
-  "count": 27,
+  "count": 28,
   "checks": [
     "golden hidden nodes absent before discovery",
     "golden remote discovery rejected",
@@ -24,6 +24,7 @@
     "simulanka remote discovery rejected",
     "simulanka direct undiscovered portal rejected",
     "simulanka clue unlocks exactly this group",
+    "simulanka clue leads to book room",
     "simulanka discovered portal enters",
     "simulanka exploration progresses",
     "simulanka discovery persists and resumes safe hidden hub",

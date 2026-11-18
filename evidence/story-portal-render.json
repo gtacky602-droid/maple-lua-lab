@@ -2319,6 +2319,36 @@
       "node": "veluriyam-trolley-back",
       "mode": "rect",
       "visible_portals": 0
+    },
+    {
+      "node": "simulanka-book-room",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "simulanka-book-room",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "simulanka-fold-valley",
+      "mode": "sprite",
+      "visible_portals": 0
+    },
+    {
+      "node": "simulanka-fold-valley",
+      "mode": "rect",
+      "visible_portals": 0
+    },
+    {
+      "node": "simulanka-lantern-perch",
+      "mode": "sprite",
+      "visible_portals": 0
+    },
+    {
+      "node": "simulanka-lantern-perch",
+      "mode": "rect",
+      "visible_portals": 0
     }
   ],
   "checks": [
