@@ -2342,6 +2342,66 @@
       "transparent": 0
     },
     {
+      "key": "fireworkLookouts",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "fireworkLookouts",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "fireworkLookouts",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "fireworkLookouts",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "fireworkLookouts",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "fireworkLookouts",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "fireworkBeach",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "fireworkBeach",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "fireworkBeach",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "fireworkBeach",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "fireworkBeach",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "fireworkBeach",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "toriiforest",
       "camera": -960,
       "transparent": 0

@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -181,6 +181,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local snowMatch=snowMatchModule(C,canInspect)
  local returnBox=returnBoxModule(C,canInspect)
  local nightBanner=nightBannerModule(C,canInspect)
+ local fireworks=fireworksModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -485,6 +486,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.snowballRound=nil
   s.snowMatchVenue=n.snowMatch~=nil
   s.returnBox=nil
+  s.fireworkShow=nil
   s.storyLightMode=n.localLight and 'bright' or nil
   s.airflowTrial,s.storyCue=nil,nil
   s.resonanceOrder,s.resonancePage=nil,nil
@@ -612,6 +614,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if s.story.active and not s.paused then inspectMilestone(s,'survey_confirm') end
    return
   end
+  local fireworkField,fireworkId=key:match('^story_firework_select:([%a]+):([%w%-]+)$')
+  if fireworkField then
+   local scene=s.story.active and nodes[s.story.node].fireworkBeach
+   if scene then fireworks.select(s,quests[scene],s.story.quests[scene],fireworkField,fireworkId) end
+   return
+  end
+  if s.fireworkShow and key~='pause' and not key:match('^story_') then return end
   if key=='story_reflection_light' or key=='story_reflection_confirm' then
    if s.story.active and not s.paused then
     inspectMilestone(s,key=='story_reflection_light' and 'light' or 'confirm')
@@ -629,6 +638,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local lamp=node.localLight
    if lamp and localLight.interact(s,lamp) then return end
    if duel.ring(s,node.duel) then return end
+   if node.fireworkBeach and fireworks.start(s,quests[node.fireworkBeach],s.story.quests[node.fireworkBeach]) then return end
    if node.snowMatch and snowMatch.start(s,node.snowMatch,s.story.quests[node.snowMatch.quest]) then return end
    if flagCourse.interact(s,node.flagCourse) then return end
    local spawnState=node.spawnAt and clearState(s,node)
@@ -933,11 +943,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     companion.buffer=.1
    end
   end
-  local returns,previous=s.returns,s.t;step(s,dt,input)
+  local returns,previous=s.returns,s.t;step(s,dt,s.fireworkShow and {} or input)
   if s.story and s.story.active and s.returns==returns and not s.paused then
    local node=nodes[s.story.node]
    duel.step(s,node.duel)
    patrol.update(s,node.patrol)
+   if node.fireworkBeach and fireworks.finished(s,quests[node.fireworkBeach]) then
+    local quest=quests[node.fireworkBeach]
+    local state=s.story.quests[quest.id]
+    if state.count==quest.goal-1 then completeMilestone(s,state,quest.itinerary[quest.goal])
+    else s.storyNotice='窓辺から見た、あの日の一発。打ち上げ台からもう一度観賞できます。' end
+   end
    local boxSpec=node.returnBox
    if boxSpec then
     local q=quests[boxSpec.quest]
@@ -1129,6 +1145,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     local q=quests[n.clearedBy]
     nightBanner.observe(s,f,markers,n,q,s.story.quests[q.id],mode,profile)
    end
+   if n.fireworkLookouts then
+    local q=quests[n.fireworkLookouts]
+    fireworks.survey(s,f,markers,q,s.story.quests[q.id],mode,profile)
+   end
+   if n.fireworkBeach then
+    local q=quests[n.fireworkBeach]
+    fireworks.beach(s,f,markers,q,s.story.quests[q.id],mode,profile)
+   end
     if n.moonInlet then moonInlet.observe(s,f,markers,n.moonInlet,s.story.quests[n.moonInlet.quest]) end
     if n.shoreLights then moonInlet.lights(s,markers,n.shoreLights) end
     if n.coastDetour then coastDetour.observe(s,f,markers,n.coastDetour,quests[n.coastDetour.quest],mode,profile) end
@@ -1295,7 +1319,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      local x,y=milestone.x-s.camera,milestone.y
      if not milestone.rumorBoard and not milestone.bloomProp and not milestone.patrolLamp and not milestone.patrolTable
         and not milestone.surveySample and not milestone.surveyPad and not milestone.surveyRig and not milestone.surveySeat
-        and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup and not milestone.nightClue
+        and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup
+        and not milestone.nightClue and not milestone.fireworkSight
         and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)

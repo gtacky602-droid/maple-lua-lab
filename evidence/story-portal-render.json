@@ -363,12 +363,32 @@
     {
       "node": "inazuma-town",
       "mode": "sprite",
-      "visible_portals": 6
+      "visible_portals": 8
     },
     {
       "node": "inazuma-town",
       "mode": "rect",
-      "visible_portals": 6
+      "visible_portals": 8
+    },
+    {
+      "node": "ina-firework-lookouts",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "ina-firework-lookouts",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "ina-firework-beach",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "ina-firework-beach",
+      "mode": "rect",
+      "visible_portals": 2
     },
     {
       "node": "pyro-hypostasis-field-terrace",

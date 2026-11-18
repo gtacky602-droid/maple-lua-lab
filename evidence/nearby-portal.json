@@ -481,6 +481,30 @@
       "to": "pyro-hypostasis-field-terrace"
     },
     {
+      "node": "inazuma-town",
+      "to": "ina-firework-lookouts"
+    },
+    {
+      "node": "inazuma-town",
+      "to": "ina-firework-beach"
+    },
+    {
+      "node": "ina-firework-lookouts",
+      "to": "inazuma-town"
+    },
+    {
+      "node": "ina-firework-lookouts",
+      "to": "ina-firework-beach"
+    },
+    {
+      "node": "ina-firework-beach",
+      "to": "ina-firework-lookouts"
+    },
+    {
+      "node": "ina-firework-beach",
+      "to": "inazuma-town"
+    },
+    {
       "node": "pyro-hypostasis-field-terrace",
       "to": "inazuma-town"
     },

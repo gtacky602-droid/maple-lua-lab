@@ -1,0 +1,98 @@
+{
+  "tool": "built-in image generation and alpha cleanup edit",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/ina-fireworks-model.obj",
+    "sha256": "693f9ff7da4487cda3cac6543ebf0fad873413fd3d0854b115e596c2002eda55"
+  },
+  "materials": {
+    "path": "evidence/ina-fireworks-model.mtl",
+    "sha256": "02e6c31b3c56321ed47b265c7f44aa9fee02f5cf0d9bf2d0324eed7af4c90a74"
+  },
+  "contactSheet": {
+    "path": "evidence/ina-fireworks-views.png",
+    "sha256": "a2e484a583444ff78408b3cfbed0368d829d70519f90027c4c0d26be97975f67"
+  },
+  "propsSource": {
+    "path": "assets/ina-fireworks-props-source-v1.png",
+    "sha256": "e7db1dd6f3ad75cc9aa20afd494adc2dd5e606b1b70f586345fc09a3e0afddbb"
+  },
+  "exteriorAlphaCorners": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "backgrounds": [
+    {
+      "path": "assets/ina-fireworks-lookouts-background-v1.png",
+      "sha256": "cfac86feab350a480b87b4163c0e996312a7f1a69853dad1df91371396f3d11b"
+    },
+    {
+      "path": "assets/ina-fireworks-beach-background-v1.png",
+      "sha256": "f98ae2d5bcda2f19ca83948cb795409d3ce23ea85e8ac909d811f285c5216e0b"
+    }
+  ],
+  "backgroundReference": {
+    "path": "assets/inazuma-shiomi-cape-background-v1.png",
+    "sha256": "6486a85f1a12da295886e8c6a54a8f4f55d8d88aa608ed3b2382de19e40f8e87"
+  },
+  "status": "Original local model and painted props. Temporary Web backdrops.",
+  "profiles": {
+    "window": {
+      "encoding": {
+        "path": "assets/ina-fireworks-window-sprites-v1.json",
+        "sha256": "431e1599b1bbb26f022c1c0d0ad830b59100dd41f3ef71da021bc43d853b69f7"
+      },
+      "box": [
+        165,
+        153,
+        393,
+        430
+      ],
+      "runs": {
+        "legacy": 4096,
+        "h48c32": 2841,
+        "h32c16": 950
+      }
+    },
+    "marker": {
+      "encoding": {
+        "path": "assets/ina-fireworks-marker-sprites-v1.json",
+        "sha256": "97202d5440d4f07acd2242bd19e93df8e46848cdbe130b942c2c2cd0137dd2af"
+      },
+      "box": [
+        987,
+        112,
+        198,
+        477
+      ],
+      "runs": {
+        "legacy": 312,
+        "h48c32": 220,
+        "h32c16": 78
+      }
+    },
+    "stand": {
+      "encoding": {
+        "path": "assets/ina-fireworks-stand-sprites-v1.json",
+        "sha256": "a96264f04bb246d91b192f7ca8f35cdadf30d5c2fcd10c818086a51f7db4fecd"
+      },
+      "box": [
+        1586,
+        228,
+        422,
+        366
+      ],
+      "runs": {
+        "legacy": 1132,
+        "h48c32": 661,
+        "h32c16": 292
+      }
+    }
+  }
+}

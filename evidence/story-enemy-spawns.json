@@ -151,6 +151,14 @@
       "enemy_count": 0
     },
     {
+      "node": "ina-firework-lookouts",
+      "enemy_count": 0
+    },
+    {
+      "node": "ina-firework-beach",
+      "enemy_count": 0
+    },
+    {
       "node": "pyro-hypostasis-field-terrace",
       "enemy_count": 0,
       "field_boss_count": 1

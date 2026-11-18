@@ -1,0 +1,31 @@
+{
+  "lookoutScene": {
+    "key": "fireworkLookouts",
+    "file": "ina-fireworks-lookouts-background-v1.png",
+    "state": "ready"
+  },
+  "beachScene": {
+    "key": "fireworkBeach",
+    "file": "ina-fireworks-beach-background-v1.png",
+    "state": "ready"
+  },
+  "readings": [
+    "松の高台 ｜ 枝に一部がかかる",
+    "崖の高台 ｜ 崖で窓から隠れる",
+    "海岸の高台 ｜ 窓から全体が見える"
+  ],
+  "realJumps": true,
+  "independentColorAndShape": true,
+  "windowRiseBurst": true,
+  "replayAfterReload": true,
+  "commands": {
+    "png": 21,
+    "standard": 8680,
+    "light": 2135
+  },
+  "reward": [
+    57595,
+    850
+  ],
+  "errors": []
+}

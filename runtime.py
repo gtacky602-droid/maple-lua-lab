@@ -146,7 +146,10 @@ def runtime():
     night_banner=lua.execute((ROOT/'story-night-banner.lua').read_text(encoding='utf8'))
     core.nightBannerArt=field_art(lua,'mond-night-banner',(),variants={
         kind:f'mond-night-banner-{kind}-sprites-v1.json' for kind in ('torn','repaired','shadow')})
-    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms,duel,moon_inlet,coast_detour,appraisal,rumor,bloom,patrol,survey_rig,snow_match,return_box,night_banner)
+    fireworks=lua.execute((ROOT/'story-fireworks.lua').read_text(encoding='utf8'))
+    core.fireworkArt=field_art(lua,'ina-fireworks',(),variants={
+        kind:f'ina-fireworks-{kind}-sprites-v1.json' for kind in ('window','marker','stand')})
+    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms,duel,moon_inlet,coast_detour,appraisal,rumor,bloom,patrol,survey_rig,snow_match,return_box,night_banner,fireworks)
     lua.execute((ROOT / 'barrier.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'farka.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'regisvine.lua').read_text(encoding='utf-8'))(core)

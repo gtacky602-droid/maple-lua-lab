@@ -1,0 +1,19 @@
+{
+  "prerequisite": true,
+  "surveyStatuses": [
+    "partial",
+    "blocked",
+    "clear"
+  ],
+  "peacefulMaps": true,
+  "allNinePreviews": true,
+  "windowRiseBurst": true,
+  "pauseAndDraftResume": true,
+  "invalidSelectionRejected": true,
+  "onceOnlyReward": true,
+  "savedDesignReplay": true,
+  "reward": [
+    57595,
+    850
+  ]
+}

@@ -1443,9 +1443,23 @@
           "to": "sumeru-entry",
           "x": 1380
         },
-        {"to":"pyro-hypostasis-field-terrace","x":1230}
+        {"to":"pyro-hypostasis-field-terrace","x":1230},
+        {"to":"ina-firework-lookouts","x":755,"arrivalX":120,"requires":{"quest":"ina-window-fireworks","count":1}},
+        {"to":"ina-firework-beach","x":266,"arrivalX":702,"requires":{"quest":"ina-window-fireworks","count":5}}
       ],
       "checkpoint": "inazuma-town"
+    },
+    {
+      "id":"ina-firework-lookouts","name":"稲妻・潮の見晴らし道","region":"稲妻","level":40,"hub":false,"peaceful":true,
+      "width":2130,"checkpoint":"inazuma-town","fireworkLookouts":"ina-window-fireworks",
+      "platforms":[{"x":0,"y":480,"w":2130},{"x":422,"y":395,"w":453},{"x":752,"y":307,"w":521},{"x":1360,"y":414,"w":510}],
+      "exits":[{"to":"inazuma-town","x":63,"arrivalX":700},{"to":"ina-firework-beach","x":2064,"arrivalX":126,"requires":{"quest":"ina-window-fireworks","count":4}}]
+    },
+    {
+      "id":"ina-firework-beach","name":"稲妻・窓灯りの花火浜","region":"稲妻","level":40,"hub":false,"peaceful":true,
+      "width":960,"checkpoint":"inazuma-town","fireworkBeach":"ina-window-fireworks",
+      "platforms":[{"x":0,"y":480,"w":960}],
+      "exits":[{"to":"ina-firework-lookouts","x":66,"arrivalX":1995},{"to":"inazuma-town","x":896,"arrivalX":320,"requires":{"quest":"ina-window-fireworks","count":5}}]
     },
     {"id":"pyro-hypostasis-field-terrace","name":"稲妻・燎火の石浜","region":"稲妻","level":50,"hub":false,"peaceful":true,"width":1590,"platforms":[{"x":0,"y":480,"w":1590}],"exits":[{"to":"inazuma-town","x":65}],"checkpoint":"inazuma-town"},
     {
@@ -5425,6 +5439,39 @@
       "xp": 6500,
       "mora": 350,
       "repeatable": true
+    },
+    {
+      "id":"ina-window-fireworks",
+      "designId":"Q-INA-S02",
+      "name":"遠くの人にも、届く一発",
+      "giver":"宵宮",
+      "hub":"inazuma-town",
+      "target":"ina-firework-beach",
+      "requires":"inazuma-moving-lantern",
+      "level":40,
+      "kind":"itinerary",
+      "goal":5,
+      "xp":57595,
+      "mora":850,
+      "briefing":"宵宮「家の手伝いで祭りに出られへん子がおるんよ。その子の窓から見える花火を、一緒に考えてくれへん？」",
+      "closing":"宵宮「窓辺で、ふたりが空を見上げてたな。今日の色と形、忘れんように浜の台に書いとこか。」",
+      "completedObjective":"窓灯りの花火浜で、記録した色と形の花火を何度でも観賞できる",
+      "fireworks":{
+        "windowSeconds":1.55,"riseSeconds":0.85,"burstSeconds":2.6,
+        "colors":[
+          {"id":"sea","label":"海の青","bright":"#d0faff","glow":"#56bfeb"},
+          {"id":"sunset","label":"夕焼けの橙","bright":"#fff1b0","glow":"#ff875b"},
+          {"id":"wisteria","label":"藤の紫","bright":"#f5d6ff","glow":"#c786f6"}
+        ],
+        "shapes":[{"id":"ring","label":"輪"},{"id":"chrysanthemum","label":"菊"},{"id":"fan","label":"扇"}]
+      },
+      "itinerary":[
+        {"kind":"inspect","node":"inazuma-town","x":372,"y":480,"name":"宵宮の花火帳","action":"宵宮から窓辺の家族の話を聞く","objective":"城下の広場で宵宮に話を聞く","notice":"宵宮「見晴らし道に候補を三つ付けといたよ。窓から空を見上げるつもりで、手前の高台から順に確かめよ。」"},
+        {"kind":"inspect","node":"ina-firework-lookouts","x":616,"y":395,"name":"松の高台","action":"松の高台の見通しを調べる","objective":"最初の足場に上がり、松の高台を調べる","notice":"窓と花火が開く位置を結ぶと、松の枝が少しかかります。次は一段上の崖の高台へ。","fireworkSight":{"window":{"x":42,"y":96},"burst":{"x":366,"y":39},"obstacle":{"x":154,"y":64,"w":53,"h":59,"label":"松の枝","partial":true}}},
+        {"kind":"inspect","node":"ina-firework-lookouts","x":1040,"y":307,"name":"崖の高台","action":"一番高い場所の見通しを調べる","objective":"松の高台からもう一段上がり、崖の高台を調べる","notice":"一番高い場所ですが、家の窓からは手前の崖が空を遮ります。右下の海岸の高台も確かめましょう。","fireworkSight":{"window":{"x":42,"y":96},"burst":{"x":366,"y":29},"obstacle":{"x":174,"y":45,"w":68,"h":79,"label":"崖"}}},
+        {"kind":"inspect","node":"ina-firework-lookouts","x":1608,"y":414,"name":"海岸の高台","action":"海岸側から窓の見通しを確かめる","objective":"奥の低い石段に上がり、海岸の高台を調べる","notice":"この場所なら、低くても崖が視線より下にあります。花火は窓から全体が見えます。右の門から打ち上げ場所へ。","fireworkSight":{"window":{"x":42,"y":96},"burst":{"x":366,"y":56},"obstacle":{"x":198,"y":98,"w":84,"h":26,"label":"低い岩場"}}},
+        {"kind":"firework","node":"ina-firework-beach","x":475,"y":480,"name":"海辺の打ち上げ台","objective":"打ち上げ台で好きな色と形を選び、窓から見える花火を打ち上げる","notice":"宵宮「窓のところ、よう見えたみたいやな。」城下の広場へ戻って報告できます。"}
+      ]
     },
     {
       "id": "inazuma-moving-lantern",

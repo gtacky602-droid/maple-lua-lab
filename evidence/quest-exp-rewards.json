@@ -1,7 +1,7 @@
 {
   "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
   "version": "monster-quest-v02",
-  "quests_tested": 45,
+  "quests_tested": 46,
   "old_completed_not_reissued": true,
   "old_unreported_uses_current_preview": true,
   "unlinked_trial_fallback": true,
@@ -17,9 +17,9 @@
       "report_xp": 186864
     },
     "INA": {
-      "linked": 4,
-      "legacy_xp": 13200,
-      "report_xp": 733522
+      "linked": 5,
+      "legacy_xp": 70795,
+      "report_xp": 791117
     },
     "SNE": {
       "linked": 8,
@@ -143,6 +143,12 @@
       "quest_id": "beidou-join",
       "legacy_xp": 1500,
       "report_xp": 3825
+    },
+    {
+      "design_id": "Q-INA-S02",
+      "quest_id": "ina-window-fireworks",
+      "legacy_xp": 57595,
+      "report_xp": 57595
     },
     {
       "design_id": "Q-INA-M01",

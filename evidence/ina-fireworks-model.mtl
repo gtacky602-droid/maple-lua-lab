@@ -1,0 +1,35 @@
+newmtl frame
+Kd 0.33725 0.26667 0.35686
+illum 1
+
+newmtl slat
+Kd 0.63529 0.43137 0.31765
+illum 1
+
+newmtl paper
+Kd 0.96471 0.69020 0.35686
+illum 1
+
+newmtl light
+Kd 1.00000 0.87843 0.55686
+illum 1
+
+newmtl purple
+Kd 0.42353 0.30196 0.52549
+illum 1
+
+newmtl child
+Kd 0.44314 0.24706 0.27451
+illum 1
+
+newmtl adult
+Kd 0.27843 0.21176 0.31373
+illum 1
+
+newmtl stone
+Kd 0.33725 0.42745 0.52157
+illum 1
+
+newmtl bronze
+Kd 0.78431 0.56078 0.34510
+illum 1

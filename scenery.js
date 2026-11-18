@@ -78,6 +78,8 @@ export const sceneryDefinitions={
  inazumatown:{file:'inazuma-castle-town-background-v1.png',zones:['story:inazuma-town'],note:'桜並木と港の夕方を描いた城下の仮背景'},
  seacave:{file:'inazuma-sea-cave-background-v1.png',zones:['story:inazuma-sea-cave'],note:'洞穴から夕暮れの海が見えるラボ仮背景'},
  shiomicape:{file:'inazuma-shiomi-cape-background-v1.png',zones:['story:inazuma-shiomi-cape'],note:'潮見の岬の夕景を描いたラボ仮背景'},
+ fireworkLookouts:{file:'ina-fireworks-lookouts-background-v1.png',zones:['story:ina-firework-lookouts'],note:'三つの見晴らしの仮背景'},
+ fireworkBeach:{file:'ina-fireworks-beach-background-v1.png',zones:['story:ina-firework-beach'],note:'家の窓から見える花火浜の仮背景'},
  toriiforest:{file:'inazuma-torii-forest-background-v1.png',zones:['story:inazuma-torii-footprints','story:inazuma-torii-statues','story:inazuma-torii-reflections','story:inazuma-torii-thicket'],note:'鎮守の森の色と鳥居を参照した共通の仮背景'},
  liyuequarry:{file:'liyue-quarry-background-v1.png',zones:['story:liyue-river-trail','story:liyue-cliff-planks','story:liyue-quarry-post','story:liyue-quarry-storage','story:liyue-book-camp'],note:'川沿い・桟道・石切り場・宝盗団の拠点で共用する仮背景'},
  mondrestored:{file:'mond-restored-road-background-v1.png',zones:['story:mond-restored-road'],clearedZones:['story:mond-watchtower'],note:'見張り討伐後の街道の仮画像'},
@@ -214,7 +216,7 @@ export function scenery(ctx,frame){
     ctx.fillStyle='#916a59';for(let i=10;i+14<p.w;i+=41)ctx.fillRect(x+i,p.y+7,15,3);
     continue;
    }
-   if(key==='nodPatrolCoast'||key==='mondNightHill'){
+   if(key==='nodPatrolCoast'||key==='mondNightHill'||key==='fireworkLookouts'||key==='fireworkBeach'){
     ctx.fillStyle='#252e48';ctx.fillRect(x,p.y,p.w,p.y===480?61:19);
     ctx.fillStyle='#798597';ctx.fillRect(x,p.y,p.w,3);
     ctx.fillStyle='#445671';

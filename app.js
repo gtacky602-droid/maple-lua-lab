@@ -19,6 +19,21 @@ const inventoryUI=initInventoryUI(a=>actions.push(a));
 const airflowAudio=initAirflowAudio();
 const updateRockView=initRockView();
 const updateSurveyMap=initSurveyMap();
+const fireworkControls={
+ color:{input:$('fireworkColor'),choices:'colors'},
+ shape:{input:$('fireworkShape'),choices:'shapes'},
+};
+for(const [field,{input}] of Object.entries(fireworkControls)){
+ input.addEventListener('change',()=>actions.push(`story_firework_select:${field}:${input.value}`));
+}
+function updateFireworkDesign(design){
+ $('fireworkDesign').hidden=!design;
+ if(!design)return;
+ for(const [field,{input,choices}] of Object.entries(fireworkControls)){
+  if(!input.options.length)input.replaceChildren(...design[choices].map(option=>new Option(option.label,option.id)));
+  if(document.activeElement!==input)input.value=design[field];
+ }
+}
 const SAVE_KEY='maple-lua-lab.checkpoint.v1';
 $('saveProgress').onclick=()=>{checkpointRequested=true;$('saveStatus').textContent='保存中…'};
 $('loadProgress').onclick=()=>{try{const raw=localStorage.getItem(SAVE_KEY);if(!raw)throw Error('保存データがありません');restoreRequested=JSON.parse(raw);if(!restoreRequested||typeof restoreRequested!=='object')throw Error('保存データを読み取れません');$('saveStatus').textContent='読み込み中…'}catch(e){restoreRequested=null;$('saveStatus').textContent=e.message}};
@@ -238,7 +253,7 @@ function hud(f,calls,renderMs){
  updateLanternNote(f.storyLanternNote,f.storySightNote);
  const forest=$('storyForest');
  const observation=f.storyContest??f.storyForest??f.storyRest??f.storyCave??f.storyRoof;
- const fieldNote=observation?.message??f.storyAppraisal?.message??f.storyRumor?.message??f.storyBloom?.message??f.storyPatrol?.message??f.storySurvey?.message??f.storySnowball?.message??f.storyReturnBox?.message??f.storyDuel?.label??f.storyPathStatus??f.storyFlagStatus;
+ const fieldNote=observation?.message??f.storyAppraisal?.message??f.storyRumor?.message??f.storyBloom?.message??f.storyPatrol?.message??f.storySurvey?.message??f.storySnowball?.message??f.storyReturnBox?.message??f.storyFireworkStatus?.message??f.storyDuel?.label??f.storyPathStatus??f.storyFlagStatus;
  forest.hidden=!fieldNote;
  if(fieldNote&&forest.textContent!==fieldNote)forest.textContent=fieldNote;
  const trolley=f.voyage?.kind==='trolley'?f.voyage:null;
@@ -310,6 +325,7 @@ function hud(f,calls,renderMs){
  airflowAudio.update(f);
  updateRockView(f.storyRockView);
  updateSurveyMap(f.storySurveyMap);
+ updateFireworkDesign(f.storyFireworkDesign);
  const reflection=f.storyReflection;
  $('reflectionControls').hidden=!reflection?.record;
  if(reflection?.record)$('reflectionLight').textContent=reflection.lit?'消灯する':'点灯する';

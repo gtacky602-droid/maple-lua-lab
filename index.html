@@ -22,6 +22,10 @@
  <table aria-label="旅人と同行者の10部位"><thead><tr><th scope="col">部位</th><th scope="col">旅人</th><th id="expeditionCompanion" scope="col">同行者</th></tr></thead><tbody id="expeditionGear"></tbody></table>
  <button data-action="story_expedition_trial">障壁を試打する</button> <span id="expeditionTrial" role="status"></span>
 </section>
+<section id="fireworkDesign" hidden aria-label="花火の色と形" style="padding:10px 18px;background:#173a3b">
+ <label>色 <select id="fireworkColor"></select></label>
+ <label>形 <select id="fireworkShape"></select></label>
+</section>
 <div id="nearbyCargo" hidden style="padding:10px 18px;background:#173a3b"><button id="nearbyCargoGo" data-action="story_collect">G：荷物を回収</button><span id="reflectionControls" hidden> <button id="reflectionLight" data-action="story_reflection_light">消灯する</button> <button data-action="story_reflection_confirm">照合する</button></span> <span id="reflectionImage"></span> <button id="airflowSound" hidden aria-pressed="false">装置音を聞く</button><span id="airflowControls" hidden> <button id="airflowCommit" data-action="story_airflow_commit">この位置で固定する</button> <span id="airflowStatus"></span></span> <span id="resonanceStatus" aria-live="polite"></span> <span id="paperControls" hidden><button id="paperConfirm" data-action="story_paper_confirm">確定する</button> <span id="paperStatus"></span></span><span id="surveyRigControls" hidden> <button data-action="story_survey_confirm">この設置で確定する</button> <span id="surveyRigReading" role="status"></span></span></div>
 <div id="rockView" hidden style="padding:10px 18px;background:#173a3b"><p id="rockViewCaption" style="margin:0 0 8px"></p><canvas id="rockViewCanvas" width="340" height="108" aria-hidden="true" style="width:min(100%,340px);aspect-ratio:340/108"></canvas></div>
 <div id="surveyMap" hidden style="padding:10px 18px;background:#173a3b"><p id="surveyMapCaption" style="margin:0 0 8px"></p><canvas id="surveyMapCanvas" width="420" height="132" aria-hidden="true" style="width:min(100%,420px);aspect-ratio:420/132"></canvas></div>

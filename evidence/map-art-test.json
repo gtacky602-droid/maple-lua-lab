@@ -224,6 +224,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "ina-firework-lookouts",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "ina-firework-beach",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "pyro-hypostasis-field-terrace",
       "count": 0,
       "fallback": false,
