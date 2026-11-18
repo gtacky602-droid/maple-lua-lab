@@ -128,13 +128,15 @@ try{
  await page.waitForFunction(()=>window.lab.frame.boss?.element==='electro');
  await panel.getByLabel('ボス名で検索').fill('');await panel.getByLabel('ボスの分類').selectOption('stygian');if(await panel.locator('[data-encounter]').count()!==7)throw Error('stygian missing');
  if(await panel.locator('[data-encounter="stygian-wanderer"]').getByRole('button',{name:'制作中'}).isEnabled())throw Error('unimplemented fight enabled');
- await panel.getByLabel('挑戦可能のみ').check();if(await panel.locator('[data-encounter]').count()!==4)throw Error('playable filter');
+ await panel.getByLabel('挑戦可能のみ').check();if(await panel.locator('[data-encounter]').count()!==5)throw Error('playable filter');
  const beidou=panel.locator('[data-encounter="stygian-beidou"]').getByRole('link',{name:/南十字の試合甲板/});
  if(await beidou.getAttribute('href')!=='map-art.html?node=liyue-stygian-deck')throw Error('Beidou arena route missing');
  const captain=panel.locator('[data-encounter="stygian-capitano"]').getByRole('link',{name:/凍天の演武場/});
  if(await captain.getAttribute('href')!=='map-art.html?node=sne-stygian-frost-court')throw Error('Capitano arena route missing');
  const sun=panel.locator('[data-encounter="stygian-xbalanque"]').getByRole('link',{name:/烈日の手合わせ場/});
  if(await sun.getAttribute('href')!=='map-art.html?node=natlan-solar-court')throw Error('Xbalanque arena route missing');
+ const hunt=panel.locator('[data-encounter="stygian-rerir"]').getByRole('link',{name:/霧と月の狩場/});
+ if(await hunt.getAttribute('href')!=='map-art.html?node=nod-stygian-hunt')throw Error('Rerir arena route missing');
  await panel.getByRole('button',{name:'試作に挑戦'}).click();await page.waitForFunction(()=>window.lab.frame.boss?.name==='ファルカ模擬戦');
  await panel.screenshot({path:'evidence/encounters-browser.png'});if(errors.length)throw Error(errors.join('/'));
  await fs.writeFile('evidence/encounters-browser.json',JSON.stringify({errors,allCandidates:87,bellgateRoute:true,windRingFieldRoute:true,plateTailFieldRoute:true,teaBoulderFieldRoute:true,rimeHareFieldRoute:true,iceCrawlerFieldRoute:true,prismWalkerFieldRoute:true,rubbleSifterFieldRoute:true,originalFieldRoute:true,originalWeeklyRoute:true,fieldBossFamilies:48,weeklyChallenges:14,dottoreAliasMatches:2,suiteVariants:2,configDeviceFieldRoute:true,papillaFieldRoute:true,lavaDragonFieldRoute:true,overseerFieldRoute:true,knuckleDuckleFieldRoute:true,battleshipFieldRoute:true,frostnightHerraFieldRoute:true,whispererNightmaresFieldRoute:true,moonflyFieldRoute:true,moongeckoFieldRoute:true,spiritspeakerFieldRoute:true,fallenVigilFieldRoute:true,flugelFieldRoute:true,driftingSnowFieldRoute:true,immortalConstructFieldRoute:true,wavebinderFieldRoute:true,canopyFungusFieldRoute:true,grandFinaleFieldRoute:true,riverRacerFieldRoute:true,moonCrabFieldRoute:true,stygianCandidates:7,beidouStygianRoute:true,capitanoStygianRoute:true,xbalanqueStygianRoute:true,disabledUnimplemented:true,launchesVerified:['boss_array_3','boss_primo_electro','boss_farka']},null,2));console.log('Encounter roster, alias search, variants and launch verified');

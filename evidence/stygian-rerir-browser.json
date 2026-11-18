@@ -1,0 +1,56 @@
+{
+  "background": {
+    "key": "mistHunt",
+    "file": "false-moon-rift-background-v1.png",
+    "state": "ready"
+  },
+  "normalClear": true,
+  "trail": {
+    "stages": [
+      1,
+      2
+    ],
+    "lamps": [
+      1,
+      0
+    ],
+    "air": [
+      1,
+      2
+    ],
+    "pickups": {
+      "1": {
+        "count": 3,
+        "high": true,
+        "jumps": 1
+      },
+      "2": {
+        "count": 3,
+        "high": true,
+        "jumps": 1
+      }
+    },
+    "bursts": {
+      "1": true,
+      "2": true
+    },
+    "endGauges": {
+      "1": 2180,
+      "2": 2470
+    },
+    "firstMiss": true,
+    "arts": [
+      "rerir-idle-left-source-v1.png",
+      "rerir-idle-right-source-v1.png"
+    ],
+    "interlude": true
+  },
+  "questReportSaveRestore": true,
+  "viewport390": true,
+  "commands": {
+    "png": 143,
+    "standard": 8500,
+    "light": 2248
+  },
+  "errors": []
+}

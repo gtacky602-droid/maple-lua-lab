@@ -171,8 +171,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 38,
-      "prototype_quest_count": 19,
+      "prototype_stage_count": 39,
+      "prototype_quest_count": 20,
       "official_map2_markers": {
         "waypoints": 83,
         "statues": 7
@@ -588,8 +588,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 355,
-    "provisional_quests": 223,
+    "authored_stages": 356,
+    "provisional_quests": 224,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -607,11 +607,11 @@
       "farka",
       "beidou",
       "capitano",
-      "xbalanque"
+      "xbalanque",
+      "rerir"
     ],
     "not_implemented": [
       "wanderer",
-      "rerir",
       "ronova"
     ],
     "legacy_candidates": [
@@ -625,7 +625,7 @@
     "catalog": "content/encounters.json",
     "source_entities": 63,
     "candidates": 87,
-    "partial": 84,
+    "partial": 85,
     "complete": 0,
     "complete_roster_verified": false
   },
@@ -1063,10 +1063,12 @@
           "nod-patrol-shore",
           "nod-patrol-bend",
           "nod-patrol-post",
+          "nod-stygian-hunt",
           "nod-false-moon-court",
           "nod-false-moon-rift"
         ],
         "quest_ids": [
+          "stygian-rerir-commission",
           "false-moon-weekly-commission",
           "growth-lunar-practice",
           "columbina-join",

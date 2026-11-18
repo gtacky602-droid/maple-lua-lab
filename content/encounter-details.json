@@ -875,13 +875,9 @@
         "audit": "evidence/rerir-idle-reference-audit.json",
         "status": "directional first-act claw idle candidate"
       },
-      "remaining": [
-        "爪の動作・第二幕の槍と姿勢、台詞",
-        "霧と灯・回収試練・専用戦闘行動",
-        "4難度・報酬",
-        "マルチ・記録"
-      ],
-      "review_note": "第一幕の爪を下げた待機を144pxの比較サイズで左右別に試作。"
+      "extra_evidence": ["docs/stygian-motion-v1/RERIR_WEB.md","evidence/stygian-rerir-lua.json","evidence/stygian-rerir-browser.json"],
+      "remaining": ["爪と槍の連続作画・専用効果音","上位難度の通しプレイと難度調整","実マルチ、本番3D配置と幻境実機"],
+      "review_note": "二幕二ゲージ。霧に灯を二度使い、第二幕では上空からの落下を避けて光を集める。"
     },
     "stygian-ronova": {
       "art_candidate": {

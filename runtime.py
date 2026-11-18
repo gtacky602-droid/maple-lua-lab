@@ -102,6 +102,11 @@ def runtime():
         target:spec['node'] for spec in field_specs+weekly_specs
         for target in (spec['id'],spec.get('storyChallenge')) if target}
     stygian=json.loads((ROOT/'content/stygian-matches.json').read_text(encoding='utf8'))['matches']
+    stygian_timing=json.loads((ROOT/'docs/stygian-motion-v1/MANIFEST.json').read_text(encoding='utf8'))
+    stygian['rerir']['cards']={
+        card['id']: card | {'variants':{variant['name']:variant for variant in card.get('variants',[])}}
+        for card in stygian_timing['entries'] if card['boss']=='rerir'
+    }
     story_data['bossNodes'].update({spec['challenge']:spec['node'] for spec in stygian.values()})
     graph = lua.table_from(resolve_story_exp(story_data),recursive=True)
     cave=lua.execute((ROOT/'story-cave.lua').read_text(encoding='utf8'))(core)
@@ -551,9 +556,17 @@ def runtime():
               for side in ('left','right')}
         for kind in ('idle','guard','punch')
     } | {'hands':xbalanque_audit['hand_sockets']},recursive=True)
+    rerir_moves=lua.execute((ROOT/'stygian-rerir-moves.lua').read_text(encoding='utf8'))(core,stygian_geometry)
+    rerir_view=lua.execute((ROOT/'stygian-rerir-view.lua').read_text(encoding='utf8'))(core,stygian_geometry,rerir_moves)
+    rerir=lua.execute((ROOT/'stygian-rerir.lua').read_text(encoding='utf8'))(core,stygian_geometry,rerir_moves,rerir_view)
+    core.stygianRerirArt=lua.table_from({
+        side:json.loads((ROOT/'assets'/f'rerir-idle-{side}-sprites-v1.json').read_text(encoding='utf8'))
+        for side in ('left','right')
+    },recursive=True)
     lua.execute((ROOT/'endgame.lua').read_text(encoding='utf8'))(
         core,lua.table_from(abyss,recursive=True),lua.table_from(weekly_specs,recursive=True),
-        lua.table_from(stygian,recursive=True),lua.table_from({'beidou':stygian_beidou,'capitano':capitano,'xbalanque':xbalanque}))
+        lua.table_from(stygian,recursive=True),
+        lua.table_from({'beidou':stygian_beidou,'capitano':capitano,'xbalanque':xbalanque,'rerir':rerir}))
     lua.execute((ROOT/'growth-trials.lua').read_text(encoding='utf8'))(core)
     return lua, core
 

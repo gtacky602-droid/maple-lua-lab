@@ -123,6 +123,9 @@ return function(C,abyss,weekly,matches,controllers)
   local run=s.endgameRun
   if run then
    if key=='endgame_exit' and not s.paused then leave(s)
+   elseif key=='encounter_interact' and not s.paused and run.match and run.status=='fighting' then
+    local controller=controllers[run.match]
+    if controller.interact then controller.interact(s,run) end
    elseif (key=='endgame_next' or key=='story_nearby_portal') and not s.paused and run.kind=='abyss' and run.status=='between' then
     run.room=run.room+1;openRoom(s,run)
    elseif key=='pause' or ((run.status=='fighting' or run.status=='between')
@@ -186,14 +189,17 @@ return function(C,abyss,weekly,matches,controllers)
   step(s,dt,input)
   if run.match then
    local spec=matches[run.match]
+   local controller=controllers[run.match]
    local limit=run.rules.limit
    if s.returns~=returns then
+    if controller.abort then controller.abort(s,run) end
     run.status='failed';s.campaign.message='挑戦終了。入口から再挑戦できます。'
-   elseif run.boss.hp<=0 and (not limit or s.t-run.start<=limit+1e-8) then
+   elseif run.boss.hp<=0 and not run.preparingNextAct and (not limit or s.t-run.start<=limit+1e-8) then
     stygianClear(s,run,spec)
    elseif limit and s.t-run.start>=limit then
+    if controller.abort then controller.abort(s,run) end
     run.status='failed';s.campaign.message='時間切れ。入口から再挑戦できます。'
-   else controllers[run.match].finish(s,run,spec,dt) end
+   else controller.finish(s,run,spec,dt) end
    return
   end
   if run.kind=='stygian' and boss then

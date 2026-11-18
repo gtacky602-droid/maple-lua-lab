@@ -5,6 +5,7 @@ export function initEndgameUI(action){
  const goals=get('endgameGoals'),goalHelp=get('endgameGoalHelp');
  const duelDesk=get('stygianDesk'),duelMode=get('stygianMode'),duelStart=get('stygianStart');
  const duelBattle=get('stygianBattle'),duelHp=get('stygianHp');
+ const mechanic=get('stygianMechanic'),lamp=get('stygianLamp');
  let duel,previousDuel='';
  const companion={amber:'アンバー',columbina:'コロンビーナ',wanderer:'放浪者',beidou:'北斗',
   ayaka:'綾華',emilie:'エミリエ',kachina:'カチーナ',mitya:'ミティヤ'};
@@ -60,6 +61,14 @@ export function initEndgameUI(action){
    get('stygianClock').textContent=fight.status==='fighting'
     ? (fight.remaining!==undefined?`残り ${Math.ceil(fight.remaining)}秒`:'') : fight.elapsed?`${fight.elapsed.toFixed(1)}秒`:'';
    get('stygianDialogue').textContent=fight.dialogue||fight.chain?.join(' → ')||'';
+   const active=fight.status==='fighting';
+   mechanic.hidden=!active||(fight.ward===undefined&&fight.trial===undefined);
+   if(!mechanic.hidden){
+    mechanic.textContent=fight.trial ? `第${fight.trial}局面 ｜ 光 ${fight.collected} / 3` : `結界 ${fight.ward} / 2`;
+   }
+   lamp.hidden=!active||!fight.lampVisible;
+   lamp.disabled=frame.paused;
+   lamp.classList.toggle('accent',!!fight.lampReady);
   }
   if(fight){
    next.hidden=fight.kind!=='abyss'||fight.status!=='between';

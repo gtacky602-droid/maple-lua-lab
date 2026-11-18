@@ -1151,6 +1151,170 @@
           ]
         }
       ]
+    },
+    "rerir": {
+      "entity": 990005,
+      "node": "nod-stygian-hunt",
+      "hub": "nod-town",
+      "challenge": "stygian-rerir",
+      "name": "レリル・霧と月の狩場",
+      "arena": {
+        "left": 40,
+        "right": 920,
+        "floor": 480,
+        "unit": 88,
+        "bossX": 668,
+        "playerX": 270
+      },
+      "timing": {
+        "enter": 60,
+        "fogEnter": 72,
+        "interlude": 90
+      },
+      "firstOrder": [
+        "RR01",
+        "RR02",
+        "RR03",
+        "RR04",
+        "RR10",
+        "RR11"
+      ],
+      "secondOrder": [
+        "RR06",
+        "RR07",
+        "RR08:A",
+        "RR08:B",
+        "RR10",
+        "RR11"
+      ],
+      "damage": {
+        "RR01": 13,
+        "RR02": 21,
+        "RR03": 15,
+        "RR04": 18,
+        "RR05": 23,
+        "RR06": 22,
+        "RR07": 24,
+        "RR08": 20,
+        "RR09": 26,
+        "RR10": 21,
+        "RR11": 20,
+        "RR13": 28,
+        "collapse": 56
+      },
+      "fog": {
+        "threshold": 0.65,
+        "anchors": [
+          242,
+          718
+        ],
+        "ward": 2
+      },
+      "trials": {
+        "thresholds": [
+          0.7,
+          0.25
+        ],
+        "normalBetween": 2,
+        "paths": [
+          {
+            "pickups": [
+              [
+                216,
+                480
+              ],
+              [
+                480,
+                372
+              ],
+              [
+                744,
+                480
+              ]
+            ],
+            "columns": [
+              327,
+              610,
+              370
+            ]
+          },
+          {
+            "pickups": [
+              [
+                744,
+                480
+              ],
+              [
+                480,
+                372
+              ],
+              [
+                216,
+                480
+              ]
+            ],
+            "columns": [
+              633,
+              350,
+              590
+            ]
+          }
+        ]
+      },
+      "modes": [
+        {
+          "id": "normal",
+          "name": "通常",
+          "level": 124,
+          "hp": 2180,
+          "secondHp": 2470,
+          "damageScale": 1.0,
+          "rest": 33,
+          "mora": 12500,
+          "firstMora": 9800,
+          "itemLevel": 142,
+          "rarity": 4
+        },
+        {
+          "id": "hard",
+          "name": "ハード",
+          "level": 150,
+          "hp": 3050,
+          "secondHp": 3540,
+          "damageScale": 1.15,
+          "rest": 30,
+          "mora": 17300,
+          "firstMora": 13400,
+          "itemLevel": 168,
+          "rarity": 4
+        },
+        {
+          "id": "master",
+          "name": "マスター",
+          "level": 175,
+          "hp": 4240,
+          "secondHp": 4960,
+          "damageScale": 1.3,
+          "rest": 27,
+          "mora": 25700,
+          "firstMora": 19700,
+          "itemLevel": 195,
+          "rarity": 5
+        },
+        {
+          "id": "extreme",
+          "name": "極限",
+          "level": 193,
+          "hp": 5500,
+          "secondHp": 6480,
+          "damageScale": 1.46,
+          "rest": 24,
+          "mora": 34800,
+          "firstMora": 26900,
+          "itemLevel": 200,
+          "rarity": 5
+        }
+      ]
     }
   }
 }

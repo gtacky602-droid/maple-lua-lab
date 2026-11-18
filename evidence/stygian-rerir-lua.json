@@ -1,0 +1,46 @@
+{
+  "cards": [
+    "RR01",
+    "RR02",
+    "RR03",
+    "RR04",
+    "RR05",
+    "RR06",
+    "RR07",
+    "RR08",
+    "RR09",
+    "RR10",
+    "RR11",
+    "RR12",
+    "RR13"
+  ],
+  "rounds": [
+    2180,
+    2470
+  ],
+  "missed_and_early_lamp_retry": true,
+  "ward_recovery": [
+    90,
+    180
+  ],
+  "first_slam_bolts": [
+    240,
+    246,
+    252,
+    258
+  ],
+  "between_trials": [
+    "RR06",
+    "RR07"
+  ],
+  "trial_bursts_at": 1008,
+  "last_trial_recovery": {
+    "protected": 240,
+    "missed": 96
+  },
+  "pickup_progress_after_swap": true,
+  "finite_damage_on_failure": true,
+  "second_act_kill_precedes_queued_trials": true,
+  "first_act_has_no_clear_or_reward": true,
+  "quest_rewards_and_save": true
+}

@@ -1,5 +1,6 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ mistHunt:{file:'false-moon-rift-background-v1.png',zones:['story:nod-stygian-hunt'],note:'霧と月の狩場の仮背景（異界の画像を流用）'},
  solarSparringCourt:{file:'xbalanque-court-background-v1.png',zones:['story:natlan-solar-court'],note:'烈日の手合わせ場の仮背景'},
  frostDrillCourt:{file:'capitano-court-background-v1.png',zones:['story:sne-stygian-frost-court'],note:'凍天の演武場の仮背景'},
  cruxDuelDeck:{file:'beidou-stygian-deck-background-v1.png',zones:['story:liyue-stygian-deck'],note:'南十字の試合甲板の仮背景'},
@@ -279,6 +280,14 @@ export function scenery(ctx,frame){
   if(key==='hereticLattice'){
    ctx.fillStyle='#15383d';ctx.fillRect(x,p.y,p.w,p.y===480?60:16);
    ctx.fillStyle='#628c85';ctx.fillRect(x,p.y,p.w,3);
+   continue;
+  }
+  if(key==='mistHunt'){
+   ctx.fillStyle='#342737';ctx.fillRect(x,p.y,p.w,p.y===480?60:14);
+   ctx.fillStyle='#ad87a6';ctx.fillRect(x,p.y,p.w,3);
+   for(let stone=0;stone<p.w;stone+=64){
+    ctx.fillStyle='#513a50';ctx.fillRect(x+stone,p.y+5,2,p.y===480?34:7);
+   }
    continue;
   }
   if(key==='falseMoonCourt'||key==='falseMoonRift'){
