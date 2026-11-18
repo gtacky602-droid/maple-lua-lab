@@ -1101,6 +1101,10 @@
       "enemy_count": 0
     },
     {
+      "node": "sum-nahida-dew-glade",
+      "enemy_count": 0
+    },
+    {
       "node": "sumeru-observatory-approach",
       "enemy_count": 3
     },

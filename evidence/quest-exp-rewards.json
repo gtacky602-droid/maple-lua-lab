@@ -1,7 +1,7 @@
 {
   "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
   "version": "monster-quest-v02",
-  "quests_tested": 53,
+  "quests_tested": 54,
   "old_completed_not_reissued": true,
   "old_unreported_uses_current_preview": true,
   "unlinked_trial_fallback": true,
@@ -22,9 +22,9 @@
       "report_xp": 1121099
     },
     "SUM": {
-      "linked": 7,
-      "legacy_xp": 1153399,
-      "report_xp": 2829070
+      "linked": 8,
+      "legacy_xp": 1540319,
+      "report_xp": 3215990
     },
     "SNE": {
       "linked": 8,
@@ -215,6 +215,12 @@
       "quest_id": "sum-kaveh-model",
       "legacy_xp": 293808,
       "report_xp": 293808
+    },
+    {
+      "design_id": "Q-SUM-S05",
+      "quest_id": "sum-nahida-map",
+      "legacy_xp": 386920,
+      "report_xp": 386920
     },
     {
       "design_id": "Q-SNE-M01",

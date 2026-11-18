@@ -1,0 +1,22 @@
+{
+  "quest": "sum-nahida-map",
+  "prerequisite": "sumeru-forest-levels",
+  "reused": [
+    "leaf",
+    "roots",
+    "branches"
+  ],
+  "originalThreeRequiredNoRevisit": true,
+  "optionalSite": "sum-nahida-dew-glade",
+  "dewElevation": 394,
+  "alternativePostedMap": {
+    "leaf": "panel",
+    "sky": "canopy",
+    "dew": "gleam"
+  },
+  "equalChoiceRewards": [
+    386920,
+    2600
+  ],
+  "rejectedDrafts": 6
+}

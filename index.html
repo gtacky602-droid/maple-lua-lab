@@ -13,6 +13,18 @@
 #readingModelSummary{margin-top:0;line-height:1.6}#readingModel button:disabled{opacity:.48;cursor:default}
 #readingModel button[aria-current="step"]{opacity:1;color:#ffe4a8;border-color:#dfbc76}
 @media(max-width:850px){#readingModel .model-layout{grid-template-columns:minmax(0,1fr);gap:12px}}
+#discoveryMap{padding:16px 18px;background:#193b39}
+.discovery-layout{display:grid;grid-template-columns:minmax(0,580px) minmax(0,1fr);gap:18px;align-items:start}
+#discoveryMapCanvas{width:100%;aspect-ratio:580/266}
+#discoveryMapTitle{font-size:18px;margin:0;color:#ffe6ad}
+#discoveryMapSummary{margin:5px 0 10px}
+#discoveryMapCards{list-style:none;padding:0;margin:0 0 12px}
+#discoveryMapCards li{padding:6px 0;border-top:1px solid #47665c}
+#discoveryMapCards p{margin:4px 0;color:#c5d5b9}
+#discoveryMapCards select{display:block;width:100%;margin:4px 0}
+#discoveryMapCards button[aria-pressed="true"]{border-color:#e4bc74;background:#51573e;color:#ffedbd}
+#discoveryMap button:disabled{opacity:.56;cursor:default}
+@media(max-width:850px){.discovery-layout{grid-template-columns:minmax(0,1fr);gap:12px}}
 </style>
 <main><header><div><div class="eyebrow">TEYVAT · 2D ADVENTURE LAB</div><h1>風の狩場</h1><p>3D背景を想定した画像と、Luaで動く2Dの旅人・アンバー。</p></div><span class="badge">Lua 5.3 / ローカル試作 A</span></header>
 <div class="game"><canvas id="game" width="960" height="540" aria-label="横スクロールのLua試作狩場"></canvas><div class="topline"><div class="card" id="a1"></div><div class="card" id="a2"></div></div><div class="location">モンド風・試験用狩場　/　3画面・2段足場</div>
@@ -43,6 +55,18 @@
    <label id="readingModelPartRow" hidden><span id="readingModelPartLabel"></span> <select id="readingModelPart" style="max-width:100%"></select></label>
    <p id="readingModelHint"></p>
    <button type="button" id="readingModelConfirm">この配置を記録する</button> <button type="button" id="readingModelClose">模型を閉じる</button>
+  </div>
+ </div>
+</section>
+<section id="discoveryMap" hidden aria-labelledby="discoveryMapTitle">
+ <div class="discovery-layout">
+  <canvas id="discoveryMapCanvas" width="580" height="266" aria-hidden="true"></canvas>
+  <div>
+   <h2 id="discoveryMapTitle"></h2>
+   <p id="discoveryMapSummary" role="status"></p>
+   <ul id="discoveryMapCards"></ul>
+   <button type="button" id="discoveryMapConfirm">三つの発見を記録する</button>
+   <button type="button" id="discoveryMapClose">絵地図を閉じる</button>
   </div>
  </div>
 </section>

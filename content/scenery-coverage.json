@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 316 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 308,
+  "scope": "Authored 317 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 309,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1144,6 +1144,7 @@
     {"id":"sumeru-root-slope","name":"伸びた根の階段","region":"スメール","status":"regional_temporary_image"},
     {"id":"sumeru-branch-run","name":"幹の上の枝間水路","region":"スメール","status":"regional_temporary_image"},
     {"id":"sumeru-observation-stop","name":"幹の中継所","region":"スメール","status":"regional_temporary_image"},
+    {"id":"sum-nahida-dew-glade","name":"スメール・朝露のくぼみ","region":"スメール","status":"regional_temporary_image"},
     {"id":"sumeru-observatory-approach","name":"観測所へ続く大枝","region":"スメール","status":"regional_temporary_image"},
     {"id":"sumeru-observatory-terrace","name":"枝傘の止まり台","region":"スメール","status":"regional_temporary_image"},
     {"id":"sumeru-sky-observatory","name":"空の観測所","region":"スメール","status":"regional_temporary_image"},

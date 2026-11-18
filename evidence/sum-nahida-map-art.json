@@ -1,0 +1,147 @@
+{
+  "tool": "built-in image generation and reference-guided proportion edits",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/sum-nahida-map-model.obj",
+    "sha256": "990039b168c1dbdd5df149abbe0ffbf8a19d1813815b0b78c14a94bf6a243224"
+  },
+  "materials": {
+    "path": "evidence/sum-nahida-map-model.mtl",
+    "sha256": "b233ba8c639f999a1d6f00abfb28e12c950e8a416fbcdc2b4d27a4847d7cca19"
+  },
+  "contactSheet": {
+    "path": "evidence/sum-nahida-map-views.png",
+    "sha256": "0080997d7390617d4bf66fd33cbaf9f7bbcdd92e14a8a652375f899d47356a90"
+  },
+  "propsSource": {
+    "path": "assets/sum-nahida-map-props-source-v1.png",
+    "sha256": "1dcf389f37d4452d618087ad71ac4d55ee45e7eed88f3900ad5e0c0a53b4cf8f"
+  },
+  "alphaCorners": [
+    0,
+    0,
+    0,
+    1
+  ],
+  "backgrounds": [
+    {
+      "path": "assets/sum-nahida-map-glade-background-v1.png",
+      "sha256": "f78262a09305bcd191c2b639ddbe79fc47054212ea31fb43c94c7b332c0a0202"
+    }
+  ],
+  "backgroundReferences": [
+    {
+      "path": "assets/sum-fungus-visitors-terrace-background-v1.png",
+      "sha256": "ceaca6967d6ee801f5c9204c171d6453a69a861707e748ec6c3346c6e93bcd5d"
+    }
+  ],
+  "status": "Six original ornaments derived from 3D blockouts. The glade image is a Web placeholder.",
+  "profiles": {
+    "leaf": {
+      "encoding": {
+        "path": "assets/sum-nahida-map-leaf-sprites-v1.json",
+        "sha256": "61f0ae4c4dc7ef04a42bc32905b3fde45a56fd2e3446ae3ec1642b7b65163347"
+      },
+      "box": [
+        54,
+        175,
+        416,
+        222
+      ],
+      "runs": {
+        "legacy": 2053,
+        "h48c32": 1237,
+        "h32c16": 561
+      }
+    },
+    "roots": {
+      "encoding": {
+        "path": "assets/sum-nahida-map-roots-sprites-v1.json",
+        "sha256": "0b89ffe65230e67ddd08d9342843bc67dcd60170175564cd3cb603a830985cbf"
+      },
+      "box": [
+        571,
+        139,
+        382,
+        258
+      ],
+      "runs": {
+        "legacy": 2532,
+        "h48c32": 1466,
+        "h32c16": 652
+      }
+    },
+    "branches": {
+      "encoding": {
+        "path": "assets/sum-nahida-map-branches-sprites-v1.json",
+        "sha256": "4b693f1f63f62a160b3769d6aeb6fd601eced11be35637bef7db428cbc786006"
+      },
+      "box": [
+        1062,
+        148,
+        419,
+        264
+      ],
+      "runs": {
+        "legacy": 1408,
+        "h48c32": 824,
+        "h32c16": 379
+      }
+    },
+    "sky": {
+      "encoding": {
+        "path": "assets/sum-nahida-map-sky-sprites-v1.json",
+        "sha256": "a1f5454d3b554f28bf61b375cb84c37029884fa37276968621fd7f00f58b12bd"
+      },
+      "box": [
+        84,
+        583,
+        365,
+        383
+      ],
+      "runs": {
+        "legacy": 1512,
+        "h48c32": 877,
+        "h32c16": 382
+      }
+    },
+    "dew": {
+      "encoding": {
+        "path": "assets/sum-nahida-map-dew-sprites-v1.json",
+        "sha256": "e5d98178cefecf93f7e7509b8d46644a45c50649c121cc51bbc54f65be578395"
+      },
+      "box": [
+        554,
+        634,
+        429,
+        283
+      ],
+      "runs": {
+        "legacy": 2156,
+        "h48c32": 1317,
+        "h32c16": 539
+      }
+    },
+    "board": {
+      "encoding": {
+        "path": "assets/sum-nahida-map-board-sprites-v1.json",
+        "sha256": "3d438ea3ba0431bdc001358e8321d751ef3ab1eb13c3dcd0bc3a965ce5a57948"
+      },
+      "box": [
+        1121,
+        592,
+        305,
+        364
+      ],
+      "runs": {
+        "legacy": 3742,
+        "h48c32": 2222,
+        "h32c16": 948
+      }
+    }
+  }
+}

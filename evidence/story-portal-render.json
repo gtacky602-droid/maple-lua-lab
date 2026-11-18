@@ -2583,12 +2583,22 @@
     {
       "node": "sumeru-observation-stop",
       "mode": "sprite",
-      "visible_portals": 5
+      "visible_portals": 6
     },
     {
       "node": "sumeru-observation-stop",
       "mode": "rect",
-      "visible_portals": 5
+      "visible_portals": 6
+    },
+    {
+      "node": "sum-nahida-dew-glade",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "sum-nahida-dew-glade",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "sumeru-observatory-approach",

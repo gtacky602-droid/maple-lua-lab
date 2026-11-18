@@ -1694,6 +1694,7 @@
       "hub": true,
       "wandererSurveyQuest":"sum-wanderer-observation",
       "colleiLetterQuest":"sum-collei-guide",
+      "nahidaMapQuest":"sum-nahida-map",
       "width": 1440,
       "platforms": [
         {
@@ -4944,7 +4945,8 @@
     {"id":"sumeru-canopy-junction","name":"葉と種羽根の分岐","width":1640,"level":60,"region":"スメール","platforms":[{"x":0,"y":480,"w":1640},{"x":441,"y":388,"w":493,"rootShelf":true}],"exits":[{"to":"sumeru-hub","x":56},{"to":"sumeru-observation-stop","x":1007,"liftSeconds":1.55,"arrivalX":239,"arrivalY":480,"rideLabel":"中継所までの昇降台","requires":{"quest":"sumeru-forest-levels","count":5}},{"to":"sumeru-branch-run","x":1422,"y":388,"requires":{"quest":"sumeru-forest-levels","count":2},"rideLabel":"樹上の枝道"},{"to":"sumeru-root-slope","x":1550,"requires":{"quest":"sumeru-forest-levels","count":2},"rideLabel":"地上の根道"}],"hub":false,"peaceful":true,"checkpoint":"sumeru-hub"},
     {"id":"sumeru-root-slope","name":"伸びた根の階段","width":1510,"level":60,"region":"スメール","platforms":[{"x":0,"y":480,"w":1130},{"x":550,"y":390,"w":467,"rootShelf":true},{"x":949,"y":390,"w":561,"rootShelf":true}],"exits":[{"to":"sumeru-canopy-junction","x":56},{"to":"sumeru-observation-stop","x":1450,"y":390,"requires":{"quest":"sumeru-forest-levels","count":3}}],"hub":false,"peaceful":true,"checkpoint":"sumeru-hub","fallReturn":{"x":1020,"y":480,"notice":"根の下から手前に戻りました。上段が中継所へ続きます。"}},
     {"id":"sumeru-branch-run","name":"幹の上の枝間水路","width":1500,"level":60,"region":"スメール","platforms":[{"x":0,"y":480,"w":1500},{"x":259,"y":391,"w":1241,"rootShelf":true},{"x":482,"y":302,"w":355,"rootShelf":true}],"exits":[{"to":"sumeru-canopy-junction","x":55,"arrivalX":1370,"arrivalY":388},{"to":"sumeru-observation-stop","x":1434,"y":391,"requires":{"quest":"sumeru-forest-levels","count":2}}],"hub":false,"peaceful":true,"checkpoint":"sumeru-hub"},
-    {"id":"sumeru-observation-stop","name":"幹の中継所","width":1440,"level":60,"region":"スメール","platforms":[{"x":0,"y":480,"w":1440},{"x":657,"y":390,"w":391,"rootShelf":true}],"exits":[{"to":"sumeru-hub","x":55,"returnOnly":true,"requires":{"quest":"sumeru-forest-levels","count":5}},{"to":"sumeru-canopy-junction","x":239,"liftSeconds":1.55,"arrivalX":1007,"arrivalY":480,"rideLabel":"地上へ戻る昇降台","requires":{"quest":"sumeru-forest-levels","count":5}},{"to":"sumeru-branch-run","x":369,"arrivalX":1320,"arrivalY":391,"rideLabel":"上から続く枝道"},{"to":"sumeru-root-slope","x":524,"arrivalX":1400,"arrivalY":390,"rideLabel":"下から続く根階段"},{"to":"sumeru-observatory-approach","x":1339,"requires":{"quest":"sumeru-observatory-map","count":0}}],"hub":true,"peaceful":true,"checkpoint":"sumeru-observation-stop"},
+    {"id":"sumeru-observation-stop","name":"幹の中継所","width":1440,"level":60,"region":"スメール","platforms":[{"x":0,"y":480,"w":1440},{"x":657,"y":390,"w":391,"rootShelf":true}],"exits":[{"to":"sumeru-hub","x":55,"returnOnly":true,"requires":{"quest":"sumeru-forest-levels","count":5}},{"to":"sumeru-canopy-junction","x":239,"liftSeconds":1.55,"arrivalX":1007,"arrivalY":480,"rideLabel":"地上へ戻る昇降台","requires":{"quest":"sumeru-forest-levels","count":5}},{"to":"sumeru-branch-run","x":369,"arrivalX":1320,"arrivalY":391,"rideLabel":"上から続く枝道"},{"to":"sumeru-root-slope","x":524,"arrivalX":1400,"arrivalY":390,"rideLabel":"下から続く根階段"},{"to":"sumeru-observatory-approach","x":1339,"requires":{"quest":"sumeru-observatory-map","count":0}},{"to":"sum-nahida-dew-glade","x":983,"arrivalX":130,"rideLabel":"朝露のくぼみへ","requires":{"quest":"sum-nahida-map","count":1}}],"hub":true,"peaceful":true,"checkpoint":"sumeru-observation-stop"},
+    {"id":"sum-nahida-dew-glade","name":"スメール・朝露のくぼみ","region":"スメール","level":60,"width":1120,"hub":false,"peaceful":true,"checkpoint":"sumeru-hub","nahidaMapQuest":"sum-nahida-map","platforms":[{"x":0,"y":480,"w":1120},{"x":442,"y":394,"w":364,"rootShelf":true}],"exits":[{"to":"sumeru-observation-stop","x":57,"arrivalX":931,"rideLabel":"幹の中継所へ戻る"}]},
     {"id":"sumeru-observatory-approach","name":"観測所へ続く大枝","width":1910,"level":60,"region":"スメール","platforms":[{"x":0,"y":480,"w":1910},{"x":584,"y":390,"w":445,"rootShelf":true},{"x":1142,"y":391,"w":639,"rootShelf":true}],"exits":[{"to":"sumeru-observation-stop","x":55},{"to":"sumeru-observatory-terrace","x":1720,"y":391,"requires":{"quest":"sumeru-observatory-map","count":1}}],"hub":false,"peaceful":false,"checkpoint":"sumeru-observation-stop","clearedBy":"sumeru-observatory-map","clearCount":1},
     {"id":"sumeru-observatory-terrace","name":"枝傘の止まり台","width":1850,"level":60,"region":"スメール","platforms":[{"x":0,"y":480,"w":1850},{"x":1280,"y":390,"w":570,"rootShelf":true}],"exits":[{"to":"sumeru-observatory-approach","x":56},{"to":"sumeru-sky-observatory","x":1744,"y":390,"requires":{"quest":"sumeru-observatory-map","count":3}}],"hub":false,"peaceful":true,"checkpoint":"sumeru-observation-stop"},
     {"id":"sumeru-sky-observatory","name":"空の観測所","width":1390,"level":60,"region":"スメール","platforms":[{"x":0,"y":480,"w":1390},{"x":648,"y":391,"w":386,"rootShelf":true}],"exits":[{"to":"sumeru-hub","x":55,"returnOnly":true,"requires":{"quest":"sumeru-observatory-map","count":4}},{"to":"sumeru-observatory-terrace","x":228,"arrivalX":1674,"arrivalY":390},{"to":"sum-kaveh-reading-room","x":1237,"arrivalX":149,"requires":{"quest":"sumeru-observatory-map"}}],"hub":true,"peaceful":true,"checkpoint":"sumeru-sky-observatory"},
@@ -5910,6 +5912,28 @@
       "itinerary":[
         {"kind":"inspect","node":"sum-kaveh-workshop","x":450,"y":480,"name":"カーヴェの模型台","action":"閲覧室の模型を見せてもらう","objective":"広場の門から模型工房へ行き、カーヴェに試したいことを聞く","notice":"カーヴェ「この駒が初めて来る読者だ。入口から棚と席を通って、窓で外が見えるか試してみてくれ。」","kavehProp":true},
         {"kind":"inspect","node":"sum-kaveh-workshop","x":450,"y":480,"name":"閲覧室の模型","action":"模型を拡大して駒を動かす","objective":"模型で入口・棚・席・窓を巡り、収納と眺めと通路が両立する配置を確定する","notice":"カーヴェ「外が見えて、しっかり本もしまえる。席から窓を開ける余裕もあるな。この配置を控えておくよ。」広場で報告できます。","modelBoard":true,"kavehProp":true}
+      ]
+    },
+    {
+      "id":"sum-nahida-map","designId":"Q-SUM-S05","name":"教科書にない、大発見","giver":"ナヒーダ",
+      "hub":"sumeru-hub","target":"sumeru-hub","requires":"sumeru-forest-levels","level":60,
+      "kind":"itinerary","goal":2,"xp":386920,"mora":2600,
+      "briefing":"ナヒーダ「この森で、いちばん驚いたことは何かしら。あなたの発見を三つ、聞かせてくれる？」",
+      "closing":"ナヒーダ「あなたが見つけたときのことも、絵に残しましょう。」広場で絵地図を見た子が「今度は自分で見に行きたい！」と言いました。",
+      "completedObjective":"樹陰の広場の掲示板で、自分が選んだ三つの発見を読み返せる",
+      "discoveryMap":{
+        "site":{"node":"sum-nahida-dew-glade","x":620,"y":394},
+        "cards":[
+          {"id":"leaf","label":"葉の橋","where":"川辺の根元","x":105,"y":205,"evidence":{"quest":"sumeru-leaf-crossing","count":3},"hint":"第1話で樹液の操作盤を調べる。","methods":[{"id":"below","label":"川の手前で幹を見上げ、渡れそうな葉の並びを見つけた。"},{"id":"panel","label":"樹液の操作盤を調べ、葉が連なって橋になるのを見た。"}]},
+          {"id":"roots","label":"根の階段","where":"伸びた根の階段","x":206,"y":150,"evidence":{"quest":"sumeru-forest-levels","count":3},"hint":"第2話で地上の根道を調べる。","methods":[{"id":"steps","label":"足元の根を一段ずつ登ると、途中から階段のように見えた。"},{"id":"slope","label":"地上の坂道から、根が上の中継所まで続いていると気づいた。"}]},
+          {"id":"branches","label":"枝間水路","where":"幹の上の枝間水路","x":335,"y":113,"evidence":{"quest":"sumeru-forest-levels","count":4},"hint":"第2話で上の枝道を調べる。","methods":[{"id":"sound","label":"枝の上で水音がしたので、立ち止まって流れを見つけた。"},{"id":"follow","label":"幹の横から水のきらめきを追い、頭上にも流れがあると分かった。"}]},
+          {"id":"sky","label":"樹上の見晴らし","where":"枝傘の止まり台","x":493,"y":91,"evidence":{"quest":"sumeru-observatory-map","count":3},"hint":"第3話「空の観測所へ！」で大枝の見晴らしを調べる。","methods":[{"id":"canopy","label":"大枝の先で振り返り、木々のてっぺんが同じ高さに並んで見えた。"},{"id":"clouds","label":"枝傘を抜けたとき、遠い森との間に白い雲が流れているのが見えた。"}]},
+          {"id":"dew","label":"大きな朝露","where":"朝露のくぼみ","x":452,"y":219,"hint":"広場から幹の中継所へ。くぼみの段に跳び上がって葉を調べる。","methods":[{"id":"gleam","label":"根の段に跳び上がったとき、葉の上で光る朝露が見えた。"},{"id":"leaf","label":"下から葉を見上げると、小さな水玉に森の色が映っていた。"}]}
+        ]
+      },
+      "itinerary":[
+        {"kind":"inspect","node":"sumeru-hub","x":950,"y":480,"name":"広場の絵地図台","action":"ナヒーダに発見の話を聞く","objective":"樹陰の広場で絵地図台に近づき、ナヒーダと話す","notice":"ナヒーダ「葉が橋になることは教科書にも載っているわ。でも、そこであなたが驚いたことは、あなたにしか書けないの。どこで、どう見つけたのかも教えてね。」","discoveryProp":true},
+        {"kind":"inspect","node":"sumeru-hub","x":950,"y":480,"name":"広場の絵地図台","action":"絵地図を開く","objective":"三つの発見を選び、それぞれの見つけ方を記録する","notice":"ナヒーダ「同じ森でも、足元を見たときと顔を上げたときで違うものが見えるのね。この絵地図を広場に飾りましょう。」依頼手帳から報告できます。","discoveryBoard":true,"discoveryProp":true}
       ]
     },
     {

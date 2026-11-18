@@ -99,8 +99,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 30,
-      "prototype_quest_count": 17,
+      "prototype_stage_count": 31,
+      "prototype_quest_count": 18,
       "official_map2_markers": {
         "waypoints": 112,
         "statues": 13
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 316,
-    "provisional_quests": 181,
+    "authored_stages": 317,
+    "provisional_quests": 182,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -815,6 +815,7 @@
           "sumeru-root-slope",
           "sumeru-branch-run",
           "sumeru-observation-stop",
+          "sum-nahida-dew-glade",
           "sumeru-observatory-approach",
           "sumeru-observatory-terrace",
           "sumeru-sky-observatory"
@@ -825,6 +826,7 @@
           "sum-fungus-visitors",
           "sum-collei-guide",
           "sum-kaveh-model",
+          "sum-nahida-map",
           "sumeru-entry-check",
           "sumeru-contract",
           "electro-regisvine-commission",
@@ -1395,8 +1397,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 86,
-    "without_explicit_mapping": 67,
+    "linked": 87,
+    "without_explicit_mapping": 66,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1483,7 +1485,8 @@
       "Q-SUM-S01": "sum-wanderer-observation",
       "Q-SUM-S02": "sum-fungus-visitors",
       "Q-SUM-S03": "sum-collei-guide",
-      "Q-SUM-S04": "sum-kaveh-model"
+      "Q-SUM-S04": "sum-kaveh-model",
+      "Q-SUM-S05": "sum-nahida-map"
     },
     "scope": "Explicit links to runtime quests only; no claim of completed or tested content."
   },

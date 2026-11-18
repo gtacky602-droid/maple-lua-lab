@@ -2461,6 +2461,14 @@
       "to": "sumeru-observatory-approach"
     },
     {
+      "node": "sumeru-observation-stop",
+      "to": "sum-nahida-dew-glade"
+    },
+    {
+      "node": "sum-nahida-dew-glade",
+      "to": "sumeru-observation-stop"
+    },
+    {
       "node": "sumeru-observatory-approach",
       "to": "sumeru-observation-stop"
     },

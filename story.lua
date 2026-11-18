@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -190,6 +190,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local visitors=visitorsModule(C,canInspect)
  local colleiGuide=colleiGuideModule(C,canInspect)
  local kavehModel=kavehModelModule(C,canInspect)
+ local nahidaMap=nahidaMapModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -370,6 +371,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif milestone.assistLever then
      if command=='rotate' then wandererSurvey.start(s) end
      return true
+    elseif milestone.discoveryBoard then
+     if command=='rotate' then nahidaMap.open(s) end
+     return true
     elseif milestone.modelBoard then
      if command=='rotate' then kavehModel.open(s,q,state) end
      return true
@@ -532,6 +536,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.visitorDeparture=nil
   s.colleiWelcomeAt,s.colleiLetterNotice=nil,nil
   s.kavehModelOpen=nil
+  s.nahidaMapOpen=nil
   s.storyLightMode=n.localLight and 'bright' or nil
   s.airflowTrial,s.storyCue=nil,nil
   s.resonanceOrder,s.resonancePage=nil,nil
@@ -645,6 +650,19 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   if s.voyage and s.voyage.kind=='trolley' and key~='pause' and key~='story_nearby_portal'
       and not key:match('^story_portal:') and not key:match('^story_fast:') then return end
+  if key:match('^story_discovery_') then
+   local id=s.story.active and nodes[s.story.node].nahidaMapQuest
+   if id then
+    local state=s.story.quests[id]
+    local milestone=nahidaMap.action(s,quests[id],state,key)
+    if milestone then completeMilestone(s,state,milestone) end
+   end
+   return
+  end
+  if s.nahidaMapOpen and key~='pause' then
+   if key=='story_collect' then s.nahidaMapOpen=nil end
+   return
+  end
   if key=='story_nearby_portal' then local p=nearbyPortal(s);if p then C.action(s,'story_portal:'..p.to) end;return end
   if key:match('^story_model_') then
    local id=s.story.active and nodes[s.story.node].kavehQuest
@@ -733,6 +751,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if node.visitorSite and visitors.reread(s,quests[node.clearedBy],s.story.quests[node.clearedBy],emitCue) then return end
    if node.colleiGuideQuest and colleiGuide.revisit(s,quests[node.colleiGuideQuest],s.story.quests[node.colleiGuideQuest]) then return end
    if node.colleiLetterQuest and colleiGuide.letter(s,quests[node.colleiLetterQuest],s.story.quests[node.colleiLetterQuest]) then return end
+   if node.nahidaMapQuest and nahidaMap.collect(s,quests[node.nahidaMapQuest],s.story.quests[node.nahidaMapQuest]) then return end
    if node.readingRoom and kavehModel.read(s,quests[node.kavehQuest],s.story.quests[node.kavehQuest]) then return end
    local archive=node.returnBoxArchive
    if archive and returnBox.read(s,archive,s.story.quests[archive.quest]) then return end
@@ -1042,7 +1061,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     companion.buffer=.1
    end
   end
-  local returns,previous=s.returns,s.t;step(s,dt,(s.fireworkShow or s.sayuHatch or s.kavehModelOpen) and {} or input)
+  local returns,previous=s.returns,s.t;step(s,dt,(s.fireworkShow or s.sayuHatch or s.kavehModelOpen or s.nahidaMapOpen) and {} or input)
   if s.story and s.story.active and s.returns==returns and not s.paused then
    local node=nodes[s.story.node]
    duel.step(s,node.duel)
@@ -1313,6 +1332,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     local q=quests[n.kavehQuest]
     kavehModel.observe(f,s,n,q,s.story.quests[q.id],mode,profile)
    end
+   if n.nahidaMapQuest then
+    local q=quests[n.nahidaMapQuest]
+    nahidaMap.observe(f,s,q,s.story.quests[q.id],mode,profile)
+   end
     if n.moonInlet then moonInlet.observe(s,f,markers,n.moonInlet,s.story.quests[n.moonInlet.quest]) end
     if n.shoreLights then moonInlet.lights(s,markers,n.shoreLights) end
     if n.coastDetour then coastDetour.observe(s,f,markers,n.coastDetour,quests[n.coastDetour.quest],mode,profile) end
@@ -1486,7 +1509,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup
         and not milestone.nightClue and not milestone.fireworkSight and not milestone.stealthNap
         and not milestone.teaClue and not milestone.teaCup and not milestone.surveyProp and not milestone.visitorProp
-        and not milestone.kavehProp
+        and not milestone.kavehProp and not milestone.discoveryProp
         and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
@@ -1508,6 +1531,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
          and (not milestone.compareAfterStorage or visitors.quiet(s,q))
          and canInspect(s.actors[s.active],milestone) then
       f.storyNearbyMilestone={label=milestone.performance and theater.performanceLabel(s,milestone.performance)
+         or milestone.discoveryBoard and s.nahidaMapOpen and '絵地図を閉じる'
          or milestone.modelBoard and s.kavehModelOpen and '模型を閉じる' or milestone.action}
       if milestone.paperSouvenir then paper.observeGift(s,f,milestone) end
       if milestone.surveyMap then f.storySurveyMap=milestone.surveyMap end

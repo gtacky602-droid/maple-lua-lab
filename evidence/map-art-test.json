@@ -1556,6 +1556,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "sum-nahida-dew-glade",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "sumeru-observatory-approach",
       "count": 3,
       "fallback": false,
