@@ -1,0 +1,1895 @@
+{
+  "schema_version": "field-boss-snezhnaya-v1",
+  "date": "2026-11-18",
+  "status": "design_only_runtime_not_connected",
+  "source_commit": "b3aef8a77151e7caf10a9732a4908aed14e30632",
+  "source_of_truth": "SNEZHNAYA_QUARTET_MOVESETS.md",
+  "tick_rate_hz": 60,
+  "unit_U_pixels": 88,
+  "interval_semantics": "half_open",
+  "counts": {
+    "encounters": 4,
+    "attack_cards": 12,
+    "direct_windows": 27,
+    "damaging_projectiles": 0,
+    "air_routes": 1,
+    "hidden_routes": 0,
+    "optional_interrupt_rules": 4,
+    "contact_devices": 1,
+    "hp_triggered_once_signatures": 1,
+    "signature_variants": 0,
+    "cumulative_encounters": 49,
+    "cumulative_attack_cards": 147,
+    "catalog_reference_rows": 49,
+    "remaining_reference_rows": 0,
+    "reference_design_index_complete": true,
+    "current_runtime_catalog_complete": false,
+    "all_game_bosses_complete": false
+  },
+  "shared": {
+    "max_attack_patterns": 3,
+    "max_concurrent_casts": 1,
+    "boss_hp_bars": 1,
+    "multiplayer_hp_scaling": false,
+    "required_special_element": false,
+    "forced_revive_phase": false,
+    "hp_zero_priority": true,
+    "normal_damage_pipeline": true,
+    "runtime_or_visual_tested": false,
+    "passive_contact_damage": 0,
+    "signature_recovery_ticks": 144,
+    "interrupt_recovery_ticks": 144,
+    "max_air_ticks": 36,
+    "full_hidden_ticks": 0,
+    "hp_lock_to_force_signature": false,
+    "all_arena_attack": false,
+    "body_blocking_crossing_required": false,
+    "unreachable_cast_policy": "cancel_before_lock_reposition_then_new_tell",
+    "retreat_margin_u": 0.1,
+    "lock_freezes_facing_and_targets": true,
+    "geometry_origin": "boss_lock_origin_even_for_child_owners",
+    "hit_history": "allocate_by_event_group",
+    "attack_identity_key": [
+      "encounter_id",
+      "attack_id"
+    ],
+    "minimum_lock_to_first_hit_ticks": 30,
+    "same_tick_order": [
+      "terminal_state_guard",
+      "prepare_scheduled_windows_and_devices",
+      "apply_player_damage",
+      "boss_hp_zero",
+      "eligible_counter_contacts",
+      "optional_interrupt",
+      "coffin_threshold_transition_if_no_parent_recovery",
+      "deadline_cleanup",
+      "scheduled_enemy_hits"
+    ],
+    "cleanup": [
+      "pending_hits",
+      "devices",
+      "counter_progress",
+      "form",
+      "old_epoch_events"
+    ],
+    "preserve_durable_flags": [
+      "coffinUsed"
+    ],
+    "pending_state_saved": false,
+    "normal_base_resistances_preserved": true,
+    "target_time_seconds": [
+      45,
+      90
+    ],
+    "target_time_measured": false
+  },
+  "identity_contract": {
+    "same_actor": true,
+    "same_receiver": true,
+    "same_hp": true,
+    "preserve_aura": true,
+    "preserve_dot": true,
+    "preserve_target": true,
+    "air_hurtbox_follows_visible_body": true,
+    "invisible_ground_receiver": false,
+    "transformation_invulnerable_ticks": 0,
+    "reward_count": 1
+  },
+  "bosses": [
+    {
+      "id": "boss-26310501",
+      "name": "合成獣・フリューゲルレーヴェ",
+      "attacks": [
+        "FL01",
+        "FL02",
+        "FL03"
+      ],
+      "signature": "FL03",
+      "existing_runtime": "field-flugel.lua",
+      "preserve_source_fields": {
+        "controller": "flugel",
+        "entity": 26310501,
+        "name": "合成獣・フリューゲルレーヴェ",
+        "node": "flugel-tundra-basin",
+        "storyChallenge": "flugel",
+        "level": 144,
+        "hp": 1180,
+        "mora": 540,
+        "floorY": 480,
+        "home": 940,
+        "arenaMin": 325,
+        "arenaMax": 1580,
+        "respawnTicks": 3600,
+        "contactDamage": 0,
+        "keepHpOnExit": true,
+        "resist": {
+          "electro": 0.4,
+          "anemo": 0.4
+        }
+      },
+      "signature_boss_damage_factor": 1,
+      "signature_boss_hp_shield": 0,
+      "recovery_damage_factor": 1,
+      "ground_hurtbox_bottom_u": 0,
+      "selector": "two_normals_then_signature"
+    },
+    {
+      "id": "boss-25135202",
+      "name": "游雪のブレードガーディアン",
+      "attacks": [
+        "FDS01",
+        "FDS02",
+        "FDS03"
+      ],
+      "signature": "FDS03",
+      "existing_runtime": "field-drifting-snow.lua",
+      "preserve_source_fields": {
+        "controller": "driftingSnow",
+        "entity": 25135202,
+        "name": "游雪のブレードガーディアン",
+        "node": "drifting-snow-court",
+        "storyChallenge": "drifting-snow",
+        "level": 148,
+        "hp": 1200,
+        "mora": 560,
+        "floorY": 480,
+        "home": 940,
+        "arenaMin": 325,
+        "arenaMax": 1580,
+        "respawnTicks": 3600,
+        "contactDamage": 0,
+        "keepHpOnExit": true,
+        "resist": {
+          "cryo": 0.5
+        }
+      },
+      "signature_boss_damage_factor": 1,
+      "signature_boss_hp_shield": 0,
+      "recovery_damage_factor": 1,
+      "ground_hurtbox_bottom_u": 0,
+      "selector": "hp55_once_preemption"
+    },
+    {
+      "id": "boss-25140101",
+      "name": "不滅の副産物",
+      "attacks": [
+        "IC01",
+        "IC02",
+        "IC03"
+      ],
+      "signature": "IC03",
+      "existing_runtime": "field-immortal-construct.lua",
+      "preserve_source_fields": {
+        "controller": "immortalConstruct",
+        "entity": 25140101,
+        "name": "不滅の副産物",
+        "node": "immortal-construct-root-hollow",
+        "storyChallenge": "immortal-construct",
+        "level": 142,
+        "hp": 1260,
+        "mora": 550,
+        "floorY": 480,
+        "home": 940,
+        "arenaMin": 325,
+        "arenaMax": 1580,
+        "respawnTicks": 3600,
+        "contactDamage": 0,
+        "keepHpOnExit": true,
+        "resist": {}
+      },
+      "signature_boss_damage_factor": 1,
+      "signature_boss_hp_shield": 0,
+      "recovery_damage_factor": 1,
+      "ground_hurtbox_bottom_u": 0,
+      "selector": "two_normals_then_signature"
+    },
+    {
+      "id": "boss-25134601",
+      "name": "波濤の投錨者",
+      "attacks": [
+        "WB01",
+        "WB02",
+        "WB03"
+      ],
+      "signature": "WB03",
+      "existing_runtime": "field-wavebinder.lua",
+      "preserve_source_fields": {
+        "controller": "wavebinder",
+        "entity": 25134601,
+        "name": "波濤の投錨者",
+        "node": "wavebinder-tide-cavern",
+        "storyChallenge": "wavebinder",
+        "level": 152,
+        "hp": 1160,
+        "mora": 570,
+        "floorY": 480,
+        "home": 940,
+        "arenaMin": 325,
+        "arenaMax": 1580,
+        "respawnTicks": 3600,
+        "contactDamage": 0,
+        "keepHpOnExit": true,
+        "resist": {}
+      },
+      "signature_boss_damage_factor": 1,
+      "signature_boss_hp_shield": 0,
+      "recovery_damage_factor": 1,
+      "ground_hurtbox_bottom_u": 0,
+      "selector": "two_normals_then_signature"
+    }
+  ],
+  "attacks": [
+    {
+      "id": "FL01",
+      "name": "結晶刃の二連薙ぎ",
+      "kind": "normal",
+      "lock": 48,
+      "recovery": [
+        212,
+        288
+      ],
+      "total": 288,
+      "events": [
+        {
+          "group": "blade_1",
+          "active": [
+            104,
+            116
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.2
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "electro",
+          "source_damage_comparison": 21,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "blade_2",
+          "active": [
+            174,
+            186
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.2
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "electro",
+          "source_damage_comparison": 21,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    },
+    {
+      "id": "FL02",
+      "name": "翼刃の跳び込み",
+      "kind": "normal",
+      "lock": 54,
+      "recovery": [
+        236,
+        312
+      ],
+      "total": 312,
+      "events": [
+        {
+          "group": "landing",
+          "active": [
+            124,
+            138
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_target_rect",
+            "center_u_bounds": [
+              0,
+              1.6
+            ],
+            "width_u": 1.8,
+            "z": [
+              0,
+              0.75
+            ]
+          },
+          "element": "electro",
+          "source_damage_comparison": 24,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "followup",
+          "active": [
+            198,
+            212
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_target_rect",
+            "center_u_bounds": [
+              0,
+              1.6
+            ],
+            "width_u": 1.8,
+            "z": [
+              0,
+              0.75
+            ]
+          },
+          "element": "electro",
+          "source_damage_comparison": 24,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ],
+      "air": {
+        "active": [
+          88,
+          124
+        ],
+        "lift_u": 1.0,
+        "body_moves_to_locked_target": true,
+        "hurtbox_follows_body": true,
+        "landing_bottom_u": 0,
+        "same_target_for_all_hits": true
+      }
+    },
+    {
+      "id": "FL03",
+      "name": "招雷・使風の連奏",
+      "kind": "signature",
+      "lock": 60,
+      "recovery": [
+        384,
+        528
+      ],
+      "total": 528,
+      "events": [
+        {
+          "group": "thunder_blade",
+          "active": [
+            132,
+            146
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.4
+            ],
+            "z": [
+              0,
+              0.74
+            ]
+          },
+          "element": "electro",
+          "source_damage_comparison": 25,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "gale_release",
+          "active": [
+            348,
+            366
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.7
+            ],
+            "z": [
+              0,
+              0.74
+            ]
+          },
+          "element": "anemo",
+          "source_damage_comparison": 34,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ],
+      "phases": [
+        {
+          "name": "thundercall",
+          "active": [
+            0,
+            192
+          ]
+        },
+        {
+          "name": "galeforce",
+          "active": [
+            192,
+            384
+          ]
+        }
+      ],
+      "device_rule": "wind_orb",
+      "persistent_mode": false,
+      "element_source": "per_event",
+      "grounded_entire_signature": true
+    },
+    {
+      "id": "FDS01",
+      "name": "氷剣の二連薙ぎ",
+      "kind": "normal",
+      "lock": 48,
+      "recovery": [
+        212,
+        288
+      ],
+      "total": 288,
+      "events": [
+        {
+          "group": "ice_slash_1",
+          "active": [
+            104,
+            116
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.2
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "cryo",
+          "source_damage_comparison": 21,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "ice_slash_2",
+          "active": [
+            174,
+            186
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.2
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "cryo",
+          "source_damage_comparison": 21,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    },
+    {
+      "id": "FDS02",
+      "name": "二条の氷剣",
+      "kind": "normal",
+      "lock": 48,
+      "recovery": [
+        250,
+        326
+      ],
+      "total": 326,
+      "events": [
+        {
+          "group": "ice_sword_near",
+          "active": [
+            128,
+            144
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.35,
+              1.35
+            ],
+            "z": [
+              0,
+              0.6
+            ]
+          },
+          "element": "cryo",
+          "source_damage_comparison": 23,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "ice_sword_far",
+          "active": [
+            208,
+            224
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              1.65,
+              2.65
+            ],
+            "z": [
+              0,
+              0.6
+            ]
+          },
+          "element": "cryo",
+          "source_damage_comparison": 23,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    },
+    {
+      "id": "FDS03",
+      "name": "氷の棺・氷剣の返し",
+      "kind": "signature",
+      "lock": 48,
+      "recovery": [
+        366,
+        510
+      ],
+      "total": 510,
+      "events": [
+        {
+          "group": "coffin_wave_1",
+          "active": [
+            144,
+            158
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.2
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "cryo",
+          "source_damage_comparison": 25,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "coffin_wave_2",
+          "active": [
+            228,
+            242
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.2
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "cryo",
+          "source_damage_comparison": 25,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "ice_counter",
+          "active": [
+            330,
+            346
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.15,
+              2.8
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "cryo",
+          "source_damage_comparison": 25,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ],
+      "counter_rule": "ice_coffin",
+      "trigger_rule": "coffin_once",
+      "coffin_visual_window": [
+        60,
+        300
+      ],
+      "failure_heal": 0,
+      "grounded_entire_signature": true
+    },
+    {
+      "id": "IC01",
+      "name": "根爪の二連掻き",
+      "kind": "normal",
+      "lock": 48,
+      "recovery": [
+        212,
+        288
+      ],
+      "total": 288,
+      "events": [
+        {
+          "group": "root_rake_1",
+          "active": [
+            104,
+            116
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.2
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "pyro",
+          "source_damage_comparison": 21,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "root_rake_2",
+          "active": [
+            174,
+            186
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.2
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "pyro",
+          "source_damage_comparison": 21,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    },
+    {
+      "id": "IC02",
+      "name": "赤葉の二粒",
+      "kind": "normal",
+      "lock": 48,
+      "recovery": [
+        250,
+        326
+      ],
+      "total": 326,
+      "events": [
+        {
+          "group": "red_seed_near",
+          "active": [
+            128,
+            144
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.35,
+              1.35
+            ],
+            "z": [
+              0,
+              0.6
+            ]
+          },
+          "element": "pyro",
+          "source_damage_comparison": 23,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "red_seed_far",
+          "active": [
+            208,
+            224
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              1.65,
+              2.65
+            ],
+            "z": [
+              0,
+              0.6
+            ]
+          },
+          "element": "pyro",
+          "source_damage_comparison": 23,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    },
+    {
+      "id": "IC03",
+      "name": "輝かしき命の姿・灼焔の華",
+      "kind": "signature",
+      "lock": 48,
+      "recovery": [
+        360,
+        504
+      ],
+      "total": 504,
+      "events": [
+        {
+          "group": "life_wave_1",
+          "active": [
+            144,
+            158
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.2
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "pyro",
+          "source_damage_comparison": 22,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "life_wave_2",
+          "active": [
+            228,
+            242
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.2
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "pyro",
+          "source_damage_comparison": 22,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "blazing_bloom",
+          "active": [
+            324,
+            342
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.6
+            ],
+            "z": [
+              0,
+              0.72
+            ]
+          },
+          "element": "pyro",
+          "source_damage_comparison": 32,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ],
+      "counter_rule": "life_bloom",
+      "life_pose_window": [
+        60,
+        240
+      ],
+      "bloom_charge_window": [
+        240,
+        324
+      ],
+      "self_hp_cost": 0,
+      "self_cost_hp_floor": null,
+      "heal_on_hit": 0,
+      "heal_budget": 0,
+      "life_shield_units": 0,
+      "partial_counter_cancels_wave": false,
+      "dynamic_chant_start": false,
+      "grounded_entire_signature": true
+    },
+    {
+      "id": "WB01",
+      "name": "錨の二連薙ぎ",
+      "kind": "normal",
+      "lock": 48,
+      "recovery": [
+        212,
+        288
+      ],
+      "total": 288,
+      "events": [
+        {
+          "group": "anchor_sweep_1",
+          "active": [
+            104,
+            116
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.3
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "physical",
+          "source_damage_comparison": 21,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "anchor_sweep_2",
+          "active": [
+            174,
+            186
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.3
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "physical",
+          "source_damage_comparison": 21,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ]
+    },
+    {
+      "id": "WB02",
+      "name": "投錨と鎖の引き戻し",
+      "kind": "normal",
+      "lock": 54,
+      "recovery": [
+        246,
+        322
+      ],
+      "total": 322,
+      "events": [
+        {
+          "group": "anchor_landing",
+          "active": [
+            126,
+            140
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_target_rect",
+            "center_u_bounds": [
+              0,
+              2.5
+            ],
+            "width_u": 1.6,
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "hydro",
+          "source_damage_comparison": 23,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "chain_pull",
+          "active": [
+            204,
+            218
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_origin_target_lane",
+            "center_u_bounds": [
+              0,
+              2.5
+            ],
+            "origin_u": 0,
+            "endpoint_margin_u": 0.14,
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "hydro",
+          "source_damage_comparison": 23,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ],
+      "anchor_visual_flight": [
+        76,
+        126
+      ],
+      "anchor_lands_at_locked_center": true,
+      "chain_visual_returns": [
+        180,
+        218
+      ],
+      "anchor_and_chain_extra_hits": 0,
+      "player_pull_or_forced_move": false,
+      "boss_body_moves": false
+    },
+    {
+      "id": "WB03",
+      "name": "熱い飲み物・勇躍の三連錨",
+      "kind": "signature",
+      "lock": 48,
+      "recovery": [
+        456,
+        600
+      ],
+      "total": 600,
+      "events": [
+        {
+          "group": "valiant_anchor_1",
+          "active": [
+            288,
+            300
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.3
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "physical",
+          "source_damage_comparison": 26,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "valiant_anchor_2",
+          "active": [
+            354,
+            366
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.3
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "physical",
+          "source_damage_comparison": 26,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        },
+        {
+          "group": "valiant_anchor_3",
+          "active": [
+            420,
+            432
+          ],
+          "owner": "boss",
+          "shape": {
+            "kind": "locked_rect",
+            "u": [
+              0.1,
+              2.3
+            ],
+            "z": [
+              0,
+              0.68
+            ]
+          },
+          "element": "physical",
+          "source_damage_comparison": 26,
+          "hit_requests_per_receiver": 1,
+          "follows_after_lock": false,
+          "damaging_projectile": false
+        }
+      ],
+      "counter_rule": "hot_drink",
+      "drink_window": [
+        60,
+        240
+      ],
+      "valiant_window": [
+        240,
+        456
+      ],
+      "persistent_courage": false,
+      "normal_move_variants": false,
+      "post_drink_electro_drain": false,
+      "drink_progress_is_visual_only": true,
+      "grounded_entire_signature": true
+    }
+  ],
+  "counters": [
+    {
+      "id": "wind_orb",
+      "attack_id": "FL03",
+      "target": "wind_orb_device",
+      "window": [
+        192,
+        324
+      ],
+      "required_units": 2,
+      "units_per_new_direct_cast": 1,
+      "element_bonuses": {},
+      "max_contributions_per_cast": 1,
+      "new_cast_must_start_in_window": true,
+      "accept_reaction": false,
+      "accept_dot": false,
+      "sources": [
+        "real_player",
+        "active_companion"
+      ],
+      "requires_same_epoch": true,
+      "requires_live_boss": true,
+      "requires_active_parent_cast": true,
+      "closes_on_success": true,
+      "success_emitted_once": true,
+      "no_progress_during_recovery": true,
+      "requires_positive_actual_boss_hp_loss": false,
+      "dedup_key": [
+        "encounter",
+        "epoch",
+        "parent_cast",
+        "counter_id",
+        "source_actor",
+        "cast_id"
+      ],
+      "success": "cancel_remaining_events_and_enter_recovery",
+      "recovery_ticks": 144,
+      "success_tick_included_in_recovery": true,
+      "recovery_interval": "[success_tick,success_tick+144)",
+      "stand_ticks": 0,
+      "extra_down_ticks": 0,
+      "extra_rest_ticks": 0,
+      "backlash_damage": 0,
+      "damage_multiplier": 1,
+      "cleanup_is_success": false,
+      "partial_progress_after_deadline": false,
+      "first_action_after_recovery": "normal",
+      "device": {
+        "count": 1,
+        "center_u": 1.25,
+        "shape": {
+          "kind": "locked_rect",
+          "u": [
+            0.9,
+            1.6
+          ],
+          "z": [
+            0,
+            0.8
+          ]
+        },
+        "position_fixed_until_cleanup": true,
+        "requires_actual_overlap": true,
+        "contact_only_without_boss_hp_loss": true,
+        "requires_damage_capable_direct_attack": true,
+        "independent_hp_enemy": false,
+        "enemy_list_member": false,
+        "auto_targetable": false,
+        "body_blocking": false,
+        "consumes_player_projectile": false,
+        "consumes_pierce_budget": false,
+        "elemental_aura": false,
+        "on_hit_proc": false,
+        "reward_or_quest_credit": false,
+        "show_contact_segments": 2,
+        "regular_damage_to_overlapping_boss_once": true,
+        "visual_absorption_is_cleanup_not_success": true,
+        "cleanup_tick": 324
+      }
+    },
+    {
+      "id": "ice_coffin",
+      "attack_id": "FDS03",
+      "target": "boss_receiver",
+      "window": [
+        60,
+        300
+      ],
+      "required_units": 3,
+      "units_per_new_direct_cast": 1,
+      "element_bonuses": {},
+      "max_contributions_per_cast": 1,
+      "new_cast_must_start_in_window": true,
+      "accept_reaction": false,
+      "accept_dot": false,
+      "sources": [
+        "real_player",
+        "active_companion"
+      ],
+      "requires_same_epoch": true,
+      "requires_live_boss": true,
+      "requires_active_parent_cast": true,
+      "closes_on_success": true,
+      "success_emitted_once": true,
+      "no_progress_during_recovery": true,
+      "requires_positive_actual_boss_hp_loss": true,
+      "dedup_key": [
+        "encounter",
+        "epoch",
+        "parent_cast",
+        "counter_id",
+        "source_actor",
+        "cast_id"
+      ],
+      "success": "cancel_remaining_events_and_enter_recovery",
+      "recovery_ticks": 144,
+      "success_tick_included_in_recovery": true,
+      "recovery_interval": "[success_tick,success_tick+144)",
+      "stand_ticks": 0,
+      "extra_down_ticks": 0,
+      "extra_rest_ticks": 0,
+      "backlash_damage": 0,
+      "damage_multiplier": 1,
+      "cleanup_is_success": false,
+      "partial_progress_after_deadline": false,
+      "first_action_after_recovery": "normal",
+      "separate_receiver": false,
+      "shield_damage_factor": 1,
+      "all_elements_including_cryo_accept": true,
+      "heal_on_timeout": 0,
+      "cleanup_tick": 300
+    },
+    {
+      "id": "life_bloom",
+      "attack_id": "IC03",
+      "target": "boss_receiver",
+      "window": [
+        120,
+        300
+      ],
+      "required_units": 3,
+      "units_per_new_direct_cast": 1,
+      "element_bonuses": {},
+      "max_contributions_per_cast": 1,
+      "new_cast_must_start_in_window": true,
+      "accept_reaction": false,
+      "accept_dot": false,
+      "sources": [
+        "real_player",
+        "active_companion"
+      ],
+      "requires_same_epoch": true,
+      "requires_live_boss": true,
+      "requires_active_parent_cast": true,
+      "closes_on_success": true,
+      "success_emitted_once": true,
+      "no_progress_during_recovery": true,
+      "requires_positive_actual_boss_hp_loss": true,
+      "dedup_key": [
+        "encounter",
+        "epoch",
+        "parent_cast",
+        "counter_id",
+        "source_actor",
+        "cast_id"
+      ],
+      "success": "cancel_remaining_events_and_enter_recovery",
+      "recovery_ticks": 144,
+      "success_tick_included_in_recovery": true,
+      "recovery_interval": "[success_tick,success_tick+144)",
+      "stand_ticks": 0,
+      "extra_down_ticks": 0,
+      "extra_rest_ticks": 0,
+      "backlash_damage": 0,
+      "damage_multiplier": 1,
+      "cleanup_is_success": false,
+      "partial_progress_after_deadline": false,
+      "first_action_after_recovery": "normal",
+      "separate_receiver": false,
+      "shield_damage_factor": 1,
+      "partial_progress_cancels_events": false,
+      "partial_progress_staggers": false,
+      "cleanup_tick": 300
+    },
+    {
+      "id": "hot_drink",
+      "attack_id": "WB03",
+      "target": "boss_receiver",
+      "window": [
+        60,
+        240
+      ],
+      "required_units": 4,
+      "units_per_new_direct_cast": 1,
+      "element_bonuses": {
+        "electro": 2
+      },
+      "max_contributions_per_cast": 1,
+      "new_cast_must_start_in_window": true,
+      "accept_reaction": false,
+      "accept_dot": false,
+      "sources": [
+        "real_player",
+        "active_companion"
+      ],
+      "requires_same_epoch": true,
+      "requires_live_boss": true,
+      "requires_active_parent_cast": true,
+      "closes_on_success": true,
+      "success_emitted_once": true,
+      "no_progress_during_recovery": true,
+      "requires_positive_actual_boss_hp_loss": true,
+      "dedup_key": [
+        "encounter",
+        "epoch",
+        "parent_cast",
+        "counter_id",
+        "source_actor",
+        "cast_id"
+      ],
+      "success": "cancel_remaining_events_and_enter_recovery",
+      "recovery_ticks": 144,
+      "success_tick_included_in_recovery": true,
+      "recovery_interval": "[success_tick,success_tick+144)",
+      "stand_ticks": 0,
+      "extra_down_ticks": 0,
+      "extra_rest_ticks": 0,
+      "backlash_damage": 0,
+      "damage_multiplier": 1,
+      "cleanup_is_success": false,
+      "partial_progress_after_deadline": false,
+      "first_action_after_recovery": "normal",
+      "separate_receiver": false,
+      "bonus_is_total_units_not_additional": true,
+      "post_window_drain": false,
+      "cleanup_tick": 240
+    }
+  ],
+  "coffin_once": {
+    "attack_id": "FDS03",
+    "hp_fraction": 0.55,
+    "condition": "0 < hp <= floor(max_hp * hp_fraction)",
+    "flag": "coffinUsed",
+    "commit_flag_on_signature_begin": true,
+    "preflight_before_begin_and_flag_commit": true,
+    "failed_preflight_consumes_flag": false,
+    "prelock_retry_uses_same_activation": true,
+    "retry_resets_flag": false,
+    "retry_clears_old_parent_events_and_contacts": true,
+    "respect_existing_recovery_before_trigger": true,
+    "cancel_current_normal_cast_before_new_tell": true,
+    "old_hit_reservations_cancelled": true,
+    "start_from_tick": 0,
+    "preserve_next_normal_index": true,
+    "hp_zero_before_trigger": true,
+    "can_kill_before_signature": true,
+    "preserve_flag_on_cancel_and_exit": true,
+    "reset_flag_only_on_new_spawn_generation": true,
+    "restore_missing_flag": "used_if_hp_at_or_below_threshold",
+    "restore_explicit_flag_as_saved": true,
+    "after_signature": "normal_moves_only_for_same_spawn_generation"
+  },
+  "migration": {
+    "runtime_changes_applied": false,
+    "keep_existing_ids": true,
+    "preserve_level_hp_rewards_save_and_placement": true,
+    "source_config_contract": {
+      "boss-26310501": {
+        "ward": {
+          "layers": 8,
+          "effectiveLayers": 2,
+          "damageFactor": 0.75,
+          "downTicks": 180,
+          "downFactor": 1.2
+        },
+        "orbs": {
+          "offsets": [
+            -2.5,
+            -1.25,
+            0,
+            1.25,
+            2.5
+          ],
+          "required": 3,
+          "layers": 2,
+          "elementalLayers": 2,
+          "hover": 18,
+          "bodyHover": 24,
+          "downTicks": 180
+        },
+        "moves": [
+          {
+            "id": "FL01",
+            "kind": "slash",
+            "title": "結晶刃の二連薙ぎ",
+            "reach": 210,
+            "lock": 48,
+            "near": 0.1,
+            "far": 2.2,
+            "height": 0.68,
+            "active": [
+              [
+                104,
+                116
+              ],
+              [
+                174,
+                186
+              ]
+            ],
+            "recover": 212,
+            "total": 288,
+            "damage": 21
+          },
+          {
+            "id": "FL02",
+            "kind": "dive",
+            "title": "翼刃の跳び込み",
+            "reach": 225,
+            "lock": 54,
+            "distance": 1.6,
+            "width": 1.8,
+            "height": 0.75,
+            "air": [
+              88,
+              134
+            ],
+            "lift": 1.0,
+            "active": [
+              [
+                134,
+                148
+              ],
+              [
+                208,
+                222
+              ]
+            ],
+            "recover": 246,
+            "total": 322,
+            "damage": 24
+          },
+          {
+            "id": "FL03",
+            "kind": "ritual",
+            "title": "招雷と使風",
+            "reach": 230,
+            "electro": {
+              "id": "FL03",
+              "kind": "thunder",
+              "title": "招雷・三度の雷刃波",
+              "reach": 230,
+              "lock": 60,
+              "radius": 2.4,
+              "height": 0.74,
+              "active": [
+                [
+                  176,
+                  190
+                ],
+                [
+                  252,
+                  266
+                ],
+                [
+                  328,
+                  342
+                ]
+              ],
+              "recover": 360,
+              "total": 438,
+              "damage": 25
+            },
+            "anemo": {
+              "id": "FL03",
+              "kind": "gale",
+              "title": "使風・風の球の集束",
+              "reach": 230,
+              "lock": 60,
+              "radius": 2.4,
+              "deploy": 104,
+              "absorbStart": 220,
+              "absorbEnd": 460,
+              "height": 0.74,
+              "active": [
+                [
+                  490,
+                  508
+                ]
+              ],
+              "recover": 528,
+              "total": 610,
+              "damage": 34
+            }
+          }
+        ]
+      },
+      "boss-25135202": {
+        "coffin": {
+          "threshold": 0.55,
+          "layers": 8,
+          "effectiveLayers": 2,
+          "damageFactor": 0.75,
+          "heal": 96,
+          "downTicks": 180,
+          "downFactor": 1.2,
+          "move": {
+            "id": "FDS03",
+            "kind": "coffin",
+            "title": "氷の棺と氷剣の反撃",
+            "reach": 230,
+            "lock": 48,
+            "near": 0.15,
+            "far": 3.1,
+            "radius": 2.2,
+            "deploy": 60,
+            "deadline": 420,
+            "height": 0.68,
+            "active": [
+              [
+                182,
+                196
+              ],
+              [
+                292,
+                306
+              ],
+              [
+                462,
+                476
+              ],
+              [
+                534,
+                548
+              ]
+            ],
+            "recover": 562,
+            "total": 642,
+            "damage": 25
+          }
+        },
+        "moves": [
+          {
+            "id": "FDS01",
+            "kind": "slash",
+            "title": "氷剣の二連薙ぎ",
+            "reach": 210,
+            "lock": 48,
+            "near": 0.1,
+            "far": 2.2,
+            "height": 0.68,
+            "active": [
+              [
+                104,
+                116
+              ],
+              [
+                174,
+                186
+              ]
+            ],
+            "recover": 212,
+            "total": 288,
+            "damage": 21
+          },
+          {
+            "id": "FDS02",
+            "kind": "projectiles",
+            "title": "二条の氷剣",
+            "reach": 250,
+            "lock": 48,
+            "spacing": 1.2,
+            "width": 1.4,
+            "height": 0.6,
+            "active": [
+              [
+                128,
+                144
+              ],
+              [
+                208,
+                224
+              ]
+            ],
+            "recover": 250,
+            "total": 326,
+            "damage": 23
+          }
+        ],
+        "saveFlags": [
+          "coffinUsed"
+        ]
+      },
+      "boss-25140101": {
+        "life": {
+          "cost": 96,
+          "layers": 6,
+          "unitsPerLayer": 2,
+          "chantUnits": 4,
+          "damageFactor": 0.85,
+          "healOnHit": 18,
+          "healBudget": 72,
+          "layerStaggerTicks": 36,
+          "downTicks": 180,
+          "downFactor": 1.2
+        },
+        "moves": [
+          {
+            "id": "IC01",
+            "kind": "rake",
+            "title": "根爪の二連掻き",
+            "reach": 210,
+            "lock": 48,
+            "near": 0.1,
+            "far": 2.2,
+            "height": 0.68,
+            "active": [
+              [
+                104,
+                116
+              ],
+              [
+                174,
+                186
+              ]
+            ],
+            "recover": 212,
+            "total": 288,
+            "damage": 21
+          },
+          {
+            "id": "IC02",
+            "kind": "seeds",
+            "title": "赤葉の二粒",
+            "reach": 250,
+            "lock": 48,
+            "spacing": 1.2,
+            "width": 1.4,
+            "height": 0.6,
+            "active": [
+              [
+                128,
+                144
+              ],
+              [
+                208,
+                224
+              ]
+            ],
+            "recover": 250,
+            "total": 326,
+            "damage": 23
+          },
+          {
+            "id": "IC03",
+            "kind": "life",
+            "title": "輝かしき命の姿と灼焔の華",
+            "reach": 230,
+            "lock": 48,
+            "near": 0.1,
+            "far": 2.2,
+            "deploy": 60,
+            "chantAt": 360,
+            "waveRadius": 1.8,
+            "radius": 2.5,
+            "height": 0.68,
+            "active": [
+              [
+                140,
+                154
+              ],
+              [
+                220,
+                234
+              ],
+              [
+                300,
+                314
+              ]
+            ],
+            "damage": 22,
+            "releaseDelay": 156,
+            "releaseTicks": 18,
+            "releaseDamage": 32,
+            "recovery": 96
+          }
+        ]
+      },
+      "boss-25134601": {
+        "courage": {
+          "max": 12,
+          "gain": 4,
+          "electroDrain": 3,
+          "drinkHits": 4,
+          "electroDrinkHits": 2,
+          "drainTicks": 60,
+          "damageFactor": 0.75,
+          "downTicks": 180,
+          "drinkDownTicks": 120,
+          "downFactor": 1.2
+        },
+        "moves": [
+          {
+            "id": "WB01",
+            "kind": "sweep",
+            "title": "錨の二連薙ぎ",
+            "reach": 220,
+            "lock": 48,
+            "near": 0.1,
+            "far": 2.3,
+            "height": 0.68,
+            "active": [
+              [
+                104,
+                116
+              ],
+              [
+                174,
+                186
+              ]
+            ],
+            "recover": 212,
+            "total": 288,
+            "damage": 21,
+            "valiant": {
+              "id": "WB01",
+              "kind": "sweep",
+              "title": "勇躍・錨の三連薙ぎ",
+              "reach": 220,
+              "lock": 48,
+              "near": 0.1,
+              "far": 2.3,
+              "height": 0.68,
+              "active": [
+                [
+                  104,
+                  116
+                ],
+                [
+                  174,
+                  186
+                ],
+                [
+                  244,
+                  256
+                ]
+              ],
+              "recover": 282,
+              "total": 350,
+              "damage": 26
+            }
+          },
+          {
+            "id": "WB02",
+            "kind": "throw",
+            "title": "投錨と鎖の引き戻し",
+            "reach": 250,
+            "lock": 54,
+            "distance": 2.5,
+            "width": 1.6,
+            "height": 0.68,
+            "flight": 76,
+            "land": 126,
+            "active": [
+              [
+                126,
+                140
+              ],
+              [
+                204,
+                218
+              ]
+            ],
+            "recover": 246,
+            "total": 322,
+            "damage": 23,
+            "element": "hydro",
+            "valiant": {
+              "id": "WB02",
+              "kind": "throw",
+              "title": "勇躍・投錨と鎖の引き戻し",
+              "reach": 250,
+              "lock": 54,
+              "distance": 2.5,
+              "width": 1.6,
+              "height": 0.68,
+              "flight": 76,
+              "land": 126,
+              "active": [
+                [
+                  126,
+                  140
+                ],
+                [
+                  204,
+                  218
+                ]
+              ],
+              "recover": 246,
+              "total": 322,
+              "damage": 29,
+              "element": "hydro"
+            }
+          },
+          {
+            "id": "WB03",
+            "kind": "drink",
+            "title": "熱い飲み物",
+            "reach": 250,
+            "lock": 48,
+            "open": 60,
+            "gains": [
+              100,
+              160,
+              220
+            ],
+            "close": 220,
+            "recover": 240,
+            "total": 288,
+            "active": [],
+            "valiant": {
+              "id": "WB03",
+              "kind": "rest",
+              "title": "勇躍・熱い息継ぎ",
+              "reach": 250,
+              "lock": 0,
+              "total": 60,
+              "active": []
+            }
+          }
+        ]
+      }
+    },
+    "source_air_ticks": {
+      "FL02": 46
+    },
+    "target_air_ticks": {
+      "FL02": 36
+    },
+    "remove_flugel_ward_arm_and_preempt": true,
+    "remove_flugel_mode_selector": true,
+    "replace_flugel_begin_mode_damage_with_event_element": true,
+    "remove_flugel_five_enemy_orbs": true,
+    "remove_flugel_hover_in_signature_recovery": true,
+    "remove_coffin_element_immunity_and_heal": true,
+    "preserve_coffin_used_save_flag": true,
+    "remove_life_self_cost_and_heal": true,
+    "remove_life_units_preempt_and_partial_staggers": true,
+    "remove_dynamic_chant": true,
+    "remove_persistent_courage_and_move_variants": true,
+    "remove_post_drink_electro_drain": true,
+    "remove_legacy_damage_multipliers": true,
+    "replace_old_down_and_rest_with_single_rec144": true
+  },
+  "reference_scope": {
+    "roster_file": "../../DESIGN_BOSS_ROSTER_REVIEW_20261117.md",
+    "roster_section": "フィールドボス候補（49戦）",
+    "master_file": "../../DESIGN_FIELD_BOSS_MASTER_V01.md",
+    "current_catalog_normal_rows_at_source": 55,
+    "notes": "Fixed reference roster closure only; added original encounters and runtime completion are separate."
+  }
+}
