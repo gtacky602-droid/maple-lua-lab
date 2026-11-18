@@ -134,7 +134,7 @@ export const sceneryDefinitions={
  fontainePhotoTerrace:{file:'fon-navia-photo-terrace-background-v1.png',zones:['story:fon-photo-terrace'],note:'並木の写真広場の仮背景'},
  fontaineDelivery:{file:'fontaine-delivery-quay-background-v1.png',zones:['story:fontaine-parcel-counter','story:fontaine-delivery-quay','story:fontaine-outskirts-loading']},
  fontaineBackstage:{file:'fontaine-backstage-background-v1.png',zones:['story:fontaine-old-scenery-door','story:fontaine-moon-fly-loft','story:fontaine-stage-wings','story:fontaine-lift-catwalk']},
- fontaineUnderstage:{file:'fontaine-understage-background-v1.png',zones:['story:fontaine-understage-workfloor','story:fontaine-parcel-storeroom']},
+ fontaineUnderstage:{file:'fontaine-understage-background-v1.png',zones:['story:fontaine-understage-workfloor','story:fontaine-parcel-storeroom','story:knave-crimson-court'],note:'作業床と凶月の再現戦の仮背景'},
  natlanIansanTraining:{file:'nat-iansan-training-course-background-v1.png',zones:['story:natlan-iansan-training'],note:'イアンサの訓練路の仮背景'},
  natlanXilonenLab:{file:'nat-xilonen-course-workshop-background-v1.png',zones:['story:natlan-xilonen-workshop'],note:'試作工房の仮背景'},
  natlanXilonenCourse:{file:'nat-xilonen-course-course-background-v1.png',zones:['story:natlan-xilonen-course'],note:'三段の試走路の仮背景'},

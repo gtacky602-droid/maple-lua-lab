@@ -163,6 +163,20 @@
       "mapHover": 0
     },
     {
+      "id": "knave-weekly-single",
+      "name": "「召使」（片鎌・再現戦）",
+      "file": "knave-weekly-single-sprites-v1.json",
+      "height": 112,
+      "mapHover": 0
+    },
+    {
+      "id": "knave-weekly-double",
+      "name": "「召使」（凶月・再現戦）",
+      "file": "knave-weekly-double-sprites-v1.json",
+      "height": 136,
+      "mapHover": 0
+    },
+    {
       "id": "shouki",
       "name": "正機の神（全身形態・待機候補）",
       "file": "shouki-idle-sprites.json",

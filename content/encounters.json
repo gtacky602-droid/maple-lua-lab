@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 87,
-    "partial": 76,
+    "partial": 77,
     "complete": 0
   },
   "encounters": [
@@ -1862,24 +1862,42 @@
       "entity_ids": [
         "29091001"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
-        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/theknave.json"
+        "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/theknave.json",
+        "docs/weekly-boss-v1/KNAVE_WEB.md",
+        "evidence/knave-weekly-lua.json",
+        "evidence/knave-weekly-browser.json"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "攻撃中と変身中の連続ドット作画",
+        "装備差・同行編成・全回避経路の検証",
+        "本番の3D配置・実機検証"
       ],
+      "weeklyNode": "knave-crimson-court",
+      "weeklyEntrance": "凶月の再現戦（Lv88）",
       "art_candidate": {
-        "source": "assets/knave-idle-source-v1.png",
-        "encoding": "assets/knave-idle-sprites.json",
-        "audit": "evidence/knave-reference-audit.json",
-        "status": "Dual-scythe boss outfit idle candidate; wings, first form, attacks, animation and combat not implemented"
-      }
+        "source": "assets/knave-weekly-single-source-v1.png",
+        "encoding": "assets/knave-weekly-single-sprites-v1.json",
+        "audit": "assets/knave-weekly-generation-v1.json",
+        "status": "Active single-scythe idle sprite"
+      },
+      "art_variants": [
+        {
+          "source": "assets/knave-weekly-double-source-v1.png",
+          "encoding": "assets/knave-weekly-double-sprites-v1.json",
+          "audit": "assets/knave-weekly-generation-v1.json",
+          "status": "Active winged dual-scythe idle sprite"
+        },
+        {
+          "source": "assets/knave-idle-source-v1.png",
+          "encoding": "assets/knave-idle-sprites.json",
+          "audit": "evidence/knave-reference-audit.json",
+          "status": "Earlier dual-scythe outfit reference candidate"
+        }
+      ]
     },
     {
       "id": "boss-20070101",

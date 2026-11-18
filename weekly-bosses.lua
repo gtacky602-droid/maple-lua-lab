@@ -53,12 +53,13 @@ return function(C,configs,controllers)
   if not slot.waitUntil then attach(s,slot,spec) end
  end
  function C.action(s,key)
+  local slot,spec=C.currentWeeklyBoss(s)
+  local controller=spec and controllers[spec.controller]
   if key=='encounter_interact' or key=='encounter_confirm' or key=='encounter_cancel' or key:match('^encounter_target:') then
-   local slot,spec=C.currentWeeklyBoss(s)
-   local controller=spec and controllers[spec.controller]
    if slot and not s.paused and not slot.waitUntil and controller.interact then controller.interact(s,slot,spec,key) end
    return
   end
+  if slot and not s.paused and not slot.waitUntil and controller.beforeAction then controller.beforeAction(s,slot,key) end
   return action(s,key)
  end
  function C.step(s,dt,input)

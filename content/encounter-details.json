@@ -730,11 +730,13 @@
       ]
     },
     "boss-29091001": {
-      "art_candidate": {
-        "item": "knave",
-        "audit": "evidence/knave-reference-audit.json",
-        "status": "Dual-scythe boss outfit idle candidate; wings, first form, attacks, animation and combat not implemented"
-      }
+      "extra_evidence": ["docs/weekly-boss-v1/KNAVE_WEB.md", "evidence/knave-weekly-lua.json", "evidence/knave-weekly-browser.json"],
+      "remaining": ["攻撃中と変身中の連続ドット作画", "装備差・同行編成・全回避経路の検証", "本番の3D配置・実機検証"],
+      "art_candidate": {"item":"knave-weekly-single","audit":"assets/knave-weekly-generation-v1.json","status":"Active single-scythe idle sprite"},
+      "art_variants": [
+        {"item":"knave-weekly-double","audit":"assets/knave-weekly-generation-v1.json","status":"Active winged dual-scythe idle sprite"},
+        {"item":"knave","audit":"evidence/knave-reference-audit.json","status":"Earlier dual-scythe outfit reference candidate"}
+      ]
     },
     "boss-20070101": {
       "action": "boss_thunder",

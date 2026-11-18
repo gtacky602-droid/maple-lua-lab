@@ -1,0 +1,24 @@
+{
+  "tool": "Codex built-in ImageGen",
+  "original_lab_reference": "assets/knave-idle-source-v1.png",
+  "reference_audit": "evidence/knave-reference-audit.json",
+  "reference_scope": "The preceding original lab study used the audited 3D front, side and back views and a detail sheet. The new forms use that lab study and each other for visual continuity.",
+  "forms": {
+    "single": {
+      "source": "assets/knave-weekly-single-source-v1.png",
+      "encoding": "assets/knave-weekly-single-sprites-v1.json",
+      "description": "One raised scythe, visible empty hand, short coat, broad boots. Hair and head were reduced in a separate ImageGen edit to fit the requested proportion.",
+      "bodyLandmarkY": {"crown": 283, "chin": 604, "sole": 1256},
+      "approximateHeads": 3.03,
+      "rectangles": {"legacy": 2610, "h48c32": 1616, "h32c16": 721}
+    },
+    "double": {
+      "source": "assets/knave-weekly-double-source-v1.png",
+      "encoding": "assets/knave-weekly-double-sprites-v1.json",
+      "description": "Two separate crimson scythes and angular wings around a compact humanoid silhouette.",
+      "bodyLandmarkY": {"crown": 195, "chin": 519, "sole": 1118},
+      "approximateHeads": 2.85,
+      "rectangles": {"legacy": 5450, "h48c32": 3456, "h32c16": 1575}
+    }
+  }
+}

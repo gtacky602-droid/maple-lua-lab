@@ -3500,6 +3500,403 @@
           "damage": 0
         }
       }
+    },
+    {
+      "id": "boss-29091001",
+      "entity": 29091001,
+      "controller": "knave",
+      "node": "knave-crimson-court",
+      "storyChallenge": "knave-weekly",
+      "name": "召使",
+      "level": 88,
+      "hp": 2400,
+      "secondHp": 1320,
+      "mora": 2800,
+      "expRole": "weekly_boss",
+      "center": 480,
+      "floorY": 480,
+      "noticeTicks": 48,
+      "restTicks": 24,
+      "respawnTicks": 3600,
+      "baseDamage": 27,
+      "damage": {
+        "WK10": 33,
+        "WK12": 23,
+        "WK14": 35,
+        "WK15": 34,
+        "WK16": 31,
+        "WK18": 39
+      },
+      "first": [
+        "WK01",
+        "WK03",
+        "WK04",
+        "WK10",
+        "WK02",
+        "WK05",
+        "WK06"
+      ],
+      "second": [
+        "WK14",
+        "WK12",
+        "WK13",
+        "WK15",
+        "WK16",
+        "WK18"
+      ],
+      "closeMoves": {
+        "WK01": true,
+        "WK02": true,
+        "WK06": true,
+        "WK12": true
+      },
+      "lamps": {
+        "x": [
+          44,
+          916
+        ],
+        "radius": 48.4,
+        "start": 45,
+        "interval": 30,
+        "ratio": 0.05
+      },
+      "debt": {
+        "apply": 0.25,
+        "cap": 0.5,
+        "drain": 0.01,
+        "drainEvery": 120,
+        "declareGap": 900
+      },
+      "moves": {
+        "WK01": {
+          "title": "鎌刃の二連",
+          "total": 180,
+          "locks": [
+            30
+          ],
+          "windows": [
+            [
+              60,
+              66
+            ],
+            [
+              102,
+              108
+            ]
+          ],
+          "recovery": 120,
+          "projectiles": []
+        },
+        "WK02": {
+          "title": "鉤斬りと踏込",
+          "total": 240,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              90,
+              96
+            ],
+            [
+              150,
+              156
+            ]
+          ],
+          "recovery": 168,
+          "projectiles": []
+        },
+        "WK03": {
+          "title": "回転鎌の投射",
+          "total": 300,
+          "locks": [
+            48
+          ],
+          "windows": [],
+          "recovery": 228,
+          "projectiles": [
+            {
+              "spawn_ticks": [
+                90
+              ],
+              "ttl_ticks": 120,
+              "hit_cap": 1
+            }
+          ]
+        },
+        "WK04": {
+          "title": "紅影疾走",
+          "total": 228,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              96,
+              108
+            ]
+          ],
+          "recovery": 144,
+          "projectiles": []
+        },
+        "WK05": {
+          "title": "空中輪刈",
+          "total": 300,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              138,
+              150
+            ],
+            [
+              198,
+              204
+            ]
+          ],
+          "recovery": 228,
+          "projectiles": []
+        },
+        "WK06": {
+          "title": "横滑り・迎撃",
+          "total": 216,
+          "locks": [
+            30
+          ],
+          "windows": [
+            [
+              120,
+              126
+            ]
+          ],
+          "recovery": 144,
+          "projectiles": []
+        },
+        "WK07": {
+          "title": "血償の宣告",
+          "total": 240,
+          "locks": [],
+          "windows": [],
+          "recovery": 180,
+          "projectiles": []
+        },
+        "WK10": {
+          "title": "赤宴・地紋",
+          "total": 420,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              180,
+              192
+            ],
+            [
+              252,
+              264
+            ],
+            [
+              324,
+              336
+            ]
+          ],
+          "recovery": 348,
+          "projectiles": [],
+          "contract": true,
+          "interrupt": [
+            90,
+            324
+          ]
+        },
+        "WK11": {
+          "title": "凶月の羽化",
+          "total": 240,
+          "locks": [],
+          "windows": [],
+          "recovery": 180,
+          "projectiles": []
+        },
+        "WK12": {
+          "title": "双鎌の六閃",
+          "total": 420,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              84,
+              90
+            ],
+            [
+              120,
+              126
+            ],
+            [
+              156,
+              162
+            ],
+            [
+              216,
+              222
+            ],
+            [
+              252,
+              258
+            ],
+            [
+              300,
+              306
+            ]
+          ],
+          "recovery": 324,
+          "projectiles": []
+        },
+        "WK13": {
+          "title": "双輪と刺脚",
+          "total": 480,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              330,
+              336
+            ],
+            [
+              372,
+              378
+            ]
+          ],
+          "recovery": 402,
+          "projectiles": [
+            {
+              "spawn_ticks": [
+                90,
+                150
+              ],
+              "ttl_ticks": 150,
+              "hit_cap": 1
+            }
+          ]
+        },
+        "WK14": {
+          "title": "赤宴・内外三巡",
+          "total": 480,
+          "locks": [
+            72
+          ],
+          "windows": [
+            [
+              180,
+              192
+            ],
+            [
+              288,
+              300
+            ],
+            [
+              396,
+              408
+            ]
+          ],
+          "recovery": 420,
+          "projectiles": [],
+          "contract": true,
+          "interrupt": [
+            96,
+            396
+          ]
+        },
+        "WK15": {
+          "title": "赤宴・前方奔流",
+          "total": 420,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              180,
+              186
+            ],
+            [
+              240,
+              246
+            ]
+          ],
+          "recovery": 324,
+          "projectiles": [],
+          "contract": true,
+          "interrupt": [
+            96,
+            300
+          ]
+        },
+        "WK16": {
+          "title": "凶月の三射",
+          "total": 360,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              90,
+              96
+            ],
+            [
+              162,
+              168
+            ],
+            [
+              234,
+              240
+            ]
+          ],
+          "recovery": 270,
+          "projectiles": [],
+          "contract": true
+        },
+        "WK17": {
+          "title": "断宴・反撃",
+          "total": 288,
+          "locks": [],
+          "windows": [],
+          "recovery": 252,
+          "projectiles": []
+        },
+        "WK18": {
+          "title": "赤月降臨",
+          "total": 540,
+          "locks": [
+            90,
+            270
+          ],
+          "windows": [
+            [
+              150,
+              156
+            ],
+            [
+              222,
+              228
+            ],
+            [
+              330,
+              342
+            ],
+            [
+              402,
+              414
+            ]
+          ],
+          "recovery": 456,
+          "projectiles": [],
+          "unattackable": [
+            90,
+            420
+          ]
+        }
+      }
     }
   ]
 }

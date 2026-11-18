@@ -54,8 +54,10 @@ end
 function C.healActor(s,a,amount)
  if a.hp<=0 or amount<=0 then return 0 end
  local factor=C.healingFactor and C.healingFactor(s,a) or 1
+ amount=amount*factor
+ if C.applyHealingDebt then amount=C.applyHealingDebt(s,a,amount) end
  local before=a.hp
- a.hp=min(a.maxhp,a.hp+amount*factor)
+ a.hp=min(a.maxhp,a.hp+amount)
  return a.hp-before
 end
 function C.defeatEnemy(s,e,owner)

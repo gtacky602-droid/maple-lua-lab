@@ -1,5 +1,5 @@
 {
-  "count": 103,
+  "count": 104,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -18,6 +18,7 @@
     "Shouki has a distinct weekly route",
     "Apep has a distinct weekly route",
     "Narwhal has an outer weekly arena",
+    "Knave has a two-form weekly arena",
     "loom trial is separate from the imported list",
     "original trial is independent of the imported roster",
     "Cryo Hypostasis is reachable through the field route",

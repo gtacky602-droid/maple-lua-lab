@@ -1,0 +1,29 @@
+{
+  "scenery": {
+    "key": "fontaineUnderstage",
+    "file": "fontaine-understage-background-v1.png",
+    "state": "ready"
+  },
+  "declared": true,
+  "keyboardAndPointerRepayment": true,
+  "repayments": 5,
+  "partialBeforeRelease": 343,
+  "manualHitInterrupted": true,
+  "forms": 2,
+  "clearReportRestore": true,
+  "viewport390": true,
+  "remainingHp": 1598,
+  "commands": {
+    "first": {
+      "png": 13,
+      "standard": 6843,
+      "light": 1777
+    },
+    "second": {
+      "png": 15,
+      "standard": 8897,
+      "light": 2463
+    }
+  },
+  "errors": []
+}

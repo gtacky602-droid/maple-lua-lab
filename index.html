@@ -37,6 +37,9 @@
 #weeklyNarwhal{display:grid;gap:6px;margin-top:8px}
 #weeklyNarwhal[hidden],#weeklyNarwhalGauge[hidden],#weeklyNarwhalObject[hidden]{display:none}
 #weeklyNarwhal progress{width:120px;vertical-align:middle;accent-color:#c1a2ee}
+#weeklyKnave{display:grid;gap:6px;margin-top:8px}
+#weeklyKnave[hidden]{display:none}
+#weeklyKnave button{justify-self:start;touch-action:none}
 #expeditionDesk th,#expeditionDesk td{padding:4px 8px;border-bottom:1px solid #426466;overflow-wrap:anywhere}
 #expeditionDesk thead th{color:#ffebba}
 #expeditionTrial{margin-inline-start:6px}
@@ -211,6 +214,12 @@
   <label id="weeklyNarwhalGauge"><span id="weeklyNarwhalGaugeText"></span> <progress id="weeklyNarwhalMeter" max="100"></progress></label>
   <div id="weeklyNarwhalObject" hidden><span id="weeklyNarwhalObjectText"></span> <progress id="weeklyNarwhalObjectMeter" aria-label="中断の進捗"></progress></div>
   <small id="weeklyNarwhalHint"></small>
+ </div>
+ <div id="weeklyKnave" hidden>
+  <small id="weeklyKnaveActors"></small>
+  <small id="weeklyKnaveHint"></small>
+  <button id="weeklyKnaveLamp" type="button" data-hold="interact" hidden>返済灯を長押し（G）</button>
+  <button id="weeklyKnaveStrike" type="button" data-action="encounter_interact" hidden>償還の一撃（H）</button>
  </div>
 </div>
 <section id="expeditionDesk" class="note" aria-label="遠征の装備比較" hidden>
