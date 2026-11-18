@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 177 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 175,
+  "scope": "Authored 184 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 182,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1001,7 +1001,14 @@
     {"id":"white-pass-station","name":"雪原の終着駅","region":"スネージナヤ","status":"regional_temporary_image"},
     {"id":"white-pass-woods","name":"白虹峠・樹林の道","region":"スネージナヤ","status":"regional_temporary_image"},
     {"id":"white-pass-ridge","name":"白虹峠・雪棚の道","region":"スネージナヤ","status":"regional_temporary_image"},
-    {"id":"white-rainbow-basin","name":"白虹の高原","region":"スネージナヤ","status":"regional_temporary_image"}
+    {"id":"white-rainbow-basin","name":"白虹の高原","region":"スネージナヤ","status":"regional_temporary_image"},
+    {"id":"aurora-ice-cut","name":"極光谷・氷の切通し","region":"スネージナヤ","status":"regional_temporary_image"},
+    {"id":"aurora-ice-shelf","name":"極光谷・氷棚","region":"スネージナヤ","status":"regional_temporary_image"},
+    {"id":"aurora-steam-channel","name":"湯気谷・温泉水路","region":"スネージナヤ","status":"regional_temporary_image"},
+    {"id":"aurora-mineral-terraces","name":"湯気谷・鉱泉段丘","region":"スネージナヤ","status":"regional_temporary_image"},
+    {"id":"dornman-wind-stairs","name":"潮風の見晴らし道","region":"ドーンマンポート","status":"regional_temporary_image"},
+    {"id":"dornman-flag-trestle","name":"合図旗の渡り廊下","region":"ドーンマンポート","status":"regional_temporary_image"},
+    {"id":"dornman-windworks","name":"潮風の機関室","region":"ドーンマンポート","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 2
 }

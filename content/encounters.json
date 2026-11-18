@@ -12,8 +12,8 @@
   },
   "counts": {
     "source_entities": 63,
-    "encounter_candidates": 74,
-    "partial": 56,
+    "encounter_candidates": 75,
+    "partial": 57,
     "complete": 0
   },
   "encounters": [
@@ -2017,6 +2017,31 @@
         "encoding": "assets/frost-antler-field-idle-sprites-v1.json",
         "audit": "evidence/white-pass-art.json",
         "status": "original story boss base and two key poses"
+      }
+    },
+    {
+      "id": "original-windward-tower",
+      "name": "稜風の帆塔機",
+      "kind": "normal",
+      "entity_ids": [],
+      "status": "partial",
+      "action": null,
+      "grouping": "original_design",
+      "evidence": [
+        "docs/balance/WINDWARD_ROUTE_WEB.md"
+      ],
+      "remaining": [
+        "連続アニメーション",
+        "報酬の調整",
+        "マルチ検証"
+      ],
+      "fieldNode": "dornman-windworks",
+      "fieldEntrance": "潮風の機関室（Lv175）",
+      "art_candidate": {
+        "source": "assets/windward-tower-source-v1.png",
+        "encoding": "assets/windward-tower-field-idle-sprites-v1.json",
+        "audit": "evidence/windward-art.json",
+        "status": "original optional branch boss with three poses"
       }
     },
     {

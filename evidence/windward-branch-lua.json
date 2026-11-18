@@ -1,0 +1,18 @@
+{
+  "earlyGateBlocked": true,
+  "earnedLv160": true,
+  "independentOfQuests": true,
+  "groundAndLiftPaths": true,
+  "pausedQuestRestored": true,
+  "lowWindJump": true,
+  "lockedVerticalWind": true,
+  "blockedDamage": 9,
+  "fullDamage": 95,
+  "zeroLightExhaustDamage": 95,
+  "firstReport": [
+    5312539,
+    741600
+  ],
+  "noExtraQuestBonusOnKill": true,
+  "restored": true
+}

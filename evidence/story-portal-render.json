@@ -1053,12 +1053,12 @@
     {
       "node": "dornman-camp",
       "mode": "sprite",
-      "visible_portals": 3
+      "visible_portals": 5
     },
     {
       "node": "dornman-camp",
       "mode": "rect",
-      "visible_portals": 3
+      "visible_portals": 5
     },
     {
       "node": "dornman-depth",
@@ -1733,12 +1733,12 @@
     {
       "node": "white-pass-station",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "white-pass-station",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "white-pass-woods",
@@ -1767,6 +1767,76 @@
     },
     {
       "node": "white-rainbow-basin",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "aurora-ice-cut",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "aurora-ice-cut",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "aurora-ice-shelf",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "aurora-ice-shelf",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "aurora-steam-channel",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "aurora-steam-channel",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "aurora-mineral-terraces",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "aurora-mineral-terraces",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "dornman-wind-stairs",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "dornman-wind-stairs",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "dornman-flag-trestle",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "dornman-flag-trestle",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "dornman-windworks",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "dornman-windworks",
       "mode": "rect",
       "visible_portals": 1
     }

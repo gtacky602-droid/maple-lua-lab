@@ -762,6 +762,35 @@
       "node": "white-rainbow-basin",
       "enemy_count": 0,
       "field_boss_count": 1
+    },
+    {
+      "node": "aurora-ice-cut",
+      "enemy_count": 28
+    },
+    {
+      "node": "aurora-ice-shelf",
+      "enemy_count": 28
+    },
+    {
+      "node": "aurora-steam-channel",
+      "enemy_count": 28
+    },
+    {
+      "node": "aurora-mineral-terraces",
+      "enemy_count": 28
+    },
+    {
+      "node": "dornman-wind-stairs",
+      "enemy_count": 5
+    },
+    {
+      "node": "dornman-flag-trestle",
+      "enemy_count": 5
+    },
+    {
+      "node": "dornman-windworks",
+      "enemy_count": 0,
+      "field_boss_count": 1
     }
   ],
   "render_profiles": [

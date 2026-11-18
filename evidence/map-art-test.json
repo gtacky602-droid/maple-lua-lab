@@ -1062,6 +1062,48 @@
       "count": 0,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "aurora-ice-cut",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "aurora-ice-shelf",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "aurora-steam-channel",
+      "count": 28,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "aurora-mineral-terraces",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "dornman-wind-stairs",
+      "count": 5,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "dornman-flag-trestle",
+      "count": 5,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "dornman-windworks",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,

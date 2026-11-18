@@ -1,0 +1,23 @@
+{
+  "threeQuests": true,
+  "liftRoute": true,
+  "battle": {
+    "won": true,
+    "seconds": 61.08,
+    "hp": 122,
+    "bossHp": 0,
+    "moves": [
+      "WDW01",
+      "WDW02"
+    ],
+    "returns": 0
+  },
+  "lightReference": 0,
+  "commands": {
+    "png": 17,
+    "standard": 13425,
+    "light": 3286
+  },
+  "savedReport": true,
+  "errors": []
+}

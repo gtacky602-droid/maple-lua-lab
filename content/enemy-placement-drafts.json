@@ -54,6 +54,50 @@
       {"id":"preview-white-pass-cut-26","species":"snow-mantle-beetle","x":1325,"y":388,"flip":false},
       {"id":"preview-white-pass-cut-27","species":"snow-mantle-beetle","x":1416,"y":388,"flip":false},
       {"id":"preview-white-pass-cut-28","species":"snow-mantle-beetle","x":1507,"y":388,"flip":false}
+    ],
+    "aurora-steam-channel": [
+      {"id":"preview-aurora-steam-channel-1-1","species":"snow-mantle-beetle","x":180,"y":480,"flip":false},
+      {"id":"preview-aurora-steam-channel-1-2","species":"sail-shell-crawler","x":257,"y":480,"flip":false},
+      {"id":"preview-aurora-steam-channel-1-3","species":"sail-shell-crawler","x":334,"y":480,"flip":false},
+      {"id":"preview-aurora-steam-channel-1-4","species":"sail-shell-crawler","x":411,"y":480,"flip":false},
+      {"id":"preview-aurora-steam-channel-1-5","species":"snow-mantle-beetle","x":488,"y":480,"flip":false},
+      {"id":"preview-aurora-steam-channel-1-6","species":"sail-shell-crawler","x":565,"y":480,"flip":false},
+      {"id":"preview-aurora-steam-channel-1-7","species":"sail-shell-crawler","x":642,"y":480,"flip":false},
+      {"id":"preview-aurora-steam-channel-1-8","species":"sail-shell-crawler","x":719,"y":480,"flip":false},
+      {"id":"preview-aurora-steam-channel-1-9","species":"snow-mantle-beetle","x":200,"y":390,"flip":false},
+      {"id":"preview-aurora-steam-channel-1-10","species":"sail-shell-crawler","x":296,"y":390,"flip":false},
+      {"id":"preview-aurora-steam-channel-1-11","species":"sail-shell-crawler","x":392,"y":390,"flip":false},
+      {"id":"preview-aurora-steam-channel-1-12","species":"sail-shell-crawler","x":488,"y":390,"flip":false},
+      {"id":"preview-aurora-steam-channel-1-13","species":"snow-mantle-beetle","x":584,"y":390,"flip":false},
+      {"id":"preview-aurora-steam-channel-1-14","species":"sail-shell-crawler","x":680,"y":390,"flip":false},
+      {"id":"preview-aurora-steam-channel-2-1","species":"snow-mantle-beetle","x":1033,"y":480,"flip":false},
+      {"id":"preview-aurora-steam-channel-2-2","species":"sail-shell-crawler","x":1110,"y":480,"flip":false},
+      {"id":"preview-aurora-steam-channel-2-3","species":"sail-shell-crawler","x":1187,"y":480,"flip":false},
+      {"id":"preview-aurora-steam-channel-2-4","species":"sail-shell-crawler","x":1264,"y":480,"flip":false},
+      {"id":"preview-aurora-steam-channel-2-5","species":"snow-mantle-beetle","x":1341,"y":480,"flip":false},
+      {"id":"preview-aurora-steam-channel-2-6","species":"sail-shell-crawler","x":1418,"y":480,"flip":false},
+      {"id":"preview-aurora-steam-channel-2-7","species":"sail-shell-crawler","x":1495,"y":480,"flip":false},
+      {"id":"preview-aurora-steam-channel-2-8","species":"sail-shell-crawler","x":1572,"y":480,"flip":false},
+      {"id":"preview-aurora-steam-channel-2-9","species":"snow-mantle-beetle","x":1053,"y":386,"flip":false},
+      {"id":"preview-aurora-steam-channel-2-10","species":"sail-shell-crawler","x":1149,"y":386,"flip":false},
+      {"id":"preview-aurora-steam-channel-2-11","species":"sail-shell-crawler","x":1245,"y":386,"flip":false},
+      {"id":"preview-aurora-steam-channel-2-12","species":"sail-shell-crawler","x":1341,"y":386,"flip":false},
+      {"id":"preview-aurora-steam-channel-2-13","species":"snow-mantle-beetle","x":1437,"y":386,"flip":false},
+      {"id":"preview-aurora-steam-channel-2-14","species":"sail-shell-crawler","x":1533,"y":386,"flip":false}
+    ],
+    "dornman-wind-stairs": [
+      {"id":"preview-dornman-wind-stairs-1","species":"sail-shell-crawler","x":268,"y":480,"flip":false},
+      {"id":"preview-dornman-wind-stairs-2","species":"sail-shell-crawler","x":604,"y":480,"flip":false},
+      {"id":"preview-dornman-wind-stairs-3","species":"sail-shell-crawler","x":876,"y":388,"flip":false},
+      {"id":"preview-dornman-wind-stairs-4","species":"sail-shell-crawler","x":1150,"y":480,"flip":false},
+      {"id":"preview-dornman-wind-stairs-5","species":"sail-shell-crawler","x":1530,"y":399,"flip":false}
+    ],
+    "dornman-flag-trestle": [
+      {"id":"preview-dornman-flag-trestle-1","species":"sail-shell-crawler","x":278,"y":480,"flip":false},
+      {"id":"preview-dornman-flag-trestle-2","species":"sail-shell-crawler","x":484,"y":480,"flip":false},
+      {"id":"preview-dornman-flag-trestle-3","species":"sail-shell-crawler","x":835,"y":374,"flip":false},
+      {"id":"preview-dornman-flag-trestle-4","species":"sail-shell-crawler","x":1260,"y":480,"flip":false},
+      {"id":"preview-dornman-flag-trestle-5","species":"sail-shell-crawler","x":1510,"y":391,"flip":false}
     ]
   }
 }

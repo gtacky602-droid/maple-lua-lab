@@ -1,0 +1,133 @@
+{
+  "originalReference": "evidence/windward-shape-study.png",
+  "views": [
+    "orthographic lateral",
+    "orthographic frontal"
+  ],
+  "images": {
+    "windward-tower-source-v1.png": "744855c82080e59f390b063d3686034c237512d6dfbfbcec542203a55f14c38c",
+    "aurora-glass-background-v1.png": "0f12338ccd88ea1a6559a621f0c6760dc2cf9a0162a4ddb88dbc81699e1b73c8",
+    "thermal-ravine-background-v1.png": "602125b886c4940595fe59706ecca51a0f399028fc8fc584035d2991569da21a",
+    "coastal-lookout-background-v1.png": "866a689141531660f1ea533b1c7b7b199a5099ab089eac2e9a0cc21084c1d804",
+    "windward-works-background-v1.png": "b83e2e804fb79b2139b91bdb8eeea0df6e7c717539c2a177d285f8e6c02d2144"
+  },
+  "prompts": {
+    "sprite": "Convert this original schematic into a POLISHED retro 2D role-playing game sprite sheet. Landscape 1536x1024 exact 2 columns by 2 rows, wide entirely blank transparent margins. All four stationary objects are left-facing strict side elevation. Top left: small original six-legged terracotta and sand colored wind-up dock crawler, its closed travel sail only a folded white triangle on its back, tiny pale green lens and sand-blue legs. Top right: huge six-legged original autonomous sailtower machine, navy ship-shaped metal body with weathered warm copper panels, mast bearing two sail shutters of off-white canvas and rust red stripes, a turquoise pressure port, hinges, rivets, steel struts. Bottom left: same tall machine with wind-spread sails and forward shutter lowered, EXACT same closed-copper lower body and mast heights, braced articulated legs. Bottom right: same huge machine with folded sails and opened pressure port exposing luminous mint turbine rotor, EXPLICIT open side panel, feet firmly grounded. Visible hand-placed tiny square pixel clusters, strong different color ramps, rich weathering and shadowing within each object, no soft gradients or drawn shadows, dark outlines, NO flat concept fill, no lines outside objects, target pixel scale like 1 artwork pixel per 5 screen pixels and finely rendered art. Four separate isolated sprites only, ZERO backdrop, no typography, no other game's design.",
+    "ice": "A wholly original side-view pixel art background for a rugged mountain RPG path after the snowy plateau. Deep indigo lateral glacial ravine with massive angular translucent cyan ice ridges silhouetted against a cold pale sky, distant moraine poles and umber cliffs, small patches of gold lichen. Glowing ice catches the daylight. Dim, low-contrast lower third with violet snow shadows to complement independently drawn platforms. No obvious drawn foreground floor, no visible people, monsters, text, or icons. Cohesive retro hand-clustered atmospheric pixel art. 1536x1024 wide.",
+    "vents": "Wholly original 2D side-scroller pixel art background. Deep alpine hydrothermal ravine with thin apricot steam columns in front of dark blue granite, burnished lantern reflections on frosted cliff edges, old pale copper flumes, craggy stone walls and bright apricot-lit mineral seams, teal distance. Lower third subdued clear cool slate backdrop for a separately drawn floor and characters. No near ground, no readable text, enemies, game references, silhouettes of people, or HUD. Layered very crisp 16-bit pixel clusters, not photographic. Wide 1536x1024.",
+    "dock": "Original cliffside wind observatory above a maritime trade port, 2D side-scrolling pixel art frame. Eye-level side profile across a series of chiseled ivory sandstone arches and staggered bright lookout towers. Blue slate roofs and small pale red flags indicate strong sea wind in an otherwise still landscape. Soft arches fade toward an aquamarine sea at the left. Lower third muted cool charcoal ochre with continuous shadow backdrop for game terrain added separately, NO material floor or fake platforms painted in that area. Crisp well-defined pixel clusters, high craft pixel scenery, no characters, text, game imagery or trademarks. 1536x1024 landscape.",
+    "works": "New original platform RPG background in side-on elevation: old windswept cliff machinery chamber open onto a distant teal sea, with broad iron winch sheaves and wind gauges in deep dusty background. Age-worn ochre masonry, two beige fabric banners with single burgundy stripe high above, amber brass metalwork, deep jade shade behind. Keep lower third dark cool blue as blank contrasting back wall. Do not draw gameplay floor, ladders, foreground actors, bosses or UI, no words or symbols. Deliberate crunchy pixel clusters, refined old arcade side-scrolling scenic detail, 1536x1024 wide."
+  },
+  "encodings": {
+    "sail-shell-crawler-idle-sprites.json": {
+      "arguments": [
+        "--source",
+        "windward-tower-source-v1.png",
+        "--output",
+        "sail-shell-crawler-idle-sprites.json",
+        "--height",
+        "53",
+        "--foot-anchor",
+        "--crop",
+        "0",
+        "0",
+        "768",
+        "512"
+      ],
+      "runs": {
+        "legacy": 1765,
+        "h48c32": 1078,
+        "h32c16": 413
+      },
+      "bounds": [
+        234,
+        251,
+        311,
+        206
+      ]
+    },
+    "windward-tower-field-idle-sprites-v1.json": {
+      "arguments": [
+        "--source",
+        "windward-tower-source-v1.png",
+        "--output",
+        "windward-tower-field-idle-sprites-v1.json",
+        "--height",
+        "146",
+        "--foot-anchor",
+        "--crop",
+        "768",
+        "0",
+        "768",
+        "512"
+      ],
+      "runs": {
+        "legacy": 8948,
+        "h48c32": 5458,
+        "h32c16": 2194
+      },
+      "bounds": [
+        836,
+        29,
+        545,
+        446
+      ]
+    },
+    "windward-tower-field-braced-sprites-v1.json": {
+      "arguments": [
+        "--source",
+        "windward-tower-source-v1.png",
+        "--output",
+        "windward-tower-field-braced-sprites-v1.json",
+        "--height",
+        "146",
+        "--foot-anchor",
+        "--crop",
+        "0",
+        "512",
+        "768",
+        "512"
+      ],
+      "runs": {
+        "legacy": 9409,
+        "h48c32": 5638,
+        "h32c16": 2210
+      },
+      "bounds": [
+        89,
+        535,
+        545,
+        453
+      ]
+    },
+    "windward-tower-field-open-sprites-v1.json": {
+      "arguments": [
+        "--source",
+        "windward-tower-source-v1.png",
+        "--output",
+        "windward-tower-field-open-sprites-v1.json",
+        "--height",
+        "146",
+        "--foot-anchor",
+        "--crop",
+        "768",
+        "512",
+        "768",
+        "512",
+        "--accent-color",
+        "#5df3c6"
+      ],
+      "runs": {
+        "legacy": 9188,
+        "h48c32": 5393,
+        "h32c16": 2226
+      },
+      "bounds": [
+        836,
+        541,
+        545,
+        447
+      ]
+    }
+  }
+}

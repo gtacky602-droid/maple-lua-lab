@@ -1,0 +1,81 @@
+{
+  "method": "Lv160 fixture, built-in auto combat, default pair without gear changes. Ordinary portal positioning is scripted. Storage recovery and sale use game actions. Hunt simulation excludes walking/handling time.",
+  "samples": [
+    {
+      "node": "white-pass-ridge",
+      "level": 175,
+      "enemies": 28,
+      "kills": 79,
+      "perMinute": 52.67,
+      "killXp": 2933191
+    },
+    {
+      "node": "aurora-ice-cut",
+      "level": 160,
+      "enemies": 28,
+      "kills": 80,
+      "perMinute": 53.33,
+      "killXp": 4506960
+    },
+    {
+      "node": "aurora-ice-shelf",
+      "level": 165,
+      "enemies": 28,
+      "kills": 93,
+      "perMinute": 62.0,
+      "killXp": 7094412
+    },
+    {
+      "node": "aurora-steam-channel",
+      "level": 170,
+      "enemies": 28,
+      "kills": 94,
+      "perMinute": 62.67,
+      "killXp": 9595520
+    },
+    {
+      "node": "aurora-mineral-terraces",
+      "level": 175,
+      "enemies": 28,
+      "kills": 86,
+      "perMinute": 57.33,
+      "killXp": 11204338
+    }
+  ],
+  "trace": [
+    {
+      "node": "aurora-ice-cut",
+      "unlockedLv": 165,
+      "simSeconds": 9112.78,
+      "kills": 7701,
+      "totalExp": 1656525519
+    },
+    {
+      "node": "aurora-ice-shelf",
+      "unlockedLv": 170,
+      "simSeconds": 18210.88,
+      "kills": 15402,
+      "totalExp": 2243988603
+    },
+    {
+      "node": "aurora-steam-channel",
+      "unlockedLv": 175,
+      "simSeconds": 27323.02,
+      "kills": 22912,
+      "totalExp": 3010609403
+    },
+    {
+      "node": "aurora-mineral-terraces",
+      "unlockedLv": 180,
+      "simSeconds": 36418.62,
+      "kills": 30423,
+      "totalExp": 3989165016
+    }
+  ],
+  "level": 180,
+  "simSeconds": 36418.62,
+  "optionalQuestsCompleted": 0,
+  "usedStoredLootRecovery": 3,
+  "partyRests": 9,
+  "combatReturns": 0
+}

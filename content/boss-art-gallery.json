@@ -571,7 +571,8 @@
       "height": 150,
       "mapHover": 64
     },
-    {"id":"frost-antler","name":"霜鎧の大角獣（ラボ独自）","file":"frost-antler-field-idle-sprites-v1.json","height":136,"mapHover":0}
+    {"id":"frost-antler","name":"霜鎧の大角獣（ラボ独自）","file":"frost-antler-field-idle-sprites-v1.json","height":136,"mapHover":0},
+    {"id":"windward-tower","name":"稜風の帆塔機（ラボ独自）","file":"windward-tower-field-idle-sprites-v1.json","height":146,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }
