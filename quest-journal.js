@@ -190,7 +190,9 @@ export function renderQuestJournal(f,{filter,onFilter,button,trackedId,onTrack})
    row.append(b);
   }
   if(onTrack){const b=document.createElement('button');b.textContent=trackedId===q.id?'追跡を解除':'この依頼を追跡';b.setAttribute('aria-pressed',String(trackedId===q.id));b.onclick=()=>onTrack(trackedId===q.id?null:q.id);row.append(b)}
-  const dialogue=status==='unaccepted'?q.briefing:status==='complete'&&(!q.sights||st.sights)?q.closing:null;
+  const huntDialogue=q.kinichHunt?.reports?.[st?.huntNotes?.outcome];
+  const dialogue=status==='unaccepted'?q.briefing:status==='complete'&&(!q.sights||st.sights)?
+   (huntDialogue?`${huntDialogue} ${q.closing}`:q.closing):null;
   if(dialogue){
    const line=document.createElement('small');
    line.style.display='block';

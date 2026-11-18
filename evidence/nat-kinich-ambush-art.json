@@ -1,0 +1,113 @@
+{
+  "tool": "built-in image generation and reference-guided proportion edits",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/nat-kinich-ambush-model.obj",
+    "sha256": "ccc51d1b7cb1884dd9f46f84ad2e970fef3575deacde878a7f87e9bcd390d25e"
+  },
+  "materials": {
+    "path": "evidence/nat-kinich-ambush-model.mtl",
+    "sha256": "83359420e7554e6087538b9ddb265425a1994a09f0f615c33f8d2d59c31ce382"
+  },
+  "contactSheet": {
+    "path": "evidence/nat-kinich-ambush-views.png",
+    "sha256": "b28f67754381830fe9a284f5a5e356f895d0d9deb648f4b681abc0033ec918ed"
+  },
+  "propsSource": {
+    "path": "assets/nat-kinich-ambush-props-source-v1.png",
+    "sha256": "7540ae3a576038de6e586cd1796988b6982a5dec2f32d3ca2d8ff669b22027f6"
+  },
+  "alphaCorners": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "backgrounds": [
+    {
+      "path": "assets/nat-kinich-ambush-trail-background-v1.png",
+      "sha256": "6826cac9a73960e5f5de3570c9b94e310c4b15f023cc8b59a3d32909c98ccf18"
+    }
+  ],
+  "backgroundReferences": [
+    {
+      "path": "assets/natlan-race-ridge-background-v1.png",
+      "sha256": "057644692ca2abb52c377f88b4b73955a4a45ddc6ba53c21b318de80a946aae6"
+    }
+  ],
+  "status": "Four original trail props from local 3D form references. Existing fanged-beast art is reused with larger on-screen size.",
+  "profiles": {
+    "tracks": {
+      "encoding": {
+        "path": "assets/nat-kinich-ambush-tracks-sprites-v1.json",
+        "sha256": "6a0d4f9035361bfcd8ea388fb42f5be2442120591597b8923fbe27b594aea656"
+      },
+      "box": [
+        94,
+        255,
+        447,
+        215
+      ],
+      "runs": {
+        "legacy": 1646,
+        "h48c32": 973,
+        "h32c16": 428
+      }
+    },
+    "branch": {
+      "encoding": {
+        "path": "assets/nat-kinich-ambush-branch-sprites-v1.json",
+        "sha256": "305c1922f95182053bb5f52ae1c05a0bde8ffb80e39df25b15e167ed77f0c126"
+      },
+      "box": [
+        702,
+        220,
+        464,
+        225
+      ],
+      "runs": {
+        "legacy": 1147,
+        "h48c32": 700,
+        "h32c16": 310
+      }
+    },
+    "marker": {
+      "encoding": {
+        "path": "assets/nat-kinich-ambush-marker-sprites-v1.json",
+        "sha256": "98777c71c5632d10c20c38ee017a79e33f6cb1637206e337433d9435cd3ea5bd"
+      },
+      "box": [
+        169,
+        745,
+        301,
+        389
+      ],
+      "runs": {
+        "legacy": 732,
+        "h48c32": 440,
+        "h32c16": 171
+      }
+    },
+    "cover": {
+      "encoding": {
+        "path": "assets/nat-kinich-ambush-cover-sprites-v1.json",
+        "sha256": "fcdd23354993ec2d02189fd6b64d625b8b47acffee9608dd82c4458ed9debabe"
+      },
+      "box": [
+        702,
+        791,
+        454,
+        309
+      ],
+      "runs": {
+        "legacy": 3205,
+        "h48c32": 1986,
+        "h32c16": 840
+      }
+    }
+  }
+}

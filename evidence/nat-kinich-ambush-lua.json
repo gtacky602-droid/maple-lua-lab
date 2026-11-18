@@ -1,0 +1,33 @@
+{
+  "mainPrerequisite": true,
+  "oneHitDirect": true,
+  "optionalClueOrder": true,
+  "latePlanAfterUnassistedReturn": true,
+  "routes": {
+    "slope": {
+      "home": 710,
+      "span": 68,
+      "outcome": "slope"
+    },
+    "clearing": {
+      "home": 1270,
+      "span": 217,
+      "outcome": "clearing"
+    },
+    "ledges": {
+      "home": 1815,
+      "span": 112,
+      "outcome": "ledges"
+    }
+  },
+  "patrolTurnAndReturn": true,
+  "bossControlResistance": true,
+  "notesSurviveSave": true,
+  "reward": [
+    1807313,
+    5600,
+    5
+  ],
+  "shortcutBothWays": true,
+  "noQuestBeastRespawn": true
+}

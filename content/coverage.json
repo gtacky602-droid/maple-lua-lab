@@ -147,8 +147,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 27,
-      "prototype_quest_count": 15,
+      "prototype_stage_count": 28,
+      "prototype_quest_count": 16,
       "official_map2_markers": {
         "waypoints": 126,
         "statues": 9
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 326,
-    "provisional_quests": 189,
+    "authored_stages": 327,
+    "provisional_quests": 190,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -908,6 +908,7 @@
         "stage_ids": [
           "natlan-entry",
           "natlan-hub",
+          "natlan-kinich-hunt",
           "natlan-surf-run",
           "natlan-surf-cove",
           "natlan-charm-trail",
@@ -938,6 +939,7 @@
           "kachina-join",
           "natlan-kachina-charms",
           "natlan-mualani-surf",
+          "natlan-kinich-ambush",
           "natlan-entry-check",
           "natlan-contract",
           "qucusaur-commission",
@@ -1413,8 +1415,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 94,
-    "without_explicit_mapping": 59,
+    "linked": 95,
+    "without_explicit_mapping": 58,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1486,6 +1488,7 @@
       "Q-NAT-M03": "natlan-sunset-duel",
       "Q-NAT-S01": "natlan-kachina-charms",
       "Q-NAT-S02": "natlan-mualani-surf",
+      "Q-NAT-S03": "natlan-kinich-ambush",
       "Q-NOD-M01": "nod-first-treasure",
       "Q-NOD-M02": "nod-moon-crossroads",
       "Q-NOD-M03": "nod-moon-vault-quest",

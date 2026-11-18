@@ -1,7 +1,7 @@
 {
   "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
   "version": "monster-quest-v02",
-  "quests_tested": 61,
+  "quests_tested": 62,
   "old_completed_not_reissued": true,
   "old_unreported_uses_current_preview": true,
   "unlinked_trial_fallback": true,
@@ -27,9 +27,9 @@
       "report_xp": 3215990
     },
     "NAT": {
-      "linked": 5,
-      "legacy_xp": 18881045,
-      "report_xp": 18881045
+      "linked": 6,
+      "legacy_xp": 20688358,
+      "report_xp": 20688358
     },
     "SNE": {
       "linked": 8,
@@ -233,6 +233,12 @@
       "quest_id": "natlan-mualani-surf",
       "legacy_xp": 1404867,
       "report_xp": 1404867
+    },
+    {
+      "design_id": "Q-NAT-S03",
+      "quest_id": "natlan-kinich-ambush",
+      "legacy_xp": 1807313,
+      "report_xp": 1807313
     },
     {
       "design_id": "Q-SNE-M01",

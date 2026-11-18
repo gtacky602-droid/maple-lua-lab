@@ -1025,6 +1025,18 @@
       "to": "natlan-surf-run"
     },
     {
+      "node": "natlan-hub",
+      "to": "natlan-kinich-hunt"
+    },
+    {
+      "node": "natlan-kinich-hunt",
+      "to": "natlan-hub"
+    },
+    {
+      "node": "natlan-kinich-hunt",
+      "to": "natlan-field"
+    },
+    {
       "node": "natlan-surf-run",
       "to": "natlan-hub"
     },
@@ -1079,6 +1091,10 @@
     {
       "node": "natlan-field",
       "to": "spiritspeaker-field-grotto"
+    },
+    {
+      "node": "natlan-field",
+      "to": "natlan-kinich-hunt"
     },
     {
       "node": "qucusaur-field-cavern",

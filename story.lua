@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule,furinaCuesModule,naviaPhotoModule,lyneyMagicModule,freminetDiveModule,stoneOrnamentsModule,mualaniSurfModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule,furinaCuesModule,naviaPhotoModule,lyneyMagicModule,freminetDiveModule,stoneOrnamentsModule,mualaniSurfModule,kinichAmbushModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -198,6 +198,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local freminetDive=freminetDiveModule(C,canInspect)
  local stoneOrnaments=stoneOrnamentsModule(C,canInspect)
  local mualaniSurf=mualaniSurfModule(C,canInspect)
+ local kinichAmbush=kinichAmbushModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -633,6 +634,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    defeated=defeatedMilestones(itinerary,stageState,id)
   end
   spawnEnemies(s,n,phase,stageState and stageState.recovered,defeated)
+  local huntQuest=n.kinichQuest and quests[n.kinichQuest]
+  kinichAmbush.enter(s,huntQuest,huntQuest and s.story.quests[huntQuest.id])
   local cargo,state=cargoQuest(s)
   if cargo and cargo.chase and recoveredAll(cargo,state) then beginChase(s,cargo) end
   for i,a in ipairs(s.actors) do a.x=(spawn or 160)-(i-1)*40;a.y=arrivalY or 480;a.vy=0;a.ground=true;if arrivalY then a.drop=0 end end
@@ -812,6 +815,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    local lamp=node.localLight
    if lamp and localLight.interact(s,lamp) then return end
+   if node.kinichQuest then
+    local q=quests[node.kinichQuest]
+    if kinichAmbush.interact(s,q,s.story.quests[q.id]) then return end
+   end
    if node.surfQuest then
     local q=quests[node.surfQuest]
     local state=s.story.quests[q.id]
@@ -1055,6 +1062,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     state.status='complete';state.cycles=(state.cycles or 0)+1;s.mora=s.mora+q.mora;C.grantExp(s,q.xp,'quest')
     if q.ore then C.grantUpgradeOre(s,q.ore) end
     if not state.sights then s.storyNotice=(not q.sights and q.closing) or (q.sights and q.sights.legacyName or q.name)..'：報酬を受け取りました。' end
+    if q.kinichHunt then s.storyNotice=kinichAmbush.report(q,state) end
     if q.starter and s.companion==q.join then C.refreshArtifactStats(s,true) end
    end
    return
@@ -1079,6 +1087,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if milestone and milestone.kind=='kill' and milestone.node==s.story.node and e.spawnId then
      if recordKill(s,state,milestone,e.spawnId,parent,quest) and nodes[s.story.node].clearedBy==q.id then
       e.respawn=math.huge
+      if q.kinichHunt then kinichAmbush.defeat(s,q,state) end
      end
     end
    end
@@ -1180,6 +1189,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local returns,previous=s.returns,s.t;step(s,dt,(s.fireworkShow or s.sayuHatch or s.kavehModelOpen or s.nahidaMapOpen or s.furinaRun or s.photoPanel or s.stonePairOpen or s.lyneyRun) and {} or input)
   if s.story and s.story.active and s.returns==returns and not s.paused then
    local node=nodes[s.story.node]
+   if s.kinichHunt then
+    local q=quests[node.kinichQuest]
+    kinichAmbush.step(s,s.t-previous,q,s.story.quests[q.id])
+   end
    duel.step(s,node.duel)
    patrol.update(s,node.patrol)
    if node.teaQuest and s.teaArrival then teaCase.step(s,quests[node.teaQuest]) end
@@ -1433,6 +1446,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if n.toyDisplay then
     freminetDive.display(f,s,markers,n.toyDisplay,s.story.quests[n.toyDisplay.quest],mode,profile)
    end
+   if n.kinichQuest then
+    local q=quests[n.kinichQuest]
+    kinichAmbush.observe(f,s,markers,n,q,s.story.quests[q.id],mode,profile)
+   end
    if n.surfQuest then
     local q=quests[n.surfQuest]
     mualaniSurf.observe(f,s,markers,n,q,s.story.quests[q.id],mode,profile)
@@ -1672,7 +1689,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup
         and not milestone.nightClue and not milestone.fireworkSight and not milestone.stealthNap
         and not milestone.teaClue and not milestone.teaCup and not milestone.surveyProp and not milestone.visitorProp
-        and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp and not milestone.photoProp and not milestone.magicProp and not milestone.diveProp and not milestone.charmProp and not milestone.surfProp
+        and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp and not milestone.photoProp and not milestone.magicProp and not milestone.diveProp and not milestone.charmProp and not milestone.surfProp and not milestone.huntProp
         and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)

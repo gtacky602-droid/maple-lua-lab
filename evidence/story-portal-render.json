@@ -863,12 +863,22 @@
     {
       "node": "natlan-hub",
       "mode": "sprite",
-      "visible_portals": 11
+      "visible_portals": 12
     },
     {
       "node": "natlan-hub",
       "mode": "rect",
-      "visible_portals": 11
+      "visible_portals": 12
+    },
+    {
+      "node": "natlan-kinich-hunt",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-kinich-hunt",
+      "mode": "rect",
+      "visible_portals": 2
     },
     {
       "node": "natlan-surf-run",
@@ -903,12 +913,12 @@
     {
       "node": "natlan-field",
       "mode": "sprite",
-      "visible_portals": 8
+      "visible_portals": 9
     },
     {
       "node": "natlan-field",
       "mode": "rect",
-      "visible_portals": 8
+      "visible_portals": 9
     },
     {
       "node": "qucusaur-field-cavern",

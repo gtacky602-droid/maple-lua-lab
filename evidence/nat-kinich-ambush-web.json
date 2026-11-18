@@ -1,0 +1,14 @@
+{
+  "slopeAfterReload": true,
+  "directWithoutClues": true,
+  "actualJumpToLedge": true,
+  "differentDialogue": true,
+  "shortcutBothWays": true,
+  "mobileFits": true,
+  "calls": {
+    "png": 41,
+    "rect": 19304,
+    "light": 5172
+  },
+  "errors": []
+}

@@ -366,6 +366,10 @@
       "enemy_count": 0
     },
     {
+      "node": "natlan-kinich-hunt",
+      "enemy_count": 1
+    },
+    {
       "node": "natlan-surf-run",
       "enemy_count": 0
     },

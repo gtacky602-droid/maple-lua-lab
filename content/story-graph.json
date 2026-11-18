@@ -2228,11 +2228,79 @@
             "quest": "natlan-mualani-surf",
             "count": 1
           }
+        },
+        {
+          "to": "natlan-kinich-hunt",
+          "x": 405,
+          "arrivalX": 112,
+          "rideLabel": "巡り岩の狩道",
+          "requires": {
+            "quest": "natlan-kinich-ambush",
+            "count": 1
+          }
         }
       ],
       "checkpoint": "natlan-hub",
       "stoneCharmQuest": "natlan-kachina-charms",
-      "surfQuest": "natlan-mualani-surf"
+      "surfQuest": "natlan-mualani-surf",
+      "kinichQuest": "natlan-kinich-ambush"
+    },
+    {
+      "id": "natlan-kinich-hunt",
+      "name": "ナタ・巡り岩の狩道",
+      "region": "ナタ",
+      "level": 100,
+      "width": 2630,
+      "hub": false,
+      "peaceful": false,
+      "checkpoint": "natlan-hub",
+      "kinichQuest": "natlan-kinich-ambush",
+      "clearedBy": "natlan-kinich-ambush",
+      "clearCount": 2,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 2630
+        },
+        {
+          "x": 536,
+          "y": 416,
+          "w": 211
+        },
+        {
+          "x": 1508,
+          "y": 415,
+          "w": 219
+        },
+        {
+          "x": 1736,
+          "y": 367,
+          "w": 365
+        },
+        {
+          "x": 2150,
+          "y": 413,
+          "w": 190
+        }
+      ],
+      "exits": [
+        {
+          "to": "natlan-hub",
+          "x": 60,
+          "arrivalX": 444,
+          "rideLabel": "谷の集落に戻る"
+        },
+        {
+          "to": "natlan-field",
+          "x": 2550,
+          "arrivalX": 929,
+          "rideLabel": "岩場の狩場への近道",
+          "requires": {
+            "quest": "natlan-kinich-ambush"
+          }
+        }
+      ]
     },
     {
       "id": "natlan-surf-run",
@@ -2452,12 +2520,39 @@
           "to": "natlan-port",
           "x": 1380
         },
-        {"to":"qucusaur-field-cavern","x":1030},
-        {"to":"yumka-field-ravine","x":690},
-        {"to":"config-device-field-workshop","x":435},
-        {"to":"papilla-field-hollow","x":235},
-        {"to":"atocpan-lava-field","x":1195},
-        {"to":"spiritspeaker-field-grotto","x":850}
+        {
+          "to": "qucusaur-field-cavern",
+          "x": 1030
+        },
+        {
+          "to": "yumka-field-ravine",
+          "x": 690
+        },
+        {
+          "to": "config-device-field-workshop",
+          "x": 435
+        },
+        {
+          "to": "papilla-field-hollow",
+          "x": 235
+        },
+        {
+          "to": "atocpan-lava-field",
+          "x": 1195
+        },
+        {
+          "to": "spiritspeaker-field-grotto",
+          "x": 850
+        },
+        {
+          "to": "natlan-kinich-hunt",
+          "x": 925,
+          "arrivalX": 2490,
+          "rideLabel": "巡り岩の狩道への近道",
+          "requires": {
+            "quest": "natlan-kinich-ambush"
+          }
+        }
       ],
       "checkpoint": "natlan-hub"
     },
@@ -6514,6 +6609,105 @@
           "objective": "入り江で遊びを始め、近くに来たボールを一度打ち返す",
           "notice": "ムアラニ「波が折り返すときのしぶき、もう覚えたね。もう一回？ 集落に戻って報告してもいいよ。」",
           "surfProp": true
+        }
+      ]
+    },
+    {
+      "id": "natlan-kinich-ambush",
+      "designId": "Q-NAT-S03",
+      "name": "追いつくより、先回り",
+      "giver": "キィニチ",
+      "hub": "natlan-hub",
+      "target": "natlan-kinich-hunt",
+      "requires": "natlan-ridge-flag",
+      "level": 100,
+      "kind": "itinerary",
+      "goal": 2,
+      "xp": 1807313,
+      "mora": 5600,
+      "ore": 5,
+      "briefing": "キィニチ「通り道に大きな魔物が出る。倒しやすい場所を見ておこう。」",
+      "closing": "キィニチが巡り岩の狩道から岩場へ抜ける近道を教えてくれました。",
+      "completedObjective": "巡り岩の狩道から岩場の狩場へ抜ける近道を通れる",
+      "kinichHunt": {
+        "enemy": "kinich-hunt-ridge-beast",
+        "spawn": 876,
+        "turn": 2234,
+        "patrolSpeed": 380,
+        "wait": 10,
+        "delay": 0.62,
+        "clues": [
+          {
+            "id": "tracks",
+            "x": 314,
+            "y": 480,
+            "label": "大きな足跡",
+            "action": "足跡を調べる",
+            "notice": "キィニチ「古い足跡に新しい跡が重なってる。通る道は毎回ほぼ同じだ。」"
+          },
+          {
+            "id": "branch",
+            "x": 425,
+            "y": 480,
+            "label": "折れた枝",
+            "action": "折れた枝を調べる",
+            "notice": "キィニチ「枝は東へ折れてる。先の岩で折り返す。追わずに待てる場所を探そう。」"
+          }
+        ],
+        "sites": [
+          {
+            "id": "slope",
+            "x": 606,
+            "y": 480,
+            "home": 710,
+            "span": 68,
+            "label": "狭い坂道",
+            "advice": "狭い坂道なら、魔物が横へ逃げにくい。火柱や設置技を通り道に置いて待てる。"
+          },
+          {
+            "id": "clearing",
+            "x": 1202,
+            "y": 480,
+            "home": 1270,
+            "span": 217,
+            "label": "開けた岩場",
+            "advice": "開けた岩場なら、距離をとって回避や遠距離攻撃を使いやすい。"
+          },
+          {
+            "id": "ledges",
+            "x": 1822,
+            "y": 367,
+            "home": 1815,
+            "span": 112,
+            "label": "上下の岩棚",
+            "advice": "上段から様子を見て、下を通ったときに着地や縦の攻撃を合わせられる。"
+          }
+        ],
+        "reports": {
+          "direct": "キィニチ「正面から止められるなら、それで十分。こちらに下りる道も開けておく。」",
+          "slope": "キィニチ「狭い坂に進路を絞れた。通る場所に合わせると、追う手間が省ける。」",
+          "clearing": "キィニチ「開けた場所なら距離を取り直せる。動く余地を残したのがよかった。」",
+          "ledges": "キィニチ「段差を使えば、立つ高さはこっちで選べる。下を通る瞬間を見てたね。」"
+        }
+      },
+      "itinerary": [
+        {
+          "kind": "inspect",
+          "node": "natlan-hub",
+          "x": 392,
+          "y": 480,
+          "name": "キィニチとの打ち合わせ",
+          "action": "キィニチに狩りの話を聞く",
+          "objective": "谷の集落でキィニチと話す",
+          "notice": "キィニチ「足跡と折れ枝を見れば待ち伏せ場所を選べる。今の装備で倒せそうなら、そのまま仕掛けてもいい。」",
+          "huntProp": true
+        },
+        {
+          "kind": "kill",
+          "node": "natlan-kinich-hunt",
+          "enemy": "kinich-hunt-ridge-beast",
+          "name": "巡り岩の大型魔物",
+          "objective": "狩道の大型魔物を倒す。足跡と枝を調べて待てる場所を選ぶか、正面から挑む"
         }
       ]
     },

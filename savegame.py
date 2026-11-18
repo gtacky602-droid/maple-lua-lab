@@ -62,6 +62,31 @@ def validate_discovery_map(record, quest, story):
         raise ValueError('Incomplete discovery map')
 
 
+def validate_kinich_hunt(record, quest, visited):
+    spec = quest.get('kinichHunt')
+    finished = record['count'] == quest['goal']
+    if 'huntNotes' not in record:
+        if spec and finished:
+            raise ValueError('巡り岩の討伐結果がありません')
+        return
+    notes = record['huntNotes']
+    keys = {'tracks', 'branch', 'site', 'outcome'}
+    if (not spec or not isinstance(notes, dict) or not notes or set(notes) - keys
+            or record['count'] == 0 or quest['target'] not in visited):
+        raise ValueError('巡り岩の調査記録が不正です')
+    clues = ('tracks', 'branch')
+    if any(key in notes and notes[key] is not True for key in clues):
+        raise ValueError('巡り岩の調査記録が不正です')
+    site = notes.get('site')
+    if 'site' in notes and (site not in [option['id'] for option in spec['sites']]
+                              or not all(notes.get(key) for key in clues)):
+        raise ValueError('巡り岩の待ち伏せ先が不正です')
+    outcome = notes.get('outcome')
+    if (finished and (not isinstance(outcome, str) or outcome != 'direct' and outcome != site)
+            or not finished and 'outcome' in notes):
+        raise ValueError('巡り岩の討伐結果が不正です')
+
+
 def validate_stone_pair(record, quest):
     spec = quest.get('stoneOrnaments')
     if 'stonePair' not in record:
@@ -358,7 +383,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord','fireworkDesign','stealthEncounter','ittoContest','colleiLetter','roomLayout','discoveryDraft','discoveryDew','groupPhoto','stonePair'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord','fireworkDesign','stealthEncounter','ittoContest','colleiLetter','roomLayout','discoveryDraft','discoveryDew','groupPhoto','stonePair','huntNotes'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -389,6 +414,7 @@ def validate_save(data):
             validate_reading_model(q,quest)
             validate_group_photo(q,quest)
             validate_stone_pair(q,quest)
+            validate_kinich_hunt(q,quest,st['visited'])
             validate_discovery_map(q,quest,st)
             validate_appraisal(q,quest,st['visited'])
             validate_snow_match(q,quest,nodes.get(quest.get('target'),{}).get('snowMatch'))
