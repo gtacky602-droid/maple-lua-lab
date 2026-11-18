@@ -1,0 +1,21 @@
+{
+  "woodOnly": true,
+  "coastOnly": true,
+  "optionalCoastAfterReport": true,
+  "optionalWoodAfterReport": true,
+  "partialOptionalSweepRestored": true,
+  "tamperedJoinRejected": true,
+  "bothHeightJumps": true,
+  "glimpseFreezesOnPause": true,
+  "bridgeCrossedOnFoot": true,
+  "bridgeRestored": true,
+  "safeRestAndHuntSeparate": true,
+  "shortcutBothDirections": true,
+  "coastOre": 2,
+  "caveOre": 3,
+  "reportReward": [
+    13612730,
+    10600,
+    0
+  ]
+}

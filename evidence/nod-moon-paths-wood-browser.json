@@ -1,0 +1,29 @@
+{
+  "path": "wood",
+  "otherPathUnused": true,
+  "glimpse": true,
+  "report": true,
+  "saveReloaded": true,
+  "bridgeRestored": true,
+  "routeScene": {
+    "key": "nodMoonWood",
+    "file": "nod-moon-wood-background-v1.png",
+    "state": "ready"
+  },
+  "caveScene": {
+    "key": "nodMoonCave",
+    "file": "nod-moon-cave-background-v1.png",
+    "state": "ready"
+  },
+  "reward": [
+    13612730,
+    10600,
+    0
+  ],
+  "commands": {
+    "png": 52,
+    "standard": 3485,
+    "light": 926
+  },
+  "errors": []
+}

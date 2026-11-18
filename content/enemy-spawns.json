@@ -2322,6 +2322,17 @@
       {"id":"nod-tide-rocks-1","kind":1,"art":"hydro-slime","x":715,"platform":0,"hp":32,"pursuit":{"range":280,"leash":660,"speed":88}},
       {"id":"nod-tide-rocks-2","kind":2,"art":"pyro-slime","x":817,"platform":0,"hp":42,"pursuit":{"range":280,"leash":660,"speed":88}},
       {"id":"nod-tide-rocks-3","kind":1,"art":"hydro-slime","x":925,"platform":0,"hp":36,"pursuit":{"range":280,"leash":660,"speed":88}}
+    ],
+    "nod-spruce-clearing": [
+      {"id":"nod-spruce-1","kind":1,"art":"hydro-slime","x":677,"platform":0,"hp":34,"pursuit":{"range":278,"leash":585,"speed":88}},
+      {"id":"nod-spruce-2","kind":2,"art":"pyro-slime","x":784,"platform":0,"hp":40,"pursuit":{"range":278,"leash":585,"speed":88}},
+      {"id":"nod-spruce-3","kind":1,"art":"hydro-slime","x":906,"platform":0,"hp":31,"pursuit":{"range":278,"leash":585,"speed":88}},
+      {"id":"nod-spruce-4","kind":2,"art":"pyro-slime","x":1020,"platform":0,"hp":42,"pursuit":{"range":278,"leash":585,"speed":88}}
+    ],
+    "nod-lantern-shore": [
+      {"id":"nod-shore-lower","kind":1,"art":"hydro-slime","x":1012,"platform":0,"hp":40},
+      {"id":"nod-shore-step","kind":2,"art":"pyro-slime","x":1073,"platform":1,"hp":48},
+      {"id":"nod-shore-upper","kind":1,"art":"hydro-slime","x":1320,"platform":2,"hp":46}
     ]
   }
 }

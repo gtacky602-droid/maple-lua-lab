@@ -39,7 +39,7 @@ def validate_paths(record, quest, visited):
     if not paths or not isinstance(progress,dict) or progress.keys()!={path['id'] for path in paths}:
         raise ValueError('分岐の進行記録が不正です')
     join_index=next(i for i,step in enumerate(quest['itinerary']) if step['kind']=='paths')
-    finished=True
+    finished=[]
     for path in paths:
         steps=path['steps']
         branch=progress[path['id']]
@@ -49,8 +49,9 @@ def validate_paths(record, quest, visited):
             raise ValueError('分岐の進行記録が不正です')
         validate_steps_visited(steps,branch['count'],visited)
         validate_sweep(branch,steps,visited)
-        finished=finished and branch['count']==len(steps)
-    if finished!=(record['count']>join_index):
+        finished.append(branch['count']==len(steps))
+    joined=any(finished) if quest.get('anyPath') else all(finished)
+    if joined!=(record['count']>join_index):
         raise ValueError('分岐と合流の記録が一致しません')
 
 

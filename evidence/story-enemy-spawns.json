@@ -1156,6 +1156,26 @@
     {
       "node": "nod-tide-rocks",
       "enemy_count": 3
+    },
+    {
+      "node": "nod-lull-wood",
+      "enemy_count": 0
+    },
+    {
+      "node": "nod-spruce-clearing",
+      "enemy_count": 4
+    },
+    {
+      "node": "nod-lantern-shore",
+      "enemy_count": 3
+    },
+    {
+      "node": "nod-box-inlet",
+      "enemy_count": 0
+    },
+    {
+      "node": "nod-moon-cave-mouth",
+      "enemy_count": 0
     }
   ],
   "render_profiles": [

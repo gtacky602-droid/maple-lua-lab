@@ -40,7 +40,8 @@ export function questRouteText(f,q,status){
   const state=rule.path?questState?.pathProgress?.[rule.path]:questState;
   if(rule.before!==undefined&&state?.count>=rule.before)return false;
   if(rule.construction)return state?.status==='complete'&&state.construction?.plan===rule.construction;
-  return questState?.status==='complete'||(rule.count!==undefined&&state?.count>=rule.count&&(!rule.recovery||state?.recovered));
+  const requiresBranch=rule.path&&graph.quests?.some(q=>q.id===rule.quest&&q.anyPath);
+  return (!requiresBranch&&questState?.status==='complete')||(rule.count!==undefined&&state?.count>=rule.count&&(!rule.recovery||state?.recovered));
  }
  function gateOpen(edge){
   const rule=edge.requires;

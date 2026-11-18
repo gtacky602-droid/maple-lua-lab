@@ -1,6 +1,6 @@
 import json
 from runtime import runtime,ROOT
-lua,c=runtime();g=json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf-8'));nodes={n['id']:n for n in g['nodes']};checked=[]
+lua,c=runtime();g=json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf-8'));nodes={n['id']:n for n in g['nodes']};quests={q['id']:q for q in g['quests']};checked=[]
 def state(node):
  s=c.new(12);c.action(s,'story_start');c.enterStoryNode(s,node);return s
 # Every visible connection exposes the nearest name at the same range as traversal.
@@ -30,6 +30,8 @@ for n in g['nodes']:
   elif rule:
    assert not p.available
    finished={'status':'complete','count':rule.get('count',0)}
+   if rule.get('path') and quests[rule['quest']].get('anyPath'):
+    finished['pathProgress']={path['id']:{'count':len(path['steps'])} for path in quests[rule['quest']]['paths']}
    if rule.get('construction'):
     finished['construction']={'plan':rule['construction'],'surveyed':{}}
    if rule['quest']=='inazuma-torii-maze':

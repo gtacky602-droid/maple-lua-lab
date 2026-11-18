@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 273 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 265,
+  "scope": "Authored 278 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 270,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1097,7 +1097,12 @@
     {"id":"natlan-sunset-rostrum","name":"夕映え会場の記録台","region":"ナタ","status":"regional_temporary_image"},
     {"id":"nod-workshop-coast","name":"ナド・クライ・工房脇の海岸","region":"ナド・クライ","status":"regional_temporary_image"},
     {"id":"nod-moon-shallows","name":"ナド・クライ・月映しの浅瀬","region":"ナド・クライ","status":"regional_temporary_image"},
-    {"id":"nod-tide-rocks","name":"ナド・クライ・引き潮の岩場","region":"ナド・クライ","status":"regional_temporary_image"}
+    {"id":"nod-tide-rocks","name":"ナド・クライ・引き潮の岩場","region":"ナド・クライ","status":"regional_temporary_image"},
+    {"id":"nod-lull-wood","name":"ナド・クライ・木陰の休息地","region":"ナド・クライ","status":"regional_temporary_image"},
+    {"id":"nod-spruce-clearing","name":"ナド・クライ・群れのいるトウヒ林","region":"ナド・クライ","status":"regional_temporary_image"},
+    {"id":"nod-lantern-shore","name":"ナド・クライ・灯りの海岸旧道","region":"ナド・クライ","status":"regional_temporary_image"},
+    {"id":"nod-box-inlet","name":"ナド・クライ・箱影の入江","region":"ナド・クライ","status":"regional_temporary_image"},
+    {"id":"nod-moon-cave-mouth","name":"ナド・クライ・月渡りの岩窟口","region":"ナド・クライ","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 8
 }

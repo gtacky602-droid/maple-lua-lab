@@ -1,0 +1,19 @@
+{
+  "tool": "builtin imagegen",
+  "scenes": [
+    {
+      "source": "nod-moon-wood-background-v1.png",
+      "references": ["nod-moon-shallows-background-v1.png", "nodspecial-background-v1.png"],
+      "description": "Northern spruce and birch woods with a distant inlet and a quiet traversal band at ground height.",
+      "zones": ["nod-lull-wood", "nod-spruce-clearing"]
+    },
+    {
+      "source": "nod-moon-cave-background-v1.png",
+      "references": ["nod-moon-shallows-background-v1.png", "mond-windsplit-cave-background-v1.png"],
+      "description": "Seaside cavern aperture, fractured slate, thin blue mineral veins, and a flat trail that continues toward the interior.",
+      "zones": ["nod-moon-cave-mouth"]
+    }
+  ],
+  "reference_use": "All references were visually inspected and supplied as image inputs for palette, depth, or pixel cluster size.",
+  "status": "Original temporary lab scenes. Production scenery uses 3D placement."
+}

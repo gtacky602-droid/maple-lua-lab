@@ -1,15 +1,19 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
   local out={};for k,item in pairs(v) do out[k]=copy(item) end;return out
  end
  local nodes,quests,starterQuests,itineraries={},{},{},{}
+ local pathJoins={}
  local lanternQuest,contestQuest,sightQuest,restQuest,caveQuest,roofQuest
  for _,n in ipairs(data.nodes) do nodes[n.id]=n end
  for _,q in ipairs(data.quests) do
   quests[q.id]=q
   if q.itinerary then itineraries[#itineraries+1]=q end
+  if q.anyPath then
+   for i,step in ipairs(q.itinerary) do if step.kind=='paths' then pathJoins[q.id]=i;break end end
+  end
   if q.lantern then lanternQuest=q end
   if q.contest then contestQuest=q end
   if q.sights then sightQuest=q end
@@ -37,7 +41,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if rule.construction then
    return completed(s,rule.quest) and state.construction and state.construction.plan==rule.construction
   end
-  return completed(s,rule.quest) or
+  return (not (rule.path and quests[rule.quest].anyPath) and completed(s,rule.quest)) or
    (rule.count and state and state.count>=rule.count and (not rule.recovery or state.recovered))
  end
  local function windWindow(s,wind)
@@ -186,18 +190,29 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  local function nextMilestone(s,q)
   local state=s.story.quests[q.id]
-  if not state or state.status~='active' then return end
-  local step=q.itinerary[state.count+1]
-  if step and step.kind=='paths' then
+  if not state then return end
+  local step=state.status=='active' and q.itinerary[state.count+1] or nil
+  if (step and step.kind=='paths') or (q.anyPath and state.count+1>=pathJoins[q.id]) then
    if not state.pathProgress then return end
    for _,path in ipairs(q.paths) do
     local progress=state.pathProgress[path.id]
     local nextStep=milestoneAt(path.steps[progress.count+1],s.story.node)
     if nextStep and nextStep.node==s.story.node then return nextStep,progress,state,q end
    end
-   return
+   if step and step.kind=='paths' then return end
   end
   return milestoneAt(step,s.story.node),state
+ end
+ local function completedSteps(q,state)
+  local steps={}
+  for i=1,state.count do steps[#steps+1]=q.itinerary[i] end
+  if q.anyPath and state.pathProgress then
+   for _,path in ipairs(q.paths) do
+    local progress=state.pathProgress[path.id]
+    for i=1,progress and progress.count or 0 do steps[#steps+1]=path.steps[i] end
+   end
+  end
+  return steps
  end
  local function installBridge(s,bridge)
   local platform=copy(bridge)
@@ -223,11 +238,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if stage and s.story.quests[stage.quest]==state then theater.sync(s,stage,true) end
   if milestone.reflect then s.reflection=nil;state.reflectAngle=nil end
   if milestone.riverTurn then s.riverTurnAt=s.t end
+  if milestone.boxGlimpse then s.storyBoxGlimpseStart=s.t end
   if parent then
+   local join=quest.itinerary[parent.count+1]
+   if not join or join.kind~='paths' then return end
+   local finished=0
    for _,path in ipairs(quest.paths) do
-    if parent.pathProgress[path.id].count<#path.steps then return end
+    if parent.pathProgress[path.id].count==#path.steps then finished=finished+1 end
    end
-   s.storyNotice=quest.itinerary[parent.count+1].notice
+   if finished<(quest.anyPath and 1 or #quest.paths) then return end
+   s.storyNotice=join.notice
    parent.count=parent.count+1
   end
  end
@@ -314,7 +334,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if command=='rotate' then
    for _,q in ipairs(itineraries) do
     if completed(s,q.id) then
-     for _,item in ipairs(q.itinerary) do
+     local state=s.story.quests[q.id]
+     for _,item in ipairs(completedSteps(q,state)) do
       local done=milestoneAt(item,s.story.node)
       if (done.readback or done.resonancePages or done.paperDisplay) and done.node==s.story.node and canInspect(s.actors[s.active],done) then
        if done.resonancePages then resonance.turnPage(s,done,emitCue)
@@ -363,7 +384,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  local function clearState(s,n)
   local state=n.clearedBy and s.story.quests[n.clearedBy]
-  if n.practiceAfterReport and state and state.status=='complete' then return end
+  if n.practiceAfterReport and state and state.status=='complete' then
+   local branch=n.clearPath and state.pathProgress and state.pathProgress[n.clearPath]
+   if not branch or branch.count>=(n.clearCount or quests[n.clearedBy].goal) then return end
+  end
   if n.clearPath then return state and state.pathProgress and state.pathProgress[n.clearPath] end
   return state
  end
@@ -412,6 +436,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.campaign.zone=n.hub and 'town' or ('story:'..id);s.campaign.message='本編ルートの試作。隣の地点へは門の近くで移動。'
   s.story.active=true;s.story.node=id;s.story.visited[id]=true;s.worldwidth=n.width
   s.storyEnteredAt=s.t
+  s.storyBoxGlimpseStart=nil
   s.storyLightMode=n.localLight and 'bright' or nil
   s.airflowTrial,s.storyCue=nil,nil
   s.resonanceOrder,s.resonancePage=nil,nil
@@ -420,11 +445,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.platforms={};for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]=copy(p) end
   for _,q in ipairs(itineraries) do
    local state=s.story.quests[q.id]
-   for i=1,state and state.count or 0 do
-    local step=q.itinerary[i]
-    if step.node==id and step.bridge then installBridge(s,step.bridge) end
-    if step.node==id then for _,bridge in ipairs(step.bridges or {}) do installBridge(s,bridge) end end
-    if step.node==id and step.paperFold then paper.install(s,n.paperBoard) end
+   if state then
+    local steps=q.anyPath and completedSteps(q,state) or q.itinerary
+    for i=1,q.anyPath and #steps or state.count do
+     local step=steps[i]
+     if step.node==id and step.bridge then installBridge(s,step.bridge) end
+     if step.node==id then for _,bridge in ipairs(step.bridges or {}) do installBridge(s,bridge) end end
+     if step.node==id and step.paperFold then paper.install(s,n.paperBoard) end
+    end
    end
   end
   theater.enter(s,n.theater)
@@ -992,13 +1020,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    flagCourse.observe(s,f,markers,n.flagCourse,mode,profile)
    movingPlatforms.observe(s,f,markers,n.riverCrossing,mode,profile)
    duel.frame(s,f,markers,n.duel)
+    if n.moonInlet then moonInlet.observe(s,f,markers,n.moonInlet,s.story.quests[n.moonInlet.quest]) end
+    if n.shoreLights then moonInlet.lights(s,markers,n.shoreLights) end
    local pathQuest=n.pathsQuest and quests[n.pathsQuest]
    local pathState=pathQuest and s.story.quests[pathQuest.id]
    if pathState and pathState.pathProgress and pathState.count>0 then
     local notes={}
     for _,path in ipairs(pathQuest.paths) do
      local count=pathState.pathProgress[path.id].count
-     notes[#notes+1]=path.label..' '..(count==#path.steps and '達成' or count..' / '..#path.steps)
+      local optional=pathQuest.anyPath and pathState.count+1>pathJoins[pathQuest.id] and count<#path.steps
+      notes[#notes+1]=path.label..' '..(count==#path.steps and '通過' or (optional and '任意 ' or '')..count..' / '..#path.steps)
     end
     f.storyPathStatus=table.concat(notes,'　｜　')
    end
@@ -1141,8 +1172,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      end
     end
     if state then
-     for index=1,state.count do
-       local done=milestoneAt(q.itinerary[index],s.story.node)
+      local steps=q.anyPath and completedSteps(q,state) or q.itinerary
+      for index=1,q.anyPath and #steps or state.count do
+       local done=milestoneAt(steps[index],s.story.node)
       if done.completedLabel and done.node==s.story.node and not done.resonanceOrder
           and (not done.roomLight or done.roomLight==s.storyLightMode) then
        local x,y=done.x-s.camera,done.y

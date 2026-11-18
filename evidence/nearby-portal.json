@@ -1009,6 +1009,18 @@
       "to": "nod-workshop-coast"
     },
     {
+      "node": "nod-town",
+      "to": "nod-lull-wood"
+    },
+    {
+      "node": "nod-town",
+      "to": "nod-lantern-shore"
+    },
+    {
+      "node": "nod-town",
+      "to": "nod-moon-cave-mouth"
+    },
+    {
       "node": "snezhnaya-entry",
       "to": "nod-town"
     },
@@ -2534,6 +2546,50 @@
     },
     {
       "node": "nod-tide-rocks",
+      "to": "nod-town"
+    },
+    {
+      "node": "nod-lull-wood",
+      "to": "nod-town"
+    },
+    {
+      "node": "nod-lull-wood",
+      "to": "nod-spruce-clearing"
+    },
+    {
+      "node": "nod-spruce-clearing",
+      "to": "nod-lull-wood"
+    },
+    {
+      "node": "nod-spruce-clearing",
+      "to": "nod-box-inlet"
+    },
+    {
+      "node": "nod-lantern-shore",
+      "to": "nod-town"
+    },
+    {
+      "node": "nod-lantern-shore",
+      "to": "nod-box-inlet"
+    },
+    {
+      "node": "nod-box-inlet",
+      "to": "nod-spruce-clearing"
+    },
+    {
+      "node": "nod-box-inlet",
+      "to": "nod-lantern-shore"
+    },
+    {
+      "node": "nod-box-inlet",
+      "to": "nod-moon-cave-mouth"
+    },
+    {
+      "node": "nod-moon-cave-mouth",
+      "to": "nod-box-inlet"
+    },
+    {
+      "node": "nod-moon-cave-mouth",
       "to": "nod-town"
     }
   ],
