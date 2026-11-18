@@ -1,0 +1,11 @@
+{
+  "tool": "builtin imagegen",
+  "scene": {
+    "source": "nod-appraisal-workshop-background-v1.png",
+    "sha256": "ae6b6e2afeff5f8f312f4ad4e2d42128fd4f0a224ff5c4ce88ec48a0f1ad950d",
+    "references": ["nod-night-stalls-background-v1.png", "nod-moon-vault-background-v1.png"],
+    "zone": "nod-appraisal-workshop",
+    "description": "Warm workbenches and hanging tools in a slate cave. A circular window opens onto a blue moonlit harbor. The clear foreground leaves room for separately drawn equipment and trays."
+  },
+  "status": "Temporary lab scenery. Production scenery uses 3D placement."
+}

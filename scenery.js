@@ -104,12 +104,13 @@ export const sceneryDefinitions={
  voyage:{file:'voyage-background-v1.png',region:'航路',zones:[]},
  snezhnaya:{file:'snezhnaya-background-v1.png',region:'スネージナヤ',zones:[]},
  nodkrai:{file:'nodkrai-background-v1.png',region:'ナド・クライ',zones:[]},
- nodMoonShallows:{file:'nod-moon-shallows-background-v1.png',zones:['story:nod-moon-shallows','story:nod-tide-rocks','story:nod-lantern-shore','story:nod-box-inlet','story:nod-detour-shore'],note:'浅瀬と海岸のラボ用仮背景'},
+ nodMoonShallows:{file:'nod-moon-shallows-background-v1.png',zones:['story:nod-moon-shallows','story:nod-tide-rocks','story:nod-lantern-shore','story:nod-box-inlet','story:nod-detour-shore','story:nod-appraisal-yard'],note:'浅瀬と海岸のラボ用仮背景'},
  nodMoonWood:{file:'nod-moon-wood-background-v1.png',zones:['story:nod-lull-wood','story:nod-spruce-clearing'],note:'木陰の休息地とトウヒ林のラボ用仮背景'},
  nodMoonCave:{file:'nod-moon-cave-background-v1.png',zones:['story:nod-moon-cave-mouth','story:nod-moon-crab-arena'],note:'月渡りの岩窟口と月殻の広間のラボ用仮背景'},
  nodMoonVault:{file:'nod-moon-vault-background-v1.png',zones:['story:nod-moon-vault'],note:'探検家の貯蔵所のラボ用仮背景'},
  nodNightStalls:{file:'nod-night-stalls-background-v1.png',zones:['story:nod-night-stalls'],note:'工房裏の夜店のラボ用仮背景'},
  nodFarSea:{file:'nod-far-sea-background-v1.png',zones:['story:nod-far-sea-bench'],note:'沖を眺める腰掛けのラボ用仮背景'},
+ nodAppraisal:{file:'nod-appraisal-workshop-background-v1.png',zones:['story:nod-appraisal-workshop'],note:'アイノの部品工房のラボ用仮背景'},
  mondstadt:{file:'mondstadt-background.png',region:'モンド',zones:[]},
  liyue:{file:'liyue-background-v1.png',region:'璃月',zones:['geo','oceanid','primo','pyro_regisvine']},
  inazuma:{file:'inazuma-background-v1.png',region:'稲妻',zones:['thunder','array','maguu']},
@@ -199,6 +200,12 @@ export function scenery(ctx,frame){
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
   if(p.riverDeck)continue;
+   if(key==='nodAppraisal'){
+    ctx.fillStyle='#5d474d';ctx.fillRect(x,p.y,p.w,p.y===480?60:17);
+    ctx.fillStyle='#bd906b';ctx.fillRect(x,p.y,p.w,4);
+    ctx.fillStyle='#916a59';for(let i=10;i+14<p.w;i+=41)ctx.fillRect(x+i,p.y+7,15,3);
+    continue;
+   }
    if(p.moonDeck){
     const spread=p.deployedAt===undefined?1:Math.max(0,Math.min(1,(frame.t-p.deployedAt)/.48));
     const width=Math.ceil(p.w*spread);

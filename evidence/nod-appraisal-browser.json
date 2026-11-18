@@ -1,0 +1,22 @@
+{
+  "scenery": {
+    "key": "nodAppraisal",
+    "file": "nod-appraisal-workshop-background-v1.png",
+    "state": "ready"
+  },
+  "upperPartJump": true,
+  "partialMeasurementReload": true,
+  "wrongTrayRetry": true,
+  "displayAfterReload": true,
+  "commands": {
+    "png": 20,
+    "standard": 6480,
+    "light": 1557
+  },
+  "reward": [
+    4382501,
+    4100,
+    6
+  ],
+  "errors": []
+}

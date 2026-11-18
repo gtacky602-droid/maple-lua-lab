@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 283 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 275,
+  "scope": "Authored 285 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 277,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1107,7 +1107,9 @@
     {"id":"nod-moon-vault","name":"ナド・クライ・探検家の貯蔵所","region":"ナド・クライ","status":"regional_temporary_image"},
     {"id":"nod-night-stalls","name":"ナド・クライ・工房裏の夜店","region":"ナド・クライ","status":"regional_temporary_image"},
     {"id":"nod-detour-shore","name":"ナド・クライ・岬へ曲がる道","region":"ナド・クライ","status":"regional_temporary_image"},
-    {"id":"nod-far-sea-bench","name":"ナド・クライ・沖を眺める腰掛け","region":"ナド・クライ","status":"regional_temporary_image"}
+    {"id":"nod-far-sea-bench","name":"ナド・クライ・沖を眺める腰掛け","region":"ナド・クライ","status":"regional_temporary_image"},
+    {"id":"nod-appraisal-workshop","name":"ナド・クライ・アイノの部品工房","region":"ナド・クライ","status":"regional_temporary_image"},
+    {"id":"nod-appraisal-yard","name":"ナド・クライ・潮風の部品回収場","region":"ナド・クライ","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 8
 }

@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -173,6 +173,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local resonance=resonanceModule(canInspect)
  local rockViews=rockViewsModule(canInspect)
  local paper=paperModule(canInspect)
+ local appraisal=appraisalModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -271,6 +272,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local function inspectMilestone(s,command)
   for _,q in ipairs(itineraries) do
    local milestone,state,parent,quest=nextMilestone(s,q)
+   if milestone and milestone.appraisalStage and milestone.node==s.story.node and command=='rotate' then
+    local handled,finished=appraisal.interact(s,q,state,milestone.appraisalStage)
+    if finished then completeMilestone(s,state,milestone,parent,quest) end
+    if handled then return true end
+   end
    if milestone and milestone.kind=='choice' and milestone.node==s.story.node and command=='rotate' then
     local option=nearbyChoice(s,milestone)
     if option then
@@ -759,7 +765,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
                        lantern=q.lantern and {inspected={}} or nil,
                        forest=q.forest and {looped=false,defeated={}} or nil,
                        sights=q.sights and {seen={}} or nil,rest=q.rest and {defeated={}} or nil,
-                       roof=q.roof and {ticks=0,falls=0} or nil}
+                        roof=q.roof and {ticks=0,falls=0} or nil,
+                        appraisal=q.appraisal and {gathered={},measured=0,sorted=0} or nil}
     if q.paths then
      local record={}
      for _,path in ipairs(q.paths) do record[path.id]={count=0} end
@@ -1036,6 +1043,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if n.moonInlet then moonInlet.observe(s,f,markers,n.moonInlet,s.story.quests[n.moonInlet.quest]) end
     if n.shoreLights then moonInlet.lights(s,markers,n.shoreLights) end
     if n.coastDetour then coastDetour.observe(s,f,markers,n.coastDetour,quests[n.coastDetour.quest],mode,profile) end
+    if n.appraisalQuest then
+     local q=quests[n.appraisalQuest]
+     appraisal.observe(s,f,markers,q,s.story.quests[q.id],nextMilestone(s,q),mode,profile)
+    end
    local pathQuest=n.pathsQuest and quests[n.pathsQuest]
    local pathState=pathQuest and s.story.quests[pathQuest.id]
    if pathState and pathState.pathProgress and pathState.count>0 then
@@ -1206,7 +1217,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       if done.completedLabel and done.node==s.story.node and not done.resonanceOrder
           and (not done.roomLight or done.roomLight==s.storyLightMode) then
        local x,y=done.x-s.camera,done.y
-        if not done.flagProp and (not done.resonanceStone or done.resonanceControl) and x>=-25 and x<=985 then
+        if not q.appraisal and not done.flagProp and (not done.resonanceStone or done.resonanceControl) and x>=-25 and x<=985 then
         if done.outcrop then drawOutcrop(markers,x,y,done.outcrop)
         elseif done.teaCups then drawTeaSetting(markers,x,y,done.teaCups)
         elseif done.islandTreasure then drawIslandChest(markers,x,y,true)

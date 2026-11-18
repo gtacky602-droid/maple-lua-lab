@@ -2338,6 +2338,11 @@
       {"id":"nod-detour-foe-1","kind":1,"art":"hydro-slime","x":679,"platform":0,"hp":24,"pursuit":{"range":238,"leash":465,"speed":70}},
       {"id":"nod-detour-foe-2","kind":2,"art":"pyro-slime","x":816,"platform":0,"hp":31,"pursuit":{"range":238,"leash":465,"speed":70}},
       {"id":"nod-detour-foe-3","kind":1,"art":"hydro-slime","x":957,"platform":0,"hp":27,"pursuit":{"range":238,"leash":465,"speed":70}}
+    ],
+    "nod-appraisal-yard": [
+      {"id":"nod-appraisal-yard-1","kind":1,"art":"hydro-slime","x":587,"platform":0,"hp":30},
+      {"id":"nod-appraisal-yard-2","kind":2,"art":"pyro-slime","x":942,"platform":0,"hp":37},
+      {"id":"nod-appraisal-yard-3","kind":1,"art":"hydro-slime","x":1345,"platform":2,"hp":30}
     ]
   }
 }

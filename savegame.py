@@ -55,6 +55,30 @@ def validate_paths(record, quest, visited):
         raise ValueError('分岐と合流の記録が一致しません')
 
 
+def validate_appraisal(record, quest, visited):
+    spec, log = quest.get('appraisal'), record.get('appraisal')
+    if not spec and 'appraisal' not in record:
+        return
+    if not spec or not isinstance(log, dict) or set(log) != {'gathered', 'measured', 'sorted'}:
+        raise ValueError('お宝判定機の記録が不正です')
+    ids = {item['id'] for item in spec['items']}
+    gathered = log['gathered']
+    if (not isinstance(gathered, dict)
+            or any(item not in ids or flag is not True for item, flag in gathered.items())):
+        raise ValueError('回収した部品の記録が不正です')
+    progress = {'gather':len(gathered), 'measure':log['measured'], 'sort':log['sorted']}
+    for index, step in enumerate(quest['itinerary']):
+        stage = step.get('appraisalStage')
+        if not stage:
+            continue
+        amount, count = progress[stage], record['count']
+        if type(amount) is not int or not 0 <= amount <= len(ids):
+            raise ValueError('お宝判定機の進行数が不正です')
+        if ((count < index and amount) or (count == index and amount == len(ids))
+                or (count > index and amount != len(ids)) or (amount and step['node'] not in visited)):
+            raise ValueError('お宝判定機の進行順が不正です')
+
+
 def validate_save(data):
     if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses'}!=FIELDS:
         raise ValueError('保存データの項目が一致しません')
@@ -166,7 +190,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -191,6 +215,7 @@ def validate_save(data):
                     raise ValueError('未訪問の地点が調査済みになっています')
                 validate_steps_visited(quest['itinerary'],q['count'],visited)
             validate_paths(q,quest,st['visited'])
+            validate_appraisal(q,quest,st['visited'])
             if 'flagBestTicks' in q:
                 ticks=q['flagBestTicks']
                 if not quest.get('flagTrial') or q['status']!='complete' or type(ticks) is not int or not 1<=ticks<=10**9:

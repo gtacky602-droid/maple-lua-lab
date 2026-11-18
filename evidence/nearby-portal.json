@@ -1021,6 +1021,10 @@
       "to": "nod-moon-cave-mouth"
     },
     {
+      "node": "nod-town",
+      "to": "nod-appraisal-workshop"
+    },
+    {
       "node": "snezhnaya-entry",
       "to": "nod-town"
     },
@@ -2643,6 +2647,18 @@
     {
       "node": "nod-far-sea-bench",
       "to": "nod-workshop-coast"
+    },
+    {
+      "node": "nod-appraisal-workshop",
+      "to": "nod-town"
+    },
+    {
+      "node": "nod-appraisal-workshop",
+      "to": "nod-appraisal-yard"
+    },
+    {
+      "node": "nod-appraisal-yard",
+      "to": "nod-appraisal-workshop"
     }
   ],
   "hidden_connections_checked": 38,

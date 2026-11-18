@@ -1196,6 +1196,14 @@
     {
       "node": "nod-far-sea-bench",
       "enemy_count": 0
+    },
+    {
+      "node": "nod-appraisal-workshop",
+      "enemy_count": 0
+    },
+    {
+      "node": "nod-appraisal-yard",
+      "enemy_count": 3
     }
   ],
   "render_profiles": [

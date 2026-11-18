@@ -1,0 +1,144 @@
+{
+  "tool": "built-in imagegen",
+  "model": {
+    "path": "evidence/nod-appraisal-model.obj",
+    "sha256": "575a0dc62f654afbfc766cca14a33c1f757b39aec361589bdbfe0261fc6f0003"
+  },
+  "materials": {
+    "path": "evidence/nod-appraisal-model.mtl",
+    "sha256": "45d2d49ca4078faa7d7ab92f0b33a110b625fa42f0635ac2bf4996d675f0d0df"
+  },
+  "vertices": 396,
+  "faces": 245,
+  "reference": {
+    "path": "evidence/nod-appraisal-views.png",
+    "sha256": "9a92f4a521cc8476352dff768d8b54e3e81a475ecca20ff8852d7a68735f0c92"
+  },
+  "views": [
+    "front",
+    "front three-quarter",
+    "rear three-quarter"
+  ],
+  "sources": {
+    "parts": {
+      "path": "assets/nod-appraisal-parts-source-v1.png",
+      "sha256": "ff0d337ad4702ae0a04132f98bc5291c3861234e1cf012024feba05075e75f50",
+      "size": [
+        2170,
+        725
+      ],
+      "alphaCorners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "equipment": {
+      "path": "assets/nod-appraisal-equipment-source-v1.png",
+      "sha256": "833b3e5a70a8f209b70d2f883357d95f20d2f2fa71f1fed00add61830c3c8da0",
+      "size": [
+        2172,
+        724
+      ],
+      "alphaCorners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "poses": {
+    "gear": {
+      "encoding": {
+        "path": "assets/nod-appraisal-gear-sprites-v1.json",
+        "sha256": "840166e1831db11e0173eefacda928c4ec92dd2139aeaf2a0ea4b5de28d46198"
+      },
+      "box": [
+        159,
+        142,
+        394,
+        408
+      ],
+      "height": 30,
+      "runs": {
+        "legacy": 425,
+        "h48c32": 244,
+        "h32c16": 106
+      }
+    },
+    "plate": {
+      "encoding": {
+        "path": "assets/nod-appraisal-plate-sprites-v1.json",
+        "sha256": "eeb5957070876a56c09ad012864a4e75493010e1cca7f6a33311db5f27fa262a"
+      },
+      "box": [
+        932,
+        160,
+        306,
+        374
+      ],
+      "height": 30,
+      "runs": {
+        "legacy": 254,
+        "h48c32": 147,
+        "h32c16": 65
+      }
+    },
+    "stone": {
+      "encoding": {
+        "path": "assets/nod-appraisal-stone-sprites-v1.json",
+        "sha256": "1a9eca285e30039dce4f4fafa1c62f944b0338c35cbc753ba25385893eac3e6b"
+      },
+      "box": [
+        1670,
+        228,
+        329,
+        297
+      ],
+      "height": 30,
+      "runs": {
+        "legacy": 434,
+        "h48c32": 258,
+        "h32c16": 100
+      }
+    },
+    "machine": {
+      "encoding": {
+        "path": "assets/nod-appraisal-machine-sprites-v1.json",
+        "sha256": "bcb407bbabb2d3f0d4a3b643122633fe907ab2e98dd6c19d92dac3cf18cf10d8"
+      },
+      "box": [
+        322,
+        28,
+        450,
+        637
+      ],
+      "height": 112,
+      "runs": {
+        "legacy": 2691,
+        "h48c32": 1625,
+        "h32c16": 603
+      }
+    },
+    "lamp": {
+      "encoding": {
+        "path": "assets/nod-appraisal-lamp-sprites-v1.json",
+        "sha256": "caa4e3702bb6fcfda259182d505237d6d55bfa609f7e75c616502d55745300fa"
+      },
+      "box": [
+        1444,
+        197,
+        350,
+        458
+      ],
+      "height": 68,
+      "runs": {
+        "legacy": 1191,
+        "h48c32": 736,
+        "h32c16": 313
+      }
+    }
+  }
+}

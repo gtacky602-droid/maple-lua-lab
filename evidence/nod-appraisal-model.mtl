@@ -1,0 +1,35 @@
+newmtl gear
+Kd 0.73725 0.49412 0.27843
+illum 1
+
+newmtl dark
+Kd 0.23137 0.21569 0.28235
+illum 1
+
+newmtl pale
+Kd 0.76078 0.78431 0.81961
+illum 1
+
+newmtl cloud
+Kd 0.44314 0.65098 0.78431
+illum 1
+
+newmtl slate
+Kd 0.39216 0.45490 0.60784
+illum 1
+
+newmtl body
+Kd 0.24706 0.43529 0.51765
+illum 1
+
+newmtl trim
+Kd 0.60000 0.66275 0.65098
+illum 1
+
+newmtl glow
+Kd 0.97255 0.72941 0.41176
+illum 1
+
+newmtl glass
+Kd 0.65490 0.89020 0.84314
+illum 1

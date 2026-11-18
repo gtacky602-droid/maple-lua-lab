@@ -1,0 +1,19 @@
+{
+  "prerequisite": true,
+  "partsAnyOrder": true,
+  "upperPartNormalJump": true,
+  "partialCollectionSaved": true,
+  "measurementsSaved": true,
+  "thinPlateReading": true,
+  "retryWithoutLoss": true,
+  "sortingSaved": true,
+  "inconsistentSavesRejected": true,
+  "lamplitAfterRevisit": true,
+  "reportOnce": true,
+  "yardRemainsPlayable": true,
+  "reward": [
+    4382501,
+    4100,
+    6
+  ]
+}
