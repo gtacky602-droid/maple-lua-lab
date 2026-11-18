@@ -1,0 +1,14 @@
+{
+  "offersVisible": true,
+  "noDuplicateAmberNpc": true,
+  "oneMainTwoExtras": true,
+  "actualKillAndOverlap": true,
+  "dailyLedgerSurvivesStaleSession": true,
+  "threeClaimsAndNoReclaim": true,
+  "mobileFits": true,
+  "reward": {
+    "xp": 1120,
+    "mora": 895
+  },
+  "errors": []
+}

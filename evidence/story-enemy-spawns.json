@@ -38,7 +38,7 @@
     },
     {
       "node": "mond-old-ground",
-      "enemy_count": 8
+      "enemy_count": 9
     },
     {
       "node": "mond-hill",
@@ -62,7 +62,7 @@
     },
     {
       "node": "mond-border",
-      "enemy_count": 6
+      "enemy_count": 7
     },
     {
       "node": "liyue-entry",

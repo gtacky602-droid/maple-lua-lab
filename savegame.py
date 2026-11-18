@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from daily_store import validate_daily_state
 from experience import CAP, CAP_EXP, CURVE_ID, LEVELS, MAX_SAVED_EXP
 _STORY_GRAPH=json.loads((Path(__file__).parent/"content/story-graph.json").read_text(encoding="utf8"))
 _FIELD_BOSSES={slot["id"]:slot for slot in json.loads((Path(__file__).parent/"content/field-boss-spawns.json").read_text(encoding="utf-8-sig"))["fieldBosses"]}
@@ -341,7 +342,7 @@ def validate_itto_contest(record, quest, spec, visited):
 
 
 def validate_save(data):
-    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses'}!=FIELDS:
+    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses','daily'}!=FIELDS:
         raise ValueError('保存データの項目が一致しません')
     if type(data['version']) is not int or data['version']!=1:
         raise ValueError('対応していない保存バージョンです')
@@ -353,6 +354,8 @@ def validate_save(data):
         if type(data[key]) is not int or not 0<=data[key]<=maximum:
             raise ValueError('保存数値が不正です: '+key)
     if data['active'] not in (1,2): raise ValueError('操作キャラが不正です')
+    if 'daily' in data:
+        validate_daily_state(data['daily'])
     q,n=data['quest'],data['count']
     if (q=='available' and n!=0) or (q=='hunt' and n>=8) or (q in ('boss','report','complete') and n!=8):
         raise ValueError('討伐数と依頼の状態が一致しません')

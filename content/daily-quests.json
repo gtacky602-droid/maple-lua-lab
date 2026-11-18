@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "status": "preview",
+  "period": {"offsetMinutes": 540, "resetHour": 4, "carryDays": 1},
+  "limits": {"main": 1, "extra": 2},
+  "regions": {
+    "mondstadt": {
+      "label": "モンド",
+      "includeRegions": ["モンド", "ドラゴンスパイン", "ドーンマンポート"],
+      "excludeNodes": ["golden-mainland-coast"]
+    }
+  },
+  "quests": [
+    {
+      "id": "daily-mond-safety",
+      "designId": "Q-MON-D01",
+      "kind": "main",
+      "region": "mondstadt",
+      "hub": "mond-town",
+      "level": 1,
+      "giver": "アンバー",
+      "companion": "amber",
+      "name": "街道の安全確認",
+      "intro": "アンバー「街の外をひと回りしよう。普段の狩りのついでで大丈夫。」",
+      "target": "モンドと指定の周辺地域の実戦の敵",
+      "filter": {"kind": "region"},
+      "goal": 200,
+      "xp": 640,
+      "mora": 480
+    },
+    {
+      "id": "daily-mond-slimes",
+      "designId": "Q-MON-D02",
+      "kind": "extra",
+      "region": "mondstadt",
+      "hub": "mond-town",
+      "level": 1,
+      "giver": "リサ",
+      "name": "今日の観察記録",
+      "intro": "リサ「スライムを見かけたら、帰ってきて教えてちょうだい。」",
+      "target": "モンドと指定の周辺地域のスライム",
+      "filter": {"kind": "art", "art": ["hydro-slime", "pyro-slime", "cryo-slime", "anemo-slime"]},
+      "goal": 60,
+      "xp": 230,
+      "mora": 195
+    },
+    {
+      "id": "daily-mond-elites",
+      "designId": "Q-MON-D03",
+      "kind": "extra",
+      "region": "mondstadt",
+      "hub": "mond-town",
+      "level": 1,
+      "giver": "フィッシュル",
+      "name": "皇女の巡察",
+      "intro": "フィッシュル「オズと見張っていたのは、街道をうろつく精鋭よ。」",
+      "target": "モンドの境の街道・旧道の地上・街道の見張り塔の指定精鋭",
+      "filter": {"kind": "elite"},
+      "goal": 3,
+      "xp": 280,
+      "mora": 220
+    },
+    {
+      "id": "daily-mond-rest",
+      "designId": "Q-MON-D04",
+      "kind": "extra",
+      "region": "mondstadt",
+      "hub": "mond-town",
+      "level": 1,
+      "giver": "ノエル",
+      "name": "休憩所の、その周り",
+      "intro": "ノエル「休憩所の近くを見回るので、街道側をお願いできますか？」",
+      "target": "南の街道・街道の休憩所・旧道の地上の実戦の敵",
+      "filter": {"kind": "nodes", "nodes": ["mond-road", "mond-roadside-rest", "mond-old-ground"]},
+      "goal": 80,
+      "xp": 250,
+      "mora": 220
+    },
+    {
+      "id": "daily-mond-cave",
+      "designId": "Q-MON-D05",
+      "kind": "extra",
+      "region": "mondstadt",
+      "hub": "mond-town",
+      "level": 1,
+      "requires": "mond-bennett-cave",
+      "unlockHint": "ベネットの洞窟依頼を報告すると解放",
+      "giver": "ベネット",
+      "name": "今日も一つ、道を開こう",
+      "intro": "ベネット「前に通った洞窟と旧道、今日は歩きやすくしておこうぜ！」",
+      "target": "洞窟の奥と旧道の地上の実戦の敵",
+      "filter": {"kind": "nodes", "nodes": ["mond-bennett-depth", "mond-old-ground"]},
+      "goal": 60,
+      "xp": 260,
+      "mora": 220
+    }
+  ]
+}

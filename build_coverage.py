@@ -76,7 +76,9 @@ def rebuild():
     if len(design_ids) != manifest['counts']['total']:
         raise ValueError('Quest design ID count does not match the index')
     design_to_runtime = {}
-    for quest in graph['quests']:
+    daily_path = 'content/daily-quests.json'
+    daily_quests = json.loads((CONTENT.parent / daily_path).read_text(encoding='utf8'))['quests']
+    for quest in graph['quests'] + daily_quests:
         design_id = quest.get('designId')
         if not design_id:
             continue
@@ -87,7 +89,7 @@ def rebuild():
         design_to_runtime[design_id] = quest['id']
     design_count = len(design_ids)
     coverage['quest_design_links'] = {
-        'basis': [manifest_path, 'content/story-graph.json'],
+        'basis': [manifest_path, 'content/story-graph.json', daily_path],
         'design_entries': design_count,
         'linked': len(design_to_runtime),
         'without_explicit_mapping': design_count - len(design_to_runtime),
@@ -96,7 +98,8 @@ def rebuild():
     }
 
     coverage['updated'] = maps['captured_at'][:10]
-    coverage['main_route_summary'].update(authored_stages=len(graph['nodes']), provisional_quests=len(graph['quests']))
+    coverage['main_route_summary'].update(authored_stages=len(graph['nodes']), provisional_quests=len(graph['quests']),
+                                          daily_candidates=len(daily_quests))
     for milestone in coverage['milestones']:
         if milestone['id'] in {'world', 'quests'}:
             milestone['status'] = 'partial'

@@ -121,6 +121,16 @@
         "art": "pyro-slime",
         "x": 585,
         "platform": 2
+      },
+      {
+        "id": "mond-border-daily-elite",
+        "kind": 1,
+        "art": "hilichurl",
+        "name": "境の街道の先導役",
+        "dailyElite": true,
+        "x": 715,
+        "platform": 0,
+        "hp": 30
       }
     ],
     "liyue-entry": [
@@ -1540,6 +1550,16 @@
         "platform": 3,
         "art": "hilichurl",
         "kind": 1
+      },
+      {
+        "id": "mond-old-ground-daily-elite",
+        "kind": 1,
+        "art": "hilichurl",
+        "name": "旧道の見張り役",
+        "dailyElite": true,
+        "x": 1322,
+        "platform": 0,
+        "hp": 32
       }
     ],
     "mond-hill": [
@@ -1570,6 +1590,7 @@
         "id": "mond-watchtower-1",
         "name": "街道の大親分",
         "hp": 45,
+        "dailyElite": true,
         "x": 820,
         "platform": 0,
         "art": "hilichurl",

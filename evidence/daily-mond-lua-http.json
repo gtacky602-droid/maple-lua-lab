@@ -1,0 +1,18 @@
+{
+  "goalsCompleted": {
+    "Q-MON-D01": 200,
+    "Q-MON-D02": 60,
+    "Q-MON-D03": 3,
+    "Q-MON-D04": 80,
+    "Q-MON-D05": 60
+  },
+  "companionAndOverlaps": true,
+  "oneEventOncePerSlot": true,
+  "trainingAndWrongRegionExcluded": true,
+  "sameDayOneMainTwoExtra": true,
+  "rolloverAndGrace": true,
+  "serverPeriodBoundary": true,
+  "staleSaveAndRestart": true,
+  "legacyCompatible": true,
+  "rewardAppliedOnce": true
+}

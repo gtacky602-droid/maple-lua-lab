@@ -473,6 +473,8 @@ def runtime():
     })
     lua.execute((ROOT/'weekly-bosses.lua').read_text(encoding='utf8'))(core,lua.table_from(weekly_specs,recursive=True),lua.table_from({'dvalin':dvalin,'andrius':andrius,'surveyor':surveyor,'loom':loom}))
     core.installToyDiveGuard()
+    daily=json.loads((ROOT/'content/daily-quests.json').read_text(encoding='utf8'))
+    lua.execute((ROOT/'daily-quests.lua').read_text(encoding='utf8'))(core,lua.table_from(daily,recursive=True),graph)
     return lua, core
 
 def native(value):
@@ -480,5 +482,5 @@ def native(value):
         pairs = list(value.items())
         if pairs and all(isinstance(k, int) for k, _ in pairs):
             return [native(value[i]) for i in range(1, len(pairs)+1)]
-        return {k: ([native(v[i]) or [] for i in range(1,len(v)+1)] if k=='loadout' else ([] if k in ('items','ground','projectiles','auras','reactions','grappleNodes','mimics') and hasattr(v,'items') and len(v)==0 else native(v))) for k, v in pairs}
+        return {k: ([native(v[i]) or [] for i in range(1,len(v)+1)] if k=='loadout' else ([] if k in ('items','ground','projectiles','auras','reactions','grappleNodes','mimics','activeSlots','carrySlots','dailyChoices') and hasattr(v,'items') and len(v)==0 else native(v))) for k, v in pairs}
     return value

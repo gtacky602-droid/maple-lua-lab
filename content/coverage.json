@@ -589,7 +589,8 @@
       "companion starter equipment and selection gates",
       "production balance",
       "native Lua limits"
-    ]
+    ],
+    "daily_candidates": 5
   },
   "stygian_summary": {
     "partial": [
@@ -1417,11 +1418,12 @@
   "quest_design_links": {
     "basis": [
       "docs/quest-v1/MANIFEST.json",
-      "content/story-graph.json"
+      "content/story-graph.json",
+      "content/daily-quests.json"
     ],
     "design_entries": 153,
-    "linked": 97,
-    "without_explicit_mapping": 56,
+    "linked": 102,
+    "without_explicit_mapping": 51,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1480,6 +1482,11 @@
       "Q-LIY-S03": "liyue-book-rescue",
       "Q-LIY-S04": "liyue-stone-marks",
       "Q-LIY-S05": "liyue-hauling-shortcut",
+      "Q-MON-D01": "daily-mond-safety",
+      "Q-MON-D02": "daily-mond-slimes",
+      "Q-MON-D03": "daily-mond-elites",
+      "Q-MON-D04": "daily-mond-rest",
+      "Q-MON-D05": "daily-mond-cave",
       "Q-MON-M01": "amber-join",
       "Q-MON-M02": "mond-old-trail",
       "Q-MON-M03": "mond-watchtower-clear",
