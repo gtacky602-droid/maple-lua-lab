@@ -1,0 +1,28 @@
+{
+  "generator": "built-in imagegen",
+  "paletteReference": {
+    "path": "assets/golden-background-v1.png",
+    "size": [
+      1672,
+      941
+    ],
+    "sha256": "4bc16b415b4f97defb20b52df80c79e9f0d9825dfe8ce16df0b37a02b0bff27a"
+  },
+  "dock": {
+    "path": "assets/golden-dock-background-v1.png",
+    "size": [
+      1672,
+      941
+    ],
+    "sha256": "ff2b23d416c02c245896039a688b90c9e64840274f14ffab7189d270256d8a33"
+  },
+  "grotto": {
+    "path": "assets/golden-grotto-background-v1.png",
+    "size": [
+      1672,
+      941
+    ],
+    "sha256": "7315aa014b3f1439878dc9cc1d3678a7343b760332fe5106d9597d1d6d158c24"
+  },
+  "purpose": "Original temporary backdrops; foreground collision and projected rock puzzle are authored separately."
+}

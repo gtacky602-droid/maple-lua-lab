@@ -65,6 +65,18 @@
       "to": "mond-hill"
     },
     {
+      "node": "mond-road",
+      "to": "dvalin-sky-arena"
+    },
+    {
+      "node": "mond-road",
+      "to": "andrius-wolf-ring"
+    },
+    {
+      "node": "mond-road",
+      "to": "golden-mainland-coast"
+    },
+    {
       "node": "mond-roadside-rest",
       "to": "mond-road"
     },
@@ -223,6 +235,18 @@
     {
       "node": "liyue-harbor",
       "to": "liyue-quarry-storage"
+    },
+    {
+      "node": "liyue-harbor",
+      "to": "tide-calibration-hall"
+    },
+    {
+      "node": "liyue-harbor",
+      "to": "buried-weaving-room"
+    },
+    {
+      "node": "liyue-harbor",
+      "to": "cloth-service-walk"
     },
     {
       "node": "liyue-loading-yard",
@@ -817,6 +841,10 @@
       "to": "ochkanatlan-ruins"
     },
     {
+      "node": "ochkanatlan-dock",
+      "to": "ochka-tide-stairs"
+    },
+    {
       "node": "ochkanatlan-ruins",
       "to": "ochkanatlan-dock"
     },
@@ -897,6 +925,10 @@
       "to": "snezhnaya-entry"
     },
     {
+      "node": "nod-town",
+      "to": "winter-frontier-switchback"
+    },
+    {
       "node": "snezhnaya-entry",
       "to": "nod-town"
     },
@@ -911,6 +943,10 @@
     {
       "node": "snezhnaya-hub",
       "to": "snezhnaya-field"
+    },
+    {
+      "node": "snezhnaya-hub",
+      "to": "white-pass-coach"
     },
     {
       "node": "snezhnaya-field",
@@ -937,12 +973,24 @@
       "to": "immortal-construct-root-hollow"
     },
     {
+      "node": "snezhnaya-field",
+      "to": "snow-rail-transfer"
+    },
+    {
+      "node": "snezhnaya-field",
+      "to": "white-pass-cut"
+    },
+    {
       "node": "dragonspine-camp",
       "to": "mond-border"
     },
     {
       "node": "dragonspine-camp",
       "to": "dragonspine-depth"
+    },
+    {
+      "node": "dragonspine-camp",
+      "to": "spine-observation-shelf"
     },
     {
       "node": "dragonspine-depth",
@@ -965,6 +1013,14 @@
       "to": "chenyu-depth"
     },
     {
+      "node": "chenyu-camp",
+      "to": "chenyu-tea-terraces"
+    },
+    {
+      "node": "chenyu-camp",
+      "to": "chenyu-tea-lift"
+    },
+    {
       "node": "chenyu-depth",
       "to": "chenyu-camp"
     },
@@ -983,6 +1039,18 @@
     {
       "node": "enkanomiya-camp",
       "to": "enkanomiya-depth"
+    },
+    {
+      "node": "enkanomiya-camp",
+      "to": "enkan-guide-shelf"
+    },
+    {
+      "node": "enkanomiya-camp",
+      "to": "enkan-lamp-chamber"
+    },
+    {
+      "node": "enkanomiya-camp",
+      "to": "enkan-route-gallery"
     },
     {
       "node": "enkanomiya-depth",
@@ -1005,6 +1073,18 @@
       "to": "tunigi-depth"
     },
     {
+      "node": "tunigi-camp",
+      "to": "tunigi-vent-shelf"
+    },
+    {
+      "node": "tunigi-camp",
+      "to": "tunigi-baffle-workshop"
+    },
+    {
+      "node": "tunigi-camp",
+      "to": "tunigi-return-shelter"
+    },
+    {
       "node": "tunigi-depth",
       "to": "tunigi-camp"
     },
@@ -1015,6 +1095,22 @@
     {
       "node": "bygone-camp",
       "to": "bygone-depth"
+    },
+    {
+      "node": "bygone-camp",
+      "to": "bygone-waterway-pier"
+    },
+    {
+      "node": "bygone-camp",
+      "to": "bygone-resonance-chamber"
+    },
+    {
+      "node": "bygone-camp",
+      "to": "bygone-inscribed-hall"
+    },
+    {
+      "node": "bygone-camp",
+      "to": "bygone-listening-gallery"
     },
     {
       "node": "bygone-depth",
@@ -1033,6 +1129,14 @@
       "to": "windrest-vigil-court"
     },
     {
+      "node": "dornman-camp",
+      "to": "dornman-wind-stairs"
+    },
+    {
+      "node": "dornman-camp",
+      "to": "dornman-flag-trestle"
+    },
+    {
       "node": "dornman-depth",
       "to": "dornman-camp"
     },
@@ -1045,6 +1149,10 @@
       "to": "nod-special-depth"
     },
     {
+      "node": "nod-special-camp",
+      "to": "nod-reflector-shore"
+    },
+    {
       "node": "nod-special-depth",
       "to": "nod-special-camp"
     },
@@ -1055,6 +1163,10 @@
     {
       "node": "novokichev-camp",
       "to": "novokichev-depth"
+    },
+    {
+      "node": "novokichev-camp",
+      "to": "novo-frozen-works"
     },
     {
       "node": "novokichev-depth",
@@ -1223,6 +1335,14 @@
     {
       "node": "golden-hub",
       "to": "golden-play"
+    },
+    {
+      "node": "golden-hub",
+      "to": "golden-mainland-coast"
+    },
+    {
+      "node": "golden-hub",
+      "to": "golden-shadow-lookouts"
     },
     {
       "node": "golden-play",
@@ -1395,9 +1515,513 @@
     {
       "node": "wavebinder-tide-cavern",
       "to": "novokichev-depth"
+    },
+    {
+      "node": "dvalin-sky-arena",
+      "to": "mond-road"
+    },
+    {
+      "node": "andrius-wolf-ring",
+      "to": "mond-road"
+    },
+    {
+      "node": "tide-calibration-hall",
+      "to": "liyue-harbor"
+    },
+    {
+      "node": "buried-weaving-room",
+      "to": "liyue-harbor"
+    },
+    {
+      "node": "buried-weaving-room",
+      "to": "threadline-relay"
+    },
+    {
+      "node": "cloth-service-walk",
+      "to": "liyue-harbor"
+    },
+    {
+      "node": "cloth-service-walk",
+      "to": "threadline-relay"
+    },
+    {
+      "node": "threadline-relay",
+      "to": "cloth-service-walk"
+    },
+    {
+      "node": "threadline-relay",
+      "to": "buried-weaving-room"
+    },
+    {
+      "node": "snow-rail-transfer",
+      "to": "snezhnaya-field"
+    },
+    {
+      "node": "snow-rail-transfer",
+      "to": "steam-stabling-depot"
+    },
+    {
+      "node": "steam-stabling-depot",
+      "to": "snow-rail-transfer"
+    },
+    {
+      "node": "winter-frontier-switchback",
+      "to": "nod-town"
+    },
+    {
+      "node": "white-pass-cut",
+      "to": "snezhnaya-field"
+    },
+    {
+      "node": "white-pass-cut",
+      "to": "white-pass-woods"
+    },
+    {
+      "node": "white-pass-coach",
+      "to": "white-pass-station"
+    },
+    {
+      "node": "white-pass-station",
+      "to": "snezhnaya-hub"
+    },
+    {
+      "node": "white-pass-station",
+      "to": "white-pass-woods"
+    },
+    {
+      "node": "white-pass-station",
+      "to": "aurora-ice-cut"
+    },
+    {
+      "node": "white-pass-woods",
+      "to": "white-pass-station"
+    },
+    {
+      "node": "white-pass-woods",
+      "to": "white-pass-cut"
+    },
+    {
+      "node": "white-pass-woods",
+      "to": "white-pass-ridge"
+    },
+    {
+      "node": "white-pass-ridge",
+      "to": "white-pass-woods"
+    },
+    {
+      "node": "white-pass-ridge",
+      "to": "white-rainbow-basin"
+    },
+    {
+      "node": "white-rainbow-basin",
+      "to": "white-pass-ridge"
+    },
+    {
+      "node": "aurora-ice-cut",
+      "to": "white-pass-station"
+    },
+    {
+      "node": "aurora-ice-cut",
+      "to": "aurora-ice-shelf"
+    },
+    {
+      "node": "aurora-ice-shelf",
+      "to": "aurora-ice-cut"
+    },
+    {
+      "node": "aurora-ice-shelf",
+      "to": "aurora-steam-channel"
+    },
+    {
+      "node": "aurora-steam-channel",
+      "to": "aurora-ice-shelf"
+    },
+    {
+      "node": "aurora-steam-channel",
+      "to": "aurora-mineral-terraces"
+    },
+    {
+      "node": "aurora-mineral-terraces",
+      "to": "aurora-steam-channel"
+    },
+    {
+      "node": "aurora-mineral-terraces",
+      "to": "dawn-vein-mine"
+    },
+    {
+      "node": "dornman-wind-stairs",
+      "to": "dornman-camp"
+    },
+    {
+      "node": "dornman-wind-stairs",
+      "to": "dornman-flag-trestle"
+    },
+    {
+      "node": "dornman-flag-trestle",
+      "to": "dornman-camp"
+    },
+    {
+      "node": "dornman-flag-trestle",
+      "to": "dornman-wind-stairs"
+    },
+    {
+      "node": "dornman-flag-trestle",
+      "to": "dornman-windworks"
+    },
+    {
+      "node": "dornman-windworks",
+      "to": "dornman-flag-trestle"
+    },
+    {
+      "node": "dawn-vein-mine",
+      "to": "aurora-mineral-terraces"
+    },
+    {
+      "node": "dawn-vein-mine",
+      "to": "dawn-vein-deep"
+    },
+    {
+      "node": "dawn-vein-deep",
+      "to": "dawn-vein-mine"
+    },
+    {
+      "node": "dawn-vein-deep",
+      "to": "dawn-glass-ridge"
+    },
+    {
+      "node": "dawn-glass-ridge",
+      "to": "dawn-vein-deep"
+    },
+    {
+      "node": "dawn-glass-ridge",
+      "to": "dawn-glass-divide"
+    },
+    {
+      "node": "dawn-glass-divide",
+      "to": "dawn-glass-ridge"
+    },
+    {
+      "node": "dawn-glass-divide",
+      "to": "dawn-crystal-field"
+    },
+    {
+      "node": "dawn-crystal-field",
+      "to": "dawn-glass-divide"
+    },
+    {
+      "node": "ochka-tide-stairs",
+      "to": "ochkanatlan-dock"
+    },
+    {
+      "node": "ochka-tide-stairs",
+      "to": "ochka-patched-court"
+    },
+    {
+      "node": "ochka-patched-court",
+      "to": "ochka-tide-stairs"
+    },
+    {
+      "node": "ochka-patched-court",
+      "to": "ochka-sifting-kiln"
+    },
+    {
+      "node": "ochka-sifting-kiln",
+      "to": "ochka-patched-court"
+    },
+    {
+      "node": "nod-reflector-shore",
+      "to": "nod-special-camp"
+    },
+    {
+      "node": "nod-reflector-shore",
+      "to": "nod-reflection-garden"
+    },
+    {
+      "node": "nod-reflection-garden",
+      "to": "nod-reflector-shore"
+    },
+    {
+      "node": "nod-reflection-garden",
+      "to": "nod-special-camp"
+    },
+    {
+      "node": "nod-reflection-garden",
+      "to": "nod-quiet-rim"
+    },
+    {
+      "node": "nod-quiet-rim",
+      "to": "nod-reflection-garden"
+    },
+    {
+      "node": "nod-quiet-rim",
+      "to": "nod-town"
+    },
+    {
+      "node": "novo-frozen-works",
+      "to": "novokichev-camp"
+    },
+    {
+      "node": "novo-frozen-works",
+      "to": "novokichev-camp"
+    },
+    {
+      "node": "novo-frozen-works",
+      "to": "novo-drift-passage"
+    },
+    {
+      "node": "novo-drift-passage",
+      "to": "novo-frozen-works"
+    },
+    {
+      "node": "novo-drift-passage",
+      "to": "novo-ice-vault"
+    },
+    {
+      "node": "novo-ice-vault",
+      "to": "novo-drift-passage"
+    },
+    {
+      "node": "novo-ice-vault",
+      "to": "novokichev-camp"
+    },
+    {
+      "node": "spine-observation-shelf",
+      "to": "dragonspine-camp"
+    },
+    {
+      "node": "spine-observation-shelf",
+      "to": "spine-wind-notch"
+    },
+    {
+      "node": "spine-wind-notch",
+      "to": "spine-observation-shelf"
+    },
+    {
+      "node": "spine-wind-notch",
+      "to": "spine-shelter"
+    },
+    {
+      "node": "spine-wind-notch",
+      "to": "spine-lee-walk"
+    },
+    {
+      "node": "spine-lee-walk",
+      "to": "spine-wind-notch"
+    },
+    {
+      "node": "spine-lee-walk",
+      "to": "spine-shelter"
+    },
+    {
+      "node": "spine-shelter",
+      "to": "dragonspine-camp"
+    },
+    {
+      "node": "spine-shelter",
+      "to": "spine-lee-walk"
+    },
+    {
+      "node": "spine-shelter",
+      "to": "spine-trace-ridge"
+    },
+    {
+      "node": "spine-trace-ridge",
+      "to": "spine-shelter"
+    },
+    {
+      "node": "chenyu-tea-terraces",
+      "to": "chenyu-camp"
+    },
+    {
+      "node": "chenyu-tea-terraces",
+      "to": "chenyu-tea-pavilion"
+    },
+    {
+      "node": "chenyu-tea-terraces",
+      "to": "chenyu-cart-road"
+    },
+    {
+      "node": "chenyu-cart-road",
+      "to": "chenyu-camp"
+    },
+    {
+      "node": "chenyu-cart-road",
+      "to": "chenyu-tea-terraces"
+    },
+    {
+      "node": "chenyu-cart-road",
+      "to": "chenyu-tea-pavilion"
+    },
+    {
+      "node": "chenyu-tea-lift",
+      "to": "chenyu-camp"
+    },
+    {
+      "node": "chenyu-tea-lift",
+      "to": "chenyu-tea-lift"
+    },
+    {
+      "node": "chenyu-tea-lift",
+      "to": "chenyu-tea-pavilion"
+    },
+    {
+      "node": "chenyu-tea-pavilion",
+      "to": "chenyu-cart-road"
+    },
+    {
+      "node": "chenyu-tea-pavilion",
+      "to": "chenyu-camp"
+    },
+    {
+      "node": "chenyu-tea-pavilion",
+      "to": "chenyu-boulder-gully"
+    },
+    {
+      "node": "chenyu-boulder-gully",
+      "to": "chenyu-tea-pavilion"
+    },
+    {
+      "node": "enkan-guide-shelf",
+      "to": "enkanomiya-camp"
+    },
+    {
+      "node": "enkan-lamp-chamber",
+      "to": "enkanomiya-camp"
+    },
+    {
+      "node": "enkan-lamp-chamber",
+      "to": "enkan-route-gallery"
+    },
+    {
+      "node": "enkan-route-gallery",
+      "to": "enkanomiya-camp"
+    },
+    {
+      "node": "enkan-route-gallery",
+      "to": "enkan-lamp-chamber"
+    },
+    {
+      "node": "enkan-route-gallery",
+      "to": "enkan-tablet-hollow"
+    },
+    {
+      "node": "enkan-tablet-hollow",
+      "to": "enkan-route-gallery"
+    },
+    {
+      "node": "tunigi-vent-shelf",
+      "to": "tunigi-camp"
+    },
+    {
+      "node": "tunigi-baffle-workshop",
+      "to": "tunigi-camp"
+    },
+    {
+      "node": "tunigi-baffle-workshop",
+      "to": "tunigi-return-shelter"
+    },
+    {
+      "node": "tunigi-return-shelter",
+      "to": "tunigi-camp"
+    },
+    {
+      "node": "tunigi-return-shelter",
+      "to": "tunigi-baffle-workshop"
+    },
+    {
+      "node": "tunigi-return-shelter",
+      "to": "tunigi-elite-passage"
+    },
+    {
+      "node": "tunigi-elite-passage",
+      "to": "tunigi-return-shelter"
+    },
+    {
+      "node": "tunigi-elite-passage",
+      "to": "tunigi-fragment-vault"
+    },
+    {
+      "node": "tunigi-fragment-vault",
+      "to": "tunigi-elite-passage"
+    },
+    {
+      "node": "tunigi-fragment-vault",
+      "to": "tunigi-return-shelter"
+    },
+    {
+      "node": "bygone-waterway-pier",
+      "to": "bygone-camp"
+    },
+    {
+      "node": "bygone-waterway-pier",
+      "to": "bygone-resonance-chamber"
+    },
+    {
+      "node": "bygone-resonance-chamber",
+      "to": "bygone-waterway-pier"
+    },
+    {
+      "node": "bygone-resonance-chamber",
+      "to": "bygone-camp"
+    },
+    {
+      "node": "bygone-inscribed-hall",
+      "to": "bygone-camp"
+    },
+    {
+      "node": "bygone-inscribed-hall",
+      "to": "bygone-listening-gallery"
+    },
+    {
+      "node": "bygone-listening-gallery",
+      "to": "bygone-camp"
+    },
+    {
+      "node": "bygone-listening-gallery",
+      "to": "bygone-inscribed-hall"
+    },
+    {
+      "node": "bygone-listening-gallery",
+      "to": "bygone-bell-archive"
+    },
+    {
+      "node": "bygone-bell-archive",
+      "to": "bygone-listening-gallery"
+    },
+    {
+      "node": "bygone-bell-archive",
+      "to": "bygone-listening-gallery"
+    },
+    {
+      "node": "golden-mainland-coast",
+      "to": "mond-road"
+    },
+    {
+      "node": "golden-mainland-coast",
+      "to": "golden-hub"
+    },
+    {
+      "node": "golden-shadow-lookouts",
+      "to": "golden-hub"
+    },
+    {
+      "node": "golden-shadow-lookouts",
+      "to": "golden-shadow-grotto"
+    },
+    {
+      "node": "golden-shadow-grotto",
+      "to": "golden-shadow-lookouts"
+    },
+    {
+      "node": "golden-shadow-grotto",
+      "to": "golden-tide-pocket"
+    },
+    {
+      "node": "golden-tide-pocket",
+      "to": "golden-shadow-grotto"
     }
   ],
-  "hidden_connections_checked": 9,
+  "hidden_connections_checked": 18,
   "checks": [
     "nearest name from graph",
     "strict distance/height boundaries",

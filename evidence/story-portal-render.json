@@ -2219,6 +2219,46 @@
       "node": "bygone-bell-archive",
       "mode": "rect",
       "visible_portals": 2
+    },
+    {
+      "node": "golden-mainland-coast",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "golden-mainland-coast",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "golden-shadow-lookouts",
+      "mode": "sprite",
+      "visible_portals": 0
+    },
+    {
+      "node": "golden-shadow-lookouts",
+      "mode": "rect",
+      "visible_portals": 0
+    },
+    {
+      "node": "golden-shadow-grotto",
+      "mode": "sprite",
+      "visible_portals": 0
+    },
+    {
+      "node": "golden-shadow-grotto",
+      "mode": "rect",
+      "visible_portals": 0
+    },
+    {
+      "node": "golden-tide-pocket",
+      "mode": "sprite",
+      "visible_portals": 0
+    },
+    {
+      "node": "golden-tide-pocket",
+      "mode": "rect",
+      "visible_portals": 0
     }
   ],
   "checks": [

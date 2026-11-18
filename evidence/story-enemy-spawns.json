@@ -951,6 +951,22 @@
       "node": "bygone-bell-archive",
       "enemy_count": 0,
       "field_boss_count": 1
+    },
+    {
+      "node": "golden-mainland-coast",
+      "enemy_count": 0
+    },
+    {
+      "node": "golden-shadow-lookouts",
+      "enemy_count": 0
+    },
+    {
+      "node": "golden-shadow-grotto",
+      "enemy_count": 3
+    },
+    {
+      "node": "golden-tide-pocket",
+      "enemy_count": 3
     }
   ],
   "render_profiles": [

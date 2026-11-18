@@ -3,12 +3,40 @@
   "result": [
     {
       "id": "golden-hub",
-      "key": "golden"
+      "key": "golden",
+      "file": "golden-background-v1.png",
+      "state": "ready"
     },
     {
       "id": "golden-play",
-      "key": "golden"
+      "key": "golden",
+      "file": "golden-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "id": "golden-mainland-coast",
+      "key": "goldenDock",
+      "file": "golden-dock-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "id": "golden-shadow-lookouts",
+      "key": "golden",
+      "file": "golden-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "id": "golden-shadow-grotto",
+      "key": "goldenGrotto",
+      "file": "golden-grotto-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "id": "golden-tide-pocket",
+      "key": "goldenGrotto",
+      "file": "golden-grotto-background-v1.png",
+      "state": "ready"
     }
   ],
-  "method": "actual story node data rendered by shared host scenery; visual fixture, not a gameplay travel test"
+  "method": "Story-node placements rendered by the shared host scenery"
 }

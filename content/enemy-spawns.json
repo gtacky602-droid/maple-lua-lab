@@ -2258,6 +2258,16 @@
     "tunigi-elite-passage": [
       {"id":"tunigi-elite-1","x":404,"platform":0,"hp":58,"kind":1,"art":"sail-shell-crawler"},
       {"id":"tunigi-elite-2","x":917,"platform":1,"hp":62,"kind":1,"art":"snow-mantle-beetle"}
+    ],
+    "golden-shadow-grotto": [
+      {"id":"golden-cave-patrol-1","x":299,"platform":0,"hp":8,"kind":1,"art":"pebble-courier"},
+      {"id":"golden-cave-patrol-2","x":725,"platform":1,"hp":10,"kind":1,"art":"sail-shell-crawler"},
+      {"id":"golden-cave-patrol-3","x":965,"platform":0,"hp":10,"kind":1,"art":"pebble-courier"}
+    ],
+    "golden-tide-pocket": [
+      {"id":"golden-pocket-scavenger-1","x":272,"platform":0,"hp":14,"kind":1,"art":"sail-shell-crawler"},
+      {"id":"golden-pocket-scavenger-2","x":508,"platform":1,"hp":14,"kind":1,"art":"pebble-courier"},
+      {"id":"golden-pocket-scavenger-3","x":1040,"platform":2,"hp":16,"kind":1,"art":"sail-shell-crawler"}
     ]
   }
 }

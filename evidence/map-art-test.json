@@ -1332,6 +1332,30 @@
       "count": 0,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "golden-mainland-coast",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "golden-shadow-lookouts",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "golden-shadow-grotto",
+      "count": 3,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "golden-tide-pocket",
+      "count": 3,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,

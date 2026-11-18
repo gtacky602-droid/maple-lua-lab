@@ -61,5 +61,9 @@ const rubbings=graph.quests.find(q=>q.id==='bygone-stone-rubbings');
 const waterway={story:{active:true,node:'bygone-waterway-pier',quests:{[rubbings.id]:{count:0}}},
  storyGraph:graph,progression:{level:148},active:1,actors:[{id:1,x:821,y:480}]};
 assert.match(questRouteText(waterway,rubbings,'active'),/次は 共鳴石の足場室.*F：水路を渡る/);
+const boatQuest=graph.quests.find(q=>q.id==='golden-little-boat');
+const sailing={story:{active:true,node:boatQuest.hub,quests:{[boatQuest.id]:{count:3}}},
+ storyGraph:graph,progression:{level:1},active:1,actors:[{id:1,x:1530,y:480}]};
+assert.match(questRouteText(sailing,boatQuest,'active'),/次は 金リンゴ群島・入口広場.*F：小舟に乗る/);
 const original=JSON.stringify(frame);let checked=0;for(const quest of graph.quests)for(const status of ['unaccepted','active','ready','complete']){assert.equal(typeof questRouteText(frame,quest,status),'string');checked++}assert.equal(JSON.stringify(frame),original);
 await fs.writeFile('evidence/quest-route-test.json',JSON.stringify({checked,checks:['accept/report hub destination','active visit/kill destination','boss challenge entrance','one-time complete hidden','repeatable complete points to hub','missing/hidden target no leak','level gate indication','level-eligible detour preferred','shortest route at eligible level','blocked fallback minimizes required level','high-level origin permits exit','cycles terminate','voyage pre/during/post stopover and arrival','arrival zero switches to disembark; positive fraction waits','active companion position drives gate direction','ground proximity and elevated descent guidance','missing actors omit directional guidance','pause indication','disconnected graph','chapter finale tracks the cape after the contest','town walk and legacy hunt use their respective targets','no frame mutation']},null,2));console.log('Quest routing fixtures passed');

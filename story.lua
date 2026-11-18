@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -71,13 +71,23 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local function nearGate(a,edge)
   return math.abs(a.x-edge.x)<90 and math.abs(a.y-(edge.y or 480))<60
  end
+ local function shownNode(s,n)
+  return not n.hiddenGroup or s.story.discovered[n.hiddenGroup]
+ end
+ local function shownEdge(s,edge)
+  return shownNode(s,nodes[edge.to]) and (not edge.visitedOnly or s.story.visited[edge.to])
+      and (not edge.hideUntilAllowed or not gateRestriction(s,edge))
+ end
+ local function nearHint(a,h)
+  return a.hp>0 and math.abs(a.x-h.x)<75 and math.abs(a.y-h.y)<60
+ end
  local function nearbyPortal(s)
   if not s.story.active then return nil end
   local a=s.actors[s.active]
   local best,distance=nil,90
   for _,edge in ipairs(nodes[s.story.node].exits) do
    local n=nodes[edge.to];local dx=math.abs(a.x-edge.x)
-   if dx<distance and nearGate(a,edge) and (not n.hiddenGroup or s.story.discovered[n.hiddenGroup]) then
+   if dx<distance and nearGate(a,edge) and shownEdge(s,edge) then
     local reason=nil
     if s.roofFlight then reason='移動中'
     elseif s.caveFall then reason='崩落中'
@@ -85,7 +95,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif a.hp<=0 then reason='戦闘不能中'
     elseif not s.progression or s.progression.level<n.level then reason='必要レベル '..n.level
     else reason=gateRestriction(s,edge) end
-    best={to=edge.to,name=edge.rideLabel or n.name,level=n.level,available=not reason,reason=reason,liftSeconds=edge.liftSeconds,waterwaySeconds=edge.waterwaySeconds};distance=dx
+    best={to=edge.to,name=edge.rideLabel or n.name,level=n.level,available=not reason,reason=reason,
+          liftSeconds=edge.liftSeconds,waterwaySeconds=edge.waterwaySeconds,boatSeconds=edge.boatSeconds};distance=dx
     if edge.wind then
      local calm,seconds=windWindow(s,edge.wind)
      best.wind={calm=calm,seconds=seconds}
@@ -143,6 +154,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   return a.hp>0 and math.abs(a.x-item.x)<54 and math.abs(a.y-item.y)<34
  end
  local resonance=resonanceModule(canInspect)
+ local rockViews=rockViewsModule(canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -184,13 +196,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local function inspectMilestone(s,command)
   for _,q in ipairs(itineraries) do
    local milestone,state=nextMilestone(s,q)
-   if milestone and milestone.resonanceOrder and milestone.node==s.story.node and command=='rotate' then
-    local handled,complete=resonance.light(s,nodes[s.story.node].resonance,emitCue)
+   if milestone and (milestone.resonanceOrder or milestone.shadowChoice) and milestone.node==s.story.node and command=='rotate' then
+    local node=nodes[s.story.node]
+    local handled,complete
+    if milestone.shadowChoice then handled,complete=rockViews.choose(s,node.rockViews)
+    else handled,complete=resonance.light(s,node.resonance,emitCue) end
     if complete then completeMilestone(s,state,milestone) end
     if handled then return true end
    end
    if milestone and milestone.kind=='inspect' and milestone.node==s.story.node
-       and not milestone.resonanceOrder
+       and not milestone.resonanceOrder and not milestone.shadowChoice
        and (not milestone.roomLight or milestone.roomLight==s.storyLightMode)
        and canInspect(s.actors[s.active],milestone) then
     if milestone.airflow then
@@ -385,7 +400,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   if key=='story_collect' then
    if s.paused or not s.story.active then return end
-   local lamp=nodes[s.story.node].localLight
+   local node=nodes[s.story.node]
+   for _,hint in ipairs(node.hints or {}) do
+    if not s.story.discovered[hint.group] and nearHint(s.actors[s.active],hint) then
+     C.action(s,'story_discover:'..hint.group);return
+    end
+   end
+   local lamp=node.localLight
    if lamp and localLight.interact(s,lamp) then return end
    if inspectMilestone(s,'rotate') then return end
    local railConfig,railState=railQuest(s,nodes[s.story.node])
@@ -488,7 +509,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if discovery then
    if s.paused or not s.story.active or s.actors[s.active].hp<=0 then return end
    local a=s.actors[s.active]
-   for _,h in ipairs(nodes[s.story.node].hints or {}) do if h.group==discovery and math.abs(a.x-h.x)<75 and math.abs(a.y-h.y)<60 then s.story.discovered[discovery]=true;s.storyNotice='隠し入口を発見しました。';return end end
+   for _,h in ipairs(nodes[s.story.node].hints or {}) do if h.group==discovery and nearHint(a,h) then s.story.discovered[discovery]=true;s.storyNotice='隠し入口を発見しました。';return end end
    s.storyNotice='手がかりの近くで調べてください。';return
   end
   if key=='story_start' then if not s.campaign then action(s,'campaign') end;enter(s,'mond-town');return end
@@ -502,7 +523,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    else
     local allowed=false;local a=s.actors[s.active]
     for _,edge in ipairs(nodes[s.story.node].exits) do
-     if edge.to==dest and nearGate(a,edge) then
+     if edge.to==dest and nearGate(a,edge) and shownEdge(s,edge) then
       local reason=gateRestriction(s,edge)
       if reason then s.storyNotice=reason;return end
       allowed=true;departure=edge;resume=edge.resumeSeconds or 0
@@ -524,12 +545,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    for _,edge in ipairs(n.exits) do
     if edge.to==previous and not edge.returnOnly then spawn=edge.x<720 and 160 or n.width-160;arrival=edge end
    end
-   local seconds=departure and (departure.liftSeconds or departure.waterwaySeconds)
+   local seconds=departure and (departure.liftSeconds or departure.waterwaySeconds or departure.boatSeconds)
    if seconds then
     s.lift={destination=dest,name=departure.rideLabel or n.name,seconds=seconds,remaining=seconds,
-            waterway=departure.waterwaySeconds~=nil,
+            waterway=departure.waterwaySeconds~=nil,boat=departure.boatSeconds~=nil,
             x=departure.arrivalX or (arrival and arrival.x or spawn),y=departure.arrivalY or (arrival and arrival.y or 480)}
-    if not s.lift.waterway and dest==previous and departure.arrivalY then s.lift.riders={} end
+    if not s.lift.waterway and not s.lift.boat and dest==previous and departure.arrivalY then s.lift.riders={} end
     for i,actor in ipairs(s.actors) do
      actor.walk=0
      if s.lift.riders then s.lift.riders[i]={x=actor.x,y=actor.y} end
@@ -696,12 +717,32 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    draws[#draws+1]={kind='rect',x=dx,y=y-25,w=9,h=3,color='#b18752'}
   end
  end
+ local function drawIslandChest(draws,x,y,open)
+  local lidY=open and y-37 or y-24
+  draws[#draws+1]={kind='rect',x=x-20,y=y-19,w=40,h=19,color='#855c4a'}
+  draws[#draws+1]={kind='rect',x=x-21,y=lidY,w=42,h=9,color='#ba9063'}
+  draws[#draws+1]={kind='rect',x=x-16,y=y-17,w=4,h=17,color='#cfa468'}
+  draws[#draws+1]={kind='rect',x=x+12,y=y-17,w=4,h=17,color='#cfa468'}
+  draws[#draws+1]={kind='rect',x=x-3,y=y-19,w=6,h=9,color='#eed39a'}
+ end
+ local function drawShoreMark(draws,x,y,mark)
+  local function rect(dx,dy,w,h,color)
+   draws[#draws+1]={kind='rect',x=x+dx,y=y+dy,w=w,h=h,color=color}
+  end
+  if mark=='flag' then
+   rect(-3,-38,5,38,'#705240')
+   rect(2,-36,26,10,'#c65f51');rect(7,-26,13,5,'#df8760')
+  else
+   rect(-22,-32,10,32,'#775744');rect(8,-43,10,43,'#775744')
+   rect(-23,-27,12,4,'#dbaf7d');rect(7,-35,12,4,'#dbaf7d')
+   rect(-13,-25,21,3,'#ba9270')
+  end
+ end
 
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile);setup(s);f.story=s.story;local visible={version=data.version,status=data.status,nodes={},quests={}}
-  local function shown(n) return not n.hiddenGroup or s.story.discovered[n.hiddenGroup] end
-  for _,n in ipairs(data.nodes) do if shown(n) then local out=copy(n);out.exits={};for _,edge in ipairs(n.exits) do if shown(nodes[edge.to]) then out.exits[#out.exits+1]=copy(edge) end end;visible.nodes[#visible.nodes+1]=out end end
-  for _,q in ipairs(data.quests) do if shown(nodes[q.hub]) then visible.quests[#visible.quests+1]=q end end
+  for _,n in ipairs(data.nodes) do if shownNode(s,n) then local out=copy(n);out.exits={};for _,edge in ipairs(n.exits) do if shownEdge(s,edge) then out.exits[#out.exits+1]=copy(edge) end end;visible.nodes[#visible.nodes+1]=out end end
+  for _,q in ipairs(data.quests) do if shownNode(s,nodes[q.hub]) then visible.quests[#visible.quests+1]=q end end
   f.storyGraph=visible;f.storyNotice=s.storyNotice;f.storyJoined={};f.voyage=s.voyage and {seconds=math.max(0,s.voyage.arrives-s.t),destination=s.voyage.destination,elapsed=s.t-s.voyage.started,kind=s.voyage.kind,stopover=s.voyage.stopStart and s.t-s.voyage.started+1e-8>=s.voyage.stopStart and s.t-s.voyage.started+1e-8<s.voyage.stopEnd or false} or nil
   for id,q in pairs(quests) do if q.join and s.story.quests[id] and s.story.quests[id].status=='complete' then f.storyJoined[q.join]=true end end
   if s.story.active then local n=nodes[s.story.node];f.location=n.name..'（本編試作）'
@@ -723,7 +764,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    if s.lift then
     local ride=s.lift
-    f.storyLift={destination=ride.name,remaining=ride.remaining,seconds=ride.seconds,waterway=ride.waterway or nil}
+    f.storyLift={destination=ride.name,remaining=ride.remaining,seconds=ride.seconds,
+                 waterway=ride.waterway or nil,boat=ride.boat or nil}
    else f.storyNearbyPortal=nearbyPortal(s) end
    local markers={};f.storyPortals={}
    local cue=s.storyCue
@@ -731,7 +773,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if cue.channel=='airflow' then f.storyAirflowCue=cue else f.storyResonanceCue=cue end
    end
    local function marker(x,y,w,h) markers[#markers+1]={kind='rect',x=x,y=y,w=w,h=h,color='#83dbe1'} end
-   for _,edge in ipairs(n.exits) do if shown(nodes[edge.to]) and (not edge.darkOnly or s.storyLightMode=='dark') then
+   for _,edge in ipairs(n.exits) do if shownEdge(s,edge) and (not edge.darkOnly or s.storyLightMode=='dark') then
     local x,y=edge.x-s.camera,edge.y or 480
     local rule=edge.requires
     local state=rule and s.story.quests[rule.quest]
@@ -750,6 +792,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if n.resonance then
     local quest=quests[n.resonance.quest]
     resonance.observe(s,f,markers,n.resonance,s.story.quests[quest.id],nextMilestone(s,quest))
+   end
+   if n.rockViews then
+    rockViews.observe(s,f,markers,n.rockViews,nextMilestone(s,quests[n.rockViews.quest]))
    end
    for _,edge in ipairs(n.exits) do
     if edge.wind and not windWindow(s,edge.wind) then
@@ -831,12 +876,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif milestone and milestone.reflect and milestone.node==s.story.node then
      reflection.draw(s,f,markers,milestone,not s.paused and canInspect(s.actors[s.active],milestone))
     elseif milestone and milestone.kind=='inspect' and milestone.node==s.story.node
-        and not milestone.resonanceOrder
+        and not milestone.resonanceOrder and not milestone.shadowChoice
         and (not milestone.roomLight or milestone.roomLight==s.storyLightMode) then
      local x,y=milestone.x-s.camera,milestone.y
-     if (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
+     if not milestone.shadowView and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
+      elseif milestone.islandTreasure then drawIslandChest(markers,x,y,false)
+      elseif milestone.shoreMark then drawShoreMark(markers,x,y,milestone.shoreMark)
       else
        markers[#markers+1]={kind='rect',x=x-13,y=y-28,w=26,h=28,color='#5a3648'}
        markers[#markers+1]={kind='rect',x=x-10,y=y-24,w=20,h=16,color='#eed5a8'}
@@ -857,6 +904,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
        if (not done.resonanceStone or done.resonanceControl) and x>=-25 and x<=985 then
         if done.outcrop then drawOutcrop(markers,x,y,done.outcrop)
         elseif done.teaCups then drawTeaSetting(markers,x,y,done.teaCups)
+        elseif done.islandTreasure then drawIslandChest(markers,x,y,true)
+        elseif done.shoreMark then drawShoreMark(markers,x,y,done.shoreMark)
         else
          markers[#markers+1]={kind='rect',x=x-11,y=y-28,w=22,h=28,color='#5a3648'}
          markers[#markers+1]={kind='rect',x=x-7,y=y-25,w=14,h=12,color='#b9ffce'}
@@ -872,6 +921,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     end
    end
    -- Navigation and quest objects precede actors, enemies, and effects.
+   for _,hint in ipairs(n.hints or {}) do
+    if not f.storyNearbyMilestone and not s.paused and not s.lift and not s.story.discovered[hint.group]
+        and nearHint(s.actors[s.active],hint) then
+     f.storyNearbyMilestone={label=hint.label..'を調べる'}
+    end
+   end
    for _,draw in ipairs(f.draws) do markers[#markers+1]=draw end;f.draws=markers
    for _,h in ipairs(n.hints or {}) do f.draws[#f.draws+1]={kind='rect',x=h.x-s.camera-8,y=h.y-48,w=16,h=16,color='#ffe4a0'} end
    f.commands=#f.draws

@@ -1,0 +1,31 @@
+{
+  "startsAtLevelOne": true,
+  "hiddenUntilDiscovery": true,
+  "threeMarks": true,
+  "twoWayBoat": true,
+  "pausesOnBoat": true,
+  "threeProjectedGaps": [
+    0,
+    9.86,
+    31.74
+  ],
+  "wrongViewDoesNotUnlock": true,
+  "caveGateConcealedUntilChoice": true,
+  "oldSaveShortcutStillWorks": true,
+  "groupsResumeAfterSave": true,
+  "chestAfterPatrol": true,
+  "repeatableCove": true,
+  "keepsOldIslandQuest": true,
+  "mementoReadableAfterSave": true,
+  "firstReport": [
+    220,
+    120,
+    1
+  ],
+  "secondReport": [
+    420,
+    210,
+    2
+  ],
+  "oneTimePayouts": true
+}

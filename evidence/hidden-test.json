@@ -1,10 +1,11 @@
 {
-  "count": 25,
+  "count": 26,
   "checks": [
     "golden hidden nodes absent before discovery",
     "golden remote discovery rejected",
     "golden direct undiscovered portal rejected",
     "golden clue unlocks exactly this group",
+    "golden clue leads to mainland dock",
     "golden discovered portal enters",
     "golden exploration progresses",
     "golden discovery persists and resumes safe hidden hub",

@@ -2522,6 +2522,66 @@
       "transparent": 0
     },
     {
+      "key": "goldenDock",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "goldenDock",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "goldenDock",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "goldenDock",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "goldenDock",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "goldenDock",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "goldenGrotto",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "goldenGrotto",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "goldenGrotto",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "goldenGrotto",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "goldenGrotto",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "goldenGrotto",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "golden",
       "camera": -960,
       "transparent": 0

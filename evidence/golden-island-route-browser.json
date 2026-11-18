@@ -1,0 +1,41 @@
+{
+  "startsAtLevelOne": true,
+  "freshDiscovery": true,
+  "twoWayBoat": true,
+  "threeViews": [
+    0,
+    9.86,
+    31.74
+  ],
+  "threePanelsDiffer": true,
+  "wrongViewRejected": true,
+  "gateConcealedUntilChoice": true,
+  "readbackAfterSave": true,
+  "newOptionalGround": true,
+  "dock": {
+    "key": "goldenDock",
+    "file": "golden-dock-background-v1.png",
+    "state": "ready"
+  },
+  "cave": {
+    "key": "goldenGrotto",
+    "file": "golden-grotto-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 21,
+    "standard": 8520,
+    "light": 2173
+  },
+  "firstReport": [
+    220,
+    120,
+    1
+  ],
+  "secondReport": [
+    420,
+    210,
+    2
+  ],
+  "errors": []
+}

@@ -8,11 +8,25 @@ for n in g['nodes']:
  s=state(n['id']);s.progression.level=c.frame(s).levelCap
  for group in {x.get('hiddenGroup') for x in g['nodes']} - {None}:s.story.discovered[group]=True
  for edge in n['exits']:
+  if edge.get('visitedOnly'):
+   s.actors[1].x=edge['x'];s.actors[1].y=edge.get('y',480)
+   unseen=c.frame(s,'sprite','h32c16').storyNearbyPortal
+   assert unseen is None or unseen.to!=edge['to']
+   s.story.visited[edge['to']]=True
+  if edge.get('wind'):s.storyEnteredAt=s.t-edge['wind']['calmStart']
+  if edge.get('darkOnly'):s.storyLightMode='dark'
   s.actors[1].x=edge['x'];s.actors[1].y=edge.get('y',480)
-  p=c.frame(s,'sprite','h32c16').storyNearbyPortal
-  assert p is not None and p.to==edge['to'] and p.name==nodes[p.to]['name']
   rule=edge.get('requires')
-  if rule:
+  if edge.get('hideUntilAllowed'):
+   unseen=c.frame(s,'sprite','h32c16').storyNearbyPortal
+   assert unseen is None or unseen.to!=edge['to']
+   s.story.quests[rule['quest']]=lua.table_from({'status':'active','count':rule['count']})
+  p=c.frame(s,'sprite','h32c16').storyNearbyPortal
+  assert p is not None and p.to==edge['to'] and p.name==edge.get('rideLabel',nodes[p.to]['name']),(n['id'],edge,p)
+  if edge.get('hideUntilAllowed'):
+   assert p.available
+   s.story.quests[rule['quest']]=None
+  elif rule:
    assert not p.available
    finished={'status':'complete','count':rule.get('count',0)}
    if rule.get('construction'):
@@ -20,7 +34,8 @@ for n in g['nodes']:
    if rule['quest']=='inazuma-torii-maze':
     finished['forest']={'looped':True,'defeated':{}}
    s.story.quests[rule['quest']]=lua.table_from(finished,recursive=True)
-   assert c.frame(s,'sprite','h32c16').storyNearbyPortal.available
+   updated=c.frame(s,'sprite','h32c16').storyNearbyPortal
+   assert updated.available,(n['id'],edge,updated.reason)
    s.story.quests[rule['quest']]=None
   elif not edge.get('windowStart') and not edge.get('requiresArrival'):assert p.available
   checked.append({'node':n['id'],'to':p.to})
