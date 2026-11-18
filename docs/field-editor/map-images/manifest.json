@@ -1,0 +1,120 @@
+{
+  "official_map_id": 2,
+  "map_version": "bd70cde160dbd523926208d9fa8961a1",
+  "origin": [
+    24207,
+    16411
+  ],
+  "source": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v3/map/info?app_sn=ys_obc&lang=ja-jp&map_id=2",
+  "attribution": "© HoYoverse",
+  "images": [
+    {
+      "file": "teyvat-overview.jpg",
+      "width": 2674,
+      "height": 2397,
+      "catalog_bounds": [
+        -16751.0,
+        -9355.0,
+        4641.0,
+        9821.0
+      ],
+      "sha256": "c23b53256ba8782a58828f91b7c79cfd855b968f77009929fc97c549a5beab0f"
+    },
+    {
+      "file": "mondstadt.jpg",
+      "width": 1353,
+      "height": 1821,
+      "catalog_bounds": [
+        -1271.0,
+        -1963.0,
+        1435.0,
+        1679.0
+      ],
+      "sha256": "9567f2264a0653aa185d2d90ba44e60bdb8fe09e7a512da157a2c14b42755c00"
+    },
+    {
+      "file": "liyue.jpg",
+      "width": 1956,
+      "height": 1955,
+      "catalog_bounds": [
+        -3807.0,
+        -405.0,
+        105.0,
+        3505.0
+      ],
+      "sha256": "95c1ede49a0e867366b84a7d852a5fdba967dd8ec9485dae6ebabd3915d1ffc9"
+    },
+    {
+      "file": "inazuma.jpg",
+      "width": 2185,
+      "height": 2647,
+      "catalog_bounds": [
+        -349.0,
+        3907.0,
+        4021.0,
+        9201.0
+      ],
+      "sha256": "1594bcafc1bae5dc9b418aa4789d5513a80331d959cf91176d0f8e410cdb2194"
+    },
+    {
+      "file": "sumeru.jpg",
+      "width": 2553,
+      "height": 2495,
+      "catalog_bounds": [
+        -7745.0,
+        709.0,
+        -2639.0,
+        5699.0
+      ],
+      "sha256": "53c8bb257f24899f3b8e14137682baf7d9e5a1356d6cf95d2f220a71b5a37c13"
+    },
+    {
+      "file": "fontaine.jpg",
+      "width": 1344,
+      "height": 2166,
+      "catalog_bounds": [
+        -6129.0,
+        -2949.0,
+        -3441.0,
+        1383.0
+      ],
+      "sha256": "5945afd8a0f8b0e93ec5d1dcaa79597ac8c71869209e8d833da2ac6156e2c8c3"
+    },
+    {
+      "file": "natlan.jpg",
+      "width": 3500,
+      "height": 2409,
+      "catalog_bounds": [
+        -16131.0,
+        515.0,
+        -7795.0,
+        6253.0
+      ],
+      "sha256": "c8a6ba7584dc97c623e8fd9010636c0f513865dfa45d1e47e60a94b3aca253e5"
+    },
+    {
+      "file": "nod-krai.jpg",
+      "width": 1569,
+      "height": 2653,
+      "catalog_bounds": [
+        -12089.0,
+        -4227.0,
+        -8951.0,
+        1079.0
+      ],
+      "sha256": "e9b7161efbd10703faa7c890d41eb9511d36b2e66c00473ad8c83cd3a5eba183"
+    },
+    {
+      "file": "snezhnaya.jpg",
+      "width": 3500,
+      "height": 2050,
+      "catalog_bounds": [
+        -9751.0,
+        -8729.0,
+        -2567.0,
+        -4521.0
+      ],
+      "sha256": "a3a00ad1b8be36a41b528dbbc870ff9b366eb2cd852b7292ca6343e2de71af73"
+    }
+  ]
+}
