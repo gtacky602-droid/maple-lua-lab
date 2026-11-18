@@ -1,0 +1,64 @@
+{
+  "legacyLv60Access": true,
+  "tones": [
+    [
+      "□",
+      [
+        220,
+        220
+      ]
+    ],
+    [
+      "○",
+      [
+        392
+      ]
+    ],
+    [
+      "○",
+      [
+        392
+      ]
+    ],
+    [
+      "□",
+      [
+        220,
+        220
+      ]
+    ],
+    [
+      "△",
+      [
+        440,
+        588
+      ]
+    ],
+    [
+      "□",
+      [
+        220,
+        220
+      ]
+    ]
+  ],
+  "positions": [
+    545,
+    820,
+    1120
+  ],
+  "previewResetsOnReload": true,
+  "fixedDeckSurvivesReload": true,
+  "windBlocksLift": true,
+  "returnTrip": true,
+  "gateCollapse": true,
+  "preparedExit": true,
+  "bossAppearanceOnly": true,
+  "readableAfterRestore": true,
+  "firstReport": [
+    364882,
+    461918,
+    6
+  ],
+  "noSecondPayout": true
+}

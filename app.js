@@ -3,6 +3,7 @@ import {sessionLifecycle,frameResponse} from './session-lifecycle.js';
 const lifecycle=sessionLifecycle('maple-lab-session');
 import {loadSpriteImages,elementTintedSprite,combatOpacity} from './sprite-images.js';
 import {initInventoryUI} from './inventory-ui.js';
+import {initAirflowAudio} from './airflow-audio.js';
 import {initWorldUI} from './world-ui.js';
 import {initSkillUI} from './loadout-ui.js';
 import {scenery} from './scenery.js';
@@ -13,6 +14,7 @@ let checkpointRequested=false,restoreRequested=null,pendingLoadout=null,pendingI
 const skillUI=await initSkillUI(a=>actions.push(a),slots=>pendingLoadout=slots);
 await initWorldUI(a=>actions.push(a));
 const inventoryUI=initInventoryUI(a=>actions.push(a));
+const airflowAudio=initAirflowAudio();
 const SAVE_KEY='maple-lua-lab.checkpoint.v1';
 $('saveProgress').onclick=()=>{checkpointRequested=true;$('saveStatus').textContent='保存中…'};
 $('loadProgress').onclick=()=>{try{const raw=localStorage.getItem(SAVE_KEY);if(!raw)throw Error('保存データがありません');restoreRequested=JSON.parse(raw);if(!restoreRequested||typeof restoreRequested!=='object')throw Error('保存データを読み取れません');$('saveStatus').textContent='読み込み中…'}catch(e){restoreRequested=null;$('saveStatus').textContent=e.message}};
@@ -268,7 +270,17 @@ function hud(f,calls,renderMs){
  const stone=f.storyNearbyStone;
  const construction=f.storyNearbyConstruction;
  const interact=f.storyNearbyMilestone??f.storyNearbyContest??f.storyNearbyForest??f.storyNearbyLantern??f.storyNearbySight??f.storyNearbyRest??f.storyNearbyCave??f.storyNearbyRoof??construction??stone??book;
- $('nearbyCargo').hidden=!(interact||ingredient||cargo||clue);
+ const airflow=f.storyAirflow,cue=f.storyAirflowCue;
+ const collect=interact||ingredient||cargo||clue;
+ $('nearbyCargo').hidden=!(collect||airflow||cue);
+ $('nearbyCargoGo').hidden=!collect;
+ $('airflowControls').hidden=!(airflow||cue);
+ $('airflowSound').hidden=!(airflow?.target||cue);
+ $('airflowCommit').hidden=!airflow?.confirm;
+ $('airflowStatus').textContent=airflow?
+  [airflow.target&&'目印 '+airflow.target,airflow.pattern||airflow.selection,airflow.result].filter(Boolean).join(' ｜ '):
+  cue?'音の印 '+cue.pattern:'';
+ airflowAudio.update(f);
  const reflection=f.storyReflection;
  $('reflectionControls').hidden=!reflection?.record;
  if(reflection?.record)$('reflectionLight').textContent=reflection.lit?'消灯する':'点灯する';

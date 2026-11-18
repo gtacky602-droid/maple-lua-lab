@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 212 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 204,
+  "scope": "Authored 217 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 209,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1036,7 +1036,12 @@
     {"id":"enkan-guide-shelf","name":"帰路しるべの棚","region":"淵下宮","status":"regional_temporary_image"},
     {"id":"enkan-lamp-chamber","name":"照り影の灯室","region":"淵下宮","status":"regional_temporary_image"},
     {"id":"enkan-route-gallery","name":"道順記録の小間","region":"淵下宮","status":"regional_temporary_image"},
-    {"id":"enkan-tablet-hollow","name":"石版裏の窪み","region":"淵下宮","status":"regional_temporary_image"}
+    {"id":"enkan-tablet-hollow","name":"石版裏の窪み","region":"淵下宮","status":"regional_temporary_image"},
+    {"id":"tunigi-vent-shelf","name":"風鳴りの棚","region":"トゥニギの黒淵","status":"regional_temporary_image"},
+    {"id":"tunigi-baffle-workshop","name":"風よけ板の工房","region":"トゥニギの黒淵","status":"regional_temporary_image"},
+    {"id":"tunigi-return-shelter","name":"発掘隊の風よけ所","region":"トゥニギの黒淵","status":"regional_temporary_image"},
+    {"id":"tunigi-elite-passage","name":"岩陰の発掘通路","region":"トゥニギの黒淵","status":"regional_temporary_image"},
+    {"id":"tunigi-fragment-vault","name":"風礫の記録庫","region":"トゥニギの黒淵","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 8
 }

@@ -1,0 +1,31 @@
+{
+  "threeQuests": true,
+  "tones": [
+    392
+  ],
+  "candidates": [
+    545,
+    820,
+    1120
+  ],
+  "roundTrip": true,
+  "gateCollapse": true,
+  "firstReport": [
+    364882,
+    461918,
+    6
+  ],
+  "preparedExit": true,
+  "readableAfterReload": true,
+  "background": {
+    "key": "tunigiExcavation",
+    "file": "tunigi-excavation-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 24,
+    "standard": 9110,
+    "light": 2411
+  },
+  "errors": []
+}

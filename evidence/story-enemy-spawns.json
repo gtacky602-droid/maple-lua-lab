@@ -909,6 +909,27 @@
       "node": "enkan-tablet-hollow",
       "enemy_count": 0,
       "field_boss_count": 1
+    },
+    {
+      "node": "tunigi-vent-shelf",
+      "enemy_count": 3
+    },
+    {
+      "node": "tunigi-baffle-workshop",
+      "enemy_count": 0
+    },
+    {
+      "node": "tunigi-return-shelter",
+      "enemy_count": 0
+    },
+    {
+      "node": "tunigi-elite-passage",
+      "enemy_count": 2
+    },
+    {
+      "node": "tunigi-fragment-vault",
+      "enemy_count": 0,
+      "field_boss_count": 1
     }
   ],
   "render_profiles": [

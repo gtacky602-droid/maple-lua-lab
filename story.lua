@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -54,7 +54,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local allowed=meetsGateRule(s,rule) or (rule.alternative and meetsGateRule(s,rule.alternative))
     or (edge.loopOnce and forest.canLoop(state))
    if not allowed then
-    if rule.before and state and state.count>=rule.before then return '足場を中継位置へ移しました。' end
+    if rule.before and state and state.count>=rule.before then return rule.closedNotice or '足場を中継位置へ移しました。' end
     if rule.construction and completed(s,rule.quest) then return '今回はもう一方の道を整備しました。' end
     if rule.recovery and state and not state.recovered then return '受注済みの旧依頼は岩間の狩場で進められます。' end
     if rule.alternative then
@@ -63,7 +63,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     return '依頼「'..quests[rule.quest].name..'」'..(rule.count and 'を進めてください。' or 'を報告してください。')
    end
   end
-  if edge.wind and not windWindow(s,edge.wind) then return '吹雪のため通れません。風が止むまで待つか、下の風よけ道へ。' end
+  if edge.wind and not windWindow(s,edge.wind) then return edge.wind.notice or '吹雪のため通れません。風が止むまで待つか、下の風よけ道へ。' end
   local passed=s.voyage and s.t-s.voyage.started or -1
   if edge.windowStart and not (passed+1e-8>=edge.windowStart and passed+1e-8<edge.windowEnd) then return '寄港時間外' end
   if edge.requiresArrival and not (s.voyage and s.t>=s.voyage.arrives) then return '到着待ち' end
@@ -182,7 +182,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if milestone and milestone.kind=='inspect' and milestone.node==s.story.node
        and (not milestone.roomLight or milestone.roomLight==s.storyLightMode)
        and canInspect(s.actors[s.active],milestone) then
-    if milestone.reflect then
+    if milestone.airflow then
+     if airflow.interact(s,milestone,command) then completeMilestone(s,state,milestone) end
+     return true
+    elseif milestone.reflect then
      if reflection.interact(s,milestone,command) then completeMilestone(s,state,milestone) end
      return true
     elseif command=='rotate' then
@@ -282,6 +285,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.story.active=true;s.story.node=id;s.story.visited[id]=true;s.worldwidth=n.width
   s.storyEnteredAt=s.t
   s.storyLightMode=n.localLight and 'bright' or nil
+  s.airflowTrial,s.airflowCue=nil,nil
   s.platforms={};for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]=copy(p) end
   for _,q in ipairs(itineraries) do
    local state=s.story.quests[q.id]
@@ -354,6 +358,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if key=='story_expedition_trial' then
    local desk=s.story.active and nodes[s.story.node].expeditionDesk
    if desk and not s.paused and canInspect(s.actors[s.active],desk) then s.expeditionPractice=true end
+   return
+  end
+  if key=='story_airflow_commit' then
+   if s.story.active and not s.paused then inspectMilestone(s,'airflow_commit') end
    return
   end
   if key=='story_reflection_light' or key=='story_reflection_confirm' then
@@ -704,11 +712,20 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     f.storyLift={destination=ride.name,remaining=ride.remaining,seconds=ride.seconds}
    else f.storyNearbyPortal=nearbyPortal(s) end
    local markers={};f.storyPortals={}
+   if s.airflowCue and s.t<s.airflowCue.untilTime then f.storyAirflowCue=s.airflowCue end
    local function marker(x,y,w,h) markers[#markers+1]={kind='rect',x=x,y=y,w=w,h=h,color='#83dbe1'} end
    for _,edge in ipairs(n.exits) do if shown(nodes[edge.to]) and (not edge.darkOnly or s.storyLightMode=='dark') then
     local x,y=edge.x-s.camera,edge.y or 480
-    marker(x-18,y-90,3,90);marker(x+15,y-90,3,90)
-    marker(x-18,y-90,36,3);marker(x-21,y-3,42,3)
+    local rule=edge.requires
+    local state=rule and s.story.quests[rule.quest]
+    local rubble=edge.rubbleOnClosed and state and state.count>=rule.before
+    if rubble then
+     markers[#markers+1]={kind='rect',x=x-26,y=y-44,w=50,h=44,color='#6a4b51'}
+     markers[#markers+1]={kind='rect',x=x-17,y=y-59,w=32,h=17,color='#a4785f'}
+    else
+     marker(x-18,y-90,3,90);marker(x+15,y-90,3,90)
+     marker(x-18,y-90,36,3);marker(x-21,y-3,42,3)
+    end
     f.storyPortals[#f.storyPortals+1]={to=edge.to,x=x,y=y}
    end
    end
@@ -788,7 +805,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    for _,q in ipairs(itineraries) do
     local state=s.story.quests[q.id]
     local milestone=nextMilestone(s,q)
-    if milestone and milestone.reflect and milestone.node==s.story.node then
+    if milestone and milestone.airflow and milestone.node==s.story.node then
+     airflow.observe(s,f,markers,milestone,not s.paused and canInspect(s.actors[s.active],milestone))
+    elseif milestone and milestone.reflect and milestone.node==s.story.node then
      reflection.draw(s,f,markers,milestone,not s.paused and canInspect(s.actors[s.active],milestone))
     elseif milestone and milestone.kind=='inspect' and milestone.node==s.story.node
         and (not milestone.roomLight or milestone.roomLight==s.storyLightMode) then

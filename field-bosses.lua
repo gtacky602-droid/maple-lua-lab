@@ -161,6 +161,7 @@ return function(C,configs,controllers)
 
  local function advance(s,spec,slot,here)
   local boss=slot.enemy
+  if spec.presentationOnly and not slot.waitUntil then return end
   if slot.waitUntil then
    if s.t+1e-8>=slot.waitUntil then
     slot.generation=slot.generation+1
@@ -255,6 +256,7 @@ return function(C,configs,controllers)
    e.weakpoint=nil
    e.respawn=math.huge
    if spec.storyChallenge then C.storyBossDefeated(s,spec.storyChallenge) end
+   if spec.presentationOnly then return end
   end
   if onKill then onKill(s,e) end
  end
@@ -320,6 +322,7 @@ return function(C,configs,controllers)
   local behavior=controllers[spec.controller]
   local label=slot.phase=='notice' and '振り向き' or slot.phase=='leash' and '巣へ戻っている' or
    slot.phase=='available' and '警戒前' or cast and cast.move.title or '息継ぎ'
+  if spec.presentationOnly and boss.hp>0 then label='見た目と進行を確認する仮の個体' end
   if boss.hp>0 and slot.phase=='combat' and behavior.label then label=behavior.label(boss,cast,spec,s) or label end
   f.fieldBoss={id=spec.id,name=boss.displayName or spec.name,element=boss.element,form=boss.form,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
    generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(s,slot)/60,label=label,elementSlots=boss.elementSlots,

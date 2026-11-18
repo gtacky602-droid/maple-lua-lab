@@ -85,6 +85,7 @@ export const sceneryDefinitions={
  simulanka:{file:'simulanka-background-v1.png',region:'シムランカ',zones:[]},
  veluriyam:{file:'veluriyam-background-v1.png',region:'ヴェルーリヤ・ミラージュ',zones:[]},
  golden:{file:'golden-background-v1.png',region:'金リンゴ群島',zones:[]},
+ tunigiExcavation:{file:'tunigi-excavation-background-v1.png',zones:['story:tunigi-vent-shelf','story:tunigi-baffle-workshop','story:tunigi-elite-passage','story:tunigi-fragment-vault','story:tunigi-return-shelter']},
  tunigi:{file:'tunigi-background-v1.png',region:'トゥニギの黒淵',zones:[]},
  ochkanatlan:{file:'ochkanatlan-background-v1.png',region:'オシカ・ナタ',zones:[]},
  bygone:{file:'bygone-background-v1.png',region:'往日の海',zones:[]},
@@ -161,11 +162,17 @@ export function scenery(ctx,frame){
  // Lab-only terrain proxies. These will be 3D set dressing and colliders in the game.
  const inazuma=key==='inazumatown'||key==='inazuma'||key==='toriiforest'||key==='shiomicape';
  const stone=['seacave','windsplit','cryoField','pyroField','electroField','geoField','primoField','oceanidField','maguuField','arrayField','thunderField','pyroHypostasisField','hydroHypostasisField','wolflordField','ruinSerpentField','bathysmalField','electroVineField','aeonblightField','dendroHypostasisField','baptistField','seahorseField','generatorField','tulpaField','icewindField','legatusField','suanniField','qucusaurField','configDeviceField','papillaField','overseerField','duckleField','battleshipField','herraField','nightmareField','moonflyField','moongeckoField','spiritspeakerField','vigilField','flugelField','driftingSnowField','immortalConstructField','wavebinderField','dvalinWeekly','andriusWeekly','tideCalibration','buriedWeaving','clothService','threadlineRelay','dawnVein','ochkaCliff','ochkaKiln','coastalLookout','windwardWorks','thermalRavine','whitePassCoach','whitePassStation','steamStablingDepot','enkanomiya','enkanLamp','enkanLampDark','nodspecial','novokichev','chasm'].includes(key);
- const roof=key==='mondroof',lookout=key==='mondlookout',sandstone=['asimonField','wenutField','emperorField','lavaDragonField'].includes(key);
+ const roof=key==='mondroof',lookout=key==='mondlookout',sandstone=['asimonField','wenutField','emperorField','lavaDragonField','tunigiExcavation'].includes(key);
  const camera=frame.camera||0,snow=['snezhnaya','dragonspine','cryoHypostasisField','wingspan','snowRailTransfer','spineRidge','whitePassSnow','whiteRainbowBasin','auroraGlass','dawnGlass'].includes(key);
  drawDecorations(ctx,frame,camera);
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
+  if(p.airflowDeck){
+   ctx.fillStyle=p.preview?'#81728a':'#796353';ctx.fillRect(x,p.y,p.w,17);
+   ctx.fillStyle=p.preview?'#cdb7df':'#a5d7b6';ctx.fillRect(x,p.y,p.w,4);
+   ctx.fillStyle='#d2a476';for(let i=7;i<p.w-6;i+=21)ctx.fillRect(x+i,p.y+7,4,5);
+   continue;
+  }
   if(p.shadowBridge){
    ctx.fillStyle='#536a93';ctx.fillRect(x,p.y,p.w,18);
    ctx.fillStyle='#b7e1e9';ctx.fillRect(x,p.y,p.w,4);

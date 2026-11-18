@@ -220,6 +220,15 @@
       {"id":"preview-enkan-shelf-crawler-3","species":"sail-shell-crawler","x":721,"y":480,"flip":false},
       {"id":"preview-enkan-shelf-crawler-4","species":"sail-shell-crawler","x":1190,"y":480,"flip":false},
       {"id":"preview-enkan-shelf-crawler-5","species":"sail-shell-crawler","x":1280,"y":480,"flip":false}
+    ],
+    "tunigi-vent-shelf": [
+      {"id":"preview-tunigi-vent-guard-1","species":"pebble-courier","x":297,"y":480,"flip":false},
+      {"id":"preview-tunigi-vent-guard-2","species":"sail-shell-crawler","x":731,"y":390,"flip":false},
+      {"id":"preview-tunigi-vent-guard-3","species":"pebble-courier","x":1190,"y":480,"flip":false}
+    ],
+    "tunigi-elite-passage": [
+      {"id":"preview-tunigi-elite-1","species":"sail-shell-crawler","x":404,"y":480,"flip":false},
+      {"id":"preview-tunigi-elite-2","species":"snow-mantle-beetle","x":917,"y":390,"flip":false}
     ]
   }
 }

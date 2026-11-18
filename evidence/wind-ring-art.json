@@ -1,0 +1,49 @@
+{
+  "generator": "built-in imagegen",
+  "reference": {
+    "path": "evidence/wind-ring-shape.png",
+    "sha256": "7041b35007f547965bbfe12a09314d7ed6257897fe52514f83f03552ebbcd430"
+  },
+  "referenceViews": [
+    "front",
+    "three-quarter"
+  ],
+  "source": {
+    "path": "assets/wind-ring-source-v1.png",
+    "sha256": "f7169e4be9f38a1d5ccccefe7195916194de8bb4a1dc2c5caa278f81cdf65a4f"
+  },
+  "sourceSize": [
+    1302,
+    1208
+  ],
+  "outsideAlphaSamples": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "box": [
+    242,
+    104,
+    796,
+    970
+  ],
+  "anchorX": 0.4886934673366834,
+  "encoding": {
+    "path": "assets/wind-ring-field-idle-sprites-v1.json",
+    "sha256": "0b8d2a3f5f22fe5c97b12ba6a503f00661bde0678776a732cde03cabbbeb6790"
+  },
+  "runs": {
+    "legacy": 4866,
+    "h48c32": 2984,
+    "h32c16": 1344
+  },
+  "background": {
+    "path": "assets/tunigi-excavation-background-v1.png",
+    "sha256": "b6d964c0705d976607bfbc48a31d060c342ff3a850980157015608f60955a860"
+  },
+  "backgroundSize": [
+    1672,
+    941
+  ]
+}

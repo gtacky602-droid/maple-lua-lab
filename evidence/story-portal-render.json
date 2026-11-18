@@ -1013,12 +1013,12 @@
     {
       "node": "tunigi-camp",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 5
     },
     {
       "node": "tunigi-camp",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 5
     },
     {
       "node": "tunigi-depth",
@@ -2119,6 +2119,56 @@
       "node": "enkan-tablet-hollow",
       "mode": "rect",
       "visible_portals": 1
+    },
+    {
+      "node": "tunigi-vent-shelf",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "tunigi-vent-shelf",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "tunigi-baffle-workshop",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "tunigi-baffle-workshop",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "tunigi-return-shelter",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "tunigi-return-shelter",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "tunigi-elite-passage",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "tunigi-elite-passage",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "tunigi-fragment-vault",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "tunigi-fragment-vault",
+      "mode": "rect",
+      "visible_portals": 2
     }
   ],
   "checks": [

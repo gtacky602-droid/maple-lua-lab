@@ -1272,6 +1272,36 @@
       "count": 0,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "tunigi-vent-shelf",
+      "count": 3,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "tunigi-baffle-workshop",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "tunigi-return-shelter",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "tunigi-elite-passage",
+      "count": 2,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "tunigi-fragment-vault",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,

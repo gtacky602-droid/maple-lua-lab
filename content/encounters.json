@@ -12,8 +12,8 @@
   },
   "counts": {
     "source_entities": 63,
-    "encounter_candidates": 81,
-    "partial": 63,
+    "encounter_candidates": 82,
+    "partial": 64,
     "complete": 0
   },
   "encounters": [
@@ -2192,6 +2192,32 @@
         "encoding": "assets/plate-tail-field-idle-sprites-v1.json",
         "audit": "evidence/plate-tail-art.json",
         "status": "original basalt animal with two teal slate plates and collision-limited charge"
+      }
+    },
+    {
+      "id": "original-wind-ring",
+      "name": "風礫の割輪機",
+      "kind": "normal",
+      "entity_ids": [],
+      "status": "partial",
+      "action": null,
+      "grouping": "original_design",
+      "evidence": [
+        "docs/balance/TUNIGI_EXCAVATION_WEB.md"
+      ],
+      "remaining": [
+        "ボスの技",
+        "連続アニメーション",
+        "報酬の調整",
+        "マルチ検証"
+      ],
+      "fieldNode": "tunigi-fragment-vault",
+      "fieldEntrance": "風礫の記録庫（Lv130）",
+      "art_candidate": {
+        "source": "assets/wind-ring-source-v1.png",
+        "encoding": "assets/wind-ring-field-idle-sprites-v1.json",
+        "audit": "evidence/wind-ring-art.json",
+        "status": "original sandstone split ring and mint core; appearance and story progression only"
       }
     },
     {

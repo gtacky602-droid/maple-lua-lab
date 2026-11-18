@@ -20,7 +20,7 @@ check('completion not overclaimed',d['counts']['complete']==0 and not d['complet
 check('not implemented rows cannot launch',all(r['action'] is None for r in rows if r['status']=='not_implemented'))
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
-check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':81,'partial':63,'complete':0})
+check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':82,'partial':64,'complete':0})
 by_id={r['id']:r for r in rows}
 loom=by_id['original-twin-shuttle-loom']
 check('loom trial is separate from the imported list',
@@ -143,8 +143,8 @@ check('Wavebinder has a Novokitezhgrad tide cavern route',
       wave['status']=='partial' and wave['fieldNode']=='wavebinder-tide-cavern' and wave['action'] is None)
 fields={s['id']:s for s in json.loads((ROOT/'content/field-boss-spawns.json').read_text(encoding='utf8'))['fieldBosses']}
 normal=[r for r in rows if r['kind']=='normal']
-check('49 imported and nine original field rows have registered field routes, still partial',
-      len(normal)==58 and set(fields)=={r['id'] for r in normal}
+check('49 imported and ten original field rows have registered field routes, still partial',
+      len(normal)==59 and set(fields)=={r['id'] for r in normal}
       and all(r['status']=='partial' and r['fieldNode']==fields[r['id']]['node'] for r in normal))
 check('original field boss is not counted in the imported roster',
       by_id['original-snow-sweeper']['entity_ids']==[]
