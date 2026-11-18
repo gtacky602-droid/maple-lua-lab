@@ -1,0 +1,19 @@
+{
+  "designIdsReported": [
+    "Q-G01",
+    "Q-G02",
+    "Q-G03",
+    "Q-G04"
+  ],
+  "oldSaveLoadsAndAwardIsOnce": true,
+  "manualDelayedAttackDoesNotCountAsAI": true,
+  "actualAIHitAndManualSwapPersist": true,
+  "swapPreservesLocationAndIndividualHealthAndCooldown": true,
+  "alternateCompanionPendingCastCounts": true,
+  "earlierActionsRecognizedAtAcceptance": true,
+  "trainingHasNoInventoryOrCurrencySideEffects": true,
+  "incompatibleLockedOrEquippedDonorsRejected": true,
+  "insufficientBalanceAndStalePreviewRejected": true,
+  "paidInheritanceConsumesSourceOnceAndPreservesRecipientBaseStats": true,
+  "maxPrototypeInheritanceFee": 1980000
+}

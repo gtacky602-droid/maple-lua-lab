@@ -1,0 +1,10 @@
+{
+  "fourReports": true,
+  "walkedToCombatAndSwapped": true,
+  "examplesWithEmptyBag": true,
+  "upgradePreviewWithoutSpending": true,
+  "inheritancePreviewBeforeConsent": true,
+  "actualTransferAndReload": true,
+  "mobilePreviewFits": true,
+  "errors": []
+}

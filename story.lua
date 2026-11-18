@@ -5,11 +5,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local out={};for k,item in pairs(v) do out[k]=copy(item) end;return out
  end
  local nodes,quests,starterQuests,itineraries={},{},{},{}
+ local growthQuests,growthEvidence={},{}
  local pathJoins={}
  local lanternQuest,contestQuest,sightQuest,restQuest,caveQuest,roofQuest
  for _,n in ipairs(data.nodes) do nodes[n.id]=n end
  for _,q in ipairs(data.quests) do
   quests[q.id]=q
+  if q.lesson then
+   growthQuests[#growthQuests+1]=q
+   for _,objective in ipairs(q.lesson) do growthEvidence[objective.id]=true end
+  end
   if q.itinerary then itineraries[#itineraries+1]=q end
   if q.anyPath then
    for i,step in ipairs(q.itinerary) do if step.kind=='paths' then pathJoins[q.id]=i;break end end
@@ -29,6 +34,23 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local function completed(s,id)
   local state=s.story.quests[id]
   return state and state.status=='complete'
+ end
+ local function growthCount(s,q)
+  local count=0
+  for _,objective in ipairs(q.lesson) do
+   if s.story.growth and s.story.growth[objective.id] then count=count+1 end
+  end
+  return count
+ end
+ function C.noteGrowth(s,id)
+  if not growthEvidence[id] or not s.story or not s.story.active or s.paused then return end
+  local records=s.story.growth or {}
+  if records[id] then return end
+  records[id]=true;s.story.growth=records
+  for _,q in ipairs(growthQuests) do
+   local state=s.story.quests[q.id]
+   if state and state.status=='active' then state.count=growthCount(s,q) end
+  end
  end
  function C.starterEquipment(s,companion)
   local q=starterQuests[companion]
@@ -1093,7 +1115,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      if not unlocked then return end
     end
     if q.level and (not s.progression or s.progression.level<q.level) then return end
-    s.story.quests[id]={status='active',count=0,cycles=state and state.cycles or 0,
+    s.story.quests[id]={status='active',count=q.lesson and growthCount(s,q) or 0,cycles=state and state.cycles or 0,
                        recovered=q.cargo and {} or nil,inspected=q.trail and {} or nil,delivery=q.delivery and delivery.new() or nil,
                        cooking=q.cooking and cooking.new() or nil,book=q.book and {defeated={}} or nil,
                        stone=q.stone and {marked={},sequence=0} or nil,construction=q.construction and {surveyed={}} or nil,

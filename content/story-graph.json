@@ -5578,6 +5578,10 @@
     {"id":"sne-snow-match","name":"スネージナヤ・雪合戦広場","region":"スネージナヤ","level":148,"hub":false,"peaceful":true,"checkpoint":"white-pass-station","width":960,"platforms":[{"x":0,"y":480,"w":960},{"x":350,"y":398,"w":186}],"exits":[{"to":"white-pass-station","x":57,"arrivalX":677}],"snowMatch":{"quest":"sne-snow-match-quest","bell":178,"y":480,"playerX":207,"hostX":808,"hostY":480,"seconds":36,"score":5,"collapseAfter":17,"collapseScore":3,"walls":[{"x":256,"y":419,"w":121,"h":61},{"x":524,"y":419,"w":121,"h":61}],"flags":[{"x":476,"y":398},{"x":713,"y":480}]}}
   ],
   "quests": [
+    {"id":"growth-partner-swap","designId":"Q-G01","giver":"アンバー","name":"相棒と、もう一つの手","hub":"mond-town","target":"mond-road","requires":"amber-join","level":1,"xp":200,"mora":120,"briefing":"アンバー「Eキーで操作を交代してみよう。操作していないほうも戦ってくれるよ。HPや技の待ち時間は、それぞれのままね。」","kind":"growth","goal":2,"lesson":[{"id":"manual-swap","text":"Eキーで操作キャラを交代する"},{"id":"ai-hit","text":"戦闘で操作していない仲間の攻撃を当てる"}]},
+    {"id":"growth-targeted-gear","designId":"Q-G02","giver":"北斗","name":"狙う装備を、決めてから","hub":"liyue-harbor","target":"liyue-harbor","level":20,"xp":2400,"mora":450,"ore":1,"briefing":"北斗「狙うセットを決めたら、拾った品を着ている装備と見比べてみな。手持ちが少なければ教材もあるよ。」","kind":"growth","goal":2,"lesson":[{"id":"target-set","text":"狙うセットを選ぶ"},{"id":"gear-compare","text":"聖遺物バッグで装備を比較する（教材でも可）"}]},
+    {"id":"growth-upgrade-gear","designId":"Q-G03","giver":"神里綾華","name":"その一着を、もう一段","hub":"inazuma-port","target":"inazuma-port","level":40,"xp":12800,"mora":1700,"ore":1,"briefing":"綾華「強化にかかる費用と、能力がどのくらい上がるかを確かめてみましょう。」","kind":"growth","goal":1,"lesson":[{"id":"enhance-preview","text":"聖遺物の強化を試算する（教材や実際の強化でも可）"}]},
+    {"id":"growth-inherit-gear","designId":"Q-G04","giver":"ドリー","name":"古い装備にも、続きがある","hub":"sumeru-hub","target":"sumeru-hub","level":60,"xp":26500,"mora":2300,"ore":1,"briefing":"ドリー「継承すると何が残るのか、手数料と一緒に確かめるといいよ。試算だけでも報告しておくれ。」","kind":"growth","goal":1,"lesson":[{"id":"inherit-preview","text":"聖遺物の継承を試算する（教材でも可）"}]},
     {
       "id": "amber-join",
       "name": "配達は、スライム待ち！",

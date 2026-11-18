@@ -123,6 +123,9 @@ local function hit(s,a,e,mult,color,element)
  local remaining=max(e.minhp or 0,e.hp-n);s.hits=s.hits+1;s.damage=s.damage+n
  if not e.underground then number(s,e,critical and (tostring(n)..'!') or n,color) end
  event(s,'hit',a.id,e.id,n);s.events[#s.events].element=element;s.events[#s.events].critical=not not critical;s.events[#s.events].reaction=a.reaction or false
+ if (a.growthAI or s.growthAIActor==a.id) and e.spawnId and not e.noRewards and C.noteGrowth then
+  C.noteGrowth(s,'ai-hit')
+ end
  if remaining==0 then C.defeatEnemy(s,e,a.id) else e.hp=remaining end
  if C.afterElementHit then C.afterElementHit(s,a,e,a.applicationElement or element,element,n) end
  return true
@@ -248,7 +251,19 @@ local function pulse(s,cast)
 end
 C.resolveCast=pulse
 function C.attack(s,a,key)
- if a.id==2 and C.companionAttack then local handled=C.companionAttack(s,a,key);if handled~=nil then return handled end end
+ if a.id==2 and C.companionAttack then
+  local first=#s.pending+1
+  local handled=C.companionAttack(s,a,key)
+  if handled~=nil then
+   if handled and s.growthAIActor==a.id then
+    for index=first,#s.pending do
+     local pending=s.pending[index]
+     if pending.id==a.id then pending.growthAI=true end
+    end
+   end
+   return handled
+  end
+ end
  if C.canAttack and not C.canAttack(s) then return false end
  if s.paused or a.hp<=0 or a.lock>0 or (a.cd[key] or 0)>0 or #s.pending>=64 then return false end
  local definition=a.id==1 and C.skillDefinitions and C.skillDefinitions[key]
@@ -267,6 +282,7 @@ function C.attack(s,a,key)
  a.cd[key]=ct;a.lock=lock;a.walk=0
  s.effects[#s.effects+1]={x=a.x+a.dir*range/2,y=a.y-40,w=range,h=60,life=.3,color=color}
  local cast={id=a.id,startedAt=s.t,atk=a.atk,elementBonus=a.elementBonus,x=a.x,y=a.y,dir=a.dir,range=range,limit=limit,mult=mult,color=color,
+  growthAI=s.growthAIActor==a.id or nil,
   key=key,isNormal=key=='normal',normalBonus=a.normalBonus,skillBonus=a.skillBonus,troupe4=a.troupe4,critRate=a.critRate,critDamageBonus=a.critDamageBonus,
   element=key=='normal' and 'physical' or (a.id==1 and 'anemo' or 'pyro'),
   remaining=hits,interval=interval,gain=key=='normal' and 2 or 5}
@@ -312,6 +328,7 @@ function C.action(s,key)
  if key=='swap' and s.swap<=0 and s.actors[3-s.active].hp>0 then
   local b=s.actors[3-s.active];b.x,a.x=a.x,a.x-35*a.dir;b.y=a.y;b.vy=a.vy;b.ground=a.ground
   s.active=3-s.active;s.swap=.8;event(s,'swap',s.active)
+  if C.noteGrowth then C.noteGrowth(s,'manual-swap') end
  elseif key=='light' and a.id==1 and s.gauge>=60 and (a.cd.light or 0)<=0 then
   s.gauge=s.gauge-60;a.light=12;a.cd.light=60;event(s,'light',1)
  elseif key=='dodge' and (a.cd.dodge or 0)<=0 then a.inv=.45;a.cd.dodge=2;a.x=clamp(a.x+a.dir*100,20,(s.worldwidth or 2880)-20);a.lock=0
@@ -407,6 +424,7 @@ function C.step(s,dt,input)
      if abs(nearest.x-a.x)>(a.id==1 and 85 or 220) then move=a.dir end
      if nearest.y<a.y-60 and a.ground then a.buffer=.1 end
      local skillElement=a.id==1 and 'anemo' or 'pyro'
+     s.growthAIActor=not s.auto and a.id~=s.active and a.id or nil
      if a.id==2 and C.companionAI and C.companionAI(s,a,nearest) then
      elseif a.id==2 and nearest.immune~=skillElement then
       local danger=false
@@ -417,6 +435,7 @@ function C.step(s,dt,input)
       if b and b.phase=='clap_warning' and abs(a.x-b.target)<125 then danger=true end
       if not (danger and C.attack(s,a,'skill4')) and not C.attack(s,a,'skill2') and not C.attack(s,a,'skill3') and not C.attack(s,a,'skill1') then C.attack(s,a,'normal') end
      elseif nearest.immune==skillElement or not C.attack(s,a,'skill1') then C.attack(s,a,'normal') end
+     s.growthAIActor=nil
     elseif abs(leader.x-a.x)>75 then move=leader.x>a.x and 1 or -1 end
     if abs(leader.x-a.x)>650 or abs(leader.y-a.y)>200 then a.x=leader.x-45;a.y=leader.y;a.vy=0 end
    elseif input.attack then C.attack(s,a,'normal') end

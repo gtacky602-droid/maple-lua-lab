@@ -446,13 +446,17 @@ def validate_save(data):
         graph=json.loads((Path(__file__).parent/'content/story-graph.json').read_text(encoding='utf8'))
         nodes={n['id']:n for n in graph['nodes']};quests={q['id']:q for q in graph['quests']}
         st=data['story']
-        if not isinstance(st,dict) or set(st)-{'discovered'}!={'active','node','visited','quests'} or type(st['active']) is not bool or st['node'] not in nodes: raise ValueError('Invalid story state')
+        if not isinstance(st,dict) or set(st)-{'discovered','growth'}!={'active','node','visited','quests'} or type(st['active']) is not bool or st['node'] not in nodes: raise ValueError('Invalid story state')
         if not isinstance(st['visited'],dict) or not st['visited'].get('mond-town') or not st['visited'].get(st['node']) or any(k not in nodes or v is not True for k,v in st['visited'].items()): raise ValueError('Invalid visited stages')
         discovered=st.get('discovered',{})
         groups={n.get('hiddenGroup') for n in graph['nodes'] if n.get('hiddenGroup')}
         if not isinstance(discovered,dict) or any(k not in groups or v is not True for k,v in discovered.items()): raise ValueError('Invalid hidden discovery')
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
+        growth = st.get('growth', {})
+        known_growth = {objective['id'] for quest in quests.values() for objective in quest.get('lesson', [])}
+        if not isinstance(growth, dict) or any(key not in known_growth or value is not True for key, value in growth.items()):
+            raise ValueError('Invalid growth evidence')
         for id,q in st['quests'].items():
             if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord','fireworkDesign','stealthEncounter','ittoContest','colleiLetter','roomLayout','discoveryDraft','discoveryDew','groupPhoto','stonePair','huntNotes','springRecord','trainingLog'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
@@ -473,6 +477,9 @@ def validate_save(data):
                         or q['count'] == quests[id]['goal'] and set(found) != cargo_ids):
                     raise ValueError('Invalid quest cargo progress')
             quest = quests[id]
+            if quest.get('lesson') and (quest['hub'] not in st['visited']
+                    or q['count'] != sum(objective['id'] in growth for objective in quest['lesson'])):
+                raise ValueError('Invalid growth quest progress')
             if 'colleiLetter' in q and (not quest.get('guideLetter') or q['status']!='complete'
                     or q['colleiLetter'] not in ('held','delivered')):
                 raise ValueError('コレイの手紙の記録が不正です')

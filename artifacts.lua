@@ -24,6 +24,68 @@ return function(C,imprint)
   if item.owner==2 and item.companionId~=(s.companion or 'amber') then return 0 end
   return item.owner
  end
+ local function findItem(bag,id)
+  for index,item in ipairs(bag.items) do if item.id==id then return item,index end end
+ end
+ local function training(s,id)
+  if C.noteGrowth then C.noteGrowth(s,id) end
+ end
+ local function upgradeCost(item,enhance)
+  return enhance*200*item.rarity^2
+ end
+ local function previewItem(item)
+  if not item then return end
+  return {id=item.id,slot=item.slot,itemLv=item.itemLv,rarity=item.rarity,setId=item.setId,
+          subpair=item.subpair,enhance=item.enhance,stars=item.imprintStars or 0,stat=C.artifactStats(item)}
+ end
+ local function withGrowth(item,enhance,stars)
+  local copy={}
+  for key,value in pairs(item) do copy[key]=value end
+  copy.enhance,copy.imprintStars=enhance,stars
+  return copy
+ end
+ local function comparePreview(s,item,example)
+  local equipped
+  if example then equipped={slot=2,itemLv=20,rarity=3,enhance=0,setId='gladiator',subpair='atk_crit'}
+  else
+   for _,other in ipairs(s.inventory.items) do
+    if other.slot==item.slot and equippedRole(s,other)==s.active then equipped=other;break end
+   end
+  end
+  local starter=not example and not equipped and item.slot==1 and s.active==2 and C.starterEquipment and C.starterEquipment(s,s.companion)
+  return {kind='compare',example=example,before=previewItem(equipped),after=previewItem(item),
+          starter=starter and starter.flower or nil,targetSet=s.inventory.targetSet,actor=s.active}
+ end
+ local function upgradePreview(item,example)
+  local next=math.min(caps[item.rarity],item.enhance+4)
+  return {kind='upgrade',example=example,before=previewItem(item),
+          after=previewItem(withGrowth(item,next,item.imprintStars)),
+          cost=next>item.enhance and upgradeCost(item,next) or 0,capped=next==item.enhance}
+ end
+ local function inheritancePreview(source,target,example)
+  if not source or not target or source==target or source.slot~=target.slot then
+   return nil,'同じ部位の異なる二品を選んでください。'
+  end
+  if source.owner~=0 or source.locked or target.locked then
+   return nil,'継承元は未装備で、どちらの品もロック解除が必要です。'
+  end
+  local stars,targetStars=source.imprintStars or 0,target.imprintStars or 0
+  if source.enhance>caps[target.rarity] or stars>imprint.caps[tostring(target.rarity)]
+    or (stars>0 and source.enhance~=caps[target.rarity]) then
+   return nil,'継承先の強化または刻印の上限に収まりません。'
+  end
+  if source.enhance<target.enhance or stars<targetStars or (source.enhance==target.enhance and stars==targetStars) then
+   return nil,'継承先の強化を下げず、強化値か刻印を引き上げられる組み合わせを選んでください。'
+  end
+  local steps=source.enhance/4
+  local total=upgradeCost(source,4)*steps*(steps+1)/2+imprint.costPerStar*stars*(stars+1)/2
+  return {kind='inherit',example=example,source=previewItem(source),before=previewItem(target),
+          after=previewItem(withGrowth(target,source.enhance,stars)),cost=math.floor(total*imprint.inheritanceRate+.5)}
+ end
+ local function showPreview(s,preview,error,id)
+  s.artifactPreview=preview or {error=error}
+  if preview then training(s,id) end
+ end
  function C.partyImprint(s) return (s.actors[1].imprint or 0)+(s.actors[2].imprint or 0) end
  local function anchor(points,level)
   for i=2,#points do local a,b=points[i-1],points[i]
@@ -116,7 +178,39 @@ return function(C,imprint)
   setup(s);local bag=s.inventory
   local setId=string.match(key,'^target_set:(%a+)$')
   if setId then
-   if s.campaign and s.campaign.zone=='town' and (setId=='gladiator' or setId=='troupe') then bag.targetSet=setId;bag.message='以後のドロップ対象セットを変更しました。' end
+   if s.campaign and s.campaign.zone=='town' and (setId=='gladiator' or setId=='troupe') then
+    bag.targetSet=setId;bag.message='以後のドロップ対象セットを変更しました。'
+    s.artifactPreview=nil;training(s,'target-set')
+   end
+   return
+  end
+  local example=key:match('^artifact_example:(%a+)$')
+  local transfer,sourceId,targetId=key:match('^artifact_inherit_(%a+):(%d+):(%d+)$')
+  if example or transfer then
+   if s.paused or not s.campaign or s.campaign.zone~='town' then return end
+   if example then
+    local source={slot=2,itemLv=30,rarity=5,enhance=20,imprintStars=2,owner=0,setId='gladiator',subpair='atk_crit'}
+    local target={slot=2,itemLv=45,rarity=5,enhance=0,owner=0,setId='troupe',subpair='hp_crit'}
+    if example=='compare' then showPreview(s,comparePreview(s,target,true),nil,'gear-compare')
+    elseif example=='upgrade' then showPreview(s,upgradePreview(target,true),nil,'enhance-preview')
+    elseif example=='inherit' then showPreview(s,inheritancePreview(source,target,true),nil,'inherit-preview') end
+   else
+    local source,index=findItem(bag,tonumber(sourceId))
+    local target=findItem(bag,tonumber(targetId))
+    local preview,error=inheritancePreview(source,target)
+    if transfer=='preview' then showPreview(s,preview,error,'inherit-preview')
+    elseif transfer=='confirm' then
+     local open=s.artifactPreview
+     if not (preview and open and open.kind=='inherit' and not open.example
+       and open.source.id==source.id and open.before.id==target.id and open.cost==preview.cost) then return end
+     if s.mora<preview.cost then bag.message='継承には'..preview.cost..'モラ必要です。';return end
+     s.mora=s.mora-preview.cost
+     target.enhance,target.imprintStars=preview.after.enhance,preview.after.stars
+     table.remove(bag.items,index);s.artifactPreview=nil
+     C.refreshArtifactStats(s)
+     bag.message='継承を実行し、継承元の聖遺物を使い切りました。'
+    end
+   end
    return
   end
   if key=='artifact_recover' then
@@ -136,6 +230,13 @@ return function(C,imprint)
   if command then
    if not s.campaign or s.campaign.zone~='town' then bag.message='町で装備を変更してください。';return end
    for index,item in ipairs(bag.items) do if item.id==tonumber(id) then
+    if command=='compare' or command=='preview' then
+     if s.paused then return end
+     if command=='compare' then showPreview(s,comparePreview(s,item),nil,'gear-compare')
+     else showPreview(s,upgradePreview(item),nil,'enhance-preview') end
+     return
+    end
+    s.artifactPreview=nil
     if command=='equip' then
      for _,other in ipairs(bag.items) do
       if equippedRole(s,other)==s.active and other.slot==item.slot then other.owner,other.companionId=0,nil end
@@ -161,13 +262,14 @@ return function(C,imprint)
     elseif command=='upgrade' or command=='useore' then
      local ore=command=='useore'
      local next=item.enhance+4
-     local cost=math.max(0,next*200*item.rarity^2-(ore and oreDiscount or 0))
+     local cost=math.max(0,upgradeCost(item,next)-(ore and oreDiscount or 0))
      if next>caps[item.rarity] then bag.message='通常強化の上限です。'
      elseif ore and bag.upgradeOre<1 then bag.message='強化鉱石を持っていません。'
      elseif s.mora<cost then bag.message='強化には'..cost..'モラ必要です。'
      else
       s.mora=s.mora-math.floor(cost);item.enhance=next
       if ore then bag.upgradeOre=bag.upgradeOre-1 end
+      training(s,'enhance-preview')
       C.refreshArtifactStats(s)
       bag.message=ore and '強化鉱石を1個使い、+4強化しました。' or '+4強化しました。'
      end
@@ -180,6 +282,8 @@ return function(C,imprint)
  end
  function C.step(s,dt,input)
   step(s,dt,input);setup(s)
+  if s.artifactPreview and (not s.campaign or s.campaign.zone~='town' or
+    (s.artifactPreview.actor and s.artifactPreview.actor~=s.active)) then s.artifactPreview=nil end
   if s.paused or not s.campaign then return end
   local bag=s.inventory
   for i=#bag.ground,1,-1 do local d=bag.ground[i]
@@ -195,6 +299,7 @@ return function(C,imprint)
  end
  function C.frame(s,mode,profile)
   setup(s);local f=frame(s,mode,profile);f.inventory=s.inventory;f.upgradeOreDiscount=oreDiscount
+  f.artifactPreview=s.campaign and s.campaign.zone=='town' and s.artifactPreview or nil
   f.imprintGrowth={total=C.partyImprint(s),byActor={s.actors[1].imprint or 0,s.actors[2].imprint or 0},
    caps=imprint.caps,costPerStar=imprint.costPerStar}
   f.artifactAttackBlocked=#s.inventory.ground>=pendingAttackLimit

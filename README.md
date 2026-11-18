@@ -990,6 +990,10 @@ Luaの通常攻撃のみ・同行戦闘不能・回復なしは147.08秒、残HP
 
 モンドからスネージナヤまでの全八地域に、日次依頼が五つずつあります。受注枠は全地域で共通で、主依頼一件と追加依頼二件までです。ラボの更新は日本時間04:00で、達成済みの報酬は翌日まで受取可能です。 [モンドの依頼と保存仕様](docs/balance/DAILY_MONDSTADT_WEB.md) · [璃月](docs/balance/DAILY_LIYUE_WEB.md) · [稲妻](docs/balance/DAILY_INAZUMA_WEB.md) · [スメール](docs/balance/DAILY_SUMERU_WEB.md) · [フォンテーヌ](docs/balance/DAILY_FONTAINE_WEB.md) · [ナタ](docs/balance/DAILY_NATLAN_WEB.md) · [ナド・クライ](docs/balance/DAILY_NOD_KRAI_WEB.md) · [スネージナヤと全40候補の検証](docs/balance/DAILY_SNEZHNAYA_WEB.md)
 
+## 成長クエスト
+
+依頼手帳から、仲間との操作交代、聖遺物の比較・強化・継承を扱う四つの依頼を受けられます。拠点の聖遺物バッグでは、手持ちと教材のどちらでも試算できます。 [成長クエストと継承の仕様](docs/balance/GROWTH_FOUNDATIONS_WEB.md)
+
 ## ナタの旗取りと二つの中継印
 
 谷の集落でカチーナと初めて会うと、加入依頼「並べてみよう、冒険のしるし」を受注できます。彩石の採集路で三色の小片を集め、中央の色と並びを選んで二人分の石飾りを作ります。報告後は作業台の展示を見られます。[カチーナの石飾りと描画比較](docs/balance/NATLAN_KACHINA_CHARMS_WEB.md)
