@@ -1,6 +1,7 @@
 {
   "errors": [],
-  "allCandidates": 76,
+  "allCandidates": 77,
+  "prismWalkerFieldRoute": true,
   "rubbleSifterFieldRoute": true,
   "originalFieldRoute": true,
   "originalWeeklyRoute": true,

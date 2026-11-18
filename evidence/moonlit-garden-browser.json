@@ -1,0 +1,29 @@
+{
+  "bridgeRestored": true,
+  "threeQuests": true,
+  "recordingWrongAngleRejected": true,
+  "shortcutToCamp": true,
+  "returnedViaRim": true,
+  "battle": {
+    "won": true,
+    "seconds": 41.13,
+    "hp": 92,
+    "bossHp": 0,
+    "moves": [
+      "MW01",
+      "MW02"
+    ],
+    "returns": 0
+  },
+  "commands": {
+    "png": 36,
+    "standard": 10928,
+    "light": 4812
+  },
+  "firstReport": [
+    14095746,
+    853650
+  ],
+  "savedReport": true,
+  "errors": []
+}

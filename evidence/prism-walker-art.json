@@ -1,0 +1,46 @@
+{
+  "generator": "built-in imagegen with local reference",
+  "reference": {
+    "path": "evidence/prism-walker-shape.png",
+    "sha256": "7dfefcba403307627b07b139f660d954e94a13230033a009f68271b38e196857"
+  },
+  "referenceViews": [
+    "front",
+    "left three-quarter"
+  ],
+  "subject": "original side-scrolling quadruped made of glazed pottery and triangular optical crystals",
+  "referenceScope": "original silhouette blockout only. No existing game character, model, or stage used as the source.",
+  "promptSummary": "Single transparent sprite. Angular cyan central prism with a small ochre inlay, two amethyst blocks, and four splayed ceramic legs. Sharp pixel clusters and a navy outline. No cast shadow or external glow.",
+  "source": {
+    "path": "assets/prism-walker-source-v1.png",
+    "sha256": "b84aaed50514254b33e29286dc4bd908de8e631e0fdf0969a0778b899014e930"
+  },
+  "sourceSize": [
+    1426,
+    1103
+  ],
+  "cornerAlpha": [
+    1,
+    0,
+    0,
+    0
+  ],
+  "opaqueBounds": [
+    171,
+    171,
+    1252,
+    947
+  ],
+  "encoding": {
+    "path": "assets/prism-walker-field-idle-sprites-v1.json",
+    "sha256": "49a96eef1d19d785b5f9886360948d86ee4bbb751a6a5c4bcf1a810377fee41c"
+  },
+  "previewHeight": 129,
+  "anchorX": 0.49,
+  "runs": {
+    "legacy": 4184,
+    "h48c32": 2639,
+    "h32c16": 1245
+  },
+  "reflection": "Same source and ground anchor, low-detail rectangles in rectangle modes and alpha in PNG mode. The foot marker distinguishes body and echoes independently of opacity."
+}

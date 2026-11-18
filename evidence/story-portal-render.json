@@ -1073,12 +1073,12 @@
     {
       "node": "nod-special-camp",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "nod-special-camp",
       "mode": "rect",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "nod-special-depth",
@@ -1919,6 +1919,36 @@
       "node": "ochka-sifting-kiln",
       "mode": "rect",
       "visible_portals": 1
+    },
+    {
+      "node": "nod-reflector-shore",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "nod-reflector-shore",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "nod-reflection-garden",
+      "mode": "sprite",
+      "visible_portals": 3
+    },
+    {
+      "node": "nod-reflection-garden",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "nod-quiet-rim",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "nod-quiet-rim",
+      "mode": "rect",
+      "visible_portals": 2
     }
   ],
   "checks": [

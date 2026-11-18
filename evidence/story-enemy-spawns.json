@@ -824,6 +824,19 @@
       "node": "ochka-sifting-kiln",
       "enemy_count": 0,
       "field_boss_count": 1
+    },
+    {
+      "node": "nod-reflector-shore",
+      "enemy_count": 0
+    },
+    {
+      "node": "nod-reflection-garden",
+      "enemy_count": 0
+    },
+    {
+      "node": "nod-quiet-rim",
+      "enemy_count": 0,
+      "field_boss_count": 1
     }
   ],
   "render_profiles": [

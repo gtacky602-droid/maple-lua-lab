@@ -1,7 +1,7 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 192 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "scope": "Authored 195 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
   "regional_temporary_image": 190,
   "fallback_mondstadt": 0,
   "nodes": [
@@ -1016,7 +1016,10 @@
     {"id":"dawn-crystal-field","name":"極地の暁晶原","region":"スネージナヤ","status":"regional_temporary_image"},
     {"id":"ochka-tide-stairs","name":"潮待ちの石段","region":"オシカ・ナタ","status":"regional_temporary_image"},
     {"id":"ochka-patched-court","name":"継ぎ壁の中庭","region":"オシカ・ナタ","status":"regional_temporary_image"},
-    {"id":"ochka-sifting-kiln","name":"焚き口の選鉱室","region":"オシカ・ナタ","status":"regional_temporary_image"}
+    {"id":"ochka-sifting-kiln","name":"焚き口の選鉱室","region":"オシカ・ナタ","status":"regional_temporary_image"},
+    {"id":"nod-reflector-shore","name":"照り返しの波打ち際","region":"ナド・クライ特別地域（仮）","status":"unconfirmed_concept_image"},
+    {"id":"nod-reflection-garden","name":"月映りの庭（仮）","region":"ナド・クライ特別地域（仮）","status":"unconfirmed_concept_image"},
+    {"id":"nod-quiet-rim","name":"庭の外周・静かな道","region":"ナド・クライ特別地域（仮）","status":"unconfirmed_concept_image"}
   ],
-  "unconfirmed_concept_image": 2
+  "unconfirmed_concept_image": 5
 }

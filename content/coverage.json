@@ -172,7 +172,7 @@
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
       "prototype_stage_count": 10,
-      "prototype_quest_count": 8,
+      "prototype_quest_count": 9,
       "official_map2_markers": {
         "waypoints": 83,
         "statues": 7
@@ -287,8 +287,8 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 2,
-      "prototype_quest_count": 1,
+      "prototype_stage_count": 5,
+      "prototype_quest_count": 3,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
     {
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 192,
-    "provisional_quests": 125,
+    "authored_stages": 195,
+    "provisional_quests": 128,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -880,7 +880,8 @@
           "frostnight-herra-commission",
           "whisperer-nightmares-commission",
           "moonfly-commission",
-          "moongecko-commission"
+          "moongecko-commission",
+          "nod-rim-return"
         ]
       },
       {
@@ -1039,10 +1040,15 @@
         "kind": "high_level_branch",
         "stage_ids": [
           "nod-special-camp",
-          "nod-special-depth"
+          "nod-special-depth",
+          "nod-reflector-shore",
+          "nod-reflection-garden",
+          "nod-quiet-rim"
         ],
         "quest_ids": [
-          "nod-special-survey"
+          "nod-special-survey",
+          "nod-light-path",
+          "nod-light-record"
         ]
       },
       {
@@ -1203,8 +1209,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 30,
-    "without_explicit_mapping": 123,
+    "linked": 33,
+    "without_explicit_mapping": 120,
     "runtime_id_by_design_id": {
       "Q-B06-01": "windward-lookouts",
       "Q-B06-02": "windward-flags",
@@ -1212,6 +1218,9 @@
       "Q-B07-01": "ochka-stopover-survey",
       "Q-B07-02": "ochka-wall-marks",
       "Q-B07-03": "ochka-sifter-clear",
+      "Q-B08-01": "nod-light-path",
+      "Q-B08-02": "nod-light-record",
+      "Q-B08-03": "nod-rim-return",
       "Q-INA-M01": "inazuma-moving-lantern",
       "Q-INA-M02": "inazuma-torii-maze",
       "Q-INA-M03": "inazuma-lantern-contest",

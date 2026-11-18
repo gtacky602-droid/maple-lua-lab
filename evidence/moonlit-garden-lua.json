@@ -1,0 +1,19 @@
+{
+  "threeReflectors": true,
+  "blockedBeforeBridge": true,
+  "oneBridgeAfterRestore": true,
+  "wrongRecordRejected": true,
+  "darkAndLitRequired": true,
+  "recordedThreeOrientations": true,
+  "shortcutToCamp": true,
+  "afterimagesHaveNoHitbox": true,
+  "recoveryDamageBonus": true,
+  "laneDoesNotFollowTarget": true,
+  "killDoesNotGrantFirstReport": true,
+  "bossSaved": true,
+  "returnedViaRim": true,
+  "firstReport": [
+    14095746,
+    853650
+  ]
+}

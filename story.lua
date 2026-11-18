@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -135,14 +135,21 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local function completeMilestone(s,state,milestone)
   state.count=state.count+1
   s.storyNotice=milestone.notice
+  if milestone.bridge then s.platforms[#s.platforms+1]=copy(milestone.bridge) end
+  if milestone.reflect then s.reflection=nil end
  end
- local function inspectMilestone(s)
+ local function inspectMilestone(s,command)
   for _,q in ipairs(itineraries) do
    local milestone,state=nextMilestone(s,q)
    if milestone and milestone.kind=='inspect' and milestone.node==s.story.node
        and canInspect(s.actors[s.active],milestone) then
-    completeMilestone(s,state,milestone)
-    return true
+    if milestone.reflect then
+     if reflection.interact(s,milestone,command) then completeMilestone(s,state,milestone) end
+     return true
+    elseif command=='rotate' then
+     completeMilestone(s,state,milestone)
+     return true
+    end
    end
   end
   return false
@@ -212,6 +219,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.campaign.zone=n.hub and 'town' or ('story:'..id);s.campaign.message='本編ルートの試作。隣の地点へは門の近くで移動。'
   s.story.active=true;s.story.node=id;s.story.visited[id]=true;s.worldwidth=n.width
   s.platforms={};for _,p in ipairs(n.platforms) do s.platforms[#s.platforms+1]=copy(p) end
+  for _,q in ipairs(itineraries) do
+   local state=s.story.quests[q.id]
+   for i=1,state and state.count or 0 do
+    local step=q.itinerary[i]
+    if step.node==id and step.bridge then s.platforms[#s.platforms+1]=copy(step.bridge) end
+   end
+  end
+  s.reflection=nil
   s.lift=nil
   s.railTrip=nil
   s.readingQuest=nil
@@ -269,9 +284,15 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    return
   end
   if key=='story_nearby_portal' then local p=nearbyPortal(s);if p then C.action(s,'story_portal:'..p.to) end;return end
+  if key=='story_reflection_light' or key=='story_reflection_confirm' then
+   if s.story.active and not s.paused then
+    inspectMilestone(s,key=='story_reflection_light' and 'light' or 'confirm')
+   end
+   return
+  end
   if key=='story_collect' then
    if s.paused or not s.story.active then return end
-   if inspectMilestone(s) then return end
+   if inspectMilestone(s,'rotate') then return end
    local railConfig,railState=railQuest(s,nodes[s.story.node])
    if railConfig then rail.start(s,railConfig,railState);return end
    if contestQuest and contest.interact(s,contestQuest,s.story.quests[contestQuest.id]) then return end
@@ -635,7 +656,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    for _,q in ipairs(itineraries) do
     local state=s.story.quests[q.id]
     local milestone=nextMilestone(s,q)
-    if milestone and milestone.kind=='inspect' and milestone.node==s.story.node then
+    if milestone and milestone.reflect and milestone.node==s.story.node then
+     reflection.draw(s,f,markers,milestone,not s.paused and canInspect(s.actors[s.active],milestone))
+    elseif milestone and milestone.kind=='inspect' and milestone.node==s.story.node then
      local x,y=milestone.x-s.camera,milestone.y
      if x>=-25 and x<=985 then
       markers[#markers+1]={kind='rect',x=x-13,y=y-28,w=26,h=28,color='#5a3648'}
