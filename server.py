@@ -93,7 +93,7 @@ class Handler(SimpleHTTPRequestHandler):
                         ok,message=core.configure(state,lua.table_from(req['loadout'],recursive=True))
                         configuration={'ok':ok,'message':message}
                     for action in req.get('actions',[])[:10]: core.action(state,str(action))
-                    inp=lua.table_from({k:bool(v) for k,v in req.get('input',{}).items() if k in ('left','right','up','down','jump','attack')})
+                    inp=lua.table_from({k:bool(v) for k,v in req.get('input',{}).items() if k in ('left','right','up','down','jump','attack','interact')})
                     steps=max(0,min(6,int(req.get('steps',2))))
                     for _ in range(steps): core.step(state,1/60,inp)
                     next_ledger=native(state.daily.ledger)

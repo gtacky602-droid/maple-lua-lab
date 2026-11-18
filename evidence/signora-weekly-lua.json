@@ -1,0 +1,30 @@
+{
+  "attack_ticks": {
+    "WS01": 300,
+    "WS02": 270,
+    "WS02.seeking": 342,
+    "WS03": 300,
+    "WS04": 300,
+    "WS05": 210,
+    "WS05.pyro": 186,
+    "WS06": 270,
+    "WS07": 330,
+    "WS10": 252,
+    "WS10.long": 396,
+    "WS11": 300,
+    "WS12": 360,
+    "WS13": 300,
+    "WS13.giant": 300,
+    "WS14": 540
+  },
+  "devices_hold_release": true,
+  "temperature_active_actor_only": true,
+  "detached_floor_plane_and_expiry": true,
+  "seal_manual_fresh_and_one_token": true,
+  "new_phase_resets_hazards": true,
+  "normal_attacks_clear": {
+    "seconds": 17.48,
+    "hp": 104
+  },
+  "story_report_and_restore": true
+}

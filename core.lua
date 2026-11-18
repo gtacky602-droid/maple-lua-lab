@@ -250,15 +250,21 @@ local function pulse(s,cast)
  if touched and not cast.gained then s.gauge=min(100,s.gauge+cast.gain);cast.gained=true end
 end
 C.resolveCast=pulse
+function C.playerAttackAt(s,a)
+ if not s.auto and a.id==s.active and s.growthAIActor~=a.id then return s.macroInputAt or s.t end
+end
 function C.attack(s,a,key)
  if a.id==2 and C.companionAttack then
   local first=#s.pending+1
   local handled=C.companionAttack(s,a,key)
   if handled~=nil then
-   if handled and s.growthAIActor==a.id then
+   if handled then
     for index=first,#s.pending do
      local pending=s.pending[index]
-     if pending.id==a.id then pending.growthAI=true end
+     if pending.id==a.id then
+      if s.growthAIActor==a.id then pending.growthAI=true end
+      pending.playerInputAt=C.playerAttackAt(s,a)
+     end
     end
    end
    return handled
@@ -282,7 +288,7 @@ function C.attack(s,a,key)
  a.cd[key]=ct;a.lock=lock;a.walk=0
  s.effects[#s.effects+1]={x=a.x+a.dir*range/2,y=a.y-40,w=range,h=60,life=.3,color=color}
  local cast={id=a.id,startedAt=s.t,atk=a.atk,elementBonus=a.elementBonus,x=a.x,y=a.y,dir=a.dir,range=range,limit=limit,mult=mult,color=color,
-  growthAI=s.growthAIActor==a.id or nil,
+  growthAI=s.growthAIActor==a.id or nil,playerInputAt=C.playerAttackAt(s,a),
   key=key,isNormal=key=='normal',normalBonus=a.normalBonus,skillBonus=a.skillBonus,troupe4=a.troupe4,critRate=a.critRate,critDamageBonus=a.critDamageBonus,
   element=key=='normal' and 'physical' or (a.id==1 and 'anemo' or 'pyro'),
   remaining=hits,interval=interval,gain=key=='normal' and 2 or 5}

@@ -1465,6 +1465,443 @@
           "damage": 15
         }
       }
+    },
+    {
+      "id": "boss-29050101",
+      "controller": "signora",
+      "entity": 29050101,
+      "name": "淑女",
+      "node": "signora-ten-shrine-arena",
+      "storyChallenge": "signora-weekly",
+      "level": 44,
+      "hp": 1280,
+      "cryoHp": 480,
+      "pyroHp": 800,
+      "mora": 860,
+      "expRole": "weekly_boss",
+      "center": 480,
+      "floorY": 480,
+      "noticeTicks": 42,
+      "respawnTicks": 3600,
+      "restTicks": 24,
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 960
+        },
+        {
+          "x": 135,
+          "y": 368,
+          "w": 176
+        },
+        {
+          "x": 649,
+          "y": 368,
+          "w": 176
+        }
+      ],
+      "temperature": {
+        "basePerSecond": 2,
+        "sealPerSecond": 3,
+        "floorPerSecond": 4,
+        "devicePerSecond": 20,
+        "hitRise": 8,
+        "hitInterval": 60,
+        "hazardInterval": 90,
+        "envDamage": 6,
+        "floorDamage": 5,
+        "floorTtl": 360,
+        "floorLimit": 3,
+        "deviceX": [
+          70,
+          890
+        ],
+        "deviceRange": 75,
+        "clearRange": 106,
+        "hold": 30,
+        "recharge": 900
+      },
+      "seal": {
+        "strength": 100,
+        "opening": 120,
+        "mothCharge": 25,
+        "plainCharge": 1,
+        "pyroCharge": 5,
+        "hitInterval": 30,
+        "moths": [
+          287,
+          673
+        ],
+        "mothCycle": 180,
+        "mothTtl": 600,
+        "pressureFirst": 240,
+        "pressureInterval": 360,
+        "pressureDamage": 8
+      },
+      "orders": [
+        [
+          "WS01",
+          "WS02",
+          "WS03",
+          "WS05",
+          "WS04",
+          "WS06",
+          "WS02.seeking",
+          "WS07"
+        ],
+        [
+          "WS10",
+          "WS12",
+          "WS13",
+          "WS14",
+          "WS11",
+          "WS05.pyro",
+          "WS10.long",
+          "WS13.giant"
+        ]
+      ],
+      "moves": {
+        "WS01": {
+          "title": "霜天の落片",
+          "total": 300,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              90,
+              96
+            ],
+            [
+              132,
+              138
+            ],
+            [
+              174,
+              180
+            ]
+          ],
+          "recovery": 228,
+          "launches": [],
+          "floors": [
+            174
+          ],
+          "damage": 11
+        },
+        "WS02": {
+          "title": "氷槍の射列",
+          "total": 270,
+          "locks": [
+            36
+          ],
+          "windows": [],
+          "recovery": 210,
+          "launches": [
+            60,
+            96,
+            132
+          ],
+          "floors": [],
+          "damage": 9
+        },
+        "WS02.seeking": {
+          "title": "氷槍の射列",
+          "total": 342,
+          "locks": [
+            36,
+            72,
+            108,
+            144,
+            180
+          ],
+          "windows": [],
+          "recovery": 282,
+          "launches": [
+            60,
+            96,
+            132,
+            168,
+            204
+          ],
+          "floors": [],
+          "damage": 9
+        },
+        "WS03": {
+          "title": "三輪の霜花",
+          "total": 300,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              120,
+              126
+            ],
+            [
+              156,
+              162
+            ],
+            [
+              192,
+              198
+            ]
+          ],
+          "recovery": 228,
+          "launches": [],
+          "floors": [
+            192
+          ],
+          "damage": 12
+        },
+        "WS04": {
+          "title": "凍輪の往還",
+          "total": 300,
+          "locks": [
+            48
+          ],
+          "windows": [],
+          "recovery": 228,
+          "launches": [
+            84
+          ],
+          "floors": [],
+          "damage": 13
+        },
+        "WS05": {
+          "title": "霜影／炎影の転位",
+          "total": 210,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              108,
+              114
+            ]
+          ],
+          "recovery": 138,
+          "launches": [],
+          "floors": [],
+          "damage": 11
+        },
+        "WS05.pyro": {
+          "title": "霜影／炎影の転位",
+          "total": 186,
+          "locks": [
+            42
+          ],
+          "windows": [],
+          "recovery": 114,
+          "launches": [],
+          "floors": [],
+          "damage": 11
+        },
+        "WS06": {
+          "title": "六槍の収束",
+          "total": 270,
+          "locks": [
+            66
+          ],
+          "windows": [
+            [
+              96,
+              132
+            ]
+          ],
+          "recovery": 180,
+          "launches": [],
+          "floors": [],
+          "damage": 18
+        },
+        "WS07": {
+          "title": "刻まれる氷槍",
+          "total": 330,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              102,
+              108
+            ],
+            [
+              210,
+              222
+            ]
+          ],
+          "recovery": 246,
+          "launches": [],
+          "floors": [
+            210
+          ],
+          "damage": 15
+        },
+        "WS09": {
+          "title": "焔蝶の羽化",
+          "total": 180,
+          "locks": [],
+          "windows": [],
+          "recovery": 144,
+          "launches": [],
+          "floors": [],
+          "damage": 0
+        },
+        "WS10": {
+          "title": "紅蓮の鞭",
+          "total": 252,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              72,
+              80
+            ],
+            [
+              120,
+              128
+            ]
+          ],
+          "recovery": 162,
+          "launches": [],
+          "floors": [],
+          "damage": 14
+        },
+        "WS10.long": {
+          "title": "紅蓮の鞭",
+          "total": 396,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              84,
+              92
+            ],
+            [
+              156,
+              162
+            ],
+            [
+              198,
+              204
+            ],
+            [
+              240,
+              246
+            ]
+          ],
+          "recovery": 300,
+          "launches": [],
+          "floors": [
+            198,
+            240
+          ],
+          "damage": 14
+        },
+        "WS11": {
+          "title": "黒炎の転球",
+          "total": 300,
+          "locks": [
+            48
+          ],
+          "windows": [],
+          "recovery": 228,
+          "launches": [
+            90
+          ],
+          "floors": [],
+          "damage": 16
+        },
+        "WS12": {
+          "title": "焼尽の雨",
+          "total": 360,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              120,
+              126
+            ],
+            [
+              180,
+              186
+            ],
+            [
+              240,
+              246
+            ]
+          ],
+          "recovery": 276,
+          "launches": [],
+          "floors": [
+            120,
+            180,
+            240
+          ],
+          "damage": 17
+        },
+        "WS13": {
+          "title": "焔蝶の群れ／巨蝶",
+          "total": 300,
+          "locks": [
+            42
+          ],
+          "windows": [],
+          "recovery": 228,
+          "launches": [
+            72,
+            96,
+            120
+          ],
+          "floors": [],
+          "damage": 13
+        },
+        "WS13.giant": {
+          "title": "焔蝶の群れ／巨蝶",
+          "total": 300,
+          "locks": [
+            60
+          ],
+          "windows": [],
+          "recovery": 228,
+          "launches": [
+            90
+          ],
+          "floors": [],
+          "damage": 13
+        },
+        "WS14": {
+          "title": "灰燼の竜巻",
+          "total": 540,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              120,
+              144
+            ],
+            [
+              240,
+              264
+            ],
+            [
+              360,
+              372
+            ]
+          ],
+          "recovery": 420,
+          "launches": [
+            144,
+            264
+          ],
+          "floors": [],
+          "damage": 18
+        }
+      }
     }
   ]
 }

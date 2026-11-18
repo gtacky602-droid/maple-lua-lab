@@ -476,9 +476,13 @@ def runtime():
         'human':'childe-idle-sprites.json','foul':'childe-foul-idle-sprites.json'})
     azhdaha=lua.execute((ROOT/'weekly-azhdaha.lua').read_text(encoding='utf8'))(core)
     core.azhdahaWeeklyArt=field_art(lua,'azhdaha',(),variants={'idle':'azhdaha-idle-sprites.json'})
+    signora=lua.execute((ROOT/'weekly-signora.lua').read_text(encoding='utf8'))(core)
+    core.signoraWeeklyArt=field_art(lua,'signora',(),variants={
+        'cryo':'signora-idle-sprites.json','pyro':'signora-flame-idle-sprites.json'})
     lua.execute((ROOT/'weekly-bosses.lua').read_text(encoding='utf8'))(
         core,lua.table_from(weekly_specs,recursive=True),
-        lua.table_from({'dvalin':dvalin,'andrius':andrius,'surveyor':surveyor,'loom':loom,'childe':childe,'azhdaha':azhdaha}))
+        lua.table_from({'dvalin':dvalin,'andrius':andrius,'surveyor':surveyor,'loom':loom,
+                        'childe':childe,'azhdaha':azhdaha,'signora':signora}))
     core.installToyDiveGuard()
     daily=json.loads((ROOT/'content/daily-quests.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'daily-quests.lua').read_text(encoding='utf8'))(core,lua.table_from(daily,recursive=True),graph)

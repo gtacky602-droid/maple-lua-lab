@@ -45,9 +45,14 @@ return function(C)
     local allowed,reason=true,nil
     if C.skillPrerequisite then allowed,reason=C.skillPrerequisite(s,a,available[id]) end
     if not allowed then s.skillNotice=reason;s.macro=nil
-    elseif C.attack(s,a,available[id]) then
-     m.index=m.index+1
-     if m.index>#m.skills then s.macro=nil end
+    else
+     s.macroInputAt=m.started
+     local used=C.attack(s,a,available[id])
+     s.macroInputAt=nil
+     if used then
+      m.index=m.index+1
+      if m.index>#m.skills then s.macro=nil end
+     end
     end
    end
   end

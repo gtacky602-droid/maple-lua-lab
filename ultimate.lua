@@ -14,7 +14,8 @@ return function(C)
   if s.paused or a.hp<=0 or a.lock>0 or (a.cd.SK60 or 0)>0 or #s.pending>=64 or (C.canAttack and not C.canAttack(s)) then return false end
   local cast={id=1,key='SK60',x=a.x,y=a.y,dir=a.dir,range=600,vertical=300,radial=true,limit=15,mult=2.5,remaining=20,next=s.t+.12,interval=.134,gain=0,color='#fff2c4',element='seven',damageElements={'anemo','geo','electro','dendro','hydro','pyro','cryo'},special=true,suppressAura=true}
   for _,k in ipairs({'atk','elementBonus','skillBonus','troupe4','critRate','critDamageBonus'}) do cast[k]=a[k] end
-  cast.startedAt=s.t;s.pending[#s.pending+1]=cast;s.ultimate={cast=cast,finish=s.t+2.8,zone=s.campaign and s.campaign.zone,returns=s.returns}
+  cast.startedAt=s.t;cast.playerInputAt=C.playerAttackAt(s,a)
+  s.pending[#s.pending+1]=cast;s.ultimate={cast=cast,finish=s.t+2.8,zone=s.campaign and s.campaign.zone,returns=s.returns}
   s.gauge=s.gauge-100;a.cd.SK60=90;a.lock=2.8;s.skillNotice=nil
   if C.noteGrowth then C.noteGrowth(s,'seven-strike') end
   return true

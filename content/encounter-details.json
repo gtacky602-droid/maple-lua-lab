@@ -357,17 +357,20 @@
       }
     },
     "boss-29050101": {
+      "extra_evidence": ["docs/weekly-boss-v1/SIGNORA_WEB.md", "evidence/signora-weekly-lua.json", "evidence/signora-weekly-browser.json"],
+      "remaining": ["二形態の連続モーション・装置や飛び道具の仕上げ・音", "難度と報酬の調整", "3D背景と幻境実機、多人数の検証"],
+      "review_note": "天守の試作マップから氷と炎を通しで討伐できる。温度装置、紅蓮蛾、別ゲージの繭を接続。",
       "art_candidate": {
         "item": "signora",
         "audit": "evidence/signora-reference-audit.json",
-        "status": "human idle body candidate only; no catalyst, ice, flame form, attacks or animation"
+        "status": "Existing original idle body used for the cryo stage. Transition and effects use temporary geometry."
       },
       "art_variants": [
         {
           "item": "signora-flame",
           "id": "flame",
           "audit": "evidence/signora-flame-reference-audit.json",
-          "status": "idle body candidate only; no fire effects, phase transitions, attacks or animation"
+          "status": "Existing original flame idle body used for the pyro stage. No continuous sprite animation yet."
         }
       ]
     },

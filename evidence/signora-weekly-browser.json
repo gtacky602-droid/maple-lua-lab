@@ -1,0 +1,20 @@
+{
+  "entry": true,
+  "deviceKeyboardHold": true,
+  "cocoonAndPyro": true,
+  "normalKeyBattleAndReport": true,
+  "savedRespawn": true,
+  "remainingHp": 112,
+  "viewport390": true,
+  "scene": {
+    "key": "inazuma",
+    "file": "inazuma-background-v1.png",
+    "state": "ready"
+  },
+  "sameStateCommands": {
+    "png": 25,
+    "standard": 9144,
+    "light": 2404
+  },
+  "errors": []
+}
