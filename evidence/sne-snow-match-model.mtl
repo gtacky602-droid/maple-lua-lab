@@ -1,0 +1,27 @@
+newmtl darkSnow
+Kd 0.43922 0.58431 0.74118
+illum 1
+
+newmtl snow
+Kd 0.71373 0.84706 0.93725
+illum 1
+
+newmtl top
+Kd 0.93725 0.97255 0.98824
+illum 1
+
+newmtl pole
+Kd 0.41961 0.35686 0.38824
+illum 1
+
+newmtl trim
+Kd 0.85882 0.72549 0.47059
+illum 1
+
+newmtl cloth
+Kd 0.17647 0.50588 0.59608
+illum 1
+
+newmtl edge
+Kd 0.45882 0.82353 0.83922
+illum 1

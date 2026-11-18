@@ -992,6 +992,36 @@
       "transparent": 0
     },
     {
+      "key": "sneSnowMatch",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "sneSnowMatch",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "sneSnowMatch",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "sneSnowMatch",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "sneSnowMatch",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "sneSnowMatch",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "whitePassCoach",
       "camera": -960,
       "transparent": 0

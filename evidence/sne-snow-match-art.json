@@ -1,0 +1,103 @@
+{
+  "tool": "builtin imagegen",
+  "angles": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/sne-snow-match-model.obj",
+    "sha256": "c54b014ac006e511a66424851b39329f07d500f4400037e730542c0690fa4caf"
+  },
+  "materials": {
+    "path": "evidence/sne-snow-match-model.mtl",
+    "sha256": "96a31c8ec73be37915edb0926f2584b4f01d1acba1dfe560b4531dd8a68d60fb"
+  },
+  "views": {
+    "path": "evidence/sne-snow-match-views.png",
+    "sha256": "989b23f0e28f71a2153605de8443f404eb3462a889b9123d80134a9976d04630"
+  },
+  "source": {
+    "path": "assets/sne-snow-match-props-source-v1.png",
+    "sha256": "ecf73cb505576fa23779029e59920709e40167421786ea3cdf075a6ce1803958",
+    "size": [
+      2172,
+      724
+    ],
+    "alphaCorners": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "opponent": {
+    "path": "assets/childe-idle-source-v1.png",
+    "sha256": "728ae5399976036cd90961bbdbd8294acede3e11b258a7fc1be62409a700571a"
+  },
+  "profiles": {
+    "wall": {
+      "encoding": {
+        "path": "assets/sne-snow-match-wall-sprites-v1.json",
+        "sha256": "81f285a2bdaf4a5e7888336eff265c7d7a7133d083df3c981e21e420d40e0b12"
+      },
+      "box": [
+        82,
+        248,
+        565,
+        285
+      ],
+      "height": 61,
+      "runs": {
+        "legacy": 3657,
+        "h48c32": 2320,
+        "h32c16": 914
+      }
+    },
+    "rubble": {
+      "encoding": {
+        "path": "assets/sne-snow-match-rubble-sprites-v1.json",
+        "sha256": "11eb83e2411e526a1d30e86e572a56190399737aefa6eb798a5350ab412070ba"
+      },
+      "box": [
+        806,
+        367,
+        639,
+        169
+      ],
+      "height": 21,
+      "runs": {
+        "legacy": 635,
+        "h48c32": 411,
+        "h32c16": 143
+      }
+    },
+    "flag": {
+      "encoding": {
+        "path": "assets/sne-snow-match-flag-sprites-v1.json",
+        "sha256": "94464462b6c66d780ee78986c264485907889c1f4970058c436c699651c6a82f"
+      },
+      "box": [
+        1702,
+        182,
+        327,
+        360
+      ],
+      "height": 65,
+      "runs": {
+        "legacy": 786,
+        "h48c32": 504,
+        "h32c16": 208
+      }
+    }
+  },
+  "background": {
+    "path": "assets/sne-snow-match-background-v1.png",
+    "sha256": "a9d5388360c223200b6ef404916d0a11792a68d4bc3db2b764fbd96912dde8c7"
+  },
+  "backgroundReference": {
+    "path": "assets/sne-survey-ridge-background-v1.png",
+    "sha256": "9edb5e91d3fce95f7b21c41d598895daf7bba1464f39883ac256e17d4664abbd"
+  },
+  "status": "Temporary background image. Existing lab opponent sprite reused."
+}

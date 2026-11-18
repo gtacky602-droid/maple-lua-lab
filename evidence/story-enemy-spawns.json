@@ -1252,6 +1252,10 @@
     {
       "node": "sne-survey-ridge",
       "enemy_count": 2
+    },
+    {
+      "node": "sne-snow-match",
+      "enemy_count": 0
     }
   ],
   "render_profiles": [

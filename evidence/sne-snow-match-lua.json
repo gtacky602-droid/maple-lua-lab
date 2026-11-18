@@ -1,0 +1,19 @@
+{
+  "prerequisite": true,
+  "blockedBySnow": true,
+  "twoFlags": true,
+  "personHit": true,
+  "coverFalls": true,
+  "feintAndThrow": true,
+  "regularAttacksBlocked": true,
+  "pausesRound": true,
+  "noHpDamage": true,
+  "winAndLossEqualReward": true,
+  "replayNoReward": true,
+  "winsAndLossesPersist": true,
+  "unfinishedRoundNotRecorded": true,
+  "reward": [
+    27085203,
+    12600
+  ]
+}

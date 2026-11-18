@@ -1733,12 +1733,12 @@
     {
       "node": "white-pass-station",
       "mode": "sprite",
-      "visible_portals": 3
+      "visible_portals": 4
     },
     {
       "node": "white-pass-station",
       "mode": "rect",
-      "visible_portals": 3
+      "visible_portals": 4
     },
     {
       "node": "white-pass-woods",
@@ -2969,6 +2969,16 @@
       "node": "sne-survey-ridge",
       "mode": "rect",
       "visible_portals": 2
+    },
+    {
+      "node": "sne-snow-match",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "sne-snow-match",
+      "mode": "rect",
+      "visible_portals": 1
     }
   ],
   "checks": [

@@ -78,6 +78,24 @@ def validate_appraisal(record, quest, visited):
                 or (count > index and amount != len(ids)) or (amount and step['node'] not in visited)):
             raise ValueError('お宝判定機の進行順が不正です')
 
+def validate_snow_match(record, quest, spec):
+    if not spec or spec['quest'] != quest['id'] or record['count'] != quest['goal']:
+        if 'snowMatchRecord' in record:
+            raise ValueError('雪合戦の進行と記録が一致しません')
+        return
+    log = record.get('snowMatchRecord')
+    totals = ('wins', 'losses', 'draws')
+    scores = ('best', 'player', 'opponent')
+    if (not isinstance(log, dict) or set(log) != set(totals + scores)
+            or any(type(log[k]) is not int or not 0 <= log[k] <= 10**9 for k in totals)
+            or any(type(log[k]) is not int or not 0 <= log[k] <= spec['score'] for k in scores)
+            or log['best'] < log['player']):
+        raise ValueError('雪合戦の得点記録が不正です')
+    player, opponent = log['player'], log['opponent']
+    result = 'wins' if player > opponent else 'losses' if player < opponent else 'draws'
+    if not log[result] or (record['status'] == 'active' and sum(log[k] for k in totals) != 1):
+        raise ValueError('雪合戦の勝敗記録が不正です')
+
 
 def validate_save(data):
     if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses'}!=FIELDS:
@@ -190,7 +208,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -216,6 +234,7 @@ def validate_save(data):
                 validate_steps_visited(quest['itinerary'],q['count'],visited)
             validate_paths(q,quest,st['visited'])
             validate_appraisal(q,quest,st['visited'])
+            validate_snow_match(q,quest,nodes.get(quest.get('target'),{}).get('snowMatch'))
             if 'flagBestTicks' in q:
                 ticks=q['flagBestTicks']
                 if not quest.get('flagTrial') or q['status']!='complete' or type(ticks) is not int or not 1<=ticks<=10**9:

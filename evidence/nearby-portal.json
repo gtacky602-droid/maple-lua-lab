@@ -1725,6 +1725,10 @@
       "to": "aurora-ice-cut"
     },
     {
+      "node": "white-pass-station",
+      "to": "sne-snow-match"
+    },
+    {
       "node": "white-pass-woods",
       "to": "white-pass-station"
     },
@@ -2779,6 +2783,10 @@
     {
       "node": "sne-survey-ridge",
       "to": "sne-survey-shed"
+    },
+    {
+      "node": "sne-snow-match",
+      "to": "white-pass-station"
     }
   ],
   "hidden_connections_checked": 38,

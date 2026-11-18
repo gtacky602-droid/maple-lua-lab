@@ -195,8 +195,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 26,
-      "prototype_quest_count": 15,
+      "prototype_stage_count": 27,
+      "prototype_quest_count": 16,
       "official_map2_markers": {
         "waypoints": 101,
         "statues": 7
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 297,
-    "provisional_quests": 170,
+    "authored_stages": 298,
+    "provisional_quests": 171,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -996,7 +996,8 @@
           "dawn-crystal-field",
           "sne-survey-shed",
           "sne-survey-yard",
-          "sne-survey-ridge"
+          "sne-survey-ridge",
+          "sne-snow-match"
         ],
         "quest_ids": [
           "mitya-join",
@@ -1013,7 +1014,8 @@
           "white-pass-footprints",
           "white-pass-footwork",
           "white-pass-rest",
-          "sne-mitya-observation"
+          "sne-mitya-observation",
+          "sne-snow-match-quest"
         ]
       },
       {
@@ -1365,8 +1367,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 75,
-    "without_explicit_mapping": 78,
+    "linked": 76,
+    "without_explicit_mapping": 77,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1440,6 +1442,7 @@
       "Q-SNE-S02": "white-pass-footprints",
       "Q-SNE-S03": "white-pass-footwork",
       "Q-SNE-S04": "white-pass-rest",
+      "Q-SNE-S05": "sne-snow-match-quest",
       "Q-SUM-M01": "sumeru-leaf-crossing",
       "Q-SUM-M02": "sumeru-forest-levels",
       "Q-SUM-M03": "sumeru-observatory-map"

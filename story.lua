@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -178,6 +178,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local bloom=bloomModule(C,canInspect)
  local patrol=patrolModule(C,canInspect)
  local survey=surveyModule(C,canInspect)
+ local snowMatch=snowMatchModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -474,6 +475,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.storyEnteredAt=s.t
   s.storyBoxGlimpseStart=nil
   s.storyPatrolShot=nil
+  s.snowballRound=nil
+  s.snowMatchVenue=n.snowMatch~=nil
   s.storyLightMode=n.localLight and 'bright' or nil
   s.airflowTrial,s.storyCue=nil,nil
   s.resonanceOrder,s.resonancePage=nil,nil
@@ -570,6 +573,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  function C.action(s,key)
   setup(s)
+  if s.snowballRound then
+   if key=='normal' then snowMatch.throw(s);return end
+   if key~='pause' and key~='jump' and key~='drop' and key~='story_nearby_portal'
+       and not key:match('^story_portal:') and not key:match('^story_fast:') then return end
+  end
   if s.lift or s.caveFall or s.roofFlight then
    if key=='pause' then action(s,key) end
    return
@@ -611,6 +619,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local lamp=node.localLight
    if lamp and localLight.interact(s,lamp) then return end
    if duel.ring(s,node.duel) then return end
+   if node.snowMatch and snowMatch.start(s,node.snowMatch,s.story.quests[node.snowMatch.quest]) then return end
    if flagCourse.interact(s,node.flagCourse) then return end
    if inspectMilestone(s,'rotate') then return end
    local railConfig,railState=railQuest(s,nodes[s.story.node])
@@ -911,6 +920,15 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local node=nodes[s.story.node]
    duel.step(s,node.duel)
    patrol.update(s,node.patrol)
+   if node.snowMatch then
+    local score=snowMatch.update(s,node.snowMatch,s.t-previous,input.attack)
+    if score then
+     local q=quests[node.snowMatch.quest]
+     local state=s.story.quests[q.id]
+     if state.status=='active' then completeMilestone(s,state,q.itinerary[q.goal]) end
+     s.storyNotice=snowMatch.record(state,score)
+    end
+   end
    local milestone,state=theater.step(s,s.t-previous,node.theater)
    if milestone then completeMilestone(s,state,milestone) end
    milestone,state=flagCourse.step(s)
@@ -1071,6 +1089,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    flagCourse.observe(s,f,markers,n.flagCourse,mode,profile)
    movingPlatforms.observe(s,f,markers,n.riverCrossing,mode,profile)
    duel.frame(s,f,markers,n.duel)
+   if n.snowMatch then snowMatch.observe(s,f,markers,n.snowMatch,s.story.quests[n.snowMatch.quest],mode,profile) end
     if n.moonInlet then moonInlet.observe(s,f,markers,n.moonInlet,s.story.quests[n.moonInlet.quest]) end
     if n.shoreLights then moonInlet.lights(s,markers,n.shoreLights) end
     if n.coastDetour then coastDetour.observe(s,f,markers,n.coastDetour,quests[n.coastDetour.quest],mode,profile) end

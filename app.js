@@ -206,6 +206,13 @@ function updateLanternNote(note,sight){
 let progressionView;
 const expFormat=new Intl.NumberFormat('ja-JP');
 function updateProgression(f){
+ const snowMatch=f.storySnowball;
+ $('snowMatchControls').closest('.game').classList.toggle('snow-match',!!snowMatch);
+ $('snowMatchControls').hidden=!snowMatch;
+ $('snowMatchThrow').disabled=!snowMatch?.running;
+ const touchAttack=document.querySelector('[data-hold="attack"]');
+ touchAttack.textContent=snowMatch?'雪玉を投げる':'攻撃';
+ touchAttack.disabled=!!snowMatch&&!snowMatch.running;
  const p=f.progression;
  const summary=p?[p.level,p.xp,p.total,p.baseXp,p.overflowXp,p.killXp,p.questXp,f.nextExp]:[];
  const key=summary.join('|');
@@ -231,7 +238,7 @@ function hud(f,calls,renderMs){
  updateLanternNote(f.storyLanternNote,f.storySightNote);
  const forest=$('storyForest');
  const observation=f.storyContest??f.storyForest??f.storyRest??f.storyCave??f.storyRoof;
- const fieldNote=observation?.message??f.storyAppraisal?.message??f.storyRumor?.message??f.storyBloom?.message??f.storyPatrol?.message??f.storySurvey?.message??f.storyDuel?.label??f.storyPathStatus??f.storyFlagStatus;
+ const fieldNote=observation?.message??f.storyAppraisal?.message??f.storyRumor?.message??f.storyBloom?.message??f.storyPatrol?.message??f.storySurvey?.message??f.storySnowball?.message??f.storyDuel?.label??f.storyPathStatus??f.storyFlagStatus;
  forest.hidden=!fieldNote;
  if(fieldNote&&forest.textContent!==fieldNote)forest.textContent=fieldNote;
  const trolley=f.voyage?.kind==='trolley'?f.voyage:null;

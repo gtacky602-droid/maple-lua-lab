@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 297 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 289,
+  "scope": "Authored 298 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 290,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1121,7 +1121,8 @@
     {"id":"nod-patrol-post","name":"ナド・クライ・巡回路の合流標","region":"ナド・クライ","status":"regional_temporary_image"},
     {"id":"sne-survey-shed","name":"スネージナヤ・駅脇の観測小屋","region":"スネージナヤ","status":"regional_temporary_image"},
     {"id":"sne-survey-yard","name":"スネージナヤ・雪よけ屋根と観測広場","region":"スネージナヤ","status":"regional_temporary_image"},
-    {"id":"sne-survey-ridge","name":"スネージナヤ・雪棚の見晴らし","region":"スネージナヤ","status":"regional_temporary_image"}
+    {"id":"sne-survey-ridge","name":"スネージナヤ・雪棚の見晴らし","region":"スネージナヤ","status":"regional_temporary_image"},
+    {"id":"sne-snow-match","name":"スネージナヤ・雪合戦広場","region":"スネージナヤ","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 8
 }

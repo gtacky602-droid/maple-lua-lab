@@ -135,7 +135,11 @@ def runtime():
     survey_rig=lua.execute((ROOT/'story-survey-rig.lua').read_text(encoding='utf8'))
     core.surveyEquipment=field_art(lua,'sne-survey',(),variants={
         kind:f'sne-survey-{kind}-sprites-v1.json' for kind in ('lens','clamp','blanket')})
-    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms,duel,moon_inlet,coast_detour,appraisal,rumor,bloom,patrol,survey_rig)
+    snow_match=lua.execute((ROOT/'story-snow-match.lua').read_text(encoding='utf8'))
+    core.snowMatchArt=field_art(lua,'sne-snow-match',(),variants={
+        kind:f'sne-snow-match-{kind}-sprites-v1.json' for kind in ('wall','rubble','flag')})
+    core.snowMatchHost=field_art(lua,'childe',(),idle='childe-idle-sprites.json').idle
+    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms,duel,moon_inlet,coast_detour,appraisal,rumor,bloom,patrol,survey_rig,snow_match)
     lua.execute((ROOT / 'barrier.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'farka.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'regisvine.lua').read_text(encoding='utf-8'))(core)

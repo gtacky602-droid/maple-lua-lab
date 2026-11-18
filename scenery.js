@@ -33,6 +33,7 @@ export const sceneryDefinitions={
  whitePassSnow:{file:'white-pass-wood-background-v1.png',zones:['story:winter-frontier-switchback', 'story:white-pass-cut', 'story:white-pass-woods', 'story:white-pass-ridge','story:sne-survey-yard'],note:'白虹峠へ続く雪道と観測広場の仮背景'},
  sneSurveyShed:{file:'sne-survey-shed-background-v1.png',zones:['story:sne-survey-shed'],note:'駅脇の観測小屋の仮背景'},
  sneSurveyRidge:{file:'sne-survey-ridge-background-v1.png',zones:['story:sne-survey-ridge'],note:'雪棚の見晴らしの仮背景'},
+ sneSnowMatch:{file:'sne-snow-match-background-v1.png',zones:['story:sne-snow-match'],note:'雪合戦広場の仮背景'},
  whitePassCoach:{file:'white-pass-coach-background-v1.png',zones:['story:white-pass-coach'],note:'列車内の仮背景'},
  whitePassStation:{file:'steam-stabling-depot-background-v1.png',zones:['story:white-pass-station'],note:'終着駅の共用仮背景'},
  whiteRainbowBasin:{file:'white-rainbow-background-v1.png',zones:['story:white-rainbow-basin'],note:'高原の仮背景'},
@@ -200,7 +201,7 @@ export function scenery(ctx,frame){
  const roof=key==='mondroof',lookout=key==='mondlookout',sandstone=['asimonField','wenutField','emperorField','lavaDragonField','tunigiExcavation'].includes(key);
  const bygone=key==='bygone'||key==='bygoneResonance';
  const golden=key==='golden'||key==='goldenDock';
- const camera=frame.camera||0,snow=['snezhnaya','dragonspine','cryoHypostasisField','wingspan','snowRailTransfer','spineRidge','whitePassSnow','whiteRainbowBasin','auroraGlass','dawnGlass','sneSurveyRidge'].includes(key);
+ const camera=frame.camera||0,snow=['snezhnaya','dragonspine','cryoHypostasisField','wingspan','snowRailTransfer','spineRidge','whitePassSnow','whiteRainbowBasin','auroraGlass','dawnGlass','sneSurveyRidge','sneSnowMatch'].includes(key);
  drawDecorations(ctx,frame,camera);
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
