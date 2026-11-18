@@ -1,0 +1,42 @@
+{
+  "manifest_cards": [
+    "WT01",
+    "WT02",
+    "WT03",
+    "WT04",
+    "WT05",
+    "WT06",
+    "WT07",
+    "WT08",
+    "WT09",
+    "WT10",
+    "WT11",
+    "WT12",
+    "WT13",
+    "WT14",
+    "WT15",
+    "WT16",
+    "WT17",
+    "WT18",
+    "WT19",
+    "WT20"
+  ],
+  "one_pawn_per_charge": true,
+  "physical_bishop_shield": true,
+  "separate_royal_bodies": true,
+  "frost_hold_cancellation_and_cooldown": true,
+  "frost_includes_tick_600": true,
+  "lock_and_collision_relative_ticks": [
+    210,
+    258,
+    294
+  ],
+  "latest_retry_tick": 666,
+  "early_miss_can_retry": true,
+  "actual_3_5_second_lure": true,
+  "exposure_ticks": 360,
+  "water_vortex_walk_speed": 0.7,
+  "transfer_conserves_hp_two_uses": true,
+  "simultaneous_royal_defeat_has_one_reward": true,
+  "quest_report_restore": true
+}

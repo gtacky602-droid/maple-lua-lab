@@ -4322,6 +4322,454 @@
           ]
         }
       }
+    },
+    {
+      "id": "boss-29122000",
+      "entity": 29122000,
+      "controller": "game_before_gate",
+      "node": "mond-gate-chess-court",
+      "storyChallenge": "gate-weekly",
+      "name": "扉に通ずる対局",
+      "level": 112,
+      "hp": 3620,
+      "pieceKingHp": 900,
+      "pieceQueenHp": 620,
+      "kingHp": 1100,
+      "queenHp": 1000,
+      "mora": 4200,
+      "expRole": "weekly_boss",
+      "center": 480,
+      "floorY": 480,
+      "noticeTicks": 24,
+      "restTicks": 22,
+      "respawnTicks": 3600,
+      "kingOrder": [
+        "WT01",
+        "WT02",
+        "WT05"
+      ],
+      "queenOrder": [
+        "WT06",
+        "WT07",
+        "WT08"
+      ],
+      "royalOrder": [
+        "WT17",
+        "WT10",
+        "WT12",
+        "WT16",
+        "WT11",
+        "WT13",
+        "WT14",
+        "WT15"
+      ],
+      "board": {
+        "left": 40,
+        "right": 920,
+        "unit": 88,
+        "top": 357
+      },
+      "charge": {
+        "pawnU": [
+          3,
+          5,
+          7
+        ],
+        "kingStartU": 0.8,
+        "royalKingU": 2,
+        "royalQueenU": 6,
+        "lock": 72,
+        "active": [
+          120,
+          156
+        ],
+        "finish": 240,
+        "rangeU": 6,
+        "pawnWarn": 45,
+        "pawnGap": 180
+      },
+      "damage": {
+        "normal": 31,
+        "pawn": 17,
+        "projectile": 27,
+        "charge": 35,
+        "catastrophe": 90,
+        "fallback": 21
+      },
+      "moves": {
+        "WT01": {
+          "title": "駒王の三歩",
+          "total": 300,
+          "locks": [
+            30,
+            90,
+            150
+          ],
+          "windows": [
+            [
+              72,
+              78
+            ],
+            [
+              132,
+              138
+            ],
+            [
+              204,
+              216
+            ]
+          ],
+          "recovery": 240,
+          "shots": []
+        },
+        "WT02": {
+          "title": "城駒と跳馬",
+          "total": 420,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              252,
+              258
+            ],
+            [
+              300,
+              306
+            ]
+          ],
+          "recovery": 336,
+          "shots": [
+            {
+              "spawn_ticks": [
+                90,
+                150
+              ],
+              "ttl_ticks": 72
+            }
+          ]
+        },
+        "WT03": {
+          "title": "奇手・三兵の盾",
+          "total": null,
+          "locks": [],
+          "windows": [],
+          "recovery": null,
+          "shots": []
+        },
+        "WT04": {
+          "title": "戦車の誘導突進",
+          "total": 240,
+          "locks": [
+            72
+          ],
+          "windows": [
+            [
+              120,
+              156
+            ]
+          ],
+          "recovery": 180,
+          "shots": []
+        },
+        "WT05": {
+          "title": "僧駒の斜雷",
+          "total": 1440,
+          "locks": [],
+          "windows": [
+            [
+              90,
+              96
+            ],
+            [
+              132,
+              138
+            ],
+            [
+              174,
+              180
+            ]
+          ],
+          "recovery": 1440,
+          "shots": [],
+          "relative_lock_tick": 36,
+          "pulse_period_ticks": 240,
+          "shield_units": 12
+        },
+        "WT06": {
+          "title": "女王駒の炎列",
+          "total": 300,
+          "locks": [
+            42
+          ],
+          "windows": [],
+          "recovery": 228,
+          "shots": [
+            {
+              "spawn_ticks": [
+                84,
+                114,
+                144
+              ],
+              "ttl_ticks": 72
+            }
+          ]
+        },
+        "WT07": {
+          "title": "双刃の回し駒",
+          "total": 240,
+          "locks": [
+            36
+          ],
+          "windows": [
+            [
+              78,
+              84
+            ],
+            [
+              132,
+              138
+            ]
+          ],
+          "recovery": 168,
+          "shots": []
+        },
+        "WT08": {
+          "title": "十字と斜めの盤面",
+          "total": 360,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              120,
+              132
+            ],
+            [
+              228,
+              240
+            ]
+          ],
+          "recovery": 276,
+          "shots": []
+        },
+        "WT09": {
+          "title": "盤を降りる王族",
+          "total": 240,
+          "locks": [],
+          "windows": [],
+          "recovery": 192,
+          "shots": []
+        },
+        "WT10": {
+          "title": "王剣・体当り・旋斬",
+          "total": 330,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              84,
+              90
+            ],
+            [
+              144,
+              150
+            ],
+            [
+              210,
+              222
+            ]
+          ],
+          "recovery": 258,
+          "shots": []
+        },
+        "WT11": {
+          "title": "跳馬落剣と城列",
+          "total": 420,
+          "locks": [
+            54,
+            174
+          ],
+          "windows": [
+            [
+              120,
+              132
+            ]
+          ],
+          "recovery": 336,
+          "shots": [
+            {
+              "spawn_ticks": [
+                210,
+                246
+              ],
+              "ttl_ticks": 72
+            }
+          ]
+        },
+        "WT12": {
+          "title": "女王の雷槍と水馬",
+          "total": 330,
+          "locks": [
+            42,
+            132
+          ],
+          "windows": [
+            [
+              90,
+              102
+            ],
+            [
+              186,
+              198
+            ]
+          ],
+          "recovery": 240,
+          "shots": []
+        },
+        "WT13": {
+          "title": "水兵の内外環",
+          "total": 300,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              108,
+              120
+            ],
+            [
+              198,
+              210
+            ]
+          ],
+          "recovery": 240,
+          "shots": []
+        },
+        "WT14": {
+          "title": "水渦と火炎追走",
+          "total": 480,
+          "locks": [
+            48,
+            180
+          ],
+          "windows": [
+            [
+              228,
+              288
+            ]
+          ],
+          "recovery": 324,
+          "shots": [],
+          "control_regions": [
+            {
+              "active": [
+                96,
+                300
+              ],
+              "speed_floor_ratio": 0.7,
+              "forced_movement": false
+            }
+          ]
+        },
+        "WT15": {
+          "title": "轟音の礼砲",
+          "total": 360,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              150,
+              162
+            ],
+            [
+              228,
+              240
+            ]
+          ],
+          "recovery": 276,
+          "shots": []
+        },
+        "WT16": {
+          "title": "キングのチェックメイト",
+          "total": 840,
+          "locks": [],
+          "windows": [],
+          "recovery": 720,
+          "shots": [],
+          "freeze_required": 100,
+          "deadline_ticks": 720,
+          "failure_window": [
+            720,
+            726
+          ]
+        },
+        "WT17": {
+          "title": "クイーンの津波と誘導",
+          "total": 1080,
+          "locks": [],
+          "windows": [],
+          "recovery": 960,
+          "shots": [],
+          "freeze_required": 100,
+          "deadline_ticks": 960,
+          "failure_window": [
+            960,
+            966
+          ],
+          "freeze_completed_by": 600,
+          "lock_offset": 210,
+          "charge_window_offset": [
+            258,
+            294
+          ],
+          "last_retry_start_tick": 666,
+          "lure_min_x_U": 6.5
+        },
+        "WT18": {
+          "title": "王族の体勢崩し",
+          "total": 480,
+          "locks": [],
+          "windows": [],
+          "recovery": 408,
+          "shots": [],
+          "exposure": [
+            48,
+            408
+          ]
+        },
+        "WT19": {
+          "title": "分け与える命",
+          "total": null,
+          "locks": [],
+          "windows": [],
+          "recovery": null,
+          "shots": [],
+          "revive_channel_ticks": 180,
+          "revive_budget_total": 2,
+          "donor_fraction": 0.5,
+          "donor_threshold_fraction": 0.2
+        },
+        "WT20": {
+          "title": "対局・凍結・共有進行",
+          "total": null,
+          "locks": [],
+          "windows": [],
+          "recovery": null,
+          "shots": [],
+          "freeze_gain_per_reaction": 25,
+          "context_channel_ticks": 90,
+          "context_cooldown_ticks": 120,
+          "context_gain": 50,
+          "context_positions_U": [
+            0.5,
+            9.5
+          ],
+          "context_radius_U": 0.55
+        }
+      }
     }
   ]
 }

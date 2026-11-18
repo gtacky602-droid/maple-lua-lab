@@ -16,6 +16,20 @@
       "mapHover": 0
     },
     {
+      "id": "gate-weekly-king",
+      "name": "扉に通ずる対局・キング（再現盤）",
+      "file": "gate-weekly-king-sprites-v1.json",
+      "height": 150,
+      "mapHover": 0
+    },
+    {
+      "id": "gate-weekly-queen",
+      "name": "扉に通ずる対局・クイーン（再現盤）",
+      "file": "gate-weekly-queen-sprites-v1.json",
+      "height": 158,
+      "mapHover": 0
+    },
+    {
       "id": "dottore-heretical",
       "name": "ドットーレ（待機候補）",
       "file": "dottore-heretical-idle-sprites.json",

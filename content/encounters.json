@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 87,
-    "partial": 78,
+    "partial": 79,
     "complete": 0
   },
   "encounters": [
@@ -1830,32 +1830,50 @@
       "entity_ids": [
         "29122000"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "multi_phase_paired_encounter",
       "evidence": [
         "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/thegamebeforethegate.json",
+        "docs/weekly-boss-v1/GATE_WEB.md",
+        "evidence/gate-weekly-lua.json",
+        "evidence/gate-weekly-browser.json",
         "https://wiki.hoyolab.com/pc/genshin/entry/7672?lang=ja-jp",
         "https://genshin.hoyoverse.com/ja/news/detail/157064"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "個別の攻撃・変身・衝突の連続ドット作画",
+        "マルチ、編成差、全行動の回避経路",
+        "本番3D配置と幻境実機検証"
       ],
+      "weeklyNode": "mond-gate-chess-court",
+      "weeklyEntrance": "扉の対局・再現盤（Lv112）",
       "art_components": [
+        {
+          "source": "assets/gate-weekly-king-source-v1.png",
+          "encoding": "assets/gate-weekly-king-sprites-v1.json",
+          "audit": "assets/gate-weekly-generation-v1.json",
+          "status": "Active royal king sprite"
+        },
+        {
+          "source": "assets/gate-weekly-queen-source-v1.png",
+          "encoding": "assets/gate-weekly-queen-sprites-v1.json",
+          "audit": "assets/gate-weekly-generation-v1.json",
+          "status": "Active royal queen sprite"
+        }
+      ],
+      "art_variants": [
         {
           "source": "assets/gate-king-idle-source-v1.png",
           "encoding": "assets/gate-king-idle-sprites.json",
           "audit": "evidence/gate-king-reference-audit.json",
-          "status": "idle candidate"
+          "status": "Earlier royal king study"
         },
         {
           "source": "assets/gate-queen-idle-source-v1.png",
           "encoding": "assets/gate-queen-idle-sprites.json",
           "audit": "evidence/gate-queen-reference-audit.json",
-          "status": "idle candidate"
+          "status": "Earlier royal queen study"
         }
       ]
     },

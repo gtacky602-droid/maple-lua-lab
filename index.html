@@ -42,6 +42,9 @@
 #weeklyKnave button{justify-self:start;touch-action:none}
 #weeklyPrimal{display:grid;gap:6px;margin-top:8px}
 #weeklyPrimal[hidden]{display:none}
+#weeklyGate{display:grid;gap:6px;margin-top:8px}
+#weeklyGate[hidden]{display:none}
+#weeklyGate button{justify-self:start;touch-action:none}
 #expeditionDesk th,#expeditionDesk td{padding:4px 8px;border-bottom:1px solid #426466;overflow-wrap:anywhere}
 #expeditionDesk thead th{color:#ffebba}
 #expeditionTrial{margin-inline-start:6px}
@@ -226,6 +229,10 @@
  <div id="weeklyPrimal" hidden>
   <small id="weeklyPrimalHint"></small>
   <small id="weeklyPrimalErosion"></small>
+ </div>
+ <div id="weeklyGate" hidden>
+  <small id="weeklyGateHint"></small>
+  <button id="weeklyGateFrost" type="button" data-hold="interact" hidden>霜印を長押し（G）</button>
  </div>
 </div>
 <section id="expeditionDesk" class="note" aria-label="遠征の装備比較" hidden>

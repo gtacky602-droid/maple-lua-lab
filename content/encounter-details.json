@@ -715,20 +715,28 @@
     "boss-29122000": {
       "grouping": "multi_phase_paired_encounter",
       "extra_evidence": [
+        "docs/weekly-boss-v1/GATE_WEB.md",
+        "evidence/gate-weekly-lua.json",
+        "evidence/gate-weekly-browser.json",
         "https://wiki.hoyolab.com/pc/genshin/entry/7672?lang=ja-jp",
         "https://genshin.hoyoverse.com/ja/news/detail/157064"
       ],
+      "remaining": ["個別の攻撃・変身・衝突の連続ドット作画", "マルチ、編成差、全行動の回避経路", "本番3D配置と幻境実機検証"],
       "art_components": [
         {
-          "item": "gate-king",
-          "audit": "evidence/gate-king-reference-audit.json",
-          "status": "idle candidate"
+          "item": "gate-weekly-king",
+          "audit": "assets/gate-weekly-generation-v1.json",
+          "status": "Active royal king sprite"
         },
         {
-          "item": "gate-queen",
-          "audit": "evidence/gate-queen-reference-audit.json",
-          "status": "idle candidate"
+          "item": "gate-weekly-queen",
+          "audit": "assets/gate-weekly-generation-v1.json",
+          "status": "Active royal queen sprite"
         }
+      ],
+      "art_variants": [
+        {"item":"gate-king","audit":"evidence/gate-king-reference-audit.json","status":"Earlier royal king study"},
+        {"item":"gate-queen","audit":"evidence/gate-queen-reference-audit.json","status":"Earlier royal queen study"}
       ]
     },
     "boss-29091001": {

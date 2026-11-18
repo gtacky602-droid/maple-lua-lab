@@ -497,11 +497,15 @@ def runtime():
         'single':'knave-weekly-single-sprites-v1.json','double':'knave-weekly-double-sprites-v1.json'})
     primal_fire=lua.execute((ROOT/'weekly-primal-fire.lua').read_text(encoding='utf8'))(core)
     core.primalWeeklyArt=field_art(lua,'gosoythoth',(),idle='gosoythoth-idle-sprites.json')
+    gate_moves=lua.execute((ROOT/'weekly-gate-moves.lua').read_text(encoding='utf8'))(core)
+    gate=lua.execute((ROOT/'weekly-gate.lua').read_text(encoding='utf8'))(core,gate_moves)
+    core.gateWeeklyArt=field_art(lua,'gate-weekly',(),variants={
+        'king':'gate-weekly-king-sprites-v1.json','queen':'gate-weekly-queen-sprites-v1.json'})
     lua.execute((ROOT/'weekly-bosses.lua').read_text(encoding='utf8'))(
         core,lua.table_from(weekly_specs,recursive=True),
         lua.table_from({'dvalin':dvalin,'andrius':andrius,'surveyor':surveyor,'loom':loom,
                         'childe':childe,'azhdaha':azhdaha,'signora':signora,'raiden':raiden,'shouki':shouki,
-                        'apep':apep,'narwhal':narwhal,'knave':knave,'primal_fire':primal_fire}))
+                        'apep':apep,'narwhal':narwhal,'knave':knave,'primal_fire':primal_fire,'game_before_gate':gate}))
     core.installToyDiveGuard()
     daily=json.loads((ROOT/'content/daily-quests.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'daily-quests.lua').read_text(encoding='utf8'))(core,lua.table_from(daily,recursive=True),graph)

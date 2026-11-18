@@ -1,5 +1,5 @@
 {
-  "count": 105,
+  "count": 106,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -20,6 +20,7 @@
     "Narwhal has an outer weekly arena",
     "Knave has a two-form weekly arena",
     "Primal Fire has a distinct weekly route",
+    "Gate connects the paired encounter to a Mondstadt weekly arena",
     "loom trial is separate from the imported list",
     "original trial is independent of the imported roster",
     "Cryo Hypostasis is reachable through the field route",

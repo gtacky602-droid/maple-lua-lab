@@ -371,6 +371,22 @@ function hud(f,calls,renderMs){
  const narwhal=$('weeklyNarwhal'),journey=field?.narwhal;
  const knave=field?.knave;
  const primal=field?.primal;
+ const gate=field?.gate;
+ $('weeklyGate').hidden=!gate||field.phase==='respawn';
+ if(gate&&field.phase!=='respawn'){
+  const hint=gate.card==='WT03'?`ポーン ${gate.shield} / 3 ｜ ポーンの向こう側へ突進を誘導`:
+   gate.card==='WT05'?`雷障壁 ${gate.shield} / ${gate.maxShield} ｜ 通常攻撃でも削れる`:
+   gate.exposure?`反撃できる時間 ${(gate.exposure/60).toFixed(1)}秒`:
+   gate.transfer?`HP譲渡まで ${(gate.transfer/60).toFixed(1)}秒 ｜ 残り ${gate.revives}回`:
+   gate.run&&gate.lure?`凍結完了 ｜ ${gate.run.goal?'走路固定。ジャンプでかわす':'クイーンの向こう側へ'}`:
+   gate.canFrost?`凍結 ${gate.freeze} / 100 ｜ 霜印は盤の両端 ｜ 残り ${Math.ceil((gate.freezeBy-gate.tick+1)/60)}秒`:
+   gate.deadline?`決着まで ${Math.max(0,Math.ceil((gate.deadline-gate.tick)/60))}秒`:'';
+  $('weeklyGateHint').textContent=hint;
+  $('weeklyGateFrost').hidden=!(gate.canFrost&&gate.nearFrost);
+  $('weeklyGateFrost').textContent=gate.hold!==undefined?`霜印を保持中 ${(gate.hold/60).toFixed(1)} / 1.5秒`:
+   gate.releaseRequired?'いったん長押しを離す':
+   gate.frostReady>0?`次の霜印まで ${(gate.frostReady/60).toFixed(1)}秒`:'霜印を長押し（G）';
+ }
  $('weeklyPrimal').hidden=!primal||field.phase==='respawn';
  if(primal&&field.phase!=='respawn'){
   const objects=Array.isArray(primal.objects)?primal.objects:[];

@@ -20,7 +20,7 @@ check('completion not overclaimed',d['counts']['complete']==0 and not d['complet
 check('not implemented rows cannot launch',all(r['action'] is None for r in rows if r['status']=='not_implemented'))
 check('evidence on every row',all(r['evidence'] for r in rows))
 check('generated file matches builder',d==json.loads((ROOT/'content/encounters.json').read_text(encoding='utf8')))
-check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':87,'partial':78,'complete':0})
+check('counts retained',d['counts']=={'source_entities':63,'encounter_candidates':87,'partial':79,'complete':0})
 by_id={r['id']:r for r in rows}
 childe=by_id['boss-29030101']
 check('Childe has a distinct weekly route',
@@ -58,6 +58,10 @@ primal=by_id['boss-29091101']
 check('Primal Fire has a distinct weekly route',
       primal['kind']=='weekly' and primal['weeklyNode']=='primal-fire-sundered-forge'
       and primal['status']=='partial' and primal['action'] is None)
+gate=by_id['boss-29122000']
+check('Gate connects the paired encounter to a Mondstadt weekly arena',
+      gate['kind']=='weekly' and gate['weeklyNode']=='mond-gate-chess-court' and len(gate['art_components'])==2
+      and gate['status']=='partial' and gate['action'] is None)
 loom=by_id['original-twin-shuttle-loom']
 check('loom trial is separate from the imported list',
       loom['weeklyNode']=='buried-weaving-room' and not loom['entity_ids'] and loom['status']=='partial')

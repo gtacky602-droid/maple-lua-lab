@@ -1,0 +1,31 @@
+{
+  "tool": "Codex built-in ImageGen",
+  "background": {
+    "file": "assets/gate-court-background-v1.png",
+    "direction": "Original indigo-gray clockwork hall with a distant double door, restrained lantern light and a quiet foreground for telegraphs.",
+    "role": "Host-rendered provisional background"
+  },
+  "forms": {
+    "king": {
+      "source": "assets/gate-weekly-king-source-v1.png",
+      "encoding": "assets/gate-weekly-king-sprites-v1.json",
+      "reference": "assets/gate-king-idle-source-v1.png",
+      "prior_reference_audit": "evidence/gate-king-reference-audit.json",
+      "design": "Broad original mechanical king with grounded sword, simplified head, boots and armor; larger head in second generation.",
+      "bodyLandmarkY": {"helmetTop": 163, "chin": 484, "sole": 1100},
+      "approximateHeads": 2.92,
+      "rectangles": {"legacy": 8972, "h48c32": 5491, "h32c16": 2533}
+    },
+    "queen": {
+      "source": "assets/gate-weekly-queen-source-v1.png",
+      "encoding": "assets/gate-weekly-queen-sprites-v1.json",
+      "reference": "assets/gate-queen-idle-source-v1.png",
+      "proportions_reference": "assets/knave-weekly-single-source-v1.png",
+      "prior_reference_audit": "evidence/gate-queen-reference-audit.json",
+      "design": "Original mechanical queen with short split coat and blue crystal scepter; helmet refined in two edits.",
+      "bodyLandmarkY": {"helmetTop": 350, "chin": 641, "sole": 1279},
+      "approximateHeads": 3.19,
+      "rectangles": {"legacy": 5872, "h48c32": 3547, "h32c16": 1658}
+    }
+  }
+}

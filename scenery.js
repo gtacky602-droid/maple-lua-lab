@@ -1,5 +1,6 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ gateCourt:{file:'gate-court-background-v1.png',zones:['story:mond-gate-chess-court'],note:'扉の対局の仮背景'},
  tulpaField:{file:'tulpa-field-background-v1.png',zones:['story:tulpa-field-grotto','story:narwhal-star-sea'],note:'潮影の洞と星海の仮背景'},
  narwhalInner:{file:'narwhal-inner-background-v1.png',zones:['story:narwhal-inner-echo'],note:'腹中の仮背景'},
  icewindField:{file:'icewind-field-background-v1.png',zones:['story:icewind-promenade','story:icewind-coppelia-field','story:icewind-coppelius-field'],note:'氷風組曲の舞台の仮背景'},
@@ -245,6 +246,17 @@ export function scenery(ctx,frame){
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
   if(p.riverDeck)continue;
+  if(key==='gateCourt'){
+   ctx.fillStyle='#36374b';ctx.fillRect(x,p.y,p.w,p.y===480?60:16);
+   ctx.fillStyle='#89795f';ctx.fillRect(x,p.y,p.w,3);
+   if(p.y===480){
+    for(let i=0;i<8;i++){
+     ctx.fillStyle=i%2?'#454658':'#535166';ctx.fillRect(40+110*i-camera,p.y+3,110,23);
+     ctx.fillStyle='#88775c';ctx.fillRect(40+110*i-camera,p.y+3,1,22);
+    }
+   }
+   continue;
+  }
   if(key==='natlanXilonenCourse'&&p.catchDeck&&frame.storySpringCourse?.phase==='lap'){
    ctx.fillStyle='#925f4e';ctx.fillRect(x,p.y,p.w,60);
    ctx.fillStyle='#f4bf86';ctx.fillRect(x,p.y,p.catchDeck,5);

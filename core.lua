@@ -366,6 +366,7 @@ local function physics(s,a,dt,move,held)
   a.dash=max(0,(a.dash or 0)-dt);move=0
  end
  local speed=210*((a.haste or 0)>0 and 1.25 or 1)*((a.iceRun or 0)>0 and a.ground and 1.6 or 1)
+ if C.fieldMoveFactor then speed=speed*C.fieldMoveFactor(s,a) end
  a.walk=move
  local nx=clamp(a.x+move*speed*dt,20,(s.worldwidth or 2880)-20)
  for _,w in ipairs(s.solids or {}) do

@@ -1,0 +1,29 @@
+{
+  "scenery": {
+    "key": "gateCourt",
+    "file": "gate-court-background-v1.png",
+    "state": "ready"
+  },
+  "stages": [
+    "king",
+    "queen",
+    "finish",
+    "royal"
+  ],
+  "pawnsPerCharge": [
+    2,
+    1,
+    0
+  ],
+  "keyboardAndPointerFrost": true,
+  "actualPositionAndCollision": true,
+  "reviveTransfer": 424,
+  "clearReportRestore": true,
+  "viewport390": true,
+  "commands": {
+    "png": 28,
+    "standard": 19175,
+    "light": 5258
+  },
+  "errors": []
+}
