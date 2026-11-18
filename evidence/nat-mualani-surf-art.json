@@ -1,0 +1,151 @@
+{
+  "tool": "built-in image generation and reference-guided proportion edits",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/nat-mualani-surf-model.obj",
+    "sha256": "9c95adffcfd9ed046ecd2b426509897867895e9a165254ab800e22b3907006f7"
+  },
+  "materials": {
+    "path": "evidence/nat-mualani-surf-model.mtl",
+    "sha256": "3c428a76a2c9eeeef6ed1a3bd5c5c97572982e821397b49f906d95a407911825"
+  },
+  "contactSheet": {
+    "path": "evidence/nat-mualani-surf-views.png",
+    "sha256": "4511aa6857568c1b57eaae8ec0eeb57887979fc2ce50996f8f93ebc2345ff563"
+  },
+  "propsSource": {
+    "path": "assets/nat-mualani-surf-props-source-v1.png",
+    "sha256": "c43d6fad61e77dc3d2ac8752829431bc19efebc583b36013a55a0340d4e40e3e"
+  },
+  "alphaCorners": [
+    0,
+    1,
+    0,
+    0
+  ],
+  "backgrounds": [
+    {
+      "path": "assets/nat-mualani-surf-run-background-v1.png",
+      "sha256": "96e488a94491afedf56d127c1022f1178e67dfac93d7359bb6dd65b2d7355d2f"
+    },
+    {
+      "path": "assets/nat-mualani-surf-cove-background-v1.png",
+      "sha256": "7f0fa6dae90261659dabf7bd3a5a01f60d1fa50bf7b715511a7a0180f301e0b6"
+    }
+  ],
+  "backgroundReferences": [
+    {
+      "path": "assets/natlan-riverside-trial-background-v1.png",
+      "sha256": "cbe3d0701c8ada5ddf7183ac952ea2aab6d809816483af4e9579b7ef61d8629e"
+    }
+  ],
+  "status": "Six original assets from local 3D references. The cove saurian is a lab interpretation with an original silhouette.",
+  "profiles": {
+    "board": {
+      "encoding": {
+        "path": "assets/nat-mualani-surf-board-sprites-v1.json",
+        "sha256": "9400d7a79488ffc3faef2f83d3e8193b91eeec47296052a50ca0d01fe205826c"
+      },
+      "box": [
+        76,
+        224,
+        411,
+        95
+      ],
+      "runs": {
+        "legacy": 833,
+        "h48c32": 565,
+        "h32c16": 195
+      }
+    },
+    "hoop": {
+      "encoding": {
+        "path": "assets/nat-mualani-surf-hoop-sprites-v1.json",
+        "sha256": "cd20f877dd51dff6bb59661df34bcc43c21491f642d845b40b88507a7489713d"
+      },
+      "box": [
+        612,
+        98,
+        311,
+        315
+      ],
+      "runs": {
+        "legacy": 1968,
+        "h48c32": 1235,
+        "h32c16": 544
+      }
+    },
+    "wave": {
+      "encoding": {
+        "path": "assets/nat-mualani-surf-wave-sprites-v1.json",
+        "sha256": "dd9fa0ee836fe6165eed65997692c51ea88772900b820b804db48c6aaa147651"
+      },
+      "box": [
+        1080,
+        176,
+        402,
+        197
+      ],
+      "runs": {
+        "legacy": 2199,
+        "h48c32": 1502,
+        "h32c16": 616
+      }
+    },
+    "saurian": {
+      "encoding": {
+        "path": "assets/nat-mualani-surf-saurian-sprites-v1.json",
+        "sha256": "d677c7afa057f1f9d768d6288cd5af14395f82843c2988e998c4e56b9e1ebfc6"
+      },
+      "box": [
+        76,
+        675,
+        403,
+        207
+      ],
+      "runs": {
+        "legacy": 2579,
+        "h48c32": 1776,
+        "h32c16": 821
+      }
+    },
+    "ball": {
+      "encoding": {
+        "path": "assets/nat-mualani-surf-ball-sprites-v1.json",
+        "sha256": "3996ad76714eada83d3de6b0a13c5ac9d546b1798a9c0641d51a53f44934bd73"
+      },
+      "box": [
+        632,
+        624,
+        268,
+        272
+      ],
+      "runs": {
+        "legacy": 484,
+        "h48c32": 281,
+        "h32c16": 108
+      }
+    },
+    "charm": {
+      "encoding": {
+        "path": "assets/nat-mualani-surf-charm-sprites-v1.json",
+        "sha256": "ca90be010b0a9342ae480faf0c6bca9c3c1e5556008c7ad1fb3eb174351fbacc"
+      },
+      "box": [
+        1150,
+        616,
+        255,
+        277
+      ],
+      "runs": {
+        "legacy": 787,
+        "h48c32": 470,
+        "h32c16": 190
+      }
+    }
+  }
+}

@@ -90,7 +90,7 @@ function updateTeaCase(view){
 try{spriteData=await (await fetch('assets/sprites.json')).json()}catch{}
 const mapping={KeyF:'story_nearby_portal',KeyG:'story_collect',KeyK:'skill1',KeyL:'skill2',KeyM:'skill3',KeyN:'skill4',KeyQ:'light',KeyE:'swap',ShiftLeft:'dodge',ShiftRight:'dodge',KeyP:'pause'};
 for(let i=1;i<=8;i++)mapping['Digit'+i]='slot'+i;
-addEventListener('keydown',e=>{if(e.code==='Escape'&&frame?.storyStonePair){actions.push('story_charm_close');return}if(e.code==='Escape'&&frame?.storyNaviaPhoto?.panel){actions.push('story_photo_close');return}if(e.code==='Escape'&&frame?.storyFurinaRehearsal?.open){actions.push('story_rehearsal:close');return}if(e.code==='Escape'&&frame?.storyDiscoveryMap){actions.push('story_discovery_close');return}if(e.code==='Escape'&&frame?.storyKavehModel){actions.push('story_model_close');return}if(/INPUT|SELECT|BUTTON/.test(document.activeElement.tagName))return;if(['Space','ArrowLeft','ArrowRight','ArrowDown'].includes(e.code)||(e.code==='ArrowUp'&&frame?.storyToyDive))e.preventDefault();keys.add(e.code);if(!e.repeat){if(e.code==='Space')actions.push(keys.has('KeyS')||keys.has('ArrowDown')?'drop':'jump');else if(mapping[e.code])actions.push(mapping[e.code])}});
+addEventListener('keydown',e=>{if(e.code==='Escape'&&frame?.storyStonePair){actions.push('story_charm_close');return}if(e.code==='Escape'&&frame?.storyNaviaPhoto?.panel){actions.push('story_photo_close');return}if(e.code==='Escape'&&frame?.storyFurinaRehearsal?.open){actions.push('story_rehearsal:close');return}if(e.code==='Escape'&&frame?.storyDiscoveryMap){actions.push('story_discovery_close');return}if(e.code==='Escape'&&frame?.storyKavehModel){actions.push('story_model_close');return}if(/INPUT|SELECT|BUTTON/.test(document.activeElement.tagName))return;if(['Space','ArrowLeft','ArrowRight','ArrowDown'].includes(e.code)||(e.code==='ArrowUp'&&frame?.storyToyDive))e.preventDefault();keys.add(e.code);if(!e.repeat){if(e.code==='Space')actions.push(keys.has('KeyS')||keys.has('ArrowDown')?'drop':'jump');else if(e.code==='KeyJ'&&frame?.storySurf?.phase==='cove')actions.push('story_surf_hit');else if(mapping[e.code])actions.push(mapping[e.code])}});
 addEventListener('keyup',e=>keys.delete(e.code));addEventListener('blur',()=>keys.clear());
 document.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>{actions.push(b.dataset.action);b.blur()});
 let holds={};document.querySelectorAll('[data-hold]').forEach(b=>{b.onpointerdown=e=>{b.setPointerCapture(e.pointerId);holds[b.dataset.hold]=true};b.onpointerup=b.onpointercancel=()=>holds[b.dataset.hold]=false});
@@ -273,13 +273,26 @@ function updateProgression(f){
  $('snowMatchControls').closest('.game').classList.toggle('snow-match',!!snowMatch);
  $('snowMatchControls').hidden=!snowMatch;
  $('snowMatchThrow').disabled=!snowMatch?.running;
+ const surf=f.storySurf, boarding=surf?.phase==='run', rally=surf?.phase==='cove';
  const diving=Boolean(f.storyToyDive);
+ $('surfControls').hidden=!boarding&&!rally;
+ $('surfControls').closest('.game').classList.toggle('surf-playing',boarding||rally);
+ $('surfHit').hidden=!rally;
+ $('surfHit').disabled=!!f.paused;
+ $('surfHit').classList.toggle('selected',!!surf?.ready);
+ $('surfJump').hidden=!boarding;
+ const surfText=boarding?`左右で進む・Spaceで跳ぶ　｜　輪 ${surf.rings} / ${surf.ringTotal}`:
+  rally?(surf.ready?'返球！':'左右で合わせ、合図で J を押す'):'';
+ if($('surfStatus').textContent!==surfText)$('surfStatus').textContent=surfText;
+ $('touchJump').hidden=diving||boarding||rally;
+ document.querySelectorAll('.touch [data-hold="left"],.touch [data-hold="right"]').forEach(button=>{button.hidden=boarding||rally});
  document.querySelector('.game').classList.toggle('toy-dive',diving);
- $('a2').hidden=diving;
+ $('a1').hidden=(boarding||rally)&&f.active===2;
+ $('a2').hidden=diving||((boarding||rally)&&f.active===1);
  $('diveHelp').hidden=!diving;
  $('diveReset').disabled=f.paused;
  document.querySelectorAll('[data-swim]').forEach(button=>{button.hidden=!diving});
- document.querySelectorAll('[data-land]').forEach(button=>{button.hidden=diving});
+ document.querySelectorAll('[data-land]').forEach(button=>{button.hidden=diving||boarding||rally});
  const touchAttack=document.querySelector('[data-hold="attack"]');
  touchAttack.textContent=snowMatch?'雪玉を投げる':'攻撃';
  touchAttack.disabled=!!snowMatch&&!snowMatch.running;
@@ -308,7 +321,7 @@ function hud(f,calls,renderMs){
  updateLanternNote(f.storyLanternNote,f.storySightNote);
  const forest=$('storyForest');
  const observation=f.storyContest??f.storyForest??f.storyRest??f.storyCave??f.storyRoof;
- const fieldNote=observation?.message??f.storyAppraisal?.message??f.storyRumor?.message??f.storyBloom?.message??f.storyPatrol?.message??f.storySurvey?.message??f.storySnowball?.message??f.storyReturnBox?.message??f.storyFireworkStatus?.message??f.storyStealth?.message??f.storyIttoGames?.message??f.storyTeaCase?.message??f.storyWandererSurvey?.message??f.storyObservationVisitors?.message??f.storyColleiGuide?.message??f.storyKavehRoom?.message??f.storyNahidaDiscovery?.message??f.storyEmilieScent?.message??f.storyNaviaPhoto?.message??f.storyToyDive?.message??f.storyDiveExhibit?.message??f.storyLyneyMagic?.message??f.storyFurinaFinale?.message??(!f.storyFurinaRehearsal?.open?f.storyFurinaRehearsal?.message:undefined)??f.storyDuel?.label??f.storyPathStatus??f.storyFlagStatus;
+ const fieldNote=observation?.message??f.storyAppraisal?.message??f.storyRumor?.message??f.storyBloom?.message??f.storyPatrol?.message??f.storySurvey?.message??f.storySnowball?.message??f.storyReturnBox?.message??f.storyFireworkStatus?.message??f.storyStealth?.message??f.storyIttoGames?.message??f.storyTeaCase?.message??f.storyWandererSurvey?.message??f.storyObservationVisitors?.message??f.storyColleiGuide?.message??f.storyKavehRoom?.message??f.storyNahidaDiscovery?.message??f.storyEmilieScent?.message??f.storyNaviaPhoto?.message??f.storySurf?.message??f.storyToyDive?.message??f.storyDiveExhibit?.message??f.storyLyneyMagic?.message??f.storyFurinaFinale?.message??(!f.storyFurinaRehearsal?.open?f.storyFurinaRehearsal?.message:undefined)??f.storyDuel?.label??f.storyPathStatus??f.storyFlagStatus;
  forest.hidden=!fieldNote;
  if(fieldNote&&forest.textContent!==fieldNote)forest.textContent=fieldNote;
  const trolley=f.voyage?.kind==='trolley'?f.voyage:null;

@@ -77,7 +77,7 @@ return function(C)
   local f=frame(s,mode,profile);local col=s.companion=='columbina'
   f.companion={id=s.companion or 'amber',name=col and 'コロンビーナ（仮表示）' or 'アンバー',skills=col and {'通常水弾','さざ波','月の領域','月の印','月光奥義'} or {'通常攻撃','火矢','矢の雨','ウサギ伯爵','跳躍射撃'},moonDomain=math.max(0,(s.moonDomain or 0)-s.t),moonMark=math.max(0,(s.moonMark or 0)-s.t)}
   if s.companion=='wanderer' then f.companion.name='放浪者（仮表示）';f.companion.skills={'通常風弾','浮遊','空中連射','風圧回避','嵐の奥義'};f.companion.floatSeconds=math.max(0,(s.actors[2].floatUntil or 0)-s.t) end
-  if not s.toyDive and (col or s.companion=='wanderer' or s.companion=='beidou' or s.companion=='ayaka' or s.companion=='emilie' or s.companion=='kachina' or s.companion=='mitya') then
+  if not s.toyDive and (not s.surfRound or s.active==2) and (col or s.companion=='wanderer' or s.companion=='beidou' or s.companion=='ayaka' or s.companion=='emilie' or s.companion=='kachina' or s.companion=='mitya') then
    for i=#f.draws,1,-1 do local d=f.draws[i];if d.kind=='sprite' and (d.asset==3 or d.asset==4) then table.remove(f.draws,i) end end
    local a=s.actors[2]
    if a.hp>0 and C.companionArt and C.companionArt[s.companion] then

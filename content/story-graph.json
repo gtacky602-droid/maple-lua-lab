@@ -2218,10 +2218,146 @@
             "count": 1
           },
           "rideLabel": "石飾りを探す採集路"
+        },
+        {
+          "to": "natlan-surf-run",
+          "x": 545,
+          "arrivalX": 115,
+          "rideLabel": "ボードを借りる練習瀬",
+          "requires": {
+            "quest": "natlan-mualani-surf",
+            "count": 1
+          }
         }
       ],
       "checkpoint": "natlan-hub",
-      "stoneCharmQuest": "natlan-kachina-charms"
+      "stoneCharmQuest": "natlan-kachina-charms",
+      "surfQuest": "natlan-mualani-surf"
+    },
+    {
+      "id": "natlan-surf-run",
+      "name": "ナタ・水しぶきの練習瀬",
+      "region": "ナタ",
+      "level": 100,
+      "width": 1640,
+      "hub": false,
+      "peaceful": true,
+      "checkpoint": "natlan-hub",
+      "surfQuest": "natlan-mualani-surf",
+      "surfGame": {
+        "kind": "run",
+        "station": 190,
+        "start": 274,
+        "finish": 1423,
+        "surface": 464,
+        "speed": 286,
+        "hop": 510,
+        "gravity": 1080,
+        "early": 807,
+        "rings": [
+          {
+            "x": 422,
+            "y": 407
+          },
+          {
+            "x": 836,
+            "y": 464
+          },
+          {
+            "x": 1228,
+            "y": 407
+          }
+        ],
+        "waves": [
+          {
+            "x": 577,
+            "width": 46,
+            "height": 48,
+            "drift": 21,
+            "period": 2.5
+          },
+          {
+            "x": 1124,
+            "width": 50,
+            "height": 53,
+            "drift": 23,
+            "period": 2.8
+          }
+        ]
+      },
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1640
+        }
+      ],
+      "exits": [
+        {
+          "to": "natlan-hub",
+          "x": 62,
+          "arrivalX": 620,
+          "rideLabel": "谷の集落に戻る"
+        },
+        {
+          "to": "natlan-surf-cove",
+          "x": 1562,
+          "arrivalX": 120,
+          "rideLabel": "入り江の小道",
+          "requires": {
+            "quest": "natlan-mualani-surf",
+            "count": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "natlan-surf-cove",
+      "name": "ナタ・コホラ竜の入り江",
+      "region": "ナタ",
+      "level": 100,
+      "width": 1150,
+      "hub": false,
+      "peaceful": true,
+      "checkpoint": "natlan-hub",
+      "surfQuest": "natlan-mualani-surf",
+      "surfGame": {
+        "kind": "cove",
+        "station": 445,
+        "landing": 525,
+        "animal": 827,
+        "waterline": 481,
+        "lobSeconds": 1.85,
+        "waitSeconds": 0.46,
+        "minX": 180,
+        "maxX": 855
+      },
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1150
+        }
+      ],
+      "exits": [
+        {
+          "to": "natlan-surf-run",
+          "x": 61,
+          "arrivalX": 1502,
+          "rideLabel": "練習瀬へ戻る"
+        },
+        {
+          "to": "natlan-hub",
+          "x": 1074,
+          "arrivalX": 620,
+          "rideLabel": "谷の集落に戻る",
+          "requires": {
+            "quest": "natlan-mualani-surf",
+            "count": 4
+          },
+          "returnOnly": true
+        }
+      ]
     },
     {
       "id": "natlan-charm-trail",
@@ -6312,6 +6448,72 @@
           "notice": "二人分の石飾りが完成しました。カチーナに報告しましょう。",
           "charmProp": true,
           "stonePairBoard": true
+        }
+      ]
+    },
+    {
+      "id": "natlan-mualani-surf",
+      "designId": "Q-NAT-S02",
+      "name": "もう一回！ 水しぶきの寄り道",
+      "giver": "ムアラニ",
+      "hub": "natlan-hub",
+      "target": "natlan-surf-run",
+      "requires": "natlan-ridge-flag",
+      "level": 100,
+      "kind": "itinerary",
+      "goal": 4,
+      "xp": 1404867,
+      "mora": 4900,
+      "surfMemento": {
+        "x": 307,
+        "y": 480,
+        "name": "水しぶきの波札"
+      },
+      "briefing": "ムアラニ「旗のあとは水遊び！ タイムは置いといて、まずは練習ボードでひと波越えてみよっか。」",
+      "closing": "ムアラニ「今日の波、いい音だったね。もう一回遊ぶなら、いつでも入り江に来て！」記念の波札を受け取りました。",
+      "completedObjective": "練習瀬と入り江で再挑戦できる。谷の集落で記念の波札を見られる",
+      "itinerary": [
+        {
+          "kind": "inspect",
+          "node": "natlan-hub",
+          "x": 302,
+          "y": 480,
+          "name": "ムアラニとの待ち合わせ",
+          "objective": "谷の集落でムアラニと話す",
+          "notice": "ムアラニ「輪は好きなだけ。波が寄る前に跳ぶのがコツ。浅瀬に落ちたら戻ってやり直そう！」",
+          "surfProp": true,
+          "action": "ムアラニに水遊びの話を聞く"
+        },
+        {
+          "kind": "inspect",
+          "node": "natlan-surf-run",
+          "x": 190,
+          "y": 480,
+          "name": "ボードの貸し出し場",
+          "objective": "練習瀬の左の浜でボードを借りる",
+          "notice": "左右で進み、ジャンプで輪と波を越えます。転んだら近い浅瀬へ戻ります。",
+          "surfProp": true,
+          "action": "練習ボードに乗る"
+        },
+        {
+          "kind": "surfRun",
+          "node": "natlan-surf-run",
+          "x": 1423,
+          "y": 480,
+          "name": "練習瀬の終点",
+          "objective": "ボードで波を越え、練習瀬の右の浜まで滑る。輪の数に関わらず先へ進める",
+          "notice": "ムアラニ「あっ、コホラ竜がボール持っていっちゃった！ 右の入り江にいるよ。」",
+          "surfProp": true
+        },
+        {
+          "kind": "surfRally",
+          "node": "natlan-surf-cove",
+          "x": 445,
+          "y": 480,
+          "name": "入り江の返球遊び",
+          "objective": "入り江で遊びを始め、近くに来たボールを一度打ち返す",
+          "notice": "ムアラニ「波が折り返すときのしぶき、もう覚えたね。もう一回？ 集落に戻って報告してもいいよ。」",
+          "surfProp": true
         }
       ]
     },

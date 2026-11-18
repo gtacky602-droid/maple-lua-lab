@@ -200,7 +200,11 @@ def runtime():
     core.stoneOrnamentArt=field_art(lua,'nat-kachina-charms',(),variants={
         kind:f'nat-kachina-charms-{kind}-sprites-v1.json'
         for kind in ('table','outcrop','pendant','amber','teal','purple')})
-    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms,duel,moon_inlet,coast_detour,appraisal,rumor,bloom,patrol,survey_rig,snow_match,return_box,night_banner,fireworks,stealth,itto_games,tea_case,wanderer_survey,observation_visitors,collei_guide,kaveh_model,nahida_map,emilie_scent,furina_cues,navia_photo,lyney_magic,freminet_dive,stone_ornaments)
+    mualani_surf=lua.execute((ROOT/'story-mualani-surf.lua').read_text(encoding='utf8'))
+    core.mualaniSurfArt=field_art(lua,'nat-mualani-surf',(),variants={
+        kind:f'nat-mualani-surf-{kind}-sprites-v1.json'
+        for kind in ('board','hoop','wave','saurian','ball','charm')})
+    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms,duel,moon_inlet,coast_detour,appraisal,rumor,bloom,patrol,survey_rig,snow_match,return_box,night_banner,fireworks,stealth,itto_games,tea_case,wanderer_survey,observation_visitors,collei_guide,kaveh_model,nahida_map,emilie_scent,furina_cues,navia_photo,lyney_magic,freminet_dive,stone_ornaments,mualani_surf)
     lua.execute((ROOT / 'barrier.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'farka.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'regisvine.lua').read_text(encoding='utf-8'))(core)

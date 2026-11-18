@@ -1,0 +1,31 @@
+newmtl wood
+Kd 0.45490 0.25098 0.16863
+illum 1
+
+newmtl amber
+Kd 0.86275 0.56078 0.26275
+illum 1
+
+newmtl turq
+Kd 0.11373 0.64314 0.60000
+illum 1
+
+newmtl navy
+Kd 0.14902 0.33333 0.45882
+illum 1
+
+newmtl cream
+Kd 0.94118 0.82353 0.58039
+illum 1
+
+newmtl coral
+Kd 0.95686 0.41961 0.27451
+illum 1
+
+newmtl light
+Kd 0.56471 0.85490 0.87451
+illum 1
+
+newmtl eye
+Kd 0.14902 0.12549 0.18824
+illum 1

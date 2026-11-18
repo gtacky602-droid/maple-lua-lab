@@ -1,0 +1,14 @@
+{
+  "waveFallRecovery": true,
+  "jumpOverBothWaves": true,
+  "keyboardRally": true,
+  "mobileRallyButton": true,
+  "replayExitAndReport": true,
+  "mementoOnReload": true,
+  "calls": {
+    "png": 19,
+    "rect": 4325,
+    "light": 1242
+  },
+  "errors": []
+}

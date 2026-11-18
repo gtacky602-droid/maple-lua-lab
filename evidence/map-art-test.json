@@ -524,6 +524,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "natlan-surf-run",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "natlan-surf-cove",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "natlan-charm-trail",
       "count": 0,
       "fallback": false,

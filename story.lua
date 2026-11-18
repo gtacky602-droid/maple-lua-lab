@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule,furinaCuesModule,naviaPhotoModule,lyneyMagicModule,freminetDiveModule,stoneOrnamentsModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule,furinaCuesModule,naviaPhotoModule,lyneyMagicModule,freminetDiveModule,stoneOrnamentsModule,mualaniSurfModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -197,6 +197,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local lyneyMagic=lyneyMagicModule(C,canInspect)
  local freminetDive=freminetDiveModule(C,canInspect)
  local stoneOrnaments=stoneOrnamentsModule(C,canInspect)
+ local mualaniSurf=mualaniSurfModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -565,6 +566,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.furinaRun=nil
   s.photoPanel,s.photoTimer,s.stonePairOpen=nil,nil,nil
   s.lyneyRun=nil
+  mualaniSurf.enter(s)
   s.storyLightMode=n.localLight and 'bright' or nil
   s.airflowTrial,s.storyCue=nil,nil
   s.resonanceOrder,s.resonancePage=nil,nil
@@ -669,6 +671,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  function C.action(s,key)
   setup(s)
+  if s.surfRound then
+   if key=='pause' then action(s,key)
+   elseif key=='story_collect' and not s.paused then
+    local n=nodes[s.story.node]
+    local q=quests[n.surfQuest]
+    mualaniSurf.interact(s,n,q,s.story.quests[q.id])
+   else mualaniSurf.action(s,key) end
+   return
+  end
+  if key=='story_surf_hit' then return end
   if s.snowballRound then
    if key=='normal' then snowMatch.throw(s);return end
    if key~='pause' and key~='jump' and key~='drop' and key~='story_nearby_portal'
@@ -800,6 +812,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    local lamp=node.localLight
    if lamp and localLight.interact(s,lamp) then return end
+   if node.surfQuest then
+    local q=quests[node.surfQuest]
+    local state=s.story.quests[q.id]
+    local handled,milestone=mualaniSurf.interact(s,node,q,state)
+    if milestone then completeMilestone(s,state,milestone) end
+    if handled then return end
+   end
    if duel.ring(s,node.duel) then return end
    if node.ittoGames and itto.collect(s,node.ittoGames,s.story.quests[node.ittoGames.quest]) then return end
    if node.fireworkBeach and fireworks.start(s,quests[node.fireworkBeach],s.story.quests[node.fireworkBeach]) then return end
@@ -1095,6 +1114,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
  end
  function C.step(s,dt,input)
+  if s.surfRound then
+   local n=nodes[s.story.node]
+   local q=quests[n.surfQuest]
+   local state=s.story.quests[q.id]
+   local milestone=mualaniSurf.step(s,dt,input or {},n,q,state)
+   if milestone then completeMilestone(s,state,milestone) end
+   return
+  end
   if s.toyDive then
    local spec=nodes[s.story.node].toyDive
    local q=quests[spec.quest]
@@ -1406,6 +1433,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if n.toyDisplay then
     freminetDive.display(f,s,markers,n.toyDisplay,s.story.quests[n.toyDisplay.quest],mode,profile)
    end
+   if n.surfQuest then
+    local q=quests[n.surfQuest]
+    mualaniSurf.observe(f,s,markers,n,q,s.story.quests[q.id],mode,profile)
+   end
    flagCourse.observe(s,f,markers,n.flagCourse,mode,profile)
    movingPlatforms.observe(s,f,markers,n.riverCrossing,mode,profile)
    duel.frame(s,f,markers,n.duel)
@@ -1641,7 +1672,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup
         and not milestone.nightClue and not milestone.fireworkSight and not milestone.stealthNap
         and not milestone.teaClue and not milestone.teaCup and not milestone.surveyProp and not milestone.visitorProp
-        and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp and not milestone.photoProp and not milestone.magicProp and not milestone.diveProp and not milestone.charmProp
+        and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp and not milestone.photoProp and not milestone.magicProp and not milestone.diveProp and not milestone.charmProp and not milestone.surfProp
         and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)

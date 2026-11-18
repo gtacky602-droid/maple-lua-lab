@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-19",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 324 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 316,
+  "scope": "Authored 326 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 318,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -524,6 +524,18 @@
     {
       "id": "natlan-hub",
       "name": "ナタ・谷の集落",
+      "region": "ナタ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "natlan-surf-run",
+      "name": "ナタ・水しぶきの練習瀬",
+      "region": "ナタ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "natlan-surf-cove",
+      "name": "ナタ・コホラ竜の入り江",
       "region": "ナタ",
       "status": "regional_temporary_image"
     },

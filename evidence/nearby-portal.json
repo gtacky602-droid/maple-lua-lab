@@ -1021,6 +1021,26 @@
       "to": "natlan-charm-trail"
     },
     {
+      "node": "natlan-hub",
+      "to": "natlan-surf-run"
+    },
+    {
+      "node": "natlan-surf-run",
+      "to": "natlan-hub"
+    },
+    {
+      "node": "natlan-surf-run",
+      "to": "natlan-surf-cove"
+    },
+    {
+      "node": "natlan-surf-cove",
+      "to": "natlan-surf-run"
+    },
+    {
+      "node": "natlan-surf-cove",
+      "to": "natlan-hub"
+    },
+    {
       "node": "natlan-charm-trail",
       "to": "natlan-hub"
     },

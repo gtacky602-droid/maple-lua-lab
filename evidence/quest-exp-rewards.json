@@ -1,7 +1,7 @@
 {
   "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
   "version": "monster-quest-v02",
-  "quests_tested": 60,
+  "quests_tested": 61,
   "old_completed_not_reissued": true,
   "old_unreported_uses_current_preview": true,
   "unlinked_trial_fallback": true,
@@ -27,9 +27,9 @@
       "report_xp": 3215990
     },
     "NAT": {
-      "linked": 4,
-      "legacy_xp": 17476178,
-      "report_xp": 17476178
+      "linked": 5,
+      "legacy_xp": 18881045,
+      "report_xp": 18881045
     },
     "SNE": {
       "linked": 8,
@@ -227,6 +227,12 @@
       "quest_id": "natlan-kachina-charms",
       "legacy_xp": 1319124,
       "report_xp": 1319124
+    },
+    {
+      "design_id": "Q-NAT-S02",
+      "quest_id": "natlan-mualani-surf",
+      "legacy_xp": 1404867,
+      "report_xp": 1404867
     },
     {
       "design_id": "Q-SNE-M01",

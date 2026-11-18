@@ -134,6 +134,8 @@ export const sceneryDefinitions={
  fontaineDelivery:{file:'fontaine-delivery-quay-background-v1.png',zones:['story:fontaine-parcel-counter','story:fontaine-delivery-quay']},
  fontaineBackstage:{file:'fontaine-backstage-background-v1.png',zones:['story:fontaine-old-scenery-door','story:fontaine-moon-fly-loft','story:fontaine-stage-wings','story:fontaine-lift-catwalk']},
  fontaineUnderstage:{file:'fontaine-understage-background-v1.png',zones:['story:fontaine-understage-workfloor','story:fontaine-parcel-storeroom']},
+ natlanSurfRun:{file:'nat-mualani-surf-run-background-v1.png',zones:['story:natlan-surf-run'],note:'水しぶきの練習瀬の仮背景'},
+ natlanSurfCove:{file:'nat-mualani-surf-cove-background-v1.png',zones:['story:natlan-surf-cove'],note:'コホラ竜の入り江の仮背景'},
  natlanCharmTrail:{file:'nat-kachina-charms-trail-background-v1.png',zones:['story:natlan-charm-trail'],note:'彩石の採集路の仮背景'},
  fontaineToyShallows:{file:'fon-freminet-dive-shallows-background-v1.png',zones:['story:fon-toy-shallows'],note:'浅瀬の試験区画の仮背景'},
  fontaineMagicWings:{file:'fon-lyney-magic-wings-background-v1.png',zones:['story:fon-magic-wings'],note:'小劇場の舞台裏の仮背景'},
@@ -232,6 +234,12 @@ export function scenery(ctx,frame){
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
   if(p.riverDeck)continue;
+  if(key==='natlanSurfRun'&&frame.storySurf?.phase==='run')continue;
+  if(key==='natlanSurfCove'){
+   ctx.fillStyle='#bd8558';ctx.fillRect(x,p.y,p.w,60);
+   ctx.fillStyle='#ebbf84';ctx.fillRect(x,p.y,p.w,5);
+   continue;
+  }
    if(key==='nodAppraisal'||key==='nodPatrolCabin'||key==='sneSurveyShed'||key==='sumeruKavehWorkshop'||key==='sumeruKavehRoom'){
     ctx.fillStyle='#5d474d';ctx.fillRect(x,p.y,p.w,p.y===480?60:17);
     ctx.fillStyle='#bd906b';ctx.fillRect(x,p.y,p.w,4);

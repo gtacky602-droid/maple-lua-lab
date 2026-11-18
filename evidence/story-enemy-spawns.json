@@ -366,6 +366,14 @@
       "enemy_count": 0
     },
     {
+      "node": "natlan-surf-run",
+      "enemy_count": 0
+    },
+    {
+      "node": "natlan-surf-cove",
+      "enemy_count": 0
+    },
+    {
       "node": "natlan-charm-trail",
       "enemy_count": 0
     },

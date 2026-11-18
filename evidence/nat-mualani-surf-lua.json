@@ -1,0 +1,20 @@
+{
+  "firstChapterPrerequisite": true,
+  "bothShallowRecoveries": true,
+  "ordinaryCombatInert": true,
+  "boardAttempt": {
+    "kind": "run",
+    "retries": 0,
+    "rings": 2
+  },
+  "optionalFullRingReplay": true,
+  "pauseAndPartyPreserved": true,
+  "midCourseSaveRestoresTown": true,
+  "ballMissAndRetry": true,
+  "replayAndExit": true,
+  "reward": [
+    1404867,
+    4900
+  ],
+  "mementoAfterReload": true
+}

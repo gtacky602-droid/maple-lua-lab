@@ -863,12 +863,32 @@
     {
       "node": "natlan-hub",
       "mode": "sprite",
-      "visible_portals": 10
+      "visible_portals": 11
     },
     {
       "node": "natlan-hub",
       "mode": "rect",
-      "visible_portals": 10
+      "visible_portals": 11
+    },
+    {
+      "node": "natlan-surf-run",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-surf-run",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-surf-cove",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "natlan-surf-cove",
+      "mode": "rect",
+      "visible_portals": 2
     },
     {
       "node": "natlan-charm-trail",

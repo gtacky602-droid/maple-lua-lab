@@ -4022,6 +4022,66 @@
       "transparent": 0
     },
     {
+      "key": "natlanSurfRun",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "natlanSurfRun",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "natlanSurfRun",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "natlanSurfRun",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "natlanSurfRun",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "natlanSurfRun",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "natlanSurfCove",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "natlanSurfCove",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "natlanSurfCove",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "natlanSurfCove",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "natlanSurfCove",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "natlanSurfCove",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "natlanCharmTrail",
       "camera": -960,
       "transparent": 0
