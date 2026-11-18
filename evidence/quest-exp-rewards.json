@@ -1,7 +1,7 @@
 {
   "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
   "version": "monster-quest-v02",
-  "quests_tested": 58,
+  "quests_tested": 59,
   "old_completed_not_reissued": true,
   "old_unreported_uses_current_preview": true,
   "unlinked_trial_fallback": true,
@@ -32,9 +32,9 @@
       "report_xp": 230896997
     },
     "FON": {
-      "linked": 7,
-      "legacy_xp": 8536931,
-      "report_xp": 9706816
+      "linked": 8,
+      "legacy_xp": 9860499,
+      "report_xp": 11030384
     },
     "NAT": {
       "linked": 3,
@@ -299,6 +299,12 @@
       "quest_id": "fon-lyney-magic",
       "legacy_xp": 1028841,
       "report_xp": 1028841
+    },
+    {
+      "design_id": "Q-FON-S05",
+      "quest_id": "fon-freminet-dive",
+      "legacy_xp": 1323568,
+      "report_xp": 1323568
     },
     {
       "design_id": "Q-FON-M01",

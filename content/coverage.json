@@ -123,8 +123,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 31,
-      "prototype_quest_count": 18,
+      "prototype_stage_count": 32,
+      "prototype_quest_count": 19,
       "official_map2_markers": {
         "waypoints": 92,
         "statues": 8
@@ -578,8 +578,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 322,
-    "provisional_quests": 186,
+    "authored_stages": 323,
+    "provisional_quests": 187,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -859,6 +859,7 @@
           "nostoi-castle-approach",
           "legatus-field-hall",
           "simulanka-book-room",
+          "fon-toy-shallows",
           "fon-photo-terrace",
           "fon-emilie-atelier",
           "fon-emilie-scent-shore",
@@ -894,6 +895,7 @@
           "fon-furina-cues",
           "fon-navia-photo",
           "fon-lyney-magic",
+          "fon-freminet-dive",
           "fontaine-moon-parcel",
           "fontaine-understage-crew",
           "fontaine-grand-finale"
@@ -1406,8 +1408,8 @@
       "content/story-graph.json"
     ],
     "design_entries": 153,
-    "linked": 91,
-    "without_explicit_mapping": 62,
+    "linked": 92,
+    "without_explicit_mapping": 61,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1443,6 +1445,7 @@
       "Q-FON-S02": "fon-furina-cues",
       "Q-FON-S03": "fon-navia-photo",
       "Q-FON-S04": "fon-lyney-magic",
+      "Q-FON-S05": "fon-freminet-dive",
       "Q-H01-01": "golden-little-boat",
       "Q-H01-02": "golden-trace-shadows",
       "Q-H02-01": "veluriyam-bottle-ticket",

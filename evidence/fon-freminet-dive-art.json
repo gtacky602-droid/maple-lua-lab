@@ -1,0 +1,117 @@
+{
+  "tool": "built-in image generation with original 3D prop references",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/fon-freminet-dive-model.obj",
+    "sha256": "6c8c9f08517d9624c2ce25c4664f7df0019a6bfd8482477ae86952edd21aec53"
+  },
+  "materials": {
+    "path": "evidence/fon-freminet-dive-model.mtl",
+    "sha256": "126903ff0039987eeaceb3e59c1566709811c4f3c0e6e19aa933bf9741233e96"
+  },
+  "contactSheet": {
+    "path": "evidence/fon-freminet-dive-views.png",
+    "sha256": "07d1389bff06a0a21a8ebb587934a4ce24473b4678bd72b2b2c3c61aa901b6b0"
+  },
+  "propsSource": {
+    "path": "assets/fon-freminet-dive-props-source-v1.png",
+    "sha256": "a739698c9f45b1377aaa2fc2b03394fa3a8a78f9a910c8202fac1c853f2246aa"
+  },
+  "alphaCorners": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "backgrounds": [
+    {
+      "path": "assets/fon-freminet-dive-shallows-background-v1.png",
+      "sha256": "69f684d49aaa41f1e00c62a7f695da7161a03181846453c2f233b559c67ed80d"
+    }
+  ],
+  "backgroundReferences": [
+    {
+      "path": "assets/fon-emilie-scent-shore-background-v1.png",
+      "sha256": "3689b723fc734c734ecb64f0f46efe89e31a84d40f285776723310be9ce4a05a"
+    },
+    {
+      "path": "assets/inazuma-sea-cave-background-v1.png",
+      "sha256": "711a888a7ab02f0001af310c8c2bcb0cd49ed1ce8bce2c4561179aabc956cadb"
+    }
+  ],
+  "status": "Four original props informed by original models. The underwater background is a lab placeholder.",
+  "profiles": {
+    "toy": {
+      "encoding": {
+        "path": "assets/fon-freminet-dive-toy-sprites-v1.json",
+        "sha256": "9b35a60fe007704f9b1203263fc22c22c71bb3ee38275b93c4ea2e7ebac8f46d"
+      },
+      "box": [
+        71,
+        103,
+        543,
+        385
+      ],
+      "runs": {
+        "legacy": 3132,
+        "h48c32": 1905,
+        "h32c16": 799
+      }
+    },
+    "buoy": {
+      "encoding": {
+        "path": "assets/fon-freminet-dive-buoy-sprites-v1.json",
+        "sha256": "7f4699b43c9a96b90cf024bcfb6239dec1fe4a9651224297418469524420ec23"
+      },
+      "box": [
+        837,
+        71,
+        220,
+        441
+      ],
+      "runs": {
+        "legacy": 834,
+        "h48c32": 532,
+        "h32c16": 212
+      }
+    },
+    "coral": {
+      "encoding": {
+        "path": "assets/fon-freminet-dive-coral-sprites-v1.json",
+        "sha256": "0060faa0c988825fe0d3d33e0f6ab9af6f3a4a377d4483f28d43cf9932f71123"
+      },
+      "box": [
+        105,
+        754,
+        474,
+        360
+      ],
+      "runs": {
+        "legacy": 3400,
+        "h48c32": 2209,
+        "h32c16": 874
+      }
+    },
+    "marker": {
+      "encoding": {
+        "path": "assets/fon-freminet-dive-marker-sprites-v1.json",
+        "sha256": "c3f96a4f4afcff74b5fbc830a7f55a4c988dc9b1a32b3c627cc6e706b9e1fce1"
+      },
+      "box": [
+        827,
+        660,
+        237,
+        493
+      ],
+      "runs": {
+        "legacy": 867,
+        "h48c32": 541,
+        "h32c16": 225
+      }
+    }
+  }
+}

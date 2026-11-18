@@ -193,7 +193,10 @@ def runtime():
     lyney_magic=lua.execute((ROOT/'story-lyney-magic.lua').read_text(encoding='utf8'))
     core.lyneyMagicArt=field_art(lua,'fon-lyney-magic',(),variants={
         part:f'fon-lyney-magic-{part}-sprites-v1.json' for part in ('cart','broken','screen','birds')})
-    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms,duel,moon_inlet,coast_detour,appraisal,rumor,bloom,patrol,survey_rig,snow_match,return_box,night_banner,fireworks,stealth,itto_games,tea_case,wanderer_survey,observation_visitors,collei_guide,kaveh_model,nahida_map,emilie_scent,furina_cues,navia_photo,lyney_magic)
+    freminet_dive=lua.execute((ROOT/'story-freminet-dive.lua').read_text(encoding='utf8'))
+    core.freminetDiveArt=field_art(lua,'fon-freminet-dive',(),variants={
+        kind:f'fon-freminet-dive-{kind}-sprites-v1.json' for kind in ('toy','buoy','coral','marker')})
+    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms,duel,moon_inlet,coast_detour,appraisal,rumor,bloom,patrol,survey_rig,snow_match,return_box,night_banner,fireworks,stealth,itto_games,tea_case,wanderer_survey,observation_visitors,collei_guide,kaveh_model,nahida_map,emilie_scent,furina_cues,navia_photo,lyney_magic,freminet_dive)
     lua.execute((ROOT / 'barrier.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'farka.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'regisvine.lua').read_text(encoding='utf-8'))(core)
@@ -452,6 +455,7 @@ def runtime():
         pose:f'twin-shuttle-loom-{pose}-sprites-v1.json' for pose in ('closed','open','shuttle','broken')
     })
     lua.execute((ROOT/'weekly-bosses.lua').read_text(encoding='utf8'))(core,lua.table_from(weekly_specs,recursive=True),lua.table_from({'dvalin':dvalin,'andrius':andrius,'surveyor':surveyor,'loom':loom}))
+    core.installToyDiveGuard()
     return lua, core
 
 def native(value):

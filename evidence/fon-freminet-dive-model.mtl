@@ -1,0 +1,31 @@
+newmtl steel
+Kd 0.29412 0.43529 0.49412
+illum 1
+
+newmtl teal
+Kd 0.30196 0.61569 0.60000
+illum 1
+
+newmtl brass
+Kd 0.80392 0.61961 0.29804
+illum 1
+
+newmtl glass
+Kd 0.63137 0.87451 0.83529
+illum 1
+
+newmtl slate
+Kd 0.27059 0.30196 0.40392
+illum 1
+
+newmtl coral
+Kd 0.80784 0.50588 0.58431
+illum 1
+
+newmtl mint
+Kd 0.56471 0.76863 0.63529
+illum 1
+
+newmtl ochre
+Kd 0.75294 0.65882 0.47059
+illum 1

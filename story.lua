@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule,furinaCuesModule,naviaPhotoModule,lyneyMagicModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule,furinaCuesModule,naviaPhotoModule,lyneyMagicModule,freminetDiveModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -195,6 +195,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local furinaCues=furinaCuesModule(C,canInspect)
  local naviaPhoto=naviaPhotoModule(C,canInspect)
  local lyneyMagic=lyneyMagicModule(C,canInspect)
+ local freminetDive=freminetDiveModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -316,6 +317,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       return true
      end
      state.storyChoice=option.id
+     if option.diveChoice then freminetDive.route(s) end
      completeMilestone(s,state,milestone,parent,quest)
      s.storyNotice=option.notice
      return true
@@ -365,6 +367,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      return true
     elseif milestone.photoTimer then
      if command=='rotate' then naviaPhoto.start(s,q) end
+     return true
+    elseif milestone.diveDock and not freminetDive.arrived(s,q,state) then
+     if command=='rotate' then s.storyNotice='玩具が帰るまで、もう少し待ちましょう。' end
      return true
     elseif milestone.magicCue then
      if command=='rotate' then lyneyMagic.start(s,q,state,milestone) end
@@ -626,6 +631,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if cargo and cargo.chase and recoveredAll(cargo,state) then beginChase(s,cargo) end
   for i,a in ipairs(s.actors) do a.x=(spawn or 160)-(i-1)*40;a.y=arrivalY or 480;a.vy=0;a.ground=true;if arrivalY then a.drop=0 end end
   s.camera=math.max(0,math.min(s.actors[s.active].x-400,math.max(0,n.width-960)))
+  local diveQuest=n.toyDive and quests[n.toyDive.quest]
+  freminetDive.enter(s,n.toyDive,diveQuest and s.story.quests[diveQuest.id],diveQuest and diveQuest.goal)
   if contestQuest and id==contestQuest.target then contest.populate(s,contestQuest,s.story.quests[contestQuest.id]) end
   if C.enterFieldBossNode then C.enterFieldBossNode(s,id) end
   if C.enterWeeklyBossNode then C.enterWeeklyBossNode(s,id) end
@@ -805,6 +812,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if node.nahidaMapQuest and nahidaMap.collect(s,quests[node.nahidaMapQuest],s.story.quests[node.nahidaMapQuest]) then return end
    if node.scentQuest and emilieScent.read(s,quests[node.scentQuest],s.story.quests[node.scentQuest]) then return end
    if node.groupPhotoQuest and naviaPhoto.read(s,quests[node.groupPhotoQuest],s.story.quests[node.groupPhotoQuest]) then return end
+   if node.toyDive and freminetDive.look(s,node,s.story.quests[node.toyDive.quest]) then return end
+   if node.toyDisplay and freminetDive.readDisplay(s,node.toyDisplay,s.story.quests[node.toyDisplay.quest]) then return end
    if node.readingRoom and kavehModel.read(s,quests[node.kavehQuest],s.story.quests[node.kavehQuest]) then return end
    local archive=node.returnBoxArchive
    if archive and returnBox.read(s,archive,s.story.quests[archive.quest]) then return end
@@ -917,6 +926,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if s.paused or not s.story.active or s.actors[s.active].hp<=0 then return end
    local resume,departure=0,nil;dest=dest or fast;local n=nodes[dest];if not n then return end
    if not shownNode(s,n) then s.storyNotice='この入口はまだ発見していません。';return end
+   if n.toyDive and s.actors[1].hp<=0 then s.storyNotice='旅人が泳げる状態で潜りましょう。';return end
    if not s.progression or s.progression.level<n.level then s.storyNotice='必要レベル '..n.level..' に達していません。';return end
    if fast then
     local restPoint=n.restWaypoint and completed(s,n.restWaypoint.quest)
@@ -1065,6 +1075,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
  end
  function C.step(s,dt,input)
+  if s.toyDive then
+   local spec=nodes[s.story.node].toyDive
+   local q=quests[spec.quest]
+   freminetDive.step(s,dt,input,spec,s.story.quests[q.id],q.goal)
+   return
+  end
   if s.voyage and s.voyage.kind=='trolley' then
    if not s.paused then
     s.t=s.t+dt
@@ -1359,6 +1375,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     local id=n.magicScene.quest
     lyneyMagic.observe(f,s,markers,n.magicScene,quests[id],s.story.quests[id],mode,profile)
    end
+   if n.toyDive then
+    local q=quests[n.toyDive.quest]
+    freminetDive.observe(f,s,markers,n,q,s.story.quests[q.id],mode,profile)
+   end
+   if n.toyDisplay then
+    freminetDive.display(f,s,markers,n.toyDisplay,s.story.quests[n.toyDisplay.quest],mode,profile)
+   end
    flagCourse.observe(s,f,markers,n.flagCourse,mode,profile)
    movingPlatforms.observe(s,f,markers,n.riverCrossing,mode,profile)
    duel.frame(s,f,markers,n.duel)
@@ -1566,11 +1589,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         if option.detourGift then coastDetour.drawGift(markers,x,y,option.id,mode,profile)
         elseif option.scentArt then emilieScent.choice({draws=markers},s,option,mode,profile)
         elseif option.magicChoice then lyneyMagic.choice(markers,s,option,mode,profile)
+        elseif option.diveChoice then freminetDive.choice(markers,s,option,mode,profile)
         else
          markers[#markers+1]={kind='rect',x=x-12,y=y-25,w=24,h=25,color='#423951'}
          markers[#markers+1]={kind='rect',x=x-8,y=y-21,w=16,h=12,color='#d3dbf5'}
         end
-        markers[#markers+1]={kind='text',x=x,y=y-(option.detourGift and 79 or (option.scentArt or option.magicChoice) and 82 or 43),text=option.name,color='#fff0b9',size=14}
+        markers[#markers+1]={kind='text',x=x,y=y-(option.detourGift and 79 or (option.scentArt or option.magicChoice or option.diveChoice) and 82 or 43),text=option.name,color='#fff0b9',size=14}
        end
       end
       local option=not s.paused and nearbyChoice(s,milestone)
@@ -1593,7 +1617,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup
         and not milestone.nightClue and not milestone.fireworkSight and not milestone.stealthNap
         and not milestone.teaClue and not milestone.teaCup and not milestone.surveyProp and not milestone.visitorProp
-        and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp and not milestone.photoProp and not milestone.magicProp
+        and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp and not milestone.photoProp and not milestone.magicProp and not milestone.diveProp
         and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
@@ -1615,6 +1639,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
          and (not milestone.compareAfterStorage or visitors.quiet(s,q))
          and canInspect(s.actors[s.active],milestone) then
       f.storyNearbyMilestone={label=milestone.performance and theater.performanceLabel(s,milestone.performance)
+         or milestone.diveDock and not freminetDive.arrived(s,q,state) and '玩具の到着を待つ'
          or milestone.magicCue and s.lyneyRun and '演目の進行中'
          or milestone.photoTimer and s.photoTimer and '撮影タイマー作動中'
          or milestone.photoPanel and s.photoPanel and '写真を閉じる'
@@ -1677,7 +1702,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   return f
  end
  function C.checkpoint(s)
-  local d=checkpoint(s);setup(s);if d then d.story=s.story end;return d
+  local d=checkpoint(s)
+  setup(s)
+  if d then
+   d.story=s.story
+   if s.toyDive then d.active=s.toyDive.previousActive end
+  end
+  return d
  end
  function C.restore(d,density)
   local s=restore(d,density);setup(s)

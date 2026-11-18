@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 322 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 314,
+  "scope": "Authored 323 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 315,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1148,6 +1148,7 @@
     {"id":"sumeru-observatory-approach","name":"観測所へ続く大枝","region":"スメール","status":"regional_temporary_image"},
     {"id":"sumeru-observatory-terrace","name":"枝傘の止まり台","region":"スメール","status":"regional_temporary_image"},
     {"id":"sumeru-sky-observatory","name":"空の観測所","region":"スメール","status":"regional_temporary_image"},
+    {"id":"fon-toy-shallows","name":"フォンテーヌ・浅瀬の試験区画","region":"フォンテーヌ","status":"regional_temporary_image"},
     {"id":"fon-photo-terrace","name":"フォンテーヌ・並木の写真広場","region":"フォンテーヌ","status":"regional_temporary_image"},
     {"id":"fon-emilie-atelier","name":"フォンテーヌ・水辺の調香工房","region":"フォンテーヌ","status":"regional_temporary_image"},
     {"id":"fon-emilie-scent-shore","name":"フォンテーヌ・香り草の船着き場","region":"フォンテーヌ","status":"regional_temporary_image"},

@@ -1,0 +1,19 @@
+{
+  "quest": "fon-freminet-dive",
+  "background": {
+    "key": "fontaineToyShallows",
+    "file": "fon-freminet-dive-shallows-background-v1.png",
+    "state": "ready"
+  },
+  "pushBackAndSidePass": true,
+  "touchMovesVertically": true,
+  "checkpointResumesOriginalParty": true,
+  "markerSavedAndToyReturned": true,
+  "postQuestExhibitAndLookout": true,
+  "calls": {
+    "png": 121,
+    "rect": 15131,
+    "light": 3982
+  },
+  "errors": []
+}

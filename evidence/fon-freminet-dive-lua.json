@@ -1,0 +1,23 @@
+{
+  "quest": "fon-freminet-dive",
+  "main1Prerequisite": true,
+  "fourDirectionAndCurrent": true,
+  "boundaryAndManualRecovery": true,
+  "noCombatOrPartyMutation": true,
+  "preservesActiveOnExitAndRestore": true,
+  "threeSavedRoutesAndEqualReward": [
+    [
+      1323568,
+      4550
+    ],
+    [
+      1323568,
+      4550
+    ],
+    [
+      1323568,
+      4550
+    ]
+  ],
+  "toyExhibitAndPostQuestSightseeing": true
+}

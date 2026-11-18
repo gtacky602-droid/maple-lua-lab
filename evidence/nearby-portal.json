@@ -850,6 +850,10 @@
     },
     {
       "node": "fontaine-hub",
+      "to": "fon-toy-shallows"
+    },
+    {
+      "node": "fontaine-hub",
       "to": "fon-photo-terrace"
     },
     {
@@ -2503,6 +2507,14 @@
     {
       "node": "sumeru-sky-observatory",
       "to": "sum-kaveh-reading-room"
+    },
+    {
+      "node": "fon-toy-shallows",
+      "to": "fontaine-hub"
+    },
+    {
+      "node": "fon-toy-shallows",
+      "to": "fontaine-hub"
     },
     {
       "node": "fon-photo-terrace",

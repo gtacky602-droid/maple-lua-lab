@@ -50,6 +50,11 @@ return function(C)
  end
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile);f.grappleNodes=s.grappleNodes or {};f.selectedGrapple=s.selectedGrapple
+  if s.toyDive then
+   f.grappleNodes={}
+   f.selectedGrapple=nil
+   return f
+  end
   for i,n in ipairs(s.grappleNodes or {}) do
    f.draws[#f.draws+1]={kind='rect',x=n.x-s.camera-8,y=n.y-12,w=16,h=12,color=i==s.selectedGrapple and '#d8f5ab' or '#79a794'}
    f.draws[#f.draws+1]={kind='text',x=n.x-s.camera,y=n.y-20,text='結節点 '..i,color='#d8f5ab',size=12}
