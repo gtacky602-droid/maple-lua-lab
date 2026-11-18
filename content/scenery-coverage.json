@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 248 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 240,
+  "scope": "Authored 253 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 245,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -1072,7 +1072,12 @@
     {"id":"fontaine-parcel-counter","name":"水路の荷受け窓口","region":"フォンテーヌ","status":"regional_temporary_image"},
     {"id":"fontaine-delivery-quay","name":"運搬メカの停車場","region":"フォンテーヌ","status":"regional_temporary_image"},
     {"id":"fontaine-old-scenery-door","name":"旧搬入口の回廊","region":"フォンテーヌ","status":"regional_temporary_image"},
-    {"id":"fontaine-moon-fly-loft","name":"月飾りの吊り場","region":"フォンテーヌ","status":"regional_temporary_image"}
+    {"id":"fontaine-moon-fly-loft","name":"月飾りの吊り場","region":"フォンテーヌ","status":"regional_temporary_image"},
+    {"id":"fontaine-stage-wings","name":"引き幕と書き割りの通路","region":"フォンテーヌ","status":"regional_temporary_image"},
+    {"id":"fontaine-lift-catwalk","name":"昇降台の上段通路","region":"フォンテーヌ","status":"regional_temporary_image"},
+    {"id":"fontaine-understage-workfloor","name":"波板の作業床","region":"フォンテーヌ","status":"regional_temporary_image"},
+    {"id":"fontaine-parcel-storeroom","name":"舞台下の荷物保管室","region":"フォンテーヌ","status":"regional_temporary_image"},
+    {"id":"fontaine-rehearsal-room","name":"窓明かりの別稽古場","region":"フォンテーヌ","status":"regional_temporary_image"}
   ],
   "unconfirmed_concept_image": 8
 }

@@ -1,0 +1,74 @@
+{
+  "generator": "built-in imagegen",
+  "originalModel": {
+    "path": "evidence/stage-wave-model.obj",
+    "sha256": "c7c8a0f0d6153a13c72d9edeb6bd57d32f47ebcbd84826dc11d0891838f7c1ec"
+  },
+  "materials": {
+    "path": "evidence/stage-wave-model.mtl",
+    "sha256": "84ed52a4ad4ba5656fd7617e6607c0b4d1a91ecd80477b0d59edeb7a765d2c35"
+  },
+  "vertices": 104,
+  "faces": 68,
+  "reference": {
+    "path": "evidence/stage-wave-views.png",
+    "sha256": "109561e05cdb746fd8a24972689962dde48d24aaffcab9e6b45e5e9c62d6a4cb"
+  },
+  "views": [
+    "front",
+    "front three-quarter",
+    "rear three-quarter"
+  ],
+  "source": {
+    "path": "assets/stage-wave-source-v1.png",
+    "sha256": "7332306339ae04b20739e78bd19be297b91a80daf7fb79472f91df24d171a3bd"
+  },
+  "sourceSize": [
+    1295,
+    1214
+  ],
+  "outsideAlphaSamples": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "box": [
+    198,
+    213,
+    836,
+    792
+  ],
+  "anchorX": 0.5077751196172249,
+  "encoding": {
+    "path": "assets/stage-wave-sprites-v1.json",
+    "sha256": "4f2daeae0cd23722463d2e6f48b06ed588f3ed7d69469b850a9ab212f226adeb"
+  },
+  "runs": {
+    "legacy": 3391,
+    "h48c32": 2050,
+    "h32c16": 790
+  },
+  "backgrounds": [
+    {
+      "path": "assets/fontaine-understage-background-v1.png",
+      "sha256": "e84a918d15fc889043702785b504cd4b25b2f9abc8ef9cbbd33488284eab0c69",
+      "size": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "assets/fontaine-rehearsal-background-v1.png",
+      "sha256": "2d4ebf72dfd37d8621103cc389f775f0b66da89792d573c8316ad0404820d8c8",
+      "size": [
+        1672,
+        941
+      ]
+    }
+  ],
+  "visualReference": {
+    "path": "assets/fontaine-backstage-background-v1.png",
+    "sha256": "aa58b2941a5da39e379470f4fc78db0d59a46d1200b1b0b346d18c82c9015af1"
+  }
+}

@@ -563,12 +563,12 @@
     {
       "node": "fontaine-hub",
       "mode": "sprite",
-      "visible_portals": 6
+      "visible_portals": 8
     },
     {
       "node": "fontaine-hub",
       "mode": "rect",
-      "visible_portals": 6
+      "visible_portals": 8
     },
     {
       "node": "fontaine-field",
@@ -2473,10 +2473,60 @@
     {
       "node": "fontaine-moon-fly-loft",
       "mode": "sprite",
-      "visible_portals": 2
+      "visible_portals": 3
     },
     {
       "node": "fontaine-moon-fly-loft",
+      "mode": "rect",
+      "visible_portals": 3
+    },
+    {
+      "node": "fontaine-stage-wings",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-stage-wings",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-lift-catwalk",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-lift-catwalk",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-understage-workfloor",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-understage-workfloor",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-parcel-storeroom",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-parcel-storeroom",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-rehearsal-room",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "fontaine-rehearsal-room",
       "mode": "rect",
       "visible_portals": 2
     }

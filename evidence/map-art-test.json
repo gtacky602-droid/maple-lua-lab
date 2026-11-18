@@ -1488,6 +1488,36 @@
       "count": 0,
       "fallback": false,
       "backgroundState": "ready"
+    },
+    {
+      "id": "fontaine-stage-wings",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "fontaine-lift-catwalk",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "fontaine-understage-workfloor",
+      "count": 2,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "fontaine-parcel-storeroom",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "fontaine-rehearsal-room",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
     }
   ],
   "profiles": 3,

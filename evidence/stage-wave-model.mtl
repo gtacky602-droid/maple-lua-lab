@@ -1,0 +1,19 @@
+newmtl wood
+Kd 0.52157 0.35686 0.25490
+illum 1
+
+newmtl brass
+Kd 0.74118 0.53333 0.30980
+illum 1
+
+newmtl ocean
+Kd 0.17255 0.46275 0.53725
+illum 1
+
+newmtl spray
+Kd 0.58824 0.83922 0.79216
+illum 1
+
+newmtl frame
+Kd 0.21176 0.34510 0.36078
+illum 1

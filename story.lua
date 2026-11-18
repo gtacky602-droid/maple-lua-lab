@@ -183,6 +183,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   state.count=state.count+1
   s.storyNotice=milestone.notice
   if milestone.bridge then installBridge(s,milestone.bridge) end
+  for _,bridge in ipairs(milestone.bridges or {}) do installBridge(s,bridge) end
+  theater.sync(s,nodes[s.story.node].theater,true)
   if milestone.reflect then s.reflection=nil end
  end
  local function recordKill(s,state,milestone,enemy)
@@ -349,6 +351,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    for i=1,state and state.count or 0 do
     local step=q.itinerary[i]
     if step.node==id and step.bridge then installBridge(s,step.bridge) end
+    if step.node==id then for _,bridge in ipairs(step.bridges or {}) do installBridge(s,bridge) end end
     if step.node==id and step.paperFold then paper.install(s,n.paperBoard) end
    end
   end
@@ -598,7 +601,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     s.lift={destination=dest,name=departure.rideLabel or n.name,seconds=seconds,remaining=seconds,
             waterway=departure.waterwaySeconds~=nil,boat=departure.boatSeconds~=nil,
             x=departure.arrivalX or (arrival and arrival.x or spawn),y=departure.arrivalY or (arrival and arrival.y or 480)}
-    if not s.lift.waterway and not s.lift.boat and dest==previous and departure.arrivalY then s.lift.riders={} end
+     if not s.lift.waterway and not s.lift.boat and (dest==previous or departure.animatedLift)
+         and departure.arrivalY then s.lift.riders={} end
     for i,actor in ipairs(s.actors) do
      actor.walk=0
      if s.lift.riders then s.lift.riders[i]={x=actor.x,y=actor.y} end
@@ -728,7 +732,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   local returns,previous=s.returns,s.t;step(s,dt,input)
   if s.story and s.story.active and s.returns==returns and not s.paused then
-   local milestone,state=theater.step(s,s.t-previous)
+   local milestone,state=theater.step(s,s.t-previous,nodes[s.story.node].theater)
    if milestone then completeMilestone(s,state,milestone) end
   end
   if roofQuest and s.story and s.story.active and s.returns==returns then

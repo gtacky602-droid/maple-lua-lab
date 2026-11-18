@@ -256,6 +256,10 @@
     "fontaine-old-scenery-door": [
       {"id":"preview-fontaine-old-door-patrol-1","species":"sled-maintenance-cart","x":417,"y":480,"flip":false},
       {"id":"preview-fontaine-old-door-patrol-2","species":"sled-maintenance-cart","x":823,"y":390,"flip":false}
+    ],
+    "fontaine-understage-workfloor": [
+      {"id":"preview-fontaine-understage-guard-left","species":"sled-maintenance-cart","x":961,"y":390,"flip":false},
+      {"id":"preview-fontaine-understage-guard-right","species":"sled-maintenance-cart","x":1363,"y":480,"flip":false}
     ]
   }
 }

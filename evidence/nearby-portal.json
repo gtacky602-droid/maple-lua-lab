@@ -693,6 +693,14 @@
       "to": "fontaine-moon-fly-loft"
     },
     {
+      "node": "fontaine-hub",
+      "to": "fontaine-parcel-storeroom"
+    },
+    {
+      "node": "fontaine-hub",
+      "to": "fontaine-rehearsal-room"
+    },
+    {
       "node": "fontaine-field",
       "to": "fontaine-hub"
     },
@@ -2254,6 +2262,50 @@
     },
     {
       "node": "fontaine-moon-fly-loft",
+      "to": "fontaine-hub"
+    },
+    {
+      "node": "fontaine-moon-fly-loft",
+      "to": "fontaine-stage-wings"
+    },
+    {
+      "node": "fontaine-stage-wings",
+      "to": "fontaine-moon-fly-loft"
+    },
+    {
+      "node": "fontaine-stage-wings",
+      "to": "fontaine-lift-catwalk"
+    },
+    {
+      "node": "fontaine-lift-catwalk",
+      "to": "fontaine-stage-wings"
+    },
+    {
+      "node": "fontaine-lift-catwalk",
+      "to": "fontaine-understage-workfloor"
+    },
+    {
+      "node": "fontaine-understage-workfloor",
+      "to": "fontaine-lift-catwalk"
+    },
+    {
+      "node": "fontaine-understage-workfloor",
+      "to": "fontaine-parcel-storeroom"
+    },
+    {
+      "node": "fontaine-parcel-storeroom",
+      "to": "fontaine-understage-workfloor"
+    },
+    {
+      "node": "fontaine-parcel-storeroom",
+      "to": "fontaine-rehearsal-room"
+    },
+    {
+      "node": "fontaine-rehearsal-room",
+      "to": "fontaine-parcel-storeroom"
+    },
+    {
+      "node": "fontaine-rehearsal-room",
       "to": "fontaine-hub"
     }
   ],

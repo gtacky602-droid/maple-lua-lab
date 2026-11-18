@@ -1,0 +1,21 @@
+{
+  "requiresFirstQuest": true,
+  "physicalCurtain": true,
+  "slidingFlats": true,
+  "stairsPersist": true,
+  "normalJumps": true,
+  "animatedLiftRoundTrip": true,
+  "flatWaveAllowsHit": true,
+  "raisedWaveBlocksRealProjectile": true,
+  "wrongPosturesAndTheftRejected": true,
+  "storeCheckpoint": true,
+  "evidenceAndDispatch": true,
+  "rehearsalAfterReload": true,
+  "clearedFloorSafeOnReturn": true,
+  "oneTimeReport": true,
+  "reward": [
+    1921946,
+    3900,
+    4
+  ]
+}

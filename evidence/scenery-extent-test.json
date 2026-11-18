@@ -3272,6 +3272,66 @@
       "transparent": 0
     },
     {
+      "key": "fontaineUnderstage",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "fontaineUnderstage",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "fontaineUnderstage",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "fontaineUnderstage",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "fontaineUnderstage",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "fontaineUnderstage",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
+      "key": "fontaineRehearsal",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "fontaineRehearsal",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "fontaineRehearsal",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "fontaineRehearsal",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "fontaineRehearsal",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "fontaineRehearsal",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "fontaine",
       "camera": -960,
       "transparent": 0

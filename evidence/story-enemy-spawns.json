@@ -1056,6 +1056,26 @@
     {
       "node": "fontaine-moon-fly-loft",
       "enemy_count": 0
+    },
+    {
+      "node": "fontaine-stage-wings",
+      "enemy_count": 0
+    },
+    {
+      "node": "fontaine-lift-catwalk",
+      "enemy_count": 0
+    },
+    {
+      "node": "fontaine-understage-workfloor",
+      "enemy_count": 2
+    },
+    {
+      "node": "fontaine-parcel-storeroom",
+      "enemy_count": 0
+    },
+    {
+      "node": "fontaine-rehearsal-room",
+      "enemy_count": 0
     }
   ],
   "render_profiles": [
