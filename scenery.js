@@ -151,13 +151,13 @@ export const sceneryDefinitions={
  fontaine:{file:'fontaine-background-v1.png',region:'フォンテーヌ',zones:[]},
  natlanRaceRidge:{file:'natlan-race-ridge-background-v1.png',zones:[
   'story:natlan-flag-slope','story:natlan-flag-ledges','story:natlan-flag-cleft',
-  'story:natlan-high-trial-steps','story:natlan-high-trial-field'
+  'story:natlan-high-trial-steps','story:natlan-high-trial-field','story:natlan-quarry-road'
  ]},
  natlanRaceSummit:{file:'natlan-race-summit-background-v1.png',zones:['story:natlan-flag-summit','story:natlan-duel-entry']},
  natlanSunset:{file:'natlan-sunset-arena-background-v1.png',zones:[
   'story:natlan-sunset-review','story:natlan-sunset-arena','story:natlan-sunset-rostrum'
  ]},
- natlanRiverTrial:{file:'natlan-riverside-trial-background-v1.png',zones:['story:natlan-river-float-run','story:natlan-river-turn-basin']},
+ natlanRiverTrial:{file:'natlan-riverside-trial-background-v1.png',zones:['story:natlan-river-float-run','story:natlan-river-turn-basin','story:natlan-riverside-range']},
  natlan:{file:'natlan-background-v1.png',region:'ナタ',zones:[]},
  sumeruRiverside:{file:'sumeru-riverside-background-v1.png',zones:['story:sumeru-river-roots','story:sumeru-river-bank','story:sumeru-root-slope']},
  sumeruObservationTrail:{file:'sum-wanderer-sign-trail-background-v1.png',zones:['story:sum-wanderer-trail'],note:'大樹の裏道の仮背景'},

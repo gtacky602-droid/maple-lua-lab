@@ -1026,6 +1026,10 @@
     },
     {
       "node": "natlan-hub",
+      "to": "natlan-riverside-range"
+    },
+    {
+      "node": "natlan-hub",
       "to": "natlan-flag-summit"
     },
     {
@@ -1138,6 +1142,10 @@
     },
     {
       "node": "natlan-field",
+      "to": "natlan-quarry-road"
+    },
+    {
+      "node": "natlan-field",
       "to": "config-device-field-workshop"
     },
     {
@@ -1155,6 +1163,14 @@
     {
       "node": "natlan-field",
       "to": "natlan-kinich-hunt"
+    },
+    {
+      "node": "natlan-quarry-road",
+      "to": "natlan-field"
+    },
+    {
+      "node": "natlan-riverside-range",
+      "to": "natlan-hub"
     },
     {
       "node": "qucusaur-field-cavern",

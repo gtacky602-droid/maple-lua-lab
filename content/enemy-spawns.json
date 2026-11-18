@@ -586,7 +586,9 @@
         "kind": 1,
         "art": "hunter-seeker",
         "x": 510,
-        "platform": 0
+        "platform": 0,
+        "name": "岩場を巡る遺跡機兵",
+        "dailyElite": true
       },
       {
         "id": "natlan-field-3",
@@ -616,6 +618,25 @@
         "x": 560,
         "platform": 2
       }
+    ],
+    "natlan-quarry-road": [
+      {"id":"nat-quarry-pebble-west","kind":1,"art":"pebble-courier","x":350,"platform":0,"hp":36},
+      {"id":"nat-quarry-beast-west","kind":1,"art":"fanged-beast","x":542,"platform":0,"hp":43},
+      {"id":"nat-quarry-pebble-ledge","kind":1,"art":"pebble-courier","x":611,"platform":1,"hp":35},
+      {"id":"nat-quarry-slime-upper","kind":2,"art":"pyro-slime","x":815,"platform":2,"hp":31},
+      {"id":"nat-quarry-elite","kind":1,"art":"fanged-beast","x":971,"platform":0,"hp":72,"name":"採掘路に居座る牙獣","dailyElite":true},
+      {"id":"nat-quarry-pebble-east","kind":1,"art":"pebble-courier","x":1178,"platform":3,"hp":36},
+      {"id":"nat-quarry-slime-east","kind":2,"art":"pyro-slime","x":1332,"platform":0,"hp":34},
+      {"id":"nat-quarry-beast-east","kind":1,"art":"fanged-beast","x":1537,"platform":0,"hp":42}
+    ],
+    "natlan-riverside-range": [
+      {"id":"nat-river-crawler-west","kind":1,"art":"sail-shell-crawler","x":326,"platform":0,"hp":38},
+      {"id":"nat-river-slime-west","kind":1,"art":"hydro-slime","x":483,"platform":0,"hp":31},
+      {"id":"nat-river-pebble-ledge","kind":1,"art":"pebble-courier","x":621,"platform":1,"hp":35},
+      {"id":"nat-river-elite","kind":1,"art":"sail-shell-crawler","x":886,"platform":0,"hp":68,"name":"浅瀬道を守る帆殻の魔物","dailyElite":true},
+      {"id":"nat-river-slime-ledge","kind":1,"art":"hydro-slime","x":1086,"platform":2,"hp":33},
+      {"id":"nat-river-crawler-east","kind":1,"art":"sail-shell-crawler","x":1177,"platform":0,"hp":40},
+      {"id":"nat-river-slime-east","kind":1,"art":"hydro-slime","x":1365,"platform":0,"hp":32}
     ],
     "ochkanatlan-ruins": [
       {

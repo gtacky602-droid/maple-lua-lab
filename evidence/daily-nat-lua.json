@@ -1,0 +1,16 @@
+{
+  "completedGoals": {
+    "Q-NAT-D01": 200,
+    "Q-NAT-D02": 80,
+    "Q-NAT-D03": 60,
+    "Q-NAT-D04": 3,
+    "Q-NAT-D05": 60
+  },
+  "level100RoundTripThroughBothFields": true,
+  "sharedSlotsAcrossFontaineAndNatlan": true,
+  "kachinaCompanionGiver": true,
+  "ochkanatlanCountsForMainOnly": true,
+  "landRouteDoesNotCountWaterTrial": true,
+  "allThreeNamedElitesCountAndRespawn": true,
+  "claimAtHubOnce": true
+}

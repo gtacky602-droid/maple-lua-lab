@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-19",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 333 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 325,
+  "scope": "Authored 335 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 327,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -590,6 +590,18 @@
     {
       "id": "natlan-field",
       "name": "ナタ・岩場の道",
+      "region": "ナタ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "natlan-quarry-road",
+      "name": "ナタ・赤岩の採掘路",
+      "region": "ナタ",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "natlan-riverside-range",
+      "name": "ナタ・川沿いの浅瀬道",
       "region": "ナタ",
       "status": "regional_temporary_image"
     },

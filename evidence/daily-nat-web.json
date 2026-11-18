@@ -1,0 +1,16 @@
+{
+  "townOffers": 5,
+  "walkedBothFieldsAndReturned": true,
+  "normalAttacksCountAtCorrectArea": true,
+  "namedElitesInBothFields": true,
+  "threeQuarryObjectivesOverlap": true,
+  "mapPlacementComparisonProfiles": 3,
+  "staleSaveRetainsProgress": true,
+  "rewardsDoNotReplay": true,
+  "mobileFits": true,
+  "reward": {
+    "xp": 586230,
+    "mora": 6950
+  },
+  "errors": []
+}

@@ -24,6 +24,10 @@
     "fontaine": {
       "label": "フォンテーヌ",
       "includeRegions": ["フォンテーヌ", "往日の海"]
+    },
+    "natlan": {
+      "label": "ナタ",
+      "includeRegions": ["ナタ", "オシカ・ナタ"]
     }
   },
   "quests": [
@@ -439,6 +443,87 @@
       "goal": 3,
       "xp": 25890,
       "mora": 1400
+    },
+    {
+      "id": "daily-nat-training",
+      "designId": "Q-NAT-D01",
+      "kind": "main",
+      "region": "natlan",
+      "hub": "natlan-hub",
+      "level": 100,
+      "giver": "イアンサ",
+      "name": "今日の実地トレーニング",
+      "intro": "イアンサ「今日は町の外で実地練習だ。普段通る狩場から始めよう！」",
+      "target": "ナタ・オシカ・ナタの配置済みの実戦の敵",
+      "filter": {"kind": "region"},
+      "goal": 200,
+      "xp": 339840,
+      "mora": 3850
+    },
+    {
+      "id": "daily-nat-ridge",
+      "designId": "Q-NAT-D02",
+      "kind": "extra",
+      "region": "natlan",
+      "hub": "natlan-hub",
+      "level": 100,
+      "giver": "カチーナ",
+      "companion": "kachina",
+      "name": "岩場を、ひと回り！",
+      "intro": "カチーナ「岩場の道と採掘路を見に行こうよ。上の足場も忘れずにね！」",
+      "target": "岩場の道・赤岩の採掘路の実戦の敵",
+      "filter": {"kind": "nodes", "nodes": ["natlan-field", "natlan-quarry-road"]},
+      "goal": 80,
+      "xp": 135940,
+      "mora": 1640
+    },
+    {
+      "id": "daily-nat-riverside",
+      "designId": "Q-NAT-D03",
+      "kind": "extra",
+      "region": "natlan",
+      "hub": "natlan-hub",
+      "level": 100,
+      "giver": "ムアラニ",
+      "name": "みんなで遊ぶ、その前に",
+      "intro": "ムアラニ「みんなが川辺に集まる前に、岸の道を見てきてくれない？」",
+      "target": "川沿いの浅瀬道の陸上の敵",
+      "filter": {"kind": "nodes", "nodes": ["natlan-riverside-range"]},
+      "goal": 60,
+      "xp": 101950,
+      "mora": 1320
+    },
+    {
+      "id": "daily-nat-elite-hunt",
+      "designId": "Q-NAT-D04",
+      "kind": "extra",
+      "region": "natlan",
+      "hub": "natlan-hub",
+      "level": 100,
+      "giver": "キィニチ",
+      "name": "今日の狩りの依頼",
+      "intro": "キィニチ「岩場と川辺に手強い相手がいる。近づけば見分けがつく。」",
+      "target": "岩場の道・赤岩の採掘路・川沿いの浅瀬道の指定精鋭",
+      "filter": {"kind": "elite", "nodes": ["natlan-field", "natlan-quarry-road", "natlan-riverside-range"]},
+      "goal": 3,
+      "xp": 63720,
+      "mora": 1880
+    },
+    {
+      "id": "daily-nat-quarry",
+      "designId": "Q-NAT-D05",
+      "kind": "extra",
+      "region": "natlan",
+      "hub": "natlan-hub",
+      "level": 100,
+      "giver": "シロネン",
+      "name": "材料を取りに行きたいんだけど",
+      "intro": "シロネン「工房で使う石を切り出すから、先に採掘路を通れるようにしてもらえる？」",
+      "target": "赤岩の採掘路の実戦の敵",
+      "filter": {"kind": "nodes", "nodes": ["natlan-quarry-road"]},
+      "goal": 60,
+      "xp": 110450,
+      "mora": 1460
     }
   ]
 }

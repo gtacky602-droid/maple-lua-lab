@@ -2179,6 +2179,7 @@
           },
           "rideLabel": "旗取りのスタート広場"
         },
+        {"to":"natlan-riverside-range","x":280,"arrivalX":125},
         {
           "to": "natlan-flag-summit",
           "x": 1227,
@@ -2699,6 +2700,7 @@
           "to": "yumka-field-ravine",
           "x": 690
         },
+        {"to":"natlan-quarry-road","x":552,"arrivalX":125},
         {
           "to": "config-device-field-workshop",
           "x": 435
@@ -2726,6 +2728,18 @@
         }
       ],
       "checkpoint": "natlan-hub"
+    },
+    {
+      "id":"natlan-quarry-road","name":"ナタ・赤岩の採掘路","region":"ナタ","level":100,"hub":false,
+      "width":1710,"checkpoint":"natlan-hub",
+      "platforms":[{"x":0,"y":480,"w":1710},{"x":420,"y":389,"w":350},{"x":647,"y":294,"w":316},{"x":1070,"y":390,"w":370}],
+      "exits":[{"to":"natlan-field","x":64,"arrivalX":552}]
+    },
+    {
+      "id":"natlan-riverside-range","name":"ナタ・川沿いの浅瀬道","region":"ナタ","level":100,"hub":false,
+      "width":1540,"checkpoint":"natlan-hub",
+      "platforms":[{"x":0,"y":480,"w":1540},{"x":460,"y":392,"w":322},{"x":990,"y":399,"w":290}],
+      "exits":[{"to":"natlan-hub","x":62,"arrivalX":280}]
     },
     {"id":"qucusaur-field-cavern","name":"ナタ・金焔の岩窟","region":"ナタ","level":102,"hub":false,"peaceful":true,"width":1720,"platforms":[{"x":0,"y":480,"w":1720}],"exits":[{"to":"natlan-field","x":65}],"checkpoint":"natlan-hub"},
     {"id":"yumka-field-ravine","name":"ナタ・山王の峡谷","region":"ナタ","level":104,"hub":false,"peaceful":true,"width":1740,"platforms":[{"x":0,"y":480,"w":1740}],"exits":[{"to":"natlan-field","x":65}],"checkpoint":"natlan-hub"},

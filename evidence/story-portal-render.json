@@ -893,12 +893,12 @@
     {
       "node": "natlan-hub",
       "mode": "sprite",
-      "visible_portals": 14
+      "visible_portals": 15
     },
     {
       "node": "natlan-hub",
       "mode": "rect",
-      "visible_portals": 14
+      "visible_portals": 15
     },
     {
       "node": "natlan-iansan-training",
@@ -973,12 +973,32 @@
     {
       "node": "natlan-field",
       "mode": "sprite",
-      "visible_portals": 9
+      "visible_portals": 10
     },
     {
       "node": "natlan-field",
       "mode": "rect",
-      "visible_portals": 9
+      "visible_portals": 10
+    },
+    {
+      "node": "natlan-quarry-road",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "natlan-quarry-road",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "natlan-riverside-range",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "natlan-riverside-range",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "qucusaur-field-cavern",

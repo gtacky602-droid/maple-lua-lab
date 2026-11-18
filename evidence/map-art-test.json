@@ -590,6 +590,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "natlan-quarry-road",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "natlan-riverside-range",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "qucusaur-field-cavern",
       "count": 0,
       "fallback": false,

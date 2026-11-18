@@ -147,7 +147,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 31,
+      "prototype_stage_count": 33,
       "prototype_quest_count": 18,
       "official_map2_markers": {
         "waypoints": 126,
@@ -578,7 +578,7 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 333,
+    "authored_stages": 335,
     "provisional_quests": 192,
     "companion_join_records": 8,
     "scope_complete": false,
@@ -590,7 +590,7 @@
       "production balance",
       "native Lua limits"
     ],
-    "daily_candidates": 25
+    "daily_candidates": 30
   },
   "stygian_summary": {
     "partial": [
@@ -920,6 +920,8 @@
           "natlan-surf-cove",
           "natlan-charm-trail",
           "natlan-field",
+          "natlan-quarry-road",
+          "natlan-riverside-range",
           "qucusaur-field-cavern",
           "yumka-field-ravine",
           "config-device-field-workshop",
@@ -1425,8 +1427,8 @@
       "content/daily-quests.json"
     ],
     "design_entries": 153,
-    "linked": 122,
-    "without_explicit_mapping": 31,
+    "linked": 127,
+    "without_explicit_mapping": 26,
     "runtime_id_by_design_id": {
       "Q-B01-01": "spine-noon-pattern",
       "Q-B01-02": "spine-wind-route",
@@ -1513,6 +1515,11 @@
       "Q-MON-S03": "mond-bennett-cave",
       "Q-MON-S04": "mond-night-banner-quest",
       "Q-MON-S05": "mond-windmill",
+      "Q-NAT-D01": "daily-nat-training",
+      "Q-NAT-D02": "daily-nat-ridge",
+      "Q-NAT-D03": "daily-nat-riverside",
+      "Q-NAT-D04": "daily-nat-elite-hunt",
+      "Q-NAT-D05": "daily-nat-quarry",
       "Q-NAT-M01": "natlan-ridge-flag",
       "Q-NAT-M02": "natlan-two-trials",
       "Q-NAT-M03": "natlan-sunset-duel",

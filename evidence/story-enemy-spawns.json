@@ -410,6 +410,14 @@
       "enemy_count": 6
     },
     {
+      "node": "natlan-quarry-road",
+      "enemy_count": 8
+    },
+    {
+      "node": "natlan-riverside-range",
+      "enemy_count": 7
+    },
+    {
       "node": "qucusaur-field-cavern",
       "enemy_count": 0,
       "field_boss_count": 1
