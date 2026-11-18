@@ -256,6 +256,14 @@
       "enemy_count": 0
     },
     {
+      "node": "sum-kaveh-workshop",
+      "enemy_count": 0
+    },
+    {
+      "node": "sum-kaveh-reading-room",
+      "enemy_count": 0
+    },
+    {
       "node": "sumeru-field",
       "enemy_count": 6
     },

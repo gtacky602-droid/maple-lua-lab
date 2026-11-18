@@ -1,0 +1,39 @@
+newmtl wood
+Kd 0.47451 0.30196 0.21569
+illum 1
+
+newmtl warm
+Kd 0.70588 0.45490 0.28627
+illum 1
+
+newmtl bronze
+Kd 0.81961 0.61961 0.34118
+illum 1
+
+newmtl paper
+Kd 0.90196 0.80000 0.56471
+illum 1
+
+newmtl teal
+Kd 0.19216 0.44314 0.42745
+illum 1
+
+newmtl green
+Kd 0.31373 0.52157 0.40784
+illum 1
+
+newmtl blue
+Kd 0.31765 0.50588 0.58824
+illum 1
+
+newmtl mint
+Kd 0.58039 0.77647 0.65490
+illum 1
+
+newmtl shade
+Kd 0.27059 0.30980 0.28627
+illum 1
+
+newmtl ivory
+Kd 0.85098 0.76078 0.61176
+illum 1

@@ -690,6 +690,10 @@
     },
     {
       "node": "sumeru-hub",
+      "to": "sum-kaveh-workshop"
+    },
+    {
+      "node": "sumeru-hub",
       "to": "sum-wanderer-trail"
     },
     {
@@ -759,6 +763,14 @@
     {
       "node": "sum-collei-welcome",
       "to": "sumeru-hub"
+    },
+    {
+      "node": "sum-kaveh-workshop",
+      "to": "sumeru-hub"
+    },
+    {
+      "node": "sum-kaveh-reading-room",
+      "to": "sumeru-sky-observatory"
     },
     {
       "node": "sumeru-field",
@@ -2473,6 +2485,10 @@
       "to": "sumeru-observatory-terrace"
     },
     {
+      "node": "sumeru-sky-observatory",
+      "to": "sum-kaveh-reading-room"
+    },
+    {
       "node": "fontaine-parcel-counter",
       "to": "fontaine-hub"
     },
@@ -2953,7 +2969,7 @@
       "to": "white-pass-station"
     }
   ],
-  "hidden_connections_checked": 39,
+  "hidden_connections_checked": 40,
   "checks": [
     "nearest name from graph",
     "strict distance/height boundaries",

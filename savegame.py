@@ -31,6 +31,35 @@ def validate_sweep(record, steps, visited):
         raise ValueError('遠征の討伐記録が不正です')
 
 
+def validate_reading_model(record, quest):
+    spec = quest.get('readingModel')
+    value = record.get('roomLayout')
+    if 'roomLayout' not in record:
+        if spec and record['count'] == quest['goal']:
+            raise ValueError('閲覧室の確定配置がありません')
+        return
+    if not spec or record['count'] == 0 or not isinstance(value, dict) or set(value) != {
+        'station', 'visited', 'shelf', 'seat', 'window'
+    }:
+        raise ValueError('閲覧室の模型配置が不正です')
+    stations = {station['id'] for station in spec['stations']}
+    seen, here = value['visited'], value['station']
+    if (not isinstance(seen, dict) or not isinstance(here, str) or set(seen) - stations
+            or here not in seen or spec['start'] not in seen or any(checked is not True for checked in seen.values())):
+        raise ValueError('閲覧室の模型の移動記録が不正です')
+    choices = {
+        field: next((option for option in spec['options'][field] if option['id'] == value[field]), None)
+        for field in ('shelf', 'seat', 'window')
+    }
+    if not all(choices.values()):
+        raise ValueError('閲覧室の模型の部品が不正です')
+    if record['count'] == quest['goal']:
+        shelf, seat, window = (choices[field] for field in ('shelf', 'seat', 'window'))
+        if (set(seen) != stations or shelf['capacity'] < spec['minimumStorage'] or shelf.get('obstructsView')
+                or seat.get('closeToWindow') and window.get('requiresClearance')):
+            raise ValueError('閲覧室の確定配置が条件を満たしていません')
+
+
 def validate_paths(record, quest, visited):
     paths=quest.get('paths')
     if not paths and 'pathProgress' not in record:
@@ -258,7 +287,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord','fireworkDesign','stealthEncounter','ittoContest','colleiLetter'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord','fireworkDesign','stealthEncounter','ittoContest','colleiLetter','roomLayout'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -286,6 +315,7 @@ def validate_save(data):
                     raise ValueError('未訪問の地点が調査済みになっています')
                 validate_steps_visited(quest['itinerary'],q['count'],visited)
             validate_paths(q,quest,st['visited'])
+            validate_reading_model(q,quest)
             validate_appraisal(q,quest,st['visited'])
             validate_snow_match(q,quest,nodes.get(quest.get('target'),{}).get('snowMatch'))
             validate_firework(q,quest,st['visited'])

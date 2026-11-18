@@ -155,6 +155,8 @@ export const sceneryDefinitions={
  sumeruColleiTrail:{file:'sum-collei-guide-trail-background-v1.png',zones:['story:sum-collei-trail'],note:'林巡りの練習道の仮背景'},
  sumeruColleiRain:{file:'sum-collei-guide-rain-background-v1.png',zones:['story:sum-collei-rainfork'],note:'水音の分かれ道の仮背景'},
  sumeruColleiWelcome:{file:'sum-collei-guide-welcome-background-v1.png',zones:['story:sum-collei-welcome'],note:'巡林の集合所の仮背景'},
+ sumeruKavehWorkshop:{file:'sum-kaveh-room-workshop-background-v1.png',zones:['story:sum-kaveh-workshop'],note:'樹上の模型工房の仮背景'},
+ sumeruKavehRoom:{file:'sum-kaveh-room-room-background-v1.png',zones:['story:sum-kaveh-reading-room'],note:'木漏れ日の閲覧室の仮背景'},
  sumeruCanopy:{file:'sumeru-canopy-background-v1.png',zones:['story:sumeru-canopy-junction','story:sumeru-branch-run','story:sumeru-observation-stop','story:sumeru-observatory-approach','story:sumeru-observatory-terrace','story:sumeru-sky-observatory']},
  sumeru:{file:'sumeru-background-v1.png',region:'スメール',zones:[]}
 };
@@ -222,7 +224,7 @@ export function scenery(ctx,frame){
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
   if(p.riverDeck)continue;
-   if(key==='nodAppraisal'||key==='nodPatrolCabin'||key==='sneSurveyShed'){
+   if(key==='nodAppraisal'||key==='nodPatrolCabin'||key==='sneSurveyShed'||key==='sumeruKavehWorkshop'||key==='sumeruKavehRoom'){
     ctx.fillStyle='#5d474d';ctx.fillRect(x,p.y,p.w,p.y===480?60:17);
     ctx.fillStyle='#bd906b';ctx.fillRect(x,p.y,p.w,4);
     ctx.fillStyle='#916a59';for(let i=10;i+14<p.w;i+=41)ctx.fillRect(x+i,p.y+7,15,3);

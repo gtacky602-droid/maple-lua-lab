@@ -543,12 +543,12 @@
     {
       "node": "sumeru-hub",
       "mode": "sprite",
-      "visible_portals": 9
+      "visible_portals": 10
     },
     {
       "node": "sumeru-hub",
       "mode": "rect",
-      "visible_portals": 9
+      "visible_portals": 10
     },
     {
       "node": "sum-wanderer-trail",
@@ -629,6 +629,26 @@
       "node": "sum-collei-welcome",
       "mode": "rect",
       "visible_portals": 2
+    },
+    {
+      "node": "sum-kaveh-workshop",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "sum-kaveh-workshop",
+      "mode": "rect",
+      "visible_portals": 1
+    },
+    {
+      "node": "sum-kaveh-reading-room",
+      "mode": "sprite",
+      "visible_portals": 1
+    },
+    {
+      "node": "sum-kaveh-reading-room",
+      "mode": "rect",
+      "visible_portals": 1
     },
     {
       "node": "sumeru-field",

@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 314 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 306,
+  "scope": "Authored 316 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 308,
   "fallback_mondstadt": 0,
   "nodes": [
     {
@@ -350,6 +350,18 @@
     {
       "id": "sum-collei-welcome",
       "name": "スメール・巡林の集合所",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "sum-kaveh-workshop",
+      "name": "スメール・樹上の模型工房",
+      "region": "スメール",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "sum-kaveh-reading-room",
+      "name": "スメール・木漏れ日の閲覧室",
       "region": "スメール",
       "status": "regional_temporary_image"
     },

@@ -1,0 +1,30 @@
+{
+  "scenes": [
+    {
+      "key": "sumeruKavehWorkshop",
+      "file": "sum-kaveh-room-workshop-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "key": "sumeruKavehRoom",
+      "file": "sum-kaveh-room-room-background-v1.png",
+      "state": "ready"
+    }
+  ],
+  "fourPawnStopsAndReachability": true,
+  "allThreePartsAffectTest": true,
+  "draftRestoredInBrowser": true,
+  "mobileModelFits": true,
+  "escapePreservesModel": true,
+  "acceptedAfterMainAndRoomRestored": true,
+  "commands": {
+    "png": 17,
+    "standard": 18144,
+    "light": 4393
+  },
+  "reward": [
+    293808,
+    2450
+  ],
+  "errors": []
+}

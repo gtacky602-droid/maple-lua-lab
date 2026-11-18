@@ -380,6 +380,18 @@
       "backgroundState": "ready"
     },
     {
+      "id": "sum-kaveh-workshop",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
+      "id": "sum-kaveh-reading-room",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "sumeru-field",
       "count": 0,
       "fallback": false,

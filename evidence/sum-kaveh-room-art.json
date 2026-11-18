@@ -1,0 +1,155 @@
+{
+  "tool": "built-in image generation and reference-guided proportion edits",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/sum-kaveh-room-model.obj",
+    "sha256": "d4600096f51d5dd0f108ccc66169ead9f1ca80e5bf34c33a6fd6785b32831779"
+  },
+  "materials": {
+    "path": "evidence/sum-kaveh-room-model.mtl",
+    "sha256": "dc2f74e9fc524191ad904ade0f95adec5145e41d58ba7dc59db7c05491be493b"
+  },
+  "contactSheet": {
+    "path": "evidence/sum-kaveh-room-views.png",
+    "sha256": "79525f840df684b0f41bd086e514f84d23ebe419bf5722b57a3fda6be608aff7"
+  },
+  "propsSource": {
+    "path": "assets/sum-kaveh-room-props-source-v1.png",
+    "sha256": "bdb14f4f667a66ff9e0c864b7402d0524db94f5fb76b26818bcf1f538edfac89"
+  },
+  "alphaCorners": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "backgrounds": [
+    {
+      "path": "assets/sum-kaveh-room-workshop-background-v1.png",
+      "sha256": "573bb4dde0c243e77af127488616035ad27c6c6cda0e4e3298ee2e2f1e7cffe4"
+    },
+    {
+      "path": "assets/sum-kaveh-room-room-background-v1.png",
+      "sha256": "e8fc1c115dcb333f28bf848db10bfc09c7a795a82710e0f2a125cbb1b2bcf0d1"
+    }
+  ],
+  "backgroundReferences": [
+    {
+      "path": "assets/sum-collei-guide-welcome-background-v1.png",
+      "sha256": "f785ea3fe5c9ff203eb6159ee8437b83707f482ee94d512a4a152493d7452c6b"
+    },
+    {
+      "path": "assets/sum-fungus-visitors-store-background-v1.png",
+      "sha256": "e19c816ab109c08acaeda5ed4e4e44049cafaee0c18256508ad34d3896610d15"
+    }
+  ],
+  "status": "Original model and furniture based on six original 3D blockouts. The two background images are Web placeholders.",
+  "profiles": {
+    "table": {
+      "encoding": {
+        "path": "assets/sum-kaveh-room-table-sprites-v1.json",
+        "sha256": "97f9deb236c2df64efc4184b7d4c8bdbf8213c3ad4f2afc179850e9c0e0f3bef"
+      },
+      "box": [
+        102,
+        184,
+        347,
+        284
+      ],
+      "runs": {
+        "legacy": 5908,
+        "h48c32": 3694,
+        "h32c16": 1519
+      }
+    },
+    "shelfHigh": {
+      "encoding": {
+        "path": "assets/sum-kaveh-room-shelfHigh-sprites-v1.json",
+        "sha256": "49386a129cc0adff07b45883c9b1ed24bd5c1c93ce40b5783c338fc61777a938"
+      },
+      "box": [
+        648,
+        87,
+        243,
+        386
+      ],
+      "runs": {
+        "legacy": 4780,
+        "h48c32": 2988,
+        "h32c16": 1165
+      }
+    },
+    "shelfLow": {
+      "encoding": {
+        "path": "assets/sum-kaveh-room-shelfLow-sprites-v1.json",
+        "sha256": "9707fe6b372d25b708aa5a2a2fc5dfb6f23e6239519a59ca21587fc725cad755"
+      },
+      "box": [
+        1099,
+        227,
+        334,
+        245
+      ],
+      "runs": {
+        "legacy": 2096,
+        "h48c32": 1341,
+        "h32c16": 521
+      }
+    },
+    "desk": {
+      "encoding": {
+        "path": "assets/sum-kaveh-room-desk-sprites-v1.json",
+        "sha256": "14b80c25c5d7732efcf1481a00d79792dba5965b70248d47bee02a04285d950f"
+      },
+      "box": [
+        99,
+        679,
+        345,
+        258
+      ],
+      "runs": {
+        "legacy": 2575,
+        "h48c32": 1523,
+        "h32c16": 643
+      }
+    },
+    "windowOut": {
+      "encoding": {
+        "path": "assets/sum-kaveh-room-windowOut-sprites-v1.json",
+        "sha256": "04cbe42096c6eeb1aadff0a6bfcd96eb23c82660157bda2e6a1b11fba2e6f4e9"
+      },
+      "box": [
+        595,
+        623,
+        348,
+        309
+      ],
+      "runs": {
+        "legacy": 5139,
+        "h48c32": 3342,
+        "h32c16": 1149
+      }
+    },
+    "windowIn": {
+      "encoding": {
+        "path": "assets/sum-kaveh-room-windowIn-sprites-v1.json",
+        "sha256": "2f60c36f9df6abe9424b29e214e4bff4ece63fca053f0d677e17ae2764a9f00e"
+      },
+      "box": [
+        1099,
+        623,
+        306,
+        309
+      ],
+      "runs": {
+        "legacy": 5252,
+        "h48c32": 3361,
+        "h32c16": 1281
+      }
+    }
+  }
+}

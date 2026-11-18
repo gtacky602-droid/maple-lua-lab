@@ -9,6 +9,10 @@
 #expeditionTrial{margin-inline-start:6px}
 .game.snow-match .bottom > .gauge,.game.snow-match .bottom > .skills{display:none}
 .tea-selected{border-color:#f0c97d;background:#3e5250}#teaEvidenceCards canvas{width:min(100%,104px);height:auto}
+#readingModel .model-layout{display:grid;grid-template-columns:minmax(0,690px) minmax(220px,1fr);gap:18px;align-items:start}
+#readingModelSummary{margin-top:0;line-height:1.6}#readingModel button:disabled{opacity:.48;cursor:default}
+#readingModel button[aria-current="step"]{opacity:1;color:#ffe4a8;border-color:#dfbc76}
+@media(max-width:850px){#readingModel .model-layout{grid-template-columns:minmax(0,1fr);gap:12px}}
 </style>
 <main><header><div><div class="eyebrow">TEYVAT · 2D ADVENTURE LAB</div><h1>風の狩場</h1><p>3D背景を想定した画像と、Luaで動く2Dの旅人・アンバー。</p></div><span class="badge">Lua 5.3 / ローカル試作 A</span></header>
 <div class="game"><canvas id="game" width="960" height="540" aria-label="横スクロールのLua試作狩場"></canvas><div class="topline"><div class="card" id="a1"></div><div class="card" id="a2"></div></div><div class="location">モンド風・試験用狩場　/　3画面・2段足場</div>
@@ -30,6 +34,18 @@
 <div id="nearbyCargo" hidden style="padding:10px 18px;background:#173a3b"><button id="nearbyCargoGo" data-action="story_collect">G：荷物を回収</button><span id="reflectionControls" hidden> <button id="reflectionLight" data-action="story_reflection_light">消灯する</button> <button data-action="story_reflection_confirm">照合する</button></span> <span id="reflectionImage"></span> <button id="airflowSound" hidden aria-pressed="false">装置音を聞く</button><span id="airflowControls" hidden> <button id="airflowCommit" data-action="story_airflow_commit">この位置で固定する</button> <span id="airflowStatus"></span></span> <span id="resonanceStatus" aria-live="polite"></span> <span id="paperControls" hidden><button id="paperConfirm" data-action="story_paper_confirm">確定する</button> <span id="paperStatus"></span></span><span id="surveyRigControls" hidden> <button data-action="story_survey_confirm">この設置で確定する</button> <span id="surveyRigReading" role="status"></span></span></div>
 <div id="rockView" hidden style="padding:10px 18px;background:#173a3b"><p id="rockViewCaption" style="margin:0 0 8px"></p><canvas id="rockViewCanvas" width="340" height="108" aria-hidden="true" style="width:min(100%,340px);aspect-ratio:340/108"></canvas></div>
 <div id="surveyMap" hidden style="padding:10px 18px;background:#173a3b"><p id="surveyMapCaption" style="margin:0 0 8px"></p><canvas id="surveyMapCanvas" width="420" height="132" aria-hidden="true" style="width:min(100%,420px);aspect-ratio:420/132"></canvas></div>
+<section id="readingModel" hidden aria-label="閲覧室の模型" style="padding:12px 18px;background:#193b39">
+ <div class="model-layout">
+  <canvas id="readingModelCanvas" width="690" height="306" aria-hidden="true" style="width:min(100%,690px);aspect-ratio:690/306"></canvas>
+  <div>
+   <p id="readingModelSummary" role="status"></p>
+   <nav id="readingModelStops" aria-label="駒の移動先" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:9px"></nav>
+   <label id="readingModelPartRow" hidden><span id="readingModelPartLabel"></span> <select id="readingModelPart" style="max-width:100%"></select></label>
+   <p id="readingModelHint"></p>
+   <button type="button" id="readingModelConfirm">この配置を記録する</button> <button type="button" id="readingModelClose">模型を閉じる</button>
+  </div>
+ </div>
+</section>
 <section id="teaCaseBoard" hidden aria-label="茶屋の証拠を選ぶ" style="padding:10px 18px;background:#173a3b">
  <div id="teaEvidenceCards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:8px"></div>
  <p id="teaCaseFeedback" role="status"></p>

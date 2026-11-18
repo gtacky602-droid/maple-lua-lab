@@ -1,0 +1,16 @@
+{
+  "mainPrerequisite": true,
+  "adjacentPawnAndInputIsolation": true,
+  "rejectsChangingPartsAwayFromStation": true,
+  "blockedViewVsStorage": true,
+  "seatClashesWithInwardWindow": true,
+  "draftAndStationRestore": true,
+  "invalidSavedPlanRejected": true,
+  "roomBothCompletionOrders": true,
+  "distinctInstalledLayouts": true,
+  "roomRestores": true,
+  "reward": [
+    293808,
+    2450
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
   "version": "monster-quest-v02",
-  "quests_tested": 52,
+  "quests_tested": 53,
   "old_completed_not_reissued": true,
   "old_unreported_uses_current_preview": true,
   "unlinked_trial_fallback": true,
@@ -22,9 +22,9 @@
       "report_xp": 1121099
     },
     "SUM": {
-      "linked": 6,
-      "legacy_xp": 859591,
-      "report_xp": 2535262
+      "linked": 7,
+      "legacy_xp": 1153399,
+      "report_xp": 2829070
     },
     "SNE": {
       "linked": 8,
@@ -209,6 +209,12 @@
       "quest_id": "sum-collei-guide",
       "legacy_xp": 220004,
       "report_xp": 220004
+    },
+    {
+      "design_id": "Q-SUM-S04",
+      "quest_id": "sum-kaveh-model",
+      "legacy_xp": 293808,
+      "report_xp": 293808
     },
     {
       "design_id": "Q-SNE-M01",
