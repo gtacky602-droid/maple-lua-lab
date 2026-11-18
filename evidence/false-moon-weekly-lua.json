@@ -1,0 +1,42 @@
+{
+  "manifest_cards": [
+    "WM01",
+    "WM02",
+    "WM03",
+    "WM04",
+    "WM05",
+    "WM06",
+    "WM07",
+    "WM08",
+    "WM09",
+    "WM10",
+    "WM11",
+    "WM12",
+    "WM13",
+    "WM14",
+    "WM15",
+    "WM16",
+    "WM17",
+    "WM18"
+  ],
+  "rule_window": [
+    120,
+    420
+  ],
+  "old_dash_and_normal_excluded": true,
+  "old_macro_root_excluded_new_root_detected": true,
+  "boundary_420_allows_movement": true,
+  "buffered_old_jump_excluded_fresh_jump_detected": true,
+  "logical_facing_only": true,
+  "owner_only_sentence_after_swap": true,
+  "cover_contains_actor": true,
+  "confirmation_can_cancel": true,
+  "late_confirmation_cannot_cross_deadline": true,
+  "two_real_scenes_and_no_hp_ct_gauge_reset": true,
+  "early_return_only_pays_killed_shadows": true,
+  "settlement_once_and_cap": true,
+  "exposure_ticks": 360,
+  "rewind_heal_once": 340,
+  "lethal_hit_priority": true,
+  "quest_report_restore": true
+}

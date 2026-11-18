@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 87,
-    "partial": 79,
+    "partial": 80,
     "complete": 0
   },
   "encounters": [
@@ -1798,30 +1798,42 @@
       "entity_ids": [
         "29130201"
       ],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "single_entity_provisional",
       "evidence": [
         "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/thedoctor.json",
+        "docs/weekly-boss-v1/FALSE_MOON_WEB.md",
+        "evidence/false-moon-weekly-lua.json",
+        "evidence/false-moon-weekly-browser.json",
         "https://genshin.hoyoverse.com/ja/news/detail/162159",
         "https://game8.jp/genshin/754116"
       ],
       "remaining": [
-        "固有戦闘",
-        "ドット絵・動作",
-        "報酬・難度",
-        "通し検証"
+        "連続ドット作画と月具の効果音",
+        "編成ごとの回避経路とマルチでの同意・入力由来",
+        "本番の3D配置と幻境実機検証"
       ],
+      "weeklyNode": "nod-false-moon-court",
+      "weeklyEntrance": "偽月の再現戦・外界（Lv132）",
       "aliases": [
         "ドットーレ"
       ],
       "review_note": "ナド・クライ「煙雲の山」の征討領域の挑戦。",
       "art_candidate": {
-        "source": "assets/doctor-false-moon-idle-source-v1.png",
-        "encoding": "assets/doctor-false-moon-idle-sprites.json",
-        "audit": "evidence/doctor-false-moon-reference-audit.json",
-        "status": "idle candidate"
-      }
+        "source": "assets/false-moon-weekly-idle-source-v1.png",
+        "encoding": "assets/false-moon-weekly-idle-sprites-v1.json",
+        "audit": "assets/false-moon-weekly-generation-v1.json",
+        "status": "Active solo outer and shadow idle sprite"
+      },
+      "art_variants": [
+        {
+          "source": "assets/doctor-false-moon-idle-source-v1.png",
+          "encoding": "assets/doctor-false-moon-idle-sprites.json",
+          "audit": "evidence/doctor-false-moon-reference-audit.json",
+          "status": "Earlier ring outfit reference study"
+        }
+      ]
     },
     {
       "id": "boss-29122000",

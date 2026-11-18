@@ -44,6 +44,13 @@
       "mapHover": 40
     },
     {
+      "id": "false-moon-weekly",
+      "name": "「博士」・偽月の異端者（再現戦）",
+      "file": "false-moon-weekly-idle-sprites-v1.json",
+      "height": 148,
+      "mapHover": 15
+    },
+    {
       "id": "spiritspeaker",
       "name": "迷える霊覚の修験者（待機候補）",
       "file": "spiritspeaker-idle-sprites.json",

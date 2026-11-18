@@ -332,6 +332,9 @@ function C.attack(s,a,key)
  event(s,'cast:'..key,a.id,0,#ts)
  return true
 end
+local function reportMotion(s,a,kind,at,dir)
+ if C.onPlayerMotion and at and not s.paused and a.hp>0 then C.onPlayerMotion(s,a,kind,at,dir) end
+end
 function C.action(s,key)
  local a=s.actors[s.active]
  if key=='swap' and s.swap<=0 and s.actors[3-s.active].hp>0 then
@@ -340,19 +343,25 @@ function C.action(s,key)
   if C.noteGrowth then C.noteGrowth(s,'manual-swap') end
  elseif key=='light' and a.id==1 and s.gauge>=60 and (a.cd.light or 0)<=0 then
   s.gauge=s.gauge-60;a.light=12;a.cd.light=60;event(s,'light',1)
- elseif key=='dodge' and (a.cd.dodge or 0)<=0 then a.inv=.45;a.cd.dodge=2;a.x=clamp(a.x+a.dir*100,20,(s.worldwidth or 2880)-20);a.lock=0
- elseif key=='jump' then a.buffer=.1
+ elseif key=='dodge' and (a.cd.dodge or 0)<=0 then
+  a.inv=.45;a.cd.dodge=2;a.x=clamp(a.x+a.dir*100,20,(s.worldwidth or 2880)-20);a.lock=0
+  reportMotion(s,a,'dodge',C.playerAttackAt(s,a))
+ elseif key=='jump' then a.buffer=.1;a.jumpInputAt=C.playerAttackAt(s,a)
  elseif key=='drop' then
   if not a.ground or a.y~=480 then
    a.drop=.25
    if a.ground then a.ground=false;a.y=a.y+3 end
+   reportMotion(s,a,'drop',C.playerAttackAt(s,a))
   end
  elseif key=='auto' then s.auto=not s.auto
  elseif key=='pause' then s.paused=not s.paused
  elseif key=='normal' or key=='skill1' or key=='skill2' or key=='skill3' or key=='skill4' then C.attack(s,a,key) end
 end
-local function physics(s,a,dt,move,held)
- if C.moveActorOverride and C.moveActorOverride(s,a,dt,move,held) then a.runDistance=nil;return end
+local function physics(s,a,dt,move,held,manual)
+ if C.moveActorOverride and C.moveActorOverride(s,a,dt,move,held) then
+  if manual and move~=0 and a.walk==move then reportMotion(s,a,'walk',s.t,a.dir) end
+  a.runDistance=nil;return
+ end
  local oldy=a.y
  local wasGrounded,previousMove=a.ground,a.walk
  if a.channel then move=0;a.buffer=0 end
@@ -377,10 +386,17 @@ local function physics(s,a,dt,move,held)
  end
  local dx=nx-a.x
  a.x=nx
- if move~=0 then a.dir=move>0 and 1 or -1 end
+ if move~=0 then
+  a.dir=move>0 and 1 or -1
+  if manual then reportMotion(s,a,'walk',s.t,a.dir) end
+ end
  a.coyote=a.ground and .08 or max(0,a.coyote-dt)
- if a.buffer>0 and a.coyote>0 then a.vy=-650;a.buffer=0;a.ground=false;a.coyote=0 end
+ if a.buffer>0 and a.coyote>0 then
+  a.vy=-650;a.buffer=0;a.ground=false;a.coyote=0
+  if manual then reportMotion(s,a,'jump',a.jumpInputAt) end
+ end
  a.buffer=max(0,a.buffer-dt);a.drop=max(0,a.drop-dt)
+ if a.buffer==0 then a.jumpInputAt=nil end
  if not held and a.vy < -210 then a.vy=-210 end
  local gravity=C.fieldGravityFactor and C.fieldGravityFactor(s,a) or 1
  a.vy=a.vy+1300*gravity*dt
@@ -449,7 +465,7 @@ function C.step(s,dt,input)
     elseif abs(leader.x-a.x)>75 then move=leader.x>a.x and 1 or -1 end
     if abs(leader.x-a.x)>650 or abs(leader.y-a.y)>200 then a.x=leader.x-45;a.y=leader.y;a.vy=0 end
    elseif input.attack then C.attack(s,a,'normal') end
-   physics(s,a,dt,move,a.leap>0 or (manual and input.jump or not manual))
+   physics(s,a,dt,move,a.leap>0 or (manual and input.jump or not manual),manual)
   end
  end
  for _,e in ipairs(s.enemies) do

@@ -1,5 +1,7 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ falseMoonCourt:{file:'false-moon-court-background-v1.png',zones:['story:nod-false-moon-court'],note:'偽月の外界の仮背景'},
+ falseMoonRift:{file:'false-moon-rift-background-v1.png',zones:['story:nod-false-moon-rift'],note:'偽月の異界の仮背景'},
  gateCourt:{file:'gate-court-background-v1.png',zones:['story:mond-gate-chess-court'],note:'扉の対局の仮背景'},
  tulpaField:{file:'tulpa-field-background-v1.png',zones:['story:tulpa-field-grotto','story:narwhal-star-sea'],note:'潮影の洞と星海の仮背景'},
  narwhalInner:{file:'narwhal-inner-background-v1.png',zones:['story:narwhal-inner-echo'],note:'腹中の仮背景'},
@@ -246,6 +248,11 @@ export function scenery(ctx,frame){
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
   if(p.riverDeck)continue;
+  if(key==='falseMoonCourt'||key==='falseMoonRift'){
+   ctx.fillStyle=key==='falseMoonCourt'?'#273749':'#41324f';ctx.fillRect(x,p.y,p.w,p.y===480?60:16);
+   ctx.fillStyle=key==='falseMoonCourt'?'#68839e':'#926f9b';ctx.fillRect(x,p.y,p.w,3);
+   continue;
+  }
   if(key==='gateCourt'){
    ctx.fillStyle='#36374b';ctx.fillRect(x,p.y,p.w,p.y===480?60:16);
    ctx.fillStyle='#89795f';ctx.fillRect(x,p.y,p.w,3);

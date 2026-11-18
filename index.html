@@ -45,6 +45,9 @@
 #weeklyGate{display:grid;gap:6px;margin-top:8px}
 #weeklyGate[hidden]{display:none}
 #weeklyGate button{justify-self:start;touch-action:none}
+#weeklyFalseMoon{display:grid;gap:6px;margin-top:8px}
+#weeklyFalseMoon[hidden]{display:none}
+#weeklyFalseMoon button{justify-self:start}
 #expeditionDesk th,#expeditionDesk td{padding:4px 8px;border-bottom:1px solid #426466;overflow-wrap:anywhere}
 #expeditionDesk thead th{color:#ffebba}
 #expeditionTrial{margin-inline-start:6px}
@@ -233,6 +236,11 @@
  <div id="weeklyGate" hidden>
   <small id="weeklyGateHint"></small>
   <button id="weeklyGateFrost" type="button" data-hold="interact" hidden>霜印を長押し（G）</button>
+ </div>
+ <div id="weeklyFalseMoon" hidden>
+  <small id="weeklyFalseMoonHint"></small>
+  <button id="weeklyFalseMoonUse" type="button" data-action="encounter_interact" hidden></button>
+  <button id="weeklyFalseMoonCancel" type="button" data-action="encounter_cancel" hidden>移動を取り消す</button>
  </div>
 </div>
 <section id="expeditionDesk" class="note" aria-label="遠征の装備比較" hidden>

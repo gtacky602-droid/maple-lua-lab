@@ -703,14 +703,19 @@
       "aliases": ["ドットーレ"],
       "review_note": "ナド・クライ「煙雲の山」の征討領域の挑戦。",
       "extra_evidence": [
+        "docs/weekly-boss-v1/FALSE_MOON_WEB.md",
+        "evidence/false-moon-weekly-lua.json",
+        "evidence/false-moon-weekly-browser.json",
         "https://genshin.hoyoverse.com/ja/news/detail/162159",
         "https://game8.jp/genshin/754116"
       ],
+      "remaining": ["連続ドット作画と月具の効果音", "編成ごとの回避経路とマルチでの同意・入力由来", "本番の3D配置と幻境実機検証"],
       "art_candidate": {
-        "item": "doctor-false-moon",
-        "audit": "evidence/doctor-false-moon-reference-audit.json",
-        "status": "idle candidate"
-      }
+        "item": "false-moon-weekly",
+        "audit": "assets/false-moon-weekly-generation-v1.json",
+        "status": "Active solo outer and shadow idle sprite"
+      },
+      "art_variants": [{"item":"doctor-false-moon","audit":"evidence/doctor-false-moon-reference-audit.json","status":"Earlier ring outfit reference study"}]
     },
     "boss-29122000": {
       "grouping": "multi_phase_paired_encounter",

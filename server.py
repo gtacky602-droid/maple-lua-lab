@@ -103,6 +103,10 @@ class Handler(SimpleHTTPRequestHandler):
                 frame=core.frame(state,'rect' if req.get('render')=='rect' else 'sprite',req.get('profile'))
                 elapsed=(time.perf_counter()-started)*1000
                 out=native(frame);out['session']=sid;out['lua_ms']=elapsed;out['lua_kb']=lua.eval("collectgarbage('count')")
+                # An empty Lua table has no array type. Story nodes still expose an exit list.
+                for node in out.get('storyGraph', {}).get('nodes', []):
+                    if not node['exits']:
+                        node['exits'] = []
                 if configuration is not None: out['configuration']=configuration
                 if req.get('checkpoint'): out['checkpoint']=native(core.checkpoint(state))
                 if req.get('compare'):

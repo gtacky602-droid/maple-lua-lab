@@ -1,0 +1,33 @@
+{
+  "court": {
+    "key": "falseMoonCourt",
+    "file": "false-moon-court-background-v1.png",
+    "state": "ready"
+  },
+  "other": {
+    "key": "falseMoonRift",
+    "file": "false-moon-rift-background-v1.png",
+    "state": "ready"
+  },
+  "stages": [
+    "outer",
+    "entering",
+    "inner",
+    "returning",
+    "outer"
+  ],
+  "walkViolationExactlyOnce": true,
+  "coveredShock": true,
+  "cancelAndConfirm": true,
+  "realShadows": 3,
+  "settlement": 408,
+  "lookAwaySuccess": true,
+  "clearReportRestore": true,
+  "viewport390": true,
+  "commands": {
+    "png": 18,
+    "standard": 15711,
+    "light": 4281
+  },
+  "errors": []
+}

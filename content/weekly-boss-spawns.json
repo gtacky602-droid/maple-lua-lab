@@ -4770,6 +4770,383 @@
           "context_radius_U": 0.55
         }
       }
+    },
+    {
+      "id": "boss-29130201",
+      "entity": 29130201,
+      "controller": "false_moon",
+      "node": "nod-false-moon-court",
+      "innerNode": "nod-false-moon-rift",
+      "storyChallenge": "false-moon-weekly",
+      "name": "「博士」・偽月の異端者",
+      "level": 132,
+      "hp": 3400,
+      "mora": 5500,
+      "expRole": "weekly_boss",
+      "floorY": 480,
+      "center": 480,
+      "noticeTicks": 36,
+      "restTicks": 24,
+      "respawnTicks": 3600,
+      "order": [
+        "WM09",
+        "WM08",
+        "WM13",
+        "WM10",
+        "WM02",
+        "WM04",
+        "WM06",
+        "WM01",
+        "WM03",
+        "WM05",
+        "WM07",
+        "WM11"
+      ],
+      "board": {
+        "left": 40,
+        "right": 920,
+        "unit": 88,
+        "platformY": 339
+      },
+      "rift": {
+        "x": 480,
+        "enterTick": 120,
+        "exitX": 858,
+        "radius": 72,
+        "spacing": 600,
+        "innerSpawn": 103,
+        "outerSpawn": 245,
+        "shadowHp": 330,
+        "shadowFirst": 132,
+        "shadowPeriod": 180,
+        "shadowWarn": 72,
+        "pointsU": [
+          2,
+          5,
+          8
+        ]
+      },
+      "cover": {
+        "pointsU": [
+          1.8,
+          5,
+          8.2
+        ],
+        "wardHalfWidthU": 0.7,
+        "wardHeightU": 1.5,
+        "pillarImpactU": 0.24,
+        "offsetU": 0.43
+      },
+      "damage": {
+        "base": 32,
+        "shock": 106,
+        "sentence": 68,
+        "inner": 38,
+        "pulse": 28
+      },
+      "moves": {
+        "WM01": {
+          "title": "月輪の転位",
+          "total": 150,
+          "locks": [
+            42
+          ],
+          "windows": [],
+          "recovery": 96
+        },
+        "WM02": {
+          "title": "三条の水光",
+          "total": 300,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              96,
+              108
+            ],
+            [
+              156,
+              168
+            ]
+          ],
+          "recovery": 216
+        },
+        "WM03": {
+          "title": "雷線と追雷",
+          "total": 360,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              108,
+              120
+            ],
+            [
+              204,
+              210
+            ],
+            [
+              264,
+              270
+            ]
+          ],
+          "recovery": 300
+        },
+        "WM04": {
+          "title": "三月の近接連奏",
+          "total": 480,
+          "locks": [
+            48
+          ],
+          "windows": [
+            [
+              96,
+              102
+            ],
+            [
+              168,
+              174
+            ],
+            [
+              252,
+              258
+            ],
+            [
+              336,
+              348
+            ]
+          ],
+          "recovery": 396
+        },
+        "WM05": {
+          "title": "古月の落柱",
+          "total": 420,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              108,
+              114
+            ],
+            [
+              150,
+              156
+            ],
+            [
+              192,
+              198
+            ],
+            [
+              234,
+              240
+            ],
+            [
+              276,
+              282
+            ]
+          ],
+          "recovery": 324
+        },
+        "WM06": {
+          "title": "雨の逆行",
+          "total": 540,
+          "locks": [
+            42
+          ],
+          "windows": [
+            [
+              96,
+              102
+            ],
+            [
+              156,
+              162
+            ],
+            [
+              216,
+              222
+            ],
+            [
+              396,
+              408
+            ]
+          ],
+          "recovery": 444,
+          "fx_only_reversal": [
+            300,
+            360
+          ]
+        },
+        "WM07": {
+          "title": "月影の跳刃",
+          "total": 432,
+          "locks": [
+            48,
+            276
+          ],
+          "windows": [
+            [
+              90,
+              96
+            ],
+            [
+              162,
+              168
+            ],
+            [
+              234,
+              240
+            ],
+            [
+              330,
+              342
+            ]
+          ],
+          "recovery": 360
+        },
+        "WM08": {
+          "title": "偽月の衝撃と遺骸",
+          "total": 480,
+          "locks": [
+            60
+          ],
+          "windows": [
+            [
+              120,
+              126
+            ],
+            [
+              360,
+              372
+            ]
+          ],
+          "recovery": 420,
+          "protection": [
+            150,
+            420
+          ]
+        },
+        "WM09": {
+          "title": "禁令・停止",
+          "total": 600,
+          "locks": [],
+          "windows": [],
+          "recovery": 516,
+          "rule_window": [
+            120,
+            420
+          ],
+          "child": {
+            "id": "WM12",
+            "start_tick": 420,
+            "condition": "owner_violated"
+          }
+        },
+        "WM10": {
+          "title": "禁令・直視",
+          "total": 600,
+          "locks": [],
+          "windows": [],
+          "recovery": 516,
+          "rule_window": [
+            120,
+            420
+          ],
+          "child": {
+            "id": "WM12",
+            "start_tick": 420,
+            "condition": "owner_violated"
+          }
+        },
+        "WM11": {
+          "title": "方位の錯乱・安定入力版",
+          "total": 420,
+          "locks": [],
+          "windows": [],
+          "recovery": 330
+        },
+        "WM12": {
+          "title": "禁令の罰",
+          "total": 180,
+          "locks": [
+            36
+          ],
+          "windows": [
+            [
+              60,
+              66
+            ]
+          ],
+          "recovery": 96
+        },
+        "WM13": {
+          "title": "蝕月領域と入口",
+          "total": 900,
+          "locks": [],
+          "windows": [],
+          "recovery": 900,
+          "confirmation_ticks": 90,
+          "damage_pulses": {
+            "first_tick": 180,
+            "period_ticks": 180,
+            "tell_ticks": 36,
+            "max_hits_per_actor_per_period": 1
+          }
+        },
+        "WM14": {
+          "title": "裂け目への移行",
+          "total": 180,
+          "locks": [],
+          "windows": [],
+          "recovery": 144,
+          "scene_commit_tick": 90
+        },
+        "WM15": {
+          "title": "異界の三擬影",
+          "total": 1800,
+          "locks": [],
+          "windows": [],
+          "recovery": 1800,
+          "object_count": 3,
+          "per_kill_main_maxhp_fraction": 0.04,
+          "encounter_fraction_cap": 0.24
+        },
+        "WM16": {
+          "title": "異界崩落・帰還",
+          "total": 540,
+          "locks": [],
+          "windows": [],
+          "recovery": 480,
+          "scene_commit_tick": 90,
+          "settlement_tick": 96,
+          "exposure": [
+            120,
+            480
+          ]
+        },
+        "WM17": {
+          "title": "偽月の回帰",
+          "total": 360,
+          "locks": [],
+          "windows": [],
+          "recovery": 180,
+          "heal_tick": 120,
+          "trigger_loss_fraction": 0.25,
+          "loss_refund_fraction": 0.5,
+          "max_heal_fraction": 0.1,
+          "uses_per_encounter": 1
+        },
+        "WM18": {
+          "title": "禁令・場面・終了管理",
+          "total": null,
+          "locks": [],
+          "windows": [],
+          "recovery": null
+        }
+      }
     }
   ]
 }

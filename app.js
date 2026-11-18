@@ -96,7 +96,7 @@ function updateTeaCase(view){
 try{spriteData=await (await fetch('assets/sprites.json')).json()}catch{}
 const mapping={KeyF:'story_nearby_portal',KeyG:'story_collect',KeyK:'skill1',KeyL:'skill2',KeyM:'skill3',KeyN:'skill4',KeyQ:'light',KeyE:'swap',ShiftLeft:'dodge',ShiftRight:'dodge',KeyP:'pause'};
 addEventListener('keydown',e=>{
- if(e.code==='KeyH'&&!e.repeat&&frame?.weeklyBoss?.knave&&!(/INPUT|SELECT|BUTTON/.test(document.activeElement.tagName)))actions.push('encounter_interact');
+ if(e.code==='KeyH'&&!e.repeat&&(frame?.weeklyBoss?.knave||frame?.weeklyBoss?.falseMoon?.canUse)&&!(/INPUT|SELECT|BUTTON/.test(document.activeElement.tagName)))actions.push('encounter_interact');
 });
 for(let i=1;i<=8;i++)mapping['Digit'+i]='slot'+i;
 addEventListener('keydown',e=>{if(e.code==='Escape'&&frame?.growthTrial){actions.push('growth_practice_exit');return}if(e.code==='Escape'&&frame?.storyIansan?.panel){actions.push('story_iansan_close');return}if(e.code==='Escape'&&frame?.storySpringCourse?.panel){actions.push('story_spring_close');return}if(e.code==='Escape'&&frame?.storyStonePair){actions.push('story_charm_close');return}if(e.code==='Escape'&&frame?.storyNaviaPhoto?.panel){actions.push('story_photo_close');return}if(e.code==='Escape'&&frame?.storyFurinaRehearsal?.open){actions.push('story_rehearsal:close');return}if(e.code==='Escape'&&frame?.storyDiscoveryMap){actions.push('story_discovery_close');return}if(e.code==='Escape'&&frame?.storyKavehModel){actions.push('story_model_close');return}if(/INPUT|SELECT|BUTTON/.test(document.activeElement.tagName))return;if(['Space','ArrowLeft','ArrowRight','ArrowDown'].includes(e.code)||(e.code==='ArrowUp'&&frame?.storyToyDive))e.preventDefault();keys.add(e.code);if(!e.repeat){if(e.code==='Space')actions.push(keys.has('KeyS')||keys.has('ArrowDown')?'drop':'jump');else if(e.code==='KeyJ'&&frame?.storySurf?.phase==='cove')actions.push('story_surf_hit');else if(mapping[e.code])actions.push(mapping[e.code])}});
@@ -372,6 +372,23 @@ function hud(f,calls,renderMs){
  const knave=field?.knave;
  const primal=field?.primal;
  const gate=field?.gate;
+ const falseMoon=field?.falseMoon;
+ $('weeklyFalseMoon').hidden=!falseMoon||field.phase==='respawn';
+ if(falseMoon&&field.phase!=='respawn'){
+  const v=falseMoon,r=v.rule;
+  const law=r?.kind==='away'?`博士に背を向ける（${r.away==='left'?'左':'右'}向き）`:'移動・回避・ジャンプを止める';
+  const hint=r?v.tick<420?`${r.state==='rule'?'判定中':'準備'} ｜ ${law} ｜ ${Math.ceil(r.remaining/60)}秒${r.violated?' ｜ 違反':''}`:
+   r.violated?'判定終了 ｜ 罰の予告から離れる':'禁令をクリア':
+   v.exposure?`反撃できる時間 ${(v.exposure/60).toFixed(1)}秒`:
+   v.card==='WM08'?v.cover?'保護範囲の内側':'柱の青い枠の中へ':
+   v.confirm?`異界へ移るまで ${(v.confirm/60).toFixed(1)}秒`:
+   v.card==='WM13'?'盤面中央の裂け目で入場を確認':
+   v.card==='WM15'?`擬影 ${v.pendingDamage} / 3 ｜ 残り ${v.seconds}秒 ｜ 右端から帰還可`:'';
+  $('weeklyFalseMoonHint').textContent=hint;
+  $('weeklyFalseMoonUse').hidden=!v.canUse;
+  $('weeklyFalseMoonUse').textContent=v.scene==='inner'?'外界へ戻る（H）':'異界へ入る（H）';
+  $('weeklyFalseMoonCancel').hidden=!v.confirm;
+ }
  $('weeklyGate').hidden=!gate||field.phase==='respawn';
  if(gate&&field.phase!=='respawn'){
   const hint=gate.card==='WT03'?`ポーン ${gate.shield} / 3 ｜ ポーンの向こう側へ突進を誘導`:

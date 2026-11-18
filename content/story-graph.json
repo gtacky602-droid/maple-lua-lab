@@ -3071,6 +3071,7 @@
       ],
       "checkpoint": "nod-town",
       "exits": [
+        {"to":"nod-false-moon-court","x":210,"arrivalX":246},
         {
           "to": "nod-field",
           "x": 60
@@ -5596,9 +5597,12 @@
     {"id":"narwhal-inner-echo","name":"呑星の鯨・腹中","region":"フォンテーヌ","level":84,"width":960,"hub":false,"peaceful":true,"checkpoint":"fontaine-hub","platforms":[{"x":0,"y":480,"w":960},{"x":102,"y":355,"w":170},{"x":688,"y":355,"w":170}],"exits":[{"to":"fontaine-hub","x":66}],"weeklySceneOf":"narwhal-star-sea"},
     {"id":"knave-crimson-court","name":"凶月の再現戦","region":"フォンテーヌ","level":88,"width":960,"hub":false,"peaceful":true,"checkpoint":"fontaine-hub","platforms":[{"x":0,"y":480,"w":960},{"x":98,"y":357,"w":158},{"x":704,"y":357,"w":158}],"exits":[{"to":"fontaine-hub","x":130}]},
     {"id":"primal-fire-sundered-forge","name":"源焔の再現戦","region":"ナタ","level":104,"width":960,"hub":false,"peaceful":true,"checkpoint":"natlan-hub","platforms":[{"x":40,"y":480,"w":880},{"x":110,"y":357,"w":141},{"x":709,"y":357,"w":141}],"exits":[{"to":"natlan-hub","x":863,"arrivalX":351}]},
-    {"id":"mond-gate-chess-court","name":"扉の対局・再現盤","region":"モンド","level":112,"width":960,"hub":false,"peaceful":true,"checkpoint":"mond-town","platforms":[{"x":0,"y":480,"w":960},{"x":128,"y":357,"w":176},{"x":656,"y":357,"w":176}],"exits":[{"to":"mond-town","x":825,"arrivalX":442}]}
+    {"id":"mond-gate-chess-court","name":"扉の対局・再現盤","region":"モンド","level":112,"width":960,"hub":false,"peaceful":true,"checkpoint":"mond-town","platforms":[{"x":0,"y":480,"w":960},{"x":128,"y":357,"w":176},{"x":656,"y":357,"w":176}],"exits":[{"to":"mond-town","x":825,"arrivalX":442}]},
+    {"id":"nod-false-moon-court","name":"偽月の再現戦・外界","region":"ナド・クライ","level":132,"width":960,"hub":false,"peaceful":true,"checkpoint":"nod-town","platforms":[{"x":0,"y":480,"w":960},{"x":128,"y":339,"w":176},{"x":656,"y":339,"w":176}],"exits":[{"to":"nod-town","x":80,"arrivalX":210}]},
+    {"id":"nod-false-moon-rift","name":"偽月の再現戦・異界","region":"ナド・クライ","level":132,"width":960,"hub":false,"peaceful":true,"checkpoint":"nod-town","platforms":[{"x":0,"y":480,"w":960},{"x":118,"y":357,"w":155},{"x":696,"y":357,"w":155}],"exits":[],"weeklySceneOf":"nod-false-moon-court"}
   ],
   "quests": [
+    {"id":"false-moon-weekly-commission","name":"偽月の再現戦・裂け目の向こう","giver":"ラウマ","hub":"nod-town","target":"false-moon-weekly","kind":"boss","goal":1,"level":132,"xp":840000,"mora":21200,"ore":5,"briefing":"禁令の表示に従いましょう。衝撃は柱の青い枠の中でしのげます。裂け目の前でHを押すと異界へ入り、倒した擬影の分だけ帰還時に博士のHPを削れます。"},
     {"id":"gate-weekly-commission","name":"扉の対局・駒を誘う","giver":"アルベド","hub":"mond-town","target":"gate-weekly","kind":"boss","goal":1,"level":112,"xp":570000,"mora":16100,"ore":4,"briefing":"駒王の突進はポーンの向こう側へ誘導してください。王族の試練では盤の端でGを長押しして霜印を二度使い、凍った女王の向こう側へ移動してキングを誘導します。"},
     {"id":"primal-fire-weekly-commission","name":"源焔の再現戦・虚界の障壁","giver":"マーヴィカ","hub":"natlan-hub","target":"primal-fire-weekly","kind":"boss","goal":1,"level":104,"xp":420000,"mora":12800,"ore":4,"briefing":"障壁は通常でも削れます。紫の予告を避け、床の左端が白線で区切られたら右側へ。障壁や三柱を壊して、体勢が崩れた隙に源焔の主を討伐してください。"},
     {"id":"knave-weekly-commission","name":"凶月の再現戦・命の契約","giver":"リネ","hub":"fontaine-hub","target":"knave-weekly","kind":"boss","goal":1,"level":88,"xp":280000,"mora":9600,"ore":3,"briefing":"命の契約は回復するか、両端の返済灯でGを長押しすると清算できます。羽印を持って敵の赤宴受付中にHの一撃を当て、二形態を倒してください。"},

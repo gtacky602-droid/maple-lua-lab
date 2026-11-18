@@ -1,5 +1,5 @@
 {
-  "count": 106,
+  "count": 107,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -21,6 +21,7 @@
     "Knave has a two-form weekly arena",
     "Primal Fire has a distinct weekly route",
     "Gate connects the paired encounter to a Mondstadt weekly arena",
+    "False Moon has a distinct weekly route from the Heretic",
     "loom trial is separate from the imported list",
     "original trial is independent of the imported roster",
     "Cryo Hypostasis is reachable through the field route",

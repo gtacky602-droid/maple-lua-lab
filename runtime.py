@@ -501,11 +501,15 @@ def runtime():
     gate=lua.execute((ROOT/'weekly-gate.lua').read_text(encoding='utf8'))(core,gate_moves)
     core.gateWeeklyArt=field_art(lua,'gate-weekly',(),variants={
         'king':'gate-weekly-king-sprites-v1.json','queen':'gate-weekly-queen-sprites-v1.json'})
+    false_moon_moves=lua.execute((ROOT/'weekly-false-moon-attacks.lua').read_text(encoding='utf8'))(core)
+    false_moon=lua.execute((ROOT/'weekly-false-moon.lua').read_text(encoding='utf8'))(core,false_moon_moves)
+    core.falseMoonWeeklyArt=field_art(lua,'false-moon-weekly',(),idle='false-moon-weekly-idle-sprites-v1.json')
     lua.execute((ROOT/'weekly-bosses.lua').read_text(encoding='utf8'))(
         core,lua.table_from(weekly_specs,recursive=True),
         lua.table_from({'dvalin':dvalin,'andrius':andrius,'surveyor':surveyor,'loom':loom,
                         'childe':childe,'azhdaha':azhdaha,'signora':signora,'raiden':raiden,'shouki':shouki,
-                        'apep':apep,'narwhal':narwhal,'knave':knave,'primal_fire':primal_fire,'game_before_gate':gate}))
+                        'apep':apep,'narwhal':narwhal,'knave':knave,'primal_fire':primal_fire,'game_before_gate':gate,
+                        'false_moon':false_moon}))
     core.installToyDiveGuard()
     daily=json.loads((ROOT/'content/daily-quests.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'daily-quests.lua').read_text(encoding='utf8'))(core,lua.table_from(daily,recursive=True),graph)
