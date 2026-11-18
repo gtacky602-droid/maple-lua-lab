@@ -1,0 +1,185 @@
+{
+  "tool": "built-in image generation using original 3D prop references",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/fon-emilie-scent-model.obj",
+    "sha256": "669272dbfdf8c16a4d7f8208db3d48aaee7463bb73e936ceb731679d02ad7e78"
+  },
+  "materials": {
+    "path": "evidence/fon-emilie-scent-model.mtl",
+    "sha256": "1084dd8a08ff1198b0ce91c70a22faadefeed0eee03eac50034cea6b68a91d83"
+  },
+  "contactSheet": {
+    "path": "evidence/fon-emilie-scent-views.png",
+    "sha256": "1a94da241f31ba7482f101221b16f1ab1a7618a5a9485ce15f5ecf1814c60ce1"
+  },
+  "propsSource": {
+    "path": "assets/fon-emilie-scent-props-source-v1.png",
+    "sha256": "327923275d80331edee7e00be4f280f2020c9f7cb49d144e19a26d30cdc37cc4"
+  },
+  "alphaCorners": [
+    1,
+    0,
+    0,
+    0
+  ],
+  "backgrounds": [
+    {
+      "path": "assets/fon-emilie-scent-atelier-background-v1.png",
+      "sha256": "2f747cb1ca9e170a8038d5f35adf26b60b3ac48c2629745e430f2c2734a67ee7"
+    },
+    {
+      "path": "assets/fon-emilie-scent-shore-background-v1.png",
+      "sha256": "3689b723fc734c734ecb64f0f46efe89e31a84d40f285776723310be9ce4a05a"
+    }
+  ],
+  "backgroundReferences": [
+    {
+      "path": "assets/fontaine-delivery-quay-background-v1.png",
+      "sha256": "c86e79c995db3f316e32b9768f4b0246c626ecb5396dfc27ed7404c349762856"
+    }
+  ],
+  "status": "Eight original props from the 3D shape studies. The two background images are Web placeholders.",
+  "profiles": {
+    "flower": {
+      "encoding": {
+        "path": "assets/fon-emilie-scent-flower-sprites-v1.json",
+        "sha256": "9a7f90e24e451785b0f2975197622073e0559cc0857b83176f7547e70231c34a"
+      },
+      "box": [
+        158,
+        96,
+        192,
+        276
+      ],
+      "runs": {
+        "legacy": 451,
+        "h48c32": 292,
+        "h32c16": 114
+      }
+    },
+    "dry": {
+      "encoding": {
+        "path": "assets/fon-emilie-scent-dry-sprites-v1.json",
+        "sha256": "9ec6391c47d5e047427676b1d26005ee8f9a9db4ffb9d18a37e8e8f8401b5931"
+      },
+      "box": [
+        562,
+        89,
+        210,
+        292
+      ],
+      "runs": {
+        "legacy": 587,
+        "h48c32": 347,
+        "h32c16": 145
+      }
+    },
+    "wood": {
+      "encoding": {
+        "path": "assets/fon-emilie-scent-wood-sprites-v1.json",
+        "sha256": "e896e44c43537ed187d75386841c844b0967734b039f1a765a720bf498de1469"
+      },
+      "box": [
+        978,
+        168,
+        235,
+        156
+      ],
+      "runs": {
+        "legacy": 804,
+        "h48c32": 481,
+        "h32c16": 202
+      }
+    },
+    "trial": {
+      "encoding": {
+        "path": "assets/fon-emilie-scent-trial-sprites-v1.json",
+        "sha256": "240bbe0ee78179ef220d8a6c0fd3904d848ea8dab1355f47a513d1019f09e212"
+      },
+      "box": [
+        1455,
+        96,
+        141,
+        279
+      ],
+      "runs": {
+        "legacy": 626,
+        "h48c32": 369,
+        "h32c16": 150
+      }
+    },
+    "amber": {
+      "encoding": {
+        "path": "assets/fon-emilie-scent-amber-sprites-v1.json",
+        "sha256": "f3e3fd4d92efac4aaa9ec82b6484e1d732c2cc037c90ef0f1026b7e9d228d2f1"
+      },
+      "box": [
+        151,
+        550,
+        183,
+        235
+      ],
+      "runs": {
+        "legacy": 929,
+        "h48c32": 590,
+        "h32c16": 243
+      }
+    },
+    "pink": {
+      "encoding": {
+        "path": "assets/fon-emilie-scent-pink-sprites-v1.json",
+        "sha256": "90a77d68ed8dec6012d0666a50b8221e279bb085c374e4db3b2506be06352213"
+      },
+      "box": [
+        586,
+        531,
+        166,
+        259
+      ],
+      "runs": {
+        "legacy": 771,
+        "h48c32": 487,
+        "h32c16": 207
+      }
+    },
+    "mint": {
+      "encoding": {
+        "path": "assets/fon-emilie-scent-mint-sprites-v1.json",
+        "sha256": "206fb14116a18c71a8f96f9d927020dd6c8fff24ab23fa4375d8de76321b7c2c"
+      },
+      "box": [
+        1007,
+        533,
+        153,
+        257
+      ],
+      "runs": {
+        "legacy": 604,
+        "h48c32": 386,
+        "h32c16": 164
+      }
+    },
+    "table": {
+      "encoding": {
+        "path": "assets/fon-emilie-scent-table-sprites-v1.json",
+        "sha256": "5a295f6725105c9962e70f6259c4488651f1c058a98116492bf59aa0fc8b7ab2"
+      },
+      "box": [
+        1388,
+        520,
+        281,
+        281
+      ],
+      "runs": {
+        "legacy": 2653,
+        "h48c32": 1674,
+        "h32c16": 691
+      }
+    }
+  }
+}

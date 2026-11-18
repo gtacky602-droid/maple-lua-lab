@@ -850,6 +850,10 @@
     },
     {
       "node": "fontaine-hub",
+      "to": "fon-emilie-atelier"
+    },
+    {
+      "node": "fontaine-hub",
       "to": "icewind-promenade"
     },
     {
@@ -2495,6 +2499,22 @@
     {
       "node": "sumeru-sky-observatory",
       "to": "sum-kaveh-reading-room"
+    },
+    {
+      "node": "fon-emilie-atelier",
+      "to": "fontaine-hub"
+    },
+    {
+      "node": "fon-emilie-atelier",
+      "to": "fon-emilie-scent-shore"
+    },
+    {
+      "node": "fon-emilie-scent-shore",
+      "to": "fon-emilie-atelier"
+    },
+    {
+      "node": "fon-emilie-scent-shore",
+      "to": "fon-emilie-atelier"
     },
     {
       "node": "fontaine-parcel-counter",

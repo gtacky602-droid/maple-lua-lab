@@ -1,0 +1,39 @@
+newmtl wood
+Kd 0.46667 0.32941 0.21176
+illum 1
+
+newmtl edge
+Kd 0.67451 0.46667 0.25882
+illum 1
+
+newmtl brass
+Kd 0.85882 0.66275 0.31373
+illum 1
+
+newmtl leaf
+Kd 0.34510 0.54118 0.32941
+illum 1
+
+newmtl flower
+Kd 0.69804 0.58431 0.78824
+illum 1
+
+newmtl cream
+Kd 0.92549 0.82745 0.65098
+illum 1
+
+newmtl blue
+Kd 0.29020 0.60000 0.69020
+illum 1
+
+newmtl amber
+Kd 0.81961 0.53725 0.28627
+illum 1
+
+newmtl pink
+Kd 0.80392 0.51373 0.61569
+illum 1
+
+newmtl mint
+Kd 0.39608 0.67843 0.57647
+illum 1

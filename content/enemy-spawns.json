@@ -2,6 +2,9 @@
   "version": 1,
   "status": "Provisional live placement; existing generic behavior; not canonical regional species or attacks",
   "nodes": {
+    "fon-emilie-scent-shore":[
+      {"id":"fon-scent-quay-crab","kind":1,"art":"armored-crab","name":"船着き場の重甲ヤドカニ","x":1030,"platform":0,"hp":20,"questPhase":1}
+    ],
     "ina-sayu-watchpath":[
       {"id":"sayu-watch-brush","kind":1,"art":"nobushi","x":630,"platform":0,"hp":46,"questPhase":1,"pursuit":{"range":220,"leash":300,"speed":96}},
       {"id":"sayu-watch-cave","kind":1,"art":"nobushi","x":1168,"platform":1,"hp":55,"questPhase":2,"pursuit":{"range":220,"leash":300,"speed":96}},

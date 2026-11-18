@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule,nightBannerModule,fireworksModule,stealthModule,ittoModule,teaCaseModule,wandererSurveyModule,visitorsModule,colleiGuideModule,kavehModelModule,nahidaMapModule,emilieScentModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -191,6 +191,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local colleiGuide=colleiGuideModule(C,canInspect)
  local kavehModel=kavehModelModule(C,canInspect)
  local nahidaMap=nahidaMapModule(C,canInspect)
+ local emilieScent=emilieScentModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -752,6 +753,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if node.colleiGuideQuest and colleiGuide.revisit(s,quests[node.colleiGuideQuest],s.story.quests[node.colleiGuideQuest]) then return end
    if node.colleiLetterQuest and colleiGuide.letter(s,quests[node.colleiLetterQuest],s.story.quests[node.colleiLetterQuest]) then return end
    if node.nahidaMapQuest and nahidaMap.collect(s,quests[node.nahidaMapQuest],s.story.quests[node.nahidaMapQuest]) then return end
+   if node.scentQuest and emilieScent.read(s,quests[node.scentQuest],s.story.quests[node.scentQuest]) then return end
    if node.readingRoom and kavehModel.read(s,quests[node.kavehQuest],s.story.quests[node.kavehQuest]) then return end
    local archive=node.returnBoxArchive
    if archive and returnBox.read(s,archive,s.story.quests[archive.quest]) then return end
@@ -1336,6 +1338,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     local q=quests[n.nahidaMapQuest]
     nahidaMap.observe(f,s,q,s.story.quests[q.id],mode,profile)
    end
+   if n.scentQuest then
+    local q=quests[n.scentQuest]
+    emilieScent.observe(f,s,q,s.story.quests[q.id],mode,profile)
+   end
     if n.moonInlet then moonInlet.observe(s,f,markers,n.moonInlet,s.story.quests[n.moonInlet.quest]) end
     if n.shoreLights then moonInlet.lights(s,markers,n.shoreLights) end
     if n.coastDetour then coastDetour.observe(s,f,markers,n.coastDetour,quests[n.coastDetour.quest],mode,profile) end
@@ -1483,11 +1489,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
        local x,y=option.x-s.camera,option.y
        if x>=-25 and x<=985 then
         if option.detourGift then coastDetour.drawGift(markers,x,y,option.id,mode,profile)
+        elseif option.scentArt then emilieScent.choice({draws=markers},s,option,mode,profile)
         else
          markers[#markers+1]={kind='rect',x=x-12,y=y-25,w=24,h=25,color='#423951'}
          markers[#markers+1]={kind='rect',x=x-8,y=y-21,w=16,h=12,color='#d3dbf5'}
         end
-        markers[#markers+1]={kind='text',x=x,y=y-(option.detourGift and 79 or 43),text=option.name,color='#fff0b9',size=14}
+        markers[#markers+1]={kind='text',x=x,y=y-(option.detourGift and 79 or option.scentArt and 82 or 43),text=option.name,color='#fff0b9',size=14}
        end
       end
       local option=not s.paused and nearbyChoice(s,milestone)
@@ -1503,13 +1510,14 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and not milestone.resonanceOrder and not milestone.shadowChoice and not milestone.paperFold
         and (not milestone.roomLight or milestone.roomLight==s.storyLightMode) then
      local x,y=milestone.x-s.camera,milestone.y
+     if milestone.scentProp then emilieScent.prop({draws=markers},s,milestone,mode,profile) end
      if milestone.surveyGuide then wandererSurvey.guide({draws=markers},s,milestone.surveyGuide,mode,profile) end
      if not milestone.rumorBoard and not milestone.bloomProp and not milestone.patrolLamp and not milestone.patrolTable
         and not milestone.surveySample and not milestone.surveyPad and not milestone.surveyRig and not milestone.surveySeat
         and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup
         and not milestone.nightClue and not milestone.fireworkSight and not milestone.stealthNap
         and not milestone.teaClue and not milestone.teaCup and not milestone.surveyProp and not milestone.visitorProp
-        and not milestone.kavehProp and not milestone.discoveryProp
+        and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp
         and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)

@@ -1,7 +1,7 @@
 {
   "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
   "version": "monster-quest-v02",
-  "quests_tested": 54,
+  "quests_tested": 55,
   "old_completed_not_reissued": true,
   "old_unreported_uses_current_preview": true,
   "unlinked_trial_fallback": true,
@@ -32,9 +32,9 @@
       "report_xp": 230896997
     },
     "FON": {
-      "linked": 3,
-      "legacy_xp": 5632766,
-      "report_xp": 6802651
+      "linked": 4,
+      "legacy_xp": 6098226,
+      "report_xp": 7268111
     },
     "NAT": {
       "linked": 3,
@@ -275,6 +275,12 @@
       "quest_id": "sumeru-observatory-map",
       "legacy_xp": 150000,
       "report_xp": 1033165
+    },
+    {
+      "design_id": "Q-FON-S01",
+      "quest_id": "fon-emilie-scent",
+      "legacy_xp": 465460,
+      "report_xp": 465460
     },
     {
       "design_id": "Q-FON-M01",

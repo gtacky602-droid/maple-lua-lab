@@ -177,7 +177,11 @@ def runtime():
     nahida_map=lua.execute((ROOT/'story-discovery-map.lua').read_text(encoding='utf8'))
     core.nahidaMapArt=field_art(lua,'sum-nahida-map',(),variants={
         kind:f'sum-nahida-map-{kind}-sprites-v1.json' for kind in ('leaf','roots','branches','sky','dew','board')})
-    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms,duel,moon_inlet,coast_detour,appraisal,rumor,bloom,patrol,survey_rig,snow_match,return_box,night_banner,fireworks,stealth,itto_games,tea_case,wanderer_survey,observation_visitors,collei_guide,kaveh_model,nahida_map)
+    emilie_scent=lua.execute((ROOT/'story-emilie-scent.lua').read_text(encoding='utf8'))
+    core.emilieScentArt=field_art(lua,'fon-emilie-scent',(),variants={
+        kind:f'fon-emilie-scent-{kind}-sprites-v1.json'
+        for kind in ('flower','dry','wood','trial','amber','pink','mint','table')})
+    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms,duel,moon_inlet,coast_detour,appraisal,rumor,bloom,patrol,survey_rig,snow_match,return_box,night_banner,fireworks,stealth,itto_games,tea_case,wanderer_survey,observation_visitors,collei_guide,kaveh_model,nahida_map,emilie_scent)
     lua.execute((ROOT / 'barrier.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'farka.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'regisvine.lua').read_text(encoding='utf-8'))(core)
