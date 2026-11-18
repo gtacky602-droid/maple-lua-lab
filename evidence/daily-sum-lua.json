@@ -1,0 +1,17 @@
+{
+  "completedGoals": {
+    "Q-SUM-D01": 200,
+    "Q-SUM-D02": 80,
+    "Q-SUM-D03": 3,
+    "Q-SUM-D04": 60,
+    "Q-SUM-D05": 3
+  },
+  "tunigiCountsAsSumeru": true,
+  "wandererOffersWhileActiveCompanion": true,
+  "workyardAndForestEliteRespawn": true,
+  "observationRespectsMapRangeHeightAndPause": true,
+  "observationIsNonlethalAndDedupedWithKills": true,
+  "speciesRecordsSurviveRestoreAndCarry": true,
+  "invalidSpeciesRecordsRejected": true,
+  "oneRewardAtHub": true
+}

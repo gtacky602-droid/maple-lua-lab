@@ -1,0 +1,15 @@
+{
+  "townOffers": 5,
+  "normalGRecordsLiveFungus": true,
+  "normalCombatCompletesOtherSpecies": true,
+  "sameSpeciesOutsideTargetFieldDoesNotCount": true,
+  "workyardWalkAndHunt": true,
+  "speciesRecordSurvivesOldSave": true,
+  "claimCannotReplay": true,
+  "mobileFits": true,
+  "reward": {
+    "xp": 9590,
+    "mora": 410
+  },
+  "errors": []
+}

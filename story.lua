@@ -944,7 +944,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local q,state=cargoQuest(s)
    if not q then
     local clue,progress,nextCount=trailClue(s)
-    if not clue then return end
+    if not clue then
+     if C.dailyObserve then C.dailyObserve(s) end
+     return
+    end
     if not canInspect(s.actors[s.active],clue) then s.storyNotice='手がかりのそばまで移動してください。';return end
     progress.inspected[clue.id]=true
     progress.count=nextCount
@@ -1691,6 +1694,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     local elevated=y<480
     markers[#markers+1]={kind='rect',x=x-10,y=y-14,w=20,h=4,color=elevated and '#a93634' or '#634936'}
     markers[#markers+1]={kind='rect',x=x-5,y=y-10,w=10,h=7,color=elevated and '#f76859' or '#b69765'}
+   elseif C.dailyNearbyClue then
+    f.storyNearbyClue=C.dailyNearbyClue(s)
    end
    for _,q in ipairs(data.quests) do
     if q.delivery or q.rail or q.cooking or q.book or q.stone or q.construction or q.lantern or q.forest then

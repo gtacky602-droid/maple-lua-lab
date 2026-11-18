@@ -16,6 +16,10 @@
     "inazuma": {
       "label": "稲妻",
       "includeRegions": ["稲妻", "淵下宮"]
+    },
+    "sumeru": {
+      "label": "スメール",
+      "includeRegions": ["スメール", "トゥニギの黒淵"]
     }
   },
   "quests": [
@@ -263,6 +267,92 @@
       "filter": {"kind": "art", "nodes": ["inazuma-road", "inazuma-shore-hunt"], "art": ["nobushi"]},
       "goal": 60,
       "xp": 5940,
+      "mora": 410
+    },
+    {
+      "id": "daily-sum-survey",
+      "designId": "Q-SUM-D01",
+      "kind": "main",
+      "region": "sumeru",
+      "hub": "sumeru-hub",
+      "level": 60,
+      "giver": "ティナリ",
+      "name": "今日の調査区域",
+      "intro": "ティナリ「今日は森から少し離れたところまで調査する。巡回を任せてもいいかい？」",
+      "target": "スメール・トゥニギの黒淵の配置済みの実戦の敵",
+      "filter": {"kind": "region"},
+      "goal": 200,
+      "xp": 63920,
+      "mora": 1860
+    },
+    {
+      "id": "daily-sum-forest",
+      "designId": "Q-SUM-D02",
+      "kind": "extra",
+      "region": "sumeru",
+      "hub": "sumeru-hub",
+      "level": 60,
+      "giver": "コレイ",
+      "name": "見回り、一緒にどうかな",
+      "intro": "コレイ「雨林の道の見回りをするんだ。近くの置き場にも寄ってもらえる？」",
+      "target": "雨林の道・工房の資材置き場・葉橋の向こう岸の実戦の敵",
+      "filter": {"kind": "nodes", "nodes": ["sumeru-field", "sum-kaveh-timberyard", "sumeru-river-bank"]},
+      "goal": 80,
+      "xp": 25570,
+      "mora": 760
+    },
+    {
+      "id": "daily-sum-elites",
+      "designId": "Q-SUM-D03",
+      "kind": "extra",
+      "region": "sumeru",
+      "hub": "sumeru-hub",
+      "level": 60,
+      "giver": "放浪者",
+      "companion": "wanderer",
+      "name": "あれを片づければ、先へ行ける",
+      "intro": "放浪者「雨林の道と資材置き場に大きな奴がいる。通るついでに片づけておこうか。」",
+      "target": "雨林の道・工房の資材置き場の指定精鋭",
+      "filter": {"kind": "elite", "nodes": ["sumeru-field", "sum-kaveh-timberyard"]},
+      "goal": 3,
+      "xp": 11990,
+      "mora": 800
+    },
+    {
+      "id": "daily-sum-workyard",
+      "designId": "Q-SUM-D04",
+      "kind": "extra",
+      "region": "sumeru",
+      "hub": "sumeru-hub",
+      "level": 60,
+      "giver": "カーヴェ",
+      "name": "作業を始める、その前に",
+      "intro": "カーヴェ「資材を運び出す前に、置き場の安全を確かめてくれないか？」",
+      "target": "工房の資材置き場の実戦の敵",
+      "filter": {"kind": "nodes", "nodes": ["sum-kaveh-timberyard"]},
+      "goal": 60,
+      "xp": 19180,
+      "mora": 640
+    },
+    {
+      "id": "daily-sum-species",
+      "designId": "Q-SUM-D05",
+      "kind": "extra",
+      "region": "sumeru",
+      "hub": "sumeru-hub",
+      "level": 60,
+      "giver": "ナヒーダ",
+      "name": "今日、分かったこと",
+      "intro": "ナヒーダ「雨林の道の生き物を三種類、記録してくれる？ 近くで観察しても、倒したあとに書き留めてもいいのよ。」",
+      "target": "雨林の道で、対象の生き物を観察または討伐して各1種を記録",
+      "filter": {"kind": "species", "nodes": ["sumeru-field"]},
+      "observation": [
+        {"art": "dendro-fungus", "name": "キノコン"},
+        {"art": "hydro-slime", "name": "水スライム"},
+        {"art": "pyro-slime", "name": "炎スライム"}
+      ],
+      "goal": 3,
+      "xp": 9590,
       "mora": 410
     }
   ]

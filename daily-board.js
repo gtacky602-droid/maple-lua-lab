@@ -41,6 +41,13 @@ export function initDailyBoard(dispatch){
    const label=entry.material?entry.material+' ':'';
    node.append(progress,element('p',`${label}${entry.count} / ${entry.goal}${unit}${entry.claimed?' ｜ 受取済み':''}`));
   }
+  if(entry.species){
+   const records=element('ul');
+   for(const species of entry.species){
+    records.append(element('li',mode==='offer'?species.name:`${species.name} ｜ ${species.recorded?'記録済み':'未記録'}`));
+   }
+   node.append(records);
+  }
   const isOffer=mode==='offer';
   if(isOffer||(!entry.claimed&&entry.count===entry.goal)){
    const key=isOffer?'accept':mode==='carry'?'carry':'claim';

@@ -1,7 +1,15 @@
 return function(C,config,graph)
  local action,frame,checkpoint,restore,onKill=C.action,C.frame,C.checkpoint,C.restore,C.onKill
  local quests,nodes={},{}
- for _,q in ipairs(config.quests) do quests[q.id]=q end
+ local observedNames={}
+ for _,q in ipairs(config.quests) do
+  quests[q.id]=q
+  if q.observation then
+   local names={}
+   for _,species in ipairs(q.observation) do names[species.art]=species.name end
+   observedNames[q.id]=names
+  end
+ end
  for _,node in ipairs(graph.nodes) do nodes[node.id]=node end
 
  local function includes(list,value)
@@ -69,9 +77,16 @@ return function(C,config,graph)
  end
 
  local function entry(q,row)
-  return {id=q.id,kind=q.kind,name=q.name,giver=q.giver,region=config.regions[q.region].label,hub=nodes[q.hub].name,
-          goal=q.goal,xp=q.xp,mora=q.mora,target=q.target,material=q.material,
-          count=row and row.count,claimed=row and row.claimed or false}
+  local item={id=q.id,kind=q.kind,name=q.name,giver=q.giver,region=config.regions[q.region].label,hub=nodes[q.hub].name,
+              goal=q.goal,xp=q.xp,mora=q.mora,target=q.target,material=q.material,
+              count=row and row.count,claimed=row and row.claimed or false}
+  if q.observation then
+   item.species={}
+   for _,species in ipairs(q.observation) do
+    item.species[#item.species+1]={name=species.name,recorded=row and row.recorded[species.art] or false}
+   end
+  end
+  return item
  end
 
  function C.action(s,key)
@@ -83,7 +98,7 @@ return function(C,config,graph)
   local ledger=s.daily.ledger
   if command=='accept' then
    if find(ledger.activeSlots,id) or not canAccept(s,q,tally(ledger)) then return end
-   ledger.activeSlots[#ledger.activeSlots+1]={id=id,count=0,claimed=false}
+   ledger.activeSlots[#ledger.activeSlots+1]={id=id,count=0,claimed=false,recorded=q.observation and {} or nil}
    s.dailyNotice=ledger.seen[id] and q.giver..'「今日もよろしく。」' or q.intro
    ledger.seen[id]=true
    return
@@ -106,19 +121,66 @@ return function(C,config,graph)
   if filter.nodes and not includes(filter.nodes,node.id) then return false end
   if filter.art and not includes(filter.art,placement.art) then return false end
   if filter.kind=='elite' then return placement.dailyElite==true end
+  if filter.kind=='species' then return observedNames[q.id][placement.art]~=nil end
   return filter.kind=='region' or filter.kind=='nodes' or filter.kind=='art'
  end
 
  local function placementIn(node,e)
+  if not e.spawnId or e.noRewards or e.fieldBoss or e.weeklyBoss then return end
   for _,p in ipairs(C.enemySpawns[node.id] or {}) do
    if p.id==e.spawnId and not p.dailyExclude then return p end
   end
  end
 
+ local function addProgress(row,placement)
+  if row.recorded then
+   if row.recorded[placement.art] then return end
+   row.recorded[placement.art]=true
+  end
+  row.count=row.count+1
+ end
+
+ local function nearbyObservation(s)
+  if not s.daily or not isStory(s) or s.paused then return end
+  local player=s.actors[s.active]
+  local node=nodes[s.story.node]
+  if player.hp<=0 or not node or node.hub or node.peaceful then return end
+  local bestRow,bestPlacement,bestName,bestDistance
+  for _,row in ipairs(s.daily.ledger.activeSlots) do
+   local q=quests[row.id]
+   if q.observation and not row.claimed and row.count<q.goal and includes(q.filter.nodes,node.id) then
+    for _,enemy in ipairs(s.enemies) do
+     local dx,dy=math.abs(player.x-enemy.x),math.abs(player.y-enemy.y)
+     if enemy.hp>0 and dx<=96 and dy<=52 then
+      local placement=placementIn(node,enemy)
+      local distance=dx*dx+dy*dy
+      if placement and not row.recorded[placement.art] and eligible(q,node,placement)
+       and (not bestDistance or distance<bestDistance) then
+       bestRow,bestPlacement,bestName,bestDistance=row,placement,observedNames[row.id][placement.art],distance
+      end
+     end
+    end
+   end
+  end
+  return bestRow,bestPlacement,bestName
+ end
+
+ function C.dailyNearbyClue(s)
+  local _,placement,name=nearbyObservation(s)
+  if placement then return {id=placement.id,name=name,label=name..'を観察する'} end
+ end
+
+ function C.dailyObserve(s)
+  local row,placement,name=nearbyObservation(s)
+  if not row then return end
+  addProgress(row,placement)
+  s.dailyNotice=name..'を記録しました。'
+ end
+
  function C.onKill(s,e)
   local event=s.events[#s.events]
   if onKill then onKill(s,e) end
-  if not s.daily or not isStory(s) or not e.spawnId or e.noRewards or e.fieldBoss or e.weeklyBoss then return end
+  if not s.daily or not isStory(s) then return end
   if not event or event.kind~='kill' or event.target~=e.id or event.seq==s.dailyLastKill
       or not (event.actor==1 or event.actor==2) then return end
   local node=nodes[s.story.node]
@@ -128,7 +190,7 @@ return function(C,config,graph)
   s.dailyLastKill=event.seq
   for _,row in ipairs(s.daily.ledger.activeSlots) do
    local q=quests[row.id]
-   if not row.claimed and row.count<q.goal and eligible(q,node,placement) then row.count=row.count+1 end
+   if not row.claimed and row.count<q.goal and eligible(q,node,placement) then addProgress(row,placement) end
   end
  end
 

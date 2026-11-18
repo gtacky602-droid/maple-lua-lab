@@ -379,7 +379,9 @@
         "kind": 1,
         "art": "dendro-fungus",
         "x": 300,
-        "platform": 0
+        "platform": 0,
+        "name": "雨林の道の大キノコン",
+        "dailyElite": true
       },
       {
         "id": "sumeru-field-2",
@@ -416,6 +418,16 @@
         "x": 560,
         "platform": 2
       }
+    ],
+    "sum-kaveh-timberyard": [
+      {"id":"sum-yard-fungus-west","kind":1,"art":"dendro-fungus","x":352,"platform":0,"hp":35},
+      {"id":"sum-yard-slime-west","kind":1,"art":"hydro-slime","x":503,"platform":0,"hp":26},
+      {"id":"sum-yard-fungus-ledge","kind":1,"art":"dendro-fungus","x":538,"platform":1,"hp":32},
+      {"id":"sum-yard-slime-upper","kind":2,"art":"pyro-slime","x":790,"platform":2,"hp":30},
+      {"id":"sum-yard-elite","kind":1,"art":"fanged-beast","x":964,"platform":0,"hp":64,"name":"資材置き場に居座る牙獣","dailyElite":true},
+      {"id":"sum-yard-slime-ledge","kind":1,"art":"hydro-slime","x":1164,"platform":3,"hp":28},
+      {"id":"sum-yard-fungus-east","kind":1,"art":"dendro-fungus","x":1278,"platform":0,"hp":33},
+      {"id":"sum-yard-slime-east","kind":2,"art":"pyro-slime","x":1448,"platform":0,"hp":27}
     ],
     "fontaine-entry": [
       {

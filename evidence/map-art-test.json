@@ -404,6 +404,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "sum-kaveh-timberyard",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "sumeru-jadeplume-grove",
       "count": 0,
       "fallback": false,

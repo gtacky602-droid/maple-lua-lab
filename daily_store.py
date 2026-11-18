@@ -44,15 +44,23 @@ def validate_daily_state(daily):
         kinds = {'main': 0, 'extra': 0}
         used = set()
         for slot in slots:
-            if not isinstance(slot, dict) or set(slot) != {'id', 'count', 'claimed'} or not isinstance(slot['id'], str):
+            if not isinstance(slot, dict) or not isinstance(slot.get('id'), str):
                 raise ValueError('日次依頼の枠が不正です')
             id_ = slot['id']
             quest = DAILY_QUESTS.get(id_)
-            if (not quest or id_ in used or id_ not in seen or type(slot['count']) is not int
+            species = quest.get('observation') if quest else None
+            fields = {'id', 'count', 'claimed', 'recorded'} if species else {'id', 'count', 'claimed'}
+            if (not quest or set(slot) != fields or id_ in used or id_ not in seen or type(slot['count']) is not int
                     or not 0 <= slot['count'] <= quest['goal'] or type(slot['claimed']) is not bool
                     or slot['claimed'] and slot['count'] != quest['goal']
                     or key == 'carrySlots' and (slot['claimed'] or slot['count'] != quest['goal'])):
                 raise ValueError('日次依頼の進行が不正です')
+            if species:
+                recorded = slot['recorded']
+                if (not isinstance(recorded, dict) or len(recorded) != slot['count']
+                        or not recorded.keys() <= {target['art'] for target in species}
+                        or any(value is not True for value in recorded.values())):
+                    raise ValueError('日次観察の記録が不正です')
             used.add(id_)
             kinds[quest['kind']] += 1
         if any(count > DAILY_RULES['limits'][kind] for kind, count in kinds.items()):

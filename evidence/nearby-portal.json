@@ -817,6 +817,14 @@
       "to": "dendro-hypostasis-field-den"
     },
     {
+      "node": "sumeru-field",
+      "to": "sum-kaveh-timberyard"
+    },
+    {
+      "node": "sum-kaveh-timberyard",
+      "to": "sumeru-field"
+    },
+    {
       "node": "sumeru-jadeplume-grove",
       "to": "sumeru-field"
     },
