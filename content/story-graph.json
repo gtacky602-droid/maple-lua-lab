@@ -21,6 +21,12 @@
       "level": 1,
       "hub": true,
       "width": 1440,
+      "returnBoxArchive": {
+        "quest": "mond-return-box-quest",
+        "x": 340,
+        "y": 480,
+        "note": "魔物観察記録『返却箱を運んだ水スライム』。跳ねるたびに箱の角から泥が落ち、湿った草地に足跡が続いた。上に載った本は、箱を止めればきれいなまま返せた。"
+      },
       "platforms": [
         {
           "x": 0,
@@ -65,9 +71,43 @@
           "to": "mond-windmill-lookout",
           "x": 965,
           "requires": {"quest": "mond-windmill", "count": 4}
+        },
+        {
+          "to": "mond-library-orchard",
+          "x": 758,
+          "arrivalX": 120,
+          "requires": {"quest": "mond-return-box-quest", "count": 1}
         }
       ],
       "checkpoint": "mond-town"
+    },
+    {
+      "id": "mond-library-orchard",
+      "name": "モンド・図書館裏の果樹道",
+      "region": "モンド",
+      "level": 1,
+      "hub": false,
+      "checkpoint": "mond-town",
+      "width": 1860,
+      "platforms": [
+        {"x": 0, "y": 480, "w": 1860},
+        {"x": 515, "y": 399, "w": 256},
+        {"x": 1190, "y": 413, "w": 260}
+      ],
+      "exits": [{"to": "mond-town", "x": 62, "arrivalX": 704}],
+      "clearedBy": "mond-return-box-quest",
+      "clearCount": 6,
+      "returnBox": {
+        "quest": "mond-return-box-quest",
+        "chaseAt": 4,
+        "start": 1115,
+        "finish": 1640,
+        "y": 480,
+        "speed": 155,
+        "leash": 295,
+        "hops": 2.6,
+        "lift": 20
+      }
     },
     {
       "id": "mond-roof-route",
@@ -4834,6 +4874,32 @@
         "min": 1130,
         "max": 1320
       }
+    },
+    {
+      "id": "mond-return-box-quest",
+      "designId": "Q-MON-S02",
+      "name": "返却箱の小さな逃亡者",
+      "giver": "リサ",
+      "hub": "mond-town",
+      "target": "mond-library-orchard",
+      "requires": "amber-join",
+      "kind": "itinerary",
+      "goal": 7,
+      "xp": 290,
+      "mora": 130,
+      "ore": 2,
+      "briefing": "リサ「図書館の返却箱が、自分で歩いて行ったそうよ。果樹道に足跡が残っていないか見てくれる？」",
+      "closing": "リサ「貸し出し先に『スライム』とは書けないものね。本は無事よ。観察記録はこの返却台に置いておくわ。」",
+      "completedObjective": "城門広場の返却台でスライムの観察記録を読める",
+      "itinerary": [
+        {"kind":"inspect","node":"mond-town","x":340,"y":480,"name":"図書館の返却台","action":"リサから返却箱のことを聞く","objective":"城門広場の返却台でリサに声をかける","notice":"リサ「箱の上に返されたばかりの本が載っているの。右の門から果樹道へ行って、まず落ちた栞を探して。」"},
+        {"kind":"inspect","node":"mond-library-orchard","x":302,"y":480,"name":"青緑の栞","action":"落ちた栞を拾う","objective":"果樹道の入口で、箱から落ちた栞を拾う","notice":"本から落ちた栞です。右の低い石段に、新しい泥が跳ねています。","returnClue":{"art":"bookmark","height":29}},
+        {"kind":"inspect","node":"mond-library-orchard","x":649,"y":399,"name":"跳ねた泥","action":"石段の泥を調べる","objective":"低い石段にジャンプして、丸い跡の残った泥を調べる","notice":"泥に丸い跡が三つ。石段を下りた先で、草が同じ向きに倒れています。","returnClue":{"art":"mud","height":15}},
+        {"kind":"inspect","node":"mond-library-orchard","x":1000,"y":480,"name":"倒れた草","action":"草が倒れた向きを見る","objective":"石段の先で、草が倒れた向きを見る","notice":"箱が草を押し分けて、奥へ跳ねていきます。下に青いものが見えました。","returnClue":{"art":"grass","height":25}},
+        {"kind":"returnBoxChase","node":"mond-library-orchard","objective":"右へ跳ねる返却箱を追い、果樹道の奥まで走る","notice":"水スライムの群れが箱の下から飛び出しました。群れを退けて本を拾いましょう。"},
+        {"kind":"kill","node":"mond-library-orchard","enemies":["mond-return-slime-a","mond-return-slime-b","mond-return-slime-c"],"objective":"返却箱を運んでいた水スライム3体を退ける","notice":"箱が止まりました。ふたの上の本は無事です。"},
+        {"kind":"inspect","node":"mond-library-orchard","x":1640,"y":480,"name":"止まった返却箱","action":"返却箱の上の本を回収する","objective":"止まった返却箱から本を回収し、城門広場へ戻る","notice":"本を回収しました。西の門からリサのいる城門広場に戻れます。","returnPickup":true}
+      ]
     },
     {
       "id": "mond-rest-stop",

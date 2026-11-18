@@ -1,0 +1,24 @@
+{
+  "scene": {
+    "key": "mondOrchard",
+    "file": "mond-return-box-background-v1.png",
+    "state": "ready"
+  },
+  "foundAllClues": true,
+  "climbedForMud": true,
+  "followedBox": true,
+  "foughtWithNormalAttack": true,
+  "returnedBook": true,
+  "archiveAfterReload": true,
+  "commands": {
+    "png": 17,
+    "standard": 5337,
+    "light": 1333
+  },
+  "reward": [
+    290,
+    130,
+    2
+  ],
+  "errors": []
+}

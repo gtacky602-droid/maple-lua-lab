@@ -1,0 +1,17 @@
+{
+  "prerequisite": true,
+  "orderedCluesAndHeight": true,
+  "chaseMovesAndWaits": true,
+  "pauseAndReenter": true,
+  "fightAfterChase": true,
+  "partialDefeatResumes": true,
+  "recoverAfterCombat": true,
+  "reportOnce": true,
+  "archiveAfterReload": true,
+  "noRespawnAfterReport": true,
+  "reward": [
+    290,
+    130,
+    2
+  ]
+}

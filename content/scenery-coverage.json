@@ -1,13 +1,19 @@
 {
   "updated": "2026-11-18",
   "basis": "evidence/map-art-test.json (browser uses shared sceneryDefinitions)",
-  "scope": "Authored 298 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
-  "regional_temporary_image": 290,
+  "scope": "Authored 299 proxy nodes only, not all canonical Genshin maps; regional image does not establish exact local scenery or 3D completion",
+  "regional_temporary_image": 291,
   "fallback_mondstadt": 0,
   "nodes": [
     {
       "id": "mond-town",
       "name": "モンド・城門広場",
+      "region": "モンド",
+      "status": "regional_temporary_image"
+    },
+    {
+      "id": "mond-library-orchard",
+      "name": "モンド・図書館裏の果樹道",
       "region": "モンド",
       "status": "regional_temporary_image"
     },

@@ -2192,6 +2192,36 @@
       "transparent": 0
     },
     {
+      "key": "mondOrchard",
+      "camera": -960,
+      "transparent": 0
+    },
+    {
+      "key": "mondOrchard",
+      "camera": 0,
+      "transparent": 0
+    },
+    {
+      "key": "mondOrchard",
+      "camera": 480,
+      "transparent": 0
+    },
+    {
+      "key": "mondOrchard",
+      "camera": 1920,
+      "transparent": 0
+    },
+    {
+      "key": "mondOrchard",
+      "camera": 3840,
+      "transparent": 0
+    },
+    {
+      "key": "mondOrchard",
+      "camera": 99999,
+      "transparent": 0
+    },
+    {
       "key": "inazumatown",
       "camera": -960,
       "transparent": 0

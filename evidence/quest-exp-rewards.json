@@ -1,15 +1,15 @@
 {
   "scope": "Lua report boundary at base and cap levels. Per-quest tests verify objective routes.",
   "version": "monster-quest-v02",
-  "quests_tested": 24,
+  "quests_tested": 44,
   "old_completed_not_reissued": true,
   "old_unreported_uses_current_preview": true,
   "unlinked_trial_fallback": true,
   "by_region": {
     "MON": {
-      "linked": 6,
-      "legacy_xp": 7297,
-      "report_xp": 10330
+      "linked": 7,
+      "legacy_xp": 7587,
+      "report_xp": 10620
     },
     "LIY": {
       "linked": 8,
@@ -22,9 +22,29 @@
       "report_xp": 733522
     },
     "SNE": {
-      "linked": 6,
-      "legacy_xp": 6,
-      "report_xp": 193544189
+      "linked": 8,
+      "legacy_xp": 37352814,
+      "report_xp": 230896997
+    },
+    "SUM": {
+      "linked": 3,
+      "legacy_xp": 321600,
+      "report_xp": 1997271
+    },
+    "FON": {
+      "linked": 3,
+      "legacy_xp": 5632766,
+      "report_xp": 6802651
+    },
+    "NAT": {
+      "linked": 3,
+      "legacy_xp": 16157054,
+      "report_xp": 16157054
+    },
+    "NOD": {
+      "linked": 8,
+      "legacy_xp": 78388992,
+      "report_xp": 78388992
     }
   },
   "reports": [
@@ -33,6 +53,12 @@
       "quest_id": "amber-join",
       "legacy_xp": 1000,
       "report_xp": 76
+    },
+    {
+      "design_id": "Q-MON-S02",
+      "quest_id": "mond-return-box-quest",
+      "legacy_xp": 290,
+      "report_xp": 290
     },
     {
       "design_id": "Q-MON-S01",
@@ -171,6 +197,120 @@
       "quest_id": "white-pass-rest",
       "legacy_xp": 1,
       "report_xp": 21252810
+    },
+    {
+      "design_id": "Q-SUM-M01",
+      "quest_id": "sumeru-leaf-crossing",
+      "legacy_xp": 75600,
+      "report_xp": 437849
+    },
+    {
+      "design_id": "Q-SUM-M02",
+      "quest_id": "sumeru-forest-levels",
+      "legacy_xp": 96000,
+      "report_xp": 526257
+    },
+    {
+      "design_id": "Q-SUM-M03",
+      "quest_id": "sumeru-observatory-map",
+      "legacy_xp": 150000,
+      "report_xp": 1033165
+    },
+    {
+      "design_id": "Q-FON-M01",
+      "quest_id": "fontaine-moon-parcel",
+      "legacy_xp": 160000,
+      "report_xp": 1329885
+    },
+    {
+      "design_id": "Q-FON-M02",
+      "quest_id": "fontaine-understage-crew",
+      "legacy_xp": 1921946,
+      "report_xp": 1921946
+    },
+    {
+      "design_id": "Q-FON-M03",
+      "quest_id": "fontaine-grand-finale",
+      "legacy_xp": 3550820,
+      "report_xp": 3550820
+    },
+    {
+      "design_id": "Q-NAT-M01",
+      "quest_id": "natlan-ridge-flag",
+      "legacy_xp": 3768926,
+      "report_xp": 3768926
+    },
+    {
+      "design_id": "Q-NAT-M02",
+      "quest_id": "natlan-two-trials",
+      "legacy_xp": 4363734,
+      "report_xp": 4363734
+    },
+    {
+      "design_id": "Q-NAT-M03",
+      "quest_id": "natlan-sunset-duel",
+      "legacy_xp": 8024394,
+      "report_xp": 8024394
+    },
+    {
+      "design_id": "Q-NOD-M01",
+      "quest_id": "nod-first-treasure",
+      "legacy_xp": 9733199,
+      "report_xp": 9733199
+    },
+    {
+      "design_id": "Q-NOD-M02",
+      "quest_id": "nod-moon-crossroads",
+      "legacy_xp": 13612730,
+      "report_xp": 13612730
+    },
+    {
+      "design_id": "Q-NOD-M03",
+      "quest_id": "nod-moon-vault-quest",
+      "legacy_xp": 25032225,
+      "report_xp": 25032225
+    },
+    {
+      "design_id": "Q-NOD-S01",
+      "quest_id": "columbina-coast-detour",
+      "legacy_xp": 3406620,
+      "report_xp": 3406620
+    },
+    {
+      "design_id": "Q-NOD-S02",
+      "quest_id": "nod-treasure-appraisal",
+      "legacy_xp": 4382501,
+      "report_xp": 4382501
+    },
+    {
+      "design_id": "Q-NOD-S03",
+      "quest_id": "nod-moon-rumor",
+      "legacy_xp": 5637939,
+      "report_xp": 5637939
+    },
+    {
+      "design_id": "Q-NOD-S04",
+      "quest_id": "nod-moon-bloom",
+      "legacy_xp": 7253017,
+      "report_xp": 7253017
+    },
+    {
+      "design_id": "Q-NOD-S05",
+      "quest_id": "nod-lantern-patrol",
+      "legacy_xp": 9330761,
+      "report_xp": 9330761
+    },
+    {
+      "design_id": "Q-SNE-S01",
+      "quest_id": "sne-mitya-observation",
+      "legacy_xp": 10267605,
+      "report_xp": 10267605
+    },
+    {
+      "design_id": "Q-SNE-S05",
+      "quest_id": "sne-snow-match-quest",
+      "legacy_xp": 27085203,
+      "report_xp": 27085203
     }
   ]
 }

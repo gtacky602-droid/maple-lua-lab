@@ -5,6 +5,10 @@
       "enemy_count": 0
     },
     {
+      "node": "mond-library-orchard",
+      "enemy_count": 0
+    },
+    {
       "node": "mond-roof-route",
       "enemy_count": 0
     },

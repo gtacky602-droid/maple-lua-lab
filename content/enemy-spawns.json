@@ -2,6 +2,11 @@
   "version": 1,
   "status": "Provisional live placement; existing generic behavior; not canonical regional species or attacks",
   "nodes": {
+    "mond-library-orchard": [
+      {"id":"mond-return-slime-a","kind":1,"art":"hydro-slime","x":1485,"platform":0,"hp":12,"questPhase":1},
+      {"id":"mond-return-slime-b","kind":1,"art":"hydro-slime","x":1615,"platform":0,"hp":14,"questPhase":1},
+      {"id":"mond-return-slime-c","kind":1,"art":"hydro-slime","x":1745,"platform":0,"hp":17,"questPhase":1}
+    ],
     "mond-roadside-rest": [
       {"id": "mond-rest-slime", "kind": 1, "art": "hydro-slime", "x": 350, "platform": 0, "hp": 12},
       {"id": "mond-rest-hilichurl", "kind": 1, "art": "hilichurl", "x": 790, "platform": 0, "hp": 18}

@@ -17,6 +17,14 @@
       "to": "mond-windmill-lookout"
     },
     {
+      "node": "mond-town",
+      "to": "mond-library-orchard"
+    },
+    {
+      "node": "mond-library-orchard",
+      "to": "mond-town"
+    },
+    {
       "node": "mond-roof-route",
       "to": "mond-town"
     },

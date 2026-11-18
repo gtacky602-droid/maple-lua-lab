@@ -1,4 +1,4 @@
-return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule)
+return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,localLight,airflow,resonanceModule,rockViewsModule,paperModule,theater,flagCourse,movingPlatforms,duel,moonInlet,coastDetour,appraisalModule,rumorModule,bloomModule,patrolModule,surveyModule,snowMatchModule,returnBoxModule)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local function copy(v)
   if type(v)~='table' then return v end
@@ -179,6 +179,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local patrol=patrolModule(C,canInspect)
  local survey=surveyModule(C,canInspect)
  local snowMatch=snowMatchModule(C,canInspect)
+ local returnBox=returnBoxModule(C,canInspect)
  local function emitCue(s,channel,notes,pattern)
   s.storyCueId=(s.storyCueId or 0)+1
   s.storyCue={channel=channel,id=s.storyCueId,notes=notes,pattern=pattern,untilTime=s.t+1.5}
@@ -477,6 +478,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.storyPatrolShot=nil
   s.snowballRound=nil
   s.snowMatchVenue=n.snowMatch~=nil
+  s.returnBox=nil
   s.storyLightMode=n.localLight and 'bright' or nil
   s.airflowTrial,s.storyCue=nil,nil
   s.resonanceOrder,s.resonancePage=nil,nil
@@ -526,6 +528,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local stageQuest=quests[n.clearedBy]
   local stageState=clearState(s,n)
   local phase=railState and railState.count or 0
+  if n.returnBox and stageState and stageState.count==n.returnBox.chaseAt+1 then phase=1 end
   if stageQuest and stageQuest.recovery and stageState and stageState.recovered and stageState.count==stageQuest.goal-1 then phase=1 end
   local group=stageState and (stageState.book or stageState.forest or stageState.rest)
   local defeated=group and group.defeated
@@ -622,6 +625,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if node.snowMatch and snowMatch.start(s,node.snowMatch,s.story.quests[node.snowMatch.quest]) then return end
    if flagCourse.interact(s,node.flagCourse) then return end
    if inspectMilestone(s,'rotate') then return end
+   local archive=node.returnBoxArchive
+   if archive and returnBox.read(s,archive,s.story.quests[archive.quest]) then return end
    local railConfig,railState=railQuest(s,nodes[s.story.node])
    if railConfig then rail.start(s,railConfig,railState);return end
    if contestQuest and contest.interact(s,contestQuest,s.story.quests[contestQuest.id]) then return end
@@ -920,6 +925,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local node=nodes[s.story.node]
    duel.step(s,node.duel)
    patrol.update(s,node.patrol)
+   local boxSpec=node.returnBox
+   if boxSpec then
+    local q=quests[boxSpec.quest]
+    local state=s.story.quests[q.id]
+    if state and state.status=='active' and state.count==boxSpec.chaseAt and s.t>previous
+       and returnBox.step(s,boxSpec,s.t-previous) then
+     completeMilestone(s,state,q.itinerary[state.count+1])
+     spawnEnemies(s,node,1)
+    end
+   end
    if node.snowMatch then
     local score=snowMatch.update(s,node.snowMatch,s.t-previous,input.attack)
     if score then
@@ -1090,6 +1105,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    movingPlatforms.observe(s,f,markers,n.riverCrossing,mode,profile)
    duel.frame(s,f,markers,n.duel)
    if n.snowMatch then snowMatch.observe(s,f,markers,n.snowMatch,s.story.quests[n.snowMatch.quest],mode,profile) end
+   if n.returnBox then
+    local q=quests[n.returnBox.quest]
+    returnBox.observe(s,f,markers,n.returnBox,q,s.story.quests[q.id],mode,profile)
+   end
+   if n.returnBoxArchive then
+    returnBox.archive(s,f,markers,n.returnBoxArchive,s.story.quests[n.returnBoxArchive.quest],mode,profile)
+   end
     if n.moonInlet then moonInlet.observe(s,f,markers,n.moonInlet,s.story.quests[n.moonInlet.quest]) end
     if n.shoreLights then moonInlet.lights(s,markers,n.shoreLights) end
     if n.coastDetour then coastDetour.observe(s,f,markers,n.coastDetour,quests[n.coastDetour.quest],mode,profile) end
@@ -1256,7 +1278,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      local x,y=milestone.x-s.camera,milestone.y
      if not milestone.rumorBoard and not milestone.bloomProp and not milestone.patrolLamp and not milestone.patrolTable
         and not milestone.surveySample and not milestone.surveyPad and not milestone.surveyRig and not milestone.surveySeat
-        and not milestone.flagProp and not milestone.shadowView and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
+        and not milestone.flagProp and not milestone.shadowView and not milestone.returnClue and not milestone.returnPickup
+        and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
       if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
       elseif milestone.islandTreasure then drawIslandChest(markers,x,y,false)

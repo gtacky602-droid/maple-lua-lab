@@ -1,0 +1,108 @@
+{
+  "tool": "built-in image generation",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/mond-return-box-model.obj",
+    "sha256": "ce7134c2c02ce9a9f34ca3df440a9d9003de3ee3d212089c824d279e0c84ad12"
+  },
+  "materials": {
+    "path": "evidence/mond-return-box-model.mtl",
+    "sha256": "ac2f10e107c969f516980ef8ab0662179b0cf53f24229b8bb07a54e1993433ae"
+  },
+  "contactSheet": {
+    "path": "evidence/mond-return-box-views.png",
+    "sha256": "8fecfaaeceaa899d6f2d0d9c9bddedf80e01bc8399d09c8cd2bfa027474c6f26"
+  },
+  "propsSource": {
+    "path": "assets/mond-return-box-props-source-v1.png",
+    "sha256": "478f5bfa4e766ef0d953c5fd44e7c312520b86df3a7ee5f8e4252b3c83d02050"
+  },
+  "carrier": {
+    "path": "assets/hydro-slime-idle-source-v2.png",
+    "sha256": "8c62268534675dc48fbb4e82eb08b81976bde309df3c7fa6c50a8f286b781f42"
+  },
+  "carrierReferenceAudit": "evidence/hydro-slime-reference-audit.json",
+  "background": {
+    "path": "assets/mond-return-box-background-v1.png",
+    "sha256": "5c3ac8e5992384ae060703f871a4696cb00bfb6df466e47a02f8ca2ce18221df"
+  },
+  "backgroundReference": {
+    "path": "assets/mond-roadside-rest-background-v1.png",
+    "sha256": "8622d958db6399bf58fde91890e7446d03d58d337a74e6d7e119d196393c4080"
+  },
+  "backgroundStatus": "Original orchard composition; temporary backdrop for the lab.",
+  "profiles": {
+    "crate": {
+      "encoding": {
+        "path": "assets/mond-return-box-crate-sprites-v1.json",
+        "sha256": "a0ad9f9262ee0d3581c392cc87c8301e650a895410a3dffc1009c6ee6e2bbd5d"
+      },
+      "box": [
+        85,
+        157,
+        408,
+        396
+      ],
+      "runs": {
+        "legacy": 1161,
+        "h48c32": 736,
+        "h32c16": 280
+      }
+    },
+    "bookmark": {
+      "encoding": {
+        "path": "assets/mond-return-box-bookmark-sprites-v1.json",
+        "sha256": "4a8562417becbeac1a698e67ead2f3873de5e9390cedcbdd5a945444741102ab"
+      },
+      "box": [
+        651,
+        198,
+        363,
+        323
+      ],
+      "runs": {
+        "legacy": 410,
+        "h48c32": 243,
+        "h32c16": 97
+      }
+    },
+    "mud": {
+      "encoding": {
+        "path": "assets/mond-return-box-mud-sprites-v1.json",
+        "sha256": "e55d0dc137e4f33484a52632b37e1e830079e9bb69048a6ba88e6dea3bee7810"
+      },
+      "box": [
+        1150,
+        322,
+        410,
+        167
+      ],
+      "runs": {
+        "legacy": 445,
+        "h48c32": 260,
+        "h32c16": 110
+      }
+    },
+    "grass": {
+      "encoding": {
+        "path": "assets/mond-return-box-grass-sprites-v1.json",
+        "sha256": "6083f4e598bd17227eaad5c6276d91f110b5873639f6038a274868e7ae3d3dee"
+      },
+      "box": [
+        1683,
+        314,
+        430,
+        175
+      ],
+      "runs": {
+        "legacy": 674,
+        "h48c32": 427,
+        "h32c16": 174
+      }
+    }
+  }
+}
