@@ -1,0 +1,147 @@
+{
+  "tool": "built-in image generation with original 3D shape references",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/fon-navia-photo-model.obj",
+    "sha256": "a75d9e51d3bdc65dc04e57b48fba75462d87b9d6459fa271bface26582abf521"
+  },
+  "materials": {
+    "path": "evidence/fon-navia-photo-model.mtl",
+    "sha256": "2492327820a5b9965a596359b82b8de59d10ad4a3f9c02491261b6944c3d6b1d"
+  },
+  "contactSheet": {
+    "path": "evidence/fon-navia-photo-views.png",
+    "sha256": "0738b295018b4c1fea1c070aa011ac0efc1f6a4f948ec24b6ef2c160355ef5df"
+  },
+  "propsSource": {
+    "path": "assets/fon-navia-photo-props-source-v1.png",
+    "sha256": "c884c43c18b17512805f0e03b6347d363dea615687b899ce2cf7c08fceb1a253"
+  },
+  "alphaCorners": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "backgrounds": [
+    {
+      "path": "assets/fon-navia-photo-terrace-background-v1.png",
+      "sha256": "11eb2c91709a92416b7b22ffffc302781463e32491b0a8ee893986521239aaf7"
+    }
+  ],
+  "references": [
+    {
+      "path": "assets/fontaine-delivery-quay-background-v1.png",
+      "sha256": "c86e79c995db3f316e32b9768f4b0246c626ecb5396dfc27ed7404c349762856"
+    }
+  ],
+  "status": "Six original pieces using a custom three-angle blockout. Background is a lab placeholder.",
+  "profiles": {
+    "camera": {
+      "encoding": {
+        "path": "assets/fon-navia-photo-camera-sprites-v1.json",
+        "sha256": "a669616eadd5823b66b0d298145945140a2e926a46c9e1fe949f5ddee72cdcd6"
+      },
+      "box": [
+        185,
+        70,
+        225,
+        393
+      ],
+      "runs": {
+        "legacy": 1946,
+        "h48c32": 1177,
+        "h32c16": 503
+      }
+    },
+    "chair": {
+      "encoding": {
+        "path": "assets/fon-navia-photo-chair-sprites-v1.json",
+        "sha256": "b9f4ad65b2643ba32da54c076511684f863b265bf5253e41586edf5b8546e720"
+      },
+      "box": [
+        611,
+        107,
+        286,
+        341
+      ],
+      "runs": {
+        "legacy": 1277,
+        "h48c32": 767,
+        "h32c16": 304
+      }
+    },
+    "crate": {
+      "encoding": {
+        "path": "assets/fon-navia-photo-crate-sprites-v1.json",
+        "sha256": "ace4588446b6acd1380b647ecc26089e307e1d74e3215ce942acf809198d4acf"
+      },
+      "box": [
+        1044,
+        224,
+        374,
+        216
+      ],
+      "runs": {
+        "legacy": 1675,
+        "h48c32": 1035,
+        "h32c16": 402
+      }
+    },
+    "board": {
+      "encoding": {
+        "path": "assets/fon-navia-photo-board-sprites-v1.json",
+        "sha256": "b785a6f924de1f016c70c49a378dc6a869d59e7a250bde4f9d390295f0a61e08"
+      },
+      "box": [
+        152,
+        564,
+        271,
+        365
+      ],
+      "runs": {
+        "legacy": 3780,
+        "h48c32": 2188,
+        "h32c16": 891
+      }
+    },
+    "snack": {
+      "encoding": {
+        "path": "assets/fon-navia-photo-snack-sprites-v1.json",
+        "sha256": "1d5959b4a84e4215a88b221c080ce66dcaff347e55a12c64c82305dc27fc1a26"
+      },
+      "box": [
+        569,
+        623,
+        364,
+        282
+      ],
+      "runs": {
+        "legacy": 1890,
+        "h48c32": 1087,
+        "h32c16": 473
+      }
+    },
+    "tickets": {
+      "encoding": {
+        "path": "assets/fon-navia-photo-tickets-sprites-v1.json",
+        "sha256": "471e213733eff0e496711a8c15590125d5de3c620977ce28bed1e39ae0ae2b9d"
+      },
+      "box": [
+        1063,
+        668,
+        331,
+        202
+      ],
+      "runs": {
+        "legacy": 998,
+        "h48c32": 589,
+        "h32c16": 232
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "quest": "fon-navia-photo",
+  "background": {
+    "key": "fontainePhotoTerrace",
+    "file": "fon-navia-photo-terrace-background-v1.png",
+    "state": "ready"
+  },
+  "positionAdjustedAndRestored": true,
+  "timerRetriedAndWalked": true,
+  "postedAfterReportAndReload": true,
+  "mobileWidth": 390,
+  "calls": {
+    "png": 24,
+    "rect": 16929,
+    "light": 4311
+  },
+  "errors": []
+}

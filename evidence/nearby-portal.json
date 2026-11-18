@@ -850,6 +850,10 @@
     },
     {
       "node": "fontaine-hub",
+      "to": "fon-photo-terrace"
+    },
+    {
+      "node": "fontaine-hub",
       "to": "fon-emilie-atelier"
     },
     {
@@ -2499,6 +2503,14 @@
     {
       "node": "sumeru-sky-observatory",
       "to": "sum-kaveh-reading-room"
+    },
+    {
+      "node": "fon-photo-terrace",
+      "to": "fontaine-hub"
+    },
+    {
+      "node": "fon-photo-terrace",
+      "to": "fontaine-hub"
     },
     {
       "node": "fon-emilie-atelier",

@@ -1,0 +1,147 @@
+{
+  "tool": "built-in image generation with original 3D shape references",
+  "modelViews": [
+    "front",
+    "front three quarter",
+    "rear three quarter"
+  ],
+  "model": {
+    "path": "evidence/fon-navia-people-model.obj",
+    "sha256": "765a9df52c733adb046866f17627aff9a9d0b7ee3eb1bfea8da8086f3c885a28"
+  },
+  "materials": {
+    "path": "evidence/fon-navia-people-model.mtl",
+    "sha256": "2492327820a5b9965a596359b82b8de59d10ad4a3f9c02491261b6944c3d6b1d"
+  },
+  "contactSheet": {
+    "path": "evidence/fon-navia-people-views.png",
+    "sha256": "aa17ef91a4dfb1cefaa6eb0745e9c0567fca179153585a1338538d53b6d1f140"
+  },
+  "propsSource": {
+    "path": "assets/fon-navia-people-props-source-v1.png",
+    "sha256": "8d9594bc66ee32bfa615796023158a56346ed35cd5c89a0acc2b99b97ba0285e"
+  },
+  "alphaCorners": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "backgrounds": [
+    {
+      "path": "assets/fon-navia-photo-terrace-background-v1.png",
+      "sha256": "11eb2c91709a92416b7b22ffffc302781463e32491b0a8ee893986521239aaf7"
+    }
+  ],
+  "references": [
+    {
+      "path": "assets/sum-collei-guest-source-v1.png",
+      "sha256": "12a7936ccca7b63b758daf6dc0f6b022ca7d9b982780ecaa50df9a981d62a9b1"
+    }
+  ],
+  "status": "Six original pieces using a custom three-angle blockout. Background is a lab placeholder.",
+  "profiles": {
+    "porter": {
+      "encoding": {
+        "path": "assets/fon-navia-people-porter-sprites-v1.json",
+        "sha256": "19a9cc8d9ac08b40fa2a8f6b540900fb4b2da52945a9d2d7a8427a369dfbe4b1"
+      },
+      "box": [
+        180,
+        91,
+        190,
+        367
+      ],
+      "runs": {
+        "legacy": 1522,
+        "h48c32": 944,
+        "h32c16": 436
+      }
+    },
+    "baker": {
+      "encoding": {
+        "path": "assets/fon-navia-people-baker-sprites-v1.json",
+        "sha256": "a1a2baaa531cb56729bc6ad7624b3f1db7bba34b6c88f0e09fd24f1372669b73"
+      },
+      "box": [
+        660,
+        93,
+        207,
+        365
+      ],
+      "runs": {
+        "legacy": 1617,
+        "h48c32": 1056,
+        "h32c16": 434
+      }
+    },
+    "mechanic": {
+      "encoding": {
+        "path": "assets/fon-navia-people-mechanic-sprites-v1.json",
+        "sha256": "fa9dd46bf6189a4c7988b34f55bfff762eacb553e7304de854c6feb75d76d73c"
+      },
+      "box": [
+        1170,
+        90,
+        186,
+        368
+      ],
+      "runs": {
+        "legacy": 1662,
+        "h48c32": 1008,
+        "h32c16": 450
+      }
+    },
+    "porterSmile": {
+      "encoding": {
+        "path": "assets/fon-navia-people-porterSmile-sprites-v1.json",
+        "sha256": "2f497a6452b5b47cf0f98189841a2dc12996c450f8b1b6ce3d8aa36e56440b5c"
+      },
+      "box": [
+        166,
+        602,
+        247,
+        367
+      ],
+      "runs": {
+        "legacy": 1616,
+        "h48c32": 1000,
+        "h32c16": 443
+      }
+    },
+    "bakerSmile": {
+      "encoding": {
+        "path": "assets/fon-navia-people-bakerSmile-sprites-v1.json",
+        "sha256": "8627194d2cd8a1189befdac44b67d100bdac8b644030c46357d35d5754b5531e"
+      },
+      "box": [
+        638,
+        606,
+        246,
+        363
+      ],
+      "runs": {
+        "legacy": 1779,
+        "h48c32": 1102,
+        "h32c16": 510
+      }
+    },
+    "mechanicSmile": {
+      "encoding": {
+        "path": "assets/fon-navia-people-mechanicSmile-sprites-v1.json",
+        "sha256": "276acafdef76744d34271b678d12e47b41100c0e69213ae000b56da624e15f77"
+      },
+      "box": [
+        1136,
+        602,
+        230,
+        367
+      ],
+      "runs": {
+        "legacy": 1763,
+        "h48c32": 1083,
+        "h32c16": 508
+      }
+    }
+  }
+}

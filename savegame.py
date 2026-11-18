@@ -62,6 +62,32 @@ def validate_discovery_map(record, quest, story):
         raise ValueError('Incomplete discovery map')
 
 
+def validate_group_photo(record, quest):
+    spec = quest.get('groupPhoto')
+    progress = record.get('groupPhoto')
+    count = record['count']
+    if 'groupPhoto' not in record:
+        if spec and count >= spec['layoutAt']:
+            raise ValueError('集合写真の構図がありません')
+        return
+    if not spec or count < spec['layoutAt'] - 1 or not isinstance(progress, dict):
+        raise ValueError('集合写真の進行が不正です')
+    keys = {'seat', 'riser', 'posted'} if count == quest['goal'] else {'seat', 'riser'}
+    if set(progress) != keys:
+        raise ValueError('集合写真の記録形式が不正です')
+    seat = next((option for option in spec['seats'] if option['id'] == progress['seat']), None)
+    riser = next((option for option in spec['risers'] if option['id'] == progress['riser']), None)
+    if seat is None or riser is None:
+        raise ValueError('集合写真の配置が不正です')
+    gap = spec['faceGap']
+    heads = spec['crew']
+    if (count >= spec['layoutAt'] and abs(seat['x'] - riser['x']) < gap['x']
+            and abs(riser['rise'] + heads[1]['head'] - heads[0]['head']) < gap['y']):
+        raise ValueError('集合写真で顔が重なっています')
+    if 'posted' in progress and not any(option['id'] == progress['posted'] for option in spec['prints']):
+        raise ValueError('集合写真の掲示写真が不正です')
+
+
 def validate_reading_model(record, quest):
     spec = quest.get('readingModel')
     value = record.get('roomLayout')
@@ -318,7 +344,7 @@ def validate_save(data):
         if any(nodes[k].get('hiddenGroup') and not discovered.get(nodes[k]['hiddenGroup']) for k in st['visited']): raise ValueError('Undiscovered hidden visit')
         if not isinstance(st['quests'],dict): raise ValueError('Invalid story quests')
         for id,q in st['quests'].items():
-            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord','fireworkDesign','stealthEncounter','ittoContest','colleiLetter','roomLayout','discoveryDraft','discoveryDew'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
+            if id not in quests or not isinstance(q,dict) or set(q)-{'cycles','recovered','inspected','delivery','cooking','book','stone','construction','lantern','forest','sights','rest','roof','sweep','paperSouvenir','stagePlan','flagBestTicks','pathProgress','storyChoice','reflectAngle','appraisal','surveySupport','snowMatchRecord','fireworkDesign','stealthEncounter','ittoContest','colleiLetter','roomLayout','discoveryDraft','discoveryDew','groupPhoto'}!={'status','count'} or q['status'] not in ('active','complete') or type(q['count']) is not int or not 0<=q['count']<=quests[id]['goal'] or (q['status']=='complete' and q['count']!=quests[id]['goal']): raise ValueError('Invalid story quest progress')
             if 'cycles' in q and (type(q['cycles']) is not int or not 0<=q['cycles']<=10**9 or (not quests[id].get('repeatable') and q['cycles']>1) or (q['status']=='complete' and q['cycles']<1)): raise ValueError('Invalid quest cycle count')
             if 'recovered' in q:
                 cargo = quests[id].get('cargo')
@@ -347,6 +373,7 @@ def validate_save(data):
                 validate_steps_visited(quest['itinerary'],q['count'],visited)
             validate_paths(q,quest,st['visited'])
             validate_reading_model(q,quest)
+            validate_group_photo(q,quest)
             validate_discovery_map(q,quest,st)
             validate_appraisal(q,quest,st['visited'])
             validate_snow_match(q,quest,nodes.get(quest.get('target'),{}).get('snowMatch'))

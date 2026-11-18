@@ -31,6 +31,19 @@
 .rehearsal-controls{display:flex;flex-wrap:wrap;gap:8px}
 #furinaRehearsal button:disabled{opacity:.5;cursor:default}
 #furinaRehearsal .active-cue{color:#fbf1bf;border-color:#e9c680;background:#426755}
+#groupPhoto{padding:14px 18px;background:#23423f;color:#edf2df}
+#groupPhotoTitle{font-size:18px;margin:0;color:#ffe8b3}
+#groupPhotoStatus{margin:6px 0 12px}
+#groupPhotoStatus:empty{display:none}
+#groupPhotoPrints{display:grid;grid-template-columns:minmax(0,560px);gap:16px}
+#groupPhotoPrints.group-photo-two{grid-template-columns:repeat(2,minmax(0,560px))}
+#groupPhoto figure{margin:0 0 12px;padding:7px;background:#f3e6bc;color:#354a47}
+#groupPhoto figure button{color:#fff3cc}
+#groupPhoto canvas{width:100%;aspect-ratio:560/275}
+#groupPhoto figcaption{margin:6px 0}
+#groupPhotoLayout:not([hidden]){display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:10px}
+#groupPhoto button:disabled{opacity:.55;cursor:default}
+@media(max-width:680px){#groupPhotoPrints.group-photo-two{grid-template-columns:minmax(0,1fr)}}
 </style>
 <main><header><div><div class="eyebrow">TEYVAT · 2D ADVENTURE LAB</div><h1>風の狩場</h1><p>3D背景を想定した画像と、Luaで動く2Dの旅人・アンバー。</p></div><span class="badge">Lua 5.3 / ローカル試作 A</span></header>
 <div class="game"><canvas id="game" width="960" height="540" aria-label="横スクロールのLua試作狩場"></canvas><div class="topline"><div class="card" id="a1"></div><div class="card" id="a2"></div></div><div class="location">モンド風・試験用狩場　/　3画面・2段足場</div>
@@ -86,6 +99,20 @@
   <button type="button" data-rehearsal-cue="wave" data-action="story_rehearsal:wave">波を出す</button>
   <button type="button" data-action="story_rehearsal:close">稽古を閉じる</button>
  </div>
+</section>
+<section id="groupPhoto" hidden aria-labelledby="groupPhotoTitle">
+ <h2 id="groupPhotoTitle"></h2>
+ <p id="groupPhotoStatus" role="status"></p>
+ <div id="groupPhotoPrints">
+  <figure id="groupPhoto-formal" hidden><canvas width="560" height="275" aria-hidden="true"></canvas><figcaption></figcaption><button type="button">記念写真を掲示する</button></figure>
+  <figure id="groupPhoto-candid" hidden><canvas width="560" height="275" aria-hidden="true"></canvas><figcaption></figcaption><button type="button">休憩写真を掲示する</button></figure>
+ </div>
+ <div id="groupPhotoLayout" hidden>
+  <label>椅子 <select id="groupPhotoSeat"></select></label>
+  <label>台 <select id="groupPhotoRiser"></select></label>
+  <button id="groupPhotoConfirm" type="button">この構図で撮る</button>
+ </div>
+ <button id="groupPhotoClose" type="button">閉じる</button>
 </section>
 <section id="teaCaseBoard" hidden aria-label="茶屋の証拠を選ぶ" style="padding:10px 18px;background:#173a3b">
  <div id="teaEvidenceCards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:8px"></div>

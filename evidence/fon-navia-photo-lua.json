@@ -1,0 +1,21 @@
+{
+  "quest": "fon-navia-photo",
+  "main1Required": true,
+  "threeWorkers": true,
+  "occlusionRejected": true,
+  "layoutRestored": true,
+  "timerFailureRetried": true,
+  "actualWalkToMark": true,
+  "pausedTimer": true,
+  "variantsRestoreAndDisplay": true,
+  "rewards": [
+    [
+      799743,
+      3600
+    ],
+    [
+      799743,
+      3600
+    ]
+  ]
+}

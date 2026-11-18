@@ -184,7 +184,13 @@ def runtime():
     furina_cues=lua.execute((ROOT/'story-furina-cues.lua').read_text(encoding='utf8'))
     core.furinaCueArt=field_art(lua,'fon-furina-cues',(),variants={
         key:f'fon-furina-cues-{key}-sprites-v1.json' for key in ('console','lamp','curtain')})
-    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms,duel,moon_inlet,coast_detour,appraisal,rumor,bloom,patrol,survey_rig,snow_match,return_box,night_banner,fireworks,stealth,itto_games,tea_case,wanderer_survey,observation_visitors,collei_guide,kaveh_model,nahida_map,emilie_scent,furina_cues)
+    navia_photo=lua.execute((ROOT/'story-navia-photo.lua').read_text(encoding='utf8'))
+    core.naviaPhotoArt=field_art(lua,'fon-navia-photo',(),variants={
+        **{key:f'fon-navia-photo-{key}-sprites-v1.json' for key in ('camera','chair','crate','board','snack','tickets')},
+        **{key:f'fon-navia-people-{key}-sprites-v1.json'
+           for key in ('porter','baker','mechanic','porterSmile','bakerSmile','mechanicSmile')},
+    })
+    lua.execute((ROOT / 'story.lua').read_text(encoding='utf-8'))(core,graph,delivery,rail,cooking,book,stone,construction,lantern,forest,contest,sights,rest,cave,roof,reflection,local_light,airflow,resonance,rock_views,paper_folds,theater,flag_course,moving_platforms,duel,moon_inlet,coast_detour,appraisal,rumor,bloom,patrol,survey_rig,snow_match,return_box,night_banner,fireworks,stealth,itto_games,tea_case,wanderer_survey,observation_visitors,collei_guide,kaveh_model,nahida_map,emilie_scent,furina_cues,navia_photo)
     lua.execute((ROOT / 'barrier.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'farka.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'regisvine.lua').read_text(encoding='utf-8'))(core)

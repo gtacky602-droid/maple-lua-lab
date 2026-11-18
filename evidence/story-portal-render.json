@@ -743,12 +743,12 @@
     {
       "node": "fontaine-hub",
       "mode": "sprite",
-      "visible_portals": 11
+      "visible_portals": 12
     },
     {
       "node": "fontaine-hub",
       "mode": "rect",
-      "visible_portals": 11
+      "visible_portals": 12
     },
     {
       "node": "fontaine-field",
@@ -2627,6 +2627,16 @@
     },
     {
       "node": "sumeru-sky-observatory",
+      "mode": "rect",
+      "visible_portals": 2
+    },
+    {
+      "node": "fon-photo-terrace",
+      "mode": "sprite",
+      "visible_portals": 2
+    },
+    {
+      "node": "fon-photo-terrace",
       "mode": "rect",
       "visible_portals": 2
     },

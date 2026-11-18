@@ -1580,6 +1580,12 @@
       "backgroundState": "ready"
     },
     {
+      "id": "fon-photo-terrace",
+      "count": 0,
+      "fallback": false,
+      "backgroundState": "ready"
+    },
+    {
       "id": "fon-emilie-atelier",
       "count": 0,
       "fallback": false,
