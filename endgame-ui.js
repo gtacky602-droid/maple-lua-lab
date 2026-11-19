@@ -20,7 +20,7 @@ export function initEndgameUI(action){
   if(!pick)return;
   duelStart.disabled=!pick.available;
   get('stygianReward').textContent=pick.available
-   ? `勝利 ${pick.mora.toLocaleString()}モラ・★${pick.rarity} 聖遺物Lv${pick.itemLevel}${pick.record?'':` ｜ 初回は+${pick.firstMora.toLocaleString()}モラ`}`
+   ? `勝利 ${pick.xp.toLocaleString()}EXP・${pick.mora.toLocaleString()}モラ・★${pick.rarity} 聖遺物Lv${pick.itemLevel}${pick.record?'':` ｜ 初回は+${pick.firstXp.toLocaleString()}EXP・+${pick.firstMora.toLocaleString()}モラ`}`
    : `Lv${pick.level}で挑戦できます`;
   const history=get('stygianRecord');
   history.hidden=!pick.record;
@@ -91,7 +91,7 @@ export function initEndgameUI(action){
    next.hidden=fight.kind!=='abyss'||fight.status!=='between';
    const prize=fight.matchReward;
    const result=fight.match?(fight.status==='clear'
-    ? `勝利 ｜ ${prize.mora.toLocaleString()}モラ・★${prize.rank} ${prize.set}${prize.bag?'':'（広場で受取）'}`
+    ? `勝利 ｜ ${prize.xp.toLocaleString()}EXP・${prize.mora.toLocaleString()}モラ・★${prize.rank} ${prize.set}${prize.bag?'':'（拠点で受取）'}`
     : fight.status==='failed'?(fight.phase==='spectate'?fight.hint
       :fight.remaining===0?'時間切れ。入口から再挑戦できます。':'挑戦終了。入口から再挑戦できます。')
     :fight.hint)

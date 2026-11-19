@@ -7992,6 +7992,12 @@
       "wanderer"
     ],
     "final_roster": false,
+    "clear_reward_exp": {
+      "status": "provisional_runtime",
+      "match_difficulty_pairs_tested": 28,
+      "design": "docs/balance/STYGIAN_CLEAR_REWARDS_WEB.md",
+      "evidence": "evidence/stygian-clear-rewards-lua.json"
+    },
     "catalog": "content/stygian-encounters.json"
   },
   "encounter_worklist": {
@@ -8008,7 +8014,7 @@
     "status": "partial",
     "design": "content/world-bosses-design.json"
   },
-  "current_priority": "Audit normal, weekly, and original Stygian encounters against the reviewed roster, then verify mapped quests from acceptance to report.",
+  "current_priority": "Add provisional weekly difficulty selection and per-difficulty first-clear rewards while preserving the existing quest routes and saved records.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",

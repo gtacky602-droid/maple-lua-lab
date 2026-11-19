@@ -50,6 +50,11 @@ try{
  assert.match(await page.locator('#stygianReward').textContent(),/Lv165/);
  await page.locator('#stygianMode').selectOption('normal');
  await page.locator('#stygianSet').selectOption('troupe');
+ const prepared=await frame();
+ const payout=prepared.stygianDesk.modes.find(entry=>entry.id==='normal');
+ const selection=await page.locator('#stygianReward').textContent();
+ assert.match(selection,/EXP.*初回は.*EXP/);
+ await page.locator('#stygianDesk').screenshot({path:'evidence/stygian-clear-rewards-selection.png'});
  await page.locator('#stygianStart').click();
  await wait(()=>window.lab.frame.endgameRun?.phase==='guard'&&window.lab.frame.endgameRun.tick>=40);
  await canvas.click();
@@ -133,11 +138,17 @@ try{
  assert.equal(victory.endgame.stygian['beidou:normal'].clears,1);
  assert.equal(victory.endgameRun.matchReward.mora,1210);
  assert.equal(victory.endgameRun.matchReward.set,'黄金の劇団');
+ const awarded=payout.xp+payout.firstXp;
+ assert.equal(victory.endgameRun.matchReward.xp,awarded);
+ assert.equal(victory.progression.baseXp-prepared.progression.baseXp,awarded);
  await wait(()=>document.getElementById('endgameRunStatus').textContent.includes('勝利'));
+ assert.ok((await page.locator('#endgameRunStatus').textContent()).includes(`${awarded.toLocaleString()}EXP`));
+ await page.locator('#endgameRun').screenshot({path:'evidence/stygian-clear-rewards-result.png'});
  assert.ok(victory.events.some(e=>e.kind==='stygian:beidou:opening-hit'));
  await page.getByRole('button',{name:'挑戦入口に戻る',exact:true}).click();
  await wait(()=>window.lab.frame.stygianDesk);
  await wait(()=>document.getElementById('stygianRecord').textContent.includes('1勝'));
+ assert.doesNotMatch(await page.locator('#stygianReward').textContent(),/初回/);
  await mode('bait');
  await page.locator('#stygianStart').click();
  await wait(()=>window.lab.frame.events.filter(e=>e.kind==='stygian:beidou:baited').length===1);
@@ -164,6 +175,9 @@ try{
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({background,mode:'normal',levels:[30,58,103,165],
   commands:{png:original.commands,standard:standard.commands,light:light.commands},viewport390:true,
   avoidedCounter:true,manualBaited:true,independentLeftAndRight:true,firstReward:victory.endgameRun.matchReward,questReportSaveRestore:true,record:stored,errors},null,2)+'\n');
+ await fs.writeFile('evidence/stygian-clear-rewards-browser.json',JSON.stringify({
+  encounter:'beidou:normal',repeatXp:payout.xp,firstXp:payout.firstXp,award:victory.endgameRun.matchReward,
+  baseExpIncrease:awarded,bonusHiddenAfterWin:true,recordSurvivesBrowserReload:true,errors},null,2)+'\n');
  console.log('Beidou Chrome: navigation, rank gates, art modes, waiting or baiting, normal clear, rewards, report and restore passed');
 }catch(error){
  const f=await page.evaluate(()=>window.lab?.frame);

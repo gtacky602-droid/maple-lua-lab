@@ -1,0 +1,432 @@
+{
+  "source": "content/encounter-roster-review.json and content/stygian-matches.json",
+  "gameVersionReviewed": "7.2",
+  "normalAndWeeklyRevision": "8f74f1351dda34091c1b8bcd11112665cfbd9fb9",
+  "scope": "Existing encounter-specific Lua scenario tests. Fixtures can supply level, positions, HP, prior phase, or progress. Player route and rewards are tested where asserted in the linked scripts.",
+  "normalFamilies": 48,
+  "normalVariants": 49,
+  "weeklyEncounters": 14,
+  "stygianEncounters": 7,
+  "scenarios": {
+    "boss-26020101": {
+      "kind": "normal",
+      "name": "急凍樹",
+      "script": "test_cryo_field.py",
+      "passed": true
+    },
+    "boss-26020201": {
+      "kind": "normal",
+      "name": "爆炎樹",
+      "script": "test_pyro_field.py",
+      "passed": true
+    },
+    "boss-20040301": {
+      "kind": "normal",
+      "name": "無相の岩",
+      "script": "test_geo_field.py",
+      "passed": true
+    },
+    "boss-20040201": {
+      "kind": "normal",
+      "name": "無相の風",
+      "script": "test_anemo_field.py",
+      "passed": true
+    },
+    "boss-20040101": {
+      "kind": "normal",
+      "name": "無相の雷",
+      "script": "test_electro_field.py",
+      "passed": true
+    },
+    "boss-20050101": {
+      "kind": "normal",
+      "name": "純水精霊",
+      "script": "test_oceanid_field.py",
+      "passed": true
+    },
+    "boss-26050101": {
+      "kind": "normal",
+      "name": "エンシェントヴィシャップ",
+      "script": "test_primo_field.py",
+      "passed": true
+    },
+    "boss-25090101": {
+      "kind": "normal",
+      "name": "魔偶剣鬼",
+      "script": "test_maguu_field.py",
+      "passed": true
+    },
+    "boss-20040501": {
+      "kind": "normal",
+      "name": "無相の氷",
+      "script": "test_cryo_hypostasis_field.py",
+      "passed": true
+    },
+    "boss-20040601": {
+      "kind": "normal",
+      "name": "無相の炎",
+      "script": "test_pyro_hypostasis_field.py",
+      "passed": true
+    },
+    "boss-24021101": {
+      "kind": "normal",
+      "name": "からくり陣形",
+      "script": "test_array_field.py",
+      "passed": true
+    },
+    "boss-20040401": {
+      "kind": "normal",
+      "name": "無相の水",
+      "script": "test_hydro_hypostasis_field.py",
+      "passed": true
+    },
+    "boss-20070101": {
+      "kind": "normal",
+      "name": "雷音権現",
+      "script": "test_thunder_field.py",
+      "passed": true
+    },
+    "boss-22060101": {
+      "kind": "normal",
+      "name": "黄金王獣",
+      "script": "test_wolflord_field.py",
+      "passed": true
+    },
+    "boss-24010401": {
+      "kind": "normal",
+      "name": "遺跡サーペント",
+      "script": "test_ruin_serpent_field.py",
+      "passed": true
+    },
+    "boss-26110101": {
+      "kind": "normal",
+      "name": "マッシュラプトル",
+      "script": "test_jadeplume_field.py",
+      "passed": true
+    },
+    "boss-26020301": {
+      "kind": "normal",
+      "name": "迅電樹",
+      "script": "test_electro_regisvine_field.py",
+      "passed": true
+    },
+    "boss-24050101": {
+      "kind": "normal",
+      "name": "マトリックス",
+      "script": "test_asimon_field.py",
+      "passed": true
+    },
+    "boss-24030301": {
+      "kind": "normal",
+      "name": "兆載永劫ドレイク",
+      "script": "test_aeonblight_field.py",
+      "passed": true
+    },
+    "bathysmal-herd": {
+      "kind": "normal",
+      "name": "アビサルヴィシャップ",
+      "script": "test_bathysmal_field.py",
+      "passed": true
+    },
+    "boss-20040701": {
+      "kind": "normal",
+      "name": "無相の草",
+      "script": "test_dendro_hypostasis_field.py",
+      "passed": true
+    },
+    "boss-26130101": {
+      "kind": "normal",
+      "name": "風蝕ウェネト",
+      "script": "test_wenut_field.py",
+      "passed": true
+    },
+    "boss-22100501": {
+      "kind": "normal",
+      "name": "深罪の浸礼者",
+      "script": "test_baptist_field.py",
+      "passed": true
+    },
+    "boss-26160302": {
+      "kind": "normal",
+      "name": "鉄甲熔炎帝王",
+      "script": "test_emperor_field.py",
+      "passed": true
+    },
+    "icewind-coppelia": {
+      "kind": "normal",
+      "name": "氷風組曲",
+      "script": "test_icewind_field.py",
+      "passed": true
+    },
+    "icewind-coppelius": {
+      "kind": "normal",
+      "name": "氷風組曲",
+      "script": "test_icewind_field.py",
+      "passed": true
+    },
+    "boss-26180101": {
+      "kind": "normal",
+      "name": "千年真珠の海駿",
+      "script": "test_seahorse_field.py",
+      "passed": true
+    },
+    "boss-24080101": {
+      "kind": "normal",
+      "name": "実験用フィールド生成装置",
+      "script": "test_field_generator.py",
+      "passed": true
+    },
+    "boss-20051201": {
+      "kind": "normal",
+      "name": "水形タルパ",
+      "script": "test_tulpa_field.py",
+      "passed": true
+    },
+    "boss-26190101": {
+      "kind": "normal",
+      "name": "山隠れの猊獣",
+      "script": "test_suanni_field.py",
+      "passed": true
+    },
+    "boss-26140101": {
+      "kind": "normal",
+      "name": "魔像レガトゥス",
+      "script": "test_legatus_field.py",
+      "passed": true
+    },
+    "boss-26220301": {
+      "kind": "normal",
+      "name": "山の王・貪食のユムカ竜",
+      "script": "test_yumka_field.py",
+      "passed": true
+    },
+    "boss-26230301": {
+      "kind": "normal",
+      "name": "暴君・金焔のクク竜",
+      "script": "test_qucusaur_field.py",
+      "passed": true
+    },
+    "boss-24090201": {
+      "kind": "normal",
+      "name": "秘源機兵・機巧デバイス",
+      "script": "test_config_device_field.py",
+      "passed": true
+    },
+    "boss-22120101": {
+      "kind": "normal",
+      "name": "深遠なるミミックパピラ",
+      "script": "test_papilla_field.py",
+      "passed": true
+    },
+    "boss-25520101": {
+      "kind": "normal",
+      "name": "迷える霊覚の修験者",
+      "script": "test_spiritspeaker_field.py",
+      "passed": true
+    },
+    "boss-26270301": {
+      "kind": "normal",
+      "name": "輝ける溶岩の龍像",
+      "script": "test_lava_dragon_field.py",
+      "passed": true
+    },
+    "boss-24090501": {
+      "kind": "normal",
+      "name": "秘源機兵・統御デバイス",
+      "script": "test_overseer_field.py",
+      "passed": true
+    },
+    "boss-24100101": {
+      "kind": "normal",
+      "name": "ボコボコダック",
+      "script": "test_knuckle_duckle_field.py",
+      "passed": true
+    },
+    "boss-26301101": {
+      "kind": "normal",
+      "name": "集光の幻月蝶",
+      "script": "test_moonfly_field.py",
+      "passed": true
+    },
+    "boss-20081001": {
+      "kind": "normal",
+      "name": "霜夜の空を巡る霊主",
+      "script": "test_frostnight_herra_field.py",
+      "passed": true
+    },
+    "boss-23090101": {
+      "kind": "normal",
+      "name": "重量級陸巡艦「バトルシップ」",
+      "script": "test_battleship_field.py",
+      "passed": true
+    },
+    "boss-22150101": {
+      "kind": "normal",
+      "name": "昏き魘夢の主",
+      "script": "test_whisperer_nightmares_field.py",
+      "passed": true
+    },
+    "boss-26302101": {
+      "kind": "normal",
+      "name": "集光の月ヤモリ",
+      "script": "test_moongecko_field.py",
+      "passed": true
+    },
+    "boss-24111101": {
+      "kind": "normal",
+      "name": "守護者・堕天",
+      "script": "test_fallen_vigil_field.py",
+      "passed": true
+    },
+    "boss-25140101": {
+      "kind": "normal",
+      "name": "不滅の副産物",
+      "script": "test_immortal_construct_field.py",
+      "passed": true
+    },
+    "boss-26310501": {
+      "kind": "normal",
+      "name": "合成獣・フリューゲルレーヴェ",
+      "script": "test_flugel_field.py",
+      "passed": true
+    },
+    "boss-25135202": {
+      "kind": "normal",
+      "name": "游雪のブレードガーディアン",
+      "script": "test_drifting_snow_field.py",
+      "passed": true
+    },
+    "boss-25134601": {
+      "kind": "normal",
+      "name": "波濤の投錨者",
+      "script": "test_wavebinder_field.py",
+      "passed": true
+    },
+    "boss-29010101": {
+      "kind": "weekly",
+      "name": "トワリン",
+      "script": "test_dvalin_weekly.py",
+      "passed": true
+    },
+    "boss-29020101": {
+      "kind": "weekly",
+      "name": "アンドリアス",
+      "script": "test_andrius_weekly.py",
+      "passed": true
+    },
+    "boss-29030101": {
+      "kind": "weekly",
+      "name": "公子",
+      "script": "test_childe_weekly.py",
+      "passed": true
+    },
+    "boss-29050101": {
+      "kind": "weekly",
+      "name": "シニョーラ",
+      "script": "test_signora_weekly.py",
+      "passed": true
+    },
+    "boss-29040101": {
+      "kind": "weekly",
+      "name": "若陀龍王",
+      "script": "test_azhdaha_weekly.py",
+      "passed": true
+    },
+    "boss-29060201": {
+      "kind": "weekly",
+      "name": "雷電将軍",
+      "script": "test_raiden_weekly.py",
+      "passed": true
+    },
+    "boss-29070101": {
+      "kind": "weekly",
+      "name": "正機の神",
+      "script": "test_shouki_weekly.py",
+      "passed": true
+    },
+    "boss-29080101": {
+      "kind": "weekly",
+      "name": "アペプ",
+      "script": "test_apep_weekly.py",
+      "passed": true
+    },
+    "boss-29090101": {
+      "kind": "weekly",
+      "name": "呑星の鯨",
+      "script": "test_narwhal_weekly.py",
+      "passed": true
+    },
+    "boss-29091001": {
+      "kind": "weekly",
+      "name": "召使",
+      "script": "test_knave_weekly.py",
+      "passed": true
+    },
+    "boss-29091101": {
+      "kind": "weekly",
+      "name": "蝕まれし源焔の主",
+      "script": "test_primal_fire_weekly.py",
+      "passed": true
+    },
+    "boss-29122000": {
+      "kind": "weekly",
+      "name": "扉に通ずる対局",
+      "script": "test_gate_weekly.py",
+      "passed": true
+    },
+    "boss-29130201": {
+      "kind": "weekly",
+      "name": "博士",
+      "script": "test_false_moon_weekly.py",
+      "passed": true
+    },
+    "boss-29150101": {
+      "kind": "weekly",
+      "name": "左道の真諦者",
+      "script": "test_heretic_weekly.py",
+      "passed": true
+    },
+    "stygian-beidou": {
+      "kind": "stygian",
+      "name": "北斗・反撃読み合い",
+      "script": "test_stygian_beidou.py",
+      "passed": true
+    },
+    "stygian-capitano": {
+      "kind": "stygian",
+      "name": "隊長・凍天の演武",
+      "script": "test_stygian_capitano.py",
+      "passed": true
+    },
+    "stygian-xbalanque": {
+      "kind": "stygian",
+      "name": "シュバランケ・烈日の手合わせ",
+      "script": "test_stygian_xbalanque.py",
+      "passed": true
+    },
+    "stygian-rerir": {
+      "kind": "stygian",
+      "name": "レリル・霧と月の狩場",
+      "script": "test_stygian_rerir.py",
+      "passed": true
+    },
+    "stygian-ronova": {
+      "kind": "stygian",
+      "name": "死の執政・ロノヴァ",
+      "script": "test_stygian_ronova.py",
+      "passed": true
+    },
+    "stygian-wanderer": {
+      "kind": "stygian",
+      "name": "放浪者・空中決闘",
+      "script": "test_stygian_wanderer.py",
+      "passed": true
+    },
+    "stygian-farka": {
+      "kind": "stygian",
+      "name": "ファルカ・二刀の鍛錬",
+      "script": "test_stygian_farka.py",
+      "passed": true
+    }
+  }
+}

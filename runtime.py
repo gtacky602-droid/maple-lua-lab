@@ -1,6 +1,6 @@
 from pathlib import Path
 import sys, json
-from experience import RUNTIME_EXP, resolve_story_exp
+from experience import RUNTIME_EXP, resolve_story_exp, resolve_stygian_exp
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / 'lua-limit-break-20261026-r1/work/python'))
 from lupa.lua53 import LuaRuntime
@@ -101,7 +101,7 @@ def runtime():
     story_data['bossNodes']={
         target:spec['node'] for spec in field_specs+weekly_specs
         for target in (spec['id'],spec.get('storyChallenge')) if target}
-    stygian=json.loads((ROOT/'content/stygian-matches.json').read_text(encoding='utf8'))['matches']
+    stygian=resolve_stygian_exp(json.loads((ROOT/'content/stygian-matches.json').read_text(encoding='utf8'))['matches'])
     stygian_timing=json.loads((ROOT/'docs/stygian-motion-v1/MANIFEST.json').read_text(encoding='utf8'))
     for scripted_match in ('farka','rerir','ronova'):
         stygian[scripted_match]['cards']={

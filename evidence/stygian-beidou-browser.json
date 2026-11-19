@@ -21,18 +21,19 @@
   "manualBaited": true,
   "independentLeftAndRight": true,
   "firstReward": {
-    "rank": 3,
+    "xp": 16503,
     "set": "黄金の劇団",
+    "rank": 3,
     "mora": 1210,
-    "bag": true,
-    "first": true
+    "first": true,
+    "bag": true
   },
   "questReportSaveRestore": true,
   "record": {
     "mainSkill": "normal",
-    "bestTicks": 451,
     "clears": 1,
-    "companion": "amber"
+    "companion": "amber",
+    "bestTicks": 450
   },
   "errors": []
 }

@@ -1,0 +1,17 @@
+{
+  "encounter": "beidou:normal",
+  "repeatXp": 15930,
+  "firstXp": 573,
+  "award": {
+    "xp": 16503,
+    "set": "黄金の劇団",
+    "rank": 3,
+    "mora": 1210,
+    "first": true,
+    "bag": true
+  },
+  "baseExpIncrease": 16503,
+  "bonusHiddenAfterWin": true,
+  "recordSurvivesBrowserReload": true,
+  "errors": []
+}

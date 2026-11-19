@@ -69,3 +69,21 @@ def resolve_story_exp(graph):
                 raise ValueError(f"Chapter clear is not a battle step for {quest['id']}")
             quest['chapterClearXp'] = amount
     return graph
+
+
+def resolve_stygian_exp(matches):
+    """Apply the draft farm cadence at each encounter's current entry level."""
+    path = MODEL_PATH.with_name('BOSS_FARM_REWARDS_V01.json')
+    draft = json.loads(path.read_text(encoding='utf8'))
+    tiers = dict(zip(('normal', 'hard', 'master', 'extreme'), draft['stygian_difficulties'], strict=True))
+    efficiency = draft['formulas']['repeat_efficiency_at_reference_cycle']['exp']
+    for spec in matches.values():
+        for mode in spec['modes']:
+            tier = tiers[mode['id']]
+            level = mode['level']
+            kills_per_minute = 50 if level < 100 else 55 if level < 140 else 60
+            enemy_exp = LEVELS[level - 1]['normal_enemy_base_exp']
+            basis = LEVELS[min(level, CAP - 1) - 1]['required_exp_to_next']
+            mode['xp'] = int(enemy_exp * kills_per_minute * tier['stable_cycle_minutes'] * efficiency + .5)
+            mode['firstXp'] = int(basis * tier['first_bonus_exp_percent_of_next_level'] + .5)
+    return matches

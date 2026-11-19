@@ -1,0 +1,206 @@
+{
+  "modes": {
+    "beidou:extreme": {
+      "level": 165,
+      "repeatXp": 24716016,
+      "firstXp": 6221292,
+      "repeatMora": 3900,
+      "firstMora": 2200
+    },
+    "beidou:master": {
+      "level": 103,
+      "repeatXp": 1051380,
+      "firstXp": 118280,
+      "repeatMora": 2450,
+      "firstMora": 1370
+    },
+    "beidou:hard": {
+      "level": 58,
+      "repeatXp": 158220,
+      "firstXp": 8208,
+      "repeatMora": 1450,
+      "firstMora": 820
+    },
+    "beidou:normal": {
+      "level": 30,
+      "repeatXp": 15930,
+      "firstXp": 573,
+      "repeatMora": 780,
+      "firstMora": 430
+    },
+    "capitano:extreme": {
+      "level": 195,
+      "repeatXp": 78998004,
+      "firstXp": 28191492,
+      "repeatMora": 6100,
+      "firstMora": 3100
+    },
+    "capitano:master": {
+      "level": 176,
+      "repeatXp": 36935190,
+      "firstXp": 9296942,
+      "repeatMora": 4700,
+      "firstMora": 2400
+    },
+    "capitano:hard": {
+      "level": 159,
+      "repeatXp": 15724368,
+      "firstXp": 2882808,
+      "repeatMora": 3450,
+      "firstMora": 1950
+    },
+    "capitano:normal": {
+      "level": 144,
+      "repeatXp": 4750164,
+      "firstXp": 870849,
+      "repeatMora": 2750,
+      "firstMora": 1450
+    },
+    "xbalanque:extreme": {
+      "level": 188,
+      "repeatXp": 56142396,
+      "firstXp": 20035167,
+      "repeatMora": 5180,
+      "firstMora": 2770
+    },
+    "xbalanque:master": {
+      "level": 163,
+      "repeatXp": 18244980,
+      "firstXp": 4592418,
+      "repeatMora": 3600,
+      "firstMora": 2040
+    },
+    "xbalanque:hard": {
+      "level": 138,
+      "repeatXp": 5709330,
+      "firstXp": 805170,
+      "repeatMora": 2310,
+      "firstMora": 1260
+    },
+    "xbalanque:normal": {
+      "level": 112,
+      "repeatXp": 1043955,
+      "firstXp": 117452,
+      "repeatMora": 1640,
+      "firstMora": 890
+    },
+    "rerir:extreme": {
+      "level": 193,
+      "repeatXp": 71653572,
+      "firstXp": 25570514,
+      "repeatMora": 34800,
+      "firstMora": 26900
+    },
+    "rerir:master": {
+      "level": 175,
+      "repeatXp": 35176410,
+      "firstXp": 8854231,
+      "repeatMora": 25700,
+      "firstMora": 19700
+    },
+    "rerir:hard": {
+      "level": 150,
+      "repeatXp": 9111960,
+      "firstXp": 1670534,
+      "repeatMora": 17300,
+      "firstMora": 13400
+    },
+    "rerir:normal": {
+      "level": 124,
+      "repeatXp": 1773239,
+      "firstXp": 250066,
+      "repeatMora": 12500,
+      "firstMora": 9800
+    },
+    "ronova:extreme": {
+      "level": 200,
+      "repeatXp": 96022584,
+      "firstXp": 34266934,
+      "repeatMora": 85100,
+      "firstMora": 63200
+    },
+    "ronova:master": {
+      "level": 192,
+      "repeatXp": 56867940,
+      "firstXp": 20294059,
+      "repeatMora": 62600,
+      "firstMora": 48000
+    },
+    "ronova:hard": {
+      "level": 179,
+      "repeatXp": 34205760,
+      "firstXp": 8609898,
+      "repeatMora": 43800,
+      "firstMora": 36800
+    },
+    "ronova:normal": {
+      "level": 164,
+      "repeatXp": 11631114,
+      "firstXp": 2927667,
+      "repeatMora": 29600,
+      "firstMora": 24700
+    },
+    "wanderer:extreme": {
+      "level": 157,
+      "repeatXp": 20893464,
+      "firstXp": 3830444,
+      "repeatMora": 20500,
+      "firstMora": 18700
+    },
+    "wanderer:master": {
+      "level": 121,
+      "repeatXp": 2446538,
+      "firstXp": 345028,
+      "repeatMora": 12800,
+      "firstMora": 9800
+    },
+    "wanderer:hard": {
+      "level": 92,
+      "repeatXp": 690120,
+      "firstXp": 60891,
+      "repeatMora": 7900,
+      "firstMora": 6800
+    },
+    "wanderer:normal": {
+      "level": 66,
+      "repeatXp": 124605,
+      "firstXp": 7683,
+      "repeatMora": 4800,
+      "firstMora": 3600
+    },
+    "farka:extreme": {
+      "level": 152,
+      "repeatXp": 15429852,
+      "firstXp": 2828814,
+      "repeatMora": 29000,
+      "firstMora": 22300
+    },
+    "farka:master": {
+      "level": 89,
+      "repeatXp": 714150,
+      "firstXp": 63011,
+      "repeatMora": 15500,
+      "firstMora": 10900
+    },
+    "farka:hard": {
+      "level": 42,
+      "repeatXp": 46260,
+      "firstXp": 2396,
+      "repeatMora": 6400,
+      "firstMora": 4900
+    },
+    "farka:normal": {
+      "level": 12,
+      "repeatXp": 1620,
+      "firstXp": 37,
+      "repeatMora": 1350,
+      "firstMora": 1050
+    }
+  },
+  "firstAndRepeatAfterReload": true,
+  "oldWinRetainsFirstClear": true,
+  "showRewardsBeforeEntry": true,
+  "appliesBaseExpAtCap": true,
+  "keepsExpAndArtifactWhenBagIsFull": true,
+  "noPayoutOnExitOrTimeout": true
+}

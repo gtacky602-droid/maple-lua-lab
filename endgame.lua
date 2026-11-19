@@ -107,11 +107,14 @@ return function(C,abyss,weekly,matches,controllers)
   end
   local slot=(record.clears-1)%5+1
   local preset={setId=run.set,subpair=slot==3 and 'hp_crit' or 'atk_crit'}
-  local reward=run.rules.mora+(first and run.rules.firstMora or 0)
-  s.mora=s.mora+reward
+  local mora=run.rules.mora+(first and run.rules.firstMora or 0)
+  local xp=run.rules.xp+(first and run.rules.firstXp or 0)
+  C.grantExp(s,xp,'kill')
+  s.mora=s.mora+mora
   local equipped=C.giveArtifact(s,slot,run.rules.itemLevel,run.rules.rarity,preset)
   if not equipped then C.dropArtifact(s,slot,run.rules.itemLevel,run.rules.rarity,180,480,preset,'town') end
-  run.status,run.elapsed,run.reward='clear',elapsed,{mora=reward,set=sets[run.set],first=first,bag=equipped,rank=run.rules.rarity}
+  run.status,run.elapsed,run.reward='clear',elapsed,
+   {xp=xp,mora=mora,set=sets[run.set],first=first,bag=equipped,rank=run.rules.rarity}
   C.storyBossDefeated(s,spec.challenge)
   s.campaign.message=run.rules.name..'の模擬戦を突破しました。'
  end
@@ -271,7 +274,7 @@ return function(C,abyss,weekly,matches,controllers)
    for _,r in ipairs(spec.modes) do
     local record=s.endgame and s.endgame.stygian and s.endgame.stygian[id..':'..r.id]
     f.stygianDesk.modes[#f.stygianDesk.modes+1]={id=r.id,name=r.name,level=r.level,available=s.progression.level>=r.level,
-     mora=r.mora,firstMora=r.firstMora,itemLevel=r.itemLevel,rarity=r.rarity,record=record}
+     xp=r.xp,firstXp=r.firstXp,mora=r.mora,firstMora=r.firstMora,itemLevel=r.itemLevel,rarity=r.rarity,record=record}
    end
   elseif s.story and s.story.active and s.story.node=='mond-town' then
    f.endgameDesk={weekly={}}
