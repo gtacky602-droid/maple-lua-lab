@@ -292,6 +292,7 @@ function updateProgression(f){
  updateIansanTraining(f.storyIansan);
  dailyBoard.update(f.daily);
  const diving=Boolean(f.storyToyDive), swimming=Boolean(f.storySwim);
+ const waterCombat=f.storySwimCombat;
  $('surfControls').hidden=!boarding&&!rally;
  $('surfControls').closest('.game').classList.toggle('surf-playing',boarding||rally);
  $('surfHit').hidden=!rally;
@@ -307,12 +308,20 @@ function updateProgression(f){
  $('a1').hidden=solo&&f.active===2;
  $('a2').hidden=diving||(solo&&f.active===1);
  $('diveHelp').hidden=!diving;
- $('fieldSwimHelp').hidden=!swimming;
+ const swimHelp=$('fieldSwimHelp');
+ swimHelp.hidden=!swimming;
+ if(swimming){
+  const instructions=waterCombat?'WASD・方向キーで泳ぐ ｜ Jで水撃 ｜ Space・Shiftで急回避 ｜ Fで退く':'WASD・方向キーで泳ぐ ｜ 門の深さを合わせてF ｜ 目印の近くでG';
+  if(swimHelp.textContent!==instructions)swimHelp.textContent=instructions;
+ }
+ $('touchSwimBurst').hidden=!waterCombat;
+ $('touchSwimBurst').disabled=!!waterCombat?.burstCooldown;
  $('diveReset').disabled=f.paused;
  document.querySelectorAll('[data-swim]').forEach(button=>{button.hidden=!diving&&!swimming});
  document.querySelectorAll('[data-land]').forEach(button=>{button.hidden=diving||swimming||solo});
  const touchAttack=document.querySelector('[data-hold="attack"]');
- touchAttack.textContent=snowMatch?'雪玉を投げる':'攻撃';
+ touchAttack.hidden=solo||diving||(swimming&&!waterCombat);
+ touchAttack.textContent=waterCombat?'水撃':snowMatch?'雪玉を投げる':'攻撃';
  touchAttack.disabled=!!snowMatch&&!snowMatch.running;
  const p=f.progression;
  const summary=p?[p.level,p.xp,p.total,p.baseXp,p.overflowXp,p.killXp,p.questXp,f.nextExp]:[];

@@ -1,0 +1,16 @@
+{
+  "realMapGate": true,
+  "burstWithKeyboardAndWaterControls": true,
+  "normalPulseLanded": true,
+  "removedControlsOutsideArena": true,
+  "retreatAtSameDepthAndReentry": true,
+  "startupDefersBossArt": true,
+  "profileChangesKeepTimeAndWarning": true,
+  "commands": {
+    "png": 24,
+    "legacy": 7679,
+    "h32c16": 2044
+  },
+  "gallery": true,
+  "errors": []
+}

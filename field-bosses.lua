@@ -111,10 +111,10 @@ return function(C,configs,controllers)
   if s.fieldSlots then s.fieldSlots[id]=nil end
  end
 
- local function nearest(s,spec,boss)
+ local function nearest(s,spec,boss,behavior)
   local best,distance=nil,math.huge
   for _,a in ipairs(s.actors) do
-   local dx=math.abs(a.x-boss.x)
+   local dx=behavior.distance and behavior.distance(a,boss) or math.abs(a.x-boss.x)
    if boss.fieldPartner then dx=math.min(dx,math.abs(a.x-boss.fieldPartner.x)) end
    if a.hp>0 and a.x>=spec.arenaMin and a.x<=spec.arenaMax and dx<distance then best,distance=a,dx end
   end
@@ -193,8 +193,9 @@ return function(C,configs,controllers)
    cancelCast(s,spec,slot)
    if spec.keepHpOnExit then slot.out=0;return end
   end
+  local behavior=controllers[spec.controller]
   local target,distance
-  if here then target,distance=nearest(s,spec,boss) end
+  if here then target,distance=nearest(s,spec,boss,behavior) end
   if slot.phase=='available' then
    if here and (boss.hp<boss.maxhp or (target and distance<=spec.noticeRange)) then
     slot.phase='notice';slot.delay=spec.noticeTicks
@@ -204,7 +205,7 @@ return function(C,configs,controllers)
   end
   slot.out=target and 0 or slot.out+1
   if slot.out>=spec.leashTicks then
-   if boss.fieldPartner or (slot.cast and (slot.cast.summon or slot.cast.summons)) then cancelCast(s,spec,slot) end
+   if behavior.swimStep or boss.fieldPartner or (slot.cast and (slot.cast.summon or slot.cast.summons)) then cancelCast(s,spec,slot) end
    slot.phase='leash';slot.cast=nil;boss.invulnerable=true
    boss.y=spec.floorY;boss.drawHeight=spec.artHeight;boss.hitTop=boss.y-boss.drawHeight;boss.hitBottom=boss.y
    return
@@ -215,7 +216,6 @@ return function(C,configs,controllers)
    if slot.delay<=0 then slot.phase='combat' end
    return
   end
-  local behavior=controllers[spec.controller]
   if behavior.preempt and behavior.preempt(boss,spec,slot) then return end
   if slot.cast then
    if behavior.tick(s,boss,spec,slot.cast,target) then slot.cast=nil;slot.delay=spec.restTicks end
@@ -229,8 +229,11 @@ return function(C,configs,controllers)
    local dir=target.x<boss.x and -1 or 1
    boss.facing=dir
    local speed=spec.walkSpeed*C.enemyRate(boss)/60
-   boss.x=math.max(spec.arenaMin+63,math.min(spec.arenaMax-63,boss.x+dir*speed))
-   if behavior.walk then behavior.walk(boss,spec,target,speed) end
+   if behavior.pursue then behavior.pursue(boss,spec,target,speed)
+   else
+    boss.x=math.max(spec.arenaMin+63,math.min(spec.arenaMax-63,boss.x+dir*speed))
+    if behavior.walk then behavior.walk(boss,spec,target,speed) end
+   end
   end
   local farShot=slot.delay<=0 and distance>reach and spec.walkSpeed==0 and behavior.farMove
   if farShot then move=behavior.farMove(spec,move);reach=move.reach end
@@ -250,6 +253,15 @@ return function(C,configs,controllers)
   end
  end
 
+ function C.fieldSwimAction(s,key)
+  local spec=byNode[current(s)]
+  local slot=spec and s.fieldSlots and s.fieldSlots[spec.id]
+  local behavior=slot and controllers[spec.controller]
+  if behavior and behavior.swimAction and s.storySwimming and not s.lift and not s.paused then
+   behavior.swimAction(s,slot.enemy,spec,key)
+  end
+ end
+
  function C.step(s,dt,input)
   local before=s.t
   step(s,dt,input)
@@ -258,7 +270,12 @@ return function(C,configs,controllers)
   local node=current(s)
   for id,slot in pairs(s.fieldSlots or {}) do
    local spec=byId[id]
-   if available(s,spec) then for _=1,ticks do advance(s,spec,slot,node==spec.node) end end
+   local behavior=controllers[spec.controller]
+   local here=node==spec.node
+   if available(s,spec) and not (behavior.swimStep and s.lift) then
+    if here and behavior.swimStep and s.storySwimming then behavior.swimStep(s,slot.enemy,spec,input or {}) end
+    for _=1,ticks do advance(s,spec,slot,here) end
+   end
   end
  end
 
@@ -339,10 +356,11 @@ return function(C,configs,controllers)
   if not slot then return f end
   local boss=slot.enemy
   local partner=boss.fieldPartner
+  local behavior=controllers[spec.controller]
+  if s.storySwimming and behavior.swimStatus then f.storySwimCombat=behavior.swimStatus(s,boss) end
   local playerX=s.actors[s.active].x
   if math.abs(playerX-boss.x)>550 and (not partner or math.abs(playerX-partner.x)>550) and slot.phase=='available' then return f end
   local cast=slot.cast
-  local behavior=controllers[spec.controller]
   local label=slot.phase=='cleared' and '討伐完了・入口から再挑戦' or slot.phase=='notice' and '振り向き' or slot.phase=='leash' and '巣へ戻っている' or
    slot.phase=='available' and '警戒前' or cast and cast.move.title or '息継ぎ'
   if spec.presentationOnly and boss.hp>0 then label=spec.displayLabel or '見た目と進行を確認する仮の個体' end

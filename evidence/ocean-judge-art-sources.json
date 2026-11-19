@@ -1,0 +1,81 @@
+{
+  "kind": "published gameplay screenshots",
+  "references": [
+    {
+      "file": "mods1.jpg",
+      "page": "https://modslab.net/en/genshin_impact/guides/i3a38r2EsG/",
+      "image": "https://modslab.net/redactor/upload-images/64e4d824c10a2.png",
+      "size": [
+        1600,
+        900
+      ],
+      "observation": "接近前の俯瞰。淡い砂の上に濃い甲羅が浮き、体の下に水底が見える。細い脚はこの距離では読みにくい。"
+    },
+    {
+      "file": "mods2.jpg",
+      "page": "https://modslab.net/en/genshin_impact/guides/i3a38r2EsG/",
+      "image": "https://modslab.net/redactor/upload-images/64e4d83e6b217.png",
+      "size": [
+        1600,
+        900
+      ],
+      "observation": "正面寄りの近景。甲羅の縁は段になって張り出す。左右の前腕は明度と形が異なり、画面右の濃い丸い外装が大きく目立つ。"
+    },
+    {
+      "file": "mods3.jpg",
+      "page": "https://modslab.net/en/genshin_impact/guides/i3a38r2EsG/",
+      "image": "https://modslab.net/redactor/upload-images/64e4d85f00ab8.png",
+      "size": [
+        1600,
+        900
+      ],
+      "observation": "撃破表示が出た直後の傾いた姿。甲羅の上面と外縁が目立ち、前脚の細部は読み取りにくい。通常の移動姿勢の根拠には使わない。"
+    },
+    {
+      "file": "land1.jpg",
+      "page": "https://landofgames.ru/articles/guides/23583-okruzhnoj-sudja-okeana-v-genshin-impact-gde-najti-i-kak-pobedit.html",
+      "image": "https://landofgames.ru/uploads/posts/2023-08/1692714959_3-1.jpg",
+      "size": [
+        1900,
+        1069
+      ],
+      "observation": "後方上空から接近した遠景。水底の傾斜と泳ぐ敵の位置関係を確認。"
+    },
+    {
+      "file": "land2.jpg",
+      "page": "https://landofgames.ru/articles/guides/23583-okruzhnoj-sudja-okeana-v-genshin-impact-gde-najti-i-kak-pobedit.html",
+      "image": "https://landofgames.ru/uploads/posts/2023-08/1692714963_4-1.jpg",
+      "size": [
+        1900,
+        1069
+      ],
+      "observation": "接近中の回転攻撃を横寄りから見た瞬間。白い流れが左右に伸び、その上下に硬い上殻と腹が見える。手先は流れで隠れるため、旋回軌道や正確な爪の角度はこの一枚から決めない。"
+    },
+    {
+      "file": "land3.jpg",
+      "page": "https://landofgames.ru/articles/guides/23583-okruzhnoj-sudja-okeana-v-genshin-impact-gde-najti-i-kak-pobedit.html",
+      "image": "https://landofgames.ru/uploads/posts/2023-08/1692714968_6-1.jpg",
+      "size": [
+        1900,
+        1069
+      ],
+      "observation": "正面から攻防が重なる場面。水の効果の向こうに殻の上端が残る。光の境界を甲羅の輪郭に含めない。"
+    },
+    {
+      "file": "altema.jpg",
+      "page": "https://altema.jp/gensin/oceanjyunkaihoukan",
+      "image": "https://img.altema.jp/gensin/kakudai/oceanjyunkaihoukan.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "observation": "斜め正面。明るい節と濃色の張り出しが交互に重なり、奥の前腕より手前の腕が大きく見える。脚先と水底の間に余白がある。"
+    }
+  ],
+  "design_choices": [
+    "殻は青緑の重なる板と銅色の筋で表し、前腕を胴と区別する。",
+    "左右の明暗差を、手前の大きな橙の爪と奥の小さな爪に置き換える。",
+    "待機は爪を開き、構えは盾のように前に立て、攻撃は左へ長く押し出す。爪の並べ方と模様はラボ独自。",
+    "脚を後方へ流し、胴を水底から浮かせる。足の接地点には揃えない。"
+  ]
+}

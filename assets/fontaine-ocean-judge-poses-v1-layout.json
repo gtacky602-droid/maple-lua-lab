@@ -1,0 +1,90 @@
+{
+  "source": "fontaine-ocean-judge-poses-source-v1.png",
+  "swimCenter": [
+    144,
+    54
+  ],
+  "frames": [
+    {
+      "id": "legend-ocean-judge",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        64,
+        18,
+        211,
+        121
+      ],
+      "source_sheet": "exec-ca2ff085-b51c-445d-8609-27946cbf7aed.png",
+      "source_crop": [
+        0,
+        0,
+        706,
+        724
+      ]
+    },
+    {
+      "id": "legend-ocean-judge",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        79,
+        16,
+        190,
+        105
+      ],
+      "source_sheet": "exec-ca2ff085-b51c-445d-8609-27946cbf7aed.png",
+      "source_crop": [
+        706,
+        0,
+        569,
+        724
+      ]
+    },
+    {
+      "id": "legend-ocean-judge",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        14,
+        19,
+        211,
+        95
+      ],
+      "source_sheet": "exec-ca2ff085-b51c-445d-8609-27946cbf7aed.png",
+      "source_crop": [
+        1275,
+        0,
+        897,
+        724
+      ]
+    }
+  ]
+}

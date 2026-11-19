@@ -848,6 +848,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    a.y=arrivalY or (n.swim and n.swim.entryY) or 480
    a.vy=0;a.ground=not n.swim
    if arrivalY or n.swim then a.drop=0 end
+   a.swimDx,a.swimDy=nil,nil
    if n.swim then a.lock=0;a.channel=nil end
   end
   s.camera=math.max(0,math.min(s.actors[s.active].x-400,math.max(0,n.width-960)))
@@ -963,7 +964,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
        and not key:match('^story_portal:') and not key:match('^story_fast:') then return end
   end
   if s.storySwimming and (key=='normal' or key=='jump' or key=='drop' or key=='dodge' or key=='light'
-      or key=='macro' or key:match('^skill%d') or key:match('^slot%d')) then return end
+      or key=='macro' or key:match('^skill%d') or key:match('^slot%d')) then
+   if C.fieldSwimAction and (key=='normal' or key=='jump' or key=='dodge') then C.fieldSwimAction(s,key) end
+   return
+  end
   if s.lift or s.caveFall or s.roofFlight then
    if key=='pause' then action(s,key) end
    return
@@ -1441,10 +1445,27 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
   end
  end
+ local function returnFromDefeat(s)
+   s.flagTrial=nil
+   local node=nodes[s.story.node]
+   if duel.active(s,node.duel) then
+    C.resetFieldTrial(s,node.duel.encounter)
+    enter(s,node.id,node.duel.bellX)
+    s.storyNotice='同じ会場で仕切り直します。水路の予告を見てください。'
+   else
+    local checkpoint=checkpointNode(s).checkpoint
+    enter(s,s.story.visited[checkpoint] and checkpoint or 'mond-town')
+   end
+ end
+
  local function swim(s,dt,input)
   if s.paused then return end
   dt=math.max(0,math.min(dt,1/30))
   s.t=s.t+dt
+  local returns=s.returns
+  C.checkPartyDefeat(s)
+  if s.returns~=returns then returnFromDefeat(s);return end
+  C.advanceCombatVisuals(s,dt)
   local spec=s.storySwimming
   local a=s.actors[s.active]
   local x,y,dx=freminetDive.motion(a,dt,input or {},spec.speed)
@@ -1655,18 +1676,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   if s.story and s.story.active and s.voyage and not s.paused and s.t+1e-8>=s.voyage.arrives then arrive(s) end
   if s.story and s.story.active and #s.enemies>0 and cleared(s,nodes[s.story.node]) then s.enemies={} end
-  if s.story and s.story.active and s.returns~=returns then
-   s.flagTrial=nil
-   local node=nodes[s.story.node]
-   if duel.active(s,node.duel) then
-    C.resetFieldTrial(s,node.duel.encounter)
-    enter(s,node.id,node.duel.bellX)
-    s.storyNotice='同じ会場で仕切り直します。水路の予告を見てください。'
-   else
-    local checkpoint=checkpointNode(s).checkpoint
-    enter(s,s.story.visited[checkpoint] and checkpoint or 'mond-town')
-   end
-  end
+  if s.story and s.story.active and s.returns~=returns then returnFromDefeat(s) end
   if s.story and s.story.active and not s.paused then
    local node=nodes[s.story.node]
    local anchor=node.fallReturn or node.paperRescue

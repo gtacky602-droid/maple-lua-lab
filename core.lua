@@ -425,6 +425,20 @@ function C.advanceActorTimers(a,dt)
   for k,v in pairs(a.cd) do a.cd[k]=max(0,v-dt) end
 end
 
+function C.checkPartyDefeat(s)
+ if s.actors[s.active].hp<=0 then
+  if s.actors[3-s.active].hp>0 then s.active=3-s.active
+  elseif not (C.handlesPartyWipe and C.handlesPartyWipe(s)) then
+   for _,a in ipairs(s.actors) do a.hp=a.maxhp;a.x=140+a.id*60;a.y=480;a.inv=3 end
+   s.returns=s.returns+1;event(s,'return')
+  end
+ end
+end
+
+function C.advanceCombatVisuals(s,dt)
+ for _,list in ipairs({s.numbers,s.effects}) do for i=#list,1,-1 do list[i].life=list[i].life-dt;if list[i].life<=0 then table.remove(list,i) end end end
+end
+
 function C.step(s,dt,input)
  if s.paused then return end
  dt=clamp(dt,0,1/30);input=input or {};s.t=s.t+dt;s.swap=max(0,s.swap-dt)
@@ -516,14 +530,8 @@ function C.step(s,dt,input)
    if e.patrolMin then e.x=clamp(e.x,e.patrolMin,e.patrolMax) end
   end
  end
- if s.actors[s.active].hp<=0 then
-  if s.actors[3-s.active].hp>0 then s.active=3-s.active
-  elseif not (C.handlesPartyWipe and C.handlesPartyWipe(s)) then
-   for _,a in ipairs(s.actors) do a.hp=a.maxhp;a.x=140+a.id*60;a.y=480;a.inv=3 end
-   s.returns=s.returns+1;event(s,'return')
-  end
- end
- for _,list in ipairs({s.numbers,s.effects}) do for i=#list,1,-1 do list[i].life=list[i].life-dt;if list[i].life<=0 then table.remove(list,i) end end end
+ C.checkPartyDefeat(s)
+ C.advanceCombatVisuals(s,dt)
  local player=s.actors[s.active];s.camera=clamp(player.x-400,0,math.max(0,(s.worldwidth or 2880)-960))
 end
 function C.enemyHeadY(e)

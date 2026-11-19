@@ -449,10 +449,11 @@ def runtime():
     core.moonCrabArt=field_art(lua,'moon-crab',('idle','cracked'))
     core.paperLanternArt=field_art(lua,'paper-lantern',('idle',),idle='paper-lantern-sprites-v1.json').idle
     branch_legend=lua.execute((ROOT/'field-branch-legend.lua').read_text(encoding='utf-8'))(core)
+    water_legend=lua.execute((ROOT/'field-water-legend.lua').read_text(encoding='utf-8'))(core)
     legend_poses = ('idle', 'brace', 'strike')
     legend_revisions = {
         body['art']: spec.get('artRevision', 1)
-        for spec in field_specs if spec['controller']=='branchLegend'
+        for spec in field_specs if spec['controller'] in {'branchLegend', 'waterLegend'}
         for body in (spec, spec.get('partner')) if body
     }
     core.branchLegendArt=lua.table_from({
@@ -467,7 +468,7 @@ def runtime():
                         'rubbleSifter':rubble_sifter,'prismWalker':prism_walker,'iceCrawler':ice_crawler,'rimeHare':rime_hare,
                         'teaBoulder':tea_boulder,'plateTail':plate_tail,'windRing':wind_ring,'bellGate':bell_gate,
                         'canopyFungus':canopy_fungus,'grandFinale':field_display(core,core.grandFinaleArt),'riverRacer':river_racer,
-                        'moonCrab':moon_crab,'branchLegend':branch_legend,
+                        'moonCrab':moon_crab,'branchLegend':branch_legend,'waterLegend':water_legend,
                         'jadeplume':jade,'cryoRegisvine':cryo_field,'pyroRegisvine':pyro_field,
                         'anemoHypostasis':anemo_field,'electroHypostasis':electro_field,'geoHypostasis':geo_field,
                         'primoGeovishap':primo_field,'oceanid':oceanid_field,'maguu':maguu_field,

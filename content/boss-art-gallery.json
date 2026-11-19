@@ -697,7 +697,8 @@
     {"id":"legend-gravity-device","name":"自律スーパー・コンピューティング型力場生成装置（ラボ用）","file":"legend-gravity-device-field-idle-sprites-v1.json","height":127,"mapHover":0},
     {"id":"legend-rocky","name":"ロッキー・アヴィルドセン（ラボ用）","file":"legend-rocky-field-idle-sprites-v1.json","height":106,"mapHover":0},
     {"id":"legend-liam","name":"リアム（ラボ用）","file":"legend-liam-field-idle-sprites-v1.json","height":102,"mapHover":0},
-    {"id":"legend-deianeira","name":"スネージヴナのディアンナラ（ラボ用）","file":"legend-deianeira-field-idle-sprites-v1.json","height":116,"mapHover":0}
+    {"id":"legend-deianeira","name":"スネージヴナのディアンナラ（ラボ用）","file":"legend-deianeira-field-idle-sprites-v1.json","height":116,"mapHover":0},
+    {"id":"legend-ocean-judge","name":"オーシャン巡回法官（水中・ラボ用）","file":"legend-ocean-judge-field-idle-sprites-v1.json","height":111,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }

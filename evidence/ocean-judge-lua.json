@@ -1,0 +1,35 @@
+{
+  "entryLevel100MapGuideAndSwimReturn": true,
+  "ordinarySwimmingUnaffected": true,
+  "directionAndDepthTested": true,
+  "directionalBurstWithCooldown": true,
+  "pausedFrameDrawCommands": {
+    "legacy": 5145,
+    "h48c32": 3111,
+    "h32c16": 1381
+  },
+  "attackChecks": {
+    "FW11": [
+      1
+    ],
+    "armor": {
+      "frontDamage": 6,
+      "rearDamage": 24
+    },
+    "FW12": [
+      1
+    ],
+    "FW13": [
+      1,
+      2
+    ]
+  },
+  "normalSwimClear": {
+    "seconds": 29.88,
+    "hp": 65,
+    "xp": 212400,
+    "mora": 320
+  },
+  "defeatSaveAndSingleReward": true,
+  "checkpointOnWipe": true
+}
