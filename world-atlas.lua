@@ -153,6 +153,7 @@ return function(C, atlas)
   if edge.windowStart and from.voyage and from.voyage.kind=='trolley' then return 'rail'
   elseif edge.boatSeconds or edge.windowStart then return 'boat'
   elseif from.voyage and from.voyage.kind=='ferry' and from.voyage.source==edge.to then return 'cancel'
+  elseif edge.nightTotem then return 'night'
   elseif edge.phaseSeconds then return 'phase'
   elseif edge.waterwaySeconds then return 'water'
   elseif edge.liftSeconds then return 'lift'
@@ -163,8 +164,8 @@ return function(C, atlas)
   elseif edge.wind then return 'wind' end
   return 'walk'
  end
- local route_labels = {boat='舟・寄港',water='水路',lift='昇降機',phase='位相門',rail='鉄道',arrival='乗り物',wind='吹雪待ち',cancel='航海を中止',walk='徒歩'}
- local route_colors = {boat='#ebf4db',water='#c2f1ec',lift='#f4ca8a',phase='#eebcfa',arrival='#ebf4db',
+ local route_labels = {boat='舟・寄港',water='水路',lift='昇降機',phase='位相門',night='黒曜石の柱',rail='鉄道',arrival='乗り物',wind='吹雪待ち',cancel='航海を中止',walk='徒歩'}
+ local route_colors = {boat='#ebf4db',water='#c2f1ec',lift='#f4ca8a',phase='#eebcfa',night='#d5a0f5',arrival='#ebf4db',
                        rail='#f2d293',wind='#f5ebcc',cancel='#b9b5a2',walk='#506054'}
 
  local function connections(node)

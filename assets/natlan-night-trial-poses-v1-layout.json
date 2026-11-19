@@ -1,0 +1,146 @@
+{
+  "source": "natlan-night-trial-poses-source-v1.png",
+  "facing": "left",
+  "frames": [
+    {
+      "id": "legend-undead",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        83,
+        47,
+        206,
+        132
+      ]
+    },
+    {
+      "id": "legend-undead",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        83,
+        59,
+        205,
+        132
+      ]
+    },
+    {
+      "id": "legend-undead",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        80,
+        45,
+        208,
+        132
+      ]
+    },
+    {
+      "id": "legend-chimalli",
+      "pose": "idle",
+      "crop": [
+        0,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        37,
+        19,
+        252,
+        115
+      ]
+    },
+    {
+      "id": "legend-chimalli",
+      "pose": "brace",
+      "crop": [
+        288,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        79,
+        6,
+        210,
+        115
+      ]
+    },
+    {
+      "id": "legend-chimalli",
+      "pose": "strike",
+      "crop": [
+        576,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        49,
+        19,
+        240,
+        115
+      ]
+    },
+    {
+      "id": "night-trial-totem",
+      "pose": "idle",
+      "crop": [
+        0,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        117,
+        13,
+        172,
+        132
+      ]
+    }
+  ]
+}

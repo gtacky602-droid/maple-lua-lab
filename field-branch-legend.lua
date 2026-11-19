@@ -9,7 +9,7 @@ return function(C)
   body.legendPose=pose
   body.drawHeight=math.floor(spec.artHeight*(spec.poseHeights or poses)[pose]+.5)
   body.hitTop=body.y-body.drawHeight
-  body.hitBottom=body.y
+  body.hitBottom=body.y-(spec.hitFloorClearance or 0)
  end
 
  function legend.spawn(b,spec)

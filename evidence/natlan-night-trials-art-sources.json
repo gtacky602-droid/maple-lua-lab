@@ -1,0 +1,70 @@
+{
+  "legend-undead": {
+    "sources": [
+      {
+        "file": "undead-angle.jpeg",
+        "seen": "名前付きの正面寄りの頭と短い四足。"
+      },
+      {
+        "file": "undead-name.jpg",
+        "seen": "横から見た低い重心、青白く透けて見える胴。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_AnimalIcon_Capybara_01.png",
+        "seen": "通常種の鼻と小さな丸い耳。"
+      },
+      {
+        "url": "https://zoo.sandiegozoo.org/sites/default/files/teaser_image/capybara_thumb.jpg",
+        "seen": "実物の横姿。頭から幅広い鼻への傾斜、首と胴のつながり、短い四足。"
+      }
+    ],
+    "design": "青白い色面の重なりで透けた質感を表現。目は紺で囲った明色。",
+    "unchecked": [
+      "実機内の表示",
+      "360度モデル回転"
+    ]
+  },
+  "legend-chimalli": {
+    "sources": [
+      {
+        "file": "chimalli-name.jpg",
+        "seen": "戦闘時の中央の核と左右の長い翼。"
+      },
+      {
+        "file": "wayob-official.jpg",
+        "url": "https://genshin.hoyoverse.com/en/news/detail/125446",
+        "seen": "通常種の全身、上の輪・細い胴と先端。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Wayob_Mosasaurus.png",
+        "seen": "通常種の正面アイコン。濃紺の角、薄い縁、中心の対称形。"
+      },
+      {
+        "url": "https://upload-os-bbs.hoyolab.com/upload/2024/11/18/373432431/1bc118d2619764d939c4128a0b81dd05_2514847406058049585.jpg",
+        "seen": "名前付きの別の戦闘画面、遠景の浮遊輪郭。"
+      }
+    ],
+    "design": "左を向く核を輪と左右の翼の間に配置。胴の先は全姿勢で床より17px上。",
+    "unchecked": [
+      "実機内の表示",
+      "360度モデル回転"
+    ]
+  },
+  "night-trial-totem": {
+    "sources": [
+      {
+        "file": "totem-lake.jpg",
+        "seen": "湖の入口。高い中央石と脇石、暗い石面の紫の線。"
+      },
+      {
+        "file": "totem-temple.jpg",
+        "seen": "神殿の入口。中央石の斜めの面と横の破片。"
+      }
+    ],
+    "design": "中央に独自のひし形と短い横線2本。左右に小さな破片。",
+    "unchecked": [
+      "実機内の表示",
+      "360度モデル回転"
+    ]
+  }
+}

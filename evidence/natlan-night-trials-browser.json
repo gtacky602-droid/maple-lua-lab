@@ -1,0 +1,60 @@
+{
+  "routes": [
+    [
+      "nat-wp-72417",
+      "temple-east-totem-pond",
+      "raised"
+    ],
+    [
+      "temple-east-totem-pond",
+      "night-trial-undead",
+      "phase"
+    ],
+    [
+      "night-trial-undead",
+      "temple-east-totem-pond",
+      "phase"
+    ],
+    [
+      "temple-east-totem-pond",
+      "nat-wp-72417",
+      "walk"
+    ],
+    [
+      "nat-wp-72416",
+      "temple-northwest-totem-ravine",
+      "walk"
+    ],
+    [
+      "temple-northwest-totem-ravine",
+      "night-trial-chimalli",
+      "phase"
+    ],
+    [
+      "night-trial-chimalli",
+      "temple-northwest-totem-ravine",
+      "phase"
+    ],
+    [
+      "temple-northwest-totem-ravine",
+      "nat-wp-72416",
+      "walk"
+    ]
+  ],
+  "comparisons": [
+    {
+      "name": "undead",
+      "pngCommands": 11,
+      "rectangleCommands": 7088,
+      "lightCommands": 1883
+    },
+    {
+      "name": "chimalli",
+      "pngCommands": 18,
+      "rectangleCommands": 6593,
+      "lightCommands": 1783
+    }
+  ],
+  "twoObsidianPortals": true,
+  "errors": []
+}

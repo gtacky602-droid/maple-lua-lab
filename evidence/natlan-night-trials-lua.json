@@ -1,0 +1,31 @@
+{
+  "trials": [
+    {
+      "id": "legend-natlan_undead",
+      "level": 118,
+      "route": [
+        "nat-wp-72417",
+        "temple-east-totem-pond",
+        "night-trial-undead"
+      ],
+      "manualExitAndWipeReturnX": 1114,
+      "killXp": 512900
+    },
+    {
+      "id": "legend-natlan_chimalli",
+      "level": 116,
+      "route": [
+        "nat-wp-72416",
+        "temple-northwest-totem-ravine",
+        "night-trial-chimalli"
+      ],
+      "manualExitAndWipeReturnX": 1114,
+      "killXp": 452200
+    }
+  ],
+  "levelGateAndAtlasRoute": true,
+  "pausedTransferResumesWithoutMovingActors": true,
+  "wipeFixtureReturnedAndReset": true,
+  "clearsAndRewardsSurviveRestore": true,
+  "manualRetryStartsAtFullHp": true
+}

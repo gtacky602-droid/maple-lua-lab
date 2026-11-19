@@ -87,6 +87,7 @@ def rebuild():
     field_stages = {id: row['stage_id'] for id, row in links.items()} | authored_bindings
     anchors = {row['encounter_id']: row['field_anchor_id'] for row in legend_rows}
     legend_bindings = {}
+    legends_pending_moves = []
     for spec in field_specs:
         if spec['id'] in anchors:
             entry = field_stages[anchors[spec['id']]]
@@ -96,9 +97,31 @@ def rebuild():
                 assert any(e['to']==end for e in by_stage[start]['exits']), (spec['id'], start, end)
                 assert any(e['to']==start for e in by_stage[end]['exits']), (spec['id'], end, start)
             legend_bindings[spec['id']]=spec['node']
+            if spec['controller']=='branchLegend' and not spec['moves']:
+                legends_pending_moves.append(spec['id'])
+    night_trial_nodes = set()
+    for node in by_stage.values():
+        for edge in node['exits']:
+            if edge.get('nightTotem') != 'enter':
+                continue
+            trial = by_stage[edge['to']]
+            returns = [e for e in trial['exits'] if e.get('nightTotem') == 'return']
+            assert len(returns) == 1 and returns[0]['to'] == node['id'], trial['id']
+            back = returns[0]
+            assert (back['arrivalX'], back['arrivalY']) == (edge['x'], edge.get('y', 480)), trial['id']
+            assert trial['peaceful'] and edge['phaseSeconds'] > 0 and back['phaseSeconds'] > 0, trial['id']
+            assert trial['id'] not in night_trial_nodes, trial['id']
+            night_trial_nodes.add(trial['id'])
+    assert night_trial_nodes.issubset(legend_bindings.values())
+    assert night_trial_nodes == {
+        node['id'] for node in by_stage.values()
+        if any(edge.get('nightTotem') == 'return' for edge in node['exits'])
+    }
     coverage['optional_legend_coverage'] = {
         'basis': [legends_path, 'content/field-boss-spawns.json', 'content/story-graph.json'],
         'design_candidates': len(anchors), 'playable_prototypes': len(legend_bindings),
+        'pending_boss_moves': sorted(legends_pending_moves),
+        'nightsoul_trials': sorted(night_trial_nodes),
         'stage_by_legend': legend_bindings,
     }
     manifest_path = 'docs/quest-v1/MANIFEST.json'

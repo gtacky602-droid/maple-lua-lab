@@ -1477,6 +1477,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local function returnFromDefeat(s)
    s.flagTrial=nil
    local node=nodes[s.story.node]
+   for _,edge in ipairs(node.exits) do
+    if edge.nightTotem=='return' then
+     enter(s,edge.to,edge.arrivalX,nil,edge.arrivalY)
+     s.storyNotice='夜魂の試練を中断し、黒曜石の柱へ戻りました。'
+     return
+    end
+   end
    if duel.active(s,node.duel) then
     C.resetFieldTrial(s,node.duel.encounter)
     enter(s,node.id,node.duel.bellX)
@@ -1887,6 +1894,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      end
      markers[#markers+1]={kind='rect',x=x-29,y=y-54,w=58,h=6,color='#66556a'}
      markers[#markers+1]={kind='rect',x=x-6,y=y-50,w=12,h=10,color='#e1b968'}
+    elseif edge.nightTotem then
+     if x>=-100 and x<=1060 then
+      C.drawFieldDisplayArt({draws=markers},C.nightTrialTotemArt.idle,x,y,136,mode,profile,false)
+      local title=edge.nightTotem=='return' and '出口' or '夜魂の試練'
+      markers[#markers+1]={kind='text',x=x,y=y-152,text=title,color='#ead6ff',size=14}
+     end
     elseif edge.phaseSeconds then
      local glow=gateRestriction(s,edge) and '#746783' or '#d6a1ef'
      markers[#markers+1]={kind='effect',x=x,y=y-40,w=45,h=65,color=glow,alpha=1}
