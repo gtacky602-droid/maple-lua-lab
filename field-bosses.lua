@@ -51,13 +51,13 @@ return function(C,configs,controllers)
   local room=s.coop
   if room and room.fieldSpec and room.fieldSpec.id==id and C.sharesCoopField(s) then return room end
  end
- local function fieldSlot(s,id)
+ function C.fieldSlot(s,id)
   local room=sharedRoom(s,id)
-  return room and room.fieldSlot or (s.fieldSlots and s.fieldSlots[id])
+  return room and room.fieldSlot or (s.fieldSlots and s.fieldSlots[id]),room and room.time or s.t
  end
  function C.fieldGravityFactor(s,a)
   local spec=byNode[current(s)]
-  local slot=spec and fieldSlot(s,spec.id)
+  local slot=spec and C.fieldSlot(s,spec.id)
   local zone=slot and slot.cast and slot.cast.gravity
   if zone and a.x>=zone.left and a.x<=zone.right and a.y>=zone.top and a.y<=zone.bottom then
    return zone.factor
@@ -312,9 +312,9 @@ return function(C,configs,controllers)
   end
  end
 
- function C.advanceCoopField(room,actors,owners)
+ function C.advanceCoopField(room,actors,owners,parties)
   if not room.fieldSlot then return end
-  local combat={t=room.time,actors=actors,actorOwners=owners,enemies=room.enemies}
+  local combat={t=room.time,actors=actors,actorOwners=owners,parties=parties,enemies=room.enemies,solids=room.solids}
   advance(combat,room.fieldSpec,room.fieldSlot,true)
  end
 
@@ -403,7 +403,7 @@ return function(C,configs,controllers)
   local spec=e.fieldBoss and byId[e.fieldBoss]
   if not spec or e.hp<=0 or e.invulnerable then return end
   local behavior=controllers[spec.controller]
-  if behavior.onHit then behavior.onHit(cast,e,spec,fieldSlot(s,spec.id),damageElement,damage) end
+  if behavior.onHit then behavior.onHit(cast,e,spec,C.fieldSlot(s,spec.id),damageElement,damage) end
  end
 
  local function waitTicks(now,slot)
@@ -452,8 +452,7 @@ return function(C,configs,controllers)
   local f=frame(s,mode,profile)
   local spec=byNode[current(s)]
   if not spec or not available(s,spec) then return f end
-  local room=sharedRoom(s,spec.id)
-  local slot=fieldSlot(s,spec.id)
+  local slot,now=C.fieldSlot(s,spec.id)
   if not slot then return f end
   local boss=slot.enemy
   local partner=boss.fieldPartner
@@ -469,7 +468,7 @@ return function(C,configs,controllers)
   if spec.presentationOnly and boss.hp>0 then label=spec.displayLabel or '見た目と進行を確認する仮の個体' end
   if boss.hp>0 and slot.phase=='combat' and behavior.label then label=behavior.label(boss,cast,spec,s) or label end
   f.fieldBoss={id=spec.id,name=boss.displayName or spec.name,element=boss.element,form=boss.form,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
-   generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(room and room.time or s.t,slot)/60,label=label,elementSlots=boss.elementSlots,
+   generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(now,slot)/60,label=label,elementSlots=boss.elementSlots,
    move=cast and cast.move.id,tick=cast and cast.tick,underground=boss.underground,
    weakpoint=boss.hp>0 and boss.weakpoint or nil,gravity=cast and cast.gravity}
   if behavior.frame then behavior.frame(f.fieldBoss,boss,spec,cast,s) end

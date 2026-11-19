@@ -8,7 +8,7 @@ return function(C, config)
  end
 
  function C.newCoop(s)
-  local room={node=s.story.node,enemies=s.enemies,time=s.t,tick=0,members={},nextId=0}
+  local room={node=s.story.node,enemies=s.enemies,solids=s.solids,time=s.t,tick=0,members={},nextId=0}
   C.adoptCoopField(room,s)
   return room
  end
@@ -67,7 +67,7 @@ return function(C, config)
   if not world then return end
   C.advanceEnemyReactions(world,dt)
   room.time=room.time+dt
-  local actors,decoys,owners={},{},{}
+  local actors,decoys,owners,parties={},{},{},{}
   for _,member in ipairs(room.members) do
    if onField(member) then
     local s=member.state
@@ -75,11 +75,12 @@ return function(C, config)
     if onField(member) then
      for _,a in ipairs(s.actors) do actors[#actors+1]=a;owners[a]=s end
      for _,d in ipairs(s.decoys or {}) do decoys[#decoys+1]=d;owners[d]=s end
+     parties[#parties+1]=s
     end
    end
   end
   C.advanceEnemies({enemies=room.enemies},dt,actors,decoys,owners)
-  C.advanceCoopField(room,actors,owners)
+  C.advanceCoopField(room,actors,owners,parties)
   room.tick=room.tick+1
  end
 
@@ -87,6 +88,8 @@ return function(C, config)
   for _,member in ipairs(s.coop.members) do
    if member~=s.coopMember and onField(member) then
     local peer=member.state
+    if peer.rockWall then C.drawRockWall(f,s.camera,peer.rockWall) end
+    if peer.coralWall then C.drawCoralWall(f,s.camera,peer.coralWall) end
     local camera={camera=s.camera,companion=peer.companion}
     for _,a in ipairs(peer.actors) do
      if a.hp>0 and a.x>=s.camera-55 and a.x<=s.camera+1015 then

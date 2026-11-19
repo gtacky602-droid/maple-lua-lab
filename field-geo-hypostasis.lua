@@ -22,28 +22,31 @@ return function(C)
   boss.facing=dir
   return {move=move,tick=0,stamp=s.t,dir=dir,seen={},shots={},projectiles={},cracks=0}
  end
+ function geo.shareCast(cast,actors)
+  C.shareFieldHits({cast.seen},actors)
+ end
 
- local function strikePillar(s,attack,boss,cast)
+ local function strikePillar(attack,boss,cast,now)
   local pillar=cast.move.pillar
   if cast.exposure or attack.reaction or attack.geoFieldPillar==cast or
      math.abs(attack.x-boss.x)>pillar.closeRange or math.abs(attack.y-boss.y)>pillar.height*U then return end
   -- Core casts resolve before field controllers advance their clock.
-  local t=cast.tick+math.floor(math.max(0,s.t-cast.stamp)*60+.5)
+  local t=cast.tick+math.floor(math.max(0,now-cast.stamp)*60+.5)
   if t<pillar.open or t>=cast.move.active[1][1] then return end
   attack.geoFieldPillar=cast
   cast.cracks=cast.cracks+1
   if cast.cracks==pillar.hits then
    cast.exposure=0
-   cast.brokeAt=s.t
+   cast.brokeAt=now
    cast.skipFirst=true
   end
  end
 
  function C.interceptHit(s,attack,e,element)
   if e.fieldBoss=='boss-20040301' then
-   local slot=s.fieldSlots[e.fieldBoss]
+   local slot,now=C.fieldSlot(s,e.fieldBoss)
    local cast=slot and slot.cast
-   if cast and cast.move.pillar then strikePillar(s,attack,e,cast) end
+   if cast and slot.enemy==e and cast.move.pillar then strikePillar(attack,e,cast,now) end
   end
   return intercept and intercept(s,attack,e,element)
  end
@@ -219,7 +222,8 @@ return function(C)
    C.drawGeoPart(f,'shell',cx,math.min(y,cy+size/2),size,mode,profile)
   end
   if not cast then
-   orbit(cube,x,y-87,52,24,s.t*.64,28)
+   local time=s.coop and s.coop.time or s.t
+   orbit(cube,x,y-87,52,24,time*.64,28)
   elseif cast.tick<cast.move.recover or cast.exposure then
    if cast.move.pillar then drawPillar(f,cube,boss,cast,s.camera,mode,profile)
    elseif cast.move.shotTicks then drawBolts(f,cube,boss,cast,s.camera)

@@ -8046,7 +8046,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Extend fixed-HP cooperative combat to bosses with phase changes, guards and multiple bodies.",
+  "current_priority": "Extend the shared pillar and projectile systems to guarded and multi-body bosses in later regions.",
   "multiplayer_preview": {
     "status": "split_map_room_membership_and_local_combat_verified",
     "maps": [
@@ -8055,11 +8055,14 @@
       "anemo-approach",
       "anemo-field-basin",
       "electro-approach",
-      "electro-field-shelf"
+      "electro-field-shelf",
+      "geo-approach",
+      "geo-field-court"
     ],
     "bosses": [
       "boss-20040201",
-      "boss-20040101"
+      "boss-20040101",
+      "boss-20040301"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8077,7 +8080,11 @@
       "evidence/coop-travel-regroup.png",
       "evidence/coop-electro-lua-http.json",
       "evidence/coop-electro-browser.json",
-      "evidence/coop-electro-browser.png"
+      "evidence/coop-electro-browser.png",
+      "evidence/coop-geo-lua-http.json",
+      "evidence/coop-geo-browser.json",
+      "evidence/coop-geo-pillar.png",
+      "evidence/coop-geo-exposed.png"
     ],
     "pending": [
       "remaining normal, weekly and Stygian bosses",

@@ -19,21 +19,33 @@ return function(C)
   end
   return false
  end
+ local function blockByWall(party,p,nx,ny,radius)
+  local coral=party.coralWall
+  if coral and intersects(p.x,p.y,nx,ny,{x=coral.x-12,y=coral.y-120,w=24,h=120},radius) then return true end
+  local rock=party.rockWall
+  if rock and intersects(p.x,p.y,nx,ny,{x=rock.x-12,y=rock.y-120,w=24,h=120},radius) then
+   local absorbed=math.min(rock.hp,p.damage)
+   rock.hp=rock.hp-absorbed;p.damage=p.damage-absorbed
+   if rock.hp==0 then party.rockWall=nil end
+   return p.damage<=0
+  end
+  return false
+ end
  function C.resolveEnemyProjectileSegment(s,p,nx,ny,radius,halfWidth,height)
-   local blocked=false
-   for _,w in ipairs(s.solids or {}) do if intersects(p.x,p.y,nx,ny,w,radius) then blocked=true;break end end
-   for _,kind in ipairs({'coralWall','rockWall'}) do local w=s[kind]
-    if not blocked and w and intersects(p.x,p.y,nx,ny,{x=w.x-12,y=w.y-120,w=24,h=120},radius) then
-     blocked=true
-     if kind=='rockWall' then local absorbed=math.min(w.hp,p.damage);w.hp=w.hp-absorbed;p.damage=p.damage-absorbed;blocked=p.damage<=0;if w.hp==0 then s.rockWall=nil end end
-    end
+  for _,w in ipairs(s.solids or {}) do if intersects(p.x,p.y,nx,ny,w,radius) then return true end end
+  if s.parties then
+   for _,party in ipairs(s.parties) do
+    if blockByWall(party,p,nx,ny,radius) then return true end
    end
-   if not blocked then
-    for _,victim in ipairs(s.actors) do if victim.hp>0 and intersects(p.x,p.y,nx,ny,{x=victim.x-halfWidth,y=victim.y-height,w=2*halfWidth,h=height},radius) then
-     C.damageActor(s,victim,p.damage,{id=p.source or 0,x=p.x,y=p.y+30,damageElement=p.damageElement},true);blocked=true;break
-    end end
+  elseif blockByWall(s,p,nx,ny,radius) then return true end
+  for _,victim in ipairs(s.actors) do
+   if victim.hp>0 and intersects(p.x,p.y,nx,ny,{x=victim.x-halfWidth,y=victim.y-height,w=2*halfWidth,h=height},radius) then
+    local owner=s.actorOwners and s.actorOwners[victim] or s
+    C.damageActor(owner,victim,p.damage,{id=p.source or 0,x=p.x,y=p.y+30,damageElement=p.damageElement},true)
+    return true
    end
-  return blocked
+  end
+  return false
  end
  function C.action(s,key)
   if key=='projectile_trial' then s.projectileTrial=not s.projectileTrial;s.projectileClock=0;return end

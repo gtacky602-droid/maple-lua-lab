@@ -63,6 +63,10 @@ return function(C)
   local returns=s.returns;step(s,dt,input)
   if s.returns~=returns then clear(s) end
  end
+ function C.drawRockWall(f,camera,w)
+  f.draws[#f.draws+1]={kind='rect',x=w.x-camera-12,y=w.y-120,w=24,h=120,color='#b39a62'}
+  f.draws[#f.draws+1]={kind='rect',x=w.x-camera-20,y=w.y-130,w=40*w.hp/w.maxhp,h=5,color='#f1d795'}
+ end
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile)
   for _,p in ipairs(s.platforms) do if p.structure=='vine' then
@@ -76,10 +80,9 @@ return function(C)
    f.draws[#f.draws+1]={kind='rect',x=cast.x-s.camera-10,y=cast.y-38,w=20,h=38,color='#795297'}
    f.draws[#f.draws+1]={kind='rect',x=cast.x-s.camera-14,y=cast.y-44,w=28,h=10,color='#d5adff'}
   end end
-  if s.rockWall then local w=s.rockWall
-   f.draws[#f.draws+1]={kind='rect',x=w.x-s.camera-12,y=w.y-120,w=24,h=120,color='#b39a62'}
-   f.draws[#f.draws+1]={kind='rect',x=w.x-s.camera-20,y=w.y-130,w=40*w.hp/w.maxhp,h=5,color='#f1d795'}
-   f.rockWall=w
+  if s.rockWall then
+   C.drawRockWall(f,s.camera,s.rockWall)
+   f.rockWall=s.rockWall
   end
   if s.updraft then local d=s.updraft
    for i=0,9 do f.draws[#f.draws+1]={kind='rect',x=d.x-s.camera-35,y=d.y-i*24,w=70,h=3,color='#99e9d8'} end

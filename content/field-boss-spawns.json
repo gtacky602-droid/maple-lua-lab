@@ -182,6 +182,7 @@
     {
       "id": "boss-20040301",
       "controller": "geoHypostasis",
+      "coop": true,
       "entity": 20040301,
       "name": "無相の岩",
       "node": "geo-field-court",

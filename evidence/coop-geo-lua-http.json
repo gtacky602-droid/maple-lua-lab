@@ -1,0 +1,33 @@
+{
+  "lua": {
+    "hpWithFourPlayers": 980,
+    "differentPartyClocks": true,
+    "samePillarCounts": [
+      1,
+      2,
+      3
+    ],
+    "onlyDistinctCastsCount": true,
+    "thirdHitOnTick149Exposes": true,
+    "pendingHitOnTick150CannotInterrupt": true,
+    "exposureAndReformTicks": [
+      150,
+      24
+    ],
+    "pillarDoesNotGrantRewards": true,
+    "partyWallVisibleAndStopsSharedBolt": true,
+    "secondBoltOnlyHitsOneParty": true,
+    "thirdBoltDamageAfterPartialWallAbsorption": 6,
+    "personalKillReward": {
+      "xp": 5900,
+      "mora": 160
+    },
+    "respawnTicks": 3600
+  },
+  "http": {
+    "participants": 2,
+    "realRouteFromLiyueHarbor": true,
+    "bothViewsSeeTwoHitsAndExposure": true,
+    "individualRecords": true
+  }
+}

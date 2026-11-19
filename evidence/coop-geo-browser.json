@@ -1,0 +1,45 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "sharedMaxHp": 980,
+  "pillarStruckBySlots": [
+    1,
+    2,
+    1
+  ],
+  "bothSawEveryPillarCount": true,
+  "bothSawExposure": true,
+  "results": [
+    {
+      "seconds": 16.766666666665717,
+      "hp": 122,
+      "moves": [
+        "FG03",
+        "FG01",
+        "FG02"
+      ],
+      "kills": 1,
+      "damage": 377
+    },
+    {
+      "seconds": 16.783333333332383,
+      "hp": 92,
+      "moves": [
+        "FG03",
+        "FG01",
+        "FG02"
+      ],
+      "kills": 1,
+      "damage": 375
+    }
+  ],
+  "personalQuestCounts": [
+    1,
+    null
+  ],
+  "savedClears": [
+    1,
+    1
+  ],
+  "errors": []
+}

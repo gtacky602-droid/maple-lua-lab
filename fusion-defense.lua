@@ -47,11 +47,12 @@ return function(C)
   end
   local returns=s.returns;step(s,dt,input);if returns~=s.returns then clear(s) end
  end
+ function C.drawCoralWall(f,camera,w)
+  f.draws[#f.draws+1]={kind='rect',x=w.x-camera-12,y=w.y-120,w=24,h=120,color='#e5aab3'}
+ end
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile)
-  if s.coralWall then local w=s.coralWall
-   f.draws[#f.draws+1]={kind='rect',x=w.x-s.camera-12,y=w.y-120,w=24,h=120,color='#e5aab3'}
-  end
+  if s.coralWall then C.drawCoralWall(f,s.camera,s.coralWall) end
   for _,a in ipairs(s.actors) do if (a.lavaArmor or 0)>0 then
    f.draws[#f.draws+1]={kind='rect',x=a.x-s.camera-22,y=a.y-55,w=5,h=55,color='#ef9871'}
    f.draws[#f.draws+1]={kind='rect',x=a.x-s.camera+17,y=a.y-55,w=5,h=55,color='#ef9871'}
