@@ -1,0 +1,52 @@
+{
+  "legend-tlatzacuilotl": {
+    "sources": [
+      {
+        "files": [
+          "tlatza-portrait.webp",
+          "tlatza-name.jpg",
+          "tlatza-action.webp"
+        ],
+        "seen": "名前付きの立ち姿と斜めからの動き。青白い霊体、張り出した肩、膝横の歯付き円盤。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Tribalwarrior_Chainsword_Drillhead.png",
+        "seen": "テペトル竜戦士・砕岩のブレードの顔アイコン。頭頂の稜線、左右へ張る防具、眉を覆う仮面。"
+      },
+      {
+        "url": "https://upload-os-bbs.hoyolab.com/upload/2025/06/28/109082364/542d219fed290b7d8aa46097e299d370_7702522312516934937.webp",
+        "seen": "Rockbreaker Blade と記された通常種ガイドの全身で、手から下へ張り出す削岩装備と肩幅を照合。"
+      }
+    ],
+    "design": "丸い青仮面、独自の肩の輪紋と短い柄の歯付き円盤。",
+    "unchecked": [
+      "360度モデルの回転",
+      "ゲーム内での表示と切り替え"
+    ]
+  },
+  "legend-ichcahuipilli": {
+    "sources": [
+      {
+        "files": [
+          "ichca-name.webp",
+          "ichca-idle.webp",
+          "wayob-dendro.png"
+        ],
+        "seen": "名前付き戦闘・待機・通常種の全身。上部の曲線紋、緑と金の翼、下へ垂れた葉。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Wayob_Hookwalker.png",
+        "seen": "葉迅・大霊の化身の通常種2Dアイコンで黄緑の稜線と中央の芯を確認。"
+      },
+      {
+        "url": "https://upload-os-bbs.hoyolab.com/upload/2024/11/18/373432431/e2f4414a1510cc973255c5b075cd1e56_1216089485711126043.jpg",
+        "seen": "名前付き戦闘画面で翼の曲線と空いた足元を照合。"
+      }
+    ],
+    "design": "上部は渦巻き状の金の若葉、下部は3枚の大きな葉の面を中心に再構成。",
+    "unchecked": [
+      "モデルの360度回転",
+      "実機表示"
+    ]
+  }
+}

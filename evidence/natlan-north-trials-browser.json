@@ -1,0 +1,91 @@
+{
+  "routes": [
+    [
+      "nat-wp-72434",
+      "nat-wp-72441",
+      "lift"
+    ],
+    [
+      "nat-wp-72441",
+      "sulfurous-resonant-basin",
+      "walk"
+    ],
+    [
+      "sulfurous-resonant-basin",
+      "sulfurous-totem-cave",
+      "walk"
+    ],
+    [
+      "sulfurous-totem-cave",
+      "night-trial-tlatzacuilotl",
+      "phase"
+    ],
+    [
+      "night-trial-tlatzacuilotl",
+      "sulfurous-totem-cave",
+      "phase"
+    ],
+    [
+      "nat-wp-72436",
+      "witztli-sealed-stone-bank",
+      "walk"
+    ],
+    [
+      "witztli-sealed-stone-bank",
+      "witztli-crystal-niche",
+      "walk"
+    ],
+    [
+      "witztli-crystal-niche",
+      "witztli-sealed-stone-bank",
+      "walk"
+    ],
+    [
+      "witztli-sealed-stone-bank",
+      "witztli-loose-ledge",
+      "walk"
+    ],
+    [
+      "witztli-loose-ledge",
+      "witztli-sealed-stone-bank",
+      "walk"
+    ],
+    [
+      "witztli-sealed-stone-bank",
+      "witztli-root-hollow",
+      "walk"
+    ],
+    [
+      "witztli-root-hollow",
+      "witztli-sealed-stone-bank",
+      "walk"
+    ],
+    [
+      "witztli-sealed-stone-bank",
+      "night-trial-ichcahuipilli",
+      "phase"
+    ],
+    [
+      "night-trial-ichcahuipilli",
+      "witztli-sealed-stone-bank",
+      "phase"
+    ]
+  ],
+  "comparisons": [
+    {
+      "name": "tlatzacuilotl",
+      "pngCommands": 11,
+      "rectangleCommands": 8372,
+      "lightCommands": 2249
+    },
+    {
+      "name": "ichcahuipilli",
+      "pngCommands": 11,
+      "rectangleCommands": 6836,
+      "lightCommands": 1728
+    }
+  ],
+  "wrongCrystalOrderRejected": true,
+  "threeLightsEscorted": true,
+  "errors": []
+}

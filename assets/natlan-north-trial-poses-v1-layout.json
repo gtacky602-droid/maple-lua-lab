@@ -1,0 +1,126 @@
+{
+  "source": "natlan-north-trial-poses-source-v1.png",
+  "facing": "left",
+  "frames": [
+    {
+      "id": "legend-tlatzacuilotl",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        61,
+        19,
+        190,
+        132
+      ]
+    },
+    {
+      "id": "legend-tlatzacuilotl",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        91,
+        24,
+        181,
+        132
+      ]
+    },
+    {
+      "id": "legend-tlatzacuilotl",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        73,
+        20,
+        185,
+        132
+      ]
+    },
+    {
+      "id": "legend-ichcahuipilli",
+      "pose": "idle",
+      "crop": [
+        0,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        117,
+        10,
+        172,
+        115
+      ]
+    },
+    {
+      "id": "legend-ichcahuipilli",
+      "pose": "brace",
+      "crop": [
+        288,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        120,
+        11,
+        168,
+        115
+      ]
+    },
+    {
+      "id": "legend-ichcahuipilli",
+      "pose": "strike",
+      "crop": [
+        576,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        109,
+        12,
+        180,
+        115
+      ]
+    }
+  ]
+}

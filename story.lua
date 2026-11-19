@@ -406,7 +406,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   return milestone
  end
- local function nextMilestone(s,q)
+ local function nextMilestone(s,q,arrivalFrom)
   local state=s.story.quests[q.id]
   if not state then return end
   local step=state.status=='active' and q.itinerary[state.count+1] or nil
@@ -415,7 +415,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    for _,path in ipairs(q.paths) do
     local progress=state.pathProgress[path.id]
     local nextStep=milestoneAt(path.steps[progress.count+1],s.story.node)
-    if nextStep and nextStep.node==s.story.node then return nextStep,progress,state,q end
+    if nextStep and nextStep.node==s.story.node and
+        (not arrivalFrom or (nextStep.kind=='arrive' and nextStep.from==arrivalFrom)) then
+     return nextStep,progress,state,q
+    end
    end
    if step and step.kind=='paths' then return end
   end
@@ -895,8 +898,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  local function recordArrival(s,from,dest)
   for _,q in ipairs(itineraries) do
-   local step,state=nextMilestone(s,q)
-   if step and step.kind=='arrive' and step.node==dest and step.from==from then completeMilestone(s,state,step) end
+   local step,state,parent,quest=nextMilestone(s,q,from)
+   if step and step.kind=='arrive' and step.node==dest and step.from==from then
+    completeMilestone(s,state,step,parent,quest)
+   end
   end
  end
  local function arrive(s)
@@ -1730,6 +1735,19 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
   end
  end
+ local function drawSpiritEcho(draws,x,y,t)
+  y=y+math.sin(t*5+x*.026)*4
+  draws[#draws+1]={kind='rect',x=x-9,y=y-8,w=18,h=16,color='#6ce7b7',opacity=.36}
+  draws[#draws+1]={kind='rect',x=x-3,y=y-6,w=6,h=12,color='#bcfddb'}
+  draws[#draws+1]={kind='rect',x=x-6,y=y-2,w=12,h=4,color='#dcffeb'}
+ end
+ local function drawRockSeal(draws,x,y,label)
+  draws[#draws+1]={kind='rect',x=x-39,y=y-39,w=78,h=39,color='#393749'}
+  draws[#draws+1]={kind='rect',x=x-31,y=y-58,w=61,h=41,color='#565067'}
+  draws[#draws+1]={kind='rect',x=x-23,y=y-66,w=42,h=12,color='#756887'}
+  draws[#draws+1]={kind='rect',x=x-12,y=y-40,w=28,h=3,color='#9286ab'}
+  draws[#draws+1]={kind='text',x=x,y=y-83,text=label,color='#e9dbf9',size=14}
+ end
 
  local function drawTeaSetting(draws,x,y,cups)
   draws[#draws+1]={kind='rect',x=x-24,y=y-16,w=48,h=8,color='#77553e'}
@@ -1894,6 +1912,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      end
      markers[#markers+1]={kind='rect',x=x-29,y=y-54,w=58,h=6,color='#66556a'}
      markers[#markers+1]={kind='rect',x=x-6,y=y-50,w=12,h=10,color='#e1b968'}
+    elseif edge.rockSeal and not meetsGateRule(s,rule) then
+     if x>=-100 and x<=1060 then drawRockSeal(markers,x,y,edge.rockSeal) end
     elseif edge.nightTotem then
      if x>=-100 and x<=1060 then
       C.drawFieldDisplayArt({draws=markers},C.nightTrialTotemArt.idle,x,y,136,mode,profile,false)
@@ -2043,6 +2063,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local pathQuest=n.pathsQuest and quests[n.pathsQuest]
    local pathState=pathQuest and s.story.quests[pathQuest.id]
    if pathState and pathState.pathProgress and pathState.count>0 then
+    local carried=n.spiritEscort and pathState.pathProgress[n.spiritEscort]
+    if carried and carried.count==1 then
+     local a=s.actors[s.active]
+     drawSpiritEcho(markers,a.x-s.camera-a.dir*40,a.y-85,s.t)
+    end
+    for _,point in ipairs(n.spiritReturns or {}) do
+     if pathState.pathProgress[point.path].count==2 then
+      local x=point.x-s.camera
+      if x>=-25 and x<=985 then drawSpiritEcho(markers,x,point.y-36,s.t) end
+     end
+    end
     local notes={}
     for _,path in ipairs(pathQuest.paths) do
      local count=pathState.pathProgress[path.id].count

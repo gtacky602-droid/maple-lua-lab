@@ -147,8 +147,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 143,
-      "prototype_quest_count": 24,
+      "prototype_stage_count": 151,
+      "prototype_quest_count": 26,
       "official_map2_markers": {
         "waypoints": 126,
         "statues": 9
@@ -7962,8 +7962,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1443,
-    "provisional_quests": 263,
+    "authored_stages": 1451,
+    "provisional_quests": 265,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -8909,7 +8909,15 @@
           "temple-east-totem-pond",
           "night-trial-undead",
           "temple-northwest-totem-ravine",
-          "night-trial-chimalli"
+          "night-trial-chimalli",
+          "sulfurous-resonant-basin",
+          "sulfurous-totem-cave",
+          "night-trial-tlatzacuilotl",
+          "witztli-sealed-stone-bank",
+          "witztli-root-hollow",
+          "witztli-crystal-niche",
+          "witztli-loose-ledge",
+          "night-trial-ichcahuipilli"
         ],
         "quest_ids": [
           "nat-mapped-valley-trail",
@@ -8935,7 +8943,9 @@
           "natlan-two-trials",
           "natlan-sunset-duel",
           "natlan-rainbow-cave-keys",
-          "natlan-toyac-electro-crystals"
+          "natlan-toyac-electro-crystals",
+          "natlan-sulfurous-resonant-stones",
+          "natlan-witztli-three-echoes"
         ]
       },
       {
@@ -10312,17 +10322,21 @@
       "content/story-graph.json"
     ],
     "design_candidates": 56,
-    "playable_prototypes": 24,
+    "playable_prototypes": 26,
     "pending_boss_moves": [
       "legend-natlan_balachko",
       "legend-natlan_chimalli",
       "legend-natlan_cocijo",
+      "legend-natlan_ichcahuipilli",
       "legend-natlan_polychrome_tristars",
       "legend-natlan_sappho",
+      "legend-natlan_tlatzacuilotl",
       "legend-natlan_undead"
     ],
     "nightsoul_trials": [
       "night-trial-chimalli",
+      "night-trial-ichcahuipilli",
+      "night-trial-tlatzacuilotl",
       "night-trial-undead"
     ],
     "stage_by_legend": {
@@ -10349,7 +10363,9 @@
       "legend-natlan_balachko": "toyac-balachko-inner-cave",
       "legend-natlan_cocijo": "toyac-cocijo-stone-ring",
       "legend-natlan_undead": "night-trial-undead",
-      "legend-natlan_chimalli": "night-trial-chimalli"
+      "legend-natlan_chimalli": "night-trial-chimalli",
+      "legend-natlan_tlatzacuilotl": "night-trial-tlatzacuilotl",
+      "legend-natlan_ichcahuipilli": "night-trial-ichcahuipilli"
     }
   }
 }

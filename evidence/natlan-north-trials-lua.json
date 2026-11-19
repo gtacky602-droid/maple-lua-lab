@@ -1,0 +1,18 @@
+{
+  "resonanceOrder": [
+    "△",
+    "○",
+    "◇"
+  ],
+  "wrongStoneAndExitResetIncompleteSequence": true,
+  "ascendingAndReturningOnExistingLift": true,
+  "returnOrder": [
+    "ledge",
+    "root",
+    "crystal"
+  ],
+  "visitAloneDoesNotReturnLight": true,
+  "savedCarriedLightAndMatchedReturnPath": true,
+  "pillarRevealedAfterThirdLight": true,
+  "bothQuestsReportAndBothTrialsClearSaveAndRetry": true
+}
