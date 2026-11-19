@@ -714,6 +714,8 @@
     {"id":"legend-gorge-morglay","name":"深谷の剣・モーグレイ（水中・ラボ用）","file":"legend-gorge-morglay-field-idle-sprites-v1.json","height":112,"mapHover":0},
     {"id":"legend-fading-veteran","name":"消えゆく老兵（水中・ラボ用）","file":"legend-fading-veteran-field-idle-sprites-v1.json","height":126,"mapHover":0},
     {"id":"legend-dobharcu","name":"隠者の王・ドアーチュ（水中・ラボ用）","file":"legend-dobharcu-field-idle-sprites-v1.json","height":126,"mapHover":0},
+    {"id":"legend-hunters-ray-shared","name":"双生妖精の騎士・深谷の剣（狩猟刀エイ・共通の待機候補）","file":"legend-hunters-ray-shared-idle-sprites-v1.json","height":74,"mapHover":45},
+    {"id":"legend-blubberbeast-shared","name":"消えゆく老兵・隠者の王ドアーチュ（プクプク獣・共通の待機候補）","file":"legend-blubberbeast-shared-idle-sprites-v1.json","height":82,"mapHover":45},
     {"id":"legend-luachra","name":"極彩色のルケア（水中・ラボ用）","file":"legend-luachra-field-idle-sprites-v1.json","height":126,"mapHover":0},
     {"id":"legend-chassanion","name":"シャサニョン（水中・ラボ用）","file":"legend-chassanion-field-idle-sprites-v1.json","height":126,"mapHover":0},
     {"id":"legend-corrouge","name":"魔剣クルージュ（水中・ラボ用）","file":"legend-corrouge-field-idle-sprites-v1.json","height":126,"mapHover":0},

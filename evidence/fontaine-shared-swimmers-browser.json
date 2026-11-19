@@ -1,0 +1,313 @@
+{
+  "galleries": [
+    {
+      "gallery": "enemies",
+      "asset": "hunters-ray",
+      "profile": "legacy",
+      "overlap": 1,
+      "different": 64
+    },
+    {
+      "gallery": "enemies",
+      "asset": "hunters-ray",
+      "profile": "h48c32",
+      "overlap": 0.9757959573176022,
+      "different": 12993
+    },
+    {
+      "gallery": "enemies",
+      "asset": "hunters-ray",
+      "profile": "h32c16",
+      "overlap": 0.9622598089978138,
+      "different": 7354
+    },
+    {
+      "gallery": "bosses",
+      "asset": "legend-hunters-ray-shared",
+      "profile": "legacy",
+      "overlap": 1,
+      "different": 72
+    },
+    {
+      "gallery": "bosses",
+      "asset": "legend-hunters-ray-shared",
+      "profile": "h48c32",
+      "overlap": 0.9757919731279319,
+      "different": 13212
+    },
+    {
+      "gallery": "bosses",
+      "asset": "legend-hunters-ray-shared",
+      "profile": "h32c16",
+      "overlap": 0.9622652379306371,
+      "different": 7352
+    },
+    {
+      "gallery": "enemies",
+      "asset": "blubberbeast",
+      "profile": "legacy",
+      "overlap": 1,
+      "different": 122
+    },
+    {
+      "gallery": "enemies",
+      "asset": "blubberbeast",
+      "profile": "h48c32",
+      "overlap": 0.9775998186831867,
+      "different": 9181
+    },
+    {
+      "gallery": "enemies",
+      "asset": "blubberbeast",
+      "profile": "h32c16",
+      "overlap": 0.9681249531800135,
+      "different": 4051
+    },
+    {
+      "gallery": "bosses",
+      "asset": "legend-blubberbeast-shared",
+      "profile": "legacy",
+      "overlap": 1,
+      "different": 122
+    },
+    {
+      "gallery": "bosses",
+      "asset": "legend-blubberbeast-shared",
+      "profile": "h48c32",
+      "overlap": 0.9776105291025302,
+      "different": 8776
+    },
+    {
+      "gallery": "bosses",
+      "asset": "legend-blubberbeast-shared",
+      "profile": "h32c16",
+      "overlap": 0.968160510031877,
+      "different": 4050
+    }
+  ],
+  "maps": [
+    {
+      "node": "fairy-knight-twins-legend-court",
+      "profile": "legacy",
+      "background": "bygone",
+      "placements": [
+        {
+          "id": "preview-ray-ordinary",
+          "species": "hunters-ray",
+          "x": 328,
+          "y": 480,
+          "flip": false
+        },
+        {
+          "id": "preview-ray-legend",
+          "species": "boss-legend-hunters-ray-shared",
+          "x": 630,
+          "y": 480,
+          "flip": false
+        }
+      ],
+      "visuals": [
+        {
+          "id": "preview-ray-ordinary",
+          "source": "hunters-ray-shared-idle-source-v1.png",
+          "y": 435,
+          "hover": 45,
+          "height": 74
+        },
+        {
+          "id": "preview-ray-legend",
+          "source": "legend-hunters-ray-shared-idle-source-v1.png",
+          "y": 435,
+          "hover": 45,
+          "height": 74
+        }
+      ]
+    },
+    {
+      "node": "fairy-knight-twins-legend-court",
+      "profile": "h48c32",
+      "background": "bygone",
+      "placements": [
+        {
+          "id": "preview-ray-ordinary",
+          "species": "hunters-ray",
+          "x": 328,
+          "y": 480,
+          "flip": false
+        },
+        {
+          "id": "preview-ray-legend",
+          "species": "boss-legend-hunters-ray-shared",
+          "x": 630,
+          "y": 480,
+          "flip": false
+        }
+      ],
+      "visuals": [
+        {
+          "id": "preview-ray-ordinary",
+          "source": "hunters-ray-shared-idle-source-v1.png",
+          "y": 435,
+          "hover": 45,
+          "height": 74
+        },
+        {
+          "id": "preview-ray-legend",
+          "source": "legend-hunters-ray-shared-idle-source-v1.png",
+          "y": 435,
+          "hover": 45,
+          "height": 74
+        }
+      ]
+    },
+    {
+      "node": "fairy-knight-twins-legend-court",
+      "profile": "h32c16",
+      "background": "bygone",
+      "placements": [
+        {
+          "id": "preview-ray-ordinary",
+          "species": "hunters-ray",
+          "x": 328,
+          "y": 480,
+          "flip": false
+        },
+        {
+          "id": "preview-ray-legend",
+          "species": "boss-legend-hunters-ray-shared",
+          "x": 630,
+          "y": 480,
+          "flip": false
+        }
+      ],
+      "visuals": [
+        {
+          "id": "preview-ray-ordinary",
+          "source": "hunters-ray-shared-idle-source-v1.png",
+          "y": 435,
+          "hover": 45,
+          "height": 74
+        },
+        {
+          "id": "preview-ray-legend",
+          "source": "legend-hunters-ray-shared-idle-source-v1.png",
+          "y": 435,
+          "hover": 45,
+          "height": 74
+        }
+      ]
+    },
+    {
+      "node": "fading-veteran-legend-wreck",
+      "profile": "legacy",
+      "background": "fontaineToyShallows",
+      "placements": [
+        {
+          "id": "preview-blubberbeast-ordinary",
+          "species": "blubberbeast",
+          "x": 328,
+          "y": 484,
+          "flip": false
+        },
+        {
+          "id": "preview-blubberbeast-legend",
+          "species": "boss-legend-blubberbeast-shared",
+          "x": 630,
+          "y": 484,
+          "flip": false
+        }
+      ],
+      "visuals": [
+        {
+          "id": "preview-blubberbeast-ordinary",
+          "source": "blubberbeast-shared-idle-source-v1.png",
+          "y": 439,
+          "hover": 45,
+          "height": 82
+        },
+        {
+          "id": "preview-blubberbeast-legend",
+          "source": "legend-blubberbeast-shared-idle-source-v1.png",
+          "y": 439,
+          "hover": 45,
+          "height": 82
+        }
+      ]
+    },
+    {
+      "node": "fading-veteran-legend-wreck",
+      "profile": "h48c32",
+      "background": "fontaineToyShallows",
+      "placements": [
+        {
+          "id": "preview-blubberbeast-ordinary",
+          "species": "blubberbeast",
+          "x": 328,
+          "y": 484,
+          "flip": false
+        },
+        {
+          "id": "preview-blubberbeast-legend",
+          "species": "boss-legend-blubberbeast-shared",
+          "x": 630,
+          "y": 484,
+          "flip": false
+        }
+      ],
+      "visuals": [
+        {
+          "id": "preview-blubberbeast-ordinary",
+          "source": "blubberbeast-shared-idle-source-v1.png",
+          "y": 439,
+          "hover": 45,
+          "height": 82
+        },
+        {
+          "id": "preview-blubberbeast-legend",
+          "source": "legend-blubberbeast-shared-idle-source-v1.png",
+          "y": 439,
+          "hover": 45,
+          "height": 82
+        }
+      ]
+    },
+    {
+      "node": "fading-veteran-legend-wreck",
+      "profile": "h32c16",
+      "background": "fontaineToyShallows",
+      "placements": [
+        {
+          "id": "preview-blubberbeast-ordinary",
+          "species": "blubberbeast",
+          "x": 328,
+          "y": 484,
+          "flip": false
+        },
+        {
+          "id": "preview-blubberbeast-legend",
+          "species": "boss-legend-blubberbeast-shared",
+          "x": 630,
+          "y": 484,
+          "flip": false
+        }
+      ],
+      "visuals": [
+        {
+          "id": "preview-blubberbeast-ordinary",
+          "source": "blubberbeast-shared-idle-source-v1.png",
+          "y": 439,
+          "hover": 45,
+          "height": 82
+        },
+        {
+          "id": "preview-blubberbeast-legend",
+          "source": "legend-blubberbeast-shared-idle-source-v1.png",
+          "y": 439,
+          "hover": 45,
+          "height": 82
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

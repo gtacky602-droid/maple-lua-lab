@@ -1,0 +1,241 @@
+{
+  "scope": "フォンテーヌ水中の地方伝説4戦6体と、対応する通常種2種",
+  "newImageUrls": 15,
+  "countNote": "URL単位。公式紹介図内の既出プロフィールと、連続プレイ画像は独立したモデルや撮影者として数えない。",
+  "evidence": [
+    {
+      "id": "official-3",
+      "kind": "公式紹介図",
+      "page": "https://www.hoyolab.com/article/20834657",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/08/11/7a17d5db81c8c710331b28346a2a902a_612671833896011451.jpg",
+      "size": [
+        700,
+        2273
+      ],
+      "sha256": "f4093dcfc4fab51b05ce9efd645d367811c24af7ec5c8f2d87ea71c44db09d33",
+      "seen": "通常のエイは黄緑と淡いひれ縁。通常のプクプク獣は青灰の背、明るい腹、淡い小さな耳とひれ。以前の図鑑アップはこの紹介図と同じ絵。"
+    },
+    {
+      "id": "ray-capability",
+      "kind": "亜種の実機",
+      "page": "https://gamerch.com/genshinwiki/792396",
+      "image": "https://cdn.gamerch.com/contents/wiki/4268/entry/gWyjXtZ4.png",
+      "size": [
+        800,
+        450
+      ],
+      "sha256": "b26e28906cb869aad535c9f51c54572e57a5b2443c6068d71d737c2dd9930b85",
+      "seen": "空色の発光個体。ひれ・尾の重なりのみを参照。通常個体の体色の証拠から外した。"
+    },
+    {
+      "id": "seal-capability",
+      "kind": "通常個体と亜種の実機",
+      "page": "https://gamerch.com/genshinwiki/792396",
+      "image": "https://cdn.gamerch.com/contents/wiki/4268/entry/fZVUdvOy.png",
+      "size": [
+        800,
+        450
+      ],
+      "sha256": "63cd558f8359bf7d24ea7ac907218e17dd63688d90a9ef76a8e01381684d98dd",
+      "seen": "左奥に通常の暗い個体、右手前に発光する青い亜種。尾・腹・前ひれの配置に使い、青い発光を通常型に移さない。"
+    },
+    {
+      "id": "twins-alt",
+      "kind": "地方伝説の実機",
+      "page": "https://www.tawakemonoga.com/archives/3686",
+      "image": "https://www.tawakemonoga.com/wp-content/uploads/2023/10/FB496E8F-E303-49D1-A07D-B857FD674F0D-1024x563.jpeg",
+      "size": [
+        1024,
+        563
+      ],
+      "sha256": "b3ec1e6d1981f2d732aaed1ef05b002dd422aa86bb9a78e7f3db74f0a4dfcd74",
+      "seen": "アンジェリカとミドロの戦闘。ひれが曲がった側面寄りの姿と淡い桃紫。左手前に攻撃の発光が入る。"
+    },
+    {
+      "id": "gorge-alt",
+      "kind": "地方伝説の実機",
+      "page": "https://www.tawakemonoga.com/archives/3686",
+      "image": "https://www.tawakemonoga.com/wp-content/uploads/2023/10/E1197CF9-BDED-4016-B0B3-25445DAF68A5-1024x556.jpeg",
+      "size": [
+        1024,
+        556
+      ],
+      "sha256": "208c0b480bf3004e00c9e2a9990cc000a72230b9a22581b78db958f67f97c756",
+      "seen": "コルタナとモーグレイ。斜め上から両方が見え、右の個体の淡桃色、平たい胴と尾を確認。"
+    },
+    {
+      "id": "field-12",
+      "kind": "地方伝説の実機",
+      "page": "https://www.hoyolab.com/article/21205260",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/08/27/12414587/496ff9bcfa98509d51bd37a30b8eba72_4437481728511318263.jpg",
+      "size": [
+        3840,
+        2160
+      ],
+      "sha256": "752265ea10ba590d95534481408aa7a2f1faf84cc58efd82e281a9ae94bb8809",
+      "seen": "名前付きのコルタナとモーグレイを同じ照明で比較。連結中。画面左右の色は両方とも桃紫に見える。"
+    },
+    {
+      "id": "field-13",
+      "kind": "地方伝説の実機",
+      "page": "https://www.hoyolab.com/article/21205260",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/08/27/12414587/ee667f9f95c35f4da38bbb01a91cde70_7986240431011378453.jpg",
+      "size": [
+        3840,
+        2160
+      ],
+      "sha256": "a895a9f878a5a3e427ac6015e67aef6ed0d8ea53b8bfad36d0028cc640bd93f9",
+      "seen": "コルタナとモーグレイの連結中。手前の個体は桃色のひれ縁。青い線と球は戦闘エフェクト。"
+    },
+    {
+      "id": "veteran-alt",
+      "kind": "地方伝説の実機",
+      "page": "https://www.tawakemonoga.com/archives/3686",
+      "image": "https://www.tawakemonoga.com/wp-content/uploads/2023/10/FB812806-42CC-44EB-8194-A50DF1F11611-1024x558.jpeg",
+      "size": [
+        1024,
+        558
+      ],
+      "sha256": "4ea1b782e608845df30bdb925339abfe6ea9904ccb530605b0a23548967f06a4",
+      "seen": "消えゆく老兵の側面寄り。明るい腹、薄青紫の胴、短い前ひれ。右側の青い発光個体とは別。"
+    },
+    {
+      "id": "king-alt",
+      "kind": "地方伝説の実機",
+      "page": "https://www.tawakemonoga.com/archives/3686",
+      "image": "https://www.tawakemonoga.com/wp-content/uploads/2023/10/4E18BB3B-2FD5-4388-A4AC-8A46C0BA5028-1024x556.jpeg",
+      "size": [
+        1024,
+        556
+      ],
+      "sha256": "cc61d044a4ab447adb36f4fede7c430995aef6e0bfdd26c656a9acccb3cd5feb",
+      "seen": "ドアーチュの側面寄り。淡い頭と腹、濃い紫寄りの下側、短い前ひれ。戦闘中の照明を含む。"
+    },
+    {
+      "id": "field-16",
+      "kind": "地方伝説の実機",
+      "page": "https://www.hoyolab.com/article/21205260",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/08/27/12414587/fc2cbf1d912b70ff6471fdbc8aa4c6c7_6674819283828708455.jpg",
+      "size": [
+        3840,
+        2160
+      ],
+      "sha256": "85d37c4f8eb1418ebc52ade3a2d69fa2b49de804d068c28cc79b2b1859e4a6c6",
+      "seen": "ドアーチュの腹側と短い前ひれ。水の輪の内側の胴を確認。"
+    },
+    {
+      "id": "field-17",
+      "kind": "地方伝説の実機",
+      "page": "https://www.hoyolab.com/article/21205260",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/08/27/12414587/02ea5bac1bc384a841bdca98f87d985a_475144614225686267.jpg",
+      "size": [
+        3840,
+        2160
+      ],
+      "sha256": "12d3add21afc2a0d702d0b7431f514179420f6928aeb5f5c3aa5aa8d8563cd45",
+      "seen": "ドアーチュの透明化と効果。輪郭や固有色の決定には使わない。"
+    },
+    {
+      "id": "field-18",
+      "kind": "地方伝説の実機",
+      "page": "https://www.hoyolab.com/article/21205260",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/08/27/12414587/1de7d0e659a7feb50a04ab2420edb011_774423063210310007.jpg",
+      "size": [
+        3840,
+        2160
+      ],
+      "sha256": "5028210df544822ce34e27dfb51f02a2f1daefc6ce553c91758e4f7322306823",
+      "seen": "ドアーチュの横倒し寄りの近景。前ひれの丸い先と短い耳。白い発光は攻撃の影響を含む。"
+    },
+    {
+      "id": "field-19",
+      "kind": "地方伝説の実機",
+      "page": "https://www.hoyolab.com/article/21205260",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/08/27/12414587/9aba3e7c93f8b6ef89a97236c9f58793_7428209586924368666.jpg",
+      "size": [
+        3840,
+        2160
+      ],
+      "sha256": "b1b954a69b12073064f27dd51aa68e9a5621ba4ef4801ec84d52a0f8af970479",
+      "seen": "ドアーチュの腹側近景。左右の短い前ひれと尾を確認。"
+    },
+    {
+      "id": "ray-concept",
+      "kind": "公式設定画",
+      "page": "https://wiki.biligame.com/ys/%E6%9E%AB%E4%B8%B9%E6%83%85%E6%8A%A5%E5%B1%95%E8%AE%BE%E5%AE%9A%E9%9B%86",
+      "image": "https://patchwiki.biligame.com/images/ys/b/b9/jwakbtc3a1olsisl1j93b3ganftusv8.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "1523755d42c008d51fc87fa3f1501f655c6e126ae3a4f045ce615e187aea3038",
+      "seen": "エイの背・腹と側面。水色と黄緑の配色、桃紫の型。胴は薄く、尾先に小さな扇形のひれがある。型の配色は設定画、個体名は現地画面で確認した。"
+    },
+    {
+      "id": "seal-concept",
+      "kind": "公式設定画",
+      "page": "https://wiki.hoyolab.com/pc/genshin/entry/4066?lang=ja-jp",
+      "image": "https://upload-static.hoyoverse.com/hoyolab-wiki/2023/08/29/94675339/3c0e65389a6b6a51be2e2fec96d26e8f_8755013058492289871.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "c8e9a401ce83438b8d92171e99772859eb9a6696bb55900bd08099c5c8b2f976",
+      "seen": "青灰と紫の型の正面・背・腹。肩から伸びるひれ、二股の尾、体色に合わせた角状の突起と斑模様。"
+    }
+  ],
+  "comparison": [
+    {
+      "ordinary": "狩猟刀エイ",
+      "legends": [
+        "アンジェリカ",
+        "ミドロ",
+        "コルタナ",
+        "モーグレイ"
+      ],
+      "decision": "黄緑の通常型と桃紫の地方伝説候補で輪郭を共用。4体の細部の色は仮に共通。"
+    },
+    {
+      "ordinary": "プクプク獣",
+      "legends": [
+        "消えゆく老兵",
+        "隠者の王ドアーチュ"
+      ],
+      "decision": "青灰の通常型と淡紫の地方伝説候補で輪郭を共用。背の模様は作画上の仮案。"
+    }
+  ],
+  "modelCandidate": {
+    "page": "https://models.spriters-resource.com/pc_computer/genshinimpact/asset/605049/",
+    "result": "通常プクプク獣の第三者収録の掲載を確認。ビューアとモデルの確認は403のため未実施。"
+  },
+  "pending": [
+    "名付き各個体の背面と、水中照明の影響を抑えた固有色・模様の比較。",
+    "操作できる単体3Dモデルの確認。",
+    "構え・攻撃を含めた本編への差し替え。"
+  ],
+  "generation": {
+    "tool": "Built-in ImageGen",
+    "referenceGroups": [
+      "通常種プロフィール、亜種2画像、地方伝説4戦の別角度と既存の現地画像、公式IVのプクプク獣亜種図の照合用コンタクトシート",
+      "公式Vの通常種紹介図、別の投稿者の地方伝説戦闘画像の照合用コンタクトシート",
+      "ラボの既存エイ・プクプク獣ポーズ表。ピクセルのエッジと色面の参考。"
+    ],
+    "initialPrompts": {
+      "ray": "Create ONE original 2D side-scrolling RPG pixel-art sprite, a fantasy reef glider. The two supplied contact sheets are research on general anatomy and palettes, and the horizontal sample sheet shows the project's own pixel edge and shading style. Draw an original creature silhouette and stripe pattern. Side view turning just enough toward camera to read both fins, facing left, tail trailing right. Body like a broad, flat arrowhead with a rounded short snout and a small dark eye near the snout. Two swept-back triangular fins, one near, the far one visible above, with distinct curled tip and wide fin roots. A single slim tapered tail. Fin tops yellow-olive and lime, fin edge warm straw and ivory, shaded underside deep muted olive. Use large solid pixel clusters, 8–12 solid color swatches, hard pixel steps, a few purposeful light clusters, readable when 70 pixels high. No gradients, bloom, bubbles, UI, text, aquatic particles, vignette, ground or shadows. Center the single full-body cleanly on true transparent background with clear margin. Keep fin and tail edges opaque and readable. Landscape orientation.",
+      "seal": "Create ONE original 2D side-scrolling RPG pixel-art sprite, a round blue-gray fantasy sea pup, using the two contact sheets only as broad anatomy and palette research and the supplied two-row project sprite sheet as the laboratory's pixel edge style. Draw original face and broad wave-like markings. Swimming idle, facing left and slightly toward camera, whole animal visible. Round large belly, deep blue-gray scalloped back, light ivory belly and rounded muzzle, two small triangular warm pale ear tips, two short paddle flippers at the shoulders, and a coherent split tail pointing right. Dark navy round eyes with restrained highlight and tiny dark nostrils. No clothing, armor, fins on the back, accessories, gradient, bubbles, aura, text, UI, underwater location, shadows or other objects. Use large compact clusters of about 8–12 solid colors and bold clear small-scale edges. Center the single sprite with 10 percent empty margin on true transparent background. Horizontal framing, read clearly at 70 pixels of body height."
+    },
+    "finalPrompts": {
+      "ray": "Revise the first image, an original retro pixel-art reef glider for a 2D side-scrolling RPG. The second image is a reference sheet to clarify general wing and tail anatomy only. Keep the first image's left-facing three-quarter swimming view, readable dark eye, original olive and yellow-green pixel-art stripe pattern and minimal ivory highlights. Redesign the profile as a broad continuous flattened body with exactly two low, wide sweeping wing-fins, one near and one far behind it. Do not draw upright curling sail shapes or a third wing. Make the narrow tail a little shorter and attach a small, unmistakable three-lobed fan paddle at its tip, seen obliquely so that it is visible at low resolution. The center of the tail remains slender, the fan occupies only the last fifth. Pose should allow both fins and the small tail fan to read separately. Family-friendly original game creature. Single full sprite centered horizontally, wide framing and clean transparent background. Flat crisp opaque pixel clusters and hard pixel steps. No text, scene, vignette, decorative shadows, bloom, bubble or external particles.",
+      "seal": "Revise the first image, an original retro pixel-art blue-gray sea pup for a side-scrolling RPG. The second sheet is anatomy and pattern reference only. Keep the first image's compact round body, left-facing three-quarter orientation, charming original face, small warm beige ear-like tips, cream belly, and cohesive dark blue-gray palette. Give the two shoulder flippers a broad tapered paddle silhouette extending gently out from the body with one small cut near the ends to suggest lobes, at medium length, while maintaining a natural relaxed swimming idle pose. Replace the spiraling ornamental stripes on the back with two or three broad irregular rounded dapples, using restrained teal-blue on navy, one strong highlighted shape per panel. Keep the small split tail to the right. Black eye larger than a glint but slightly reduce the overlarge black and white patches at the eyes. One original sprite only, centered horizontal frame with margin, genuinely transparent background, clean opaque pixel edges. No aura, vignette, geometric gradients, typography, or attack effects."
+    },
+    "editReferences": [
+      "初稿の原本",
+      "対応する公式の設定画"
+    ],
+    "originals": [
+      "assets/hunters-ray-generated-v2.png",
+      "assets/blubberbeast-generated-v2.png"
+    ],
+    "compileCommand": "python tools/build_fontaine_shared_swimmers.py"
+  }
+}

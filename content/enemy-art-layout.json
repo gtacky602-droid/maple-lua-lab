@@ -69,6 +69,18 @@
     "hover": 12,
     "file": "lake-ninianne-field-idle-sprites-v6.json"
   },
+  "hunters-ray": {
+    "name": "狩猟刀エイ（通常・黄緑の待機候補）",
+    "height": 74,
+    "hover": 45,
+    "file": "hunters-ray-shared-idle-sprites-v1.json"
+  },
+  "blubberbeast": {
+    "name": "プクプク獣（通常・青灰の待機候補）",
+    "height": 82,
+    "hover": 45,
+    "file": "blubberbeast-shared-idle-sprites-v1.json"
+  },
   "sternshield-crab": {
     "name": "堅盾重甲ヤドカニ（地方伝説と輪郭を共用）",
     "height": 82,

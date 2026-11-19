@@ -2,6 +2,14 @@
   "version": 1,
   "status": "visual-only draft; not canonical spawn geography or live combat placement",
   "nodes": {
+    "fairy-knight-twins-legend-court": [
+      {"id": "preview-ray-ordinary", "species": "hunters-ray", "x": 328, "y": 480, "flip": false},
+      {"id": "preview-ray-legend", "species": "boss-legend-hunters-ray-shared", "x": 630, "y": 480, "flip": false}
+    ],
+    "fading-veteran-legend-wreck": [
+      {"id": "preview-blubberbeast-ordinary", "species": "blubberbeast", "x": 328, "y": 484, "flip": false},
+      {"id": "preview-blubberbeast-legend", "species": "boss-legend-blubberbeast-shared", "x": 630, "y": 484, "flip": false}
+    ],
     "inazuma-lantern-clearing": [
       {"id": "preview-danuki", "species": "character-bake-danuki", "x": 680, "y": 480, "flip": false}
     ],
