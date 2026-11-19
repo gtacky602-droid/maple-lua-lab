@@ -1,0 +1,154 @@
+{
+  "purpose": "通常個体と地方伝説の原作ゲーム内の見た目を比較し、Luaラボの独自ドット絵に反映する。",
+  "classification": {
+    "base_species_face_matches": "通常個体と共通する顔や頭部を確認。全身のモデル一致は未確認。",
+    "named_outfit_differs": "現時点の比較資料で固有の衣服・装飾を確認。",
+    "ordinary_counterpart_unverified": "対応する通常個体の画像を未確認。"
+  },
+  "encounters": [
+    {
+      "id": "legend-nod_homesick_lone_wolf",
+      "name": "故郷を偲ぶ孤独の狼",
+      "ordinary_reference": "集光の凛狼",
+      "review": "base_species_face_matches",
+      "images": [
+        {
+          "kind": "ordinary_codex_icon",
+          "page": "https://kamigame.jp/genshin/page/405047021016228764.html",
+          "image": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Magbeast_Steppenwolf.png",
+          "caption": "base icon"
+        },
+        {
+          "kind": "named_profile",
+          "page": "https://gamewith.jp/genshin/article/show/540460",
+          "image": "https://img.gamewith.jp/article/thumbnail/rectangle/540460.png?date=1768471613",
+          "caption": "【原神】故郷を偲ぶ孤独の狼の場所と倒し方"
+        },
+        {
+          "kind": "named_field_screenshot",
+          "page": "https://gamewith.jp/genshin/article/show/540460",
+          "image": "https://img.gamewith.jp/img/46e41d98fbeaa1c8b39034e0d8c7f04e.png",
+          "caption": "原神の故郷を偲ぶ孤独の狼の場所"
+        }
+      ],
+      "observations": "額と頬にかぶさる青白い毛束、濃紺の顔、前に向いた耳が共通。現地画面では四足の立ち方と背・尾の形も参照できる。",
+      "unchecked": "背・尾・脚まで通常個体と一致するかは、通常個体の全身画像で照合する。"
+    },
+    {
+      "id": "legend-nod_hiljetta",
+      "name": "ハイジェード",
+      "ordinary_reference": "宝盗団・拳術家は素手の比較資料",
+      "review": "named_outfit_differs",
+      "images": [
+        {
+          "kind": "ordinary_codex_icon",
+          "page": "https://gamewith.jp/genshin/article/show/295161",
+          "image": "https://img.gamewith.jp/article_tools/genshin/gacha/enemy_60.png",
+          "caption": "拳術家"
+        },
+        {
+          "kind": "named_field_screenshot",
+          "page": "https://gamewith.net/genshin-impact/article/show/72428",
+          "image": "https://img.gamewith.net/img/f2f9a35bd29533a15686372069811503.png",
+          "caption": "Hiljetta In-Game"
+        }
+      ],
+      "observations": "通常の拳術家は短い髪と顔を覆う布。ハイジェードの目印は白い前髪と赤い頭巾。名前付きの戦闘映像では拳で攻める。",
+      "unchecked": "通常の拳術家と同じ体型・モーションを使うかは未照合。"
+    },
+    {
+      "id": "legend-nod_hexadecatonic_mandragora",
+      "name": "十六倍マンドラゴラ",
+      "ordinary_reference": null,
+      "review": "ordinary_counterpart_unverified",
+      "images": [
+        {
+          "kind": "named_profile",
+          "page": "https://game8.jp/genshin/755801",
+          "image": "https://img.game8.jp/12207426/134ed79dd77a459fa57e4f9fd12c83f1.webp/original",
+          "caption": "十六倍マンドラゴラ"
+        }
+      ],
+      "observations": "根元に淡緑色の小さな顔があり、金色の大きな花弁がその奥から張り出す。",
+      "unchecked": "同じ姿の通常個体は今回の資料で見つからなかった。"
+    },
+    {
+      "id": "legend-snez_churin",
+      "name": "チュリン",
+      "ordinary_reference": "フェイ・小さき者",
+      "review": "ordinary_counterpart_unverified",
+      "images": [
+        {
+          "kind": "named_profile",
+          "page": "https://game8.jp/genshin/803754",
+          "image": "https://img.game8.jp/12872659/ce630fb4fb204fb491dac2363d884648.webp/show",
+          "caption": "チュリン"
+        },
+        {
+          "kind": "named_field_screenshot",
+          "page": "https://gamewith.net/genshin-impact/article/show/78209",
+          "image": "https://img.gamewith.net/img/31aa73b90711d3abd1aab65c31071b24.png",
+          "caption": "Churin location details"
+        }
+      ],
+      "observations": "白灰の髪と尖った耳、眼鏡、淡い服を名前付きのプロフィールで確認。接近時の画面は立ち姿と地形の確認に使える。",
+      "unchecked": "同じ種別と分かる通常個体の全身画像が必要。種別の記載は設計台帳による。"
+    },
+    {
+      "id": "legend-snez_bandersnatch",
+      "name": "バンダースナッチ",
+      "ordinary_reference": "合成獣・バロウビースト",
+      "review": "base_species_face_matches",
+      "images": [
+        {
+          "kind": "ordinary_codex_icon",
+          "page": "https://gamewith.jp/genshin/article/show/572337",
+          "image": "https://img.gamewith.jp/article_tools/genshin/gacha/enemy_367.png",
+          "caption": "原神の合成獣・バロウビースト"
+        },
+        {
+          "kind": "named_profile",
+          "page": "https://game8.jp/genshin/803754",
+          "image": "https://img.game8.jp/12872664/bf193fa34f247850145a47484f0e7292.webp/show",
+          "caption": "バンダースナッチ"
+        },
+        {
+          "kind": "named_field_screenshot",
+          "page": "https://gamewith.net/genshin-impact/article/show/78209",
+          "image": "https://img.gamewith.net/jp/img/923aca2580eba05fef506a9591854f4b.png",
+          "caption": "Bandersnatch location details"
+        }
+      ],
+      "observations": "耳のように立つ左右の突起、顔を囲む重なった外殻は共通。比較画像では通常個体の目が黄系、バンダースナッチの目が赤系に見える。",
+      "unchecked": "通常個体と並べた全身画像で、胴、足元、照明による色差を照合する。"
+    },
+    {
+      "id": "legend-snez_furiosa",
+      "name": "フュリオサ",
+      "ordinary_reference": "無法の異怪の獣・蒼狼の追跡者",
+      "review": "named_outfit_differs",
+      "images": [
+        {
+          "kind": "ordinary_codex_icon",
+          "page": "https://game8.jp/genshin/652944",
+          "image": "https://img.game8.jp/12864929/6beb8a8bac2dc3e8243888c9089522c1.webp/show",
+          "caption": "蒼狼の追跡者画像"
+        },
+        {
+          "kind": "named_profile",
+          "page": "https://game8.jp/genshin/803754",
+          "image": "https://img.game8.jp/12872673/b5caebd044b76151194822fcb0c16195.webp/show",
+          "caption": "フュリオサ"
+        },
+        {
+          "kind": "named_field_screenshot",
+          "page": "https://gamewith.net/genshin-impact/article/show/78209",
+          "image": "https://img.gamewith.net/jp/img/f88e570cf5566fe46ba123a871cbfa52.png",
+          "caption": "Furiosa location details"
+        }
+      ],
+      "observations": "通常個体の青い髪と暗色の襟に対し、フュリオサは赤い頭の装飾と明るい胸元が目印。現地の全身は遠景。",
+      "unchecked": "通常個体と固有個体の全身、脚と尾、武器を接近時の画像で照合する。"
+    }
+  ]
+}
