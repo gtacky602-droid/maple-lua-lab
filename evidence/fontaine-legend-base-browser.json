@@ -1,0 +1,41 @@
+{
+  "cases": [
+    [
+      "enemies-art.html",
+      "濁水",
+      [
+        "tainted-water-splitting-phantasm",
+        "tainted-water-spouting-phantasm"
+      ]
+    ],
+    [
+      "enemies-art.html",
+      "堅盾",
+      [
+        "sternshield-crab"
+      ]
+    ],
+    [
+      "bosses-art.html",
+      "堅盾型",
+      [
+        "legend-iron-viscount-shared-sternshield",
+        "legend-ocean-judge-shared-sternshield"
+      ]
+    ]
+  ],
+  "placementOptions": [
+    "tainted-water-spouting-phantasm",
+    "tainted-water-splitting-phantasm",
+    "sternshield-crab",
+    "boss-legend-iron-viscount-shared-sternshield",
+    "boss-legend-ocean-judge-shared-sternshield"
+  ],
+  "profiles": [
+    "legacy",
+    "h48c32",
+    "h32c16"
+  ],
+  "mobileWidth": 390,
+  "errors": []
+}

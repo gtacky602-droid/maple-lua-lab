@@ -56,5 +56,23 @@
   "sail-shell-crawler": {"height":53,"hover":0},
   "pebble-courier": {"height":49,"hover":0},
   "grounded-geoshroom": {"name":"トコトコ岩マッシュロン","height":62,"hover":0,"file":"legend-maha-vasudevayaputra-field-idle-sprites-v1.json"},
-  "frost-pioneer-commander": {"name":"先駆秘源コマンダー陣形","height":86,"hover":10,"file":"frost-commander-normal-idle-sprites-v1.json"}
+  "frost-pioneer-commander": {"name":"先駆秘源コマンダー陣形","height":86,"hover":10,"file":"frost-commander-normal-idle-sprites-v1.json"},
+  "tainted-water-spouting-phantasm": {
+    "name": "濁水噴出の幻霊（ヴィヴィアンと待機絵を共用）",
+    "height": 76,
+    "hover": 12,
+    "file": "lake-vivianne-field-idle-sprites-v6.json"
+  },
+  "tainted-water-splitting-phantasm": {
+    "name": "濁水粉砕の幻霊（ニニアンと待機絵を共用）",
+    "height": 76,
+    "hover": 12,
+    "file": "lake-ninianne-field-idle-sprites-v6.json"
+  },
+  "sternshield-crab": {
+    "name": "堅盾重甲ヤドカニ（地方伝説と輪郭を共用）",
+    "height": 82,
+    "hover": 0,
+    "file": "sternshield-crab-idle-sprites-v1.json"
+  }
 }

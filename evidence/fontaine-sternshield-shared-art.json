@@ -1,0 +1,198 @@
+{
+  "references": [
+    {
+      "id": "sternshield",
+      "role": "ordinary_codex_icon",
+      "page": "https://wiki.biligame.com/ys/海原巡回法官",
+      "image": "https://patchwiki.biligame.com/images/ys/0/04/ti19n7or2q3jvzn73f7lt9qmhrbzjt6.png",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "ad080720a51e53b2c7944d95874c30a96e36c41d273f116cec72fde127b535cb",
+      "file": "sternshield.png"
+    },
+    {
+      "id": "crab-base",
+      "role": "ordinary_profile",
+      "page": "https://gamewith.jp/genshin/article/show/412698",
+      "image": "https://img.gamewith.jp/img/c6fc173949a829710bcd21c99a890ad3.jpg",
+      "size": [
+        227,
+        227
+      ],
+      "sha256": "a93589163365c6b70c96fb72157410d9fe94771109ea08aed10fd85a602591ce",
+      "file": "crab-base.png"
+    },
+    {
+      "id": "viscount",
+      "role": "named_gameplay",
+      "page": "https://game8.jp/genshin/546492",
+      "image": "https://img.game8.jp/8558403/e8f3d1333c9d7c628c474301c6d34206.jpeg/original",
+      "size": [
+        3837,
+        2092
+      ],
+      "sha256": "7263db2dc7adeecf7911d2a91989e9cf92fa6b326c806404cde17e8707c5e6ec",
+      "file": "viscount.png"
+    },
+    {
+      "id": "viscount-alt",
+      "role": "named_gameplay",
+      "page": "https://altema.jp/gensin/teppinosisyaku",
+      "image": "https://img.altema.jp/gensin/kakudai/teppinosisyaku.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "36a4b76377b20367925155830f1f8b397a540ca892192f9b77198661e27cdd6a",
+      "file": "viscount-alt.png"
+    },
+    {
+      "id": "judge",
+      "role": "named_gameplay",
+      "page": "https://game8.jp/genshin/546492",
+      "image": "https://img.game8.jp/8558398/d50f56e73aa5e61d2a2267480f5403dd.jpeg/original",
+      "size": [
+        1919,
+        1050
+      ],
+      "sha256": "a97508acbe11397be8e0fd02b23fcf2a1a841119687a0d77ea93d10c66d323b0",
+      "file": "judge.png"
+    },
+    {
+      "id": "judge-alt",
+      "role": "named_gameplay",
+      "page": "https://altema.jp/gensin/oceanjyunkaihoukan",
+      "image": "https://img.altema.jp/gensin/kakudai/oceanjyunkaihoukan.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "c873c18f6d66071f957a2fe973437c01cabfe993b8adae063756ce19644d3e0f",
+      "file": "judge-alt.png"
+    }
+  ],
+  "pose": "左向き斜めの待機",
+  "cell_wh": [
+    288,
+    144
+  ],
+  "pivot_xy": [
+    144,
+    132
+  ],
+  "generated_source": {
+    "file": "shared-idle-source.png",
+    "size": [
+      1402,
+      1122
+    ],
+    "alpha128_crop_ltrb": [
+      133,
+      8,
+      1237,
+      1111
+    ]
+  },
+  "candidates": [
+    {
+      "name": "堅盾重甲ヤドカニ",
+      "file": "sternshield-idle.png",
+      "bbox_ltrb": [
+        85,
+        27,
+        190,
+        132
+      ],
+      "sha256": "9b85a5b0cce1c75d185e7c3c929a9ebaecd957383948ea2c625e5b59250994f2",
+      "preview_profile": "h32c16",
+      "preview_reserved_colors": [
+        "#6dd9db",
+        "#ad3e24"
+      ]
+    },
+    {
+      "name": "鉄皮の子爵",
+      "file": "viscount-idle.png",
+      "bbox_ltrb": [
+        85,
+        27,
+        190,
+        132
+      ],
+      "sha256": "a5270f91920ec618aa84e2b98c3a484f69f86c6313ab674c884c549a39d6f264",
+      "preview_profile": "h32c16",
+      "preview_reserved_colors": [
+        "#e9cb83",
+        "#60547f"
+      ]
+    },
+    {
+      "name": "オーシャン巡回法官",
+      "file": "judge-idle.png",
+      "bbox_ltrb": [
+        85,
+        27,
+        190,
+        132
+      ],
+      "sha256": "a5270f91920ec618aa84e2b98c3a484f69f86c6313ab674c884c549a39d6f264",
+      "preview_profile": "h32c16",
+      "preview_reserved_colors": [
+        "#e9cb83",
+        "#60547f"
+      ]
+    }
+  ],
+  "common": "殻は二段に張り出し側端が反る。目は殻の下に2本。大きな盾状の前脚には放射状の突起と丸い中心があり、反対側は小さいハサミ。短い脚の輪郭・全身の不透明領域を3枚で共用。",
+  "comparison": "普通の重甲ヤドカニは単純な一枚の笠状の殻と比較的細い脚。堅盾型は層状に折り重なる庇と厚い前脚を残した。",
+  "color_decision": "通常の資料では殻が暖かい茶・橙、前脚中央が赤橙。両伝説は茶色い洞窟と緑・青の水中のいずれでも、殻と前脚外周が紫系、前脚中央と突起が黄系。画像で一貫する部位だけ配色を変更。名付き2体の待機PNGは同一。",
+  "lighting": "背景の水色や緑、洞窟の橙、周囲の発光記号・攻撃光は取り込まず、明暗は共通の待機絵を使用。",
+  "unchecked": [
+    "通常図鑑は胸より上の正面図。背面と奥の脚の配置は同一と確定できない。",
+    "同一照明での色値や、子爵と法官の微細な斑点差。",
+    "実機表示。"
+  ],
+  "lab_assets": [
+    {
+      "compiler_output": "sternshield-crab-idle-sprites-v1.json",
+      "source": "sternshield-crab-idle-source-v1.png",
+      "sha256": "9b85a5b0cce1c75d185e7c3c929a9ebaecd957383948ea2c625e5b59250994f2",
+      "box": [
+        85,
+        27,
+        105,
+        105
+      ],
+      "anchor_x": 0.5619047619047619,
+      "rectangle_counts": {
+        "legacy": 2809,
+        "h48c32": 1827,
+        "h32c16": 942
+      }
+    },
+    {
+      "compiler_output": "legend-sternshield-crab-idle-sprites-v2.json",
+      "source": "legend-sternshield-crab-idle-source-v2.png",
+      "sha256": "a5270f91920ec618aa84e2b98c3a484f69f86c6313ab674c884c549a39d6f264",
+      "box": [
+        85,
+        27,
+        105,
+        105
+      ],
+      "anchor_x": 0.5619047619047619,
+      "rectangle_counts": {
+        "legacy": 2642,
+        "h48c32": 1671,
+        "h32c16": 926
+      }
+    }
+  ],
+  "validated": [
+    "通常型と地方伝説型のアルファマスク、切り出し領域、床位置が一致",
+    "名付きの2体は同一の待機PNGを使う",
+    "PNG・標準矩形・中間32色・軽量16色に対応"
+  ]
+}

@@ -1,0 +1,406 @@
+{
+  "date": "2026-11-19",
+  "scope": "フォンテーヌ9戦。エイの2組を含む11体について、原作の通常敵との形・色・エフェクトを公開画像で照合した。",
+  "reuse_categories": {
+    "shared_waiting_art": "ラボの待機絵を通常個体にも流用できる。",
+    "shared_body_with_effect": "本体の輪郭を共用し、発光と力場を別レイヤーにする。",
+    "shared_body_review_palette": "体の部位を共用し、通常型・名付き個体の色は追加照合する。"
+  },
+  "images": [
+    {
+      "id": "water-duo",
+      "role": "official_art",
+      "page": "https://genshin.hoyoverse.com/id/news/detail/112633",
+      "image": "https://webstatic.hoyoverse.com/upload/op-public/2023/08/11/f13e999e59de3c81a58cc7f63ecde8de_4249075339798025693.png",
+      "size": [
+        700,
+        1900
+      ],
+      "sha256": "0af8f58c2684dd84251905fb99c2a96b2d088823217e129bf895c4e33fc5819b"
+    },
+    {
+      "id": "spouting",
+      "role": "ordinary_gameplay",
+      "page": "https://game8.jp/genshin/546441",
+      "image": "https://img.game8.jp/8570988/3d513cb8612e4546745ac48a8a9e6421.jpeg/original",
+      "size": [
+        3837,
+        2102
+      ],
+      "sha256": "b01fa860239d0d4ac783f7e97cafed0980508e3ec4c6f6623e0386b36e35af17"
+    },
+    {
+      "id": "vivianne",
+      "role": "named_gameplay",
+      "page": "https://game8.jp/genshin/546492",
+      "image": "https://img.game8.jp/8558397/c9b289a7256fef585ec81a4e279e468f.jpeg/original",
+      "size": [
+        1919,
+        1046
+      ],
+      "sha256": "b5cb7aabfb83b29e9b4d3b65f983d0e2280464832d27addc2ef3f5b17d2b2b4b"
+    },
+    {
+      "id": "vivianne-side",
+      "role": "named_gameplay",
+      "page": "https://game8.jp/genshin/546492",
+      "image": "https://img.game8.jp/8558672/0796177b17c99699246a5801916e51d1.jpeg/original",
+      "size": [
+        1919,
+        1046
+      ],
+      "sha256": "e78557864cbc774d5fe824e37b0176a8c1ce0bf7a2e8c6e9dc130662843167eb"
+    },
+    {
+      "id": "splitting",
+      "role": "ordinary_gameplay",
+      "page": "https://game8.jp/genshin/546441",
+      "image": "https://img.game8.jp/8570987/fc7cfde35265f632f16dcc3716dc1e0f.jpeg/original",
+      "size": [
+        3837,
+        2099
+      ],
+      "sha256": "7933a0c5730773a6e6396aae08d4ab4ced925af65a3242ba311a4b3d1811e9b1"
+    },
+    {
+      "id": "ninianne",
+      "role": "named_gameplay",
+      "page": "https://game8.jp/genshin/546492",
+      "image": "https://img.game8.jp/8558399/7572f17c6c9d3bfd1cd44fa496f5a695.jpeg/original",
+      "size": [
+        1919,
+        1050
+      ],
+      "sha256": "c75f8101e3fb3c91859ac13ccfa2fb2a97345faac7eacd3961d42aec4fda6326"
+    },
+    {
+      "id": "ninianne-close",
+      "role": "named_gameplay",
+      "page": "https://game8.jp/genshin/546492",
+      "image": "https://img.game8.jp/8558673/b86557334820be3e6ff11a0d33bae555.jpeg/original",
+      "size": [
+        3837,
+        2099
+      ],
+      "sha256": "858d774a4ed3677eb0289619a5cc5a5cb69fba421f91469728590a4625495a06"
+    },
+    {
+      "id": "mek-codex",
+      "role": "ordinary_profile",
+      "page": "https://kamigame.jp/genshin/page/277187221486862841.html",
+      "image": "https://lh3.googleusercontent.com/dKAWNZsKb47T5Guoq05hOXCqnXwkp-SNQPWffh_YWTU_U-R7W_sfWXyjICvq4pHgDkGgUijOjHjMpqd3cGUJ-FThXgdMEeVnhiEwZPYa7vU",
+      "size": [
+        86,
+        86
+      ],
+      "sha256": "4d645049d96721b47f5ae8b1c2ff03a3e5b1d01c0f939b38d110163c87d0979b"
+    },
+    {
+      "id": "mek-field",
+      "role": "ordinary_gameplay",
+      "page": "https://kamigame.jp/genshin/page/277187221486862841.html",
+      "image": "https://lh3.googleusercontent.com/IN5UZhPXLKPkOFlQ_UgohxtDvuL5aukJWnYmrP55wbCXuHqahlOCzT6sBY_lq09nFQa_cKk6h1fYJ2ZJOuKsryylwQ4tnNhZOWVuPe1FoPPE",
+      "size": [
+        512,
+        272
+      ],
+      "sha256": "1a2f898b575c40528b2c17dda5be16fb8f7e33c307a2243bea2c3a8920d8edc0"
+    },
+    {
+      "id": "aur-field",
+      "role": "named_gameplay",
+      "page": "https://game8.jp/genshin/546492",
+      "image": "https://img.game8.jp/8850697/a703a63fe3acf9f802dc519eb09e32cf.jpeg/original",
+      "size": [
+        1919,
+        1046
+      ],
+      "sha256": "41acc9476f38cd93b46f362a98cade50dfcf4c786e5e77ab793445f9a30df873"
+    },
+    {
+      "id": "aur-alt",
+      "role": "named_gameplay",
+      "page": "https://altema.jp/gensin/rikibaseiseisouti",
+      "image": "https://img.altema.jp/gensin/uploads/2023/10/2023y10m02d_1939078867.jpg",
+      "size": [
+        580,
+        296
+      ],
+      "sha256": "75b7a5024666572576a614a05eeaf00eeed5c4923b0b75156abab3802b47ce5e"
+    },
+    {
+      "id": "sternshield",
+      "role": "ordinary_codex_icon",
+      "page": "https://wiki.biligame.com/ys/海原巡回法官",
+      "image": "https://patchwiki.biligame.com/images/ys/0/04/ti19n7or2q3jvzn73f7lt9qmhrbzjt6.png",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "ad080720a51e53b2c7944d95874c30a96e36c41d273f116cec72fde127b535cb"
+    },
+    {
+      "id": "crab-base",
+      "role": "ordinary_profile",
+      "page": "https://gamewith.jp/genshin/article/show/412698",
+      "image": "https://img.gamewith.jp/img/c6fc173949a829710bcd21c99a890ad3.jpg",
+      "size": [
+        227,
+        227
+      ],
+      "sha256": "a93589163365c6b70c96fb72157410d9fe94771109ea08aed10fd85a602591ce"
+    },
+    {
+      "id": "viscount",
+      "role": "named_gameplay",
+      "page": "https://game8.jp/genshin/546492",
+      "image": "https://img.game8.jp/8558403/e8f3d1333c9d7c628c474301c6d34206.jpeg/original",
+      "size": [
+        3837,
+        2092
+      ],
+      "sha256": "7263db2dc7adeecf7911d2a91989e9cf92fa6b326c806404cde17e8707c5e6ec"
+    },
+    {
+      "id": "judge",
+      "role": "named_gameplay",
+      "page": "https://game8.jp/genshin/546492",
+      "image": "https://img.game8.jp/8558398/d50f56e73aa5e61d2a2267480f5403dd.jpeg/original",
+      "size": [
+        1919,
+        1050
+      ],
+      "sha256": "a97508acbe11397be8e0fd02b23fcf2a1a841119687a0d77ea93d10c66d323b0"
+    },
+    {
+      "id": "viscount-alt",
+      "role": "named_gameplay",
+      "page": "https://altema.jp/gensin/teppinosisyaku",
+      "image": "https://img.altema.jp/gensin/kakudai/teppinosisyaku.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "36a4b76377b20367925155830f1f8b397a540ca892192f9b77198661e27cdd6a"
+    },
+    {
+      "id": "judge-alt",
+      "role": "named_gameplay",
+      "page": "https://altema.jp/gensin/oceanjyunkaihoukan",
+      "image": "https://img.altema.jp/gensin/kakudai/oceanjyunkaihoukan.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "c873c18f6d66071f957a2fe973437c01cabfe993b8adae063756ce19644d3e0f"
+    },
+    {
+      "id": "ray-base",
+      "role": "ordinary_profile",
+      "page": "https://gamewith.jp/genshin/article/show/412698",
+      "image": "https://img.gamewith.jp/img/a0aa38ab308ec31149ec9ecc289680a4.jpg",
+      "size": [
+        230,
+        229
+      ],
+      "sha256": "91ad7f77287c06b4861d40411015858f630bcf7d54d52e2a7d544cd5424e071f"
+    },
+    {
+      "id": "twins",
+      "role": "named_gameplay",
+      "page": "https://game8.jp/genshin/546492",
+      "image": "https://img.game8.jp/8558401/5d3721ee73d7dcf80b26f4739c07fba8.jpeg/original",
+      "size": [
+        3824,
+        2093
+      ],
+      "sha256": "8730586995b8c36560be039102b42097071c3078bd038808bf315142a67a6928"
+    },
+    {
+      "id": "gorge",
+      "role": "named_gameplay",
+      "page": "https://game8.jp/genshin/546492",
+      "image": "https://img.game8.jp/8558396/0a9d969cda8fc6f479b547ca70bb7649.jpeg/original",
+      "size": [
+        1919,
+        1050
+      ],
+      "sha256": "4ecfae438d1c1aca7cec8c95e5175df9754a8ef45b27513cf808ce9968912ae7"
+    },
+    {
+      "id": "seal-base",
+      "role": "ordinary_profile",
+      "page": "https://gamewith.jp/genshin/article/show/412698",
+      "image": "https://img.gamewith.jp/img/82e9e237cf824c8a52122a3fe86ae6ae.jpg",
+      "size": [
+        257,
+        257
+      ],
+      "sha256": "6d24d45773dfed1f0e6795bf49dc9d730dc9732d7a9aa96e3adfdd71aa987e0d"
+    },
+    {
+      "id": "veteran",
+      "role": "named_gameplay",
+      "page": "https://game8.jp/genshin/546492",
+      "image": "https://img.game8.jp/8558400/c1e193ce09f3b66973cf45699527e756.jpeg/original",
+      "size": [
+        1919,
+        1048
+      ],
+      "sha256": "71e56c08d3c09ef7a402aa23ed5b1011262d822f1cac2429d910f48a8d94cd0d"
+    },
+    {
+      "id": "king",
+      "role": "named_gameplay",
+      "page": "https://game8.jp/genshin/546492",
+      "image": "https://img.game8.jp/8558402/1b894eeacae6c79101f8d74cfa5eeec1.jpeg/original",
+      "size": [
+        3837,
+        2096
+      ],
+      "sha256": "833804d1963ffd151e4c260430dd2b3766af59f6e16153761b44cc0d7026c10e"
+    },
+    {
+      "id": "seal-shapes",
+      "role": "official_art",
+      "page": "https://www.hoyolab.com/article/20834615",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/08/11/954c84f9bb9bdbc4e9d53ab138806b70_1212051911048427117.gif",
+      "size": [
+        700,
+        1728
+      ],
+      "sha256": "5fc2c03cea39a8b695805093ee719fa46c05e28b0a33e5350a671f87c9722c65"
+    }
+  ],
+  "encounters": [
+    {
+      "id": "legend-fontaine_vivianne_of_the_lake",
+      "name": "湖辺のヴィヴィアン",
+      "ordinary_enemy": "濁水噴出の幻霊",
+      "reuse": "shared_waiting_art",
+      "references": [
+        "water-duo",
+        "spouting",
+        "vivianne",
+        "vivianne-side"
+      ],
+      "visual_observation": "小さな水塊が胴より上に浮く。そこに青白い片目があり、両腕が胴の左右から反り上がる。胴は下が細く、端がしずくになる。",
+      "art_direction": "通常の噴出型に第5稿Aの待機絵を共用する。頭の泡、周りの光、放水時の光輪は片目と区別する。",
+      "unchecked": "真横・背面の図鑑モデル、光の差が状態で切り替わる条件。"
+    },
+    {
+      "id": "legend-fontaine_ninianne_of_the_lake",
+      "name": "湖辺のニニアン",
+      "ordinary_enemy": "濁水粉砕の幻霊",
+      "reuse": "shared_waiting_art",
+      "references": [
+        "water-duo",
+        "splitting",
+        "ninianne",
+        "ninianne-close"
+      ],
+      "visual_observation": "左右の太い腕の間に丸みのある顔があり、濃い青紫の縁に青白い片目が浮く。腕を上げても顔の位置は胴の中央。",
+      "art_direction": "通常の粉砕型に第5稿Aの待機絵を共用する。顔と浮く泡を離し、噴出型との胴・腕の違いを残す。",
+      "unchecked": "背面の水の模様、通常型との全ポーズの一致。"
+    },
+    {
+      "id": "legend-fontaine_automated_supercomputing_field_generator",
+      "name": "自律スーパー・コンピューティング型力場生成装置",
+      "ordinary_enemy": "マシナリー・演算力増幅器",
+      "reuse": "shared_body_with_effect",
+      "references": [
+        "mek-codex",
+        "mek-field",
+        "aur-field",
+        "aur-alt"
+      ],
+      "visual_observation": "頭部の穴のある金具、横に持ち上がる外装、中央の段差と細い脚が共通。名前付きの画面では黄色い球状の力場と周囲の浮遊物が本体を覆う。",
+      "art_direction": "演算力増幅器と本体の輪郭を共用する。黄色の力場と浮遊物は別レイヤー。既存の通常ボス「実験用フィールド生成装置」の本体は別種。",
+      "unchecked": "背面の外装と、プネウマ・ウーシア別の点灯色。"
+    },
+    {
+      "id": "legend-fontaine_iron_viscount",
+      "name": "鉄皮の子爵",
+      "ordinary_enemy": "堅盾重甲ヤドカニ",
+      "reuse": "shared_body_review_palette",
+      "references": [
+        "sternshield",
+        "crab-base",
+        "viscount",
+        "viscount-alt"
+      ],
+      "visual_observation": "小型の重甲ヤドカニは橙の丸い殻。堅盾型と鉄皮の子爵は何段も張り出す殻と左右で形の違う一対の前脚を持つ。子爵の殻は洞窟画像では赤紫寄りに見える。",
+      "art_direction": "堅盾型の殻の段差、脚の節、前脚の非対称を共用する。地形の橙光と水中の反射を除いた色は暫定。",
+      "unchecked": "通常の堅盾型の背面と水中側面、色を同条件で比較した場合の固有差。"
+    },
+    {
+      "id": "legend-fontaine_ocean_circuit_judge",
+      "name": "オーシャン巡回法官",
+      "ordinary_enemy": "堅盾重甲ヤドカニ",
+      "reuse": "shared_body_review_palette",
+      "references": [
+        "sternshield",
+        "crab-base",
+        "judge",
+        "judge-alt"
+      ],
+      "visual_observation": "段になった殻、淡い節と濃い丸い前脚の左右差が堅盾型と共通。現地2枚では殻は青紫寄りに見え、濃色の前脚に黄のくぼみが読める。",
+      "art_direction": "堅盾型の輪郭を共用する。画面で見える青紫と黄色のくぼみは候補に残し、水中の照明による色差を確認する。",
+      "unchecked": "同じ照明で子爵・通常個体と並べたときの殻の色。"
+    },
+    {
+      "id": "legend-fontaine_fairy_knight_twins",
+      "name": "双生妖精の騎士",
+      "ordinary_enemy": "狩猟刀エイ",
+      "reuse": "shared_body_review_palette",
+      "references": [
+        "ray-base",
+        "twins"
+      ],
+      "visual_observation": "普通の黄緑の図鑑画像と名付きの水中画面に、平たい胴、幅広く先が尖るひれ、細い尾が見える。名付きのひれは桃紫寄り。",
+      "art_direction": "狩猟刀エイの胴とひれを共用する。桃紫は通常種の黄緑から一律置換する根拠にせず、名付きの個体色の資料として扱う。",
+      "unchecked": "アンジェリカ・ミドロと色の個別対応、通常種の各色の全身正面。"
+    },
+    {
+      "id": "legend-fontaine_swords_of_the_gorge",
+      "name": "深谷の剣",
+      "ordinary_enemy": "狩猟刀エイ",
+      "reuse": "shared_body_review_palette",
+      "references": [
+        "ray-base",
+        "gorge"
+      ],
+      "visual_observation": "二体にひれの広い輪郭と細い尾が見える。通常種にも同じひれの前後関係がある。名付きは手前のひれが桃寄り、奥側は青紫に見える。",
+      "art_direction": "体とひれの形は通常種と共用し、二体の配色は名前と同時に確認できる資料が増えてから決める。",
+      "unchecked": "コルタナ・モーグレイと色の個別対応、背景光をそろえた比較。"
+    },
+    {
+      "id": "legend-fontaine_fading_veteran",
+      "name": "消えゆく老兵",
+      "ordinary_enemy": "プクプク獣",
+      "reuse": "shared_body_review_palette",
+      "references": [
+        "seal-base",
+        "seal-shapes",
+        "veteran"
+      ],
+      "visual_observation": "丸い胴の下側に明るい面があり、左右の前ひれと尾が出る。一般種の正面像と名前付きの遊泳中に共通する。",
+      "art_direction": "プクプク獣の体格を共用し、遊泳や透明化の状態を別に描く。ひれの向きは公式の亜種図も参照する。",
+      "unchecked": "背中の模様、通常の個体と同じ照明での色差。"
+    },
+    {
+      "id": "legend-fontaine_dobharcu_lord_of_the_hidden",
+      "name": "隠者の王ドアーチュ",
+      "ordinary_enemy": "プクプク獣",
+      "reuse": "shared_body_review_palette",
+      "references": [
+        "seal-base",
+        "seal-shapes",
+        "king"
+      ],
+      "visual_observation": "通常の図鑑画像と丸い口元、広い腹、短く広がる前ひれが共通。水中の名前付き画像では腹のほうが明るい。",
+      "art_direction": "プクプク獣の体格を共用する。明るい腹と前ひれを残して色、模様の固有差を追加資料で確かめる。",
+      "unchecked": "背面の模様、近距離での待機時の色。"
+    }
+  ]
+}

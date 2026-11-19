@@ -3,6 +3,21 @@ import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 
 const layouts=JSON.parse(await fs.readFile('content/enemy-art-layout.json','utf8'));
+const bosses=JSON.parse(await fs.readFile('content/boss-art-gallery.json','utf8')).items;
+for(const [enemy,boss] of [
+ ['tainted-water-spouting-phantasm','lake-vivianne-idle-v5-a'],
+ ['tainted-water-splitting-phantasm','lake-ninianne-idle-v5-a'],
+]){
+ assert.equal(layouts[enemy].file,bosses.find(item=>item.id===boss).file);
+}
+const sharedCrabs=bosses.filter(item=>item.id.endsWith('-shared-sternshield'));
+assert.equal(sharedCrabs.length,2);
+assert.equal(sharedCrabs[0].file,sharedCrabs[1].file);
+const [ordinaryCrab,namedCrab]=await Promise.all([
+ layouts['sternshield-crab'].file,sharedCrabs[0].file,
+].map(async file=>JSON.parse(await fs.readFile('assets/'+file,'utf8'))));
+assert.deepEqual(ordinaryCrab.box,namedCrab.box);
+assert.equal(ordinaryCrab.anchorX,namedCrab.anchorX);
 const expected=[...Object.keys(layouts),'hydro-slime-reference','pyro-slime-reference'].sort();
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1440,height:1050}}),errors=[];
