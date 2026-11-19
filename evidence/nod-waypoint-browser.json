@@ -1,0 +1,106 @@
+{
+  "journeys": [
+    [
+      "nod-wp-88169",
+      "nod-wp-88170",
+      "raised"
+    ],
+    [
+      "nod-wp-88170",
+      "nod-wp-88169",
+      "walk"
+    ],
+    [
+      "nod-wp-99219",
+      "frostmoon-camp",
+      "lift"
+    ],
+    [
+      "frostmoon-camp",
+      "frost-wp-99282",
+      "walk"
+    ],
+    [
+      "frost-wp-99282",
+      "frost-wp-99284",
+      "lift"
+    ],
+    [
+      "frost-wp-99284",
+      "frost-wp-99285",
+      "walk"
+    ],
+    [
+      "frost-wp-99285",
+      "frost-wp-99288",
+      "walk"
+    ],
+    [
+      "frost-wp-99288",
+      "frost-wp-99291",
+      "walk"
+    ],
+    [
+      "frost-wp-99291",
+      "frost-wp-99293",
+      "lift"
+    ],
+    [
+      "frost-wp-99293",
+      "frost-wp-99294",
+      "walk"
+    ],
+    [
+      "frost-wp-99294",
+      "frost-wp-99297",
+      "walk"
+    ],
+    [
+      "frost-wp-99297",
+      "frost-wp-99298",
+      "walk"
+    ],
+    [
+      "frost-wp-99298",
+      "frost-wp-99308",
+      "lift"
+    ],
+    [
+      "frost-wp-99308",
+      "frost-wp-99309",
+      "lift"
+    ],
+    [
+      "frost-wp-99309",
+      "frost-wp-99311",
+      "lift"
+    ],
+    [
+      "frost-wp-99311",
+      "frost-wp-99312",
+      "raised"
+    ],
+    [
+      "frost-wp-99312",
+      "frost-wp-99311",
+      "walk"
+    ]
+  ],
+  "groups": [
+    "モンド",
+    "クァワカン断崖周辺",
+    "レンポ島",
+    "パハ島周辺",
+    "パハ島周辺・別階層",
+    "北部沿岸",
+    "北部沿岸・別階層",
+    "北東の円環島",
+    "霜月",
+    "霜月・別階層"
+  ],
+  "frostmoonQuest": "nod-mapped-frostmoon-shadow",
+  "shadowDoorAndPlatformHiddenUntilDark": true,
+  "backgroundChangesWithLamp": true,
+  "loadAndWarpRestoreBrightRoom": true,
+  "pageErrors": []
+}

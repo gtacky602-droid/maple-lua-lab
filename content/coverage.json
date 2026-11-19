@@ -171,8 +171,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 39,
-      "prototype_quest_count": 20,
+      "prototype_stage_count": 126,
+      "prototype_quest_count": 23,
       "official_map2_markers": {
         "waypoints": 83,
         "statues": 7
@@ -462,7 +462,7 @@
     },
     "complete_world_verified": false,
     "region_assignment": "official area IDs",
-    "playable_at_imported_nodes": 642,
+    "playable_at_imported_nodes": 765,
     "stage_links": {
       "map34:68599": {
         "stage_id": "bygone-wp-68599",
@@ -919,6 +919,277 @@
         "name": "空の神殿・西の入口の下の部屋",
         "gates": [
           "map37:96365"
+        ]
+      },
+      "map40:99281": {
+        "stage_id": "frostmoon-camp",
+        "name": "霜月・南東の入口拠点",
+        "gates": [
+          "teyvat:99219",
+          "map40:99282"
+        ]
+      },
+      "map40:99282": {
+        "stage_id": "frost-wp-99282",
+        "name": "霜月・南東の台地",
+        "gates": [
+          "map40:99284",
+          "map40:99283",
+          "map40:99281"
+        ]
+      },
+      "map40:99283": {
+        "stage_id": "frost-wp-99283",
+        "name": "霜月・入口台地の内室",
+        "gates": [
+          "map40:99282"
+        ]
+      },
+      "map40:99284": {
+        "stage_id": "frost-wp-99284",
+        "name": "霜月・潮色の道の南端",
+        "gates": [
+          "map40:99287",
+          "map40:99285",
+          "map40:99282"
+        ]
+      },
+      "map40:99285": {
+        "stage_id": "frost-wp-99285",
+        "name": "霜月・赤い丘の南棚",
+        "gates": [
+          "map40:99287",
+          "map40:99300",
+          "map40:99288",
+          "map40:99284",
+          "map40:99289"
+        ]
+      },
+      "map40:99286": {
+        "stage_id": "frost-wp-99286",
+        "name": "霜月・南西の離れ岩",
+        "gates": [
+          "map40:99287"
+        ]
+      },
+      "map40:99287": {
+        "stage_id": "frost-wp-99287",
+        "name": "霜月・南の渡り台",
+        "gates": [
+          "map40:99286",
+          "map40:99285",
+          "map40:99284"
+        ]
+      },
+      "map40:99288": {
+        "stage_id": "frost-wp-99288",
+        "name": "霜月・赤い丘の中央",
+        "gates": [
+          "map40:99303",
+          "map40:99291",
+          "map40:99302",
+          "map40:99285",
+          "map40:99289"
+        ]
+      },
+      "map40:99289": {
+        "stage_id": "frost-wp-99289",
+        "name": "霜月・赤い丘の東棚",
+        "gates": [
+          "map40:99288",
+          "map40:99285",
+          "map40:99290",
+          "map40:99301"
+        ]
+      },
+      "map40:99290": {
+        "stage_id": "frost-wp-99290",
+        "name": "霜月・赤い丘の北東縁",
+        "gates": [
+          "map40:99291",
+          "map40:99305",
+          "map40:99289",
+          "map40:99292"
+        ]
+      },
+      "map40:99291": {
+        "stage_id": "frost-wp-99291",
+        "name": "霜月・赤い丘の北棚",
+        "gates": [
+          "map40:99293",
+          "map40:99288",
+          "map40:99290"
+        ]
+      },
+      "map40:99292": {
+        "stage_id": "frost-wp-99292",
+        "name": "霜月・東の離れ丘",
+        "gates": [
+          "map40:99290",
+          "map40:99313"
+        ]
+      },
+      "map40:99293": {
+        "stage_id": "frost-wp-99293",
+        "name": "霜月・青い円原の南端",
+        "gates": [
+          "map40:99294",
+          "map40:99291"
+        ]
+      },
+      "map40:99294": {
+        "stage_id": "frost-wp-99294",
+        "name": "霜月・青い円原の中央",
+        "gates": [
+          "map40:99297",
+          "map40:99293",
+          "map40:99295"
+        ]
+      },
+      "map40:99295": {
+        "stage_id": "frost-wp-99295",
+        "name": "霜月・青い円原の東段",
+        "gates": [
+          "map40:99294",
+          "map40:99296"
+        ]
+      },
+      "map40:99296": {
+        "stage_id": "frost-wp-99296",
+        "name": "霜月・青い円原の東縁",
+        "gates": [
+          "map40:99295"
+        ]
+      },
+      "map40:99297": {
+        "stage_id": "frost-wp-99297",
+        "name": "霜月・青い円原の北棚",
+        "gates": [
+          "map40:99298",
+          "map40:99294",
+          "map40:99299"
+        ]
+      },
+      "map40:99298": {
+        "stage_id": "frost-wp-99298",
+        "name": "霜月・青い円原の西棚",
+        "gates": [
+          "map40:99308",
+          "map40:99297",
+          "map40:99299"
+        ]
+      },
+      "map40:99299": {
+        "stage_id": "frost-wp-99299",
+        "name": "霜月・青い円原の北端",
+        "gates": [
+          "map40:99298",
+          "map40:99297"
+        ]
+      },
+      "map40:99300": {
+        "stage_id": "frost-wp-99300",
+        "name": "霜月・赤い丘の南の石室",
+        "gates": [
+          "map40:99285"
+        ]
+      },
+      "map40:99301": {
+        "stage_id": "frost-wp-99301",
+        "name": "霜月・赤い丘の東の下層",
+        "gates": [
+          "map40:99289"
+        ]
+      },
+      "map40:99302": {
+        "stage_id": "frost-wp-99302",
+        "name": "霜月・赤い丘の中央の奥",
+        "gates": [
+          "map40:99307",
+          "map40:99288"
+        ]
+      },
+      "map40:99303": {
+        "stage_id": "frost-wp-99303",
+        "name": "霜月・赤い丘の西の下層",
+        "gates": [
+          "map40:99288"
+        ]
+      },
+      "map40:99304": {
+        "stage_id": "frost-wp-99304",
+        "name": "霜月・赤い丘の上の別階層",
+        "gates": [
+          "map40:99305"
+        ]
+      },
+      "map40:99305": {
+        "stage_id": "frost-wp-99305",
+        "name": "霜月・赤い丘の北の下層",
+        "gates": [
+          "map40:99306",
+          "map40:99304",
+          "map40:99290"
+        ]
+      },
+      "map40:99306": {
+        "stage_id": "frost-wp-99306",
+        "name": "霜月・赤い丘の北端の下層",
+        "gates": [
+          "map40:99305"
+        ]
+      },
+      "map40:99307": {
+        "stage_id": "frost-wp-99307",
+        "name": "霜月・赤い丘と青原の間の隠れ室",
+        "gates": [
+          "map40:99302"
+        ]
+      },
+      "map40:99308": {
+        "stage_id": "frost-wp-99308",
+        "name": "霜月・西の長い回廊の入口",
+        "gates": [
+          "map40:99309",
+          "map40:99298"
+        ]
+      },
+      "map40:99309": {
+        "stage_id": "frost-wp-99309",
+        "name": "霜月・西の回廊の第一層",
+        "gates": [
+          "map40:99311",
+          "map40:99310",
+          "map40:99308"
+        ]
+      },
+      "map40:99310": {
+        "stage_id": "frost-wp-99310",
+        "name": "霜月・西の回廊の第一層東端",
+        "gates": [
+          "map40:99309"
+        ]
+      },
+      "map40:99311": {
+        "stage_id": "frost-wp-99311",
+        "name": "霜月・西の回廊の第二層の灯室",
+        "gates": [
+          "map40:99309",
+          "map40:99312"
+        ]
+      },
+      "map40:99312": {
+        "stage_id": "frost-wp-99312",
+        "name": "霜月・西の回廊の第二層の奥",
+        "gates": [
+          "map40:99311"
+        ]
+      },
+      "map40:99313": {
+        "stage_id": "frost-wp-99313",
+        "name": "霜月・東の丘の下の小間",
+        "gates": [
+          "map40:99292"
         ]
       },
       "map7:21571": {
@@ -5802,6 +6073,441 @@
           "teyvat:85980"
         ]
       },
+      "teyvat:88127": {
+        "stage_id": "nod-wp-88127",
+        "name": "ヒーシ島・南岬の神像",
+        "gates": [
+          "teyvat:88130",
+          "teyvat:88132",
+          "teyvat:88139"
+        ]
+      },
+      "teyvat:88128": {
+        "stage_id": "nod-wp-88128",
+        "name": "レンポ島・町北の神像",
+        "gates": [
+          "teyvat:88145",
+          "teyvat:88144",
+          "teyvat:88142",
+          "teyvat:88147"
+        ]
+      },
+      "teyvat:88129": {
+        "stage_id": "nod-wp-88129",
+        "name": "パハ島周辺・南東岸の神像",
+        "gates": [
+          "teyvat:88164",
+          "teyvat:88165"
+        ]
+      },
+      "teyvat:88130": {
+        "stage_id": "nod-wp-88130",
+        "name": "ヒーシ島・南の斜面",
+        "gates": [
+          "teyvat:88133",
+          "teyvat:88131",
+          "teyvat:88127"
+        ]
+      },
+      "teyvat:88131": {
+        "stage_id": "nod-wp-88131",
+        "name": "ヒーシ島・東の林道",
+        "gates": [
+          "teyvat:88136",
+          "teyvat:88130",
+          "teyvat:88138",
+          "teyvat:88132"
+        ]
+      },
+      "teyvat:88132": {
+        "stage_id": "nod-wp-88132",
+        "name": "ヒーシ島・東の浜",
+        "gates": [
+          "teyvat:88131",
+          "teyvat:88127"
+        ]
+      },
+      "teyvat:88133": {
+        "stage_id": "nod-wp-88133",
+        "name": "ヒーシ島・南西の渡り橋",
+        "gates": [
+          "teyvat:88134",
+          "teyvat:88136",
+          "teyvat:88130"
+        ]
+      },
+      "teyvat:88134": {
+        "stage_id": "nod-wp-88134",
+        "name": "ヒーシ島・南の離れ島の桟橋",
+        "gates": [
+          "teyvat:88135",
+          "teyvat:88133"
+        ]
+      },
+      "teyvat:88135": {
+        "stage_id": "nod-wp-88135",
+        "name": "ヒーシ島・南の離れ島の高台",
+        "gates": [
+          "teyvat:88134"
+        ]
+      },
+      "teyvat:88136": {
+        "stage_id": "nod-wp-88136",
+        "name": "ヒーシ島・北西の石庭",
+        "gates": [
+          "teyvat:88137",
+          "teyvat:88133",
+          "teyvat:88131"
+        ]
+      },
+      "teyvat:88137": {
+        "stage_id": "nod-wp-88137",
+        "name": "ヒーシ島・北の灯台跡",
+        "gates": [
+          "teyvat:88176",
+          "teyvat:88136"
+        ]
+      },
+      "teyvat:88138": {
+        "stage_id": "nod-wp-88138",
+        "name": "ヒーシ島・東の林の地下の庭",
+        "gates": [
+          "teyvat:88131"
+        ]
+      },
+      "teyvat:88139": {
+        "stage_id": "nod-wp-88139",
+        "name": "レンポ島・南西の波止場",
+        "gates": [
+          "teyvat:88127",
+          "teyvat:88140",
+          "teyvat:88141"
+        ]
+      },
+      "teyvat:88140": {
+        "stage_id": "nod-wp-88140",
+        "name": "レンポ島・南西の坂道",
+        "gates": [
+          "teyvat:88139",
+          "teyvat:88145",
+          "teyvat:88144"
+        ]
+      },
+      "teyvat:88141": {
+        "stage_id": "nod-port",
+        "name": "ナド・クライ・到着港",
+        "gates": [
+          "teyvat:79059",
+          "teyvat:88143",
+          "teyvat:88139"
+        ]
+      },
+      "teyvat:88142": {
+        "stage_id": "nod-town",
+        "name": "ナド・クライ・町の広場",
+        "gates": [
+          "teyvat:88143",
+          "teyvat:88128"
+        ]
+      },
+      "teyvat:88143": {
+        "stage_id": "nod-field",
+        "name": "ナド・クライ・月明かりの道",
+        "gates": [
+          "teyvat:88141",
+          "teyvat:88142"
+        ]
+      },
+      "teyvat:88144": {
+        "stage_id": "nod-wp-88144",
+        "name": "レンポ島・町西の高台",
+        "gates": [
+          "teyvat:88140",
+          "teyvat:88145",
+          "teyvat:88128"
+        ]
+      },
+      "teyvat:88145": {
+        "stage_id": "nod-wp-88145",
+        "name": "レンポ島・町の北の林縁",
+        "gates": [
+          "teyvat:88140",
+          "teyvat:88146",
+          "teyvat:88144",
+          "teyvat:88128",
+          "teyvat:88147"
+        ]
+      },
+      "teyvat:88146": {
+        "stage_id": "nod-wp-88146",
+        "name": "レンポ島・北西の岬",
+        "gates": [
+          "teyvat:88145"
+        ]
+      },
+      "teyvat:88147": {
+        "stage_id": "nod-wp-88147",
+        "name": "レンポ島・灯台へ向かう坂",
+        "gates": [
+          "teyvat:88145",
+          "teyvat:88128",
+          "teyvat:88150",
+          "teyvat:88148"
+        ]
+      },
+      "teyvat:88148": {
+        "stage_id": "nod-wp-88148",
+        "name": "レンポ島・東の灯台下",
+        "gates": [
+          "teyvat:88147",
+          "teyvat:88154"
+        ]
+      },
+      "teyvat:88149": {
+        "stage_id": "nod-wp-88149",
+        "name": "レンポ島・湾西の石段",
+        "gates": [
+          "teyvat:88150",
+          "teyvat:88151"
+        ]
+      },
+      "teyvat:88150": {
+        "stage_id": "nod-wp-88150",
+        "name": "レンポ島・南斜面の水たまり",
+        "gates": [
+          "teyvat:88149",
+          "teyvat:88147",
+          "teyvat:88151"
+        ]
+      },
+      "teyvat:88151": {
+        "stage_id": "nod-wp-88151",
+        "name": "レンポ島・湖西の足場",
+        "gates": [
+          "teyvat:88149",
+          "teyvat:88150",
+          "teyvat:88152"
+        ]
+      },
+      "teyvat:88152": {
+        "stage_id": "nod-wp-88152",
+        "name": "レンポ島・湖東の道",
+        "gates": [
+          "teyvat:88153",
+          "teyvat:88151",
+          "teyvat:88158",
+          "teyvat:88154"
+        ]
+      },
+      "teyvat:88153": {
+        "stage_id": "nod-wp-88153",
+        "name": "レンポ島・狭い水路の入口",
+        "gates": [
+          "teyvat:88156",
+          "teyvat:88152"
+        ]
+      },
+      "teyvat:88154": {
+        "stage_id": "nod-wp-88154",
+        "name": "レンポ島・東沖の岬",
+        "gates": [
+          "teyvat:88148",
+          "teyvat:88152",
+          "teyvat:88177",
+          "teyvat:88155"
+        ]
+      },
+      "teyvat:88155": {
+        "stage_id": "nod-wp-88155",
+        "name": "レンポ島・北岬東の道",
+        "gates": [
+          "teyvat:88156",
+          "teyvat:88157",
+          "teyvat:88154"
+        ]
+      },
+      "teyvat:88156": {
+        "stage_id": "nod-wp-88156",
+        "name": "レンポ島・北岬の池",
+        "gates": [
+          "teyvat:88159",
+          "teyvat:88153",
+          "teyvat:88157",
+          "teyvat:88155"
+        ]
+      },
+      "teyvat:88157": {
+        "stage_id": "nod-wp-88157",
+        "name": "レンポ島・北岬の桟橋",
+        "gates": [
+          "teyvat:88160",
+          "teyvat:88156",
+          "teyvat:88155"
+        ]
+      },
+      "teyvat:88158": {
+        "stage_id": "nod-wp-88158",
+        "name": "レンポ島・湖の東の岩室",
+        "gates": [
+          "teyvat:88152"
+        ]
+      },
+      "teyvat:88159": {
+        "stage_id": "nod-wp-88159",
+        "name": "レンポ島・北岬の池の下",
+        "gates": [
+          "teyvat:88156"
+        ]
+      },
+      "teyvat:88160": {
+        "stage_id": "nod-wp-88160",
+        "name": "パハ島周辺・南の連絡桟橋",
+        "gates": [
+          "teyvat:88161",
+          "teyvat:88157"
+        ]
+      },
+      "teyvat:88161": {
+        "stage_id": "nod-wp-88161",
+        "name": "パハ島周辺・南の荷揚げ路",
+        "gates": [
+          "teyvat:88162",
+          "teyvat:88160",
+          "teyvat:88163"
+        ]
+      },
+      "teyvat:88162": {
+        "stage_id": "nod-wp-88162",
+        "name": "パハ島周辺・西の支柱の岸",
+        "gates": [
+          "teyvat:88169",
+          "teyvat:88168",
+          "teyvat:88161",
+          "teyvat:88163"
+        ]
+      },
+      "teyvat:88163": {
+        "stage_id": "nod-wp-88163",
+        "name": "パハ島周辺・南東の整備路",
+        "gates": [
+          "teyvat:88162",
+          "teyvat:88161",
+          "teyvat:88164"
+        ]
+      },
+      "teyvat:88164": {
+        "stage_id": "nod-wp-88164",
+        "name": "パハ島周辺・湾沿いの細道",
+        "gates": [
+          "teyvat:88163",
+          "teyvat:88167",
+          "teyvat:88129"
+        ]
+      },
+      "teyvat:88165": {
+        "stage_id": "nod-wp-88165",
+        "name": "パハ島周辺・東岸の岩棚",
+        "gates": [
+          "teyvat:88129",
+          "teyvat:88166"
+        ]
+      },
+      "teyvat:88166": {
+        "stage_id": "nod-wp-88166",
+        "name": "パハ島周辺・北東の高い桟橋",
+        "gates": [
+          "teyvat:88167",
+          "teyvat:88165"
+        ]
+      },
+      "teyvat:88167": {
+        "stage_id": "nod-wp-88167",
+        "name": "パハ島周辺・東の石庭",
+        "gates": [
+          "teyvat:88168",
+          "teyvat:88164",
+          "teyvat:92426",
+          "teyvat:88166"
+        ]
+      },
+      "teyvat:88168": {
+        "stage_id": "nod-wp-88168",
+        "name": "パハ島周辺・北の桟橋",
+        "gates": [
+          "teyvat:88162",
+          "teyvat:88171",
+          "teyvat:92867",
+          "teyvat:88167"
+        ]
+      },
+      "teyvat:88169": {
+        "stage_id": "nod-wp-88169",
+        "name": "パハ島周辺・西の支柱の灯室",
+        "gates": [
+          "teyvat:88170",
+          "teyvat:88162"
+        ]
+      },
+      "teyvat:88170": {
+        "stage_id": "nod-wp-88170",
+        "name": "パハ島周辺・西翼奥の通路",
+        "gates": [
+          "teyvat:88169"
+        ]
+      },
+      "teyvat:88171": {
+        "stage_id": "nod-wp-88171",
+        "name": "パハ島周辺・中央施設の上層",
+        "gates": [
+          "teyvat:88174",
+          "teyvat:88168"
+        ]
+      },
+      "teyvat:88172": {
+        "stage_id": "nod-wp-88172",
+        "name": "パハ島周辺・中央施設の下層南",
+        "gates": [
+          "teyvat:88174",
+          "teyvat:88173"
+        ]
+      },
+      "teyvat:88173": {
+        "stage_id": "nod-wp-88173",
+        "name": "パハ島周辺・中央施設の下層東",
+        "gates": [
+          "teyvat:88172"
+        ]
+      },
+      "teyvat:88174": {
+        "stage_id": "nod-wp-88174",
+        "name": "パハ島周辺・中央施設の中層西",
+        "gates": [
+          "teyvat:88171",
+          "teyvat:88172",
+          "teyvat:88175"
+        ]
+      },
+      "teyvat:88175": {
+        "stage_id": "nod-wp-88175",
+        "name": "パハ島周辺・中央施設の中層東",
+        "gates": [
+          "teyvat:88174"
+        ]
+      },
+      "teyvat:88176": {
+        "stage_id": "nod-wp-88176",
+        "name": "ヒーシ島・西沖の石窟",
+        "gates": [
+          "teyvat:88137"
+        ]
+      },
+      "teyvat:88177": {
+        "stage_id": "nod-wp-88177",
+        "name": "レンポ島・岬の下の水洞",
+        "gates": [
+          "teyvat:88154"
+        ]
+      },
       "teyvat:9": {
         "stage_id": "mond-wp-9",
         "name": "モンド・海食崖の南棚",
@@ -5817,6 +6523,285 @@
           "teyvat:107",
           "teyvat:105",
           "teyvat:94"
+        ]
+      },
+      "teyvat:92426": {
+        "stage_id": "nod-wp-92426",
+        "name": "パハ島周辺・東の石庭下の観測室",
+        "gates": [
+          "teyvat:88167"
+        ]
+      },
+      "teyvat:92864": {
+        "stage_id": "nod-north-harbor",
+        "name": "北部沿岸・南の港の神像",
+        "gates": [
+          "teyvat:92867",
+          "teyvat:92868"
+        ]
+      },
+      "teyvat:92865": {
+        "stage_id": "nod-wp-92865",
+        "name": "北部沿岸・中央の林の神像",
+        "gates": [
+          "teyvat:92876",
+          "teyvat:92873"
+        ]
+      },
+      "teyvat:92866": {
+        "stage_id": "nod-wp-92866",
+        "name": "北部高地・高地の神像",
+        "gates": [
+          "teyvat:92888",
+          "teyvat:92885",
+          "teyvat:92894"
+        ]
+      },
+      "teyvat:92867": {
+        "stage_id": "nod-wp-92867",
+        "name": "北部沿岸・南の灯標桟橋",
+        "gates": [
+          "teyvat:88168",
+          "teyvat:92864"
+        ]
+      },
+      "teyvat:92868": {
+        "stage_id": "nod-wp-92868",
+        "name": "北部沿岸・南の渡り橋",
+        "gates": [
+          "teyvat:92874",
+          "teyvat:92864",
+          "teyvat:92870",
+          "teyvat:92869"
+        ]
+      },
+      "teyvat:92869": {
+        "stage_id": "nod-wp-92869",
+        "name": "北部沿岸・南岬の赤い壁",
+        "gates": [
+          "teyvat:92870",
+          "teyvat:92868"
+        ]
+      },
+      "teyvat:92870": {
+        "stage_id": "nod-wp-92870",
+        "name": "北部沿岸・松の斜面",
+        "gates": [
+          "teyvat:92875",
+          "teyvat:92868",
+          "teyvat:92871",
+          "teyvat:92869"
+        ]
+      },
+      "teyvat:92871": {
+        "stage_id": "nod-wp-92871",
+        "name": "北部沿岸・東の岩の道",
+        "gates": [
+          "teyvat:92870",
+          "teyvat:92873",
+          "teyvat:92872"
+        ]
+      },
+      "teyvat:92872": {
+        "stage_id": "nod-wp-92872",
+        "name": "北部沿岸・東突端の波止場",
+        "gates": [
+          "teyvat:92871",
+          "teyvat:92873",
+          "teyvat:99218"
+        ]
+      },
+      "teyvat:92873": {
+        "stage_id": "nod-wp-92873",
+        "name": "北部沿岸・湾を見下ろす棚",
+        "gates": [
+          "teyvat:92877",
+          "teyvat:92865",
+          "teyvat:92871",
+          "teyvat:92895",
+          "teyvat:92872"
+        ]
+      },
+      "teyvat:92874": {
+        "stage_id": "nod-wp-92874",
+        "name": "北部沿岸・西の離れ磯",
+        "gates": [
+          "teyvat:92886",
+          "teyvat:92875",
+          "teyvat:92868"
+        ]
+      },
+      "teyvat:92875": {
+        "stage_id": "nod-wp-92875",
+        "name": "北部沿岸・南西の並木道",
+        "gates": [
+          "teyvat:92874",
+          "teyvat:92876",
+          "teyvat:92870"
+        ]
+      },
+      "teyvat:92876": {
+        "stage_id": "nod-wp-92876",
+        "name": "北部沿岸・湾の西の分岐",
+        "gates": [
+          "teyvat:92881",
+          "teyvat:92875",
+          "teyvat:92865"
+        ]
+      },
+      "teyvat:92877": {
+        "stage_id": "nod-wp-92877",
+        "name": "北部沿岸・東の林間道",
+        "gates": [
+          "teyvat:92883",
+          "teyvat:92878",
+          "teyvat:92879",
+          "teyvat:92873"
+        ]
+      },
+      "teyvat:92878": {
+        "stage_id": "nod-wp-92878",
+        "name": "北部沿岸・林間道の下の石室",
+        "gates": [
+          "teyvat:92877"
+        ]
+      },
+      "teyvat:92879": {
+        "stage_id": "nod-wp-92879",
+        "name": "北部沿岸・東岸の小桟橋",
+        "gates": [
+          "teyvat:92877",
+          "teyvat:92880"
+        ]
+      },
+      "teyvat:92880": {
+        "stage_id": "nod-wp-92880",
+        "name": "北部沿岸・北東の岸",
+        "gates": [
+          "teyvat:92894",
+          "teyvat:92879"
+        ]
+      },
+      "teyvat:92881": {
+        "stage_id": "nod-wp-92881",
+        "name": "北部沿岸・西の浅瀬の小島",
+        "gates": [
+          "teyvat:92882",
+          "teyvat:92876"
+        ]
+      },
+      "teyvat:92882": {
+        "stage_id": "nod-wp-92882",
+        "name": "北部沿岸・西の砂洲",
+        "gates": [
+          "teyvat:92884",
+          "teyvat:92881",
+          "teyvat:92883"
+        ]
+      },
+      "teyvat:92883": {
+        "stage_id": "nod-wp-92883",
+        "name": "北部沿岸・西の砂洲の高台",
+        "gates": [
+          "teyvat:92882",
+          "teyvat:92885",
+          "teyvat:92877"
+        ]
+      },
+      "teyvat:92884": {
+        "stage_id": "nod-wp-92884",
+        "name": "北部沿岸・西沖の渡し場",
+        "gates": [
+          "teyvat:92882"
+        ]
+      },
+      "teyvat:92885": {
+        "stage_id": "nod-wp-92885",
+        "name": "北部高地・北の峠道",
+        "gates": [
+          "teyvat:92883",
+          "teyvat:92866",
+          "teyvat:92893"
+        ]
+      },
+      "teyvat:92886": {
+        "stage_id": "nod-wp-92886",
+        "name": "北部沿岸・南岸沖の沈んだ岩棚",
+        "gates": [
+          "teyvat:92874"
+        ]
+      },
+      "teyvat:92887": {
+        "stage_id": "nod-wp-92887",
+        "name": "北部高地・北東の見張り棚",
+        "gates": [
+          "teyvat:92889",
+          "teyvat:92894"
+        ]
+      },
+      "teyvat:92888": {
+        "stage_id": "nod-wp-92888",
+        "name": "北部高地・北の丘の麓",
+        "gates": [
+          "teyvat:92890",
+          "teyvat:92866",
+          "teyvat:92889"
+        ]
+      },
+      "teyvat:92889": {
+        "stage_id": "nod-wp-92889",
+        "name": "北部高地・高地東の割れ岩",
+        "gates": [
+          "teyvat:92890",
+          "teyvat:92888",
+          "teyvat:92892",
+          "teyvat:92887"
+        ]
+      },
+      "teyvat:92890": {
+        "stage_id": "nod-wp-92890",
+        "name": "北部高地・高地西の丘",
+        "gates": [
+          "teyvat:92891",
+          "teyvat:92888",
+          "teyvat:92889"
+        ]
+      },
+      "teyvat:92891": {
+        "stage_id": "nod-wp-92891",
+        "name": "北部高地・北西突端の崖",
+        "gates": [
+          "teyvat:92890"
+        ]
+      },
+      "teyvat:92892": {
+        "stage_id": "nod-wp-92892",
+        "name": "北部高地・北の断層の別室",
+        "gates": [
+          "teyvat:92889"
+        ]
+      },
+      "teyvat:92893": {
+        "stage_id": "nod-wp-92893",
+        "name": "北部高地・北へ登る途中の横穴",
+        "gates": [
+          "teyvat:92885"
+        ]
+      },
+      "teyvat:92894": {
+        "stage_id": "nod-wp-92894",
+        "name": "北部高地・北の池の岸",
+        "gates": [
+          "teyvat:92866",
+          "teyvat:92887",
+          "teyvat:92880"
+        ]
+      },
+      "teyvat:92895": {
+        "stage_id": "nod-wp-92895",
+        "name": "北部沿岸・東の湾の下層",
+        "gates": [
+          "teyvat:92873"
         ]
       },
       "teyvat:937": {
@@ -5962,13 +6947,61 @@
           "teyvat:94",
           "teyvat:100"
         ]
+      },
+      "teyvat:99218": {
+        "stage_id": "nod-wp-99218",
+        "name": "北東の円環島・島南西の小桟橋",
+        "gates": [
+          "teyvat:92872",
+          "teyvat:99223"
+        ]
+      },
+      "teyvat:99219": {
+        "stage_id": "nod-wp-99219",
+        "name": "北東の円環島・円環の東の段丘",
+        "gates": [
+          "teyvat:99223",
+          "teyvat:99221",
+          "map40:99281"
+        ]
+      },
+      "teyvat:99220": {
+        "stage_id": "nod-wp-99220",
+        "name": "北東の円環島・円環の北西の下層",
+        "gates": [
+          "teyvat:99221"
+        ]
+      },
+      "teyvat:99221": {
+        "stage_id": "nod-wp-99221",
+        "name": "北東の円環島・円環の西の管路",
+        "gates": [
+          "teyvat:99220",
+          "teyvat:99219",
+          "teyvat:99222"
+        ]
+      },
+      "teyvat:99222": {
+        "stage_id": "nod-wp-99222",
+        "name": "北東の円環島・円環の東の管路",
+        "gates": [
+          "teyvat:99221"
+        ]
+      },
+      "teyvat:99223": {
+        "stage_id": "nod-wp-99223",
+        "name": "北東の円環島・沖の神像",
+        "gates": [
+          "teyvat:99218",
+          "teyvat:99219"
+        ]
       }
     }
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 945,
-    "provisional_quests": 249,
+    "authored_stages": 1065,
+    "provisional_quests": 253,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -6013,7 +7046,7 @@
     "status": "partial",
     "design": "content/world-bosses-design.json"
   },
-  "current_priority": "Match Nod-Krai waypoint IDs and connect surface, shore transit and distinct underground layers. Continue quest and boss playthroughs.",
+  "current_priority": "Connect the 108 remaining Snezhnaya map markers, then audit the complete catalog and full quest and boss playthroughs.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",
@@ -6837,11 +7870,101 @@
           "nod-patrol-shore",
           "nod-patrol-bend",
           "nod-patrol-post",
+          "nod-wp-88127",
+          "nod-wp-88128",
+          "nod-wp-88129",
+          "nod-wp-88130",
+          "nod-wp-88131",
+          "nod-wp-88132",
+          "nod-wp-88133",
+          "nod-wp-88134",
+          "nod-wp-88135",
+          "nod-wp-88136",
+          "nod-wp-88137",
+          "nod-wp-88138",
+          "nod-wp-88139",
+          "nod-wp-88140",
+          "nod-wp-88144",
+          "nod-wp-88145",
+          "nod-wp-88146",
+          "nod-wp-88147",
+          "nod-wp-88148",
+          "nod-wp-88149",
+          "nod-wp-88150",
+          "nod-wp-88151",
+          "nod-wp-88152",
+          "nod-wp-88153",
+          "nod-wp-88154",
+          "nod-wp-88155",
+          "nod-wp-88156",
+          "nod-wp-88157",
+          "nod-wp-88158",
+          "nod-wp-88159",
+          "nod-wp-88160",
+          "nod-wp-88161",
+          "nod-wp-88162",
+          "nod-wp-88163",
+          "nod-wp-88164",
+          "nod-wp-88165",
+          "nod-wp-88166",
+          "nod-wp-88167",
+          "nod-wp-88168",
+          "nod-wp-88169",
+          "nod-wp-88170",
+          "nod-wp-88171",
+          "nod-wp-88172",
+          "nod-wp-88173",
+          "nod-wp-88174",
+          "nod-wp-88175",
+          "nod-wp-88176",
+          "nod-wp-88177",
+          "nod-wp-92426",
+          "nod-north-harbor",
+          "nod-wp-92865",
+          "nod-wp-92866",
+          "nod-wp-92867",
+          "nod-wp-92868",
+          "nod-wp-92869",
+          "nod-wp-92870",
+          "nod-wp-92871",
+          "nod-wp-92872",
+          "nod-wp-92873",
+          "nod-wp-92874",
+          "nod-wp-92875",
+          "nod-wp-92876",
+          "nod-wp-92877",
+          "nod-wp-92878",
+          "nod-wp-92879",
+          "nod-wp-92880",
+          "nod-wp-92881",
+          "nod-wp-92882",
+          "nod-wp-92883",
+          "nod-wp-92884",
+          "nod-wp-92885",
+          "nod-wp-92886",
+          "nod-wp-92887",
+          "nod-wp-92888",
+          "nod-wp-92889",
+          "nod-wp-92890",
+          "nod-wp-92891",
+          "nod-wp-92892",
+          "nod-wp-92893",
+          "nod-wp-92894",
+          "nod-wp-92895",
+          "nod-wp-99218",
+          "nod-wp-99219",
+          "nod-wp-99220",
+          "nod-wp-99221",
+          "nod-wp-99222",
+          "nod-wp-99223",
           "nod-stygian-hunt",
           "nod-false-moon-court",
           "nod-false-moon-rift"
         ],
         "quest_ids": [
+          "nod-mapped-harbor-lamp",
+          "nod-mapped-paha-shadow",
+          "nod-mapped-north-bay",
           "stygian-rerir-commission",
           "false-moon-weekly-commission",
           "growth-lunar-practice",
@@ -7470,7 +8593,41 @@
           "statues": 0,
           "waypoints": 33
         },
-        "prototype_stage_ids": []
+        "prototype_stage_ids": [
+          "frostmoon-camp",
+          "frost-wp-99282",
+          "frost-wp-99283",
+          "frost-wp-99284",
+          "frost-wp-99285",
+          "frost-wp-99286",
+          "frost-wp-99287",
+          "frost-wp-99288",
+          "frost-wp-99289",
+          "frost-wp-99290",
+          "frost-wp-99291",
+          "frost-wp-99292",
+          "frost-wp-99293",
+          "frost-wp-99294",
+          "frost-wp-99295",
+          "frost-wp-99296",
+          "frost-wp-99297",
+          "frost-wp-99298",
+          "frost-wp-99299",
+          "frost-wp-99300",
+          "frost-wp-99301",
+          "frost-wp-99302",
+          "frost-wp-99303",
+          "frost-wp-99304",
+          "frost-wp-99305",
+          "frost-wp-99306",
+          "frost-wp-99307",
+          "frost-wp-99308",
+          "frost-wp-99309",
+          "frost-wp-99310",
+          "frost-wp-99311",
+          "frost-wp-99312",
+          "frost-wp-99313"
+        ]
       }
     ],
     "natlan_voyage_stage_ids": [

@@ -117,7 +117,7 @@ export const sceneryDefinitions={
  ochkanatlan:{file:'ochkanatlan-background-v1.png',region:'オシカ・ナタ',zones:[]},
  bygoneResonance:{file:'bygone-resonance-background-v1.png',zones:['story:bygone-resonance-chamber','story:bygone-inscribed-hall','story:bygone-listening-gallery','story:bygone-bell-archive'],note:'共鳴石と記録室の仮背景'},
  bygone:{file:'bygone-background-v1.png',region:'往日の海',zones:[]},
- enkanLampDark:{file:'enkan-lamp-chamber-dark-v1.png',region:null,zones:['story:enkan-lamp-chamber'],lightMode:'dark',note:'消灯した灯室の仮背景'},
+ enkanLampDark:{file:'enkan-lamp-chamber-dark-v1.png',region:null,zones:['story:enkan-lamp-chamber','story:nod-wp-88169','story:frost-wp-99311'],lightMode:'dark',note:'消灯した灯室の仮背景'},
  enkanLamp:{file:'enkan-lamp-chamber-background-v1.png',region:null,zones:['story:enkan-lamp-chamber','story:enkan-route-gallery'],note:'局所の灯室と小間の仮背景'},
  enkanomiya:{file:'enkanomiya-background-v1.png',region:'淵下宮',zones:['abyss']},
  chenyuPavilion:{file:'chenyu-tea-pavilion-background-v1.png',region:null,zones:['story:chenyu-tea-pavilion'],note:'展望亭と茶畑の仮背景'},
