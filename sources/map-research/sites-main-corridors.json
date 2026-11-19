@@ -1,0 +1,257 @@
+{
+  "scope": "Authored geographic adaptations on the Lua lab. Imported coordinates and source connections are preserved.",
+  "routes": [
+    {
+      "fields": [
+        "teyvat:3",
+        "teyvat:12"
+      ],
+      "source_edge": "MONROUTE-E-3-12",
+      "stages": [
+        "mond-road",
+        "sites-corridor-mond-forest",
+        "mond-wp-12"
+      ],
+      "mode": "walkable_passage",
+      "terrain": "囁きの森・湖への小道"
+    },
+    {
+      "fields": [
+        "teyvat:111",
+        "teyvat:49"
+      ],
+      "source_edge": "WORLD2-E-teyvat_111--teyvat_49",
+      "stages": [
+        "liyue-wp-111",
+        "sites-corridor-liyue-switchback",
+        "liyue-wp-49"
+      ],
+      "mode": "walkable_passage",
+      "terrain": "天衡山・山腹の折り返し坂"
+    },
+    {
+      "fields": [
+        "teyvat:30",
+        "teyvat:33"
+      ],
+      "source_edge": "WORLD2-E-teyvat_30--teyvat_33",
+      "stages": [
+        "liyue-entry",
+        "sites-corridor-dihua-causeway",
+        "liyue-wp-33"
+      ],
+      "mode": "walkable_passage",
+      "terrain": "荻花洲・湿地沿いの石橋"
+    },
+    {
+      "fields": [
+        "teyvat:12704",
+        "teyvat:12716"
+      ],
+      "source_edge": "WORLD2-E-teyvat_12716--teyvat_12704",
+      "stages": [
+        "ina-wp-12704",
+        "sites-corridor-inazuma-sandbar",
+        "ina-wp-12716"
+      ],
+      "mode": "walkable_passage",
+      "terrain": "ヤシオリ島・干潟へ下る浜道"
+    },
+    {
+      "fields": [
+        "teyvat:50036",
+        "teyvat:50037"
+      ],
+      "source_edge": "WORLD2-E-teyvat_50036--teyvat_50037",
+      "stages": [
+        "fon-wp-50036",
+        "sites-corridor-beryl-ledge",
+        "fon-wp-50037"
+      ],
+      "mode": "walkable_passage",
+      "terrain": "ベリル・西斜面のつづら折れ"
+    },
+    {
+      "fields": [
+        "teyvat:28733",
+        "teyvat:28700"
+      ],
+      "source_edge": "WORLD2-E-teyvat_28733--teyvat_28700",
+      "stages": [
+        "sumeru-entry",
+        "sites-corridor-sumeru-bridge",
+        "sum-wp-28700"
+      ],
+      "mode": "walkable_passage",
+      "terrain": "ガンダ丘・茸林の木橋"
+    },
+    {
+      "fields": [
+        "teyvat:28732",
+        "teyvat:28704"
+      ],
+      "source_edge": "WORLD2-E-teyvat_28732--teyvat_28704",
+      "stages": [
+        "liyue-wp-28732",
+        "sites-corridor-chasm-border",
+        "sum-wp-28704"
+      ],
+      "mode": "walkable_passage",
+      "terrain": "巨淵西口・森林へ抜ける国境洞道"
+    },
+    {
+      "fields": [
+        "teyvat:79057",
+        "teyvat:79545"
+      ],
+      "source_edge": "WORLD2-E-teyvat_79545--teyvat_79057",
+      "stages": [
+        "nat-wp-79057",
+        "sites-corridor-natlan-cliff",
+        "nat-wp-79545"
+      ],
+      "mode": "walkable_passage",
+      "terrain": "クァワカン断崖・崖沿いの階段"
+    },
+    {
+      "fields": [
+        "teyvat:82562",
+        "teyvat:82568"
+      ],
+      "source_edge": "WORLD2-E-teyvat_82568--teyvat_82562",
+      "stages": [
+        "nat-wp-82562",
+        "sites-corridor-natlan-tunnel",
+        "nat-wp-82568"
+      ],
+      "mode": "walkable_passage",
+      "terrain": "アトクパン・東の通路へ降りる足場"
+    },
+    {
+      "fields": [
+        "teyvat:100642",
+        "teyvat:100657"
+      ],
+      "source_edge": "WORLD2-E-teyvat_100657--teyvat_100642",
+      "stages": [
+        "sne-wp-100642",
+        "sites-corridor-snow-ravine",
+        "sne-wp-100657"
+      ],
+      "mode": "walkable_passage",
+      "terrain": "南東の氷壁・海岸から谷へ入る橋"
+    },
+    {
+      "fields": [
+        "teyvat:106180",
+        "teyvat:106186"
+      ],
+      "source_edge": "WORLD2-E-teyvat_106180--teyvat_106186",
+      "stages": [
+        "sne-wp-106180",
+        "sites-corridor-snow-mine",
+        "sne-wp-106186"
+      ],
+      "mode": "walkable_passage",
+      "terrain": "旧線の下層・保守用の連絡坑"
+    },
+    {
+      "fields": [
+        "teyvat:50064",
+        "teyvat:50069"
+      ],
+      "source_edge": "WORLD2-E-teyvat_50064--teyvat_50069",
+      "stages": [
+        "fon-wp-50064",
+        "fon-wp-50069"
+      ],
+      "mode": "waterwaySeconds",
+      "terrain": "中央湖から市街東の水中門を結ぶ水路"
+    },
+    {
+      "fields": [
+        "teyvat:72428",
+        "teyvat:72760"
+      ],
+      "source_edge": "WORLD2-E-teyvat_72760--teyvat_72428",
+      "stages": [
+        "nat-wp-72428",
+        "nat-wp-72760"
+      ],
+      "mode": "walk",
+      "terrain": "草棚から神像へ続く緩い道"
+    },
+    {
+      "fields": [
+        "teyvat:88129",
+        "teyvat:88157"
+      ],
+      "source_edge": "WORLD2-E-teyvat_88157--teyvat_88129",
+      "stages": [
+        "nod-wp-88129",
+        "nod-wp-88157"
+      ],
+      "mode": "boatSeconds",
+      "terrain": "南東岸からレンポ島へ渡る連絡舟"
+    },
+    {
+      "fields": [
+        "teyvat:92865",
+        "teyvat:92877"
+      ],
+      "source_edge": "WORLD2-E-teyvat_92865--teyvat_92877",
+      "stages": [
+        "nod-wp-92865",
+        "nod-wp-92877"
+      ],
+      "mode": "walk",
+      "terrain": "中央の神像から東の林間道へ"
+    },
+    {
+      "fields": [
+        "teyvat:100660",
+        "teyvat:100664"
+      ],
+      "source_edge": "WORLD2-E-teyvat_100660--teyvat_100664",
+      "stages": [
+        "sne-wp-100660",
+        "snezhnaya-field"
+      ],
+      "mode": "walk",
+      "terrain": "森のきわから街道へ下りる坂"
+    }
+  ],
+  "pending": {
+    "discovery_or_dedicated_gate": [
+      ["map37:96380", "teyvat:95801"],
+      ["map7:21577", "map7:21593"],
+      ["map7:21587", "map7:21592"],
+      ["map7:21591", "map7:21594"],
+      ["slot:GAA-01", "teyvat:17"],
+      ["slot:NSP-01", "teyvat:88167"],
+      ["slot:SIM-01", "teyvat:50054"],
+      ["slot:VLM-01", "teyvat:28731"]
+    ],
+    "transport_boarding_and_return": [
+      ["teyvat:104", "teyvat:13652"],
+      ["teyvat:55766", "teyvat:64837"],
+      ["teyvat:85958", "teyvat:88143"],
+      ["teyvat:88166", "teyvat:92864"],
+      ["teyvat:79060", "teyvat:79319"],
+      ["teyvat:100661", "teyvat:100665"]
+    ],
+    "outdoor_corridor_or_floor_alignment": [
+      ["map40:99310", "map40:99312"],
+      ["teyvat:100646", "teyvat:92892"],
+      ["teyvat:34", "teyvat:6599"],
+      ["teyvat:36692", "teyvat:72412"],
+      ["teyvat:106181", "teyvat:106208"],
+      ["teyvat:28715", "teyvat:28716"],
+      ["teyvat:28739", "teyvat:28745"],
+      ["teyvat:46513", "teyvat:46516"],
+      ["teyvat:46521", "teyvat:46523"],
+      ["teyvat:46523", "teyvat:46530"],
+      ["teyvat:106206", "teyvat:106207"]
+    ]
+  }
+}

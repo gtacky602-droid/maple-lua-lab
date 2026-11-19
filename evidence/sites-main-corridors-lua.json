@@ -1,0 +1,16 @@
+{
+  "imported_fields": 979,
+  "added_round_trips": 16,
+  "walkable_intermediate_stages": 11,
+  "existing_round_trips_verified": 195,
+  "directions_tested": 895,
+  "withheld_connections": 25,
+  "pending_reasons": {
+    "discovery_or_dedicated_gate": 8,
+    "outdoor_corridor_or_floor_alignment": 11,
+    "transport_boarding_and_return": 6
+  },
+  "border_level_64_gate": true,
+  "safe_restore_after_new_corridor": true,
+  "quest_state_unchanged": true
+}

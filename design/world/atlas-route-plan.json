@@ -11,8 +11,28 @@
         "teyvat:68341"
       ],
       "mode": "special_gate",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "褪せた城・地下入口から古海へ。海面から真下へ無条件ワープする接続にはしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "褪せた城・地下入口から古海へ。海面から真下へ無条件ワープする接続にはしない。",
+      "runtime_paths": {
+        "forward": [
+          "bygone-wp-68599",
+          "bygone-wp-68600",
+          "bygone-camp",
+          "fontaine-field",
+          "fontaine-hub",
+          "nostoi-castle-approach",
+          "fon-wp-68341"
+        ],
+        "return": [
+          "fon-wp-68341",
+          "nostoi-castle-approach",
+          "fontaine-hub",
+          "fontaine-field",
+          "bygone-camp",
+          "bygone-wp-68600",
+          "bygone-wp-68599"
+        ]
+      }
     },
     {
       "fields": [
@@ -20,8 +40,20 @@
         "map34:68604"
       ],
       "mode": "underwater_passage",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "西海域から東の遺構へ。海溝を超える専用通路と上陸点を実機照合してから採用。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "西海域から東の遺構へ。海溝を超える専用通路と上陸点を実機照合してから採用。",
+      "runtime_paths": {
+        "forward": [
+          "bygone-camp",
+          "bygone-depth",
+          "bygone-wp-68604"
+        ],
+        "return": [
+          "bygone-wp-68604",
+          "bygone-depth",
+          "bygone-camp"
+        ]
+      }
     },
     {
       "fields": [
@@ -29,8 +61,20 @@
         "map34:68615"
       ],
       "mode": "underwater_door",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "水中から石室へ入る出入口を区別。壁越しに直結しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "水中から石室へ入る出入口を区別。壁越しに直結しない。",
+      "runtime_paths": {
+        "forward": [
+          "bygone-depth",
+          "bygone-camp",
+          "bygone-wp-68615"
+        ],
+        "return": [
+          "bygone-wp-68615",
+          "bygone-camp",
+          "bygone-depth"
+        ]
+      }
     },
     {
       "fields": [
@@ -38,8 +82,20 @@
         "map34:68607"
       ],
       "mode": "underwater_passage",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "西海域から東の遺構へ。海溝を超える専用通路と上陸点を実機照合してから採用。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "西海域から東の遺構へ。海溝を超える専用通路と上陸点を実機照合してから採用。",
+      "runtime_paths": {
+        "forward": [
+          "bygone-wp-68605",
+          "bygone-wp-68611",
+          "bygone-wp-68607"
+        ],
+        "return": [
+          "bygone-wp-68607",
+          "bygone-wp-68611",
+          "bygone-wp-68605"
+        ]
+      }
     },
     {
       "fields": [
@@ -47,8 +103,20 @@
         "map34:68608"
       ],
       "mode": "underwater_passage",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "西海域から東の遺構へ。海溝を超える専用通路と上陸点を実機照合してから採用。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "西海域から東の遺構へ。海溝を超える専用通路と上陸点を実機照合してから採用。",
+      "runtime_paths": {
+        "forward": [
+          "bygone-wp-68607",
+          "bygone-wp-68611",
+          "bygone-wp-68608"
+        ],
+        "return": [
+          "bygone-wp-68608",
+          "bygone-wp-68611",
+          "bygone-wp-68607"
+        ]
+      }
     },
     {
       "fields": [
@@ -56,8 +124,20 @@
         "map34:68613"
       ],
       "mode": "underwater_passage",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "水中回廊の周回案。閉じた壁・層の混同を避ける。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "水中回廊の周回案。閉じた壁・層の混同を避ける。",
+      "runtime_paths": {
+        "forward": [
+          "bygone-wp-68609",
+          "bygone-wp-68614",
+          "bygone-wp-68613"
+        ],
+        "return": [
+          "bygone-wp-68613",
+          "bygone-wp-68614",
+          "bygone-wp-68609"
+        ]
+      }
     },
     {
       "fields": [
@@ -65,8 +145,22 @@
         "map34:68614"
       ],
       "mode": "underwater_passage",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "西海域から東の遺構へ。海溝を超える専用通路と上陸点を実機照合してから採用。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "西海域から東の遺構へ。海溝を超える専用通路と上陸点を実機照合してから採用。",
+      "runtime_paths": {
+        "forward": [
+          "bygone-wp-68610",
+          "bygone-wp-68612",
+          "bygone-wp-68609",
+          "bygone-wp-68614"
+        ],
+        "return": [
+          "bygone-wp-68614",
+          "bygone-wp-68609",
+          "bygone-wp-68612",
+          "bygone-wp-68610"
+        ]
+      }
     },
     {
       "fields": [
@@ -74,8 +168,28 @@
         "teyvat:82569"
       ],
       "mode": "special_gate",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "火口側の正式入口から下降し安全着地点へ。逆方向は帰還装置または確認済み出口を用意。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "火口側の正式入口から下降し安全着地点へ。逆方向は帰還装置または確認済み出口を用意。",
+      "runtime_paths": {
+        "forward": [
+          "nat-mountain-camp",
+          "nat-wp-82560",
+          "nat-wp-82561",
+          "nat-wp-82562",
+          "sites-corridor-natlan-tunnel",
+          "nat-wp-82568",
+          "nat-wp-82569"
+        ],
+        "return": [
+          "nat-wp-82569",
+          "nat-wp-82568",
+          "sites-corridor-natlan-tunnel",
+          "nat-wp-82562",
+          "nat-wp-82561",
+          "nat-wp-82560",
+          "nat-mountain-camp"
+        ]
+      }
     },
     {
       "fields": [
@@ -83,8 +197,20 @@
         "map36:84108"
       ],
       "mode": "volcanic_tunnel",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "火口の下降口→着地点→岩の回廊。溶岩を横切る直線や地上の近道にはしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "火口の下降口→着地点→岩の回廊。溶岩を横切る直線や地上の近道にはしない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-84105",
+          "nat-wp-84106",
+          "nat-wp-84108"
+        ],
+        "return": [
+          "nat-wp-84108",
+          "nat-wp-84106",
+          "nat-wp-84105"
+        ]
+      }
     },
     {
       "fields": [
@@ -92,8 +218,22 @@
         "map36:84111"
       ],
       "mode": "cave",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "巣・洞穴の出入口を照合し、入口から戻れる設計にする。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "巣・洞穴の出入口を照合し、入口から戻れる設計にする。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-84106",
+          "nat-wp-84108",
+          "nat-wp-84112",
+          "nat-wp-84111"
+        ],
+        "return": [
+          "nat-wp-84111",
+          "nat-wp-84112",
+          "nat-wp-84108",
+          "nat-wp-84106"
+        ]
+      }
     },
     {
       "fields": [
@@ -101,8 +241,26 @@
         "map36:84113"
       ],
       "mode": "cave",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "高低差を確認するための往復枝。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "高低差を確認するための往復枝。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-84107",
+          "nat-wp-84109",
+          "nat-wp-84108",
+          "nat-wp-84112",
+          "nat-wp-84114",
+          "nat-wp-84113"
+        ],
+        "return": [
+          "nat-wp-84113",
+          "nat-wp-84114",
+          "nat-wp-84112",
+          "nat-wp-84108",
+          "nat-wp-84109",
+          "nat-wp-84107"
+        ]
+      }
     },
     {
       "fields": [
@@ -110,8 +268,22 @@
         "map36:84114"
       ],
       "mode": "volcanic_tunnel",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "昇降路・通路の順序を確認。隣接して見える上下層を飛ばさない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "昇降路・通路の順序を確認。隣接して見える上下層を飛ばさない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-84109",
+          "nat-wp-84108",
+          "nat-wp-84112",
+          "nat-wp-84114"
+        ],
+        "return": [
+          "nat-wp-84114",
+          "nat-wp-84112",
+          "nat-wp-84108",
+          "nat-wp-84109"
+        ]
+      }
     },
     {
       "fields": [
@@ -119,8 +291,28 @@
         "map36:84117"
       ],
       "mode": "volcanic_tunnel",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "昇降路・通路の順序を確認。隣接して見える上下層を飛ばさない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "昇降路・通路の順序を確認。隣接して見える上下層を飛ばさない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-84109",
+          "nat-wp-84108",
+          "nat-wp-84112",
+          "nat-wp-84114",
+          "nat-wp-84115",
+          "nat-wp-84116",
+          "nat-wp-84117"
+        ],
+        "return": [
+          "nat-wp-84117",
+          "nat-wp-84116",
+          "nat-wp-84115",
+          "nat-wp-84114",
+          "nat-wp-84112",
+          "nat-wp-84108",
+          "nat-wp-84109"
+        ]
+      }
     },
     {
       "fields": [
@@ -128,8 +320,32 @@
         "map36:84119"
       ],
       "mode": "volcanic_tunnel",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "昇降路・通路の順序を確認。隣接して見える上下層を飛ばさない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "昇降路・通路の順序を確認。隣接して見える上下層を飛ばさない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-84110",
+          "nat-wp-84109",
+          "nat-wp-84108",
+          "nat-wp-84112",
+          "nat-wp-84114",
+          "nat-wp-84115",
+          "nat-wp-84116",
+          "nat-wp-84117",
+          "nat-wp-84119"
+        ],
+        "return": [
+          "nat-wp-84119",
+          "nat-wp-84117",
+          "nat-wp-84116",
+          "nat-wp-84115",
+          "nat-wp-84114",
+          "nat-wp-84112",
+          "nat-wp-84108",
+          "nat-wp-84109",
+          "nat-wp-84110"
+        ]
+      }
     },
     {
       "fields": [
@@ -137,8 +353,30 @@
         "map36:84118"
       ],
       "mode": "cave",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "巣・洞穴の出入口を照合し、入口から戻れる設計にする。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "巣・洞穴の出入口を照合し、入口から戻れる設計にする。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-84111",
+          "nat-wp-84112",
+          "nat-wp-84114",
+          "nat-wp-84115",
+          "nat-wp-84116",
+          "nat-wp-84117",
+          "nat-wp-84119",
+          "nat-wp-84118"
+        ],
+        "return": [
+          "nat-wp-84118",
+          "nat-wp-84119",
+          "nat-wp-84117",
+          "nat-wp-84116",
+          "nat-wp-84115",
+          "nat-wp-84114",
+          "nat-wp-84112",
+          "nat-wp-84111"
+        ]
+      }
     },
     {
       "fields": [
@@ -146,8 +384,20 @@
         "map36:84115"
       ],
       "mode": "volcanic_tunnel",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "溶岩の向こうは橋・石床・移動装置を使う。能力未習得でも帰還可能に。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "溶岩の向こうは橋・石床・移動装置を使う。能力未習得でも帰還可能に。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-84113",
+          "nat-wp-84114",
+          "nat-wp-84115"
+        ],
+        "return": [
+          "nat-wp-84115",
+          "nat-wp-84114",
+          "nat-wp-84113"
+        ]
+      }
     },
     {
       "fields": [
@@ -155,8 +405,20 @@
         "map36:84120"
       ],
       "mode": "volcanic_tunnel",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "溶岩の向こうは橋・石床・移動装置を使う。能力未習得でも帰還可能に。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "溶岩の向こうは橋・石床・移動装置を使う。能力未習得でも帰還可能に。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-84113",
+          "nat-wp-84114",
+          "nat-wp-84120"
+        ],
+        "return": [
+          "nat-wp-84120",
+          "nat-wp-84114",
+          "nat-wp-84113"
+        ]
+      }
     },
     {
       "fields": [
@@ -164,8 +426,22 @@
         "map36:84121"
       ],
       "mode": "volcanic_tunnel",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "溶岩の向こうは橋・石床・移動装置を使う。能力未習得でも帰還可能に。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "溶岩の向こうは橋・石床・移動装置を使う。能力未習得でも帰還可能に。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-84115",
+          "nat-wp-84114",
+          "nat-wp-84120",
+          "nat-wp-84121"
+        ],
+        "return": [
+          "nat-wp-84121",
+          "nat-wp-84120",
+          "nat-wp-84114",
+          "nat-wp-84115"
+        ]
+      }
     },
     {
       "fields": [
@@ -173,8 +449,24 @@
         "map36:84121"
       ],
       "mode": "volcanic_tunnel",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "溶岩の向こうは橋・石床・移動装置を使う。能力未習得でも帰還可能に。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "溶岩の向こうは橋・石床・移動装置を使う。能力未習得でも帰還可能に。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-84116",
+          "nat-wp-84115",
+          "nat-wp-84114",
+          "nat-wp-84120",
+          "nat-wp-84121"
+        ],
+        "return": [
+          "nat-wp-84121",
+          "nat-wp-84120",
+          "nat-wp-84114",
+          "nat-wp-84115",
+          "nat-wp-84116"
+        ]
+      }
     },
     {
       "fields": [
@@ -182,8 +474,20 @@
         "map37:96373"
       ],
       "mode": "stairs",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "西の図書館へ廊下と階段で進む。図書館1〜4階は同座標の地上接続ではない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "西の図書館へ廊下と階段で進む。図書館1〜4階は同座標の地上接続ではない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-96366",
+          "nat-wp-96367",
+          "nat-wp-96373"
+        ],
+        "return": [
+          "nat-wp-96373",
+          "nat-wp-96367",
+          "nat-wp-96366"
+        ]
+      }
     },
     {
       "fields": [
@@ -212,8 +516,20 @@
         "map37:96374"
       ],
       "mode": "layer_lift",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "密集点は階層未照合。昇降機・部屋入口の対応が確定するまで取り込み保留。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "密集点は階層未照合。昇降機・部屋入口の対応が確定するまで取り込み保留。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-96373",
+          "nat-wp-96375",
+          "nat-wp-96374"
+        ],
+        "return": [
+          "nat-wp-96374",
+          "nat-wp-96375",
+          "nat-wp-96373"
+        ]
+      }
     },
     {
       "fields": [
@@ -221,8 +537,20 @@
         "map37:96382"
       ],
       "mode": "layer_lift",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "密集点は階層未照合。昇降機・部屋入口の対応が確定するまで取り込み保留。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "密集点は階層未照合。昇降機・部屋入口の対応が確定するまで取り込み保留。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-96374",
+          "nat-wp-96375",
+          "nat-wp-96382"
+        ],
+        "return": [
+          "nat-wp-96382",
+          "nat-wp-96375",
+          "nat-wp-96374"
+        ]
+      }
     },
     {
       "fields": [
@@ -230,8 +558,20 @@
         "map37:96379"
       ],
       "mode": "special_gate",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "北の楼閣・試練の入口を分離。転送室と地上通路は別の移動タイプで実装する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "北の楼閣・試練の入口を分離。転送室と地上通路は別の移動タイプで実装する。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-96377",
+          "nat-wp-96378",
+          "nat-wp-96379"
+        ],
+        "return": [
+          "nat-wp-96379",
+          "nat-wp-96378",
+          "nat-wp-96377"
+        ]
+      }
     },
     {
       "fields": [
@@ -239,8 +579,9 @@
         "teyvat:95801"
       ],
       "mode": "special_gate",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "別領域への入口を経由する案。地上台地から空へ歩く線ではない。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "別領域への入口を経由する案。地上台地から空へ歩く線ではない。",
+      "review_focus": "discovery_or_dedicated_gate"
     },
     {
       "fields": [
@@ -248,8 +589,24 @@
         "map37:96383"
       ],
       "mode": "layer_lift",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "密集点は階層未照合。昇降機・部屋入口の対応が確定するまで取り込み保留。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "密集点は階層未照合。昇降機・部屋入口の対応が確定するまで取り込み保留。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-96381",
+          "nat-wp-96373",
+          "nat-wp-96375",
+          "nat-wp-96382",
+          "nat-wp-96383"
+        ],
+        "return": [
+          "nat-wp-96383",
+          "nat-wp-96382",
+          "nat-wp-96375",
+          "nat-wp-96373",
+          "nat-wp-96381"
+        ]
+      }
     },
     {
       "fields": [
@@ -257,8 +614,26 @@
         "map40:99290"
       ],
       "mode": "high_speed_transfer",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "移送点と観測区画をつなぐ案。装置の終点は要照合し、帰りの移送を同時開通。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "移送点と観測区画をつなぐ案。装置の終点は要照合し、帰りの移送を同時開通。",
+      "runtime_paths": {
+        "forward": [
+          "frost-wp-99283",
+          "frost-wp-99282",
+          "frost-wp-99284",
+          "frost-wp-99285",
+          "frost-wp-99289",
+          "frost-wp-99290"
+        ],
+        "return": [
+          "frost-wp-99290",
+          "frost-wp-99289",
+          "frost-wp-99285",
+          "frost-wp-99284",
+          "frost-wp-99282",
+          "frost-wp-99283"
+        ]
+      }
     },
     {
       "fields": [
@@ -266,8 +641,20 @@
         "map40:99301"
       ],
       "mode": "high_speed_transfer",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "移送点と観測区画をつなぐ案。装置の終点は要照合し、帰りの移送を同時開通。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "移送点と観測区画をつなぐ案。装置の終点は要照合し、帰りの移送を同時開通。",
+      "runtime_paths": {
+        "forward": [
+          "frost-wp-99285",
+          "frost-wp-99289",
+          "frost-wp-99301"
+        ],
+        "return": [
+          "frost-wp-99301",
+          "frost-wp-99289",
+          "frost-wp-99285"
+        ]
+      }
     },
     {
       "fields": [
@@ -275,8 +662,28 @@
         "teyvat:99223"
       ],
       "mode": "special_gate",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "現地の研究施設・転送装置を確認してから接続。宇宙側への徒歩連結はしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "現地の研究施設・転送装置を確認してから接続。宇宙側への徒歩連結はしない。",
+      "runtime_paths": {
+        "forward": [
+          "frost-wp-99286",
+          "frost-wp-99287",
+          "frost-wp-99284",
+          "frost-wp-99282",
+          "frostmoon-camp",
+          "nod-wp-99219",
+          "nod-wp-99223"
+        ],
+        "return": [
+          "nod-wp-99223",
+          "nod-wp-99219",
+          "frostmoon-camp",
+          "frost-wp-99282",
+          "frost-wp-99284",
+          "frost-wp-99287",
+          "frost-wp-99286"
+        ]
+      }
     },
     {
       "fields": [
@@ -284,8 +691,30 @@
         "map40:99309"
       ],
       "mode": "high_speed_transfer",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "離れた座標群への接続候補。入口・出口・解放条件が確認できるまで保留。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "離れた座標群への接続候補。入口・出口・解放条件が確認できるまで保留。",
+      "runtime_paths": {
+        "forward": [
+          "frost-wp-99288",
+          "frost-wp-99291",
+          "frost-wp-99293",
+          "frost-wp-99294",
+          "frost-wp-99297",
+          "frost-wp-99298",
+          "frost-wp-99308",
+          "frost-wp-99309"
+        ],
+        "return": [
+          "frost-wp-99309",
+          "frost-wp-99308",
+          "frost-wp-99298",
+          "frost-wp-99297",
+          "frost-wp-99294",
+          "frost-wp-99293",
+          "frost-wp-99291",
+          "frost-wp-99288"
+        ]
+      }
     },
     {
       "fields": [
@@ -293,8 +722,20 @@
         "map40:99292"
       ],
       "mode": "high_speed_transfer",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "通行可能な装置の対を確認する。普通の地上ポータルではない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "通行可能な装置の対を確認する。普通の地上ポータルではない。",
+      "runtime_paths": {
+        "forward": [
+          "frost-wp-99289",
+          "frost-wp-99290",
+          "frost-wp-99292"
+        ],
+        "return": [
+          "frost-wp-99292",
+          "frost-wp-99290",
+          "frost-wp-99289"
+        ]
+      }
     },
     {
       "fields": [
@@ -302,8 +743,20 @@
         "map40:99303"
       ],
       "mode": "station_corridor",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "施設内のフロア・扉を照合。平面座標の近さを同じ階の根拠にしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "施設内のフロア・扉を照合。平面座標の近さを同じ階の根拠にしない。",
+      "runtime_paths": {
+        "forward": [
+          "frost-wp-99291",
+          "frost-wp-99288",
+          "frost-wp-99303"
+        ],
+        "return": [
+          "frost-wp-99303",
+          "frost-wp-99288",
+          "frost-wp-99291"
+        ]
+      }
     },
     {
       "fields": [
@@ -311,8 +764,22 @@
         "map40:99304"
       ],
       "mode": "station_corridor",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "施設内のフロア・扉を照合。平面座標の近さを同じ階の根拠にしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "施設内のフロア・扉を照合。平面座標の近さを同じ階の根拠にしない。",
+      "runtime_paths": {
+        "forward": [
+          "frost-wp-99291",
+          "frost-wp-99290",
+          "frost-wp-99305",
+          "frost-wp-99304"
+        ],
+        "return": [
+          "frost-wp-99304",
+          "frost-wp-99305",
+          "frost-wp-99290",
+          "frost-wp-99291"
+        ]
+      }
     },
     {
       "fields": [
@@ -320,8 +787,24 @@
         "map40:99307"
       ],
       "mode": "high_speed_transfer",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "月面の裂け目・閉鎖区画を歩いて直結しない。移送装置の対応をレビューする。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "月面の裂け目・閉鎖区画を歩いて直結しない。移送装置の対応をレビューする。",
+      "runtime_paths": {
+        "forward": [
+          "frost-wp-99293",
+          "frost-wp-99291",
+          "frost-wp-99288",
+          "frost-wp-99302",
+          "frost-wp-99307"
+        ],
+        "return": [
+          "frost-wp-99307",
+          "frost-wp-99302",
+          "frost-wp-99288",
+          "frost-wp-99291",
+          "frost-wp-99293"
+        ]
+      }
     },
     {
       "fields": [
@@ -329,8 +812,24 @@
         "map40:99299"
       ],
       "mode": "high_speed_transfer",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "月面の裂け目・閉鎖区画を歩いて直結しない。移送装置の対応をレビューする。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "月面の裂け目・閉鎖区画を歩いて直結しない。移送装置の対応をレビューする。",
+      "runtime_paths": {
+        "forward": [
+          "frost-wp-99296",
+          "frost-wp-99295",
+          "frost-wp-99294",
+          "frost-wp-99297",
+          "frost-wp-99299"
+        ],
+        "return": [
+          "frost-wp-99299",
+          "frost-wp-99297",
+          "frost-wp-99294",
+          "frost-wp-99295",
+          "frost-wp-99296"
+        ]
+      }
     },
     {
       "fields": [
@@ -338,8 +837,22 @@
         "map40:99302"
       ],
       "mode": "high_speed_transfer",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "高速移送ステーションと通路を組み合わせる案。遠距離を徒歩の隣接マップとしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "高速移送ステーションと通路を組み合わせる案。遠距離を徒歩の隣接マップとしない。",
+      "runtime_paths": {
+        "forward": [
+          "frost-wp-99300",
+          "frost-wp-99285",
+          "frost-wp-99288",
+          "frost-wp-99302"
+        ],
+        "return": [
+          "frost-wp-99302",
+          "frost-wp-99288",
+          "frost-wp-99285",
+          "frost-wp-99300"
+        ]
+      }
     },
     {
       "fields": [
@@ -347,8 +860,28 @@
         "map40:99307"
       ],
       "mode": "high_speed_transfer",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "月面の裂け目・閉鎖区画を歩いて直結しない。移送装置の対応をレビューする。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "月面の裂け目・閉鎖区画を歩いて直結しない。移送装置の対応をレビューする。",
+      "runtime_paths": {
+        "forward": [
+          "frost-wp-99306",
+          "frost-wp-99305",
+          "frost-wp-99290",
+          "frost-wp-99291",
+          "frost-wp-99288",
+          "frost-wp-99302",
+          "frost-wp-99307"
+        ],
+        "return": [
+          "frost-wp-99307",
+          "frost-wp-99302",
+          "frost-wp-99288",
+          "frost-wp-99291",
+          "frost-wp-99290",
+          "frost-wp-99305",
+          "frost-wp-99306"
+        ]
+      }
     },
     {
       "fields": [
@@ -356,8 +889,20 @@
         "map40:99310"
       ],
       "mode": "station_corridor",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "別の座標群を一つの施設として仮整理。外側の月面から徒歩接続する線は作らない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "別の座標群を一つの施設として仮整理。外側の月面から徒歩接続する線は作らない。",
+      "runtime_paths": {
+        "forward": [
+          "frost-wp-99308",
+          "frost-wp-99309",
+          "frost-wp-99310"
+        ],
+        "return": [
+          "frost-wp-99310",
+          "frost-wp-99309",
+          "frost-wp-99308"
+        ]
+      }
     },
     {
       "fields": [
@@ -365,8 +910,9 @@
         "map40:99312"
       ],
       "mode": "station_corridor",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "別の座標群を一つの施設として仮整理。外側の月面から徒歩接続する線は作らない。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "別の座標群を一つの施設として仮整理。外側の月面から徒歩接続する線は作らない。",
+      "review_focus": "outdoor_corridor_or_floor_alignment"
     },
     {
       "fields": [
@@ -374,8 +920,24 @@
         "teyvat:15940"
       ],
       "mode": "special_gate",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "海祇の淵下入口→地下の蛇腸。地図を跨ぐ正規の入口と帰還装置を利用。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "海祇の淵下入口→地下の蛇腸。地図を跨ぐ正規の入口と帰還装置を利用。",
+      "runtime_paths": {
+        "forward": [
+          "enkanomiya-camp",
+          "inazuma-road",
+          "inazuma-port",
+          "watatsumi-landing",
+          "ina-wp-15940"
+        ],
+        "return": [
+          "ina-wp-15940",
+          "watatsumi-landing",
+          "inazuma-port",
+          "inazuma-road",
+          "enkanomiya-camp"
+        ]
+      }
     },
     {
       "fields": [
@@ -383,8 +945,22 @@
         "map7:21580"
       ],
       "mode": "phase_gate",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "虚空の島間を越える専用装置。原作装置の端点は要照合し、往復可能な本作の帰還装置を設ける。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "虚空の島間を越える専用装置。原作装置の端点は要照合し、往復可能な本作の帰還装置を設ける。",
+      "runtime_paths": {
+        "forward": [
+          "enkan-wp-21574",
+          "enkan-wp-21576",
+          "enkan-wp-21579",
+          "enkan-wp-21580"
+        ],
+        "return": [
+          "enkan-wp-21580",
+          "enkan-wp-21579",
+          "enkan-wp-21576",
+          "enkan-wp-21574"
+        ]
+      }
     },
     {
       "fields": [
@@ -392,8 +968,20 @@
         "map7:21576"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "島内の遺構・階段。別島の空白を歩かせない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "島内の遺構・階段。別島の空白を歩かせない。",
+      "runtime_paths": {
+        "forward": [
+          "enkan-wp-21575",
+          "enkan-wp-21574",
+          "enkan-wp-21576"
+        ],
+        "return": [
+          "enkan-wp-21576",
+          "enkan-wp-21574",
+          "enkan-wp-21575"
+        ]
+      }
     },
     {
       "fields": [
@@ -401,8 +989,9 @@
         "map7:21593"
       ],
       "mode": "phase_gate",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "虚空の島間を越える専用装置。原作装置の端点は要照合し、往復可能な本作の帰還装置を設ける。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "虚空の島間を越える専用装置。原作装置の端点は要照合し、往復可能な本作の帰還装置を設ける。",
+      "review_focus": "discovery_or_dedicated_gate"
     },
     {
       "fields": [
@@ -410,8 +999,20 @@
         "map7:21582"
       ],
       "mode": "stairs",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "塔の上下入口を照合。地下のボス床へ直接落ちる接続とは分ける。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "塔の上下入口を照合。地下のボス床へ直接落ちる接続とは分ける。",
+      "runtime_paths": {
+        "forward": [
+          "enkan-wp-21581",
+          "enkan-wp-21580",
+          "enkan-wp-21582"
+        ],
+        "return": [
+          "enkan-wp-21582",
+          "enkan-wp-21580",
+          "enkan-wp-21581"
+        ]
+      }
     },
     {
       "fields": [
@@ -419,8 +1020,22 @@
         "map7:21587"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "島内の道だけを結ぶ。下の洞窟は別の出入口を確認。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "島内の道だけを結ぶ。下の洞窟は別の出入口を確認。",
+      "runtime_paths": {
+        "forward": [
+          "enkan-wp-21586",
+          "enkan-wp-21585",
+          "enkan-wp-21584",
+          "enkan-wp-21587"
+        ],
+        "return": [
+          "enkan-wp-21587",
+          "enkan-wp-21584",
+          "enkan-wp-21585",
+          "enkan-wp-21586"
+        ]
+      }
     },
     {
       "fields": [
@@ -428,8 +1043,9 @@
         "map7:21592"
       ],
       "mode": "phase_gate",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "虚空の島間を越える専用装置。原作装置の端点は要照合し、往復可能な本作の帰還装置を設ける。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "虚空の島間を越える専用装置。原作装置の端点は要照合し、往復可能な本作の帰還装置を設ける。",
+      "review_focus": "discovery_or_dedicated_gate"
     },
     {
       "fields": [
@@ -437,8 +1053,20 @@
         "map7:21591"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "島内の石段・遺構の外周。峡谷の飛び越えを必須にしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "島内の石段・遺構の外周。峡谷の飛び越えを必須にしない。",
+      "runtime_paths": {
+        "forward": [
+          "enkan-wp-21588",
+          "enkan-wp-21589",
+          "enkan-wp-21591"
+        ],
+        "return": [
+          "enkan-wp-21591",
+          "enkan-wp-21589",
+          "enkan-wp-21588"
+        ]
+      }
     },
     {
       "fields": [
@@ -446,8 +1074,9 @@
         "map7:21594"
       ],
       "mode": "phase_gate",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "虚空の島間を越える専用装置。原作装置の端点は要照合し、往復可能な本作の帰還装置を設ける。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "虚空の島間を越える専用装置。原作装置の端点は要照合し、往復可能な本作の帰還装置を設ける。",
+      "review_focus": "discovery_or_dedicated_gate"
     },
     {
       "fields": [
@@ -455,8 +1084,24 @@
         "map9:25270"
       ],
       "mode": "cave",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "坑道と水路のつなぎ目を照合。地図で近い別階層への直結は禁止。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "坑道と水路のつなぎ目を照合。地図で近い別階層への直結は禁止。",
+      "runtime_paths": {
+        "forward": [
+          "chasm-wp-25264",
+          "chasm-depth",
+          "chasm-wp-25266",
+          "chasm-wp-25267",
+          "chasm-wp-25270"
+        ],
+        "return": [
+          "chasm-wp-25270",
+          "chasm-wp-25267",
+          "chasm-wp-25266",
+          "chasm-depth",
+          "chasm-wp-25264"
+        ]
+      }
     },
     {
       "fields": [
@@ -464,8 +1109,28 @@
         "map9:25271"
       ],
       "mode": "cave",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "坑道と水路のつなぎ目を照合。地図で近い別階層への直結は禁止。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "坑道と水路のつなぎ目を照合。地図で近い別階層への直結は禁止。",
+      "runtime_paths": {
+        "forward": [
+          "chasm-wp-25264",
+          "chasm-depth",
+          "chasm-wp-25266",
+          "chasm-wp-25267",
+          "chasm-wp-25270",
+          "chasm-wp-26463",
+          "chasm-wp-25271"
+        ],
+        "return": [
+          "chasm-wp-25271",
+          "chasm-wp-26463",
+          "chasm-wp-25270",
+          "chasm-wp-25267",
+          "chasm-wp-25266",
+          "chasm-depth",
+          "chasm-wp-25264"
+        ]
+      }
     },
     {
       "fields": [
@@ -473,8 +1138,26 @@
         "teyvat:24912"
       ],
       "mode": "mine_shaft",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "坑口の昇降路から地下搬入区画へ。地上と地下のXYを重ねて接続しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "坑口の昇降路から地下搬入区画へ。地上と地下のXYを重ねて接続しない。",
+      "runtime_paths": {
+        "forward": [
+          "chasm-wp-25268",
+          "chasm-wp-25267",
+          "chasm-wp-25266",
+          "chasm-depth",
+          "chasm-camp",
+          "liyue-wp-24912"
+        ],
+        "return": [
+          "liyue-wp-24912",
+          "chasm-camp",
+          "chasm-depth",
+          "chasm-wp-25266",
+          "chasm-wp-25267",
+          "chasm-wp-25268"
+        ]
+      }
     },
     {
       "fields": [
@@ -482,8 +1165,24 @@
         "map9:25275"
       ],
       "mode": "cave",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "南端の遺構への枝。原作の任務専用空間とは区別する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "南端の遺構への枝。原作の任務専用空間とは区別する。",
+      "runtime_paths": {
+        "forward": [
+          "chasm-wp-25274",
+          "chasm-wp-25271",
+          "chasm-wp-26463",
+          "chasm-wp-25276",
+          "chasm-wp-25275"
+        ],
+        "return": [
+          "chasm-wp-25275",
+          "chasm-wp-25276",
+          "chasm-wp-26463",
+          "chasm-wp-25271",
+          "chasm-wp-25274"
+        ]
+      }
     },
     {
       "fields": [
@@ -491,8 +1190,22 @@
         "map9:25276"
       ],
       "mode": "mine_shaft",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "地上の竪坑から到着し、実際の坑道と昇降路を辿る。岩壁の向こうへ水平ポータルで抜けない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "地上の竪坑から到着し、実際の坑道と昇降路を辿る。岩壁の向こうへ水平ポータルで抜けない。",
+      "runtime_paths": {
+        "forward": [
+          "chasm-wp-25274",
+          "chasm-wp-25271",
+          "chasm-wp-26463",
+          "chasm-wp-25276"
+        ],
+        "return": [
+          "chasm-wp-25276",
+          "chasm-wp-26463",
+          "chasm-wp-25271",
+          "chasm-wp-25274"
+        ]
+      }
     },
     {
       "fields": [
@@ -500,8 +1213,20 @@
         "map9:26463"
       ],
       "mode": "mine_shaft",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "地上の竪坑から到着し、実際の坑道と昇降路を辿る。岩壁の向こうへ水平ポータルで抜けない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "地上の竪坑から到着し、実際の坑道と昇降路を辿る。岩壁の向こうへ水平ポータルで抜けない。",
+      "runtime_paths": {
+        "forward": [
+          "chasm-wp-25277",
+          "chasm-wp-25276",
+          "chasm-wp-26463"
+        ],
+        "return": [
+          "chasm-wp-26463",
+          "chasm-wp-25276",
+          "chasm-wp-25277"
+        ]
+      }
     },
     {
       "fields": [
@@ -545,8 +1270,9 @@
         "teyvat:17"
       ],
       "mode": "boat",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "秘密の船着き場を発見してから乗船。群島の公式WPは未取得。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "秘密の船着き場を発見してから乗船。群島の公式WPは未取得。",
+      "review_focus": "discovery_or_dedicated_gate"
     },
     {
       "fields": [
@@ -590,8 +1316,9 @@
         "teyvat:88167"
       ],
       "mode": "special_gate",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "正式な地域名と入口が未決定のため設計スロットのみ。既存地形へ勝手に割り当てない。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "正式な地域名と入口が未決定のため設計スロットのみ。既存地形へ勝手に割り当てない。",
+      "review_focus": "discovery_or_dedicated_gate"
     },
     {
       "fields": [
@@ -662,8 +1389,9 @@
         "teyvat:50054"
       ],
       "mode": "special_gate",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "絵本の置き場所は本作の仮案。固定ワープポイントを捏造しない。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "絵本の置き場所は本作の仮案。固定ワープポイントを捏造しない。",
+      "review_focus": "discovery_or_dedicated_gate"
     },
     {
       "fields": [
@@ -734,8 +1462,9 @@
         "teyvat:28731"
       ],
       "mode": "special_gate",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "瓶を調べる本作の入口案。公式座標が存在すると主張しない。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "瓶を調べる本作の入口案。公式座標が存在すると主張しない。",
+      "review_focus": "discovery_or_dedicated_gate"
     },
     {
       "fields": [
@@ -797,8 +1526,20 @@
         "teyvat:100657"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "南の国境から雪原の街道を辿る骨格案。地名・通行帯の照合前に山脈横断路として確定しない。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "南の国境から雪原の街道を辿る骨格案。地名・通行帯の照合前に山脈横断路として確定しない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100642",
+          "sites-corridor-snow-ravine",
+          "sne-wp-100657"
+        ],
+        "return": [
+          "sne-wp-100657",
+          "sites-corridor-snow-ravine",
+          "sne-wp-100642"
+        ]
+      }
     },
     {
       "fields": [
@@ -806,8 +1547,22 @@
         "teyvat:100658"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "都へ向かう既存道路・橋を経由。鉄道のみの区間なら徒歩扱いを解除する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "都へ向かう既存道路・橋を経由。鉄道のみの区間なら徒歩扱いを解除する。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100642",
+          "sites-corridor-snow-ravine",
+          "sne-wp-100657",
+          "sne-wp-100658"
+        ],
+        "return": [
+          "sne-wp-100658",
+          "sne-wp-100657",
+          "sites-corridor-snow-ravine",
+          "sne-wp-100642"
+        ]
+      }
     },
     {
       "fields": [
@@ -815,8 +1570,20 @@
         "teyvat:100665"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "西の雪林と谷道を回る。凍結湖を徒歩で横断する前提は置かない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "西の雪林と谷道を回る。凍結湖を徒歩で横断する前提は置かない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100643",
+          "sne-wp-100666",
+          "white-pass-cut"
+        ],
+        "return": [
+          "white-pass-cut",
+          "sne-wp-100666",
+          "sne-wp-100643"
+        ]
+      }
     },
     {
       "fields": [
@@ -824,8 +1591,28 @@
         "teyvat:100685"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "西の雪林と谷道を回る。凍結湖を徒歩で横断する前提は置かない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "西の雪林と谷道を回る。凍結湖を徒歩で横断する前提は置かない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100643",
+          "sne-wp-100666",
+          "white-pass-cut",
+          "snezhnaya-field",
+          "sne-wp-100660",
+          "sne-wp-100688",
+          "sne-wp-100685"
+        ],
+        "return": [
+          "sne-wp-100685",
+          "sne-wp-100688",
+          "sne-wp-100660",
+          "snezhnaya-field",
+          "white-pass-cut",
+          "sne-wp-100666",
+          "sne-wp-100643"
+        ]
+      }
     },
     {
       "fields": [
@@ -854,8 +1641,22 @@
         "teyvat:100680"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "北東の凍土を進む枝。最奥を通常国巡りの必須条件にしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "北東の凍土を進む枝。最奥を通常国巡りの必須条件にしない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100645",
+          "sne-wp-100678",
+          "sne-wp-100679",
+          "sne-wp-100680"
+        ],
+        "return": [
+          "sne-wp-100680",
+          "sne-wp-100679",
+          "sne-wp-100678",
+          "sne-wp-100645"
+        ]
+      }
     },
     {
       "fields": [
@@ -863,8 +1664,9 @@
         "teyvat:92892"
       ],
       "mode": "mountain_pass",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "北の研究所側→北東の国境回廊→スネージナヤ南端。山脈の通行可能な道筋と両端WPの対応は要再照合。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "北の研究所側→北東の国境回廊→スネージナヤ南端。山脈の通行可能な道筋と両端WPの対応は要再照合。",
+      "review_focus": "outdoor_corridor_or_floor_alignment"
     },
     {
       "fields": [
@@ -872,8 +1674,22 @@
         "teyvat:100651"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "西の雪林と谷道を回る。凍結湖を徒歩で横断する前提は置かない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "西の雪林と谷道を回る。凍結湖を徒歩で横断する前提は置かない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100647",
+          "sne-south-bay",
+          "sne-wp-100648",
+          "sne-wp-100651"
+        ],
+        "return": [
+          "sne-wp-100651",
+          "sne-wp-100648",
+          "sne-south-bay",
+          "sne-wp-100647"
+        ]
+      }
     },
     {
       "fields": [
@@ -881,8 +1697,26 @@
         "teyvat:100653"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "南の国境から雪原の街道を辿る骨格案。地名・通行帯の照合前に山脈横断路として確定しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "南の国境から雪原の街道を辿る骨格案。地名・通行帯の照合前に山脈横断路として確定しない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100650",
+          "sne-wp-100649",
+          "sne-wp-100648",
+          "sne-south-bay",
+          "sne-wp-100647",
+          "sne-wp-100653"
+        ],
+        "return": [
+          "sne-wp-100653",
+          "sne-wp-100647",
+          "snezhnaya-entry",
+          "snezhnaya-hub",
+          "snezhnaya-field",
+          "sne-wp-100650"
+        ]
+      }
     },
     {
       "fields": [
@@ -890,8 +1724,20 @@
         "teyvat:100696"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "中央の橋・街道に戻る経路。山肌を直線で貫かない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "中央の橋・街道に戻る経路。山肌を直線で貫かない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100650",
+          "sne-wp-100649",
+          "sne-wp-100696"
+        ],
+        "return": [
+          "sne-wp-100696",
+          "sne-wp-100649",
+          "sne-wp-100650"
+        ]
+      }
     },
     {
       "fields": [
@@ -924,8 +1770,22 @@
         "teyvat:100657"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "南の国境から雪原の街道を辿る骨格案。地名・通行帯の照合前に山脈横断路として確定しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "南の国境から雪原の街道を辿る骨格案。地名・通行帯の照合前に山脈横断路として確定しない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100653",
+          "sne-wp-100642",
+          "sites-corridor-snow-ravine",
+          "sne-wp-100657"
+        ],
+        "return": [
+          "sne-wp-100657",
+          "sites-corridor-snow-ravine",
+          "sne-wp-100642",
+          "sne-wp-100653"
+        ]
+      }
     },
     {
       "fields": [
@@ -952,8 +1812,22 @@
         "teyvat:100697"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "東の街道から都へ戻る周回路。研究施設の内部は別の入口を使う。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "東の街道から都へ戻る周回路。研究施設の内部は別の入口を使う。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100656",
+          "sne-wp-100657",
+          "sne-wp-100703",
+          "sne-wp-100697"
+        ],
+        "return": [
+          "sne-wp-100697",
+          "sne-wp-100703",
+          "sne-wp-100657",
+          "sne-wp-100656"
+        ]
+      }
     },
     {
       "fields": [
@@ -986,8 +1860,20 @@
         "teyvat:100660"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "都へ向かう既存道路・橋を経由。鉄道のみの区間なら徒歩扱いを解除する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "都へ向かう既存道路・橋を経由。鉄道のみの区間なら徒歩扱いを解除する。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100658",
+          "sne-wp-100659",
+          "sne-wp-100660"
+        ],
+        "return": [
+          "sne-wp-100660",
+          "sne-wp-100659",
+          "sne-wp-100658"
+        ]
+      }
     },
     {
       "fields": [
@@ -1004,8 +1890,20 @@
         "teyvat:100663"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "中央の橋・街道に戻る経路。山肌を直線で貫かない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "中央の橋・街道に戻る経路。山肌を直線で貫かない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100660",
+          "snezhnaya-field",
+          "sne-wp-100663"
+        ],
+        "return": [
+          "sne-wp-100663",
+          "snezhnaya-field",
+          "sne-wp-100660"
+        ]
+      }
     },
     {
       "fields": [
@@ -1013,8 +1911,18 @@
         "teyvat:100664"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "都へ向かう既存道路・橋を経由。鉄道のみの区間なら徒歩扱いを解除する。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "都へ向かう既存道路・橋を経由。鉄道のみの区間なら徒歩扱いを解除する。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100660",
+          "snezhnaya-field"
+        ],
+        "return": [
+          "snezhnaya-field",
+          "sne-wp-100660"
+        ]
+      }
     },
     {
       "fields": [
@@ -1022,8 +1930,9 @@
         "teyvat:100665"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "西の雪林と谷道を回る。凍結湖を徒歩で横断する前提は置かない。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "西の雪林と谷道を回る。凍結湖を徒歩で横断する前提は置かない。",
+      "review_focus": "transport_boarding_and_return"
     },
     {
       "fields": [
@@ -1031,8 +1940,26 @@
         "teyvat:100696"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "中央の橋・街道に戻る経路。山肌を直線で貫かない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "中央の橋・街道に戻る経路。山肌を直線で貫かない。",
+      "runtime_paths": {
+        "forward": [
+          "white-pass-woods",
+          "white-pass-cut",
+          "snezhnaya-field",
+          "sne-wp-100650",
+          "sne-wp-100649",
+          "sne-wp-100696"
+        ],
+        "return": [
+          "sne-wp-100696",
+          "sne-wp-100649",
+          "sne-wp-100650",
+          "snezhnaya-field",
+          "white-pass-cut",
+          "white-pass-woods"
+        ]
+      }
     },
     {
       "fields": [
@@ -1040,8 +1967,22 @@
         "teyvat:100669"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "都へ向かう既存道路・橋を経由。鉄道のみの区間なら徒歩扱いを解除する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "都へ向かう既存道路・橋を経由。鉄道のみの区間なら徒歩扱いを解除する。",
+      "runtime_paths": {
+        "forward": [
+          "snezhnaya-field",
+          "snezhnaya-hub",
+          "sne-wp-100675",
+          "sne-wp-100669"
+        ],
+        "return": [
+          "sne-wp-100669",
+          "sne-wp-100675",
+          "snezhnaya-hub",
+          "snezhnaya-field"
+        ]
+      }
     },
     {
       "fields": [
@@ -1085,8 +2026,22 @@
         "teyvat:100671"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "東の街道から都へ戻る周回路。研究施設の内部は別の入口を使う。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "東の街道から都へ戻る周回路。研究施設の内部は別の入口を使う。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100670",
+          "sne-wp-100673",
+          "sne-wp-100672",
+          "sne-wp-100671"
+        ],
+        "return": [
+          "sne-wp-100671",
+          "sne-wp-100672",
+          "sne-wp-100673",
+          "sne-wp-100670"
+        ]
+      }
     },
     {
       "fields": [
@@ -1094,8 +2049,20 @@
         "teyvat:100675"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "市街と駅前を安全回廊に。建物の上下階は内部階段でつなぐ。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "市街と駅前を安全回廊に。建物の上下階は内部階段でつなぐ。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100671",
+          "sne-wp-100669",
+          "sne-wp-100675"
+        ],
+        "return": [
+          "sne-wp-100675",
+          "sne-wp-100669",
+          "sne-wp-100671"
+        ]
+      }
     },
     {
       "fields": [
@@ -1103,8 +2070,24 @@
         "teyvat:100679"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "北東の凍土を進む枝。最奥を通常国巡りの必須条件にしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "北東の凍土を進む枝。最奥を通常国巡りの必須条件にしない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100671",
+          "sne-wp-100672",
+          "sne-wp-100673",
+          "sne-wp-100674",
+          "sne-wp-100679"
+        ],
+        "return": [
+          "sne-wp-100679",
+          "sne-wp-100674",
+          "sne-wp-100673",
+          "sne-wp-100672",
+          "sne-wp-100671"
+        ]
+      }
     },
     {
       "fields": [
@@ -1140,8 +2123,22 @@
         "teyvat:100677"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "北西の回り道。雪原の通行可能帯と雪崩・壁を照合する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "北西の回り道。雪原の通行可能帯と雪崩・壁を照合する。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100673",
+          "sne-wp-100675",
+          "sne-wp-100676",
+          "sne-wp-100677"
+        ],
+        "return": [
+          "sne-wp-100677",
+          "sne-wp-100676",
+          "sne-wp-100675",
+          "sne-wp-100673"
+        ]
+      }
     },
     {
       "fields": [
@@ -1149,8 +2146,20 @@
         "teyvat:100675"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "市街と駅前を安全回廊に。建物の上下階は内部階段でつなぐ。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "市街と駅前を安全回廊に。建物の上下階は内部階段でつなぐ。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100674",
+          "snezhnaya-hub",
+          "sne-wp-100675"
+        ],
+        "return": [
+          "sne-wp-100675",
+          "snezhnaya-hub",
+          "sne-wp-100674"
+        ]
+      }
     },
     {
       "fields": [
@@ -1158,8 +2167,22 @@
         "teyvat:100676"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "市街外の雪道。閉鎖された坑道を近道に使わない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "市街外の雪道。閉鎖された坑道を近道に使わない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100674",
+          "sne-wp-100673",
+          "sne-wp-100675",
+          "sne-wp-100676"
+        ],
+        "return": [
+          "sne-wp-100676",
+          "sne-wp-100675",
+          "sne-wp-100673",
+          "sne-wp-100674"
+        ]
+      }
     },
     {
       "fields": [
@@ -1192,8 +2215,26 @@
         "teyvat:100699"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "北西の回り道。雪原の通行可能帯と雪崩・壁を照合する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "北西の回り道。雪原の通行可能帯と雪崩・壁を照合する。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100677",
+          "sne-wp-100676",
+          "sne-wp-100675",
+          "sne-wp-100669",
+          "sne-wp-100668",
+          "sne-wp-100699"
+        ],
+        "return": [
+          "sne-wp-100699",
+          "sne-wp-100668",
+          "sne-wp-100669",
+          "sne-wp-100675",
+          "sne-wp-100676",
+          "sne-wp-100677"
+        ]
+      }
     },
     {
       "fields": [
@@ -1228,8 +2269,20 @@
         "teyvat:106182"
       ],
       "mode": "rail",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "スノウバーチ方面の鉄路を開通後に使う案。極寒の山脈を徒歩で抜ける線は作らない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "スノウバーチ方面の鉄路を開通後に使う案。極寒の山脈を徒歩で抜ける線は作らない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100680",
+          "sne-wp-100679",
+          "sne-wp-106182"
+        ],
+        "return": [
+          "sne-wp-106182",
+          "sne-wp-100679",
+          "sne-wp-100680"
+        ]
+      }
     },
     {
       "fields": [
@@ -1281,8 +2334,22 @@
         "teyvat:100688"
       ],
       "mode": "mountain_stairs",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "雪山の麓の往復枝。谷の向こう側へ水平接続しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "雪山の麓の往復枝。谷の向こう側へ水平接続しない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100683",
+          "sne-wp-100686",
+          "sne-wp-100687",
+          "sne-wp-100688"
+        ],
+        "return": [
+          "sne-wp-100688",
+          "sne-wp-100687",
+          "sne-wp-100686",
+          "sne-wp-100683"
+        ]
+      }
     },
     {
       "fields": [
@@ -1290,8 +2357,24 @@
         "teyvat:100704"
       ],
       "mode": "mountain_stairs",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "雪山の麓の往復枝。谷の向こう側へ水平接続しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "雪山の麓の往復枝。谷の向こう側へ水平接続しない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100688",
+          "sne-wp-100685",
+          "sne-wp-100651",
+          "sne-wp-100652",
+          "sne-wp-100704"
+        ],
+        "return": [
+          "sne-wp-100704",
+          "sne-wp-100652",
+          "sne-wp-100651",
+          "sne-wp-100685",
+          "sne-wp-100688"
+        ]
+      }
     },
     {
       "fields": [
@@ -1317,8 +2400,20 @@
         "teyvat:111"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "港西の登り口→天衡山の山腹→遺跡の低地回廊。崖を跨ぐ区間は実歩行確認後に採用。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "港西の登り口→天衡山の山腹→遺跡の低地回廊。崖を跨ぐ区間は実歩行確認後に採用。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-104",
+          "liyue-harbor",
+          "liyue-wp-111"
+        ],
+        "return": [
+          "liyue-wp-111",
+          "liyue-harbor",
+          "liyue-wp-104"
+        ]
+      }
     },
     {
       "fields": [
@@ -1326,8 +2421,9 @@
         "teyvat:13652"
       ],
       "mode": "boat",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "璃月港で乗船し離島で下船。航海を徒歩マップ扱いにせず、帰航を同時に利用可能にする。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "璃月港で乗船し離島で下船。航海を徒歩マップ扱いにせず、帰航を同時に利用可能にする。",
+      "review_focus": "transport_boarding_and_return"
     },
     {
       "fields": [
@@ -1335,8 +2431,22 @@
         "teyvat:54"
       ],
       "mode": "boat",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "港の桟橋→海上→孤雲閣の上陸点。本作の渡し舟案で、公式定期便ではない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "港の桟橋→海上→孤雲閣の上陸点。本作の渡し舟案で、公式定期便ではない。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-104",
+          "liyue-harbor",
+          "liyue-field",
+          "geo-approach"
+        ],
+        "return": [
+          "geo-approach",
+          "liyue-field",
+          "liyue-harbor",
+          "liyue-wp-104"
+        ]
+      }
     },
     {
       "fields": [
@@ -1353,8 +2463,20 @@
         "teyvat:106"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "港西の登り口→天衡山の山腹→遺跡の低地回廊。崖を跨ぐ区間は実歩行確認後に採用。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "港西の登り口→天衡山の山腹→遺跡の低地回廊。崖を跨ぐ区間は実歩行確認後に採用。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-105",
+          "liyue-wp-49",
+          "liyue-wp-106"
+        ],
+        "return": [
+          "liyue-wp-106",
+          "liyue-wp-49",
+          "liyue-wp-105"
+        ]
+      }
     },
     {
       "fields": [
@@ -1362,8 +2484,20 @@
         "teyvat:107"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "港西の登り口→天衡山の山腹→遺跡の低地回廊。崖を跨ぐ区間は実歩行確認後に採用。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "港西の登り口→天衡山の山腹→遺跡の低地回廊。崖を跨ぐ区間は実歩行確認後に採用。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-105",
+          "liyue-wp-92",
+          "liyue-wp-107"
+        ],
+        "return": [
+          "liyue-wp-107",
+          "liyue-wp-92",
+          "liyue-wp-105"
+        ]
+      }
     },
     {
       "fields": [
@@ -1380,8 +2514,20 @@
         "teyvat:48"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "港西の登り口→天衡山の山腹→遺跡の低地回廊。崖を跨ぐ区間は実歩行確認後に採用。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "港西の登り口→天衡山の山腹→遺跡の低地回廊。崖を跨ぐ区間は実歩行確認後に採用。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-106",
+          "liyue-wp-49",
+          "liyue-wp-48"
+        ],
+        "return": [
+          "liyue-wp-48",
+          "liyue-wp-49",
+          "liyue-wp-106"
+        ]
+      }
     },
     {
       "fields": [
@@ -1389,8 +2535,20 @@
         "teyvat:106186"
       ],
       "mode": "mine_shaft",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "昇降坑の出入口を確認。最奥の強敵は任意の区画。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "昇降坑の出入口を確認。最奥の強敵は任意の区画。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106180",
+          "sites-corridor-snow-mine",
+          "sne-wp-106186"
+        ],
+        "return": [
+          "sne-wp-106186",
+          "sites-corridor-snow-mine",
+          "sne-wp-106180"
+        ]
+      }
     },
     {
       "fields": [
@@ -1398,8 +2556,22 @@
         "teyvat:106220"
       ],
       "mode": "rail",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "極寒地帯は徒歩近道にしない。路線開通後の列車と駅を使用。駅・鉱都市街は安全。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "極寒地帯は徒歩近道にしない。路線開通後の列車と駅を使用。駅・鉱都市街は安全。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106180",
+          "sne-wp-106182",
+          "sne-wp-106183",
+          "sne-wp-106220"
+        ],
+        "return": [
+          "sne-wp-106220",
+          "sne-wp-106186",
+          "sites-corridor-snow-mine",
+          "sne-wp-106180"
+        ]
+      }
     },
     {
       "fields": [
@@ -1407,8 +2579,22 @@
         "teyvat:106188"
       ],
       "mode": "rail",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "安全な輸送区画で港へ移動する本作の案。高Lv坑道の戦闘を必須にせず、原作の実路線対応を確認。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "安全な輸送区画で港へ移動する本作の案。高Lv坑道の戦闘を必須にせず、原作の実路線対応を確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-north-works",
+          "sne-wp-106193",
+          "sne-wp-106189",
+          "sne-wp-106188"
+        ],
+        "return": [
+          "sne-wp-106188",
+          "sne-wp-106189",
+          "sne-wp-106193",
+          "sne-north-works"
+        ]
+      }
     },
     {
       "fields": [
@@ -1416,8 +2602,9 @@
         "teyvat:106208"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "この2地点の実際の通行路は未照合。直線距離だけで採用しない。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "この2地点の実際の通行路は未照合。直線距離だけで採用しない。",
+      "review_focus": "outdoor_corridor_or_floor_alignment"
     },
     {
       "fields": [
@@ -1559,8 +2746,20 @@
         "teyvat:106200"
       ],
       "mode": "cave",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "地下坑道と地上の高台を分ける。トロッコが原作で常用不能の区間を通常路線として捏造しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "地下坑道と地上の高台を分ける。トロッコが原作で常用不能の区間を通常路線として捏造しない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106190",
+          "sne-wp-106201",
+          "sne-wp-106200"
+        ],
+        "return": [
+          "sne-wp-106200",
+          "sne-wp-106201",
+          "sne-wp-106190"
+        ]
+      }
     },
     {
       "fields": [
@@ -1568,8 +2767,22 @@
         "teyvat:106202"
       ],
       "mode": "cave",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "地下坑道と地上の高台を分ける。トロッコが原作で常用不能の区間を通常路線として捏造しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "地下坑道と地上の高台を分ける。トロッコが原作で常用不能の区間を通常路線として捏造しない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106192",
+          "sne-wp-106191",
+          "sne-wp-106183",
+          "sne-wp-106202"
+        ],
+        "return": [
+          "sne-wp-106202",
+          "sne-wp-106183",
+          "sne-wp-106191",
+          "sne-wp-106192"
+        ]
+      }
     },
     {
       "fields": [
@@ -1577,8 +2790,22 @@
         "teyvat:106203"
       ],
       "mode": "cave",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "高Lvの任意探索枝。地上／地下レイヤーと坑口を照合するまで取り込みを保留。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "高Lvの任意探索枝。地上／地下レイヤーと坑口を照合するまで取り込みを保留。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106200",
+          "sne-wp-106204",
+          "novokichev-camp",
+          "novokichev-depth"
+        ],
+        "return": [
+          "novokichev-depth",
+          "novokichev-camp",
+          "sne-wp-106204",
+          "sne-wp-106200"
+        ]
+      }
     },
     {
       "fields": [
@@ -1586,8 +2813,22 @@
         "teyvat:106202"
       ],
       "mode": "cave",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "地下坑道と地上の高台を分ける。トロッコが原作で常用不能の区間を通常路線として捏造しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "地下坑道と地上の高台を分ける。トロッコが原作で常用不能の区間を通常路線として捏造しない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106201",
+          "sne-wp-106200",
+          "sne-wp-106204",
+          "sne-wp-106202"
+        ],
+        "return": [
+          "sne-wp-106202",
+          "sne-wp-106204",
+          "sne-wp-106200",
+          "sne-wp-106201"
+        ]
+      }
     },
     {
       "fields": [
@@ -1595,8 +2836,20 @@
         "teyvat:106204"
       ],
       "mode": "cave",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "高Lvの任意探索枝。地上／地下レイヤーと坑口を照合するまで取り込みを保留。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "高Lvの任意探索枝。地上／地下レイヤーと坑口を照合するまで取り込みを保留。",
+      "runtime_paths": {
+        "forward": [
+          "novokichev-depth",
+          "novokichev-camp",
+          "sne-wp-106204"
+        ],
+        "return": [
+          "sne-wp-106204",
+          "novokichev-camp",
+          "novokichev-depth"
+        ]
+      }
     },
     {
       "fields": [
@@ -1604,8 +2857,9 @@
         "teyvat:106207"
       ],
       "mode": "cave",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "高Lvの任意探索枝。地上／地下レイヤーと坑口を照合するまで取り込みを保留。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "高Lvの任意探索枝。地上／地下レイヤーと坑口を照合するまで取り込みを保留。",
+      "review_focus": "outdoor_corridor_or_floor_alignment"
     },
     {
       "fields": [
@@ -1676,8 +2930,20 @@
         "teyvat:49"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "港西の登り口→天衡山の山腹→遺跡の低地回廊。崖を跨ぐ区間は実歩行確認後に採用。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "港西の登り口→天衡山の山腹→遺跡の低地回廊。崖を跨ぐ区間は実歩行確認後に採用。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-111",
+          "sites-corridor-liyue-switchback",
+          "liyue-wp-49"
+        ],
+        "return": [
+          "liyue-wp-49",
+          "sites-corridor-liyue-switchback",
+          "liyue-wp-111"
+        ]
+      }
     },
     {
       "fields": [
@@ -1685,8 +2951,27 @@
         "teyvat:28"
       ],
       "mode": "trail",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "酒庄西から北へ続く旧街道を通って廃墟南入口へ。奔狼領の山体を横切らない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "酒庄西から北へ続く旧街道を通って廃墟南入口へ。奔狼領の山体を横切らない。",
+      "runtime_paths": {
+        "forward": [
+          "mond-border",
+          "mond-wp-19",
+          "mond-wp-14",
+          "mond-roadside-rest",
+          "mond-wp-20",
+          "mond-wp-21",
+          "mond-wp-28"
+        ],
+        "return": [
+          "mond-wp-28",
+          "mond-wp-21",
+          "mond-wp-20",
+          "mond-roadside-rest",
+          "mond-road",
+          "mond-border"
+        ]
+      }
     },
     {
       "fields": [
@@ -1694,8 +2979,20 @@
         "teyvat:29"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "アカツキワイナリー西街道→石門。モンドの湖を横切らない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "アカツキワイナリー西街道→石門。モンドの湖を横切らない。",
+      "runtime_paths": {
+        "forward": [
+          "mond-border",
+          "liyue-entry",
+          "liyue-wp-29"
+        ],
+        "return": [
+          "liyue-wp-29",
+          "liyue-entry",
+          "mond-border"
+        ]
+      }
     },
     {
       "fields": [
@@ -1703,8 +3000,20 @@
         "teyvat:39"
       ],
       "mode": "mountain_stairs",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "峰同士を水平ポータルで結ばない。山腹の折返し・石段と頂上の出入口を照合して縦スクロール区画にする。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "峰同士を水平ポータルで結ばない。山腹の折返し・石段と頂上の出入口を照合して縦スクロール区画にする。",
+      "runtime_paths": {
+        "forward": [
+          "pyro-approach",
+          "liyue-wp-44",
+          "liyue-wp-39"
+        ],
+        "return": [
+          "liyue-wp-39",
+          "liyue-wp-44",
+          "pyro-approach"
+        ]
+      }
     },
     {
       "fields": [
@@ -1712,8 +3021,20 @@
         "teyvat:3"
       ],
       "mode": "trail",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "城外分岐 → 囁きの森 → 星落としの湖の西岸。神像の小島はフィールド内部で扱う。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "城外分岐 → 囁きの森 → 星落としの湖の西岸。神像の小島はフィールド内部で扱う。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-12",
+          "sites-corridor-mond-forest",
+          "mond-road"
+        ],
+        "return": [
+          "mond-road",
+          "sites-corridor-mond-forest",
+          "mond-wp-12"
+        ]
+      }
     },
     {
       "fields": [
@@ -1721,8 +3042,20 @@
         "teyvat:9"
       ],
       "mode": "trail",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "湖の東岸から浜辺側の谷へ下る。北の台地の上を通らない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "湖の東岸から浜辺側の谷へ下る。北の台地の上を通らない。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-12",
+          "mond-wp-7",
+          "mond-wp-9"
+        ],
+        "return": [
+          "mond-wp-9",
+          "mond-wp-7",
+          "mond-wp-12"
+        ]
+      }
     },
     {
       "fields": [
@@ -1730,8 +3063,20 @@
         "teyvat:12716"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "砂州と浜を通る接続。海を跨ぐ他の近接点は追加しない。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "砂州と浜を通る接続。海を跨ぐ他の近接点は追加しない。",
+      "runtime_paths": {
+        "forward": [
+          "ina-wp-12704",
+          "sites-corridor-inazuma-sandbar",
+          "ina-wp-12716"
+        ],
+        "return": [
+          "ina-wp-12716",
+          "sites-corridor-inazuma-sandbar",
+          "ina-wp-12704"
+        ]
+      }
     },
     {
       "fields": [
@@ -1748,8 +3093,20 @@
         "teyvat:12720"
       ],
       "mode": "industrial_walkway",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "炉心の上下足場・吊橋を経由。地上と地下の短絡を避ける。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "炉心の上下足場・吊橋を経由。地上と地下の短絡を避ける。",
+      "runtime_paths": {
+        "forward": [
+          "ina-wp-12715",
+          "ina-wp-12719",
+          "ina-wp-12720"
+        ],
+        "return": [
+          "ina-wp-12720",
+          "ina-wp-12719",
+          "ina-wp-12715"
+        ]
+      }
     },
     {
       "fields": [
@@ -1784,8 +3141,20 @@
         "teyvat:12728"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "森の参道から山裾へ。山頂に到達するには別の登り区画を使う。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "森の参道から山裾へ。山頂に到達するには別の登り区画を使う。",
+      "runtime_paths": {
+        "forward": [
+          "ina-wp-12726",
+          "ina-wp-12725",
+          "ina-wp-12728"
+        ],
+        "return": [
+          "ina-wp-12728",
+          "ina-wp-12725",
+          "ina-wp-12726"
+        ]
+      }
     },
     {
       "fields": [
@@ -1811,8 +3180,20 @@
         "teyvat:47990"
       ],
       "mode": "boat",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "荒海北岸の船着き場→刃連島側。自由な海上歩行は前提にしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "荒海北岸の船着き場→刃連島側。自由な海上歩行は前提にしない。",
+      "runtime_paths": {
+        "forward": [
+          "ina-wp-12746",
+          "ina-wp-12735",
+          "ina-wp-47990"
+        ],
+        "return": [
+          "ina-wp-47990",
+          "ina-wp-12735",
+          "ina-wp-12746"
+        ]
+      }
     },
     {
       "fields": [
@@ -1838,8 +3219,24 @@
         "teyvat:16014"
       ],
       "mode": "boat",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "離島―セイライの港・浜を結ぶ本作用の航路。海を徒歩で横断しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "離島―セイライの港・浜を結ぶ本作用の航路。海を徒歩で横断しない。",
+      "runtime_paths": {
+        "forward": [
+          "inazuma-port",
+          "inazuma-road",
+          "inazuma-town",
+          "ina-wp-12722",
+          "ina-wp-16014"
+        ],
+        "return": [
+          "ina-wp-16014",
+          "ina-wp-12722",
+          "inazuma-town",
+          "inazuma-road",
+          "inazuma-port"
+        ]
+      }
     },
     {
       "fields": [
@@ -1856,8 +3253,20 @@
         "teyvat:7"
       ],
       "mode": "trail",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "神殿西側 → 南の街道 → 海岸へ下る道。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "神殿西側 → 南の街道 → 海岸へ下る道。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-15",
+          "mond-wp-13",
+          "mond-wp-7"
+        ],
+        "return": [
+          "mond-wp-7",
+          "mond-wp-13",
+          "mond-wp-15"
+        ]
+      }
     },
     {
       "fields": [
@@ -1900,8 +3309,20 @@
         "teyvat:19"
       ],
       "mode": "trail",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "清泉町北の分岐から西南の街道、神像の丘へ。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "清泉町北の分岐から西南の街道、神像の丘へ。",
+      "runtime_paths": {
+        "forward": [
+          "mond-roadside-rest",
+          "mond-wp-14",
+          "mond-wp-19"
+        ],
+        "return": [
+          "mond-wp-19",
+          "mond-wp-14",
+          "mond-roadside-rest"
+        ]
+      }
     },
     {
       "fields": [
@@ -1909,8 +3330,20 @@
         "teyvat:16026"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "島間の水面を跨ぐなら短い渡船に変更する。神社本体には通常敵を置かない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "島間の水面を跨ぐなら短い渡船に変更する。神社本体には通常敵を置かない。",
+      "runtime_paths": {
+        "forward": [
+          "ina-wp-16012",
+          "ina-wp-16022",
+          "ina-wp-16026"
+        ],
+        "return": [
+          "ina-wp-16026",
+          "ina-wp-16022",
+          "ina-wp-16012"
+        ]
+      }
     },
     {
       "fields": [
@@ -1918,8 +3351,24 @@
         "teyvat:18584"
       ],
       "mode": "boat",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "セイライ―鶴観の港・浜を結ぶ本作用の航路。海を徒歩で横断しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "セイライ―鶴観の港・浜を結ぶ本作用の航路。海を徒歩で横断しない。",
+      "runtime_paths": {
+        "forward": [
+          "ina-wp-16014",
+          "ina-wp-16026",
+          "ina-wp-16022",
+          "ina-wp-16012",
+          "tsurumi-coast"
+        ],
+        "return": [
+          "tsurumi-coast",
+          "ina-wp-16012",
+          "ina-wp-16022",
+          "ina-wp-16026",
+          "ina-wp-16014"
+        ]
+      }
     },
     {
       "fields": [
@@ -1927,8 +3376,24 @@
         "teyvat:16029"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "集落・海岸の陸路を優先。天雲峠の空中足場はこの外周路に混ぜない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "集落・海岸の陸路を優先。天雲峠の空中足場はこの外周路に混ぜない。",
+      "runtime_paths": {
+        "forward": [
+          "ina-wp-16020",
+          "ina-wp-16024",
+          "ina-wp-16022",
+          "ina-wp-16027",
+          "ina-wp-16029"
+        ],
+        "return": [
+          "ina-wp-16029",
+          "ina-wp-16027",
+          "ina-wp-16022",
+          "ina-wp-16024",
+          "ina-wp-16020"
+        ]
+      }
     },
     {
       "fields": [
@@ -1936,8 +3401,20 @@
         "teyvat:16030"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "集落・海岸の陸路を優先。天雲峠の空中足場はこの外周路に混ぜない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "集落・海岸の陸路を優先。天雲峠の空中足場はこの外周路に混ぜない。",
+      "runtime_paths": {
+        "forward": [
+          "ina-wp-16022",
+          "ina-wp-16027",
+          "ina-wp-16030"
+        ],
+        "return": [
+          "ina-wp-16030",
+          "ina-wp-16027",
+          "ina-wp-16022"
+        ]
+      }
     },
     {
       "fields": [
@@ -1945,8 +3422,20 @@
         "teyvat:16027"
       ],
       "mode": "wind_gate",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "固定の上昇装置・風域と帰還装置を対で設ける。水平徒歩扱いにしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "固定の上昇装置・風域と帰還装置を対で設ける。水平徒歩扱いにしない。",
+      "runtime_paths": {
+        "forward": [
+          "ina-wp-16024",
+          "ina-wp-16022",
+          "ina-wp-16027"
+        ],
+        "return": [
+          "ina-wp-16027",
+          "ina-wp-16022",
+          "ina-wp-16024"
+        ]
+      }
     },
     {
       "fields": [
@@ -1999,8 +3488,20 @@
         "teyvat:18587"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "山の北側を回る。地下を通る個所は確認後に別入口へ分割。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "山の北側を回る。地下を通る個所は確認後に別入口へ分割。",
+      "runtime_paths": {
+        "forward": [
+          "ina-wp-18586",
+          "ina-wp-18589",
+          "ina-wp-18587"
+        ],
+        "return": [
+          "ina-wp-18587",
+          "ina-wp-18589",
+          "ina-wp-18586"
+        ]
+      }
     },
     {
       "fields": [
@@ -2008,8 +3509,22 @@
         "teyvat:20"
       ],
       "mode": "slope",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "酒庄側から南岸の陸地を回り、森の東入口へ。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "酒庄側から南岸の陸地を回り、森の東入口へ。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-19",
+          "mond-wp-14",
+          "mond-roadside-rest",
+          "mond-wp-20"
+        ],
+        "return": [
+          "mond-wp-20",
+          "mond-roadside-rest",
+          "mond-wp-14",
+          "mond-wp-19"
+        ]
+      }
     },
     {
       "fields": [
@@ -2035,8 +3550,20 @@
         "teyvat:28"
       ],
       "mode": "ruin_passage",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "明冠峡谷側の低い通り道 → 廃墟南東の門 → 南入口。北東外周の崖上へは直結しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "明冠峡谷側の低い通り道 → 廃墟南東の門 → 南入口。北東外周の崖上へは直結しない。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-22",
+          "mond-wp-21",
+          "mond-wp-28"
+        ],
+        "return": [
+          "mond-wp-28",
+          "mond-wp-21",
+          "mond-wp-22"
+        ]
+      }
     },
     {
       "fields": [
@@ -2044,8 +3571,22 @@
         "teyvat:28"
       ],
       "mode": "ruin_passage",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "東側の外周を南へ下り、入口へ戻る。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "東側の外周を南へ下り、入口へ戻る。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-23",
+          "mond-wp-22",
+          "mond-wp-21",
+          "mond-wp-28"
+        ],
+        "return": [
+          "mond-wp-28",
+          "mond-wp-21",
+          "mond-wp-22",
+          "mond-wp-23"
+        ]
+      }
     },
     {
       "fields": [
@@ -2071,8 +3612,22 @@
         "teyvat:24912"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "地上の採掘場外周と西の洞道。地下鉱区を経由せずスメールへの通行経路を残す。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "地上の採掘場外周と西の洞道。地下鉱区を経由せずスメールへの通行経路を残す。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-24908",
+          "liyue-wp-24909",
+          "liyue-wp-24910",
+          "liyue-wp-24912"
+        ],
+        "return": [
+          "liyue-wp-24912",
+          "liyue-wp-24910",
+          "liyue-wp-24909",
+          "liyue-wp-24908"
+        ]
+      }
     },
     {
       "fields": [
@@ -2080,8 +3635,20 @@
         "teyvat:24911"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "採掘場の高低差をスロープで表現。穴の反対側へ直結しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "採掘場の高低差をスロープで表現。穴の反対側へ直結しない。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-24910",
+          "liyue-wp-24912",
+          "liyue-wp-24911"
+        ],
+        "return": [
+          "liyue-wp-24911",
+          "liyue-wp-24912",
+          "liyue-wp-24910"
+        ]
+      }
     },
     {
       "fields": [
@@ -2089,8 +3656,26 @@
         "teyvat:28"
       ],
       "mode": "ruin_passage",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "南入口 → 内周の石路 → 神像と塔の入口。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "南入口 → 内周の石路 → 神像と塔の入口。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-25",
+          "mond-wp-24",
+          "mond-wp-23",
+          "mond-wp-22",
+          "mond-wp-21",
+          "mond-wp-28"
+        ],
+        "return": [
+          "mond-wp-28",
+          "mond-wp-21",
+          "mond-wp-22",
+          "mond-wp-23",
+          "mond-wp-24",
+          "mond-wp-25"
+        ]
+      }
     },
     {
       "fields": [
@@ -2098,8 +3683,22 @@
         "teyvat:28726"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "村の河岸→山裾。巨大遺跡内部への出入口は脇道として分離。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "村の河岸→山裾。巨大遺跡内部への出入口は脇道として分離。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28699",
+          "sum-wp-28725",
+          "sum-wp-28727",
+          "sum-wp-28726"
+        ],
+        "return": [
+          "sum-wp-28726",
+          "sum-wp-28727",
+          "sum-wp-28725",
+          "sum-wp-28699"
+        ]
+      }
     },
     {
       "fields": [
@@ -2107,8 +3706,20 @@
         "teyvat:28733"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "川と茸林の入口を結ぶ。茸の上面と根元を同一高さにしない。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "川と茸林の入口を結ぶ。茸の上面と根元を同一高さにしない。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28700",
+          "sites-corridor-sumeru-bridge",
+          "sumeru-entry"
+        ],
+        "return": [
+          "sumeru-entry",
+          "sites-corridor-sumeru-bridge",
+          "sum-wp-28700"
+        ]
+      }
     },
     {
       "fields": [
@@ -2160,8 +3771,20 @@
         "teyvat:28712"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "森林の西縁→キャラバン宿駅→砂漠の関道→アアル村。トンネルと門を明示する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "森林の西縁→キャラバン宿駅→砂漠の関道→アアル村。トンネルと門を明示する。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28703",
+          "sum-wp-28713",
+          "sum-wp-28712"
+        ],
+        "return": [
+          "sum-wp-28712",
+          "sum-wp-28713",
+          "sum-wp-28703"
+        ]
+      }
     },
     {
       "fields": [
@@ -2169,8 +3792,24 @@
         "teyvat:28731"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "巨淵西の洞道→ガンダルヴァー→チンワト峡谷の橋→都市入口。樹の上層は内部階段へ。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "巨淵西の洞道→ガンダルヴァー→チンワト峡谷の橋→都市入口。樹の上層は内部階段へ。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28704",
+          "sumeru-entry",
+          "sumeru-hub",
+          "sumeru-field",
+          "sum-wp-28731"
+        ],
+        "return": [
+          "sum-wp-28731",
+          "sumeru-field",
+          "sumeru-hub",
+          "sumeru-entry",
+          "sum-wp-28704"
+        ]
+      }
     },
     {
       "fields": [
@@ -2178,8 +3817,20 @@
         "teyvat:28732"
       ],
       "mode": "cave",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "層岩巨淵の地上西口→洞道→ガンダルヴァー側。地下鉱区の高難度枝を通行必須にしない。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "層岩巨淵の地上西口→洞道→ガンダルヴァー側。地下鉱区の高難度枝を通行必須にしない。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28704",
+          "sites-corridor-chasm-border",
+          "liyue-wp-28732"
+        ],
+        "return": [
+          "liyue-wp-28732",
+          "sites-corridor-chasm-border",
+          "sum-wp-28704"
+        ]
+      }
     },
     {
       "fields": [
@@ -2233,8 +3884,9 @@
         "teyvat:28716"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "森林の西縁→キャラバン宿駅→砂漠の関道→アアル村。トンネルと門を明示する。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "森林の西縁→キャラバン宿駅→砂漠の関道→アアル村。トンネルと門を明示する。",
+      "review_focus": "outdoor_corridor_or_floor_alignment"
     },
     {
       "fields": [
@@ -2242,8 +3894,22 @@
         "teyvat:36674"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "森林の西縁→キャラバン宿駅→砂漠の関道→アアル村。トンネルと門を明示する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "森林の西縁→キャラバン宿駅→砂漠の関道→アアル村。トンネルと門を明示する。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28716",
+          "sum-wp-28714",
+          "sum-wp-28715",
+          "sum-wp-36674"
+        ],
+        "return": [
+          "sum-wp-36674",
+          "sum-wp-28715",
+          "sum-wp-28714",
+          "sum-wp-28716"
+        ]
+      }
     },
     {
       "fields": [
@@ -2337,8 +4003,20 @@
         "teyvat:28734"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "巨淵西の洞道→ガンダルヴァー→チンワト峡谷の橋→都市入口。樹の上層は内部階段へ。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "巨淵西の洞道→ガンダルヴァー→チンワト峡谷の橋→都市入口。樹の上層は内部階段へ。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28731",
+          "sum-wp-28735",
+          "sum-wp-28734"
+        ],
+        "return": [
+          "sum-wp-28734",
+          "sum-wp-28735",
+          "sum-wp-28731"
+        ]
+      }
     },
     {
       "fields": [
@@ -2364,8 +4042,20 @@
         "teyvat:28737"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "巨淵西の洞道→ガンダルヴァー→チンワト峡谷の橋→都市入口。樹の上層は内部階段へ。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "巨淵西の洞道→ガンダルヴァー→チンワト峡谷の橋→都市入口。樹の上層は内部階段へ。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28736",
+          "sumeru-hub",
+          "sum-wp-28737"
+        ],
+        "return": [
+          "sum-wp-28737",
+          "sumeru-hub",
+          "sum-wp-28736"
+        ]
+      }
     },
     {
       "fields": [
@@ -2373,8 +4063,9 @@
         "teyvat:28745"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "都市外の北東道路。大木を貫通せず橋と地上の小道を使う。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "都市外の北東道路。大木を貫通せず橋と地上の小道を使う。",
+      "review_focus": "outdoor_corridor_or_floor_alignment"
     },
     {
       "fields": [
@@ -2506,8 +4197,20 @@
         "teyvat:33"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "石門の街道を南下し、荻花洲の陸路・橋から望舒へ。湿地を直線で横断しない。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "石門の街道を南下し、荻花洲の陸路・橋から望舒へ。湿地を直線で横断しない。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-entry",
+          "sites-corridor-dihua-causeway",
+          "liyue-wp-33"
+        ],
+        "return": [
+          "liyue-wp-33",
+          "sites-corridor-dihua-causeway",
+          "liyue-entry"
+        ]
+      }
     },
     {
       "fields": [
@@ -2515,8 +4218,22 @@
         "teyvat:50"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "塩の遺構の上面を経由。水面直進・封印された地下への落下を通常路にしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "塩の遺構の上面を経由。水面直進・封印された地下への落下を通常路にしない。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-entry",
+          "liyue-wp-32",
+          "liyue-wp-33",
+          "liyue-wp-50"
+        ],
+        "return": [
+          "liyue-wp-50",
+          "liyue-wp-33",
+          "liyue-wp-32",
+          "liyue-entry"
+        ]
+      }
     },
     {
       "fields": [
@@ -2558,8 +4275,26 @@
         "teyvat:52"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "帰離原側の渡河点→明蘊町の山裾→南側斜面→瑶光の浜。34と35の間は鉱山内ではなく外周坂の照合が必要。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "帰離原側の渡河点→明蘊町の山裾→南側斜面→瑶光の浜。34と35の間は鉱山内ではなく外周坂の照合が必要。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-34",
+          "liyue-wp-50",
+          "liyue-wp-33",
+          "liyue-wp-51",
+          "liyue-field",
+          "liyue-wp-52"
+        ],
+        "return": [
+          "liyue-wp-52",
+          "liyue-field",
+          "liyue-wp-51",
+          "liyue-wp-33",
+          "liyue-wp-50",
+          "liyue-wp-34"
+        ]
+      }
     },
     {
       "fields": [
@@ -2567,8 +4302,9 @@
         "teyvat:6599"
       ],
       "mode": "mountain_pass",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "雪葬の都・近郊西端→西側の山裾・雪線→明蘊町北側。山頂や星蛍洞窟を貫く線にはしない。細かな渡河・登降点の確認後に採用。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "雪葬の都・近郊西端→西側の山裾・雪線→明蘊町北側。山頂や星蛍洞窟を貫く線にはしない。細かな渡河・登降点の確認後に採用。",
+      "review_focus": "outdoor_corridor_or_floor_alignment"
     },
     {
       "fields": [
@@ -2585,8 +4321,20 @@
         "teyvat:53"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "帰離原側の渡河点→明蘊町の山裾→南側斜面→瑶光の浜。34と35の間は鉱山内ではなく外周坂の照合が必要。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "帰離原側の渡河点→明蘊町の山裾→南側斜面→瑶光の浜。34と35の間は鉱山内ではなく外周坂の照合が必要。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-35",
+          "liyue-wp-52",
+          "liyue-wp-53"
+        ],
+        "return": [
+          "liyue-wp-53",
+          "liyue-wp-52",
+          "liyue-wp-35"
+        ]
+      }
     },
     {
       "fields": [
@@ -2603,8 +4351,26 @@
         "teyvat:38"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "川沿いと山裾の道。西の高山頂上とは別の低地回廊を作る。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "川沿いと山裾の道。西の高山頂上とは別の低地回廊を作る。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-36",
+          "liyue-wp-37",
+          "oceanid-approach",
+          "liyue-field",
+          "pyro-approach",
+          "liyue-wp-38"
+        ],
+        "return": [
+          "liyue-wp-38",
+          "pyro-approach",
+          "liyue-field",
+          "oceanid-approach",
+          "liyue-wp-37",
+          "liyue-wp-36"
+        ]
+      }
     },
     {
       "fields": [
@@ -2633,8 +4399,20 @@
         "teyvat:41820"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "巨大渓谷の外側・実在する橋と谷口に沿う周回案。直線は歩行経路ではない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "巨大渓谷の外側・実在する橋と谷口に沿う周回案。直線は歩行経路ではない。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-36679",
+          "sum-wp-41828",
+          "sum-wp-41820"
+        ],
+        "return": [
+          "sum-wp-41820",
+          "sum-wp-41828",
+          "sum-wp-36679"
+        ]
+      }
     },
     {
       "fields": [
@@ -2740,8 +4518,9 @@
         "teyvat:72412"
       ],
       "mode": "mountain_pass",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "砂漠西端から実在の国境の谷・洞道を経由してナタ東端へ。北のトゥニギ高難度枝を通らせず、砂丘直線ではなく南側の通行帯を再照合。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "砂漠西端から実在の国境の谷・洞道を経由してナタ東端へ。北のトゥニギ高難度枝を通らせず、砂丘直線ではなく南側の通行帯を再照合。",
+      "review_focus": "outdoor_corridor_or_floor_alignment"
     },
     {
       "fields": [
@@ -2831,8 +4610,22 @@
         "teyvat:64848"
       ],
       "mode": "mountain_pass",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "北西の山裾から南峰の入口へ入る第二の任意入口。峰を直接横断しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "北西の山裾から南峰の入口へ入る第二の任意入口。峰を直接横断しない。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-38",
+          "liyue-wp-64844",
+          "chenyu-depth",
+          "liyue-wp-64848"
+        ],
+        "return": [
+          "liyue-wp-64848",
+          "chenyu-depth",
+          "liyue-wp-64844",
+          "liyue-wp-38"
+        ]
+      }
     },
     {
       "fields": [
@@ -2867,8 +4660,20 @@
         "teyvat:41839"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "巨大渓谷の外側・実在する橋と谷口に沿う周回案。直線は歩行経路ではない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "巨大渓谷の外側・実在する橋と谷口に沿う周回案。直線は歩行経路ではない。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41821",
+          "sum-wp-41840",
+          "sum-wp-41839"
+        ],
+        "return": [
+          "sum-wp-41839",
+          "sum-wp-41840",
+          "sum-wp-41821"
+        ]
+      }
     },
     {
       "fields": [
@@ -2876,8 +4681,20 @@
         "teyvat:41827"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "南側外周を使い、中央の砂嵐・地下へ直結しない。ナタへの分岐は西端の谷から。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "南側外周を使い、中央の砂嵐・地下へ直結しない。ナタへの分岐は西端の谷から。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41826",
+          "sum-wp-41830",
+          "sum-wp-41827"
+        ],
+        "return": [
+          "sum-wp-41827",
+          "sum-wp-41830",
+          "sum-wp-41826"
+        ]
+      }
     },
     {
       "fields": [
@@ -3023,8 +4840,9 @@
         "teyvat:46516"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "トゥニギの高難度狩場を通らずに北東の洞道へ抜ける通常回廊。地下工場へは入らない。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "トゥニギの高難度狩場を通らずに北東の洞道へ抜ける通常回廊。地下工場へは入らない。",
+      "review_focus": "outdoor_corridor_or_floor_alignment"
     },
     {
       "fields": [
@@ -3059,8 +4877,20 @@
         "teyvat:46526"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "地上の花海と地下水路のWP対応を照合する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "地上の花海と地下水路のWP対応を照合する。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-46514",
+          "sum-wp-46525",
+          "sum-wp-46526"
+        ],
+        "return": [
+          "sum-wp-46526",
+          "sum-wp-46525",
+          "sum-wp-46514"
+        ]
+      }
     },
     {
       "fields": [
@@ -3130,8 +4960,9 @@
         "teyvat:46523"
       ],
       "mode": "cave",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "地下工場の入口・昇降機が必要。北への通常国境ルートと分離。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "地下工場の入口・昇降機が必要。北への通常国境ルートと分離。",
+      "review_focus": "outdoor_corridor_or_floor_alignment"
     },
     {
       "fields": [
@@ -3139,8 +4970,9 @@
         "teyvat:46530"
       ],
       "mode": "cave",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "地下工場の入口・昇降機が必要。北への通常国境ルートと分離。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "地下工場の入口・昇降機が必要。北への通常国境ルートと分離。",
+      "review_focus": "outdoor_corridor_or_floor_alignment"
     },
     {
       "fields": [
@@ -3148,8 +4980,20 @@
         "teyvat:46525"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "トゥニギの高難度狩場を通らずに北東の洞道へ抜ける通常回廊。地下工場へは入らない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "トゥニギの高難度狩場を通らずに北東の洞道へ抜ける通常回廊。地下工場へは入らない。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-46524",
+          "tunigi-depth",
+          "sum-wp-46525"
+        ],
+        "return": [
+          "sum-wp-46525",
+          "tunigi-depth",
+          "sum-wp-46524"
+        ]
+      }
     },
     {
       "fields": [
@@ -3240,8 +5084,26 @@
         "teyvat:50033"
       ],
       "mode": "boat",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "忘れられた道の海岸→短い海路→ロマリタイムの下部桟橋→昇降機。船の接続は本作向け。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "忘れられた道の海岸→短い海路→ロマリタイムの下部桟橋→昇降機。船の接続は本作向け。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-50032",
+          "sum-wp-46524",
+          "tunigi-depth",
+          "tunigi-camp",
+          "sumeru-field",
+          "fontaine-entry"
+        ],
+        "return": [
+          "fontaine-entry",
+          "sumeru-field",
+          "tunigi-camp",
+          "tunigi-depth",
+          "sum-wp-46524",
+          "sum-wp-50032"
+        ]
+      }
     },
     {
       "fields": [
@@ -3249,8 +5111,20 @@
         "teyvat:68339"
       ],
       "mode": "boat",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "水上交通で移動し、港の昇降機と乗降場を経由。航路の追加部分は本作独自案。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "水上交通で移動し、港の昇降機と乗降場を経由。航路の追加部分は本作独自案。",
+      "runtime_paths": {
+        "forward": [
+          "fontaine-entry",
+          "fontaine-hub",
+          "nostoi-castle-approach"
+        ],
+        "return": [
+          "nostoi-castle-approach",
+          "fontaine-hub",
+          "fontaine-entry"
+        ]
+      }
     },
     {
       "fields": [
@@ -3267,8 +5141,20 @@
         "teyvat:50037"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "ベリル島の地上道案。メリュシー村など地下の点を同一路に混ぜない。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "ベリル島の地上道案。メリュシー村など地下の点を同一路に混ぜない。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50036",
+          "sites-corridor-beryl-ledge",
+          "fon-wp-50037"
+        ],
+        "return": [
+          "fon-wp-50037",
+          "sites-corridor-beryl-ledge",
+          "fon-wp-50036"
+        ]
+      }
     },
     {
       "fields": [
@@ -3276,8 +5162,24 @@
         "teyvat:50043"
       ],
       "mode": "field_approach",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50038",
+          "fon-wp-50039",
+          "fon-wp-50040",
+          "fon-wp-50036",
+          "fon-wp-50043"
+        ],
+        "return": [
+          "fon-wp-50043",
+          "fon-wp-50036",
+          "fon-wp-50040",
+          "fon-wp-50039",
+          "fon-wp-50038"
+        ]
+      }
     },
     {
       "fields": [
@@ -3285,8 +5187,30 @@
         "teyvat:50050"
       ],
       "mode": "aquabus",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "水上交通で移動し、港の昇降機と乗降場を経由。航路の追加部分は本作独自案。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "水上交通で移動し、港の昇降機と乗降場を経由。航路の追加部分は本作独自案。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50047",
+          "fon-wp-55761",
+          "fon-wp-55777",
+          "fon-wp-53854",
+          "fon-wp-53853",
+          "fon-wp-53867",
+          "fon-wp-50056",
+          "fon-wp-50050"
+        ],
+        "return": [
+          "fon-wp-50050",
+          "fon-wp-50056",
+          "fon-wp-53867",
+          "fon-wp-53853",
+          "fon-wp-53854",
+          "fon-wp-55777",
+          "fon-wp-55761",
+          "fon-wp-50047"
+        ]
+      }
     },
     {
       "fields": [
@@ -3294,8 +5218,20 @@
         "teyvat:55777"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "湖を直進せず岸の道・山裾を回る。根の洞窟入口とは区別する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "湖を直進せず岸の道・山裾を回る。根の洞窟入口とは区別する。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50047",
+          "fon-wp-55761",
+          "fon-wp-55777"
+        ],
+        "return": [
+          "fon-wp-55777",
+          "fon-wp-55761",
+          "fon-wp-50047"
+        ]
+      }
     },
     {
       "fields": [
@@ -3303,8 +5239,20 @@
         "teyvat:50053"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "都市の道路・内部昇降機。城壁越しの徒歩短絡を作らない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "都市の道路・内部昇降機。城壁越しの徒歩短絡を作らない。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50050",
+          "fon-wp-50052",
+          "fon-wp-50053"
+        ],
+        "return": [
+          "fon-wp-50053",
+          "fon-wp-50052",
+          "fon-wp-50050"
+        ]
+      }
     },
     {
       "fields": [
@@ -3312,8 +5260,20 @@
         "teyvat:50059"
       ],
       "mode": "field_approach",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。",
+      "runtime_paths": {
+        "forward": [
+          "fontaine-field",
+          "fon-wp-50052",
+          "fon-wp-50059"
+        ],
+        "return": [
+          "fon-wp-50059",
+          "fon-wp-50052",
+          "fontaine-field"
+        ]
+      }
     },
     {
       "fields": [
@@ -3321,8 +5281,20 @@
         "teyvat:50054"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "都市の道路・内部昇降機。城壁越しの徒歩短絡を作らない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "都市の道路・内部昇降機。城壁越しの徒歩短絡を作らない。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50052",
+          "fontaine-field",
+          "fontaine-hub"
+        ],
+        "return": [
+          "fontaine-hub",
+          "fontaine-field",
+          "fon-wp-50052"
+        ]
+      }
     },
     {
       "fields": [
@@ -3339,8 +5311,18 @@
         "teyvat:50069"
       ],
       "mode": "underwater_passage",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "洞窟の口・水路を経由する案。閉じた岩壁を跨ぐ接続は実地確認後に削除・修正する。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "洞窟の口・水路を経由する案。閉じた岩壁を跨ぐ接続は実地確認後に削除・修正する。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50064",
+          "fon-wp-50069"
+        ],
+        "return": [
+          "fon-wp-50069",
+          "fon-wp-50064"
+        ]
+      }
     },
     {
       "fields": [
@@ -3366,8 +5348,20 @@
         "teyvat:50070"
       ],
       "mode": "underwater_passage",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "洞窟の口・水路を経由する案。閉じた岩壁を跨ぐ接続は実地確認後に削除・修正する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "洞窟の口・水路を経由する案。閉じた岩壁を跨ぐ接続は実地確認後に削除・修正する。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50068",
+          "fon-wp-50069",
+          "fon-wp-50070"
+        ],
+        "return": [
+          "fon-wp-50070",
+          "fon-wp-50069",
+          "fon-wp-50068"
+        ]
+      }
     },
     {
       "fields": [
@@ -3375,8 +5369,20 @@
         "teyvat:50076"
       ],
       "mode": "underwater_passage",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "洞窟の口・水路を経由する案。閉じた岩壁を跨ぐ接続は実地確認後に削除・修正する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "洞窟の口・水路を経由する案。閉じた岩壁を跨ぐ接続は実地確認後に削除・修正する。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50070",
+          "fon-wp-50066",
+          "fon-wp-50076"
+        ],
+        "return": [
+          "fon-wp-50076",
+          "fon-wp-50066",
+          "fon-wp-50070"
+        ]
+      }
     },
     {
       "fields": [
@@ -3384,8 +5390,18 @@
         "teyvat:50074"
       ],
       "mode": "underwater_passage",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "水中探索区画の候補。酸素等の新規成長制約は追加せず、入水点と上陸点を別に指定。地上扱いで取り込まない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "水中探索区画の候補。酸素等の新規成長制約は追加せず、入水点と上陸点を別に指定。地上扱いで取り込まない。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50073",
+          "fon-wp-50074"
+        ],
+        "return": [
+          "fon-wp-50074",
+          "fon-wp-50073"
+        ]
+      }
     },
     {
       "fields": [
@@ -3393,8 +5409,18 @@
         "teyvat:50075"
       ],
       "mode": "underwater_passage",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "水中探索区画の候補。酸素等の新規成長制約は追加せず、入水点と上陸点を別に指定。地上扱いで取り込まない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "水中探索区画の候補。酸素等の新規成長制約は追加せず、入水点と上陸点を別に指定。地上扱いで取り込まない。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-50074",
+          "fon-wp-50075"
+        ],
+        "return": [
+          "fon-wp-50075",
+          "fon-wp-50074"
+        ]
+      }
     },
     {
       "fields": [
@@ -3446,8 +5472,20 @@
         "teyvat:53860"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "研究院の外周と破損した回廊。浮遊水塊は地上の隣接区画ではなく専用移動を使う。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "研究院の外周と破損した回廊。浮遊水塊は地上の隣接区画ではなく専用移動を使う。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-53858",
+          "fon-wp-53861",
+          "fon-wp-53860"
+        ],
+        "return": [
+          "fon-wp-53860",
+          "fon-wp-53861",
+          "fon-wp-53858"
+        ]
+      }
     },
     {
       "fields": [
@@ -3492,8 +5530,30 @@
         "teyvat:55773"
       ],
       "mode": "water_entry",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "高台の階段・昇降路で岸へ降りてから水路へ。神像の真下へ無条件落下する接続ではない。入口の場所と階層が確認できるまで提案のまま。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "高台の階段・昇降路で岸へ降りてから水路へ。神像の真下へ無条件落下する接続ではない。入口の場所と階層が確認できるまで提案のまま。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55760",
+          "fon-wp-55767",
+          "fon-wp-50066",
+          "fon-wp-50065",
+          "fon-wp-50075",
+          "fon-wp-50074",
+          "fon-wp-50045",
+          "fon-wp-55773"
+        ],
+        "return": [
+          "fon-wp-55773",
+          "fon-wp-50045",
+          "fon-wp-50074",
+          "fon-wp-50075",
+          "fon-wp-50065",
+          "fon-wp-50066",
+          "fon-wp-55767",
+          "fon-wp-55760"
+        ]
+      }
     },
     {
       "fields": [
@@ -3501,8 +5561,20 @@
         "teyvat:55774"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "湖を直進せず岸の道・山裾を回る。根の洞窟入口とは区別する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "湖を直進せず岸の道・山裾を回る。根の洞窟入口とは区別する。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55760",
+          "fon-wp-55775",
+          "fon-wp-55774"
+        ],
+        "return": [
+          "fon-wp-55774",
+          "fon-wp-55775",
+          "fon-wp-55760"
+        ]
+      }
     },
     {
       "fields": [
@@ -3535,8 +5607,20 @@
         "teyvat:55764"
       ],
       "mode": "underwater_passage",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "海中の上下層と島の地上を分離して扱う。近いから徒歩接続にはしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "海中の上下層と島の地上を分離して扱う。近いから徒歩接続にはしない。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55762",
+          "fon-wp-55763",
+          "fon-wp-55764"
+        ],
+        "return": [
+          "fon-wp-55764",
+          "fon-wp-55763",
+          "fon-wp-55762"
+        ]
+      }
     },
     {
       "fields": [
@@ -3553,8 +5637,20 @@
         "teyvat:55771"
       ],
       "mode": "underwater_passage",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "海中の上下層と島の地上を分離して扱う。近いから徒歩接続にはしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "海中の上下層と島の地上を分離して扱う。近いから徒歩接続にはしない。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55765",
+          "fon-wp-55762",
+          "fon-wp-55771"
+        ],
+        "return": [
+          "fon-wp-55771",
+          "fon-wp-55762",
+          "fon-wp-55765"
+        ]
+      }
     },
     {
       "fields": [
@@ -3581,8 +5677,9 @@
         "teyvat:64837"
       ],
       "mode": "boat",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "遺瓏埠の桟橋→外海→ルミドゥースの下部桟橋→昇降機。Lv75以上の任意横道で、通常国巡りの必須路にしない。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "遺瓏埠の桟橋→外海→ルミドゥースの下部桟橋→昇降機。Lv75以上の任意横道で、通常国巡りの必須路にしない。",
+      "review_focus": "transport_boarding_and_return"
     },
     {
       "fields": [
@@ -3638,8 +5735,24 @@
         "teyvat:55778"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "東の山裾を回る案。滝・崖に沿う出入口と洞窟入口の照合が必要。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "東の山裾を回る案。滝・崖に沿う出入口と洞窟入口の照合が必要。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55776",
+          "fon-wp-50048",
+          "fon-wp-50047",
+          "fon-wp-55761",
+          "fon-wp-55778"
+        ],
+        "return": [
+          "fon-wp-55778",
+          "fon-wp-55761",
+          "fon-wp-50047",
+          "fon-wp-50048",
+          "fon-wp-55776"
+        ]
+      }
     },
     {
       "fields": [
@@ -3647,8 +5760,20 @@
         "teyvat:55783"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "東の山裾を回る案。滝・崖に沿う出入口と洞窟入口の照合が必要。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "東の山裾を回る案。滝・崖に沿う出入口と洞窟入口の照合が必要。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55781",
+          "fon-wp-55782",
+          "fon-wp-55783"
+        ],
+        "return": [
+          "fon-wp-55783",
+          "fon-wp-55782",
+          "fon-wp-55781"
+        ]
+      }
     },
     {
       "fields": [
@@ -3656,8 +5781,20 @@
         "teyvat:64829"
       ],
       "mode": "mountain_stairs",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "谷底→石段→山腹を順に辿る。仙力で飛べることを通常徒歩接続と混同しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "谷底→石段→山腹を順に辿る。仙力で飛べることを通常徒歩接続と混同しない。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-64824",
+          "liyue-wp-64830",
+          "liyue-wp-64829"
+        ],
+        "return": [
+          "liyue-wp-64829",
+          "liyue-wp-64830",
+          "liyue-wp-64824"
+        ]
+      }
     },
     {
       "fields": [
@@ -3665,8 +5802,22 @@
         "teyvat:64849"
       ],
       "mode": "special_gate",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "島・仙域への解放経路。普通の地上道として無条件接続しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "島・仙域への解放経路。普通の地上道として無条件接続しない。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-64828",
+          "liyue-wp-64826",
+          "liyue-wp-64827",
+          "liyue-wp-64849"
+        ],
+        "return": [
+          "liyue-wp-64849",
+          "liyue-wp-64827",
+          "liyue-wp-64826",
+          "liyue-wp-64828"
+        ]
+      }
     },
     {
       "fields": [
@@ -3674,8 +5825,20 @@
         "teyvat:64835"
       ],
       "mode": "mountain_stairs",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "谷底→石段→山腹を順に辿る。仙力で飛べることを通常徒歩接続と混同しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "谷底→石段→山腹を順に辿る。仙力で飛べることを通常徒歩接続と混同しない。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-64830",
+          "liyue-wp-64824",
+          "liyue-wp-64835"
+        ],
+        "return": [
+          "liyue-wp-64835",
+          "liyue-wp-64824",
+          "liyue-wp-64830"
+        ]
+      }
     },
     {
       "fields": [
@@ -3683,8 +5846,24 @@
         "teyvat:64840"
       ],
       "mode": "mountain_stairs",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "港裏から山裾を回る。峰間は下り・登りを挟み、洞窟入口は別指定。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "港裏から山裾を回る。峰間は下り・登りを挟み、洞窟入口は別指定。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-64832",
+          "liyue-wp-64831",
+          "liyue-wp-64837",
+          "liyue-wp-64838",
+          "liyue-wp-64840"
+        ],
+        "return": [
+          "liyue-wp-64840",
+          "liyue-wp-64838",
+          "liyue-wp-64837",
+          "liyue-wp-64831",
+          "liyue-wp-64832"
+        ]
+      }
     },
     {
       "fields": [
@@ -3692,8 +5871,22 @@
         "teyvat:64844"
       ],
       "mode": "mountain_stairs",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "谷底→石段→山腹を順に辿る。仙力で飛べることを通常徒歩接続と混同しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "谷底→石段→山腹を順に辿る。仙力で飛べることを通常徒歩接続と混同しない。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-64835",
+          "liyue-wp-64836",
+          "liyue-wp-64842",
+          "liyue-wp-64844"
+        ],
+        "return": [
+          "liyue-wp-64844",
+          "liyue-wp-64842",
+          "liyue-wp-64836",
+          "liyue-wp-64835"
+        ]
+      }
     },
     {
       "fields": [
@@ -3701,8 +5894,24 @@
         "teyvat:66979"
       ],
       "mode": "mountain_stairs",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "王山庁の内部・山頂を区別する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "王山庁の内部・山頂を区別する。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-64836",
+          "liyue-wp-64840",
+          "liyue-wp-64838",
+          "liyue-wp-64839",
+          "liyue-wp-66979"
+        ],
+        "return": [
+          "liyue-wp-66979",
+          "liyue-wp-64839",
+          "liyue-wp-64838",
+          "liyue-wp-64840",
+          "liyue-wp-64836"
+        ]
+      }
     },
     {
       "fields": [
@@ -3710,8 +5919,20 @@
         "teyvat:64840"
       ],
       "mode": "mountain_stairs",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "港裏から山裾を回る。峰間は下り・登りを挟み、洞窟入口は別指定。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "港裏から山裾を回る。峰間は下り・登りを挟み、洞窟入口は別指定。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-64837",
+          "liyue-wp-64838",
+          "liyue-wp-64840"
+        ],
+        "return": [
+          "liyue-wp-64840",
+          "liyue-wp-64838",
+          "liyue-wp-64837"
+        ]
+      }
     },
     {
       "fields": [
@@ -3719,8 +5940,20 @@
         "teyvat:6609"
       ],
       "mode": "mountain_tunnel",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "旧宮側の入口 → 山頂へ続く洞道 → 寒天の釘。星蛍の洞窟からの垂直貫通ではない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "旧宮側の入口 → 山頂へ続く洞道 → 寒天の釘。星蛍の洞窟からの垂直貫通ではない。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-6537",
+          "mond-wp-6603",
+          "mond-wp-6609"
+        ],
+        "return": [
+          "mond-wp-6609",
+          "mond-wp-6603",
+          "mond-wp-6537"
+        ]
+      }
     },
     {
       "fields": [
@@ -3728,8 +5961,20 @@
         "teyvat:6594"
       ],
       "mode": "trail",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "谷底を北西へ回り込む。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "谷底を北西へ回り込む。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-6540",
+          "mond-wp-6596",
+          "mond-wp-6594"
+        ],
+        "return": [
+          "mond-wp-6594",
+          "mond-wp-6596",
+          "mond-wp-6540"
+        ]
+      }
     },
     {
       "fields": [
@@ -3737,8 +5982,26 @@
         "teyvat:6608"
       ],
       "mode": "cave",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "入口の穴 → 洞窟内の足場 → 内側WP。地上の山肌を貫く屋外歩道ではない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "入口の穴 → 洞窟内の足場 → 内側WP。地上の山肌を貫く屋外歩道ではない。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-6603",
+          "mond-wp-6537",
+          "mond-wp-6601",
+          "mond-wp-6594",
+          "mond-wp-6596",
+          "mond-wp-6608"
+        ],
+        "return": [
+          "mond-wp-6608",
+          "mond-wp-6596",
+          "mond-wp-6594",
+          "mond-wp-6601",
+          "mond-wp-6537",
+          "mond-wp-6603"
+        ]
+      }
     },
     {
       "fields": [
@@ -3803,8 +6066,20 @@
         "teyvat:72438"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "スメール側の谷→東の街道→谷底の入口。断崖上の点へ直結しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "スメール側の谷→東の街道→谷底の入口。断崖上の点へ直結しない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72413",
+          "nat-wp-72414",
+          "nat-wp-72438"
+        ],
+        "return": [
+          "nat-wp-72438",
+          "nat-wp-72414",
+          "nat-wp-72413"
+        ]
+      }
     },
     {
       "fields": [
@@ -3812,8 +6087,24 @@
         "teyvat:72761"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "スメール側の谷→東の街道→谷底の入口。断崖上の点へ直結しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "スメール側の谷→東の街道→谷底の入口。断崖上の点へ直結しない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72413",
+          "nat-wp-72414",
+          "nat-wp-72438",
+          "nat-wp-72439",
+          "nat-wp-72761"
+        ],
+        "return": [
+          "nat-wp-72761",
+          "nat-wp-72439",
+          "nat-wp-72438",
+          "nat-wp-72414",
+          "nat-wp-72413"
+        ]
+      }
     },
     {
       "fields": [
@@ -3821,8 +6112,22 @@
         "teyvat:72444"
       ],
       "mode": "terrace_road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "吊橋・根の坂を使う枝。竜の能力だけを前提にした崖越えを通常路にしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "吊橋・根の坂を使う枝。竜の能力だけを前提にした崖越えを通常路にしない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72414",
+          "nat-wp-72413",
+          "nat-wp-72415",
+          "nat-wp-72444"
+        ],
+        "return": [
+          "nat-wp-72444",
+          "nat-wp-72415",
+          "nat-wp-72413",
+          "nat-wp-72414"
+        ]
+      }
     },
     {
       "fields": [
@@ -3860,8 +6165,20 @@
         "teyvat:72423"
       ],
       "mode": "mountain_stairs",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "集落を出て岸沿いの山裾を回り、台地の登り口へ。海岸を直線で飛び越えず、実際の坂・足場を確認する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "集落を出て岸沿いの山裾を回り、台地の登り口へ。海岸を直線で飛び越えず、実際の坂・足場を確認する。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72419",
+          "nat-wp-72758",
+          "nat-wp-72423"
+        ],
+        "return": [
+          "nat-wp-72423",
+          "nat-wp-72758",
+          "nat-wp-72419"
+        ]
+      }
     },
     {
       "fields": [
@@ -3913,8 +6230,30 @@
         "teyvat:85958"
       ],
       "mode": "coastal_ferry",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "南西海岸から沿岸航路で移動。本作の定期船案。長い未確認陸地を徒歩で短絡しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "南西海岸から沿岸航路で移動。本作の定期船案。長い未確認陸地を徒歩で短絡しない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72419",
+          "nat-wp-72758",
+          "nat-wp-72421",
+          "nat-wp-82575",
+          "nat-wp-72429",
+          "natlan-field",
+          "natlan-port",
+          "nat-resort-pier"
+        ],
+        "return": [
+          "nat-resort-pier",
+          "natlan-port",
+          "natlan-field",
+          "nat-wp-72429",
+          "nat-wp-82575",
+          "nat-wp-72421",
+          "nat-wp-72758",
+          "nat-wp-72419"
+        ]
+      }
     },
     {
       "fields": [
@@ -3922,8 +6261,20 @@
         "teyvat:72424"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "海岸の陸地を回る。水域を跨ぐ箇所は上陸点付きの小舟に分割する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "海岸の陸地を回る。水域を跨ぐ箇所は上陸点付きの小舟に分割する。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72420",
+          "nat-wp-72417",
+          "nat-wp-72424"
+        ],
+        "return": [
+          "nat-wp-72424",
+          "nat-wp-72417",
+          "nat-wp-72420"
+        ]
+      }
     },
     {
       "fields": [
@@ -3940,8 +6291,22 @@
         "teyvat:72759"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "中央の道路から南の温泉地へ。居住区・温泉の入口は安全にする。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "中央の道路から南の温泉地へ。居住区・温泉の入口は安全にする。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72423",
+          "nat-wp-72422",
+          "nat-wp-72427",
+          "nat-wp-72759"
+        ],
+        "return": [
+          "nat-wp-72759",
+          "nat-wp-72427",
+          "nat-wp-72422",
+          "nat-wp-72423"
+        ]
+      }
     },
     {
       "fields": [
@@ -3970,8 +6335,18 @@
         "teyvat:72760"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "中央の道路から南の温泉地へ。居住区・温泉の入口は安全にする。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "中央の道路から南の温泉地へ。居住区・温泉の入口は安全にする。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72428",
+          "nat-wp-72760"
+        ],
+        "return": [
+          "nat-wp-72760",
+          "nat-wp-72428"
+        ]
+      }
     },
     {
       "fields": [
@@ -3979,8 +6354,24 @@
         "teyvat:79050"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "北西の谷道・段丘を辿る。オシカ・ナタ高難度域の内部を通常移動の通過点にしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "北西の谷道・段丘を辿る。オシカ・ナタ高難度域の内部を通常移動の通過点にしない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72429",
+          "natlan-field",
+          "natlan-hub",
+          "nat-wp-72432",
+          "nat-wp-79050"
+        ],
+        "return": [
+          "nat-wp-79050",
+          "nat-wp-72432",
+          "natlan-hub",
+          "natlan-field",
+          "nat-wp-72429"
+        ]
+      }
     },
     {
       "fields": [
@@ -3988,8 +6379,20 @@
         "teyvat:72435"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "渓谷の道路と橋を経由して競技場へ。部族の崖上・洞窟内には寄らず進める主経路。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "渓谷の道路と橋を経由して競技場へ。部族の崖上・洞窟内には寄らず進める主経路。",
+      "runtime_paths": {
+        "forward": [
+          "natlan-hub",
+          "nat-wp-72432",
+          "nat-wp-72435"
+        ],
+        "return": [
+          "nat-wp-72435",
+          "nat-wp-72432",
+          "natlan-hub"
+        ]
+      }
     },
     {
       "fields": [
@@ -4045,8 +6448,26 @@
         "teyvat:72760"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "中央の道路から南の温泉地へ。居住区・温泉の入口は安全にする。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "中央の道路から南の温泉地へ。居住区・温泉の入口は安全にする。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72435",
+          "nat-wp-72432",
+          "natlan-hub",
+          "natlan-field",
+          "nat-wp-72453",
+          "nat-wp-72760"
+        ],
+        "return": [
+          "nat-wp-72760",
+          "nat-wp-72453",
+          "natlan-field",
+          "natlan-hub",
+          "nat-wp-72432",
+          "nat-wp-72435"
+        ]
+      }
     },
     {
       "fields": [
@@ -4182,8 +6603,20 @@
         "teyvat:79051"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "北西の谷道・段丘を辿る。オシカ・ナタ高難度域の内部を通常移動の通過点にしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "北西の谷道・段丘を辿る。オシカ・ナタ高難度域の内部を通常移動の通過点にしない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-79050",
+          "nat-wp-79057",
+          "nat-wp-79051"
+        ],
+        "return": [
+          "nat-wp-79051",
+          "nat-wp-79057",
+          "nat-wp-79050"
+        ]
+      }
     },
     {
       "fields": [
@@ -4191,8 +6624,20 @@
         "teyvat:79052"
       ],
       "mode": "terrace_road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "部族側の階段・谷に沿う道。幻写の移動が必要なら専用入口を設ける。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "部族側の階段・谷に沿う道。幻写の移動が必要なら専用入口を設ける。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-79051",
+          "nat-wp-79545",
+          "nat-wp-79052"
+        ],
+        "return": [
+          "nat-wp-79052",
+          "nat-wp-79545",
+          "nat-wp-79051"
+        ]
+      }
     },
     {
       "fields": [
@@ -4209,8 +6654,20 @@
         "teyvat:82575"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "南西の地上回廊から火山外縁へ。火口を横断しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "南西の地上回廊から火山外縁へ。火口を横断しない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-79051",
+          "nat-wp-82572",
+          "nat-wp-82575"
+        ],
+        "return": [
+          "nat-wp-82575",
+          "nat-wp-82572",
+          "nat-wp-79051"
+        ]
+      }
     },
     {
       "fields": [
@@ -4218,8 +6675,20 @@
         "teyvat:81381"
       ],
       "mode": "terrace_road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "部族側の階段・谷に沿う道。幻写の移動が必要なら専用入口を設ける。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "部族側の階段・谷に沿う道。幻写の移動が必要なら専用入口を設ける。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-79053",
+          "nat-wp-79052",
+          "nat-wp-81381"
+        ],
+        "return": [
+          "nat-wp-81381",
+          "nat-wp-79052",
+          "nat-wp-79053"
+        ]
+      }
     },
     {
       "fields": [
@@ -4227,8 +6696,26 @@
         "teyvat:79057"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "北西の谷道・段丘を辿る。オシカ・ナタ高難度域の内部を通常移動の通過点にしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "北西の谷道・段丘を辿る。オシカ・ナタ高難度域の内部を通常移動の通過点にしない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-79054",
+          "nat-wp-79053",
+          "nat-wp-79052",
+          "nat-wp-79545",
+          "sites-corridor-natlan-cliff",
+          "nat-wp-79057"
+        ],
+        "return": [
+          "nat-wp-79057",
+          "sites-corridor-natlan-cliff",
+          "nat-wp-79545",
+          "nat-wp-79052",
+          "nat-wp-79053",
+          "nat-wp-79054"
+        ]
+      }
     },
     {
       "fields": [
@@ -4236,8 +6723,20 @@
         "teyvat:79545"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "北西の谷道・段丘を辿る。オシカ・ナタ高難度域の内部を通常移動の通過点にしない。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "北西の谷道・段丘を辿る。オシカ・ナタ高難度域の内部を通常移動の通過点にしない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-79057",
+          "sites-corridor-natlan-cliff",
+          "nat-wp-79545"
+        ],
+        "return": [
+          "nat-wp-79545",
+          "sites-corridor-natlan-cliff",
+          "nat-wp-79057"
+        ]
+      }
     },
     {
       "fields": [
@@ -4245,8 +6744,9 @@
         "teyvat:79319"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "南側の安全な上陸・準備地点から古都の入口へ。ナタ通常地域の通過必須経路にはしない。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "南側の安全な上陸・準備地点から古都の入口へ。ナタ通常地域の通過必須経路にはしない。",
+      "review_focus": "transport_boarding_and_return"
     },
     {
       "fields": [
@@ -4302,8 +6802,22 @@
         "teyvat:79538"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "崖・孤立した塔を含む可能性がある。必要なら飛行装置または船着き場へ分割。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "崖・孤立した塔を含む可能性がある。必要なら飛行装置または船着き場へ分割。",
+      "runtime_paths": {
+        "forward": [
+          "ochkanatlan-dock",
+          "ochkanatlan-ruins",
+          "nat-wp-79546",
+          "nat-wp-79538"
+        ],
+        "return": [
+          "nat-wp-79538",
+          "nat-wp-79546",
+          "ochkanatlan-ruins",
+          "ochkanatlan-dock"
+        ]
+      }
     },
     {
       "fields": [
@@ -4311,8 +6825,20 @@
         "teyvat:79539"
       ],
       "mode": "ruin_walkway",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "崩れた橋・高低差は固定足場と昇降機に翻案。虚空を徒歩で短絡しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "崩れた橋・高低差は固定足場と昇降機に翻案。虚空を徒歩で短絡しない。",
+      "runtime_paths": {
+        "forward": [
+          "ochkanatlan-ruins",
+          "ochkanatlan-dock",
+          "nat-wp-79539"
+        ],
+        "return": [
+          "nat-wp-79539",
+          "nat-wp-79540",
+          "ochkanatlan-ruins"
+        ]
+      }
     },
     {
       "fields": [
@@ -4387,8 +6913,20 @@
         "teyvat:82558"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "南西の地上回廊から火山外縁へ。火口を横断しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "南西の地上回廊から火山外縁へ。火口を横断しない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-82557",
+          "nat-wp-82559",
+          "nat-wp-82558"
+        ],
+        "return": [
+          "nat-wp-82558",
+          "nat-wp-82559",
+          "nat-wp-82557"
+        ]
+      }
     },
     {
       "fields": [
@@ -4396,8 +6934,20 @@
         "teyvat:82560"
       ],
       "mode": "volcanic_road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "外周の山裾を回る案。溶岩・地下火道を横切る接続は保留して現地で訂正。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "外周の山裾を回る案。溶岩・地下火道を横切る接続は保留して現地で訂正。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-82559",
+          "nat-wp-82557",
+          "nat-wp-82560"
+        ],
+        "return": [
+          "nat-wp-82560",
+          "nat-wp-82557",
+          "nat-wp-82559"
+        ]
+      }
     },
     {
       "fields": [
@@ -4405,8 +6955,20 @@
         "teyvat:82572"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "南西の地上回廊から火山外縁へ。火口を横断しない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "南西の地上回廊から火山外縁へ。火口を横断しない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-82559",
+          "nat-wp-82558",
+          "nat-wp-82572"
+        ],
+        "return": [
+          "nat-wp-82572",
+          "nat-wp-82558",
+          "nat-wp-82559"
+        ]
+      }
     },
     {
       "fields": [
@@ -4414,8 +6976,20 @@
         "teyvat:82568"
       ],
       "mode": "mountain_stairs",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "火口への上り下りを別ポータルで表現。聖山への下降口を通過路にしない。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "火口への上り下りを別ポータルで表現。聖山への下降口を通過路にしない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-82562",
+          "sites-corridor-natlan-tunnel",
+          "nat-wp-82568"
+        ],
+        "return": [
+          "nat-wp-82568",
+          "sites-corridor-natlan-tunnel",
+          "nat-wp-82562"
+        ]
+      }
     },
     {
       "fields": [
@@ -4423,8 +6997,20 @@
         "teyvat:82564"
       ],
       "mode": "volcanic_road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "外周の山裾を回る案。溶岩・地下火道を横切る接続は保留して現地で訂正。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "外周の山裾を回る案。溶岩・地下火道を横切る接続は保留して現地で訂正。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-82563",
+          "nat-wp-82562",
+          "nat-wp-82564"
+        ],
+        "return": [
+          "nat-wp-82564",
+          "nat-wp-82562",
+          "nat-wp-82563"
+        ]
+      }
     },
     {
       "fields": [
@@ -4432,8 +7018,22 @@
         "teyvat:82574"
       ],
       "mode": "volcanic_road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "外周の山裾を回る案。溶岩・地下火道を横切る接続は保留して現地で訂正。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "外周の山裾を回る案。溶岩・地下火道を横切る接続は保留して現地で訂正。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-82563",
+          "nat-wp-82562",
+          "nat-wp-82561",
+          "nat-wp-82574"
+        ],
+        "return": [
+          "nat-wp-82574",
+          "nat-wp-82561",
+          "nat-wp-82562",
+          "nat-wp-82563"
+        ]
+      }
     },
     {
       "fields": [
@@ -4441,8 +7041,20 @@
         "teyvat:82567"
       ],
       "mode": "volcanic_road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "外周の山裾を回る案。溶岩・地下火道を横切る接続は保留して現地で訂正。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "外周の山裾を回る案。溶岩・地下火道を横切る接続は保留して現地で訂正。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-82564",
+          "nat-wp-82565",
+          "nat-wp-82567"
+        ],
+        "return": [
+          "nat-wp-82567",
+          "nat-wp-82565",
+          "nat-wp-82564"
+        ]
+      }
     },
     {
       "fields": [
@@ -4459,8 +7071,20 @@
         "teyvat:82571"
       ],
       "mode": "volcanic_road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "外周の山裾を回る案。溶岩・地下火道を横切る接続は保留して現地で訂正。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "外周の山裾を回る案。溶岩・地下火道を横切る接続は保留して現地で訂正。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-82565",
+          "nat-wp-82566",
+          "nat-wp-82571"
+        ],
+        "return": [
+          "nat-wp-82571",
+          "nat-wp-82566",
+          "nat-wp-82565"
+        ]
+      }
     },
     {
       "fields": [
@@ -4468,8 +7092,30 @@
         "teyvat:82570"
       ],
       "mode": "mountain_stairs",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "火口への上り下りを別ポータルで表現。聖山への下降口を通過路にしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "火口への上り下りを別ポータルで表現。聖山への下降口を通過路にしない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-82569",
+          "nat-wp-82568",
+          "sites-corridor-natlan-tunnel",
+          "nat-wp-82562",
+          "nat-wp-82564",
+          "nat-wp-82565",
+          "nat-wp-82566",
+          "nat-wp-82570"
+        ],
+        "return": [
+          "nat-wp-82570",
+          "nat-wp-82566",
+          "nat-wp-82565",
+          "nat-wp-82564",
+          "nat-wp-82562",
+          "sites-corridor-natlan-tunnel",
+          "nat-wp-82568",
+          "nat-wp-82569"
+        ]
+      }
     },
     {
       "fields": [
@@ -4477,8 +7123,20 @@
         "teyvat:85959"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "リゾート内は安全な遊歩道と海岸狩場を分ける。島や水路の跨ぎ方は要照合。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "リゾート内は安全な遊歩道と海岸狩場を分ける。島や水路の跨ぎ方は要照合。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-85957",
+          "nat-wp-85960",
+          "nat-wp-85959"
+        ],
+        "return": [
+          "nat-wp-85959",
+          "nat-wp-85960",
+          "nat-wp-85957"
+        ]
+      }
     },
     {
       "fields": [
@@ -4486,8 +7144,9 @@
         "teyvat:88143"
       ],
       "mode": "coastal_ferry",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "ナタ側の到着港からナシャタウンへ沿岸を航行する本作独自便。間の海や崖を徒歩で短絡しない。桟橋の地点対応は要確認。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "ナタ側の到着港からナシャタウンへ沿岸を航行する本作独自便。間の海や崖を徒歩で短絡しない。桟橋の地点対応は要確認。",
+      "review_focus": "transport_boarding_and_return"
     },
     {
       "fields": [
@@ -4495,8 +7154,20 @@
         "teyvat:85961"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "リゾート内は安全な遊歩道と海岸狩場を分ける。島や水路の跨ぎ方は要照合。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "リゾート内は安全な遊歩道と海岸狩場を分ける。島や水路の跨ぎ方は要照合。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-85960",
+          "nat-wp-85962",
+          "nat-wp-85961"
+        ],
+        "return": [
+          "nat-wp-85961",
+          "nat-wp-85962",
+          "nat-wp-85960"
+        ]
+      }
     },
     {
       "fields": [
@@ -4504,8 +7175,20 @@
         "teyvat:85963"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "リゾート内は安全な遊歩道と海岸狩場を分ける。島や水路の跨ぎ方は要照合。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "リゾート内は安全な遊歩道と海岸狩場を分ける。島や水路の跨ぎ方は要照合。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-85962",
+          "nat-wp-85961",
+          "nat-wp-85963"
+        ],
+        "return": [
+          "nat-wp-85963",
+          "nat-wp-85961",
+          "nat-wp-85962"
+        ]
+      }
     },
     {
       "fields": [
@@ -4513,8 +7196,20 @@
         "teyvat:85964"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "北の湾と半島を回る。海の切れ目は渡船で、崖を水平に貫かない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "北の湾と半島を回る。海の切れ目は渡船で、崖を水平に貫かない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-85962",
+          "nat-wp-85960",
+          "nat-wp-85964"
+        ],
+        "return": [
+          "nat-wp-85964",
+          "nat-wp-85960",
+          "nat-wp-85962"
+        ]
+      }
     },
     {
       "fields": [
@@ -4522,8 +7217,20 @@
         "teyvat:85968"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "入江の外周経路。地下・島内のWP対応は実地レビュー後に確定。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "入江の外周経路。地下・島内のWP対応は実地レビュー後に確定。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-85963",
+          "nat-wp-85969",
+          "nat-wp-85968"
+        ],
+        "return": [
+          "nat-wp-85968",
+          "nat-wp-85969",
+          "nat-wp-85963"
+        ]
+      }
     },
     {
       "fields": [
@@ -4531,8 +7238,20 @@
         "teyvat:85971"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "入江の外周経路。地下・島内のWP対応は実地レビュー後に確定。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "入江の外周経路。地下・島内のWP対応は実地レビュー後に確定。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-85970",
+          "nat-wp-85973",
+          "nat-wp-85971"
+        ],
+        "return": [
+          "nat-wp-85971",
+          "nat-wp-85973",
+          "nat-wp-85970"
+        ]
+      }
     },
     {
       "fields": [
@@ -4540,8 +7259,22 @@
         "teyvat:85981"
       ],
       "mode": "mountain_stairs",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "高台の登り口を探し、崖上と下を別の出入口でつなぐ。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "高台の登り口を探し、崖上と下を別の出入口でつなぐ。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-85978",
+          "nat-wp-85979",
+          "nat-wp-85980",
+          "nat-wp-85981"
+        ],
+        "return": [
+          "nat-wp-85981",
+          "nat-wp-85980",
+          "nat-wp-85979",
+          "nat-wp-85978"
+        ]
+      }
     },
     {
       "fields": [
@@ -4576,8 +7309,18 @@
         "teyvat:88157"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "軍事拠点の外周路。地下実験区画の入口は別にする。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "軍事拠点の外周路。地下実験区画の入口は別にする。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88129",
+          "nod-wp-88157"
+        ],
+        "return": [
+          "nod-wp-88157",
+          "nod-wp-88129"
+        ]
+      }
     },
     {
       "fields": [
@@ -4585,8 +7328,24 @@
         "teyvat:88143"
       ],
       "mode": "coastal_ferry",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "レンポ―ヒーシの実在海域を使う本作の移動案。桟橋の具体位置は要設定。帰路を同時に開く。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "レンポ―ヒーシの実在海域を使う本作の移動案。桟橋の具体位置は要設定。帰路を同時に開く。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88130",
+          "nod-wp-88127",
+          "nod-wp-88139",
+          "nod-port",
+          "nod-field"
+        ],
+        "return": [
+          "nod-field",
+          "nod-port",
+          "nod-wp-88139",
+          "nod-wp-88127",
+          "nod-wp-88130"
+        ]
+      }
     },
     {
       "fields": [
@@ -4615,8 +7374,20 @@
         "teyvat:88142"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "港南の海岸。海面を渡る移動は含めない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "港南の海岸。海面を渡る移動は含めない。",
+      "runtime_paths": {
+        "forward": [
+          "nod-port",
+          "nod-field",
+          "nod-town"
+        ],
+        "return": [
+          "nod-town",
+          "nod-field",
+          "nod-port"
+        ]
+      }
     },
     {
       "fields": [
@@ -4624,8 +7395,24 @@
         "teyvat:88149"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "ナシャタウンの港・島内道路を基点にする配置案。町のWP対応と上下層は現地確認。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "ナシャタウンの港・島内道路を基点にする配置案。町のWP対応と上下層は現地確認。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88146",
+          "nod-wp-88145",
+          "nod-wp-88147",
+          "nod-wp-88150",
+          "nod-wp-88149"
+        ],
+        "return": [
+          "nod-wp-88149",
+          "nod-wp-88150",
+          "nod-wp-88147",
+          "nod-wp-88145",
+          "nod-wp-88146"
+        ]
+      }
     },
     {
       "fields": [
@@ -4675,8 +7462,20 @@
         "teyvat:88157"
       ],
       "mode": "coastal_ferry",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "レンポ―パハの実在海域を使う本作の移動案。桟橋の具体位置は要設定。帰路を同時に開く。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "レンポ―パハの実在海域を使う本作の移動案。桟橋の具体位置は要設定。帰路を同時に開く。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88153",
+          "nod-wp-88156",
+          "nod-wp-88157"
+        ],
+        "return": [
+          "nod-wp-88157",
+          "nod-wp-88156",
+          "nod-wp-88153"
+        ]
+      }
     },
     {
       "fields": [
@@ -4724,8 +7523,9 @@
         "teyvat:92864"
       ],
       "mode": "coastal_ferry",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "南部三島―北部沿岸の実在海域を使う本作の移動案。桟橋の具体位置は要設定。帰路を同時に開く。"
+      "finding": "unverified_travel_choice",
+      "terrain_note": "南部三島―北部沿岸の実在海域を使う本作の移動案。桟橋の具体位置は要設定。帰路を同時に開く。",
+      "review_focus": "transport_boarding_and_return"
     },
     {
       "fields": [
@@ -4772,8 +7572,18 @@
         "teyvat:92877"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "北の陸地の地上回廊。南部の島からは沿岸船で到着する。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "北の陸地の地上回廊。南部の島からは沿岸船で到着する。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-92865",
+          "nod-wp-92877"
+        ],
+        "return": [
+          "nod-wp-92877",
+          "nod-wp-92865"
+        ]
+      }
     },
     {
       "fields": [
@@ -4781,8 +7591,20 @@
         "teyvat:92889"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "北の研究所の外周から国境方向へ。山脈を跨ぐ地点は国境回廊として別レビュー。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "北の研究所の外周から国境方向へ。山脈を跨ぐ地点は国境回廊として別レビュー。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-92866",
+          "nod-wp-92888",
+          "nod-wp-92889"
+        ],
+        "return": [
+          "nod-wp-92889",
+          "nod-wp-92888",
+          "nod-wp-92866"
+        ]
+      }
     },
     {
       "fields": [
@@ -4790,8 +7612,22 @@
         "teyvat:92874"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "北の陸地の地上回廊。南部の島からは沿岸船で到着する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "北の陸地の地上回廊。南部の島からは沿岸船で到着する。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-92867",
+          "nod-north-harbor",
+          "nod-wp-92868",
+          "nod-wp-92874"
+        ],
+        "return": [
+          "nod-wp-92874",
+          "nod-wp-92868",
+          "nod-north-harbor",
+          "nod-wp-92867"
+        ]
+      }
     },
     {
       "fields": [
@@ -4820,8 +7656,20 @@
         "teyvat:92879"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "谷道と施設外周の枝。洞窟・地下のWPは入口確認後に分割する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "谷道と施設外周の枝。洞窟・地下のWPは入口確認後に分割する。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-92873",
+          "nod-wp-92877",
+          "nod-wp-92879"
+        ],
+        "return": [
+          "nod-wp-92879",
+          "nod-wp-92877",
+          "nod-wp-92873"
+        ]
+      }
     },
     {
       "fields": [
@@ -4829,8 +7677,20 @@
         "teyvat:92881"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "西の山裾を回る。北の研究所・山頂への直登を必須にしない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "西の山裾を回る。北の研究所・山頂への直登を必須にしない。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-92875",
+          "nod-wp-92876",
+          "nod-wp-92881"
+        ],
+        "return": [
+          "nod-wp-92881",
+          "nod-wp-92876",
+          "nod-wp-92875"
+        ]
+      }
     },
     {
       "fields": [
@@ -4859,8 +7719,22 @@
         "teyvat:92893"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "北の陸地の地上回廊。南部の島からは沿岸船で到着する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "北の陸地の地上回廊。南部の島からは沿岸船で到着する。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-92877",
+          "nod-wp-92883",
+          "nod-wp-92885",
+          "nod-wp-92893"
+        ],
+        "return": [
+          "nod-wp-92893",
+          "nod-wp-92885",
+          "nod-wp-92883",
+          "nod-wp-92877"
+        ]
+      }
     },
     {
       "fields": [
@@ -4868,8 +7742,26 @@
         "teyvat:92893"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "谷道と施設外周の枝。洞窟・地下のWPは入口確認後に分割する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "谷道と施設外周の枝。洞窟・地下のWPは入口確認後に分割する。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-92880",
+          "nod-wp-92879",
+          "nod-wp-92877",
+          "nod-wp-92883",
+          "nod-wp-92885",
+          "nod-wp-92893"
+        ],
+        "return": [
+          "nod-wp-92893",
+          "nod-wp-92885",
+          "nod-wp-92883",
+          "nod-wp-92877",
+          "nod-wp-92879",
+          "nod-wp-92880"
+        ]
+      }
     },
     {
       "fields": [
@@ -4900,8 +7792,22 @@
         "teyvat:92894"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "北の陸地の地上回廊。南部の島からは沿岸船で到着する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "北の陸地の地上回廊。南部の島からは沿岸船で到着する。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-92893",
+          "nod-wp-92885",
+          "nod-wp-92866",
+          "nod-wp-92894"
+        ],
+        "return": [
+          "nod-wp-92894",
+          "nod-wp-92866",
+          "nod-wp-92885",
+          "nod-wp-92893"
+        ]
+      }
     },
     {
       "fields": [
@@ -4909,8 +7815,20 @@
         "teyvat:94"
       ],
       "mode": "road",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "帰離原の南北街道→港の北門。望舒の上階は階段・昇降機で地上路に接続する。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "帰離原の南北街道→港の北門。望舒の上階は階段・昇降機で地上路に接続する。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-harbor",
+          "liyue-wp-104",
+          "liyue-wp-94"
+        ],
+        "return": [
+          "liyue-wp-94",
+          "liyue-wp-104",
+          "liyue-harbor"
+        ]
+      }
     },
     {
       "fields": [
@@ -4918,8 +7836,18 @@
         "teyvat:95803"
       ],
       "mode": "cave",
-      "finding": "candidate_with_geography_review",
-      "terrain_note": "灯台側から底部の別入口へ回り、通路と階段を下りる。平面上で隣のWPだからという直結ではない。"
+      "finding": "use_existing_geo_route",
+      "terrain_note": "灯台側から底部の別入口へ回り、通路と階段を下りる。平面上で隣のWPだからという直結ではない。",
+      "runtime_paths": {
+        "forward": [
+          "mond-wp-95798",
+          "mond-wp-95803"
+        ],
+        "return": [
+          "mond-wp-95803",
+          "mond-wp-95798"
+        ]
+      }
     },
     {
       "fields": [

@@ -47,8 +47,13 @@ def save(s):
     return validate_save(native(core.checkpoint(s)))
 
 
+layer_pairs = {frozenset(route['fields']) for route in source['routes']}
 findings=Counter()
 for review in plan['sites_only_route_review']:
+    if review['finding']=='use_existing_geo_route':
+        continue
+    if review['finding']=='implemented_as_lab_route' and frozenset(review['fields']) not in layer_pairs:
+        continue
     if not (paths:=review.get('runtime_paths')):
         continue
     peak=max(nodes[id]['level'] for path in paths.values() for id in path)

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 
-export function waypointDriver(page,nodes){
+export function waypointDriver(page,nodes,{walkTimeout=12000}={}){
  const journeys=[];
  const node=()=>page.evaluate(()=>window.lab.frame.story.node);
  const actor=()=>page.evaluate(()=>{
@@ -24,7 +24,7 @@ export function waypointDriver(page,nodes){
     const f=window.lab.frame;
     const a=f.actors.find(a=>a.id===f.active);
     return start>x?a.x<=x+15:a.x>=x-15;
-   },[x,start],{timeout:12000});
+   },[x,start],{timeout:walkTimeout});
   }finally{await page.keyboard.up(key)}
  }
 

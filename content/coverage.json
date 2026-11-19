@@ -27,7 +27,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 66,
+      "prototype_stage_count": 67,
       "prototype_quest_count": 28,
       "official_map2_markers": {
         "waypoints": 45,
@@ -51,7 +51,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 84,
+      "prototype_stage_count": 86,
       "prototype_quest_count": 24,
       "official_map2_markers": {
         "waypoints": 75,
@@ -75,7 +75,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 97,
+      "prototype_stage_count": 98,
       "prototype_quest_count": 21,
       "official_map2_markers": {
         "waypoints": 47,
@@ -99,7 +99,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 162,
+      "prototype_stage_count": 163,
       "prototype_quest_count": 25,
       "official_map2_markers": {
         "waypoints": 112,
@@ -123,7 +123,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 137,
+      "prototype_stage_count": 138,
       "prototype_quest_count": 24,
       "official_map2_markers": {
         "waypoints": 92,
@@ -147,7 +147,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 130,
+      "prototype_stage_count": 132,
       "prototype_quest_count": 22,
       "official_map2_markers": {
         "waypoints": 126,
@@ -195,7 +195,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 135,
+      "prototype_stage_count": 137,
       "prototype_quest_count": 24,
       "official_map2_markers": {
         "waypoints": 101,
@@ -1708,7 +1708,8 @@
         "gates": [
           "teyvat:100688",
           "teyvat:100649",
-          "teyvat:100659"
+          "teyvat:100659",
+          "teyvat:100664"
         ]
       },
       "teyvat:100661": {
@@ -1747,7 +1748,8 @@
           "teyvat:106205",
           "teyvat:100665",
           "teyvat:100663",
-          "teyvat:100650"
+          "teyvat:100650",
+          "teyvat:100660"
         ]
       },
       "teyvat:100665": {
@@ -4799,7 +4801,8 @@
         "gates": [
           "teyvat:50062",
           "teyvat:50051",
-          "teyvat:50065"
+          "teyvat:50065",
+          "teyvat:50069"
         ]
       },
       "teyvat:50065": {
@@ -4836,7 +4839,8 @@
         "name": "フォンテーヌ湖・市街東の水中門",
         "gates": [
           "teyvat:50068",
-          "teyvat:50070"
+          "teyvat:50070",
+          "teyvat:50064"
         ]
       },
       "teyvat:50070": {
@@ -6008,7 +6012,8 @@
         "name": "万火のほとぎ周辺・南の草棚",
         "gates": [
           "teyvat:72430",
-          "teyvat:72759"
+          "teyvat:72759",
+          "teyvat:72760"
         ]
       },
       "teyvat:72429": {
@@ -6268,7 +6273,8 @@
         "gates": [
           "teyvat:72453",
           "teyvat:72426",
-          "teyvat:72437"
+          "teyvat:72437",
+          "teyvat:72428"
         ]
       },
       "teyvat:72761": {
@@ -7038,7 +7044,8 @@
         "name": "パハ島周辺・南東岸の神像",
         "gates": [
           "teyvat:88164",
-          "teyvat:88165"
+          "teyvat:88165",
+          "teyvat:88157"
         ]
       },
       "teyvat:88130": {
@@ -7284,7 +7291,8 @@
         "gates": [
           "teyvat:88160",
           "teyvat:88156",
-          "teyvat:88155"
+          "teyvat:88155",
+          "teyvat:88129"
         ]
       },
       "teyvat:88158": {
@@ -7489,7 +7497,8 @@
         "name": "北部沿岸・中央の林の神像",
         "gates": [
           "teyvat:92876",
-          "teyvat:92873"
+          "teyvat:92873",
+          "teyvat:92877"
         ]
       },
       "teyvat:92866": {
@@ -7600,7 +7609,8 @@
           "teyvat:92883",
           "teyvat:92878",
           "teyvat:92879",
-          "teyvat:92873"
+          "teyvat:92873",
+          "teyvat:92865"
         ]
       },
       "teyvat:92878": {
@@ -7944,7 +7954,7 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1328,
+    "authored_stages": 1339,
     "provisional_quests": 257,
     "companion_join_records": 8,
     "scope_complete": false,
@@ -8069,7 +8079,8 @@
           "sites-hunt-7210",
           "sites-hunt-7210-pocket-1",
           "sites-lookout-10009",
-          "sites-lookout-85351"
+          "sites-lookout-85351",
+          "sites-corridor-mond-forest"
         ],
         "quest_ids": [
           "mond-mapped-lakeside",
@@ -8190,7 +8201,9 @@
           "sites-hunt-9778",
           "sites-hunt-18048",
           "sites-hunt-18048-pocket-1",
-          "sites-hunt-18048-pocket-2"
+          "sites-hunt-18048-pocket-2",
+          "sites-corridor-liyue-switchback",
+          "sites-corridor-dihua-causeway"
         ],
         "quest_ids": [
           "liyue-mapped-east-shore",
@@ -8320,7 +8333,8 @@
           "sites-hunt-18667-pocket-1",
           "sites-hunt-20369",
           "sites-hunt-24906",
-          "sites-hunt-24906-pocket-1"
+          "sites-hunt-24906-pocket-1",
+          "sites-corridor-inazuma-sandbar"
         ],
         "quest_ids": [
           "ina-mapped-seirai-ferry",
@@ -8512,7 +8526,8 @@
           "sites-hunt-41817",
           "sites-hunt-41817-pocket-1",
           "sites-hunt-41818",
-          "sites-hunt-98499"
+          "sites-hunt-98499",
+          "sites-corridor-sumeru-bridge"
         ],
         "quest_ids": [
           "sum-mapped-north-quay",
@@ -8683,7 +8698,8 @@
           "sites-hunt-68347",
           "sites-hunt-68347-pocket-1",
           "sites-hunt-68347-pocket-2",
-          "sites-hunt-68347-pocket-3"
+          "sites-hunt-68347-pocket-3",
+          "sites-corridor-beryl-ledge"
         ],
         "quest_ids": [
           "fon-mapped-depth-samples",
@@ -8846,7 +8862,9 @@
           "sites-hunt-81383",
           "sites-hunt-81383-pocket-1",
           "sites-hunt-82577",
-          "sites-toyac-tide-landing"
+          "sites-toyac-tide-landing",
+          "sites-corridor-natlan-cliff",
+          "sites-corridor-natlan-tunnel"
         ],
         "quest_ids": [
           "nat-mapped-valley-trail",
@@ -9179,7 +9197,9 @@
           "sites-hunt-100705-pocket-1",
           "sites-hunt-100706",
           "sites-hunt-100706-pocket-1",
-          "sites-hunt-100707"
+          "sites-hunt-100707",
+          "sites-corridor-snow-ravine",
+          "sites-corridor-snow-mine"
         ],
         "quest_ids": [
           "sne-mapped-track-walk",

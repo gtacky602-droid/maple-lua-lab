@@ -34,8 +34,8 @@ assert floors == review['floor_markers'] and len(floors) == 49
 stages = set(mapping.values())
 exits = {key:n['exits'] for key,n in nodes.items()}
 edges = {(a,e['to']):e for a in stages for e in exits[a] if e['to'] in stages}
-assert set(edges) == {(b,a) for a,b in edges} and len(edges) == 304
-for key,count in [('boatSeconds',14),('liftSeconds',30),('waterwaySeconds',52)]:
+assert set(edges) == {(b,a) for a,b in edges} and len(edges) == 306
+for key,count in [('boatSeconds',14),('liftSeconds',30),('waterwaySeconds',54)]:
     assert sum(key in edge for edge in edges.values()) == count
 
 

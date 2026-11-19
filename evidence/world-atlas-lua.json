@@ -9,9 +9,10 @@
     "teyvat:98500"
   ],
   "route_findings": {
-    "candidate_with_geography_review": 236,
+    "use_existing_geo_route": 195,
     "use_existing_local_detour": 72,
-    "implemented_as_lab_route": 106,
+    "unverified_travel_choice": 25,
+    "implemented_as_lab_route": 122,
     "use_existing_regional_detour": 4,
     "use_existing_level_route": 3
   },

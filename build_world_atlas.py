@@ -117,7 +117,8 @@ def local_path(nodes, start, end, allowed_regions, stage_regions):
                 target = edge['to']
                 if target in seen or stage_regions[target] not in allowed_regions:
                     continue
-                if any(key in edge for key in ('requires', 'visitedOnly', 'windowStart', 'requiresArrival')):
+                if any(key in edge for key in ('requires', 'visitedOnly', 'windowStart', 'requiresArrival',
+                                               'darkOnly', 'roofTrialStage')):
                     continue
                 node = nodes[target]
                 if node['level'] > level or node.get('hiddenGroup') or node.get('revealAfter') or node.get('voyage'):
@@ -252,8 +253,11 @@ def build():
         implemented.add(frozenset((field, anchor)))
     layer_review = load('sources/map-research/sites-layer-trails.json')
     source_by_pair = {frozenset((edge['a'],edge['b'])): edge for edge in imported['edges']}
-    new_layer_paths = {}
-    for route in layer_review['routes']:
+    authored_paths = {}
+    corridor_review = load('sources/map-research/sites-main-corridors.json')
+    pending_reasons = {frozenset(pair): kind for kind, pairs in corridor_review['pending'].items() for pair in pairs}
+    new_routes = layer_review['routes'] + corridor_review['routes']
+    for route in new_routes:
         pair = frozenset(route['fields'])
         stages = route['stages']
         assert [field_links[field]['stage_id'] for field in route['fields']] == [stages[0], stages[-1]]
@@ -261,7 +265,8 @@ def build():
         for start, end in zip(stages, stages[1:]):
             assert any(edge['to']==end for edge in nodes[start]['exits'])
             assert any(edge['to']==start for edge in nodes[end]['exits'])
-        new_layer_paths[pair] = stages
+        assert pair not in authored_paths
+        authored_paths[pair] = stages
     retained = {frozenset(route['fields']): route for route in layer_review['retained_detours']}
     for site in layer_review['exterior_approaches']:
         field, anchor = site['field'], site['anchor_field']
@@ -281,9 +286,9 @@ def build():
         pair = frozenset((a,b))
         paths = {}
         note = source.get('note','')
-        if pair in new_layer_paths:
+        if pair in authored_paths:
             finding = 'implemented_as_lab_route'
-            forward = new_layer_paths[pair]
+            forward = authored_paths[pair]
             if forward[0] != field_links[a]['stage_id']:
                 forward = forward[::-1]
             paths = {'forward': forward, 'return': forward[::-1]}
@@ -301,19 +306,21 @@ def build():
                        any(edge['to']==start for edge in nodes[end]['exits']) for start,end in zip(forward,forward[1:]))
             paths = {'forward':forward, 'return':forward[::-1]}
             note = retained[pair]['reason']
-        elif source['mode'] in WALK_MODES and (floor_change or level_gap):
+        else:
             start, end = (field_links[field]['stage_id'] for field in (a,b))
             allowed_regions = {mapped_stage[start],mapped_stage[end]}
             forward = local_path(nodes,start,end,allowed_regions,mapped_stage)
             back = local_path(nodes,end,start,allowed_regions,mapped_stage)
-            finding = 'keep_indirect_route' if floor_change else 'check_level_jump'
             if forward and back:
-                finding = 'use_existing_local_detour' if floor_change else 'use_existing_level_route'
                 paths = {'forward':forward, 'return':back}
-        else:
-            finding='candidate_with_geography_review'
+                finding = 'use_existing_geo_route'
+                if source['mode'] in WALK_MODES and (floor_change or level_gap):
+                    finding = 'use_existing_local_detour' if floor_change else 'use_existing_level_route'
+            else:
+                finding = 'unverified_travel_choice'
         review.append({'fields':[a,b],'mode':source['mode'],'finding':finding,
-                       'terrain_note':note, **({'runtime_paths':paths} if paths else {})})
+                       'terrain_note':note, **({'runtime_paths':paths} if paths else {}),
+                       **({'review_focus':pending_reasons[pair]} if pair in pending_reasons and not paths else {})})
     walkthrough_levels = []
     for field, data in field_links.items():
         spec, stage = all_fields[field], nodes[data['stage_id']]

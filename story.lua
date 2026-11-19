@@ -683,8 +683,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
  end
  local function enter(s,id,spawn,elapsed,arrivalY)
-  local sameArena=s.story.node==id
+  local previous=s.story.node
+  local sameArena=previous==id
   local n=nodes[id]
+  s.storyCheckpointEntry=n.checkpointAtEntry and previous~=id and s.story.visited[previous] and previous or nil
   iansanTraining.enter(s,n.iansanQuest and not n.hub)
   s.campaign.zone='story:transition';action(s,n.hub and 'town' or 'field')
   s.campaign.zone=n.hub and 'town' or ('story:'..id);s.campaign.message='本編ルートの試作。隣の地点へは門の近くで移動。'
@@ -2133,6 +2135,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   setup(s)
   if d then
    d.story=s.story
+   if s.story.active and s.storyCheckpointEntry and s.story.visited[nodes[s.storyCheckpointEntry].checkpoint] then
+    -- A passage spanning two checkpoints resumes on the side used to enter it.
+    d.story=copy(s.story)
+    d.story.node=s.storyCheckpointEntry
+   end
    iansanTraining.checkpoint(s,d)
    if s.toyDive then d.active=s.toyDive.previousActive end
   end
