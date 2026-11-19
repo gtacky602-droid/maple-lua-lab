@@ -1,0 +1,54 @@
+{
+  "legend-potapo": {
+    "sources": [
+      {
+        "url": "https://game8.jp/genshin/655682",
+        "image": "https://img.game8.jp/10767979/709c3c59384265f708023180d5680e61.png/original",
+        "seen": "名前付きの戦闘画面で背の高い氷色の冠、左右の腕、細い青の下身を確認。"
+      },
+      {
+        "url": "https://staticg.sportskeeda.com/editor/2024/11/91187-17323580462725-1920.jpg",
+        "seen": "戦闘中の別カメラの画面で浮遊姿勢・装飾の張り出しを確認。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Wayob_Shamansaurus.png",
+        "seen": "標準の凛烈系。白銀の尖った外縁と青の芯。"
+      },
+      {
+        "url": "https://neko-gamebook.com/wp-content/uploads/2024/09/Genshin-Impact-Screenshot-2024.11.28-22.06.24.89.jpg",
+        "seen": "入口の石柱の参考画像。"
+      }
+    ],
+    "design": "中空の氷冠・水平に張る肩・一本に細くなる結晶の下身で描き起こし。",
+    "unchecked": [
+      "実機内の切り替え",
+      "360度のモデル回転"
+    ]
+  },
+  "legend-tupayo": {
+    "sources": [
+      {
+        "url": "https://game8.jp/genshin/655683",
+        "image": "https://img.game8.jp/10767993/4d73f97b0cd13a9e0a830bc6068dd649.png/original",
+        "seen": "名前付きの戦闘画面で朱と金の冠、左右の明るい肩、朱色の下身を確認。"
+      },
+      {
+        "url": "https://staticg.sportskeeda.com/editor/2024/11/66f79-17325329995489-1920.jpg",
+        "seen": "戦闘中の別カメラの画面で浮遊姿勢・装飾の張り出しを確認。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Wayob_Flamingo.png",
+        "seen": "標準の焚焼系。朱色の左右の突起と金色の内側。"
+      },
+      {
+        "url": "https://neko-gamebook.com/wp-content/uploads/2024/09/Genshin-Impact-Screenshot-2024.11.28-22.10.39.16.jpg",
+        "seen": "入口の石柱の参考画像。"
+      }
+    ],
+    "design": "炎の蕾を思わせる冠、金筋の花弁と左右に反る朱の帯で描き起こし。",
+    "unchecked": [
+      "実機内の切り替え",
+      "360度のモデル回転"
+    ]
+  }
+}

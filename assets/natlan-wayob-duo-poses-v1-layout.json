@@ -1,0 +1,126 @@
+{
+  "source": "natlan-wayob-duo-poses-source-v1.png",
+  "facing": "left",
+  "frames": [
+    {
+      "id": "legend-potapo",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        101,
+        12,
+        187,
+        115
+      ]
+    },
+    {
+      "id": "legend-potapo",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        106,
+        9,
+        182,
+        115
+      ]
+    },
+    {
+      "id": "legend-potapo",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        103,
+        9,
+        185,
+        115
+      ]
+    },
+    {
+      "id": "legend-tupayo",
+      "pose": "idle",
+      "crop": [
+        0,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        95,
+        9,
+        194,
+        115
+      ]
+    },
+    {
+      "id": "legend-tupayo",
+      "pose": "brace",
+      "crop": [
+        288,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        111,
+        9,
+        177,
+        115
+      ]
+    },
+    {
+      "id": "legend-tupayo",
+      "pose": "strike",
+      "crop": [
+        576,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        93,
+        9,
+        196,
+        115
+      ]
+    }
+  ]
+}

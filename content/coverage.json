@@ -147,8 +147,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 161,
-      "prototype_quest_count": 28,
+      "prototype_stage_count": 165,
+      "prototype_quest_count": 29,
       "official_map2_markers": {
         "waypoints": 126,
         "statues": 9
@@ -7962,8 +7962,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1461,
-    "provisional_quests": 267,
+    "authored_stages": 1465,
+    "provisional_quests": 268,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -8927,7 +8927,11 @@
           "night-wind-rilai-clearing",
           "night-trial-fallen-dawnstar",
           "flower-feather-smiths-ridge",
-          "night-trial-ironbeard"
+          "night-trial-ironbeard",
+          "stadium-west-waterfall-foot",
+          "night-trial-potapo",
+          "flower-feather-statue-back-cliff",
+          "night-trial-tupayo"
         ],
         "quest_ids": [
           "nat-mapped-valley-trail",
@@ -8957,7 +8961,8 @@
           "natlan-sulfurous-resonant-stones",
           "natlan-witztli-three-echoes",
           "natlan-ancient-excavation-wall",
-          "natlan-seaward-signs"
+          "natlan-seaward-signs",
+          "natlan-two-pillar-trails"
         ]
       },
       {
@@ -10334,7 +10339,7 @@
       "content/story-graph.json"
     ],
     "design_candidates": 56,
-    "playable_prototypes": 31,
+    "playable_prototypes": 33,
     "pending_boss_moves": [
       "legend-natlan_atlatl",
       "legend-natlan_balachko",
@@ -10345,9 +10350,11 @@
       "legend-natlan_ichcahuipilli",
       "legend-natlan_ironbeard",
       "legend-natlan_polychrome_tristars",
+      "legend-natlan_potapo",
       "legend-natlan_rilai",
       "legend-natlan_sappho",
       "legend-natlan_tlatzacuilotl",
+      "legend-natlan_tupayo",
       "legend-natlan_undead"
     ],
     "nightsoul_trials": [
@@ -10357,7 +10364,9 @@
       "night-trial-fallen-dawnstar",
       "night-trial-ichcahuipilli",
       "night-trial-ironbeard",
+      "night-trial-potapo",
       "night-trial-tlatzacuilotl",
+      "night-trial-tupayo",
       "night-trial-undead"
     ],
     "stage_by_legend": {
@@ -10391,7 +10400,9 @@
       "legend-natlan_cihuacoatl": "night-trial-cihuacoatl",
       "legend-natlan_rilai": "night-wind-rilai-clearing",
       "legend-natlan_fallen_dawnstar": "night-trial-fallen-dawnstar",
-      "legend-natlan_ironbeard": "night-trial-ironbeard"
+      "legend-natlan_ironbeard": "night-trial-ironbeard",
+      "legend-natlan_potapo": "night-trial-potapo",
+      "legend-natlan_tupayo": "night-trial-tupayo"
     }
   }
 }

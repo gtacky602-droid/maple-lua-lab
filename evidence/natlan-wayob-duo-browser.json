@@ -1,0 +1,66 @@
+{
+  "routes": [
+    [
+      "nat-wp-79051",
+      "stadium-west-waterfall-foot",
+      "raised"
+    ],
+    [
+      "stadium-west-waterfall-foot",
+      "night-trial-potapo",
+      "phase"
+    ],
+    [
+      "night-trial-potapo",
+      "stadium-west-waterfall-foot",
+      "phase"
+    ],
+    [
+      "stadium-west-waterfall-foot",
+      "nat-wp-79051",
+      "raised"
+    ],
+    [
+      "nat-wp-79542",
+      "flower-feather-statue-back-cliff",
+      "raised"
+    ],
+    [
+      "flower-feather-statue-back-cliff",
+      "night-trial-tupayo",
+      "phase"
+    ],
+    [
+      "night-trial-tupayo",
+      "flower-feather-statue-back-cliff",
+      "phase"
+    ],
+    [
+      "flower-feather-statue-back-cliff",
+      "nat-wp-79542",
+      "walk"
+    ]
+  ],
+  "comparisons": [
+    {
+      "name": "potapo",
+      "pngCommands": 12,
+      "rectangleCommands": 6454,
+      "lightCommands": 1652
+    },
+    {
+      "name": "tupayo",
+      "pngCommands": 12,
+      "rectangleCommands": 7026,
+      "lightCommands": 1887
+    }
+  ],
+  "waterfallTwoShelfDescentAndReturn": true,
+  "highCliffThreeShelves": true,
+  "trialReturnHeights": [
+    480,
+    274
+  ],
+  "questReported": true,
+  "errors": []
+}

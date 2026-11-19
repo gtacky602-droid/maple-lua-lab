@@ -1,0 +1,12 @@
+{
+  "waterfallTwoShelfDescentAndReturn": true,
+  "cliffThreeShelfAccessAndDefeatReturn": true,
+  "mapGuideUsesLocalApproachesAndPillars": true,
+  "potapoBlockedAtLv117AndAccessibleAtLv118": true,
+  "tupayoBlockedAtLv119AndAccessibleAtLv120": true,
+  "bothRecordsAndQuestPersist": true,
+  "killXp": {
+    "legend-natlan_potapo": 512900,
+    "legend-natlan_tupayo": 464100
+  }
+}
