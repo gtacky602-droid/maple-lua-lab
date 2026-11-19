@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 新規冒険をLv200と上限後の挑戦へ
+
+新規Lv1からのセーブで、極光谷から暁晶原までの狩場を通ってLv200に到達。光界解放・反響・七律開天を実戦で使い、拾った装備を更新した。暁晶原で敵71体を倒し21,041,986 EXPを獲得して、上限後EXPの保存と再開を確認。Lv200のセーブから入門螺旋の3区画、ファルカの通常模擬戦、北風の王狼も通し、成長Q-G09〜16の報告を復元した。続きは `work/cap-fresh-route/lv200-challenges-save.json`。 [試走の詳細](docs/balance/CAP_AND_STOPOVER_WEB.md)
+
 ## 新規冒険を白虹峠からLv160へ
 
 Lv140の雪の町から、白虹峠の3章とミティヤ、足跡、オデット、バレリー、雪合戦の5件を報告した。列車は9秒で到着。白虹を観測してLv158、雪棚でLv160に達し、極光谷でQの光界解放を発動した。M地図に白虹峠と極光谷からLv200までの狩場12地点を登録。続きは `work/snez-fresh-route/white-pass-save.json`。 [試走と道順](docs/balance/WHITE_PASS_PROGRESSION_WEB.md)

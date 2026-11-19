@@ -1,0 +1,21 @@
+{
+  "completedQuests": [
+    "growth-abyss",
+    "growth-stygian",
+    "growth-weekly"
+  ],
+  "abyssRooms": [
+    1,
+    2,
+    3
+  ],
+  "abyssStars": 3,
+  "abyssRewardSet": "troupe",
+  "abyssRewardRarity": 3,
+  "farkaTrialCleared": true,
+  "weeklyBoss": "andrius",
+  "weeklyAttackRegistered": true,
+  "weeklyDefeated": true,
+  "extraExpAtCap": 3176,
+  "savedAndRestored": true
+}

@@ -341,9 +341,10 @@ function updateProgression(f){
   $('regionLevels').textContent='冒険モードで確認できます。';
   return;
  }
- const training=p.level===f.levelCap?`上限後のEXP ${expFormat.format(p.overflowXp)}`:
+ const capped=p.level===f.levelCap;
+ const training=capped?`上限後のEXP ${expFormat.format(p.overflowXp)}`:
   `EXP ${expFormat.format(p.xp)} / ${expFormat.format(f.nextExp)}`;
- $('progressionStatus').textContent=`旅人・仲間 共通Lv ${p.level} ｜ ${training} ｜ 累計EXP ${expFormat.format(p.total)}（基礎 ${expFormat.format(p.baseXp)}） ｜ 討伐 ${expFormat.format(p.killXp)}・依頼・初回勝利 ${expFormat.format(p.questXp)}（試算）`;
+ $('progressionStatus').textContent=`旅人・仲間 共通Lv ${p.level}${capped?' MAX':''} ｜ ${training} ｜ 累計EXP ${expFormat.format(p.total)}（基礎 ${expFormat.format(p.baseXp)}） ｜ 討伐 ${expFormat.format(p.killXp)}・依頼・初回勝利 ${expFormat.format(p.questXp)}（試算）`;
  $('regionLevels').textContent=f.regionEligibility.map(r=>`${r.name} Lv${r.required}：${r.eligible?'レベル条件達成':'未達'}・正式マップ未実装`).join(' ／ ');
 }
 function hud(f,calls,renderMs){
