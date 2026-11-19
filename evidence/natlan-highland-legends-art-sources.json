@@ -1,0 +1,56 @@
+{
+  "legend-infinitesimal": {
+    "sources": [
+      {
+        "page": "https://gamerch.com/genshinwiki/913117",
+        "url": "https://cdn.gamerch.com/contents/wiki/4268/entry/P0P8GE5Q.png",
+        "alt": "微末の周囲の様子"
+      },
+      {
+        "page": "https://gamerch.com/genshinwiki/913117",
+        "url": "https://cdn.gamerch.com/contents/wiki/4268/entry/9FYgkMwj.png",
+        "alt": "微末の出現場所"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Lava_Solid.png",
+        "seen": "通常種「溶岩の像・土蝕者」の2Dアイコン。複数の岩節の下に橙の芯がのぞく。"
+      },
+      {
+        "url": "https://staticg.sportskeeda.com/editor/2025/03/47d0b-17432732267123-1920.jpg",
+        "seen": "微末の正面寄りの全身で、淡色の岩板と両側へ張る岩節の接地を確認。"
+      }
+    ],
+    "design": "明るい灰色の上面、黒い岩節、前下の熱芯。資料の岩節の形や模様は独自に再構成。",
+    "unchecked": [
+      "ゲーム内表示と姿勢切り替え",
+      "360度のモデル回転"
+    ]
+  },
+  "legend-bronzelock": {
+    "sources": [
+      {
+        "page": "https://game8.jp/genshin/655679",
+        "url": "https://img.game8.jp/10767821/f10010f4df13601b146eefae70719e66.png/original",
+        "alt": "銅の錠アイキャッチ"
+      },
+      {
+        "page": "https://game8.jp/genshin/655679",
+        "url": "https://img.game8.jp/10746022/87ff4429e6c3ba66aa206b577903bdaa.jpeg/original",
+        "alt": "地方伝説「銅の錠」がいる場所に到着"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Gargoyle.png",
+        "seen": "通常種「遺跡ドレイク・陸行」の2Dアイコン。円形の発光部が装甲に囲まれている。"
+      },
+      {
+        "url": "https://staticg.sportskeeda.com/editor/2024/11/2f5b6-17324033274971-1920.jpg",
+        "seen": "銅の錠の名前付き戦闘画面。前へ張り出す頭部、地面に体重をかける後ろ脚と後ろへ続く尾。"
+      }
+    ],
+    "design": "銅色の大板と淡い頭部発光、地上歩行の後ろ脚、楔形の尾端。既存のエオンブライド比較画像で翼と輪状の尾の違いを目視。",
+    "unchecked": [
+      "ゲーム内表示と姿勢切り替え",
+      "360度のモデル回転"
+    ]
+  }
+}

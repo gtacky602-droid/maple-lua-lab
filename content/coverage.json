@@ -275,8 +275,8 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 24,
-      "prototype_quest_count": 5,
+      "prototype_stage_count": 27,
+      "prototype_quest_count": 6,
       "waypoints_status": "global_catalog_imported; regional mapping unverified",
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
@@ -7962,8 +7962,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1474,
-    "provisional_quests": 270,
+    "authored_stages": 1478,
+    "provisional_quests": 271,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -9658,14 +9658,18 @@
           "nat-wp-80035",
           "nat-wp-80036",
           "nat-wp-80040",
-          "nat-wp-80846"
+          "nat-wp-80846",
+          "ochka-bronzelock-device-shore",
+          "ochka-bronzelock-floating-landing",
+          "ochka-bronzelock-island-court"
         ],
         "quest_ids": [
           "nat-mapped-ochka-supplies",
           "ochkanatlan-survey",
           "ochka-stopover-survey",
           "ochka-wall-marks",
-          "ochka-sifter-clear"
+          "ochka-sifter-clear",
+          "ochka-floating-island-spiritway"
         ]
       },
       {
@@ -9946,7 +9950,8 @@
           "nat-wp-84118",
           "nat-wp-84119",
           "nat-wp-84120",
-          "nat-wp-84121"
+          "nat-wp-84121",
+          "sacred-mountain-east-isle-dais"
         ]
       },
       {
@@ -10350,16 +10355,18 @@
       "content/story-graph.json"
     ],
     "design_candidates": 56,
-    "playable_prototypes": 38,
+    "playable_prototypes": 40,
     "pending_boss_moves": [
       "legend-natlan_atlatl",
       "legend-natlan_balachko",
       "legend-natlan_battlegoat_ironclaw",
+      "legend-natlan_bronzelock",
       "legend-natlan_chimalli",
       "legend-natlan_cihuacoatl",
       "legend-natlan_cocijo",
       "legend-natlan_fallen_dawnstar",
       "legend-natlan_ichcahuipilli",
+      "legend-natlan_infinitesimal",
       "legend-natlan_ironbeard",
       "legend-natlan_last_tenochtzitoc",
       "legend-natlan_peak",
@@ -10425,7 +10432,9 @@
       "legend-natlan_tupu": "night-trial-tupu",
       "legend-natlan_peak": "atocpan-peak-cave",
       "legend-natlan_battlegoat_ironclaw": "atocpan-battlegoat-ironclaw-field",
-      "legend-natlan_last_tenochtzitoc": "zapabay-tenochtzitoc-shallows"
+      "legend-natlan_last_tenochtzitoc": "zapabay-tenochtzitoc-shallows",
+      "legend-natlan_infinitesimal": "sacred-mountain-east-isle-dais",
+      "legend-natlan_bronzelock": "ochka-bronzelock-island-court"
     }
   }
 }

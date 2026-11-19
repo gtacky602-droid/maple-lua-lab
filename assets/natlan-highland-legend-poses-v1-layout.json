@@ -1,0 +1,126 @@
+{
+  "source": "natlan-highland-legend-poses-source-v1.png",
+  "facing": "left",
+  "frames": [
+    {
+      "id": "legend-infinitesimal",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        43,
+        41,
+        259,
+        132
+      ]
+    },
+    {
+      "id": "legend-infinitesimal",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        61,
+        49,
+        237,
+        132
+      ]
+    },
+    {
+      "id": "legend-infinitesimal",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        46,
+        38,
+        262,
+        132
+      ]
+    },
+    {
+      "id": "legend-bronzelock",
+      "pose": "idle",
+      "crop": [
+        0,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        53,
+        25,
+        264,
+        132
+      ]
+    },
+    {
+      "id": "legend-bronzelock",
+      "pose": "brace",
+      "crop": [
+        288,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        67,
+        39,
+        238,
+        132
+      ]
+    },
+    {
+      "id": "legend-bronzelock",
+      "pose": "strike",
+      "crop": [
+        576,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        49,
+        28,
+        266,
+        132
+      ]
+    }
+  ]
+}

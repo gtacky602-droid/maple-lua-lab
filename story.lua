@@ -164,6 +164,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   return (not (rule.path and quests[rule.quest].anyPath) and completed(s,rule.quest)) or
    (rule.count and state and state.count>=rule.count and (not rule.recovery or state.recovered))
  end
+ local function spiritwayPoint(x,y,endX,track,p)
+  return x+(endX-x)*p,y+(track.y-y)*p-4*track.arc*p*(1-p)
+ end
  local function windWindow(s,wind)
   local t=(s.t-s.storyEnteredAt)%wind.period
   local calm=t>=wind.calmStart and t<wind.calmEnd
@@ -498,10 +501,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if not milestone or milestone.kind~='break' or milestone.node~=node.id then return end
   for _,point in ipairs(node.breakTargets) do
    if not (state.sweep and state.sweep[point.id]) then
-    local object={id=point.entity,breakTarget=true,custom=true,boss=true,noRewards=true,noAutoTarget=true,
+    local object={id=point.entity,breakTarget=true,breakName=point.name,custom=true,boss=true,noRewards=true,noAutoTarget=true,
      hp=1,maxhp=1,x=point.x,home=point.x,y=point.y,hitTop=point.y-62,hitBottom=point.y,warning=0,respawn=math.huge}
     object.onCastContact=function(runtime,cast,hit,_,_,element)
-     if element~=milestone.element then
+     if milestone.element and element~=milestone.element then
       runtime.storyNotice=milestone.elementHint
       return false
      end
@@ -1369,7 +1372,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if seconds then
     s.lift={destination=dest,name=departure.rideLabel or n.name,seconds=seconds,remaining=seconds,
             waterway=departure.waterwaySeconds~=nil,boat=departure.boatSeconds~=nil,phase=departure.phaseSeconds~=nil,
-            wallTrack=departure.wallTrack,
+            wallTrack=departure.wallTrack,spiritwayTrack=departure.spiritwayTrack,
             x=departure.arrivalX or (arrival and arrival.x or spawn),y=departure.arrivalY or (arrival and arrival.y or 480)}
      if not s.lift.waterway and not s.lift.boat and not s.lift.phase and (dest==previous or departure.animatedLift)
          and departure.arrivalY then s.lift.riders={} end
@@ -1581,14 +1584,19 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if ride.riders then
      local p=1-ride.remaining/ride.seconds
      p=p*p*(3-2*p)
-     local track=ride.wallTrack or ride
+     local track=ride.spiritwayTrack or ride.wallTrack or ride
      for i,start in ipairs(ride.riders) do
       local actor=s.actors[i]
-      actor.x=start.x+(track.x-(i-1)*40-start.x)*p
-      actor.y=start.y+(track.y-start.y)*p
+      local endX=track.x-(i-1)*40
+      if ride.spiritwayTrack then
+       actor.x,actor.y=spiritwayPoint(start.x,start.y,endX,track,p)
+      else
+       actor.x=start.x+(endX-start.x)*p
+       actor.y=start.y+(track.y-start.y)*p
+      end
       actor.ground=false
      end
-     if ride.wallTrack then
+     if ride.wallTrack or ride.spiritwayTrack then
       s.camera=math.max(0,math.min(s.actors[s.active].x-400,s.worldwidth-960))
      end
     end
@@ -1866,7 +1874,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if s.lift then
     local ride=s.lift
     f.storyLift={destination=ride.name,remaining=ride.remaining,seconds=ride.seconds,phase=ride.phase,
-                 waterway=ride.waterway or nil,boat=ride.boat or nil,wall=ride.wallTrack and true or nil}
+                 waterway=ride.waterway or nil,boat=ride.boat or nil,wall=ride.wallTrack and true or nil,
+                 spiritway=ride.spiritwayTrack and true or nil}
    else f.storyNearbyPortal=nearbyPortal(s) end
    local markers={};f.storyPortals={}
    if s.travelerTrial then f.storyTravelerTrial=true end
@@ -1916,7 +1925,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       markers[#markers+1]={kind='rect',x=x-16,y=y-44,w=32,h=34,color='#6d3a98'}
       markers[#markers+1]={kind='rect',x=x-9,y=y-58,w=18,h=28,color='#a469d7'}
       markers[#markers+1]={kind='rect',x=x-5,y=y-54,w=6,h=23,color='#efd1ff'}
-      markers[#markers+1]={kind='text',x=x,y=y-68,text='電気水晶',color='#f8dbff',size=13}
+      markers[#markers+1]={kind='text',x=x,y=y-68,text=object.breakName or '電気水晶',color='#f8dbff',size=13}
      end
     end
    end
@@ -1935,6 +1944,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      end
      markers[#markers+1]={kind='rect',x=x-29,y=y-54,w=58,h=6,color='#66556a'}
      markers[#markers+1]={kind='rect',x=x-6,y=y-50,w=12,h=10,color='#e1b968'}
+    elseif edge.spiritwayTrack then
+     local track=edge.spiritwayTrack
+     if gateRestriction(s,edge) then
+      markers[#markers+1]={kind='effect',x=x,y=y-25,w=28,h=40,color='#746783',alpha=.85}
+     else
+      for i=0,12 do
+       local wx,wy=spiritwayPoint(edge.x,edge.y or 480,track.x,track,i/12)
+       markers[#markers+1]={kind='effect',x=wx-s.camera,y=wy-20,w=15,h=12,
+                            color=i%2==0 and '#efd2ff' or '#ffc676',alpha=.9}
+      end
+     end
     elseif edge.wallTrack then
      local endX,endY=edge.wallTrack.x-s.camera,edge.wallTrack.y
      for i=0,7 do
@@ -2142,7 +2162,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      end
     end
    end
-   if s.lift and s.lift.riders and not s.lift.wallTrack then
+   if s.lift and s.lift.riders and not (s.lift.wallTrack or s.lift.spiritwayTrack) then
     local rider=s.actors[1]
     local x,y=rider.x-s.camera,rider.y
     markers[#markers+1]={kind='rect',x=x-63,y=y,w=101,h=10,color='#5e5b48'}

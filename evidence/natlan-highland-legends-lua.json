@@ -1,0 +1,14 @@
+{
+  "mountainLv130AndReturnToShelf": true,
+  "twoDeviceHitsUnlockTransportWithoutKillsOrXp": true,
+  "partialDeviceStateRestored": true,
+  "spiritwayMovesActorsOnArcAndPauses": true,
+  "twoWaySpiritwayWorksBelowLv180": true,
+  "bronzelockLv180GateAndSavedRecord": true,
+  "questCanBeReportedAfterRestore": true,
+  "transportReopensAfterReportingAndReloading": true,
+  "killXp": {
+    "legend-natlan_infinitesimal": 871150,
+    "legend-natlan_bronzelock": 5864100
+  }
+}

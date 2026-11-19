@@ -737,7 +737,9 @@
     {"id":"legend-peak","name":"ピーク","file":"legend-peak-field-idle-sprites-v1.json","height":110,"mapHover":0},
     {"id":"legend-battlegoat","name":"戦羊","file":"legend-battlegoat-field-idle-sprites-v1.json","height":110,"mapHover":0},
     {"id":"legend-ironclaw","name":"鉄爪","file":"legend-ironclaw-field-idle-sprites-v1.json","height":110,"mapHover":0},
-    {"id":"legend-last-tenochtzitoc","name":"最後のテノチズトク人","file":"legend-last-tenochtzitoc-field-idle-sprites-v1.json","height":110,"mapHover":0}
+    {"id":"legend-last-tenochtzitoc","name":"最後のテノチズトク人","file":"legend-last-tenochtzitoc-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-infinitesimal","name":"微末","file":"legend-infinitesimal-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-bronzelock","name":"銅の錠","file":"legend-bronzelock-field-idle-sprites-v1.json","height":110,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }

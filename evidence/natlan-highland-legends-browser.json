@@ -1,0 +1,62 @@
+{
+  "routes": [
+    [
+      "nat-wp-84107",
+      "sacred-mountain-east-isle-dais",
+      "raised"
+    ],
+    [
+      "sacred-mountain-east-isle-dais",
+      "nat-wp-84107",
+      "walk"
+    ],
+    [
+      "nat-wp-80030",
+      "ochka-bronzelock-device-shore",
+      "raised"
+    ],
+    [
+      "ochka-bronzelock-device-shore",
+      "ochka-bronzelock-floating-landing",
+      "lift"
+    ],
+    [
+      "ochka-bronzelock-floating-landing",
+      "ochka-bronzelock-island-court",
+      "raised"
+    ],
+    [
+      "ochka-bronzelock-island-court",
+      "ochka-bronzelock-floating-landing",
+      "walk"
+    ],
+    [
+      "ochka-bronzelock-floating-landing",
+      "ochka-bronzelock-device-shore",
+      "lift"
+    ],
+    [
+      "ochka-bronzelock-device-shore",
+      "nat-wp-80030",
+      "walk"
+    ]
+  ],
+  "comparisons": [
+    {
+      "name": "infinitesimal",
+      "pngCommands": 14,
+      "rectangleCommands": 8465,
+      "lightCommands": 2284
+    },
+    {
+      "name": "bronzelock",
+      "pngCommands": 14,
+      "rectangleCommands": 10456,
+      "lightCommands": 2698
+    }
+  ],
+  "spiritwayHud": true,
+  "physicalDeviceInput": true,
+  "questReported": true,
+  "errors": []
+}
