@@ -441,7 +441,7 @@ return function(C, atlas)
     if nodes[edge.to] then
      routes[#routes+1]={id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
        level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],
-       huntKind=nodes[edge.to].huntKind,restricted=edge.requires~=nil}
+       huntKind=positions[edge.to] and positions[edge.to].huntKind,restricted=edge.requires~=nil}
     end
    end
   elseif selected and nodes[selected.anchor] then
@@ -454,7 +454,7 @@ return function(C, atlas)
   for _,leg in ipairs(stops) do
    inaccessible=inaccessible or leg.reason~=nil
    local a,b=where[leg.from],where[leg.id]
-   if map.layer=='boss' and places[leg.from]==region.id and places[leg.id]==region.id then
+   if (map.layer=='boss' or map.layer=='hunt') and places[leg.from]==region.id and places[leg.id]==region.id then
     a,b=positions[leg.from],positions[leg.id]
    end
    if a and b then

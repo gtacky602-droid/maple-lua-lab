@@ -157,7 +157,8 @@ export function initAtlas(action, clearKeys) {
     selected.boss && selected.boss.name !== selected.name && selected.name,
     selected.boss?.kind === 'stygian' && '受付で難度を選ぶ',
     selected.entrancePending ? '試作の見晴らし場・原作入口は照合中' :
-      selected.huntKind === 'elite' ? '任意戦' : selected.huntKind ? '狩場' : selected.provisional ? '試作区画' : '',
+      selected.huntKind === 'elite' ? '任意戦' : selected.huntKind ? '狩場' : '',
+    selected.provisional && !selected.entrancePending && '試作区画',
     selected.huntLevel ? '脇道の狩場はLv' + selected.huntLevel :
       selected.recommended && selected.recommended !== selected.level ? '設計推奨Lv' + selected.recommended : '',
    ].filter(Boolean).join(' ｜ ') : area ? `設計推奨Lv${area.low}〜${area.high}` : '地域を選ぶと周辺のフィールドを確認できます';

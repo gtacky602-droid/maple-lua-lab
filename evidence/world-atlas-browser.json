@@ -11,6 +11,7 @@
   "bossAliasAndWeeklyGate": true,
   "stygianDeskInGlobalBossSearch": true,
   "bossCatalogOpensFieldMap": true,
+  "mondstadtEarlyHuntLayer": true,
   "keyboardAndTurnRecovery": true,
   "simulationTimeFrozen": true,
   "noMobileOverflow": true,

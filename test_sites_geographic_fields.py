@@ -79,6 +79,8 @@ for field, row in routes.items():
     assert row['recommended']==specs[field]['level'] and row['access']==max(row['recommended'],nodes[host]['level'])
     p=positions[stage]
     assert p['provisional'] and p['recommended']==row['recommended']
+    assert p['huntKind']=='field'
+    assert all(positions[pocket]['huntKind']=='elite' for pocket in row['pockets'])
     assert p['layer']==('water' if row['mode']=='water' else 'below' if row['mode'] in ('cave','lift') else 'surface')
     layout=specs[field]['stage_layout']
     for e in spawns[stage]:
@@ -110,6 +112,10 @@ for field, row in routes.items():
     quest_state=native(state.story.quests)
     walk.cross(stage)
     assert len(state.enemies)==len(spawns[stage])
+    regular = {item['id'] for item in specs[field]['regular_spawns'] if item['combat_role']=='ordinary'}
+    for enemy, placement in zip(state.enemies.values(), spawns[stage], strict=True):
+        expected_role = placement.get('expRole', 'normal' if placement['designSpawn'] in regular else None)
+        assert enemy.expRole == expected_role
     assert all(e.patrolMin >= width*layout['safe_entry_exit_fraction']-0.001 for e in state.enemies.values())
     counts[row['mode']]+=1
     if row['mode']=='water':
@@ -163,6 +169,7 @@ write('evidence/sites-geographic-fields-lua.json',{
     'field_round_trips':len(routes),'directions_traversed':len(crossings),'routes_by_terrain':dict(counts),
     'own_checkpoint_recovery':len(routes),'level_gates_exercised':blocked,
     'ordinary_placements':ordinary,'optional_pocket_round_trips':pockets,
+    'ordinary_exp_classification':True,
     'underwater_corridor_rendered_ground_combat_respawn':counts['water'],
     'existing_quest_progress_preserved':True,'source_entrances_unverified':sorted(pending),
 })

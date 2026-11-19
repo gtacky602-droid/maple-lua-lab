@@ -1,0 +1,17 @@
+{
+  "imported": "Lua fresh adventure checkpoint",
+  "node": "liyue-harbor",
+  "level": 20,
+  "totalXp": 20746,
+  "mondstadtQuests": [
+    "amber-join",
+    "mond-old-trail",
+    "mond-watchtower-clear",
+    "mond-rest-stop",
+    "mond-bennett-cave",
+    "mond-windmill"
+  ],
+  "firstLiyueQuestAccepted": "liyue-market-delivery",
+  "firstQuestFieldEntered": "liyue-loading-yard",
+  "errors": []
+}

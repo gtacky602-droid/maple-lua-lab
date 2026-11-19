@@ -213,7 +213,11 @@ def build():
         bosses_by_stage[stage] = {key: boss[key] for key in ('id', 'name', 'kind', 'aliases') if key in boss}
 
     hunt_rows = load('sources/map-research/sites-branch-hunts.json')['routes']
-    hunting_regions = {region for id, region in mapped_stage.items() if nodes[id].get('huntKind')}
+    geographic = load('sources/map-research/sites-geographic-fields.json')['routes']
+    hunt_kinds = {row['stage']: 'field' for row in geographic}
+    hunt_kinds.update({pocket: 'elite' for row in geographic for pocket in row['pockets']})
+    hunt_kinds.update({id: node['huntKind'] for id, node in nodes.items() if 'huntKind' in node})
+    hunting_regions = {mapped_stage[stage] for stage in hunt_kinds}
     hunts_by_host = {row['host']:row for row in hunt_rows}
     for row in hunt_rows:
         host, hunt = nodes[row['host']], nodes[row['stage']]
@@ -242,7 +246,7 @@ def build():
                            **({'provisional': True} if node.get('designField') or node.get('atlasParent') else {}),
                            **({'entrancePending': True} if node.get('atlasEntrancePending') else {}),
                            **({'huntLevel': hunts_by_host[node_id]['level']} if node_id in hunts_by_host else {}),
-                           **({'huntKind': node['huntKind']} if 'huntKind' in node else {}),
+                           **({'huntKind': hunt_kinds[node_id]} if node_id in hunt_kinds else {}),
                            **({'boss': bosses_by_stage[node_id]} if node_id in bosses_by_stage else {}),
                            **({'recommended': field['level'], 'field': field['field_id']} if field else {})})
         # Imported design points missing a runtime assignment are available in the review layer.
@@ -278,7 +282,6 @@ def build():
     review = []
     lab_routes = load('sources/map-research/sites-slot-trails.json')['routes'] if designed_links else []
     implemented = {frozenset(route['fields']) for route in lab_routes}
-    geographic = load('sources/map-research/sites-geographic-fields.json')['routes']
     for route in geographic:
         field, anchor = route['field'], route['anchor_field']
         stage, host = route['stage'], route['approach']

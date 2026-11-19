@@ -7965,6 +7965,12 @@
     "authored_stages": 1518,
     "provisional_quests": 283,
     "companion_join_records": 8,
+    "fresh_save_route": {
+      "verified_to": "liyue-harbor",
+      "arrival_level": 20,
+      "scope": "New Lv1 save through the three Mondstadt main quests, three side quests, ordinary hunting and a checkpoint reload. Scripted Lua inputs and built-in auto-battle.",
+      "evidence": "evidence/mondstadt-fresh-route.json"
+    },
     "scope_complete": false,
     "not_proven": [
       "production layouts and access conditions for all mapped stages",
@@ -8028,7 +8034,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Check progression and reward pacing across the connected world, boss and quest routes from fresh saves.",
+  "current_priority": "Continue the fresh-save progression route from Liyue to Inazuma and check the travel, quest and EXP gates.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",

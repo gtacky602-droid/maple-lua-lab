@@ -32,6 +32,15 @@ try {
  assert.equal(await page.locator('#atlasItinerary').getAttribute('open'),'');
  await page.locator('#atlasItineraryStops button').filter({hasText:'徒歩'}).waitFor();
  const tick = await page.evaluate(() => window.lab.frame.t);
+ await page.locator('#atlasLayer').selectOption('hunt');
+ await area('region-01','hunt');
+ await page.locator('#atlasSearch').fill('銘記の谷');
+ await page.locator('#atlasField').selectOption('sites-hunt-7137');
+ await page.waitForFunction(()=>window.lab.frame.worldMap?.selected?.id==='sites-hunt-7137');
+ assert.match(await page.locator('#atlasPlaceLevel').textContent(),/通行Lv13.*狩場/);
+ assert.equal((await map()).guide.stops.at(-1).id,'sites-hunt-7137');
+ await page.locator('#atlasSearch').fill('');
+ await page.locator('#atlasClose').focus();
  await page.keyboard.press('KeyD');
  await page.keyboard.press('KeyJ');
  await page.locator('#atlasWorld').click();
@@ -128,6 +137,7 @@ try {
   openedByKeyAndButton:true,worldRegions:8,currentPosition:true,
   mapClickAndFilter:true,searchAndPlaceSelection:true,itineraryOnCanvasAndPanel:true,hiddenAreaRemoved:true,windcrownExteriorReturn:true,
   globalBossChoices:bossCount,bossAliasAndWeeklyGate:true,stygianDeskInGlobalBossSearch:true,bossCatalogOpensFieldMap:true,
+  mondstadtEarlyHuntLayer:true,
   keyboardAndTurnRecovery:true,simulationTimeFrozen:true,noMobileOverflow:true,errors
  },null,2)+'\n');
  console.log('Atlas current position, overview, regional and water layers, search, keyboard and mobile passed.');

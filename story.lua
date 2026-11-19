@@ -759,6 +759,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      e.x=placement.x;e.home=e.x;e.y=p.y;e.kind=placement.kind;e.art=placement.art;e.spawnId=placement.id
      e.storyName=placement.name
      e.dailyElite=placement.dailyElite;e.expRole=placement.expRole
+     -- Imported ordinary mobs have species names, which are also used by legacy named elites.
+     if not e.expRole and placement.designSpawn and placement.designSpawn:match('^PLAN8%-.+%-ordinary$') then
+      e.expRole='normal'
+     end
      e.pursuit=placement.pursuit
      if placement.flight then
       e.flight=placement.flight;e.flightHome=p.y

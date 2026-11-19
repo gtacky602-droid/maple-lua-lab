@@ -1,0 +1,118 @@
+{
+  "route": [
+    {
+      "id": "amber-join",
+      "seconds": 24.87,
+      "level": 3,
+      "total": 85,
+      "questXp": 76,
+      "killXp": 9,
+      "kills": 9
+    },
+    {
+      "id": "mond-old-trail",
+      "seconds": 48.82,
+      "level": 9,
+      "total": 2578,
+      "questXp": 2562,
+      "killXp": 16,
+      "kills": 16
+    },
+    {
+      "id": "mond-watchtower-clear",
+      "seconds": 68.75,
+      "level": 16,
+      "total": 12509,
+      "questXp": 12485,
+      "killXp": 24,
+      "kills": 19
+    },
+    {
+      "id": "mond-rest-stop",
+      "seconds": 83.27,
+      "level": 16,
+      "total": 12540,
+      "questXp": 12511,
+      "killXp": 29,
+      "kills": 24
+    },
+    {
+      "id": "mond-bennett-cave",
+      "seconds": 117.1,
+      "level": 17,
+      "total": 13515,
+      "questXp": 13478,
+      "killXp": 37,
+      "kills": 28
+    },
+    {
+      "id": "mond-windmill",
+      "seconds": 131.8,
+      "level": 18,
+      "total": 15519,
+      "questXp": 15482,
+      "killXp": 37,
+      "kills": 28
+    },
+    {
+      "id": "liyue-level-gate",
+      "seconds": 143.77,
+      "level": 18,
+      "total": 15525,
+      "questXp": 15482,
+      "killXp": 43,
+      "kills": 34
+    },
+    {
+      "id": "lv20",
+      "seconds": 517.03,
+      "level": 20,
+      "total": 20655,
+      "questXp": 15482,
+      "killXp": 5173,
+      "kills": 510
+    },
+    {
+      "id": "liyue-harbor",
+      "seconds": 533.7,
+      "level": 20,
+      "total": 20746,
+      "questXp": 15482,
+      "killXp": 5264,
+      "kills": 517
+    }
+  ],
+  "hunt": {
+    "scene": "sites-hunt-7137",
+    "expeditions": [
+      {
+        "seconds": 49.12,
+        "kills": 60,
+        "xp": 660
+      },
+      {
+        "seconds": 147.23,
+        "kills": 234,
+        "xp": 2574
+      },
+      {
+        "seconds": 79.83,
+        "kills": 127,
+        "xp": 1397
+      },
+      {
+        "seconds": 30.82,
+        "kills": 44,
+        "xp": 484
+      }
+    ],
+    "seconds": 307.0,
+    "kills": 465,
+    "xp": 5115,
+    "recoveryTrips": 3,
+    "gateToLv20Seconds": 373.27
+  },
+  "partyWipes": 0,
+  "savedAndRestored": true,
+  "scope": "New Lv1 save, scripted normal inputs and built-in auto-battle for hunting. Lua clock."
+}
