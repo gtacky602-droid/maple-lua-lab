@@ -68,6 +68,7 @@ function update(){
  for(const n of graph.nodes.filter(n=>restPoints.has(n.id))){
   const rest=button('休憩へ：'+n.restWaypoint.label,'story_fast:'+n.id);
   rest.dataset.restWaypoint=n.id;
+  rest.disabled=f.voyage?.kind==='ferry';
   panel.append(rest);
  }
  const waypoints=graph.nodes.filter(n=>n.waypoint);
@@ -121,7 +122,11 @@ function update(){
 
  for(const h of node.hints||[])panel.append(button('調べる：'+h.label,'story_discover:'+h.group));
  for(const e of node.exits){const n=graph.nodes.find(n=>n.id===e.to);const b=button('門：'+(e.rideLabel||n.name)+' Lv'+n.level,'story_portal:'+n.id);if(e.windowStart){b.disabled=!f.voyage?.stopover;b.title=trolley?'停車中に途中下車できます。':'寄港中に途中下船できます。'}if(e.requiresArrival)b.disabled=!!f.voyage;if(e.darkOnly&&f.storyLocalLight?.mode!=='dark'){b.disabled=true;b.title='室内で消灯すると現れます。'}panel.append(b)}
- for(const n of graph.nodes.filter(n=>n.hub&&f.story.visited[n.id]))panel.append(button('拠点へ：'+n.name,'story_fast:'+n.id));
+ for(const n of graph.nodes.filter(n=>n.hub&&f.story.visited[n.id])){
+  const travel=button('拠点へ：'+n.name,'story_fast:'+n.id);
+  travel.disabled=f.voyage?.kind==='ferry';
+  panel.append(travel);
+ }
  panel.append(renderQuestJournal(f,{filter:questFilter,button,trackedId,onTrack:trackQuest,onFilter:value=>{questFilter=value;previous='';update()}}));
 }
 setInterval(update,200);

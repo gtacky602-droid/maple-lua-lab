@@ -190,18 +190,19 @@ return function(C, atlas)
  local function route_mode(edge,from,to)
   if edge.windowStart and from.voyage and from.voyage.kind=='trolley' then return 'rail'
   elseif edge.boatSeconds or edge.windowStart then return 'boat'
+  elseif from.voyage and from.voyage.kind=='ferry' and from.voyage.source==edge.to then return 'cancel'
   elseif edge.waterwaySeconds then return 'water'
   elseif edge.liftSeconds then return 'lift'
   elseif from.voyage and from.voyage.destination==edge.to or to.voyage then
    local vehicle=from.voyage or to.voyage
-   return vehicle.kind=='trolley' and 'rail' or 'arrival'
+   return vehicle.kind=='trolley' and 'rail' or vehicle.kind=='ferry' and 'boat' or 'arrival'
   elseif edge.requiresArrival then return 'arrival'
   elseif edge.wind then return 'wind' end
   return 'walk'
  end
- local route_labels = {boat='舟・寄港',water='水路',lift='昇降機',rail='鉄道',arrival='乗り物',wind='吹雪待ち',walk='徒歩'}
+ local route_labels = {boat='舟・寄港',water='水路',lift='昇降機',rail='鉄道',arrival='乗り物',wind='吹雪待ち',cancel='航海を中止',walk='徒歩'}
  local route_colors = {boat='#ebf4db',water='#c2f1ec',lift='#f4ca8a',arrival='#ebf4db',
-                       rail='#f2d293',wind='#f5ebcc',walk='#506054'}
+                       rail='#f2d293',wind='#f5ebcc',cancel='#b9b5a2',walk='#506054'}
 
  local function connections(node)
   if not node.voyage then return node.exits end

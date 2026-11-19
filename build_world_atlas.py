@@ -267,6 +267,16 @@ def build():
             assert any(edge['to']==start for edge in nodes[end]['exits'])
         assert pair not in authored_paths
         authored_paths[pair] = stages
+    ferries = load('sources/map-research/sites-return-ferries.json')['routes']
+    sailing_paths = {frozenset(route['fields']): route for route in ferries}
+    for route in ferries:
+        assert source_by_pair[frozenset(route['fields'])]['id'] == route['source_edge']
+        expected_endpoints = [field_links[field]['stage_id'] for field in route['fields']]
+        for name, path in route['paths'].items():
+            assert [path[0],path[-1]] == (expected_endpoints if name=='forward' else expected_endpoints[::-1])
+            assert all(any(e['to']==end for e in nodes[start]['exits']) or
+                       nodes[start].get('voyage',{}).get('destination')==end
+                       for start,end in zip(path,path[1:]))
     retained = {frozenset(route['fields']): route for route in layer_review['retained_detours']}
     for site in layer_review['exterior_approaches']:
         field, anchor = site['field'], site['anchor_field']
@@ -286,7 +296,14 @@ def build():
         pair = frozenset((a,b))
         paths = {}
         note = source.get('note','')
-        if pair in authored_paths:
+        if pair in sailing_paths:
+            finding = 'implemented_as_lab_route'
+            route = sailing_paths[pair]
+            paths = route['paths']
+            if paths['forward'][0] != field_links[a]['stage_id']:
+                paths = {'forward':paths['return'], 'return':paths['forward']}
+            note = route['note']
+        elif pair in authored_paths:
             finding = 'implemented_as_lab_route'
             forward = authored_paths[pair]
             if forward[0] != field_links[a]['stage_id']:

@@ -1930,9 +1930,20 @@
         "teyvat:100665"
       ],
       "mode": "road",
-      "finding": "unverified_travel_choice",
-      "terrain_note": "西の雪林と谷道を回る。凍結湖を徒歩で横断する前提は置かない。",
-      "review_focus": "transport_boarding_and_return"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "駅裏の地上歩廊から谷沿いに切通しへ戻る。凍結湖は渡らない。",
+      "runtime_paths": {
+        "forward": [
+          "white-pass-station",
+          "sites-white-pass-service-path",
+          "white-pass-cut"
+        ],
+        "return": [
+          "white-pass-cut",
+          "sites-white-pass-service-path",
+          "white-pass-station"
+        ]
+      }
     },
     {
       "fields": [
@@ -2421,9 +2432,22 @@
         "teyvat:13652"
       ],
       "mode": "boat",
-      "finding": "unverified_travel_choice",
-      "terrain_note": "璃月港で乗船し離島で下船。航海を徒歩マップ扱いにせず、帰航を同時に利用可能にする。",
-      "review_focus": "transport_boarding_and_return"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "荷揚げ波止場から港に入り、往復とも30秒の船便を利用する。",
+      "runtime_paths": {
+        "forward": [
+          "liyue-wp-104",
+          "liyue-harbor",
+          "liyue-ferry",
+          "inazuma-port"
+        ],
+        "return": [
+          "inazuma-port",
+          "liyue-ferry-return",
+          "liyue-harbor",
+          "liyue-wp-104"
+        ]
+      }
     },
     {
       "fields": [
@@ -5677,9 +5701,30 @@
         "teyvat:64837"
       ],
       "mode": "boat",
-      "finding": "unverified_travel_choice",
-      "terrain_note": "遺瓏埠の桟橋→外海→ルミドゥースの下部桟橋→昇降機。Lv75以上の任意横道で、通常国巡りの必須路にしない。",
-      "review_focus": "transport_boarding_and_return"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "外海は両岸の乗り場を経由する。下部桟橋から昇降機で東湾へ上がり、別の水路から潜る。通行Lv88。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55766",
+          "fon-wp-55765",
+          "fon-wp-55767",
+          "fon-wp-55760",
+          "sites-lumidouce-landing",
+          "fontaine-ferry-chenyu",
+          "liyue-wp-66769",
+          "liyue-wp-64837"
+        ],
+        "return": [
+          "liyue-wp-64837",
+          "liyue-wp-66769",
+          "chenyu-ferry-fontaine",
+          "sites-lumidouce-landing",
+          "fon-wp-55760",
+          "fon-wp-55767",
+          "fon-wp-55765",
+          "fon-wp-55766"
+        ]
+      }
     },
     {
       "fields": [
@@ -6744,9 +6789,22 @@
         "teyvat:79319"
       ],
       "mode": "road",
-      "finding": "unverified_travel_choice",
-      "terrain_note": "南側の安全な上陸・準備地点から古都の入口へ。ナタ通常地域の通過必須経路にはしない。",
-      "review_focus": "transport_boarding_and_return"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "港北の沖合からナタ港で乗り継ぎ、寄港中に上陸する。南行きの再乗船口から戻る。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-79060",
+          "natlan-port",
+          "natlan-voyage",
+          "ochkanatlan-dock"
+        ],
+        "return": [
+          "ochkanatlan-dock",
+          "natlan-voyage-return",
+          "natlan-port",
+          "nat-wp-79060"
+        ]
+      }
     },
     {
       "fields": [
@@ -7144,9 +7202,24 @@
         "teyvat:88143"
       ],
       "mode": "coastal_ferry",
-      "finding": "unverified_travel_choice",
-      "terrain_note": "ナタ側の到着港からナシャタウンへ沿岸を航行する本作独自便。間の海や崖を徒歩で短絡しない。桟橋の地点対応は要確認。",
-      "review_focus": "transport_boarding_and_return"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "リゾート桟橋から小舟で港へ出て、90秒の船便で往復する。",
+      "runtime_paths": {
+        "forward": [
+          "nat-resort-pier",
+          "natlan-port",
+          "natlan-voyage",
+          "nod-port",
+          "nod-field"
+        ],
+        "return": [
+          "nod-field",
+          "nod-port",
+          "natlan-voyage-return",
+          "natlan-port",
+          "nat-resort-pier"
+        ]
+      }
     },
     {
       "fields": [
@@ -7523,9 +7596,18 @@
         "teyvat:92864"
       ],
       "mode": "coastal_ferry",
-      "finding": "unverified_travel_choice",
-      "terrain_note": "南部三島―北部沿岸の実在海域を使う本作の移動案。桟橋の具体位置は要設定。帰路を同時に開く。",
-      "review_focus": "transport_boarding_and_return"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "パハ島の高い桟橋と北部沿岸の港を連絡舟で往復する。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88166",
+          "nod-north-harbor"
+        ],
+        "return": [
+          "nod-north-harbor",
+          "nod-wp-88166"
+        ]
+      }
     },
     {
       "fields": [

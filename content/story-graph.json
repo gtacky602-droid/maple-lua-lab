@@ -8,8 +8,8 @@
     "No requirement to finish previous quests to enter Liyue; level20 required",
     "Repeatable contracts are provisional, not date-gated daily rewards; target duration unverified",
     "Join records implemented; lab character selection remains unrestricted",
-    "Liyue-Inazuma ferry30s is an original lab draft; canonical user-requested stopover applies to future Natlan-NodKrai route",
-    "Return ferry shortened to portal for now; sea background is placeholder",
+    "Liyue-Inazuma 30-second ferry is an original lab draft; Natlan-NodKrai includes its optional stopover",
+    "Return voyages and auxiliary boarding points are playable drafts; sea backgrounds are placeholders",
     "Cross-country links are original 2D travel abstractions; not verified physical geography",
     "All combat-stage enemies still use laboratory base HP; high-level tuning is pending"
   ],
@@ -901,7 +901,8 @@
         },
         {
           "to": "liyue-ferry",
-          "x": 720
+          "x": 720,
+          "rideLabel": "離島行きに乗る"
         },
         {
           "to": "liyue-loading-yard",
@@ -1492,7 +1493,8 @@
       "exits": [
         {
           "to": "liyue-harbor",
-          "x": 60
+          "x": 60,
+          "rideLabel": "航海を中止し出発港へ"
         },
         {
           "to": "inazuma-port",
@@ -1505,7 +1507,10 @@
         "destination": "inazuma-port",
         "seconds": 30,
         "source": "liyue-harbor",
-        "draft": true
+        "draft": true,
+        "kind": "ferry",
+        "arrivalX": 160,
+        "arrivalY": 480
       }
     },
     {
@@ -1529,8 +1534,11 @@
       ],
       "exits": [
         {
-          "to": "liyue-harbor",
-          "x": 60
+          "to": "liyue-ferry-return",
+          "x": 60,
+          "arrivalX": 160,
+          "arrivalY": 480,
+          "rideLabel": "璃月港行きに乗る"
         },
         {
           "to": "inazuma-road",
@@ -3545,7 +3553,8 @@
         },
         {
           "to": "natlan-voyage",
-          "x": 720
+          "x": 720,
+          "rideLabel": "オシカ・ナタ経由のナド・クライ行きに乗る"
         },
         {
           "to": "nat-resort-pier",
@@ -3619,7 +3628,8 @@
       "exits": [
         {
           "to": "natlan-port",
-          "x": 60
+          "x": 60,
+          "rideLabel": "航海を中止し出発港へ"
         },
         {
           "to": "ochkanatlan-dock",
@@ -3638,8 +3648,12 @@
         "seconds": 90,
         "source": "natlan-port",
         "stopStart": 30,
-        "stopEnd": 50
-      }
+        "stopEnd": 50,
+        "kind": "ferry",
+        "arrivalX": 160,
+        "arrivalY": 480
+      },
+      "checkpointAtEntry": true
     },
     {
       "id": "ochkanatlan-dock",
@@ -3676,7 +3690,8 @@
         {
           "to": "natlan-voyage",
           "x": 60,
-          "resumeSeconds": 50
+          "resumeSeconds": 50,
+          "rideLabel": "ナド・クライ行きに再乗船"
         },
         {
           "to": "ochkanatlan-ruins",
@@ -3691,6 +3706,14 @@
           "x": 300,
           "arrivalX": 1382,
           "arrivalY": 480
+        },
+        {
+          "to": "natlan-voyage-return",
+          "x": 1050,
+          "arrivalX": 160,
+          "arrivalY": 480,
+          "resumeSeconds": 50,
+          "rideLabel": "ナタ行きに再乗船"
         }
       ],
       "branch": true,
@@ -3814,8 +3837,11 @@
       "checkpoint": "nod-port",
       "exits": [
         {
-          "to": "natlan-port",
-          "x": 60
+          "to": "natlan-voyage-return",
+          "x": 60,
+          "arrivalX": 160,
+          "arrivalY": 480,
+          "rideLabel": "オシカ・ナタ経由のナタ行きに乗る"
         },
         {
           "to": "nod-field",
@@ -7202,9 +7228,9 @@
     {"id":"snow-rail-transfer","name":"雪線の積替場","region":"スネージナヤ","level":140,"hub":false,"width":1500,"platforms":[{"x":0,"y":480,"w":1500},{"x":595,"y":384,"w":218}],"clearedBy":"snow-rail-clear","checkpoint":"snezhnaya-hub","exits":[{"to":"snezhnaya-field","x":60},{"to":"steam-stabling-depot","x":1432,"requires":{"quest":"snow-rail-pressure","count":1}}]},
     {"id":"steam-stabling-depot","name":"蒸気留置庫","region":"スネージナヤ","level":142,"hub":false,"peaceful":true,"width":1480,"platforms":[{"x":0,"y":480,"w":1480},{"x":361,"y":382,"w":130},{"x":1060,"y":382,"w":172}],"checkpoint":"snezhnaya-hub","exits":[{"to":"snow-rail-transfer","x":60}]},
     {"id":"winter-frontier-switchback","name":"冬越えの折返し道","region":"ナド・クライ","level":136,"hub":false,"width":1820,"platforms":[{"x":0,"y":480,"w":1820},{"x":125,"y":386,"w":640},{"x":1005,"y":389,"w":650}],"exits":[{"to":"nod-town","x":60}],"checkpoint":"nod-town"},
-    {"id":"white-pass-cut","name":"雪線の切通し","region":"スネージナヤ","level":140,"hub":false,"width":1820,"platforms":[{"x":0,"y":480,"w":1820},{"x":165,"y":382,"w":600},{"x":990,"y":388,"w":650}],"exits":[{"to":"snezhnaya-field","x":60},{"to":"white-pass-woods","x":1750},{"to":"sne-wp-100666","x":1155,"arrivalX":961,"arrivalY":480},{"to":"sites-hunt-100706","x":1308,"arrivalX":92,"arrivalY":480,"rideLabel":"西の秘境入口"}],"checkpoint":"snezhnaya-hub","mapPoint":"teyvat:100665","waypoint":{"kind":"waypoint","area":"雪の町と白虹峠","x":509,"y":480}},
+    {"id":"white-pass-cut","name":"雪線の切通し","region":"スネージナヤ","level":140,"hub":false,"width":1820,"platforms":[{"x":0,"y":480,"w":1820},{"x":165,"y":382,"w":600},{"x":990,"y":388,"w":650}],"exits":[{"to":"snezhnaya-field","x":60},{"to":"white-pass-woods","x":1750},{"to":"sne-wp-100666","x":1155,"arrivalX":961,"arrivalY":480},{"to":"sites-hunt-100706","x":1308,"arrivalX":92,"arrivalY":480,"rideLabel":"西の秘境入口"},{"to":"sites-white-pass-service-path","x":900,"arrivalX":1090,"arrivalY":480,"rideLabel":"駅裏の歩廊へ"}],"checkpoint":"snezhnaya-hub","mapPoint":"teyvat:100665","waypoint":{"kind":"waypoint","area":"雪の町と白虹峠","x":509,"y":480}},
     {"id":"white-pass-coach","name":"白虹行きの列車","region":"スネージナヤ","level":140,"hub":false,"width":960,"platforms":[{"x":0,"y":480,"w":960}],"exits":[{"to":"white-pass-station","x":900,"requiresArrival":true}],"checkpoint":"snezhnaya-hub","peaceful":true,"voyage":{"kind":"train","source":"snezhnaya-hub","destination":"white-pass-station","seconds":9}},
-    {"id":"white-pass-station","name":"雪原の終着駅","region":"スネージナヤ","level":140,"hub":true,"width":1200,"platforms":[{"x":0,"y":480,"w":1200},{"x":360,"y":390,"w":200}],"exits":[{"to":"snezhnaya-hub","x":52},{"to":"white-pass-woods","x":1144},{"to":"aurora-ice-cut","x":861},{"to":"sne-snow-match","x":724,"requires":{"quest":"sne-snow-match-quest","count":1},"rideLabel":"雪合戦広場へ"},{"to":"sne-wp-100666","x":320,"arrivalX":519,"arrivalY":480}],"checkpoint":"white-pass-station","mapPoint":"teyvat:100661","waypoint":{"kind":"waypoint","area":"雪の町と白虹峠","x":514,"y":480}},
+    {"id":"white-pass-station","name":"雪原の終着駅","region":"スネージナヤ","level":140,"hub":true,"width":1200,"platforms":[{"x":0,"y":480,"w":1200},{"x":360,"y":390,"w":200}],"exits":[{"to":"snezhnaya-hub","x":52},{"to":"white-pass-woods","x":1144},{"to":"aurora-ice-cut","x":861},{"to":"sne-snow-match","x":724,"requires":{"quest":"sne-snow-match-quest","count":1},"rideLabel":"雪合戦広場へ"},{"to":"sne-wp-100666","x":320,"arrivalX":519,"arrivalY":480},{"to":"sites-white-pass-service-path","x":1000,"arrivalX":100,"arrivalY":480,"rideLabel":"駅裏の歩廊へ"}],"checkpoint":"white-pass-station","mapPoint":"teyvat:100661","waypoint":{"kind":"waypoint","area":"雪の町と白虹峠","x":514,"y":480}},
     {"id":"white-pass-woods","name":"白虹峠・樹林の道","region":"スネージナヤ","level":148,"hub":false,"width":1840,"platforms":[{"x":0,"y":480,"w":1840},{"x":135,"y":388,"w":650},{"x":990,"y":382,"w":650}],"exits":[{"to":"white-pass-station","x":55},{"to":"white-pass-cut","x":280},{"to":"white-pass-ridge","x":1774},{"to":"sne-wp-100643","x":820,"arrivalX":77,"arrivalY":480},{"to":"sne-wp-100663","x":640,"arrivalX":77,"arrivalY":480},{"to":"sne-wp-100671","x":1120,"arrivalX":77,"arrivalY":480}],"checkpoint":"white-pass-station","mapPoint":"teyvat:100662","waypoint":{"kind":"waypoint","area":"雪の町と白虹峠","x":510,"y":480}},
     {"id":"white-pass-ridge","name":"白虹峠・雪棚の道","region":"スネージナヤ","level":155,"hub":false,"width":1840,"platforms":[{"x":0,"y":480,"w":1840},{"x":155,"y":386,"w":620},{"x":975,"y":381,"w":660}],"exits":[{"to":"white-pass-woods","x":55},{"to":"white-rainbow-basin","x":1774,"requires":{"quest":"white-pass-summit","count":0}}],"checkpoint":"white-pass-station"},
     {"id":"white-rainbow-basin","name":"白虹の高原","region":"スネージナヤ","level":156,"hub":false,"width":1536,"platforms":[{"x":0,"y":480,"w":1536},{"x":230,"y":388,"w":170},{"x":1088,"y":380,"w":220}],"exits":[{"to":"white-pass-ridge","x":60}],"checkpoint":"white-pass-station","peaceful":true},
@@ -7535,7 +7561,7 @@
     {"id":"nod-wp-88163","name":"パハ島周辺・南東の整備路","region":"ナド・クライ","hub":false,"level":127,"width":1450,"peaceful":true,"checkpoint":"nod-town","scenery":"nodMoonWood","exits":[{"to":"nod-wp-88162","x":76,"arrivalX":1362,"arrivalY":480},{"to":"nod-wp-88161","x":724,"arrivalX":1372,"arrivalY":480},{"to":"nod-wp-88164","x":1372,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1450},{"x":284,"y":403,"w":250},{"x":567,"y":337,"w":235},{"x":950,"y":405,"w":236}],"mapPoint":"teyvat:88163","waypoint":{"kind":"waypoint","area":"パハ島周辺","x":725,"y":480}},
     {"id":"nod-wp-88164","name":"パハ島周辺・湾沿いの細道","region":"ナド・クライ","hub":false,"level":124,"width":1450,"peaceful":true,"checkpoint":"nod-town","scenery":"nodMoonWood","exits":[{"to":"nod-wp-88163","x":76,"arrivalX":1372,"arrivalY":480},{"to":"nod-wp-88167","x":724,"arrivalX":508,"arrivalY":480},{"to":"nod-wp-88129","x":1372,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1450},{"x":284,"y":403,"w":250},{"x":567,"y":337,"w":235},{"x":950,"y":405,"w":236}],"mapPoint":"teyvat:88164","waypoint":{"kind":"waypoint","area":"パハ島周辺","x":725,"y":480}},
     {"id":"nod-wp-88165","name":"パハ島周辺・東岸の岩棚","region":"ナド・クライ","hub":false,"level":125,"width":1440,"peaceful":true,"checkpoint":"nod-town","scenery":"nodPatrolCoast","exits":[{"to":"nod-wp-88129","x":76,"arrivalX":1372,"arrivalY":480},{"to":"nod-wp-88166","x":1362,"y":369,"arrivalX":1362,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1440},{"x":306,"y":401,"w":250},{"x":587,"y":375,"w":258},{"x":1037,"y":410,"w":208},{"x":1303,"y":369,"w":123}],"mapPoint":"teyvat:88165","waypoint":{"kind":"waypoint","area":"パハ島周辺","x":720,"y":480}},
-    {"id":"nod-wp-88166","name":"パハ島周辺・北東の高い桟橋","region":"ナド・クライ","hub":false,"level":126,"width":1440,"peaceful":true,"checkpoint":"nod-town","scenery":"nodPatrolCoast","exits":[{"to":"nod-wp-88167","x":76,"arrivalX":1372,"arrivalY":480},{"to":"nod-wp-88165","x":1362,"arrivalX":1362,"arrivalY":369}],"platforms":[{"x":0,"y":480,"w":1440},{"x":306,"y":401,"w":250},{"x":587,"y":375,"w":258},{"x":1037,"y":410,"w":208}],"mapPoint":"teyvat:88166","waypoint":{"kind":"waypoint","area":"パハ島周辺","x":720,"y":480}},
+    {"id":"nod-wp-88166","name":"パハ島周辺・北東の高い桟橋","region":"ナド・クライ","hub":false,"level":126,"width":1440,"peaceful":true,"checkpoint":"nod-town","scenery":"nodPatrolCoast","exits":[{"to":"nod-wp-88167","x":76,"arrivalX":1372,"arrivalY":480},{"to":"nod-wp-88165","x":1362,"arrivalX":1362,"arrivalY":369},{"to":"nod-north-harbor","x":1080,"arrivalX":350,"arrivalY":480,"rideLabel":"パハ島から北部沿岸へ向かう連絡舟","boatSeconds":5.2}],"platforms":[{"x":0,"y":480,"w":1440},{"x":306,"y":401,"w":250},{"x":587,"y":375,"w":258},{"x":1037,"y":410,"w":208}],"mapPoint":"teyvat:88166","waypoint":{"kind":"waypoint","area":"パハ島周辺","x":720,"y":480}},
     {"id":"nod-wp-88167","name":"パハ島周辺・東の石庭","region":"ナド・クライ","hub":false,"level":127,"width":1450,"peaceful":true,"checkpoint":"nod-town","scenery":"nodMoonWood","exits":[{"to":"nod-wp-88168","x":76,"arrivalX":1362,"arrivalY":480},{"to":"nod-wp-88164","x":508,"arrivalX":724,"arrivalY":480},{"to":"nod-wp-92426","x":940,"arrivalX":76,"arrivalY":480,"liftSeconds":2.5,"rideLabel":"石庭下の昇降機"},{"to":"nod-wp-88166","x":1372,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1450},{"x":284,"y":403,"w":250},{"x":567,"y":337,"w":235},{"x":950,"y":405,"w":236}],"mapPoint":"teyvat:88167","waypoint":{"kind":"waypoint","area":"パハ島周辺","x":725,"y":480}},
     {"id":"nod-wp-88168","name":"パハ島周辺・北の桟橋","region":"ナド・クライ","hub":false,"level":124,"width":1440,"peaceful":true,"checkpoint":"nod-town","scenery":"nodPatrolCoast","exits":[{"to":"nod-wp-88162","x":76,"arrivalX":505,"arrivalY":480},{"to":"nod-wp-88171","x":505,"arrivalX":1372,"arrivalY":480,"liftSeconds":2.5,"rideLabel":"中央施設上層の昇降機"},{"to":"nod-wp-92867","x":933,"arrivalX":76,"arrivalY":480,"boatSeconds":4.3,"rideLabel":"パハ島から北部沿岸への連絡船"},{"to":"nod-wp-88167","x":1362,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1440},{"x":306,"y":401,"w":250},{"x":587,"y":375,"w":258},{"x":1037,"y":410,"w":208}],"mapPoint":"teyvat:88168","waypoint":{"kind":"waypoint","area":"パハ島周辺","x":720,"y":480}},
     {"id":"nod-wp-88169","name":"パハ島周辺・西の支柱の灯室","region":"ナド・クライ","hub":false,"level":126,"width":1450,"peaceful":true,"checkpoint":"nod-town","scenery":"enkanLamp","exits":[{"to":"nod-wp-88170","x":1372,"darkOnly":true,"y":363,"arrivalX":76,"arrivalY":480},{"to":"nod-wp-88162","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":2.5,"rideLabel":"西の支柱の灯室に降りる昇降機"}],"platforms":[{"x":0,"y":480,"w":1450},{"x":299,"y":398,"w":197},{"x":555,"y":332,"w":243},{"x":913,"y":390,"w":220}],"mapPoint":"teyvat:88169","waypoint":{"kind":"waypoint","area":"パハ島周辺・別階層","x":725,"y":480,"floor":{"group_id":186,"floor_id":253}},"localLight":{"controls":[{"x":500,"y":480}],"bridge":{"x":1304,"y":363,"w":130},"safeX":477,"safeY":480}},
@@ -7548,7 +7574,7 @@
     {"id":"nod-wp-88176","name":"ヒーシ島・西沖の石窟","region":"ナド・クライ","hub":false,"level":124,"width":1450,"peaceful":true,"checkpoint":"nod-town","scenery":"nodMoonCave","exits":[{"to":"nod-wp-88137","x":76,"arrivalX":76,"arrivalY":480,"boatSeconds":2.5,"rideLabel":"西沖の石窟へ向かう小舟"}],"platforms":[{"x":0,"y":480,"w":1450},{"x":299,"y":398,"w":197},{"x":555,"y":332,"w":243},{"x":913,"y":390,"w":220}],"mapPoint":"teyvat:88176","waypoint":{"kind":"waypoint","area":"ヒーシ島・別階層","x":725,"y":480,"floor":{"group_id":173,"floor_id":239}}},
     {"id":"nod-wp-88177","name":"レンポ島・岬の下の水洞","region":"ナド・クライ","hub":false,"level":123,"width":1450,"peaceful":true,"checkpoint":"nod-town","scenery":"nodMoonCave","exits":[{"to":"nod-wp-88154","x":76,"arrivalX":933,"arrivalY":480,"waterwaySeconds":2.5,"rideLabel":"東の岬の地下水路"}],"platforms":[{"x":0,"y":480,"w":1450},{"x":299,"y":398,"w":197},{"x":555,"y":332,"w":243},{"x":913,"y":390,"w":220}],"mapPoint":"teyvat:88177","waypoint":{"kind":"waypoint","area":"レンポ島・別階層","x":725,"y":480,"floor":{"group_id":182,"floor_id":249}}},
     {"id":"nod-wp-92426","name":"パハ島周辺・東の石庭下の観測室","region":"ナド・クライ","hub":false,"level":128,"width":1450,"peaceful":true,"checkpoint":"nod-town","scenery":"nodMoonCave","exits":[{"to":"nod-wp-88167","x":76,"arrivalX":940,"arrivalY":480,"liftSeconds":2.5,"rideLabel":"石庭下の昇降機"}],"platforms":[{"x":0,"y":480,"w":1450},{"x":299,"y":398,"w":197},{"x":555,"y":332,"w":243},{"x":913,"y":390,"w":220}],"mapPoint":"teyvat:92426","waypoint":{"kind":"waypoint","area":"パハ島周辺・別階層","x":725,"y":480,"floor":{"group_id":188,"floor_id":260}}},
-    {"id":"nod-north-harbor","name":"北部沿岸・南の港の神像","region":"ナド・クライ","hub":true,"level":129,"width":1450,"peaceful":true,"checkpoint":"nod-north-harbor","scenery":"nodMoonWood","exits":[{"to":"nod-wp-92867","x":76,"arrivalX":1362,"arrivalY":480},{"to":"nod-wp-92868","x":1372,"arrivalX":508,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1450},{"x":284,"y":403,"w":250},{"x":567,"y":337,"w":235},{"x":950,"y":405,"w":236}],"mapPoint":"teyvat:92864","waypoint":{"kind":"statue","area":"北部沿岸","x":725,"y":480}},
+    {"id":"nod-north-harbor","name":"北部沿岸・南の港の神像","region":"ナド・クライ","hub":true,"level":129,"width":1450,"peaceful":true,"checkpoint":"nod-north-harbor","scenery":"nodMoonWood","exits":[{"to":"nod-wp-92867","x":76,"arrivalX":1362,"arrivalY":480},{"to":"nod-wp-92868","x":1372,"arrivalX":508,"arrivalY":480},{"to":"nod-wp-88166","x":350,"arrivalX":1080,"arrivalY":480,"rideLabel":"北部の港からパハ島に帰る連絡舟","boatSeconds":5.2}],"platforms":[{"x":0,"y":480,"w":1450},{"x":284,"y":403,"w":250},{"x":567,"y":337,"w":235},{"x":950,"y":405,"w":236}],"mapPoint":"teyvat:92864","waypoint":{"kind":"statue","area":"北部沿岸","x":725,"y":480}},
     {"id":"nod-wp-92865","name":"北部沿岸・中央の林の神像","region":"ナド・クライ","hub":false,"level":130,"width":1450,"peaceful":true,"checkpoint":"nod-north-harbor","scenery":"nodMoonWood","exits":[{"to":"nod-wp-92876","x":76,"arrivalX":1372,"arrivalY":480},{"to":"nod-wp-92873","x":1372,"arrivalX":400,"arrivalY":480},{"to":"nod-wp-92877","x":960,"arrivalX":385,"arrivalY":480,"rideLabel":"中央の神像から東の林間道へ"}],"platforms":[{"x":0,"y":480,"w":1450},{"x":284,"y":403,"w":250},{"x":567,"y":337,"w":235},{"x":950,"y":405,"w":236}],"mapPoint":"teyvat:92865","waypoint":{"kind":"statue","area":"北部沿岸","x":725,"y":480}},
     {"id":"nod-wp-92866","name":"北部高地・高地の神像","region":"ナド・クライ","hub":false,"level":134,"width":1500,"peaceful":true,"checkpoint":"nod-north-harbor","scenery":"nodkrai","exits":[{"to":"nod-wp-92888","x":76,"arrivalX":749,"arrivalY":480},{"to":"nod-wp-92885","x":749,"arrivalX":749,"arrivalY":480},{"to":"nod-wp-92894","x":1422,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1500},{"x":273,"y":390,"w":197},{"x":545,"y":317,"w":243},{"x":899,"y":373,"w":199},{"x":1165,"y":408,"w":180}],"mapPoint":"teyvat:92866","waypoint":{"kind":"statue","area":"北部高地","x":750,"y":480}},
     {"id":"nod-wp-92867","name":"北部沿岸・南の灯標桟橋","region":"ナド・クライ","hub":false,"level":132,"width":1440,"peaceful":true,"checkpoint":"nod-north-harbor","scenery":"nodPatrolCoast","exits":[{"to":"nod-wp-88168","x":76,"arrivalX":933,"arrivalY":480,"boatSeconds":4.3,"rideLabel":"パハ島から北部沿岸への連絡船"},{"to":"nod-north-harbor","x":1362,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1440},{"x":306,"y":401,"w":250},{"x":587,"y":375,"w":258},{"x":1037,"y":410,"w":208}],"mapPoint":"teyvat:92867","waypoint":{"kind":"waypoint","area":"北部沿岸","x":720,"y":480}},
@@ -7743,7 +7769,7 @@
     {"id":"nat-wp-84121","name":"古の聖山・中央の第三層","region":"古の聖山","hub":false,"level":124,"width":1350,"checkpoint":"nat-mountain-camp","peaceful":true,"scenery":"ochkaKiln","platforms":[{"x":0,"y":480,"w":1350},{"x":261,"y":395,"w":230},{"x":565,"y":337,"w":241},{"x":912,"y":391,"w":222}],"exits":[{"to":"nat-wp-84120","x":76,"arrivalX":1272,"arrivalY":480,"liftSeconds":2.0,"rideLabel":"中央の第三層への昇降機"}],"mapPoint":"map36:84121","waypoint":{"kind":"waypoint","area":"古の聖山・別階層","x":675,"y":480,"floor":{"group_id":164,"floor_id":223}}},
     {"id":"nat-wp-85349","name":"アトクパンの大地・南端の離れ丘","region":"ナタ","hub":false,"level":109,"width":1410,"checkpoint":"natlan-hub","peaceful":true,"scenery":"natlanRiverTrial","platforms":[{"x":0,"y":480,"w":1410},{"x":315,"y":419,"w":275},{"x":717,"y":385,"w":250},{"x":1068,"y":419,"w":222}],"exits":[{"to":"nat-wp-82576","x":76,"arrivalX":76,"arrivalY":480,"boatSeconds":3.0,"rideLabel":"南端の離れ丘へ向かう小舟"},{"to":"nat-wp-82564","x":1332,"arrivalX":76,"arrivalY":480,"boatSeconds":3.5,"rideLabel":"火山南岸の渡し舟"}],"mapPoint":"teyvat:85349","waypoint":{"kind":"waypoint","area":"アトクパンの大地","x":705,"y":480}},
     {"id":"nat-wp-85957","name":"のびのびリゾート・南の神像","region":"のびのびリゾート","hub":false,"level":114,"width":1410,"checkpoint":"nat-resort-pier","peaceful":true,"scenery":"natlanRiverTrial","platforms":[{"x":0,"y":480,"w":1410},{"x":315,"y":419,"w":275},{"x":717,"y":385,"w":250},{"x":1068,"y":419,"w":222}],"exits":[{"to":"nat-wp-85960","x":76,"arrivalX":1332,"arrivalY":480},{"to":"nat-resort-pier","x":1332,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:85957","waypoint":{"kind":"statue","area":"のびのびリゾート","x":705,"y":480}},
-    {"id":"nat-resort-pier","name":"のびのびリゾート・南の連絡桟橋","region":"のびのびリゾート","hub":true,"level":116,"width":1410,"checkpoint":"nat-resort-pier","peaceful":true,"scenery":"natlanRiverTrial","platforms":[{"x":0,"y":480,"w":1410},{"x":315,"y":419,"w":275},{"x":717,"y":385,"w":250},{"x":1068,"y":419,"w":222}],"exits":[{"to":"nat-wp-85957","x":76,"arrivalX":1332,"arrivalY":480},{"to":"natlan-port","x":1332,"arrivalX":1260,"arrivalY":480,"boatSeconds":4.5,"rideLabel":"ナタの北港からリゾートへ"}],"mapPoint":"teyvat:85958","waypoint":{"kind":"waypoint","area":"のびのびリゾート","x":705,"y":480}},
+    {"id":"nat-resort-pier","name":"のびのびリゾート・南の連絡桟橋","region":"のびのびリゾート","hub":true,"level":116,"width":1410,"checkpoint":"nat-resort-pier","peaceful":true,"scenery":"natlanRiverTrial","platforms":[{"x":0,"y":480,"w":1410},{"x":315,"y":419,"w":275},{"x":717,"y":385,"w":250},{"x":1068,"y":419,"w":222}],"exits":[{"to":"nat-wp-85957","x":76,"arrivalX":1332,"arrivalY":480},{"to":"natlan-port","x":1332,"arrivalX":1260,"arrivalY":480,"boatSeconds":4.5,"rideLabel":"北港へ戻る連絡舟"}],"mapPoint":"teyvat:85958","waypoint":{"kind":"waypoint","area":"のびのびリゾート","x":705,"y":480}},
     {"id":"nat-wp-85959","name":"のびのびリゾート・東岸の小浜","region":"のびのびリゾート","hub":false,"level":117,"width":1410,"checkpoint":"nat-resort-pier","peaceful":true,"scenery":"natlanRiverTrial","platforms":[{"x":0,"y":480,"w":1410},{"x":315,"y":419,"w":275},{"x":717,"y":385,"w":250},{"x":1068,"y":419,"w":222}],"exits":[{"to":"nat-wp-85960","x":76,"arrivalX":913,"arrivalY":480},{"to":"nat-wp-85965","x":1332,"arrivalX":1332,"arrivalY":480}],"mapPoint":"teyvat:85959","waypoint":{"kind":"waypoint","area":"のびのびリゾート","x":705,"y":480}},
     {"id":"nat-wp-85960","name":"のびのびリゾート・島の道の分岐","region":"のびのびリゾート","hub":false,"level":115,"width":1410,"checkpoint":"nat-resort-pier","peaceful":true,"scenery":"natlanRiverTrial","platforms":[{"x":0,"y":480,"w":1410},{"x":315,"y":419,"w":275},{"x":717,"y":385,"w":250},{"x":1068,"y":419,"w":222}],"exits":[{"to":"nat-wp-85962","x":76,"arrivalX":1332,"arrivalY":480},{"to":"nat-wp-85964","x":495,"arrivalX":704,"arrivalY":480},{"to":"nat-wp-85959","x":913,"arrivalX":76,"arrivalY":480},{"to":"nat-wp-85957","x":1332,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:85960","waypoint":{"kind":"waypoint","area":"のびのびリゾート","x":705,"y":480}},
     {"id":"nat-wp-85961","name":"のびのびリゾート・南西の並木道","region":"のびのびリゾート","hub":false,"level":115,"width":1410,"checkpoint":"nat-resort-pier","peaceful":true,"scenery":"natlanRiverTrial","platforms":[{"x":0,"y":480,"w":1410},{"x":315,"y":419,"w":275},{"x":717,"y":385,"w":250},{"x":1068,"y":419,"w":222}],"exits":[{"to":"nat-wp-85963","x":76,"arrivalX":1332,"arrivalY":480},{"to":"nat-wp-85962","x":1332,"arrivalX":704,"arrivalY":480}],"mapPoint":"teyvat:85961","waypoint":{"kind":"waypoint","area":"のびのびリゾート","x":705,"y":480}},
@@ -7850,7 +7876,7 @@
     {"id":"fon-wp-53869","name":"フォンテーヌ北部・北の水門の第三層","region":"フォンテーヌ","level":86,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-53849","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"水門第三層の昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:53869","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部・別階層","x":675,"y":480,"floor":{"group_id":20,"floor_id":113}}},
     {"id":"fon-wp-53870","name":"フォンテーヌ北部・北岸の水路口","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-53851","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"北岸の石室の昇降機"},{"to":"fon-wp-53861","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:53870","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部","x":710,"y":480}},
     {"id":"fon-wp-53871","name":"フォンテーヌ北部・北の水門の東の下層","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-53850","x":76,"arrivalX":1272,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"東の下層の昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:53871","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部・別階層","x":675,"y":480,"floor":{"group_id":20,"floor_id":122}}},
-    {"id":"fon-wp-55760","name":"フォンテーヌ東部・東湾の神像","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55775","x":76,"arrivalX":709,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"東湾へ向かう連絡船"},{"to":"fon-wp-55769","x":709,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-55772","x":1342,"arrivalX":76,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"島北から渡る小舟"},{"to":"fon-wp-55767","x":1050,"arrivalX":335,"arrivalY":327,"waterwaySeconds":2.7,"rideLabel":"東湾の岸から水中階段への水路"}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55760","waypoint":{"kind":"statue","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55760","name":"フォンテーヌ東部・東湾の神像","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55775","x":76,"arrivalX":709,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"東湾へ向かう連絡船"},{"to":"fon-wp-55769","x":709,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-55772","x":1342,"arrivalX":76,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"島北から渡る小舟"},{"to":"fon-wp-55767","x":1050,"arrivalX":335,"arrivalY":327,"waterwaySeconds":2.7,"rideLabel":"東湾の岸から水中階段への水路"},{"to":"sites-lumidouce-landing","x":450,"arrivalX":1140,"arrivalY":480,"rideLabel":"下部連絡桟橋へ降りる昇降機","liftSeconds":2.6}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55760","waypoint":{"kind":"statue","area":"フォンテーヌ東部","x":710,"y":480}},
     {"id":"fon-wp-55761","name":"フォンテーヌ東部・湖東の峠の神像","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-50047","x":76,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-55777","x":709,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55778","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55761","waypoint":{"kind":"statue","area":"フォンテーヌ東部","x":710,"y":480}},
     {"id":"fon-wp-55762","name":"フォンテーヌ東部・湾南西の岩礁","region":"フォンテーヌ","level":89,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55763","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55765","x":709,"arrivalX":76,"arrivalY":305,"waterwaySeconds":2.4,"rideLabel":"南西の岩礁からの潜水口"},{"to":"fon-wp-55771","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55762","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
     {"id":"fon-wp-55763","name":"フォンテーヌ東部・湾西の水路脇","region":"フォンテーヌ","level":90,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-50045","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55773","x":498,"arrivalX":709,"arrivalY":480},{"to":"fon-wp-55764","x":920,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"西岸の石室の昇降機"},{"to":"fon-wp-55762","x":1342,"arrivalX":76,"arrivalY":480},{"to":"sites-hunt-63738","x":372,"arrivalX":2788,"arrivalY":480,"rideLabel":"モルテ側の秘境入口"}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55763","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
@@ -8157,7 +8183,7 @@
     {"id":"liyue-wp-64848","name":"沈玉の谷・谷南の分岐","level":25,"region":"沈玉の谷","hub":false,"width":1520,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1520},{"x":286,"y":385,"w":222},{"x":626,"y":425,"w":219},{"x":972,"y":375,"w":234}],"exits":[{"to":"liyue-wp-64847","x":76,"arrivalX":1292,"arrivalY":480},{"to":"chenyu-depth","x":926,"arrivalX":1040,"arrivalY":480},{"to":"liyue-wp-118","x":1442,"arrivalX":876,"arrivalY":480}],"mapPoint":"teyvat:64848","waypoint":{"kind":"waypoint","x":760,"y":480}},
     {"id":"liyue-wp-64849","name":"沈玉の谷・西峰の石室","level":32,"region":"沈玉の谷","hub":false,"width":1280,"scenery":"chasm","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1280},{"x":300,"y":391,"w":207},{"x":552,"y":351,"w":243},{"x":888,"y":404,"w":238}],"exits":[{"to":"liyue-wp-64827","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"西峰の石室へ降りる昇降機"}],"mapPoint":"teyvat:64849","waypoint":{"kind":"waypoint","x":640,"y":480,"floor":{"group_id":120,"floor_id":151}}},
     {"id":"liyue-wp-66768","name":"沈玉の谷・港西の山縁","level":29,"region":"沈玉の谷","hub":false,"width":1370,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1370},{"x":284,"y":389,"w":234},{"x":523,"y":313,"w":275},{"x":899,"y":405,"w":178}],"exits":[{"to":"liyue-wp-64834","x":76,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-66769","x":1292,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:66768","waypoint":{"kind":"waypoint","x":685,"y":480}},
-    {"id":"liyue-wp-66769","name":"沈玉の谷・谷北の埠頭","level":25,"region":"沈玉の谷","hub":false,"width":1390,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1390},{"x":290,"y":395,"w":192},{"x":584,"y":415,"w":275},{"x":984,"y":404,"w":243}],"exits":[{"to":"liyue-wp-66768","x":76,"arrivalX":1292,"arrivalY":480},{"to":"liyue-wp-64837","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:66769","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {"id":"liyue-wp-66769","name":"沈玉の谷・谷北の埠頭","level":25,"region":"沈玉の谷","hub":false,"width":1390,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1390},{"x":290,"y":395,"w":192},{"x":584,"y":415,"w":275},{"x":984,"y":404,"w":243}],"exits":[{"to":"liyue-wp-66768","x":76,"arrivalX":1292,"arrivalY":480},{"to":"liyue-wp-64837","x":1312,"arrivalX":76,"arrivalY":480},{"to":"chenyu-ferry-fontaine","x":455,"arrivalX":160,"arrivalY":480,"rideLabel":"フォンテーヌ行きに乗る"}],"mapPoint":"teyvat:66769","waypoint":{"kind":"waypoint","x":695,"y":480}},
     {"id":"liyue-wp-66770","name":"沈玉の谷・谷南の沖合の岩礁","level":30,"region":"沈玉の谷","hub":false,"width":1340,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1340},{"x":331,"y":414,"w":230},{"x":750,"y":400,"w":213}],"exits":[{"to":"liyue-wp-64829","x":76,"arrivalX":76,"arrivalY":480,"boatSeconds":3.2,"rideLabel":"南岸と岩礁を結ぶ小舟"}],"mapPoint":"teyvat:66770","waypoint":{"kind":"waypoint","x":670,"y":480}},
     {"id":"liyue-wp-66979","name":"沈玉の谷・北尾根の隠れ石窟","level":31,"region":"沈玉の谷","hub":false,"width":1280,"scenery":"chasm","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1280},{"x":300,"y":391,"w":207},{"x":552,"y":351,"w":243},{"x":888,"y":404,"w":238}],"exits":[{"to":"liyue-wp-64839","x":76,"arrivalX":851,"arrivalY":365,"liftSeconds":2.2,"rideLabel":"尾根の石窟へ降りる昇降機"}],"mapPoint":"teyvat:66979","waypoint":{"kind":"waypoint","x":640,"y":480,"floor":{"group_id":122,"floor_id":154}}},
     {"id":"mond-wp-7","name":"モンド・東丘の石畳","region":"モンド","level":8,"width":1320,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondhill","platforms":[{"x":0,"y":480,"w":1320},{"x":340,"y":371,"w":212},{"x":565,"y":281,"w":254}],"exits":[{"to":"mond-wp-13","x":76,"arrivalX":905,"arrivalY":480},{"to":"mond-wp-12","x":1006,"arrivalX":1272,"arrivalY":480},{"to":"mond-wp-9","x":1242,"arrivalX":76,"arrivalY":480},{"to":"sites-hunt-7201","x":866,"arrivalX":92,"arrivalY":480,"rideLabel":"神殿西の坂から仲夏の庭園へ"},{"to":"sites-hunt-7206","x":528,"arrivalX":92,"arrivalY":480,"rideLabel":"東の石道から北風の狼の神殿へ"}],"mapPoint":"teyvat:7","waypoint":{"kind":"waypoint","x":660,"y":480}},
@@ -8353,7 +8379,13 @@
     {"id":"sites-corridor-natlan-cliff","name":"クァワカン断崖・崖沿いの階段","level":108,"width":1300,"region":"ナタ","checkpoint":"natlan-hub","hub":false,"peaceful":true,"scenery":"ochkaCliff","platforms":[{"x":0,"y":480,"w":1300},{"x":172,"y":387,"w":324},{"x":474,"y":412,"w":324},{"x":770,"y":441,"w":332}],"exits":[{"to":"nat-wp-79057","x":96,"arrivalX":1054,"arrivalY":407,"rideLabel":"クァワカン断崖周辺・東の連絡高台へ戻る"},{"to":"nat-wp-79545","x":1190,"arrivalX":385,"arrivalY":480,"rideLabel":"クァワカン断崖周辺・崖下の神像へ"}],"atlasParent":"nat-wp-79057","atlasLayer":"surface"},
     {"id":"sites-corridor-natlan-tunnel","name":"アトクパン・東の通路へ降りる足場","level":112,"width":1280,"region":"ナタ","checkpoint":"natlan-hub","hub":false,"peaceful":true,"scenery":"ochkaCliff","platforms":[{"x":0,"y":480,"w":1280},{"x":183,"y":405,"w":338},{"x":504,"y":383,"w":313},{"x":798,"y":352,"w":320}],"exits":[{"to":"nat-wp-82562","x":96,"arrivalX":1074,"arrivalY":407,"rideLabel":"アトクパンの大地・南東の崩れ谷へ戻る"},{"to":"nat-wp-82568","x":1060,"arrivalX":1060,"arrivalY":480,"rideLabel":"アトクパンの大地・火山下の通路・東口へ","y":352}],"atlasParent":"nat-wp-82562","atlasLayer":"surface"},
     {"id":"sites-corridor-snow-ravine","name":"南東の氷壁・海岸から谷へ入る橋","level":146,"width":1320,"region":"スネージナヤ","checkpoint":"snezhnaya-hub","hub":false,"peaceful":true,"scenery":"whiteRainbowBasin","platforms":[{"x":0,"y":480,"w":1320},{"x":175,"y":403,"w":328},{"x":483,"y":378,"w":332},{"x":790,"y":405,"w":355}],"exits":[{"to":"sne-wp-100642","x":96,"arrivalX":1010,"arrivalY":480,"rideLabel":"南東の氷壁・南東岸の神像へ戻る"},{"to":"sne-wp-100657","x":1218,"arrivalX":1110,"arrivalY":480,"rideLabel":"南東の氷壁・谷底の橋台へ"}],"atlasParent":"sne-wp-100642","atlasLayer":"surface"},
-    {"id":"sites-corridor-snow-mine","name":"旧線の下層・保守用の連絡坑","level":153,"width":1260,"region":"スネージナヤ","checkpoint":"novokichev-camp","hub":false,"peaceful":true,"scenery":"novokichev","platforms":[{"x":0,"y":480,"w":1260},{"x":203,"y":411,"w":343},{"x":530,"y":389,"w":300},{"x":812,"y":411,"w":298}],"exits":[{"to":"sne-wp-106180","x":96,"arrivalX":1010,"arrivalY":480,"rideLabel":"東部の雪原と工業区・旧線の下層・西口へ戻る"},{"to":"sne-wp-106186","x":1156,"arrivalX":1160,"arrivalY":480,"rideLabel":"東部の雪原と工業区・旧線の下層・東口へ"}],"atlasParent":"sne-wp-106180","atlasLayer":"below"}
+    {"id":"sites-corridor-snow-mine","name":"旧線の下層・保守用の連絡坑","level":153,"width":1260,"region":"スネージナヤ","checkpoint":"novokichev-camp","hub":false,"peaceful":true,"scenery":"novokichev","platforms":[{"x":0,"y":480,"w":1260},{"x":203,"y":411,"w":343},{"x":530,"y":389,"w":300},{"x":812,"y":411,"w":298}],"exits":[{"to":"sne-wp-106180","x":96,"arrivalX":1010,"arrivalY":480,"rideLabel":"東部の雪原と工業区・旧線の下層・西口へ戻る"},{"to":"sne-wp-106186","x":1156,"arrivalX":1160,"arrivalY":480,"rideLabel":"東部の雪原と工業区・旧線の下層・東口へ"}],"atlasParent":"sne-wp-106180","atlasLayer":"below"},
+    {"id":"liyue-ferry-return","name":"璃月行き・帰りの船の甲板","region":"航路","level":40,"hub":false,"peaceful":true,"width":960,"checkpoint":"inazuma-port","checkpointAtEntry":false,"platforms":[{"x":0,"y":480,"w":960},{"x":280,"y":365,"w":360}],"exits":[{"to":"inazuma-port","x":60,"rideLabel":"航海を中止し出発港へ"},{"to":"liyue-harbor","x":900,"requiresArrival":true,"arrivalX":720,"arrivalY":480,"rideLabel":"到着港で下船する"}],"voyage":{"destination":"liyue-harbor","source":"inazuma-port","seconds":30,"kind":"ferry","arrivalX":720,"arrivalY":480,"reverse":true},"atlasParent":"inazuma-port"},
+    {"id":"natlan-voyage-return","name":"ナタ行き・南行き航海の甲板","region":"航路","level":120,"hub":false,"peaceful":true,"width":1440,"checkpoint":"nod-port","checkpointAtEntry":true,"platforms":[{"x":0,"y":480,"w":1440},{"x":280,"y":365,"w":360}],"exits":[{"to":"nod-port","x":60,"rideLabel":"航海を中止し出発港へ"},{"to":"ochkanatlan-dock","x":720,"windowStart":30,"windowEnd":50,"arrivalX":1050,"arrivalY":480,"rideLabel":"オシカ・ナタで途中下船"},{"to":"natlan-port","x":1380,"requiresArrival":true,"arrivalX":720,"arrivalY":480,"rideLabel":"到着港で下船する"}],"voyage":{"destination":"natlan-port","source":"nod-port","seconds":90,"kind":"ferry","arrivalX":720,"arrivalY":480,"reverse":true,"stopStart":30,"stopEnd":50},"atlasParent":"nod-port"},
+    {"id":"sites-white-pass-service-path","name":"白虹峠・駅裏の保守歩廊","region":"スネージナヤ","level":140,"hub":false,"peaceful":true,"width":1200,"checkpoint":"white-pass-station","checkpointAtEntry":true,"platforms":[{"x":0,"y":480,"w":1200},{"x":330,"y":395,"w":318},{"x":684,"y":410,"w":275}],"exits":[{"to":"white-pass-station","x":100,"arrivalX":1000,"arrivalY":480,"rideLabel":"終着駅へ"},{"to":"white-pass-cut","x":1090,"arrivalX":900,"arrivalY":480,"rideLabel":"谷の縁から切通しへ"}],"atlasParent":"white-pass-station","scenery":"whitePassSnow"},
+    {"id":"sites-lumidouce-landing","name":"ルミドゥース・下部連絡桟橋（試作）","region":"フォンテーヌ","level":88,"hub":false,"peaceful":true,"width":1280,"checkpoint":"sites-lumidouce-landing","platforms":[{"x":0,"y":480,"w":1280},{"x":305,"y":402,"w":420}],"exits":[{"to":"fontaine-ferry-chenyu","x":100,"arrivalX":160,"arrivalY":480,"rideLabel":"沈玉の谷行きに乗る"},{"to":"fon-wp-55760","x":1140,"arrivalX":450,"arrivalY":480,"rideLabel":"桟橋から東湾の岸へ上る昇降機","liftSeconds":2.6}],"atlasParent":"fon-wp-55760","scenery":"fontaine"},
+    {"id":"chenyu-ferry-fontaine","name":"フォンテーヌ行き・外海の船","region":"航路","level":88,"hub":false,"peaceful":true,"width":960,"checkpoint":"liyue-wp-66769","checkpointAtEntry":false,"platforms":[{"x":0,"y":480,"w":960},{"x":280,"y":365,"w":360}],"exits":[{"to":"liyue-wp-66769","x":60,"rideLabel":"航海を中止し出発港へ"},{"to":"sites-lumidouce-landing","x":900,"requiresArrival":true,"arrivalX":160,"arrivalY":480,"rideLabel":"到着港で下船する"}],"voyage":{"destination":"sites-lumidouce-landing","source":"liyue-wp-66769","seconds":45,"kind":"ferry","arrivalX":160,"arrivalY":480},"atlasParent":"liyue-wp-66769"},
+    {"id":"fontaine-ferry-chenyu","name":"沈玉の谷行き・外海の船","region":"航路","level":88,"hub":false,"peaceful":true,"width":960,"checkpoint":"sites-lumidouce-landing","checkpointAtEntry":false,"platforms":[{"x":0,"y":480,"w":960},{"x":280,"y":365,"w":360}],"exits":[{"to":"sites-lumidouce-landing","x":60,"rideLabel":"航海を中止し出発港へ"},{"to":"liyue-wp-66769","x":900,"requiresArrival":true,"arrivalX":455,"arrivalY":480,"rideLabel":"到着港で下船する"}],"voyage":{"destination":"liyue-wp-66769","source":"sites-lumidouce-landing","seconds":45,"kind":"ferry","arrivalX":455,"arrivalY":480,"reverse":true},"atlasParent":"fon-wp-55760"}
   ],
   "quests": [
     {"id":"sne-mapped-track-walk","name":"線路沿いを歩いて終着駅へ","hub":"snezhnaya-hub","giver":"雪の町の線路係","level":148,"xp":1120000,"mora":31900,"target":"white-pass-station","briefing":"雪の町から、街道と高架下を経由して終着駅へ。途中の吹きだまりを見ながら、駅の標識を確認してください。","closing":"徒歩の案内にも高架下を通る道を載せておきます。","itinerary":[{"kind":"arrive","from":"snezhnaya-hub","node":"snezhnaya-field","objective":"雪の町から凍った街道に出る"},{"kind":"arrive","from":"snezhnaya-field","node":"sne-wp-100663","objective":"線路の高架下へ進む"},{"kind":"arrive","from":"sne-wp-100663","node":"white-pass-woods","objective":"樹林の手前の線路を歩く"},{"kind":"arrive","from":"white-pass-woods","node":"white-pass-station","objective":"線路沿いの入口から終着駅に着く"},{"kind":"inspect","node":"white-pass-station","x":586,"y":480,"name":"終着駅の標識","action":"記録を取る","objective":"駅の標識を確認する"}],"kind":"itinerary","goal":5},

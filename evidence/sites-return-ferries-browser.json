@@ -1,0 +1,7 @@
+{
+  "ritouLiyueFullReturn": true,
+  "atlasRouteAndPauseWhileAboard": true,
+  "ochkanatlanReboardingAndNatlanArrival": true,
+  "reboardingStartedAt40Seconds": true,
+  "errors": []
+}

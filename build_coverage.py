@@ -133,7 +133,7 @@ def rebuild():
              'prototype_stage_ids': stages_by_region.get(meta['name'], [])}
             for meta in maps['maps'] if meta['id'] != 2
         ],
-        'natlan_voyage_stage_ids': ['natlan-port', 'natlan-voyage', 'ochkanatlan-dock', 'nod-port'],
+        'natlan_voyage_stage_ids': ['natlan-port', 'natlan-voyage', 'ochkanatlan-dock', 'nod-port', 'natlan-voyage-return'],
     }
     stage_ids = {node['id'] for node in graph['nodes']}
     assert set(coverage['world_map_review']['natlan_voyage_stage_ids']) <= stage_ids

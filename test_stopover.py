@@ -20,6 +20,6 @@ exit(s,'natlan-voyage',60);check('reboard resumes outbound leg with forty second
 s=start();tick(s,1500);exit(s,'ochkanatlan-dock',720);check('fifty seconds closes disembark',s.story.node=='natlan-voyage');tick(s,1200);check('staying aboard reaches next country without optional visit',s.story.node=='nod-port' and s.story.visited['ochkanatlan-dock'] is None)
 s=start();tick(s,900);c.action(s,'pause');tick(s,3000);check('pause preserves stopover window',c.frame(s).voyage.stopover and s.story.node=='natlan-voyage')
 c.action(s,'pause');exit(s,'natlan-port',60);tick(s,3000);check('cancel does not later arrive',s.story.node=='natlan-port')
-s=start();tick(s,900);exit(s,'ochkanatlan-dock',720);exit(s,'natlan-voyage',60);d=c.checkpoint(s);validate_save(native(d));r=c.restore(d);check('mid reboard save returns safe original harbor',r.story.node=='natlan-port')
+s=start();tick(s,900);exit(s,'ochkanatlan-dock',720);exit(s,'natlan-voyage',60);d=c.checkpoint(s);validate_save(native(d));r=c.restore(d);check('mid reboard save returns to the last boarding dock',r.story.node=='ochkanatlan-dock')
 s=start();d=c.checkpoint(s);d.story.node='natlan-port';(ROOT/'work/stopover-fixture.json').write_text(json.dumps(native(d)),encoding='utf8')
 (ROOT/'evidence/stopover-test.json').write_text(json.dumps({'count':len(checks),'checks':checks},indent=2));print(len(checks),'stopover checks passed')

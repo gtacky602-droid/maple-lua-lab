@@ -1,0 +1,19 @@
+{
+  "optional_open_sea_level_88_and_restore": true,
+  "reviewed_round_trips": 6,
+  "directions_exercised": 39,
+  "timed_voyages": [
+    "chenyu-ferry-fontaine",
+    "fontaine-ferry-chenyu",
+    "liyue-ferry",
+    "liyue-ferry-return",
+    "natlan-voyage",
+    "natlan-voyage-return"
+  ],
+  "return_stop_start_30_end_50": true,
+  "can_sail_past_stop": true,
+  "reboard_forty_seconds": true,
+  "atlas_pauses_and_shows_ship_destination": true,
+  "save_resumes_boarding_side": true,
+  "premature_landing_and_warp_blocked": true
+}

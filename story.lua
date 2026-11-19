@@ -267,6 +267,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     else reason=gateRestriction(s,edge) end
     best={to=edge.to,name=edge.rideLabel or n.name,level=n.level,available=not reason,reason=reason,
           liftSeconds=edge.liftSeconds,waterwaySeconds=edge.waterwaySeconds,boatSeconds=edge.boatSeconds,
+          ferryBoard=n.voyage and n.voyage.kind=='ferry' or nil,
+          ferryReboard=n.voyage and n.voyage.kind=='ferry' and edge.resumeSeconds~=nil or nil,
+          ferryStop=s.voyage and s.voyage.kind=='ferry' and edge.windowStart~=nil or nil,
           trolleyBoard=n.voyage and n.voyage.kind=='trolley' or nil,
           trolleyStop=s.voyage and s.voyage.kind=='trolley' and edge.windowStart~=nil or nil};distance=dx
     if edge.wind then
@@ -846,7 +849,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.macro=nil;s.encounter=nil
   local v=n.voyage
   s.voyage=v and {destination=v.destination,arrives=s.t+v.seconds-(elapsed or 0),total=v.seconds,
-   started=s.t-(elapsed or 0),source=v.source,stopStart=v.stopStart,stopEnd=v.stopEnd,kind=v.kind,reverse=v.reverse} or nil
+   started=s.t-(elapsed or 0),source=v.source,stopStart=v.stopStart,stopEnd=v.stopEnd,kind=v.kind,reverse=v.reverse,
+   arrivalX=v.arrivalX,arrivalY=v.arrivalY} or nil
   progress(s,'visit',id)
  end
  local function recordArrival(s,from,dest)
@@ -856,9 +860,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
  end
  local function arrive(s)
-  local from,dest=s.story.node,s.voyage.destination
-  enter(s,dest)
+  local voyage=s.voyage
+  local from,dest=s.story.node,voyage.destination
+  enter(s,dest,voyage.arrivalX,nil,voyage.arrivalY)
   recordArrival(s,from,dest)
+ end
+ local function checkpointNode(s)
+  local present=nodes[s.story.node]
+  local departure=s.storyCheckpointEntry and nodes[s.storyCheckpointEntry]
+  if departure and s.story.visited[departure.checkpoint] then return departure end
+  return present
  end
  function C.enterStoryNode(s,id) setup(s);enter(s,id) end
  function C.clearWeeklySceneCasts(s)
@@ -1252,6 +1263,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if n.toyDive and s.actors[1].hp<=0 then s.storyNotice='旅人が泳げる状態で潜りましょう。';return end
    if not s.progression or s.progression.level<n.level then s.storyNotice='必要レベル '..n.level..' に達していません。';return end
    if fast then
+    if s.voyage and s.voyage.kind=='ferry' then
+     s.storyNotice='船が着岸してからワープできます。'
+     return
+    end
     local restPoint=n.restWaypoint and completed(s,n.restWaypoint.quest)
     if not (n.hub or restPoint or n.waypoint) or not s.story.visited[dest] then
      s.storyNotice='到達済みの拠点・ワープ地点か、登録済みの休憩場所を選んでください。';return
@@ -1638,7 +1653,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     enter(s,node.id,node.duel.bellX)
     s.storyNotice='同じ会場で仕切り直します。水路の予告を見てください。'
    else
-    enter(s,s.story.visited[node.checkpoint] and node.checkpoint or 'mond-town')
+    local checkpoint=checkpointNode(s).checkpoint
+    enter(s,s.story.visited[checkpoint] and checkpoint or 'mond-town')
    end
   end
   if s.story and s.story.active and not s.paused then
@@ -1718,8 +1734,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   for id,eligible in pairs(growthRequirements) do f.growthEligibility[id]=eligible(s) end
   f.storyGraph,f.storyGraphRevision=visibleStoryGraph(s)
   f.storyNotice=s.storyNotice;f.storyJoined={};f.voyage=s.voyage and {seconds=math.max(0,s.voyage.arrives-s.t),destination=s.voyage.destination,elapsed=s.t-s.voyage.started,kind=s.voyage.kind,stopover=s.voyage.stopStart and s.t-s.voyage.started+1e-8>=s.voyage.stopStart and s.t-s.voyage.started+1e-8<s.voyage.stopEnd or false} or nil
-  if f.voyage and f.voyage.kind=='trolley' then
+  if f.voyage and (f.voyage.kind=='trolley' or f.voyage.kind=='ferry') then
    local v=s.voyage
+   f.voyage.destinationName=nodes[v.destination].name
+   f.voyage.total=v.total
    local stopStart,stopEnd=v.stopStart or 0,v.stopEnd or 0
    local wait=math.max(0,math.min(f.voyage.elapsed,stopEnd)-stopStart)
    local fraction=math.max(0,math.min(1,(f.voyage.elapsed-wait)/(v.total-stopEnd+stopStart)))
@@ -2175,10 +2193,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   setup(s)
   if d then
    d.story=s.story
-   if s.story.active and s.storyCheckpointEntry and s.story.visited[nodes[s.storyCheckpointEntry].checkpoint] then
-    -- A passage spanning two checkpoints resumes on the side used to enter it.
-    d.story=copy(s.story)
-    d.story.node=s.storyCheckpointEntry
+   if s.story.active then
+    local entry=checkpointNode(s)
+    if entry.id~=s.story.node then
+     -- Save the boarding side while keeping discovery and quest state.
+     d.story=copy(s.story)
+     d.story.node=entry.id
+    end
    end
    iansanTraining.checkpoint(s,d)
    if s.toyDive then d.active=s.toyDive.previousActive end

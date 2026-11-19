@@ -23,7 +23,7 @@ assert plan['official_fields'] == 873 and plan['provisional_layout_fields'] == 1
 assert not drafts and not plan['draft_field_approaches']
 pending = {point['field'] for region in atlas['regions'] for point in region['points'] if point.get('entrancePending')}
 assert pending == {'teyvat:10009', 'teyvat:85351', 'teyvat:98500'}
-assert sum(row['finding']=='implemented_as_lab_route' for row in plan['sites_only_route_review']) == 122
+assert sum(row['finding']=='implemented_as_lab_route' for row in plan['sites_only_route_review']) == 128
 assert not (fields & drafts.keys()) and len(fields) + len(drafts) == plan['imported_fields'] == 979
 assert len(plan['sites_only_route_review']) == 421
 for entry in plan['draft_field_approaches']:

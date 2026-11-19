@@ -15,6 +15,6 @@
     "staying aboard reaches next country without optional visit",
     "pause preserves stopover window",
     "cancel does not later arrive",
-    "mid reboard save returns safe original harbor"
+    "mid reboard save returns to the last boarding dock"
   ]
 }
