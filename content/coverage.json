@@ -99,7 +99,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 165,
+      "prototype_stage_count": 167,
       "prototype_quest_count": 25,
       "official_map2_markers": {
         "waypoints": 112,
@@ -7962,16 +7962,17 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1520,
+    "authored_stages": 1522,
     "provisional_quests": 283,
     "companion_join_records": 8,
     "fresh_save_route": {
-      "verified_to": "sumeru-hub",
-      "arrival_level": 60,
-      "scope": "New Lv1 adventure through three chapters and selected side quests in each of Mondstadt, Liyue and Inazuma, ordinary hunts, and the Ritou and Sumeru crossings. Scripted Lua inputs and built-in auto-battle.",
+      "verified_to": "fontaine-hub",
+      "arrival_level": 80,
+      "scope": "New Lv1 adventure through three chapters and selected side quests in each of Mondstadt, Liyue, Inazuma and Sumeru, ordinary hunts, and the regional crossings. Scripted Lua inputs and built-in auto-battle.",
       "mondstadt_evidence": "evidence/mondstadt-fresh-route.json",
       "liyue_evidence": "evidence/liyue-fresh-route.json",
-      "evidence": "evidence/inazuma-fresh-route.json"
+      "inazuma_evidence": "evidence/inazuma-fresh-route.json",
+      "evidence": "evidence/sumeru-fresh-route.json"
     },
     "scope_complete": false,
     "not_proven": [
@@ -8036,7 +8037,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Continue the fresh-save progression route through Sumeru toward Fontaine and check the travel, quest and EXP gates.",
+  "current_priority": "Continue the fresh-save progression route through Fontaine toward Natlan and check the travel, quest and EXP gates.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",
@@ -8477,10 +8478,12 @@
           "sum-wp-28738",
           "sum-wp-28740",
           "sum-wp-28741",
+          "sumeru-north-forest-floor",
           "sum-wp-28742",
           "sum-wp-28743",
           "sum-wp-28744",
           "sum-wp-28745",
+          "sumeru-north-bank-terraces",
           "sum-wp-28746",
           "sum-wp-28747",
           "sum-wp-28748",

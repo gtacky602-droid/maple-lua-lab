@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 新規冒険をスメールからフォンテーヌへ進める
+
+Lv60でスメールに着いたセーブから、葉の橋、森の上下、空の観測所の3章と、コレイ、放浪者、バイダ港の依頼を報告するとLv69。追加した北の森の林床Lv69と北岸の根段丘Lv74を経て、既設の北森の秘境周辺Lv79でLv80に到達した。雨林の道を通り、フォンテーヌ・水辺の広場で保存した。続きは `work/sumeru-fresh-route/fontaine-save.json`。 [連続試走と経験値](docs/balance/EXPERIENCE_MONSTER_QUEST_V02.md)
+
 ## 新規冒険を稲妻からスメールへ進める
 
 Lv40で離島に着いたセーブから稲妻のメイン3章とサブ3件を報告するとLv54。既設のLv56狩場へつなぐために離島の外浜へLv52の試作狩場を追加した。Lv60で稲妻とスメールの間の渡し舟に乗り、樹陰の広場で保存した。続きのセーブは `work/inazuma-fresh-route/sumeru-save.json`。 [育成・船・保存の検証](docs/balance/EXPERIENCE_MONSTER_QUEST_V02.md)

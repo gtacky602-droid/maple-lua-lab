@@ -1,7 +1,7 @@
 {
   "marker_count": 125,
-  "reciprocal_routes": 168,
-  "directed_crossings": 336,
+  "reciprocal_routes": 169,
+  "directed_crossings": 338,
   "mapped_stage_ids": [
     "sum-wp-28699",
     "sum-wp-28700",
@@ -131,6 +131,10 @@
   ],
   "layered_markers": 32,
   "layer_connections": 32,
+  "lab_maintenance_tunnel": [
+    "sum-wp-46523",
+    "sum-wp-46530"
+  ],
   "wind_closed_then_open": true,
   "reported_quests": [
     "sum-mapped-north-quay",

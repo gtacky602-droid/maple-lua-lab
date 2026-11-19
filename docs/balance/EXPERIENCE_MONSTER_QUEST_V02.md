@@ -149,3 +149,17 @@ Lv40で離島に着いたセーブを引き継ぎ、行灯、鳥居の森、灯�
 外浜で通常敵445体を倒して246,530 EXP、離れ小島の秘境周辺で1,033体を倒して778,882 EXPを獲得した。狩りはラボの自動戦闘を一定時間ごとに区切って計測した。Lv60になると、稲妻・城下の広場から4.8秒の渡し舟でスメールへ渡れる。樹陰の広場のセーブを復元し、稲妻への帰りの便も確認した。 [Lv40〜60の獲得EXP、往復と保存の記録](../../evidence/inazuma-fresh-route.json)
 
 `python -X utf8 test_inazuma_fresh_route.py` で、新規Lv1からスメール到着までを再現できる。続きのセーブは `work/inazuma-fresh-route/sumeru-save.json`。続けて `node test_inazuma_fresh_route.mjs` を実行すると、ChromeでLv60の出航前セーブからM地図の道順、乗船、着岸、スメールの第1章の受注まで再検査できる。 [渡し舟の地図案内](../../evidence/inazuma-fresh-boat-atlas.png) · [Chromeの到着ログ](../../evidence/inazuma-fresh-route-browser.json)
+
+## 同じ冒険データでスメールからフォンテーヌへ
+
+Lv60の樹陰の広場から葉の橋を開通し、森の根道と枝道を歩き、枝傘の大キノコンを倒して空の観測所まで調べた。メイン3章の報告でLv68。コレイの林巡り、放浪者の観測、バイダ港の荷札を報告するとLv69になった。雨林の道の先はLv80、北森の既設密集狩場はLv79が必要だった。
+
+Lv69の北の森の林床とLv74の北岸の根段丘を試作した。狩りはラボの自動戦闘と、訪問済みの広場・ワープ地点への移動を使った。広場での回復は53回、全滅は0回。下表は狩場内の討伐分で、移動中の討伐EXPもセーブに入る。手動での所要時間と回復回数は別途測る。 [Lv60〜80の試走ログ](../../evidence/sumeru-fresh-route.json)
+
+| 狩場 | 通過したLv | 討伐数 | 狩場のEXP |
+| --- | ---: | ---: | ---: |
+| 北の森の林床 | 69→74 | 1,348 | 1,546,156 |
+| 北岸の根段丘 | 74→79 | 1,535 | 2,526,610 |
+| 北森の秘境周辺 | 79→80 | 275 | 634,975 |
+
+`python -X utf8 test_sumeru_fresh_route.py` で、新規Lv1からフォンテーヌ・水辺の広場まで再現できる。到着後のセーブは `work/sumeru-fresh-route/fontaine-save.json`。続けて `node test_sumeru_fresh_route.mjs` を実行すると、Lv80の樹陰の広場からM地図の狩場表示、フォンテーヌへの移動、第1章の受注を再検査できる。 [地図の案内](../../evidence/sumeru-fresh-fontaine-atlas.png) · [Chromeの到着ログ](../../evidence/sumeru-fresh-route-browser.json)

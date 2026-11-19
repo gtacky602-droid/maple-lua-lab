@@ -30,7 +30,7 @@ assert floors == review['floor_groups'] and len(floors) == 32
 stages = set(mapping.values())
 exits = {name: node['exits'] for name, node in nodes.items()}
 edges = {(n, e['to']): e for n in stages for e in exits[n] if e['to'] in stages}
-assert len(edges) == 336 and set(edges) == {(b, a) for a, b in edges}
+assert len(edges) == 338 and set(edges) == {(b, a) for a, b in edges}
 for field, expected in [('boatSeconds', 6), ('waterwaySeconds', 6), ('liftSeconds', 46), ('y', 7), ('wind', 2)]:
     assert sum(field in e for e in edges.values()) == expected
 
@@ -54,7 +54,10 @@ for key, stage in mapping.items():
 
 layer_paths = {(row['from'], row['to']): row['mode'] for row in review['floor_connections']}
 grouped_stages = {mapping[key]: spec for key, spec in floors.items()}
-assert set(map(frozenset, layer_paths)) == {
+tunnel = ('sum-wp-46523', 'sum-wp-46530')
+assert all(stage in grouped_stages for stage in tunnel)
+assert edges[tunnel]['rideLabel'] == '工場下層の保守坑道へ'
+assert set(map(frozenset, layer_paths)) | {frozenset(tunnel)} == {
     frozenset((a, b)) for a, b in edges if a in grouped_stages or b in grouped_stages}
 for (a, b), mode in layer_paths.items():
     assert b in grouped_stages
@@ -170,10 +173,11 @@ write('evidence/sumeru-waypoint-test.json', {
     'mapped_stage_ids': sorted(stages),
     'layered_markers': len(floors),
     'layer_connections': len(layer_paths),
+    'lab_maintenance_tunnel': list(tunnel),
     'wind_closed_then_open': True,
     'reported_quests': [port, nursery, wind, water],
     'completed_and_visits_restored': True,
     'ordinary_enemy_stages': review['populated_stages'],
     'sumeru_28707_lua_draw_commands': sample,
 })
-print(f'Walked {len(sweep.crossings)} directed gates, {len(layer_paths)} layered pairs, and reported four quests.')
+print(f'Walked {len(sweep.crossings)} directed gates, including the lab tunnel, and reported four quests.')

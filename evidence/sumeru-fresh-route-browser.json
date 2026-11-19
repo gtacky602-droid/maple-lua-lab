@@ -1,0 +1,35 @@
+{
+  "importedLevel": 80,
+  "arrivalLevel": 80,
+  "route": [
+    [
+      "sumeru-field",
+      "walk"
+    ],
+    [
+      "fontaine-entry",
+      "walk"
+    ],
+    [
+      "fontaine-hub",
+      "walk"
+    ]
+  ],
+  "completedQuests": [
+    "sumeru-leaf-crossing",
+    "sumeru-forest-levels",
+    "sumeru-observatory-map",
+    "sum-collei-guide",
+    "sum-wanderer-observation",
+    "sum-mapped-north-quay"
+  ],
+  "hunts": [
+    "sumeru-north-forest-floor",
+    "sumeru-north-bank-terraces"
+  ],
+  "firstFontaineQuestAccepted": "fontaine-moon-parcel",
+  "importedXp": 10026562,
+  "arrivalXp": 10034687,
+  "travelKillXp": 8125,
+  "errors": []
+}
