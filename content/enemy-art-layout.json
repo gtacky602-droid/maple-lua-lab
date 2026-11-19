@@ -81,6 +81,24 @@
     "hover": 45,
     "file": "blubberbeast-shared-idle-sprites-v1.json"
   },
+  "hat-jellyfish-gold": {
+    "name": "ボウシクラゲ（黄・待機候補）",
+    "height": 84,
+    "hover": 45,
+    "file": "hat-jellyfish-gold-shared-idle-sprites-v2.json"
+  },
+  "hat-jellyfish-blue": {
+    "name": "ボウシクラゲ（青紫・待機候補）",
+    "height": 84,
+    "hover": 45,
+    "file": "hat-jellyfish-blue-shared-idle-sprites-v2.json"
+  },
+  "cherubic-sea-hare": {
+    "name": "チェルビックアプリシア（待機候補）",
+    "height": 76,
+    "hover": 45,
+    "file": "cherubic-sea-hare-shared-idle-sprites-v2.json"
+  },
   "sternshield-crab": {
     "name": "堅盾重甲ヤドカニ（地方伝説と輪郭を共用）",
     "height": 82,

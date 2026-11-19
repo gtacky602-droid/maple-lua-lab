@@ -1,0 +1,547 @@
+{
+  "lab": "http://127.0.0.1:8998",
+  "desktop": {
+    "width": 1280,
+    "height": 960
+  },
+  "galleries": [
+    {
+      "type": "enemies",
+      "id": "hat-jellyfish-gold",
+      "profile": "legacy",
+      "overlap": 0.9755076287713663,
+      "changedColors": 16518
+    },
+    {
+      "type": "enemies",
+      "id": "hat-jellyfish-blue",
+      "profile": "legacy",
+      "overlap": 0.9784680753330272,
+      "changedColors": 16615
+    },
+    {
+      "type": "enemies",
+      "id": "hat-jellyfish-gold",
+      "profile": "h48c32",
+      "overlap": 0.9642775881683732,
+      "changedColors": 16525
+    },
+    {
+      "type": "enemies",
+      "id": "hat-jellyfish-blue",
+      "profile": "h48c32",
+      "overlap": 0.9656529925258173,
+      "changedColors": 16600
+    },
+    {
+      "type": "enemies",
+      "id": "hat-jellyfish-gold",
+      "profile": "h32c16",
+      "overlap": 0.9548855005425161,
+      "changedColors": 16570
+    },
+    {
+      "type": "enemies",
+      "id": "hat-jellyfish-blue",
+      "profile": "h32c16",
+      "overlap": 0.9561393489434609,
+      "changedColors": 16652
+    },
+    {
+      "type": "enemies",
+      "id": "cherubic-sea-hare",
+      "profile": "legacy",
+      "overlap": 0.9824948943441837,
+      "changedColors": 23280
+    },
+    {
+      "type": "enemies",
+      "id": "cherubic-sea-hare",
+      "profile": "h48c32",
+      "overlap": 0.9691488043612935,
+      "changedColors": 23281
+    },
+    {
+      "type": "enemies",
+      "id": "cherubic-sea-hare",
+      "profile": "h32c16",
+      "overlap": 0.9586986806522986,
+      "changedColors": 23251
+    },
+    {
+      "type": "bosses",
+      "id": "legend-hat-jellyfish-shared",
+      "profile": "legacy",
+      "overlap": 0.9727216367017979,
+      "changedColors": 16831
+    },
+    {
+      "type": "bosses",
+      "id": "legend-hat-jellyfish-shared",
+      "profile": "h48c32",
+      "overlap": 0.9644860861759426,
+      "changedColors": 16769
+    },
+    {
+      "type": "bosses",
+      "id": "legend-hat-jellyfish-shared",
+      "profile": "h32c16",
+      "overlap": 0.957306140744061,
+      "changedColors": 17042
+    },
+    {
+      "type": "bosses",
+      "id": "legend-cherubic-sea-hare-shared",
+      "profile": "legacy",
+      "overlap": 0.984883380092961,
+      "changedColors": 23176
+    },
+    {
+      "type": "bosses",
+      "id": "legend-cherubic-sea-hare-shared",
+      "profile": "h48c32",
+      "overlap": 0.970272399353207,
+      "changedColors": 23147
+    },
+    {
+      "type": "bosses",
+      "id": "legend-cherubic-sea-hare-shared",
+      "profile": "h32c16",
+      "overlap": 0.9591079599323962,
+      "changedColors": 23246
+    }
+  ],
+  "maps": [
+    {
+      "node": "chassanion-legend-bubble-room",
+      "profile": "legacy",
+      "placements": [
+        {
+          "id": "preview-jelly-gold",
+          "species": "hat-jellyfish-gold",
+          "x": 255,
+          "y": 480,
+          "flip": false
+        },
+        {
+          "id": "preview-jelly-blue",
+          "species": "hat-jellyfish-blue",
+          "x": 480,
+          "y": 480,
+          "flip": false
+        },
+        {
+          "id": "preview-jelly-chassanion",
+          "species": "boss-legend-hat-jellyfish-shared",
+          "x": 705,
+          "y": 480,
+          "flip": false
+        }
+      ],
+      "visuals": [
+        {
+          "id": "preview-jelly-gold",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 435,
+          "hover": 45,
+          "height": 84
+        },
+        {
+          "id": "preview-jelly-blue",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 435,
+          "hover": 45,
+          "height": 84
+        },
+        {
+          "id": "preview-jelly-chassanion",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 435,
+          "hover": 45,
+          "height": 84
+        }
+      ]
+    },
+    {
+      "node": "chassanion-legend-bubble-room",
+      "profile": "h48c32",
+      "placements": [
+        {
+          "id": "preview-jelly-gold",
+          "species": "hat-jellyfish-gold",
+          "x": 255,
+          "y": 480,
+          "flip": false
+        },
+        {
+          "id": "preview-jelly-blue",
+          "species": "hat-jellyfish-blue",
+          "x": 480,
+          "y": 480,
+          "flip": false
+        },
+        {
+          "id": "preview-jelly-chassanion",
+          "species": "boss-legend-hat-jellyfish-shared",
+          "x": 705,
+          "y": 480,
+          "flip": false
+        }
+      ],
+      "visuals": [
+        {
+          "id": "preview-jelly-gold",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 435,
+          "hover": 45,
+          "height": 84
+        },
+        {
+          "id": "preview-jelly-blue",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 435,
+          "hover": 45,
+          "height": 84
+        },
+        {
+          "id": "preview-jelly-chassanion",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 435,
+          "hover": 45,
+          "height": 84
+        }
+      ]
+    },
+    {
+      "node": "chassanion-legend-bubble-room",
+      "profile": "h32c16",
+      "placements": [
+        {
+          "id": "preview-jelly-gold",
+          "species": "hat-jellyfish-gold",
+          "x": 255,
+          "y": 480,
+          "flip": false
+        },
+        {
+          "id": "preview-jelly-blue",
+          "species": "hat-jellyfish-blue",
+          "x": 480,
+          "y": 480,
+          "flip": false
+        },
+        {
+          "id": "preview-jelly-chassanion",
+          "species": "boss-legend-hat-jellyfish-shared",
+          "x": 705,
+          "y": 480,
+          "flip": false
+        }
+      ],
+      "visuals": [
+        {
+          "id": "preview-jelly-gold",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 435,
+          "hover": 45,
+          "height": 84
+        },
+        {
+          "id": "preview-jelly-blue",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 435,
+          "hover": 45,
+          "height": 84
+        },
+        {
+          "id": "preview-jelly-chassanion",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 435,
+          "hover": 45,
+          "height": 84
+        }
+      ]
+    },
+    {
+      "node": "erinnyes-corrouge-cleft",
+      "profile": "legacy",
+      "placements": [
+        {
+          "id": "preview-jelly-gold",
+          "species": "hat-jellyfish-gold",
+          "x": 255,
+          "y": 475,
+          "flip": false
+        },
+        {
+          "id": "preview-jelly-blue",
+          "species": "hat-jellyfish-blue",
+          "x": 480,
+          "y": 475,
+          "flip": false
+        },
+        {
+          "id": "preview-jelly-corrouge",
+          "species": "boss-legend-hat-jellyfish-shared",
+          "x": 705,
+          "y": 475,
+          "flip": false
+        }
+      ],
+      "visuals": [
+        {
+          "id": "preview-jelly-gold",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 430,
+          "hover": 45,
+          "height": 84
+        },
+        {
+          "id": "preview-jelly-blue",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 430,
+          "hover": 45,
+          "height": 84
+        },
+        {
+          "id": "preview-jelly-corrouge",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 430,
+          "hover": 45,
+          "height": 84
+        }
+      ]
+    },
+    {
+      "node": "erinnyes-corrouge-cleft",
+      "profile": "h48c32",
+      "placements": [
+        {
+          "id": "preview-jelly-gold",
+          "species": "hat-jellyfish-gold",
+          "x": 255,
+          "y": 475,
+          "flip": false
+        },
+        {
+          "id": "preview-jelly-blue",
+          "species": "hat-jellyfish-blue",
+          "x": 480,
+          "y": 475,
+          "flip": false
+        },
+        {
+          "id": "preview-jelly-corrouge",
+          "species": "boss-legend-hat-jellyfish-shared",
+          "x": 705,
+          "y": 475,
+          "flip": false
+        }
+      ],
+      "visuals": [
+        {
+          "id": "preview-jelly-gold",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 430,
+          "hover": 45,
+          "height": 84
+        },
+        {
+          "id": "preview-jelly-blue",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 430,
+          "hover": 45,
+          "height": 84
+        },
+        {
+          "id": "preview-jelly-corrouge",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 430,
+          "hover": 45,
+          "height": 84
+        }
+      ]
+    },
+    {
+      "node": "erinnyes-corrouge-cleft",
+      "profile": "h32c16",
+      "placements": [
+        {
+          "id": "preview-jelly-gold",
+          "species": "hat-jellyfish-gold",
+          "x": 255,
+          "y": 475,
+          "flip": false
+        },
+        {
+          "id": "preview-jelly-blue",
+          "species": "hat-jellyfish-blue",
+          "x": 480,
+          "y": 475,
+          "flip": false
+        },
+        {
+          "id": "preview-jelly-corrouge",
+          "species": "boss-legend-hat-jellyfish-shared",
+          "x": 705,
+          "y": 475,
+          "flip": false
+        }
+      ],
+      "visuals": [
+        {
+          "id": "preview-jelly-gold",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 430,
+          "hover": 45,
+          "height": 84
+        },
+        {
+          "id": "preview-jelly-blue",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 430,
+          "hover": 45,
+          "height": 84
+        },
+        {
+          "id": "preview-jelly-corrouge",
+          "source": "fontaine-hat-jellyfish-idle-source-v2.png",
+          "y": 430,
+          "hover": 45,
+          "height": 84
+        }
+      ]
+    },
+    {
+      "node": "luachra-legend-shelf",
+      "profile": "legacy",
+      "placements": [
+        {
+          "id": "preview-hare-ordinary",
+          "species": "cherubic-sea-hare",
+          "x": 328,
+          "y": 480,
+          "flip": false
+        },
+        {
+          "id": "preview-hare-legend",
+          "species": "boss-legend-cherubic-sea-hare-shared",
+          "x": 630,
+          "y": 480,
+          "flip": false
+        }
+      ],
+      "visuals": [
+        {
+          "id": "preview-hare-ordinary",
+          "source": "fontaine-cherubic-sea-hare-idle-source-v2.png",
+          "y": 435,
+          "hover": 45,
+          "height": 76
+        },
+        {
+          "id": "preview-hare-legend",
+          "source": "fontaine-cherubic-sea-hare-idle-source-v2.png",
+          "y": 435,
+          "hover": 45,
+          "height": 76
+        }
+      ]
+    },
+    {
+      "node": "luachra-legend-shelf",
+      "profile": "h48c32",
+      "placements": [
+        {
+          "id": "preview-hare-ordinary",
+          "species": "cherubic-sea-hare",
+          "x": 328,
+          "y": 480,
+          "flip": false
+        },
+        {
+          "id": "preview-hare-legend",
+          "species": "boss-legend-cherubic-sea-hare-shared",
+          "x": 630,
+          "y": 480,
+          "flip": false
+        }
+      ],
+      "visuals": [
+        {
+          "id": "preview-hare-ordinary",
+          "source": "fontaine-cherubic-sea-hare-idle-source-v2.png",
+          "y": 435,
+          "hover": 45,
+          "height": 76
+        },
+        {
+          "id": "preview-hare-legend",
+          "source": "fontaine-cherubic-sea-hare-idle-source-v2.png",
+          "y": 435,
+          "hover": 45,
+          "height": 76
+        }
+      ]
+    },
+    {
+      "node": "luachra-legend-shelf",
+      "profile": "h32c16",
+      "placements": [
+        {
+          "id": "preview-hare-ordinary",
+          "species": "cherubic-sea-hare",
+          "x": 328,
+          "y": 480,
+          "flip": false
+        },
+        {
+          "id": "preview-hare-legend",
+          "species": "boss-legend-cherubic-sea-hare-shared",
+          "x": 630,
+          "y": 480,
+          "flip": false
+        }
+      ],
+      "visuals": [
+        {
+          "id": "preview-hare-ordinary",
+          "source": "fontaine-cherubic-sea-hare-idle-source-v2.png",
+          "y": 435,
+          "hover": 45,
+          "height": 76
+        },
+        {
+          "id": "preview-hare-legend",
+          "source": "fontaine-cherubic-sea-hare-idle-source-v2.png",
+          "y": 435,
+          "hover": 45,
+          "height": 76
+        }
+      ]
+    }
+  ],
+  "mobile": [
+    {
+      "type": "enemies",
+      "query": "ボウシクラゲ",
+      "width": 390
+    },
+    {
+      "type": "enemies",
+      "query": "チェルビックアプリシア",
+      "width": 390
+    },
+    {
+      "type": "bosses",
+      "query": "ボウシクラゲ",
+      "width": 390
+    },
+    {
+      "type": "bosses",
+      "query": "チェルビックアプリシア",
+      "width": 390
+    }
+  ],
+  "pageErrors": []
+}

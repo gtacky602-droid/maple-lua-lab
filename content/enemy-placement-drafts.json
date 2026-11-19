@@ -2,6 +2,20 @@
   "version": 1,
   "status": "visual-only draft; not canonical spawn geography or live combat placement",
   "nodes": {
+    "chassanion-legend-bubble-room": [
+      {"id": "preview-jelly-gold", "species": "hat-jellyfish-gold", "x": 255, "y": 480, "flip": false},
+      {"id": "preview-jelly-blue", "species": "hat-jellyfish-blue", "x": 480, "y": 480, "flip": false},
+      {"id": "preview-jelly-chassanion", "species": "boss-legend-hat-jellyfish-shared", "x": 705, "y": 480, "flip": false}
+    ],
+    "erinnyes-corrouge-cleft": [
+      {"id": "preview-jelly-gold", "species": "hat-jellyfish-gold", "x": 255, "y": 475, "flip": false},
+      {"id": "preview-jelly-blue", "species": "hat-jellyfish-blue", "x": 480, "y": 475, "flip": false},
+      {"id": "preview-jelly-corrouge", "species": "boss-legend-hat-jellyfish-shared", "x": 705, "y": 475, "flip": false}
+    ],
+    "luachra-legend-shelf": [
+      {"id": "preview-hare-ordinary", "species": "cherubic-sea-hare", "x": 328, "y": 480, "flip": false},
+      {"id": "preview-hare-legend", "species": "boss-legend-cherubic-sea-hare-shared", "x": 630, "y": 480, "flip": false}
+    ],
     "fairy-knight-twins-legend-court": [
       {"id": "preview-ray-ordinary", "species": "hunters-ray", "x": 328, "y": 480, "flip": false},
       {"id": "preview-ray-legend", "species": "boss-legend-hunters-ray-shared", "x": 630, "y": 480, "flip": false}

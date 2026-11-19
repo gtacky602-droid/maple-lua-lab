@@ -1,0 +1,341 @@
+{
+  "date": "2026-11-20",
+  "scope": "フォンテーヌ水中の地方伝説3体と通常2種。湖辺の2体も別投稿者の現地画像で再照合。",
+  "images": [
+    {
+      "view": "公式の通常種紹介図",
+      "page": "https://www.hoyolab.com/article/20834657",
+      "size": [
+        700,
+        2273
+      ],
+      "sha256": "f4093dcfc4fab51b05ce9efd645d367811c24af7ec5c8f2d87ea71c44db09d33",
+      "observed": "通常のボウシクラゲが斜め正面から写る。黄の傘とその下の細い付属肢が読める。",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/08/11/7a17d5db81c8c710331b28346a2a902a_612671833896011451.jpg",
+      "new_to_research": false
+    },
+    {
+      "view": "通常の図鑑・黄",
+      "page": "https://wiki.biligame.com/ys/帽子水母",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "31b6f29ec5a8c88b635d731fe6b5ae605764fdb6c15084c4bf0b7c81b25f8bcf",
+      "observed": "黄橙の傘に淡い縁、下側は青緑。中央に葉状の模様がある。",
+      "image": "https://patchwiki.biligame.com/images/ys/4/43/615zwan7ohxwrcnx07v2ntrvj036po0.png",
+      "new_to_research": false,
+      "same_visual_as_prior": "既存の図鑑画像と同じ絵。画素数・枠違いを新規角度として数えない。"
+    },
+    {
+      "view": "通常の図鑑・青紫",
+      "page": "https://wiki.biligame.com/ys/帽子水母",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "4e2f13b6d01f623d642df4f9360373ca08d208464b5957c4b1984cf098fc0ec2",
+      "observed": "図鑑の別色。青紫の傘と明るい下縁。主な輪郭は黄橙と対応する。",
+      "image": "https://patchwiki.biligame.com/images/ys/f/f6/t8ftfksz11joc4tq7lvte39whp949ss.png",
+      "new_to_research": true
+    },
+    {
+      "view": "通常の図鑑・大型",
+      "page": "https://wiki.biligame.com/ys/大天使海兔",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "83d9050137ab5320130b3c6f39fb182f6f76caf0033219548bc92b47d8d6a562",
+      "observed": "チェルビックアプリシアの前面。暗い背びれ、丸い横のひれ、淡い口元と黄の目。",
+      "image": "https://patchwiki.biligame.com/images/ys/2/21/15qcsw47kp6e1p411meg92sbe297fv3.png",
+      "new_to_research": false,
+      "same_visual_as_prior": "既存の図鑑画像と同じ絵。画素数・枠違いを新規角度として数えない。"
+    },
+    {
+      "view": "近縁の図鑑・小型",
+      "page": "https://wiki.biligame.com/ys/天使海兔",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "1dc6ff69234ddc447546bad3bf0c5557abfbeb713733520adfb7c21059f8a3b5",
+      "observed": "小型の近縁種。輪郭の比較用。ルケアに対応する大型種の配色の基準には大型の図鑑を使う。",
+      "image": "https://patchwiki.biligame.com/images/ys/3/33/f9z8g9b9wm56k8xc0gz6oinro2z0ru0.png",
+      "new_to_research": false,
+      "same_visual_as_prior": "既存の図鑑画像と同じ絵。画素数・枠違いを新規角度として数えない。"
+    },
+    {
+      "view": "公式設定画の掲載画像",
+      "page": "https://wiki.biligame.com/ys/枫丹情报展设定集",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "29fdf34a75785ea3dacad4a4a0b4d993c75f50a423b1a4d4c3de3aae5dab09a8",
+      "observed": "アプリシア類の正面・側面・背面。大型の二つに分かれた背びれと細く伸びる胴、前の小さなひれの位置を確認。",
+      "image": "https://patchwiki.biligame.com/images/ys/8/80/syki9atozdu9nwtwj76ntsqngmi1f2c.jpg",
+      "new_to_research": true
+    },
+    {
+      "view": "シャサニョン・正面",
+      "page": "https://altema.jp/gensin/shasanyon",
+      "size": [
+        580,
+        296
+      ],
+      "sha256": "394cd7d351175df0c8921bc214b24ee6d451640b36ed4d8b2b1d5792d0064a10",
+      "observed": "塔内の正面寄り。明るい縁が両端で上へ反り、下の短い器官は紫寄り。",
+      "image": "https://img.altema.jp/gensin/uploads/2023/11/2023y11m08d_163319533.jpg",
+      "new_to_research": true
+    },
+    {
+      "view": "シャサニョン・別距離",
+      "page": "https://altema.jp/gensin/shasanyon",
+      "size": [
+        2000,
+        1125
+      ],
+      "sha256": "c13394b61f98e11a3ddc05854d03b5af29ed03bdfba0784a30a24591e83937d2",
+      "observed": "塔内の引き。桃色の傘と左右の幅が確認できる。細部の色は照明の影響を受ける。",
+      "image": "https://img.altema.jp/gensin/kakudai/shasanyonbasyo2.jpg",
+      "new_to_research": true
+    },
+    {
+      "view": "シャサニョン・討伐直後の側面",
+      "page": "https://www.hoyolab.com/article/22858495",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "1a087bfa639cdb690a4e65e552cadada6585d977defa6e67bb3b7d37d5576963",
+      "observed": "斜め横から傘と下部の前後関係が見える。討伐直後なので待機色の根拠は近景を併用。",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/11/09/8009863/f027d2bd84ef8cbca746da2acf7d6b15_6398771090989222281.png",
+      "new_to_research": true
+    },
+    {
+      "view": "シャサニョン・攻撃中",
+      "page": "https://www.hoyolab.com/article/22825676",
+      "size": [
+        1465,
+        1373
+      ],
+      "sha256": "368203db1e2313bc049aefbe42899f2cbf5b5dc4211fdede0f604a8e695581d4",
+      "observed": "同じ室内の複数場面。青白い円や泡は攻撃中に現れ、本体の装飾とは分ける。",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/11/14/32414073/c47cc87705cc5929092651271cc83fa4_1868403364897674137.png",
+      "new_to_research": true
+    },
+    {
+      "view": "魔剣クルージュ・近い正面",
+      "page": "https://altema.jp/gensin/shasanyon",
+      "size": [
+        580,
+        296
+      ],
+      "sha256": "ebdcae7723ad910245afc55685944545cfdd8dfadb14146c4d8d30de3e7ee3b1",
+      "observed": "淡い縁の両端が上へ反り、中央は桃橙、下側は明るい色。",
+      "image": "https://img.altema.jp/gensin/uploads/2023/11/2023y11m28d_1705210971.jpg",
+      "new_to_research": true
+    },
+    {
+      "view": "魔剣クルージュ・別投稿者の正面",
+      "page": "https://www.hoyolab.com/article/22825676",
+      "size": [
+        1139,
+        854
+      ],
+      "sha256": "89703d7d955f7d77010f74681a66dc633c42821c8f79f8cee643a19222800701",
+      "observed": "英語の個体名が見える。近い正面画像と傘の両端、下に垂れる部分が対応する。",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/11/08/32414073/140d1f2ce3ed122f73cc32e72650b8ed_1943140003057200274.png",
+      "new_to_research": true
+    },
+    {
+      "view": "ルケア・正面",
+      "page": "https://altema.jp/gensin/luachra",
+      "size": [
+        1827,
+        998
+      ],
+      "sha256": "684bd7a46ba5adc0ca6599e7f5ee8097a503394392e8f61190af306839844725",
+      "observed": "黄の先端から桃紫に続く大きな背びれと、淡く丸い横のひれを確認。以前の採用資料。",
+      "new_to_research": false
+    },
+    {
+      "view": "ルケア・攻撃直後",
+      "page": "https://www.hoyolab.com/article/21936083",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "a09783db9cf186f6d2cc75b10a1e311b672d3d784eb7b4a91b6d8cfdbdafafa6",
+      "observed": "別の照明と姿勢でも淡い前ひれと背びれの差が読める。周囲の青白い筋は戦闘演出。",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/09/28/8009863/9eea0d04ae16e3d9256a963e1e307b4d_1503100861300242395.png",
+      "new_to_research": true
+    },
+    {
+      "view": "通常の濁水幻霊2型",
+      "page": "https://altema.jp/gensin/dakusuigenrei",
+      "size": [
+        580,
+        296
+      ],
+      "sha256": "0e5bcc926bf76be875a8e2b55bd63df9fdc0c07e95e176af11e9aa7f60d14fae",
+      "observed": "公式の2型紹介図と同じ構図の切り抜き。正面の粉砕型と噴出型で目がある水塊の位置を比較。追加点数に含めない。",
+      "image": "https://img.altema.jp/gensin/uploads/2023/08/2023y08m28d_1515420587.jpg",
+      "new_to_research": false
+    },
+    {
+      "view": "湖辺のヴィヴィアン・別投稿者の現地画像",
+      "page": "https://www.hoyolab.com/article/20988906",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "15a4695921e7b53d470dc563172c2a8fdd744ba62d3b114229ce02e7dce71d1d",
+      "observed": "名前付き。浮いた頭とその下の広い胴の間隔を、正面寄りの引きで確認。",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/08/19/22480923/0fc7aaf6a268cfc13b48e2ccbf2e7373_910514164833206418.png",
+      "new_to_research": true
+    },
+    {
+      "view": "湖辺のニニアン・別投稿者の現地画像",
+      "page": "https://www.hoyolab.com/article/20988906",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "92114daa9bbb9195f3f134695d3b25a5a390e6dcc63674f92e60c3038052af9b",
+      "observed": "名前付き。斜めから見た左右の腕と低い構えを確認。目の形は既存の近景を参照。",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/08/19/22480923/8bfc4f71bcdd27cc80926f2949f5869a_8967902601469180847.png",
+      "new_to_research": true
+    }
+  ],
+  "generation": {
+    "tool": "built-in image_gen",
+    "input": "参照画像を並べた目視確認用のシート。生成には、種の共通する形と配色を伝える資料として渡した。",
+    "prompts": {
+      "jelly": "Create a transparent PNG production sprite strip with EXACTLY 3 separate original pixel-art aquatic jelly creatures, evenly spaced in 3 aligned columns, one row, same camera view and same display size. A single game creature family in three variants. This is an original 2D side-scrolling RPG lab, draw from scratch. Reference contact sheet is for broad family traits and palette reading only, invent your own linework, facial motif and trim. All see the exact same three-quarter/front view, centered and looking slightly to screen right, same anatomy and heights, same number (4) of coral-like hanging ribbon appendages, same wide bell with a gently stepped scalloped bottom edge, same soft mantle and small dark hooded underside. Variants from left to right: golden amber dome with muted teal underneath, blue violet dome with silvery ice-blue underneath, pale buff coral and mauve dome with pink underside and lateral edges gently rising into two small upturned points. Do not put eyes on the dome. Use the same dark simplified underside face motif with two subdued tiny lights on all three. Geometrically clean readability at 52 pixels high: chunky aligned pixel blocks, distinctly flat 1 to 2 pixel outlines, broad soft cel-shaded color clusters, no anti-alias look or dither, no smoothed painterly texture. No strips connecting them, no text, no icons, no frame, no shadows, no bubbles, no glow, no foreground particles, no scenery. Important: transparent negative space between appendages. Leave wide transparent gutters and same padding around each creature. Color changes and third bell rim give family resemblance. The output is one wide horizontal sprite strip.",
+      "hare": "Create a transparent PNG production sprite strip with EXACTLY 2 separate original pixel-art aquatic creatures next to each other, centered evenly in left and right halves at the same display size, one row. Both are variants of one original aquatic sea bunny nudibranch species for a cozy side-view 2D RPG lab. Reference contact sheet is for broad anatomy and palettes only, draw new creatures from scratch. Identical structural silhouette, angle, body proportions, and calm swimming pose across the two. Front three-quarter view with the low wide head pointed a little to screen right and long flattened flexible tail visible left behind the animal. It has a low wide face with warm attentive oval eyes, pale mask on the lower muzzle, a small pair of feet-like horizontal flipper fans near the mouth, and two large upright leaf-shaped fins lifting up behind the head from the back. The big fins read as a two-part dorsal fan, no legs of a land mammal. One slim segmented tail narrows to a soft split tip. Left variant has periwinkle/slate body, blue clear big fins and pearl cool accents, small ochre eyes. Right variant has lilac/pink body, mauve bases to golden tips on the big fins, pale cool turquoise for the small cheek flippers, same ochre eyes. Avoid exact correspondence to published designs; choose your own little body markings and shapes. Chunky aligned pixel clusters on an apparent 72px-high sprite grid, clean 1-2 pixel outlines, two to four flat tones per element with broad deliberate color clusters, good small-scale readability. No dither, no airbrush, no text, no marks, no background, no glow, no particles, no bubbles, no floating separate decorations. Wide transparent gutter between them and safe padding. This is one wide horizontal sprite strip."
+    }
+  },
+  "compiled": [
+    {
+      "id": "hat-jellyfish-gold",
+      "sheet": "fontaine-hat-jellyfish-idle-source-v2.png",
+      "atlas": "hat-jellyfish-gold-shared-idle-sprites-v2.json",
+      "crop": [
+        0,
+        0,
+        724,
+        724
+      ],
+      "height": 84,
+      "box": [
+        111,
+        97,
+        500,
+        530
+      ],
+      "runs": {
+        "legacy": 1600,
+        "h48c32": 1020,
+        "h32c16": 407
+      }
+    },
+    {
+      "id": "hat-jellyfish-blue",
+      "sheet": "fontaine-hat-jellyfish-idle-source-v2.png",
+      "atlas": "hat-jellyfish-blue-shared-idle-sprites-v2.json",
+      "crop": [
+        724,
+        0,
+        724,
+        724
+      ],
+      "height": 84,
+      "box": [
+        832,
+        94,
+        508,
+        535
+      ],
+      "runs": {
+        "legacy": 1693,
+        "h48c32": 1109,
+        "h32c16": 494
+      }
+    },
+    {
+      "id": "legend-hat-jellyfish",
+      "sheet": "fontaine-hat-jellyfish-idle-source-v2.png",
+      "atlas": "legend-hat-jellyfish-shared-idle-sprites-v2.json",
+      "crop": [
+        1448,
+        0,
+        724,
+        724
+      ],
+      "height": 84,
+      "box": [
+        1531,
+        94,
+        560,
+        535
+      ],
+      "runs": {
+        "legacy": 1601,
+        "h48c32": 1033,
+        "h32c16": 428
+      }
+    },
+    {
+      "id": "cherubic-sea-hare",
+      "sheet": "fontaine-cherubic-sea-hare-idle-source-v2.png",
+      "atlas": "cherubic-sea-hare-shared-idle-sprites-v2.json",
+      "crop": [
+        0,
+        0,
+        1086,
+        724
+      ],
+      "height": 76,
+      "box": [
+        87,
+        116,
+        913,
+        472
+      ],
+      "runs": {
+        "legacy": 2210,
+        "h48c32": 1443,
+        "h32c16": 627
+      }
+    },
+    {
+      "id": "legend-cherubic-sea-hare",
+      "sheet": "fontaine-cherubic-sea-hare-idle-source-v2.png",
+      "atlas": "legend-cherubic-sea-hare-shared-idle-sprites-v2.json",
+      "crop": [
+        1086,
+        0,
+        1086,
+        724
+      ],
+      "height": 76,
+      "box": [
+        1174,
+        116,
+        912,
+        472
+      ],
+      "runs": {
+        "legacy": 2104,
+        "h48c32": 1339,
+        "h32c16": 569
+      }
+    }
+  ],
+  "unchecked": [
+    "単体3Dモデルの回転、シャサニョンとクルージュの同一照明での背面と細かい模様",
+    "今回の候補と既存の構え・攻撃のつながり、幻境実機"
+  ]
+}

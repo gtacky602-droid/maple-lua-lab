@@ -716,6 +716,8 @@
     {"id":"legend-dobharcu","name":"隠者の王・ドアーチュ（水中・ラボ用）","file":"legend-dobharcu-field-idle-sprites-v1.json","height":126,"mapHover":0},
     {"id":"legend-hunters-ray-shared","name":"双生妖精の騎士・深谷の剣（狩猟刀エイ・共通の待機候補）","file":"legend-hunters-ray-shared-idle-sprites-v1.json","height":74,"mapHover":45},
     {"id":"legend-blubberbeast-shared","name":"消えゆく老兵・隠者の王ドアーチュ（プクプク獣・共通の待機候補）","file":"legend-blubberbeast-shared-idle-sprites-v1.json","height":82,"mapHover":45},
+    {"id":"legend-cherubic-sea-hare-shared","name":"極彩色のルケア（チェルビックアプリシア・待機候補）","file":"legend-cherubic-sea-hare-shared-idle-sprites-v2.json","height":76,"mapHover":45},
+    {"id":"legend-hat-jellyfish-shared","name":"シャサニョン・魔剣クルージュ（ボウシクラゲ・共通の待機候補）","file":"legend-hat-jellyfish-shared-idle-sprites-v2.json","height":84,"mapHover":45},
     {"id":"legend-luachra","name":"極彩色のルケア（水中・ラボ用）","file":"legend-luachra-field-idle-sprites-v1.json","height":126,"mapHover":0},
     {"id":"legend-chassanion","name":"シャサニョン（水中・ラボ用）","file":"legend-chassanion-field-idle-sprites-v1.json","height":126,"mapHover":0},
     {"id":"legend-corrouge","name":"魔剣クルージュ（水中・ラボ用）","file":"legend-corrouge-field-idle-sprites-v1.json","height":126,"mapHover":0},
