@@ -291,6 +291,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
           ferryBoard=n.voyage and n.voyage.kind=='ferry' or nil,
           ferryReboard=n.voyage and n.voyage.kind=='ferry' and edge.resumeSeconds~=nil or nil,
           ferryStop=s.voyage and s.voyage.kind=='ferry' and edge.windowStart~=nil or nil,
+          trainBoard=n.voyage and n.voyage.kind=='train' or nil,
           trolleyBoard=n.voyage and n.voyage.kind=='trolley' or nil,
           trolleyStop=s.voyage and s.voyage.kind=='trolley' and edge.windowStart~=nil or nil};distance=dx
     if edge.wind then
@@ -1853,10 +1854,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   for id,eligible in pairs(growthRequirements) do f.growthEligibility[id]=eligible(s) end
   f.storyGraph,f.storyGraphRevision=visibleStoryGraph(s)
   f.storyNotice=s.storyNotice;f.storyJoined={};f.voyage=s.voyage and {seconds=math.max(0,s.voyage.arrives-s.t),destination=s.voyage.destination,elapsed=s.t-s.voyage.started,kind=s.voyage.kind,stopover=s.voyage.stopStart and s.t-s.voyage.started+1e-8>=s.voyage.stopStart and s.t-s.voyage.started+1e-8<s.voyage.stopEnd or false} or nil
+  if f.voyage then
+   f.voyage.destinationName=nodes[s.voyage.destination].name
+   f.voyage.total=s.voyage.total
+  end
   if f.voyage and (f.voyage.kind=='trolley' or f.voyage.kind=='ferry') then
    local v=s.voyage
-   f.voyage.destinationName=nodes[v.destination].name
-   f.voyage.total=v.total
    local stopStart,stopEnd=v.stopStart or 0,v.stopEnd or 0
    local wait=math.max(0,math.min(f.voyage.elapsed,stopEnd)-stopStart)
    local fraction=math.max(0,math.min(1,(f.voyage.elapsed-wait)/(v.total-stopEnd+stopStart)))

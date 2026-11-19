@@ -1,0 +1,255 @@
+{
+  "route": [
+    {
+      "id": "sne-mitya-observation",
+      "node": "sne-survey-shed",
+      "seconds": 21.75,
+      "level": 140,
+      "total": 372417435,
+      "killXp": 232176443,
+      "questXp": 140240992
+    },
+    {
+      "id": "lv141",
+      "node": "white-pass-cut",
+      "seconds": 508.9,
+      "level": 141,
+      "total": 384910779,
+      "killXp": 244669787,
+      "questXp": 140240992
+    },
+    {
+      "id": "white-pass-ticket",
+      "node": "snezhnaya-hub",
+      "seconds": 530.8,
+      "level": 142,
+      "total": 414868009,
+      "killXp": 245291003,
+      "questXp": 169577006
+    },
+    {
+      "id": "lv145",
+      "node": "white-pass-cut",
+      "seconds": 3480.67,
+      "level": 145,
+      "total": 491068204,
+      "killXp": 321491198,
+      "questXp": 169577006
+    },
+    {
+      "id": "white-pass-footprints",
+      "node": "snezhnaya-hub",
+      "seconds": 3500.82,
+      "level": 145,
+      "total": 504464145,
+      "killXp": 321801803,
+      "questXp": 182662342
+    },
+    {
+      "id": "train-arrived",
+      "node": "white-pass-station",
+      "seconds": 3511.88,
+      "level": 145,
+      "total": 504464145,
+      "killXp": 321801803,
+      "questXp": 182662342
+    },
+    {
+      "id": "lv148",
+      "node": "white-pass-cut",
+      "seconds": 7169.05,
+      "level": 148,
+      "total": 589404306,
+      "killXp": 406741964,
+      "questXp": 182662342
+    },
+    {
+      "id": "white-pass-trail",
+      "node": "white-pass-station",
+      "seconds": 7189.6,
+      "level": 149,
+      "total": 630884880,
+      "killXp": 407863004,
+      "questXp": 223021876
+    },
+    {
+      "id": "sne-snow-match-quest",
+      "node": "white-pass-station",
+      "seconds": 7216.5,
+      "level": 149,
+      "total": 657970083,
+      "killXp": 407863004,
+      "questXp": 250107079
+    },
+    {
+      "id": "white-pass-footwork",
+      "node": "white-pass-station",
+      "seconds": 7218.83,
+      "level": 150,
+      "total": 674646418,
+      "killXp": 407863004,
+      "questXp": 266783414
+    },
+    {
+      "id": "lv153",
+      "node": "white-pass-woods",
+      "seconds": 10381.73,
+      "level": 153,
+      "total": 799007122,
+      "killXp": 532223708,
+      "questXp": 266783414
+    },
+    {
+      "id": "white-pass-rest",
+      "node": "white-pass-station",
+      "seconds": 10384.12,
+      "level": 153,
+      "total": 820360825,
+      "killXp": 532324601,
+      "questXp": 288036224
+    },
+    {
+      "id": "lv155",
+      "node": "white-pass-woods",
+      "seconds": 12706.78,
+      "level": 155,
+      "total": 902319572,
+      "killXp": 614283348,
+      "questXp": 288036224
+    },
+    {
+      "id": "lv156",
+      "node": "white-pass-ridge",
+      "seconds": 13651.68,
+      "level": 156,
+      "total": 958985610,
+      "killXp": 670949386,
+      "questXp": 288036224
+    },
+    {
+      "id": "white-pass-summit",
+      "node": "white-pass-station",
+      "seconds": 13699.9,
+      "level": 158,
+      "total": 1101335063,
+      "killXp": 678797477,
+      "questXp": 422537586
+    },
+    {
+      "id": "lv160",
+      "node": "white-pass-ridge",
+      "seconds": 15720.57,
+      "level": 160,
+      "total": 1222696525,
+      "killXp": 800158939,
+      "questXp": 422537586
+    },
+    {
+      "id": "aurora-ice-cut",
+      "node": "aurora-ice-cut",
+      "seconds": 15724.07,
+      "level": 160,
+      "total": 1222696525,
+      "killXp": 800158939,
+      "questXp": 422537586
+    }
+  ],
+  "hunts": [
+    {
+      "node": "white-pass-cut",
+      "target": 141,
+      "kills": 468,
+      "xp": 11734080,
+      "huntSeconds": 450.17,
+      "routeKills": 499,
+      "routeXp": 12447328,
+      "routeSeconds": 475.77
+    },
+    {
+      "node": "white-pass-cut",
+      "target": 145,
+      "kills": 2875,
+      "xp": 71529571,
+      "huntSeconds": 2782.38,
+      "routeKills": 3076,
+      "routeXp": 76154179,
+      "routeSeconds": 2945.72
+    },
+    {
+      "node": "white-pass-cut",
+      "target": 148,
+      "kills": 3574,
+      "xp": 79846239,
+      "huntSeconds": 3452.47,
+      "routeKills": 3818,
+      "routeXp": 84898747,
+      "routeSeconds": 3647.68
+    },
+    {
+      "node": "white-pass-woods",
+      "target": 153,
+      "kills": 3119,
+      "xp": 116550792,
+      "huntSeconds": 3040.98,
+      "routeKills": 3328,
+      "routeXp": 124360704,
+      "routeSeconds": 3160.63
+    },
+    {
+      "node": "white-pass-woods",
+      "target": 155,
+      "kills": 2283,
+      "xp": 76779573,
+      "huntSeconds": 2233.97,
+      "routeKills": 2437,
+      "routeXp": 81958747,
+      "routeSeconds": 2322.02
+    },
+    {
+      "node": "white-pass-ridge",
+      "target": 156,
+      "kills": 926,
+      "xp": 52894972,
+      "huntSeconds": 900.02,
+      "routeKills": 989,
+      "routeXp": 56094311,
+      "routeSeconds": 936.42
+    },
+    {
+      "node": "white-pass-ridge",
+      "target": 160,
+      "kills": 1990,
+      "xp": 113672780,
+      "huntSeconds": 1922.17,
+      "routeKills": 2139,
+      "routeXp": 120789735,
+      "routeSeconds": 2010.92
+    }
+  ],
+  "completedQuests": [
+    "sne-mitya-observation",
+    "white-pass-ticket",
+    "white-pass-footprints",
+    "white-pass-trail",
+    "sne-snow-match-quest",
+    "white-pass-footwork",
+    "white-pass-rest",
+    "white-pass-summit"
+  ],
+  "trainSeconds": 9.0,
+  "snowMatch": {
+    "player": 5,
+    "losses": 0,
+    "opponent": 3,
+    "best": 5,
+    "draws": 0,
+    "wins": 1
+  },
+  "recoveryTrips": 0,
+  "inventoryTrips": 6,
+  "partyWipes": 0,
+  "savedAndRestored": true,
+  "unlockedHunt": "aurora-ice-cut",
+  "lightReleaseAt160": true,
+  "scope": "Earned Lv140 checkpoint from a new Lv1 adventure. Lua movement and built-in auto battle."
+}

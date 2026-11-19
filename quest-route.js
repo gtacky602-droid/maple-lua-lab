@@ -91,6 +91,7 @@ export function questRouteText(f,q,status){
   if(Math.abs(dx)>=90)notes.push(`次の門は${dx>0?'右':'左'}にあります`);
   else if(Math.abs(actor.y-(edge.y??480))>=60)notes.push(edge.y===undefined?'門の横位置まで来ています。地上へ降りてください':'門のある足場へ移動してください');
   else if(f.voyage?.kind==='trolley'&&edge.windowStart!==undefined)notes.push('停車したら「F：途中下車する」で降りられます');
+  else if(next.voyage?.kind==='train')notes.push('乗り場に着きました。「F：列車に乗る」で進めます');
   else if(next.voyage?.kind==='trolley')notes.push('乗り場に着きました。「F：トロッコに乗る」で進めます');
   else if(edge.boatSeconds)notes.push('桟橋に着きました。「F：小舟に乗る」で進めます');
   else if(edge.waterwaySeconds)notes.push('乗り継ぎ場に着きました。「F：水路を渡る」で進めます');

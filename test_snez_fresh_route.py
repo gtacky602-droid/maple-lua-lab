@@ -1,0 +1,341 @@
+"""Continue the fresh adventure from Snezhnaya through White Rainbow Pass."""
+import argparse
+import json
+import subprocess
+import sys
+
+from runtime import ROOT, native, runtime
+from savegame import validate_save
+from tools.waypoint_test import TrailWalk
+
+
+def read(path):
+    return json.loads(path.read_text(encoding='utf8'))
+
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--checkpoint', action='store_true', help='Reuse the earned Lv140 save instead of replaying from Lv1')
+options = parser.parse_args()
+if not options.checkpoint:
+    subprocess.run([sys.executable, str(ROOT / 'test_nod_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
+
+work = ROOT / 'work' / 'snez-fresh-route'
+work.mkdir(parents=True, exist_ok=True)
+start = validate_save(read(ROOT / 'work/nod-fresh-route/snezhnaya-save.json'))
+hub, road, cut = 'snezhnaya-hub', 'snezhnaya-field', 'white-pass-cut'
+coach, station = 'white-pass-coach', 'white-pass-station'
+woods, ridge, basin = 'white-pass-woods', 'white-pass-ridge', 'white-rainbow-basin'
+end = 'aurora-ice-cut'
+ticket, trail_quest, summit = 'white-pass-ticket', 'white-pass-trail', 'white-pass-summit'
+mitya, footprints = 'sne-mitya-observation', 'white-pass-footprints'
+footwork, rest, snow = 'white-pass-footwork', 'white-pass-rest', 'sne-snow-match-quest'
+assert start['story']['node'] == hub and start['progression']['level'] == 140
+assert start['story']['quests']['nod-moon-vault-quest']['status'] == 'complete'
+
+data = read(ROOT / 'content/story-graph.json')
+nodes = {n['id']: n for n in data['nodes']}
+exits = {id: n['exits'] for id, n in nodes.items()}
+edges = {(id, e['to']): e for id, route in exits.items() for e in route}
+lua, core = runtime()
+state = core.restore(lua.table_from(start, recursive=True), 12)
+trail = TrailWalk(lua, core, state, edges, exits)
+advance = lua.eval('''function(C,s,n,input)
+    for _=1,n do C.step(s,1/60,input) end
+end''')
+farm = lua.eval('''function(C,s,target,input)
+    local node=s.story.node
+    for tick=1,4500 do
+        C.step(s,1/60,input)
+        if s.story.node~=node or s.progression.level>=target
+                or s.actors[s.active].hp<65 or #s.inventory.ground>=12 then
+            return tick
+        end
+    end
+    return 4500
+end''')
+held_attack = lua.table_from({'attack': True})
+milestones, hunts = [], []
+recovery_trips, inventory_trips = 0, 0
+
+
+def act(key):
+    core.action(state, key)
+
+
+def frame():
+    return core.frame(state, 'sprite', 'legacy')
+
+
+def cross(*stages):
+    for stage in stages:
+        trail.cross(stage)
+
+
+def fast(stage):
+    if state.story.node != stage:
+        act('story_fast:' + stage)
+    assert state.story.node == stage, (stage, state.storyNotice)
+
+
+def near(x, y=480):
+    trail.approach(x, y, 'quest objective')
+
+
+def inspect(x, y=480):
+    near(x, y)
+    act('story_collect')
+
+
+def mark(label):
+    p = state.progression
+    milestones.append(dict(id=label, node=state.story.node, seconds=round(state.t, 2),
+                           level=p.level, total=p.total, killXp=p.killXp, questXp=p.questXp))
+    print(label, p.level, p.total, flush=True)
+
+
+def accept(id):
+    act('story_accept:' + id)
+    quest = state.story.quests[id]
+    assert quest and quest.status == 'active', (id, state.storyNotice)
+    return quest
+
+
+def blocked(id):
+    act('story_accept:' + id)
+    assert state.story.quests[id] is None, (id, state.storyNotice)
+
+
+def report(id):
+    act('story_report:' + id)
+    quest = state.story.quests[id]
+    assert quest.status == 'complete' and quest.cycles == 1, (id, quest.count, state.storyNotice)
+    mark(id)
+
+
+def cleanup():
+    items = state.inventory['items']
+    spare = sorted((item for item in items.values() if item.owner == 0 and not item.locked),
+                   key=lambda item: (item.rarity, item.itemLv, item.id))
+    for item in spare[:max(0, len(items) - 55)]:
+        act('artifact_sell:' + str(item.id))
+    act('artifact_recover')
+    assert len(state.inventory.ground) == 0 and core.canAttack(state)
+
+
+def hunt(path, gathering_x, level):
+    global recovery_trips, inventory_trips
+    base, *gates = path
+    stage = gates[-1]
+    if state.progression.level >= level:
+        return
+    fast(base)
+    cross(*gates)
+    start_kills, start_xp, start_time = state.kills, state.progression.killXp, state.t
+    kills, xp, ticks = 0, 0, 0
+    for _ in range(220):
+        near(gathering_x)
+        before_kills, before_xp = state.kills, state.progression.killXp
+        act('auto')
+        ticks += farm(core, state, level, trail.idle)
+        if state.auto:
+            act('auto')
+        kills += state.kills - before_kills
+        xp += state.progression.killXp - before_xp
+        if state.progression.level >= level:
+            break
+        needs_recovery = any(actor.hp < 95 for actor in state.actors.values())
+        needs_inventory = len(state.inventory.ground) >= 12 or not core.canAttack(state)
+        departed = state.story.node != stage
+        if needs_recovery or needs_inventory or departed:
+            fast(base)
+            if needs_inventory:
+                cleanup()
+                inventory_trips += 1
+            recovery_trips += int(needs_recovery or departed)
+            cross(*gates)
+        else:
+            cross(gates[-2] if len(gates) > 1 else base, stage)
+    assert state.progression.level == level, (stage, level, state.progression.level, state.storyNotice)
+    assert kills > 0 and xp > 0
+    hunts.append(dict(node=stage, target=level, kills=kills, xp=xp, huntSeconds=round(ticks/60, 2),
+                      routeKills=state.kills-start_kills, routeXp=state.progression.killXp-start_xp,
+                      routeSeconds=round(state.t-start_time, 2)))
+    mark('lv' + str(level))
+
+
+def fight(done, x, seconds=35):
+    near(x)
+    act('auto')
+    for _ in range(seconds * 4):
+        advance(core, state, 15, trail.idle)
+        if done():
+            break
+    if state.auto:
+        act('auto')
+    assert done(), (state.story.node, state.storyNotice, trail.actor.hp)
+
+
+def save(name):
+    checkpoint = validate_save(native(core.checkpoint(state)))
+    (work / (name + '.json')).write_text(json.dumps(checkpoint, ensure_ascii=False) + '\n', encoding='utf8')
+    return checkpoint
+
+
+assert core.growthSkillCondition(state, 'SK58')[0] is False
+blocked(ticket)
+shed, yard, overlook = 'sne-survey-shed', 'sne-survey-yard', 'sne-survey-ridge'
+cross(shed)
+accept(mitya)
+inspect(311)
+cross(yard)
+inspect(349)
+inspect(942)
+cross(overlook)
+for spawn in ('sne-survey-ice-slime', 'sne-survey-hydro-slime'):
+    foe = next((e for e in state.enemies.values() if e.spawnId == spawn), None)
+    while foe and foe.hp > 0:
+        near(foe.x - 28)
+        advance(core, state, 60, held_attack)
+        assert state.t < 100, (spawn, foe.x, foe.hp)
+assert state.story.quests[mitya].count == 4
+near(550, 386)
+near(900, 386)
+near(900, 291)
+inspect(1076, 291)
+inspect(1405, 386)
+near(1469, 386)
+for _ in range(2):
+    act('story_survey_confirm')
+    assert state.story.quests[mitya].count == 6
+    act('story_collect')
+assert frame().storySurveyRig.ready
+act('story_survey_confirm')
+inspect(1592, 386)
+cross(shed)
+report(mitya)
+assert frame().storyJoined.mitya
+cross(hub)
+cleanup()
+save('mitya-save')
+
+cut_route = (hub, road, cut)
+hunt(cut_route, 260, 141)
+fast(hub)
+first = accept(ticket)
+cross(road, cut)
+inspect(282)
+cart = next(e for e in state.enemies.values() if e.spawnId == 'white-pass-route-cart')
+fight(lambda: first.count == 2, cart.x - 45)
+inspect(685, 382)
+cross(road, hub)
+report(ticket)
+
+hunt(cut_route, 260, 145)
+fast(hub)
+accept(footprints)
+cross(road, cut)
+inspect(440)
+inspect(580, 382)
+cross(road, hub)
+report(footprints)
+
+cross(coach)
+assert state.voyage.kind == 'train'
+boarding = state.t
+train_save = save('train-save')
+assert core.restore(lua.table_from(train_save, recursive=True), 12).story.node == hub
+advance(core, state, 540, trail.idle)
+assert state.story.node == station and state.voyage is None
+ride_seconds = round(state.t - boarding, 2)
+mark('train-arrived')
+blocked(trail_quest)
+
+hunt(cut_route, 260, 148)
+fast(station)
+accept(trail_quest)
+cross(woods)
+inspect(300)
+inspect(1115, 382)
+inspect(1660)
+cross(station)
+report(trail_quest)
+
+accept(snow)
+inspect(327)
+arena = 'sne-snow-match'
+cross(arena)
+inspect(178)
+act('story_collect')
+assert frame().storySnowball.running
+for _ in range(40):
+    if not state.snowballRound:
+        break
+    advance(core, state, 60, held_attack)
+assert state.story.quests[snow].count == 3 and not state.snowballRound
+snow_record = native(state.story.quests[snow].snowMatchRecord)
+cross(station)
+report(snow)
+
+woods_route = (station, woods)
+hunt(woods_route, 260, 149)
+fast(station)
+accept(footwork)
+inspect(450, 390)
+inspect(670)
+report(footwork)
+hunt(woods_route, 260, 153)
+fast(station)
+accept(rest)
+inspect(895)
+cross(woods)
+inspect(185)
+cross(station)
+report(rest)
+
+hunt(woods_route, 260, 155)
+ridge_route = (station, woods, ridge)
+hunt(ridge_route, 260, 156)
+fast(station)
+accept(summit)
+cross(woods, ridge, basin)
+slot = state.fieldSlots['original-frost-antler']
+fight(lambda: slot.phase == 'respawn', 641, 180)
+inspect(1380)
+cross(ridge, woods, station)
+report(summit)
+if state.progression.level < 160:
+    near(861)
+    portal = frame().storyNearbyPortal
+    assert portal.to == end and not portal.available and portal.level == 160
+    hunt(ridge_route, 260, 160)
+fast(station)
+save('aurora-ready-save')
+cross(end)
+mark(end)
+assert len(state.enemies) > 0
+cross(station)
+finished = save('white-pass-save')
+restored = core.restore(lua.table_from(finished, recursive=True), 12)
+done = [mitya, ticket, footprints, trail_quest, snow, footwork, rest, summit]
+assert restored.story.node == station and restored.progression.level == 160
+assert restored.progression.total == state.progression.total
+assert all(restored.story.quests[id].status == 'complete' and restored.story.quests[id].cycles == 1 for id in done)
+assert restored.endgame.bosses['original-frost-antler'].clears == 1
+assert state.returns == 0
+
+check = TrailWalk(lua, core, restored, edges, exits)
+check.cross(end)
+if restored.active != 1:
+    core.action(restored, 'swap')
+assert restored.story.quests['growth-light-release'] is None
+assert core.growthSkillCondition(restored, 'SK58') is True
+assert core.growthSkillCondition(restored, 'SK59')[0] is False
+gauge = restored.gauge
+core.action(restored, 'light')
+assert restored.actors[1].light == 12 and restored.gauge == gauge - 60
+
+result = dict(route=milestones, hunts=hunts, completedQuests=done, trainSeconds=ride_seconds,
+              snowMatch=snow_record, recoveryTrips=recovery_trips, inventoryTrips=inventory_trips,
+              partyWipes=state.returns, savedAndRestored=True, unlockedHunt=end, lightReleaseAt160=True,
+              scope='Earned Lv140 checkpoint from a new Lv1 adventure. Lua movement and built-in auto battle.')
+(ROOT / 'evidence/snez-fresh-route.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf8')

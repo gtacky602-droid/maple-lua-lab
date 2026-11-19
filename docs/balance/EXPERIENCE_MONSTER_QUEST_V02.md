@@ -205,3 +205,7 @@ Lv120の町の広場から、浅瀬の反射板で橋を架け、森の道を経
 | 冬越えの折返し道 | 136→140 | 2,987 | 75,938,501 |
 
 `python -X utf8 test_nod_fresh_route.py` で、新規Lv1からスネージナヤ・雪の町まで再現できる。到着後のセーブは `work/nod-fresh-route/snezhnaya-save.json`。続けて `node test_nod_fresh_route.mjs` を実行すると、Lv140のナド・クライの町からM地図の狩場表示、スネージナヤへの移動、第1章の必要Lv141と雪線の切通しへの入場を確認できる。 [雪の町への案内](../../evidence/nod-fresh-snezhnaya-atlas.png) · [Chromeの到着ログ](../../evidence/nod-fresh-route-browser.json)
+
+## 同じ冒険データでスネージナヤからLv160へ
+
+白虹峠の3章と5件のサブ依頼を報告し、極光谷の入口まで歩いた。Lv140からのLua内経過は4時間22分4秒。全滅は0回、荷物整理で6回帰還。Lv160では訓練依頼の受注前に光界解放を使えた。 [白虹峠の試走と狩場別のEXP](WHITE_PASS_PROGRESSION_WEB.md) · [続きの狩場と通行Lv](../WORLD_ATLAS_WEB.md)

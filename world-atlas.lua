@@ -163,7 +163,8 @@ return function(C, atlas)
   elseif edge.liftSeconds then return 'lift'
   elseif from.voyage and from.voyage.destination==edge.to or to.voyage then
    local vehicle=from.voyage or to.voyage
-   return vehicle.kind=='trolley' and 'rail' or vehicle.kind=='ferry' and 'boat' or 'arrival'
+   if vehicle.kind=='train' or vehicle.kind=='trolley' then return 'rail' end
+   return vehicle.kind=='ferry' and 'boat' or 'arrival'
   elseif edge.requiresArrival then return 'arrival'
   elseif edge.wind then return 'wind' end
   return 'walk'
@@ -334,8 +335,9 @@ return function(C, atlas)
         label=route_labels[mode],mode=mode,reason=reason,
         hint=edge.darkOnly and '灯りを消して足場を出す' or edge.wind and '風が止むまで待つ'
           or edge.windowStart and '停車・寄港時に降りる'
-          or node.voyage and node.voyage.kind=='ferry' and node.voyage.destination==edge.to
-            and ('出航から'..node.voyage.seconds..'秒で着岸') or nil}
+          or node.voyage and node.voyage.destination==edge.to and (
+            node.voyage.kind=='ferry' and ('出航から'..node.voyage.seconds..'秒で着岸')
+            or node.voyage.kind=='train' and ('発車から'..node.voyage.seconds..'秒で到着')) or nil}
        queue[#queue+1]=edge.to
       end
      end
