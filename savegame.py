@@ -406,7 +406,7 @@ def validate_endgame(data):
 
 
 def validate_save(data):
-    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses','daily','endgame'}!=FIELDS:
+    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses','daily','endgame','rankProof'}!=FIELDS:
         raise ValueError('保存データの項目が一致しません')
     if type(data['version']) is not int or data['version']!=1:
         raise ValueError('対応していない保存バージョンです')
@@ -785,4 +785,6 @@ def validate_save(data):
         validate_endgame(data)
     elif 'postgame-goal' in data.get('story', {}).get('growth', {}):
         raise ValueError('Missing selected adventure goal')
-    return data.copy()
+    save = data.copy()
+    save.pop('rankProof', None)
+    return save

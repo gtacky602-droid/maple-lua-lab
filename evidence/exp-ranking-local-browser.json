@@ -1,0 +1,12 @@
+{
+  "twoProfiles": true,
+  "earnedBaseXP": [
+    1,
+    1
+  ],
+  "rankedRestore": true,
+  "weeklySwitch": true,
+  "freshStartPreservesCheckpoint": true,
+  "mobileFits": true,
+  "errors": []
+}

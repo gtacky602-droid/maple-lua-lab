@@ -417,7 +417,8 @@
         "18 linked quest reports using fixed draft EXP",
         "3 chapter bosses with independent first-clear EXP",
         "legacy progression migration",
-        "Lv200 overflow and lifetime EXP"
+        "Lv200 overflow and lifetime EXP",
+        "persistent local lifetime and weekly base EXP standings with signed checkpoint resume"
       ],
       "pending": [
         "remaining quest rewards, regional boss rewards and dailies",
@@ -429,7 +430,9 @@
         "evidence/progression-browser.json",
         "evidence/story-growth-test.json",
         "evidence/quest-exp-rewards.json",
-        "evidence/chapter-first-clear-exp.json"
+        "evidence/chapter-first-clear-exp.json",
+        "evidence/exp-ranking-local-http.json",
+        "evidence/exp-ranking-local-browser.json"
       ]
     },
     {
@@ -8043,7 +8046,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Connect the base cumulative EXP leaderboard to authoritative runtime records and audit outstanding quest and encounter coverage.",
+  "current_priority": "Implement two-player same-map Web play with independent rewards, then audit the unverified quest routes and boss phases.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",

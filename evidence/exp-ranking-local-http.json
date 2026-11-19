@@ -1,0 +1,56 @@
+{
+  "twoProfiles": true,
+  "rankedBaseXP": 11462335280,
+  "boostedTotal": 11462335613,
+  "sharedRankTie": true,
+  "unsignedAndAlteredSavesStayPlayable": true,
+  "otherProfileCannotRankWithSave": true,
+  "effectiveLabActionsEndEligibility": true,
+  "dailyLedgersIsolated": true,
+  "restartPersistence": true,
+  "weekChange": true,
+  "monday0400Jst": true,
+  "replayUsesHighWater": true,
+  "standings": {
+    "player": "旅人 0001",
+    "weekStart": "2026-11-23",
+    "total": {
+      "entries": [
+        {
+          "name": "旅人 0001",
+          "score": 11462335481,
+          "place": 1,
+          "own": true
+        },
+        {
+          "name": "旅人 0002",
+          "score": 11462335280,
+          "place": 2,
+          "own": false
+        }
+      ],
+      "own": {
+        "name": "旅人 0001",
+        "score": 11462335481,
+        "place": 1,
+        "own": true
+      }
+    },
+    "weekly": {
+      "entries": [
+        {
+          "name": "旅人 0001",
+          "score": 201,
+          "place": 1,
+          "own": true
+        }
+      ],
+      "own": {
+        "name": "旅人 0001",
+        "score": 201,
+        "place": 1,
+        "own": true
+      }
+    }
+  }
+}
