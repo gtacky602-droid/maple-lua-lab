@@ -1,0 +1,43 @@
+{
+  "profiles": [
+    "legacy",
+    "h48c32",
+    "h32c16"
+  ],
+  "heightToPivot": 114,
+  "background": "fontaine-background-v1.png",
+  "addedCandidates": 4,
+  "mobileOverflow": false,
+  "metrics": {
+    "lake-vivianne-v4": {
+      "legacy": 1833,
+      "h48c32": 1107,
+      "h32c16": 493
+    },
+    "lake-vivianne-a": {
+      "legacy": 384,
+      "h48c32": 274,
+      "h32c16": 191
+    },
+    "lake-vivianne-b": {
+      "legacy": 3983,
+      "h48c32": 2408,
+      "h32c16": 1068
+    },
+    "lake-ninianne-v4": {
+      "legacy": 3780,
+      "h48c32": 2322,
+      "h32c16": 1086
+    },
+    "lake-ninianne-a": {
+      "legacy": 425,
+      "h48c32": 291,
+      "h32c16": 224
+    },
+    "lake-ninianne-b": {
+      "legacy": 4741,
+      "h48c32": 2991,
+      "h32c16": 1389
+    }
+  }
+}

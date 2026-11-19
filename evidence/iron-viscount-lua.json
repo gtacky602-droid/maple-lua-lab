@@ -1,0 +1,29 @@
+{
+  "sixQuestObjectives": 6,
+  "normalRouteInitiallyLocked": true,
+  "separateReportAndLevelGate": true,
+  "nestedAtlasRoute": [
+    "fon-wp-50044",
+    "iron-viscount-thermal-gallery",
+    "iron-viscount-legend-pool"
+  ],
+  "aquaticCatchGuardedAndCounterDamage": {
+    "guarded": 5,
+    "counter": 63
+  },
+  "hotWaterCannotBeCaught": true,
+  "bothDepthsHitAndMovingWave": true,
+  "retreatClearsGuardChargeAndKeepsExitDepth": true,
+  "reentryAtFullBossHealth": true,
+  "pausedRectangles": {
+    "legacy": 5280,
+    "h48c32": 3261,
+    "h32c16": 1488
+  },
+  "soloClear": {
+    "seconds": 28.02,
+    "hp": 140,
+    "killXp": 212400
+  },
+  "savePreservesQuestAndSingleReward": true
+}

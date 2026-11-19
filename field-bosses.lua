@@ -357,7 +357,7 @@ return function(C,configs,controllers)
   local boss=slot.enemy
   local partner=boss.fieldPartner
   local behavior=controllers[spec.controller]
-  if s.storySwimming and behavior.swimStatus then f.storySwimCombat=behavior.swimStatus(s,boss) end
+  if s.storySwimming and behavior.swimStatus then f.storySwimCombat=behavior.swimStatus(s,boss,spec) end
   local playerX=s.actors[s.active].x
   if math.abs(playerX-boss.x)>550 and (not partner or math.abs(playerX-partner.x)>550) and slot.phase=='available' then return f end
   local cast=slot.cast

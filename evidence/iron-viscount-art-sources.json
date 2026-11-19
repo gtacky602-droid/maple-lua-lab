@@ -1,0 +1,87 @@
+{
+  "references": [
+    {
+      "file": "mods2.jpg",
+      "page": "https://modslab.net/en/genshin_impact/guides/7FYRt9kdAt/",
+      "image": "https://modslab.net/redactor/upload-images/64e0f6474c423.png",
+      "size": [
+        1600,
+        900
+      ],
+      "identification": "戦闘画面の上端で英語名 Iron Viscount を確認。",
+      "observation": "斜め下からの近景。重なった甲羅の縁が暗い段差になる。青い円形の光は戦闘エフェクトで、外装と重なる。"
+    },
+    {
+      "file": "mods4.jpg",
+      "page": "https://modslab.net/en/genshin_impact/guides/7FYRt9kdAt/",
+      "image": "https://modslab.net/redactor/upload-images/64e0f616df2f7.png",
+      "size": [
+        1600,
+        900
+      ],
+      "identification": "撃破後のアチーブメント名 Iron Viscount を確認。",
+      "observation": "同じ洞窟内での撃破後の画面。個体識別に使用。"
+    },
+    {
+      "file": "alt0.jpg",
+      "page": "https://altema.jp/gensin/teppinosisyaku",
+      "image": "https://img.altema.jp/gensin/kakudai/teppinosisyaku.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "identification": "戦闘画面のHPバーで日本語名「鉄皮の子爵」を確認。",
+      "observation": "正面寄り。左右に張る殻の下に前腕が見える。一方は節が明るく、一方は濃い丸い外装が目立つ。腹の下に水底までの空間がある。"
+    },
+    {
+      "file": "alt1.jpg",
+      "page": "https://altema.jp/gensin/teppinosisyaku",
+      "image": "https://img.altema.jp/gensin/kakudai/teppinosisyaku_ikikata2.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "identification": "地上の熱水湖への経路資料。",
+      "observation": "明るい湖面に白いもやが帯状に立つ。地上の熱水と蒸気を示す環境資料として使用。"
+    },
+    {
+      "file": "alt2.jpg",
+      "page": "https://altema.jp/gensin/teppinosisyaku",
+      "image": "https://img.altema.jp/gensin/kakudai/teppinosisyaku_ikikata4.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "identification": "洞窟内の仕掛けの位置を示す画像。",
+      "observation": "岩場が橙色に照らされ、橙の噴出口の周囲で上方へ明るい筋が伸びる。戦闘時の個体表面や体の発光とは区別した。"
+    },
+    {
+      "file": "alt4.jpg",
+      "page": "https://altema.jp/gensin/teppinosisyaku",
+      "image": "https://img.altema.jp/gensin/kakudai/teppinosisyaku_suityu4.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "identification": "洞窟内の仕掛けの近景。",
+      "observation": "赤熱した岩と奥の白紫のかすみが見える。画像だけでは、かすみの物質や温度までは分からない。"
+    },
+    {
+      "file": "game8.jpg",
+      "page": "https://game8.jp/genshin/546492",
+      "image": "https://img.game8.jp/8558403/e8f3d1333c9d7c628c474301c6d34206.jpeg/show",
+      "size": [
+        440,
+        240
+      ],
+      "identification": "記事の鉄皮の子爵欄で照合。個体名の根拠はアルテマとModsLabの明瞭な表示を優先。",
+      "observation": "斜めの接近場面。手前の腕と奥の腕が重なり、幅広い殻が前腕の上に浮かぶ。"
+    }
+  ],
+  "art_decisions": [
+    "ラボ版は広く低い鈍鉄色の甲羅と青黒い板爪を採用し、殻の明暗と縁取りで硬さを表す。",
+    "巡回法官の橙色の大爪・背の銅色模様とは色面を分ける。暖色は継ぎ目に小さく残す。",
+    "爪の開き、前で組んだ構え、水平への押し出しで横幅を変え、小表示でも行動を判別できるようにする。",
+    "環境の噴気は背景資料として扱い、浮遊する体のシルエットに煙を焼き込まない。"
+  ]
+}

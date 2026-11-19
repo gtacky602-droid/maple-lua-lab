@@ -123,8 +123,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 147,
-      "prototype_quest_count": 25,
+      "prototype_stage_count": 149,
+      "prototype_quest_count": 26,
       "official_map2_markers": {
         "waypoints": 92,
         "statues": 8
@@ -7962,8 +7962,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1422,
-    "provisional_quests": 258,
+    "authored_stages": 1424,
+    "provisional_quests": 259,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -8718,12 +8718,15 @@
           "rocky-legend-ledge",
           "liam-legend-pond",
           "deianeira-legend-lab",
-          "ocean-judge-legend-pool"
+          "ocean-judge-legend-pool",
+          "iron-viscount-thermal-gallery",
+          "iron-viscount-legend-pool"
         ],
         "quest_ids": [
           "fon-mapped-depth-samples",
           "fon-mapped-north-lock",
           "fon-hidden-lab-access",
+          "fon-beryl-thermal-vents",
           "fon-mapped-nostoi-record",
           "knave-weekly-commission",
           "narwhal-weekly-commission",
@@ -10286,7 +10289,7 @@
       "content/story-graph.json"
     ],
     "design_candidates": 56,
-    "playable_prototypes": 10,
+    "playable_prototypes": 11,
     "stage_by_legend": {
       "legend-liyue_rulers_of_chizhang_mountains": "chizhang-legend-terrace",
       "legend-fontaine_cineas": "cineas-legend-chamber",
@@ -10297,7 +10300,8 @@
       "legend-fontaine_rocky_avildsen": "rocky-legend-ledge",
       "legend-fontaine_liam": "liam-legend-pond",
       "legend-fontaine_deianeira_of_snezhevna": "deianeira-legend-lab",
-      "legend-fontaine_ocean_circuit_judge": "ocean-judge-legend-pool"
+      "legend-fontaine_ocean_circuit_judge": "ocean-judge-legend-pool",
+      "legend-fontaine_iron_viscount": "iron-viscount-legend-pool"
     }
   }
 }

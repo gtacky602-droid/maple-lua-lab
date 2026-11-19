@@ -1,0 +1,85 @@
+{
+  "source": "fontaine-lake-legend-idle-studies-v5.png",
+  "frames": [
+    {
+      "id": "lake-vivianne",
+      "pose": "idle-a",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        91,
+        18,
+        198,
+        120
+      ]
+    },
+    {
+      "id": "lake-vivianne",
+      "pose": "idle-b",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        90,
+        18,
+        199,
+        120
+      ]
+    },
+    {
+      "id": "lake-ninianne",
+      "pose": "idle-a",
+      "crop": [
+        0,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        47,
+        18,
+        242,
+        120
+      ]
+    },
+    {
+      "id": "lake-ninianne",
+      "pose": "idle-b",
+      "crop": [
+        288,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        40,
+        18,
+        249,
+        120
+      ]
+    }
+  ]
+}

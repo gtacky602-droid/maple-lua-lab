@@ -186,10 +186,14 @@ def build():
     stages_by_region = defaultdict(dict)
     mapped_stage = {}
     for node in graph['nodes']:
-        field = all_fields.get(node.get('mapPoint') or node.get('designField'))
-        if parent := node.get('atlasParent'):
+        source = node
+        parents = set()
+        while parent := source.get('atlasParent'):
+            assert parent not in parents, (node['id'], 'cyclic atlasParent', parent)
+            parents.add(parent)
             source = nodes[parent]
-            field = all_fields[source.get('designField') or source['mapPoint']]
+        field = all_fields.get(source.get('mapPoint') or source.get('designField'))
+        assert field or not parents, (node['id'], 'atlasParent chain must end at a mapped field')
         region = field['design_region_id'] if field else VOYAGE_REGIONS.get(node['id'], region_for_name.get(node['region']))
         if region:
             stages_by_region[region][node['id']] = node

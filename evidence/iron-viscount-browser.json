@@ -1,0 +1,67 @@
+{
+  "questObjectives": 6,
+  "lockedBeforeInspectionAndReport": true,
+  "atlasStops": [
+    "iron-viscount-thermal-gallery",
+    "iron-viscount-legend-pool"
+  ],
+  "keyboardCatchAndCounter": true,
+  "retreatAtSameDepthAndReentry": true,
+  "guardControlHiddenOutsideArena": true,
+  "startupDefersBossArt": true,
+  "profileChangesKeepTimeAndWarning": true,
+  "commands": {
+    "png": 23,
+    "legacy": 7032,
+    "h32c16": 1917
+  },
+  "journeys": [
+    [
+      "fon-wp-50044",
+      "iron-viscount-thermal-gallery",
+      "waterway"
+    ],
+    [
+      "iron-viscount-thermal-gallery",
+      "fon-wp-50044",
+      "waterway"
+    ],
+    [
+      "fon-wp-50044",
+      "iron-viscount-thermal-gallery",
+      "waterway"
+    ],
+    [
+      "iron-viscount-thermal-gallery",
+      "fon-wp-50044",
+      "waterway"
+    ],
+    [
+      "fon-wp-50044",
+      "iron-viscount-thermal-gallery",
+      "waterway"
+    ],
+    [
+      "iron-viscount-thermal-gallery",
+      "iron-viscount-legend-pool",
+      "swim"
+    ],
+    [
+      "iron-viscount-legend-pool",
+      "iron-viscount-thermal-gallery",
+      "swim"
+    ],
+    [
+      "iron-viscount-thermal-gallery",
+      "iron-viscount-legend-pool",
+      "swim"
+    ],
+    [
+      "iron-viscount-legend-pool",
+      "iron-viscount-thermal-gallery",
+      "swim"
+    ]
+  ],
+  "gallery": true,
+  "errors": []
+}

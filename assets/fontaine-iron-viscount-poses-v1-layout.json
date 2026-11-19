@@ -1,0 +1,90 @@
+{
+  "source": "fontaine-iron-viscount-poses-source-v1.png",
+  "swimCenter": [
+    144,
+    54
+  ],
+  "frames": [
+    {
+      "id": "legend-iron-viscount",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        71,
+        26,
+        205,
+        119
+      ],
+      "source_sheet": "iron-viscount-draft.png",
+      "source_crop": [
+        0,
+        0,
+        673,
+        724
+      ]
+    },
+    {
+      "id": "legend-iron-viscount",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        86,
+        26,
+        201,
+        107
+      ],
+      "source_sheet": "iron-viscount-draft.png",
+      "source_crop": [
+        673,
+        0,
+        568,
+        724
+      ]
+    },
+    {
+      "id": "legend-iron-viscount",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        26,
+        26,
+        222,
+        101
+      ],
+      "source_sheet": "iron-viscount-draft.png",
+      "source_crop": [
+        1241,
+        0,
+        931,
+        724
+      ]
+    }
+  ]
+}
