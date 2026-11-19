@@ -1,0 +1,88 @@
+{
+  "results": {
+    "ridge-watch": [
+      {
+        "rank": "i",
+        "set": "tenacity",
+        "enemies": 10,
+        "waves": 3,
+        "bestTicks": 645,
+        "xp": 115,
+        "mora": 420
+      },
+      {
+        "rank": "ii",
+        "set": "paleFlame",
+        "enemies": 8,
+        "waves": 1,
+        "bestTicks": 341,
+        "xp": 944,
+        "mora": 900
+      },
+      {
+        "rank": "iii",
+        "set": "tenacity",
+        "enemies": 10,
+        "waves": 1,
+        "bestTicks": 405,
+        "xp": 3663,
+        "mora": 1900
+      },
+      {
+        "rank": "iv",
+        "set": "paleFlame",
+        "enemies": 2,
+        "waves": 1,
+        "bestTicks": 405,
+        "xp": 7990,
+        "mora": 3200
+      }
+    ],
+    "windcrown": [
+      {
+        "rank": "i",
+        "set": "celestialGift",
+        "enemies": 3,
+        "waves": 2,
+        "bestTicks": 381,
+        "xp": 281685,
+        "mora": 6500
+      },
+      {
+        "rank": "ii",
+        "set": "deepShadow",
+        "enemies": 1,
+        "waves": 1,
+        "bestTicks": 985,
+        "xp": 732000,
+        "mora": 8500
+      },
+      {
+        "rank": "iii",
+        "set": "celestialGift",
+        "enemies": 1,
+        "waves": 1,
+        "bestTicks": 1049,
+        "xp": 1231173,
+        "mora": 11000
+      },
+      {
+        "rank": "iv",
+        "set": "deepShadow",
+        "enemies": 2,
+        "waves": 1,
+        "bestTicks": 557,
+        "xp": 1425570,
+        "mora": 14500
+      }
+    ]
+  },
+  "actualCombatInputs": true,
+  "timeoutAndAbandonUnpaid": true,
+  "sameRankRepeatAndPendingTownDrop": true,
+  "shieldRetaliationCooldown": true,
+  "chainResetsOnSwap": true,
+  "keeperResistancePerEnemy": true,
+  "checkpointRestoresHistory": true,
+  "fourSetsEquipAndRestoreTwoPieceEffects": true
+}

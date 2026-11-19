@@ -13,6 +13,9 @@
 #endgameDesk h2,#endgameRun p,#stygianDesk h2{margin:0 0 8px}
 #stygianDesk h2{font-size:16px;color:#ffe2a4}
 #stygianDesk .controls{margin:6px 0 0}
+#artifactDomainChoices{margin:6px 0 0}
+#artifactDomainChoices label{margin-left:0}
+#artifactDomainChoices[hidden]{display:none}
 #stygianDesk label{margin:0}
 #stygianDesk p{margin:8px 0 0}
 #stygianDesk select{max-width:100%}
@@ -210,6 +213,16 @@
  <button id="weeklyChallengeStart" type="button">選んだ難易度で挑戦</button>
  <p id="weeklyChallengeDetails" style="margin:4px 0 0"></p>
  <p id="weeklyChallengeRecord" style="margin:4px 0 0" hidden></p>
+</section>
+<section id="artifactDomain" hidden style="padding:10px 18px;background:#173a3b" aria-label="祈聖秘境の挑戦">
+ <strong id="artifactDomainName"></strong>
+ <div id="artifactDomainChoices" class="controls">
+  <label>難易度 <select id="artifactDomainRank"></select></label>
+  <label>狙うセット <select id="artifactDomainSet"></select></label>
+  <button id="artifactDomainStart" type="button">挑戦する</button>
+ </div>
+ <p id="artifactDomainDetails" style="margin:4px 0 0"></p>
+ <p id="artifactDomainResult" role="status" style="margin:4px 0 0" hidden></p>
 </section>
 <div id="storyLift" hidden style="padding:10px 18px;background:#173a3b"><span id="storyLiftText"></span> <progress id="storyLiftProgress" aria-label="乗り物の移動進捗"></progress></div>
 <div id="storyMarket" hidden style="padding:10px 18px;background:#173a3b"></div>

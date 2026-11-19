@@ -180,6 +180,13 @@ def rebuild():
         'natlan_voyage_stage_ids': ['natlan-port', 'natlan-voyage', 'ochkanatlan-dock', 'nod-port', 'natlan-voyage-return'],
     }
     stage_ids = {node['id'] for node in graph['nodes']}
+    domains = read('artifact-domains.json')['domains']
+    assert all(domain['node'] in stage_ids for domain in domains)
+    coverage['artifact_domains'] = [
+        {'id': domain['id'], 'stage': domain['node'], 'rank_count': len(domain['ranks']),
+         'reward_sets': domain['sets'], 'status': 'playable_lab_prototype'}
+        for domain in domains
+    ]
     assert set(coverage['world_map_review']['natlan_voyage_stage_ids']) <= stage_ids
     (CONTENT / 'coverage.json').write_text(json.dumps(coverage, indent=2, ensure_ascii=False) + '\n', encoding='utf8')
     print(f'{len(graph["nodes"])} authored stages, {len(graph["quests"])} prototype quests, {len(maps["nodes"])} official map markers')

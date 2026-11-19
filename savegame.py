@@ -8,6 +8,12 @@ _WEEKLY_BOSSES={slot['id']:slot for slot in json.loads((Path(__file__).parent/'c
 _STORY_ZONES={"story:"+n["id"] for n in _STORY_GRAPH["nodes"]}
 _IMPRINT_CAPS=json.loads((Path(__file__).parent/'content/imprint-settings.json').read_text(encoding='utf8'))['caps']
 _ABYSS_MODES=json.loads((Path(__file__).parent/'content/abyss-settings.json').read_text(encoding='utf8'))['modes']
+_ARTIFACT_SETS=json.loads((Path(__file__).parent/'content/artifact-sets.json').read_text(encoding='utf8'))
+_ARTIFACT_DOMAIN_RANKS={
+    f"{domain['id']}:{rank['id']}": (domain['node'],rank['limit'])
+    for domain in json.loads((Path(__file__).parent/'content/artifact-domains.json').read_text(encoding='utf8'))['domains']
+    for rank in domain['ranks']
+}
 _COMPANIONS=('amber','columbina','wanderer','beidou','ayaka','emilie','kachina','mitya')
 import math
 import re
@@ -353,7 +359,7 @@ def validate_itto_contest(record, quest, spec, visited):
 
 def validate_endgame(data):
     record = data['endgame']
-    if not isinstance(record, dict) or set(record)-{'goal','stygian','weekly'} != {'abyss', 'bosses'}:
+    if not isinstance(record, dict) or set(record)-{'goal','stygian','weekly','artifactDomains'} != {'abyss', 'bosses'}:
         raise ValueError('Invalid challenge records')
     if 'goal' in record and record['goal'] not in ('gear', 'discover', 'boss'):
         raise ValueError('Invalid selected adventure goal')
@@ -366,6 +372,8 @@ def validate_endgame(data):
     if 'weekly' in record:
         categories.append(('weekly', {f'{id}:{mode}' for id, spec in _WEEKLY_BOSSES.items()
                                      if not spec.get('original') for mode in WEEKLY_MODE_IDS}))
+    if 'artifactDomains' in record:
+        categories.append(('artifactDomains', _ARTIFACT_DOMAIN_RANKS))
     for category, known in categories:
         entries = record[category]
         fields = {'clears', 'bestTicks', 'companion'}
@@ -390,6 +398,10 @@ def validate_endgame(data):
                 expected = 3 if ticks<=mode['threeStars']*60 else 2 if ticks<=mode['twoStars']*60 else 1
                 if type(entry['bestStars']) is not int or entry['bestStars']!=expected or ticks>mode['limit']*60:
                     raise ValueError('Invalid chamber result')
+            if category == 'artifactDomains':
+                node, limit = known[id]
+                if entry['bestTicks'] > limit*60 or not data.get('story', {}).get('visited', {}).get(node):
+                    raise ValueError('Invalid artifact domain result')
 
 
 def validate_save(data):
@@ -484,7 +496,8 @@ def validate_save(data):
             bound=item.get('companionId',companion) if item['owner']==2 else None
             if 'companionId' in item and (item['owner']!=2 or item['companionId'] not in _COMPANIONS):
                 raise ValueError('聖遺物の装備者が不正です')
-            if 'setId' in item and item['setId'] not in ('gladiator','troupe'): raise ValueError('セットが不正です')
+            if 'setId' in item and (not isinstance(item['setId'],str) or item['setId'] not in _ARTIFACT_SETS):
+                raise ValueError('セットが不正です')
             if 'subpair' in item and item['subpair'] not in ('atk_crit','hp_crit'): raise ValueError('サブ効果が不正です')
             if item.get('subpair')=='atk_crit' and item['slot']==3: raise ValueError('主効果とサブ効果の重複です')
             if 'locked' in item and type(item['locked']) is not bool: raise ValueError('装備ロックが不正です')

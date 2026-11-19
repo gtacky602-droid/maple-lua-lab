@@ -1,4 +1,7 @@
+import {initArtifactDomainUI} from './artifact-domain-ui.js';
+
 export function initEndgameUI(action){
+ const renderArtifactDomain=initArtifactDomainUI(action);
  const get=id=>document.getElementById(id);
  const desk=get('endgameDesk'),run=get('endgameRun'),status=get('endgameRunStatus');
  const next=get('abyssNext'),weekly=get('endgameWeekly'),personal=get('endgamePersonal');
@@ -58,6 +61,7 @@ export function initEndgameUI(action){
   el.onclick=()=>{action(`abyss_start:${mode}:${get('abyssSet').value}`);el.blur()};
  }
  return function update(frame){
+  renderArtifactDomain(frame.artifactDomain);
   const entry=frame.weeklyDesk;
   weeklyDesk.hidden=!entry;
   if(entry){

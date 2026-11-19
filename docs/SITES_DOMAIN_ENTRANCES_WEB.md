@@ -10,6 +10,6 @@
 
 公式テイワットマップの秘境の印と公開ゲーム画面を照合した。山脊の見守りは石門付近の石段、チェスへの誘いは鷹飛びの浜上空の茶会、山風の荊冠は滝の上の岩壁と傾いた岩を確認した。山風の地図投稿は本文が空欄のため、別の到着画像と崖・扉・岩の位置を照らし合わせた。 [地図の印と参照画像](../sources/map-research/sites-layer-trails.json) · [山脊の見守りの位置](https://gamewith.jp/genshin/article/show/273420) · [HoYoWikiの扉に通ずる対局](https://wiki.hoyolab.com/pc/genshin/entry/7672?lang=ja-jp) · [神像から滝への経路](https://gamewith.jp/genshin/article/show/561196)
 
-チェスへの誘いの原作の解放条件は間章・第四幕「背理」。ラボは通行Lvを使い、浮遊島と既存の町の入口から同じ週ボス戦を起動する。山脊の見守りと山風の荊冠は、今回は外の扉まで試せる。入口までの2D足場、風の移動秒数、背景画像はラボ用の仮仕様。 [Mで開いた浮遊島の地図](../evidence/sites-domain-chess-map.png) · [山風の荊冠の地図](../evidence/sites-layer-lookout-map.png)
+チェスへの誘いの原作の解放条件は間章・第四幕「背理」。ラボは通行Lvを使い、浮遊島と既存の町の入口から同じ週ボス戦を起動する。山脊の見守りと山風の荊冠は、外の扉から祈聖秘境に入れる。入口までの2D足場、風の移動秒数、背景画像はラボ用の仮仕様。 [Mで開いた浮遊島の地図](../evidence/sites-domain-chess-map.png) · [山風の荊冠の地図](../evidence/sites-layer-lookout-map.png) · [秘境の挑戦と報酬](ARTIFACT_DOMAINS_WEB.md)
 
 Luaで3地点の往復と保存復元を確認した。Chromeで風に乗る移動、滝の足場、扉までの歩行、茶会の丘からLv112の対局への入場と帰還も試した。Lv13では丘まで登れ、対局の入口に必要Lvが出る。 [Luaの試走](../evidence/sites-layer-trails-lua.json) · [Chromeの試走](../evidence/sites-layer-trails-browser.json)

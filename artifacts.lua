@@ -1,5 +1,5 @@
 -- Inventory / main-stat prototype. No final set/substat/crit implementation claim.
-return function(C,imprint)
+return function(C,imprint,artifactSets)
  local action,step,frame,checkpoint,restore,onKill=C.action,C.step,C.frame,C.checkpoint,C.restore,C.onKill
  local oreDiscount=400
  local pendingAttackLimit=16
@@ -142,10 +142,14 @@ return function(C,imprint)
     stars=stars+(item.imprintStars or 0)
     local v=C.artifactStats(item)
     if item.slot==1 then hp=hp+v;hasFlower=true elseif item.slot==2 then atk=atk+v elseif item.slot==3 then pct=pct+v elseif item.slot==4 then element=element+v elseif item.slot==5 then crit=crit+v end
-    if item.setId then sets[item.setId]=sets[item.setId]+1 end
+    if item.setId then sets[item.setId]=(sets[item.setId] or 0)+1 end
     if item.subpair=='atk_crit' then pct=pct+8;rate=rate+4 elseif item.subpair=='hp_crit' then hpPct=hpPct+8;rate=rate+4 end
    end end
    if sets.gladiator>=2 then pct=pct+12 end
+   if (sets.tenacity or 0)>=2 then hpPct=hpPct+20 end
+   a.artifactPhysicalBonus=(sets.paleFlame or 0)>=2 and .25 or 0
+   a.artifactBreakBonus=(sets.deepShadow or 0)>=2 and .25 or 0
+   a.artifactGaugeBonus=(sets.celestialGift or 0)>=2 and 1 or 0
    a.normalBonus=sets.gladiator>=4 and .2 or 0;a.skillBonus=sets.troupe>=2 and .12 or 0;a.troupe4=sets.troupe>=4
    a.critRate=math.min(1,rate/100);a.setCounts=sets
    if i==2 and starter then
@@ -357,6 +361,7 @@ return function(C,imprint)
  end
  function C.frame(s,mode,profile)
   setup(s);local f=frame(s,mode,profile);f.inventory=s.inventory;f.upgradeOreDiscount=oreDiscount
+  f.artifactSets=artifactSets
   f.artifactPreview=s.campaign and s.campaign.zone=='town' and s.artifactPreview or nil
   f.imprintGrowth={total=C.partyImprint(s),byActor={s.actors[1].imprint or 0,s.actors[2].imprint or 0},
    caps=imprint.caps,costPerStar=imprint.costPerStar}

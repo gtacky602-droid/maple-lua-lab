@@ -27,7 +27,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 67,
+      "prototype_stage_count": 68,
       "prototype_quest_count": 28,
       "official_map2_markers": {
         "waypoints": 45,
@@ -264,7 +264,7 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 22,
+      "prototype_stage_count": 23,
       "prototype_quest_count": 6,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
@@ -7962,7 +7962,7 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1516,
+    "authored_stages": 1518,
     "provisional_quests": 283,
     "companion_join_records": 8,
     "scope_complete": false,
@@ -8101,6 +8101,7 @@
           "sites-hunt-7210-pocket-1",
           "sites-lookout-10009",
           "sites-lookout-85351",
+          "ridge-watch-domain",
           "sites-corridor-mond-forest"
         ],
         "quest_ids": [
@@ -9668,6 +9669,7 @@
           "mond-wp-95803",
           "sites-windcrown-waterfall",
           "sites-lookout-98500",
+          "windcrown-domain",
           "dorn-shieldrol-lake-trail",
           "dorn-churldric-cooking-camp"
         ],
@@ -10528,5 +10530,27 @@
       "legend-frostmoon_prism_slime": "frost-prism-slime-basin",
       "legend-frostmoon_mushteshir": "frost-mushteshir-inner-chamber"
     }
-  }
+  },
+  "artifact_domains": [
+    {
+      "id": "ridge-watch",
+      "stage": "ridge-watch-domain",
+      "rank_count": 4,
+      "reward_sets": [
+        "tenacity",
+        "paleFlame"
+      ],
+      "status": "playable_lab_prototype"
+    },
+    {
+      "id": "windcrown",
+      "stage": "windcrown-domain",
+      "rank_count": 4,
+      "reward_sets": [
+        "celestialGift",
+        "deepShadow"
+      ],
+      "status": "playable_lab_prototype"
+    }
+  ]
 }

@@ -10,9 +10,9 @@ export function initInventoryUI(action){
  const manage=document.getElementById('manageBlockedDrops');
  const root=document.getElementById('inventoryRows');
  const details=root.closest('details');
- const sets={gladiator:'剣闘士のフィナーレ',troupe:'黄金の劇団'};
+ let sets={};
  const number=new Intl.NumberFormat('ja-JP');
- const displaySet=id=>sets[id]??'セットなし';
+ const displaySet=id=>sets[id]?.name??'セットなし';
  const previewControls=document.createElement('div');
  previewControls.className='controls';
  const previewStatus=document.createElement('div');
@@ -126,6 +126,7 @@ export function initInventoryUI(action){
   details.querySelector('summary').focus();
  };
  return {update(f){const bag=f.inventory;if(!bag)return;
+  sets=f.artifactSets??{};
   renderPreview(f);
   blocked.hidden=!f.artifactAttackBlocked;
   if(f.artifactAttackBlocked){
@@ -191,7 +192,7 @@ export function initInventoryUI(action){
   inspect.disabled=!source.options[1]||!target.options[1];
   root.replaceChildren();
   for(const item of bag.items){const row=document.createElement('div');row.style.cssText='display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:9px 0';
-   const label=document.createElement('span');label.textContent=`#${item.id} ${names[item.slot]} ★${item.rarity} itemLv${item.itemLv} +${item.enhance} ${item.setId==='troupe'?'黄金の劇団':item.setId==='gladiator'?'剣闘士':'セットなし'} ${item.subpair==='atk_crit'?'ATK8%・会心4%':item.subpair==='hp_crit'?'HP8%・会心4%':'サブなし'} ／ 刻印${item.imprintStars??0}星 ｜ ${['未装備','旅人',companionNames[item.companionId]??companionName][item.owner]}`;row.append(label);
+   const label=document.createElement('span');label.textContent=`#${item.id} ${names[item.slot]} ★${item.rarity} itemLv${item.itemLv} +${item.enhance} ${displaySet(item.setId)} ${item.subpair==='atk_crit'?'ATK8%・会心4%':item.subpair==='hp_crit'?'HP8%・会心4%':'サブなし'} ／ 刻印${item.imprintStars??0}星 ｜ ${['未装備','旅人',companionNames[item.companionId]??companionName][item.owner]}`;row.append(label);
    const enhanceOptions=[['+4強化','upgrade']];
    if(ore)enhanceOptions.push([`鉱石で+4強化（${f.upgradeOreDiscount}モラ減）`,'useore']);
    const stars=item.imprintStars??0;

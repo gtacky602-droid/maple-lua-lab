@@ -1,6 +1,6 @@
 from pathlib import Path
 import sys, json
-from experience import RUNTIME_EXP, resolve_story_exp, resolve_stygian_exp, resolve_weekly_rewards
+from experience import LEVELS, RUNTIME_EXP, resolve_story_exp, resolve_stygian_exp, resolve_weekly_rewards
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / 'lua-limit-break-20261026-r1/work/python'))
 from lupa.lua53 import LuaRuntime
@@ -73,7 +73,8 @@ def runtime():
     lua.execute((ROOT / 'loadout.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'progression.lua').read_text(encoding='utf-8'))(core,lua.table_from(RUNTIME_EXP,recursive=True))
     imprint=json.loads((ROOT/'content/imprint-settings.json').read_text(encoding='utf8'))
-    lua.execute((ROOT / 'artifacts.lua').read_text(encoding='utf-8'))(core,lua.table_from(imprint,recursive=True))
+    artifact_sets=lua.table_from(json.loads((ROOT/'content/artifact-sets.json').read_text(encoding='utf8')),recursive=True)
+    lua.execute((ROOT / 'artifacts.lua').read_text(encoding='utf-8'))(core,lua.table_from(imprint,recursive=True),artifact_sets)
     lua.execute((ROOT / 'companions.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'star-seed.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'beidou.lua').read_text(encoding='utf-8'))(core)
@@ -621,6 +622,14 @@ def runtime():
         lua.table_from({'farka':farka,'beidou':stygian_beidou,'capitano':capitano,'xbalanque':xbalanque,
                         'rerir':rerir,'ronova':ronova,'wanderer':wanderer}))
     lua.execute((ROOT/'growth-trials.lua').read_text(encoding='utf8'))(core)
+    domains = json.loads((ROOT/'content/artifact-domains.json').read_text(encoding='utf8'))
+    for domain in domains['domains']:
+        for rank in domain['ranks']:
+            rank['waves'] = [[key for key, count in wave.items() for _ in range(count)] for wave in rank['waves']]
+            rank['count'] = sum(len(wave) for wave in rank['waves'])
+            rank['xp'] = LEVELS[rank['level'] - 1]['normal_enemy_base_exp'] * rank['xpUnits']
+    lua.execute((ROOT/'artifact-domains.lua').read_text(encoding='utf8'))(
+        core,lua.table_from(domains,recursive=True),artifact_sets)
     atlas = json.loads((ROOT/'content/world-atlas.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'world-atlas.lua').read_text(encoding='utf8'))(core,lua.table_from(atlas,recursive=True))
     return lua, core

@@ -907,6 +907,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if contestQuest and id==contestQuest.target then contest.populate(s,contestQuest,s.story.quests[contestQuest.id]) end
   if C.enterFieldBossNode then C.enterFieldBossNode(s,id) end
   if C.enterWeeklyBossNode then C.enterWeeklyBossNode(s,id) end
+  if C.enterArtifactDomainNode then C.enterArtifactDomainNode(s) end
   s.macro=nil;s.encounter=nil
   local v=n.voyage
   s.voyage=v and {destination=v.destination,arrives=s.t+v.seconds-(elapsed or 0),total=v.seconds,

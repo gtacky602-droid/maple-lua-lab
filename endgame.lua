@@ -46,6 +46,13 @@ return function(C,abyss,weekly,matches,controllers)
   return first
  end
 
+ function C.recordArtifactDomainClear(s,id,rank,elapsed)
+  local data=records(s)
+  data.artifactDomains=data.artifactDomains or {}
+  local _,entry=personalBest(s,data.artifactDomains,id..':'..rank,elapsed)
+  return entry
+ end
+
  local function leave(s)
   local trial=s.endgameRun
   s.endgameRun=nil

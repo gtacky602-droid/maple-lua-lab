@@ -1,0 +1,65 @@
+{
+  "results": [
+    {
+      "id": "ridge-watch",
+      "ranks": 4,
+      "cleared": "iv",
+      "manualAttack": true,
+      "reward": {
+        "slot": 1,
+        "mora": 3200,
+        "itemLevel": 84,
+        "rarity": 5,
+        "setName": "蒼白の炎",
+        "xp": 7990,
+        "held": false
+      },
+      "restoredAt": "mond-town"
+    },
+    {
+      "id": "windcrown",
+      "ranks": 4,
+      "cleared": "iv",
+      "manualAttack": true,
+      "reward": {
+        "mora": 14500,
+        "rarity": 5,
+        "slot": 1,
+        "held": false,
+        "itemLevel": 204,
+        "setName": "影に沈む幻",
+        "xp": 1425570
+      },
+      "restoredAt": "dornman-camp"
+    }
+  ],
+  "journeys": [
+    [
+      "mond-border",
+      "sites-lookout-10009",
+      "walk"
+    ],
+    [
+      "sites-lookout-10009",
+      "ridge-watch-domain",
+      "raised"
+    ],
+    [
+      "mond-wp-95782",
+      "sites-windcrown-waterfall",
+      "walk"
+    ],
+    [
+      "sites-windcrown-waterfall",
+      "sites-lookout-98500",
+      "lift"
+    ],
+    [
+      "sites-lookout-98500",
+      "windcrown-domain",
+      "raised"
+    ]
+  ],
+  "mobileWidth": 390,
+  "errors": []
+}

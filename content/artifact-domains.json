@@ -1,0 +1,46 @@
+{
+  "scope": "Enemy counts and wave order use the source domain. Entry levels, enemy HP, 2D combat, clear rewards and artifact set effects are lab adaptations.",
+  "enemies": {
+    "pyro-slime": {"name":"炎スライム","art":"pyro-slime","hp":16,"resist":{"pyro":0.65}},
+    "large-pyro-slime": {"name":"大型炎スライム","art":"pyro-slime","hp":30,"resist":{"pyro":0.65}},
+    "berserker": {"name":"ヒルチャール・突進","art":"hilichurl","hp":25},
+    "blazing-axe": {"name":"ヒルチャール暴徒・炎斧","art":"frostarm-lawachurl","hp":44,"resist":{"pyro":0.25}},
+    "shieldwall": {"name":"ヒルチャール暴徒・岩盾","art":"frostarm-lawachurl","hp":54,"resist":{"physical":0.20,"geo":0.25}},
+    "hydro-geovishap": {"name":"ヴィシャップ・岩（水）","art":"fanged-beast","hp":100,"resist":{"hydro":0.30,"geo":0.15}},
+    "electro-geovishap": {"name":"ヴィシャップ・岩（雷）","art":"fanged-beast","hp":100,"resist":{"electro":0.30,"geo":0.15}},
+    "hydro-rogue": {"name":"ヒルチャールレンジャー・水","art":"hilichurl","hp":65,"resist":{"hydro":0.30}},
+    "stonehide": {"name":"ヒルチャール・岩兜の王","art":"frostarm-lawachurl","hp":92,"resist":{"geo":0.30}},
+    "earthguard": {"name":"遺跡ドレイク・陸行","art":"ruin-guard","hp":104,"resist":{"physical":0.28}},
+    "keeper": {"name":"領域の番人","art":"ruin-guard","hp":120,"resist":{"geo":0.20},"learnElements":true}
+  },
+  "domains": [
+    {
+      "id": "ridge-watch",
+      "name": "山脊の見守り",
+      "node": "ridge-watch-domain",
+      "sets": ["tenacity", "paleFlame"],
+      "rule": "shield",
+      "sources": ["https://genshin.hoyoverse.com/en/news/detail/12376", "https://paimon.moe/domains/ridge_watch", "https://genshin-impact.fandom.com/wiki/Ridge_Watch"],
+      "ranks": [
+        {"id":"i","name":"Ⅰ","level":20,"limit":360,"hpScale":2,"damage":14,"mora":420,"xpUnits":5,"rarity":4,"waves":[{"pyro-slime":2,"large-pyro-slime":1,"berserker":2},{"large-pyro-slime":1,"berserker":2},{"large-pyro-slime":2}]},
+        {"id":"ii","name":"Ⅱ","level":32,"limit":300,"hpScale":3.5,"damage":24,"mora":900,"xpUnits":8,"rarity":4,"waves":[{"berserker":4,"blazing-axe":3,"large-pyro-slime":1}]},
+        {"id":"iii","name":"Ⅲ","level":48,"limit":360,"hpScale":6,"damage":48,"mora":1900,"xpUnits":9,"rarity":4,"waves":[{"large-pyro-slime":5,"blazing-axe":4,"shieldwall":1}]},
+        {"id":"iv","name":"Ⅳ","level":64,"limit":300,"hpScale":16,"damage":80,"mora":3200,"xpUnits":10,"rarity":5,"waves":[{"hydro-geovishap":1,"electro-geovishap":1}]}
+      ]
+    },
+    {
+      "id": "windcrown",
+      "name": "山風の荊冠",
+      "node": "windcrown-domain",
+      "sets": ["celestialGift", "deepShadow"],
+      "rule": "chain",
+      "sources": ["https://game8.jp/genshin/784051", "https://gamewith.jp/genshin/article/show/561196", "https://genshin-impact.fandom.com/wiki/Thorny_Crown_of_the_Mountain_Wind"],
+      "ranks": [
+        {"id":"i","name":"Ⅰ","level":160,"limit":300,"hpScale":1600,"damage":850,"mora":6500,"xpUnits":5,"rarity":4,"waves":[{"blazing-axe":2},{"hydro-rogue":1}]},
+        {"id":"ii","name":"Ⅱ","level":168,"limit":300,"hpScale":4000,"damage":1400,"mora":8500,"xpUnits":8,"rarity":4,"waves":[{"stonehide":1}]},
+        {"id":"iii","name":"Ⅲ","level":176,"limit":300,"hpScale":4300,"damage":2100,"mora":11000,"xpUnits":9,"rarity":4,"waves":[{"earthguard":1}]},
+        {"id":"iv","name":"Ⅳ","level":184,"limit":300,"hpScale":5800,"damage":3300,"mora":14500,"xpUnits":10,"rarity":5,"waves":[{"keeper":2}]}
+      ]
+    }
+  ]
+}

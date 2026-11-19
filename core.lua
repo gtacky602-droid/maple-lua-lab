@@ -87,6 +87,13 @@ function C.enemyHitDamage(s,a,e,mult,element,resist)
  if resist>=1 then return 0,false end
  if element=='physical' and (e.physicalBreak or 0)>0 then resist=resist-.12 end
  local bonus=element~='physical' and (a.elementBonus or 0) or 0
+ if element=='physical' then
+  local actor=s.actors[a.id]
+  if actor then
+   bonus=bonus+(actor.artifactPhysicalBonus or 0)
+   if (e.physicalBreak or 0)>0 then bonus=bonus+(actor.artifactBreakBonus or 0) end
+  end
+ end
  bonus=bonus+(a.isNormal and (a.normalBonus or 0) or (a.skillBonus or 0))
  if not a.isNormal and a.troupe4 then bonus=bonus+((s.active==a.id and not s.auto) and .15 or .25) end
  if C.damageBonus then bonus=bonus+C.damageBonus(s,a,element,e) end
@@ -251,7 +258,11 @@ local function pulse(s,cast)
   end
  end
  if cast.travelSpeed then cast.lastPulseX=cast.x end
- if touched and not cast.gained then s.gauge=min(100,s.gauge+cast.gain);cast.gained=true end
+ if touched and not cast.gained then
+  local actor=s.actors[cast.id]
+  local bonus=cast.gain>0 and actor and actor.artifactGaugeBonus or 0
+  s.gauge=min(100,s.gauge+cast.gain+bonus);cast.gained=true
+ end
 end
 C.resolveCast=pulse
 function C.playerAttackAt(s,a)
@@ -508,7 +519,7 @@ function C.step(s,dt,input)
     e.warning=e.warning-dt*rate
     if e.warning<=0 then
      if near and near.owner then event(s,'decoy_hit',near.owner,e.id,0)
-     elseif near then C.damageActor(s,near,14,e,true,true) end
+     elseif near then C.damageActor(s,near,e.contactDamage or 14,e,true,true) end
      e.cd=3.2
     end
    end

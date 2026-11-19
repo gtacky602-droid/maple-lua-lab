@@ -1,0 +1,8 @@
+{
+  "gladiator": {"name": "剣闘士のフィナーレ", "twoPiece": "攻撃力+12%"},
+  "troupe": {"name": "黄金の劇団", "twoPiece": "スキルダメージ+12%"},
+  "tenacity": {"name": "千岩牢固", "twoPiece": "最大HP+20%"},
+  "paleFlame": {"name": "蒼白の炎", "twoPiece": "物理ダメージ+25%"},
+  "celestialGift": {"name": "天からの贈り物", "twoPiece": "攻撃命中時の共通ゲージ+1"},
+  "deepShadow": {"name": "影に沈む幻", "twoPiece": "物理耐性低下中の敵への物理ダメージ+25%"}
+}
