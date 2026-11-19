@@ -27,6 +27,16 @@ assert {site['field'] for site in plan['confirmed_entrance_exteriors']} == {'tey
 assert sum(row['finding']=='implemented_as_lab_route' for row in plan['sites_only_route_review']) == 137
 assert not (fields & drafts.keys()) and len(fields) + len(drafts) == plan['imported_fields'] == 979
 assert len(plan['sites_only_route_review']) == 421
+roster = {
+    row.get('fieldNode') or row.get('weeklyNode'): row
+    for row in read('content/encounters.json')['encounters']
+    if row['kind'] in ('normal', 'weekly') and (row.get('fieldNode') or row.get('weeklyNode'))
+}
+boss_points = {p['id']: p['boss'] for r in atlas['regions'] for p in r['points'] if 'boss' in p}
+assert boss_points == {
+    stage: {key: row[key] for key in ('id', 'name', 'kind', 'aliases') if key in row}
+    for stage, row in roster.items()
+}
 for entry in plan['draft_field_approaches']:
     stage = entry['anchor']
     assert entry['terminus'] and not entry['runtime_gate']
@@ -38,6 +48,8 @@ for delta in plan['level_differences']:
 lua, core = runtime()
 s = core.new(12)
 core.action(s, 'world_map_toggle')
+assert core.frame(s).worldMap is None
+core.action(s, 'world_map_boss:anemo-field-basin')
 assert core.frame(s).worldMap is None
 core.action(s, 'story_start')
 before = native(core.checkpoint(s))
@@ -60,6 +72,18 @@ assert s.t == t and native(core.checkpoint(s)) == before
 assert act('here').selected.current
 view = act('region:world')
 assert len(view.points) == 8 and len(view.draws) > 200
+view = act('layer:boss')
+assert {p.id: p.boss.id for p in view.bosses.values()} == {stage: row['id'] for stage, row in roster.items()}
+assert view.region == 'world' and len(view.points) == 8
+assert act('boss:mond-road').region == 'world'
+boss_guides = Counter()
+for stage, row in roster.items():
+    view = act('boss:' + stage)
+    assert view.layer == 'boss' and view.selected.id == stage and view.selected.boss.kind == row['kind']
+    assert all(p.current or p.boss for p in view.points.values())
+    assert view.guide.status in ('ready', 'blocked') and bool(view.guide.reason) == (view.guide.status == 'blocked')
+    assert view.guide.stops[len(view.guide.stops)].id == stage
+    boss_guides[view.guide.status] += 1
 assert act('close') is None
 core.step(s, 1 / 60, lua.table())
 assert s.t > t
@@ -94,6 +118,8 @@ result = {'imported_fields':len(fields)+len(drafts),'live_runtime_fields':len(fi
           'live_exteriors_with_unverified_source_entrance':sorted(pending),
           'route_findings':dict(Counter(row['finding'] for row in plan['sites_only_route_review'])),
           'separately_labelled_level_mismatches':len(plan['level_differences']),
+          'bosses_by_kind': dict(Counter(row['kind'] for row in roster.values())),
+          'boss_path_status_from_level_1': dict(boss_guides),
           'hidden_area_visibility':True,'map_state_not_saved':True,'game_clock_pauses':True,
           'rendered_by_lua':True,'water_layer_and_levels':True}
 (ROOT / 'evidence/world-atlas-lua.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')

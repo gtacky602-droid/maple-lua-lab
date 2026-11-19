@@ -72,6 +72,21 @@ try{
  const row=page.locator('[data-quest="'+quest+'"]');
  await row.getByRole('button',{name:'受注',exact:true}).click();
  await page.waitForFunction(q=>window.lab.frame.story.quests[q]?.status==='active',quest);
+ await page.keyboard.press('KeyM');
+ const atlas=page.locator('#worldAtlas');
+ await atlas.waitFor();
+ await page.locator('#atlasLayer').selectOption('boss');
+ await page.locator('#atlasSearch').fill('波濤の投錨者');
+ await page.locator('#atlasField').selectOption(arena);
+ await page.waitForFunction(arena=>window.lab.frame.worldMap?.selected?.id===arena,arena);
+ const map=(await frame()).worldMap;
+ const mapRoute=map.guide.stops.map(stop=>stop.id);
+ assert.equal(map.guide.status,'ready');
+ assert.deepEqual(mapRoute,[road,arena]);
+ assert.ok(map.draws.some(draw=>draw.kind==='line'&&draw.color==='#ffe196'));
+ await atlas.screenshot({path:prefix+'-map.png'});
+ await page.keyboard.press('Escape');
+ await atlas.waitFor({state:'hidden'});
  await gate(1380,road);await gate(1030,arena);
  assert.match((await frame()).location,/西港の潮洞/);
  const scenery=await page.evaluate(async()=>{
@@ -178,6 +193,7 @@ try{
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({browser:'Chrome',companion:'wanderer',play,scenery,
+  mapRoute,
   questAcceptedInUi:true,questReport:{xp:11200,mora:750},drinkInterrupted:true,valiantInterrupted:true,
   sameSceneCommands:{png:png.commands,standard:standard.commands,light:light.commands},
   savedRespawn:true,viewport390:true,errors},null,2)+'\n');

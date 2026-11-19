@@ -3,7 +3,7 @@
   "companion": "wanderer",
   "play": {
     "won": true,
-    "seconds": 46.35,
+    "seconds": 46.2,
     "moves": [
       "WB01",
       "WB02",
@@ -21,6 +21,10 @@
     "file": "wavebinder-field-background-v1.png",
     "state": "ready"
   },
+  "mapRoute": [
+    "novokichev-depth",
+    "wavebinder-tide-cavern"
+  ],
   "questAcceptedInUi": true,
   "questReport": {
     "xp": 11200,

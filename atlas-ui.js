@@ -13,6 +13,9 @@ export function initAtlas(action, clearKeys) {
  const layer = document.getElementById('atlasLayer');
  const huntLayer = layer.querySelector('option[value="hunt"]');
  const huntLegend = document.getElementById('atlasHuntLegend');
+ const bossLayer = layer.querySelector('option[value="boss"]');
+ const bossLegend = document.getElementById('atlasBossLegend');
+ const localLayers = layer.querySelectorAll('option[value="surface"],option[value="below"],option[value="water"],option[value="review"]');
  const canvas = document.getElementById('atlasCanvas');
  const search = document.getElementById('atlasSearch');
  const field = document.getElementById('atlasField');
@@ -37,6 +40,12 @@ export function initAtlas(action, clearKeys) {
   send('world_map_close');
  });
  window.addEventListener('keydown', event => {
+  if (event.code === 'Escape' && dialog.open && event.target === search) {
+   event.preventDefault();
+   event.stopImmediatePropagation();
+   if (!event.repeat) send('world_map_close');
+   return;
+  }
   if (event.code !== 'KeyM' || event.repeat || open.disabled ||
       event.target instanceof Element && event.target.matches('input,textarea,[contenteditable]')) return;
   event.preventDefault();
@@ -47,7 +56,10 @@ export function initAtlas(action, clearKeys) {
  region.onchange = () => send('world_map_region:' + region.value);
  layer.onchange = () => send('world_map_layer:' + layer.value);
  current.onclick = () => send('world_map_here');
- field.onchange = () => choose(field.value);
+ field.onchange = () => {
+  if (view.region === 'world' && view.layer === 'boss' && field.value) send('world_map_boss:' + field.value);
+  else choose(field.value);
+ };
  search.oninput = renderFields;
 
  function choose(id) {
@@ -71,10 +83,17 @@ export function initAtlas(action, clearKeys) {
 
  function renderFields() {
   const query = search.value.normalize('NFKC').trim().toLowerCase();
-  const matches = entries(view.points).filter(({name,level}) =>
-   !query || (name + (level ? ' Lv' + level : '')).normalize('NFKC').toLowerCase().includes(query));
-  field.replaceChildren(new Option(matches.length ? '地点を選ぶ' : '該当する地点なし', ''),
-   ...matches.map(item => new Option(item.name + (item.level ? ' ｜ Lv' + item.level : ''), item.id)));
+  const byBoss = view.layer === 'boss';
+  const globalBosses = byBoss && view.region === 'world';
+  const matches = entries(globalBosses ? view.bosses : view.points).filter(({name,level,boss,area}) =>
+   !query || [name + (level ? ' Lv' + level : ''),boss?.name,...entries(boss?.aliases),area]
+    .filter(Boolean).some(value => value.normalize('NFKC').toLowerCase().includes(query)));
+  const prompt = matches.length ? (byBoss ? 'ボスを選ぶ' : '地点を選ぶ') : '該当する地点なし';
+  field.replaceChildren(new Option(prompt, ''), ...matches.map(item => {
+   const name = item.boss?.name ?? item.name;
+   const detail = globalBosses ? item.area : name !== item.name ? item.name : '';
+   return new Option([name,detail,item.level && 'Lv' + item.level].filter(Boolean).join(' ｜ '), item.id);
+  }));
   field.value = matches.some(item => item.id === view.selected?.id) ? view.selected.id : '';
  }
 
@@ -125,7 +144,7 @@ export function initAtlas(action, clearKeys) {
  function renderSelection() {
   const selected = view.selected;
   const area = view.options.find(item => item.id === view.region);
-  title.textContent = selected?.name ?? area?.name ?? 'テイワット全域';
+  title.textContent = selected?.boss?.name ?? selected?.name ?? area?.name ?? 'テイワット全域';
   level.textContent = selected?.mode === 'draft' ? [
    selected.level ? `設計推奨Lv${selected.level}` : '推奨Lv未設定',
    selected.review === 'needs_entrance_review' ? '入口・階層の照合待ち' : '接続案を検証中',
@@ -133,6 +152,8 @@ export function initAtlas(action, clearKeys) {
    : selected ? [
     selected.current ? '現在地' : selected.visited ? '訪問済み' : '未訪問',
     '通行Lv' + selected.level,
+    selected.boss && (selected.boss.kind === 'weekly' ? '週ボス' : '通常ボス'),
+    selected.boss && selected.boss.name !== selected.name && selected.name,
     selected.entrancePending ? '試作の見晴らし場・原作入口は照合中' :
       selected.huntKind === 'elite' ? '任意戦' : selected.huntKind ? '狩場' : selected.provisional ? '試作区画' : '',
     selected.huntLevel ? '脇道の狩場はLv' + selected.huntLevel :
@@ -204,10 +225,13 @@ export function initAtlas(action, clearKeys) {
   current.textContent = '現在地へ';
   current.title = view.location;
   back.disabled = view.region === 'world';
-  layer.disabled = view.region === 'world';
+  const overview = view.region === 'world';
+  for (const option of localLayers) option.hidden = option.disabled = overview;
   huntLayer.hidden = !view.hasHunts;
   huntLayer.disabled = !view.hasHunts;
-  huntLegend.hidden = !view.hasHunts;
+  huntLegend.hidden = !view.hasHunts || view.layer === 'boss';
+  bossLayer.hidden = bossLayer.disabled = !view.hasBosses;
+  bossLegend.hidden = overview || !entries(view.points).some(point => point.boss);
   layer.value = view.layer;
   renderRegions();
   renderFields();

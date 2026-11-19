@@ -34,6 +34,7 @@ async function initEncounters(){
   function updateReadiness(){
    const ready=runtimeReady();runtimeNotice.hidden=ready;
    for(const button of list.querySelectorAll('[data-runtime-action]')){button.disabled=!ready;button.textContent=ready?(button.dataset.fieldAlso?'模擬戦に挑戦':'試作に挑戦'):'準備中';}
+   for(const button of list.querySelectorAll('[data-boss-route]'))button.disabled=!ready;
   }
   window.addEventListener('lab-ready',updateReadiness);
   function render(){
@@ -54,6 +55,21 @@ async function initEncounters(){
      const route=document.createElement('a');route.textContent=r.weeklyEntrance||r.fieldEntrance||r.stygianEntrance;
      route.href='map-art.html?'+new URLSearchParams({node:r.weeklyNode||r.fieldNode||r.stygianNode});
      row.append(route);
+    }
+    const bossStage=r.weeklyNode||r.fieldNode;
+    if(bossStage){
+     const locate=document.createElement('button');locate.type='button';locate.dataset.bossRoute=bossStage;
+     locate.textContent='ゲーム内の地図で案内';
+     locate.onclick=()=>{
+      if(!runtimeReady())return;
+      const {frame,action}=window.lab;
+      const reason=!frame.story?.active?'本編ルートへ入ると地図で案内できます。':
+       frame.growthTrial?'成長試練を終えると地図で案内できます。':
+       !frame.storyGraph?.nodes.some(node=>node.id===bossStage)?'現地の入口を見つけると地図で案内できます。':'';
+      runtimeNotice.hidden=!reason;runtimeNotice.textContent=reason;
+      if(!reason)action('world_map_boss:'+bossStage);
+     };
+     row.append(locate);
     }
     if(r.action||!(r.fieldNode||r.weeklyNode||r.stygianNode))row.append(button);
     row.append(detail);

@@ -38,6 +38,19 @@ try{
  await page.locator('#loadProgress').click();await page.waitForFunction(()=>window.lab.frame.story.node==='mond-town');
  const row=page.locator(`[data-quest="${quest}"]`);await row.getByRole('button',{name:'受注',exact:true}).click();
  await page.waitForFunction(q=>window.lab.frame.story.quests[q]?.status==='active',quest);
+ await page.keyboard.press('KeyM');
+ const atlas=page.locator('#worldAtlas');
+ await atlas.waitFor();
+ await page.locator('#atlasLayer').selectOption('boss');
+ await page.locator('#atlasSearch').fill('トワリン');
+ await page.locator('#atlasField').selectOption('dvalin-sky-arena');
+ await page.waitForFunction(()=>window.lab.frame.worldMap?.selected?.id==='dvalin-sky-arena');
+ const map=(await frame()).worldMap;
+ const mapRoute=map.guide.stops.map(stop=>stop.id);
+ assert.equal(map.guide.status,'ready');
+ assert.deepEqual(mapRoute,['mond-road','dvalin-sky-arena']);
+ await page.keyboard.press('Escape');
+ await atlas.waitFor({state:'hidden'});
  await gate(1380,'mond-road');await gate(1280,'dvalin-sky-arena');
  const scenery=await page.evaluate(async()=>{const {sceneryStatus,backgroundReady}=await import('./scenery.js');await backgroundReady;return sceneryStatus(window.lab.frame)});
  assert.equal(scenery.key,'dvalinWeekly');assert.equal(scenery.state,'ready');
@@ -108,7 +121,7 @@ try{
  await page.locator('#saveProgress').click();await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('保存しました'));
  const save=await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));assert.equal(save.weeklyBosses[id].hp,0);
  await page.setViewportSize({width:390,height:844});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));assert.deepEqual(errors,[]);
- await fs.writeFile(prefix+'-browser.json',JSON.stringify({browser:'Chrome',companion:'amber',play,scenery,uiQuestAccepted:true,questReport:{xp:1400,mora:360},savedWeeklyRespawn:true,
+ await fs.writeFile(prefix+'-browser.json',JSON.stringify({browser:'Chrome',companion:'amber',play,scenery,mapRoute,uiQuestAccepted:true,questReport:{xp:1400,mora:360},savedWeeklyRespawn:true,
   sameSceneCommands:{png:png.commands,standard:standard.commands,light:light.commands},viewport390:true,errors},null,2)+'\n');
  console.log('Dvalin Chrome: actual pads, guard/crystal, floor warning, quest, comparison and saved respawn passed.');
 }catch(e){console.error(await page.evaluate(()=>({t:window.lab?.frame.t,boss:window.lab?.frame.weeklyBoss,actors:window.lab?.frame.actors,result:window.dvalinResult})),errors);throw e}

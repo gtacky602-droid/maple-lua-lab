@@ -221,6 +221,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   return (not n.hiddenGroup or s.story.discovered[n.hiddenGroup])
      and (not n.revealAfter or meetsGateRule(s,n.revealAfter))
  end
+ function C.atlasNodeVisible(s,id)
+  return nodes[id] and shownNode(s,nodes[id])
+ end
  local function shownEdge(s,edge)
   return shownNode(s,nodes[edge.to]) and (not edge.visitedOnly or s.story.visited[edge.to])
       and (not edge.hideUntilAllowed or not gateRestriction(s,edge))

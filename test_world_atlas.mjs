@@ -40,6 +40,22 @@ try {
  assert.equal((await map()).points.length,8);
  await atlas.screenshot({path:'evidence/world-atlas-overview.png'});
 
+ await page.locator('#atlasLayer').selectOption('boss');
+ await area('world','boss');
+ const bossCount=(await map()).bosses.length;
+ const globalOptions=await page.locator('#atlasField option').count();
+ assert.equal(globalOptions,bossCount+1);
+ await page.locator('#atlasSearch').fill('トワリン');
+ assert.equal(await page.locator('#atlasField option').count(),2);
+ await page.locator('#atlasField').selectOption('dvalin-sky-arena');
+ await page.waitForFunction(()=>window.lab.frame.worldMap?.selected?.id==='dvalin-sky-arena');
+ assert.match(await page.locator('#atlasPlaceName').textContent(),/空を裂く魔龍/);
+ assert.match(await page.locator('#atlasPlaceLevel').textContent(),/週ボス/);
+ assert.match(await page.locator('#atlasItineraryNote').textContent(),/必要Lv|依頼/);
+ await page.locator('#atlasSearch').fill('');
+ await page.locator('#atlasWorld').click();
+ await area('world','all');
+
  const world=await map();
  const fontaine=world.points.find(point=>point.id==='region-05');
  const canvas=page.locator('#atlasCanvas');
@@ -83,11 +99,24 @@ try {
  await atlas.waitFor();
  await page.keyboard.press('KeyM');
  await atlas.waitFor({state:'hidden'});
+ const encounters=page.locator('#encountersPanel');
+ await encounters.locator('summary').click();
+ await encounters.getByRole('textbox',{name:'ボス名で検索'}).fill('無相の風');
+ await encounters.getByRole('button',{name:'ゲーム内の地図で案内'}).click();
+ await atlas.waitFor();
+ await page.waitForFunction(()=>window.lab.frame.worldMap?.selected?.id==='anemo-field-basin');
+ assert.equal((await map()).layer,'boss');
+ assert.equal((await map()).selected.boss.kind,'normal');
+ assert.equal(await atlas.evaluate(el=>el.scrollWidth>el.clientWidth),false);
+ await page.locator('#atlasSearch').fill('無相');
+ await page.keyboard.press('Escape');
+ await atlas.waitFor({state:'hidden'});
  assert.equal(await page.locator('button.skill[data-action="skill3"] kbd').textContent(),'I');
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/world-atlas-browser.json',JSON.stringify({
   openedByKeyAndButton:true,worldRegions:8,currentPosition:true,
   mapClickAndFilter:true,searchAndPlaceSelection:true,itineraryOnCanvasAndPanel:true,hiddenAreaRemoved:true,windcrownExteriorReturn:true,
+  globalBossChoices:bossCount,bossAliasAndWeeklyGate:true,bossCatalogOpensFieldMap:true,
   keyboardAndTurnRecovery:true,simulationTimeFrozen:true,noMobileOverflow:true,errors
  },null,2)+'\n');
  console.log('Atlas current position, overview, regional and water layers, search, keyboard and mobile passed.');

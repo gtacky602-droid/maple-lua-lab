@@ -3,8 +3,8 @@
   "companion": "amber",
   "play": {
     "won": true,
-    "seconds": 119.15,
-    "hp": 128,
+    "seconds": 118.93,
+    "hp": 140,
     "returns": 0,
     "moves": [
       "WD01",
@@ -26,6 +26,10 @@
     "file": "dvalin-weekly-background-v1.png",
     "state": "ready"
   },
+  "mapRoute": [
+    "mond-road",
+    "dvalin-sky-arena"
+  ],
   "uiQuestAccepted": true,
   "questReport": {
     "xp": 1400,
@@ -33,9 +37,9 @@
   },
   "savedWeeklyRespawn": true,
   "sameSceneCommands": {
-    "png": 29,
-    "standard": 15257,
-    "light": 4062
+    "png": 23,
+    "standard": 15251,
+    "light": 4056
   },
   "viewport390": true,
   "errors": []

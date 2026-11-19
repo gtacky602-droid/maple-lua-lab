@@ -203,6 +203,16 @@ def build():
             stages_by_region[region][node['id']] = node
             mapped_stage[node['id']] = region
 
+    bosses_by_stage = {}
+    for boss in load('content/encounters.json')['encounters']:
+        if boss['kind'] not in ('normal', 'weekly'):
+            continue
+        stage = boss.get('weeklyNode') if boss['kind'] == 'weekly' else boss.get('fieldNode')
+        if not stage:
+            continue
+        assert stage in mapped_stage and stage not in bosses_by_stage, (boss['id'], stage)
+        bosses_by_stage[stage] = {key: boss[key] for key in ('id', 'name', 'kind', 'aliases') if key in boss}
+
     hunt_rows = load('sources/map-research/sites-branch-hunts.json')['routes']
     hunting_regions = {region for id, region in mapped_stage.items() if nodes[id].get('huntKind')}
     hunts_by_host = {row['host']:row for row in hunt_rows}
@@ -234,6 +244,7 @@ def build():
                            **({'entrancePending': True} if node.get('atlasEntrancePending') else {}),
                            **({'huntLevel': hunts_by_host[node_id]['level']} if node_id in hunts_by_host else {}),
                            **({'huntKind': node['huntKind']} if 'huntKind' in node else {}),
+                           **({'boss': bosses_by_stage[node_id]} if node_id in bosses_by_stage else {}),
                            **({'recommended': field['level'], 'field': field['field_id']} if field else {})})
         # Imported design points missing a runtime assignment are available in the review layer.
         draft = []

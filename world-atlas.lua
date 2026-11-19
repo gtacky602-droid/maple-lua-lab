@@ -1,10 +1,11 @@
 return function(C, atlas)
  local action, step, frame = C.action, C.step, C.frame
- local regions, places, positions = {}, {}, {}
+ local regions, places, positions, bosses = {}, {}, {}, {}
  for _,region in ipairs(atlas.regions) do
   regions[region.id] = region
   for _,point in ipairs(region.points) do
    places[point.id], positions[point.id] = region.id, point
+   if point.boss then bosses[#bosses+1]=point end
   end
  end
 
@@ -141,8 +142,8 @@ return function(C, atlas)
 
  local function pin(out,point)
   local color=point.current and '#dc735b' or point.selected and '#ffdf91' or
-    point.mode=='draft' and '#f4d8a4' or point.huntKind and '#996045' or point.visited and '#397972' or '#526671'
-  local size=(point.current or point.selected or point.major) and 7 or point.huntKind and 5 or 4
+    point.mode=='draft' and '#f4d8a4' or point.boss and '#8b4167' or point.huntKind and '#996045' or point.visited and '#397972' or '#526671'
+  local size=(point.current or point.selected or point.major or point.boss) and 7 or point.huntKind and 5 or 4
   local x,y=point.x,point.y
   polygon(out,{{x,y-size-2},{x+size+2,y},{x,y+size+2},{x-size-2,y}},'#273f4b')
   polygon(out,{{x,y-size},{x+size,y},{x,y+size},{x-size,y}},color)
@@ -370,10 +371,11 @@ return function(C, atlas)
   for _,p in ipairs(region.points) do
    local node=nodes[p.id]
    if node and (map.layer=='all' or p.layer==map.layer or map.layer=='review' and p.entrancePending
+      or map.layer=='boss' and (p.boss or p.id==state.node)
       or map.layer=='hunt' and (p.huntKind or p.huntLevel or p.id==state.node)) then
     local point={id=p.id,name=node.name,x=p.x,y=p.y,level=node.level,layer=p.layer,
       recommended=p.recommended,provisional=p.provisional,entrancePending=p.entrancePending,
-      huntLevel=p.huntLevel,huntKind=p.huntKind,
+      huntLevel=p.huntLevel,huntKind=p.huntKind,boss=p.boss,
       current=p.id==state.node,selected=p.id==map.selected,
       major=node.hub or node.waypoint and node.waypoint.kind=='statue',
       visited=state.visited[p.id],mode=node.hub and 'hub' or node.swim and 'water' or 'field'}
@@ -383,7 +385,13 @@ return function(C, atlas)
   end
   local terrain_points = points
   local approaches = {}
-  if map.layer=='review' then
+  if map.layer=='boss' then
+   terrain_points={}
+   for _,p in ipairs(region.points) do
+    local node=nodes[p.id]
+    if node then terrain_points[#terrain_points+1]={x=p.x,y=p.y,major=node.hub,mode=node.hub and 'hub'} end
+   end
+  elseif map.layer=='review' then
    terrain_points = {table.unpack(points)}
    for _,p in ipairs(points) do
     local anchor
@@ -446,6 +454,9 @@ return function(C, atlas)
   for _,leg in ipairs(stops) do
    inaccessible=inaccessible or leg.reason~=nil
    local a,b=where[leg.from],where[leg.id]
+   if map.layer=='boss' and places[leg.from]==region.id and places[leg.id]==region.id then
+    a,b=positions[leg.from],positions[leg.id]
+   end
    if a and b then
     local dash=(inaccessible or leg.mode~='walk') and {5,4} or nil
     line(out,a.x,a.y,b.x,b.y,'#33474a',5,dash)
@@ -463,7 +474,7 @@ return function(C, atlas)
       and math.abs(selected.x-point.x)<180 then
      label(out,x,point.y+25,'現在地','#263f4d',14)
     else
-     label(out,x,point.y-13,point.name,'#263f4d',14)
+     label(out,x,point.y-13,point.boss and point.boss.name or point.name,'#263f4d',14)
     end
    end
   end
@@ -486,7 +497,22 @@ return function(C, atlas)
     hasHunts=region and region.hasHunts or false}
   if region then
    result.points,result.selected,result.routes,result.guide=local_map(result.draws, region, nodes, s, map)
-  else result.points=overview(result.draws,options,f.story.node,nodes) end
+  else
+   result.points=overview(result.draws,options,f.story.node,nodes)
+   if map.layer=='boss' then
+    result.bosses={}
+    for _,p in ipairs(bosses) do
+     local node=nodes[p.id]
+     local area=regions[places[p.id]]
+     if node then
+      result.bosses[#result.bosses+1]={id=p.id,name=node.name,level=node.level,boss=p.boss,area=area.name}
+     end
+    end
+   end
+  end
+  for _,p in ipairs(bosses) do
+   if nodes[p.id] and (not region or places[p.id]==region.id) then result.hasBosses=true;break end
+  end
   return result
  end
 
@@ -495,6 +521,15 @@ return function(C, atlas)
    if s.worldMap then s.worldMap=nil
    elseif s.story and s.story.active and not s.growthTrial then
     s.worldMap={region=places[s.story.node] or 'world',layer='all',selected=s.story.node,revision=1}
+   end
+   return
+  end
+  local boss=key:match('^world_map_boss:([%w:_%-]+)$')
+  if boss then
+   if s.story and s.story.active and not s.growthTrial and positions[boss] and positions[boss].boss
+      and C.atlasNodeVisible(s,boss) then
+    local revision=s.worldMap and s.worldMap.revision+1 or 1
+    s.worldMap={region=places[boss],layer='boss',selected=boss,revision=revision}
    end
    return
   end
@@ -508,7 +543,7 @@ return function(C, atlas)
     map.region,map.layer,map.selected=places[s.story.node] or 'world','all',s.story.node
    elseif region and (region=='world' or regions[region]) then
     map.region,map.layer,map.selected=region,'all',nil
-   elseif layer and (layer=='all' or layer=='surface' or layer=='below' or layer=='water' or layer=='review' or layer=='hunt') then
+   elseif layer and (layer=='all' or layer=='surface' or layer=='below' or layer=='water' or layer=='review' or layer=='hunt' or layer=='boss') then
     map.layer,map.selected=layer,nil
    elseif selected then
     map.selected=selected
