@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 新規冒険をナド・クライからスネージナヤへ進める
+
+Lv120で到着したセーブからナド・クライの3章と、コロンビーナ・鑑定工房・夜道の見回りの依頼を報告してLv130。トウヒ棚Lv130、霜斜面Lv133、冬越えの折返し道Lv136の順に狩り、Lv140で雪の町に到達した。第1章の受注はLv141。雪線の切通しにはLv140から入れる。続きは `work/nod-fresh-route/snezhnaya-save.json`。 [試走と経験値](docs/balance/EXPERIENCE_MONSTER_QUEST_V02.md)
+
 ## 新規冒険をナタからナド・クライへ進める
 
 Lv100でナタに着いたセーブから旗取り・高台と水辺・夕映え会場の3章と、カチーナ・ムアラニ・キィニチの依頼を報告してLv110。道中で拾った聖遺物を装備し、赤土棚Lv110、岩棚Lv115、既設の東の秘境周辺Lv119を経てLv120になった。ナタ港からナド・クライまで90秒の便で渡り、町の広場で保存。続きは `work/natlan-fresh-route/nod-save.json`。 [連続試走と経験値](docs/balance/EXPERIENCE_MONSTER_QUEST_V02.md)

@@ -171,7 +171,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 147,
+      "prototype_stage_count": 149,
       "prototype_quest_count": 27,
       "official_map2_markers": {
         "waypoints": 83,
@@ -7962,19 +7962,20 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1526,
+    "authored_stages": 1528,
     "provisional_quests": 283,
     "companion_join_records": 8,
     "fresh_save_route": {
-      "verified_to": "nod-town",
-      "arrival_level": 120,
-      "scope": "New Lv1 adventure through three chapters and selected side quests in each of Mondstadt, Liyue, Inazuma, Sumeru, Fontaine and Natlan, ordinary hunts, and the regional crossings. Scripted Lua inputs and built-in auto-battle.",
+      "verified_to": "snezhnaya-hub",
+      "arrival_level": 140,
+      "scope": "New Lv1 adventure through three chapters and selected side quests in each of Mondstadt, Liyue, Inazuma, Sumeru, Fontaine, Natlan and Nod-Krai, ordinary hunts, and the regional crossings. Scripted Lua inputs and built-in auto-battle.",
       "mondstadt_evidence": "evidence/mondstadt-fresh-route.json",
       "liyue_evidence": "evidence/liyue-fresh-route.json",
       "inazuma_evidence": "evidence/inazuma-fresh-route.json",
       "sumeru_evidence": "evidence/sumeru-fresh-route.json",
       "fontaine_evidence": "evidence/fontaine-fresh-route.json",
-      "evidence": "evidence/natlan-fresh-route.json"
+      "natlan_evidence": "evidence/natlan-fresh-route.json",
+      "evidence": "evidence/nod-fresh-route.json"
     },
     "scope_complete": false,
     "not_proven": [
@@ -8039,7 +8040,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Continue the fresh-save progression route through Nod-Krai toward Snezhnaya and check the travel, quest and EXP gates.",
+  "current_priority": "Continue the fresh-save progression route through Snezhnaya's White Pass chapters and verify access to the routes beyond Lv160.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",
@@ -9072,7 +9073,9 @@
           "nod-wp-88139",
           "nod-wp-88140",
           "nod-wp-88144",
+          "nod-west-frost-slope",
           "nod-wp-88145",
+          "nod-north-spruce-shelves",
           "nod-wp-88146",
           "nod-wp-88147",
           "nod-wp-88148",

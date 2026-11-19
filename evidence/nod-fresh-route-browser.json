@@ -1,0 +1,34 @@
+{
+  "importedLevel": 140,
+  "arrivalLevel": 140,
+  "route": [
+    [
+      "snezhnaya-entry",
+      "walk"
+    ],
+    [
+      "snezhnaya-hub",
+      "walk"
+    ]
+  ],
+  "hunts": [
+    "nod-north-spruce-shelves",
+    "nod-west-frost-slope",
+    "winter-frontier-switchback"
+  ],
+  "completedQuests": [
+    "nod-first-treasure",
+    "nod-moon-crossroads",
+    "nod-moon-vault-quest",
+    "columbina-coast-detour",
+    "nod-treasure-appraisal",
+    "nod-lantern-patrol"
+  ],
+  "nextChapter": {
+    "id": "white-pass-ticket",
+    "requiredLevel": 141,
+    "availableHunt": "white-pass-cut"
+  },
+  "travelKillXp": 92032,
+  "errors": []
+}
