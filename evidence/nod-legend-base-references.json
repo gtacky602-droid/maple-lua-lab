@@ -1,0 +1,182 @@
+{
+  "checkedOn": "2026-11-20",
+  "groups": [
+    {
+      "id": "legend-raskolnikov",
+      "legend": "ラスコルニコフ",
+      "comparison": "ファデュイ特務隊・突撃兵・ファイアーブレイド",
+      "images": [
+        {
+          "view": "通常個体の図鑑・正面の頭部",
+          "page": "https://wiki.biligame.com/ys/愚人众特辖队·火刃突击队",
+          "url": "https://patchwiki.biligame.com/images/ys/5/5c/0mrdb2wy1z0i4mpudwrdh5nkqtxvirg.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "2d01be52a94be210e611eefbcfb605c6f091de843ab9bc70706d221ec715ef8c",
+          "seen": "紺色の高い兜、金色の縁、正面の赤い徽章と暗い面頬。"
+        },
+        {
+          "view": "通常個体の全身・斜め前",
+          "page": "https://game8.co/games/Genshin-Impact/archives/550637",
+          "url": "https://img.game8.co/4276464/41491cbcda610b78e7bf33fea4d8ac65.png/show",
+          "width": 728,
+          "height": 410,
+          "sha256": "70c83f591a6f0448106e0496fc2e1d63b216077f4232dcf86ce2fd39658532aa",
+          "seen": "青紫の長い上着、銀色の肩鎧、赤い首布、幅広の武器。"
+        },
+        {
+          "view": "名前付きプロフィール・正面寄り",
+          "page": "https://beebom.com/all-nod-krai-local-legends-in-genshin-impact/amp/",
+          "url": "https://static.beebom.com/wp-content/uploads/2025/09/Raskolnikov-Location-Legend-Genshin-Impact.jpg",
+          "width": 1200,
+          "height": 656,
+          "sha256": "57405feb14c92cec2015047aa124ba5308b3bfe3579608f60d62c3f346341ac7",
+          "seen": "高い紺の兜、斜めにかかる赤い布、肩鎧と白い前身頃を通常絵と比較できる。"
+        },
+        {
+          "view": "名前付き現地・待機の遠景",
+          "page": "https://game8.jp/genshin/720999",
+          "url": "https://img.game8.jp/11773771/709f46d711e7ab21b7ed4cfb8d558586.webp/original",
+          "width": 3834,
+          "height": 2085,
+          "sha256": "e7358cde75ef1fddbb676194189d3c7f1a152aed021b41b88ab48058770ddef0",
+          "seen": "待機中の全身と姿勢。兜の徽章や刃の細部は距離で読めない。"
+        },
+        {
+          "view": "名前付き現地・戦闘中",
+          "page": "https://gamewith.jp/genshin/article/show/518636",
+          "url": "https://img.gamewith.jp/img/df54f977e9eb02d3ebd51aafce67cb79.png",
+          "width": 710,
+          "height": 390,
+          "sha256": "7a7af2c356f12d402380abc59d19feae3b42323ea19abec4438220350c4e7f6e",
+          "seen": "紫色の半球は本体の外側に出る戦闘エフェクト。布地の色は発光のない図鑑で照合する。"
+        }
+      ],
+      "sharedIdleGalleryId": "oprichniki-fireblade-shock-trooper"
+    },
+    {
+      "id": "legend-crab-tsar",
+      "legend": "カニ皇帝",
+      "comparison": "岩ヤドカニ（野生生物）",
+      "images": [
+        {
+          "view": "通常個体の図鑑・斜め前",
+          "page": "https://wiki.biligame.com/ys/生物志：岩居蟹",
+          "url": "https://patchwiki.biligame.com/images/ys/6/6a/swuvfijw7aw03736w5tsl2z93846lbu.png",
+          "width": 1000,
+          "height": 1000,
+          "sha256": "d3d6768398c0782389c01cc83d77d9b926ef75004e6576caffc14f75a47c13b5",
+          "seen": "黄橙の目、巻貝状の大きなはさみ、淡い岩の殻と青い結晶。"
+        },
+        {
+          "view": "通常個体の現地・上から",
+          "page": "https://gamewith.jp/genshin/article/show/517137",
+          "url": "https://img.gamewith.jp/img/3b92e1d63931c1000dba4cd3086072d2.png",
+          "width": 710,
+          "height": 388,
+          "sha256": "67d43545fd0ac68591cdb9ce303be069bc5aeed03c6bcee1ab9cd29cbee7f505",
+          "seen": "岩の殻と青い背の突起の位置が、照明の明るい地上でも読める。"
+        },
+        {
+          "view": "名前付きプロフィール・斜め前",
+          "page": "https://beebom.com/all-nod-krai-local-legends-in-genshin-impact/amp/",
+          "url": "https://static.beebom.com/wp-content/uploads/2025/09/Crab-Tsar-Local-Legend-Genshin-Impact.jpg",
+          "width": 1200,
+          "height": 654,
+          "sha256": "150a33f3d68ddee63839271e995474f885ef75aafbf1670260a2b697d842f224",
+          "seen": "目と巻いたはさみのつくりは通常型に近い。青い殻は、上と左右に大きく張り出す。"
+        },
+        {
+          "view": "名前付き現地・浮上中",
+          "page": "https://game8.jp/genshin/720995",
+          "url": "https://img.game8.jp/11770663/b213a60edfcf01e379884a84abe116f7.webp/original",
+          "width": 1248,
+          "height": 702,
+          "sha256": "464be33dd4570296054b6ddffa525cd9345376ae2bc3f35709166a4c12203f7d",
+          "seen": "正面付近から青い殻の開口形が見える。周囲の青紫の場は戦闘中の描写。"
+        }
+      ]
+    },
+    {
+      "id": "legend-sigurd",
+      "legend": "シグルド",
+      "comparison": "ワイルド・マッドウォーリアー（姿の比較対象）",
+      "images": [
+        {
+          "view": "比較する通常敵の図鑑・斜め前の頭部",
+          "page": "https://wiki.biligame.com/ys/荒野狂狩士",
+          "url": "https://patchwiki.biligame.com/images/ys/5/57/hutm4fndm44dpkkaqznh6bi2za3ztdj.png",
+          "width": 256,
+          "height": 256,
+          "sha256": "b02d88f17a29585f766c94702a623b9d15742d7876a6470b4351078d236db4f4",
+          "seen": "尖った黒い兜と紫から赤紫の発光。帽子のつばや露出した顔は見えない。"
+        },
+        {
+          "view": "名前付きプロフィール・正面寄り",
+          "page": "https://beebom.com/all-nod-krai-local-legends-in-genshin-impact/amp/",
+          "url": "https://static.beebom.com/wp-content/uploads/2025/09/Sigurd-Local-Legend-objectives-in-Genshin-Impact.jpg",
+          "width": 1250,
+          "height": 681,
+          "sha256": "d721f6408478957f54bac6d7ffa305313cccfd2a62225beb6cebbf522840bf91",
+          "seen": "高いつば付きの帽子、見える顔、紫の衣服、長剣を胸前に構える。"
+        },
+        {
+          "view": "名前付き現地・戦闘中",
+          "page": "https://beebom.com/all-nod-krai-local-legends-in-genshin-impact/amp/",
+          "url": "https://static.beebom.com/wp-content/uploads/2025/09/Demonbane-Strike-Sigurds-Attack-Genshin-Impact.jpg",
+          "width": 1200,
+          "height": 653,
+          "sha256": "11d85d4af848847a29c181940301e859ac3f8b0e18b711cbe36585d78de2d939",
+          "seen": "斜めから全体の姿勢を読める。紫の光が重なり、衣服の色の判断にはプロフィールも使う。"
+        }
+      ]
+    },
+    {
+      "id": "legend-homesick-wolf",
+      "legend": "故郷を偲ぶ孤独の狼",
+      "comparison": "集光の凛狼",
+      "images": [
+        {
+          "view": "通常個体の図鑑アイコン・正面",
+          "page": "https://gamewith.jp/genshin/article/show/517856",
+          "url": "https://img.gamewith.jp/article_tools/genshin/gacha/enemy_338.png",
+          "width": 120,
+          "height": 120,
+          "sha256": "0a2d2e08591db8d9650b2f843412f74222c12b09ab2f8b3fa04b036f3633e35c",
+          "seen": "白い額と濃紺の鼻面。目の周りは桃紫。"
+        },
+        {
+          "view": "通常個体の現地・斜め前（投稿サムネイル）",
+          "page": "https://www.youtube.com/watch?v=ZyYS7HMnzws",
+          "url": "https://i.ytimg.com/vi/ZyYS7HMnzws/hqdefault.jpg",
+          "width": 480,
+          "height": 360,
+          "sha256": "ceae2cc2fd89eb108bc9e29e9264cfaca149ef471ce09176970fba495cdaf665",
+          "seen": "暗い鼻面、桃紫の目元、前脚の青白い結晶。文字と構成で後脚・尾が隠れる。"
+        },
+        {
+          "view": "名前付き現地・遠景",
+          "page": "https://game8.jp/genshin/755803",
+          "url": "https://img.game8.jp/12206476/46b8e7774256d68512c89fdbcdbd8c91.webp/original",
+          "width": 2559,
+          "height": 1177,
+          "sha256": "2f8e12be1e861bd4e69a6108527c707e79a1e501500da092b4b27b2b0801db95",
+          "seen": "青白い毛束と低く構えた四足のシルエット。目元は遠く色判定には使わない。"
+        },
+        {
+          "view": "名前付きプロフィール・斜め前の頭と肩",
+          "page": "https://game8.jp/genshin/755803",
+          "url": "https://img.game8.jp/12207723/dadc33d2ba03026b266bf088b5c9164a.webp/original",
+          "width": 1000,
+          "height": 250,
+          "sha256": "eaaf799ac265d27051d82f9b8ab694cc21fe8b5adc728f03f3b8f00101258d5a",
+          "seen": "額から頬の結晶毛と濃紺の鼻面は通常型に近い。目元に青寄りの色が見える。"
+        }
+      ]
+    }
+  ],
+  "duplicateNotes": [
+    "ファイアーブレイドの図鑑アイコンの転載、シグルドと孤独の狼のプロフィールを切り抜いたバナー、通常の凛狼の同じ顔アイコンは重複のため除いた。",
+    "掲載元のゲーム内スクリーンショットと立ち絵を視覚資料に使用。単体3Dモデル、同じ照明での背面、狼の色差が照明に依存しないことは未確認。"
+  ]
+}

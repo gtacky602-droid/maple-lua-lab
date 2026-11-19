@@ -9,6 +9,7 @@ for(const [enemy,boss] of [
  ['tainted-water-splitting-phantasm','lake-ninianne-idle-v5-a'],
  ['fatui-skirmisher-cryogunner','legend-tristars-cryo'],
  ['fatui-skirmisher-pyroslinger','legend-tristars-pyro'],
+ ['oprichniki-fireblade-shock-trooper','legend-raskolnikov'],
 ]){
  assert.equal(layouts[enemy].file,bosses.find(item=>item.id===boss).file);
 }

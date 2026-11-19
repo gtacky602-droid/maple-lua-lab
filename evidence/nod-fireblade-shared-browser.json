@@ -1,0 +1,11 @@
+{
+  "source": "nod-first-field-legend-poses-source-v1.png",
+  "height": 110,
+  "profiles": {
+    "legacy": "表示110px高 ／ 107×121px ／ 2,964矩形 ／ 0.0%減",
+    "h48c32": "表示110px高 ／ 80×91px ／ 1,758矩形 ／ 40.7%減",
+    "h32c16": "表示110px高 ／ 53×60px ／ 779矩形 ／ 73.7%減"
+  },
+  "sameCanvasAtTwoFacings": true,
+  "mobileOverflow": false
+}

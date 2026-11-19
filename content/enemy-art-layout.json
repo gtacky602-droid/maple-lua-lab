@@ -86,5 +86,11 @@
     "height": 110,
     "hover": 0,
     "file": "legend-tristars-pyro-field-idle-sprites-v1.json"
+  },
+  "oprichniki-fireblade-shock-trooper": {
+    "name": "ファデュイ特務隊・突撃兵・ファイアーブレイド（ラスコルニコフと共用する待機候補）",
+    "height": 110,
+    "hover": 0,
+    "file": "legend-raskolnikov-field-idle-sprites-v1.json"
   }
 }
