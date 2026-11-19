@@ -61,6 +61,7 @@
     {
       "id": "boss-20040201",
       "controller": "anemoHypostasis",
+      "coop": true,
       "entity": 20040201,
       "name": "無相の風",
       "node": "anemo-field-basin",

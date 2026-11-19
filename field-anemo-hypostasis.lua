@@ -22,6 +22,14 @@ return function(C)
   return {move=move,tick=0,center=target.x,dir=target.x<boss.x and -1 or 1,seen={},vortexHits={{},{}}}
  end
 
+ function anemo.shareCast(cast,actors)
+  for _,seen in ipairs({cast.seen,cast.vortexHits[1],cast.vortexHits[2]}) do
+   for _,a in ipairs(actors) do
+    seen[a],seen[a.id]=seen[a.id],nil
+   end
+  end
+ end
+
  local function vortexX(boss,cast,age)
   return boss.x+cast.dir*(.42+age*cast.move.speed/60)*U
  end
@@ -91,7 +99,8 @@ return function(C)
    C.drawAnemoPart(f,'shell',cx,cy+size*.5,size,mode,profile)
   end
   if not cast then
-   ring(cube,x,y-89,55,27,s.t*.8,28)
+   local time=s.coop and s.coop.time or s.t
+   ring(cube,x,y-89,55,27,time*.8,28)
   else
    local move,t=cast.move,cast.tick
    if t<move.recover then

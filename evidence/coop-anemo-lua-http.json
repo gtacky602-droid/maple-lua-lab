@@ -1,0 +1,38 @@
+{
+  "lua": {
+    "soloAndFourPlayerMaxHp": 870,
+    "clapFirstHitTicks": 122,
+    "partyDamageByMove": [
+      13,
+      16,
+      9
+    ],
+    "cooldownTicks": 3600,
+    "oneTimeCommission": {
+      "xp": 1500,
+      "mora": 300
+    },
+    "xpPerKill": 900,
+    "moraPerKill": 125,
+    "personalFirstClearParticipants": [
+      1,
+      2,
+      3
+    ],
+    "repeatParticipants": [
+      2,
+      3
+    ],
+    "returnDuringRepeatAfterOfflineCooldown": true,
+    "distantFinalHitStartsCooldown": true,
+    "createDuringCastAndPartyDefeat": true
+  },
+  "http": {
+    "participants": 2,
+    "fieldEntry": "anemo-field-basin",
+    "hp": 870,
+    "separateCheckpoints": true,
+    "releaseAndResume": true,
+    "remainingCooldownAfterLeave": true
+  }
+}

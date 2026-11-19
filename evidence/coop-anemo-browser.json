@@ -1,0 +1,45 @@
+{
+  "browser": "Chrome",
+  "arena": "anemo-field-basin",
+  "participants": 2,
+  "maxHp": 870,
+  "firstSharedTelegraph": {
+    "move": "FA01",
+    "tick": 42
+  },
+  "results": [
+    {
+      "time": 24.516666666665277,
+      "hp": 131,
+      "moves": [
+        "FA01",
+        "FA02",
+        "FA03"
+      ],
+      "kills": 1,
+      "damage": 450
+    },
+    {
+      "time": 24.516666666666545,
+      "hp": 140,
+      "moves": [
+        "FA01",
+        "FA02",
+        "FA03"
+      ],
+      "kills": 1,
+      "damage": 420
+    }
+  ],
+  "personalQuestCounts": [
+    1,
+    null
+  ],
+  "savedClears": [
+    1,
+    1
+  ],
+  "cooldownOnReload": 55.61666666666667,
+  "rejoinedSameSlot": true,
+  "errors": []
+}

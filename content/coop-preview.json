@@ -1,7 +1,8 @@
 {
   "status": "local_preview",
   "nodes": {
-    "mond-road": "モンド・南の街道"
+    "mond-road": "モンド・南の街道",
+    "anemo-field-basin": "モンド・風鳴りの広場"
   },
   "capacity": 4,
   "rewardRange": {"x": 420, "y": 180},

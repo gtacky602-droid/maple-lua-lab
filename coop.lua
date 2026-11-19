@@ -8,7 +8,9 @@ return function(C, config)
  end
 
  function C.newCoop(s)
-  return {node=s.story.node,enemies=s.enemies,time=s.t,tick=0,members={},nextId=0}
+  local room={node=s.story.node,enemies=s.enemies,time=s.t,tick=0,members={},nextId=0}
+  C.adoptCoopField(room,s)
+  return room
  end
  function C.attachCoop(room,s)
   room.nextId=room.nextId+1
@@ -39,6 +41,7 @@ return function(C, config)
  end
  function C.coopDefeat(s,e)
   local room=s.coop
+  C.finishCoopField(s,e)
   local hits=e.coopHits or {}
   e.coopHits=nil
   for _,member in ipairs(room.members) do
@@ -60,6 +63,7 @@ return function(C, config)
   end
   if not world then return end
   C.advanceEnemyReactions(world,dt)
+  room.time=room.time+dt
   local actors,decoys,owners={},{},{}
   for _,member in ipairs(room.members) do
    if onField(member) then
@@ -72,7 +76,7 @@ return function(C, config)
    end
   end
   C.advanceEnemies({enemies=room.enemies},dt,actors,decoys,owners)
-  room.time=room.time+dt
+  C.advanceCoopField(room,actors,owners)
   room.tick=room.tick+1
  end
 

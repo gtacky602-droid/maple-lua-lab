@@ -452,7 +452,7 @@
     },
     {
       "id": "coop",
-      "status": "not_implemented",
+      "status": "partial",
       "acceptance": "shared HP, individual loot, retries/reconnect offline tests; native separate"
     }
   ],
@@ -8046,20 +8046,27 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Connect an authored field boss to fixed-HP shared combat with individual rewards, then preserve room membership across maps.",
+  "current_priority": "Preserve room membership across supported maps, then extend fixed-HP cooperative boss combat and individualized rewards beyond Anemo Hypostasis.",
   "multiplayer_preview": {
-    "status": "two_and_four_players_same_map_verified",
-    "map": "mond-road",
+    "status": "same_map_hunting_and_anemo_hypostasis_verified",
+    "maps": [
+      "mond-road",
+      "anemo-field-basin"
+    ],
+    "boss": "boss-20040201",
     "rules": "content/coop-preview.json",
     "evidence": [
       "evidence/coop-local-http.json",
       "evidence/coop-local-browser.json",
       "evidence/coop-local-browser.png",
       "evidence/coop-four-browser.png",
-      "evidence/coop-four-light-browser.png"
+      "evidence/coop-four-light-browser.png",
+      "evidence/coop-anemo-lua-http.json",
+      "evidence/coop-anemo-browser.json",
+      "evidence/coop-anemo-browser.png"
     ],
     "pending": [
-      "bosses",
+      "remaining normal, weekly and Stygian bosses",
       "multi-map room travel",
       "remote and Miliastra tests"
     ]

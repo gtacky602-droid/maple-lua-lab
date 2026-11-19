@@ -47,9 +47,17 @@ return function(C,configs,controllers)
   return state and ((state.status=='active' and state.count>=window.first and state.count<window.after)
     or (window.repeatAfterReport and state.status=='complete'))
  end
+ local function sharedRoom(s,id)
+  local room=s.coop
+  if room and room.fieldSpec and room.fieldSpec.id==id and C.sharesCoopField(s) then return room end
+ end
+ local function fieldSlot(s,id)
+  local room=sharedRoom(s,id)
+  return room and room.fieldSlot or (s.fieldSlots and s.fieldSlots[id])
+ end
  function C.fieldGravityFactor(s,a)
   local spec=byNode[current(s)]
-  local slot=spec and s.fieldSlots and s.fieldSlots[spec.id]
+  local slot=spec and fieldSlot(s,spec.id)
   local zone=slot and slot.cast and slot.cast.gravity
   if zone and a.x>=zone.left and a.x<=zone.right and a.y>=zone.top and a.y<=zone.bottom then
    return zone.factor
@@ -83,6 +91,23 @@ return function(C,configs,controllers)
    place(slot.enemy)
    if slot.enemy.fieldPartner then place(slot.enemy.fieldPartner) end
   end
+ end
+
+ function C.adoptCoopField(room,s)
+  local spec=byNode[room.node]
+  if not spec or not spec.coop then return end
+  local live=s.fieldSlots[spec.id]
+  room.fieldSpec,room.fieldSlot=spec,live
+  -- Keep the running encounter in the room. Solo saves retain an independent slot.
+  local personal={generation=live.generation}
+  spawn(personal,spec,live.enemy.hp)
+  personal.waitUntil,personal.entryAt=live.waitUntil,live.entryAt
+  if personal.waitUntil then personal.phase='respawn' end
+  s.fieldSlots[spec.id]=personal
+  live.entryAt=live.entryAt or room.time
+  for _,a in ipairs(s.actors) do live.contact[a],live.contact[a.id]=live.contact[a.id],nil end
+  local behavior=controllers[spec.controller]
+  if live.cast and behavior.shareCast then behavior.shareCast(live.cast,s.actors) end
  end
 
  local function cancelCast(s,spec,slot)
@@ -163,9 +188,10 @@ return function(C,configs,controllers)
   local owner=source.owner or source
   for _,a in ipairs(s.actors) do
    if owner.hp<=0 then break end
-   if a.hp>0 and not seen[a.id] and a.x+10>left and a.x-10<right and a.y>top and a.y-50<bottom then
-    seen[a.id]=true
-    C.damageActor(s,a,damage,source,false,true)
+   local key=s.actorOwners and a or a.id
+   if a.hp>0 and not seen[key] and a.x+10>left and a.x-10<right and a.y>top and a.y-50<bottom then
+    seen[key]=true
+    C.damageActor(s.actorOwners and s.actorOwners[a] or s,a,damage,source,false,true)
    end
   end
  end
@@ -268,12 +294,19 @@ return function(C,configs,controllers)
   slot.delay=math.max(0,slot.delay-1)
   if spec.contactDamage>0 then
    for _,a in ipairs(s.actors) do
-    if a.hp>0 and a.y>=spec.floorY-35 and math.abs(a.x-boss.x)<27 and s.t+1e-8>=(slot.contact[a.id] or 0) then
-     slot.contact[a.id]=s.t+1
-     C.damageActor(s,a,spec.contactDamage,boss,false,false)
+    local key=s.actorOwners and a or a.id
+    if a.hp>0 and a.y>=spec.floorY-35 and math.abs(a.x-boss.x)<27 and s.t+1e-8>=(slot.contact[key] or 0) then
+     slot.contact[key]=s.t+1
+     C.damageActor(s.actorOwners and s.actorOwners[a] or s,a,spec.contactDamage,boss,false,false)
     end
    end
   end
+ end
+
+ function C.advanceCoopField(room,actors,owners)
+  if not room.fieldSlot then return end
+  local combat={t=room.time,actors=actors,actorOwners=owners,enemies=room.enemies}
+  advance(combat,room.fieldSpec,room.fieldSlot,true)
  end
 
  function C.fieldSwimAction(s,key)
@@ -295,25 +328,45 @@ return function(C,configs,controllers)
    local spec=byId[id]
    local behavior=controllers[spec.controller]
    local here=node==spec.node
-   if available(s,spec) and not (behavior.swimStep and s.lift) then
+   if sharedRoom(s,id) then
+    if slot.waitUntil then advance(s,spec,slot,false) end
+   elseif available(s,spec) and not (behavior.swimStep and s.lift) then
     if here and behavior.swimStep and s.storySwimming then behavior.swimStep(s,slot.enemy,spec,input or {}) end
     for _=1,ticks do advance(s,spec,slot,here) end
    end
   end
  end
 
+ local function finishField(s,spec,slot,now)
+  local e=slot.enemy
+  if not spec.manualRechallenge then slot.waitUntil=now+spec.respawnTicks/60 end
+  local behavior=controllers[spec.controller]
+  if behavior.onDefeat then behavior.onDefeat(s,e,spec,slot.cast) end
+  slot.cast=nil;slot.phase=spec.manualRechallenge and 'cleared' or 'respawn'
+  e.weakpoint=nil;e.respawn=math.huge
+ end
+ function C.finishCoopField(s,e)
+  local room=sharedRoom(s,e.fieldBoss)
+  if room and e==room.fieldSlot.enemy then finishField(s,room.fieldSpec,room.fieldSlot,room.time) end
+ end
  function C.onKill(s,e)
   if e.fieldBoss then
    local spec=byId[e.fieldBoss]
    local slot=s.fieldSlots and s.fieldSlots[e.fieldBoss]
-   if not slot or e~=slot.enemy or e.hp>0 or slot.waitUntil or slot.phase=='cleared' then return end
-   if not spec.manualRechallenge then slot.waitUntil=s.t+spec.respawnTicks/60 end
-   local behavior=controllers[spec.controller]
-   if behavior.onDefeat then behavior.onDefeat(s,e,spec,slot.cast) end
-   slot.cast=nil;slot.phase=spec.manualRechallenge and 'cleared' or 'respawn'
-   e.weakpoint=nil
-   e.respawn=math.huge
-   if not spec.presentationOnly and C.recordChallengeBoss then C.recordChallengeBoss(s,spec.id,slot.entryAt) end
+   local room=sharedRoom(s,e.fieldBoss)
+   local started
+   if room then
+    if e~=room.fieldSlot.enemy or e.hp>0 then return end
+    local entry=room.fieldSlot.entryAt
+    if entry then started=s.t-(room.time-entry) end
+    spawn(slot,spec,0)
+    slot.waitUntil=s.t+spec.respawnTicks/60;slot.phase='respawn'
+   else
+    if not slot or e~=slot.enemy or e.hp>0 or slot.waitUntil or slot.phase=='cleared' then return end
+    started=slot.entryAt
+    finishField(s,spec,slot,s.t)
+   end
+   if not spec.presentationOnly and C.recordChallengeBoss then C.recordChallengeBoss(s,spec.id,started) end
    if spec.storyChallenge then C.storyBossDefeated(s,spec.storyChallenge) end
    if C.finishDuelReplay then C.finishDuelReplay(s,spec.id) end
    if spec.presentationOnly then return end
@@ -341,11 +394,11 @@ return function(C,configs,controllers)
   local spec=e.fieldBoss and byId[e.fieldBoss]
   if not spec or e.hp<=0 or e.invulnerable then return end
   local behavior=controllers[spec.controller]
-  if behavior.onHit then behavior.onHit(cast,e,spec,s.fieldSlots[spec.id],damageElement,damage) end
+  if behavior.onHit then behavior.onHit(cast,e,spec,fieldSlot(s,spec.id),damageElement,damage) end
  end
 
- local function waitTicks(s,slot)
-  return slot.waitUntil and math.max(1,math.ceil((slot.waitUntil-s.t)*60-1e-7)) or 0
+ local function waitTicks(now,slot)
+  return slot.waitUntil and math.max(1,math.ceil((slot.waitUntil-now)*60-1e-7)) or 0
  end
 
  function C.checkpoint(s)
@@ -355,7 +408,7 @@ return function(C,configs,controllers)
    for id,slot in pairs(s.fieldSlots) do
     local spec=byId[id]
     if not spec.manualRechallenge then
-     data.fieldBosses[id]={generation=slot.generation,hp=slot.enemy.hp,waitTicks=waitTicks(s,slot)}
+     data.fieldBosses[id]={generation=slot.generation,hp=slot.enemy.hp,waitTicks=waitTicks(s.t,slot)}
      local behavior=controllers[spec.controller]
      if behavior.checkpoint then data.fieldBosses[id].flags=behavior.checkpoint(slot.enemy,spec,slot) end
     end
@@ -390,7 +443,8 @@ return function(C,configs,controllers)
   local f=frame(s,mode,profile)
   local spec=byNode[current(s)]
   if not spec or not available(s,spec) then return f end
-  local slot=spec and s.fieldSlots and s.fieldSlots[spec.id]
+  local room=sharedRoom(s,spec.id)
+  local slot=fieldSlot(s,spec.id)
   if not slot then return f end
   local boss=slot.enemy
   local partner=boss.fieldPartner
@@ -406,7 +460,7 @@ return function(C,configs,controllers)
   if spec.presentationOnly and boss.hp>0 then label=spec.displayLabel or '見た目と進行を確認する仮の個体' end
   if boss.hp>0 and slot.phase=='combat' and behavior.label then label=behavior.label(boss,cast,spec,s) or label end
   f.fieldBoss={id=spec.id,name=boss.displayName or spec.name,element=boss.element,form=boss.form,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
-   generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(s,slot)/60,label=label,elementSlots=boss.elementSlots,
+   generation=slot.generation,x=boss.x,y=boss.y,remaining=waitTicks(room and room.time or s.t,slot)/60,label=label,elementSlots=boss.elementSlots,
    move=cast and cast.move.id,tick=cast and cast.tick,underground=boss.underground,
    weakpoint=boss.hp>0 and boss.weakpoint or nil,gravity=cast and cast.gravity}
   if behavior.frame then behavior.frame(f.fieldBoss,boss,spec,cast,s) end

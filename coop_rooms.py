@@ -73,12 +73,12 @@ class CoopRooms:
             return unavailable('すでに協力部屋にいます。')
         site = location(env)
         if site not in RULES['nodes'] or env['rank_player']:
-            return unavailable('通常の冒険で指定の狩場に着くと参加できます。')
+            return unavailable('通常の冒険で指定のマップに着くと参加できます。')
         if joining:
             code = action.removeprefix('coop_join:').upper()
             room = self.rooms.get(code)
             if not room or room.world.node != site:
-                return unavailable('同じ狩場にある部屋の合言葉を確認してください。')
+                return unavailable('同じマップにある部屋の合言葉を確認してください。')
             if len(room.members) >= RULES['capacity']:
                 return unavailable('この部屋は満員です。')
             if any(row['dailyProfile'] == env['dailyProfile'] for row in room.members):
