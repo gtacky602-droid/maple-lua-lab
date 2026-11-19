@@ -48,7 +48,9 @@ return function(C)
  end
 
  function theater.enter(s,stage)
-  s.theaterCart,s.theaterShutter,s.theaterWaveWall=nil,nil,nil
+  s.theaterShutter=setSolid(s,s.theaterShutter,nil)
+  s.theaterWaveWall=setSolid(s,s.theaterWaveWall,nil)
+  s.theaterCart=nil
   s.theaterFlatsAt,s.theaterCurtainAt,s.theaterShotAt=nil,nil,nil
   s.theaterStoppedAt,s.theaterPerformance,s.theaterPerformedAt=nil,nil,nil
   s.theaterEncoreAt=nil

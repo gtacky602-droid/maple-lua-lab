@@ -2,10 +2,11 @@ import json
 from pathlib import Path
 from daily_store import validate_daily_state
 from experience import CAP, CAP_EXP, CURVE_ID, LEVELS, MAX_SAVED_EXP, WEEKLY_MODE_IDS
-_STORY_GRAPH=json.loads((Path(__file__).parent/"content/story-graph.json").read_text(encoding="utf8"))
+_STORY_GRAPH_PATH=Path(__file__).parent/'content/story-graph.json'
 _FIELD_BOSSES={slot["id"]:slot for slot in json.loads((Path(__file__).parent/"content/field-boss-spawns.json").read_text(encoding="utf-8-sig"))["fieldBosses"]}
 _WEEKLY_BOSSES={slot['id']:slot for slot in json.loads((Path(__file__).parent/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses']}
-_STORY_ZONES={"story:"+n["id"] for n in _STORY_GRAPH["nodes"]}
+_LEGACY_LOOT_ZONES={'town','field','arena','anemo','electro','geo','oceanid','primo','maguu','array',
+                    'thunder','farka','cryo_regisvine','pyro_regisvine'}
 _IMPRINT_CAPS=json.loads((Path(__file__).parent/'content/imprint-settings.json').read_text(encoding='utf8'))['caps']
 _ABYSS_MODES=json.loads((Path(__file__).parent/'content/abyss-settings.json').read_text(encoding='utf8'))['modes']
 _ARTIFACT_SETS=json.loads((Path(__file__).parent/'content/artifact-sets.json').read_text(encoding='utf8'))
@@ -463,6 +464,7 @@ def validate_save(data):
             raise ValueError('レベルと累計経験値が一致しません')
         if type(p['questRewarded']) is not bool or p['questRewarded']!=(data['quest']=='complete') or p['lastKills']!=data['kills']:
             raise ValueError('経験値報酬の状態が一致しません')
+    graph=json.loads(_STORY_GRAPH_PATH.read_text(encoding='utf8')) if 'story' in data else None
     if 'inventory' in data:
         bag=data['inventory']
         if not isinstance(bag,dict) or set(bag)-{'ground','targetSet','combatRng','upgradeOre'}!={'items','nextId','rng','sampleKit','message'}: raise ValueError('装備保存形式が不正です')
@@ -473,9 +475,13 @@ def validate_save(data):
         if type(bag['sampleKit']) is not bool or not isinstance(bag['message'],str) or len(bag['message'])>200: raise ValueError('装備状態が不正です')
         ground=bag.get('ground',[])
         if not isinstance(ground,list) or len(ground)>256: raise ValueError('未回収品が検証上限を超えています')
+        if ground:
+            if graph is None:
+                graph=json.loads(_STORY_GRAPH_PATH.read_text(encoding='utf8'))
+            loot_zones=_LEGACY_LOOT_ZONES | {'story:'+node['id'] for node in graph['nodes']}
         for drop in ground:
             if not isinstance(drop,dict) or set(drop)!={'item','x','y','zone'}: raise ValueError('地面品の形式が不正です')
-            if drop['zone'] not in {'town','field','arena','anemo','electro','geo','oceanid','primo','maguu','array','thunder','farka','cryo_regisvine','pyro_regisvine'} | _STORY_ZONES: raise ValueError('地面品の地域が不正です')
+            if drop['zone'] not in loot_zones: raise ValueError('地面品の地域が不正です')
             for axis in ('x','y'):
                 if type(drop[axis]) not in (int,float) or not math.isfinite(drop[axis]) or not -1000<=drop[axis]<=5000: raise ValueError('地面品の座標が不正です')
             if not isinstance(drop['item'],dict) or drop['item'].get('owner')!=0: raise ValueError('地面品は装備できません')
@@ -505,9 +511,6 @@ def validate_save(data):
             if item['owner'] and slot in equipped: raise ValueError('装備部位が重複しています')
             if item['owner']: equipped.add(slot)
     if 'story' in data:
-        import json
-        from pathlib import Path
-        graph=json.loads((Path(__file__).parent/'content/story-graph.json').read_text(encoding='utf8'))
         nodes={n['id']:n for n in graph['nodes']};quests={q['id']:q for q in graph['quests']}
         st=data['story']
         if not isinstance(st,dict) or set(st)-{'discovered','growth'}!={'active','node','visited','quests'} or type(st['active']) is not bool or st['node'] not in nodes: raise ValueError('Invalid story state')

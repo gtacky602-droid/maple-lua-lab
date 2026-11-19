@@ -1,4 +1,10 @@
 import json
+from copy import deepcopy
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from unittest.mock import patch
+
+import savegame
 from runtime import runtime,native,ROOT
 from savegame import validate_save
 lua,c=runtime();checks=[]
@@ -31,5 +37,26 @@ saved=validate_save(native(c.checkpoint(s)));bad=json.loads(json.dumps(saved));b
 try:validate_save(bad)
 except ValueError:checks.append('cross-container duplicate rejected')
 else:raise AssertionError('duplicate accepted')
+
+new_stage = 'loot-regression-new-stage'
+loot_save = deepcopy(saved)
+loot_save['inventory']['ground'][0]['zone'] = 'story:' + new_stage
+graph = json.loads(savegame._STORY_GRAPH_PATH.read_text(encoding='utf8'))
+with TemporaryDirectory() as directory:
+    graph_path = Path(directory) / 'story-graph.json'
+    with patch.object(savegame, '_STORY_GRAPH_PATH', graph_path):
+        graph_path.write_text(json.dumps(graph), encoding='utf8')
+        try:
+            validate_save(loot_save)
+        except ValueError as exc:
+            assert str(exc) == '地面品の地域が不正です'
+        else:
+            raise AssertionError('Unregistered ground loot zone was accepted')
+        graph['nodes'].append({'id': new_stage})
+        graph_path.write_text(json.dumps(graph), encoding='utf8')
+        accepted = validate_save(loot_save)
+        check('new stage ground loot loads after the graph changes',
+              accepted['inventory']['ground'] == loot_save['inventory']['ground'])
+
 (ROOT/'evidence/loot-test.json').write_text(json.dumps({'count':len(checks),'checks':checks},ensure_ascii=False,indent=2),encoding='utf8')
 print(len(checks),'loot checks passed')

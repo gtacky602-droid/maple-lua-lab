@@ -163,3 +163,17 @@ Lv69の北の森の林床とLv74の北岸の根段丘を試作した。狩りは
 | 北森の秘境周辺 | 79→80 | 275 | 634,975 |
 
 `python -X utf8 test_sumeru_fresh_route.py` で、新規Lv1からフォンテーヌ・水辺の広場まで再現できる。到着後のセーブは `work/sumeru-fresh-route/fontaine-save.json`。続けて `node test_sumeru_fresh_route.mjs` を実行すると、Lv80の樹陰の広場からM地図の狩場表示、フォンテーヌへの移動、第1章の受注を再検査できる。 [地図の案内](../../evidence/sumeru-fresh-fontaine-atlas.png) · [Chromeの到着ログ](../../evidence/sumeru-fresh-route-browser.json)
+
+## 同じ冒険データでフォンテーヌからナタへ
+
+Lv80の水辺の広場から、配達メカを追い、舞台下へ昇降台で降り、大舞台機関を止めて開演の合図を合わせた。メイン3章とフリーナ・エミリエ・ナヴィアの依頼を報告するとLv91。舞台裏の波板が保管室に見えない壁として残る不具合を修正し、保管室へ入って荷札まで歩けることを確認した。
+
+既設の密集狩場がLv99のため、ベリルの入江の河原Lv91とベリルの山裾Lv95を試作した。下表は狩場内の通常敵の討伐分。自動戦闘を一定時間ごとに区切り、広場へのワープで68回回復した。全滅は0回。手動での所要時間と回復頻度は別途測る。 [Luaの育成ログ](../../evidence/fontaine-fresh-route.json)
+
+| 狩場 | 通過したLv | 討伐数 | 狩場のEXP |
+| --- | ---: | ---: | ---: |
+| ベリルの入江の河原 | 91→95 | 1,456 | 5,241,600 |
+| ベリルの山裾 | 95→99 | 1,697 | 7,858,807 |
+| ベリルの秘境周辺 | 99→100 | 382 | 2,275,574 |
+
+`python -X utf8 test_fontaine_fresh_route.py` で、新規Lv1からナタ・谷の集落まで再現できる。到着後のセーブは `work/fontaine-fresh-route/natlan-save.json`。続けて更新版のラボを起動し、`LAB_URL` を指定して `node test_fontaine_fresh_route.mjs` を実行すると、Lv100の水辺の広場からM地図の狩場表示、ナタへの移動、第1章の受注を再検査できる。セーブ読み込み時は訪問記録と未回収品の地点を同じマップデータで照合し、Chromeで新設狩場の未回収品1件が残ることも確認した。 [ナタへの道順](../../evidence/fontaine-fresh-natlan-atlas.png) · [Chromeの到着ログ](../../evidence/fontaine-fresh-route-browser.json) · [未回収品の検査](../../evidence/loot-test.json)

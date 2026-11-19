@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 新規冒険をフォンテーヌからナタへ進める
+
+Lv80でフォンテーヌに着いたセーブから、配達・舞台裏・大舞台の3章とフリーナ・エミリエ・ナヴィアの依頼を報告してLv91。ベリルの入江の河原Lv91、ベリルの山裾Lv95、既設のベリルの秘境周辺Lv99の順に狩り、Lv100でナタ・谷の集落に着いた。舞台裏を出るときに波板の当たり判定が残る不具合も直した。続きは `work/fontaine-fresh-route/natlan-save.json`。 [試走と経験値](docs/balance/EXPERIENCE_MONSTER_QUEST_V02.md)
+
 ## 新規冒険をスメールからフォンテーヌへ進める
 
 Lv60でスメールに着いたセーブから、葉の橋、森の上下、空の観測所の3章と、コレイ、放浪者、バイダ港の依頼を報告するとLv69。追加した北の森の林床Lv69と北岸の根段丘Lv74を経て、既設の北森の秘境周辺Lv79でLv80に到達した。雨林の道を通り、フォンテーヌ・水辺の広場で保存した。続きは `work/sumeru-fresh-route/fontaine-save.json`。 [連続試走と経験値](docs/balance/EXPERIENCE_MONSTER_QUEST_V02.md)

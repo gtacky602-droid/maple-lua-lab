@@ -1,0 +1,36 @@
+{
+  "importedLevel": 100,
+  "arrivalLevel": 100,
+  "route": [
+    [
+      "fontaine-field",
+      "walk"
+    ],
+    [
+      "natlan-entry",
+      "walk"
+    ],
+    [
+      "natlan-hub",
+      "walk"
+    ]
+  ],
+  "completedQuests": [
+    "fontaine-moon-parcel",
+    "fontaine-understage-crew",
+    "fontaine-grand-finale",
+    "fon-furina-cues",
+    "fon-emilie-scent",
+    "fon-navia-photo"
+  ],
+  "hunts": [
+    "fontaine-beryl-bank",
+    "fontaine-beryl-foothills"
+  ],
+  "firstNatlanQuestAccepted": "natlan-ridge-flag",
+  "importedXp": 37621510,
+  "arrivalXp": 37636498,
+  "travelKillXp": 14988,
+  "retainedLootFromNewHunts": 1,
+  "errors": []
+}
