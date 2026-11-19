@@ -1,0 +1,77 @@
+{
+  "journeys": [
+    [
+      "mond-town",
+      "mond-road",
+      "walk"
+    ],
+    [
+      "mond-road",
+      "mond-wp-13",
+      "walk"
+    ],
+    [
+      "mond-wp-13",
+      "mond-wp-7",
+      "walk"
+    ],
+    [
+      "mond-wp-7",
+      "mond-wp-12",
+      "walk"
+    ],
+    [
+      "mond-wp-12",
+      "mond-wp-8",
+      "raised"
+    ],
+    [
+      "mond-wp-8",
+      "mond-wp-12",
+      "walk"
+    ],
+    [
+      "mond-road",
+      "dornman-camp",
+      "walk"
+    ],
+    [
+      "dornman-camp",
+      "mond-wp-95797",
+      "walk"
+    ],
+    [
+      "mond-wp-95797",
+      "mond-wp-95803",
+      "lift"
+    ],
+    [
+      "mond-wp-95803",
+      "mond-wp-95797",
+      "lift"
+    ],
+    [
+      "mond-wp-95797",
+      "mond-wp-95799",
+      "boat"
+    ],
+    [
+      "mond-wp-95799",
+      "mond-wp-95797",
+      "boat"
+    ]
+  ],
+  "journal": [
+    "mond-mapped-lakeside",
+    "mond-mapped-islet"
+  ],
+  "restored": true,
+  "pin": {
+    "kind": "statue",
+    "id": "teyvat:12",
+    "name": "モンド・北の湖と神像"
+  },
+  "visitedCount": 10,
+  "mobileSelectorFits": true,
+  "pageErrors": []
+}

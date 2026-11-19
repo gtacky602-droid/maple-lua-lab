@@ -27,8 +27,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 27,
-      "prototype_quest_count": 27,
+      "prototype_stage_count": 48,
+      "prototype_quest_count": 28,
       "official_map2_markers": {
         "waypoints": 45,
         "statues": 6
@@ -209,8 +209,8 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 8,
-      "prototype_quest_count": 5,
+      "prototype_stage_count": 20,
+      "prototype_quest_count": 6,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
     {
@@ -264,8 +264,8 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 6,
-      "prototype_quest_count": 5,
+      "prototype_stage_count": 18,
+      "prototype_quest_count": 6,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
     {
@@ -462,7 +462,7 @@
     },
     "complete_world_verified": false,
     "region_assignment": "official area IDs",
-    "playable_at_imported_nodes": 15,
+    "playable_at_imported_nodes": 66,
     "stage_links": {
       "map9:25264": {
         "stage_id": "chasm-wp-25264",
@@ -583,13 +583,443 @@
           "map9:25276",
           "map9:25271"
         ]
+      },
+      "teyvat:10": {
+        "stage_id": "mond-wp-10",
+        "name": "モンド・北東の崖先",
+        "gates": [
+          "teyvat:8",
+          "teyvat:9"
+        ]
+      },
+      "teyvat:116": {
+        "stage_id": "mond-border",
+        "name": "モンド・国境の道",
+        "gates": [
+          "teyvat:3",
+          "teyvat:6538",
+          "teyvat:19"
+        ]
+      },
+      "teyvat:12": {
+        "stage_id": "mond-wp-12",
+        "name": "モンド・北の湖と神像",
+        "gates": [
+          "teyvat:8",
+          "teyvat:7"
+        ]
+      },
+      "teyvat:13": {
+        "stage_id": "mond-wp-13",
+        "name": "モンド・大樹の東原と神像",
+        "gates": [
+          "teyvat:3",
+          "teyvat:18",
+          "teyvat:7",
+          "teyvat:15"
+        ]
+      },
+      "teyvat:14": {
+        "stage_id": "mond-wp-14",
+        "name": "モンド・泉池の南道",
+        "gates": [
+          "teyvat:19",
+          "teyvat:16"
+        ]
+      },
+      "teyvat:15": {
+        "stage_id": "mond-wp-15",
+        "name": "モンド・東の浜道",
+        "gates": [
+          "teyvat:13",
+          "teyvat:18"
+        ]
+      },
+      "teyvat:16": {
+        "stage_id": "mond-roadside-rest",
+        "name": "モンド・街道脇の休憩所",
+        "gates": [
+          "teyvat:3",
+          "teyvat:20",
+          "teyvat:14"
+        ]
+      },
+      "teyvat:17": {
+        "stage_id": "mond-wp-17",
+        "name": "モンド・東南の岬",
+        "gates": [
+          "teyvat:18"
+        ]
+      },
+      "teyvat:18": {
+        "stage_id": "mond-wp-18",
+        "name": "モンド・東南の谷口",
+        "gates": [
+          "teyvat:6538",
+          "teyvat:13",
+          "teyvat:15",
+          "teyvat:17"
+        ]
+      },
+      "teyvat:19": {
+        "stage_id": "mond-wp-19",
+        "name": "モンド・西の並木と神像",
+        "gates": [
+          "teyvat:116",
+          "teyvat:6540",
+          "teyvat:14"
+        ]
+      },
+      "teyvat:20": {
+        "stage_id": "mond-wp-20",
+        "name": "モンド・湖西の低地",
+        "gates": [
+          "teyvat:21",
+          "teyvat:16"
+        ]
+      },
+      "teyvat:21": {
+        "stage_id": "mond-wp-21",
+        "name": "モンド・湖西の石段",
+        "gates": [
+          "teyvat:28",
+          "teyvat:22",
+          "teyvat:20"
+        ]
+      },
+      "teyvat:22": {
+        "stage_id": "mond-wp-22",
+        "name": "モンド・北西の湖畔道",
+        "gates": [
+          "teyvat:23",
+          "teyvat:95794",
+          "teyvat:21"
+        ]
+      },
+      "teyvat:23": {
+        "stage_id": "mond-wp-23",
+        "name": "モンド・西の遺跡の東稜",
+        "gates": [
+          "teyvat:27",
+          "teyvat:24",
+          "teyvat:22"
+        ]
+      },
+      "teyvat:24": {
+        "stage_id": "mond-wp-24",
+        "name": "モンド・西の遺跡の上段回廊",
+        "gates": [
+          "teyvat:25",
+          "teyvat:23"
+        ]
+      },
+      "teyvat:25": {
+        "stage_id": "mond-wp-25",
+        "name": "モンド・西の遺跡と神像",
+        "gates": [
+          "teyvat:26",
+          "teyvat:24"
+        ]
+      },
+      "teyvat:26": {
+        "stage_id": "mond-wp-26",
+        "name": "モンド・遺跡の西壁沿い",
+        "gates": [
+          "teyvat:27",
+          "teyvat:25",
+          "teyvat:28"
+        ]
+      },
+      "teyvat:27": {
+        "stage_id": "mond-wp-27",
+        "name": "モンド・遺跡の北縁",
+        "gates": [
+          "teyvat:26",
+          "teyvat:23"
+        ]
+      },
+      "teyvat:28": {
+        "stage_id": "mond-wp-28",
+        "name": "モンド・西の峠道",
+        "gates": [
+          "teyvat:26",
+          "teyvat:21"
+        ]
+      },
+      "teyvat:3": {
+        "stage_id": "mond-road",
+        "name": "モンド・南の街道",
+        "gates": [
+          "teyvat:57",
+          "teyvat:116",
+          "teyvat:16",
+          "teyvat:95796",
+          "teyvat:13"
+        ]
+      },
+      "teyvat:55": {
+        "stage_id": "mond-wp-55",
+        "name": "モンド・城西の風見段",
+        "gates": [
+          "teyvat:57"
+        ]
+      },
+      "teyvat:57": {
+        "stage_id": "mond-town",
+        "name": "モンド・城門広場",
+        "gates": [
+          "teyvat:3",
+          "teyvat:55"
+        ]
+      },
+      "teyvat:6537": {
+        "stage_id": "mond-wp-6537",
+        "name": "ドラゴンスパイン・峰下の雪原と神像",
+        "gates": [
+          "teyvat:6601",
+          "teyvat:6603"
+        ]
+      },
+      "teyvat:6538": {
+        "stage_id": "dragonspine-camp",
+        "name": "ドラゴンスパイン・入口拠点",
+        "gates": [
+          "teyvat:116",
+          "teyvat:6601",
+          "teyvat:18"
+        ]
+      },
+      "teyvat:6540": {
+        "stage_id": "mond-wp-6540",
+        "name": "ドラゴンスパイン・西の雪線",
+        "gates": [
+          "teyvat:6596",
+          "teyvat:19"
+        ]
+      },
+      "teyvat:6594": {
+        "stage_id": "mond-wp-6594",
+        "name": "ドラゴンスパイン・谷を見下ろす雪棚",
+        "gates": [
+          "teyvat:6596",
+          "teyvat:6601"
+        ]
+      },
+      "teyvat:6596": {
+        "stage_id": "mond-wp-6596",
+        "name": "ドラゴンスパイン・雪壁の西谷",
+        "gates": [
+          "teyvat:6599",
+          "teyvat:6540",
+          "teyvat:6608",
+          "teyvat:6594"
+        ]
+      },
+      "teyvat:6599": {
+        "stage_id": "mond-wp-6599",
+        "name": "ドラゴンスパイン・西斜面の岩間",
+        "gates": [
+          "teyvat:6606",
+          "teyvat:6596"
+        ]
+      },
+      "teyvat:6600": {
+        "stage_id": "mond-wp-6600",
+        "name": "ドラゴンスパイン・南東の雪解け道",
+        "gates": [
+          "teyvat:6603",
+          "teyvat:6604"
+        ]
+      },
+      "teyvat:6601": {
+        "stage_id": "mond-wp-6601",
+        "name": "ドラゴンスパイン・北東の谷戸",
+        "gates": [
+          "teyvat:6594",
+          "teyvat:6537",
+          "teyvat:6538"
+        ]
+      },
+      "teyvat:6603": {
+        "stage_id": "mond-wp-6603",
+        "name": "ドラゴンスパイン・峰の東稜",
+        "gates": [
+          "teyvat:6609",
+          "teyvat:6600",
+          "teyvat:6537"
+        ]
+      },
+      "teyvat:6604": {
+        "stage_id": "mond-wp-6604",
+        "name": "ドラゴンスパイン・東裾の氷浜",
+        "gates": [
+          "teyvat:6600"
+        ]
+      },
+      "teyvat:6606": {
+        "stage_id": "mond-wp-6606",
+        "name": "ドラゴンスパイン・南西の吹きさらし",
+        "gates": [
+          "teyvat:6599",
+          "teyvat:6608"
+        ]
+      },
+      "teyvat:6608": {
+        "stage_id": "mond-wp-6608",
+        "name": "ドラゴンスパイン・南壁の雪道",
+        "gates": [
+          "teyvat:6606",
+          "teyvat:6596",
+          "teyvat:6609"
+        ]
+      },
+      "teyvat:6609": {
+        "stage_id": "mond-wp-6609",
+        "name": "ドラゴンスパイン・山頂手前の雪棚",
+        "gates": [
+          "teyvat:6608",
+          "teyvat:6603"
+        ]
+      },
+      "teyvat:7": {
+        "stage_id": "mond-wp-7",
+        "name": "モンド・東丘の石畳",
+        "gates": [
+          "teyvat:13",
+          "teyvat:12",
+          "teyvat:9"
+        ]
+      },
+      "teyvat:8": {
+        "stage_id": "mond-wp-8",
+        "name": "モンド・北の湖の岩棚",
+        "gates": [
+          "teyvat:95792",
+          "teyvat:12",
+          "teyvat:10"
+        ]
+      },
+      "teyvat:9": {
+        "stage_id": "mond-wp-9",
+        "name": "モンド・海食崖の南棚",
+        "gates": [
+          "teyvat:7",
+          "teyvat:10"
+        ]
+      },
+      "teyvat:95782": {
+        "stage_id": "mond-wp-95782",
+        "name": "ドーンマンポート・半島の神像と風の道",
+        "gates": [
+          "teyvat:95795",
+          "teyvat:95796"
+        ]
+      },
+      "teyvat:95792": {
+        "stage_id": "mond-wp-95792",
+        "name": "ドーンマンポート・北の丘の東路",
+        "gates": [
+          "teyvat:95793",
+          "teyvat:8"
+        ]
+      },
+      "teyvat:95793": {
+        "stage_id": "mond-wp-95793",
+        "name": "ドーンマンポート・湾の東の船着き場",
+        "gates": [
+          "teyvat:95794",
+          "teyvat:95792"
+        ]
+      },
+      "teyvat:95794": {
+        "stage_id": "mond-wp-95794",
+        "name": "ドーンマンポート・湾の西の船着き場",
+        "gates": [
+          "teyvat:95795",
+          "teyvat:22",
+          "teyvat:95793"
+        ]
+      },
+      "teyvat:95795": {
+        "stage_id": "mond-wp-95795",
+        "name": "ドーンマンポート・崖沿いの南坂",
+        "gates": [
+          "teyvat:95782",
+          "teyvat:95794"
+        ]
+      },
+      "teyvat:95796": {
+        "stage_id": "dornman-camp",
+        "name": "ドーンマンポート・入口拠点",
+        "gates": [
+          "teyvat:3",
+          "teyvat:95782",
+          "teyvat:95798",
+          "teyvat:95797"
+        ]
+      },
+      "teyvat:95797": {
+        "stage_id": "mond-wp-95797",
+        "name": "ドーンマンポート・港東の桟橋",
+        "gates": [
+          "teyvat:95796",
+          "teyvat:95798",
+          "teyvat:95803",
+          "teyvat:95799"
+        ]
+      },
+      "teyvat:95798": {
+        "stage_id": "mond-wp-95798",
+        "name": "ドーンマンポート・港の石段広場",
+        "gates": [
+          "teyvat:95800",
+          "teyvat:95796",
+          "teyvat:95797"
+        ]
+      },
+      "teyvat:95799": {
+        "stage_id": "mond-wp-95799",
+        "name": "ドーンマンポート・沖の小島の船着き場",
+        "gates": [
+          "teyvat:95797"
+        ]
+      },
+      "teyvat:95800": {
+        "stage_id": "mond-wp-95800",
+        "name": "ドーンマンポート・港北の風が抜ける丘",
+        "gates": [
+          "teyvat:95798",
+          "teyvat:95801"
+        ]
+      },
+      "teyvat:95801": {
+        "stage_id": "mond-wp-95801",
+        "name": "ドーンマンポート・北岸の船溜まり",
+        "gates": [
+          "teyvat:95800",
+          "teyvat:95802"
+        ]
+      },
+      "teyvat:95802": {
+        "stage_id": "mond-wp-95802",
+        "name": "ドーンマンポート・北沖の見晴らし磯",
+        "gates": [
+          "teyvat:95801"
+        ]
+      },
+      "teyvat:95803": {
+        "stage_id": "mond-wp-95803",
+        "name": "ドーンマンポート・港の下層通路",
+        "gates": [
+          "teyvat:95797"
+        ]
       }
     }
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 359,
-    "provisional_quests": 227,
+    "authored_stages": 404,
+    "provisional_quests": 230,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -634,7 +1064,7 @@
     "status": "partial",
     "design": "content/world-bosses-design.json"
   },
-  "current_priority": "Match imported waypoint IDs to playable stages, starting in Mondstadt. Continue quest and boss playthroughs and sprite consistency checks.",
+  "current_priority": "Match and connect Liyue waypoint IDs after the Mondstadt and Chasm routes. Continue quest and boss playthroughs and sprite consistency checks.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",
@@ -674,9 +1104,31 @@
           "andrius-wolf-ring",
           "golden-mainland-coast",
           "mond-gate-chess-court",
+          "mond-wp-7",
+          "mond-wp-8",
+          "mond-wp-9",
+          "mond-wp-10",
+          "mond-wp-12",
+          "mond-wp-13",
+          "mond-wp-14",
+          "mond-wp-15",
+          "mond-wp-17",
+          "mond-wp-18",
+          "mond-wp-19",
+          "mond-wp-20",
+          "mond-wp-21",
+          "mond-wp-22",
+          "mond-wp-23",
+          "mond-wp-24",
+          "mond-wp-25",
+          "mond-wp-26",
+          "mond-wp-27",
+          "mond-wp-28",
+          "mond-wp-55",
           "mond-stygian-dual-court"
         ],
         "quest_ids": [
+          "mond-mapped-lakeside",
           "stygian-farka-commission",
           "gate-weekly-commission",
           "growth-partner-swap",
@@ -1165,9 +1617,22 @@
           "spine-wind-notch",
           "spine-lee-walk",
           "spine-shelter",
-          "spine-trace-ridge"
+          "spine-trace-ridge",
+          "mond-wp-6537",
+          "mond-wp-6540",
+          "mond-wp-6594",
+          "mond-wp-6596",
+          "mond-wp-6599",
+          "mond-wp-6600",
+          "mond-wp-6601",
+          "mond-wp-6603",
+          "mond-wp-6604",
+          "mond-wp-6606",
+          "mond-wp-6608",
+          "mond-wp-6609"
         ],
         "quest_ids": [
+          "mond-mapped-snowline",
           "dragonspine-survey",
           "cryo-hypostasis-commission",
           "spine-noon-pattern",
@@ -1268,9 +1733,22 @@
           "windrest-vigil-court",
           "dornman-wind-stairs",
           "dornman-flag-trestle",
-          "dornman-windworks"
+          "dornman-windworks",
+          "mond-wp-95782",
+          "mond-wp-95792",
+          "mond-wp-95793",
+          "mond-wp-95794",
+          "mond-wp-95795",
+          "mond-wp-95797",
+          "mond-wp-95798",
+          "mond-wp-95799",
+          "mond-wp-95800",
+          "mond-wp-95801",
+          "mond-wp-95802",
+          "mond-wp-95803"
         ],
         "quest_ids": [
+          "mond-mapped-islet",
           "dornman-survey",
           "fallen-vigil-commission",
           "windward-lookouts",

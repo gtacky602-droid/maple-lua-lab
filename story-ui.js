@@ -2,6 +2,7 @@ import {renderQuestJournal,trackedQuestText} from './quest-journal.js';
 import {initEndgameUI} from './endgame-ui.js';
 const updateEndgame=initEndgameUI(action=>window.lab.action(action));
 let questFilter='relevant',trackedId=null;
+let waypointSelection='';
 const trackingKey='maple-lua-lab-tracked-quest';
 try{trackedId=localStorage.getItem(trackingKey)}catch{}
 function trackQuest(id){trackedId=id;try{if(id)localStorage.setItem(trackingKey,id);else localStorage.removeItem(trackingKey)}catch{}previous='';update()}
@@ -68,6 +69,28 @@ function update(){
   const rest=button('休憩へ：'+n.restWaypoint.label,'story_fast:'+n.id);
   rest.dataset.restWaypoint=n.id;
   panel.append(rest);
+ }
+ const waypoints=graph.nodes.filter(n=>n.waypoint);
+ if(waypoints.length){
+  const list=document.createElement('div');list.className='controls';list.id='storyWaypoints';
+  const label=document.createElement('label');label.htmlFor='storyWaypointDestination';
+  const visited=waypoints.filter(n=>f.story.visited[n.id]);
+  label.textContent=`地図のワープ地点・神像 ${visited.length} / ${waypoints.length}`;
+  const choice=document.createElement('select');choice.id='storyWaypointDestination';
+  choice.style.maxWidth='100%';
+  const placeholder=new Option('移動先を選ぶ','');choice.add(placeholder);
+  for(const n of visited){
+   const option=new Option(n.name,n.id);
+   option.disabled=n.id===node.id||n.level>(f.progression?.level??0);
+   choice.add(option);
+  }
+  const travel=document.createElement('button');travel.type='button';travel.textContent='ワープする';
+  choice.value=visited.some(n=>n.id===waypointSelection&&n.id!==node.id&&n.level<=(f.progression?.level??0))
+   ?waypointSelection:'';
+  travel.disabled=!choice.value||!!f.storyLift||!!f.voyage;
+  choice.onchange=()=>{waypointSelection=choice.value;travel.disabled=!choice.value||!!f.storyLift||!!f.voyage};
+  travel.onclick=()=>{if(choice.value&&!travel.disabled){window.lab.action('story_fast:'+choice.value);travel.blur()}};
+  list.append(label,choice,travel);panel.append(list);
  }
  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox',`0 0 780 ${Math.ceil(graph.nodes.length/6)*100}`);svg.style.width='100%';svg.style.maxWidth='780px';
  const coords=new Map(graph.nodes.map((n,i)=>[n.id,{x:65+(i%6)*130,y:30+Math.floor(i/6)*100}]));

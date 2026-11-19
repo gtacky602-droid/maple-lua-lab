@@ -787,13 +787,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    started=s.t-(elapsed or 0),source=v.source,stopStart=v.stopStart,stopEnd=v.stopEnd,kind=v.kind,reverse=v.reverse} or nil
   progress(s,'visit',id)
  end
- local function arrive(s)
-  local from,dest=s.story.node,s.voyage.destination
-  enter(s,dest)
+ local function recordArrival(s,from,dest)
   for _,q in ipairs(itineraries) do
    local step,state=nextMilestone(s,q)
    if step and step.kind=='arrive' and step.node==dest and step.from==from then completeMilestone(s,state,step) end
   end
+ end
+ local function arrive(s)
+  local from,dest=s.story.node,s.voyage.destination
+  enter(s,dest)
+  recordArrival(s,from,dest)
  end
  function C.enterStoryNode(s,id) setup(s);enter(s,id) end
  function C.clearWeeklySceneCasts(s)
@@ -1186,8 +1189,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if not s.progression or s.progression.level<n.level then s.storyNotice='必要レベル '..n.level..' に達していません。';return end
    if fast then
     local restPoint=n.restWaypoint and completed(s,n.restWaypoint.quest)
-    if not (n.hub or restPoint) or not s.story.visited[dest] then
-     s.storyNotice='到達済みの拠点か、地図に登録した休憩場所を選んでください。';return
+    if not (n.hub or restPoint or n.waypoint) or not s.story.visited[dest] then
+     s.storyNotice='到達済みの拠点・ワープ地点か、登録済みの休憩場所を選んでください。';return
     end
    else
     local allowed=false;local a=s.actors[s.active]
@@ -1216,7 +1219,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    for _,edge in ipairs(n.exits) do
     if edge.to==previous and not edge.returnOnly then spawn=edge.x<720 and 160 or n.width-160;arrival=edge end
    end
-   if fast and n.restWaypoint then spawn=n.restWaypoint.arrivalX or spawn end
+   if fast and n.restWaypoint then spawn=n.restWaypoint.arrivalX or spawn
+   elseif fast and n.waypoint and not n.hub then spawn=n.waypoint.x end
+   local arrivalY=departure and departure.arrivalY or (fast and n.waypoint and not n.hub and n.waypoint.y) or nil
    local seconds=departure and (departure.liftSeconds or departure.waterwaySeconds or departure.boatSeconds)
    if seconds then
     s.lift={destination=dest,name=departure.rideLabel or n.name,seconds=seconds,remaining=seconds,
@@ -1231,8 +1236,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     s.storyNotice=nil
     return
    end
-   enter(s,dest,departure and departure.arrivalX or spawn,resume,departure and departure.arrivalY)
-   s.storyNotice=cancelledTrial and '拠点移動でタイムの計測を終了しました。' or nil;return
+   enter(s,dest,departure and departure.arrivalX or spawn,resume,arrivalY)
+   s.storyNotice=cancelledTrial and '拠点移動でタイムの計測を終了しました。' or nil
+   if departure then recordArrival(s,previous,dest) end
+   return
   end
   local accept=key:match('^story_accept:([%w%-]+)$');local report=key:match('^story_report:([%w%-]+)$')
   local selectJoined=key:match('^story_select_joined:([%w%-]+)$')
@@ -1389,7 +1396,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
       actor.ground=false
      end
     end
-    if ride.remaining<=1e-8 then enter(s,ride.destination,ride.x,nil,ride.y) end
+    if ride.remaining<=1e-8 then
+     local from=s.story.node
+     enter(s,ride.destination,ride.x,nil,ride.y)
+     recordArrival(s,from,ride.destination)
+    end
    end
    return
   end
@@ -1642,6 +1653,22 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
                  waterway=ride.waterway or nil,boat=ride.boat or nil}
    else f.storyNearbyPortal=nearbyPortal(s) end
    local markers={};f.storyPortals={}
+   if n.waypoint then
+    local point=n.waypoint
+    local x,y=point.x-s.camera,point.y
+    local statue=point.kind=='statue'
+    local color=statue and '#f6d583' or '#8de8e5'
+    local height=statue and 56 or 38
+    local function shape(dx,dy,w,h,paint)
+     markers[#markers+1]={kind='rect',x=x+dx,y=y+dy,w=w,h=h,color=paint}
+    end
+    shape(-15,-5,30,5,'#374e60')
+    shape(-8,-height+10,16,height-15,'#3d526e')
+    shape(-9,-height+4,18,8,color)
+    shape(-5,-height,10,8,color)
+    shape(-2,-height+15,4,height-23,color)
+    f.storyWaypoint={id=n.mapPoint,kind=point.kind,name=n.name}
+   end
    local growthPoint=growthViewpoint(s)
    if growthPoint then
     local x,y=growthPoint.x-s.camera,growthPoint.y

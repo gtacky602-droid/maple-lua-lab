@@ -20,7 +20,7 @@
       "region": "モンド",
       "level": 1,
       "hub": true,
-      "colleiLetterQuest":"sum-collei-guide",
+      "colleiLetterQuest": "sum-collei-guide",
       "width": 1440,
       "returnBoxArchive": {
         "quest": "mond-return-box-quest",
@@ -51,8 +51,16 @@
         }
       ],
       "exits": [
-        {"to":"mond-stygian-dual-court","x":295,"arrivalX":278},
-        {"to":"mond-gate-chess-court","x":442,"arrivalX":187},
+        {
+          "to": "mond-stygian-dual-court",
+          "x": 295,
+          "arrivalX": 278
+        },
+        {
+          "to": "mond-gate-chess-court",
+          "x": 442,
+          "arrivalX": 187
+        },
         {
           "to": "mond-road",
           "x": 1380
@@ -68,27 +76,51 @@
         {
           "to": "mond-roof-route",
           "x": 620,
-          "requires": {"quest": "mond-windmill", "count": 0}
+          "requires": {
+            "quest": "mond-windmill",
+            "count": 0
+          }
         },
         {
           "to": "mond-windmill-lookout",
           "x": 965,
-          "requires": {"quest": "mond-windmill", "count": 4}
+          "requires": {
+            "quest": "mond-windmill",
+            "count": 4
+          }
         },
         {
           "to": "mond-library-orchard",
           "x": 758,
           "arrivalX": 120,
-          "requires": {"quest": "mond-return-box-quest", "count": 1}
+          "requires": {
+            "quest": "mond-return-box-quest",
+            "count": 1
+          }
         },
         {
           "to": "mond-night-hill",
           "x": 851,
           "arrivalX": 118,
-          "requires": {"quest": "mond-night-banner-quest", "count": 1}
+          "requires": {
+            "quest": "mond-night-banner-quest",
+            "count": 1
+          }
+        },
+        {
+          "to": "mond-wp-55",
+          "x": 105,
+          "arrivalX": 76,
+          "arrivalY": 480
         }
       ],
-      "checkpoint": "mond-town"
+      "checkpoint": "mond-town",
+      "mapPoint": "teyvat:57",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 160,
+        "y": 480
+      }
     },
     {
       "id": "mond-library-orchard",
@@ -259,7 +291,16 @@
           "to": "andrius-wolf-ring",
           "x": 940
         },
-        {"to":"golden-mainland-coast","x":1124}
+        {
+          "to": "golden-mainland-coast",
+          "x": 1124
+        },
+        {
+          "to": "mond-wp-13",
+          "x": 156,
+          "arrivalX": 76,
+          "arrivalY": 480
+        }
       ],
       "checkpoint": "mond-town",
       "hints": [
@@ -269,16 +310,60 @@
           "y": 480,
           "label": "古い船着き場の跡"
         }
-      ]
+      ],
+      "mapPoint": "teyvat:3",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 474,
+        "y": 480
+      }
     },
     {
       "id": "mond-roadside-rest",
       "name": "モンド・街道脇の休憩所",
-      "region": "モンド", "level": 1, "hub": false,
-      "width": 1260, "checkpoint": "mond-town",
-      "platforms": [{"x": 0, "y": 480, "w": 1260}, {"x": 390, "y": 392, "w": 260}],
-      "exits": [{"to": "mond-road", "x": 65}],
-      "clearedBy": "mond-rest-stop", "clearCount": 1
+      "region": "モンド",
+      "level": 1,
+      "hub": false,
+      "width": 1260,
+      "checkpoint": "mond-town",
+      "platforms": [
+        {
+          "x": 0,
+          "y": 480,
+          "w": 1260
+        },
+        {
+          "x": 390,
+          "y": 392,
+          "w": 260
+        }
+      ],
+      "exits": [
+        {
+          "to": "mond-road",
+          "x": 65
+        },
+        {
+          "to": "mond-wp-20",
+          "x": 1000,
+          "arrivalX": 1272,
+          "arrivalY": 480
+        },
+        {
+          "to": "mond-wp-14",
+          "x": 640,
+          "arrivalX": 1222,
+          "arrivalY": 480
+        }
+      ],
+      "clearedBy": "mond-rest-stop",
+      "clearCount": 1,
+      "mapPoint": "teyvat:16",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 480,
+        "y": 480
+      }
     },
     {
       "id": "mond-old-road",
@@ -668,9 +753,21 @@
         {
           "to": "cryo-approach",
           "x": 1200
+        },
+        {
+          "to": "mond-wp-19",
+          "x": 390,
+          "arrivalX": 76,
+          "arrivalY": 480
         }
       ],
-      "checkpoint": "mond-town"
+      "checkpoint": "mond-town",
+      "mapPoint": "teyvat:116",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 350,
+        "y": 480
+      }
     },
     {
       "id": "liyue-entry",
@@ -3293,13 +3390,38 @@
           "to": "dragonspine-depth",
           "x": 1380
         },
-        {"to":"spine-observation-shelf","x":1020}
+        {
+          "to": "spine-observation-shelf",
+          "x": 1020
+        },
+        {
+          "to": "mond-wp-6601",
+          "x": 500,
+          "arrivalX": 1372,
+          "arrivalY": 480
+        },
+        {
+          "to": "mond-wp-18",
+          "x": 285,
+          "arrivalX": 76,
+          "arrivalY": 480
+        }
       ],
       "checkpoint": "dragonspine-camp",
-      "expeditionDesk": {"x":680,"y":480,"barrier":3},
+      "expeditionDesk": {
+        "x": 680,
+        "y": 480,
+        "barrier": 3
+      },
       "branch": true,
       "lightReference": 3,
-      "barrier": 0
+      "barrier": 0,
+      "mapPoint": "teyvat:6538",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 420,
+        "y": 480
+      }
     },
     {
       "id": "dragonspine-depth",
@@ -3740,13 +3862,43 @@
           "to": "windrest-vigil-court",
           "x": 970
         },
-        {"to":"dornman-wind-stairs","x":1168},
-        {"to":"dornman-flag-trestle","x":536}
+        {
+          "to": "dornman-wind-stairs",
+          "x": 1168
+        },
+        {
+          "to": "dornman-flag-trestle",
+          "x": 536
+        },
+        {
+          "to": "mond-wp-95782",
+          "x": 250,
+          "arrivalX": 1142,
+          "arrivalY": 480
+        },
+        {
+          "to": "mond-wp-95798",
+          "x": 1260,
+          "arrivalX": 926,
+          "arrivalY": 480
+        },
+        {
+          "to": "mond-wp-95797",
+          "x": 810,
+          "arrivalX": 76,
+          "arrivalY": 480
+        }
       ],
       "checkpoint": "dornman-camp",
       "branch": true,
       "lightReference": 30,
-      "barrier": 0
+      "barrier": 0,
+      "mapPoint": "teyvat:95796",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 440,
+        "y": 480
+      }
     },
     {
       "id": "dornman-depth",
@@ -5606,6 +5758,51 @@
     {"id":"knave-crimson-court","name":"凶月の再現戦","region":"フォンテーヌ","level":88,"width":960,"hub":false,"peaceful":true,"checkpoint":"fontaine-hub","platforms":[{"x":0,"y":480,"w":960},{"x":98,"y":357,"w":158},{"x":704,"y":357,"w":158}],"exits":[{"to":"fontaine-hub","x":130}]},
     {"id":"primal-fire-sundered-forge","name":"源焔の再現戦","region":"ナタ","level":104,"width":960,"hub":false,"peaceful":true,"checkpoint":"natlan-hub","platforms":[{"x":40,"y":480,"w":880},{"x":110,"y":357,"w":141},{"x":709,"y":357,"w":141}],"exits":[{"to":"natlan-hub","x":863,"arrivalX":351}]},
     {"id":"mond-gate-chess-court","name":"扉の対局・再現盤","region":"モンド","level":112,"width":960,"hub":false,"peaceful":true,"checkpoint":"mond-town","platforms":[{"x":0,"y":480,"w":960},{"x":128,"y":357,"w":176},{"x":656,"y":357,"w":176}],"exits":[{"to":"mond-town","x":825,"arrivalX":442}]},
+    {"id":"mond-wp-7","name":"モンド・東丘の石畳","region":"モンド","level":8,"width":1320,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondhill","platforms":[{"x":0,"y":480,"w":1320},{"x":340,"y":371,"w":212},{"x":565,"y":281,"w":254}],"exits":[{"to":"mond-wp-13","x":76,"arrivalX":905,"arrivalY":480},{"to":"mond-wp-12","x":1006,"arrivalX":1272,"arrivalY":480},{"to":"mond-wp-9","x":1242,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:7","waypoint":{"kind":"waypoint","x":660,"y":480}},
+    {"id":"mond-wp-8","name":"モンド・北の湖の岩棚","region":"モンド","level":9,"width":1240,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondlookout","platforms":[{"x":0,"y":480,"w":1240},{"x":310,"y":389,"w":250},{"x":555,"y":305,"w":205}],"exits":[{"to":"mond-wp-95792","x":76,"arrivalX":1372,"arrivalY":480},{"to":"mond-wp-12","x":926,"arrivalX":76,"arrivalY":370},{"to":"mond-wp-10","x":1162,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:8","waypoint":{"kind":"waypoint","x":620,"y":480}},
+    {"id":"mond-wp-9","name":"モンド・海食崖の南棚","region":"モンド","level":10,"width":1450,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1450},{"x":328,"y":379,"w":224},{"x":554,"y":294,"w":248},{"x":814,"y":344,"w":196}],"exits":[{"to":"mond-wp-7","x":76,"arrivalX":1242,"arrivalY":480},{"to":"mond-wp-10","x":1372,"arrivalX":1202,"arrivalY":480}],"mapPoint":"teyvat:9","waypoint":{"kind":"waypoint","x":725,"y":480}},
+    {"id":"mond-wp-10","name":"モンド・北東の崖先","region":"モンド","level":12,"width":1280,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1280},{"x":340,"y":385,"w":245},{"x":585,"y":300,"w":226}],"exits":[{"to":"mond-wp-8","x":76,"arrivalX":1162,"arrivalY":480},{"to":"mond-wp-9","x":1202,"arrivalX":1372,"arrivalY":480}],"mapPoint":"teyvat:10","waypoint":{"kind":"waypoint","x":640,"y":480}},
+    {"id":"mond-wp-12","name":"モンド・北の湖と神像","region":"モンド","level":7,"width":1350,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondlookout","platforms":[{"x":0,"y":480,"w":1350},{"x":515,"y":398,"w":210},{"x":10,"y":370,"w":138}],"exits":[{"to":"mond-wp-8","x":76,"y":370,"arrivalX":926,"arrivalY":480},{"to":"mond-wp-7","x":1272,"arrivalX":1006,"arrivalY":480}],"mapPoint":"teyvat:12","waypoint":{"kind":"statue","x":675,"y":480}},
+    {"id":"mond-wp-13","name":"モンド・大樹の東原と神像","region":"モンド","level":5,"width":1220,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondrest","platforms":[{"x":0,"y":480,"w":1220},{"x":440,"y":403,"w":260}],"exits":[{"to":"mond-road","x":76,"arrivalX":156,"arrivalY":480},{"to":"mond-wp-18","x":295,"arrivalX":295,"arrivalY":480},{"to":"mond-wp-7","x":905,"arrivalX":76,"arrivalY":480},{"to":"mond-wp-15","x":1142,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:13","waypoint":{"kind":"statue","x":610,"y":480}},
+    {"id":"mond-wp-14","name":"モンド・泉池の南道","region":"モンド","level":5,"width":1300,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondrest","platforms":[{"x":0,"y":480,"w":1300},{"x":240,"y":409,"w":165},{"x":625,"y":375,"w":225}],"exits":[{"to":"mond-wp-19","x":76,"arrivalX":1142,"arrivalY":480},{"to":"mond-roadside-rest","x":1222,"arrivalX":640,"arrivalY":480}],"mapPoint":"teyvat:14","waypoint":{"kind":"waypoint","x":650,"y":480}},
+    {"id":"mond-wp-15","name":"モンド・東の浜道","region":"モンド","level":7,"width":1350,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1350},{"x":515,"y":398,"w":210}],"exits":[{"to":"mond-wp-13","x":76,"arrivalX":1142,"arrivalY":480},{"to":"mond-wp-18","x":1272,"arrivalX":1205,"arrivalY":480}],"mapPoint":"teyvat:15","waypoint":{"kind":"waypoint","x":675,"y":480}},
+    {"id":"mond-wp-17","name":"モンド・東南の岬","region":"モンド","level":14,"width":1280,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1280},{"x":340,"y":385,"w":245},{"x":585,"y":300,"w":226}],"exits":[{"to":"mond-wp-18","x":76,"arrivalX":1442,"arrivalY":480}],"mapPoint":"teyvat:17","waypoint":{"kind":"waypoint","x":640,"y":480}},
+    {"id":"mond-wp-18","name":"モンド・東南の谷口","region":"モンド","level":10,"width":1520,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondhill","platforms":[{"x":0,"y":480,"w":1520},{"x":359,"y":402,"w":205},{"x":860,"y":371,"w":257}],"exits":[{"to":"dragonspine-camp","x":76,"arrivalX":285,"arrivalY":480},{"to":"mond-wp-13","x":295,"arrivalX":295,"arrivalY":480},{"to":"mond-wp-15","x":1205,"arrivalX":1272,"arrivalY":480},{"to":"mond-wp-17","x":1442,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:18","waypoint":{"kind":"waypoint","x":760,"y":480}},
+    {"id":"mond-wp-19","name":"モンド・西の並木と神像","region":"モンド","level":6,"width":1220,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondrest","platforms":[{"x":0,"y":480,"w":1220},{"x":440,"y":403,"w":260}],"exits":[{"to":"mond-border","x":76,"arrivalX":390,"arrivalY":480},{"to":"mond-wp-6540","x":906,"arrivalX":1372,"arrivalY":480},{"to":"mond-wp-14","x":1142,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:19","waypoint":{"kind":"statue","x":610,"y":480}},
+    {"id":"mond-wp-20","name":"モンド・湖西の低地","region":"モンド","level":4,"width":1350,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondlookout","platforms":[{"x":0,"y":480,"w":1350},{"x":515,"y":398,"w":210}],"exits":[{"to":"mond-wp-21","x":76,"arrivalX":1162,"arrivalY":480},{"to":"mond-roadside-rest","x":1272,"arrivalX":1000,"arrivalY":480}],"mapPoint":"teyvat:20","waypoint":{"kind":"waypoint","x":675,"y":480}},
+    {"id":"mond-wp-21","name":"モンド・湖西の石段","region":"モンド","level":6,"width":1240,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondhill","platforms":[{"x":0,"y":480,"w":1240},{"x":310,"y":389,"w":250},{"x":555,"y":305,"w":205}],"exits":[{"to":"mond-wp-28","x":76,"arrivalX":1372,"arrivalY":480},{"to":"mond-wp-22","x":926,"arrivalX":1272,"arrivalY":480},{"to":"mond-wp-20","x":1162,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:21","waypoint":{"kind":"waypoint","x":620,"y":480}},
+    {"id":"mond-wp-22","name":"モンド・北西の湖畔道","region":"モンド","level":8,"width":1350,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondlookout","platforms":[{"x":0,"y":480,"w":1350},{"x":515,"y":398,"w":210}],"exits":[{"to":"mond-wp-23","x":76,"arrivalX":1242,"arrivalY":480},{"to":"mond-wp-95794","x":1036,"arrivalX":1056,"arrivalY":480},{"to":"mond-wp-21","x":1272,"arrivalX":926,"arrivalY":480}],"mapPoint":"teyvat:22","waypoint":{"kind":"waypoint","x":675,"y":480}},
+    {"id":"mond-wp-23","name":"モンド・西の遺跡の東稜","region":"モンド","level":12,"width":1320,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"andriusWeekly","platforms":[{"x":0,"y":480,"w":1320},{"x":340,"y":371,"w":212},{"x":565,"y":281,"w":254},{"x":940,"y":370,"w":138}],"exits":[{"to":"mond-wp-27","x":76,"arrivalX":1202,"arrivalY":480},{"to":"mond-wp-24","x":1006,"y":370,"arrivalX":1162,"arrivalY":480},{"to":"mond-wp-22","x":1242,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:23","waypoint":{"kind":"waypoint","x":660,"y":480}},
+    {"id":"mond-wp-24","name":"モンド・西の遺跡の上段回廊","region":"モンド","level":14,"width":1240,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"electroField","platforms":[{"x":0,"y":480,"w":1240},{"x":310,"y":389,"w":250},{"x":555,"y":305,"w":205}],"exits":[{"to":"mond-wp-25","x":76,"arrivalX":1242,"arrivalY":480},{"to":"mond-wp-23","x":1162,"arrivalX":1006,"arrivalY":370}],"mapPoint":"teyvat:24","waypoint":{"kind":"waypoint","x":620,"y":480}},
+    {"id":"mond-wp-25","name":"モンド・西の遺跡と神像","region":"モンド","level":14,"width":1320,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"andriusWeekly","platforms":[{"x":0,"y":480,"w":1320},{"x":340,"y":371,"w":212},{"x":565,"y":281,"w":254}],"exits":[{"to":"mond-wp-26","x":76,"arrivalX":1206,"arrivalY":480},{"to":"mond-wp-24","x":1242,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:25","waypoint":{"kind":"statue","x":660,"y":480}},
+    {"id":"mond-wp-26","name":"モンド・遺跡の西壁沿い","region":"モンド","level":16,"width":1520,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"andriusWeekly","platforms":[{"x":0,"y":480,"w":1520},{"x":359,"y":402,"w":205},{"x":860,"y":371,"w":257}],"exits":[{"to":"mond-wp-27","x":76,"arrivalX":76,"arrivalY":480},{"to":"mond-wp-25","x":1206,"arrivalX":76,"arrivalY":480},{"to":"mond-wp-28","x":1442,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:26","waypoint":{"kind":"waypoint","x":760,"y":480}},
+    {"id":"mond-wp-27","name":"モンド・遺跡の北縁","region":"モンド","level":16,"width":1280,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondhill","platforms":[{"x":0,"y":480,"w":1280},{"x":340,"y":385,"w":245},{"x":585,"y":300,"w":226}],"exits":[{"to":"mond-wp-26","x":76,"arrivalX":76,"arrivalY":480},{"to":"mond-wp-23","x":1202,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:27","waypoint":{"kind":"waypoint","x":640,"y":480}},
+    {"id":"mond-wp-28","name":"モンド・西の峠道","region":"モンド","level":10,"width":1450,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondhill","platforms":[{"x":0,"y":480,"w":1450},{"x":365,"y":388,"w":201},{"x":663,"y":421,"w":225}],"exits":[{"to":"mond-wp-26","x":76,"arrivalX":1442,"arrivalY":480},{"to":"mond-wp-21","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28","waypoint":{"kind":"waypoint","x":725,"y":480}},
+    {"id":"mond-wp-55","name":"モンド・城西の風見段","region":"モンド","level":1,"width":1240,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondroof","platforms":[{"x":0,"y":480,"w":1240},{"x":310,"y":389,"w":250},{"x":555,"y":305,"w":205}],"exits":[{"to":"mond-town","x":76,"arrivalX":105,"arrivalY":480}],"mapPoint":"teyvat:55","waypoint":{"kind":"waypoint","x":620,"y":480}},
+    {"id":"mond-wp-6537","name":"ドラゴンスパイン・峰下の雪原と神像","region":"ドラゴンスパイン","level":35,"width":1220,"hub":false,"peaceful":true,"checkpoint":"dragonspine-camp","scenery":"dragonspine","platforms":[{"x":0,"y":480,"w":1220},{"x":440,"y":403,"w":260}],"exits":[{"to":"mond-wp-6601","x":76,"arrivalX":1136,"arrivalY":480},{"to":"mond-wp-6603","x":1142,"arrivalX":1372,"arrivalY":480}],"mapPoint":"teyvat:6537","waypoint":{"kind":"statue","x":610,"y":480}},
+    {"id":"mond-wp-6540","name":"ドラゴンスパイン・西の雪線","region":"ドラゴンスパイン","level":35,"width":1450,"hub":false,"peaceful":true,"checkpoint":"dragonspine-camp","scenery":"whitePassSnow","platforms":[{"x":0,"y":480,"w":1450},{"x":365,"y":388,"w":201},{"x":663,"y":421,"w":225}],"exits":[{"to":"mond-wp-6596","x":76,"arrivalX":295,"arrivalY":480},{"to":"mond-wp-19","x":1372,"arrivalX":906,"arrivalY":480}],"mapPoint":"teyvat:6540","waypoint":{"kind":"waypoint","x":725,"y":480}},
+    {"id":"mond-wp-6594","name":"ドラゴンスパイン・谷を見下ろす雪棚","region":"ドラゴンスパイン","level":43,"width":1240,"hub":false,"peaceful":true,"checkpoint":"dragonspine-camp","scenery":"dragonspine","platforms":[{"x":0,"y":480,"w":1240},{"x":310,"y":389,"w":250},{"x":555,"y":305,"w":205},{"x":1096,"y":370,"w":138}],"exits":[{"to":"mond-wp-6596","x":76,"arrivalX":1442,"arrivalY":480},{"to":"mond-wp-6601","x":1162,"y":370,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:6594","waypoint":{"kind":"waypoint","x":620,"y":480}},
+    {"id":"mond-wp-6596","name":"ドラゴンスパイン・雪壁の西谷","region":"ドラゴンスパイン","level":42,"width":1520,"hub":false,"peaceful":true,"checkpoint":"dragonspine-camp","scenery":"whitePassSnow","platforms":[{"x":0,"y":480,"w":1520},{"x":359,"y":402,"w":205},{"x":860,"y":371,"w":257}],"exits":[{"to":"mond-wp-6599","x":76,"arrivalX":1372,"arrivalY":480},{"to":"mond-wp-6540","x":295,"arrivalX":76,"arrivalY":480},{"to":"mond-wp-6608","x":1205,"arrivalX":1106,"arrivalY":480},{"to":"mond-wp-6594","x":1442,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:6596","waypoint":{"kind":"waypoint","x":760,"y":480}},
+    {"id":"mond-wp-6599","name":"ドラゴンスパイン・西斜面の岩間","region":"ドラゴンスパイン","level":44,"width":1450,"hub":false,"peaceful":true,"checkpoint":"dragonspine-camp","scenery":"dragonspine","platforms":[{"x":0,"y":480,"w":1450},{"x":328,"y":379,"w":224},{"x":554,"y":294,"w":248},{"x":814,"y":344,"w":196}],"exits":[{"to":"mond-wp-6606","x":76,"arrivalX":76,"arrivalY":480},{"to":"mond-wp-6596","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:6599","waypoint":{"kind":"waypoint","x":725,"y":480}},
+    {"id":"mond-wp-6600","name":"ドラゴンスパイン・南東の雪解け道","region":"ドラゴンスパイン","level":52,"width":1300,"hub":false,"peaceful":true,"checkpoint":"dragonspine-camp","scenery":"whitePassSnow","platforms":[{"x":0,"y":480,"w":1300},{"x":240,"y":409,"w":165},{"x":625,"y":375,"w":225}],"exits":[{"to":"mond-wp-6603","x":76,"arrivalX":1136,"arrivalY":480},{"to":"mond-wp-6604","x":1222,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:6600","waypoint":{"kind":"waypoint","x":650,"y":480}},
+    {"id":"mond-wp-6601","name":"ドラゴンスパイン・北東の谷戸","region":"ドラゴンスパイン","level":35,"width":1450,"hub":false,"peaceful":true,"checkpoint":"dragonspine-camp","scenery":"whitePassSnow","platforms":[{"x":0,"y":480,"w":1450},{"x":365,"y":388,"w":201},{"x":663,"y":421,"w":225}],"exits":[{"to":"mond-wp-6594","x":76,"arrivalX":1162,"arrivalY":370},{"to":"mond-wp-6537","x":1136,"arrivalX":76,"arrivalY":480},{"to":"dragonspine-camp","x":1372,"arrivalX":500,"arrivalY":480}],"mapPoint":"teyvat:6601","waypoint":{"kind":"waypoint","x":725,"y":480}},
+    {"id":"mond-wp-6603","name":"ドラゴンスパイン・峰の東稜","region":"ドラゴンスパイン","level":48,"width":1450,"hub":false,"peaceful":true,"checkpoint":"dragonspine-camp","scenery":"dragonspine","platforms":[{"x":0,"y":480,"w":1450},{"x":328,"y":379,"w":224},{"x":554,"y":294,"w":248},{"x":814,"y":344,"w":196}],"exits":[{"to":"mond-wp-6609","x":76,"arrivalX":1432,"arrivalY":480},{"to":"mond-wp-6600","x":1136,"arrivalX":76,"arrivalY":480},{"to":"mond-wp-6537","x":1372,"arrivalX":1142,"arrivalY":480}],"mapPoint":"teyvat:6603","waypoint":{"kind":"waypoint","x":725,"y":480}},
+    {"id":"mond-wp-6604","name":"ドラゴンスパイン・東裾の氷浜","region":"ドラゴンスパイン","level":55,"width":1350,"hub":false,"peaceful":true,"checkpoint":"dragonspine-camp","scenery":"dragonspine","platforms":[{"x":0,"y":480,"w":1350},{"x":515,"y":398,"w":210}],"exits":[{"to":"mond-wp-6600","x":76,"arrivalX":1222,"arrivalY":480}],"mapPoint":"teyvat:6604","waypoint":{"kind":"waypoint","x":675,"y":480}},
+    {"id":"mond-wp-6606","name":"ドラゴンスパイン・南西の吹きさらし","region":"ドラゴンスパイン","level":52,"width":1280,"hub":false,"peaceful":true,"checkpoint":"dragonspine-camp","scenery":"dragonspine","platforms":[{"x":0,"y":480,"w":1280},{"x":340,"y":385,"w":245},{"x":585,"y":300,"w":226}],"exits":[{"to":"mond-wp-6599","x":76,"arrivalX":76,"arrivalY":480},{"to":"mond-wp-6608","x":1202,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:6606","waypoint":{"kind":"waypoint","x":640,"y":480}},
+    {"id":"mond-wp-6608","name":"ドラゴンスパイン・南壁の雪道","region":"ドラゴンスパイン","level":53,"width":1420,"hub":false,"peaceful":true,"checkpoint":"dragonspine-camp","scenery":"whitePassSnow","platforms":[{"x":0,"y":480,"w":1420},{"x":380,"y":380,"w":228},{"x":579,"y":299,"w":221}],"exits":[{"to":"mond-wp-6606","x":76,"arrivalX":1202,"arrivalY":480},{"to":"mond-wp-6596","x":1106,"arrivalX":1205,"arrivalY":480},{"to":"mond-wp-6609","x":1342,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:6608","waypoint":{"kind":"waypoint","x":710,"y":480}},
+    {"id":"mond-wp-6609","name":"ドラゴンスパイン・山頂手前の雪棚","region":"ドラゴンスパイン","level":60,"width":1510,"hub":false,"peaceful":true,"checkpoint":"dragonspine-camp","scenery":"dragonspine","platforms":[{"x":0,"y":480,"w":1510},{"x":381,"y":391,"w":233},{"x":625,"y":303,"w":285}],"exits":[{"to":"mond-wp-6608","x":76,"arrivalX":1342,"arrivalY":480},{"to":"mond-wp-6603","x":1432,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:6609","waypoint":{"kind":"waypoint","x":755,"y":480}},
+    {"id":"mond-wp-95782","name":"ドーンマンポート・半島の神像と風の道","region":"ドーンマンポート","level":155,"width":1220,"hub":false,"peaceful":true,"checkpoint":"dornman-camp","scenery":"coastalLookout","platforms":[{"x":0,"y":480,"w":1220},{"x":440,"y":403,"w":260}],"exits":[{"to":"mond-wp-95795","x":76,"arrivalX":76,"arrivalY":480},{"to":"dornman-camp","x":1142,"arrivalX":250,"arrivalY":480}],"mapPoint":"teyvat:95782","waypoint":{"kind":"statue","x":610,"y":480}},
+    {"id":"mond-wp-95792","name":"ドーンマンポート・北の丘の東路","region":"ドーンマンポート","level":150,"width":1450,"hub":false,"peaceful":true,"checkpoint":"dornman-camp","scenery":"coastalLookout","platforms":[{"x":0,"y":480,"w":1450},{"x":365,"y":388,"w":201},{"x":663,"y":421,"w":225}],"exits":[{"to":"mond-wp-95793","x":76,"arrivalX":1292,"arrivalY":480},{"to":"mond-wp-8","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:95792","waypoint":{"kind":"waypoint","x":725,"y":480}},
+    {"id":"mond-wp-95793","name":"ドーンマンポート・湾の東の船着き場","region":"ドーンマンポート","level":150,"width":1370,"hub":false,"peaceful":true,"checkpoint":"dornman-camp","scenery":"dornman","platforms":[{"x":0,"y":480,"w":1370},{"x":493,"y":395,"w":235}],"exits":[{"to":"mond-wp-95794","x":76,"arrivalX":1292,"arrivalY":480,"boatSeconds":2.6,"rideLabel":"湾を渡る小舟"},{"to":"mond-wp-95792","x":1292,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:95793","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"mond-wp-95794","name":"ドーンマンポート・湾の西の船着き場","region":"ドーンマンポート","level":150,"width":1370,"hub":false,"peaceful":true,"checkpoint":"dornman-camp","scenery":"dornman","platforms":[{"x":0,"y":480,"w":1370},{"x":493,"y":395,"w":235}],"exits":[{"to":"mond-wp-95795","x":76,"arrivalX":1162,"arrivalY":480},{"to":"mond-wp-22","x":1056,"arrivalX":1036,"arrivalY":480},{"to":"mond-wp-95793","x":1292,"arrivalX":76,"arrivalY":480,"boatSeconds":2.6,"rideLabel":"湾を渡る小舟"}],"mapPoint":"teyvat:95794","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"mond-wp-95795","name":"ドーンマンポート・崖沿いの南坂","region":"ドーンマンポート","level":153,"width":1240,"hub":false,"peaceful":true,"checkpoint":"dornman-camp","scenery":"coastalLookout","platforms":[{"x":0,"y":480,"w":1240},{"x":310,"y":389,"w":250},{"x":555,"y":305,"w":205}],"exits":[{"to":"mond-wp-95782","x":76,"arrivalX":76,"arrivalY":480},{"to":"mond-wp-95794","x":1162,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:95795","waypoint":{"kind":"waypoint","x":620,"y":480}},
+    {"id":"mond-wp-95797","name":"ドーンマンポート・港東の桟橋","region":"ドーンマンポート","level":156,"width":1370,"hub":false,"peaceful":true,"checkpoint":"dornman-camp","scenery":"dornman","platforms":[{"x":0,"y":480,"w":1370},{"x":493,"y":395,"w":235}],"exits":[{"to":"dornman-camp","x":76,"arrivalX":810,"arrivalY":480},{"to":"mond-wp-95798","x":295,"arrivalX":1162,"arrivalY":480},{"to":"mond-wp-95803","x":1055,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"荷揚げ昇降機"},{"to":"mond-wp-95799","x":1292,"arrivalX":76,"arrivalY":480,"boatSeconds":3.0,"rideLabel":"沖の小島へ向かう小舟"}],"mapPoint":"teyvat:95797","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"mond-wp-95798","name":"ドーンマンポート・港の石段広場","region":"ドーンマンポート","level":156,"width":1240,"hub":false,"peaceful":true,"checkpoint":"dornman-camp","scenery":"coastalLookout","platforms":[{"x":0,"y":480,"w":1240},{"x":310,"y":389,"w":250},{"x":555,"y":305,"w":205},{"x":10,"y":370,"w":138}],"exits":[{"to":"mond-wp-95800","x":76,"y":370,"arrivalX":76,"arrivalY":480},{"to":"dornman-camp","x":926,"arrivalX":1260,"arrivalY":480},{"to":"mond-wp-95797","x":1162,"arrivalX":295,"arrivalY":480}],"mapPoint":"teyvat:95798","waypoint":{"kind":"waypoint","x":620,"y":480}},
+    {"id":"mond-wp-95799","name":"ドーンマンポート・沖の小島の船着き場","region":"ドーンマンポート","level":160,"width":1350,"hub":false,"peaceful":true,"checkpoint":"dornman-camp","scenery":"dornman","platforms":[{"x":0,"y":480,"w":1350},{"x":515,"y":398,"w":210}],"exits":[{"to":"mond-wp-95797","x":76,"arrivalX":1292,"arrivalY":480,"boatSeconds":3.0,"rideLabel":"沖の小島へ向かう小舟"}],"mapPoint":"teyvat:95799","waypoint":{"kind":"waypoint","x":675,"y":480}},
+    {"id":"mond-wp-95800","name":"ドーンマンポート・港北の風が抜ける丘","region":"ドーンマンポート","level":162,"width":1450,"hub":false,"peaceful":true,"checkpoint":"dornman-camp","scenery":"coastalLookout","platforms":[{"x":0,"y":480,"w":1450},{"x":365,"y":388,"w":201},{"x":663,"y":421,"w":225}],"exits":[{"to":"mond-wp-95798","x":76,"arrivalX":76,"arrivalY":370},{"to":"mond-wp-95801","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:95800","waypoint":{"kind":"waypoint","x":725,"y":480}},
+    {"id":"mond-wp-95801","name":"ドーンマンポート・北岸の船溜まり","region":"ドーンマンポート","level":164,"width":1370,"hub":false,"peaceful":true,"checkpoint":"dornman-camp","scenery":"dornman","platforms":[{"x":0,"y":480,"w":1370},{"x":493,"y":395,"w":235}],"exits":[{"to":"mond-wp-95800","x":76,"arrivalX":1372,"arrivalY":480},{"to":"mond-wp-95802","x":1292,"arrivalX":76,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"北沖へ渡る小舟"}],"mapPoint":"teyvat:95801","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"mond-wp-95802","name":"ドーンマンポート・北沖の見晴らし磯","region":"ドーンマンポート","level":169,"width":1280,"hub":false,"peaceful":true,"checkpoint":"dornman-camp","scenery":"coastalLookout","platforms":[{"x":0,"y":480,"w":1280},{"x":340,"y":385,"w":245},{"x":585,"y":300,"w":226}],"exits":[{"to":"mond-wp-95801","x":76,"arrivalX":1292,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"北沖へ渡る小舟"}],"mapPoint":"teyvat:95802","waypoint":{"kind":"waypoint","x":640,"y":480}},
+    {"id":"mond-wp-95803","name":"ドーンマンポート・港の下層通路","region":"ドーンマンポート","level":166,"width":1200,"hub":false,"peaceful":true,"checkpoint":"dornman-camp","scenery":"windwardWorks","platforms":[{"x":0,"y":480,"w":1200},{"x":392,"y":396,"w":255}],"exits":[{"to":"mond-wp-95797","x":76,"arrivalX":1055,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"荷揚げ昇降機"}],"mapPoint":"teyvat:95803","waypoint":{"kind":"waypoint","x":600,"y":480,"floor":{"group_id":196,"floor_id":276}}},
     {"id":"mond-stygian-dual-court","name":"幽境・二刀の鍛錬場","region":"モンド","level":12,"width":960,"hub":false,"peaceful":true,"checkpoint":"mond-town","platforms":[{"x":0,"y":480,"w":960},{"x":112,"y":371,"w":173},{"x":675,"y":371,"w":173}],"exits":[{"to":"mond-town","x":84,"arrivalX":295}]},
     {"id":"sumeru-stygian-windcourt","name":"幽境・風渡りの空中闘場","region":"スメール","level":66,"width":960,"hub":false,"peaceful":true,"checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":960},{"x":104,"y":372,"w":228},{"x":628,"y":372,"w":228},{"x":348,"y":290,"w":264}],"exits":[{"to":"sumeru-hub","x":84,"arrivalX":443}]},
     {"id":"sne-stygian-last-gate","name":"幽境・最後の審問","region":"スネージナヤ","level":164,"width":960,"hub":false,"peaceful":true,"checkpoint":"snezhnaya-hub","platforms":[{"x":0,"y":480,"w":960},{"x":376,"y":374,"w":218}],"exits":[{"to":"snezhnaya-hub","x":84,"arrivalX":1080}]},
@@ -5618,6 +5815,9 @@
     {"id":"nod-false-moon-rift","name":"偽月の再現戦・異界","region":"ナド・クライ","level":132,"width":960,"hub":false,"peaceful":true,"checkpoint":"nod-town","platforms":[{"x":0,"y":480,"w":960},{"x":118,"y":357,"w":155},{"x":696,"y":357,"w":155}],"exits":[],"weeklySceneOf":"nod-false-moon-court"}
   ],
   "quests": [
+    {"id":"mond-mapped-lakeside","name":"北の湖まで、道をたどって","hub":"mond-town","giver":"アンバー","target":"mond-wp-12","level":8,"xp":1040,"mora":550,"briefing":"城門から大樹を目指し、東丘を回って北の湖までの道を見てきて。","closing":"橋と大樹を目印にすれば、湖まで迷わず歩けそうだね。","itinerary":[{"kind":"arrive","from":"mond-town","node":"mond-road","objective":"橋を渡り、城外の街道に出る","notice":"橋を渡り、城外の街道に出る。到着を記録しました。"},{"kind":"arrive","from":"mond-road","node":"mond-wp-13","objective":"街道の分岐から大樹と神像の東原へ","notice":"街道の分岐から大樹と神像の東原へ。到着を記録しました。"},{"kind":"arrive","from":"mond-wp-13","node":"mond-wp-7","objective":"大樹の東から石畳を登る","notice":"大樹の東から石畳を登る。到着を記録しました。"},{"kind":"arrive","from":"mond-wp-7","node":"mond-wp-12","objective":"東丘から北の湖までたどる","notice":"東丘から北の湖までたどる。到着を記録しました。"},{"kind":"inspect","node":"mond-wp-12","x":675,"y":480,"name":"調査の目印","action":"記録を取る","objective":"湖畔の目印を調べる"}],"kind":"itinerary","goal":5},
+    {"id":"mond-mapped-snowline","name":"雪の足跡を東稜まで","hub":"dragonspine-camp","giver":"観測係","target":"mond-wp-6603","level":48,"xp":22400,"mora":3400,"briefing":"北東の谷戸から雪原へ。神像を足掛かりに、東稜までの道を記録してください。","closing":"無事に戻りましたね。次の観測隊はこの道順を使えます。","itinerary":[{"kind":"arrive","from":"dragonspine-camp","node":"mond-wp-6601","objective":"拠点を出て北東の谷戸へ入る","notice":"拠点を出て北東の谷戸へ入る。到着を記録しました。"},{"kind":"arrive","from":"mond-wp-6601","node":"mond-wp-6537","objective":"雪原の神像まで谷戸を抜ける","notice":"雪原の神像まで谷戸を抜ける。到着を記録しました。"},{"kind":"arrive","from":"mond-wp-6537","node":"mond-wp-6603","objective":"神像から東稜へ進む","notice":"神像から東稜へ進む。到着を記録しました。"},{"kind":"inspect","node":"mond-wp-6603","x":725,"y":480,"name":"調査の目印","action":"記録を取る","objective":"東稜の足元を確かめて記録する"}],"kind":"itinerary","goal":4},
+    {"id":"mond-mapped-islet","name":"小舟が着くところ","hub":"dornman-camp","giver":"船着き場の係","target":"mond-wp-95799","level":160,"xp":1250000,"mora":15500,"briefing":"港東の桟橋から小舟で沖の小島へ。潮が引いたときの足場を見てください。","closing":"ありがとう。小舟で戻る道具も港にそろえておきます。","itinerary":[{"kind":"arrive","from":"dornman-camp","node":"mond-wp-95797","objective":"入口から港東の桟橋へ","notice":"入口から港東の桟橋へ。到着を記録しました。"},{"kind":"arrive","from":"mond-wp-95797","node":"mond-wp-95799","objective":"小舟で沖の小島へ渡る","notice":"小舟で沖の小島へ渡る。到着を記録しました。"},{"kind":"inspect","node":"mond-wp-95799","x":675,"y":480,"name":"調査の目印","action":"記録を取る","objective":"小島の船着き場を調べる"},{"kind":"arrive","from":"mond-wp-95799","node":"mond-wp-95797","objective":"小舟で港東の桟橋へ戻る","notice":"小舟で港東の桟橋へ戻る。到着を記録しました。"}],"kind":"itinerary","goal":4},
     {"id":"stygian-farka-commission","name":"双剣の鍛錬","giver":"アンバー","hub":"mond-town","target":"stygian-farka","kind":"boss","goal":1,"level":12,"xp":3700,"mora":1380,"ore":2,"briefing":"ファルカが城門脇の鍛錬場で待っています。二本の剣が落ちる印から離れ、低い一撃は跳び、高い二撃目の前に着地してみて。"},
     {"id":"stygian-wanderer-commission","name":"風渡りの空中決闘","giver":"ナヒーダ","hub":"sumeru-hub","target":"stygian-wanderer","kind":"boss","goal":1,"level":66,"xp":96000,"mora":6100,"ore":3,"briefing":"樹陰の広場から闘場へ。風輪の中央でジャンプすると足場に上がれます。光る風標を踏み、放浪者が降りたら反撃してみましょう。"},
     {"id":"stygian-ronova-commission","name":"最後の審問・命の影","giver":"ミティヤ","hub":"snezhnaya-hub","target":"stygian-ronova","kind":"boss","goal":1,"level":164,"xp":3600000,"mora":38000,"ore":7,"briefing":"審問では、HPとは別に命が奪われます。残った影を拾って取り戻し、裁定の予告線と最後に開く門を見てください。"},

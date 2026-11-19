@@ -208,6 +208,7 @@ export function sceneryKey(frame){
  }
  if(frame.story?.active&&(zone==='town'||zone?.startsWith('story:'))){
   const node=frame.storyGraph?.nodes?.find(n=>n.id===frame.story.node);
+  if(node?.scenery&&Object.hasOwn(sceneryDefinitions,node.scenery))return node.scenery;
   for(const [key,definition] of Object.entries(sceneryDefinitions))if(definition.region&&node?.region===definition.region)return key;
  }
  return 'mondstadt';
