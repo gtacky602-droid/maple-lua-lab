@@ -71,6 +71,15 @@ def rebuild():
         'playable_at_imported_nodes': len(links),
         'all_imported_markers_linked': len(links) == len(maps['nodes']), 'stage_links': links,
     }
+    world_design = json.loads((CONTENT.parent / 'design/world/manifest.json').read_text(encoding='utf8'))
+    authored_bindings = {node['designField']: node['id'] for node in graph['nodes'] if 'designField' in node}
+    total_fields = world_design['verified_counts']['fields']
+    linked_fields = len(links) + len(authored_bindings)
+    coverage['sites_fields'] = {
+        'imported': total_fields, 'linked_to_runtime': linked_fields,
+        'official_marker_bindings': len(links), 'provisional_design_bindings': dict(sorted(authored_bindings.items())),
+        'awaiting_stage': total_fields - linked_fields, 'route_review': 'design/world/atlas-route-plan.json',
+    }
     manifest_path = 'docs/quest-v1/MANIFEST.json'
     manifest = json.loads((CONTENT.parent / manifest_path).read_text(encoding='utf8'))
     design_ids = {entry['id'] for entry in manifest['growth']}

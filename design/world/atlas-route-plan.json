@@ -1,6 +1,8 @@
 {
-  "live_bound_fields": 873,
+  "live_bound_fields": 905,
   "imported_fields": 979,
+  "official_fields": 873,
+  "provisional_layout_fields": 32,
   "draft_field_approaches": [
     {
       "field": "teyvat:7092",
@@ -667,294 +669,6 @@
       "recommended": 160,
       "terminus": true,
       "runtime_gate": false
-    },
-    {
-      "field": "slot:NSP-01",
-      "anchor": "nod-special-camp",
-      "method": "local_route",
-      "minimum_to_approach": 120,
-      "recommended": 175,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:NSP-02",
-      "anchor": "nod-special-camp",
-      "method": "local_route",
-      "minimum_to_approach": 120,
-      "recommended": 177,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:NSP-03",
-      "anchor": "nod-special-camp",
-      "method": "local_route",
-      "minimum_to_approach": 120,
-      "recommended": 179,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:NSP-04",
-      "anchor": "nod-special-camp",
-      "method": "local_route",
-      "minimum_to_approach": 120,
-      "recommended": 181,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:NSP-05",
-      "anchor": "nod-special-camp",
-      "method": "local_route",
-      "minimum_to_approach": 120,
-      "recommended": 184,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:NSP-06",
-      "anchor": "nod-special-camp",
-      "method": "local_route",
-      "minimum_to_approach": 120,
-      "recommended": 186,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:NSP-07",
-      "anchor": "nod-special-camp",
-      "method": "local_route",
-      "minimum_to_approach": 120,
-      "recommended": 188,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:NSP-08",
-      "anchor": "nod-special-camp",
-      "method": "local_route",
-      "minimum_to_approach": 120,
-      "recommended": 190,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:GAA-01",
-      "anchor": "golden-hub",
-      "method": "local_route",
-      "minimum_to_approach": 1,
-      "recommended": 25,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:GAA-02",
-      "anchor": "golden-hub",
-      "method": "local_route",
-      "minimum_to_approach": 1,
-      "recommended": 26,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:GAA-03",
-      "anchor": "golden-hub",
-      "method": "local_route",
-      "minimum_to_approach": 1,
-      "recommended": 28,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:GAA-04",
-      "anchor": "golden-hub",
-      "method": "local_route",
-      "minimum_to_approach": 1,
-      "recommended": 29,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:GAA-05",
-      "anchor": "golden-hub",
-      "method": "local_route",
-      "minimum_to_approach": 1,
-      "recommended": 31,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:GAA-06",
-      "anchor": "golden-hub",
-      "method": "local_route",
-      "minimum_to_approach": 1,
-      "recommended": 32,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:GAA-07",
-      "anchor": "golden-hub",
-      "method": "local_route",
-      "minimum_to_approach": 1,
-      "recommended": 34,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:GAA-08",
-      "anchor": "golden-hub",
-      "method": "local_route",
-      "minimum_to_approach": 1,
-      "recommended": 35,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:VLM-01",
-      "anchor": "veluriyam-hub",
-      "method": "local_route",
-      "minimum_to_approach": 60,
-      "recommended": 65,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:VLM-02",
-      "anchor": "veluriyam-hub",
-      "method": "local_route",
-      "minimum_to_approach": 60,
-      "recommended": 66,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:VLM-03",
-      "anchor": "veluriyam-hub",
-      "method": "local_route",
-      "minimum_to_approach": 60,
-      "recommended": 68,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:VLM-04",
-      "anchor": "veluriyam-hub",
-      "method": "local_route",
-      "minimum_to_approach": 60,
-      "recommended": 69,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:VLM-05",
-      "anchor": "veluriyam-hub",
-      "method": "local_route",
-      "minimum_to_approach": 60,
-      "recommended": 71,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:VLM-06",
-      "anchor": "veluriyam-hub",
-      "method": "local_route",
-      "minimum_to_approach": 60,
-      "recommended": 72,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:VLM-07",
-      "anchor": "veluriyam-hub",
-      "method": "local_route",
-      "minimum_to_approach": 60,
-      "recommended": 74,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:VLM-08",
-      "anchor": "veluriyam-hub",
-      "method": "local_route",
-      "minimum_to_approach": 60,
-      "recommended": 75,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:SIM-01",
-      "anchor": "simulanka-hub",
-      "method": "local_route",
-      "minimum_to_approach": 80,
-      "recommended": 85,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:SIM-02",
-      "anchor": "simulanka-hub",
-      "method": "local_route",
-      "minimum_to_approach": 80,
-      "recommended": 86,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:SIM-03",
-      "anchor": "simulanka-hub",
-      "method": "local_route",
-      "minimum_to_approach": 80,
-      "recommended": 88,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:SIM-04",
-      "anchor": "simulanka-hub",
-      "method": "local_route",
-      "minimum_to_approach": 80,
-      "recommended": 89,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:SIM-05",
-      "anchor": "simulanka-hub",
-      "method": "local_route",
-      "minimum_to_approach": 80,
-      "recommended": 91,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:SIM-06",
-      "anchor": "simulanka-hub",
-      "method": "local_route",
-      "minimum_to_approach": 80,
-      "recommended": 92,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:SIM-07",
-      "anchor": "simulanka-hub",
-      "method": "local_route",
-      "minimum_to_approach": 80,
-      "recommended": 94,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "slot:SIM-08",
-      "anchor": "simulanka-hub",
-      "method": "local_route",
-      "minimum_to_approach": 80,
-      "recommended": 95,
-      "terminus": true,
-      "runtime_gate": false
     }
   ],
   "sites_only_route_review": [
@@ -1450,7 +1164,7 @@
         "slot:GAA-02"
       ],
       "mode": "road",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "到着島の海岸道"
     },
     {
@@ -1459,7 +1173,7 @@
         "slot:GAA-03"
       ],
       "mode": "boat",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "海を渡る船便。歩いて島を横断しない"
     },
     {
@@ -1468,7 +1182,7 @@
         "slot:GAA-05"
       ],
       "mode": "boat",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "別島への船便"
     },
     {
@@ -1477,7 +1191,7 @@
         "slot:GAA-07"
       ],
       "mode": "boat",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "別島への船便"
     },
     {
@@ -1486,7 +1200,7 @@
         "teyvat:17"
       ],
       "mode": "boat",
-      "finding": "needs_stage_binding",
+      "finding": "candidate_with_geography_review",
       "terrain_note": "秘密の船着き場を発見してから乗船。群島の公式WPは未取得。"
     },
     {
@@ -1495,7 +1209,7 @@
         "slot:GAA-04"
       ],
       "mode": "mountain_stairs",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "山裾から高所への登り道"
     },
     {
@@ -1504,7 +1218,7 @@
         "slot:GAA-06"
       ],
       "mode": "mountain_stairs",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "丘への往復枝"
     },
     {
@@ -1513,7 +1227,7 @@
         "slot:GAA-08"
       ],
       "mode": "road",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "島内の脇道"
     },
     {
@@ -1522,7 +1236,7 @@
         "slot:NSP-02"
       ],
       "mode": "road",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "入口の安全点から進む"
     },
     {
@@ -1531,7 +1245,7 @@
         "teyvat:88167"
       ],
       "mode": "special_gate",
-      "finding": "needs_stage_binding",
+      "finding": "candidate_with_geography_review",
       "terrain_note": "正式な地域名と入口が未決定のため設計スロットのみ。既存地形へ勝手に割り当てない。"
     },
     {
@@ -1540,7 +1254,7 @@
         "slot:NSP-03"
       ],
       "mode": "road",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "森の脇道"
     },
     {
@@ -1549,7 +1263,7 @@
         "slot:NSP-04"
       ],
       "mode": "mountain_stairs",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "谷への下りと帰路"
     },
     {
@@ -1558,7 +1272,7 @@
         "slot:NSP-05"
       ],
       "mode": "road",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "観測所への分岐"
     },
     {
@@ -1567,7 +1281,7 @@
         "slot:NSP-06"
       ],
       "mode": "cave",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "水路の確認済み入口を後で割り当てる"
     },
     {
@@ -1576,7 +1290,7 @@
         "slot:NSP-07"
       ],
       "mode": "cave",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "地下を実際の通路順に配置"
     },
     {
@@ -1585,7 +1299,7 @@
         "slot:NSP-08"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -1594,7 +1308,7 @@
         "slot:SIM-02"
       ],
       "mode": "road",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "森の地上道"
     },
     {
@@ -1603,7 +1317,7 @@
         "teyvat:50054"
       ],
       "mode": "special_gate",
-      "finding": "needs_stage_binding",
+      "finding": "candidate_with_geography_review",
       "terrain_note": "絵本の置き場所は本作の仮案。固定ワープポイントを捏造しない。"
     },
     {
@@ -1612,7 +1326,7 @@
         "slot:SIM-03"
       ],
       "mode": "mountain_stairs",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "折り紙の階段"
     },
     {
@@ -1621,7 +1335,7 @@
         "slot:SIM-04"
       ],
       "mode": "road",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "駅への道"
     },
     {
@@ -1630,7 +1344,7 @@
         "slot:SIM-05"
       ],
       "mode": "rail",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "星軌の乗り物で離れた区画へ"
     },
     {
@@ -1639,7 +1353,7 @@
         "slot:SIM-06"
       ],
       "mode": "road",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "城外の枝"
     },
     {
@@ -1648,7 +1362,7 @@
         "slot:SIM-07"
       ],
       "mode": "special_gate",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "割れた世界の専用移動装置。徒歩短絡はしない"
     },
     {
@@ -1657,7 +1371,7 @@
         "slot:SIM-08"
       ],
       "mode": "ruin_walkway",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "固定足場と帰還装置"
     },
     {
@@ -1666,7 +1380,7 @@
         "slot:VLM-02"
       ],
       "mode": "road",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "庭の道"
     },
     {
@@ -1675,7 +1389,7 @@
         "teyvat:28731"
       ],
       "mode": "special_gate",
-      "finding": "needs_stage_binding",
+      "finding": "candidate_with_geography_review",
       "terrain_note": "瓶を調べる本作の入口案。公式座標が存在すると主張しない。"
     },
     {
@@ -1684,7 +1398,7 @@
         "slot:VLM-03"
       ],
       "mode": "road",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "停留所への道"
     },
     {
@@ -1693,7 +1407,7 @@
         "slot:VLM-04"
       ],
       "mode": "rail",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "固定レールのトロッコ。途中下車と帰り便を保証"
     },
     {
@@ -1702,7 +1416,7 @@
         "slot:VLM-06"
       ],
       "mode": "rail",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "別系統の乗り物。谷を徒歩直結しない"
     },
     {
@@ -1711,7 +1425,7 @@
         "slot:VLM-05"
       ],
       "mode": "road",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "徒歩の枝"
     },
     {
@@ -1720,7 +1434,7 @@
         "slot:VLM-07"
       ],
       "mode": "road",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "遊園の裏道"
     },
     {
@@ -1729,7 +1443,7 @@
         "slot:VLM-08"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -10425,6 +10139,48 @@
       "access": 138,
       "recommended": 139,
       "safe": false
+    },
+    {
+      "field": "slot:NSP-01",
+      "stage": "nod-special-camp",
+      "access": 120,
+      "recommended": 175,
+      "safe": true
+    },
+    {
+      "field": "slot:GAA-01",
+      "stage": "golden-hub",
+      "access": 1,
+      "recommended": 25,
+      "safe": true
+    },
+    {
+      "field": "slot:VLM-01",
+      "stage": "veluriyam-hub",
+      "access": 60,
+      "recommended": 65,
+      "safe": true
+    },
+    {
+      "field": "slot:SIM-01",
+      "stage": "simulanka-hub",
+      "access": 80,
+      "recommended": 85,
+      "safe": true
+    },
+    {
+      "field": "slot:VLM-03",
+      "stage": "veluriyam-petal-stop",
+      "access": 60,
+      "recommended": 68,
+      "safe": true
+    },
+    {
+      "field": "slot:VLM-04",
+      "stage": "veluriyam-rail-end",
+      "access": 60,
+      "recommended": 69,
+      "safe": true
     }
   ],
   "manual_cases": [

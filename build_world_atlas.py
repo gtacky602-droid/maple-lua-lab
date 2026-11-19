@@ -62,6 +62,7 @@ def positions(fields, stages):
     anchors, adj = embed_anchors(fields, stages)
     placed = {node['id']: anchors[node['mapPoint']] for node in stages.values()
               if node.get('mapPoint') in anchors}
+    placed.update({node['id']: node['atlasPosition'] for node in stages.values() if 'atlasPosition' in node})
     if not placed and stages:
         origin = next((node['id'] for node in stages.values() if node['hub']), next(iter(stages)))
         placed[origin] = [170, 235]
@@ -137,7 +138,7 @@ def build():
     graph = load('content/story-graph.json')
     regions = region_rows()
     coverage = load('content/coverage.json')
-    field_links = coverage['map_catalog']['stage_links']
+    official_links = coverage['map_catalog']['stage_links']
     fields_by_region = {id: load(f'design/world/placements/{id}.json')['fields'] for id in regions}
     all_fields = {f['field_id']: f for fields in fields_by_region.values() for f in fields}
     imported = load('design/world/editor-snapshot.json')['data']
@@ -147,12 +148,17 @@ def build():
         source_edges[edge['a']].append({**edge,'target':edge['b']})
         source_edges[edge['b']].append({**edge,'target':edge['a']})
     nodes = {node['id']: node for node in graph['nodes']}
+    designed_links = {node['designField']: {'stage_id': node['id']} for node in nodes.values() if 'designField' in node}
+    assert len(designed_links) == sum('designField' in node for node in nodes.values())
+    assert all(field.startswith('slot:') and field in all_fields for field in designed_links)
+    assert not any(node.get('mapPoint') for node in nodes.values() if 'designField' in node)
+    field_links = official_links | designed_links
     returnable = reachable(nodes) & reachable(nodes, reverse=True)
     region_for_name = {row['name']: id for id, row in regions.items()} | REGION_ALIASES
     stages_by_region = defaultdict(dict)
     mapped_stage = {}
     for node in graph['nodes']:
-        field = all_fields.get(node.get('mapPoint'))
+        field = all_fields.get(node.get('mapPoint') or node.get('designField'))
         region = field['design_region_id'] if field else VOYAGE_REGIONS.get(node['id'], region_for_name.get(node['region']))
         if region:
             stages_by_region[region][node['id']] = node
@@ -165,7 +171,7 @@ def build():
         anchored, located = positions(fields, stages)
         points = []
         for node_id, node in stages.items():
-            field = all_fields.get(node.get('mapPoint'))
+            field = all_fields.get(node.get('mapPoint') or node.get('designField'))
             floor = field['map_anchor']['point_group'] if field else None
             points.append({'id': node_id, 'x': located[node_id][0], 'y': located[node_id][1],
                            'layer': 'water' if node.get('swim') else 'below' if floor or node.get('waypoint', {}).get('floor') else 'surface',
@@ -193,20 +199,25 @@ def build():
                         'theme':theme, 'overview':overview, 'points':points, 'draft':draft})
 
     expected = {id for id in all_fields if id not in field_links}
-    assert len(all_fields) == 979 and len(expected) == 106
+    assert len(all_fields) == 979 and len(official_links) == 873
     assert {p['id'] for r in entries for p in r['draft']} == expected
     assert {p['field'] for r in entries for p in r['points'] if 'field' in p} == set(field_links)
     assert len(mapped_stage) == len(graph['nodes'])
     assert {p['anchor'] for p in proposals} <= returnable
+    assert all(stage['stage_id'] in returnable for stage in designed_links.values())
     ledger = load('design/world/reconciliation.json')
     review = []
+    lab_routes = load('sources/map-research/sites-slot-trails.json')['routes'] if designed_links else []
+    implemented = {frozenset(route['fields']) for route in lab_routes}
     source_by_pair = {frozenset((edge['a'],edge['b'])): edge for edge in imported['edges']}
     for a,b in ledger['sites_only_route_pairs']:
         source = source_by_pair[frozenset((a,b))]
         data = [all_fields[id] for id in (a,b)]
         floors = [f['map_anchor']['point_group'] for f in data]
         level_a, level_b = (f['level'] for f in data)
-        if a not in field_links or b not in field_links:
+        if frozenset((a,b)) in implemented:
+            finding='implemented_as_lab_route'
+        elif a not in field_links or b not in field_links:
             finding='needs_stage_binding'
         elif source['mode'] in WALK_MODES and floors[0] != floors[1]:
             finding='check_floor_transition'
@@ -230,6 +241,7 @@ def build():
          'reason':'The imported entrance coordinates do not establish the layer or a connection from the flower-field path.'},
     ]
     plan = {'live_bound_fields':len(field_links),'imported_fields':len(all_fields),
+            'official_fields':len(official_links),'provisional_layout_fields':len(designed_links),
             'draft_field_approaches':proposals,'sites_only_route_review':review,
             'level_differences':walkthrough_levels,'manual_cases':cases,
             'scope':'Draft approaches terminate at their mapped region. They are not live gates. Level recommendations do not override quest gates.'}

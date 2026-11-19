@@ -287,7 +287,7 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 5,
+      "prototype_stage_count": 12,
       "prototype_quest_count": 3,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
@@ -310,7 +310,7 @@
       "map_status": "partial_authored_proxy",
       "entry_conditions": "provisional clue at parent stage; proximity inspect; saved discovery",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 5,
+      "prototype_stage_count": 15,
       "prototype_quest_count": 2
     },
     {
@@ -321,7 +321,7 @@
       "map_status": "partial_authored_proxy",
       "entry_conditions": "provisional clue at parent stage; proximity inspect; saved discovery",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 7,
+      "prototype_stage_count": 14,
       "prototype_quest_count": 2
     },
     {
@@ -332,7 +332,7 @@
       "map_status": "partial_authored_proxy",
       "entry_conditions": "provisional clue at parent stage; proximity inspect; saved discovery",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 4,
+      "prototype_stage_count": 15,
       "prototype_quest_count": 2
     }
   ],
@@ -7932,7 +7932,7 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1165,
+    "authored_stages": 1200,
     "provisional_quests": 257,
     "companion_join_records": 8,
     "scope_complete": false,
@@ -7978,7 +7978,7 @@
     "status": "partial",
     "design": "content/world-bosses-design.json"
   },
-  "current_priority": "Resolve and implement the remaining Sites field approaches with terrain and level review, then audit the boss encounter playthroughs.",
+  "current_priority": "Review and implement the 74 remaining Sites entrances with source coordinates, then audit the boss encounter playthroughs.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",
@@ -9369,7 +9369,14 @@
           "nod-special-depth",
           "nod-reflector-shore",
           "nod-reflection-garden",
-          "nod-quiet-rim"
+          "nod-quiet-rim",
+          "sites-nsp-02",
+          "sites-nsp-03",
+          "sites-nsp-04",
+          "sites-nsp-05",
+          "sites-nsp-06",
+          "sites-nsp-07",
+          "sites-nsp-08"
         ],
         "quest_ids": [
           "nod-special-survey",
@@ -9407,7 +9414,17 @@
           "golden-play",
           "golden-shadow-lookouts",
           "golden-shadow-grotto",
-          "golden-tide-pocket"
+          "golden-tide-pocket",
+          "sites-gaa-02",
+          "sites-gaa-03",
+          "sites-gaa-04",
+          "sites-gaa-05",
+          "sites-gaa-06",
+          "sites-gaa-07",
+          "sites-gaa-08",
+          "sites-gaa-04-side-arena",
+          "sites-gaa-06-side-arena",
+          "sites-gaa-07-side-arena"
         ],
         "quest_ids": [
           "golden-explore",
@@ -9425,7 +9442,14 @@
           "veluriyam-petal-stop",
           "veluriyam-rail-end",
           "veluriyam-petal-lookout",
-          "veluriyam-trolley-back"
+          "veluriyam-trolley-back",
+          "sites-vlm-02",
+          "sites-vlm-05",
+          "sites-vlm-06",
+          "sites-vlm-07",
+          "sites-vlm-08",
+          "sites-mirage-fair-out",
+          "sites-mirage-fair-in"
         ],
         "quest_ids": [
           "veluriyam-explore",
@@ -9440,7 +9464,18 @@
           "simulanka-hub",
           "simulanka-play",
           "simulanka-fold-valley",
-          "simulanka-lantern-perch"
+          "simulanka-lantern-perch",
+          "sites-sim-02",
+          "sites-sim-03",
+          "sites-sim-04",
+          "sites-sim-05",
+          "sites-sim-06",
+          "sites-sim-07",
+          "sites-sim-08",
+          "sites-star-rail-out",
+          "sites-star-rail-in",
+          "sites-sim-06-side-arena",
+          "sites-sim-08-side-arena"
         ],
         "quest_ids": [
           "simulanka-explore",
@@ -9528,7 +9563,17 @@
           "golden-play",
           "golden-shadow-lookouts",
           "golden-shadow-grotto",
-          "golden-tide-pocket"
+          "golden-tide-pocket",
+          "sites-gaa-02",
+          "sites-gaa-03",
+          "sites-gaa-04",
+          "sites-gaa-05",
+          "sites-gaa-06",
+          "sites-gaa-07",
+          "sites-gaa-08",
+          "sites-gaa-04-side-arena",
+          "sites-gaa-06-side-arena",
+          "sites-gaa-07-side-arena"
         ]
       },
       {
@@ -9869,5 +9914,46 @@
       "browser": "evidence/field-editor/browser.json",
       "coordinates": "evidence/field-editor/map-alignment.json"
     }
+  },
+  "sites_fields": {
+    "imported": 979,
+    "linked_to_runtime": 905,
+    "official_marker_bindings": 873,
+    "provisional_design_bindings": {
+      "slot:GAA-01": "golden-hub",
+      "slot:GAA-02": "sites-gaa-02",
+      "slot:GAA-03": "sites-gaa-03",
+      "slot:GAA-04": "sites-gaa-04",
+      "slot:GAA-05": "sites-gaa-05",
+      "slot:GAA-06": "sites-gaa-06",
+      "slot:GAA-07": "sites-gaa-07",
+      "slot:GAA-08": "sites-gaa-08",
+      "slot:NSP-01": "nod-special-camp",
+      "slot:NSP-02": "sites-nsp-02",
+      "slot:NSP-03": "sites-nsp-03",
+      "slot:NSP-04": "sites-nsp-04",
+      "slot:NSP-05": "sites-nsp-05",
+      "slot:NSP-06": "sites-nsp-06",
+      "slot:NSP-07": "sites-nsp-07",
+      "slot:NSP-08": "sites-nsp-08",
+      "slot:SIM-01": "simulanka-hub",
+      "slot:SIM-02": "sites-sim-02",
+      "slot:SIM-03": "sites-sim-03",
+      "slot:SIM-04": "sites-sim-04",
+      "slot:SIM-05": "sites-sim-05",
+      "slot:SIM-06": "sites-sim-06",
+      "slot:SIM-07": "sites-sim-07",
+      "slot:SIM-08": "sites-sim-08",
+      "slot:VLM-01": "veluriyam-hub",
+      "slot:VLM-02": "sites-vlm-02",
+      "slot:VLM-03": "veluriyam-petal-stop",
+      "slot:VLM-04": "veluriyam-rail-end",
+      "slot:VLM-05": "sites-vlm-05",
+      "slot:VLM-06": "sites-vlm-06",
+      "slot:VLM-07": "sites-vlm-07",
+      "slot:VLM-08": "sites-vlm-08"
+    },
+    "awaiting_stage": 74,
+    "route_review": "design/world/atlas-route-plan.json"
   }
 }

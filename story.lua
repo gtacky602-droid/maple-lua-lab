@@ -653,8 +653,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local function spawnEnemies(s,n,phase,recovered,defeated)
   s.enemies={}
   if not n.hub and not n.peaceful and not cleared(s,n) then
-   local fresh=C.new(12)
    local placements=assert(C.enemySpawns and C.enemySpawns[n.id],'Missing story enemy placements: '..n.id)
+   local fresh=C.new(math.max(12,math.ceil(#placements/3)))
    for i,placement in ipairs(placements) do
     if not (defeated and defeated[placement.id]) and (not placement.questPhase or placement.questPhase==phase) and
        not (placement.cargo and recovered and recovered[placement.cargo]) then
@@ -670,7 +670,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      end
      if placement.hp then e.hp=placement.hp;e.maxhp=placement.hp end
      e.patrolMin=p.x+24;e.patrolMax=p.x+p.w-24
-     e.level=n.level;e.barrier=n.barrier or 0;if e.barrier>0 then e.hp=60;e.maxhp=60 end
+     if n.enemySafeFraction then
+      local margin=n.width*n.enemySafeFraction
+      e.patrolMin=math.max(e.patrolMin,margin)
+      e.patrolMax=math.min(e.patrolMax,n.width-margin)
+     end
+     e.level=placement.level or n.level;e.respawnSeconds=placement.respawnSeconds
+     e.barrier=n.barrier or 0;if e.barrier>0 then e.hp=60;e.maxhp=60 end
      s.enemies[#s.enemies+1]=e
     end
    end
@@ -1672,8 +1678,9 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   f.storyGraph=visible;f.storyNotice=s.storyNotice;f.storyJoined={};f.voyage=s.voyage and {seconds=math.max(0,s.voyage.arrives-s.t),destination=s.voyage.destination,elapsed=s.t-s.voyage.started,kind=s.voyage.kind,stopover=s.voyage.stopStart and s.t-s.voyage.started+1e-8>=s.voyage.stopStart and s.t-s.voyage.started+1e-8<s.voyage.stopEnd or false} or nil
   if f.voyage and f.voyage.kind=='trolley' then
    local v=s.voyage
-   local wait=math.max(0,math.min(f.voyage.elapsed,v.stopEnd)-v.stopStart)
-   local fraction=math.max(0,math.min(1,(f.voyage.elapsed-wait)/(v.total-v.stopEnd+v.stopStart)))
+   local stopStart,stopEnd=v.stopStart or 0,v.stopEnd or 0
+   local wait=math.max(0,math.min(f.voyage.elapsed,stopEnd)-stopStart)
+   local fraction=math.max(0,math.min(1,(f.voyage.elapsed-wait)/(v.total-stopEnd+stopStart)))
    f.voyage.scroll=v.reverse and 1-fraction or fraction
   end
   for id,q in pairs(quests) do if q.join and s.story.quests[id] and s.story.quests[id].status=='complete' then f.storyJoined[q.join]=true end end

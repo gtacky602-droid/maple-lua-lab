@@ -18,8 +18,9 @@ fields = {point['field'] for region in atlas['regions'] for point in region['poi
 drafts = {point['id']: point for region in atlas['regions'] for point in region['draft']}
 assert len(atlas['regions']) == 24
 assert {p['id'] for r in atlas['regions'] for p in r['points']} == nodes.keys()
-assert len(fields) == plan['live_bound_fields'] == 873
-assert len(drafts) == len(plan['draft_field_approaches']) == 106
+assert len(fields) == plan['live_bound_fields'] == 905
+assert plan['official_fields'] == 873 and plan['provisional_layout_fields'] == 32
+assert len(drafts) == len(plan['draft_field_approaches']) == 74
 assert not (fields & drafts.keys()) and len(fields) + len(drafts) == plan['imported_fields'] == 979
 assert len(plan['sites_only_route_review']) == 421
 for entry in plan['draft_field_approaches']:
@@ -66,11 +67,10 @@ assert s.story.discovered.golden
 view = act('toggle')
 assert any(group.id == 'hidden-01' for group in view.options.values())
 assert act('region:hidden-01').region == 'hidden-01'
-view = act('layer:review')
-assert all(p.mode == 'draft' for p in view.points.values())
-view = act('select:slot:GAA-01')
-assert view.selected.id == 'slot:GAA-01'
-assert view.routes[1].label == '入口候補' and view.routes[1].draft
+view = act('select:sites-gaa-03')
+assert view.selected.id == 'sites-gaa-03'
+assert any(route.label == '舟・寄港' for route in view.routes.values())
+assert not act('layer:review').points[1]
 act('close')
 core.enterStoryNode(s, 'fon-wp-50074')
 view = act('toggle')

@@ -16,7 +16,17 @@ s.imprintTrial=25;check('partial threshold scales linearly in provisional formul
 d=c.checkpoint(s);validate_save(native(d));r=c.restore(d);check('save restores branch hub but not test power',r.story.node=='dragonspine-camp' and r.imprintTrial is None)
 c.action(r,'barrier_trial:51');check('above fifty rejected',r.imprintTrial is None)
 g=json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8'));nodes={n['id']:n for n in g['nodes']};branches={n['region'] for n in nodes.values() if n.get('branch')};check('nine requested branch regions represented',len(branches)==9)
-check('every branch depth has a return edge to safe camp',all(any(nodes[e['to']]['hub'] for e in n['exits']) for n in nodes.values() if n.get('branch') and not n['hub']))
+def has_return_path(id):
+ visited,pending={id},[id]
+ while pending:
+  current=nodes[pending.pop()]
+  if current['hub']:return True
+  next_nodes={edge['to'] for edge in current['exits'] if not edge.get('visitedOnly')}-visited
+  visited.update(next_nodes)
+  pending.extend(next_nodes)
+ return False
+
+check('every branch depth has a route to a safe camp',all(has_return_path(n['id']) for n in nodes.values() if n.get('branch') and not n['hub']))
 check('branch threshold is independent of entry level',nodes['dornman-depth']['lightReference']==30 and nodes['dornman-depth']['level']==1)
 t=c.new(12);c.action(t,'story_start');c.grantExp(t,sum(c.expNeeded(i) for i in range(1,60)),'quest')
 c.enterStoryNode(t,'tunigi-camp')

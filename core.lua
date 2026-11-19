@@ -67,7 +67,7 @@ function C.defeatEnemy(s,e,owner)
  if e.noRewards then e.respawn=1e9;event(s,'object_destroyed',owner,e.id,0)
  else
   local mora=e.rewardMora or 10
-  s.kills=s.kills+1;s.mora=s.mora+mora;e.respawn=6
+  s.kills=s.kills+1;s.mora=s.mora+mora;e.respawn=e.respawnSeconds or 6
   event(s,'kill',owner,e.id,mora)
   if C.onKill then C.onKill(s,e) end
  end

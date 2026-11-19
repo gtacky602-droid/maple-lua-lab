@@ -1,0 +1,27 @@
+{
+  "verified_fields": 32,
+  "design_pair_round_trips": 28,
+  "directed_transitions": 62,
+  "regular_enemy_placements": 860,
+  "optional_side_battles": [
+    "sites-gaa-04-side-arena",
+    "sites-gaa-06-side-arena",
+    "sites-gaa-07-side-arena",
+    "sites-nsp-08",
+    "sites-sim-06-side-arena",
+    "sites-sim-08-side-arena"
+  ],
+  "safety_margin_and_respawn": true,
+  "existing_discovery_paths": true,
+  "save_restored_at_hub": true,
+  "save_during_new_rail_restored_at_station": true,
+  "existing_hidden_quest_progress_unchanged_by_new_paths": true,
+  "level_fixtures": [
+    35,
+    75,
+    95,
+    190
+  ],
+  "half_open_train_stop_reused": true,
+  "nonstop_train_scroll_both_directions": true
+}

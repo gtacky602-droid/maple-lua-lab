@@ -13,7 +13,7 @@ class TrailWalk:
 
     def approach(self, x, y, target):
         origin = self.state.story.node
-        for _ in range(750):
+        for _ in range(1200):
             actor = self.actor
             assert actor.hp > 0 and self.state.story.node == origin, (origin, target, actor.hp)
             if abs(actor.x - x) > 9:

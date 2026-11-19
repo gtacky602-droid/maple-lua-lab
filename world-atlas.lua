@@ -185,17 +185,30 @@ return function(C, atlas)
   end
  end
 
- local function route_mode(edge)
-  if edge.boatSeconds or edge.windowStart then return 'boat'
+ local function route_mode(edge,from,to)
+  if edge.windowStart and from.voyage and from.voyage.kind=='trolley' then return 'rail'
+  elseif edge.boatSeconds or edge.windowStart then return 'boat'
   elseif edge.waterwaySeconds then return 'water'
   elseif edge.liftSeconds then return 'lift'
+  elseif from.voyage and from.voyage.destination==edge.to or to.voyage then
+   local vehicle=from.voyage or to.voyage
+   return vehicle.kind=='trolley' and 'rail' or 'arrival'
   elseif edge.requiresArrival then return 'arrival'
   elseif edge.wind then return 'wind' end
   return 'walk'
  end
- local route_labels = {boat='舟・寄港',water='水路',lift='昇降機',arrival='乗り物',wind='吹雪待ち',walk='徒歩'}
+ local route_labels = {boat='舟・寄港',water='水路',lift='昇降機',rail='鉄道',arrival='乗り物',wind='吹雪待ち',walk='徒歩'}
  local route_colors = {boat='#ebf4db',water='#c2f1ec',lift='#f4ca8a',arrival='#ebf4db',
-                       wind='#f5ebcc',walk='#506054'}
+                       rail='#f2d293',wind='#f5ebcc',walk='#506054'}
+
+ local function connections(node)
+  if not node.voyage then return node.exits end
+  local to=node.voyage.destination
+  for _,edge in ipairs(node.exits) do if edge.to==to then return node.exits end end
+  local exits={table.unpack(node.exits)}
+  exits[#exits+1]={to=to}
+  return exits
+ end
 
  local function visible_options(nodes)
   local out={}
@@ -243,10 +256,10 @@ return function(C, atlas)
   for _,point in ipairs(points) do
    local node=nodes[point.id]
    if node then
-    for _,edge in ipairs(node.exits) do
+    for _,edge in ipairs(connections(node)) do
      local target=where[edge.to]
      if target and not (linked[edge.to] and linked[edge.to][point.id]) then
-      local mode=route_mode(edge)
+      local mode=route_mode(edge,node,nodes[edge.to])
       line(out,point.x,point.y,target.x,target.y,route_colors[mode],mode=='walk' and 1.5 or 2.5,
         (mode~='walk' or edge.requires) and {4,4} or nil)
       linked[point.id]=linked[point.id] or {}
@@ -265,10 +278,10 @@ return function(C, atlas)
   end
   local routes={}
   if selected and nodes[selected.id] then
-   for _,edge in ipairs(nodes[selected.id].exits) do
+   for _,edge in ipairs(connections(nodes[selected.id])) do
     if nodes[edge.to] then
      routes[#routes+1]={id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
-       level=nodes[edge.to].level,label=route_labels[route_mode(edge)],restricted=edge.requires~=nil}
+       level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],restricted=edge.requires~=nil}
     end
    end
   elseif selected and nodes[selected.anchor] then

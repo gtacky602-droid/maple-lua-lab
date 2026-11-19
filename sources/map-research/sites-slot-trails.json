@@ -1,0 +1,647 @@
+{
+  "source": "design/world/editor-snapshot.json",
+  "status": "Provisional Lua adaptation",
+  "bindings": {
+    "slot:GAA-01": "golden-hub",
+    "slot:GAA-02": "sites-gaa-02",
+    "slot:GAA-03": "sites-gaa-03",
+    "slot:GAA-04": "sites-gaa-04",
+    "slot:GAA-05": "sites-gaa-05",
+    "slot:GAA-06": "sites-gaa-06",
+    "slot:GAA-07": "sites-gaa-07",
+    "slot:GAA-08": "sites-gaa-08",
+    "slot:NSP-01": "nod-special-camp",
+    "slot:NSP-02": "sites-nsp-02",
+    "slot:NSP-03": "sites-nsp-03",
+    "slot:NSP-04": "sites-nsp-04",
+    "slot:NSP-05": "sites-nsp-05",
+    "slot:NSP-06": "sites-nsp-06",
+    "slot:NSP-07": "sites-nsp-07",
+    "slot:NSP-08": "sites-nsp-08",
+    "slot:SIM-01": "simulanka-hub",
+    "slot:SIM-02": "sites-sim-02",
+    "slot:SIM-03": "sites-sim-03",
+    "slot:SIM-04": "sites-sim-04",
+    "slot:SIM-05": "sites-sim-05",
+    "slot:SIM-06": "sites-sim-06",
+    "slot:SIM-07": "sites-sim-07",
+    "slot:SIM-08": "sites-sim-08",
+    "slot:VLM-01": "veluriyam-hub",
+    "slot:VLM-02": "sites-vlm-02",
+    "slot:VLM-03": "veluriyam-petal-stop",
+    "slot:VLM-04": "veluriyam-rail-end",
+    "slot:VLM-05": "sites-vlm-05",
+    "slot:VLM-06": "sites-vlm-06",
+    "slot:VLM-07": "sites-vlm-07",
+    "slot:VLM-08": "sites-vlm-08"
+  },
+  "routes": [
+    {
+      "fields": [
+        "slot:GAA-01",
+        "slot:GAA-02"
+      ],
+      "forward": [
+        "golden-hub",
+        "sites-gaa-02"
+      ],
+      "return": [
+        "sites-gaa-02",
+        "golden-hub"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:GAA-01",
+        "slot:GAA-03"
+      ],
+      "forward": [
+        "golden-hub",
+        "sites-gaa-03"
+      ],
+      "return": [
+        "sites-gaa-03",
+        "golden-hub"
+      ],
+      "mode": "boat"
+    },
+    {
+      "fields": [
+        "slot:GAA-03",
+        "slot:GAA-04"
+      ],
+      "forward": [
+        "sites-gaa-03",
+        "sites-gaa-04"
+      ],
+      "return": [
+        "sites-gaa-04",
+        "sites-gaa-03"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:GAA-01",
+        "slot:GAA-05"
+      ],
+      "forward": [
+        "golden-hub",
+        "sites-gaa-05"
+      ],
+      "return": [
+        "sites-gaa-05",
+        "golden-hub"
+      ],
+      "mode": "boat"
+    },
+    {
+      "fields": [
+        "slot:GAA-05",
+        "slot:GAA-06"
+      ],
+      "forward": [
+        "sites-gaa-05",
+        "sites-gaa-06"
+      ],
+      "return": [
+        "sites-gaa-06",
+        "sites-gaa-05"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:GAA-01",
+        "slot:GAA-07"
+      ],
+      "forward": [
+        "golden-hub",
+        "sites-gaa-07"
+      ],
+      "return": [
+        "sites-gaa-07",
+        "golden-hub"
+      ],
+      "mode": "boat"
+    },
+    {
+      "fields": [
+        "slot:GAA-07",
+        "slot:GAA-08"
+      ],
+      "forward": [
+        "sites-gaa-07",
+        "sites-gaa-08"
+      ],
+      "return": [
+        "sites-gaa-08",
+        "sites-gaa-07"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:VLM-01",
+        "slot:VLM-02"
+      ],
+      "forward": [
+        "veluriyam-hub",
+        "sites-vlm-02"
+      ],
+      "return": [
+        "sites-vlm-02",
+        "veluriyam-hub"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:VLM-02",
+        "slot:VLM-03"
+      ],
+      "forward": [
+        "sites-vlm-02",
+        "veluriyam-petal-stop"
+      ],
+      "return": [
+        "veluriyam-petal-stop",
+        "sites-vlm-02"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:VLM-03",
+        "slot:VLM-04"
+      ],
+      "forward": [
+        "veluriyam-petal-stop",
+        "veluriyam-trolley-out",
+        "veluriyam-rail-end"
+      ],
+      "return": [
+        "veluriyam-rail-end",
+        "veluriyam-trolley-back",
+        "veluriyam-petal-stop"
+      ],
+      "mode": "rail",
+      "return_stop": true
+    },
+    {
+      "fields": [
+        "slot:VLM-04",
+        "slot:VLM-05"
+      ],
+      "forward": [
+        "veluriyam-rail-end",
+        "sites-vlm-05"
+      ],
+      "return": [
+        "sites-vlm-05",
+        "veluriyam-rail-end"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:VLM-03",
+        "slot:VLM-06"
+      ],
+      "forward": [
+        "veluriyam-petal-stop",
+        "sites-mirage-fair-out",
+        "sites-vlm-06"
+      ],
+      "return": [
+        "sites-vlm-06",
+        "sites-mirage-fair-in",
+        "veluriyam-petal-stop"
+      ],
+      "mode": "rail"
+    },
+    {
+      "fields": [
+        "slot:VLM-06",
+        "slot:VLM-07"
+      ],
+      "forward": [
+        "sites-vlm-06",
+        "sites-vlm-07"
+      ],
+      "return": [
+        "sites-vlm-07",
+        "sites-vlm-06"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:VLM-07",
+        "slot:VLM-08"
+      ],
+      "forward": [
+        "sites-vlm-07",
+        "sites-vlm-08"
+      ],
+      "return": [
+        "sites-vlm-08",
+        "sites-vlm-07"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:SIM-01",
+        "slot:SIM-02"
+      ],
+      "forward": [
+        "simulanka-hub",
+        "sites-sim-02"
+      ],
+      "return": [
+        "sites-sim-02",
+        "simulanka-hub"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:SIM-02",
+        "slot:SIM-03"
+      ],
+      "forward": [
+        "sites-sim-02",
+        "sites-sim-03"
+      ],
+      "return": [
+        "sites-sim-03",
+        "sites-sim-02"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:SIM-02",
+        "slot:SIM-04"
+      ],
+      "forward": [
+        "sites-sim-02",
+        "sites-sim-04"
+      ],
+      "return": [
+        "sites-sim-04",
+        "sites-sim-02"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:SIM-04",
+        "slot:SIM-05"
+      ],
+      "forward": [
+        "sites-sim-04",
+        "sites-star-rail-out",
+        "sites-sim-05"
+      ],
+      "return": [
+        "sites-sim-05",
+        "sites-star-rail-in",
+        "sites-sim-04"
+      ],
+      "mode": "rail"
+    },
+    {
+      "fields": [
+        "slot:SIM-05",
+        "slot:SIM-06"
+      ],
+      "forward": [
+        "sites-sim-05",
+        "sites-sim-06"
+      ],
+      "return": [
+        "sites-sim-06",
+        "sites-sim-05"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:SIM-05",
+        "slot:SIM-07"
+      ],
+      "forward": [
+        "sites-sim-05",
+        "sites-sim-07"
+      ],
+      "return": [
+        "sites-sim-07",
+        "sites-sim-05"
+      ],
+      "mode": "transfer"
+    },
+    {
+      "fields": [
+        "slot:SIM-07",
+        "slot:SIM-08"
+      ],
+      "forward": [
+        "sites-sim-07",
+        "sites-sim-08"
+      ],
+      "return": [
+        "sites-sim-08",
+        "sites-sim-07"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:NSP-01",
+        "slot:NSP-02"
+      ],
+      "forward": [
+        "nod-special-camp",
+        "sites-nsp-02"
+      ],
+      "return": [
+        "sites-nsp-02",
+        "nod-special-camp"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:NSP-02",
+        "slot:NSP-03"
+      ],
+      "forward": [
+        "sites-nsp-02",
+        "sites-nsp-03"
+      ],
+      "return": [
+        "sites-nsp-03",
+        "sites-nsp-02"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:NSP-03",
+        "slot:NSP-04"
+      ],
+      "forward": [
+        "sites-nsp-03",
+        "sites-nsp-04"
+      ],
+      "return": [
+        "sites-nsp-04",
+        "sites-nsp-03"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:NSP-03",
+        "slot:NSP-05"
+      ],
+      "forward": [
+        "sites-nsp-03",
+        "sites-nsp-05"
+      ],
+      "return": [
+        "sites-nsp-05",
+        "sites-nsp-03"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:NSP-05",
+        "slot:NSP-06"
+      ],
+      "forward": [
+        "sites-nsp-05",
+        "sites-nsp-06"
+      ],
+      "return": [
+        "sites-nsp-06",
+        "sites-nsp-05"
+      ],
+      "mode": "lift"
+    },
+    {
+      "fields": [
+        "slot:NSP-06",
+        "slot:NSP-07"
+      ],
+      "forward": [
+        "sites-nsp-06",
+        "sites-nsp-07"
+      ],
+      "return": [
+        "sites-nsp-07",
+        "sites-nsp-06"
+      ],
+      "mode": "walk"
+    },
+    {
+      "fields": [
+        "slot:NSP-07",
+        "slot:NSP-08"
+      ],
+      "forward": [
+        "sites-nsp-07",
+        "sites-nsp-08"
+      ],
+      "return": [
+        "sites-nsp-08",
+        "sites-nsp-07"
+      ],
+      "mode": "walk"
+    }
+  ],
+  "optional_pockets": {
+    "slot:NSP-08": {
+      "stage": "sites-nsp-08",
+      "enemy_design": "PLAN8-slot_NSP-08-736-0-optional_elite",
+      "art_proxy": "fanged-beast"
+    },
+    "slot:GAA-04": {
+      "stage": "sites-gaa-04-side-arena",
+      "enemy_design": "PLAN8-slot_GAA-04-257-20-optional_elite",
+      "art_proxy": "anemo-slime"
+    },
+    "slot:GAA-06": {
+      "stage": "sites-gaa-06-side-arena",
+      "enemy_design": "PLAN8-slot_GAA-06-27-20-optional_elite",
+      "art_proxy": "ruin-guard"
+    },
+    "slot:GAA-07": {
+      "stage": "sites-gaa-07-side-arena",
+      "enemy_design": "PLAN8-slot_GAA-07-149-20-optional_elite",
+      "art_proxy": "frostarm-lawachurl"
+    },
+    "slot:SIM-06": {
+      "stage": "sites-sim-06-side-arena",
+      "enemy_design": "PLAN8-slot_SIM-06-149-20-optional_elite",
+      "art_proxy": "frostarm-lawachurl"
+    },
+    "slot:SIM-08": {
+      "stage": "sites-sim-08-side-arena",
+      "enemy_design": "PLAN8-slot_SIM-08-456-20-optional_elite",
+      "art_proxy": "hilichurl"
+    }
+  },
+  "art_proxies": {
+    "anemo-slime": [
+      "anemo-slime",
+      1,
+      24
+    ],
+    "large-anemo-slime": [
+      "anemo-slime",
+      1,
+      37
+    ],
+    "hilichurl": [
+      "hilichurl",
+      1,
+      28
+    ],
+    "hilichurl-shooter": [
+      "hilichurl",
+      2,
+      25
+    ],
+    "hydro-slime": [
+      "hydro-slime",
+      1,
+      24
+    ],
+    "hydro-samachurl": [
+      "hilichurl",
+      2,
+      33
+    ],
+    "anemo-samachurl": [
+      "hilichurl",
+      2,
+      33
+    ],
+    "pyro-hilichurl-shooter": [
+      "hilichurl",
+      2,
+      28
+    ],
+    "cryo-hilichurl-shooter": [
+      "hilichurl",
+      2,
+      28
+    ],
+    "floating-hydro-fungus": [
+      "dendro-fungus",
+      1,
+      33
+    ],
+    "floating-dendro-fungus": [
+      "dendro-fungus",
+      1,
+      34
+    ],
+    "stretchy-anemo-fungus": [
+      "dendro-fungus",
+      2,
+      36
+    ],
+    "grounded-hydro-fungus": [
+      "dendro-fungus",
+      1,
+      34
+    ],
+    "whirling-cryo-fungus": [
+      "dendro-fungus",
+      2,
+      37
+    ],
+    "winged-dendro-fungus": [
+      "dendro-fungus",
+      2,
+      40
+    ],
+    "cryo-slime": [
+      "cryo-slime",
+      1,
+      42
+    ],
+    "electro-slime": [
+      "anemo-slime",
+      2,
+      42
+    ],
+    "fatui-oprichnik-line": [
+      "nobushi",
+      1,
+      53
+    ],
+    "fatui-oprichnik-gunner": [
+      "nobushi",
+      2,
+      52
+    ],
+    "radiant-goat": [
+      "fanged-beast",
+      1,
+      62
+    ],
+    "radiant-rhino": [
+      "fanged-beast",
+      1,
+      73
+    ],
+    "landcruiser-recon-assault": [
+      "sled-maintenance-cart",
+      1,
+      55
+    ],
+    "landcruiser-recon-hover": [
+      "hunter-seeker",
+      2,
+      55
+    ],
+    "frostnight-electro": [
+      "frostarm-lawachurl",
+      2,
+      66
+    ],
+    "dark-fisher": [
+      "fanged-beast",
+      1,
+      65
+    ],
+    "wild-hunt-warrior": [
+      "nobushi",
+      1,
+      64
+    ],
+    "wild-hunt-archer": [
+      "hilichurl",
+      2,
+      61
+    ],
+    "wild-hunt-hound": [
+      "fanged-beast",
+      1,
+      64
+    ]
+  },
+  "external_entries": {
+    "GAA": "golden-mainland-coast",
+    "VLM": "veluriyam-bottle-yard",
+    "SIM": "simulanka-book-room",
+    "NSP": "nod-field"
+  }
+}
