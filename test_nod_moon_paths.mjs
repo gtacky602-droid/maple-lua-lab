@@ -140,6 +140,12 @@ try{
     await auto(true);
     await count(2);
     await auto(false);
+    assert.ok(!(await frame()).story.visited[inlet]);
+    await saveReload();
+    await count(2);
+    await branch('wood',2);
+    await gate(458,rest);
+    await gate(1328,wood);
     await gate(1526,inlet);
     assert.equal((await frame()).actors[0].y,480);
   }else{
@@ -157,6 +163,13 @@ try{
     assert.equal((await frame()).draws.filter(draw=>draw.color==='#f7ca79').length,3);
     await screenshot('coast');
     await inspect(1400,2);
+    assert.ok(!(await frame()).story.visited[inlet]);
+    await saveReload();
+    await count(2);
+    await branch('coast',3);
+    await gate(959,coast);
+    await jump(847,388);
+    await jump(1079,292);
     await gate(1534,inlet);
     assert.equal((await frame()).actors[0].y,386);
     await down(480);
@@ -193,7 +206,7 @@ try{
   assert.ok((await frame()).platforms.some(p=>p.moonDeck));
   assert.equal((await frame()).story.quests[quest].pathProgress[resetBranch].count,0);
   assert.deepEqual(errors,[]);
-  const proof={path:selected,otherPathUnused:true,glimpse:true,report:true,saveReloaded:true,
+  const proof={path:selected,otherPathUnused:true,glimpse:true,report:true,savedBeforeInlet:true,saveReloaded:true,
     bridgeRestored:true,routeScene,caveScene,reward,commands,errors};
   await fs.writeFile(prefix+'-'+selected+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);

@@ -185,7 +185,9 @@ advance(core,timed,1)
 assert timed.endgameRun.status=='clear' and timed.story.quests[goal].count==2
 assert restore(timed).endgame.bosses.farka.clears==1
 act(timed,'endgame_exit')
+before_mora, before_xp, before_ore = timed.mora, timed.progression.questXp, timed.inventory.upgradeOre
 report(timed,goal)
+assert (timed.mora-before_mora,timed.progression.questXp-before_xp,timed.inventory.upgradeOre-before_ore)==(20000,0,3)
 invalid=deepcopy(save(timed))
 invalid['endgame']['bosses']['farka']['bestTicks']=0
 try:
@@ -200,6 +202,6 @@ write('evidence/growth-endgame-lua.json', {
  'specified_set_and_full_bag_recovery': True,'elite_clear_and_timeout':True,
  'farka_recovery_hit_before_win': True,'weekly_participation_before_win':True,
  'goal_choices_gear_discovery_boss':True,'save_outside_unfinished_instances':True,
- 'one_reward_per_report_and_clear':True
+ 'one_reward_per_report_and_clear':True, 'next_goal_reward_without_experience':True
 })
 print('Endgame Q-G13–16: real rooms, separate boss participation, three goals, one-time reports and saves passed')

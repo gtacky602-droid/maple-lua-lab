@@ -134,14 +134,18 @@ assert (q.status,q.cycles,s.progression.questXp,s.mora)==('complete',1,xp+42335,
 assert core.frame(s).storyJoined.ayaka and core.frame(s).storySightNote.name=='屋根越しの高台'
 assert s.companion=='amber' and not core.frame(s).starterEquipment
 item_count = len(s.inventory['items'])
+amber_hp = s.actors[2].hp
+amber_skill = s.actors[2].cd.skill2 or 0
 core.action(s,'story_select_joined:'+qid)
 assert s.companion=='ayaka' and (s.actors[2].atk,s.actors[2].maxhp)==(4,150)
 assert len(s.inventory['items'])==item_count and core.frame(s).starterEquipment.useFlower
 s.actors[2].hp=78
+s.actors[2].cd.skill2=7
 core.action(s,'companion:amber')
-assert (s.actors[2].atk,s.actors[2].maxhp,s.actors[2].hp)==(3,140,78)
+assert (s.actors[2].atk,s.actors[2].maxhp,s.actors[2].hp)==(3,140,amber_hp)
+assert (s.actors[2].cd.skill2 or 0)==amber_skill
 core.action(s,'story_select_joined:'+qid)
-assert s.actors[2].hp==78
+assert (s.actors[2].hp,s.actors[2].cd.skill2)==(78,7)
 core.action(s,'swap')
 assert core.giveArtifact(s,1,40,3)
 new_item = s.inventory['items'][len(s.inventory['items'])]
@@ -175,7 +179,7 @@ checks = {
     'bridge_choice_and_saved_favorite':True, 'no_remote_duplicate_or_paused_choice':True,
     'one_time_report_reward':True, 'legacy_hunt_and_recruitment_saved':True,
     'starter_stats_only_for_ayaka':True, 'equipped_flower_overrides_starter':True,
-    'starter_outside_bag_and_restored':True,
+    'starter_outside_bag_and_restored':True, 'individual_hp_and_cooldown':True,
 }
 (ROOT/'evidence/inazuma-s01-lua.json').write_text(json.dumps(checks,indent=2)+'\n',encoding='utf8')
 print('Inazuma S01 sights, old hunt, one-time reward and character-bound starter gear passed')

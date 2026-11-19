@@ -22,6 +22,9 @@ FIELDS={'version','quest','count','mora','kills','hits','damage','gauge','active
 
 def validate_steps_visited(steps, count, visited):
     for item in steps[:count]:
+        # A path join records finished branches, whose own visits are checked in validate_paths.
+        if item['kind'] == 'paths':
+            continue
         places=[item, *item.get('alternatives',[])]
         if not any(place['node'] in visited for place in places):
             raise ValueError('未訪問の地点が調査済みになっています')

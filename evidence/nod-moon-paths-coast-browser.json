@@ -3,6 +3,7 @@
   "otherPathUnused": true,
   "glimpse": true,
   "report": true,
+  "savedBeforeInlet": true,
   "saveReloaded": true,
   "bridgeRestored": true,
   "routeScene": {

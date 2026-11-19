@@ -297,7 +297,7 @@
         },
         {
           "to": "mond-wp-13",
-          "x": 156,
+          "x": 240,
           "arrivalX": 76,
           "arrivalY": 480
         }
@@ -306,7 +306,7 @@
       "hints": [
         {
           "group": "golden",
-          "x": 1050,
+          "x": 1105,
           "y": 480,
           "label": "古い船着き場の跡"
         }
@@ -7969,7 +7969,7 @@
     {"id":"mond-wp-9","name":"モンド・海食崖の南棚","region":"モンド","level":10,"width":1450,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1450},{"x":328,"y":379,"w":224},{"x":554,"y":294,"w":248},{"x":814,"y":344,"w":196}],"exits":[{"to":"mond-wp-7","x":76,"arrivalX":1242,"arrivalY":480},{"to":"mond-wp-10","x":1372,"arrivalX":1202,"arrivalY":480}],"mapPoint":"teyvat:9","waypoint":{"kind":"waypoint","x":725,"y":480}},
     {"id":"mond-wp-10","name":"モンド・北東の崖先","region":"モンド","level":12,"width":1280,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1280},{"x":340,"y":385,"w":245},{"x":585,"y":300,"w":226}],"exits":[{"to":"mond-wp-8","x":76,"arrivalX":1162,"arrivalY":480},{"to":"mond-wp-9","x":1202,"arrivalX":1372,"arrivalY":480}],"mapPoint":"teyvat:10","waypoint":{"kind":"waypoint","x":640,"y":480}},
     {"id":"mond-wp-12","name":"モンド・北の湖と神像","region":"モンド","level":7,"width":1350,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondlookout","platforms":[{"x":0,"y":480,"w":1350},{"x":515,"y":398,"w":210},{"x":10,"y":370,"w":138}],"exits":[{"to":"mond-wp-8","x":76,"y":370,"arrivalX":926,"arrivalY":480},{"to":"mond-wp-7","x":1272,"arrivalX":1006,"arrivalY":480}],"mapPoint":"teyvat:12","waypoint":{"kind":"statue","x":675,"y":480}},
-    {"id":"mond-wp-13","name":"モンド・大樹の東原と神像","region":"モンド","level":5,"width":1220,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondrest","platforms":[{"x":0,"y":480,"w":1220},{"x":440,"y":403,"w":260}],"exits":[{"to":"mond-road","x":76,"arrivalX":156,"arrivalY":480},{"to":"mond-wp-18","x":295,"arrivalX":295,"arrivalY":480},{"to":"mond-wp-7","x":905,"arrivalX":76,"arrivalY":480},{"to":"mond-wp-15","x":1142,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:13","waypoint":{"kind":"statue","x":610,"y":480}},
+    {"id":"mond-wp-13","name":"モンド・大樹の東原と神像","region":"モンド","level":5,"width":1220,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondrest","platforms":[{"x":0,"y":480,"w":1220},{"x":440,"y":403,"w":260}],"exits":[{"to":"mond-road","x":76,"arrivalX":240,"arrivalY":480},{"to":"mond-wp-18","x":295,"arrivalX":295,"arrivalY":480},{"to":"mond-wp-7","x":905,"arrivalX":76,"arrivalY":480},{"to":"mond-wp-15","x":1142,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:13","waypoint":{"kind":"statue","x":610,"y":480}},
     {"id":"mond-wp-14","name":"モンド・泉池の南道","region":"モンド","level":5,"width":1300,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondrest","platforms":[{"x":0,"y":480,"w":1300},{"x":240,"y":409,"w":165},{"x":625,"y":375,"w":225}],"exits":[{"to":"mond-wp-19","x":76,"arrivalX":1142,"arrivalY":480},{"to":"mond-roadside-rest","x":1222,"arrivalX":640,"arrivalY":480}],"mapPoint":"teyvat:14","waypoint":{"kind":"waypoint","x":650,"y":480}},
     {"id":"mond-wp-15","name":"モンド・東の浜道","region":"モンド","level":7,"width":1350,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1350},{"x":515,"y":398,"w":210}],"exits":[{"to":"mond-wp-13","x":76,"arrivalX":1142,"arrivalY":480},{"to":"mond-wp-18","x":1272,"arrivalX":1205,"arrivalY":480}],"mapPoint":"teyvat:15","waypoint":{"kind":"waypoint","x":675,"y":480}},
     {"id":"mond-wp-17","name":"モンド・東南の岬","region":"モンド","level":14,"width":1280,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1280},{"x":340,"y":385,"w":245},{"x":585,"y":300,"w":226}],"exits":[{"to":"mond-wp-18","x":76,"arrivalX":1442,"arrivalY":480}],"mapPoint":"teyvat:17","waypoint":{"kind":"waypoint","x":640,"y":480}},

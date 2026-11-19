@@ -7,5 +7,6 @@
   "legacy_hunt_and_recruitment_saved": true,
   "starter_stats_only_for_ayaka": true,
   "equipped_flower_overrides_starter": true,
-  "starter_outside_bag_and_restored": true
+  "starter_outside_bag_and_restored": true,
+  "individual_hp_and_cooldown": true
 }

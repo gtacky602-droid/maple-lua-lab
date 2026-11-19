@@ -1,0 +1,1829 @@
+{
+  "scope": "Lua acceptance and premature reporting at the real runtime entry points. Prerequisites and levels use fixtures; objectives and rewards are tested by separate playthroughs.",
+  "linked_story_quests": 113,
+  "linked_daily_candidates": 40,
+  "narrative_dependencies": 37,
+  "checks": {
+    "away_from_hub": 153,
+    "below_quest_level": 122,
+    "growth_requirement_unfulfilled": 6,
+    "paused": 153,
+    "premature_report_no_reward": 153,
+    "prerequisite_not_started": 6,
+    "prerequisite_paths_too_low": 1,
+    "prerequisite_progress_too_low": 2,
+    "prerequisite_ready_but_not_reported": 70,
+    "prerequisite_unaccepted": 70,
+    "repeat_accept_did_not_reset_record": 153,
+    "started_by_runtime_at_hub": 153
+  },
+  "quests": {
+    "Q-B01-01": {
+      "runtime_id": "spine-noon-pattern",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B01-02": {
+      "runtime_id": "spine-wind-route",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B01-03": {
+      "runtime_id": "spine-ridge-record",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B02-01": {
+      "runtime_id": "chenyu-tea-delivery",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B02-02": {
+      "runtime_id": "chenyu-loading-landing",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B02-03": {
+      "runtime_id": "chenyu-tea-with-friends",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B03-01": {
+      "runtime_id": "enkan-safety-leaflet",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B03-02": {
+      "runtime_id": "enkan-shadow-crossing",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B03-03": {
+      "runtime_id": "enkan-coverless-log",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B04-01": {
+      "runtime_id": "tunigi-vent-record",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B04-02": {
+      "runtime_id": "tunigi-return-design",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B04-03": {
+      "runtime_id": "tunigi-fragment-return",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B05-01": {
+      "runtime_id": "bygone-stone-rubbings",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B05-02": {
+      "runtime_id": "bygone-lit-passage",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B05-03": {
+      "runtime_id": "bygone-sound-book",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B06-01": {
+      "runtime_id": "windward-lookouts",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B06-02": {
+      "runtime_id": "windward-flags",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B06-03": {
+      "runtime_id": "windward-tower-clear",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B07-01": {
+      "runtime_id": "ochka-stopover-survey",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B07-02": {
+      "runtime_id": "ochka-wall-marks",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B07-03": {
+      "runtime_id": "ochka-sifter-clear",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B08-01": {
+      "runtime_id": "nod-light-path",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B08-02": {
+      "runtime_id": "nod-light-record",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B08-03": {
+      "runtime_id": "nod-rim-return",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B09-01": {
+      "runtime_id": "novo-expedition-ready",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B09-02": {
+      "runtime_id": "novo-equipment-route",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-B09-03": {
+      "runtime_id": "novo-return-report",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-FON-D01": {
+      "runtime_id": "daily-fon-patrol",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-FON-D02": {
+      "runtime_id": "daily-fon-gathering",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-FON-D03": {
+      "runtime_id": "daily-fon-film-route",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-FON-D04": {
+      "runtime_id": "daily-fon-meka",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-FON-D05": {
+      "runtime_id": "daily-fon-land-elites",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-FON-M01": {
+      "runtime_id": "fontaine-moon-parcel",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-FON-M02": {
+      "runtime_id": "fontaine-understage-crew",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-FON-M03": {
+      "runtime_id": "fontaine-grand-finale",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-FON-S01": {
+      "runtime_id": "fon-emilie-scent",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-FON-S02": {
+      "runtime_id": "fon-furina-cues",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-FON-S03": {
+      "runtime_id": "fon-navia-photo",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-FON-S04": {
+      "runtime_id": "fon-lyney-magic",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-FON-S05": {
+      "runtime_id": "fon-freminet-dive",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-G01": {
+      "runtime_id": "growth-partner-swap",
+      "checks": [
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-G02": {
+      "runtime_id": "growth-targeted-gear",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-G03": {
+      "runtime_id": "growth-upgrade-gear",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-G04": {
+      "runtime_id": "growth-inherit-gear",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-G05": {
+      "runtime_id": "growth-first-imprint",
+      "checks": [
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-G06": {
+      "runtime_id": "growth-pair-imprint",
+      "checks": [
+        "growth_requirement_unfulfilled",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-G07": {
+      "runtime_id": "growth-lunar-practice",
+      "checks": [
+        "growth_requirement_unfulfilled",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-G08": {
+      "runtime_id": "growth-star-practice",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-G09": {
+      "runtime_id": "growth-light-release",
+      "checks": [
+        "below_quest_level",
+        "growth_requirement_unfulfilled",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-G10": {
+      "runtime_id": "growth-branch-visit",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-G11": {
+      "runtime_id": "growth-light-echo",
+      "checks": [
+        "below_quest_level",
+        "growth_requirement_unfulfilled",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-G12": {
+      "runtime_id": "growth-seven-strike",
+      "checks": [
+        "below_quest_level",
+        "growth_requirement_unfulfilled",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-G13": {
+      "runtime_id": "growth-abyss",
+      "checks": [
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-G14": {
+      "runtime_id": "growth-stygian",
+      "checks": [
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-G15": {
+      "runtime_id": "growth-weekly",
+      "checks": [
+        "growth_requirement_unfulfilled",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-G16": {
+      "runtime_id": "growth-next-goal",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-H01-01": {
+      "runtime_id": "golden-little-boat",
+      "checks": [
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-H01-02": {
+      "runtime_id": "golden-trace-shadows",
+      "checks": [
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-H02-01": {
+      "runtime_id": "veluriyam-bottle-ticket",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-H02-02": {
+      "runtime_id": "veluriyam-trolley-lookout",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-H03-01": {
+      "runtime_id": "simulanka-open-page",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-H03-02": {
+      "runtime_id": "simulanka-folded-road",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-INA-D01": {
+      "runtime_id": "daily-ina-patrol",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-INA-D02": {
+      "runtime_id": "daily-ina-firework-road",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-INA-D03": {
+      "runtime_id": "daily-ina-short-patrol",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-INA-D04": {
+      "runtime_id": "daily-ina-trial",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-INA-D05": {
+      "runtime_id": "daily-ina-nobushi",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-INA-M01": {
+      "runtime_id": "inazuma-moving-lantern",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-INA-M02": {
+      "runtime_id": "inazuma-torii-maze",
+      "checks": [
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-INA-M03": {
+      "runtime_id": "inazuma-lantern-contest",
+      "checks": [
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-INA-S01": {
+      "runtime_id": "ayaka-join",
+      "checks": [
+        "prerequisite_not_started",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-INA-S02": {
+      "runtime_id": "ina-window-fireworks",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-INA-S03": {
+      "runtime_id": "ina-sayu-quiet-route",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-INA-S04": {
+      "runtime_id": "ina-itto-three-games",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-INA-S05": {
+      "runtime_id": "ina-walking-teahouse",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-LIY-D01": {
+      "runtime_id": "daily-liyue-cargo",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-LIY-D02": {
+      "runtime_id": "daily-liyue-route",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-LIY-D03": {
+      "runtime_id": "daily-liyue-treasure-hoarders",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-LIY-D04": {
+      "runtime_id": "daily-liyue-prep-materials",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-LIY-D05": {
+      "runtime_id": "daily-liyue-relics",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-LIY-M01": {
+      "runtime_id": "liyue-market-delivery",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-LIY-M02": {
+      "runtime_id": "liyue-caravan-search",
+      "checks": [
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-LIY-M03": {
+      "runtime_id": "liyue-market-opening",
+      "checks": [
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-LIY-S01": {
+      "runtime_id": "beidou-join",
+      "checks": [
+        "prerequisite_not_started",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-LIY-S02": {
+      "runtime_id": "liyue-harbor-meal",
+      "checks": [
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-LIY-S03": {
+      "runtime_id": "liyue-book-rescue",
+      "checks": [
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-LIY-S04": {
+      "runtime_id": "liyue-stone-marks",
+      "checks": [
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-LIY-S05": {
+      "runtime_id": "liyue-hauling-shortcut",
+      "checks": [
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-MON-D01": {
+      "runtime_id": "daily-mond-safety",
+      "checks": [
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-MON-D02": {
+      "runtime_id": "daily-mond-slimes",
+      "checks": [
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-MON-D03": {
+      "runtime_id": "daily-mond-elites",
+      "checks": [
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-MON-D04": {
+      "runtime_id": "daily-mond-rest",
+      "checks": [
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-MON-D05": {
+      "runtime_id": "daily-mond-cave",
+      "checks": [
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-MON-M01": {
+      "runtime_id": "amber-join",
+      "checks": [
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-MON-M02": {
+      "runtime_id": "mond-old-trail",
+      "checks": [
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-MON-M03": {
+      "runtime_id": "mond-watchtower-clear",
+      "checks": [
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-MON-S01": {
+      "runtime_id": "mond-rest-stop",
+      "checks": [
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-MON-S02": {
+      "runtime_id": "mond-return-box-quest",
+      "checks": [
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-MON-S03": {
+      "runtime_id": "mond-bennett-cave",
+      "checks": [
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-MON-S04": {
+      "runtime_id": "mond-night-banner-quest",
+      "checks": [
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-MON-S05": {
+      "runtime_id": "mond-windmill",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NAT-D01": {
+      "runtime_id": "daily-nat-training",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NAT-D02": {
+      "runtime_id": "daily-nat-ridge",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NAT-D03": {
+      "runtime_id": "daily-nat-riverside",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NAT-D04": {
+      "runtime_id": "daily-nat-elite-hunt",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NAT-D05": {
+      "runtime_id": "daily-nat-quarry",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NAT-M01": {
+      "runtime_id": "natlan-ridge-flag",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NAT-M02": {
+      "runtime_id": "natlan-two-trials",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NAT-M03": {
+      "runtime_id": "natlan-sunset-duel",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NAT-S01": {
+      "runtime_id": "natlan-kachina-charms",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NAT-S02": {
+      "runtime_id": "natlan-mualani-surf",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NAT-S03": {
+      "runtime_id": "natlan-kinich-ambush",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NAT-S04": {
+      "runtime_id": "natlan-xilonen-springs",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_not_started",
+        "prerequisite_paths_too_low",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NAT-S05": {
+      "runtime_id": "natlan-iansan-self-test",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NOD-D01": {
+      "runtime_id": "daily-nod-night-patrol",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NOD-D02": {
+      "runtime_id": "daily-nod-parts-route",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NOD-D03": {
+      "runtime_id": "daily-nod-rumored-elites",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NOD-D04": {
+      "runtime_id": "daily-nod-forest-border",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NOD-D05": {
+      "runtime_id": "daily-nod-coast-revisit",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NOD-M01": {
+      "runtime_id": "nod-first-treasure",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NOD-M02": {
+      "runtime_id": "nod-moon-crossroads",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NOD-M03": {
+      "runtime_id": "nod-moon-vault-quest",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NOD-S01": {
+      "runtime_id": "columbina-coast-detour",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_not_started",
+        "prerequisite_progress_too_low",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NOD-S02": {
+      "runtime_id": "nod-treasure-appraisal",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NOD-S03": {
+      "runtime_id": "nod-moon-rumor",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NOD-S04": {
+      "runtime_id": "nod-moon-bloom",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-NOD-S05": {
+      "runtime_id": "nod-lantern-patrol",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SNE-D01": {
+      "runtime_id": "daily-sne-patrol",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SNE-D02": {
+      "runtime_id": "daily-sne-survey-road",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SNE-D03": {
+      "runtime_id": "daily-sne-forest-road",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SNE-D04": {
+      "runtime_id": "daily-sne-tour-route",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SNE-D05": {
+      "runtime_id": "daily-sne-elites",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SNE-M01": {
+      "runtime_id": "white-pass-ticket",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SNE-M02": {
+      "runtime_id": "white-pass-trail",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SNE-M03": {
+      "runtime_id": "white-pass-summit",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SNE-S01": {
+      "runtime_id": "sne-mitya-observation",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SNE-S02": {
+      "runtime_id": "white-pass-footprints",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SNE-S03": {
+      "runtime_id": "white-pass-footwork",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SNE-S04": {
+      "runtime_id": "white-pass-rest",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_not_started",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SNE-S05": {
+      "runtime_id": "sne-snow-match-quest",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SUM-D01": {
+      "runtime_id": "daily-sum-survey",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SUM-D02": {
+      "runtime_id": "daily-sum-forest",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SUM-D03": {
+      "runtime_id": "daily-sum-elites",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SUM-D04": {
+      "runtime_id": "daily-sum-workyard",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SUM-D05": {
+      "runtime_id": "daily-sum-species",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SUM-M01": {
+      "runtime_id": "sumeru-leaf-crossing",
+      "checks": [
+        "below_quest_level",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SUM-M02": {
+      "runtime_id": "sumeru-forest-levels",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SUM-M03": {
+      "runtime_id": "sumeru-observatory-map",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SUM-S01": {
+      "runtime_id": "sum-wanderer-observation",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_not_started",
+        "prerequisite_progress_too_low",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SUM-S02": {
+      "runtime_id": "sum-fungus-visitors",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SUM-S03": {
+      "runtime_id": "sum-collei-guide",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SUM-S04": {
+      "runtime_id": "sum-kaveh-model",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    },
+    "Q-SUM-S05": {
+      "runtime_id": "sum-nahida-map",
+      "checks": [
+        "below_quest_level",
+        "prerequisite_unaccepted",
+        "prerequisite_ready_but_not_reported",
+        "away_from_hub",
+        "paused",
+        "started_by_runtime_at_hub",
+        "repeat_accept_did_not_reset_record",
+        "premature_report_no_reward"
+      ]
+    }
+  }
+}

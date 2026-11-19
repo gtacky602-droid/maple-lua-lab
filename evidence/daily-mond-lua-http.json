@@ -9,6 +9,7 @@
   "companionAndOverlaps": true,
   "oneEventOncePerSlot": true,
   "trainingAndWrongRegionExcluded": true,
+  "restRewardAfterReload": true,
   "sameDayOneMainTwoExtra": true,
   "rolloverAndGrace": true,
   "serverPeriodBoundary": true,

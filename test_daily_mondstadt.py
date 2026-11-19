@@ -81,6 +81,14 @@ act(s,'claim',main)
 assert not slots(s)[main]['claimed']
 core.enterStoryNode(s,'mond-town')
 ready=valid(s)
+rest_ready=core.restore(lua.table_from(ready,recursive=True))
+before=rest_ready.mora
+act(rest_ready,'claim',rest)
+act(rest_ready,'claim',rest)
+core.dailySettle(rest_ready)
+assert slots(rest_ready)[rest]['claimed']
+assert rest_ready.daily.paidXp==DAILY_QUESTS[rest]['xp']
+assert rest_ready.mora-before==DAILY_QUESTS[rest]['mora']
 act(s,'claim',main)
 act(s,'claim',main)
 core.dailySettle(s)
@@ -205,7 +213,7 @@ else:
 (ROOT/'work/daily-mond-ready-fixture.json').write_text(json.dumps(ready,ensure_ascii=False)+'\n',encoding='utf8')
 proof=dict(goalsCompleted={q['designId']:q['goal'] for q in DAILY_QUESTS.values() if q['region']=='mondstadt'},
            companionAndOverlaps=True,oneEventOncePerSlot=True,trainingAndWrongRegionExcluded=True,
-           sameDayOneMainTwoExtra=True,rolloverAndGrace=True,serverPeriodBoundary=True,
+           restRewardAfterReload=True,sameDayOneMainTwoExtra=True,rolloverAndGrace=True,serverPeriodBoundary=True,
            staleSaveAndRestart=True,legacyCompatible=True,rewardAppliedOnce=True)
 (ROOT/'evidence/daily-mond-lua-http.json').write_text(json.dumps(proof,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
 print('All five Mondstadt goals, three slots, day reset, restart and stale save passed')

@@ -51,6 +51,7 @@ async function fightUntil(needed,timeout=2500){
 }
 
 async function collect(id){
+ if(id!=='toolbox')await focusPlayfield();
  await page.waitForFunction(id=>window.lab.frame.storyNearbyCargo?.id===id,id);
  const button=page.locator('#nearbyCargoGo');
  assert.equal(await button.isVisible(),true);
@@ -96,8 +97,10 @@ try{
  await page.locator('.game').screenshot({path:'evidence/mondstadt-m01-cargo.png'});
  await collect('toolbox');
  await walk(975);
+ await page.waitForFunction(()=>window.lab.frame.actors[window.lab.frame.active-1].ground);
  await collect('crate');
  assert.equal((await recovered()).length,3);
+ assert.ok(!(await frame()).story.discovered.golden);
  await page.waitForFunction(()=>document.querySelector('#trackedQuestText').textContent.includes('赤い布'));
 
  await walk(1165,{attack:true});
@@ -130,7 +133,15 @@ try{
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/mondstadt-m01-browser.json',JSON.stringify({
   errors,protectedCargoBeforeCombat:true,usedJump:true,cargoRecovery:['keyboard G','nearby button'],
-  actualCombat:true,finishedAtTown:true,amberJoined:true,reward:{mora:100,xp:76},saveRestored:true,mobileWidth:true
+  actualCombat:true,crateDoesNotDiscoverHiddenEntrance:true,finishedAtTown:true,amberJoined:true,
+  reward:{mora:100,xp:76},saveRestored:true,mobileWidth:true
  },null,2)+'\n');
  console.log('Mondstadt M01: moving, actual combat, jumping, cargo, report, and save passed');
+}catch(error){
+ console.error(await page.evaluate(()=>{
+  const f=window.lab?.frame;
+  return {node:f?.story?.node,actor:f?.actors[f.active-1],quest:f?.story?.quests['amber-join'],
+          nearbyCargo:f?.storyNearbyCargo,notice:f?.storyNotice,focused:document.activeElement?.tagName};
+ }));
+ throw error;
 }finally{await browser.close()}

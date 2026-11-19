@@ -1,10 +1,12 @@
 {
   "woodOnly": true,
   "coastOnly": true,
+  "savedBeforeInletOnBothRoutes": true,
   "optionalCoastAfterReport": true,
   "optionalWoodAfterReport": true,
   "partialOptionalSweepRestored": true,
   "tamperedJoinRejected": true,
+  "unvisitedPathRejected": true,
   "bothHeightJumps": true,
   "glimpseFreezesOnPause": true,
   "bridgeCrossedOnFoot": true,

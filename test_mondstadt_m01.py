@@ -76,10 +76,12 @@ for _ in range(90):
     if s.actors[s.active].ground and s.actors[s.active].y == 390:
         break
 collect('toolbox')
-walk(975)
+walk(1000)
 for _ in range(30):
     step()
+assert not s.story.discovered.golden
 collect('crate')
+assert not s.story.discovered.golden
 chase = next(enemy for enemy in s.enemies.values() if enemy.spawnId == 'mond-road-1')
 assert chase.home == 1210 and chase.x >= 1130
 walk(1165, attack=True)
@@ -93,6 +95,7 @@ before = s.mora
 core.action(s, 'story_report:' + QUEST)
 assert s.mora == before and quest.status == 'active'
 walk(110)
+assert core.frame(s).storyNearbyPortal.to == 'mond-town'
 core.action(s, 'story_nearby_portal')
 assert s.story.node == 'mond-town'
 before, xp = s.mora, s.progression.questXp

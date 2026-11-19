@@ -1,0 +1,1078 @@
+{
+  "scope": "Acceptance and payout at the Lua action boundaries in the same scenario script; scenario fixtures can supply level, prior progress, positioning or combat conditions.",
+  "quest_count": 153,
+  "scenario_count": 81,
+  "quest_playthroughs": {
+    "Q-B01-01": {
+      "quest_id": "spine-noon-pattern",
+      "goal": 4,
+      "scripts": [
+        "test_spine_observation.py"
+      ]
+    },
+    "Q-B01-02": {
+      "quest_id": "spine-wind-route",
+      "goal": 2,
+      "scripts": [
+        "test_spine_observation.py"
+      ]
+    },
+    "Q-B01-03": {
+      "quest_id": "spine-ridge-record",
+      "goal": 3,
+      "scripts": [
+        "test_spine_observation.py"
+      ]
+    },
+    "Q-B02-01": {
+      "quest_id": "chenyu-tea-delivery",
+      "goal": 5,
+      "scripts": [
+        "test_chenyu_tea_route.py"
+      ]
+    },
+    "Q-B02-02": {
+      "quest_id": "chenyu-loading-landing",
+      "goal": 4,
+      "scripts": [
+        "test_chenyu_tea_route.py"
+      ]
+    },
+    "Q-B02-03": {
+      "quest_id": "chenyu-tea-with-friends",
+      "goal": 3,
+      "scripts": [
+        "test_chenyu_tea_route.py"
+      ]
+    },
+    "Q-B03-01": {
+      "quest_id": "enkan-safety-leaflet",
+      "goal": 3,
+      "scripts": [
+        "test_enkan_lamp_route.py"
+      ]
+    },
+    "Q-B03-02": {
+      "quest_id": "enkan-shadow-crossing",
+      "goal": 3,
+      "scripts": [
+        "test_enkan_lamp_route.py"
+      ]
+    },
+    "Q-B03-03": {
+      "quest_id": "enkan-coverless-log",
+      "goal": 3,
+      "scripts": [
+        "test_enkan_lamp_route.py"
+      ]
+    },
+    "Q-B04-01": {
+      "quest_id": "tunigi-vent-record",
+      "goal": 4,
+      "scripts": [
+        "test_tunigi_excavation.py"
+      ]
+    },
+    "Q-B04-02": {
+      "quest_id": "tunigi-return-design",
+      "goal": 3,
+      "scripts": [
+        "test_tunigi_excavation.py"
+      ]
+    },
+    "Q-B04-03": {
+      "quest_id": "tunigi-fragment-return",
+      "goal": 4,
+      "scripts": [
+        "test_tunigi_excavation.py"
+      ]
+    },
+    "Q-B05-01": {
+      "quest_id": "bygone-stone-rubbings",
+      "goal": 4,
+      "scripts": [
+        "test_bygone_resonance.py"
+      ]
+    },
+    "Q-B05-02": {
+      "quest_id": "bygone-lit-passage",
+      "goal": 3,
+      "scripts": [
+        "test_bygone_resonance.py"
+      ]
+    },
+    "Q-B05-03": {
+      "quest_id": "bygone-sound-book",
+      "goal": 3,
+      "scripts": [
+        "test_bygone_resonance.py"
+      ]
+    },
+    "Q-B06-01": {
+      "quest_id": "windward-lookouts",
+      "goal": 3,
+      "scripts": [
+        "test_windward_branch.py"
+      ]
+    },
+    "Q-B06-02": {
+      "quest_id": "windward-flags",
+      "goal": 2,
+      "scripts": [
+        "test_windward_branch.py"
+      ]
+    },
+    "Q-B06-03": {
+      "quest_id": "windward-tower-clear",
+      "goal": 2,
+      "scripts": [
+        "test_windward_branch.py"
+      ]
+    },
+    "Q-B07-01": {
+      "quest_id": "ochka-stopover-survey",
+      "goal": 3,
+      "scripts": [
+        "test_cap_stopover.py"
+      ]
+    },
+    "Q-B07-02": {
+      "quest_id": "ochka-wall-marks",
+      "goal": 3,
+      "scripts": [
+        "test_cap_stopover.py"
+      ]
+    },
+    "Q-B07-03": {
+      "quest_id": "ochka-sifter-clear",
+      "goal": 2,
+      "scripts": [
+        "test_cap_stopover.py"
+      ]
+    },
+    "Q-B08-01": {
+      "quest_id": "nod-light-path",
+      "goal": 4,
+      "scripts": [
+        "test_moonlit_garden.py"
+      ]
+    },
+    "Q-B08-02": {
+      "quest_id": "nod-light-record",
+      "goal": 4,
+      "scripts": [
+        "test_moonlit_garden.py"
+      ]
+    },
+    "Q-B08-03": {
+      "quest_id": "nod-rim-return",
+      "goal": 2,
+      "scripts": [
+        "test_moonlit_garden.py"
+      ]
+    },
+    "Q-B09-01": {
+      "quest_id": "novo-expedition-ready",
+      "goal": 1,
+      "scripts": [
+        "test_ice_expedition.py"
+      ]
+    },
+    "Q-B09-02": {
+      "quest_id": "novo-equipment-route",
+      "goal": 5,
+      "scripts": [
+        "test_ice_expedition.py"
+      ]
+    },
+    "Q-B09-03": {
+      "quest_id": "novo-return-report",
+      "goal": 3,
+      "scripts": [
+        "test_ice_expedition.py"
+      ]
+    },
+    "Q-FON-D01": {
+      "quest_id": "daily-fon-patrol",
+      "goal": 200,
+      "scripts": [
+        "test_daily_fontaine.py"
+      ]
+    },
+    "Q-FON-D02": {
+      "quest_id": "daily-fon-gathering",
+      "goal": 60,
+      "scripts": [
+        "test_daily_fontaine.py"
+      ]
+    },
+    "Q-FON-D03": {
+      "quest_id": "daily-fon-film-route",
+      "goal": 80,
+      "scripts": [
+        "test_daily_fontaine.py"
+      ]
+    },
+    "Q-FON-D04": {
+      "quest_id": "daily-fon-meka",
+      "goal": 50,
+      "scripts": [
+        "test_daily_fontaine.py"
+      ]
+    },
+    "Q-FON-D05": {
+      "quest_id": "daily-fon-land-elites",
+      "goal": 3,
+      "scripts": [
+        "test_daily_fontaine.py"
+      ]
+    },
+    "Q-FON-M01": {
+      "quest_id": "fontaine-moon-parcel",
+      "goal": 7,
+      "scripts": [
+        "test_fontaine_delivery.py"
+      ]
+    },
+    "Q-FON-M02": {
+      "quest_id": "fontaine-understage-crew",
+      "goal": 10,
+      "scripts": [
+        "test_fontaine_understage.py"
+      ]
+    },
+    "Q-FON-M03": {
+      "quest_id": "fontaine-grand-finale",
+      "goal": 6,
+      "scripts": [
+        "test_fontaine_finale.py"
+      ]
+    },
+    "Q-FON-S01": {
+      "quest_id": "fon-emilie-scent",
+      "goal": 9,
+      "scripts": [
+        "test_fontaine_emilie_scent.py"
+      ]
+    },
+    "Q-FON-S02": {
+      "quest_id": "fon-furina-cues",
+      "goal": 4,
+      "scripts": [
+        "test_fontaine_furina_cues.py"
+      ]
+    },
+    "Q-FON-S03": {
+      "quest_id": "fon-navia-photo",
+      "goal": 8,
+      "scripts": [
+        "test_fontaine_navia_photo.py"
+      ]
+    },
+    "Q-FON-S04": {
+      "quest_id": "fon-lyney-magic",
+      "goal": 7,
+      "scripts": [
+        "test_fontaine_lyney_magic.py"
+      ]
+    },
+    "Q-FON-S05": {
+      "quest_id": "fon-freminet-dive",
+      "goal": 6,
+      "scripts": [
+        "test_fontaine_freminet_dive.py"
+      ]
+    },
+    "Q-G01": {
+      "quest_id": "growth-partner-swap",
+      "goal": 2,
+      "scripts": [
+        "test_growth_foundations.py"
+      ]
+    },
+    "Q-G02": {
+      "quest_id": "growth-targeted-gear",
+      "goal": 2,
+      "scripts": [
+        "test_growth_foundations.py"
+      ]
+    },
+    "Q-G03": {
+      "quest_id": "growth-upgrade-gear",
+      "goal": 1,
+      "scripts": [
+        "test_growth_foundations.py"
+      ]
+    },
+    "Q-G04": {
+      "quest_id": "growth-inherit-gear",
+      "goal": 1,
+      "scripts": [
+        "test_growth_foundations.py"
+      ]
+    },
+    "Q-G05": {
+      "quest_id": "growth-first-imprint",
+      "goal": 1,
+      "scripts": [
+        "test_growth_practice.py"
+      ]
+    },
+    "Q-G06": {
+      "quest_id": "growth-pair-imprint",
+      "goal": 1,
+      "scripts": [
+        "test_growth_practice.py"
+      ]
+    },
+    "Q-G07": {
+      "quest_id": "growth-lunar-practice",
+      "goal": 1,
+      "scripts": [
+        "test_growth_practice.py"
+      ]
+    },
+    "Q-G08": {
+      "quest_id": "growth-star-practice",
+      "goal": 1,
+      "scripts": [
+        "test_growth_practice.py"
+      ]
+    },
+    "Q-G09": {
+      "quest_id": "growth-light-release",
+      "goal": 2,
+      "scripts": [
+        "test_growth_light.py"
+      ]
+    },
+    "Q-G10": {
+      "quest_id": "growth-branch-visit",
+      "goal": 1,
+      "scripts": [
+        "test_growth_light.py"
+      ]
+    },
+    "Q-G11": {
+      "quest_id": "growth-light-echo",
+      "goal": 1,
+      "scripts": [
+        "test_growth_light.py"
+      ]
+    },
+    "Q-G12": {
+      "quest_id": "growth-seven-strike",
+      "goal": 1,
+      "scripts": [
+        "test_growth_light.py"
+      ]
+    },
+    "Q-G13": {
+      "quest_id": "growth-abyss",
+      "goal": 1,
+      "scripts": [
+        "test_growth_endgame.py"
+      ]
+    },
+    "Q-G14": {
+      "quest_id": "growth-stygian",
+      "goal": 1,
+      "scripts": [
+        "test_growth_endgame.py"
+      ]
+    },
+    "Q-G15": {
+      "quest_id": "growth-weekly",
+      "goal": 1,
+      "scripts": [
+        "test_growth_endgame.py"
+      ]
+    },
+    "Q-G16": {
+      "quest_id": "growth-next-goal",
+      "goal": 2,
+      "scripts": [
+        "test_growth_endgame.py"
+      ]
+    },
+    "Q-H01-01": {
+      "quest_id": "golden-little-boat",
+      "goal": 6,
+      "scripts": [
+        "test_golden_island_route.py"
+      ]
+    },
+    "Q-H01-02": {
+      "quest_id": "golden-trace-shadows",
+      "goal": 7,
+      "scripts": [
+        "test_golden_island_route.py"
+      ]
+    },
+    "Q-H02-01": {
+      "quest_id": "veluriyam-bottle-ticket",
+      "goal": 4,
+      "scripts": [
+        "test_veluriyam_trolley.py"
+      ]
+    },
+    "Q-H02-02": {
+      "quest_id": "veluriyam-trolley-lookout",
+      "goal": 4,
+      "scripts": [
+        "test_veluriyam_trolley.py"
+      ]
+    },
+    "Q-H03-01": {
+      "quest_id": "simulanka-open-page",
+      "goal": 4,
+      "scripts": [
+        "test_simulanka_folds.py"
+      ]
+    },
+    "Q-H03-02": {
+      "quest_id": "simulanka-folded-road",
+      "goal": 5,
+      "scripts": [
+        "test_simulanka_folds.py"
+      ]
+    },
+    "Q-INA-D01": {
+      "quest_id": "daily-ina-patrol",
+      "goal": 200,
+      "scripts": [
+        "test_daily_inazuma.py"
+      ]
+    },
+    "Q-INA-D02": {
+      "quest_id": "daily-ina-firework-road",
+      "goal": 80,
+      "scripts": [
+        "test_daily_inazuma.py"
+      ]
+    },
+    "Q-INA-D03": {
+      "quest_id": "daily-ina-short-patrol",
+      "goal": 60,
+      "scripts": [
+        "test_daily_inazuma.py"
+      ]
+    },
+    "Q-INA-D04": {
+      "quest_id": "daily-ina-trial",
+      "goal": 3,
+      "scripts": [
+        "test_daily_inazuma.py"
+      ]
+    },
+    "Q-INA-D05": {
+      "quest_id": "daily-ina-nobushi",
+      "goal": 60,
+      "scripts": [
+        "test_daily_inazuma.py"
+      ]
+    },
+    "Q-INA-M01": {
+      "quest_id": "inazuma-moving-lantern",
+      "goal": 6,
+      "scripts": [
+        "test_inazuma_m01.py"
+      ]
+    },
+    "Q-INA-M02": {
+      "quest_id": "inazuma-torii-maze",
+      "goal": 5,
+      "scripts": [
+        "test_inazuma_m02.py"
+      ]
+    },
+    "Q-INA-M03": {
+      "quest_id": "inazuma-lantern-contest",
+      "goal": 5,
+      "scripts": [
+        "test_inazuma_m03.py"
+      ]
+    },
+    "Q-INA-S01": {
+      "quest_id": "ayaka-join",
+      "goal": 4,
+      "scripts": [
+        "test_inazuma_s01.py"
+      ]
+    },
+    "Q-INA-S02": {
+      "quest_id": "ina-window-fireworks",
+      "goal": 5,
+      "scripts": [
+        "test_ina_window_fireworks.py"
+      ]
+    },
+    "Q-INA-S03": {
+      "quest_id": "ina-sayu-quiet-route",
+      "goal": 6,
+      "scripts": [
+        "test_ina_sayu_route.py"
+      ]
+    },
+    "Q-INA-S04": {
+      "quest_id": "ina-itto-three-games",
+      "goal": 4,
+      "scripts": [
+        "test_ina_itto_three_games.py"
+      ]
+    },
+    "Q-INA-S05": {
+      "quest_id": "ina-walking-teahouse",
+      "goal": 7,
+      "scripts": [
+        "test_ina_walking_teahouse.py"
+      ]
+    },
+    "Q-LIY-D01": {
+      "quest_id": "daily-liyue-cargo",
+      "goal": 200,
+      "scripts": [
+        "test_daily_liyue.py"
+      ]
+    },
+    "Q-LIY-D02": {
+      "quest_id": "daily-liyue-route",
+      "goal": 80,
+      "scripts": [
+        "test_daily_liyue.py"
+      ]
+    },
+    "Q-LIY-D03": {
+      "quest_id": "daily-liyue-treasure-hoarders",
+      "goal": 40,
+      "scripts": [
+        "test_daily_liyue.py"
+      ]
+    },
+    "Q-LIY-D04": {
+      "quest_id": "daily-liyue-prep-materials",
+      "goal": 20,
+      "scripts": [
+        "test_daily_liyue.py"
+      ]
+    },
+    "Q-LIY-D05": {
+      "quest_id": "daily-liyue-relics",
+      "goal": 3,
+      "scripts": [
+        "test_daily_liyue.py"
+      ]
+    },
+    "Q-LIY-M01": {
+      "quest_id": "liyue-market-delivery",
+      "goal": 3,
+      "scripts": [
+        "test_liyue_m01.py"
+      ]
+    },
+    "Q-LIY-M02": {
+      "quest_id": "liyue-caravan-search",
+      "goal": 3,
+      "scripts": [
+        "test_liyue_m02.py"
+      ]
+    },
+    "Q-LIY-M03": {
+      "quest_id": "liyue-market-opening",
+      "goal": 3,
+      "scripts": [
+        "test_liyue_m03.py"
+      ]
+    },
+    "Q-LIY-S01": {
+      "quest_id": "beidou-join",
+      "goal": 4,
+      "scripts": [
+        "test_liyue_s01.py"
+      ]
+    },
+    "Q-LIY-S02": {
+      "quest_id": "liyue-harbor-meal",
+      "goal": 4,
+      "scripts": [
+        "test_liyue_s02.py"
+      ]
+    },
+    "Q-LIY-S03": {
+      "quest_id": "liyue-book-rescue",
+      "goal": 4,
+      "scripts": [
+        "test_liyue_s03.py"
+      ]
+    },
+    "Q-LIY-S04": {
+      "quest_id": "liyue-stone-marks",
+      "goal": 5,
+      "scripts": [
+        "test_liyue_s04.py"
+      ]
+    },
+    "Q-LIY-S05": {
+      "quest_id": "liyue-hauling-shortcut",
+      "goal": 6,
+      "scripts": [
+        "test_liyue_s05.py"
+      ]
+    },
+    "Q-MON-D01": {
+      "quest_id": "daily-mond-safety",
+      "goal": 200,
+      "scripts": [
+        "test_daily_mondstadt.py"
+      ]
+    },
+    "Q-MON-D02": {
+      "quest_id": "daily-mond-slimes",
+      "goal": 60,
+      "scripts": [
+        "test_daily_mondstadt.py"
+      ]
+    },
+    "Q-MON-D03": {
+      "quest_id": "daily-mond-elites",
+      "goal": 3,
+      "scripts": [
+        "test_daily_mondstadt.py"
+      ]
+    },
+    "Q-MON-D04": {
+      "quest_id": "daily-mond-rest",
+      "goal": 80,
+      "scripts": [
+        "test_daily_mondstadt.py"
+      ]
+    },
+    "Q-MON-D05": {
+      "quest_id": "daily-mond-cave",
+      "goal": 60,
+      "scripts": [
+        "test_daily_mondstadt.py"
+      ]
+    },
+    "Q-MON-M01": {
+      "quest_id": "amber-join",
+      "goal": 4,
+      "scripts": [
+        "test_mondstadt_m01.py"
+      ]
+    },
+    "Q-MON-M02": {
+      "quest_id": "mond-old-trail",
+      "goal": 2,
+      "scripts": [
+        "test_mondstadt_m02.py"
+      ]
+    },
+    "Q-MON-M03": {
+      "quest_id": "mond-watchtower-clear",
+      "goal": 1,
+      "scripts": [
+        "test_mondstadt_m03.py"
+      ]
+    },
+    "Q-MON-S01": {
+      "quest_id": "mond-rest-stop",
+      "goal": 5,
+      "scripts": [
+        "test_mondstadt_s01.py"
+      ]
+    },
+    "Q-MON-S02": {
+      "quest_id": "mond-return-box-quest",
+      "goal": 7,
+      "scripts": [
+        "test_mond_return_box.py"
+      ]
+    },
+    "Q-MON-S03": {
+      "quest_id": "mond-bennett-cave",
+      "goal": 4,
+      "scripts": [
+        "test_mondstadt_s03.py"
+      ]
+    },
+    "Q-MON-S04": {
+      "quest_id": "mond-night-banner-quest",
+      "goal": 7,
+      "scripts": [
+        "test_mond_night_banner.py"
+      ]
+    },
+    "Q-MON-S05": {
+      "quest_id": "mond-windmill",
+      "goal": 4,
+      "scripts": [
+        "test_mondstadt_s05.py"
+      ]
+    },
+    "Q-NAT-D01": {
+      "quest_id": "daily-nat-training",
+      "goal": 200,
+      "scripts": [
+        "test_daily_natlan.py"
+      ]
+    },
+    "Q-NAT-D02": {
+      "quest_id": "daily-nat-ridge",
+      "goal": 80,
+      "scripts": [
+        "test_daily_natlan.py"
+      ]
+    },
+    "Q-NAT-D03": {
+      "quest_id": "daily-nat-riverside",
+      "goal": 60,
+      "scripts": [
+        "test_daily_natlan.py"
+      ]
+    },
+    "Q-NAT-D04": {
+      "quest_id": "daily-nat-elite-hunt",
+      "goal": 3,
+      "scripts": [
+        "test_daily_natlan.py"
+      ]
+    },
+    "Q-NAT-D05": {
+      "quest_id": "daily-nat-quarry",
+      "goal": 60,
+      "scripts": [
+        "test_daily_natlan.py"
+      ]
+    },
+    "Q-NAT-M01": {
+      "quest_id": "natlan-ridge-flag",
+      "goal": 5,
+      "scripts": [
+        "test_natlan_flag_course.py"
+      ]
+    },
+    "Q-NAT-M02": {
+      "quest_id": "natlan-two-trials",
+      "goal": 4,
+      "scripts": [
+        "test_natlan_two_trials.py"
+      ]
+    },
+    "Q-NAT-M03": {
+      "quest_id": "natlan-sunset-duel",
+      "goal": 5,
+      "scripts": [
+        "test_natlan_sunset_duel.py"
+      ]
+    },
+    "Q-NAT-S01": {
+      "quest_id": "natlan-kachina-charms",
+      "goal": 6,
+      "scripts": [
+        "test_natlan_kachina_charms.py"
+      ]
+    },
+    "Q-NAT-S02": {
+      "quest_id": "natlan-mualani-surf",
+      "goal": 4,
+      "scripts": [
+        "test_natlan_mualani_surf.py"
+      ]
+    },
+    "Q-NAT-S03": {
+      "quest_id": "natlan-kinich-ambush",
+      "goal": 2,
+      "scripts": [
+        "test_natlan_kinich_ambush.py"
+      ]
+    },
+    "Q-NAT-S04": {
+      "quest_id": "natlan-xilonen-springs",
+      "goal": 4,
+      "scripts": [
+        "test_natlan_xilonen_course.py"
+      ]
+    },
+    "Q-NAT-S05": {
+      "quest_id": "natlan-iansan-self-test",
+      "goal": 4,
+      "scripts": [
+        "test_natlan_iansan_training.py"
+      ]
+    },
+    "Q-NOD-D01": {
+      "quest_id": "daily-nod-night-patrol",
+      "goal": 200,
+      "scripts": [
+        "test_daily_nod_krai.py"
+      ]
+    },
+    "Q-NOD-D02": {
+      "quest_id": "daily-nod-parts-route",
+      "goal": 60,
+      "scripts": [
+        "test_daily_nod_krai.py"
+      ]
+    },
+    "Q-NOD-D03": {
+      "quest_id": "daily-nod-rumored-elites",
+      "goal": 3,
+      "scripts": [
+        "test_daily_nod_krai.py"
+      ]
+    },
+    "Q-NOD-D04": {
+      "quest_id": "daily-nod-forest-border",
+      "goal": 80,
+      "scripts": [
+        "test_daily_nod_krai.py"
+      ]
+    },
+    "Q-NOD-D05": {
+      "quest_id": "daily-nod-coast-revisit",
+      "goal": 60,
+      "scripts": [
+        "test_daily_nod_krai.py"
+      ]
+    },
+    "Q-NOD-M01": {
+      "quest_id": "nod-first-treasure",
+      "goal": 5,
+      "scripts": [
+        "test_nod_shallows.py"
+      ]
+    },
+    "Q-NOD-M02": {
+      "quest_id": "nod-moon-crossroads",
+      "goal": 6,
+      "scripts": [
+        "test_nod_moon_paths.py"
+      ]
+    },
+    "Q-NOD-M03": {
+      "quest_id": "nod-moon-vault-quest",
+      "goal": 4,
+      "scripts": [
+        "test_nod_moon_vault.py"
+      ]
+    },
+    "Q-NOD-S01": {
+      "quest_id": "columbina-coast-detour",
+      "goal": 5,
+      "scripts": [
+        "test_columbina_detour.py"
+      ]
+    },
+    "Q-NOD-S02": {
+      "quest_id": "nod-treasure-appraisal",
+      "goal": 5,
+      "scripts": [
+        "test_nod_appraisal.py"
+      ]
+    },
+    "Q-NOD-S03": {
+      "quest_id": "nod-moon-rumor",
+      "goal": 6,
+      "scripts": [
+        "test_nod_moon_rumor.py"
+      ]
+    },
+    "Q-NOD-S04": {
+      "quest_id": "nod-moon-bloom",
+      "goal": 7,
+      "scripts": [
+        "test_nod_moon_bloom.py"
+      ]
+    },
+    "Q-NOD-S05": {
+      "quest_id": "nod-lantern-patrol",
+      "goal": 6,
+      "scripts": [
+        "test_nod_lantern_patrol.py"
+      ]
+    },
+    "Q-SNE-D01": {
+      "quest_id": "daily-sne-patrol",
+      "goal": 200,
+      "scripts": [
+        "test_daily_snezhnaya.py"
+      ]
+    },
+    "Q-SNE-D02": {
+      "quest_id": "daily-sne-survey-road",
+      "goal": 60,
+      "scripts": [
+        "test_daily_snezhnaya.py"
+      ]
+    },
+    "Q-SNE-D03": {
+      "quest_id": "daily-sne-forest-road",
+      "goal": 80,
+      "scripts": [
+        "test_daily_snezhnaya.py"
+      ]
+    },
+    "Q-SNE-D04": {
+      "quest_id": "daily-sne-tour-route",
+      "goal": 60,
+      "scripts": [
+        "test_daily_snezhnaya.py"
+      ]
+    },
+    "Q-SNE-D05": {
+      "quest_id": "daily-sne-elites",
+      "goal": 3,
+      "scripts": [
+        "test_daily_snezhnaya.py"
+      ]
+    },
+    "Q-SNE-M01": {
+      "quest_id": "white-pass-ticket",
+      "goal": 3,
+      "scripts": [
+        "test_white_pass_chapter.py"
+      ]
+    },
+    "Q-SNE-M02": {
+      "quest_id": "white-pass-trail",
+      "goal": 3,
+      "scripts": [
+        "test_white_pass_chapter.py"
+      ]
+    },
+    "Q-SNE-M03": {
+      "quest_id": "white-pass-summit",
+      "goal": 2,
+      "scripts": [
+        "test_white_pass_chapter.py"
+      ]
+    },
+    "Q-SNE-S01": {
+      "quest_id": "sne-mitya-observation",
+      "goal": 8,
+      "scripts": [
+        "test_sne_mitya_observation.py"
+      ]
+    },
+    "Q-SNE-S02": {
+      "quest_id": "white-pass-footprints",
+      "goal": 2,
+      "scripts": [
+        "test_white_pass_chapter.py"
+      ]
+    },
+    "Q-SNE-S03": {
+      "quest_id": "white-pass-footwork",
+      "goal": 2,
+      "scripts": [
+        "test_white_pass_chapter.py"
+      ]
+    },
+    "Q-SNE-S04": {
+      "quest_id": "white-pass-rest",
+      "goal": 2,
+      "scripts": [
+        "test_white_pass_chapter.py"
+      ]
+    },
+    "Q-SNE-S05": {
+      "quest_id": "sne-snow-match-quest",
+      "goal": 3,
+      "scripts": [
+        "test_sne_snow_match.py"
+      ]
+    },
+    "Q-SUM-D01": {
+      "quest_id": "daily-sum-survey",
+      "goal": 200,
+      "scripts": [
+        "test_daily_sumeru.py"
+      ]
+    },
+    "Q-SUM-D02": {
+      "quest_id": "daily-sum-forest",
+      "goal": 80,
+      "scripts": [
+        "test_daily_sumeru.py"
+      ]
+    },
+    "Q-SUM-D03": {
+      "quest_id": "daily-sum-elites",
+      "goal": 3,
+      "scripts": [
+        "test_daily_sumeru.py"
+      ]
+    },
+    "Q-SUM-D04": {
+      "quest_id": "daily-sum-workyard",
+      "goal": 60,
+      "scripts": [
+        "test_daily_sumeru.py"
+      ]
+    },
+    "Q-SUM-D05": {
+      "quest_id": "daily-sum-species",
+      "goal": 3,
+      "scripts": [
+        "test_daily_sumeru.py"
+      ]
+    },
+    "Q-SUM-M01": {
+      "quest_id": "sumeru-leaf-crossing",
+      "goal": 5,
+      "scripts": [
+        "test_sumeru_canopy.py"
+      ]
+    },
+    "Q-SUM-M02": {
+      "quest_id": "sumeru-forest-levels",
+      "goal": 5,
+      "scripts": [
+        "test_sumeru_canopy.py"
+      ]
+    },
+    "Q-SUM-M03": {
+      "quest_id": "sumeru-observatory-map",
+      "goal": 4,
+      "scripts": [
+        "test_sumeru_canopy.py"
+      ]
+    },
+    "Q-SUM-S01": {
+      "quest_id": "sum-wanderer-observation",
+      "goal": 8,
+      "scripts": [
+        "test_sumeru_wanderer_survey.py"
+      ]
+    },
+    "Q-SUM-S02": {
+      "quest_id": "sum-fungus-visitors",
+      "goal": 11,
+      "scripts": [
+        "test_sumeru_observation_visitors.py"
+      ]
+    },
+    "Q-SUM-S03": {
+      "quest_id": "sum-collei-guide",
+      "goal": 6,
+      "scripts": [
+        "test_sumeru_collei_guide.py"
+      ]
+    },
+    "Q-SUM-S04": {
+      "quest_id": "sum-kaveh-model",
+      "goal": 2,
+      "scripts": [
+        "test_sumeru_kaveh_model.py"
+      ]
+    },
+    "Q-SUM-S05": {
+      "quest_id": "sum-nahida-map",
+      "goal": 2,
+      "scripts": [
+        "test_sumeru_nahida_map.py"
+      ]
+    }
+  }
+}

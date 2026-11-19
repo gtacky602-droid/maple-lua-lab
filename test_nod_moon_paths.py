@@ -107,8 +107,14 @@ def cross_coast(s):
     jump_to(s, 1060, 388, 292)
     inspect(s, 1400, 292)
     assert branch(s, "coast").count == 3
+    if not s.story.visited[inlet]:
+        s = restore(s)
+        assert s.story.node == town and not s.story.visited[inlet]
+        assert progress(s).count == 2 and branch(s, "coast").count == 3
+        gate(s, 959, coast)
     gate(s, 1534, inlet, 292)
     assert s.actors[1].y == 386
+    return s
 
 
 def start_wood(s):
@@ -125,8 +131,15 @@ def clear_wood(s):
     for enemy in list(s.enemies.values()):
         strike(s, enemy)
     assert branch(s, "wood").count == 2
+    assert not s.story.visited[inlet]
+    s = restore(s)
+    assert s.story.node == town and not s.story.visited[inlet]
+    assert progress(s).count == 2 and branch(s, "wood").count == 2
+    gate(s, 458, rest)
+    gate(s, 1328, wood)
     gate(s, 1526, inlet)
     assert s.actors[1].y == 480
+    return s
 
 
 def finish(s):
@@ -168,7 +181,7 @@ fixture = checkpoint(prepare())
 s = prepare()
 accept(s)
 start_wood(s)
-clear_wood(s)
+s = clear_wood(s)
 assert branch(s, "coast").count == 0
 invalid = deepcopy(checkpoint(s))
 invalid["story"]["quests"][quest]["pathProgress"]["wood"]["count"] = 1
@@ -178,6 +191,14 @@ except ValueError as error:
     assert "分岐と合流" in str(error)
 else:
     raise AssertionError("Joined save must contain one completed path")
+invalid = deepcopy(checkpoint(s))
+del invalid['story']['visited'][wood]
+try:
+    validate_save(invalid)
+except ValueError as error:
+    assert '未訪問' in str(error)
+else:
+    raise AssertionError('Completed path must retain visits to its own objectives')
 s = finish(s)
 gate(s, 1258, cave)
 inspect(s, 549)
@@ -186,14 +207,14 @@ gate(s, 55, inlet)
 assert any(p.moonDeck for p in s.platforms.values())
 gate(s, 250, coast, 386, allowed=False)
 s = restore(s)
-cross_coast(s)
+s = cross_coast(s)
 assert progress(s).status == "complete" and progress(s).count == 6
 news = checkpoint(s)
 assert news["story"]["quests"][quest]["pathProgress"]["coast"]["count"] == 3
 
 s = prepare()
 accept(s)
-cross_coast(s)
+s = cross_coast(s)
 assert branch(s, "wood").count == 0
 s = finish(s)
 start_wood(s)
@@ -212,8 +233,10 @@ gate(s, 1526, inlet)
 gate(s, 60, wood)
 assert len(s.enemies) == 4
 
-proof = dict(woodOnly=True, coastOnly=True, optionalCoastAfterReport=True, optionalWoodAfterReport=True,
-             partialOptionalSweepRestored=True, tamperedJoinRejected=True, bothHeightJumps=True,
+proof = dict(woodOnly=True, coastOnly=True, savedBeforeInletOnBothRoutes=True,
+             optionalCoastAfterReport=True, optionalWoodAfterReport=True,
+             partialOptionalSweepRestored=True, tamperedJoinRejected=True, unvisitedPathRejected=True,
+             bothHeightJumps=True,
              glimpseFreezesOnPause=True, bridgeCrossedOnFoot=True, bridgeRestored=True,
              safeRestAndHuntSeparate=True, shortcutBothDirections=True, coastOre=2, caveOre=3,
              reportReward=[QUEST_REPORT_EXP["Q-NOD-M02"], 10600, 0])

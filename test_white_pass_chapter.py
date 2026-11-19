@@ -113,6 +113,20 @@ assert s.story.quests[ticket].count==3
 gate(s,60,road)
 gate(s,60,hub)
 report(s,ticket,'M01')
+footprints='white-pass-footprints'
+core.action(s,'story_accept:'+footprints)
+gate(s,1380,road)
+gate(s,865,cut)
+inspect(s,440,footprints,1)
+place(s,580)
+core.action(s,'jump')
+step(s,60,jump=True)
+assert s.actors[s.active].y==382
+core.action(s,'story_collect')
+assert s.story.quests[footprints].count==2
+gate(s,60,road)
+gate(s,60,hub)
+report(s,footprints,'S02')
 gate(s,800,coach)
 assert s.voyage.kind=='train'
 step(s,180)
@@ -124,6 +138,24 @@ core.action(s,'pause')
 step(s,360)
 assert s.story.node==station and s.voyage is None
 assert resume(s).story.node==station
+
+footwork='white-pass-footwork'
+core.action(s,'story_accept:'+footwork)
+inspect(s,450,footwork,0)
+core.action(s,'jump')
+step(s,60,jump=True)
+assert s.actors[s.active].y==390
+core.action(s,'story_collect')
+assert s.story.quests[footwork].count==1
+for _ in range(90):
+    actor=s.actors[s.active]
+    if actor.x>=660 and actor.ground and actor.y==480:
+        break
+    step(s,1,right=True)
+assert abs(s.actors[s.active].x-670)<25
+core.action(s,'story_collect')
+assert s.story.quests[footwork].count==2
+report(s,footwork,'S03')
 
 core.action(s,'story_accept:'+summit)
 assert s.story.quests[summit] is None
@@ -172,6 +204,8 @@ gate(s,55,woods)
 gate(s,55,station)
 report(s,summit,'M03')
 assert resume(s).story.quests[summit].status=='complete'
+assert resume(s).story.quests[footprints].status=='complete'
+assert resume(s).story.quests[footwork].status=='complete'
 
 # A level-eligible traveler can take the uphill path before ever accepting M01.
 independent = session(155,hub)
@@ -184,7 +218,8 @@ gate(independent,55,woods)
 gate(independent,55,station)
 
 proof={'earnedLv140KillExp':earned.progression.killXp,'earnedLv160KillExp':almost.progression.killXp,
-       'threeMainQuests':True,'sideRestDuringM02':True,'walkingBypass':True,'pausedTrain':True,
+       'threeMainQuests':True,'sideFootprintsAndFootwork':True,'sideRestDuringM02':True,
+       'walkingBypass':True,'pausedTrain':True,
        'rideSeconds':9,'restoredAtStation':True,'firstClearExp':first_clear,
        'chapterOrdinaryKillExp':normal_reward,'repeatRewardBlocked':True}
 (ROOT/'evidence/white-pass-chapter.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')
