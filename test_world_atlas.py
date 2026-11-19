@@ -18,9 +18,11 @@ fields = {point['field'] for region in atlas['regions'] for point in region['poi
 drafts = {point['id']: point for region in atlas['regions'] for point in region['draft']}
 assert len(atlas['regions']) == 24
 assert {p['id'] for r in atlas['regions'] for p in r['points']} == nodes.keys()
-assert len(fields) == plan['live_bound_fields'] == 905
-assert plan['official_fields'] == 873 and plan['provisional_layout_fields'] == 32
-assert len(drafts) == len(plan['draft_field_approaches']) == 74
+assert len(fields) == plan['live_bound_fields'] == 976
+assert plan['official_fields'] == 873 and plan['provisional_layout_fields'] == 103
+assert len(drafts) == len(plan['draft_field_approaches']) == 3
+assert set(drafts) == {'teyvat:10009', 'teyvat:85351', 'teyvat:98500'}
+assert sum(row['finding']=='implemented_as_lab_route' for row in plan['sites_only_route_review']) == 99
 assert not (fields & drafts.keys()) and len(fields) + len(drafts) == plan['imported_fields'] == 979
 assert len(plan['sites_only_route_review']) == 421
 for entry in plan['draft_field_approaches']:

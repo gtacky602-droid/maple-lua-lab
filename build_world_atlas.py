@@ -60,8 +60,8 @@ def embed_anchors(fields, stages):
 
 def positions(fields, stages):
     anchors, adj = embed_anchors(fields, stages)
-    placed = {node['id']: anchors[node['mapPoint']] for node in stages.values()
-              if node.get('mapPoint') in anchors}
+    placed = {node['id']: anchors[field] for node in stages.values()
+              if (field := node.get('mapPoint') or node.get('designField')) in anchors}
     placed.update({node['id']: node['atlasPosition'] for node in stages.values() if 'atlasPosition' in node})
     if not placed and stages:
         origin = next((node['id'] for node in stages.values() if node['hub']), next(iter(stages)))
@@ -73,8 +73,9 @@ def positions(fields, stages):
         pending = sorted(set(adj[source]) - placed.keys())
         for i, id in enumerate(pending):
             angle = (((sum(ord(c) for c in id) % 360) + i*137) / 180)*pi
-            placed[id] = [round(max(48, min(852, x+57*cos(angle))), 1),
-                          round(max(48, min(452, y+57*sin(angle))), 1)]
+            distance = 38 if stages[id].get('atlasParent') == source else 57
+            placed[id] = [round(max(48, min(852, x+distance*cos(angle))), 1),
+                          round(max(48, min(452, y+distance*sin(angle))), 1)]
             queue.append(id)
     # Some auxiliary instances join via cutscenes, fast travel or another region.
     for i, id in enumerate(sorted(stages.keys()-placed.keys())):
@@ -150,7 +151,7 @@ def build():
     nodes = {node['id']: node for node in graph['nodes']}
     designed_links = {node['designField']: {'stage_id': node['id']} for node in nodes.values() if 'designField' in node}
     assert len(designed_links) == sum('designField' in node for node in nodes.values())
-    assert all(field.startswith('slot:') and field in all_fields for field in designed_links)
+    assert set(designed_links) <= all_fields.keys() and not (official_links.keys() & designed_links.keys())
     assert not any(node.get('mapPoint') for node in nodes.values() if 'designField' in node)
     field_links = official_links | designed_links
     returnable = reachable(nodes) & reachable(nodes, reverse=True)
@@ -159,6 +160,8 @@ def build():
     mapped_stage = {}
     for node in graph['nodes']:
         field = all_fields.get(node.get('mapPoint') or node.get('designField'))
+        if parent := node.get('atlasParent'):
+            field = all_fields[nodes[parent]['designField']]
         region = field['design_region_id'] if field else VOYAGE_REGIONS.get(node['id'], region_for_name.get(node['region']))
         if region:
             stages_by_region[region][node['id']] = node
@@ -173,8 +176,10 @@ def build():
         for node_id, node in stages.items():
             field = all_fields.get(node.get('mapPoint') or node.get('designField'))
             floor = field['map_anchor']['point_group'] if field else None
+            layer = 'water' if node.get('swim') else 'below' if floor or node.get('waypoint', {}).get('floor') else 'surface'
             points.append({'id': node_id, 'x': located[node_id][0], 'y': located[node_id][1],
-                           'layer': 'water' if node.get('swim') else 'below' if floor or node.get('waypoint', {}).get('floor') else 'surface',
+                           'layer': node.get('atlasLayer', layer),
+                           **({'provisional': True} if node.get('designField') or node.get('atlasParent') else {}),
                            **({'recommended': field['level'], 'field': field['field_id']} if field else {})})
         # Imported design points missing a runtime assignment are available in the review layer.
         draft = []
@@ -209,6 +214,14 @@ def build():
     review = []
     lab_routes = load('sources/map-research/sites-slot-trails.json')['routes'] if designed_links else []
     implemented = {frozenset(route['fields']) for route in lab_routes}
+    geographic = load('sources/map-research/sites-geographic-fields.json')['routes']
+    for route in geographic:
+        field, anchor = route['field'], route['anchor_field']
+        stage, host = route['stage'], route['approach']
+        assert field_links[field]['stage_id'] == stage and field_links[anchor]['stage_id'] == host
+        assert any(exit['to']==stage for exit in nodes[host]['exits'])
+        assert any(exit['to']==host for exit in nodes[stage]['exits'])
+        implemented.add(frozenset((field, anchor)))
     source_by_pair = {frozenset((edge['a'],edge['b'])): edge for edge in imported['edges']}
     for a,b in ledger['sites_only_route_pairs']:
         source = source_by_pair[frozenset((a,b))]

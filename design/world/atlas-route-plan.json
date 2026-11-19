@@ -1,90 +1,9 @@
 {
-  "live_bound_fields": 905,
+  "live_bound_fields": 976,
   "imported_fields": 979,
   "official_fields": 873,
-  "provisional_layout_fields": 32,
+  "provisional_layout_fields": 103,
   "draft_field_approaches": [
-    {
-      "field": "teyvat:7092",
-      "anchor": "mond-wp-21",
-      "method": "approach_from_source",
-      "minimum_to_approach": 6,
-      "recommended": 13,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:7111",
-      "anchor": "mond-wp-24",
-      "method": "approach_from_source",
-      "minimum_to_approach": 14,
-      "recommended": 13,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:7137",
-      "anchor": "mond-wp-19",
-      "method": "approach_from_source",
-      "minimum_to_approach": 6,
-      "recommended": 13,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:7149",
-      "anchor": "mond-wp-14",
-      "method": "approach_from_source",
-      "minimum_to_approach": 5,
-      "recommended": 13,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:7157",
-      "anchor": "mond-road",
-      "method": "approach_from_source",
-      "minimum_to_approach": 1,
-      "recommended": 13,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:7186",
-      "anchor": "mond-wp-18",
-      "method": "approach_from_source",
-      "minimum_to_approach": 10,
-      "recommended": 13,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:7201",
-      "anchor": "mond-wp-7",
-      "method": "approach_from_source",
-      "minimum_to_approach": 8,
-      "recommended": 13,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:7206",
-      "anchor": "mond-wp-7",
-      "method": "approach_from_source",
-      "minimum_to_approach": 8,
-      "recommended": 13,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:7210",
-      "anchor": "mond-wp-17",
-      "method": "approach_from_source",
-      "minimum_to_approach": 14,
-      "recommended": 13,
-      "terminus": true,
-      "runtime_gate": false
-    },
     {
       "field": "teyvat:10009",
       "anchor": "mond-border",
@@ -100,564 +19,6 @@
       "method": "needs_entrance_review",
       "minimum_to_approach": 7,
       "recommended": 13,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:7114",
-      "anchor": "liyue-wp-39",
-      "method": "approach_from_source",
-      "minimum_to_approach": 27,
-      "recommended": 38,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:7116",
-      "anchor": "liyue-wp-42",
-      "method": "approach_from_source",
-      "minimum_to_approach": 28,
-      "recommended": 38,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:7121",
-      "anchor": "oceanid-approach",
-      "method": "approach_from_source",
-      "minimum_to_approach": 20,
-      "recommended": 38,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:7173",
-      "anchor": "liyue-wp-35",
-      "method": "approach_from_source",
-      "minimum_to_approach": 27,
-      "recommended": 38,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:7190",
-      "anchor": "liyue-field",
-      "method": "approach_from_source",
-      "minimum_to_approach": 20,
-      "recommended": 38,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:7215",
-      "anchor": "geo-approach",
-      "method": "needs_entrance_review",
-      "minimum_to_approach": 20,
-      "recommended": 39,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:7218",
-      "anchor": "liyue-wp-104",
-      "method": "approach_from_source",
-      "minimum_to_approach": 20,
-      "recommended": 38,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:7220",
-      "anchor": "liyue-wp-105",
-      "method": "approach_from_source",
-      "minimum_to_approach": 24,
-      "recommended": 38,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:9778",
-      "anchor": "primo-approach",
-      "method": "approach_from_source",
-      "minimum_to_approach": 20,
-      "recommended": 38,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:18048",
-      "anchor": "liyue-wp-45",
-      "method": "approach_from_source",
-      "minimum_to_approach": 32,
-      "recommended": 38,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:24907",
-      "anchor": "liyue-wp-24909",
-      "method": "approach_from_source",
-      "minimum_to_approach": 31,
-      "recommended": 38,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:12778",
-      "anchor": "ina-wp-47990",
-      "method": "approach_from_source",
-      "minimum_to_approach": 48,
-      "recommended": 59,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:12781",
-      "anchor": "ina-wp-12733",
-      "method": "approach_from_source",
-      "minimum_to_approach": 45,
-      "recommended": 59,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:12784",
-      "anchor": "ina-wp-12725",
-      "method": "approach_from_source",
-      "minimum_to_approach": 41,
-      "recommended": 59,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:12788",
-      "anchor": "ina-wp-12715",
-      "method": "approach_from_source",
-      "minimum_to_approach": 46,
-      "recommended": 59,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:12791",
-      "anchor": "ina-wp-12749",
-      "method": "approach_from_source",
-      "minimum_to_approach": 45,
-      "recommended": 59,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:12794",
-      "anchor": "maguu-approach",
-      "method": "approach_from_source",
-      "minimum_to_approach": 40,
-      "recommended": 59,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:15949",
-      "anchor": "ina-wp-15951",
-      "method": "approach_from_source",
-      "minimum_to_approach": 50,
-      "recommended": 59,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:17223",
-      "anchor": "ina-wp-12722",
-      "method": "approach_from_source",
-      "minimum_to_approach": 42,
-      "recommended": 59,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:18667",
-      "anchor": "ina-wp-12711",
-      "method": "needs_entrance_review",
-      "minimum_to_approach": 49,
-      "recommended": 56,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:20369",
-      "anchor": "ina-wp-16030",
-      "method": "approach_from_source",
-      "minimum_to_approach": 50,
-      "recommended": 59,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:24906",
-      "anchor": "ina-wp-12733",
-      "method": "approach_from_source",
-      "minimum_to_approach": 45,
-      "recommended": 59,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:28751",
-      "anchor": "sum-wp-28749",
-      "method": "approach_from_source",
-      "minimum_to_approach": 65,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:28752",
-      "anchor": "sumeru-entry",
-      "method": "approach_from_source",
-      "minimum_to_approach": 60,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:28753",
-      "anchor": "sum-wp-28741",
-      "method": "approach_from_source",
-      "minimum_to_approach": 64,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:28754",
-      "anchor": "sum-wp-28729",
-      "method": "approach_from_source",
-      "minimum_to_approach": 65,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:28755",
-      "anchor": "sum-wp-28726",
-      "method": "approach_from_source",
-      "minimum_to_approach": 63,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:28756",
-      "anchor": "sum-wp-28718",
-      "method": "approach_from_source",
-      "minimum_to_approach": 65,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:28757",
-      "anchor": "sum-wp-28717",
-      "method": "approach_from_source",
-      "minimum_to_approach": 66,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:36703",
-      "anchor": "sum-wp-36683",
-      "method": "approach_from_source",
-      "minimum_to_approach": 75,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:36704",
-      "anchor": "sum-wp-36691",
-      "method": "approach_from_source",
-      "minimum_to_approach": 71,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:36705",
-      "anchor": "sum-wp-36697",
-      "method": "approach_from_source",
-      "minimum_to_approach": 73,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:41009",
-      "anchor": "sum-wp-28734",
-      "method": "approach_from_source",
-      "minimum_to_approach": 66,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:41694",
-      "anchor": "sum-wp-36680",
-      "method": "approach_from_source",
-      "minimum_to_approach": 67,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:41817",
-      "anchor": "sum-wp-41836",
-      "method": "approach_from_source",
-      "minimum_to_approach": 77,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:41818",
-      "anchor": "sum-wp-41839",
-      "method": "approach_from_source",
-      "minimum_to_approach": 78,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:46531",
-      "anchor": "sum-wp-46524",
-      "method": "approach_from_source",
-      "minimum_to_approach": 76,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:46532",
-      "anchor": "sum-wp-46527",
-      "method": "approach_from_source",
-      "minimum_to_approach": 77,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:46533",
-      "anchor": "sum-wp-46516",
-      "method": "approach_from_source",
-      "minimum_to_approach": 73,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:46534",
-      "anchor": "sum-wp-46515",
-      "method": "approach_from_source",
-      "minimum_to_approach": 75,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:98499",
-      "anchor": "sum-wp-28744",
-      "method": "approach_from_source",
-      "minimum_to_approach": 65,
-      "recommended": 79,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:50034",
-      "anchor": "fon-wp-50035",
-      "method": "approach_from_source",
-      "minimum_to_approach": 86,
-      "recommended": 99,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:50057",
-      "anchor": "fon-wp-50056",
-      "method": "approach_from_source",
-      "minimum_to_approach": 80,
-      "recommended": 99,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:50067",
-      "anchor": "fon-wp-50075",
-      "method": "needs_water_transition",
-      "minimum_to_approach": 88,
-      "recommended": 99,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:56792",
-      "anchor": "fon-wp-50066",
-      "method": "needs_water_transition",
-      "minimum_to_approach": 87,
-      "recommended": 99,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:63738",
-      "anchor": "fon-wp-55763",
-      "method": "approach_from_source",
-      "minimum_to_approach": 90,
-      "recommended": 99,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:68346",
-      "anchor": "fon-wp-68341",
-      "method": "approach_from_source",
-      "minimum_to_approach": 92,
-      "recommended": 99,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:68347",
-      "anchor": "fon-wp-53867",
-      "method": "approach_from_source",
-      "minimum_to_approach": 86,
-      "recommended": 99,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:73159",
-      "anchor": "nat-wp-72414",
-      "method": "approach_from_source",
-      "minimum_to_approach": 102,
-      "recommended": 119,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:73160",
-      "anchor": "nat-wp-72422",
-      "method": "approach_from_source",
-      "minimum_to_approach": 106,
-      "recommended": 119,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:73161",
-      "anchor": "nat-wp-72445",
-      "method": "approach_from_source",
-      "minimum_to_approach": 105,
-      "recommended": 119,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:81383",
-      "anchor": "nat-wp-79051",
-      "method": "approach_from_source",
-      "minimum_to_approach": 110,
-      "recommended": 119,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:82577",
-      "anchor": "nat-wp-82564",
-      "method": "approach_from_source",
-      "minimum_to_approach": 108,
-      "recommended": 119,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:88121",
-      "anchor": "nod-wp-88133",
-      "method": "approach_from_source",
-      "minimum_to_approach": 123,
-      "recommended": 140,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:88122",
-      "anchor": "nod-wp-88144",
-      "method": "approach_from_source",
-      "minimum_to_approach": 120,
-      "recommended": 140,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:88123",
-      "anchor": "nod-wp-88129",
-      "method": "approach_from_source",
-      "minimum_to_approach": 125,
-      "recommended": 140,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:92859",
-      "anchor": "nod-wp-92885",
-      "method": "approach_from_source",
-      "minimum_to_approach": 133,
-      "recommended": 140,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:92860",
-      "anchor": "nod-wp-92892",
-      "method": "approach_from_source",
-      "minimum_to_approach": 134,
-      "recommended": 140,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:100705",
-      "anchor": "sne-wp-100658",
-      "method": "approach_from_source",
-      "minimum_to_approach": 147,
-      "recommended": 159,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:100706",
-      "anchor": "white-pass-cut",
-      "method": "approach_from_source",
-      "minimum_to_approach": 140,
-      "recommended": 159,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:100707",
-      "anchor": "sne-wp-100695",
-      "method": "approach_from_source",
-      "minimum_to_approach": 143,
-      "recommended": 159,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:7164",
-      "anchor": "mond-wp-6609",
-      "method": "approach_from_source",
-      "minimum_to_approach": 60,
-      "recommended": 55,
       "terminus": true,
       "runtime_gate": false
     },
@@ -1596,7 +957,7 @@
         "teyvat:100705"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -1650,7 +1011,7 @@
         "teyvat:100706"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -1803,7 +1164,7 @@
         "teyvat:100707"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -1812,7 +1173,7 @@
         "teyvat:9778"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -1848,7 +1209,7 @@
         "teyvat:7218"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -1875,7 +1236,7 @@
         "teyvat:7220"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2127,7 +1488,7 @@
         "teyvat:12794"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2145,7 +1506,7 @@
         "teyvat:12788"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2154,7 +1515,7 @@
         "teyvat:17223"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2163,7 +1524,7 @@
         "teyvat:12784"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2181,7 +1542,7 @@
         "teyvat:12781"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2190,7 +1551,7 @@
         "teyvat:24906"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2208,7 +1569,7 @@
         "teyvat:12791"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2217,7 +1578,7 @@
         "teyvat:47990"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2235,7 +1596,7 @@
         "teyvat:7149"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2253,7 +1614,7 @@
         "teyvat:15951"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2325,7 +1686,7 @@
         "teyvat:20369"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2334,7 +1695,7 @@
         "teyvat:7210"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2343,7 +1704,7 @@
         "teyvat:7186"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2352,7 +1713,7 @@
         "teyvat:45"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2361,7 +1722,7 @@
         "teyvat:18667"
       ],
       "mode": "boat",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "鶴観―離れ小島の秘境の港・浜を結ぶ本作用の航路。海を徒歩で横断しない。"
     },
     {
@@ -2388,7 +1749,7 @@
         "teyvat:7137"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2397,7 +1758,7 @@
         "teyvat:7092"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2424,7 +1785,7 @@
         "teyvat:7111"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2433,7 +1794,7 @@
         "teyvat:24909"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2568,7 +1929,7 @@
         "teyvat:28757"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2577,7 +1938,7 @@
         "teyvat:28756"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2604,7 +1965,7 @@
         "teyvat:28755"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2613,7 +1974,7 @@
         "teyvat:28754"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2631,7 +1992,7 @@
         "teyvat:28752"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2640,7 +2001,7 @@
         "teyvat:41009"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2676,7 +2037,7 @@
         "teyvat:28753"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2694,7 +2055,7 @@
         "teyvat:98499"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2712,7 +2073,7 @@
         "teyvat:28751"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2730,7 +2091,7 @@
         "teyvat:7157"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2766,7 +2127,7 @@
         "teyvat:7121"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2793,7 +2154,7 @@
         "teyvat:7190"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2811,7 +2172,7 @@
         "teyvat:7173"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2847,7 +2208,7 @@
         "teyvat:41694"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2865,7 +2226,7 @@
         "teyvat:36703"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2883,7 +2244,7 @@
         "teyvat:36704"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2937,7 +2298,7 @@
         "teyvat:36705"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2955,7 +2316,7 @@
         "teyvat:7114"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2964,7 +2325,7 @@
         "teyvat:41836"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -2973,7 +2334,7 @@
         "teyvat:41839"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3045,7 +2406,7 @@
         "teyvat:7116"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3090,7 +2451,7 @@
         "teyvat:46534"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3099,7 +2460,7 @@
         "teyvat:46533"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3144,7 +2505,7 @@
         "teyvat:46531"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3180,7 +2541,7 @@
         "teyvat:46532"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3207,7 +2568,7 @@
         "teyvat:50035"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3279,7 +2640,7 @@
         "teyvat:50057"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3297,7 +2658,7 @@
         "teyvat:56792"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3306,7 +2667,7 @@
         "teyvat:50075"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3378,7 +2739,7 @@
         "teyvat:68347"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3387,7 +2748,7 @@
         "teyvat:7215"
       ],
       "mode": "island_boat",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "島間の浅瀬を徒歩と仮定しない。船・上陸点を設定し、秘境入口は終端。"
     },
     {
@@ -3441,7 +2802,7 @@
         "teyvat:63738"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3603,7 +2964,7 @@
         "teyvat:7164"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3612,7 +2973,7 @@
         "teyvat:68346"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3621,7 +2982,7 @@
         "teyvat:7201"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3630,7 +2991,7 @@
         "teyvat:7206"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3675,7 +3036,7 @@
         "teyvat:73159"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3738,7 +3099,7 @@
         "teyvat:73160"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3864,7 +3225,7 @@
         "teyvat:73161"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -3891,7 +3252,7 @@
         "teyvat:81383"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -4071,7 +3432,7 @@
         "teyvat:82577"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -4170,7 +3531,7 @@
         "teyvat:88133"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -4179,7 +3540,7 @@
         "teyvat:88144"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -4188,7 +3549,7 @@
         "teyvat:88129"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -4305,7 +3666,7 @@
         "teyvat:92885"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -4314,7 +3675,7 @@
         "teyvat:92892"
       ],
       "mode": "field_approach",
-      "finding": "needs_stage_binding",
+      "finding": "implemented_as_lab_route",
       "terrain_note": "周辺フィールドから旧秘境の通常狩場へ向かう候補。入口周辺の支道と実際の通行可否は要確認。"
     },
     {
@@ -10181,6 +9542,27 @@
       "access": 60,
       "recommended": 69,
       "safe": true
+    },
+    {
+      "field": "teyvat:7111",
+      "stage": "sites-hunt-7111",
+      "access": 14,
+      "recommended": 13,
+      "safe": false
+    },
+    {
+      "field": "teyvat:7210",
+      "stage": "sites-hunt-7210",
+      "access": 14,
+      "recommended": 13,
+      "safe": false
+    },
+    {
+      "field": "teyvat:7164",
+      "stage": "sites-hunt-7164",
+      "access": 60,
+      "recommended": 55,
+      "safe": false
     }
   ],
   "manual_cases": [

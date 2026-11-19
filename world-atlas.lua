@@ -235,7 +235,7 @@ return function(C, atlas)
     local node=nodes[p.id]
     if node and (map.layer=='all' or p.layer==map.layer) then
      local point={id=p.id,name=node.name,x=p.x,y=p.y,level=node.level,layer=p.layer,
-       recommended=p.recommended,current=p.id==state.node,selected=p.id==map.selected,
+       recommended=p.recommended,provisional=p.provisional,current=p.id==state.node,selected=p.id==map.selected,
        major=node.hub or node.waypoint and node.waypoint.kind=='statue',
        visited=state.visited[p.id],mode=node.hub and 'hub' or node.swim and 'water' or 'field'}
      where[p.id]=point

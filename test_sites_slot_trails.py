@@ -24,7 +24,8 @@ edges = {(id, e['to']): e for id, gates in exits.items() for e in gates}
 placements = read('content/enemy-spawns.json')['nodes']
 review = read('sources/map-research/sites-slot-trails.json')
 fields = review['bindings']
-assert fields == {n['designField']:n['id'] for n in nodes.values() if n.get('designField')}
+assert fields == {field:n['id'] for n in nodes.values()
+                  if (field := n.get('designField', '')).startswith('slot:')}
 assert len(set(fields.values())) == len(fields) == 32
 assert all(not nodes[id].get('mapPoint') for id in fields.values())
 layout_groups = {'GAA':'hidden-01','VLM':'hidden-02','SIM':'hidden-03','NSP':'branch-08'}

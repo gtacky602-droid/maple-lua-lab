@@ -1,0 +1,23 @@
+{
+  "field_round_trips": 71,
+  "directions_traversed": 248,
+  "routes_by_terrain": {
+    "walk": 54,
+    "ledge": 3,
+    "boat": 2,
+    "cave": 9,
+    "lift": 1,
+    "water": 2
+  },
+  "own_checkpoint_recovery": 71,
+  "level_gates_exercised": 68,
+  "ordinary_placements": 3140,
+  "optional_pocket_round_trips": 53,
+  "underwater_corridor_rendered_ground_combat_respawn": 2,
+  "existing_quest_progress_preserved": true,
+  "held_points": [
+    "teyvat:10009",
+    "teyvat:85351",
+    "teyvat:98500"
+  ]
+}

@@ -101,6 +101,7 @@ export function initAtlas(action, clearKeys) {
    : selected ? [
     selected.current ? '現在地' : selected.visited ? '訪問済み' : '未訪問',
     '通行Lv' + selected.level,
+    selected.provisional ? '試作区画' : '',
     selected.recommended && selected.recommended !== selected.level ? '設計推奨Lv' + selected.recommended : '',
    ].filter(Boolean).join(' ｜ ') : area ? `設計推奨Lv${area.low}〜${area.high}` : '地域を選ぶと周辺のフィールドを確認できます';
   const links = entries(view.routes).map(route => {
