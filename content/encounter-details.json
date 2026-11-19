@@ -829,12 +829,9 @@
       "review_note": "旧候補を残した独自模擬戦。璃月に四つの難度と個人記録を実装。"
     },
     "stygian-wanderer": {
-      "remaining": [
-        "専用モーション・台詞",
-        "4難度・報酬",
-        "マルチ・記録",
-        "専用戦闘行動"
-      ],
+      "extra_evidence": ["evidence/stygian-wanderer-lua.json","evidence/stygian-wanderer-browser.json"],
+      "remaining": ["専用の連続作画と音","上位難度の通しプレイと調整","実マルチ、本番3Dと幻境実機"],
+      "review_note": "三段階の空中模擬戦。風輪と三つの足場、風標、着地予告、四風の安全門、四難度の報酬と個人記録。",
       "art_candidate": {
         "gallery": "characters",
         "item": "wanderer"

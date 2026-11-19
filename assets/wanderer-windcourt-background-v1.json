@@ -1,0 +1,12 @@
+{
+  "status": "Original placeholder background for the local lab",
+  "tool": "built-in ImageGen",
+  "file": "wanderer-windcourt-background-v1.png",
+  "sha256": "7e6ef2fe23c973fab6eed1107b93714ad2234ac2f013a88bc53f2ee7192c3106",
+  "pixelSize": [
+    1672,
+    941
+  ],
+  "prompt": "A single original environment background for a 2D side-scrolling pixel-art RPG, wide 16:9 landscape. An ancient wind observatory carved into pale warm sandstone high above a tropical forest canyon. Far background only: teal distance haze, terraced sandstone cliffs in side profile, muted emerald treetops, one or two elegant narrow stone pylons with holes for wind chimes at far left and far right, hanging bridges only remote and small. Mist and washed-out cyan sky across upper two thirds, light coming from top-left. Restrained palette of teal, slate, sage, and dusty honey. Leave the CENTER and the entire bottom third relatively low contrast and uncluttered so the game's layered teal and white combat hazard marks, airborne characters and separately drawn physical platforms read instantly. Compose from the side at fixed camera, as a single wide illustrated matte background, subtle carefully hand-pixelated tone clusters and edge steps, restrained contrast, strong sense of elevation and distance. No characters, no combat effects, no floating platforms in the playable foreground, no glowing interactable rings, no text, no numbers, no logos, no game franchise assets.",
+  "separateLayers": "Physical platforms use the story graph. Wind pads, the boss, warnings, and marks are Lua combat layers. Production uses 3D scenery."
+}

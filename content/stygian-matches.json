@@ -1492,6 +1492,261 @@
           "extraCards": true
         }
       ]
+    },
+    "wanderer": {
+      "entity": 990007,
+      "node": "sumeru-stygian-windcourt",
+      "hub": "sumeru-hub",
+      "name": "放浪者・空中決闘",
+      "challenge": "stygian-wanderer",
+      "arena": {
+        "left": 40,
+        "right": 920,
+        "floor": 480,
+        "unit": 88,
+        "bossX": 636,
+        "playerX": 260,
+        "centerX": 480,
+        "risingPads": [
+          210,
+          750
+        ],
+        "padRadius": 36,
+        "boost": 790,
+        "marks": {
+          "L": [
+            210,
+            372
+          ],
+          "C": [
+            480,
+            290
+          ],
+          "R": [
+            750,
+            372
+          ]
+        },
+        "gateSites": [
+          220,
+          480,
+          740
+        ]
+      },
+      "timing": {
+        "enter": 62,
+        "shift": 46,
+        "finaleBetween": 3
+      },
+      "thresholds": [
+        0.67,
+        0.34
+      ],
+      "orders": [
+        [
+          "WD01",
+          "WD02"
+        ],
+        [
+          "WD03",
+          "WD04",
+          "WD02",
+          "WD01"
+        ],
+        [
+          "WD05",
+          "WD04",
+          "WD02",
+          "WD01",
+          "WD03"
+        ]
+      ],
+      "moves": {
+        "WD01": {
+          "title": "刻み風",
+          "total": 217,
+          "lock": 22,
+          "recover": 148,
+          "windows": [
+            [
+              52,
+              59
+            ],
+            [
+              89,
+              96
+            ],
+            [
+              126,
+              134
+            ]
+          ],
+          "damage": 13
+        },
+        "WD02": {
+          "title": "渡り風",
+          "total": 253,
+          "lock": 30,
+          "recover": 177,
+          "windows": [
+            [
+              83,
+              124
+            ]
+          ],
+          "damage": 19,
+          "flight": [
+            45,
+            83,
+            125,
+            154,
+            177
+          ],
+          "height": 116,
+          "maxTravel": 420
+        },
+        "WD03": {
+          "title": "風標の結び",
+          "total": 540,
+          "lock": 36,
+          "recover": 471,
+          "windows": [
+            [
+              429,
+              441
+            ]
+          ],
+          "damage": 21,
+          "markWindow": [
+            72,
+            399
+          ],
+          "marks": [
+            "L",
+            "R"
+          ],
+          "dropTicks": 30,
+          "successRecovery": 156,
+          "elevation": 151
+        },
+        "WD04": {
+          "title": "一線落ち",
+          "total": 262,
+          "lock": 46,
+          "recover": 147,
+          "windows": [
+            [
+              128,
+              138
+            ]
+          ],
+          "damage": 27,
+          "flight": [
+            52,
+            88,
+            128
+          ],
+          "height": 168,
+          "radius": 78
+        },
+        "WD05": {
+          "title": "逆巻く二段",
+          "total": 265,
+          "lock": 25,
+          "recover": 166,
+          "windows": [
+            [
+              64,
+              76
+            ],
+            [
+              140,
+              152
+            ]
+          ],
+          "damage": 23
+        },
+        "WD06": {
+          "title": "四風の決着",
+          "total": 840,
+          "lock": 40,
+          "recover": 600,
+          "windows": [
+            [
+              74,
+              86
+            ],
+            [
+              560,
+              574
+            ]
+          ],
+          "damage": 34,
+          "markWindow": [
+            116,
+            438
+          ],
+          "marks": [
+            "R",
+            "C"
+          ],
+          "gateTick": 438,
+          "wide": 80,
+          "narrow": 56,
+          "failureEnd": 750,
+          "elevation": 152
+        }
+      },
+      "modes": [
+        {
+          "id": "normal",
+          "name": "通常",
+          "level": 66,
+          "hp": 1550,
+          "damageScale": 1.0,
+          "rest": 34,
+          "mora": 4800,
+          "firstMora": 3600,
+          "itemLevel": 85,
+          "rarity": 4
+        },
+        {
+          "id": "hard",
+          "name": "ハード",
+          "level": 92,
+          "hp": 2340,
+          "damageScale": 1.14,
+          "rest": 28,
+          "mora": 7900,
+          "firstMora": 6800,
+          "itemLevel": 111,
+          "rarity": 4
+        },
+        {
+          "id": "master",
+          "name": "マスター",
+          "level": 121,
+          "hp": 3380,
+          "damageScale": 1.3,
+          "rest": 25,
+          "mora": 12800,
+          "firstMora": 9800,
+          "itemLevel": 141,
+          "rarity": 5
+        },
+        {
+          "id": "extreme",
+          "name": "極限",
+          "level": 157,
+          "hp": 4850,
+          "damageScale": 1.47,
+          "rest": 21,
+          "mora": 20500,
+          "firstMora": 18700,
+          "itemLevel": 177,
+          "rarity": 5
+        }
+      ]
     }
   }
 }

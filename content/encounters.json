@@ -13,7 +13,7 @@
   "counts": {
     "source_entities": 63,
     "encounter_candidates": 87,
-    "partial": 86,
+    "partial": 87,
     "complete": 0
   },
   "encounters": [
@@ -2573,18 +2573,22 @@
       "name": "放浪者・空中決闘",
       "kind": "stygian",
       "entity_ids": [],
-      "status": "not_implemented",
+      "status": "partial",
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "sources/20261116-amendment.md:94-101"
+        "docs/stygian-motion-v1/WANDERER_WEB.md",
+        "evidence/stygian-wanderer-lua.json",
+        "evidence/stygian-wanderer-browser.json"
       ],
       "remaining": [
-        "専用モーション・台詞",
-        "4難度・報酬",
-        "マルチ・記録",
-        "専用戦闘行動"
+        "専用の連続作画と音",
+        "上位難度の通しプレイと調整",
+        "実マルチ、本番3Dと幻境実機"
       ],
+      "stygianNode": "sumeru-stygian-windcourt",
+      "stygianEntrance": "幽境・風渡りの空中闘場（Lv66）",
+      "review_note": "三段階の空中模擬戦。風輪と三つの足場、風標、着地予告、四風の安全門、四難度の報酬と個人記録。",
       "art_candidate": {
         "gallery": "characters",
         "encoding": "assets/wanderer-idle-right-sprites-v3.json"

@@ -18,7 +18,8 @@
     {
       "id": "wanderer",
       "name": "放浪者・空中決闘",
-      "status": "not_implemented"
+      "status": "partial",
+      "source": "docs/stygian-motion-v1/WANDERER_WEB.md"
     },
     {
       "id": "capitano",

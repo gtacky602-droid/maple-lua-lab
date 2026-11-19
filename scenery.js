@@ -1,5 +1,6 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ windcourt:{file:'wanderer-windcourt-background-v1.png',zones:['story:sumeru-stygian-windcourt'],note:'風渡りの空中闘場のラボ用仮背景'},
  lastJudgment:{file:'false-moon-rift-background-v1.png',zones:['story:sne-stygian-last-gate'],note:'最後の審問のラボ用仮背景'},
  mistHunt:{file:'false-moon-rift-background-v1.png',zones:['story:nod-stygian-hunt'],note:'霧と月の狩場の仮背景（異界の画像を流用）'},
  solarSparringCourt:{file:'xbalanque-court-background-v1.png',zones:['story:natlan-solar-court'],note:'烈日の手合わせ場の仮背景'},
@@ -254,6 +255,15 @@ export function scenery(ctx,frame){
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
   if(p.riverDeck)continue;
+  if(key==='windcourt'){
+   ctx.fillStyle='#375969';ctx.fillRect(x,p.y,p.w,p.y===480?60:16);
+   ctx.fillStyle='#e5c997';ctx.fillRect(x,p.y,p.w,4);
+   ctx.fillStyle='#85a9a7';ctx.fillRect(x,p.y+6,p.w,2);
+   for(let stone=18;stone<p.w;stone+=66){
+    ctx.fillStyle='#4c7780';ctx.fillRect(x+stone,p.y+9,2,p.y===480?22:7);
+   }
+   continue;
+  }
   if(key==='solarSparringCourt'){
    ctx.fillStyle='#382d38';ctx.fillRect(x,p.y,p.w,p.y===480?60:14);
    ctx.fillStyle='#c19b7f';ctx.fillRect(x,p.y,p.w,3);

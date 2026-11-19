@@ -1,0 +1,36 @@
+{
+  "cards": [
+    "WD01",
+    "WD02",
+    "WD03",
+    "WD04",
+    "WD05",
+    "WD06"
+  ],
+  "ranks": [
+    66,
+    92,
+    121,
+    157
+  ],
+  "wind_ring_changes_real_jump_only_on_takeoff": true,
+  "forward_glide_locks_and_has_floor_refuge": true,
+  "marked_platform_requires_landing": true,
+  "two_marks_land_boss_on_platform_for_156_ticks": true,
+  "dive_hits_only_at_locked_landing": true,
+  "finale_gate_widths": [
+    160,
+    112
+  ],
+  "finale_openings_ticks": [
+    240,
+    150
+  ],
+  "regular_cards_between_finales": [
+    "WD05",
+    "WD04",
+    "WD02"
+  ],
+  "failure_cancels_cast": true,
+  "quest_reward_report_and_save": true
+}

@@ -39,7 +39,9 @@
   "beidouStygianRoute": true,
   "capitanoStygianRoute": true,
   "xbalanqueStygianRoute": true,
-  "disabledUnimplemented": true,
+  "rerirStygianRoute": true,
+  "ronovaStygianRoute": true,
+  "wandererStygianRoute": true,
   "launchesVerified": [
     "boss_array_3",
     "boss_primo_electro",

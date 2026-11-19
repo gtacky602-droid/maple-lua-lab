@@ -1,0 +1,44 @@
+{
+  "background": {
+    "key": "windcourt",
+    "file": "wanderer-windcourt-background-v1.png",
+    "state": "ready"
+  },
+  "normalClear": true,
+  "trail": {
+    "stages": [
+      1,
+      2,
+      3
+    ],
+    "cards": [
+      "WD01",
+      "WD02",
+      "WD03",
+      "WD06"
+    ],
+    "updrafts": 3,
+    "marks": {
+      "WD03": 2,
+      "WD06": 2
+    },
+    "heightAtLastMark": 290,
+    "floorGlide": true,
+    "firstAirHit": true,
+    "airOpening": true,
+    "safeFinal": true,
+    "finalContacts": [],
+    "directions": [
+      "wanderer-idle-left-source-v3.png",
+      "wanderer-idle-right-source-v3.png"
+    ]
+  },
+  "questReportSaveRestore": true,
+  "viewport390": true,
+  "commands": {
+    "png": 155,
+    "standard": 5624,
+    "light": 1603
+  },
+  "errors": []
+}

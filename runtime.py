@@ -572,10 +572,18 @@ def runtime():
         kind:json.loads((ROOT/'assets'/f'ronova-{suffix}-sprites-v1.json').read_text(encoding='utf8'))
         for kind,suffix in {'left':'idle-left','right':'idle-right','wings':'wings'}.items()
     },recursive=True)
+    wanderer_moves=lua.execute((ROOT/'stygian-wanderer-moves.lua').read_text(encoding='utf8'))(core,stygian_geometry)
+    wanderer_view=lua.execute((ROOT/'stygian-wanderer-view.lua').read_text(encoding='utf8'))(core,stygian_geometry,wanderer_moves)
+    wanderer=lua.execute((ROOT/'stygian-wanderer.lua').read_text(encoding='utf8'))(core,stygian_geometry,wanderer_moves,wanderer_view)
+    core.stygianWandererArt=lua.table_from({
+        direction:json.loads((ROOT/'assets'/f'wanderer-idle-{direction}-sprites-v3.json').read_text(encoding='utf8'))
+        for direction in ('left','right')
+    },recursive=True)
     lua.execute((ROOT/'endgame.lua').read_text(encoding='utf8'))(
         core,lua.table_from(abyss,recursive=True),lua.table_from(weekly_specs,recursive=True),
         lua.table_from(stygian,recursive=True),
-        lua.table_from({'beidou':stygian_beidou,'capitano':capitano,'xbalanque':xbalanque,'rerir':rerir,'ronova':ronova}))
+        lua.table_from({'beidou':stygian_beidou,'capitano':capitano,'xbalanque':xbalanque,
+                        'rerir':rerir,'ronova':ronova,'wanderer':wanderer}))
     lua.execute((ROOT/'growth-trials.lua').read_text(encoding='utf8'))(core)
     return lua, core
 
