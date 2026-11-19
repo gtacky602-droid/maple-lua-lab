@@ -680,7 +680,10 @@
     {"id":"grand-finale","name":"グラン・フィナーレ（ラボ独自）","file":"grand-finale-field-idle-sprites-v1.json","height":167,"mapHover":0},
     {"id":"river-racer","name":"夕映えの水走者（模擬役）","file":"river-racer-field-idle-sprites-v1.json","height":103,"mapHover":0},
     {"id":"moon-crab","name":"月殻の大ヤドカニ","file":"moon-crab-field-idle-sprites-v1.json","height":122,"mapHover":0},
-    {"id":"moon-crab-cracked","name":"月殻の大ヤドカニ（殻が割れた姿）","file":"moon-crab-field-cracked-sprites-v1.json","height":99,"mapHover":0}
+    {"id":"moon-crab-cracked","name":"月殻の大ヤドカニ（殻が割れた姿）","file":"moon-crab-field-cracked-sprites-v1.json","height":99,"mapHover":0},
+    {"id":"cineas","name":"シネアス（ラボ専用ドット絵）","file":"cineas-field-idle-sprites-v1.json","height":118,"mapHover":0},
+    {"id":"chizhang-ember","name":"赤璋巡岳府君・移即（ラボ専用ドット絵）","file":"chizhang-ember-field-idle-sprites-v1.json","height":118,"mapHover":0},
+    {"id":"chizhang-frost","name":"赤璋巡岳府君・天虞（ラボ専用ドット絵）","file":"chizhang-frost-field-idle-sprites-v1.json","height":118,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }

@@ -738,7 +738,8 @@ def validate_save(data):
             raise ValueError('フィールドボスの保存形式が不正です')
         for id, slot in slots.items():
             spec=_FIELD_BOSSES.get(id)
-            if (not spec or not isinstance(slot,dict) or set(slot)-{'flags'}!={'generation','hp','waitTicks'}
+            if (not spec or spec.get('manualRechallenge') or not isinstance(slot,dict)
+                    or set(slot)-{'flags'}!={'generation','hp','waitTicks'}
                     or any(type(slot[k]) is not int for k in ('generation','hp','waitTicks'))
                     or not 1<=slot['generation']<=10**9 or not 0<=slot['hp']<=spec['hp']
                     or not 0<=slot['waitTicks']<=spec['respawnTicks']

@@ -220,7 +220,7 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 96,
+      "prototype_stage_count": 97,
       "prototype_quest_count": 6,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
@@ -253,7 +253,7 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 25,
+      "prototype_stage_count": 26,
       "prototype_quest_count": 5,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
@@ -7962,7 +7962,7 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1412,
+    "authored_stages": 1414,
     "provisional_quests": 257,
     "companion_join_records": 8,
     "scope_complete": false,
@@ -9379,7 +9379,8 @@
           "branch-hunt-66770",
           "branch-hunt-66770-pocket-1",
           "branch-hunt-66979",
-          "branch-hunt-66979-pocket-1"
+          "branch-hunt-66979-pocket-1",
+          "chizhang-legend-terrace"
         ],
         "quest_ids": [
           "liyue-mapped-hidden-cave",
@@ -9511,7 +9512,8 @@
           "bygone-wp-68615",
           "branch-hunt-68600",
           "branch-hunt-68603",
-          "branch-hunt-68607"
+          "branch-hunt-68607",
+          "cineas-legend-chamber"
         ],
         "quest_ids": [
           "fon-mapped-bygone-current",
@@ -9841,7 +9843,8 @@
           "bygone-wp-68615",
           "branch-hunt-68600",
           "branch-hunt-68603",
-          "branch-hunt-68607"
+          "branch-hunt-68607",
+          "cineas-legend-chamber"
         ]
       },
       {
@@ -10266,5 +10269,18 @@
     },
     "awaiting_stage": 0,
     "route_review": "design/world/atlas-route-plan.json"
+  },
+  "optional_legend_coverage": {
+    "basis": [
+      "design/world/encounters.json",
+      "content/field-boss-spawns.json",
+      "content/story-graph.json"
+    ],
+    "design_candidates": 56,
+    "playable_prototypes": 2,
+    "stage_by_legend": {
+      "legend-liyue_rulers_of_chizhang_mountains": "chizhang-legend-terrace",
+      "legend-fontaine_cineas": "cineas-legend-chamber"
+    }
   }
 }

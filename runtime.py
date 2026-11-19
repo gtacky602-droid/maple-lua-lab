@@ -448,13 +448,16 @@ def runtime():
     moon_crab=lua.execute((ROOT/'field-moon-crab.lua').read_text(encoding='utf8'))(core)
     core.moonCrabArt=field_art(lua,'moon-crab',('idle','cracked'))
     core.paperLanternArt=field_art(lua,'paper-lantern',('idle',),idle='paper-lantern-sprites-v1.json').idle
+    branch_legend=lua.execute((ROOT/'field-branch-legend.lua').read_text(encoding='utf-8'))(core)
+    core.branchLegendArt=lua.table_from({
+        name:field_art(lua,name,('idle','brace','strike')) for name in ('cineas','chizhang-ember','chizhang-frost')})
     lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(
         core,lua.table_from(field_specs,recursive=True),
         lua.table_from({'snowSweeper':snow_sweeper,'frostAntler':frost_antler,'windwardTower':windward_tower,
                         'rubbleSifter':rubble_sifter,'prismWalker':prism_walker,'iceCrawler':ice_crawler,'rimeHare':rime_hare,
                         'teaBoulder':tea_boulder,'plateTail':plate_tail,'windRing':wind_ring,'bellGate':bell_gate,
                         'canopyFungus':canopy_fungus,'grandFinale':field_display(core,core.grandFinaleArt),'riverRacer':river_racer,
-                        'moonCrab':moon_crab,
+                        'moonCrab':moon_crab,'branchLegend':branch_legend,
                         'jadeplume':jade,'cryoRegisvine':cryo_field,'pyroRegisvine':pyro_field,
                         'anemoHypostasis':anemo_field,'electroHypostasis':electro_field,'geoHypostasis':geo_field,
                         'primoGeovishap':primo_field,'oceanid':oceanid_field,'maguu':maguu_field,

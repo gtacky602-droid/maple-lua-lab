@@ -458,10 +458,10 @@ function hud(f,calls,renderMs){
  narwhal.hidden=!journey||field.phase==='respawn'||field.hp===0;
  fieldPanel.hidden=!field;
  if(field){
-  const status=field.phase==='respawn'?`再出現まで ${Math.ceil(field.remaining)}秒`:oasis?.defense||journey?.scene==='inner'?field.label:
+  const status=field.phase==='respawn'?`再出現まで ${Math.ceil(field.remaining)}秒`:field.phase==='cleared'||oasis?.defense||journey?.scene==='inner'?field.label:
    `HP ${Math.ceil(field.hp)} / ${field.maxhp} ｜ ${field.label}`;
   const elementNames={pyro:'炎',cryo:'氷',hydro:'水',electro:'雷'};
-  const bodyNames={anemo:'風',cryo:'❄ 氷',electro:'⚡ 雷'};
+  const bodyNames={anemo:'風',cryo:'❄ 氷',electro:'⚡ 雷',pyro:'炎'};
   const elements=field.elementSlots?(' ｜ '+field.elementSlots.map(e=>elementNames[e]).join(' → ')):
    field.bodies?.length===2?' '+field.bodies.map((body,i)=>bodyNames[body.element]+['①','②'][i]).join(' / '):'';
   let mark=field.mark?` ｜ ${elementNames[field.mark]}断流・両端で解除`:'';
@@ -474,7 +474,7 @@ function hud(f,calls,renderMs){
   const form=field.formName?`・${field.formName}`:'';
   const line=`${field.name}${form}（Lv${field.level}）${elements} ｜ ${status}${mark}`;
   if(fieldLabel.textContent!==line)fieldLabel.textContent=line;
-  fieldHp.hidden=field.phase==='respawn'||!phases.hidden||!!oasis?.defense||journey?.scene==='inner';
+  fieldHp.hidden=field.phase==='respawn'||field.phase==='cleared'||!phases.hidden||!!oasis?.defense||journey?.scene==='inner';
   fieldHp.max=field.maxhp;fieldHp.value=field.hp;
   if(!phases.hidden){
    if(phases.childElementCount!==field.phaseHp.length||phases.dataset.boss!==field.id){

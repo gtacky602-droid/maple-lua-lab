@@ -80,6 +80,25 @@ def rebuild():
         'official_marker_bindings': len(links), 'provisional_design_bindings': dict(sorted(authored_bindings.items())),
         'awaiting_stage': total_fields - linked_fields, 'route_review': 'design/world/atlas-route-plan.json',
     }
+    legends_path = 'design/world/encounters.json'
+    legend_rows = json.loads((CONTENT.parent / legends_path).read_text(encoding='utf8'))['legends']
+    field_specs = json.loads((CONTENT/'field-boss-spawns.json').read_text(encoding='utf-8-sig'))['fieldBosses']
+    by_stage = {node['id']:node for node in graph['nodes']}
+    field_stages = {id: row['stage_id'] for id, row in links.items()} | authored_bindings
+    anchors = {row['encounter_id']: row['field_anchor_id'] for row in legend_rows}
+    legend_bindings = {}
+    for spec in field_specs:
+        if spec['id'] in anchors:
+            entry = field_stages[anchors[spec['id']]]
+            assert spec['manualRechallenge']
+            assert any(e['to']==spec['node'] for e in by_stage[entry]['exits'])
+            assert any(e['to']==entry for e in by_stage[spec['node']]['exits'])
+            legend_bindings[spec['id']]=spec['node']
+    coverage['optional_legend_coverage'] = {
+        'basis': [legends_path, 'content/field-boss-spawns.json', 'content/story-graph.json'],
+        'design_candidates': len(anchors), 'playable_prototypes': len(legend_bindings),
+        'stage_by_legend': legend_bindings,
+    }
     manifest_path = 'docs/quest-v1/MANIFEST.json'
     manifest = json.loads((CONTENT.parent / manifest_path).read_text(encoding='utf8'))
     design_ids = {entry['id'] for entry in manifest['growth']}

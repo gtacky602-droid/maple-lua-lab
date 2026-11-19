@@ -1,0 +1,137 @@
+-- Optional encounters use fixed warning zones and the shared field-boss lifecycle.
+return function(C)
+ local legend={}
+ local colors={hydro='#82dfd6',pyro='#ffa15b',cryo='#a9dcff'}
+ local poses={idle=1,brace=.83,strike=.89}
+ local function clamp(x,lo,hi) return math.max(lo,math.min(x,hi)) end
+
+ local function setPose(body,spec,pose)
+  body.legendPose=pose
+  body.drawHeight=math.floor(spec.artHeight*poses[pose]+.5)
+  body.hitTop=body.y-body.drawHeight
+  body.hitBottom=body.y
+ end
+
+ function legend.spawn(b,spec)
+  b.element=spec.element
+  b.legendArt=spec.art
+  setPose(b,spec,'idle')
+  if not spec.partner then return end
+  local p=spec.partner
+  local home=b.home+p.offset
+  local partner=C.bindFieldPartner(b,{id=p.entity,fieldBoss=b.fieldBoss,boss=true,custom=true,
+   x=home,home=home,y=b.y,level=b.level,maxhp=b.maxhp,facing=-1,respawn=math.huge,warning=0,
+   element=p.element,legendArt=p.art})
+  setPose(partner,spec,'idle')
+ end
+
+ function legend.cancel(b,spec)
+  setPose(b,spec,'idle')
+  if b.fieldPartner then setPose(b.fieldPartner,spec,'idle') end
+ end
+
+ function legend.walk(b,spec,target,speed)
+  local partner=b.fieldPartner
+  if not partner then return end
+  b.x=math.min(b.x,spec.arenaMax-spec.partner.offset-64)
+  local dest=b.x+spec.partner.offset
+  partner.x=partner.x+clamp(dest-partner.x,-speed,speed)
+  partner.facing=target.x<partner.x and -1 or 1
+ end
+
+ function legend.begin(b,spec,move,target)
+  local cast={move=move,tick=0,strikes={}}
+  for i,step in ipairs(move.steps) do
+   local owner=step.partner and b.fieldPartner or b
+   owner.facing=target.x<owner.x and -1 or 1
+   local from,to=owner.x,owner.x
+   local left,right
+   if step.travel then
+    to=clamp(from+owner.facing*step.travel,spec.arenaMin+48,spec.arenaMax-48)
+    if owner==b and b.fieldPartner then to=math.min(to,b.fieldPartner.x-112) end
+    if owner~=b then to=math.max(to,b.x+112) end
+    left,right=math.min(from,to)-step.radius,math.max(from,to)+step.radius
+   else
+    local center=clamp(target.x+(step.offset or 0),spec.arenaMin+step.radius,spec.arenaMax-step.radius)
+    left,right=center-step.radius,center+step.radius
+   end
+   cast.strikes[i]={step=step,owner=owner,from=from,to=to,seen={},
+    left=math.max(left,spec.arenaMin),right=math.min(right,spec.arenaMax),
+    source={id=owner.id,y=spec.floorY,owner=owner,damageElement=owner.element}}
+   setPose(owner,spec,'brace')
+  end
+  return cast
+ end
+
+ function legend.tick(state,b,spec,cast)
+  cast.tick=cast.tick+1
+  local now=cast.tick
+  for _,strike in ipairs(cast.strikes) do
+   local step,owner=strike.step,strike.owner
+   if now>=step.first and now<step.after then
+    setPose(owner,spec,'strike')
+    local left,right=strike.left,strike.right
+    if step.travel then
+     local previous=owner.x
+     local ratio=(now-step.first+1)/(step.after-step.first)
+     owner.x=strike.from+(strike.to-strike.from)*ratio
+     left=math.max(left,math.min(previous,owner.x)-step.radius)
+     right=math.min(right,math.max(previous,owner.x)+step.radius)
+    end
+    C.hitFieldArea(state,strike.source,strike.seen,left,right,spec.floorY-step.height,step.damage)
+   elseif now==step.after then
+    setPose(owner,spec,'brace')
+   end
+  end
+  if now>=cast.move.total then legend.cancel(b,spec);return true end
+  return false
+ end
+
+ function legend.label(_,cast)
+  if cast and cast.tick>=cast.strikes[#cast.strikes].step.after then return '体勢を戻す間に反撃' end
+ end
+
+ function legend.frame(f,_,_,cast)
+  if not cast then return end
+  f.warnings={}
+  for _,strike in ipairs(cast.strikes) do
+   local step=strike.step
+   if cast.tick<step.after then
+    f.warnings[#f.warnings+1]={left=strike.left,right=strike.right,first=step.first,after=step.after,
+     element=strike.owner.element,active=cast.tick>=step.first}
+   end
+  end
+ end
+
+ local function rect(f,x,y,w,h,color)
+  f.draws[#f.draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}
+ end
+ function legend.draw(f,state,b,spec,cast,mode,profile)
+  local camera=state.camera
+  if cast then
+   for i,strike in ipairs(cast.strikes) do
+    local step=strike.step
+    if cast.tick<step.after then
+     local active=cast.tick>=step.first
+     local x,y=strike.left-camera,spec.floorY
+     local width=strike.right-strike.left
+     local color=colors[strike.owner.element]
+     rect(f,x,y-step.height,width,step.height,active and color..'68' or color..'20')
+     rect(f,x,y-6,width,active and 5 or 3,color)
+     rect(f,x,y-step.height,2,step.height,color)
+     rect(f,x+width-2,y-step.height,2,step.height,color)
+     if #cast.strikes>1 then
+      f.draws[#f.draws+1]={kind='text',x=x+width*.5,y=y-step.height-7,text=tostring(i),size=14,color=color}
+     end
+    end
+   end
+  end
+  for _,body in ipairs({b,b.fieldPartner}) do
+   if body.x>=camera-160 and body.x<=camera+1120 then
+    local art=C.branchLegendArt[body.legendArt][body.legendPose]
+    C.drawFieldDisplayArt(f,art,body.x-camera,body.y,body.drawHeight,mode,profile,body.facing>0)
+   end
+  end
+ end
+ return legend
+end

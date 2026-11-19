@@ -89,7 +89,11 @@ return function(C,configs,controllers)
 
  function C.enterFieldBossNode(s,id)
   for other,slot in pairs(s.fieldSlots or {}) do
-   if byId[other].node~=id then cancelCast(s,byId[other],slot) end
+   local previous=byId[other]
+   if previous.node~=id then
+    cancelCast(s,previous,slot)
+    if previous.manualRechallenge then s.fieldSlots[other]=nil end
+   end
   end
   local spec=byNode[id]
   if not spec or not available(s,spec) then return end
@@ -175,7 +179,7 @@ return function(C,configs,controllers)
 
  local function advance(s,spec,slot,here)
   local boss=slot.enemy
-  if spec.presentationOnly and not slot.waitUntil then return end
+  if slot.phase=='cleared' or (spec.presentationOnly and not slot.waitUntil) then return end
   if slot.waitUntil then
    if s.t+1e-8>=slot.waitUntil then
     slot.generation=slot.generation+1
@@ -262,11 +266,11 @@ return function(C,configs,controllers)
   if e.fieldBoss then
    local spec=byId[e.fieldBoss]
    local slot=s.fieldSlots and s.fieldSlots[e.fieldBoss]
-   if not slot or e~=slot.enemy or e.hp>0 or slot.waitUntil then return end
-   slot.waitUntil=s.t+spec.respawnTicks/60
+   if not slot or e~=slot.enemy or e.hp>0 or slot.waitUntil or slot.phase=='cleared' then return end
+   if not spec.manualRechallenge then slot.waitUntil=s.t+spec.respawnTicks/60 end
    local behavior=controllers[spec.controller]
    if behavior.onDefeat then behavior.onDefeat(s,e,spec,slot.cast) end
-   slot.cast=nil;slot.phase='respawn'
+   slot.cast=nil;slot.phase=spec.manualRechallenge and 'cleared' or 'respawn'
    e.weakpoint=nil
    e.respawn=math.huge
    if not spec.presentationOnly and C.recordChallengeBoss then C.recordChallengeBoss(s,spec.id,slot.entryAt) end
@@ -294,10 +298,12 @@ return function(C,configs,controllers)
   if data and s.fieldSlots then
    data.fieldBosses={}
    for id,slot in pairs(s.fieldSlots) do
-    data.fieldBosses[id]={generation=slot.generation,hp=slot.enemy.hp,waitTicks=waitTicks(s,slot)}
     local spec=byId[id]
-    local behavior=controllers[spec.controller]
-    if behavior.checkpoint then data.fieldBosses[id].flags=behavior.checkpoint(slot.enemy,spec,slot) end
+    if not spec.manualRechallenge then
+     data.fieldBosses[id]={generation=slot.generation,hp=slot.enemy.hp,waitTicks=waitTicks(s,slot)}
+     local behavior=controllers[spec.controller]
+     if behavior.checkpoint then data.fieldBosses[id].flags=behavior.checkpoint(slot.enemy,spec,slot) end
+    end
    end
   end
   return data
@@ -337,7 +343,7 @@ return function(C,configs,controllers)
   if math.abs(playerX-boss.x)>550 and (not partner or math.abs(playerX-partner.x)>550) and slot.phase=='available' then return f end
   local cast=slot.cast
   local behavior=controllers[spec.controller]
-  local label=slot.phase=='notice' and '振り向き' or slot.phase=='leash' and '巣へ戻っている' or
+  local label=slot.phase=='cleared' and '討伐完了・入口から再挑戦' or slot.phase=='notice' and '振り向き' or slot.phase=='leash' and '巣へ戻っている' or
    slot.phase=='available' and '警戒前' or cast and cast.move.title or '息継ぎ'
   if spec.presentationOnly and boss.hp>0 then label=spec.displayLabel or '見た目と進行を確認する仮の個体' end
   if boss.hp>0 and slot.phase=='combat' and behavior.label then label=behavior.label(boss,cast,spec,s) or label end

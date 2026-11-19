@@ -311,8 +311,24 @@
     "stonehide-lawachurl": "frostarm-lawachurl",
     "rock-shieldwall-mitachurl": "hilichurl"
   },
-  "pending_legends": [
-    "legend-liyue_rulers_of_chizhang_mountains",
-    "legend-fontaine_cineas"
+  "legends": [
+    {
+      "id": "legend-liyue_rulers_of_chizhang_mountains",
+      "stage": "chizhang-legend-terrace",
+      "host": "liyue-wp-64830",
+      "level": 95,
+      "prerequisite": null,
+      "members": 2,
+      "manual_rechallenge": true
+    },
+    {
+      "id": "legend-fontaine_cineas",
+      "stage": "cineas-legend-chamber",
+      "host": "bygone-wp-68610",
+      "level": 160,
+      "prerequisite": "fon-mapped-bygone-current",
+      "members": 1,
+      "manual_rechallenge": true
+    }
   ]
 }

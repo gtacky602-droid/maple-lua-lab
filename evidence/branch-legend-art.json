@@ -1,0 +1,9 @@
+{
+  "tool": "image_gen built-in",
+  "image": "assets/branch-legend-poses-source-v1.png",
+  "style_reference": "assets/bathysmal-field-poses-source-v1.png",
+  "reference_scope": "Local sprite sheet, inspected for pixel clusters and silhouette clarity. Original lab designs. No canonical 3D model was directly inspected for these prototypes.",
+  "prompt": "Create one original game asset: a clean transparent pixel-art sprite sheet of three distinct quadruped fantasy beasts for a 2D side-scrolling RPG, three views per beast. Use the reference picture only for pixel scale, solid pixel cluster shading, and clean dark outlines. Invent new anatomy and patterns. Exactly 3 columns × 3 rows, evenly sized grid cells with generous clear gaps: each cell one completely visible isolated creature, feet aligned inside that cell, all facing to the LEFT in side-view. Column one calm standing, column two crouches with knees bent, column three lunges forward with head extended and one paw forward. Top row: deep-water mineral salamander, obsidian toes, squat heavy torso with three jade-green rib ridges, amber eyes and a round oar-shaped tail; teal/copper. Middle row: sand-red and dark charcoal rock runner, copper slate shoulders, blunt snout and a down-curved tail. Bottom row: pale sage and blue-gray frost rock runner, ivory plates with sweeping low horns and a blunt heavy tail. Hand-pixelled, 16-bit RPG, 4-5 hard palette tones per material, transparent background and crisp solid alpha. No ground, no cast shadow, no platform, no attacks or particles, no effects, no glow, no gradients, no borders, no text, no logos, no existing character designs. Overall landscape sheet with three horizontal strips, each sprite at similar apparent scale.",
+  "compiler": "tools/build_branch_legend_art.py",
+  "alpha": "Generated RGBA retained as the source. Existing compiler emits legacy, h48c32 and h32c16 without changing the PNG."
+}

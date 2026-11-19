@@ -1,0 +1,59 @@
+{
+  "encounters": {
+    "legend-liyue_rulers_of_chizhang_mountains": {
+      "moves_hit_once_in_their_windows": [
+        "LC01",
+        "LC02",
+        "LC03"
+      ],
+      "level": 95,
+      "bodies": 2,
+      "png_bodies_and_scene_draw_counts": {
+        "png": 2,
+        "legacy": 12932,
+        "h48c32": 7886,
+        "h32c16": 3469
+      },
+      "normal_attack_clear": {
+        "seconds": 82.18,
+        "hp": 7,
+        "moves": [
+          "LC01",
+          "LC02",
+          "LC03"
+        ]
+      }
+    },
+    "legend-fontaine_cineas": {
+      "moves_hit_once_in_their_windows": [
+        "LW01",
+        "LW02",
+        "LW03"
+      ],
+      "level": 160,
+      "bodies": 1,
+      "png_bodies_and_scene_draw_counts": {
+        "png": 1,
+        "legacy": 6784,
+        "h48c32": 4144,
+        "h32c16": 1812
+      },
+      "normal_attack_clear": {
+        "seconds": 103.73,
+        "hp": 140,
+        "moves": [
+          "LW01",
+          "LW02",
+          "LW03"
+        ]
+      }
+    }
+  },
+  "entry_level_and_exploration_requirement": true,
+  "dry_floor": true,
+  "real_round_trips_and_retreat_during_warning": true,
+  "manual_retry_only_and_single_reward": true,
+  "saved_boss_record": true,
+  "source_asset": "branch-legend-poses-source-v1.png",
+  "hit_and_reward_fixtures_used": true
+}
