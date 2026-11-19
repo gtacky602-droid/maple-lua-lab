@@ -10,9 +10,9 @@
       "bodies": 2,
       "png_bodies_and_scene_draw_counts": {
         "png": 2,
-        "legacy": 12932,
-        "h48c32": 7886,
-        "h32c16": 3469
+        "legacy": 11076,
+        "h48c32": 6654,
+        "h32c16": 2962
       },
       "normal_attack_clear": {
         "seconds": 82.18,
@@ -34,9 +34,9 @@
       "bodies": 1,
       "png_bodies_and_scene_draw_counts": {
         "png": 1,
-        "legacy": 6784,
-        "h48c32": 4144,
-        "h32c16": 1812
+        "legacy": 6365,
+        "h48c32": 3830,
+        "h32c16": 1777
       },
       "normal_attack_clear": {
         "seconds": 103.73,
@@ -58,9 +58,9 @@
       "bodies": 1,
       "png_bodies_and_scene_draw_counts": {
         "png": 1,
-        "legacy": 4328,
-        "h48c32": 2588,
-        "h32c16": 1191
+        "legacy": 3494,
+        "h48c32": 2056,
+        "h32c16": 929
       },
       "normal_attack_clear": {
         "seconds": 80.83,
@@ -82,9 +82,9 @@
       "bodies": 1,
       "png_bodies_and_scene_draw_counts": {
         "png": 1,
-        "legacy": 4495,
-        "h48c32": 2794,
-        "h32c16": 1287
+        "legacy": 4810,
+        "h48c32": 2893,
+        "h32c16": 1298
       },
       "normal_attack_clear": {
         "seconds": 87.2,
@@ -103,8 +103,7 @@
   "manual_retry_only_and_single_reward": true,
   "saved_boss_record": true,
   "source_assets": [
-    "branch-legend-poses-source-v1.png",
-    "fontaine-lake-legend-poses-source-v1.png"
+    "legend-poses-source-v2.png"
   ],
   "detached_wave_travel_and_impact_verified": true,
   "hit_and_reward_fixtures_used": true

@@ -449,10 +449,18 @@ def runtime():
     core.moonCrabArt=field_art(lua,'moon-crab',('idle','cracked'))
     core.paperLanternArt=field_art(lua,'paper-lantern',('idle',),idle='paper-lantern-sprites-v1.json').idle
     branch_legend=lua.execute((ROOT/'field-branch-legend.lua').read_text(encoding='utf-8'))(core)
-    legend_art_names = {body['art'] for spec in field_specs if spec['controller']=='branchLegend'
-                        for body in (spec, spec.get('partner')) if body}
+    legend_poses = ('idle', 'brace', 'strike')
+    legend_revisions = {
+        body['art']: spec.get('artRevision', 1)
+        for spec in field_specs if spec['controller']=='branchLegend'
+        for body in (spec, spec.get('partner')) if body
+    }
     core.branchLegendArt=lua.table_from({
-        name:field_art(lua,name,('idle','brace','strike')) for name in sorted(legend_art_names)})
+        name: field_art(lua, name, legend_poses, variants={
+            pose: f'{name}-field-{pose}-sprites-v{revision}.json' for pose in legend_poses
+        })
+        for name, revision in sorted(legend_revisions.items())
+    })
     lua.execute((ROOT/'field-bosses.lua').read_text(encoding='utf-8'))(
         core,lua.table_from(field_specs,recursive=True),
         lua.table_from({'snowSweeper':snow_sweeper,'frostAntler':frost_antler,'windwardTower':windward_tower,

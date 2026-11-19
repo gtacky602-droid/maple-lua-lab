@@ -1,4 +1,4 @@
-"""Walk, fight, leave and retry the two optional encounters on the normal Lua entry path."""
+"""Walk, fight, leave and retry four optional encounters on the normal Lua entry path."""
 import json
 
 from experience import LEVELS, RUNTIME_EXP
@@ -6,7 +6,6 @@ from runtime import ROOT, native, runtime
 from savegame import validate_save
 from tools.waypoint_test import TrailWalk
 
-ART = 'branch-legend-poses-source-v1.png'
 CHALLENGES = 'sources/map-research/sites-branch-hunts.json'
 LAKE_CHALLENGES = 'sources/map-research/sites-fontaine-lake-legends.json'
 
@@ -143,9 +142,23 @@ def normal_clear(r, spec):
 
 
 evidence = {}
-lake = read(LAKE_CHALLENGES)
-entries = [(entry, ART) for entry in read(CHALLENGES)['legends']] + [
-    (entry, lake['art_source']) for entry in lake['legends']]
+layout = read('assets/legend-poses-v2-layout.json')
+for frame in layout['frames']:
+    asset = read(f"assets/{frame['id']}-field-{frame['pose']}-sprites-v2.json")
+    left, top, width, height = asset['box']
+    crop_x, crop_y, _, _ = frame['crop']
+    pivot_x, pivot_y = frame['pivot']
+    assert asset['source'] == layout['source']
+    assert top + height == crop_y + pivot_y
+    assert abs(left+asset['anchorX']*width-(crop_x+pivot_x)) < 1e-7
+    if frame['id'].startswith('lake-'):
+        assert pivot_y - frame['opaque_box'][3] == 12
+        for profile in asset['profiles'].values():
+            assert max(r[1]+r[3] for r in profile['runs']) < profile['height']
+
+entries = [(entry, manifest['art_source'])
+           for manifest in map(read, (CHALLENGES, LAKE_CHALLENGES))
+           for entry in manifest['legends']]
 for r, source_art in entries:
     id, stage, host = r['id'], r['stage'], r['host']
     spec = specs[id]

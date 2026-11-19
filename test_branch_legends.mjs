@@ -7,8 +7,7 @@ const {nodes:story}=JSON.parse(await fs.readFile('content/story-graph.json','utf
 const nodes=Object.fromEntries(story.map(node=>[node.id,node]));
 const lake=process.argv.includes('--lake');
 const manifest=lake?'sites-fontaine-lake-legends':'sites-branch-hunts';
-const {legends,art_source}=JSON.parse(await fs.readFile('sources/map-research/'+manifest+'.json','utf8'));
-const source=art_source??'branch-legend-poses-source-v1.png';
+const {legends,art_source:source}=JSON.parse(await fs.readFile('sources/map-research/'+manifest+'.json','utf8'));
 const pngTags=lake?['vivianne','ninianne']:['chizhang','cineas'];
 const browser=await chromium.launch({channel:'chrome',headless:true,args:['--disable-gpu']});
 const page=await browser.newPage({viewport:{width:1280,height:900}});
@@ -18,7 +17,7 @@ const canvas=page.locator('#game');
 const errors=[];
 const requestedLegendSheets=[];
 page.on('request',req=>{
- if(new URL(req.url()).pathname.endsWith('-legend-poses-source-v1.png'))requestedLegendSheets.push(req.url());
+ if(/(?:legend-poses-source-v2|legend-poses-source-v1)[.]png$/.test(new URL(req.url()).pathname))requestedLegendSheets.push(req.url());
 });
 page.on('pageerror',err=>errors.push(err.message));
 page.on('response',res=>{
@@ -38,7 +37,7 @@ const current=()=>page.evaluate(source=>{
 },source);
 
 try{
- await page.goto(process.env.LAB_URL||'http://127.0.0.1:8976/');
+ await page.goto(process.env.LAB_URL||'http://127.0.0.1:8977/');
  await page.waitForFunction(()=>window.lab?.frame);
  assert.deepEqual(requestedLegendSheets,[]);
  const sizes={};
@@ -112,16 +111,19 @@ try{
  gallery.searchParams.set('q',lake?'湖辺の':'赤璋巡岳府君');
  await page.goto(gallery.href);
  await page.waitForFunction(()=>window.charactersGallery?.ready,null,{timeout:60000});
- assert.equal(await page.locator('#cards article:not([hidden])').count(),2);
- assert.equal(await page.locator('#cards article:not([hidden]) canvas').count(),4);
+ const visibleCards=page.locator('#cards article:not([hidden])');
+ assert.equal(await visibleCards.count(),4);
+ assert.equal(await visibleCards.locator('canvas').count(),8);
  await page.locator('#assetSearch').fill(lake?'ニニアン':'シネアス');
- assert.equal(await page.locator('#cards article:not([hidden])').count(),1);
- assert.equal(await page.locator('#cards article:not([hidden]) canvas').count(),2);
+ assert.equal(await visibleCards.count(),2);
+ assert.deepEqual((await visibleCards.locator('h2').allTextContents()).map(title=>title.slice(-3)),['初稿）','改稿）']);
+ assert.equal(await visibleCards.locator('canvas').count(),4);
+ if(lake)await page.screenshot({path:'evidence/lake-legend-art-v1-v2-gallery.png',fullPage:true});
  assert.deepEqual(errors,[]);
  const log=lake?'sites-fontaine-lake-legends-browser':'sites-branch-legends-browser';
  await fs.writeFile('evidence/'+log+'.json',JSON.stringify({
   originalSpriteSheet:source, bothOptionalEntriesFromAtlas:true,
-  sameFrameComparisonAndGallery:true, optionalSheetsDeferredUntilEncounter:true, bothRetreatsAndReentryPassed:true,
+  sameFrameComparisonAndGallery:true, galleryShowsBothArtRevisions:true, optionalSheetsDeferredUntilEncounter:true, bothRetreatsAndReentryPassed:true,
   measuredDrawCommandsSamePausedFrame:sizes, errors
  },null,2)+'\n');
 }catch(error){

@@ -311,6 +311,7 @@
     "stonehide-lawachurl": "frostarm-lawachurl",
     "rock-shieldwall-mitachurl": "hilichurl"
   },
+  "art_source": "legend-poses-source-v2.png",
   "legends": [
     {
       "id": "legend-liyue_rulers_of_chizhang_mountains",

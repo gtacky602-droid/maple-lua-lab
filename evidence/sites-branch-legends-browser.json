@@ -1,14 +1,15 @@
 {
-  "originalSpriteSheet": "branch-legend-poses-source-v1.png",
+  "originalSpriteSheet": "legend-poses-source-v2.png",
   "bothOptionalEntriesFromAtlas": true,
   "sameFrameComparisonAndGallery": true,
+  "galleryShowsBothArtRevisions": true,
   "optionalSheetsDeferredUntilEncounter": true,
   "bothRetreatsAndReentryPassed": true,
   "measuredDrawCommandsSamePausedFrame": {
     "chizhang": {
       "png": 24,
-      "legacy": 15476,
-      "h32c16": 4072
+      "legacy": 13620,
+      "h32c16": 3565
     }
   },
   "errors": []

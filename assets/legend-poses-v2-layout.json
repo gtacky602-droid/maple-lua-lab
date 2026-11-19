@@ -1,0 +1,410 @@
+{
+  "source": "legend-poses-source-v2.png",
+  "frames": [
+    {
+      "id": "lake-vivianne",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        110,
+        13,
+        178,
+        120
+      ],
+      "source_sheet": "exec-70ddb69a-647b-408f-af60-b3d103fb9513.png",
+      "source_crop": [
+        0,
+        0,
+        550,
+        510
+      ]
+    },
+    {
+      "id": "lake-vivianne",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        118,
+        34,
+        171,
+        120
+      ],
+      "source_sheet": "exec-70ddb69a-647b-408f-af60-b3d103fb9513.png",
+      "source_crop": [
+        550,
+        0,
+        406,
+        510
+      ]
+    },
+    {
+      "id": "lake-vivianne",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        72,
+        24,
+        182,
+        120
+      ],
+      "source_sheet": "exec-70ddb69a-647b-408f-af60-b3d103fb9513.png",
+      "source_crop": [
+        956,
+        0,
+        580,
+        510
+      ]
+    },
+    {
+      "id": "lake-ninianne",
+      "pose": "idle",
+      "crop": [
+        0,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        68,
+        59,
+        220,
+        120
+      ],
+      "source_sheet": "exec-70ddb69a-647b-408f-af60-b3d103fb9513.png",
+      "source_crop": [
+        0,
+        510,
+        550,
+        514
+      ]
+    },
+    {
+      "id": "lake-ninianne",
+      "pose": "brace",
+      "crop": [
+        288,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        90,
+        53,
+        198,
+        120
+      ],
+      "source_sheet": "exec-70ddb69a-647b-408f-af60-b3d103fb9513.png",
+      "source_crop": [
+        550,
+        510,
+        406,
+        514
+      ]
+    },
+    {
+      "id": "lake-ninianne",
+      "pose": "strike",
+      "crop": [
+        576,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        86,
+        8,
+        202,
+        120
+      ],
+      "source_sheet": "exec-70ddb69a-647b-408f-af60-b3d103fb9513.png",
+      "source_crop": [
+        956,
+        510,
+        580,
+        514
+      ]
+    },
+    {
+      "id": "cineas",
+      "pose": "idle",
+      "crop": [
+        0,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        59,
+        32,
+        205,
+        132
+      ],
+      "source_sheet": "exec-cfdab915-a52a-4a34-ae51-7f5c0287112c.png",
+      "source_crop": [
+        0,
+        0,
+        480,
+        340
+      ]
+    },
+    {
+      "id": "cineas",
+      "pose": "brace",
+      "crop": [
+        288,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        56,
+        49,
+        201,
+        132
+      ],
+      "source_sheet": "exec-cfdab915-a52a-4a34-ae51-7f5c0287112c.png",
+      "source_crop": [
+        480,
+        0,
+        483,
+        340
+      ]
+    },
+    {
+      "id": "cineas",
+      "pose": "strike",
+      "crop": [
+        576,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        29,
+        43,
+        198,
+        132
+      ],
+      "source_sheet": "exec-cfdab915-a52a-4a34-ae51-7f5c0287112c.png",
+      "source_crop": [
+        963,
+        0,
+        573,
+        340
+      ]
+    },
+    {
+      "id": "chizhang-ember",
+      "pose": "idle",
+      "crop": [
+        0,
+        432,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        56,
+        32,
+        211,
+        132
+      ],
+      "source_sheet": "exec-cfdab915-a52a-4a34-ae51-7f5c0287112c.png",
+      "source_crop": [
+        0,
+        340,
+        480,
+        305
+      ]
+    },
+    {
+      "id": "chizhang-ember",
+      "pose": "brace",
+      "crop": [
+        288,
+        432,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        54,
+        49,
+        210,
+        132
+      ],
+      "source_sheet": "exec-cfdab915-a52a-4a34-ae51-7f5c0287112c.png",
+      "source_crop": [
+        480,
+        340,
+        483,
+        305
+      ]
+    },
+    {
+      "id": "chizhang-ember",
+      "pose": "strike",
+      "crop": [
+        576,
+        432,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        9,
+        43,
+        207,
+        132
+      ],
+      "source_sheet": "exec-cfdab915-a52a-4a34-ae51-7f5c0287112c.png",
+      "source_crop": [
+        963,
+        340,
+        573,
+        305
+      ]
+    },
+    {
+      "id": "chizhang-frost",
+      "pose": "idle",
+      "crop": [
+        0,
+        576,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        70,
+        32,
+        197,
+        132
+      ],
+      "source_sheet": "exec-cfdab915-a52a-4a34-ae51-7f5c0287112c.png",
+      "source_crop": [
+        0,
+        645,
+        480,
+        379
+      ]
+    },
+    {
+      "id": "chizhang-frost",
+      "pose": "brace",
+      "crop": [
+        288,
+        576,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        68,
+        49,
+        199,
+        132
+      ],
+      "source_sheet": "exec-cfdab915-a52a-4a34-ae51-7f5c0287112c.png",
+      "source_crop": [
+        480,
+        645,
+        483,
+        379
+      ]
+    },
+    {
+      "id": "chizhang-frost",
+      "pose": "strike",
+      "crop": [
+        576,
+        576,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        42,
+        43,
+        196,
+        132
+      ],
+      "source_sheet": "exec-cfdab915-a52a-4a34-ae51-7f5c0287112c.png",
+      "source_crop": [
+        963,
+        645,
+        573,
+        379
+      ]
+    }
+  ]
+}

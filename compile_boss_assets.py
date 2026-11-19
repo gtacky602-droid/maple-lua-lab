@@ -2,8 +2,9 @@
 from pathlib import Path
 from PIL import Image
 import json,hashlib,argparse,re
-parser=argparse.ArgumentParser();parser.add_argument("--source",default="cryo-regisvine-source-v1.png");parser.add_argument("--output",default="boss-sprites.json");parser.add_argument("--height",type=int,default=128);parser.add_argument("--foot-anchor",action="store_true");parser.add_argument('--accent-color',action='append',default=[],help='Reserve a #RRGGBB color within the existing palette budget');parser.add_argument('--foot-anchor-band',type=float,default=.035,help='Bottom fraction used to locate the support foot; narrow for low weapons');parser.add_argument('--anchor-x',type=float,help='Explicit normalized horizontal anchor for artwork with low props');parser.add_argument('--crop',type=int,nargs=4,metavar=('X','Y','W','H'),help='Isolate one pose from a shared PNG sheet');args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument("--source",default="cryo-regisvine-source-v1.png");parser.add_argument("--output",default="boss-sprites.json");parser.add_argument("--height",type=int,default=128);parser.add_argument("--foot-anchor",action="store_true");parser.add_argument('--accent-color',action='append',default=[],help='Reserve a #RRGGBB color within the existing palette budget');parser.add_argument('--foot-anchor-band',type=float,default=.035,help='Bottom fraction used to locate the support foot; narrow for low weapons');parser.add_argument('--anchor-x',type=float,help='Explicit normalized horizontal anchor for artwork with low props');parser.add_argument('--crop',type=int,nargs=4,metavar=('X','Y','W','H'),help='Isolate one pose from a shared PNG sheet');parser.add_argument('--pivot',type=int,nargs=2,metavar=('X','Y'),help='Anchor within a crop with Y at or below the opaque pixels');args=parser.parse_args()
 if args.anchor_x is not None and (not 0<=args.anchor_x<=1 or args.foot_anchor):parser.error('anchor-x must be within 0..1 and cannot combine with foot-anchor')
+if args.pivot and (args.foot_anchor or args.anchor_x is not None):parser.error('pivot replaces foot-anchor and anchor-x')
 if not 0<args.foot_anchor_band<=1:parser.error('foot-anchor-band must be greater than 0 and at most 1')
 if any(not re.fullmatch(r'#[0-9a-fA-F]{6}',c) for c in args.accent_color):parser.error('accent-color must be #RRGGBB')
 accents=list(dict.fromkeys(tuple(int(c[i:i+2],16) for i in (1,3,5)) for c in args.accent_color))
@@ -17,6 +18,16 @@ if x<0 or y<0 or w<1 or h<1 or x+w>im.width or y+h>im.height:
 box=alpha.crop((x,y,x+w,y+h)).getbbox()
 if not box:parser.error('source region has no opaque pixels')
 left,top,right,bottom=box[0]+x,box[1]+y,box[2]+x,box[3]+y
+pivot_x=None
+if args.pivot:
+ px,py=args.pivot
+ if not (0<=px<w and 0<py<=h and y+py>=bottom):
+  parser.error('pivot must be inside the crop and at or below its opaque pixels')
+ pivot_x=x+px
+ left=min(left,pivot_x)
+ right=max(right,pivot_x+1)
+ bottom=y+py
+
 
 def merge(grid):
  runs=[];active={}
@@ -61,5 +72,8 @@ if args.foot_anchor:
 if args.anchor_x is not None:
  out['anchorX']=args.anchor_x
  out['anchor_method']='explicit normalized anchor; source landmark recorded in reference audit'
+if pivot_x is not None:
+ out['anchorX']=(pivot_x-left)/(right-left)
+ out['anchor_method']='authored floor pivot measured in source pixels'
 (ROOT/'assets'/args.output).write_text(json.dumps(out,separators=(',',':')),encoding='utf8')
 print(json.dumps({k:len(v['runs']) for k,v in out['profiles'].items()}))
