@@ -49,6 +49,10 @@ return function(C)
   return c
  end
 
+ function icewind.shareCast(cast,actors)
+  C.shareFieldHits(cast.seen,actors)
+ end
+
  local function lock(c,s,a)
   local m=c.move
   local b,p=c.bodies[1],c.bodies[2]

@@ -1,0 +1,66 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "oneRoomAcrossBothPerformances": true,
+  "bothSawIceArmorBreak": true,
+  "results": {
+    "icewind-coppelius": [
+      {
+        "seconds": 25.65,
+        "hp": 96,
+        "moves": [
+          "FIP01",
+          "FIP02",
+          "FIP03"
+        ],
+        "kills": 1,
+        "damage": 514,
+        "seenGuard": true,
+        "broken": true
+      },
+      {
+        "seconds": 25.65,
+        "hp": 118,
+        "moves": [
+          "FIP01",
+          "FIP02",
+          "FIP03"
+        ],
+        "kills": 1,
+        "damage": 516,
+        "seenGuard": true,
+        "broken": true
+      }
+    ],
+    "icewind-coppelia": [
+      {
+        "seconds": 25.9,
+        "hp": 56,
+        "moves": [
+          "FIC01",
+          "FIC02",
+          "FIC03"
+        ],
+        "kills": 1,
+        "damage": 514,
+        "seenGuard": false,
+        "broken": false
+      },
+      {
+        "seconds": 25.9,
+        "hp": 78,
+        "moves": [
+          "FIC01",
+          "FIC02",
+          "FIC03"
+        ],
+        "kills": 1,
+        "damage": 516,
+        "seenGuard": false,
+        "broken": false
+      }
+    ]
+  },
+  "savedClearsPerPlayer": 2,
+  "errors": []
+}

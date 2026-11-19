@@ -1,0 +1,27 @@
+{
+  "lua": {
+    "soloAndFourPlayerHp": 1030,
+    "bothBodiesShareHp": true,
+    "twoTargetsOneHitPerCast": true,
+    "duetDamageByBody": {
+      "cryo": 19,
+      "anemo": 19
+    },
+    "guardHitsFromThreeParties": 3,
+    "repeatCastNotCountedTwice": true,
+    "guardedHit": 11,
+    "unguardedHit": 19,
+    "midDuetPreservedPreviousHitButHitNewGuest": true,
+    "partnerSideOutsideLeadRewardRangeReceivesOneReward": true,
+    "killXp": 169000,
+    "killMora": 325,
+    "respawnTicks": 3600
+  },
+  "http": {
+    "participants": 4,
+    "sameRoomSeparatePerformances": true,
+    "eachPairHasSharedHpAndOneKillRecord": true,
+    "partnerFinalHitRegistersOnce": true,
+    "performancesHaveSeparateQuestProgress": true
+  }
+}

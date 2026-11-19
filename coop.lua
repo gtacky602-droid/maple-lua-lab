@@ -42,6 +42,10 @@ return function(C, config)
   e.coopHits=e.coopHits or {}
   e.coopHits[member.id]={time=room.time,actor=actor}
  end
+ local function inRewardRange(actor,body)
+  return math.abs(actor.x-body.x)<=config.rewardRange.x and math.abs(actor.y-body.y)<=config.rewardRange.y
+ end
+
  function C.coopDefeat(s,e)
   local room=s.coop
   C.finishCoopField(s,e)
@@ -52,7 +56,7 @@ return function(C, config)
    if hit and room.time-hit.time<=config.contributionSeconds and onField(member) then
     local party=member.state
     local a=party.actors[party.active]
-    if a.hp>0 and math.abs(a.x-e.x)<=config.rewardRange.x and math.abs(a.y-e.y)<=config.rewardRange.y then
+    if a.hp>0 and (inRewardRange(a,e) or (e.fieldPartner and inRewardRange(a,e.fieldPartner))) then
      C.creditDefeat(party,e,hit.actor)
     end
    end
