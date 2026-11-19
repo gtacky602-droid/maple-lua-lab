@@ -9,10 +9,11 @@ export function questRouteText(f,q,status){
  const graph=f.storyGraph,nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  const activeCount=f.story.quests?.[q.id]?.count??0;
  const milestone=status==='active'?q.itinerary?.[activeCount]:null;
+ const arrival=milestone?.kind==='arrive'&&milestone.from?milestone:null;
  const pathProgress=f.story.quests?.[q.id]?.pathProgress;
  const branches=milestone?.kind==='paths'&&q.paths.map(path=>path.steps[pathProgress?.[path.id]?.count??0]).filter(Boolean);
  let target=status==='active'?questTargetNode(q,graph):q.hub;
- if(status==='active'&&q.itinerary)target=q.itinerary[activeCount]?.node;
+ if(status==='active'&&q.itinerary)target=arrival?.from??milestone?.node;
  if(status==='active'&&q.sights&&f.story.quests?.[q.id]&&!f.story.quests[q.id].sights)target=q.sights.legacyTarget;
  if(status==='active'&&q.contest&&activeCount===4)target=q.contest.cape;
  if(status==='active'&&q.forest)target=q.forest.rooms[activeCount]?.node??q.target;
@@ -34,12 +35,12 @@ export function questRouteText(f,q,status){
  const marks=status==='active'&&q.stone?.marks.filter(item=>!f.story.quests?.[q.id]?.stone.marked[item.id]);
  const surveys=work&&q.construction.surveys.filter(item=>!work.surveyed[item.id]);
  const unfinished=ingredients?.length?ingredients:marks?.length?marks:surveys?.length?surveys:lookingForClues?q.trail.clues:null;
- const destinations=branches?branches.flatMap(item=>[item.node,...(item.alternatives??[]).map(place=>place.node)])
+ const destinations=arrival?[arrival.from]:branches?branches.flatMap(item=>[item.node,...(item.alternatives??[]).map(place=>place.node)])
   :unfinished?unfinished.map(item=>item.node):[target,...(milestone?.alternatives??[]).map(item=>item.node)];
  const targets=new Set(destinations.filter(id=>nodes.has(id)));
  if(!targets.size)return '目的地は未公開または未登録です。';
  const from=f.story.node;if(!nodes.has(from))return '';
- if(targets.has(from))return status==='active'?'目的地に到着しています。':'受注・報告の拠点にいます。';
+ if(targets.has(from)&&!arrival)return status==='active'?'目的地に到着しています。':'受注・報告の拠点にいます。';
  function meetsRule(rule){
   const questState=f.story.quests?.[rule.quest];
   const state=rule.path?questState?.pathProgress?.[rule.path]:questState;
@@ -57,14 +58,18 @@ export function questRouteText(f,q,status){
   const ride=node.voyage;
   return ride?.kind==='trolley'?[...exits,{to:ride.destination,trolleyArrival:true}]:exits;
  }
+ if(arrival&&(!nodes.has(arrival.node)||!connections(nodes.get(arrival.from)).some(edge=>edge.to===arrival.node&&gateOpen(edge))))
+  return '指定された出発地点の門から通れる経路がありません。';
  const level=f.progression?.level??0;
  function routeAtLevel(limit){
+  if(arrival&&(nodes.get(arrival.node).level||1)>limit)return;
+  if(arrival&&targets.has(from))return [from,arrival.node];
   const queue=[[from]],seen=new Set([from]);
   for(let i=0;i<queue.length;i++){
    const current=queue[i],node=nodes.get(current.at(-1));
    for(const edge of connections(node)){
     if(!nodes.has(edge.to)||seen.has(edge.to)||!gateOpen(edge)||(nodes.get(edge.to).level||1)>limit)continue;
-    const next=[...current,edge.to];if(targets.has(edge.to))return next;
+    const next=[...current,edge.to];if(targets.has(edge.to))return arrival?[...next,arrival.node]:next;
     seen.add(edge.to);queue.push(next);
    }
   }
@@ -76,7 +81,7 @@ export function questRouteText(f,q,status){
   path=routeAtLevel(limit);if(path)break;
  }
  if(!path)return '公開中の地点からつながる経路がありません。';
- const next=nodes.get(path[1]),edge=connections(nodes.get(from)).find(e=>e.to===next.id);
+ const next=nodes.get(path[1]),edge=connections(nodes.get(from)).find(e=>e.to===next.id&&gateOpen(e));
  const required=Math.max(...path.slice(1).map(id=>nodes.get(id).level||1));
  const notes=[];
  if(level<required)notes.push(`現在のレベルでは通れません。経路上にLv${required}が必要な地点があります`);

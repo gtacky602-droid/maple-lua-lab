@@ -1,5 +1,5 @@
 {
-  "checked": 932,
+  "checked": 944,
   "checks": [
     "accept/report hub destination",
     "active visit/kill destination",
@@ -22,6 +22,7 @@
     "disconnected graph",
     "chapter finale tracks the cape after the contest",
     "town walk and legacy hunt use their respective targets",
+    "ordered arrival directions reach the specified departure gate",
     "no frame mutation"
   ]
 }

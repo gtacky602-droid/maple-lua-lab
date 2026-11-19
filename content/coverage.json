@@ -75,8 +75,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 32,
-      "prototype_quest_count": 19,
+      "prototype_stage_count": 78,
+      "prototype_quest_count": 21,
       "official_map2_markers": {
         "waypoints": 47,
         "statues": 6
@@ -231,8 +231,8 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 7,
-      "prototype_quest_count": 5,
+      "prototype_stage_count": 29,
+      "prototype_quest_count": 6,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
     {
@@ -462,8 +462,210 @@
     },
     "complete_world_verified": false,
     "region_assignment": "official area IDs",
-    "playable_at_imported_nodes": 149,
+    "playable_at_imported_nodes": 226,
     "stage_links": {
+      "map7:21571": {
+        "stage_id": "enkanomiya-camp",
+        "name": "淵下宮・入口拠点",
+        "gates": [
+          "teyvat:12731",
+          "map7:21572",
+          "teyvat:15942"
+        ]
+      },
+      "map7:21572": {
+        "stage_id": "enkanomiya-depth",
+        "name": "淵下宮・探索路",
+        "gates": [
+          "map7:21571",
+          "map7:21573"
+        ]
+      },
+      "map7:21573": {
+        "stage_id": "enkan-wp-21573",
+        "name": "淵下宮・洞門の外縁",
+        "gates": [
+          "map7:21572",
+          "map7:21574"
+        ]
+      },
+      "map7:21574": {
+        "stage_id": "enkan-wp-21574",
+        "name": "淵下宮・西の浮石の停留所",
+        "gates": [
+          "map7:21573",
+          "map7:21575",
+          "map7:21576"
+        ]
+      },
+      "map7:21575": {
+        "stage_id": "enkan-wp-21575",
+        "name": "淵下宮・西の石壇",
+        "gates": [
+          "map7:21574",
+          "map7:21577"
+        ]
+      },
+      "map7:21576": {
+        "stage_id": "enkan-wp-21576",
+        "name": "淵下宮・西島の下段回廊",
+        "gates": [
+          "map7:21593",
+          "map7:21574",
+          "map7:21577",
+          "map7:21579"
+        ]
+      },
+      "map7:21577": {
+        "stage_id": "enkan-wp-21577",
+        "name": "淵下宮・西島の北の石庭",
+        "gates": [
+          "map7:21575",
+          "map7:21576",
+          "map7:21578"
+        ]
+      },
+      "map7:21578": {
+        "stage_id": "enkan-wp-21578",
+        "name": "淵下宮・大塔北の外回り",
+        "gates": [
+          "map7:21577",
+          "map7:21579",
+          "map7:21581"
+        ]
+      },
+      "map7:21579": {
+        "stage_id": "enkan-wp-21579",
+        "name": "淵下宮・大塔西の回廊",
+        "gates": [
+          "map7:21576",
+          "map7:21580",
+          "map7:21578"
+        ]
+      },
+      "map7:21580": {
+        "stage_id": "enkan-wp-21580",
+        "name": "淵下宮・中央の石灯広場",
+        "gates": [
+          "map7:21579",
+          "map7:21582",
+          "map7:21581"
+        ]
+      },
+      "map7:21581": {
+        "stage_id": "enkan-wp-21581",
+        "name": "淵下宮・大塔東の渡り台",
+        "gates": [
+          "map7:21580",
+          "map7:21578",
+          "map7:21590"
+        ]
+      },
+      "map7:21582": {
+        "stage_id": "enkan-wp-21582",
+        "name": "淵下宮・大塔南の石段",
+        "gates": [
+          "map7:21583",
+          "map7:21580",
+          "map7:21585"
+        ]
+      },
+      "map7:21583": {
+        "stage_id": "enkan-wp-21583",
+        "name": "淵下宮・南の遺構の上段",
+        "gates": [
+          "map7:21584",
+          "map7:21582"
+        ]
+      },
+      "map7:21584": {
+        "stage_id": "enkan-wp-21584",
+        "name": "淵下宮・南の遺構の突端",
+        "gates": [
+          "map7:21587",
+          "map7:21583",
+          "map7:21585",
+          "map7:21592"
+        ]
+      },
+      "map7:21585": {
+        "stage_id": "enkan-wp-21585",
+        "name": "淵下宮・南東の遺構の連絡路",
+        "gates": [
+          "map7:21584",
+          "map7:21582",
+          "map7:21586"
+        ]
+      },
+      "map7:21586": {
+        "stage_id": "enkan-wp-21586",
+        "name": "淵下宮・東の細長い浮石",
+        "gates": [
+          "map7:21585"
+        ]
+      },
+      "map7:21587": {
+        "stage_id": "enkan-wp-21587",
+        "name": "淵下宮・南の離れた小島",
+        "gates": [
+          "map7:21584"
+        ]
+      },
+      "map7:21588": {
+        "stage_id": "enkan-wp-21588",
+        "name": "淵下宮・東島の南の観測段",
+        "gates": [
+          "map7:21590",
+          "map7:21589",
+          "map7:21594"
+        ]
+      },
+      "map7:21589": {
+        "stage_id": "enkan-wp-21589",
+        "name": "淵下宮・東島の内側回廊",
+        "gates": [
+          "map7:21590",
+          "map7:21588",
+          "map7:21591"
+        ]
+      },
+      "map7:21590": {
+        "stage_id": "enkan-wp-21590",
+        "name": "淵下宮・東島の西の乗り場",
+        "gates": [
+          "map7:21581",
+          "map7:21589",
+          "map7:21588"
+        ]
+      },
+      "map7:21591": {
+        "stage_id": "enkan-wp-21591",
+        "name": "淵下宮・東島の北の高台",
+        "gates": [
+          "map7:21589"
+        ]
+      },
+      "map7:21592": {
+        "stage_id": "enkan-wp-21592",
+        "name": "淵下宮・南端の外礁灯",
+        "gates": [
+          "map7:21584"
+        ]
+      },
+      "map7:21593": {
+        "stage_id": "enkan-wp-21593",
+        "name": "淵下宮・北西の外礁灯",
+        "gates": [
+          "map7:21576"
+        ]
+      },
+      "map7:21594": {
+        "stage_id": "enkan-wp-21594",
+        "name": "淵下宮・北東の外礁灯",
+        "gates": [
+          "map7:21588"
+        ]
+      },
       "map9:25264": {
         "stage_id": "chasm-wp-25264",
         "name": "層岩巨淵・巨蛇岩穴の岩棚",
@@ -716,6 +918,219 @@
           "teyvat:7"
         ]
       },
+      "teyvat:12696": {
+        "stage_id": "ina-wp-12696",
+        "name": "ヤシオリ島・北西の湾と波止場",
+        "gates": [
+          "teyvat:15951",
+          "teyvat:12704",
+          "teyvat:12749"
+        ]
+      },
+      "teyvat:12704": {
+        "stage_id": "ina-wp-12704",
+        "name": "ヤシオリ島・北の尾根の小径",
+        "gates": [
+          "teyvat:12696",
+          "teyvat:12749"
+        ]
+      },
+      "teyvat:12711": {
+        "stage_id": "ina-wp-12711",
+        "name": "ヤシオリ島・南岸の洞口",
+        "gates": [
+          "teyvat:12714"
+        ]
+      },
+      "teyvat:12714": {
+        "stage_id": "maguu-approach",
+        "name": "魔偶剣鬼・挑戦入口",
+        "gates": [
+          "teyvat:12731",
+          "teyvat:12749",
+          "teyvat:12711",
+          "teyvat:12716"
+        ]
+      },
+      "teyvat:12715": {
+        "stage_id": "ina-wp-12715",
+        "name": "神無塚・南湾の石段",
+        "gates": [
+          "teyvat:12719"
+        ]
+      },
+      "teyvat:12716": {
+        "stage_id": "ina-wp-12716",
+        "name": "ヤシオリ島・風が抜ける干潟",
+        "gates": [
+          "teyvat:12749",
+          "teyvat:12714",
+          "teyvat:12717"
+        ]
+      },
+      "teyvat:12717": {
+        "stage_id": "ina-wp-12717",
+        "name": "神無塚・干潟の北の小島",
+        "gates": [
+          "teyvat:12716",
+          "teyvat:12718"
+        ]
+      },
+      "teyvat:12718": {
+        "stage_id": "ina-wp-12718",
+        "name": "神無塚・工房の西の崖道",
+        "gates": [
+          "teyvat:12717",
+          "teyvat:12745",
+          "teyvat:12719"
+        ]
+      },
+      "teyvat:12719": {
+        "stage_id": "ina-wp-12719",
+        "name": "神無塚・谷を渡る坂道",
+        "gates": [
+          "teyvat:12718",
+          "teyvat:12715",
+          "teyvat:12745",
+          "teyvat:13670",
+          "teyvat:12720"
+        ]
+      },
+      "teyvat:12720": {
+        "stage_id": "ina-wp-12720",
+        "name": "神無塚・東の浜の見張り場",
+        "gates": [
+          "teyvat:12719"
+        ]
+      },
+      "teyvat:12722": {
+        "stage_id": "ina-wp-12722",
+        "name": "鳴神島・離島・城南の船着き場",
+        "gates": [
+          "teyvat:16014",
+          "teyvat:12724"
+        ]
+      },
+      "teyvat:12724": {
+        "stage_id": "inazuma-town",
+        "name": "稲妻・城下の広場",
+        "gates": [
+          "teyvat:12731",
+          "teyvat:12725",
+          "teyvat:12722"
+        ]
+      },
+      "teyvat:12725": {
+        "stage_id": "ina-wp-12725",
+        "name": "鳴神島・離島・白い砂の海岸道",
+        "gates": [
+          "teyvat:12728",
+          "teyvat:12724",
+          "teyvat:12726"
+        ]
+      },
+      "teyvat:12726": {
+        "stage_id": "ina-wp-12726",
+        "name": "鳴神島・離島・鳥居の森の東縁",
+        "gates": [
+          "teyvat:12725",
+          "teyvat:12733",
+          "teyvat:12738"
+        ]
+      },
+      "teyvat:12728": {
+        "stage_id": "ina-wp-12728",
+        "name": "鳴神島・離島・平地の道標",
+        "gates": [
+          "teyvat:12729",
+          "teyvat:12725",
+          "teyvat:12733"
+        ]
+      },
+      "teyvat:12729": {
+        "stage_id": "ina-wp-12729",
+        "name": "鳴神島・離島・離島へ続く浅瀬",
+        "gates": [
+          "teyvat:12731",
+          "teyvat:12728",
+          "teyvat:12735"
+        ]
+      },
+      "teyvat:12731": {
+        "stage_id": "inazuma-road",
+        "name": "稲妻・海辺の街道",
+        "gates": [
+          "teyvat:13652",
+          "teyvat:12724",
+          "map7:21571",
+          "teyvat:12714",
+          "teyvat:16018",
+          "teyvat:12740",
+          "teyvat:12729"
+        ]
+      },
+      "teyvat:12733": {
+        "stage_id": "ina-wp-12733",
+        "name": "鳴神島・離島・社へ続く山道",
+        "gates": [
+          "teyvat:12728",
+          "teyvat:12735",
+          "teyvat:12726",
+          "teyvat:12738"
+        ]
+      },
+      "teyvat:12735": {
+        "stage_id": "ina-wp-12735",
+        "name": "鳴神島・離島・北の崖沿いの入口",
+        "gates": [
+          "teyvat:12729",
+          "teyvat:12746",
+          "teyvat:47990",
+          "teyvat:12733"
+        ]
+      },
+      "teyvat:12738": {
+        "stage_id": "ina-wp-12738",
+        "name": "鳴神島・離島・東斜面の石段",
+        "gates": [
+          "teyvat:12733",
+          "teyvat:12726"
+        ]
+      },
+      "teyvat:12740": {
+        "stage_id": "ina-wp-12740",
+        "name": "鳴神島・離島・離島の神像",
+        "gates": [
+          "teyvat:13652",
+          "teyvat:12731"
+        ]
+      },
+      "teyvat:12745": {
+        "stage_id": "ina-wp-12745",
+        "name": "神無塚・海沿いの神像",
+        "gates": [
+          "teyvat:12718",
+          "teyvat:12719",
+          "teyvat:13670"
+        ]
+      },
+      "teyvat:12746": {
+        "stage_id": "ina-wp-12746",
+        "name": "鳴神島・離島・北沖の岩島",
+        "gates": [
+          "teyvat:12735"
+        ]
+      },
+      "teyvat:12749": {
+        "stage_id": "ina-wp-12749",
+        "name": "ヤシオリ島・峠の神像",
+        "gates": [
+          "teyvat:12696",
+          "teyvat:12704",
+          "teyvat:12714",
+          "teyvat:12716"
+        ]
+      },
       "teyvat:13": {
         "stage_id": "mond-wp-13",
         "name": "モンド・大樹の東原と神像",
@@ -724,6 +1139,43 @@
           "teyvat:18",
           "teyvat:7",
           "teyvat:15"
+        ]
+      },
+      "teyvat:13429": {
+        "stage_id": "ina-wp-13429",
+        "name": "神無塚・北の陣の船溜まり",
+        "gates": [
+          "teyvat:13669",
+          "teyvat:13670"
+        ]
+      },
+      "teyvat:13652": {
+        "stage_id": "inazuma-port",
+        "name": "稲妻・離島の波止場",
+        "gates": [
+          "teyvat:937",
+          "teyvat:12731",
+          "teyvat:15947",
+          "teyvat:18584",
+          "teyvat:13669",
+          "teyvat:12740"
+        ]
+      },
+      "teyvat:13669": {
+        "stage_id": "ina-wp-13669",
+        "name": "神無塚・北西の渡し場",
+        "gates": [
+          "teyvat:13429",
+          "teyvat:13652"
+        ]
+      },
+      "teyvat:13670": {
+        "stage_id": "ina-wp-13670",
+        "name": "神無塚・岬の東の渡し場",
+        "gates": [
+          "teyvat:12745",
+          "teyvat:12719",
+          "teyvat:13429"
         ]
       },
       "teyvat:14": {
@@ -742,6 +1194,60 @@
           "teyvat:18"
         ]
       },
+      "teyvat:15938": {
+        "stage_id": "ina-wp-15938",
+        "name": "海祇島・珊瑚の西の神像",
+        "gates": [
+          "teyvat:15940",
+          "teyvat:15942",
+          "teyvat:15944"
+        ]
+      },
+      "teyvat:15940": {
+        "stage_id": "ina-wp-15940",
+        "name": "海祇島・南の潮だまり",
+        "gates": [
+          "teyvat:15938",
+          "teyvat:15947",
+          "teyvat:18584"
+        ]
+      },
+      "teyvat:15942": {
+        "stage_id": "ina-wp-15942",
+        "name": "海祇島・中央の渦口",
+        "gates": [
+          "map7:21571",
+          "teyvat:15938",
+          "teyvat:15944",
+          "teyvat:15947"
+        ]
+      },
+      "teyvat:15944": {
+        "stage_id": "ina-wp-15944",
+        "name": "海祇島・北の珊瑚棚",
+        "gates": [
+          "teyvat:15938",
+          "teyvat:15942"
+        ]
+      },
+      "teyvat:15947": {
+        "stage_id": "watatsumi-landing",
+        "name": "稲妻・海祇島の浜",
+        "gates": [
+          "teyvat:13652",
+          "teyvat:15940",
+          "teyvat:15942",
+          "teyvat:15951"
+        ]
+      },
+      "teyvat:15951": {
+        "stage_id": "ina-wp-15951",
+        "name": "海祇島・東沖の中継島",
+        "gates": [
+          "teyvat:15947",
+          "teyvat:12696"
+        ]
+      },
       "teyvat:16": {
         "stage_id": "mond-roadside-rest",
         "name": "モンド・街道脇の休憩所",
@@ -749,6 +1255,91 @@
           "teyvat:3",
           "teyvat:20",
           "teyvat:14"
+        ]
+      },
+      "teyvat:16012": {
+        "stage_id": "ina-wp-16012",
+        "name": "セイライ島・南西の緑の島",
+        "gates": [
+          "teyvat:18584",
+          "teyvat:16022"
+        ]
+      },
+      "teyvat:16014": {
+        "stage_id": "ina-wp-16014",
+        "name": "セイライ島・北西の船着き場",
+        "gates": [
+          "teyvat:16026",
+          "teyvat:12722"
+        ]
+      },
+      "teyvat:16018": {
+        "stage_id": "thunder-approach",
+        "name": "雷音権現・挑戦入口",
+        "gates": [
+          "teyvat:12731",
+          "teyvat:16024",
+          "teyvat:16020"
+        ]
+      },
+      "teyvat:16020": {
+        "stage_id": "ina-wp-16020",
+        "name": "セイライ島・火口東の外輪",
+        "gates": [
+          "teyvat:16024",
+          "teyvat:16018"
+        ]
+      },
+      "teyvat:16022": {
+        "stage_id": "ina-wp-16022",
+        "name": "セイライ島・海峡の神像",
+        "gates": [
+          "teyvat:16012",
+          "teyvat:16026",
+          "teyvat:16024",
+          "teyvat:16027"
+        ]
+      },
+      "teyvat:16024": {
+        "stage_id": "ina-wp-16024",
+        "name": "セイライ島・火口の北の横道",
+        "gates": [
+          "teyvat:16022",
+          "teyvat:16018",
+          "teyvat:16020"
+        ]
+      },
+      "teyvat:16026": {
+        "stage_id": "ina-wp-16026",
+        "name": "セイライ島・北西の斜面の分岐",
+        "gates": [
+          "teyvat:16014",
+          "teyvat:16022"
+        ]
+      },
+      "teyvat:16027": {
+        "stage_id": "ina-wp-16027",
+        "name": "セイライ島・北東の風の道",
+        "gates": [
+          "teyvat:16022",
+          "teyvat:16030",
+          "teyvat:16029"
+        ]
+      },
+      "teyvat:16029": {
+        "stage_id": "ina-wp-16029",
+        "name": "セイライ島・東沖の石橋",
+        "gates": [
+          "teyvat:16027",
+          "teyvat:16030"
+        ]
+      },
+      "teyvat:16030": {
+        "stage_id": "ina-wp-16030",
+        "name": "セイライ島・北東の岩の見張り場",
+        "gates": [
+          "teyvat:16027",
+          "teyvat:16029"
         ]
       },
       "teyvat:17": {
@@ -774,6 +1365,77 @@
           "teyvat:13",
           "teyvat:15",
           "teyvat:17"
+        ]
+      },
+      "teyvat:18584": {
+        "stage_id": "tsurumi-coast",
+        "name": "稲妻・鶴観の浜",
+        "gates": [
+          "teyvat:13652",
+          "teyvat:15940",
+          "teyvat:18586",
+          "teyvat:16012"
+        ]
+      },
+      "teyvat:18586": {
+        "stage_id": "ina-wp-18586",
+        "name": "鶴観・霧の東岸道",
+        "gates": [
+          "teyvat:18589",
+          "teyvat:18584"
+        ]
+      },
+      "teyvat:18587": {
+        "stage_id": "ina-wp-18587",
+        "name": "鶴観・北の丘の岩間",
+        "gates": [
+          "teyvat:18591",
+          "teyvat:18593",
+          "teyvat:18589"
+        ]
+      },
+      "teyvat:18589": {
+        "stage_id": "ina-wp-18589",
+        "name": "鶴観・霧の湿地の東端",
+        "gates": [
+          "teyvat:18599",
+          "teyvat:18593",
+          "teyvat:18587",
+          "teyvat:18586"
+        ]
+      },
+      "teyvat:18591": {
+        "stage_id": "ina-wp-18591",
+        "name": "鶴観・北西の岬の竪穴",
+        "gates": [
+          "teyvat:18593",
+          "teyvat:18587"
+        ]
+      },
+      "teyvat:18593": {
+        "stage_id": "ina-wp-18593",
+        "name": "鶴観・中央の山際",
+        "gates": [
+          "teyvat:18591",
+          "teyvat:18599",
+          "teyvat:18587",
+          "teyvat:18589"
+        ]
+      },
+      "teyvat:18599": {
+        "stage_id": "ina-wp-18599",
+        "name": "鶴観・南の海岸段丘",
+        "gates": [
+          "teyvat:18601",
+          "teyvat:18593",
+          "teyvat:18589"
+        ]
+      },
+      "teyvat:18601": {
+        "stage_id": "ina-wp-18601",
+        "name": "鶴観・南の離れ岩",
+        "gates": [
+          "teyvat:18599"
         ]
       },
       "teyvat:19": {
@@ -1110,6 +1772,13 @@
           "teyvat:45",
           "teyvat:46",
           "teyvat:109"
+        ]
+      },
+      "teyvat:47990": {
+        "stage_id": "ina-wp-47990",
+        "name": "鳴神島・離島・北沖の地下石室",
+        "gates": [
+          "teyvat:12735"
         ]
       },
       "teyvat:48": {
@@ -1748,8 +2417,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 478,
-    "provisional_quests": 233,
+    "authored_stages": 546,
+    "provisional_quests": 236,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -1794,7 +2463,7 @@
     "status": "partial",
     "design": "content/world-bosses-design.json"
   },
-  "current_priority": "Match Inazuma waypoint IDs to playable islands and distinct underground layers. Continue quest and boss playthroughs and sprite consistency checks.",
+  "current_priority": "Match Sumeru waypoint IDs to playable forest and desert routes, with explicit entrances for distinct floor layers. Continue quest and boss playthroughs and sprite consistency checks.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",
@@ -2023,9 +2692,57 @@
           "thunder-approach",
           "thunder-field-crest",
           "signora-ten-shrine-arena",
-          "raiden-thunder-echo-arena"
+          "raiden-thunder-echo-arena",
+          "ina-wp-12696",
+          "ina-wp-12704",
+          "ina-wp-12711",
+          "ina-wp-12715",
+          "ina-wp-12716",
+          "ina-wp-12717",
+          "ina-wp-12718",
+          "ina-wp-12719",
+          "ina-wp-12720",
+          "ina-wp-12722",
+          "ina-wp-12725",
+          "ina-wp-12726",
+          "ina-wp-12728",
+          "ina-wp-12729",
+          "ina-wp-12733",
+          "ina-wp-12735",
+          "ina-wp-12738",
+          "ina-wp-12740",
+          "ina-wp-12745",
+          "ina-wp-12746",
+          "ina-wp-12749",
+          "ina-wp-13429",
+          "ina-wp-13669",
+          "ina-wp-13670",
+          "ina-wp-15938",
+          "ina-wp-15940",
+          "ina-wp-15942",
+          "ina-wp-15944",
+          "ina-wp-15951",
+          "ina-wp-16012",
+          "ina-wp-16014",
+          "ina-wp-16020",
+          "ina-wp-16022",
+          "ina-wp-16024",
+          "ina-wp-16026",
+          "ina-wp-16027",
+          "ina-wp-16029",
+          "ina-wp-16030",
+          "ina-wp-18586",
+          "ina-wp-18587",
+          "ina-wp-18589",
+          "ina-wp-18591",
+          "ina-wp-18593",
+          "ina-wp-18599",
+          "ina-wp-18601",
+          "ina-wp-47990"
         ],
         "quest_ids": [
+          "ina-mapped-seirai-ferry",
+          "ina-mapped-undersea-floor",
           "raiden-weekly-commission",
           "signora-weekly-commission",
           "growth-upgrade-gear",
@@ -2472,9 +3189,32 @@
           "enkan-guide-shelf",
           "enkan-lamp-chamber",
           "enkan-route-gallery",
-          "enkan-tablet-hollow"
+          "enkan-tablet-hollow",
+          "enkan-wp-21573",
+          "enkan-wp-21574",
+          "enkan-wp-21575",
+          "enkan-wp-21576",
+          "enkan-wp-21577",
+          "enkan-wp-21578",
+          "enkan-wp-21579",
+          "enkan-wp-21580",
+          "enkan-wp-21581",
+          "enkan-wp-21582",
+          "enkan-wp-21583",
+          "enkan-wp-21584",
+          "enkan-wp-21585",
+          "enkan-wp-21586",
+          "enkan-wp-21587",
+          "enkan-wp-21588",
+          "enkan-wp-21589",
+          "enkan-wp-21590",
+          "enkan-wp-21591",
+          "enkan-wp-21592",
+          "enkan-wp-21593",
+          "enkan-wp-21594"
         ],
         "quest_ids": [
+          "ina-mapped-enkan-beacons",
           "enkanomiya-survey",
           "bathysmal-commission",
           "enkan-safety-leaflet",
@@ -2676,7 +3416,29 @@
           "enkan-guide-shelf",
           "enkan-lamp-chamber",
           "enkan-route-gallery",
-          "enkan-tablet-hollow"
+          "enkan-tablet-hollow",
+          "enkan-wp-21573",
+          "enkan-wp-21574",
+          "enkan-wp-21575",
+          "enkan-wp-21576",
+          "enkan-wp-21577",
+          "enkan-wp-21578",
+          "enkan-wp-21579",
+          "enkan-wp-21580",
+          "enkan-wp-21581",
+          "enkan-wp-21582",
+          "enkan-wp-21583",
+          "enkan-wp-21584",
+          "enkan-wp-21585",
+          "enkan-wp-21586",
+          "enkan-wp-21587",
+          "enkan-wp-21588",
+          "enkan-wp-21589",
+          "enkan-wp-21590",
+          "enkan-wp-21591",
+          "enkan-wp-21592",
+          "enkan-wp-21593",
+          "enkan-wp-21594"
         ]
       },
       {

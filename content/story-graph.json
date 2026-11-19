@@ -1531,14 +1531,41 @@
           "to": "inazuma-road",
           "x": 1380
         },
-        {"to":"watatsumi-landing","x":1050},
-        {"to":"tsurumi-coast","x":1205}
+        {
+          "to": "watatsumi-landing",
+          "x": 1050
+        },
+        {
+          "to": "tsurumi-coast",
+          "x": 1205
+        },
+        {
+          "to": "ina-wp-13669",
+          "x": 780,
+          "arrivalX": 1312,
+          "arrivalY": 480,
+          "boatSeconds": 3.6,
+          "rideLabel": "離島から北西の渡し場へ"
+        },
+        {
+          "to": "ina-wp-12740",
+          "x": 470,
+          "arrivalX": 76,
+          "arrivalY": 480
+        }
       ],
-      "checkpoint": "inazuma-port"
+      "checkpoint": "inazuma-port",
+      "mapPoint": "teyvat:13652",
+      "waypoint": {
+        "kind": "waypoint",
+        "area": "鳴神島・離島",
+        "x": 455,
+        "y": 480
+      }
     },
-    {"id":"tsurumi-coast","name":"稲妻・鶴観の浜","region":"稲妻","level":54,"hub":false,"peaceful":true,"width":1440,"platforms":[{"x":0,"y":480,"w":1440},{"x":420,"y":391,"w":285}],"exits":[{"to":"inazuma-port","x":65},{"to":"wolflord-field-ruins","x":1340}],"checkpoint":"inazuma-port"},
+    {"id":"tsurumi-coast","name":"稲妻・鶴観の浜","region":"稲妻","level":54,"hub":false,"peaceful":true,"width":1440,"platforms":[{"x":0,"y":480,"w":1440},{"x":420,"y":391,"w":285}],"exits":[{"to":"inazuma-port","x":65},{"to":"wolflord-field-ruins","x":1340},{"to":"ina-wp-15940","x":345,"arrivalX":1262,"arrivalY":480,"boatSeconds":4.3,"rideLabel":"海祇島と鶴観の連絡船"},{"to":"ina-wp-18586","x":1020,"arrivalX":1262,"arrivalY":480},{"to":"ina-wp-16012","x":690,"arrivalX":76,"arrivalY":480,"boatSeconds":4.1,"rideLabel":"霧の島への連絡船"}],"checkpoint":"inazuma-port","mapPoint":"teyvat:18584","waypoint":{"kind":"statue","area":"鶴観","x":575,"y":480}},
     {"id":"wolflord-field-ruins","name":"稲妻・鶴観の霧浜遺跡","region":"稲妻","level":54,"hub":false,"peaceful":true,"width":1640,"platforms":[{"x":0,"y":480,"w":1640}],"exits":[{"to":"tsurumi-coast","x":65}],"checkpoint":"inazuma-port"},
-    {"id":"watatsumi-landing","name":"稲妻・海祇島の浜","region":"稲妻","level":52,"hub":false,"peaceful":true,"width":1440,"platforms":[{"x":0,"y":480,"w":1440},{"x":480,"y":382,"w":310}],"exits":[{"to":"inazuma-port","x":65},{"to":"hydro-hypostasis-field-cove","x":1340}],"checkpoint":"inazuma-port"},
+    {"id":"watatsumi-landing","name":"稲妻・海祇島の浜","region":"稲妻","level":52,"hub":false,"peaceful":true,"width":1440,"platforms":[{"x":0,"y":480,"w":1440},{"x":480,"y":382,"w":310}],"exits":[{"to":"inazuma-port","x":65},{"to":"hydro-hypostasis-field-cove","x":1340},{"to":"ina-wp-15940","x":760,"arrivalX":826,"arrivalY":480},{"to":"ina-wp-15942","x":1030,"arrivalX":1382,"arrivalY":480},{"to":"ina-wp-15951","x":320,"arrivalX":76,"arrivalY":480,"boatSeconds":2.7,"rideLabel":"珊瑚の岸までの小舟"}],"checkpoint":"inazuma-port","mapPoint":"teyvat:15947","waypoint":{"kind":"waypoint","area":"海祇島","x":615,"y":480}},
     {"id":"hydro-hypostasis-field-cove","name":"稲妻・潮紋の洞","region":"稲妻","level":52,"hub":false,"peaceful":true,"width":1600,"platforms":[{"x":0,"y":480,"w":1600}],"exits":[{"to":"watatsumi-landing","x":65}],"checkpoint":"inazuma-port"},
     {
       "id": "inazuma-road",
@@ -1594,9 +1621,32 @@
           "to": "thunder-approach",
           "x": 900
         },
-        {"to":"inazuma-shore-hunt","x":230,"arrivalX":1595}
+        {
+          "to": "inazuma-shore-hunt",
+          "x": 230,
+          "arrivalX": 1595
+        },
+        {
+          "to": "ina-wp-12740",
+          "x": 530,
+          "arrivalX": 1312,
+          "arrivalY": 480
+        },
+        {
+          "to": "ina-wp-12729",
+          "x": 640,
+          "arrivalX": 76,
+          "arrivalY": 480
+        }
       ],
-      "checkpoint": "inazuma-port"
+      "checkpoint": "inazuma-port",
+      "mapPoint": "teyvat:12731",
+      "waypoint": {
+        "kind": "waypoint",
+        "area": "鳴神島・離島",
+        "x": 530,
+        "y": 480
+      }
     },
     {
       "id": "inazuma-town",
@@ -1620,8 +1670,14 @@
         }
       ],
       "exits": [
-        {"to":"signora-ten-shrine-arena","x":995},
-        {"to":"raiden-thunder-echo-arena","x":1305},
+        {
+          "to": "signora-ten-shrine-arena",
+          "x": 995
+        },
+        {
+          "to": "raiden-thunder-echo-arena",
+          "x": 1305
+        },
         {
           "to": "inazuma-road",
           "x": 60
@@ -1629,32 +1685,117 @@
         {
           "to": "inazuma-lantern-trail",
           "x": 580,
-          "requires": {"quest": "inazuma-moving-lantern", "count": 1}
+          "requires": {
+            "quest": "inazuma-moving-lantern",
+            "count": 1
+          }
         },
-        {"to":"inazuma-shore-hunt","x":194,"arrivalX":120},
+        {
+          "to": "inazuma-shore-hunt",
+          "x": 194,
+          "arrivalX": 120
+        },
         {
           "to": "inazuma-forest-shore",
           "x": 940,
-          "requires": {"quest": "inazuma-torii-maze", "count": 5}
+          "requires": {
+            "quest": "inazuma-torii-maze",
+            "count": 5
+          }
         },
         {
           "to": "inazuma-lantern-clearing",
           "x": 1080,
-          "requires": {"quest": "inazuma-moving-lantern", "count": 6}
+          "requires": {
+            "quest": "inazuma-moving-lantern",
+            "count": 6
+          }
         },
         {
           "to": "sumeru-entry",
           "x": 1380
         },
-        {"to":"pyro-hypostasis-field-terrace","x":1230},
-        {"to":"ina-firework-lookouts","x":755,"arrivalX":120,"requires":{"quest":"ina-window-fireworks","count":1}},
-        {"to":"ina-firework-beach","x":266,"arrivalX":702,"requires":{"quest":"ina-window-fireworks","count":5}},
-        {"to":"ina-sayu-watchpath","x":454,"arrivalX":118,"requires":{"quest":"ina-sayu-quiet-route","count":1}},
-        {"to":"ina-sayu-watchpath","x":1148,"arrivalX":2150,"requires":{"quest":"ina-sayu-quiet-route","count":5},"rideLabel":"開いた裏柵から見回り道へ"},
-        {"to":"ina-festival-games","x":828,"arrivalX":108,"requires":{"quest":"ina-itto-three-games","count":1}},
-        {"to":"ina-tea-crossroads","x":350,"arrivalX":110,"requires":{"quest":"ina-walking-teahouse","count":2}}
+        {
+          "to": "pyro-hypostasis-field-terrace",
+          "x": 1230
+        },
+        {
+          "to": "ina-firework-lookouts",
+          "x": 755,
+          "arrivalX": 120,
+          "requires": {
+            "quest": "ina-window-fireworks",
+            "count": 1
+          }
+        },
+        {
+          "to": "ina-firework-beach",
+          "x": 266,
+          "arrivalX": 702,
+          "requires": {
+            "quest": "ina-window-fireworks",
+            "count": 5
+          }
+        },
+        {
+          "to": "ina-sayu-watchpath",
+          "x": 454,
+          "arrivalX": 118,
+          "requires": {
+            "quest": "ina-sayu-quiet-route",
+            "count": 1
+          }
+        },
+        {
+          "to": "ina-sayu-watchpath",
+          "x": 1148,
+          "arrivalX": 2150,
+          "requires": {
+            "quest": "ina-sayu-quiet-route",
+            "count": 5
+          },
+          "rideLabel": "開いた裏柵から見回り道へ"
+        },
+        {
+          "to": "ina-festival-games",
+          "x": 828,
+          "arrivalX": 108,
+          "requires": {
+            "quest": "ina-itto-three-games",
+            "count": 1
+          }
+        },
+        {
+          "to": "ina-tea-crossroads",
+          "x": 350,
+          "arrivalX": 110,
+          "requires": {
+            "quest": "ina-walking-teahouse",
+            "count": 2
+          }
+        },
+        {
+          "to": "ina-wp-12725",
+          "x": 671,
+          "arrivalX": 826,
+          "arrivalY": 480
+        },
+        {
+          "to": "ina-wp-12722",
+          "x": 735,
+          "y": 340,
+          "arrivalX": 1312,
+          "arrivalY": 480
+        }
       ],
-      "checkpoint": "inazuma-town"
+      "checkpoint": "inazuma-town",
+      "mapPoint": "teyvat:12724",
+      "waypoint": {
+        "kind": "waypoint",
+        "area": "鳴神島・離島",
+        "x": 570,
+        "y": 480
+      }
     },
     {
       "id":"inazuma-shore-hunt","name":"稲妻・潮風の浜","region":"稲妻","level":40,"hub":false,
@@ -3744,14 +3885,44 @@
           "to": "enkanomiya-depth",
           "x": 1380
         },
-        {"to":"enkan-guide-shelf","x":942},
-        {"to":"enkan-lamp-chamber","x":1125,"requires":{"quest":"enkan-safety-leaflet"}},
-        {"to":"enkan-route-gallery","x":1292,"requires":{"quest":"enkan-shadow-crossing"}}
+        {
+          "to": "enkan-guide-shelf",
+          "x": 942
+        },
+        {
+          "to": "enkan-lamp-chamber",
+          "x": 1125,
+          "requires": {
+            "quest": "enkan-safety-leaflet"
+          }
+        },
+        {
+          "to": "enkan-route-gallery",
+          "x": 1292,
+          "requires": {
+            "quest": "enkan-shadow-crossing"
+          }
+        },
+        {
+          "to": "ina-wp-15942",
+          "x": 440,
+          "arrivalX": 76,
+          "arrivalY": 480,
+          "waterwaySeconds": 3.8,
+          "rideLabel": "渦の先の水路"
+        }
       ],
       "checkpoint": "enkanomiya-camp",
       "branch": true,
       "lightReference": 10,
-      "barrier": 0
+      "barrier": 0,
+      "mapPoint": "map7:21571",
+      "waypoint": {
+        "kind": "waypoint",
+        "area": "淵下宮",
+        "x": 460,
+        "y": 480
+      }
     },
     {
       "id": "enkanomiya-depth",
@@ -3790,12 +3961,25 @@
         {
           "to": "bathysmal-field-sanctum",
           "x": 1375
+        },
+        {
+          "to": "enkan-wp-21573",
+          "x": 690,
+          "arrivalX": 76,
+          "arrivalY": 480
         }
       ],
       "checkpoint": "enkanomiya-camp",
       "branch": true,
       "lightReference": 10,
-      "barrier": 10
+      "barrier": 10,
+      "mapPoint": "map7:21572",
+      "waypoint": {
+        "kind": "waypoint",
+        "area": "淵下宮",
+        "x": 470,
+        "y": 480
+      }
     },
     {"id":"bathysmal-field-sanctum","name":"淵下宮・双影の石庭","region":"淵下宮","level":46,"hub":false,"peaceful":true,"width":1640,"platforms":[{"x":0,"y":480,"w":1640}],"exits":[{"to":"enkanomiya-depth","x":65}],"checkpoint":"enkanomiya-camp"},
     {
@@ -5839,13 +6023,42 @@
         {
           "to": "inazuma-road",
           "x": 60
-        }, {"to":"maguu-field-dojo","x":1270}
+        },
+        {
+          "to": "maguu-field-dojo",
+          "x": 1270
+        },
+        {
+          "to": "ina-wp-12749",
+          "x": 340,
+          "arrivalX": 1110,
+          "arrivalY": 480
+        },
+        {
+          "to": "ina-wp-12711",
+          "x": 690,
+          "arrivalX": 76,
+          "arrivalY": 480
+        },
+        {
+          "to": "ina-wp-12716",
+          "x": 1000,
+          "arrivalX": 826,
+          "arrivalY": 480
+        }
       ],
       "checkpoint": "inazuma-port",
       "challenge": "maguu",
       "challengeName": "魔偶剣鬼",
       "challengeAction": "boss_maguu",
-      "challengeX": 720
+      "challengeX": 720,
+      "mapPoint": "teyvat:12714",
+      "waypoint": {
+        "kind": "waypoint",
+        "area": "ヤシオリ島",
+        "x": 580,
+        "y": 480
+      }
     },
     {"id":"maguu-field-dojo","name":"稲妻・剣鬼の古庭","region":"稲妻","level":44,"hub":false,"peaceful":true,"width":1580,"platforms":[{"x":0,"y":480,"w":1580}],"exits":[{"to":"maguu-approach","x":65}],"checkpoint":"inazuma-port"},
     {
@@ -5897,13 +6110,35 @@
           "to": "inazuma-road",
           "x": 60
         },
-        {"to":"thunder-field-crest","x":1270}
+        {
+          "to": "thunder-field-crest",
+          "x": 1270
+        },
+        {
+          "to": "ina-wp-16024",
+          "x": 360,
+          "arrivalX": 871,
+          "arrivalY": 371
+        },
+        {
+          "to": "ina-wp-16020",
+          "x": 1025,
+          "arrivalX": 1382,
+          "arrivalY": 480
+        }
       ],
       "checkpoint": "inazuma-port",
       "challenge": "thunder",
       "challengeName": "雷音権現",
       "challengeAction": "boss_thunder",
-      "challengeX": 720
+      "challengeX": 720,
+      "mapPoint": "teyvat:16018",
+      "waypoint": {
+        "kind": "waypoint",
+        "area": "セイライ島",
+        "x": 610,
+        "y": 480
+      }
     },
     {"id":"thunder-field-crest","name":"稲妻・雷鳴の岩峰","region":"稲妻","level":48,"hub":false,"peaceful":true,"width":1580,"platforms":[{"x":0,"y":480,"w":1580}],"exits":[{"to":"thunder-approach","x":65}],"checkpoint":"inazuma-port"},
     {"id":"spiritspeaker-field-grotto","name":"ナタ・謎煙の修練窟","region":"ナタ","level":114,"hub":false,"peaceful":true,"width":1760,"platforms":[{"x":0,"y":480,"w":1760}],"exits":[{"to":"natlan-field","x":65}],"checkpoint":"natlan-hub"},
@@ -6083,6 +6318,74 @@
     {"id":"knave-crimson-court","name":"凶月の再現戦","region":"フォンテーヌ","level":88,"width":960,"hub":false,"peaceful":true,"checkpoint":"fontaine-hub","platforms":[{"x":0,"y":480,"w":960},{"x":98,"y":357,"w":158},{"x":704,"y":357,"w":158}],"exits":[{"to":"fontaine-hub","x":130}]},
     {"id":"primal-fire-sundered-forge","name":"源焔の再現戦","region":"ナタ","level":104,"width":960,"hub":false,"peaceful":true,"checkpoint":"natlan-hub","platforms":[{"x":40,"y":480,"w":880},{"x":110,"y":357,"w":141},{"x":709,"y":357,"w":141}],"exits":[{"to":"natlan-hub","x":863,"arrivalX":351}]},
     {"id":"mond-gate-chess-court","name":"扉の対局・再現盤","region":"モンド","level":112,"width":960,"hub":false,"peaceful":true,"checkpoint":"mond-town","platforms":[{"x":0,"y":480,"w":960},{"x":128,"y":357,"w":176},{"x":656,"y":357,"w":176}],"exits":[{"to":"mond-town","x":825,"arrivalX":442}]},
+    {"id":"ina-wp-12696","name":"ヤシオリ島・北西の湾と波止場","region":"稲妻","level":47,"hub":false,"peaceful":true,"width":1390,"checkpoint":"inazuma-port","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1390},{"x":310,"y":390,"w":220},{"x":628,"y":418,"w":237},{"x":993,"y":378,"w":208}],"exits":[{"to":"ina-wp-15951","x":76,"arrivalX":1312,"arrivalY":480,"boatSeconds":3.9,"rideLabel":"東沖の中継島までの船"},{"to":"ina-wp-12704","x":851,"arrivalX":76,"arrivalY":480},{"to":"ina-wp-12749","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:12696","waypoint":{"kind":"waypoint","area":"ヤシオリ島","x":695,"y":480}},
+    {"id":"ina-wp-12704","name":"ヤシオリ島・北の尾根の小径","region":"稲妻","level":44,"hub":false,"peaceful":true,"width":1520,"checkpoint":"inazuma-port","scenery":"inazuma","platforms":[{"x":0,"y":480,"w":1520},{"x":302,"y":382,"w":198},{"x":536,"y":295,"w":265},{"x":893,"y":373,"w":188},{"x":1181,"y":414,"w":166}],"exits":[{"to":"ina-wp-12696","x":76,"arrivalX":851,"arrivalY":480},{"to":"ina-wp-12749","x":1442,"arrivalX":320,"arrivalY":480}],"mapPoint":"teyvat:12704","waypoint":{"kind":"waypoint","area":"ヤシオリ島","x":760,"y":480}},
+    {"id":"ina-wp-12711","name":"ヤシオリ島・南岸の洞口","region":"稲妻","level":49,"hub":false,"peaceful":true,"width":1300,"checkpoint":"inazuma-port","scenery":"seacave","platforms":[{"x":0,"y":480,"w":1300},{"x":310,"y":393,"w":210},{"x":620,"y":340,"w":225},{"x":938,"y":413,"w":150}],"exits":[{"to":"maguu-approach","x":76,"arrivalX":690,"arrivalY":480}],"mapPoint":"teyvat:12711","waypoint":{"kind":"waypoint","area":"ヤシオリ島","x":650,"y":480}},
+    {"id":"ina-wp-12715","name":"神無塚・南湾の石段","region":"稲妻","level":46,"hub":false,"peaceful":true,"width":1430,"checkpoint":"inazuma-port","scenery":"inazuma","platforms":[{"x":0,"y":480,"w":1430},{"x":276,"y":398,"w":215},{"x":560,"y":332,"w":227},{"x":950,"y":401,"w":225}],"exits":[{"to":"ina-wp-12719","x":76,"arrivalX":306,"arrivalY":480}],"mapPoint":"teyvat:12715","waypoint":{"kind":"waypoint","area":"神無塚","x":715,"y":480}},
+    {"id":"ina-wp-12716","name":"ヤシオリ島・風が抜ける干潟","region":"稲妻","level":44,"hub":false,"peaceful":true,"width":1340,"checkpoint":"inazuma-port","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1340},{"x":352,"y":421,"w":200},{"x":790,"y":403,"w":255}],"exits":[{"to":"ina-wp-12749","x":76,"arrivalX":1352,"arrivalY":480},{"to":"maguu-approach","x":826,"arrivalX":1000,"arrivalY":480},{"to":"ina-wp-12717","x":1262,"arrivalX":76,"arrivalY":370}],"mapPoint":"teyvat:12716","waypoint":{"kind":"waypoint","area":"ヤシオリ島","x":670,"y":480}},
+    {"id":"ina-wp-12717","name":"神無塚・干潟の北の小島","region":"稲妻","level":43,"hub":false,"peaceful":true,"width":1340,"checkpoint":"inazuma-port","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1340},{"x":352,"y":421,"w":200},{"x":790,"y":403,"w":255},{"x":18,"y":370,"w":122}],"exits":[{"to":"ina-wp-12716","x":76,"y":370,"arrivalX":1262,"arrivalY":480},{"to":"ina-wp-12718","x":1262,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:12717","waypoint":{"kind":"waypoint","area":"神無塚","x":670,"y":480}},
+    {"id":"ina-wp-12718","name":"神無塚・工房の西の崖道","region":"稲妻","level":44,"hub":false,"peaceful":true,"width":1430,"checkpoint":"inazuma-port","scenery":"inazuma","platforms":[{"x":0,"y":480,"w":1430},{"x":276,"y":398,"w":215},{"x":560,"y":332,"w":227},{"x":950,"y":401,"w":225}],"exits":[{"to":"ina-wp-12717","x":76,"arrivalX":1262,"arrivalY":480},{"to":"ina-wp-12745","x":871,"arrivalX":76,"arrivalY":480},{"to":"ina-wp-12719","x":1352,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:12718","waypoint":{"kind":"waypoint","area":"神無塚","x":715,"y":480}},
+    {"id":"ina-wp-12719","name":"神無塚・谷を渡る坂道","region":"稲妻","level":45,"hub":false,"peaceful":true,"width":1390,"checkpoint":"inazuma-port","scenery":"inazuma","platforms":[{"x":0,"y":480,"w":1390},{"x":305,"y":389,"w":242},{"x":579,"y":350,"w":227},{"x":973,"y":410,"w":200}],"exits":[{"to":"ina-wp-12718","x":76,"arrivalX":1352,"arrivalY":480},{"to":"ina-wp-12715","x":306,"arrivalX":76,"arrivalY":480},{"to":"ina-wp-12745","x":735,"arrivalX":851,"arrivalY":480},{"to":"ina-wp-13670","x":1083,"arrivalX":851,"arrivalY":480},{"to":"ina-wp-12720","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:12719","waypoint":{"kind":"waypoint","area":"神無塚","x":695,"y":480}},
+    {"id":"ina-wp-12720","name":"神無塚・東の浜の見張り場","region":"稲妻","level":46,"hub":false,"peaceful":true,"width":1340,"checkpoint":"inazuma-port","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1340},{"x":352,"y":421,"w":200},{"x":790,"y":403,"w":255}],"exits":[{"to":"ina-wp-12719","x":76,"arrivalX":1312,"arrivalY":480}],"mapPoint":"teyvat:12720","waypoint":{"kind":"waypoint","area":"神無塚","x":670,"y":480}},
+    {"id":"ina-wp-12722","name":"鳴神島・離島・城南の船着き場","region":"稲妻","level":42,"hub":false,"peaceful":true,"width":1390,"checkpoint":"inazuma-town","scenery":"inazumatown","platforms":[{"x":0,"y":480,"w":1390},{"x":310,"y":390,"w":220},{"x":628,"y":418,"w":237},{"x":993,"y":378,"w":208}],"exits":[{"to":"ina-wp-16014","x":76,"arrivalX":1312,"arrivalY":480,"boatSeconds":4.2,"rideLabel":"城南とセイライの連絡船"},{"to":"inazuma-town","x":1312,"arrivalX":735,"arrivalY":340}],"mapPoint":"teyvat:12722","waypoint":{"kind":"waypoint","area":"鳴神島・離島","x":695,"y":480}},
+    {"id":"ina-wp-12725","name":"鳴神島・離島・白い砂の海岸道","region":"稲妻","level":41,"hub":false,"peaceful":true,"width":1340,"checkpoint":"inazuma-town","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1340},{"x":352,"y":421,"w":200},{"x":790,"y":403,"w":255}],"exits":[{"to":"ina-wp-12728","x":76,"arrivalX":851,"arrivalY":480},{"to":"inazuma-town","x":826,"arrivalX":671,"arrivalY":480},{"to":"ina-wp-12726","x":1262,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:12725","waypoint":{"kind":"waypoint","area":"鳴神島・離島","x":670,"y":480}},
+    {"id":"ina-wp-12726","name":"鳴神島・離島・鳥居の森の東縁","region":"稲妻","level":42,"hub":false,"peaceful":true,"width":1420,"checkpoint":"inazuma-town","scenery":"toriiforest","platforms":[{"x":0,"y":480,"w":1420},{"x":290,"y":386,"w":240},{"x":610,"y":322,"w":227},{"x":980,"y":407,"w":210}],"exits":[{"to":"ina-wp-12725","x":76,"arrivalX":1262,"arrivalY":480},{"to":"ina-wp-12733","x":866,"arrivalX":1200,"arrivalY":480},{"to":"ina-wp-12738","x":1342,"arrivalX":1352,"arrivalY":480}],"mapPoint":"teyvat:12726","waypoint":{"kind":"waypoint","area":"鳴神島・離島","x":710,"y":480}},
+    {"id":"ina-wp-12728","name":"鳴神島・離島・平地の道標","region":"稲妻","level":41,"hub":false,"peaceful":true,"width":1390,"checkpoint":"inazuma-town","scenery":"inazuma","platforms":[{"x":0,"y":480,"w":1390},{"x":305,"y":389,"w":242},{"x":579,"y":350,"w":227},{"x":973,"y":410,"w":200}],"exits":[{"to":"ina-wp-12729","x":76,"arrivalX":826,"arrivalY":480},{"to":"ina-wp-12725","x":851,"arrivalX":76,"arrivalY":480},{"to":"ina-wp-12733","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:12728","waypoint":{"kind":"waypoint","area":"鳴神島・離島","x":695,"y":480}},
+    {"id":"ina-wp-12729","name":"鳴神島・離島・離島へ続く浅瀬","region":"稲妻","level":41,"hub":false,"peaceful":true,"width":1340,"checkpoint":"inazuma-town","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1340},{"x":352,"y":421,"w":200},{"x":790,"y":403,"w":255}],"exits":[{"to":"inazuma-road","x":76,"arrivalX":640,"arrivalY":480},{"to":"ina-wp-12728","x":826,"arrivalX":76,"arrivalY":480},{"to":"ina-wp-12735","x":1262,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:12729","waypoint":{"kind":"waypoint","area":"鳴神島・離島","x":670,"y":480}},
+    {"id":"ina-wp-12733","name":"鳴神島・離島・社へ続く山道","region":"稲妻","level":45,"hub":false,"peaceful":true,"width":1520,"checkpoint":"inazuma-town","scenery":"toriiforest","platforms":[{"x":0,"y":480,"w":1520},{"x":302,"y":382,"w":198},{"x":536,"y":295,"w":265},{"x":893,"y":373,"w":188},{"x":1181,"y":414,"w":166},{"x":1384,"y":370,"w":122}],"exits":[{"to":"ina-wp-12728","x":76,"arrivalX":1312,"arrivalY":480},{"to":"ina-wp-12735","x":320,"arrivalX":1442,"arrivalY":480},{"to":"ina-wp-12726","x":1200,"arrivalX":866,"arrivalY":480},{"to":"ina-wp-12738","x":1442,"y":370,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:12733","waypoint":{"kind":"waypoint","area":"鳴神島・離島","x":760,"y":480}},
+    {"id":"ina-wp-12735","name":"鳴神島・離島・北の崖沿いの入口","region":"稲妻","level":44,"hub":false,"peaceful":true,"width":1520,"checkpoint":"inazuma-town","scenery":"inazuma","platforms":[{"x":0,"y":480,"w":1520},{"x":302,"y":382,"w":198},{"x":536,"y":295,"w":265},{"x":893,"y":373,"w":188},{"x":1181,"y":414,"w":166}],"exits":[{"to":"ina-wp-12729","x":76,"arrivalX":1262,"arrivalY":480},{"to":"ina-wp-12746","x":320,"arrivalX":76,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"北の岩島への小舟"},{"to":"ina-wp-47990","x":1200,"arrivalX":76,"arrivalY":480,"liftSeconds":2.1,"rideLabel":"北沖の地下石室への昇降機"},{"to":"ina-wp-12733","x":1442,"arrivalX":320,"arrivalY":480}],"mapPoint":"teyvat:12735","waypoint":{"kind":"waypoint","area":"鳴神島・離島","x":760,"y":480}},
+    {"id":"ina-wp-12738","name":"鳴神島・離島・東斜面の石段","region":"稲妻","level":44,"hub":false,"peaceful":true,"width":1430,"checkpoint":"inazuma-town","scenery":"toriiforest","platforms":[{"x":0,"y":480,"w":1430},{"x":276,"y":398,"w":215},{"x":560,"y":332,"w":227},{"x":950,"y":401,"w":225}],"exits":[{"to":"ina-wp-12733","x":76,"arrivalX":1442,"arrivalY":370},{"to":"ina-wp-12726","x":1352,"arrivalX":1342,"arrivalY":480}],"mapPoint":"teyvat:12738","waypoint":{"kind":"waypoint","area":"鳴神島・離島","x":715,"y":480}},
+    {"id":"ina-wp-12740","name":"鳴神島・離島・離島の神像","region":"稲妻","level":40,"hub":false,"peaceful":true,"width":1390,"checkpoint":"inazuma-town","scenery":"inazumatown","platforms":[{"x":0,"y":480,"w":1390},{"x":305,"y":389,"w":242},{"x":579,"y":350,"w":227},{"x":973,"y":410,"w":200}],"exits":[{"to":"inazuma-port","x":76,"arrivalX":470,"arrivalY":480},{"to":"inazuma-road","x":1312,"arrivalX":530,"arrivalY":480}],"mapPoint":"teyvat:12740","waypoint":{"kind":"statue","area":"鳴神島・離島","x":695,"y":480}},
+    {"id":"ina-wp-12745","name":"神無塚・海沿いの神像","region":"稲妻","level":43,"hub":false,"peaceful":true,"width":1390,"checkpoint":"inazuma-port","scenery":"inazuma","platforms":[{"x":0,"y":480,"w":1390},{"x":310,"y":390,"w":220},{"x":628,"y":418,"w":237},{"x":993,"y":378,"w":208}],"exits":[{"to":"ina-wp-12718","x":76,"arrivalX":871,"arrivalY":480},{"to":"ina-wp-12719","x":851,"arrivalX":735,"arrivalY":480},{"to":"ina-wp-13670","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:12745","waypoint":{"kind":"statue","area":"神無塚","x":695,"y":480}},
+    {"id":"ina-wp-12746","name":"鳴神島・離島・北沖の岩島","region":"稲妻","level":47,"hub":false,"peaceful":true,"width":1340,"checkpoint":"inazuma-town","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1340},{"x":352,"y":421,"w":200},{"x":790,"y":403,"w":255}],"exits":[{"to":"ina-wp-12735","x":76,"arrivalX":320,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"北の岩島への小舟"}],"mapPoint":"teyvat:12746","waypoint":{"kind":"waypoint","area":"鳴神島・離島","x":670,"y":480}},
+    {"id":"ina-wp-12749","name":"ヤシオリ島・峠の神像","region":"稲妻","level":45,"hub":false,"peaceful":true,"width":1430,"checkpoint":"inazuma-port","scenery":"inazuma","platforms":[{"x":0,"y":480,"w":1430},{"x":276,"y":398,"w":215},{"x":560,"y":332,"w":227},{"x":950,"y":401,"w":225}],"exits":[{"to":"ina-wp-12696","x":76,"arrivalX":1312,"arrivalY":480},{"to":"ina-wp-12704","x":320,"arrivalX":1442,"arrivalY":480},{"to":"maguu-approach","x":1110,"arrivalX":340,"arrivalY":480},{"to":"ina-wp-12716","x":1352,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:12749","waypoint":{"kind":"statue","area":"ヤシオリ島","x":715,"y":480}},
+    {"id":"ina-wp-13429","name":"神無塚・北の陣の船溜まり","region":"稲妻","level":44,"hub":false,"peaceful":true,"width":1390,"checkpoint":"inazuma-port","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1390},{"x":310,"y":390,"w":220},{"x":628,"y":418,"w":237},{"x":993,"y":378,"w":208}],"exits":[{"to":"ina-wp-13669","x":76,"arrivalX":76,"arrivalY":480,"boatSeconds":2.5,"rideLabel":"陣の船溜まりへの小舟"},{"to":"ina-wp-13670","x":1312,"arrivalX":1312,"arrivalY":480,"boatSeconds":2.7,"rideLabel":"岬へ向かう渡し船"}],"mapPoint":"teyvat:13429","waypoint":{"kind":"waypoint","area":"神無塚","x":695,"y":480}},
+    {"id":"ina-wp-13669","name":"神無塚・北西の渡し場","region":"稲妻","level":42,"hub":false,"peaceful":true,"width":1390,"checkpoint":"inazuma-port","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1390},{"x":310,"y":390,"w":220},{"x":628,"y":418,"w":237},{"x":993,"y":378,"w":208}],"exits":[{"to":"ina-wp-13429","x":76,"arrivalX":76,"arrivalY":480,"boatSeconds":2.5,"rideLabel":"陣の船溜まりへの小舟"},{"to":"inazuma-port","x":1312,"arrivalX":780,"arrivalY":480,"boatSeconds":3.6,"rideLabel":"離島から北西の渡し場へ"}],"mapPoint":"teyvat:13669","waypoint":{"kind":"waypoint","area":"神無塚","x":695,"y":480}},
+    {"id":"ina-wp-13670","name":"神無塚・岬の東の渡し場","region":"稲妻","level":45,"hub":false,"peaceful":true,"width":1390,"checkpoint":"inazuma-port","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1390},{"x":310,"y":390,"w":220},{"x":628,"y":418,"w":237},{"x":993,"y":378,"w":208}],"exits":[{"to":"ina-wp-12745","x":76,"arrivalX":1312,"arrivalY":480},{"to":"ina-wp-12719","x":851,"arrivalX":1083,"arrivalY":480},{"to":"ina-wp-13429","x":1312,"arrivalX":1312,"arrivalY":480,"boatSeconds":2.7,"rideLabel":"岬へ向かう渡し船"}],"mapPoint":"teyvat:13670","waypoint":{"kind":"waypoint","area":"神無塚","x":695,"y":480}},
+    {"id":"ina-wp-15938","name":"海祇島・珊瑚の西の神像","region":"稲妻","level":53,"hub":false,"peaceful":true,"width":1430,"checkpoint":"inazuma-port","scenery":"hydroHypostasisField","platforms":[{"x":0,"y":480,"w":1430},{"x":276,"y":398,"w":215},{"x":560,"y":332,"w":227},{"x":950,"y":401,"w":225}],"exits":[{"to":"ina-wp-15940","x":76,"arrivalX":76,"arrivalY":480},{"to":"ina-wp-15942","x":871,"arrivalX":320,"arrivalY":480},{"to":"ina-wp-15944","x":1352,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:15938","waypoint":{"kind":"statue","area":"海祇島","x":715,"y":480}},
+    {"id":"ina-wp-15940","name":"海祇島・南の潮だまり","region":"稲妻","level":53,"hub":false,"peaceful":true,"width":1340,"checkpoint":"inazuma-port","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1340},{"x":352,"y":421,"w":200},{"x":790,"y":403,"w":255}],"exits":[{"to":"ina-wp-15938","x":76,"arrivalX":76,"arrivalY":480},{"to":"watatsumi-landing","x":826,"arrivalX":760,"arrivalY":480},{"to":"tsurumi-coast","x":1262,"arrivalX":345,"arrivalY":480,"boatSeconds":4.3,"rideLabel":"海祇島と鶴観の連絡船"}],"mapPoint":"teyvat:15940","waypoint":{"kind":"waypoint","area":"海祇島","x":670,"y":480}},
+    {"id":"ina-wp-15942","name":"海祇島・中央の渦口","region":"稲妻","level":54,"hub":false,"peaceful":true,"width":1460,"checkpoint":"inazuma-port","scenery":"hydroHypostasisField","platforms":[{"x":0,"y":480,"w":1460},{"x":310,"y":368,"w":200},{"x":550,"y":278,"w":228},{"x":883,"y":366,"w":220},{"x":1156,"y":409,"w":160}],"exits":[{"to":"enkanomiya-camp","x":76,"arrivalX":440,"arrivalY":480,"waterwaySeconds":3.8,"rideLabel":"渦の先の水路"},{"to":"ina-wp-15938","x":320,"arrivalX":871,"arrivalY":480},{"to":"ina-wp-15944","x":1140,"arrivalX":1442,"arrivalY":480},{"to":"watatsumi-landing","x":1382,"arrivalX":1030,"arrivalY":480}],"mapPoint":"teyvat:15942","waypoint":{"kind":"waypoint","area":"海祇島","x":730,"y":480}},
+    {"id":"ina-wp-15944","name":"海祇島・北の珊瑚棚","region":"稲妻","level":54,"hub":false,"peaceful":true,"width":1520,"checkpoint":"inazuma-port","scenery":"hydroHypostasisField","platforms":[{"x":0,"y":480,"w":1520},{"x":302,"y":382,"w":198},{"x":536,"y":295,"w":265},{"x":893,"y":373,"w":188},{"x":1181,"y":414,"w":166}],"exits":[{"to":"ina-wp-15938","x":76,"arrivalX":1352,"arrivalY":480},{"to":"ina-wp-15942","x":1442,"arrivalX":1140,"arrivalY":480}],"mapPoint":"teyvat:15944","waypoint":{"kind":"waypoint","area":"海祇島","x":760,"y":480}},
+    {"id":"ina-wp-15951","name":"海祇島・東沖の中継島","region":"稲妻","level":50,"hub":false,"peaceful":true,"width":1390,"checkpoint":"inazuma-port","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1390},{"x":310,"y":390,"w":220},{"x":628,"y":418,"w":237},{"x":993,"y":378,"w":208}],"exits":[{"to":"watatsumi-landing","x":76,"arrivalX":320,"arrivalY":480,"boatSeconds":2.7,"rideLabel":"珊瑚の岸までの小舟"},{"to":"ina-wp-12696","x":1312,"arrivalX":76,"arrivalY":480,"boatSeconds":3.9,"rideLabel":"東沖の中継島までの船"}],"mapPoint":"teyvat:15951","waypoint":{"kind":"waypoint","area":"海祇島","x":695,"y":480}},
+    {"id":"ina-wp-16012","name":"セイライ島・南西の緑の島","region":"稲妻","level":51,"hub":false,"peaceful":true,"width":1340,"checkpoint":"inazuma-town","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1340},{"x":352,"y":421,"w":200},{"x":790,"y":403,"w":255}],"exits":[{"to":"tsurumi-coast","x":76,"arrivalX":690,"arrivalY":480,"boatSeconds":4.1,"rideLabel":"霧の島への連絡船"},{"to":"ina-wp-16022","x":1262,"arrivalX":76,"arrivalY":480,"boatSeconds":3.1,"rideLabel":"南西の島までの渡し船"}],"mapPoint":"teyvat:16012","waypoint":{"kind":"waypoint","area":"セイライ島","x":670,"y":480}},
+    {"id":"ina-wp-16014","name":"セイライ島・北西の船着き場","region":"稲妻","level":45,"hub":false,"peaceful":true,"width":1390,"checkpoint":"inazuma-town","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1390},{"x":310,"y":390,"w":220},{"x":628,"y":418,"w":237},{"x":993,"y":378,"w":208}],"exits":[{"to":"ina-wp-16026","x":76,"arrivalX":76,"arrivalY":480},{"to":"ina-wp-12722","x":1312,"arrivalX":76,"arrivalY":480,"boatSeconds":4.2,"rideLabel":"城南とセイライの連絡船"}],"mapPoint":"teyvat:16014","waypoint":{"kind":"waypoint","area":"セイライ島","x":695,"y":480}},
+    {"id":"ina-wp-16020","name":"セイライ島・火口東の外輪","region":"稲妻","level":53,"hub":false,"peaceful":true,"width":1460,"checkpoint":"inazuma-town","scenery":"thunderField","platforms":[{"x":0,"y":480,"w":1460},{"x":310,"y":368,"w":200},{"x":550,"y":278,"w":228},{"x":883,"y":366,"w":220},{"x":1156,"y":409,"w":160}],"exits":[{"to":"ina-wp-16024","x":76,"arrivalX":1352,"arrivalY":480},{"to":"thunder-approach","x":1382,"arrivalX":1025,"arrivalY":480}],"mapPoint":"teyvat:16020","waypoint":{"kind":"waypoint","area":"セイライ島","x":730,"y":480}},
+    {"id":"ina-wp-16022","name":"セイライ島・海峡の神像","region":"稲妻","level":47,"hub":false,"peaceful":true,"width":1340,"checkpoint":"inazuma-town","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1340},{"x":352,"y":421,"w":200},{"x":790,"y":403,"w":255}],"exits":[{"to":"ina-wp-16012","x":76,"arrivalX":1262,"arrivalY":480,"boatSeconds":3.1,"rideLabel":"南西の島までの渡し船"},{"to":"ina-wp-16026","x":320,"arrivalX":1352,"arrivalY":480},{"to":"ina-wp-16024","x":1020,"arrivalX":76,"arrivalY":480},{"to":"ina-wp-16027","x":1262,"arrivalX":76,"arrivalY":480,"boatSeconds":2.8,"rideLabel":"北東の島へ渡る小舟"}],"mapPoint":"teyvat:16022","waypoint":{"kind":"statue","area":"セイライ島","x":670,"y":480}},
+    {"id":"ina-wp-16024","name":"セイライ島・火口の北の横道","region":"稲妻","level":50,"hub":false,"peaceful":true,"width":1430,"checkpoint":"inazuma-town","scenery":"thunderField","platforms":[{"x":0,"y":480,"w":1430},{"x":276,"y":398,"w":215},{"x":560,"y":332,"w":227},{"x":950,"y":401,"w":225},{"x":813,"y":371,"w":122}],"exits":[{"to":"ina-wp-16022","x":76,"arrivalX":1020,"arrivalY":480},{"to":"thunder-approach","x":871,"y":371,"arrivalX":360,"arrivalY":480},{"to":"ina-wp-16020","x":1352,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:16024","waypoint":{"kind":"waypoint","area":"セイライ島","x":715,"y":480}},
+    {"id":"ina-wp-16026","name":"セイライ島・北西の斜面の分岐","region":"稲妻","level":46,"hub":false,"peaceful":true,"width":1430,"checkpoint":"inazuma-town","scenery":"inazuma","platforms":[{"x":0,"y":480,"w":1430},{"x":276,"y":398,"w":215},{"x":560,"y":332,"w":227},{"x":950,"y":401,"w":225}],"exits":[{"to":"ina-wp-16014","x":76,"arrivalX":76,"arrivalY":480},{"to":"ina-wp-16022","x":1352,"arrivalX":320,"arrivalY":480}],"mapPoint":"teyvat:16026","waypoint":{"kind":"waypoint","area":"セイライ島","x":715,"y":480}},
+    {"id":"ina-wp-16027","name":"セイライ島・北東の風の道","region":"稲妻","level":49,"hub":false,"peaceful":true,"width":1520,"checkpoint":"inazuma-town","scenery":"thunderField","platforms":[{"x":0,"y":480,"w":1520},{"x":302,"y":382,"w":198},{"x":536,"y":295,"w":265},{"x":893,"y":373,"w":188},{"x":1181,"y":414,"w":166}],"exits":[{"to":"ina-wp-16022","x":76,"arrivalX":1262,"arrivalY":480,"boatSeconds":2.8,"rideLabel":"北東の島へ渡る小舟"},{"to":"ina-wp-16030","x":916,"arrivalX":76,"arrivalY":480},{"to":"ina-wp-16029","x":1442,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:16027","waypoint":{"kind":"waypoint","area":"セイライ島","x":760,"y":480}},
+    {"id":"ina-wp-16029","name":"セイライ島・東沖の石橋","region":"稲妻","level":50,"hub":false,"peaceful":true,"width":1500,"checkpoint":"inazuma-town","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1500},{"x":260,"y":417,"w":209},{"x":550,"y":369,"w":350},{"x":1000,"y":411,"w":215}],"exits":[{"to":"ina-wp-16027","x":76,"arrivalX":1442,"arrivalY":480},{"to":"ina-wp-16030","x":1422,"arrivalX":1382,"arrivalY":480}],"mapPoint":"teyvat:16029","waypoint":{"kind":"waypoint","area":"セイライ島","x":750,"y":480}},
+    {"id":"ina-wp-16030","name":"セイライ島・北東の岩の見張り場","region":"稲妻","level":50,"hub":false,"peaceful":true,"width":1460,"checkpoint":"inazuma-town","scenery":"thunderField","platforms":[{"x":0,"y":480,"w":1460},{"x":310,"y":368,"w":200},{"x":550,"y":278,"w":228},{"x":883,"y":366,"w":220},{"x":1156,"y":409,"w":160}],"exits":[{"to":"ina-wp-16027","x":76,"arrivalX":916,"arrivalY":480},{"to":"ina-wp-16029","x":1382,"arrivalX":1422,"arrivalY":480}],"mapPoint":"teyvat:16030","waypoint":{"kind":"waypoint","area":"セイライ島","x":730,"y":480}},
+    {"id":"ina-wp-18586","name":"鶴観・霧の東岸道","region":"稲妻","level":54,"hub":false,"peaceful":true,"width":1340,"checkpoint":"inazuma-port","scenery":"wolflordField","platforms":[{"x":0,"y":480,"w":1340},{"x":352,"y":421,"w":200},{"x":790,"y":403,"w":255}],"exits":[{"to":"ina-wp-18589","x":76,"arrivalX":1342,"arrivalY":480},{"to":"tsurumi-coast","x":1262,"arrivalX":1020,"arrivalY":480}],"mapPoint":"teyvat:18586","waypoint":{"kind":"waypoint","area":"鶴観","x":670,"y":480}},
+    {"id":"ina-wp-18587","name":"鶴観・北の丘の岩間","region":"稲妻","level":56,"hub":false,"peaceful":true,"width":1460,"checkpoint":"inazuma-port","scenery":"wolflordField","platforms":[{"x":0,"y":480,"w":1460},{"x":310,"y":368,"w":200},{"x":550,"y":278,"w":228},{"x":883,"y":366,"w":220},{"x":1156,"y":409,"w":160}],"exits":[{"to":"ina-wp-18591","x":76,"arrivalX":1222,"arrivalY":480},{"to":"ina-wp-18593","x":886,"arrivalX":1200,"arrivalY":480},{"to":"ina-wp-18589","x":1382,"arrivalX":1100,"arrivalY":480}],"mapPoint":"teyvat:18587","waypoint":{"kind":"waypoint","area":"鶴観","x":730,"y":480}},
+    {"id":"ina-wp-18589","name":"鶴観・霧の湿地の東端","region":"稲妻","level":56,"hub":false,"peaceful":true,"width":1420,"checkpoint":"inazuma-port","scenery":"wolflordField","platforms":[{"x":0,"y":480,"w":1420},{"x":290,"y":386,"w":240},{"x":610,"y":322,"w":227},{"x":980,"y":407,"w":210}],"exits":[{"to":"ina-wp-18599","x":76,"arrivalX":1382,"arrivalY":480},{"to":"ina-wp-18593","x":320,"arrivalX":1442,"arrivalY":480},{"to":"ina-wp-18587","x":1100,"arrivalX":1382,"arrivalY":480},{"to":"ina-wp-18586","x":1342,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:18589","waypoint":{"kind":"waypoint","area":"鶴観","x":710,"y":480}},
+    {"id":"ina-wp-18591","name":"鶴観・北西の岬の竪穴","region":"稲妻","level":57,"hub":false,"peaceful":true,"width":1300,"checkpoint":"inazuma-port","scenery":"seacave","platforms":[{"x":0,"y":480,"w":1300},{"x":310,"y":393,"w":210},{"x":620,"y":340,"w":225},{"x":938,"y":413,"w":150},{"x":18,"y":367,"w":122}],"exits":[{"to":"ina-wp-18593","x":76,"y":367,"arrivalX":76,"arrivalY":480},{"to":"ina-wp-18587","x":1222,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:18591","waypoint":{"kind":"waypoint","area":"鶴観","x":650,"y":480}},
+    {"id":"ina-wp-18593","name":"鶴観・中央の山際","region":"稲妻","level":58,"hub":false,"peaceful":true,"width":1520,"checkpoint":"inazuma-port","scenery":"wolflordField","platforms":[{"x":0,"y":480,"w":1520},{"x":302,"y":382,"w":198},{"x":536,"y":295,"w":265},{"x":893,"y":373,"w":188},{"x":1181,"y":414,"w":166}],"exits":[{"to":"ina-wp-18591","x":76,"arrivalX":76,"arrivalY":367},{"to":"ina-wp-18599","x":320,"arrivalX":886,"arrivalY":480},{"to":"ina-wp-18587","x":1200,"arrivalX":886,"arrivalY":480},{"to":"ina-wp-18589","x":1442,"arrivalX":320,"arrivalY":480}],"mapPoint":"teyvat:18593","waypoint":{"kind":"waypoint","area":"鶴観","x":760,"y":480}},
+    {"id":"ina-wp-18599","name":"鶴観・南の海岸段丘","region":"稲妻","level":58,"hub":false,"peaceful":true,"width":1460,"checkpoint":"inazuma-port","scenery":"wolflordField","platforms":[{"x":0,"y":480,"w":1460},{"x":310,"y":368,"w":200},{"x":550,"y":278,"w":228},{"x":883,"y":366,"w":220},{"x":1156,"y":409,"w":160}],"exits":[{"to":"ina-wp-18601","x":76,"arrivalX":76,"arrivalY":480,"boatSeconds":2.8,"rideLabel":"南の離れ岩への小舟"},{"to":"ina-wp-18593","x":886,"arrivalX":320,"arrivalY":480},{"to":"ina-wp-18589","x":1382,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:18599","waypoint":{"kind":"waypoint","area":"鶴観","x":730,"y":480}},
+    {"id":"ina-wp-18601","name":"鶴観・南の離れ岩","region":"稲妻","level":59,"hub":false,"peaceful":true,"width":1340,"checkpoint":"inazuma-port","scenery":"wolflordField","platforms":[{"x":0,"y":480,"w":1340},{"x":352,"y":421,"w":200},{"x":790,"y":403,"w":255}],"exits":[{"to":"ina-wp-18599","x":76,"arrivalX":76,"arrivalY":480,"boatSeconds":2.8,"rideLabel":"南の離れ岩への小舟"}],"mapPoint":"teyvat:18601","waypoint":{"kind":"waypoint","area":"鶴観","x":670,"y":480}},
+    {"id":"enkan-wp-21573","name":"淵下宮・洞門の外縁","region":"淵下宮","level":44,"hub":false,"peaceful":true,"width":1520,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1520},{"x":302,"y":382,"w":198},{"x":536,"y":295,"w":265},{"x":893,"y":373,"w":188},{"x":1181,"y":414,"w":166},{"x":1384,"y":360,"w":122}],"exits":[{"to":"enkanomiya-depth","x":76,"arrivalX":690,"arrivalY":480},{"to":"enkan-wp-21574","x":1442,"y":360,"arrivalX":76,"arrivalY":480,"liftSeconds":2.2,"rideLabel":"洞門横の浮石"}],"mapPoint":"map7:21573","waypoint":{"kind":"waypoint","area":"淵下宮","x":760,"y":480}},
+    {"id":"enkan-wp-21574","name":"淵下宮・西の浮石の停留所","region":"淵下宮","level":45,"hub":false,"peaceful":true,"width":1500,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1500},{"x":260,"y":417,"w":209},{"x":550,"y":369,"w":350},{"x":1000,"y":411,"w":215}],"exits":[{"to":"enkan-wp-21573","x":76,"arrivalX":1442,"arrivalY":360,"liftSeconds":2.2,"rideLabel":"洞門横の浮石"},{"to":"enkan-wp-21575","x":906,"arrivalX":76,"arrivalY":480},{"to":"enkan-wp-21576","x":1422,"arrivalX":320,"arrivalY":480}],"mapPoint":"map7:21574","waypoint":{"kind":"waypoint","area":"淵下宮","x":750,"y":480}},
+    {"id":"enkan-wp-21575","name":"淵下宮・西の石壇","region":"淵下宮","level":46,"hub":false,"peaceful":true,"width":1460,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1460},{"x":310,"y":368,"w":200},{"x":550,"y":278,"w":228},{"x":883,"y":366,"w":220},{"x":1156,"y":409,"w":160}],"exits":[{"to":"enkan-wp-21574","x":76,"arrivalX":906,"arrivalY":480},{"to":"enkan-wp-21577","x":1382,"arrivalX":76,"arrivalY":480}],"mapPoint":"map7:21575","waypoint":{"kind":"waypoint","area":"淵下宮","x":730,"y":480}},
+    {"id":"enkan-wp-21576","name":"淵下宮・西島の下段回廊","region":"淵下宮","level":46,"hub":false,"peaceful":true,"width":1500,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1500},{"x":260,"y":417,"w":209},{"x":550,"y":369,"w":350},{"x":1000,"y":411,"w":215}],"exits":[{"to":"enkan-wp-21593","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":3.2,"rideLabel":"北西の外礁へ動く浮石","requires":{"quest":"ina-mapped-enkan-beacons","count":2}},{"to":"enkan-wp-21574","x":320,"arrivalX":1422,"arrivalY":480},{"to":"enkan-wp-21577","x":1180,"arrivalX":886,"arrivalY":480},{"to":"enkan-wp-21579","x":1422,"arrivalX":76,"arrivalY":480,"liftSeconds":2.6,"rideLabel":"大塔西へ動く浮石"}],"mapPoint":"map7:21576","waypoint":{"kind":"waypoint","area":"淵下宮","x":750,"y":480}},
+    {"id":"enkan-wp-21577","name":"淵下宮・西島の北の石庭","region":"淵下宮","level":48,"hub":false,"peaceful":true,"width":1460,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1460},{"x":310,"y":368,"w":200},{"x":550,"y":278,"w":228},{"x":883,"y":366,"w":220},{"x":1156,"y":409,"w":160}],"exits":[{"to":"enkan-wp-21575","x":76,"arrivalX":1382,"arrivalY":480},{"to":"enkan-wp-21576","x":886,"arrivalX":1180,"arrivalY":480},{"to":"enkan-wp-21578","x":1382,"arrivalX":76,"arrivalY":480,"liftSeconds":2.4,"rideLabel":"大塔北へ動く浮石"}],"mapPoint":"map7:21577","waypoint":{"kind":"waypoint","area":"淵下宮","x":730,"y":480}},
+    {"id":"enkan-wp-21578","name":"淵下宮・大塔北の外回り","region":"淵下宮","level":48,"hub":false,"peaceful":true,"width":1500,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1500},{"x":260,"y":417,"w":209},{"x":550,"y":369,"w":350},{"x":1000,"y":411,"w":215}],"exits":[{"to":"enkan-wp-21577","x":76,"arrivalX":1382,"arrivalY":480,"liftSeconds":2.4,"rideLabel":"大塔北へ動く浮石"},{"to":"enkan-wp-21579","x":906,"arrivalX":1382,"arrivalY":480},{"to":"enkan-wp-21581","x":1422,"arrivalX":906,"arrivalY":480}],"mapPoint":"map7:21578","waypoint":{"kind":"waypoint","area":"淵下宮","x":750,"y":480}},
+    {"id":"enkan-wp-21579","name":"淵下宮・大塔西の回廊","region":"淵下宮","level":47,"hub":false,"peaceful":true,"width":1460,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1460},{"x":310,"y":368,"w":200},{"x":550,"y":278,"w":228},{"x":883,"y":366,"w":220},{"x":1156,"y":409,"w":160}],"exits":[{"to":"enkan-wp-21576","x":76,"arrivalX":1422,"arrivalY":480,"liftSeconds":2.6,"rideLabel":"大塔西へ動く浮石"},{"to":"enkan-wp-21580","x":886,"arrivalX":76,"arrivalY":480},{"to":"enkan-wp-21578","x":1382,"arrivalX":906,"arrivalY":480}],"mapPoint":"map7:21579","waypoint":{"kind":"waypoint","area":"淵下宮","x":730,"y":480}},
+    {"id":"enkan-wp-21580","name":"淵下宮・中央の石灯広場","region":"淵下宮","level":48,"hub":false,"peaceful":true,"width":1460,"checkpoint":"enkanomiya-camp","scenery":"enkanLamp","platforms":[{"x":0,"y":480,"w":1460},{"x":310,"y":368,"w":200},{"x":550,"y":278,"w":228},{"x":883,"y":366,"w":220},{"x":1156,"y":409,"w":160}],"exits":[{"to":"enkan-wp-21579","x":76,"arrivalX":886,"arrivalY":480},{"to":"enkan-wp-21582","x":886,"arrivalX":916,"arrivalY":480},{"to":"enkan-wp-21581","x":1382,"arrivalX":76,"arrivalY":480}],"mapPoint":"map7:21580","waypoint":{"kind":"waypoint","area":"淵下宮","x":730,"y":480}},
+    {"id":"enkan-wp-21581","name":"淵下宮・大塔東の渡り台","region":"淵下宮","level":49,"hub":false,"peaceful":true,"width":1500,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1500},{"x":260,"y":417,"w":209},{"x":550,"y":369,"w":350},{"x":1000,"y":411,"w":215}],"exits":[{"to":"enkan-wp-21580","x":76,"arrivalX":1382,"arrivalY":480},{"to":"enkan-wp-21578","x":906,"arrivalX":1422,"arrivalY":480},{"to":"enkan-wp-21590","x":1422,"arrivalX":76,"arrivalY":480,"liftSeconds":2.4,"rideLabel":"東島へ動く浮石"}],"mapPoint":"map7:21581","waypoint":{"kind":"waypoint","area":"淵下宮","x":750,"y":480}},
+    {"id":"enkan-wp-21582","name":"淵下宮・大塔南の石段","region":"淵下宮","level":50,"hub":false,"peaceful":true,"width":1520,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1520},{"x":302,"y":382,"w":198},{"x":536,"y":295,"w":265},{"x":893,"y":373,"w":188},{"x":1181,"y":414,"w":166}],"exits":[{"to":"enkan-wp-21583","x":76,"arrivalX":1382,"arrivalY":480},{"to":"enkan-wp-21580","x":916,"arrivalX":886,"arrivalY":480},{"to":"enkan-wp-21585","x":1442,"arrivalX":906,"arrivalY":480}],"mapPoint":"map7:21582","waypoint":{"kind":"waypoint","area":"淵下宮","x":760,"y":480}},
+    {"id":"enkan-wp-21583","name":"淵下宮・南の遺構の上段","region":"淵下宮","level":51,"hub":false,"peaceful":true,"width":1460,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1460},{"x":310,"y":368,"w":200},{"x":550,"y":278,"w":228},{"x":883,"y":366,"w":220},{"x":1156,"y":409,"w":160}],"exits":[{"to":"enkan-wp-21584","x":76,"arrivalX":320,"arrivalY":480},{"to":"enkan-wp-21582","x":1382,"arrivalX":76,"arrivalY":480}],"mapPoint":"map7:21583","waypoint":{"kind":"waypoint","area":"淵下宮","x":730,"y":480}},
+    {"id":"enkan-wp-21584","name":"淵下宮・南の遺構の突端","region":"淵下宮","level":53,"hub":false,"peaceful":true,"width":1520,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1520},{"x":302,"y":382,"w":198},{"x":536,"y":295,"w":265},{"x":893,"y":373,"w":188},{"x":1181,"y":414,"w":166}],"exits":[{"to":"enkan-wp-21587","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":2.2,"rideLabel":"南の小島へ動く浮石"},{"to":"enkan-wp-21583","x":320,"arrivalX":76,"arrivalY":480},{"to":"enkan-wp-21585","x":1200,"arrivalX":76,"arrivalY":480},{"to":"enkan-wp-21592","x":1442,"arrivalX":76,"arrivalY":480,"liftSeconds":3.5,"rideLabel":"南端の外礁へ動く浮石","requires":{"quest":"ina-mapped-enkan-beacons","count":4}}],"mapPoint":"map7:21584","waypoint":{"kind":"waypoint","area":"淵下宮","x":760,"y":480}},
+    {"id":"enkan-wp-21585","name":"淵下宮・南東の遺構の連絡路","region":"淵下宮","level":52,"hub":false,"peaceful":true,"width":1500,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1500},{"x":260,"y":417,"w":209},{"x":550,"y":369,"w":350},{"x":1000,"y":411,"w":215},{"x":1364,"y":370,"w":122}],"exits":[{"to":"enkan-wp-21584","x":76,"arrivalX":1200,"arrivalY":480},{"to":"enkan-wp-21582","x":906,"arrivalX":1442,"arrivalY":480},{"to":"enkan-wp-21586","x":1422,"y":370,"arrivalX":76,"arrivalY":480}],"mapPoint":"map7:21585","waypoint":{"kind":"waypoint","area":"淵下宮","x":750,"y":480}},
+    {"id":"enkan-wp-21586","name":"淵下宮・東の細長い浮石","region":"淵下宮","level":54,"hub":false,"peaceful":true,"width":1500,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1500},{"x":260,"y":417,"w":209},{"x":550,"y":369,"w":350},{"x":1000,"y":411,"w":215}],"exits":[{"to":"enkan-wp-21585","x":76,"arrivalX":1422,"arrivalY":370}],"mapPoint":"map7:21586","waypoint":{"kind":"waypoint","area":"淵下宮","x":750,"y":480}},
+    {"id":"enkan-wp-21587","name":"淵下宮・南の離れた小島","region":"淵下宮","level":54,"hub":false,"peaceful":true,"width":1460,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1460},{"x":310,"y":368,"w":200},{"x":550,"y":278,"w":228},{"x":883,"y":366,"w":220},{"x":1156,"y":409,"w":160}],"exits":[{"to":"enkan-wp-21584","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":2.2,"rideLabel":"南の小島へ動く浮石"}],"mapPoint":"map7:21587","waypoint":{"kind":"waypoint","area":"淵下宮","x":730,"y":480}},
+    {"id":"enkan-wp-21588","name":"淵下宮・東島の南の観測段","region":"淵下宮","level":52,"hub":false,"peaceful":true,"width":1520,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1520},{"x":302,"y":382,"w":198},{"x":536,"y":295,"w":265},{"x":893,"y":373,"w":188},{"x":1181,"y":414,"w":166}],"exits":[{"to":"enkan-wp-21590","x":76,"arrivalX":1422,"arrivalY":480},{"to":"enkan-wp-21589","x":916,"arrivalX":886,"arrivalY":480},{"to":"enkan-wp-21594","x":1442,"arrivalX":76,"arrivalY":480,"liftSeconds":3.4,"rideLabel":"北東の外礁へ動く浮石","requires":{"quest":"ina-mapped-enkan-beacons","count":3}}],"mapPoint":"map7:21588","waypoint":{"kind":"waypoint","area":"淵下宮","x":760,"y":480}},
+    {"id":"enkan-wp-21589","name":"淵下宮・東島の内側回廊","region":"淵下宮","level":51,"hub":false,"peaceful":true,"width":1460,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1460},{"x":310,"y":368,"w":200},{"x":550,"y":278,"w":228},{"x":883,"y":366,"w":220},{"x":1156,"y":409,"w":160}],"exits":[{"to":"enkan-wp-21590","x":76,"arrivalX":906,"arrivalY":480},{"to":"enkan-wp-21588","x":886,"arrivalX":916,"arrivalY":480},{"to":"enkan-wp-21591","x":1382,"arrivalX":76,"arrivalY":480}],"mapPoint":"map7:21589","waypoint":{"kind":"waypoint","area":"淵下宮","x":730,"y":480}},
+    {"id":"enkan-wp-21590","name":"淵下宮・東島の西の乗り場","region":"淵下宮","level":50,"hub":false,"peaceful":true,"width":1500,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1500},{"x":260,"y":417,"w":209},{"x":550,"y":369,"w":350},{"x":1000,"y":411,"w":215}],"exits":[{"to":"enkan-wp-21581","x":76,"arrivalX":1422,"arrivalY":480,"liftSeconds":2.4,"rideLabel":"東島へ動く浮石"},{"to":"enkan-wp-21589","x":906,"arrivalX":76,"arrivalY":480},{"to":"enkan-wp-21588","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"map7:21590","waypoint":{"kind":"waypoint","area":"淵下宮","x":750,"y":480}},
+    {"id":"enkan-wp-21591","name":"淵下宮・東島の北の高台","region":"淵下宮","level":53,"hub":false,"peaceful":true,"width":1520,"checkpoint":"enkanomiya-camp","scenery":"enkanomiya","platforms":[{"x":0,"y":480,"w":1520},{"x":302,"y":382,"w":198},{"x":536,"y":295,"w":265},{"x":893,"y":373,"w":188},{"x":1181,"y":414,"w":166}],"exits":[{"to":"enkan-wp-21589","x":76,"arrivalX":1382,"arrivalY":480}],"mapPoint":"map7:21591","waypoint":{"kind":"waypoint","area":"淵下宮","x":760,"y":480}},
+    {"id":"enkan-wp-21592","name":"淵下宮・南端の外礁灯","region":"淵下宮","level":57,"hub":false,"peaceful":true,"width":1460,"checkpoint":"enkanomiya-camp","scenery":"enkanLamp","platforms":[{"x":0,"y":480,"w":1460},{"x":310,"y":368,"w":200},{"x":550,"y":278,"w":228},{"x":883,"y":366,"w":220},{"x":1156,"y":409,"w":160}],"exits":[{"to":"enkan-wp-21584","x":76,"arrivalX":1442,"arrivalY":480,"liftSeconds":3.5,"rideLabel":"南端の外礁へ動く浮石"}],"mapPoint":"map7:21592","waypoint":{"kind":"waypoint","area":"淵下宮","x":730,"y":480}},
+    {"id":"enkan-wp-21593","name":"淵下宮・北西の外礁灯","region":"淵下宮","level":55,"hub":false,"peaceful":true,"width":1460,"checkpoint":"enkanomiya-camp","scenery":"enkanLamp","platforms":[{"x":0,"y":480,"w":1460},{"x":310,"y":368,"w":200},{"x":550,"y":278,"w":228},{"x":883,"y":366,"w":220},{"x":1156,"y":409,"w":160}],"exits":[{"to":"enkan-wp-21576","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":3.2,"rideLabel":"北西の外礁へ動く浮石"}],"mapPoint":"map7:21593","waypoint":{"kind":"waypoint","area":"淵下宮","x":730,"y":480}},
+    {"id":"enkan-wp-21594","name":"淵下宮・北東の外礁灯","region":"淵下宮","level":56,"hub":false,"peaceful":true,"width":1460,"checkpoint":"enkanomiya-camp","scenery":"enkanLamp","platforms":[{"x":0,"y":480,"w":1460},{"x":310,"y":368,"w":200},{"x":550,"y":278,"w":228},{"x":883,"y":366,"w":220},{"x":1156,"y":409,"w":160}],"exits":[{"to":"enkan-wp-21588","x":76,"arrivalX":1442,"arrivalY":480,"liftSeconds":3.4,"rideLabel":"北東の外礁へ動く浮石"}],"mapPoint":"map7:21594","waypoint":{"kind":"waypoint","area":"淵下宮","x":730,"y":480}},
+    {"id":"ina-wp-47990","name":"鳴神島・離島・北沖の地下石室","region":"稲妻","level":48,"hub":false,"peaceful":true,"width":1300,"checkpoint":"inazuma-town","scenery":"seacave","platforms":[{"x":0,"y":480,"w":1300},{"x":310,"y":393,"w":210},{"x":620,"y":340,"w":225},{"x":938,"y":413,"w":150}],"exits":[{"to":"ina-wp-12735","x":76,"arrivalX":1200,"arrivalY":480,"liftSeconds":2.1,"rideLabel":"北沖の地下石室への昇降機"}],"mapPoint":"teyvat:47990","waypoint":{"kind":"waypoint","area":"鳴神島・離島","x":650,"y":480,"floor":{"group_id":64,"floor_id":20}}},
     {"id":"liyue-wp-29","name":"璃月・石門北側の高台","level":20,"region":"璃月","hub":false,"width":1370,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1370},{"x":284,"y":389,"w":234},{"x":523,"y":313,"w":275},{"x":899,"y":405,"w":178}],"exits":[{"to":"oceanid-approach","x":76,"arrivalX":360,"arrivalY":480},{"to":"liyue-entry","x":1292,"arrivalX":335,"arrivalY":480}],"mapPoint":"teyvat:29","waypoint":{"kind":"waypoint","x":685,"y":480}},
     {"id":"liyue-wp-32","name":"璃月・軽策の東段","level":22,"region":"璃月","hub":false,"width":1370,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1370},{"x":306,"y":412,"w":213},{"x":551,"y":358,"w":236},{"x":918,"y":407,"w":250}],"exits":[{"to":"liyue-wp-36","x":76,"arrivalX":1292,"arrivalY":480},{"to":"oceanid-approach","x":320,"arrivalX":770,"arrivalY":480},{"to":"liyue-wp-33","x":1050,"arrivalX":76,"arrivalY":480},{"to":"liyue-entry","x":1292,"arrivalX":1080,"arrivalY":480}],"mapPoint":"teyvat:32","waypoint":{"kind":"waypoint","x":685,"y":480}},
     {"id":"liyue-wp-33","name":"璃月・荻花洲の神像","level":21,"region":"璃月","hub":false,"width":1420,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1420},{"x":313,"y":429,"w":183},{"x":678,"y":386,"w":240},{"x":1060,"y":418,"w":162}],"exits":[{"to":"liyue-wp-32","x":76,"arrivalX":1050,"arrivalY":480},{"to":"liyue-wp-51","x":876,"arrivalX":1312,"arrivalY":480},{"to":"liyue-wp-50","x":1342,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:33","waypoint":{"kind":"statue","x":710,"y":480}},
@@ -6214,6 +6517,9 @@
     {"id":"nod-false-moon-rift","name":"偽月の再現戦・異界","region":"ナド・クライ","level":132,"width":960,"hub":false,"peaceful":true,"checkpoint":"nod-town","platforms":[{"x":0,"y":480,"w":960},{"x":118,"y":357,"w":155},{"x":696,"y":357,"w":155}],"exits":[],"weeklySceneOf":"nod-false-moon-court"}
   ],
   "quests": [
+    {"id":"ina-mapped-seirai-ferry","name":"セイライへ渡る荷の行き先","hub":"inazuma-town","giver":"船着き場の荷受け係","level":47,"xp":23500,"mora":3200,"target":"ina-wp-16022","briefing":"城南から船に乗り、北西の船着き場へ。海峡の神像まで荷を運べる道を探してきてください。","closing":"あの坂なら雨でも荷車が通れそうです。行き先を船頭に伝えます。","itinerary":[{"kind":"arrive","from":"inazuma-town","node":"ina-wp-12722","objective":"城南の船着き場へ降りる"},{"kind":"arrive","from":"ina-wp-12722","node":"ina-wp-16014","objective":"連絡船でセイライの北西に渡る"},{"kind":"arrive","from":"ina-wp-16014","node":"ina-wp-16026","objective":"斜面の分岐に出る"},{"kind":"arrive","from":"ina-wp-16026","node":"ina-wp-16022","objective":"海峡の神像に着く"},{"kind":"inspect","node":"ina-wp-16022","x":670,"y":480,"name":"調査の目印","action":"記録を取る","objective":"荷車が通れる足元を記録する"}],"kind":"itinerary","goal":5},
+    {"id":"ina-mapped-undersea-floor","name":"北の崖から地下の石室へ","hub":"inazuma-port","giver":"離島の見回り役","level":48,"xp":25900,"mora":3500,"target":"ina-wp-47990","briefing":"離島から浅瀬を渡って北の崖へ。昇降機で下りた先の水漏れを見てきてくれますか。","closing":"水位が分かったので、石室に入れる時間を掲示しておきます。","itinerary":[{"kind":"arrive","from":"inazuma-road","node":"ina-wp-12729","objective":"離島から浅瀬を渡る"},{"kind":"arrive","from":"ina-wp-12729","node":"ina-wp-12735","objective":"北の崖へ登る"},{"kind":"arrive","from":"ina-wp-12735","node":"ina-wp-47990","objective":"昇降機で石室へ下りる"},{"kind":"inspect","node":"ina-wp-47990","x":650,"y":480,"name":"調査の目印","action":"記録を取る","objective":"石段で水の跡を記録する"},{"kind":"arrive","from":"ina-wp-47990","node":"ina-wp-12735","objective":"昇降機で北の崖に戻る"}],"kind":"itinerary","goal":5},
+    {"id":"ina-mapped-enkan-beacons","name":"淵下宮の外礁灯を巡る","hub":"enkanomiya-camp","giver":"地下の道案内","level":57,"xp":38500,"mora":4900,"target":"enkan-wp-21592","briefing":"大塔西の回廊から中央の石灯へ。灯りを目印に、北西、北東、南端の順で浮石の道を開けてください。","closing":"三つとも灯りましたね。外礁を回る道はこれで使えます。","itinerary":[{"kind":"arrive","from":"enkan-wp-21579","node":"enkan-wp-21580","objective":"大塔西の回廊から中央の石灯に着く"},{"kind":"inspect","node":"enkan-wp-21580","x":816,"y":480,"name":"中央の石灯","action":"火を入れる","routeBeacon":true,"completedLabel":"石灯・点灯済み","objective":"中央の石灯をともす","notice":"北西の浮石が動き始めました。"},{"kind":"inspect","node":"enkan-wp-21593","x":816,"y":480,"name":"北西の外礁灯","action":"火を入れる","routeBeacon":true,"completedLabel":"石灯・点灯済み","objective":"北西の外礁灯をともす","notice":"北東の浮石が動き始めました。"},{"kind":"inspect","node":"enkan-wp-21594","x":816,"y":480,"name":"北東の外礁灯","action":"火を入れる","routeBeacon":true,"completedLabel":"石灯・点灯済み","objective":"北東の外礁灯をともす","notice":"南端の浮石が動き始めました。"},{"kind":"inspect","node":"enkan-wp-21592","x":816,"y":480,"name":"南端の外礁灯","action":"火を入れる","routeBeacon":true,"completedLabel":"石灯・点灯済み","objective":"南端の外礁灯をともす","notice":"三つの外礁灯を確認しました。"}],"kind":"itinerary","goal":5},
     {"id":"liyue-mapped-east-shore","name":"港から東岸まで、荷の道を測る","hub":"liyue-harbor","giver":"荷受け係","level":26,"xp":6700,"mora":1800,"target":"liyue-wp-100","briefing":"荷揚げ場から港北の街道を通って東岸まで。荷車が通る道と、海風を避けられる場所を記録してきて。","closing":"これなら風が強い日の荷運びも組み立てられる。助かったよ。","itinerary":[{"kind":"arrive","from":"liyue-harbor","node":"liyue-wp-104","objective":"港から荷揚げ波止場へ"},{"kind":"arrive","from":"liyue-wp-104","node":"liyue-wp-94","objective":"港北の街道に出る"},{"kind":"arrive","from":"liyue-wp-94","node":"liyue-wp-97","objective":"街道脇の神像へ"},{"kind":"arrive","from":"liyue-wp-97","node":"liyue-wp-100","objective":"東岸の岩浜に出る"},{"kind":"inspect","node":"liyue-wp-100","x":670,"y":480,"name":"調査の目印","action":"記録を取る","objective":"風よけの岩陰を記録する"}],"kind":"itinerary","goal":5},
     {"id":"liyue-mapped-hidden-cave","name":"茶葉の香りが届かない石窟","hub":"chenyu-camp","giver":"茶畑の見回り役","level":31,"xp":11200,"mora":2200,"target":"liyue-wp-66979","briefing":"入口の神像から茶の道を歩き、北尾根の昇降機で石窟へ。湿り気が強いところを探してください。","closing":"ここまで湿り気があると、乾かした茶葉は運べませんね。別の保管場所を探します。","itinerary":[{"kind":"arrive","from":"chenyu-camp","node":"liyue-wp-64825","objective":"入口から神像へ"},{"kind":"arrive","from":"liyue-wp-64825","node":"liyue-wp-64843","objective":"東の茶の道へ"},{"kind":"arrive","from":"liyue-wp-64843","node":"liyue-wp-64841","objective":"北の尾根道へ"},{"kind":"arrive","from":"liyue-wp-64841","node":"liyue-wp-64839","objective":"昇降機のある岩へ"},{"kind":"arrive","from":"liyue-wp-64839","node":"liyue-wp-66979","objective":"昇降機で隠れ石窟へ降りる"},{"kind":"inspect","node":"liyue-wp-66979","x":640,"y":480,"name":"調査の目印","action":"記録を取る","objective":"石窟の壁の湿り気を測る"},{"kind":"arrive","from":"liyue-wp-66979","node":"liyue-wp-64839","objective":"昇降機で地上へ戻る"}],"kind":"itinerary","goal":7},
     {"id":"liyue-mapped-chasm-shaft","name":"坑口の昇降機を往復する","hub":"chasm-camp","giver":"地下鉱区の監督","level":35,"xp":17600,"mora":2900,"target":"liyue-wp-28732","briefing":"坑口の昇降機で地上へ。神像の近くを回って西の岩棚まで、落石がないか見てください。","closing":"上と下の両方から使える経路だと分かりました。次の班にも伝えておきます。","itinerary":[{"kind":"arrive","from":"chasm-camp","node":"liyue-wp-24912","objective":"地下の拠点から地上の坑口へ登る"},{"kind":"arrive","from":"liyue-wp-24912","node":"liyue-wp-24910","objective":"東の作業口を通る"},{"kind":"arrive","from":"liyue-wp-24910","node":"liyue-wp-24909","objective":"北回廊へ"},{"kind":"arrive","from":"liyue-wp-24909","node":"liyue-wp-24908","objective":"神像のある西へ"},{"kind":"arrive","from":"liyue-wp-24908","node":"liyue-wp-28732","objective":"西の岩棚へ"},{"kind":"inspect","node":"liyue-wp-28732","x":685,"y":480,"name":"調査の目印","action":"記録を取る","objective":"外側の岩棚で落石の跡を探す"},{"kind":"arrive","from":"liyue-wp-28732","node":"liyue-wp-24912","objective":"岩棚から坑口に戻る"},{"kind":"arrive","from":"liyue-wp-24912","node":"chasm-camp","objective":"昇降機で地下の拠点へ戻る"}],"kind":"itinerary","goal":8},

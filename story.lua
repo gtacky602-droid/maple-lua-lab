@@ -1589,6 +1589,20 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   draws[#draws+1]={kind='rect',x=x+12,y=y-17,w=4,h=17,color='#cfa468'}
   draws[#draws+1]={kind='rect',x=x-3,y=y-19,w=6,h=9,color='#eed39a'}
  end
+ local function drawRouteBeacon(draws,x,y,lit)
+  local function rect(dx,dy,w,h,color)
+   draws[#draws+1]={kind='rect',x=x+dx,y=y+dy,w=w,h=h,color=color}
+  end
+  rect(-17,-7,34,7,'#354960')
+  rect(-10,-30,20,23,'#536983')
+  rect(-17,-38,34,8,'#7e92a7')
+  rect(-15,-47,30,9,lit and '#805239' or '#354960')
+  rect(-7,-45,14,6,lit and '#ffd27c' or '#61788e')
+  if lit then
+   rect(-5,-53,10,8,'#ffad56')
+   rect(-2,-58,4,11,'#fff2ba')
+  end
+ end
  local function drawShoreMark(draws,x,y,mark)
   local function rect(dx,dy,w,h,color)
    draws[#draws+1]={kind='rect',x=x+dx,y=y+dy,w=w,h=h,color=color}
@@ -1975,7 +1989,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and not milestone.teaClue and not milestone.teaCup and not milestone.surveyProp and not milestone.visitorProp
         and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp and not milestone.photoProp and not milestone.magicProp and not milestone.diveProp and not milestone.charmProp and not milestone.surfProp and not milestone.huntProp and not milestone.springProp and not milestone.iansanProp
         and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
-      if milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
+      if milestone.routeBeacon then drawRouteBeacon(markers,x,y,false)
+      elseif milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
       elseif milestone.islandTreasure then drawIslandChest(markers,x,y,false)
       elseif milestone.shoreMark then drawShoreMark(markers,x,y,milestone.shoreMark)
@@ -1986,7 +2001,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
        markers[#markers+1]={kind='rect',x=x-10,y=y-24,w=20,h=16,color='#eed5a8'}
        markers[#markers+1]={kind='rect',x=x-6,y=y-20,w=12,h=4,color='#767462'}
       end
-      markers[#markers+1]={kind='text',x=x,y=y-(milestone.patternBottle and 66 or milestone.outcrop and 48 or 41),text=milestone.name,color='#fff0b9',size=14}
+      markers[#markers+1]={kind='text',x=x,y=y-(milestone.routeBeacon and 61 or milestone.patternBottle and 66 or milestone.outcrop and 48 or 41),text=milestone.name,color='#fff0b9',size=14}
      end
      if not f.storyNearbyMilestone and not s.paused and not (milestone.followCart and s.theaterCart)
          and not (milestone.flagLowerSeconds and s.flagLowering)
@@ -2022,7 +2037,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
        local x,y=done.x-s.camera,done.y
         if not q.appraisal and not done.flagProp and not done.surveyProp
             and (not done.resonanceStone or done.resonanceControl) and x>=-25 and x<=985 then
-        if done.outcrop then drawOutcrop(markers,x,y,done.outcrop)
+        if done.routeBeacon then drawRouteBeacon(markers,x,y,true)
+        elseif done.outcrop then drawOutcrop(markers,x,y,done.outcrop)
         elseif done.teaCups then drawTeaSetting(markers,x,y,done.teaCups)
         elseif done.islandTreasure then drawIslandChest(markers,x,y,true)
         elseif done.shoreMark then drawShoreMark(markers,x,y,done.shoreMark)
@@ -2034,7 +2050,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
          markers[#markers+1]={kind='rect',x=x-7,y=y-25,w=14,h=12,color='#b9ffce'}
         end
         local label=done.paperDisplay and paper.giftLabel(q,state) or done.completedLabel
-        markers[#markers+1]={kind='text',x=x,y=y-(done.patternBottle and 66 or done.outcrop and 48 or 41),text=label,color='#b9ffce',size=14}
+        markers[#markers+1]={kind='text',x=x,y=y-(done.routeBeacon and 70 or done.patternBottle and 66 or done.outcrop and 48 or 41),text=label,color='#b9ffce',size=14}
        end
        if (done.readback or done.resonancePages or done.paperDisplay) and state.status=='complete' and not f.storyNearbyMilestone and not s.paused
            and canInspect(s.actors[s.active],done) then
