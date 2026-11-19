@@ -51,6 +51,7 @@ PIVOT_LAYOUTS = {
     'natlan-atocpan-totem-poses-v1-layout.json': 1,
     'natlan-final-legend-poses-v1-layout.json': 1,
     'natlan-highland-legend-poses-v1-layout.json': 1,
+    'nod-first-field-legend-poses-v1-layout.json': 1,
 }
 for layout_name, revision in PIVOT_LAYOUTS.items():
     layout = json.loads((ROOT/'assets'/layout_name).read_text(encoding='utf-8'))

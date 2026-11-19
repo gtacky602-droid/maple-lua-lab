@@ -1,0 +1,186 @@
+{
+  "source": "nod-first-field-legend-poses-source-v1.png",
+  "facing": "left",
+  "frames": [
+    {
+      "id": "legend-sigurd",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        80,
+        18,
+        170,
+        132
+      ]
+    },
+    {
+      "id": "legend-sigurd",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        59,
+        21,
+        175,
+        132
+      ]
+    },
+    {
+      "id": "legend-sigurd",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        72,
+        18,
+        173,
+        132
+      ]
+    },
+    {
+      "id": "legend-crab-tsar",
+      "pose": "idle",
+      "crop": [
+        0,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        65,
+        47,
+        207,
+        132
+      ]
+    },
+    {
+      "id": "legend-crab-tsar",
+      "pose": "brace",
+      "crop": [
+        288,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        73,
+        55,
+        201,
+        132
+      ]
+    },
+    {
+      "id": "legend-crab-tsar",
+      "pose": "strike",
+      "crop": [
+        576,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        69,
+        48,
+        212,
+        132
+      ]
+    },
+    {
+      "id": "legend-raskolnikov",
+      "pose": "idle",
+      "crop": [
+        0,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        77,
+        11,
+        184,
+        132
+      ]
+    },
+    {
+      "id": "legend-raskolnikov",
+      "pose": "brace",
+      "crop": [
+        288,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        73,
+        15,
+        182,
+        132
+      ]
+    },
+    {
+      "id": "legend-raskolnikov",
+      "pose": "strike",
+      "crop": [
+        576,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        82,
+        11,
+        180,
+        132
+      ]
+    }
+  ]
+}

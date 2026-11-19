@@ -1,0 +1,12 @@
+{
+  "allThreeQuestsAndLevelGates": true,
+  "mirrorsRejectFirstRotationAndRestorePartialAngle": true,
+  "bridgeUnlockAndReload": true,
+  "liftAndReturnAtCorrectHeight": true,
+  "perBossClearAndManualRechallenge": true,
+  "killXp": {
+    "legend-nod_sigurd": 988100,
+    "legend-nod_crab_tsar": 1271150,
+    "legend-nod_raskolnikov": 1150400
+  }
+}

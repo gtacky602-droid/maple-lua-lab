@@ -1,0 +1,105 @@
+{
+  "legend-sigurd": {
+    "sources": [
+      {
+        "page": "https://game8.jp/genshin/720984",
+        "url": "https://img.game8.jp/11769645/bc2b5eb93a6ad594724ef7c465338170.webp/original",
+        "alt": "シグルド条件"
+      },
+      {
+        "page": "https://game8.jp/genshin/720984",
+        "url": "https://img.game8.jp/11770577/8cd3007fa752ba439d4318064fe2f5b5.webp/original",
+        "alt": "墓場"
+      },
+      {
+        "page": "https://gamewith.net/genshin-impact/article/show/70313",
+        "url": "https://img.gamewith.net/article/thumbnail/rectangle/70313.png",
+        "alt": "Genshin Impact | Sigurd Local Legend Location & How To Beat - GameWith"
+      },
+      {
+        "url": "https://static.beebom.com/wp-content/uploads/2025/09/Demonbane-Strike-Sigurds-Attack-Genshin-Impact.jpg",
+        "seen": "名前付きの戦闘画面。紫の長い軌跡と動作を確認。"
+      },
+      {
+        "url": "https://img.game8.jp/11772703/e4e1ac263a37cac62352f9e626e934b1.mp4/show",
+        "seen": "戦闘映像で剣の構えと斬撃を確認。軌跡が重なり刃の厚みや柄の造作は不明。"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Trtk8EIQbMI",
+        "seen": "戦闘の別カメラのフレームを目視、長い刀身の表現を照合。"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Sigurd",
+        "seen": "長剣を用いたという台詞の記録を確認。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_WildHunt_Elite.png",
+        "seen": "通常種のワイルドハント系アイコンは紫の色面のみ参考。本人の帽子・顔は名札付き図像を優先。"
+      }
+    ],
+    "design": "帽子の尖った紫の徽章、細身の長剣、黒い制服と紫の色面。刃や柄の細部は独自の造形。",
+    "unchecked": [
+      "実機表示と切り替え",
+      "360度のモデル回転"
+    ]
+  },
+  "legend-crab-tsar": {
+    "sources": [
+      {
+        "page": "https://game8.jp/genshin/720995",
+        "url": "https://img.game8.jp/11772351/48dcb112f70d612fbe2bf6596d7e3805.webp/original",
+        "alt": "カニ皇帝"
+      },
+      {
+        "page": "https://game8.jp/genshin/720995",
+        "url": "https://img.game8.jp/11770663/b213a60edfcf01e379884a84abe116f7.webp/original",
+        "alt": "カニ皇帝"
+      },
+      {
+        "url": "https://i0.wp.com/brandanime.com/wp-content/uploads/2025/09/image-132.png",
+        "seen": "側面寄りの戦闘画面。殻の下の脚の幅と大きなはさみを確認。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_AnimalIcon_FauneAbyssale_HermitCrab_Larva_Magnet_S.png",
+        "seen": "岩ヤドカニの金色の目と淡色の口元・はさみ。"
+      }
+    ],
+    "design": "コバルト色の殻を数枚の平らな張り出しに再構成し、前に明るい目・はさみを配置。",
+    "unchecked": [
+      "実機表示と切り替え",
+      "360度のモデル回転"
+    ]
+  },
+  "legend-raskolnikov": {
+    "sources": [
+      {
+        "page": "https://game8.jp/genshin/720999",
+        "url": "https://img.game8.jp/11772826/ef1e824794f6850be48f84f30fb543be.webp/show",
+        "alt": "ラスコルニコフ"
+      },
+      {
+        "page": "https://game8.jp/genshin/720999",
+        "url": "https://img.game8.jp/11773771/709f46d711e7ab21b7ed4cfb8d558586.webp/original",
+        "alt": "ラスコルニコフ"
+      },
+      {
+        "page": "https://gamewith.net/genshin-impact/article/show/70460",
+        "url": "https://img.gamewith.net/article/thumbnail/rectangle/70460.png",
+        "alt": "Genshin Impact | Raskolnikov Local Legend Location & How To Beat - GameWith"
+      },
+      {
+        "url": "https://img.game8.co/4286567/25da7b874e29e337e1c6aedb93281f58.jpg/poster",
+        "seen": "別角度の戦闘画面で上着と装備の持ち方を照合。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Oprichnik_Male_Strong_LanceArquebus.png",
+        "seen": "通常種の高い帽子、正面徽章と目元を覆う防具。"
+      }
+    ],
+    "design": "高い青黒の帽子と朱の外套、幅広の片刃と肩当てを独自の造形で描画。",
+    "unchecked": [
+      "実機表示と切り替え",
+      "360度のモデル回転"
+    ]
+  }
+}

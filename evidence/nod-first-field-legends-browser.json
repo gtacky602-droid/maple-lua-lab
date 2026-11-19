@@ -1,0 +1,88 @@
+{
+  "routes": [
+    [
+      "nod-wp-88148",
+      "nod-bonemos-grave-path",
+      "raised"
+    ],
+    [
+      "nod-bonemos-grave-path",
+      "nod-sigurd-grave-court",
+      "walk"
+    ],
+    [
+      "nod-sigurd-grave-court",
+      "nod-bonemos-grave-path",
+      "walk"
+    ],
+    [
+      "nod-bonemos-grave-path",
+      "nod-wp-88148",
+      "walk"
+    ],
+    [
+      "nod-wp-88138",
+      "nod-hiisi-mirror-court",
+      "raised"
+    ],
+    [
+      "nod-hiisi-mirror-court",
+      "nod-crab-tsar-palace",
+      "raised"
+    ],
+    [
+      "nod-crab-tsar-palace",
+      "nod-hiisi-mirror-court",
+      "walk"
+    ],
+    [
+      "nod-hiisi-mirror-court",
+      "nod-wp-88138",
+      "walk"
+    ],
+    [
+      "nod-wp-88171",
+      "nod-bureau-upper-lift-station",
+      "raised"
+    ],
+    [
+      "nod-bureau-upper-lift-station",
+      "nod-raskolnikov-upper-ring",
+      "lift"
+    ],
+    [
+      "nod-raskolnikov-upper-ring",
+      "nod-bureau-upper-lift-station",
+      "lift"
+    ],
+    [
+      "nod-bureau-upper-lift-station",
+      "nod-wp-88171",
+      "walk"
+    ]
+  ],
+  "comparisons": [
+    {
+      "name": "sigurd",
+      "pngCommands": 14,
+      "rectangleCommands": 5709,
+      "lightCommands": 1528
+    },
+    {
+      "name": "crab-tsar",
+      "pngCommands": 14,
+      "rectangleCommands": 7768,
+      "lightCommands": 1932
+    },
+    {
+      "name": "raskolnikov",
+      "pngCommands": 14,
+      "rectangleCommands": 6719,
+      "lightCommands": 1766
+    }
+  ],
+  "allQuestsReported": true,
+  "mirrorBridgeBuilt": true,
+  "upperLiftUsed": true,
+  "errors": []
+}
