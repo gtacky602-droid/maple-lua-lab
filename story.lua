@@ -720,7 +720,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      local e=fresh.enemies[i];local p=assert(n.platforms[placement.platform+1],'Invalid enemy support')
      e.x=placement.x;e.home=e.x;e.y=p.y;e.kind=placement.kind;e.art=placement.art;e.spawnId=placement.id
      e.storyName=placement.name
-     e.dailyElite=placement.dailyElite
+     e.dailyElite=placement.dailyElite;e.expRole=placement.expRole
      e.pursuit=placement.pursuit
      if placement.flight then
       e.flight=placement.flight;e.flightHome=p.y

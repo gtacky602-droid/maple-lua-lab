@@ -1,0 +1,318 @@
+{
+  "status": "Provisional side fields using existing lab art and battle behavior",
+  "routes": [
+    {
+      "field": "teyvat:64824",
+      "host": "liyue-wp-64824",
+      "stage": "branch-hunt-64824",
+      "level": 84,
+      "pockets": [
+        "branch-hunt-64824-pocket-1",
+        "branch-hunt-64824-pocket-2",
+        "branch-hunt-64824-pocket-3"
+      ]
+    },
+    {
+      "field": "teyvat:64825",
+      "host": "liyue-wp-64825",
+      "stage": "branch-hunt-64825",
+      "level": 75,
+      "pockets": [
+        "branch-hunt-64825-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64826",
+      "host": "liyue-wp-64826",
+      "stage": "branch-hunt-64826",
+      "level": 88,
+      "pockets": [
+        "branch-hunt-64826-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64827",
+      "host": "liyue-wp-64827",
+      "stage": "branch-hunt-64827",
+      "level": 89,
+      "pockets": [
+        "branch-hunt-64827-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64828",
+      "host": "liyue-wp-64828",
+      "stage": "branch-hunt-64828",
+      "level": 89,
+      "pockets": [
+        "branch-hunt-64828-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64829",
+      "host": "liyue-wp-64829",
+      "stage": "branch-hunt-64829",
+      "level": 85,
+      "pockets": [
+        "branch-hunt-64829-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64830",
+      "host": "liyue-wp-64830",
+      "stage": "branch-hunt-64830",
+      "level": 83,
+      "pockets": [
+        "branch-hunt-64830-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64831",
+      "host": "liyue-wp-64831",
+      "stage": "branch-hunt-64831",
+      "level": 85,
+      "pockets": [
+        "branch-hunt-64831-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64832",
+      "host": "liyue-wp-64832",
+      "stage": "branch-hunt-64832",
+      "level": 84,
+      "pockets": [
+        "branch-hunt-64832-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64833",
+      "host": "liyue-wp-64833",
+      "stage": "branch-hunt-64833",
+      "level": 88,
+      "pockets": [
+        "branch-hunt-64833-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64834",
+      "host": "liyue-wp-64834",
+      "stage": "branch-hunt-64834",
+      "level": 87,
+      "pockets": [
+        "branch-hunt-64834-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64835",
+      "host": "liyue-wp-64835",
+      "stage": "branch-hunt-64835",
+      "level": 81,
+      "pockets": [
+        "branch-hunt-64835-pocket-1",
+        "branch-hunt-64835-pocket-2"
+      ]
+    },
+    {
+      "field": "teyvat:64836",
+      "host": "liyue-wp-64836",
+      "stage": "branch-hunt-64836",
+      "level": 84,
+      "pockets": [
+        "branch-hunt-64836-pocket-1",
+        "branch-hunt-64836-pocket-2"
+      ]
+    },
+    {
+      "field": "teyvat:64838",
+      "host": "liyue-wp-64838",
+      "stage": "branch-hunt-64838",
+      "level": 80,
+      "pockets": []
+    },
+    {
+      "field": "teyvat:64839",
+      "host": "liyue-wp-64839",
+      "stage": "branch-hunt-64839",
+      "level": 79,
+      "pockets": [
+        "branch-hunt-64839-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64840",
+      "host": "liyue-wp-64840",
+      "stage": "branch-hunt-64840",
+      "level": 83,
+      "pockets": []
+    },
+    {
+      "field": "teyvat:64841",
+      "host": "liyue-wp-64841",
+      "stage": "branch-hunt-64841",
+      "level": 77,
+      "pockets": [
+        "branch-hunt-64841-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64842",
+      "host": "liyue-wp-64842",
+      "stage": "branch-hunt-64842",
+      "level": 78,
+      "pockets": [
+        "branch-hunt-64842-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64844",
+      "host": "liyue-wp-64844",
+      "stage": "branch-hunt-64844",
+      "level": 80,
+      "pockets": [
+        "branch-hunt-64844-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64845",
+      "host": "chenyu-depth",
+      "stage": "branch-hunt-64845",
+      "level": 81,
+      "pockets": [
+        "branch-hunt-64845-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64846",
+      "host": "liyue-wp-64846",
+      "stage": "branch-hunt-64846",
+      "level": 82,
+      "pockets": [
+        "branch-hunt-64846-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64847",
+      "host": "liyue-wp-64847",
+      "stage": "branch-hunt-64847",
+      "level": 86,
+      "pockets": [
+        "branch-hunt-64847-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64848",
+      "host": "liyue-wp-64848",
+      "stage": "branch-hunt-64848",
+      "level": 88,
+      "pockets": [
+        "branch-hunt-64848-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64849",
+      "host": "liyue-wp-64849",
+      "stage": "branch-hunt-64849",
+      "level": 90,
+      "pockets": [
+        "branch-hunt-64849-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:64850",
+      "host": "chenyu-camp",
+      "stage": "branch-hunt-64850",
+      "level": 76,
+      "pockets": [
+        "branch-hunt-64850-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:66768",
+      "host": "liyue-wp-66768",
+      "stage": "branch-hunt-66768",
+      "level": 88,
+      "pockets": [
+        "branch-hunt-66768-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:66769",
+      "host": "liyue-wp-66769",
+      "stage": "branch-hunt-66769",
+      "level": 86,
+      "pockets": []
+    },
+    {
+      "field": "teyvat:66770",
+      "host": "liyue-wp-66770",
+      "stage": "branch-hunt-66770",
+      "level": 90,
+      "pockets": [
+        "branch-hunt-66770-pocket-1"
+      ]
+    },
+    {
+      "field": "teyvat:66979",
+      "host": "liyue-wp-66979",
+      "stage": "branch-hunt-66979",
+      "level": 87,
+      "pockets": [
+        "branch-hunt-66979-pocket-1"
+      ]
+    },
+    {
+      "field": "map34:68600",
+      "host": "bygone-wp-68600",
+      "stage": "branch-hunt-68600",
+      "level": 142,
+      "pockets": []
+    },
+    {
+      "field": "map34:68603",
+      "host": "bygone-wp-68603",
+      "stage": "branch-hunt-68603",
+      "level": 151,
+      "pockets": []
+    },
+    {
+      "field": "map34:68607",
+      "host": "bygone-wp-68607",
+      "stage": "branch-hunt-68607",
+      "level": 148,
+      "pockets": []
+    }
+  ],
+  "art_proxies": {
+    "cryo-whopperflower": "dendro-fungus",
+    "hydro-slime": "hydro-slime",
+    "hilichurl": "hilichurl",
+    "hilichurl-shooter": "hilichurl",
+    "hydro-samachurl": "hilichurl",
+    "rock-shield-hilichurl": "hilichurl",
+    "large-geo-slime": "cryo-slime",
+    "large-hydro-slime": "hydro-slime",
+    "geo-samachurl": "hilichurl",
+    "dendro-slime": "dendro-fungus",
+    "hoyolab-label-54": "hilichurl",
+    "hoyolab-label-221": "fanged-beast",
+    "treasure-crusher": "treasure-scout",
+    "treasure-gravedigger": "treasure-scout",
+    "treasure-marksman": "treasure-scout",
+    "treasure-scout": "treasure-scout",
+    "praetorian-golem": "ruin-guard",
+    "xuanwen-beast": "fanged-beast",
+    "ruin-guard": "ruin-guard",
+    "hoyolab-label-215": "ruin-guard",
+    "hydro-hilichurl-rogue": "hilichurl",
+    "anemo-hilichurl-rogue": "hilichurl",
+    "hoyolab-label-24": "hilichurl",
+    "geovishap": "fanged-beast",
+    "geovishap-hatchling": "fanged-beast",
+    "stonehide-lawachurl": "frostarm-lawachurl",
+    "rock-shieldwall-mitachurl": "hilichurl"
+  },
+  "pending_legends": [
+    "legend-liyue_rulers_of_chizhang_mountains",
+    "legend-fontaine_cineas"
+  ]
+}

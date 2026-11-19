@@ -435,13 +435,13 @@
     <label>表示<select id="atlasLayer">
       <option value="all">すべての階層</option><option value="surface">地上</option>
       <option value="below">別階層</option><option value="water">水中</option>
-      <option value="review">入口・階層を照合中</option>
+      <option value="hunt">狩場・任意戦</option><option value="review">入口・階層を照合中</option>
     </select></label>
   </div>
   <div class="atlas-body">
     <div class="atlas-paper">
       <canvas id="atlasCanvas" class="world-atlas-canvas" width="900" height="500" aria-label="地域を選べる旅路の地図。地点の選択欄でも操作できます。"></canvas>
-      <p class="atlas-legend"><span><b data-marker="current">◆</b> 現在地</span><span><b data-marker="seen">◆</b> 訪問済み</span><span><b data-marker="new">◆</b> 未訪問</span><span>─ 徒歩</span><span>┄ 条件付き・乗り物</span><span><b data-marker="guide">━</b> 選んだ道順</span></p>
+      <p class="atlas-legend"><span><b data-marker="current">◆</b> 現在地</span><span><b data-marker="seen">◆</b> 訪問済み</span><span><b data-marker="new">◆</b> 未訪問</span><span id="atlasHuntLegend" hidden><b data-marker="hunt">◆</b> 狩場・任意戦</span><span>─ 徒歩</span><span>┄ 条件付き・乗り物</span><span><b data-marker="guide">━</b> 選んだ道順</span></p>
     </div>
     <section class="atlas-info" aria-label="地点の詳細">
       <label>地点を探す<input id="atlasSearch" type="search" placeholder="地名またはLv"></label>

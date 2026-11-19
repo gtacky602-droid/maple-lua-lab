@@ -195,6 +195,15 @@ def build():
             stages_by_region[region][node['id']] = node
             mapped_stage[node['id']] = region
 
+    hunt_rows = load('sources/map-research/sites-branch-hunts.json')['routes']
+    hunting_regions = {mapped_stage[row['stage']] for row in hunt_rows}
+    hunts_by_host = {row['host']:row for row in hunt_rows}
+    for row in hunt_rows:
+        host, hunt = nodes[row['host']], nodes[row['stage']]
+        assert host['mapPoint'] == row['field'] and hunt['level'] == all_fields[row['field']]['level'] == row['level']
+        assert set(e['to'] for e in hunt['exits']) == {host['id'], *row['pockets']}
+        assert any(e['to'] == hunt['id'] for e in host['exits'])
+        assert all(nodes[id]['huntKind'] == 'elite' for id in row['pockets'])
     entries, proposals = [], []
     for id, row in regions.items():
         theme, *overview = STYLE[id]
@@ -209,6 +218,8 @@ def build():
                            'layer': node.get('atlasLayer', layer),
                            **({'provisional': True} if node.get('designField') or node.get('atlasParent') else {}),
                            **({'entrancePending': True} if node.get('atlasEntrancePending') else {}),
+                           **({'huntLevel': hunts_by_host[node_id]['level']} if node_id in hunts_by_host else {}),
+                           **({'huntKind': node['huntKind']} if 'huntKind' in node else {}),
                            **({'recommended': field['level'], 'field': field['field_id']} if field else {})})
         # Imported design points missing a runtime assignment are available in the review layer.
         draft = []
@@ -369,6 +380,9 @@ def build():
             'scope':'Exterior lookouts are playable prototypes. The source entrances remain unverified. Level recommendations do not override quest gates.'}
     (ROOT/'design/world/atlas-route-plan.json').write_text(json.dumps(plan,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
     output = ROOT / 'content/world-atlas.json'
+    for entry in entries:
+        if entry['id'] in hunting_regions:
+            entry['hasHunts'] = True
     lines = ',\n'.join('    '+json.dumps(row,ensure_ascii=False,separators=(',',':')) for row in entries)
     size = json.dumps([WIDTH, HEIGHT], separators=(',', ':'))
     output.write_text('{"size":'+size+',"regions":[\n'+lines+'\n]}\n',encoding='utf8')

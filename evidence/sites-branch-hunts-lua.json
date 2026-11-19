@@ -1,0 +1,13 @@
+{
+  "hunting_rooms": 32,
+  "ordinary_placements": 1344,
+  "dry_ruin_guardians": 6,
+  "optional_pockets": 30,
+  "directed_crossings": 124,
+  "all_hunt_level_boundaries": true,
+  "early_quest_state_unchanged": true,
+  "restored_at_entry_camp": true,
+  "map_previews_locked_and_available": true,
+  "real_combat_kill_exp_and_respawn": true,
+  "round_trip_movement_isolated_from_combat": true
+}

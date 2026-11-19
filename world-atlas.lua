@@ -141,12 +141,12 @@ return function(C, atlas)
 
  local function pin(out,point)
   local color=point.current and '#dc735b' or point.selected and '#ffdf91' or
-    point.mode=='draft' and '#f4d8a4' or point.visited and '#397972' or '#526671'
-  local size=(point.current or point.selected or point.major) and 7 or 4
+    point.mode=='draft' and '#f4d8a4' or point.huntKind and '#996045' or point.visited and '#397972' or '#526671'
+  local size=(point.current or point.selected or point.major) and 7 or point.huntKind and 5 or 4
   local x,y=point.x,point.y
   polygon(out,{{x,y-size-2},{x+size+2,y},{x,y+size+2},{x-size-2,y}},'#273f4b')
   polygon(out,{{x,y-size},{x+size,y},{x,y+size},{x-size,y}},color)
-  if point.visited or point.current then rectangle(out,x-1,y-1,3,3,'#f7e8ae') end
+  if point.visited or point.current or point.huntKind=='elite' then rectangle(out,x-1,y-1,3,3,'#f7e8ae') end
  end
 
  local function route_mode(edge,from,to)
@@ -365,9 +365,11 @@ return function(C, atlas)
   end
   for _,p in ipairs(region.points) do
    local node=nodes[p.id]
-   if node and (map.layer=='all' or p.layer==map.layer or map.layer=='review' and p.entrancePending) then
+   if node and (map.layer=='all' or p.layer==map.layer or map.layer=='review' and p.entrancePending
+      or map.layer=='hunt' and (p.huntKind or p.huntLevel or p.id==state.node)) then
     local point={id=p.id,name=node.name,x=p.x,y=p.y,level=node.level,layer=p.layer,
       recommended=p.recommended,provisional=p.provisional,entrancePending=p.entrancePending,
+      huntLevel=p.huntLevel,huntKind=p.huntKind,
       current=p.id==state.node,selected=p.id==map.selected,
       major=node.hub or node.waypoint and node.waypoint.kind=='statue',
       visited=state.visited[p.id],mode=node.hub and 'hub' or node.swim and 'water' or 'field'}
@@ -393,7 +395,8 @@ return function(C, atlas)
     end
    end
   end
-  terrain(out,terrain_points,region.theme,map.layer=='water' or map.layer=='below')
+  local deep=map.layer=='water' or map.layer=='below' or map.layer=='hunt' and region.theme=='water'
+  terrain(out,terrain_points,region.theme,deep)
   for _,pair in ipairs(approaches) do
    local point,anchor=table.unpack(pair)
    line(out,anchor.x,anchor.y,point.x,point.y,point.selected and '#ffef9c' or '#56664e',point.selected and 3 or 1.5,
@@ -425,7 +428,8 @@ return function(C, atlas)
    for _,edge in ipairs(connections(nodes[selected.id])) do
     if nodes[edge.to] then
      routes[#routes+1]={id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
-       level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],restricted=edge.requires~=nil}
+       level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],
+       huntKind=nodes[edge.to].huntKind,restricted=edge.requires~=nil}
     end
    end
   elseif selected and nodes[selected.anchor] then
@@ -474,7 +478,8 @@ return function(C, atlas)
   end
   local result={width=w,height=h,region=region and region.id or 'world',layer=map.layer,
     options=options,draws={},revision=map.revision,location=nodes[f.story.node] and nodes[f.story.node].name,
-    currentRegion=places[f.story.node]}
+    currentRegion=places[f.story.node],
+    hasHunts=region and region.hasHunts or false}
   if region then
    result.points,result.selected,result.routes,result.guide=local_map(result.draws, region, nodes, s, map)
   else result.points=overview(result.draws,options,f.story.node,nodes) end
@@ -499,7 +504,7 @@ return function(C, atlas)
     map.region,map.layer,map.selected=places[s.story.node] or 'world','all',s.story.node
    elseif region and (region=='world' or regions[region]) then
     map.region,map.layer,map.selected=region,'all',nil
-   elseif layer and (layer=='all' or layer=='surface' or layer=='below' or layer=='water' or layer=='review') then
+   elseif layer and (layer=='all' or layer=='surface' or layer=='below' or layer=='water' or layer=='review' or layer=='hunt') then
     map.layer,map.selected=layer,nil
    elseif selected then
     map.selected=selected

@@ -11,6 +11,8 @@ export function initAtlas(action, clearKeys) {
  const back = document.getElementById('atlasWorld');
  const region = document.getElementById('atlasRegion');
  const layer = document.getElementById('atlasLayer');
+ const huntLayer = layer.querySelector('option[value="hunt"]');
+ const huntLegend = document.getElementById('atlasHuntLegend');
  const canvas = document.getElementById('atlasCanvas');
  const search = document.getElementById('atlasSearch');
  const field = document.getElementById('atlasField');
@@ -131,13 +133,16 @@ export function initAtlas(action, clearKeys) {
    : selected ? [
     selected.current ? '現在地' : selected.visited ? '訪問済み' : '未訪問',
     '通行Lv' + selected.level,
-    selected.entrancePending ? '試作の見晴らし場・原作入口は照合中' : selected.provisional ? '試作区画' : '',
-    selected.recommended && selected.recommended !== selected.level ? '設計推奨Lv' + selected.recommended : '',
+    selected.entrancePending ? '試作の見晴らし場・原作入口は照合中' :
+      selected.huntKind === 'elite' ? '任意戦' : selected.huntKind ? '狩場' : selected.provisional ? '試作区画' : '',
+    selected.huntLevel ? '脇道の狩場はLv' + selected.huntLevel :
+      selected.recommended && selected.recommended !== selected.level ? '設計推奨Lv' + selected.recommended : '',
    ].filter(Boolean).join(' ｜ ') : area ? `設計推奨Lv${area.low}〜${area.high}` : '地域を選ぶと周辺のフィールドを確認できます';
   const links = entries(view.routes).map(route => {
    const li = document.createElement('li');
    const button = document.createElement('button');
-   button.textContent = `${route.name} ｜ ${route.label}・Lv${route.level}${route.restricted ? '・依頼条件あり' : ''}`;
+   const kind = route.huntKind === 'elite' ? '任意戦・' : route.huntKind ? '狩場・' : '';
+   button.textContent = `${route.name} ｜ ${kind}${route.label}・Lv${route.level}${route.restricted ? '・依頼条件あり' : ''}`;
    button.onclick = () => showPlace(route);
    li.append(button);
    return li;
@@ -200,6 +205,9 @@ export function initAtlas(action, clearKeys) {
   current.title = view.location;
   back.disabled = view.region === 'world';
   layer.disabled = view.region === 'world';
+  huntLayer.hidden = !view.hasHunts;
+  huntLayer.disabled = !view.hasHunts;
+  huntLegend.hidden = !view.hasHunts;
   layer.value = view.layer;
   renderRegions();
   renderFields();

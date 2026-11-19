@@ -52,8 +52,9 @@ for key, stage in mapping.items():
     assert n['mapPoint'] == key and cover['stage_links'][key]['stage_id'] == stage
     assert pin['kind'] == spec['kind'] and pin.get('floor') == spec.get('point_group')
     if spec.get('point_group'):
-        assert len(n['exits']) == 1
-        assert any(k in n['exits'][0] for k in ('liftSeconds', 'waterwaySeconds'))
+        marker_exits = [gate for gate in n['exits'] if gate['to'] in stages]
+        assert len(marker_exits) == 1
+        assert any(k in marker_exits[0] for k in ('liftSeconds', 'waterwaySeconds'))
     assert {nodes[e['to']]['mapPoint'] for e in n['exits'] if 'mapPoint' in nodes[e['to']]} == (
         set(cover['stage_links'][key]['gates']))
     assert on_platform(stage, pin['x'], pin['y'])
