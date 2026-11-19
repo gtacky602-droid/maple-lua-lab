@@ -1,0 +1,92 @@
+{
+  "legend-sappho": {
+    "sources": [
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Tribalwarrior_Slingshot_Mosasaurus.png",
+        "checked": "一般種の正面顔アイコンで帽子・兜、顔を覆う範囲と配色を目視。"
+      },
+      {
+        "url": "https://www.hoyolab.com/article/34450690",
+        "file": "sappho-named.jpg",
+        "checked": "名前付き画面の立ち姿と斜めからの武器の長さ、胴と脚の配色を目視。"
+      },
+      {
+        "url": "https://game8.co/games/Genshin-Impact/archives/470650",
+        "file": "sappho-action.jpg",
+        "checked": "戦闘中の遠景を確認。顔の細部は判読困難。"
+      }
+    ],
+    "design": "青緑の角張った兜、橙の差し色。弦楽器は魚形の胴と大きな音孔・明るい弦で描いた。",
+    "unchecked": [
+      "背面・360度のモデル回転",
+      "ゲームへの組み込みと実機表示"
+    ],
+    "method": "資料を目視後、独自に新規生成した待機原画を差分の参照として使用。頭頂（帽子・兜込み）から顎付近を全高のおよそ3分の1に調整。"
+  },
+  "legend-tristars-cryo": {
+    "sources": [
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Skirmisher_Male_Fat_SprayGun_Ice_01.png",
+        "checked": "一般種の正面顔アイコンで帽子・兜、顔を覆う範囲と配色を目視。"
+      },
+      {
+        "file": "tristars-named.jpg",
+        "checked": "名前付きの集合画像。炎銃は細身、氷銃は丸い胴、雷槌は大きな肩の体格差を確認。"
+      },
+      {
+        "url": "https://game8.jp/genshin/655669",
+        "checked": "アイキャッチと実績画面で別角度の3人の武器と構えを確認。"
+      }
+    ],
+    "design": "帽子の水色の帯、顔を覆う金属マスク。太い胴と短い銃口、背に氷色のタンク。",
+    "unchecked": [
+      "背面・360度のモデル回転",
+      "ゲームへの組み込みと実機表示"
+    ],
+    "method": "資料を目視後、独自に新規生成した待機原画を差分の参照として使用。頭頂（帽子・兜込み）から顎付近を全高のおよそ3分の1に調整。"
+  },
+  "legend-tristars-electro": {
+    "sources": [
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Skirmisher_Male_Strong_GreatHammer_Electric_01.png",
+        "checked": "一般種の正面顔アイコンで帽子・兜、顔を覆う範囲と配色を目視。"
+      },
+      {
+        "file": "tristars-named.jpg",
+        "checked": "名前付きの集合画像。炎銃は細身、氷銃は丸い胴、雷槌は大きな肩の体格差を確認。"
+      },
+      {
+        "url": "https://game8.jp/genshin/655669",
+        "checked": "アイキャッチと実績画面で別角度の3人の武器と構えを確認。"
+      }
+    ],
+    "design": "紫の兜と一眼バイザー、幅広い肩。槌の四角い頭を肩から離して置いた。",
+    "unchecked": [
+      "背面・360度のモデル回転",
+      "ゲームへの組み込みと実機表示"
+    ],
+    "method": "資料を目視後、独自に新規生成した待機原画を差分の参照として使用。頭頂（帽子・兜込み）から顎付近を全高のおよそ3分の1に調整。"
+  },
+  "legend-tristars-pyro": {
+    "sources": [
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Skirmisher_Male_Standard_Rifle_Fire_01.png",
+        "checked": "一般種の正面顔アイコンで帽子・兜、顔を覆う範囲と配色を目視。"
+      },
+      {
+        "file": "tristars-named.jpg",
+        "checked": "名前付きの集合画像。炎銃は細身、氷銃は丸い胴、雷槌は大きな肩の体格差を確認。"
+      },
+      {
+        "url": "https://game8.jp/genshin/655669",
+        "checked": "アイキャッチと実績画面で別角度の3人の武器と構えを確認。"
+      }
+    ],
+    "design": "赤帯の帽子、前髪で片目が隠れる白い顔。体と銃身を細くし、他の二人と区別。",
+    "unchecked": [
+      "背面・360度のモデル回転",
+      "ゲームへの組み込みと実機表示"
+    ],
+    "method": "資料を目視後、独自に新規生成した待機原画を差分の参照として使用。頭頂（帽子・兜込み）から顎付近を全高のおよそ3分の1に調整。"
+  }
+}

@@ -714,7 +714,11 @@
     {"id":"legend-dobharcu","name":"隠者の王・ドアーチュ（水中・ラボ用）","file":"legend-dobharcu-field-idle-sprites-v1.json","height":126,"mapHover":0},
     {"id":"legend-luachra","name":"極彩色のルケア（水中・ラボ用）","file":"legend-luachra-field-idle-sprites-v1.json","height":126,"mapHover":0},
     {"id":"legend-chassanion","name":"シャサニョン（水中・ラボ用）","file":"legend-chassanion-field-idle-sprites-v1.json","height":126,"mapHover":0},
-    {"id":"legend-corrouge","name":"魔剣クルージュ（水中・ラボ用）","file":"legend-corrouge-field-idle-sprites-v1.json","height":126,"mapHover":0}
+    {"id":"legend-corrouge","name":"魔剣クルージュ（水中・ラボ用）","file":"legend-corrouge-field-idle-sprites-v1.json","height":126,"mapHover":0},
+    {"id":"legend-sappho","name":"波のジャプー","file":"legend-sappho-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-tristars-cryo","name":"異色三連星・氷銃","file":"legend-tristars-cryo-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-tristars-electro","name":"異色三連星・雷槌","file":"legend-tristars-electro-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-tristars-pyro","name":"異色三連星・炎銃","file":"legend-tristars-pyro-field-idle-sprites-v1.json","height":110,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }

@@ -454,7 +454,7 @@ def runtime():
     legend_revisions = {
         body['art']: spec.get('artRevision', 1)
         for spec in field_specs if spec['controller'] in {'branchLegend', 'waterLegend'}
-        for body in (spec, spec.get('partner')) if body
+        for body in (spec, spec.get('partner'), *spec.get('members', [])) if body and body.get('art')
     }
     core.branchLegendArt=lua.table_from({
         name: field_art(lua, name, legend_poses, variants={

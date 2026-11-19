@@ -1,0 +1,39 @@
+{
+  "routes": [
+    [
+      "nat-wp-72438",
+      "tepeakak-sappho-bank",
+      "walk"
+    ],
+    [
+      "tepeakak-sappho-bank",
+      "nat-wp-72438",
+      "walk"
+    ],
+    [
+      "nat-wp-72432",
+      "witztli-tristars-camp",
+      "walk"
+    ],
+    [
+      "witztli-tristars-camp",
+      "nat-wp-72432",
+      "walk"
+    ]
+  ],
+  "comparisons": [
+    {
+      "name": "sappho",
+      "pngCommands": 14,
+      "rectangleCommands": 7097,
+      "lightCommands": 1827
+    },
+    {
+      "name": "tristars",
+      "pngCommands": 24,
+      "rectangleCommands": 13788,
+      "lightCommands": 3761
+    }
+  ],
+  "errors": []
+}

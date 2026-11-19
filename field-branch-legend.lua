@@ -1,7 +1,7 @@
 -- Optional encounters use fixed warning zones and the shared field-boss lifecycle.
 return function(C)
  local legend={}
- local colors={hydro='#82dfd6',pyro='#ffa15b',cryo='#a9dcff',geo='#edd98e'}
+ local colors={hydro='#82dfd6',pyro='#ffa15b',cryo='#a9dcff',geo='#edd98e',electro='#cd9bff'}
  local poses={idle=1,brace=.83,strike=.89}
  local function clamp(x,lo,hi) return math.max(lo,math.min(x,hi)) end
 
@@ -16,6 +16,18 @@ return function(C)
   b.element=spec.element
   b.legendArt=spec.art
   setPose(b,spec,'idle')
+  if spec.members then
+   b.fieldMembers={}
+   for i,p in ipairs(spec.members) do
+    local home=b.home+p.offset
+    local member={id=p.entity,fieldBoss=b.fieldBoss,fieldGroup=b,boss=true,custom=true,noRewards=true,
+     hp=p.hp,maxhp=p.hp,x=home,home=home,y=b.y,level=b.level,facing=-1,respawn=math.huge,warning=0,
+     memberName=p.name,element=p.element,legendArt=p.art}
+    setPose(member,spec,'idle')
+    b.fieldMembers[i]=member
+   end
+   return
+  end
   if not spec.partner then return end
   local p=spec.partner
   local home=b.home+p.offset
@@ -133,11 +145,16 @@ return function(C)
     end
    end
   end
-  for _,body in ipairs({b,b.fieldPartner}) do
-   if body.x>=camera-160 and body.x<=camera+1120 then
+  for _,body in ipairs(b.fieldMembers or {b,b.fieldPartner}) do
+   if body.hp>0 and body.x>=camera-160 and body.x<=camera+1120 then
     local art=C.branchLegendArt[body.legendArt][body.legendPose]
     local height=spec.artScale and art.box[4]*spec.artScale or body.drawHeight
     C.drawFieldDisplayArt(f,art,body.x-camera,body.y,height,mode,profile,body.facing>0)
+    if b.fieldMembers then
+     local x,y=body.x-camera-27,body.y-height-10
+     rect(f,x,y,54,5,'#1c162a')
+     rect(f,x+1,y+1,52*body.hp/body.maxhp,3,colors[body.element])
+    end
    end
   end
  end

@@ -1,0 +1,35 @@
+{
+  "entrances": {
+    "legend-natlan_sappho": "nat-wp-72438",
+    "legend-natlan_polychrome_tristars": "nat-wp-72432"
+  },
+  "requiredLevels": {
+    "legend-natlan_sappho": 112,
+    "legend-natlan_polychrome_tristars": 120
+  },
+  "sapphoNeutralWithCompanion": true,
+  "sapphoProvokedByNormalAttack": true,
+  "tristarsRemainingHpAfterEachDefeat": [
+    [
+      0,
+      500,
+      350
+    ],
+    [
+      0,
+      0,
+      350
+    ],
+    [
+      0,
+      0,
+      0
+    ]
+  ],
+  "groupRewardsOnlyAfterAllThree": true,
+  "savedClearRecordsAndManualRechallenge": true,
+  "killXp": {
+    "legend-natlan_sappho": 351500,
+    "legend-natlan_polychrome_tristars": 464100
+  }
+}

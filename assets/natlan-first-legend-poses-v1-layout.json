@@ -1,0 +1,246 @@
+{
+  "source": "natlan-first-legend-poses-source-v1.png",
+  "facing": "left",
+  "frames": [
+    {
+      "id": "legend-sappho",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        93,
+        23,
+        192,
+        132
+      ]
+    },
+    {
+      "id": "legend-sappho",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        95,
+        25,
+        185,
+        132
+      ]
+    },
+    {
+      "id": "legend-sappho",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        97,
+        23,
+        186,
+        132
+      ]
+    },
+    {
+      "id": "legend-tristars-cryo",
+      "pose": "idle",
+      "crop": [
+        0,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        88,
+        19,
+        207,
+        132
+      ]
+    },
+    {
+      "id": "legend-tristars-cryo",
+      "pose": "brace",
+      "crop": [
+        288,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        91,
+        21,
+        202,
+        132
+      ]
+    },
+    {
+      "id": "legend-tristars-cryo",
+      "pose": "strike",
+      "crop": [
+        576,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        90,
+        19,
+        203,
+        132
+      ]
+    },
+    {
+      "id": "legend-tristars-electro",
+      "pose": "idle",
+      "crop": [
+        0,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        81,
+        16,
+        189,
+        132
+      ]
+    },
+    {
+      "id": "legend-tristars-electro",
+      "pose": "brace",
+      "crop": [
+        288,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        80,
+        18,
+        169,
+        132
+      ]
+    },
+    {
+      "id": "legend-tristars-electro",
+      "pose": "strike",
+      "crop": [
+        576,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        75,
+        16,
+        180,
+        132
+      ]
+    },
+    {
+      "id": "legend-tristars-pyro",
+      "pose": "idle",
+      "crop": [
+        0,
+        432,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        69,
+        21,
+        184,
+        132
+      ]
+    },
+    {
+      "id": "legend-tristars-pyro",
+      "pose": "brace",
+      "crop": [
+        288,
+        432,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        73,
+        23,
+        180,
+        132
+      ]
+    },
+    {
+      "id": "legend-tristars-pyro",
+      "pose": "strike",
+      "crop": [
+        576,
+        432,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        73,
+        21,
+        185,
+        132
+      ]
+    }
+  ]
+}

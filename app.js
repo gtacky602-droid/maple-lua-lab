@@ -480,6 +480,7 @@ function hud(f,calls,renderMs){
   const elementNames={pyro:'炎',cryo:'氷',hydro:'水',electro:'雷'};
   const bodyNames={anemo:'風',cryo:'❄ 氷',electro:'⚡ 雷',pyro:'炎'};
   const elements=field.elementSlots?(' ｜ '+field.elementSlots.map(e=>elementNames[e]).join(' → ')):
+   field.bodies?.[0]?.maxhp?' ｜ '+field.bodies.map(body=>body.name+' '+(body.hp>0?Math.ceil(body.hp)+'/'+body.maxhp:'討伐')).join(' / '):
    field.bodies?.length===2?' '+field.bodies.map((body,i)=>body.name??(bodyNames[body.element]??elementNames[body.element]??'')+['①','②'][i]).join(' / '):'';
   let mark=field.mark?` ｜ ${elementNames[field.mark]}断流・両端で解除`:'';
   if(field.marks){

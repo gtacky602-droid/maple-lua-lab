@@ -68,5 +68,27 @@
   ],
   "hpAndGenerationRoundTrip": true,
   "optionalFlagsOnlyOnDeclaredControllers": true,
-  "reentryAttachesOnePrimary": true
+  "reentryAttachesOnePrimary": true,
+  "manualTrialsReset": [
+    "legend-liyue_rulers_of_chizhang_mountains",
+    "legend-fontaine_cineas",
+    "legend-fontaine_vivianne_of_the_lake",
+    "legend-fontaine_ninianne_of_the_lake",
+    "legend-fontaine_yseut",
+    "legend-fontaine_automated_supercomputing_field_generator",
+    "legend-fontaine_rocky_avildsen",
+    "legend-fontaine_liam",
+    "legend-fontaine_deianeira_of_snezhevna",
+    "legend-fontaine_ocean_circuit_judge",
+    "legend-fontaine_iron_viscount",
+    "legend-fontaine_fairy_knight_twins",
+    "legend-fontaine_swords_of_the_gorge",
+    "legend-fontaine_fading_veteran",
+    "legend-fontaine_dobharcu_lord_of_the_hidden",
+    "legend-fontaine_luachra_the_brilliant",
+    "legend-fontaine_chassanion",
+    "legend-fontaine_mageblade_corrouge",
+    "legend-natlan_sappho",
+    "legend-natlan_polychrome_tristars"
+  ]
 }

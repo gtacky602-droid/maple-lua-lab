@@ -2,6 +2,7 @@ return function(C,configs,controllers)
  local step,frame,onKill,checkpoint,restore=C.step,C.frame,C.onKill,C.checkpoint,C.restore
  local after=C.afterElementHit
  local damageFactor=C.damageFactor
+ local defeatEnemy=C.defeatEnemy
  local byId,byNode={},{}
  for _,spec in ipairs(configs) do byId[spec.id]=spec;byNode[spec.node]=spec end
  local shared={hp=true,invulnerable=true}
@@ -65,6 +66,7 @@ return function(C,configs,controllers)
   slot.entryAt=nil
   local behavior=controllers[spec.controller]
   if behavior.spawn then behavior.spawn(slot.enemy,spec,slot.generation) end
+  if spec.provokeOnly then slot.enemy.noAutoTarget=true end
  end
 
  local function attach(s,spec,slot)
@@ -75,8 +77,12 @@ return function(C,configs,controllers)
    end
    s.enemies[#s.enemies+1]=body
   end
-  place(slot.enemy)
-  if slot.enemy.fieldPartner then place(slot.enemy.fieldPartner) end
+  if slot.enemy.fieldMembers then
+   for _,member in ipairs(slot.enemy.fieldMembers) do place(member) end
+  else
+   place(slot.enemy)
+   if slot.enemy.fieldPartner then place(slot.enemy.fieldPartner) end
+  end
  end
 
  local function cancelCast(s,spec,slot)
@@ -121,6 +127,12 @@ return function(C,configs,controllers)
   for _,a in ipairs(s.actors) do
    local dx=range(a,boss)
    if boss.fieldPartner then dx=math.min(dx,range(a,boss.fieldPartner)) end
+   if boss.fieldMembers then
+    dx=math.huge
+    for _,member in ipairs(boss.fieldMembers) do
+     if member.hp>0 then dx=math.min(dx,range(a,member)) end
+    end
+   end
    if a.hp>0 and a.x>=spec.arenaMin and a.x<=spec.arenaMax and dx<distance then best,distance=a,dx end
   end
   return best,distance
@@ -137,6 +149,9 @@ return function(C,configs,controllers)
   end
   local arrived=walkHome(boss)
   if boss.fieldPartner then arrived=walkHome(boss.fieldPartner) and arrived end
+  for _,member in ipairs(boss.fieldMembers or {}) do
+   if member.hp>0 then arrived=walkHome(member) and arrived end
+  end
   if arrived then
    spawn(slot,spec,spec.hp)
    if here then attach(s,spec,slot) end
@@ -202,8 +217,9 @@ return function(C,configs,controllers)
   local target,distance
   if here then target,distance=nearest(s,spec,boss,behavior) end
   if slot.phase=='available' then
-   if here and (boss.hp<boss.maxhp or (target and distance<=spec.noticeRange)) then
+   if here and (boss.hp<boss.maxhp or (not spec.provokeOnly and target and distance<=spec.noticeRange)) then
     slot.phase='notice';slot.delay=spec.noticeTicks
+    boss.noAutoTarget=nil
     if target then boss.facing=target.x<boss.x and -1 or 1 end
    end
    return
@@ -212,6 +228,7 @@ return function(C,configs,controllers)
   if slot.out>=spec.leashTicks then
    if behavior.swimStep or boss.fieldPartner or (slot.cast and (slot.cast.summon or slot.cast.summons)) then cancelCast(s,spec,slot) end
    slot.phase='leash';slot.cast=nil;boss.invulnerable=true
+   for _,member in ipairs(boss.fieldMembers or {}) do member.invulnerable=true end
    boss.y=spec.floorY;boss.drawHeight=spec.artHeight;boss.hitTop=boss.y-boss.drawHeight;boss.hitBottom=boss.y
    return
   end
@@ -228,6 +245,7 @@ return function(C,configs,controllers)
   end
   if not target then return end
   local move=spec.moves[slot.index]
+  if not move then return end
   if behavior.selectMove then move=behavior.selectMove(boss,move) end
   local reach=move.reach
   if distance>reach-18 then
@@ -303,8 +321,23 @@ return function(C,configs,controllers)
   if onKill then onKill(s,e) end
  end
 
+ local function updateGroup(s,group,owner)
+  local slot=s.fieldSlots and s.fieldSlots[group.fieldBoss]
+  if not slot or slot.enemy~=group or group.hp<=0 then return end
+  local hp=0
+  for _,member in ipairs(group.fieldMembers) do hp=hp+member.hp end
+  if hp==0 then defeatEnemy(s,group,owner) else group.hp=hp end
+ end
+
+ function C.defeatEnemy(s,e,owner)
+  local defeated=defeatEnemy(s,e,owner)
+  if defeated and e.fieldGroup then updateGroup(s,e.fieldGroup,owner) end
+  return defeated
+ end
+
  function C.afterElementHit(s,cast,e,element,damageElement,damage)
   if after then after(s,cast,e,element,damageElement,damage) end
+  if e.fieldGroup and e.hp>0 then updateGroup(s,e.fieldGroup,cast.id) end
   local spec=e.fieldBoss and byId[e.fieldBoss]
   if not spec or e.hp<=0 or e.invulnerable then return end
   local behavior=controllers[spec.controller]
@@ -368,6 +401,8 @@ return function(C,configs,controllers)
   local cast=slot.cast
   local label=slot.phase=='cleared' and '討伐完了・入口から再挑戦' or slot.phase=='notice' and '振り向き' or slot.phase=='leash' and '巣へ戻っている' or
    slot.phase=='available' and '警戒前' or cast and cast.move.title or '息継ぎ'
+  if slot.phase=='available' and spec.provokeOnly then label='演奏中・攻撃で挑戦' end
+  if slot.phase=='combat' and #spec.moves==0 then label='戦闘テスト' end
   if spec.presentationOnly and boss.hp>0 then label=spec.displayLabel or '見た目と進行を確認する仮の個体' end
   if boss.hp>0 and slot.phase=='combat' and behavior.label then label=behavior.label(boss,cast,spec,s) or label end
   f.fieldBoss={id=spec.id,name=boss.displayName or spec.name,element=boss.element,form=boss.form,level=spec.level,hp=boss.hp,maxhp=spec.hp,phase=slot.phase,
@@ -389,8 +424,17 @@ return function(C,configs,controllers)
    f.fieldBoss.bodies={{id=boss.id,x=boss.x,y=boss.y,element=boss.element,name=boss.memberName},
     {id=partner.id,x=partner.x,y=partner.y,element=partner.element,name=partner.memberName}}
   end
+  if boss.fieldMembers then
+   f.fieldBoss.bodies={}
+   for i,member in ipairs(boss.fieldMembers) do
+    f.fieldBoss.bodies[i]={id=member.id,x=member.x,y=member.y,element=member.element,
+     name=member.memberName,hp=member.hp,maxhp=member.maxhp}
+   end
+  end
   local function visible(body) return body.x>=s.camera-180 and body.x<=s.camera+1140 end
-  if boss.hp>0 and (visible(boss) or (partner and visible(partner))) then
+  local visibleBody=visible(boss) or (partner and visible(partner))
+  for _,member in ipairs(boss.fieldMembers or {}) do visibleBody=visibleBody or (member.hp>0 and visible(member)) end
+  if boss.hp>0 and visibleBody then
    local layer={draws={}}
    behavior.draw(layer,s,boss,spec,cast,mode,profile)
    for _,draw in ipairs(f.draws) do layer.draws[#layer.draws+1]=draw end

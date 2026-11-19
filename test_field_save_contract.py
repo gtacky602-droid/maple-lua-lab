@@ -36,6 +36,7 @@ def seed_chapter(state, quest_id, completed_count, status):
 
 
 checked = []
+manual = []
 for spec in specs:
     state = core.new(12)
     core.action(state, 'story_start')
@@ -48,10 +49,22 @@ for spec in specs:
     slot = state.fieldSlots[spec['id']]
     slot.enemy.hp = spec['hp']-1
     saved = validate_save(native(core.checkpoint(state)))
+    restored = core.restore(lua.table_from(saved, recursive=True), 12)
+    if spec.get('manualRechallenge'):
+        assert spec['id'] not in saved.get('fieldBosses', {})
+        assert not restored.fieldSlots or restored.fieldSlots[spec['id']] is None
+        core.enterStoryNode(restored, spec['node'])
+        fresh = restored.fieldSlots[spec['id']]
+        assert fresh.enemy.hp == spec['hp'] and fresh.cast is None and fresh.generation == 1
+        if members := spec.get('members'):
+            assert {e.id for e in restored.enemies.values() if e.fieldBoss == spec['id']} == {
+                member['entity'] for member in members
+            }
+        manual.append(spec['id'])
+        continue
     data = saved['fieldBosses'][spec['id']]
     assert (data['hp'], data['generation'], data['waitTicks']) == (spec['hp']-1, 1, 0)
     assert set(data.get('flags', {})) == set(spec.get('saveFlags', []))
-    restored = core.restore(lua.table_from(saved, recursive=True), 12)
     fresh = restored.fieldSlots[spec['id']]
     assert fresh.enemy.hp == spec['hp']-1 and fresh.cast is None and fresh.generation == 1
     core.enterStoryNode(restored, spec['node'])
@@ -60,6 +73,6 @@ for spec in specs:
 
 result = dict(controllers=len(checked), ids=checked, hpAndGenerationRoundTrip=True,
               optionalFlagsOnlyOnDeclaredControllers=True,
-              reentryAttachesOnePrimary=True)
+              reentryAttachesOnePrimary=True, manualTrialsReset=manual)
 (ROOT/'evidence/field-save-contract.json').write_text(json.dumps(result, indent=2)+'\n', encoding='utf8')
-print(f'{len(checked)} field-controller checkpoint round-trips passed')
+print(f'{len(checked)} field-controller checkpoint round-trips and {len(manual)} manual resets passed')
