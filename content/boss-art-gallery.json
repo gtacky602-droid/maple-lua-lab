@@ -742,7 +742,10 @@
     {"id":"legend-bronzelock","name":"銅の錠","file":"legend-bronzelock-field-idle-sprites-v1.json","height":110,"mapHover":0},
     {"id":"legend-sigurd","name":"シグルド","file":"legend-sigurd-field-idle-sprites-v1.json","height":110,"mapHover":0},
     {"id":"legend-crab-tsar","name":"カニ皇帝","file":"legend-crab-tsar-field-idle-sprites-v1.json","height":110,"mapHover":0},
-    {"id":"legend-raskolnikov","name":"ラスコルニコフ","file":"legend-raskolnikov-field-idle-sprites-v1.json","height":110,"mapHover":0}
+    {"id":"legend-raskolnikov","name":"ラスコルニコフ","file":"legend-raskolnikov-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-mandragora","name":"十六倍マンドラゴラ","file":"legend-mandragora-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-hiljetta","name":"ハイジェード","file":"legend-hiljetta-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-homesick-wolf","name":"故郷を偲ぶ孤独の狼","file":"legend-homesick-wolf-field-idle-sprites-v1.json","height":110,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }

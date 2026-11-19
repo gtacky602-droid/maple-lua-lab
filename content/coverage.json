@@ -171,8 +171,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 141,
-      "prototype_quest_count": 26,
+      "prototype_stage_count": 147,
+      "prototype_quest_count": 27,
       "official_map2_markers": {
         "waypoints": 83,
         "statues": 7
@@ -7962,8 +7962,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1484,
-    "provisional_quests": 274,
+    "authored_stages": 1490,
+    "provisional_quests": 275,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -9121,7 +9121,13 @@
           "nod-hiisi-mirror-court",
           "nod-crab-tsar-palace",
           "nod-bureau-upper-lift-station",
-          "nod-raskolnikov-upper-ring"
+          "nod-raskolnikov-upper-ring",
+          "nod-pyramid-seaward-steps",
+          "nod-mandragora-cliff-foot",
+          "nod-wind-fort-peninsula",
+          "nod-hiljetta-peninsula-camp",
+          "nod-aamsvaltnir-east-ridge",
+          "nod-homesick-wolf-lakeland"
         ],
         "quest_ids": [
           "nod-mapped-harbor-lamp",
@@ -9149,7 +9155,8 @@
           "nod-lantern-patrol",
           "nod-bonemos-offerings",
           "nod-hiisi-palace-mirrors",
-          "nod-bureau-lift-check"
+          "nod-bureau-lift-check",
+          "nod-north-landmark-round"
         ]
       },
       {
@@ -10364,7 +10371,7 @@
       "content/story-graph.json"
     ],
     "design_candidates": 56,
-    "playable_prototypes": 43,
+    "playable_prototypes": 46,
     "pending_boss_moves": [
       "legend-natlan_atlatl",
       "legend-natlan_balachko",
@@ -10389,6 +10396,9 @@
       "legend-natlan_tupu",
       "legend-natlan_undead",
       "legend-nod_crab_tsar",
+      "legend-nod_hexadecatonic_mandragora",
+      "legend-nod_hiljetta",
+      "legend-nod_homesick_lone_wolf",
       "legend-nod_raskolnikov",
       "legend-nod_sigurd"
     ],
@@ -10449,7 +10459,10 @@
       "legend-natlan_bronzelock": "ochka-bronzelock-island-court",
       "legend-nod_sigurd": "nod-sigurd-grave-court",
       "legend-nod_crab_tsar": "nod-crab-tsar-palace",
-      "legend-nod_raskolnikov": "nod-raskolnikov-upper-ring"
+      "legend-nod_raskolnikov": "nod-raskolnikov-upper-ring",
+      "legend-nod_hexadecatonic_mandragora": "nod-mandragora-cliff-foot",
+      "legend-nod_hiljetta": "nod-hiljetta-peninsula-camp",
+      "legend-nod_homesick_lone_wolf": "nod-homesick-wolf-lakeland"
     }
   }
 }

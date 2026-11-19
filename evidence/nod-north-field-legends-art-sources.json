@@ -1,0 +1,73 @@
+{
+  "legend-mandragora": {
+    "sources": [
+      {
+        "page": "https://game8.jp/genshin/755801",
+        "url": "https://img.game8.jp/12207426/134ed79dd77a459fa57e4f9fd12c83f1.webp/original",
+        "alt": "マンドラゴラ"
+      },
+      {
+        "page": "https://game8.jp/genshin/755801",
+        "url": "https://img.game8.jp/12206480/360c5138040e23875d6991854451700a.webp/original",
+        "alt": "マンドラゴラ"
+      },
+      {
+        "page": "https://game8.jp/genshin/755801",
+        "url": "https://img.game8.jp/12206680/ba592d8bf20e3dbd18d3ee48e97bb81f.webp/original",
+        "alt": "マンドラゴラ討伐目標"
+      },
+      {
+        "page": "https://gamewith.net/genshin-impact/article/show/72439",
+        "url": "https://img.gamewith.net/article/thumbnail/rectangle/72439.png",
+        "alt": "Genshin Impact | Hexadecatonic Mandragora Local Legend Location & How To Beat - GameWith"
+      }
+    ],
+    "additional_references": [
+      "https://img.game8.co/4384498/e3c68bbf1d093b49a19adf32064cee84.jpg/poster"
+    ],
+    "observations": "大きな金色の花弁と根元に見える淡緑の顔。"
+  },
+  "legend-hiljetta": {
+    "sources": [
+      {
+        "page": "https://game8.jp/genshin/755802",
+        "url": "https://img.game8.jp/12207558/454f53b18648fb7cd2d7a792d333de16.webp/original",
+        "alt": "ハイジェード"
+      },
+      {
+        "page": "https://game8.jp/genshin/755802",
+        "url": "https://img.game8.jp/12206478/6f1ecf231d48d31857292cab66ae0f2b.webp/original",
+        "alt": "ハイジェード"
+      },
+      {
+        "page": "https://game8.jp/genshin/755802",
+        "url": "https://img.game8.jp/12206681/1cf904bbd5a210dc8de00d36ad1c874e.webp/original",
+        "alt": "ハイジェード討伐目標"
+      }
+    ],
+    "additional_references": [
+      "https://img.game8.jp/12207024/5601dcebbd2330fa503e819cc5fe285e.mp4/show",
+      "https://img.game8.jp/12207027/e877dda49a692f55ed0652255f33fb15.mp4/show"
+    ],
+    "observations": "赤い頭巾と銀髪、青緑の服。素手で殴る戦闘映像を参照。"
+  },
+  "legend-homesick-wolf": {
+    "sources": [
+      {
+        "page": "https://game8.jp/genshin/755803",
+        "url": "https://img.game8.jp/12207104/7436db87b25a2dac665283ba2586b080.webp/original",
+        "alt": "故郷を偲ぶ孤独の狼"
+      },
+      {
+        "page": "https://game8.jp/genshin/755803",
+        "url": "https://img.game8.jp/12207723/dadc33d2ba03026b266bf088b5c9164a.webp/original",
+        "alt": "故郷を偲ぶ孤独の狼"
+      }
+    ],
+    "additional_references": [
+      "https://img.game8.co/4388143/beaf0ec3a05f4517eb1d92cb3d3ae3db.jpg/poster",
+      "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Magbeast_Steppenwolf.png"
+    ],
+    "observations": "濃紺の胴と氷色のたてがみ。通常種アイコンは顔と配色の参考。"
+  }
+}

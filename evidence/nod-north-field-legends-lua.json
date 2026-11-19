@@ -1,0 +1,14 @@
+{
+  "surveyBranchesPersistAndAcceptDifferentOrder": true,
+  "threeEncountersAccessibleWithoutSurvey": true,
+  "coastDescentAndReturn": true,
+  "bothPeninsulaEntries": true,
+  "highRidgeGateAndReturn": true,
+  "levelGatesAndRewardRestore": true,
+  "mainNodKraiConnected": 6,
+  "killXp": {
+    "legend-nod_hexadecatonic_mandragora": 1441750,
+    "legend-nod_hiljetta": 1441750,
+    "legend-nod_homesick_lone_wolf": 1150400
+  }
+}

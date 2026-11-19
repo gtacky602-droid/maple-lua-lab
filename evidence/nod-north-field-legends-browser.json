@@ -1,0 +1,93 @@
+{
+  "routes": [
+    [
+      "nod-wp-92889",
+      "nod-aamsvaltnir-east-ridge",
+      "raised"
+    ],
+    [
+      "nod-aamsvaltnir-east-ridge",
+      "nod-homesick-wolf-lakeland",
+      "raised"
+    ],
+    [
+      "nod-homesick-wolf-lakeland",
+      "nod-aamsvaltnir-east-ridge",
+      "walk"
+    ],
+    [
+      "nod-aamsvaltnir-east-ridge",
+      "nod-wp-92889",
+      "walk"
+    ],
+    [
+      "nod-wp-92880",
+      "nod-wind-fort-peninsula",
+      "raised"
+    ],
+    [
+      "nod-wind-fort-peninsula",
+      "nod-hiljetta-peninsula-camp",
+      "walk"
+    ],
+    [
+      "nod-hiljetta-peninsula-camp",
+      "nod-wind-fort-peninsula",
+      "walk"
+    ],
+    [
+      "nod-wind-fort-peninsula",
+      "nod-wp-92879",
+      "walk"
+    ],
+    [
+      "nod-wp-92875",
+      "nod-pyramid-seaward-steps",
+      "raised"
+    ],
+    [
+      "nod-pyramid-seaward-steps",
+      "nod-mandragora-cliff-foot",
+      "walk"
+    ],
+    [
+      "nod-mandragora-cliff-foot",
+      "nod-pyramid-seaward-steps",
+      "walk"
+    ],
+    [
+      "nod-pyramid-seaward-steps",
+      "nod-wp-92875",
+      "raised"
+    ]
+  ],
+  "comparisons": [
+    {
+      "name": "homesick-wolf",
+      "pngCommands": 14,
+      "rectangleCommands": 7675,
+      "lightCommands": 2065
+    },
+    {
+      "name": "hiljetta",
+      "pngCommands": 14,
+      "rectangleCommands": 6073,
+      "lightCommands": 1597
+    },
+    {
+      "name": "mandragora",
+      "pngCommands": 14,
+      "rectangleCommands": 5338,
+      "lightCommands": 1369
+    }
+  ],
+  "surveyOrder": [
+    "ridge",
+    "peninsula",
+    "coast"
+  ],
+  "lowerAndUpperPaths": true,
+  "twoPeninsulaGuides": true,
+  "questReported": true,
+  "errors": []
+}
