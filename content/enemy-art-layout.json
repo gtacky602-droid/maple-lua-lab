@@ -74,5 +74,17 @@
     "height": 82,
     "hover": 0,
     "file": "sternshield-crab-idle-sprites-v1.json"
+  },
+  "fatui-skirmisher-cryogunner": {
+    "name": "ファデュイ先遣隊・重衛士・氷銃（異色三連星と共用する待機候補）",
+    "height": 110,
+    "hover": 0,
+    "file": "legend-tristars-cryo-field-idle-sprites-v1.json"
+  },
+  "fatui-skirmisher-pyroslinger": {
+    "name": "ファデュイ先遣隊・遊撃兵・炎銃（異色三連星と共用する待機候補）",
+    "height": 110,
+    "hover": 0,
+    "file": "legend-tristars-pyro-field-idle-sprites-v1.json"
   }
 }

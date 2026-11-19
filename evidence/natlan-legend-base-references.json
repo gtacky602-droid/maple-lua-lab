@@ -1,0 +1,225 @@
+{
+  "dateJst": "2026-11-19",
+  "encounters": 4,
+  "individuals": 6,
+  "reviewedImages": 21,
+  "scope": "通常側の図鑑や全身レンダーと、地方伝説の現地画像・戦闘画面を目視した。ゲーム内図鑑と同じ図柄の転載は重複集計していない。",
+  "unchecked": [
+    "回転できる単体3Dモデルと背面の細部",
+    "バラチコ本体の衣装が離れて見える近景",
+    "通常の裂波のスロワーの全身と、波のジャプーの演奏時・戦闘時の装備"
+  ],
+  "comparisons": [
+    {
+      "ids": [
+        "legend-tristars-cryo",
+        "legend-tristars-electro",
+        "legend-tristars-pyro"
+      ],
+      "matches": [
+        [
+          "シドレンコ",
+          "ファデュイ先遣隊・重衛士・氷銃"
+        ],
+        [
+          "ノモンコノフ",
+          "ファデュイ先遣隊・前鋒軍・雷ハンマー"
+        ],
+        [
+          "ヴァシリ",
+          "ファデュイ先遣隊・遊撃兵・炎銃"
+        ]
+      ],
+      "images": [
+        {
+          "id": "ordinary-cryo-render",
+          "type": "通常：全身レンダーの転載",
+          "page": "https://www.zerochan.net/3369092",
+          "image": "https://static.zerochan.net/Cryogunner.Legionnaire.full.3369092.png",
+          "seen": "帽子、丸い胴、腕の装甲、銃、背面側の大きなタンク。"
+        },
+        {
+          "id": "ordinary-cryo",
+          "type": "通常：戦闘画面",
+          "page": "https://game8.jp/genshin/366637",
+          "image": "https://img.game8.jp/5443038/b72675de1d41a3eaec4c37a32c5a9983.png/show",
+          "seen": "斜めから見た太い銃と上半身。霧は配色の比較から外した。"
+        },
+        {
+          "id": "ordinary-electro-render",
+          "type": "通常：全身レンダーの転載",
+          "page": "https://www.zerochan.net/3369096",
+          "image": "https://s1.zerochan.net/Electrohammer.Vanguard.600.3369096.jpg",
+          "seen": "黒紫の頭部、肩の装甲、濃い外装、角形の槌頭。"
+        },
+        {
+          "id": "ordinary-electro",
+          "type": "通常：戦闘画面",
+          "page": "https://game8.jp/genshin/366637",
+          "image": "https://img.game8.jp/5443019/649d11cfaa0e22b3302d9d9ad0852528.png/show",
+          "seen": "槌を前に出す構え。紫の放電と槌の装甲を区別した。"
+        },
+        {
+          "id": "ordinary-pyro-render",
+          "type": "通常：全身レンダーの転載",
+          "page": "https://www.zerochan.net/3369094",
+          "image": "https://static.zerochan.net/Pyroslinger.Bracer.full.3369094.png",
+          "seen": "細身の赤い上着、帽子、明るい顔周り、長い銃。"
+        },
+        {
+          "id": "ordinary-pyro",
+          "type": "通常：戦闘画面",
+          "page": "https://game8.jp/genshin/366637",
+          "image": "https://img.game8.jp/5443041/d3791dcc08e0337e624c9a39f2dc322e.png/show",
+          "seen": "長い銃の斜めの輪郭。炎の光が強いため色は全身レンダーを参照した。"
+        },
+        {
+          "id": "named-trio",
+          "type": "地方伝説：現地の待機画面",
+          "page": "https://gamerch.com/genshinwiki/869117",
+          "image": "https://cdn.gamerch.com/contents/wiki/4268/entry/TGkKGZGR.png",
+          "seen": "日中の野営場。遠景で細部は見えないが、3人の体格の差を確認。"
+        },
+        {
+          "id": "named-trio-action",
+          "type": "地方伝説：名前表示付きの戦闘画面",
+          "page": "https://game8.jp/genshin/655669",
+          "image": "https://img.game8.jp/10763858/6c15cbf05fe7abb22b0525470f695156.png/original",
+          "seen": "紫の大槌と丸い青系の胴。氷銃・炎銃・雷槌の組み合わせを確認。"
+        },
+        {
+          "id": "named-electro",
+          "type": "地方伝説：討伐時の戦闘画面",
+          "page": "https://game8.jp/genshin/655669",
+          "image": "https://img.game8.jp/10441990/2fc66961afd7a0723cebca400c2e96be.jpeg/original",
+          "seen": "雷の爆発は環境・戦闘の発光。兜の細部は判別困難。"
+        },
+        {
+          "id": "named-cryo",
+          "type": "地方伝説：討伐時の戦闘画面",
+          "page": "https://game8.jp/genshin/655669",
+          "image": "https://img.game8.jp/10441914/c4a2325670b2d2d259eaf8f0cecf769a.jpeg/original",
+          "seen": "地面の氷の広がり。消えかけているため身体の細部は全身レンダーで確認。"
+        }
+      ],
+      "art": "通常側に氷銃・炎銃の共用待機候補を登録。雷槌は現行の試作から兜の角と明るい襟を見直したうえで同じ素材を使う。"
+    },
+    {
+      "ids": [
+        "legend-balachko"
+      ],
+      "matches": [
+        [
+          "バラチコ",
+          "ファデュイ・デットエージェント・炎"
+        ]
+      ],
+      "images": [
+        {
+          "id": "ordinary-agent-archive",
+          "type": "通常：ゲーム内図鑑",
+          "page": "https://gamerch.com/genshinwiki/832366",
+          "image": "https://cdn.gamerch.com/contents/wiki/4268/entry/4VyizoSP.jpg",
+          "seen": "全身の前傾姿勢、後ろへ流れる暗い外套、腰丈から下の切れ込み、湾曲した刃。"
+        },
+        {
+          "id": "ordinary-agent",
+          "type": "通常：戦闘画面",
+          "page": "https://game8.jp/genshin/368234",
+          "image": "https://img.game8.jp/6644470/4a0cfc0896d13b2385ee3430460e47d6.png/original",
+          "seen": "斜め正面でフードと仮面、刃と袖の区別。"
+        },
+        {
+          "id": "ordinary-agent-field",
+          "type": "通常：フィールド画面",
+          "page": "https://game8.jp/genshin/368234",
+          "image": "https://img.game8.jp/5531500/eaa3f7d72f02e4d8929cb76b9466a05e.jpeg/original",
+          "seen": "草原に立つ通常型。暗い外套に沿う赤の差し色。"
+        },
+        {
+          "id": "named-agent",
+          "type": "地方伝説：名前表示付きの戦闘画面",
+          "page": "https://www.icy-veins.com/genshin-impact/toyac-springs-local-legends",
+          "image": "https://static.icy-veins.com/images/genshin-impact/exploration/natlan/toyac-springs/local-legend/toyac-legend-balachko.webp",
+          "seen": "影の赤い発光と手前の攻撃演出。発光を通常時の衣装に取り込まない。"
+        },
+        {
+          "id": "named-agent-2",
+          "type": "地方伝説：名前表示付きの別視点",
+          "page": "https://gamerch.com/genshinwiki/869117",
+          "image": "https://cdn.gamerch.com/contents/wiki/4268/entry/21ctY1ga.png",
+          "seen": "洞窟内の奥に本体。外套の色・模様は距離があり判別困難。"
+        }
+      ],
+      "art": "共通型候補。外套と肩の構成は通常型の資料に寄せ、本体の近景で照合してから共用する。"
+    },
+    {
+      "ids": [
+        "legend-sappho"
+      ],
+      "matches": [
+        [
+          "波のジャプー",
+          "コホラ竜戦士・裂波のスロワー"
+        ]
+      ],
+      "images": [
+        {
+          "id": "ordinary-thrower-archive",
+          "type": "通常：図鑑の顔アイコン",
+          "page": "https://gamewith.jp/genshin/article/show/461615",
+          "image": "https://img.gamewith.jp/article_tools/genshin/gacha/enemy_237.png",
+          "seen": "額を覆う青黒い兜、眼の隠れ方、両脇の橙～金色の差し色。"
+        },
+        {
+          "id": "named-sappho",
+          "type": "地方伝説：戦闘前の現地画面",
+          "page": "https://gamerch.com/genshinwiki/869117",
+          "image": "https://cdn.gamerch.com/contents/wiki/4268/entry/4BViJBI8.png",
+          "seen": "演奏時の座り姿。青緑の装備が体の前を横切り、動物を周囲に確認。"
+        },
+        {
+          "id": "named-sappho-combat",
+          "type": "地方伝説：名前表示付きの戦闘画面",
+          "page": "https://www.hoyolab.com/article/34450690",
+          "seen": "現地で攻撃を放つ場面。遠景で演奏時との持ち替えは判別できない。"
+        }
+      ],
+      "art": "型は共通候補。演奏と射撃の装備がどう見えるか確認できるまで、既存の楽器を持つ待機絵は名前付き個体の候補として扱う。"
+    },
+    {
+      "ids": [
+        "legend-cocijo"
+      ],
+      "matches": [
+        [
+          "コシーホ",
+          "テントガメ（野生生物）"
+        ]
+      ],
+      "images": [
+        {
+          "id": "ordinary-tortoise-archive",
+          "type": "通常：ゲーム内生物誌",
+          "page": "https://wiki.biligame.com/ys/生物志：玳龟",
+          "image": "https://patchwiki.biligame.com/images/ys/thumb/a/a9/eua5vgfw9uw3qbai8fb0hetudobfaxm.png/800px-%E7%8E%B3%E9%BE%9F%E8%AF%A6%E5%9B%BE.png",
+          "seen": "黄緑の角張った甲羅、低い姿勢、淡い黄土色の体。"
+        },
+        {
+          "id": "named-cocijo-profile",
+          "type": "地方伝説：名前入りの現地画面",
+          "page": "https://www.hoyolab.com/article/33647290",
+          "seen": "発光に覆われていない横向き。紫の甲羅、淡い星形、白っぽい脚、黄の尾先。"
+        },
+        {
+          "id": "named-cocijo-field",
+          "type": "地方伝説：名前表示と戦闘の現地画面",
+          "page": "https://gamerch.com/genshinwiki/869117",
+          "image": "https://cdn.gamerch.com/contents/wiki/4268/entry/FU6RVO3n.png",
+          "seen": "紫の雷と攻撃物が重なる場面。甲羅の色の照合には名前入り横向き画像を使用。"
+        }
+      ],
+      "art": "同形の別配色。テントガメの黄緑とコシーホの紫を使い分け、甲板と額の模様を分ける。"
+    }
+  ]
+}

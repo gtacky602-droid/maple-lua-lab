@@ -1,0 +1,30 @@
+{
+  "browser": "Chrome",
+  "url": "http://127.0.0.1:8989/",
+  "pairs": [
+    {
+      "ordinary": "fatui-skirmisher-cryogunner",
+      "legend": "legend-tristars-cryo",
+      "file": "legend-tristars-cryo-field-idle-sprites-v1.json",
+      "standard": 3207,
+      "light": 951
+    },
+    {
+      "ordinary": "fatui-skirmisher-pyroslinger",
+      "legend": "legend-tristars-pyro",
+      "file": "legend-tristars-pyro-field-idle-sprites-v1.json",
+      "standard": 2817,
+      "light": 792
+    }
+  ],
+  "checked": [
+    "ordinary and legend galleries filter by name",
+    "matched PNG and rectangle canvas pixels in every profile",
+    "390px viewport stays inside page width"
+  ],
+  "visibleCounts": {
+    "ordinary": 2,
+    "legends": 3
+  },
+  "errors": []
+}

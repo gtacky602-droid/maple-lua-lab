@@ -7,6 +7,8 @@ const bosses=JSON.parse(await fs.readFile('content/boss-art-gallery.json','utf8'
 for(const [enemy,boss] of [
  ['tainted-water-spouting-phantasm','lake-vivianne-idle-v5-a'],
  ['tainted-water-splitting-phantasm','lake-ninianne-idle-v5-a'],
+ ['fatui-skirmisher-cryogunner','legend-tristars-cryo'],
+ ['fatui-skirmisher-pyroslinger','legend-tristars-pyro'],
 ]){
  assert.equal(layouts[enemy].file,bosses.find(item=>item.id===boss).file);
 }
