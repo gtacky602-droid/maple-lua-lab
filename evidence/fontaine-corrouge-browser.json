@@ -1,0 +1,15 @@
+{
+  "normalQuestSteps": 5,
+  "gatesBeforeInspectionAndReport": true,
+  "nestedMapGuide": true,
+  "keyboardReturnsStationaryBubbleBeforeBurst": true,
+  "retreatAndRetry": true,
+  "sameFramePreview": true,
+  "gallery": true,
+  "commands": {
+    "png": 22,
+    "legacy": 5025,
+    "h32c16": 1263
+  },
+  "errors": []
+}

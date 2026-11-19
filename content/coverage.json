@@ -123,8 +123,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 156,
-      "prototype_quest_count": 27,
+      "prototype_stage_count": 158,
+      "prototype_quest_count": 28,
       "official_map2_markers": {
         "waypoints": 92,
         "statues": 8
@@ -7962,8 +7962,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1431,
-    "provisional_quests": 260,
+    "authored_stages": 1433,
+    "provisional_quests": 261,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -8727,7 +8727,9 @@
           "dobharcu-legend-garden",
           "luachra-legend-shelf",
           "morte-tower-sluice",
-          "chassanion-legend-bubble-room"
+          "chassanion-legend-bubble-room",
+          "erinnyes-root-waterway",
+          "erinnyes-corrouge-cleft"
         ],
         "quest_ids": [
           "fon-mapped-depth-samples",
@@ -8756,7 +8758,8 @@
           "fontaine-moon-parcel",
           "fontaine-understage-crew",
           "fontaine-grand-finale",
-          "fon-morte-sluice-survey"
+          "fon-morte-sluice-survey",
+          "fon-erinnyes-root-water-survey"
         ]
       },
       {
@@ -10297,7 +10300,7 @@
       "content/story-graph.json"
     ],
     "design_candidates": 56,
-    "playable_prototypes": 17,
+    "playable_prototypes": 18,
     "stage_by_legend": {
       "legend-liyue_rulers_of_chizhang_mountains": "chizhang-legend-terrace",
       "legend-fontaine_cineas": "cineas-legend-chamber",
@@ -10315,7 +10318,8 @@
       "legend-fontaine_fading_veteran": "fading-veteran-legend-wreck",
       "legend-fontaine_dobharcu_lord_of_the_hidden": "dobharcu-legend-garden",
       "legend-fontaine_luachra_the_brilliant": "luachra-legend-shelf",
-      "legend-fontaine_chassanion": "chassanion-legend-bubble-room"
+      "legend-fontaine_chassanion": "chassanion-legend-bubble-room",
+      "legend-fontaine_mageblade_corrouge": "erinnyes-corrouge-cleft"
     }
   }
 }

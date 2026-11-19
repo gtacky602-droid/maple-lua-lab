@@ -1,0 +1,22 @@
+{
+  "surveySteps": 5,
+  "levelAndReportChecked": true,
+  "route": [
+    "fon-wp-55784",
+    "erinnyes-root-waterway",
+    "erinnyes-corrouge-cleft"
+  ],
+  "stationaryBubbleReturnBeforeBurst": true,
+  "burstClosesReturnAndHitsOnce": true,
+  "wrongFacingRejected": true,
+  "returnedDamage": 162,
+  "movingBubblesAndStaggeredBursts": true,
+  "retreatResetsFight": true,
+  "questAndSingleRewardPersist": true,
+  "soloClear": {
+    "seconds": 45.35,
+    "hp": 140,
+    "bubblesReturned": 5,
+    "killXp": 212400
+  }
+}

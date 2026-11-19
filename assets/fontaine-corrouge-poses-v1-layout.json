@@ -1,0 +1,91 @@
+{
+  "source": "fontaine-corrouge-poses-source-v1.png",
+  "facing": "left",
+  "swimCenter": [
+    144,
+    54
+  ],
+  "frames": [
+    {
+      "id": "legend-corrouge",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        111,
+        2,
+        177,
+        106
+      ],
+      "source_sheet": "legend-corrouge-source.png",
+      "source_crop": [
+        129,
+        14,
+        440,
+        696
+      ]
+    },
+    {
+      "id": "legend-corrouge",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        116,
+        7,
+        173,
+        102
+      ],
+      "source_sheet": "legend-corrouge-source.png",
+      "source_crop": [
+        879,
+        14,
+        379,
+        631
+      ]
+    },
+    {
+      "id": "legend-corrouge",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        95,
+        9,
+        194,
+        99
+      ],
+      "source_sheet": "legend-corrouge-source.png",
+      "source_crop": [
+        1492,
+        45,
+        658,
+        600
+      ]
+    }
+  ]
+}

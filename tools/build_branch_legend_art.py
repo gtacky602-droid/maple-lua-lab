@@ -40,6 +40,7 @@ PIVOT_LAYOUTS = {
     'fontaine-ray-pair-poses-v1-layout.json': 1,
     'fontaine-echo-poses-v1-layout.json': 1,
     'fontaine-bubble-poses-v1-layout.json': 1,
+    'fontaine-corrouge-poses-v1-layout.json': 1,
 }
 for layout_name, revision in PIVOT_LAYOUTS.items():
     layout = json.loads((ROOT/'assets'/layout_name).read_text(encoding='utf-8'))

@@ -1,0 +1,35 @@
+{
+  "observed": [
+    {
+      "file": "named.png",
+      "url": "https://gamerch.com/genshinwiki/793012",
+      "note": "名前付きの正面。黄桃の丸い傘の頂部から二つのひれが外側へ張り、先が上を向く。傘の下に細い帯。"
+    },
+    {
+      "file": "attack.jpg",
+      "url": "https://www.sportskeeda.com/esports/genshin-impact-4-2-local-legends-locations-defeat-achievements",
+      "note": "大きな全身像で淡い黄色と桃の面、帯の先端の紫を確認。"
+    },
+    {
+      "file": "game8.jpg",
+      "url": "https://game8.co/games/Genshin-Impact/archives/432217",
+      "note": "名前と発射時の明るい球を遠景で確認。球は本体に描き込まない。"
+    },
+    {
+      "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_JellyFish_Larva_01.png",
+      "note": "一般種の2Dアイコン。黄の傘と淡い中央の模様を目視。"
+    }
+  ],
+  "excluded": "side.jpg の近景の青い個体を造形の根拠から除外。",
+  "design": "左向きの縦に長い傘、淡い琥珀の大きな面、紫の輪郭、左右のひれとリボン状の触腕を新規に制作。3姿勢はラボ独自。",
+  "checks": [
+    "同一縮尺0.15で3枚を配置",
+    "シャサニョンの待機PNGと並べ、傘の縦横比・色面・帯の差を確認",
+    "PNGと16色コンパイル結果を目視",
+    "個別PNGとアトラスの画素一致"
+  ],
+  "unchecked": [
+    "ゲーム内の戦闘表示",
+    "原作の全方向・発射モーションの全フレーム"
+  ]
+}

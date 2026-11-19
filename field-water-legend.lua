@@ -90,12 +90,16 @@ return function(C)
    owner.waterPose='brace'
    local x=stage.travel and owner.x or target.x+(stage.offsetX or 0)
    local y=(stage.fromBossDepth and owner.y or target.y-25)+(stage.offsetY or 0)
+   if stage.setAt then
+    x=clamp(x,spec.arenaMin+stage.halfWidth,spec.arenaMax-stage.halfWidth)
+    y=clamp(y,spec.depthMin,spec.depthMax)
+   end
    local margin=stage.dash and 65 or 22
    local to=stage.travel and clamp(x+owner.facing*stage.travel,spec.arenaMin+margin,spec.arenaMax-margin) or x
    lastActive=math.max(lastActive,stage.after)
    strikes[i]={
     owner=owner,first=stage.first,after=stage.after,damage=stage.damage,catchable=stage.catchable,orb=stage.orb,
-    reflectable=stage.reflectable,dash=stage.dash,y=y,
+    reflectable=stage.reflectable,dash=stage.dash,y=y,setAt=stage.setAt,
     source={id=owner.id,owner=owner,y=owner.y,damageElement=stage.element or owner.element,
      swimCounter=stage.catchable and spec.swimPlayer.counter or nil},
     origin=x,destination=to,x=x,radius=stage.halfWidth,
@@ -174,13 +178,18 @@ return function(C)
   end
  end
 
+ local function canReturn(strike,tick)
+  if not strike.reflectable or strike.reflection then return false end
+  if strike.setAt then return tick>=strike.setAt and tick<strike.first end
+  return tick>=strike.first and tick<strike.after
+ end
+
  local function returnTarget(actor,cast,skill)
   if not cast then return end
   local candidate,distance
   for _,strike in ipairs(cast.strikes) do
    local dx,dy=(strike.x-actor.x)*actor.dir,math.abs(strike.y-(actor.y-28))
-   if strike.reflectable and not strike.reflection and cast.tick>=strike.first and cast.tick<strike.after
-      and dx>=-12 and dx<=skill.range and dy<=skill.vertical and (not distance or dx+dy<distance) then
+   if canReturn(strike,cast.tick) and dx>=-12 and dx<=skill.range and dy<=skill.vertical and (not distance or dx+dy<distance) then
     candidate,distance=strike,dx+dy
    end
   end
@@ -288,6 +297,7 @@ return function(C)
      first=strike.first,after=strike.after,active=cast.tick>=strike.first,catchable=strike.catchable or nil,
      activeLeft=strike.activeLeft,activeRight=strike.activeRight,sourceId=spec.partner and strike.owner.id or nil,
      orb=strike.orb and {x=strike.x,y=strike.y} or nil,reflectable=strike.reflectable or nil,dash=strike.dash or nil,
+     setAt=strike.setAt,returnWindow=canReturn(strike,cast.tick) or nil,
     }
    end
   end
@@ -307,11 +317,13 @@ return function(C)
     elseif not reflection and cast.tick<strike.after then
      local left,right=strike.left-s.camera,strike.right-s.camera
      local top,bottom=strike.top,strike.bottom
-     local warningColor=strike.reflectable and returnColor or strike.catchable and counterColor or ordinaryWarningColor
-     if strike.orb and cast.tick>=strike.first then
-      f.draws[#f.draws+1]={kind='effect',x=strike.x-s.camera,y=(top+bottom)/2,
+     local ready=canReturn(strike,cast.tick)
+     local preparing=strike.reflectable and cast.tick<strike.first
+     local warningColor=(ready or preparing) and returnColor or strike.catchable and counterColor or ordinaryWarningColor
+     if strike.orb and (strike.setAt and ready or not strike.setAt and cast.tick>=strike.first) then
+      f.draws[#f.draws+1]={kind='effect',x=strike.x-s.camera,y=strike.y,
        w=strike.radius*2,h=bottom-top,alpha=1,color=warningColor}
-      if strike.reflectable then
+      if ready then
        f.draws[#f.draws+1]={kind='text',x=strike.x-s.camera,y=strike.y+5,text='K',size=15,color=returnColor}
       end
      else
@@ -325,7 +337,10 @@ return function(C)
       band(f,right-2,top,2,bottom-top,warningColor)
      end
      if #cast.strikes>1 then
-      f.draws[#f.draws+1]={kind='text',text=cast.simultaneous and '同時' or tostring(i),x=left+15,y=top+17,size=14,color=warningColor}
+      local labelX=strike.setAt and strike.x-s.camera or left+15
+      local labelY=strike.setAt and top-7 or top+17
+      f.draws[#f.draws+1]={kind='text',text=cast.simultaneous and '同時' or tostring(i),
+       x=labelX,y=labelY,size=14,color=warningColor}
      end
     end
    end
