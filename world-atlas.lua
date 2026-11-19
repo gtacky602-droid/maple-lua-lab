@@ -558,8 +558,8 @@ return function(C, atlas)
   end
   return action(s,key)
  end
- function C.step(s,...)
-  if not s.worldMap then return step(s,...) end
+ function C.step(s,dt,input)
+  if not s.worldMap or s.coop then return step(s,dt,s.worldMap and {} or input) end
  end
  function C.frame(s,...)
   local f=frame(s,...)

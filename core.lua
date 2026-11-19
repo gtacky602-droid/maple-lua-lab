@@ -66,12 +66,16 @@ function C.defeatEnemy(s,e,owner)
  e.hp=0
  if e.noRewards then e.respawn=1e9;event(s,'object_destroyed',owner,e.id,0)
  else
-  local mora=e.rewardMora or 10
-  s.kills=s.kills+1;s.mora=s.mora+mora;e.respawn=e.respawnSeconds or 6
-  event(s,'kill',owner,e.id,mora)
-  if C.onKill then C.onKill(s,e) end
+  e.respawn=e.respawnSeconds or 6
+  if s.coop then C.coopDefeat(s,e) else C.creditDefeat(s,e,owner) end
  end
  return true
+end
+function C.creditDefeat(s,e,owner)
+ local mora=e.rewardMora or 10
+ s.kills=s.kills+1;s.mora=s.mora+mora
+ event(s,'kill',owner,e.id,mora)
+ if C.onKill then C.onKill(s,e) end
 end
 function C.enemyResistance(a,e,element)
  local resist=(e.resist and e.resist[element]) or 0
@@ -99,7 +103,7 @@ function C.enemyHitDamage(s,a,e,mult,element,resist)
  if C.damageBonus then bonus=bonus+C.damageBonus(s,a,element,e) end
  local critical=C.criticalRoll and C.criticalRoll(s,a.critRate)
  local critMultiplier=critical and (1.5+(a.critDamageBonus or 0)) or 1
- if a.coldBonus and ((e.chill or 0)>0 or (e.frozen or 0)>0 or (e.aura and e.aura.element=='cryo' and e.aura.expires>s.t)) then mult=mult*(1+a.coldBonus) end
+ if a.coldBonus and ((e.chill or 0)>0 or (e.frozen or 0)>0 or (e.aura and e.aura.element=='cryo' and e.aura.expires>(s.coop and s.coop.time or s.t))) then mult=mult*(1+a.coldBonus) end
  local defense=(e.defense or 5)*((e.armorBreak or 0)>0 and .85 or 1)
  local n=max(1,floor(a.atk*mult*100/(100+defense)*(1-resist)*(1+bonus)*critMultiplier*(C.damageFactor and C.damageFactor(s,a,e,element) or 1)+1e-9))
  return n,critical
@@ -135,6 +139,7 @@ local function hit(s,a,e,mult,color,element)
  local actual=e.spawnId and not e.noRewards
  if actual and (a.growthAI or s.growthAIActor==a.id) and C.noteGrowth then C.noteGrowth(s,'ai-hit') end
  if C.noteGrowthHit and (actual or s.growthPracticeMarks and e.growthPracticeTarget) then C.noteGrowthHit(s,a) end
+ if s.coop then C.coopContact(s,e,a.id) end
  if remaining==0 then C.defeatEnemy(s,e,a.id) else e.hp=remaining end
  if C.afterElementHit then C.afterElementHit(s,a,e,a.applicationElement or element,element,n) end
  return true
@@ -450,6 +455,52 @@ function C.advanceCombatVisuals(s,dt)
  for _,list in ipairs({s.numbers,s.effects}) do for i=#list,1,-1 do list[i].life=list[i].life-dt;if list[i].life<=0 then table.remove(list,i) end end end
 end
 
+function C.advanceEnemies(s,dt,actors,decoys,owners)
+ actors,decoys=actors or s.actors,decoys or s.decoys
+ for _,e in ipairs(s.enemies) do
+  e.root=max(0,(e.root or 0)-dt);e.slow=max(0,(e.slow or 0)-dt);e.chill=max(0,(e.chill or 0)-dt);e.armorBreak=max(0,(e.armorBreak or 0)-dt);e.physicalBreak=max(0,(e.physicalBreak or 0)-dt)
+  local rate=C.enemyRate(e)
+  if e.hp<=0 then e.respawn=e.respawn-dt;if e.respawn<=0 then e.hp=e.maxhp;e.x=e.home;e.cd=2;e.coopHits=nil end
+  elseif not e.custom then
+   if e.flight then C.moveOrdinaryFlier(e,e.root<=0 and dt*rate or 0) end
+   e.cd=e.cd-dt*rate
+   local near=nil;local attracted=false
+   for _,a in ipairs(actors) do if a.hp>0 and abs(e.x-a.x)<60 and abs(e.y-a.y)<45 then near=a;break end end
+   if not e.boss then for _,d in ipairs(decoys) do
+    if abs(e.x-d.x)<300 and abs(e.y-d.y)<45 then
+     if e.root<=0 then e.x=e.x+clamp(d.x-e.x,-70*dt*rate,70*dt*rate) end;attracted=true
+     near=abs(e.x-d.x)<60 and d or nil;break
+    end
+   end end
+   if near and e.cd<=0 and e.warning<=0 then e.warning=.65 end
+   if e.warning>0 then
+    e.warning=e.warning-dt*rate
+    if e.warning<=0 then
+     if near and near.owner then event(owners and owners[near] or s,'decoy_hit',near.owner,e.id,0)
+     elseif near then C.damageActor(owners and owners[near] or s,near,e.contactDamage or 14,e,true,true) end
+     e.cd=3.2
+    end
+   end
+   if near==nil and not attracted and e.root<=0 then
+    if e.pursuit then
+     local target,distance=e.home,e.pursuit.range
+     for _,a in ipairs(actors) do
+      local dx=abs(e.x-a.x)
+      if a.hp>0 and dx<distance and abs(e.y-a.y)<45 and abs(e.home-a.x)<e.pursuit.leash then
+       target,distance=a.x,dx
+      end
+     end
+     local speed=e.pursuit.speed*dt*rate
+     e.x=e.x+clamp(target-e.x,-speed,speed)
+    else
+     e.motionTime=(e.motionTime or 0)+dt*rate;e.x=e.home+math.sin(e.motionTime*1.2+e.id)*18
+    end
+   end
+   if e.patrolMin then e.x=clamp(e.x,e.patrolMin,e.patrolMax) end
+  end
+ end
+end
+
 function C.step(s,dt,input)
  if s.paused then return end
  dt=clamp(dt,0,1/30);input=input or {};s.t=s.t+dt;s.swap=max(0,s.swap-dt)
@@ -499,48 +550,7 @@ function C.step(s,dt,input)
    physics(s,a,dt,move,a.leap>0 or (manual and input.jump or not manual),manual)
   end
  end
- for _,e in ipairs(s.enemies) do
-  e.root=max(0,(e.root or 0)-dt);e.slow=max(0,(e.slow or 0)-dt);e.chill=max(0,(e.chill or 0)-dt);e.armorBreak=max(0,(e.armorBreak or 0)-dt);e.physicalBreak=max(0,(e.physicalBreak or 0)-dt)
-  local rate=C.enemyRate(e)
-  if e.hp<=0 then e.respawn=e.respawn-dt;if e.respawn<=0 then e.hp=e.maxhp;e.x=e.home;e.cd=2 end
-  elseif not e.custom then
-   if e.flight then C.moveOrdinaryFlier(e,e.root<=0 and dt*rate or 0) end
-   e.cd=e.cd-dt*rate
-   local near=nil;local attracted=false
-   for _,a in ipairs(s.actors) do if a.hp>0 and abs(e.x-a.x)<60 and abs(e.y-a.y)<45 then near=a;break end end
-   if not e.boss then for _,d in ipairs(s.decoys) do
-    if abs(e.x-d.x)<300 and abs(e.y-d.y)<45 then
-     if e.root<=0 then e.x=e.x+clamp(d.x-e.x,-70*dt*rate,70*dt*rate) end;attracted=true
-     near=abs(e.x-d.x)<60 and d or nil;break
-    end
-   end end
-   if near and e.cd<=0 and e.warning<=0 then e.warning=.65 end
-   if e.warning>0 then
-    e.warning=e.warning-dt*rate
-    if e.warning<=0 then
-     if near and near.owner then event(s,'decoy_hit',near.owner,e.id,0)
-     elseif near then C.damageActor(s,near,e.contactDamage or 14,e,true,true) end
-     e.cd=3.2
-    end
-   end
-   if near==nil and not attracted and e.root<=0 then
-    if e.pursuit then
-     local target,distance=e.home,e.pursuit.range
-     for _,a in ipairs(s.actors) do
-      local dx=abs(e.x-a.x)
-      if a.hp>0 and dx<distance and abs(e.y-a.y)<45 and abs(e.home-a.x)<e.pursuit.leash then
-       target,distance=a.x,dx
-      end
-     end
-     local speed=e.pursuit.speed*dt*rate
-     e.x=e.x+clamp(target-e.x,-speed,speed)
-    else
-     e.motionTime=(e.motionTime or 0)+dt*rate;e.x=e.home+math.sin(e.motionTime*1.2+e.id)*18
-    end
-   end
-   if e.patrolMin then e.x=clamp(e.x,e.patrolMin,e.patrolMax) end
-  end
- end
+ if not s.coop then C.advanceEnemies(s,dt) end
  C.checkPartyDefeat(s)
  C.advanceCombatVisuals(s,dt)
  local player=s.actors[s.active];s.camera=clamp(player.x-400,0,math.max(0,(s.worldwidth or 2880)-960))
@@ -582,6 +592,7 @@ function C.frame(s,mode,profile)
   if e.hp<e.maxhp and not e.fieldBoss then rect(e.x-s.camera-20,headY-9,40,4,'#45645d');rect(e.x-s.camera-20,headY-9,40*e.hp/e.maxhp,4,'#ffcc7c') end
   if e.warning>0 then add({kind='text',x=e.x-s.camera,y=headY-23,text='!',color='#e54b35',size=26}) end
  end end
+ if s.coop then C.drawCoopPeers(s,{draws=draws},mode,profile) end
  for _,a in ipairs(s.actors) do
   if a.hp>0 and (not s.toyDive or a.id==1) and (not (s.surfRound or s.springRun) or a.id==s.active) then
    local asset=a.id==1 and (a.walk~=0 and 2 or 1) or (a.lock>0 and 4 or 3)

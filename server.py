@@ -7,6 +7,7 @@ from farka_idle import render_farka_idle
 from savegame import validate_save
 from daily_store import DailyStore, period_at, valid_profile
 from ranking_store import COOKIE, RankingStore, default_path, week_start
+from coop_rooms import CoopRooms
 
 LAB_ACTIONS = {'campaign', 'accept', 'report', 'town', 'field', 'arena',
                'artifact_samples', 'projectile_trial'}
@@ -35,6 +36,7 @@ class LabServer(ThreadingHTTPServer):
         self.ranking_week = ranking_week
         self.daily_store = DailyStore(daily_path)
         self.daily_period = daily_period
+        self.coop = CoopRooms()
 
     def server_close(self):
         super().server_close()
@@ -95,6 +97,9 @@ class Handler(SimpleHTTPRequestHandler):
                     env=SESSIONS.get(req.get('session'))
                     if env and owner and env.get('owner')==owner:
                         env['retire_at']=time.monotonic()+60
+                        if env.get('coop_member'):
+                            env['coop_member'].online = False
+                            env['coop_member'].input = None
                 self.send_response(204);self.end_headers();return
             raw_save = req.get('restore')
             saved = validate_save(raw_save) if 'restore' in req else None
@@ -110,10 +115,14 @@ class Handler(SimpleHTTPRequestHandler):
                 raise ValueError('日次依頼のプロフィールが不正です')
             with LOCK:
                 now=time.monotonic()
+                coop = self.server.coop
                 period=self.server.daily_period()
                 saved_daily=saved.get('daily') if saved else None
                 for old in list(SESSIONS):
-                    if now-SESSIONS[old]['last']>1800 or SESSIONS[old].get('retire_at',float('inf'))<=now: del SESSIONS[old]
+                    env = SESSIONS[old]
+                    if now-env['last']>1800 or env.get('retire_at',float('inf'))<=now:
+                        coop.detach(env)
+                        del SESSIONS[old]
                 sid=req.get('session')
                 rank_store = self.server.ranking_store
                 current = SESSIONS.get(sid)
@@ -121,6 +130,8 @@ class Handler(SimpleHTTPRequestHandler):
                 player = self.ranking_account() if needs_account else None
                 if current and current['rank_player'] and current['rank_player'] != player:
                     sid = None
+                if current and current.get('coop_room') and not owner:
+                    raise ValueError('協力部屋では現在の画面から操作してください')
                 if sid in SESSIONS and owner and SESSIONS[sid].get('owner') not in (None,owner):
                     if req.get('resume'):
                         if 'retire_at' not in SESSIONS[sid]: sid=None  # Duplicated active tab gets its own state.
@@ -150,6 +161,7 @@ class Handler(SimpleHTTPRequestHandler):
                     elif ranked_restore:
                         rank_player = player
                     if sid in SESSIONS:
+                        coop.detach(SESSIONS[sid])
                         del SESSIONS[sid]
                     sid = uuid.uuid4().hex
                     SESSIONS[sid] = dict(lua=lua, core=core, state=state, last=now, dailyProfile=profile,
@@ -159,35 +171,53 @@ class Handler(SimpleHTTPRequestHandler):
                 if req.get('resume'): env.pop('retire_at',None)
                 if lab_mode:
                     env['rank_player'] = None
+                    coop.detach(env)
+                if owner:
+                    actions = [action for action in actions if not coop.command(env, action, now)]
                 daily_store = self.server.ranked_daily_store if env['rank_player'] else self.server.daily_store
                 lua,core,state=env['lua'],env['core'],env['state']
-                profile=env['dailyProfile']
                 started=time.perf_counter()
                 configuration=None
+                inp=lua.table_from({k:bool(v) for k,v in req.get('input',{}).items() if k in ('left','right','up','down','jump','attack','interact')})
+                steps=max(0,min(6,int(req.get('steps',2))))
                 with daily_store.transaction():
-                    ledger=daily_store.load(profile)
-                    canonical=lua.table_from(ledger,recursive=True) if ledger is not None else None
-                    core.dailyBind(state,profile,period,canonical)
-                    if ledger is not None: core.dailySettle(state)
+                    ledgers = []
+                    for row in coop.participants(env, now):
+                        profile, party = row['dailyProfile'], row['state']
+                        ledger = daily_store.load(profile)
+                        canonical = lua.table_from(ledger, recursive=True) if ledger is not None else None
+                        core.dailyBind(party, profile, period, canonical)
+                        if ledger is not None:
+                            core.dailySettle(party)
+                        ledgers.append((profile, party, ledger))
                     if 'loadout' in req:
                         if not isinstance(req['loadout'],list): raise ValueError('loadout must be an array')
                         ok,message=core.configure(state,lua.table_from(req['loadout'],recursive=True))
                         configuration={'ok':ok,'message':message}
                     for action in actions:
-                        core.action(state, action)
-                    inp=lua.table_from({k:bool(v) for k,v in req.get('input',{}).items() if k in ('left','right','up','down','jump','attack','interact')})
-                    steps=max(0,min(6,int(req.get('steps',2))))
-                    for _ in range(steps): core.step(state,1/60,inp)
-                    next_ledger=native(state.daily.ledger)
-                    if next_ledger!=ledger and (ledger is not None or next_ledger['seen']):
-                        daily_store.save(profile,next_ledger)
-                core.dailySettle(state)
+                        if action != 'pause' or not env.get('coop_room'):
+                            core.action(state, action)
+                            coop.leave_field(env)
+                    if room := env.get('coop_room'):
+                        env['coop_member'].input = inp
+                        coop.advance(room, now)
+                    else:
+                        for _ in range(steps):
+                            core.step(state, 1/60, inp)
+                    for profile, party, ledger in ledgers:
+                        next_ledger = native(party.daily.ledger)
+                        if next_ledger != ledger and (ledger is not None or next_ledger['seen']):
+                            daily_store.save(profile, next_ledger)
+                for _, party, _ in ledgers:
+                    core.dailySettle(party)
                 if env['rank_player'] and state.progression:
                     score = state.progression.baseXp
                     if score > env['rank_seen']:
                         rank_store.record(env['rank_player'], score, self.server.ranking_week())
                         env['rank_seen'] = score
-                frame=core.frame(state,'rect' if req.get('render')=='rect' else 'sprite',req.get('profile'))
+                mode = 'rect' if req.get('render')=='rect' else 'sprite'
+                frame=core.frame(state,mode,req.get('profile'))
+                coop_view = coop.view(env)
                 elapsed=(time.perf_counter()-started)*1000
                 # Scope the graph revision to this runtime so a reset or restore cannot reuse a stale graph.
                 graph_revision = f'{sid}:{frame.storyGraphRevision}'
@@ -197,6 +227,7 @@ class Handler(SimpleHTTPRequestHandler):
                     # Drop it before conversion, while the graph itself stays cached in Lua.
                     frame.storyGraph = None
                 out=native(frame);out['session']=sid;out['lua_ms']=elapsed;out['lua_kb']=lua.eval("collectgarbage('count')")
+                out['coop'] = coop_view
                 if accepts_revision:
                     out['storyGraphRevision'] = graph_revision
                 # An empty Lua table has no array type. Story nodes still expose an exit list.

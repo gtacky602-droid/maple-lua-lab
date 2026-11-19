@@ -1,0 +1,12 @@
+{
+  "twoBrowserProfiles": true,
+  "realRouteToRoad": true,
+  "actorsVisibleFromOtherBrowser": 2,
+  "sharedDefeat": true,
+  "atlasKeepsRoomClockRunning": true,
+  "reloadKeepsSlot": true,
+  "saveInRoom": true,
+  "leaveVisibleToPeer": true,
+  "mobileFits": true,
+  "errors": []
+}

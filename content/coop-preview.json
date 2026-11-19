@@ -1,0 +1,11 @@
+{
+  "status": "local_preview",
+  "nodes": {
+    "mond-road": "モンド・南の街道"
+  },
+  "capacity": 2,
+  "rewardRange": {"x": 420, "y": 180},
+  "contributionSeconds": 12,
+  "inputLeaseSeconds": 0.3,
+  "presenceSeconds": 3
+}

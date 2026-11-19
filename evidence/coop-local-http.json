@@ -1,0 +1,17 @@
+{
+  "twoPlayers": true,
+  "partyActors": 4,
+  "sharedEnemies": 6,
+  "unchangedEnemyMaxHp": 15,
+  "contributionsFromBoth": true,
+  "sharedDeath": true,
+  "rewardOncePerParty": true,
+  "distinctStoryAndDailyProgress": true,
+  "personalDropTargetSets": true,
+  "openMapKeepsRoomTicking": true,
+  "reconnectPreservesSlotAndRewards": true,
+  "personalSaveRestores": true,
+  "httpSamples": 58,
+  "medianHttpMs": 2.97,
+  "medianFrameBytes": 14090
+}

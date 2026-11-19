@@ -8046,7 +8046,23 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Implement two-player same-map Web play with independent rewards, then audit the unverified quest routes and boss phases.",
+  "current_priority": "Verify four-player same-map Web play and fixed-HP boss cooperation, then connect room membership across maps.",
+  "multiplayer_preview": {
+    "status": "two_players_same_map_verified",
+    "map": "mond-road",
+    "rules": "content/coop-preview.json",
+    "evidence": [
+      "evidence/coop-local-http.json",
+      "evidence/coop-local-browser.json",
+      "evidence/coop-local-browser.png"
+    ],
+    "pending": [
+      "four simultaneous players",
+      "bosses",
+      "multi-map room travel",
+      "remote and Miliastra tests"
+    ]
+  },
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",
