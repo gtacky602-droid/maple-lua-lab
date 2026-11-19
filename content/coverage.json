@@ -123,8 +123,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 141,
-      "prototype_quest_count": 24,
+      "prototype_stage_count": 146,
+      "prototype_quest_count": 25,
       "official_map2_markers": {
         "waypoints": 92,
         "statues": 8
@@ -7962,8 +7962,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1416,
-    "provisional_quests": 257,
+    "authored_stages": 1421,
+    "provisional_quests": 258,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -8712,11 +8712,17 @@
           "sites-corridor-beryl-ledge",
           "sites-lumidouce-landing",
           "vivianne-legend-bank",
-          "ninianne-legend-bank"
+          "ninianne-legend-bank",
+          "yseut-legend-court",
+          "gravity-device-legend-terrace",
+          "rocky-legend-ledge",
+          "liam-legend-pond",
+          "deianeira-legend-lab"
         ],
         "quest_ids": [
           "fon-mapped-depth-samples",
           "fon-mapped-north-lock",
+          "fon-hidden-lab-access",
           "fon-mapped-nostoi-record",
           "knave-weekly-commission",
           "narwhal-weekly-commission",
@@ -10279,12 +10285,17 @@
       "content/story-graph.json"
     ],
     "design_candidates": 56,
-    "playable_prototypes": 4,
+    "playable_prototypes": 9,
     "stage_by_legend": {
       "legend-liyue_rulers_of_chizhang_mountains": "chizhang-legend-terrace",
       "legend-fontaine_cineas": "cineas-legend-chamber",
       "legend-fontaine_vivianne_of_the_lake": "vivianne-legend-bank",
-      "legend-fontaine_ninianne_of_the_lake": "ninianne-legend-bank"
+      "legend-fontaine_ninianne_of_the_lake": "ninianne-legend-bank",
+      "legend-fontaine_yseut": "yseut-legend-court",
+      "legend-fontaine_automated_supercomputing_field_generator": "gravity-device-legend-terrace",
+      "legend-fontaine_rocky_avildsen": "rocky-legend-ledge",
+      "legend-fontaine_liam": "liam-legend-pond",
+      "legend-fontaine_deianeira_of_snezhevna": "deianeira-legend-lab"
     }
   }
 }

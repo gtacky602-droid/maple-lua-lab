@@ -1,0 +1,101 @@
+{
+  "scope": "14 inspected game screenshots; original lab art; standalone 3D models not inspected",
+  "sources": [
+    {
+      "id": "legend-yseut",
+      "name": "イゾルト",
+      "observed": "斜面の集落で細長い上着と淡い色の脚が見える。遠景では留め具や布の素材までは読み取れない。",
+      "art_decision": "寒冷地装束を紺の厚い上着、大きな明色の襟、重い靴で表した。短い武器と丸い肩で、細身の風使いと区別する。",
+      "screenshots": [
+        {
+          "page": "https://altema.jp/gensin/yseut",
+          "image_url": "https://img.altema.jp/gensin/uploads/2023/10/2023y10m02d_19052532.jpg"
+        },
+        {
+          "page": "https://gamewith.net/genshin-impact/article/show/40851",
+          "image_url": "https://img.gamewith.net/img/original_e3394d0e2491fe0f00fe959211572fb6.png"
+        }
+      ]
+    },
+    {
+      "id": "legend-gravity-device",
+      "name": "北の力場生成装置",
+      "observed": "舗装上に黄銅色の中心部と弧状の光が見える。正面の戦闘画像では外周が明るく光る。",
+      "art_decision": "重なった金属外装と橙色のレンズにまとめた。外装の開閉で予備動作を見せ、下端に透明な余白を残す。",
+      "screenshots": [
+        {
+          "page": "https://altema.jp/gensin/rikibaseiseisouti",
+          "image_url": "https://img.altema.jp/gensin/uploads/2023/10/2023y10m02d_1939078867.jpg"
+        },
+        {
+          "page": "https://altema.jp/gensin/rikibaseiseisouti",
+          "image_url": "https://img.altema.jp/gensin/uploads/2023/10/2023y10m03d_1827189751.jpg"
+        },
+        {
+          "page": "https://gamewith.net/genshin-impact/article/show/40851",
+          "image_url": "https://img.gamewith.net/img/original_cb36315648dc55eadf6a8341ef9691b6.png"
+        }
+      ]
+    },
+    {
+      "id": "legend-rocky",
+      "name": "ロッキー・アヴィルドセン",
+      "observed": "野営地の近景では広い肩、露出した腕、白い袖と拳を上げた構えが読み取れる。",
+      "art_decision": "腰を落として手甲で顔を守る。攻撃は前腕を左へ突き出し、伸びた拳が輪郭の先端になる。",
+      "screenshots": [
+        {
+          "page": "https://altema.jp/gensin/rocky",
+          "image_url": "https://img.altema.jp/gensin/uploads/2023/11/2023y11m08d_1441336544.jpg"
+        },
+        {
+          "page": "https://altema.jp/gensin/rocky",
+          "image_url": "https://img.altema.jp/gensin/uploads/2023/11/2023y11m28d_1816109412.jpg"
+        },
+        {
+          "page": "https://gamewith.net/genshin-impact/article/show/40851",
+          "image_url": "https://img.gamewith.net/img/original_4c8a07b3ab338edf6b4c9005107a3f38.png"
+        }
+      ]
+    },
+    {
+      "id": "legend-liam",
+      "name": "リアム",
+      "observed": "草地で相手と距離を取り、着弾した床に炎色と紫色の効果が広がる。遠景で瓶の形状は判別しにくい。",
+      "art_decision": "携帯瓶と投げる手を目立たせた。投げ終わりは瓶と手の間にすき間を作り、ロッキーの打撃と見分けられるようにした。",
+      "screenshots": [
+        {
+          "page": "https://altema.jp/gensin/ream",
+          "image_url": "https://img.altema.jp/gensin/uploads/2023/11/2023y11m08d_1528323229.jpg"
+        },
+        {
+          "page": "https://altema.jp/gensin/ream",
+          "image_url": "https://img.altema.jp/gensin/uploads/2023/11/2023y11m28d_1850018469.jpg"
+        },
+        {
+          "page": "https://gamewith.net/genshin-impact/article/show/40851",
+          "image_url": "https://img.gamewith.net/img/original_799a29ea6b0fcdea5a45a299c5a83c93.PNG"
+        }
+      ]
+    },
+    {
+      "id": "legend-deianeira",
+      "name": "スネージヴナのディアンナラ",
+      "observed": "石造の乾いた室内で戦い、攻撃中は青緑の細い光が体の前後へ伸びる。",
+      "art_decision": "軽い肩当てと後方に流れる布で風を表し、長柄の穂先で踏み込みの方向を示す。",
+      "screenshots": [
+        {
+          "page": "https://altema.jp/gensin/dianara",
+          "image_url": "https://img.altema.jp/gensin/uploads/2023/11/2023y11m29d_1107512387.jpg"
+        },
+        {
+          "page": "https://altema.jp/gensin/dianara",
+          "image_url": "https://img.altema.jp/gensin/uploads/2023/11/2023y11m29d_1115470239.jpg"
+        },
+        {
+          "page": "https://gamewith.net/genshin-impact/article/show/40851",
+          "image_url": "https://img.gamewith.net/img/original_8bec702a0af035415eeb560bbab6d388.png"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "originalSpriteSheet": "fontaine-dry-legend-poses-source-v1.png",
+  "bothOptionalEntriesFromAtlas": true,
+  "sameFrameComparisonAndGallery": true,
+  "waterIntakeQuestAndReturn": true,
+  "optionalSheetsDeferredUntilEncounter": true,
+  "bothRetreatsAndReentryPassed": true,
+  "measuredDrawCommandsSamePausedFrame": {
+    "yseut": {
+      "png": 24,
+      "legacy": 8836,
+      "h32c16": 2201
+    }
+  },
+  "errors": []
+}

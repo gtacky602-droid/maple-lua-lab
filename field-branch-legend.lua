@@ -1,7 +1,7 @@
 -- Optional encounters use fixed warning zones and the shared field-boss lifecycle.
 return function(C)
  local legend={}
- local colors={hydro='#82dfd6',pyro='#ffa15b',cryo='#a9dcff'}
+ local colors={hydro='#82dfd6',pyro='#ffa15b',cryo='#a9dcff',geo='#edd98e'}
  local poses={idle=1,brace=.83,strike=.89}
  local function clamp(x,lo,hi) return math.max(lo,math.min(x,hi)) end
 

@@ -95,14 +95,136 @@
           "LN03"
         ]
       }
+    },
+    "legend-fontaine_yseut": {
+      "moves_hit_once_in_their_windows": [
+        "FD11",
+        "FD12",
+        "FD13"
+      ],
+      "level": 100,
+      "bodies": 1,
+      "png_bodies_and_scene_draw_counts": {
+        "png": 1,
+        "legacy": 5600,
+        "h48c32": 3300,
+        "h32c16": 1454
+      },
+      "normal_attack_clear": {
+        "seconds": 100.0,
+        "hp": 140,
+        "moves": [
+          "FD11",
+          "FD12",
+          "FD13"
+        ]
+      }
+    },
+    "legend-fontaine_automated_supercomputing_field_generator": {
+      "moves_hit_once_in_their_windows": [
+        "FD21",
+        "FD22",
+        "FD23"
+      ],
+      "level": 100,
+      "bodies": 1,
+      "png_bodies_and_scene_draw_counts": {
+        "png": 1,
+        "legacy": 4999,
+        "h48c32": 2987,
+        "h32c16": 1344
+      },
+      "normal_attack_clear": {
+        "seconds": 97.07,
+        "hp": 20,
+        "moves": [
+          "FD21",
+          "FD22",
+          "FD23"
+        ]
+      }
+    },
+    "legend-fontaine_rocky_avildsen": {
+      "moves_hit_once_in_their_windows": [
+        "FD31",
+        "FD32",
+        "FD33"
+      ],
+      "level": 100,
+      "bodies": 1,
+      "png_bodies_and_scene_draw_counts": {
+        "png": 1,
+        "legacy": 4951,
+        "h48c32": 2973,
+        "h32c16": 1351
+      },
+      "normal_attack_clear": {
+        "seconds": 75.52,
+        "hp": 42,
+        "moves": [
+          "FD31",
+          "FD32",
+          "FD33"
+        ]
+      }
+    },
+    "legend-fontaine_liam": {
+      "moves_hit_once_in_their_windows": [
+        "FD41",
+        "FD42",
+        "FD43"
+      ],
+      "level": 100,
+      "bodies": 1,
+      "png_bodies_and_scene_draw_counts": {
+        "png": 1,
+        "legacy": 5207,
+        "h48c32": 3096,
+        "h32c16": 1444
+      },
+      "normal_attack_clear": {
+        "seconds": 86.07,
+        "hp": 28,
+        "moves": [
+          "FD41",
+          "FD42",
+          "FD43"
+        ]
+      }
+    },
+    "legend-fontaine_deianeira_of_snezhevna": {
+      "moves_hit_once_in_their_windows": [
+        "FD51",
+        "FD52",
+        "FD53"
+      ],
+      "level": 100,
+      "bodies": 1,
+      "png_bodies_and_scene_draw_counts": {
+        "png": 1,
+        "legacy": 5515,
+        "h48c32": 3302,
+        "h32c16": 1458
+      },
+      "normal_attack_clear": {
+        "seconds": 93.93,
+        "hp": 72,
+        "moves": [
+          "FD51",
+          "FD52",
+          "FD53"
+        ]
+      }
     }
   },
   "entry_level_and_exploration_requirement": true,
   "dry_floor": true,
+  "water_intake_and_authored_floor_pivots": true,
   "real_round_trips_and_retreat_during_warning": true,
   "manual_retry_only_and_single_reward": true,
   "saved_boss_record": true,
   "source_assets": [
+    "fontaine-dry-legend-poses-source-v1.png",
     "legend-poses-source-v2.png"
   ],
   "detached_wave_travel_and_impact_verified": true,

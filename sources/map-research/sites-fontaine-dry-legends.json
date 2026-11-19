@@ -1,0 +1,55 @@
+{
+  "status": "Playable laboratory prototypes",
+  "art_source": "fontaine-dry-legend-poses-source-v1.png",
+  "legends": [
+    {
+      "id": "legend-fontaine_yseut",
+      "stage": "yseut-legend-court",
+      "host": "fon-wp-50058",
+      "level": 100,
+      "members": 1,
+      "prerequisite": null,
+      "manual_rechallenge": true
+    },
+    {
+      "id": "legend-fontaine_automated_supercomputing_field_generator",
+      "stage": "gravity-device-legend-terrace",
+      "host": "fon-wp-53859",
+      "level": 100,
+      "members": 1,
+      "prerequisite": null,
+      "manual_rechallenge": true
+    },
+    {
+      "id": "legend-fontaine_rocky_avildsen",
+      "stage": "rocky-legend-ledge",
+      "host": "fon-wp-55780",
+      "level": 100,
+      "members": 1,
+      "prerequisite": null,
+      "manual_rechallenge": true
+    },
+    {
+      "id": "legend-fontaine_liam",
+      "stage": "liam-legend-pond",
+      "host": "fon-wp-55781",
+      "level": 100,
+      "members": 1,
+      "prerequisite": null,
+      "manual_rechallenge": true
+    },
+    {
+      "id": "legend-fontaine_deianeira_of_snezhevna",
+      "stage": "deianeira-legend-lab",
+      "host": "fon-wp-55768",
+      "level": 100,
+      "members": 1,
+      "prerequisite": "fon-hidden-lab-access",
+      "manual_rechallenge": true,
+      "approach": [
+        "fon-wp-55770",
+        "fon-wp-55768"
+      ]
+    }
+  ]
+}

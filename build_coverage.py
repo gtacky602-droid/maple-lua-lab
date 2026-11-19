@@ -91,8 +91,10 @@ def rebuild():
         if spec['id'] in anchors:
             entry = field_stages[anchors[spec['id']]]
             assert spec['manualRechallenge']
-            assert any(e['to']==spec['node'] for e in by_stage[entry]['exits'])
-            assert any(e['to']==entry for e in by_stage[spec['node']]['exits'])
+            entrance_route = [entry, *spec.get('entryThrough', []), spec['node']]
+            for start, end in zip(entrance_route, entrance_route[1:]):
+                assert any(e['to']==end for e in by_stage[start]['exits']), (spec['id'], start, end)
+                assert any(e['to']==start for e in by_stage[end]['exits']), (spec['id'], end, start)
             legend_bindings[spec['id']]=spec['node']
     coverage['optional_legend_coverage'] = {
         'basis': [legends_path, 'content/field-boss-spawns.json', 'content/story-graph.json'],

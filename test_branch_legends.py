@@ -1,4 +1,4 @@
-"""Walk, fight, leave and retry four optional encounters on the normal Lua entry path."""
+"""Walk, fight, leave and retry optional legend encounters on the normal Lua entry path."""
 import json
 
 from experience import LEVELS, RUNTIME_EXP
@@ -8,6 +8,7 @@ from tools.waypoint_test import TrailWalk
 
 CHALLENGES = 'sources/map-research/sites-branch-hunts.json'
 LAKE_CHALLENGES = 'sources/map-research/sites-fontaine-lake-legends.json'
+DRY_CHALLENGES = 'sources/map-research/sites-fontaine-dry-legends.json'
 
 
 def read(path):
@@ -67,7 +68,11 @@ def report_current(s, walk, quest):
     for i, step in enumerate(quests[quest]['itinerary'], 1):
         if step['kind']=='arrive':
             if s.story.node != step['from']:
-                cross(walk, step['from'])
+                if (s.story.node,step['from']) in edges:
+                    cross(walk, step['from'])
+                else:
+                    core.action(s, 'story_fast:' + step['from'])
+                    assert s.story.node == step['from']
             cross(walk, step['node'])
         else:
             assert s.story.node == step['node']
@@ -90,8 +95,11 @@ def step_to(slot, s, condition, allowance=900):
 def normal_clear(r, spec):
     fixture = read(f'work/{r["stage"]}-fixture.json')
     s = core.restore(lua.table_from(fixture,recursive=True),12)
-    core.action(s, 'story_fast:' + r['host'])
     walk = TrailWalk(lua,core,s,edges,exits)
+    approach = r.get('approach',[r['host']])
+    core.action(s, 'story_fast:' + approach[0])
+    for node in approach[1:]:
+        walk.cross(node)
     walk.cross(r['stage'])
     s.actors[2].hp = 0  # Single-character play for this fixture.
     hero = s.actors[1]
@@ -142,39 +150,54 @@ def normal_clear(r, spec):
 
 
 evidence = {}
-layout = read('assets/legend-poses-v2-layout.json')
-for frame in layout['frames']:
-    asset = read(f"assets/{frame['id']}-field-{frame['pose']}-sprites-v2.json")
-    left, top, width, height = asset['box']
-    crop_x, crop_y, _, _ = frame['crop']
-    pivot_x, pivot_y = frame['pivot']
-    assert asset['source'] == layout['source']
-    assert top + height == crop_y + pivot_y
-    assert abs(left+asset['anchorX']*width-(crop_x+pivot_x)) < 1e-7
-    if frame['id'].startswith('lake-'):
-        assert pivot_y - frame['opaque_box'][3] == 12
-        for profile in asset['profiles'].values():
-            assert max(r[1]+r[3] for r in profile['runs']) < profile['height']
+layouts = {
+    'assets/legend-poses-v2-layout.json': 2,
+    'assets/fontaine-dry-legend-poses-v1-layout.json': 1,
+}
+for path, revision in layouts.items():
+    layout = read(path)
+    for frame in layout['frames']:
+        asset = read(f"assets/{frame['id']}-field-{frame['pose']}-sprites-v{revision}.json")
+        left, top, width, height = asset['box']
+        crop_x, crop_y, _, _ = frame['crop']
+        pivot_x, pivot_y = frame['pivot']
+        assert asset['source'] == layout['source']
+        assert top + height == crop_y + pivot_y
+        assert abs(left+asset['anchorX']*width-(crop_x+pivot_x)) < 1e-7
+        hover = 12 if frame['id'].startswith('lake-') else 14 if frame['id']=='legend-gravity-device' else 0
+        if hover:
+            assert pivot_y - frame['opaque_box'][3] == hover
+            for profile in asset['profiles'].values():
+                assert max(r[1]+r[3] for r in profile['runs']) < profile['height']
+
 
 entries = [(entry, manifest['art_source'])
-           for manifest in map(read, (CHALLENGES, LAKE_CHALLENGES))
+           for manifest in map(read, (CHALLENGES, LAKE_CHALLENGES, DRY_CHALLENGES))
            for entry in manifest['legends']]
 for r, source_art in entries:
     id, stage, host = r['id'], r['stage'], r['host']
     spec = specs[id]
     origin = nodes[host]['checkpoint']
     assert design[id]['level'] == spec['level'] == nodes[stage]['level']
-    assert design[id]['field_anchor_id'] == nodes[host]['mapPoint']
+    approach = r.get('approach',[host])
+    assert approach[-1] == host
+    assert design[id]['field_anchor_id'] == nodes[approach[0]]['mapPoint']
     assert not design[id]['counts_for_regional_daily']
     assert spec['manualRechallenge'] and nodes[stage]['peaceful'] and not nodes[stage].get('swim')
     assert [e['to'] for e in exits[stage]] == [host]
-    s, walk = ready(spec['level']-1, origin, host)
+    s, walk = ready(spec['level']-1, origin, approach[0])
+    for step in approach[1:]:
+        cross(walk, step)
     check_gate(s, walk, stage, str(spec['level']))
     core.grantExp(s, exp(spec['level'])-exp(spec['level']-1), 'quest')
     if r['prerequisite']:
         check_gate(s, walk, stage, '依頼')
+        if r.get('approach'):
+            write(f'work/{stage}-before-report-fixture.json', validate_save(native(core.checkpoint(s))))
         report_current(s, walk, r['prerequisite'])
-        core.action(s, 'story_fast:' + host)
+        core.action(s, 'story_fast:' + approach[0])
+        for step in approach[1:]:
+            cross(walk, step)
         assert s.story.node == host
 
     write(f'work/{stage}-fixture.json', validate_save(native(core.checkpoint(s))))
@@ -183,6 +206,8 @@ for r, source_art in entries:
     core.action(s, 'world_map_select:' + stage)
     atlas = core.frame(s).worldMap
     assert atlas.selected.id == stage and atlas.selected.huntKind == 'elite'
+    if r.get('approach'):
+        assert s.storySwimming and edges[stage,host].get('waterwaySeconds')
     assert atlas.guide.status == 'ready' and atlas.guide.stops[1].id == stage
     core.action(s, 'world_map_close')
     cross(walk, stage)
@@ -233,15 +258,17 @@ for r, source_art in entries:
         step_to(slot,s,lambda e: e.cast is None)
         if move!=spec['moves'][-1]:
             hero.inv=1000
-            hero.x=boss.x-140
+            hero.x=boss.x-140 if boss.x-140>=spec['arenaMin'] else boss.x+140
             step_to(slot,s,lambda e: e.cast is not None)
             cast=slot.cast
 
     # The room resets on retreat, including a cast already in its warning phase.
     hero.inv=1000
-    hero.x=boss.x-145
+    hero.x=boss.x-145 if boss.x-145>=spec['arenaMin'] else boss.x+145
     step_to(slot,s,lambda e: e.cast is not None)
     cross(walk,host)
+    if r.get('approach'):
+        assert s.storySwimming and s.actors[1].y==edges[stage,host]['arrivalY']
     assert s.fieldSlots[id] is None
     assert not any(e.fieldBoss for e in s.enemies.values())
     cross(walk,stage)
@@ -280,7 +307,8 @@ for r, source_art in entries:
 
 write('evidence/sites-branch-legends-lua.json',{
     'encounters':evidence,'entry_level_and_exploration_requirement':True,
-    'dry_floor':True,'real_round_trips_and_retreat_during_warning':True,
+    'dry_floor':True,'water_intake_and_authored_floor_pivots':True,
+    'real_round_trips_and_retreat_during_warning':True,
     'manual_retry_only_and_single_reward':True,'saved_boss_record':True,
     'source_assets':sorted({asset for _,asset in entries}),
     'detached_wave_travel_and_impact_verified':True,'hit_and_reward_fixtures_used':True,

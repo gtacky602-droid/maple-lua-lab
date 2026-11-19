@@ -3,12 +3,13 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 import {waypointDriver} from './tools/browser_waypoint_test.mjs';
 
-const {nodes:story}=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
+const {nodes:story,quests}=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 const nodes=Object.fromEntries(story.map(node=>[node.id,node]));
 const lake=process.argv.includes('--lake');
-const manifest=lake?'sites-fontaine-lake-legends':'sites-branch-hunts';
+const dry=process.argv.includes('--dry');
+const manifest=dry?'sites-fontaine-dry-legends':lake?'sites-fontaine-lake-legends':'sites-branch-hunts';
 const {legends,art_source:source}=JSON.parse(await fs.readFile('sources/map-research/'+manifest+'.json','utf8'));
-const pngTags=lake?['vivianne','ninianne']:['chizhang','cineas'];
+const pngTags=dry?['yseut','gravity-device','rocky','liam','deianeira']:lake?['vivianne','ninianne']:['chizhang','cineas'];
 const browser=await chromium.launch({channel:'chrome',headless:true,args:['--disable-gpu']});
 const page=await browser.newPage({viewport:{width:1280,height:900}});
 page.setDefaultTimeout(24000);
@@ -17,7 +18,7 @@ const canvas=page.locator('#game');
 const errors=[];
 const requestedLegendSheets=[];
 page.on('request',req=>{
- if(/(?:legend-poses-source-v2|legend-poses-source-v1)[.]png$/.test(new URL(req.url()).pathname))requestedLegendSheets.push(req.url());
+ if(/legend-poses-source-v[12][.]png$/.test(new URL(req.url()).pathname))requestedLegendSheets.push(req.url());
 });
 page.on('pageerror',err=>errors.push(err.message));
 page.on('response',res=>{
@@ -37,16 +38,48 @@ const current=()=>page.evaluate(source=>{
 },source);
 
 try{
- await page.goto(process.env.LAB_URL||'http://127.0.0.1:8977/');
+ await page.goto(process.env.LAB_URL||'http://127.0.0.1:8978/');
  await page.waitForFunction(()=>window.lab?.frame);
  assert.deepEqual(requestedLegendSheets,[]);
  const sizes={};
  for (const [i,legend] of legends.entries()) {
   const tag=pngTags[i];
   const label=page.locator('#fieldBossLabel');
-  await page.locator('#importSave').setInputFiles(`work/${legend.stage}-fixture.json`);
-  await drive.waitNode(nodes[legend.stage].checkpoint);
-  await drive.warp(legend.host);
+  const approach=legend.approach??[legend.host];
+  const fixture=legend.approach?'before-report-fixture':'fixture';
+  const checkpoint=nodes[legend.stage].checkpoint;
+  await page.locator('#importSave').setInputFiles(`work/${legend.stage}-${fixture}.json`);
+  await drive.waitNode(checkpoint);
+  if(legend.approach){
+   const quest=quests.find(q=>q.id===legend.prerequisite);
+   const [,inspect]=quest.itinerary;
+   await drive.warp(approach[0]);
+   await drive.cross(legend.host);
+   const gate=nodes[legend.host].exits.find(e=>e.to===legend.stage);
+   await drive.walk(gate.x);
+   await drive.changeHeight(gate.y);
+   await page.waitForFunction(id=>{
+    const gate=window.lab.frame.storyNearbyPortal;
+    return gate?.to===id&&!gate.available&&gate.reason.includes('報告');
+   },legend.stage);
+   await page.keyboard.press('KeyF');
+   assert.equal(await drive.node(),legend.host);
+   await drive.warp(checkpoint);
+   await drive.accept(quest.id);
+   await drive.warp(approach[0]);
+   await drive.cross(legend.host);
+   await drive.count(quest.id,1);
+   await drive.walk(inspect.x);
+   await drive.changeHeight(inspect.y);
+   await page.keyboard.press('KeyG');
+   await drive.count(quest.id,2);
+   await drive.cross(approach[0]);
+   await drive.count(quest.id,3);
+   await drive.warp(checkpoint);
+   await drive.report(quest.id);
+  }
+  await drive.warp(approach[0]);
+  for(const step of approach.slice(1))await drive.cross(step);
   await page.keyboard.press('KeyM');
   await page.locator('#worldAtlas').waitFor();
   await page.locator('#atlasLayer').selectOption('hunt');
@@ -58,7 +91,7 @@ try{
 
   await drive.cross(legend.stage);
   assert.equal(await page.evaluate(()=>Boolean(window.lab.frame.storySwim)),false);
-  await drive.walk(lake?620:i===0?580:764);
+  await drive.walk(dry?700:lake?620:i===0?580:764);
   await page.waitForFunction(id=>window.lab.frame.fieldBoss?.id===id,legend.id);
   await label.waitFor();
   if(legend.members===2){
@@ -97,9 +130,10 @@ try{
   }
   await pause(false);
   await drive.cross(legend.host);
+  if(legend.approach)assert.equal(await page.evaluate(()=>Boolean(window.lab.frame.storySwim)),true);
   await page.waitForFunction(()=>!window.lab.frame.fieldBoss);
   await drive.cross(legend.stage);
-  await drive.walk(lake?580:i===0?450:525);
+  await drive.walk(dry?370:lake?580:i===0?450:525);
   await page.waitForFunction(id=>{
    const b=window.lab.frame.fieldBoss;
    return b?.id===id&&b.hp===b.maxhp;
@@ -108,22 +142,29 @@ try{
   console.log(tag+' map, warning, portraits and manual return passed.');
  }
  const gallery=new URL('/bosses-art.html',page.url());
- gallery.searchParams.set('q',lake?'湖辺の':'赤璋巡岳府君');
+ gallery.searchParams.set('q',dry?'ロッキー':lake?'湖辺の':'赤璋巡岳府君');
  await page.goto(gallery.href);
  await page.waitForFunction(()=>window.charactersGallery?.ready,null,{timeout:60000});
  const visibleCards=page.locator('#cards article:not([hidden])');
- assert.equal(await visibleCards.count(),4);
- assert.equal(await visibleCards.locator('canvas').count(),8);
- await page.locator('#assetSearch').fill(lake?'ニニアン':'シネアス');
- assert.equal(await visibleCards.count(),2);
- assert.deepEqual((await visibleCards.locator('h2').allTextContents()).map(title=>title.slice(-3)),['初稿）','改稿）']);
- assert.equal(await visibleCards.locator('canvas').count(),4);
+ if(dry){
+  assert.equal(await visibleCards.count(),1);
+  assert.equal(await visibleCards.locator('canvas').count(),2);
+  await page.locator('#assetSearch').fill('ディアンナラ');
+  assert.equal(await visibleCards.count(),1);
+ }else{
+  assert.equal(await visibleCards.count(),4);
+  assert.equal(await visibleCards.locator('canvas').count(),8);
+  await page.locator('#assetSearch').fill(lake?'ニニアン':'シネアス');
+  assert.equal(await visibleCards.count(),2);
+  assert.deepEqual((await visibleCards.locator('h2').allTextContents()).map(title=>title.slice(-3)),['初稿）','改稿）']);
+  assert.equal(await visibleCards.locator('canvas').count(),4);
+ }
  if(lake)await page.screenshot({path:'evidence/lake-legend-art-v1-v2-gallery.png',fullPage:true});
  assert.deepEqual(errors,[]);
- const log=lake?'sites-fontaine-lake-legends-browser':'sites-branch-legends-browser';
+ const log=dry?'sites-fontaine-dry-legends-browser':lake?'sites-fontaine-lake-legends-browser':'sites-branch-legends-browser';
  await fs.writeFile('evidence/'+log+'.json',JSON.stringify({
   originalSpriteSheet:source, bothOptionalEntriesFromAtlas:true,
-  sameFrameComparisonAndGallery:true, galleryShowsBothArtRevisions:true, optionalSheetsDeferredUntilEncounter:true, bothRetreatsAndReentryPassed:true,
+  sameFrameComparisonAndGallery:true, ...(dry?{waterIntakeQuestAndReturn:true}:{galleryShowsBothArtRevisions:true}), optionalSheetsDeferredUntilEncounter:true, bothRetreatsAndReentryPassed:true,
   measuredDrawCommandsSamePausedFrame:sizes, errors
  },null,2)+'\n');
 }catch(error){

@@ -690,7 +690,12 @@
     {"id":"lake-vivianne","name":"湖辺のヴィヴィアン（初稿）","file":"lake-vivianne-field-idle-sprites-v1.json","height":134,"mapHover":0},
     {"id":"lake-vivianne-revised","name":"湖辺のヴィヴィアン（改稿）","file":"lake-vivianne-field-idle-sprites-v2.json","height":134,"mapHover":0},
     {"id":"lake-ninianne","name":"湖辺のニニアン（初稿）","file":"lake-ninianne-field-idle-sprites-v1.json","height":114,"mapHover":0},
-    {"id":"lake-ninianne-revised","name":"湖辺のニニアン（改稿）","file":"lake-ninianne-field-idle-sprites-v2.json","height":114,"mapHover":0}
+    {"id":"lake-ninianne-revised","name":"湖辺のニニアン（改稿）","file":"lake-ninianne-field-idle-sprites-v2.json","height":114,"mapHover":0},
+    {"id":"legend-yseut","name":"イゾルト（ラボ用）","file":"legend-yseut-field-idle-sprites-v1.json","height":104,"mapHover":0},
+    {"id":"legend-gravity-device","name":"自律スーパー・コンピューティング型力場生成装置（ラボ用）","file":"legend-gravity-device-field-idle-sprites-v1.json","height":127,"mapHover":0},
+    {"id":"legend-rocky","name":"ロッキー・アヴィルドセン（ラボ用）","file":"legend-rocky-field-idle-sprites-v1.json","height":106,"mapHover":0},
+    {"id":"legend-liam","name":"リアム（ラボ用）","file":"legend-liam-field-idle-sprites-v1.json","height":102,"mapHover":0},
+    {"id":"legend-deianeira","name":"スネージヴナのディアンナラ（ラボ用）","file":"legend-deianeira-field-idle-sprites-v1.json","height":116,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }

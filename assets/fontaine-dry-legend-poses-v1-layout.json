@@ -1,0 +1,410 @@
+{
+  "source": "fontaine-dry-legend-poses-source-v1.png",
+  "frames": [
+    {
+      "id": "legend-yseut",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        102,
+        28,
+        183,
+        132
+      ],
+      "source_sheet": "exec-63af6cfa-f2dd-4a01-974d-97bfdba3373a.png",
+      "source_crop": [
+        0,
+        0,
+        500,
+        520
+      ]
+    },
+    {
+      "id": "legend-yseut",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        109,
+        33,
+        179,
+        132
+      ],
+      "source_sheet": "exec-63af6cfa-f2dd-4a01-974d-97bfdba3373a.png",
+      "source_crop": [
+        500,
+        0,
+        406,
+        520
+      ]
+    },
+    {
+      "id": "legend-yseut",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        63,
+        35,
+        196,
+        132
+      ],
+      "source_sheet": "exec-63af6cfa-f2dd-4a01-974d-97bfdba3373a.png",
+      "source_crop": [
+        906,
+        0,
+        630,
+        520
+      ]
+    },
+    {
+      "id": "legend-gravity-device",
+      "pose": "idle",
+      "crop": [
+        0,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        99,
+        22,
+        187,
+        118
+      ],
+      "source_sheet": "exec-63af6cfa-f2dd-4a01-974d-97bfdba3373a.png",
+      "source_crop": [
+        0,
+        520,
+        485,
+        504
+      ]
+    },
+    {
+      "id": "legend-gravity-device",
+      "pose": "brace",
+      "crop": [
+        288,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        103,
+        30,
+        184,
+        118
+      ],
+      "source_sheet": "exec-63af6cfa-f2dd-4a01-974d-97bfdba3373a.png",
+      "source_crop": [
+        485,
+        520,
+        450,
+        504
+      ]
+    },
+    {
+      "id": "legend-gravity-device",
+      "pose": "strike",
+      "crop": [
+        576,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        74,
+        18,
+        197,
+        118
+      ],
+      "source_sheet": "exec-63af6cfa-f2dd-4a01-974d-97bfdba3373a.png",
+      "source_crop": [
+        935,
+        520,
+        601,
+        504
+      ]
+    },
+    {
+      "id": "legend-rocky",
+      "pose": "idle",
+      "crop": [
+        0,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        101,
+        31,
+        182,
+        132
+      ],
+      "source_sheet": "exec-cbad5060-92d4-4fb1-8e44-3433f1b88bec.png",
+      "source_crop": [
+        0,
+        0,
+        485,
+        360
+      ]
+    },
+    {
+      "id": "legend-rocky",
+      "pose": "brace",
+      "crop": [
+        288,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        97,
+        40,
+        187,
+        132
+      ],
+      "source_sheet": "exec-cbad5060-92d4-4fb1-8e44-3433f1b88bec.png",
+      "source_crop": [
+        485,
+        0,
+        435,
+        360
+      ]
+    },
+    {
+      "id": "legend-rocky",
+      "pose": "strike",
+      "crop": [
+        576,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        57,
+        32,
+        196,
+        132
+      ],
+      "source_sheet": "exec-cbad5060-92d4-4fb1-8e44-3433f1b88bec.png",
+      "source_crop": [
+        920,
+        0,
+        616,
+        360
+      ]
+    },
+    {
+      "id": "legend-liam",
+      "pose": "idle",
+      "crop": [
+        0,
+        432,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        111,
+        30,
+        184,
+        132
+      ],
+      "source_sheet": "exec-cbad5060-92d4-4fb1-8e44-3433f1b88bec.png",
+      "source_crop": [
+        0,
+        360,
+        485,
+        339
+      ]
+    },
+    {
+      "id": "legend-liam",
+      "pose": "brace",
+      "crop": [
+        288,
+        432,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        98,
+        32,
+        191,
+        132
+      ],
+      "source_sheet": "exec-cbad5060-92d4-4fb1-8e44-3433f1b88bec.png",
+      "source_crop": [
+        485,
+        360,
+        419,
+        339
+      ]
+    },
+    {
+      "id": "legend-liam",
+      "pose": "strike",
+      "crop": [
+        576,
+        432,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        35,
+        33,
+        197,
+        132
+      ],
+      "source_sheet": "exec-cbad5060-92d4-4fb1-8e44-3433f1b88bec.png",
+      "source_crop": [
+        904,
+        360,
+        632,
+        339
+      ]
+    },
+    {
+      "id": "legend-deianeira",
+      "pose": "idle",
+      "crop": [
+        0,
+        576,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        61,
+        28,
+        196,
+        132
+      ],
+      "source_sheet": "exec-cbad5060-92d4-4fb1-8e44-3433f1b88bec.png",
+      "source_crop": [
+        0,
+        699,
+        434,
+        325
+      ]
+    },
+    {
+      "id": "legend-deianeira",
+      "pose": "brace",
+      "crop": [
+        288,
+        576,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        52,
+        37,
+        197,
+        132
+      ],
+      "source_sheet": "exec-cbad5060-92d4-4fb1-8e44-3433f1b88bec.png",
+      "source_crop": [
+        434,
+        699,
+        478,
+        325
+      ]
+    },
+    {
+      "id": "legend-deianeira",
+      "pose": "strike",
+      "crop": [
+        576,
+        576,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        32,
+        35,
+        223,
+        132
+      ],
+      "source_sheet": "exec-cbad5060-92d4-4fb1-8e44-3433f1b88bec.png",
+      "source_crop": [
+        912,
+        699,
+        624,
+        325
+      ]
+    }
+  ]
+}

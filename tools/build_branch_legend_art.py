@@ -28,13 +28,18 @@ for source, (columns, rows) in SHEETS.items():
                 *(str(v) for v in (left, top, right-left, bottom-top)),
             ], cwd=ROOT, check=True)
 
-layout = json.loads((ROOT/'assets/legend-poses-v2-layout.json').read_text(encoding='utf-8'))
-for frame in layout['frames']:
-    crop, pivot = frame['crop'], frame['pivot']
-    height = pivot[1] - frame['opaque_box'][1]
-    subprocess.run([
-        sys.executable, 'compile_boss_assets.py', '--source', layout['source'],
-        '--output', f"{frame['id']}-field-{frame['pose']}-sprites-v2.json",
-        '--height', str(height), '--pivot', *(str(v) for v in pivot),
-        '--crop', *(str(v) for v in crop),
-    ], cwd=ROOT, check=True)
+PIVOT_LAYOUTS = {
+    'legend-poses-v2-layout.json': 2,
+    'fontaine-dry-legend-poses-v1-layout.json': 1,
+}
+for layout_name, revision in PIVOT_LAYOUTS.items():
+    layout = json.loads((ROOT/'assets'/layout_name).read_text(encoding='utf-8'))
+    for frame in layout['frames']:
+        crop, pivot = frame['crop'], frame['pivot']
+        height = pivot[1] - frame['opaque_box'][1]
+        subprocess.run([
+            sys.executable, 'compile_boss_assets.py', '--source', layout['source'],
+            '--output', f"{frame['id']}-field-{frame['pose']}-sprites-v{revision}.json",
+            '--height', str(height), '--pivot', *(str(v) for v in pivot),
+            '--crop', *(str(v) for v in crop),
+        ], cwd=ROOT, check=True)
