@@ -902,7 +902,7 @@
         {
           "to": "liyue-ferry",
           "x": 720,
-          "rideLabel": "離島行きに乗る"
+          "rideLabel": "稲妻・離島行きの船に乗る"
         },
         {
           "to": "liyue-loading-yard",
@@ -8152,7 +8152,28 @@
     {"id":"liyue-wp-96","name":"璃月・海を見下ろす東端","level":27,"region":"璃月","hub":false,"width":1340,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1340},{"x":331,"y":414,"w":230},{"x":750,"y":400,"w":213}],"exits":[{"to":"liyue-wp-94","x":76,"arrivalX":1312,"arrivalY":480},{"to":"liyue-wp-100","x":836,"arrivalX":1262,"arrivalY":480},{"to":"geo-approach","x":1262,"arrivalX":1000,"arrivalY":480,"boatSeconds":3.3,"rideLabel":"沖の岩島へ向かう小舟"}],"mapPoint":"teyvat:96","waypoint":{"kind":"waypoint","x":670,"y":480}},
     {"id":"liyue-wp-97","name":"璃月・街道脇の神像","level":24,"region":"璃月","hub":false,"width":1420,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1420},{"x":313,"y":429,"w":183},{"x":678,"y":386,"w":240},{"x":1060,"y":418,"w":162}],"exits":[{"to":"liyue-wp-94","x":76,"arrivalX":1070,"arrivalY":480},{"to":"liyue-wp-100","x":1342,"arrivalX":836,"arrivalY":480}],"mapPoint":"teyvat:97","waypoint":{"kind":"statue","x":710,"y":480}},
     {"id":"liyue-wp-100","name":"璃月・東岸の岩浜","level":26,"region":"璃月","hub":false,"width":1340,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1340},{"x":331,"y":414,"w":230},{"x":750,"y":400,"w":213}],"exits":[{"to":"liyue-field","x":76,"arrivalX":1009,"arrivalY":480},{"to":"liyue-wp-97","x":836,"arrivalX":1342,"arrivalY":480},{"to":"liyue-wp-96","x":1262,"arrivalX":836,"arrivalY":480}],"mapPoint":"teyvat:100","waypoint":{"kind":"waypoint","x":670,"y":480}},
-    {"id":"liyue-wp-104","name":"璃月・港東の荷揚げ波止場","level":20,"region":"璃月","hub":false,"width":1390,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1390},{"x":290,"y":395,"w":192},{"x":584,"y":415,"w":275},{"x":984,"y":404,"w":243}],"exits":[{"to":"liyue-harbor","x":76,"arrivalX":485,"arrivalY":480},{"to":"liyue-wp-94","x":1312,"arrivalX":320,"arrivalY":480},{"to":"sites-hunt-7218","x":996,"arrivalX":92,"arrivalY":480,"rideLabel":"港南の征討入口"}],"mapPoint":"teyvat:104","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {"id":"liyue-wp-104","name":"璃月・港東の荷揚げ波止場","level":20,"region":"璃月","hub":false,"width":1390,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1390},{"x":290,"y":395,"w":192},{"x":584,"y":415,"w":275},{"x":984,"y":404,"w":243}],"exits":[{"to":"liyue-harbor","x":76,"arrivalX":485,"arrivalY":480},{"to":"liyue-wp-94","x":1312,"arrivalX":320,"arrivalY":480},{"to":"liyue-quarry-scree","x":468,"arrivalX":92,"arrivalY":480,"rideLabel":"港外の採石斜面へ"},{"to":"sites-hunt-7218","x":996,"arrivalX":92,"arrivalY":480,"rideLabel":"港南の征討入口"}],"mapPoint":"teyvat:104","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {
+      "id": "liyue-quarry-scree",
+      "name": "璃月・港外の採石斜面",
+      "region": "璃月",
+      "level": 34,
+      "width": 2880,
+      "hub": false,
+      "peaceful": false,
+      "enemySafeFraction": 0.15,
+      "scenery": "liyuequarry",
+      "checkpoint": "liyue-harbor",
+      "atlasParent": "liyue-wp-104",
+      "huntKind": "field",
+      "platforms": [
+        {"x": 0, "y": 480, "w": 2880},
+        {"x": 484, "y": 390, "w": 396},
+        {"x": 1060, "y": 380, "w": 416},
+        {"x": 1760, "y": 391, "w": 476}
+      ],
+      "exits": [{"to": "liyue-wp-104", "x": 92, "arrivalX": 468, "arrivalY": 480}]
+    },
     {"id":"liyue-wp-105","name":"璃月・港西の登り道","level":24,"region":"璃月","hub":false,"width":1370,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1370},{"x":284,"y":389,"w":234},{"x":523,"y":313,"w":275},{"x":899,"y":405,"w":178}],"exits":[{"to":"liyue-wp-49","x":76,"arrivalX":1312,"arrivalY":480},{"to":"liyue-wp-92","x":851,"arrivalX":851,"arrivalY":480},{"to":"liyue-wp-111","x":1292,"arrivalX":76,"arrivalY":480},{"to":"sites-hunt-7220","x":374,"arrivalX":2788,"arrivalY":480,"rideLabel":"天衡の秘境入口","y":389}],"mapPoint":"teyvat:105","waypoint":{"kind":"waypoint","x":685,"y":480}},
     {"id":"liyue-wp-106","name":"璃月・西の谷の水門","level":26,"region":"璃月","hub":false,"width":1520,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1520},{"x":286,"y":385,"w":222},{"x":626,"y":425,"w":219},{"x":972,"y":375,"w":234}],"exits":[{"to":"liyue-wp-24910","x":76,"arrivalX":1402,"arrivalY":480},{"to":"liyue-wp-107","x":926,"arrivalX":861,"arrivalY":480},{"to":"liyue-wp-49","x":1442,"arrivalX":861,"arrivalY":480}],"mapPoint":"teyvat:106","waypoint":{"kind":"waypoint","x":760,"y":480}},
     {"id":"liyue-wp-107","name":"璃月・西の山道と神像","level":25,"region":"璃月","hub":false,"width":1390,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1390},{"x":280,"y":405,"w":190},{"x":580,"y":360,"w":260},{"x":943,"y":416,"w":188}],"exits":[{"to":"liyue-wp-108","x":76,"arrivalX":1292,"arrivalY":480},{"to":"liyue-wp-106","x":861,"arrivalX":926,"arrivalY":480},{"to":"liyue-wp-92","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:107","waypoint":{"kind":"statue","x":695,"y":480}},

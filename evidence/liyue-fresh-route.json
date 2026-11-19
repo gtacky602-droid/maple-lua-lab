@@ -1,0 +1,195 @@
+{
+  "route": [
+    {
+      "id": "liyue-market-delivery",
+      "seconds": 13.68,
+      "level": 22,
+      "total": 31744,
+      "questXp": 26411,
+      "killXp": 5333,
+      "kills": 520
+    },
+    {
+      "id": "liyue-caravan-search",
+      "seconds": 29.97,
+      "level": 26,
+      "total": 67301,
+      "questXp": 61646,
+      "killXp": 5655,
+      "kills": 528
+    },
+    {
+      "id": "liyue-market-opening",
+      "seconds": 54.45,
+      "level": 34,
+      "total": 208212,
+      "questXp": 202349,
+      "killXp": 5863,
+      "kills": 532
+    },
+    {
+      "id": "beidou-join",
+      "seconds": 68.65,
+      "level": 34,
+      "total": 212187,
+      "questXp": 206174,
+      "killXp": 6013,
+      "kills": 536
+    },
+    {
+      "id": "liyue-book-rescue",
+      "seconds": 100.8,
+      "level": 35,
+      "total": 228750,
+      "questXp": 222617,
+      "killXp": 6133,
+      "kills": 544
+    },
+    {
+      "id": "liyue-hauling-shortcut",
+      "seconds": 115.05,
+      "level": 36,
+      "total": 257162,
+      "questXp": 251029,
+      "killXp": 6133,
+      "kills": 544
+    },
+    {
+      "id": "inazuma-level-gate",
+      "seconds": 117.6,
+      "level": 36,
+      "total": 257162,
+      "questXp": 251029,
+      "killXp": 6133,
+      "kills": 544
+    },
+    {
+      "id": "liyue-harbor-meal",
+      "seconds": 139.98,
+      "level": 37,
+      "total": 265198,
+      "questXp": 258960,
+      "killXp": 6238,
+      "kills": 551
+    },
+    {
+      "id": "lv38",
+      "seconds": 728.85,
+      "level": 38,
+      "total": 296114,
+      "questXp": 258960,
+      "killXp": 37154,
+      "kills": 813
+    },
+    {
+      "id": "lv40",
+      "seconds": 1087.97,
+      "level": 40,
+      "total": 383334,
+      "questXp": 258960,
+      "killXp": 124374,
+      "kills": 1169
+    },
+    {
+      "id": "inazuma-port",
+      "seconds": 1119.05,
+      "level": 40,
+      "total": 383334,
+      "questXp": 258960,
+      "killXp": 124374,
+      "kills": 1169
+    }
+  ],
+  "hunting": [
+    {
+      "stage": "liyue-quarry-scree",
+      "kills": 38,
+      "xp": 4484,
+      "seconds": 75.0
+    },
+    {
+      "stage": "liyue-quarry-scree",
+      "kills": 37,
+      "xp": 4366,
+      "seconds": 75.02
+    },
+    {
+      "stage": "liyue-quarry-scree",
+      "kills": 37,
+      "xp": 4366,
+      "seconds": 75.02
+    },
+    {
+      "stage": "liyue-quarry-scree",
+      "kills": 38,
+      "xp": 4484,
+      "seconds": 75.02
+    },
+    {
+      "stage": "liyue-quarry-scree",
+      "kills": 37,
+      "xp": 4366,
+      "seconds": 75.02
+    },
+    {
+      "stage": "liyue-quarry-scree",
+      "kills": 38,
+      "xp": 4484,
+      "seconds": 75.02
+    },
+    {
+      "stage": "liyue-quarry-scree",
+      "kills": 32,
+      "xp": 3776,
+      "seconds": 60.1
+    },
+    {
+      "stage": "sites-hunt-7218",
+      "kills": 56,
+      "xp": 13720,
+      "seconds": 39.07
+    },
+    {
+      "stage": "sites-hunt-7218",
+      "kills": 56,
+      "xp": 13720,
+      "seconds": 39.07
+    },
+    {
+      "stage": "sites-hunt-7218",
+      "kills": 56,
+      "xp": 13720,
+      "seconds": 39.07
+    },
+    {
+      "stage": "sites-hunt-7218",
+      "kills": 56,
+      "xp": 13720,
+      "seconds": 39.07
+    },
+    {
+      "stage": "sites-hunt-7218",
+      "kills": 56,
+      "xp": 13720,
+      "seconds": 39.07
+    },
+    {
+      "stage": "sites-hunt-7218",
+      "kills": 56,
+      "xp": 13720,
+      "seconds": 39.07
+    },
+    {
+      "stage": "sites-hunt-7218",
+      "kills": 13,
+      "xp": 3185,
+      "seconds": 9.68
+    }
+  ],
+  "mealsBought": 0,
+  "mealsEaten": 0,
+  "ferrySeconds": 30.0,
+  "partyWipes": 0,
+  "savedAndRestored": true,
+  "scope": "Continuation of the new Mondstadt adventure. Scripted Lua inputs and auto-battle for hunting."
+}

@@ -1,0 +1,20 @@
+{
+  "importedLevel": 40,
+  "verifiedQuests": [
+    "liyue-market-delivery",
+    "liyue-caravan-search",
+    "liyue-market-opening",
+    "beidou-join",
+    "liyue-book-rescue",
+    "liyue-hauling-shortcut",
+    "liyue-harbor-meal"
+  ],
+  "route": [
+    "liyue-ferry",
+    "inazuma-port"
+  ],
+  "autoArrived": true,
+  "firstInazumaQuestAccepted": "inazuma-moving-lantern",
+  "totalXp": 383334,
+  "errors": []
+}

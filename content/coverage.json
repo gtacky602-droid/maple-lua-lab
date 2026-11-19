@@ -51,7 +51,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 86,
+      "prototype_stage_count": 87,
       "prototype_quest_count": 24,
       "official_map2_markers": {
         "waypoints": 75,
@@ -7962,14 +7962,15 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1518,
+    "authored_stages": 1519,
     "provisional_quests": 283,
     "companion_join_records": 8,
     "fresh_save_route": {
-      "verified_to": "liyue-harbor",
-      "arrival_level": 20,
-      "scope": "New Lv1 save through the three Mondstadt main quests, three side quests, ordinary hunting and a checkpoint reload. Scripted Lua inputs and built-in auto-battle.",
-      "evidence": "evidence/mondstadt-fresh-route.json"
+      "verified_to": "inazuma-port",
+      "arrival_level": 40,
+      "scope": "New Lv1 save through Mondstadt and Liyue main quests, selected side quests, ordinary hunts and the scheduled Ritou ferry. Scripted Lua inputs and built-in auto-battle.",
+      "mondstadt_evidence": "evidence/mondstadt-fresh-route.json",
+      "evidence": "evidence/liyue-fresh-route.json"
     },
     "scope_complete": false,
     "not_proven": [
@@ -8034,7 +8035,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Continue the fresh-save progression route from Liyue to Inazuma and check the travel, quest and EXP gates.",
+  "current_priority": "Continue the fresh-save progression route from Inazuma toward Sumeru and check the travel, quest and EXP gates.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",
@@ -8209,6 +8210,7 @@
           "liyue-wp-97",
           "liyue-wp-100",
           "liyue-wp-104",
+          "liyue-quarry-scree",
           "liyue-wp-105",
           "liyue-wp-106",
           "liyue-wp-107",

@@ -133,3 +133,11 @@ Webの試験結果は[成長検証](../../evidence/progression-test.json)と[Chr
 台帳で通常と指定された敵は、名前が表示されても通常敵のEXPを使うように修正した。銘記の谷ではLv差補正後に1体11 EXP。試走は新規データと既存のキー操作を使い、狩りではラボの自動戦闘を使用した。港までのLua内時間は8分54秒。会話を読む時間やプレイヤーが手動で狩るペースは別途測る。
 
 `python -X utf8 test_mondstadt_fresh_route.py` を実行すると、検証で到達したセーブが `work/mondstadt-fresh-route/liyue-save.json` に出る。Chromeでこのファイルを読み込み、モンドの6件と共有EXPを保持したまま、璃月の最初のメイン依頼を受けて荷降ろし場へ進めた。 [ブラウザの再開ログ](../../evidence/mondstadt-fresh-route-browser.json)
+
+## 同じ冒険データで璃月から稲妻へ
+
+璃月のメイン3章と北斗の手伝い、本の回収、荷車の近道を終えるとLv36。香菱の料理依頼を追加で報告するとLv37になった。港周辺の既設密集狩場はLv38からだったため、港東の荷揚げ波止場に**Lv34の「港外の採石斜面」**を試作した。通常敵36体、6秒再出現、通行Lv34はいずれもラボの調整値。
+
+採石斜面で通常敵257体、港南の征討入口で349体を倒し、Lv40で璃月から稲妻・離島に出航した。船は30秒で自動着岸する。航海中の保存を読み込むと璃月港から再開し、着岸後の保存からは離島で再開した。Luaの璃月区間は18分39秒。狩りは自動戦闘を一定時間ごとに区切って計測した。 [Lv20〜40の獲得EXPと航海ログ](../../evidence/liyue-fresh-route.json)
+
+`python -X utf8 test_liyue_fresh_route.py` で、モンドのLv1から出航前と離島到着後のセーブを再生成できる。続けて `node test_liyue_fresh_route.mjs` を実行すると、Chromeで出航前のセーブから地図、乗船、着岸、稲妻最初の依頼まで再検査できる。 [船の地図案内](../../evidence/liyue-fresh-ferry-atlas.png) · [Chromeの着岸ログ](../../evidence/liyue-fresh-route-browser.json)

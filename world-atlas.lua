@@ -333,7 +333,9 @@ return function(C, atlas)
        previous[edge.to]={from=id,id=edge.to,name=nextNode.name,region=places[edge.to],
         label=route_labels[mode],mode=mode,reason=reason,
         hint=edge.darkOnly and '灯りを消して足場を出す' or edge.wind and '風が止むまで待つ'
-          or edge.windowStart and '停車・寄港時に降りる' or nil}
+          or edge.windowStart and '停車・寄港時に降りる'
+          or node.voyage and node.voyage.kind=='ferry' and node.voyage.destination==edge.to
+            and ('出航から'..node.voyage.seconds..'秒で着岸') or nil}
        queue[#queue+1]=edge.to
       end
      end
