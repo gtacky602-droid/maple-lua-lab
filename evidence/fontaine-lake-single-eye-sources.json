@@ -1,0 +1,139 @@
+{
+  "art_chat": "GPT-6.2 Astra, medium",
+  "scope": "Game screenshots from multiple viewpoints, with duplicate footage noted; no standalone model or strict side-on render",
+  "decision": "A single continuous pale eye per pose with a gold iris and dark pupil for contrast at 16 colors. The long and wide silhouettes remain distinct.",
+  "art_references": [
+    {
+      "file": "viv-gw.png",
+      "page": "https://gamewith.net/genshin-impact/article/show/40851",
+      "image": "https://img.gamewith.net/img/original_b2810caa33adae186cc25207f3b78473.jpg",
+      "size": [
+        1837,
+        1022
+      ],
+      "observation": "腕を上げて体が傾いた斜め姿。丸い眼が胴の左上に外れて見え、左右の腕は別の明るい形になる。側面寄りでも眼を二分しない根拠にした。"
+    },
+    {
+      "file": "nin-gw.png",
+      "page": "https://gamewith.net/genshin-impact/article/show/40851",
+      "image": "https://img.gamewith.net/img/original_b37cb26b21012e56d575db5ffd9a1f0d.jpg",
+      "size": [
+        1744,
+        994
+      ],
+      "observation": "水柱が立つ攻撃中の斜め正面。左右で腕の高さが異なり、中央の眼は傾いた一つの暗い楕円に見える。手前に重なる小さい泡は顔の模様に含めなかった。"
+    },
+    {
+      "file": "viv-nd.png",
+      "page": "https://thenerdstash.com/how-to-get-the-vivianne-of-the-lake-achievement-in-genshin-impact/",
+      "image": "https://image.thenerdstash.com/2023/08/vivianne-of-the-lake-genshin-impact.jpg",
+      "size": [
+        800,
+        450
+      ],
+      "observation": "走るプレイヤーの奥に腕を下ろした正面像。胴上の球に濃い斜めの印が一つ。切り出して顔を照合した。"
+    },
+    {
+      "file": "viv-ginx.png",
+      "page": "https://www.ginx.tv/en/vivianne-of-lake-location-how-beat",
+      "image": "https://www.ginx.tv/en/wp-content/uploads/sites/3/2025/12/Genshin_Impact_4.0_VIVIANNE_OF_THE_LAKE_Achievement__Boss_Location__0-11_screenshot.jpg",
+      "size": [
+        1024,
+        576
+      ],
+      "observation": "正面寄りの拡大。同じ走者と背景がThe Nerd Stashの画像に写り、同じ映像系列と判断。独立した別姿勢には数えない。"
+    },
+    {
+      "file": "nin-alt0.png",
+      "page": "https://altema.jp/gensin/ninianne",
+      "image": "https://img.altema.jp/gensin/uploads/2023/08/2023y08m22d_1100082075.jpg",
+      "size": [
+        580,
+        326
+      ],
+      "observation": "近距離の戦闘。操作キャラの照準と元素反応が重なるため、顔の根拠から外した。"
+    },
+    {
+      "file": "nin-alt1.png",
+      "page": "https://altema.jp/gensin/ninianne",
+      "image": "https://img.altema.jp/gensin/uploads/2023/08/2023y08m22d_1100005735.jpg",
+      "size": [
+        580,
+        326
+      ],
+      "observation": "反応ダメージと草元素の発光が体を覆い、眼や瞳孔の輪郭は確定できない。"
+    },
+    {
+      "file": "viv-fr.png",
+      "page": "https://www.genshin-impact.fr/guide-de-succes-les-huit-legendes-de-fontaine/",
+      "image": "https://www.genshin-impact.fr/wp-content/uploads/2023/08/vivanne-du-lac.jpg",
+      "size": [
+        1678,
+        944
+      ],
+      "observation": "腕を開いた正面寄りの浮遊姿。胴の上の小さい丸の中に、暗い部分が一つ見える。周囲の水滴と頭上の水元素表示は眼の外にある。静止画なので待機モーション名は特定できない。"
+    },
+    {
+      "file": "nin-fr.png",
+      "page": "https://www.genshin-impact.fr/guide-de-succes-les-huit-legendes-de-fontaine/",
+      "image": "https://www.genshin-impact.fr/wp-content/uploads/2023/08/ninianne-du-lac.jpg",
+      "size": [
+        1678,
+        944
+      ],
+      "observation": "浜辺で腕を低く開いた正面寄りの浮遊姿。中央の水塊に暗い横長の領域が一つあり、中に明るい形が入る。頭上の水元素マークと分けて見た。待機に近い姿勢の参照。"
+    },
+    {
+      "file": "nin-mods0.png",
+      "page": "https://modslab.net/en/genshin_impact/guides/NHS954R3Ba/",
+      "image": "https://modslab.net/redactor/upload-images/64e2798bdf8f3.png",
+      "size": [
+        1600,
+        900
+      ],
+      "observation": "位置図。姿勢の根拠から外した。"
+    },
+    {
+      "file": "nin-mods1.png",
+      "page": "https://modslab.net/en/genshin_impact/guides/NHS954R3Ba/",
+      "image": "https://modslab.net/redactor/upload-images/64e279de09f31.png",
+      "size": [
+        1600,
+        900
+      ],
+      "observation": "戦闘前に浜辺から接近する遠景。低く横に広い待ち姿を確認できるが、顔の細部は解像度不足。"
+    },
+    {
+      "file": "nin-mods2.png",
+      "page": "https://modslab.net/en/genshin_impact/guides/NHS954R3Ba/",
+      "image": "https://modslab.net/redactor/upload-images/64e279bded04a.png",
+      "size": [
+        1600,
+        900
+      ],
+      "observation": "撃破直後の水しぶき。顔は残っていない。"
+    }
+  ],
+  "integration_crosscheck": [
+    {
+      "page": "https://game8.jp/genshin/546492",
+      "image": "https://img.game8.jp/8558672/0796177b17c99699246a5801916e51d1.jpeg/original",
+      "observation": "ヴィヴィアン、腕を上げ水が手前に出た瞬間。斜め上に見える頭部の明部と、腕や飛沫の光を区別した。"
+    },
+    {
+      "page": "https://game8.jp/genshin/546492",
+      "image": "https://img.game8.jp/8558673/b86557334820be3e6ff11a0d33bae555.jpeg/original",
+      "observation": "ニニアン、両腕を上げた近景。腕の間の胴に濃い縁を持つ眼が一つ見える。"
+    },
+    {
+      "page": "https://gamewith.jp/genshin/article/show/414032",
+      "image": "https://img.gamewith.jp/img/ace49b263d9bdb818f85df28b9585a58.png",
+      "observation": "ヴィヴィアンの遠景。縦の胴と浮遊は読み取れる。眼の詳細は近景を参照した。"
+    },
+    {
+      "page": "https://gamewith.jp/genshin/article/show/414032",
+      "image": "https://img.gamewith.jp/img/586a0d8b59f0fa38aaf0996615d5b408.png",
+      "observation": "ニニアンの遠景。両腕の間に顔がある。眼の詳細は近景を参照した。"
+    }
+  ]
+}

@@ -153,6 +153,7 @@ evidence = {}
 layouts = {
     'assets/legend-poses-v2-layout.json': 2,
     'assets/fontaine-dry-legend-poses-v1-layout.json': 1,
+    'assets/fontaine-lake-legend-poses-v3-layout.json': 3,
 }
 for path, revision in layouts.items():
     layout = read(path)

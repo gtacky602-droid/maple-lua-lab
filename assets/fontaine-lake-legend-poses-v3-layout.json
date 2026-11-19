@@ -1,0 +1,167 @@
+{
+  "source": "fontaine-lake-legend-poses-source-v3.png",
+  "frames": [
+    {
+      "id": "lake-vivianne",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        107,
+        17,
+        182,
+        120
+      ],
+      "source_sheet": "exec-c6c42a85-44f2-4dce-b469-69c2210254cd.png",
+      "source_crop": [
+        0,
+        0,
+        510,
+        590
+      ]
+    },
+    {
+      "id": "lake-vivianne",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        110,
+        16,
+        176,
+        120
+      ],
+      "source_sheet": "exec-c6c42a85-44f2-4dce-b469-69c2210254cd.png",
+      "source_crop": [
+        510,
+        0,
+        440,
+        590
+      ]
+    },
+    {
+      "id": "lake-vivianne",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        80,
+        16,
+        184,
+        120
+      ],
+      "source_sheet": "exec-c6c42a85-44f2-4dce-b469-69c2210254cd.png",
+      "source_crop": [
+        950,
+        0,
+        586,
+        590
+      ]
+    },
+    {
+      "id": "lake-ninianne",
+      "pose": "idle",
+      "crop": [
+        0,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        77,
+        43,
+        211,
+        120
+      ],
+      "source_sheet": "exec-c6c42a85-44f2-4dce-b469-69c2210254cd.png",
+      "source_crop": [
+        0,
+        590,
+        512,
+        434
+      ]
+    },
+    {
+      "id": "lake-ninianne",
+      "pose": "brace",
+      "crop": [
+        288,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        86,
+        42,
+        200,
+        120
+      ],
+      "source_sheet": "exec-c6c42a85-44f2-4dce-b469-69c2210254cd.png",
+      "source_crop": [
+        512,
+        590,
+        470,
+        434
+      ]
+    },
+    {
+      "id": "lake-ninianne",
+      "pose": "strike",
+      "crop": [
+        576,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        78,
+        20,
+        213,
+        120
+      ],
+      "source_sheet": "exec-c6c42a85-44f2-4dce-b469-69c2210254cd.png",
+      "source_crop": [
+        982,
+        590,
+        554,
+        434
+      ]
+    }
+  ]
+}

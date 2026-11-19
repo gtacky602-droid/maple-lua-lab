@@ -58,9 +58,9 @@
       "bodies": 1,
       "png_bodies_and_scene_draw_counts": {
         "png": 1,
-        "legacy": 3494,
-        "h48c32": 2056,
-        "h32c16": 929
+        "legacy": 3835,
+        "h48c32": 2292,
+        "h32c16": 1027
       },
       "normal_attack_clear": {
         "seconds": 80.83,
@@ -82,9 +82,9 @@
       "bodies": 1,
       "png_bodies_and_scene_draw_counts": {
         "png": 1,
-        "legacy": 4810,
-        "h48c32": 2893,
-        "h32c16": 1298
+        "legacy": 4434,
+        "h48c32": 2732,
+        "h32c16": 1226
       },
       "normal_attack_clear": {
         "seconds": 87.2,
@@ -225,6 +225,7 @@
   "saved_boss_record": true,
   "source_assets": [
     "fontaine-dry-legend-poses-source-v1.png",
+    "fontaine-lake-legend-poses-source-v3.png",
     "legend-poses-source-v2.png"
   ],
   "detached_wave_travel_and_impact_verified": true,

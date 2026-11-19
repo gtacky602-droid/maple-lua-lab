@@ -31,6 +31,7 @@ for source, (columns, rows) in SHEETS.items():
 PIVOT_LAYOUTS = {
     'legend-poses-v2-layout.json': 2,
     'fontaine-dry-legend-poses-v1-layout.json': 1,
+    'fontaine-lake-legend-poses-v3-layout.json': 3,
 }
 for layout_name, revision in PIVOT_LAYOUTS.items():
     layout = json.loads((ROOT/'assets'/layout_name).read_text(encoding='utf-8'))

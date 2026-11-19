@@ -18,7 +18,7 @@ const canvas=page.locator('#game');
 const errors=[];
 const requestedLegendSheets=[];
 page.on('request',req=>{
- if(/legend-poses-source-v[12][.]png$/.test(new URL(req.url()).pathname))requestedLegendSheets.push(req.url());
+ if(/legend-poses-source-v[123][.]png$/.test(new URL(req.url()).pathname))requestedLegendSheets.push(req.url());
 });
 page.on('pageerror',err=>errors.push(err.message));
 page.on('response',res=>{
@@ -112,7 +112,7 @@ try{
   const png=await current();
   assert.equal(png.bodies,legend.members);
   await canvas.screenshot({path:`evidence/${tag}-legend-field.png`});
-  if(i===0){
+  if(i===0||lake){
    const mode=page.locator('#renderMode');
    let standard,light;
    await mode.selectOption('rect');
@@ -152,14 +152,17 @@ try{
   await page.locator('#assetSearch').fill('ディアンナラ');
   assert.equal(await visibleCards.count(),1);
  }else{
-  assert.equal(await visibleCards.count(),4);
-  assert.equal(await visibleCards.locator('canvas').count(),8);
+  const revisions=lake?3:2;
+  assert.equal(await visibleCards.count(),revisions*2);
+  assert.equal(await visibleCards.locator('canvas').count(),revisions*4);
   await page.locator('#assetSearch').fill(lake?'ニニアン':'シネアス');
-  assert.equal(await visibleCards.count(),2);
-  assert.deepEqual((await visibleCards.locator('h2').allTextContents()).map(title=>title.slice(-3)),['初稿）','改稿）']);
-  assert.equal(await visibleCards.locator('canvas').count(),4);
+  assert.equal(await visibleCards.count(),revisions);
+  const titles=await visibleCards.locator('h2').allTextContents();
+  const labels=lake?['初稿','第2稿','第3稿・一つ目']:['初稿','改稿'];
+  titles.forEach((title,index)=>assert.ok(title.endsWith('（'+labels[index]+'）')));
+  assert.equal(await visibleCards.locator('canvas').count(),revisions*2);
  }
- if(lake)await page.screenshot({path:'evidence/lake-legend-art-v1-v2-gallery.png',fullPage:true});
+ if(lake)await page.screenshot({path:'evidence/lake-legend-single-eye-gallery.png',fullPage:true});
  assert.deepEqual(errors,[]);
  const log=dry?'sites-fontaine-dry-legends-browser':lake?'sites-fontaine-lake-legends-browser':'sites-branch-legends-browser';
  await fs.writeFile('evidence/'+log+'.json',JSON.stringify({

@@ -1,6 +1,6 @@
 # フォンテーヌの湖辺の任意戦
 
-[ローカルLuaラボ](http://127.0.0.1:8977/)で本編を開始し、Mの地図で「フォンテーヌ」から「狩場・任意戦」を選ぶ。2戦とも通行Lv100。入口の門でFを押して挑戦し、戦闘中は入口側のFで退ける。いったん外へ出て入り直すと、新しい一戦が始まる。討伐記録はセーブに残る。
+[ローカルLuaラボ](http://127.0.0.1:8979/)で本編を開始し、Mの地図で「フォンテーヌ」から「狩場・任意戦」を選ぶ。2戦とも通行Lv100。入口の門でFを押して挑戦し、戦闘中は入口側のFで退ける。いったん外へ出て入り直すと、新しい一戦が始まる。討伐記録はセーブに残る。
 
 | 挑戦 | 入口 | 攻撃の読み方 |
 | --- | --- | --- |
@@ -11,12 +11,12 @@
 
 ## ドット絵と軽量化
 
-ヴィヴィアンは縦長の胴と横へ伸びる拳、ニニアンは幅広い構えと上に上がる両腕を持つ。各3ポーズはゲーム内の公開画像を複数見比べて改稿した。足元には浮遊の間隔を設けた。改稿の透過PNGは4戦共通の約198 KBで、戦闘に初めて表示するときに読み込む。背景はラボ用の仮画像。 [待機絵の初稿・改稿と軽量版](http://127.0.0.1:8977/bosses-art.html?q=%E6%B9%96%E8%BE%BA%E3%81%AE) · [参照と採用した特徴](BRANCH_LEGEND_ART_V2.md)
+前稿ではヴィヴィアンの顔の光点が二つ目に見え、ニニアンは中央の核が眼として読みにくかった。追加のゲーム画像で正面・斜めと待機・攻撃を見比べ、第3稿ではどのポーズにも一つだけの虹彩と瞳孔を描いた。ヴィヴィアンは縦に浮く胴、ニニアンは両腕の間が顔。実寸と半分の大きさで目の形を確認した。初稿と第2稿はギャラリーに残した。第3稿の透過PNGは約52KBで、戦闘で初めて表示するときに読み込む。背景はラボ用の仮画像。 [新旧6ポーズの比較](../evidence/fontaine-lake-single-eye-comparison.png) · [参照画像の出典と採用理由](../evidence/fontaine-lake-single-eye-sources.json) · [第3稿の元PNGと軽量版](http://127.0.0.1:8979/bosses-art.html?q=%E6%B9%96%E8%BE%BA%E3%81%AE%20%E4%B8%80%E3%81%A4%E7%9B%AE)
 
 ## 検証
 
 Luaで通行Lv100の境界、6行動、移動する水波の命中範囲、退路と入り直し、報酬とセーブを確認した。移動・ジャンプ・通常攻撃の自動入力で最大HPから討伐した検査では、ヴィヴィアン80.83秒、ニニアン87.20秒。別の命中検査では位置とHPを固定して比較した。 [Luaログ](../evidence/sites-branch-legends-lua.json)
 
-ChromeでM表示、実際の門、予告、両方の退路と再挑戦、待機絵の左右比較を確認した。ヴィヴィアンは同じ場面を一時停止して、標準矩形描画と軽量16色を比較した。描画指示数はログを参照。 [Chromeログ](../evidence/sites-fontaine-lake-legends-browser.json) · [ヴィヴィアンPNG](../evidence/vivianne-legend-field.png) · [軽量16色](../evidence/vivianne-legend-light.png) · [ニニアンの水柱予告](../evidence/ninianne-legend-field.png)
+ChromeでM表示、実際の門、予告、両方の退路と再挑戦、待機絵の左右比較を確認した。両方の戦闘で同じ場面を一時停止し、標準矩形描画と軽量16色を比較した。描画指示数はログを参照。 [Chromeログ](../evidence/sites-fontaine-lake-legends-browser.json) · [ヴィヴィアンPNG](../evidence/vivianne-legend-field.png) · [軽量16色](../evidence/vivianne-legend-light.png) · [ニニアンの戦闘画面](../evidence/ninianne-legend-field.png) · [ニニアンの軽量16色](../evidence/ninianne-legend-light.png)
 
-再検証は `python -X utf8 test_branch_legends.py`、続けて8977のラボで `node test_branch_legends.mjs --lake`。
+再検証は `python -X utf8 test_branch_legends.py`、続けて8979のラボで `node test_branch_legends.mjs --lake`。
