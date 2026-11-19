@@ -155,6 +155,7 @@ layouts = {
     'assets/fontaine-dry-legend-poses-v1-layout.json': 1,
     'assets/fontaine-lake-legend-poses-v3-layout.json': 3,
     'assets/fontaine-lake-legend-poses-v4-layout.json': 4,
+    'assets/fontaine-lake-legend-poses-v6-layout.json': 6,
 }
 for path, revision in layouts.items():
     layout = read(path)
@@ -171,6 +172,13 @@ for path, revision in layouts.items():
             assert pivot_y - frame['opaque_box'][3] == hover
             for profile in asset['profiles'].values():
                 assert max(r[1]+r[3] for r in profile['runs']) < profile['height']
+
+
+def check_lake_pose(s, spec, source, pose):
+    expected = read(f"assets/{spec['art']}-field-{pose}-sprites-v6.json")
+    rendered = [draw for draw in core.frame(s, 'sprite', 'legacy').draws.values() if draw.source == source]
+    assert len(rendered)==1 and list(rendered[0].box.values())==expected['box']
+    assert abs(rendered[0].h-expected['box'][3]*spec['artScale']) < 1e-7
 
 
 entries = [(entry, manifest['art_source'])
@@ -223,8 +231,13 @@ for r, source_art in entries:
         core.step(s, 1/60, idle)
     assert slot.phase=='available' and hero.hp==hero.maxhp
     hero.x=spec['home']-185
+    lake = spec.get('artRevision')==6
+    if lake:
+        check_lake_pose(s,spec,source_art,'idle')
     step_to(slot, s, lambda e: e.cast is not None)
     cast = slot.cast
+    if lake:
+        check_lake_pose(s,spec,source_art,'brace')
     preview = core.frame(s, 'sprite', 'legacy')
     rendered = [d for d in preview.draws.values() if d.source==source_art]
     assert len(rendered)==r['members'] and all(d.y==480 for d in rendered)
@@ -246,6 +259,8 @@ for r, source_art in entries:
             hero.y,hero.hp,hero.inv=480,hero.maxhp,0
             before=hero.hp
             core.step(s,1/60,idle)
+            if lake:
+                check_lake_pose(s,spec,source_art,'strike')
             if phase.get('wave'):
                 owner_x = strike.owner.x
                 assert hero.hp==before and abs(strike.activeRight-strike.activeLeft) < strike.right-strike.left

@@ -136,7 +136,8 @@ return function(C)
   for _,body in ipairs({b,b.fieldPartner}) do
    if body.x>=camera-160 and body.x<=camera+1120 then
     local art=C.branchLegendArt[body.legendArt][body.legendPose]
-    C.drawFieldDisplayArt(f,art,body.x-camera,body.y,body.drawHeight,mode,profile,body.facing>0)
+    local height=spec.artScale and art.box[4]*spec.artScale or body.drawHeight
+    C.drawFieldDisplayArt(f,art,body.x-camera,body.y,height,mode,profile,body.facing>0)
    end
   end
  end

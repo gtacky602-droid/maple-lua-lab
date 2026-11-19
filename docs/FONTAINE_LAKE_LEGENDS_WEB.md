@@ -1,6 +1,6 @@
 # フォンテーヌの湖辺の任意戦
 
-[ローカルLuaラボ](http://127.0.0.1:8981/)で本編を開始し、Mの地図で「フォンテーヌ」から「狩場・任意戦」を選ぶ。2戦とも通行Lv100。入口の門でFを押して挑戦し、戦闘中は入口側のFで退ける。いったん外へ出て入り直すと、新しい一戦が始まる。討伐記録はセーブに残る。
+[ローカルLuaラボ](http://127.0.0.1:8983/)で本編を開始し、Mの地図で「フォンテーヌ」から「狩場・任意戦」を選ぶ。2戦とも通行Lv100。入口の門でFを押して挑戦し、戦闘中は入口側のFで退ける。いったん外へ出て入り直すと、新しい一戦が始まる。討伐記録はセーブに残る。
 
 | 挑戦 | 入口 | 攻撃の読み方 |
 | --- | --- | --- |
@@ -11,7 +11,9 @@
 
 ## ドット絵と軽量化
 
-ギャラリーに第5稿の待機候補を二体それぞれ2案追加した。A案は少ない色で大きな面を作り、B案は斜め向きの腕と重なりで奥行きを出す。どちらも濃藍の縁に青白い半月形の眼を一つ置いた。ヴィヴィアンは頭と胴のすき間、ニニアンは左右の腕の先が読める形を優先した。戦闘では第4稿を使用中。 [ラボで全稿を比較](http://127.0.0.1:8982/bosses-art.html?q=湖辺の&zoom=1) · [同じ背景・高さ114pxの元PNGと16色比較](../evidence/lake-legend-idle-v5-comparison.png)
+本人が選んだ第5稿A案を両方の戦闘に採用した。待機絵は選定時の画素と同じ。構え・攻撃でも半月形の眼と5色の配色を保ち、ヴィヴィアンは頭の上下と左腕の伸び、ニニアンは両腕の持ち上げと振りで動きを見せる。同一の縮尺で切り替え、Luaで待機・構え・攻撃の切り出しと床位置を確認した。 [6ポーズの比較](../evidence/lake-legend-a-poses.png)
+
+ギャラリーでA案とB案を比較できる。A案は少ない色で大きな面を作り、B案は斜め向きの腕と重なりで奥行きを出す。どちらも濃藍の縁に青白い半月形の眼を一つ置いた。ヴィヴィアンは頭と胴のすき間、ニニアンは左右の腕の先が読める形を優先した。 [ラボで全稿を比較](http://127.0.0.1:8983/bosses-art.html?q=湖辺の&zoom=1) · [同じ背景・高さ114pxの元PNGと16色比較](../evidence/lake-legend-idle-v5-comparison.png)
 
 軽量16色の矩形はヴィヴィアンが第4稿493、A案191、B案1,068。ニニアンが1,086、224、1,389。青い仮背景でA案は眼が残りやすく、B案は水の厚みが残る一方で顔の明るい部分が小さくなる。Chromeで全4候補の表示、3設定と390px幅を確認した。 [描画の計測](../evidence/lake-legend-idle-v5-browser.json) · [参照の記録](FONTAINE_LAKE_ART_REFERENCES.md)
 
@@ -21,6 +23,6 @@
 
 Luaで通行Lv100の境界、6行動、移動する水波の命中範囲、退路と入り直し、報酬とセーブを確認した。移動・ジャンプ・通常攻撃の自動入力で最大HPから討伐した検査では、ヴィヴィアン80.83秒、ニニアン87.20秒。別の命中検査では位置とHPを固定して比較した。 [Luaログ](../evidence/sites-branch-legends-lua.json)
 
-ChromeでM表示、実際の門、予告、両方の退路と再挑戦、待機絵の左右比較を確認した。両方の戦闘で同じ場面を一時停止し、標準矩形描画と軽量16色を比較した。描画指示数はログを参照。 [Chromeログ](../evidence/sites-fontaine-lake-legends-browser.json) · [ヴィヴィアンPNG](../evidence/vivianne-legend-field.png) · [軽量16色](../evidence/vivianne-legend-light.png) · [ニニアンの戦闘画面](../evidence/ninianne-legend-field.png) · [ニニアンの軽量16色](../evidence/ninianne-legend-light.png)
+ChromeでM表示、実際の門、予告、両方の退路と再挑戦、待機絵の左右比較を確認した。両方の戦闘で同じ場面を一時停止し、標準矩形描画と軽量16色を比較した。描画指示数はログを参照。 [Chromeログ](../evidence/sites-fontaine-lake-legends-a-browser.json) · [ヴィヴィアンPNG](../evidence/vivianne-legend-a-field.png) · [軽量16色](../evidence/vivianne-legend-a-light.png) · [ニニアンPNG](../evidence/ninianne-legend-a-field.png) · [軽量16色](../evidence/ninianne-legend-a-light.png)
 
-再検証は `python -X utf8 test_branch_legends.py`、Chromeの確認は `$env:LAB_URL='http://127.0.0.1:8981/'` を設定して `node test_branch_legends.mjs --lake`。
+再検証は `python -X utf8 test_branch_legends.py`、Chromeの確認は `$env:LAB_URL='http://127.0.0.1:8983/'` を設定して `node test_branch_legends.mjs --lake`。

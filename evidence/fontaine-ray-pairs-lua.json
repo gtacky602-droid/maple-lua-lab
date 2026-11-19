@@ -1,0 +1,81 @@
+{
+  "legend-fontaine_fairy_knight_twins": {
+    "entrance": [
+      "fon-wp-50075",
+      "fairy-knight-twins-legend-court"
+    ],
+    "memberNames": [
+      "アンジェリカ",
+      "ミドロ"
+    ],
+    "lv99LockedLv100Accessible": true,
+    "ownerByWaterBlade": [
+      [
+        97063,
+        97064
+      ],
+      [
+        97064
+      ],
+      [
+        97063,
+        97064
+      ]
+    ],
+    "simultaneousBladesLeaveSafeMiddle": true,
+    "waterPulseHitsEitherMemberOnce": 5,
+    "retreatAtEntryDepth": true,
+    "reentryResetBoth": true,
+    "drawCommands": {
+      "legacy": 5232,
+      "h48c32": 3252,
+      "h32c16": 1556
+    },
+    "soloClear": {
+      "seconds": 67.85,
+      "hp": 140,
+      "killXp": 212400
+    },
+    "singleRewardAndSave": true
+  },
+  "legend-fontaine_swords_of_the_gorge": {
+    "entrance": [
+      "fon-wp-50071",
+      "swords-of-the-gorge-legend-rift"
+    ],
+    "memberNames": [
+      "コルタナ",
+      "モーグレイ"
+    ],
+    "lv99LockedLv100Accessible": true,
+    "ownerByWaterBlade": [
+      [
+        97065,
+        97066
+      ],
+      [
+        97066,
+        97065
+      ],
+      [
+        97066,
+        97066
+      ]
+    ],
+    "simultaneousBladesLeaveSafeMiddle": true,
+    "waterPulseHitsEitherMemberOnce": 5,
+    "retreatAtEntryDepth": true,
+    "reentryResetBoth": true,
+    "drawCommands": {
+      "legacy": 5604,
+      "h48c32": 3512,
+      "h32c16": 1534
+    },
+    "soloClear": {
+      "seconds": 72.98,
+      "hp": 108,
+      "killXp": 212400
+    },
+    "singleRewardAndSave": true
+  }
+}

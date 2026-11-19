@@ -18,7 +18,7 @@ const canvas=page.locator('#game');
 const errors=[];
 const requestedLegendSheets=[];
 page.on('request',req=>{
- if(/legend-poses-source-v[1234][.]png$/.test(new URL(req.url()).pathname))requestedLegendSheets.push(req.url());
+ if(/legend-poses-source-v[12346][.]png$/.test(new URL(req.url()).pathname))requestedLegendSheets.push(req.url());
 });
 page.on('pageerror',err=>errors.push(err.message));
 page.on('response',res=>{
@@ -44,6 +44,7 @@ try{
  const sizes={};
  for (const [i,legend] of legends.entries()) {
   const tag=pngTags[i];
+  const capture=lake?tag+'-legend-a':tag+'-legend';
   const label=page.locator('#fieldBossLabel');
   const approach=legend.approach??[legend.host];
   const fixture=legend.approach?'before-report-fixture':'fixture';
@@ -111,7 +112,7 @@ try{
   },source);
   const png=await current();
   assert.equal(png.bodies,legend.members);
-  await canvas.screenshot({path:`evidence/${tag}-legend-field.png`});
+  await canvas.screenshot({path:`evidence/${capture}-field.png`});
   if(i===0||lake){
    const mode=page.locator('#renderMode');
    let standard,light;
@@ -125,7 +126,7 @@ try{
    assert.ok(standard.commands>light.commands&&light.commands>png.commands);
    assert.deepEqual(standard.warnings,light.warnings);
    sizes[tag]={png:png.commands,legacy:standard.commands,h32c16:light.commands};
-   await canvas.screenshot({path:`evidence/${tag}-legend-light.png`});
+   await canvas.screenshot({path:`evidence/${capture}-light.png`});
    await mode.selectOption('sprite');
   }
   await pause(false);
@@ -158,12 +159,12 @@ try{
   await page.locator('#assetSearch').fill(lake?'ニニアン':'シネアス');
   assert.equal(await visibleCards.count(),revisions);
   const titles=await visibleCards.locator('h2').allTextContents();
-  const labels=lake?['初稿','第2稿','第3稿・一つ目','第4稿・水の陰影','第5稿A・大きな色面','第5稿B・斜めの奥行き']:['初稿','改稿'];
+  const labels=lake?['初稿','第2稿','第3稿・一つ目','第4稿・水の陰影','第5稿A・本編表示中','第5稿B・斜めの奥行き']:['初稿','改稿'];
   titles.forEach((title,index)=>assert.ok(title.endsWith('（'+labels[index]+'）')));
   assert.equal(await visibleCards.locator('canvas').count(),revisions*2);
  }
  assert.deepEqual(errors,[]);
- const log=dry?'sites-fontaine-dry-legends-browser':lake?'sites-fontaine-lake-legends-browser':'sites-branch-legends-browser';
+ const log=dry?'sites-fontaine-dry-legends-browser':lake?'sites-fontaine-lake-legends-a-browser':'sites-branch-legends-browser';
  await fs.writeFile('evidence/'+log+'.json',JSON.stringify({
   originalSpriteSheet:source, bothOptionalEntriesFromAtlas:true,
   sameFrameComparisonAndGallery:true, ...(dry?{waterIntakeQuestAndReturn:true}:{galleryShowsBothArtRevisions:true}), optionalSheetsDeferredUntilEncounter:true, bothRetreatsAndReentryPassed:true,

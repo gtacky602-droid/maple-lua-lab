@@ -1,0 +1,40 @@
+{
+  "references": [
+    {
+      "file": "../fontaine-ray-refs/twins.jpg",
+      "url": "https://altema.jp/gensin/souseiyouseinokishi",
+      "kind": "名前付きゲーム内戦闘画面",
+      "observed": "HPバーにアンジェリカとミドロ。右側のエイは桃紫のひれと細い尾を持つ。単独の色と固有名の対応は判別できない。"
+    },
+    {
+      "file": "../fontaine-ray-refs/gorge.jpg",
+      "url": "https://altema.jp/gensin/sinkokunoken",
+      "kind": "名前付きゲーム内戦闘画面",
+      "observed": "HPバーにコルタナとモーグレイ。2体が離れて向き合い、中央に強い発光がある。距離と姿勢を参照した。"
+    },
+    {
+      "file": "../fontaine-ray-refs/avatars.jpg",
+      "url": "https://www.hoyolab.com/article/21099968",
+      "kind": "投稿者が編集したゲーム内画像のまとめ",
+      "observed": "下段左と左から2番目の斜め・横向きで、薄い胴から幅広いひれが流れ、手前の淡桃と奥の青紫で重なりが見える。"
+    },
+    {
+      "url": "https://gamewith.jp/genshin/article/show/412698",
+      "image_url": "https://img.gamewith.jp/img/a0aa38ab308ec31149ec9ecc289680a4.jpg",
+      "kind": "GameWithの狩猟刀エイ掲載画像（230×229）",
+      "observed": "別配色の一般個体の掲載画像。明るい黄緑のひれ面と、その下に重なる濃い面が見える。ひれの前後関係のみ参照した。"
+    }
+  ],
+  "scope": "戦闘画面・投稿者編集画像・攻略サイト掲載画像を目視。図鑑全身や公式展示のコンセプトアート本体は確認できなかった。納品PNGはすべてラボ用に新規生成したもの。",
+  "art_decisions": {
+    "legend-fairy-angelica": "珊瑚桃・クリームの前縁と三日月",
+    "legend-fairy-midoro": "藤色・丸みのあるひれ先に淡色の二本線",
+    "legend-gorge-cortana": "暗紫・尖ったひれと銀の菱形",
+    "legend-gorge-morglay": "赤紫・波状のひれ縁と二つの斑点"
+  },
+  "poses": [
+    "背側と腹側にひれを開く",
+    "両ひれを上へ引き寄せる",
+    "鼻先を左へ出し、ひれを後方へ下げる"
+  ]
+}

@@ -1,0 +1,334 @@
+{
+  "source": "fontaine-ray-pair-poses-source-v1.png",
+  "facing": "left",
+  "swimCenter": [
+    144,
+    54
+  ],
+  "frames": [
+    {
+      "id": "legend-fairy-angelica",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        82,
+        17,
+        260,
+        97
+      ],
+      "source_sheet": "legend-fairy-angelica-source.png",
+      "source_crop": [
+        0,
+        0,
+        724,
+        724
+      ]
+    },
+    {
+      "id": "legend-fairy-angelica",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        77,
+        14,
+        247,
+        81
+      ],
+      "source_sheet": "legend-fairy-angelica-source.png",
+      "source_crop": [
+        724,
+        0,
+        724,
+        724
+      ]
+    },
+    {
+      "id": "legend-fairy-angelica",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        80,
+        37,
+        270,
+        93
+      ],
+      "source_sheet": "legend-fairy-angelica-source.png",
+      "source_crop": [
+        1448,
+        0,
+        724,
+        724
+      ]
+    },
+    {
+      "id": "legend-fairy-midoro",
+      "pose": "idle",
+      "crop": [
+        0,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        82,
+        17,
+        260,
+        97
+      ],
+      "source_sheet": "legend-fairy-midoro-source.png",
+      "source_crop": [
+        0,
+        0,
+        724,
+        724
+      ]
+    },
+    {
+      "id": "legend-fairy-midoro",
+      "pose": "brace",
+      "crop": [
+        288,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        77,
+        14,
+        247,
+        81
+      ],
+      "source_sheet": "legend-fairy-midoro-source.png",
+      "source_crop": [
+        724,
+        0,
+        724,
+        724
+      ]
+    },
+    {
+      "id": "legend-fairy-midoro",
+      "pose": "strike",
+      "crop": [
+        576,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        81,
+        37,
+        271,
+        93
+      ],
+      "source_sheet": "legend-fairy-midoro-source.png",
+      "source_crop": [
+        1448,
+        0,
+        724,
+        724
+      ]
+    },
+    {
+      "id": "legend-gorge-cortana",
+      "pose": "idle",
+      "crop": [
+        0,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        81,
+        15,
+        259,
+        95
+      ],
+      "source_sheet": "legend-gorge-cortana-source.png",
+      "source_crop": [
+        0,
+        0,
+        724,
+        724
+      ]
+    },
+    {
+      "id": "legend-gorge-cortana",
+      "pose": "brace",
+      "crop": [
+        288,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        77,
+        12,
+        247,
+        79
+      ],
+      "source_sheet": "legend-gorge-cortana-source.png",
+      "source_crop": [
+        724,
+        0,
+        724,
+        724
+      ]
+    },
+    {
+      "id": "legend-gorge-cortana",
+      "pose": "strike",
+      "crop": [
+        576,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        82,
+        37,
+        272,
+        93
+      ],
+      "source_sheet": "legend-gorge-cortana-source.png",
+      "source_crop": [
+        1448,
+        0,
+        724,
+        724
+      ]
+    },
+    {
+      "id": "legend-gorge-morglay",
+      "pose": "idle",
+      "crop": [
+        0,
+        432,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        81,
+        16,
+        259,
+        96
+      ],
+      "source_sheet": "legend-gorge-morglay-source.png",
+      "source_crop": [
+        0,
+        0,
+        724,
+        724
+      ]
+    },
+    {
+      "id": "legend-gorge-morglay",
+      "pose": "brace",
+      "crop": [
+        288,
+        432,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        77,
+        12,
+        247,
+        79
+      ],
+      "source_sheet": "legend-gorge-morglay-source.png",
+      "source_crop": [
+        724,
+        0,
+        724,
+        724
+      ]
+    },
+    {
+      "id": "legend-gorge-morglay",
+      "pose": "strike",
+      "crop": [
+        576,
+        432,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        79,
+        38,
+        269,
+        94
+      ],
+      "source_sheet": "legend-gorge-morglay-source.png",
+      "source_crop": [
+        1448,
+        0,
+        724,
+        724
+      ]
+    }
+  ]
+}

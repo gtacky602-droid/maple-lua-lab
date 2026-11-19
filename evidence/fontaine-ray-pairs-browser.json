@@ -1,0 +1,36 @@
+{
+  "bothRoutesFromAtlas": true,
+  "keyboardPulseAndRetreat": true,
+  "reentryAtFullSharedHealth": true,
+  "sameFrameArtAndWarnings": true,
+  "profileCounts": {
+    "fairy-knight-twins": {
+      "png": 31,
+      "standard": 7526,
+      "light": 2048,
+      "members": [
+        "アンジェリカ",
+        "ミドロ"
+      ],
+      "bladeSources": [
+        97063,
+        97064
+      ]
+    },
+    "swords-of-the-gorge": {
+      "png": 31,
+      "standard": 7768,
+      "light": 2037,
+      "members": [
+        "コルタナ",
+        "モーグレイ"
+      ],
+      "bladeSources": [
+        97065,
+        97066
+      ]
+    }
+  },
+  "allFourGalleryEntries": true,
+  "errors": []
+}

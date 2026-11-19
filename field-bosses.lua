@@ -111,11 +111,16 @@ return function(C,configs,controllers)
   if s.fieldSlots then s.fieldSlots[id]=nil end
  end
 
+ local function horizontalDistance(actor,body)
+  return math.abs(actor.x-body.x)
+ end
+
  local function nearest(s,spec,boss,behavior)
   local best,distance=nil,math.huge
+  local range=behavior.distance or horizontalDistance
   for _,a in ipairs(s.actors) do
-   local dx=behavior.distance and behavior.distance(a,boss) or math.abs(a.x-boss.x)
-   if boss.fieldPartner then dx=math.min(dx,math.abs(a.x-boss.fieldPartner.x)) end
+   local dx=range(a,boss)
+   if boss.fieldPartner then dx=math.min(dx,range(a,boss.fieldPartner)) end
    if a.hp>0 and a.x>=spec.arenaMin and a.x<=spec.arenaMax and dx<distance then best,distance=a,dx end
   end
   return best,distance
@@ -381,7 +386,8 @@ return function(C,configs,controllers)
    end
   end
   if partner then
-   f.fieldBoss.bodies={{id=boss.id,x=boss.x,y=boss.y,element=boss.element},{id=partner.id,x=partner.x,y=partner.y,element=partner.element}}
+   f.fieldBoss.bodies={{id=boss.id,x=boss.x,y=boss.y,element=boss.element,name=boss.memberName},
+    {id=partner.id,x=partner.x,y=partner.y,element=partner.element,name=partner.memberName}}
   end
   local function visible(body) return body.x>=s.camera-180 and body.x<=s.camera+1140 end
   if boss.hp>0 and (visible(boss) or (partner and visible(partner))) then

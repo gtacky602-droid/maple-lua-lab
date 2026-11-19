@@ -1,0 +1,126 @@
+{
+  "source": "fontaine-lake-legend-poses-source-v6.png",
+  "facing": "left",
+  "frames": [
+    {
+      "id": "lake-vivianne",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        91,
+        18,
+        198,
+        120
+      ]
+    },
+    {
+      "id": "lake-vivianne",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        97,
+        16,
+        192,
+        120
+      ]
+    },
+    {
+      "id": "lake-vivianne",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        67,
+        18,
+        196,
+        120
+      ]
+    },
+    {
+      "id": "lake-ninianne",
+      "pose": "idle",
+      "crop": [
+        0,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        47,
+        18,
+        242,
+        120
+      ]
+    },
+    {
+      "id": "lake-ninianne",
+      "pose": "brace",
+      "crop": [
+        288,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        37,
+        22,
+        250,
+        120
+      ]
+    },
+    {
+      "id": "lake-ninianne",
+      "pose": "strike",
+      "crop": [
+        576,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        27,
+        14,
+        236,
+        120
+      ]
+    }
+  ]
+}
