@@ -1,0 +1,55 @@
+{
+  "legend-balachko": {
+    "sources": [
+      {
+        "file": "balachko-cave.webp",
+        "url": "https://www.icy-veins.com/genshin-impact/toyac-springs-local-legends",
+        "seen": "名前表示と洞窟、分身の赤い輪郭。"
+      },
+      {
+        "file": "balachko-side.jpg",
+        "source": "ActuGaming",
+        "seen": "横からの戦闘画面。赤い輪郭は衣装色の根拠から除外。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Fatuus_Fire_01.png",
+        "seen": "標準種の顔。尖った暗色フード、細い橙の目、赤銅色の仮面と白い頬。"
+      },
+      {
+        "url": "https://kamigame.jp/genshin/page/126734179802071266.html",
+        "seen": "通常種のフィールド全身立ち姿。"
+      },
+      {
+        "url": "https://cdn.gamerch.com/contents/wiki/4268/entry/4VyizoSP.jpg",
+        "seen": "図鑑の横向き全身。前傾姿勢と後ろへ流れる外套、短い湾曲した刃。"
+      }
+    ],
+    "design": "左右の湾曲した刃、赤銅色の面と淡い頬の大きな明暗差、短い二股外套を独自に作画。",
+    "unchecked": [
+      "360度のモデル回転",
+      "実機の戦闘表示"
+    ]
+  },
+  "legend-cocijo": {
+    "sources": [
+      {
+        "file": "cocijo-name.webp",
+        "url": "https://www.hoyolab.com/article/33647290",
+        "seen": "横向きの名前付き全身。紫の張り出す甲板、クリーム色の脚、黄色い尾先。"
+      },
+      {
+        "file": "cocijo-side.jpg",
+        "seen": "正面から、額の黄と開いた前脚、角張った甲羅の幅を確認。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_AnimalIcon_Tortoise_01.png",
+        "seen": "通常種の2Dアイコンで頭と甲板の配置を確認。色は名前付き個体を優先。"
+      }
+    ],
+    "design": "低い山が並ぶ紫の甲板、淡い脚、黄の額と尾。前脚を曲げた構えから一歩踏み出す。",
+    "unchecked": [
+      "360度のモデル回転",
+      "実機の戦闘表示"
+    ]
+  }
+}

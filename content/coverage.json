@@ -147,8 +147,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 135,
-      "prototype_quest_count": 22,
+      "prototype_stage_count": 139,
+      "prototype_quest_count": 24,
       "official_map2_markers": {
         "waypoints": 126,
         "statues": 9
@@ -7962,8 +7962,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1435,
-    "provisional_quests": 261,
+    "authored_stages": 1439,
+    "provisional_quests": 263,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -8901,7 +8901,11 @@
           "sites-corridor-natlan-tunnel",
           "sites-west-desert-border",
           "tepeakak-sappho-bank",
-          "witztli-tristars-camp"
+          "witztli-tristars-camp",
+          "toyac-rainbow-key-cave",
+          "toyac-balachko-inner-cave",
+          "toyac-electro-crystal-shore",
+          "toyac-cocijo-stone-ring"
         ],
         "quest_ids": [
           "nat-mapped-valley-trail",
@@ -8925,7 +8929,9 @@
           "spiritspeaker-commission",
           "natlan-ridge-flag",
           "natlan-two-trials",
-          "natlan-sunset-duel"
+          "natlan-sunset-duel",
+          "natlan-rainbow-cave-keys",
+          "natlan-toyac-electro-crystals"
         ]
       },
       {
@@ -10302,7 +10308,7 @@
       "content/story-graph.json"
     ],
     "design_candidates": 56,
-    "playable_prototypes": 20,
+    "playable_prototypes": 22,
     "stage_by_legend": {
       "legend-liyue_rulers_of_chizhang_mountains": "chizhang-legend-terrace",
       "legend-fontaine_cineas": "cineas-legend-chamber",
@@ -10323,7 +10329,9 @@
       "legend-fontaine_chassanion": "chassanion-legend-bubble-room",
       "legend-fontaine_mageblade_corrouge": "erinnyes-corrouge-cleft",
       "legend-natlan_sappho": "tepeakak-sappho-bank",
-      "legend-natlan_polychrome_tristars": "witztli-tristars-camp"
+      "legend-natlan_polychrome_tristars": "witztli-tristars-camp",
+      "legend-natlan_balachko": "toyac-balachko-inner-cave",
+      "legend-natlan_cocijo": "toyac-cocijo-stone-ring"
     }
   }
 }

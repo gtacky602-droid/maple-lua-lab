@@ -1,0 +1,22 @@
+{
+  "balachkoRoute": [
+    "nat-wp-72422",
+    "sites-hunt-73160",
+    "toyac-rainbow-key-cave",
+    "toyac-balachko-inner-cave"
+  ],
+  "cocijoRoute": [
+    "nat-wp-77772",
+    "toyac-electro-crystal-shore",
+    "toyac-cocijo-stone-ring"
+  ],
+  "twoKeysAndLockedDoor": true,
+  "balachkoLevelGate": 120,
+  "crystalsRejectPhysicalAndInteract": true,
+  "crystalsAcceptedPyroInAnyOrder": true,
+  "partialCrystalSaveRestored": true,
+  "unrelatedCrystalSaveRejected": true,
+  "crystalsPaidNoKillRewards": true,
+  "bothQuestReportRewardsChecked": true,
+  "bossClearRecordsRestoredAndRetried": true
+}

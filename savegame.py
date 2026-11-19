@@ -35,7 +35,7 @@ def validate_sweep(record, steps, visited):
         return
     count=record['count']
     step=steps[count] if count<len(steps) else {}
-    allowed=set(step.get('enemies',[])) if step.get('kind')=='kill' else set()
+    allowed=set(step.get('enemies',[])) if step.get('kind') in ('kill', 'break') else set()
     defeated=record['sweep']
     if (not isinstance(defeated,dict) or not defeated or not defeated.keys()<allowed
             or any(flag is not True for flag in defeated.values()) or step['node'] not in visited):

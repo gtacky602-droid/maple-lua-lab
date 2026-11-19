@@ -718,7 +718,9 @@
     {"id":"legend-sappho","name":"波のジャプー","file":"legend-sappho-field-idle-sprites-v1.json","height":110,"mapHover":0},
     {"id":"legend-tristars-cryo","name":"異色三連星・氷銃","file":"legend-tristars-cryo-field-idle-sprites-v1.json","height":110,"mapHover":0},
     {"id":"legend-tristars-electro","name":"異色三連星・雷槌","file":"legend-tristars-electro-field-idle-sprites-v1.json","height":110,"mapHover":0},
-    {"id":"legend-tristars-pyro","name":"異色三連星・炎銃","file":"legend-tristars-pyro-field-idle-sprites-v1.json","height":110,"mapHover":0}
+    {"id":"legend-tristars-pyro","name":"異色三連星・炎銃","file":"legend-tristars-pyro-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-balachko","name":"バラチコ","file":"legend-balachko-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-cocijo","name":"コシーホ","file":"legend-cocijo-field-idle-sprites-v1.json","height":110,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }

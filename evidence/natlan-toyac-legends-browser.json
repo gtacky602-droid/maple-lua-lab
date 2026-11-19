@@ -1,0 +1,84 @@
+{
+  "routes": [
+    [
+      "nat-wp-72422",
+      "sites-hunt-73160",
+      "walk"
+    ],
+    [
+      "sites-hunt-73160",
+      "toyac-rainbow-key-cave",
+      "walk"
+    ],
+    [
+      "toyac-rainbow-key-cave",
+      "sites-hunt-73160",
+      "walk"
+    ],
+    [
+      "sites-hunt-73160",
+      "toyac-rainbow-key-cave",
+      "walk"
+    ],
+    [
+      "toyac-rainbow-key-cave",
+      "toyac-balachko-inner-cave",
+      "walk"
+    ],
+    [
+      "toyac-balachko-inner-cave",
+      "toyac-rainbow-key-cave",
+      "walk"
+    ],
+    [
+      "toyac-rainbow-key-cave",
+      "sites-hunt-73160",
+      "walk"
+    ],
+    [
+      "nat-wp-77772",
+      "toyac-electro-crystal-shore",
+      "raised"
+    ],
+    [
+      "toyac-electro-crystal-shore",
+      "nat-wp-77772",
+      "walk"
+    ],
+    [
+      "nat-wp-77772",
+      "toyac-electro-crystal-shore",
+      "raised"
+    ],
+    [
+      "toyac-electro-crystal-shore",
+      "toyac-cocijo-stone-ring",
+      "walk"
+    ],
+    [
+      "toyac-cocijo-stone-ring",
+      "toyac-electro-crystal-shore",
+      "walk"
+    ],
+    [
+      "toyac-electro-crystal-shore",
+      "nat-wp-77772",
+      "walk"
+    ]
+  ],
+  "comparisons": [
+    {
+      "name": "balachko",
+      "pngCommands": 19,
+      "rectangleCommands": 7575,
+      "lightCommands": 2013
+    },
+    {
+      "name": "cocijo",
+      "pngCommands": 14,
+      "rectangleCommands": 7908,
+      "lightCommands": 2144
+    }
+  ],
+  "errors": []
+}

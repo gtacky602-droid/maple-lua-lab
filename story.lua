@@ -179,6 +179,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local allowed=meetsGateRule(s,rule) or (rule.alternative and meetsGateRule(s,rule.alternative))
     or (edge.loopOnce and forest.canLoop(state))
    if not allowed then
+    if not state and rule.unstartedNotice then return rule.unstartedNotice end
     if rule.unreported then return rule.closedNotice or '報告後は内側の水路へ。' end
     if rule.before and state and state.count>=rule.before then return rule.closedNotice or '足場を中継位置へ移しました。' end
     if rule.construction and completed(s,rule.quest) then return '今回はもう一方の道を整備しました。' end
@@ -481,9 +482,33 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    for _,member in ipairs(group) do if defeated[member] then count=count+1 end end
    if count==#group then
     state.sweep=nil;completeMilestone(s,state,milestone,parent,quest)
-   else s.storyNotice='通路の群れを整理中 '..count..' / '..#group end
+   else s.storyNotice=(milestone.sweepLabel or '通路の群れを整理中')..' '..count..' / '..#group end
     return true
   end end
+ end
+ local function spawnBreakTargets(s,node)
+  local quest=node.breakQuest and quests[node.breakQuest]
+  if not quest then return end
+  local milestone,state=nextMilestone(s,quest)
+  if not milestone or milestone.kind~='break' or milestone.node~=node.id then return end
+  for _,point in ipairs(node.breakTargets) do
+   if not (state.sweep and state.sweep[point.id]) then
+    local object={id=point.entity,breakTarget=true,custom=true,boss=true,noRewards=true,noAutoTarget=true,
+     hp=1,maxhp=1,x=point.x,home=point.x,y=point.y,hitTop=point.y-62,hitBottom=point.y,warning=0,respawn=math.huge}
+    object.onCastContact=function(runtime,cast,hit,_,_,element)
+     if element~=milestone.element then
+      runtime.storyNotice=milestone.elementHint
+      return false
+     end
+     local step,current=nextMilestone(runtime,quest)
+     if step~=milestone or current~=state then return false end
+     if not C.defeatEnemy(runtime,hit,cast.id) then return false end
+     runtime.effects[#runtime.effects+1]={x=point.x,y=point.y-32,w=49,h=60,life=.35,color='#edb6ff'}
+     return recordKill(runtime,state,milestone,point.id)
+    end
+    s.enemies[#s.enemies+1]=object
+   end
+  end
  end
  local function inspectMilestone(s,command)
   for _,q in ipairs(itineraries) do
@@ -839,6 +864,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    defeated=defeatedMilestones(itinerary,stageState,id)
   end
   spawnEnemies(s,n,phase,stageState and stageState.recovered,defeated)
+  spawnBreakTargets(s,n)
   local huntQuest=n.kinichQuest and quests[n.kinichQuest]
   kinichAmbush.enter(s,huntQuest,huntQuest and s.story.quests[huntQuest.id])
   local cargo,state=cargoQuest(s)
@@ -1834,6 +1860,18 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if cue.channel=='airflow' then f.storyAirflowCue=cue else f.storyResonanceCue=cue end
    end
    local function marker(x,y,w,h) markers[#markers+1]={kind='rect',x=x,y=y,w=w,h=h,color='#83dbe1'} end
+   if n.breakQuest then
+    for _,object in ipairs(s.enemies) do
+     local x,y=object.x-s.camera,object.y
+     if object.breakTarget and object.hp>0 and x>=-30 and x<=990 then
+      markers[#markers+1]={kind='rect',x=x-24,y=y-14,w=48,h=14,color='#352049'}
+      markers[#markers+1]={kind='rect',x=x-16,y=y-44,w=32,h=34,color='#6d3a98'}
+      markers[#markers+1]={kind='rect',x=x-9,y=y-58,w=18,h=28,color='#a469d7'}
+      markers[#markers+1]={kind='rect',x=x-5,y=y-54,w=6,h=23,color='#efd1ff'}
+      markers[#markers+1]={kind='text',x=x,y=y-68,text='電気水晶',color='#f8dbff',size=13}
+     end
+    end
+   end
    for _,edge in ipairs(n.exits) do if shownEdge(s,edge) and (not edge.darkOnly or s.storyLightMode=='dark') then
     local x,y=edge.x-s.camera,edge.y or 480
     local rule=edge.requires
@@ -1842,6 +1880,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if rubble then
      markers[#markers+1]={kind='rect',x=x-26,y=y-44,w=50,h=44,color='#6a4b51'}
      markers[#markers+1]={kind='rect',x=x-17,y=y-59,w=32,h=17,color='#a4785f'}
+    elseif edge.ironGate and not meetsGateRule(s,rule) then
+     markers[#markers+1]={kind='rect',x=x-30,y=y-88,w=60,h=87,color='#332337'}
+     for offset=-25,25,10 do
+      markers[#markers+1]={kind='rect',x=x+offset,y=y-86,w=4,h=85,color='#93849b'}
+     end
+     markers[#markers+1]={kind='rect',x=x-29,y=y-54,w=58,h=6,color='#66556a'}
+     markers[#markers+1]={kind='rect',x=x-6,y=y-50,w=12,h=10,color='#e1b968'}
     elseif edge.phaseSeconds then
      local glow=gateRestriction(s,edge) and '#746783' or '#d6a1ef'
      markers[#markers+1]={kind='effect',x=x,y=y-40,w=45,h=65,color=glow,alpha=1}
@@ -2133,7 +2178,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
         and not milestone.teaClue and not milestone.teaCup and not milestone.surveyProp and not milestone.visitorProp
         and not milestone.kavehProp and not milestone.discoveryProp and not milestone.scentProp and not milestone.rehearsalProp and not milestone.photoProp and not milestone.magicProp and not milestone.diveProp and not milestone.charmProp and not milestone.surfProp and not milestone.huntProp and not milestone.springProp and not milestone.iansanProp
         and (not milestone.resonanceStone or milestone.resonanceControl) and x>=-25 and x<=985 then
-      if milestone.routeBeacon then drawRouteBeacon(markers,x,y,false)
+      if milestone.ironKey then
+       if milestone.ironKey=='cage' then
+        markers[#markers+1]={kind='rect',x=x-22,y=y-29,w=44,h=29,color='#4e3d53'}
+        for offset=-18,18,9 do
+         markers[#markers+1]={kind='rect',x=x+offset,y=y-27,w=3,h=25,color='#86808d'}
+        end
+       end
+       markers[#markers+1]={kind='rect',x=x-8,y=y-23,w=12,h=9,color='#dab26f'}
+       markers[#markers+1]={kind='rect',x=x+3,y=y-19,w=13,h=3,color='#fcecb0'}
+       markers[#markers+1]={kind='rect',x=x+12,y=y-18,w=3,h=5,color='#fcecb0'}
+      elseif milestone.routeBeacon then drawRouteBeacon(markers,x,y,false)
       elseif milestone.outcrop then drawOutcrop(markers,x,y,milestone.outcrop)
       elseif milestone.teaCups then drawTeaSetting(markers,x,y,milestone.teaCups)
       elseif milestone.islandTreasure then drawIslandChest(markers,x,y,false)

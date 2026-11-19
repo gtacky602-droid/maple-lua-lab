@@ -77,7 +77,10 @@ class TrailWalk:
         assert self.state.story.node == target and self.state.lift is None, (
             origin, target, self.state.story.node, self.state.storyNotice)
         if 'arrivalX' in edge:
-            assert (self.actor.x, self.actor.y) == (edge['arrivalX'], edge.get('arrivalY', 480))
+            expected_x = edge['arrivalX'] - (self.state.active - 1) * 40
+            if self.state.storySwimming:
+                expected_x = max(20, expected_x)
+            assert (self.actor.x, self.actor.y) == (expected_x, edge.get('arrivalY', 480))
         self.crossings.add((origin, target))
 
     def explore(self):

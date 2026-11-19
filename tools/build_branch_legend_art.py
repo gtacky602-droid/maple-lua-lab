@@ -42,6 +42,7 @@ PIVOT_LAYOUTS = {
     'fontaine-bubble-poses-v1-layout.json': 1,
     'fontaine-corrouge-poses-v1-layout.json': 1,
     'natlan-first-legend-poses-v1-layout.json': 1,
+    'natlan-toyac-legend-poses-v1-layout.json': 1,
 }
 for layout_name, revision in PIVOT_LAYOUTS.items():
     layout = json.loads((ROOT/'assets'/layout_name).read_text(encoding='utf-8'))
