@@ -1,7 +1,12 @@
 {
   "twoBrowserProfiles": true,
+  "fourBrowserProfiles": true,
   "realRouteToRoad": true,
-  "actorsVisibleFromOtherBrowser": 2,
+  "remoteActorsPerClient": 6,
+  "pngCommands": 80,
+  "rectangleCommands": 3566,
+  "packedGzipRectanglesDecoded": true,
+  "fourthPlayerReloaded": true,
   "sharedDefeat": true,
   "atlasKeepsRoomClockRunning": true,
   "reloadKeepsSlot": true,

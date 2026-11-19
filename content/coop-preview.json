@@ -3,7 +3,7 @@
   "nodes": {
     "mond-road": "モンド・南の街道"
   },
-  "capacity": 2,
+  "capacity": 4,
   "rewardRange": {"x": 420, "y": 180},
   "contributionSeconds": 12,
   "inputLeaseSeconds": 0.3,

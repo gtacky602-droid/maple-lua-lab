@@ -30,6 +30,15 @@ export function drawCombatRect(ctx,draw){
  ctx.fillRect(0,0,draw.w,draw.h);
  ctx.restore();
 }
+export function drawCombatRuns(ctx,draw,runs){
+ const {x,y,w,h,gridWidth,gridHeight,flip}=draw;
+ for(const [left,top,width,height,color] of runs){
+  const column=flip?gridWidth-left-width:left;
+  ctx.fillStyle=color;
+  ctx.fillRect(x+column*w/gridWidth,y+top*h/gridHeight,width*w/gridWidth+.05,height*h/gridHeight+.05);
+ }
+ return runs.length;
+}
 export function combatOpacity(draw){
  return reducedTransparency?.matches ? 1 : (draw.opacity??1);
 }

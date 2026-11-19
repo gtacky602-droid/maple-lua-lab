@@ -562,6 +562,10 @@ end
 
 function C.frame(s,mode,profile)
  local draws={};local visible=0
+ local artFrame={draws=draws}
+ if s.coop and s.packRectArt and mode=='rect' then
+  artFrame.rectIndex,artFrame.rectBatches={},{}
+ end
  local assets=(profile and C.variants and C.variants[profile]) or C.assets
  local function add(v)
   local asset=v.kind=='sprite' and assets and assets[v.asset]
@@ -585,25 +589,25 @@ function C.frame(s,mode,profile)
  for _,e in ipairs(s.enemies) do if C.canTargetEnemy(e) and e.x>s.camera-40 and e.x<s.camera+1000 then
   visible=visible+1
   if not e.custom and not e.storyDrawn then
-   if C.enemyIdleArt and C.enemyIdleArt[e.art] then C.drawEnemyIdleArt({draws=draws},s,e,mode,profile)
+   if C.enemyIdleArt and C.enemyIdleArt[e.art] then C.drawEnemyIdleArt(artFrame,s,e,mode,profile)
    else add({kind='sprite',asset=e.kind==1 and 5 or 7,x=e.x-s.camera,y=e.y,w=e.boss and 144 or 48,h=e.boss and 120 or 40,flip=false}) end
   end
   local headY=C.enemyHeadY(e)
   if e.hp<e.maxhp and not e.fieldBoss then rect(e.x-s.camera-20,headY-9,40,4,'#45645d');rect(e.x-s.camera-20,headY-9,40*e.hp/e.maxhp,4,'#ffcc7c') end
   if e.warning>0 then add({kind='text',x=e.x-s.camera,y=headY-23,text='!',color='#e54b35',size=26}) end
  end end
- if s.coop then C.drawCoopPeers(s,{draws=draws},mode,profile) end
+ if s.coop then C.drawCoopPeers(s,artFrame,mode,profile) end
  for _,a in ipairs(s.actors) do
   if a.hp>0 and (not s.toyDive or a.id==1) and (not (s.surfRound or s.springRun) or a.id==s.active) then
    local asset=a.id==1 and (a.walk~=0 and 2 or 1) or (a.lock>0 and 4 or 3)
    local amberArt=asset==3 and C.amberIdleArt or asset==4 and C.amberBowArt
    local companionArt=a.id==2 and C.companionArt and C.companionArt[s.companion]
    if asset==1 and C.travelerIdleArt then
-    C.drawTravelerIdleArt({draws=draws},s,a,mode,profile)
+    C.drawTravelerIdleArt(artFrame,s,a,mode,profile)
    elseif asset==2 and C.travelerRunArt then
-    C.drawTravelerRunArt({draws=draws},s,a,mode,profile)
+    C.drawTravelerRunArt(artFrame,s,a,mode,profile)
    elseif amberArt and (s.companion or 'amber')=='amber' then
-    C.drawAmberArt({draws=draws},s,a,mode,profile,amberArt)
+    C.drawAmberArt(artFrame,s,a,mode,profile,amberArt)
    elseif not companionArt then
     -- The companion frame wrapper adds its custom art after the base frame.
     add({kind='sprite',asset=asset,x=a.x-s.camera,y=a.y,w=70,h=88,flip=a.dir<0,glow=a.light>0})
@@ -613,6 +617,6 @@ function C.frame(s,mode,profile)
  end
  for _,e in ipairs(s.effects) do add({kind='effect',x=e.x-s.camera,y=e.y,w=e.w,h=e.h,color=e.color,alpha=e.life/.3}) end
  for _,n in ipairs(s.numbers) do add({kind='text',x=n.x-s.camera,y=n.y-(.8-n.life)*35,text=n.text,color=n.color,size=19}) end
- return {draws=draws,camera=s.camera,platforms=s.platforms,t=s.t,active=s.active,gauge=s.gauge,actors=s.actors,hits=s.hits,kills=s.kills,mora=s.mora,damage=s.damage,returns=s.returns,visible=visible,total=#s.enemies,commands=#draws,numbers=#s.numbers,auto=s.auto,paused=s.paused,events=s.events}
+ return {draws=draws,rectBatches=artFrame.rectBatches,camera=s.camera,platforms=s.platforms,t=s.t,active=s.active,gauge=s.gauge,actors=s.actors,hits=s.hits,kills=s.kills,mora=s.mora,damage=s.damage,returns=s.returns,visible=visible,total=#s.enemies,commands=#draws,numbers=#s.numbers,auto=s.auto,paused=s.paused,events=s.events}
 end
 return C

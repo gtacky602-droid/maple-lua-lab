@@ -8046,18 +8046,19 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Verify four-player same-map Web play and fixed-HP boss cooperation, then connect room membership across maps.",
+  "current_priority": "Connect an authored field boss to fixed-HP shared combat with individual rewards, then preserve room membership across maps.",
   "multiplayer_preview": {
-    "status": "two_players_same_map_verified",
+    "status": "two_and_four_players_same_map_verified",
     "map": "mond-road",
     "rules": "content/coop-preview.json",
     "evidence": [
       "evidence/coop-local-http.json",
       "evidence/coop-local-browser.json",
-      "evidence/coop-local-browser.png"
+      "evidence/coop-local-browser.png",
+      "evidence/coop-four-browser.png",
+      "evidence/coop-four-light-browser.png"
     ],
     "pending": [
-      "four simultaneous players",
       "bosses",
       "multi-map room travel",
       "remote and Miliastra tests"

@@ -1,4 +1,5 @@
 import json, sqlite3, time, uuid, threading
+from gzip import compress
 from http.cookies import CookieError, SimpleCookie
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
@@ -14,6 +15,23 @@ LAB_ACTIONS = {'campaign', 'accept', 'report', 'town', 'field', 'arena',
 LAB_ACTION_PREFIXES = ('boss_', 'barrier_trial:')
 SESSIONS = {}
 LOCK = threading.RLock()
+LARGE_FRAME_BYTES = 32 * 1024
+
+
+def accepts_gzip(header):
+    for choice in header.lower().split(','):
+        encoding, *options = choice.split(';')
+        if encoding.strip() != 'gzip':
+            continue
+        try:
+            for option in options:
+                key, _, value = option.strip().partition('=')
+                if key.strip() == 'q':
+                    return float(value) > 0
+        except ValueError:
+            return False
+        return True
+    return False
 
 class LabServer(ThreadingHTTPServer):
     # The map and sprite views load several image and JSON groups in parallel.
@@ -50,10 +68,18 @@ class LabServer(ThreadingHTTPServer):
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self,*a,**kw): super().__init__(*a,directory=str(ROOT),**kw)
     def log_message(self,*a): pass
-    def send_json(self, status, result, ranking_cookie=None):
+    def send_json(self, status, result, ranking_cookie=None, *, coop_frame=False):
         data = json.dumps(result, ensure_ascii=False).encode('utf8')
+        large = coop_frame and len(data) >= LARGE_FRAME_BYTES
+        encoded = large and accepts_gzip(self.headers.get('Accept-Encoding', ''))
+        if encoded:
+            data = compress(data, compresslevel=1)
         self.send_response(status)
         self.send_header('Content-Type', 'application/json; charset=utf-8')
+        if large:
+            self.send_header('Vary', 'Accept-Encoding')
+        if encoded:
+            self.send_header('Content-Encoding', 'gzip')
         self.send_header('Content-Length', str(len(data)))
         self.send_header('Cache-Control', 'no-store')
         if ranking_cookie:
@@ -216,7 +242,11 @@ class Handler(SimpleHTTPRequestHandler):
                         rank_store.record(env['rank_player'], score, self.server.ranking_week())
                         env['rank_seen'] = score
                 mode = 'rect' if req.get('render')=='rect' else 'sprite'
-                frame=core.frame(state,mode,req.get('profile'))
+                state.packRectArt = req.get('packRectArt') is True
+                try:
+                    frame = core.frame(state, mode, req.get('profile'))
+                finally:
+                    state.packRectArt = None
                 coop_view = coop.view(env)
                 elapsed=(time.perf_counter()-started)*1000
                 # Scope the graph revision to this runtime so a reset or restore cannot reuse a stale graph.
@@ -227,6 +257,9 @@ class Handler(SimpleHTTPRequestHandler):
                     # Drop it before conversion, while the graph itself stays cached in Lua.
                     frame.storyGraph = None
                 out=native(frame);out['session']=sid;out['lua_ms']=elapsed;out['lua_kb']=lua.eval("collectgarbage('count')")
+                if batches := out.get('rectBatches'):
+                    out['commands'] += sum(len(batches[draw['batch']-1]) - 1
+                                           for draw in out['draws'] if draw['kind'] == 'rect_runs')
                 out['coop'] = coop_view
                 if accepts_revision:
                     out['storyGraphRevision'] = graph_revision
@@ -250,7 +283,7 @@ class Handler(SimpleHTTPRequestHandler):
                         ms=(time.perf_counter()-start)*1000
                         comparisons.append({'profile':profile,'draw_ms':ms,'commands':f.commands,'draws':native(f.draws),'t':state.t})
                     out['comparisons']=comparisons
-            self.send_json(200, out, ranking_cookie)
+            self.send_json(200, out, ranking_cookie, coop_frame='code' in coop_view)
         except (ValueError,TypeError,KeyError) as e:
             self.send_json(400,{'error':str(e)})
         except sqlite3.Error:

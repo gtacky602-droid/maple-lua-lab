@@ -35,13 +35,15 @@ export function initCoopPanel(queueAction){
   updateJoin();
   pause.disabled=inRoom;
   pause.title=inRoom?'協力中は戦闘が進み続けます。':'';
+  let message='';
   if(inRoom){
    const online=view.peers.filter(peer=>peer.online).length+1;
-   state.textContent=`合言葉 ${view.code}　参加中 ${online} / ${view.capacity}人`;
+   message=`合言葉 ${view.code}　参加中 ${online} / ${view.capacity}人　自分は旅人 ${view.slot}`;
   }else if(view){
-   state.textContent=view.eligible?'部屋を作るか、相手の合言葉で参加できます。':
+   message=view.eligible?'部屋を作るか、相手の合言葉で参加できます。':
     `通常の冒険で「${view.sites.join('・')}」まで移動してください。`;
   }
+  if(message&&state.textContent!==message)state.textContent=message;
   if(status.textContent!==(view?.notice||''))status.textContent=view?.notice||'';
  };
 }

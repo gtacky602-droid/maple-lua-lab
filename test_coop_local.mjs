@@ -24,17 +24,22 @@ async function start(){
  return {page,travel};
 }
 
+async function joinRoom(page,code){
+ await page.locator('#coopCode').fill(code.toLowerCase());
+ await page.locator('#coopJoin').click();
+ await page.waitForFunction(code=>window.lab.frame.coop?.code===code,code);
+}
+
 try{
  const [host,guest]=await Promise.all([start(),start()]);
  const a=host.page,b=guest.page;
  await a.locator('#coopCreate').click();
  await a.waitForFunction(()=>window.lab.frame.coop?.code);
  const code=await a.evaluate(()=>window.lab.frame.coop.code);
- await b.locator('#coopCode').fill(code.toLowerCase());
- await b.locator('#coopJoin').click();
+ await joinRoom(b,code);
  await b.waitForFunction(()=>window.lab.frame.coop?.peers?.length===1);
  await a.waitForFunction(()=>window.lab.frame.coop?.peers?.length===1);
- assert.match(await a.locator('#coopState').textContent(),/参加中 2 \/ 2人/);
+ assert.match(await a.locator('#coopState').textContent(),/参加中 2 \/ 4人/);
  assert.equal(await a.locator('#pause').isDisabled(),true);
  assert.equal(await a.locator('#coopSetup').isHidden(),true);
  assert.equal(await a.evaluate(()=>window.lab.frame.coop.enemies.length),6);
@@ -79,17 +84,53 @@ try{
  await b.locator('#coopPanel summary').click();
  const mobileFits=await b.locator('#coopPanel').evaluate(el=>el.scrollWidth<=el.clientWidth+1);
  assert(mobileFits);
+ await b.setViewportSize({width:1240,height:920});
+
+ const newcomers=await Promise.all([start(),start()]);
+ for(const player of newcomers)await joinRoom(player.page,code);
+ const allPlayers=[host,guest,...newcomers];
+ for(const {page} of allPlayers){
+  await page.waitForFunction(()=>window.lab.frame.coop?.peers?.length===3&&
+   window.lab.frame.coop.peers.every(peer=>peer.online&&peer.actors.length===2));
+  assert.match(await page.locator('#coopState').textContent(),/参加中 4 \/ 4人/);
+  assert.equal(await page.evaluate(()=>window.lab.frame.coop.enemies.length),6);
+ }
+ await a.waitForFunction(()=>window.lab.frame.draws.filter(draw=>
+  draw.kind==='boss_sprite'&&/^(traveler|amber)-/.test(draw.source)).length===8);
+ await Promise.all(newcomers.map((player,i)=>player.travel.walk([115,660][i])));
+ const fourInView=()=>window.lab.frame.draws.filter(draw=>draw.kind==='text'&&/^旅人 [234]$/.test(draw.text)).length===3;
+ await a.waitForFunction(fourInView);
+ await a.locator('#game').screenshot({path:'evidence/coop-four-browser.png'});
+ const pngCommands=await a.evaluate(()=>window.lab.frame.commands);
+ const compressedFrame=a.waitForResponse(response=>response.url().endsWith('/api/frame')&&
+  response.request().postDataJSON()?.profile==='h32c16'&&response.headers()['content-encoding']==='gzip');
+ await a.locator('#renderMode').selectOption('h32c16');
+ await compressedFrame;
+ await a.waitForFunction(pngCommands=>window.lab.frame.commands>pngCommands*4&&
+  window.lab.frame.rectBatches?.length>0&&window.lab.frame.draws.some(draw=>draw.kind==='rect_runs'),pngCommands);
+ await a.waitForFunction(fourInView);
+ await a.locator('#game').screenshot({path:'evidence/coop-four-light-browser.png'});
+ const rectangleCommands=await a.evaluate(()=>window.lab.frame.commands);
+ await a.locator('#renderMode').selectOption('sprite');
+
+ const fourth=newcomers[1].page;
+ const fourthSlot=await fourth.evaluate(()=>window.lab.frame.coop.slot);
+ await fourth.reload();
+ await fourth.waitForFunction(slot=>window.lab?.frame.coop?.slot===slot,fourthSlot);
+ assert.equal(await fourth.evaluate(()=>window.lab.frame.coop.code),code);
+
  await b.locator('#coopLeave').click();
- await a.waitForFunction(()=>window.lab.frame.coop.peers.length===0);
+ await a.waitForFunction(()=>window.lab.frame.coop.peers.length===2);
  assert.equal(await b.locator('#coopCreate').isEnabled(),true);
  assert.deepEqual(errors,[]);
 
  await fs.writeFile('evidence/coop-local-browser.json',JSON.stringify({
-  twoBrowserProfiles:true,realRouteToRoad:true,actorsVisibleFromOtherBrowser:2,
+  twoBrowserProfiles:true,fourBrowserProfiles:true,realRouteToRoad:true,
+  remoteActorsPerClient:6,pngCommands,rectangleCommands,packedGzipRectanglesDecoded:true,fourthPlayerReloaded:true,
   sharedDefeat:true,atlasKeepsRoomClockRunning:true,reloadKeepsSlot:true,
   saveInRoom:true,leaveVisibleToPeer:true,mobileFits,errors
  },null,2)+'\n');
- console.log('Chrome: movement, shared defeat, map, reload, save, mobile and departure passed.');
+ console.log('Chrome: two and four profiles, eight actors, both art modes, shared defeat, reload and save passed.');
 }finally{
  await browser.close();
 }
