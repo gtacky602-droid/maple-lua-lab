@@ -1,0 +1,47 @@
+{
+  "start": "mond-town",
+  "catalog_markers": 873,
+  "unique_stage_bindings": 873,
+  "reachable_in_route_graph": 873,
+  "can_return_in_route_graph": 873,
+  "verified_marker_fields": [
+    "kind",
+    "floor",
+    "position_on_platform_or_in_swim_bounds"
+  ],
+  "route_model": "Stage exits and automatic voyage arrivals, without warp or visited-only gates. Other gate conditions are checked separately.",
+  "markers_per_map": {
+    "2": {
+      "statues": 64,
+      "waypoints": 681
+    },
+    "7": {
+      "statues": 0,
+      "waypoints": 24
+    },
+    "9": {
+      "statues": 0,
+      "waypoints": 15
+    },
+    "10": {
+      "statues": 0,
+      "waypoints": 0
+    },
+    "34": {
+      "statues": 0,
+      "waypoints": 17
+    },
+    "36": {
+      "statues": 0,
+      "waypoints": 19
+    },
+    "37": {
+      "statues": 0,
+      "waypoints": 20
+    },
+    "40": {
+      "statues": 0,
+      "waypoints": 33
+    }
+  }
+}

@@ -1,0 +1,619 @@
+{
+  "catalog": "content/map-catalog.json",
+  "official_map_page": "https://act.hoyolab.com/ys/app/interactive-map/index.html",
+  "sources": [
+    {
+      "map_id": 2,
+      "official_area_id": 16,
+      "map_version": "bd70cde160dbd523926208d9fa8961a1",
+      "public_label_sha256": "f15b313d9972d7097e0e3f229057de9cf5216ed14a9b6bb059caee95e06a2573"
+    }
+  ],
+  "verified": "All public point IDs, positions, marker types and floors matched the pinned catalog. Consulted public tiles for spatial context.",
+  "status": "Japanese stage names, paths, lift locations and existing stage bindings are lab proposals.",
+  "field_editor_revision": 0,
+  "areas": {
+    "南西雪原": [
+      "teyvat:100641",
+      "teyvat:100646",
+      "teyvat:100647",
+      "teyvat:100648",
+      "teyvat:100649",
+      "teyvat:100650",
+      "teyvat:100651",
+      "teyvat:100652",
+      "teyvat:100660",
+      "teyvat:100682",
+      "teyvat:100683",
+      "teyvat:100685",
+      "teyvat:100686",
+      "teyvat:100687",
+      "teyvat:100688",
+      "teyvat:100696",
+      "teyvat:100704",
+      "teyvat:105012"
+    ],
+    "雪の町と白虹峠": [
+      "teyvat:100643",
+      "teyvat:100644",
+      "teyvat:100661",
+      "teyvat:100662",
+      "teyvat:100663",
+      "teyvat:100664",
+      "teyvat:100665",
+      "teyvat:100666",
+      "teyvat:100667",
+      "teyvat:100668",
+      "teyvat:100669",
+      "teyvat:100671",
+      "teyvat:100672",
+      "teyvat:100673",
+      "teyvat:100674",
+      "teyvat:100675",
+      "teyvat:100676",
+      "teyvat:100677",
+      "teyvat:100678",
+      "teyvat:100679",
+      "teyvat:100690",
+      "teyvat:100695",
+      "teyvat:100698",
+      "teyvat:100699"
+    ],
+    "南東の氷壁": [
+      "teyvat:100642",
+      "teyvat:100653",
+      "teyvat:100654",
+      "teyvat:100655",
+      "teyvat:100656",
+      "teyvat:100657",
+      "teyvat:100658",
+      "teyvat:100659",
+      "teyvat:100670",
+      "teyvat:100684",
+      "teyvat:100689",
+      "teyvat:100697",
+      "teyvat:100700",
+      "teyvat:100701",
+      "teyvat:100702",
+      "teyvat:100703",
+      "teyvat:105872"
+    ],
+    "北の氷塔": [
+      "teyvat:100645",
+      "teyvat:100680",
+      "teyvat:100681",
+      "teyvat:100691",
+      "teyvat:100692",
+      "teyvat:100693",
+      "teyvat:100694"
+    ],
+    "東部の雪原と工業区": [
+      "teyvat:106180",
+      "teyvat:106181",
+      "teyvat:106182",
+      "teyvat:106183",
+      "teyvat:106184",
+      "teyvat:106185",
+      "teyvat:106186",
+      "teyvat:106187",
+      "teyvat:106188",
+      "teyvat:106189",
+      "teyvat:106190",
+      "teyvat:106191",
+      "teyvat:106192",
+      "teyvat:106193",
+      "teyvat:106194",
+      "teyvat:106195",
+      "teyvat:106196",
+      "teyvat:106197",
+      "teyvat:106198",
+      "teyvat:106199",
+      "teyvat:106200",
+      "teyvat:106201",
+      "teyvat:106202",
+      "teyvat:106203",
+      "teyvat:106204",
+      "teyvat:106205",
+      "teyvat:106206",
+      "teyvat:106207",
+      "teyvat:106208",
+      "teyvat:106209",
+      "teyvat:106220",
+      "teyvat:107298"
+    ],
+    "東端の城壁": [
+      "teyvat:106210",
+      "teyvat:106211",
+      "teyvat:106212",
+      "teyvat:106213",
+      "teyvat:106214",
+      "teyvat:106215",
+      "teyvat:106216",
+      "teyvat:106217",
+      "teyvat:106218",
+      "teyvat:106219"
+    ]
+  },
+  "stage_by_marker": {
+    "teyvat:100641": "sne-south-bay",
+    "teyvat:100642": "sne-wp-100642",
+    "teyvat:100643": "sne-wp-100643",
+    "teyvat:100644": "snezhnaya-hub",
+    "teyvat:100645": "sne-wp-100645",
+    "teyvat:100646": "snezhnaya-entry",
+    "teyvat:100647": "sne-wp-100647",
+    "teyvat:100648": "sne-wp-100648",
+    "teyvat:100649": "sne-wp-100649",
+    "teyvat:100650": "sne-wp-100650",
+    "teyvat:100651": "sne-wp-100651",
+    "teyvat:100652": "sne-wp-100652",
+    "teyvat:100653": "sne-wp-100653",
+    "teyvat:100654": "sne-wp-100654",
+    "teyvat:100655": "sne-wp-100655",
+    "teyvat:100656": "sne-wp-100656",
+    "teyvat:100657": "sne-wp-100657",
+    "teyvat:100658": "sne-wp-100658",
+    "teyvat:100659": "sne-wp-100659",
+    "teyvat:100660": "sne-wp-100660",
+    "teyvat:100661": "white-pass-station",
+    "teyvat:100662": "white-pass-woods",
+    "teyvat:100663": "sne-wp-100663",
+    "teyvat:100664": "snezhnaya-field",
+    "teyvat:100665": "white-pass-cut",
+    "teyvat:100666": "sne-wp-100666",
+    "teyvat:100667": "sne-wp-100667",
+    "teyvat:100668": "sne-wp-100668",
+    "teyvat:100669": "sne-wp-100669",
+    "teyvat:100670": "sne-wp-100670",
+    "teyvat:100671": "sne-wp-100671",
+    "teyvat:100672": "sne-wp-100672",
+    "teyvat:100673": "sne-wp-100673",
+    "teyvat:100674": "sne-wp-100674",
+    "teyvat:100675": "sne-wp-100675",
+    "teyvat:100676": "sne-wp-100676",
+    "teyvat:100677": "sne-wp-100677",
+    "teyvat:100678": "sne-wp-100678",
+    "teyvat:100679": "sne-wp-100679",
+    "teyvat:100680": "sne-wp-100680",
+    "teyvat:100681": "sne-wp-100681",
+    "teyvat:100682": "sne-wp-100682",
+    "teyvat:100683": "sne-wp-100683",
+    "teyvat:100684": "sne-wp-100684",
+    "teyvat:100685": "sne-wp-100685",
+    "teyvat:100686": "sne-wp-100686",
+    "teyvat:100687": "sne-wp-100687",
+    "teyvat:100688": "sne-wp-100688",
+    "teyvat:100689": "sne-wp-100689",
+    "teyvat:100690": "sne-wp-100690",
+    "teyvat:100691": "sne-wp-100691",
+    "teyvat:100692": "sne-wp-100692",
+    "teyvat:100693": "sne-wp-100693",
+    "teyvat:100694": "sne-wp-100694",
+    "teyvat:100695": "sne-wp-100695",
+    "teyvat:100696": "sne-wp-100696",
+    "teyvat:100697": "sne-wp-100697",
+    "teyvat:100698": "sne-wp-100698",
+    "teyvat:100699": "sne-wp-100699",
+    "teyvat:100700": "sne-wp-100700",
+    "teyvat:100701": "sne-wp-100701",
+    "teyvat:100702": "sne-wp-100702",
+    "teyvat:100703": "sne-wp-100703",
+    "teyvat:100704": "sne-wp-100704",
+    "teyvat:105012": "sne-wp-105012",
+    "teyvat:105872": "sne-wp-105872",
+    "teyvat:106180": "sne-wp-106180",
+    "teyvat:106181": "sne-north-works",
+    "teyvat:106182": "sne-wp-106182",
+    "teyvat:106183": "sne-wp-106183",
+    "teyvat:106184": "sne-wp-106184",
+    "teyvat:106185": "sne-wp-106185",
+    "teyvat:106186": "sne-wp-106186",
+    "teyvat:106187": "sne-wp-106187",
+    "teyvat:106188": "sne-wp-106188",
+    "teyvat:106189": "sne-wp-106189",
+    "teyvat:106190": "sne-wp-106190",
+    "teyvat:106191": "sne-wp-106191",
+    "teyvat:106192": "sne-wp-106192",
+    "teyvat:106193": "sne-wp-106193",
+    "teyvat:106194": "sne-wp-106194",
+    "teyvat:106195": "sne-wp-106195",
+    "teyvat:106196": "sne-wp-106196",
+    "teyvat:106197": "sne-wp-106197",
+    "teyvat:106198": "sne-wp-106198",
+    "teyvat:106199": "sne-wp-106199",
+    "teyvat:106200": "sne-wp-106200",
+    "teyvat:106201": "sne-wp-106201",
+    "teyvat:106202": "sne-wp-106202",
+    "teyvat:106203": "novokichev-depth",
+    "teyvat:106204": "sne-wp-106204",
+    "teyvat:106205": "novokichev-camp",
+    "teyvat:106206": "sne-wp-106206",
+    "teyvat:106207": "sne-wp-106207",
+    "teyvat:106208": "sne-wp-106208",
+    "teyvat:106209": "sne-wp-106209",
+    "teyvat:106210": "sne-wp-106210",
+    "teyvat:106211": "sne-wp-106211",
+    "teyvat:106212": "sne-wp-106212",
+    "teyvat:106213": "sne-wp-106213",
+    "teyvat:106214": "sne-east-camp",
+    "teyvat:106215": "sne-wp-106215",
+    "teyvat:106216": "sne-wp-106216",
+    "teyvat:106217": "sne-wp-106217",
+    "teyvat:106218": "sne-wp-106218",
+    "teyvat:106219": "sne-wp-106219",
+    "teyvat:106220": "sne-wp-106220",
+    "teyvat:107298": "sne-wp-107298"
+  },
+  "floor_markers": {
+    "teyvat:100682": {
+      "group_id": 224,
+      "floor_id": 325
+    },
+    "teyvat:100683": {
+      "group_id": 222,
+      "floor_id": 321
+    },
+    "teyvat:100684": {
+      "group_id": 233,
+      "floor_id": 342
+    },
+    "teyvat:100689": {
+      "group_id": 231,
+      "floor_id": 335
+    },
+    "teyvat:100690": {
+      "group_id": 227,
+      "floor_id": 329
+    },
+    "teyvat:100691": {
+      "group_id": 234,
+      "floor_id": 347
+    },
+    "teyvat:100692": {
+      "group_id": 234,
+      "floor_id": 345
+    },
+    "teyvat:100693": {
+      "group_id": 234,
+      "floor_id": 346
+    },
+    "teyvat:100694": {
+      "group_id": 234,
+      "floor_id": 344
+    },
+    "teyvat:100695": {
+      "group_id": 229,
+      "floor_id": 332
+    },
+    "teyvat:100698": {
+      "group_id": 230,
+      "floor_id": 334
+    },
+    "teyvat:100700": {
+      "group_id": 233,
+      "floor_id": 339
+    },
+    "teyvat:100701": {
+      "group_id": 233,
+      "floor_id": 338
+    },
+    "teyvat:100702": {
+      "group_id": 233,
+      "floor_id": 341
+    },
+    "teyvat:100704": {
+      "group_id": 221,
+      "floor_id": 320
+    },
+    "teyvat:105012": {
+      "group_id": 226,
+      "floor_id": 328
+    },
+    "teyvat:106180": {
+      "group_id": 235,
+      "floor_id": 349
+    },
+    "teyvat:106184": {
+      "group_id": 235,
+      "floor_id": 349
+    },
+    "teyvat:106185": {
+      "group_id": 235,
+      "floor_id": 349
+    },
+    "teyvat:106186": {
+      "group_id": 235,
+      "floor_id": 349
+    },
+    "teyvat:106187": {
+      "group_id": 236,
+      "floor_id": 351
+    },
+    "teyvat:106188": {
+      "group_id": 236,
+      "floor_id": 351
+    },
+    "teyvat:106189": {
+      "group_id": 237,
+      "floor_id": 352
+    },
+    "teyvat:106190": {
+      "group_id": 246,
+      "floor_id": 369
+    },
+    "teyvat:106195": {
+      "group_id": 239,
+      "floor_id": 356
+    },
+    "teyvat:106196": {
+      "group_id": 239,
+      "floor_id": 356
+    },
+    "teyvat:106197": {
+      "group_id": 239,
+      "floor_id": 356
+    },
+    "teyvat:106198": {
+      "group_id": 240,
+      "floor_id": 359
+    },
+    "teyvat:106199": {
+      "group_id": 240,
+      "floor_id": 359
+    },
+    "teyvat:106200": {
+      "group_id": 247,
+      "floor_id": 370
+    },
+    "teyvat:106201": {
+      "group_id": 247,
+      "floor_id": 370
+    },
+    "teyvat:106203": {
+      "group_id": 238,
+      "floor_id": 353
+    },
+    "teyvat:106209": {
+      "group_id": 241,
+      "floor_id": 361
+    },
+    "teyvat:106213": {
+      "group_id": 242,
+      "floor_id": 362
+    },
+    "teyvat:106217": {
+      "group_id": 243,
+      "floor_id": 363
+    },
+    "teyvat:106218": {
+      "group_id": 243,
+      "floor_id": 363
+    },
+    "teyvat:106220": {
+      "group_id": 235,
+      "floor_id": 350
+    }
+  },
+  "floor_connections": [
+    {
+      "from": "sne-wp-100687",
+      "to": "sne-wp-100682",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-100686",
+      "to": "sne-wp-100683",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-100652",
+      "to": "sne-wp-100704",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-100688",
+      "to": "sne-wp-105012",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-100643",
+      "to": "sne-wp-100695",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-100668",
+      "to": "sne-wp-100690",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-100674",
+      "to": "sne-wp-100698",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-100659",
+      "to": "sne-wp-100689",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-100703",
+      "to": "sne-wp-100701",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-100701",
+      "to": "sne-wp-100700",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-100700",
+      "to": "sne-wp-100702",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-100700",
+      "to": "sne-wp-100684",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-100681",
+      "to": "sne-wp-100691",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-100691",
+      "to": "sne-wp-100692",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-100692",
+      "to": "sne-wp-100693",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-100693",
+      "to": "sne-wp-100694",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-106182",
+      "to": "sne-wp-106180",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-106180",
+      "to": "sne-wp-106184",
+      "mode": "walk"
+    },
+    {
+      "from": "sne-wp-106184",
+      "to": "sne-wp-106185",
+      "mode": "walk"
+    },
+    {
+      "from": "sne-wp-106185",
+      "to": "sne-wp-106186",
+      "mode": "walk"
+    },
+    {
+      "from": "sne-wp-106183",
+      "to": "sne-wp-106220",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-106220",
+      "to": "sne-wp-106186",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-106184",
+      "to": "sne-wp-106190",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-106192",
+      "to": "sne-wp-106187",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-106187",
+      "to": "sne-wp-106188",
+      "mode": "walk"
+    },
+    {
+      "from": "sne-wp-106193",
+      "to": "sne-wp-106189",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-106194",
+      "to": "sne-wp-106195",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-106195",
+      "to": "sne-wp-106196",
+      "mode": "walk"
+    },
+    {
+      "from": "sne-wp-106196",
+      "to": "sne-wp-106197",
+      "mode": "walk"
+    },
+    {
+      "from": "sne-wp-106197",
+      "to": "sne-wp-106198",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-106198",
+      "to": "sne-wp-106199",
+      "mode": "walk"
+    },
+    {
+      "from": "sne-wp-106207",
+      "to": "sne-wp-106199",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-106204",
+      "to": "sne-wp-106200",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-106200",
+      "to": "sne-wp-106201",
+      "mode": "walk"
+    },
+    {
+      "from": "sne-wp-106201",
+      "to": "sne-wp-106190",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "novokichev-camp",
+      "to": "novokichev-depth",
+      "mode": "existing_walk"
+    },
+    {
+      "from": "sne-wp-106208",
+      "to": "sne-wp-106209",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-106212",
+      "to": "sne-wp-106213",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-106219",
+      "to": "sne-wp-106218",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sne-wp-106218",
+      "to": "sne-wp-106217",
+      "mode": "walk"
+    },
+    {
+      "from": "sne-wp-106217",
+      "to": "sne-wp-106213",
+      "mode": "liftSeconds"
+    }
+  ],
+  "wind_gates": [
+    {
+      "from": "sne-wp-100680",
+      "to": "sne-wp-100681"
+    },
+    {
+      "from": "sne-wp-106210",
+      "to": "sne-wp-106211"
+    }
+  ],
+  "offshore_route": {
+    "from": "sne-wp-100668",
+    "to": "sne-wp-100699",
+    "mode": "boatSeconds"
+  }
+}

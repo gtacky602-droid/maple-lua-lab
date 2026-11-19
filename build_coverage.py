@@ -68,7 +68,8 @@ def rebuild():
         'status': 'official_interactive_map_markers_imported',
         'file': 'content/map-catalog.json', 'counts': maps['counts'],
         'complete_world_verified': False, 'region_assignment': 'official area IDs',
-        'playable_at_imported_nodes': len(links), 'stage_links': links,
+        'playable_at_imported_nodes': len(links),
+        'all_imported_markers_linked': len(links) == len(maps['nodes']), 'stage_links': links,
     }
     manifest_path = 'docs/quest-v1/MANIFEST.json'
     manifest = json.loads((CONTENT.parent / manifest_path).read_text(encoding='utf8'))

@@ -1,0 +1,42 @@
+{
+  "blockedWindGateRejectsInput": true,
+  "journeys": [
+    [
+      "sne-wp-100680",
+      "sne-wp-100681",
+      "raised"
+    ],
+    [
+      "sne-wp-100681",
+      "sne-wp-100691",
+      "lift"
+    ],
+    [
+      "sne-wp-100691",
+      "sne-wp-100692",
+      "lift"
+    ],
+    [
+      "sne-wp-100692",
+      "sne-wp-100693",
+      "lift"
+    ],
+    [
+      "sne-wp-100693",
+      "sne-wp-100694",
+      "lift"
+    ]
+  ],
+  "waypointGroups": [
+    "モンド",
+    "レンポ島",
+    "南西雪原",
+    "雪の町と白虹峠",
+    "北の氷塔",
+    "北の氷塔・別階層"
+  ],
+  "reportedQuest": "sne-mapped-four-tower-floors",
+  "restoredQuestAndTowerWarp": true,
+  "scenery": "auroraGlass",
+  "pageErrors": []
+}

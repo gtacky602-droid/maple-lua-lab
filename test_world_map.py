@@ -1,6 +1,6 @@
-"""Check world coverage and create a normal Lv20 save for the browser route test."""
+"""Check catalog bindings and route structure, then create a Lv20 browser save."""
 import json
-from collections import Counter
+from collections import Counter, defaultdict
 from runtime import runtime, ROOT, native
 from savegame import validate_save
 
@@ -12,9 +12,11 @@ def content(name):
 catalog = content('map-catalog.json')
 coverage = content('coverage.json')
 graph = content('story-graph.json')
-ids = {stage['id'] for stage in graph['nodes']}
+stages = {stage['id']: stage for stage in graph['nodes']}
+ids = set(stages)
+points = {node['id']: node for node in catalog['nodes']}
 areas = {(area['map_id'], area['id']): area['name'] for area in catalog['areas']}
-assert len({node['id'] for node in catalog['nodes']}) == len(catalog['nodes'])
+assert len(points) == len(catalog['nodes'])
 assert all(node['region'] == areas[node['map_id'], node['area_id']] for node in catalog['nodes'])
 counts = Counter((node['map_id'], node['kind']) for node in catalog['nodes'])
 for item in catalog['maps']:
@@ -26,9 +28,50 @@ assert Counter(group['kind'] for group in review['requested_groups']) == {
 assert all(group['stage_ids'] and set(group['stage_ids']) <= ids for group in review['requested_groups'])
 assert counts[9, 'waypoint'] == 15
 assert {stage for layer in review['other_map_layers'] if layer['id'] == 9
-        for stage in layer['prototype_stage_ids']} == {'chasm-camp', *(
+        for stage in layer['prototype_stage_ids']} == {'chasm-camp', 'ruin-serpent-field-pit', *(
             n['id'] for n in graph['nodes'] if n.get('mapPoint','').startswith('map9:'))}
-assert coverage['map_catalog']['playable_at_imported_nodes'] == 15
+map_coverage = coverage['map_catalog']
+links = map_coverage['stage_links']
+bound_stages = {node['id'] for node in stages.values() if 'mapPoint' in node}
+assert map_coverage['all_imported_markers_linked']
+assert map_coverage['playable_at_imported_nodes'] == len(links) == len(bound_stages) == len(points)
+assert set(links) == set(points) and {row['stage_id'] for row in links.values()} == bound_stages
+
+for marker, point in points.items():
+    stage = stages[links[marker]['stage_id']]
+    pin = stage['waypoint']
+    assert stage['mapPoint'] == marker, marker
+    assert (pin['kind'], pin.get('floor')) == (point['kind'], point.get('point_group')), marker
+    x, y = pin['x'], pin['y']
+    if water := stage.get('swim'):
+        assert 20 <= x <= stage['width'] - 20 and water['top'] <= y <= water['bottom'], marker
+    else:
+        assert any(p['y'] == y and p['x'] <= x <= p['x'] + p['w'] for p in stage['platforms']), marker
+
+
+def reachable(start, edges):
+    visited, pending = {start}, [start]
+    while pending:
+        next_stages = edges[pending.pop()] - visited
+        visited.update(next_stages)
+        pending.extend(next_stages)
+    return visited
+
+
+# Route structure only. The runtime tests exercise the conditions on each regional route.
+forward, reverse = defaultdict(set), defaultdict(set)
+for origin, stage in stages.items():
+    exits = {gate['to'] for gate in stage['exits'] if not gate.get('visitedOnly')}
+    if voyage := stage.get('voyage'):
+        exits.add(voyage['destination'])
+    for target in exits:
+        assert target in stages, (origin, target)
+        forward[origin].add(target)
+        reverse[target].add(origin)
+start = 'mond-town'
+outbound, inbound = reachable(start, forward), reachable(start, reverse)
+assert not (bound_stages - outbound), sorted(bound_stages - outbound)
+assert not (bound_stages - inbound), sorted(bound_stages - inbound)
 assert coverage['main_route_summary']['authored_stages'] == len(ids)
 assert coverage['main_route_summary']['provisional_quests'] == len(graph['quests'])
 
@@ -42,4 +85,13 @@ work = ROOT / 'work'
 work.mkdir(exist_ok=True)
 save = validate_save(native(core.checkpoint(state)))
 (work / 'chasm-fixture.json').write_text(json.dumps(save), encoding='utf8')
-print('Official marker IDs, scope ledger and Lv20 fixture passed')
+evidence = {
+    'start': start, 'catalog_markers': len(points), 'unique_stage_bindings': len(bound_stages),
+    'reachable_in_route_graph': len(bound_stages & outbound),
+    'can_return_in_route_graph': len(bound_stages & inbound),
+    'verified_marker_fields': ['kind', 'floor', 'position_on_platform_or_in_swim_bounds'],
+    'route_model': 'Stage exits and automatic voyage arrivals, without warp or visited-only gates. Other gate conditions are checked separately.',
+    'markers_per_map': {item['id']: item['counts'] for item in catalog['maps']},
+}
+(ROOT / 'evidence' / 'world-map-connectivity.json').write_text(json.dumps(evidence, indent=2) + '\n', encoding='utf8')
+print(f'{len(points)} marker bindings, outbound and return route structure, and Lv20 fixture passed.')

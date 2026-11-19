@@ -195,8 +195,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 30,
-      "prototype_quest_count": 21,
+      "prototype_stage_count": 130,
+      "prototype_quest_count": 24,
       "official_map2_markers": {
         "waypoints": 101,
         "statues": 7
@@ -299,7 +299,7 @@
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
       "prototype_stage_count": 6,
-      "prototype_quest_count": 5,
+      "prototype_quest_count": 6,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
     {
@@ -462,7 +462,8 @@
     },
     "complete_world_verified": false,
     "region_assignment": "official area IDs",
-    "playable_at_imported_nodes": 765,
+    "playable_at_imported_nodes": 873,
+    "all_imported_markers_linked": true,
     "stage_links": {
       "map34:68599": {
         "stage_id": "bygone-wp-68599",
@@ -1531,6 +1532,560 @@
           "teyvat:96"
         ]
       },
+      "teyvat:100641": {
+        "stage_id": "sne-south-bay",
+        "name": "南西雪原・湾を見下ろす神像",
+        "gates": [
+          "teyvat:100647",
+          "teyvat:100648"
+        ]
+      },
+      "teyvat:100642": {
+        "stage_id": "sne-wp-100642",
+        "name": "南東の氷壁・南東岸の神像",
+        "gates": [
+          "teyvat:100653",
+          "teyvat:105872"
+        ]
+      },
+      "teyvat:100643": {
+        "stage_id": "sne-wp-100643",
+        "name": "雪の町と白虹峠・西の線路沿いの神像",
+        "gates": [
+          "teyvat:100662",
+          "teyvat:100666",
+          "teyvat:100695"
+        ]
+      },
+      "teyvat:100644": {
+        "stage_id": "snezhnaya-hub",
+        "name": "スネージナヤ・雪の町",
+        "gates": [
+          "teyvat:100646",
+          "teyvat:100664",
+          "teyvat:100672",
+          "teyvat:100674",
+          "teyvat:100675"
+        ]
+      },
+      "teyvat:100645": {
+        "stage_id": "sne-wp-100645",
+        "name": "北の氷塔・塔を望む神像",
+        "gates": [
+          "teyvat:100678",
+          "teyvat:100681"
+        ]
+      },
+      "teyvat:100646": {
+        "stage_id": "snezhnaya-entry",
+        "name": "スネージナヤ・雪原の入口",
+        "gates": [
+          "teyvat:88142",
+          "teyvat:100644",
+          "teyvat:100647"
+        ]
+      },
+      "teyvat:100647": {
+        "stage_id": "sne-wp-100647",
+        "name": "南西雪原・南の入り江の雪道",
+        "gates": [
+          "teyvat:100646",
+          "teyvat:100641",
+          "teyvat:100653"
+        ]
+      },
+      "teyvat:100648": {
+        "stage_id": "sne-wp-100648",
+        "name": "南西雪原・湾北の坂道",
+        "gates": [
+          "teyvat:100651",
+          "teyvat:100641",
+          "teyvat:100649"
+        ]
+      },
+      "teyvat:100649": {
+        "stage_id": "sne-wp-100649",
+        "name": "南西雪原・凍った湖の南岸",
+        "gates": [
+          "teyvat:100648",
+          "teyvat:100696",
+          "teyvat:100650",
+          "teyvat:100660"
+        ]
+      },
+      "teyvat:100650": {
+        "stage_id": "sne-wp-100650",
+        "name": "南西雪原・凍った湖の東の崖",
+        "gates": [
+          "teyvat:100649",
+          "teyvat:100664"
+        ]
+      },
+      "teyvat:100651": {
+        "stage_id": "sne-wp-100651",
+        "name": "南西雪原・西雪原の台地",
+        "gates": [
+          "teyvat:100652",
+          "teyvat:100685",
+          "teyvat:100648"
+        ]
+      },
+      "teyvat:100652": {
+        "stage_id": "sne-wp-100652",
+        "name": "南西雪原・西雪原の岩棚",
+        "gates": [
+          "teyvat:100704",
+          "teyvat:100651",
+          "teyvat:100696"
+        ]
+      },
+      "teyvat:100653": {
+        "stage_id": "sne-wp-100653",
+        "name": "南東の氷壁・南東岸の岩浜",
+        "gates": [
+          "teyvat:100647",
+          "teyvat:100642",
+          "teyvat:100654"
+        ]
+      },
+      "teyvat:100654": {
+        "stage_id": "sne-wp-100654",
+        "name": "南東の氷壁・氷壁の南端",
+        "gates": [
+          "teyvat:100653",
+          "teyvat:100655"
+        ]
+      },
+      "teyvat:100655": {
+        "stage_id": "sne-wp-100655",
+        "name": "南東の氷壁・南門の坂",
+        "gates": [
+          "teyvat:100658",
+          "teyvat:100656",
+          "teyvat:100654"
+        ]
+      },
+      "teyvat:100656": {
+        "stage_id": "sne-wp-100656",
+        "name": "南東の氷壁・南門脇の石段",
+        "gates": [
+          "teyvat:100657",
+          "teyvat:100655"
+        ]
+      },
+      "teyvat:100657": {
+        "stage_id": "sne-wp-100657",
+        "name": "南東の氷壁・谷底の橋台",
+        "gates": [
+          "teyvat:100658",
+          "teyvat:100656",
+          "teyvat:100703"
+        ]
+      },
+      "teyvat:100658": {
+        "stage_id": "sne-wp-100658",
+        "name": "南東の氷壁・石壁沿いの坂",
+        "gates": [
+          "teyvat:100657",
+          "teyvat:100659",
+          "teyvat:100655"
+        ]
+      },
+      "teyvat:100659": {
+        "stage_id": "sne-wp-100659",
+        "name": "南東の氷壁・円形の見張り所",
+        "gates": [
+          "teyvat:100660",
+          "teyvat:100658",
+          "teyvat:100689",
+          "teyvat:100670"
+        ]
+      },
+      "teyvat:100660": {
+        "stage_id": "sne-wp-100660",
+        "name": "南西雪原・森のきわの崖",
+        "gates": [
+          "teyvat:100688",
+          "teyvat:100649",
+          "teyvat:100659"
+        ]
+      },
+      "teyvat:100661": {
+        "stage_id": "white-pass-station",
+        "name": "雪原の終着駅",
+        "gates": [
+          "teyvat:100644",
+          "teyvat:100662",
+          "teyvat:100666"
+        ]
+      },
+      "teyvat:100662": {
+        "stage_id": "white-pass-woods",
+        "name": "白虹峠・樹林の道",
+        "gates": [
+          "teyvat:100661",
+          "teyvat:100665",
+          "teyvat:100643",
+          "teyvat:100663",
+          "teyvat:100671"
+        ]
+      },
+      "teyvat:100663": {
+        "stage_id": "sne-wp-100663",
+        "name": "雪の町と白虹峠・線路の高架下",
+        "gates": [
+          "teyvat:100662",
+          "teyvat:100664"
+        ]
+      },
+      "teyvat:100664": {
+        "stage_id": "snezhnaya-field",
+        "name": "スネージナヤ・凍った街道",
+        "gates": [
+          "teyvat:100644",
+          "teyvat:106205",
+          "teyvat:100665",
+          "teyvat:100663",
+          "teyvat:100650"
+        ]
+      },
+      "teyvat:100665": {
+        "stage_id": "white-pass-cut",
+        "name": "雪線の切通し",
+        "gates": [
+          "teyvat:100664",
+          "teyvat:100662",
+          "teyvat:100666"
+        ]
+      },
+      "teyvat:100666": {
+        "stage_id": "sne-wp-100666",
+        "name": "雪の町と白虹峠・港南の斜面",
+        "gates": [
+          "teyvat:100643",
+          "teyvat:100661",
+          "teyvat:100665",
+          "teyvat:100667"
+        ]
+      },
+      "teyvat:100667": {
+        "stage_id": "sne-wp-100667",
+        "name": "雪の町と白虹峠・港西の桟橋",
+        "gates": [
+          "teyvat:100668",
+          "teyvat:100666"
+        ]
+      },
+      "teyvat:100668": {
+        "stage_id": "sne-wp-100668",
+        "name": "雪の町と白虹峠・港の荷揚げ場",
+        "gates": [
+          "teyvat:100667",
+          "teyvat:100699",
+          "teyvat:100669",
+          "teyvat:100690"
+        ]
+      },
+      "teyvat:100669": {
+        "stage_id": "sne-wp-100669",
+        "name": "雪の町と白虹峠・港と町の分かれ道",
+        "gates": [
+          "teyvat:100668",
+          "teyvat:100675",
+          "teyvat:100671"
+        ]
+      },
+      "teyvat:100670": {
+        "stage_id": "sne-wp-100670",
+        "name": "南東の氷壁・北東に抜ける峠",
+        "gates": [
+          "teyvat:100673",
+          "teyvat:100659",
+          "teyvat:100697"
+        ]
+      },
+      "teyvat:100671": {
+        "stage_id": "sne-wp-100671",
+        "name": "雪の町と白虹峠・町南の門",
+        "gates": [
+          "teyvat:100662",
+          "teyvat:100669",
+          "teyvat:100672"
+        ]
+      },
+      "teyvat:100672": {
+        "stage_id": "sne-wp-100672",
+        "name": "雪の町と白虹峠・町南の通り",
+        "gates": [
+          "teyvat:100673",
+          "teyvat:100644",
+          "teyvat:100671"
+        ]
+      },
+      "teyvat:100673": {
+        "stage_id": "sne-wp-100673",
+        "name": "雪の町と白虹峠・町西の階段",
+        "gates": [
+          "teyvat:100672",
+          "teyvat:100674",
+          "teyvat:100675",
+          "teyvat:100670"
+        ]
+      },
+      "teyvat:100674": {
+        "stage_id": "sne-wp-100674",
+        "name": "雪の町と白虹峠・町東の市場",
+        "gates": [
+          "teyvat:100673",
+          "teyvat:100644",
+          "teyvat:100698",
+          "teyvat:100679"
+        ]
+      },
+      "teyvat:100675": {
+        "stage_id": "sne-wp-100675",
+        "name": "雪の町と白虹峠・町北の通り",
+        "gates": [
+          "teyvat:100669",
+          "teyvat:100673",
+          "teyvat:100644",
+          "teyvat:100676"
+        ]
+      },
+      "teyvat:100676": {
+        "stage_id": "sne-wp-100676",
+        "name": "雪の町と白虹峠・北の門",
+        "gates": [
+          "teyvat:100677",
+          "teyvat:100675",
+          "teyvat:100678"
+        ]
+      },
+      "teyvat:100677": {
+        "stage_id": "sne-wp-100677",
+        "name": "雪の町と白虹峠・北岸の突端",
+        "gates": [
+          "teyvat:100676",
+          "teyvat:100678"
+        ]
+      },
+      "teyvat:100678": {
+        "stage_id": "sne-wp-100678",
+        "name": "雪の町と白虹峠・氷河の見張り棚",
+        "gates": [
+          "teyvat:100677",
+          "teyvat:100676",
+          "teyvat:100679",
+          "teyvat:100645"
+        ]
+      },
+      "teyvat:100679": {
+        "stage_id": "sne-wp-100679",
+        "name": "雪の町と白虹峠・町東の線路口",
+        "gates": [
+          "teyvat:100674",
+          "teyvat:100678",
+          "teyvat:100680",
+          "teyvat:106182"
+        ]
+      },
+      "teyvat:100680": {
+        "stage_id": "sne-wp-100680",
+        "name": "北の氷塔・北へ延びる線路",
+        "gates": [
+          "teyvat:100679",
+          "teyvat:100681"
+        ]
+      },
+      "teyvat:100681": {
+        "stage_id": "sne-wp-100681",
+        "name": "北の氷塔・氷塔の麓",
+        "gates": [
+          "teyvat:100680",
+          "teyvat:100645",
+          "teyvat:100691"
+        ]
+      },
+      "teyvat:100682": {
+        "stage_id": "sne-wp-100682",
+        "name": "南西雪原・赤い林の下の石室",
+        "gates": [
+          "teyvat:100687"
+        ]
+      },
+      "teyvat:100683": {
+        "stage_id": "sne-wp-100683",
+        "name": "南西雪原・赤い林の北の地下道",
+        "gates": [
+          "teyvat:100686"
+        ]
+      },
+      "teyvat:100684": {
+        "stage_id": "sne-wp-100684",
+        "name": "南東の氷壁・氷壁下の東の横穴",
+        "gates": [
+          "teyvat:100700"
+        ]
+      },
+      "teyvat:100685": {
+        "stage_id": "sne-wp-100685",
+        "name": "南西雪原・赤い林の入り口",
+        "gates": [
+          "teyvat:100688",
+          "teyvat:100686",
+          "teyvat:100651"
+        ]
+      },
+      "teyvat:100686": {
+        "stage_id": "sne-wp-100686",
+        "name": "南西雪原・赤い林の尾根",
+        "gates": [
+          "teyvat:100683",
+          "teyvat:100687",
+          "teyvat:100685"
+        ]
+      },
+      "teyvat:100687": {
+        "stage_id": "sne-wp-100687",
+        "name": "南西雪原・赤い林の東の木立",
+        "gates": [
+          "teyvat:100688",
+          "teyvat:100686",
+          "teyvat:100682"
+        ]
+      },
+      "teyvat:100688": {
+        "stage_id": "sne-wp-100688",
+        "name": "南西雪原・赤い林の谷間",
+        "gates": [
+          "teyvat:100687",
+          "teyvat:105012",
+          "teyvat:100685",
+          "teyvat:100660"
+        ]
+      },
+      "teyvat:100689": {
+        "stage_id": "sne-wp-100689",
+        "name": "南東の氷壁・見張り所の地下通路",
+        "gates": [
+          "teyvat:100659"
+        ]
+      },
+      "teyvat:100690": {
+        "stage_id": "sne-wp-100690",
+        "name": "雪の町と白虹峠・北の整備場下の通路",
+        "gates": [
+          "teyvat:100668"
+        ]
+      },
+      "teyvat:100691": {
+        "stage_id": "sne-wp-100691",
+        "name": "北の氷塔・氷塔・下の層",
+        "gates": [
+          "teyvat:100681",
+          "teyvat:100692"
+        ]
+      },
+      "teyvat:100692": {
+        "stage_id": "sne-wp-100692",
+        "name": "北の氷塔・氷塔・中の層",
+        "gates": [
+          "teyvat:100691",
+          "teyvat:100693"
+        ]
+      },
+      "teyvat:100693": {
+        "stage_id": "sne-wp-100693",
+        "name": "北の氷塔・氷塔・上の層",
+        "gates": [
+          "teyvat:100694",
+          "teyvat:100692"
+        ]
+      },
+      "teyvat:100694": {
+        "stage_id": "sne-wp-100694",
+        "name": "北の氷塔・氷塔・最上の層",
+        "gates": [
+          "teyvat:100693"
+        ]
+      },
+      "teyvat:100695": {
+        "stage_id": "sne-wp-100695",
+        "name": "雪の町と白虹峠・町南の地下道",
+        "gates": [
+          "teyvat:100643"
+        ]
+      },
+      "teyvat:100696": {
+        "stage_id": "sne-wp-100696",
+        "name": "南西雪原・西の雪原と湖を結ぶ坂",
+        "gates": [
+          "teyvat:100652",
+          "teyvat:100649"
+        ]
+      },
+      "teyvat:100697": {
+        "stage_id": "sne-wp-100697",
+        "name": "南東の氷壁・東の谷あい",
+        "gates": [
+          "teyvat:100670",
+          "teyvat:100703"
+        ]
+      },
+      "teyvat:100698": {
+        "stage_id": "sne-wp-100698",
+        "name": "雪の町と白虹峠・町の下の連絡通路",
+        "gates": [
+          "teyvat:100674"
+        ]
+      },
+      "teyvat:100699": {
+        "stage_id": "sne-wp-100699",
+        "name": "雪の町と白虹峠・西沖の氷舟",
+        "gates": [
+          "teyvat:100668"
+        ]
+      },
+      "teyvat:100700": {
+        "stage_id": "sne-wp-100700",
+        "name": "南東の氷壁・氷壁下の中段",
+        "gates": [
+          "teyvat:100701",
+          "teyvat:100684",
+          "teyvat:100702"
+        ]
+      },
+      "teyvat:100701": {
+        "stage_id": "sne-wp-100701",
+        "name": "南東の氷壁・氷壁下の入口",
+        "gates": [
+          "teyvat:100700",
+          "teyvat:100703"
+        ]
+      },
+      "teyvat:100702": {
+        "stage_id": "sne-wp-100702",
+        "name": "南東の氷壁・氷壁下の奥",
+        "gates": [
+          "teyvat:100700"
+        ]
+      },
+      "teyvat:100703": {
+        "stage_id": "sne-wp-100703",
+        "name": "南東の氷壁・氷壁中腹の連絡口",
+        "gates": [
+          "teyvat:100657",
+          "teyvat:100701",
+          "teyvat:100697"
+        ]
+      },
+      "teyvat:100704": {
+        "stage_id": "sne-wp-100704",
+        "name": "南西雪原・西の石窟",
+        "gates": [
+          "teyvat:100652"
+        ]
+      },
       "teyvat:101": {
         "stage_id": "primo-approach",
         "name": "エンシェントヴィシャップ・洞窟入口",
@@ -1556,6 +2111,20 @@
           "teyvat:111"
         ]
       },
+      "teyvat:105012": {
+        "stage_id": "sne-wp-105012",
+        "name": "南西雪原・谷底の横穴",
+        "gates": [
+          "teyvat:100688"
+        ]
+      },
+      "teyvat:105872": {
+        "stage_id": "sne-wp-105872",
+        "name": "南東の氷壁・南東の小さな岬",
+        "gates": [
+          "teyvat:100642"
+        ]
+      },
       "teyvat:106": {
         "stage_id": "liyue-wp-106",
         "name": "璃月・西の谷の水門",
@@ -1565,6 +2134,356 @@
           "teyvat:49"
         ]
       },
+      "teyvat:106180": {
+        "stage_id": "sne-wp-106180",
+        "name": "東部の雪原と工業区・旧線の下層・西口",
+        "gates": [
+          "teyvat:106182",
+          "teyvat:106184"
+        ]
+      },
+      "teyvat:106181": {
+        "stage_id": "sne-north-works",
+        "name": "東部の雪原と工業区・北の工区の神像",
+        "gates": [
+          "teyvat:106193",
+          "teyvat:106194",
+          "teyvat:106192"
+        ]
+      },
+      "teyvat:106182": {
+        "stage_id": "sne-wp-106182",
+        "name": "東部の雪原と工業区・東へ向かう連絡線",
+        "gates": [
+          "teyvat:100679",
+          "teyvat:106180",
+          "teyvat:106183"
+        ]
+      },
+      "teyvat:106183": {
+        "stage_id": "sne-wp-106183",
+        "name": "東部の雪原と工業区・線路の分岐駅",
+        "gates": [
+          "teyvat:106182",
+          "teyvat:106220",
+          "teyvat:106191",
+          "teyvat:106202",
+          "teyvat:106204"
+        ]
+      },
+      "teyvat:106184": {
+        "stage_id": "sne-wp-106184",
+        "name": "東部の雪原と工業区・旧線の下層・連絡口",
+        "gates": [
+          "teyvat:106180",
+          "teyvat:106185",
+          "teyvat:106190"
+        ]
+      },
+      "teyvat:106185": {
+        "stage_id": "sne-wp-106185",
+        "name": "東部の雪原と工業区・旧線の下層・作業台前",
+        "gates": [
+          "teyvat:106186",
+          "teyvat:106184"
+        ]
+      },
+      "teyvat:106186": {
+        "stage_id": "sne-wp-106186",
+        "name": "東部の雪原と工業区・旧線の下層・東口",
+        "gates": [
+          "teyvat:106220",
+          "teyvat:106185"
+        ]
+      },
+      "teyvat:106187": {
+        "stage_id": "sne-wp-106187",
+        "name": "東部の雪原と工業区・北の工区・地下の西側",
+        "gates": [
+          "teyvat:106188",
+          "teyvat:106192"
+        ]
+      },
+      "teyvat:106188": {
+        "stage_id": "sne-wp-106188",
+        "name": "東部の雪原と工業区・北の工区・地下の東側",
+        "gates": [
+          "teyvat:106187"
+        ]
+      },
+      "teyvat:106189": {
+        "stage_id": "sne-wp-106189",
+        "name": "東部の雪原と工業区・北の林の下の石室",
+        "gates": [
+          "teyvat:106193"
+        ]
+      },
+      "teyvat:106190": {
+        "stage_id": "sne-wp-106190",
+        "name": "東部の雪原と工業区・古い線路の埋設区画",
+        "gates": [
+          "teyvat:106184",
+          "teyvat:106201"
+        ]
+      },
+      "teyvat:106191": {
+        "stage_id": "sne-wp-106191",
+        "name": "東部の雪原と工業区・北の工区の入り口",
+        "gates": [
+          "teyvat:106183",
+          "teyvat:106193",
+          "teyvat:106192"
+        ]
+      },
+      "teyvat:106192": {
+        "stage_id": "sne-wp-106192",
+        "name": "東部の雪原と工業区・北の工区の屋外足場",
+        "gates": [
+          "teyvat:106187",
+          "teyvat:106191",
+          "teyvat:106181",
+          "teyvat:106206"
+        ]
+      },
+      "teyvat:106193": {
+        "stage_id": "sne-wp-106193",
+        "name": "東部の雪原と工業区・北の林の入口",
+        "gates": [
+          "teyvat:106191",
+          "teyvat:106194",
+          "teyvat:106181",
+          "teyvat:106189"
+        ]
+      },
+      "teyvat:106194": {
+        "stage_id": "sne-wp-106194",
+        "name": "東部の雪原と工業区・北の海岸へ下りる坂",
+        "gates": [
+          "teyvat:106193",
+          "teyvat:106195",
+          "teyvat:106181",
+          "teyvat:106207"
+        ]
+      },
+      "teyvat:106195": {
+        "stage_id": "sne-wp-106195",
+        "name": "東部の雪原と工業区・北岸の坑道・南口",
+        "gates": [
+          "teyvat:106196",
+          "teyvat:106194"
+        ]
+      },
+      "teyvat:106196": {
+        "stage_id": "sne-wp-106196",
+        "name": "東部の雪原と工業区・北岸の坑道・中ほど",
+        "gates": [
+          "teyvat:106197",
+          "teyvat:106195"
+        ]
+      },
+      "teyvat:106197": {
+        "stage_id": "sne-wp-106197",
+        "name": "東部の雪原と工業区・北岸の坑道・北口",
+        "gates": [
+          "teyvat:106198",
+          "teyvat:106196"
+        ]
+      },
+      "teyvat:106198": {
+        "stage_id": "sne-wp-106198",
+        "name": "東部の雪原と工業区・海岸の下の荷運び路",
+        "gates": [
+          "teyvat:106199",
+          "teyvat:106197"
+        ]
+      },
+      "teyvat:106199": {
+        "stage_id": "sne-wp-106199",
+        "name": "東部の雪原と工業区・海岸の下の折り返し",
+        "gates": [
+          "teyvat:106198",
+          "teyvat:106207"
+        ]
+      },
+      "teyvat:106200": {
+        "stage_id": "sne-wp-106200",
+        "name": "東部の雪原と工業区・東の工区・地下の旧線入口",
+        "gates": [
+          "teyvat:106201",
+          "teyvat:106204"
+        ]
+      },
+      "teyvat:106201": {
+        "stage_id": "sne-wp-106201",
+        "name": "東部の雪原と工業区・東の工区・地下の旧線の奥",
+        "gates": [
+          "teyvat:106190",
+          "teyvat:106200"
+        ]
+      },
+      "teyvat:106202": {
+        "stage_id": "sne-wp-106202",
+        "name": "東部の雪原と工業区・連絡線を見下ろす丘",
+        "gates": [
+          "teyvat:106183",
+          "teyvat:106204",
+          "teyvat:107298"
+        ]
+      },
+      "teyvat:106203": {
+        "stage_id": "novokichev-depth",
+        "name": "ノヴォキッチェヴ（仮構造）・探索路",
+        "gates": [
+          "teyvat:106205"
+        ]
+      },
+      "teyvat:106204": {
+        "stage_id": "sne-wp-106204",
+        "name": "東部の雪原と工業区・東の工区の貨物口",
+        "gates": [
+          "teyvat:106183",
+          "teyvat:106200",
+          "teyvat:106202",
+          "teyvat:106205"
+        ]
+      },
+      "teyvat:106205": {
+        "stage_id": "novokichev-camp",
+        "name": "ノヴォキッチェヴ（仮構造）・入口拠点",
+        "gates": [
+          "teyvat:100664",
+          "teyvat:106203",
+          "teyvat:106204",
+          "teyvat:106206"
+        ]
+      },
+      "teyvat:106206": {
+        "stage_id": "sne-wp-106206",
+        "name": "東部の雪原と工業区・東の工区の見張り棚",
+        "gates": [
+          "teyvat:106192",
+          "teyvat:106205",
+          "teyvat:106208"
+        ]
+      },
+      "teyvat:106207": {
+        "stage_id": "sne-wp-106207",
+        "name": "東部の雪原と工業区・沿岸の倉庫前",
+        "gates": [
+          "teyvat:106199",
+          "teyvat:106194",
+          "teyvat:106208"
+        ]
+      },
+      "teyvat:106208": {
+        "stage_id": "sne-wp-106208",
+        "name": "東部の雪原と工業区・東の工区の海岸線",
+        "gates": [
+          "teyvat:106206",
+          "teyvat:106207",
+          "teyvat:106209"
+        ]
+      },
+      "teyvat:106209": {
+        "stage_id": "sne-wp-106209",
+        "name": "東部の雪原と工業区・東の丘の下の小間",
+        "gates": [
+          "teyvat:106208"
+        ]
+      },
+      "teyvat:106210": {
+        "stage_id": "sne-wp-106210",
+        "name": "東端の城壁・東端の尾根の入口",
+        "gates": [
+          "teyvat:107298",
+          "teyvat:106211",
+          "teyvat:106212"
+        ]
+      },
+      "teyvat:106211": {
+        "stage_id": "sne-wp-106211",
+        "name": "東端の城壁・東端の尾根の風見台",
+        "gates": [
+          "teyvat:106210",
+          "teyvat:106212"
+        ]
+      },
+      "teyvat:106212": {
+        "stage_id": "sne-wp-106212",
+        "name": "東端の城壁・城壁の手前の坂",
+        "gates": [
+          "teyvat:106210",
+          "teyvat:106211",
+          "teyvat:106213",
+          "teyvat:106214"
+        ]
+      },
+      "teyvat:106213": {
+        "stage_id": "sne-wp-106213",
+        "name": "東端の城壁・壁の下の見張り室",
+        "gates": [
+          "teyvat:106212",
+          "teyvat:106217"
+        ]
+      },
+      "teyvat:106214": {
+        "stage_id": "sne-east-camp",
+        "name": "東端の城壁・東の町の広場",
+        "gates": [
+          "teyvat:106212",
+          "teyvat:106215"
+        ]
+      },
+      "teyvat:106215": {
+        "stage_id": "sne-wp-106215",
+        "name": "東端の城壁・城壁沿いの道",
+        "gates": [
+          "teyvat:106214",
+          "teyvat:106216",
+          "teyvat:106219"
+        ]
+      },
+      "teyvat:106216": {
+        "stage_id": "sne-wp-106216",
+        "name": "東端の城壁・東門の階段",
+        "gates": [
+          "teyvat:106215",
+          "teyvat:106219"
+        ]
+      },
+      "teyvat:106217": {
+        "stage_id": "sne-wp-106217",
+        "name": "東端の城壁・門の下の回廊・西側",
+        "gates": [
+          "teyvat:106213",
+          "teyvat:106218"
+        ]
+      },
+      "teyvat:106218": {
+        "stage_id": "sne-wp-106218",
+        "name": "東端の城壁・門の下の回廊・東側",
+        "gates": [
+          "teyvat:106217",
+          "teyvat:106219"
+        ]
+      },
+      "teyvat:106219": {
+        "stage_id": "sne-wp-106219",
+        "name": "東端の城壁・東門の見張り台",
+        "gates": [
+          "teyvat:106215",
+          "teyvat:106216",
+          "teyvat:106218"
+        ]
+      },
+      "teyvat:106220": {
+        "stage_id": "sne-wp-106220",
+        "name": "東部の雪原と工業区・分岐駅の下の昇降室",
+        "gates": [
+          "teyvat:106186",
+          "teyvat:106183"
+        ]
+      },
       "teyvat:107": {
         "stage_id": "liyue-wp-107",
         "name": "璃月・西の山道と神像",
@@ -1572,6 +2491,14 @@
           "teyvat:108",
           "teyvat:106",
           "teyvat:92"
+        ]
+      },
+      "teyvat:107298": {
+        "stage_id": "sne-wp-107298",
+        "name": "東部の雪原と工業区・東端へ向かう鞍部",
+        "gates": [
+          "teyvat:106202",
+          "teyvat:106210"
         ]
       },
       "teyvat:108": {
@@ -6207,6 +7134,7 @@
         "name": "ナド・クライ・町の広場",
         "gates": [
           "teyvat:88143",
+          "teyvat:100646",
           "teyvat:88128"
         ]
       },
@@ -7000,12 +7928,12 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1065,
-    "provisional_quests": 253,
+    "authored_stages": 1165,
+    "provisional_quests": 257,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
-      "all waypoint stages",
+      "production layouts and access conditions for all mapped stages",
       "all boss encounters",
       "final story quests",
       "companion starter equipment and selection gates",
@@ -7046,7 +7974,7 @@
     "status": "partial",
     "design": "content/world-bosses-design.json"
   },
-  "current_priority": "Connect the 108 remaining Snezhnaya map markers, then audit the complete catalog and full quest and boss playthroughs.",
+  "current_priority": "Audit authored quest and boss playthroughs now that all imported markers have a linked stage.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",
@@ -8020,10 +8948,113 @@
           "sne-survey-yard",
           "sne-survey-ridge",
           "sne-snow-match",
+          "sne-south-bay",
+          "sne-wp-100642",
+          "sne-wp-100643",
+          "sne-wp-100645",
+          "sne-wp-100647",
+          "sne-wp-100648",
+          "sne-wp-100649",
+          "sne-wp-100650",
+          "sne-wp-100651",
+          "sne-wp-100652",
+          "sne-wp-100653",
+          "sne-wp-100654",
+          "sne-wp-100655",
+          "sne-wp-100656",
+          "sne-wp-100657",
+          "sne-wp-100658",
+          "sne-wp-100659",
+          "sne-wp-100660",
+          "sne-wp-100663",
+          "sne-wp-100666",
+          "sne-wp-100667",
+          "sne-wp-100668",
+          "sne-wp-100669",
+          "sne-wp-100670",
+          "sne-wp-100671",
+          "sne-wp-100672",
+          "sne-wp-100673",
+          "sne-wp-100674",
+          "sne-wp-100675",
+          "sne-wp-100676",
+          "sne-wp-100677",
+          "sne-wp-100678",
+          "sne-wp-100679",
+          "sne-wp-100680",
+          "sne-wp-100681",
+          "sne-wp-100682",
+          "sne-wp-100683",
+          "sne-wp-100684",
+          "sne-wp-100685",
+          "sne-wp-100686",
+          "sne-wp-100687",
+          "sne-wp-100688",
+          "sne-wp-100689",
+          "sne-wp-100690",
+          "sne-wp-100691",
+          "sne-wp-100692",
+          "sne-wp-100693",
+          "sne-wp-100694",
+          "sne-wp-100695",
+          "sne-wp-100696",
+          "sne-wp-100697",
+          "sne-wp-100698",
+          "sne-wp-100699",
+          "sne-wp-100700",
+          "sne-wp-100701",
+          "sne-wp-100702",
+          "sne-wp-100703",
+          "sne-wp-100704",
+          "sne-wp-105012",
+          "sne-wp-105872",
+          "sne-wp-106180",
+          "sne-north-works",
+          "sne-wp-106182",
+          "sne-wp-106183",
+          "sne-wp-106184",
+          "sne-wp-106185",
+          "sne-wp-106186",
+          "sne-wp-106187",
+          "sne-wp-106188",
+          "sne-wp-106189",
+          "sne-wp-106190",
+          "sne-wp-106191",
+          "sne-wp-106192",
+          "sne-wp-106193",
+          "sne-wp-106194",
+          "sne-wp-106195",
+          "sne-wp-106196",
+          "sne-wp-106197",
+          "sne-wp-106198",
+          "sne-wp-106199",
+          "sne-wp-106200",
+          "sne-wp-106201",
+          "sne-wp-106202",
+          "sne-wp-106204",
+          "sne-wp-106206",
+          "sne-wp-106207",
+          "sne-wp-106208",
+          "sne-wp-106209",
+          "sne-wp-106210",
+          "sne-wp-106211",
+          "sne-wp-106212",
+          "sne-wp-106213",
+          "sne-east-camp",
+          "sne-wp-106215",
+          "sne-wp-106216",
+          "sne-wp-106217",
+          "sne-wp-106218",
+          "sne-wp-106219",
+          "sne-wp-106220",
+          "sne-wp-107298",
           "sne-stygian-last-gate",
           "sne-stygian-frost-court"
         ],
         "quest_ids": [
+          "sne-mapped-track-walk",
+          "sne-mapped-four-tower-floors",
+          "sne-mapped-east-wall",
           "stygian-ronova-commission",
           "stygian-capitano-commission",
           "growth-star-practice",
@@ -8355,6 +9386,7 @@
           "novo-ice-vault"
         ],
         "quest_ids": [
+          "sne-mapped-works-wire",
           "novokichev-survey",
           "wavebinder-commission",
           "novo-expedition-ready",
