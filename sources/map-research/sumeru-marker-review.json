@@ -1,0 +1,588 @@
+{
+  "catalog": "content/map-catalog.json",
+  "official_map_page": "https://act.hoyolab.com/ys/app/interactive-map/index.html",
+  "map_id": 2,
+  "official_area_id": 4,
+  "map_version": "bd70cde160dbd523926208d9fa8961a1",
+  "current_label_payload_sha256": "c46032f222f962388024248ee22a4cfdf0faaa49fd8e74f119669ac0652a16eb",
+  "verified": "Public point response matched all 125 marker IDs, coordinates, types and floor assignments. Plotted tiles provided terrain context.",
+  "field_editor_revision": 0,
+  "field_editor_approved_edges": 0,
+  "status": "Lab titles, routes, entrances, weather windows, placements and levels are provisional. Floor IDs are official identifiers.",
+  "areas": {
+    "スメールの森林": [
+      "teyvat:28699",
+      "teyvat:28700",
+      "teyvat:28701",
+      "teyvat:28702",
+      "teyvat:28703",
+      "teyvat:28704",
+      "teyvat:28705",
+      "teyvat:28706",
+      "teyvat:28707",
+      "teyvat:28708",
+      "teyvat:28710",
+      "teyvat:28711",
+      "teyvat:28712",
+      "teyvat:28713",
+      "teyvat:28714",
+      "teyvat:28715",
+      "teyvat:28716",
+      "teyvat:28717",
+      "teyvat:28718",
+      "teyvat:28719",
+      "teyvat:28720",
+      "teyvat:28721",
+      "teyvat:28722",
+      "teyvat:28723",
+      "teyvat:28724",
+      "teyvat:28725",
+      "teyvat:28726",
+      "teyvat:28727",
+      "teyvat:28728",
+      "teyvat:28729",
+      "teyvat:28730",
+      "teyvat:28731",
+      "teyvat:28733",
+      "teyvat:28734",
+      "teyvat:28735",
+      "teyvat:28736",
+      "teyvat:28737",
+      "teyvat:28738",
+      "teyvat:28739",
+      "teyvat:28740",
+      "teyvat:28741",
+      "teyvat:28742",
+      "teyvat:28743",
+      "teyvat:28744",
+      "teyvat:28745",
+      "teyvat:28746",
+      "teyvat:28747",
+      "teyvat:28748",
+      "teyvat:28749",
+      "teyvat:28750",
+      "teyvat:69098"
+    ],
+    "失われた苗畑": [
+      "teyvat:28709",
+      "teyvat:32451",
+      "teyvat:32452"
+    ],
+    "砂漠南部": [
+      "teyvat:36674",
+      "teyvat:36675",
+      "teyvat:36676",
+      "teyvat:36677",
+      "teyvat:36678",
+      "teyvat:36679",
+      "teyvat:36680",
+      "teyvat:36681",
+      "teyvat:36682",
+      "teyvat:36683",
+      "teyvat:36684",
+      "teyvat:36685",
+      "teyvat:36686",
+      "teyvat:36687",
+      "teyvat:36688",
+      "teyvat:36689",
+      "teyvat:36690",
+      "teyvat:36691",
+      "teyvat:36692",
+      "teyvat:36693",
+      "teyvat:36694",
+      "teyvat:36695",
+      "teyvat:36696",
+      "teyvat:36697",
+      "teyvat:36698",
+      "teyvat:36699",
+      "teyvat:36700",
+      "teyvat:36701",
+      "teyvat:36702"
+    ],
+    "ハドラマヴェス砂漠": [
+      "teyvat:41819",
+      "teyvat:41820",
+      "teyvat:41821",
+      "teyvat:41822",
+      "teyvat:41823",
+      "teyvat:41824",
+      "teyvat:41825",
+      "teyvat:41826",
+      "teyvat:41827",
+      "teyvat:41828",
+      "teyvat:41829",
+      "teyvat:41830",
+      "teyvat:41831",
+      "teyvat:41832",
+      "teyvat:41833",
+      "teyvat:41834",
+      "teyvat:41835",
+      "teyvat:41836",
+      "teyvat:41837",
+      "teyvat:41838",
+      "teyvat:41839",
+      "teyvat:41840"
+    ],
+    "砂漠北西部": [
+      "teyvat:46513",
+      "teyvat:46514",
+      "teyvat:46515",
+      "teyvat:46516",
+      "teyvat:46517",
+      "teyvat:46518",
+      "teyvat:46519",
+      "teyvat:46520",
+      "teyvat:46521",
+      "teyvat:46522",
+      "teyvat:46523",
+      "teyvat:46524",
+      "teyvat:46525",
+      "teyvat:46526",
+      "teyvat:46527",
+      "teyvat:46528",
+      "teyvat:46529",
+      "teyvat:46530",
+      "teyvat:50031",
+      "teyvat:50032"
+    ]
+  },
+  "stage_by_marker": {
+    "teyvat:28699": "sum-wp-28699",
+    "teyvat:28700": "sum-wp-28700",
+    "teyvat:28701": "sum-wp-28701",
+    "teyvat:28702": "sum-wp-28702",
+    "teyvat:28703": "sum-wp-28703",
+    "teyvat:28704": "sum-wp-28704",
+    "teyvat:28705": "sum-wp-28705",
+    "teyvat:28706": "sum-wp-28706",
+    "teyvat:28707": "sum-wp-28707",
+    "teyvat:28708": "sum-wp-28708",
+    "teyvat:28709": "sum-wp-28709",
+    "teyvat:28710": "sum-wp-28710",
+    "teyvat:28711": "sum-wp-28711",
+    "teyvat:28712": "sum-wp-28712",
+    "teyvat:28713": "sum-wp-28713",
+    "teyvat:28714": "sum-wp-28714",
+    "teyvat:28715": "sum-wp-28715",
+    "teyvat:28716": "sum-wp-28716",
+    "teyvat:28717": "sum-wp-28717",
+    "teyvat:28718": "sum-wp-28718",
+    "teyvat:28719": "sum-wp-28719",
+    "teyvat:28720": "sum-wp-28720",
+    "teyvat:28721": "sum-wp-28721",
+    "teyvat:28722": "sum-wp-28722",
+    "teyvat:28723": "sum-wp-28723",
+    "teyvat:28724": "sum-wp-28724",
+    "teyvat:28725": "sum-wp-28725",
+    "teyvat:28726": "sum-wp-28726",
+    "teyvat:28727": "sum-wp-28727",
+    "teyvat:28728": "sum-wp-28728",
+    "teyvat:28729": "sum-wp-28729",
+    "teyvat:28730": "sumeru-field",
+    "teyvat:28731": "sum-wp-28731",
+    "teyvat:28733": "sumeru-entry",
+    "teyvat:28734": "sum-wp-28734",
+    "teyvat:28735": "sum-wp-28735",
+    "teyvat:28736": "sum-wp-28736",
+    "teyvat:28737": "sum-wp-28737",
+    "teyvat:28738": "sum-wp-28738",
+    "teyvat:28739": "sumeru-hub",
+    "teyvat:28740": "sum-wp-28740",
+    "teyvat:28741": "sum-wp-28741",
+    "teyvat:28742": "sum-wp-28742",
+    "teyvat:28743": "sum-wp-28743",
+    "teyvat:28744": "sum-wp-28744",
+    "teyvat:28745": "sum-wp-28745",
+    "teyvat:28746": "sum-wp-28746",
+    "teyvat:28747": "sum-wp-28747",
+    "teyvat:28748": "sum-wp-28748",
+    "teyvat:28749": "sum-wp-28749",
+    "teyvat:28750": "sum-wp-28750",
+    "teyvat:32451": "sum-wp-32451",
+    "teyvat:32452": "sum-wp-32452",
+    "teyvat:36674": "sum-wp-36674",
+    "teyvat:36675": "sum-wp-36675",
+    "teyvat:36676": "sum-wp-36676",
+    "teyvat:36677": "sum-wp-36677",
+    "teyvat:36678": "sum-wp-36678",
+    "teyvat:36679": "sum-wp-36679",
+    "teyvat:36680": "sum-wp-36680",
+    "teyvat:36681": "sum-wp-36681",
+    "teyvat:36682": "sum-wp-36682",
+    "teyvat:36683": "sum-wp-36683",
+    "teyvat:36684": "sum-wp-36684",
+    "teyvat:36685": "sum-wp-36685",
+    "teyvat:36686": "sum-wp-36686",
+    "teyvat:36687": "sum-wp-36687",
+    "teyvat:36688": "sum-wp-36688",
+    "teyvat:36689": "sum-wp-36689",
+    "teyvat:36690": "sum-wp-36690",
+    "teyvat:36691": "sum-wp-36691",
+    "teyvat:36692": "sum-wp-36692",
+    "teyvat:36693": "sum-wp-36693",
+    "teyvat:36694": "sum-wp-36694",
+    "teyvat:36695": "sum-wp-36695",
+    "teyvat:36696": "sum-wp-36696",
+    "teyvat:36697": "sum-wp-36697",
+    "teyvat:36698": "sum-wp-36698",
+    "teyvat:36699": "sum-wp-36699",
+    "teyvat:36700": "sum-wp-36700",
+    "teyvat:36701": "sum-wp-36701",
+    "teyvat:36702": "sum-wp-36702",
+    "teyvat:41819": "sum-wp-41819",
+    "teyvat:41820": "sum-wp-41820",
+    "teyvat:41821": "sum-wp-41821",
+    "teyvat:41822": "sum-wp-41822",
+    "teyvat:41823": "sum-wp-41823",
+    "teyvat:41824": "sum-wp-41824",
+    "teyvat:41825": "sum-wp-41825",
+    "teyvat:41826": "sum-wp-41826",
+    "teyvat:41827": "sum-wp-41827",
+    "teyvat:41828": "sum-wp-41828",
+    "teyvat:41829": "sum-wp-41829",
+    "teyvat:41830": "sum-wp-41830",
+    "teyvat:41831": "sum-wp-41831",
+    "teyvat:41832": "sum-wp-41832",
+    "teyvat:41833": "sum-wp-41833",
+    "teyvat:41834": "sum-wp-41834",
+    "teyvat:41835": "sum-wp-41835",
+    "teyvat:41836": "sum-wp-41836",
+    "teyvat:41837": "sum-wp-41837",
+    "teyvat:41838": "sum-wp-41838",
+    "teyvat:41839": "sum-wp-41839",
+    "teyvat:41840": "sum-wp-41840",
+    "teyvat:46513": "tunigi-camp",
+    "teyvat:46514": "sum-wp-46514",
+    "teyvat:46515": "sum-wp-46515",
+    "teyvat:46516": "sum-wp-46516",
+    "teyvat:46517": "sum-wp-46517",
+    "teyvat:46518": "sum-wp-46518",
+    "teyvat:46519": "sum-wp-46519",
+    "teyvat:46520": "sum-wp-46520",
+    "teyvat:46521": "sum-wp-46521",
+    "teyvat:46522": "tunigi-depth",
+    "teyvat:46523": "sum-wp-46523",
+    "teyvat:46524": "sum-wp-46524",
+    "teyvat:46525": "sum-wp-46525",
+    "teyvat:46526": "sum-wp-46526",
+    "teyvat:46527": "sum-wp-46527",
+    "teyvat:46528": "sum-wp-46528",
+    "teyvat:46529": "sum-wp-46529",
+    "teyvat:46530": "sum-wp-46530",
+    "teyvat:50031": "sum-wp-50031",
+    "teyvat:50032": "sum-wp-50032",
+    "teyvat:69098": "sum-wp-69098"
+  },
+  "floor_groups": {
+    "teyvat:28705": {
+      "group_id": 22,
+      "floor_id": 44
+    },
+    "teyvat:28709": {
+      "group_id": 18,
+      "floor_id": 80
+    },
+    "teyvat:28717": {
+      "group_id": 11,
+      "floor_id": 36
+    },
+    "teyvat:28723": {
+      "group_id": 9,
+      "floor_id": 34
+    },
+    "teyvat:28724": {
+      "group_id": 12,
+      "floor_id": 37
+    },
+    "teyvat:28742": {
+      "group_id": 21,
+      "floor_id": 43
+    },
+    "teyvat:28744": {
+      "group_id": 23,
+      "floor_id": 45
+    },
+    "teyvat:28750": {
+      "group_id": 26,
+      "floor_id": 46
+    },
+    "teyvat:32452": {
+      "group_id": 18,
+      "floor_id": 40
+    },
+    "teyvat:36683": {
+      "group_id": 41,
+      "floor_id": 1
+    },
+    "teyvat:36687": {
+      "group_id": 39,
+      "floor_id": 91
+    },
+    "teyvat:36694": {
+      "group_id": 31,
+      "floor_id": 103
+    },
+    "teyvat:36695": {
+      "group_id": 61,
+      "floor_id": 60
+    },
+    "teyvat:36697": {
+      "group_id": 32,
+      "floor_id": 87
+    },
+    "teyvat:36700": {
+      "group_id": 51,
+      "floor_id": 57
+    },
+    "teyvat:36701": {
+      "group_id": 51,
+      "floor_id": 57
+    },
+    "teyvat:36702": {
+      "group_id": 31,
+      "floor_id": 102
+    },
+    "teyvat:41823": {
+      "group_id": 56,
+      "floor_id": 21
+    },
+    "teyvat:41824": {
+      "group_id": 56,
+      "floor_id": 21
+    },
+    "teyvat:41825": {
+      "group_id": 56,
+      "floor_id": 21
+    },
+    "teyvat:41829": {
+      "group_id": 60,
+      "floor_id": 96
+    },
+    "teyvat:41831": {
+      "group_id": 60,
+      "floor_id": 96
+    },
+    "teyvat:41833": {
+      "group_id": 60,
+      "floor_id": 59
+    },
+    "teyvat:41836": {
+      "group_id": 58,
+      "floor_id": 16
+    },
+    "teyvat:41837": {
+      "group_id": 60,
+      "floor_id": 96
+    },
+    "teyvat:46519": {
+      "group_id": 43,
+      "floor_id": 53
+    },
+    "teyvat:46520": {
+      "group_id": 72,
+      "floor_id": 65
+    },
+    "teyvat:46523": {
+      "group_id": 71,
+      "floor_id": 64
+    },
+    "teyvat:46528": {
+      "group_id": 53,
+      "floor_id": 24
+    },
+    "teyvat:46529": {
+      "group_id": 117,
+      "floor_id": 147
+    },
+    "teyvat:46530": {
+      "group_id": 72,
+      "floor_id": 65
+    },
+    "teyvat:50031": {
+      "group_id": 97,
+      "floor_id": 3
+    }
+  },
+  "floor_connections": [
+    {
+      "from": "sum-wp-28706",
+      "to": "sum-wp-28705",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-32451",
+      "to": "sum-wp-32452",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-32452",
+      "to": "sum-wp-28709",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-28718",
+      "to": "sum-wp-28717",
+      "mode": "waterwaySeconds"
+    },
+    {
+      "from": "sum-wp-28722",
+      "to": "sum-wp-28723",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-28699",
+      "to": "sum-wp-28724",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-28741",
+      "to": "sum-wp-28742",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-28745",
+      "to": "sum-wp-28744",
+      "mode": "waterwaySeconds"
+    },
+    {
+      "from": "sum-wp-28748",
+      "to": "sum-wp-28750",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-36678",
+      "to": "sum-wp-36683",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-36676",
+      "to": "sum-wp-36687",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-36696",
+      "to": "sum-wp-36702",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-36702",
+      "to": "sum-wp-36694",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-36696",
+      "to": "sum-wp-36695",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-36698",
+      "to": "sum-wp-36697",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-36693",
+      "to": "sum-wp-36701",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-36701",
+      "to": "sum-wp-36700",
+      "mode": "walk"
+    },
+    {
+      "from": "sum-wp-41822",
+      "to": "sum-wp-41824",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-41824",
+      "to": "sum-wp-41823",
+      "mode": "walk"
+    },
+    {
+      "from": "sum-wp-41824",
+      "to": "sum-wp-41825",
+      "mode": "walk"
+    },
+    {
+      "from": "sum-wp-41835",
+      "to": "sum-wp-41833",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-41833",
+      "to": "sum-wp-41831",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-41831",
+      "to": "sum-wp-41829",
+      "mode": "walk"
+    },
+    {
+      "from": "sum-wp-41831",
+      "to": "sum-wp-41837",
+      "mode": "walk"
+    },
+    {
+      "from": "sum-wp-41838",
+      "to": "sum-wp-41836",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-46521",
+      "to": "sum-wp-46519",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-46517",
+      "to": "sum-wp-46520",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-46520",
+      "to": "sum-wp-46530",
+      "mode": "walk"
+    },
+    {
+      "from": "tunigi-depth",
+      "to": "sum-wp-46523",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-46527",
+      "to": "sum-wp-46528",
+      "mode": "waterwaySeconds"
+    },
+    {
+      "from": "sum-wp-46514",
+      "to": "sum-wp-46529",
+      "mode": "liftSeconds"
+    },
+    {
+      "from": "sum-wp-50032",
+      "to": "sum-wp-50031",
+      "mode": "liftSeconds"
+    }
+  ],
+  "wind_gates": [
+    {
+      "from": "sum-wp-41838",
+      "to": "sum-wp-41836"
+    },
+    {
+      "from": "sum-wp-46515",
+      "to": "sum-wp-46516"
+    }
+  ],
+  "populated_stages": [
+    "sum-wp-28707",
+    "sum-wp-28713",
+    "sum-wp-28746",
+    "sum-wp-36691",
+    "sum-wp-36698",
+    "sum-wp-41827",
+    "sum-wp-46516",
+    "sum-wp-46527"
+  ]
+}

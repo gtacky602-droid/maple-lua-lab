@@ -99,8 +99,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 36,
-      "prototype_quest_count": 23,
+      "prototype_stage_count": 138,
+      "prototype_quest_count": 25,
       "official_map2_markers": {
         "waypoints": 112,
         "statues": 13
@@ -242,8 +242,8 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 7,
-      "prototype_quest_count": 4,
+      "prototype_stage_count": 25,
+      "prototype_quest_count": 6,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
     {
@@ -462,7 +462,7 @@
     },
     "complete_world_verified": false,
     "region_assignment": "official area IDs",
-    "playable_at_imported_nodes": 226,
+    "playable_at_imported_nodes": 351,
     "stage_links": {
       "map7:21571": {
         "stage_id": "enkanomiya-camp",
@@ -1016,6 +1016,7 @@
         "name": "稲妻・城下の広場",
         "gates": [
           "teyvat:12731",
+          "teyvat:28733",
           "teyvat:12725",
           "teyvat:12722"
         ]
@@ -1574,6 +1575,296 @@
           "teyvat:21"
         ]
       },
+      "teyvat:28699": {
+        "stage_id": "sum-wp-28699",
+        "name": "スメールの森林・東麓の神像",
+        "gates": [
+          "teyvat:28724",
+          "teyvat:28725",
+          "teyvat:28722"
+        ]
+      },
+      "teyvat:28700": {
+        "stage_id": "sum-wp-28700",
+        "name": "スメールの森林・北東の林と神像",
+        "gates": [
+          "teyvat:28747",
+          "teyvat:28749"
+        ]
+      },
+      "teyvat:28701": {
+        "stage_id": "sum-wp-28701",
+        "name": "スメールの森林・北の森の神像",
+        "gates": [
+          "teyvat:28706",
+          "teyvat:69098",
+          "teyvat:28741"
+        ]
+      },
+      "teyvat:28702": {
+        "stage_id": "sum-wp-28702",
+        "name": "スメールの森林・大樹の南の神像",
+        "gates": [
+          "teyvat:28743",
+          "teyvat:28740",
+          "teyvat:28730"
+        ]
+      },
+      "teyvat:28703": {
+        "stage_id": "sum-wp-28703",
+        "name": "スメールの森林・南の丘の神像",
+        "gates": [
+          "teyvat:28713",
+          "teyvat:28729",
+          "teyvat:28728",
+          "teyvat:28726"
+        ]
+      },
+      "teyvat:28704": {
+        "stage_id": "sum-wp-28704",
+        "name": "スメールの森林・国境寄りの神像",
+        "gates": [
+          "teyvat:28734",
+          "teyvat:28725",
+          "teyvat:28733"
+        ]
+      },
+      "teyvat:28705": {
+        "stage_id": "sum-wp-28705",
+        "name": "スメールの森林・切り立った崖の洞",
+        "gates": [
+          "teyvat:28706"
+        ]
+      },
+      "teyvat:28706": {
+        "stage_id": "sum-wp-28706",
+        "name": "スメールの森林・乾いた段丘",
+        "gates": [
+          "teyvat:41840",
+          "teyvat:28705",
+          "teyvat:28707",
+          "teyvat:28701"
+        ]
+      },
+      "teyvat:28707": {
+        "stage_id": "sum-wp-28707",
+        "name": "スメールの森林・雨林西縁の湖",
+        "gates": [
+          "teyvat:28706",
+          "teyvat:28708"
+        ]
+      },
+      "teyvat:28708": {
+        "stage_id": "sum-wp-28708",
+        "name": "スメールの森林・古木の西の坂",
+        "gates": [
+          "teyvat:32451",
+          "teyvat:28707",
+          "teyvat:28711",
+          "teyvat:28743"
+        ]
+      },
+      "teyvat:28709": {
+        "stage_id": "sum-wp-28709",
+        "name": "失われた苗畑・苗畑の深層の根室",
+        "gates": [
+          "teyvat:32452"
+        ]
+      },
+      "teyvat:28710": {
+        "stage_id": "sum-wp-28710",
+        "name": "スメールの森林・砂に面した尾根",
+        "gates": [
+          "teyvat:41821",
+          "teyvat:32451",
+          "teyvat:28712"
+        ]
+      },
+      "teyvat:28711": {
+        "stage_id": "sum-wp-28711",
+        "name": "スメールの森林・南の森への尾根",
+        "gates": [
+          "teyvat:28708",
+          "teyvat:28712",
+          "teyvat:28729"
+        ]
+      },
+      "teyvat:28712": {
+        "stage_id": "sum-wp-28712",
+        "name": "スメールの森林・谷の上の水場",
+        "gates": [
+          "teyvat:28710",
+          "teyvat:28715",
+          "teyvat:28711",
+          "teyvat:28713"
+        ]
+      },
+      "teyvat:28713": {
+        "stage_id": "sum-wp-28713",
+        "name": "スメールの森林・南西の林縁",
+        "gates": [
+          "teyvat:28712",
+          "teyvat:28714",
+          "teyvat:28703"
+        ]
+      },
+      "teyvat:28714": {
+        "stage_id": "sum-wp-28714",
+        "name": "スメールの森林・水辺の低い枝",
+        "gates": [
+          "teyvat:28715",
+          "teyvat:28716",
+          "teyvat:28713"
+        ]
+      },
+      "teyvat:28715": {
+        "stage_id": "sum-wp-28715",
+        "name": "スメールの森林・森と砂の門",
+        "gates": [
+          "teyvat:36674",
+          "teyvat:28712",
+          "teyvat:28714"
+        ]
+      },
+      "teyvat:28716": {
+        "stage_id": "sum-wp-28716",
+        "name": "スメールの森林・南の段丘道",
+        "gates": [
+          "teyvat:28714",
+          "teyvat:28718"
+        ]
+      },
+      "teyvat:28717": {
+        "stage_id": "sum-wp-28717",
+        "name": "スメールの森林・湖底の根の洞",
+        "gates": [
+          "teyvat:28718"
+        ]
+      },
+      "teyvat:28718": {
+        "stage_id": "sum-wp-28718",
+        "name": "スメールの森林・深い谷の東縁",
+        "gates": [
+          "teyvat:28716",
+          "teyvat:28717",
+          "teyvat:28719"
+        ]
+      },
+      "teyvat:28719": {
+        "stage_id": "sum-wp-28719",
+        "name": "スメールの森林・港西の坂道",
+        "gates": [
+          "teyvat:28718",
+          "teyvat:28726",
+          "teyvat:28720"
+        ]
+      },
+      "teyvat:28720": {
+        "stage_id": "sum-wp-28720",
+        "name": "スメールの森林・南港の荷揚げ棚",
+        "gates": [
+          "teyvat:28719",
+          "teyvat:28721"
+        ]
+      },
+      "teyvat:28721": {
+        "stage_id": "sum-wp-28721",
+        "name": "スメールの森林・南港の川沿い",
+        "gates": [
+          "teyvat:28720",
+          "teyvat:28722"
+        ]
+      },
+      "teyvat:28722": {
+        "stage_id": "sum-wp-28722",
+        "name": "スメールの森林・南東の小尾根",
+        "gates": [
+          "teyvat:28721",
+          "teyvat:28699",
+          "teyvat:28723"
+        ]
+      },
+      "teyvat:28723": {
+        "stage_id": "sum-wp-28723",
+        "name": "スメールの森林・南東尾根の石室",
+        "gates": [
+          "teyvat:28722"
+        ]
+      },
+      "teyvat:28724": {
+        "stage_id": "sum-wp-28724",
+        "name": "スメールの森林・神像の下の茂み洞",
+        "gates": [
+          "teyvat:28699"
+        ]
+      },
+      "teyvat:28725": {
+        "stage_id": "sum-wp-28725",
+        "name": "スメールの森林・東の林間道",
+        "gates": [
+          "teyvat:28727",
+          "teyvat:28699",
+          "teyvat:28704"
+        ]
+      },
+      "teyvat:28726": {
+        "stage_id": "sum-wp-28726",
+        "name": "スメールの森林・西岸の緩い坂",
+        "gates": [
+          "teyvat:28703",
+          "teyvat:28728",
+          "teyvat:28719",
+          "teyvat:28727"
+        ]
+      },
+      "teyvat:28727": {
+        "stage_id": "sum-wp-28727",
+        "name": "スメールの森林・川の東の河岸",
+        "gates": [
+          "teyvat:28726",
+          "teyvat:28731",
+          "teyvat:28725"
+        ]
+      },
+      "teyvat:28728": {
+        "stage_id": "sum-wp-28728",
+        "name": "スメールの森林・中央の小池道",
+        "gates": [
+          "teyvat:28703",
+          "teyvat:28729",
+          "teyvat:28726"
+        ]
+      },
+      "teyvat:28729": {
+        "stage_id": "sum-wp-28729",
+        "name": "スメールの森林・中央の岩峰",
+        "gates": [
+          "teyvat:28711",
+          "teyvat:28703",
+          "teyvat:28728",
+          "teyvat:28730"
+        ]
+      },
+      "teyvat:28730": {
+        "stage_id": "sumeru-field",
+        "name": "スメール・雨林の道",
+        "gates": [
+          "teyvat:28739",
+          "teyvat:46513",
+          "teyvat:28702",
+          "teyvat:28729",
+          "teyvat:28731"
+        ]
+      },
+      "teyvat:28731": {
+        "stage_id": "sum-wp-28731",
+        "name": "スメールの森林・川脇の根道",
+        "gates": [
+          "teyvat:28730",
+          "teyvat:28735",
+          "teyvat:28727"
+        ]
+      },
       "teyvat:28732": {
         "stage_id": "liyue-wp-28732",
         "name": "層岩巨淵・地上・採掘場西の岩棚",
@@ -1581,6 +1872,171 @@
           "teyvat:24908",
           "teyvat:24912",
           "teyvat:24911"
+        ]
+      },
+      "teyvat:28733": {
+        "stage_id": "sumeru-entry",
+        "name": "スメール・地域の入口",
+        "gates": [
+          "teyvat:12724",
+          "teyvat:28739",
+          "teyvat:28737",
+          "teyvat:28734",
+          "teyvat:28704"
+        ]
+      },
+      "teyvat:28734": {
+        "stage_id": "sum-wp-28734",
+        "name": "スメールの森林・東の浅い水路",
+        "gates": [
+          "teyvat:28735",
+          "teyvat:28704",
+          "teyvat:28733"
+        ]
+      },
+      "teyvat:28735": {
+        "stage_id": "sum-wp-28735",
+        "name": "スメールの森林・市街南東の小道",
+        "gates": [
+          "teyvat:28736",
+          "teyvat:28731",
+          "teyvat:28737",
+          "teyvat:28734"
+        ]
+      },
+      "teyvat:28736": {
+        "stage_id": "sum-wp-28736",
+        "name": "スメールの森林・市街南の船着き場",
+        "gates": [
+          "teyvat:28739",
+          "teyvat:28735"
+        ]
+      },
+      "teyvat:28737": {
+        "stage_id": "sum-wp-28737",
+        "name": "スメールの森林・大樹の東の坂",
+        "gates": [
+          "teyvat:28739",
+          "teyvat:28738",
+          "teyvat:28735",
+          "teyvat:28733"
+        ]
+      },
+      "teyvat:28738": {
+        "stage_id": "sum-wp-28738",
+        "name": "スメールの森林・大樹北の門",
+        "gates": [
+          "teyvat:28739",
+          "teyvat:28745",
+          "teyvat:28737",
+          "teyvat:28746"
+        ]
+      },
+      "teyvat:28739": {
+        "stage_id": "sumeru-hub",
+        "name": "スメール・樹陰の広場",
+        "gates": [
+          "teyvat:28733",
+          "teyvat:28730",
+          "teyvat:28740",
+          "teyvat:28738",
+          "teyvat:28736",
+          "teyvat:28737"
+        ]
+      },
+      "teyvat:28740": {
+        "stage_id": "sum-wp-28740",
+        "name": "スメールの森林・大樹の対岸",
+        "gates": [
+          "teyvat:28743",
+          "teyvat:28702",
+          "teyvat:28741",
+          "teyvat:28739"
+        ]
+      },
+      "teyvat:28741": {
+        "stage_id": "sum-wp-28741",
+        "name": "スメールの森林・森林北の分岐",
+        "gates": [
+          "teyvat:28701",
+          "teyvat:28742",
+          "teyvat:28740",
+          "teyvat:28745"
+        ]
+      },
+      "teyvat:28742": {
+        "stage_id": "sum-wp-28742",
+        "name": "スメールの森林・北の湿地の奥洞",
+        "gates": [
+          "teyvat:28741"
+        ]
+      },
+      "teyvat:28743": {
+        "stage_id": "sum-wp-28743",
+        "name": "スメールの森林・西の湖の東岸",
+        "gates": [
+          "teyvat:28708",
+          "teyvat:28702",
+          "teyvat:28740"
+        ]
+      },
+      "teyvat:28744": {
+        "stage_id": "sum-wp-28744",
+        "name": "スメールの森林・北岸の根の水路",
+        "gates": [
+          "teyvat:28745"
+        ]
+      },
+      "teyvat:28745": {
+        "stage_id": "sum-wp-28745",
+        "name": "スメールの森林・北岸の見晴らし台",
+        "gates": [
+          "teyvat:28741",
+          "teyvat:28744",
+          "teyvat:28738",
+          "teyvat:28746"
+        ]
+      },
+      "teyvat:28746": {
+        "stage_id": "sum-wp-28746",
+        "name": "スメールの森林・川沿いの東路",
+        "gates": [
+          "teyvat:28738",
+          "teyvat:28745",
+          "teyvat:28747"
+        ]
+      },
+      "teyvat:28747": {
+        "stage_id": "sum-wp-28747",
+        "name": "スメールの森林・北東の分岐",
+        "gates": [
+          "teyvat:28746",
+          "teyvat:28748",
+          "teyvat:28700"
+        ]
+      },
+      "teyvat:28748": {
+        "stage_id": "sum-wp-28748",
+        "name": "スメールの森林・北東の沢道",
+        "gates": [
+          "teyvat:28747",
+          "teyvat:28749",
+          "teyvat:28750"
+        ]
+      },
+      "teyvat:28749": {
+        "stage_id": "sum-wp-28749",
+        "name": "スメールの森林・北東の岩縁",
+        "gates": [
+          "teyvat:28748",
+          "teyvat:28700"
+        ]
+      },
+      "teyvat:28750": {
+        "stage_id": "sum-wp-28750",
+        "name": "スメールの森林・東の境の洞窟",
+        "gates": [
+          "teyvat:28748"
         ]
       },
       "teyvat:29": {
@@ -1633,6 +2089,24 @@
           "teyvat:30"
         ]
       },
+      "teyvat:32451": {
+        "stage_id": "sum-wp-32451",
+        "name": "失われた苗畑・枯れた根元の神像",
+        "gates": [
+          "teyvat:41840",
+          "teyvat:28710",
+          "teyvat:32452",
+          "teyvat:28708"
+        ]
+      },
+      "teyvat:32452": {
+        "stage_id": "sum-wp-32452",
+        "name": "失われた苗畑・苗畑の浅層回廊",
+        "gates": [
+          "teyvat:32451",
+          "teyvat:28709"
+        ]
+      },
       "teyvat:33": {
         "stage_id": "liyue-wp-33",
         "name": "璃月・荻花洲の神像",
@@ -1680,6 +2154,254 @@
           "teyvat:32"
         ]
       },
+      "teyvat:36674": {
+        "stage_id": "sum-wp-36674",
+        "name": "砂漠南部・砂漠入口の神像",
+        "gates": [
+          "teyvat:36684",
+          "teyvat:36678",
+          "teyvat:36677",
+          "teyvat:28715"
+        ]
+      },
+      "teyvat:36675": {
+        "stage_id": "sum-wp-36675",
+        "name": "砂漠南部・石廟の東の神像",
+        "gates": [
+          "teyvat:36696",
+          "teyvat:36691",
+          "teyvat:36698"
+        ]
+      },
+      "teyvat:36676": {
+        "stage_id": "sum-wp-36676",
+        "name": "砂漠南部・南の峡谷の神像",
+        "gates": [
+          "teyvat:36688",
+          "teyvat:36687",
+          "teyvat:36686"
+        ]
+      },
+      "teyvat:36677": {
+        "stage_id": "sum-wp-36677",
+        "name": "砂漠南部・砂漠入口の南丘",
+        "gates": [
+          "teyvat:36678",
+          "teyvat:36681",
+          "teyvat:36674"
+        ]
+      },
+      "teyvat:36678": {
+        "stage_id": "sum-wp-36678",
+        "name": "砂漠南部・水地の縁",
+        "gates": [
+          "teyvat:36684",
+          "teyvat:36683",
+          "teyvat:36677",
+          "teyvat:36674"
+        ]
+      },
+      "teyvat:36679": {
+        "stage_id": "sum-wp-36679",
+        "name": "砂漠南部・北の石橋の跡",
+        "gates": [
+          "teyvat:41828",
+          "teyvat:41819",
+          "teyvat:36680"
+        ]
+      },
+      "teyvat:36680": {
+        "stage_id": "sum-wp-36680",
+        "name": "砂漠南部・市場跡の石段",
+        "gates": [
+          "teyvat:36691",
+          "teyvat:36679",
+          "teyvat:36684"
+        ]
+      },
+      "teyvat:36681": {
+        "stage_id": "sum-wp-36681",
+        "name": "砂漠南部・東外縁の崖道",
+        "gates": [
+          "teyvat:36682",
+          "teyvat:36685",
+          "teyvat:36677"
+        ]
+      },
+      "teyvat:36682": {
+        "stage_id": "sum-wp-36682",
+        "name": "砂漠南部・南の湖岸",
+        "gates": [
+          "teyvat:36698",
+          "teyvat:36686",
+          "teyvat:36681"
+        ]
+      },
+      "teyvat:36683": {
+        "stage_id": "sum-wp-36683",
+        "name": "砂漠南部・井戸の下の回廊",
+        "gates": [
+          "teyvat:36678"
+        ]
+      },
+      "teyvat:36684": {
+        "stage_id": "sum-wp-36684",
+        "name": "砂漠南部・北東の石の道",
+        "gates": [
+          "teyvat:36680",
+          "teyvat:36678",
+          "teyvat:36674"
+        ]
+      },
+      "teyvat:36685": {
+        "stage_id": "sum-wp-36685",
+        "name": "砂漠南部・峡谷東の出口",
+        "gates": [
+          "teyvat:36686",
+          "teyvat:36681"
+        ]
+      },
+      "teyvat:36686": {
+        "stage_id": "sum-wp-36686",
+        "name": "砂漠南部・峡谷西の崩れ橋",
+        "gates": [
+          "teyvat:36676",
+          "teyvat:36682",
+          "teyvat:36685"
+        ]
+      },
+      "teyvat:36687": {
+        "stage_id": "sum-wp-36687",
+        "name": "砂漠南部・南の峡谷の洞",
+        "gates": [
+          "teyvat:36676"
+        ]
+      },
+      "teyvat:36688": {
+        "stage_id": "sum-wp-36688",
+        "name": "砂漠南部・南端の岩丘",
+        "gates": [
+          "teyvat:36689",
+          "teyvat:36676"
+        ]
+      },
+      "teyvat:36689": {
+        "stage_id": "sum-wp-36689",
+        "name": "砂漠南部・西南の砂斜面",
+        "gates": [
+          "teyvat:36699",
+          "teyvat:36688",
+          "teyvat:36690"
+        ]
+      },
+      "teyvat:36690": {
+        "stage_id": "sum-wp-36690",
+        "name": "砂漠南部・石廟南東の小道",
+        "gates": [
+          "teyvat:36689",
+          "teyvat:36698"
+        ]
+      },
+      "teyvat:36691": {
+        "stage_id": "sum-wp-36691",
+        "name": "砂漠南部・北東の砂段",
+        "gates": [
+          "teyvat:41819",
+          "teyvat:36675",
+          "teyvat:36680"
+        ]
+      },
+      "teyvat:36692": {
+        "stage_id": "sum-wp-36692",
+        "name": "砂漠南部・西の見張り岩",
+        "gates": [
+          "teyvat:36693",
+          "teyvat:36696"
+        ]
+      },
+      "teyvat:36693": {
+        "stage_id": "sum-wp-36693",
+        "name": "砂漠南部・南西の遺構",
+        "gates": [
+          "teyvat:36692",
+          "teyvat:36701",
+          "teyvat:36696",
+          "teyvat:36699"
+        ]
+      },
+      "teyvat:36694": {
+        "stage_id": "sum-wp-36694",
+        "name": "砂漠南部・石廟の下層玄室",
+        "gates": [
+          "teyvat:36702"
+        ]
+      },
+      "teyvat:36695": {
+        "stage_id": "sum-wp-36695",
+        "name": "砂漠南部・石廟南の地下道",
+        "gates": [
+          "teyvat:36696"
+        ]
+      },
+      "teyvat:36696": {
+        "stage_id": "sum-wp-36696",
+        "name": "砂漠南部・石廟地上の広場",
+        "gates": [
+          "teyvat:36692",
+          "teyvat:36693",
+          "teyvat:36702",
+          "teyvat:36695",
+          "teyvat:36675"
+        ]
+      },
+      "teyvat:36697": {
+        "stage_id": "sum-wp-36697",
+        "name": "砂漠南部・石廟東の脇室",
+        "gates": [
+          "teyvat:36698"
+        ]
+      },
+      "teyvat:36698": {
+        "stage_id": "sum-wp-36698",
+        "name": "砂漠南部・東の小遺跡と池",
+        "gates": [
+          "teyvat:36697",
+          "teyvat:36675",
+          "teyvat:36690",
+          "teyvat:36682"
+        ]
+      },
+      "teyvat:36699": {
+        "stage_id": "sum-wp-36699",
+        "name": "砂漠南部・南の砂丘の遺構",
+        "gates": [
+          "teyvat:36693",
+          "teyvat:36689"
+        ]
+      },
+      "teyvat:36700": {
+        "stage_id": "sum-wp-36700",
+        "name": "砂漠南部・西回廊の東端",
+        "gates": [
+          "teyvat:36701"
+        ]
+      },
+      "teyvat:36701": {
+        "stage_id": "sum-wp-36701",
+        "name": "砂漠南部・西回廊の西端",
+        "gates": [
+          "teyvat:36693",
+          "teyvat:36700"
+        ]
+      },
+      "teyvat:36702": {
+        "stage_id": "sum-wp-36702",
+        "name": "砂漠南部・石廟の北の上層",
+        "gates": [
+          "teyvat:36694",
+          "teyvat:36696"
+        ]
+      },
       "teyvat:37": {
         "stage_id": "liyue-wp-37",
         "name": "璃月・竹縁の岩棚",
@@ -1720,6 +2442,197 @@
         "gates": [
           "teyvat:40",
           "teyvat:42"
+        ]
+      },
+      "teyvat:41819": {
+        "stage_id": "sum-wp-41819",
+        "name": "ハドラマヴェス砂漠・砂嵐の南の神像",
+        "gates": [
+          "teyvat:41822",
+          "teyvat:41828",
+          "teyvat:36691",
+          "teyvat:36679"
+        ]
+      },
+      "teyvat:41820": {
+        "stage_id": "sum-wp-41820",
+        "name": "ハドラマヴェス砂漠・すり鉢東の段丘",
+        "gates": [
+          "teyvat:41828",
+          "teyvat:41838",
+          "teyvat:41821"
+        ]
+      },
+      "teyvat:41821": {
+        "stage_id": "sum-wp-41821",
+        "name": "ハドラマヴェス砂漠・砂嵐の南東の外縁",
+        "gates": [
+          "teyvat:41820",
+          "teyvat:41840",
+          "teyvat:28710"
+        ]
+      },
+      "teyvat:41822": {
+        "stage_id": "sum-wp-41822",
+        "name": "ハドラマヴェス砂漠・南の古い門",
+        "gates": [
+          "teyvat:41824",
+          "teyvat:41826",
+          "teyvat:41827",
+          "teyvat:41819"
+        ]
+      },
+      "teyvat:41823": {
+        "stage_id": "sum-wp-41823",
+        "name": "ハドラマヴェス砂漠・水庭の西室",
+        "gates": [
+          "teyvat:41824"
+        ]
+      },
+      "teyvat:41824": {
+        "stage_id": "sum-wp-41824",
+        "name": "ハドラマヴェス砂漠・水庭の入口室",
+        "gates": [
+          "teyvat:41823",
+          "teyvat:41825",
+          "teyvat:41822"
+        ]
+      },
+      "teyvat:41825": {
+        "stage_id": "sum-wp-41825",
+        "name": "ハドラマヴェス砂漠・水庭の東室",
+        "gates": [
+          "teyvat:41824"
+        ]
+      },
+      "teyvat:41826": {
+        "stage_id": "sum-wp-41826",
+        "name": "ハドラマヴェス砂漠・西の石垣の外",
+        "gates": [
+          "teyvat:41830",
+          "teyvat:41822"
+        ]
+      },
+      "teyvat:41827": {
+        "stage_id": "sum-wp-41827",
+        "name": "ハドラマヴェス砂漠・西の輪の低い足場",
+        "gates": [
+          "teyvat:41830",
+          "teyvat:41822",
+          "teyvat:41828"
+        ]
+      },
+      "teyvat:41828": {
+        "stage_id": "sum-wp-41828",
+        "name": "ハドラマヴェス砂漠・南の斜面の分岐",
+        "gates": [
+          "teyvat:41827",
+          "teyvat:41819",
+          "teyvat:36679",
+          "teyvat:41820"
+        ]
+      },
+      "teyvat:41829": {
+        "stage_id": "sum-wp-41829",
+        "name": "ハドラマヴェス砂漠・砂渦の下層西口",
+        "gates": [
+          "teyvat:41831"
+        ]
+      },
+      "teyvat:41830": {
+        "stage_id": "sum-wp-41830",
+        "name": "ハドラマヴェス砂漠・西の輪の高い足場",
+        "gates": [
+          "teyvat:41826",
+          "teyvat:41832",
+          "teyvat:41827"
+        ]
+      },
+      "teyvat:41831": {
+        "stage_id": "sum-wp-41831",
+        "name": "ハドラマヴェス砂漠・砂渦の下層中央",
+        "gates": [
+          "teyvat:41829",
+          "teyvat:41833",
+          "teyvat:41837"
+        ]
+      },
+      "teyvat:41832": {
+        "stage_id": "sum-wp-41832",
+        "name": "ハドラマヴェス砂漠・北西の横道",
+        "gates": [
+          "teyvat:41830",
+          "teyvat:41834",
+          "teyvat:41835"
+        ]
+      },
+      "teyvat:41833": {
+        "stage_id": "sum-wp-41833",
+        "name": "ハドラマヴェス砂漠・砂渦の中層",
+        "gates": [
+          "teyvat:41831",
+          "teyvat:41835"
+        ]
+      },
+      "teyvat:41834": {
+        "stage_id": "sum-wp-41834",
+        "name": "ハドラマヴェス砂漠・北端の広い道",
+        "gates": [
+          "teyvat:46515",
+          "teyvat:41832",
+          "teyvat:41835"
+        ]
+      },
+      "teyvat:41835": {
+        "stage_id": "sum-wp-41835",
+        "name": "ハドラマヴェス砂漠・北の風よけ",
+        "gates": [
+          "teyvat:41832",
+          "teyvat:41833",
+          "teyvat:41834",
+          "teyvat:41838"
+        ]
+      },
+      "teyvat:41836": {
+        "stage_id": "sum-wp-41836",
+        "name": "ハドラマヴェス砂漠・風穴の下の石床",
+        "gates": [
+          "teyvat:41838"
+        ]
+      },
+      "teyvat:41837": {
+        "stage_id": "sum-wp-41837",
+        "name": "ハドラマヴェス砂漠・砂渦の下層東口",
+        "gates": [
+          "teyvat:41831"
+        ]
+      },
+      "teyvat:41838": {
+        "stage_id": "sum-wp-41838",
+        "name": "ハドラマヴェス砂漠・東の風待ち棚",
+        "gates": [
+          "teyvat:41835",
+          "teyvat:41820",
+          "teyvat:41836",
+          "teyvat:41839"
+        ]
+      },
+      "teyvat:41839": {
+        "stage_id": "sum-wp-41839",
+        "name": "ハドラマヴェス砂漠・外輪の東の岸",
+        "gates": [
+          "teyvat:41838",
+          "teyvat:41840"
+        ]
+      },
+      "teyvat:41840": {
+        "stage_id": "sum-wp-41840",
+        "name": "ハドラマヴェス砂漠・森に抜ける外輪の門",
+        "gates": [
+          "teyvat:41839",
+          "teyvat:41821",
+          "teyvat:28706",
+          "teyvat:32451"
         ]
       },
       "teyvat:42": {
@@ -1765,6 +2678,158 @@
           "teyvat:42"
         ]
       },
+      "teyvat:46513": {
+        "stage_id": "tunigi-camp",
+        "name": "トゥニギの黒淵・入口拠点",
+        "gates": [
+          "teyvat:28730",
+          "teyvat:46522",
+          "teyvat:46517"
+        ]
+      },
+      "teyvat:46514": {
+        "stage_id": "sum-wp-46514",
+        "name": "砂漠北西部・泉を見下ろす神像",
+        "gates": [
+          "teyvat:46525",
+          "teyvat:46529",
+          "teyvat:46527"
+        ]
+      },
+      "teyvat:46515": {
+        "stage_id": "sum-wp-46515",
+        "name": "砂漠北西部・峡谷南の斜面",
+        "gates": [
+          "teyvat:46516",
+          "teyvat:41834"
+        ]
+      },
+      "teyvat:46516": {
+        "stage_id": "sum-wp-46516",
+        "name": "砂漠北西部・砂の切れ目の細道",
+        "gates": [
+          "teyvat:46517",
+          "teyvat:46515",
+          "teyvat:46527"
+        ]
+      },
+      "teyvat:46517": {
+        "stage_id": "sum-wp-46517",
+        "name": "砂漠北西部・西の段丘",
+        "gates": [
+          "teyvat:46518",
+          "teyvat:46520",
+          "teyvat:46513",
+          "teyvat:46516"
+        ]
+      },
+      "teyvat:46518": {
+        "stage_id": "sum-wp-46518",
+        "name": "砂漠北西部・西端の石棚",
+        "gates": [
+          "teyvat:46521",
+          "teyvat:46517"
+        ]
+      },
+      "teyvat:46519": {
+        "stage_id": "sum-wp-46519",
+        "name": "砂漠北西部・西の崖裏の通路",
+        "gates": [
+          "teyvat:46521"
+        ]
+      },
+      "teyvat:46520": {
+        "stage_id": "sum-wp-46520",
+        "name": "砂漠北西部・黒淵西の下層",
+        "gates": [
+          "teyvat:46517",
+          "teyvat:46530"
+        ]
+      },
+      "teyvat:46521": {
+        "stage_id": "sum-wp-46521",
+        "name": "砂漠北西部・西丘の風よけ",
+        "gates": [
+          "teyvat:46518",
+          "teyvat:46519",
+          "teyvat:46522"
+        ]
+      },
+      "teyvat:46522": {
+        "stage_id": "tunigi-depth",
+        "name": "トゥニギの黒淵・探索路",
+        "gates": [
+          "teyvat:46513",
+          "teyvat:46521",
+          "teyvat:46523",
+          "teyvat:46524",
+          "teyvat:46525"
+        ]
+      },
+      "teyvat:46523": {
+        "stage_id": "sum-wp-46523",
+        "name": "砂漠北西部・谷口の観測洞",
+        "gates": [
+          "teyvat:46522"
+        ]
+      },
+      "teyvat:46524": {
+        "stage_id": "sum-wp-46524",
+        "name": "砂漠北西部・北の坂道",
+        "gates": [
+          "teyvat:46522",
+          "teyvat:46526",
+          "teyvat:50032"
+        ]
+      },
+      "teyvat:46525": {
+        "stage_id": "sum-wp-46525",
+        "name": "砂漠北西部・二つの泉の分岐",
+        "gates": [
+          "teyvat:46522",
+          "teyvat:46514",
+          "teyvat:46526"
+        ]
+      },
+      "teyvat:46526": {
+        "stage_id": "sum-wp-46526",
+        "name": "砂漠北西部・北の渓流の広場",
+        "gates": [
+          "teyvat:46524",
+          "teyvat:46525",
+          "teyvat:50032"
+        ]
+      },
+      "teyvat:46527": {
+        "stage_id": "sum-wp-46527",
+        "name": "砂漠北西部・泉の南の水辺",
+        "gates": [
+          "teyvat:46516",
+          "teyvat:46514",
+          "teyvat:46528"
+        ]
+      },
+      "teyvat:46528": {
+        "stage_id": "sum-wp-46528",
+        "name": "砂漠北西部・泉西の地下の渡り",
+        "gates": [
+          "teyvat:46527"
+        ]
+      },
+      "teyvat:46529": {
+        "stage_id": "sum-wp-46529",
+        "name": "砂漠北西部・泉の下の窪み",
+        "gates": [
+          "teyvat:46514"
+        ]
+      },
+      "teyvat:46530": {
+        "stage_id": "sum-wp-46530",
+        "name": "砂漠北西部・黒淵東の下層",
+        "gates": [
+          "teyvat:46520"
+        ]
+      },
       "teyvat:47": {
         "stage_id": "liyue-wp-47",
         "name": "璃月・南稜の沢",
@@ -1803,6 +2868,22 @@
         "gates": [
           "teyvat:33",
           "teyvat:34"
+        ]
+      },
+      "teyvat:50031": {
+        "stage_id": "sum-wp-50031",
+        "name": "砂漠北西部・北の崖の洞道",
+        "gates": [
+          "teyvat:50032"
+        ]
+      },
+      "teyvat:50032": {
+        "stage_id": "sum-wp-50032",
+        "name": "砂漠北西部・北の境に続く道",
+        "gates": [
+          "teyvat:46524",
+          "teyvat:50031",
+          "teyvat:46526"
         ]
       },
       "teyvat:51": {
@@ -2234,6 +3315,13 @@
           "teyvat:64839"
         ]
       },
+      "teyvat:69098": {
+        "stage_id": "sum-wp-69098",
+        "name": "スメールの森林・バイダ港の船着き場",
+        "gates": [
+          "teyvat:28701"
+        ]
+      },
       "teyvat:7": {
         "stage_id": "mond-wp-7",
         "name": "モンド・東丘の石畳",
@@ -2417,8 +3505,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 546,
-    "provisional_quests": 236,
+    "authored_stages": 666,
+    "provisional_quests": 240,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -2463,7 +3551,7 @@
     "status": "partial",
     "design": "content/world-bosses-design.json"
   },
-  "current_priority": "Match Sumeru waypoint IDs to playable forest and desert routes, with explicit entrances for distinct floor layers. Continue quest and boss playthroughs and sprite consistency checks.",
+  "current_priority": "Connect Fontaine waypoint IDs and the separately cataloged Sea of Bygone Eras, including water and distinct floors. Continue quest and boss playthroughs and sprite consistency checks.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",
@@ -2803,10 +3891,114 @@
           "sumeru-sky-observatory",
           "shouki-godmaking-arena",
           "apep-oasis-heart-arena",
+          "sum-wp-28699",
+          "sum-wp-28700",
+          "sum-wp-28701",
+          "sum-wp-28702",
+          "sum-wp-28703",
+          "sum-wp-28704",
+          "sum-wp-28705",
+          "sum-wp-28706",
+          "sum-wp-28707",
+          "sum-wp-28708",
+          "sum-wp-28709",
+          "sum-wp-28710",
+          "sum-wp-28711",
+          "sum-wp-28712",
+          "sum-wp-28713",
+          "sum-wp-28714",
+          "sum-wp-28715",
+          "sum-wp-28716",
+          "sum-wp-28717",
+          "sum-wp-28718",
+          "sum-wp-28719",
+          "sum-wp-28720",
+          "sum-wp-28721",
+          "sum-wp-28722",
+          "sum-wp-28723",
+          "sum-wp-28724",
+          "sum-wp-28725",
+          "sum-wp-28726",
+          "sum-wp-28727",
+          "sum-wp-28728",
+          "sum-wp-28729",
+          "sum-wp-28731",
+          "sum-wp-28734",
+          "sum-wp-28735",
+          "sum-wp-28736",
+          "sum-wp-28737",
+          "sum-wp-28738",
+          "sum-wp-28740",
+          "sum-wp-28741",
+          "sum-wp-28742",
+          "sum-wp-28743",
+          "sum-wp-28744",
+          "sum-wp-28745",
+          "sum-wp-28746",
+          "sum-wp-28747",
+          "sum-wp-28748",
+          "sum-wp-28749",
+          "sum-wp-28750",
+          "sum-wp-32451",
+          "sum-wp-32452",
+          "sum-wp-36674",
+          "sum-wp-36675",
+          "sum-wp-36676",
+          "sum-wp-36677",
+          "sum-wp-36678",
+          "sum-wp-36679",
+          "sum-wp-36680",
+          "sum-wp-36681",
+          "sum-wp-36682",
+          "sum-wp-36683",
+          "sum-wp-36684",
+          "sum-wp-36685",
+          "sum-wp-36686",
+          "sum-wp-36687",
+          "sum-wp-36688",
+          "sum-wp-36689",
+          "sum-wp-36690",
+          "sum-wp-36691",
+          "sum-wp-36692",
+          "sum-wp-36693",
+          "sum-wp-36694",
+          "sum-wp-36695",
+          "sum-wp-36696",
+          "sum-wp-36697",
+          "sum-wp-36698",
+          "sum-wp-36699",
+          "sum-wp-36700",
+          "sum-wp-36701",
+          "sum-wp-36702",
+          "sum-wp-41819",
+          "sum-wp-41820",
+          "sum-wp-41821",
+          "sum-wp-41822",
+          "sum-wp-41823",
+          "sum-wp-41824",
+          "sum-wp-41825",
+          "sum-wp-41826",
+          "sum-wp-41827",
+          "sum-wp-41828",
+          "sum-wp-41829",
+          "sum-wp-41830",
+          "sum-wp-41831",
+          "sum-wp-41832",
+          "sum-wp-41833",
+          "sum-wp-41834",
+          "sum-wp-41835",
+          "sum-wp-41836",
+          "sum-wp-41837",
+          "sum-wp-41838",
+          "sum-wp-41839",
+          "sum-wp-41840",
+          "sum-wp-69098",
           "sumeru-stygian-windcourt",
           "sumeru-heretic-lattice"
         ],
         "quest_ids": [
+          "sum-mapped-north-quay",
+          "sum-mapped-twin-shaft",
           "stygian-wanderer-commission",
           "heretic-weekly-commission",
           "apep-weekly-commission",
@@ -3233,9 +4425,29 @@
           "tunigi-baffle-workshop",
           "tunigi-return-shelter",
           "tunigi-elite-passage",
-          "tunigi-fragment-vault"
+          "tunigi-fragment-vault",
+          "sum-wp-46514",
+          "sum-wp-46515",
+          "sum-wp-46516",
+          "sum-wp-46517",
+          "sum-wp-46518",
+          "sum-wp-46519",
+          "sum-wp-46520",
+          "sum-wp-46521",
+          "sum-wp-46523",
+          "sum-wp-46524",
+          "sum-wp-46525",
+          "sum-wp-46526",
+          "sum-wp-46527",
+          "sum-wp-46528",
+          "sum-wp-46529",
+          "sum-wp-46530",
+          "sum-wp-50031",
+          "sum-wp-50032"
         ],
         "quest_ids": [
+          "sum-mapped-desert-wind",
+          "sum-mapped-tunigi-water",
           "tunigi-survey",
           "tunigi-vent-record",
           "tunigi-return-design",

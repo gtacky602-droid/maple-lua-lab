@@ -1,0 +1,119 @@
+{
+  "journeys": [
+    [
+      "sumeru-hub",
+      "sum-wp-28740",
+      "boat"
+    ],
+    [
+      "sum-wp-28740",
+      "sum-wp-28741",
+      "walk"
+    ],
+    [
+      "sum-wp-28741",
+      "sum-wp-28701",
+      "walk"
+    ],
+    [
+      "sum-wp-28701",
+      "sum-wp-69098",
+      "walk"
+    ],
+    [
+      "sumeru-hub",
+      "sum-wp-28740",
+      "boat"
+    ],
+    [
+      "sum-wp-28740",
+      "sum-wp-28743",
+      "walk"
+    ],
+    [
+      "sum-wp-28743",
+      "sum-wp-28708",
+      "walk"
+    ],
+    [
+      "sum-wp-28708",
+      "sum-wp-28707",
+      "walk"
+    ],
+    [
+      "sumeru-hub",
+      "sumeru-field",
+      "walk"
+    ],
+    [
+      "sumeru-field",
+      "tunigi-camp",
+      "walk"
+    ],
+    [
+      "tunigi-camp",
+      "sum-wp-46517",
+      "walk"
+    ],
+    [
+      "sum-wp-46517",
+      "sum-wp-46516",
+      "walk"
+    ],
+    [
+      "sum-wp-46516",
+      "sum-wp-46515",
+      "walk"
+    ],
+    [
+      "sum-wp-46515",
+      "sum-wp-41834",
+      "walk"
+    ],
+    [
+      "sum-wp-41834",
+      "sum-wp-41835",
+      "walk"
+    ],
+    [
+      "sum-wp-41835",
+      "sum-wp-41838",
+      "walk"
+    ],
+    [
+      "sum-wp-41838",
+      "sum-wp-41836",
+      "lift"
+    ],
+    [
+      "sum-wp-41836",
+      "sum-wp-41838",
+      "lift"
+    ]
+  ],
+  "groupLabels": [
+    "モンド",
+    "スメールの森林",
+    "砂漠北西部",
+    "ハドラマヴェス砂漠",
+    "ハドラマヴェス砂漠・別階層"
+  ],
+  "render": {
+    "marker": "teyvat:28707",
+    "png": 31,
+    "standard": 6081,
+    "light": 1574,
+    "actor": [
+      736.5,
+      480
+    ],
+    "frozen": true
+  },
+  "windInitiallyBlocked": true,
+  "restoredLayerWarp": true,
+  "reported": [
+    "sum-mapped-north-quay",
+    "sum-mapped-desert-wind"
+  ],
+  "pageErrors": []
+}

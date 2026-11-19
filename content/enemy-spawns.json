@@ -2,6 +2,14 @@
   "version": 1,
   "status": "Provisional live placement; existing generic behavior; not canonical regional species or attacks",
   "nodes": {
+    "sum-wp-28707": [{"id":"sum-wp-28707-1","kind":1,"art":"dendro-fungus","x":470,"platform":1},{"id":"sum-wp-28707-2","kind":1,"art":"hydro-slime","x":795,"platform":2}],
+    "sum-wp-28713": [{"id":"sum-wp-28713-1","kind":1,"art":"dendro-fungus","x":470,"platform":1},{"id":"sum-wp-28713-2","kind":1,"art":"hydro-slime","x":795,"platform":2}],
+    "sum-wp-28746": [{"id":"sum-wp-28746-1","kind":1,"art":"dendro-fungus","x":387,"platform":1},{"id":"sum-wp-28746-2","kind":1,"art":"hydro-slime","x":626,"platform":2}],
+    "sum-wp-36691": [{"id":"sum-wp-36691-1","kind":1,"art":"fanged-beast","x":428,"platform":1},{"id":"sum-wp-36691-2","kind":2,"art":"pyro-slime","x":743,"platform":2}],
+    "sum-wp-36698": [{"id":"sum-wp-36698-1","kind":1,"art":"fanged-beast","x":470,"platform":1},{"id":"sum-wp-36698-2","kind":1,"art":"hydro-slime","x":795,"platform":2}],
+    "sum-wp-41827": [{"id":"sum-wp-41827-1","kind":1,"art":"fanged-beast","x":387,"platform":1},{"id":"sum-wp-41827-2","kind":2,"art":"pyro-slime","x":626,"platform":2}],
+    "sum-wp-46516": [{"id":"sum-wp-46516-1","kind":1,"art":"fanged-beast","x":387,"platform":1},{"id":"sum-wp-46516-2","kind":2,"art":"pyro-slime","x":626,"platform":2}],
+    "sum-wp-46527": [{"id":"sum-wp-46527-1","kind":1,"art":"dendro-fungus","x":470,"platform":1},{"id":"sum-wp-46527-2","kind":1,"art":"hydro-slime","x":795,"platform":2}],
     "natlan-kinich-hunt": [
       {"id": "kinich-hunt-ridge-beast", "kind": 1, "x": 876, "platform": 0, "hp": 168, "art": "fanged-beast", "name": "巡り岩の牙獣", "pursuit": {"range": 304, "speed": 98, "leash": 290}}
     ],

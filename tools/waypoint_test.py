@@ -32,6 +32,16 @@ class TrailWalk:
         origin = self.state.story.node
         edge = self.edges[origin, target]
         self.approach(edge['x'], edge.get('y', 480), target)
+        if edge.get('wind'):
+            for _ in range(round(15 * (edge['wind']['period'] + 1))):
+                portal = self.core.frame(self.state, 'sprite', 'legacy').storyNearbyPortal
+                assert portal and portal.to == target
+                if portal.available:
+                    break
+                for _ in range(4):
+                    self.core.step(self.state, 1 / 60, self.idle)
+            else:
+                raise AssertionError((origin, target, 'wind did not subside'))
         self.core.action(self.state, 'story_nearby_portal')
         if any(k in edge for k in ('boatSeconds', 'liftSeconds', 'waterwaySeconds')):
             ride = self.state.lift

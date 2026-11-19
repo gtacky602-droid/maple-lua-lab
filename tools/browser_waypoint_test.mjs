@@ -53,7 +53,7 @@ export function waypointDriver(page,nodes){
   await page.waitForFunction(id=>{
    const gate=window.lab.frame.storyNearbyPortal;
    return gate?.to===id&&gate.available;
-  },id,{timeout:5000});
+  },id,{timeout:edge.wind?Math.ceil(edge.wind.period*2000):5000});
   const mode=edge.boatSeconds?'boat':edge.waterwaySeconds?'waterway':edge.liftSeconds?'lift':edge.y?'raised':'walk';
   await page.keyboard.press('KeyF');
   if(['boat','waterway','lift'].includes(mode)){
@@ -84,5 +84,5 @@ export function waypointDriver(page,nodes){
   await page.waitForFunction(id=>window.lab.frame.story.quests[id]?.status==='complete',id);
  }
 
- return {node,actor,journeys,walk,cross,warp,count,waitNode,accept,report,choices,waypointCount};
+ return {node,actor,journeys,walk,changeHeight,cross,warp,count,waitNode,accept,report,choices,waypointCount};
 }

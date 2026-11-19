@@ -2018,10 +2018,40 @@
           "x": 1050,
           "visitedOnly": true
         },
-        {"to":"baptist-field-sanctuary","x":510},
-        {"to":"wenut-field-cavern","x":800},
-        {"to":"asimon-field-ruins","x":1210},
-        {"to":"veluriyam-bottle-yard","x":1125}
+        {
+          "to": "baptist-field-sanctuary",
+          "x": 510
+        },
+        {
+          "to": "wenut-field-cavern",
+          "x": 800
+        },
+        {
+          "to": "asimon-field-ruins",
+          "x": 1210
+        },
+        {
+          "to": "veluriyam-bottle-yard",
+          "x": 1125
+        },
+        {
+          "to": "sum-wp-28737",
+          "x": 665,
+          "arrivalX": 1392,
+          "arrivalY": 480
+        },
+        {
+          "to": "sum-wp-28734",
+          "x": 275,
+          "arrivalX": 1342,
+          "arrivalY": 480
+        },
+        {
+          "to": "sum-wp-28704",
+          "x": 950,
+          "arrivalX": 1392,
+          "arrivalY": 480
+        }
       ],
       "checkpoint": "inazuma-town",
       "hints": [
@@ -2031,7 +2061,14 @@
           "y": 480,
           "label": "砂に埋もれた瓶"
         }
-      ]
+      ],
+      "mapPoint": "teyvat:28733",
+      "waypoint": {
+        "kind": "waypoint",
+        "area": "スメールの森林",
+        "x": 465,
+        "y": 480
+      }
     },
     {
       "id": "sumeru-hub",
@@ -2039,9 +2076,9 @@
       "region": "スメール",
       "level": 60,
       "hub": true,
-      "wandererSurveyQuest":"sum-wanderer-observation",
-      "colleiLetterQuest":"sum-collei-guide",
-      "nahidaMapQuest":"sum-nahida-map",
+      "wandererSurveyQuest": "sum-wanderer-observation",
+      "colleiLetterQuest": "sum-collei-guide",
+      "nahidaMapQuest": "sum-nahida-map",
       "width": 1440,
       "platforms": [
         {
@@ -2066,10 +2103,24 @@
         }
       ],
       "exits": [
-        {"to":"sumeru-stygian-windcourt","x":443,"arrivalX":260},
-        {"to":"sumeru-heretic-lattice","x":222,"arrivalX":252},
-        {"to":"apep-oasis-heart-arena","x":780},
-        {"to":"shouki-godmaking-arena","x":950},
+        {
+          "to": "sumeru-stygian-windcourt",
+          "x": 443,
+          "arrivalX": 260
+        },
+        {
+          "to": "sumeru-heretic-lattice",
+          "x": 222,
+          "arrivalX": 252
+        },
+        {
+          "to": "apep-oasis-heart-arena",
+          "x": 780
+        },
+        {
+          "to": "shouki-godmaking-arena",
+          "x": 950
+        },
         {
           "to": "sumeru-entry",
           "x": 60
@@ -2078,16 +2129,103 @@
           "to": "sumeru-field",
           "x": 1380
         },
-        {"to":"sumeru-river-roots","x":875},
-        {"to":"sumeru-canopy-junction","x":1026,"requires":{"quest":"sumeru-leaf-crossing"}},
-        {"to":"sumeru-observation-stop","x":1162,"requires":{"quest":"sumeru-forest-levels"}},
-        {"to":"sumeru-sky-observatory","x":1282,"requires":{"quest":"sumeru-observatory-map"}},
-        {"to":"sum-visitors-meadow","x":332,"arrivalX":123,"requires":{"quest":"sum-fungus-visitors","count":1}},
-        {"to":"sum-collei-trail","x":528,"arrivalX":119,"requires":{"quest":"sum-collei-guide","count":1}},
-        {"to":"sum-kaveh-workshop","x":702,"arrivalX":129,"requires":{"quest":"sum-kaveh-model","count":0}},
-        {"to":"sum-wanderer-trail","x":618,"arrivalX":124,"requires":{"quest":"sum-wanderer-observation","count":1}}
+        {
+          "to": "sumeru-river-roots",
+          "x": 875
+        },
+        {
+          "to": "sumeru-canopy-junction",
+          "x": 1026,
+          "requires": {
+            "quest": "sumeru-leaf-crossing"
+          }
+        },
+        {
+          "to": "sumeru-observation-stop",
+          "x": 1162,
+          "requires": {
+            "quest": "sumeru-forest-levels"
+          }
+        },
+        {
+          "to": "sumeru-sky-observatory",
+          "x": 1282,
+          "requires": {
+            "quest": "sumeru-observatory-map"
+          }
+        },
+        {
+          "to": "sum-visitors-meadow",
+          "x": 332,
+          "arrivalX": 123,
+          "requires": {
+            "quest": "sum-fungus-visitors",
+            "count": 1
+          }
+        },
+        {
+          "to": "sum-collei-trail",
+          "x": 528,
+          "arrivalX": 119,
+          "requires": {
+            "quest": "sum-collei-guide",
+            "count": 1
+          }
+        },
+        {
+          "to": "sum-kaveh-workshop",
+          "x": 702,
+          "arrivalX": 129,
+          "requires": {
+            "quest": "sum-kaveh-model",
+            "count": 0
+          }
+        },
+        {
+          "to": "sum-wanderer-trail",
+          "x": 618,
+          "arrivalX": 124,
+          "requires": {
+            "quest": "sum-wanderer-observation",
+            "count": 1
+          }
+        },
+        {
+          "to": "sum-wp-28740",
+          "x": 1123,
+          "arrivalX": 1342,
+          "arrivalY": 480,
+          "boatSeconds": 2.6,
+          "rideLabel": "大樹の広場と対岸を結ぶ渡し舟"
+        },
+        {
+          "to": "sum-wp-28738",
+          "x": 350,
+          "y": 340,
+          "arrivalX": 76,
+          "arrivalY": 480
+        },
+        {
+          "to": "sum-wp-28736",
+          "x": 274,
+          "arrivalX": 76,
+          "arrivalY": 480
+        },
+        {
+          "to": "sum-wp-28737",
+          "x": 123,
+          "arrivalX": 76,
+          "arrivalY": 480
+        }
       ],
-      "checkpoint": "sumeru-hub"
+      "checkpoint": "sumeru-hub",
+      "mapPoint": "teyvat:28739",
+      "waypoint": {
+        "kind": "waypoint",
+        "area": "スメールの森林",
+        "x": 505,
+        "y": 480
+      }
     },
     {
       "id":"sum-wanderer-trail","name":"スメール・大樹の裏道","region":"スメール","level":60,"hub":false,"peaceful":true,
@@ -2238,9 +2376,38 @@
           "to": "dendro-hypostasis-field-den",
           "x": 900
         },
-        {"to":"sum-kaveh-timberyard","x":230,"arrivalX":124}
+        {
+          "to": "sum-kaveh-timberyard",
+          "x": 230,
+          "arrivalX": 124
+        },
+        {
+          "to": "sum-wp-28702",
+          "x": 805,
+          "arrivalX": 1392,
+          "arrivalY": 480
+        },
+        {
+          "to": "sum-wp-28729",
+          "x": 599,
+          "arrivalX": 1422,
+          "arrivalY": 480
+        },
+        {
+          "to": "sum-wp-28731",
+          "x": 340,
+          "arrivalX": 76,
+          "arrivalY": 480
+        }
       ],
-      "checkpoint": "sumeru-hub"
+      "checkpoint": "sumeru-hub",
+      "mapPoint": "teyvat:28730",
+      "waypoint": {
+        "kind": "waypoint",
+        "area": "スメールの森林",
+        "x": 550,
+        "y": 480
+      }
     },
     {
       "id":"sum-kaveh-timberyard","name":"スメール・工房の資材置き場","region":"スメール","level":60,"hub":false,
@@ -4015,14 +4182,42 @@
           "to": "tunigi-depth",
           "x": 1380
         },
-        {"to":"tunigi-vent-shelf","x":925},
-        {"to":"tunigi-baffle-workshop","x":1095,"requires":{"quest":"tunigi-vent-record"}},
-        {"to":"tunigi-return-shelter","x":1240,"requires":{"quest":"tunigi-return-design"}}
+        {
+          "to": "tunigi-vent-shelf",
+          "x": 925
+        },
+        {
+          "to": "tunigi-baffle-workshop",
+          "x": 1095,
+          "requires": {
+            "quest": "tunigi-vent-record"
+          }
+        },
+        {
+          "to": "tunigi-return-shelter",
+          "x": 1240,
+          "requires": {
+            "quest": "tunigi-return-design"
+          }
+        },
+        {
+          "to": "sum-wp-46517",
+          "x": 420,
+          "arrivalX": 973,
+          "arrivalY": 480
+        }
       ],
       "checkpoint": "tunigi-camp",
       "branch": true,
       "lightReference": 13,
-      "barrier": 0
+      "barrier": 0,
+      "mapPoint": "teyvat:46513",
+      "waypoint": {
+        "kind": "statue",
+        "area": "砂漠北西部",
+        "x": 450,
+        "y": 480
+      }
     },
     {
       "id": "tunigi-depth",
@@ -4057,12 +4252,46 @@
         {
           "to": "tunigi-camp",
           "x": 60
+        },
+        {
+          "to": "sum-wp-46521",
+          "x": 335,
+          "arrivalX": 1422,
+          "arrivalY": 480
+        },
+        {
+          "to": "sum-wp-46523",
+          "x": 250,
+          "y": 380,
+          "arrivalX": 76,
+          "arrivalY": 480,
+          "liftSeconds": 1.8,
+          "rideLabel": "観測洞へ向かう昇降機"
+        },
+        {
+          "to": "sum-wp-46524",
+          "x": 1112,
+          "arrivalX": 76,
+          "arrivalY": 480
+        },
+        {
+          "to": "sum-wp-46525",
+          "x": 1317,
+          "arrivalX": 76,
+          "arrivalY": 480
         }
       ],
       "checkpoint": "tunigi-camp",
       "branch": true,
       "lightReference": 13,
-      "barrier": 13
+      "barrier": 13,
+      "mapPoint": "teyvat:46522",
+      "waypoint": {
+        "kind": "waypoint",
+        "area": "砂漠北西部",
+        "x": 490,
+        "y": 480
+      }
     },
     {
       "id": "bygone-camp",
@@ -6318,6 +6547,126 @@
     {"id":"knave-crimson-court","name":"凶月の再現戦","region":"フォンテーヌ","level":88,"width":960,"hub":false,"peaceful":true,"checkpoint":"fontaine-hub","platforms":[{"x":0,"y":480,"w":960},{"x":98,"y":357,"w":158},{"x":704,"y":357,"w":158}],"exits":[{"to":"fontaine-hub","x":130}]},
     {"id":"primal-fire-sundered-forge","name":"源焔の再現戦","region":"ナタ","level":104,"width":960,"hub":false,"peaceful":true,"checkpoint":"natlan-hub","platforms":[{"x":40,"y":480,"w":880},{"x":110,"y":357,"w":141},{"x":709,"y":357,"w":141}],"exits":[{"to":"natlan-hub","x":863,"arrivalX":351}]},
     {"id":"mond-gate-chess-court","name":"扉の対局・再現盤","region":"モンド","level":112,"width":960,"hub":false,"peaceful":true,"checkpoint":"mond-town","platforms":[{"x":0,"y":480,"w":960},{"x":128,"y":357,"w":176},{"x":656,"y":357,"w":176}],"exits":[{"to":"mond-town","x":825,"arrivalX":442}]},
+    {"id":"sum-wp-28699","name":"スメールの森林・東麓の神像","region":"スメール","level":67,"hub":false,"peaceful":true,"width":1470,"scenery":"sumeru","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1470},{"x":289,"y":387,"w":250},{"x":570,"y":301,"w":265},{"x":993,"y":390,"w":236}],"exits":[{"to":"sum-wp-28724","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"神像脇の洞口"},{"to":"sum-wp-28725","x":734,"arrivalX":734,"arrivalY":480},{"to":"sum-wp-28722","x":1392,"arrivalX":749,"arrivalY":480}],"mapPoint":"teyvat:28699","waypoint":{"kind":"statue","area":"スメールの森林","x":735,"y":480}},
+    {"id":"sum-wp-28700","name":"スメールの森林・北東の林と神像","region":"スメール","level":60,"hub":false,"peaceful":true,"width":1470,"scenery":"sumeru","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1470},{"x":289,"y":387,"w":250},{"x":570,"y":301,"w":265},{"x":993,"y":390,"w":236}],"exits":[{"to":"sum-wp-28747","x":76,"arrivalX":1392,"arrivalY":480},{"to":"sum-wp-28749","x":1392,"arrivalX":1422,"arrivalY":480}],"mapPoint":"teyvat:28700","waypoint":{"kind":"statue","area":"スメールの森林","x":735,"y":480}},
+    {"id":"sum-wp-28701","name":"スメールの森林・北の森の神像","region":"スメール","level":64,"hub":false,"peaceful":true,"width":1470,"scenery":"sumeru","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1470},{"x":289,"y":387,"w":250},{"x":570,"y":301,"w":265},{"x":993,"y":390,"w":236}],"exits":[{"to":"sum-wp-28706","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-69098","x":734,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-28741","x":1392,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28701","waypoint":{"kind":"statue","area":"スメールの森林","x":735,"y":480}},
+    {"id":"sum-wp-28702","name":"スメールの森林・大樹の南の神像","region":"スメール","level":64,"hub":false,"peaceful":true,"width":1470,"scenery":"sumeru","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1470},{"x":289,"y":387,"w":250},{"x":570,"y":301,"w":265},{"x":993,"y":390,"w":236}],"exits":[{"to":"sum-wp-28743","x":76,"arrivalX":709,"arrivalY":480},{"to":"sum-wp-28740","x":734,"arrivalX":498,"arrivalY":480},{"to":"sumeru-field","x":1392,"arrivalX":805,"arrivalY":480}],"mapPoint":"teyvat:28702","waypoint":{"kind":"statue","area":"スメールの森林","x":735,"y":480}},
+    {"id":"sum-wp-28703","name":"スメールの森林・南の丘の神像","region":"スメール","level":66,"hub":false,"peaceful":true,"width":1470,"scenery":"sumeru","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1470},{"x":289,"y":387,"w":250},{"x":570,"y":301,"w":265},{"x":993,"y":390,"w":236}],"exits":[{"to":"sum-wp-28713","x":76,"arrivalX":1342,"arrivalY":480},{"to":"sum-wp-28729","x":515,"arrivalX":525,"arrivalY":480},{"to":"sum-wp-28728","x":953,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-28726","x":1392,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28703","waypoint":{"kind":"statue","area":"スメールの森林","x":735,"y":480}},
+    {"id":"sum-wp-28704","name":"スメールの森林・国境寄りの神像","region":"スメール","level":64,"hub":false,"peaceful":true,"width":1470,"scenery":"sumeru","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1470},{"x":289,"y":387,"w":250},{"x":570,"y":301,"w":265},{"x":993,"y":390,"w":236}],"exits":[{"to":"sum-wp-28734","x":76,"arrivalX":709,"arrivalY":480},{"to":"sum-wp-28725","x":734,"arrivalX":1392,"arrivalY":480},{"to":"sumeru-entry","x":1392,"arrivalX":950,"arrivalY":480}],"mapPoint":"teyvat:28704","waypoint":{"kind":"statue","area":"スメールの森林","x":735,"y":480}},
+    {"id":"sum-wp-28705","name":"スメールの森林・切り立った崖の洞","region":"スメール","level":66,"hub":false,"peaceful":true,"width":1330,"scenery":"sumeruObservationHollow","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-28706","x":76,"arrivalX":525,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"森西の崖の昇降機"}],"mapPoint":"teyvat:28705","waypoint":{"kind":"waypoint","area":"スメールの森林・別階層","x":665,"y":480,"floor":{"group_id":22,"floor_id":44}}},
+    {"id":"sum-wp-28706","name":"スメールの森林・乾いた段丘","region":"スメール","level":63,"hub":false,"peaceful":true,"width":1500,"scenery":"sumeruCanopy","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-41840","x":76,"arrivalX":940,"arrivalY":480},{"to":"sum-wp-28705","x":525,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"森西の崖の昇降機"},{"to":"sum-wp-28707","x":973,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-28701","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28706","waypoint":{"kind":"waypoint","area":"スメールの森林","x":750,"y":480}},
+    {"id":"sum-wp-28707","name":"スメールの森林・雨林西縁の湖","region":"スメール","level":65,"hub":false,"peaceful":false,"width":1420,"scenery":"sumeruRiverside","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sum-wp-28706","x":76,"arrivalX":973,"arrivalY":480},{"to":"sum-wp-28708","x":1342,"arrivalX":515,"arrivalY":480}],"mapPoint":"teyvat:28707","waypoint":{"kind":"waypoint","area":"スメールの森林","x":710,"y":480}},
+    {"id":"sum-wp-28708","name":"スメールの森林・古木の西の坂","region":"スメール","level":63,"hub":false,"peaceful":true,"width":1470,"scenery":"sumeru","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1470},{"x":289,"y":387,"w":250},{"x":570,"y":301,"w":265},{"x":993,"y":390,"w":236}],"exits":[{"to":"sum-wp-32451","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-28707","x":515,"arrivalX":1342,"arrivalY":480},{"to":"sum-wp-28711","x":953,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-28743","x":1392,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28708","waypoint":{"kind":"waypoint","area":"スメールの森林","x":735,"y":480}},
+    {"id":"sum-wp-28709","name":"失われた苗畑・苗畑の深層の根室","region":"スメール","level":72,"hub":false,"peaceful":true,"width":1490,"scenery":"buriedWeaving","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1490},{"x":267,"y":402,"w":208},{"x":568,"y":332,"w":237},{"x":913,"y":369,"w":235},{"x":1194,"y":411,"w":180}],"exits":[{"to":"sum-wp-32452","x":76,"arrivalX":1412,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"苗畑深層の昇降機"}],"mapPoint":"teyvat:28709","waypoint":{"kind":"waypoint","area":"失われた苗畑・別階層","x":745,"y":480,"floor":{"group_id":18,"floor_id":80}}},
+    {"id":"sum-wp-28710","name":"スメールの森林・砂に面した尾根","region":"スメール","level":62,"hub":false,"peaceful":true,"width":1500,"scenery":"sumeruCanopy","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-41821","x":76,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-32451","x":749,"arrivalX":525,"arrivalY":480},{"to":"sum-wp-28712","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28710","waypoint":{"kind":"waypoint","area":"スメールの森林","x":750,"y":480}},
+    {"id":"sum-wp-28711","name":"スメールの森林・南の森への尾根","region":"スメール","level":64,"hub":false,"peaceful":true,"width":1500,"scenery":"sumeruCanopy","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185},{"x":1366,"y":370,"w":118}],"exits":[{"to":"sum-wp-28708","x":76,"arrivalX":953,"arrivalY":480},{"to":"sum-wp-28712","x":749,"arrivalX":973,"arrivalY":480},{"to":"sum-wp-28729","x":1422,"y":370,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28711","waypoint":{"kind":"waypoint","area":"スメールの森林","x":750,"y":480}},
+    {"id":"sum-wp-28712","name":"スメールの森林・谷の上の水場","region":"スメール","level":62,"hub":false,"peaceful":true,"width":1500,"scenery":"sumeruCanopy","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-28710","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-28715","x":525,"arrivalX":734,"arrivalY":480},{"to":"sum-wp-28711","x":973,"arrivalX":749,"arrivalY":480},{"to":"sum-wp-28713","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28712","waypoint":{"kind":"waypoint","area":"スメールの森林","x":750,"y":480}},
+    {"id":"sum-wp-28713","name":"スメールの森林・南西の林縁","region":"スメール","level":64,"hub":false,"peaceful":false,"width":1420,"scenery":"sumeruRiverside","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sum-wp-28712","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-28714","x":709,"arrivalX":1342,"arrivalY":480},{"to":"sum-wp-28703","x":1342,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28713","waypoint":{"kind":"waypoint","area":"スメールの森林","x":710,"y":480}},
+    {"id":"sum-wp-28714","name":"スメールの森林・水辺の低い枝","region":"スメール","level":66,"hub":false,"peaceful":true,"width":1420,"scenery":"sumeruRiverside","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sum-wp-28715","x":76,"arrivalX":1392,"arrivalY":480},{"to":"sum-wp-28716","x":709,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-28713","x":1342,"arrivalX":709,"arrivalY":480}],"mapPoint":"teyvat:28714","waypoint":{"kind":"waypoint","area":"スメールの森林","x":710,"y":480}},
+    {"id":"sum-wp-28715","name":"スメールの森林・森と砂の門","region":"スメール","level":63,"hub":false,"peaceful":true,"width":1470,"scenery":"sumeru","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1470},{"x":289,"y":387,"w":250},{"x":570,"y":301,"w":265},{"x":993,"y":390,"w":236}],"exits":[{"to":"sum-wp-36674","x":76,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-28712","x":734,"arrivalX":525,"arrivalY":480},{"to":"sum-wp-28714","x":1392,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28715","waypoint":{"kind":"waypoint","area":"スメールの森林","x":735,"y":480}},
+    {"id":"sum-wp-28716","name":"スメールの森林・南の段丘道","region":"スメール","level":61,"hub":false,"peaceful":true,"width":1500,"scenery":"sumeruCanopy","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-28714","x":76,"arrivalX":709,"arrivalY":480},{"to":"sum-wp-28718","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28716","waypoint":{"kind":"waypoint","area":"スメールの森林","x":750,"y":480}},
+    {"id":"sum-wp-28717","name":"スメールの森林・湖底の根の洞","region":"スメール","level":66,"hub":false,"peaceful":true,"width":1330,"scenery":"sumeruObservationHollow","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-28718","x":76,"arrivalX":709,"arrivalY":480,"waterwaySeconds":2.7,"rideLabel":"谷の湖底に向かう水路"}],"mapPoint":"teyvat:28717","waypoint":{"kind":"waypoint","area":"スメールの森林・別階層","x":665,"y":480,"floor":{"group_id":11,"floor_id":36}}},
+    {"id":"sum-wp-28718","name":"スメールの森林・深い谷の東縁","region":"スメール","level":65,"hub":false,"peaceful":true,"width":1420,"scenery":"sumeruRiverside","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sum-wp-28716","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-28717","x":709,"arrivalX":76,"arrivalY":480,"waterwaySeconds":2.7,"rideLabel":"谷の湖底に向かう水路"},{"to":"sum-wp-28719","x":1342,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28718","waypoint":{"kind":"waypoint","area":"スメールの森林","x":710,"y":480}},
+    {"id":"sum-wp-28719","name":"スメールの森林・港西の坂道","region":"スメール","level":67,"hub":false,"peaceful":true,"width":1470,"scenery":"sumeru","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1470},{"x":289,"y":387,"w":250},{"x":570,"y":301,"w":265},{"x":993,"y":390,"w":236}],"exits":[{"to":"sum-wp-28718","x":76,"arrivalX":1342,"arrivalY":480},{"to":"sum-wp-28726","x":734,"arrivalX":920,"arrivalY":480},{"to":"sum-wp-28720","x":1392,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28719","waypoint":{"kind":"waypoint","area":"スメールの森林","x":735,"y":480}},
+    {"id":"sum-wp-28720","name":"スメールの森林・南港の荷揚げ棚","region":"スメール","level":60,"hub":false,"peaceful":true,"width":1390,"scenery":"sumeruRiverside","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1390},{"x":302,"y":413,"w":211},{"x":615,"y":375,"w":249},{"x":985,"y":406,"w":238}],"exits":[{"to":"sum-wp-28719","x":76,"arrivalX":1392,"arrivalY":480},{"to":"sum-wp-28721","x":1312,"arrivalX":76,"arrivalY":480,"boatSeconds":2.4,"rideLabel":"南港の荷運び舟"}],"mapPoint":"teyvat:28720","waypoint":{"kind":"waypoint","area":"スメールの森林","x":695,"y":480}},
+    {"id":"sum-wp-28721","name":"スメールの森林・南港の川沿い","region":"スメール","level":62,"hub":false,"peaceful":true,"width":1390,"scenery":"sumeruRiverside","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1390},{"x":302,"y":413,"w":211},{"x":615,"y":375,"w":249},{"x":985,"y":406,"w":238}],"exits":[{"to":"sum-wp-28720","x":76,"arrivalX":1312,"arrivalY":480,"boatSeconds":2.4,"rideLabel":"南港の荷運び舟"},{"to":"sum-wp-28722","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28721","waypoint":{"kind":"waypoint","area":"スメールの森林","x":695,"y":480}},
+    {"id":"sum-wp-28722","name":"スメールの森林・南東の小尾根","region":"スメール","level":64,"hub":false,"peaceful":true,"width":1500,"scenery":"sumeruCanopy","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-28721","x":76,"arrivalX":1312,"arrivalY":480},{"to":"sum-wp-28699","x":749,"arrivalX":1392,"arrivalY":480},{"to":"sum-wp-28723","x":1422,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"南東尾根の昇降機"}],"mapPoint":"teyvat:28722","waypoint":{"kind":"waypoint","area":"スメールの森林","x":750,"y":480}},
+    {"id":"sum-wp-28723","name":"スメールの森林・南東尾根の石室","region":"スメール","level":68,"hub":false,"peaceful":true,"width":1330,"scenery":"sumeruObservationHollow","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-28722","x":76,"arrivalX":1422,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"南東尾根の昇降機"}],"mapPoint":"teyvat:28723","waypoint":{"kind":"waypoint","area":"スメールの森林・別階層","x":665,"y":480,"floor":{"group_id":9,"floor_id":34}}},
+    {"id":"sum-wp-28724","name":"スメールの森林・神像の下の茂み洞","region":"スメール","level":65,"hub":false,"peaceful":true,"width":1330,"scenery":"sumeruObservationHollow","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-28699","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"神像脇の洞口"}],"mapPoint":"teyvat:28724","waypoint":{"kind":"waypoint","area":"スメールの森林・別階層","x":665,"y":480,"floor":{"group_id":12,"floor_id":37}}},
+    {"id":"sum-wp-28725","name":"スメールの森林・東の林間道","region":"スメール","level":61,"hub":false,"peaceful":true,"width":1470,"scenery":"sumeru","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1470},{"x":289,"y":387,"w":250},{"x":570,"y":301,"w":265},{"x":993,"y":390,"w":236}],"exits":[{"to":"sum-wp-28727","x":76,"arrivalX":1342,"arrivalY":480},{"to":"sum-wp-28699","x":734,"arrivalX":734,"arrivalY":480},{"to":"sum-wp-28704","x":1392,"arrivalX":734,"arrivalY":480}],"mapPoint":"teyvat:28725","waypoint":{"kind":"waypoint","area":"スメールの森林","x":735,"y":480}},
+    {"id":"sum-wp-28726","name":"スメールの森林・西岸の緩い坂","region":"スメール","level":63,"hub":false,"peaceful":true,"width":1420,"scenery":"sumeruRiverside","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sum-wp-28703","x":76,"arrivalX":1392,"arrivalY":480},{"to":"sum-wp-28728","x":498,"arrivalX":1342,"arrivalY":480},{"to":"sum-wp-28719","x":920,"arrivalX":734,"arrivalY":480},{"to":"sum-wp-28727","x":1342,"arrivalX":76,"arrivalY":480,"boatSeconds":2.8,"rideLabel":"川の両岸を結ぶ渡し舟"}],"mapPoint":"teyvat:28726","waypoint":{"kind":"waypoint","area":"スメールの森林","x":710,"y":480}},
+    {"id":"sum-wp-28727","name":"スメールの森林・川の東の河岸","region":"スメール","level":65,"hub":false,"peaceful":true,"width":1420,"scenery":"sumeruRiverside","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sum-wp-28726","x":76,"arrivalX":1342,"arrivalY":480,"boatSeconds":2.8,"rideLabel":"川の両岸を結ぶ渡し舟"},{"to":"sum-wp-28731","x":709,"arrivalX":1342,"arrivalY":480},{"to":"sum-wp-28725","x":1342,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28727","waypoint":{"kind":"waypoint","area":"スメールの森林","x":710,"y":480}},
+    {"id":"sum-wp-28728","name":"スメールの森林・中央の小池道","region":"スメール","level":63,"hub":false,"peaceful":true,"width":1420,"scenery":"sumeruRiverside","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sum-wp-28703","x":76,"arrivalX":953,"arrivalY":480},{"to":"sum-wp-28729","x":709,"arrivalX":973,"arrivalY":480},{"to":"sum-wp-28726","x":1342,"arrivalX":498,"arrivalY":480}],"mapPoint":"teyvat:28728","waypoint":{"kind":"waypoint","area":"スメールの森林","x":710,"y":480}},
+    {"id":"sum-wp-28729","name":"スメールの森林・中央の岩峰","region":"スメール","level":65,"hub":false,"peaceful":true,"width":1500,"scenery":"sumeruCanopy","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-28711","x":76,"arrivalX":1422,"arrivalY":370},{"to":"sum-wp-28703","x":525,"arrivalX":515,"arrivalY":480},{"to":"sum-wp-28728","x":973,"arrivalX":709,"arrivalY":480},{"to":"sumeru-field","x":1422,"arrivalX":599,"arrivalY":480}],"mapPoint":"teyvat:28729","waypoint":{"kind":"waypoint","area":"スメールの森林","x":750,"y":480}},
+    {"id":"sum-wp-28731","name":"スメールの森林・川脇の根道","region":"スメール","level":64,"hub":false,"peaceful":true,"width":1420,"scenery":"sumeruRiverside","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sumeru-field","x":76,"arrivalX":340,"arrivalY":480},{"to":"sum-wp-28735","x":709,"arrivalX":498,"arrivalY":480},{"to":"sum-wp-28727","x":1342,"arrivalX":709,"arrivalY":480}],"mapPoint":"teyvat:28731","waypoint":{"kind":"waypoint","area":"スメールの森林","x":710,"y":480}},
+    {"id":"sum-wp-28734","name":"スメールの森林・東の浅い水路","region":"スメール","level":66,"hub":false,"peaceful":true,"width":1420,"scenery":"sumeruRiverside","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sum-wp-28735","x":76,"arrivalX":1342,"arrivalY":480},{"to":"sum-wp-28704","x":709,"arrivalX":76,"arrivalY":480},{"to":"sumeru-entry","x":1342,"arrivalX":275,"arrivalY":480}],"mapPoint":"teyvat:28734","waypoint":{"kind":"waypoint","area":"スメールの森林","x":710,"y":480}},
+    {"id":"sum-wp-28735","name":"スメールの森林・市街南東の小道","region":"スメール","level":63,"hub":false,"peaceful":true,"width":1420,"scenery":"sumeruRiverside","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sum-wp-28736","x":76,"arrivalX":1312,"arrivalY":480},{"to":"sum-wp-28731","x":498,"arrivalX":709,"arrivalY":480},{"to":"sum-wp-28737","x":920,"arrivalX":953,"arrivalY":480},{"to":"sum-wp-28734","x":1342,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28735","waypoint":{"kind":"waypoint","area":"スメールの森林","x":710,"y":480}},
+    {"id":"sum-wp-28736","name":"スメールの森林・市街南の船着き場","region":"スメール","level":61,"hub":false,"peaceful":true,"width":1390,"scenery":"sumeruRiverside","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1390},{"x":302,"y":413,"w":211},{"x":615,"y":375,"w":249},{"x":985,"y":406,"w":238}],"exits":[{"to":"sumeru-hub","x":76,"arrivalX":274,"arrivalY":480},{"to":"sum-wp-28735","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28736","waypoint":{"kind":"waypoint","area":"スメールの森林","x":695,"y":480}},
+    {"id":"sum-wp-28737","name":"スメールの森林・大樹の東の坂","region":"スメール","level":63,"hub":false,"peaceful":true,"width":1470,"scenery":"sumeru","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1470},{"x":289,"y":387,"w":250},{"x":570,"y":301,"w":265},{"x":993,"y":390,"w":236}],"exits":[{"to":"sumeru-hub","x":76,"arrivalX":123,"arrivalY":480},{"to":"sum-wp-28738","x":515,"arrivalX":973,"arrivalY":480},{"to":"sum-wp-28735","x":953,"arrivalX":920,"arrivalY":480},{"to":"sumeru-entry","x":1392,"arrivalX":665,"arrivalY":480}],"mapPoint":"teyvat:28737","waypoint":{"kind":"waypoint","area":"スメールの森林","x":735,"y":480}},
+    {"id":"sum-wp-28738","name":"スメールの森林・大樹北の門","region":"スメール","level":65,"hub":false,"peaceful":true,"width":1500,"scenery":"sumeruCanopy","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sumeru-hub","x":76,"arrivalX":350,"arrivalY":340},{"to":"sum-wp-28745","x":525,"arrivalX":920,"arrivalY":480},{"to":"sum-wp-28737","x":973,"arrivalX":515,"arrivalY":480},{"to":"sum-wp-28746","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28738","waypoint":{"kind":"waypoint","area":"スメールの森林","x":750,"y":480}},
+    {"id":"sum-wp-28740","name":"スメールの森林・大樹の対岸","region":"スメール","level":63,"hub":false,"peaceful":true,"width":1420,"scenery":"sumeruRiverside","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sum-wp-28743","x":76,"arrivalX":1342,"arrivalY":480},{"to":"sum-wp-28702","x":498,"arrivalX":734,"arrivalY":480},{"to":"sum-wp-28741","x":920,"arrivalX":953,"arrivalY":480},{"to":"sumeru-hub","x":1342,"arrivalX":1123,"arrivalY":480,"boatSeconds":2.6,"rideLabel":"大樹の広場と対岸を結ぶ渡し舟"}],"mapPoint":"teyvat:28740","waypoint":{"kind":"waypoint","area":"スメールの森林","x":710,"y":480}},
+    {"id":"sum-wp-28741","name":"スメールの森林・森林北の分岐","region":"スメール","level":64,"hub":false,"peaceful":true,"width":1470,"scenery":"sumeru","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1470},{"x":289,"y":387,"w":250},{"x":570,"y":301,"w":265},{"x":993,"y":390,"w":236}],"exits":[{"to":"sum-wp-28701","x":76,"arrivalX":1392,"arrivalY":480},{"to":"sum-wp-28742","x":515,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"湿地の奥洞へ降りる昇降機"},{"to":"sum-wp-28740","x":953,"arrivalX":920,"arrivalY":480},{"to":"sum-wp-28745","x":1392,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28741","waypoint":{"kind":"waypoint","area":"スメールの森林","x":735,"y":480}},
+    {"id":"sum-wp-28742","name":"スメールの森林・北の湿地の奥洞","region":"スメール","level":67,"hub":false,"peaceful":true,"width":1330,"scenery":"sumeruObservationHollow","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-28741","x":76,"arrivalX":515,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"湿地の奥洞へ降りる昇降機"}],"mapPoint":"teyvat:28742","waypoint":{"kind":"waypoint","area":"スメールの森林・別階層","x":665,"y":480,"floor":{"group_id":21,"floor_id":43}}},
+    {"id":"sum-wp-28743","name":"スメールの森林・西の湖の東岸","region":"スメール","level":66,"hub":false,"peaceful":true,"width":1420,"scenery":"sumeruRiverside","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sum-wp-28708","x":76,"arrivalX":1392,"arrivalY":480},{"to":"sum-wp-28702","x":709,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-28740","x":1342,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28743","waypoint":{"kind":"waypoint","area":"スメールの森林","x":710,"y":480}},
+    {"id":"sum-wp-28744","name":"スメールの森林・北岸の根の水路","region":"スメール","level":65,"hub":false,"peaceful":true,"width":1330,"scenery":"sumeruObservationHollow","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-28745","x":76,"arrivalX":498,"arrivalY":369,"waterwaySeconds":2.7,"rideLabel":"根の間に入る水路"}],"mapPoint":"teyvat:28744","waypoint":{"kind":"waypoint","area":"スメールの森林・別階層","x":665,"y":480,"floor":{"group_id":23,"floor_id":45}}},
+    {"id":"sum-wp-28745","name":"スメールの森林・北岸の見晴らし台","region":"スメール","level":61,"hub":false,"peaceful":true,"width":1420,"scenery":"sumeruRiverside","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205},{"x":442,"y":369,"w":118}],"exits":[{"to":"sum-wp-28741","x":76,"arrivalX":1392,"arrivalY":480},{"to":"sum-wp-28744","x":498,"y":369,"arrivalX":76,"arrivalY":480,"waterwaySeconds":2.7,"rideLabel":"根の間に入る水路"},{"to":"sum-wp-28738","x":920,"arrivalX":525,"arrivalY":480},{"to":"sum-wp-28746","x":1342,"arrivalX":749,"arrivalY":480}],"mapPoint":"teyvat:28745","waypoint":{"kind":"waypoint","area":"スメールの森林","x":710,"y":480}},
+    {"id":"sum-wp-28746","name":"スメールの森林・川沿いの東路","region":"スメール","level":63,"hub":false,"peaceful":false,"width":1500,"scenery":"sumeruCanopy","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-28738","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-28745","x":749,"arrivalX":1342,"arrivalY":480},{"to":"sum-wp-28747","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28746","waypoint":{"kind":"waypoint","area":"スメールの森林","x":750,"y":480}},
+    {"id":"sum-wp-28747","name":"スメールの森林・北東の分岐","region":"スメール","level":65,"hub":false,"peaceful":true,"width":1470,"scenery":"sumeru","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1470},{"x":289,"y":387,"w":250},{"x":570,"y":301,"w":265},{"x":993,"y":390,"w":236}],"exits":[{"to":"sum-wp-28746","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-28748","x":734,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-28700","x":1392,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28747","waypoint":{"kind":"waypoint","area":"スメールの森林","x":735,"y":480}},
+    {"id":"sum-wp-28748","name":"スメールの森林・北東の沢道","region":"スメール","level":63,"hub":false,"peaceful":true,"width":1470,"scenery":"sumeru","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1470},{"x":289,"y":387,"w":250},{"x":570,"y":301,"w":265},{"x":993,"y":390,"w":236}],"exits":[{"to":"sum-wp-28747","x":76,"arrivalX":734,"arrivalY":480},{"to":"sum-wp-28749","x":734,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-28750","x":1392,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"境の洞窟の昇降機"}],"mapPoint":"teyvat:28748","waypoint":{"kind":"waypoint","area":"スメールの森林","x":735,"y":480}},
+    {"id":"sum-wp-28749","name":"スメールの森林・北東の岩縁","region":"スメール","level":65,"hub":false,"peaceful":true,"width":1500,"scenery":"sumeruCanopy","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-28748","x":76,"arrivalX":734,"arrivalY":480},{"to":"sum-wp-28700","x":1422,"arrivalX":1392,"arrivalY":480}],"mapPoint":"teyvat:28749","waypoint":{"kind":"waypoint","area":"スメールの森林","x":750,"y":480}},
+    {"id":"sum-wp-28750","name":"スメールの森林・東の境の洞窟","region":"スメール","level":67,"hub":false,"peaceful":true,"width":1330,"scenery":"sumeruObservationHollow","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-28748","x":76,"arrivalX":1392,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"境の洞窟の昇降機"}],"mapPoint":"teyvat:28750","waypoint":{"kind":"waypoint","area":"スメールの森林・別階層","x":665,"y":480,"floor":{"group_id":26,"floor_id":46}}},
+    {"id":"sum-wp-32451","name":"失われた苗畑・枯れた根元の神像","region":"スメール","level":68,"hub":false,"peaceful":true,"width":1500,"scenery":"sumeruCanopy","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-41840","x":76,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-28710","x":525,"arrivalX":749,"arrivalY":480},{"to":"sum-wp-32452","x":973,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"苗畑浅層の昇降機"},{"to":"sum-wp-28708","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:32451","waypoint":{"kind":"statue","area":"失われた苗畑","x":750,"y":480}},
+    {"id":"sum-wp-32452","name":"失われた苗畑・苗畑の浅層回廊","region":"スメール","level":70,"hub":false,"peaceful":true,"width":1490,"scenery":"buriedWeaving","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1490},{"x":267,"y":402,"w":208},{"x":568,"y":332,"w":237},{"x":913,"y":369,"w":235},{"x":1194,"y":411,"w":180}],"exits":[{"to":"sum-wp-32451","x":76,"arrivalX":973,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"苗畑浅層の昇降機"},{"to":"sum-wp-28709","x":1412,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"苗畑深層の昇降機"}],"mapPoint":"teyvat:32452","waypoint":{"kind":"waypoint","area":"失われた苗畑・別階層","x":745,"y":480,"floor":{"group_id":18,"floor_id":40}}},
+    {"id":"sum-wp-36674","name":"砂漠南部・砂漠入口の神像","region":"スメール","level":73,"hub":false,"peaceful":true,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-36684","x":76,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-36678","x":508,"arrivalX":1342,"arrivalY":480},{"to":"sum-wp-36677","x":940,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-28715","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:36674","waypoint":{"kind":"statue","area":"砂漠南部","x":725,"y":480}},
+    {"id":"sum-wp-36675","name":"砂漠南部・石廟の東の神像","region":"スメール","level":70,"hub":false,"peaceful":true,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-36696","x":76,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-36691","x":724,"arrivalX":724,"arrivalY":480},{"to":"sum-wp-36698","x":1372,"arrivalX":498,"arrivalY":480}],"mapPoint":"teyvat:36675","waypoint":{"kind":"statue","area":"砂漠南部","x":725,"y":480}},
+    {"id":"sum-wp-36676","name":"砂漠南部・南の峡谷の神像","region":"スメール","level":68,"hub":false,"peaceful":true,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-36688","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-36687","x":724,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"峡谷の下段への昇降機"},{"to":"sum-wp-36686","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:36676","waypoint":{"kind":"statue","area":"砂漠南部","x":725,"y":480}},
+    {"id":"sum-wp-36677","name":"砂漠南部・砂漠入口の南丘","region":"スメール","level":70,"hub":false,"peaceful":true,"width":1500,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-36678","x":76,"arrivalX":920,"arrivalY":480},{"to":"sum-wp-36681","x":749,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-36674","x":1422,"arrivalX":940,"arrivalY":480}],"mapPoint":"teyvat:36677","waypoint":{"kind":"waypoint","area":"砂漠南部","x":750,"y":480}},
+    {"id":"sum-wp-36678","name":"砂漠南部・水地の縁","region":"スメール","level":72,"hub":false,"peaceful":true,"width":1420,"scenery":"baptistField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sum-wp-36684","x":76,"arrivalX":724,"arrivalY":480},{"to":"sum-wp-36683","x":498,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"井戸の昇降機"},{"to":"sum-wp-36677","x":920,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-36674","x":1342,"arrivalX":508,"arrivalY":480}],"mapPoint":"teyvat:36678","waypoint":{"kind":"waypoint","area":"砂漠南部","x":710,"y":480}},
+    {"id":"sum-wp-36679","name":"砂漠南部・北の石橋の跡","region":"スメール","level":74,"hub":false,"peaceful":true,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-41828","x":76,"arrivalX":940,"arrivalY":480},{"to":"sum-wp-41819","x":724,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-36680","x":1372,"arrivalX":724,"arrivalY":480}],"mapPoint":"teyvat:36679","waypoint":{"kind":"waypoint","area":"砂漠南部","x":725,"y":480}},
+    {"id":"sum-wp-36680","name":"砂漠南部・市場跡の石段","region":"スメール","level":67,"hub":false,"peaceful":true,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-36691","x":76,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-36679","x":724,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-36684","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:36680","waypoint":{"kind":"waypoint","area":"砂漠南部","x":725,"y":480}},
+    {"id":"sum-wp-36681","name":"砂漠南部・東外縁の崖道","region":"スメール","level":69,"hub":false,"peaceful":true,"width":1500,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-36682","x":76,"arrivalX":1342,"arrivalY":480},{"to":"sum-wp-36685","x":749,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-36677","x":1422,"arrivalX":749,"arrivalY":480}],"mapPoint":"teyvat:36681","waypoint":{"kind":"waypoint","area":"砂漠南部","x":750,"y":480}},
+    {"id":"sum-wp-36682","name":"砂漠南部・南の湖岸","region":"スメール","level":71,"hub":false,"peaceful":true,"width":1420,"scenery":"baptistField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sum-wp-36698","x":76,"arrivalX":1342,"arrivalY":480},{"to":"sum-wp-36686","x":709,"arrivalX":749,"arrivalY":480},{"to":"sum-wp-36681","x":1342,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:36682","waypoint":{"kind":"waypoint","area":"砂漠南部","x":710,"y":480}},
+    {"id":"sum-wp-36683","name":"砂漠南部・井戸の下の回廊","region":"スメール","level":75,"hub":false,"peaceful":true,"width":1490,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1490},{"x":267,"y":402,"w":208},{"x":568,"y":332,"w":237},{"x":913,"y":369,"w":235},{"x":1194,"y":411,"w":180}],"exits":[{"to":"sum-wp-36678","x":76,"arrivalX":498,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"井戸の昇降機"}],"mapPoint":"teyvat:36683","waypoint":{"kind":"waypoint","area":"砂漠南部・別階層","x":745,"y":480,"floor":{"group_id":41,"floor_id":1}}},
+    {"id":"sum-wp-36684","name":"砂漠南部・北東の石の道","region":"スメール","level":71,"hub":false,"peaceful":true,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-36680","x":76,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-36678","x":724,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-36674","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:36684","waypoint":{"kind":"waypoint","area":"砂漠南部","x":725,"y":480}},
+    {"id":"sum-wp-36685","name":"砂漠南部・峡谷東の出口","region":"スメール","level":68,"hub":false,"peaceful":true,"width":1500,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-36686","x":76,"arrivalX":1422,"arrivalY":371},{"to":"sum-wp-36681","x":1422,"arrivalX":749,"arrivalY":480}],"mapPoint":"teyvat:36685","waypoint":{"kind":"waypoint","area":"砂漠南部","x":750,"y":480}},
+    {"id":"sum-wp-36686","name":"砂漠南部・峡谷西の崩れ橋","region":"スメール","level":70,"hub":false,"peaceful":true,"width":1500,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185},{"x":1366,"y":371,"w":118}],"exits":[{"to":"sum-wp-36676","x":76,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-36682","x":749,"arrivalX":709,"arrivalY":480},{"to":"sum-wp-36685","x":1422,"y":371,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:36686","waypoint":{"kind":"waypoint","area":"砂漠南部","x":750,"y":480}},
+    {"id":"sum-wp-36687","name":"砂漠南部・南の峡谷の洞","region":"スメール","level":75,"hub":false,"peaceful":true,"width":1490,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1490},{"x":267,"y":402,"w":208},{"x":568,"y":332,"w":237},{"x":913,"y":369,"w":235},{"x":1194,"y":411,"w":180}],"exits":[{"to":"sum-wp-36676","x":76,"arrivalX":724,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"峡谷の下段への昇降機"}],"mapPoint":"teyvat:36687","waypoint":{"kind":"waypoint","area":"砂漠南部・別階層","x":745,"y":480,"floor":{"group_id":39,"floor_id":91}}},
+    {"id":"sum-wp-36688","name":"砂漠南部・南端の岩丘","region":"スメール","level":70,"hub":false,"peaceful":true,"width":1500,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-36689","x":76,"arrivalX":749,"arrivalY":480},{"to":"sum-wp-36676","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:36688","waypoint":{"kind":"waypoint","area":"砂漠南部","x":750,"y":480}},
+    {"id":"sum-wp-36689","name":"砂漠南部・西南の砂斜面","region":"スメール","level":72,"hub":false,"peaceful":true,"width":1500,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-36699","x":76,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-36688","x":749,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-36690","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:36689","waypoint":{"kind":"waypoint","area":"砂漠南部","x":750,"y":480}},
+    {"id":"sum-wp-36690","name":"砂漠南部・石廟南東の小道","region":"スメール","level":69,"hub":false,"peaceful":true,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-36689","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-36698","x":1372,"arrivalX":920,"arrivalY":480}],"mapPoint":"teyvat:36690","waypoint":{"kind":"waypoint","area":"砂漠南部","x":725,"y":480}},
+    {"id":"sum-wp-36691","name":"砂漠南部・北東の砂段","region":"スメール","level":71,"hub":false,"peaceful":false,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-41819","x":76,"arrivalX":940,"arrivalY":480},{"to":"sum-wp-36675","x":724,"arrivalX":724,"arrivalY":480},{"to":"sum-wp-36680","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:36691","waypoint":{"kind":"waypoint","area":"砂漠南部","x":725,"y":480}},
+    {"id":"sum-wp-36692","name":"砂漠南部・西の見張り岩","region":"スメール","level":69,"hub":false,"peaceful":true,"width":1500,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-36693","x":76,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-36696","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:36692","waypoint":{"kind":"waypoint","area":"砂漠南部","x":750,"y":480}},
+    {"id":"sum-wp-36693","name":"砂漠南部・南西の遺構","region":"スメール","level":71,"hub":false,"peaceful":true,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-36692","x":76,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-36701","x":508,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"西回廊の昇降機"},{"to":"sum-wp-36696","x":940,"arrivalX":400,"arrivalY":480},{"to":"sum-wp-36699","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:36693","waypoint":{"kind":"waypoint","area":"砂漠南部","x":725,"y":480}},
+    {"id":"sum-wp-36694","name":"砂漠南部・石廟の下層玄室","region":"スメール","level":74,"hub":false,"peaceful":true,"width":1490,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1490},{"x":267,"y":402,"w":208},{"x":568,"y":332,"w":237},{"x":913,"y":369,"w":235},{"x":1194,"y":411,"w":180}],"exits":[{"to":"sum-wp-36702","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"石廟の二層を結ぶ昇降機"}],"mapPoint":"teyvat:36694","waypoint":{"kind":"waypoint","area":"砂漠南部・別階層","x":745,"y":480,"floor":{"group_id":31,"floor_id":103}}},
+    {"id":"sum-wp-36695","name":"砂漠南部・石廟南の地下道","region":"スメール","level":75,"hub":false,"peaceful":true,"width":1490,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1490},{"x":267,"y":402,"w":208},{"x":568,"y":332,"w":237},{"x":913,"y":369,"w":235},{"x":1194,"y":411,"w":180}],"exits":[{"to":"sum-wp-36696","x":76,"arrivalX":1048,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"石廟南口の昇降機"}],"mapPoint":"teyvat:36695","waypoint":{"kind":"waypoint","area":"砂漠南部・別階層","x":745,"y":480,"floor":{"group_id":61,"floor_id":60}}},
+    {"id":"sum-wp-36696","name":"砂漠南部・石廟地上の広場","region":"スメール","level":68,"hub":false,"peaceful":true,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-36692","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-36693","x":400,"arrivalX":940,"arrivalY":480},{"to":"sum-wp-36702","x":724,"arrivalX":1412,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"石廟北の昇降機"},{"to":"sum-wp-36695","x":1048,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"石廟南口の昇降機"},{"to":"sum-wp-36675","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:36696","waypoint":{"kind":"waypoint","area":"砂漠南部","x":725,"y":480}},
+    {"id":"sum-wp-36697","name":"砂漠南部・石廟東の脇室","region":"スメール","level":73,"hub":false,"peaceful":true,"width":1490,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1490},{"x":267,"y":402,"w":208},{"x":568,"y":332,"w":237},{"x":913,"y":369,"w":235},{"x":1194,"y":411,"w":180}],"exits":[{"to":"sum-wp-36698","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"東の脇室への昇降機"}],"mapPoint":"teyvat:36697","waypoint":{"kind":"waypoint","area":"砂漠南部・別階層","x":745,"y":480,"floor":{"group_id":32,"floor_id":87}}},
+    {"id":"sum-wp-36698","name":"砂漠南部・東の小遺跡と池","region":"スメール","level":72,"hub":false,"peaceful":false,"width":1420,"scenery":"baptistField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sum-wp-36697","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"東の脇室への昇降機"},{"to":"sum-wp-36675","x":498,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-36690","x":920,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-36682","x":1342,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:36698","waypoint":{"kind":"waypoint","area":"砂漠南部","x":710,"y":480}},
+    {"id":"sum-wp-36699","name":"砂漠南部・南の砂丘の遺構","region":"スメール","level":74,"hub":false,"peaceful":true,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-36693","x":76,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-36689","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:36699","waypoint":{"kind":"waypoint","area":"砂漠南部","x":725,"y":480}},
+    {"id":"sum-wp-36700","name":"砂漠南部・西回廊の東端","region":"スメール","level":72,"hub":false,"peaceful":true,"width":1490,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1490},{"x":267,"y":402,"w":208},{"x":568,"y":332,"w":237},{"x":913,"y":369,"w":235},{"x":1194,"y":411,"w":180}],"exits":[{"to":"sum-wp-36701","x":76,"arrivalX":1412,"arrivalY":480}],"mapPoint":"teyvat:36700","waypoint":{"kind":"waypoint","area":"砂漠南部・別階層","x":745,"y":480,"floor":{"group_id":51,"floor_id":57}}},
+    {"id":"sum-wp-36701","name":"砂漠南部・西回廊の西端","region":"スメール","level":73,"hub":false,"peaceful":true,"width":1490,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1490},{"x":267,"y":402,"w":208},{"x":568,"y":332,"w":237},{"x":913,"y":369,"w":235},{"x":1194,"y":411,"w":180}],"exits":[{"to":"sum-wp-36693","x":76,"arrivalX":508,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"西回廊の昇降機"},{"to":"sum-wp-36700","x":1412,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:36701","waypoint":{"kind":"waypoint","area":"砂漠南部・別階層","x":745,"y":480,"floor":{"group_id":51,"floor_id":57}}},
+    {"id":"sum-wp-36702","name":"砂漠南部・石廟の北の上層","region":"スメール","level":74,"hub":false,"peaceful":true,"width":1490,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1490},{"x":267,"y":402,"w":208},{"x":568,"y":332,"w":237},{"x":913,"y":369,"w":235},{"x":1194,"y":411,"w":180}],"exits":[{"to":"sum-wp-36694","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"石廟の二層を結ぶ昇降機"},{"to":"sum-wp-36696","x":1412,"arrivalX":724,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"石廟北の昇降機"}],"mapPoint":"teyvat:36702","waypoint":{"kind":"waypoint","area":"砂漠南部・別階層","x":745,"y":480,"floor":{"group_id":31,"floor_id":102}}},
+    {"id":"sum-wp-41819","name":"ハドラマヴェス砂漠・砂嵐の南の神像","region":"スメール","level":78,"hub":false,"peaceful":true,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-41822","x":76,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-41828","x":508,"arrivalX":508,"arrivalY":480},{"to":"sum-wp-36691","x":940,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-36679","x":1372,"arrivalX":724,"arrivalY":480}],"mapPoint":"teyvat:41819","waypoint":{"kind":"statue","area":"ハドラマヴェス砂漠","x":725,"y":480}},
+    {"id":"sum-wp-41820","name":"ハドラマヴェス砂漠・すり鉢東の段丘","region":"スメール","level":71,"hub":false,"peaceful":true,"width":1500,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-41828","x":76,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-41838","x":749,"arrivalX":525,"arrivalY":480},{"to":"sum-wp-41821","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:41820","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠","x":750,"y":480}},
+    {"id":"sum-wp-41821","name":"ハドラマヴェス砂漠・砂嵐の南東の外縁","region":"スメール","level":73,"hub":false,"peaceful":true,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-41820","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-41840","x":724,"arrivalX":508,"arrivalY":480},{"to":"sum-wp-28710","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:41821","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠","x":725,"y":480}},
+    {"id":"sum-wp-41822","name":"ハドラマヴェス砂漠・南の古い門","region":"スメール","level":75,"hub":false,"peaceful":true,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-41824","x":76,"arrivalX":1252,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"水庭の入口の昇降機"},{"to":"sum-wp-41826","x":508,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-41827","x":940,"arrivalX":749,"arrivalY":480},{"to":"sum-wp-41819","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:41822","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠","x":725,"y":480}},
+    {"id":"sum-wp-41823","name":"ハドラマヴェス砂漠・水庭の西室","region":"スメール","level":78,"hub":false,"peaceful":true,"width":1330,"scenery":"wenutField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-41824","x":76,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:41823","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠・別階層","x":665,"y":480,"floor":{"group_id":56,"floor_id":21}}},
+    {"id":"sum-wp-41824","name":"ハドラマヴェス砂漠・水庭の入口室","region":"スメール","level":75,"hub":false,"peaceful":true,"width":1330,"scenery":"wenutField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-41823","x":76,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-41825","x":664,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-41822","x":1252,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"水庭の入口の昇降機"}],"mapPoint":"teyvat:41824","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠・別階層","x":665,"y":480,"floor":{"group_id":56,"floor_id":21}}},
+    {"id":"sum-wp-41825","name":"ハドラマヴェス砂漠・水庭の東室","region":"スメール","level":76,"hub":false,"peaceful":true,"width":1330,"scenery":"wenutField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-41824","x":76,"arrivalX":664,"arrivalY":480}],"mapPoint":"teyvat:41825","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠・別階層","x":665,"y":480,"floor":{"group_id":56,"floor_id":21}}},
+    {"id":"sum-wp-41826","name":"ハドラマヴェス砂漠・西の石垣の外","region":"スメール","level":74,"hub":false,"peaceful":true,"width":1500,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-41830","x":76,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-41822","x":1422,"arrivalX":508,"arrivalY":480}],"mapPoint":"teyvat:41826","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠","x":750,"y":480}},
+    {"id":"sum-wp-41827","name":"ハドラマヴェス砂漠・西の輪の低い足場","region":"スメール","level":76,"hub":false,"peaceful":false,"width":1500,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-41830","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-41822","x":749,"arrivalX":940,"arrivalY":480},{"to":"sum-wp-41828","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:41827","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠","x":750,"y":480}},
+    {"id":"sum-wp-41828","name":"ハドラマヴェス砂漠・南の斜面の分岐","region":"スメール","level":74,"hub":false,"peaceful":true,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-41827","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-41819","x":508,"arrivalX":508,"arrivalY":480},{"to":"sum-wp-36679","x":940,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-41820","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:41828","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠","x":725,"y":480}},
+    {"id":"sum-wp-41829","name":"ハドラマヴェス砂漠・砂渦の下層西口","region":"スメール","level":76,"hub":false,"peaceful":true,"width":1330,"scenery":"wenutField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-41831","x":76,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:41829","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠・別階層","x":665,"y":480,"floor":{"group_id":60,"floor_id":96}}},
+    {"id":"sum-wp-41830","name":"ハドラマヴェス砂漠・西の輪の高い足場","region":"スメール","level":73,"hub":false,"peaceful":true,"width":1500,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-41826","x":76,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-41832","x":749,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-41827","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:41830","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠","x":750,"y":480}},
+    {"id":"sum-wp-41831","name":"ハドラマヴェス砂漠・砂渦の下層中央","region":"スメール","level":78,"hub":false,"peaceful":true,"width":1330,"scenery":"wenutField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-41829","x":76,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-41833","x":664,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"砂渦の下層へ降りる昇降機"},{"to":"sum-wp-41837","x":1252,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:41831","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠・別階層","x":665,"y":480,"floor":{"group_id":60,"floor_id":96}}},
+    {"id":"sum-wp-41832","name":"ハドラマヴェス砂漠・北西の横道","region":"スメール","level":73,"hub":false,"peaceful":true,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-41830","x":76,"arrivalX":749,"arrivalY":480},{"to":"sum-wp-41834","x":724,"arrivalX":749,"arrivalY":480},{"to":"sum-wp-41835","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:41832","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠","x":725,"y":480}},
+    {"id":"sum-wp-41833","name":"ハドラマヴェス砂漠・砂渦の中層","region":"スメール","level":76,"hub":false,"peaceful":true,"width":1330,"scenery":"wenutField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-41831","x":76,"arrivalX":664,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"砂渦の下層へ降りる昇降機"},{"to":"sum-wp-41835","x":1252,"arrivalX":508,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"砂渦中層への昇降機"}],"mapPoint":"teyvat:41833","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠・別階層","x":665,"y":480,"floor":{"group_id":60,"floor_id":59}}},
+    {"id":"sum-wp-41834","name":"ハドラマヴェス砂漠・北端の広い道","region":"スメール","level":77,"hub":false,"peaceful":true,"width":1500,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-46515","x":76,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-41832","x":749,"arrivalX":724,"arrivalY":480},{"to":"sum-wp-41835","x":1422,"arrivalX":940,"arrivalY":480}],"mapPoint":"teyvat:41834","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠","x":750,"y":480}},
+    {"id":"sum-wp-41835","name":"ハドラマヴェス砂漠・北の風よけ","region":"スメール","level":74,"hub":false,"peaceful":true,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-41832","x":76,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-41833","x":508,"arrivalX":1252,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"砂渦中層への昇降機"},{"to":"sum-wp-41834","x":940,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-41838","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:41835","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠","x":725,"y":480}},
+    {"id":"sum-wp-41836","name":"ハドラマヴェス砂漠・風穴の下の石床","region":"スメール","level":77,"hub":false,"peaceful":true,"width":1330,"scenery":"wenutField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-41838","x":76,"arrivalX":973,"arrivalY":370,"liftSeconds":1.8,"rideLabel":"風が収まると動く昇降機"}],"mapPoint":"teyvat:41836","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠・別階層","x":665,"y":480,"floor":{"group_id":58,"floor_id":16}}},
+    {"id":"sum-wp-41837","name":"ハドラマヴェス砂漠・砂渦の下層東口","region":"スメール","level":76,"hub":false,"peaceful":true,"width":1330,"scenery":"wenutField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-41831","x":76,"arrivalX":1252,"arrivalY":480}],"mapPoint":"teyvat:41837","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠・別階層","x":665,"y":480,"floor":{"group_id":60,"floor_id":96}}},
+    {"id":"sum-wp-41838","name":"ハドラマヴェス砂漠・東の風待ち棚","region":"スメール","level":75,"hub":false,"peaceful":true,"width":1500,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185},{"x":917,"y":370,"w":118}],"exits":[{"to":"sum-wp-41835","x":76,"arrivalX":1372,"arrivalY":480},{"to":"sum-wp-41820","x":525,"arrivalX":749,"arrivalY":480},{"to":"sum-wp-41836","x":973,"y":370,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"風が収まると動く昇降機","wind":{"period":7.6,"calmStart":3.2,"calmEnd":5.9,"notice":"砂風が強く、昇降機を動かせません。風が弱まるまで待ってください。"}},{"to":"sum-wp-41839","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:41838","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠","x":750,"y":480}},
+    {"id":"sum-wp-41839","name":"ハドラマヴェス砂漠・外輪の東の岸","region":"スメール","level":78,"hub":false,"peaceful":true,"width":1500,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-41838","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-41840","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:41839","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠","x":750,"y":480}},
+    {"id":"sum-wp-41840","name":"ハドラマヴェス砂漠・森に抜ける外輪の門","region":"スメール","level":71,"hub":false,"peaceful":true,"width":1450,"scenery":"asimonField","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-41839","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-41821","x":508,"arrivalX":724,"arrivalY":480},{"to":"sum-wp-28706","x":940,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-32451","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:41840","waypoint":{"kind":"waypoint","area":"ハドラマヴェス砂漠","x":725,"y":480}},
+    {"id":"sum-wp-46514","name":"砂漠北西部・泉を見下ろす神像","region":"トゥニギの黒淵","level":74,"hub":false,"peaceful":true,"width":1420,"scenery":"tunigi","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sum-wp-46525","x":76,"arrivalX":709,"arrivalY":480},{"to":"sum-wp-46529","x":709,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"泉の下への昇降機"},{"to":"sum-wp-46527","x":1342,"arrivalX":709,"arrivalY":480}],"mapPoint":"teyvat:46514","waypoint":{"kind":"statue","area":"砂漠北西部","x":710,"y":480}},
+    {"id":"sum-wp-46515","name":"砂漠北西部・峡谷南の斜面","region":"トゥニギの黒淵","level":75,"hub":false,"peaceful":true,"width":1450,"scenery":"tunigi","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1450},{"x":309,"y":419,"w":238},{"x":609,"y":376,"w":269},{"x":1010,"y":412,"w":253}],"exits":[{"to":"sum-wp-46516","x":76,"arrivalX":749,"arrivalY":480,"wind":{"period":6.4,"calmStart":2.2,"calmEnd":5.2,"notice":"砂が舞い、細道が見えません。風が弱まるまで待ってください。"}},{"to":"sum-wp-41834","x":1372,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:46515","waypoint":{"kind":"waypoint","area":"砂漠北西部","x":725,"y":480}},
+    {"id":"sum-wp-46516","name":"砂漠北西部・砂の切れ目の細道","region":"トゥニギの黒淵","level":73,"hub":false,"peaceful":false,"width":1500,"scenery":"tunigi","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-46517","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-46515","x":749,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-46527","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:46516","waypoint":{"kind":"waypoint","area":"砂漠北西部","x":750,"y":480}},
+    {"id":"sum-wp-46517","name":"砂漠北西部・西の段丘","region":"トゥニギの黒淵","level":75,"hub":false,"peaceful":true,"width":1500,"scenery":"tunigi","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-46518","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-46520","x":525,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"黒淵西口の昇降機"},{"to":"tunigi-camp","x":973,"arrivalX":420,"arrivalY":480},{"to":"sum-wp-46516","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:46517","waypoint":{"kind":"waypoint","area":"砂漠北西部","x":750,"y":480}},
+    {"id":"sum-wp-46518","name":"砂漠北西部・西端の石棚","region":"トゥニギの黒淵","level":77,"hub":false,"peaceful":true,"width":1500,"scenery":"tunigi","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185},{"x":20,"y":371,"w":118}],"exits":[{"to":"sum-wp-46521","x":76,"y":371,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-46517","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:46518","waypoint":{"kind":"waypoint","area":"砂漠北西部","x":750,"y":480}},
+    {"id":"sum-wp-46519","name":"砂漠北西部・西の崖裏の通路","region":"トゥニギの黒淵","level":78,"hub":false,"peaceful":true,"width":1330,"scenery":"tunigiExcavation","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-46521","x":76,"arrivalX":749,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"西の崖の昇降機"}],"mapPoint":"teyvat:46519","waypoint":{"kind":"waypoint","area":"砂漠北西部・別階層","x":665,"y":480,"floor":{"group_id":43,"floor_id":53}}},
+    {"id":"sum-wp-46520","name":"砂漠北西部・黒淵西の下層","region":"トゥニギの黒淵","level":75,"hub":false,"peaceful":true,"width":1330,"scenery":"tunigiExcavation","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-46517","x":76,"arrivalX":525,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"黒淵西口の昇降機"},{"to":"sum-wp-46530","x":1252,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:46520","waypoint":{"kind":"waypoint","area":"砂漠北西部・別階層","x":665,"y":480,"floor":{"group_id":72,"floor_id":65}}},
+    {"id":"sum-wp-46521","name":"砂漠北西部・西丘の風よけ","region":"トゥニギの黒淵","level":74,"hub":false,"peaceful":true,"width":1500,"scenery":"tunigi","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-46518","x":76,"arrivalX":76,"arrivalY":371},{"to":"sum-wp-46519","x":749,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"西の崖の昇降機"},{"to":"tunigi-depth","x":1422,"arrivalX":335,"arrivalY":480}],"mapPoint":"teyvat:46521","waypoint":{"kind":"waypoint","area":"砂漠北西部","x":750,"y":480}},
+    {"id":"sum-wp-46523","name":"砂漠北西部・谷口の観測洞","region":"トゥニギの黒淵","level":73,"hub":false,"peaceful":true,"width":1330,"scenery":"tunigiExcavation","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"tunigi-depth","x":76,"arrivalX":250,"arrivalY":380,"liftSeconds":1.8,"rideLabel":"観測洞へ向かう昇降機"}],"mapPoint":"teyvat:46523","waypoint":{"kind":"waypoint","area":"砂漠北西部・別階層","x":665,"y":480,"floor":{"group_id":71,"floor_id":64}}},
+    {"id":"sum-wp-46524","name":"砂漠北西部・北の坂道","region":"トゥニギの黒淵","level":76,"hub":false,"peaceful":true,"width":1500,"scenery":"tunigi","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"tunigi-depth","x":76,"arrivalX":1112,"arrivalY":480},{"to":"sum-wp-46526","x":749,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-50032","x":1422,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:46524","waypoint":{"kind":"waypoint","area":"砂漠北西部","x":750,"y":480}},
+    {"id":"sum-wp-46525","name":"砂漠北西部・二つの泉の分岐","region":"トゥニギの黒淵","level":73,"hub":false,"peaceful":true,"width":1420,"scenery":"tunigi","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"tunigi-depth","x":76,"arrivalX":1317,"arrivalY":480},{"to":"sum-wp-46514","x":709,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-46526","x":1342,"arrivalX":709,"arrivalY":480}],"mapPoint":"teyvat:46525","waypoint":{"kind":"waypoint","area":"砂漠北西部","x":710,"y":480}},
+    {"id":"sum-wp-46526","name":"砂漠北西部・北の渓流の広場","region":"トゥニギの黒淵","level":75,"hub":false,"peaceful":true,"width":1420,"scenery":"tunigi","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sum-wp-46524","x":76,"arrivalX":749,"arrivalY":480},{"to":"sum-wp-46525","x":709,"arrivalX":1342,"arrivalY":480},{"to":"sum-wp-50032","x":1342,"arrivalX":1422,"arrivalY":480}],"mapPoint":"teyvat:46526","waypoint":{"kind":"waypoint","area":"砂漠北西部","x":710,"y":480}},
+    {"id":"sum-wp-46527","name":"砂漠北西部・泉の南の水辺","region":"トゥニギの黒淵","level":77,"hub":false,"peaceful":false,"width":1420,"scenery":"tunigi","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1420},{"x":330,"y":418,"w":280},{"x":666,"y":375,"w":258},{"x":1040,"y":411,"w":205}],"exits":[{"to":"sum-wp-46516","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-46514","x":709,"arrivalX":1342,"arrivalY":480},{"to":"sum-wp-46528","x":1342,"arrivalX":76,"arrivalY":480,"waterwaySeconds":2.7,"rideLabel":"泉の西に潜る水路"}],"mapPoint":"teyvat:46527","waypoint":{"kind":"waypoint","area":"砂漠北西部","x":710,"y":480}},
+    {"id":"sum-wp-46528","name":"砂漠北西部・泉西の地下の渡り","region":"トゥニギの黒淵","level":75,"hub":false,"peaceful":true,"width":1330,"scenery":"tunigiExcavation","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-46527","x":76,"arrivalX":1342,"arrivalY":480,"waterwaySeconds":2.7,"rideLabel":"泉の西に潜る水路"}],"mapPoint":"teyvat:46528","waypoint":{"kind":"waypoint","area":"砂漠北西部・別階層","x":665,"y":480,"floor":{"group_id":53,"floor_id":24}}},
+    {"id":"sum-wp-46529","name":"砂漠北西部・泉の下の窪み","region":"トゥニギの黒淵","level":76,"hub":false,"peaceful":true,"width":1330,"scenery":"tunigiExcavation","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-46514","x":76,"arrivalX":709,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"泉の下への昇降機"}],"mapPoint":"teyvat:46529","waypoint":{"kind":"waypoint","area":"砂漠北西部・別階層","x":665,"y":480,"floor":{"group_id":117,"floor_id":147}}},
+    {"id":"sum-wp-46530","name":"砂漠北西部・黒淵東の下層","region":"トゥニギの黒淵","level":77,"hub":false,"peaceful":true,"width":1330,"scenery":"tunigiExcavation","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-46520","x":76,"arrivalX":1252,"arrivalY":480}],"mapPoint":"teyvat:46530","waypoint":{"kind":"waypoint","area":"砂漠北西部・別階層","x":665,"y":480,"floor":{"group_id":72,"floor_id":65}}},
+    {"id":"sum-wp-50031","name":"砂漠北西部・北の崖の洞道","region":"トゥニギの黒淵","level":78,"hub":false,"peaceful":true,"width":1330,"scenery":"tunigiExcavation","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1330},{"x":280,"y":402,"w":218},{"x":564,"y":351,"w":247},{"x":924,"y":401,"w":244}],"exits":[{"to":"sum-wp-50032","x":76,"arrivalX":749,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"北の崖の洞道へ降りる昇降機"}],"mapPoint":"teyvat:50031","waypoint":{"kind":"waypoint","area":"砂漠北西部・別階層","x":665,"y":480,"floor":{"group_id":97,"floor_id":3}}},
+    {"id":"sum-wp-50032","name":"砂漠北西部・北の境に続く道","region":"トゥニギの黒淵","level":74,"hub":false,"peaceful":true,"width":1500,"scenery":"tunigi","checkpoint":"tunigi-camp","platforms":[{"x":0,"y":480,"w":1500},{"x":278,"y":381,"w":218},{"x":504,"y":312,"w":245},{"x":829,"y":374,"w":224},{"x":1190,"y":422,"w":185}],"exits":[{"to":"sum-wp-46524","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-50031","x":749,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"北の崖の洞道へ降りる昇降機"},{"to":"sum-wp-46526","x":1422,"arrivalX":1342,"arrivalY":480}],"mapPoint":"teyvat:50032","waypoint":{"kind":"waypoint","area":"砂漠北西部","x":750,"y":480}},
+    {"id":"sum-wp-69098","name":"スメールの森林・バイダ港の船着き場","region":"スメール","level":67,"hub":false,"peaceful":true,"width":1390,"scenery":"sumeruRiverside","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1390},{"x":302,"y":413,"w":211},{"x":615,"y":375,"w":249},{"x":985,"y":406,"w":238}],"exits":[{"to":"sum-wp-28701","x":76,"arrivalX":734,"arrivalY":480}],"mapPoint":"teyvat:69098","waypoint":{"kind":"waypoint","area":"スメールの森林","x":695,"y":480}},
     {"id":"ina-wp-12696","name":"ヤシオリ島・北西の湾と波止場","region":"稲妻","level":47,"hub":false,"peaceful":true,"width":1390,"checkpoint":"inazuma-port","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1390},{"x":310,"y":390,"w":220},{"x":628,"y":418,"w":237},{"x":993,"y":378,"w":208}],"exits":[{"to":"ina-wp-15951","x":76,"arrivalX":1312,"arrivalY":480,"boatSeconds":3.9,"rideLabel":"東沖の中継島までの船"},{"to":"ina-wp-12704","x":851,"arrivalX":76,"arrivalY":480},{"to":"ina-wp-12749","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:12696","waypoint":{"kind":"waypoint","area":"ヤシオリ島","x":695,"y":480}},
     {"id":"ina-wp-12704","name":"ヤシオリ島・北の尾根の小径","region":"稲妻","level":44,"hub":false,"peaceful":true,"width":1520,"checkpoint":"inazuma-port","scenery":"inazuma","platforms":[{"x":0,"y":480,"w":1520},{"x":302,"y":382,"w":198},{"x":536,"y":295,"w":265},{"x":893,"y":373,"w":188},{"x":1181,"y":414,"w":166}],"exits":[{"to":"ina-wp-12696","x":76,"arrivalX":851,"arrivalY":480},{"to":"ina-wp-12749","x":1442,"arrivalX":320,"arrivalY":480}],"mapPoint":"teyvat:12704","waypoint":{"kind":"waypoint","area":"ヤシオリ島","x":760,"y":480}},
     {"id":"ina-wp-12711","name":"ヤシオリ島・南岸の洞口","region":"稲妻","level":49,"hub":false,"peaceful":true,"width":1300,"checkpoint":"inazuma-port","scenery":"seacave","platforms":[{"x":0,"y":480,"w":1300},{"x":310,"y":393,"w":210},{"x":620,"y":340,"w":225},{"x":938,"y":413,"w":150}],"exits":[{"to":"maguu-approach","x":76,"arrivalX":690,"arrivalY":480}],"mapPoint":"teyvat:12711","waypoint":{"kind":"waypoint","area":"ヤシオリ島","x":650,"y":480}},
@@ -6517,6 +6866,10 @@
     {"id":"nod-false-moon-rift","name":"偽月の再現戦・異界","region":"ナド・クライ","level":132,"width":960,"hub":false,"peaceful":true,"checkpoint":"nod-town","platforms":[{"x":0,"y":480,"w":960},{"x":118,"y":357,"w":155},{"x":696,"y":357,"w":155}],"exits":[],"weeklySceneOf":"nod-false-moon-court"}
   ],
   "quests": [
+    {"id":"sum-mapped-north-quay","name":"北の港に荷が着くまで","hub":"sumeru-hub","giver":"広場の荷受け係","level":67,"xp":46200,"mora":5700,"target":"sum-wp-69098","briefing":"渡し舟で対岸へ。森の神像を目印に北の港まで歩いて、荷を受け取る棚を見つけてください。","closing":"広場から港まで道が通りました。次の便は森側で受け取ります。","itinerary":[{"kind":"arrive","from":"sumeru-hub","node":"sum-wp-28740","objective":"渡し舟で大樹の対岸へ"},{"kind":"arrive","from":"sum-wp-28740","node":"sum-wp-28741","objective":"森林北の分岐へ"},{"kind":"arrive","from":"sum-wp-28741","node":"sum-wp-28701","objective":"森の神像へ"},{"kind":"arrive","from":"sum-wp-28701","node":"sum-wp-69098","objective":"バイダ港の船着き場へ"},{"kind":"inspect","node":"sum-wp-69098","x":775,"y":480,"name":"港の荷札棚","action":"記録を取る","objective":"荷札を置く棚を記録する"}],"kind":"itinerary","goal":5},
+    {"id":"sum-mapped-twin-shaft","name":"苗畑の浅層と深層","hub":"sumeru-hub","giver":"植物の観測係","level":72,"xp":56400,"mora":6500,"target":"sum-wp-28709","briefing":"枯れた根元の神像から昇降機を二つ使い、深い根室へ下りてください。帰りも同じ昇降機で。","closing":"浅い回廊と深い根室で、根の色が違うようですね。記録を預かります。","itinerary":[{"kind":"arrive","from":"sum-wp-32451","node":"sum-wp-32452","objective":"神像脇の昇降機で浅層へ"},{"kind":"inspect","node":"sum-wp-32452","x":825,"y":480,"name":"浅層の根","action":"記録を取る","objective":"浅い回廊の根を記録する"},{"kind":"arrive","from":"sum-wp-32452","node":"sum-wp-28709","objective":"二つ目の昇降機で深層へ"},{"kind":"inspect","node":"sum-wp-28709","x":825,"y":480,"name":"深層の根","action":"記録を取る","objective":"深い根室で新しい根を調べる"},{"kind":"arrive","from":"sum-wp-28709","node":"sum-wp-32452","objective":"浅層へ戻る"},{"kind":"arrive","from":"sum-wp-32452","node":"sum-wp-32451","objective":"神像の地上へ戻る"}],"kind":"itinerary","goal":6},
+    {"id":"sum-mapped-desert-wind","name":"風が止む間に","hub":"tunigi-camp","giver":"発掘隊の観測係","level":78,"xp":80400,"mora":8400,"target":"sum-wp-41836","briefing":"砂渦北の風よけから東の棚へ。砂風が収まったら昇降機で降り、風穴の下を調べてください。","closing":"風穴が狭いのは下から見ると分かります。待つ場所も地図に印をつけます。","itinerary":[{"kind":"arrive","from":"sum-wp-41835","node":"sum-wp-41838","objective":"北の風よけから東の風待ち棚へ"},{"kind":"arrive","from":"sum-wp-41838","node":"sum-wp-41836","objective":"砂風が収まる間に昇降機で降りる"},{"kind":"inspect","node":"sum-wp-41836","x":745,"y":480,"name":"風穴の砂の跡","action":"記録を取る","objective":"下層から砂の跡を記録する"},{"kind":"arrive","from":"sum-wp-41836","node":"sum-wp-41838","objective":"東の棚まで昇降機で戻る"}],"kind":"itinerary","goal":4},
+    {"id":"sum-mapped-tunigi-water","name":"谷口から泉まで","hub":"tunigi-camp","giver":"泉の調査係","level":74,"xp":67000,"mora":7600,"target":"sum-wp-46514","briefing":"谷口の観測洞を調べて、地上に戻ったら二つの泉の分岐へ。泉の神像まで水を見てきてください。","closing":"洞と泉の水の色が分かりました。次は雨の後に見に行きます。","itinerary":[{"kind":"arrive","from":"tunigi-camp","node":"tunigi-depth","objective":"入口拠点から谷口へ"},{"kind":"arrive","from":"tunigi-depth","node":"sum-wp-46523","objective":"観測洞の昇降機を下りる"},{"kind":"inspect","node":"sum-wp-46523","x":745,"y":480,"name":"観測洞の水面","action":"記録を取る","objective":"洞内の水の色を記録する"},{"kind":"arrive","from":"sum-wp-46523","node":"tunigi-depth","objective":"谷口へ戻る"},{"kind":"arrive","from":"tunigi-depth","node":"sum-wp-46525","objective":"二つの泉の分岐へ"},{"kind":"arrive","from":"sum-wp-46525","node":"sum-wp-46514","objective":"泉を見下ろす神像へ"},{"kind":"inspect","node":"sum-wp-46514","x":790,"y":480,"name":"泉の水面","action":"記録を取る","objective":"泉に流れ込む水を記録する"}],"kind":"itinerary","goal":7},
     {"id":"ina-mapped-seirai-ferry","name":"セイライへ渡る荷の行き先","hub":"inazuma-town","giver":"船着き場の荷受け係","level":47,"xp":23500,"mora":3200,"target":"ina-wp-16022","briefing":"城南から船に乗り、北西の船着き場へ。海峡の神像まで荷を運べる道を探してきてください。","closing":"あの坂なら雨でも荷車が通れそうです。行き先を船頭に伝えます。","itinerary":[{"kind":"arrive","from":"inazuma-town","node":"ina-wp-12722","objective":"城南の船着き場へ降りる"},{"kind":"arrive","from":"ina-wp-12722","node":"ina-wp-16014","objective":"連絡船でセイライの北西に渡る"},{"kind":"arrive","from":"ina-wp-16014","node":"ina-wp-16026","objective":"斜面の分岐に出る"},{"kind":"arrive","from":"ina-wp-16026","node":"ina-wp-16022","objective":"海峡の神像に着く"},{"kind":"inspect","node":"ina-wp-16022","x":670,"y":480,"name":"調査の目印","action":"記録を取る","objective":"荷車が通れる足元を記録する"}],"kind":"itinerary","goal":5},
     {"id":"ina-mapped-undersea-floor","name":"北の崖から地下の石室へ","hub":"inazuma-port","giver":"離島の見回り役","level":48,"xp":25900,"mora":3500,"target":"ina-wp-47990","briefing":"離島から浅瀬を渡って北の崖へ。昇降機で下りた先の水漏れを見てきてくれますか。","closing":"水位が分かったので、石室に入れる時間を掲示しておきます。","itinerary":[{"kind":"arrive","from":"inazuma-road","node":"ina-wp-12729","objective":"離島から浅瀬を渡る"},{"kind":"arrive","from":"ina-wp-12729","node":"ina-wp-12735","objective":"北の崖へ登る"},{"kind":"arrive","from":"ina-wp-12735","node":"ina-wp-47990","objective":"昇降機で石室へ下りる"},{"kind":"inspect","node":"ina-wp-47990","x":650,"y":480,"name":"調査の目印","action":"記録を取る","objective":"石段で水の跡を記録する"},{"kind":"arrive","from":"ina-wp-47990","node":"ina-wp-12735","objective":"昇降機で北の崖に戻る"}],"kind":"itinerary","goal":5},
     {"id":"ina-mapped-enkan-beacons","name":"淵下宮の外礁灯を巡る","hub":"enkanomiya-camp","giver":"地下の道案内","level":57,"xp":38500,"mora":4900,"target":"enkan-wp-21592","briefing":"大塔西の回廊から中央の石灯へ。灯りを目印に、北西、北東、南端の順で浮石の道を開けてください。","closing":"三つとも灯りましたね。外礁を回る道はこれで使えます。","itinerary":[{"kind":"arrive","from":"enkan-wp-21579","node":"enkan-wp-21580","objective":"大塔西の回廊から中央の石灯に着く"},{"kind":"inspect","node":"enkan-wp-21580","x":816,"y":480,"name":"中央の石灯","action":"火を入れる","routeBeacon":true,"completedLabel":"石灯・点灯済み","objective":"中央の石灯をともす","notice":"北西の浮石が動き始めました。"},{"kind":"inspect","node":"enkan-wp-21593","x":816,"y":480,"name":"北西の外礁灯","action":"火を入れる","routeBeacon":true,"completedLabel":"石灯・点灯済み","objective":"北西の外礁灯をともす","notice":"北東の浮石が動き始めました。"},{"kind":"inspect","node":"enkan-wp-21594","x":816,"y":480,"name":"北東の外礁灯","action":"火を入れる","routeBeacon":true,"completedLabel":"石灯・点灯済み","objective":"北東の外礁灯をともす","notice":"南端の浮石が動き始めました。"},{"kind":"inspect","node":"enkan-wp-21592","x":816,"y":480,"name":"南端の外礁灯","action":"火を入れる","routeBeacon":true,"completedLabel":"石灯・点灯済み","objective":"南端の外礁灯をともす","notice":"三つの外礁灯を確認しました。"}],"kind":"itinerary","goal":5},
