@@ -1,0 +1,37 @@
+{
+  "joinedFromDifferentMaps": [
+    "mond-town",
+    "anemo-field-basin"
+  ],
+  "separateCombatMaps": [
+    "mond-road",
+    "anemo-field-basin"
+  ],
+  "bothMapsAdvanced": true,
+  "ordinaryLootStaysOnMap": true,
+  "emptyBossMapKeepsHpAndClock": true,
+  "hpAfterRegroup": 728,
+  "bossLootStaysOnMap": true,
+  "stableSlotAfterTravelAndReload": true,
+  "retainedMembershipInPrivateMap": "electro-approach",
+  "localPauseLeavesOtherMapRunning": true,
+  "partyDefeatRetainsMembershipInTown": true,
+  "fourPlayers": {
+    "players": 4,
+    "partiesPerMap": [
+      2,
+      2
+    ],
+    "maps": [
+      "mond-road",
+      "anemo-field-basin"
+    ],
+    "onlySameMapActorsVisible": true,
+    "rewardsPerPlayer": [
+      1,
+      1,
+      1,
+      1
+    ]
+  }
+}

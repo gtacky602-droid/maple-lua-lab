@@ -1,0 +1,25 @@
+{
+  "browser": "Chrome",
+  "crossMapJoin": [
+    "mond-town",
+    "anemo-field-basin"
+  ],
+  "splitMaps": [
+    "mond-road",
+    "anemo-field-basin"
+  ],
+  "ticksWhileSplit": [
+    17,
+    14
+  ],
+  "woundedBossHpBeforeRegroup": 862,
+  "bossHpOnRegroup": [
+    763,
+    763
+  ],
+  "sameSlotAfterReload": true,
+  "remainingInRoomOnPortals": true,
+  "guestShownOnRegroup": true,
+  "mobileWidth": 390,
+  "errors": []
+}

@@ -8046,11 +8046,13 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Preserve room membership across supported maps, then extend fixed-HP cooperative boss combat and individualized rewards beyond Anemo Hypostasis.",
+  "current_priority": "Extend fixed-HP cooperative boss combat and individualized rewards beyond Anemo Hypostasis.",
   "multiplayer_preview": {
-    "status": "same_map_hunting_and_anemo_hypostasis_verified",
+    "status": "split_map_room_membership_and_local_combat_verified",
     "maps": [
+      "mond-town",
       "mond-road",
+      "anemo-approach",
       "anemo-field-basin"
     ],
     "boss": "boss-20040201",
@@ -8063,11 +8065,15 @@
       "evidence/coop-four-light-browser.png",
       "evidence/coop-anemo-lua-http.json",
       "evidence/coop-anemo-browser.json",
-      "evidence/coop-anemo-browser.png"
+      "evidence/coop-anemo-browser.png",
+      "evidence/coop-travel-http.json",
+      "evidence/coop-travel-browser.json",
+      "evidence/coop-travel-split.png",
+      "evidence/coop-travel-regroup.png"
     ],
     "pending": [
       "remaining normal, weekly and Stygian bosses",
-      "multi-map room travel",
+      "shared combat outside the supported maps",
       "remote and Miliastra tests"
     ]
   },

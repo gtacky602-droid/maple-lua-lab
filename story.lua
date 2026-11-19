@@ -944,6 +944,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   return present
  end
  function C.enterStoryNode(s,id) setup(s);enter(s,id) end
+ function C.storyNodeName(s)
+  local node=s.story and s.story.active and nodes[s.story.node]
+  return node and node.name
+ end
  function C.clearWeeklySceneCasts(s)
   s.pending={};s.effects={};s.numbers={};s.decoys={}
   s.rockWall=nil;s.healingField=nil;s.echoSource=nil;s.ultimate=nil;s.starSeed=nil;s.macro=nil

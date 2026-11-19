@@ -67,7 +67,7 @@ function C.defeatEnemy(s,e,owner)
  if e.noRewards then e.respawn=1e9;event(s,'object_destroyed',owner,e.id,0)
  else
   e.respawn=e.respawnSeconds or 6
-  if s.coop then C.coopDefeat(s,e) else C.creditDefeat(s,e,owner) end
+  if s.coop and C.sharesCoopField(s) then C.coopDefeat(s,e) else C.creditDefeat(s,e,owner) end
  end
  return true
 end

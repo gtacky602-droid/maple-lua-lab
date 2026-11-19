@@ -221,9 +221,9 @@ class Handler(SimpleHTTPRequestHandler):
                         ok,message=core.configure(state,lua.table_from(req['loadout'],recursive=True))
                         configuration={'ok':ok,'message':message}
                     for action in actions:
-                        if action != 'pause' or not env.get('coop_room'):
+                        if action != 'pause' or not core.sharesCoopField(state):
                             core.action(state, action)
-                            coop.leave_field(env)
+                            coop.update_location(env)
                     if room := env.get('coop_room'):
                         env['coop_member'].input = inp
                         coop.advance(room, now)

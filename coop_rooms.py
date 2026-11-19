@@ -1,4 +1,4 @@
-"""Room membership and server clock for the local Lua cooperative preview."""
+"""Room membership and per-map simulation for the local Lua cooperative preview."""
 
 from dataclasses import dataclass, field
 import json
@@ -17,10 +17,11 @@ class Room:
     code: str
     lua: object
     core: object
-    world: object
     last: float
+    worlds: dict = field(default_factory=dict)
     members: list = field(default_factory=list)
     lag: float = 0
+    next_slot: int = 0
 
 
 def location(env):
@@ -34,11 +35,13 @@ class CoopRooms:
 
     def attach(self, room, env):
         env['coop_room'] = room
-        env['coop_member'] = room.core.attachCoop(room.world, env['state'])
+        room.next_slot += 1
+        env['coop_member'] = room.lua.table(id=room.next_slot, state=env['state'], online=True)
         if not env.get('coop_rng_seeded'):
             env['state'].inventory.rng = secrets.randbelow(2147483646) + 1
             env['coop_rng_seeded'] = True
         room.members.append(env)
+        self.update_location(env)
         env['coop_notice'] = '協力部屋に入りました。'
 
     def detach(self, env, notice=None):
@@ -52,10 +55,23 @@ class CoopRooms:
             self.rooms.pop(room.code)
         env['coop_notice'] = notice or '協力部屋から出ました。'
 
-    def leave_field(self, env):
+    def update_location(self, env):
         room = env.get('coop_room')
-        if room and not room.core.sharesCoopField(env['state']):
-            self.detach(env, 'マップを移動して協力部屋から出ました。')
+        if room is None:
+            return
+        site = location(env)
+        if site is None:
+            self.detach(env, '通常の冒険を離れて協力部屋から出ました。')
+            return
+        state = env['state']
+        if room.core.sharesCoopField(state):
+            return
+        member = env['coop_member']
+        room.core.detachCoop(member)
+        if site in RULES['nodes']:
+            if site not in room.worlds:
+                room.worlds[site] = room.core.newCoop(state)
+            room.core.attachCoop(room.worlds[site], state, member)
 
     def command(self, env, action, now):
         if action == 'coop_leave':
@@ -77,8 +93,8 @@ class CoopRooms:
         if joining:
             code = action.removeprefix('coop_join:').upper()
             room = self.rooms.get(code)
-            if not room or room.world.node != site:
-                return unavailable('同じマップにある部屋の合言葉を確認してください。')
+            if not room:
+                return unavailable('協力部屋の合言葉を確認してください。')
             if len(room.members) >= RULES['capacity']:
                 return unavailable('この部屋は満員です。')
             if any(row['dailyProfile'] == env['dailyProfile'] for row in room.members):
@@ -99,7 +115,7 @@ class CoopRooms:
             while code in self.rooms:
                 code = secrets.token_hex(4).upper()
             lua, core, state = env['lua'], env['core'], env['state']
-            room = Room(code, lua, core, core.newCoop(state), now)
+            room = Room(code, lua, core, now)
             self.rooms[code] = room
         self.attach(room, env)
         return True
@@ -125,9 +141,16 @@ class CoopRooms:
         steps = min(MAX_TICKS, int((room.lag + 1e-8) / TICK))
         room.lag = max(0, room.lag - steps * TICK)
         for _ in range(steps):
-            room.core.stepCoop(room.world, TICK)
-        for env in room.members[:]:
-            self.leave_field(env)
+            # Snapshot private sessions before stepping. A transition is reconciled
+            # only after all maps tick so a party cannot step twice in one tick.
+            private = [row['coop_member'] for row in room.members
+                       if row['coop_member'].online and row['state'].coop is None]
+            for world in room.worlds.values():
+                room.core.stepCoop(world, TICK)
+            for member in private:
+                room.core.step(member.state, TICK, member.input)
+            for env in room.members[:]:
+                self.update_location(env)
 
     def view(self, env):
         site = location(env)
@@ -136,9 +159,17 @@ class CoopRooms:
                     sites=list(RULES['nodes'].values()), capacity=RULES['capacity'],
                     notice=env.get('coop_notice'))
         if room:
-            party = native(room.core.coopFrame(env['state']))
-            party['peers'] = party['peers'] or []
-            for peer in party['peers']:
+            state = env['state']
+            world = state.coop
+            peers = []
+            for row in room.members:
+                if row is env:
+                    continue
+                peer = native(room.core.coopPeer(row['coop_member'], world))
                 peer['actors'] = peer['actors'] or []
-            view.update(party, code=room.code)
+                peers.append(peer)
+            if world is not None:
+                view.update(native(room.core.coopFrame(state)))
+            view.update(code=room.code, slot=env['coop_member'].id, map=site,
+                        shared=world is not None, peers=peers, enemies=view.get('enemies') or [])
         return view

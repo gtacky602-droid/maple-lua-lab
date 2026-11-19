@@ -12,9 +12,11 @@ return function(C, config)
   C.adoptCoopField(room,s)
   return room
  end
- function C.attachCoop(room,s)
-  room.nextId=room.nextId+1
-  local member={id=room.nextId,state=s,online=true}
+ function C.attachCoop(room,s,member)
+  if not member then
+   room.nextId=room.nextId+1
+   member={id=room.nextId,state=s,online=true}
+  end
   room.members[#room.members+1]=member
   s.coop,s.coopMember,s.enemies=room,member,room.enemies
   s.paused,s.auto=false,false
@@ -26,6 +28,7 @@ return function(C, config)
  function C.detachCoop(member)
   local s=member.state
   local room=s.coop
+  if not room then return end
   for i,row in ipairs(room.members) do if row==member then table.remove(room.members,i);break end end
   local stillShared=s.enemies==room.enemies
   s.coop,s.coopMember=nil,nil
@@ -108,21 +111,21 @@ return function(C, config)
 
  function C.coopFrame(s)
   local room=s.coop
-  local party={tick=room.tick,slot=s.coopMember.id,peers={},enemies={}}
+  local party={tick=room.tick,enemies={}}
   for _,e in ipairs(room.enemies) do
    party.enemies[#party.enemies+1]={id=e.id,hp=e.hp,maxhp=e.maxhp}
   end
-  for _,member in ipairs(room.members) do
-   if member~=s.coopMember then
-    local view={slot=member.id,online=not not onField(member),actors={}}
-    party.peers[#party.peers+1]=view
-    if view.online then
-     for _,a in ipairs(member.state.actors) do
-      view.actors[#view.actors+1]={x=a.x,y=a.y,dir=a.dir,hp=a.hp}
-     end
-    end
+  return party
+ end
+
+ function C.coopPeer(member,world)
+  local s=member.state
+  local view={slot=member.id,online=member.online,map=s.story.node,mapName=C.storyNodeName(s),actors={}}
+  if world and s.coop==world and onField(member) then
+   for _,a in ipairs(s.actors) do
+    view.actors[#view.actors+1]={x=a.x,y=a.y,dir=a.dir,hp=a.hp}
    end
   end
-  return party
+  return view
  end
 end
