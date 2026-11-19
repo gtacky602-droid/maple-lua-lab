@@ -1,0 +1,11 @@
+{
+  "atlatlAccessibleAtLv114WithoutLv119Hunt": true,
+  "higherHuntSideAlsoConnectedBothWays": true,
+  "wallMovesActorsAndPauses": true,
+  "wallSurveyCompletedAndReported": true,
+  "soloTrialRejectsDownedTraveler": true,
+  "soloRestoresCompanionAndSelectedActorOnExitAndDefeat": true,
+  "cihuacoatlGateRequiresTopShelf": true,
+  "cihuacoatlReturnPlacesPartyOnShelf": true,
+  "bothClearsAndRewardsPersist": true
+}

@@ -204,6 +204,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  function C.atlasGateRestriction(s,from,edge)
   local destination=nodes[edge.to]
   if s.progression.level<destination.level then return '必要Lv'..destination.level end
+  if destination.travelerTrial and s.actors[1].hp<=0 then return '旅人が戦闘可能な状態で挑戦してください。' end
   if destination.toyDive and s.actors[1].hp<=0 then return '旅人が泳げる状態で潜りましょう。' end
   if edge.windowStart and from==s.story.node and s.voyage and s.t-s.voyage.started>=edge.windowEnd then
    return '乗降時間を過ぎました。'
@@ -277,6 +278,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif s.paused then reason='一時停止中'
     elseif a.hp<=0 then reason='戦闘不能中'
     elseif not s.progression or s.progression.level<n.level then reason='必要レベル '..n.level
+    elseif n.travelerTrial and s.actors[1].hp<=0 then reason='旅人が戦闘可能な状態で挑戦してください。'
     else reason=gateRestriction(s,edge) end
     best={to=edge.to,name=edge.rideLabel or n.name,level=n.level,available=not reason,reason=reason,
           liftSeconds=edge.liftSeconds,waterwaySeconds=edge.waterwaySeconds,boatSeconds=edge.boatSeconds,phaseSeconds=edge.phaseSeconds,
@@ -771,7 +773,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
   end
  end
+ local function finishTravelerTrial(s)
+  local trial=s.travelerTrial
+  if not trial then return end
+  local ally=s.actors[2]
+  ally.hp=math.min(trial.allyHp,ally.maxhp)
+  s.active=ally.hp>0 and trial.previousActive or 1
+  s.travelerTrial=nil
+ end
  local function enter(s,id,spawn,elapsed,arrivalY)
+  finishTravelerTrial(s)
   local previous=s.story.node
   local sameArena=previous==id
   local n=nodes[id]
@@ -886,6 +897,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   s.camera=math.max(0,math.min(s.actors[s.active].x-400,math.max(0,n.width-960)))
   local diveQuest=n.toyDive and quests[n.toyDive.quest]
   freminetDive.enter(s,n.toyDive,diveQuest and s.story.quests[diveQuest.id],diveQuest and diveQuest.goal)
+  if n.travelerTrial then
+   s.travelerTrial={previousActive=s.active,allyHp=s.actors[2].hp}
+   s.active=1;s.actors[2].hp=0
+  end
   if contestQuest and id==contestQuest.target then contest.populate(s,contestQuest,s.story.quests[contestQuest.id]) end
   if C.enterFieldBossNode then C.enterFieldBossNode(s,id) end
   if C.enterWeeklyBossNode then C.enterWeeklyBossNode(s,id) end
@@ -1310,6 +1325,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if not shownNode(s,n) then s.storyNotice='この入口はまだ発見していません。';return end
    if n.toyDive and s.actors[1].hp<=0 then s.storyNotice='旅人が泳げる状態で潜りましょう。';return end
    if not s.progression or s.progression.level<n.level then s.storyNotice='必要レベル '..n.level..' に達していません。';return end
+   if n.travelerTrial and s.actors[1].hp<=0 then s.storyNotice='旅人が戦闘可能な状態で挑戦してください。';return end
    if fast then
     if s.voyage and s.voyage.kind=='ferry' then
      s.storyNotice='船が着岸してからワープできます。'
@@ -1353,6 +1369,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if seconds then
     s.lift={destination=dest,name=departure.rideLabel or n.name,seconds=seconds,remaining=seconds,
             waterway=departure.waterwaySeconds~=nil,boat=departure.boatSeconds~=nil,phase=departure.phaseSeconds~=nil,
+            wallTrack=departure.wallTrack,
             x=departure.arrivalX or (arrival and arrival.x or spawn),y=departure.arrivalY or (arrival and arrival.y or 480)}
      if not s.lift.waterway and not s.lift.boat and not s.lift.phase and (dest==previous or departure.animatedLift)
          and departure.arrivalY then s.lift.riders={} end
@@ -1421,6 +1438,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    return
   end
   if key=='campaign' or key=='town' or key=='field' or key=='arena' or key=='boss_anemo' then
+   finishTravelerTrial(s)
    iansanTraining.enter(s)
    s.story.active=false;s.voyage=nil;s.railTrip=nil;s.wandererAssistAt=nil;s.visitorDeparture=nil
    s.colleiWelcomeAt,s.colleiLetterNotice=nil,nil
@@ -1563,11 +1581,15 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if ride.riders then
      local p=1-ride.remaining/ride.seconds
      p=p*p*(3-2*p)
+     local track=ride.wallTrack or ride
      for i,start in ipairs(ride.riders) do
       local actor=s.actors[i]
-      actor.x=start.x+(ride.x-(i-1)*40-start.x)*p
-      actor.y=start.y+(ride.y-start.y)*p
+      actor.x=start.x+(track.x-(i-1)*40-start.x)*p
+      actor.y=start.y+(track.y-start.y)*p
       actor.ground=false
+     end
+     if ride.wallTrack then
+      s.camera=math.max(0,math.min(s.actors[s.active].x-400,s.worldwidth-960))
      end
     end
     if ride.remaining<=1e-8 then
@@ -1844,9 +1866,10 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if s.lift then
     local ride=s.lift
     f.storyLift={destination=ride.name,remaining=ride.remaining,seconds=ride.seconds,phase=ride.phase,
-                 waterway=ride.waterway or nil,boat=ride.boat or nil}
+                 waterway=ride.waterway or nil,boat=ride.boat or nil,wall=ride.wallTrack and true or nil}
    else f.storyNearbyPortal=nearbyPortal(s) end
    local markers={};f.storyPortals={}
+   if s.travelerTrial then f.storyTravelerTrial=true end
    if n.swim then
     f.storySwim=true
     for i,a in ipairs(s.actors) do
@@ -1912,6 +1935,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      end
      markers[#markers+1]={kind='rect',x=x-29,y=y-54,w=58,h=6,color='#66556a'}
      markers[#markers+1]={kind='rect',x=x-6,y=y-50,w=12,h=10,color='#e1b968'}
+    elseif edge.wallTrack then
+     local endX,endY=edge.wallTrack.x-s.camera,edge.wallTrack.y
+     for i=0,7 do
+      local step=i/7
+      markers[#markers+1]={kind='rect',x=x+(endX-x)*step-4,y=y+(endY-y)*step-31,w=8,h=8,color='#edc47b'}
+     end
     elseif edge.rockSeal and not meetsGateRule(s,rule) then
      if x>=-100 and x<=1060 then drawRockSeal(markers,x,y,edge.rockSeal) end
     elseif edge.nightTotem then
@@ -2113,7 +2142,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
      end
     end
    end
-   if s.lift and s.lift.riders then
+   if s.lift and s.lift.riders and not s.lift.wallTrack then
     local rider=s.actors[1]
     local x,y=rider.x-s.camera,rider.y
     markers[#markers+1]={kind='rect',x=x-63,y=y,w=101,h=10,color='#5e5b48'}
@@ -2335,6 +2364,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    iansanTraining.checkpoint(s,d)
    if s.toyDive then d.active=s.toyDive.previousActive end
+   if s.travelerTrial then d.active=s.travelerTrial.previousActive end
   end
   return d
  end

@@ -724,7 +724,9 @@
     {"id":"legend-undead","name":"アンデッド","file":"legend-undead-field-idle-sprites-v1.json","height":110,"mapHover":0},
     {"id":"legend-chimalli","name":"シェマリの陰","file":"legend-chimalli-field-idle-sprites-v1.json","height":110,"mapHover":0},
     {"id":"legend-tlatzacuilotl","name":"トゥラカルワスクアウィトゥル","file":"legend-tlatzacuilotl-field-idle-sprites-v1.json","height":110,"mapHover":0},
-    {"id":"legend-ichcahuipilli","name":"イチカウイピリの庇護","file":"legend-ichcahuipilli-field-idle-sprites-v1.json","height":110,"mapHover":0}
+    {"id":"legend-ichcahuipilli","name":"イチカウイピリの庇護","file":"legend-ichcahuipilli-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-atlatl","name":"アトラトの祝福","file":"legend-atlatl-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-cihuacoatl","name":"神骨の蛇姫","file":"legend-cihuacoatl-field-idle-sprites-v1.json","height":110,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }

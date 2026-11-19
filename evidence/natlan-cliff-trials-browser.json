@@ -1,0 +1,62 @@
+{
+  "routes": [
+    [
+      "nat-wp-72414",
+      "tepeacac-waterfall-wall",
+      "raised"
+    ],
+    [
+      "tepeacac-waterfall-wall",
+      "ancient-excavation-upper-ledge",
+      "lift"
+    ],
+    [
+      "ancient-excavation-upper-ledge",
+      "night-trial-atlatl",
+      "phase"
+    ],
+    [
+      "night-trial-atlatl",
+      "ancient-excavation-upper-ledge",
+      "phase"
+    ],
+    [
+      "ancient-excavation-upper-ledge",
+      "tepeacac-waterfall-wall",
+      "lift"
+    ],
+    [
+      "nat-wp-72759",
+      "canopy-square-plateau",
+      "walk"
+    ],
+    [
+      "canopy-square-plateau",
+      "night-trial-cihuacoatl",
+      "phase"
+    ],
+    [
+      "night-trial-cihuacoatl",
+      "canopy-square-plateau",
+      "phase"
+    ]
+  ],
+  "comparisons": [
+    {
+      "name": "atlatl",
+      "pngCommands": 9,
+      "rectangleCommands": 4851,
+      "lightCommands": 1248
+    },
+    {
+      "name": "cihuacoatl",
+      "pngCommands": 11,
+      "rectangleCommands": 6831,
+      "lightCommands": 1715
+    }
+  ],
+  "wallNotice": true,
+  "soloAndRestoredHud": true,
+  "topShelfReturn": true,
+  "errors": []
+}

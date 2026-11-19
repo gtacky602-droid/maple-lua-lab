@@ -1,0 +1,126 @@
+{
+  "source": "natlan-cliff-trial-poses-source-v1.png",
+  "facing": "left",
+  "frames": [
+    {
+      "id": "legend-atlatl",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        79,
+        10,
+        209,
+        115
+      ]
+    },
+    {
+      "id": "legend-atlatl",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        98,
+        10,
+        191,
+        115
+      ]
+    },
+    {
+      "id": "legend-atlatl",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        85,
+        10,
+        204,
+        115
+      ]
+    },
+    {
+      "id": "legend-cihuacoatl",
+      "pose": "idle",
+      "crop": [
+        0,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        97,
+        20,
+        181,
+        132
+      ]
+    },
+    {
+      "id": "legend-cihuacoatl",
+      "pose": "brace",
+      "crop": [
+        288,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        93,
+        24,
+        178,
+        132
+      ]
+    },
+    {
+      "id": "legend-cihuacoatl",
+      "pose": "strike",
+      "crop": [
+        576,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        87,
+        20,
+        186,
+        132
+      ]
+    }
+  ]
+}

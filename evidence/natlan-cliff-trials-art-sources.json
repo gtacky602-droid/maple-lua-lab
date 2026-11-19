@@ -1,0 +1,47 @@
+{
+  "legend-atlatl": {
+    "sources": [
+      {
+        "files": [
+          "atlatl-name.png",
+          "atlatl-base.png"
+        ],
+        "seen": "名前付き戦闘像と通常種の正面。上に開く金の飾り、濃い茶の面、横の突起と斜め下への二本の尖り。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Wayob_Drillhead.png",
+        "seen": "通常種2Dアイコン。黄色い稜線と褐色の面の間に暗い芯。"
+      }
+    ],
+    "design": "五枚の金の扇板と暗褐色の面、二本の独自形状の尖り。",
+    "unchecked": [
+      "360度モデルの回転",
+      "ゲーム内での表示と切り替え"
+    ]
+  },
+  "legend-cihuacoatl": {
+    "sources": [
+      {
+        "files": [
+          "cihua-name.webp",
+          "cihua-angle.png",
+          "cihua-face.jpg"
+        ],
+        "seen": "名前付きの戦闘・空中の別角度と通常種の顔。青い霊体、顔にかかる飾りと横髪、丸い耳飾り。緑の光は別のギミック。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Tribalwarrior_Launcher_Hookwalker.png",
+        "seen": "鳴空の大砲の通常種2Dアイコン。大きく曲がった額飾りと左右の円形装飾。"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=ZPpfYz__qMc&t=573s",
+        "seen": "通常種の紹介パートの9分40秒・9分50秒のゲーム映像サムネイルを目視。全身の細身の立ち姿と手元の筒形装備。低解像度のため武器細部は未確認。"
+      }
+    ],
+    "design": "横髪と耳飾り、穴が見える筒形の大砲。大砲の帯と胴衣の模様はラボ用。",
+    "unchecked": [
+      "360度モデルの回転",
+      "ゲーム内での表示と切り替え"
+    ]
+  }
+}
