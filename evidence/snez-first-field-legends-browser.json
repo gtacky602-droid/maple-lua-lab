@@ -1,0 +1,110 @@
+{
+  "routes": [
+    [
+      "sne-wp-100697",
+      "sne-churin-snow-square",
+      "raised"
+    ],
+    [
+      "sne-churin-snow-square",
+      "sne-churin-apprentice-bout",
+      "walk"
+    ],
+    [
+      "sne-churin-apprentice-bout",
+      "sne-churin-bragin-bout",
+      "walk"
+    ],
+    [
+      "sne-churin-bragin-bout",
+      "sne-churin-snow-court",
+      "walk"
+    ],
+    [
+      "sne-churin-snow-court",
+      "sne-churin-bragin-bout",
+      "walk"
+    ],
+    [
+      "sne-churin-bragin-bout",
+      "sne-churin-apprentice-bout",
+      "walk"
+    ],
+    [
+      "sne-churin-apprentice-bout",
+      "sne-churin-snow-square",
+      "walk"
+    ],
+    [
+      "sne-churin-snow-square",
+      "sne-wp-100697",
+      "walk"
+    ],
+    [
+      "sne-wp-100658",
+      "sne-svetloredovka-ice-passage",
+      "raised"
+    ],
+    [
+      "sne-svetloredovka-ice-passage",
+      "sne-bandersnatch-ice-cavern",
+      "raised"
+    ],
+    [
+      "sne-bandersnatch-ice-cavern",
+      "sne-svetloredovka-ice-passage",
+      "walk"
+    ],
+    [
+      "sne-svetloredovka-ice-passage",
+      "sne-wp-100658",
+      "walk"
+    ],
+    [
+      "sne-wp-100695",
+      "sne-obsession-scar-upper-trail",
+      "raised"
+    ],
+    [
+      "sne-obsession-scar-upper-trail",
+      "sne-furiosa-domain-outlook",
+      "walk"
+    ],
+    [
+      "sne-furiosa-domain-outlook",
+      "sne-obsession-scar-upper-trail",
+      "walk"
+    ],
+    [
+      "sne-obsession-scar-upper-trail",
+      "sne-wp-100695",
+      "walk"
+    ]
+  ],
+  "comparisons": [
+    {
+      "name": "churin",
+      "pngCommands": 14,
+      "rectangleCommands": 4930,
+      "lightCommands": 1327
+    },
+    {
+      "name": "bandersnatch",
+      "pngCommands": 14,
+      "rectangleCommands": 6960,
+      "lightCommands": 2001
+    },
+    {
+      "name": "furiosa",
+      "pngCommands": 14,
+      "rectangleCommands": 6656,
+      "lightCommands": 1797
+    }
+  ],
+  "bothSparringRounds": true,
+  "clearedRoundsRemainEmpty": true,
+  "passageOpened": true,
+  "furiosaAt158Without159Domain": true,
+  "questsReported": true,
+  "errors": []
+}

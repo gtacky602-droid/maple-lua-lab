@@ -1,0 +1,127 @@
+{
+  "legend-churin": {
+    "named_and_comparative_images": [
+      {
+        "page": "https://game8.jp/genshin/803754",
+        "image": "https://img.game8.jp/12872659/ce630fb4fb204fb491dac2363d884648.webp/show",
+        "alt": "チュリン"
+      },
+      {
+        "page": "https://gamewith.net/genshin-impact/article/show/78209",
+        "image": "https://img.gamewith.net/img/31aa73b90711d3abd1aab65c31071b24.png",
+        "alt": "Churin location details"
+      },
+      {
+        "page": "https://game8.jp/genshin/652944",
+        "image": "https://img.game8.jp/12992106/8ae4037a6e0a5b4eeaa84e173e03a06d.webp/original",
+        "alt": "霜の精のギミック"
+      }
+    ],
+    "additional_images": [
+      {
+        "label": "C5",
+        "page": "https://game8.jp/genshin/803773",
+        "image": "https://img.game8.jp/12848663/e11aadec501c183c74b92005ebe112ab.webp/show"
+      },
+      {
+        "label": "C4",
+        "page": "https://game8.jp/genshin/803773",
+        "image": "https://img.game8.jp/12848661/408a9195a1be1ddc9b873745f56c2174.webp/show"
+      },
+      {
+        "page": "https://www.youtube.com/watch?v=2uJw3z-cYlc",
+        "image": "https://i.ytimg.com/vi/2uJw3z-cYlc/maxresdefault.jpg",
+        "label": "公式映像のサムネイルで眼鏡と髭を確認"
+      }
+    ],
+    "shared_and_distinct": "名付きの斜め顔と戦闘中の横向き全身を照合。白灰の短髪と髭、緑の丸眼鏡、尖耳、淡い上着、暗いズボン。通常のフェイ素材を落とすという情報だけでは通常敵の外見は特定できない。霜の精の画像は別の姿なので流用しなかった。",
+    "unverified": "同じ衣装の通常個体と背面・足元の細部",
+    "base_sprite_reuse": "全身の同一性を確定できず。",
+    "ordinary_search": "フェイ・小さき者、Domovoy / Churin と通常NPCを探索。チュリンそのものに対応する通常個体の全身画像は特定できず。"
+  },
+  "legend-bandersnatch": {
+    "named_and_comparative_images": [
+      {
+        "page": "https://game8.jp/genshin/803754",
+        "image": "https://img.game8.jp/12872664/bf193fa34f247850145a47484f0e7292.webp/show",
+        "alt": "バンダースナッチ"
+      },
+      {
+        "page": "https://gamewith.jp/genshin/article/show/572337",
+        "image": "https://img.gamewith.jp/article_tools/genshin/gacha/enemy_367.png",
+        "alt": "原神の合成獣・バロウビースト"
+      },
+      {
+        "page": "https://gamewith.net/genshin-impact/article/show/78209",
+        "image": "https://img.gamewith.net/jp/img/923aca2580eba05fef506a9591854f4b.png",
+        "alt": "Bandersnatch location details"
+      }
+    ],
+    "additional_images": [
+      {
+        "label": "normalB",
+        "page": "https://www.topuplive.com/news/genshin-7-0-enemy.html",
+        "image": "https://cdn.topuplive.com/uploads/images/goods/20260709/1783583772_f0s6qM8mri.png"
+      },
+      {
+        "label": "B2",
+        "page": "https://game8.jp/genshin/803787",
+        "image": "https://img.game8.jp/12848843/1555efbdb50c925ae9bb7b1825db4006.webp/original"
+      },
+      {
+        "label": "Bmov10",
+        "page": "https://game8.jp/genshin/803787",
+        "image": "https://img.game8.jp/12848925/49cc8afa20c84f8b04a5e28d7a5eb94c.jpg/poster"
+      }
+    ],
+    "shared_and_distinct": "耳状の突起、外殻、両前脚の紫の結晶爪、低い胴を通常種から参照。名付き紹介絵は赤い虹彩、紺のくちばしと額。通常個体の全身画・図鑑は黄の虹彩と黄のくちばし。戦闘画面は距離や発光の影響が大きく、眼色が全照明で同じか判定不能。名付き紹介絵の配色を採用。",
+    "unverified": "名付きの背面と眼色の照明依存性",
+    "base_sprite_reuse": "全身の同一性を確定できず。",
+    "ordinary_search": "Chimeric Burrowbeast の全身と図鑑を確認。"
+  },
+  "legend-furiosa": {
+    "named_and_comparative_images": [
+      {
+        "page": "https://game8.jp/genshin/803754",
+        "image": "https://img.game8.jp/12872673/b5caebd044b76151194822fcb0c16195.webp/show",
+        "alt": "フュリオサ"
+      },
+      {
+        "page": "https://wikiwiki.jp/genshinwiki/敵一覧/精鋭エネミー/無法の異怪の獣",
+        "image": "https://cdn.wikiwiki.jp/to/w/genshinwiki/%E7%94%BB%E5%83%8F/::ref/%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3_%E8%92%BC%E7%8B%BC%E3%81%AE%E8%BF%BD%E8%B7%A1%E8%80%85.webp?rev=c03443ca2c83feedee53c0d1e5229e5a&t=20260816001314",
+        "alt": "アイコン_蒼狼の追跡者.webp"
+      },
+      {
+        "page": "https://game8.jp/genshin/652944",
+        "image": "https://img.game8.jp/12864929/6beb8a8bac2dc3e8243888c9089522c1.webp/show",
+        "alt": "蒼狼の追跡者画像"
+      },
+      {
+        "page": "https://gamewith.net/genshin-impact/article/show/78209",
+        "image": "https://img.gamewith.net/jp/img/f88e570cf5566fe46ba123a871cbfa52.png",
+        "alt": "Furiosa location details"
+      }
+    ],
+    "additional_images": [
+      {
+        "label": "normalF",
+        "page": "https://www.topuplive.com/news/genshin-7-0-enemy.html",
+        "image": "https://cdn.topuplive.com/uploads/images/goods/20260709/1783583634_xPVbzlnEKE.png"
+      },
+      {
+        "label": "Fmov13",
+        "page": "https://game8.jp/genshin/803798",
+        "image": "https://img.game8.jp/12849067/20ec37ae6d89b040162c88031914adc4.jpg/poster"
+      },
+      {
+        "label": "Fmov14",
+        "page": "https://game8.jp/genshin/803798",
+        "image": "https://img.game8.jp/12849190/4f351570e2494e3d66cfc68f749b97e5.jpg/poster"
+      }
+    ],
+    "shared_and_distinct": "通常型の全身には青い髪、長い尾、獣の足、青い先端の弓が見える。名付き肖像でも弓と青髪の後部が共通。赤い前髪、褐色の顔、明るい胸を名付きに合わせ、脚と尾は通常型を参照した。",
+    "unverified": "名付きの尾と足先の細部・背面",
+    "base_sprite_reuse": "全身の同一性を確定できず。",
+    "ordinary_search": "Howling Wolf Stalker の全身と図鑑を確認。"
+  }
+}

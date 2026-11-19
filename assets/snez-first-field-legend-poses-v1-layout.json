@@ -1,0 +1,186 @@
+{
+  "source": "snez-first-field-legend-poses-source-v1.png",
+  "facing": "left",
+  "frames": [
+    {
+      "id": "legend-churin",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        130,
+        38,
+        163,
+        132
+      ]
+    },
+    {
+      "id": "legend-churin",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        122,
+        45,
+        167,
+        132
+      ]
+    },
+    {
+      "id": "legend-churin",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        91,
+        42,
+        174,
+        132
+      ]
+    },
+    {
+      "id": "legend-bandersnatch",
+      "pose": "idle",
+      "crop": [
+        0,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        98,
+        33,
+        207,
+        132
+      ]
+    },
+    {
+      "id": "legend-bandersnatch",
+      "pose": "brace",
+      "crop": [
+        288,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        93,
+        49,
+        220,
+        132
+      ]
+    },
+    {
+      "id": "legend-bandersnatch",
+      "pose": "strike",
+      "crop": [
+        576,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        50,
+        47,
+        211,
+        132
+      ]
+    },
+    {
+      "id": "legend-furiosa",
+      "pose": "idle",
+      "crop": [
+        0,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        90,
+        8,
+        193,
+        132
+      ]
+    },
+    {
+      "id": "legend-furiosa",
+      "pose": "brace",
+      "crop": [
+        288,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        102,
+        9,
+        192,
+        132
+      ]
+    },
+    {
+      "id": "legend-furiosa",
+      "pose": "strike",
+      "crop": [
+        576,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        100,
+        9,
+        193,
+        132
+      ]
+    }
+  ]
+}
