@@ -1,0 +1,100 @@
+{
+  "routes": [
+    [
+      "sne-wp-106194",
+      "sne-merciful-fissure",
+      "raised"
+    ],
+    [
+      "sne-merciful-fissure",
+      "sne-ancient-mouse-den",
+      "raised"
+    ],
+    [
+      "sne-ancient-mouse-den",
+      "sne-merciful-fissure",
+      "walk"
+    ],
+    [
+      "sne-merciful-fissure",
+      "sne-wp-106194",
+      "walk"
+    ],
+    [
+      "sne-wp-106186",
+      "sne-crystal-mining-junction",
+      "raised"
+    ],
+    [
+      "sne-crystal-mining-junction",
+      "sne-crystal-prism-gallery",
+      "raised"
+    ],
+    [
+      "sne-crystal-prism-gallery",
+      "sne-crystal-tree-refuge",
+      "raised"
+    ],
+    [
+      "sne-crystal-tree-refuge",
+      "sne-crystal-prism-gallery",
+      "walk"
+    ],
+    [
+      "sne-crystal-prism-gallery",
+      "sne-crystal-mining-junction",
+      "walk"
+    ],
+    [
+      "sne-crystal-mining-junction",
+      "sne-novokichev-lantern-alley",
+      "walk"
+    ],
+    [
+      "sne-novokichev-lantern-alley",
+      "sne-novokichev-ore-yard",
+      "raised"
+    ],
+    [
+      "sne-novokichev-ore-yard",
+      "sne-novokichev-lantern-alley",
+      "walk"
+    ],
+    [
+      "sne-novokichev-lantern-alley",
+      "sne-crystal-mining-junction",
+      "walk"
+    ],
+    [
+      "sne-crystal-mining-junction",
+      "sne-wp-106186",
+      "walk"
+    ]
+  ],
+  "comparisons": [
+    {
+      "name": "mouse",
+      "bodies": 1,
+      "pngCommands": 15,
+      "rectangleCommands": 6392,
+      "lightCommands": 1700
+    },
+    {
+      "name": "tree",
+      "bodies": 1,
+      "pngCommands": 19,
+      "rectangleCommands": 7338,
+      "lightCommands": 1857
+    },
+    {
+      "name": "beasts",
+      "bodies": 3,
+      "pngCommands": 33,
+      "rectangleCommands": 12730,
+      "lightCommands": 3419
+    }
+  ],
+  "undergroundMapLayer": true,
+  "questsReported": true,
+  "errors": []
+}

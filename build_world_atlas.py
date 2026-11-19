@@ -36,10 +36,14 @@ def region_rows():
     return {row['id']: row for row in rows}
 
 
-def embed_anchors(fields, stages):
+def embed_anchors(fields, stages, markers):
     """Fit real map coordinates if present. Leave positions of virtual fields explicit."""
     known = {row['field_id']: row['map_anchor'] for row in fields
              if row['map_anchor']['x'] is not None and row['map_anchor']['y'] is not None}
+    for node in stages.values():
+        if marker := node.get('atlasMarker'):
+            x, y = markers[marker]
+            known[node['id']] = {'x': x, 'y': y}
     anchors = {}
     if known:
         xs = [row['x'] for row in known.values()]
@@ -58,10 +62,10 @@ def embed_anchors(fields, stages):
     return anchors, adj
 
 
-def positions(fields, stages):
-    anchors, adj = embed_anchors(fields, stages)
+def positions(fields, stages, markers):
+    anchors, adj = embed_anchors(fields, stages, markers)
     placed = {node['id']: anchors[field] for node in stages.values()
-              if (field := node.get('mapPoint') or node.get('designField')) in anchors}
+              if (field := node.get('mapPoint') or node.get('designField') or node['id']) in anchors}
     placed.update({node['id']: node['atlasPosition'] for node in stages.values() if 'atlasPosition' in node})
     if not placed and stages:
         origin = next((node['id'] for node in stages.values() if node['hub']), next(iter(stages)))
@@ -208,11 +212,17 @@ def build():
         assert set(e['to'] for e in hunt['exits']) == {host['id'], *row['pockets']}
         assert any(e['to'] == hunt['id'] for e in host['exits'])
         assert all(nodes[id]['huntKind'] == 'elite' for id in row['pockets'])
+    markers = {
+        point['point_uid']: (point['x_pos'], point['y_pos'])
+        for encounter in load('design/world/encounters.json')['legends']
+        for point in encounter.get('official_point_matches', [])
+        if point['location_role'] == 'encounter'
+    }
     entries, proposals = [], []
     for id, row in regions.items():
         theme, *overview = STYLE[id]
         fields, stages = fields_by_region[id], stages_by_region[id]
-        anchored, located = positions(fields, stages)
+        anchored, located = positions(fields, stages, markers)
         points = []
         for node_id, node in stages.items():
             field = all_fields.get(node.get('mapPoint') or node.get('designField'))

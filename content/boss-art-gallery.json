@@ -748,7 +748,12 @@
     {"id":"legend-homesick-wolf","name":"故郷を偲ぶ孤独の狼","file":"legend-homesick-wolf-field-idle-sprites-v1.json","height":110,"mapHover":0},
     {"id":"legend-churin","name":"チュリン","file":"legend-churin-field-idle-sprites-v1.json","height":110,"mapHover":0},
     {"id":"legend-bandersnatch","name":"バンダースナッチ","file":"legend-bandersnatch-field-idle-sprites-v1.json","height":110,"mapHover":0},
-    {"id":"legend-furiosa","name":"フュリオサ","file":"legend-furiosa-field-idle-sprites-v1.json","height":110,"mapHover":0}
+    {"id":"legend-furiosa","name":"フュリオサ","file":"legend-furiosa-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-ancient-mouse","name":"古代種・カチカチネズミ","file":"legend-ancient-mouse-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-calamitous-tree","name":"災禍古樹","file":"legend-calamitous-tree-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-rowdy-root","name":"スタヴローギン","file":"legend-rowdy-root-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-rowdy-long-ear","name":"バルバラ","file":"legend-rowdy-long-ear-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-rowdy-guard","name":"ヴェルホヴェンスキー","file":"legend-rowdy-guard-field-idle-sprites-v1.json","height":110,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }

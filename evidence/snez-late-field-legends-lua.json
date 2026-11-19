@@ -1,0 +1,20 @@
+{
+  "threeMouseRescuesAndMidQuestSave": true,
+  "crystalAndLanternGatesWithReports": true,
+  "entranceLevels": [
+    160,
+    198,
+    200
+  ],
+  "raisedTrailReturns": true,
+  "mapPointsInDesignLayers": true,
+  "threeIndividuallyTargetableMembers": true,
+  "partialKillGivesNoReward": true,
+  "partialGroupResetsOnExit": true,
+  "eachFullClearGivesOneSavedReward": true,
+  "killXp": {
+    "legend-snez_ancient_ironquill": 2816850,
+    "legend-snez_elder_blighttree": 14112700,
+    "legend-snez_rowdy_beast_host": 14818300
+  }
+}

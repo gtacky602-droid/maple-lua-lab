@@ -1,0 +1,193 @@
+{
+  "legend-ancient-mouse": {
+    "id": "legend-ancient-mouse",
+    "name": "古代種・カチカチネズミ",
+    "references": [
+      {
+        "page": "https://game8.jp/genshin/833559",
+        "alt": "古代種・カチカチネズミアイコン",
+        "image": "https://img.game8.jp/13170745/83668ce92c641925f84997c69bf1d810.webp/show"
+      },
+      {
+        "page": "https://game8.jp/genshin/838132",
+        "alt": "カチカチネズミ棘のダメージ",
+        "image": "https://img.game8.jp/13171500/f6eac23b3feb05e5aefce799766fcde7.webp/show"
+      },
+      {
+        "page": "https://game8.jp/genshin/838132",
+        "alt": "戦闘動画の代表フレーム",
+        "image": "https://img.game8.jp/13171463/b870d398f77b6057f04b45ee63433c00.jpg/poster"
+      },
+      {
+        "page": "https://game8.jp/genshin/816160",
+        "alt": "モコモコネズミ画像",
+        "image": "https://img.game8.jp/13001835/d2a604e39837aa583e0e4df42013a795.webp/show"
+      },
+      {
+        "page": "https://kamigame.jp/genshin/page/447658888540462197.html",
+        "alt": "モコモコネズミ3",
+        "image": "https://lh3.googleusercontent.com/x0JfqleaVq4l0qVKkVHrSHxtqpaljJTIjWcJsyIq5gK0F7Q1wD8s1dJumul-pRp74fWzFVTbf1A70l6ui_L5kBSBgGe-u2MDEcnAPE7UVO5kJg=s0"
+      },
+      {
+        "page": "https://game8.jp/genshin/816160",
+        "alt": "モコモコネズミ画像",
+        "image": "https://img.game8.jp/13003314/999c10b7dd325367555e11a8980c2ef5.webp/show"
+      }
+    ],
+    "common": "小さな脚を胴の下に収める丸い体と白い頬・腹、黒い鼻先周辺。通常のモコモコネズミは図鑑と複数個体の現地側面・背面を照合。",
+    "differences": "古代種には金の先端を持つ大きな背棘、灰黒の体と長い牙。淡褐色の通常個体とは背中の輪郭も異なる。",
+    "unverified": "名付きの背側と腹側の棘の本数。照明下の正確な毛色。",
+    "reuse": "通常個体とは別素材。共通部分は上記の体型・装備に合わせ、名付きの差を反映。"
+  },
+  "legend-calamitous-tree": {
+    "id": "legend-calamitous-tree",
+    "name": "災禍古樹",
+    "references": [
+      {
+        "page": "https://game8.jp/genshin/833559",
+        "alt": "災禍古樹アイコン",
+        "image": "https://img.game8.jp/13170739/763fbf7ef410b81987ffac6b88989a16.webp/show"
+      },
+      {
+        "page": "https://game8.jp/genshin/833559",
+        "alt": "video poster",
+        "image": "https://img.game8.jp/13171802/86d2ad9005eb240b7ed1f98dce0809f5.jpg/poster"
+      },
+      {
+        "page": "https://game8.jp/genshin/833559",
+        "alt": "video poster",
+        "image": "https://img.game8.jp/13171807/7ad33eb5362e44f3824b9f24e832c781.jpg/poster"
+      },
+      {
+        "page": "https://www.topuplive.com/news/genshin-7-0-enemy.html",
+        "alt": "lQLPJyHFgUOh3FvNA73NA5uwXSdgmEb44WUKIv8hniVzAA_923_957.png",
+        "image": "https://cdn.topuplive.com/cdn-cgi/image/quality=low,format=webp/uploads/images/goods/20260709/1783583702_UGchoCjDXB.png"
+      },
+      {
+        "page": "https://www.topuplive.com/news/genshin-7-0-enemy.html",
+        "alt": "lQLPKdWeryCJsdvNAw7NA2ewc1PKsnJa0-0KIv8vEPbvAA_871_782.png",
+        "image": "https://cdn.topuplive.com/cdn-cgi/image/quality=low,format=webp/uploads/images/goods/20260709/1783583692_TjKbxw22Zd.png"
+      },
+      {
+        "page": "https://wotpack.ru/ne-dat-vsem-rekam-peresohnut-v-genshin-impact-kak-ubrat-chernye-kristally-i-aktivirovat-postament/",
+        "image": "https://wotpack.ru/wp-content/uploads/2026/11/vozrozhdyonnoe-drevo-pogibeli-2.jpg",
+        "alt": "任務版の災禍古樹"
+      }
+    ],
+    "common": "宿老の樹霊に共通する細長い脚、分岐した幹、長い腕と片腕の結晶。任務「蘇ったばかりの災禍古樹」の正面と地方伝説の正面で樹皮の形、赤い腕の結晶、脚と胴の形が一致。",
+    "differences": "通常型の黄褐色の葉・金の結晶と異なり、地方伝説の肖像と現地では裸の枝、赤黒の樹皮と紅の結晶。任務版の全身画面でも紅の結晶を確認。",
+    "unverified": "任務版の背面、結晶の個数、枝先。青緑の洞窟光のため樹皮の色値は比較不能。",
+    "reuse": "任務版「蘇ったばかりの災禍古樹」と地方伝説は同じスプライトを共用可能。通常の宿老の樹霊には別配色が必要。"
+  },
+  "legend-rowdy-root": {
+    "id": "legend-rowdy-root",
+    "name": "スタヴローギン",
+    "references": [
+      {
+        "page": "https://game8.jp/genshin/833588",
+        "alt": "荒くれの異怪の獣衆アイコン",
+        "image": "https://img.game8.jp/13170746/0e98f91db81a68373ce3b4518dd75f22.webp/show"
+      },
+      {
+        "page": "https://gamewith.jp/genshin/article/show/586825",
+        "alt": "原神の荒くれの異怪の獣衆場所",
+        "image": "https://img.gamewith.jp/img/a3b4c33cc904898baf85fe2b30d4b70e.png"
+      },
+      {
+        "page": "https://game8.jp/genshin/833588",
+        "alt": "戦闘動画の代表フレーム",
+        "image": "https://img.game8.jp/13171362/0d4db47723fc4ccc8c5f67bf2aa94c0f.jpg/poster"
+      },
+      {
+        "page": "https://gamewith.jp/genshin/article/show/586825",
+        "alt": "原神のルートコネクター",
+        "image": "https://img.gamewith.jp/article_tools/genshin/gacha/enemy_357.png"
+      },
+      {
+        "page": "https://www.topuplive.com/news/genshin-7-0-enemy.html",
+        "alt": "lQLPJyD7mO7o85vNAtjNAzKwxhVFmkTCAokKIv7Uk9Z2AA_818_728.png",
+        "image": "https://cdn.topuplive.com/cdn-cgi/image/quality=low,format=webp/uploads/images/goods/20260709/1783583601_RkQSzOz0St.png"
+      }
+    ],
+    "common": "太い木筒、白い襟と緑の上着、橙の毛、緑の頬と胸の結晶。",
+    "differences": "通常の全身画にはない黄色の鉢巻が名付き肖像にある。",
+    "unverified": "名付き個体の背面・足元・木筒の裏側。",
+    "reuse": "通常個体とは別素材。共通部分は上記の体型・装備に合わせ、名付きの差を反映。",
+    "combat_clip": "https://img.game8.jp/13171362/0d4db47723fc4ccc8c5f67bf2aa94c0f.mp4/show",
+    "lighting": "戦闘クリップは元素光で細部が隠れる。鉢巻は名付き肖像を優先。"
+  },
+  "legend-rowdy-long-ear": {
+    "id": "legend-rowdy-long-ear",
+    "name": "バルバラ",
+    "references": [
+      {
+        "page": "https://game8.jp/genshin/833588",
+        "alt": "荒くれの異怪の獣衆アイコン",
+        "image": "https://img.game8.jp/13170746/0e98f91db81a68373ce3b4518dd75f22.webp/show"
+      },
+      {
+        "page": "https://gamewith.jp/genshin/article/show/586825",
+        "alt": "原神の荒くれの異怪の獣衆場所",
+        "image": "https://img.gamewith.jp/img/a3b4c33cc904898baf85fe2b30d4b70e.png"
+      },
+      {
+        "page": "https://game8.jp/genshin/833588",
+        "alt": "戦闘動画の代表フレーム",
+        "image": "https://img.game8.jp/13171362/0d4db47723fc4ccc8c5f67bf2aa94c0f.jpg/poster"
+      },
+      {
+        "page": "https://gamewith.jp/genshin/article/show/586825",
+        "alt": "原神の長耳のストライカー",
+        "image": "https://img.gamewith.jp/article_tools/genshin/gacha/enemy_356.png"
+      },
+      {
+        "page": "https://www.topuplive.com/news/genshin-7-0-enemy.html",
+        "alt": "283190d2bbd24a01aa4703096f8f4543.png",
+        "image": "https://cdn.topuplive.com/cdn-cgi/image/quality=low,format=webp/uploads/images/goods/20260709/1783583544_kVVypBaGWx.png"
+      }
+    ],
+    "common": "青緑の耳先と前髪、白毛、赤褐色の外套、脚の刃。",
+    "differences": "通常の全身画にはない黄色の鉢巻が名付き肖像にある。",
+    "unverified": "名付きの左右の刃、靴底、外套の裏。",
+    "reuse": "通常個体とは別素材。共通部分は上記の体型・装備に合わせ、名付きの差を反映。",
+    "combat_clip": "https://img.game8.jp/13171362/0d4db47723fc4ccc8c5f67bf2aa94c0f.mp4/show",
+    "lighting": "戦闘クリップは元素光で細部が隠れる。鉢巻は名付き肖像を優先。"
+  },
+  "legend-rowdy-guard": {
+    "id": "legend-rowdy-guard",
+    "name": "ヴェルホヴェンスキー",
+    "references": [
+      {
+        "page": "https://game8.jp/genshin/833588",
+        "alt": "荒くれの異怪の獣衆アイコン",
+        "image": "https://img.game8.jp/13170746/0e98f91db81a68373ce3b4518dd75f22.webp/show"
+      },
+      {
+        "page": "https://gamewith.jp/genshin/article/show/586825",
+        "alt": "原神の荒くれの異怪の獣衆場所",
+        "image": "https://img.gamewith.jp/img/a3b4c33cc904898baf85fe2b30d4b70e.png"
+      },
+      {
+        "page": "https://game8.jp/genshin/833588",
+        "alt": "戦闘動画の代表フレーム",
+        "image": "https://img.game8.jp/13171362/0d4db47723fc4ccc8c5f67bf2aa94c0f.jpg/poster"
+      },
+      {
+        "page": "https://gamewith.jp/genshin/article/show/586825",
+        "alt": "原神のレオマスティフ・ガード",
+        "image": "https://img.gamewith.jp/article_tools/genshin/gacha/enemy_355.png"
+      },
+      {
+        "page": "https://www.topuplive.com/news/genshin-7-0-enemy.html",
+        "alt": "e2b5e5dd7453494ab13fe02a6fa207c7.png",
+        "image": "https://cdn.topuplive.com/cdn-cgi/image/quality=low,format=webp/uploads/images/goods/20260709/1783583492_sUTVbwDpvM.png"
+      }
+    ],
+    "common": "顔を覆う白毛、青い毛先、大きな手、青い上着と背中の採鉱具。",
+    "differences": "通常の全身画にはない青い斜線入りの黄色の鉢巻が名付き肖像にある。",
+    "unverified": "名付きの背面の採鉱具の正確な角度。",
+    "reuse": "通常個体とは別素材。共通部分は上記の体型・装備に合わせ、名付きの差を反映。",
+    "combat_clip": "https://img.game8.jp/13171362/0d4db47723fc4ccc8c5f67bf2aa94c0f.mp4/show",
+    "lighting": "戦闘クリップは元素光で細部が隠れる。鉢巻は名付き肖像を優先。"
+  }
+}
