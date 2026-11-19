@@ -51,6 +51,7 @@
         }
       ],
       "exits": [
+        {"to":"mond-stygian-dual-court","x":295,"arrivalX":278},
         {"to":"mond-gate-chess-court","x":442,"arrivalX":187},
         {
           "to": "mond-road",
@@ -5605,6 +5606,7 @@
     {"id":"knave-crimson-court","name":"凶月の再現戦","region":"フォンテーヌ","level":88,"width":960,"hub":false,"peaceful":true,"checkpoint":"fontaine-hub","platforms":[{"x":0,"y":480,"w":960},{"x":98,"y":357,"w":158},{"x":704,"y":357,"w":158}],"exits":[{"to":"fontaine-hub","x":130}]},
     {"id":"primal-fire-sundered-forge","name":"源焔の再現戦","region":"ナタ","level":104,"width":960,"hub":false,"peaceful":true,"checkpoint":"natlan-hub","platforms":[{"x":40,"y":480,"w":880},{"x":110,"y":357,"w":141},{"x":709,"y":357,"w":141}],"exits":[{"to":"natlan-hub","x":863,"arrivalX":351}]},
     {"id":"mond-gate-chess-court","name":"扉の対局・再現盤","region":"モンド","level":112,"width":960,"hub":false,"peaceful":true,"checkpoint":"mond-town","platforms":[{"x":0,"y":480,"w":960},{"x":128,"y":357,"w":176},{"x":656,"y":357,"w":176}],"exits":[{"to":"mond-town","x":825,"arrivalX":442}]},
+    {"id":"mond-stygian-dual-court","name":"幽境・二刀の鍛錬場","region":"モンド","level":12,"width":960,"hub":false,"peaceful":true,"checkpoint":"mond-town","platforms":[{"x":0,"y":480,"w":960},{"x":112,"y":371,"w":173},{"x":675,"y":371,"w":173}],"exits":[{"to":"mond-town","x":84,"arrivalX":295}]},
     {"id":"sumeru-stygian-windcourt","name":"幽境・風渡りの空中闘場","region":"スメール","level":66,"width":960,"hub":false,"peaceful":true,"checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":960},{"x":104,"y":372,"w":228},{"x":628,"y":372,"w":228},{"x":348,"y":290,"w":264}],"exits":[{"to":"sumeru-hub","x":84,"arrivalX":443}]},
     {"id":"sne-stygian-last-gate","name":"幽境・最後の審問","region":"スネージナヤ","level":164,"width":960,"hub":false,"peaceful":true,"checkpoint":"snezhnaya-hub","platforms":[{"x":0,"y":480,"w":960},{"x":376,"y":374,"w":218}],"exits":[{"to":"snezhnaya-hub","x":84,"arrivalX":1080}]},
     {"id":"nod-stygian-hunt","name":"幽境・霧と月の狩場","region":"ナド・クライ","level":124,"width":960,"hub":false,"peaceful":true,"checkpoint":"nod-town","platforms":[{"x":0,"y":480,"w":960},{"x":380,"y":372,"w":200}],"exits":[{"to":"nod-town","x":84,"arrivalX":750}]},
@@ -5616,6 +5618,7 @@
     {"id":"nod-false-moon-rift","name":"偽月の再現戦・異界","region":"ナド・クライ","level":132,"width":960,"hub":false,"peaceful":true,"checkpoint":"nod-town","platforms":[{"x":0,"y":480,"w":960},{"x":118,"y":357,"w":155},{"x":696,"y":357,"w":155}],"exits":[],"weeklySceneOf":"nod-false-moon-court"}
   ],
   "quests": [
+    {"id":"stygian-farka-commission","name":"双剣の鍛錬","giver":"アンバー","hub":"mond-town","target":"stygian-farka","kind":"boss","goal":1,"level":12,"xp":3700,"mora":1380,"ore":2,"briefing":"ファルカが城門脇の鍛錬場で待っています。二本の剣が落ちる印から離れ、低い一撃は跳び、高い二撃目の前に着地してみて。"},
     {"id":"stygian-wanderer-commission","name":"風渡りの空中決闘","giver":"ナヒーダ","hub":"sumeru-hub","target":"stygian-wanderer","kind":"boss","goal":1,"level":66,"xp":96000,"mora":6100,"ore":3,"briefing":"樹陰の広場から闘場へ。風輪の中央でジャンプすると足場に上がれます。光る風標を踏み、放浪者が降りたら反撃してみましょう。"},
     {"id":"stygian-ronova-commission","name":"最後の審問・命の影","giver":"ミティヤ","hub":"snezhnaya-hub","target":"stygian-ronova","kind":"boss","goal":1,"level":164,"xp":3600000,"mora":38000,"ore":7,"briefing":"審問では、HPとは別に命が奪われます。残った影を拾って取り戻し、裁定の予告線と最後に開く門を見てください。"},
     {"id":"stygian-rerir-commission","name":"霧と月の狩場・ふたつの灯","giver":"ネフェル","hub":"nod-town","target":"stygian-rerir","kind":"boss","goal":1,"level":124,"xp":960000,"mora":17300,"ore":5,"briefing":"町から狩場へ。霧では足跡を見て、赤い輪郭が見えた時に灯を掲げる。月が昇ったら、足場を使って淡金の光を三つ集めよう。"},

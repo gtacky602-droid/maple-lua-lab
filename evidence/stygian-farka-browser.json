@@ -1,0 +1,47 @@
+{
+  "background": {
+    "key": "dualCourt",
+    "file": "farka-dual-court-background-v1.png",
+    "state": "ready"
+  },
+  "normalClear": true,
+  "trail": {
+    "stages": [
+      1,
+      2,
+      3
+    ],
+    "cards": [
+      "FK01",
+      "FK02",
+      "FK06",
+      "FK03",
+      "FK04",
+      "FK05",
+      "FK07"
+    ],
+    "plunges": [
+      "FK03",
+      "FK07"
+    ],
+    "burstLow": true,
+    "burstHigh": true,
+    "burstContacts": [],
+    "firstChain": "A",
+    "chainRecovery": true,
+    "landedAttack": true,
+    "dual": true,
+    "dirs": [
+      "farka-body-left-source-v1.png",
+      "farka-body-right-source-v1.png"
+    ]
+  },
+  "questReportSaveRestore": true,
+  "viewport390": true,
+  "commands": {
+    "png": 27,
+    "standard": 9782,
+    "light": 2610
+  },
+  "errors": []
+}

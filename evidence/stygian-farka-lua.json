@@ -1,0 +1,30 @@
+{
+  "cards": [
+    "FK01",
+    "FK02",
+    "FK03",
+    "FK04",
+    "FK05",
+    "FK06",
+    "FK07"
+  ],
+  "ranks": [
+    12,
+    42,
+    89,
+    152
+  ],
+  "upper_ledge_lock": true,
+  "plunge_has_no_contact_before_landing": true,
+  "single_plunge_window": true,
+  "two_burst_sweeps_cleared_in_place": true,
+  "parent_lengths": {
+    "A": 432,
+    "B": 528
+  },
+  "first_child_recovery_114_to_204": true,
+  "parent_adds_no_hit": true,
+  "separate_swords": true,
+  "clear_reward_report_saved": true,
+  "legacy_kept": true
+}

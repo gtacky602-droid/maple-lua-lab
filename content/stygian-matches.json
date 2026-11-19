@@ -1747,6 +1747,144 @@
           "rarity": 5
         }
       ]
+    },
+    "farka": {
+      "entity": 990001,
+      "node": "mond-stygian-dual-court",
+      "hub": "mond-town",
+      "name": "ファルカ・二刀の鍛錬",
+      "challenge": "stygian-farka",
+      "arena": {
+        "left": 40,
+        "right": 920,
+        "floor": 480,
+        "unit": 88,
+        "playerX": 278,
+        "bossX": 618
+      },
+      "timing": {
+        "enter": 72,
+        "shift": 90,
+        "chainAt": 204
+      },
+      "thresholds": [
+        0.65,
+        0.3
+      ],
+      "orders": [
+        [
+          "FK01",
+          "FK02",
+          "FK06"
+        ],
+        [
+          "FK03",
+          "FK04",
+          "FK01",
+          "FK02",
+          "FK06"
+        ],
+        [
+          "FK05",
+          "FK07",
+          "FK03",
+          "FK01",
+          "FK07",
+          "FK04",
+          "FK06"
+        ]
+      ],
+      "required": [
+        [
+          "FK01",
+          "FK02",
+          "FK06"
+        ],
+        [
+          "FK03",
+          "FK04"
+        ]
+      ],
+      "damage": {
+        "FK01": 10,
+        "FK02": 17,
+        "FK03": 23,
+        "FK04": 18,
+        "FK05": 25
+      },
+      "motion": {
+        "FK02": {
+          "from": 66,
+          "land": 90,
+          "reach": 1.8,
+          "height": 0.8
+        },
+        "FK03": {
+          "from": 66,
+          "land": 102,
+          "reach": 2.6,
+          "height": 1.6
+        },
+        "FK05": {
+          "from": 84,
+          "land": 105,
+          "reach": 3
+        }
+      },
+      "modes": [
+        {
+          "id": "normal",
+          "name": "通常",
+          "level": 12,
+          "hp": 670,
+          "damageScale": 1.0,
+          "rest": 32,
+          "mora": 1350,
+          "firstMora": 1050,
+          "itemLevel": 24,
+          "rarity": 3,
+          "firstChain": "A"
+        },
+        {
+          "id": "hard",
+          "name": "ハード",
+          "level": 42,
+          "hp": 1880,
+          "damageScale": 1.15,
+          "rest": 26,
+          "mora": 6400,
+          "firstMora": 4900,
+          "itemLevel": 60,
+          "rarity": 4,
+          "firstChain": "B"
+        },
+        {
+          "id": "master",
+          "name": "マスター",
+          "level": 89,
+          "hp": 3460,
+          "damageScale": 1.31,
+          "rest": 22,
+          "mora": 15500,
+          "firstMora": 10900,
+          "itemLevel": 108,
+          "rarity": 5,
+          "firstChain": "A"
+        },
+        {
+          "id": "extreme",
+          "name": "極限",
+          "level": 152,
+          "hp": 5520,
+          "damageScale": 1.46,
+          "rest": 19,
+          "mora": 29000,
+          "firstMora": 22300,
+          "itemLevel": 173,
+          "rarity": 5,
+          "firstChain": "B"
+        }
+      ]
     }
   }
 }

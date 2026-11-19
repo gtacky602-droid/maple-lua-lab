@@ -1,0 +1,12 @@
+{
+  "status": "Original placeholder background for the local lab",
+  "tool": "built-in ImageGen",
+  "file": "farka-dual-court-background-v1.png",
+  "sha256": "948c013e2081fd60809f2147870d625bb6c96493faacca9e4a981ba774e1335a",
+  "pixelSize": [
+    1672,
+    941
+  ],
+  "prompt": "Original background matte art for a 16:9 2D side-scrolling pixel-art adventure game. A windswept spring training court outside a fictional European riverside stronghold, seen from a fixed camera directly from the side. Background only: remote gray limestone ramparts with pale warm plaster, muted navy and tawny terracotta roofs behind them, small faded blue pennants with no symbols, distant grass-covered hills and a subdued pale blue morning sky. A tower at the far left, low ivy on the far right, quiet depth and a clean central playfield. Keep the lower middle two-thirds especially simple and subtle in pale slate and moss colors so characters, gold attack warnings, and floating platforms, which the engine will draw separately, stay easy to read. Soft atmospheric depth, carefully clustered old-school pixel-art texture and deliberate sharp stepped edges, restrained colors, a few grass tufts at the margins. No people, no animated effects, no foreground gameplay platforms, no readable text, no logos, no franchise assets.",
+  "separateLayers": "Story geometry provides the floor and raised ledges. Boss, swords, wind and fire cues are separately rendered. Production uses 3D scenery."
+}

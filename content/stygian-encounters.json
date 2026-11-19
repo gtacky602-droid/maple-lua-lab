@@ -7,7 +7,8 @@
       "id": "farka",
       "name": "ファルカ模擬戦",
       "status": "partial",
-      "design": "farka-design.json"
+      "design": "farka-design.json",
+      "source": "docs/stygian-motion-v1/FARKA.md"
     },
     {
       "id": "beidou",

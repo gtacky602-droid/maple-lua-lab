@@ -103,7 +103,7 @@ def runtime():
         for target in (spec['id'],spec.get('storyChallenge')) if target}
     stygian=json.loads((ROOT/'content/stygian-matches.json').read_text(encoding='utf8'))['matches']
     stygian_timing=json.loads((ROOT/'docs/stygian-motion-v1/MANIFEST.json').read_text(encoding='utf8'))
-    for scripted_match in ('rerir','ronova'):
+    for scripted_match in ('farka','rerir','ronova'):
         stygian[scripted_match]['cards']={
             card['id']: card | {'variants':{variant['name']:variant for variant in card.get('variants',[])}}
             for card in stygian_timing['entries'] if card['boss']==scripted_match
@@ -579,10 +579,28 @@ def runtime():
         direction:json.loads((ROOT/'assets'/f'wanderer-idle-{direction}-sprites-v3.json').read_text(encoding='utf8'))
         for direction in ('left','right')
     },recursive=True)
+    farka_moves=lua.execute((ROOT/'stygian-farka-moves.lua').read_text(encoding='utf8'))(core,stygian_geometry)
+    farka_view=lua.execute((ROOT/'stygian-farka-view.lua').read_text(encoding='utf8'))(core,stygian_geometry,farka_moves)
+    farka=lua.execute((ROOT/'stygian-farka.lua').read_text(encoding='utf8'))(core,stygian_geometry,farka_moves,farka_view)
+    farka_layers=json.loads((ROOT/'content/farka-idle-layers.json').read_text(encoding='utf8'))
+    farka_sword=json.loads((ROOT/'assets'/farka_layers['sword']['file']).read_text(encoding='utf8'))
+    sx,sy,sw,sh=farka_sword['box']
+    gx,gy=farka_layers['sword']['grip']
+    farka_sword['anchorX'],farka_sword['anchorY']=(gx-sx)/sw,(gy-sy)/sh
+    farka_root=farka_layers['root']
+    farka_hands={
+        side:{hand:[value-root for value,root in zip(layer['sockets'][f'hand_{hand}'],farka_root)]
+              for hand in ('front','back')}
+        for side,layer in farka_layers['facings'].items()
+    }
+    core.stygianFarkaArt=lua.table_from({
+        side:json.loads((ROOT/'assets'/layer['body']).read_text(encoding='utf8'))
+        for side,layer in farka_layers['facings'].items()
+    } | {'sword':farka_sword,'hands':farka_hands},recursive=True)
     lua.execute((ROOT/'endgame.lua').read_text(encoding='utf8'))(
         core,lua.table_from(abyss,recursive=True),lua.table_from(weekly_specs,recursive=True),
         lua.table_from(stygian,recursive=True),
-        lua.table_from({'beidou':stygian_beidou,'capitano':capitano,'xbalanque':xbalanque,
+        lua.table_from({'farka':farka,'beidou':stygian_beidou,'capitano':capitano,'xbalanque':xbalanque,
                         'rerir':rerir,'ronova':ronova,'wanderer':wanderer}))
     lua.execute((ROOT/'growth-trials.lua').read_text(encoding='utf8'))(core)
     return lua, core

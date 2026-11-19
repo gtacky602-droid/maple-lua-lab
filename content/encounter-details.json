@@ -802,6 +802,9 @@
     },
     "stygian-farka": {
       "action": "boss_farka",
+      "extra_evidence": ["docs/stygian-motion-v1/FARKA_WEB.md","evidence/stygian-farka-lua.json","evidence/stygian-farka-browser.json"],
+      "remaining": ["専用の全キーポーズと効果音","上位難度の通し調整","実マルチ、本番3Dと幻境実機"],
+      "review_note": "城門脇の二刀の鍛錬場に七技・四難度・指定セット報酬と個人記録を追加。ボタンの簡易試作も参照用に利用できる。",
       "art_candidate": {
         "item": "farka",
         "status": "existing prototype artwork; visual candidate only, not completed animations or combat"

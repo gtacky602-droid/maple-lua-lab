@@ -225,6 +225,11 @@ check('both Dottore domains keep separate candidate IDs and aliases',
       and '博士' in by_id['boss-29150101']['aliases'])
 check('both paired encounters retain two art references',all(len(by_id[id]['art_components'])==2 for id in ('bathysmal-herd','boss-29122000')))
 check('every candidate has a gallery reference',all(r.get('art_candidate') or r.get('art_components') for r in rows))
+check('Farka offers the new dual-sword arena and retains the legacy quick trial',
+      by_id['stygian-farka']['stygianNode']=='mond-stygian-dual-court'
+      and by_id['stygian-farka']['status']=='partial'
+      and by_id['stygian-farka']['evidence'][0]=='docs/stygian-motion-v1/FARKA.md'
+      and by_id['stygian-farka']['action']=='boss_farka')
 check('Capitano art and design linked without a playable action',
       by_id['stygian-capitano']['art_candidate']['encoding']=='assets/capitano-coat-right-sprites-v1.json'
       and by_id['stygian-capitano']['evidence'][0]=='docs/stygian-motion-v1/CAPITANO.md'

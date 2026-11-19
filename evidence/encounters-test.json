@@ -1,5 +1,5 @@
 {
-  "count": 110,
+  "count": 111,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -75,6 +75,7 @@
     "both Dottore domains keep separate candidate IDs and aliases",
     "both paired encounters retain two art references",
     "every candidate has a gallery reference",
+    "Farka offers the new dual-sword arena and retains the legacy quick trial",
     "Capitano art and design linked without a playable action",
     "Xbalanque art and design linked without a playable action",
     "Rerir art and design linked without a playable action",

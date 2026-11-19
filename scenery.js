@@ -1,5 +1,6 @@
 // Prototype host scenery. Production will use the actual 3D scene behind Lua UI.
 export const sceneryDefinitions={
+ dualCourt:{file:'farka-dual-court-background-v1.png',zones:['story:mond-stygian-dual-court'],note:'二刀の鍛錬場のラボ用仮背景'},
  windcourt:{file:'wanderer-windcourt-background-v1.png',zones:['story:sumeru-stygian-windcourt'],note:'風渡りの空中闘場のラボ用仮背景'},
  lastJudgment:{file:'false-moon-rift-background-v1.png',zones:['story:sne-stygian-last-gate'],note:'最後の審問のラボ用仮背景'},
  mistHunt:{file:'false-moon-rift-background-v1.png',zones:['story:nod-stygian-hunt'],note:'霧と月の狩場の仮背景（異界の画像を流用）'},
@@ -255,6 +256,15 @@ export function scenery(ctx,frame){
  for(const p of frame.platforms||[]){
   const x=p.x-camera;if(x+p.w<0||x>960)continue;
   if(p.riverDeck)continue;
+  if(key==='dualCourt'){
+   ctx.fillStyle='#504a4e';ctx.fillRect(x,p.y,p.w,p.y===480?60:14);
+   ctx.fillStyle='#d8c5a9';ctx.fillRect(x,p.y,p.w,4);
+   ctx.fillStyle='#928081';ctx.fillRect(x,p.y+6,p.w,2);
+   for(let seam=25;seam<p.w;seam+=72){
+    ctx.fillStyle='#6a5b61';ctx.fillRect(x+seam,p.y+8,2,p.y===480?30:6);
+   }
+   continue;
+  }
   if(key==='windcourt'){
    ctx.fillStyle='#375969';ctx.fillRect(x,p.y,p.w,p.y===480?60:16);
    ctx.fillStyle='#e5c997';ctx.fillRect(x,p.y,p.w,4);
