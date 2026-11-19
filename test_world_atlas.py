@@ -1,0 +1,89 @@
+"""Verify the Lua atlas, visible exits, level review, and the imported entrance plan."""
+
+from collections import Counter
+import json
+
+from runtime import ROOT, native, runtime
+
+
+def read(path):
+    return json.loads((ROOT / path).read_text(encoding='utf8'))
+
+
+atlas = read('content/world-atlas.json')
+plan = read('design/world/atlas-route-plan.json')
+graph = read('content/story-graph.json')
+nodes = {node['id']: node for node in graph['nodes']}
+fields = {point['field'] for region in atlas['regions'] for point in region['points'] if 'field' in point}
+drafts = {point['id']: point for region in atlas['regions'] for point in region['draft']}
+assert len(atlas['regions']) == 24
+assert {p['id'] for r in atlas['regions'] for p in r['points']} == nodes.keys()
+assert len(fields) == plan['live_bound_fields'] == 873
+assert len(drafts) == len(plan['draft_field_approaches']) == 106
+assert not (fields & drafts.keys()) and len(fields) + len(drafts) == plan['imported_fields'] == 979
+assert len(plan['sites_only_route_review']) == 421
+for entry in plan['draft_field_approaches']:
+    stage = entry['anchor']
+    assert entry['terminus'] and not entry['runtime_gate']
+    assert stage in nodes and nodes[stage]['level'] == entry['minimum_to_approach']
+    assert drafts[entry['field']]['anchor'] == stage
+for delta in plan['level_differences']:
+    assert nodes[delta['stage']]['level'] == delta['access'] != delta['recommended']
+
+lua, core = runtime()
+s = core.new(12)
+core.action(s, 'world_map_toggle')
+assert core.frame(s).worldMap is None
+core.action(s, 'story_start')
+before = native(core.checkpoint(s))
+
+
+def act(key):
+    core.action(s, 'world_map_' + key)
+    return core.frame(s).worldMap
+
+
+view = act('toggle')
+assert view.region == 'region-01' and view.selected.id == 'mond-town'
+assert view.selected.current and view.selected.level == 1
+assert any(route.id == 'mond-road' for route in view.routes.values())
+assert not any(group.id == 'hidden-01' for group in view.options.values())
+assert act('region:hidden-01').region == 'world'
+t = s.t
+core.step(s, 1 / 60, lua.table_from({'right':True,'attack':True}))
+assert s.t == t and native(core.checkpoint(s)) == before
+assert act('here').selected.current
+view = act('region:world')
+assert len(view.points) == 8 and len(view.draws) > 200
+assert act('close') is None
+core.step(s, 1 / 60, lua.table())
+assert s.t > t
+
+core.enterStoryNode(s, 'mond-road')
+s.actors[s.active].x = 1105
+core.action(s, 'story_collect')
+assert s.story.discovered.golden
+view = act('toggle')
+assert any(group.id == 'hidden-01' for group in view.options.values())
+assert act('region:hidden-01').region == 'hidden-01'
+view = act('layer:review')
+assert all(p.mode == 'draft' for p in view.points.values())
+view = act('select:slot:GAA-01')
+assert view.selected.id == 'slot:GAA-01'
+assert view.routes[1].label == '入口候補' and view.routes[1].draft
+act('close')
+core.enterStoryNode(s, 'fon-wp-50074')
+view = act('toggle')
+assert view.selected.id == 'fon-wp-50074' and view.selected.layer == 'water'
+assert view.selected.level == 87
+assert any(p.id == 'fon-wp-50076' and p.level == 93 for p in act('layer:water').points.values())
+
+result = {'imported_fields':len(fields)+len(drafts),'live_runtime_fields':len(fields),
+          'draft_entrance_proposals':len(drafts),'sites_only_route_reviews':len(plan['sites_only_route_review']),
+          'proposed_entrances_by_method':dict(Counter(row['method'] for row in plan['draft_field_approaches'])),
+          'route_findings':dict(Counter(row['finding'] for row in plan['sites_only_route_review'])),
+          'separately_labelled_level_mismatches':len(plan['level_differences']),
+          'hidden_area_visibility':True,'map_state_not_saved':True,'game_clock_pauses':True,
+          'rendered_by_lua':True,'water_layer_and_levels':True}
+(ROOT / 'evidence/world-atlas-lua.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')
+print(result)

@@ -4864,14 +4864,17 @@
         "name": "フォンテーヌ湖・南の水底のトンネル",
         "gates": [
           "teyvat:50072",
-          "teyvat:50046"
+          "teyvat:50046",
+          "teyvat:50074"
         ]
       },
       "teyvat:50074": {
         "stage_id": "fon-wp-50074",
-        "name": "フォンテーヌ南部・東岸の石の地下道",
+        "name": "フォンテーヌ湖・東岸の沈水石室",
         "gates": [
-          "teyvat:50045"
+          "teyvat:50045",
+          "teyvat:50073",
+          "teyvat:50075"
         ]
       },
       "teyvat:50075": {
@@ -4879,7 +4882,8 @@
         "name": "フォンテーヌ湖・南の沈水層の入口",
         "gates": [
           "teyvat:50065",
-          "teyvat:50076"
+          "teyvat:50076",
+          "teyvat:50074"
         ]
       },
       "teyvat:50076": {
@@ -7809,7 +7813,6 @@
         "gates": [
           "teyvat:95796",
           "teyvat:95798",
-          "teyvat:95803",
           "teyvat:95799"
         ]
       },
@@ -7819,7 +7822,8 @@
         "gates": [
           "teyvat:95800",
           "teyvat:95796",
-          "teyvat:95797"
+          "teyvat:95797",
+          "teyvat:95803"
         ]
       },
       "teyvat:95799": {
@@ -7856,7 +7860,7 @@
         "stage_id": "mond-wp-95803",
         "name": "ドーンマンポート・港の下層通路",
         "gates": [
-          "teyvat:95797"
+          "teyvat:95798"
         ]
       },
       "teyvat:96": {
@@ -7974,7 +7978,7 @@
     "status": "partial",
     "design": "content/world-bosses-design.json"
   },
-  "current_priority": "Audit authored quest and boss playthroughs now that all imported markers have a linked stage.",
+  "current_priority": "Resolve and implement the remaining Sites field approaches with terrain and level review, then audit the boss encounter playthroughs.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",

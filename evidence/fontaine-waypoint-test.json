@@ -2,9 +2,9 @@
   "fontaine_markers": 100,
   "bygone_markers": 17,
   "floor_markers": 49,
-  "swimmable_stages": 36,
-  "reciprocal_routes": 148,
-  "directed_gates": 296,
+  "swimmable_stages": 37,
+  "reciprocal_routes": 150,
+  "directed_gates": 300,
   "visited_stages": [
     "bygone-camp",
     "bygone-depth",

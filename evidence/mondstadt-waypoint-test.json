@@ -507,10 +507,6 @@
       "mond-wp-95799"
     ],
     [
-      "mond-wp-95797",
-      "mond-wp-95803"
-    ],
-    [
       "mond-wp-95798",
       "dornman-camp"
     ],
@@ -521,6 +517,10 @@
     [
       "mond-wp-95798",
       "mond-wp-95800"
+    ],
+    [
+      "mond-wp-95798",
+      "mond-wp-95803"
     ],
     [
       "mond-wp-95799",
@@ -548,7 +548,7 @@
     ],
     [
       "mond-wp-95803",
-      "mond-wp-95797"
+      "mond-wp-95798"
     ]
   ],
   "reported_quests": [

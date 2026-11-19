@@ -34,8 +34,8 @@ assert floors == review['floor_markers'] and len(floors) == 49
 stages = set(mapping.values())
 exits = {key:n['exits'] for key,n in nodes.items()}
 edges = {(a,e['to']):e for a in stages for e in exits[a] if e['to'] in stages}
-assert set(edges) == {(b,a) for a,b in edges} and len(edges) == 296
-for key,count in [('boatSeconds',14),('liftSeconds',32),('waterwaySeconds',42)]:
+assert set(edges) == {(b,a) for a,b in edges} and len(edges) == 300
+for key,count in [('boatSeconds',14),('liftSeconds',30),('waterwaySeconds',48)]:
     assert sum(key in edge for edge in edges.values()) == count
 
 
@@ -59,7 +59,11 @@ for key, stage in mapping.items():
     assert {nodes[e['to']]['mapPoint'] for e in node['exits'] if 'mapPoint' in nodes[e['to']]} == (
         set(stats['stage_links'][key]['gates']))
 assert {p for p,s in mapping.items() if nodes[s].get('swim')} == set(review['swim_markers'])
-assert len(review['swim_markers']) == 36
+assert len(review['swim_markers']) == 37
+adaptation = review['sites_terrain_adaptation']
+for a,b in [adaptation['dry_to_waterway'], *adaptation['added_waterways']]:
+    assert edges[a,b]['waterwaySeconds'] and edges[b,a]['waterwaySeconds']
+assert [nodes['fon-wp-'+str(id)]['level'] for id in (50073,50074,50075,50076)] == [86,87,88,93]
 undersea = review['bygone_undersea_link']
 assert undersea['mode'] in edges[undersea['from'],undersea['to']]
 assert undersea['mode'] in edges[undersea['to'],undersea['from']]

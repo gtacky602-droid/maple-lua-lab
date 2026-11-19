@@ -1,0 +1,13 @@
+{
+  "openedByKeyAndButton": true,
+  "worldRegions": 8,
+  "currentPosition": true,
+  "mapClickAndFilter": true,
+  "searchAndPlaceSelection": true,
+  "hiddenAreaRemoved": true,
+  "draftEntranceReturn": true,
+  "keyboardAndTurnRecovery": true,
+  "simulationTimeFrozen": true,
+  "noMobileOverflow": true,
+  "errors": []
+}

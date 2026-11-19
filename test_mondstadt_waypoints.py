@@ -30,6 +30,11 @@ assert reference['map_version'] == next(m['map_version'] for m in catalog['maps'
 stages = set(mapping.values())
 edges = {(a, e['to']): e for a in stages for e in nodes[a]['exits'] if e['to'] in stages}
 assert len(edges) == 124
+assert 'boatSeconds' in edges['mond-wp-95799','mond-wp-95797']
+assert 'liftSeconds' in edges['mond-wp-95798','mond-wp-95803']
+assert ('mond-wp-95799','mond-wp-95803') not in edges
+assert ('mond-wp-95797','mond-wp-95803') not in edges
+assert [nodes[f'mond-wp-{id}']['level'] for id in (95794,95795,95782,95798,95803)] == [155,158,160,162,169]
 assert sum('boatSeconds' in e for e in edges.values()) == 6
 assert sum('liftSeconds' in e for e in edges.values()) == 2
 assert sum(e.get('y', 480) < 480 for e in edges.values()) == 4

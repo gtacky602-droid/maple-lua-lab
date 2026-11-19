@@ -470,6 +470,16 @@
     }
   },
   "swim_markers": [
+    "map34:68599",
+    "map34:68600",
+    "map34:68604",
+    "map34:68605",
+    "map34:68606",
+    "map34:68608",
+    "map34:68609",
+    "map34:68611",
+    "map34:68612",
+    "map34:68615",
     "teyvat:50062",
     "teyvat:50063",
     "teyvat:50064",
@@ -481,6 +491,7 @@
     "teyvat:50071",
     "teyvat:50072",
     "teyvat:50073",
+    "teyvat:50074",
     "teyvat:50075",
     "teyvat:50076",
     "teyvat:53848",
@@ -495,21 +506,32 @@
     "teyvat:68342",
     "teyvat:68343",
     "teyvat:68344",
-    "teyvat:68345",
-    "map34:68599",
-    "map34:68600",
-    "map34:68604",
-    "map34:68605",
-    "map34:68606",
-    "map34:68608",
-    "map34:68609",
-    "map34:68611",
-    "map34:68612",
-    "map34:68615"
+    "teyvat:68345"
   ],
   "bygone_undersea_link": {
     "from": "fon-wp-68345",
     "to": "bygone-wp-68599",
     "mode": "waterwaySeconds"
+  },
+  "sites_terrain_adaptation": {
+    "basis": "design/world/placements/region-05.json",
+    "cave": "fon-wp-50074",
+    "cave_new_level": 87,
+    "deep_hunting_field_level": 93,
+    "added_waterways": [
+      [
+        "fon-wp-50073",
+        "fon-wp-50074"
+      ],
+      [
+        "fon-wp-50074",
+        "fon-wp-50075"
+      ]
+    ],
+    "dry_to_waterway": [
+      "fon-wp-50045",
+      "fon-wp-50074"
+    ],
+    "status": "Proposed passage positions are implemented and tested in the Lua lab. The two hunting placements still need underwater combat and source review."
   }
 }

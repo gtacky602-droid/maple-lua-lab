@@ -1,0 +1,24 @@
+{
+  "imported_fields": 979,
+  "live_runtime_fields": 873,
+  "draft_entrance_proposals": 106,
+  "sites_only_route_reviews": 421,
+  "proposed_entrances_by_method": {
+    "approach_from_source": 67,
+    "needs_entrance_review": 5,
+    "needs_water_transition": 2,
+    "local_route": 32
+  },
+  "route_findings": {
+    "candidate_with_geography_review": 232,
+    "check_floor_transition": 83,
+    "needs_stage_binding": 103,
+    "check_level_jump": 3
+  },
+  "separately_labelled_level_mismatches": 811,
+  "hidden_area_visibility": true,
+  "map_state_not_saved": true,
+  "game_clock_pauses": true,
+  "rendered_by_lua": true,
+  "water_layer_and_levels": true
+}

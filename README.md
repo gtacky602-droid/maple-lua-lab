@@ -16,6 +16,8 @@
 
 [世界設計台帳とSites同期手順](design/world/README.md)に、24地域・979フィールドの設計、敵配置、公式出現調査、クエスト対応、実装との差分をまとめています。
 
+本編でMキーを押すと、地域図、通行Lv、隣接する門、設計中の地点を確認できます。 [旅路の地図](docs/WORLD_ATLAS_WEB.md)
+
 ## 公式マップ連動フィールド設計室
 
 `python -m tools.field_editor.server` → http://127.0.0.1:8770 。ゲーム本体とは独立した、公式地形・モンド51地点・ドラッグ接続・地域別モンスター・提案/採用/履歴の設計ツールです。[起動・操作](docs/field-editor/README.md)、[データ構造](docs/field-editor/DATA_MODEL.md)、[API/MCP](docs/field-editor/API_AND_MCP.md)、[公式地図の取得と権利確認](docs/field-editor/MAP_PROVENANCE.md)を参照。未承認値を本番へ自動反映しません。

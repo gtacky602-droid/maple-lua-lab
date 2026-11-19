@@ -1,4 +1,4 @@
-<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>風の狩場 — Lua検証室</title>
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>風の狩場 — Lua検証室</title><link rel="stylesheet" href="world-atlas.css">
 <style>
 *{box-sizing:border-box}body{margin:0;background:#102d30;color:#ecf1dc;font:14px 'Yu Gothic UI',sans-serif}main{max-width:1280px;margin:auto;padding:26px 30px}header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.eyebrow{font-size:11px;letter-spacing:.22em;color:#b2c4a5}h1{font-family:serif;font-weight:500;font-size:30px;margin:5px 0}header p{color:#aec8be;font-size:12px}.badge{border:1px solid #6c8d7a;padding:8px 14px;border-radius:20px;color:#c9ddb5}.game{position:relative;border:1px solid #758e79;border-radius:12px;overflow:hidden;background:#bce4db;box-shadow:0 20px 70px #001d2380}canvas{display:block;width:100%;aspect-ratio:16/9;image-rendering:pixelated}.topline{position:absolute;left:20px;top:16px;display:flex;gap:10px;pointer-events:none}.card{min-width:150px;background:#153e3ee8;padding:11px 15px;border:1px solid #7c9b7a;border-radius:7px;box-shadow:0 3px 8px #224f4930}.card small{font-size:10px;color:#bad0b5}.card strong{display:block;margin:3px 0 7px}.bar{height:5px;background:#41615b;border-radius:5px;overflow:hidden}.bar i{display:block;height:100%;background:#97ce80}.card.active{border-color:#f1d486}.location{position:absolute;right:22px;top:18px;background:#fff8dbbf;border-radius:20px;padding:8px 15px;color:#32534a;font-size:12px}.bottom{display:flex;align-items:center;gap:10px;padding:14px 18px;background:#173a3b}.gauge{width:160px;margin-right:10px;font-size:11px;color:#c9dcb7}.gauge .bar{margin:6px 0}.gauge i{background:#e6c97d}.skills{display:flex;gap:7px;flex:1}button,select{font:inherit;color:inherit;background:#23494a;border:1px solid #637f70;border-radius:7px;padding:9px 12px;cursor:pointer}button:hover{background:#356260;border-color:#c2d7b0}button:focus-visible,select:focus-visible{outline:2px solid #f1d486;outline-offset:3px}.skill{min-width:83px;position:relative;text-align:left}.skill kbd{display:block;color:#f3d792;font-size:11px;margin-bottom:4px}.skill span{font-size:11px}.skill em{position:absolute;right:5px;top:5px;font-size:11px;color:#ffa77c;font-style:normal}.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:16px;color:#afc8bb;font-size:12px}.controls label{margin-left:auto}.controls select{padding:6px}.controls .selected{border-color:#e3c982;color:#ffe2a1}.metrics{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:#496458;margin-top:18px;border:1px solid #496458;border-radius:8px;overflow:hidden}.metrics div{background:#17383a;padding:12px 16px}.metrics small{display:block;color:#a4bdb0;font-size:10px}.metrics b{display:block;font-size:21px;font-weight:400;margin-top:5px;color:#e5dfb1}.note{font-size:11px;color:#aac3b7;line-height:1.8;margin-top:14px}.error{color:#ffad83}details{margin-top:15px;color:#c3d4c4}summary{cursor:pointer;font-size:12px}.readme{display:grid;grid-template-columns:1fr 1fr;gap:25px;line-height:1.9;font-size:12px}.readme h3{color:#e3d49f}a{color:#e6d191}.touch{display:none}@media(max-width:850px){main{padding:12px}.topline{transform:scale(.7);transform-origin:top left}.location{display:none}.bottom{flex-wrap:wrap}.gauge{width:100%}.metrics{grid-template-columns:repeat(3,1fr)}.skills{flex-wrap:wrap}.skill{min-width:65px}.readme{display:block}.touch{display:flex;gap:10px;margin-top:12px}.touch button{touch-action:none}header p{display:none}}
 #expeditionDesk{margin:0;padding:12px 18px;background:#173a3b;color:#e5eddd;font-size:13px}
@@ -407,7 +407,7 @@
 <div class="bottom"><div class="gauge">光界・共通ゲージ <span id="gaugeText">60 / 100</span><div class="bar"><i id="gaugeBar"></i></div><small>本編の光界解放は七元素とLv160</small></div><div class="skills"><button class="skill" data-action="normal"><kbd>J</kbd><span>通常攻撃</span><em id="cd-normal"></em></button><button class="skill" data-action="skill1"><kbd>K</kbd><span id="name1">旋風斬り</span><em id="cd-skill1"></em></button><button class="skill" data-action="skill2"><kbd>L</kbd><span id="name2">竜巻</span><em id="cd-skill2"></em></button><button class="skill" data-action="light"><kbd>Q</kbd><span>光界解放</span><em id="cd-light"></em></button><button class="skill" data-action="swap"><kbd>E</kbd><span>操作交代</span></button><button class="skill" data-action="dodge"><kbd>SHIFT</kbd><span>回避</span></button></div>
 <div id="snowMatchControls" hidden><button id="snowMatchThrow" class="skill" data-action="normal"><kbd>J</kbd><span>雪玉を投げる</span></button> <button class="skill" data-action="jump"><kbd>Space</kbd><span>ジャンプ</span></button></div>
 </div></div>
-<div class="controls"><button class="skill" data-amber data-action="skill3"><kbd>M</kbd><span>ウサギ伯爵</span><em id="cd-skill3"></em></button><button class="skill" data-amber data-action="skill4"><kbd>N</kbd><span>跳躍射撃</span><em id="cd-skill4"></em></button><span>仲間操作中に使用。追加仲間の外見は仮図形です。</span></div><div class="touch"><button data-hold="left">←</button><button data-hold="right">→</button><button data-swim data-hold="up" aria-label="上へ泳ぐ" hidden>↑</button><button data-swim data-hold="down" aria-label="下へ泳ぐ" hidden>↓</button><button id="touchJump" data-action="jump">ジャンプ</button><button data-land data-hold="attack">攻撃</button></div>
+<div class="controls"><button class="skill" data-amber data-action="skill3"><kbd>I</kbd><span>ウサギ伯爵</span><em id="cd-skill3"></em></button><button class="skill" data-amber data-action="skill4"><kbd>N</kbd><span>跳躍射撃</span><em id="cd-skill4"></em></button><span>仲間操作中に使用。追加仲間の外見は仮図形です。</span></div><div class="touch"><button data-hold="left">←</button><button data-hold="right">→</button><button data-swim data-hold="up" aria-label="上へ泳ぐ" hidden>↑</button><button data-swim data-hold="down" aria-label="下へ泳ぐ" hidden>↓</button><button id="touchJump" data-action="jump">ジャンプ</button><button data-land data-hold="attack">攻撃</button></div>
 <section id="artifactAttackBlock" hidden>
  <div class="controls"><span id="artifactAttackBlockText" role="status"></span><button id="manageBlockedDrops">拠点へ戻って整理</button></div>
 </section>
@@ -423,4 +423,33 @@
  <section id="dailyCarry" hidden><h2>前日からの未受取</h2><div class="dailyCards"></div></section>
  <section id="dailyChoices" hidden><h2>この拠点で受注</h2><div class="dailyCards"></div></section>
 </details>
+<button id="atlasOpen" type="button" hidden disabled>地図 <kbd>M</kbd></button><dialog id="worldAtlas" aria-labelledby="atlasTitle">
+  <header class="atlas-header">
+    <div><h2 id="atlasTitle">旅路の地図</h2><p>現在地とフィールドのつながり</p></div>
+    <button id="atlasClose" class="atlas-close" type="button" autofocus>閉じる <kbd>Esc</kbd></button>
+  </header>
+  <div class="atlas-tools">
+    <button id="atlasWorld" type="button">全体図</button>
+    <button id="atlasCurrent" type="button">現在地へ</button>
+    <label>地域<select id="atlasRegion"></select></label>
+    <label>表示<select id="atlasLayer">
+      <option value="all">すべての階層</option><option value="surface">地上</option>
+      <option value="below">別階層</option><option value="water">水中</option>
+      <option value="review">設計中の地点</option>
+    </select></label>
+  </div>
+  <div class="atlas-body">
+    <div class="atlas-paper">
+      <canvas id="atlasCanvas" class="world-atlas-canvas" width="900" height="500" aria-label="地域を選べる旅路の地図。地点の選択欄でも操作できます。"></canvas>
+      <p class="atlas-legend"><span><b data-marker="current">◆</b> 現在地</span><span><b data-marker="seen">◆</b> 訪問済み</span><span><b data-marker="new">◆</b> 未訪問</span><span>─ 徒歩</span><span>┄ 条件付き・乗り物</span></p>
+    </div>
+    <section class="atlas-info" aria-label="地点の詳細">
+      <label>地点を探す<input id="atlasSearch" type="search" placeholder="地名またはLv"></label>
+      <select id="atlasField" aria-label="地点を選ぶ"></select>
+      <h3 id="atlasPlaceName"></h3>
+      <p id="atlasPlaceLevel"></p>
+      <ul id="atlasRoutes" aria-label="隣接する地点"></ul>
+    </section>
+  </div>
+</dialog>
 <section id="storyPanel" class="controls"></section><script type="module" src="story-ui.js"></script><script type="module" src="app.js"></script><script type="module" src="encounters-ui.js"></script></html>

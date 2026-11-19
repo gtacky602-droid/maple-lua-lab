@@ -603,6 +603,8 @@ def runtime():
         lua.table_from({'farka':farka,'beidou':stygian_beidou,'capitano':capitano,'xbalanque':xbalanque,
                         'rerir':rerir,'ronova':ronova,'wanderer':wanderer}))
     lua.execute((ROOT/'growth-trials.lua').read_text(encoding='utf8'))(core)
+    atlas = json.loads((ROOT/'content/world-atlas.json').read_text(encoding='utf8'))
+    lua.execute((ROOT/'world-atlas.lua').read_text(encoding='utf8'))(core,lua.table_from(atlas,recursive=True))
     return lua, core
 
 def native(value):
