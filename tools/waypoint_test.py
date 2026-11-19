@@ -3,7 +3,7 @@
 class TrailWalk:
     def __init__(self, lua, core, state, edges, exits):
         self.core, self.state, self.edges, self.exits = core, state, edges, exits
-        self.inputs = {d: lua.table_from({d: True}) for d in ('left', 'right', 'jump')}
+        self.inputs = {d: lua.table_from({d: True}) for d in ('left', 'right', 'jump', 'up', 'down')}
         self.idle = lua.table()
         self.crossings = set()
 
@@ -18,6 +18,12 @@ class TrailWalk:
             assert actor.hp > 0 and self.state.story.node == origin, (origin, target, actor.hp)
             if abs(actor.x - x) > 9:
                 movement = self.inputs['left' if actor.x > x else 'right']
+                self.core.step(self.state, 1 / 60, movement)
+                continue
+            if self.state.storySwimming:
+                if abs(actor.y - y) < 9:
+                    return
+                movement = self.inputs['up' if actor.y > y else 'down']
                 self.core.step(self.state, 1 / 60, movement)
                 continue
             if abs(actor.y - y) < 10 and actor.ground:

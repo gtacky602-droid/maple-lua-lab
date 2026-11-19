@@ -2470,13 +2470,46 @@
         {
           "to": "fontaine-hub",
           "x": 1380
+        },
+        {
+          "to": "fon-wp-50035",
+          "x": 360,
+          "arrivalX": 76,
+          "arrivalY": 480
+        },
+        {
+          "to": "fon-wp-68340",
+          "x": 1050,
+          "arrivalX": 76,
+          "arrivalY": 480,
+          "boatSeconds": 3.4,
+          "rideLabel": "ノストイへの連絡船"
+        },
+        {
+          "to": "fon-wp-50046",
+          "x": 700,
+          "arrivalX": 76,
+          "arrivalY": 480,
+          "boatSeconds": 3.4,
+          "rideLabel": "港口と水路橋を結ぶ連絡船"
         }
       ],
-      "checkpoint": "sumeru-hub"
+      "checkpoint": "sumeru-hub",
+      "mapPoint": "teyvat:50033",
+      "waypoint": {
+        "kind": "statue",
+        "area": "フォンテーヌ南部",
+        "x": 440,
+        "y": 480
+      }
     },
     {
       "id": "fontaine-hub",
-      "toyDisplay":{"quest":"fon-freminet-dive","x":477,"y":480},
+      "toyDisplay": {
+        "quest": "fon-freminet-dive",
+        "x": 477,
+        "y": 480
+      },
       "name": "フォンテーヌ・水辺の広場",
       "region": "フォンテーヌ",
       "level": 80,
@@ -2500,8 +2533,14 @@
         }
       ],
       "exits": [
-        {"to":"knave-crimson-court","x":186},
-        {"to":"narwhal-star-sea","x":700},
+        {
+          "to": "knave-crimson-court",
+          "x": 186
+        },
+        {
+          "to": "narwhal-star-sea",
+          "x": 700
+        },
         {
           "to": "fontaine-entry",
           "x": 60
@@ -2515,18 +2554,109 @@
           "x": 1050,
           "visitedOnly": true
         },
-        {"to":"fon-toy-shallows","x":484,"arrivalX":146,"arrivalY":160,"rideLabel":"浅瀬の試験区画へ","requires":{"quest":"fon-freminet-dive","count":1}},
-        {"to":"fon-photo-terrace","x":316,"arrivalX":118,"rideLabel":"写真を撮る水路広場","requires":{"quest":"fon-navia-photo","count":0}},
-        {"to":"fon-emilie-atelier","x":403,"arrivalX":124,"rideLabel":"水辺の調香工房","requires":{"quest":"fon-emilie-scent","count":0}},
-        {"to":"icewind-promenade","x":580},
-        {"to":"nostoi-castle-approach","x":820},
-        {"to":"simulanka-book-room","x":1138},
-        {"to":"fontaine-parcel-counter","x":855},
-        {"to":"fontaine-moon-fly-loft","x":995,"requires":{"quest":"fontaine-moon-parcel"},"rideLabel":"月飾りの吊り場への近道"},
-        {"to":"fontaine-parcel-storeroom","x":1090,"requires":{"quest":"fontaine-understage-crew","count":4},"rideLabel":"舞台下の保管室・点検口"},
-        {"to":"fontaine-rehearsal-room","x":1240,"requires":{"quest":"fontaine-understage-crew"},"rideLabel":"別稽古場への近道"},
-        {"to":"fontaine-stage-watch","x":1171,"requires":{"quest":"fontaine-grand-finale","count":0},"rideLabel":"幕裏の監視所"},
-        {"to":"fontaine-grand-stage","x":1320,"requires":{"quest":"fontaine-grand-finale"},"rideLabel":"上演後の主舞台への近道"}
+        {
+          "to": "fon-toy-shallows",
+          "x": 484,
+          "arrivalX": 146,
+          "arrivalY": 160,
+          "rideLabel": "浅瀬の試験区画へ",
+          "requires": {
+            "quest": "fon-freminet-dive",
+            "count": 1
+          }
+        },
+        {
+          "to": "fon-photo-terrace",
+          "x": 316,
+          "arrivalX": 118,
+          "rideLabel": "写真を撮る水路広場",
+          "requires": {
+            "quest": "fon-navia-photo",
+            "count": 0
+          }
+        },
+        {
+          "to": "fon-emilie-atelier",
+          "x": 403,
+          "arrivalX": 124,
+          "rideLabel": "水辺の調香工房",
+          "requires": {
+            "quest": "fon-emilie-scent",
+            "count": 0
+          }
+        },
+        {
+          "to": "icewind-promenade",
+          "x": 580
+        },
+        {
+          "to": "nostoi-castle-approach",
+          "x": 820
+        },
+        {
+          "to": "simulanka-book-room",
+          "x": 1138
+        },
+        {
+          "to": "fontaine-parcel-counter",
+          "x": 855
+        },
+        {
+          "to": "fontaine-moon-fly-loft",
+          "x": 995,
+          "requires": {
+            "quest": "fontaine-moon-parcel"
+          },
+          "rideLabel": "月飾りの吊り場への近道"
+        },
+        {
+          "to": "fontaine-parcel-storeroom",
+          "x": 1090,
+          "requires": {
+            "quest": "fontaine-understage-crew",
+            "count": 4
+          },
+          "rideLabel": "舞台下の保管室・点検口"
+        },
+        {
+          "to": "fontaine-rehearsal-room",
+          "x": 1240,
+          "requires": {
+            "quest": "fontaine-understage-crew"
+          },
+          "rideLabel": "別稽古場への近道"
+        },
+        {
+          "to": "fontaine-stage-watch",
+          "x": 1171,
+          "requires": {
+            "quest": "fontaine-grand-finale",
+            "count": 0
+          },
+          "rideLabel": "幕裏の監視所"
+        },
+        {
+          "to": "fontaine-grand-stage",
+          "x": 1320,
+          "requires": {
+            "quest": "fontaine-grand-finale"
+          },
+          "rideLabel": "上演後の主舞台への近道"
+        },
+        {
+          "to": "fon-wp-50053",
+          "x": 445,
+          "y": 340,
+          "arrivalX": 1362,
+          "arrivalY": 480
+        },
+        {
+          "to": "fon-wp-50050",
+          "x": 315,
+          "y": 340,
+          "arrivalX": 719,
+          "arrivalY": 480
+        }
       ],
       "checkpoint": "fontaine-hub",
       "hints": [
@@ -2536,7 +2666,14 @@
           "y": 480,
           "label": "不思議な絵本"
         }
-      ]
+      ],
+      "mapPoint": "teyvat:50054",
+      "waypoint": {
+        "kind": "statue",
+        "area": "フォンテーヌ廷",
+        "x": 490,
+        "y": 480
+      }
     },
     {
       "id": "fontaine-field",
@@ -2580,13 +2717,50 @@
           "to": "bygone-camp",
           "x": 720
         },
-        {"to":"tulpa-field-grotto","x":320},
-        {"to":"emperor-field-cove","x":510},
-        {"to":"seahorse-field-cavern","x":985},
-        {"to":"field-generator-field-chamber","x":1165},
-        {"to":"fontaine-outskirts-loading","x":194,"arrivalX":123}
+        {
+          "to": "tulpa-field-grotto",
+          "x": 320
+        },
+        {
+          "to": "emperor-field-cove",
+          "x": 510
+        },
+        {
+          "to": "seahorse-field-cavern",
+          "x": 985
+        },
+        {
+          "to": "field-generator-field-chamber",
+          "x": 1165
+        },
+        {
+          "to": "fontaine-outskirts-loading",
+          "x": 194,
+          "arrivalX": 123
+        },
+        {
+          "to": "fon-wp-50052",
+          "x": 835,
+          "arrivalX": 1362,
+          "arrivalY": 480
+        },
+        {
+          "to": "fon-wp-50064",
+          "x": 625,
+          "arrivalX": 724,
+          "arrivalY": 345,
+          "waterwaySeconds": 2.4,
+          "rideLabel": "水路沿いからの潜水口"
+        }
       ],
-      "checkpoint": "fontaine-hub"
+      "checkpoint": "fontaine-hub",
+      "mapPoint": "teyvat:50051",
+      "waypoint": {
+        "kind": "waypoint",
+        "area": "フォンテーヌ廷",
+        "x": 520,
+        "y": 480
+      }
     },
     {
       "id":"fontaine-outskirts-loading","name":"フォンテーヌ・郊外の搬入口","region":"フォンテーヌ","level":80,"hub":false,
@@ -2601,7 +2775,7 @@
     {"id":"icewind-promenade","name":"フォンテーヌ・氷風の舞台入口","region":"フォンテーヌ","level":90,"hub":false,"peaceful":true,"width":1440,"platforms":[{"x":0,"y":480,"w":1440}],"exits":[{"to":"fontaine-hub","x":65},{"to":"icewind-coppelia-field","x":420},{"to":"icewind-coppelius-field","x":1060}],"checkpoint":"fontaine-hub"},
     {"id":"icewind-coppelia-field","name":"氷風組曲・コッペリアの葬送","region":"フォンテーヌ","level":90,"hub":false,"peaceful":true,"width":1690,"platforms":[{"x":0,"y":480,"w":1690}],"exits":[{"to":"icewind-promenade","x":65}],"checkpoint":"fontaine-hub"},
     {"id":"icewind-coppelius-field","name":"氷風組曲・コペリウスの劫罰","region":"フォンテーヌ","level":90,"hub":false,"peaceful":true,"width":1690,"platforms":[{"x":0,"y":480,"w":1690}],"exits":[{"to":"icewind-promenade","x":65}],"checkpoint":"fontaine-hub"},
-    {"id":"nostoi-castle-approach","name":"ノストイ地区・色褪せた城の入口","region":"フォンテーヌ","level":92,"hub":false,"peaceful":true,"width":1440,"platforms":[{"x":0,"y":480,"w":1440}],"exits":[{"to":"fontaine-hub","x":65},{"to":"legatus-field-hall","x":1050}],"checkpoint":"fontaine-hub"},
+    {"id":"nostoi-castle-approach","name":"ノストイ地区・色褪せた城の入口","region":"フォンテーヌ","level":92,"hub":false,"peaceful":true,"width":1440,"platforms":[{"x":0,"y":480,"w":1440}],"exits":[{"to":"fontaine-hub","x":65},{"to":"legatus-field-hall","x":1050},{"to":"fon-wp-68340","x":405,"arrivalX":709,"arrivalY":480},{"to":"fon-wp-68341","x":920,"arrivalX":709,"arrivalY":480}],"checkpoint":"fontaine-hub","mapPoint":"teyvat:68339","waypoint":{"kind":"statue","area":"ノストイ地区","x":500,"y":480}},
     {"id":"legatus-field-hall","name":"ノストイ地区・色褪せた城の展示広間","region":"フォンテーヌ","level":92,"hub":false,"peaceful":true,"width":1690,"platforms":[{"x":0,"y":480,"w":1690}],"exits":[{"to":"nostoi-castle-approach","x":65}],"checkpoint":"fontaine-hub"},
     {
       "id": "natlan-entry",
@@ -4331,15 +4505,59 @@
           "to": "bygone-depth",
           "x": 1380
         },
-        {"to":"bygone-waterway-pier","x":831},
-        {"to":"bygone-resonance-chamber","x":1005,"requires":{"quest":"bygone-stone-rubbings"}},
-        {"to":"bygone-inscribed-hall","x":1152,"requires":{"quest":"bygone-stone-rubbings"}},
-        {"to":"bygone-listening-gallery","x":1265,"requires":{"quest":"bygone-lit-passage"}}
+        {
+          "to": "bygone-waterway-pier",
+          "x": 831
+        },
+        {
+          "to": "bygone-resonance-chamber",
+          "x": 1005,
+          "requires": {
+            "quest": "bygone-stone-rubbings"
+          }
+        },
+        {
+          "to": "bygone-inscribed-hall",
+          "x": 1152,
+          "requires": {
+            "quest": "bygone-stone-rubbings"
+          }
+        },
+        {
+          "to": "bygone-listening-gallery",
+          "x": 1265,
+          "requires": {
+            "quest": "bygone-lit-passage"
+          }
+        },
+        {
+          "to": "bygone-wp-68600",
+          "x": 435,
+          "arrivalX": 1372,
+          "arrivalY": 305,
+          "waterwaySeconds": 2.4,
+          "rideLabel": "浅い水路から入口拠点へ浮上"
+        },
+        {
+          "to": "bygone-wp-68615",
+          "x": 670,
+          "arrivalX": 76,
+          "arrivalY": 419,
+          "waterwaySeconds": 2.4,
+          "rideLabel": "珊瑚の池へ潜る水路"
+        }
       ],
       "checkpoint": "bygone-camp",
       "branch": true,
       "lightReference": 25,
-      "barrier": 0
+      "barrier": 0,
+      "mapPoint": "map34:68601",
+      "waypoint": {
+        "kind": "waypoint",
+        "area": "往日の海",
+        "x": 450,
+        "y": 480
+      }
     },
     {
       "id": "bygone-depth",
@@ -4374,12 +4592,35 @@
         {
           "to": "bygone-camp",
           "x": 60
+        },
+        {
+          "to": "bygone-wp-68603",
+          "x": 645,
+          "arrivalX": 76,
+          "arrivalY": 480,
+          "liftSeconds": 1.8,
+          "rideLabel": "西の石室への昇降機"
+        },
+        {
+          "to": "bygone-wp-68604",
+          "x": 1088,
+          "arrivalX": 724,
+          "arrivalY": 305,
+          "waterwaySeconds": 2.4,
+          "rideLabel": "洞口から西海へ潜る水路"
         }
       ],
       "checkpoint": "bygone-camp",
       "branch": true,
       "lightReference": 25,
-      "barrier": 25
+      "barrier": 25,
+      "mapPoint": "map34:68602",
+      "waypoint": {
+        "kind": "waypoint",
+        "area": "往日の海",
+        "x": 480,
+        "y": 480
+      }
     },
     {
       "id": "dornman-camp",
@@ -6547,6 +6788,117 @@
     {"id":"knave-crimson-court","name":"凶月の再現戦","region":"フォンテーヌ","level":88,"width":960,"hub":false,"peaceful":true,"checkpoint":"fontaine-hub","platforms":[{"x":0,"y":480,"w":960},{"x":98,"y":357,"w":158},{"x":704,"y":357,"w":158}],"exits":[{"to":"fontaine-hub","x":130}]},
     {"id":"primal-fire-sundered-forge","name":"源焔の再現戦","region":"ナタ","level":104,"width":960,"hub":false,"peaceful":true,"checkpoint":"natlan-hub","platforms":[{"x":40,"y":480,"w":880},{"x":110,"y":357,"w":141},{"x":709,"y":357,"w":141}],"exits":[{"to":"natlan-hub","x":863,"arrivalX":351}]},
     {"id":"mond-gate-chess-court","name":"扉の対局・再現盤","region":"モンド","level":112,"width":960,"hub":false,"peaceful":true,"checkpoint":"mond-town","platforms":[{"x":0,"y":480,"w":960},{"x":128,"y":357,"w":176},{"x":656,"y":357,"w":176}],"exits":[{"to":"mond-town","x":825,"arrivalX":442}]},
+    {"id":"fon-wp-50035","name":"フォンテーヌ南部・入江の北岸","region":"フォンテーヌ","level":86,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fontaine-entry","x":76,"arrivalX":360,"arrivalY":480},{"to":"fon-wp-50036","x":709,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-50037","x":1342,"arrivalX":709,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:50035","waypoint":{"kind":"waypoint","area":"フォンテーヌ南部","x":710,"y":480}},
+    {"id":"fon-wp-50036","name":"フォンテーヌ南部・西南の山道","region":"フォンテーヌ","level":83,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-50040","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-50043","x":709,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"斜面裏の昇降機"},{"to":"fon-wp-50035","x":1342,"arrivalX":709,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:50036","waypoint":{"kind":"waypoint","area":"フォンテーヌ南部","x":710,"y":480}},
+    {"id":"fon-wp-50037","name":"フォンテーヌ南部・西の高台","region":"フォンテーヌ","level":84,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-50038","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-50035","x":709,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-50046","x":1342,"arrivalX":392,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:50037","waypoint":{"kind":"waypoint","area":"フォンテーヌ南部","x":710,"y":480}},
+    {"id":"fon-wp-50038","name":"フォンテーヌ南部・西岸の神像","region":"フォンテーヌ","level":85,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-50039","x":76,"arrivalX":709,"arrivalY":480},{"to":"fon-wp-50037","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:50038","waypoint":{"kind":"statue","area":"フォンテーヌ南部","x":710,"y":480}},
+    {"id":"fon-wp-50039","name":"フォンテーヌ南部・西の林の道","region":"フォンテーヌ","level":86,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-50040","x":76,"arrivalX":709,"arrivalY":480},{"to":"fon-wp-50038","x":709,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-50041","x":1342,"arrivalX":709,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:50039","waypoint":{"kind":"waypoint","area":"フォンテーヌ南部","x":710,"y":480}},
+    {"id":"fon-wp-50040","name":"フォンテーヌ南部・山裾の水たまり","region":"フォンテーヌ","level":83,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-50042","x":76,"arrivalX":709,"arrivalY":480},{"to":"fon-wp-50039","x":709,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-50036","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:50040","waypoint":{"kind":"waypoint","area":"フォンテーヌ南部","x":710,"y":480}},
+    {"id":"fon-wp-50041","name":"フォンテーヌ南部・対岸を望む棚","region":"フォンテーヌ","level":84,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-50042","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-50039","x":709,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-50053","x":1342,"arrivalX":719,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"西岸と市街の渡し舟"}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:50041","waypoint":{"kind":"waypoint","area":"フォンテーヌ南部","x":710,"y":480}},
+    {"id":"fon-wp-50042","name":"フォンテーヌ南部・西岬の洞口","region":"フォンテーヌ","level":85,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-56363","x":76,"arrivalX":76,"arrivalY":419,"waterwaySeconds":2.4,"rideLabel":"西岬の水洞口"},{"to":"fon-wp-50040","x":709,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-50041","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:50042","waypoint":{"kind":"waypoint","area":"フォンテーヌ南部","x":710,"y":480}},
+    {"id":"fon-wp-50043","name":"フォンテーヌ南部・斜面の暗がり","region":"フォンテーヌ","level":86,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-50036","x":76,"arrivalX":709,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"斜面裏の昇降機"},{"to":"fon-wp-50044","x":1272,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:50043","waypoint":{"kind":"waypoint","area":"フォンテーヌ南部・別階層","x":675,"y":480,"floor":{"group_id":92,"floor_id":84}}},
+    {"id":"fon-wp-50044","name":"フォンテーヌ南部・地下の見張り棚","region":"フォンテーヌ","level":83,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-50043","x":76,"arrivalX":1272,"arrivalY":480},{"to":"fon-wp-52029","x":1272,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"西の洞の昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:50044","waypoint":{"kind":"waypoint","area":"フォンテーヌ南部・別階層","x":675,"y":480,"floor":{"group_id":92,"floor_id":84}}},
+    {"id":"fon-wp-50045","name":"フォンテーヌ南部・水路東の尾根","region":"フォンテーヌ","level":84,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-50046","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-50074","x":498,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"東岸からの昇降機"},{"to":"fon-wp-55773","x":920,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-55763","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:50045","waypoint":{"kind":"waypoint","area":"フォンテーヌ南部","x":710,"y":480}},
+    {"id":"fon-wp-50046","name":"フォンテーヌ南部・水路橋南の岸","region":"フォンテーヌ","level":85,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fontaine-entry","x":76,"arrivalX":700,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"港口と水路橋を結ぶ連絡船"},{"to":"fon-wp-50037","x":392,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-50073","x":709,"arrivalX":1372,"arrivalY":362,"waterwaySeconds":2.4,"rideLabel":"橋の南からの潜水口"},{"to":"fon-wp-50060","x":1026,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"橋脚の昇降機"},{"to":"fon-wp-50045","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:50046","waypoint":{"kind":"waypoint","area":"フォンテーヌ南部","x":710,"y":480}},
+    {"id":"fon-wp-50047","name":"フォンテーヌ南部・東の水門前","region":"フォンテーヌ","level":86,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55761","x":76,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-50048","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:50047","waypoint":{"kind":"waypoint","area":"フォンテーヌ南部","x":710,"y":480}},
+    {"id":"fon-wp-50048","name":"フォンテーヌ南部・東の工房跡","region":"フォンテーヌ","level":83,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-50047","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55776","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:50048","waypoint":{"kind":"waypoint","area":"フォンテーヌ南部","x":710,"y":480}},
+    {"id":"fon-wp-50050","name":"フォンテーヌ廷・市街北のテラス","region":"フォンテーヌ","level":82,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1440,"scenery":"fontaineDelivery","exits":[{"to":"fon-wp-50052","x":76,"arrivalX":505,"arrivalY":480},{"to":"fontaine-hub","x":719,"arrivalX":315,"arrivalY":340},{"to":"fon-wp-50056","x":1362,"arrivalX":1362,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1440},{"x":268,"y":399,"w":252},{"x":584,"y":329,"w":248},{"x":985,"y":393,"w":240}],"mapPoint":"teyvat:50050","waypoint":{"kind":"waypoint","area":"フォンテーヌ廷","x":720,"y":480}},
+    {"id":"fon-wp-50052","name":"フォンテーヌ廷・市街南の階段","region":"フォンテーヌ","level":80,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1440,"scenery":"fontaineDelivery","exits":[{"to":"fon-wp-50053","x":76,"arrivalX":1040,"arrivalY":480},{"to":"fon-wp-50050","x":505,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-50059","x":933,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"管路に降りる昇降機"},{"to":"fontaine-field","x":1362,"arrivalX":835,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1440},{"x":268,"y":399,"w":252},{"x":584,"y":329,"w":248},{"x":985,"y":393,"w":240}],"mapPoint":"teyvat:50052","waypoint":{"kind":"waypoint","area":"フォンテーヌ廷","x":720,"y":480}},
+    {"id":"fon-wp-50053","name":"フォンテーヌ廷・市街西の波止場","region":"フォンテーヌ","level":81,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1440,"scenery":"fontaineDelivery","exits":[{"to":"fon-wp-50077","x":76,"arrivalX":1362,"arrivalY":480},{"to":"fon-wp-50062","x":398,"arrivalX":940,"arrivalY":248,"waterwaySeconds":2.4,"rideLabel":"市街西の潜水口"},{"to":"fon-wp-50041","x":719,"arrivalX":1342,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"西岸と市街の渡し舟"},{"to":"fon-wp-50052","x":1040,"arrivalX":76,"arrivalY":480},{"to":"fontaine-hub","x":1362,"arrivalX":445,"arrivalY":340}],"platforms":[{"x":0,"y":480,"w":1440},{"x":268,"y":399,"w":252},{"x":584,"y":329,"w":248},{"x":985,"y":393,"w":240}],"mapPoint":"teyvat:50053","waypoint":{"kind":"waypoint","area":"フォンテーヌ廷","x":720,"y":480}},
+    {"id":"fon-wp-50056","name":"フォンテーヌ廷・市外北の坂","region":"フォンテーヌ","level":80,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1440,"scenery":"fontaineDelivery","exits":[{"to":"fon-wp-50058","x":76,"arrivalX":1362,"arrivalY":480},{"to":"fon-wp-53867","x":719,"arrivalX":920,"arrivalY":480},{"to":"fon-wp-50050","x":1362,"arrivalX":1362,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1440},{"x":268,"y":399,"w":252},{"x":584,"y":329,"w":248},{"x":985,"y":393,"w":240}],"mapPoint":"teyvat:50056","waypoint":{"kind":"waypoint","area":"フォンテーヌ廷","x":720,"y":480}},
+    {"id":"fon-wp-50058","name":"フォンテーヌ廷・西の丘の並木道","region":"フォンテーヌ","level":82,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1440,"scenery":"fontaineDelivery","exits":[{"to":"fon-wp-51964","x":76,"arrivalX":1272,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"貯水路の昇降機"},{"to":"fon-wp-50077","x":719,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-50056","x":1362,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1440},{"x":268,"y":399,"w":252},{"x":584,"y":329,"w":248},{"x":985,"y":393,"w":240}],"mapPoint":"teyvat:50058","waypoint":{"kind":"waypoint","area":"フォンテーヌ廷","x":720,"y":480}},
+    {"id":"fon-wp-50059","name":"フォンテーヌ廷・市街の下の管路","region":"フォンテーヌ","level":83,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-50052","x":76,"arrivalX":933,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"管路に降りる昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:50059","waypoint":{"kind":"waypoint","area":"フォンテーヌ廷・別階層","x":675,"y":480,"floor":{"group_id":52,"floor_id":99}}},
+    {"id":"fon-wp-50060","name":"フォンテーヌ南部・橋脚脇の昇降路","region":"フォンテーヌ","level":83,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-50046","x":76,"arrivalX":1026,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"橋脚の昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:50060","waypoint":{"kind":"waypoint","area":"フォンテーヌ南部・別階層","x":675,"y":480,"floor":{"group_id":33,"floor_id":50}}},
+    {"id":"fon-wp-50061","name":"フォンテーヌ廷・地下貯水路の東端","region":"フォンテーヌ","level":81,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-51964","x":76,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:50061","waypoint":{"kind":"waypoint","area":"フォンテーヌ廷・別階層","x":675,"y":480,"floor":{"group_id":91,"floor_id":81}}},
+    {"id":"fon-wp-50062","name":"フォンテーヌ湖・市街西の水底","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"fontaineToyShallows","exits":[{"to":"fon-wp-56363","x":76,"y":362,"arrivalX":1372,"arrivalY":248,"waterwaySeconds":2.4,"rideLabel":"市街西へ抜ける水路"},{"to":"fon-wp-50063","x":508,"y":419,"arrivalX":76,"arrivalY":419},{"to":"fon-wp-50053","x":940,"y":248,"arrivalX":398,"arrivalY":480,"waterwaySeconds":2.4,"rideLabel":"市街西の潜水口"},{"to":"fon-wp-50064","x":1372,"y":305,"arrivalX":76,"arrivalY":248}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:50062","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":364,"floor":{"group_id":90,"floor_id":78}}},
+    {"id":"fon-wp-50063","name":"フォンテーヌ湖・西側の沈んだ橋脚","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"fontaineToyShallows","exits":[{"to":"fon-wp-50062","x":76,"y":419,"arrivalX":508,"arrivalY":419},{"to":"fon-wp-50072","x":724,"y":248,"arrivalX":76,"arrivalY":248},{"to":"fon-wp-50065","x":1372,"y":305,"arrivalX":76,"arrivalY":305}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:50063","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":389,"floor":{"group_id":90,"floor_id":78}}},
+    {"id":"fon-wp-50064","name":"フォンテーヌ湖・中央湖の浅い標識","region":"フォンテーヌ","level":84,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"fontaineToyShallows","exits":[{"to":"fon-wp-50062","x":76,"y":248,"arrivalX":1372,"arrivalY":305},{"to":"fontaine-field","x":724,"y":345,"arrivalX":625,"arrivalY":480,"waterwaySeconds":2.4,"rideLabel":"水路沿いからの潜水口"},{"to":"fon-wp-50065","x":1372,"y":230,"arrivalX":400,"arrivalY":382}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:50064","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":314,"floor":{"group_id":90,"floor_id":78}}},
+    {"id":"fon-wp-50065","name":"フォンテーヌ湖・中央湖の深い標識","region":"フォンテーヌ","level":85,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"fontaineToyShallows","exits":[{"to":"fon-wp-50063","x":76,"y":305,"arrivalX":1372,"arrivalY":305},{"to":"fon-wp-50064","x":400,"y":382,"arrivalX":1372,"arrivalY":230},{"to":"fon-wp-50072","x":724,"y":419,"arrivalX":1372,"arrivalY":362},{"to":"fon-wp-50075","x":1048,"y":248,"arrivalX":76,"arrivalY":419,"waterwaySeconds":2.4,"rideLabel":"沈水層の下降流"},{"to":"fon-wp-50066","x":1372,"y":305,"arrivalX":76,"arrivalY":362}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:50065","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":339,"floor":{"group_id":90,"floor_id":78}}},
+    {"id":"fon-wp-50066","name":"フォンテーヌ湖・東の水底回廊","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"fontaineToyShallows","exits":[{"to":"fon-wp-50065","x":76,"y":362,"arrivalX":1372,"arrivalY":305},{"to":"fon-wp-50076","x":508,"y":419,"arrivalX":1372,"arrivalY":305,"waterwaySeconds":2.4,"rideLabel":"沈水層から抜ける上昇流"},{"to":"fon-wp-50070","x":940,"y":248,"arrivalX":1372,"arrivalY":419},{"to":"fon-wp-55767","x":1372,"y":305,"arrivalX":76,"arrivalY":419}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:50066","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":364,"floor":{"group_id":90,"floor_id":78}}},
+    {"id":"fon-wp-50068","name":"フォンテーヌ湖・北側の沈水橋","region":"フォンテーヌ","level":85,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"fontaineToyShallows","exits":[{"to":"fon-wp-50069","x":76,"y":248,"arrivalX":76,"arrivalY":305},{"to":"fon-wp-50071","x":1372,"y":305,"arrivalX":724,"arrivalY":248}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:50068","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":314,"floor":{"group_id":90,"floor_id":78}}},
+    {"id":"fon-wp-50069","name":"フォンテーヌ湖・市街東の水中門","region":"フォンテーヌ","level":86,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"fontaineToyShallows","exits":[{"to":"fon-wp-50068","x":76,"y":305,"arrivalX":76,"arrivalY":248},{"to":"fon-wp-50070","x":1372,"y":362,"arrivalX":76,"arrivalY":362}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:50069","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":339,"floor":{"group_id":90,"floor_id":78}}},
+    {"id":"fon-wp-50070","name":"フォンテーヌ湖・中央の水の交差点","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"fontaineToyShallows","exits":[{"to":"fon-wp-50069","x":76,"y":362,"arrivalX":1372,"arrivalY":362},{"to":"fon-wp-50066","x":1372,"y":419,"arrivalX":940,"arrivalY":248}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:50070","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":364,"floor":{"group_id":90,"floor_id":78}}},
+    {"id":"fon-wp-50071","name":"フォンテーヌ湖・北の水底の坂","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"fontaineToyShallows","exits":[{"to":"fon-wp-53866","x":76,"y":419,"arrivalX":1372,"arrivalY":419},{"to":"fon-wp-50068","x":724,"y":248,"arrivalX":1372,"arrivalY":305},{"to":"fon-wp-53864","x":1372,"y":305,"arrivalX":724,"arrivalY":305}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:50071","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":389,"floor":{"group_id":90,"floor_id":78}}},
+    {"id":"fon-wp-50072","name":"フォンテーヌ湖・南西の水底の溝","region":"フォンテーヌ","level":85,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"fontaineToyShallows","exits":[{"to":"fon-wp-50063","x":76,"y":248,"arrivalX":724,"arrivalY":248},{"to":"fon-wp-50073","x":724,"y":305,"arrivalX":76,"arrivalY":305},{"to":"fon-wp-50065","x":1372,"y":362,"arrivalX":724,"arrivalY":419}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:50072","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":314,"floor":{"group_id":90,"floor_id":78}}},
+    {"id":"fon-wp-50073","name":"フォンテーヌ湖・南の水底のトンネル","region":"フォンテーヌ","level":86,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"fontaineToyShallows","exits":[{"to":"fon-wp-50072","x":76,"y":305,"arrivalX":724,"arrivalY":305},{"to":"fon-wp-50046","x":1372,"y":362,"arrivalX":709,"arrivalY":480,"waterwaySeconds":2.4,"rideLabel":"橋の南からの潜水口"}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:50073","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":339,"floor":{"group_id":90,"floor_id":78}}},
+    {"id":"fon-wp-50074","name":"フォンテーヌ南部・東岸の石の地下道","region":"フォンテーヌ","level":85,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-50045","x":76,"arrivalX":498,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"東岸からの昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:50074","waypoint":{"kind":"waypoint","area":"フォンテーヌ南部・別階層","x":675,"y":480,"floor":{"group_id":49,"floor_id":55}}},
+    {"id":"fon-wp-50075","name":"フォンテーヌ湖・南の沈水層の入口","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"fon-wp-50065","x":76,"y":419,"arrivalX":1048,"arrivalY":248,"waterwaySeconds":2.4,"rideLabel":"沈水層の下降流"},{"to":"fon-wp-50076","x":1372,"y":248,"arrivalX":76,"arrivalY":248}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:50075","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":389,"floor":{"group_id":99,"floor_id":93}}},
+    {"id":"fon-wp-50076","name":"フォンテーヌ湖・南の沈水層の奥","region":"フォンテーヌ","level":85,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"fon-wp-50075","x":76,"y":248,"arrivalX":1372,"arrivalY":248},{"to":"fon-wp-50066","x":1372,"y":305,"arrivalX":508,"arrivalY":419,"waterwaySeconds":2.4,"rideLabel":"沈水層から抜ける上昇流"}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:50076","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":314,"floor":{"group_id":99,"floor_id":93}}},
+    {"id":"fon-wp-50077","name":"フォンテーヌ廷・市外の西の水門","region":"フォンテーヌ","level":81,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1440,"scenery":"fontaineDelivery","exits":[{"to":"fon-wp-50058","x":76,"arrivalX":719,"arrivalY":480},{"to":"fon-wp-50053","x":1362,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1440},{"x":268,"y":399,"w":252},{"x":584,"y":329,"w":248},{"x":985,"y":393,"w":240}],"mapPoint":"teyvat:50077","waypoint":{"kind":"waypoint","area":"フォンテーヌ廷","x":720,"y":480}},
+    {"id":"fon-wp-51964","name":"フォンテーヌ廷・地下貯水路の西端","region":"フォンテーヌ","level":80,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-50061","x":76,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-50058","x":1272,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"貯水路の昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:51964","waypoint":{"kind":"waypoint","area":"フォンテーヌ廷・別階層","x":675,"y":480,"floor":{"group_id":91,"floor_id":81}}},
+    {"id":"fon-wp-52029","name":"フォンテーヌ南部・西の高台の下の洞","region":"フォンテーヌ","level":84,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-50044","x":76,"arrivalX":1272,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"西の洞の昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:52029","waypoint":{"kind":"waypoint","area":"フォンテーヌ南部・別階層","x":675,"y":480,"floor":{"group_id":92,"floor_id":85}}},
+    {"id":"fon-wp-53848","name":"フォンテーヌ湖・北西湾の沈んだ石の間","region":"フォンテーヌ","level":85,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"fon-wp-53863","x":76,"y":248,"arrivalX":709,"arrivalY":480,"waterwaySeconds":2.4,"rideLabel":"北西湾の潜水口"}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:53848","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":314,"floor":{"group_id":62,"floor_id":61}}},
+    {"id":"fon-wp-53849","name":"フォンテーヌ北部・北の水門の第二層","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-53869","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"水門第三層の昇降機"},{"to":"fon-wp-53850","x":1272,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"水門第二層の昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:53849","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部・別階層","x":675,"y":480,"floor":{"group_id":20,"floor_id":112}}},
+    {"id":"fon-wp-53850","name":"フォンテーヌ北部・北の水門の第一層","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-53849","x":76,"arrivalX":1272,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"水門第二層の昇降機"},{"to":"fon-wp-53867","x":674,"arrivalX":498,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"水門第一層の昇降機"},{"to":"fon-wp-53871","x":1272,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"東の下層の昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:53850","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部・別階層","x":675,"y":480,"floor":{"group_id":20,"floor_id":42}}},
+    {"id":"fon-wp-53851","name":"フォンテーヌ北部・北岸の石室","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-53870","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"北岸の石室の昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:53851","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部・別階層","x":675,"y":480,"floor":{"group_id":100,"floor_id":114}}},
+    {"id":"fon-wp-53852","name":"フォンテーヌ北部・北西岸の船着き場","region":"フォンテーヌ","level":85,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-53863","x":76,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-53867","x":1342,"arrivalX":76,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"北西岸への連絡船"}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:53852","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部","x":710,"y":480}},
+    {"id":"fon-wp-53853","name":"フォンテーヌ北部・演習場西の道","region":"フォンテーヌ","level":86,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-53867","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-53854","x":709,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-53868","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:53853","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部","x":710,"y":480}},
+    {"id":"fon-wp-53854","name":"フォンテーヌ北部・演習場南の崖道","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-53853","x":76,"arrivalX":709,"arrivalY":480},{"to":"fon-wp-55777","x":709,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-53855","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:53854","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部","x":710,"y":480}},
+    {"id":"fon-wp-53855","name":"フォンテーヌ北部・東の丘の見張り台","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-53854","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-53868","x":1342,"arrivalX":1342,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:53855","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部","x":710,"y":480}},
+    {"id":"fon-wp-53856","name":"フォンテーヌ北部・湖東の斜面","region":"フォンテーヌ","level":85,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-53858","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-53868","x":709,"arrivalX":709,"arrivalY":480},{"to":"fon-wp-53857","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:53856","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部","x":710,"y":480}},
+    {"id":"fon-wp-53857","name":"フォンテーヌ北部・北東の貯水池","region":"フォンテーヌ","level":86,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-53856","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-53859","x":1342,"arrivalX":1342,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:53857","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部","x":710,"y":480}},
+    {"id":"fon-wp-53858","name":"フォンテーヌ北部・高い水門の側道","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-53861","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-53864","x":709,"arrivalX":1372,"arrivalY":362,"waterwaySeconds":2.4,"rideLabel":"高い水門の潜水口"},{"to":"fon-wp-53856","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:53858","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部","x":710,"y":480}},
+    {"id":"fon-wp-53859","name":"フォンテーヌ北部・北の縁の岩道","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-53860","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-53857","x":1342,"arrivalX":1342,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:53859","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部","x":710,"y":480}},
+    {"id":"fon-wp-53860","name":"フォンテーヌ北部・山裾の運河","region":"フォンテーヌ","level":85,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-53862","x":76,"arrivalX":1342,"arrivalY":371},{"to":"fon-wp-53861","x":709,"arrivalX":709,"arrivalY":480},{"to":"fon-wp-53859","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:53860","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部","x":710,"y":480}},
+    {"id":"fon-wp-53861","name":"フォンテーヌ北部・西の水路の分岐","region":"フォンテーヌ","level":86,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-53870","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-53860","x":709,"arrivalX":709,"arrivalY":480},{"to":"fon-wp-53858","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:53861","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部","x":710,"y":480}},
+    {"id":"fon-wp-53862","name":"フォンテーヌ北部・北端の高台","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-53863","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-53860","x":1342,"y":371,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252},{"x":1280,"y":371,"w":129}],"mapPoint":"teyvat:53862","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部","x":710,"y":480}},
+    {"id":"fon-wp-53863","name":"フォンテーヌ北部・北西湾の入口","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-53852","x":76,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-53848","x":709,"arrivalX":76,"arrivalY":248,"waterwaySeconds":2.4,"rideLabel":"北西湾の潜水口"},{"to":"fon-wp-53862","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:53863","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部","x":710,"y":480}},
+    {"id":"fon-wp-53864","name":"フォンテーヌ湖・北の入江の水底","region":"フォンテーヌ","level":85,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"fontaineToyShallows","exits":[{"to":"fon-wp-53865","x":76,"y":248,"arrivalX":1372,"arrivalY":362},{"to":"fon-wp-50071","x":724,"y":305,"arrivalX":1372,"arrivalY":305},{"to":"fon-wp-53858","x":1372,"y":362,"arrivalX":709,"arrivalY":480,"waterwaySeconds":2.4,"rideLabel":"高い水門の潜水口"}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:53864","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":314,"floor":{"group_id":90,"floor_id":78}}},
+    {"id":"fon-wp-53865","name":"フォンテーヌ湖・水門西の深い棚","region":"フォンテーヌ","level":86,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"fontaineToyShallows","exits":[{"to":"fon-wp-53866","x":76,"y":305,"arrivalX":76,"arrivalY":362},{"to":"fon-wp-53864","x":1372,"y":362,"arrivalX":76,"arrivalY":248}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:53865","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":339,"floor":{"group_id":90,"floor_id":78}}},
+    {"id":"fon-wp-53866","name":"フォンテーヌ湖・入江西の水中通路","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"fontaineToyShallows","exits":[{"to":"fon-wp-53865","x":76,"y":362,"arrivalX":76,"arrivalY":305},{"to":"fon-wp-50071","x":1372,"y":419,"arrivalX":76,"arrivalY":419}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:53866","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":364,"floor":{"group_id":90,"floor_id":78}}},
+    {"id":"fon-wp-53867","name":"フォンテーヌ北部・北の入口の神像","region":"フォンテーヌ","level":86,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-53852","x":76,"arrivalX":1342,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"北西岸への連絡船"},{"to":"fon-wp-53850","x":498,"arrivalX":674,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"水門第一層の昇降機"},{"to":"fon-wp-50056","x":920,"arrivalX":719,"arrivalY":480},{"to":"fon-wp-53853","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:53867","waypoint":{"kind":"statue","area":"フォンテーヌ北部","x":710,"y":480}},
+    {"id":"fon-wp-53868","name":"フォンテーヌ北部・東湖の神像","region":"フォンテーヌ","level":85,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-53853","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-53856","x":709,"arrivalX":709,"arrivalY":480},{"to":"fon-wp-53855","x":1342,"arrivalX":1342,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:53868","waypoint":{"kind":"statue","area":"フォンテーヌ北部","x":710,"y":480}},
+    {"id":"fon-wp-53869","name":"フォンテーヌ北部・北の水門の第三層","region":"フォンテーヌ","level":86,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-53849","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"水門第三層の昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:53869","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部・別階層","x":675,"y":480,"floor":{"group_id":20,"floor_id":113}}},
+    {"id":"fon-wp-53870","name":"フォンテーヌ北部・北岸の水路口","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-53851","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"北岸の石室の昇降機"},{"to":"fon-wp-53861","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:53870","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部","x":710,"y":480}},
+    {"id":"fon-wp-53871","name":"フォンテーヌ北部・北の水門の東の下層","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-53850","x":76,"arrivalX":1272,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"東の下層の昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:53871","waypoint":{"kind":"waypoint","area":"フォンテーヌ北部・別階層","x":675,"y":480,"floor":{"group_id":20,"floor_id":122}}},
+    {"id":"fon-wp-55760","name":"フォンテーヌ東部・東湾の神像","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55775","x":76,"arrivalX":709,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"東湾へ向かう連絡船"},{"to":"fon-wp-55769","x":709,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-55772","x":1342,"arrivalX":76,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"島北から渡る小舟"}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55760","waypoint":{"kind":"statue","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55761","name":"フォンテーヌ東部・湖東の峠の神像","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-50047","x":76,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-55777","x":709,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55778","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55761","waypoint":{"kind":"statue","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55762","name":"フォンテーヌ東部・湾南西の岩礁","region":"フォンテーヌ","level":89,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55763","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55765","x":709,"arrivalX":76,"arrivalY":305,"waterwaySeconds":2.4,"rideLabel":"南西の岩礁からの潜水口"},{"to":"fon-wp-55771","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55762","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55763","name":"フォンテーヌ東部・湾西の水路脇","region":"フォンテーヌ","level":90,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-50045","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55773","x":498,"arrivalX":709,"arrivalY":480},{"to":"fon-wp-55764","x":920,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"西岸の石室の昇降機"},{"to":"fon-wp-55762","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55763","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55764","name":"フォンテーヌ東部・湾西の低い石室","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-55763","x":76,"arrivalX":920,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"西岸の石室の昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:55764","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部・別階層","x":675,"y":480,"floor":{"group_id":112,"floor_id":141}}},
+    {"id":"fon-wp-55765","name":"フォンテーヌ湖・湾の南の沈水溝","region":"フォンテーヌ","level":86,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"fontaineToyShallows","exits":[{"to":"fon-wp-55762","x":76,"y":305,"arrivalX":709,"arrivalY":480,"waterwaySeconds":2.4,"rideLabel":"南西の岩礁からの潜水口"},{"to":"fon-wp-55767","x":724,"y":362,"arrivalX":1372,"arrivalY":248},{"to":"fon-wp-55766","x":1372,"y":419,"arrivalX":76,"arrivalY":362}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:55765","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":339,"floor":{"group_id":90,"floor_id":78}}},
+    {"id":"fon-wp-55766","name":"フォンテーヌ湖・東端の水中の棚","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"fontaineToyShallows","exits":[{"to":"fon-wp-55765","x":76,"y":362,"arrivalX":1372,"arrivalY":419}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:55766","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":364,"floor":{"group_id":90,"floor_id":78}}},
+    {"id":"fon-wp-55767","name":"フォンテーヌ湖・湾北の水中階段","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"fontaineToyShallows","exits":[{"to":"fon-wp-50066","x":76,"y":419,"arrivalX":1372,"arrivalY":305},{"to":"fon-wp-55765","x":1372,"y":248,"arrivalX":724,"arrivalY":362}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:55767","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":389,"floor":{"group_id":90,"floor_id":78}}},
+    {"id":"fon-wp-55768","name":"フォンテーヌ湖・東の島の水洞","region":"フォンテーヌ","level":85,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"fon-wp-55770","x":76,"y":248,"arrivalX":920,"arrivalY":480,"waterwaySeconds":2.4,"rideLabel":"島の水洞口"}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:55768","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":314,"floor":{"group_id":110,"floor_id":135}}},
+    {"id":"fon-wp-55769","name":"フォンテーヌ東部・島西の橋台","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55760","x":76,"arrivalX":709,"arrivalY":480},{"to":"fon-wp-55770","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55769","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55770","name":"フォンテーヌ東部・湾東の岬","region":"フォンテーヌ","level":89,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55769","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55771","x":498,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55768","x":920,"arrivalX":76,"arrivalY":248,"waterwaySeconds":2.4,"rideLabel":"島の水洞口"},{"to":"fon-wp-55772","x":1342,"arrivalX":709,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55770","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55771","name":"フォンテーヌ東部・南の連絡島","region":"フォンテーヌ","level":90,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55762","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55770","x":1342,"arrivalX":498,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55771","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55772","name":"フォンテーヌ東部・島北の見張り場","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55760","x":76,"arrivalX":1342,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"島北から渡る小舟"},{"to":"fon-wp-55770","x":709,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55783","x":1342,"arrivalX":76,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"東沖への連絡船"}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55772","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55773","name":"フォンテーヌ東部・橋の南の高台","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-50045","x":76,"arrivalX":920,"arrivalY":480},{"to":"fon-wp-55763","x":709,"arrivalX":498,"arrivalY":480},{"to":"fon-wp-55775","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55773","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55774","name":"フォンテーヌ東部・東岸の南道","region":"フォンテーヌ","level":89,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55775","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55776","x":1342,"arrivalX":920,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55774","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55775","name":"フォンテーヌ東部・砂利の舟置き場","region":"フォンテーヌ","level":90,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55773","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55760","x":709,"arrivalX":76,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"東湾へ向かう連絡船"},{"to":"fon-wp-55774","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55775","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55776","name":"フォンテーヌ東部・東の工房の裏道","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-50048","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55784","x":498,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"工房地下の昇降機"},{"to":"fon-wp-55774","x":920,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55779","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55776","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55777","name":"フォンテーヌ東部・東の山並みの外道","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-53854","x":76,"arrivalX":709,"arrivalY":480},{"to":"fon-wp-55761","x":1342,"arrivalX":709,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55777","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55778","name":"フォンテーヌ東部・小湖へ続く道","region":"フォンテーヌ","level":89,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55761","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55779","x":1342,"y":369,"arrivalX":498,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252},{"x":1280,"y":369,"w":129}],"mapPoint":"teyvat:55778","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55779","name":"フォンテーヌ東部・小湖の岸","region":"フォンテーヌ","level":90,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55776","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55778","x":498,"arrivalX":1342,"arrivalY":369},{"to":"fon-wp-55782","x":920,"arrivalX":76,"arrivalY":480},{"to":"fon-wp-55780","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55779","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55780","name":"フォンテーヌ東部・東の滝の上","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55779","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55781","x":1342,"arrivalX":1342,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55780","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55781","name":"フォンテーヌ東部・東端の崖の渡り","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55782","x":76,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55780","x":1342,"arrivalX":1342,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55781","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55782","name":"フォンテーヌ東部・孤立湖の南の坂","region":"フォンテーヌ","level":89,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55779","x":76,"arrivalX":920,"arrivalY":480},{"to":"fon-wp-55785","x":498,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"東の崖の昇降機"},{"to":"fon-wp-55783","x":920,"arrivalX":1342,"arrivalY":480},{"to":"fon-wp-55781","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55782","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55783","name":"フォンテーヌ東部・東岸沖の石島","region":"フォンテーヌ","level":90,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-55772","x":76,"arrivalX":1342,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"東沖への連絡船"},{"to":"fon-wp-55782","x":1342,"arrivalX":920,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:55783","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部","x":710,"y":480}},
+    {"id":"fon-wp-55784","name":"フォンテーヌ東部・工房の地下入口","region":"フォンテーヌ","level":87,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-55776","x":76,"arrivalX":498,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"工房地下の昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:55784","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部・別階層","x":675,"y":480,"floor":{"group_id":108,"floor_id":130}}},
+    {"id":"fon-wp-55785","name":"フォンテーヌ東部・東の崖の下の回廊","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1350,"scenery":"fontaineUnderstage","exits":[{"to":"fon-wp-55782","x":76,"arrivalX":498,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"東の崖の昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"teyvat:55785","waypoint":{"kind":"waypoint","area":"フォンテーヌ東部・別階層","x":675,"y":480,"floor":{"group_id":111,"floor_id":137}}},
+    {"id":"fon-wp-56363","name":"フォンテーヌ湖・西岸沖の水洞","region":"フォンテーヌ","level":88,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"fon-wp-50042","x":76,"y":419,"arrivalX":76,"arrivalY":480,"waterwaySeconds":2.4,"rideLabel":"西岬の水洞口"},{"to":"fon-wp-50062","x":1372,"y":248,"arrivalX":76,"arrivalY":362,"waterwaySeconds":2.4,"rideLabel":"市街西へ抜ける水路"}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:56363","waypoint":{"kind":"waypoint","area":"フォンテーヌ湖・水中","x":725,"y":389,"floor":{"group_id":113,"floor_id":142}}},
+    {"id":"fon-wp-68340","name":"ノストイ地区・島北の入江","region":"ノストイ地区","level":92,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fontaine-entry","x":76,"arrivalX":1050,"arrivalY":480,"boatSeconds":3.4,"rideLabel":"ノストイへの連絡船"},{"to":"nostoi-castle-approach","x":709,"arrivalX":405,"arrivalY":480},{"to":"fon-wp-68341","x":1342,"arrivalX":76,"arrivalY":480}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:68340","waypoint":{"kind":"waypoint","area":"ノストイ地区","x":710,"y":480}},
+    {"id":"fon-wp-68341","name":"ノストイ地区・島南の古い桟橋","region":"ノストイ地区","level":92,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1420,"scenery":"fontaine","exits":[{"to":"fon-wp-68340","x":76,"arrivalX":1342,"arrivalY":480},{"to":"nostoi-castle-approach","x":709,"arrivalX":920,"arrivalY":480},{"to":"fon-wp-68345","x":1342,"arrivalX":76,"arrivalY":305,"waterwaySeconds":2.4,"rideLabel":"島南から遺構に潜る水路"}],"platforms":[{"x":0,"y":480,"w":1420},{"x":307,"y":412,"w":210},{"x":632,"y":368,"w":250},{"x":989,"y":401,"w":252}],"mapPoint":"teyvat:68341","waypoint":{"kind":"waypoint","area":"ノストイ地区","x":710,"y":480}},
+    {"id":"fon-wp-68342","name":"ノストイ地区・深い遺構の北室","region":"ノストイ地区","level":95,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"fon-wp-68345","x":76,"y":362,"arrivalX":724,"arrivalY":362,"waterwaySeconds":2.4,"rideLabel":"遺構下層へ続く水路"},{"to":"fon-wp-68343","x":1372,"y":419,"arrivalX":76,"arrivalY":419}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:68342","waypoint":{"kind":"waypoint","area":"ノストイ地区・水中","x":725,"y":364,"floor":{"group_id":129,"floor_id":164}}},
+    {"id":"fon-wp-68343","name":"ノストイ地区・深い遺構の南室","region":"ノストイ地区","level":95,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"fon-wp-68342","x":76,"y":419,"arrivalX":1372,"arrivalY":419},{"to":"fon-wp-68344","x":1372,"y":248,"arrivalX":76,"arrivalY":248,"waterwaySeconds":2.4,"rideLabel":"記録棚の下層へ潜る水路"}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:68343","waypoint":{"kind":"waypoint","area":"ノストイ地区・水中","x":725,"y":389,"floor":{"group_id":129,"floor_id":164}}},
+    {"id":"fon-wp-68344","name":"ノストイ地区・遺構の下層の記録棚","region":"ノストイ地区","level":96,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"fon-wp-68343","x":76,"y":248,"arrivalX":1372,"arrivalY":248,"waterwaySeconds":2.4,"rideLabel":"記録棚の下層へ潜る水路"}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:68344","waypoint":{"kind":"waypoint","area":"ノストイ地区・水中","x":725,"y":314,"floor":{"group_id":129,"floor_id":165}}},
+    {"id":"fon-wp-68345","name":"ノストイ地区・海へ続く第一層","region":"ノストイ地区","level":94,"checkpoint":"fontaine-hub","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"fon-wp-68341","x":76,"y":305,"arrivalX":1342,"arrivalY":480,"waterwaySeconds":2.4,"rideLabel":"島南から遺構に潜る水路"},{"to":"fon-wp-68342","x":724,"y":362,"arrivalX":76,"arrivalY":362,"waterwaySeconds":2.4,"rideLabel":"遺構下層へ続く水路"},{"to":"bygone-wp-68599","x":1372,"y":419,"arrivalX":76,"arrivalY":419,"waterwaySeconds":2.4,"rideLabel":"往日の海へ続く水路"}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"teyvat:68345","waypoint":{"kind":"waypoint","area":"ノストイ地区・水中","x":725,"y":339,"floor":{"group_id":129,"floor_id":162}}},
+    {"id":"bygone-wp-68599","name":"往日の海・南西から潜る水門","region":"往日の海","level":93,"checkpoint":"bygone-camp","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"fon-wp-68345","x":76,"y":419,"arrivalX":1372,"arrivalY":419,"waterwaySeconds":2.4,"rideLabel":"往日の海へ続く水路"},{"to":"bygone-wp-68600","x":1372,"y":248,"arrivalX":76,"arrivalY":248}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"map34:68599","waypoint":{"kind":"waypoint","area":"往日の海・水中","x":725,"y":389,"floor":{"group_id":130,"floor_id":167}}},
+    {"id":"bygone-wp-68600","name":"往日の海・珊瑚の浅い水路","region":"往日の海","level":90,"checkpoint":"bygone-camp","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"bygone-wp-68599","x":76,"y":248,"arrivalX":1372,"arrivalY":248},{"to":"bygone-camp","x":1372,"y":305,"arrivalX":435,"arrivalY":480,"waterwaySeconds":2.4,"rideLabel":"浅い水路から入口拠点へ浮上"}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"map34:68600","waypoint":{"kind":"waypoint","area":"往日の海・水中","x":725,"y":314,"floor":{"group_id":131,"floor_id":168}}},
+    {"id":"bygone-wp-68603","name":"往日の海・西の沈殿物の石室","region":"往日の海","level":93,"checkpoint":"bygone-camp","hub":false,"peaceful":true,"width":1350,"scenery":"bygoneResonance","exits":[{"to":"bygone-depth","x":76,"arrivalX":645,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"西の石室への昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"map34:68603","waypoint":{"kind":"waypoint","area":"往日の海・別階層","x":675,"y":480,"floor":{"group_id":125,"floor_id":157}}},
+    {"id":"bygone-wp-68604","name":"往日の海・西海の峡谷口","region":"往日の海","level":90,"checkpoint":"bygone-camp","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"bygone-wp-68615","x":76,"y":248,"arrivalX":1372,"arrivalY":248},{"to":"bygone-depth","x":724,"y":305,"arrivalX":1088,"arrivalY":480,"waterwaySeconds":2.4,"rideLabel":"洞口から西海へ潜る水路"},{"to":"bygone-wp-68605","x":1372,"y":245,"arrivalX":76,"arrivalY":390}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"map34:68604","waypoint":{"kind":"waypoint","area":"往日の海・水中","x":725,"y":314}},
+    {"id":"bygone-wp-68605","name":"往日の海・東海の低い石橋","region":"往日の海","level":91,"checkpoint":"bygone-camp","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"bygone-wp-68604","x":76,"y":390,"arrivalX":1372,"arrivalY":245},{"to":"bygone-wp-68606","x":508,"y":362,"arrivalX":76,"arrivalY":362},{"to":"bygone-wp-68608","x":940,"y":419,"arrivalX":76,"arrivalY":248},{"to":"bygone-wp-68611","x":1372,"y":248,"arrivalX":76,"arrivalY":419}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"map34:68605","waypoint":{"kind":"waypoint","area":"往日の海・水中","x":725,"y":339}},
+    {"id":"bygone-wp-68606","name":"往日の海・北の覗き窓","region":"往日の海","level":92,"checkpoint":"bygone-camp","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"bygone-wp-68605","x":76,"y":362,"arrivalX":508,"arrivalY":362},{"to":"bygone-wp-68609","x":1372,"y":419,"arrivalX":76,"arrivalY":305}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"map34:68606","waypoint":{"kind":"waypoint","area":"往日の海・水中","x":725,"y":364}},
+    {"id":"bygone-wp-68607","name":"往日の海・南岸の密閉室","region":"往日の海","level":93,"checkpoint":"bygone-camp","hub":false,"peaceful":true,"width":1350,"scenery":"bygoneResonance","exits":[{"to":"bygone-wp-68611","x":76,"arrivalX":508,"arrivalY":248,"waterwaySeconds":2.4,"rideLabel":"南岸の密閉室の水路"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"map34:68607","waypoint":{"kind":"waypoint","area":"往日の海・別階層","x":675,"y":480,"floor":{"group_id":126,"floor_id":158}}},
+    {"id":"bygone-wp-68608","name":"往日の海・南の珊瑚床","region":"往日の海","level":90,"checkpoint":"bygone-camp","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"bygone-wp-68605","x":76,"y":248,"arrivalX":940,"arrivalY":419},{"to":"bygone-wp-68611","x":1372,"y":305,"arrivalX":940,"arrivalY":305}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"map34:68608","waypoint":{"kind":"waypoint","area":"往日の海・水中","x":725,"y":314}},
+    {"id":"bygone-wp-68609","name":"往日の海・東の水中門","region":"往日の海","level":91,"checkpoint":"bygone-camp","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"bygone-wp-68606","x":76,"y":305,"arrivalX":1372,"arrivalY":419},{"to":"bygone-wp-68611","x":508,"y":362,"arrivalX":1372,"arrivalY":362},{"to":"bygone-wp-68614","x":940,"y":419,"arrivalX":76,"arrivalY":480,"waterwaySeconds":2.4,"rideLabel":"上層の記録棚へ浮上"},{"to":"bygone-wp-68612","x":1372,"y":248,"arrivalX":76,"arrivalY":248}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"map34:68609","waypoint":{"kind":"waypoint","area":"往日の海・水中","x":725,"y":339}},
+    {"id":"bygone-wp-68610","name":"往日の海・東端の別室","region":"往日の海","level":92,"checkpoint":"bygone-camp","hub":false,"peaceful":true,"width":1350,"scenery":"bygoneResonance","exits":[{"to":"bygone-wp-68612","x":76,"arrivalX":1372,"arrivalY":305,"waterwaySeconds":2.4,"rideLabel":"東端の別室の水路"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"map34:68610","waypoint":{"kind":"waypoint","area":"往日の海・別階層","x":675,"y":480,"floor":{"group_id":127,"floor_id":159}}},
+    {"id":"bygone-wp-68611","name":"往日の海・東の柱列","region":"往日の海","level":93,"checkpoint":"bygone-camp","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"bygone-wp-68605","x":76,"y":419,"arrivalX":1372,"arrivalY":248},{"to":"bygone-wp-68607","x":508,"y":248,"arrivalX":76,"arrivalY":480,"waterwaySeconds":2.4,"rideLabel":"南岸の密閉室の水路"},{"to":"bygone-wp-68608","x":940,"y":305,"arrivalX":1372,"arrivalY":305},{"to":"bygone-wp-68609","x":1372,"y":362,"arrivalX":508,"arrivalY":362}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"map34:68611","waypoint":{"kind":"waypoint","area":"往日の海・水中","x":725,"y":389}},
+    {"id":"bygone-wp-68612","name":"往日の海・東端の下の水路","region":"往日の海","level":90,"checkpoint":"bygone-camp","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"bygone-wp-68609","x":76,"y":248,"arrivalX":1372,"arrivalY":248},{"to":"bygone-wp-68610","x":1372,"y":305,"arrivalX":76,"arrivalY":480,"waterwaySeconds":2.4,"rideLabel":"東端の別室の水路"}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"map34:68612","waypoint":{"kind":"waypoint","area":"往日の海・水中","x":725,"y":314}},
+    {"id":"bygone-wp-68613","name":"往日の海・東の記録棚の下層","region":"往日の海","level":91,"checkpoint":"bygone-camp","hub":false,"peaceful":true,"width":1350,"scenery":"bygoneResonance","exits":[{"to":"bygone-wp-68614","x":76,"arrivalX":1272,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"記録棚の階層を結ぶ昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"map34:68613","waypoint":{"kind":"waypoint","area":"往日の海・別階層","x":675,"y":480,"floor":{"group_id":128,"floor_id":161}}},
+    {"id":"bygone-wp-68614","name":"往日の海・東の記録棚の上層","region":"往日の海","level":92,"checkpoint":"bygone-camp","hub":false,"peaceful":true,"width":1350,"scenery":"bygoneResonance","exits":[{"to":"bygone-wp-68609","x":76,"arrivalX":940,"arrivalY":419,"waterwaySeconds":2.4,"rideLabel":"上層の記録棚へ浮上"},{"to":"bygone-wp-68613","x":1272,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"記録棚の階層を結ぶ昇降機"}],"platforms":[{"x":0,"y":480,"w":1350},{"x":299,"y":391,"w":211},{"x":568,"y":317,"w":223},{"x":932,"y":388,"w":230}],"mapPoint":"map34:68614","waypoint":{"kind":"waypoint","area":"往日の海・別階層","x":675,"y":480,"floor":{"group_id":128,"floor_id":160}}},
+    {"id":"bygone-wp-68615","name":"往日の海・西側の珊瑚の池","region":"往日の海","level":93,"checkpoint":"bygone-camp","hub":false,"peaceful":true,"width":1450,"scenery":"bygone","exits":[{"to":"bygone-camp","x":76,"y":419,"arrivalX":670,"arrivalY":480,"waterwaySeconds":2.4,"rideLabel":"珊瑚の池へ潜る水路"},{"to":"bygone-wp-68604","x":1372,"y":248,"arrivalX":76,"arrivalY":248}],"platforms":[{"x":0,"y":480,"w":1450},{"x":264,"y":425,"w":224},{"x":558,"y":390,"w":221},{"x":923,"y":449,"w":238}],"swim":{"top":155,"bottom":480,"entryY":360,"speed":228},"mapPoint":"map34:68615","waypoint":{"kind":"waypoint","area":"往日の海・水中","x":725,"y":389}},
     {"id":"sum-wp-28699","name":"スメールの森林・東麓の神像","region":"スメール","level":67,"hub":false,"peaceful":true,"width":1470,"scenery":"sumeru","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1470},{"x":289,"y":387,"w":250},{"x":570,"y":301,"w":265},{"x":993,"y":390,"w":236}],"exits":[{"to":"sum-wp-28724","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"神像脇の洞口"},{"to":"sum-wp-28725","x":734,"arrivalX":734,"arrivalY":480},{"to":"sum-wp-28722","x":1392,"arrivalX":749,"arrivalY":480}],"mapPoint":"teyvat:28699","waypoint":{"kind":"statue","area":"スメールの森林","x":735,"y":480}},
     {"id":"sum-wp-28700","name":"スメールの森林・北東の林と神像","region":"スメール","level":60,"hub":false,"peaceful":true,"width":1470,"scenery":"sumeru","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1470},{"x":289,"y":387,"w":250},{"x":570,"y":301,"w":265},{"x":993,"y":390,"w":236}],"exits":[{"to":"sum-wp-28747","x":76,"arrivalX":1392,"arrivalY":480},{"to":"sum-wp-28749","x":1392,"arrivalX":1422,"arrivalY":480}],"mapPoint":"teyvat:28700","waypoint":{"kind":"statue","area":"スメールの森林","x":735,"y":480}},
     {"id":"sum-wp-28701","name":"スメールの森林・北の森の神像","region":"スメール","level":64,"hub":false,"peaceful":true,"width":1470,"scenery":"sumeru","checkpoint":"sumeru-hub","platforms":[{"x":0,"y":480,"w":1470},{"x":289,"y":387,"w":250},{"x":570,"y":301,"w":265},{"x":993,"y":390,"w":236}],"exits":[{"to":"sum-wp-28706","x":76,"arrivalX":1422,"arrivalY":480},{"to":"sum-wp-69098","x":734,"arrivalX":76,"arrivalY":480},{"to":"sum-wp-28741","x":1392,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28701","waypoint":{"kind":"statue","area":"スメールの森林","x":735,"y":480}},
@@ -6866,6 +7218,10 @@
     {"id":"nod-false-moon-rift","name":"偽月の再現戦・異界","region":"ナド・クライ","level":132,"width":960,"hub":false,"peaceful":true,"checkpoint":"nod-town","platforms":[{"x":0,"y":480,"w":960},{"x":118,"y":357,"w":155},{"x":696,"y":357,"w":155}],"exits":[],"weeklySceneOf":"nod-false-moon-court"}
   ],
   "quests": [
+    {"id":"fon-mapped-depth-samples","name":"深さの違う二つの標識","hub":"fontaine-hub","giver":"水路の観測係","target":"fon-wp-50065","level":86,"xp":112000,"mora":11200,"briefing":"水路沿いから潜り、二つの標識の高さを測ってください。深い方では上にある目印も見てきてください。","closing":"二つの差が分かりました。次回からは深さも案内に書きます。","itinerary":[{"kind":"arrive","from":"fontaine-hub","node":"fontaine-field","objective":"広場から水路沿いへ"},{"kind":"arrive","from":"fontaine-field","node":"fon-wp-50064","objective":"潜水口から浅い標識へ"},{"kind":"inspect","node":"fon-wp-50064","x":797,"y":348,"name":"調査の目印","action":"記録を取る","objective":"浅い方の標識を調べる"},{"kind":"arrive","from":"fon-wp-50064","node":"fon-wp-50065","objective":"上の水中門を抜けて深い標識へ"},{"kind":"inspect","node":"fon-wp-50065","x":797,"y":216,"name":"調査の目印","action":"記録を取る","objective":"上へ泳いで浮標を調べる"},{"kind":"arrive","from":"fon-wp-50065","node":"fon-wp-50064","objective":"浅い標識まで泳いで戻る"}],"kind":"itinerary","goal":6},
+    {"id":"fon-mapped-north-lock","name":"北の水門の目盛り","hub":"fontaine-hub","giver":"水門の保守係","target":"fon-wp-53849","level":90,"xp":145000,"mora":13500,"briefing":"北の入口の神像を目印に、水門の二層を降りて古い目盛りを見てください。","closing":"二つの層で目盛りが食い違っていましたか。記録をもとに直します。","itinerary":[{"kind":"arrive","from":"fon-wp-53867","node":"fon-wp-53850","objective":"神像脇から水門の第一層へ"},{"kind":"inspect","node":"fon-wp-53850","x":747,"y":480,"name":"調査の目印","action":"記録を取る","objective":"第一層の古い目盛りを調べる"},{"kind":"arrive","from":"fon-wp-53850","node":"fon-wp-53849","objective":"昇降機で第二層に下りる"},{"kind":"inspect","node":"fon-wp-53849","x":747,"y":480,"name":"調査の目印","action":"記録を取る","objective":"第二層の目盛りを調べる"},{"kind":"arrive","from":"fon-wp-53849","node":"fon-wp-53850","objective":"第一層まで戻る"},{"kind":"arrive","from":"fon-wp-53850","node":"fon-wp-53867","objective":"地上の神像まで戻る"}],"kind":"itinerary","goal":6},
+    {"id":"fon-mapped-bygone-current","name":"珊瑚の間の水の通り道","hub":"bygone-camp","giver":"往日の海の調査係","target":"bygone-wp-68605","level":92,"xp":168000,"mora":13900,"briefing":"入口から西の峡谷へ泳いで、東の低い石橋まで渡ったら、柱の印を確かめてください。","closing":"上と下のどちらを通るか、次の人にも分かるようにします。","itinerary":[{"kind":"arrive","from":"bygone-camp","node":"bygone-depth","objective":"入口拠点から洞口へ"},{"kind":"arrive","from":"bygone-depth","node":"bygone-wp-68604","objective":"水路で西海の峡谷口へ"},{"kind":"arrive","from":"bygone-wp-68604","node":"bygone-wp-68605","objective":"上の門から東海の低い石橋へ"},{"kind":"inspect","node":"bygone-wp-68605","x":797,"y":225,"name":"調査の目印","action":"記録を取る","objective":"柱列の上の印を調べる"},{"kind":"arrive","from":"bygone-wp-68605","node":"bygone-wp-68604","objective":"下の門から西海へ戻る"}],"kind":"itinerary","goal":5},
+    {"id":"fon-mapped-nostoi-record","name":"ノストイ沖の沈んだ記録棚","hub":"fontaine-hub","giver":"古い航路の調査係","target":"fon-wp-68344","level":96,"xp":205000,"mora":15800,"briefing":"島南の桟橋から潜り、遺構の二層を通って、いちばん下の記録棚を探してください。","closing":"記録棚の場所を船頭にも知らせます。見つけた順番も一緒に伝えます。","itinerary":[{"kind":"arrive","from":"nostoi-castle-approach","node":"fon-wp-68341","objective":"島の神像から南の桟橋へ"},{"kind":"arrive","from":"fon-wp-68341","node":"fon-wp-68345","objective":"最初の層へ潜る"},{"kind":"arrive","from":"fon-wp-68345","node":"fon-wp-68342","objective":"北室へ続く深い層へ"},{"kind":"arrive","from":"fon-wp-68342","node":"fon-wp-68343","objective":"同じ階層の南室へ"},{"kind":"arrive","from":"fon-wp-68343","node":"fon-wp-68344","objective":"下の階層にある記録棚へ"},{"kind":"inspect","node":"fon-wp-68344","x":797,"y":230,"name":"調査の目印","action":"記録を取る","objective":"棚の文字を記録する"}],"kind":"itinerary","goal":6},
     {"id":"sum-mapped-north-quay","name":"北の港に荷が着くまで","hub":"sumeru-hub","giver":"広場の荷受け係","level":67,"xp":46200,"mora":5700,"target":"sum-wp-69098","briefing":"渡し舟で対岸へ。森の神像を目印に北の港まで歩いて、荷を受け取る棚を見つけてください。","closing":"広場から港まで道が通りました。次の便は森側で受け取ります。","itinerary":[{"kind":"arrive","from":"sumeru-hub","node":"sum-wp-28740","objective":"渡し舟で大樹の対岸へ"},{"kind":"arrive","from":"sum-wp-28740","node":"sum-wp-28741","objective":"森林北の分岐へ"},{"kind":"arrive","from":"sum-wp-28741","node":"sum-wp-28701","objective":"森の神像へ"},{"kind":"arrive","from":"sum-wp-28701","node":"sum-wp-69098","objective":"バイダ港の船着き場へ"},{"kind":"inspect","node":"sum-wp-69098","x":775,"y":480,"name":"港の荷札棚","action":"記録を取る","objective":"荷札を置く棚を記録する"}],"kind":"itinerary","goal":5},
     {"id":"sum-mapped-twin-shaft","name":"苗畑の浅層と深層","hub":"sumeru-hub","giver":"植物の観測係","level":72,"xp":56400,"mora":6500,"target":"sum-wp-28709","briefing":"枯れた根元の神像から昇降機を二つ使い、深い根室へ下りてください。帰りも同じ昇降機で。","closing":"浅い回廊と深い根室で、根の色が違うようですね。記録を預かります。","itinerary":[{"kind":"arrive","from":"sum-wp-32451","node":"sum-wp-32452","objective":"神像脇の昇降機で浅層へ"},{"kind":"inspect","node":"sum-wp-32452","x":825,"y":480,"name":"浅層の根","action":"記録を取る","objective":"浅い回廊の根を記録する"},{"kind":"arrive","from":"sum-wp-32452","node":"sum-wp-28709","objective":"二つ目の昇降機で深層へ"},{"kind":"inspect","node":"sum-wp-28709","x":825,"y":480,"name":"深層の根","action":"記録を取る","objective":"深い根室で新しい根を調べる"},{"kind":"arrive","from":"sum-wp-28709","node":"sum-wp-32452","objective":"浅層へ戻る"},{"kind":"arrive","from":"sum-wp-32452","node":"sum-wp-32451","objective":"神像の地上へ戻る"}],"kind":"itinerary","goal":6},
     {"id":"sum-mapped-desert-wind","name":"風が止む間に","hub":"tunigi-camp","giver":"発掘隊の観測係","level":78,"xp":80400,"mora":8400,"target":"sum-wp-41836","briefing":"砂渦北の風よけから東の棚へ。砂風が収まったら昇降機で降り、風穴の下を調べてください。","closing":"風穴が狭いのは下から見ると分かります。待つ場所も地図に印をつけます。","itinerary":[{"kind":"arrive","from":"sum-wp-41835","node":"sum-wp-41838","objective":"北の風よけから東の風待ち棚へ"},{"kind":"arrive","from":"sum-wp-41838","node":"sum-wp-41836","objective":"砂風が収まる間に昇降機で降りる"},{"kind":"inspect","node":"sum-wp-41836","x":745,"y":480,"name":"風穴の砂の跡","action":"記録を取る","objective":"下層から砂の跡を記録する"},{"kind":"arrive","from":"sum-wp-41836","node":"sum-wp-41838","objective":"東の棚まで昇降機で戻る"}],"kind":"itinerary","goal":4},

@@ -44,6 +44,13 @@ return function(C,canInspect)
   return x>=current.left and x<=current.right and y<=current.bottom
  end
 
+ function dive.motion(actor,dt,input,speed)
+  local dx=(input.right and 1 or 0)-(input.left and 1 or 0)
+  local dy=(input.down and 1 or 0)-(input.up and 1 or 0)
+  if dx~=0 and dy~=0 then speed=speed/math.sqrt(2) end
+  return actor.x+dx*speed*dt,actor.y+dy*speed*dt,dx
+ end
+
  function dive.step(s,dt,input,spec,state,goal)
   if s.paused then return end
   dt=clamp(dt,0,1/30)
@@ -51,11 +58,7 @@ return function(C,canInspect)
   input=input or {}
 
   local actor,session=s.actors[1],s.toyDive
-  local dx=(input.right and 1 or 0)-(input.left and 1 or 0)
-  local dy=(input.down and 1 or 0)-(input.up and 1 or 0)
-  local speed=spec.speed
-  if dx~=0 and dy~=0 then speed=speed/math.sqrt(2) end
-  local x,y=actor.x+dx*speed*dt,actor.y+dy*speed*dt
+  local x,y,dx=dive.motion(actor,dt,input,spec.speed)
   local strong=state and state.count<goal and (inCurrent(spec,actor.x,actor.y) or inCurrent(spec,x,y))
   if strong then x=x-spec.flow.speed*dt end
   session.pushed=strong==true

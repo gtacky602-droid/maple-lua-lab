@@ -1,0 +1,90 @@
+{
+  "journeys": [
+    [
+      "fontaine-hub",
+      "fontaine-field",
+      "walk"
+    ],
+    [
+      "fontaine-field",
+      "fon-wp-50064",
+      "waterway"
+    ],
+    [
+      "fon-wp-50064",
+      "fon-wp-50065",
+      "swim"
+    ],
+    [
+      "fon-wp-50065",
+      "fon-wp-50064",
+      "swim"
+    ],
+    [
+      "fontaine-hub",
+      "nostoi-castle-approach",
+      "walk"
+    ],
+    [
+      "nostoi-castle-approach",
+      "fon-wp-68341",
+      "walk"
+    ],
+    [
+      "fon-wp-68341",
+      "fon-wp-68345",
+      "waterway"
+    ],
+    [
+      "fon-wp-68345",
+      "bygone-wp-68599",
+      "waterway"
+    ],
+    [
+      "bygone-wp-68599",
+      "bygone-wp-68600",
+      "swim"
+    ],
+    [
+      "bygone-wp-68600",
+      "bygone-camp",
+      "waterway"
+    ],
+    [
+      "bygone-camp",
+      "bygone-depth",
+      "walk"
+    ],
+    [
+      "bygone-depth",
+      "bygone-wp-68604",
+      "waterway"
+    ],
+    [
+      "bygone-wp-68604",
+      "bygone-wp-68605",
+      "swim"
+    ],
+    [
+      "bygone-wp-68605",
+      "bygone-wp-68604",
+      "swim"
+    ]
+  ],
+  "labels": [
+    "モンド",
+    "フォンテーヌ廷",
+    "ノストイ地区",
+    "往日の海",
+    "フォンテーヌ湖・水中",
+    "ノストイ地区・水中",
+    "往日の海・水中"
+  ],
+  "reported": [
+    "fon-mapped-depth-samples",
+    "fon-mapped-bygone-current"
+  ],
+  "differentDepthRejection": true,
+  "reloadAndWarp": true,
+  "pageErrors": []
+}

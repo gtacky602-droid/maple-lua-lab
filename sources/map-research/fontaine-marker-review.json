@@ -1,0 +1,515 @@
+{
+  "catalog": "content/map-catalog.json",
+  "official_map_page": "https://act.hoyolab.com/ys/app/interactive-map/index.html",
+  "sources": [
+    {
+      "map_id": 2,
+      "official_area_id": 8,
+      "map_version": "bd70cde160dbd523926208d9fa8961a1",
+      "public_label_sha256": "27456f3454a10a157c71df948e3afbce665e719dc5ef1bc17647cedc2e2191f5"
+    },
+    {
+      "map_id": 34,
+      "official_area_id": null,
+      "map_version": "9af6a4747bab91f96c598f8e8a9b7ce5",
+      "public_label_sha256": "32d7c539d8688cb7369ac097f372b67f66120f14013667353554e432eb2c87fa"
+    }
+  ],
+  "verified": "Both public point lists matched every pinned ID, coordinate, type and layer assignment. Map tiles served as terrain reference.",
+  "status": "Laboratory area labels, depths, routes, prototypes for transport, floor entrances and levels.",
+  "field_editor_revision": 0,
+  "field_editor_approved_edges": 0,
+  "stage_by_marker": {
+    "teyvat:50033": "fontaine-entry",
+    "teyvat:50035": "fon-wp-50035",
+    "teyvat:50036": "fon-wp-50036",
+    "teyvat:50037": "fon-wp-50037",
+    "teyvat:50038": "fon-wp-50038",
+    "teyvat:50039": "fon-wp-50039",
+    "teyvat:50040": "fon-wp-50040",
+    "teyvat:50041": "fon-wp-50041",
+    "teyvat:50042": "fon-wp-50042",
+    "teyvat:50043": "fon-wp-50043",
+    "teyvat:50044": "fon-wp-50044",
+    "teyvat:50045": "fon-wp-50045",
+    "teyvat:50046": "fon-wp-50046",
+    "teyvat:50047": "fon-wp-50047",
+    "teyvat:50048": "fon-wp-50048",
+    "teyvat:50050": "fon-wp-50050",
+    "teyvat:50051": "fontaine-field",
+    "teyvat:50052": "fon-wp-50052",
+    "teyvat:50053": "fon-wp-50053",
+    "teyvat:50054": "fontaine-hub",
+    "teyvat:50056": "fon-wp-50056",
+    "teyvat:50058": "fon-wp-50058",
+    "teyvat:50059": "fon-wp-50059",
+    "teyvat:50060": "fon-wp-50060",
+    "teyvat:50061": "fon-wp-50061",
+    "teyvat:50062": "fon-wp-50062",
+    "teyvat:50063": "fon-wp-50063",
+    "teyvat:50064": "fon-wp-50064",
+    "teyvat:50065": "fon-wp-50065",
+    "teyvat:50066": "fon-wp-50066",
+    "teyvat:50068": "fon-wp-50068",
+    "teyvat:50069": "fon-wp-50069",
+    "teyvat:50070": "fon-wp-50070",
+    "teyvat:50071": "fon-wp-50071",
+    "teyvat:50072": "fon-wp-50072",
+    "teyvat:50073": "fon-wp-50073",
+    "teyvat:50074": "fon-wp-50074",
+    "teyvat:50075": "fon-wp-50075",
+    "teyvat:50076": "fon-wp-50076",
+    "teyvat:50077": "fon-wp-50077",
+    "teyvat:51964": "fon-wp-51964",
+    "teyvat:52029": "fon-wp-52029",
+    "teyvat:53848": "fon-wp-53848",
+    "teyvat:53849": "fon-wp-53849",
+    "teyvat:53850": "fon-wp-53850",
+    "teyvat:53851": "fon-wp-53851",
+    "teyvat:53852": "fon-wp-53852",
+    "teyvat:53853": "fon-wp-53853",
+    "teyvat:53854": "fon-wp-53854",
+    "teyvat:53855": "fon-wp-53855",
+    "teyvat:53856": "fon-wp-53856",
+    "teyvat:53857": "fon-wp-53857",
+    "teyvat:53858": "fon-wp-53858",
+    "teyvat:53859": "fon-wp-53859",
+    "teyvat:53860": "fon-wp-53860",
+    "teyvat:53861": "fon-wp-53861",
+    "teyvat:53862": "fon-wp-53862",
+    "teyvat:53863": "fon-wp-53863",
+    "teyvat:53864": "fon-wp-53864",
+    "teyvat:53865": "fon-wp-53865",
+    "teyvat:53866": "fon-wp-53866",
+    "teyvat:53867": "fon-wp-53867",
+    "teyvat:53868": "fon-wp-53868",
+    "teyvat:53869": "fon-wp-53869",
+    "teyvat:53870": "fon-wp-53870",
+    "teyvat:53871": "fon-wp-53871",
+    "teyvat:55760": "fon-wp-55760",
+    "teyvat:55761": "fon-wp-55761",
+    "teyvat:55762": "fon-wp-55762",
+    "teyvat:55763": "fon-wp-55763",
+    "teyvat:55764": "fon-wp-55764",
+    "teyvat:55765": "fon-wp-55765",
+    "teyvat:55766": "fon-wp-55766",
+    "teyvat:55767": "fon-wp-55767",
+    "teyvat:55768": "fon-wp-55768",
+    "teyvat:55769": "fon-wp-55769",
+    "teyvat:55770": "fon-wp-55770",
+    "teyvat:55771": "fon-wp-55771",
+    "teyvat:55772": "fon-wp-55772",
+    "teyvat:55773": "fon-wp-55773",
+    "teyvat:55774": "fon-wp-55774",
+    "teyvat:55775": "fon-wp-55775",
+    "teyvat:55776": "fon-wp-55776",
+    "teyvat:55777": "fon-wp-55777",
+    "teyvat:55778": "fon-wp-55778",
+    "teyvat:55779": "fon-wp-55779",
+    "teyvat:55780": "fon-wp-55780",
+    "teyvat:55781": "fon-wp-55781",
+    "teyvat:55782": "fon-wp-55782",
+    "teyvat:55783": "fon-wp-55783",
+    "teyvat:55784": "fon-wp-55784",
+    "teyvat:55785": "fon-wp-55785",
+    "teyvat:56363": "fon-wp-56363",
+    "teyvat:68339": "nostoi-castle-approach",
+    "teyvat:68340": "fon-wp-68340",
+    "teyvat:68341": "fon-wp-68341",
+    "teyvat:68342": "fon-wp-68342",
+    "teyvat:68343": "fon-wp-68343",
+    "teyvat:68344": "fon-wp-68344",
+    "teyvat:68345": "fon-wp-68345",
+    "map34:68599": "bygone-wp-68599",
+    "map34:68600": "bygone-wp-68600",
+    "map34:68601": "bygone-camp",
+    "map34:68602": "bygone-depth",
+    "map34:68603": "bygone-wp-68603",
+    "map34:68604": "bygone-wp-68604",
+    "map34:68605": "bygone-wp-68605",
+    "map34:68606": "bygone-wp-68606",
+    "map34:68607": "bygone-wp-68607",
+    "map34:68608": "bygone-wp-68608",
+    "map34:68609": "bygone-wp-68609",
+    "map34:68610": "bygone-wp-68610",
+    "map34:68611": "bygone-wp-68611",
+    "map34:68612": "bygone-wp-68612",
+    "map34:68613": "bygone-wp-68613",
+    "map34:68614": "bygone-wp-68614",
+    "map34:68615": "bygone-wp-68615"
+  },
+  "areas": {
+    "ノストイ地区": [
+      "teyvat:68339",
+      "teyvat:68340",
+      "teyvat:68341",
+      "teyvat:68342",
+      "teyvat:68343",
+      "teyvat:68344",
+      "teyvat:68345"
+    ],
+    "フォンテーヌ北部": [
+      "teyvat:53849",
+      "teyvat:53850",
+      "teyvat:53851",
+      "teyvat:53852",
+      "teyvat:53853",
+      "teyvat:53854",
+      "teyvat:53855",
+      "teyvat:53856",
+      "teyvat:53857",
+      "teyvat:53858",
+      "teyvat:53859",
+      "teyvat:53860",
+      "teyvat:53861",
+      "teyvat:53862",
+      "teyvat:53863",
+      "teyvat:53867",
+      "teyvat:53868",
+      "teyvat:53869",
+      "teyvat:53870",
+      "teyvat:53871"
+    ],
+    "フォンテーヌ南部": [
+      "teyvat:50033",
+      "teyvat:50035",
+      "teyvat:50036",
+      "teyvat:50037",
+      "teyvat:50038",
+      "teyvat:50039",
+      "teyvat:50040",
+      "teyvat:50041",
+      "teyvat:50042",
+      "teyvat:50043",
+      "teyvat:50044",
+      "teyvat:50045",
+      "teyvat:50046",
+      "teyvat:50047",
+      "teyvat:50048",
+      "teyvat:50060",
+      "teyvat:50074",
+      "teyvat:52029"
+    ],
+    "フォンテーヌ廷": [
+      "teyvat:50050",
+      "teyvat:50051",
+      "teyvat:50052",
+      "teyvat:50053",
+      "teyvat:50054",
+      "teyvat:50056",
+      "teyvat:50058",
+      "teyvat:50059",
+      "teyvat:50061",
+      "teyvat:50077",
+      "teyvat:51964"
+    ],
+    "フォンテーヌ東部": [
+      "teyvat:55760",
+      "teyvat:55761",
+      "teyvat:55762",
+      "teyvat:55763",
+      "teyvat:55764",
+      "teyvat:55769",
+      "teyvat:55770",
+      "teyvat:55771",
+      "teyvat:55772",
+      "teyvat:55773",
+      "teyvat:55774",
+      "teyvat:55775",
+      "teyvat:55776",
+      "teyvat:55777",
+      "teyvat:55778",
+      "teyvat:55779",
+      "teyvat:55780",
+      "teyvat:55781",
+      "teyvat:55782",
+      "teyvat:55783",
+      "teyvat:55784",
+      "teyvat:55785"
+    ],
+    "フォンテーヌ湖": [
+      "teyvat:50062",
+      "teyvat:50063",
+      "teyvat:50064",
+      "teyvat:50065",
+      "teyvat:50066",
+      "teyvat:50068",
+      "teyvat:50069",
+      "teyvat:50070",
+      "teyvat:50071",
+      "teyvat:50072",
+      "teyvat:50073",
+      "teyvat:50075",
+      "teyvat:50076",
+      "teyvat:53848",
+      "teyvat:53864",
+      "teyvat:53865",
+      "teyvat:53866",
+      "teyvat:55765",
+      "teyvat:55766",
+      "teyvat:55767",
+      "teyvat:55768",
+      "teyvat:56363"
+    ],
+    "往日の海": [
+      "map34:68599",
+      "map34:68600",
+      "map34:68601",
+      "map34:68602",
+      "map34:68603",
+      "map34:68604",
+      "map34:68605",
+      "map34:68606",
+      "map34:68607",
+      "map34:68608",
+      "map34:68609",
+      "map34:68610",
+      "map34:68611",
+      "map34:68612",
+      "map34:68613",
+      "map34:68614",
+      "map34:68615"
+    ]
+  },
+  "floor_markers": {
+    "teyvat:50043": {
+      "group_id": 92,
+      "floor_id": 84
+    },
+    "teyvat:50044": {
+      "group_id": 92,
+      "floor_id": 84
+    },
+    "teyvat:50059": {
+      "group_id": 52,
+      "floor_id": 99
+    },
+    "teyvat:50060": {
+      "group_id": 33,
+      "floor_id": 50
+    },
+    "teyvat:50061": {
+      "group_id": 91,
+      "floor_id": 81
+    },
+    "teyvat:50062": {
+      "group_id": 90,
+      "floor_id": 78
+    },
+    "teyvat:50063": {
+      "group_id": 90,
+      "floor_id": 78
+    },
+    "teyvat:50064": {
+      "group_id": 90,
+      "floor_id": 78
+    },
+    "teyvat:50065": {
+      "group_id": 90,
+      "floor_id": 78
+    },
+    "teyvat:50066": {
+      "group_id": 90,
+      "floor_id": 78
+    },
+    "teyvat:50068": {
+      "group_id": 90,
+      "floor_id": 78
+    },
+    "teyvat:50069": {
+      "group_id": 90,
+      "floor_id": 78
+    },
+    "teyvat:50070": {
+      "group_id": 90,
+      "floor_id": 78
+    },
+    "teyvat:50071": {
+      "group_id": 90,
+      "floor_id": 78
+    },
+    "teyvat:50072": {
+      "group_id": 90,
+      "floor_id": 78
+    },
+    "teyvat:50073": {
+      "group_id": 90,
+      "floor_id": 78
+    },
+    "teyvat:50074": {
+      "group_id": 49,
+      "floor_id": 55
+    },
+    "teyvat:50075": {
+      "group_id": 99,
+      "floor_id": 93
+    },
+    "teyvat:50076": {
+      "group_id": 99,
+      "floor_id": 93
+    },
+    "teyvat:51964": {
+      "group_id": 91,
+      "floor_id": 81
+    },
+    "teyvat:52029": {
+      "group_id": 92,
+      "floor_id": 85
+    },
+    "teyvat:53848": {
+      "group_id": 62,
+      "floor_id": 61
+    },
+    "teyvat:53849": {
+      "group_id": 20,
+      "floor_id": 112
+    },
+    "teyvat:53850": {
+      "group_id": 20,
+      "floor_id": 42
+    },
+    "teyvat:53851": {
+      "group_id": 100,
+      "floor_id": 114
+    },
+    "teyvat:53864": {
+      "group_id": 90,
+      "floor_id": 78
+    },
+    "teyvat:53865": {
+      "group_id": 90,
+      "floor_id": 78
+    },
+    "teyvat:53866": {
+      "group_id": 90,
+      "floor_id": 78
+    },
+    "teyvat:53869": {
+      "group_id": 20,
+      "floor_id": 113
+    },
+    "teyvat:53871": {
+      "group_id": 20,
+      "floor_id": 122
+    },
+    "teyvat:55764": {
+      "group_id": 112,
+      "floor_id": 141
+    },
+    "teyvat:55765": {
+      "group_id": 90,
+      "floor_id": 78
+    },
+    "teyvat:55766": {
+      "group_id": 90,
+      "floor_id": 78
+    },
+    "teyvat:55767": {
+      "group_id": 90,
+      "floor_id": 78
+    },
+    "teyvat:55768": {
+      "group_id": 110,
+      "floor_id": 135
+    },
+    "teyvat:55784": {
+      "group_id": 108,
+      "floor_id": 130
+    },
+    "teyvat:55785": {
+      "group_id": 111,
+      "floor_id": 137
+    },
+    "teyvat:56363": {
+      "group_id": 113,
+      "floor_id": 142
+    },
+    "teyvat:68342": {
+      "group_id": 129,
+      "floor_id": 164
+    },
+    "teyvat:68343": {
+      "group_id": 129,
+      "floor_id": 164
+    },
+    "teyvat:68344": {
+      "group_id": 129,
+      "floor_id": 165
+    },
+    "teyvat:68345": {
+      "group_id": 129,
+      "floor_id": 162
+    },
+    "map34:68599": {
+      "group_id": 130,
+      "floor_id": 167
+    },
+    "map34:68600": {
+      "group_id": 131,
+      "floor_id": 168
+    },
+    "map34:68603": {
+      "group_id": 125,
+      "floor_id": 157
+    },
+    "map34:68607": {
+      "group_id": 126,
+      "floor_id": 158
+    },
+    "map34:68610": {
+      "group_id": 127,
+      "floor_id": 159
+    },
+    "map34:68613": {
+      "group_id": 128,
+      "floor_id": 161
+    },
+    "map34:68614": {
+      "group_id": 128,
+      "floor_id": 160
+    }
+  },
+  "swim_markers": [
+    "teyvat:50062",
+    "teyvat:50063",
+    "teyvat:50064",
+    "teyvat:50065",
+    "teyvat:50066",
+    "teyvat:50068",
+    "teyvat:50069",
+    "teyvat:50070",
+    "teyvat:50071",
+    "teyvat:50072",
+    "teyvat:50073",
+    "teyvat:50075",
+    "teyvat:50076",
+    "teyvat:53848",
+    "teyvat:53864",
+    "teyvat:53865",
+    "teyvat:53866",
+    "teyvat:55765",
+    "teyvat:55766",
+    "teyvat:55767",
+    "teyvat:55768",
+    "teyvat:56363",
+    "teyvat:68342",
+    "teyvat:68343",
+    "teyvat:68344",
+    "teyvat:68345",
+    "map34:68599",
+    "map34:68600",
+    "map34:68604",
+    "map34:68605",
+    "map34:68606",
+    "map34:68608",
+    "map34:68609",
+    "map34:68611",
+    "map34:68612",
+    "map34:68615"
+  ],
+  "bygone_undersea_link": {
+    "from": "fon-wp-68345",
+    "to": "bygone-wp-68599",
+    "mode": "waterwaySeconds"
+  }
+}

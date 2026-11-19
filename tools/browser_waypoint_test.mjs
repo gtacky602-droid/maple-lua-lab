@@ -34,7 +34,21 @@ export function waypointDriver(page,nodes){
  },y,{timeout:5000});
 
  async function changeHeight(y){
-  if((await actor()).y===y)return;
+  const start=(await actor()).y;
+  if(start===y)return;
+  if(await page.evaluate(()=>Boolean(window.lab.frame.storySwim))){
+   if(Math.abs(start-y)<12)return;
+   const key=start>y?'KeyW':'KeyS';
+   await page.keyboard.down(key);
+   try{
+    await page.waitForFunction(([start,y])=>{
+     const f=window.lab.frame;
+     const a=f.actors.find(a=>a.id===f.active);
+     return start>y?a.y<=y+7:a.y>=y-7;
+    },[start,y],{timeout:6000});
+   }finally{await page.keyboard.up(key)}
+   return;
+  }
   if(y===480)await page.keyboard.down('KeyS');
   await page.keyboard.down('Space');
   try{await waitY(y)}
@@ -54,7 +68,7 @@ export function waypointDriver(page,nodes){
    const gate=window.lab.frame.storyNearbyPortal;
    return gate?.to===id&&gate.available;
   },id,{timeout:edge.wind?Math.ceil(edge.wind.period*2000):5000});
-  const mode=edge.boatSeconds?'boat':edge.waterwaySeconds?'waterway':edge.liftSeconds?'lift':edge.y?'raised':'walk';
+  const mode=edge.boatSeconds?'boat':edge.waterwaySeconds?'waterway':edge.liftSeconds?'lift':nodes[from].swim?'swim':edge.y?'raised':'walk';
   await page.keyboard.press('KeyF');
   if(['boat','waterway','lift'].includes(mode)){
    await page.waitForFunction(label=>window.lab.frame.storyLift?.destination===label,edge.rideLabel||nodes[id].name);

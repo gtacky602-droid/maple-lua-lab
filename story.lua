@@ -774,7 +774,15 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   kinichAmbush.enter(s,huntQuest,huntQuest and s.story.quests[huntQuest.id])
   local cargo,state=cargoQuest(s)
   if cargo and cargo.chase and recoveredAll(cargo,state) then beginChase(s,cargo) end
-  for i,a in ipairs(s.actors) do a.x=(spawn or 160)-(i-1)*40;a.y=arrivalY or 480;a.vy=0;a.ground=true;if arrivalY then a.drop=0 end end
+  s.storySwimming=n.swim
+  for i,a in ipairs(s.actors) do
+   local startX=(spawn or 160)-(i-1)*40
+   a.x=n.swim and math.max(20,startX) or startX
+   a.y=arrivalY or (n.swim and n.swim.entryY) or 480
+   a.vy=0;a.ground=not n.swim
+   if arrivalY or n.swim then a.drop=0 end
+   if n.swim then a.lock=0;a.channel=nil end
+  end
   s.camera=math.max(0,math.min(s.actors[s.active].x-400,math.max(0,n.width-960)))
   local diveQuest=n.toyDive and quests[n.toyDive.quest]
   freminetDive.enter(s,n.toyDive,diveQuest and s.story.quests[diveQuest.id],diveQuest and diveQuest.goal)
@@ -879,6 +887,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if key~='pause' and key~='jump' and key~='drop' and key~='story_nearby_portal'
        and not key:match('^story_portal:') and not key:match('^story_fast:') then return end
   end
+  if s.storySwimming and (key=='normal' or key=='jump' or key=='drop' or key=='dodge' or key=='light'
+      or key=='macro' or key:match('^skill%d') or key:match('^slot%d')) then return end
   if s.lift or s.caveFall or s.roofFlight then
    if key=='pause' then action(s,key) end
    return
@@ -1352,6 +1362,29 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
   end
  end
+ local function swim(s,dt,input)
+  if s.paused then return end
+  dt=math.max(0,math.min(dt,1/30))
+  s.t=s.t+dt
+  local spec=s.storySwimming
+  local a=s.actors[s.active]
+  local x,y,dx=freminetDive.motion(a,dt,input or {},spec.speed)
+  a.x=math.max(20,math.min(s.worldwidth-20,x))
+  a.y=math.max(spec.top,math.min(spec.bottom,y))
+  if dx~=0 then a.dir=dx end
+  local ally=s.actors[3-s.active]
+  local targetX=math.max(20,math.min(s.worldwidth-20,a.x-56*a.dir))
+  local follow=math.min(1,dt*5)
+  ally.x=ally.x+(targetX-ally.x)*follow
+  ally.y=ally.y+(a.y-ally.y)*follow
+  ally.dir=a.dir
+  for _,actor in ipairs(s.actors) do
+   C.advanceActorTimers(actor,dt)
+   actor.ground=false;actor.vy=0;actor.walk=0
+   actor.buffer=0;actor.coyote=0;actor.runDistance=nil
+  end
+  s.camera=math.max(0,math.min(a.x-400,math.max(0,s.worldwidth-960)))
+ end
  function C.step(s,dt,input)
   if s.springRun then
    local node=nodes[s.story.node]
@@ -1416,6 +1449,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    return
   end
+  if s.storySwimming then swim(s,dt,input);return end
   if s.story and s.story.active then movingPlatforms.move(s,dt) end
   if s.story and s.story.active and not s.paused and nodes[s.story.node].bloomQuest then bloom.follow(s) end
   local deck=s.story and s.story.active and s.storyMoonDeck
@@ -1667,6 +1701,16 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
                  waterway=ride.waterway or nil,boat=ride.boat or nil}
    else f.storyNearbyPortal=nearbyPortal(s) end
    local markers={};f.storyPortals={}
+   if n.swim then
+    f.storySwim=true
+    for i,a in ipairs(s.actors) do
+     if a.hp>0 then
+      local x=a.x-s.camera-a.dir*22
+      local y=a.y-30-14*((s.t+i*.29)%1)
+      markers[#markers+1]={kind='rect',x=x,y=y,w=4,h=4,color='#bcece9'}
+     end
+    end
+   end
    if n.waypoint then
     local point=n.waypoint
     local x,y=point.x-s.camera,point.y

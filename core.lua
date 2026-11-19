@@ -420,6 +420,11 @@ function C.moveOrdinaryFlier(e,dt)
  e.flying=true
 end
 
+function C.advanceActorTimers(a,dt)
+  a.lock=max(0,a.lock-dt);a.inv=max(0,a.inv-dt);a.light=max(0,a.light-dt);a.leap=max(0,(a.leap or 0)-dt)
+  for k,v in pairs(a.cd) do a.cd[k]=max(0,v-dt) end
+end
+
 function C.step(s,dt,input)
  if s.paused then return end
  dt=clamp(dt,0,1/30);input=input or {};s.t=s.t+dt;s.swap=max(0,s.swap-dt)
@@ -435,8 +440,7 @@ function C.step(s,dt,input)
   end
  end
  for _,a in ipairs(s.actors) do
-  a.lock=max(0,a.lock-dt);a.inv=max(0,a.inv-dt);a.light=max(0,a.light-dt);a.leap=max(0,(a.leap or 0)-dt)
-  for k,v in pairs(a.cd) do a.cd[k]=max(0,v-dt) end
+  C.advanceActorTimers(a,dt)
   if a.hp>0 then
    local manual=a.id==s.active and not s.auto
    local move=manual and ((input.right and 1 or 0)-(input.left and 1 or 0)) or 0

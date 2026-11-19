@@ -123,8 +123,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 36,
-      "prototype_quest_count": 21,
+      "prototype_stage_count": 126,
+      "prototype_quest_count": 24,
       "official_map2_markers": {
         "waypoints": 92,
         "statues": 8
@@ -253,8 +253,8 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 7,
-      "prototype_quest_count": 4,
+      "prototype_stage_count": 22,
+      "prototype_quest_count": 5,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
     {
@@ -462,8 +462,150 @@
     },
     "complete_world_verified": false,
     "region_assignment": "official area IDs",
-    "playable_at_imported_nodes": 351,
+    "playable_at_imported_nodes": 468,
     "stage_links": {
+      "map34:68599": {
+        "stage_id": "bygone-wp-68599",
+        "name": "往日の海・南西から潜る水門",
+        "gates": [
+          "teyvat:68345",
+          "map34:68600"
+        ]
+      },
+      "map34:68600": {
+        "stage_id": "bygone-wp-68600",
+        "name": "往日の海・珊瑚の浅い水路",
+        "gates": [
+          "map34:68599",
+          "map34:68601"
+        ]
+      },
+      "map34:68601": {
+        "stage_id": "bygone-camp",
+        "name": "往日の海・入口拠点",
+        "gates": [
+          "teyvat:50051",
+          "map34:68602",
+          "map34:68600",
+          "map34:68615"
+        ]
+      },
+      "map34:68602": {
+        "stage_id": "bygone-depth",
+        "name": "往日の海・探索路",
+        "gates": [
+          "map34:68601",
+          "map34:68603",
+          "map34:68604"
+        ]
+      },
+      "map34:68603": {
+        "stage_id": "bygone-wp-68603",
+        "name": "往日の海・西の沈殿物の石室",
+        "gates": [
+          "map34:68602"
+        ]
+      },
+      "map34:68604": {
+        "stage_id": "bygone-wp-68604",
+        "name": "往日の海・西海の峡谷口",
+        "gates": [
+          "map34:68615",
+          "map34:68602",
+          "map34:68605"
+        ]
+      },
+      "map34:68605": {
+        "stage_id": "bygone-wp-68605",
+        "name": "往日の海・東海の低い石橋",
+        "gates": [
+          "map34:68604",
+          "map34:68606",
+          "map34:68608",
+          "map34:68611"
+        ]
+      },
+      "map34:68606": {
+        "stage_id": "bygone-wp-68606",
+        "name": "往日の海・北の覗き窓",
+        "gates": [
+          "map34:68605",
+          "map34:68609"
+        ]
+      },
+      "map34:68607": {
+        "stage_id": "bygone-wp-68607",
+        "name": "往日の海・南岸の密閉室",
+        "gates": [
+          "map34:68611"
+        ]
+      },
+      "map34:68608": {
+        "stage_id": "bygone-wp-68608",
+        "name": "往日の海・南の珊瑚床",
+        "gates": [
+          "map34:68605",
+          "map34:68611"
+        ]
+      },
+      "map34:68609": {
+        "stage_id": "bygone-wp-68609",
+        "name": "往日の海・東の水中門",
+        "gates": [
+          "map34:68606",
+          "map34:68611",
+          "map34:68614",
+          "map34:68612"
+        ]
+      },
+      "map34:68610": {
+        "stage_id": "bygone-wp-68610",
+        "name": "往日の海・東端の別室",
+        "gates": [
+          "map34:68612"
+        ]
+      },
+      "map34:68611": {
+        "stage_id": "bygone-wp-68611",
+        "name": "往日の海・東の柱列",
+        "gates": [
+          "map34:68605",
+          "map34:68607",
+          "map34:68608",
+          "map34:68609"
+        ]
+      },
+      "map34:68612": {
+        "stage_id": "bygone-wp-68612",
+        "name": "往日の海・東端の下の水路",
+        "gates": [
+          "map34:68609",
+          "map34:68610"
+        ]
+      },
+      "map34:68613": {
+        "stage_id": "bygone-wp-68613",
+        "name": "往日の海・東の記録棚の下層",
+        "gates": [
+          "map34:68614"
+        ]
+      },
+      "map34:68614": {
+        "stage_id": "bygone-wp-68614",
+        "name": "往日の海・東の記録棚の上層",
+        "gates": [
+          "map34:68609",
+          "map34:68613"
+        ]
+      },
+      "map34:68615": {
+        "stage_id": "bygone-wp-68615",
+        "name": "往日の海・西側の珊瑚の池",
+        "gates": [
+          "map34:68601",
+          "map34:68604"
+        ]
+      },
       "map7:21571": {
         "stage_id": "enkanomiya-camp",
         "name": "淵下宮・入口拠点",
@@ -1850,6 +1992,7 @@
         "name": "スメール・雨林の道",
         "gates": [
           "teyvat:28739",
+          "teyvat:50033",
           "teyvat:46513",
           "teyvat:28702",
           "teyvat:28729",
@@ -2886,6 +3029,361 @@
           "teyvat:46526"
         ]
       },
+      "teyvat:50033": {
+        "stage_id": "fontaine-entry",
+        "name": "フォンテーヌ・地域の入口",
+        "gates": [
+          "teyvat:28730",
+          "teyvat:50054",
+          "teyvat:50035",
+          "teyvat:68340",
+          "teyvat:50046"
+        ]
+      },
+      "teyvat:50035": {
+        "stage_id": "fon-wp-50035",
+        "name": "フォンテーヌ南部・入江の北岸",
+        "gates": [
+          "teyvat:50033",
+          "teyvat:50036",
+          "teyvat:50037"
+        ]
+      },
+      "teyvat:50036": {
+        "stage_id": "fon-wp-50036",
+        "name": "フォンテーヌ南部・西南の山道",
+        "gates": [
+          "teyvat:50040",
+          "teyvat:50043",
+          "teyvat:50035"
+        ]
+      },
+      "teyvat:50037": {
+        "stage_id": "fon-wp-50037",
+        "name": "フォンテーヌ南部・西の高台",
+        "gates": [
+          "teyvat:50038",
+          "teyvat:50035",
+          "teyvat:50046"
+        ]
+      },
+      "teyvat:50038": {
+        "stage_id": "fon-wp-50038",
+        "name": "フォンテーヌ南部・西岸の神像",
+        "gates": [
+          "teyvat:50039",
+          "teyvat:50037"
+        ]
+      },
+      "teyvat:50039": {
+        "stage_id": "fon-wp-50039",
+        "name": "フォンテーヌ南部・西の林の道",
+        "gates": [
+          "teyvat:50040",
+          "teyvat:50038",
+          "teyvat:50041"
+        ]
+      },
+      "teyvat:50040": {
+        "stage_id": "fon-wp-50040",
+        "name": "フォンテーヌ南部・山裾の水たまり",
+        "gates": [
+          "teyvat:50042",
+          "teyvat:50039",
+          "teyvat:50036"
+        ]
+      },
+      "teyvat:50041": {
+        "stage_id": "fon-wp-50041",
+        "name": "フォンテーヌ南部・対岸を望む棚",
+        "gates": [
+          "teyvat:50042",
+          "teyvat:50039",
+          "teyvat:50053"
+        ]
+      },
+      "teyvat:50042": {
+        "stage_id": "fon-wp-50042",
+        "name": "フォンテーヌ南部・西岬の洞口",
+        "gates": [
+          "teyvat:56363",
+          "teyvat:50040",
+          "teyvat:50041"
+        ]
+      },
+      "teyvat:50043": {
+        "stage_id": "fon-wp-50043",
+        "name": "フォンテーヌ南部・斜面の暗がり",
+        "gates": [
+          "teyvat:50036",
+          "teyvat:50044"
+        ]
+      },
+      "teyvat:50044": {
+        "stage_id": "fon-wp-50044",
+        "name": "フォンテーヌ南部・地下の見張り棚",
+        "gates": [
+          "teyvat:50043",
+          "teyvat:52029"
+        ]
+      },
+      "teyvat:50045": {
+        "stage_id": "fon-wp-50045",
+        "name": "フォンテーヌ南部・水路東の尾根",
+        "gates": [
+          "teyvat:50046",
+          "teyvat:50074",
+          "teyvat:55773",
+          "teyvat:55763"
+        ]
+      },
+      "teyvat:50046": {
+        "stage_id": "fon-wp-50046",
+        "name": "フォンテーヌ南部・水路橋南の岸",
+        "gates": [
+          "teyvat:50033",
+          "teyvat:50037",
+          "teyvat:50073",
+          "teyvat:50060",
+          "teyvat:50045"
+        ]
+      },
+      "teyvat:50047": {
+        "stage_id": "fon-wp-50047",
+        "name": "フォンテーヌ南部・東の水門前",
+        "gates": [
+          "teyvat:55761",
+          "teyvat:50048"
+        ]
+      },
+      "teyvat:50048": {
+        "stage_id": "fon-wp-50048",
+        "name": "フォンテーヌ南部・東の工房跡",
+        "gates": [
+          "teyvat:50047",
+          "teyvat:55776"
+        ]
+      },
+      "teyvat:50050": {
+        "stage_id": "fon-wp-50050",
+        "name": "フォンテーヌ廷・市街北のテラス",
+        "gates": [
+          "teyvat:50052",
+          "teyvat:50054",
+          "teyvat:50056"
+        ]
+      },
+      "teyvat:50051": {
+        "stage_id": "fontaine-field",
+        "name": "フォンテーヌ・水路沿い",
+        "gates": [
+          "teyvat:50054",
+          "map34:68601",
+          "teyvat:50052",
+          "teyvat:50064"
+        ]
+      },
+      "teyvat:50052": {
+        "stage_id": "fon-wp-50052",
+        "name": "フォンテーヌ廷・市街南の階段",
+        "gates": [
+          "teyvat:50053",
+          "teyvat:50050",
+          "teyvat:50059",
+          "teyvat:50051"
+        ]
+      },
+      "teyvat:50053": {
+        "stage_id": "fon-wp-50053",
+        "name": "フォンテーヌ廷・市街西の波止場",
+        "gates": [
+          "teyvat:50077",
+          "teyvat:50062",
+          "teyvat:50041",
+          "teyvat:50052",
+          "teyvat:50054"
+        ]
+      },
+      "teyvat:50054": {
+        "stage_id": "fontaine-hub",
+        "name": "フォンテーヌ・水辺の広場",
+        "gates": [
+          "teyvat:50033",
+          "teyvat:50051",
+          "teyvat:68339",
+          "teyvat:50053",
+          "teyvat:50050"
+        ]
+      },
+      "teyvat:50056": {
+        "stage_id": "fon-wp-50056",
+        "name": "フォンテーヌ廷・市外北の坂",
+        "gates": [
+          "teyvat:50058",
+          "teyvat:53867",
+          "teyvat:50050"
+        ]
+      },
+      "teyvat:50058": {
+        "stage_id": "fon-wp-50058",
+        "name": "フォンテーヌ廷・西の丘の並木道",
+        "gates": [
+          "teyvat:51964",
+          "teyvat:50077",
+          "teyvat:50056"
+        ]
+      },
+      "teyvat:50059": {
+        "stage_id": "fon-wp-50059",
+        "name": "フォンテーヌ廷・市街の下の管路",
+        "gates": [
+          "teyvat:50052"
+        ]
+      },
+      "teyvat:50060": {
+        "stage_id": "fon-wp-50060",
+        "name": "フォンテーヌ南部・橋脚脇の昇降路",
+        "gates": [
+          "teyvat:50046"
+        ]
+      },
+      "teyvat:50061": {
+        "stage_id": "fon-wp-50061",
+        "name": "フォンテーヌ廷・地下貯水路の東端",
+        "gates": [
+          "teyvat:51964"
+        ]
+      },
+      "teyvat:50062": {
+        "stage_id": "fon-wp-50062",
+        "name": "フォンテーヌ湖・市街西の水底",
+        "gates": [
+          "teyvat:56363",
+          "teyvat:50063",
+          "teyvat:50053",
+          "teyvat:50064"
+        ]
+      },
+      "teyvat:50063": {
+        "stage_id": "fon-wp-50063",
+        "name": "フォンテーヌ湖・西側の沈んだ橋脚",
+        "gates": [
+          "teyvat:50062",
+          "teyvat:50072",
+          "teyvat:50065"
+        ]
+      },
+      "teyvat:50064": {
+        "stage_id": "fon-wp-50064",
+        "name": "フォンテーヌ湖・中央湖の浅い標識",
+        "gates": [
+          "teyvat:50062",
+          "teyvat:50051",
+          "teyvat:50065"
+        ]
+      },
+      "teyvat:50065": {
+        "stage_id": "fon-wp-50065",
+        "name": "フォンテーヌ湖・中央湖の深い標識",
+        "gates": [
+          "teyvat:50063",
+          "teyvat:50064",
+          "teyvat:50072",
+          "teyvat:50075",
+          "teyvat:50066"
+        ]
+      },
+      "teyvat:50066": {
+        "stage_id": "fon-wp-50066",
+        "name": "フォンテーヌ湖・東の水底回廊",
+        "gates": [
+          "teyvat:50065",
+          "teyvat:50076",
+          "teyvat:50070",
+          "teyvat:55767"
+        ]
+      },
+      "teyvat:50068": {
+        "stage_id": "fon-wp-50068",
+        "name": "フォンテーヌ湖・北側の沈水橋",
+        "gates": [
+          "teyvat:50069",
+          "teyvat:50071"
+        ]
+      },
+      "teyvat:50069": {
+        "stage_id": "fon-wp-50069",
+        "name": "フォンテーヌ湖・市街東の水中門",
+        "gates": [
+          "teyvat:50068",
+          "teyvat:50070"
+        ]
+      },
+      "teyvat:50070": {
+        "stage_id": "fon-wp-50070",
+        "name": "フォンテーヌ湖・中央の水の交差点",
+        "gates": [
+          "teyvat:50069",
+          "teyvat:50066"
+        ]
+      },
+      "teyvat:50071": {
+        "stage_id": "fon-wp-50071",
+        "name": "フォンテーヌ湖・北の水底の坂",
+        "gates": [
+          "teyvat:53866",
+          "teyvat:50068",
+          "teyvat:53864"
+        ]
+      },
+      "teyvat:50072": {
+        "stage_id": "fon-wp-50072",
+        "name": "フォンテーヌ湖・南西の水底の溝",
+        "gates": [
+          "teyvat:50063",
+          "teyvat:50073",
+          "teyvat:50065"
+        ]
+      },
+      "teyvat:50073": {
+        "stage_id": "fon-wp-50073",
+        "name": "フォンテーヌ湖・南の水底のトンネル",
+        "gates": [
+          "teyvat:50072",
+          "teyvat:50046"
+        ]
+      },
+      "teyvat:50074": {
+        "stage_id": "fon-wp-50074",
+        "name": "フォンテーヌ南部・東岸の石の地下道",
+        "gates": [
+          "teyvat:50045"
+        ]
+      },
+      "teyvat:50075": {
+        "stage_id": "fon-wp-50075",
+        "name": "フォンテーヌ湖・南の沈水層の入口",
+        "gates": [
+          "teyvat:50065",
+          "teyvat:50076"
+        ]
+      },
+      "teyvat:50076": {
+        "stage_id": "fon-wp-50076",
+        "name": "フォンテーヌ湖・南の沈水層の奥",
+        "gates": [
+          "teyvat:50075",
+          "teyvat:50066"
+        ]
+      },
+      "teyvat:50077": {
+        "stage_id": "fon-wp-50077",
+        "name": "フォンテーヌ廷・市外の西の水門",
+        "gates": [
+          "teyvat:50058",
+          "teyvat:50053"
+        ]
+      },
       "teyvat:51": {
         "stage_id": "liyue-wp-51",
         "name": "璃月・水上の宿への桟橋",
@@ -2893,6 +3391,14 @@
           "teyvat:1748",
           "teyvat:343",
           "teyvat:33"
+        ]
+      },
+      "teyvat:51964": {
+        "stage_id": "fon-wp-51964",
+        "name": "フォンテーヌ廷・地下貯水路の西端",
+        "gates": [
+          "teyvat:50061",
+          "teyvat:50058"
         ]
       },
       "teyvat:52": {
@@ -2904,12 +3410,219 @@
           "teyvat:53"
         ]
       },
+      "teyvat:52029": {
+        "stage_id": "fon-wp-52029",
+        "name": "フォンテーヌ南部・西の高台の下の洞",
+        "gates": [
+          "teyvat:50044"
+        ]
+      },
       "teyvat:53": {
         "stage_id": "liyue-wp-53",
         "name": "璃月・浅瀬の船着き場",
         "gates": [
           "teyvat:52",
           "teyvat:54"
+        ]
+      },
+      "teyvat:53848": {
+        "stage_id": "fon-wp-53848",
+        "name": "フォンテーヌ湖・北西湾の沈んだ石の間",
+        "gates": [
+          "teyvat:53863"
+        ]
+      },
+      "teyvat:53849": {
+        "stage_id": "fon-wp-53849",
+        "name": "フォンテーヌ北部・北の水門の第二層",
+        "gates": [
+          "teyvat:53869",
+          "teyvat:53850"
+        ]
+      },
+      "teyvat:53850": {
+        "stage_id": "fon-wp-53850",
+        "name": "フォンテーヌ北部・北の水門の第一層",
+        "gates": [
+          "teyvat:53849",
+          "teyvat:53867",
+          "teyvat:53871"
+        ]
+      },
+      "teyvat:53851": {
+        "stage_id": "fon-wp-53851",
+        "name": "フォンテーヌ北部・北岸の石室",
+        "gates": [
+          "teyvat:53870"
+        ]
+      },
+      "teyvat:53852": {
+        "stage_id": "fon-wp-53852",
+        "name": "フォンテーヌ北部・北西岸の船着き場",
+        "gates": [
+          "teyvat:53863",
+          "teyvat:53867"
+        ]
+      },
+      "teyvat:53853": {
+        "stage_id": "fon-wp-53853",
+        "name": "フォンテーヌ北部・演習場西の道",
+        "gates": [
+          "teyvat:53867",
+          "teyvat:53854",
+          "teyvat:53868"
+        ]
+      },
+      "teyvat:53854": {
+        "stage_id": "fon-wp-53854",
+        "name": "フォンテーヌ北部・演習場南の崖道",
+        "gates": [
+          "teyvat:53853",
+          "teyvat:55777",
+          "teyvat:53855"
+        ]
+      },
+      "teyvat:53855": {
+        "stage_id": "fon-wp-53855",
+        "name": "フォンテーヌ北部・東の丘の見張り台",
+        "gates": [
+          "teyvat:53854",
+          "teyvat:53868"
+        ]
+      },
+      "teyvat:53856": {
+        "stage_id": "fon-wp-53856",
+        "name": "フォンテーヌ北部・湖東の斜面",
+        "gates": [
+          "teyvat:53858",
+          "teyvat:53868",
+          "teyvat:53857"
+        ]
+      },
+      "teyvat:53857": {
+        "stage_id": "fon-wp-53857",
+        "name": "フォンテーヌ北部・北東の貯水池",
+        "gates": [
+          "teyvat:53856",
+          "teyvat:53859"
+        ]
+      },
+      "teyvat:53858": {
+        "stage_id": "fon-wp-53858",
+        "name": "フォンテーヌ北部・高い水門の側道",
+        "gates": [
+          "teyvat:53861",
+          "teyvat:53864",
+          "teyvat:53856"
+        ]
+      },
+      "teyvat:53859": {
+        "stage_id": "fon-wp-53859",
+        "name": "フォンテーヌ北部・北の縁の岩道",
+        "gates": [
+          "teyvat:53860",
+          "teyvat:53857"
+        ]
+      },
+      "teyvat:53860": {
+        "stage_id": "fon-wp-53860",
+        "name": "フォンテーヌ北部・山裾の運河",
+        "gates": [
+          "teyvat:53862",
+          "teyvat:53861",
+          "teyvat:53859"
+        ]
+      },
+      "teyvat:53861": {
+        "stage_id": "fon-wp-53861",
+        "name": "フォンテーヌ北部・西の水路の分岐",
+        "gates": [
+          "teyvat:53870",
+          "teyvat:53860",
+          "teyvat:53858"
+        ]
+      },
+      "teyvat:53862": {
+        "stage_id": "fon-wp-53862",
+        "name": "フォンテーヌ北部・北端の高台",
+        "gates": [
+          "teyvat:53863",
+          "teyvat:53860"
+        ]
+      },
+      "teyvat:53863": {
+        "stage_id": "fon-wp-53863",
+        "name": "フォンテーヌ北部・北西湾の入口",
+        "gates": [
+          "teyvat:53852",
+          "teyvat:53848",
+          "teyvat:53862"
+        ]
+      },
+      "teyvat:53864": {
+        "stage_id": "fon-wp-53864",
+        "name": "フォンテーヌ湖・北の入江の水底",
+        "gates": [
+          "teyvat:53865",
+          "teyvat:50071",
+          "teyvat:53858"
+        ]
+      },
+      "teyvat:53865": {
+        "stage_id": "fon-wp-53865",
+        "name": "フォンテーヌ湖・水門西の深い棚",
+        "gates": [
+          "teyvat:53866",
+          "teyvat:53864"
+        ]
+      },
+      "teyvat:53866": {
+        "stage_id": "fon-wp-53866",
+        "name": "フォンテーヌ湖・入江西の水中通路",
+        "gates": [
+          "teyvat:53865",
+          "teyvat:50071"
+        ]
+      },
+      "teyvat:53867": {
+        "stage_id": "fon-wp-53867",
+        "name": "フォンテーヌ北部・北の入口の神像",
+        "gates": [
+          "teyvat:53852",
+          "teyvat:53850",
+          "teyvat:50056",
+          "teyvat:53853"
+        ]
+      },
+      "teyvat:53868": {
+        "stage_id": "fon-wp-53868",
+        "name": "フォンテーヌ北部・東湖の神像",
+        "gates": [
+          "teyvat:53853",
+          "teyvat:53856",
+          "teyvat:53855"
+        ]
+      },
+      "teyvat:53869": {
+        "stage_id": "fon-wp-53869",
+        "name": "フォンテーヌ北部・北の水門の第三層",
+        "gates": [
+          "teyvat:53849"
+        ]
+      },
+      "teyvat:53870": {
+        "stage_id": "fon-wp-53870",
+        "name": "フォンテーヌ北部・北岸の水路口",
+        "gates": [
+          "teyvat:53851",
+          "teyvat:53861"
+        ]
+      },
+      "teyvat:53871": {
+        "stage_id": "fon-wp-53871",
+        "name": "フォンテーヌ北部・北の水門の東の下層",
+        "gates": [
+          "teyvat:53850"
         ]
       },
       "teyvat:54": {
@@ -2926,6 +3639,234 @@
         "name": "モンド・城西の風見段",
         "gates": [
           "teyvat:57"
+        ]
+      },
+      "teyvat:55760": {
+        "stage_id": "fon-wp-55760",
+        "name": "フォンテーヌ東部・東湾の神像",
+        "gates": [
+          "teyvat:55775",
+          "teyvat:55769",
+          "teyvat:55772"
+        ]
+      },
+      "teyvat:55761": {
+        "stage_id": "fon-wp-55761",
+        "name": "フォンテーヌ東部・湖東の峠の神像",
+        "gates": [
+          "teyvat:50047",
+          "teyvat:55777",
+          "teyvat:55778"
+        ]
+      },
+      "teyvat:55762": {
+        "stage_id": "fon-wp-55762",
+        "name": "フォンテーヌ東部・湾南西の岩礁",
+        "gates": [
+          "teyvat:55763",
+          "teyvat:55765",
+          "teyvat:55771"
+        ]
+      },
+      "teyvat:55763": {
+        "stage_id": "fon-wp-55763",
+        "name": "フォンテーヌ東部・湾西の水路脇",
+        "gates": [
+          "teyvat:50045",
+          "teyvat:55773",
+          "teyvat:55764",
+          "teyvat:55762"
+        ]
+      },
+      "teyvat:55764": {
+        "stage_id": "fon-wp-55764",
+        "name": "フォンテーヌ東部・湾西の低い石室",
+        "gates": [
+          "teyvat:55763"
+        ]
+      },
+      "teyvat:55765": {
+        "stage_id": "fon-wp-55765",
+        "name": "フォンテーヌ湖・湾の南の沈水溝",
+        "gates": [
+          "teyvat:55762",
+          "teyvat:55767",
+          "teyvat:55766"
+        ]
+      },
+      "teyvat:55766": {
+        "stage_id": "fon-wp-55766",
+        "name": "フォンテーヌ湖・東端の水中の棚",
+        "gates": [
+          "teyvat:55765"
+        ]
+      },
+      "teyvat:55767": {
+        "stage_id": "fon-wp-55767",
+        "name": "フォンテーヌ湖・湾北の水中階段",
+        "gates": [
+          "teyvat:50066",
+          "teyvat:55765"
+        ]
+      },
+      "teyvat:55768": {
+        "stage_id": "fon-wp-55768",
+        "name": "フォンテーヌ湖・東の島の水洞",
+        "gates": [
+          "teyvat:55770"
+        ]
+      },
+      "teyvat:55769": {
+        "stage_id": "fon-wp-55769",
+        "name": "フォンテーヌ東部・島西の橋台",
+        "gates": [
+          "teyvat:55760",
+          "teyvat:55770"
+        ]
+      },
+      "teyvat:55770": {
+        "stage_id": "fon-wp-55770",
+        "name": "フォンテーヌ東部・湾東の岬",
+        "gates": [
+          "teyvat:55769",
+          "teyvat:55771",
+          "teyvat:55768",
+          "teyvat:55772"
+        ]
+      },
+      "teyvat:55771": {
+        "stage_id": "fon-wp-55771",
+        "name": "フォンテーヌ東部・南の連絡島",
+        "gates": [
+          "teyvat:55762",
+          "teyvat:55770"
+        ]
+      },
+      "teyvat:55772": {
+        "stage_id": "fon-wp-55772",
+        "name": "フォンテーヌ東部・島北の見張り場",
+        "gates": [
+          "teyvat:55760",
+          "teyvat:55770",
+          "teyvat:55783"
+        ]
+      },
+      "teyvat:55773": {
+        "stage_id": "fon-wp-55773",
+        "name": "フォンテーヌ東部・橋の南の高台",
+        "gates": [
+          "teyvat:50045",
+          "teyvat:55763",
+          "teyvat:55775"
+        ]
+      },
+      "teyvat:55774": {
+        "stage_id": "fon-wp-55774",
+        "name": "フォンテーヌ東部・東岸の南道",
+        "gates": [
+          "teyvat:55775",
+          "teyvat:55776"
+        ]
+      },
+      "teyvat:55775": {
+        "stage_id": "fon-wp-55775",
+        "name": "フォンテーヌ東部・砂利の舟置き場",
+        "gates": [
+          "teyvat:55773",
+          "teyvat:55760",
+          "teyvat:55774"
+        ]
+      },
+      "teyvat:55776": {
+        "stage_id": "fon-wp-55776",
+        "name": "フォンテーヌ東部・東の工房の裏道",
+        "gates": [
+          "teyvat:50048",
+          "teyvat:55784",
+          "teyvat:55774",
+          "teyvat:55779"
+        ]
+      },
+      "teyvat:55777": {
+        "stage_id": "fon-wp-55777",
+        "name": "フォンテーヌ東部・東の山並みの外道",
+        "gates": [
+          "teyvat:53854",
+          "teyvat:55761"
+        ]
+      },
+      "teyvat:55778": {
+        "stage_id": "fon-wp-55778",
+        "name": "フォンテーヌ東部・小湖へ続く道",
+        "gates": [
+          "teyvat:55761",
+          "teyvat:55779"
+        ]
+      },
+      "teyvat:55779": {
+        "stage_id": "fon-wp-55779",
+        "name": "フォンテーヌ東部・小湖の岸",
+        "gates": [
+          "teyvat:55776",
+          "teyvat:55778",
+          "teyvat:55782",
+          "teyvat:55780"
+        ]
+      },
+      "teyvat:55780": {
+        "stage_id": "fon-wp-55780",
+        "name": "フォンテーヌ東部・東の滝の上",
+        "gates": [
+          "teyvat:55779",
+          "teyvat:55781"
+        ]
+      },
+      "teyvat:55781": {
+        "stage_id": "fon-wp-55781",
+        "name": "フォンテーヌ東部・東端の崖の渡り",
+        "gates": [
+          "teyvat:55782",
+          "teyvat:55780"
+        ]
+      },
+      "teyvat:55782": {
+        "stage_id": "fon-wp-55782",
+        "name": "フォンテーヌ東部・孤立湖の南の坂",
+        "gates": [
+          "teyvat:55779",
+          "teyvat:55785",
+          "teyvat:55783",
+          "teyvat:55781"
+        ]
+      },
+      "teyvat:55783": {
+        "stage_id": "fon-wp-55783",
+        "name": "フォンテーヌ東部・東岸沖の石島",
+        "gates": [
+          "teyvat:55772",
+          "teyvat:55782"
+        ]
+      },
+      "teyvat:55784": {
+        "stage_id": "fon-wp-55784",
+        "name": "フォンテーヌ東部・工房の地下入口",
+        "gates": [
+          "teyvat:55776"
+        ]
+      },
+      "teyvat:55785": {
+        "stage_id": "fon-wp-55785",
+        "name": "フォンテーヌ東部・東の崖の下の回廊",
+        "gates": [
+          "teyvat:55782"
+        ]
+      },
+      "teyvat:56363": {
+        "stage_id": "fon-wp-56363",
+        "name": "フォンテーヌ湖・西岸沖の水洞",
+        "gates": [
+          "teyvat:50042",
+          "teyvat:50062"
         ]
       },
       "teyvat:57": {
@@ -3315,6 +4256,65 @@
           "teyvat:64839"
         ]
       },
+      "teyvat:68339": {
+        "stage_id": "nostoi-castle-approach",
+        "name": "ノストイ地区・色褪せた城の入口",
+        "gates": [
+          "teyvat:50054",
+          "teyvat:68340",
+          "teyvat:68341"
+        ]
+      },
+      "teyvat:68340": {
+        "stage_id": "fon-wp-68340",
+        "name": "ノストイ地区・島北の入江",
+        "gates": [
+          "teyvat:50033",
+          "teyvat:68339",
+          "teyvat:68341"
+        ]
+      },
+      "teyvat:68341": {
+        "stage_id": "fon-wp-68341",
+        "name": "ノストイ地区・島南の古い桟橋",
+        "gates": [
+          "teyvat:68340",
+          "teyvat:68339",
+          "teyvat:68345"
+        ]
+      },
+      "teyvat:68342": {
+        "stage_id": "fon-wp-68342",
+        "name": "ノストイ地区・深い遺構の北室",
+        "gates": [
+          "teyvat:68345",
+          "teyvat:68343"
+        ]
+      },
+      "teyvat:68343": {
+        "stage_id": "fon-wp-68343",
+        "name": "ノストイ地区・深い遺構の南室",
+        "gates": [
+          "teyvat:68342",
+          "teyvat:68344"
+        ]
+      },
+      "teyvat:68344": {
+        "stage_id": "fon-wp-68344",
+        "name": "ノストイ地区・遺構の下層の記録棚",
+        "gates": [
+          "teyvat:68343"
+        ]
+      },
+      "teyvat:68345": {
+        "stage_id": "fon-wp-68345",
+        "name": "ノストイ地区・海へ続く第一層",
+        "gates": [
+          "teyvat:68341",
+          "teyvat:68342",
+          "map34:68599"
+        ]
+      },
       "teyvat:69098": {
         "stage_id": "sum-wp-69098",
         "name": "スメールの森林・バイダ港の船着き場",
@@ -3505,8 +4505,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 666,
-    "provisional_quests": 240,
+    "authored_stages": 777,
+    "provisional_quests": 244,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -3551,7 +4551,7 @@
     "status": "partial",
     "design": "content/world-bosses-design.json"
   },
-  "current_priority": "Connect Fontaine waypoint IDs and the separately cataloged Sea of Bygone Eras, including water and distinct floors. Continue quest and boss playthroughs and sprite consistency checks.",
+  "current_priority": "Match Natlan waypoint IDs to playable regional routes and link the distinct maps of the Ancient Sacred Mountain and Sky Temple. Continue quest and boss playthroughs.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",
@@ -4064,9 +5064,102 @@
           "fontaine-grand-stage",
           "narwhal-star-sea",
           "narwhal-inner-echo",
-          "knave-crimson-court"
+          "knave-crimson-court",
+          "fon-wp-50035",
+          "fon-wp-50036",
+          "fon-wp-50037",
+          "fon-wp-50038",
+          "fon-wp-50039",
+          "fon-wp-50040",
+          "fon-wp-50041",
+          "fon-wp-50042",
+          "fon-wp-50043",
+          "fon-wp-50044",
+          "fon-wp-50045",
+          "fon-wp-50046",
+          "fon-wp-50047",
+          "fon-wp-50048",
+          "fon-wp-50050",
+          "fon-wp-50052",
+          "fon-wp-50053",
+          "fon-wp-50056",
+          "fon-wp-50058",
+          "fon-wp-50059",
+          "fon-wp-50060",
+          "fon-wp-50061",
+          "fon-wp-50062",
+          "fon-wp-50063",
+          "fon-wp-50064",
+          "fon-wp-50065",
+          "fon-wp-50066",
+          "fon-wp-50068",
+          "fon-wp-50069",
+          "fon-wp-50070",
+          "fon-wp-50071",
+          "fon-wp-50072",
+          "fon-wp-50073",
+          "fon-wp-50074",
+          "fon-wp-50075",
+          "fon-wp-50076",
+          "fon-wp-50077",
+          "fon-wp-51964",
+          "fon-wp-52029",
+          "fon-wp-53848",
+          "fon-wp-53849",
+          "fon-wp-53850",
+          "fon-wp-53851",
+          "fon-wp-53852",
+          "fon-wp-53853",
+          "fon-wp-53854",
+          "fon-wp-53855",
+          "fon-wp-53856",
+          "fon-wp-53857",
+          "fon-wp-53858",
+          "fon-wp-53859",
+          "fon-wp-53860",
+          "fon-wp-53861",
+          "fon-wp-53862",
+          "fon-wp-53863",
+          "fon-wp-53864",
+          "fon-wp-53865",
+          "fon-wp-53866",
+          "fon-wp-53867",
+          "fon-wp-53868",
+          "fon-wp-53869",
+          "fon-wp-53870",
+          "fon-wp-53871",
+          "fon-wp-55760",
+          "fon-wp-55761",
+          "fon-wp-55762",
+          "fon-wp-55763",
+          "fon-wp-55764",
+          "fon-wp-55765",
+          "fon-wp-55766",
+          "fon-wp-55767",
+          "fon-wp-55768",
+          "fon-wp-55769",
+          "fon-wp-55770",
+          "fon-wp-55771",
+          "fon-wp-55772",
+          "fon-wp-55773",
+          "fon-wp-55774",
+          "fon-wp-55775",
+          "fon-wp-55776",
+          "fon-wp-55777",
+          "fon-wp-55778",
+          "fon-wp-55779",
+          "fon-wp-55780",
+          "fon-wp-55781",
+          "fon-wp-55782",
+          "fon-wp-55783",
+          "fon-wp-55784",
+          "fon-wp-55785",
+          "fon-wp-56363"
         ],
         "quest_ids": [
+          "fon-mapped-depth-samples",
+          "fon-mapped-north-lock",
+          "fon-mapped-nostoi-record",
           "knave-weekly-commission",
           "narwhal-weekly-commission",
           "emilie-join",
@@ -4465,9 +5558,25 @@
           "bygone-resonance-chamber",
           "bygone-inscribed-hall",
           "bygone-listening-gallery",
-          "bygone-bell-archive"
+          "bygone-bell-archive",
+          "bygone-wp-68599",
+          "bygone-wp-68600",
+          "bygone-wp-68603",
+          "bygone-wp-68604",
+          "bygone-wp-68605",
+          "bygone-wp-68606",
+          "bygone-wp-68607",
+          "bygone-wp-68608",
+          "bygone-wp-68609",
+          "bygone-wp-68610",
+          "bygone-wp-68611",
+          "bygone-wp-68612",
+          "bygone-wp-68613",
+          "bygone-wp-68614",
+          "bygone-wp-68615"
         ],
         "quest_ids": [
+          "fon-mapped-bygone-current",
           "bygone-survey",
           "bygone-stone-rubbings",
           "bygone-lit-passage",
@@ -4709,7 +5818,22 @@
           "bygone-resonance-chamber",
           "bygone-inscribed-hall",
           "bygone-listening-gallery",
-          "bygone-bell-archive"
+          "bygone-bell-archive",
+          "bygone-wp-68599",
+          "bygone-wp-68600",
+          "bygone-wp-68603",
+          "bygone-wp-68604",
+          "bygone-wp-68605",
+          "bygone-wp-68606",
+          "bygone-wp-68607",
+          "bygone-wp-68608",
+          "bygone-wp-68609",
+          "bygone-wp-68610",
+          "bygone-wp-68611",
+          "bygone-wp-68612",
+          "bygone-wp-68613",
+          "bygone-wp-68614",
+          "bygone-wp-68615"
         ]
       },
       {

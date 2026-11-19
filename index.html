@@ -107,7 +107,7 @@
 #stoneOrnaments canvas{display:block;width:min(100%,420px);height:auto;margin:0 0 9px}
 #stoneOrnamentsTools:not([hidden]){display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px}
 .game.toy-dive .bottom .skills,.game.toy-dive .bottom .gauge{display:none}
-#diveHelp{padding:10px 18px;background:#1c4c50;color:#e1f6e8}
+#diveHelp,#fieldSwimHelp{padding:10px 18px;background:#1c4c50;color:#e1f6e8}
 #diveHelp button{margin-inline-start:8px}
 .touch{flex-wrap:wrap}
 #surfControls{padding:10px 18px;background:#173a3b}
@@ -290,6 +290,7 @@
 </section>
 <div id="nearbyCargo" hidden style="padding:10px 18px;background:#173a3b"><button id="nearbyCargoGo" data-action="story_collect">G：荷物を回収</button><span id="reflectionControls" hidden> <button id="reflectionLight" data-action="story_reflection_light">消灯する</button> <button data-action="story_reflection_confirm">照合する</button></span> <span id="reflectionImage"></span> <button id="airflowSound" hidden aria-pressed="false">装置音を聞く</button><span id="airflowControls" hidden> <button id="airflowCommit" data-action="story_airflow_commit">この位置で固定する</button> <span id="airflowStatus"></span></span> <span id="resonanceStatus" aria-live="polite"></span> <span id="paperControls" hidden><button id="paperConfirm" data-action="story_paper_confirm">確定する</button> <span id="paperStatus"></span></span><span id="surveyRigControls" hidden> <button data-action="story_survey_confirm">この設置で確定する</button> <span id="surveyRigReading" role="status"></span></span></div>
 <div id="rockView" hidden style="padding:10px 18px;background:#173a3b"><p id="rockViewCaption" style="margin:0 0 8px"></p><canvas id="rockViewCanvas" width="340" height="108" aria-hidden="true" style="width:min(100%,340px);aspect-ratio:340/108"></canvas></div>
+<div id="fieldSwimHelp" hidden>WASD・方向キーで泳ぐ ｜ 門の深さを合わせてF ｜ 目印の近くでG</div>
 <div id="diveHelp" hidden><span>WASD・方向キーで泳ぐ ｜ Gで調べる ｜ Fで浮上</span> <button id="diveReset" type="button" data-action="story_dive_reset">回収灯へ戻る</button></div>
 <div id="iansanRun" hidden aria-label="訓練の計測"></div>
 <section id="iansanReview" hidden aria-labelledby="iansanReviewTitle">

@@ -99,7 +99,7 @@ addEventListener('keydown',e=>{
  if(e.code==='KeyH'&&!e.repeat&&(frame?.weeklyBoss?.knave||frame?.weeklyBoss?.falseMoon?.canUse||frame?.endgameRun?.lampVisible||frame?.endgameRun?.aidReady)&&!(/INPUT|SELECT|BUTTON/.test(document.activeElement.tagName)))actions.push('encounter_interact');
 });
 for(let i=1;i<=8;i++)mapping['Digit'+i]='slot'+i;
-addEventListener('keydown',e=>{if(e.code==='Escape'&&frame?.growthTrial){actions.push('growth_practice_exit');return}if(e.code==='Escape'&&frame?.storyIansan?.panel){actions.push('story_iansan_close');return}if(e.code==='Escape'&&frame?.storySpringCourse?.panel){actions.push('story_spring_close');return}if(e.code==='Escape'&&frame?.storyStonePair){actions.push('story_charm_close');return}if(e.code==='Escape'&&frame?.storyNaviaPhoto?.panel){actions.push('story_photo_close');return}if(e.code==='Escape'&&frame?.storyFurinaRehearsal?.open){actions.push('story_rehearsal:close');return}if(e.code==='Escape'&&frame?.storyDiscoveryMap){actions.push('story_discovery_close');return}if(e.code==='Escape'&&frame?.storyKavehModel){actions.push('story_model_close');return}if(/INPUT|SELECT|BUTTON/.test(document.activeElement.tagName))return;if(['Space','ArrowLeft','ArrowRight','ArrowDown'].includes(e.code)||(e.code==='ArrowUp'&&frame?.storyToyDive))e.preventDefault();keys.add(e.code);if(!e.repeat){if(e.code==='Space')actions.push(keys.has('KeyS')||keys.has('ArrowDown')?'drop':'jump');else if(e.code==='KeyJ'&&frame?.storySurf?.phase==='cove')actions.push('story_surf_hit');else if(mapping[e.code])actions.push(mapping[e.code])}});
+addEventListener('keydown',e=>{if(e.code==='Escape'&&frame?.growthTrial){actions.push('growth_practice_exit');return}if(e.code==='Escape'&&frame?.storyIansan?.panel){actions.push('story_iansan_close');return}if(e.code==='Escape'&&frame?.storySpringCourse?.panel){actions.push('story_spring_close');return}if(e.code==='Escape'&&frame?.storyStonePair){actions.push('story_charm_close');return}if(e.code==='Escape'&&frame?.storyNaviaPhoto?.panel){actions.push('story_photo_close');return}if(e.code==='Escape'&&frame?.storyFurinaRehearsal?.open){actions.push('story_rehearsal:close');return}if(e.code==='Escape'&&frame?.storyDiscoveryMap){actions.push('story_discovery_close');return}if(e.code==='Escape'&&frame?.storyKavehModel){actions.push('story_model_close');return}if(/INPUT|SELECT|BUTTON/.test(document.activeElement.tagName))return;if(['Space','ArrowLeft','ArrowRight','ArrowDown'].includes(e.code)||(e.code==='ArrowUp'&&(frame?.storyToyDive||frame?.storySwim)))e.preventDefault();keys.add(e.code);if(!e.repeat){if(e.code==='Space')actions.push(keys.has('KeyS')||keys.has('ArrowDown')?'drop':'jump');else if(e.code==='KeyJ'&&frame?.storySurf?.phase==='cove')actions.push('story_surf_hit');else if(mapping[e.code])actions.push(mapping[e.code])}});
 addEventListener('keyup',e=>keys.delete(e.code));addEventListener('blur',()=>keys.clear());
 document.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>{actions.push(b.dataset.action);b.blur()});
 let holds={};document.querySelectorAll('[data-hold]').forEach(b=>{b.onpointerdown=e=>{b.setPointerCapture(e.pointerId);holds[b.dataset.hold]=true};b.onpointerup=b.onpointercancel=b.onlostpointercapture=()=>holds[b.dataset.hold]=false});
@@ -289,7 +289,7 @@ function updateProgression(f){
  updateSpringCourse(f.storySpringCourse);
  updateIansanTraining(f.storyIansan);
  dailyBoard.update(f.daily);
- const diving=Boolean(f.storyToyDive);
+ const diving=Boolean(f.storyToyDive), swimming=Boolean(f.storySwim);
  $('surfControls').hidden=!boarding&&!rally;
  $('surfControls').closest('.game').classList.toggle('surf-playing',boarding||rally);
  $('surfHit').hidden=!rally;
@@ -299,15 +299,16 @@ function updateProgression(f){
  const surfText=boarding?`左右で進む・Spaceで跳ぶ　｜　輪 ${surf.rings} / ${surf.ringTotal}`:
   rally?(surf.ready?'返球！':'左右で合わせ、合図で J を押す'):'';
  if($('surfStatus').textContent!==surfText)$('surfStatus').textContent=surfText;
- $('touchJump').hidden=diving||solo;
+ $('touchJump').hidden=diving||swimming||solo;
  document.querySelectorAll('.touch [data-hold="left"],.touch [data-hold="right"]').forEach(button=>{button.hidden=solo});
  document.querySelector('.game').classList.toggle('toy-dive',diving);
  $('a1').hidden=solo&&f.active===2;
  $('a2').hidden=diving||(solo&&f.active===1);
  $('diveHelp').hidden=!diving;
+ $('fieldSwimHelp').hidden=!swimming;
  $('diveReset').disabled=f.paused;
- document.querySelectorAll('[data-swim]').forEach(button=>{button.hidden=!diving});
- document.querySelectorAll('[data-land]').forEach(button=>{button.hidden=diving||solo});
+ document.querySelectorAll('[data-swim]').forEach(button=>{button.hidden=!diving&&!swimming});
+ document.querySelectorAll('[data-land]').forEach(button=>{button.hidden=diving||swimming||solo});
  const touchAttack=document.querySelector('[data-hold="attack"]');
  touchAttack.textContent=snowMatch?'雪玉を投げる':'攻撃';
  touchAttack.disabled=!!snowMatch&&!snowMatch.running;
