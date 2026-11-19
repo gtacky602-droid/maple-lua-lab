@@ -202,5 +202,7 @@
   "showRewardsBeforeEntry": true,
   "appliesBaseExpAtCap": true,
   "keepsExpAndArtifactWhenBagIsFull": true,
-  "noPayoutOnExitOrTimeout": true
+  "noPayoutOnExitOrTimeout": true,
+  "atlasToEachDesk": true,
+  "hubPortalsUsed": true
 }

@@ -7,6 +7,8 @@ from savegame import validate_save
 
 
 specs = json.loads((ROOT / 'content/stygian-matches.json').read_text(encoding='utf8'))['matches']
+nodes = {node['id']: node for node in
+         json.loads((ROOT / 'content/story-graph.json').read_text(encoding='utf8'))['nodes']}
 lua, core = runtime()
 empty = lua.table()
 
@@ -26,9 +28,19 @@ def restore(saved):
     return core.restore(lua.table_from(saved, recursive=True), 12)
 
 
+def reach_desk(state, match):
+    spec = specs[match]
+    core.enterStoryNode(state, spec['hub'])
+    entrance = next(edge for edge in nodes[spec['hub']]['exits'] if edge['to'] == spec['node'])
+    actor = state.actors[state.active]
+    actor.x, actor.y = entrance['x'], entrance.get('y', 480)
+    core.action(state, 'story_nearby_portal')
+    return state.story.node == spec['node']
+
+
 def start(state, match, mode, reward_set='troupe'):
-    core.enterStoryNode(state, specs[match]['hub'])
-    core.enterStoryNode(state, specs[match]['node'])
+    if state.story.node != specs[match]['node'] and not reach_desk(state, match):
+        return
     core.action(state, f'stygian_start:{match}:{mode}:{reward_set}')
     return state.endgameRun
 
@@ -63,11 +75,18 @@ for match, spec in specs.items():
     assert totals(below) == baseline
 
     state = new_state(CAP)
+    core.enterStoryNode(state, spec['hub'])
+    core.action(state, 'world_map_boss:' + spec['node'])
+    atlas = core.frame(state).worldMap
+    assert atlas.selected.boss.id == spec['challenge']
+    assert atlas.guide.status == 'ready' and len(atlas.guide.stops) == 1
+    assert atlas.guide.stops[1].id == spec['node']
+    core.action(state, 'world_map_close')
     for index, mode in reversed(list(enumerate(spec['modes']))):
         id = mode['id']
         key = f'{match}:{id}'
         level = mode['level']
-        core.enterStoryNode(state, spec['node'])
+        assert reach_desk(state, match)
         available = core.frame(state).stygianDesk.modes[index + 1]
         assert available.id == id and available.record is None
         pace = 50 if level < 100 else 55 if level < 140 else 60
@@ -147,7 +166,7 @@ assert run.status == 'failed' and totals(timeout) == before and timeout.endgame 
 
 result = dict(modes=checked, firstAndRepeatAfterReload=True, oldWinRetainsFirstClear=True,
               showRewardsBeforeEntry=True, appliesBaseExpAtCap=True, keepsExpAndArtifactWhenBagIsFull=True,
-              noPayoutOnExitOrTimeout=True)
+              noPayoutOnExitOrTimeout=True, atlasToEachDesk=True, hubPortalsUsed=True)
 (ROOT / 'evidence/stygian-clear-rewards-lua.json').write_text(
     json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
 print(f'{len(checked)} Stygian match/difficulty settlements passed, including repeat, import and capped EXP')

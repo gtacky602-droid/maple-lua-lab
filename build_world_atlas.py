@@ -24,6 +24,7 @@ REGION_ALIASES = {
     'ノヴォキッチェヴ（仮構造）': 'branch-09', '翼の峰': 'region-08',
 }
 VOYAGE_REGIONS = {'liyue-ferry': 'region-02', 'natlan-voyage': 'region-06'}
+BOSS_STAGE_FIELDS = {'normal': 'fieldNode', 'weekly': 'weeklyNode', 'stygian': 'stygianNode'}
 WALK_MODES = {'road', 'trail', 'stairs', 'slope', 'town_street', 'ruin_walkway', 'bridge_road'}
 
 
@@ -205,9 +206,7 @@ def build():
 
     bosses_by_stage = {}
     for boss in load('content/encounters.json')['encounters']:
-        if boss['kind'] not in ('normal', 'weekly'):
-            continue
-        stage = boss.get('weeklyNode') if boss['kind'] == 'weekly' else boss.get('fieldNode')
+        stage = boss.get(BOSS_STAGE_FIELDS[boss['kind']])
         if not stage:
             continue
         assert stage in mapped_stage and stage not in bosses_by_stage, (boss['id'], stage)

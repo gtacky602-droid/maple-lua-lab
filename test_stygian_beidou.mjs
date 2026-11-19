@@ -37,6 +37,21 @@ try{
  const row=page.locator('[data-quest="'+quest+'"]');
  await row.getByRole('button',{name:'受注',exact:true}).click();
  await wait(q=>window.lab.frame.story.quests[q]?.status==='active',quest);
+ const roster=page.locator('#encountersPanel');
+ await roster.locator('summary').click();
+ await roster.getByRole('textbox',{name:'ボス名で検索'}).fill('北斗');
+ await roster.getByRole('button',{name:'ゲーム内の地図で案内'}).click();
+ const atlas=page.locator('#worldAtlas');
+ await atlas.waitFor();
+ await wait(id=>window.lab.frame.worldMap?.selected?.id===id,deck);
+ const map=(await frame()).worldMap;
+ assert.equal(map.selected.boss.id,'stygian-beidou');
+ assert.equal(map.guide.status,'ready');
+ const mapRoute=map.guide.stops.map(stop=>stop.id);
+ assert.deepEqual(mapRoute,[deck]);
+ await atlas.screenshot({path:prefix+'-atlas.png'});
+ await page.keyboard.press('Escape');
+ await atlas.waitFor({state:'hidden'});
  await portal(deck,300);
  const background=await page.evaluate(async()=>{
   const {backgroundReady,sceneryStatus}=await import('./scenery.js');
@@ -172,11 +187,11 @@ try{
  const stored=(await frame()).endgame.stygian['beidou:normal'];
  assert.deepEqual(stored,victory.endgame.stygian['beidou:normal']);
  assert.deepEqual(errors,[]);
- await fs.writeFile(prefix+'-browser.json',JSON.stringify({background,mode:'normal',levels:[30,58,103,165],
+ await fs.writeFile(prefix+'-browser.json',JSON.stringify({background,mode:'normal',levels:[30,58,103,165],mapRoute,
   commands:{png:original.commands,standard:standard.commands,light:light.commands},viewport390:true,
   avoidedCounter:true,manualBaited:true,independentLeftAndRight:true,firstReward:victory.endgameRun.matchReward,questReportSaveRestore:true,record:stored,errors},null,2)+'\n');
  await fs.writeFile('evidence/stygian-clear-rewards-browser.json',JSON.stringify({
-  encounter:'beidou:normal',repeatXp:payout.xp,firstXp:payout.firstXp,award:victory.endgameRun.matchReward,
+  encounter:'beidou:normal',mapRoute,repeatXp:payout.xp,firstXp:payout.firstXp,award:victory.endgameRun.matchReward,
   baseExpIncrease:awarded,bonusHiddenAfterWin:true,recordSurvivesBrowserReload:true,errors},null,2)+'\n');
  console.log('Beidou Chrome: navigation, rank gates, art modes, waiting or baiting, normal clear, rewards, report and restore passed');
 }catch(error){

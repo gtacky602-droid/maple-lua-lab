@@ -45,6 +45,17 @@ try {
  const bossCount=(await map()).bosses.length;
  const globalOptions=await page.locator('#atlasField option').count();
  assert.equal(globalOptions,bossCount+1);
+ await page.locator('#atlasSearch').fill('ロノヴァ');
+ assert.equal(await page.locator('#atlasField option').count(),2);
+ await page.locator('#atlasField').selectOption('sne-stygian-last-gate');
+ await page.waitForFunction(()=>window.lab.frame.worldMap?.selected?.id==='sne-stygian-last-gate');
+ assert.equal((await map()).selected.boss.kind,'stygian');
+ assert.equal((await map()).guide.stops.at(-1).id,'sne-stygian-last-gate');
+ assert.match(await page.locator('#atlasPlaceLevel').textContent(),/幽境.*受付で難度を選ぶ/);
+ await page.locator('#atlasWorld').click();
+ await area('world','all');
+ await page.locator('#atlasLayer').selectOption('boss');
+ await area('world','boss');
  await page.locator('#atlasSearch').fill('トワリン');
  assert.equal(await page.locator('#atlasField option').count(),2);
  await page.locator('#atlasField').selectOption('dvalin-sky-arena');
@@ -116,7 +127,7 @@ try {
  await fs.writeFile('evidence/world-atlas-browser.json',JSON.stringify({
   openedByKeyAndButton:true,worldRegions:8,currentPosition:true,
   mapClickAndFilter:true,searchAndPlaceSelection:true,itineraryOnCanvasAndPanel:true,hiddenAreaRemoved:true,windcrownExteriorReturn:true,
-  globalBossChoices:bossCount,bossAliasAndWeeklyGate:true,bossCatalogOpensFieldMap:true,
+  globalBossChoices:bossCount,bossAliasAndWeeklyGate:true,stygianDeskInGlobalBossSearch:true,bossCatalogOpensFieldMap:true,
   keyboardAndTurnRecovery:true,simulationTimeFrozen:true,noMobileOverflow:true,errors
  },null,2)+'\n');
  console.log('Atlas current position, overview, regional and water layers, search, keyboard and mobile passed.');

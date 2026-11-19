@@ -11,6 +11,9 @@
     103,
     165
   ],
+  "mapRoute": [
+    "liyue-stygian-deck"
+  ],
   "commands": {
     "png": 19,
     "standard": 7826,
@@ -21,19 +24,19 @@
   "manualBaited": true,
   "independentLeftAndRight": true,
   "firstReward": {
-    "xp": 16503,
-    "set": "黄金の劇団",
-    "rank": 3,
-    "mora": 1210,
+    "bag": true,
     "first": true,
-    "bag": true
+    "rank": 3,
+    "set": "黄金の劇団",
+    "mora": 1210,
+    "xp": 16503
   },
   "questReportSaveRestore": true,
   "record": {
-    "mainSkill": "normal",
-    "clears": 1,
+    "bestTicks": 452,
     "companion": "amber",
-    "bestTicks": 450
+    "mainSkill": "normal",
+    "clears": 1
   },
   "errors": []
 }

@@ -51,13 +51,11 @@ async function initEncounters(){
     button.onclick=()=>{if(!r.action||!runtimeReady())return;window.lab.action(variant?variant.value:r.action);button.blur()};
     const detail=document.createElement('small');detail.textContent='残り：'+r.remaining.join('／')+(r.review_note?' ｜ '+r.review_note:'');
     row.append(text);if(variant)row.append(variant);
-    if(r.fieldNode||r.weeklyNode||r.stygianNode){
-     const route=document.createElement('a');route.textContent=r.weeklyEntrance||r.fieldEntrance||r.stygianEntrance;
-     route.href='map-art.html?'+new URLSearchParams({node:r.weeklyNode||r.fieldNode||r.stygianNode});
-     row.append(route);
-    }
-    const bossStage=r.weeklyNode||r.fieldNode;
+    const bossStage=r.weeklyNode||r.fieldNode||r.stygianNode;
     if(bossStage){
+     const route=document.createElement('a');route.textContent=r.weeklyEntrance||r.fieldEntrance||r.stygianEntrance;
+     route.href='map-art.html?'+new URLSearchParams({node:bossStage});
+     row.append(route);
      const locate=document.createElement('button');locate.type='button';locate.dataset.bossRoute=bossStage;
      locate.textContent='ゲーム内の地図で案内';
      locate.onclick=()=>{
@@ -71,7 +69,7 @@ async function initEncounters(){
      };
      row.append(locate);
     }
-    if(r.action||!(r.fieldNode||r.weeklyNode||r.stygianNode))row.append(button);
+    if(r.action||!bossStage)row.append(button);
     row.append(detail);
     const art=document.createElement('div');art.className='encounter-art';art.style.cssText='flex-basis:100%;display:flex;flex-wrap:wrap;gap:8px 16px;overflow-wrap:anywhere;line-height:1.6';
     const items=encounterArtItems(r,catalogs);

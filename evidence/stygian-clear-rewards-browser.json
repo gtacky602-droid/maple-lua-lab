@@ -1,14 +1,17 @@
 {
   "encounter": "beidou:normal",
+  "mapRoute": [
+    "liyue-stygian-deck"
+  ],
   "repeatXp": 15930,
   "firstXp": 573,
   "award": {
-    "xp": 16503,
-    "set": "黄金の劇団",
-    "rank": 3,
-    "mora": 1210,
+    "bag": true,
     "first": true,
-    "bag": true
+    "rank": 3,
+    "set": "黄金の劇団",
+    "mora": 1210,
+    "xp": 16503
   },
   "baseExpIncrease": 16503,
   "bonusHiddenAfterWin": true,

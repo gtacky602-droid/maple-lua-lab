@@ -8006,7 +8006,14 @@
     "candidates": 87,
     "partial": 87,
     "complete": 0,
-    "complete_roster_verified": false
+    "complete_roster_verified": false,
+    "atlas_navigation": {
+      "normal": 64,
+      "weekly": 16,
+      "stygian": 7,
+      "scope": "Searchable routes to authored fight entrances and Stygian desks.",
+      "evidence": "evidence/world-atlas-lua.json"
+    }
   },
   "world_boss_connections": {
     "normal": 10,
@@ -8021,7 +8028,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Trace the three source entrances listed as unverified, then check progression and reward pacing on the connected routes.",
+  "current_priority": "Check progression and reward pacing across the connected world, boss and quest routes from fresh saves.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",

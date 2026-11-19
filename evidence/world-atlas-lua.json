@@ -16,10 +16,11 @@
   "separately_labelled_level_mismatches": 820,
   "bosses_by_kind": {
     "normal": 64,
-    "weekly": 16
+    "weekly": 16,
+    "stygian": 7
   },
   "boss_path_status_from_level_1": {
-    "blocked": 80
+    "blocked": 87
   },
   "hidden_area_visibility": true,
   "map_state_not_saved": true,

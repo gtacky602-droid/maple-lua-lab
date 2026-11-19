@@ -1,6 +1,7 @@
 const groupNames = {
  main: '通常地域', high_level_branch: '高難度地域', hidden_world: '隠し世界', official_layer: '別地図',
 };
+const bossKinds = {normal:'通常ボス', weekly:'週ボス', stygian:'幽境'};
 const entries = value => Array.isArray(value) ? value : [];
 
 export function initAtlas(action, clearKeys) {
@@ -152,8 +153,9 @@ export function initAtlas(action, clearKeys) {
    : selected ? [
     selected.current ? '現在地' : selected.visited ? '訪問済み' : '未訪問',
     '通行Lv' + selected.level,
-    selected.boss && (selected.boss.kind === 'weekly' ? '週ボス' : '通常ボス'),
+    selected.boss && bossKinds[selected.boss.kind],
     selected.boss && selected.boss.name !== selected.name && selected.name,
+    selected.boss?.kind === 'stygian' && '受付で難度を選ぶ',
     selected.entrancePending ? '試作の見晴らし場・原作入口は照合中' :
       selected.huntKind === 'elite' ? '任意戦' : selected.huntKind ? '狩場' : selected.provisional ? '試作区画' : '',
     selected.huntLevel ? '脇道の狩場はLv' + selected.huntLevel :

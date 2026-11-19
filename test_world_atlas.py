@@ -3,6 +3,7 @@
 from collections import Counter
 import json
 
+from build_world_atlas import BOSS_STAGE_FIELDS
 from runtime import ROOT, native, runtime
 
 
@@ -28,9 +29,9 @@ assert sum(row['finding']=='implemented_as_lab_route' for row in plan['sites_onl
 assert not (fields & drafts.keys()) and len(fields) + len(drafts) == plan['imported_fields'] == 979
 assert len(plan['sites_only_route_review']) == 421
 roster = {
-    row.get('fieldNode') or row.get('weeklyNode'): row
+    stage: row
     for row in read('content/encounters.json')['encounters']
-    if row['kind'] in ('normal', 'weekly') and (row.get('fieldNode') or row.get('weeklyNode'))
+    if (stage := row.get(BOSS_STAGE_FIELDS[row['kind']]))
 }
 boss_points = {p['id']: p['boss'] for r in atlas['regions'] for p in r['points'] if 'boss' in p}
 assert boss_points == {
