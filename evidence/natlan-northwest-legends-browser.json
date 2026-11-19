@@ -1,0 +1,79 @@
+{
+  "routes": [
+    [
+      "nat-wp-79053",
+      "night-wind-seaward-fork",
+      "raised"
+    ],
+    [
+      "night-wind-seaward-fork",
+      "night-wind-rilai-clearing",
+      "walk"
+    ],
+    [
+      "night-wind-rilai-clearing",
+      "night-wind-seaward-fork",
+      "walk"
+    ],
+    [
+      "night-wind-seaward-fork",
+      "night-trial-fallen-dawnstar",
+      "phase"
+    ],
+    [
+      "night-trial-fallen-dawnstar",
+      "night-wind-seaward-fork",
+      "phase"
+    ],
+    [
+      "night-wind-seaward-fork",
+      "nat-wp-79053",
+      "walk"
+    ],
+    [
+      "natlan-port",
+      "flower-feather-smiths-ridge",
+      "walk"
+    ],
+    [
+      "flower-feather-smiths-ridge",
+      "night-trial-ironbeard",
+      "phase"
+    ],
+    [
+      "night-trial-ironbeard",
+      "flower-feather-smiths-ridge",
+      "phase"
+    ],
+    [
+      "flower-feather-smiths-ridge",
+      "natlan-port",
+      "walk"
+    ]
+  ],
+  "comparisons": [
+    {
+      "name": "rilai",
+      "pngCommands": 14,
+      "rectangleCommands": 6184,
+      "lightCommands": 1675
+    },
+    {
+      "name": "fallen-dawnstar",
+      "pngCommands": 12,
+      "rectangleCommands": 8795,
+      "lightCommands": 2272
+    },
+    {
+      "name": "ironbeard",
+      "pngCommands": 12,
+      "rectangleCommands": 8293,
+      "lightCommands": 2217
+    }
+  ],
+  "distinctMapGuide": true,
+  "rilaiProvoked": true,
+  "pillarReturns": true,
+  "questReported": true,
+  "errors": []
+}

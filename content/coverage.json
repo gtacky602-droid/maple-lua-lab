@@ -147,8 +147,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 156,
-      "prototype_quest_count": 27,
+      "prototype_stage_count": 161,
+      "prototype_quest_count": 28,
       "official_map2_markers": {
         "waypoints": 126,
         "statues": 9
@@ -7962,8 +7962,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1456,
-    "provisional_quests": 266,
+    "authored_stages": 1461,
+    "provisional_quests": 267,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -8922,7 +8922,12 @@
           "ancient-excavation-upper-ledge",
           "night-trial-atlatl",
           "canopy-square-plateau",
-          "night-trial-cihuacoatl"
+          "night-trial-cihuacoatl",
+          "night-wind-seaward-fork",
+          "night-wind-rilai-clearing",
+          "night-trial-fallen-dawnstar",
+          "flower-feather-smiths-ridge",
+          "night-trial-ironbeard"
         ],
         "quest_ids": [
           "nat-mapped-valley-trail",
@@ -8951,7 +8956,8 @@
           "natlan-toyac-electro-crystals",
           "natlan-sulfurous-resonant-stones",
           "natlan-witztli-three-echoes",
-          "natlan-ancient-excavation-wall"
+          "natlan-ancient-excavation-wall",
+          "natlan-seaward-signs"
         ]
       },
       {
@@ -10328,15 +10334,18 @@
       "content/story-graph.json"
     ],
     "design_candidates": 56,
-    "playable_prototypes": 28,
+    "playable_prototypes": 31,
     "pending_boss_moves": [
       "legend-natlan_atlatl",
       "legend-natlan_balachko",
       "legend-natlan_chimalli",
       "legend-natlan_cihuacoatl",
       "legend-natlan_cocijo",
+      "legend-natlan_fallen_dawnstar",
       "legend-natlan_ichcahuipilli",
+      "legend-natlan_ironbeard",
       "legend-natlan_polychrome_tristars",
+      "legend-natlan_rilai",
       "legend-natlan_sappho",
       "legend-natlan_tlatzacuilotl",
       "legend-natlan_undead"
@@ -10345,7 +10354,9 @@
       "night-trial-atlatl",
       "night-trial-chimalli",
       "night-trial-cihuacoatl",
+      "night-trial-fallen-dawnstar",
       "night-trial-ichcahuipilli",
+      "night-trial-ironbeard",
       "night-trial-tlatzacuilotl",
       "night-trial-undead"
     ],
@@ -10377,7 +10388,10 @@
       "legend-natlan_tlatzacuilotl": "night-trial-tlatzacuilotl",
       "legend-natlan_ichcahuipilli": "night-trial-ichcahuipilli",
       "legend-natlan_atlatl": "night-trial-atlatl",
-      "legend-natlan_cihuacoatl": "night-trial-cihuacoatl"
+      "legend-natlan_cihuacoatl": "night-trial-cihuacoatl",
+      "legend-natlan_rilai": "night-wind-rilai-clearing",
+      "legend-natlan_fallen_dawnstar": "night-trial-fallen-dawnstar",
+      "legend-natlan_ironbeard": "night-trial-ironbeard"
     }
   }
 }

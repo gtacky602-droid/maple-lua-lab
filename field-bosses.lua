@@ -401,7 +401,7 @@ return function(C,configs,controllers)
   local cast=slot.cast
   local label=slot.phase=='cleared' and '討伐完了・入口から再挑戦' or slot.phase=='notice' and '振り向き' or slot.phase=='leash' and '巣へ戻っている' or
    slot.phase=='available' and '警戒前' or cast and cast.move.title or '息継ぎ'
-  if slot.phase=='available' and spec.provokeOnly then label='演奏中・攻撃で挑戦' end
+  if slot.phase=='available' and spec.provokeOnly then label=spec.provokeLabel or '演奏中・攻撃で挑戦' end
   if slot.phase=='combat' and #spec.moves==0 then label='戦闘テスト' end
   if spec.presentationOnly and boss.hp>0 then label=spec.displayLabel or '見た目と進行を確認する仮の個体' end
   if boss.hp>0 and slot.phase=='combat' and behavior.label then label=behavior.label(boss,cast,spec,s) or label end

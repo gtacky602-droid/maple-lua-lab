@@ -726,7 +726,10 @@
     {"id":"legend-tlatzacuilotl","name":"トゥラカルワスクアウィトゥル","file":"legend-tlatzacuilotl-field-idle-sprites-v1.json","height":110,"mapHover":0},
     {"id":"legend-ichcahuipilli","name":"イチカウイピリの庇護","file":"legend-ichcahuipilli-field-idle-sprites-v1.json","height":110,"mapHover":0},
     {"id":"legend-atlatl","name":"アトラトの祝福","file":"legend-atlatl-field-idle-sprites-v1.json","height":110,"mapHover":0},
-    {"id":"legend-cihuacoatl","name":"神骨の蛇姫","file":"legend-cihuacoatl-field-idle-sprites-v1.json","height":110,"mapHover":0}
+    {"id":"legend-cihuacoatl","name":"神骨の蛇姫","file":"legend-cihuacoatl-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-rilai","name":"リライ","file":"legend-rilai-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-fallen-dawnstar","name":"墜落せし晨星の霊","file":"legend-fallen-dawnstar-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-ironbeard","name":"鉄髭","file":"legend-ironbeard-field-idle-sprites-v1.json","height":110,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }

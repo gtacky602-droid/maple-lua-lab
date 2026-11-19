@@ -1,0 +1,95 @@
+{
+  "legend-rilai": {
+    "sources": [
+      {
+        "files": [
+          "Rilai GameWith.jpg",
+          "Rilai Sportskeeda.jpg"
+        ],
+        "seen": "戦闘の別角度で、外套と、体の前で構える幅のある氷色の短砲を確認。",
+        "image_urls": [
+          "https://img.gamewith.jp/img/6d5b4ac20e9d17a6d4c6f227d2effe7e.png",
+          "https://staticg.sportskeeda.com/editor/2024/11/88904-17323598002839-1920.jpg"
+        ]
+      },
+      {
+        "url": "https://game8.jp/genshin/655680",
+        "image_url": "https://img.game8.jp/10767957/a0094b99d07ed20492beed8e9b0a4085.png/original",
+        "seen": "記事の戦闘画面を目視して全身の比率と装備・外形を照合。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Tribalwarrior_Launcher_Shamansaurus.png",
+        "seen": "氷晶の砲手の通常種。藍色の頭飾り、弧を描く明るい先と淡い髪。"
+      }
+    ],
+    "style_reference": [
+      "fontaine-lake-legend-art-v5/idle-comparison.png",
+      "natlan-atlatl-cihua-art/preview.png"
+    ],
+    "design": "藤色の面と太い六角の砲口、外套の独自模様。",
+    "unchecked": [
+      "3Dモデルを全周から見たときの形",
+      "原神の実機での動き"
+    ]
+  },
+  "legend-fallen-dawnstar": {
+    "sources": [
+      {
+        "files": [
+          "Dawnstar Land of Games.jpg",
+          "Iktomisaur HoYoverse.jpg"
+        ],
+        "seen": "名前付きの正面像と通常種の資料。翼を接地する低い姿、小さい明るい顔の上の高い冠。",
+        "url": "https://landofgames.ru/uploads/posts/2024-12/1733670693_obzh.webp",
+        "supporting_image_url": "https://fastcdn.hoyoverse.com/content-v2/hk4e/126846/967837b2f8b95255babd7240cd2fa82c_3473974491243424639.jpg"
+      },
+      {
+        "url": "https://game8.jp/genshin/655681",
+        "image_url": "https://img.game8.jp/10767945/b87b1347696db2d38dd26f25ccc52d0b.png/original",
+        "seen": "記事の戦闘画面を目視して全身の比率と装備・外形を照合。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Natsaurus_Shamansaurus_Normal.png",
+        "seen": "イクトミ竜の正面2Dアイコン。目の周りの明るい面と暗いくちばし。"
+      }
+    ],
+    "style_reference": [
+      "fontaine-lake-legend-art-v5/idle-comparison.png",
+      "natlan-atlatl-cihua-art/preview.png"
+    ],
+    "design": "離れた二本の氷冠と、床に沿って広がる濃紺の翼を強調。",
+    "unchecked": [
+      "3Dモデルを全周から見たときの形",
+      "原神の実機での動き"
+    ]
+  },
+  "legend-ironbeard": {
+    "sources": [
+      {
+        "files": [
+          "Ironbeard Sportskeeda.jpg"
+        ],
+        "seen": "名前付きの戦闘場面。青白い体の左へ張り出す、柄付きの大槌。",
+        "url": "https://staticg.sportskeeda.com/editor/2024/11/4eba2-17325382027009-1920.jpg"
+      },
+      {
+        "url": "https://game8.jp/genshin/655684",
+        "image_url": "https://img.game8.jp/10768010/89c2a709eb3e2948210e71a9ff091e2a.png/original",
+        "seen": "記事の戦闘画面を目視して全身の比率と装備・外形を照合。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Tribalwarrior_Powermaul_Flamingo.png",
+        "seen": "クク竜戦士の通常種の顔。中央の隆起と左右へ張った頬当て。"
+      }
+    ],
+    "style_reference": [
+      "fontaine-lake-legend-art-v5/idle-comparison.png",
+      "natlan-atlatl-cihua-art/preview.png"
+    ],
+    "design": "四角い槌頭と短い柄、がっしりした胴と独自の鍛冶前掛け。",
+    "unchecked": [
+      "3Dモデルを全周から見たときの形",
+      "原神の実機での動き"
+    ]
+  }
+}

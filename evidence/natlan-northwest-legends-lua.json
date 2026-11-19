@@ -1,0 +1,14 @@
+{
+  "sharedAnchorRoutesHaveDistinctModes": true,
+  "groundEncounterRequiresLv120": true,
+  "rilaiNeutralWithCompanionAndProvokedByNormalAttack": true,
+  "cliffSignSurveyCompletedAndReported": true,
+  "pillarOnlyAtUpperShelf": true,
+  "eachPillarReturnsToEntryAndResetsOnReentry": true,
+  "independentClearsAndRewardsPersist": true,
+  "killXp": {
+    "legend-natlan_rilai": 464100,
+    "legend-natlan_fallen_dawnstar": 464100,
+    "legend-natlan_ironbeard": 464100
+  }
+}

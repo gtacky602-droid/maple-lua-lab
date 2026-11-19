@@ -46,6 +46,7 @@ PIVOT_LAYOUTS = {
     'natlan-night-trial-poses-v1-layout.json': 1,
     'natlan-north-trial-poses-v1-layout.json': 1,
     'natlan-cliff-trial-poses-v1-layout.json': 1,
+    'natlan-northwest-legend-poses-v1-layout.json': 1,
 }
 for layout_name, revision in PIVOT_LAYOUTS.items():
     layout = json.loads((ROOT/'assets'/layout_name).read_text(encoding='utf-8'))
