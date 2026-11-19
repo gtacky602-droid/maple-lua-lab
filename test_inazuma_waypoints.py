@@ -32,8 +32,8 @@ assert len(area_by_pin) == sum(map(len, review['areas'].values()))
 stages = set(mapping.values())
 exits = {k: n['exits'] for k, n in nodes.items()}
 edges = {(a, e['to']): e for a in stages for e in exits[a] if e['to'] in stages}
-assert len(edges) == 206 and set(edges) == {(b, a) for a, b in edges}
-for key, count in {'boatSeconds': 24, 'liftSeconds': 18, 'waterwaySeconds': 2, 'y': 7}.items():
+assert len(edges) == 212 and set(edges) == {(b, a) for a, b in edges}
+for key, count in {'boatSeconds': 24, 'liftSeconds': 18, 'waterwaySeconds': 2, 'phaseSeconds': 6, 'y': 10}.items():
     assert sum(key in e for e in edges.values()) == count
 
 
@@ -55,7 +55,9 @@ for key, stage in mapping.items():
     assert {nodes[e['to']]['mapPoint'] for e in exits[stage] if 'mapPoint' in nodes[e['to']]} == (
         set(coverage[key]['gates']))
 assert [k for k, p in points.items() if p.get('point_group')] == [review['floor_marker']]
-assert len(exits[mapping[review['floor_marker']]]) == 1
+floor_gates = exits[mapping[review['floor_marker']]]
+assert len([gate for gate in floor_gates if gate['to'] in stages]) == 1
+assert all(gate.get('liftSeconds') or gate['to'].startswith('sites-hunt-') for gate in floor_gates)
 
 lua, core = runtime()
 state = core.new(15)

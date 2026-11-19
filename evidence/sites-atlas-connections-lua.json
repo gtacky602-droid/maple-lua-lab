@@ -1,0 +1,16 @@
+{
+  "reviewed_round_trips": 18,
+  "directed_transitions": 121,
+  "phase_gates_require_correct_light_sequence": true,
+  "phase_return_restores_platform_y": true,
+  "save_mid_phase_preserves_camp_and_quest": true,
+  "unlocked_route_preview": true,
+  "other_hidden_discoveries_and_entry_quests": 3,
+  "tested_corridor_level_boundaries": 5,
+  "corridor_save_restores_departure_side": true,
+  "pending_incompatible_special_pair": [
+    "map37:96380",
+    "teyvat:95801"
+  ],
+  "isolated_from_field_combat": true
+}

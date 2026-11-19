@@ -23,7 +23,7 @@
 .atlas-header h2 {
  font-family: 'Yu Mincho', serif; font-weight: 700; font-size: 22px; margin: 0;
 }
-.atlas-header p { display: block; color: var(--atlas-muted); margin: 4px 0 0; font-size: 12px }
+
 .atlas-close { min-height: 40px; white-space: nowrap }
 .atlas-tools {
  display: flex; flex-wrap: wrap; gap: 7px; align-items: end;
@@ -51,6 +51,10 @@
 .atlas-legend [data-marker="current"] { color: #a63f31 }
 .atlas-legend [data-marker="seen"] { color: #25605c }
 .atlas-legend [data-marker="new"] { color: #526671 }
+.atlas-legend [data-marker="guide"] { color: #8b590e }
+.atlas-itinerary { margin-top: 10px; padding: 7px; border: 1px solid #96845b; border-radius: 5px }
+.atlas-itinerary summary { cursor: pointer; color: #ffe196; font-size: 12px }
+.atlas-itinerary ol { padding-left: 1.45rem; margin: 7px 0 0; max-height: 132px; overflow: auto; font-size: 11px }
 .atlas-info {
  color: var(--atlas-ink); background: #324950; padding: 14px 13px;
  border-left: 1px solid #ae956d; min-width: 0;

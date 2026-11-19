@@ -24,6 +24,13 @@ try {
  assert.equal(start.selected.id,'mond-town');
  assert.equal(start.options.some(option => option.id==='hidden-01'),false);
  assert.ok(start.routes.some(route => route.id==='mond-road'));
+ await page.locator('#atlasField').selectOption('mond-road');
+ await page.waitForFunction(()=>window.lab.frame.worldMap?.selected?.id==='mond-road');
+ const guide=(await map()).guide;
+ assert.equal(guide.status,'ready');
+ assert.deepEqual(guide.stops.map(stop=>stop.id),['mond-road']);
+ assert.equal(await page.locator('#atlasItinerary').getAttribute('open'),'');
+ await page.locator('#atlasItineraryStops button').filter({hasText:'徒歩'}).waitFor();
  const tick = await page.evaluate(() => window.lab.frame.t);
  await page.keyboard.press('KeyD');
  await page.keyboard.press('KeyJ');
@@ -79,7 +86,7 @@ try {
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/world-atlas-browser.json',JSON.stringify({
   openedByKeyAndButton:true,worldRegions:8,currentPosition:true,
-  mapClickAndFilter:true,searchAndPlaceSelection:true,hiddenAreaRemoved:true,provisionalExteriorReturn:true,
+  mapClickAndFilter:true,searchAndPlaceSelection:true,itineraryOnCanvasAndPanel:true,hiddenAreaRemoved:true,provisionalExteriorReturn:true,
   keyboardAndTurnRecovery:true,simulationTimeFrozen:true,noMobileOverflow:true,errors
  },null,2)+'\n');
  console.log('Atlas current position, overview, regional and water layers, search, keyboard and mobile passed.');

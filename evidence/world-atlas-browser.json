@@ -4,6 +4,7 @@
   "currentPosition": true,
   "mapClickAndFilter": true,
   "searchAndPlaceSelection": true,
+  "itineraryOnCanvasAndPanel": true,
   "hiddenAreaRemoved": true,
   "provisionalExteriorReturn": true,
   "keyboardAndTurnRecovery": true,

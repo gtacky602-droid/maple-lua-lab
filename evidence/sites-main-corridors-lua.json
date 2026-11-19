@@ -4,10 +4,9 @@
   "walkable_intermediate_stages": 11,
   "existing_round_trips_verified": 195,
   "directions_tested": 895,
-  "withheld_connections": 19,
+  "withheld_connections": 1,
   "pending_reasons": {
-    "discovery_or_dedicated_gate": 8,
-    "outdoor_corridor_or_floor_alignment": 11
+    "discovery_or_dedicated_gate": 1
   },
   "border_level_64_gate": true,
   "safe_restore_after_new_corridor": true,

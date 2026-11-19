@@ -50,7 +50,8 @@ def save(s):
 layer_pairs = {frozenset(route['fields']) for route in source['routes']}
 findings=Counter()
 for review in plan['sites_only_route_review']:
-    if review['finding']=='use_existing_geo_route':
+    if review['finding'] not in {'implemented_as_lab_route','use_existing_local_detour',
+                               'use_existing_regional_detour','use_existing_level_route'}:
         continue
     if review['finding']=='implemented_as_lab_route' and frozenset(review['fields']) not in layer_pairs:
         continue

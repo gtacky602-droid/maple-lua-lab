@@ -82,14 +82,15 @@ export function waypointDriver(page,nodes,{walkTimeout=12000}={}){
    const gate=window.lab.frame.storyNearbyPortal;
    return gate?.to===id&&gate.available;
   },id,{timeout:gateTimeout});
-  const mode=edge.boatSeconds?'boat':edge.waterwaySeconds?'waterway':edge.liftSeconds?'lift':nodes[from].swim?'swim':edge.y?'raised':'walk';
+  const mode=edge.boatSeconds?'boat':edge.waterwaySeconds?'waterway':edge.liftSeconds?'lift':edge.phaseSeconds?'phase':nodes[from].swim?'swim':edge.y?'raised':'walk';
   const launchY=edge.animatedLift?(await actor()).y:null;
   await page.keyboard.press('KeyF');
-  if(['boat','waterway','lift'].includes(mode)){
+  if(['boat','waterway','lift','phase'].includes(mode)){
    await page.waitForFunction(label=>window.lab.frame.storyLift?.destination===label,edge.rideLabel||nodes[id].name);
    const ride=await page.evaluate(()=>window.lab.frame.storyLift);
    assert.equal(Boolean(ride.boat),mode==='boat');
    assert.equal(Boolean(ride.waterway),mode==='waterway');
+   assert.equal(Boolean(ride.phase),mode==='phase');
    assert.equal(await node(),from);
    if(edge.animatedLift)await page.waitForFunction(y=>{
     const f=window.lab.frame;

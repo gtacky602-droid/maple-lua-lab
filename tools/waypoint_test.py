@@ -59,11 +59,12 @@ class TrailWalk:
             else:
                 raise AssertionError((origin, target, 'wind did not subside'))
         self.core.action(self.state, 'story_nearby_portal')
-        if any(k in edge for k in ('boatSeconds', 'liftSeconds', 'waterwaySeconds')):
+        if any(k in edge for k in ('boatSeconds', 'liftSeconds', 'waterwaySeconds', 'phaseSeconds')):
             ride = self.state.lift
             assert ride is not None and ride.destination == target, (origin, target, self.state.storyNotice)
             assert bool(ride.boat) == ('boatSeconds' in edge)
             assert bool(ride.waterway) == ('waterwaySeconds' in edge)
+            assert bool(ride.phase) == ('phaseSeconds' in edge)
             if edge.get('animatedLift'):
                 assert ride.riders is not None
                 before = self.actor.y

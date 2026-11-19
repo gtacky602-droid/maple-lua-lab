@@ -116,7 +116,7 @@ write('work/sites-corridor-boat-fixture.json',save(state))
 held=[r for r in plan['sites_only_route_review'] if r['finding']=='unverified_travel_choice']
 assert all(not r.get('runtime_paths') for r in held)
 focus=Counter(r['review_focus'] for r in held)
-assert focus=={'discovery_or_dedicated_gate':8, 'outdoor_corridor_or_floor_alignment':11}
+assert focus=={'discovery_or_dedicated_gate':1}
 result={'imported_fields':plan['live_bound_fields'],'added_round_trips':checks['implemented_as_lab_route'],
         'walkable_intermediate_stages':len(middle_rooms),'existing_round_trips_verified':checks['use_existing_geo_route'],
         'directions_tested':len(traversed),'withheld_connections':len(held),'pending_reasons':dict(focus),

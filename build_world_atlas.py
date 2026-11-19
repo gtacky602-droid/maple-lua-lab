@@ -267,9 +267,14 @@ def build():
             assert any(edge['to']==start for edge in nodes[end]['exits'])
         assert pair not in authored_paths
         authored_paths[pair] = stages
-    ferries = load('sources/map-research/sites-return-ferries.json')['routes']
-    sailing_paths = {frozenset(route['fields']): route for route in ferries}
-    for route in ferries:
+    atlas_review = load('sources/map-research/sites-atlas-connections.json')
+    reviewed_routes = load('sources/map-research/sites-return-ferries.json')['routes'] + atlas_review['routes']
+    retained_entrances = {frozenset(entry['fields']): entry for entry in atlas_review['retained_regional_entrances']}
+    for pair, entry in retained_entrances.items():
+        assert pair in pending_reasons and all(entrance in nodes for entrance in entry['entrances'])
+    reviewed_paths = {frozenset(route['fields']): route for route in reviewed_routes}
+    assert len(reviewed_paths) == len(reviewed_routes)
+    for route in reviewed_routes:
         assert source_by_pair[frozenset(route['fields'])]['id'] == route['source_edge']
         expected_endpoints = [field_links[field]['stage_id'] for field in route['fields']]
         for name, path in route['paths'].items():
@@ -296,13 +301,16 @@ def build():
         pair = frozenset((a,b))
         paths = {}
         note = source.get('note','')
-        if pair in sailing_paths:
-            finding = 'implemented_as_lab_route'
-            route = sailing_paths[pair]
+        if pair in reviewed_paths:
+            route = reviewed_paths[pair]
+            finding = route.get('finding','implemented_as_lab_route')
             paths = route['paths']
             if paths['forward'][0] != field_links[a]['stage_id']:
                 paths = {'forward':paths['return'], 'return':paths['forward']}
             note = route['note']
+        elif pair in retained_entrances:
+            finding = 'unverified_travel_choice'
+            note = retained_entrances[pair]['note']
         elif pair in authored_paths:
             finding = 'implemented_as_lab_route'
             forward = authored_paths[pair]
@@ -337,6 +345,7 @@ def build():
                 finding = 'unverified_travel_choice'
         review.append({'fields':[a,b],'mode':source['mode'],'finding':finding,
                        'terrain_note':note, **({'runtime_paths':paths} if paths else {}),
+                       **({'regional_entrances':retained_entrances[pair]['entrances']} if pair in retained_entrances else {}),
                        **({'review_focus':pending_reasons[pair]} if pair in pending_reasons and not paths else {})})
     walkthrough_levels = []
     for field, data in field_links.items():

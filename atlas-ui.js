@@ -17,6 +17,10 @@ export function initAtlas(action, clearKeys) {
  const title = document.getElementById('atlasPlaceName');
  const level = document.getElementById('atlasPlaceLevel');
  const routes = document.getElementById('atlasRoutes');
+ const itinerary = document.getElementById('atlasItinerary');
+ const itineraryTitle = document.getElementById('atlasItineraryTitle');
+ const itineraryNote = document.getElementById('atlasItineraryNote');
+ const itineraryStops = document.getElementById('atlasItineraryStops');
  const ctx = canvas.getContext('2d');
  let view, signature, regionSignature;
 
@@ -90,6 +94,32 @@ export function initAtlas(action, clearKeys) {
   region.value = view.region;
  }
 
+ function showPlace(place) {
+  if (place.region && place.region !== view.region) send('world_map_region:' + place.region);
+  else if (view.layer !== 'all' && !entries(view.points).some(point => point.id === place.id))
+   send('world_map_layer:all');
+  send('world_map_select:' + place.id);
+ }
+
+ function renderItinerary() {
+  const guide = view.guide;
+  const stops = entries(guide?.stops);
+  itinerary.hidden = !guide || guide.status === 'here';
+  itinerary.open = !itinerary.hidden;
+  itineraryTitle.textContent = (guide?.afterTransfer ? '移動完了後の道順' : '現在地からの道順') +
+    (stops.length ? ` ｜ ${stops.length}区間` : '');
+  itineraryNote.textContent = guide?.reason ?? (guide?.status === 'unknown' ? '現在地からの経路を確認できません。' : '');
+  itineraryNote.hidden = !itineraryNote.textContent;
+  itineraryStops.replaceChildren(...stops.map(stop => {
+   const li = document.createElement('li');
+   const button = document.createElement('button');
+   button.textContent = `${stop.name} ｜ ${stop.label}${stop.reason ? '・通行条件あり' : stop.hint ? '・' + stop.hint : ''}`;
+   button.onclick = () => showPlace(stop);
+   li.append(button);
+   return li;
+  }));
+ }
+
  function renderSelection() {
   const selected = view.selected;
   const area = view.options.find(item => item.id === view.region);
@@ -108,12 +138,7 @@ export function initAtlas(action, clearKeys) {
    const li = document.createElement('li');
    const button = document.createElement('button');
    button.textContent = `${route.name} ｜ ${route.label}・Lv${route.level}${route.restricted ? '・依頼条件あり' : ''}`;
-   button.onclick = () => {
-    if (route.region && route.region !== view.region) send('world_map_region:' + route.region);
-    else if (view.layer !== 'all' && !entries(view.points).some(point => point.id === route.id))
-     send('world_map_layer:all');
-    send('world_map_select:' + route.id);
-   };
+   button.onclick = () => showPlace(route);
    li.append(button);
    return li;
   });
@@ -179,6 +204,7 @@ export function initAtlas(action, clearKeys) {
   renderRegions();
   renderFields();
   renderSelection();
+  renderItinerary();
   draw();
  };
 }

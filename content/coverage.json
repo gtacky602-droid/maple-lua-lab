@@ -99,7 +99,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 163,
+      "prototype_stage_count": 165,
       "prototype_quest_count": 25,
       "official_map2_markers": {
         "waypoints": 112,
@@ -147,7 +147,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 132,
+      "prototype_stage_count": 133,
       "prototype_quest_count": 22,
       "official_map2_markers": {
         "waypoints": 126,
@@ -195,7 +195,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 138,
+      "prototype_stage_count": 139,
       "prototype_quest_count": 24,
       "official_map2_markers": {
         "waypoints": 101,
@@ -209,7 +209,7 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 21,
+      "prototype_stage_count": 22,
       "prototype_quest_count": 6,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
@@ -1251,7 +1251,8 @@
         "gates": [
           "map7:21575",
           "map7:21576",
-          "map7:21578"
+          "map7:21578",
+          "map7:21593"
         ]
       },
       "map7:21578": {
@@ -1337,7 +1338,8 @@
         "stage_id": "enkan-wp-21587",
         "name": "淵下宮・南の離れた小島",
         "gates": [
-          "map7:21584"
+          "map7:21584",
+          "map7:21592"
         ]
       },
       "map7:21588": {
@@ -1371,28 +1373,32 @@
         "stage_id": "enkan-wp-21591",
         "name": "淵下宮・東島の北の高台",
         "gates": [
-          "map7:21589"
+          "map7:21589",
+          "map7:21594"
         ]
       },
       "map7:21592": {
         "stage_id": "enkan-wp-21592",
         "name": "淵下宮・南端の外礁灯",
         "gates": [
-          "map7:21584"
+          "map7:21584",
+          "map7:21587"
         ]
       },
       "map7:21593": {
         "stage_id": "enkan-wp-21593",
         "name": "淵下宮・北西の外礁灯",
         "gates": [
-          "map7:21576"
+          "map7:21576",
+          "map7:21577"
         ]
       },
       "map7:21594": {
         "stage_id": "enkan-wp-21594",
         "name": "淵下宮・北東の外礁灯",
         "gates": [
-          "map7:21588"
+          "map7:21588",
+          "map7:21591"
         ]
       },
       "map9:25264": {
@@ -4433,7 +4439,8 @@
         "stage_id": "sum-wp-46523",
         "name": "砂漠北西部・谷口の観測洞",
         "gates": [
-          "teyvat:46522"
+          "teyvat:46522",
+          "teyvat:46530"
         ]
       },
       "teyvat:46524": {
@@ -4490,7 +4497,8 @@
         "stage_id": "sum-wp-46530",
         "name": "砂漠北西部・黒淵東の下層",
         "gates": [
-          "teyvat:46520"
+          "teyvat:46520",
+          "teyvat:46523"
         ]
       },
       "teyvat:47": {
@@ -7954,7 +7962,7 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1345,
+    "authored_stages": 1350,
     "provisional_quests": 257,
     "companion_join_records": 8,
     "scope_complete": false,
@@ -8527,7 +8535,9 @@
           "sites-hunt-41817-pocket-1",
           "sites-hunt-41818",
           "sites-hunt-98499",
-          "sites-corridor-sumeru-bridge"
+          "sites-corridor-sumeru-bridge",
+          "sites-sumeru-terrace-road",
+          "sites-sumeru-north-bridge"
         ],
         "quest_ids": [
           "sum-mapped-north-quay",
@@ -8865,7 +8875,8 @@
           "sites-hunt-82577",
           "sites-toyac-tide-landing",
           "sites-corridor-natlan-cliff",
-          "sites-corridor-natlan-tunnel"
+          "sites-corridor-natlan-tunnel",
+          "sites-west-desert-border"
         ],
         "quest_ids": [
           "nat-mapped-valley-trail",
@@ -9201,7 +9212,8 @@
           "sites-hunt-100707",
           "sites-corridor-snow-ravine",
           "sites-corridor-snow-mine",
-          "sites-white-pass-service-path"
+          "sites-white-pass-service-path",
+          "sites-northern-fault-pass"
         ],
         "quest_ids": [
           "sne-mapped-track-walk",
@@ -9255,7 +9267,8 @@
           "mond-wp-6606",
           "mond-wp-6608",
           "mond-wp-6609",
-          "sites-hunt-7164"
+          "sites-hunt-7164",
+          "sites-dragonspine-south-foothill"
         ],
         "quest_ids": [
           "mond-mapped-snowline",

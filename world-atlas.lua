@@ -47,6 +47,15 @@ return function(C, atlas)
   end
  end
 
+ local function compass(out,x,y)
+  for _,axis in ipairs({{0,-27,6,0,0,27,-6,0},{-21,0,0,-5,21,0,0,5}}) do
+   polygon(out,{{x+axis[1],y+axis[2]},{x+axis[3],y+axis[4]},
+                {x+axis[5],y+axis[6]},{x+axis[7],y+axis[8]}},'#577c82')
+  end
+  polygon(out,{{x,y-25},{x+5,y},{x,y+6},{x-5,y}},'#f0dfa7')
+  label(out,x,y-32,'N','#47606a',12)
+ end
+
  local function tree(out,x,y,tone)
   rectangle(out,x-1,y-2,3,5,'#836753')
   polygon(out,{{x,y-14},{x+6,y-4},{x+3,y-3},{x+7,y},{x-7,y},{x-4,y-4},{x-6,y-4}},tone)
@@ -62,6 +71,42 @@ return function(C, atlas)
   polygon(out,{{x-11,y-9},{x-5,y-19},{x+6,y-19},{x+12,y-9}},'#a36054')
   rectangle(out,x-3,y-5,5,6,'#79554a')
   rectangle(out,x+4,y-7,3,3,'#f9e8ac')
+ end
+
+ local function landmark(out,x,y,theme)
+  if theme=='grove' then
+   house(out,x,y)
+   rectangle(out,x-2,y-30,4,15,'#e7d5a4')
+   for _,wing in ipairs({{-12,1},{1,12},{0,-11},{0,1}}) do
+    line(out,x,y-24,x+wing[1],y-24+wing[2],'#fbebbd',2)
+   end
+  elseif theme=='water' then
+   polygon(out,{{x-20,y},{x-15,y-10},{x-7,y-10},{x-5,y-28},{x+3,y-33},
+                {x+10,y-13},{x+16,y-11},{x+19,y}},'#517f85')
+   rectangle(out,x-3,y-25,6,19,'#e6eece')
+   rectangle(out,x-12,y-8,26,4,'#bce8d7')
+  elseif theme=='desert' then
+   for step=0,4 do rectangle(out,x-17+step*3,y-5-step*4,34-step*6,4,'#ad784f') end
+   rectangle(out,x-3,y-10,6,7,'#6b564e')
+  elseif theme=='isles' then
+   polygon(out,{{x-19,y-6},{x-13,y-15},{x+14,y-15},{x+21,y-6}},'#705e85')
+   polygon(out,{{x-15,y-17},{x-8,y-25},{x+9,y-25},{x+16,y-17}},'#736493')
+   rectangle(out,x-10,y-16,20,11,'#e3c199')
+   rectangle(out,x-3,y-11,6,5,'#855a65')
+  elseif theme=='ember' then
+   polygon(out,{{x-22,y},{x-6,y-20},{x+6,y-21},{x+23,y}},'#825351')
+   polygon(out,{{x-6,y-20},{x+6,y-21},{x+11,y-9},{x,y-15},{x-5,y-11},{x-8,y-15}},'#e8a260')
+   rectangle(out,x-6,y-27,10,2,'#eed3a7')
+  elseif theme=='moon' then
+   polygon(out,{{x-7,y},{x-9,y-14},{x-4,y-23},{x+5,y-26},{x+13,y-18},{x+4,y-21},
+                {x-1,y-16},{x-1,y-7},{x+7,y}},'#dfddaf')
+   rectangle(out,x+11,y-11,2,4,'#edf1d2')
+   rectangle(out,x+10,y-10,4,2,'#edf1d2')
+  else
+   house(out,x,y)
+   rectangle(out,x+9,y-22,6,21,theme=='snow' and '#e5ebe0' or '#d6b08c')
+   polygon(out,{{x+7,y-22},{x+12,y-28},{x+17,y-22}},theme=='snow' and '#506d82' or '#8a695d')
+  end
  end
 
  local function land(out,x,y,theme,offset)
@@ -89,8 +134,8 @@ return function(C, atlas)
   else
    tree(out,x-38,y-1,shade[4]);tree(out,x-22,y+2,shade[1]);tree(out,x-31,y+11,shade[4])
   end
-  house(out,x+18,y-3)
-  tree(out,x+38,y-3,shade[4])
+  landmark(out,x+18,y-3,theme)
+  tree(out,x+44,y-3,shade[4])
   rectangle(out,x-47,y+18,5,3,shade[4]);rectangle(out,x+45,y+11,7,3,shade[4])
  end
 
@@ -104,8 +149,37 @@ return function(C, atlas)
   if point.visited or point.current then rectangle(out,x-1,y-1,3,3,'#f7e8ae') end
  end
 
- local function overview(out, options, current)
+ local function route_mode(edge,from,to)
+  if edge.windowStart and from.voyage and from.voyage.kind=='trolley' then return 'rail'
+  elseif edge.boatSeconds or edge.windowStart then return 'boat'
+  elseif from.voyage and from.voyage.kind=='ferry' and from.voyage.source==edge.to then return 'cancel'
+  elseif edge.phaseSeconds then return 'phase'
+  elseif edge.waterwaySeconds then return 'water'
+  elseif edge.liftSeconds then return 'lift'
+  elseif from.voyage and from.voyage.destination==edge.to or to.voyage then
+   local vehicle=from.voyage or to.voyage
+   return vehicle.kind=='trolley' and 'rail' or vehicle.kind=='ferry' and 'boat' or 'arrival'
+  elseif edge.requiresArrival then return 'arrival'
+  elseif edge.wind then return 'wind' end
+  return 'walk'
+ end
+ local route_labels = {boat='舟・寄港',water='水路',lift='昇降機',phase='位相門',rail='鉄道',arrival='乗り物',wind='吹雪待ち',cancel='航海を中止',walk='徒歩'}
+ local route_colors = {boat='#ebf4db',water='#c2f1ec',lift='#f4ca8a',phase='#eebcfa',arrival='#ebf4db',
+                       rail='#f2d293',wind='#f5ebcc',cancel='#b9b5a2',walk='#506054'}
+
+ local function connections(node)
+  if not node.voyage then return node.exits end
+  local to=node.voyage.destination
+  for _,edge in ipairs(node.exits) do if edge.to==to then return node.exits end end
+  local exits={table.unpack(node.exits)}
+  exits[#exits+1]={to=to}
+  return exits
+ end
+
+ local function overview(out, options, current, nodes)
   sea(out,false)
+  for x=45,w-30,45 do line(out,x,19,x,h-19,'#6ca4ad',1) end
+  for y=30,h-20,45 do line(out,19,y,w-19,y,'#6ca4ad',1) end
   local coast={{105,286},{128,266},{164,253},{181,229},{230,245},{266,224},{276,203},
     {279,178},{312,170},{332,142},{365,144},{402,128},{441,110},{439,70},{468,43},
     {513,32},{560,43},{582,58},{598,98},{555,127},{559,153},{604,147},{636,177},
@@ -140,17 +214,47 @@ return function(C, atlas)
    land(out,p.x,p.y,regions[p.id].theme,(i%3)*2)
    p.y=p.y+11
   end
-  for i=2,#main do
-   local a,b=main[i-1],main[i]
-   local voyage=a.id=='region-03' or b.id=='region-03' or b.id=='region-07'
-   line(out,a.x,a.y,b.x,b.y,voyage and '#f3f3be' or '#6c7c60',1.7,voyage and {5,6} or nil)
+  local regionLinks={}
+  for id,node in pairs(nodes) do
+   local origin=places[id]
+   if regions[origin] and regions[origin].overview[1] then
+    for _,edge in ipairs(connections(node)) do
+     local target=places[edge.to]
+     if target and target~=origin and nodes[edge.to] and regions[target].overview[1] then
+      local mode=route_mode(edge,node,nodes[edge.to])
+      local a,b=origin,target
+      if a>b then a,b=b,a end
+      regionLinks[a]=regionLinks[a] or {}
+      if mode~='cancel' then
+       local crossesSea=(a=='region-03' or b=='region-03')
+       regionLinks[a][b]=regionLinks[a][b] or mode=='boat' or crossesSea
+      end
+     end
+    end
+   end
+  end
+  for i,a in ipairs(main) do
+   local links=regionLinks[a.id] or {}
+   for j=i+1,#main do
+    local b=main[j]
+    if links[b.id]~=nil then
+     local ship=links[b.id]
+     line(out,a.x,a.y,b.x,b.y,ship and '#f3f3be' or '#6c7c60',1.7,ship and {5,6} or nil)
+    end
+   end
   end
   for _,p in ipairs(main) do
    pin(out,p)
-   label(out,p.x,p.y+34,p.name,'#263f4d',19)
+   local y=p.y+19
+   local half=utf8.len(p.name)*9+9
+   polygon(out,{{p.x-half-4,y-2},{p.x+half+4,y-2},{p.x+half,y+7},{p.x+half+4,y+19},
+    {p.x-half-4,y+19},{p.x-half,y+7}},'#826f54')
+   rectangle(out,p.x-half,y,2*half,17,p.current and '#f3c994' or '#e8d8ad')
+   label(out,p.x,y+14,p.name,'#263f4d',17)
   end
-  rectangle(out,35,h-57,104,1,'#d4e0cb')
-  label(out,87,h-44,'テイワット','#254958',16)
+  compass(out,w-73,83)
+  line(out,36,h-45,137,h-45,'#d4e0cb',1)
+  label(out,85,h-54,'テイワット','#254958',17)
   return main
  end
 
@@ -158,7 +262,7 @@ return function(C, atlas)
   sea(out,deep)
   if #points==0 then return end
   local palette=colors[theme]
-  local cell=12
+  local cell=10
   for y=12,h-12,cell do
    for x=12,w-12,cell do
     local nearest=95^2
@@ -177,40 +281,18 @@ return function(C, atlas)
    end
   end
   for i,point in ipairs(points) do
-   if i%9==1 then
-    if point.major then house(out,point.x-13,point.y-6)
-    elseif theme=='stone' or theme=='snow' or theme=='cavern' then
+   if point.major and point.mode=='hub' then
+    landmark(out,point.x-10,point.y-10,theme)
+   elseif i%9==1 then
+    if deep then
+     polygon(out,{{point.x-17,point.y+6},{point.x-23,point.y-5},{point.x-13,point.y-2},
+                  {point.x-9,point.y-17},{point.x-7,point.y+6}},palette[4])
+    elseif theme=='stone' or theme=='snow' or theme=='cavern' or theme=='ember' then
      mountain(out,point.x+18,point.y-9,palette[4],palette[3])
     else tree(out,point.x-10,point.y-12,palette[4]) end
    end
    if i%11==0 then rectangle(out,point.x+22,point.y+8,5,2,palette[4]) end
   end
- end
-
- local function route_mode(edge,from,to)
-  if edge.windowStart and from.voyage and from.voyage.kind=='trolley' then return 'rail'
-  elseif edge.boatSeconds or edge.windowStart then return 'boat'
-  elseif from.voyage and from.voyage.kind=='ferry' and from.voyage.source==edge.to then return 'cancel'
-  elseif edge.waterwaySeconds then return 'water'
-  elseif edge.liftSeconds then return 'lift'
-  elseif from.voyage and from.voyage.destination==edge.to or to.voyage then
-   local vehicle=from.voyage or to.voyage
-   return vehicle.kind=='trolley' and 'rail' or vehicle.kind=='ferry' and 'boat' or 'arrival'
-  elseif edge.requiresArrival then return 'arrival'
-  elseif edge.wind then return 'wind' end
-  return 'walk'
- end
- local route_labels = {boat='舟・寄港',water='水路',lift='昇降機',rail='鉄道',arrival='乗り物',wind='吹雪待ち',cancel='航海を中止',walk='徒歩'}
- local route_colors = {boat='#ebf4db',water='#c2f1ec',lift='#f4ca8a',arrival='#ebf4db',
-                       rail='#f2d293',wind='#f5ebcc',cancel='#b9b5a2',walk='#506054'}
-
- local function connections(node)
-  if not node.voyage then return node.exits end
-  local to=node.voyage.destination
-  for _,edge in ipairs(node.exits) do if edge.to==to then return node.exits end end
-  local exits={table.unpack(node.exits)}
-  exits[#exits+1]={to=to}
-  return exits
  end
 
  local function visible_options(nodes)
@@ -225,7 +307,54 @@ return function(C, atlas)
   return out
  end
 
- local function local_map(out, region, nodes, state, map)
+ local function itinerary(s,nodes,target)
+  local origin=s.lift and s.lift.destination or s.story.node
+  if not nodes[origin] or not nodes[target] then return end
+  if origin==target then return {status='here',stops={}} end
+
+  local function find(allowBlocked)
+   local queue, previous={origin},{[origin]=false}
+   local head=1
+   while head<=#queue and previous[target]==nil do
+    local id=queue[head];head=head+1
+    local node=nodes[id]
+    for _,edge in ipairs(connections(node)) do
+     local nextNode=nodes[edge.to]
+     if nextNode and previous[edge.to]==nil and not edge.loopOnce
+       and (id==origin or not node.voyage or edge.to~=node.voyage.source) then
+      local reason=C.atlasGateRestriction(s,id,edge)
+      if allowBlocked or not reason then
+       local mode=route_mode(edge,node,nextNode)
+       previous[edge.to]={from=id,id=edge.to,name=nextNode.name,region=places[edge.to],
+        label=route_labels[mode],mode=mode,reason=reason,
+        hint=edge.darkOnly and '灯りを消して足場を出す' or edge.wind and '風が止むまで待つ'
+          or edge.windowStart and '停車・寄港時に降りる' or nil}
+       queue[#queue+1]=edge.to
+      end
+     end
+    end
+   end
+   if not previous[target] then return end
+   local reverse,stops={},{}
+   local id=target
+   while id~=origin do
+    local leg=previous[id]
+    reverse[#reverse+1]=leg
+    id=leg.from
+   end
+   local blocked
+   for index=#reverse,1,-1 do
+    local leg=reverse[index]
+    stops[#stops+1]=leg
+    blocked=blocked or leg.reason
+   end
+   return {status=blocked and 'blocked' or 'ready',stops=stops,reason=blocked,afterTransfer=s.lift~=nil}
+  end
+  return find(false) or find(true) or {status='unknown',stops={}}
+ end
+
+ local function local_map(out, region, nodes, s, map)
+  local state=s.story
   local points, where = {}, {}
   if map.layer=='review' then
    for _,p in ipairs(region.draft) do
@@ -287,10 +416,6 @@ return function(C, atlas)
     end
    end
   end
-  for _,point in ipairs(points) do
-   pin(out,point)
-   if point.current or point.selected then label(out,point.x,point.y-13,point.name,'#223f4a',14) end
-  end
   local selected=where[map.selected] or where[state.node]
   if not selected and map.layer=='review' then
    for _,p in ipairs(points) do if p.id==map.selected then selected=p;break end end
@@ -307,10 +432,37 @@ return function(C, atlas)
    local anchor=nodes[selected.anchor]
    routes[1]={id=anchor.id,name=anchor.name,region=places[anchor.id],level=anchor.level,label='入口候補',draft=true}
   end
-  return points, selected, routes
+  local guide=selected and itinerary(s,nodes,selected.id)
+  local stops=guide and guide.stops or {}
+  local inaccessible=false
+  for _,leg in ipairs(stops) do
+   inaccessible=inaccessible or leg.reason~=nil
+   local a,b=where[leg.from],where[leg.id]
+   if a and b then
+    local dash=(inaccessible or leg.mode~='walk') and {5,4} or nil
+    line(out,a.x,a.y,b.x,b.y,'#33474a',5,dash)
+    line(out,a.x,a.y,b.x,b.y,inaccessible and '#e6b4a1' or '#ffe196',2.6,dash)
+   end
+  end
+  for _,point in ipairs(points) do
+   if not point.current and not point.selected then pin(out,point) end
+  end
+  for _,point in ipairs(points) do
+   if point.current or point.selected then
+    pin(out,point)
+    local x=math.max(115,math.min(w-115,point.x))
+    if point.current and selected and selected.id~=point.id and math.abs(selected.y-point.y)<24
+      and math.abs(selected.x-point.x)<180 then
+     label(out,x,point.y+25,'現在地','#263f4d',14)
+    else
+     label(out,x,point.y-13,point.name,'#263f4d',14)
+    end
+   end
+  end
+  return points, selected, routes, guide
  end
 
- local function build(f,map)
+ local function build(f,s,map)
   local nodes={}
   for _,node in ipairs(f.storyGraph.nodes) do nodes[node.id]=node end
   local options=visible_options(nodes)
@@ -324,8 +476,8 @@ return function(C, atlas)
     options=options,draws={},revision=map.revision,location=nodes[f.story.node] and nodes[f.story.node].name,
     currentRegion=places[f.story.node]}
   if region then
-   result.points,result.selected,result.routes=local_map(result.draws, region, nodes, f.story, map)
-  else result.points=overview(result.draws,options,f.story.node) end
+   result.points,result.selected,result.routes,result.guide=local_map(result.draws, region, nodes, s, map)
+  else result.points=overview(result.draws,options,f.story.node,nodes) end
   return result
  end
 
@@ -364,7 +516,7 @@ return function(C, atlas)
  function C.frame(s,...)
   local f=frame(s,...)
   if s.worldMap then
-   s.worldMap.view=s.worldMap.view or build(f,s.worldMap)
+   s.worldMap.view=s.worldMap.view or build(f,s,s.worldMap)
    f.worldMap=s.worldMap.view
   end
   return f

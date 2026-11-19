@@ -169,8 +169,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local nextChange=calm and wind.calmEnd or (t<wind.calmStart and wind.calmStart or wind.period+wind.calmStart)
   return calm,nextChange-t
  end
- local function gateRestriction(s,edge)
-  if edge.darkOnly and s.storyLightMode~='dark' then return '消灯すると出口が見えます。' end
+ local function gateRestriction(s,edge,planning)
+  if not planning and edge.darkOnly and s.storyLightMode~='dark' then return '消灯すると出口が見えます。' end
   if edge.roofTrialStage and s.roofTrial and s.roofTrial.count<edge.roofTrialStage then return '屋根の目印を先に調べてください。' end
   local rule=edge.requires
   if rule then
@@ -187,6 +187,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     return rule.unavailableNotice or '依頼「'..quests[rule.quest].name..'」'..(rule.count and 'を進めてください。' or 'を報告してください。')
    end
   end
+  if planning then return end
   if edge.wind and not windWindow(s,edge.wind) then return edge.wind.notice or '吹雪のため通れません。風が止むまで待つか、下の風よけ道へ。' end
   local passed=s.voyage and s.t-s.voyage.started or -1
   if edge.windowStart and not (passed+1e-8>=edge.windowStart and passed+1e-8<edge.windowEnd) then
@@ -196,6 +197,15 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    return '寄港時間外'
   end
   if edge.requiresArrival and not (s.voyage and s.t>=s.voyage.arrives) then return '到着待ち' end
+ end
+ function C.atlasGateRestriction(s,from,edge)
+  local destination=nodes[edge.to]
+  if s.progression.level<destination.level then return '必要Lv'..destination.level end
+  if destination.toyDive and s.actors[1].hp<=0 then return '旅人が泳げる状態で潜りましょう。' end
+  if edge.windowStart and from==s.story.node and s.voyage and s.t-s.voyage.started>=edge.windowEnd then
+   return '乗降時間を過ぎました。'
+  end
+  return gateRestriction(s,edge,true)
  end
  local function nearGate(a,edge)
   return math.abs(a.x-edge.x)<90 and math.abs(a.y-(edge.y or 480))<60
@@ -266,7 +276,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif not s.progression or s.progression.level<n.level then reason='必要レベル '..n.level
     else reason=gateRestriction(s,edge) end
     best={to=edge.to,name=edge.rideLabel or n.name,level=n.level,available=not reason,reason=reason,
-          liftSeconds=edge.liftSeconds,waterwaySeconds=edge.waterwaySeconds,boatSeconds=edge.boatSeconds,
+          liftSeconds=edge.liftSeconds,waterwaySeconds=edge.waterwaySeconds,boatSeconds=edge.boatSeconds,phaseSeconds=edge.phaseSeconds,
           ferryBoard=n.voyage and n.voyage.kind=='ferry' or nil,
           ferryReboard=n.voyage and n.voyage.kind=='ferry' and edge.resumeSeconds~=nil or nil,
           ferryStop=s.voyage and s.voyage.kind=='ferry' and edge.windowStart~=nil or nil,
@@ -1301,12 +1311,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if fast and n.restWaypoint then spawn=n.restWaypoint.arrivalX or spawn
    elseif fast and n.waypoint and not n.hub then spawn=n.waypoint.x end
    local arrivalY=departure and departure.arrivalY or (fast and n.waypoint and not n.hub and n.waypoint.y) or nil
-   local seconds=departure and (departure.liftSeconds or departure.waterwaySeconds or departure.boatSeconds)
+   local seconds=departure and (departure.liftSeconds or departure.waterwaySeconds or departure.boatSeconds or departure.phaseSeconds)
    if seconds then
     s.lift={destination=dest,name=departure.rideLabel or n.name,seconds=seconds,remaining=seconds,
-            waterway=departure.waterwaySeconds~=nil,boat=departure.boatSeconds~=nil,
+            waterway=departure.waterwaySeconds~=nil,boat=departure.boatSeconds~=nil,phase=departure.phaseSeconds~=nil,
             x=departure.arrivalX or (arrival and arrival.x or spawn),y=departure.arrivalY or (arrival and arrival.y or 480)}
-     if not s.lift.waterway and not s.lift.boat and (dest==previous or departure.animatedLift)
+     if not s.lift.waterway and not s.lift.boat and not s.lift.phase and (dest==previous or departure.animatedLift)
          and departure.arrivalY then s.lift.riders={} end
     for i,actor in ipairs(s.actors) do
      actor.walk=0
@@ -1764,7 +1774,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    end
    if s.lift then
     local ride=s.lift
-    f.storyLift={destination=ride.name,remaining=ride.remaining,seconds=ride.seconds,
+    f.storyLift={destination=ride.name,remaining=ride.remaining,seconds=ride.seconds,phase=ride.phase,
                  waterway=ride.waterway or nil,boat=ride.boat or nil}
    else f.storyNearbyPortal=nearbyPortal(s) end
    local markers={};f.storyPortals={}
@@ -1814,6 +1824,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     if rubble then
      markers[#markers+1]={kind='rect',x=x-26,y=y-44,w=50,h=44,color='#6a4b51'}
      markers[#markers+1]={kind='rect',x=x-17,y=y-59,w=32,h=17,color='#a4785f'}
+    elseif edge.phaseSeconds then
+     local glow=gateRestriction(s,edge) and '#746783' or '#d6a1ef'
+     markers[#markers+1]={kind='effect',x=x,y=y-40,w=45,h=65,color=glow,alpha=1}
+     markers[#markers+1]={kind='effect',x=x,y=y-40,w=27,h=49,color='#655590',alpha=.9}
+     markers[#markers+1]={kind='rect',x=x-3,y=y-42,w=6,h=16,color=glow}
     else
      marker(x-18,y-90,3,90);marker(x+15,y-90,3,90)
      marker(x-18,y-90,36,3);marker(x-21,y-3,42,3)

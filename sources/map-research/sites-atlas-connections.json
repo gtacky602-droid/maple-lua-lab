@@ -1,0 +1,425 @@
+{
+  "scope": "Existing lab approaches and provisional transit designs. Local geography and quest progression are the design basis.",
+  "routes": [
+    {
+      "fields": [
+        "map7:21577",
+        "map7:21593"
+      ],
+      "source_edge": "WORLD2-E-map7_21577--map7_21593",
+      "finding": "implemented_as_lab_route",
+      "paths": {
+        "forward": [
+          "enkan-wp-21577",
+          "enkan-wp-21593"
+        ],
+        "return": [
+          "enkan-wp-21593",
+          "enkan-wp-21577"
+        ]
+      },
+      "note": "西島の石庭から北西の外礁灯へ。中央の灯を調べた段階で解放。帰りはいつでも石庭の足場へ戻る。"
+    },
+    {
+      "fields": [
+        "map7:21591",
+        "map7:21594"
+      ],
+      "source_edge": "WORLD2-E-map7_21591--map7_21594",
+      "finding": "implemented_as_lab_route",
+      "paths": {
+        "forward": [
+          "enkan-wp-21591",
+          "enkan-wp-21594"
+        ],
+        "return": [
+          "enkan-wp-21594",
+          "enkan-wp-21591"
+        ]
+      },
+      "note": "東島の高台から北東の外礁灯へ。北西の灯を調べると解放し、帰りは高台に着く。"
+    },
+    {
+      "fields": [
+        "map7:21587",
+        "map7:21592"
+      ],
+      "source_edge": "WORLD2-E-map7_21587--map7_21592",
+      "finding": "implemented_as_lab_route",
+      "paths": {
+        "forward": [
+          "enkan-wp-21587",
+          "enkan-wp-21592"
+        ],
+        "return": [
+          "enkan-wp-21592",
+          "enkan-wp-21587"
+        ]
+      },
+      "note": "南の小島から南端の外礁灯へ。北東の灯を調べると解放し、帰りは小島の足場へ戻る。"
+    },
+    {
+      "fields": [
+        "teyvat:17",
+        "slot:GAA-01"
+      ],
+      "source_edge": "WORLD2-E-teyvat_17--slot_GAA-01",
+      "finding": "use_existing_reviewed_route",
+      "paths": {
+        "forward": [
+          "mond-wp-17",
+          "mond-wp-18",
+          "mond-wp-13",
+          "mond-road",
+          "golden-mainland-coast",
+          "golden-hub"
+        ],
+        "return": [
+          "golden-hub",
+          "golden-mainland-coast",
+          "mond-road",
+          "mond-wp-13",
+          "mond-wp-18",
+          "mond-wp-17"
+        ]
+      },
+      "note": "岬の沿岸道から秘密の船着き場を発見し、小舟の依頼を進めて往復する。"
+    },
+    {
+      "fields": [
+        "teyvat:28731",
+        "slot:VLM-01"
+      ],
+      "source_edge": "WORLD2-E-teyvat_28731--slot_VLM-01",
+      "finding": "use_existing_reviewed_route",
+      "paths": {
+        "forward": [
+          "sum-wp-28731",
+          "sumeru-field",
+          "sumeru-hub",
+          "sumeru-entry",
+          "veluriyam-bottle-yard",
+          "veluriyam-hub"
+        ],
+        "return": [
+          "veluriyam-hub",
+          "veluriyam-bottle-yard",
+          "sumeru-entry",
+          "sumeru-hub",
+          "sumeru-field",
+          "sum-wp-28731"
+        ]
+      },
+      "note": "入口の手掛かりから模様瓶の庭へ。瓶の仕掛けを整えてから奥へ進む。"
+    },
+    {
+      "fields": [
+        "teyvat:50054",
+        "slot:SIM-01"
+      ],
+      "source_edge": "WORLD2-E-teyvat_50054--slot_SIM-01",
+      "finding": "use_existing_reviewed_route",
+      "paths": {
+        "forward": [
+          "fontaine-hub",
+          "simulanka-book-room",
+          "simulanka-hub"
+        ],
+        "return": [
+          "simulanka-hub",
+          "fontaine-hub"
+        ]
+      },
+      "note": "水辺の広場で絵本を見つけ、読書室の折り目の仕掛けを通る。帰還は入口広場の広場行きの出口を使う。"
+    },
+    {
+      "fields": [
+        "teyvat:88167",
+        "slot:NSP-01"
+      ],
+      "source_edge": "WORLD2-E-teyvat_88167--slot_NSP-01",
+      "finding": "use_existing_reviewed_route",
+      "paths": {
+        "forward": [
+          "nod-wp-88167",
+          "nod-wp-88164",
+          "nod-wp-88129",
+          "nod-wp-88157",
+          "nod-wp-88155",
+          "nod-wp-88154",
+          "nod-wp-88148",
+          "nod-wp-88147",
+          "nod-wp-88128",
+          "nod-town",
+          "nod-field",
+          "nod-special-camp"
+        ],
+        "return": [
+          "nod-special-camp",
+          "nod-field",
+          "nod-town",
+          "nod-wp-88128",
+          "nod-wp-88147",
+          "nod-wp-88148",
+          "nod-wp-88154",
+          "nod-wp-88155",
+          "nod-wp-88157",
+          "nod-wp-88129",
+          "nod-wp-88164",
+          "nod-wp-88167"
+        ]
+      },
+      "note": "パハ島から連絡舟でレンポ島へ。町と月光の野を経て特別地域の仮入口に着く。"
+    },
+    {
+      "fields": [
+        "map40:99310",
+        "map40:99312"
+      ],
+      "source_edge": "WORLD2-E-map40_99312--map40_99310",
+      "finding": "use_existing_reviewed_route",
+      "paths": {
+        "forward": [
+          "frost-wp-99310",
+          "frost-wp-99309",
+          "frost-wp-99311",
+          "frost-wp-99312"
+        ],
+        "return": [
+          "frost-wp-99312",
+          "frost-wp-99311",
+          "frost-wp-99309",
+          "frost-wp-99310"
+        ]
+      },
+      "note": "西回廊の第一層から昇降機で第二層の灯室へ。灯りを消して足場を出し、第二層の奥へ進む。"
+    },
+    {
+      "fields": [
+        "teyvat:106181",
+        "teyvat:106208"
+      ],
+      "source_edge": "WORLD2-E-teyvat_106181--teyvat_106208",
+      "finding": "use_existing_reviewed_route",
+      "paths": {
+        "forward": [
+          "sne-north-works",
+          "sne-wp-106194",
+          "sne-wp-106207",
+          "sne-wp-106208"
+        ],
+        "return": [
+          "sne-wp-106208",
+          "sne-wp-106207",
+          "sne-wp-106194",
+          "sne-north-works"
+        ]
+      },
+      "note": "北の工区から海岸へ下る坂と倉庫前を経由。通行Lv153の神像と海岸を屋外の行程でつなぐ。"
+    },
+    {
+      "fields": [
+        "teyvat:106206",
+        "teyvat:106207"
+      ],
+      "source_edge": "WORLD2-E-teyvat_106206--teyvat_106207",
+      "finding": "use_existing_reviewed_route",
+      "paths": {
+        "forward": [
+          "sne-wp-106206",
+          "sne-wp-106208",
+          "sne-wp-106207"
+        ],
+        "return": [
+          "sne-wp-106207",
+          "sne-wp-106208",
+          "sne-wp-106206"
+        ]
+      },
+      "note": "見張り棚と倉庫前はいずれも地上階層。海岸の回り込みを使い、Lv153で往復する。"
+    },
+    {
+      "fields": [
+        "teyvat:46513",
+        "teyvat:46516"
+      ],
+      "source_edge": "WORLD2-E-teyvat_46516--teyvat_46513",
+      "finding": "use_existing_reviewed_route",
+      "paths": {
+        "forward": [
+          "tunigi-camp",
+          "sum-wp-46517",
+          "sum-wp-46516"
+        ],
+        "return": [
+          "sum-wp-46516",
+          "sum-wp-46517",
+          "tunigi-camp"
+        ]
+      },
+      "note": "入口拠点から屋外の西段丘を抜ける。高難度の探索路を経由する必要はない。段丘はLv75。"
+    },
+    {
+      "fields": [
+        "teyvat:46521",
+        "teyvat:46523"
+      ],
+      "source_edge": "WORLD2-E-teyvat_46521--teyvat_46523",
+      "finding": "use_existing_reviewed_route",
+      "paths": {
+        "forward": [
+          "sum-wp-46521",
+          "tunigi-depth",
+          "sum-wp-46523"
+        ],
+        "return": [
+          "sum-wp-46523",
+          "tunigi-depth",
+          "sum-wp-46521"
+        ]
+      },
+      "note": "西丘の風よけから谷口の探索路へ。既設の昇降機で観測洞に降りる。"
+    },
+    {
+      "fields": [
+        "teyvat:28716",
+        "teyvat:28715"
+      ],
+      "source_edge": "WORLD2-E-teyvat_28715--teyvat_28716",
+      "finding": "implemented_as_lab_route",
+      "paths": {
+        "forward": [
+          "sum-wp-28716",
+          "sites-sumeru-terrace-road",
+          "sum-wp-28715"
+        ],
+        "return": [
+          "sum-wp-28715",
+          "sites-sumeru-terrace-road",
+          "sum-wp-28716"
+        ]
+      },
+      "note": "南の段丘から森と砂の門へ、地上の小道を新設。Lv66の低い枝へ登る狩場は任意のまま、Lv63で往復できる。"
+    },
+    {
+      "fields": [
+        "teyvat:28739",
+        "teyvat:28745"
+      ],
+      "source_edge": "WORLD2-E-teyvat_28739--teyvat_28745",
+      "finding": "implemented_as_lab_route",
+      "paths": {
+        "forward": [
+          "sumeru-hub",
+          "sites-sumeru-north-bridge",
+          "sum-wp-28745"
+        ],
+        "return": [
+          "sum-wp-28745",
+          "sites-sumeru-north-bridge",
+          "sumeru-hub"
+        ]
+      },
+      "note": "樹陰の広場の上段から橋で北岸へ。Lv65の大樹北門へ行く道は狩場行きとして残す。"
+    },
+    {
+      "fields": [
+        "teyvat:34",
+        "teyvat:6599"
+      ],
+      "source_edge": "WORLD2-E-teyvat_6599--teyvat_34",
+      "finding": "implemented_as_lab_route",
+      "paths": {
+        "forward": [
+          "liyue-wp-34",
+          "sites-dragonspine-south-foothill",
+          "mond-wp-6599"
+        ],
+        "return": [
+          "mond-wp-6599",
+          "sites-dragonspine-south-foothill",
+          "liyue-wp-34"
+        ]
+      },
+      "note": "湿地の北端から西斜面へ向かう山裾の峠。雪線にLv44の入口を置き、雪山の行程を近道で飛ばさない。"
+    },
+    {
+      "fields": [
+        "teyvat:36692",
+        "teyvat:72412"
+      ],
+      "source_edge": "WORLD2-E-teyvat_36692--teyvat_72412",
+      "finding": "implemented_as_lab_route",
+      "paths": {
+        "forward": [
+          "sum-wp-36692",
+          "sum-wp-36696",
+          "sites-west-desert-border",
+          "natlan-entry"
+        ],
+        "return": [
+          "natlan-entry",
+          "sites-west-desert-border",
+          "sum-wp-36696",
+          "sum-wp-36692"
+        ]
+      },
+      "note": "石廟の地上広場から南側の砂岩の谷を越え、Lv100のナタ入口へ。トゥニギ側の高難度分岐は経由しない。"
+    },
+    {
+      "fields": [
+        "teyvat:92892",
+        "teyvat:100646"
+      ],
+      "source_edge": "WORLD2-E-teyvat_92892--teyvat_100646",
+      "finding": "implemented_as_lab_route",
+      "paths": {
+        "forward": [
+          "nod-wp-92892",
+          "nod-wp-92889",
+          "sites-northern-fault-pass",
+          "snezhnaya-entry"
+        ],
+        "return": [
+          "snezhnaya-entry",
+          "sites-northern-fault-pass",
+          "nod-wp-92889",
+          "nod-wp-92892"
+        ]
+      },
+      "note": "北の断層の別室から既設昇降機で地上へ出て、Lv140の峠を越える。地下から国境へ直接抜ける線は設けない。"
+    },
+    {
+      "fields": [
+        "teyvat:46523",
+        "teyvat:46530"
+      ],
+      "source_edge": "WORLD2-E-teyvat_46523--teyvat_46530",
+      "finding": "implemented_as_lab_route",
+      "paths": {
+        "forward": [
+          "sum-wp-46523",
+          "sum-wp-46530"
+        ],
+        "return": [
+          "sum-wp-46530",
+          "sum-wp-46523"
+        ]
+      },
+      "note": "両地点とも下層。谷口の観測洞からLv77の保守坑道へ続く往復路を作り、地上道を経由しない。"
+    }
+  ],
+  "retained_regional_entrances": [
+    {
+      "fields": [
+        "map37:96380",
+        "teyvat:95801"
+      ],
+      "entrances": [
+        "nat-sky-camp",
+        "dornman-camp"
+      ],
+      "note": "ナタの空の神殿へは古の聖山の昇降機、ドーンマンポートの北岸へは港の街区経由。両地域に直結する専用ゲート案は保留。"
+    }
+  ]
+}
