@@ -15,7 +15,7 @@
   "optional_pocket_round_trips": 53,
   "underwater_corridor_rendered_ground_combat_respawn": 2,
   "existing_quest_progress_preserved": true,
-  "held_points": [
+  "source_entrances_unverified": [
     "teyvat:10009",
     "teyvat:85351",
     "teyvat:98500"

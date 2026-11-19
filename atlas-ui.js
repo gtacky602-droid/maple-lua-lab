@@ -101,7 +101,7 @@ export function initAtlas(action, clearKeys) {
    : selected ? [
     selected.current ? '現在地' : selected.visited ? '訪問済み' : '未訪問',
     '通行Lv' + selected.level,
-    selected.provisional ? '試作区画' : '',
+    selected.entrancePending ? '試作の見晴らし場・原作入口は照合中' : selected.provisional ? '試作区画' : '',
     selected.recommended && selected.recommended !== selected.level ? '設計推奨Lv' + selected.recommended : '',
    ].filter(Boolean).join(' ｜ ') : area ? `設計推奨Lv${area.low}〜${area.high}` : '地域を選ぶと周辺のフィールドを確認できます';
   const links = entries(view.routes).map(route => {
@@ -110,7 +110,8 @@ export function initAtlas(action, clearKeys) {
    button.textContent = `${route.name} ｜ ${route.label}・Lv${route.level}${route.restricted ? '・依頼条件あり' : ''}`;
    button.onclick = () => {
     if (route.region && route.region !== view.region) send('world_map_region:' + route.region);
-    else if (route.draft) send('world_map_layer:all');
+    else if (view.layer !== 'all' && !entries(view.points).some(point => point.id === route.id))
+     send('world_map_layer:all');
     send('world_map_select:' + route.id);
    };
    li.append(button);

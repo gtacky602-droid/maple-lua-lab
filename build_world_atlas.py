@@ -101,6 +101,32 @@ def reachable(nodes, reverse=False):
     return visited
 
 
+def local_path(nodes, start, end, allowed_regions, stage_regions):
+    """Find a local, ungated detour and keep the peak requirement near the endpoints."""
+    for buffer in (0, 2):
+        level = max(nodes[start]['level'], nodes[end]['level']) + buffer
+        queue = deque([(start, [start])])
+        seen = {start}
+        while queue:
+            id, path = queue.popleft()
+            if id == end:
+                return path
+            if len(path) >= 10:
+                continue
+            for edge in nodes[id]['exits']:
+                target = edge['to']
+                if target in seen or stage_regions[target] not in allowed_regions:
+                    continue
+                if any(key in edge for key in ('requires', 'visitedOnly', 'windowStart', 'requiresArrival')):
+                    continue
+                node = nodes[target]
+                if node['level'] > level or node.get('hiddenGroup') or node.get('revealAfter') or node.get('voyage'):
+                    continue
+                queue.append((target, path+[target]))
+                seen.add(target)
+    return None
+
+
 def approach(field, region, stages, positions, anchored, source_edges, source_fields):
     """Suggest a returnable entrance without treating nearby coordinates as a road."""
     id = field['field_id']
@@ -161,7 +187,8 @@ def build():
     for node in graph['nodes']:
         field = all_fields.get(node.get('mapPoint') or node.get('designField'))
         if parent := node.get('atlasParent'):
-            field = all_fields[nodes[parent]['designField']]
+            source = nodes[parent]
+            field = all_fields[source.get('designField') or source['mapPoint']]
         region = field['design_region_id'] if field else VOYAGE_REGIONS.get(node['id'], region_for_name.get(node['region']))
         if region:
             stages_by_region[region][node['id']] = node
@@ -180,6 +207,7 @@ def build():
             points.append({'id': node_id, 'x': located[node_id][0], 'y': located[node_id][1],
                            'layer': node.get('atlasLayer', layer),
                            **({'provisional': True} if node.get('designField') or node.get('atlasParent') else {}),
+                           **({'entrancePending': True} if node.get('atlasEntrancePending') else {}),
                            **({'recommended': field['level'], 'field': field['field_id']} if field else {})})
         # Imported design points missing a runtime assignment are available in the review layer.
         draft = []
@@ -222,24 +250,70 @@ def build():
         assert any(exit['to']==stage for exit in nodes[host]['exits'])
         assert any(exit['to']==host for exit in nodes[stage]['exits'])
         implemented.add(frozenset((field, anchor)))
+    layer_review = load('sources/map-research/sites-layer-trails.json')
     source_by_pair = {frozenset((edge['a'],edge['b'])): edge for edge in imported['edges']}
+    new_layer_paths = {}
+    for route in layer_review['routes']:
+        pair = frozenset(route['fields'])
+        stages = route['stages']
+        assert [field_links[field]['stage_id'] for field in route['fields']] == [stages[0], stages[-1]]
+        assert source_by_pair[pair]['id'] == route['source_edge']
+        for start, end in zip(stages, stages[1:]):
+            assert any(edge['to']==end for edge in nodes[start]['exits'])
+            assert any(edge['to']==start for edge in nodes[end]['exits'])
+        new_layer_paths[pair] = stages
+    retained = {frozenset(route['fields']): route for route in layer_review['retained_detours']}
+    for site in layer_review['exterior_approaches']:
+        field, anchor = site['field'], site['anchor_field']
+        stage, host = site['stage'], site['approach']
+        assert source_fields[field]['role'] == 'hold' and site['source_entrance'] == 'unverified'
+        assert field_links[field]['stage_id'] == stage and field_links[anchor]['stage_id'] == host
+        assert nodes[stage]['atlasEntrancePending'] and nodes[stage]['peaceful']
+        assert [e['to'] for e in nodes[stage]['exits']] == [host]
+        assert any(e['to']==stage for e in nodes[host]['exits'])
     for a,b in ledger['sites_only_route_pairs']:
         source = source_by_pair[frozenset((a,b))]
         data = [all_fields[id] for id in (a,b)]
         floors = [f['map_anchor']['point_group'] for f in data]
         level_a, level_b = (f['level'] for f in data)
-        if frozenset((a,b)) in implemented:
+        floor_change = floors[0] != floors[1]
+        level_gap = level_a is not None and level_b is not None and abs(level_a-level_b)>8
+        pair = frozenset((a,b))
+        paths = {}
+        note = source.get('note','')
+        if pair in new_layer_paths:
+            finding = 'implemented_as_lab_route'
+            forward = new_layer_paths[pair]
+            if forward[0] != field_links[a]['stage_id']:
+                forward = forward[::-1]
+            paths = {'forward': forward, 'return': forward[::-1]}
+        elif pair in implemented:
             finding='implemented_as_lab_route'
         elif a not in field_links or b not in field_links:
             finding='needs_stage_binding'
-        elif source['mode'] in WALK_MODES and floors[0] != floors[1]:
-            finding='check_floor_transition'
-        elif source['mode'] in WALK_MODES and level_a is not None and level_b is not None and abs(level_a-level_b)>8:
-            finding='check_level_jump'
+        elif pair in retained:
+            finding = 'use_existing_regional_detour'
+            forward = retained[pair]['stages']
+            if forward[0] != field_links[a]['stage_id']:
+                forward = forward[::-1]
+            assert (forward[0],forward[-1]) == (field_links[a]['stage_id'],field_links[b]['stage_id'])
+            assert all(any(edge['to']==end for edge in nodes[start]['exits']) and
+                       any(edge['to']==start for edge in nodes[end]['exits']) for start,end in zip(forward,forward[1:]))
+            paths = {'forward':forward, 'return':forward[::-1]}
+            note = retained[pair]['reason']
+        elif source['mode'] in WALK_MODES and (floor_change or level_gap):
+            start, end = (field_links[field]['stage_id'] for field in (a,b))
+            allowed_regions = {mapped_stage[start],mapped_stage[end]}
+            forward = local_path(nodes,start,end,allowed_regions,mapped_stage)
+            back = local_path(nodes,end,start,allowed_regions,mapped_stage)
+            finding = 'keep_indirect_route' if floor_change else 'check_level_jump'
+            if forward and back:
+                finding = 'use_existing_local_detour' if floor_change else 'use_existing_level_route'
+                paths = {'forward':forward, 'return':back}
         else:
             finding='candidate_with_geography_review'
         review.append({'fields':[a,b],'mode':source['mode'],'finding':finding,
-                       'terrain_note':source.get('note','')})
+                       'terrain_note':note, **({'runtime_paths':paths} if paths else {})})
     walkthrough_levels = []
     for field, data in field_links.items():
         spec, stage = all_fields[field], nodes[data['stage_id']]
@@ -250,14 +324,16 @@ def build():
     cases = [
         {'fields':['teyvat:95799','teyvat:95803'],'decision':'use_existing_water_and_lift_via_port',
          'stages':['mond-wp-95799','mond-wp-95797','mond-wp-95798','mond-wp-95803']},
-        {'fields':['teyvat:95795','teyvat:98500'],'decision':'reserve_entrance_until_floor_verified',
-         'reason':'The imported entrance coordinates do not establish the layer or a connection from the flower-field path.'},
+        {'fields':['teyvat:95795','teyvat:98500'],'decision':'use_provisional_exterior_via_statue',
+         'stages':['mond-wp-95795','mond-wp-95782','sites-lookout-98500'],
+         'reason':'The existing hillside route leads to the exterior lookout. The original entrance remains unverified.'},
     ]
     plan = {'live_bound_fields':len(field_links),'imported_fields':len(all_fields),
             'official_fields':len(official_links),'provisional_layout_fields':len(designed_links),
             'draft_field_approaches':proposals,'sites_only_route_review':review,
             'level_differences':walkthrough_levels,'manual_cases':cases,
-            'scope':'Draft approaches terminate at their mapped region. They are not live gates. Level recommendations do not override quest gates.'}
+            'unverified_entrance_exteriors':layer_review['exterior_approaches'],
+            'scope':'Exterior lookouts are playable prototypes. The source entrances remain unverified. Level recommendations do not override quest gates.'}
     (ROOT/'design/world/atlas-route-plan.json').write_text(json.dumps(plan,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
     output = ROOT / 'content/world-atlas.json'
     lines = ',\n'.join('    '+json.dumps(row,ensure_ascii=False,separators=(',',':')) for row in entries)

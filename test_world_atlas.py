@@ -18,11 +18,12 @@ fields = {point['field'] for region in atlas['regions'] for point in region['poi
 drafts = {point['id']: point for region in atlas['regions'] for point in region['draft']}
 assert len(atlas['regions']) == 24
 assert {p['id'] for r in atlas['regions'] for p in r['points']} == nodes.keys()
-assert len(fields) == plan['live_bound_fields'] == 976
-assert plan['official_fields'] == 873 and plan['provisional_layout_fields'] == 103
-assert len(drafts) == len(plan['draft_field_approaches']) == 3
-assert set(drafts) == {'teyvat:10009', 'teyvat:85351', 'teyvat:98500'}
-assert sum(row['finding']=='implemented_as_lab_route' for row in plan['sites_only_route_review']) == 99
+assert len(fields) == plan['live_bound_fields'] == 979
+assert plan['official_fields'] == 873 and plan['provisional_layout_fields'] == 106
+assert not drafts and not plan['draft_field_approaches']
+pending = {point['field'] for region in atlas['regions'] for point in region['points'] if point.get('entrancePending')}
+assert pending == {'teyvat:10009', 'teyvat:85351', 'teyvat:98500'}
+assert sum(row['finding']=='implemented_as_lab_route' for row in plan['sites_only_route_review']) == 106
 assert not (fields & drafts.keys()) and len(fields) + len(drafts) == plan['imported_fields'] == 979
 assert len(plan['sites_only_route_review']) == 421
 for entry in plan['draft_field_approaches']:
@@ -74,6 +75,13 @@ assert view.selected.id == 'sites-gaa-03'
 assert any(route.label == '舟・寄港' for route in view.routes.values())
 assert not act('layer:review').points[1]
 act('close')
+core.enterStoryNode(s, 'sites-lookout-98500')
+view = act('toggle')
+assert view.selected.entrancePending and view.selected.id == 'sites-lookout-98500'
+view = act('layer:review')
+assert len(view.points) == 1 and view.points[1].id == 'sites-lookout-98500'
+assert view.routes[1].id == 'mond-wp-95782'
+act('close')
 core.enterStoryNode(s, 'fon-wp-50074')
 view = act('toggle')
 assert view.selected.id == 'fon-wp-50074' and view.selected.layer == 'water'
@@ -82,7 +90,7 @@ assert any(p.id == 'fon-wp-50076' and p.level == 93 for p in act('layer:water').
 
 result = {'imported_fields':len(fields)+len(drafts),'live_runtime_fields':len(fields),
           'draft_entrance_proposals':len(drafts),'sites_only_route_reviews':len(plan['sites_only_route_review']),
-          'proposed_entrances_by_method':dict(Counter(row['method'] for row in plan['draft_field_approaches'])),
+          'live_exteriors_with_unverified_source_entrance':sorted(pending),
           'route_findings':dict(Counter(row['finding'] for row in plan['sites_only_route_review'])),
           'separately_labelled_level_mismatches':len(plan['level_differences']),
           'hidden_area_visibility':True,'map_state_not_saved':True,'game_clock_pauses':True,

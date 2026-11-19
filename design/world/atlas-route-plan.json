@@ -1,37 +1,9 @@
 {
-  "live_bound_fields": 976,
+  "live_bound_fields": 979,
   "imported_fields": 979,
   "official_fields": 873,
-  "provisional_layout_fields": 103,
-  "draft_field_approaches": [
-    {
-      "field": "teyvat:10009",
-      "anchor": "mond-border",
-      "method": "needs_entrance_review",
-      "minimum_to_approach": 1,
-      "recommended": 12,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:85351",
-      "anchor": "mond-wp-15",
-      "method": "needs_entrance_review",
-      "minimum_to_approach": 7,
-      "recommended": 13,
-      "terminus": true,
-      "runtime_gate": false
-    },
-    {
-      "field": "teyvat:98500",
-      "anchor": "mond-wp-95782",
-      "method": "needs_entrance_review",
-      "minimum_to_approach": 160,
-      "recommended": 160,
-      "terminus": true,
-      "runtime_gate": false
-    }
-  ],
+  "provisional_layout_fields": 106,
+  "draft_field_approaches": [],
   "sites_only_route_review": [
     {
       "fields": [
@@ -219,8 +191,20 @@
         "map37:96380"
       ],
       "mode": "stairs",
-      "finding": "check_floor_transition",
-      "terrain_note": "南の入口から中央広間へ。地下・メモリーコアとの階層を区別する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "南の入口から中央広間へ。地下・メモリーコアとの階層を区別する。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-96367",
+          "nat-wp-96368",
+          "nat-wp-96380"
+        ],
+        "return": [
+          "nat-wp-96380",
+          "nat-wp-96368",
+          "nat-wp-96367"
+        ]
+      }
     },
     {
       "fields": [
@@ -849,8 +833,20 @@
         "teyvat:100698"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "都へ向かう既存道路・橋を経由。鉄道のみの区間なら徒歩扱いを解除する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "都へ向かう既存道路・橋を経由。鉄道のみの区間なら徒歩扱いを解除する。",
+      "runtime_paths": {
+        "forward": [
+          "snezhnaya-hub",
+          "sne-wp-100674",
+          "sne-wp-100698"
+        ],
+        "return": [
+          "sne-wp-100698",
+          "sne-wp-100674",
+          "snezhnaya-hub"
+        ]
+      }
     },
     {
       "fields": [
@@ -903,8 +899,24 @@
         "teyvat:100683"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "西の雪林と谷道を回る。凍結湖を徒歩で横断する前提は置かない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "西の雪林と谷道を回る。凍結湖を徒歩で横断する前提は置かない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100652",
+          "sne-wp-100651",
+          "sne-wp-100685",
+          "sne-wp-100686",
+          "sne-wp-100683"
+        ],
+        "return": [
+          "sne-wp-100683",
+          "sne-wp-100686",
+          "sne-wp-100685",
+          "sne-wp-100651",
+          "sne-wp-100652"
+        ]
+      }
     },
     {
       "fields": [
@@ -921,8 +933,18 @@
         "teyvat:100684"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "東の街道から都へ戻る周回路。研究施設の内部は別の入口を使う。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "東の街道から都へ戻る周回路。研究施設の内部は別の入口を使う。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100654",
+          "sne-wp-100684"
+        ],
+        "return": [
+          "sne-wp-100684",
+          "sne-wp-100654"
+        ]
+      }
     },
     {
       "fields": [
@@ -939,8 +961,24 @@
         "teyvat:100684"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "東の街道から都へ戻る周回路。研究施設の内部は別の入口を使う。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "東の街道から都へ戻る周回路。研究施設の内部は別の入口を使う。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100657",
+          "sne-wp-100658",
+          "sne-wp-100655",
+          "sne-wp-100654",
+          "sne-wp-100684"
+        ],
+        "return": [
+          "sne-wp-100684",
+          "sne-wp-100654",
+          "sne-wp-100655",
+          "sne-wp-100658",
+          "sne-wp-100657"
+        ]
+      }
     },
     {
       "fields": [
@@ -1020,8 +1058,26 @@
         "teyvat:100695"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "都へ向かう既存道路・橋を経由。鉄道のみの区間なら徒歩扱いを解除する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "都へ向かう既存道路・橋を経由。鉄道のみの区間なら徒歩扱いを解除する。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100669",
+          "sne-wp-100668",
+          "sne-wp-100667",
+          "sne-wp-100666",
+          "sne-wp-100643",
+          "sne-wp-100695"
+        ],
+        "return": [
+          "sne-wp-100695",
+          "sne-wp-100643",
+          "sne-wp-100666",
+          "sne-wp-100667",
+          "sne-wp-100668",
+          "sne-wp-100669"
+        ]
+      }
     },
     {
       "fields": [
@@ -1056,8 +1112,27 @@
         "teyvat:100695"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "都へ向かう既存道路・橋を経由。鉄道のみの区間なら徒歩扱いを解除する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "都へ向かう既存道路・橋を経由。鉄道のみの区間なら徒歩扱いを解除する。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100672",
+          "snezhnaya-hub",
+          "snezhnaya-field",
+          "white-pass-cut",
+          "sne-wp-100666",
+          "sne-wp-100643",
+          "sne-wp-100695"
+        ],
+        "return": [
+          "sne-wp-100695",
+          "sne-wp-100643",
+          "sne-wp-100666",
+          "white-pass-station",
+          "snezhnaya-hub",
+          "sne-wp-100672"
+        ]
+      }
     },
     {
       "fields": [
@@ -1092,8 +1167,24 @@
         "teyvat:100690"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "市街外の雪道。閉鎖された坑道を近道に使わない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "市街外の雪道。閉鎖された坑道を近道に使わない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100676",
+          "sne-wp-100675",
+          "sne-wp-100669",
+          "sne-wp-100668",
+          "sne-wp-100690"
+        ],
+        "return": [
+          "sne-wp-100690",
+          "sne-wp-100668",
+          "sne-wp-100669",
+          "sne-wp-100675",
+          "sne-wp-100676"
+        ]
+      }
     },
     {
       "fields": [
@@ -1110,8 +1201,26 @@
         "teyvat:100690"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "市街外の雪道。閉鎖された坑道を近道に使わない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "市街外の雪道。閉鎖された坑道を近道に使わない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100678",
+          "sne-wp-100676",
+          "sne-wp-100675",
+          "sne-wp-100669",
+          "sne-wp-100668",
+          "sne-wp-100690"
+        ],
+        "return": [
+          "sne-wp-100690",
+          "sne-wp-100668",
+          "sne-wp-100669",
+          "sne-wp-100675",
+          "sne-wp-100676",
+          "sne-wp-100678"
+        ]
+      }
     },
     {
       "fields": [
@@ -1128,8 +1237,22 @@
         "teyvat:100685"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "西の雪林と谷道を回る。凍結湖を徒歩で横断する前提は置かない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "西の雪林と谷道を回る。凍結湖を徒歩で横断する前提は置かない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100682",
+          "sne-wp-100687",
+          "sne-wp-100688",
+          "sne-wp-100685"
+        ],
+        "return": [
+          "sne-wp-100685",
+          "sne-wp-100688",
+          "sne-wp-100687",
+          "sne-wp-100682"
+        ]
+      }
     },
     {
       "fields": [
@@ -1137,8 +1260,20 @@
         "teyvat:100687"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "西の雪林と谷道を回る。凍結湖を徒歩で横断する前提は置かない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "西の雪林と谷道を回る。凍結湖を徒歩で横断する前提は置かない。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-100683",
+          "sne-wp-100686",
+          "sne-wp-100687"
+        ],
+        "return": [
+          "sne-wp-100687",
+          "sne-wp-100686",
+          "sne-wp-100683"
+        ]
+      }
     },
     {
       "fields": [
@@ -1290,8 +1425,24 @@
         "teyvat:106209"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "東の谷沿いを順に進む案。巨大な峰を直通させず、鉄道・道路の実際の到達可否を確認。"
+      "finding": "use_existing_regional_detour",
+      "terrain_note": "工区の道路と丘の既存昇降機を使い、北の神像から地下に直行する門を避ける。",
+      "runtime_paths": {
+        "forward": [
+          "sne-north-works",
+          "sne-wp-106194",
+          "sne-wp-106207",
+          "sne-wp-106208",
+          "sne-wp-106209"
+        ],
+        "return": [
+          "sne-wp-106209",
+          "sne-wp-106208",
+          "sne-wp-106207",
+          "sne-wp-106194",
+          "sne-north-works"
+        ]
+      }
     },
     {
       "fields": [
@@ -1299,8 +1450,24 @@
         "teyvat:106191"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "市街・輸送回廊に通常敵を混ぜず、坑道の狩場は分岐先へ。地底街の出入口と上下階を照合する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "市街・輸送回廊に通常敵を混ぜず、坑道の狩場は分岐先へ。地底街の出入口と上下階を照合する。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106185",
+          "sne-wp-106186",
+          "sne-wp-106220",
+          "sne-wp-106183",
+          "sne-wp-106191"
+        ],
+        "return": [
+          "sne-wp-106191",
+          "sne-wp-106183",
+          "sne-wp-106220",
+          "sne-wp-106186",
+          "sne-wp-106185"
+        ]
+      }
     },
     {
       "fields": [
@@ -1308,8 +1475,20 @@
         "teyvat:106191"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "市街・輸送回廊に通常敵を混ぜず、坑道の狩場は分岐先へ。地底街の出入口と上下階を照合する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "市街・輸送回廊に通常敵を混ぜず、坑道の狩場は分岐先へ。地底街の出入口と上下階を照合する。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106187",
+          "sne-wp-106192",
+          "sne-wp-106191"
+        ],
+        "return": [
+          "sne-wp-106191",
+          "sne-wp-106192",
+          "sne-wp-106187"
+        ]
+      }
     },
     {
       "fields": [
@@ -1317,8 +1496,22 @@
         "teyvat:106193"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "市街・輸送回廊に通常敵を混ぜず、坑道の狩場は分岐先へ。地底街の出入口と上下階を照合する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "市街・輸送回廊に通常敵を混ぜず、坑道の狩場は分岐先へ。地底街の出入口と上下階を照合する。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106187",
+          "sne-wp-106188",
+          "sne-wp-106189",
+          "sne-wp-106193"
+        ],
+        "return": [
+          "sne-wp-106193",
+          "sne-wp-106191",
+          "sne-wp-106192",
+          "sne-wp-106187"
+        ]
+      }
     },
     {
       "fields": [
@@ -1326,8 +1519,18 @@
         "teyvat:106189"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "市街・輸送回廊に通常敵を混ぜず、坑道の狩場は分岐先へ。地底街の出入口と上下階を照合する。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "市街・輸送回廊に通常敵を混ぜず、坑道の狩場は分岐先へ。地底街の出入口と上下階を照合する。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106188",
+          "sne-wp-106189"
+        ],
+        "return": [
+          "sne-wp-106189",
+          "sne-wp-106188"
+        ]
+      }
     },
     {
       "fields": [
@@ -1335,8 +1538,20 @@
         "teyvat:106193"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "市街・輸送回廊に通常敵を混ぜず、坑道の狩場は分岐先へ。地底街の出入口と上下階を照合する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "市街・輸送回廊に通常敵を混ぜず、坑道の狩場は分岐先へ。地底街の出入口と上下階を照合する。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106188",
+          "sne-wp-106189",
+          "sne-wp-106193"
+        ],
+        "return": [
+          "sne-wp-106193",
+          "sne-wp-106189",
+          "sne-wp-106188"
+        ]
+      }
     },
     {
       "fields": [
@@ -1398,8 +1613,18 @@
         "teyvat:107298"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "東の谷沿いを順に進む案。巨大な峰を直通させず、鉄道・道路の実際の到達可否を確認。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "東の谷沿いを順に進む案。巨大な峰を直通させず、鉄道・道路の実際の到達可否を確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106209",
+          "sne-wp-107298"
+        ],
+        "return": [
+          "sne-wp-107298",
+          "sne-wp-106209"
+        ]
+      }
     },
     {
       "fields": [
@@ -1407,8 +1632,20 @@
         "teyvat:106214"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "東の谷沿いを順に進む案。巨大な峰を直通させず、鉄道・道路の実際の到達可否を確認。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "東の谷沿いを順に進む案。巨大な峰を直通させず、鉄道・道路の実際の到達可否を確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106213",
+          "sne-wp-106212",
+          "sne-east-camp"
+        ],
+        "return": [
+          "sne-east-camp",
+          "sne-wp-106212",
+          "sne-wp-106213"
+        ]
+      }
     },
     {
       "fields": [
@@ -1416,8 +1653,22 @@
         "teyvat:106217"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "東の谷沿いを順に進む案。巨大な峰を直通させず、鉄道・道路の実際の到達可否を確認。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "東の谷沿いを順に進む案。巨大な峰を直通させず、鉄道・道路の実際の到達可否を確認。",
+      "runtime_paths": {
+        "forward": [
+          "sne-wp-106216",
+          "sne-wp-106219",
+          "sne-wp-106218",
+          "sne-wp-106217"
+        ],
+        "return": [
+          "sne-wp-106217",
+          "sne-wp-106218",
+          "sne-wp-106219",
+          "sne-wp-106216"
+        ]
+      }
     },
     {
       "fields": [
@@ -1623,8 +1874,25 @@
         "teyvat:18"
       ],
       "mode": "trail",
-      "finding": "check_level_jump",
-      "terrain_note": "清泉町北の分岐 → 東南へ続く街道 → 谷の北口。清泉町の泉から後山を貫かない。"
+      "finding": "use_existing_level_route",
+      "terrain_note": "清泉町北の分岐 → 東南へ続く街道 → 谷の北口。清泉町の泉から後山を貫かない。",
+      "runtime_paths": {
+        "forward": [
+          "mond-roadside-rest",
+          "mond-road",
+          "mond-wp-13",
+          "mond-wp-18"
+        ],
+        "return": [
+          "mond-wp-18",
+          "mond-wp-13",
+          "mond-road",
+          "mond-border",
+          "mond-wp-19",
+          "mond-wp-14",
+          "mond-roadside-rest"
+        ]
+      }
     },
     {
       "fields": [
@@ -1848,8 +2116,20 @@
         "teyvat:28705"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "夢の内外の切替を跨ぐ場合は専用入口を設定。地理的近さだけで夢へ入らない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "夢の内外の切替を跨ぐ場合は専用入口を設定。地理的近さだけで夢へ入らない。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28701",
+          "sum-wp-28706",
+          "sum-wp-28705"
+        ],
+        "return": [
+          "sum-wp-28705",
+          "sum-wp-28706",
+          "sum-wp-28701"
+        ]
+      }
     },
     {
       "fields": [
@@ -1857,8 +2137,22 @@
         "teyvat:28742"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "川の橋・森の外周を経由。高台の研究施設は参道で接続。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "川の橋・森の外周を経由。高台の研究施設は参道で接続。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28702",
+          "sum-wp-28740",
+          "sum-wp-28741",
+          "sum-wp-28742"
+        ],
+        "return": [
+          "sum-wp-28742",
+          "sum-wp-28741",
+          "sum-wp-28740",
+          "sum-wp-28702"
+        ]
+      }
     },
     {
       "fields": [
@@ -1893,8 +2187,22 @@
         "teyvat:32452"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "森の表面経路と地下の洞穴を分けて照合する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "森の表面経路と地下の洞穴を分けて照合する。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28707",
+          "sum-wp-28708",
+          "sum-wp-32451",
+          "sum-wp-32452"
+        ],
+        "return": [
+          "sum-wp-32452",
+          "sum-wp-32451",
+          "sum-wp-28708",
+          "sum-wp-28707"
+        ]
+      }
     },
     {
       "fields": [
@@ -1902,8 +2210,22 @@
         "teyvat:28717"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "樹上を横断せず森の外周路・河岸を使う。オルモス港は安全。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "樹上を横断せず森の外周路・河岸を使う。オルモス港は安全。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28714",
+          "sum-wp-28716",
+          "sum-wp-28718",
+          "sum-wp-28717"
+        ],
+        "return": [
+          "sum-wp-28717",
+          "sum-wp-28718",
+          "sum-wp-28716",
+          "sum-wp-28714"
+        ]
+      }
     },
     {
       "fields": [
@@ -1947,8 +2269,26 @@
         "teyvat:28724"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "港へ向かう南側の街道に合流。山を越える一直線にはしない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "港へ向かう南側の街道に合流。山を越える一直線にはしない。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28719",
+          "sum-wp-28726",
+          "sum-wp-28727",
+          "sum-wp-28725",
+          "sum-wp-28699",
+          "sum-wp-28724"
+        ],
+        "return": [
+          "sum-wp-28724",
+          "sum-wp-28699",
+          "sum-wp-28725",
+          "sum-wp-28727",
+          "sum-wp-28726",
+          "sum-wp-28719"
+        ]
+      }
     },
     {
       "fields": [
@@ -1956,8 +2296,22 @@
         "teyvat:28724"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "村の河岸→山裾。巨大遺跡内部への出入口は脇道として分離。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "村の河岸→山裾。巨大遺跡内部への出入口は脇道として分離。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28723",
+          "sum-wp-28722",
+          "sum-wp-28699",
+          "sum-wp-28724"
+        ],
+        "return": [
+          "sum-wp-28724",
+          "sum-wp-28699",
+          "sum-wp-28722",
+          "sum-wp-28723"
+        ]
+      }
     },
     {
       "fields": [
@@ -2028,8 +2382,20 @@
         "teyvat:28742"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "川の橋・森の外周を経由。高台の研究施設は参道で接続。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "川の橋・森の外周を経由。高台の研究施設は参道で接続。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28740",
+          "sum-wp-28741",
+          "sum-wp-28742"
+        ],
+        "return": [
+          "sum-wp-28742",
+          "sum-wp-28741",
+          "sum-wp-28740"
+        ]
+      }
     },
     {
       "fields": [
@@ -2046,8 +2412,24 @@
         "teyvat:69098"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "北の街道から港へ下る。樹冠経路とは分離する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "北の街道から港へ下る。樹冠経路とは分離する。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28744",
+          "sum-wp-28745",
+          "sum-wp-28741",
+          "sum-wp-28701",
+          "sum-wp-69098"
+        ],
+        "return": [
+          "sum-wp-69098",
+          "sum-wp-28701",
+          "sum-wp-28741",
+          "sum-wp-28745",
+          "sum-wp-28744"
+        ]
+      }
     },
     {
       "fields": [
@@ -2064,8 +2446,20 @@
         "teyvat:28750"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "川と茸林の入口を結ぶ。茸の上面と根元を同一高さにしない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "川と茸林の入口を結ぶ。茸の上面と根元を同一高さにしない。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-28749",
+          "sum-wp-28748",
+          "sum-wp-28750"
+        ],
+        "return": [
+          "sum-wp-28750",
+          "sum-wp-28748",
+          "sum-wp-28749"
+        ]
+      }
     },
     {
       "fields": [
@@ -2082,8 +2476,20 @@
         "teyvat:7"
       ],
       "mode": "trail",
-      "finding": "check_level_jump",
-      "terrain_note": "城外分岐から東の街道をたどり、神殿西側の坂へ。"
+      "finding": "use_existing_level_route",
+      "terrain_note": "城外分岐から東の街道をたどり、神殿西側の坂へ。",
+      "runtime_paths": {
+        "forward": [
+          "mond-road",
+          "mond-wp-13",
+          "mond-wp-7"
+        ],
+        "return": [
+          "mond-wp-7",
+          "mond-wp-13",
+          "mond-road"
+        ]
+      }
     },
     {
       "fields": [
@@ -2118,8 +2524,24 @@
         "teyvat:64825"
       ],
       "mode": "road",
-      "finding": "check_level_jump",
-      "terrain_note": "軽策荘側から谷の入口へ。高難度警告と帰路を先に示す。"
+      "finding": "use_existing_level_route",
+      "terrain_note": "軽策荘側から谷の入口へ。高難度警告と帰路を先に示す。",
+      "runtime_paths": {
+        "forward": [
+          "oceanid-approach",
+          "liyue-wp-29",
+          "liyue-entry",
+          "chenyu-camp",
+          "liyue-wp-64825"
+        ],
+        "return": [
+          "liyue-wp-64825",
+          "chenyu-camp",
+          "liyue-entry",
+          "liyue-wp-29",
+          "oceanid-approach"
+        ]
+      }
     },
     {
       "fields": [
@@ -2190,8 +2612,20 @@
         "teyvat:36697"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "王墓の外周を回る地上路として設計。屋内・地下のWPなら採用前に入口側へ結び直す。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "王墓の外周を回る地上路として設計。屋内・地下のWPなら採用前に入口側へ結び直す。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-36675",
+          "sum-wp-36698",
+          "sum-wp-36697"
+        ],
+        "return": [
+          "sum-wp-36697",
+          "sum-wp-36698",
+          "sum-wp-36675"
+        ]
+      }
     },
     {
       "fields": [
@@ -2217,8 +2651,26 @@
         "teyvat:36698"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "王墓の外周を回る地上路として設計。屋内・地下のWPなら採用前に入口側へ結び直す。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "王墓の外周を回る地上路として設計。屋内・地下のWPなら採用前に入口側へ結び直す。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-36683",
+          "sum-wp-36678",
+          "sum-wp-36677",
+          "sum-wp-36681",
+          "sum-wp-36682",
+          "sum-wp-36698"
+        ],
+        "return": [
+          "sum-wp-36698",
+          "sum-wp-36682",
+          "sum-wp-36681",
+          "sum-wp-36677",
+          "sum-wp-36678",
+          "sum-wp-36683"
+        ]
+      }
     },
     {
       "fields": [
@@ -2235,8 +2687,20 @@
         "teyvat:36688"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "地表の砂丘と谷を通る。地下遺跡のワープを地表路へ混ぜない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "地表の砂丘と谷を通る。地下遺跡のワープを地表路へ混ぜない。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-36687",
+          "sum-wp-36676",
+          "sum-wp-36688"
+        ],
+        "return": [
+          "sum-wp-36688",
+          "sum-wp-36676",
+          "sum-wp-36687"
+        ]
+      }
     },
     {
       "fields": [
@@ -2253,8 +2717,22 @@
         "teyvat:36694"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "王墓の外周を回る地上路として設計。屋内・地下のWPなら採用前に入口側へ結び直す。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "王墓の外周を回る地上路として設計。屋内・地下のWPなら採用前に入口側へ結び直す。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-36692",
+          "sum-wp-36696",
+          "sum-wp-36702",
+          "sum-wp-36694"
+        ],
+        "return": [
+          "sum-wp-36694",
+          "sum-wp-36702",
+          "sum-wp-36696",
+          "sum-wp-36692"
+        ]
+      }
     },
     {
       "fields": [
@@ -2271,8 +2749,22 @@
         "teyvat:36695"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "王墓の外周を回る地上路として設計。屋内・地下のWPなら採用前に入口側へ結び直す。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "王墓の外周を回る地上路として設計。屋内・地下のWPなら採用前に入口側へ結び直す。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-36694",
+          "sum-wp-36702",
+          "sum-wp-36696",
+          "sum-wp-36695"
+        ],
+        "return": [
+          "sum-wp-36695",
+          "sum-wp-36696",
+          "sum-wp-36702",
+          "sum-wp-36694"
+        ]
+      }
     },
     {
       "fields": [
@@ -2280,8 +2772,26 @@
         "teyvat:36700"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "遺跡地下の点を含む可能性があるため接続は要階層確認。砂丘を貫く短絡は不可。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "遺跡地下の点を含む可能性があるため接続は要階層確認。砂丘を貫く短絡は不可。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-36694",
+          "sum-wp-36702",
+          "sum-wp-36696",
+          "sum-wp-36693",
+          "sum-wp-36701",
+          "sum-wp-36700"
+        ],
+        "return": [
+          "sum-wp-36700",
+          "sum-wp-36701",
+          "sum-wp-36693",
+          "sum-wp-36696",
+          "sum-wp-36702",
+          "sum-wp-36694"
+        ]
+      }
     },
     {
       "fields": [
@@ -2289,8 +2799,22 @@
         "teyvat:36697"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "王墓の外周を回る地上路として設計。屋内・地下のWPなら採用前に入口側へ結び直す。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "王墓の外周を回る地上路として設計。屋内・地下のWPなら採用前に入口側へ結び直す。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-36696",
+          "sum-wp-36675",
+          "sum-wp-36698",
+          "sum-wp-36697"
+        ],
+        "return": [
+          "sum-wp-36697",
+          "sum-wp-36698",
+          "sum-wp-36675",
+          "sum-wp-36696"
+        ]
+      }
     },
     {
       "fields": [
@@ -2361,8 +2885,28 @@
         "teyvat:41829"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "南側外周を使い、中央の砂嵐・地下へ直結しない。ナタへの分岐は西端の谷から。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "南側外周を使い、中央の砂嵐・地下へ直結しない。ナタへの分岐は西端の谷から。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41826",
+          "sum-wp-41830",
+          "sum-wp-41832",
+          "sum-wp-41835",
+          "sum-wp-41833",
+          "sum-wp-41831",
+          "sum-wp-41829"
+        ],
+        "return": [
+          "sum-wp-41829",
+          "sum-wp-41831",
+          "sum-wp-41833",
+          "sum-wp-41835",
+          "sum-wp-41832",
+          "sum-wp-41830",
+          "sum-wp-41826"
+        ]
+      }
     },
     {
       "fields": [
@@ -2370,8 +2914,26 @@
         "teyvat:41830"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "巨大渓谷の外側・実在する橋と谷口に沿う周回案。直線は歩行経路ではない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "巨大渓谷の外側・実在する橋と谷口に沿う周回案。直線は歩行経路ではない。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41829",
+          "sum-wp-41831",
+          "sum-wp-41833",
+          "sum-wp-41835",
+          "sum-wp-41832",
+          "sum-wp-41830"
+        ],
+        "return": [
+          "sum-wp-41830",
+          "sum-wp-41832",
+          "sum-wp-41835",
+          "sum-wp-41833",
+          "sum-wp-41831",
+          "sum-wp-41829"
+        ]
+      }
     },
     {
       "fields": [
@@ -2379,8 +2941,26 @@
         "teyvat:46515"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "トゥニギの高難度狩場を通らずに北東の洞道へ抜ける通常回廊。地下工場へは入らない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "トゥニギの高難度狩場を通らずに北東の洞道へ抜ける通常回廊。地下工場へは入らない。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41829",
+          "sum-wp-41831",
+          "sum-wp-41833",
+          "sum-wp-41835",
+          "sum-wp-41834",
+          "sum-wp-46515"
+        ],
+        "return": [
+          "sum-wp-46515",
+          "sum-wp-41834",
+          "sum-wp-41835",
+          "sum-wp-41833",
+          "sum-wp-41831",
+          "sum-wp-41829"
+        ]
+      }
     },
     {
       "fields": [
@@ -2388,8 +2968,20 @@
         "teyvat:41836"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "巨大渓谷の外側・実在する橋と谷口に沿う周回案。直線は歩行経路ではない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "巨大渓谷の外側・実在する橋と谷口に沿う周回案。直線は歩行経路ではない。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41835",
+          "sum-wp-41838",
+          "sum-wp-41836"
+        ],
+        "return": [
+          "sum-wp-41836",
+          "sum-wp-41838",
+          "sum-wp-41835"
+        ]
+      }
     },
     {
       "fields": [
@@ -2397,8 +2989,24 @@
         "teyvat:41840"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "巨大渓谷の外側・実在する橋と谷口に沿う周回案。直線は歩行経路ではない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "巨大渓谷の外側・実在する橋と谷口に沿う周回案。直線は歩行経路ではない。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-41836",
+          "sum-wp-41838",
+          "sum-wp-41820",
+          "sum-wp-41821",
+          "sum-wp-41840"
+        ],
+        "return": [
+          "sum-wp-41840",
+          "sum-wp-41821",
+          "sum-wp-41820",
+          "sum-wp-41838",
+          "sum-wp-41836"
+        ]
+      }
     },
     {
       "fields": [
@@ -2424,8 +3032,26 @@
         "teyvat:46528"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "トゥニギの高難度狩場を通らずに北東の洞道へ抜ける通常回廊。地下工場へは入らない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "トゥニギの高難度狩場を通らずに北東の洞道へ抜ける通常回廊。地下工場へは入らない。",
+      "runtime_paths": {
+        "forward": [
+          "tunigi-camp",
+          "tunigi-depth",
+          "sum-wp-46525",
+          "sum-wp-46514",
+          "sum-wp-46527",
+          "sum-wp-46528"
+        ],
+        "return": [
+          "sum-wp-46528",
+          "sum-wp-46527",
+          "sum-wp-46514",
+          "sum-wp-46525",
+          "tunigi-depth",
+          "tunigi-camp"
+        ]
+      }
     },
     {
       "fields": [
@@ -2442,8 +3068,20 @@
         "teyvat:46528"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "トゥニギの高難度狩場を通らずに北東の洞道へ抜ける通常回廊。地下工場へは入らない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "トゥニギの高難度狩場を通らずに北東の洞道へ抜ける通常回廊。地下工場へは入らない。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-46514",
+          "sum-wp-46527",
+          "sum-wp-46528"
+        ],
+        "return": [
+          "sum-wp-46528",
+          "sum-wp-46527",
+          "sum-wp-46514"
+        ]
+      }
     },
     {
       "fields": [
@@ -2469,8 +3107,22 @@
         "teyvat:46521"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "黒淵の外縁から内部入口へ。底を水平に横切らず、地上と地下の出入口を照合する。"
+      "finding": "use_existing_regional_detour",
+      "terrain_note": "黒淵西口の昇降機とLv77の地上の足場を経由する。黒淵の底から丘の反対側に抜ける直通門は設けない。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-46520",
+          "sum-wp-46517",
+          "sum-wp-46518",
+          "sum-wp-46521"
+        ],
+        "return": [
+          "sum-wp-46521",
+          "sum-wp-46518",
+          "sum-wp-46517",
+          "sum-wp-46520"
+        ]
+      }
     },
     {
       "fields": [
@@ -2514,8 +3166,20 @@
         "teyvat:50031"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "トゥニギの高難度狩場を通らずに北東の洞道へ抜ける通常回廊。地下工場へは入らない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "トゥニギの高難度狩場を通らずに北東の洞道へ抜ける通常回廊。地下工場へは入らない。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-46524",
+          "sum-wp-50032",
+          "sum-wp-50031"
+        ],
+        "return": [
+          "sum-wp-50031",
+          "sum-wp-50032",
+          "sum-wp-46524"
+        ]
+      }
     },
     {
       "fields": [
@@ -2523,8 +3187,22 @@
         "teyvat:46529"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "地上の花海と地下水路のWP対応を照合する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "地上の花海と地下水路のWP対応を照合する。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-46526",
+          "sum-wp-46525",
+          "sum-wp-46514",
+          "sum-wp-46529"
+        ],
+        "return": [
+          "sum-wp-46529",
+          "sum-wp-46514",
+          "sum-wp-46525",
+          "sum-wp-46526"
+        ]
+      }
     },
     {
       "fields": [
@@ -2532,8 +3210,20 @@
         "teyvat:46529"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "地上の花海と地下水路のWP対応を照合する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "地上の花海と地下水路のWP対応を照合する。",
+      "runtime_paths": {
+        "forward": [
+          "sum-wp-46527",
+          "sum-wp-46514",
+          "sum-wp-46529"
+        ],
+        "return": [
+          "sum-wp-46529",
+          "sum-wp-46514",
+          "sum-wp-46527"
+        ]
+      }
     },
     {
       "fields": [
@@ -2712,8 +3402,20 @@
         "teyvat:53852"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "西岸の山裾・登り道。要塞内の上下階や水中WPを混ぜない。"
+      "finding": "use_existing_regional_detour",
+      "terrain_note": "Lv88の北西湾の潜水口を使う。水中の石の間と船着き場の間の移動は、既存の潜水と上陸から構成する。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-53848",
+          "fon-wp-53863",
+          "fon-wp-53852"
+        ],
+        "return": [
+          "fon-wp-53852",
+          "fon-wp-53863",
+          "fon-wp-53848"
+        ]
+      }
     },
     {
       "fields": [
@@ -2721,8 +3423,22 @@
         "teyvat:53852"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "西岸の山裾・登り道。要塞内の上下階や水中WPを混ぜない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "西岸の山裾・登り道。要塞内の上下階や水中WPを混ぜない。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-53849",
+          "fon-wp-53850",
+          "fon-wp-53867",
+          "fon-wp-53852"
+        ],
+        "return": [
+          "fon-wp-53852",
+          "fon-wp-53867",
+          "fon-wp-53850",
+          "fon-wp-53849"
+        ]
+      }
     },
     {
       "fields": [
@@ -2757,8 +3473,18 @@
         "teyvat:55767"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "林道→ハーバーの上部→昇降機で下部桟橋。海面と台地を同じ高さにしない。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "林道→ハーバーの上部→昇降機で下部桟橋。海面と台地を同じ高さにしない。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55760",
+          "fon-wp-55767"
+        ],
+        "return": [
+          "fon-wp-55767",
+          "fon-wp-55760"
+        ]
+      }
     },
     {
       "fields": [
@@ -2784,8 +3510,24 @@
         "teyvat:55784"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "湖を直進せず岸の道・山裾を回る。根の洞窟入口とは区別する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "湖を直進せず岸の道・山裾を回る。根の洞窟入口とは区別する。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55761",
+          "fon-wp-50047",
+          "fon-wp-50048",
+          "fon-wp-55776",
+          "fon-wp-55784"
+        ],
+        "return": [
+          "fon-wp-55784",
+          "fon-wp-55776",
+          "fon-wp-50048",
+          "fon-wp-50047",
+          "fon-wp-55761"
+        ]
+      }
     },
     {
       "fields": [
@@ -2820,8 +3562,18 @@
         "teyvat:55768"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "林道→ハーバーの上部→昇降機で下部桟橋。海面と台地を同じ高さにしない。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "林道→ハーバーの上部→昇降機で下部桟橋。海面と台地を同じ高さにしない。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55766",
+          "fon-wp-55768"
+        ],
+        "return": [
+          "fon-wp-55768",
+          "fon-wp-55766"
+        ]
+      }
     },
     {
       "fields": [
@@ -2838,8 +3590,20 @@
         "teyvat:55769"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "林道→ハーバーの上部→昇降機で下部桟橋。海面と台地を同じ高さにしない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "林道→ハーバーの上部→昇降機で下部桟橋。海面と台地を同じ高さにしない。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55767",
+          "fon-wp-55760",
+          "fon-wp-55769"
+        ],
+        "return": [
+          "fon-wp-55769",
+          "fon-wp-55760",
+          "fon-wp-55767"
+        ]
+      }
     },
     {
       "fields": [
@@ -2847,8 +3611,26 @@
         "teyvat:55769"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "林道→ハーバーの上部→昇降機で下部桟橋。海面と台地を同じ高さにしない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "林道→ハーバーの上部→昇降機で下部桟橋。海面と台地を同じ高さにしない。",
+      "runtime_paths": {
+        "forward": [
+          "fon-wp-55768",
+          "fon-wp-55766",
+          "fon-wp-55765",
+          "fon-wp-55767",
+          "fon-wp-55760",
+          "fon-wp-55769"
+        ],
+        "return": [
+          "fon-wp-55769",
+          "fon-wp-55760",
+          "fon-wp-55767",
+          "fon-wp-55765",
+          "fon-wp-55766",
+          "fon-wp-55768"
+        ]
+      }
     },
     {
       "fields": [
@@ -3000,8 +3782,20 @@
         "teyvat:72443"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "スメール側の谷→東の街道→谷底の入口。断崖上の点へ直結しない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "スメール側の谷→東の街道→谷底の入口。断崖上の点へ直結しない。",
+      "runtime_paths": {
+        "forward": [
+          "natlan-entry",
+          "nat-wp-72413",
+          "nat-wp-72443"
+        ],
+        "return": [
+          "nat-wp-72443",
+          "nat-wp-72413",
+          "natlan-entry"
+        ]
+      }
     },
     {
       "fields": [
@@ -3045,8 +3839,20 @@
         "teyvat:77772"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "海岸の陸地を回る。水域を跨ぐ箇所は上陸点付きの小舟に分割する。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "海岸の陸地を回る。水域を跨ぐ箇所は上陸点付きの小舟に分割する。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72418",
+          "sites-toyac-tide-landing",
+          "nat-wp-77772"
+        ],
+        "return": [
+          "nat-wp-77772",
+          "sites-toyac-tide-landing",
+          "nat-wp-72418"
+        ]
+      }
     },
     {
       "fields": [
@@ -3063,8 +3869,20 @@
         "teyvat:72448"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "中央の道路から南の温泉地へ。居住区・温泉の入口は安全にする。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "中央の道路から南の温泉地へ。居住区・温泉の入口は安全にする。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72419",
+          "nat-wp-72758",
+          "nat-wp-72448"
+        ],
+        "return": [
+          "nat-wp-72448",
+          "nat-wp-72758",
+          "nat-wp-72419"
+        ]
+      }
     },
     {
       "fields": [
@@ -3072,8 +3890,22 @@
         "teyvat:72449"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "海岸の陸地を回る。水域を跨ぐ箇所は上陸点付きの小舟に分割する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "海岸の陸地を回る。水域を跨ぐ箇所は上陸点付きの小舟に分割する。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72419",
+          "nat-wp-72418",
+          "nat-wp-72447",
+          "nat-wp-72449"
+        ],
+        "return": [
+          "nat-wp-72449",
+          "nat-wp-72447",
+          "nat-wp-72418",
+          "nat-wp-72419"
+        ]
+      }
     },
     {
       "fields": [
@@ -3117,8 +3949,20 @@
         "teyvat:72426"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "平原の道路と橋を使い主街道へ戻る周回路。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "平原の道路と橋を使い主街道へ戻る周回路。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72425",
+          "nat-wp-72424",
+          "nat-wp-72426"
+        ],
+        "return": [
+          "nat-wp-72426",
+          "nat-wp-72424",
+          "nat-wp-72425"
+        ]
+      }
     },
     {
       "fields": [
@@ -3153,8 +3997,22 @@
         "teyvat:72442"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "山腹の外周を回る。高台と谷底の入口対応を確認する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "山腹の外周を回る。高台と谷底の入口対応を確認する。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72433",
+          "nat-wp-72434",
+          "nat-wp-72441",
+          "nat-wp-72442"
+        ],
+        "return": [
+          "nat-wp-72442",
+          "nat-wp-72441",
+          "nat-wp-72434",
+          "nat-wp-72433"
+        ]
+      }
     },
     {
       "fields": [
@@ -3162,8 +4020,24 @@
         "teyvat:72450"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "山腹の外周を回る。高台と谷底の入口対応を確認する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "山腹の外周を回る。高台と谷底の入口対応を確認する。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72433",
+          "nat-wp-72434",
+          "nat-wp-72435",
+          "nat-wp-72432",
+          "nat-wp-72450"
+        ],
+        "return": [
+          "nat-wp-72450",
+          "nat-wp-72432",
+          "nat-wp-72435",
+          "nat-wp-72434",
+          "nat-wp-72433"
+        ]
+      }
     },
     {
       "fields": [
@@ -3180,8 +4054,22 @@
         "teyvat:72441"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "山腹の外周を回る。高台と谷底の入口対応を確認する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "山腹の外周を回る。高台と谷底の入口対応を確認する。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72436",
+          "nat-wp-72433",
+          "nat-wp-72434",
+          "nat-wp-72441"
+        ],
+        "return": [
+          "nat-wp-72441",
+          "nat-wp-72434",
+          "nat-wp-72433",
+          "nat-wp-72436"
+        ]
+      }
     },
     {
       "fields": [
@@ -3189,8 +4077,20 @@
         "teyvat:72452"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "山腹の外周を回る。高台と谷底の入口対応を確認する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "山腹の外周を回る。高台と谷底の入口対応を確認する。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72436",
+          "nat-wp-72433",
+          "nat-wp-72452"
+        ],
+        "return": [
+          "nat-wp-72452",
+          "nat-wp-72433",
+          "nat-wp-72436"
+        ]
+      }
     },
     {
       "fields": [
@@ -3198,8 +4098,22 @@
         "teyvat:72441"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "渓谷の道路と橋を経由して競技場へ。部族の崖上・洞窟内には寄らず進める主経路。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "渓谷の道路と橋を経由して競技場へ。部族の崖上・洞窟内には寄らず進める主経路。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72439",
+          "nat-wp-72437",
+          "nat-wp-72434",
+          "nat-wp-72441"
+        ],
+        "return": [
+          "nat-wp-72441",
+          "nat-wp-72434",
+          "nat-wp-72437",
+          "nat-wp-72439"
+        ]
+      }
     },
     {
       "fields": [
@@ -3207,8 +4121,24 @@
         "teyvat:72452"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "山腹の外周を回る。高台と谷底の入口対応を確認する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "山腹の外周を回る。高台と谷底の入口対応を確認する。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72442",
+          "nat-wp-72441",
+          "nat-wp-72434",
+          "nat-wp-72433",
+          "nat-wp-72452"
+        ],
+        "return": [
+          "nat-wp-72452",
+          "nat-wp-72433",
+          "nat-wp-72434",
+          "nat-wp-72441",
+          "nat-wp-72442"
+        ]
+      }
     },
     {
       "fields": [
@@ -3216,8 +4146,26 @@
         "teyvat:72761"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "スメール側の谷→東の街道→谷底の入口。断崖上の点へ直結しない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "スメール側の谷→東の街道→谷底の入口。断崖上の点へ直結しない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-72443",
+          "nat-wp-72413",
+          "nat-wp-72414",
+          "nat-wp-72438",
+          "nat-wp-72439",
+          "nat-wp-72761"
+        ],
+        "return": [
+          "nat-wp-72761",
+          "nat-wp-72439",
+          "nat-wp-72438",
+          "nat-wp-72414",
+          "nat-wp-72413",
+          "nat-wp-72443"
+        ]
+      }
     },
     {
       "fields": [
@@ -3306,8 +4254,22 @@
         "teyvat:79544"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "南側の安全な上陸・準備地点から古都の入口へ。ナタ通常地域の通過必須経路にはしない。"
+      "finding": "use_existing_regional_detour",
+      "terrain_note": "沖の島から舟で港に戻り、北の崖の昇降機から地下道へ入る。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-79060",
+          "natlan-port",
+          "nat-wp-79058",
+          "nat-wp-79544"
+        ],
+        "return": [
+          "nat-wp-79544",
+          "nat-wp-79058",
+          "natlan-port",
+          "nat-wp-79060"
+        ]
+      }
     },
     {
       "fields": [
@@ -3315,8 +4277,24 @@
         "teyvat:79536"
       ],
       "mode": "ruin_walkway",
-      "finding": "check_floor_transition",
-      "terrain_note": "塔の高さを飛ばさず階段・昇降機で進む。地下区画は入口を再照合。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "塔の高さを飛ばさず階段・昇降機で進む。地下区画は入口を再照合。",
+      "runtime_paths": {
+        "forward": [
+          "ochkanatlan-dock",
+          "ochkanatlan-ruins",
+          "nat-wp-79546",
+          "nat-wp-80036",
+          "nat-wp-79536"
+        ],
+        "return": [
+          "nat-wp-79536",
+          "nat-wp-80036",
+          "nat-wp-79546",
+          "ochkanatlan-ruins",
+          "ochkanatlan-dock"
+        ]
+      }
     },
     {
       "fields": [
@@ -3342,8 +4320,22 @@
         "teyvat:80033"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "同じ塔の上下階を水平ポータルにしない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "同じ塔の上下階を水平ポータルにしない。",
+      "runtime_paths": {
+        "forward": [
+          "ochkanatlan-ruins",
+          "nat-wp-80035",
+          "nat-wp-79523",
+          "nat-wp-80033"
+        ],
+        "return": [
+          "nat-wp-80033",
+          "nat-wp-79523",
+          "nat-wp-80035",
+          "ochkanatlan-ruins"
+        ]
+      }
     },
     {
       "fields": [
@@ -3351,8 +4343,22 @@
         "teyvat:80025"
       ],
       "mode": "ruin_walkway",
-      "finding": "check_floor_transition",
-      "terrain_note": "塔の高さを飛ばさず階段・昇降機で進む。地下区画は入口を再照合。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "塔の高さを飛ばさず階段・昇降機で進む。地下区画は入口を再照合。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-79548",
+          "nat-wp-79546",
+          "ochkanatlan-ruins",
+          "nat-wp-80025"
+        ],
+        "return": [
+          "nat-wp-80025",
+          "ochkanatlan-ruins",
+          "nat-wp-79546",
+          "nat-wp-79548"
+        ]
+      }
     },
     {
       "fields": [
@@ -3360,8 +4366,20 @@
         "teyvat:80035"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "同じ塔の上下階を水平ポータルにしない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "同じ塔の上下階を水平ポータルにしない。",
+      "runtime_paths": {
+        "forward": [
+          "nat-wp-80033",
+          "nat-wp-79523",
+          "nat-wp-80035"
+        ],
+        "return": [
+          "nat-wp-80035",
+          "nat-wp-79523",
+          "nat-wp-80033"
+        ]
+      }
     },
     {
       "fields": [
@@ -3576,8 +4594,20 @@
         "teyvat:88138"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "西の島の森・参道。霜月の里など友好拠点は狩場から分離。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "西の島の森・参道。霜月の里など友好拠点は狩場から分離。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88132",
+          "nod-wp-88131",
+          "nod-wp-88138"
+        ],
+        "return": [
+          "nod-wp-88138",
+          "nod-wp-88131",
+          "nod-wp-88132"
+        ]
+      }
     },
     {
       "fields": [
@@ -3603,8 +4633,20 @@
         "teyvat:88158"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "島の北側の森・浜を辿る。別島へは陸路ではなく航路に切り替える。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "島の北側の森・浜を辿る。別島へは陸路ではなく航路に切り替える。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88151",
+          "nod-wp-88152",
+          "nod-wp-88158"
+        ],
+        "return": [
+          "nod-wp-88158",
+          "nod-wp-88152",
+          "nod-wp-88151"
+        ]
+      }
     },
     {
       "fields": [
@@ -3612,8 +4654,20 @@
         "teyvat:88177"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "島の北側の森・浜を辿る。別島へは陸路ではなく航路に切り替える。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "島の北側の森・浜を辿る。別島へは陸路ではなく航路に切り替える。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88152",
+          "nod-wp-88154",
+          "nod-wp-88177"
+        ],
+        "return": [
+          "nod-wp-88177",
+          "nod-wp-88154",
+          "nod-wp-88152"
+        ]
+      }
     },
     {
       "fields": [
@@ -3630,8 +4684,20 @@
         "teyvat:88159"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "島の北側の森・浜を辿る。別島へは陸路ではなく航路に切り替える。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "島の北側の森・浜を辿る。別島へは陸路ではなく航路に切り替える。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88153",
+          "nod-wp-88156",
+          "nod-wp-88159"
+        ],
+        "return": [
+          "nod-wp-88159",
+          "nod-wp-88156",
+          "nod-wp-88153"
+        ]
+      }
     },
     {
       "fields": [
@@ -3639,8 +4705,18 @@
         "teyvat:88172"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "道路・洞道の出入口を確認する。近接する多層施設を水平につながない。"
+      "finding": "implemented_as_lab_route",
+      "terrain_note": "道路・洞道の出入口を確認する。近接する多層施設を水平につながない。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88161",
+          "nod-wp-88172"
+        ],
+        "return": [
+          "nod-wp-88172",
+          "nod-wp-88161"
+        ]
+      }
     },
     {
       "fields": [
@@ -3657,8 +4733,20 @@
         "teyvat:88174"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "道路・洞道の出入口を確認する。近接する多層施設を水平につながない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "道路・洞道の出入口を確認する。近接する多層施設を水平につながない。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-88173",
+          "nod-wp-88172",
+          "nod-wp-88174"
+        ],
+        "return": [
+          "nod-wp-88174",
+          "nod-wp-88172",
+          "nod-wp-88173"
+        ]
+      }
     },
     {
       "fields": [
@@ -3711,8 +4799,20 @@
         "teyvat:92895"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "谷道と施設外周の枝。洞窟・地下のWPは入口確認後に分割する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "谷道と施設外周の枝。洞窟・地下のWPは入口確認後に分割する。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-92872",
+          "nod-wp-92873",
+          "nod-wp-92895"
+        ],
+        "return": [
+          "nod-wp-92895",
+          "nod-wp-92873",
+          "nod-wp-92872"
+        ]
+      }
     },
     {
       "fields": [
@@ -3738,8 +4838,20 @@
         "teyvat:92886"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "北の陸地の地上回廊。南部の島からは沿岸船で到着する。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "北の陸地の地上回廊。南部の島からは沿岸船で到着する。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-92875",
+          "nod-wp-92874",
+          "nod-wp-92886"
+        ],
+        "return": [
+          "nod-wp-92886",
+          "nod-wp-92874",
+          "nod-wp-92875"
+        ]
+      }
     },
     {
       "fields": [
@@ -3765,8 +4877,22 @@
         "teyvat:92892"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "北の研究所の外周から国境方向へ。山脈を跨ぐ地点は国境回廊として別レビュー。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "北の研究所の外周から国境方向へ。山脈を跨ぐ地点は国境回廊として別レビュー。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-92891",
+          "nod-wp-92890",
+          "nod-wp-92889",
+          "nod-wp-92892"
+        ],
+        "return": [
+          "nod-wp-92892",
+          "nod-wp-92889",
+          "nod-wp-92890",
+          "nod-wp-92891"
+        ]
+      }
     },
     {
       "fields": [
@@ -3801,8 +4927,20 @@
         "teyvat:99222"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "深穴への入口は段差・専用下降口を区別する。全体を地上道路とみなさない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "深穴への入口は段差・専用下降口を区別する。全体を地上道路とみなさない。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-99219",
+          "nod-wp-99221",
+          "nod-wp-99222"
+        ],
+        "return": [
+          "nod-wp-99222",
+          "nod-wp-99221",
+          "nod-wp-99219"
+        ]
+      }
     },
     {
       "fields": [
@@ -3810,8 +4948,20 @@
         "teyvat:99222"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "深穴への入口は段差・専用下降口を区別する。全体を地上道路とみなさない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "深穴への入口は段差・専用下降口を区別する。全体を地上道路とみなさない。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-99220",
+          "nod-wp-99221",
+          "nod-wp-99222"
+        ],
+        "return": [
+          "nod-wp-99222",
+          "nod-wp-99221",
+          "nod-wp-99220"
+        ]
+      }
     },
     {
       "fields": [
@@ -3819,8 +4969,20 @@
         "teyvat:99223"
       ],
       "mode": "road",
-      "finding": "check_floor_transition",
-      "terrain_note": "深穴への入口は段差・専用下降口を区別する。全体を地上道路とみなさない。"
+      "finding": "use_existing_local_detour",
+      "terrain_note": "深穴への入口は段差・専用下降口を区別する。全体を地上道路とみなさない。",
+      "runtime_paths": {
+        "forward": [
+          "nod-wp-99221",
+          "nod-wp-99219",
+          "nod-wp-99223"
+        ],
+        "return": [
+          "nod-wp-99223",
+          "nod-wp-99219",
+          "nod-wp-99221"
+        ]
+      }
     }
   ],
   "level_differences": [
@@ -9584,9 +10746,43 @@
         "teyvat:95795",
         "teyvat:98500"
       ],
-      "decision": "reserve_entrance_until_floor_verified",
-      "reason": "The imported entrance coordinates do not establish the layer or a connection from the flower-field path."
+      "decision": "use_provisional_exterior_via_statue",
+      "stages": [
+        "mond-wp-95795",
+        "mond-wp-95782",
+        "sites-lookout-98500"
+      ],
+      "reason": "The existing hillside route leads to the exterior lookout. The original entrance remains unverified."
     }
   ],
-  "scope": "Draft approaches terminate at their mapped region. They are not live gates. Level recommendations do not override quest gates."
+  "unverified_entrance_exteriors": [
+    {
+      "field": "teyvat:10009",
+      "anchor_field": "teyvat:116",
+      "stage": "sites-lookout-10009",
+      "approach": "mond-border",
+      "layout": "peaceful_exterior",
+      "source_entrance": "unverified",
+      "access": 12
+    },
+    {
+      "field": "teyvat:85351",
+      "anchor_field": "teyvat:15",
+      "stage": "sites-lookout-85351",
+      "approach": "mond-wp-15",
+      "layout": "peaceful_exterior",
+      "source_entrance": "unverified",
+      "access": 13
+    },
+    {
+      "field": "teyvat:98500",
+      "anchor_field": "teyvat:95782",
+      "stage": "sites-lookout-98500",
+      "approach": "mond-wp-95782",
+      "layout": "peaceful_exterior",
+      "source_entrance": "unverified",
+      "access": 160
+    }
+  ],
+  "scope": "Exterior lookouts are playable prototypes. The source entrances remain unverified. Level recommendations do not override quest gates."
 }

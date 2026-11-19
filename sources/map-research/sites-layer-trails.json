@@ -1,0 +1,179 @@
+{
+  "routes": [
+    {
+      "fields": [
+        "teyvat:100654",
+        "teyvat:100684"
+      ],
+      "source_edge": "WORLD2-E-teyvat_100684--teyvat_100654",
+      "stages": [
+        "sne-wp-100654",
+        "sne-wp-100684"
+      ],
+      "layout": "prototype",
+      "mode": "lift"
+    },
+    {
+      "fields": [
+        "teyvat:106188",
+        "teyvat:106189"
+      ],
+      "source_edge": "WORLD2-E-teyvat_106188--teyvat_106189",
+      "stages": [
+        "sne-wp-106188",
+        "sne-wp-106189"
+      ],
+      "layout": "prototype",
+      "mode": "lift"
+    },
+    {
+      "fields": [
+        "teyvat:106209",
+        "teyvat:107298"
+      ],
+      "source_edge": "WORLD2-E-teyvat_106209--teyvat_107298",
+      "stages": [
+        "sne-wp-106209",
+        "sne-wp-107298"
+      ],
+      "layout": "prototype",
+      "mode": "lift"
+    },
+    {
+      "fields": [
+        "teyvat:55760",
+        "teyvat:55767"
+      ],
+      "source_edge": "WORLD2-E-teyvat_55760--teyvat_55767",
+      "stages": [
+        "fon-wp-55760",
+        "fon-wp-55767"
+      ],
+      "layout": "prototype",
+      "mode": "water"
+    },
+    {
+      "fields": [
+        "teyvat:55766",
+        "teyvat:55768"
+      ],
+      "source_edge": "WORLD2-E-teyvat_55768--teyvat_55766",
+      "stages": [
+        "fon-wp-55766",
+        "fon-wp-55768"
+      ],
+      "layout": "prototype",
+      "mode": "water"
+    },
+    {
+      "fields": [
+        "teyvat:88161",
+        "teyvat:88172"
+      ],
+      "source_edge": "WORLD2-E-teyvat_88161--teyvat_88172",
+      "stages": [
+        "nod-wp-88161",
+        "nod-wp-88172"
+      ],
+      "layout": "prototype",
+      "mode": "lift"
+    },
+    {
+      "fields": [
+        "teyvat:72418",
+        "teyvat:77772"
+      ],
+      "source_edge": "WORLD2-E-teyvat_72418--teyvat_77772",
+      "stages": [
+        "nat-wp-72418",
+        "sites-toyac-tide-landing",
+        "nat-wp-77772"
+      ],
+      "layout": "prototype",
+      "mode": "boat_ledge"
+    }
+  ],
+  "exterior_approaches": [
+    {
+      "field": "teyvat:10009",
+      "anchor_field": "teyvat:116",
+      "stage": "sites-lookout-10009",
+      "approach": "mond-border",
+      "layout": "peaceful_exterior",
+      "source_entrance": "unverified",
+      "access": 12
+    },
+    {
+      "field": "teyvat:85351",
+      "anchor_field": "teyvat:15",
+      "stage": "sites-lookout-85351",
+      "approach": "mond-wp-15",
+      "layout": "peaceful_exterior",
+      "source_entrance": "unverified",
+      "access": 13
+    },
+    {
+      "field": "teyvat:98500",
+      "anchor_field": "teyvat:95782",
+      "stage": "sites-lookout-98500",
+      "approach": "mond-wp-95782",
+      "layout": "peaceful_exterior",
+      "source_entrance": "unverified",
+      "access": 160
+    }
+  ],
+  "retained_detours": [
+    {
+      "fields": [
+        "teyvat:106181",
+        "teyvat:106209"
+      ],
+      "stages": [
+        "sne-north-works",
+        "sne-wp-106194",
+        "sne-wp-106207",
+        "sne-wp-106208",
+        "sne-wp-106209"
+      ],
+      "reason": "工区の道路と丘の既存昇降機を使い、北の神像から地下に直行する門を避ける。"
+    },
+    {
+      "fields": [
+        "teyvat:46520",
+        "teyvat:46521"
+      ],
+      "stages": [
+        "sum-wp-46520",
+        "sum-wp-46517",
+        "sum-wp-46518",
+        "sum-wp-46521"
+      ],
+      "reason": "黒淵西口の昇降機とLv77の地上の足場を経由する。黒淵の底から丘の反対側に抜ける直通門は設けない。"
+    },
+    {
+      "fields": [
+        "teyvat:53848",
+        "teyvat:53852"
+      ],
+      "stages": [
+        "fon-wp-53848",
+        "fon-wp-53863",
+        "fon-wp-53852"
+      ],
+      "reason": "Lv88の北西湾の潜水口を使う。水中の石の間と船着き場の間の移動は、既存の潜水と上陸から構成する。"
+    },
+    {
+      "fields": [
+        "teyvat:79060",
+        "teyvat:79544"
+      ],
+      "stages": [
+        "nat-wp-79060",
+        "natlan-port",
+        "nat-wp-79058",
+        "nat-wp-79544"
+      ],
+      "reason": "沖の島から舟で港に戻り、北の崖の昇降機から地下道へ入る。"
+    }
+  ]
+}

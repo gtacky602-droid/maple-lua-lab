@@ -27,7 +27,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 64,
+      "prototype_stage_count": 66,
       "prototype_quest_count": 28,
       "official_map2_markers": {
         "waypoints": 45,
@@ -147,7 +147,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 129,
+      "prototype_stage_count": 130,
       "prototype_quest_count": 22,
       "official_map2_markers": {
         "waypoints": 126,
@@ -264,7 +264,7 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 18,
+      "prototype_stage_count": 19,
       "prototype_quest_count": 6,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
@@ -1653,7 +1653,8 @@
         "name": "南東の氷壁・氷壁の南端",
         "gates": [
           "teyvat:100653",
-          "teyvat:100655"
+          "teyvat:100655",
+          "teyvat:100684"
         ]
       },
       "teyvat:100655": {
@@ -1924,7 +1925,8 @@
         "stage_id": "sne-wp-100684",
         "name": "南東の氷壁・氷壁下の東の横穴",
         "gates": [
-          "teyvat:100700"
+          "teyvat:100700",
+          "teyvat:100654"
         ]
       },
       "teyvat:100685": {
@@ -2208,14 +2210,16 @@
         "stage_id": "sne-wp-106188",
         "name": "東部の雪原と工業区・北の工区・地下の東側",
         "gates": [
-          "teyvat:106187"
+          "teyvat:106187",
+          "teyvat:106189"
         ]
       },
       "teyvat:106189": {
         "stage_id": "sne-wp-106189",
         "name": "東部の雪原と工業区・北の林の下の石室",
         "gates": [
-          "teyvat:106193"
+          "teyvat:106193",
+          "teyvat:106188"
         ]
       },
       "teyvat:106190": {
@@ -2388,7 +2392,8 @@
         "stage_id": "sne-wp-106209",
         "name": "東部の雪原と工業区・東の丘の下の小間",
         "gates": [
-          "teyvat:106208"
+          "teyvat:106208",
+          "teyvat:107298"
         ]
       },
       "teyvat:106210": {
@@ -2498,7 +2503,8 @@
         "name": "東部の雪原と工業区・東端へ向かう鞍部",
         "gates": [
           "teyvat:106202",
-          "teyvat:106210"
+          "teyvat:106210",
+          "teyvat:106209"
         ]
       },
       "teyvat:108": {
@@ -5165,7 +5171,8 @@
         "gates": [
           "teyvat:55775",
           "teyvat:55769",
-          "teyvat:55772"
+          "teyvat:55772",
+          "teyvat:55767"
         ]
       },
       "teyvat:55761": {
@@ -5216,7 +5223,8 @@
         "stage_id": "fon-wp-55766",
         "name": "フォンテーヌ湖・東端の水中の棚",
         "gates": [
-          "teyvat:55765"
+          "teyvat:55765",
+          "teyvat:55768"
         ]
       },
       "teyvat:55767": {
@@ -5224,14 +5232,16 @@
         "name": "フォンテーヌ湖・湾北の水中階段",
         "gates": [
           "teyvat:50066",
-          "teyvat:55765"
+          "teyvat:55765",
+          "teyvat:55760"
         ]
       },
       "teyvat:55768": {
         "stage_id": "fon-wp-55768",
         "name": "フォンテーヌ湖・東の島の水洞",
         "gates": [
-          "teyvat:55770"
+          "teyvat:55770",
+          "teyvat:55766"
         ]
       },
       "teyvat:55769": {
@@ -7305,7 +7315,8 @@
         "gates": [
           "teyvat:88162",
           "teyvat:88160",
-          "teyvat:88163"
+          "teyvat:88163",
+          "teyvat:88172"
         ]
       },
       "teyvat:88162": {
@@ -7400,7 +7411,8 @@
         "name": "パハ島周辺・中央施設の下層南",
         "gates": [
           "teyvat:88174",
-          "teyvat:88173"
+          "teyvat:88173",
+          "teyvat:88161"
         ]
       },
       "teyvat:88173": {
@@ -7932,7 +7944,7 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1324,
+    "authored_stages": 1328,
     "provisional_quests": 257,
     "companion_join_records": 8,
     "scope_complete": false,
@@ -8055,7 +8067,9 @@
           "sites-hunt-7206",
           "sites-hunt-7206-pocket-1",
           "sites-hunt-7210",
-          "sites-hunt-7210-pocket-1"
+          "sites-hunt-7210-pocket-1",
+          "sites-lookout-10009",
+          "sites-lookout-85351"
         ],
         "quest_ids": [
           "mond-mapped-lakeside",
@@ -8831,7 +8845,8 @@
           "sites-hunt-73161-pocket-1",
           "sites-hunt-81383",
           "sites-hunt-81383-pocket-1",
-          "sites-hunt-82577"
+          "sites-hunt-82577",
+          "sites-toyac-tide-landing"
         ],
         "quest_ids": [
           "nat-mapped-valley-trail",
@@ -9431,7 +9446,8 @@
           "mond-wp-95800",
           "mond-wp-95801",
           "mond-wp-95802",
-          "mond-wp-95803"
+          "mond-wp-95803",
+          "sites-lookout-98500"
         ],
         "quest_ids": [
           "mond-mapped-islet",
@@ -10037,7 +10053,7 @@
   },
   "sites_fields": {
     "imported": 979,
-    "linked_to_runtime": 976,
+    "linked_to_runtime": 979,
     "official_marker_bindings": 873,
     "provisional_design_bindings": {
       "slot:GAA-01": "golden-hub",
@@ -10072,6 +10088,7 @@
       "slot:VLM-06": "sites-vlm-06",
       "slot:VLM-07": "sites-vlm-07",
       "slot:VLM-08": "sites-vlm-08",
+      "teyvat:10009": "sites-lookout-10009",
       "teyvat:100705": "sites-hunt-100705",
       "teyvat:100706": "sites-hunt-100706",
       "teyvat:100707": "sites-hunt-100707",
@@ -10136,15 +10153,17 @@
       "teyvat:73161": "sites-hunt-73161",
       "teyvat:81383": "sites-hunt-81383",
       "teyvat:82577": "sites-hunt-82577",
+      "teyvat:85351": "sites-lookout-85351",
       "teyvat:88121": "sites-hunt-88121",
       "teyvat:88122": "sites-hunt-88122",
       "teyvat:88123": "sites-hunt-88123",
       "teyvat:92859": "sites-hunt-92859",
       "teyvat:92860": "sites-hunt-92860",
       "teyvat:9778": "sites-hunt-9778",
-      "teyvat:98499": "sites-hunt-98499"
+      "teyvat:98499": "sites-hunt-98499",
+      "teyvat:98500": "sites-lookout-98500"
     },
-    "awaiting_stage": 3,
+    "awaiting_stage": 0,
     "route_review": "design/world/atlas-route-plan.json"
   }
 }

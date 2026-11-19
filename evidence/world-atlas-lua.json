@@ -1,16 +1,19 @@
 {
   "imported_fields": 979,
-  "live_runtime_fields": 976,
-  "draft_entrance_proposals": 3,
+  "live_runtime_fields": 979,
+  "draft_entrance_proposals": 0,
   "sites_only_route_reviews": 421,
-  "proposed_entrances_by_method": {
-    "needs_entrance_review": 3
-  },
+  "live_exteriors_with_unverified_source_entrance": [
+    "teyvat:10009",
+    "teyvat:85351",
+    "teyvat:98500"
+  ],
   "route_findings": {
     "candidate_with_geography_review": 236,
-    "check_floor_transition": 83,
-    "implemented_as_lab_route": 99,
-    "check_level_jump": 3
+    "use_existing_local_detour": 72,
+    "implemented_as_lab_route": 106,
+    "use_existing_regional_detour": 4,
+    "use_existing_level_route": 3
   },
   "separately_labelled_level_mismatches": 820,
   "hidden_area_visibility": true,

@@ -24,15 +24,15 @@ gates = {(id,gate['to']):gate for id,rows in exits.items() for gate in rows}
 spawns = read('content/enemy-spawns.json')['nodes']
 atlas = read('content/world-atlas.json')
 positions = {p['id']:p for region in atlas['regions'] for p in region['points']}
-drafts = {p['id']:p for region in atlas['regions'] for p in region['draft']}
+pending = {p['field'] for region in atlas['regions'] for p in region['points'] if p.get('entrancePending')}
 snapshot = read('design/world/editor-snapshot.json')['data']
 source = {edge['id']:edge for edge in snapshot['edges']}
 review = read('sources/map-research/sites-geographic-fields.json')
 routes = {row['field']:row for row in review['routes']}
 specs = {f['field_id']:f for path in (ROOT/'design/world/placements').glob('*.json')
          for f in read(path.relative_to(ROOT))['fields']}
-assert len(routes)==71 and len(drafts)==3 and set(review['held'])==drafts.keys()
-assert {f['id'] for f in snapshot['fields'] if f['role']=='hold'} >= drafts.keys()
+assert len(routes)==71 and len(pending)==3 and set(review['held'])==pending
+assert {f['id'] for f in snapshot['fields'] if f['role']=='hold'} >= pending
 assert not {node.get('mapPoint') for node in nodes.values()} & routes.keys()
 
 lua, core = runtime()
@@ -162,6 +162,6 @@ write('evidence/sites-geographic-fields-lua.json',{
     'own_checkpoint_recovery':len(routes),'level_gates_exercised':blocked,
     'ordinary_placements':ordinary,'optional_pocket_round_trips':pockets,
     'underwater_corridor_rendered_ground_combat_respawn':counts['water'],
-    'existing_quest_progress_preserved':True,'held_points':sorted(drafts),
+    'existing_quest_progress_preserved':True,'source_entrances_unverified':sorted(pending),
 })
 print(f'{len(routes)} field and {pockets} side-room round trips, {len(crossings)} directional transitions passed.')

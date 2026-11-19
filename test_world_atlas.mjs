@@ -14,7 +14,7 @@ const area = (region, layer) => page.waitForFunction(([region,layer]) => {
 page.on('pageerror', error => errors.push(error.message));
 
 try {
- await page.goto(process.env.LAB_URL || 'http://127.0.0.1:8971/');
+ await page.goto(process.env.LAB_URL || 'http://127.0.0.1:8973/');
  await page.getByRole('button', {name:'本編ルートへ', exact:true}).click();
  await page.waitForFunction(() => window.lab?.frame.story.active);
  await page.keyboard.press('KeyM');
@@ -57,11 +57,12 @@ try {
  await area('branch-06','all');
  await page.locator('#atlasLayer').selectOption('review');
  await area('branch-06','review');
- await page.locator('#atlasField').selectOption('teyvat:98500');
- await page.waitForFunction(()=>window.lab.frame.worldMap.selected?.id==='teyvat:98500');
- assert.match(await page.locator('#atlasPlaceLevel').textContent(),/入口・階層の照合待ち/);
- await page.locator('#atlasRoutes button').filter({hasText:'入口候補'}).click();
+ await page.locator('#atlasField').selectOption('sites-lookout-98500');
+ await page.waitForFunction(()=>window.lab.frame.worldMap.selected?.id==='sites-lookout-98500');
+ assert.match(await page.locator('#atlasPlaceLevel').textContent(),/原作入口は照合中/);
+ await page.locator('#atlasRoutes button').filter({hasText:'半島の神像'}).click();
  await area('branch-06','all');
+ await page.waitForFunction(()=>window.lab.frame.worldMap.selected?.id==='mond-wp-95782');
  await page.locator('#atlasCurrent').click();
  await area('region-01','all');
  await page.setViewportSize({width:390,height:844});
@@ -78,7 +79,7 @@ try {
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/world-atlas-browser.json',JSON.stringify({
   openedByKeyAndButton:true,worldRegions:8,currentPosition:true,
-  mapClickAndFilter:true,searchAndPlaceSelection:true,hiddenAreaRemoved:true,draftEntranceReturn:true,
+  mapClickAndFilter:true,searchAndPlaceSelection:true,hiddenAreaRemoved:true,provisionalExteriorReturn:true,
   keyboardAndTurnRecovery:true,simulationTimeFrozen:true,noMobileOverflow:true,errors
  },null,2)+'\n');
  console.log('Atlas current position, overview, regional and water layers, search, keyboard and mobile passed.');

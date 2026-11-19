@@ -1,9 +1,11 @@
 return function(C, atlas)
  local action, step, frame = C.action, C.step, C.frame
- local regions, places = {}, {}
+ local regions, places, positions = {}, {}, {}
  for _,region in ipairs(atlas.regions) do
   regions[region.id] = region
-  for _,point in ipairs(region.points) do places[point.id] = region.id end
+  for _,point in ipairs(region.points) do
+   places[point.id], positions[point.id] = region.id, point
+  end
  end
 
  local colors = {
@@ -230,27 +232,43 @@ return function(C, atlas)
       review=p.review,anchor=p.anchor,anchorX=p.anchorX,anchorY=p.anchorY}
     points[#points+1]=point
    end
-  else
-   for _,p in ipairs(region.points) do
-    local node=nodes[p.id]
-    if node and (map.layer=='all' or p.layer==map.layer) then
-     local point={id=p.id,name=node.name,x=p.x,y=p.y,level=node.level,layer=p.layer,
-       recommended=p.recommended,provisional=p.provisional,current=p.id==state.node,selected=p.id==map.selected,
-       major=node.hub or node.waypoint and node.waypoint.kind=='statue',
-       visited=state.visited[p.id],mode=node.hub and 'hub' or node.swim and 'water' or 'field'}
-     where[p.id]=point
-     points[#points+1]=point
+  end
+  for _,p in ipairs(region.points) do
+   local node=nodes[p.id]
+   if node and (map.layer=='all' or p.layer==map.layer or map.layer=='review' and p.entrancePending) then
+    local point={id=p.id,name=node.name,x=p.x,y=p.y,level=node.level,layer=p.layer,
+      recommended=p.recommended,provisional=p.provisional,entrancePending=p.entrancePending,
+      current=p.id==state.node,selected=p.id==map.selected,
+      major=node.hub or node.waypoint and node.waypoint.kind=='statue',
+      visited=state.visited[p.id],mode=node.hub and 'hub' or node.swim and 'water' or 'field'}
+    where[p.id]=point
+    points[#points+1]=point
+   end
+  end
+  local terrain_points = points
+  local approaches = {}
+  if map.layer=='review' then
+   terrain_points = {table.unpack(points)}
+   for _,p in ipairs(points) do
+    local anchor
+    if p.anchor and nodes[p.anchor] then
+     anchor={x=p.anchorX,y=p.anchorY}
+    elseif p.entrancePending then
+     local edge=nodes[p.id].exits[1]
+     if edge and nodes[edge.to] and places[edge.to]==region.id then anchor=positions[edge.to] end
+    end
+    if anchor then
+     terrain_points[#terrain_points+1]=anchor
+     approaches[#approaches+1]={p,anchor}
     end
    end
   end
-  terrain(out,points,region.theme,map.layer=='water' or map.layer=='below')
-  if map.layer=='review' then
-   for _,p in ipairs(points) do
-    if p.anchor and nodes[p.anchor] then
-     line(out,p.anchorX,p.anchorY,p.x,p.y,p.selected and '#ffef9c' or '#c1be94',p.selected and 3 or 1.5,{3,6})
-     rectangle(out,p.anchorX-2,p.anchorY-2,5,5,'#31555e')
-    end
-   end
+  terrain(out,terrain_points,region.theme,map.layer=='water' or map.layer=='below')
+  for _,pair in ipairs(approaches) do
+   local point,anchor=table.unpack(pair)
+   line(out,anchor.x,anchor.y,point.x,point.y,point.selected and '#ffef9c' or '#56664e',point.selected and 3 or 1.5,
+     point.mode=='draft' and {3,6} or nil)
+   rectangle(out,anchor.x-2,anchor.y-2,5,5,'#31555e')
   end
   local linked={}
   for _,point in ipairs(points) do

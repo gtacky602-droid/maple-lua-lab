@@ -5,7 +5,7 @@
   "mapClickAndFilter": true,
   "searchAndPlaceSelection": true,
   "hiddenAreaRemoved": true,
-  "draftEntranceReturn": true,
+  "provisionalExteriorReturn": true,
   "keyboardAndTurnRecovery": true,
   "simulationTimeFrozen": true,
   "noMobileOverflow": true,

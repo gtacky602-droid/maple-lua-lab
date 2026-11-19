@@ -44,7 +44,7 @@ exits = {name: node['exits'] for name, node in nodes.items()}
 edges = {(a, edge['to']): edge for a in stages for edge in exits[a] if edge['to'] in stages}
 station_return = ('white-pass-station', 'snezhnaya-hub')
 assert edges.pop(station_return)['x'] == 52
-assert len(edges) == 276 and set(edges) == {(b, a) for a, b in edges}
+assert len(edges) == 282 and set(edges) == {(b, a) for a, b in edges}
 assert {(a, b) for (a, b), edge in edges.items() if edge.get('wind')} == {
     (entry['from'], entry['to']) for entry in review['wind_gates']
 }

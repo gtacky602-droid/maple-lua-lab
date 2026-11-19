@@ -1,0 +1,14 @@
+{
+  "all_fields_bound": 979,
+  "new_layer_round_trips": 7,
+  "reused_local_round_trips": 72,
+  "reused_regional_round_trips": 4,
+  "level_progression_round_trips": 3,
+  "exterior_lookouts_round_trips_and_safe_restore": [
+    "sites-lookout-10009",
+    "sites-lookout-85351",
+    "sites-lookout-98500"
+  ],
+  "unique_directional_crossings": 398,
+  "quest_state_unchanged": true
+}

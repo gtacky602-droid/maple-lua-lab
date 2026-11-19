@@ -34,7 +34,7 @@ assert len(review['floor_markers'])==34
 stages=set(mapping.values())
 exits={i:n['exits'] for i,n in nodes.items()}
 edges={(a,e['to']):e for a in stages for e in exits[a] if e['to'] in stages}
-assert len(edges)==294 and set(edges)=={(b,a) for a,b in edges}
+assert len(edges)==296 and set(edges)=={(b,a) for a,b in edges}
 assert {(a,b) for (a,b),e in edges.items() if e.get('darkOnly')}=={
     (row['from'],row['to']) for row in review['dark_gates']}
 
