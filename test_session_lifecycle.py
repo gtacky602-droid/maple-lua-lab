@@ -2,7 +2,7 @@ import json, threading, urllib.request, urllib.error, time
 from pathlib import Path
 import server
 
-http=server.ThreadingHTTPServer(('127.0.0.1',0),server.Handler)
+http=server.LabServer(('127.0.0.1',0),server.Handler,daily_path=':memory:')
 thread=threading.Thread(target=http.serve_forever,daemon=True);thread.start()
 base=f'http://127.0.0.1:{http.server_port}'
 def post(path,data,origin=None):

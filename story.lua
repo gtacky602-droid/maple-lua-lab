@@ -5,6 +5,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   local out={};for k,item in pairs(v) do out[k]=copy(item) end;return out
  end
  local nodes,quests,starterQuests,itineraries={},{},{},{}
+ local graphNodes,graphEdges,graphQuests={},{},{}
  local growthQuests,growthEvidence={},{}
  local advancedGrowth={
   SK54={level=127,region='nod-port',alternate='nod-town',mark='lunar-orb'},
@@ -26,12 +27,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local lanternQuest,contestQuest,sightQuest,restQuest,caveQuest,roofQuest
  for _,n in ipairs(data.nodes) do
   nodes[n.id]=n
+  if n.hiddenGroup or n.revealAfter then graphNodes[#graphNodes+1]=n end
+  for _,edge in ipairs(n.exits) do
+   if edge.visitedOnly or edge.hideUntilAllowed then graphEdges[#graphEdges+1]={from=n,edge=edge} end
+  end
   if (n.barrier or 0)>0 then barrierTargets[#barrierTargets+1]={id=n.id,name=n.name,barrier=n.barrier} end
  end
  table.sort(barrierTargets,function(a,b) return a.barrier<b.barrier end)
  function C.growthBarrierTargets() return barrierTargets end
  for _,q in ipairs(data.quests) do
   quests[q.id]=q
+  if q.legacyOnly then graphQuests[#graphQuests+1]=q end
   if q.lesson then
    growthQuests[#growthQuests+1]=q
    for _,objective in ipairs(q.lesson) do growthEvidence[objective.id]=true end
@@ -201,6 +207,46 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local function shownEdge(s,edge)
   return shownNode(s,nodes[edge.to]) and (not edge.visitedOnly or s.story.visited[edge.to])
       and (not edge.hideUntilAllowed or not gateRestriction(s,edge))
+ end
+ local function visibleStoryGraph(s)
+  -- Edges with ordinary requirements stay in the graph and are evaluated at the gate.
+  -- Only these predicates can change which definitions are present in a published graph.
+  local visibility={}
+  for _,node in ipairs(graphNodes) do
+   visibility[#visibility+1]=shownNode(s,node) and '1' or '0'
+  end
+  for _,rule in ipairs(graphEdges) do
+   visibility[#visibility+1]=shownNode(s,rule.from) and shownEdge(s,rule.edge) and '1' or '0'
+  end
+  for _,quest in ipairs(graphQuests) do
+   visibility[#visibility+1]=shownNode(s,nodes[quest.hub]) and s.story.quests[quest.id] and '1' or '0'
+  end
+  local key=table.concat(visibility)
+  local cached=s.storyGraphCache
+  if cached and cached.key==key then return cached.graph,cached.revision end
+
+  local graph={version=data.version,status=data.status,nodes={},quests={},bossNodes={}}
+  for _,node in ipairs(data.nodes) do
+   if shownNode(s,node) then
+    local visible=copy(node)
+    visible.exits={}
+    for _,edge in ipairs(node.exits) do
+     if shownEdge(s,edge) then visible.exits[#visible.exits+1]=copy(edge) end
+    end
+    graph.nodes[#graph.nodes+1]=visible
+   end
+  end
+  for boss,id in pairs(data.bossNodes) do
+   if shownNode(s,nodes[id]) then graph.bossNodes[boss]=id end
+  end
+  for _,quest in ipairs(data.quests) do
+   if shownNode(s,nodes[quest.hub]) and (not quest.legacyOnly or s.story.quests[quest.id]) then
+    graph.quests[#graph.quests+1]=quest
+   end
+  end
+  local revision=(cached and cached.revision or 0)+1
+  s.storyGraphCache={key=key,revision=revision,graph=graph}
+  return graph,revision
  end
  local function nearHint(a,h)
   return a.hp>0 and math.abs(a.x-h.x)<75 and math.abs(a.y-h.y)<60
@@ -1667,17 +1713,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
 
  function C.frame(s,mode,profile)
-  local f=frame(s,mode,profile);setup(s);f.story=s.story;local visible={version=data.version,status=data.status,nodes={},quests={},bossNodes={}}
+  local f=frame(s,mode,profile);setup(s);f.story=s.story
   f.growthEligibility={}
   for id,eligible in pairs(growthRequirements) do f.growthEligibility[id]=eligible(s) end
-  for _,n in ipairs(data.nodes) do if shownNode(s,n) then local out=copy(n);out.exits={};for _,edge in ipairs(n.exits) do if shownEdge(s,edge) then out.exits[#out.exits+1]=copy(edge) end end;visible.nodes[#visible.nodes+1]=out end end
-  for target,node in pairs(data.bossNodes) do if shownNode(s,nodes[node]) then visible.bossNodes[target]=node end end
-  for _,q in ipairs(data.quests) do
-   if shownNode(s,nodes[q.hub]) and (not q.legacyOnly or s.story.quests[q.id]) then
-    visible.quests[#visible.quests+1]=q
-   end
-  end
-  f.storyGraph=visible;f.storyNotice=s.storyNotice;f.storyJoined={};f.voyage=s.voyage and {seconds=math.max(0,s.voyage.arrives-s.t),destination=s.voyage.destination,elapsed=s.t-s.voyage.started,kind=s.voyage.kind,stopover=s.voyage.stopStart and s.t-s.voyage.started+1e-8>=s.voyage.stopStart and s.t-s.voyage.started+1e-8<s.voyage.stopEnd or false} or nil
+  f.storyGraph,f.storyGraphRevision=visibleStoryGraph(s)
+  f.storyNotice=s.storyNotice;f.storyJoined={};f.voyage=s.voyage and {seconds=math.max(0,s.voyage.arrives-s.t),destination=s.voyage.destination,elapsed=s.t-s.voyage.started,kind=s.voyage.kind,stopover=s.voyage.stopStart and s.t-s.voyage.started+1e-8>=s.voyage.stopStart and s.t-s.voyage.started+1e-8<s.voyage.stopEnd or false} or nil
   if f.voyage and f.voyage.kind=='trolley' then
    local v=s.voyage
    local stopStart,stopEnd=v.stopStart or 0,v.stopEnd or 0

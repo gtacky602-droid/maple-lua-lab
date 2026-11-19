@@ -102,7 +102,16 @@ class Handler(SimpleHTTPRequestHandler):
                 core.dailySettle(state)
                 frame=core.frame(state,'rect' if req.get('render')=='rect' else 'sprite',req.get('profile'))
                 elapsed=(time.perf_counter()-started)*1000
+                # Scope the graph revision to this runtime so a reset or restore cannot reuse a stale graph.
+                graph_revision = f'{sid}:{frame.storyGraphRevision}'
+                frame.storyGraphRevision = None
+                accepts_revision = 'storyGraphRevision' in req
+                if accepts_revision and req['storyGraphRevision'] == graph_revision:
+                    # Drop it before conversion, while the graph itself stays cached in Lua.
+                    frame.storyGraph = None
                 out=native(frame);out['session']=sid;out['lua_ms']=elapsed;out['lua_kb']=lua.eval("collectgarbage('count')")
+                if accepts_revision:
+                    out['storyGraphRevision'] = graph_revision
                 # An empty Lua table has no array type. Story nodes still expose an exit list.
                 for node in out.get('storyGraph', {}).get('nodes', []):
                     if not node['exits']:

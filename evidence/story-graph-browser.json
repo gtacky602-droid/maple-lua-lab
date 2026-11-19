@@ -1,0 +1,8 @@
+{
+  "stableFramesReuseGraph": true,
+  "mKeyAlwaysWorks": true,
+  "realGoldenClueRefreshesAtlas": true,
+  "reloadRestoresGraphAndSession": true,
+  "comparisonPageUsesCompactFrames": true,
+  "errors": []
+}

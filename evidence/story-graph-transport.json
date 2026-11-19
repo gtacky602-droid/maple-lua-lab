@@ -1,0 +1,33 @@
+{
+  "mondstadt": {
+    "legacy_bytes": 1206086.5,
+    "compact_bytes": 11954.0,
+    "legacy_median_http_ms": 59.38,
+    "compact_median_http_ms": 2.61,
+    "median_lua_ms": 0.52,
+    "visible": 0,
+    "population": 0,
+    "draw_commands": 50,
+    "samples_per_mode": 12,
+    "reduction_pct": 99.01
+  },
+  "golden_island_hunt": {
+    "legacy_bytes": 1220535.5,
+    "compact_bytes": 9124.0,
+    "legacy_median_http_ms": 73.3,
+    "compact_median_http_ms": 2.89,
+    "median_lua_ms": 0.7,
+    "visible": 16,
+    "population": 48,
+    "draw_commands": 33,
+    "samples_per_mode": 12,
+    "reduction_pct": 99.25
+  },
+  "full_and_compact_same_draws": true,
+  "legacy_http_contract": true,
+  "ordinary_quest_progress_kept_compact": true,
+  "discovery_and_first_visit": true,
+  "quest_gated_edge_and_node": true,
+  "legacy_quest_membership": true,
+  "retry_reload_reset_restore": true
+}

@@ -7,13 +7,27 @@ export async function frameResponse(response){
 }
 export function sessionLifecycle(key){
  const owner=crypto.randomUUID();let sid=null,first=true,leaving=false;
+ let graph=null,graphRevision=null;
  try{sid=sessionStorage.getItem(key)}catch{}
  const release=()=>{if(sid)navigator.sendBeacon('/api/release',new Blob([JSON.stringify({session:sid,owner})],{type:'application/json'}))};
  addEventListener('pagehide',event=>{if(!event.persisted){leaving=true;release()}});
  return {
   get savedSession(){return sid},
   get leaving(){return leaving},
-  request(){return {owner,resume:first}},
+  request(){return {owner,resume:first,storyGraphRevision:graphRevision}},
+  restoreStoryGraph(frame){
+   if(frame.storyGraph){
+    graph=frame.storyGraph;
+    graphRevision=frame.storyGraphRevision??null;
+   }else if(graph&&graphRevision&&frame.storyGraphRevision===graphRevision){
+    frame.storyGraph=graph;
+   }else{
+    graph=null;
+    graphRevision=null;
+    throw Error('地図データを再取得します。');
+   }
+   return frame;
+  },
   accept(id){sid=id;first=false;try{sessionStorage.setItem(key,id)}catch{}if(leaving)release()},
  };
 }
