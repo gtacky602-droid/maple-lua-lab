@@ -1,0 +1,151 @@
+{
+  "route": [
+    {
+      "id": "natlan-ridge-flag",
+      "seconds": 29.78,
+      "level": 101,
+      "total": 41409672,
+      "questXp": 19435689,
+      "killXp": 21973983,
+      "kills": 9651
+    },
+    {
+      "id": "natlan-two-trials",
+      "seconds": 83.8,
+      "level": 103,
+      "total": 45807390,
+      "questXp": 23799423,
+      "killXp": 22007967,
+      "kills": 9659
+    },
+    {
+      "id": "natlan-sunset-duel",
+      "seconds": 115.62,
+      "level": 109,
+      "total": 60657884,
+      "questXp": 38649917,
+      "killXp": 22007967,
+      "kills": 9660
+    },
+    {
+      "id": "natlan-kachina-charms",
+      "seconds": 131.22,
+      "level": 109,
+      "total": 61984654,
+      "questXp": 39969041,
+      "killXp": 22015613,
+      "kills": 9662
+    },
+    {
+      "id": "natlan-mualani-surf",
+      "seconds": 144.0,
+      "level": 109,
+      "total": 63389521,
+      "questXp": 41373908,
+      "killXp": 22015613,
+      "kills": 9662
+    },
+    {
+      "id": "natlan-kinich-ambush",
+      "seconds": 171.27,
+      "level": 110,
+      "total": 65223596,
+      "questXp": 43181221,
+      "killXp": 22042375,
+      "kills": 9663
+    },
+    {
+      "id": "lv115",
+      "seconds": 3113.67,
+      "level": 115,
+      "total": 83452661,
+      "questXp": 43181221,
+      "killXp": 40271440,
+      "kills": 12602
+    },
+    {
+      "id": "lv119",
+      "seconds": 5236.5,
+      "level": 119,
+      "total": 104292029,
+      "questXp": 43181221,
+      "killXp": 61110808,
+      "kills": 15056
+    },
+    {
+      "id": "lv120",
+      "seconds": 5513.57,
+      "level": 120,
+      "total": 110366329,
+      "questXp": 43181221,
+      "killXp": 67185108,
+      "kills": 15612
+    },
+    {
+      "id": "nod-town",
+      "seconds": 5643.52,
+      "level": 120,
+      "total": 110447634,
+      "questXp": 43181221,
+      "killXp": 67266413,
+      "kills": 15626
+    }
+  ],
+  "completedQuests": [
+    "natlan-ridge-flag",
+    "natlan-two-trials",
+    "natlan-sunset-duel",
+    "natlan-kachina-charms",
+    "natlan-mualani-surf",
+    "natlan-kinich-ambush"
+  ],
+  "hunts": [
+    {
+      "stage": "natlan-terrace-red-clay",
+      "sorties": 38,
+      "kills": 2824,
+      "xp": 17503152,
+      "seconds": 2809.18
+    },
+    {
+      "stage": "natlan-east-valley-rocks",
+      "sorties": 28,
+      "kills": 2426,
+      "xp": 20601592,
+      "seconds": 2037.2
+    },
+    {
+      "stage": "sites-hunt-73159",
+      "sorties": 4,
+      "kills": 532,
+      "xp": 5812100,
+      "seconds": 258.68
+    }
+  ],
+  "equippedEarnedArtifactIds": {
+    "1": [
+      74,
+      79,
+      73,
+      71,
+      78
+    ],
+    "2": [
+      75,
+      58,
+      30,
+      55,
+      70
+    ]
+  },
+  "recoveryTrips": 0,
+  "inventoryTrips": 2,
+  "partyWipes": 0,
+  "ferrySeconds": 90.0,
+  "stopoverResumeSeconds": 40,
+  "seaSaveRestoredToPort": true,
+  "mapPausesVoyage": true,
+  "savedAndRestored": true,
+  "firstNodQuestAvailable": "nod-first-treasure",
+  "scope": "Continuation of the new Lv1 adventure. Scripted Lua inputs and auto-battle for hunting."
+}

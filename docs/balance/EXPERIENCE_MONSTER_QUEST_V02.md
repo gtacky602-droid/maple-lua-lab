@@ -177,3 +177,17 @@ Lv80の水辺の広場から、配達メカを追い、舞台下へ昇降台で�
 | ベリルの秘境周辺 | 99→100 | 382 | 2,275,574 |
 
 `python -X utf8 test_fontaine_fresh_route.py` で、新規Lv1からナタ・谷の集落まで再現できる。到着後のセーブは `work/fontaine-fresh-route/natlan-save.json`。続けて更新版のラボを起動し、`LAB_URL` を指定して `node test_fontaine_fresh_route.mjs` を実行すると、Lv100の水辺の広場からM地図の狩場表示、ナタへの移動、第1章の受注を再検査できる。セーブ読み込み時は訪問記録と未回収品の地点を同じマップデータで照合し、Chromeで新設狩場の未回収品1件が残ることも確認した。 [ナタへの道順](../../evidence/fontaine-fresh-natlan-atlas.png) · [Chromeの到着ログ](../../evidence/fontaine-fresh-route-browser.json) · [未回収品の検査](../../evidence/loot-test.json)
+
+## 同じ冒険データでナタからナド・クライへ
+
+Lv100の谷の集落から旗取り、高台と水辺の試練、夕映えの対戦を終えるとLv109。カチーナの石飾り、ムアラニの波乗り、キィニチの狩りまで報告するとLv110になった。既設の「東の秘境周辺」はLv119、ナタ港のナド・クライ行きはLv120が必要。
+
+テケメカンの谷にLv110の段丘の赤土棚とLv115の東谷の岩棚を試作した。試走では、旅人と同行者に道中で拾った聖遺物を5部位ずつ装備。狩りは自動戦闘を一定時間ごとに区切り、未回収品がたまったら町で整理した。町に戻って整理したのは2回、回復だけの帰還と全滅は0回。手動での所要時間は別途測る。 [ナタの試走ログ](../../evidence/natlan-fresh-route.json)
+
+| 狩場 | 通過したLv | 討伐数 | 狩場のEXP |
+| --- | ---: | ---: | ---: |
+| 段丘の赤土棚 | 110→115 | 2,824 | 17,503,152 |
+| 東谷の岩棚 | 115→119 | 2,426 | 20,601,592 |
+| 東の秘境周辺 | 119→120 | 532 | 5,812,100 |
+
+`python -X utf8 test_natlan_fresh_route.py` で、新規Lv1からナド・クライ・町の広場まで再現できる。到着後のセーブは `work/natlan-fresh-route/nod-save.json`。Luaで90秒の直行便、オシカ・ナタでの下船と40秒の再乗船、航海中セーブの乗船港からの再開を確認した。続けて `node test_natlan_fresh_route.mjs` を実行すると、Chromeで出航前のLv120セーブから、M地図の案内、90秒の自動着岸、町の第1章の受注まで確認できる。 [船の道順](../../evidence/natlan-fresh-nod-atlas.png) · [Chromeの到着ログ](../../evidence/natlan-fresh-route-browser.json)

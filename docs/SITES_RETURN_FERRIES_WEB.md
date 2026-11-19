@@ -19,6 +19,7 @@
 
 - Luaで6組、重複を除いた39方向を確認した。6便が時間どおりに着岸し、南行きでも寄港の開始前・終了後は下船できないこと、寄港を通過できること、再乗船後に保存すると寄港地から再開することを確認した。既存の寄港依頼も回帰検査した。 [Luaログ](../evidence/sites-return-ferries-lua.json)
 - Chromeで離島から璃月までの30秒便と、オシカ・ナタで乗り直してナタに着く40秒の航海を確認した。 [Chromeログ](../evidence/sites-return-ferries-browser.json) · [璃月行きの地図](../evidence/sites-ferry-liyue-atlas.png) · [ナタ行きの甲板](../evidence/sites-ferry-natlan-deck.png)
+- 新規冒険をLv120まで進めたセーブで、ナタ港からナド・クライ行きに乗った。Luaで90秒の自動着岸と、オシカ・ナタで下船して乗り直す40秒の区間を確認した。航海中のセーブはナタ港から再開し、M地図を開くと航海時間が止まる。 [Lv120の連続試走](../evidence/natlan-fresh-route.json) · [北行きの道順](../evidence/natlan-fresh-nod-atlas.png)
 
 Siteの経路候補421組のうち128組を試作として実装し、274組を既存ルートで確認した。残る19組は発見・専用ゲート8組と、屋外の道筋・階層11組。 [地域の接続台帳](../design/world/atlas-route-plan.json)
 
