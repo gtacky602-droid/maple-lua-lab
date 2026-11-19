@@ -141,3 +141,11 @@ Webの試験結果は[成長検証](../../evidence/progression-test.json)と[Chr
 採石斜面で通常敵257体、港南の征討入口で349体を倒し、Lv40で璃月から稲妻・離島に出航した。船は30秒で自動着岸する。航海中の保存を読み込むと璃月港から再開し、着岸後の保存からは離島で再開した。Luaの璃月区間は18分39秒。狩りは自動戦闘を一定時間ごとに区切って計測した。 [Lv20〜40の獲得EXPと航海ログ](../../evidence/liyue-fresh-route.json)
 
 `python -X utf8 test_liyue_fresh_route.py` で、モンドのLv1から出航前と離島到着後のセーブを再生成できる。続けて `node test_liyue_fresh_route.mjs` を実行すると、Chromeで出航前のセーブから地図、乗船、着岸、稲妻最初の依頼まで再検査できる。 [船の地図案内](../../evidence/liyue-fresh-ferry-atlas.png) · [Chromeの着岸ログ](../../evidence/liyue-fresh-route-browser.json)
+
+## 同じ冒険データで稲妻からスメールへ
+
+Lv40で離島に着いたセーブを引き継ぎ、行灯、鳥居の森、灯籠勝負のメイン3章でLv52。神里綾華、早柚、茶屋のサブ3件まで報告するとLv54になった。この時点でスメール行きはLv60、既設の「離れ小島の秘境周辺」はLv56が必要。間をつなぐため、離島から出入りできるLv52の外浜を試作した。通常敵42体と6秒再出現はラボの調整値。
+
+外浜で通常敵445体を倒して246,530 EXP、離れ小島の秘境周辺で1,033体を倒して778,882 EXPを獲得した。狩りはラボの自動戦闘を一定時間ごとに区切って計測した。Lv60になると、稲妻・城下の広場から4.8秒の渡し舟でスメールへ渡れる。樹陰の広場のセーブを復元し、稲妻への帰りの便も確認した。 [Lv40〜60の獲得EXP、往復と保存の記録](../../evidence/inazuma-fresh-route.json)
+
+`python -X utf8 test_inazuma_fresh_route.py` で、新規Lv1からスメール到着までを再現できる。続きのセーブは `work/inazuma-fresh-route/sumeru-save.json`。続けて `node test_inazuma_fresh_route.mjs` を実行すると、ChromeでLv60の出航前セーブからM地図の道順、乗船、着岸、スメールの第1章の受注まで再検査できる。 [渡し舟の地図案内](../../evidence/inazuma-fresh-boat-atlas.png) · [Chromeの到着ログ](../../evidence/inazuma-fresh-route-browser.json)

@@ -1,0 +1,27 @@
+{
+  "importedLevel": 60,
+  "completedQuests": [
+    "inazuma-moving-lantern",
+    "inazuma-torii-maze",
+    "inazuma-lantern-contest",
+    "ayaka-join",
+    "ina-sayu-quiet-route",
+    "ina-walking-teahouse"
+  ],
+  "route": [
+    [
+      "sumeru-entry",
+      "boat"
+    ],
+    [
+      "sumeru-hub",
+      "walk"
+    ]
+  ],
+  "firstSumeruQuestAccepted": "sumeru-leaf-crossing",
+  "arrivalLevel": 60,
+  "importedXp": 2734922,
+  "totalXp": 2737319,
+  "travelKillXp": 2397,
+  "errors": []
+}

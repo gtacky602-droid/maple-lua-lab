@@ -1553,6 +1553,13 @@
           "x": 1205
         },
         {
+          "to": "inazuma-outer-shore",
+          "x": 925,
+          "arrivalX": 92,
+          "arrivalY": 480,
+          "rideLabel": "離島の外浜へ"
+        },
+        {
           "to": "ina-wp-13669",
           "x": 780,
           "arrivalX": 1312,
@@ -1580,6 +1587,27 @@
     {"id":"wolflord-field-ruins","name":"稲妻・鶴観の霧浜遺跡","region":"稲妻","level":54,"hub":false,"peaceful":true,"width":1640,"platforms":[{"x":0,"y":480,"w":1640}],"exits":[{"to":"tsurumi-coast","x":65}],"checkpoint":"inazuma-port"},
     {"id":"watatsumi-landing","name":"稲妻・海祇島の浜","region":"稲妻","level":52,"hub":false,"peaceful":true,"width":1440,"platforms":[{"x":0,"y":480,"w":1440},{"x":480,"y":382,"w":310}],"exits":[{"to":"inazuma-port","x":65},{"to":"hydro-hypostasis-field-cove","x":1340},{"to":"ina-wp-15940","x":760,"arrivalX":826,"arrivalY":480},{"to":"ina-wp-15942","x":1030,"arrivalX":1382,"arrivalY":480},{"to":"ina-wp-15951","x":320,"arrivalX":76,"arrivalY":480,"boatSeconds":2.7,"rideLabel":"珊瑚の岸までの小舟"}],"checkpoint":"inazuma-port","mapPoint":"teyvat:15947","waypoint":{"kind":"waypoint","area":"海祇島","x":615,"y":480}},
     {"id":"hydro-hypostasis-field-cove","name":"稲妻・潮紋の洞","region":"稲妻","level":52,"hub":false,"peaceful":true,"width":1600,"platforms":[{"x":0,"y":480,"w":1600}],"exits":[{"to":"watatsumi-landing","x":65}],"checkpoint":"inazuma-port"},
+    {
+      "id": "inazuma-outer-shore",
+      "name": "稲妻・離島の外浜",
+      "region": "稲妻",
+      "level": 52,
+      "width": 2880,
+      "hub": false,
+      "peaceful": false,
+      "enemySafeFraction": 0.15,
+      "scenery": "shiomicape",
+      "checkpoint": "inazuma-port",
+      "atlasParent": "inazuma-port",
+      "huntKind": "field",
+      "platforms": [
+        {"x": 0, "y": 480, "w": 2880},
+        {"x": 456, "y": 395, "w": 434},
+        {"x": 1034, "y": 380, "w": 498},
+        {"x": 1760, "y": 401, "w": 518}
+      ],
+      "exits": [{"to": "inazuma-port", "x": 92, "arrivalX": 925, "arrivalY": 480}]
+    },
     {
       "id": "inazuma-road",
       "name": "稲妻・海辺の街道",
@@ -1726,7 +1754,9 @@
         },
         {
           "to": "sumeru-entry",
-          "x": 1380
+          "x": 1380,
+          "boatSeconds": 4.8,
+          "rideLabel": "稲妻からスメール行きの渡し舟"
         },
         {
           "to": "pyro-hypostasis-field-terrace",
@@ -2020,7 +2050,10 @@
       "exits": [
         {
           "to": "inazuma-town",
-          "x": 60
+          "x": 60,
+          "arrivalX": 1380,
+          "boatSeconds": 4.8,
+          "rideLabel": "スメールから稲妻行きの渡し舟"
         },
         {
           "to": "sumeru-hub",
