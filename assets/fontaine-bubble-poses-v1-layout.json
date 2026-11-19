@@ -1,0 +1,172 @@
+{
+  "source": "fontaine-bubble-poses-source-v1.png",
+  "facing": "left",
+  "swimCenter": [
+    144,
+    54
+  ],
+  "frames": [
+    {
+      "id": "legend-luachra",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        100,
+        6,
+        189,
+        103
+      ],
+      "source_sheet": "legend-luachra-source.png",
+      "source_crop": [
+        54,
+        88,
+        510,
+        557
+      ]
+    },
+    {
+      "id": "legend-luachra",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        97,
+        14,
+        192,
+        94
+      ],
+      "source_sheet": "legend-luachra-source.png",
+      "source_crop": [
+        703,
+        189,
+        545,
+        456
+      ]
+    },
+    {
+      "id": "legend-luachra",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        79,
+        13,
+        209,
+        96
+      ],
+      "source_sheet": "legend-luachra-source.png",
+      "source_crop": [
+        1364,
+        168,
+        740,
+        477
+      ]
+    },
+    {
+      "id": "legend-chassanion",
+      "pose": "idle",
+      "crop": [
+        0,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        85,
+        2,
+        203,
+        106
+      ],
+      "source_sheet": "legend-chassanion-source.png",
+      "source_crop": [
+        33,
+        86,
+        675,
+        593
+      ]
+    },
+    {
+      "id": "legend-chassanion",
+      "pose": "brace",
+      "crop": [
+        288,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        101,
+        10,
+        188,
+        99
+      ],
+      "source_sheet": "legend-chassanion-source.png",
+      "source_crop": [
+        837,
+        44,
+        496,
+        507
+      ]
+    },
+    {
+      "id": "legend-chassanion",
+      "pose": "strike",
+      "crop": [
+        576,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        82,
+        11,
+        207,
+        98
+      ],
+      "source_sheet": "legend-chassanion-source.png",
+      "source_crop": [
+        1443,
+        110,
+        717,
+        499
+      ]
+    }
+  ]
+}

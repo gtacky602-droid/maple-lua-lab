@@ -1,0 +1,46 @@
+{
+  "observed": [
+    {
+      "files": [
+        "luachra.jpg"
+      ],
+      "url": "https://altema.jp/gensin/luachra",
+      "note": "正面の左右に大きく開く黄から紫のひれ、桃の顔と小さな胴。"
+    },
+    {
+      "files": [
+        "luachra-attack.jpg"
+      ],
+      "url": "https://gamerch.com/genshinwiki/800887",
+      "note": "泡と紫の発光に包まれた攻撃中の姿。"
+    },
+    {
+      "files": [
+        "chassanion-outside.jpg",
+        "chassanion-inside.jpg"
+      ],
+      "url": "https://altema.jp/gensin/shasanyon",
+      "note": "塔外と塔内で丸い傘と下向きの触腕を確認。"
+    },
+    {
+      "files": [
+        "chassanion-side.png"
+      ],
+      "url": "https://gamewith.jp/genshin/article/show/425510",
+      "note": "上方に反った傘の縁と傘の下の短い胴。"
+    },
+    {
+      "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Aplysia_Larva_01.png",
+      "note": "一般種の図鑑用顔アイコン。上へ伸びる左右のひれ、黄の先端と水色の面。"
+    },
+    {
+      "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_JellyFish_Larva_01.png",
+      "note": "一般種の参考アイコン。丸い黄の傘、中央の淡い模様と傘下の細い器官。"
+    }
+  ],
+  "design": "資料を目視し、新規原画から6姿勢を作成。扇の帯状配色・三つの菱形・反った縁・目と攻撃姿勢はラボ用の造形。エフェクトは含まない。",
+  "unchecked": [
+    "実機内の戦闘表示",
+    "原作の全方向の造形・アニメーションタイミング"
+  ]
+}

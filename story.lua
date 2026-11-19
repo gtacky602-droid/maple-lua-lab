@@ -155,6 +155,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  end
  local function meetsGateRule(s,rule)
   local state=s.story.quests[rule.quest]
+  if rule.unreported then return not completed(s,rule.quest) end
   if rule.path then state=state and state.pathProgress and state.pathProgress[rule.path] end
   if rule.before and state and state.count>=rule.before then return false end
   if rule.construction then
@@ -178,6 +179,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local allowed=meetsGateRule(s,rule) or (rule.alternative and meetsGateRule(s,rule.alternative))
     or (edge.loopOnce and forest.canLoop(state))
    if not allowed then
+    if rule.unreported then return rule.closedNotice or '報告後は内側の水路へ。' end
     if rule.before and state and state.count>=rule.before then return rule.closedNotice or '足場を中継位置へ移しました。' end
     if rule.construction and completed(s,rule.quest) then return '今回はもう一方の道を整備しました。' end
     if rule.recovery and state and not state.recovered then return '受注済みの旧依頼は岩間の狩場で進められます。' end
@@ -849,7 +851,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    a.vy=0;a.ground=not n.swim
    if arrivalY or n.swim then a.drop=0 end
    a.swimDx,a.swimDy=nil,nil
-   a.swimGuardUntil,a.swimCounterUntil,a.cd.swimGuard,a.cd.swimSonar=nil,nil,nil,nil
+   a.swimGuardUntil,a.swimCounterUntil,a.cd.swimGuard,a.cd.swimSonar,a.cd.swimReflect=nil,nil,nil,nil,nil
    if n.swim then a.lock=0;a.channel=nil end
   end
   s.camera=math.max(0,math.min(s.actors[s.active].x-400,math.max(0,n.width-960)))
@@ -1766,6 +1768,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   end
   for id,q in pairs(quests) do if q.join and s.story.quests[id] and s.story.quests[id].status=='complete' then f.storyJoined[q.join]=true end end
   if s.story.active then local n=nodes[s.story.node];f.location=n.name..'（本編試作）'
+   local phase=n.locationAfterReport
+   if phase and completed(s,phase.quest) then
+    f.location=phase.name..'（本編試作）'
+    f.storyScenery=phase.scenery
+   end
    f.storyCleared=cleared(s,n) and true or nil
    if n.expeditionDesk and canInspect(s.actors[s.active],n.expeditionDesk) then
     local barrier=n.expeditionDesk.barrier

@@ -1,0 +1,22 @@
+{
+  "bothRoutesFromAtlas": true,
+  "luachraMovesThroughWarnedDepth": true,
+  "keyboardReturnsMovingBubble": true,
+  "surveySteps": 4,
+  "reportMovesGateAndBackground": true,
+  "towerRetreat": true,
+  "sameFrameLightPreview": true,
+  "counts": {
+    "luachra": {
+      "png": 22,
+      "legacy": 5801,
+      "h32c16": 1515
+    },
+    "chassanion": {
+      "png": 18,
+      "legacy": 6568,
+      "h32c16": 1726
+    }
+  },
+  "errors": []
+}

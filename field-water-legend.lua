@@ -4,6 +4,7 @@ return function(C)
  local ordinaryWarningColor='#eebf81'
  local counterColor='#a1f5e0'
  local echoColor='#eff0ad'
+ local returnColor='#b4fbce'
  local mitigate=C.mitigateDamage
 
  function C.mitigateDamage(s,a,damage,source,blockable,telegraphed)
@@ -89,10 +90,12 @@ return function(C)
    owner.waterPose='brace'
    local x=stage.travel and owner.x or target.x+(stage.offsetX or 0)
    local y=(stage.fromBossDepth and owner.y or target.y-25)+(stage.offsetY or 0)
-   local to=stage.travel and clamp(x+owner.facing*stage.travel,spec.arenaMin+22,spec.arenaMax-22) or x
+   local margin=stage.dash and 65 or 22
+   local to=stage.travel and clamp(x+owner.facing*stage.travel,spec.arenaMin+margin,spec.arenaMax-margin) or x
    lastActive=math.max(lastActive,stage.after)
    strikes[i]={
     owner=owner,first=stage.first,after=stage.after,damage=stage.damage,catchable=stage.catchable,orb=stage.orb,
+    reflectable=stage.reflectable,dash=stage.dash,y=y,
     source={id=owner.id,owner=owner,y=owner.y,damageElement=stage.element or owner.element,
      swimCounter=stage.catchable and spec.swimPlayer.counter or nil},
     origin=x,destination=to,x=x,radius=stage.halfWidth,
@@ -126,17 +129,34 @@ return function(C)
   if boss.fieldPartner then boss.fieldPartner.waterPose='idle' end
   for _,strike in ipairs(cast.strikes) do
    local owner=strike.owner
-   if tick<strike.first and owner.waterPose=='idle' then owner.waterPose='brace' end
-   if tick>=strike.first and tick<strike.after then
+   if strike.reflection then
+    local p=strike.reflection
+    if not p.impact then
+     local progress=clamp((tick-p.at)/(p.arrives-p.at),0,1)
+     strike.x=p.x+(boss.x-p.x)*progress
+     strike.y=p.y+(boss.y-p.y)*progress
+     if progress>=1 then
+      p.impact=true
+      C.combatEvent(s,'swim_bubble_impact',p.actor,boss.id)
+      C.resolveCast(s,{id=p.actor,targetId=boss.id,key='swimBubbleReturn',x=boss.x,y=boss.y,
+       radial=true,range=12,vertical=24,limit=1,mult=1,atk=spec.swimPlayer.reflect.power,
+       color=returnColor,element='physical',gain=0})
+      if boss.hp<=0 then return true end
+     end
+    end
+   elseif tick<strike.first and owner.waterPose=='idle' then
+    owner.waterPose='brace'
+   elseif tick>=strike.first and tick<strike.after then
     owner.waterPose='strike'
     local prior=strike.x
     strike.x=strike.origin+(strike.destination-strike.origin)*(tick-strike.first+1)/(strike.after-strike.first)
+    if strike.dash then owner.x=strike.x end
     strike.activeLeft=math.max(strike.left,math.min(prior,strike.x)-strike.radius)
     strike.activeRight=math.min(strike.right,math.max(prior,strike.x)+strike.radius)
     C.hitFieldArea(s,strike.source,strike.seen,strike.activeLeft,strike.activeRight,strike.top,strike.damage,strike.bottom)
    end
   end
-  if tick>=cast.move.total then combat.cancel(boss);return true end
+  if tick>=math.max(cast.move.total,cast.lastActive) then combat.cancel(boss);return true end
  end
 
  function combat.damageFactor(s,cast,boss,spec)
@@ -149,9 +169,22 @@ return function(C)
   if boss.underground then return '潜伏中・波紋の方向へK' end
   if guarded(boss) then return '装甲を閉じた・背後へ' end
   if cast and cast.tick>=cast.lastActive then
-   if spec.swimPlayer.sonar then return '水弾が消えた・反撃' end
+   if spec.swimPlayer.sonar or spec.swimPlayer.reflect or spec.dashArena then return '動きが止まった・反撃' end
    return boss.fieldPartner and '二体が減速・反撃' or '装甲が開いた・反撃'
   end
+ end
+
+ local function returnTarget(actor,cast,skill)
+  if not cast then return end
+  local candidate,distance
+  for _,strike in ipairs(cast.strikes) do
+   local dx,dy=(strike.x-actor.x)*actor.dir,math.abs(strike.y-(actor.y-28))
+   if strike.reflectable and not strike.reflection and cast.tick>=strike.first and cast.tick<strike.after
+      and dx>=-12 and dx<=skill.range and dy<=skill.vertical and (not distance or dx+dy<distance) then
+    candidate,distance=strike,dx+dy
+   end
+  end
+  return candidate
  end
 
  function combat.swimAction(s,boss,spec,key,cast)
@@ -175,6 +208,19 @@ return function(C)
    C.resolveCast(s,{id=a.id,targetId=targetId,key=counter and 'swimCounter' or 'swimPulse',x=x,y=y,dir=a.dir,
     range=range,vertical=skill.vertical,limit=1,mult=skill.multiplier*(counter and counter.power or 1),color=color,
     element='physical',atk=a.atk,gain=0,isNormal=true})
+  elseif key=='skill1' and skill.reflect and boss.hp>0 and (a.cd.swimReflect or 0)<=0 then
+   local reflection=skill.reflect
+   a.cd.swimReflect=reflection.cooldown
+   local target=returnTarget(a,cast,reflection)
+   if target then
+    local arrives=cast.tick+reflection.returnTicks
+    target.reflection={at=cast.tick,arrives=arrives,x=target.x,y=target.y,actor=a.id}
+    cast.lastActive=math.max(cast.lastActive,arrives)
+    C.combatEvent(s,'swim_bubble_return',a.id,boss.id)
+   else
+    s.effects[#s.effects+1]={x=a.x+a.dir*reflection.range/2,y=a.y-28,w=reflection.range,
+     h=reflection.vertical*2,life=.18,color=returnColor}
+   end
   elseif key=='skill1' and skill.sonar and boss.hp>0 and (a.cd.swimSonar or 0)<=0 then
    local sonar=skill.sonar
    a.cd.swimSonar=sonar.cooldown
@@ -219,6 +265,9 @@ return function(C)
   if spec.swimPlayer.counter then
    status.counter={cooldown=a.cd.swimGuard or 0,guarding=s.t<(a.swimGuardUntil or 0),ready=s.t<(a.swimCounterUntil or 0)}
   end
+  if spec.swimPlayer.reflect then
+   status.reflect={cooldown=a.cd.swimReflect or 0,ready=boss.hp>0 and returnTarget(a,cast,spec.swimPlayer.reflect)~=nil}
+  end
   if spec.swimPlayer.sonar then
    status.sonar={cooldown=a.cd.swimSonar or 0,hidden=boss.underground==true,
     exposed=cast and cast.revealedUntil and (cast.revealedUntil-cast.tick)/60 or 0}
@@ -230,12 +279,15 @@ return function(C)
   field.warnings={}
   if not cast or cast.revealedUntil then return end
   for _,strike in ipairs(cast.strikes) do
-   if cast.tick<strike.after then
+   local reflection=strike.reflection
+   if reflection and not reflection.impact then
+    field.warnings[#field.warnings+1]={orb={x=strike.x,y=strike.y},returning=true}
+   elseif not reflection and cast.tick<strike.after then
     field.warnings[#field.warnings+1]={
      left=strike.left,right=strike.right,top=strike.top,bottom=strike.bottom,
      first=strike.first,after=strike.after,active=cast.tick>=strike.first,catchable=strike.catchable or nil,
      activeLeft=strike.activeLeft,activeRight=strike.activeRight,sourceId=spec.partner and strike.owner.id or nil,
-     orb=strike.orb and {x=strike.x,y=(strike.top+strike.bottom)/2} or nil,
+     orb=strike.orb and {x=strike.x,y=strike.y} or nil,reflectable=strike.reflectable or nil,dash=strike.dash or nil,
     }
    end
   end
@@ -248,13 +300,20 @@ return function(C)
  function combat.draw(f,s,boss,spec,cast,mode,profile)
   if cast and not cast.revealedUntil then
    for i,strike in ipairs(cast.strikes) do
-    if cast.tick<strike.after then
+    local reflection=strike.reflection
+    if reflection and not reflection.impact then
+     f.draws[#f.draws+1]={kind='effect',x=strike.x-s.camera,y=strike.y,
+      w=strike.radius*2,h=strike.bottom-strike.top,alpha=1,color=returnColor}
+    elseif not reflection and cast.tick<strike.after then
      local left,right=strike.left-s.camera,strike.right-s.camera
      local top,bottom=strike.top,strike.bottom
-     local warningColor=strike.catchable and counterColor or ordinaryWarningColor
+     local warningColor=strike.reflectable and returnColor or strike.catchable and counterColor or ordinaryWarningColor
      if strike.orb and cast.tick>=strike.first then
       f.draws[#f.draws+1]={kind='effect',x=strike.x-s.camera,y=(top+bottom)/2,
        w=strike.radius*2,h=bottom-top,alpha=1,color=warningColor}
+      if strike.reflectable then
+       f.draws[#f.draws+1]={kind='text',x=strike.x-s.camera,y=strike.y+5,text='K',size=15,color=returnColor}
+      end
      else
       band(f,left,top,right-left,bottom-top,warningColor..'23')
       if cast.tick>=strike.first then

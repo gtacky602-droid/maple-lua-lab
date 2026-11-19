@@ -1,0 +1,36 @@
+{
+  "luachra": {
+    "dashMovesActualBodyAndHitsOnce": true,
+    "otherMoves": [
+      "FW48",
+      "FW49"
+    ],
+    "soloClear": {
+      "seconds": 70.68,
+      "hp": 140,
+      "bubblesReturned": 0,
+      "killXp": 212400
+    }
+  },
+  "chassanion": {
+    "returnImpactDamage": 156,
+    "earlyKStartsCooldown": true,
+    "ordinaryBubbleCannotBeReturned": true,
+    "bubbleTravelsBeforeSingleImpact": true,
+    "outsideAndInsideWithSingleRecord": true,
+    "soloClear": {
+      "seconds": 20.55,
+      "hp": 76,
+      "bubblesReturned": 6,
+      "killXp": 212400
+    }
+  },
+  "optionalSurveySteps": 4,
+  "routeAfterReport": [
+    "fon-wp-55765",
+    "morte-tower-sluice",
+    "chassanion-legend-bubble-room"
+  ],
+  "bothUseLv100GateAndRechallenge": true,
+  "bothSaveReward": true
+}
