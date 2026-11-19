@@ -207,9 +207,14 @@ crab=by_id['original-moon-crab']
 check('Original moon crab unlocks field retries after the chapter report',
       crab['fieldNode']=='nod-moon-crab-arena' and crab['status']=='partial'
       and fields[crab['id']]['storyWindow']=={'quest':'nod-moon-vault-quest','first':1,'after':2,'repeatAfterReport':True})
+optional={entry['encounter_id'] for entry in
+          json.loads((ROOT/'design/world/encounters.json').read_text(encoding='utf8'))['legends']}
 check('49 imported and fifteen original field rows have registered field routes, still partial',
-      len(normal)==64 and set(fields)=={r['id'] for r in normal}
+      len(normal)==64 and set(fields)-optional=={r['id'] for r in normal}
       and all(r['status']=='partial' and r['fieldNode']==fields[r['id']]['node'] for r in normal))
+legend_nodes=json.loads((ROOT/'content/coverage.json').read_text(encoding='utf8'))['optional_legend_coverage']['stage_by_legend']
+check('optional legend routes have their own coverage ledger',
+      legend_nodes=={id:fields[id]['node'] for id in optional & fields.keys()} and not optional & by_id.keys())
 check('original field boss is not counted in the imported roster',
       by_id['original-snow-sweeper']['entity_ids']==[]
       and by_id['original-snow-sweeper']['grouping']=='original_design')

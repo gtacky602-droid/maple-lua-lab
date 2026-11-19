@@ -1,5 +1,5 @@
 {
-  "count": 111,
+  "count": 112,
   "checks": [
     "every imported entity represented",
     "encounter IDs unique",
@@ -68,6 +68,7 @@
     "Original river racer is a chapter practice opponent",
     "Original moon crab unlocks field retries after the chapter report",
     "49 imported and fifteen original field rows have registered field routes, still partial",
+    "optional legend routes have their own coverage ledger",
     "original field boss is not counted in the imported roster",
     "Dvalin has a separate weekly arena",
     "Andrius has a separate weekly arena",

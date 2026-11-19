@@ -1,0 +1,172 @@
+{
+  "legend-churldric": {
+    "id": "legend-churldric",
+    "name": "チャルデリック",
+    "references": [
+      {
+        "page": "https://game8.jp/genshin/774916",
+        "alt": "チャルデリック",
+        "image": "https://img.game8.jp/12470806/b899b633743b3988f60d8ed90e530c72.webp/show"
+      },
+      {
+        "page": "https://game8.jp/genshin/774916",
+        "alt": "チャルデリック炎範囲攻撃",
+        "image": "https://img.game8.jp/12470640/2d2c47f6762b5e027d520983d2e7fe66.webp/original"
+      },
+      {
+        "page": "https://game8.jp/genshin/774916",
+        "alt": "動画代表フレーム",
+        "image": "https://img.game8.jp/12470636/3c4e843090a76f4595ca4b9671a76f9c.jpg/poster"
+      },
+      {
+        "page": "https://game8.jp/genshin/774916",
+        "image": "https://img.game8.jp/12470636/3c4e843090a76f4595ca4b9671a76f9c.mp4/show",
+        "alt": "戦闘動画から3時点を比較"
+      },
+      {
+        "page": "https://game8.jp/genshin/383798",
+        "image": "https://img.game8.jp/5765705/8a8995a4bfc3aba48cae798b94a24ce2.jpeg/original",
+        "alt": "通常の岩シャーマンの戦闘・杖"
+      },
+      {
+        "page": "https://game8.jp/genshin/383798",
+        "image": "https://img.game8.jp/5765703/a223bcf447f46e6d79aaae249047f6d9.jpeg/original",
+        "alt": "通常の岩シャーマンの戦闘・杖"
+      },
+      {
+        "page": "https://game8.jp/genshin/383798",
+        "image": "https://img.game8.jp/5765704/d4ad61c111bd39ccf23236cb176799d7.jpeg/original",
+        "alt": "通常の岩シャーマンの戦闘・杖"
+      }
+    ],
+    "shared": "通常の岩シャーマンの現地戦闘の複数方向で小柄な体と長い杖を確認。名付き戦闘でも白いたてがみ、小さい脚、杖の形が読める。",
+    "distinct": "名付きの仮面には丸い桃色の発光部、突起のある黒い縁、額の長い角と淡い豊かな鬣。岩シャーマンの衣装・配色とは異なる。",
+    "reuse": "岩シャーマンとは別素材。",
+    "uncertain": "背面の模様と杖先の細かな意匠は戦闘映像で読み切れず独自に整理。"
+  },
+  "legend-maha-vasudevayaputra": {
+    "id": "legend-maha-vasudevayaputra",
+    "name": "マハーヴァスデーヴァヤプトラ太子",
+    "references": [
+      {
+        "page": "https://game8.jp/genshin/775010",
+        "alt": "マハーヴァスデーヴァヤプトラ太子",
+        "image": "https://img.game8.jp/12472234/576869583c25ce1a3becd7b8996f4b9a.webp/show"
+      },
+      {
+        "page": "https://game8.jp/genshin/775010",
+        "alt": "太子通常状態",
+        "image": "https://img.game8.jp/12471882/a82eb64bcfa991c34d6b86c8f99bdc0f.webp/show"
+      },
+      {
+        "page": "https://game8.jp/genshin/775010",
+        "image": "https://img.game8.jp/12471945/0f38004fa929d58067afe76008c60005.mp4/show",
+        "alt": "戦闘動画から3時点を比較"
+      },
+      {
+        "page": "https://game8.jp/genshin/529422",
+        "image": "https://img.game8.jp/8090478/b939977282745d1cdb1a155acaa8280b.png/original",
+        "alt": "トコトコ岩マッシュロン"
+      },
+      {
+        "page": "https://gamewith.jp/genshin/article/show/360072",
+        "image": "https://img.gamewith.jp/article_tools/genshin/gacha/enemy_154.png",
+        "alt": "通常の岩マッシュロン"
+      },
+      {
+        "page": "https://www.hoyolab.com/article/14535302",
+        "image": "https://upload-os-bbs.hoyolab.com/upload/2022/12/24/227554930/da81eb11803b9babb7723f763453255a_5638390637317686267.jpg",
+        "alt": "通常岩マッシュロンの投稿写真"
+      },
+      {
+        "page": "https://www.hoyolab.com/article/14535302",
+        "image": "https://upload-os-bbs.hoyolab.com/upload/2022/12/24/227554930/d6fa3925c010907b4c7d43a7b5e82bc2_2258423143198238024.jpg",
+        "alt": "通常岩マッシュロンの投稿写真"
+      }
+    ],
+    "shared": "通常図鑑を写した正面斜めと反対側の2姿勢、カード全身、名付き肖像と戦闘全身を比較。傘の斑、裏のひだ、下向きの黄の突起、眼、襟と脚、尾の大きな色面が共通。",
+    "distinct": "立ち姿で恒常的な固有装飾を確認できず。戦闘中の黄や赤の強い光は姿勢・状態・元素の影響として扱った。",
+    "reuse": "通常のトコトコ岩マッシュロンと待機・構え・動作を共用可能。",
+    "uncertain": "背面の斑点と足裏の模様の完全一致は未確認。"
+  },
+  "legend-prism-slime": {
+    "id": "legend-prism-slime",
+    "name": "プリズムスライム",
+    "references": [
+      {
+        "page": "https://game8.jp/genshin/793868",
+        "alt": "プリズムスライム",
+        "image": "https://img.game8.jp/12701696/a46183540f1c8716ee0c16feb5e03a7e.webp/original"
+      },
+      {
+        "page": "https://gamewith.jp/genshin/article/show/566710",
+        "alt": "原神のプリズムスライム巨大化",
+        "image": "https://img.gamewith.jp/img/dd63188e4b37305204802c5f6670c993.png"
+      },
+      {
+        "page": "https://game8.jp/genshin/793868",
+        "alt": "動画代表フレーム",
+        "image": "https://img.game8.jp/12712041/524f1f5488ee033ba9d6e3527ae59145.jpg/poster"
+      },
+      {
+        "page": "https://game8.jp/genshin/793868",
+        "image": "https://img.game8.jp/12712041/524f1f5488ee033ba9d6e3527ae59145.mp4/show",
+        "alt": "戦闘動画から3時点を比較"
+      },
+      {
+        "page": "https://wiki.hoyolab.com/m/genshin/entry/2128?lang=en-us",
+        "image": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2026/03/04/35428890/64dd81c0e0db08c7c294fd1236a655e9_7922555006621629746.png",
+        "alt": "大型水スライム図鑑全身"
+      }
+    ],
+    "shared": "大型水スライムの図鑑と同じ丸いドームと縦長の二眼。",
+    "distinct": "濃紺から淡青の半透明の胴、明るい縁、額の曲線、細かい光点、頭頂につながる輪を名付き肖像・現地で確認。通常の大型水スライムでは青緑の体と二つの小さな突起。",
+    "reuse": "通常の大型スライムとは別素材。",
+    "uncertain": "正確な透過率・屈折・背面の線の連続は未確認。透過率は可読性を優先した設定。"
+  },
+  "legend-mushteshir": {
+    "id": "legend-mushteshir",
+    "name": "ムーシュ＝テヒル",
+    "references": [
+      {
+        "page": "https://game8.jp/genshin/794290",
+        "alt": "ムーシュ＝テヒル",
+        "image": "https://img.game8.jp/12701698/75ad117350351a2a637367d9619cb432.webp/original"
+      },
+      {
+        "page": "https://gamewith.jp/genshin/article/show/566711",
+        "alt": "原神のムーシュテヒルHPをギリギリまで削ってからダウンさせる",
+        "image": "https://img.gamewith.jp/img/cabb906b61c1808585003169da9ef475.png"
+      },
+      {
+        "page": "https://game8.jp/genshin/794290",
+        "alt": "動画代表フレーム",
+        "image": "https://img.game8.jp/12713262/cb884113fcff0f0b7680703cc4aa789d.jpg/poster"
+      },
+      {
+        "page": "https://game8.jp/genshin/794290",
+        "image": "https://img.game8.jp/12711697/e7b493f85fd7ce250046d2818858669e.mp4/show",
+        "alt": "戦闘動画から3時点を比較"
+      },
+      {
+        "page": "https://wiki.hoyolab.com/pc/genshin/entry/11050?lang=ja-jp",
+        "image": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/06/29/7c0ae3426ccbd9f7b48a4f920a8077f8_7807657607379260758.png",
+        "alt": "通常機体のHoYoWiki画像"
+      },
+      {
+        "page": "https://wiki.hoyolab.com/pc/genshin/entry/11050?lang=ja-jp",
+        "image": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2026/07/17/224893084/001093bdf20b846a8eb72accc6be5d95_3480258875673821292.png",
+        "alt": "通常機・チュートリアル戦闘"
+      },
+      {
+        "page": "https://game8.jp/genshin/794814",
+        "alt": "コマンダー陣形",
+        "image": "https://img.game8.jp/12712682/d7f0127615facb0fde06340cc89641fb.webp/original"
+      }
+    ],
+    "shared": "通常図鑑と名付きで円形の中核、対をなす湾曲外殻、緑の発光部・金の縁が共通。",
+    "distinct": "通常の図鑑は象牙色の外殻、名付き肖像は黒灰色。名付き戦闘中は外殻が明灰色・青にも見えるので、明るい瞬間の色は基調に使わなかった。",
+    "reuse": "通常機と構造を共有するが暗色の専用絵を使用。",
+    "uncertain": "裏側の継ぎ目、外殻の開閉角、色温度をそろえた同一条件での比較は未確認。"
+  }
+}

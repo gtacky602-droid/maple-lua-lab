@@ -14,12 +14,15 @@ try{
  const layouts=await json('content/enemy-art-layout.json');
  let drafts=structuredClone(initial),serial=0,importTicket=0,selected=null;const nodes=new Map(graph.nodes.map(n=>[n.id,n]));
  for(const [id,index] of [['hydro-slime',4],['pyro-slime',6]]){const profiles=Object.fromEntries(Object.entries(variants.variants).map(([k,v])=>[k,v.sprites[index]]));assets[id]={source:'atlas-transparent.png',box:profiles.legacy.box,profiles,h:40}}
- for(const [id,{height,hover}] of Object.entries(layouts)){
-  const data=await json(`assets/${id}-idle-sprites.json`),art={...data,h:height,hover};
+ for(const [id,{height,hover,file,name}] of Object.entries(layouts)){
+  const data=await json('assets/'+(file??`${id}-idle-sprites.json`)),art={...data,h:height,hover};
   if(assets[id]){
    Object.assign(assets[id],{h:height,hover});
    assets[id+'-reference']=art;
   }else assets[id]=art;
+  if(name&&![...$('species').options].some(option=>option.value===id)){
+   const option=document.createElement('option');option.value=id;option.textContent=name;$('species').append(option);
+  }
  }
  for(const [kind,label,file] of [['boss','ボス待機候補（比較用の大きさ）','boss-art-gallery.json'],['character','主人公・同行者・NPC','character-art-gallery.json']]){
   const gallery=await json('content/'+file),group=document.createElement('optgroup');group.label=label;

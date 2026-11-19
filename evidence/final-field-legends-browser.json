@@ -1,0 +1,148 @@
+{
+  "routes": [
+    [
+      "mond-wp-95792",
+      "dorn-shieldrol-lake-trail",
+      "raised"
+    ],
+    [
+      "dorn-shieldrol-lake-trail",
+      "dorn-churldric-cooking-camp",
+      "raised"
+    ],
+    [
+      "dorn-churldric-cooking-camp",
+      "dorn-shieldrol-lake-trail",
+      "walk"
+    ],
+    [
+      "dorn-shieldrol-lake-trail",
+      "mond-wp-95792",
+      "walk"
+    ],
+    [
+      "nat-wp-96377",
+      "sky-sand-pavilion-walk",
+      "lift"
+    ],
+    [
+      "sky-sand-pavilion-walk",
+      "sky-maha-pavilion-court",
+      "raised"
+    ],
+    [
+      "sky-maha-pavilion-court",
+      "sky-sand-pavilion-walk",
+      "walk"
+    ],
+    [
+      "sky-sand-pavilion-walk",
+      "nat-wp-96377",
+      "lift"
+    ],
+    [
+      "frost-wp-99287",
+      "frost-wujian-south-trail",
+      "raised"
+    ],
+    [
+      "frost-wujian-south-trail",
+      "frost-prism-slime-basin",
+      "walk"
+    ],
+    [
+      "frost-prism-slime-basin",
+      "frost-wujian-south-trail",
+      "walk"
+    ],
+    [
+      "frost-wujian-south-trail",
+      "frost-wp-99287",
+      "walk"
+    ],
+    [
+      "frost-wp-99306",
+      "frost-ancient-moon-console",
+      "raised"
+    ],
+    [
+      "frost-ancient-moon-console",
+      "frost-commander-first-wave",
+      "raised"
+    ],
+    [
+      "frost-commander-first-wave",
+      "frost-ancient-moon-console",
+      "walk"
+    ],
+    [
+      "frost-ancient-moon-console",
+      "frost-commander-second-wave",
+      "raised"
+    ],
+    [
+      "frost-commander-second-wave",
+      "frost-ancient-moon-console",
+      "walk"
+    ],
+    [
+      "frost-ancient-moon-console",
+      "frost-mushteshir-inner-chamber",
+      "walk"
+    ],
+    [
+      "frost-mushteshir-inner-chamber",
+      "frost-ancient-moon-console",
+      "walk"
+    ],
+    [
+      "frost-ancient-moon-console",
+      "frost-commander-first-wave",
+      "raised"
+    ],
+    [
+      "frost-commander-first-wave",
+      "frost-ancient-moon-console",
+      "walk"
+    ],
+    [
+      "frost-ancient-moon-console",
+      "frost-wp-99306",
+      "walk"
+    ]
+  ],
+  "comparisons": [
+    {
+      "name": "chur",
+      "bodies": 1,
+      "pngCommands": 15,
+      "rectangleCommands": 8264,
+      "lightCommands": 2159
+    },
+    {
+      "name": "maha",
+      "bodies": 1,
+      "pngCommands": 19,
+      "rectangleCommands": 6731,
+      "lightCommands": 1691
+    },
+    {
+      "name": "prism",
+      "bodies": 1,
+      "pngCommands": 15,
+      "rectangleCommands": 6240,
+      "lightCommands": 1647
+    },
+    {
+      "name": "musht",
+      "bodies": 1,
+      "pngCommands": 19,
+      "rectangleCommands": 8122,
+      "lightCommands": 2192
+    }
+  ],
+  "consoleWavesPassed": true,
+  "waveStaysCleared": true,
+  "questsReported": true,
+  "errors": []
+}

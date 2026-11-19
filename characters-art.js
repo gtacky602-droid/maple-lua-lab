@@ -27,6 +27,10 @@ try{
   await add('frostarm-lawachurl','ヒルチャール・霜鎧の王（ドラゴンスパインに仮配置）',await json('assets/frostarm-lawachurl-idle-sprites.json'),layouts['frostarm-lawachurl'].height);
   await add('hunter-seeker','秘源機兵・ハンターシーカー（ナタに仮配置）',await json('assets/hunter-seeker-idle-sprites.json'),layouts['hunter-seeker'].height);
   await add('fanged-beast','聖骸牙獣（トゥニギの黒淵に仮配置）',await json('assets/fanged-beast-idle-sprites.json'),layouts['fanged-beast'].height);
+  const shown=new Set(assets.map(item=>item.id));
+  for(const [id,{height,file,name}] of Object.entries(layouts)){
+   if(!shown.has(id))await add(id,name??id,await json('assets/'+(file??`${id}-idle-sprites.json`)),height);
+  }
  }else{
   const catalog=document.documentElement.dataset.gallery==='bosses'?'boss-art-gallery.json':'character-art-gallery.json';
   for(const item of (await json('content/'+catalog)).items){

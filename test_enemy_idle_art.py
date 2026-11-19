@@ -6,7 +6,7 @@ lua,c=runtime();results=[]
 layouts=json.loads((ROOT/'content/enemy-art-layout.json').read_text(encoding='utf8'))
 for name,layout in layouts.items():
  height=layout['height']
- data=json.loads((ROOT/'assets'/f'{name}-idle-sprites.json').read_text())
+ data=json.loads((ROOT/'assets'/layout.get('file',f'{name}-idle-sprites.json')).read_text(encoding='utf8'))
  assert hashlib.sha256((ROOT/'assets'/data['source']).read_bytes()).hexdigest()==data['sha256']
  alpha=Image.open(ROOT/'assets'/data['source']).getchannel('A').getextrema()
  assert alpha[0]==0 and alpha[1]>=250
@@ -21,7 +21,7 @@ for name,layout in layouts.items():
   assert len(draws)==1
   draw=draws[0]
   assert draw.h==height and draw.y==350-layout['hover'] and abs(draw.w/height-data['box'][2]/data['box'][3])<1e-9
-  assert draw.anchorX==data['anchorX']
+  assert draw.anchorX==data.get('anchorX',.5)
   rect=c.frame(s,'rect',profile)
   e.hp=0;baseline=c.frame(s,'rect',profile)
   assert sum(d.kind=='rect' for d in rect.draws.values())-sum(d.kind=='rect' for d in baseline.draws.values())==len(data['profiles'][profile]['runs'])

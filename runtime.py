@@ -264,7 +264,10 @@ def runtime():
     core.hilichurlArt=lua.table_from(json.loads((ROOT/'assets/hilichurl-idle-sprites.json').read_text(encoding='utf8')),recursive=True)
     enemy_layout=json.loads((ROOT/'content/enemy-art-layout.json').read_text(encoding='utf8'))
     core.enemyArtLayout=lua.table_from(enemy_layout,recursive=True)
-    core.enemyIdleArt=lua.table_from({key:json.loads((ROOT/'assets'/f'{key}-idle-sprites.json').read_text(encoding='utf8')) for key in enemy_layout},recursive=True)
+    core.enemyIdleArt=lua.table_from({
+        key: json.loads((ROOT/'assets'/layout.get('file', f'{key}-idle-sprites.json')).read_text(encoding='utf8'))
+        for key, layout in enemy_layout.items()
+    }, recursive=True)
     core.danukiArt=lua.table_from(json.loads((ROOT/'assets/danuki-dance-sprites-v1.json').read_text(encoding='utf8')),recursive=True)
     core.bennettArt=lua.table_from(json.loads((ROOT/'assets/bennett-cave-guide-sprites-v1.json').read_text(encoding='utf8')),recursive=True)
     core.noelleArt=lua.table_from({

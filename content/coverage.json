@@ -264,7 +264,7 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 19,
+      "prototype_stage_count": 21,
       "prototype_quest_count": 6,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
@@ -7962,8 +7962,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1505,
-    "provisional_quests": 280,
+    "authored_stages": 1515,
+    "provisional_quests": 283,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -8008,7 +8008,7 @@
     "status": "partial",
     "design": "content/world-bosses-design.json"
   },
-  "current_priority": "Review and implement the 74 remaining Sites entrances with source coordinates, then audit the boss encounter playthroughs.",
+  "current_priority": "Audit normal, weekly, and original Stygian encounters against the reviewed roster, then verify mapped quests from acceptance to report.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",
@@ -9653,7 +9653,9 @@
           "mond-wp-95801",
           "mond-wp-95802",
           "mond-wp-95803",
-          "sites-lookout-98500"
+          "sites-lookout-98500",
+          "dorn-shieldrol-lake-trail",
+          "dorn-churldric-cooking-camp"
         ],
         "quest_ids": [
           "mond-mapped-islet",
@@ -10017,7 +10019,9 @@
           "nat-wp-96381",
           "nat-wp-96382",
           "nat-wp-96383",
-          "nat-wp-96384"
+          "nat-wp-96384",
+          "sky-sand-pavilion-walk",
+          "sky-maha-pavilion-court"
         ]
       },
       {
@@ -10060,7 +10064,13 @@
           "frost-wp-99310",
           "frost-wp-99311",
           "frost-wp-99312",
-          "frost-wp-99313"
+          "frost-wp-99313",
+          "frost-wujian-south-trail",
+          "frost-prism-slime-basin",
+          "frost-ancient-moon-console",
+          "frost-commander-first-wave",
+          "frost-commander-second-wave",
+          "frost-mushteshir-inner-chamber"
         ]
       }
     ],
@@ -10391,8 +10401,12 @@
       "content/story-graph.json"
     ],
     "design_candidates": 56,
-    "playable_prototypes": 52,
+    "playable_prototypes": 56,
     "pending_boss_moves": [
+      "legend-frostmoon_mushteshir",
+      "legend-frostmoon_prism_slime",
+      "legend-mondstadt_churldric",
+      "legend-mondstadt_maha_vasudevayaputra",
       "legend-natlan_atlatl",
       "legend-natlan_balachko",
       "legend-natlan_battlegoat_ironclaw",
@@ -10494,7 +10508,11 @@
       "legend-snez_furiosa": "sne-furiosa-domain-outlook",
       "legend-snez_ancient_ironquill": "sne-ancient-mouse-den",
       "legend-snez_elder_blighttree": "sne-crystal-tree-refuge",
-      "legend-snez_rowdy_beast_host": "sne-novokichev-ore-yard"
+      "legend-snez_rowdy_beast_host": "sne-novokichev-ore-yard",
+      "legend-mondstadt_churldric": "dorn-churldric-cooking-camp",
+      "legend-mondstadt_maha_vasudevayaputra": "sky-maha-pavilion-court",
+      "legend-frostmoon_prism_slime": "frost-prism-slime-basin",
+      "legend-frostmoon_mushteshir": "frost-mushteshir-inner-chamber"
     }
   }
 }

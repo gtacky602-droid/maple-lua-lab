@@ -1,0 +1,49 @@
+{
+  "id": "commander-normal",
+  "name": "先駆秘源コマンダー陣形",
+  "pose": "idle",
+  "cell_wh": [
+    288,
+    144
+  ],
+  "facing": "left",
+  "pivot_xy": [
+    144,
+    132
+  ],
+  "references": [
+    {
+      "page": "https://wiki.hoyolab.com/pc/genshin/entry/11050?lang=ja-jp",
+      "image": "https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2026/06/29/7c0ae3426ccbd9f7b48a4f920a8077f8_7807657607379260758.png",
+      "alt": "通常機体のHoYoWiki画像"
+    },
+    {
+      "page": "https://wiki.hoyolab.com/pc/genshin/entry/11050?lang=ja-jp",
+      "image": "https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2026/07/17/224893084/001093bdf20b846a8eb72accc6be5d95_3480258875673821292.png",
+      "alt": "通常機・チュートリアル戦闘"
+    },
+    {
+      "page": "https://game8.jp/genshin/794814",
+      "alt": "コマンダー陣形",
+      "image": "https://img.game8.jp/12712682/d7f0127615facb0fde06340cc89641fb.webp/original"
+    },
+    {
+      "page": "https://game8.jp/genshin/794290",
+      "alt": "ムーシュ＝テヒル",
+      "image": "https://img.game8.jp/12701698/75ad117350351a2a637367d9619cb432.webp/original"
+    },
+    {
+      "page": "https://gamewith.jp/genshin/article/show/566711",
+      "alt": "原神のムーシュテヒルHPをギリギリまで削ってからダウンさせる",
+      "image": "https://img.gamewith.jp/img/cabb906b61c1808585003169da9ef475.png"
+    },
+    {
+      "page": "https://game8.jp/genshin/794290",
+      "image": "https://img.game8.jp/12711697/e7b493f85fd7ce250046d2818858669e.mp4/show",
+      "alt": "戦闘動画から3時点を比較"
+    }
+  ],
+  "shared": "ムーシュ＝テヒルと同じ待機絵の輪郭・中核・湾曲外殻を使用。透明部分と足元基準は画素単位で一致する。",
+  "difference": "通常の図鑑写真では象牙色の外殻、金の縁、深緑の中核と淡緑の光条。チュートリアルの通常時・凍結時も比較し、通常時の色を採用。名付き肖像では外殻が灰黒色。",
+  "unverified": "同じ照明・角度での色値、背面の継ぎ目。"
+}

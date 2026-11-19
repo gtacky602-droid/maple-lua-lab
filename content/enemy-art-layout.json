@@ -54,5 +54,7 @@
   "sled-maintenance-cart": {"height":48,"hover":0},
   "snow-mantle-beetle": {"height":48,"hover":0},
   "sail-shell-crawler": {"height":53,"hover":0},
-  "pebble-courier": {"height":49,"hover":0}
+  "pebble-courier": {"height":49,"hover":0},
+  "grounded-geoshroom": {"name":"トコトコ岩マッシュロン","height":62,"hover":0,"file":"legend-maha-vasudevayaputra-field-idle-sprites-v1.json"},
+  "frost-pioneer-commander": {"name":"先駆秘源コマンダー陣形","height":86,"hover":10,"file":"frost-commander-normal-idle-sprites-v1.json"}
 }

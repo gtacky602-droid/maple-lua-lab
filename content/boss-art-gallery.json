@@ -753,7 +753,11 @@
     {"id":"legend-calamitous-tree","name":"災禍古樹","file":"legend-calamitous-tree-field-idle-sprites-v1.json","height":110,"mapHover":0},
     {"id":"legend-rowdy-root","name":"スタヴローギン","file":"legend-rowdy-root-field-idle-sprites-v1.json","height":110,"mapHover":0},
     {"id":"legend-rowdy-long-ear","name":"バルバラ","file":"legend-rowdy-long-ear-field-idle-sprites-v1.json","height":110,"mapHover":0},
-    {"id":"legend-rowdy-guard","name":"ヴェルホヴェンスキー","file":"legend-rowdy-guard-field-idle-sprites-v1.json","height":110,"mapHover":0}
+    {"id":"legend-rowdy-guard","name":"ヴェルホヴェンスキー","file":"legend-rowdy-guard-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-churldric","name":"チャルデリック","file":"legend-churldric-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-maha-vasudevayaputra","name":"マハーヴァスデーヴァヤプトラ太子","file":"legend-maha-vasudevayaputra-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-prism-slime","name":"プリズムスライム","file":"legend-prism-slime-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-mushteshir","name":"ムーシュ＝テヒル","file":"legend-mushteshir-field-idle-sprites-v1.json","height":110,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }

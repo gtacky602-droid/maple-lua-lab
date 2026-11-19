@@ -120,7 +120,10 @@ def build():
             'entity_ids': [], 'status': 'not_implemented', 'action': None, 'grouping': 'original_design',
             'evidence': [entry.get('source', original['source'])], 'remaining': ['完成ドット絵・台詞', '4難度・報酬', 'マルチ・記録'],
         })
-    unknown = (details.keys() | fields.keys() | weeklies.keys() | stygian.keys()) - {row['id'] for row in rows}
+    # Optional legends use the atlas and the coverage ledger's own registry.
+    optional = {entry['encounter_id'] for entry in read_json('design/world/encounters.json')['legends']}
+    worklist_fields = fields.keys() - optional
+    unknown = (details.keys() | worklist_fields | weeklies.keys() | stygian.keys()) - {row['id'] for row in rows}
     if unknown:
         raise ValueError(f'Encounter details refer to unknown IDs: {sorted(unknown)}')
 

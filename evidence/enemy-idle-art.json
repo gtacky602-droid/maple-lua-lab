@@ -19,6 +19,24 @@
       "height": 40
     },
     {
+      "art": "anemo-slime",
+      "profile": "legacy",
+      "runs": 925,
+      "height": 39
+    },
+    {
+      "art": "anemo-slime",
+      "profile": "h48c32",
+      "runs": 595,
+      "height": 39
+    },
+    {
+      "art": "anemo-slime",
+      "profile": "h32c16",
+      "runs": 242,
+      "height": 39
+    },
+    {
       "art": "pyro-slime",
       "profile": "legacy",
       "runs": 848,
@@ -109,6 +127,24 @@
       "height": 104
     },
     {
+      "art": "treasure-scout",
+      "profile": "legacy",
+      "runs": 1318,
+      "height": 88
+    },
+    {
+      "art": "treasure-scout",
+      "profile": "h48c32",
+      "runs": 799,
+      "height": 88
+    },
+    {
+      "art": "treasure-scout",
+      "profile": "h32c16",
+      "runs": 323,
+      "height": 88
+    },
+    {
       "art": "armored-crab",
       "profile": "legacy",
       "runs": 1451,
@@ -197,6 +233,114 @@
       "profile": "h32c16",
       "runs": 1334,
       "height": 112
+    },
+    {
+      "art": "sled-maintenance-cart",
+      "profile": "legacy",
+      "runs": 1004,
+      "height": 48
+    },
+    {
+      "art": "sled-maintenance-cart",
+      "profile": "h48c32",
+      "runs": 624,
+      "height": 48
+    },
+    {
+      "art": "sled-maintenance-cart",
+      "profile": "h32c16",
+      "runs": 260,
+      "height": 48
+    },
+    {
+      "art": "snow-mantle-beetle",
+      "profile": "legacy",
+      "runs": 1835,
+      "height": 48
+    },
+    {
+      "art": "snow-mantle-beetle",
+      "profile": "h48c32",
+      "runs": 1137,
+      "height": 48
+    },
+    {
+      "art": "snow-mantle-beetle",
+      "profile": "h32c16",
+      "runs": 495,
+      "height": 48
+    },
+    {
+      "art": "sail-shell-crawler",
+      "profile": "legacy",
+      "runs": 1765,
+      "height": 53
+    },
+    {
+      "art": "sail-shell-crawler",
+      "profile": "h48c32",
+      "runs": 1078,
+      "height": 53
+    },
+    {
+      "art": "sail-shell-crawler",
+      "profile": "h32c16",
+      "runs": 413,
+      "height": 53
+    },
+    {
+      "art": "pebble-courier",
+      "profile": "legacy",
+      "runs": 1258,
+      "height": 49
+    },
+    {
+      "art": "pebble-courier",
+      "profile": "h48c32",
+      "runs": 797,
+      "height": 49
+    },
+    {
+      "art": "pebble-courier",
+      "profile": "h32c16",
+      "runs": 349,
+      "height": 49
+    },
+    {
+      "art": "grounded-geoshroom",
+      "profile": "legacy",
+      "runs": 2040,
+      "height": 62
+    },
+    {
+      "art": "grounded-geoshroom",
+      "profile": "h48c32",
+      "runs": 1232,
+      "height": 62
+    },
+    {
+      "art": "grounded-geoshroom",
+      "profile": "h32c16",
+      "runs": 513,
+      "height": 62
+    },
+    {
+      "art": "frost-pioneer-commander",
+      "profile": "legacy",
+      "runs": 3355,
+      "height": 86
+    },
+    {
+      "art": "frost-pioneer-commander",
+      "profile": "h48c32",
+      "runs": 2074,
+      "height": 86
+    },
+    {
+      "art": "frost-pioneer-commander",
+      "profile": "h32c16",
+      "runs": 995,
+      "height": 86
     }
   ],
   "checks": [

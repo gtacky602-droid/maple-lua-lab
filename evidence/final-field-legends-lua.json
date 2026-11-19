@@ -1,0 +1,22 @@
+{
+  "entranceLevels": [
+    175,
+    185,
+    188,
+    190
+  ],
+  "madhavaGateAndLiftReturn": true,
+  "sharedBiodomeReportUnlocksNorthAndSouth": true,
+  "twoRealTwoEnemyWaves": true,
+  "eachStartUsesSameConsole": true,
+  "firstCompletionSurvivesSave": true,
+  "clearedWavesDoNotRespawn": true,
+  "allFourClearRewardsSaved": true,
+  "designRegistryBound": 56,
+  "killXp": {
+    "legend-mondstadt_churldric": 6514150,
+    "legend-mondstadt_maha_vasudevayaputra": 7484250,
+    "legend-frostmoon_prism_slime": 8663950,
+    "legend-frostmoon_mushteshir": 9552000
+  }
+}
