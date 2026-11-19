@@ -1,6 +1,6 @@
 # フォンテーヌの湖辺の任意戦
 
-[ローカルLuaラボ](http://127.0.0.1:8979/)で本編を開始し、Mの地図で「フォンテーヌ」から「狩場・任意戦」を選ぶ。2戦とも通行Lv100。入口の門でFを押して挑戦し、戦闘中は入口側のFで退ける。いったん外へ出て入り直すと、新しい一戦が始まる。討伐記録はセーブに残る。
+[ローカルLuaラボ](http://127.0.0.1:8981/)で本編を開始し、Mの地図で「フォンテーヌ」から「狩場・任意戦」を選ぶ。2戦とも通行Lv100。入口の門でFを押して挑戦し、戦闘中は入口側のFで退ける。いったん外へ出て入り直すと、新しい一戦が始まる。討伐記録はセーブに残る。
 
 | 挑戦 | 入口 | 攻撃の読み方 |
 | --- | --- | --- |
@@ -11,9 +11,7 @@
 
 ## ドット絵と軽量化
 
-前稿ではヴィヴィアンの顔の光点が二つ目に見え、ニニアンは中央の核が眼として読みにくかった。追加のゲーム画像で正面・斜めと待機・攻撃を見比べ、第3稿ではどのポーズにも一つだけの虹彩と瞳孔を描いた。ヴィヴィアンは縦に浮く胴、ニニアンは両腕の間が顔。実寸と半分の大きさで目の形を確認した。初稿と第2稿はギャラリーに残した。第3稿の透過PNGは約52KBで、戦闘で初めて表示するときに読み込む。背景はラボ用の仮画像。 [新旧6ポーズの比較](../evidence/fontaine-lake-single-eye-comparison.png) · [参照画像の出典と採用理由](../evidence/fontaine-lake-single-eye-sources.json) · [第3稿の元PNGと軽量版](http://127.0.0.1:8979/bosses-art.html?q=%E6%B9%96%E8%BE%BA%E3%81%AE%20%E4%B8%80%E3%81%A4%E7%9B%AE)
-
-第3稿の見た目について再度指摘を受け、名前が見える近景と同系統を同時撮影した画像で、眼の形・発光色・胴と腕の大きさを再確認した。 [追加の資料と観察](FONTAINE_LAKE_ART_REFERENCES.md)
+第4稿は、水形タルパや北風の王狼と同じ大きさで旧稿を比べて制作した。第3稿で強かった金色の目と黒い外周の面積を減らし、青い水の明暗で厚みを描いた。ヴィヴィアンは縦に浮く胴と小さな頭、ニニアンは左右の重い腕と中央の顔。どちらの目も小さな青白い発光として残す。初稿と第2・3稿もギャラリーにある。背景はラボ用の仮画像。 [旧作と同寸の比較](../evidence/lake-legend-art-style-v4.png) · [6ポーズの比較](../evidence/lake-legend-art-v4-poses.png) · [公式の紹介図と2D資料](FONTAINE_LAKE_ART_REFERENCES.md) · [制作時に確認した出典](../evidence/lake-legend-art-v4-sources.json)
 
 ## 検証
 
@@ -21,4 +19,4 @@ Luaで通行Lv100の境界、6行動、移動する水波の命中範囲、退�
 
 ChromeでM表示、実際の門、予告、両方の退路と再挑戦、待機絵の左右比較を確認した。両方の戦闘で同じ場面を一時停止し、標準矩形描画と軽量16色を比較した。描画指示数はログを参照。 [Chromeログ](../evidence/sites-fontaine-lake-legends-browser.json) · [ヴィヴィアンPNG](../evidence/vivianne-legend-field.png) · [軽量16色](../evidence/vivianne-legend-light.png) · [ニニアンの戦闘画面](../evidence/ninianne-legend-field.png) · [ニニアンの軽量16色](../evidence/ninianne-legend-light.png)
 
-再検証は `python -X utf8 test_branch_legends.py`、続けて8979のラボで `node test_branch_legends.mjs --lake`。
+再検証は `python -X utf8 test_branch_legends.py`、Chromeの確認は `$env:LAB_URL='http://127.0.0.1:8981/'` を設定して `node test_branch_legends.mjs --lake`。

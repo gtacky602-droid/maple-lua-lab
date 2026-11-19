@@ -32,6 +32,7 @@ PIVOT_LAYOUTS = {
     'legend-poses-v2-layout.json': 2,
     'fontaine-dry-legend-poses-v1-layout.json': 1,
     'fontaine-lake-legend-poses-v3-layout.json': 3,
+    'fontaine-lake-legend-poses-v4-layout.json': 4,
     'fontaine-ocean-judge-poses-v1-layout.json': 1,
 }
 for layout_name, revision in PIVOT_LAYOUTS.items():

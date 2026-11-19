@@ -1,0 +1,64 @@
+{
+  "references": [
+    {
+      "file": "viv-front.png",
+      "url": "https://img.game8.jp/8558397/c9b289a7256fef585ec81a4e279e468f.jpeg/original",
+      "page": "https://game8.jp/genshin/546492",
+      "kind": "名前付きのゲーム内3D描画",
+      "observed": "正面。胴の上に分かれた小さな水塊、胴から細く垂れる下端を採用。"
+    },
+    {
+      "file": "nin-angle.png",
+      "url": "https://img.game8.jp/8558399/7572f17c6c9d3bfd1cd44fa496f5a695.jpeg/original",
+      "page": "https://game8.jp/genshin/546492",
+      "kind": "名前付きのゲーム内3D描画",
+      "observed": "斜め。中央の顔より前腕が大きく、手前と奥で重なる。"
+    },
+    {
+      "file": "nin-arms.png",
+      "url": "https://img.game8.jp/8558673/b86557334820be3e6ff11a0d33bae555.jpeg/original",
+      "page": "https://game8.jp/genshin/546492",
+      "kind": "名前付きのゲーム内3D描画",
+      "observed": "両腕を上げた瞬間。左右の大きな水塊と低い中央部の比率を採用。"
+    },
+    {
+      "file": "viv-attack.png",
+      "url": "https://img.game8.jp/8558672/0796177b17c99699246a5801916e51d1.jpeg/original",
+      "page": "https://game8.jp/genshin/546492",
+      "kind": "名前付きのゲーム内3D描画",
+      "observed": "放水中。腕と水流が重なり、体が傾く。顔の色は正面像と合わせて判断。"
+    },
+    {
+      "kind": "非公式攻略Wiki Gamerch掲載・同系統の敵の2Dアイコン（50×50）",
+      "page": "https://gamerch.com/genshinwiki/842040",
+      "observed": "濃紺の面の一部に青白い光が載る。輪郭を囲わず、暗い面と明るい水面を直接隣り合わせる。"
+    },
+    {
+      "kind": "非公式攻略Wiki Gamerch掲載・同系統の敵の2Dアイコン（50×50）",
+      "page": "https://gamerch.com/genshinwiki/842040",
+      "observed": "小さい画像でも発光部が濃色の面に収まる。中央を一つの発光球にせず、腕より小さい顔と眼を描く。"
+    },
+    {
+      "kind": "本ラボで制作した旧作2Dスプライト",
+      "file": "assets/tulpa-idle-source-v1.png",
+      "observed": "明るい水の縁と内側の濃藍の陰がつながる。胴の厚みと水腕の重なりを色面で描き分ける参考。"
+    },
+    {
+      "kind": "本ラボで制作した旧作2Dスプライト",
+      "file": "assets/andrius-idle-source-v1.png",
+      "observed": "光が当たる輪郭に明色、重なる箇所に濃色を置く。外周に同じ幅の黒い線を引かず、小さな表示でも手前と奥を残す参考。"
+    },
+    {
+      "kind": "HoYoverse公式の敵紹介用2D図版",
+      "page": "https://genshin.hoyoverse.com/id/news/detail/112633",
+      "observed": "噴出形態は胴の上の小さな頭、粉砕形態は大きい腕の間の中央部。外周の濃色は局所的。明るい青の発光部は両方とも濃色の内側に収まる。紹介図と名付き戦闘画面を照合し、独自の渦巻く面を残して眼の色と比率を決めた。"
+    }
+  ],
+  "scope": "名前付きゲーム内画像と2Dアイコンを制作で参照し、旧作のラボ用ドット絵と比較した。統合時の確認で公式紹介図も照合した。単体の3Dモデルと週末にユーザーが見た具体的な旧作は未確認。",
+  "integration_reference": {
+    "kind": "HoYoverse公式の両形態の紹介図",
+    "page": "https://genshin.hoyoverse.com/id/news/detail/112633",
+    "url": "https://webstatic.hoyoverse.com/upload/op-public/2023/08/11/f13e999e59de3c81a58cc7f63ecde8de_4249075339798025693.png",
+    "observed": "暗い青の内側、青緑の上面、水色の光がつながり、発光部が濃色の面に収まる。両形態の全身比率を同じ背景で確認した。"
+  }
+}

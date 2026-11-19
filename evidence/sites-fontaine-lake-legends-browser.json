@@ -1,5 +1,5 @@
 {
-  "originalSpriteSheet": "fontaine-lake-legend-poses-source-v3.png",
+  "originalSpriteSheet": "fontaine-lake-legend-poses-source-v4.png",
   "bothOptionalEntriesFromAtlas": true,
   "sameFrameComparisonAndGallery": true,
   "galleryShowsBothArtRevisions": true,
@@ -8,13 +8,13 @@
   "measuredDrawCommandsSamePausedFrame": {
     "vivianne": {
       "png": 25,
-      "legacy": 6822,
-      "h32c16": 1727
+      "legacy": 5946,
+      "h32c16": 1529
     },
     "ninianne": {
       "png": 19,
-      "legacy": 7665,
-      "h32c16": 1968
+      "legacy": 7780,
+      "h32c16": 1980
     }
   },
   "errors": []
