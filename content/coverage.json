@@ -264,7 +264,7 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 21,
+      "prototype_stage_count": 22,
       "prototype_quest_count": 6,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
@@ -7962,7 +7962,7 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1515,
+    "authored_stages": 1516,
     "provisional_quests": 283,
     "companion_join_records": 8,
     "scope_complete": false,
@@ -9666,6 +9666,7 @@
           "mond-wp-95801",
           "mond-wp-95802",
           "mond-wp-95803",
+          "sites-windcrown-waterfall",
           "sites-lookout-98500",
           "dorn-shieldrol-lake-trail",
           "dorn-churldric-cooking-camp"

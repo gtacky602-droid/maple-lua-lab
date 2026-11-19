@@ -3,7 +3,7 @@
 from collections import Counter
 import json
 
-from experience import LEVELS
+from experience import LEVELS, WEEKLY_MODE_IDS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
 from tools.waypoint_test import TrailWalk
@@ -74,29 +74,57 @@ assert dict(findings)=={'implemented_as_lab_route':7,'use_existing_local_detour'
                        'use_existing_level_route':3}
 
 enemy_data=read('content/enemy-spawns.json')['nodes']
-checked=set()
+checked={}
 for place in source['exterior_approaches']:
     room,host=place['stage'],place['approach']
     n=nodes[room]
-    assert n['peaceful'] and n['atlasEntrancePending'] and room not in enemy_data
-    assert 'mapPoint' not in n and [e['to'] for e in n['exits']]==[host]
+    path=place['stages']
+    assert place['source_entrance']=='confirmed'
+    assert n['peaceful'] and not n.get('atlasEntrancePending') and room not in enemy_data
+    assert 'mapPoint' not in n and (path[0],path[-1])==(host,room)
     level=place['access']
     safe=n['checkpoint']
     state,walk=stage(level,safe)
     core.enterStoryNode(state,host)
-    go(walk,[host,room])
+    go(walk,path)
     assert not state.enemies[1] and not state.lift
+    if door:=n.get('domainEntrance'):
+        walk.approach(door['x'],door['y'],door['name'])
+        assert any(draw.text==door['name'] for draw in core.frame(state).draws.values() if draw.kind=='text')
     core.action(state,'world_map_toggle')
     view=core.frame(state).worldMap
-    assert view.selected.entrancePending and view.selected.current and view.selected.provisional
-    assert view.routes[1].id==host
+    assert not view.selected.entrancePending and view.selected.current and view.selected.provisional
+    back=next(route for route in view.routes.values() if route.id==path[-2])
+    assert back.label==('風の流れ' if gates[room,path[-2]].get('windLift') else '徒歩')
     core.action(state,'world_map_close')
     restored=core.restore(lua.table_from(save(state),recursive=True),12)
     assert restored.story.node==safe and restored.story.visited[room]
-    go(walk,[room,host])
-    checked.add(room)
+    if arena:=place.get('arena'):
+        edge=gates[room,arena]
+        walk.approach(edge['x'],edge.get('y',480),arena)
+        nearby=core.frame(state).storyNearbyPortal
+        assert nearby.to==arena and not nearby.available and nearby.reason=='必要レベル 112'
+        core.action(state,'story_nearby_portal')
+        assert state.story.node==room
+    go(walk,path[::-1])
+    checked[room]=path
 
-for name,id,level in [('ice','sne-wp-100654',147),('bay','fon-wp-55760',88),('lookout','mond-wp-95782',160)]:
+state,walk=stage(112,'mond-wp-15')
+go(walk,['mond-wp-15','sites-lookout-85351'])
+edge=gates['sites-lookout-85351','mond-gate-chess-court']
+walk.approach(edge['x'],edge.get('y',480),'mond-gate-chess-court')
+assert core.frame(state).weeklyDesk.id=='boss-29122000'
+assert tuple(rank.id for rank in core.frame(state).weeklyDesk.modes.values())==WEEKLY_MODE_IDS
+go(walk,['sites-lookout-85351','mond-gate-chess-court'])
+_,spec=core.currentWeeklyBoss(state)
+assert spec.id=='boss-29122000'
+go(walk,['mond-gate-chess-court','sites-lookout-85351','mond-wp-15'])
+
+fixtures=[
+    ('ice','sne-wp-100654',147),('bay','fon-wp-55760',88),('ridge','mond-border',12),
+    ('chess-low','mond-wp-15',13),('chess','mond-wp-15',112),('lookout','mond-wp-95782',160),
+]
+for name,id,level in fixtures:
     n=nodes[id]
     state,_=stage(level,n['checkpoint'])
     core.enterStoryNode(state,id)
@@ -107,7 +135,8 @@ result={'all_fields_bound':plan['live_bound_fields'],
         'reused_local_round_trips':findings['use_existing_local_detour'],
         'reused_regional_round_trips':findings['use_existing_regional_detour'],
         'level_progression_round_trips':findings['use_existing_level_route'],
-        'exterior_lookouts_round_trips_and_safe_restore':sorted(checked),
+        'confirmed_exterior_round_trips_and_safe_restore':checked,
+        'weekly_chess_from_coast':{'locked_at':13,'rank_desk_and_arena_at':112,'return':'mond-wp-15'},
         'unique_directional_crossings':len(crossings),
         'quest_state_unchanged':True}
 write('evidence/sites-layer-trails-lua.json',result)

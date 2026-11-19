@@ -70,6 +70,9 @@ class TrailWalk:
                 before = self.actor.y
                 self.core.step(self.state, 1 / 60, self.idle)
                 assert self.actor.y != before and self.state.story.node == origin
+                if edge.get('windLift'):
+                    assert ride.windLift and not ride.wallTrack and not ride.spiritwayTrack
+                    assert (self.actor.y < before) == (edge['arrivalY'] < edge.get('y',480))
             for _ in range(360):
                 if self.state.lift is None:
                     break

@@ -99,8 +99,17 @@
       "anchor_field": "teyvat:116",
       "stage": "sites-lookout-10009",
       "approach": "mond-border",
-      "layout": "peaceful_exterior",
-      "source_entrance": "unverified",
+      "layout": "stone_gate_ledge",
+      "source_entrance": "confirmed",
+      "source_name": "山脊の見守り",
+      "map_point": {"map_id": 2, "point_id": 10009, "coordinates": [-431, 859]},
+      "stages": ["mond-border", "sites-lookout-10009"],
+      "evidence": [
+        "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?app_sn=ys_obc&lang=ja-jp&point_id=10009",
+        "https://act-upload.hoyoverse.com/upload/wiki-ys-map/2024/03/08/138260017/f00508469c0a5a2a220c85643222193b_3255772937225284621.png",
+        "https://gamewith.jp/genshin/article/show/273420"
+      ],
+      "evidence_note": "公式地図の投稿に秘境名があり、画像に草地から石の段を上がる入口。碧水の原・石門側の外観として照合した。",
       "access": 12
     },
     {
@@ -108,8 +117,18 @@
       "anchor_field": "teyvat:15",
       "stage": "sites-lookout-85351",
       "approach": "mond-wp-15",
-      "layout": "peaceful_exterior",
-      "source_entrance": "unverified",
+      "layout": "coastal_wind_to_island",
+      "source_entrance": "confirmed",
+      "source_name": "チェスへの誘い",
+      "map_point": {"map_id": 2, "point_id": 85351, "coordinates": [861.0219911521126, 599.9847013775225]},
+      "stages": ["mond-wp-15", "sites-lookout-85351"],
+      "arena": "mond-gate-chess-court",
+      "evidence": [
+        "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?app_sn=ys_obc&lang=en-us&point_id=85351",
+        "https://act-upload.hoyoverse.com/upload/wiki-ys-map/2025/05/12/186585341/3b5812f71a7ba981edfc5cc75f928485_311218274835429801.png",
+        "https://wiki.hoyolab.com/pc/genshin/entry/7672?lang=ja-jp"
+      ],
+      "evidence_note": "公式地図の投稿に鷹飛びの浜上空と間章・第四幕『背理』の条件。画像は茶会の机とチェス盤。原作の解放条件は記録し、ラボは地上Lv13・戦闘Lv112の経路で試す。",
       "access": 13
     },
     {
@@ -117,8 +136,18 @@
       "anchor_field": "teyvat:95782",
       "stage": "sites-lookout-98500",
       "approach": "mond-wp-95782",
-      "layout": "peaceful_exterior",
-      "source_entrance": "unverified",
+      "layout": "waterfall_wind_to_ridge",
+      "source_entrance": "confirmed",
+      "source_name": "山風の荊冠",
+      "map_point": {"map_id": 2, "point_id": 98500, "coordinates": [-790.7499955075837, -926.4999351714132]},
+      "stages": ["mond-wp-95782", "sites-windcrown-waterfall", "sites-lookout-98500"],
+      "evidence": [
+        "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v1/map/point/info?app_sn=ys_obc&lang=ja-jp&point_id=98500",
+        "https://act-upload.hoyoverse.com/upload/wiki-ys-map/2026/05/24/179691821/9ef6c95df4087fbdb623573b1b1cf3ac_1828872408266659883.png",
+        "https://gamewith.jp/genshin/article/show/561196",
+        "https://img.gamewith.jp/img/ac54f62368c2cc7438dfbf77fe542060.png"
+      ],
+      "evidence_note": "地図投稿の本文は空欄。投稿画像と攻略の到着画像で、崖の切れ目・扉正面・右の傾いた岩が一致。配置座標もドーンマンポート南西の同じ門を指す。神像南の滝を上がり、西に進む。",
       "access": 160
     }
   ],

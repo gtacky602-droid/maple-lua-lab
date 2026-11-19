@@ -22,7 +22,8 @@ assert len(fields) == plan['live_bound_fields'] == 979
 assert plan['official_fields'] == 873 and plan['provisional_layout_fields'] == 106
 assert not drafts and not plan['draft_field_approaches']
 pending = {point['field'] for region in atlas['regions'] for point in region['points'] if point.get('entrancePending')}
-assert pending == {'teyvat:10009', 'teyvat:85351', 'teyvat:98500'}
+assert not pending and not plan['unverified_entrance_exteriors']
+assert {site['field'] for site in plan['confirmed_entrance_exteriors']} == {'teyvat:10009', 'teyvat:85351', 'teyvat:98500'}
 assert sum(row['finding']=='implemented_as_lab_route' for row in plan['sites_only_route_review']) == 137
 assert not (fields & drafts.keys()) and len(fields) + len(drafts) == plan['imported_fields'] == 979
 assert len(plan['sites_only_route_review']) == 421
@@ -77,10 +78,10 @@ assert not act('layer:review').points[1]
 act('close')
 core.enterStoryNode(s, 'sites-lookout-98500')
 view = act('toggle')
-assert view.selected.entrancePending and view.selected.id == 'sites-lookout-98500'
-view = act('layer:review')
-assert len(view.points) == 1 and view.points[1].id == 'sites-lookout-98500'
-assert view.routes[1].id == 'mond-wp-95782'
+assert not view.selected.entrancePending and view.selected.id == 'sites-lookout-98500'
+view = act('layer:surface')
+assert view.selected.layer == 'surface' and '山風の荊冠' in view.selected.name
+assert view.routes[1].id == 'sites-windcrown-waterfall' and view.routes[1].label == '風の流れ'
 act('close')
 core.enterStoryNode(s, 'fon-wp-50074')
 view = act('toggle')

@@ -4,11 +4,26 @@
   "reused_local_round_trips": 72,
   "reused_regional_round_trips": 4,
   "level_progression_round_trips": 3,
-  "exterior_lookouts_round_trips_and_safe_restore": [
-    "sites-lookout-10009",
-    "sites-lookout-85351",
-    "sites-lookout-98500"
-  ],
-  "unique_directional_crossings": 398,
+  "confirmed_exterior_round_trips_and_safe_restore": {
+    "sites-lookout-10009": [
+      "mond-border",
+      "sites-lookout-10009"
+    ],
+    "sites-lookout-85351": [
+      "mond-wp-15",
+      "sites-lookout-85351"
+    ],
+    "sites-lookout-98500": [
+      "mond-wp-95782",
+      "sites-windcrown-waterfall",
+      "sites-lookout-98500"
+    ]
+  },
+  "weekly_chess_from_coast": {
+    "locked_at": 13,
+    "rank_desk_and_arena_at": 112,
+    "return": "mond-wp-15"
+  },
+  "unique_directional_crossings": 402,
   "quest_state_unchanged": true
 }

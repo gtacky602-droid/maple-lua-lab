@@ -308,14 +308,24 @@ def build():
                        nodes[start].get('voyage',{}).get('destination')==end
                        for start,end in zip(path,path[1:]))
     retained = {frozenset(route['fields']): route for route in layer_review['retained_detours']}
-    for site in layer_review['exterior_approaches']:
+    exteriors = layer_review['exterior_approaches']
+    for site in exteriors:
         field, anchor = site['field'], site['anchor_field']
         stage, host = site['stage'], site['approach']
-        assert source_fields[field]['role'] == 'hold' and site['source_entrance'] == 'unverified'
+        pending = site['source_entrance'] == 'unverified'
+        assert source_fields[field]['role'] == 'hold'
         assert field_links[field]['stage_id'] == stage and field_links[anchor]['stage_id'] == host
-        assert nodes[stage]['atlasEntrancePending'] and nodes[stage]['peaceful']
-        assert [e['to'] for e in nodes[stage]['exits']] == [host]
-        assert any(e['to']==stage for e in nodes[host]['exits'])
+        assert bool(nodes[stage].get('atlasEntrancePending')) == pending and nodes[stage]['peaceful']
+        stages = site.get('stages', [host, stage])
+        assert (stages[0], stages[-1]) == (host, stage)
+        if not pending:
+            assert site['source_entrance'] == 'confirmed' and site['evidence'] and site['source_name']
+            assert 'teyvat:' + str(site['map_point']['point_id']) == field
+        if arena := site.get('arena'):
+            stages = [*stages, arena]
+        for start, end in zip(stages, stages[1:]):
+            assert any(edge['to'] == end for edge in nodes[start]['exits'])
+            assert any(edge['to'] == start for edge in nodes[end]['exits'])
     for a,b in ledger['sites_only_route_pairs']:
         source = source_by_pair[frozenset((a,b))]
         data = [all_fields[id] for id in (a,b)]
@@ -382,16 +392,17 @@ def build():
     cases = [
         {'fields':['teyvat:95799','teyvat:95803'],'decision':'use_existing_water_and_lift_via_port',
          'stages':['mond-wp-95799','mond-wp-95797','mond-wp-95798','mond-wp-95803']},
-        {'fields':['teyvat:95795','teyvat:98500'],'decision':'use_provisional_exterior_via_statue',
-         'stages':['mond-wp-95795','mond-wp-95782','sites-lookout-98500'],
-         'reason':'The existing hillside route leads to the exterior lookout. The original entrance remains unverified.'},
+        {'fields':['teyvat:95795','teyvat:98500'],'decision':'use_waterfall_ascent_via_statue',
+         'stages':['mond-wp-95795','mond-wp-95782','sites-windcrown-waterfall','sites-lookout-98500'],
+         'reason':'The statue route reaches the source entrance by way of the waterfall.'},
     ]
     plan = {'live_bound_fields':len(field_links),'imported_fields':len(all_fields),
             'official_fields':len(official_links),'provisional_layout_fields':len(designed_links),
             'draft_field_approaches':proposals,'sites_only_route_review':review,
             'level_differences':walkthrough_levels,'manual_cases':cases,
-            'unverified_entrance_exteriors':layer_review['exterior_approaches'],
-            'scope':'Exterior lookouts are playable prototypes. The source entrances remain unverified. Level recommendations do not override quest gates.'}
+            'unverified_entrance_exteriors':[site for site in exteriors if site['source_entrance'] == 'unverified'],
+            'confirmed_entrance_exteriors':[site for site in exteriors if site['source_entrance'] == 'confirmed'],
+            'scope':'Source entrances and lab layouts are tracked separately. Level recommendations do not override quest gates.'}
     (ROOT/'design/world/atlas-route-plan.json').write_text(json.dumps(plan,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
     output = ROOT / 'content/world-atlas.json'
     for entry in entries:

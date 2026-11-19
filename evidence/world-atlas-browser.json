@@ -6,7 +6,7 @@
   "searchAndPlaceSelection": true,
   "itineraryOnCanvasAndPanel": true,
   "hiddenAreaRemoved": true,
-  "provisionalExteriorReturn": true,
+  "windcrownExteriorReturn": true,
   "keyboardAndTurnRecovery": true,
   "simulationTimeFrozen": true,
   "noMobileOverflow": true,

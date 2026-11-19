@@ -62,13 +62,14 @@ try {
  await area('region-01','all');
  await page.locator('#atlasRegion').selectOption('branch-06');
  await area('branch-06','all');
- await page.locator('#atlasLayer').selectOption('review');
- await area('branch-06','review');
+ await page.locator('#atlasLayer').selectOption('surface');
+ await area('branch-06','surface');
  await page.locator('#atlasField').selectOption('sites-lookout-98500');
  await page.waitForFunction(()=>window.lab.frame.worldMap.selected?.id==='sites-lookout-98500');
- assert.match(await page.locator('#atlasPlaceLevel').textContent(),/原作入口は照合中/);
+ assert.match((await map()).selected.name,/山風の荊冠/);
+ await page.locator('#atlasRoutes button').filter({hasText:/滝のふもと.*風の流れ/}).click();
+ await page.waitForFunction(()=>window.lab.frame.worldMap.selected?.id==='sites-windcrown-waterfall');
  await page.locator('#atlasRoutes button').filter({hasText:'半島の神像'}).click();
- await area('branch-06','all');
  await page.waitForFunction(()=>window.lab.frame.worldMap.selected?.id==='mond-wp-95782');
  await page.locator('#atlasCurrent').click();
  await area('region-01','all');
@@ -86,7 +87,7 @@ try {
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/world-atlas-browser.json',JSON.stringify({
   openedByKeyAndButton:true,worldRegions:8,currentPosition:true,
-  mapClickAndFilter:true,searchAndPlaceSelection:true,itineraryOnCanvasAndPanel:true,hiddenAreaRemoved:true,provisionalExteriorReturn:true,
+  mapClickAndFilter:true,searchAndPlaceSelection:true,itineraryOnCanvasAndPanel:true,hiddenAreaRemoved:true,windcrownExteriorReturn:true,
   keyboardAndTurnRecovery:true,simulationTimeFrozen:true,noMobileOverflow:true,errors
  },null,2)+'\n');
  console.log('Atlas current position, overview, regional and water layers, search, keyboard and mobile passed.');

@@ -25,14 +25,15 @@ spawns = read('content/enemy-spawns.json')['nodes']
 atlas = read('content/world-atlas.json')
 positions = {p['id']:p for region in atlas['regions'] for p in region['points']}
 pending = {p['field'] for region in atlas['regions'] for p in region['points'] if p.get('entrancePending')}
+confirmed = {row['field'] for row in read('design/world/atlas-route-plan.json')['confirmed_entrance_exteriors']}
 snapshot = read('design/world/editor-snapshot.json')['data']
 source = {edge['id']:edge for edge in snapshot['edges']}
 review = read('sources/map-research/sites-geographic-fields.json')
 routes = {row['field']:row for row in review['routes']}
 specs = {f['field_id']:f for path in (ROOT/'design/world/placements').glob('*.json')
          for f in read(path.relative_to(ROOT))['fields']}
-assert len(routes)==71 and len(pending)==3 and set(review['held'])==pending
-assert {f['id'] for f in snapshot['fields'] if f['role']=='hold'} >= pending
+assert len(routes)==71 and pending.isdisjoint(confirmed) and set(review['held'])==pending | confirmed
+assert {f['id'] for f in snapshot['fields'] if f['role']=='hold'} >= pending | confirmed
 assert not {node.get('mapPoint') for node in nodes.values()} & routes.keys()
 
 lua, core = runtime()
@@ -73,7 +74,8 @@ for field, row in routes.items():
     src=source[row['source_edge']]
     assert {src['a'],src['b']}=={field,row['anchor_field']}
     assert nodes[host]['mapPoint']==row['anchor_field'] and nodes[stage]['designField']==field
-    assert [edge['to'] for edge in exits[stage]]==[host]+row['pockets']
+    spur_exits=[host,*row['pockets']]
+    assert [edge['to'] for edge in exits[stage] if edge['to'] in spur_exits]==spur_exits
     assert row['recommended']==specs[field]['level'] and row['access']==max(row['recommended'],nodes[host]['level'])
     p=positions[stage]
     assert p['provisional'] and p['recommended']==row['recommended']

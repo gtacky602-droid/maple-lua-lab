@@ -91,6 +91,7 @@ export function waypointDriver(page,nodes,{walkTimeout=12000}={}){
    assert.equal(Boolean(ride.boat),mode==='boat');
    assert.equal(Boolean(ride.waterway),mode==='waterway');
    assert.equal(Boolean(ride.phase),mode==='phase');
+   assert.equal(Boolean(ride.windLift),Boolean(edge.windLift));
    assert.equal(await node(),from);
    if(edge.animatedLift)await page.waitForFunction(y=>{
     const f=window.lab.frame;

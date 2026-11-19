@@ -371,7 +371,7 @@ function hud(f,calls,renderMs){
  if(lift){
   $('storyLiftText').textContent=trolley?(trolley.stopover?'停留所に停車中 ｜ Fで途中下車できます':'トロッコで移動中'):
    voyage?.kind==='ferry'?(voyage.stopover?'オシカ・ナタに寄港中':'航海中')+' ｜ '+lift.destination+'まで '+Math.ceil(lift.remaining)+'秒':
-   (lift.boat?'小舟で移動中':lift.waterway?'水路を移動中':lift.phase?'位相門で移動中':lift.wall?'壁伝いに移動中':lift.spiritway?'スピリットウェイを移動中':'昇降台で移動中')+' ｜ '+lift.destination;
+   (lift.boat?'小舟で移動中':lift.waterway?'水路を移動中':lift.phase?'位相門で移動中':lift.wall?'壁伝いに移動中':lift.spiritway?'スピリットウェイを移動中':lift.windLift?'風に乗って移動中':'昇降台で移動中')+' ｜ '+lift.destination;
   $('storyLiftProgress').max=lift.seconds;
   $('storyLiftProgress').value=lift.seconds-lift.remaining;
  }

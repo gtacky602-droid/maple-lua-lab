@@ -158,6 +158,7 @@ return function(C, atlas)
   elseif edge.waterwaySeconds then return 'water'
   elseif edge.spiritwayTrack then return 'spiritway'
   elseif edge.wallTrack then return 'wall'
+  elseif edge.windLift then return 'air'
   elseif edge.liftSeconds then return 'lift'
   elseif from.voyage and from.voyage.destination==edge.to or to.voyage then
    local vehicle=from.voyage or to.voyage
@@ -166,8 +167,8 @@ return function(C, atlas)
   elseif edge.wind then return 'wind' end
   return 'walk'
  end
- local route_labels = {boat='舟・寄港',water='水路',lift='昇降機',wall='壁伝い',spiritway='スピリットウェイ',phase='位相門',night='黒曜石の柱',rail='鉄道',arrival='乗り物',wind='吹雪待ち',cancel='航海を中止',walk='徒歩'}
- local route_colors = {boat='#ebf4db',water='#c2f1ec',lift='#f4ca8a',wall='#eabb75',spiritway='#f0d3ff',phase='#eebcfa',night='#d5a0f5',arrival='#ebf4db',
+ local route_labels = {boat='舟・寄港',water='水路',lift='昇降機',air='風の流れ',wall='壁伝い',spiritway='スピリットウェイ',phase='位相門',night='黒曜石の柱',rail='鉄道',arrival='乗り物',wind='吹雪待ち',cancel='航海を中止',walk='徒歩'}
+ local route_colors = {boat='#ebf4db',water='#c2f1ec',lift='#f4ca8a',air='#a6e3cf',wall='#eabb75',spiritway='#f0d3ff',phase='#eebcfa',night='#d5a0f5',arrival='#ebf4db',
                        rail='#f2d293',wind='#f5ebcc',cancel='#b9b5a2',walk='#506054'}
 
  local function connections(node)

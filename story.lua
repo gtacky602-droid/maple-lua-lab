@@ -1372,7 +1372,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if seconds then
     s.lift={destination=dest,name=departure.rideLabel or n.name,seconds=seconds,remaining=seconds,
             waterway=departure.waterwaySeconds~=nil,boat=departure.boatSeconds~=nil,phase=departure.phaseSeconds~=nil,
-            wallTrack=departure.wallTrack,spiritwayTrack=departure.spiritwayTrack,
+            wallTrack=departure.wallTrack,spiritwayTrack=departure.spiritwayTrack,windLift=departure.windLift,
             x=departure.arrivalX or (arrival and arrival.x or spawn),y=departure.arrivalY or (arrival and arrival.y or 480)}
      if not s.lift.waterway and not s.lift.boat and not s.lift.phase and (dest==previous or departure.animatedLift)
          and departure.arrivalY then s.lift.riders={} end
@@ -1832,6 +1832,13 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   draws[#draws+1]={kind='text',x=x+1,y=y-20,text='✧',color='#fff5d9',size=21}
  end
 
+ local function drawWindLift(draws,x,y,t)
+  for i=1,5 do
+   local rise=(i*19+t*65)%92
+   draws[#draws+1]={kind='rect',x=x-27+(i*17)%48,y=y-rise,w=21-i*2,h=2,color='#beece4'}
+  end
+ end
+
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile);setup(s);f.story=s.story
   f.growthEligibility={}
@@ -1875,10 +1882,20 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     local ride=s.lift
     f.storyLift={destination=ride.name,remaining=ride.remaining,seconds=ride.seconds,phase=ride.phase,
                  waterway=ride.waterway or nil,boat=ride.boat or nil,wall=ride.wallTrack and true or nil,
-                 spiritway=ride.spiritwayTrack and true or nil}
+                 spiritway=ride.spiritwayTrack and true or nil,windLift=ride.windLift}
    else f.storyNearbyPortal=nearbyPortal(s) end
    local markers={};f.storyPortals={}
    if s.travelerTrial then f.storyTravelerTrial=true end
+   if n.domainEntrance then
+    local door=n.domainEntrance
+    local x,y=door.x-s.camera,door.y
+    if x>=-120 and x<=1080 then
+     markers[#markers+1]={kind='rect',x=x-26,y=y-78,w=52,h=78,color='#70767b'}
+     markers[#markers+1]={kind='rect',x=x-19,y=y-67,w=38,h=67,color='#293d4a'}
+     markers[#markers+1]={kind='rect',x=x-31,y=y-83,w=62,h=8,color='#a6a8a5'}
+     markers[#markers+1]={kind='text',x=x,y=y-96,text=door.name,color='#e5f7ef',size=14}
+    end
+   end
    if n.swim then
     f.storySwim=true
     for i,a in ipairs(s.actors) do
@@ -1955,6 +1972,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
                             color=i%2==0 and '#efd2ff' or '#ffc676',alpha=.9}
       end
      end
+    elseif edge.windLift then
+     drawWindLift(markers,x,y,s.t)
     elseif edge.wallTrack then
      local endX,endY=edge.wallTrack.x-s.camera,edge.wallTrack.y
      for i=0,7 do
@@ -2165,8 +2184,12 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    if s.lift and s.lift.riders and not (s.lift.wallTrack or s.lift.spiritwayTrack) then
     local rider=s.actors[1]
     local x,y=rider.x-s.camera,rider.y
-    markers[#markers+1]={kind='rect',x=x-63,y=y,w=101,h=10,color='#5e5b48'}
-    markers[#markers+1]={kind='rect',x=x-63,y=y,w=101,h=3,color='#f0d18b'}
+    if s.lift.windLift then
+     drawWindLift(markers,x,y+24,s.t+(s.lift.seconds-s.lift.remaining))
+    else
+     markers[#markers+1]={kind='rect',x=x-63,y=y,w=101,h=10,color='#5e5b48'}
+     markers[#markers+1]={kind='rect',x=x-63,y=y,w=101,h=3,color='#f0d18b'}
+    end
    end
    local q,state=cargoQuest(s)
    if q then

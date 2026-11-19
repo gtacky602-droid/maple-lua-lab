@@ -3,11 +3,7 @@
   "live_runtime_fields": 979,
   "draft_entrance_proposals": 0,
   "sites_only_route_reviews": 421,
-  "live_exteriors_with_unverified_source_entrance": [
-    "teyvat:10009",
-    "teyvat:85351",
-    "teyvat:98500"
-  ],
+  "live_exteriors_with_unverified_source_entrance": [],
   "route_findings": {
     "use_existing_geo_route": 195,
     "use_existing_local_detour": 72,
