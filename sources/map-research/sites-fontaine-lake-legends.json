@@ -1,0 +1,24 @@
+{
+  "status": "Playable laboratory prototypes",
+  "art_source": "fontaine-lake-legend-poses-source-v1.png",
+  "legends": [
+    {
+      "id": "legend-fontaine_vivianne_of_the_lake",
+      "stage": "vivianne-legend-bank",
+      "host": "fon-wp-50056",
+      "level": 100,
+      "prerequisite": null,
+      "members": 1,
+      "manual_rechallenge": true
+    },
+    {
+      "id": "legend-fontaine_ninianne_of_the_lake",
+      "stage": "ninianne-legend-bank",
+      "host": "fon-wp-50042",
+      "level": 100,
+      "prerequisite": null,
+      "members": 1,
+      "manual_rechallenge": true
+    }
+  ]
+}

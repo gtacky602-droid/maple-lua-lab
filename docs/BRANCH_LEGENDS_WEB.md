@@ -1,6 +1,6 @@
 # 沈玉の谷と往日の海の地方伝説
 
-[ローカルLuaラボ](http://127.0.0.1:8975/)で本編を開始する。Mの地図で「沈玉の谷」か「往日の海」を選び、「狩場・任意戦」で挑戦場を探す。入口の黄色い道順をたどり、門の近くでFを押す。
+[ローカルLuaラボ](http://127.0.0.1:8976/)で本編を開始する。Mの地図で「沈玉の谷」か「往日の海」を選び、「狩場・任意戦」で挑戦場を探す。入口の黄色い道順をたどり、門の近くでFを押す。
 
 | 挑戦 | 通行Lv | 入口と回避 |
 | --- | ---: | --- |
@@ -11,11 +11,11 @@
 
 攻撃、HP、共有HP、調査報告の条件、足場はラボ用の試作。ドット絵は既存のラボ素材を画風の参照にして、新規の3体を待機・構え・攻撃の計9ポーズにした。原作3Dモデルとの照合は未実施。背景はラボの仮画像で、実機の3D配置は別途検証する。 [生成プロンプトと素材](../evidence/branch-legend-art.json)
 
-[赤璋巡岳府君の待機絵](http://127.0.0.1:8975/bosses-art.html?q=%E8%B5%A4%E7%92%8B%E5%B7%A1%E5%B2%B3%E5%BA%9C%E5%90%9B)と[シネアスの待機絵](http://127.0.0.1:8975/bosses-art.html?q=%E3%82%B7%E3%83%8D%E3%82%A2%E3%82%B9)は、原画像と軽量版を左右に並べて見られる。
+[赤璋巡岳府君の待機絵](http://127.0.0.1:8976/bosses-art.html?q=%E8%B5%A4%E7%92%8B%E5%B7%A1%E5%B2%B3%E5%BA%9C%E5%90%9B)と[シネアスの待機絵](http://127.0.0.1:8976/bosses-art.html?q=%E3%82%B7%E3%83%8D%E3%82%A2%E3%82%B9)は、原画像と軽量版を左右に並べて見られる。
 
 ## 検証
 
 - LuaでLvと調査報告の境界、6行動の予告と命中、戦闘中の退路、報酬の重複防止、セーブ後の討伐記録を検査した。別の検査では移動・ジャンプ・通常攻撃の入力だけで、設定した最大HPから討伐まで確認した。赤璋巡岳府君は82.18秒で残りHP7、シネアスは103.73秒で残りHP140。操作を自動化したローカルLuaでの結果。 [Luaログ](../evidence/sites-branch-legends-lua.json)
 - 最初の予告が出た同じ場面で、標準矩形から軽量16色に切り替えると、赤璋巡岳府君は12,932→3,469件、シネアスは6,784→1,812件。描画指示数の比較。 [標準・軽量の計測](../evidence/sites-branch-legends-lua.json) · [Chromeの比較ログ](../evidence/sites-branch-legends-browser.json)
 
-再検証は `python -X utf8 test_branch_legends.py` のあと、8975のラボで `node test_branch_legends.mjs`。素材の再変換は `python -X utf8 tools/build_branch_legend_art.py` で実行する。
+再検証は `python -X utf8 test_branch_legends.py` のあと、8976のラボで `node test_branch_legends.mjs`。素材の再変換は `python -X utf8 tools/build_branch_legend_art.py` で実行する。

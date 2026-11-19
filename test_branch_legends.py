@@ -8,6 +8,7 @@ from tools.waypoint_test import TrailWalk
 
 ART = 'branch-legend-poses-source-v1.png'
 CHALLENGES = 'sources/map-research/sites-branch-hunts.json'
+LAKE_CHALLENGES = 'sources/map-research/sites-fontaine-lake-legends.json'
 
 
 def read(path):
@@ -111,20 +112,41 @@ def normal_clear(r, spec):
         dx = target.x-hero.x
         turn = abs(dx)>8 and dx*hero.dir<0
         direction = (1 if dx>0 else -1) if abs(dx)>87 or turn else 0
+        evading = False
         if c := slot.cast:
             experienced.add(c.move.id)
             for attack in c.strikes.values():
-                start_in = attack.step.first-c.tick
-                if attack.left-18<=hero.x<=attack.right+18 and 8<=start_in<=13 and hero.ground:
+                step = attack.step
+                start_in = step.first-c.tick
+                if not attack.left-12<=hero.x<=attack.right+12:
+                    continue
+                if step.height>=110 and -12<start_in<=33:
+                    direction = -1 if hero.x<(attack.left+attack.right)/2 else 1
+                    evading = True
+                    break
+                if step.wave:
+                    direction_sign = 1 if attack.to>attack['from'] else -1
+                    speed = abs(attack.to-attack['from'])/(step.after-step.first)
+                    if speed>0:
+                        distance = direction_sign*(hero.x-attack['from'])
+                        if distance < -step.radius or distance > speed*(step.after-step.first)+step.radius:
+                            continue
+                        relative_speed = speed-direction*direction_sign*4.8
+                        remaining = direction_sign*(hero.x-attack.position)-step.radius-12
+                        start_in = max(0,start_in) + max(0,remaining)/max(1,relative_speed)
+                if 8<=start_in<=13 and hero.ground:
                     core.action(s,'jump')
                     break
-        core.step(s,1/60,movements[direction,abs(dx)<116 and not turn])
+        core.step(s,1/60,movements[direction,abs(dx)<116 and not turn and not evading])
         assert s.returns==0 and hero.hp>0, (r['id'],s.t-start,b.hp,hero.hp)
     raise AssertionError((r['id'],b.hp,hero.hp))
 
 
 evidence = {}
-for r in read(CHALLENGES)['legends']:
+lake = read(LAKE_CHALLENGES)
+entries = [(entry, ART) for entry in read(CHALLENGES)['legends']] + [
+    (entry, lake['art_source']) for entry in lake['legends']]
+for r, source_art in entries:
     id, stage, host = r['id'], r['stage'], r['host']
     spec = specs[id]
     origin = nodes[host]['checkpoint']
@@ -164,7 +186,7 @@ for r in read(CHALLENGES)['legends']:
     step_to(slot, s, lambda e: e.cast is not None)
     cast = slot.cast
     preview = core.frame(s, 'sprite', 'legacy')
-    rendered = [d for d in preview.draws.values() if d.source==ART]
+    rendered = [d for d in preview.draws.values() if d.source==source_art]
     assert len(rendered)==r['members'] and all(d.y==480 for d in rendered)
     counts = {'png':len(rendered)}
     for profile in ['legacy','h48c32','h32c16']:
@@ -184,6 +206,12 @@ for r in read(CHALLENGES)['legends']:
             hero.y,hero.hp,hero.inv=480,hero.maxhp,0
             before=hero.hp
             core.step(s,1/60,idle)
+            if phase.get('wave'):
+                owner_x = strike.owner.x
+                assert hero.hp==before and abs(strike.activeRight-strike.activeLeft) < strike.right-strike.left
+                assert strike.position != strike['from']
+                step_to(slot,s,lambda e: strike.seen[1],phase['after']-phase['first'])
+                assert strike.owner.x==owner_x, 'A detached wave moved its owner'
             assert hero.hp==before-phase['damage'] and strike.seen[1]
             hero.inv=0
             core.step(s,1/60,idle)
@@ -241,6 +269,7 @@ write('evidence/sites-branch-legends-lua.json',{
     'encounters':evidence,'entry_level_and_exploration_requirement':True,
     'dry_floor':True,'real_round_trips_and_retreat_during_warning':True,
     'manual_retry_only_and_single_reward':True,'saved_boss_record':True,
-    'source_asset':ART,'hit_and_reward_fixtures_used':True,
+    'source_assets':sorted({asset for _,asset in entries}),
+    'detached_wave_travel_and_impact_verified':True,'hit_and_reward_fixtures_used':True,
 })
-print('Both optional encounters passed entry, six patterns, retreat, manual retry, reward and save checks.')
+print(f'{len(entries)} optional encounters passed entry, move windows, retreat, manual retry, reward and save checks.')

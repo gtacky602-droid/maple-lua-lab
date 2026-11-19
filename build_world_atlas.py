@@ -196,7 +196,7 @@ def build():
             mapped_stage[node['id']] = region
 
     hunt_rows = load('sources/map-research/sites-branch-hunts.json')['routes']
-    hunting_regions = {mapped_stage[row['stage']] for row in hunt_rows}
+    hunting_regions = {region for id, region in mapped_stage.items() if nodes[id].get('huntKind')}
     hunts_by_host = {row['host']:row for row in hunt_rows}
     for row in hunt_rows:
         host, hunt = nodes[row['host']], nodes[row['stage']]

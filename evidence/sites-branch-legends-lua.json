@@ -47,6 +47,54 @@
           "LW03"
         ]
       }
+    },
+    "legend-fontaine_vivianne_of_the_lake": {
+      "moves_hit_once_in_their_windows": [
+        "LV01",
+        "LV02",
+        "LV03"
+      ],
+      "level": 100,
+      "bodies": 1,
+      "png_bodies_and_scene_draw_counts": {
+        "png": 1,
+        "legacy": 4328,
+        "h48c32": 2588,
+        "h32c16": 1191
+      },
+      "normal_attack_clear": {
+        "seconds": 80.83,
+        "hp": 26,
+        "moves": [
+          "LV01",
+          "LV02",
+          "LV03"
+        ]
+      }
+    },
+    "legend-fontaine_ninianne_of_the_lake": {
+      "moves_hit_once_in_their_windows": [
+        "LN01",
+        "LN02",
+        "LN03"
+      ],
+      "level": 100,
+      "bodies": 1,
+      "png_bodies_and_scene_draw_counts": {
+        "png": 1,
+        "legacy": 4495,
+        "h48c32": 2794,
+        "h32c16": 1287
+      },
+      "normal_attack_clear": {
+        "seconds": 87.2,
+        "hp": 140,
+        "moves": [
+          "LN01",
+          "LN02",
+          "LN03"
+        ]
+      }
     }
   },
   "entry_level_and_exploration_requirement": true,
@@ -54,6 +102,10 @@
   "real_round_trips_and_retreat_during_warning": true,
   "manual_retry_only_and_single_reward": true,
   "saved_boss_record": true,
-  "source_asset": "branch-legend-poses-source-v1.png",
+  "source_assets": [
+    "branch-legend-poses-source-v1.png",
+    "fontaine-lake-legend-poses-source-v1.png"
+  ],
+  "detached_wave_travel_and_impact_verified": true,
   "hit_and_reward_fixtures_used": true
 }

@@ -683,7 +683,9 @@
     {"id":"moon-crab-cracked","name":"月殻の大ヤドカニ（殻が割れた姿）","file":"moon-crab-field-cracked-sprites-v1.json","height":99,"mapHover":0},
     {"id":"cineas","name":"シネアス（ラボ専用ドット絵）","file":"cineas-field-idle-sprites-v1.json","height":118,"mapHover":0},
     {"id":"chizhang-ember","name":"赤璋巡岳府君・移即（ラボ専用ドット絵）","file":"chizhang-ember-field-idle-sprites-v1.json","height":118,"mapHover":0},
-    {"id":"chizhang-frost","name":"赤璋巡岳府君・天虞（ラボ専用ドット絵）","file":"chizhang-frost-field-idle-sprites-v1.json","height":118,"mapHover":0}
+    {"id":"chizhang-frost","name":"赤璋巡岳府君・天虞（ラボ専用ドット絵）","file":"chizhang-frost-field-idle-sprites-v1.json","height":118,"mapHover":0},
+    {"id":"lake-vivianne","name":"湖辺のヴィヴィアン（ラボ専用ドット絵）","file":"lake-vivianne-field-idle-sprites-v1.json","height":134,"mapHover":0},
+    {"id":"lake-ninianne","name":"湖辺のニニアン（ラボ専用ドット絵）","file":"lake-ninianne-field-idle-sprites-v1.json","height":114,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }

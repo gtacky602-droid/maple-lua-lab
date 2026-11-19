@@ -7,7 +7,7 @@ return function(C)
 
  local function setPose(body,spec,pose)
   body.legendPose=pose
-  body.drawHeight=math.floor(spec.artHeight*poses[pose]+.5)
+  body.drawHeight=math.floor(spec.artHeight*(spec.poseHeights or poses)[pose]+.5)
   body.hitTop=body.y-body.drawHeight
   body.hitBottom=body.y
  end
@@ -46,16 +46,17 @@ return function(C)
    owner.facing=target.x<owner.x and -1 or 1
    local from,to=owner.x,owner.x
    local left,right
-   if step.travel then
-    to=clamp(from+owner.facing*step.travel,spec.arenaMin+48,spec.arenaMax-48)
-    if owner==b and b.fieldPartner then to=math.min(to,b.fieldPartner.x-112) end
-    if owner~=b then to=math.max(to,b.x+112) end
+   local distance=step.travel or step.wave
+   if distance then
+    to=clamp(from+owner.facing*distance,spec.arenaMin+48,spec.arenaMax-48)
+    if step.travel and owner==b and b.fieldPartner then to=math.min(to,b.fieldPartner.x-112) end
+    if step.travel and owner~=b then to=math.max(to,b.x+112) end
     left,right=math.min(from,to)-step.radius,math.max(from,to)+step.radius
    else
     local center=clamp(target.x+(step.offset or 0),spec.arenaMin+step.radius,spec.arenaMax-step.radius)
     left,right=center-step.radius,center+step.radius
    end
-   cast.strikes[i]={step=step,owner=owner,from=from,to=to,seen={},
+   cast.strikes[i]={step=step,owner=owner,from=from,to=to,position=from,seen={},
     left=math.max(left,spec.arenaMin),right=math.min(right,spec.arenaMax),
     source={id=owner.id,y=spec.floorY,owner=owner,damageElement=owner.element}}
    setPose(owner,spec,'brace')
@@ -71,13 +72,15 @@ return function(C)
    if now>=step.first and now<step.after then
     setPose(owner,spec,'strike')
     local left,right=strike.left,strike.right
-    if step.travel then
-     local previous=owner.x
+    if step.travel or step.wave then
+     local previous=strike.position
      local ratio=(now-step.first+1)/(step.after-step.first)
-     owner.x=strike.from+(strike.to-strike.from)*ratio
-     left=math.max(left,math.min(previous,owner.x)-step.radius)
-     right=math.min(right,math.max(previous,owner.x)+step.radius)
+     strike.position=strike.from+(strike.to-strike.from)*ratio
+     if step.travel then owner.x=strike.position end
+     left=math.max(left,math.min(previous,strike.position)-step.radius)
+     right=math.min(right,math.max(previous,strike.position)+step.radius)
     end
+    strike.activeLeft,strike.activeRight=left,right
     C.hitFieldArea(state,strike.source,strike.seen,left,right,spec.floorY-step.height,step.damage)
    elseif now==step.after then
     setPose(owner,spec,'brace')
@@ -98,7 +101,8 @@ return function(C)
    local step=strike.step
    if cast.tick<step.after then
     f.warnings[#f.warnings+1]={left=strike.left,right=strike.right,first=step.first,after=step.after,
-     element=strike.owner.element,active=cast.tick>=step.first}
+     element=strike.owner.element,active=cast.tick>=step.first,
+     activeLeft=strike.activeLeft,activeRight=strike.activeRight}
    end
   end
  end
@@ -115,9 +119,12 @@ return function(C)
      local active=cast.tick>=step.first
      local x,y=strike.left-camera,spec.floorY
      local width=strike.right-strike.left
-     local color=colors[strike.owner.element]
-     rect(f,x,y-step.height,width,step.height,active and color..'68' or color..'20')
-     rect(f,x,y-6,width,active and 5 or 3,color)
+     local color=spec.warningColor or colors[strike.owner.element]
+     rect(f,x,y-step.height,width,step.height,color..'20')
+     if active then
+      rect(f,strike.activeLeft-camera,y-step.height,strike.activeRight-strike.activeLeft,step.height,color..'68')
+     end
+     rect(f,x,y-6,width,3,color)
      rect(f,x,y-step.height,2,step.height,color)
      rect(f,x+width-2,y-step.height,2,step.height,color)
      if #cast.strikes>1 then

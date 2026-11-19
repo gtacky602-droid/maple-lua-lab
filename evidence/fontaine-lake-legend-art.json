@@ -1,0 +1,13 @@
+{
+  "tool": "image_gen built-in",
+  "source": "assets/fontaine-lake-legend-poses-source-v1.png",
+  "style_reference": "assets/hydro-hypostasis-field-poses-source-v1.png",
+  "reference_scope": "Existing lab sprite sheet inspected for hard-edged water tones. Both new designs are original lab silhouettes. No original 3D model was inspected.",
+  "prompt": "One sprite sheet for a new indie side-scrolling 2D RPG. Design two original nonhuman lake elementals, one row per species, three mechanically distinct poses each. Exactly three columns and two rows, generous equal-sized cells, clear transparent gaps on every side of every figure. Each pose faces LEFT in readable side view. Top row, original lake wave-caster: a tall liquid cobalt and indigo creature with a solid winding column silhouette, a crescent-shaped shoulder like a breaker, two amber pebble eyes, and one fan-shaped arm of water; pulled-together single connected silhouette, no floating droplets far away. Bottom row, different original spring creature: squat pale jade and mint water on an oval low base, an arched turquoise head, wide conch-like forearms, white foam at the crown, two deep violet eyes. Column 1 idle with balanced silhouette; column 2 low compressed brace with the crest tucked in; column 3 strong action pose, top creature extends one flowing arm left, bottom creature surges UP with crown raised and conch arms still grounded. Keep roots visually aligned and consistent thickness, entirely inside the allotted cell. Crisp 16-bit pixel clusters, distinct hard palette tones, charcoal-blue outlines, highlights inside edge only. The provided reference shows the type of pixel clusters and hard-edged water sheen only. Invent distinct anatomy and ornament, no existing characters, no cubes, no unrelated objects, no text, no logos, no platform, no floor pixels outside the bodies, no added effects. High-quality transparent alpha background. Clean practical sprite sheet for implementation.",
+  "compiler": "tools/build_branch_legend_art.py",
+  "profiles": [
+    "legacy",
+    "h48c32",
+    "h32c16"
+  ]
+}
