@@ -4,6 +4,7 @@ import json
 
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.waypoint_test import TrailWalk
 
 
 def read(path):
@@ -48,7 +49,7 @@ for key, stage in mapping.items():
     pin = node['waypoint']
     assert node['mapPoint'] == key and coverage[key]['stage_id'] == stage
     assert pin['kind'] == point['kind']
-    assert {nodes[b]['mapPoint'] for a, b in edges if a == stage} == set(coverage[key]['gates'])
+    assert {nodes[e['to']]['mapPoint'] for e in node['exits'] if 'mapPoint' in nodes[e['to']]} == set(coverage[key]['gates'])
     assert on_platform(stage, pin['x'], pin['y'])
 assert {p for p, spec in points.items() if spec.get('point_group')} == {reference['grouped_marker']}
 assert nodes[mapping[reference['grouped_marker']]]['waypoint']['floor'] == points[reference['grouped_marker']]['point_group']
@@ -67,61 +68,9 @@ state.story.quests['amber-join'] = lua.table_from({'status': 'complete', 'count'
 core.action(state, 'story_accept:mond-rest-stop')
 assert state.story.quests['mond-rest-stop'].status == 'active'
 
-inputs = {d: lua.table_from({d: True}) for d in ('left', 'right', 'jump')}
-idle = lua.table()
-walked = set()
-visited = {'mond-town'}
-
-
-def approach(x, y, target):
-    origin = state.story.node
-    for _ in range(750):
-        actor = state.actors[state.active]
-        assert actor.hp > 0 and state.story.node == origin, (origin, target, actor.hp)
-        if abs(actor.x - x) > 9:
-            core.step(state, 1 / 60, inputs['left' if actor.x > x else 'right'])
-            continue
-        if abs(actor.y - y) < 10 and actor.ground:
-            return
-        if actor.ground:
-            core.action(state, 'jump' if actor.y > y else 'drop')
-        core.step(state, 1 / 60, inputs['jump'] if actor.y > y else idle)
-    raise AssertionError((origin, target, x, y, actor.x, actor.y, actor.ground))
-
-
-def cross(target):
-    origin = state.story.node
-    edge = edges[origin, target]
-    approach(edge['x'], edge.get('y', 480), target)
-    core.action(state, 'story_portal:' + target)
-    if 'boatSeconds' in edge or 'liftSeconds' in edge:
-        assert state.lift is not None and state.lift.destination == target, (origin, target, state.storyNotice)
-        assert bool(state.lift.boat) == ('boatSeconds' in edge)
-        for _ in range(360):
-            if state.lift is None:
-                break
-            core.step(state, 1 / 60, idle)
-    assert state.story.node == target and state.lift is None, (origin, target, state.storyNotice)
-    if 'arrivalX' in edge:
-        actor = state.actors[state.active]
-        assert actor.x == edge['arrivalX'] and actor.y == edge.get('arrivalY', 480)
-    walked.add((origin, target))
-
-
-def explore():
-    origin = state.story.node
-    for exit in nodes[origin]['exits']:
-        target = exit['to']
-        if (origin, target) not in edges or (origin, target) in walked:
-            continue
-        cross(target)
-        if target not in visited:
-            visited.add(target)
-            explore()
-        cross(origin)
-
-
-explore()
+trail = TrailWalk(lua, core, state, edges, {k: n['exits'] for k, n in nodes.items()})
+visited = trail.explore()
+walked = trail.crossings
 assert visited == stages and walked == set(edges)
 quest_ids = ('mond-mapped-lakeside', 'mond-mapped-snowline', 'mond-mapped-islet')
 for quest_id in quest_ids:
@@ -140,10 +89,10 @@ for quest_id in quest_ids:
     for i, step in enumerate(quest['itinerary'], 1):
         if step['kind'] == 'arrive':
             assert state.story.node == step['from']
-            cross(step['node'])
+            trail.cross(step['node'])
         else:
             assert state.story.node == step['node']
-            approach(step['x'], step['y'], quest_id)
+            trail.approach(step['x'], step['y'], quest_id)
             core.action(state, 'story_collect')
         assert state.story.quests[quest_id].count == i, (quest_id, step, state.storyNotice)
     core.action(state, 'story_fast:' + quest['hub'])
@@ -166,7 +115,7 @@ floor = 'mond-wp-95797'
 for _ in range(450):
     if abs(low.actors[low.active].x - edges['dornman-camp', floor]['x']) < 35:
         break
-    core.step(low, 1 / 60, inputs['right'])
+    core.step(low, 1 / 60, trail.inputs['right'])
 core.action(low, 'story_portal:' + floor)
 assert low.story.node == 'dornman-camp' and '必要レベル' in low.storyNotice
 

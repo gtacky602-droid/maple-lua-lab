@@ -810,9 +810,27 @@
         {
           "to": "chenyu-camp",
           "x": 720
+        },
+        {
+          "to": "liyue-wp-32",
+          "x": 1080,
+          "arrivalX": 1292,
+          "arrivalY": 480
+        },
+        {
+          "to": "liyue-wp-29",
+          "x": 335,
+          "arrivalX": 1292,
+          "arrivalY": 480
         }
       ],
-      "checkpoint": "liyue-harbor"
+      "checkpoint": "liyue-harbor",
+      "mapPoint": "teyvat:30",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 400,
+        "y": 480
+      }
     },
     {
       "id": "liyue-harbor",
@@ -839,9 +857,19 @@
         }
       ],
       "exits": [
-        {"to":"liyue-stygian-deck","x":300,"arrivalX":275},
-        {"to":"azhdaha-dragon-seal-arena","x":635},
-        {"to":"childe-golden-house-arena","x":1040},
+        {
+          "to": "liyue-stygian-deck",
+          "x": 300,
+          "arrivalX": 275
+        },
+        {
+          "to": "azhdaha-dragon-seal-arena",
+          "x": 635
+        },
+        {
+          "to": "childe-golden-house-arena",
+          "x": 1040
+        },
         {
           "to": "liyue-entry",
           "x": 60
@@ -938,10 +966,43 @@
             "count": 0
           }
         },
-        {"to":"buried-weaving-room","x":1240,"requires":{"quest":"loom-stopped","count":0}},
-        {"to":"cloth-service-walk","x":1320,"requires":{"quest":"threadline-survey","count":0}}
+        {
+          "to": "buried-weaving-room",
+          "x": 1240,
+          "requires": {
+            "quest": "loom-stopped",
+            "count": 0
+          }
+        },
+        {
+          "to": "cloth-service-walk",
+          "x": 1320,
+          "requires": {
+            "quest": "threadline-survey",
+            "count": 0
+          }
+        },
+        {
+          "to": "liyue-wp-111",
+          "x": 565,
+          "y": 350,
+          "arrivalX": 1292,
+          "arrivalY": 480
+        },
+        {
+          "to": "liyue-wp-104",
+          "x": 485,
+          "arrivalX": 76,
+          "arrivalY": 480
+        }
       ],
-      "checkpoint": "liyue-harbor"
+      "checkpoint": "liyue-harbor",
+      "mapPoint": "teyvat:937",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 460,
+        "y": 480
+      }
     },
     {
       "id": "liyue-loading-yard",
@@ -1291,17 +1352,26 @@
           "to": "liyue-book-camp",
           "x": 1225,
           "y": 390,
-          "requires": {"quest": "liyue-book-rescue", "count": 2}
+          "requires": {
+            "quest": "liyue-book-rescue",
+            "count": 2
+          }
         },
         {
           "to": "liyue-cart-road",
           "x": 1320,
-          "requires": {"quest": "liyue-hauling-shortcut", "construction": "ground"}
+          "requires": {
+            "quest": "liyue-hauling-shortcut",
+            "construction": "ground"
+          }
         },
         {
           "to": "liyue-cart-lift",
           "x": 1110,
-          "requires": {"quest": "liyue-hauling-shortcut", "construction": "lift"}
+          "requires": {
+            "quest": "liyue-hauling-shortcut",
+            "construction": "lift"
+          }
         },
         {
           "to": "oceanid-approach",
@@ -1314,9 +1384,33 @@
         {
           "to": "chasm-camp",
           "x": 1380
+        },
+        {
+          "to": "liyue-wp-51",
+          "x": 525,
+          "arrivalX": 861,
+          "arrivalY": 480
+        },
+        {
+          "to": "liyue-wp-100",
+          "x": 1009,
+          "arrivalX": 76,
+          "arrivalY": 480
+        },
+        {
+          "to": "liyue-wp-52",
+          "x": 221,
+          "arrivalX": 76,
+          "arrivalY": 480
         }
       ],
-      "checkpoint": "liyue-harbor"
+      "checkpoint": "liyue-harbor",
+      "mapPoint": "teyvat:343",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 500,
+        "y": 480
+      }
     },
     {
       "id": "liyue-cart-road",
@@ -3508,13 +3602,40 @@
           "to": "chenyu-depth",
           "x": 1380
         },
-        {"to":"chenyu-tea-terraces","x":950},
-        {"to":"chenyu-tea-lift","x":1198,"requires":{"quest":"chenyu-tea-delivery"}}
+        {
+          "to": "chenyu-tea-terraces",
+          "x": 950
+        },
+        {
+          "to": "chenyu-tea-lift",
+          "x": 1198,
+          "requires": {
+            "quest": "chenyu-tea-delivery"
+          }
+        },
+        {
+          "to": "liyue-wp-64825",
+          "x": 665,
+          "arrivalX": 1292,
+          "arrivalY": 480
+        },
+        {
+          "to": "liyue-wp-37",
+          "x": 345,
+          "arrivalX": 76,
+          "arrivalY": 370
+        }
       ],
       "checkpoint": "chenyu-camp",
       "branch": true,
       "lightReference": 8,
-      "barrier": 0
+      "barrier": 0,
+      "mapPoint": "teyvat:64850",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 450,
+        "y": 480
+      }
     },
     {
       "id": "chenyu-depth",
@@ -3550,12 +3671,39 @@
           "to": "chenyu-camp",
           "x": 60
         },
-        {"to":"suanni-field-sanctum","x":1310}
+        {
+          "to": "suanni-field-sanctum",
+          "x": 1310
+        },
+        {
+          "to": "liyue-wp-64846",
+          "x": 625,
+          "arrivalX": 1292,
+          "arrivalY": 480
+        },
+        {
+          "to": "liyue-wp-64844",
+          "x": 310,
+          "arrivalX": 861,
+          "arrivalY": 480
+        },
+        {
+          "to": "liyue-wp-64848",
+          "x": 1040,
+          "arrivalX": 926,
+          "arrivalY": 480
+        }
       ],
       "checkpoint": "chenyu-camp",
       "branch": true,
       "lightReference": 8,
-      "barrier": 8
+      "barrier": 8,
+      "mapPoint": "teyvat:64845",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 455,
+        "y": 480
+      }
     },
     {"id":"suanni-field-sanctum","name":"沈玉の谷・懸練山の石庭","region":"沈玉の谷","level":32,"hub":false,"peaceful":true,"width":1680,"platforms":[{"x":0,"y":480,"w":1680}],"exits":[{"to":"chenyu-depth","x":65}],"checkpoint":"chenyu-camp"},
     {
@@ -4221,6 +4369,14 @@
         {
           "to": "chasm-depth",
           "x": 1220
+        },
+        {
+          "to": "liyue-wp-24912",
+          "x": 650,
+          "arrivalX": 650,
+          "arrivalY": 480,
+          "liftSeconds": 2.8,
+          "rideLabel": "坑口の昇降機"
         }
       ],
       "checkpoint": "chasm-camp"
@@ -4285,7 +4441,12 @@
       ],
       "checkpoint": "chasm-camp",
       "peaceful": true,
-      "mapPoint": "map9:25265"
+      "mapPoint": "map9:25265",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 960,
+        "y": 480
+      }
     },
     {
       "id": "chasm-wp-25264",
@@ -4333,7 +4494,12 @@
         }
       ],
       "checkpoint": "chasm-camp",
-      "peaceful": true
+      "peaceful": true,
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 720,
+        "y": 480
+      }
     },
     {"id":"ruin-serpent-field-pit","name":"層岩巨淵・巨蛇岩穴の掘削場","region":"層岩巨淵・地下鉱区","level":24,"hub":false,"peaceful":true,"width":1520,"platforms":[{"x":0,"y":480,"w":1520}],"exits":[{"to":"chasm-wp-25264","x":65}],"checkpoint":"chasm-camp"},
     {
@@ -4377,7 +4543,12 @@
         }
       ],
       "checkpoint": "chasm-camp",
-      "peaceful": true
+      "peaceful": true,
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 720,
+        "y": 480
+      }
     },
     {
       "id": "chasm-wp-25267",
@@ -4429,7 +4600,12 @@
         }
       ],
       "checkpoint": "chasm-camp",
-      "peaceful": true
+      "peaceful": true,
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 800,
+        "y": 480
+      }
     },
     {
       "id": "chasm-wp-25268",
@@ -4476,7 +4652,12 @@
           "x": 1540
         }
       ],
-      "checkpoint": "chasm-camp"
+      "checkpoint": "chasm-camp",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 800,
+        "y": 480
+      }
     },
     {
       "id": "chasm-wp-25269",
@@ -4523,7 +4704,12 @@
           "x": 1700
         }
       ],
-      "checkpoint": "chasm-camp"
+      "checkpoint": "chasm-camp",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 880,
+        "y": 480
+      }
     },
     {
       "id": "chasm-wp-25270",
@@ -4570,7 +4756,12 @@
           "x": 1540
         }
       ],
-      "checkpoint": "chasm-camp"
+      "checkpoint": "chasm-camp",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 800,
+        "y": 480
+      }
     },
     {
       "id": "chasm-wp-25271",
@@ -4622,7 +4813,12 @@
         }
       ],
       "checkpoint": "chasm-camp",
-      "peaceful": true
+      "peaceful": true,
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 800,
+        "y": 480
+      }
     },
     {
       "id": "chasm-wp-25272",
@@ -4661,7 +4857,12 @@
         }
       ],
       "checkpoint": "chasm-camp",
-      "peaceful": true
+      "peaceful": true,
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 720,
+        "y": 480
+      }
     },
     {
       "id": "chasm-wp-25273",
@@ -4709,7 +4910,12 @@
         }
       ],
       "checkpoint": "chasm-camp",
-      "peaceful": true
+      "peaceful": true,
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 720,
+        "y": 480
+      }
     },
     {
       "id": "chasm-wp-25274",
@@ -4753,7 +4959,12 @@
         }
       ],
       "checkpoint": "chasm-camp",
-      "peaceful": true
+      "peaceful": true,
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 800,
+        "y": 480
+      }
     },
     {
       "id": "chasm-wp-25275",
@@ -4797,7 +5008,12 @@
         }
       ],
       "checkpoint": "chasm-camp",
-      "peaceful": true
+      "peaceful": true,
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 800,
+        "y": 480
+      }
     },
     {
       "id": "chasm-wp-25276",
@@ -4849,7 +5065,12 @@
         }
       ],
       "checkpoint": "chasm-camp",
-      "peaceful": true
+      "peaceful": true,
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 880,
+        "y": 480
+      }
     },
     {
       "id": "chasm-wp-25277",
@@ -4897,7 +5118,12 @@
         }
       ],
       "checkpoint": "chasm-camp",
-      "peaceful": true
+      "peaceful": true,
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 800,
+        "y": 480
+      }
     },
     {
       "id": "chasm-wp-26463",
@@ -4949,7 +5175,12 @@
         }
       ],
       "checkpoint": "chasm-camp",
-      "peaceful": true
+      "peaceful": true,
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 880,
+        "y": 480
+      }
     },
     {
       "id": "golden-hub",
@@ -5315,13 +5546,40 @@
           "to": "liyue-field",
           "x": 60
         },
-        {"to": "pyro-field-grotto", "x": 1270}
+        {
+          "to": "pyro-field-grotto",
+          "x": 1270
+        },
+        {
+          "to": "liyue-wp-38",
+          "x": 1015,
+          "arrivalX": 1442,
+          "arrivalY": 480
+        },
+        {
+          "to": "liyue-wp-44",
+          "x": 670,
+          "arrivalX": 926,
+          "arrivalY": 480
+        },
+        {
+          "to": "liyue-wp-1748",
+          "x": 292,
+          "arrivalX": 76,
+          "arrivalY": 480
+        }
       ],
       "checkpoint": "liyue-harbor",
       "challenge": "pyro",
       "challengeName": "爆炎樹",
       "challengeAction": "boss_pyro_regisvine",
-      "challengeX": 720
+      "challengeX": 720,
+      "mapPoint": "teyvat:119",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 590,
+        "y": 480
+      }
     },
     {
       "id": "pyro-field-grotto",
@@ -5395,13 +5653,38 @@
           "to": "liyue-field",
           "x": 60
         },
-        {"to": "geo-field-court", "x": 1270}
+        {
+          "to": "geo-field-court",
+          "x": 1270
+        },
+        {
+          "to": "liyue-wp-96",
+          "x": 1000,
+          "arrivalX": 1262,
+          "arrivalY": 480,
+          "boatSeconds": 3.3,
+          "rideLabel": "沖の岩島へ向かう小舟"
+        },
+        {
+          "to": "liyue-wp-53",
+          "x": 310,
+          "arrivalX": 1262,
+          "arrivalY": 480,
+          "boatSeconds": 3.5,
+          "rideLabel": "浅瀬から岩島へ渡る小舟"
+        }
       ],
       "checkpoint": "liyue-harbor",
       "challenge": "geo",
       "challengeName": "無相の岩",
       "challengeAction": "boss_geo",
-      "challengeX": 720
+      "challengeX": 720,
+      "mapPoint": "teyvat:54",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 600,
+        "y": 480
+      }
     },
     {
       "id": "geo-field-court",
@@ -5435,13 +5718,40 @@
           "to": "liyue-field",
           "x": 60
         },
-        {"to": "oceanid-field-reservoir", "x": 1270}
+        {
+          "to": "oceanid-field-reservoir",
+          "x": 1270
+        },
+        {
+          "to": "liyue-wp-37",
+          "x": 1070,
+          "arrivalX": 1312,
+          "arrivalY": 480
+        },
+        {
+          "to": "liyue-wp-32",
+          "x": 770,
+          "arrivalX": 320,
+          "arrivalY": 480
+        },
+        {
+          "to": "liyue-wp-29",
+          "x": 360,
+          "arrivalX": 76,
+          "arrivalY": 480
+        }
       ],
       "checkpoint": "liyue-harbor",
       "challenge": "oceanid",
       "challengeName": "純水精霊",
       "challengeAction": "boss_oceanid",
-      "challengeX": 720
+      "challengeX": 720,
+      "mapPoint": "teyvat:31",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 520,
+        "y": 480
+      }
     },
     {
       "id": "oceanid-field-reservoir",
@@ -5475,13 +5785,28 @@
           "to": "liyue-field",
           "x": 60
         },
-        {"to": "primo-field-vault", "x": 1270}
+        {
+          "to": "primo-field-vault",
+          "x": 1270
+        },
+        {
+          "to": "liyue-wp-110",
+          "x": 350,
+          "arrivalX": 1442,
+          "arrivalY": 480
+        }
       ],
       "checkpoint": "liyue-harbor",
       "challenge": "primo",
       "challengeName": "エンシェントヴィシャップ",
       "challengeAction": "boss_primo",
-      "challengeX": 720
+      "challengeX": 720,
+      "mapPoint": "teyvat:101",
+      "waypoint": {
+        "kind": "waypoint",
+        "x": 620,
+        "y": 480
+      }
     },
     {
       "id": "primo-field-vault",
@@ -5758,6 +6083,80 @@
     {"id":"knave-crimson-court","name":"凶月の再現戦","region":"フォンテーヌ","level":88,"width":960,"hub":false,"peaceful":true,"checkpoint":"fontaine-hub","platforms":[{"x":0,"y":480,"w":960},{"x":98,"y":357,"w":158},{"x":704,"y":357,"w":158}],"exits":[{"to":"fontaine-hub","x":130}]},
     {"id":"primal-fire-sundered-forge","name":"源焔の再現戦","region":"ナタ","level":104,"width":960,"hub":false,"peaceful":true,"checkpoint":"natlan-hub","platforms":[{"x":40,"y":480,"w":880},{"x":110,"y":357,"w":141},{"x":709,"y":357,"w":141}],"exits":[{"to":"natlan-hub","x":863,"arrivalX":351}]},
     {"id":"mond-gate-chess-court","name":"扉の対局・再現盤","region":"モンド","level":112,"width":960,"hub":false,"peaceful":true,"checkpoint":"mond-town","platforms":[{"x":0,"y":480,"w":960},{"x":128,"y":357,"w":176},{"x":656,"y":357,"w":176}],"exits":[{"to":"mond-town","x":825,"arrivalX":442}]},
+    {"id":"liyue-wp-29","name":"璃月・石門北側の高台","level":20,"region":"璃月","hub":false,"width":1370,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1370},{"x":284,"y":389,"w":234},{"x":523,"y":313,"w":275},{"x":899,"y":405,"w":178}],"exits":[{"to":"oceanid-approach","x":76,"arrivalX":360,"arrivalY":480},{"to":"liyue-entry","x":1292,"arrivalX":335,"arrivalY":480}],"mapPoint":"teyvat:29","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-32","name":"璃月・軽策の東段","level":22,"region":"璃月","hub":false,"width":1370,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1370},{"x":306,"y":412,"w":213},{"x":551,"y":358,"w":236},{"x":918,"y":407,"w":250}],"exits":[{"to":"liyue-wp-36","x":76,"arrivalX":1292,"arrivalY":480},{"to":"oceanid-approach","x":320,"arrivalX":770,"arrivalY":480},{"to":"liyue-wp-33","x":1050,"arrivalX":76,"arrivalY":480},{"to":"liyue-entry","x":1292,"arrivalX":1080,"arrivalY":480}],"mapPoint":"teyvat:32","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-33","name":"璃月・荻花洲の神像","level":21,"region":"璃月","hub":false,"width":1420,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1420},{"x":313,"y":429,"w":183},{"x":678,"y":386,"w":240},{"x":1060,"y":418,"w":162}],"exits":[{"to":"liyue-wp-32","x":76,"arrivalX":1050,"arrivalY":480},{"to":"liyue-wp-51","x":876,"arrivalX":1312,"arrivalY":480},{"to":"liyue-wp-50","x":1342,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:33","waypoint":{"kind":"statue","x":710,"y":480}},
+    {"id":"liyue-wp-34","name":"璃月・雪山南麓の湿地","level":26,"region":"璃月","hub":false,"width":1420,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1420},{"x":313,"y":429,"w":183},{"x":678,"y":386,"w":240},{"x":1060,"y":418,"w":162}],"exits":[{"to":"liyue-wp-50","x":76,"arrivalX":1262,"arrivalY":480},{"to":"liyue-wp-35","x":1342,"arrivalX":1292,"arrivalY":480}],"mapPoint":"teyvat:34","waypoint":{"kind":"waypoint","x":710,"y":480}},
+    {"id":"liyue-wp-35","name":"璃月・雪解けの谷と神像","level":27,"region":"璃月","hub":false,"width":1370,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1370},{"x":284,"y":389,"w":234},{"x":523,"y":313,"w":275},{"x":899,"y":405,"w":178}],"exits":[{"to":"liyue-wp-52","x":76,"arrivalX":926,"arrivalY":480},{"to":"liyue-wp-34","x":1292,"arrivalX":1342,"arrivalY":480}],"mapPoint":"teyvat:35","waypoint":{"kind":"statue","x":685,"y":480}},
+    {"id":"liyue-wp-36","name":"璃月・軽策西の水田道","level":24,"region":"璃月","hub":false,"width":1370,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1370},{"x":306,"y":412,"w":213},{"x":551,"y":358,"w":236},{"x":918,"y":407,"w":250}],"exits":[{"to":"liyue-wp-37","x":76,"arrivalX":861,"arrivalY":480},{"to":"liyue-wp-32","x":1292,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:36","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-37","name":"璃月・竹縁の岩棚","level":25,"region":"璃月","hub":false,"width":1390,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1390},{"x":280,"y":405,"w":190},{"x":580,"y":360,"w":260},{"x":943,"y":416,"w":188},{"x":19,"y":370,"w":120}],"exits":[{"to":"chenyu-camp","x":76,"y":370,"arrivalX":345,"arrivalY":480},{"to":"liyue-wp-36","x":861,"arrivalX":76,"arrivalY":480},{"to":"oceanid-approach","x":1312,"arrivalX":1070,"arrivalY":480}],"mapPoint":"teyvat:37","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {"id":"liyue-wp-38","name":"璃月・石の島橋","level":26,"region":"璃月","hub":false,"width":1520,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1520},{"x":290,"y":416,"w":218},{"x":535,"y":403,"w":418},{"x":997,"y":416,"w":218}],"exits":[{"to":"liyue-wp-64844","x":76,"arrivalX":1312,"arrivalY":480,"boatSeconds":3.0,"rideLabel":"石島と谷の岸を結ぶ小舟"},{"to":"pyro-approach","x":1442,"arrivalX":1015,"arrivalY":480}],"mapPoint":"teyvat:38","waypoint":{"kind":"waypoint","x":760,"y":480}},
+    {"id":"liyue-wp-39","name":"璃月・奥蔵の北の山道","level":27,"region":"璃月","hub":false,"width":1370,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1370},{"x":284,"y":389,"w":234},{"x":523,"y":313,"w":275},{"x":899,"y":405,"w":178},{"x":794,"y":365,"w":120}],"exits":[{"to":"liyue-wp-118","x":76,"arrivalX":1342,"arrivalY":480},{"to":"liyue-wp-40","x":851,"y":365,"arrivalX":1412,"arrivalY":480},{"to":"liyue-wp-44","x":1292,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:39","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-40","name":"璃月・慶雲の頂へ続く棚","level":31,"region":"璃月","hub":false,"width":1490,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1490},{"x":265,"y":401,"w":225},{"x":520,"y":323,"w":259},{"x":800,"y":278,"w":244},{"x":1070,"y":371,"w":215}],"exits":[{"to":"liyue-wp-41","x":76,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-39","x":1412,"arrivalX":851,"arrivalY":365}],"mapPoint":"teyvat:40","waypoint":{"kind":"waypoint","x":745,"y":480}},
+    {"id":"liyue-wp-41","name":"璃月・石峰の神像","level":30,"region":"璃月","hub":false,"width":1490,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1490},{"x":265,"y":401,"w":225},{"x":520,"y":323,"w":259},{"x":800,"y":278,"w":244},{"x":1070,"y":371,"w":215}],"exits":[{"to":"liyue-wp-40","x":76,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-42","x":1412,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:41","waypoint":{"kind":"statue","x":745,"y":480}},
+    {"id":"liyue-wp-42","name":"璃月・絶雲の池畔","level":28,"region":"璃月","hub":false,"width":1420,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1420},{"x":313,"y":429,"w":183},{"x":678,"y":386,"w":240},{"x":1060,"y":418,"w":162}],"exits":[{"to":"liyue-wp-41","x":76,"arrivalX":1412,"arrivalY":480},{"to":"liyue-wp-46","x":876,"arrivalX":1412,"arrivalY":480},{"to":"liyue-wp-43","x":1342,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:42","waypoint":{"kind":"waypoint","x":710,"y":480}},
+    {"id":"liyue-wp-43","name":"璃月・渓谷の東口","level":25,"region":"璃月","hub":false,"width":1520,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1520},{"x":286,"y":385,"w":222},{"x":626,"y":425,"w":219},{"x":972,"y":375,"w":234}],"exits":[{"to":"liyue-wp-42","x":76,"arrivalX":1342,"arrivalY":480},{"to":"liyue-wp-44","x":926,"arrivalX":1442,"arrivalY":480},{"to":"liyue-wp-110","x":1442,"arrivalX":926,"arrivalY":480}],"mapPoint":"teyvat:43","waypoint":{"kind":"waypoint","x":760,"y":480}},
+    {"id":"liyue-wp-44","name":"璃月・石峰東の台地","level":26,"region":"璃月","hub":false,"width":1520,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1520},{"x":286,"y":385,"w":222},{"x":626,"y":425,"w":219},{"x":972,"y":375,"w":234}],"exits":[{"to":"liyue-wp-39","x":76,"arrivalX":1292,"arrivalY":480},{"to":"pyro-approach","x":926,"arrivalX":670,"arrivalY":480},{"to":"liyue-wp-43","x":1442,"arrivalX":926,"arrivalY":480}],"mapPoint":"teyvat:44","waypoint":{"kind":"waypoint","x":760,"y":480}},
+    {"id":"liyue-wp-45","name":"璃月・琥牢の岩縁","level":32,"region":"璃月","hub":false,"width":1490,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1490},{"x":265,"y":401,"w":225},{"x":520,"y":323,"w":259},{"x":800,"y":278,"w":244},{"x":1070,"y":371,"w":215}],"exits":[{"to":"liyue-wp-47","x":76,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-118","x":1412,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:45","waypoint":{"kind":"waypoint","x":745,"y":480}},
+    {"id":"liyue-wp-46","name":"璃月・南稜の石段","level":31,"region":"璃月","hub":false,"width":1490,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1490},{"x":265,"y":401,"w":225},{"x":520,"y":323,"w":259},{"x":800,"y":278,"w":244},{"x":1070,"y":371,"w":215}],"exits":[{"to":"liyue-wp-47","x":76,"arrivalX":926,"arrivalY":480},{"to":"liyue-wp-42","x":1412,"arrivalX":876,"arrivalY":480}],"mapPoint":"teyvat:46","waypoint":{"kind":"waypoint","x":745,"y":480}},
+    {"id":"liyue-wp-47","name":"璃月・南稜の沢","level":29,"region":"璃月","hub":false,"width":1520,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1520},{"x":286,"y":385,"w":222},{"x":626,"y":425,"w":219},{"x":972,"y":375,"w":234}],"exits":[{"to":"liyue-wp-45","x":76,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-46","x":926,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-109","x":1442,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:47","waypoint":{"kind":"waypoint","x":760,"y":480}},
+    {"id":"liyue-wp-48","name":"璃月・国境手前の低い峠","level":27,"region":"璃月","hub":false,"width":1390,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1390},{"x":280,"y":405,"w":190},{"x":580,"y":360,"w":260},{"x":943,"y":416,"w":188}],"exits":[{"to":"liyue-wp-49","x":76,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:48","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {"id":"liyue-wp-49","name":"璃月・港の西へ抜ける径","level":23,"region":"璃月","hub":false,"width":1390,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1390},{"x":280,"y":405,"w":190},{"x":580,"y":360,"w":260},{"x":943,"y":416,"w":188}],"exits":[{"to":"liyue-wp-48","x":76,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-106","x":861,"arrivalX":1442,"arrivalY":480},{"to":"liyue-wp-105","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:49","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {"id":"liyue-wp-50","name":"璃月・雪山西の砂州","level":25,"region":"璃月","hub":false,"width":1340,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1340},{"x":331,"y":414,"w":230},{"x":750,"y":400,"w":213}],"exits":[{"to":"liyue-wp-33","x":76,"arrivalX":1342,"arrivalY":480},{"to":"liyue-wp-34","x":1262,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:50","waypoint":{"kind":"waypoint","x":670,"y":480}},
+    {"id":"liyue-wp-51","name":"璃月・水上の宿への桟橋","level":23,"region":"璃月","hub":false,"width":1390,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1390},{"x":290,"y":395,"w":192},{"x":584,"y":415,"w":275},{"x":984,"y":404,"w":243}],"exits":[{"to":"liyue-wp-1748","x":76,"arrivalX":1262,"arrivalY":480,"boatSeconds":2.6,"rideLabel":"宿の桟橋から渡る小舟"},{"to":"liyue-field","x":861,"arrivalX":525,"arrivalY":480},{"to":"liyue-wp-33","x":1312,"arrivalX":876,"arrivalY":480}],"mapPoint":"teyvat:51","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {"id":"liyue-wp-52","name":"璃月・海辺に出る長橋","level":24,"region":"璃月","hub":false,"width":1520,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1520},{"x":290,"y":416,"w":218},{"x":535,"y":403,"w":418},{"x":997,"y":416,"w":218}],"exits":[{"to":"liyue-field","x":76,"arrivalX":221,"arrivalY":480},{"to":"liyue-wp-35","x":926,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-53","x":1442,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:52","waypoint":{"kind":"waypoint","x":760,"y":480}},
+    {"id":"liyue-wp-53","name":"璃月・浅瀬の船着き場","level":25,"region":"璃月","hub":false,"width":1340,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1340},{"x":331,"y":414,"w":230},{"x":750,"y":400,"w":213}],"exits":[{"to":"liyue-wp-52","x":76,"arrivalX":1442,"arrivalY":480},{"to":"geo-approach","x":1262,"arrivalX":310,"arrivalY":480,"boatSeconds":3.5,"rideLabel":"浅瀬から岩島へ渡る小舟"}],"mapPoint":"teyvat:53","waypoint":{"kind":"waypoint","x":670,"y":480}},
+    {"id":"liyue-wp-92","name":"璃月・天衡の岩間","level":24,"region":"璃月","hub":false,"width":1370,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1370},{"x":284,"y":389,"w":234},{"x":523,"y":313,"w":275},{"x":899,"y":405,"w":178}],"exits":[{"to":"liyue-wp-107","x":76,"arrivalX":1312,"arrivalY":480},{"to":"liyue-wp-105","x":851,"arrivalX":851,"arrivalY":480},{"to":"liyue-wp-94","x":1292,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:92","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-94","name":"璃月・港北の街道","level":22,"region":"璃月","hub":false,"width":1390,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1390},{"x":290,"y":395,"w":192},{"x":584,"y":415,"w":275},{"x":984,"y":404,"w":243}],"exits":[{"to":"liyue-wp-92","x":76,"arrivalX":1292,"arrivalY":480},{"to":"liyue-wp-104","x":320,"arrivalX":1312,"arrivalY":480},{"to":"liyue-wp-97","x":1070,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-96","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:94","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {"id":"liyue-wp-96","name":"璃月・海を見下ろす東端","level":27,"region":"璃月","hub":false,"width":1340,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1340},{"x":331,"y":414,"w":230},{"x":750,"y":400,"w":213}],"exits":[{"to":"liyue-wp-94","x":76,"arrivalX":1312,"arrivalY":480},{"to":"liyue-wp-100","x":836,"arrivalX":1262,"arrivalY":480},{"to":"geo-approach","x":1262,"arrivalX":1000,"arrivalY":480,"boatSeconds":3.3,"rideLabel":"沖の岩島へ向かう小舟"}],"mapPoint":"teyvat:96","waypoint":{"kind":"waypoint","x":670,"y":480}},
+    {"id":"liyue-wp-97","name":"璃月・街道脇の神像","level":24,"region":"璃月","hub":false,"width":1420,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1420},{"x":313,"y":429,"w":183},{"x":678,"y":386,"w":240},{"x":1060,"y":418,"w":162}],"exits":[{"to":"liyue-wp-94","x":76,"arrivalX":1070,"arrivalY":480},{"to":"liyue-wp-100","x":1342,"arrivalX":836,"arrivalY":480}],"mapPoint":"teyvat:97","waypoint":{"kind":"statue","x":710,"y":480}},
+    {"id":"liyue-wp-100","name":"璃月・東岸の岩浜","level":26,"region":"璃月","hub":false,"width":1340,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1340},{"x":331,"y":414,"w":230},{"x":750,"y":400,"w":213}],"exits":[{"to":"liyue-field","x":76,"arrivalX":1009,"arrivalY":480},{"to":"liyue-wp-97","x":836,"arrivalX":1342,"arrivalY":480},{"to":"liyue-wp-96","x":1262,"arrivalX":836,"arrivalY":480}],"mapPoint":"teyvat:100","waypoint":{"kind":"waypoint","x":670,"y":480}},
+    {"id":"liyue-wp-104","name":"璃月・港東の荷揚げ波止場","level":20,"region":"璃月","hub":false,"width":1390,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1390},{"x":290,"y":395,"w":192},{"x":584,"y":415,"w":275},{"x":984,"y":404,"w":243}],"exits":[{"to":"liyue-harbor","x":76,"arrivalX":485,"arrivalY":480},{"to":"liyue-wp-94","x":1312,"arrivalX":320,"arrivalY":480}],"mapPoint":"teyvat:104","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {"id":"liyue-wp-105","name":"璃月・港西の登り道","level":24,"region":"璃月","hub":false,"width":1370,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1370},{"x":284,"y":389,"w":234},{"x":523,"y":313,"w":275},{"x":899,"y":405,"w":178}],"exits":[{"to":"liyue-wp-49","x":76,"arrivalX":1312,"arrivalY":480},{"to":"liyue-wp-92","x":851,"arrivalX":851,"arrivalY":480},{"to":"liyue-wp-111","x":1292,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:105","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-106","name":"璃月・西の谷の水門","level":26,"region":"璃月","hub":false,"width":1520,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1520},{"x":286,"y":385,"w":222},{"x":626,"y":425,"w":219},{"x":972,"y":375,"w":234}],"exits":[{"to":"liyue-wp-24910","x":76,"arrivalX":1402,"arrivalY":480},{"to":"liyue-wp-107","x":926,"arrivalX":861,"arrivalY":480},{"to":"liyue-wp-49","x":1442,"arrivalX":861,"arrivalY":480}],"mapPoint":"teyvat:106","waypoint":{"kind":"waypoint","x":760,"y":480}},
+    {"id":"liyue-wp-107","name":"璃月・西の山道と神像","level":25,"region":"璃月","hub":false,"width":1390,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1390},{"x":280,"y":405,"w":190},{"x":580,"y":360,"w":260},{"x":943,"y":416,"w":188}],"exits":[{"to":"liyue-wp-108","x":76,"arrivalX":1292,"arrivalY":480},{"to":"liyue-wp-106","x":861,"arrivalX":926,"arrivalY":480},{"to":"liyue-wp-92","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:107","waypoint":{"kind":"statue","x":695,"y":480}},
+    {"id":"liyue-wp-108","name":"璃月・火の残る岩棚","level":28,"region":"璃月","hub":false,"width":1370,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1370},{"x":284,"y":389,"w":234},{"x":523,"y":313,"w":275},{"x":899,"y":405,"w":178}],"exits":[{"to":"liyue-wp-26445","x":76,"arrivalX":1312,"arrivalY":480},{"to":"liyue-wp-109","x":851,"arrivalX":876,"arrivalY":480},{"to":"liyue-wp-107","x":1292,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:108","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-109","name":"璃月・西の石谷の池","level":28,"region":"璃月","hub":false,"width":1420,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1420},{"x":313,"y":429,"w":183},{"x":678,"y":386,"w":240},{"x":1060,"y":418,"w":162}],"exits":[{"to":"liyue-wp-47","x":76,"arrivalX":1442,"arrivalY":480},{"to":"liyue-wp-108","x":876,"arrivalX":851,"arrivalY":480},{"to":"liyue-wp-110","x":1342,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:109","waypoint":{"kind":"waypoint","x":710,"y":480}},
+    {"id":"liyue-wp-110","name":"璃月・段差のある沢道","level":27,"region":"璃月","hub":false,"width":1520,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1520},{"x":286,"y":385,"w":222},{"x":626,"y":425,"w":219},{"x":972,"y":375,"w":234}],"exits":[{"to":"liyue-wp-109","x":76,"arrivalX":1342,"arrivalY":480},{"to":"liyue-wp-43","x":926,"arrivalX":1442,"arrivalY":480},{"to":"primo-approach","x":1442,"arrivalX":350,"arrivalY":480}],"mapPoint":"teyvat:110","waypoint":{"kind":"waypoint","x":760,"y":480}},
+    {"id":"liyue-wp-111","name":"璃月・市街西の見張り坂","level":22,"region":"璃月","hub":false,"width":1370,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1370},{"x":284,"y":389,"w":234},{"x":523,"y":313,"w":275},{"x":899,"y":405,"w":178}],"exits":[{"to":"liyue-wp-105","x":76,"arrivalX":1292,"arrivalY":480},{"to":"liyue-harbor","x":1292,"arrivalX":565,"arrivalY":350}],"mapPoint":"teyvat:111","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-118","name":"璃月・峰北の水場","level":28,"region":"璃月","hub":false,"width":1420,"scenery":"liyuequarry","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1420},{"x":313,"y":429,"w":183},{"x":678,"y":386,"w":240},{"x":1060,"y":418,"w":162}],"exits":[{"to":"liyue-wp-45","x":76,"arrivalX":1412,"arrivalY":480},{"to":"liyue-wp-64848","x":876,"arrivalX":1442,"arrivalY":480},{"to":"liyue-wp-39","x":1342,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:118","waypoint":{"kind":"waypoint","x":710,"y":480}},
+    {"id":"liyue-wp-1748","name":"璃月・湖西の石浜","level":24,"region":"璃月","hub":false,"width":1340,"scenery":"liyue","peaceful":true,"checkpoint":"liyue-harbor","platforms":[{"x":0,"y":480,"w":1340},{"x":331,"y":414,"w":230},{"x":750,"y":400,"w":213}],"exits":[{"to":"pyro-approach","x":76,"arrivalX":292,"arrivalY":480},{"to":"liyue-wp-51","x":1262,"arrivalX":76,"arrivalY":480,"boatSeconds":2.6,"rideLabel":"宿の桟橋から渡る小舟"}],"mapPoint":"teyvat:1748","waypoint":{"kind":"waypoint","x":670,"y":480}},
+    {"id":"liyue-wp-24908","name":"層岩巨淵・地上・採掘場西の神像","level":33,"region":"層岩巨淵・地上","hub":false,"width":1480,"scenery":"chasm","peaceful":true,"checkpoint":"chasm-camp","platforms":[{"x":0,"y":480,"w":1480},{"x":288,"y":388,"w":225},{"x":569,"y":323,"w":237},{"x":961,"y":390,"w":257}],"exits":[{"to":"liyue-wp-28732","x":76,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-24909","x":1402,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:24908","waypoint":{"kind":"statue","x":740,"y":480}},
+    {"id":"liyue-wp-24909","name":"層岩巨淵・地上・採掘場の北回廊","level":31,"region":"層岩巨淵・地上","hub":false,"width":1480,"scenery":"chasm","peaceful":true,"checkpoint":"chasm-camp","platforms":[{"x":0,"y":480,"w":1480},{"x":288,"y":388,"w":225},{"x":569,"y":323,"w":237},{"x":961,"y":390,"w":257}],"exits":[{"to":"liyue-wp-24908","x":76,"arrivalX":1402,"arrivalY":480},{"to":"liyue-wp-26445","x":906,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-24910","x":1402,"arrivalX":906,"arrivalY":480}],"mapPoint":"teyvat:24909","waypoint":{"kind":"waypoint","x":740,"y":480}},
+    {"id":"liyue-wp-24910","name":"層岩巨淵・地上・採掘場東の作業口","level":29,"region":"層岩巨淵・地上","hub":false,"width":1480,"scenery":"chasm","peaceful":true,"checkpoint":"chasm-camp","platforms":[{"x":0,"y":480,"w":1480},{"x":288,"y":388,"w":225},{"x":569,"y":323,"w":237},{"x":961,"y":390,"w":257}],"exits":[{"to":"liyue-wp-24912","x":76,"arrivalX":1402,"arrivalY":480},{"to":"liyue-wp-24909","x":906,"arrivalX":1402,"arrivalY":480},{"to":"liyue-wp-106","x":1402,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:24910","waypoint":{"kind":"waypoint","x":740,"y":480}},
+    {"id":"liyue-wp-24911","name":"層岩巨淵・地上・採掘場南の荷上げ坂","level":34,"region":"層岩巨淵・地上","hub":false,"width":1490,"scenery":"chasm","peaceful":true,"checkpoint":"chasm-camp","platforms":[{"x":0,"y":480,"w":1490},{"x":265,"y":401,"w":225},{"x":520,"y":323,"w":259},{"x":800,"y":278,"w":244},{"x":1070,"y":371,"w":215}],"exits":[{"to":"liyue-wp-28732","x":76,"arrivalX":1292,"arrivalY":480},{"to":"liyue-wp-24912","x":1412,"arrivalX":906,"arrivalY":480}],"mapPoint":"teyvat:24911","waypoint":{"kind":"waypoint","x":745,"y":480}},
+    {"id":"liyue-wp-24912","name":"層岩巨淵・地上・坑口の搬入口","level":33,"region":"層岩巨淵・地上","hub":false,"width":1480,"scenery":"chasm","peaceful":true,"checkpoint":"chasm-camp","platforms":[{"x":0,"y":480,"w":1480},{"x":288,"y":388,"w":225},{"x":569,"y":323,"w":237},{"x":961,"y":390,"w":257}],"exits":[{"to":"liyue-wp-28732","x":76,"arrivalX":851,"arrivalY":368},{"to":"liyue-wp-24911","x":906,"arrivalX":1412,"arrivalY":480},{"to":"liyue-wp-24910","x":1402,"arrivalX":76,"arrivalY":480},{"to":"chasm-camp","x":650,"arrivalX":650,"arrivalY":480,"liftSeconds":2.8,"rideLabel":"坑口の昇降機"}],"mapPoint":"teyvat:24912","waypoint":{"kind":"waypoint","x":740,"y":480}},
+    {"id":"liyue-wp-26445","name":"層岩巨淵・地上・採掘場の北の峠","level":29,"region":"層岩巨淵・地上","hub":false,"width":1390,"scenery":"liyuequarry","peaceful":true,"checkpoint":"chasm-camp","platforms":[{"x":0,"y":480,"w":1390},{"x":280,"y":405,"w":190},{"x":580,"y":360,"w":260},{"x":943,"y":416,"w":188}],"exits":[{"to":"liyue-wp-24909","x":76,"arrivalX":906,"arrivalY":480},{"to":"liyue-wp-108","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:26445","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {"id":"liyue-wp-28732","name":"層岩巨淵・地上・採掘場西の岩棚","level":35,"region":"層岩巨淵・地上","hub":false,"width":1370,"scenery":"chasm","peaceful":true,"checkpoint":"chasm-camp","platforms":[{"x":0,"y":480,"w":1370},{"x":284,"y":389,"w":234},{"x":523,"y":313,"w":275},{"x":899,"y":405,"w":178},{"x":794,"y":368,"w":120}],"exits":[{"to":"liyue-wp-24908","x":76,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-24912","x":851,"y":368,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-24911","x":1292,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:28732","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-64824","name":"沈玉の谷・谷の南にある神像","level":25,"region":"沈玉の谷","hub":false,"width":1370,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1370},{"x":306,"y":412,"w":213},{"x":551,"y":358,"w":236},{"x":918,"y":407,"w":250}],"exits":[{"to":"liyue-wp-64828","x":76,"arrivalX":1312,"arrivalY":480},{"to":"liyue-wp-64830","x":851,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-64835","x":1292,"arrivalX":851,"arrivalY":480}],"mapPoint":"teyvat:64824","waypoint":{"kind":"statue","x":685,"y":480}},
+    {"id":"liyue-wp-64825","name":"沈玉の谷・谷の入口の神像","level":21,"region":"沈玉の谷","hub":false,"width":1370,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1370},{"x":306,"y":412,"w":213},{"x":551,"y":358,"w":236},{"x":918,"y":407,"w":250}],"exits":[{"to":"liyue-wp-64842","x":76,"arrivalX":1442,"arrivalY":480},{"to":"liyue-wp-64843","x":851,"arrivalX":1292,"arrivalY":480},{"to":"chenyu-camp","x":1292,"arrivalX":665,"arrivalY":480}],"mapPoint":"teyvat:64825","waypoint":{"kind":"statue","x":685,"y":480}},
+    {"id":"liyue-wp-64826","name":"沈玉の谷・西岸の道","level":29,"region":"沈玉の谷","hub":false,"width":1340,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1340},{"x":331,"y":414,"w":230},{"x":750,"y":400,"w":213},{"x":19,"y":373,"w":120}],"exits":[{"to":"liyue-wp-64827","x":76,"y":373,"arrivalX":1412,"arrivalY":480},{"to":"liyue-wp-64828","x":1262,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:64826","waypoint":{"kind":"waypoint","x":670,"y":480}},
+    {"id":"liyue-wp-64827","name":"沈玉の谷・西峰の石棚","level":31,"region":"沈玉の谷","hub":false,"width":1490,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1490},{"x":265,"y":401,"w":225},{"x":520,"y":323,"w":259},{"x":800,"y":278,"w":244},{"x":1070,"y":371,"w":215}],"exits":[{"to":"liyue-wp-64849","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"西峰の石室へ降りる昇降機"},{"to":"liyue-wp-64826","x":1412,"arrivalX":76,"arrivalY":373}],"mapPoint":"teyvat:64827","waypoint":{"kind":"waypoint","x":745,"y":480}},
+    {"id":"liyue-wp-64828","name":"沈玉の谷・西岸の渡し場","level":28,"region":"沈玉の谷","hub":false,"width":1390,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1390},{"x":290,"y":395,"w":192},{"x":584,"y":415,"w":275},{"x":984,"y":404,"w":243}],"exits":[{"to":"liyue-wp-64826","x":76,"arrivalX":1262,"arrivalY":480},{"to":"liyue-wp-64833","x":861,"arrivalX":320,"arrivalY":480},{"to":"liyue-wp-64824","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:64828","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {"id":"liyue-wp-64829","name":"沈玉の谷・谷の南端の山道","level":26,"region":"沈玉の谷","hub":false,"width":1390,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1390},{"x":280,"y":405,"w":190},{"x":580,"y":360,"w":260},{"x":943,"y":416,"w":188}],"exits":[{"to":"liyue-wp-66770","x":76,"arrivalX":76,"arrivalY":480,"boatSeconds":3.2,"rideLabel":"南岸と岩礁を結ぶ小舟"},{"to":"liyue-wp-64830","x":861,"arrivalX":851,"arrivalY":480},{"to":"liyue-wp-64847","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:64829","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {"id":"liyue-wp-64830","name":"沈玉の谷・谷の南東の草段","level":26,"region":"沈玉の谷","hub":false,"width":1370,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1370},{"x":306,"y":412,"w":213},{"x":551,"y":358,"w":236},{"x":918,"y":407,"w":250}],"exits":[{"to":"liyue-wp-64824","x":76,"arrivalX":851,"arrivalY":480},{"to":"liyue-wp-64829","x":851,"arrivalX":861,"arrivalY":480},{"to":"liyue-wp-64846","x":1292,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:64830","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-64831","name":"沈玉の谷・湖の西の小桟橋","level":27,"region":"沈玉の谷","hub":false,"width":1390,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1390},{"x":290,"y":395,"w":192},{"x":584,"y":415,"w":275},{"x":984,"y":404,"w":243}],"exits":[{"to":"liyue-wp-64834","x":76,"arrivalX":1312,"arrivalY":480},{"to":"liyue-wp-64833","x":320,"arrivalX":1050,"arrivalY":480},{"to":"liyue-wp-64837","x":1070,"arrivalX":861,"arrivalY":480},{"to":"liyue-wp-64832","x":1312,"arrivalX":76,"arrivalY":480,"waterwaySeconds":2.5,"rideLabel":"湖西の水路"}],"mapPoint":"teyvat:64831","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {"id":"liyue-wp-64832","name":"沈玉の谷・湖西の水路跡","level":30,"region":"沈玉の谷","hub":false,"width":1280,"scenery":"chasm","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1280},{"x":300,"y":391,"w":207},{"x":552,"y":351,"w":243},{"x":888,"y":404,"w":238}],"exits":[{"to":"liyue-wp-64831","x":76,"arrivalX":1312,"arrivalY":480,"waterwaySeconds":2.5,"rideLabel":"湖西の水路"}],"mapPoint":"teyvat:64832","waypoint":{"kind":"waypoint","x":640,"y":480,"floor":{"group_id":119,"floor_id":150}}},
+    {"id":"liyue-wp-64833","name":"沈玉の谷・川曲がりの茶畑","level":25,"region":"沈玉の谷","hub":false,"width":1370,"scenery":"chenyuPavilion","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1370},{"x":306,"y":412,"w":213},{"x":551,"y":358,"w":236},{"x":918,"y":407,"w":250}],"exits":[{"to":"liyue-wp-64834","x":76,"arrivalX":861,"arrivalY":480},{"to":"liyue-wp-64828","x":320,"arrivalX":861,"arrivalY":480},{"to":"liyue-wp-64831","x":1050,"arrivalX":320,"arrivalY":480},{"to":"liyue-wp-64835","x":1292,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:64833","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-64834","name":"沈玉の谷・西岸の宿場道","level":26,"region":"沈玉の谷","hub":false,"width":1390,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1390},{"x":290,"y":395,"w":192},{"x":584,"y":415,"w":275},{"x":984,"y":404,"w":243}],"exits":[{"to":"liyue-wp-66768","x":76,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-64833","x":861,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-64831","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:64834","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {"id":"liyue-wp-64835","name":"沈玉の谷・沢沿いの茶棚","level":25,"region":"沈玉の谷","hub":false,"width":1370,"scenery":"chenyuPavilion","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1370},{"x":306,"y":412,"w":213},{"x":551,"y":358,"w":236},{"x":918,"y":407,"w":250}],"exits":[{"to":"liyue-wp-64833","x":76,"arrivalX":1292,"arrivalY":480},{"to":"liyue-wp-64824","x":851,"arrivalX":1292,"arrivalY":480},{"to":"liyue-wp-64836","x":1292,"arrivalX":926,"arrivalY":480}],"mapPoint":"teyvat:64835","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-64836","name":"沈玉の谷・湖東の小径","level":25,"region":"沈玉の谷","hub":false,"width":1520,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1520},{"x":290,"y":416,"w":218},{"x":535,"y":403,"w":418},{"x":997,"y":416,"w":218}],"exits":[{"to":"liyue-wp-64840","x":76,"arrivalX":1412,"arrivalY":480},{"to":"liyue-wp-64835","x":926,"arrivalX":1292,"arrivalY":480},{"to":"liyue-wp-64842","x":1442,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:64836","waypoint":{"kind":"waypoint","x":760,"y":480}},
+    {"id":"liyue-wp-64837","name":"沈玉の谷・港の南の階段","level":25,"region":"沈玉の谷","hub":false,"width":1390,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1390},{"x":290,"y":395,"w":192},{"x":584,"y":415,"w":275},{"x":984,"y":404,"w":243}],"exits":[{"to":"liyue-wp-66769","x":76,"arrivalX":1312,"arrivalY":480},{"to":"liyue-wp-64831","x":861,"arrivalX":1070,"arrivalY":480},{"to":"liyue-wp-64838","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:64837","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {"id":"liyue-wp-64838","name":"沈玉の谷・港東の竹道","level":25,"region":"沈玉の谷","hub":false,"width":1390,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1390},{"x":280,"y":405,"w":190},{"x":580,"y":360,"w":260},{"x":943,"y":416,"w":188}],"exits":[{"to":"liyue-wp-64837","x":76,"arrivalX":1312,"arrivalY":480},{"to":"liyue-wp-64840","x":861,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-64839","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:64838","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {"id":"liyue-wp-64839","name":"沈玉の谷・見晴らし岩の北尾根","level":29,"region":"沈玉の谷","hub":false,"width":1370,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1370},{"x":284,"y":389,"w":234},{"x":523,"y":313,"w":275},{"x":899,"y":405,"w":178},{"x":794,"y":365,"w":120}],"exits":[{"to":"liyue-wp-64838","x":76,"arrivalX":1312,"arrivalY":480},{"to":"liyue-wp-66979","x":851,"y":365,"arrivalX":76,"arrivalY":480,"liftSeconds":2.2,"rideLabel":"尾根の石窟へ降りる昇降機"},{"to":"liyue-wp-64841","x":1292,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:64839","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-64840","name":"沈玉の谷・湖の北の石峰","level":30,"region":"沈玉の谷","hub":false,"width":1490,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1490},{"x":265,"y":401,"w":225},{"x":520,"y":323,"w":259},{"x":800,"y":278,"w":244},{"x":1070,"y":371,"w":215}],"exits":[{"to":"liyue-wp-64838","x":76,"arrivalX":861,"arrivalY":480},{"to":"liyue-wp-64836","x":1412,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:64840","waypoint":{"kind":"waypoint","x":745,"y":480}},
+    {"id":"liyue-wp-64841","name":"沈玉の谷・谷北の尾根道","level":26,"region":"沈玉の谷","hub":false,"width":1370,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1370},{"x":306,"y":412,"w":213},{"x":551,"y":358,"w":236},{"x":918,"y":407,"w":250}],"exits":[{"to":"liyue-wp-64839","x":76,"arrivalX":1292,"arrivalY":480},{"to":"liyue-wp-64842","x":851,"arrivalX":320,"arrivalY":480},{"to":"liyue-wp-64843","x":1292,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:64841","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-64842","name":"沈玉の谷・谷東の川沿い","level":23,"region":"沈玉の谷","hub":false,"width":1520,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1520},{"x":290,"y":416,"w":218},{"x":535,"y":403,"w":418},{"x":997,"y":416,"w":218}],"exits":[{"to":"liyue-wp-64836","x":76,"arrivalX":1442,"arrivalY":480},{"to":"liyue-wp-64841","x":320,"arrivalX":851,"arrivalY":480},{"to":"liyue-wp-64844","x":1200,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-64825","x":1442,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:64842","waypoint":{"kind":"waypoint","x":760,"y":480}},
+    {"id":"liyue-wp-64843","name":"沈玉の谷・東の茶の道","level":22,"region":"沈玉の谷","hub":false,"width":1370,"scenery":"chenyuPavilion","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1370},{"x":306,"y":412,"w":213},{"x":551,"y":358,"w":236},{"x":918,"y":407,"w":250}],"exits":[{"to":"liyue-wp-64841","x":76,"arrivalX":1292,"arrivalY":480},{"to":"liyue-wp-64825","x":1292,"arrivalX":851,"arrivalY":480}],"mapPoint":"teyvat:64843","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-64844","name":"沈玉の谷・川の北岸の渡し場","level":26,"region":"沈玉の谷","hub":false,"width":1390,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1390},{"x":290,"y":395,"w":192},{"x":584,"y":415,"w":275},{"x":984,"y":404,"w":243}],"exits":[{"to":"liyue-wp-64842","x":76,"arrivalX":1200,"arrivalY":480},{"to":"chenyu-depth","x":861,"arrivalX":310,"arrivalY":480},{"to":"liyue-wp-38","x":1312,"arrivalX":76,"arrivalY":480,"boatSeconds":3.0,"rideLabel":"石島と谷の岸を結ぶ小舟"}],"mapPoint":"teyvat:64844","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {"id":"liyue-wp-64846","name":"沈玉の谷・山裾の曲がり道","level":26,"region":"沈玉の谷","hub":false,"width":1370,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1370},{"x":306,"y":412,"w":213},{"x":551,"y":358,"w":236},{"x":918,"y":407,"w":250}],"exits":[{"to":"liyue-wp-64830","x":76,"arrivalX":1292,"arrivalY":480},{"to":"liyue-wp-64847","x":851,"arrivalX":851,"arrivalY":480},{"to":"chenyu-depth","x":1292,"arrivalX":625,"arrivalY":480}],"mapPoint":"teyvat:64846","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-64847","name":"沈玉の谷・南側の岩斜面","level":26,"region":"沈玉の谷","hub":false,"width":1370,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1370},{"x":284,"y":389,"w":234},{"x":523,"y":313,"w":275},{"x":899,"y":405,"w":178}],"exits":[{"to":"liyue-wp-64829","x":76,"arrivalX":1312,"arrivalY":480},{"to":"liyue-wp-64846","x":851,"arrivalX":851,"arrivalY":480},{"to":"liyue-wp-64848","x":1292,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:64847","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-64848","name":"沈玉の谷・谷南の分岐","level":25,"region":"沈玉の谷","hub":false,"width":1520,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1520},{"x":286,"y":385,"w":222},{"x":626,"y":425,"w":219},{"x":972,"y":375,"w":234}],"exits":[{"to":"liyue-wp-64847","x":76,"arrivalX":1292,"arrivalY":480},{"to":"chenyu-depth","x":926,"arrivalX":1040,"arrivalY":480},{"to":"liyue-wp-118","x":1442,"arrivalX":876,"arrivalY":480}],"mapPoint":"teyvat:64848","waypoint":{"kind":"waypoint","x":760,"y":480}},
+    {"id":"liyue-wp-64849","name":"沈玉の谷・西峰の石室","level":32,"region":"沈玉の谷","hub":false,"width":1280,"scenery":"chasm","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1280},{"x":300,"y":391,"w":207},{"x":552,"y":351,"w":243},{"x":888,"y":404,"w":238}],"exits":[{"to":"liyue-wp-64827","x":76,"arrivalX":76,"arrivalY":480,"liftSeconds":1.8,"rideLabel":"西峰の石室へ降りる昇降機"}],"mapPoint":"teyvat:64849","waypoint":{"kind":"waypoint","x":640,"y":480,"floor":{"group_id":120,"floor_id":151}}},
+    {"id":"liyue-wp-66768","name":"沈玉の谷・港西の山縁","level":29,"region":"沈玉の谷","hub":false,"width":1370,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1370},{"x":284,"y":389,"w":234},{"x":523,"y":313,"w":275},{"x":899,"y":405,"w":178}],"exits":[{"to":"liyue-wp-64834","x":76,"arrivalX":76,"arrivalY":480},{"to":"liyue-wp-66769","x":1292,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:66768","waypoint":{"kind":"waypoint","x":685,"y":480}},
+    {"id":"liyue-wp-66769","name":"沈玉の谷・谷北の埠頭","level":25,"region":"沈玉の谷","hub":false,"width":1390,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1390},{"x":290,"y":395,"w":192},{"x":584,"y":415,"w":275},{"x":984,"y":404,"w":243}],"exits":[{"to":"liyue-wp-66768","x":76,"arrivalX":1292,"arrivalY":480},{"to":"liyue-wp-64837","x":1312,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:66769","waypoint":{"kind":"waypoint","x":695,"y":480}},
+    {"id":"liyue-wp-66770","name":"沈玉の谷・谷南の沖合の岩礁","level":30,"region":"沈玉の谷","hub":false,"width":1340,"scenery":"chenyu","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1340},{"x":331,"y":414,"w":230},{"x":750,"y":400,"w":213}],"exits":[{"to":"liyue-wp-64829","x":76,"arrivalX":76,"arrivalY":480,"boatSeconds":3.2,"rideLabel":"南岸と岩礁を結ぶ小舟"}],"mapPoint":"teyvat:66770","waypoint":{"kind":"waypoint","x":670,"y":480}},
+    {"id":"liyue-wp-66979","name":"沈玉の谷・北尾根の隠れ石窟","level":31,"region":"沈玉の谷","hub":false,"width":1280,"scenery":"chasm","peaceful":true,"checkpoint":"chenyu-camp","platforms":[{"x":0,"y":480,"w":1280},{"x":300,"y":391,"w":207},{"x":552,"y":351,"w":243},{"x":888,"y":404,"w":238}],"exits":[{"to":"liyue-wp-64839","x":76,"arrivalX":851,"arrivalY":365,"liftSeconds":2.2,"rideLabel":"尾根の石窟へ降りる昇降機"}],"mapPoint":"teyvat:66979","waypoint":{"kind":"waypoint","x":640,"y":480,"floor":{"group_id":122,"floor_id":154}}},
     {"id":"mond-wp-7","name":"モンド・東丘の石畳","region":"モンド","level":8,"width":1320,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondhill","platforms":[{"x":0,"y":480,"w":1320},{"x":340,"y":371,"w":212},{"x":565,"y":281,"w":254}],"exits":[{"to":"mond-wp-13","x":76,"arrivalX":905,"arrivalY":480},{"to":"mond-wp-12","x":1006,"arrivalX":1272,"arrivalY":480},{"to":"mond-wp-9","x":1242,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:7","waypoint":{"kind":"waypoint","x":660,"y":480}},
     {"id":"mond-wp-8","name":"モンド・北の湖の岩棚","region":"モンド","level":9,"width":1240,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"mondlookout","platforms":[{"x":0,"y":480,"w":1240},{"x":310,"y":389,"w":250},{"x":555,"y":305,"w":205}],"exits":[{"to":"mond-wp-95792","x":76,"arrivalX":1372,"arrivalY":480},{"to":"mond-wp-12","x":926,"arrivalX":76,"arrivalY":370},{"to":"mond-wp-10","x":1162,"arrivalX":76,"arrivalY":480}],"mapPoint":"teyvat:8","waypoint":{"kind":"waypoint","x":620,"y":480}},
     {"id":"mond-wp-9","name":"モンド・海食崖の南棚","region":"モンド","level":10,"width":1450,"hub":false,"peaceful":true,"checkpoint":"mond-town","scenery":"shiomicape","platforms":[{"x":0,"y":480,"w":1450},{"x":328,"y":379,"w":224},{"x":554,"y":294,"w":248},{"x":814,"y":344,"w":196}],"exits":[{"to":"mond-wp-7","x":76,"arrivalX":1242,"arrivalY":480},{"to":"mond-wp-10","x":1372,"arrivalX":1202,"arrivalY":480}],"mapPoint":"teyvat:9","waypoint":{"kind":"waypoint","x":725,"y":480}},
@@ -5815,6 +6214,9 @@
     {"id":"nod-false-moon-rift","name":"偽月の再現戦・異界","region":"ナド・クライ","level":132,"width":960,"hub":false,"peaceful":true,"checkpoint":"nod-town","platforms":[{"x":0,"y":480,"w":960},{"x":118,"y":357,"w":155},{"x":696,"y":357,"w":155}],"exits":[],"weeklySceneOf":"nod-false-moon-court"}
   ],
   "quests": [
+    {"id":"liyue-mapped-east-shore","name":"港から東岸まで、荷の道を測る","hub":"liyue-harbor","giver":"荷受け係","level":26,"xp":6700,"mora":1800,"target":"liyue-wp-100","briefing":"荷揚げ場から港北の街道を通って東岸まで。荷車が通る道と、海風を避けられる場所を記録してきて。","closing":"これなら風が強い日の荷運びも組み立てられる。助かったよ。","itinerary":[{"kind":"arrive","from":"liyue-harbor","node":"liyue-wp-104","objective":"港から荷揚げ波止場へ"},{"kind":"arrive","from":"liyue-wp-104","node":"liyue-wp-94","objective":"港北の街道に出る"},{"kind":"arrive","from":"liyue-wp-94","node":"liyue-wp-97","objective":"街道脇の神像へ"},{"kind":"arrive","from":"liyue-wp-97","node":"liyue-wp-100","objective":"東岸の岩浜に出る"},{"kind":"inspect","node":"liyue-wp-100","x":670,"y":480,"name":"調査の目印","action":"記録を取る","objective":"風よけの岩陰を記録する"}],"kind":"itinerary","goal":5},
+    {"id":"liyue-mapped-hidden-cave","name":"茶葉の香りが届かない石窟","hub":"chenyu-camp","giver":"茶畑の見回り役","level":31,"xp":11200,"mora":2200,"target":"liyue-wp-66979","briefing":"入口の神像から茶の道を歩き、北尾根の昇降機で石窟へ。湿り気が強いところを探してください。","closing":"ここまで湿り気があると、乾かした茶葉は運べませんね。別の保管場所を探します。","itinerary":[{"kind":"arrive","from":"chenyu-camp","node":"liyue-wp-64825","objective":"入口から神像へ"},{"kind":"arrive","from":"liyue-wp-64825","node":"liyue-wp-64843","objective":"東の茶の道へ"},{"kind":"arrive","from":"liyue-wp-64843","node":"liyue-wp-64841","objective":"北の尾根道へ"},{"kind":"arrive","from":"liyue-wp-64841","node":"liyue-wp-64839","objective":"昇降機のある岩へ"},{"kind":"arrive","from":"liyue-wp-64839","node":"liyue-wp-66979","objective":"昇降機で隠れ石窟へ降りる"},{"kind":"inspect","node":"liyue-wp-66979","x":640,"y":480,"name":"調査の目印","action":"記録を取る","objective":"石窟の壁の湿り気を測る"},{"kind":"arrive","from":"liyue-wp-66979","node":"liyue-wp-64839","objective":"昇降機で地上へ戻る"}],"kind":"itinerary","goal":7},
+    {"id":"liyue-mapped-chasm-shaft","name":"坑口の昇降機を往復する","hub":"chasm-camp","giver":"地下鉱区の監督","level":35,"xp":17600,"mora":2900,"target":"liyue-wp-28732","briefing":"坑口の昇降機で地上へ。神像の近くを回って西の岩棚まで、落石がないか見てください。","closing":"上と下の両方から使える経路だと分かりました。次の班にも伝えておきます。","itinerary":[{"kind":"arrive","from":"chasm-camp","node":"liyue-wp-24912","objective":"地下の拠点から地上の坑口へ登る"},{"kind":"arrive","from":"liyue-wp-24912","node":"liyue-wp-24910","objective":"東の作業口を通る"},{"kind":"arrive","from":"liyue-wp-24910","node":"liyue-wp-24909","objective":"北回廊へ"},{"kind":"arrive","from":"liyue-wp-24909","node":"liyue-wp-24908","objective":"神像のある西へ"},{"kind":"arrive","from":"liyue-wp-24908","node":"liyue-wp-28732","objective":"西の岩棚へ"},{"kind":"inspect","node":"liyue-wp-28732","x":685,"y":480,"name":"調査の目印","action":"記録を取る","objective":"外側の岩棚で落石の跡を探す"},{"kind":"arrive","from":"liyue-wp-28732","node":"liyue-wp-24912","objective":"岩棚から坑口に戻る"},{"kind":"arrive","from":"liyue-wp-24912","node":"chasm-camp","objective":"昇降機で地下の拠点へ戻る"}],"kind":"itinerary","goal":8},
     {"id":"mond-mapped-lakeside","name":"北の湖まで、道をたどって","hub":"mond-town","giver":"アンバー","target":"mond-wp-12","level":8,"xp":1040,"mora":550,"briefing":"城門から大樹を目指し、東丘を回って北の湖までの道を見てきて。","closing":"橋と大樹を目印にすれば、湖まで迷わず歩けそうだね。","itinerary":[{"kind":"arrive","from":"mond-town","node":"mond-road","objective":"橋を渡り、城外の街道に出る","notice":"橋を渡り、城外の街道に出る。到着を記録しました。"},{"kind":"arrive","from":"mond-road","node":"mond-wp-13","objective":"街道の分岐から大樹と神像の東原へ","notice":"街道の分岐から大樹と神像の東原へ。到着を記録しました。"},{"kind":"arrive","from":"mond-wp-13","node":"mond-wp-7","objective":"大樹の東から石畳を登る","notice":"大樹の東から石畳を登る。到着を記録しました。"},{"kind":"arrive","from":"mond-wp-7","node":"mond-wp-12","objective":"東丘から北の湖までたどる","notice":"東丘から北の湖までたどる。到着を記録しました。"},{"kind":"inspect","node":"mond-wp-12","x":675,"y":480,"name":"調査の目印","action":"記録を取る","objective":"湖畔の目印を調べる"}],"kind":"itinerary","goal":5},
     {"id":"mond-mapped-snowline","name":"雪の足跡を東稜まで","hub":"dragonspine-camp","giver":"観測係","target":"mond-wp-6603","level":48,"xp":22400,"mora":3400,"briefing":"北東の谷戸から雪原へ。神像を足掛かりに、東稜までの道を記録してください。","closing":"無事に戻りましたね。次の観測隊はこの道順を使えます。","itinerary":[{"kind":"arrive","from":"dragonspine-camp","node":"mond-wp-6601","objective":"拠点を出て北東の谷戸へ入る","notice":"拠点を出て北東の谷戸へ入る。到着を記録しました。"},{"kind":"arrive","from":"mond-wp-6601","node":"mond-wp-6537","objective":"雪原の神像まで谷戸を抜ける","notice":"雪原の神像まで谷戸を抜ける。到着を記録しました。"},{"kind":"arrive","from":"mond-wp-6537","node":"mond-wp-6603","objective":"神像から東稜へ進む","notice":"神像から東稜へ進む。到着を記録しました。"},{"kind":"inspect","node":"mond-wp-6603","x":725,"y":480,"name":"調査の目印","action":"記録を取る","objective":"東稜の足元を確かめて記録する"}],"kind":"itinerary","goal":4},
     {"id":"mond-mapped-islet","name":"小舟が着くところ","hub":"dornman-camp","giver":"船着き場の係","target":"mond-wp-95799","level":160,"xp":1250000,"mora":15500,"briefing":"港東の桟橋から小舟で沖の小島へ。潮が引いたときの足場を見てください。","closing":"ありがとう。小舟で戻る道具も港にそろえておきます。","itinerary":[{"kind":"arrive","from":"dornman-camp","node":"mond-wp-95797","objective":"入口から港東の桟橋へ","notice":"入口から港東の桟橋へ。到着を記録しました。"},{"kind":"arrive","from":"mond-wp-95797","node":"mond-wp-95799","objective":"小舟で沖の小島へ渡る","notice":"小舟で沖の小島へ渡る。到着を記録しました。"},{"kind":"inspect","node":"mond-wp-95799","x":675,"y":480,"name":"調査の目印","action":"記録を取る","objective":"小島の船着き場を調べる"},{"kind":"arrive","from":"mond-wp-95799","node":"mond-wp-95797","objective":"小舟で港東の桟橋へ戻る","notice":"小舟で港東の桟橋へ戻る。到着を記録しました。"}],"kind":"itinerary","goal":4},

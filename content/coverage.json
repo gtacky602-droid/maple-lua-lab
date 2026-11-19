@@ -51,8 +51,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 28,
-      "prototype_quest_count": 23,
+      "prototype_stage_count": 66,
+      "prototype_quest_count": 24,
       "official_map2_markers": {
         "waypoints": 75,
         "statues": 8
@@ -220,8 +220,8 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 8,
-      "prototype_quest_count": 5,
+      "prototype_stage_count": 37,
+      "prototype_quest_count": 6,
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
     {
@@ -462,7 +462,7 @@
     },
     "complete_world_verified": false,
     "region_assignment": "official area IDs",
-    "playable_at_imported_nodes": 66,
+    "playable_at_imported_nodes": 149,
     "stage_links": {
       "map9:25264": {
         "stage_id": "chasm-wp-25264",
@@ -592,13 +592,120 @@
           "teyvat:9"
         ]
       },
+      "teyvat:100": {
+        "stage_id": "liyue-wp-100",
+        "name": "璃月・東岸の岩浜",
+        "gates": [
+          "teyvat:343",
+          "teyvat:97",
+          "teyvat:96"
+        ]
+      },
+      "teyvat:101": {
+        "stage_id": "primo-approach",
+        "name": "エンシェントヴィシャップ・洞窟入口",
+        "gates": [
+          "teyvat:343",
+          "teyvat:110"
+        ]
+      },
+      "teyvat:104": {
+        "stage_id": "liyue-wp-104",
+        "name": "璃月・港東の荷揚げ波止場",
+        "gates": [
+          "teyvat:937",
+          "teyvat:94"
+        ]
+      },
+      "teyvat:105": {
+        "stage_id": "liyue-wp-105",
+        "name": "璃月・港西の登り道",
+        "gates": [
+          "teyvat:49",
+          "teyvat:92",
+          "teyvat:111"
+        ]
+      },
+      "teyvat:106": {
+        "stage_id": "liyue-wp-106",
+        "name": "璃月・西の谷の水門",
+        "gates": [
+          "teyvat:24910",
+          "teyvat:107",
+          "teyvat:49"
+        ]
+      },
+      "teyvat:107": {
+        "stage_id": "liyue-wp-107",
+        "name": "璃月・西の山道と神像",
+        "gates": [
+          "teyvat:108",
+          "teyvat:106",
+          "teyvat:92"
+        ]
+      },
+      "teyvat:108": {
+        "stage_id": "liyue-wp-108",
+        "name": "璃月・火の残る岩棚",
+        "gates": [
+          "teyvat:26445",
+          "teyvat:109",
+          "teyvat:107"
+        ]
+      },
+      "teyvat:109": {
+        "stage_id": "liyue-wp-109",
+        "name": "璃月・西の石谷の池",
+        "gates": [
+          "teyvat:47",
+          "teyvat:108",
+          "teyvat:110"
+        ]
+      },
+      "teyvat:110": {
+        "stage_id": "liyue-wp-110",
+        "name": "璃月・段差のある沢道",
+        "gates": [
+          "teyvat:109",
+          "teyvat:43",
+          "teyvat:101"
+        ]
+      },
+      "teyvat:111": {
+        "stage_id": "liyue-wp-111",
+        "name": "璃月・市街西の見張り坂",
+        "gates": [
+          "teyvat:105",
+          "teyvat:937"
+        ]
+      },
       "teyvat:116": {
         "stage_id": "mond-border",
         "name": "モンド・国境の道",
         "gates": [
           "teyvat:3",
+          "teyvat:30",
           "teyvat:6538",
           "teyvat:19"
+        ]
+      },
+      "teyvat:118": {
+        "stage_id": "liyue-wp-118",
+        "name": "璃月・峰北の水場",
+        "gates": [
+          "teyvat:45",
+          "teyvat:64848",
+          "teyvat:39"
+        ]
+      },
+      "teyvat:119": {
+        "stage_id": "pyro-approach",
+        "name": "爆炎樹・挑戦入口",
+        "gates": [
+          "teyvat:343",
+          "teyvat:38",
+          "teyvat:44",
+          "teyvat:1748"
         ]
       },
       "teyvat:12": {
@@ -649,6 +756,14 @@
         "name": "モンド・東南の岬",
         "gates": [
           "teyvat:18"
+        ]
+      },
+      "teyvat:1748": {
+        "stage_id": "liyue-wp-1748",
+        "name": "璃月・湖西の石浜",
+        "gates": [
+          "teyvat:119",
+          "teyvat:51"
         ]
       },
       "teyvat:18": {
@@ -713,6 +828,49 @@
           "teyvat:23"
         ]
       },
+      "teyvat:24908": {
+        "stage_id": "liyue-wp-24908",
+        "name": "層岩巨淵・地上・採掘場西の神像",
+        "gates": [
+          "teyvat:28732",
+          "teyvat:24909"
+        ]
+      },
+      "teyvat:24909": {
+        "stage_id": "liyue-wp-24909",
+        "name": "層岩巨淵・地上・採掘場の北回廊",
+        "gates": [
+          "teyvat:24908",
+          "teyvat:26445",
+          "teyvat:24910"
+        ]
+      },
+      "teyvat:24910": {
+        "stage_id": "liyue-wp-24910",
+        "name": "層岩巨淵・地上・採掘場東の作業口",
+        "gates": [
+          "teyvat:24912",
+          "teyvat:24909",
+          "teyvat:106"
+        ]
+      },
+      "teyvat:24911": {
+        "stage_id": "liyue-wp-24911",
+        "name": "層岩巨淵・地上・採掘場南の荷上げ坂",
+        "gates": [
+          "teyvat:28732",
+          "teyvat:24912"
+        ]
+      },
+      "teyvat:24912": {
+        "stage_id": "liyue-wp-24912",
+        "name": "層岩巨淵・地上・坑口の搬入口",
+        "gates": [
+          "teyvat:28732",
+          "teyvat:24911",
+          "teyvat:24910"
+        ]
+      },
       "teyvat:25": {
         "stage_id": "mond-wp-25",
         "name": "モンド・西の遺跡と神像",
@@ -728,6 +886,14 @@
           "teyvat:27",
           "teyvat:25",
           "teyvat:28"
+        ]
+      },
+      "teyvat:26445": {
+        "stage_id": "liyue-wp-26445",
+        "name": "層岩巨淵・地上・採掘場の北の峠",
+        "gates": [
+          "teyvat:24909",
+          "teyvat:108"
         ]
       },
       "teyvat:27": {
@@ -746,6 +912,23 @@
           "teyvat:21"
         ]
       },
+      "teyvat:28732": {
+        "stage_id": "liyue-wp-28732",
+        "name": "層岩巨淵・地上・採掘場西の岩棚",
+        "gates": [
+          "teyvat:24908",
+          "teyvat:24912",
+          "teyvat:24911"
+        ]
+      },
+      "teyvat:29": {
+        "stage_id": "liyue-wp-29",
+        "name": "璃月・石門北側の高台",
+        "gates": [
+          "teyvat:31",
+          "teyvat:30"
+        ]
+      },
       "teyvat:3": {
         "stage_id": "mond-road",
         "name": "モンド・南の街道",
@@ -755,6 +938,237 @@
           "teyvat:16",
           "teyvat:95796",
           "teyvat:13"
+        ]
+      },
+      "teyvat:30": {
+        "stage_id": "liyue-entry",
+        "name": "璃月・北の入口",
+        "gates": [
+          "teyvat:116",
+          "teyvat:937",
+          "teyvat:64850",
+          "teyvat:32",
+          "teyvat:29"
+        ]
+      },
+      "teyvat:31": {
+        "stage_id": "oceanid-approach",
+        "name": "純水精霊・湖畔入口",
+        "gates": [
+          "teyvat:343",
+          "teyvat:37",
+          "teyvat:32",
+          "teyvat:29"
+        ]
+      },
+      "teyvat:32": {
+        "stage_id": "liyue-wp-32",
+        "name": "璃月・軽策の東段",
+        "gates": [
+          "teyvat:36",
+          "teyvat:31",
+          "teyvat:33",
+          "teyvat:30"
+        ]
+      },
+      "teyvat:33": {
+        "stage_id": "liyue-wp-33",
+        "name": "璃月・荻花洲の神像",
+        "gates": [
+          "teyvat:32",
+          "teyvat:51",
+          "teyvat:50"
+        ]
+      },
+      "teyvat:34": {
+        "stage_id": "liyue-wp-34",
+        "name": "璃月・雪山南麓の湿地",
+        "gates": [
+          "teyvat:50",
+          "teyvat:35"
+        ]
+      },
+      "teyvat:343": {
+        "stage_id": "liyue-field",
+        "name": "璃月・岩間の狩場",
+        "gates": [
+          "teyvat:937",
+          "teyvat:119",
+          "teyvat:54",
+          "teyvat:31",
+          "teyvat:101",
+          "teyvat:51",
+          "teyvat:100",
+          "teyvat:52"
+        ]
+      },
+      "teyvat:35": {
+        "stage_id": "liyue-wp-35",
+        "name": "璃月・雪解けの谷と神像",
+        "gates": [
+          "teyvat:52",
+          "teyvat:34"
+        ]
+      },
+      "teyvat:36": {
+        "stage_id": "liyue-wp-36",
+        "name": "璃月・軽策西の水田道",
+        "gates": [
+          "teyvat:37",
+          "teyvat:32"
+        ]
+      },
+      "teyvat:37": {
+        "stage_id": "liyue-wp-37",
+        "name": "璃月・竹縁の岩棚",
+        "gates": [
+          "teyvat:64850",
+          "teyvat:36",
+          "teyvat:31"
+        ]
+      },
+      "teyvat:38": {
+        "stage_id": "liyue-wp-38",
+        "name": "璃月・石の島橋",
+        "gates": [
+          "teyvat:64844",
+          "teyvat:119"
+        ]
+      },
+      "teyvat:39": {
+        "stage_id": "liyue-wp-39",
+        "name": "璃月・奥蔵の北の山道",
+        "gates": [
+          "teyvat:118",
+          "teyvat:40",
+          "teyvat:44"
+        ]
+      },
+      "teyvat:40": {
+        "stage_id": "liyue-wp-40",
+        "name": "璃月・慶雲の頂へ続く棚",
+        "gates": [
+          "teyvat:41",
+          "teyvat:39"
+        ]
+      },
+      "teyvat:41": {
+        "stage_id": "liyue-wp-41",
+        "name": "璃月・石峰の神像",
+        "gates": [
+          "teyvat:40",
+          "teyvat:42"
+        ]
+      },
+      "teyvat:42": {
+        "stage_id": "liyue-wp-42",
+        "name": "璃月・絶雲の池畔",
+        "gates": [
+          "teyvat:41",
+          "teyvat:46",
+          "teyvat:43"
+        ]
+      },
+      "teyvat:43": {
+        "stage_id": "liyue-wp-43",
+        "name": "璃月・渓谷の東口",
+        "gates": [
+          "teyvat:42",
+          "teyvat:44",
+          "teyvat:110"
+        ]
+      },
+      "teyvat:44": {
+        "stage_id": "liyue-wp-44",
+        "name": "璃月・石峰東の台地",
+        "gates": [
+          "teyvat:39",
+          "teyvat:119",
+          "teyvat:43"
+        ]
+      },
+      "teyvat:45": {
+        "stage_id": "liyue-wp-45",
+        "name": "璃月・琥牢の岩縁",
+        "gates": [
+          "teyvat:47",
+          "teyvat:118"
+        ]
+      },
+      "teyvat:46": {
+        "stage_id": "liyue-wp-46",
+        "name": "璃月・南稜の石段",
+        "gates": [
+          "teyvat:47",
+          "teyvat:42"
+        ]
+      },
+      "teyvat:47": {
+        "stage_id": "liyue-wp-47",
+        "name": "璃月・南稜の沢",
+        "gates": [
+          "teyvat:45",
+          "teyvat:46",
+          "teyvat:109"
+        ]
+      },
+      "teyvat:48": {
+        "stage_id": "liyue-wp-48",
+        "name": "璃月・国境手前の低い峠",
+        "gates": [
+          "teyvat:49"
+        ]
+      },
+      "teyvat:49": {
+        "stage_id": "liyue-wp-49",
+        "name": "璃月・港の西へ抜ける径",
+        "gates": [
+          "teyvat:48",
+          "teyvat:106",
+          "teyvat:105"
+        ]
+      },
+      "teyvat:50": {
+        "stage_id": "liyue-wp-50",
+        "name": "璃月・雪山西の砂州",
+        "gates": [
+          "teyvat:33",
+          "teyvat:34"
+        ]
+      },
+      "teyvat:51": {
+        "stage_id": "liyue-wp-51",
+        "name": "璃月・水上の宿への桟橋",
+        "gates": [
+          "teyvat:1748",
+          "teyvat:343",
+          "teyvat:33"
+        ]
+      },
+      "teyvat:52": {
+        "stage_id": "liyue-wp-52",
+        "name": "璃月・海辺に出る長橋",
+        "gates": [
+          "teyvat:343",
+          "teyvat:35",
+          "teyvat:53"
+        ]
+      },
+      "teyvat:53": {
+        "stage_id": "liyue-wp-53",
+        "name": "璃月・浅瀬の船着き場",
+        "gates": [
+          "teyvat:52",
+          "teyvat:54"
+        ]
+      },
+      "teyvat:54": {
+        "stage_id": "geo-approach",
+        "name": "無相の岩・挑戦入口",
+        "gates": [
+          "teyvat:343",
+          "teyvat:96",
+          "teyvat:53"
         ]
       },
       "teyvat:55": {
@@ -770,6 +1184,246 @@
         "gates": [
           "teyvat:3",
           "teyvat:55"
+        ]
+      },
+      "teyvat:64824": {
+        "stage_id": "liyue-wp-64824",
+        "name": "沈玉の谷・谷の南にある神像",
+        "gates": [
+          "teyvat:64828",
+          "teyvat:64830",
+          "teyvat:64835"
+        ]
+      },
+      "teyvat:64825": {
+        "stage_id": "liyue-wp-64825",
+        "name": "沈玉の谷・谷の入口の神像",
+        "gates": [
+          "teyvat:64842",
+          "teyvat:64843",
+          "teyvat:64850"
+        ]
+      },
+      "teyvat:64826": {
+        "stage_id": "liyue-wp-64826",
+        "name": "沈玉の谷・西岸の道",
+        "gates": [
+          "teyvat:64827",
+          "teyvat:64828"
+        ]
+      },
+      "teyvat:64827": {
+        "stage_id": "liyue-wp-64827",
+        "name": "沈玉の谷・西峰の石棚",
+        "gates": [
+          "teyvat:64849",
+          "teyvat:64826"
+        ]
+      },
+      "teyvat:64828": {
+        "stage_id": "liyue-wp-64828",
+        "name": "沈玉の谷・西岸の渡し場",
+        "gates": [
+          "teyvat:64826",
+          "teyvat:64833",
+          "teyvat:64824"
+        ]
+      },
+      "teyvat:64829": {
+        "stage_id": "liyue-wp-64829",
+        "name": "沈玉の谷・谷の南端の山道",
+        "gates": [
+          "teyvat:66770",
+          "teyvat:64830",
+          "teyvat:64847"
+        ]
+      },
+      "teyvat:64830": {
+        "stage_id": "liyue-wp-64830",
+        "name": "沈玉の谷・谷の南東の草段",
+        "gates": [
+          "teyvat:64824",
+          "teyvat:64829",
+          "teyvat:64846"
+        ]
+      },
+      "teyvat:64831": {
+        "stage_id": "liyue-wp-64831",
+        "name": "沈玉の谷・湖の西の小桟橋",
+        "gates": [
+          "teyvat:64834",
+          "teyvat:64833",
+          "teyvat:64837",
+          "teyvat:64832"
+        ]
+      },
+      "teyvat:64832": {
+        "stage_id": "liyue-wp-64832",
+        "name": "沈玉の谷・湖西の水路跡",
+        "gates": [
+          "teyvat:64831"
+        ]
+      },
+      "teyvat:64833": {
+        "stage_id": "liyue-wp-64833",
+        "name": "沈玉の谷・川曲がりの茶畑",
+        "gates": [
+          "teyvat:64834",
+          "teyvat:64828",
+          "teyvat:64831",
+          "teyvat:64835"
+        ]
+      },
+      "teyvat:64834": {
+        "stage_id": "liyue-wp-64834",
+        "name": "沈玉の谷・西岸の宿場道",
+        "gates": [
+          "teyvat:66768",
+          "teyvat:64833",
+          "teyvat:64831"
+        ]
+      },
+      "teyvat:64835": {
+        "stage_id": "liyue-wp-64835",
+        "name": "沈玉の谷・沢沿いの茶棚",
+        "gates": [
+          "teyvat:64833",
+          "teyvat:64824",
+          "teyvat:64836"
+        ]
+      },
+      "teyvat:64836": {
+        "stage_id": "liyue-wp-64836",
+        "name": "沈玉の谷・湖東の小径",
+        "gates": [
+          "teyvat:64840",
+          "teyvat:64835",
+          "teyvat:64842"
+        ]
+      },
+      "teyvat:64837": {
+        "stage_id": "liyue-wp-64837",
+        "name": "沈玉の谷・港の南の階段",
+        "gates": [
+          "teyvat:66769",
+          "teyvat:64831",
+          "teyvat:64838"
+        ]
+      },
+      "teyvat:64838": {
+        "stage_id": "liyue-wp-64838",
+        "name": "沈玉の谷・港東の竹道",
+        "gates": [
+          "teyvat:64837",
+          "teyvat:64840",
+          "teyvat:64839"
+        ]
+      },
+      "teyvat:64839": {
+        "stage_id": "liyue-wp-64839",
+        "name": "沈玉の谷・見晴らし岩の北尾根",
+        "gates": [
+          "teyvat:64838",
+          "teyvat:66979",
+          "teyvat:64841"
+        ]
+      },
+      "teyvat:64840": {
+        "stage_id": "liyue-wp-64840",
+        "name": "沈玉の谷・湖の北の石峰",
+        "gates": [
+          "teyvat:64838",
+          "teyvat:64836"
+        ]
+      },
+      "teyvat:64841": {
+        "stage_id": "liyue-wp-64841",
+        "name": "沈玉の谷・谷北の尾根道",
+        "gates": [
+          "teyvat:64839",
+          "teyvat:64842",
+          "teyvat:64843"
+        ]
+      },
+      "teyvat:64842": {
+        "stage_id": "liyue-wp-64842",
+        "name": "沈玉の谷・谷東の川沿い",
+        "gates": [
+          "teyvat:64836",
+          "teyvat:64841",
+          "teyvat:64844",
+          "teyvat:64825"
+        ]
+      },
+      "teyvat:64843": {
+        "stage_id": "liyue-wp-64843",
+        "name": "沈玉の谷・東の茶の道",
+        "gates": [
+          "teyvat:64841",
+          "teyvat:64825"
+        ]
+      },
+      "teyvat:64844": {
+        "stage_id": "liyue-wp-64844",
+        "name": "沈玉の谷・川の北岸の渡し場",
+        "gates": [
+          "teyvat:64842",
+          "teyvat:64845",
+          "teyvat:38"
+        ]
+      },
+      "teyvat:64845": {
+        "stage_id": "chenyu-depth",
+        "name": "沈玉の谷・探索路",
+        "gates": [
+          "teyvat:64850",
+          "teyvat:64846",
+          "teyvat:64844",
+          "teyvat:64848"
+        ]
+      },
+      "teyvat:64846": {
+        "stage_id": "liyue-wp-64846",
+        "name": "沈玉の谷・山裾の曲がり道",
+        "gates": [
+          "teyvat:64830",
+          "teyvat:64847",
+          "teyvat:64845"
+        ]
+      },
+      "teyvat:64847": {
+        "stage_id": "liyue-wp-64847",
+        "name": "沈玉の谷・南側の岩斜面",
+        "gates": [
+          "teyvat:64829",
+          "teyvat:64846",
+          "teyvat:64848"
+        ]
+      },
+      "teyvat:64848": {
+        "stage_id": "liyue-wp-64848",
+        "name": "沈玉の谷・谷南の分岐",
+        "gates": [
+          "teyvat:64847",
+          "teyvat:64845",
+          "teyvat:118"
+        ]
+      },
+      "teyvat:64849": {
+        "stage_id": "liyue-wp-64849",
+        "name": "沈玉の谷・西峰の石室",
+        "gates": [
+          "teyvat:64827"
+        ]
+      },
+      "teyvat:64850": {
+        "stage_id": "chenyu-camp",
+        "name": "沈玉の谷・入口拠点",
+        "gates": [
+          "teyvat:30",
+          "teyvat:64845",
+          "teyvat:64825",
+          "teyvat:37"
         ]
       },
       "teyvat:6537": {
@@ -881,6 +1535,36 @@
           "teyvat:6603"
         ]
       },
+      "teyvat:66768": {
+        "stage_id": "liyue-wp-66768",
+        "name": "沈玉の谷・港西の山縁",
+        "gates": [
+          "teyvat:64834",
+          "teyvat:66769"
+        ]
+      },
+      "teyvat:66769": {
+        "stage_id": "liyue-wp-66769",
+        "name": "沈玉の谷・谷北の埠頭",
+        "gates": [
+          "teyvat:66768",
+          "teyvat:64837"
+        ]
+      },
+      "teyvat:66770": {
+        "stage_id": "liyue-wp-66770",
+        "name": "沈玉の谷・谷南の沖合の岩礁",
+        "gates": [
+          "teyvat:64829"
+        ]
+      },
+      "teyvat:66979": {
+        "stage_id": "liyue-wp-66979",
+        "name": "沈玉の谷・北尾根の隠れ石窟",
+        "gates": [
+          "teyvat:64839"
+        ]
+      },
       "teyvat:7": {
         "stage_id": "mond-wp-7",
         "name": "モンド・東丘の石畳",
@@ -905,6 +1589,35 @@
         "gates": [
           "teyvat:7",
           "teyvat:10"
+        ]
+      },
+      "teyvat:92": {
+        "stage_id": "liyue-wp-92",
+        "name": "璃月・天衡の岩間",
+        "gates": [
+          "teyvat:107",
+          "teyvat:105",
+          "teyvat:94"
+        ]
+      },
+      "teyvat:937": {
+        "stage_id": "liyue-harbor",
+        "name": "璃月・港の広場",
+        "gates": [
+          "teyvat:30",
+          "teyvat:343",
+          "teyvat:111",
+          "teyvat:104"
+        ]
+      },
+      "teyvat:94": {
+        "stage_id": "liyue-wp-94",
+        "name": "璃月・港北の街道",
+        "gates": [
+          "teyvat:92",
+          "teyvat:104",
+          "teyvat:97",
+          "teyvat:96"
         ]
       },
       "teyvat:95782": {
@@ -1013,13 +1726,30 @@
         "gates": [
           "teyvat:95797"
         ]
+      },
+      "teyvat:96": {
+        "stage_id": "liyue-wp-96",
+        "name": "璃月・海を見下ろす東端",
+        "gates": [
+          "teyvat:94",
+          "teyvat:100",
+          "teyvat:54"
+        ]
+      },
+      "teyvat:97": {
+        "stage_id": "liyue-wp-97",
+        "name": "璃月・街道脇の神像",
+        "gates": [
+          "teyvat:94",
+          "teyvat:100"
+        ]
       }
     }
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 404,
-    "provisional_quests": 230,
+    "authored_stages": 478,
+    "provisional_quests": 233,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -1064,7 +1794,7 @@
     "status": "partial",
     "design": "content/world-bosses-design.json"
   },
-  "current_priority": "Match and connect Liyue waypoint IDs after the Mondstadt and Chasm routes. Continue quest and boss playthroughs and sprite consistency checks.",
+  "current_priority": "Match Inazuma waypoint IDs to playable islands and distinct underground layers. Continue quest and boss playthroughs and sprite consistency checks.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",
@@ -1190,9 +1920,48 @@
           "threadline-relay",
           "childe-golden-house-arena",
           "azhdaha-dragon-seal-arena",
+          "liyue-wp-29",
+          "liyue-wp-32",
+          "liyue-wp-33",
+          "liyue-wp-34",
+          "liyue-wp-35",
+          "liyue-wp-36",
+          "liyue-wp-37",
+          "liyue-wp-38",
+          "liyue-wp-39",
+          "liyue-wp-40",
+          "liyue-wp-41",
+          "liyue-wp-42",
+          "liyue-wp-43",
+          "liyue-wp-44",
+          "liyue-wp-45",
+          "liyue-wp-46",
+          "liyue-wp-47",
+          "liyue-wp-48",
+          "liyue-wp-49",
+          "liyue-wp-50",
+          "liyue-wp-51",
+          "liyue-wp-52",
+          "liyue-wp-53",
+          "liyue-wp-92",
+          "liyue-wp-94",
+          "liyue-wp-96",
+          "liyue-wp-97",
+          "liyue-wp-100",
+          "liyue-wp-104",
+          "liyue-wp-105",
+          "liyue-wp-106",
+          "liyue-wp-107",
+          "liyue-wp-108",
+          "liyue-wp-109",
+          "liyue-wp-110",
+          "liyue-wp-111",
+          "liyue-wp-118",
+          "liyue-wp-1748",
           "liyue-stygian-deck"
         ],
         "quest_ids": [
+          "liyue-mapped-east-shore",
           "stygian-beidou-commission",
           "azhdaha-weekly-commission",
           "childe-weekly-commission",
@@ -1652,9 +2421,39 @@
           "chenyu-cart-road",
           "chenyu-tea-lift",
           "chenyu-tea-pavilion",
-          "chenyu-boulder-gully"
+          "chenyu-boulder-gully",
+          "liyue-wp-64824",
+          "liyue-wp-64825",
+          "liyue-wp-64826",
+          "liyue-wp-64827",
+          "liyue-wp-64828",
+          "liyue-wp-64829",
+          "liyue-wp-64830",
+          "liyue-wp-64831",
+          "liyue-wp-64832",
+          "liyue-wp-64833",
+          "liyue-wp-64834",
+          "liyue-wp-64835",
+          "liyue-wp-64836",
+          "liyue-wp-64837",
+          "liyue-wp-64838",
+          "liyue-wp-64839",
+          "liyue-wp-64840",
+          "liyue-wp-64841",
+          "liyue-wp-64842",
+          "liyue-wp-64843",
+          "liyue-wp-64844",
+          "liyue-wp-64846",
+          "liyue-wp-64847",
+          "liyue-wp-64848",
+          "liyue-wp-64849",
+          "liyue-wp-66768",
+          "liyue-wp-66769",
+          "liyue-wp-66770",
+          "liyue-wp-66979"
         ],
         "quest_ids": [
+          "liyue-mapped-hidden-cave",
           "chenyu-survey",
           "suanni-commission",
           "chenyu-tea-delivery",

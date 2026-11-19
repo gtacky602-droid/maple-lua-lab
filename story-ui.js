@@ -79,10 +79,15 @@ function update(){
   const choice=document.createElement('select');choice.id='storyWaypointDestination';
   choice.style.maxWidth='100%';
   const placeholder=new Option('移動先を選ぶ','');choice.add(placeholder);
+  const regions=new Map();
   for(const n of visited){
+   if(!regions.has(n.region)){
+    const group=document.createElement('optgroup');group.label=n.region;
+    choice.append(group);regions.set(n.region,group);
+   }
    const option=new Option(n.name,n.id);
    option.disabled=n.id===node.id||n.level>(f.progression?.level??0);
-   choice.add(option);
+   regions.get(n.region).append(option);
   }
   const travel=document.createElement('button');travel.type='button';travel.textContent='ワープする';
   choice.value=visited.some(n=>n.id===waypointSelection&&n.id!==node.id&&n.level<=(f.progression?.level??0))
