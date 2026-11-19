@@ -1,0 +1,24 @@
+{
+  "kind": "design_reference_inference_index",
+  "count": 13749,
+  "coordinate_units": "HoYoLAB native units, not metres",
+  "files": [
+    "field-links-2-01.json",
+    "field-links-2-02.json",
+    "field-links-2-03.json",
+    "field-links-2-04.json",
+    "field-links-2-05.json",
+    "field-links-2-06.json",
+    "field-links-2-07.json",
+    "field-links-2-08.json",
+    "field-links-2-09.json",
+    "field-links-2-10.json",
+    "field-links-2-11.json",
+    "field-links-34-01.json",
+    "field-links-36-01.json",
+    "field-links-37-01.json",
+    "field-links-40-01.json",
+    "field-links-7-01.json",
+    "field-links-9-01.json"
+  ]
+}

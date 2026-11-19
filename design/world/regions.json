@@ -1,0 +1,133 @@
+{
+  "updated_on": "2026-11-19",
+  "source": {
+    "sites_version": 7,
+    "sites_commit": "7b8c353f9c21541d6ba9e984925e3cf439074204",
+    "v8_manifest": "587b9ecf51e4ebb0b47fa42e778591d450c5f5274a894e166d9d5c7a538d1d0c"
+  },
+  "status": "integrated_design",
+  "regions": [
+    {"id":"region-01","name":"モンド本土","prefix":"MON","kind":"main","low":1,"high":20,"map":"region-01-map","stage":"mondstadt-background.png","planned_field_count":36,"field_modes":{"safe":8,"hunt":28},"leading_label_ids":[59,55,56,57,47],"legend_count":0,"legend_levels":[],"level_corrections":[{"field_id":"teyvat:55","from":null,"to":12},{"field_id":"teyvat:57","from":null,"to":5},{"field_id":"teyvat:10009","from":null,"to":12},{"field_id":"teyvat:85351","from":null,"to":13}],"combat_field_count":28,"safe_field_count":8},
+    {"id":"region-02","name":"璃月","prefix":"LIY","kind":"main","low":20,"high":40,"map":"region-02-map","stage":"liyue-background-v1.png","planned_field_count":63,"field_modes":{"hunt":58,"safe":5},"leading_label_ids":[59,56,55,58,47],"legend_count":0,"legend_levels":[],"level_corrections":[{"field_id":"teyvat:1748","from":null,"to":29}],"combat_field_count":58,"safe_field_count":5},
+    {"id":"region-03","name":"稲妻","prefix":"INA","kind":"main","low":40,"high":60,"map":"region-03-map","stage":"inazuma-background-v1.png","planned_field_count":64,"field_modes":{"hunt":57,"safe":7},"leading_label_ids":[209,59,55,47,229],"legend_count":0,"legend_levels":[],"level_corrections":[],"combat_field_count":57,"safe_field_count":7},
+    {"id":"region-04","name":"スメール","prefix":"SUM","kind":"main","low":60,"high":80,"map":"region-04-map","stage":"sumeru-background-v1.png","planned_field_count":139,"field_modes":{"hunt":129,"safe":10},"leading_label_ids":[221,389,55,59,58],"legend_count":0,"legend_levels":[],"level_corrections":[{"field_id":"teyvat:28709","from":null,"to":69},{"field_id":"teyvat:28710","from":null,"to":70},{"field_id":"teyvat:28711","from":null,"to":68},{"field_id":"teyvat:28725","from":null,"to":67},{"field_id":"teyvat:32451","from":null,"to":70},{"field_id":"teyvat:36682","from":null,"to":72},{"field_id":"teyvat:36702","from":null,"to":79},{"field_id":"teyvat:41822","from":null,"to":75},{"field_id":"teyvat:41823","from":null,"to":79},{"field_id":"teyvat:41824","from":null,"to":79},{"field_id":"teyvat:41825","from":null,"to":79},{"field_id":"teyvat:41831","from":null,"to":78},{"field_id":"teyvat:41833","from":null,"to":78},{"field_id":"teyvat:41837","from":null,"to":75},{"field_id":"teyvat:41838","from":null,"to":77},{"field_id":"teyvat:46518","from":null,"to":77},{"field_id":"teyvat:46519","from":null,"to":77},{"field_id":"teyvat:46522","from":null,"to":79}],"combat_field_count":129,"safe_field_count":10},
+    {"id":"region-05","name":"フォンテーヌ","prefix":"FON","kind":"main","low":80,"high":100,"map":"region-05-map","stage":"fontaine-background-v1.png","planned_field_count":107,"field_modes":{"safe":11,"hunt":71,"underwater_observation":17,"dry_ruin_hunt":4,"translated_2d_domain_hunt":2,"underwater_hunt":2},"leading_label_ids":[494,493,59,55,58],"legend_count":16,"legend_levels":[100],"level_corrections":[{"field_id":"teyvat:50033","from":null,"to":88},{"field_id":"teyvat:50045","from":null,"to":91},{"field_id":"teyvat:50060","from":null,"to":84},{"field_id":"teyvat:50061","from":null,"to":82},{"field_id":"teyvat:50062","from":null,"to":90},{"field_id":"teyvat:50063","from":null,"to":90},{"field_id":"teyvat:50071","from":null,"to":90},{"field_id":"teyvat:50077","from":null,"to":82},{"field_id":"teyvat:51964","from":null,"to":82},{"field_id":"teyvat:53851","from":null,"to":92},{"field_id":"teyvat:53857","from":null,"to":96},{"field_id":"teyvat:53861","from":null,"to":92},{"field_id":"teyvat:53864","from":null,"to":90},{"field_id":"teyvat:53865","from":null,"to":90},{"field_id":"teyvat:53866","from":null,"to":90},{"field_id":"teyvat:53869","from":null,"to":92},{"field_id":"teyvat:53870","from":null,"to":92},{"field_id":"teyvat:53871","from":null,"to":92},{"field_id":"teyvat:55770","from":null,"to":94},{"field_id":"teyvat:55775","from":null,"to":94},{"field_id":"teyvat:55782","from":null,"to":94},{"field_id":"teyvat:55785","from":null,"to":96},{"field_id":"teyvat:56363","from":null,"to":82},{"field_id":"teyvat:68342","from":null,"to":96},{"field_id":"teyvat:68343","from":null,"to":96},{"field_id":"teyvat:68344","from":null,"to":96},{"field_id":"teyvat:68345","from":null,"to":96}],"combat_field_count":79,"safe_field_count":11},
+    {"id":"region-06","name":"ナタ","prefix":"NAT","kind":"main","low":100,"high":120,"map":"region-06-map","stage":"natlan-background-v1.png","planned_field_count":116,"field_modes":{"hunt":109,"safe":7},"leading_label_ids":[603,606,55,59,56],"legend_count":20,"legend_levels":[112,114,116,118,120],"level_corrections":[{"field_id":"teyvat:72421","from":null,"to":111},{"field_id":"teyvat:72440","from":null,"to":109},{"field_id":"teyvat:72446","from":null,"to":108},{"field_id":"teyvat:72451","from":null,"to":109},{"field_id":"teyvat:72453","from":null,"to":108},{"field_id":"teyvat:72454","from":null,"to":105},{"field_id":"teyvat:72455","from":null,"to":105},{"field_id":"teyvat:72456","from":null,"to":111},{"field_id":"teyvat:79387","from":null,"to":110},{"field_id":"teyvat:79482","from":null,"to":118},{"field_id":"teyvat:82566","from":null,"to":118},{"field_id":"teyvat:82573","from":null,"to":116},{"field_id":"teyvat:82576","from":null,"to":118},{"field_id":"teyvat:85349","from":null,"to":118}],"combat_field_count":109,"safe_field_count":7},
+    {"id":"region-07","name":"ナド・クライ","prefix":"NOD","kind":"main","low":120,"high":140,"map":"region-07-map","stage":"nodkrai-background-v1.png","planned_field_count":95,"field_modes":{"hunt":91,"safe":4},"leading_label_ids":[59,739,738,55,58],"legend_count":6,"legend_levels":[132,136,138,140],"level_corrections":[{"field_id":"teyvat:88139","from":null,"to":125},{"field_id":"teyvat:88140","from":null,"to":123},{"field_id":"teyvat:88162","from":null,"to":134},{"field_id":"teyvat:88169","from":null,"to":134},{"field_id":"teyvat:88170","from":null,"to":134},{"field_id":"teyvat:88175","from":null,"to":133},{"field_id":"teyvat:92426","from":null,"to":136},{"field_id":"teyvat:92878","from":null,"to":136},{"field_id":"teyvat:92884","from":null,"to":137},{"field_id":"teyvat:92887","from":null,"to":137}],"combat_field_count":91,"safe_field_count":4},
+    {"id":"region-08","name":"スネージナヤ","prefix":"SNE","kind":"main","low":140,"high":160,"map":"region-08-map","stage":"snezhnaya-background-v1.png","planned_field_count":89,"field_modes":{"hunt":84,"safe":5},"leading_label_ids":[845,844,55,738,843],"legend_count":4,"legend_levels":[152,156,158,160],"level_corrections":[{"field_id":"teyvat:100659","from":null,"to":147},{"field_id":"teyvat:100686","from":null,"to":149},{"field_id":"teyvat:100689","from":null,"to":147},{"field_id":"teyvat:100700","from":null,"to":150},{"field_id":"teyvat:100701","from":null,"to":150},{"field_id":"teyvat:100702","from":null,"to":150},{"field_id":"teyvat:100703","from":null,"to":150},{"field_id":"teyvat:105012","from":null,"to":149},{"field_id":"teyvat:105872","from":null,"to":148}],"combat_field_count":84,"safe_field_count":5},
+    {"id":"branch-01","name":"ドラゴンスパイン","prefix":"DSP","kind":"high_level_branch","low":40,"high":55,"map":"branch-01-map","stage":"dragonspine-background-v1.png","planned_field_count":14,"field_modes":{"safe":2,"hunt":12},"leading_label_ids":[55,54,59,57,47],"legend_count":0,"legend_levels":[],"level_corrections":[{"field_id":"teyvat:7164","from":13,"to":55}],"combat_field_count":12,"safe_field_count":2},
+    {"id":"branch-02","name":"沈玉の谷","prefix":"CHY","kind":"high_level_branch","low":75,"high":90,"map":"branch-02-map","stage":"chenyu-background-v1.png","planned_field_count":31,"field_modes":{"hunt":29,"safe":2},"leading_label_ids":[55,58,59,57,56],"legend_count":1,"legend_levels":[95],"level_corrections":[{"field_id":"teyvat:64826","from":null,"to":88},{"field_id":"teyvat:64827","from":null,"to":89},{"field_id":"teyvat:64850","from":null,"to":76},{"field_id":"teyvat:66770","from":null,"to":90}],"combat_field_count":29,"safe_field_count":2},
+    {"id":"branch-03","name":"淵下宮","prefix":"ENK","kind":"high_level_branch","low":90,"high":105,"map":"branch-03-map","stage":"enkanomiya-background-v1.png","planned_field_count":24,"field_modes":{"hunt":22,"safe":1,"optional_arena_only":1},"leading_label_ids":[55,229,56,59,57],"legend_count":0,"legend_levels":[],"level_corrections":[],"combat_field_count":23,"safe_field_count":1},
+    {"id":"branch-04","name":"トゥニギの黒淵","prefix":"TUN","kind":"high_level_branch","low":110,"high":125,"map":"branch-04-map","stage":"tunigi-background-v1.png","planned_field_count":5,"field_modes":{"hunt":4,"dry_ruin_hunt":1},"leading_label_ids":[221,54,58,55,389],"legend_count":0,"legend_levels":[],"level_corrections":[],"combat_field_count":5,"safe_field_count":0},
+    {"id":"branch-05","name":"往日の海","prefix":"REM","kind":"high_level_branch","low":140,"high":155,"map":"branch-05-map","planned_field_count":17,"field_modes":{"safe":1,"dry_ruin_hunt":3,"underwater_observation":10,"optional_arena_only":1,"scenic_observation":2},"leading_label_ids":[585],"legend_count":1,"legend_levels":[160],"level_corrections":[],"combat_field_count":3,"safe_field_count":1},
+    {"id":"branch-06","name":"ドーンマンポート","prefix":"DOP","kind":"high_level_branch","low":155,"high":170,"map":"branch-06-map","stage":"dornman-background-v1.png","planned_field_count":14,"field_modes":{"safe":6,"hunt":8},"leading_label_ids":[59,55,56,58,47],"legend_count":1,"legend_levels":[175],"level_corrections":[{"field_id":"teyvat:95796","from":null,"to":165},{"field_id":"teyvat:95797","from":null,"to":165},{"field_id":"teyvat:95798","from":null,"to":165},{"field_id":"teyvat:98500","from":null,"to":160}],"combat_field_count":8,"safe_field_count":6},
+    {"id":"branch-07","name":"オシカ・ナタ","prefix":"OCH","kind":"high_level_branch","low":165,"high":180,"map":"branch-07-map","stage":"ochkanatlan-background-v1.png","planned_field_count":24,"field_modes":{"hunt":23,"safe":1},"leading_label_ids":[603,55,56,59,388],"legend_count":1,"legend_levels":[180],"level_corrections":[],"combat_field_count":23,"safe_field_count":1},
+    {"id":"branch-08","name":"ナド・クライ特別地域（名称未確定）","prefix":"NSP","kind":"high_level_branch","low":175,"high":190,"map":"branch-08-map","stage":"nodspecial-background-v1.png","planned_field_count":8,"field_modes":{"safe":1,"hunt":6,"optional_arena_only":1},"leading_label_ids":[740,59,739,736,738],"legend_count":0,"legend_levels":[],"level_corrections":[],"combat_field_count":7,"safe_field_count":1},
+    {"id":"branch-09","name":"ノヴォキッチェヴ（構造未確定）","prefix":"NOV","kind":"high_level_branch","low":190,"high":200,"map":"branch-09-map","stage":"novokichev-background-v1.png","planned_field_count":22,"field_modes":{"safe":5,"hunt":17},"leading_label_ids":[845,739,738,881,843],"legend_count":2,"legend_levels":[198,200],"level_corrections":[],"combat_field_count":17,"safe_field_count":5},
+    {"id":"hidden-01","name":"金リンゴ群島","prefix":"GAA","kind":"hidden_world","low":25,"high":35,"map":"hidden-01-map","stage":"golden-background-v1.png","planned_field_count":8,"field_modes":{"safe":1,"hunt":7},"leading_label_ids":[59,55,56,57],"legend_count":0,"legend_levels":[],"level_corrections":[],"combat_field_count":7,"safe_field_count":1},
+    {"id":"hidden-02","name":"ヴェルーリヤ・ミラージュ","prefix":"VLM","kind":"hidden_world","low":65,"high":75,"map":"hidden-02-map","stage":"veluriyam-background-v1.png","planned_field_count":8,"field_modes":{"safe":3,"hunt":5},"leading_label_ids":[221,55,56,57],"legend_count":0,"legend_levels":[],"level_corrections":[],"combat_field_count":5,"safe_field_count":3},
+    {"id":"hidden-03","name":"シムランカ","prefix":"SIM","kind":"hidden_world","low":85,"high":95,"map":"hidden-03-map","stage":"simulanka-background-v1.png","planned_field_count":8,"field_modes":{"safe":3,"hunt":4,"scenic_observation":1},"leading_label_ids":[56,55,57],"legend_count":0,"legend_levels":[],"level_corrections":[],"combat_field_count":4,"safe_field_count":3},
+    {"id":"official-area-6","name":"層岩巨淵・地下鉱区","prefix":"CHM","kind":"official_layer","low":35,"high":50,"map":"official-9","stage":"chasm-background-v1.png","planned_field_count":15,"field_modes":{"hunt":13,"safe":1,"optional_arena_only":1},"leading_label_ids":[59,55,47,221,58],"legend_count":0,"legend_levels":[],"level_corrections":[{"field_id":"map9:25269","from":null,"to":36}],"combat_field_count":14,"safe_field_count":1},
+    {"id":"official-area-12","name":"古の聖山","prefix":"ASM","kind":"official_layer","low":115,"high":130,"map":"official-36","planned_field_count":19,"field_modes":{"safe":1,"hunt":18},"leading_label_ids":[603,55,57,612,669],"legend_count":1,"legend_levels":[130],"level_corrections":[],"combat_field_count":18,"safe_field_count":1},
+    {"id":"official-area-14","name":"空の神殿","prefix":"SKY","kind":"official_layer","low":165,"high":180,"map":"official-37","planned_field_count":20,"field_modes":{"heavy_patrol":19,"safe":1},"leading_label_ids":[809,221],"legend_count":1,"legend_levels":[185],"level_corrections":[],"combat_field_count":19,"safe_field_count":1},
+    {"id":"official-area-15","name":"霜月","prefix":"FMO","kind":"official_layer","low":175,"high":190,"map":"official-40","planned_field_count":33,"field_modes":{"hunt":14,"heavy_patrol":18,"safe":1},"leading_label_ids":[820,59,47,737,221],"legend_count":2,"legend_levels":[188,190],"level_corrections":[],"combat_field_count":32,"safe_field_count":1}
+  ],
+  "themes": {
+    "region-01": [
+      "スライム、ヒルチャール、射手・シャーマン",
+      "湖畔と城門は弱い群れ、遺跡の守衛や奔狼領の獣域は任意脇道。アンバー初回依頼の敵ID・必要数は保持。"
+    ],
+    "region-02": [
+      "スライム、ヒルチャール、宝盗団",
+      "街道・港の周囲と岩場を分ける。ヴィシャップや遺跡機械は広い側道。沈玉4地点を低Lv璃月から分離。"
+    ],
+    "region-03": [
+      "野伏衆・海乱鬼、スライム、フライム",
+      "鳴神島の灯籠メインと他島の強敵を分離。ヤシオリの聖骸獣、鶴観の獣域は任意寄り道。狸と訓練的は討伐対象外。"
+    ],
+    "region-04": [
+      "キノコン、エルマイト旅団、ヒルチャール",
+      "雨林の群れと砂漠の軍営・構造体を分ける。上層観測所や作業足場に通常狩場の群れを重ねない。"
+    ],
+    "region-05": [
+      "陸上マシナリー、宝盗団、スライム",
+      "サラシア・タラッタの水中狩場では巡回機と交戦できる。観察・通行区画は敵0。水中の地方伝説は入口から任意で挑戦できる。"
+    ],
+    "region-06": [
+      "部族竜戦士、地域に合う竜、スライム",
+      "こだま・懸木・南岸・夜風・北西・アトクパンで兵種/竜種を選ぶ。友好竜と幼竜を除外。旗取りの2ルートとカチーナ演出を保持。"
+    ],
+    "region-07": [
+      "特務隊、陸巡艇、スライム、宝盗団",
+      "軍事道と海岸、森を分ける。継霊者・集光の異獣・ワイルドハント・闇の漁師は低密度。創作章ボスとカニ皇帝は別遭遇。"
+    ],
+    "region-08": [
+      "異種合成獣、晶石肌のフェイ、特務隊",
+      "氷スライムだけで埋めず、新地域の生態を主役にする。異怪・木の精・凝氷体は精鋭側。列車と雪国章の既存敵は保持。"
+    ],
+    "branch-01": [
+      "氷系スライム、ヒルチャール、ファデュイ",
+      "雪山の守衛・重機・霜鎧の王を脇道へ。フィンドニールをLv55へ修正。撮影クエストの岩殻虫と独自ボスは維持。"
+    ],
+    "branch-02": [
+      "宝盗団、ヒルチャール、スライム",
+      "玄文獣は山道の少数精鋭。茶亭や荷運びの休憩場所は安全。赤璋巡岳府君はLv95、2体で1遭遇。"
+    ],
+    "branch-03": [
+      "ヒルチャール、フライム、ヴィシャップ",
+      "床と灯りの切替を邪魔しない群れ。遺跡ハンターは単独、ヴィシャップは精鋭。独自の板尾ボスを差し替えない。"
+    ],
+    "branch-04": [
+      "外縁のファデュイ、地下の宝盗団・キノコン",
+      "公式の同層分布を優先。遺跡守衛は別室、獣域は任務/宝箱由来の任意一回遭遇。構造体だけの一様な構成にしない。"
+    ],
+    "branch-05": [
+      "原海アベラントの生息、魔像プラエトリアニ",
+      "水路は非戦闘。3つの乾いた遺構室へ魔像各2体。シネアスはLv160の別室。水中マシナリー等を通常主力から外す。"
+    ],
+    "branch-06": [
+      "ヒルチャール、スライム、宝盗団",
+      "港・復帰点は安全。北モンドの風止み側をLv160へ。チャルデリックLv175と独自港ボスを区別。島への徒歩接続は作らない。"
+    ],
+    "branch-07": [
+      "ユムカ/クク系の竜、ミミック、遺跡機械",
+      "古都の段差と機構に合わせた少群れ。銅の錠はLv180。クエストLv180/182/185と既存搬出装置・独自ボスを保護。"
+    ],
+    "branch-08": [
+      "特務隊、陸巡艇、継霊者、ワイルドハント",
+      "公式地図未対応の8設計区画。準備点0、スライム24、軍営24、異獣8、陸巡艇16、継霊者等8、狩猟団12、終端任意1。霜月と別地域。"
+    ],
+    "branch-09": [
+      "異種合成獣、特務隊、陸巡艇、凝氷体",
+      "地上搬出路と地下鉱区を分離。異怪は少数精鋭。地方伝説2遭遇をLv198/200へ。波濤の投錨者の高難度側はLv200の別配置。"
+    ],
+    "hidden-01": [
+      "風/水スライム、ヒルチャール",
+      "過去イベントの出現例を基にした8設計区画。海辺の群れと風の高台、任意の単独精鋭。公式現在座標は作らない。"
+    ],
+    "hidden-02": [
+      "キノコン、外周のヒルチャール",
+      "駅・乗降場を敵0にする。園の生き物と敵を区別。トロッコの乗降や既存の舞台ボスの進行を変えない。"
+    ],
+    "hidden-03": [
+      "ヒルチャール、射手、少数レンジャー",
+      "王城広場と駅、砕けた海の観察場は安全。友好的な風スライム/キノコンは討伐対象外。折り目の経路を塞がない。"
+    ],
+    "official-area-6": [
+      "ヒルチャール、宝盗団、キノコン、遺跡機兵",
+      "層岩地下独立マップ。獣域や黒蛇騎士は少数区画。地下の別階層を同室の根拠に使わない。"
+    ],
+    "official-area-12": [
+      "竜、秘源機兵、ミミック、マグマイタチ",
+      "常設マーカーにない部族戦士・スライムを主力にしない。竜の生態域と機構室を分離。微末はLv130の任意試練。"
+    ],
+    "official-area-14": [
+      "領域の番人を中心とする精鋭狩場",
+      "3画面の番人12体が基準。キノコンは千柱中央6体、アベラントは砂上の限定区画4体。玄文獣/重機は各1。太子Lv185。"
+    ],
+    "official-area-15": [
+      "コマンダー陣形、継霊者、スライム、花・キノコン",
+      "機構施設はコマンダー8体、継霊者の区画は8体。混在域は12〜18体。原作地方伝説2件と創作の霜月の閉門者Lv195を分ける。"
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "updated_on": "2026-11-19",
+  "source": {
+    "sites_version": 7,
+    "sites_commit": "7b8c353f9c21541d6ba9e984925e3cf439074204",
+    "v8_manifest": "587b9ecf51e4ebb0b47fa42e778591d450c5f5274a894e166d9d5c7a538d1d0c"
+  },
+  "status": "integrated_design",
+  "schema": "maple-world-design/1",
+  "github_before_commit": "afa5bdbd37e70bbc63795d70db3e76a9873dff9d",
+  "sites_project_id": "appgprj_6afcfe4ac74481919929eff3eeaf3dc1",
+  "original_v8": {
+    "archive_sha256": "2e8802a44273b72a00be7177848aec777a444e5bcfd066589832fe7e050d3fa0",
+    "runtime_reference_commit": "4a7801568425521dac8e87d3ed4315a0d23b6b09",
+    "original_sites_baseline_sha256": "aefb1c81ecb9de2a40062e10b1489ca901997d83ac004705acbd61f03aed5430"
+  },
+  "existing_github_inputs": {
+    "content/map-catalog.json": "6aea9a92c7ca48d9b6491c834ac82d79915b5bd2b8707aa2b1d573100d02a2a6",
+    "design/field-editor/project.json": "176e1bcc14422afceca919e56cbbe5ce7512d413c39a84298c528c8931c30793",
+    "content/enemy-spawns.json": "a193533568b9ca75bfb796a76cf5f2f4c4138f9480b9b0fb2ce29cca78a69726",
+    "content/field-boss-spawns.json": "c3ca1ef762d785b21344fc5d58fd664aa1b342ed9414125596db551ea1ca8add",
+    "content/enemy-placement-drafts.json": "119e722ba594c5d774b965c8787a8df303caa95ffd13721246088bab7db3f716",
+    "content/coverage.json": "559c20f30533028633fd5324c60ce604b58d7bca136aeed044486b1e79205a12",
+    "content/story-graph.json": "a2c07c94851799320541d6b84927d4d941ab385b667f753ec6a156b5f0d629be",
+    "content/weekly-boss-spawns.json": "1fd157f653d4468541a9460d2ec68d3337d29394104ee4baaddb7edf24d0e255",
+    "content/stygian-encounters.json": "5b54b6c6884c567df3a2a5d5aeb3059427a397ad1eec749479bd0bfdda818f81"
+  },
+  "source_scopes": {
+    "official_waypoints_and_statues": "content/map-catalog.json",
+    "official_enemy_marker_observations": "design/world/research/index.json",
+    "sites_route_and_legacy_placement_design": "design/world/editor-snapshot.json",
+    "github_local_editor": "design/field-editor/project.json",
+    "web_runtime_stages_conditions_and_quests": "content/story-graph.json",
+    "web_implementation_coverage": "content/coverage.json"
+  },
+  "verified_counts": {
+    "fields": 979,
+    "regions": 24,
+    "map_catalog_match": 873,
+    "site_monsters_before": 863,
+    "additional_monster_ids": 176,
+    "site_route_records": 925,
+    "web_stage_links": 873,
+    "site_ordinary_spawn_rows": 1990,
+    "site_optional_spawn_rows": 630,
+    "site_ambient_rows": 66,
+    "site_legend_encounters": 56,
+    "site_normal_boss_variants": 49,
+    "site_original_encounters": 45,
+    "site_special_encounters": 2,
+    "quest_bindings": 153,
+    "official_enemy_markers": 13749,
+    "runtime_spawn_nodes": 116,
+    "runtime_field_bosses": 64,
+    "runtime_quests": 257,
+    "runtime_stages": 1165
+  },
+  "check_state": "source_snapshot_verified_runtime_promotion_requires_review"
+}
