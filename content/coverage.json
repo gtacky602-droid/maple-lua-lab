@@ -123,7 +123,7 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 151,
+      "prototype_stage_count": 153,
       "prototype_quest_count": 26,
       "official_map2_markers": {
         "waypoints": 92,
@@ -7962,7 +7962,7 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1426,
+    "authored_stages": 1428,
     "provisional_quests": 259,
     "companion_join_records": 8,
     "scope_complete": false,
@@ -8722,7 +8722,9 @@
           "iron-viscount-thermal-gallery",
           "iron-viscount-legend-pool",
           "fairy-knight-twins-legend-court",
-          "swords-of-the-gorge-legend-rift"
+          "swords-of-the-gorge-legend-rift",
+          "fading-veteran-legend-wreck",
+          "dobharcu-legend-garden"
         ],
         "quest_ids": [
           "fon-mapped-depth-samples",
@@ -10291,7 +10293,7 @@
       "content/story-graph.json"
     ],
     "design_candidates": 56,
-    "playable_prototypes": 13,
+    "playable_prototypes": 15,
     "stage_by_legend": {
       "legend-liyue_rulers_of_chizhang_mountains": "chizhang-legend-terrace",
       "legend-fontaine_cineas": "cineas-legend-chamber",
@@ -10305,7 +10307,9 @@
       "legend-fontaine_ocean_circuit_judge": "ocean-judge-legend-pool",
       "legend-fontaine_iron_viscount": "iron-viscount-legend-pool",
       "legend-fontaine_fairy_knight_twins": "fairy-knight-twins-legend-court",
-      "legend-fontaine_swords_of_the_gorge": "swords-of-the-gorge-legend-rift"
+      "legend-fontaine_swords_of_the_gorge": "swords-of-the-gorge-legend-rift",
+      "legend-fontaine_fading_veteran": "fading-veteran-legend-wreck",
+      "legend-fontaine_dobharcu_lord_of_the_hidden": "dobharcu-legend-garden"
     }
   }
 }

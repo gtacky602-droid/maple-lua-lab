@@ -3,6 +3,7 @@ return function(C)
  local pulseColor='#9beef4'
  local ordinaryWarningColor='#eebf81'
  local counterColor='#a1f5e0'
+ local echoColor='#eff0ad'
  local mitigate=C.mitigateDamage
 
  function C.mitigateDamage(s,a,damage,source,blockable,telegraphed)
@@ -91,7 +92,7 @@ return function(C)
    local to=stage.travel and clamp(x+owner.facing*stage.travel,spec.arenaMin+22,spec.arenaMax-22) or x
    lastActive=math.max(lastActive,stage.after)
    strikes[i]={
-    owner=owner,first=stage.first,after=stage.after,damage=stage.damage,catchable=stage.catchable,
+    owner=owner,first=stage.first,after=stage.after,damage=stage.damage,catchable=stage.catchable,orb=stage.orb,
     source={id=owner.id,owner=owner,y=owner.y,damageElement=stage.element or owner.element,
      swimCounter=stage.catchable and spec.swimPlayer.counter or nil},
     origin=x,destination=to,x=x,radius=stage.halfWidth,
@@ -105,6 +106,7 @@ return function(C)
  end
 
  function combat.cancel(boss)
+  boss.underground=nil
   boss.waterGuard=false
   boss.waterPose='idle'
   if boss.fieldPartner then boss.fieldPartner.waterPose='idle' end
@@ -113,6 +115,12 @@ return function(C)
  function combat.tick(s,boss,spec,cast)
   local tick=cast.tick+1
   cast.tick=tick
+  if cast.revealedUntil then
+   if tick>=cast.revealedUntil then combat.cancel(boss);return true end
+   return
+  end
+  local veil=cast.move.veil
+  boss.underground=veil and tick>=veil.first and tick<veil.after or nil
   boss.waterGuard=cast.move.guardUntil and tick<cast.move.guardUntil or false
   boss.waterPose='idle'
   if boss.fieldPartner then boss.fieldPartner.waterPose='idle' end
@@ -136,14 +144,17 @@ return function(C)
   return 1
  end
 
- function combat.label(boss,cast)
+ function combat.label(boss,cast,spec)
+  if cast and cast.revealedUntil then return '姿を現した・Jで反撃' end
+  if boss.underground then return '潜伏中・波紋の方向へK' end
   if guarded(boss) then return '装甲を閉じた・背後へ' end
   if cast and cast.tick>=cast.lastActive then
+   if spec.swimPlayer.sonar then return '水弾が消えた・反撃' end
    return boss.fieldPartner and '二体が減速・反撃' or '装甲が開いた・反撃'
   end
  end
 
- function combat.swimAction(s,boss,spec,key)
+ function combat.swimAction(s,boss,spec,key,cast)
   local a=s.actors[s.active]
   if a.hp<=0 then return end
   local skill=spec.swimPlayer
@@ -164,6 +175,20 @@ return function(C)
    C.resolveCast(s,{id=a.id,targetId=targetId,key=counter and 'swimCounter' or 'swimPulse',x=x,y=y,dir=a.dir,
     range=range,vertical=skill.vertical,limit=1,mult=skill.multiplier*(counter and counter.power or 1),color=color,
     element='physical',atk=a.atk,gain=0,isNormal=true})
+  elseif key=='skill1' and skill.sonar and boss.hp>0 and (a.cd.swimSonar or 0)<=0 then
+   local sonar=skill.sonar
+   a.cd.swimSonar=sonar.cooldown
+   local y=a.y-27
+   s.effects[#s.effects+1]={x=a.x+a.dir*sonar.range/2,y=y,w=sonar.range,h=sonar.vertical*2,life=.28,color=echoColor}
+   local forward=(boss.x-a.x)*a.dir
+   if boss.underground and cast and forward>=0 and forward<=sonar.range and math.abs(y-boss.y)<=sonar.vertical then
+    boss.underground=nil
+    boss.waterPose='idle'
+    cast.revealedUntil=cast.tick+sonar.exposureTicks
+    C.combatEvent(s,'swim_sonar_reveal',a.id,boss.id)
+   else
+    C.combatEvent(s,'swim_sonar_miss',a.id,boss.id)
+   end
   elseif key=='skill1' and skill.counter and boss.hp>0 and (a.cd.swimGuard or 0)<=0 then
    a.swimGuardUntil=s.t+skill.counter.guardSeconds
    a.cd.swimGuard=skill.counter.cooldown
@@ -188,24 +213,29 @@ return function(C)
   if input.attack then combat.swimAction(s,boss,spec,'normal') end
  end
 
- function combat.swimStatus(s,boss,spec)
+ function combat.swimStatus(s,boss,spec,cast)
   local a=s.actors[s.active]
   local status={pulseCooldown=a.cd.swimPulse or 0,burstCooldown=a.cd.swimBurst or 0,guard=guarded(boss)}
   if spec.swimPlayer.counter then
    status.counter={cooldown=a.cd.swimGuard or 0,guarding=s.t<(a.swimGuardUntil or 0),ready=s.t<(a.swimCounterUntil or 0)}
+  end
+  if spec.swimPlayer.sonar then
+   status.sonar={cooldown=a.cd.swimSonar or 0,hidden=boss.underground==true,
+    exposed=cast and cast.revealedUntil and (cast.revealedUntil-cast.tick)/60 or 0}
   end
   return status
  end
 
  function combat.frame(field,boss,spec,cast)
   field.warnings={}
-  if not cast then return end
+  if not cast or cast.revealedUntil then return end
   for _,strike in ipairs(cast.strikes) do
    if cast.tick<strike.after then
     field.warnings[#field.warnings+1]={
      left=strike.left,right=strike.right,top=strike.top,bottom=strike.bottom,
      first=strike.first,after=strike.after,active=cast.tick>=strike.first,catchable=strike.catchable or nil,
      activeLeft=strike.activeLeft,activeRight=strike.activeRight,sourceId=spec.partner and strike.owner.id or nil,
+     orb=strike.orb and {x=strike.x,y=(strike.top+strike.bottom)/2} or nil,
     }
    end
   end
@@ -216,20 +246,25 @@ return function(C)
  end
 
  function combat.draw(f,s,boss,spec,cast,mode,profile)
-  if cast then
+  if cast and not cast.revealedUntil then
    for i,strike in ipairs(cast.strikes) do
     if cast.tick<strike.after then
      local left,right=strike.left-s.camera,strike.right-s.camera
      local top,bottom=strike.top,strike.bottom
      local warningColor=strike.catchable and counterColor or ordinaryWarningColor
-     band(f,left,top,right-left,bottom-top,warningColor..'23')
-     if cast.tick>=strike.first then
-      band(f,strike.activeLeft-s.camera,top,strike.activeRight-strike.activeLeft,bottom-top,warningColor..'70')
+     if strike.orb and cast.tick>=strike.first then
+      f.draws[#f.draws+1]={kind='effect',x=strike.x-s.camera,y=(top+bottom)/2,
+       w=strike.radius*2,h=bottom-top,alpha=1,color=warningColor}
+     else
+      band(f,left,top,right-left,bottom-top,warningColor..'23')
+      if cast.tick>=strike.first then
+       band(f,strike.activeLeft-s.camera,top,strike.activeRight-strike.activeLeft,bottom-top,warningColor..'70')
+      end
+      band(f,left,top,right-left,2,warningColor)
+      band(f,left,bottom-2,right-left,2,warningColor)
+      band(f,left,top,2,bottom-top,warningColor)
+      band(f,right-2,top,2,bottom-top,warningColor)
      end
-     band(f,left,top,right-left,2,warningColor)
-     band(f,left,bottom-2,right-left,2,warningColor)
-     band(f,left,top,2,bottom-top,warningColor)
-     band(f,right-2,top,2,bottom-top,warningColor)
      if #cast.strikes>1 then
       f.draws[#f.draws+1]={kind='text',text=cast.simultaneous and '同時' or tostring(i),x=left+15,y=top+17,size=14,color=warningColor}
      end
@@ -253,7 +288,15 @@ return function(C)
     f.draws[#f.draws+1]={kind='text',text=body.memberName,x=x-32,y=body.y-spec.bodyHalfHeight-19,size=13,color='#e6f6ff'}
    end
   end
-  drawBody(boss,spec)
+  if boss.underground and cast and cast.move.veil then
+   local trace=(cast.tick-cast.move.veil.first)%38
+   if trace<24 then
+    f.draws[#f.draws+1]={kind='effect',x=boss.x-s.camera,y=boss.y,
+     w=24+trace*1.8,h=18+trace,alpha=.96-trace*.025,color=echoColor}
+   end
+  else
+   drawBody(boss,spec)
+  end
   if boss.fieldPartner then drawBody(boss.fieldPartner,spec.partner) end
  end
 

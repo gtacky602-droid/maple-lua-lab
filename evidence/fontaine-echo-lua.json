@@ -1,0 +1,48 @@
+{
+  "legend-fontaine_fading_veteran": {
+    "route": [
+      "fon-wp-50073",
+      "fading-veteran-legend-wreck"
+    ],
+    "lv99BlockedAnd100Admitted": true,
+    "tracedVeilHidesArtAndJMisses": true,
+    "backwardEchoFailsAndCooldownApplies": true,
+    "echoRestoresArtAndCancelsOrbs": true,
+    "allShotTrajectoriesAndSingleHits": [
+      "FW41",
+      "FW42",
+      "FW43"
+    ],
+    "retreatReentryReset": true,
+    "singleRewardAndSavedClear": true,
+    "soloClear": {
+      "seconds": 66.68,
+      "hp": 140,
+      "reveals": 7,
+      "killXp": 212400
+    }
+  },
+  "legend-fontaine_dobharcu_lord_of_the_hidden": {
+    "route": [
+      "fon-wp-50062",
+      "dobharcu-legend-garden"
+    ],
+    "lv99BlockedAnd100Admitted": true,
+    "tracedVeilHidesArtAndJMisses": true,
+    "backwardEchoFailsAndCooldownApplies": true,
+    "echoRestoresArtAndCancelsOrbs": true,
+    "allShotTrajectoriesAndSingleHits": [
+      "FW44",
+      "FW45",
+      "FW46"
+    ],
+    "retreatReentryReset": true,
+    "singleRewardAndSavedClear": true,
+    "soloClear": {
+      "seconds": 71.35,
+      "hp": 140,
+      "reveals": 15,
+      "killXp": 212400
+    }
+  }
+}

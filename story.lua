@@ -849,7 +849,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    a.vy=0;a.ground=not n.swim
    if arrivalY or n.swim then a.drop=0 end
    a.swimDx,a.swimDy=nil,nil
-   a.swimGuardUntil,a.swimCounterUntil,a.cd.swimGuard=nil,nil,nil
+   a.swimGuardUntil,a.swimCounterUntil,a.cd.swimGuard,a.cd.swimSonar=nil,nil,nil,nil
    if n.swim then a.lock=0;a.channel=nil end
   end
   s.camera=math.max(0,math.min(s.actors[s.active].x-400,math.max(0,n.width-960)))

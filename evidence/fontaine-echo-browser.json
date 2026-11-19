@@ -1,0 +1,22 @@
+{
+  "routesThroughAtlas": true,
+  "sonarKeyHidesAttacksAndRestoresArt": true,
+  "normalPulseAfterReveal": true,
+  "sameFrameRenderModes": true,
+  "retreatResetsArena": true,
+  "readableSonarTouchControl": true,
+  "galleryBoth": true,
+  "commands": {
+    "fading-veteran": {
+      "png": 17,
+      "legacy": 6611,
+      "h32c16": 1787
+    },
+    "dobharcu": {
+      "png": 17,
+      "legacy": 6133,
+      "h32c16": 1812
+    }
+  },
+  "errors": []
+}

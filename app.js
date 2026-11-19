@@ -292,7 +292,7 @@ function updateProgression(f){
  updateIansanTraining(f.storyIansan);
  dailyBoard.update(f.daily);
  const diving=Boolean(f.storyToyDive), swimming=Boolean(f.storySwim);
- const waterCombat=f.storySwimCombat, waterCounter=waterCombat?.counter;
+ const waterCombat=f.storySwimCombat, waterCounter=waterCombat?.counter, waterSonar=waterCombat?.sonar;
  $('surfControls').hidden=!boarding&&!rally;
  $('surfControls').closest('.game').classList.toggle('surf-playing',boarding||rally);
  $('surfHit').hidden=!rally;
@@ -313,12 +313,16 @@ function updateProgression(f){
  if(swimming){
   let instructions=waterCombat?'WASD・方向キーで泳ぐ ｜ Jで水撃 ｜ Space・Shiftで急回避 ｜ Fで退く':'WASD・方向キーで泳ぐ ｜ 門の深さを合わせてF ｜ 目印の近くでG';
   if(waterCounter)instructions+=waterCounter.ready?' ｜ Jで反撃の水撃':' ｜ 薄緑の波はKで受け止める';
+  if(waterSonar)instructions+=waterSonar.exposed>0?' ｜ Jで反撃 残り'+(Math.ceil(waterSonar.exposed*10)/10).toFixed(1)+'秒':' ｜ 潜ったら波紋へKで探知';
   if(swimHelp.textContent!==instructions)swimHelp.textContent=instructions;
  }
  $('touchSwimBurst').hidden=!waterCombat;
  $('touchSwimBurst').disabled=!!waterCombat?.burstCooldown;
- $('touchSwimGuard').hidden=!waterCounter;
- $('touchSwimGuard').disabled=!!waterCounter?.cooldown;
+ const waterSecondary=$('touchSwimGuard');
+ waterSecondary.hidden=!waterCounter&&!waterSonar;
+ waterSecondary.disabled=!!(waterCounter?.cooldown||waterSonar?.cooldown);
+ const waterSecondaryLabel=waterSonar?'探知':'水の構え';
+ if(waterSecondary.textContent!==waterSecondaryLabel)waterSecondary.textContent=waterSecondaryLabel;
  $('diveReset').disabled=f.paused;
  document.querySelectorAll('[data-swim]').forEach(button=>{button.hidden=!diving&&!swimming});
  document.querySelectorAll('[data-land]').forEach(button=>{button.hidden=diving||swimming||solo});

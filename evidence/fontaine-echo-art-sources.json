@@ -1,0 +1,52 @@
+{
+  "references": [
+    {
+      "source": "https://altema.jp/gensin/kieyukurouhei",
+      "file": "../fontaine-echo-refs/veteran.jpg",
+      "kind": "名前付き戦闘画面",
+      "observed": "正面で白っぽい腹の両側に太い前肢が張る。腹の下に暗い面が残る。"
+    },
+    {
+      "source": "https://altema.jp/gensin/injyanoou",
+      "file": "../fontaine-echo-refs/king.jpg",
+      "kind": "名前付き戦闘画面",
+      "observed": "頭を下に傾けた正面寄りの姿勢で、淡い腹と濃い尾が上下に分かれる。"
+    },
+    {
+      "source": "https://gamerch.com/genshinwiki/793001",
+      "file": "../fontaine-echo-refs/profile.jpg",
+      "kind": "斜め近景",
+      "observed": "手前の厚いひれが胴に重なる。体の奥行きと頭の向きを照合。"
+    },
+    {
+      "source": "https://gamerch.com/genshinwiki/793001",
+      "file": "../fontaine-echo-refs/refraction.jpg",
+      "kind": "透明化時の戦闘画面",
+      "observed": "透けていて輪郭を特定しにくい。潜伏効果の確認に限った。"
+    },
+    {
+      "source": "https://www.hoyolab.com/article/21099968",
+      "file": "../fontaine-ray-refs/avatars.jpg",
+      "kind": "投稿者編集の名付き画像",
+      "observed": "上段右側2枠で正面の丸い口元と側面の大きな腹を確認。"
+    },
+    {
+      "source": "https://gamewith.jp/genshin/article/show/412698",
+      "image": "https://img.gamewith.jp/img/82e9e237cf824c8a52122a3fe86ae6ae.jpg",
+      "kind": "GameWith掲載の一般種の紹介画像（257×257）",
+      "observed": "短い口元、淡色の広い腹、濃色のひれが一つずつの面として読める。固有個体の模様の資料には使わない。"
+    },
+    {
+      "source": "https://www.hoyolab.com/article/20834615",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/08/11/954c84f9bb9bdbc4e9d53ab138806b70_1212051911048427117.gif",
+      "kind": "原神公式・スチームバード特集第4号のプクプク獣亜種の全身線画とゲーム画面",
+      "observed": "上部の全身線画で胴から出た左右の前ひれと後方の尾、下部の遊泳画面でひれの下がる向きを照合。亜種の能力紹介で、地方伝説2体の固有設定画ではない。"
+    }
+  ],
+  "scope": "スクリーンショット・一般種の紹介画像・公式の亜種紹介を確認。2個体の3Dモデルや図鑑の回転表示は未確認。",
+  "design_choices": [
+    "老兵は白藍の胸から紺の下半身へ大きく明度を分ける。",
+    "ドアーチュは灰青の胴と青緑のひれ縁で見分ける。",
+    "待機はひれを外に出し、構えは胸へ引き、発射時は口を開いて前傾する。"
+  ]
+}

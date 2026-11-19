@@ -709,7 +709,9 @@
     {"id":"legend-fairy-angelica","name":"双生妖精の騎士・アンジェリカ（水中・ラボ用）","file":"legend-fairy-angelica-field-idle-sprites-v1.json","height":112,"mapHover":0},
     {"id":"legend-fairy-midoro","name":"双生妖精の騎士・ミドロ（水中・ラボ用）","file":"legend-fairy-midoro-field-idle-sprites-v1.json","height":112,"mapHover":0},
     {"id":"legend-gorge-cortana","name":"深谷の剣・コルタナ（水中・ラボ用）","file":"legend-gorge-cortana-field-idle-sprites-v1.json","height":112,"mapHover":0},
-    {"id":"legend-gorge-morglay","name":"深谷の剣・モーグレイ（水中・ラボ用）","file":"legend-gorge-morglay-field-idle-sprites-v1.json","height":112,"mapHover":0}
+    {"id":"legend-gorge-morglay","name":"深谷の剣・モーグレイ（水中・ラボ用）","file":"legend-gorge-morglay-field-idle-sprites-v1.json","height":112,"mapHover":0},
+    {"id":"legend-fading-veteran","name":"消えゆく老兵（水中・ラボ用）","file":"legend-fading-veteran-field-idle-sprites-v1.json","height":126,"mapHover":0},
+    {"id":"legend-dobharcu","name":"隠者の王・ドアーチュ（水中・ラボ用）","file":"legend-dobharcu-field-idle-sprites-v1.json","height":126,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }
