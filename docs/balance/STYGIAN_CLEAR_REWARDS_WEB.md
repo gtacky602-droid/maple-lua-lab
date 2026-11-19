@@ -14,4 +14,4 @@ EXPは討伐EXPと基礎EXPに加算し、Lv200では超過EXPに記録する。
 - Chromeでは北斗の通常を操作してクリアし、挑戦前の初回追加EXP、勝利時のEXP増加、再戦時の初回表示、保存後の記録を確認した。 [Chromeの試走](../../evidence/stygian-clear-rewards-browser.json)
 - 通常ボス48系統49戦、週ボス14戦、幽境7戦の個別Luaテストを実行した。各テストの開始位置やHPなどは、検証対象に合わせて設定している。 [戦闘ごとのテスト](../../evidence/boss-roster-lua-audit.json)
 
-週ボスの難易度選択と難易度別の初回報酬は設計段階。今回のEXP計算は難易度を選んで入る幽境7戦に適用する。
+週ボスの難易度選択と初回報酬は、週ボスの門で確認できる。 [週ボスの難易度挑戦](WEEKLY_DIFFICULTY_WEB.md)

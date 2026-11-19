@@ -1,0 +1,459 @@
+{
+  "modes": {
+    "boss-29010101:expert": {
+      "level": 180,
+      "damagePercent": 62,
+      "xp": 18999684,
+      "firstXp": 13560590,
+      "mora": 1538640,
+      "firstMora": 2051520
+    },
+    "boss-29010101:advanced": {
+      "level": 160,
+      "damagePercent": 80,
+      "xp": 9126594,
+      "firstXp": 3828729,
+      "mora": 1320120,
+      "firstMora": 1320120
+    },
+    "boss-29010101:standard": {
+      "level": 100,
+      "damagePercent": 100,
+      "xp": 630828,
+      "firstXp": 94624,
+      "mora": 656865,
+      "firstMora": 437910
+    },
+    "boss-29010101:entry": {
+      "level": 40,
+      "damagePercent": 130,
+      "xp": 29700,
+      "firstXp": 1541,
+      "mora": 181500,
+      "firstMora": 90750
+    },
+    "boss-29020101:expert": {
+      "level": 180,
+      "damagePercent": 62,
+      "xp": 18999684,
+      "firstXp": 13560590,
+      "mora": 1538640,
+      "firstMora": 2051520
+    },
+    "boss-29020101:advanced": {
+      "level": 160,
+      "damagePercent": 80,
+      "xp": 9126594,
+      "firstXp": 3828729,
+      "mora": 1320120,
+      "firstMora": 1320120
+    },
+    "boss-29020101:standard": {
+      "level": 100,
+      "damagePercent": 100,
+      "xp": 630828,
+      "firstXp": 94624,
+      "mora": 656865,
+      "firstMora": 437910
+    },
+    "boss-29020101:entry": {
+      "level": 40,
+      "damagePercent": 130,
+      "xp": 29700,
+      "firstXp": 1541,
+      "mora": 181500,
+      "firstMora": 90750
+    },
+    "boss-29030101:expert": {
+      "level": 180,
+      "damagePercent": 62,
+      "xp": 18999684,
+      "firstXp": 13560590,
+      "mora": 1538640,
+      "firstMora": 2051520
+    },
+    "boss-29030101:advanced": {
+      "level": 160,
+      "damagePercent": 80,
+      "xp": 9126594,
+      "firstXp": 3828729,
+      "mora": 1320120,
+      "firstMora": 1320120
+    },
+    "boss-29030101:standard": {
+      "level": 100,
+      "damagePercent": 100,
+      "xp": 630828,
+      "firstXp": 94624,
+      "mora": 656865,
+      "firstMora": 437910
+    },
+    "boss-29030101:entry": {
+      "level": 40,
+      "damagePercent": 130,
+      "xp": 29700,
+      "firstXp": 1541,
+      "mora": 181500,
+      "firstMora": 90750
+    },
+    "boss-29040101:expert": {
+      "level": 180,
+      "damagePercent": 62,
+      "xp": 18999684,
+      "firstXp": 13560590,
+      "mora": 1538640,
+      "firstMora": 2051520
+    },
+    "boss-29040101:advanced": {
+      "level": 160,
+      "damagePercent": 80,
+      "xp": 9126594,
+      "firstXp": 3828729,
+      "mora": 1320120,
+      "firstMora": 1320120
+    },
+    "boss-29040101:standard": {
+      "level": 100,
+      "damagePercent": 100,
+      "xp": 630828,
+      "firstXp": 94624,
+      "mora": 656865,
+      "firstMora": 437910
+    },
+    "boss-29040101:entry": {
+      "level": 40,
+      "damagePercent": 130,
+      "xp": 29700,
+      "firstXp": 1541,
+      "mora": 181500,
+      "firstMora": 90750
+    },
+    "boss-29050101:expert": {
+      "level": 180,
+      "damagePercent": 62,
+      "xp": 18999684,
+      "firstXp": 13560590,
+      "mora": 1538640,
+      "firstMora": 2051520
+    },
+    "boss-29050101:advanced": {
+      "level": 160,
+      "damagePercent": 80,
+      "xp": 9126594,
+      "firstXp": 3828729,
+      "mora": 1320120,
+      "firstMora": 1320120
+    },
+    "boss-29050101:standard": {
+      "level": 100,
+      "damagePercent": 100,
+      "xp": 630828,
+      "firstXp": 94624,
+      "mora": 656865,
+      "firstMora": 437910
+    },
+    "boss-29050101:entry": {
+      "level": 44,
+      "damagePercent": 130,
+      "xp": 40365,
+      "firstXp": 2096,
+      "mora": 205350,
+      "firstMora": 102675
+    },
+    "boss-29060201:expert": {
+      "level": 180,
+      "damagePercent": 62,
+      "xp": 18999684,
+      "firstXp": 13560590,
+      "mora": 1538640,
+      "firstMora": 2051520
+    },
+    "boss-29060201:advanced": {
+      "level": 160,
+      "damagePercent": 80,
+      "xp": 9126594,
+      "firstXp": 3828729,
+      "mora": 1320120,
+      "firstMora": 1320120
+    },
+    "boss-29060201:standard": {
+      "level": 100,
+      "damagePercent": 100,
+      "xp": 630828,
+      "firstXp": 94624,
+      "mora": 656865,
+      "firstMora": 437910
+    },
+    "boss-29060201:entry": {
+      "level": 48,
+      "damagePercent": 130,
+      "xp": 54945,
+      "firstXp": 2852,
+      "mora": 229950,
+      "firstMora": 114975
+    },
+    "boss-29070101:expert": {
+      "level": 180,
+      "damagePercent": 62,
+      "xp": 18999684,
+      "firstXp": 13560590,
+      "mora": 1538640,
+      "firstMora": 2051520
+    },
+    "boss-29070101:advanced": {
+      "level": 160,
+      "damagePercent": 80,
+      "xp": 9126594,
+      "firstXp": 3828729,
+      "mora": 1320120,
+      "firstMora": 1320120
+    },
+    "boss-29070101:standard": {
+      "level": 100,
+      "damagePercent": 100,
+      "xp": 630828,
+      "firstXp": 94624,
+      "mora": 656865,
+      "firstMora": 437910
+    },
+    "boss-29070101:entry": {
+      "level": 64,
+      "damagePercent": 130,
+      "xp": 107865,
+      "firstXp": 6649,
+      "mora": 334350,
+      "firstMora": 167175
+    },
+    "boss-29080101:expert": {
+      "level": 180,
+      "damagePercent": 62,
+      "xp": 18999684,
+      "firstXp": 13560590,
+      "mora": 1538640,
+      "firstMora": 2051520
+    },
+    "boss-29080101:advanced": {
+      "level": 160,
+      "damagePercent": 80,
+      "xp": 9126594,
+      "firstXp": 3828729,
+      "mora": 1320120,
+      "firstMora": 1320120
+    },
+    "boss-29080101:standard": {
+      "level": 100,
+      "damagePercent": 100,
+      "xp": 630828,
+      "firstXp": 94624,
+      "mora": 656865,
+      "firstMora": 437910
+    },
+    "boss-29080101:entry": {
+      "level": 68,
+      "damagePercent": 130,
+      "xp": 144045,
+      "firstXp": 8879,
+      "mora": 361650,
+      "firstMora": 180825
+    },
+    "boss-29090101:expert": {
+      "level": 180,
+      "damagePercent": 62,
+      "xp": 18999684,
+      "firstXp": 13560590,
+      "mora": 1538640,
+      "firstMora": 2051520
+    },
+    "boss-29090101:advanced": {
+      "level": 160,
+      "damagePercent": 80,
+      "xp": 9126594,
+      "firstXp": 3828729,
+      "mora": 1320120,
+      "firstMora": 1320120
+    },
+    "boss-29090101:standard": {
+      "level": 100,
+      "damagePercent": 100,
+      "xp": 630828,
+      "firstXp": 94624,
+      "mora": 656865,
+      "firstMora": 437910
+    },
+    "boss-29090101:entry": {
+      "level": 84,
+      "damagePercent": 130,
+      "xp": 305505,
+      "firstXp": 26956,
+      "mora": 476100,
+      "firstMora": 238050
+    },
+    "boss-29091001:expert": {
+      "level": 180,
+      "damagePercent": 62,
+      "xp": 18999684,
+      "firstXp": 13560590,
+      "mora": 1538640,
+      "firstMora": 2051520
+    },
+    "boss-29091001:advanced": {
+      "level": 160,
+      "damagePercent": 80,
+      "xp": 9126594,
+      "firstXp": 3828729,
+      "mora": 1320120,
+      "firstMora": 1320120
+    },
+    "boss-29091001:standard": {
+      "level": 100,
+      "damagePercent": 100,
+      "xp": 630828,
+      "firstXp": 94624,
+      "mora": 656865,
+      "firstMora": 437910
+    },
+    "boss-29091001:entry": {
+      "level": 88,
+      "damagePercent": 130,
+      "xp": 400410,
+      "firstXp": 35333,
+      "mora": 505800,
+      "firstMora": 252900
+    },
+    "boss-29091101:expert": {
+      "level": 180,
+      "damagePercent": 62,
+      "xp": 18999684,
+      "firstXp": 13560590,
+      "mora": 1538640,
+      "firstMora": 2051520
+    },
+    "boss-29091101:advanced": {
+      "level": 160,
+      "damagePercent": 80,
+      "xp": 9126594,
+      "firstXp": 3828729,
+      "mora": 1320120,
+      "firstMora": 1320120
+    },
+    "boss-29091101:standard": {
+      "level": 104,
+      "damagePercent": 100,
+      "xp": 630828,
+      "firstXp": 94624,
+      "mora": 691185,
+      "firstMora": 460790
+    },
+    "boss-29091101:entry": {
+      "level": 104,
+      "damagePercent": 130,
+      "xp": 630828,
+      "firstXp": 70968,
+      "mora": 691185,
+      "firstMora": 345593
+    },
+    "boss-29122000:expert": {
+      "level": 180,
+      "damagePercent": 62,
+      "xp": 18999684,
+      "firstXp": 13560590,
+      "mora": 1538640,
+      "firstMora": 2051520
+    },
+    "boss-29122000:advanced": {
+      "level": 160,
+      "damagePercent": 80,
+      "xp": 9126594,
+      "firstXp": 3828729,
+      "mora": 1320120,
+      "firstMora": 1320120
+    },
+    "boss-29122000:standard": {
+      "level": 112,
+      "damagePercent": 100,
+      "xp": 1043955,
+      "firstXp": 156602,
+      "mora": 761145,
+      "firstMora": 507430
+    },
+    "boss-29122000:entry": {
+      "level": 112,
+      "damagePercent": 130,
+      "xp": 1043955,
+      "firstXp": 117452,
+      "mora": 761145,
+      "firstMora": 380573
+    },
+    "boss-29130201:expert": {
+      "level": 180,
+      "damagePercent": 62,
+      "xp": 18999684,
+      "firstXp": 13560590,
+      "mora": 1538640,
+      "firstMora": 2051520
+    },
+    "boss-29130201:advanced": {
+      "level": 160,
+      "damagePercent": 80,
+      "xp": 9126594,
+      "firstXp": 3828729,
+      "mora": 1320120,
+      "firstMora": 1320120
+    },
+    "boss-29130201:standard": {
+      "level": 132,
+      "damagePercent": 100,
+      "xp": 2934657,
+      "firstXp": 551810,
+      "mora": 942315,
+      "firstMora": 628210
+    },
+    "boss-29130201:entry": {
+      "level": 132,
+      "damagePercent": 130,
+      "xp": 2934657,
+      "firstXp": 413858,
+      "mora": 942315,
+      "firstMora": 471158
+    },
+    "boss-29150101:expert": {
+      "level": 180,
+      "damagePercent": 62,
+      "xp": 18999684,
+      "firstXp": 13560590,
+      "mora": 1538640,
+      "firstMora": 2051520
+    },
+    "boss-29150101:advanced": {
+      "level": 160,
+      "damagePercent": 80,
+      "xp": 9126594,
+      "firstXp": 3828729,
+      "mora": 1320120,
+      "firstMora": 1320120
+    },
+    "boss-29150101:standard": {
+      "level": 144,
+      "damagePercent": 100,
+      "xp": 4750164,
+      "firstXp": 1161132,
+      "mora": 1151100,
+      "firstMora": 767400
+    },
+    "boss-29150101:entry": {
+      "level": 144,
+      "damagePercent": 130,
+      "xp": 4750164,
+      "firstXp": 870849,
+      "mora": 1151100,
+      "firstMora": 575550
+    }
+  },
+  "rankedPortalVerified": true,
+  "sameHpAndDistinctDamage": true,
+  "lockedLevelAndRemoteRejected": true,
+  "firstAndRepeatWithRestore": true,
+  "preservesLegacyRecords": true,
+  "cooldownBeforeRankedReentry": true,
+  "leaveWithoutReward": true
+}

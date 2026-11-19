@@ -8014,7 +8014,14 @@
     "status": "partial",
     "design": "content/world-bosses-design.json"
   },
-  "current_priority": "Add provisional weekly difficulty selection and per-difficulty first-clear rewards while preserving the existing quest routes and saved records.",
+  "weekly_difficulty": {
+    "status": "provisional_runtime",
+    "official_encounters": 14,
+    "encounter_difficulty_pairs_tested": 56,
+    "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
+    "evidence": "evidence/weekly-difficulty-rewards-lua.json"
+  },
+  "current_priority": "Trace the three source entrances listed as unverified, then check progression and reward pacing on the connected routes.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",

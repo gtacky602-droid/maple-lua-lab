@@ -1,0 +1,50 @@
+{
+  "boss": "boss-29020101",
+  "rank": "entry",
+  "entry": {
+    "id": "entry",
+    "level": 40,
+    "mora": 181500,
+    "xp": 29700,
+    "name": "入門",
+    "firstXp": 1541,
+    "available": true,
+    "firstMora": 90750,
+    "attackFactor": 1.3
+  },
+  "play": {
+    "won": true,
+    "seconds": 51.45,
+    "hp": 140,
+    "returns": 0,
+    "moves": [
+      "WA01",
+      "WA02",
+      "WA03",
+      "WA04",
+      "WA05",
+      "WA06",
+      "WA07",
+      "WA08",
+      "WA09",
+      "WA10"
+    ],
+    "transitions": 1,
+    "falls": 0,
+    "aiUpper": true,
+    "manualUpper": true,
+    "immuneEvent": true
+  },
+  "reward": {
+    "xp": 31241,
+    "first": true,
+    "mora": 272250
+  },
+  "questReport": {
+    "xp": 1600,
+    "mora": 390
+  },
+  "selectionHeldDuringCooldown": true,
+  "recordAfterReload": true,
+  "errors": []
+}

@@ -2,12 +2,15 @@ export function initEndgameUI(action){
  const get=id=>document.getElementById(id);
  const desk=get('endgameDesk'),run=get('endgameRun'),status=get('endgameRunStatus');
  const next=get('abyssNext'),weekly=get('endgameWeekly'),personal=get('endgamePersonal');
+ const weeklyDesk=get('weeklyDesk'),weeklyDifficulty=get('weeklyDifficulty'),weeklyStart=get('weeklyChallengeStart');
+ const weeklyDetails=get('weeklyChallengeDetails'),weeklyRecord=get('weeklyChallengeRecord'),weeklyResult=get('weeklyChallengeResult');
  const goals=get('endgameGoals'),goalHelp=get('endgameGoalHelp');
  const duelDesk=get('stygianDesk'),duelMode=get('stygianMode'),duelStart=get('stygianStart');
  const duelBattle=get('stygianBattle'),duelHp=get('stygianHp');
  const mechanic=get('stygianMechanic'),lamp=get('stygianLamp');
  const lives=get('stygianLives'),life=get('stygianLife'),aid=get('stygianAid');
  let duel,previousDuel='';
+ let weeklyChallenge,weeklySignature='';
  const companion={amber:'アンバー',columbina:'コロンビーナ',wanderer:'放浪者',beidou:'北斗',
   ayaka:'綾華',emilie:'エミリエ',kachina:'カチーナ',mitya:'ミティヤ'};
  const goalLabels={gear:'狙うセットから、より主能力の高い聖遺物を装備する',
@@ -15,6 +18,23 @@ export function initEndgameUI(action){
   boss:'好きなボスを初めて倒すか、自分の最速タイムを更新する'};
  const record=r=>`${(r.bestTicks/60).toFixed(1)}秒・${companion[r.companion]}同行・${r.clears}勝`;
  let previousDesk='';
+ const amount=value=>value.toLocaleString();
+ function updateWeeklySelection(){
+  const pick=weeklyChallenge?.modes.find(mode=>mode.id===weeklyDifficulty.value);
+  if(!pick)return;
+  weeklyStart.disabled=!pick.available;
+  const rewards=`勝利 ${amount(pick.xp)} EXP・${amount(pick.mora)}モラ${pick.record?'':` ｜ 初回追加 ${amount(pick.firstXp)} EXP・${amount(pick.firstMora)}モラ`}`;
+  const pending=weeklyChallenge.wait>0?` ｜ 再出現まで ${weeklyChallenge.wait}秒`:'';
+  weeklyDetails.textContent=`必要Lv${pick.level} ｜ 攻撃ダメージ×${pick.attackFactor} ｜ ${rewards}${pending}`;
+  weeklyRecord.hidden=!pick.record;
+  weeklyRecord.textContent=pick.record?record(pick.record):'';
+ }
+ weeklyDifficulty.onchange=updateWeeklySelection;
+ weeklyStart.onclick=()=>{
+  if(!weeklyChallenge||weeklyStart.disabled)return;
+  action(`weekly_start:${weeklyChallenge.id}:${weeklyDifficulty.value}`);
+  weeklyStart.blur();
+ };
  function updateDuelSelection(){
   const pick=duel?.modes.find(mode=>mode.id===duelMode.value);
   if(!pick)return;
@@ -38,6 +58,29 @@ export function initEndgameUI(action){
   el.onclick=()=>{action(`abyss_start:${mode}:${get('abyssSet').value}`);el.blur()};
  }
  return function update(frame){
+  const entry=frame.weeklyDesk;
+  weeklyDesk.hidden=!entry;
+  if(entry){
+   const changed=weeklyChallenge?.id!==entry.id;
+   weeklyChallenge={...entry,wait:Math.ceil(entry.remaining)};
+   if(changed){
+    get('weeklyChallengeName').textContent=entry.name;
+    weeklyDifficulty.replaceChildren(...entry.modes.map(rank=>new Option(rank.name,rank.id)));
+    weeklyDifficulty.value=(entry.modes.find(rank=>rank.available)||entry.modes[0]).id;
+   }
+   const signature=JSON.stringify([entry.id,entry.modes,weeklyChallenge.wait]);
+   if(signature!==weeklySignature){
+    weeklySignature=signature;
+    updateWeeklySelection();
+   }
+  }else{
+   weeklyChallenge=null;
+   weeklySignature='';
+  }
+  const weeklyReward=frame.weeklyBoss?.reward;
+  weeklyResult.hidden=!weeklyReward;
+  const resultText=weeklyReward?`勝利 ｜ ${amount(weeklyReward.xp)} EXP・${amount(weeklyReward.mora)}モラ${weeklyReward.first?' ｜ 初回追加分を含む':''}`:'';
+  if(weeklyResult.textContent!==resultText)weeklyResult.textContent=resultText;
   const fight=frame.endgameRun;
   run.hidden=!fight;desk.hidden=!frame.endgameDesk||!!frame.growthTrial;
   duel=frame.stygianDesk;

@@ -204,6 +204,13 @@
  </div>
 </section>
 <div id="nearbyPortal" hidden style="padding:10px 18px;background:#173a3b"><span id="nearbyPortalText"></span> <button id="nearbyPortalGo" data-action="story_nearby_portal">F：この門を通る</button></div>
+<section id="weeklyDesk" hidden style="padding:10px 18px;background:#173a3b" aria-label="週ボスの難易度挑戦">
+ <strong id="weeklyChallengeName"></strong>
+ <label>難易度 <select id="weeklyDifficulty"></select></label>
+ <button id="weeklyChallengeStart" type="button">選んだ難易度で挑戦</button>
+ <p id="weeklyChallengeDetails" style="margin:4px 0 0"></p>
+ <p id="weeklyChallengeRecord" style="margin:4px 0 0" hidden></p>
+</section>
 <div id="storyLift" hidden style="padding:10px 18px;background:#173a3b"><span id="storyLiftText"></span> <progress id="storyLiftProgress" aria-label="乗り物の移動進捗"></progress></div>
 <div id="storyMarket" hidden style="padding:10px 18px;background:#173a3b"></div>
 <p id="storyChapterReward" role="status" hidden style="margin:0;padding:10px 18px;background:#173a3b"></p>
@@ -211,6 +218,7 @@
 <div id="fieldBoss" hidden style="padding:10px 18px;background:#173a3b">
  <p id="fieldBossLabel" style="margin:0 0 4px"></p>
  <progress id="fieldBossHp" aria-label="ボスのHP" style="width:min(100%,280px);accent-color:#efbd78"></progress>
+ <p id="weeklyChallengeResult" role="status" style="margin:4px 0 0" hidden></p>
  <div id="weeklyPhases" hidden aria-label="形態別のHP"></div>
  <div id="weeklyTemperature" hidden>
   <label><span id="weeklyTempText"></span> <meter id="weeklyTempMeter" min="0" max="100" high="80"></meter></label>

@@ -36,6 +36,15 @@ return function(C,abyss,weekly,matches,controllers)
   local improved=personalBest(s,records(s).bosses,id,s.t-started)
   if improved then C.endgameGoalEvent(s,'boss') end
  end
+ function C.recordWeeklyClear(s,id,mode,started)
+  local data=records(s)
+  data.weekly=data.weekly or {}
+  local key=id..':'..mode
+  local first=data.weekly[key]==nil
+  local improved=personalBest(s,data.weekly,key,s.t-started)
+  if improved then C.endgameGoalEvent(s,'boss') end
+  return first
+ end
 
  local function leave(s)
   local trial=s.endgameRun

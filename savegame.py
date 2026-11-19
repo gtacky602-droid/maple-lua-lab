@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 from daily_store import validate_daily_state
-from experience import CAP, CAP_EXP, CURVE_ID, LEVELS, MAX_SAVED_EXP
+from experience import CAP, CAP_EXP, CURVE_ID, LEVELS, MAX_SAVED_EXP, WEEKLY_MODE_IDS
 _STORY_GRAPH=json.loads((Path(__file__).parent/"content/story-graph.json").read_text(encoding="utf8"))
 _FIELD_BOSSES={slot["id"]:slot for slot in json.loads((Path(__file__).parent/"content/field-boss-spawns.json").read_text(encoding="utf-8-sig"))["fieldBosses"]}
 _WEEKLY_BOSSES={slot['id']:slot for slot in json.loads((Path(__file__).parent/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses']}
@@ -353,7 +353,7 @@ def validate_itto_contest(record, quest, spec, visited):
 
 def validate_endgame(data):
     record = data['endgame']
-    if not isinstance(record, dict) or set(record)-{'goal','stygian'} != {'abyss', 'bosses'}:
+    if not isinstance(record, dict) or set(record)-{'goal','stygian','weekly'} != {'abyss', 'bosses'}:
         raise ValueError('Invalid challenge records')
     if 'goal' in record and record['goal'] not in ('gear', 'discover', 'boss'):
         raise ValueError('Invalid selected adventure goal')
@@ -363,6 +363,9 @@ def validate_endgame(data):
     categories=[('abyss',_ABYSS_MODES),('bosses',set(_FIELD_BOSSES)|set(_WEEKLY_BOSSES)|{'farka'})]
     if 'stygian' in record:
         categories.append(('stygian',_STYGIAN_MODES))
+    if 'weekly' in record:
+        categories.append(('weekly', {f'{id}:{mode}' for id, spec in _WEEKLY_BOSSES.items()
+                                     if not spec.get('original') for mode in WEEKLY_MODE_IDS}))
     for category, known in categories:
         entries = record[category]
         fields = {'clears', 'bestTicks', 'companion'}

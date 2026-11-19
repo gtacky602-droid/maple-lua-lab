@@ -5,6 +5,8 @@ from pathlib import Path
 CURVE_ID = 'maplesea-reference-v02'
 MODEL_PATH = Path(__file__).resolve().parent / 'docs/balance/EXPERIENCE_MONSTER_QUEST_V02.json'
 MODEL = json.loads(MODEL_PATH.read_text(encoding='utf8'))
+BOSS_REWARD_DRAFT = json.loads(MODEL_PATH.with_name('BOSS_FARM_REWARDS_V01.json').read_text(encoding='utf8'))
+WEEKLY_MODE_IDS = ('entry', 'standard', 'advanced', 'expert')
 CAP = MODEL['cap']
 LEVELS = MODEL['levels']
 CAP_EXP = MODEL['reference_total_exp_to_cap']
@@ -71,19 +73,38 @@ def resolve_story_exp(graph):
     return graph
 
 
+def farm_reward_exp(level, tier):
+    kills_per_minute = 50 if level < 100 else 55 if level < 140 else 60
+    efficiency = BOSS_REWARD_DRAFT['formulas']['repeat_efficiency_at_reference_cycle']['exp']
+    enemy_exp = LEVELS[level - 1]['normal_enemy_base_exp']
+    basis = LEVELS[min(level, CAP - 1) - 1]['required_exp_to_next']
+    xp = int(enemy_exp * kills_per_minute * tier['stable_cycle_minutes'] * efficiency + .5)
+    first_xp = int(basis * tier['first_bonus_exp_percent_of_next_level'] + .5)
+    return xp, first_xp, kills_per_minute
+
+
 def resolve_stygian_exp(matches):
     """Apply the draft farm cadence at each encounter's current entry level."""
-    path = MODEL_PATH.with_name('BOSS_FARM_REWARDS_V01.json')
-    draft = json.loads(path.read_text(encoding='utf8'))
-    tiers = dict(zip(('normal', 'hard', 'master', 'extreme'), draft['stygian_difficulties'], strict=True))
-    efficiency = draft['formulas']['repeat_efficiency_at_reference_cycle']['exp']
+    tiers = dict(zip(('normal', 'hard', 'master', 'extreme'), BOSS_REWARD_DRAFT['stygian_difficulties'], strict=True))
     for spec in matches.values():
         for mode in spec['modes']:
-            tier = tiers[mode['id']]
-            level = mode['level']
-            kills_per_minute = 50 if level < 100 else 55 if level < 140 else 60
-            enemy_exp = LEVELS[level - 1]['normal_enemy_base_exp']
-            basis = LEVELS[min(level, CAP - 1) - 1]['required_exp_to_next']
-            mode['xp'] = int(enemy_exp * kills_per_minute * tier['stable_cycle_minutes'] * efficiency + .5)
-            mode['firstXp'] = int(basis * tier['first_bonus_exp_percent_of_next_level'] + .5)
+            mode['xp'], mode['firstXp'], _ = farm_reward_exp(mode['level'], tiers[mode['id']])
     return matches
+
+
+def resolve_weekly_rewards(specs):
+    for spec in specs:
+        if spec.get('original'):
+            continue
+        modes = []
+        for id, factor, tier in zip(WEEKLY_MODE_IDS, (1.30, 1.00, .80, .62),
+                                    BOSS_REWARD_DRAFT['weekly_difficulties'], strict=True):
+            level = max(spec['level'], tier['enemy_level_proposal'])
+            xp, first_xp, pace = farm_reward_exp(level, tier)
+            mora_per_minute = int(10 * level ** 1.3 + .5) * pace
+            modes.append(dict(id=id, name=tier['difficulty'], level=level, attackFactor=factor,
+                              xp=xp, firstXp=first_xp,
+                              mora=int(mora_per_minute * tier['stable_cycle_minutes'] + .5),
+                              firstMora=int(mora_per_minute * tier['first_bonus_mora_minutes'] + .5)))
+        spec['modes'] = modes
+    return specs

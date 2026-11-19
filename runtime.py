@@ -1,6 +1,6 @@
 from pathlib import Path
 import sys, json
-from experience import RUNTIME_EXP, resolve_story_exp, resolve_stygian_exp
+from experience import RUNTIME_EXP, resolve_story_exp, resolve_stygian_exp, resolve_weekly_rewards
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / 'lua-limit-break-20261026-r1/work/python'))
 from lupa.lua53 import LuaRuntime
@@ -97,7 +97,7 @@ def runtime():
     rest = lua.execute((ROOT / 'story-rest.lua').read_text(encoding='utf-8'))(core)
     story_data = json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8'))
     field_specs=json.loads((ROOT/'content/field-boss-spawns.json').read_text(encoding='utf-8-sig'))['fieldBosses']
-    weekly_specs=json.loads((ROOT/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses']
+    weekly_specs=resolve_weekly_rewards(json.loads((ROOT/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses'])
     story_data['bossNodes']={
         target:spec['node'] for spec in field_specs+weekly_specs
         for target in (spec['id'],spec.get('storyChallenge')) if target}
