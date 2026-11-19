@@ -1,0 +1,50 @@
+{
+  "legend-reji": {
+    "sources": [
+      {
+        "url": "https://gamewith.net/genshin-impact/article/show/55006",
+        "image": "https://img.gamewith.net/article/thumbnail/rectangle/55006.png",
+        "seen": "名前付き戦闘と装備の斜め横姿。肩より後ろにはみ出す幅広の本体と両手の位置。"
+      },
+      {
+        "url": "https://img.gamewith.net/common_movies/a9c4386366586e406df34c13d51ad145.mov",
+        "seen": "戦闘動画を秒間1枚で目視。離れて立つときと横へ移動するときの全身。装備先端の構造は判別できない。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Tribalwarrior_Slingshot_Bisonsaurus.png",
+        "seen": "通常種の顔の両脇の張り出しと中央の色面を確認。"
+      },
+      {
+        "url": "https://genshin-impact.fandom.com/wiki/Tatankasaurus_Warrior:_Spiritlight_Chaser",
+        "seen": "通常種の装備種別 slingshot を照合。二股の先端はラボ独自の描写。"
+      }
+    ],
+    "design": "顔を隠す角形の兜、浅い切れ込みのある長く幅広い装備、青白い霊体。",
+    "unchecked": [
+      "実機内の切り替え",
+      "360度のモデル回転"
+    ]
+  },
+  "legend-tupu": {
+    "sources": [
+      {
+        "url": "https://gamewith.net/genshin-impact/article/show/55048",
+        "image": "https://img.gamewith.net/article/thumbnail/rectangle/55048.png",
+        "seen": "名前付き戦闘。紫の浮遊体、枝分かれした冠、左右の稲妻形の装飾。"
+      },
+      {
+        "url": "https://itemlevel.net/wp-content/uploads/2025/03/tupus-lushness-location.jpg",
+        "seen": "エフェクトの少ない戦闘画面で、冠の張り出し・淡い下身と足元の空きを確認。"
+      },
+      {
+        "url": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Wayob_Bisonsaurus.png",
+        "seen": "紫の左右の角と淡い藤色の中央装甲を確認。"
+      }
+    ],
+    "design": "枝角の冠、斜めの肩飾り、折れ線状の二枚の裾。",
+    "unchecked": [
+      "実機内の切り替え",
+      "360度のモデル回転"
+    ]
+  }
+}

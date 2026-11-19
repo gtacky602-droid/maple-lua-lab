@@ -1,0 +1,13 @@
+{
+  "bothTrialLevelGates": true,
+  "mapPlacesBranchesSeawardOfTheirAnchors": true,
+  "rejiDownhillEntranceAndReturn": true,
+  "tupuFerryAndMainlandTrailHaveDistinctMapGuides": true,
+  "tupuPillarRequiresUpperShelf": true,
+  "bothTrialsReturnToSameHeightAndReset": true,
+  "clearRewardsAndQuestPersist": true,
+  "killXp": {
+    "legend-natlan_tupu": 464100,
+    "legend-natlan_reji": 464100
+  }
+}

@@ -147,8 +147,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 165,
-      "prototype_quest_count": 29,
+      "prototype_stage_count": 169,
+      "prototype_quest_count": 30,
       "official_map2_markers": {
         "waypoints": 126,
         "statues": 9
@@ -7962,8 +7962,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1465,
-    "provisional_quests": 268,
+    "authored_stages": 1469,
+    "provisional_quests": 269,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -8931,7 +8931,11 @@
           "stadium-west-waterfall-foot",
           "night-trial-potapo",
           "flower-feather-statue-back-cliff",
-          "night-trial-tupayo"
+          "night-trial-tupayo",
+          "tetenanco-seaward-foot",
+          "night-trial-reji",
+          "collective-eastern-headland",
+          "night-trial-tupu"
         ],
         "quest_ids": [
           "nat-mapped-valley-trail",
@@ -8962,7 +8966,8 @@
           "natlan-witztli-three-echoes",
           "natlan-ancient-excavation-wall",
           "natlan-seaward-signs",
-          "natlan-two-pillar-trails"
+          "natlan-two-pillar-trails",
+          "natlan-atocpan-landmarks"
         ]
       },
       {
@@ -10339,7 +10344,7 @@
       "content/story-graph.json"
     ],
     "design_candidates": 56,
-    "playable_prototypes": 33,
+    "playable_prototypes": 35,
     "pending_boss_moves": [
       "legend-natlan_atlatl",
       "legend-natlan_balachko",
@@ -10351,10 +10356,12 @@
       "legend-natlan_ironbeard",
       "legend-natlan_polychrome_tristars",
       "legend-natlan_potapo",
+      "legend-natlan_reji",
       "legend-natlan_rilai",
       "legend-natlan_sappho",
       "legend-natlan_tlatzacuilotl",
       "legend-natlan_tupayo",
+      "legend-natlan_tupu",
       "legend-natlan_undead"
     ],
     "nightsoul_trials": [
@@ -10365,8 +10372,10 @@
       "night-trial-ichcahuipilli",
       "night-trial-ironbeard",
       "night-trial-potapo",
+      "night-trial-reji",
       "night-trial-tlatzacuilotl",
       "night-trial-tupayo",
+      "night-trial-tupu",
       "night-trial-undead"
     ],
     "stage_by_legend": {
@@ -10402,7 +10411,9 @@
       "legend-natlan_fallen_dawnstar": "night-trial-fallen-dawnstar",
       "legend-natlan_ironbeard": "night-trial-ironbeard",
       "legend-natlan_potapo": "night-trial-potapo",
-      "legend-natlan_tupayo": "night-trial-tupayo"
+      "legend-natlan_tupayo": "night-trial-tupayo",
+      "legend-natlan_reji": "night-trial-reji",
+      "legend-natlan_tupu": "night-trial-tupu"
     }
   }
 }

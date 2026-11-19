@@ -1,0 +1,126 @@
+{
+  "source": "natlan-atocpan-totem-poses-source-v1.png",
+  "facing": "left",
+  "frames": [
+    {
+      "id": "legend-reji",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        90,
+        20,
+        196,
+        132
+      ]
+    },
+    {
+      "id": "legend-reji",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        76,
+        24,
+        191,
+        132
+      ]
+    },
+    {
+      "id": "legend-reji",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        81,
+        20,
+        188,
+        132
+      ]
+    },
+    {
+      "id": "legend-tupu",
+      "pose": "idle",
+      "crop": [
+        0,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        108,
+        9,
+        181,
+        115
+      ]
+    },
+    {
+      "id": "legend-tupu",
+      "pose": "brace",
+      "crop": [
+        288,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        111,
+        9,
+        177,
+        115
+      ]
+    },
+    {
+      "id": "legend-tupu",
+      "pose": "strike",
+      "crop": [
+        576,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        102,
+        9,
+        186,
+        115
+      ]
+    }
+  ]
+}
