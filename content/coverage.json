@@ -147,8 +147,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 169,
-      "prototype_quest_count": 30,
+      "prototype_stage_count": 174,
+      "prototype_quest_count": 31,
       "official_map2_markers": {
         "waypoints": 126,
         "statues": 9
@@ -7962,8 +7962,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 1469,
-    "provisional_quests": 269,
+    "authored_stages": 1474,
+    "provisional_quests": 270,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -8935,7 +8935,12 @@
           "tetenanco-seaward-foot",
           "night-trial-reji",
           "collective-eastern-headland",
-          "night-trial-tupu"
+          "night-trial-tupu",
+          "atocpan-peak-rock-trail",
+          "atocpan-peak-cave",
+          "atocpan-domain-side-clearing",
+          "atocpan-battlegoat-ironclaw-field",
+          "zapabay-tenochtzitoc-shallows"
         ],
         "quest_ids": [
           "nat-mapped-valley-trail",
@@ -8967,7 +8972,8 @@
           "natlan-ancient-excavation-wall",
           "natlan-seaward-signs",
           "natlan-two-pillar-trails",
-          "natlan-atocpan-landmarks"
+          "natlan-atocpan-landmarks",
+          "natlan-southern-trail-survey"
         ]
       },
       {
@@ -10344,16 +10350,19 @@
       "content/story-graph.json"
     ],
     "design_candidates": 56,
-    "playable_prototypes": 35,
+    "playable_prototypes": 38,
     "pending_boss_moves": [
       "legend-natlan_atlatl",
       "legend-natlan_balachko",
+      "legend-natlan_battlegoat_ironclaw",
       "legend-natlan_chimalli",
       "legend-natlan_cihuacoatl",
       "legend-natlan_cocijo",
       "legend-natlan_fallen_dawnstar",
       "legend-natlan_ichcahuipilli",
       "legend-natlan_ironbeard",
+      "legend-natlan_last_tenochtzitoc",
+      "legend-natlan_peak",
       "legend-natlan_polychrome_tristars",
       "legend-natlan_potapo",
       "legend-natlan_reji",
@@ -10413,7 +10422,10 @@
       "legend-natlan_potapo": "night-trial-potapo",
       "legend-natlan_tupayo": "night-trial-tupayo",
       "legend-natlan_reji": "night-trial-reji",
-      "legend-natlan_tupu": "night-trial-tupu"
+      "legend-natlan_tupu": "night-trial-tupu",
+      "legend-natlan_peak": "atocpan-peak-cave",
+      "legend-natlan_battlegoat_ironclaw": "atocpan-battlegoat-ironclaw-field",
+      "legend-natlan_last_tenochtzitoc": "zapabay-tenochtzitoc-shallows"
     }
   }
 }

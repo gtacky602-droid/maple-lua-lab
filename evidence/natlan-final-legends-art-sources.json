@@ -1,0 +1,117 @@
+{
+  "legend-peak": {
+    "sources": [
+      {
+        "page": "https://gamewith.net/genshin-impact/article/show/54907",
+        "image": "https://img.gamewith.net/article/thumbnail/rectangle/54907.png",
+        "alt": "Genshin Impact | The Peak Location And How to Defeat - GameWith"
+      },
+      {
+        "page": "https://gamewith.net/genshin-impact/article/show/54907",
+        "image": "https://img.gamewith.net/img/7dcb914ccc37ce63e73c8f3d88e2e2ea.png",
+        "alt": "The Peak In-Game"
+      },
+      {
+        "image": "https://gi.yatta.moe/assets/UI/monster/UI_MonsterIcon_Natsaurus_Bisonsaurus_Normal.png",
+        "seen": "一般種の図鑑アイコン。顔、角またはくちばし周辺の形を目視。"
+      },
+      {
+        "image": "https://img.game8.co/4139042/f569ce645cb8759abe24aa2a47c5733f.jpg/poster",
+        "seen": "斜めの戦闘画面で頭から肩にかけての厚み、暗い装甲を確認。"
+      }
+    ],
+    "observations": "名前付き正面の大きな暗い角、赤い目と頬の牙を優先。浮遊破片を除き、背中の色面は独自に再構成。",
+    "unchecked": [
+      "ゲーム内表示と切り替え",
+      "360度モデル回転"
+    ]
+  },
+  "legend-battlegoat": {
+    "sources": [
+      {
+        "page": "https://gamewith.net/genshin-impact/article/show/55053",
+        "image": "https://img.gamewith.net/img/0ce7463364fdc30a7c974a7183caedad.png",
+        "alt": "Ram Attack Damage To Ironclaw"
+      },
+      {
+        "page": "https://gamewith.net/genshin-impact/article/show/55053",
+        "image": "https://img.gamewith.net/article/thumbnail/rectangle/55053.png",
+        "alt": "Genshin Impact | Battlegoat and Ironclaw - Location and How to Defeat - GameWith"
+      },
+      {
+        "page": "https://gamewith.jp/genshin/article/show/491972",
+        "image": "https://img.gamewith.jp/article/thumbnail/rectangle/491972.png?date=1743416785",
+        "alt": "【原神】戦羊と鉄爪の場所と倒し方"
+      },
+      {
+        "image": "https://gi.yatta.moe/assets/UI/monster/UI_AnimalIcon_Capra_01.png",
+        "seen": "一般種の図鑑アイコン。顔、角またはくちばし周辺の形を目視。"
+      }
+    ],
+    "observations": "英語戦闘画面では両方の名札を表示。日本語攻略の明記と照合し、戦羊＝ショコアトルヤギを確認。曲角、茶色の胴、背筋を淡色にした。",
+    "unchecked": [
+      "ゲーム内表示と切り替え",
+      "360度モデル回転"
+    ]
+  },
+  "legend-ironclaw": {
+    "sources": [
+      {
+        "page": "https://gamewith.net/genshin-impact/article/show/55053",
+        "image": "https://img.gamewith.net/img/0ce7463364fdc30a7c974a7183caedad.png",
+        "alt": "Ram Attack Damage To Ironclaw"
+      },
+      {
+        "page": "https://gamewith.net/genshin-impact/article/show/55053",
+        "image": "https://img.gamewith.net/article/thumbnail/rectangle/55053.png",
+        "alt": "Genshin Impact | Battlegoat and Ironclaw - Location and How to Defeat - GameWith"
+      },
+      {
+        "page": "https://gamewith.jp/genshin/article/show/491972",
+        "image": "https://img.gamewith.jp/article/thumbnail/rectangle/491972.png?date=1743416785",
+        "alt": "【原神】戦羊と鉄爪の場所と倒し方"
+      },
+      {
+        "image": "https://gi.yatta.moe/assets/UI/monster/UI_AnimalIcon_Penguin_01.png",
+        "seen": "一般種の図鑑アイコン。顔、角またはくちばし周辺の形を目視。"
+      }
+    ],
+    "observations": "英語戦闘画面の両名札と日本語解説を照合し、鉄爪＝浮燃ペンギンを確認。黄の丸い腹、短い翼、橙のくちばしと小さい尾。",
+    "unchecked": [
+      "ゲーム内表示と切り替え",
+      "360度モデル回転"
+    ]
+  },
+  "legend-last-tenochtzitoc": {
+    "sources": [
+      {
+        "page": "https://game8.jp/genshin/708276",
+        "image": "https://img.game8.jp/11602940/bf7b0dc32344272131b110db9f9c2d61.webp/original",
+        "alt": "最後のテノチズトク人"
+      },
+      {
+        "page": "https://gamewith.jp/genshin/article/show/511996",
+        "image": "https://img.gamewith.jp/article/thumbnail/rectangle/511996.png?date=1753896801",
+        "alt": "【原神】最後のテノチズトク人(地方伝説)の場所と倒し方"
+      },
+      {
+        "page": "https://gamewith.jp/genshin/article/show/511996",
+        "image": "https://img.gamewith.jp/img/97cc734531fbc43d632171767bd8bb22.png",
+        "alt": "最後のテノチズトク人の見た目"
+      },
+      {
+        "image": "https://staticg.sportskeeda.com/editor/2025/08/c6789-17543004562232-1920.jpg",
+        "seen": "横・後ろからの帽子、筒状の衣装。"
+      },
+      {
+        "image": "https://staticg.sportskeeda.com/editor/2025/07/a6429-17538802700745-1920.jpg",
+        "seen": "一般のピピルパンアイドルの全身を舞台上で確認。通常個体の2Dアイコンは未確認。"
+      }
+    ],
+    "observations": "暗い眼窩、幅広の帽子、厚い袖を残して衣装と帽子の模様は独自に作画。",
+    "unchecked": [
+      "ゲーム内表示と切り替え",
+      "360度モデル回転"
+    ]
+  }
+}

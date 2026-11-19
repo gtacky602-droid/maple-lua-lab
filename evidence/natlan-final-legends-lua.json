@@ -1,0 +1,16 @@
+{
+  "threeLv120Gates": true,
+  "peakReturnOnUpperShelf": true,
+  "domainAndCoastalPathsLeadToSamePair": true,
+  "bayFightOnShallowGround": true,
+  "groupHasDistinctHitboxesAndHp": true,
+  "partialDefeatGivesNoRewardAndResetsOnReentry": true,
+  "onlyFullGroupDefeatSavedAsOneClear": true,
+  "allThreeClearsAndSurveyRestore": true,
+  "mainNatlanConnected": 20,
+  "killXp": {
+    "legend-natlan_last_tenochtzitoc": 464100,
+    "legend-natlan_peak": 464100,
+    "legend-natlan_battlegoat_ironclaw": 464100
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "source": "natlan-final-legend-poses-source-v1.png",
+  "facing": "left",
+  "frames": [
+    {
+      "id": "legend-peak",
+      "pose": "idle",
+      "crop": [
+        0,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        63,
+        23,
+        244,
+        132
+      ]
+    },
+    {
+      "id": "legend-peak",
+      "pose": "brace",
+      "crop": [
+        288,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        67,
+        36,
+        240,
+        132
+      ]
+    },
+    {
+      "id": "legend-peak",
+      "pose": "strike",
+      "crop": [
+        576,
+        0,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        47,
+        26,
+        242,
+        132
+      ]
+    },
+    {
+      "id": "legend-battlegoat",
+      "pose": "idle",
+      "crop": [
+        0,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        92,
+        39,
+        185,
+        132
+      ]
+    },
+    {
+      "id": "legend-battlegoat",
+      "pose": "brace",
+      "crop": [
+        288,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        90,
+        55,
+        195,
+        132
+      ]
+    },
+    {
+      "id": "legend-battlegoat",
+      "pose": "strike",
+      "crop": [
+        576,
+        144,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        80,
+        44,
+        182,
+        132
+      ]
+    },
+    {
+      "id": "legend-ironclaw",
+      "pose": "idle",
+      "crop": [
+        0,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        118,
+        66,
+        178,
+        132
+      ]
+    },
+    {
+      "id": "legend-ironclaw",
+      "pose": "brace",
+      "crop": [
+        288,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        123,
+        78,
+        175,
+        132
+      ]
+    },
+    {
+      "id": "legend-ironclaw",
+      "pose": "strike",
+      "crop": [
+        576,
+        288,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        111,
+        67,
+        166,
+        132
+      ]
+    },
+    {
+      "id": "legend-last-tenochtzitoc",
+      "pose": "idle",
+      "crop": [
+        0,
+        432,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        88,
+        13,
+        201,
+        132
+      ]
+    },
+    {
+      "id": "legend-last-tenochtzitoc",
+      "pose": "brace",
+      "crop": [
+        288,
+        432,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        92,
+        20,
+        197,
+        132
+      ]
+    },
+    {
+      "id": "legend-last-tenochtzitoc",
+      "pose": "strike",
+      "crop": [
+        576,
+        432,
+        288,
+        144
+      ],
+      "pivot": [
+        144,
+        132
+      ],
+      "opaque_box": [
+        81,
+        16,
+        196,
+        132
+      ]
+    }
+  ]
+}

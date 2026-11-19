@@ -733,7 +733,11 @@
     {"id":"legend-potapo","name":"ポタポの応援","file":"legend-potapo-field-idle-sprites-v1.json","height":110,"mapHover":0},
     {"id":"legend-tupayo","name":"トゥパヨの協力","file":"legend-tupayo-field-idle-sprites-v1.json","height":110,"mapHover":0},
     {"id":"legend-reji","name":"レジ","file":"legend-reji-field-idle-sprites-v1.json","height":110,"mapHover":0},
-    {"id":"legend-tupu","name":"トゥプの繁栄","file":"legend-tupu-field-idle-sprites-v1.json","height":110,"mapHover":0}
+    {"id":"legend-tupu","name":"トゥプの繁栄","file":"legend-tupu-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-peak","name":"ピーク","file":"legend-peak-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-battlegoat","name":"戦羊","file":"legend-battlegoat-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-ironclaw","name":"鉄爪","file":"legend-ironclaw-field-idle-sprites-v1.json","height":110,"mapHover":0},
+    {"id":"legend-last-tenochtzitoc","name":"最後のテノチズトク人","file":"legend-last-tenochtzitoc-field-idle-sprites-v1.json","height":110,"mapHover":0}
   ],
   "mapHoverNote": "Provisional map-preview bottom clearance in pixels; not native altitude or collision. Water/fire sprites retain ground effects at baseline."
 }

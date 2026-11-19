@@ -7,9 +7,9 @@ return function(C)
 
  local function setPose(body,spec,pose)
   body.legendPose=pose
-  body.drawHeight=math.floor(spec.artHeight*(spec.poseHeights or poses)[pose]+.5)
+  body.drawHeight=math.floor((body.legendArtHeight or spec.artHeight)*(spec.poseHeights or poses)[pose]+.5)
   body.hitTop=body.y-body.drawHeight
-  body.hitBottom=body.y-(spec.hitFloorClearance or 0)
+  body.hitBottom=body.y-(body.legendFloorClearance or spec.hitFloorClearance or 0)
  end
 
  function legend.spawn(b,spec)
@@ -22,7 +22,8 @@ return function(C)
     local home=b.home+p.offset
     local member={id=p.entity,fieldBoss=b.fieldBoss,fieldGroup=b,boss=true,custom=true,noRewards=true,
      hp=p.hp,maxhp=p.hp,x=home,home=home,y=b.y,level=b.level,facing=-1,respawn=math.huge,warning=0,
-     memberName=p.name,element=p.element,legendArt=p.art}
+     memberName=p.name,element=p.element,legendArt=p.art,
+     legendArtHeight=p.artHeight,legendFloorClearance=p.hitFloorClearance}
     setPose(member,spec,'idle')
     b.fieldMembers[i]=member
    end
