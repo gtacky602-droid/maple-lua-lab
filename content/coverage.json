@@ -147,8 +147,8 @@
         "daily": 3
       },
       "budget_status": "provisional; lightweight narrative; latest user authorizes implementation",
-      "prototype_stage_count": 35,
-      "prototype_quest_count": 21,
+      "prototype_stage_count": 120,
+      "prototype_quest_count": 22,
       "official_map2_markers": {
         "waypoints": 126,
         "statues": 9
@@ -275,8 +275,8 @@
       "decision_source": "20261113-master §5, amended by 20261116 §78",
       "map_status": "partial_authored_proxy",
       "quest_status": "partial_provisional",
-      "prototype_stage_count": 5,
-      "prototype_quest_count": 4,
+      "prototype_stage_count": 24,
+      "prototype_quest_count": 5,
       "waypoints_status": "global_catalog_imported; regional mapping unverified",
       "barrier_status": "provisional_formula_test_power_not_equipment"
     },
@@ -462,7 +462,7 @@
     },
     "complete_world_verified": false,
     "region_assignment": "official area IDs",
-    "playable_at_imported_nodes": 468,
+    "playable_at_imported_nodes": 642,
     "stage_links": {
       "map34:68599": {
         "stage_id": "bygone-wp-68599",
@@ -604,6 +604,321 @@
         "gates": [
           "map34:68601",
           "map34:68604"
+        ]
+      },
+      "map36:84103": {
+        "stage_id": "nat-mountain-camp",
+        "name": "古の聖山・南の入口拠点",
+        "gates": [
+          "teyvat:82560",
+          "map36:84104"
+        ]
+      },
+      "map36:84104": {
+        "stage_id": "nat-wp-84104",
+        "name": "古の聖山・南の石段",
+        "gates": [
+          "map36:84105",
+          "map36:84103"
+        ]
+      },
+      "map36:84105": {
+        "stage_id": "nat-wp-84105",
+        "name": "古の聖山・西の岩山の裾",
+        "gates": [
+          "map36:84106",
+          "map36:84104"
+        ]
+      },
+      "map36:84106": {
+        "stage_id": "nat-wp-84106",
+        "name": "古の聖山・西の火道",
+        "gates": [
+          "map36:84108",
+          "map36:84105"
+        ]
+      },
+      "map36:84107": {
+        "stage_id": "nat-wp-84107",
+        "name": "古の聖山・東島の石棚",
+        "gates": [
+          "map36:84109"
+        ]
+      },
+      "map36:84108": {
+        "stage_id": "nat-wp-84108",
+        "name": "古の聖山・西の山口",
+        "gates": [
+          "map36:84106",
+          "map36:84112",
+          "map36:84109"
+        ]
+      },
+      "map36:84109": {
+        "stage_id": "nat-wp-84109",
+        "name": "古の聖山・中央の浮き台",
+        "gates": [
+          "map36:84108",
+          "map36:84110",
+          "map36:84107"
+        ]
+      },
+      "map36:84110": {
+        "stage_id": "nat-wp-84110",
+        "name": "古の聖山・北の遠望台",
+        "gates": [
+          "map37:96365",
+          "map36:84109"
+        ]
+      },
+      "map36:84111": {
+        "stage_id": "nat-wp-84111",
+        "name": "古の聖山・火道の上の洞",
+        "gates": [
+          "map36:84112"
+        ]
+      },
+      "map36:84112": {
+        "stage_id": "nat-wp-84112",
+        "name": "古の聖山・西の山の第一層",
+        "gates": [
+          "map36:84111",
+          "map36:84108",
+          "map36:84114"
+        ]
+      },
+      "map36:84113": {
+        "stage_id": "nat-wp-84113",
+        "name": "古の聖山・中央の砂の棚",
+        "gates": [
+          "map36:84114"
+        ]
+      },
+      "map36:84114": {
+        "stage_id": "nat-wp-84114",
+        "name": "古の聖山・中央の石室",
+        "gates": [
+          "map36:84112",
+          "map36:84120",
+          "map36:84113",
+          "map36:84115"
+        ]
+      },
+      "map36:84115": {
+        "stage_id": "nat-wp-84115",
+        "name": "古の聖山・東の石室",
+        "gates": [
+          "map36:84114",
+          "map36:84116"
+        ]
+      },
+      "map36:84116": {
+        "stage_id": "nat-wp-84116",
+        "name": "古の聖山・北東の外縁",
+        "gates": [
+          "map36:84117",
+          "map36:84115"
+        ]
+      },
+      "map36:84117": {
+        "stage_id": "nat-wp-84117",
+        "name": "古の聖山・北の横穴",
+        "gates": [
+          "map36:84119",
+          "map36:84116"
+        ]
+      },
+      "map36:84118": {
+        "stage_id": "nat-wp-84118",
+        "name": "古の聖山・北の石壇",
+        "gates": [
+          "map36:84119"
+        ]
+      },
+      "map36:84119": {
+        "stage_id": "nat-wp-84119",
+        "name": "古の聖山・北の岩壁の通路",
+        "gates": [
+          "map36:84118",
+          "map36:84117"
+        ]
+      },
+      "map36:84120": {
+        "stage_id": "nat-wp-84120",
+        "name": "古の聖山・中央の第二層",
+        "gates": [
+          "map36:84114",
+          "map36:84121"
+        ]
+      },
+      "map36:84121": {
+        "stage_id": "nat-wp-84121",
+        "name": "古の聖山・中央の第三層",
+        "gates": [
+          "map36:84120"
+        ]
+      },
+      "map37:96365": {
+        "stage_id": "nat-sky-camp",
+        "name": "空の神殿・西の入口拠点",
+        "gates": [
+          "map37:96384",
+          "map37:96366",
+          "map36:84110"
+        ]
+      },
+      "map37:96366": {
+        "stage_id": "nat-wp-96366",
+        "name": "空の神殿・西の浮き庭",
+        "gates": [
+          "map37:96365",
+          "map37:96367"
+        ]
+      },
+      "map37:96367": {
+        "stage_id": "nat-wp-96367",
+        "name": "空の神殿・南の渡り台",
+        "gates": [
+          "map37:96366",
+          "map37:96373",
+          "map37:96368"
+        ]
+      },
+      "map37:96368": {
+        "stage_id": "nat-wp-96368",
+        "name": "空の神殿・南東の小島",
+        "gates": [
+          "map37:96367",
+          "map37:96380",
+          "map37:96369"
+        ]
+      },
+      "map37:96369": {
+        "stage_id": "nat-wp-96369",
+        "name": "空の神殿・東の渡り台",
+        "gates": [
+          "map37:96373",
+          "map37:96368",
+          "map37:96370"
+        ]
+      },
+      "map37:96370": {
+        "stage_id": "nat-wp-96370",
+        "name": "空の神殿・東の入口広場",
+        "gates": [
+          "map37:96369",
+          "map37:96371",
+          "map37:96372"
+        ]
+      },
+      "map37:96371": {
+        "stage_id": "nat-wp-96371",
+        "name": "空の神殿・東の庭の高台",
+        "gates": [
+          "map37:96370",
+          "map37:96372"
+        ]
+      },
+      "map37:96372": {
+        "stage_id": "nat-wp-96372",
+        "name": "空の神殿・東の庭の外縁",
+        "gates": [
+          "map37:96370",
+          "map37:96371"
+        ]
+      },
+      "map37:96373": {
+        "stage_id": "nat-wp-96373",
+        "name": "空の神殿・神殿西の連絡段",
+        "gates": [
+          "map37:96375",
+          "map37:96367",
+          "map37:96381",
+          "map37:96369"
+        ]
+      },
+      "map37:96374": {
+        "stage_id": "nat-wp-96374",
+        "name": "空の神殿・神殿中央の別室",
+        "gates": [
+          "map37:96375"
+        ]
+      },
+      "map37:96375": {
+        "stage_id": "nat-wp-96375",
+        "name": "空の神殿・中央の昇降台",
+        "gates": [
+          "map37:96373",
+          "map37:96382",
+          "map37:96374",
+          "map37:96376"
+        ]
+      },
+      "map37:96376": {
+        "stage_id": "nat-wp-96376",
+        "name": "空の神殿・雲上の上段通路",
+        "gates": [
+          "map37:96375",
+          "map37:96378"
+        ]
+      },
+      "map37:96377": {
+        "stage_id": "nat-wp-96377",
+        "name": "空の神殿・北端の展望棚",
+        "gates": [
+          "map37:96378"
+        ]
+      },
+      "map37:96378": {
+        "stage_id": "nat-wp-96378",
+        "name": "空の神殿・北の広場",
+        "gates": [
+          "map37:96376",
+          "map37:96377",
+          "map37:96379"
+        ]
+      },
+      "map37:96379": {
+        "stage_id": "nat-wp-96379",
+        "name": "空の神殿・北の広場下の石室",
+        "gates": [
+          "map37:96378"
+        ]
+      },
+      "map37:96380": {
+        "stage_id": "nat-wp-96380",
+        "name": "空の神殿・南の雲の下の小間",
+        "gates": [
+          "map37:96368"
+        ]
+      },
+      "map37:96381": {
+        "stage_id": "nat-wp-96381",
+        "name": "空の神殿・神殿東の別室",
+        "gates": [
+          "map37:96373"
+        ]
+      },
+      "map37:96382": {
+        "stage_id": "nat-wp-96382",
+        "name": "空の神殿・中央階層の第一室",
+        "gates": [
+          "map37:96375",
+          "map37:96383"
+        ]
+      },
+      "map37:96383": {
+        "stage_id": "nat-wp-96383",
+        "name": "空の神殿・中央階層の第二室",
+        "gates": [
+          "map37:96382"
+        ]
+      },
+      "map37:96384": {
+        "stage_id": "nat-wp-96384",
+        "name": "空の神殿・西の入口の下の部屋",
+        "gates": [
+          "map37:96365"
         ]
       },
       "map7:21571": {
@@ -3178,6 +3493,7 @@
         "name": "フォンテーヌ・水路沿い",
         "gates": [
           "teyvat:50054",
+          "teyvat:72412",
           "map34:68601",
           "teyvat:50052",
           "teyvat:50064"
@@ -4331,6 +4647,701 @@
           "teyvat:9"
         ]
       },
+      "teyvat:72412": {
+        "stage_id": "natlan-entry",
+        "name": "ナタ・地域の入口",
+        "gates": [
+          "teyvat:50051",
+          "teyvat:72431",
+          "teyvat:72413"
+        ]
+      },
+      "teyvat:72413": {
+        "stage_id": "nat-wp-72413",
+        "name": "テケメカンの谷・東の岩尾根",
+        "gates": [
+          "teyvat:72414",
+          "teyvat:72415",
+          "teyvat:72443",
+          "teyvat:72412"
+        ]
+      },
+      "teyvat:72414": {
+        "stage_id": "nat-wp-72414",
+        "name": "テケメカンの谷・東の谷へ入る坂",
+        "gates": [
+          "teyvat:72440",
+          "teyvat:72438",
+          "teyvat:72413"
+        ]
+      },
+      "teyvat:72415": {
+        "stage_id": "nat-wp-72415",
+        "name": "テケメカンの谷・南東の高台",
+        "gates": [
+          "teyvat:72416",
+          "teyvat:72456",
+          "teyvat:72444",
+          "teyvat:72413"
+        ]
+      },
+      "teyvat:72416": {
+        "stage_id": "nat-wp-72416",
+        "name": "テケメカンの谷・段丘南の道",
+        "gates": [
+          "teyvat:72417",
+          "teyvat:72440",
+          "teyvat:72415"
+        ]
+      },
+      "teyvat:72417": {
+        "stage_id": "nat-wp-72417",
+        "name": "テケメカンの谷・南端の桟道",
+        "gates": [
+          "teyvat:72420",
+          "teyvat:72424",
+          "teyvat:72416"
+        ]
+      },
+      "teyvat:72418": {
+        "stage_id": "nat-wp-72418",
+        "name": "トヤック源泉地・東の渡り島",
+        "gates": [
+          "teyvat:72419",
+          "teyvat:72447",
+          "teyvat:72456"
+        ]
+      },
+      "teyvat:72419": {
+        "stage_id": "nat-wp-72419",
+        "name": "トヤック源泉地・南西の浜の棚",
+        "gates": [
+          "teyvat:72758",
+          "teyvat:72418"
+        ]
+      },
+      "teyvat:72420": {
+        "stage_id": "nat-wp-72420",
+        "name": "トヤック源泉地・源泉東の岬",
+        "gates": [
+          "teyvat:72423",
+          "teyvat:77772",
+          "teyvat:72417"
+        ]
+      },
+      "teyvat:72421": {
+        "stage_id": "nat-wp-72421",
+        "name": "トヤック源泉地・湾西の細道",
+        "gates": [
+          "teyvat:82575",
+          "teyvat:72422",
+          "teyvat:72758"
+        ]
+      },
+      "teyvat:72422": {
+        "stage_id": "nat-wp-72422",
+        "name": "トヤック源泉地・源泉北の岩径",
+        "gates": [
+          "teyvat:72421",
+          "teyvat:72423",
+          "teyvat:72427"
+        ]
+      },
+      "teyvat:72423": {
+        "stage_id": "nat-wp-72423",
+        "name": "トヤック源泉地・水際の丸棚",
+        "gates": [
+          "teyvat:72422",
+          "teyvat:72758",
+          "teyvat:72420"
+        ]
+      },
+      "teyvat:72424": {
+        "stage_id": "nat-wp-72424",
+        "name": "トヤック源泉地・源泉の上の分岐",
+        "gates": [
+          "teyvat:72425",
+          "teyvat:72426",
+          "teyvat:72417"
+        ]
+      },
+      "teyvat:72425": {
+        "stage_id": "nat-wp-72425",
+        "name": "トヤック源泉地・中央の温泉洞",
+        "gates": [
+          "teyvat:72424"
+        ]
+      },
+      "teyvat:72426": {
+        "stage_id": "nat-wp-72426",
+        "name": "トヤック源泉地・岩段北の道",
+        "gates": [
+          "teyvat:72760",
+          "teyvat:72427",
+          "teyvat:72446",
+          "teyvat:72424"
+        ]
+      },
+      "teyvat:72427": {
+        "stage_id": "nat-wp-72427",
+        "name": "トヤック源泉地・山裾の採石路",
+        "gates": [
+          "teyvat:72422",
+          "teyvat:72759",
+          "teyvat:72426"
+        ]
+      },
+      "teyvat:72428": {
+        "stage_id": "nat-wp-72428",
+        "name": "万火のほとぎ周辺・南の草棚",
+        "gates": [
+          "teyvat:72430",
+          "teyvat:72759"
+        ]
+      },
+      "teyvat:72429": {
+        "stage_id": "nat-wp-72429",
+        "name": "万火のほとぎ周辺・競技場の裏口",
+        "gates": [
+          "teyvat:79051",
+          "teyvat:82575",
+          "teyvat:72430"
+        ]
+      },
+      "teyvat:72430": {
+        "stage_id": "natlan-field",
+        "name": "ナタ・岩場の道",
+        "gates": [
+          "teyvat:72431",
+          "teyvat:79059",
+          "teyvat:72429",
+          "teyvat:72451",
+          "teyvat:72453",
+          "teyvat:72428"
+        ]
+      },
+      "teyvat:72431": {
+        "stage_id": "natlan-hub",
+        "name": "ナタ・谷の集落",
+        "gates": [
+          "teyvat:72412",
+          "teyvat:72430",
+          "teyvat:72432"
+        ]
+      },
+      "teyvat:72432": {
+        "stage_id": "nat-wp-72432",
+        "name": "万火のほとぎ周辺・北の地ならし場",
+        "gates": [
+          "teyvat:79387",
+          "teyvat:79050",
+          "teyvat:72450",
+          "teyvat:72431",
+          "teyvat:72435"
+        ]
+      },
+      "teyvat:72433": {
+        "stage_id": "nat-wp-72433",
+        "name": "万火のほとぎ周辺・外輪北の坂",
+        "gates": [
+          "teyvat:72452",
+          "teyvat:72434",
+          "teyvat:72436"
+        ]
+      },
+      "teyvat:72434": {
+        "stage_id": "nat-wp-72434",
+        "name": "万火のほとぎ周辺・岩の窪地",
+        "gates": [
+          "teyvat:72435",
+          "teyvat:72433",
+          "teyvat:72441",
+          "teyvat:72437",
+          "teyvat:72440"
+        ]
+      },
+      "teyvat:72435": {
+        "stage_id": "nat-wp-72435",
+        "name": "万火のほとぎ周辺・西の岩棚",
+        "gates": [
+          "teyvat:72432",
+          "teyvat:72434"
+        ]
+      },
+      "teyvat:72436": {
+        "stage_id": "nat-wp-72436",
+        "name": "万火のほとぎ周辺・北端の尾根",
+        "gates": [
+          "teyvat:72433",
+          "teyvat:72761"
+        ]
+      },
+      "teyvat:72437": {
+        "stage_id": "nat-wp-72437",
+        "name": "万火のほとぎ周辺・谷西の詰所",
+        "gates": [
+          "teyvat:72760",
+          "teyvat:72434",
+          "teyvat:72445",
+          "teyvat:72439",
+          "teyvat:72438"
+        ]
+      },
+      "teyvat:72438": {
+        "stage_id": "nat-wp-72438",
+        "name": "テケメカンの谷・谷東の横道",
+        "gates": [
+          "teyvat:72437",
+          "teyvat:72439",
+          "teyvat:72414"
+        ]
+      },
+      "teyvat:72439": {
+        "stage_id": "nat-wp-72439",
+        "name": "テケメカンの谷・二つの泉の道",
+        "gates": [
+          "teyvat:72437",
+          "teyvat:72454",
+          "teyvat:72438",
+          "teyvat:72761"
+        ]
+      },
+      "teyvat:72440": {
+        "stage_id": "nat-wp-72440",
+        "name": "テケメカンの谷・段丘上の大石",
+        "gates": [
+          "teyvat:72434",
+          "teyvat:72416",
+          "teyvat:72414"
+        ]
+      },
+      "teyvat:72441": {
+        "stage_id": "nat-wp-72441",
+        "name": "万火のほとぎ周辺・岩窪地下の広間",
+        "gates": [
+          "teyvat:72442",
+          "teyvat:72434"
+        ]
+      },
+      "teyvat:72442": {
+        "stage_id": "nat-wp-72442",
+        "name": "万火のほとぎ周辺・岩窪地下の通路",
+        "gates": [
+          "teyvat:72441"
+        ]
+      },
+      "teyvat:72443": {
+        "stage_id": "nat-wp-72443",
+        "name": "テケメカンの谷・東端の下の石室",
+        "gates": [
+          "teyvat:72413"
+        ]
+      },
+      "teyvat:72444": {
+        "stage_id": "nat-wp-72444",
+        "name": "テケメカンの谷・南東の洞床",
+        "gates": [
+          "teyvat:72415"
+        ]
+      },
+      "teyvat:72445": {
+        "stage_id": "nat-wp-72445",
+        "name": "万火のほとぎ周辺・岩壁の裏の細道",
+        "gates": [
+          "teyvat:72437"
+        ]
+      },
+      "teyvat:72446": {
+        "stage_id": "nat-wp-72446",
+        "name": "トヤック源泉地・源泉北の地下水路",
+        "gates": [
+          "teyvat:72426"
+        ]
+      },
+      "teyvat:72447": {
+        "stage_id": "nat-wp-72447",
+        "name": "トヤック源泉地・沖の小島の洞窟",
+        "gates": [
+          "teyvat:72449",
+          "teyvat:72418"
+        ]
+      },
+      "teyvat:72448": {
+        "stage_id": "nat-wp-72448",
+        "name": "トヤック源泉地・熱水の下の洞",
+        "gates": [
+          "teyvat:72758"
+        ]
+      },
+      "teyvat:72449": {
+        "stage_id": "nat-wp-72449",
+        "name": "トヤック源泉地・沖の下の通路",
+        "gates": [
+          "teyvat:72447"
+        ]
+      },
+      "teyvat:72450": {
+        "stage_id": "nat-wp-72450",
+        "name": "万火のほとぎ周辺・北の地ならし場の下",
+        "gates": [
+          "teyvat:72432"
+        ]
+      },
+      "teyvat:72451": {
+        "stage_id": "nat-wp-72451",
+        "name": "万火のほとぎ周辺・競技場の下の回廊",
+        "gates": [
+          "teyvat:72430"
+        ]
+      },
+      "teyvat:72452": {
+        "stage_id": "nat-wp-72452",
+        "name": "万火のほとぎ周辺・北東の溝の石室",
+        "gates": [
+          "teyvat:72433"
+        ]
+      },
+      "teyvat:72453": {
+        "stage_id": "nat-wp-72453",
+        "name": "万火のほとぎ周辺・石橋のたもと",
+        "gates": [
+          "teyvat:72430",
+          "teyvat:72760"
+        ]
+      },
+      "teyvat:72454": {
+        "stage_id": "nat-wp-72454",
+        "name": "テケメカンの谷・谷の下層",
+        "gates": [
+          "teyvat:72455",
+          "teyvat:72439"
+        ]
+      },
+      "teyvat:72455": {
+        "stage_id": "nat-wp-72455",
+        "name": "テケメカンの谷・谷北の石室",
+        "gates": [
+          "teyvat:72454"
+        ]
+      },
+      "teyvat:72456": {
+        "stage_id": "nat-wp-72456",
+        "name": "トヤック源泉地・東沖の小島の波止場",
+        "gates": [
+          "teyvat:72418",
+          "teyvat:72415"
+        ]
+      },
+      "teyvat:72758": {
+        "stage_id": "nat-wp-72758",
+        "name": "トヤック源泉地・源泉南の神像",
+        "gates": [
+          "teyvat:72421",
+          "teyvat:72419",
+          "teyvat:72448",
+          "teyvat:72423"
+        ]
+      },
+      "teyvat:72759": {
+        "stage_id": "nat-wp-72759",
+        "name": "トヤック源泉地・源泉北の神像",
+        "gates": [
+          "teyvat:72428",
+          "teyvat:72427"
+        ]
+      },
+      "teyvat:72760": {
+        "stage_id": "nat-wp-72760",
+        "name": "万火のほとぎ周辺・道沿いの神像",
+        "gates": [
+          "teyvat:72453",
+          "teyvat:72426",
+          "teyvat:72437"
+        ]
+      },
+      "teyvat:72761": {
+        "stage_id": "nat-wp-72761",
+        "name": "テケメカンの谷・谷東の神像",
+        "gates": [
+          "teyvat:72436",
+          "teyvat:72439"
+        ]
+      },
+      "teyvat:77772": {
+        "stage_id": "nat-wp-77772",
+        "name": "トヤック源泉地・海の浅瀬の洞",
+        "gates": [
+          "teyvat:72420"
+        ]
+      },
+      "teyvat:79050": {
+        "stage_id": "nat-wp-79050",
+        "name": "クァワカン断崖周辺・断崖東の草地",
+        "gates": [
+          "teyvat:79057",
+          "teyvat:72432"
+        ]
+      },
+      "teyvat:79051": {
+        "stage_id": "nat-wp-79051",
+        "name": "クァワカン断崖周辺・断崖南の道",
+        "gates": [
+          "teyvat:79545",
+          "teyvat:82572",
+          "teyvat:79057",
+          "teyvat:72429"
+        ]
+      },
+      "teyvat:79052": {
+        "stage_id": "nat-wp-79052",
+        "name": "クァワカン断崖周辺・断崖下の水辺",
+        "gates": [
+          "teyvat:79053",
+          "teyvat:81381",
+          "teyvat:79545"
+        ]
+      },
+      "teyvat:79053": {
+        "stage_id": "nat-wp-79053",
+        "name": "クァワカン断崖周辺・西の石段",
+        "gates": [
+          "teyvat:79055",
+          "teyvat:79054",
+          "teyvat:79052"
+        ]
+      },
+      "teyvat:79054": {
+        "stage_id": "nat-wp-79054",
+        "name": "クァワカン断崖周辺・小屋の近くの岩棚",
+        "gates": [
+          "teyvat:79053",
+          "teyvat:79056"
+        ]
+      },
+      "teyvat:79055": {
+        "stage_id": "nat-wp-79055",
+        "name": "クァワカン断崖周辺・西端の岬",
+        "gates": [
+          "teyvat:79482",
+          "teyvat:79542",
+          "teyvat:79053",
+          "teyvat:79056"
+        ]
+      },
+      "teyvat:79056": {
+        "stage_id": "nat-wp-79056",
+        "name": "クァワカン断崖周辺・塗られた壁の道",
+        "gates": [
+          "teyvat:79055",
+          "teyvat:79054",
+          "teyvat:79058"
+        ]
+      },
+      "teyvat:79057": {
+        "stage_id": "nat-wp-79057",
+        "name": "クァワカン断崖周辺・東の連絡高台",
+        "gates": [
+          "teyvat:79051",
+          "teyvat:79387",
+          "teyvat:79050"
+        ]
+      },
+      "teyvat:79058": {
+        "stage_id": "nat-wp-79058",
+        "name": "クァワカン断崖周辺・北の崖道",
+        "gates": [
+          "teyvat:79542",
+          "teyvat:79056",
+          "teyvat:79059",
+          "teyvat:79544"
+        ]
+      },
+      "teyvat:79059": {
+        "stage_id": "natlan-port",
+        "name": "ナタ・花翼の集付近の港（仮）",
+        "gates": [
+          "teyvat:72430",
+          "teyvat:85958",
+          "teyvat:79542",
+          "teyvat:79060",
+          "teyvat:79058"
+        ]
+      },
+      "teyvat:79060": {
+        "stage_id": "nat-wp-79060",
+        "name": "クァワカン断崖周辺・港北の細い島",
+        "gates": [
+          "teyvat:79059"
+        ]
+      },
+      "teyvat:79295": {
+        "stage_id": "nat-wp-79295",
+        "name": "オシカ・ナタ・北端の崩れ桟橋",
+        "gates": [
+          "teyvat:80040",
+          "teyvat:79549"
+        ]
+      },
+      "teyvat:79319": {
+        "stage_id": "ochkanatlan-dock",
+        "name": "オシカ・ナタ・寄港地",
+        "gates": [
+          "teyvat:79514",
+          "teyvat:79539"
+        ]
+      },
+      "teyvat:79387": {
+        "stage_id": "nat-wp-79387",
+        "name": "クァワカン断崖周辺・断崖東の縁",
+        "gates": [
+          "teyvat:79057",
+          "teyvat:72432"
+        ]
+      },
+      "teyvat:79482": {
+        "stage_id": "nat-wp-79482",
+        "name": "クァワカン断崖周辺・東の離れ島",
+        "gates": [
+          "teyvat:79055"
+        ]
+      },
+      "teyvat:79512": {
+        "stage_id": "nat-wp-79512",
+        "name": "オシカ・ナタ・東沖の小岩島",
+        "gates": [
+          "teyvat:79538",
+          "teyvat:80030"
+        ]
+      },
+      "teyvat:79514": {
+        "stage_id": "ochkanatlan-ruins",
+        "name": "オシカ・ナタ・遺構の道",
+        "gates": [
+          "teyvat:79319",
+          "teyvat:79540",
+          "teyvat:80035",
+          "teyvat:79546",
+          "teyvat:80025"
+        ]
+      },
+      "teyvat:79523": {
+        "stage_id": "nat-wp-79523",
+        "name": "オシカ・ナタ・遺構の高い中庭",
+        "gates": [
+          "teyvat:79541",
+          "teyvat:80035",
+          "teyvat:79549",
+          "teyvat:80033"
+        ]
+      },
+      "teyvat:79536": {
+        "stage_id": "nat-wp-79536",
+        "name": "オシカ・ナタ・東翼の裏通路",
+        "gates": [
+          "teyvat:80036"
+        ]
+      },
+      "teyvat:79538": {
+        "stage_id": "nat-wp-79538",
+        "name": "オシカ・ナタ・東の離れた岩棚",
+        "gates": [
+          "teyvat:79546",
+          "teyvat:79512"
+        ]
+      },
+      "teyvat:79539": {
+        "stage_id": "nat-wp-79539",
+        "name": "オシカ・ナタ・南島の波止場",
+        "gates": [
+          "teyvat:79540",
+          "teyvat:79319"
+        ]
+      },
+      "teyvat:79540": {
+        "stage_id": "nat-wp-79540",
+        "name": "オシカ・ナタ・西の展望棚",
+        "gates": [
+          "teyvat:79541",
+          "teyvat:79539",
+          "teyvat:79514"
+        ]
+      },
+      "teyvat:79541": {
+        "stage_id": "nat-wp-79541",
+        "name": "オシカ・ナタ・西岸の岩道",
+        "gates": [
+          "teyvat:79540",
+          "teyvat:79523"
+        ]
+      },
+      "teyvat:79542": {
+        "stage_id": "nat-wp-79542",
+        "name": "クァワカン断崖周辺・西の崖の神像",
+        "gates": [
+          "teyvat:79055",
+          "teyvat:79058",
+          "teyvat:79059"
+        ]
+      },
+      "teyvat:79543": {
+        "stage_id": "nat-wp-79543",
+        "name": "クァワカン断崖周辺・北崖の地下道・南口",
+        "gates": [
+          "teyvat:79544"
+        ]
+      },
+      "teyvat:79544": {
+        "stage_id": "nat-wp-79544",
+        "name": "クァワカン断崖周辺・北崖の地下道・北口",
+        "gates": [
+          "teyvat:79058",
+          "teyvat:79543"
+        ]
+      },
+      "teyvat:79545": {
+        "stage_id": "nat-wp-79545",
+        "name": "クァワカン断崖周辺・崖下の神像",
+        "gates": [
+          "teyvat:79052",
+          "teyvat:79051"
+        ]
+      },
+      "teyvat:79546": {
+        "stage_id": "nat-wp-79546",
+        "name": "オシカ・ナタ・東翼の渡り廊下",
+        "gates": [
+          "teyvat:79549",
+          "teyvat:79514",
+          "teyvat:79548",
+          "teyvat:80036",
+          "teyvat:80846",
+          "teyvat:79538"
+        ]
+      },
+      "teyvat:79548": {
+        "stage_id": "nat-wp-79548",
+        "name": "オシカ・ナタ・中庭下の石室",
+        "gates": [
+          "teyvat:79546"
+        ]
+      },
+      "teyvat:79549": {
+        "stage_id": "nat-wp-79549",
+        "name": "オシカ・ナタ・北の傾いた外壁",
+        "gates": [
+          "teyvat:79523",
+          "teyvat:79295",
+          "teyvat:79546"
+        ]
+      },
+      "teyvat:79550": {
+        "stage_id": "nat-wp-79550",
+        "name": "オシカ・ナタ・北東島の桟橋",
+        "gates": [
+          "teyvat:80846",
+          "teyvat:80030"
+        ]
+      },
       "teyvat:8": {
         "stage_id": "mond-wp-8",
         "name": "モンド・北の湖の岩棚",
@@ -4338,6 +5349,457 @@
           "teyvat:95792",
           "teyvat:12",
           "teyvat:10"
+        ]
+      },
+      "teyvat:80025": {
+        "stage_id": "nat-wp-80025",
+        "name": "オシカ・ナタ・南東の石畳",
+        "gates": [
+          "teyvat:79514",
+          "teyvat:80036"
+        ]
+      },
+      "teyvat:80030": {
+        "stage_id": "nat-wp-80030",
+        "name": "オシカ・ナタ・東の遠い岩礁",
+        "gates": [
+          "teyvat:79550",
+          "teyvat:79512"
+        ]
+      },
+      "teyvat:80033": {
+        "stage_id": "nat-wp-80033",
+        "name": "オシカ・ナタ・中央塔の下の石室",
+        "gates": [
+          "teyvat:79523"
+        ]
+      },
+      "teyvat:80035": {
+        "stage_id": "nat-wp-80035",
+        "name": "オシカ・ナタ・南の石組み",
+        "gates": [
+          "teyvat:79523",
+          "teyvat:79514"
+        ]
+      },
+      "teyvat:80036": {
+        "stage_id": "nat-wp-80036",
+        "name": "オシカ・ナタ・南東の門の跡",
+        "gates": [
+          "teyvat:79546",
+          "teyvat:80025",
+          "teyvat:79536"
+        ]
+      },
+      "teyvat:80040": {
+        "stage_id": "nat-wp-80040",
+        "name": "オシカ・ナタ・北西の沖の地下水路",
+        "gates": [
+          "teyvat:79295"
+        ]
+      },
+      "teyvat:80846": {
+        "stage_id": "nat-wp-80846",
+        "name": "オシカ・ナタ・北東島の南の浅瀬",
+        "gates": [
+          "teyvat:79546",
+          "teyvat:79550"
+        ]
+      },
+      "teyvat:81381": {
+        "stage_id": "nat-wp-81381",
+        "name": "クァワカン断崖周辺・崖下の奥の洞窟",
+        "gates": [
+          "teyvat:79052"
+        ]
+      },
+      "teyvat:82557": {
+        "stage_id": "nat-wp-82557",
+        "name": "アトクパンの大地・火山東の神像",
+        "gates": [
+          "teyvat:82570",
+          "teyvat:82560",
+          "teyvat:82559"
+        ]
+      },
+      "teyvat:82558": {
+        "stage_id": "nat-wp-82558",
+        "name": "アトクパンの大地・北東の細道",
+        "gates": [
+          "teyvat:82559",
+          "teyvat:82572"
+        ]
+      },
+      "teyvat:82559": {
+        "stage_id": "nat-wp-82559",
+        "name": "アトクパンの大地・東の外輪の棚",
+        "gates": [
+          "teyvat:82570",
+          "teyvat:82557",
+          "teyvat:82558"
+        ]
+      },
+      "teyvat:82560": {
+        "stage_id": "nat-wp-82560",
+        "name": "アトクパンの大地・火山の入口台",
+        "gates": [
+          "teyvat:82557",
+          "teyvat:82561",
+          "map36:84103"
+        ]
+      },
+      "teyvat:82561": {
+        "stage_id": "nat-wp-82561",
+        "name": "アトクパンの大地・東の岩棚",
+        "gates": [
+          "teyvat:82562",
+          "teyvat:82560",
+          "teyvat:82574"
+        ]
+      },
+      "teyvat:82562": {
+        "stage_id": "nat-wp-82562",
+        "name": "アトクパンの大地・南東の崩れ谷",
+        "gates": [
+          "teyvat:82564",
+          "teyvat:82563",
+          "teyvat:82561"
+        ]
+      },
+      "teyvat:82563": {
+        "stage_id": "nat-wp-82563",
+        "name": "アトクパンの大地・南の小島の波止場",
+        "gates": [
+          "teyvat:82576",
+          "teyvat:82562"
+        ]
+      },
+      "teyvat:82564": {
+        "stage_id": "nat-wp-82564",
+        "name": "アトクパンの大地・南岸の崖道",
+        "gates": [
+          "teyvat:85349",
+          "teyvat:82565",
+          "teyvat:82562"
+        ]
+      },
+      "teyvat:82565": {
+        "stage_id": "nat-wp-82565",
+        "name": "アトクパンの大地・西岸の柱状岩",
+        "gates": [
+          "teyvat:82566",
+          "teyvat:82567",
+          "teyvat:82564"
+        ]
+      },
+      "teyvat:82566": {
+        "stage_id": "nat-wp-82566",
+        "name": "アトクパンの大地・北西の岩間",
+        "gates": [
+          "teyvat:82571",
+          "teyvat:82565",
+          "teyvat:82570"
+        ]
+      },
+      "teyvat:82567": {
+        "stage_id": "nat-wp-82567",
+        "name": "アトクパンの大地・火山下の通路・西口",
+        "gates": [
+          "teyvat:82565",
+          "teyvat:82569"
+        ]
+      },
+      "teyvat:82568": {
+        "stage_id": "nat-wp-82568",
+        "name": "アトクパンの大地・火山下の通路・東口",
+        "gates": [
+          "teyvat:82569"
+        ]
+      },
+      "teyvat:82569": {
+        "stage_id": "nat-wp-82569",
+        "name": "アトクパンの大地・火山下の通路・中央",
+        "gates": [
+          "teyvat:82567",
+          "teyvat:82568"
+        ]
+      },
+      "teyvat:82570": {
+        "stage_id": "nat-wp-82570",
+        "name": "アトクパンの大地・北の外輪の分岐",
+        "gates": [
+          "teyvat:82571",
+          "teyvat:82566",
+          "teyvat:82557",
+          "teyvat:82559"
+        ]
+      },
+      "teyvat:82571": {
+        "stage_id": "nat-wp-82571",
+        "name": "アトクパンの大地・北西の崖先",
+        "gates": [
+          "teyvat:82566",
+          "teyvat:82570"
+        ]
+      },
+      "teyvat:82572": {
+        "stage_id": "nat-wp-82572",
+        "name": "アトクパンの大地・森から入る北の道",
+        "gates": [
+          "teyvat:82573",
+          "teyvat:82558",
+          "teyvat:79051",
+          "teyvat:82575"
+        ]
+      },
+      "teyvat:82573": {
+        "stage_id": "nat-wp-82573",
+        "name": "アトクパンの大地・北の入江の下の洞",
+        "gates": [
+          "teyvat:82572"
+        ]
+      },
+      "teyvat:82574": {
+        "stage_id": "nat-wp-82574",
+        "name": "アトクパンの大地・火山東岸の地下の棚",
+        "gates": [
+          "teyvat:82561"
+        ]
+      },
+      "teyvat:82575": {
+        "stage_id": "nat-wp-82575",
+        "name": "アトクパンの大地・東の森の門",
+        "gates": [
+          "teyvat:82572",
+          "teyvat:72429",
+          "teyvat:72421"
+        ]
+      },
+      "teyvat:82576": {
+        "stage_id": "nat-wp-82576",
+        "name": "アトクパンの大地・南沖の小桟橋",
+        "gates": [
+          "teyvat:85349",
+          "teyvat:82563"
+        ]
+      },
+      "teyvat:85349": {
+        "stage_id": "nat-wp-85349",
+        "name": "アトクパンの大地・南端の離れ丘",
+        "gates": [
+          "teyvat:82576",
+          "teyvat:82564"
+        ]
+      },
+      "teyvat:85957": {
+        "stage_id": "nat-wp-85957",
+        "name": "のびのびリゾート・南の神像",
+        "gates": [
+          "teyvat:85960",
+          "teyvat:85958"
+        ]
+      },
+      "teyvat:85958": {
+        "stage_id": "nat-resort-pier",
+        "name": "のびのびリゾート・南の連絡桟橋",
+        "gates": [
+          "teyvat:85957",
+          "teyvat:79059"
+        ]
+      },
+      "teyvat:85959": {
+        "stage_id": "nat-wp-85959",
+        "name": "のびのびリゾート・東岸の小浜",
+        "gates": [
+          "teyvat:85960",
+          "teyvat:85965"
+        ]
+      },
+      "teyvat:85960": {
+        "stage_id": "nat-wp-85960",
+        "name": "のびのびリゾート・島の道の分岐",
+        "gates": [
+          "teyvat:85962",
+          "teyvat:85964",
+          "teyvat:85959",
+          "teyvat:85957"
+        ]
+      },
+      "teyvat:85961": {
+        "stage_id": "nat-wp-85961",
+        "name": "のびのびリゾート・南西の並木道",
+        "gates": [
+          "teyvat:85963",
+          "teyvat:85962"
+        ]
+      },
+      "teyvat:85962": {
+        "stage_id": "nat-wp-85962",
+        "name": "のびのびリゾート・水車のそばの道",
+        "gates": [
+          "teyvat:85968",
+          "teyvat:85961",
+          "teyvat:85960"
+        ]
+      },
+      "teyvat:85963": {
+        "stage_id": "nat-wp-85963",
+        "name": "のびのびリゾート・西岸の丘",
+        "gates": [
+          "teyvat:85969",
+          "teyvat:85961"
+        ]
+      },
+      "teyvat:85964": {
+        "stage_id": "nat-wp-85964",
+        "name": "のびのびリゾート・東の草地",
+        "gates": [
+          "teyvat:85966",
+          "teyvat:85960",
+          "teyvat:85965"
+        ]
+      },
+      "teyvat:85965": {
+        "stage_id": "nat-wp-85965",
+        "name": "のびのびリゾート・東の岬の風見",
+        "gates": [
+          "teyvat:85978",
+          "teyvat:85964",
+          "teyvat:85959"
+        ]
+      },
+      "teyvat:85966": {
+        "stage_id": "nat-wp-85966",
+        "name": "のびのびリゾート・運河東の橋",
+        "gates": [
+          "teyvat:85967",
+          "teyvat:85968",
+          "teyvat:85964"
+        ]
+      },
+      "teyvat:85967": {
+        "stage_id": "nat-wp-85967",
+        "name": "のびのびリゾート・北の運河の岸",
+        "gates": [
+          "teyvat:85970",
+          "teyvat:85966"
+        ]
+      },
+      "teyvat:85968": {
+        "stage_id": "nat-wp-85968",
+        "name": "のびのびリゾート・中央の浜",
+        "gates": [
+          "teyvat:85969",
+          "teyvat:85966",
+          "teyvat:85962"
+        ]
+      },
+      "teyvat:85969": {
+        "stage_id": "nat-wp-85969",
+        "name": "のびのびリゾート・西の入江",
+        "gates": [
+          "teyvat:85972",
+          "teyvat:85968",
+          "teyvat:85963"
+        ]
+      },
+      "teyvat:85970": {
+        "stage_id": "nat-wp-85970",
+        "name": "のびのびリゾート・北西の小島",
+        "gates": [
+          "teyvat:85973",
+          "teyvat:85967"
+        ]
+      },
+      "teyvat:85971": {
+        "stage_id": "nat-wp-85971",
+        "name": "のびのびリゾート・西島の岩棚",
+        "gates": [
+          "teyvat:85972",
+          "teyvat:85973"
+        ]
+      },
+      "teyvat:85972": {
+        "stage_id": "nat-wp-85972",
+        "name": "のびのびリゾート・西島の桟橋",
+        "gates": [
+          "teyvat:85971",
+          "teyvat:85969"
+        ]
+      },
+      "teyvat:85973": {
+        "stage_id": "nat-wp-85973",
+        "name": "のびのびリゾート・北西の見晴らし台",
+        "gates": [
+          "teyvat:85974",
+          "teyvat:85971",
+          "teyvat:85970"
+        ]
+      },
+      "teyvat:85974": {
+        "stage_id": "nat-wp-85974",
+        "name": "のびのびリゾート・遠島南の桟橋",
+        "gates": [
+          "teyvat:85975",
+          "teyvat:85973"
+        ]
+      },
+      "teyvat:85975": {
+        "stage_id": "nat-wp-85975",
+        "name": "のびのびリゾート・遠島の木立",
+        "gates": [
+          "teyvat:85976",
+          "teyvat:85977",
+          "teyvat:85974"
+        ]
+      },
+      "teyvat:85976": {
+        "stage_id": "nat-wp-85976",
+        "name": "のびのびリゾート・遠島の北端",
+        "gates": [
+          "teyvat:85975",
+          "teyvat:85977"
+        ]
+      },
+      "teyvat:85977": {
+        "stage_id": "nat-wp-85977",
+        "name": "のびのびリゾート・遠島の小さな丘",
+        "gates": [
+          "teyvat:85976",
+          "teyvat:85975",
+          "teyvat:85978"
+        ]
+      },
+      "teyvat:85978": {
+        "stage_id": "nat-wp-85978",
+        "name": "のびのびリゾート・沖の金色の島",
+        "gates": [
+          "teyvat:85977",
+          "teyvat:85979",
+          "teyvat:85965"
+        ]
+      },
+      "teyvat:85979": {
+        "stage_id": "nat-wp-85979",
+        "name": "のびのびリゾート・沖の遺構上段・北室",
+        "gates": [
+          "teyvat:85978",
+          "teyvat:85980"
+        ]
+      },
+      "teyvat:85980": {
+        "stage_id": "nat-wp-85980",
+        "name": "のびのびリゾート・沖の遺構上段・南室",
+        "gates": [
+          "teyvat:85981",
+          "teyvat:85979"
+        ]
+      },
+      "teyvat:85981": {
+        "stage_id": "nat-wp-85981",
+        "name": "のびのびリゾート・沖の遺構の下段",
+        "gates": [
+          "teyvat:85980"
         ]
       },
       "teyvat:9": {
@@ -4505,8 +5967,8 @@
   },
   "main_route_summary": {
     "connected_main_regions": 8,
-    "authored_stages": 777,
-    "provisional_quests": 244,
+    "authored_stages": 945,
+    "provisional_quests": 249,
     "companion_join_records": 8,
     "scope_complete": false,
     "not_proven": [
@@ -4551,7 +6013,7 @@
     "status": "partial",
     "design": "content/world-bosses-design.json"
   },
-  "current_priority": "Match Natlan waypoint IDs to playable regional routes and link the distinct maps of the Ancient Sacred Mountain and Sky Temple. Continue quest and boss playthroughs.",
+  "current_priority": "Match Nod-Krai waypoint IDs and connect surface, shore transit and distinct underground layers. Continue quest and boss playthroughs.",
   "world_map_review": {
     "basis": [
       "sources/20261113-master.md sections 4–6",
@@ -5222,9 +6684,95 @@
           "natlan-sunset-arena",
           "natlan-sunset-rostrum",
           "primal-fire-sundered-forge",
+          "nat-wp-72413",
+          "nat-wp-72414",
+          "nat-wp-72415",
+          "nat-wp-72416",
+          "nat-wp-72417",
+          "nat-wp-72418",
+          "nat-wp-72419",
+          "nat-wp-72420",
+          "nat-wp-72421",
+          "nat-wp-72422",
+          "nat-wp-72423",
+          "nat-wp-72424",
+          "nat-wp-72425",
+          "nat-wp-72426",
+          "nat-wp-72427",
+          "nat-wp-72428",
+          "nat-wp-72429",
+          "nat-wp-72432",
+          "nat-wp-72433",
+          "nat-wp-72434",
+          "nat-wp-72435",
+          "nat-wp-72436",
+          "nat-wp-72437",
+          "nat-wp-72438",
+          "nat-wp-72439",
+          "nat-wp-72440",
+          "nat-wp-72441",
+          "nat-wp-72442",
+          "nat-wp-72443",
+          "nat-wp-72444",
+          "nat-wp-72445",
+          "nat-wp-72446",
+          "nat-wp-72447",
+          "nat-wp-72448",
+          "nat-wp-72449",
+          "nat-wp-72450",
+          "nat-wp-72451",
+          "nat-wp-72452",
+          "nat-wp-72453",
+          "nat-wp-72454",
+          "nat-wp-72455",
+          "nat-wp-72456",
+          "nat-wp-72758",
+          "nat-wp-72759",
+          "nat-wp-72760",
+          "nat-wp-72761",
+          "nat-wp-77772",
+          "nat-wp-79050",
+          "nat-wp-79051",
+          "nat-wp-79052",
+          "nat-wp-79053",
+          "nat-wp-79054",
+          "nat-wp-79055",
+          "nat-wp-79056",
+          "nat-wp-79057",
+          "nat-wp-79058",
+          "nat-wp-79060",
+          "nat-wp-79387",
+          "nat-wp-79482",
+          "nat-wp-79542",
+          "nat-wp-79543",
+          "nat-wp-79544",
+          "nat-wp-79545",
+          "nat-wp-81381",
+          "nat-wp-82557",
+          "nat-wp-82558",
+          "nat-wp-82559",
+          "nat-wp-82560",
+          "nat-wp-82561",
+          "nat-wp-82562",
+          "nat-wp-82563",
+          "nat-wp-82564",
+          "nat-wp-82565",
+          "nat-wp-82566",
+          "nat-wp-82567",
+          "nat-wp-82568",
+          "nat-wp-82569",
+          "nat-wp-82570",
+          "nat-wp-82571",
+          "nat-wp-82572",
+          "nat-wp-82573",
+          "nat-wp-82574",
+          "nat-wp-82575",
+          "nat-wp-82576",
+          "nat-wp-85349",
           "natlan-solar-court"
         ],
         "quest_ids": [
+          "nat-mapped-valley-trail",
           "stygian-xbalanque-commission",
           "primal-fire-weekly-commission",
           "growth-pair-imprint",
@@ -5625,9 +7173,29 @@
           "ochkanatlan-ruins",
           "ochka-tide-stairs",
           "ochka-patched-court",
-          "ochka-sifting-kiln"
+          "ochka-sifting-kiln",
+          "nat-wp-79295",
+          "nat-wp-79512",
+          "nat-wp-79523",
+          "nat-wp-79536",
+          "nat-wp-79538",
+          "nat-wp-79539",
+          "nat-wp-79540",
+          "nat-wp-79541",
+          "nat-wp-79546",
+          "nat-wp-79548",
+          "nat-wp-79549",
+          "nat-wp-79550",
+          "nat-wp-80025",
+          "nat-wp-80030",
+          "nat-wp-80033",
+          "nat-wp-80035",
+          "nat-wp-80036",
+          "nat-wp-80040",
+          "nat-wp-80846"
         ],
         "quest_ids": [
+          "nat-mapped-ochka-supplies",
           "ochkanatlan-survey",
           "ochka-stopover-survey",
           "ochka-wall-marks",
@@ -5843,7 +7411,27 @@
           "statues": 0,
           "waypoints": 19
         },
-        "prototype_stage_ids": []
+        "prototype_stage_ids": [
+          "nat-mountain-camp",
+          "nat-wp-84104",
+          "nat-wp-84105",
+          "nat-wp-84106",
+          "nat-wp-84107",
+          "nat-wp-84108",
+          "nat-wp-84109",
+          "nat-wp-84110",
+          "nat-wp-84111",
+          "nat-wp-84112",
+          "nat-wp-84113",
+          "nat-wp-84114",
+          "nat-wp-84115",
+          "nat-wp-84116",
+          "nat-wp-84117",
+          "nat-wp-84118",
+          "nat-wp-84119",
+          "nat-wp-84120",
+          "nat-wp-84121"
+        ]
       },
       {
         "id": 37,
@@ -5852,7 +7440,28 @@
           "statues": 0,
           "waypoints": 20
         },
-        "prototype_stage_ids": []
+        "prototype_stage_ids": [
+          "nat-sky-camp",
+          "nat-wp-96366",
+          "nat-wp-96367",
+          "nat-wp-96368",
+          "nat-wp-96369",
+          "nat-wp-96370",
+          "nat-wp-96371",
+          "nat-wp-96372",
+          "nat-wp-96373",
+          "nat-wp-96374",
+          "nat-wp-96375",
+          "nat-wp-96376",
+          "nat-wp-96377",
+          "nat-wp-96378",
+          "nat-wp-96379",
+          "nat-wp-96380",
+          "nat-wp-96381",
+          "nat-wp-96382",
+          "nat-wp-96383",
+          "nat-wp-96384"
+        ]
       },
       {
         "id": 40,

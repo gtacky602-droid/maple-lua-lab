@@ -38,6 +38,16 @@ class TrailWalk:
         origin = self.state.story.node
         edge = self.edges[origin, target]
         self.approach(edge['x'], edge.get('y', 480), target)
+        if 'windowStart' in edge:
+            voyage = self.state.voyage
+            assert voyage is not None
+            start = voyage.started + edge['windowStart']
+            end = voyage.started + edge['windowEnd']
+            for _ in range(round(60 * (edge['windowStart'] + 1))):
+                if self.state.t + 1e-8 >= start:
+                    break
+                self.core.step(self.state, 1 / 60, self.idle)
+            assert start <= self.state.t + 1e-8 < end
         if edge.get('wind'):
             for _ in range(round(15 * (edge['wind']['period'] + 1))):
                 portal = self.core.frame(self.state, 'sprite', 'legacy').storyNearbyPortal
@@ -54,6 +64,11 @@ class TrailWalk:
             assert ride is not None and ride.destination == target, (origin, target, self.state.storyNotice)
             assert bool(ride.boat) == ('boatSeconds' in edge)
             assert bool(ride.waterway) == ('waterwaySeconds' in edge)
+            if edge.get('animatedLift'):
+                assert ride.riders is not None
+                before = self.actor.y
+                self.core.step(self.state, 1 / 60, self.idle)
+                assert self.actor.y != before and self.state.story.node == origin
             for _ in range(360):
                 if self.state.lift is None:
                     break

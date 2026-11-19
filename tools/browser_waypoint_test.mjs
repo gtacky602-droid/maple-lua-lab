@@ -49,13 +49,26 @@ export function waypointDriver(page,nodes){
    }finally{await page.keyboard.up(key)}
    return;
   }
-  if(y===480)await page.keyboard.down('KeyS');
-  await page.keyboard.down('Space');
-  try{await waitY(y)}
-  finally{
-   await page.keyboard.up('Space');
-   if(y===480)await page.keyboard.up('KeyS');
+  if(y===480){
+   await page.keyboard.down('KeyS');
+   await page.keyboard.press('Space');
+   try{await waitY(y)}
+   finally{await page.keyboard.up('KeyS')}
+   return;
   }
+  for(let attempt=0;attempt<3;attempt++){
+   const previous=(await actor()).y;
+   if(previous===y)return;
+   await page.keyboard.down('Space');
+   try{
+    await page.waitForFunction(previous=>{
+     const f=window.lab.frame;
+     const a=f.actors.find(a=>a.id===f.active);
+     return a.ground&&a.y<previous;
+    },previous,{timeout:4000});
+   }finally{await page.keyboard.up('Space')}
+  }
+  await waitY(y);
  }
 
  async function cross(id){
@@ -64,11 +77,13 @@ export function waypointDriver(page,nodes){
   assert.ok(edge,`No gate ${from} → ${id}`);
   await walk(edge.x);
   await changeHeight(edge.y??480);
+  const gateTimeout=edge.windowStart!==undefined?(edge.windowStart+8)*1000:edge.wind?Math.ceil(edge.wind.period*2000):5000;
   await page.waitForFunction(id=>{
    const gate=window.lab.frame.storyNearbyPortal;
    return gate?.to===id&&gate.available;
-  },id,{timeout:edge.wind?Math.ceil(edge.wind.period*2000):5000});
+  },id,{timeout:gateTimeout});
   const mode=edge.boatSeconds?'boat':edge.waterwaySeconds?'waterway':edge.liftSeconds?'lift':nodes[from].swim?'swim':edge.y?'raised':'walk';
+  const launchY=edge.animatedLift?(await actor()).y:null;
   await page.keyboard.press('KeyF');
   if(['boat','waterway','lift'].includes(mode)){
    await page.waitForFunction(label=>window.lab.frame.storyLift?.destination===label,edge.rideLabel||nodes[id].name);
@@ -76,6 +91,10 @@ export function waypointDriver(page,nodes){
    assert.equal(Boolean(ride.boat),mode==='boat');
    assert.equal(Boolean(ride.waterway),mode==='waterway');
    assert.equal(await node(),from);
+   if(edge.animatedLift)await page.waitForFunction(y=>{
+    const f=window.lab.frame;
+    return f.storyLift&&f.actors.find(a=>a.id===f.active).y!==y;
+   },launchY);
   }
   await waitNode(id);
   if(edge.arrivalY)await waitY(edge.arrivalY);
