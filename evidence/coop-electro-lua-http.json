@@ -1,0 +1,42 @@
+{
+  "lua": {
+    "soloAndFourPlayerHp": 900,
+    "firstHitWorldTick": 116,
+    "combo": [
+      10,
+      11,
+      15
+    ],
+    "drill": {
+      "bothPartiesHit": true,
+      "damage": [
+        15,
+        10
+      ],
+      "shieldAbsorbed": 5,
+      "sweptDistancePx": 193.60000000000002
+    },
+    "waves": {
+      "groundedDamage": 18,
+      "jumpDamage": 0
+    },
+    "adoptMidDrillPreservedHitMask": true,
+    "killXp": 1250,
+    "killMora": 140,
+    "respawnTicks": 3600
+  },
+  "http": {
+    "participants": 3,
+    "stableSlotFromAnemoToElectro": true,
+    "simultaneousBossMaps": [
+      "electro-field-shelf",
+      "anemo-field-basin"
+    ],
+    "eachMapHadOnlyItsOwnDamage": true,
+    "electroRewards": [
+      1,
+      1
+    ],
+    "anemoRewardsForElectroKill": 0
+  }
+}

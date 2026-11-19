@@ -114,7 +114,7 @@ def run(url):
     assert peer(rejoined)['map'] == ENTRY and rejoined['fieldBoss']['remaining'] > 58
 
     cross(host, 60, ROAD)
-    local = cross(host, 400, 'electro-approach')
+    local = cross(host, 240, 'mond-wp-13')
     assert local['coop']['code'] == code and not local['coop']['shared']
     assert local['coop']['enemies'] == [] and peer(local)['map'] == ARENA
     later, other = advance(host, guest, .18)
@@ -132,14 +132,14 @@ def run(url):
     assert returned_to_town['coop']['code'] == code and returned_to_town['coop']['slot'] == slot
     assert peer(host.frame())['map'] == TOWN
     left = host.frame(['coop_leave'])
-    assert 'code' not in left['coop'] and left['story']['node'] == 'electro-approach'
+    assert 'code' not in left['coop'] and left['story']['node'] == 'mond-wp-13'
     assert guest.frame()['coop']['code'] == code
 
     return {'joinedFromDifferentMaps': [TOWN, ARENA], 'separateCombatMaps': [ROAD, ARENA],
             'bothMapsAdvanced': True, 'ordinaryLootStaysOnMap': True,
             'emptyBossMapKeepsHpAndClock': True, 'hpAfterRegroup': wounded['hp'],
             'bossLootStaysOnMap': True, 'stableSlotAfterTravelAndReload': True,
-            'retainedMembershipInPrivateMap': 'electro-approach', 'localPauseLeavesOtherMapRunning': True,
+            'retainedMembershipInPrivateMap': 'mond-wp-13', 'localPauseLeavesOtherMapRunning': True,
             'partyDefeatRetainsMembershipInTown': True}
 
 

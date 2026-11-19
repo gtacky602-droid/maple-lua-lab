@@ -1,0 +1,48 @@
+{
+  "browser": "Chrome",
+  "separated": [
+    {
+      "maxHp": 870,
+      "peerActors": 0
+    },
+    {
+      "maxHp": 900,
+      "peerActors": 0
+    }
+  ],
+  "stableSlotFromAnemoToElectro": true,
+  "sharedDrillTick": 85,
+  "results": [
+    {
+      "seconds": 25.03333333333191,
+      "hp": 140,
+      "moves": [
+        "FE01",
+        "FE02",
+        "FE03"
+      ],
+      "kills": 1,
+      "damage": 448
+    },
+    {
+      "seconds": 25.033333333331914,
+      "hp": 140,
+      "moves": [
+        "FE01",
+        "FE02",
+        "FE03"
+      ],
+      "kills": 1,
+      "damage": 452
+    }
+  ],
+  "personalQuestCounts": [
+    1,
+    null
+  ],
+  "savedClears": [
+    1,
+    1
+  ],
+  "errors": []
+}

@@ -4,7 +4,9 @@
     "mond-town": "モンドの町",
     "mond-road": "モンド・南の街道",
     "anemo-approach": "無相の風・挑戦入口",
-    "anemo-field-basin": "モンド・風鳴りの広場"
+    "anemo-field-basin": "モンド・風鳴りの広場",
+    "electro-approach": "無相の雷・挑戦入口",
+    "electro-field-shelf": "モンド・雷紋の岩棚"
   },
   "capacity": 4,
   "rewardRange": {"x": 420, "y": 180},

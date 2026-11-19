@@ -93,6 +93,14 @@ return function(C,configs,controllers)
   end
  end
 
+ function C.shareFieldHits(groups,actors)
+  for _,seen in ipairs(groups) do
+   for _,a in ipairs(actors) do
+    seen[a],seen[a.id]=seen[a.id],nil
+   end
+  end
+ end
+
  function C.adoptCoopField(room,s)
   local spec=byNode[room.node]
   if not spec or not spec.coop then return end
@@ -105,7 +113,7 @@ return function(C,configs,controllers)
   if personal.waitUntil then personal.phase='respawn' end
   s.fieldSlots[spec.id]=personal
   live.entryAt=live.entryAt or room.time
-  for _,a in ipairs(s.actors) do live.contact[a],live.contact[a.id]=live.contact[a.id],nil end
+  C.shareFieldHits({live.contact},s.actors)
   local behavior=controllers[spec.controller]
   if live.cast and behavior.shareCast then behavior.shareCast(live.cast,s.actors) end
  end
@@ -202,12 +210,13 @@ return function(C,configs,controllers)
   local verticalScale=radius/(verticalRadius or radius)
   for _,a in ipairs(s.actors) do
    if owner.hp<=0 then break end
-   if a.hp>0 and not seen[a.id] then
+   local key=s.actorOwners and a or a.id
+   if a.hp>0 and not seen[key] then
     local dx=math.max(0,left-a.x-10,a.x-10-right)
     local dy=math.max(0,a.y-50-y,y-a.y)*verticalScale
     if dx*dx+dy*dy<radius*radius then
-     seen[a.id]=true
-     C.damageActor(s,a,damage,source,false,true)
+     seen[key]=true
+     C.damageActor(s.actorOwners and s.actorOwners[a] or s,a,damage,source,false,true)
     end
    end
   end

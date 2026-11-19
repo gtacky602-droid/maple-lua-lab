@@ -92,6 +92,7 @@
     {
       "id": "boss-20040101",
       "controller": "electroHypostasis",
+      "coop": true,
       "entity": 20040101,
       "name": "無相の雷",
       "node": "electro-field-shelf",

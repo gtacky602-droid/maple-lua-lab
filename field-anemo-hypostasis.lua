@@ -23,11 +23,7 @@ return function(C)
  end
 
  function anemo.shareCast(cast,actors)
-  for _,seen in ipairs({cast.seen,cast.vortexHits[1],cast.vortexHits[2]}) do
-   for _,a in ipairs(actors) do
-    seen[a],seen[a.id]=seen[a.id],nil
-   end
-  end
+  C.shareFieldHits({cast.seen,cast.vortexHits[1],cast.vortexHits[2]},actors)
  end
 
  local function vortexX(boss,cast,age)

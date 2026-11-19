@@ -34,6 +34,10 @@ return function(C)
   return cast
  end
 
+ function electro.shareCast(cast,actors)
+  C.shareFieldHits(cast.seen,actors)
+ end
+
  local function strikeIndex(move,t)
   if t>=move.strikes[3].tell then return 3 end
   if t>=move.strikes[2].tell then return 2 end
@@ -206,7 +210,8 @@ return function(C)
    C.drawElectroPart(f,'shell',cx,math.min(y,cy+size/2),size,mode,profile)
   end
   if not cast then
-   orbit(cube,x,y-87,54,25,s.t*.83,28)
+   local time=s.coop and s.coop.time or s.t
+   orbit(cube,x,y-87,54,25,time*.83,28)
   elseif cast.tick<cast.move.recover then
    if cast.move.strikes then drawCombo(f,cube,x,y,cast,s.camera)
    elseif cast.move.distance then drawDrill(f,cube,x,y,cast,s.camera)

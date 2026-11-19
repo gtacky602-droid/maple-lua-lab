@@ -8046,16 +8046,21 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Extend fixed-HP cooperative boss combat and individualized rewards beyond Anemo Hypostasis.",
+  "current_priority": "Extend fixed-HP cooperative combat to bosses with phase changes, guards and multiple bodies.",
   "multiplayer_preview": {
     "status": "split_map_room_membership_and_local_combat_verified",
     "maps": [
       "mond-town",
       "mond-road",
       "anemo-approach",
-      "anemo-field-basin"
+      "anemo-field-basin",
+      "electro-approach",
+      "electro-field-shelf"
     ],
-    "boss": "boss-20040201",
+    "bosses": [
+      "boss-20040201",
+      "boss-20040101"
+    ],
     "rules": "content/coop-preview.json",
     "evidence": [
       "evidence/coop-local-http.json",
@@ -8069,7 +8074,10 @@
       "evidence/coop-travel-http.json",
       "evidence/coop-travel-browser.json",
       "evidence/coop-travel-split.png",
-      "evidence/coop-travel-regroup.png"
+      "evidence/coop-travel-regroup.png",
+      "evidence/coop-electro-lua-http.json",
+      "evidence/coop-electro-browser.json",
+      "evidence/coop-electro-browser.png"
     ],
     "pending": [
       "remaining normal, weekly and Stygian bosses",
