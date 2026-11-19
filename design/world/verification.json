@@ -1,0 +1,110 @@
+{
+  "verified_on": "2026-11-19",
+  "compared_github_base": "afa5bdbd37e70bbc63795d70db3e76a9873dff9d",
+  "compared_sites_version": 7,
+  "updated_sites_source": "d75c40e911b9270253a81a03ee2920895dece6dd",
+  "command": "python tools/world_design/validate.py --frozen-inputs",
+  "design_validation": {
+    "passed": true,
+    "checks": {
+      "editor field IDs and placement IDs agree": true,
+      "official coordinates and marker kinds are unchanged": true,
+      "field-editor project IDs still resolve": true,
+      "regional partition matches every file and published count": true,
+      "field connections resolve to unchanged field identities": true,
+      "design additions use new IDs and corrections resolve": true,
+      "legacy placement records resolve independently of v8": true,
+      "official enemy observations resolve labels and citation records": true,
+      "marker assignment records are labeled as inferred": true,
+      "edited rows resolve to editable v8 IDs": true,
+      "origin species and point links resolve": true,
+      "known different floors are not treated as local placements": true,
+      "design Levels, density and no-hostile modes are coherent": true,
+      "out-of-band field recommendation is documented and non-combat": true,
+      "noncombat wildlife is excluded from quest and daily kills": true,
+      "water hunts and underwater legends are current Sites designs": true,
+      "legend and boss species and distinct encounter IDs resolve": true,
+      "legend/boss point matches resolve; pending candidates stay unconfirmed": true,
+      "weekly and Stygian remain in their dedicated files": true,
+      "all quest references resolve and S05 is protected": true,
+      "compared Web stage links use exact map-point IDs": true,
+      "frozen game and editor inputs match the pre-integration hashes": true,
+      "historical quest and field boss bindings kept or explicitly compared": true,
+      "runtime stage, quest, spawn, and boss counts are preserved": true
+    },
+    "counts": {
+      "field_ids": 979,
+      "regions": 24,
+      "official_coordinate_matches": 873,
+      "monster_ids": 1039,
+      "design_routes": 925,
+      "placement_rows": 2686,
+      "official_enemy_markers": 13749,
+      "quest_designs": 153
+    }
+  },
+  "site_research_validation": {
+    "passed": true,
+    "passed_check_count": 39,
+    "scope": "published source baseline, references and exact comparison of known source-marker identities"
+  },
+  "sync": {
+    "command": "node --test tools/world_design/test_sync.js",
+    "passed": 3,
+    "failed": 0,
+    "browser_preview_checks": [
+      "water encounter plan count editing",
+      "review and JSON export",
+      "conflicting imported baseline withheld with before/current/after",
+      "matching baseline adopted without dropping browser history",
+      "old proposal rejected once newer revision was active",
+      "published Sites v8 sync controls loaded"
+    ]
+  },
+  "web_lua": [
+    {
+      "file": "test_story_enemy_spawns.py",
+      "status": "pass",
+      "tested_stage_spawn_sets": 1165
+    },
+    {
+      "file": "test_fontaine_waypoints.py",
+      "status": "pass",
+      "markers": 117,
+      "directed_gates": 296,
+      "quest_reports": 4
+    },
+    {
+      "file": "test_natlan_waypoints.py",
+      "status": "pass",
+      "markers": 174,
+      "directed_gates": 420,
+      "quest_reports": 5
+    },
+    {
+      "file": "test_nod_waypoints.py",
+      "status": "pass",
+      "markers": 123,
+      "directed_gates": 294,
+      "quest_reports": 4
+    },
+    {
+      "file": "test_snezhnaya_waypoints.py",
+      "status": "pass",
+      "markers": 108,
+      "directed_gates": 276,
+      "quest_reports": 4
+    },
+    {
+      "file": "test_world_map.py",
+      "status": "pass",
+      "marker_bindings": 873,
+      "checks": "round-trip route structure and Lv20 fixture"
+    }
+  ],
+  "limits": [
+    "Browser-only edits on other profiles are not present in the public Site source. Draft contents from the public check profile were empty.",
+    "No runtime adoption of proposed world spawns. Original game map locations and 2D placement evidence were not playtested in Miliastra."
+  ],
+  "updated_sites_version": 8
+}
