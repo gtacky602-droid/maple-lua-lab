@@ -1,0 +1,262 @@
+{
+  "scope": "イゾルトとスネージヴナのディアンナラ。対応する通常型と図鑑・現地で比較。",
+  "findings": {
+    "frost": {
+      "legend": "イゾルト",
+      "ordinary": "ファデュイ・氷霜の従者",
+      "proposal": "待機素材を共用",
+      "deltas": "確認画像の範囲で固有の衣装差は見つからなかった。仮面の尖り、片側に寄った茶髪、白い袖、青い長い裾、細い剣を共通の目印とする。"
+    },
+    "wind": {
+      "legend": "スネージヴナのディアンナラ",
+      "ordinary": "ファデュイ・烈風の従者",
+      "proposal": "待機素材を共用",
+      "deltas": "確認画像の範囲で固有の衣装差は見つからなかった。高い帽子、目元を覆う仮面、明るい脚衣、背側に伸びる青緑の布を共通の目印とする。"
+    }
+  },
+  "limits": [
+    "名前付き個体の完全な背面は未確認。",
+    "単体の3Dビューアでの回転は未確認。",
+    "図鑑画像は仮面の資料。現地の照明や戦闘時の発光は通常の体色を判定する根拠に含めない。"
+  ],
+  "images": [
+    {
+      "id": "frost-full",
+      "page": "https://game8.jp/genshin/552637",
+      "image": "https://img.game8.jp/8834725/2cc6e664403139791beae3a784a46cf6.jpeg/original",
+      "size": [
+        1919,
+        978
+      ],
+      "sha256": "b093756e9a54fb3bdef5c61f562c39f67181a75132a456ba0f388704c73a73ae",
+      "family": "frost",
+      "role": "通常・図鑑全身",
+      "observed": "明るい茶髪、白い袖、濃紺の胸元、曲線を描く淡青の裾と細い刃。",
+      "new_to_these_prior_audits": false
+    },
+    {
+      "id": "frost-2d",
+      "page": "https://wiki.biligame.com/ys/愚人众·霜役人",
+      "image": "https://patchwiki.biligame.com/images/ys/2/27/cxw6iy7ywgvkwi0dxmd6jbg4wdw824k.png",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "e5a66455d3b6507865c7217929624a7e8eb9ebce40222a216495006c89a92161",
+      "family": "frost",
+      "role": "通常・図鑑の顔",
+      "observed": "濃紺の仮面に青い面。明るい茶髪が片側へ流れる。",
+      "new_to_these_prior_audits": true
+    },
+    {
+      "id": "hoyo-05",
+      "page": "https://www.hoyolab.com/article/23249455",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/11/27/8124239/99ec5a4f247808aa35131d598169d9de_8264627604280832424.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "b3b803de0d73fa1f476608f466b40f8f1a8bf67bdd59a2e8529fbd83c5a17249",
+      "family": "frost",
+      "role": "通常型・現地正面",
+      "observed": "白い上腕、暗い脚衣、左右の青い裾、刀身の細さ。",
+      "new_to_these_prior_audits": true
+    },
+    {
+      "id": "hoyo-08",
+      "page": "https://www.hoyolab.com/article/23249455",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/11/27/8124239/71664a45326e85040996b27e73941991_4928154102564789418.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "ad00badaf4636541c905776810535acbd564ea69e57e23d67aa6b4cdc5ea115f",
+      "family": "frost",
+      "role": "通常型・現地側面",
+      "observed": "髪の結びと仮面の縦の突起。腰から足近くまで下がる裾と靴底。",
+      "new_to_these_prior_audits": true
+    },
+    {
+      "id": "hoyo-14",
+      "page": "https://www.hoyolab.com/article/23249455",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/11/27/8124239/f8dd4f574ae28c13a9b42c02f73201ed_1220708063264251921.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "a221bdc2b64fd0e449b260771c9b40f8a1024dfa4ff6ef44c5a8d8335c5d36cd",
+      "family": "frost",
+      "role": "通常型・現地斜め前",
+      "observed": "腰上の近景。胸の青い色面、仮面と髪、白い袖。",
+      "new_to_these_prior_audits": true
+    },
+    {
+      "id": "hoyo-17",
+      "page": "https://www.hoyolab.com/article/23249455",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/11/27/8124239/5a8378b15b6a3a89a71828fd6fc556ae_7543795617177970299.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "08425d5184ea0aca88a3ce6ba3eed5284e4e407c412cad8493eb64bcfb719c84",
+      "family": "frost",
+      "role": "通常型・現地斜め後ろ",
+      "observed": "頭から腰。結んだ髪の量と背から腰の布。光が画面左にある。",
+      "new_to_these_prior_audits": true
+    },
+    {
+      "id": "y-note",
+      "page": "https://note.com/fancy_dunlin4414/n/nf067be3c378d",
+      "image": "https://assets.st-note.com/img/1779528948-fY3LHDj6y4bCZNh8JQXpA70T.png?width=1200",
+      "size": [
+        1200,
+        679
+      ],
+      "sha256": "bfd160ab5547e2993f79a290a6d206acb4627c92256306dde3dbd6ffae9d37a9",
+      "family": "frost",
+      "role": "イゾルト・現地全身",
+      "observed": "正面寄り。二本の尖った仮面、白い袖、淡青の長い裾、細い刃が通常型と対応。",
+      "new_to_these_prior_audits": false
+    },
+    {
+      "id": "iseult-alt",
+      "page": "https://altema.jp/gensin/yseut",
+      "image": "https://img.altema.jp/gensin/kakudai/yseut.jpg",
+      "size": [
+        1827,
+        998
+      ],
+      "sha256": "1a16822b1e4db8e0cdcf04bb89a78e7179bb1a04455226b2a4719c06b288cb32",
+      "family": "frost",
+      "role": "イゾルト・名前付きの現地側面",
+      "observed": "右肩側。武器を低く持つ姿と長い青い裾。遠景で顔の細部は使えない。",
+      "new_to_these_prior_audits": true
+    },
+    {
+      "id": "iseult-guru",
+      "page": "https://gurugamer.com/mobile-games/top-5-dangerous-fontaine-local-legends-23332",
+      "image": "https://img.gurugamer.com/photo_galleries/2023/11/28/yseut-genshin-impact-1ccf.jpg",
+      "size": [
+        1775,
+        1009
+      ],
+      "sha256": "1d4fb6b5ef8ea904ea6699e5adfc5d7c80450a84494c5888ab0cb73badf44075",
+      "family": "frost",
+      "role": "イゾルト・名前付きの現地斜め",
+      "observed": "暗い海岸側からの全身。帽子状の突起と青い裾の位置を照合。夜の照明で色は決めない。",
+      "new_to_these_prior_audits": true
+    },
+    {
+      "id": "wind-full",
+      "page": "https://game8.jp/genshin/552637",
+      "image": "https://img.game8.jp/8834726/fe5a8cd7c52af6ceb5eb203afe492dc7.jpeg/original",
+      "size": [
+        3837,
+        1957
+      ],
+      "sha256": "1d2d397283be4011e8646d311f2f70eac6436929e779668611208aaa47b2db65",
+      "family": "wind",
+      "role": "通常・図鑑全身",
+      "observed": "高い帽子、細身の白い脚衣、背側に伸びる青緑の布。",
+      "new_to_these_prior_audits": false
+    },
+    {
+      "id": "wind-2d",
+      "page": "https://wiki.biligame.com/ys/愚人众·风役人",
+      "image": "https://patchwiki.biligame.com/images/ys/9/93/5hh9kmbsj5sptqxecfmbwpa1gi4c9cj.png",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "5ed75ebac88a9db36624f5a115efd7df88c46400d3056ae7a5b4f469f6c6bd80",
+      "family": "wind",
+      "role": "通常・図鑑の顔",
+      "observed": "帽子からつながる羽状の仮面で目元を覆い、白い面に向かって細くなる。",
+      "new_to_these_prior_audits": true
+    },
+    {
+      "id": "hoyo-19",
+      "page": "https://www.hoyolab.com/article/23249455",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/11/27/8124239/a53a463b33fd548a8e552680beb08364_2624224105058503374.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "48ac87967e872272df9b52bbc0e9fbec17d955baeec6a2f5ae33b7a3cb7a15bf",
+      "family": "wind",
+      "role": "通常型・現地正面",
+      "observed": "高い暗色帽と白い脚衣。後ろの青緑の布、肩の飾り、左右の手元。",
+      "new_to_these_prior_audits": true
+    },
+    {
+      "id": "hoyo-21",
+      "page": "https://www.hoyolab.com/article/23249455",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/11/27/8124239/e48a863001db5b1ac0060afbcfc2ba2a_8012772573065124371.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "124e6f0a56ba0ce7658fa2d50dc5c9cb084f1d8d33650fd00a1f02a2ef52d07c",
+      "family": "wind",
+      "role": "通常型・現地斜め側面",
+      "observed": "靴まで写る。背の布の流れ、袖口、細い刃。緑の発光は戦闘時。",
+      "new_to_these_prior_audits": true
+    },
+    {
+      "id": "hoyo-22",
+      "page": "https://www.hoyolab.com/article/23249455",
+      "image": "https://upload-os-bbs.hoyolab.com/upload/2023/11/27/8124239/e1c778a49a2caaa2e5ab8eee43f0e690_4908601922758699095.jpg",
+      "size": [
+        1920,
+        1080
+      ],
+      "sha256": "8b7e5d2f86bc7ed8c84127cfd1b4562c33749245a606fe7e96c370d95ac02fd7",
+      "family": "wind",
+      "role": "通常型・現地正面引き",
+      "observed": "脚衣、足首と靴の形を確認。青緑の布が背から横に出る。",
+      "new_to_these_prior_audits": true
+    },
+    {
+      "id": "d-note",
+      "page": "https://note.com/fancy_dunlin4414/n/nf067be3c378d",
+      "image": "https://assets.st-note.com/img/1779528970-rPnbAYmRvqECTNKaFX93VwjU.png?width=1200",
+      "size": [
+        1200,
+        680
+      ],
+      "sha256": "75985e259df56b8da417ffbeda9d9efaaf35ffba717b69f081d7208f17088011",
+      "family": "wind",
+      "role": "ディアンナラ・現地全身",
+      "observed": "斜め前。高い帽子、暗い上着、淡色の脚衣、背側の布、細い刃を照合。青みは水洞の照明の影響も受ける。",
+      "new_to_these_prior_audits": false
+    },
+    {
+      "id": "deia-game-a",
+      "page": "https://gamewith.net/genshin-impact/article/show/42449",
+      "image": "https://img.gamewith.net/img/2e0e530b9228f4d933dd36bb765c11bd.png",
+      "size": [
+        710,
+        404
+      ],
+      "sha256": "b287dd1b1d40ac916b4133e9f9daca2d7efb05939587a1b89212664b791ef31e",
+      "family": "wind",
+      "role": "ディアンナラ・名前付きの現地戦闘",
+      "observed": "画面左に高い帽子と淡い脚衣が見える。攻撃中で細部や色の基準には使えない。",
+      "new_to_these_prior_audits": true
+    },
+    {
+      "id": "deia-game-c",
+      "page": "https://gamewith.net/genshin-impact/article/show/42449",
+      "image": "https://img.gamewith.net/img/a5abbc3077d871221d287a94211ff49c.png",
+      "size": [
+        710,
+        404
+      ],
+      "sha256": "2d1086e2a478482438370bcd179e5a4e6ff9a019e23e61a42b4f0875644abaac",
+      "family": "wind",
+      "role": "ディアンナラ・名前付きの現地引き",
+      "observed": "階段上に全身が写る。帽子と長い布を名前付きの画面でも確認。顔は小さい。",
+      "new_to_these_prior_audits": true
+    }
+  ]
+}

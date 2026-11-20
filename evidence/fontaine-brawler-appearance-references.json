@@ -1,0 +1,84 @@
+{
+  "scope": "ロッキー・アヴィルドセンとリアム。通常の拳術家・薬剤師と顔、服、構えを照合。",
+  "comparison": "拳や投擲の構えは作画の参考にできるが、固有の顔と服が確認できたため待機素材はそれぞれ別に作る。",
+  "images": [
+    {
+      "id": "note-rocky",
+      "page": "https://note.com/fancy_dunlin4414/n/ne24c1660fa05",
+      "image": "https://assets.st-note.com/img/1779619761-bw4YZtd0EF1ui7vNRxnXfmrj.png?width=1200",
+      "size": [
+        1200,
+        678
+      ],
+      "sha256": "66a044e6902730d6ec5f1b01f2cff70d95c46c7ee9c0f9a172a7a73df06a34cf",
+      "role": "ロッキー・現地全身",
+      "observed": "顔が出ており、白い袖、青みのある暗いベスト、茶系の脚衣、白いすねと拳の構えが見える。",
+      "new_to_these_prior_audits": true
+    },
+    {
+      "id": "note-liam",
+      "page": "https://note.com/fancy_dunlin4414/n/ne24c1660fa05",
+      "image": "https://assets.st-note.com/img/1779619800-Bqmwa5ustyr973kCSJpXbNRY.png?width=1200",
+      "size": [
+        1200,
+        677
+      ],
+      "sha256": "7409f9de4b653a4582aba024aac5f98aef2e17c33175788227307bda60009f8b",
+      "role": "リアム・現地全身",
+      "observed": "黒っぽい帽子、隠れていない顔、暗い長上着、淡い膝下までの脚衣と黒い靴。手の道具の材質は判別できない。",
+      "new_to_these_prior_audits": true
+    },
+    {
+      "id": "altema-rocky",
+      "page": "https://altema.jp/gensin/rocky",
+      "image": "https://img.altema.jp/gensin/kakudai/rocky_1.jpg",
+      "size": [
+        2000,
+        1125
+      ],
+      "sha256": "2f65bd039573f1d5c9bb41d2f7bc96ea4390f31027ad7497d445caa75befe91f",
+      "role": "ロッキー・現地の引き",
+      "observed": "戦闘前の姿。明るい袖と暗い脚衣を別撮影で照合。顔の細部には使えない。",
+      "new_to_these_prior_audits": true
+    },
+    {
+      "id": "wiki-pugilist",
+      "page": "https://wiki.biligame.com/ys/盗宝团·拳术家",
+      "image": "https://patchwiki.biligame.com/images/ys/6/64/2t2gs4a343qv2ns71a4jmefxf3mz9p1.png",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "bebf5dc5f2304f659fff510c2c87cf085b5c31847e466a65f95059113d43c52a",
+      "role": "通常の拳術家・図鑑の顔",
+      "observed": "刈り上げた短い髪と暗い口元の布。ロッキーの髪型と口元とは違う。",
+      "new_to_these_prior_audits": true
+    },
+    {
+      "id": "wiki-pyro",
+      "page": "https://wiki.biligame.com/ys/盗宝团·火之药剂师",
+      "image": "https://patchwiki.biligame.com/images/ys/7/71/a79k90l50c02xqc8dc0ijkay7e2rg5v.png",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "302aab6032a751c342827c1298c4bab8a9e55d286b3d958efbee6f11a407364e",
+      "role": "通常の炎の薬剤師・図鑑の顔",
+      "observed": "赤みのある髪、暗い覆面、白い毛皮襟。",
+      "new_to_these_prior_audits": true
+    },
+    {
+      "id": "wiki-electro",
+      "page": "https://wiki.biligame.com/ys/盗宝团·雷之药剂师",
+      "image": "https://patchwiki.biligame.com/images/ys/1/1f/tu1jxx240xw1kzompxub5lme2eb9wd4.png",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "dce25a61b3b40299b561d1cd38a99224ee3dc0970c284ff1c154f4352cd34b07",
+      "role": "通常の雷の薬剤師・図鑑の顔",
+      "observed": "紫髪、暗い覆面、白い毛皮襟。",
+      "new_to_these_prior_audits": true
+    }
+  ]
+}
