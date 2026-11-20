@@ -27,3 +27,8 @@ JSON/CSVへの展開物は同日の会話添付 `Maple_Enemy_Balance_20261120.js
 - 本体のHP/DPS/EXP処理への変更には装備成長とLv帯別TTKの回帰試験を要求
 
 作成日: 2026-11-20
+
+## 2026-11-20 follow-up: import preparation
+The user explicitly approved GitHub/Sites publication. The entire local attachment was revalidated: 1,126 enemy variant rows, 4,091 attack component rows, 200 level baseline rows, 1,063 unique enemy IDs. SHA-256 of the complete JSON attachment: `1b905a69de1549e61e326dc377eeb0103739261d5140c05a08278c6fd4cbc6a8`.
+
+`tools/import_enemy_balance_20261120.py` is committed and validates these counts before writing to `content/balance/`. **Important: this repository does not yet contain the full JSON/CSV payload, and the live Sites publishing step remains outstanding.** The importer is a staging utility, not evidence that publication is complete.
