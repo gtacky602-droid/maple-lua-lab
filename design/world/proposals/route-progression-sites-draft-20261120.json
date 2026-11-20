@@ -1,0 +1,543 @@
+{
+  "schema": "field_studio_visual_edits_v4",
+  "review_status": "draft",
+  "base_revision_snapshot": 0,
+  "base_project_blob_sha": "d9279186b861673cddb27e1c7064f4250a503876",
+  "base_editor_revision": 0,
+  "operation_baseline": "github_world_snapshot_v1",
+  "operations": [
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:map9:25268:map9:25269",
+        "a": "map9:25268",
+        "b": "map9:25269",
+        "mode": "mine_shaft",
+        "note": "搬入準備点から同じ地下マップの搬入坑道へ。既設Webの往復を参照。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:72434:teyvat:72437",
+        "a": "teyvat:72434",
+        "b": "teyvat:72437",
+        "mode": "trail",
+        "note": "競技場への主街道から谷底の支道へ下り、山裾の既存秘境枝へ入る。崖上へショートカットしない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:64825:teyvat:64850",
+        "a": "teyvat:64825",
+        "b": "teyvat:64850",
+        "mode": "trail",
+        "note": "翹英荘側の茶畑入口から谷道へ。沈玉支線の入口として扱う。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:64826:teyvat:64828",
+        "a": "teyvat:64826",
+        "b": "teyvat:64828",
+        "mode": "trail",
+        "note": "西の山と遺瓏の裏道から同じ山側の枝へ。斜面の出入口を確認する。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:28710:teyvat:28712",
+        "a": "teyvat:28710",
+        "b": "teyvat:28712",
+        "mode": "trail",
+        "note": "キャラバン宿駅側の砂漠入口から段差を回る地上枝へ。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:28725:teyvat:28727",
+        "a": "teyvat:28725",
+        "b": "teyvat:28727",
+        "mode": "trail",
+        "note": "ヴィマラ村から川沿いの陸路を使う。谷の反対岸へ直結させない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:41819:teyvat:41822",
+        "a": "teyvat:41819",
+        "b": "teyvat:41822",
+        "mode": "trail",
+        "note": "千尋の砂漠南外周から遺跡入口手前の地上枝まで。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:46513:teyvat:46522",
+        "a": "teyvat:46513",
+        "b": "teyvat:46522",
+        "mode": "trail",
+        "note": "蒼漠への地上回廊から観測洞の外縁に寄る枝。高難度入口の進行と分ける。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:50053:teyvat:50077",
+        "a": "teyvat:50053",
+        "b": "teyvat:50077",
+        "mode": "trail",
+        "note": "廷外周から西側の同じ地上区画へ。貯水路の上部に当たり、街とつながる短い枝。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:100657:teyvat:100703",
+        "a": "teyvat:100657",
+        "b": "teyvat:100703",
+        "mode": "trail",
+        "note": "南の国境側から氷壁の入口へ入る地上枝。後段のLv153街道からの逆走を避ける。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:64826:teyvat:64827",
+        "a": "teyvat:64826",
+        "b": "teyvat:64827",
+        "mode": "trail",
+        "note": "西の山側の山道を延ばし、石室へ降りる前の入口側まで。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:72416:teyvat:72440",
+        "a": "teyvat:72416",
+        "b": "teyvat:72440",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:100686:teyvat:100687",
+        "a": "teyvat:100686",
+        "b": "teyvat:100687",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:88140:teyvat:88145",
+        "a": "teyvat:88140",
+        "b": "teyvat:88145",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:50068:teyvat:50071",
+        "a": "teyvat:50068",
+        "b": "teyvat:50071",
+        "mode": "cave",
+        "note": "公式マップの同一グループ・階層とWeb既設の往復出口が一致する。現地では壁を迂回して共通通路を使う。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:55774:teyvat:55775",
+        "a": "teyvat:55774",
+        "b": "teyvat:55775",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:50045:teyvat:55763",
+        "a": "teyvat:50045",
+        "b": "teyvat:55763",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:92887:teyvat:92889",
+        "a": "teyvat:92887",
+        "b": "teyvat:92889",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:55779:teyvat:55782",
+        "a": "teyvat:55779",
+        "b": "teyvat:55782",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:72430:teyvat:72453",
+        "a": "teyvat:72430",
+        "b": "teyvat:72453",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:36682:teyvat:36698",
+        "a": "teyvat:36682",
+        "b": "teyvat:36698",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:53856:teyvat:53857",
+        "a": "teyvat:53856",
+        "b": "teyvat:53857",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:28710:teyvat:32451",
+        "a": "teyvat:28710",
+        "b": "teyvat:32451",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:41835:teyvat:41838",
+        "a": "teyvat:41835",
+        "b": "teyvat:41838",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:100658:teyvat:100659",
+        "a": "teyvat:100658",
+        "b": "teyvat:100659",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:82566:teyvat:82570",
+        "a": "teyvat:82566",
+        "b": "teyvat:82570",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:119:teyvat:1748",
+        "a": "teyvat:119",
+        "b": "teyvat:1748",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:72432:teyvat:79387",
+        "a": "teyvat:72432",
+        "b": "teyvat:79387",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:88161:teyvat:88162",
+        "a": "teyvat:88161",
+        "b": "teyvat:88162",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:72421:teyvat:72758",
+        "a": "teyvat:72421",
+        "b": "teyvat:72758",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:50071:teyvat:53864",
+        "a": "teyvat:50071",
+        "b": "teyvat:53864",
+        "mode": "cave",
+        "note": "公式マップの同一グループ・階層とWeb既設の往復出口が一致する。現地では壁を迂回して共通通路を使う。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:88174:teyvat:88175",
+        "a": "teyvat:88174",
+        "b": "teyvat:88175",
+        "mode": "cave",
+        "note": "公式マップの同一グループ・階層とWeb既設の往復出口が一致する。現地では壁を迂回して共通通路を使う。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:53858:teyvat:53861",
+        "a": "teyvat:53858",
+        "b": "teyvat:53861",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "edge_add",
+      "data": {
+        "id": "SITE-EDGE:teyvat:53861:teyvat:53870",
+        "a": "teyvat:53861",
+        "b": "teyvat:53870",
+        "mode": "trail",
+        "note": "Web既設の往復出口を参照。地上の既存ルートから同じ側の街道・足場を回る。川・崖・海を直線で横切らない。",
+        "review": "needs_user_review",
+        "status": "proposed",
+        "source": "sites-draft"
+      }
+    },
+    {
+      "type": "field",
+      "id": "map9:25269",
+      "changes": {
+        "lv": {
+          "before": null,
+          "after": 36
+        }
+      }
+    },
+    {
+      "type": "field",
+      "id": "teyvat:64850",
+      "changes": {
+        "lv": {
+          "before": null,
+          "after": 76
+        }
+      }
+    },
+    {
+      "type": "field",
+      "id": "teyvat:64826",
+      "changes": {
+        "lv": {
+          "before": null,
+          "after": 89
+        }
+      }
+    },
+    {
+      "type": "plan_edit",
+      "id": "PLAN8-teyvat_64826-56-0-ordinary",
+      "changes": {
+        "level": {
+          "before": 88,
+          "after": 89
+        }
+      }
+    },
+    {
+      "type": "plan_edit",
+      "id": "PLAN8-teyvat_64826-57-1-ordinary",
+      "changes": {
+        "level": {
+          "before": 88,
+          "after": 89
+        }
+      }
+    },
+    {
+      "type": "field",
+      "id": "teyvat:64827",
+      "changes": {
+        "lv": {
+          "before": null,
+          "after": 90
+        }
+      }
+    },
+    {
+      "type": "plan_edit",
+      "id": "PLAN8-teyvat_64827-56-0-ordinary",
+      "changes": {
+        "level": {
+          "before": 89,
+          "after": 90
+        }
+      }
+    },
+    {
+      "type": "plan_edit",
+      "id": "PLAN8-teyvat_64827-55-1-ordinary",
+      "changes": {
+        "level": {
+          "before": 89,
+          "after": 90
+        }
+      }
+    },
+    {
+      "type": "plan_edit",
+      "id": "PLAN8-teyvat_64827-57-2-ordinary",
+      "changes": {
+        "level": {
+          "before": 89,
+          "after": 90
+        }
+      }
+    }
+  ],
+  "notes": "草案。自分の編集と競合確認後、必要なものだけ採用。間接的な地形照合を含む。残りはroute-progression-20261120.json参照。"
+}
