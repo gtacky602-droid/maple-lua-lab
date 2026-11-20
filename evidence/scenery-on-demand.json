@@ -1,0 +1,47 @@
+{
+  "baseline": "c768a61",
+  "before": {
+    "unique": 174,
+    "encodedBytes": 393442856
+  },
+  "after": {
+    "unique": 1,
+    "encodedBytes": 2594401
+  },
+  "adventureTravel": [
+    [
+      "sumeru-hub",
+      "sumeru-field",
+      "walk"
+    ],
+    [
+      "sumeru-field",
+      "aeonblight-field-chamber",
+      "walk"
+    ],
+    [
+      "aeonblight-field-chamber",
+      "sumeru-field",
+      "walk"
+    ]
+  ],
+  "adventureRequests": [
+    "mondstadt-background.png",
+    "sumeru-background-v1.png",
+    "aeonblight-field-background-v1.png"
+  ],
+  "comparisonRequests": [
+    "mondstadt-background.png"
+  ],
+  "editorRequests": [
+    "mondstadt-background.png",
+    "liyue-background-v1.png",
+    "fontaine-background-v1.png",
+    "aeonblight-field-background-v1.png"
+  ],
+  "startupPixelMatches": true,
+  "lateBackgroundDoesNotOverwriteSelection": true,
+  "missingBackgroundFallsBack": true,
+  "sharedSpriteExcluded": "fon-navia-photo-terrace-background-v1.png",
+  "errors": []
+}

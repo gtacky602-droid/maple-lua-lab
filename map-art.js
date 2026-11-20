@@ -4,15 +4,18 @@ import {setupMapNodePicker} from './map-node-picker.js';
 import {loadImageSet} from './sprite-images.js';
 import {spriteBounds,paintSprite} from './sprite-layers.js';
 import {setupPlacementPicker} from './placement-picker.js';
-import {scenery,sceneryKey,sceneryDefinitions,sceneryStatus,backgroundReady} from './scenery.js';
+import {scenery,sceneryDefinitions,sceneryStatus,loadScenery} from './scenery.js';
 import {comparePlacements,liveNodeDraft,validatePlacementDraft,MAX_DRAFT_BYTES,MAX_NODE_PLACEMENTS,MAX_TOTAL_PLACEMENTS} from './placement-drafts.js';
 const DRAFT_KEY='maple-lua-lab.map-draft.v1';
 const $=id=>document.getElementById(id),assets={},histories={},redos={},baselines={};
 async function json(path){const r=await fetch(path);if(!r.ok)throw Error(path);return r.json()}
 try{
- const [graph,initial,variants]=await Promise.all([json('content/story-graph.json'),json('content/enemy-placement-drafts.json'),json('assets/variants.json'),backgroundReady]);
+ const [graph,initial,variants]=await Promise.all([json('content/story-graph.json'),json('content/enemy-placement-drafts.json'),json('assets/variants.json')]);
  const layouts=await json('content/enemy-art-layout.json');
  let drafts=structuredClone(initial),serial=0,importTicket=0,selected=null;const nodes=new Map(graph.nodes.map(n=>[n.id,n]));
+ const openingNode=nodes.get(new URLSearchParams(location.search).get('node'))??nodes.get('mond-road');
+ const openingBackground=loadScenery(sceneFrame(openingNode,0));
+ const pendingBackgrounds=new Set();
  for(const [id,index] of [['hydro-slime',4],['pyro-slime',6]]){const profiles=Object.fromEntries(Object.entries(variants.variants).map(([k,v])=>[k,v.sprites[index]]));assets[id]={source:'atlas-transparent.png',box:profiles.legacy.box,profiles,h:40}}
  for(const [id,{height,hover,file,name}] of Object.entries(layouts)){
   const data=await json('assets/'+(file??`${id}-idle-sprites.json`)),art={...data,h:height,hover};
@@ -62,21 +65,34 @@ try{
   }catch(e){$('browserStatus').textContent='ブラウザ保存に失敗しました。編集中の案は残っています。JSON保存も利用できます。詳細：'+e.message}
  };
  let lastRenderedDraft=placementSignature(drafts);
+ await openingBackground;
  for(const n of graph.nodes){const option=document.createElement('option');option.value=n.id;option.textContent=`${n.region}｜${n.name}`;$('node').append(option)}
- const openingNode=new URLSearchParams(location.search).get('node');
- $('node').value=nodes.has(openingNode)?openingNode:'mond-road';
+ $('node').value=openingNode.id;
  const positionEditor=setupPlacementPosition({getNode:node,getSelected:()=>placements().find(e=>e.id===selected),commit:(e,x,y)=>{remember(node().id);e.x=x;e.y=y;render()},report:text=>{$('fileStatus').textContent=text}});
  const nodePicker=setupMapNodePicker({graph,select:$('node'),getDraft:()=>drafts,onChoose:select});
  function node(){return nodes.get($('node').value)}
+ function sceneFrame(n,camera){
+  return {camera,platforms:n.platforms,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
+ }
  function placements(){return drafts.nodes[node().id]??[]}
  function placementArt(e){const art=assets[e.species];return e.flip&&art.left?art.left:art}
  function render(){
   const renderedDraft=placementSignature(drafts),dirty=renderedDraft!==savedSignature;if(renderedDraft!==lastRenderedDraft){lastRenderedDraft=renderedDraft;$('browserStatus').textContent=dirty?'未保存の編集があります。再読み込み前にブラウザ保存またはJSON保存してください。':cleanMessage}
-  const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=placements(),frame={camera,platforms:n.platforms,campaign:{zone:n.hub?'town':`story:${n.id}`},story:{active:true,node:n.id},storyGraph:graph};
+  const n=node(),camera=Number($('camera').value),profile=$('profile').value,items=placements(),frame=sceneFrame(n,camera);
   if(!items.some(e=>e.id===selected))selected=null;
   const background=sceneryStatus(frame);
+  if(background.state==='loading'&&!pendingBackgrounds.has(background.file)){
+   pendingBackgrounds.add(background.file);
+   void loadScenery(frame).then(()=>{
+    pendingBackgrounds.delete(background.file);
+    if(window.mapArt?.backgroundFile===background.file)render();
+   });
+  }
   const mapped=Object.values(sceneryDefinitions).some(d=>d.region===n.region),valid=items.every(e=>n.platforms.some(p=>p.y===e.y&&e.x>=p.x&&e.x<=p.x+p.w));
-  $('cameraValue').value=camera;$('context').textContent=`${n.name} ／ 幅${n.width}px ／ ${n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${background.state!=='ready'?'背景画像を読み込めません：単色で表示（'+background.file+'）':mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用'}。配置${items.length}体（見た目確認用）。`;
+  const backgroundLabel=background.state==='loading'?'背景画像を読み込み中':
+   background.state==='error'?'背景画像を読み込めません：単色で表示（'+background.file+'）':
+   mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用';
+  $('cameraValue').value=camera;$('context').textContent=`${n.name} ／ 幅${n.width}px ／ ${n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${backgroundLabel}。配置${items.length}体（見た目確認用）。`;
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame);ctx.imageSmoothingEnabled=false;
    for(const e of items){
     const a=placementArt(e),flip=e.flip&&a===assets[e.species],x=e.x-camera,y=e.y-a.hover;
@@ -112,7 +128,7 @@ try{
    const rear=a.rear&&{source:a.rear.source,top:y+a.rear.bottom-a.rear.height,bottom:y+a.rear.bottom};
    return {id:e.id,source:a.source,y,hover:a.hover,height:a.h,...(rear&&{rear})};
   });
-  window.mapArt={diff,dirty,ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,selected,editMode:$('editMode').value,placements:structuredClone(items),visuals,grounded:valid,background:sceneryKey(frame),backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file};
+  window.mapArt={diff,dirty,ready:true,node:n.id,nodeCount:nodes.size,camera,profile,count:items.length,selected,editMode:$('editMode').value,placements:structuredClone(items),visuals,grounded:valid,background:background.key,backgroundFallback:!mapped,backgroundState:background.state,backgroundFile:background.file};
  }
  function remember(id){const history=histories[id]??=[];history.push(structuredClone(drafts.nodes[id]??[]));if(history.length>100)history.shift();delete redos[id]}
  function restoreHistory(from,to){

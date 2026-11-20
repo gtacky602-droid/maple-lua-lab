@@ -8046,7 +8046,24 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Reduce startup background decoding for the full lab, while extending shared combat to other field arenas and authoring the grouped Local Legends' dedicated moves.",
+  "current_priority": "Extend shared combat to more themed field arenas and author the grouped Local Legends' dedicated moves.",
+  "background_loading": {
+    "status": "local_chrome_on_demand_scenery_verified",
+    "surfaces": [
+      "adventure",
+      "render_comparison",
+      "placement_comparison"
+    ],
+    "cold_start_background_requests": {
+      "before": 174,
+      "after": 1
+    },
+    "cold_start_encoded_background_bytes": {
+      "before": 393442856,
+      "after": 2594401
+    },
+    "evidence": "evidence/scenery-on-demand.json"
+  },
   "multiplayer_preview": {
     "status": "split_map_room_membership_and_local_combat_verified",
     "maps": [

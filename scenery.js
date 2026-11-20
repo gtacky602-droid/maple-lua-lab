@@ -186,7 +186,7 @@ export const sceneryDefinitions={
  sumeruCanopy:{file:'sumeru-canopy-background-v1.png',zones:['story:shouki-godmaking-arena','story:sumeru-canopy-junction','story:sumeru-branch-run','story:sumeru-observation-stop','story:sumeru-observatory-approach','story:sumeru-observatory-terrace','story:sumeru-sky-observatory']},
  sumeru:{file:'sumeru-background-v1.png',region:'スメール',zones:[]}
 };
-const backgrounds={},backgroundStates={};
+const backgrounds=new Map();
 const grayCrystal={image:new Image(),box:[382,175,762,667]};
 grayCrystal.image.src='assets/tunigi-gray-crystal-source-v1.png';
 const decorations=new Map([['tunigi-depth',[
@@ -194,10 +194,39 @@ const decorations=new Map([['tunigi-depth',[
  {art:grayCrystal,x:742,y:480,height:94,flip:true},
  {art:grayCrystal,x:1250,y:480,height:112},
 ]]]);
-export const backgroundReady=Promise.all([
- ...Object.entries(sceneryDefinitions).map(async([key,definition])=>{const image=new Image();backgrounds[key]=image;backgroundStates[key]='loading';image.src='assets/'+definition.file;try{await image.decode();backgroundStates[key]=image.naturalWidth&&image.naturalHeight?'ready':'error'}catch{backgroundStates[key]='error'}}),
- grayCrystal.image.decode().catch(()=>{}), // An optional prop may be absent while its region remains playable.
-]);
+function backgroundFor(file){
+ const cached=backgrounds.get(file);
+ if(cached)return cached;
+ const image=new Image(),entry={image,state:'loading'};
+ backgrounds.set(file,entry);
+ image.src='assets/'+file;
+ entry.ready=image.decode().then(
+  ()=>{entry.state=image.naturalWidth&&image.naturalHeight?'ready':'error'},
+  ()=>{entry.state='error'},
+ );
+ return entry;
+}
+
+// Explicit bulk loading for the existing scenery audits. Importing this module
+// for ordinary play does not start those requests.
+let allBackgrounds;
+async function loadAllBackgrounds(){
+ const files=Array.from(new Set(Object.values(sceneryDefinitions).map(({file})=>file)));
+ let next=0;
+ async function worker(){
+  while(next<files.length)await backgroundFor(files[next++]).ready;
+ }
+ await Promise.all([
+  ...Array.from({length:6},worker),
+  grayCrystal.image.decode().catch(()=>{}),
+ ]);
+}
+export const backgroundReady={
+ then(resolve,reject){
+  allBackgrounds??=loadAllBackgrounds();
+  return allBackgrounds.then(resolve,reject);
+ },
+};
 // Explicit prototype mappings; stale story state must not recolor unrelated lab fights.
 export function sceneryKey(frame){
  const zone=frame.campaign?.zone;
@@ -215,7 +244,11 @@ export function sceneryKey(frame){
  return 'mondstadt';
 }
 export function sceneryStatus(frame){
- const key=sceneryKey(frame);return {key,file:sceneryDefinitions[key].file,state:backgroundStates[key]??'loading'};
+ const key=sceneryKey(frame),file=sceneryDefinitions[key].file;
+ return {key,file,state:backgrounds.get(file)?.state??'loading'};
+}
+export function loadScenery(frame){
+ return backgroundFor(sceneryDefinitions[sceneryKey(frame)].file).ready;
 }
 function drawDecorations(ctx,frame,camera){
  const node=frame.story?.node,placements=decorations.get(node);
@@ -234,8 +267,8 @@ function drawDecorations(ctx,frame,camera){
 }
 export function scenery(ctx,frame){
  ctx.save();ctx.imageSmoothingEnabled=true;
- const key=sceneryKey(frame),background=backgrounds[key];
- if(background.complete&&background.naturalWidth){
+ const key=sceneryKey(frame),{image:background,state}=backgroundFor(sceneryDefinitions[key].file);
+ if(state==='ready'){
   // The temporary image has only 200px of overscan. Stop its parallax at
   // either image edge even when the playable map extends farther.
   const w=1160,h=540,offset=(frame.voyage?.scroll??Math.max(0,Math.min(1,(frame.camera||0)/1920)))*(w-960);
