@@ -22,6 +22,9 @@ return function(C)
   b.facing=dir
   return {move=m,tick=0,dir=dir,origin=b.x,seen={{},{}},shots={},projectiles={}}
  end
+ function drake.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
  function drake.onHit(cast,b,s,slot)
   if not slot or not slot.cast or not C.hitFieldWeakpoint(cast,b) then return end
   -- The successful body/core hit has already removed HP once.
@@ -99,6 +102,11 @@ return function(C)
   if b.rise>0 then return '立て直し' end
   if b.weakpoint then return '胸部コア露出' end
   if c and c.tick>=c.move.recover then return '足を止める・反撃' end
+ end
+ function drake.frame(f,b)
+  f.flying=not not b.flying
+  f.downTicks=b.stagger
+  f.riseTicks=b.rise
  end
  local function rect(f,x,y,w,h,color)
   f.draws[#f.draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}

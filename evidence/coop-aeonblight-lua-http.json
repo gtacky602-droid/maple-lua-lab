@@ -1,0 +1,28 @@
+{
+  "lua": {
+    "players": 4,
+    "bossHp": 1310,
+    "sharedWingHitOncePerParty": true,
+    "soloSwingAdoption": true,
+    "bodyHitKeepsCannon": true,
+    "coreOnlyDamage": 19,
+    "coreStrikeCancelsLiveShell": true,
+    "downTicks": 150,
+    "riseTicks": 24,
+    "rearmTicks": 1200,
+    "airPeakY": 408,
+    "groundAttackMissesPeak": true,
+    "coreAttackerAndGroundAttackerCredited": true,
+    "spectatorsNotCredited": true,
+    "xp": 46150,
+    "mora": 235
+  },
+  "http": {
+    "participants": 2,
+    "sameRoomFromRoadToChamber": true,
+    "sameExposedCoreAndDown": true,
+    "emptyRoomPreservesDownTimer": true,
+    "bothSavedOneClear": true,
+    "onlyAcceptedQuestAdvanced": true
+  }
+}

@@ -941,6 +941,7 @@
     },
     {
       "id": "boss-24030301",
+      "coop": true,
       "controller": "aeonblight",
       "entity": 24030301,
       "name": "兆載永劫ドレイク",

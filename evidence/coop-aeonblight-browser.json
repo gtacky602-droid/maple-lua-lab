@@ -1,0 +1,45 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 1310,
+  "results": [
+    {
+      "seconds": 32.95,
+      "hp": 120,
+      "kills": 1,
+      "mora": 235,
+      "moves": [
+        "FAD01",
+        "FAD02",
+        "FAD03"
+      ],
+      "manualDamage": 383,
+      "down": true,
+      "flight": true
+    },
+    {
+      "seconds": 32.97,
+      "hp": 120,
+      "kills": 1,
+      "mora": 235,
+      "moves": [
+        "FAD01",
+        "FAD02",
+        "FAD03"
+      ],
+      "manualDamage": 372,
+      "down": true,
+      "flight": true
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "savedClears": [
+    1,
+    1
+  ],
+  "backgroundScope": "all",
+  "errors": []
+}
