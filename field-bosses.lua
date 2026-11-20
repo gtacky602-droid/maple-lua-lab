@@ -108,7 +108,7 @@ return function(C,configs,controllers)
   room.fieldSpec,room.fieldSlot=spec,live
   -- Keep the running encounter in the room. Solo saves retain an independent slot.
   local personal={generation=live.generation}
-  spawn(personal,spec,live.enemy.hp)
+  spawn(personal,spec,spec.manualRechallenge and spec.hp or live.enemy.hp)
   personal.waitUntil,personal.entryAt=live.waitUntil,live.entryAt
   if personal.waitUntil then personal.phase='respawn' end
   s.fieldSlots[spec.id]=personal
@@ -116,6 +116,14 @@ return function(C,configs,controllers)
   C.shareFieldHits({live.contact},s.actors)
   local behavior=controllers[spec.controller]
   if live.cast and behavior.shareCast then behavior.shareCast(live.cast,s.actors) end
+ end
+
+ function C.rechallengeCoopField(room)
+  local spec,slot=room.fieldSpec,room.fieldSlot
+  if not spec or not spec.manualRechallenge or slot.phase~='cleared' then return end
+  slot.generation=slot.generation+1
+  spawn(slot,spec,spec.hp)
+  attach({enemies=room.enemies,t=room.time},spec,slot)
  end
 
  local function cancelCast(s,spec,slot)
@@ -368,8 +376,10 @@ return function(C,configs,controllers)
     if e~=room.fieldSlot.enemy or e.hp>0 then return end
     local entry=room.fieldSlot.entryAt
     if entry then started=s.t-(room.time-entry) end
-    spawn(slot,spec,0)
-    slot.waitUntil=s.t+spec.respawnTicks/60;slot.phase='respawn'
+    if not spec.manualRechallenge then
+     spawn(slot,spec,0)
+     slot.waitUntil=s.t+spec.respawnTicks/60;slot.phase='respawn'
+    end
    else
     if not slot or e~=slot.enemy or e.hp>0 or slot.waitUntil or slot.phase=='cleared' then return end
     started=slot.entryAt
@@ -384,7 +394,7 @@ return function(C,configs,controllers)
  end
 
  local function updateGroup(s,group,owner)
-  local slot=s.fieldSlots and s.fieldSlots[group.fieldBoss]
+  local slot=C.fieldSlot(s,group.fieldBoss)
   if not slot or slot.enemy~=group or group.hp<=0 then return end
   local hp=0
   for _,member in ipairs(group.fieldMembers) do hp=hp+member.hp end
@@ -463,6 +473,7 @@ return function(C,configs,controllers)
   local cast=slot.cast
   local label=slot.phase=='cleared' and '討伐完了・入口から再挑戦' or slot.phase=='notice' and '振り向き' or slot.phase=='leash' and '巣へ戻っている' or
    slot.phase=='available' and '警戒前' or cast and cast.move.title or '息継ぎ'
+  if slot.phase=='cleared' and sharedRoom(s,spec.id) then label='討伐完了・全員で出口へ' end
   if slot.phase=='available' and spec.provokeOnly then label=spec.provokeLabel or '演奏中・攻撃で挑戦' end
   if slot.phase=='combat' and #spec.moves==0 then label='戦闘テスト' end
   if spec.presentationOnly and boss.hp>0 then label=spec.displayLabel or '見た目と進行を確認する仮の個体' end

@@ -1,0 +1,45 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "fullHp": [
+    490,
+    500,
+    350
+  ],
+  "sharedHpByStep": [
+    [
+      0,
+      436,
+      350
+    ],
+    [
+      0,
+      0,
+      318
+    ],
+    [
+      0,
+      0,
+      0
+    ]
+  ],
+  "kills": [
+    1,
+    1
+  ],
+  "mora": [
+    550,
+    550
+  ],
+  "savedClears": [
+    1,
+    1
+  ],
+  "rematchHp": [
+    490,
+    500,
+    350
+  ],
+  "sameRoomAfterRematch": true,
+  "errors": []
+}

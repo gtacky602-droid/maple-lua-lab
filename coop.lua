@@ -13,6 +13,7 @@ return function(C, config)
   return room
  end
  function C.attachCoop(room,s,member)
+  if #room.members==0 then C.rechallengeCoopField(room) end
   if not member then
    room.nextId=room.nextId+1
    member={id=room.nextId,state=s,online=true}
@@ -38,13 +39,22 @@ return function(C, config)
  function C.coopContact(s,e,actor)
   local room,member=s.coop,s.coopMember
   if not onField(member) then return end
-  e=e.sharedHealth or e
+  e=e.fieldGroup or e.sharedHealth or e
   if e.noRewards then return end
   e.coopHits=e.coopHits or {}
   e.coopHits[member.id]={time=room.time,actor=actor}
  end
  local function inRewardRange(actor,body)
   return math.abs(actor.x-body.x)<=config.rewardRange.x and math.abs(actor.y-body.y)<=config.rewardRange.y
+ end
+ local function nearEncounter(actor,e)
+  if e.fieldMembers then
+   for _,body in ipairs(e.fieldMembers) do
+    if inRewardRange(actor,body) then return true end
+   end
+   return false
+  end
+  return inRewardRange(actor,e) or (e.fieldPartner and inRewardRange(actor,e.fieldPartner))
  end
 
  function C.coopDefeat(s,e)
@@ -57,7 +67,7 @@ return function(C, config)
    if hit and room.time-hit.time<=config.contributionSeconds and onField(member) then
     local party=member.state
     local a=party.actors[party.active]
-    if a.hp>0 and (inRewardRange(a,e) or (e.fieldPartner and inRewardRange(a,e.fieldPartner))) then
+    if a.hp>0 and nearEncounter(a,e) then
      C.creditDefeat(party,e,hit.actor)
     end
    end

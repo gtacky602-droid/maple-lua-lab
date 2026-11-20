@@ -12,7 +12,10 @@
     "tulpa-field-grotto": "フォンテーヌ・潮影の洞",
     "icewind-promenade": "フォンテーヌ・氷風の舞台入口",
     "icewind-coppelia-field": "氷風組曲・コッペリアの葬送",
-    "icewind-coppelius-field": "氷風組曲・コペリウスの劫罰"
+    "icewind-coppelius-field": "氷風組曲・コペリウスの劫罰",
+    "witztli-tristars-camp": "ウィッツトリの丘・三連星の野営場",
+    "atocpan-battlegoat-ironclaw-field": "火山南・戦羊と鉄爪の広場",
+    "sne-novokichev-ore-yard": "ノヴォキッチェヴ市街地・鉱荷の集積場"
   },
   "capacity": 4,
   "rewardRange": {"x": 420, "y": 180},

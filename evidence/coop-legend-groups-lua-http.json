@@ -1,0 +1,99 @@
+{
+  "lua": [
+    {
+      "id": "legend-natlan_polychrome_tristars",
+      "membersHp": [
+        490,
+        500,
+        350
+      ],
+      "hpAfterEach": [
+        [
+          0,
+          500,
+          350
+        ],
+        [
+          0,
+          0,
+          350
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "xp": 464100,
+      "mora": 550,
+      "creditedMembers": [
+        1,
+        2
+      ],
+      "rematchGeneration": 2
+    },
+    {
+      "id": "legend-natlan_battlegoat_ironclaw",
+      "membersHp": [
+        690,
+        570
+      ],
+      "hpAfterEach": [
+        [
+          0,
+          570
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "xp": 464100,
+      "mora": 610,
+      "creditedMembers": [
+        1,
+        2
+      ],
+      "rematchGeneration": 2
+    },
+    {
+      "id": "legend-snez_rowdy_beast_host",
+      "membersHp": [
+        870,
+        740,
+        1000
+      ],
+      "hpAfterEach": [
+        [
+          0,
+          740,
+          1000
+        ],
+        [
+          0,
+          0,
+          1000
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "xp": 14818300,
+      "mora": 1370,
+      "creditedMembers": [
+        1,
+        2
+      ],
+      "rematchGeneration": 2
+    }
+  ],
+  "http": {
+    "participants": 2,
+    "sameRoomCode": true,
+    "partialHpKeptAfterBothExited": true,
+    "oneRemainingPlayerKeepsClearedRound": true,
+    "newRoundAfterBothExited": true
+  }
+}

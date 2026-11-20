@@ -8046,7 +8046,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Extend shared field battles to independently defeated enemy groups and encounters with elemental seals.",
+  "current_priority": "Extend shared field combat to encounters with elemental seals and finish the dedicated moves of the grouped Local Legends.",
   "multiplayer_preview": {
     "status": "split_map_room_membership_and_local_combat_verified",
     "maps": [
@@ -8061,7 +8061,10 @@
       "tulpa-field-grotto",
       "icewind-promenade",
       "icewind-coppelia-field",
-      "icewind-coppelius-field"
+      "icewind-coppelius-field",
+      "witztli-tristars-camp",
+      "atocpan-battlegoat-ironclaw-field",
+      "sne-novokichev-ore-yard"
     ],
     "bosses": [
       "boss-20040201",
@@ -8069,7 +8072,10 @@
       "boss-20040301",
       "boss-20051201",
       "icewind-coppelia",
-      "icewind-coppelius"
+      "icewind-coppelius",
+      "legend-natlan_polychrome_tristars",
+      "legend-natlan_battlegoat_ironclaw",
+      "legend-snez_rowdy_beast_host"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8100,7 +8106,12 @@
       "evidence/coop-tulpa-lua-http.json",
       "evidence/coop-tulpa-browser.json",
       "evidence/coop-tulpa-half.png",
-      "evidence/coop-tulpa-interrupt.png"
+      "evidence/coop-tulpa-interrupt.png",
+      "evidence/coop-legend-groups-lua-http.json",
+      "evidence/coop-tristars-browser.json",
+      "evidence/coop-tristars-gather.png",
+      "evidence/coop-tristars-first-down.png",
+      "evidence/coop-tristars-cleared.png"
     ],
     "pending": [
       "remaining normal, weekly and Stygian bosses",
