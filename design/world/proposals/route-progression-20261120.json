@@ -224,7 +224,11 @@
         96,
         140
       ],
-      "note": "高難度への既存の入口条件を保持。レベル差は通常狩りの連続区間と扱わない。"
+      "note": "色褪せた城から往日の海へは原典と既存Webの参照。今回の追加候補はペトリコールから色褪せた城まで。既存の高難度入口条件を保持する。",
+      "links": [
+        "route_review_required",
+        "web_reference_only"
+      ]
     }
   ],
   "browser_reported_routes": [
@@ -8639,5 +8643,15 @@
         "max_simultaneous_hostile": 0
       }
     }
-  ]
+  ],
+  "verification": {
+    "sites_base_matches_github_fields_and_edges": true,
+    "sites_draft_applicable_operations": 43,
+    "sites_schema_conflicts_on_unedited_baseline": 0,
+    "required_real_terrain_and_playtest": "pending",
+    "retained_existing_edge_records": 925,
+    "duplicate_candidate_pairs": 0,
+    "candidate_unreachable_after_all": 0,
+    "enemy_evidence_rows_same_floor_local_reference": 28
+  }
 }
