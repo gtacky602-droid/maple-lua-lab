@@ -117,6 +117,18 @@
     "hover": 0,
     "file": "legend-tristars-pyro-field-idle-sprites-v1.json"
   },
+  "fatui-frost-operative": {
+    "name": "ファデュイ・氷霜の従者（イゾルトと共用する待機候補）",
+    "height": 104,
+    "hover": 0,
+    "file": "fatui-frost-operative-shared-idle-sprites-v2.json"
+  },
+  "fatui-wind-operative": {
+    "name": "ファデュイ・烈風の従者（ディアンナラと共用する待機候補）",
+    "height": 116,
+    "hover": 0,
+    "file": "fatui-wind-operative-shared-idle-sprites-v2.json"
+  },
   "oprichniki-fireblade-shock-trooper": {
     "name": "ファデュイ特務隊・突撃兵・ファイアーブレイド（ラスコルニコフと共用する待機候補）",
     "height": 110,

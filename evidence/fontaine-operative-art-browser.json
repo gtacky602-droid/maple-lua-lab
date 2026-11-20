@@ -1,0 +1,42 @@
+{
+  "base": "http://127.0.0.1:9004",
+  "profiles": [
+    "legacy",
+    "h48c32",
+    "h32c16"
+  ],
+  "results": [
+    {
+      "family": "frost",
+      "node": "yseut-legend-court",
+      "ordinary": "fatui-frost-operative",
+      "legend": "legend-yseut-shared-operative",
+      "old": "legend-yseut",
+      "height": 104,
+      "source": "fatui-frost-operative-shared-idle-source-v2.png",
+      "results": {
+        "legacy": 1618,
+        "h48c32": 971,
+        "h32c16": 540
+      },
+      "screenshot": "evidence/fontaine-operative-frost-comparison.png"
+    },
+    {
+      "family": "wind",
+      "node": "deianeira-legend-lab",
+      "ordinary": "fatui-wind-operative",
+      "legend": "legend-deianeira-shared-operative",
+      "old": "legend-deianeira",
+      "height": 116,
+      "source": "fatui-wind-operative-shared-idle-source-v2.png",
+      "results": {
+        "legacy": 2077,
+        "h48c32": 1552,
+        "h32c16": 811
+      },
+      "screenshot": "evidence/fontaine-operative-wind-comparison.png"
+    }
+  ],
+  "mobileGalleryWidth": 390,
+  "errors": []
+}

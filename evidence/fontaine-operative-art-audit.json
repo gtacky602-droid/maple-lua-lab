@@ -1,0 +1,66 @@
+{
+  "revision": 2,
+  "reference_log": "fontaine-operative-references.json",
+  "comparison_records": [
+    {
+      "family": "frost",
+      "source": "fatui-frost-operative-shared-idle-source-v2.png",
+      "reference_ids": [
+        "frost-full",
+        "y-note",
+        "hoyo-08",
+        "hoyo-17",
+        "frost-2d"
+      ],
+      "cell_wh": [
+        288,
+        144
+      ],
+      "anatomical_heads_estimate": 2.97,
+      "pivot_xy": [
+        144,
+        132
+      ],
+      "silhouette_16colors": {
+        "connected_components_8way": 1,
+        "blade_tip_and_guard_connected": true
+      },
+      "rectangles": {
+        "legacy": 1618,
+        "h48c32": 971,
+        "h32c16": 540
+      },
+      "reduction_percent": 66.63
+    },
+    {
+      "family": "wind",
+      "source": "fatui-wind-operative-shared-idle-source-v2.png",
+      "reference_ids": [
+        "wind-full",
+        "d-note",
+        "hoyo-19",
+        "hoyo-21",
+        "wind-2d"
+      ],
+      "cell_wh": [
+        288,
+        144
+      ],
+      "anatomical_heads_estimate": 3.0,
+      "pivot_xy": [
+        144,
+        132
+      ],
+      "silhouette_16colors": {
+        "connected_components_8way": 1,
+        "blade_tip_and_guard_connected": true
+      },
+      "rectangles": {
+        "legacy": 2077,
+        "h48c32": 1552,
+        "h32c16": 811
+      },
+      "reduction_percent": 60.95
+    }
+  ]
+}

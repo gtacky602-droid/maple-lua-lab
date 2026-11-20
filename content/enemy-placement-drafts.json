@@ -2,6 +2,16 @@
   "version": 1,
   "status": "visual-only draft; not canonical spawn geography or live combat placement",
   "nodes": {
+    "yseut-legend-court": [
+      {"id": "preview-frost-ordinary", "species": "fatui-frost-operative", "x": 190, "y": 480, "flip": false},
+      {"id": "preview-yseut-shared", "species": "boss-legend-yseut-shared-operative", "x": 410, "y": 480, "flip": false},
+      {"id": "preview-yseut-current", "species": "boss-legend-yseut", "x": 785, "y": 480, "flip": false}
+    ],
+    "deianeira-legend-lab": [
+      {"id": "preview-wind-ordinary", "species": "fatui-wind-operative", "x": 190, "y": 480, "flip": false},
+      {"id": "preview-deianeira-shared", "species": "boss-legend-deianeira-shared-operative", "x": 410, "y": 480, "flip": false},
+      {"id": "preview-deianeira-current", "species": "boss-legend-deianeira", "x": 785, "y": 480, "flip": false}
+    ],
     "chassanion-legend-bubble-room": [
       {"id": "preview-jelly-gold", "species": "hat-jellyfish-gold", "x": 255, "y": 480, "flip": false},
       {"id": "preview-jelly-blue", "species": "hat-jellyfish-blue", "x": 480, "y": 480, "flip": false},
