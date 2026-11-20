@@ -52,6 +52,10 @@ return function(C)
   return c
  end
 
+ function baptist.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
+
  local function slot(c,i)
   return c.move.slot or i
  end
@@ -61,6 +65,19 @@ return function(C)
  end
  local function shotX(c,age)
   return c.origin+c.dir*(.43+age*c.move.speed/60)*U
+ end
+
+ function baptist.frame(f,b,s,c)
+  if not c or c.tick<c.move.lock or c.move.kind=='bolt' then return end
+  local m=c.move
+  f.warnings={}
+  for i,w in ipairs(m.active) do
+   if c.tick<w[2] then
+    local x,half=point(c,i),m.width*U/2
+    f.warnings[#f.warnings+1]={left=x-half,right=x+half,order=i,element=c.slots[slot(c,i)],
+     first=w[1],after=w[2],active=c.tick>=w[1]}
+   end
+  end
  end
 
  function baptist.tick(state,b,s,c,a)

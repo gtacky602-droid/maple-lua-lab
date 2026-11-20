@@ -1,0 +1,61 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "slots": [
+    [
+      "pyro",
+      "cryo",
+      "electro"
+    ],
+    [
+      "pyro",
+      "cryo",
+      "electro"
+    ]
+  ],
+  "results": [
+    {
+      "seconds": 27.08,
+      "hp": 92,
+      "kills": 1,
+      "mora": 255,
+      "moves": [
+        "FIB01",
+        "FIB02",
+        "FIB03"
+      ],
+      "ringOrders": [
+        1,
+        2,
+        3
+      ],
+      "manualDamage": 312
+    },
+    {
+      "seconds": 27.03,
+      "hp": 140,
+      "kills": 1,
+      "mora": 255,
+      "moves": [
+        "FIB01",
+        "FIB02",
+        "FIB03"
+      ],
+      "ringOrders": [
+        1,
+        2,
+        3
+      ],
+      "manualDamage": 320
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "savedClears": [
+    1,
+    1
+  ],
+  "errors": []
+}

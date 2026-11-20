@@ -8046,7 +8046,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Extend shared field combat to encounters with elemental seals and finish the dedicated moves of the grouped Local Legends.",
+  "current_priority": "Extend shared combat to more themed field arenas and finish the dedicated moves of the grouped Local Legends.",
   "multiplayer_preview": {
     "status": "split_map_room_membership_and_local_combat_verified",
     "maps": [
@@ -8058,6 +8058,8 @@
       "electro-field-shelf",
       "geo-approach",
       "geo-field-court",
+      "sumeru-entry",
+      "baptist-field-sanctuary",
       "tulpa-field-grotto",
       "icewind-promenade",
       "icewind-coppelia-field",
@@ -8070,6 +8072,7 @@
       "boss-20040201",
       "boss-20040101",
       "boss-20040301",
+      "boss-22100501",
       "boss-20051201",
       "icewind-coppelia",
       "icewind-coppelius",
@@ -8111,7 +8114,11 @@
       "evidence/coop-tristars-browser.json",
       "evidence/coop-tristars-gather.png",
       "evidence/coop-tristars-first-down.png",
-      "evidence/coop-tristars-cleared.png"
+      "evidence/coop-tristars-cleared.png",
+      "evidence/coop-baptist-lua-http.json",
+      "evidence/coop-baptist-browser.json",
+      "evidence/coop-baptist-rings.png",
+      "evidence/coop-baptist-cleared.png"
     ],
     "pending": [
       "remaining normal, weekly and Stygian bosses",

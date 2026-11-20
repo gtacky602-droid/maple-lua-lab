@@ -1,0 +1,39 @@
+{
+  "lua": {
+    "bossHp": 1090,
+    "players": 4,
+    "initialElements": [
+      "pyro",
+      "cryo",
+      "electro"
+    ],
+    "respawnElements": [
+      "cryo",
+      "hydro",
+      "pyro"
+    ],
+    "allyWallBlocksWholeBolt": true,
+    "secondBoltHitsOneParty": true,
+    "sameAreaHitsSeparatePartiesOnce": true,
+    "ringTags": [
+      "pyro",
+      "cryo",
+      "electro"
+    ],
+    "attackableDuringRings": true,
+    "recoveryShared": true,
+    "soloToRoomMigratesHitHistory": true,
+    "pendingBoltClearedOnKill": true,
+    "respawnTicks": 3600,
+    "killXp": 82300,
+    "killMora": 255
+  },
+  "http": {
+    "participants": 2,
+    "sameRoomFromEntryToArena": true,
+    "sameWarningsAndElements": true,
+    "vacantArenaPreservesCast": true,
+    "individualSavedClears": true,
+    "onlyAcceptedQuestAdvanced": true
+  }
+}
