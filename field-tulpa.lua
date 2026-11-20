@@ -41,6 +41,10 @@ return function(C)
   return c
  end
 
+ function tulpa.shareCast(cast,actors)
+  C.shareFieldHits(cast.seen,actors)
+ end
+
  local function bounds(c,i)
   local m=c.move
   if m.kind=='spear' then

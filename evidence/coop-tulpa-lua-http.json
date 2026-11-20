@@ -1,0 +1,28 @@
+{
+  "lua": {
+    "bossHp": 1030,
+    "summonHp": 26,
+    "fourPlayersSharePositionAndHp": true,
+    "pendingHitAtMergeTickStopsAbsorption": true,
+    "noRewardsFromHalfTulpa": true,
+    "unabsorbedAndAbsorbedDamage": [
+      20,
+      28
+    ],
+    "absorptionDoesNotHeal": true,
+    "summonOnlyPlayerGetsNoBossCredit": true,
+    "bossDeathCleansUpLiveSummon": true,
+    "soloToRoomKeepsExistingSummon": true,
+    "xp": 148300,
+    "mora": 315,
+    "respawnTicks": 3600
+  },
+  "http": {
+    "participants": 2,
+    "sameSummonHpInBothViews": true,
+    "emptyMapPreservesLiveSummon": true,
+    "portalReturnKeepsSameSlotAndSummon": true,
+    "bothViewsRemoveSummonOnBossDeath": true,
+    "individualRewardsAndRecords": true
+  }
+}

@@ -39,6 +39,7 @@ return function(C, config)
   local room,member=s.coop,s.coopMember
   if not onField(member) then return end
   e=e.sharedHealth or e
+  if e.noRewards then return end
   e.coopHits=e.coopHits or {}
   e.coopHits[member.id]={time=room.time,actor=actor}
  end

@@ -1,0 +1,46 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "maxHp": 1030,
+  "halfHp": 26,
+  "bothSawInterrupt": true,
+  "results": [
+    {
+      "seconds": 26.53,
+      "hp": 140,
+      "kills": 1,
+      "moves": [
+        "FHT01",
+        "FHT02",
+        "FHT03"
+      ],
+      "stopped": true,
+      "absorbed": false,
+      "bossDamage": 509,
+      "halfDamage": 12
+    },
+    {
+      "seconds": 26.68,
+      "hp": 140,
+      "kills": 1,
+      "moves": [
+        "FHT01",
+        "FHT02",
+        "FHT03"
+      ],
+      "stopped": true,
+      "absorbed": false,
+      "bossDamage": 505,
+      "halfDamage": 14
+    }
+  ],
+  "personalQuestCounts": [
+    1,
+    null
+  ],
+  "savedClears": [
+    1,
+    1
+  ],
+  "errors": []
+}

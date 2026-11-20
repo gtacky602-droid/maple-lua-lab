@@ -8046,7 +8046,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Extend shared field combat to bosses with elemental seals, summons and independently defeated bodies.",
+  "current_priority": "Extend shared field battles to independently defeated enemy groups and encounters with elemental seals.",
   "multiplayer_preview": {
     "status": "split_map_room_membership_and_local_combat_verified",
     "maps": [
@@ -8058,6 +8058,7 @@
       "electro-field-shelf",
       "geo-approach",
       "geo-field-court",
+      "tulpa-field-grotto",
       "icewind-promenade",
       "icewind-coppelia-field",
       "icewind-coppelius-field"
@@ -8066,6 +8067,7 @@
       "boss-20040201",
       "boss-20040101",
       "boss-20040301",
+      "boss-20051201",
       "icewind-coppelia",
       "icewind-coppelius"
     ],
@@ -8094,7 +8096,11 @@
       "evidence/coop-icewind-browser.json",
       "evidence/coop-icewind-armor.png",
       "evidence/coop-icewind-armor-broken.png",
-      "evidence/coop-icewind-coppelia.png"
+      "evidence/coop-icewind-coppelia.png",
+      "evidence/coop-tulpa-lua-http.json",
+      "evidence/coop-tulpa-browser.json",
+      "evidence/coop-tulpa-half.png",
+      "evidence/coop-tulpa-interrupt.png"
     ],
     "pending": [
       "remaining normal, weekly and Stygian bosses",
