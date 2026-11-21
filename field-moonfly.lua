@@ -14,13 +14,16 @@ return function(C)
   place(b,s,'idle','idle')
  end
  function moonfly.cancel(b,s,state)
-  C.clearRadiantCocoons(state)
+  C.clearEncounterCocoons(state)
   moonfly.spawn(b,s)
  end
  function moonfly.onDefeat(state,b,s) moonfly.cancel(b,s,state) end
  function moonfly.begin(b,s,m)
   return {move=m,tick=0,origin=b.x,dir=b.facing,seen={{},{},{}},contacts=setmetatable({},{__mode='k'}),
    source={id=b.id,owner=b,y=s.floorY,damageElement='dendro'}}
+ end
+ function moonfly.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
  end
  local function lock(c,s,a)
   local m=c.move

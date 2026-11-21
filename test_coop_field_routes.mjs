@@ -141,7 +141,15 @@ const cases={
  nightmare:{hub:'nod-town',arena:'nod-nightmare-shore',approach:'nod-field',
   boss:'boss-22150101',quest:'whisperer-nightmares-commission',hp:1340,mora:475,xp:768050,scene:'nightmareField',
   asset:'whisperer-nightmares-field',pose:'poses',label:'fishers',fixture:'whisperer-nightmares-field',report:[9200,630],stance:76,
-  evade:{FWN01:[95],FWN02:[133],FWN03:[835]}}
+  evade:{FWN01:[95],FWN02:[133],FWN03:[835]}},
+ moonfly:{hub:'nod-town',arena:'nod-moonfly-hollow',approach:'nod-field',
+  boss:'boss-26301101',quest:'moonfly-commission',hp:1050,mora:485,xp:871150,scene:'moonflyField',
+  asset:'moonfly-field',pose:'poses',label:'cocoons',report:[9400,650],stance:82,
+  evade:{FMF01:[95,161],FMF02:[107,175],FMF03:[209,317,445]}},
+ moongecko:{hub:'nod-town',arena:'nod-gecko-depths',approach:'nod-field',
+  boss:'boss-26302101',quest:'moongecko-commission',hp:1160,mora:495,xp:988100,scene:'moongeckoField',
+  asset:'moongecko-field',pose:'poses',label:'moonstone-anchor',report:[9600,670],stance:78,
+  evade:{FMG01:[99,169],FMG02:[129],FMG03:[475]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -187,6 +195,8 @@ async function fight(page,side,key,config) {
   const reflectionLayouts=new Set(),reflectionLayers=new Set();
   const repairLayouts=new Set(),thermalStates=new Set();
   const adaptedElements=new Set(),fisherLayouts=new Set(),shieldStates=new Set();
+  const anchorLayers=new Set();
+  const hasCocoon=key==='moonfly'||key==='moongecko';
   const art=config.pose&&config.asset+'-'+config.pose+'-source-v1.png';
   const entities=config.bodies??[Number(config.boss.slice(5))];
   const start=window.lab.frame;
@@ -196,6 +206,7 @@ async function fight(page,side,key,config) {
   let reflectionBroken=false,lastReflectionFire=-Infinity;
   let machineDown=false,shipHeating=false,lastShipFire=-Infinity;
   let adaptationEnded=false,gloomDown=false,shieldDown=false,nextIce=-Infinity,iceCasts=0;
+  let caught=false,escaped=false,peerEscaped=false,peerStillBound=false,anchorBroken=false,geoExposure=false,healX,nextHeal=0;
   function hold(code,on) {
    if(on===held.has(code)) return;
    if(on) held.add(code); else held.delete(code);
@@ -225,7 +236,8 @@ async function fight(page,side,key,config) {
      reflectionLayouts:[...reflectionLayouts],reflectionLayers:[...reflectionLayers],reflectionBroken,
      repairLayouts:[...repairLayouts],thermalStates:[...thermalStates],machineDown,
      ...(key==='herra'?{adaptedElements:[...adaptedElements],adaptationEnded,gloomDown}:{}),
-     ...(key==='nightmare'?{fisherLayouts:[...fisherLayouts],shieldStates:[...shieldStates],shieldDown}:{})};
+     ...(key==='nightmare'?{fisherLayouts:[...fisherLayouts],shieldStates:[...shieldStates],shieldDown}:{}),
+     ...(hasCocoon?{caught,escaped,peerStillBound,anchorLayers:[...anchorLayers],anchorBroken,geoExposure}:{})};
     return;
    }
    if(!b) {
@@ -491,6 +503,27 @@ async function fight(page,side,key,config) {
     }
     if(b.form==='down'&&b.darkShield.hp===0&&!b.summons) shieldDown=true;
    }
+   const mark=hasCocoon&&f.radiantCocoons?.find(m=>m.actor===f.active);
+   const peer=hasCocoon&&f.coop.peers[0]?.actors[0];
+   const peerTag=peer&&f.draws.find(d=>(d.text==='集光の繭'||d.text==='脱出')&&
+    Math.abs(d.x+f.camera-peer.x)<.001&&Math.abs(d.y-(peer.y-65))<.001);
+   if(hasCocoon){
+    if(peerTag?.text==='脱出') peerEscaped=true;
+    if(mark?.bound) caught=true;
+    if(mark&&!mark.bound){
+     escaped=true;
+     if(peerTag?.text==='集光の繭') peerStillBound=true;
+    }
+    if(key==='moonfly') visual=Boolean(mark?.bound&&peerTag?.text==='集光の繭');
+    if(b.summon&&f.draws.some(d=>d.source===art&&Math.abs(d.x+f.camera-b.summon.x)<.001)){
+     anchorLayers.add(b.summon.hp);
+     visual=Boolean(mark?.bound);
+    }
+    if(key==='moongecko'&&b.form==='down'&&!b.summon) anchorBroken=true;
+    if(b.geoExposureTicks>0) geoExposure=true;
+    if(mark?.bound&&(key==='moonfly'||anchorBroken)&&
+       (side===-1||peerEscaped)) healX??=b.x+side*295;
+   }
    if(config.observeRecovery&&b.recovering&&sprite) recovered=true;
    if(visual&&!capture&&side===-1){
     capture=document.querySelector('#game').toDataURL('image/png').split(',')[1];
@@ -502,7 +535,10 @@ async function fight(page,side,key,config) {
     shieldUsed=true;
     hold('Digit1',true);hold('Digit1',false);
    }
-   for(const at of prepareShield?[]:config.evade[b.move]||[]) {
+   const healing=mark?.bound&&!escaped&&healX!==undefined;
+   const attackTimings=config.evade[b.move]||[];
+   if(hasCocoon) hold('Space',!healing&&attackTimings.some(at=>b.tick>=at-15&&b.tick<at+6));
+   for(const at of prepareShield||hasCocoon?[]:attackTimings) {
     if(b.tick>=at&&b.tick<at+6&&!used.has(at)){
      used.add(at);hold('ShiftLeft',true);hold('ShiftLeft',false);
     }
@@ -510,10 +546,12 @@ async function fight(page,side,key,config) {
    const preferred=b.bodies?.[side===-1?0:1];
    const other=b.bodies?.[side===-1?1:0];
    const device=config.breakable&&b.summon&&(!config.breakable.pips||b.cannonBounds);
-   const sharedSummon=(key==='spiritspeaker'||key==='duckle'||key==='nightmare')&&b.summons?.at(side===-1?0:-1);
+   const sharedSummon=key==='moongecko'?b.summon:
+    (key==='spiritspeaker'||key==='duckle'||key==='nightmare')&&b.summons?.at(side===-1?0:-1);
    const target=device||sharedSummon||(config.bodies?(preferred?.y<450?other:preferred)??b:b);
    const dx=target.x-a.x;
    let desired=target.x+side*(device?65:config.stance??104);
+   if(healing) desired=healX;
    const gravityTurn=config.gravityJump&&b.move==='FFG03'&&b.tick<188;
    if(gravityTurn&&side===1) desired=(b.gravity?.right??b.x+264)+26;
    if(config.gravityJump){
@@ -530,10 +568,13 @@ async function fight(page,side,key,config) {
     }
     hold('Space',Boolean(jumpProbe));
    }
-   const position=desired-a.x,turn=Math.abs(dx)>8&&dx*a.dir<0;
+   const position=desired-a.x,turn=!healing&&Math.abs(dx)>8&&dx*a.dir<0;
    hold('KeyA',position<-7||(Math.abs(position)<=7&&turn&&dx<0));
    hold('KeyD',position>7||(Math.abs(position)<=7&&turn&&dx>0));
    const inReach=Math.abs(dx)<125&&dx*a.dir>=0;
+   if(healing&&Math.abs(position)<15&&a.ground&&!f.macro&&f.t>=nextHeal){
+    window.lab.action('slot1');nextHeal=f.t+10;
+   }
    if(key==='spiritspeaker'&&sharedSummon&&inReach&&a.ground&&!f.macro&&f.t-lastReflectionFire>3.2){
     window.lab.action('slot1');lastReflectionFire=f.t;
    }
@@ -581,9 +622,10 @@ async function fight(page,side,key,config) {
    const watchShip=key==='battleship'&&!machineDown&&(b.form==='shield'?b.tick<28:b.hp<570);
    const watchHerra=key==='herra'&&!gloomDown&&b.hp<680;
    const watchNightmare=key==='nightmare'&&!shieldDown&&!sharedSummon&&b.hp<640;
+   const watchCocoon=hasCocoon&&!sharedSummon&&(!escaped||!peerEscaped);
    hold('KeyJ',!watchRelay&&!watchGravity&&!watchEmperor&&!watchPearl&&!watchSuanni&&!watchBreak&&!watchYumka&&!watchPapilla&&
     !watchLava&&!watchOverseer&&!watchReflections&&!watchDuck&&!watchShip&&!watchHerra&&!watchNightmare&&
-    inReach&&(!device||Math.abs(dx)<96));
+    !watchCocoon&&!healing&&inReach&&(!device||Math.abs(dx)<96));
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
@@ -725,6 +767,13 @@ async function run(key,config) {
   assert.ok(a.fisherLayouts.some(layout=>b.fisherLayouts.includes(layout)),JSON.stringify(results));
   assert.ok(a.shieldStates.some(hp=>hp<400&&b.shieldStates.includes(hp)),JSON.stringify(results));
   assert.ok(a.shieldDown&&b.shieldDown,JSON.stringify(results));
+ }
+ if(key==='moonfly'||key==='moongecko'){
+  assert.ok(a.peerStillBound&&results.every(result=>result.caught&&result.escaped),JSON.stringify(results));
+ }
+ if(key==='moongecko'){
+  assert.ok(a.anchorLayers.some(layers=>b.anchorLayers.includes(layers)),JSON.stringify(results));
+  assert.ok(results.every(result=>result.anchorBroken&&result.geoExposure),JSON.stringify(results));
  }
  if(config.fallTell) assert.ok(a.fallLayouts.some(x=>b.fallLayouts.includes(x)),JSON.stringify(results));
  if(config.observeRecovery) assert.ok(a.recovered&&b.recovered,JSON.stringify(results));

@@ -13,17 +13,29 @@ return function(C)
  end
  function gecko.cancel(b,s,state,c)
   C.clearFieldSummon(state,c)
-  C.clearRadiantCocoons(state)
+  C.clearEncounterCocoons(state)
   gecko.spawn(b,s)
  end
  function gecko.onDefeat(state,b,s,c) gecko.cancel(b,s,state,c) end
+ local function exposureRemaining(state,b)
+  local untilTime=b.geoExposedUntil or 0
+  if untilTime==0 then return 0 end
+  local _,now=C.fieldSlot(state,b.fieldBoss)
+  return math.max(0,untilTime-now)
+ end
  function gecko.damageFactor(state,_,b,s,element)
-  if element=='geo' and state.t<(b.geoExposedUntil or 0) then return s.cocoon.geoEscapeFactor end
+  if element=='geo' and exposureRemaining(state,b)>1e-8 then return s.cocoon.geoEscapeFactor end
   return 1
  end
  function gecko.begin(b,s,m)
   return {move=m,tick=0,origin=b.x,dir=b.facing,seen={{},{}},
    source={id=b.id,owner=b,y=s.floorY,damageElement='geo'}}
+ end
+ function gecko.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
+ function gecko.frame(f,b,_,_,state)
+  f.geoExposureTicks=math.max(0,math.ceil(exposureRemaining(state,b)*60-1e-7))
  end
  local function lock(c,s,a)
   local m=c.move
@@ -43,15 +55,21 @@ return function(C)
   local x=clamp(c.origin+c.dir*s.anchor.offset*U,s.arenaMin+36,s.arenaMax-36)
   c.openedAt=state.t
   local contacts=setmetatable({},{__mode='k'})
-  local function accepts(cast)
-   return not cast.reaction and cast.startedAt and cast.startedAt>=c.openedAt
+  local function accepts(cast,party)
+   return not cast.reaction and C.fieldCastStartedSince(party,b.fieldBoss,cast,c.openedAt)
   end
-  local function contact(_,cast,unit)
-   if accepts(cast) and not contacts[cast] then
+  local function contact(party,cast,unit)
+   if accepts(cast,party) and not contacts[cast] then
     contacts[cast]=true
     local layers=cast.element=='geo' and s.anchor.geoLayers or 1
     unit.hp=math.max(0,unit.hp-layers)
-    c.anchorActor=cast.id
+    if unit.hp==0 then
+     c.anchorParty=party
+     c.backlash={id=cast.id,key='moongecko:anchor',atk=s.anchor.backlashAttack,
+      x=b.x,y=b.y,dir=1,radial=true,range=1,limit=1,targetId=b.id,mult=1,color=gold,
+      element='geo',reaction=true,critRate=0,gain=0}
+     c.backlashDamage=C.enemyHitDamage(party,c.backlash,b,1,'geo')
+    end
    end
    return false
   end
@@ -61,15 +79,24 @@ return function(C)
    acceptsCast=accepts,onCastContact=contact}
   state.enemies[#state.enemies+1]=c.summon
  end
+ local function backlash(state,b,c)
+  local party=c.anchorParty
+  if not state.parties or (party.enemies==state.enemies and C.sharesCoopField(party) and party.coopMember.online) then
+   C.resolveCast(party,c.backlash)
+  elseif b.hp<=c.backlashDamage then
+   -- Settle a lethal backlash using existing contributions when the breaker has left.
+   C.defeatEnemy(state.parties[1],b,nil)
+  else
+   b.hp=b.hp-c.backlashDamage
+  end
+ end
  function gecko.tick(state,b,s,c,a)
   local m,t=c.move,c.tick+1
   c.tick=t
   if c.summon and c.summon.hp<=0 then
    c.broken=t
    C.clearFieldSummon(state,c)
-   C.resolveCast(state,{id=c.anchorActor,key='moongecko:anchor',atk=s.anchor.backlashAttack,
-    x=b.x,y=b.y,dir=1,radial=true,range=1,limit=1,targetId=b.id,mult=1,color=gold,
-    element='geo',reaction=true,critRate=0,gain=0})
+   backlash(state,b,c)
    if b.hp<=0 then return true end
   end
   if c.broken then
@@ -89,7 +116,8 @@ return function(C)
    form,pose='charging','charge'
    if t==m.bind then
     C.bindRadiantCocoon(state,s,c.source,c.left,c.right,function(current)
-     b.geoExposedUntil=current.t+s.cocoon.escapeTicks/60
+     local _,now=C.fieldSlot(current,b.fieldBoss)
+     b.geoExposedUntil=now+s.cocoon.escapeTicks/60
     end)
    end
    if t==m.deploy then anchor(state,b,s,c) end
@@ -114,7 +142,7 @@ return function(C)
    return '月石の錨 '..c.summon.hp..'／'..s.anchor.layers..(mark and mark.bound and '・集光の繭' or '')
   end
   if mark and mark.bound then return '集光の繭・HPを満タンまで回復' end
-  if state.t<(b.geoExposedUntil or 0) then return '脱出・岩ダメージが通りやすい' end
+  if exposureRemaining(state,b)>1e-8 then return '脱出・岩ダメージが通りやすい' end
   if b.form=='charging' then return '月石に集光・予告範囲から退避' end
   if b.form=='recover' then return '集光がほどけた・反撃の好機' end
  end

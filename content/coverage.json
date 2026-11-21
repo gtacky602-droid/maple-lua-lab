@@ -8140,6 +8140,8 @@
       "nod-battleship-depot",
       "nod-herra-terrace",
       "nod-nightmare-shore",
+      "nod-moonfly-hollow",
+      "nod-gecko-depths",
       "witztli-tristars-camp",
       "atocpan-battlegoat-ironclaw-field",
       "sne-novokichev-ore-yard"
@@ -8187,6 +8189,8 @@
       "boss-23090101",
       "boss-20081001",
       "boss-22150101",
+      "boss-26301101",
+      "boss-26302101",
       "legend-natlan_polychrome_tristars",
       "legend-natlan_battlegoat_ironclaw",
       "legend-snez_rowdy_beast_host"
@@ -8318,6 +8322,11 @@
       "evidence/coop-herra-adaptation.png",
       "evidence/coop-nightmare-browser.json",
       "evidence/coop-nightmare-fishers.png",
+      "evidence/coop-nod-cocoons-lua-http.json",
+      "evidence/coop-moonfly-browser.json",
+      "evidence/coop-moonfly-cocoons.png",
+      "evidence/coop-moongecko-browser.json",
+      "evidence/coop-moongecko-moonstone-anchor.png",
       "evidence/coop-jadeplume-lua-http.json",
       "evidence/coop-jadeplume-browser.json",
       "evidence/coop-jadeplume-leap.png"

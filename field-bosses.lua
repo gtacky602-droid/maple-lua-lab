@@ -141,6 +141,7 @@ return function(C,configs,controllers)
  end
 
  function C.enterFieldBossNode(s,id)
+  C.clearRadiantCocoons(s)
   for other,slot in pairs(s.fieldSlots or {}) do
    local previous=byId[other]
    if previous.node~=id then

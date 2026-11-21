@@ -5,6 +5,17 @@ return function(C)
   state.radiantCocoonEffects=nil
   state.radiantCocoonSpec=nil
  end
+ function C.clearEncounterCocoons(state)
+  if state.parties then
+   for _,party in ipairs(state.parties) do C.clearRadiantCocoons(party) end
+  elseif state.coop and C.sharesCoopField(state) then
+   for _,member in ipairs(state.coop.members) do
+    if C.sharesCoopField(member.state) then C.clearRadiantCocoons(member.state) end
+   end
+  else
+   C.clearRadiantCocoons(state)
+  end
+ end
  function C.radiantCocoonEffect(state,id)
   return state.radiantCocoonEffects and state.radiantCocoonEffects[id]
  end
@@ -38,15 +49,18 @@ return function(C)
   if not next(state.radiantCocoonEffects) then C.clearRadiantCocoons(state) end
  end
  function C.bindRadiantCocoon(state,spec,source,left,right,onEscape)
-  state.radiantCocoonEffects=state.radiantCocoonEffects or {}
-  state.radiantCocoonSpec={node=spec.node,cocoon=spec.cocoon,onEscape=onEscape}
+  local binding={node=spec.node,cocoon=spec.cocoon,onEscape=onEscape}
   for _,a in ipairs(state.actors) do
    if a.hp>0 and a.x>=left and a.x<=right then
-    C.damageActor(state,a,spec.cocoon.damage,source,false,true)
-    if a.hp>0 then state.radiantCocoonEffects[a.id]={bound=true} end
+    local party=state.actorOwners and state.actorOwners[a] or state
+    C.damageActor(party,a,spec.cocoon.damage,source,false,true)
+    if a.hp>0 then
+     party.radiantCocoonEffects=party.radiantCocoonEffects or {}
+     party.radiantCocoonEffects[a.id]={bound=true}
+     party.radiantCocoonSpec=binding
+    end
    end
   end
-  if not next(state.radiantCocoonEffects) then C.clearRadiantCocoons(state) end
  end
  function C.step(state,dt,input)
   step(state,dt,input)
@@ -59,21 +73,27 @@ return function(C)
  local function rect(f,x,y,w,h,color)
   f.draws[#f.draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}
  end
- function C.frame(state,mode,profile)
-  local f=frame(state,mode,profile)
-  if not state.radiantCocoonEffects then return f end
-  f.radiantCocoons={}
+ function C.drawRadiantCocoons(state,f,camera,localActor)
+  if not state.radiantCocoonEffects then return end
+  if localActor then f.radiantCocoons={} end
   for id,mark in pairs(state.radiantCocoonEffects) do
    local a=state.actors[id]
-   local x=a.x-state.camera
+   local x=a.x-camera
    local bound=mark.bound
    local color=bound and (state.radiantCocoonSpec.cocoon.color or '#c9db48') or '#a4eaff'
    rect(f,x-18,a.y-55,3,50,color)
    rect(f,x+15,a.y-55,3,50,color)
    f.draws[#f.draws+1]={kind='text',x=x,y=a.y-65,text=bound and '集光の繭' or '脱出',size=12,color=color}
-   f.radiantCocoons[#f.radiantCocoons+1]={actor=id,bound=not not bound,
-     remaining=mark.untilTime and math.max(0,mark.untilTime-state.t) or nil}
+   if localActor then
+    f.radiantCocoons[#f.radiantCocoons+1]={actor=id,bound=not not bound,
+      remaining=mark.untilTime and math.max(0,mark.untilTime-state.t) or nil}
+   end
   end
+ end
+ function C.frame(state,mode,profile)
+  local f=frame(state,mode,profile)
+  if not state.radiantCocoonEffects then return f end
+  C.drawRadiantCocoons(state,f,state.camera,true)
   f.commands=#f.draws
   return f
  end

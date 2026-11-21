@@ -123,6 +123,7 @@ return function(C, config)
       end
      end
     end
+    C.drawRadiantCocoons(peer,f,s.camera)
    end
   end
  end

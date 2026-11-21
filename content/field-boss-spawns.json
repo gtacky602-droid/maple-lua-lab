@@ -1406,7 +1406,7 @@
       ]
     },
     {
-      "id":"boss-26301101","controller":"moonfly","entity":26301101,
+      "id":"boss-26301101","controller":"moonfly","entity":26301101,"coop":true,
       "name":"集光の幻月蝶","node":"nod-moonfly-hollow","storyChallenge":"moonfly",
       "level":130,"hp":1050,"mora":485,"artHeight":160,"floorY":480,"hover":36,"home":920,
       "arenaMin":325,"arenaMax":1580,"noticeRange":350,"noticeTicks":36,"restTicks":42,
@@ -1419,7 +1419,7 @@
       ]
     },
     {
-      "id":"boss-26302101","controller":"moongecko","entity":26302101,
+      "id":"boss-26302101","controller":"moongecko","entity":26302101,"coop":true,
       "name":"集光の月ヤモリ","node":"nod-gecko-depths","storyChallenge":"moongecko",
       "level":132,"hp":1160,"mora":495,"artHeight":170,"floorY":480,"home":940,
       "arenaMin":325,"arenaMax":1580,"noticeRange":350,"noticeTicks":36,"restTicks":42,

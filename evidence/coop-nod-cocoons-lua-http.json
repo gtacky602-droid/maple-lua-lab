@@ -1,0 +1,43 @@
+{
+  "moonfly": {
+    "lua": {
+      "participants": 4,
+      "bindingsAndHealingArePerActor": true,
+      "visiblePartyEffects": true,
+      "escapeDamage": [
+        27,
+        17,
+        22
+      ],
+      "mapExitClearsOnlyLeaver": true,
+      "sharedWingElement": true,
+      "defeatClearsEveryCocoon": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  },
+  "moongecko": {
+    "lua": {
+      "participants": 4,
+      "rejectsOldCastsAndReactions": true,
+      "sharedAnchorLayers": [
+        5,
+        2,
+        0
+      ],
+      "backlashAttributedToBreaker": true,
+      "sharedGeoExposureTicks": 480,
+      "personalEscapeBonus": true,
+      "individualRewards": true,
+      "lethalBacklashAfterBreakerLeavesSettlesOnce": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  }
+}
