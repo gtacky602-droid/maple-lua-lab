@@ -1,0 +1,27 @@
+{
+  "lua": {
+    "participants": 4,
+    "eyeShared": true,
+    "allSceneMembershipMoves": true,
+    "offlineKeepsHealthGaugeAndCooldown": true,
+    "pendingAndCoralWallCleared": true,
+    "perActorKernelCadence": true,
+    "staleOrRepeatedInputsRejected": true,
+    "epoch4": true,
+    "shadowDamageSeparate": true,
+    "oneReturnLoss": 440,
+    "exposureTicks": 600,
+    "sharedLethalReturnWithFinisherGone": true,
+    "wipeRestartsInSea": true
+  },
+  "http": {
+    "participants": 4,
+    "oneWorldAcrossScenes": true,
+    "lateEntryAndFrozenTrialResume": true,
+    "rankedTrialIsolated": true,
+    "normalAttacksShareKernel": true,
+    "personalXp": 339450,
+    "personalMora": 2500,
+    "onlyEligiblePlayersGetRewards": true
+  }
+}

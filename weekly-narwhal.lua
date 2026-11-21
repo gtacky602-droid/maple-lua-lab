@@ -4,7 +4,35 @@ return function(C)
  local blue,white,violet='#bfdff8','#eaf5ff','#bd9fea'
  local function clamp(x,lo,hi) return math.max(lo,math.min(hi,x)) end
  local function actor(s) return s.actors[s.active] end
- local function log(s,w,key,owner,value) C.combatEvent(s,'narwhal:'..key,owner or 0,w.primary.id,value or 0) end
+ local function roomFor(s,w)
+  return s.coopWorld or (s.coop and s.coop.weeklySlot==w and s.coop)
+ end
+ local function forParties(s,w,action)
+  local room=roomFor(s,w)
+  if not room then action(s);return end
+  for _,member in ipairs(room.members) do
+   local party=member.state
+   if C.sharesCoopField(party) then action(party) end
+  end
+ end
+ local function ownLog(s,w,key,owner,value) C.combatEvent(s,'narwhal:'..key,owner or 0,w.primary.id,value or 0) end
+ local function log(s,w,key,owner,value)
+  forParties(s,w,function(party) ownLog(party,w,key,owner,value) end)
+ end
+ local function contribution(s,w,id)
+  if s.coop and s.coop.weeklySlot==w then C.coopContact(s,w.primary,id) end
+ end
+ local function choose(s,e)
+  if not s.parties then return actor(s) end
+  local best,distance=e,math.huge
+  for _,party in ipairs(s.parties) do
+   local a=actor(party)
+   if a.hp<=0 then a=party.actors[3-party.active] end
+   local dx=math.abs(a.x-e.x)
+   if a.hp>0 and dx<distance then best,distance=a,dx end
+  end
+  return best
+ end
  local function band(x,r,y,h) return {lo=x-r,hi=x+r,y=y,h=h} end
  local function inside(a,b) return a.hp>0 and a.x>=b.lo and a.x<=b.hi and a.y>=b.y-b.h and a.y<=b.y+5 end
  local function remove(s,e)
@@ -13,7 +41,7 @@ return function(C)
  end
  local function entity(spec,index,x,y,low,high,contact)
   return {id=spec.entity+index,x=x,y=y,hp=1,maxhp=1,hitTop=high,hitBottom=low,boss=true,custom=true,noRewards=true,
-    noAutoTarget=true,warning=0,respawn=math.huge,onCastContact=contact}
+    noAutoTarget=true,weeklyPart=true,warning=0,respawn=math.huge,onCastContact=contact}
  end
  local function target(w,enabled)
   local e=w.primary
@@ -34,7 +62,7 @@ return function(C)
   clearCast(s,w)
   w.stage=stage;w.phase=stage;w.stageTick=0;w.rest=spec.restTicks
   if stage=='swallow' or stage=='expel' then
-   w.epoch=w.epoch+1;C.clearWeeklySceneCasts(s)
+   w.epoch=w.epoch+1;forParties(s,w,C.clearWeeklySceneCasts)
    local e=w.primary
    e.aura=nil;e.burning=nil;e.applicationClocks=nil
   end
@@ -72,6 +100,7 @@ return function(C)
   if e.hp<=0 or e.invulnerable then return false end
   local n=commonHit(s,cast,e,mult,color,element)
   if n<=0 then return false end
+  contribution(s,w,cast.id)
   if n==e.hp then C.defeatEnemy(s,e,cast.id);return true end
   e.hp=e.hp-n
   if threshold(w,spec) and w.queued then w.queued=false;log(s,w,'WV06:cancel') end
@@ -85,13 +114,14 @@ return function(C)
  local function completeShadow(s,w,spec,owner)
   local e=w.shadow
   if w.stage~='inner' or e.hp>0 then return end
-  w.returnOwner=owner
+  w.returnOwner,w.returnParty=owner,s
   phase(s,w,spec,'expel','WV14')
  end
  local function shadowHit(s,w,spec,cast,e,mult,color,element)
   if w.stage~='inner' or e.hp<=0 or e.invulnerable then return false end
   local n=commonHit(s,cast,e,mult,color,element)
   if n<=0 then return false end
+  contribution(s,w,cast.id)
   e.hp=e.hp-n
   if e.hp<=0 then completeShadow(s,w,spec,cast.id)
   elseif C.afterElementHit then C.afterElementHit(s,cast,e,cast.applicationElement or element,element,n) end
@@ -99,7 +129,7 @@ return function(C)
  end
  function controller.spawn(s,w,spec)
   w.clock,w.remainder,w.epoch,w.entries=0,0,0,0
-  w.h,w.hLast,w.outerTicks=0,-math.huge,0;w.queued=false;w.returned=0
+  w.h,w.hLast,w.outerTicks=0,-math.huge,0;w.queued=false;w.returned=0;w.returnParty=nil
   w.hSeen=setmetatable({},{__mode='k'})
   w.outerIndex=1;w.finalIndex=1;w.innerIndex=1;w.variant=1;w.parts={};w.shadow=nil
   phase(s,w,spec,'outer');w.rest=spec.noticeTicks;w.primary.dir=-1
@@ -132,8 +162,8 @@ return function(C)
   return {x=x,y=y}
  end
  local function lock(s,w,spec,c,i)
-  local a=actor(s)
   local e=w.stage=='inner' and w.shadow or w.primary
+  local a=choose(s,e)
   local id=c.id
   if i==1 then c.dir=a.x>=e.x and 1 or -1;e.dir=c.dir;c.origin=e.x end
   if id=='WV01' or id=='WV02' or id=='WV03' then
@@ -149,7 +179,7 @@ return function(C)
  local function start(s,w,spec,key)
   local c={key=key,id=key:sub(1,4),move=spec.moves[key],t=0,hits={},shots={},points={}}
   lock(s,w,spec,c,1)
-  if c.id=='WV10' then for i=2,3 do c.points[i]=point(actor(s),spec.floorY) end end
+  if c.id=='WV10' then for i=2,3 do c.points[i]=point(choose(s,w.shadow),spec.floorY) end end
   if c.id=='WV05' then target(w,false) end
   w.cast=c;w.phase='tell';log(s,w,key)
  end
@@ -157,9 +187,11 @@ return function(C)
   local rule=spec.eye
   local part=entity(spec,10,spec.center,spec.floorY-70,spec.floorY-46,spec.floorY-104,
    function(state,cast,obj)
-    if w.cast~=c or w.special~=obj or obj.hp<=0 or c.t>=rule.close or cast.reaction or obj.spent[cast]==state.t then return false end
-    obj.spent[cast]=state.t;obj.hp=obj.hp-1
-    log(state,w,'WV05:eye-hit',cast.id,rule.hits-obj.hp)
+    local impact=cast.impactEvent or state.t
+    if w.cast~=c or w.special~=obj or obj.hp<=0 or c.t>=rule.close or cast.reaction or obj.spent[cast]==impact then return false end
+    obj.spent[cast]=impact;obj.hp=obj.hp-1
+    contribution(state,w,cast.id)
+    ownLog(state,w,'WV05:eye-hit',cast.id,rule.hits-obj.hp)
     if obj.hp==0 then
      remove(state,obj);w.special=nil;c.successUntil=c.t+rule.successRest
      hostility(state,w,spec,spec.hostility.eyeBonus,'WV05:broken',cast.id)
@@ -173,7 +205,7 @@ return function(C)
  local function startKernel(s,w,spec)
   local e=w.shadow
   e.invulnerable=true;e.underground=true;e.noAutoTarget=true
-  local x=clamp(e.x+(actor(s).x<e.x and -68 or 68),184,776)
+  local x=clamp(e.x+(choose(s,e).x<e.x and -68 or 68),184,776)
   w.cast={id='WV11',key='WV11',t=0,x=x,variant=spec.variants[w.variant],hits={}}
   w.variant=w.variant%#spec.variants+1
   w.phase='kernel';log(s,w,'WV11')
@@ -181,13 +213,19 @@ return function(C)
  local function kernel(s,w,spec,c)
   local rule=spec.kernel
   local y=spec.floorY
+  local function fresh(cast,state,opened)
+   local room=roomFor(state,w)
+   local now=room and room.time or state.t
+   return cast.playerInputAt and not cast.reaction and not cast.growthAI and state.t-cast.playerInputAt<=now-opened+1e-8
+  end
   local part=entity(spec,11,c.x,y-rule.center,y-rule.bottom,y-rule.top,
    function(state,cast,obj)
-    local press=cast.playerInputAt
-    if w.cast~=c or w.special~=obj or obj.hp<=0 or c.t>=rule.close or not press or press<obj.opened
-       or cast.reaction or obj.spent[cast] or w.clock<(obj.owners[cast.id] or -math.huge)+rule.gap then return false end
-    obj.spent[cast]=true;obj.owners[cast.id]=w.clock;obj.hp=obj.hp-1
-    log(state,w,'WV11:kernel-hit',cast.id,rule.casts-obj.hp)
+    local a=state.actors[cast.id]
+    if w.cast~=c or w.special~=obj or not a or obj.hp<=0 or c.t>=rule.close or not fresh(cast,state,obj.opened)
+       or obj.spent[cast] or w.clock<(obj.owners[a] or -math.huge)+rule.gap then return false end
+    obj.spent[cast]=true;obj.owners[a]=w.clock;obj.hp=obj.hp-1
+    contribution(state,w,cast.id)
+    ownLog(state,w,'WV11:kernel-hit',cast.id,rule.casts-obj.hp)
     if obj.hp==0 then
      remove(state,obj);w.special=nil;c.successUntil=c.t+rule.stagger;w.phase='stagger'
      local e=w.shadow
@@ -198,9 +236,9 @@ return function(C)
     end
     return true
    end)
-  part.spent=setmetatable({},{__mode='k'});part.owners={};part.opened=s.t
+  part.spent=setmetatable({},{__mode='k'});part.owners=setmetatable({},{__mode='k'});part.opened=s.t
   part.hp=rule.casts;part.maxhp=rule.casts;part.hitHalfWidth=rule.rangeHalf
-  part.acceptsCast=function(cast) return cast.playerInputAt and cast.playerInputAt>=part.opened and not cast.reaction end
+  part.acceptsCast=function(cast,state) return fresh(cast,state,part.opened) end
   w.special=part;s.enemies[#s.enemies+1]=part
  end
  local function shape(spec,c,i)
@@ -221,11 +259,14 @@ return function(C)
   end
  end
  local function damage(s,w,spec,c,group,a,x,y,element)
-  local key=group..':'..a.id
-  if c.hits[key] or w.primary.hp<=0 then return end
-  c.hits[key]=true
-  if C.damageActor(s,a,c.move.damage,{id=w.primary.id,x=x,y=y,damageElement=element},true,true)>0 then
-   log(s,w,c.key..':hit',a.id,group)
+  if w.primary.hp<=0 then return end
+  local hit=c.hits[group]
+  if not hit then hit={};c.hits[group]=hit end
+  if hit[a] then return end
+  hit[a]=true
+  local party=s.actorOwners and s.actorOwners[a] or s
+  if C.damageActor(party,a,c.move.damage,{id=w.primary.id,x=x,y=y,damageElement=element},true,true)>0 then
+   ownLog(party,w,c.key..':hit',a.id,group)
   end
  end
  local function launch(s,w,spec,c,i)
@@ -304,7 +345,7 @@ return function(C)
  end
  local function switch(s,w,spec,inner)
   local id=inner and spec.innerNode or spec.node
-  if not C.moveWeeklyScene(s,id,238) then error('Unregistered weekly scene: '..id) end
+  if not C.moveWeeklyScene(s,id,spec.sceneSpawn) then error('Unregistered weekly scene: '..id) end
   w.epoch=w.epoch+1
   log(s,w,'WV16:scene',0,w.epoch)
   if inner then
@@ -333,7 +374,15 @@ return function(C)
     local e=w.primary
     local n=math.min(e.hp,math.floor(spec.hp*tr.lossRatio+.5))
     log(s,w,'WV14:return-loss',w.returnOwner,n)
-    if n==e.hp then C.defeatEnemy(s,e,w.returnOwner);return end
+    local party=w.returnParty;w.returnParty=nil
+    if n==e.hp then
+     local winner=s
+     if s.parties then
+      winner=s.parties[1]
+      for _,present in ipairs(s.parties) do if present==party then winner=party;break end end
+     end
+     C.defeatEnemy(winner,e,w.returnOwner);return
+    end
     e.hp=e.hp-n
    end
    if t>=spec.moves.WV14.total then phase(s,w,spec,'weak','WV15') end
@@ -377,11 +426,14 @@ return function(C)
   return true
  end
  function controller.prepare(s,w)
-  if w.stage=='swallow' or w.stage=='expel' then s.macro=nil end
+  if w.stage=='swallow' or w.stage=='expel' then forParties(s,w,function(party) party.macro=nil end) end
  end
  function controller.finish(s,w,spec,dt)
   w.remainder=w.remainder+math.min(dt,1/30)*60
   while w.remainder>=1-1e-8 and w.primary.hp>0 do w.remainder=w.remainder-1;update(s,w,spec) end
+  if not s.parties or w.primary.hp<=0 then return end
+  for _,a in ipairs(s.actors) do if a.hp>0 then return end end
+  clearCast(s,w);w.rechallenge=true;target(w,false)
  end
  local function warnings(spec,c)
   local out={}

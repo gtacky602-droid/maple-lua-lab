@@ -19,10 +19,14 @@ return function(C, config)
    room.nextId=room.nextId+1
    member={id=room.nextId,state=s,online=true}
   end
+  if room.weeklySpec and room.weeklySpec.innerNode and s.story.node~=room.node then
+   assert(C.switchWeeklyStoryScene(s,room.node,room.weeklySpec.sceneSpawn+#room.members*72))
+  end
   room.members[#room.members+1]=member
   s.coop,s.coopMember,s.enemies=room,member,room.enemies
   s.paused,s.auto=false,false
   if room.weeklySlot then s.platforms=room.platforms end
+  if room.weeklySpec and room.weeklySpec.innerNode then s.solids=room.solids end
   for _,e in ipairs(room.enemies) do
    if e.burning and not e.burning.member and #room.members==1 then e.burning.member=member end
   end
@@ -36,7 +40,7 @@ return function(C, config)
   C.leaveCoopWeekly(room,s)
   local stillShared=s.enemies==room.enemies
   s.coop,s.coopMember=nil,nil
-  if stillShared then C.enterStoryNode(s,s.story.node) end
+  if stillShared then C.enterStoryNode(s,C.weeklyCoopSite(s) or s.story.node) end
  end
 
  function C.coopContact(s,e,actor)

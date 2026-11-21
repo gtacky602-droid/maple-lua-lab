@@ -951,6 +951,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  function C.clearWeeklySceneCasts(s)
   s.pending={};s.effects={};s.numbers={};s.decoys={}
   s.rockWall=nil;s.healingField=nil;s.echoSource=nil;s.ultimate=nil;s.starSeed=nil;s.macro=nil
+  s.coralWall=nil
   s.blizzard=nil;s.stellarField=nil;s.drillTop=nil;s.perfume=nil
   s.moonDomain=nil;s.moonMark=nil;s.lastMoonReaction=nil
   s.grappleNodes={};s.selectedGrapple=nil

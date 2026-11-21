@@ -506,13 +506,16 @@ function C.step(s,dt,input)
  dt=clamp(dt,0,1/30);input=input or {};s.t=s.t+dt;s.swap=max(0,s.swap-dt)
  s.decoys=s.decoys or {}
  for i=#s.decoys,1,-1 do local d=s.decoys[i];d.life=d.life-dt;if d.life<=0 or s.actors[d.owner].hp<=0 then table.remove(s.decoys,i) end end
- for i=#s.pending,1,-1 do
-  local cast=s.pending[i]
+ local pending=s.pending
+ for i=#pending,1,-1 do
+  local cast=pending[i]
   if cast.travelSpeed then cast.x=cast.x+cast.dir*cast.travelSpeed*dt end
-  if s.actors[cast.id].hp<=0 or (cast.gliding and s.actors[cast.id].ground) then table.remove(s.pending,i)
+  if s.actors[cast.id].hp<=0 or (cast.gliding and s.actors[cast.id].ground) then table.remove(pending,i)
   elseif s.t+1e-8>=cast.next then
-    C.resolveCast(s,cast);cast.remaining=cast.remaining-1;cast.next=cast.next+cast.interval
-   if cast.remaining<=0 then if cast.channel then s.actors[cast.id].channel=nil end;table.remove(s.pending,i) end
+   C.resolveCast(s,cast)
+   if s.pending~=pending then break end
+   cast.remaining=cast.remaining-1;cast.next=cast.next+cast.interval
+   if cast.remaining<=0 then if cast.channel then s.actors[cast.id].channel=nil end;table.remove(pending,i) end
   end
  end
  for _,a in ipairs(s.actors) do

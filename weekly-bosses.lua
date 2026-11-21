@@ -27,6 +27,28 @@ return function(C,configs,controllers)
   return enemyHitDamage(s,a,e,mult,element,resist)
  end
  function C.moveWeeklyScene(s,id,spawn)
+  local room=s.coopWorld
+  if room then
+   local spec=room.weeklySpec
+   if not spec.innerNode or byNode[id]~=spec then return false end
+   local moved=0
+   for _,member in ipairs(room.members) do
+    local party=member.state
+    if C.sharesCoopField(party) then
+     if not C.switchWeeklyStoryScene(party,id,spawn+moved*72) then return false end
+     if moved==0 then room.platforms,room.solids=party.platforms,party.solids end
+     moved=moved+1
+    end
+   end
+   if moved==0 then return false end
+   room.node,s.story.node=id,id
+   s.platforms=room.platforms
+   for _,member in ipairs(room.members) do
+    local party=member.state
+    if C.sharesCoopField(party) then party.platforms,party.solids=room.platforms,room.solids end
+   end
+   return true
+  end
   local slot,spec=C.currentWeeklyBoss(s)
   if not slot or not spec.innerNode or byNode[id]~=spec then return false end
   return C.switchWeeklyStoryScene(s,id,spawn)
@@ -57,7 +79,7 @@ return function(C,configs,controllers)
   controllers[spec.controller].attach(s,slot,spec);slot.attached=true
  end
  local function roomState(room,actors,owners,parties)
-  return {t=room.time,actors=actors,actorOwners=owners,parties=parties,active=parties[1].active,
+  return {t=room.time,actors=actors,actorOwners=owners,parties=parties,active=parties[1] and parties[1].active,coopWorld=room,
    story={node=room.node},enemies=room.enemies,platforms=room.platforms}
  end
  local function currentRoomState(room)
@@ -100,6 +122,9 @@ return function(C,configs,controllers)
   if slot.waitUntil or slot.rechallenge then
    if slot.waitUntil and room.time+1e-8<slot.waitUntil then return end
    if slot.rechallenge then cleanup(world,spec,slot) end
+   if spec.innerNode and room.node~=spec.node then
+    assert(C.moveWeeklyScene(world,spec.node,spec.sceneSpawn))
+   end
    slot.waitUntil,slot.rechallenge=nil,nil;slot.generation=slot.generation+1
    spawn(world,spec,slot);attach(world,slot,spec)
   end
@@ -135,6 +160,10 @@ return function(C,configs,controllers)
   local spec=current(s)
   local slot=spec and spec.coop and s.weeklySlots and s.weeklySlots[spec.id]
   return slot and slot.mode and slot.mode.id
+ end
+ function C.weeklyCoopSite(s)
+  local spec=current(s)
+  return spec and spec.coop and spec.innerNode and spec.node or nil
  end
  function C.weeklyCoopVariant(s)
   local slot,spec=C.currentWeeklyBoss(s)

@@ -8125,6 +8125,8 @@
       "wenut-field-cavern",
       "baptist-field-sanctuary",
       "fontaine-hub",
+      "narwhal-star-sea",
+      "narwhal-inner-echo",
       "fontaine-field",
       "emperor-field-cove",
       "seahorse-field-cavern",
@@ -8226,7 +8228,8 @@
       "boss-29050101",
       "boss-29060201",
       "boss-29070101",
-      "boss-29080101"
+      "boss-29080101",
+      "boss-29090101"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8409,7 +8412,12 @@
       "evidence/coop-apep-browser.json",
       "evidence/coop-apep-defense.png",
       "evidence/coop-apep-domes.png",
-      "evidence/coop-apep-exposure.png"
+      "evidence/coop-apep-exposure.png",
+      "evidence/coop-narwhal-lua-http.json",
+      "evidence/coop-narwhal-browser.json",
+      "evidence/coop-narwhal-eye.png",
+      "evidence/coop-narwhal-kernel.png",
+      "evidence/coop-narwhal-return.png"
     ],
     "pending": [
       "remaining original field encounters, local legends, weekly and Stygian bosses",

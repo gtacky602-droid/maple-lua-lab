@@ -1,0 +1,103 @@
+{
+  "participants": 2,
+  "hp": 2200,
+  "scenes": {
+    "sea": {
+      "key": "tulpaField",
+      "file": "tulpa-field-background-v1.png",
+      "state": "ready"
+    },
+    "belly": {
+      "key": "narwhalInner",
+      "file": "narwhal-inner-background-v1.png",
+      "state": "ready"
+    }
+  },
+  "results": [
+    {
+      "won": true,
+      "stages": [
+        "outer",
+        "swallow",
+        "inner",
+        "expel",
+        "weak"
+      ],
+      "scenes": [
+        "narwhal-star-sea",
+        "narwhal-inner-echo"
+      ],
+      "eye": true,
+      "kernel": true,
+      "kernels": [
+        2,
+        3
+      ],
+      "returnDamage": [
+        440
+      ],
+      "damage": 773,
+      "returns": 0
+    },
+    {
+      "won": true,
+      "stages": [
+        "outer",
+        "swallow",
+        "inner",
+        "expel",
+        "weak"
+      ],
+      "scenes": [
+        "narwhal-star-sea",
+        "narwhal-inner-echo"
+      ],
+      "eye": true,
+      "kernel": true,
+      "kernels": [
+        1,
+        4
+      ],
+      "returnDamage": [
+        440
+      ],
+      "damage": 578,
+      "returns": 0
+    }
+  ],
+  "rewards": [
+    [
+      339450,
+      2500
+    ],
+    [
+      339450,
+      2500
+    ]
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saved": [
+    {
+      "wait": 3555,
+      "clears": 1,
+      "xp": 339450,
+      "mora": 275300,
+      "quest": "active"
+    },
+    {
+      "wait": 3554,
+      "clears": 1,
+      "xp": 339450,
+      "mora": 275300,
+      "quest": null
+    }
+  ],
+  "report": {
+    "xp": 230000,
+    "mora": 8500
+  },
+  "errors": []
+}

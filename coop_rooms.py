@@ -71,11 +71,13 @@ class CoopRooms:
         if site in RULES['nodes']:
             rank = room.core.weeklyCoopMode(state)
             variant = room.core.weeklyCoopVariant(state)
-            world_key = site
+            # A multi-scene weekly keeps one world keyed by its entrance.
+            anchor = room.core.weeklyCoopSite(state) or site
+            world_key = anchor
             if variant:
-                world_key = (site, rank, variant.key)
+                world_key = (anchor, rank, variant.key)
             elif rank:
-                world_key = (site, rank)
+                world_key = (anchor, rank)
             if world_key not in room.worlds:
                 room.worlds[world_key] = room.core.newCoop(state)
             room.core.attachCoop(room.worlds[world_key], state, member)
@@ -113,11 +115,13 @@ class CoopRooms:
             rank = env['core'].weeklyCoopMode(source)
             if source.azhdahaPair:
                 state.azhdahaPair = room.lua.table_from(native(source.azhdahaPair))
-            room.core.enterCoopNode(state, site, rank)
+            entrance = env['core'].weeklyCoopSite(source) or site
+            room.core.enterCoopNode(state, entrance, rank)
             for index in (1, 2):
                 actor, original = state.actors[index], source.actors[index]
-                actor.x, actor.y, actor.vy = original.x, original.y, original.vy
-                actor.dir, actor.ground = original.dir, original.ground
+                if entrance == site:
+                    actor.x, actor.y, actor.vy = original.x, original.y, original.vy
+                    actor.dir, actor.ground = original.dir, original.ground
                 actor.hp, actor.inv = min(actor.maxhp, original.hp), original.inv
             env.update(lua=room.lua, core=room.core, state=state)
         else:
