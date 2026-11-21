@@ -1,0 +1,18 @@
+{
+  "lua": {
+    "participants": 4,
+    "independentSweepsAndAnchor": true,
+    "distinctPartyClocks": true,
+    "oldCastReactionAndMultihitRejected": true,
+    "sharedCourageAndDrinkInterrupt": true,
+    "strongerValiantSweepsAndAnchor": true,
+    "freshElectroEndsValiant": true,
+    "liveHitPreservedOnJoin": true,
+    "individualRewards": true
+  },
+  "http": {
+    "participants": 2,
+    "emptyArenaPreservedLiveMove": true,
+    "individualRewardsAndQuestSaved": true
+  }
+}

@@ -85,7 +85,10 @@
     "immortal-construct-root-hollow": "スネージナヤ・赤葉の根洞",
     "witztli-tristars-camp": "ウィッツトリの丘・三連星の野営場",
     "atocpan-battlegoat-ironclaw-field": "火山南・戦羊と鉄爪の広場",
-    "sne-novokichev-ore-yard": "ノヴォキッチェヴ市街地・鉱荷の集積場"
+    "sne-novokichev-ore-yard": "ノヴォキッチェヴ市街地・鉱荷の集積場",
+    "novokichev-camp": "ノヴォキッチェヴ（仮構造）・入口拠点",
+    "novokichev-depth": "ノヴォキッチェヴ（仮構造）・探索路",
+    "wavebinder-tide-cavern": "ノヴォキッチェヴ・西港の潮洞（仮配置）"
   },
   "capacity": 4,
   "rewardRange": {"x": 420, "y": 180},

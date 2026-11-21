@@ -2092,6 +2092,7 @@
 },
 {
   "id": "boss-25134601",
+  "coop": true,
   "controller": "wavebinder",
   "entity": 25134601,
   "name": "波濤の投錨者",

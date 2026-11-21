@@ -167,7 +167,11 @@ const cases={
   boss:'boss-25140101',quest:'immortal-construct-commission',hp:1260,mora:550,xp:1298650,scene:'immortalConstructField',
   asset:'immortal-construct-field',pose:'poses',label:'resurrection-guard',fixture:'immortal-construct-field',report:[10600,720],stance:76,
   sharedGuard:{view:'immortalConstruct',value:'units',readyMove:'IC02',move:'IC03'},
-  evade:{IC01:[99,169],IC02:[123,203],IC03:[135,215,295]}}
+  evade:{IC01:[99,169],IC02:[123,203],IC03:[135,215,295]}},
+ wavebinder:{hub:'novokichev-camp',arena:'wavebinder-tide-cavern',approach:'novokichev-depth',
+  boss:'boss-25134601',quest:'wavebinder-commission',hp:1160,mora:570,xp:2381150,scene:'wavebinderField',
+  asset:'wavebinder-field',pose:'poses',label:'valiant-anchor',fixture:'wavebinder-field',fixtureCompanion:'ayaka',report:[11200,750],stance:76,
+  evade:{WB01:[99,169,239],WB02:[121,199],WB03:[]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -215,7 +219,10 @@ async function fight(page,side,key,config) {
   const adaptedElements=new Set(),fisherLayouts=new Set(),shieldStates=new Set();
   const anchorLayers=new Set();
   const hasCocoon=key==='moonfly'||key==='moongecko';
-  const jumpEvade=hasCocoon||key==='vigil'||key==='flugel'||config.sharedGuard;
+  const wavebinder=key==='wavebinder';
+  const jumpEvade=hasCocoon||key==='vigil'||key==='flugel'||wavebinder||config.sharedGuard;
+  const drinkLevels=new Set(),valiantLevels=new Set();
+  let drinkDown=false,valiantAnchor=false,valiantDown=false,waveRageAt,lastWaveFire=-Infinity;
   const starLayouts=new Set(),orbLayouts=new Set();
   const guardAmounts=new Set();
   const art=config.pose&&config.asset+'-'+config.pose+'-source-v1.png';
@@ -263,7 +270,8 @@ async function fight(page,side,key,config) {
      ...(hasCocoon?{caught,escaped,peerStillBound,anchorLayers:[...anchorLayers],anchorBroken,geoExposure}:{}),
      ...(key==='vigil'?{starLayouts:[...starLayouts],vigilDown}:{}),
      ...(key==='flugel'?{orbLayouts:[...orbLayouts],wardDown,orbsDown}:{}),
-     ...(config.sharedGuard?{guardAmounts:[...guardAmounts],guardDown,chantSeen,paidHp}:{})};
+     ...(config.sharedGuard?{guardAmounts:[...guardAmounts],guardDown,chantSeen,paidHp}:{}),
+     ...(wavebinder?{drinkLevels:[...drinkLevels],valiantLevels:[...valiantLevels],drinkDown,valiantAnchor,valiantDown}:{})};
     return;
    }
    if(!b) {
@@ -584,6 +592,20 @@ async function fight(page,side,key,config) {
     if(guardState.spent) paidHp=guardState.spent;
     if(b.form==='down'&&guardAmount===0&&guardAmounts.size) guardDown=true;
    }
+   const wave=b.wavebinder;
+   if(wave){
+    if(wave.drinkOpen&&wave.courage>0) drinkLevels.add(wave.courage);
+    if(wave.downReason==='drink') drinkDown=true;
+    if(wave.valiant){
+     waveRageAt=f.t-wave.rageAge/60;
+     valiantLevels.add(wave.courage);
+     if(b.move==='WB02'&&b.tick>=84&&b.tick<174&&f.draws.filter(d=>d.source===art).length===2){
+      valiantAnchor=true;
+      visual=true;
+     }
+    }
+    if(wave.downReason==='valiant'&&valiantAnchor&&f.t-waveRageAt<11.8) valiantDown=true;
+   }
    if(config.observeRecovery&&b.recovering&&sprite) recovered=true;
    if(visual&&!capture&&side===-1){
     capture=document.querySelector('#game').toDataURL('image/png').split(',')[1];
@@ -644,6 +666,11 @@ async function fight(page,side,key,config) {
    if(guardAmount>0&&b.tick>=84&&inReach&&a.ground&&!f.macro&&f.t-lastGuardFire>3.2){
     window.lab.action('slot1');lastGuardFire=f.t;
    }
+   const breakDrink=wave?.drinkOpen&&!wave.drinkInterrupts&&b.tick>=116;
+   const breakValiant=wave?.valiant&&valiantAnchor&&b.move==='WB02'&&b.tick>=97;
+   if((breakDrink||breakValiant||valiantDown)&&inReach&&!f.macro&&f.t-lastWaveFire>3.2){
+    window.lab.action('slot1');lastWaveFire=f.t;
+   }
    if(healing&&Math.abs(position)<15&&a.ground&&!f.macro&&f.t>=nextHeal){
     window.lab.action('slot1');nextHeal=f.t+10;
    }
@@ -698,7 +725,8 @@ async function fight(page,side,key,config) {
    const watchVigil=key==='vigil'&&!vigilDown&&!sharedSummon;
    const watchLion=key==='flugel'&&!sharedSummon&&(!lionReady||!orbsDown&&b.hp<620);
    const watchGuard=guard&&(!guardReady||b.move===guard.move&&b.tick<84||!guardDown&&guardAmount===0&&b.hp<500);
-   hold('KeyJ',!watchRelay&&!watchGravity&&!watchEmperor&&!watchPearl&&!watchSuanni&&!watchBreak&&!watchYumka&&!watchPapilla&&
+   const watchWave=wave&&!valiantDown&&!(breakDrink&&b.tick>=160);
+   hold('KeyJ',!watchWave&&!watchRelay&&!watchGravity&&!watchEmperor&&!watchPearl&&!watchSuanni&&!watchBreak&&!watchYumka&&!watchPapilla&&
     !watchLava&&!watchOverseer&&!watchReflections&&!watchDuck&&!watchShip&&!watchHerra&&!watchNightmare&&
     !watchCocoon&&!watchVigil&&!watchLion&&!watchGuard&&!healing&&inReach&&(!device||Math.abs(dx)<96));
    requestAnimationFrame(control);
@@ -710,6 +738,7 @@ async function fight(page,side,key,config) {
 async function run(key,config) {
  const {arena,boss,quest,hp,mora,xp,asset,scene,label}=config;
  const fixture=JSON.parse(await fs.readFile('work/'+(config.fixture??'coop-'+key)+'-fixture.json','utf8'));
+ if(config.fixtureCompanion) fixture.companion=config.fixtureCompanion;
  const players=await Promise.all([start(fixture,config,true),start(fixture,config,false)]);
  const [{page:host},{page:guest}]=players;
  await host.locator('#coopCreate').click();
@@ -865,6 +894,11 @@ async function run(key,config) {
  if(config.sharedGuard){
   assert.ok(a.guardAmounts.some(amount=>b.guardAmounts.includes(amount)),JSON.stringify(results));
   assert.ok(a.guardDown&&b.guardDown,JSON.stringify(results));
+ }
+ if(key==='wavebinder'){
+  assert.ok(a.drinkLevels.some(value=>b.drinkLevels.includes(value)),JSON.stringify(results));
+  assert.ok(a.valiantLevels.some(value=>b.valiantLevels.includes(value)),JSON.stringify(results));
+  assert.ok(results.every(r=>r.drinkDown&&r.valiantAnchor&&r.valiantDown),JSON.stringify(results));
  }
  if(key==='immortal-construct'){
   assert.ok(results.every(result=>result.chantSeen&&result.paidHp===96),JSON.stringify(results));

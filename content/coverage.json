@@ -8151,7 +8151,10 @@
       "immortal-construct-root-hollow",
       "witztli-tristars-camp",
       "atocpan-battlegoat-ironclaw-field",
-      "sne-novokichev-ore-yard"
+      "sne-novokichev-ore-yard",
+      "novokichev-camp",
+      "novokichev-depth",
+      "wavebinder-tide-cavern"
     ],
     "bosses": [
       "boss-26020101",
@@ -8202,6 +8205,7 @@
       "boss-26310501",
       "boss-25135202",
       "boss-25140101",
+      "boss-25134601",
       "legend-natlan_polychrome_tristars",
       "legend-natlan_battlegoat_ironclaw",
       "legend-snez_rowdy_beast_host"
@@ -8348,12 +8352,15 @@
       "evidence/coop-drifting-snow-ice-coffin.png",
       "evidence/coop-immortal-construct-browser.json",
       "evidence/coop-immortal-construct-resurrection-guard.png",
+      "evidence/coop-wavebinder-lua-http.json",
+      "evidence/coop-wavebinder-browser.json",
+      "evidence/coop-wavebinder-valiant-anchor.png",
       "evidence/coop-jadeplume-lua-http.json",
       "evidence/coop-jadeplume-browser.json",
       "evidence/coop-jadeplume-leap.png"
     ],
     "pending": [
-      "remaining normal, weekly and Stygian bosses",
+      "remaining original field encounters, local legends, weekly and Stygian bosses",
       "shared combat outside the supported maps",
       "remote and Miliastra tests"
     ]

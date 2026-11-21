@@ -23,14 +23,19 @@ return function(C)
   if b.form=='down' then return s.courage.downFactor end
   return b.valiant and s.courage.damageFactor or 1
  end
- function sailor.onHit(cast,b,s,slot,element)
+ function sailor.onHit(cast,b,s,slot,element,_,party)
   if cast.reaction or not cast.startedAt then return end
-  if element=='electro' and cast.startedAt>=b.courageOpenedAt and not b.courageContacts[cast] then
+  if element=='electro' and not b.courageContacts[cast] and
+     C.fieldCastStartedSince(party,b.fieldBoss,cast,b.courageOpenedAt) then
    b.courageContacts[cast]=true;b.courage=math.max(0,b.courage-s.courage.electroDrain)
   end
   local c=slot.cast
-  if not c or not c.drinkOpen or c.drinkClosed or c.contacts[cast] or cast.startedAt<c.openedAt then return end
+  if not c or not c.drinkOpen or c.drinkClosed or c.contacts[cast] or
+     not C.fieldCastStartedSince(party,b.fieldBoss,cast,c.openedAt) then return end
   c.contacts[cast]=true;c.hits=c.hits+(element=='electro' and s.courage.electroDrinkHits or 1)
+ end
+ function sailor.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
  end
  function sailor.preempt(b,s,slot)
   if b.valiant then
@@ -116,6 +121,7 @@ return function(C)
  end
  function sailor.frame(f,b,s,c)
   f.wavebinder={courage=b.courage,maxCourage=s.courage.max,valiant=b.valiant,rageAge=b.rageAge,
+   drinkOpen=c and c.drinkOpen and not c.drinkClosed or false,
    drinkHits=c and c.hits or 0,drinkRequired=s.courage.drinkHits,drinkInterrupts=b.drinkInterrupts,
    downReason=b.downReason,downTicks=b.downTicks}
  end
