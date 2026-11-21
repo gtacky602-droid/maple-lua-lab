@@ -150,8 +150,9 @@ return function(C, config)
  function C.coopPeer(member,world)
   local s=member.state
   local slot=C.currentWeeklyBoss(s)
+  local variant=C.weeklyCoopVariant(s)
   local view={slot=member.id,online=member.online,map=s.story.node,mapName=C.storyNodeName(s),actors={},
-   difficulty=slot and slot.mode and slot.mode.name}
+   difficulty=slot and slot.mode and slot.mode.name,variant=variant and variant.label}
   if world and s.coop==world and onField(member) then
    for _,a in ipairs(s.actors) do
     view.actors[#view.actors+1]={x=a.x,y=a.y,dir=a.dir,hp=a.hp}

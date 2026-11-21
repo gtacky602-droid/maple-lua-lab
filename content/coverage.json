@@ -8072,6 +8072,7 @@
       "andrius-wolf-ring",
       "liyue-harbor",
       "childe-golden-house-arena",
+      "azhdaha-dragon-seal-arena",
       "mond-road",
       "cryo-approach",
       "cryo-field-grove",
@@ -8215,7 +8216,8 @@
       "legend-snez_rowdy_beast_host",
       "boss-29010101",
       "boss-29020101",
-      "boss-29030101"
+      "boss-29030101",
+      "boss-29040101"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8375,7 +8377,11 @@
       "evidence/coop-childe-lua-http.json",
       "evidence/coop-childe-browser.json",
       "evidence/coop-childe-riptide.png",
-      "evidence/coop-childe-foul-legacy.png"
+      "evidence/coop-childe-foul-legacy.png",
+      "evidence/coop-azhdaha-lua-http.json",
+      "evidence/coop-azhdaha-browser.json",
+      "evidence/coop-azhdaha-absorption.png",
+      "evidence/coop-azhdaha-tail.png"
     ],
     "pending": [
       "remaining original field encounters, local legends, weekly and Stygian bosses",

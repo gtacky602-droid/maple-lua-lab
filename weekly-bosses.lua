@@ -128,6 +128,11 @@ return function(C,configs,controllers)
   local slot=spec and spec.coop and s.weeklySlots and s.weeklySlots[spec.id]
   return slot and slot.mode and slot.mode.id
  end
+ function C.weeklyCoopVariant(s)
+  local slot,spec=C.currentWeeklyBoss(s)
+  local controller=spec and spec.coop and controllers[spec.controller]
+  if slot and controller and controller.coopVariant then return controller.coopVariant(slot) end
+ end
  function C.enterCoopNode(s,id,rank)
   local spec=byNode[id]
   if rank and spec and spec.coop then

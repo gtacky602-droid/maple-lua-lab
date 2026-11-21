@@ -1,0 +1,23 @@
+{
+  "lua": {
+    "participants": 4,
+    "sharedAbsorptionAndTail": true,
+    "headAndFissureOneHitPerActor": true,
+    "shieldBreakPreventsMark": true,
+    "shieldCleansesOnlyOwner": true,
+    "swapKeepsMarkOnOriginalActor": true,
+    "sevenMarkPulsesWithinEightSeconds": true,
+    "tailSingleHitboxAndCleanup": true,
+    "roomDeathClock": true,
+    "respawnKeepsPair": true,
+    "soloContactsPreservedOnAdoption": true
+  },
+  "http": {
+    "participants": 3,
+    "pairSelectionPreservedOnJoin": true,
+    "separatePairWorlds": true,
+    "distinctRankWithSamePair": true,
+    "emptyInfusionPreserved": true,
+    "individualRewardsAndQuest": true
+  }
+}

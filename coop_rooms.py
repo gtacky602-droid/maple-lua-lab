@@ -70,7 +70,12 @@ class CoopRooms:
         room.core.detachCoop(member)
         if site in RULES['nodes']:
             rank = room.core.weeklyCoopMode(state)
-            world_key = (site, rank) if rank else site
+            variant = room.core.weeklyCoopVariant(state)
+            world_key = site
+            if variant:
+                world_key = (site, rank, variant.key)
+            elif rank:
+                world_key = (site, rank)
             if world_key not in room.worlds:
                 room.worlds[world_key] = room.core.newCoop(state)
             room.core.attachCoop(room.worlds[world_key], state, member)
@@ -106,6 +111,8 @@ class CoopRooms:
             checkpoint = native(env['core'].checkpoint(source))
             state = room.core.restore(room.lua.table_from(checkpoint, recursive=True), source.density)
             rank = env['core'].weeklyCoopMode(source)
+            if source.azhdahaPair:
+                state.azhdahaPair = room.lua.table_from(native(source.azhdahaPair))
             room.core.enterCoopNode(state, site, rank)
             for index in (1, 2):
                 actor, original = state.actors[index], source.actors[index]

@@ -1,0 +1,74 @@
+{
+  "participants": 2,
+  "pair": [
+    "hydro",
+    "electro"
+  ],
+  "hp": 1500,
+  "pairPreservedOnJoin": true,
+  "sharedTailTarget": true,
+  "results": [
+    {
+      "won": true,
+      "forms": [
+        1,
+        2,
+        3
+      ],
+      "absorptions": [
+        1,
+        2
+      ],
+      "hp": 140,
+      "manualDamage": 727,
+      "tailDamage": 147,
+      "returns": 0
+    },
+    {
+      "won": true,
+      "forms": [
+        1,
+        2,
+        3
+      ],
+      "absorptions": [
+        1,
+        2
+      ],
+      "hp": 123,
+      "manualDamage": 637,
+      "tailDamage": 196,
+      "returns": 0
+    }
+  ],
+  "scene": {
+    "key": "liyuequarry",
+    "file": "liyue-quarry-background-v1.png",
+    "state": "ready"
+  },
+  "questCounts": [
+    1,
+    null
+  ],
+  "saved": [
+    {
+      "wait": 3552,
+      "clears": 1,
+      "xp": 17700,
+      "mora": 660,
+      "quest": "active"
+    },
+    {
+      "wait": 3550,
+      "clears": 1,
+      "xp": 17700,
+      "mora": 660,
+      "quest": null
+    }
+  ],
+  "report": {
+    "xp": 24000,
+    "mora": 2200
+  },
+  "errors": []
+}

@@ -99,7 +99,7 @@ for pair in ('pyro:cryo','pyro:electro','hydro:cryo','hydro:electro'):
     a.inv=0
     ticks(core,s,50)
     assert events(s,'WZ04:hit:'+expected[1],1)
-    assert w.marks[1].element==expected[1]
+    assert w.marks[s.actors[1]].element==expected[1]
     branches[pair]=[c.variant,c.element]
 
 tested_moves={}
@@ -137,7 +137,7 @@ ticks(core,s,47)
 place(a,c.origin+c.dir*110)
 a.inv=0
 ticks(core,s,30)
-assert a.waterShield is None and not w.marks[1]
+assert a.waterShield is None and not w.marks[s.actors[1]]
 assert len(events(s,'WZ01:hit:pyro',1))==1
 ticks(core,s,139)
 c=move(s,w,spec,'WZ01',335)
@@ -145,17 +145,17 @@ ticks(core,s,47)
 place(a,c.origin+c.dir*110)
 a.inv=0
 ticks(core,s,26)
-assert w.marks[1].element=='pyro'
+assert w.marks[s.actors[1]].element=='pyro'
 core.healActor(s,a,25)
-assert w.marks[1]
+assert w.marks[s.actors[1]]
 s.actors[2].hp=120
 act(s,'swap')
-assert s.active==2 and w.marks[1] and not w.marks[2]
+assert s.active==2 and w.marks[s.actors[1]] and not w.marks[s.actors[2]]
 place(a,32)
 place(s.actors[2],32)
 s.actors[2].lock=99999
 ticks(core,s,480)
-assert len(events(s,'mark-tick:pyro',1))==7 and not w.marks[1]
+assert len(events(s,'mark-tick:pyro',1))==7 and not w.marks[s.actors[1]]
 
 s,w,spec=arena()
 set_form(s,w,2)
@@ -164,10 +164,10 @@ c=move(s,w,spec,'WZ01',335)
 ticks(core,s,47)
 place(a,c.origin+c.dir*110)
 ticks(core,s,26)
-assert w.marks[1]
+assert w.marks[s.actors[1]]
 assert core.attack(s,a,'SK20')
 ticks(core,s,1)
-assert w.marks[1] is None and events(s,'mark-cleansed',1)
+assert w.marks[s.actors[1]] is None and events(s,'mark-cleansed',1)
 
 s,w,spec=arena('pyro:electro')
 set_form(s,w,2)

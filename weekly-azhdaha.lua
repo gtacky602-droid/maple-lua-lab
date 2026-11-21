@@ -32,7 +32,7 @@ return function(C)
  local function mix(a,b,q) return a+(b-a)*q end
  local function live(s)
   local a=s.actors[s.active]
-  if a.hp>0 then return a end
+  if a and a.hp>0 then return a end
   for _,other in ipairs(s.actors) do if other.hp>0 then return other end end
  end
  local function box(x,r,y,h) return {lo=x-r,hi=x+r,y=y,h=h} end
@@ -40,7 +40,9 @@ return function(C)
   e.x,e.y=x,y;e.drawHeight=h;e.hitTop=y-h;e.hitBottom=y
  end
  local function event(s,w,name,id,value)
-  C.combatEvent(s,'azhdaha:'..name,id or 0,w.primary.id,value)
+  for _,party in ipairs(s.parties or {s}) do
+   C.combatEvent(party,'azhdaha:'..name,id or 0,w.primary.id,value)
+  end
  end
  local function remove(s,w)
   for i=#s.enemies,1,-1 do if s.enemies[i]==w.primary then table.remove(s.enemies,i) end end
@@ -50,32 +52,41 @@ return function(C)
   return water and water.hp>0 and water.life>0
     or s.companion=='beidou' and thunder and thunder.hp>0 and thunder.untilTime>s.t
  end
+ local function owner(s,a)
+  if s.actorOwners then return s.actorOwners[a] end
+  return s
+ end
  local function marks(s,w,spec)
-  for id,mark in pairs(w.marks) do
-   local a=s.actors[id]
-   if a.hp<=0 or w.clock>=mark.expiry or shield(s,a) then
-    w.marks[id]=nil
-    if a.hp>0 and shield(s,a) then event(s,w,'mark-cleansed',id) end
+  for a,mark in pairs(w.marks) do
+   local party=owner(s,a)
+   local protected=party and shield(party,a)
+   if a.hp<=0 or w.clock>=mark.expiry or protected then
+    w.marks[a]=nil
+    if a.hp>0 and protected then event(party,w,'mark-cleansed',a.id) end
    elseif w.clock>=mark.next then
     mark.next=mark.next+spec.markPeriod
-    C.damageActor(s,a,spec.markDamage,{id=w.primary.id,damageElement=mark.element},false,false)
-    event(s,w,'mark-tick:'..mark.element,id)
+    if party then
+     C.damageActor(party,a,spec.markDamage,{id=w.primary.id,damageElement=mark.element},false,false)
+     event(party,w,'mark-tick:'..mark.element,a.id)
+    end
    end
   end
  end
  local function hurt(s,w,spec,c,group,a,amount,primary)
   if w.primary.hp<=0 then return end
-  local key=group..':'..a.id
-  if c.hit[key] or (c.count[a.id] or 0)>=(c.id=='WZ10' and c.element=='pyro' and 6 or 100) then return end
-  c.hit[key]=true
-  local protected=shield(s,a)
-  local damage=C.damageActor(s,a,amount,{id=w.primary.id,x=w.primary.x,y=w.primary.y,damageElement=c.element},true,true)
+  local hit=c.hit[group]
+  if not hit then hit={};c.hit[group]=hit end
+  if hit[a] or (c.count[a] or 0)>=(c.id=='WZ10' and c.element=='pyro' and 6 or 100) then return end
+  hit[a]=true
+  local party=owner(s,a)
+  local protected=shield(party,a)
+  local damage=C.damageActor(party,a,amount,{id=w.primary.id,x=w.primary.x,y=w.primary.y,damageElement=c.element},true,true)
   if damage>0 then
-   c.count[a.id]=(c.count[a.id] or 0)+1
-   event(s,w,c.id..':hit:'..c.element,a.id,group)
+   c.count[a]=(c.count[a] or 0)+1
+   event(party,w,c.id..':hit:'..c.element,a.id,group)
    if primary and a.hp>0 and w.primary.hp>0 and not protected and c.element~='geo' then
-    w.marks[a.id]={element=c.element,expiry=w.clock+spec.markTicks,next=w.clock+spec.markPeriod}
-    event(s,w,'mark:'..c.element,a.id)
+    w.marks[a]={element=c.element,expiry=w.clock+spec.markTicks,next=w.clock+spec.markPeriod}
+    event(party,w,'mark:'..c.element,a.id)
    end
   end
  end
@@ -94,21 +105,26 @@ return function(C)
  end
 
  function boss.spawn(s,w,spec)
-  w.pair=pair(s);w.form=1;w.index=1;w.clock=0;w.remainder=0
-  w.rest=spec.noticeTicks;w.cast=nil;w.marks={};w.tailing=false;w.defeatAt=nil
+  if not s.parties then w.pair=pair(s) end
+  w.form=1;w.index=1;w.clock=0;w.remainder=0
+  w.rest=spec.noticeTicks;w.cast=nil;w.marks=setmetatable({},{__mode='k'});w.tailing=false;w.defeatAt=nil
   local e=w.primary;e.dir=-1;e.underground=false;e.invulnerable=false
   body(e,spec.center,spec.floorY,176)
  end
  function boss.attach(s,w)
   remove(s,w);s.enemies[#s.enemies+1]=w.primary
-  if not w.cast and w.primary.hp==w.primary.maxhp then w.pair=pair(s) end
+  if not s.parties and not w.cast and w.primary.hp==w.primary.maxhp then w.pair=pair(s) end
   s.grappleNodes={};s.selectedGrapple=nil
   for _,a in ipairs(s.actors) do a.grapple=nil end
  end
  function boss.cleanup(s,w)
-  remove(s,w);w.cast=nil;w.marks={}
+  remove(s,w);w.cast=nil;w.marks=setmetatable({},{__mode='k'})
   w.defeatAt=w.tailing and w.primary.hp<=0 and s.t or nil
   w.tailing=false;w.primary.underground=true
+ end
+ function boss.coopVariant(w)
+  local first,second=w.pair[1],w.pair[2]
+  return {key=first..':'..second,label=labels[first]..'＋'..labels[second]}
  end
  local function variant(w,id)
   if id=='WZ04' and w.form==3 then return id..'.infused' end
@@ -398,7 +414,10 @@ return function(C)
   view.elementSlots=w.pair;view.moveslot=c and c.variant or nil;view.move=c and c.id or nil
   view.moveTick=c and c.t or nil;view.tail=w.tailing;view.marks={}
   view.safeLane=safeLane(c)
-  for id,mark in pairs(w.marks) do view.marks[tostring(id)]={element=mark.element,ticks=mark.expiry-w.clock} end
+  for _,a in ipairs(s.actors) do
+   local mark=w.marks[a]
+   if mark then view.marks[tostring(a.id)]={element=mark.element,ticks=mark.expiry-w.clock} end
+  end
   view.label=c and (c.id=='WZ09' and '地脈を吸収・'..labels[c.infusion]..
     (c.t<c.move.recovery and '／防御中' or '／反撃の隙')
     or c.t>=c.move.recovery and '反撃の隙' or c.move.title) or labels[w.form==1 and 'geo' or w.pair[w.form-1]]..'の構え'
@@ -409,7 +428,8 @@ return function(C)
    f.draws[#f.draws+1]={kind='text',x=x-s.camera,y=y,text=value,color=color,size=15}
   end
   if e.hp<=0 then
-   if w.defeatAt and s.t-w.defeatAt<.65 then
+   local now=s.coop and s.coop.weeklySlot==w and s.coop.time or s.t
+   if w.defeatAt and now-w.defeatAt<.65 then
     C.drawFieldDisplayArt(f,C.azhdahaWeeklyArt.idle,e.x-s.camera,e.y,142,mode,profile,e.dir>0)
    end
    return
@@ -501,9 +521,19 @@ return function(C)
    end
    if c and c.id=='WZ09' then text(e.x,e.y-188,'吸収・'..labels[c.infusion],colors[c.infusion]) end
   end
-  for id,mark in pairs(w.marks) do
-   local a=s.actors[id]
-   text(a.x,a.y-91,labels[mark.element]..'刻印 '..math.ceil((mark.expiry-w.clock)/60)..'秒',colors[mark.element])
+  local function drawMarks(party,offset)
+   for _,a in ipairs(party.actors) do
+    local mark=w.marks[a]
+    if mark and a.hp>0 then
+     text(a.x,a.y-offset,labels[mark.element]..'刻印 '..math.ceil((mark.expiry-w.clock)/60)..'秒',colors[mark.element])
+    end
+   end
+  end
+  drawMarks(s,91)
+  if s.coop and s.coop.weeklySlot==w then
+   for _,member in ipairs(s.coop.members) do
+    if member.online and member.state~=s and C.sharesCoopField(member.state) then drawMarks(member.state,132) end
+   end
   end
  end
  return boss

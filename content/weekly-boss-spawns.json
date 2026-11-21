@@ -904,6 +904,7 @@
     {
       "id": "boss-29040101",
       "controller": "azhdaha",
+      "coop": true,
       "entity": 29040101,
       "name": "若陀龍王",
       "node": "azhdaha-dragon-seal-arena",
