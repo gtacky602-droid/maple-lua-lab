@@ -28,6 +28,9 @@ return function(C)
   b.facing=dir
   return {move=m,tick=0,dir=dir,seen={{},{},{}},shots={},projectiles={}}
  end
+ function vine.shareCast(cast,actors)
+  C.shareFieldHits(cast.seen,actors)
+ end
  local function shot(b,c,age)
   local m=c.move
   return b.x+c.dir*(m.shotOrigin+age*m.shotSpeed/60)*U,b.y-m.shotHeight*U

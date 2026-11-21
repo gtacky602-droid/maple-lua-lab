@@ -33,6 +33,10 @@ return function(C)
   return {move=move,tick=0,dir=dir,seen={},shots={},projectiles={}}
  end
 
+ function pyro.shareCast(cast,actors)
+  C.shareFieldHits({cast.seen},actors)
+ end
+
  local function bounds(boss,cast)
   local move=cast.move
   local a,b=boss.x+cast.dir*move.near*U,boss.x+cast.dir*move.far*U

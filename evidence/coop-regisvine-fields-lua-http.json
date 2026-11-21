@@ -1,0 +1,41 @@
+{
+  "boss-26020201": {
+    "lua": {
+      "slamAndWaveHitEachActorOnce": true,
+      "soloWaveHistorySurvivesAdoption": true,
+      "separateProjectilesHitSeparateParticipants": true,
+      "participants": 4,
+      "hp": 710,
+      "downTicks": 240,
+      "nucleusBreakTiming": "waits_for_wave",
+      "noWaveDamageDuringDown": true,
+      "xpPerContributor": 4900,
+      "moraPerContributor": 150
+    },
+    "http": {
+      "participants": 2,
+      "downPausedWhileEmpty": true,
+      "personalQuestCreditAndRewardsSaved": true
+    }
+  },
+  "boss-26020301": {
+    "lua": {
+      "slamAndWaveHitEachActorOnce": true,
+      "soloWaveHistorySurvivesAdoption": true,
+      "separateProjectilesHitSeparateParticipants": true,
+      "fixedThreeLightningColumns": true,
+      "participants": 4,
+      "hp": 1240,
+      "downTicks": 240,
+      "nucleusBreakTiming": "interrupts_live_wave",
+      "noWaveDamageDuringDown": true,
+      "xpPerContributor": 39950,
+      "moraPerContributor": 225
+    },
+    "http": {
+      "participants": 2,
+      "downPausedWhileEmpty": true,
+      "personalQuestCreditAndRewardsSaved": true
+    }
+  }
+}

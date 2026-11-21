@@ -17,8 +17,16 @@ const cases={
   evade:{FHD01:[92,146],FHD02:[110],FHD03:[92,128,164]}},
  cryo:{hub:'mond-town',transit:['mond-road','mond-border'],arena:'cryo-field-grove',approach:'cryo-approach',
   boss:'boss-26020101',quest:'cryo-commission',hp:570,mora:125,xp:900,scene:'cryoField',
-  asset:'cryo-regisvine-field',pose:'actions',label:'down',stance:78,
-  fixture:'cryo-regisvine-field',evade:{FC01:[68],FC02:[74],FC03:[62,86]}}
+  asset:'cryo-regisvine-field',pose:'actions',label:'down',stance:78,observeDown:true,
+  fixture:'cryo-regisvine-field',evade:{FC01:[68],FC02:[74],FC03:[62,86]}},
+ pyro:{hub:'liyue-harbor',transit:['liyue-field'],arena:'pyro-field-grotto',approach:'pyro-approach',
+  boss:'boss-26020201',quest:'pyro-commission',hp:710,mora:150,xp:4900,scene:'pyroField',
+  asset:'pyro-regisvine-field',pose:'actions',label:'down',stance:78,observeDown:true,
+  fixture:'pyro-regisvine-field',evade:{FP01:[80],FP02:[68,106],FP03:[86]}},
+ 'electro-regisvine':{arena:'electro-regisvine-field-cave',approach:'sumeru-field',
+  boss:'boss-26020301',quest:'electro-regisvine-commission',hp:1240,mora:225,xp:39950,scene:'electroVineField',
+  asset:'electro-regisvine-field',pose:'poses',label:'down',stance:78,observeDown:true,
+  fixture:'electro-regisvine-field',evade:{FER01:[92],FER02:[80,128],FER03:[104,146,188]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -106,7 +114,7 @@ async function fight(page,side,key,config) {
     air.add([b.x.toFixed(3),b.y.toFixed(3)].join(','));
     visual=true;
    }
-   if(key==='cryo'&&b.coreHits===0&&b.downTicks>0&&sprite){
+   if(config.observeDown&&b.coreHits===0&&b.downTicks>0&&sprite){
     down.add(Math.ceil(b.downTicks/12)*12);
     visual=true;
    }
@@ -160,14 +168,14 @@ async function run(key,config) {
  const moves=Object.keys(config.evade);
  for(const r of results){
   assert.ok(r.kills===1&&r.mora===mora&&r.xp===xp&&r.hp>0&&r.manualDamage>0,JSON.stringify(r));
-  if(key!=='cryo') assert.deepEqual(r.moves,moves);
+  if(!config.observeDown) assert.deepEqual(r.moves,moves);
  }
  const [a,b]=results;
  if(key==='asimon') assert.ok(a.cloaked&&b.cloaked);
  if(key==='wenut')
   assert.ok(a.markers.some(x=>b.markers.includes(x)&&a.emerged.includes(x)&&b.emerged.includes(x)),JSON.stringify(results));
  if(key==='dendro') assert.ok(a.air.some(p=>b.air.includes(p)),JSON.stringify(results));
- if(key==='cryo') assert.ok(a.down.some(t=>b.down.includes(t)),JSON.stringify(results));
+ if(config.observeDown) assert.ok(a.down.some(t=>b.down.includes(t)),JSON.stringify(results));
  const questCounts=await Promise.all(players.map(({page})=>page.evaluate(q=>window.lab.frame.story.quests[q]?.count??null,quest)));
  assert.deepEqual(questCounts,[1,null]);
  const saves=[];

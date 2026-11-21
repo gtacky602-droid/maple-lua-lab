@@ -1,0 +1,109 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 1240,
+  "results": [
+    {
+      "seconds": 30.38,
+      "hp": 126,
+      "kills": 1,
+      "startingMora": 40,
+      "mora": 225,
+      "startingXp": 7990,
+      "xp": 39950,
+      "moves": [
+        "FER01",
+        "FER02",
+        "FER03"
+      ],
+      "manualDamage": 360,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [
+        240,
+        228,
+        216,
+        204,
+        192,
+        180,
+        168,
+        156,
+        144,
+        132,
+        120,
+        108,
+        96,
+        84,
+        72,
+        60,
+        48,
+        36,
+        24,
+        12
+      ]
+    },
+    {
+      "seconds": 30.37,
+      "hp": 107,
+      "kills": 1,
+      "startingMora": 40,
+      "mora": 225,
+      "startingXp": 7990,
+      "xp": 39950,
+      "moves": [
+        "FER01",
+        "FER02",
+        "FER03"
+      ],
+      "manualDamage": 344,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [
+        240,
+        228,
+        216,
+        204,
+        192,
+        180,
+        168,
+        156,
+        144,
+        132,
+        120,
+        108,
+        96,
+        84,
+        72,
+        60,
+        48,
+        36,
+        24,
+        12
+      ]
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 265,
+      "xp": 47940,
+      "respawn": true
+    },
+    {
+      "clears": 1,
+      "mora": 265,
+      "xp": 47940,
+      "respawn": true
+    }
+  ],
+  "scenery": "electroVineField",
+  "errors": []
+}

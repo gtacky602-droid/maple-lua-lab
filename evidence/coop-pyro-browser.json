@@ -1,0 +1,109 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 710,
+  "results": [
+    {
+      "seconds": 38.03,
+      "hp": 114,
+      "kills": 1,
+      "startingMora": 20,
+      "mora": 150,
+      "startingXp": 42,
+      "xp": 4900,
+      "moves": [
+        "FP01",
+        "FP02",
+        "FP03"
+      ],
+      "manualDamage": 230,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [
+        240,
+        228,
+        216,
+        204,
+        192,
+        180,
+        168,
+        156,
+        144,
+        132,
+        120,
+        108,
+        96,
+        84,
+        72,
+        60,
+        48,
+        36,
+        24,
+        12
+      ]
+    },
+    {
+      "seconds": 38.03,
+      "hp": 114,
+      "kills": 1,
+      "startingMora": 20,
+      "mora": 150,
+      "startingXp": 42,
+      "xp": 4900,
+      "moves": [
+        "FP01",
+        "FP02",
+        "FP03"
+      ],
+      "manualDamage": 228,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [
+        240,
+        228,
+        216,
+        204,
+        192,
+        180,
+        168,
+        156,
+        144,
+        132,
+        120,
+        108,
+        96,
+        84,
+        72,
+        60,
+        48,
+        36,
+        24,
+        12
+      ]
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 170,
+      "xp": 4942,
+      "respawn": true
+    },
+    {
+      "clears": 1,
+      "mora": 170,
+      "xp": 4942,
+      "respawn": true
+    }
+  ],
+  "scenery": "pyroField",
+  "errors": []
+}

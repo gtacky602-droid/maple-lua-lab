@@ -141,6 +141,7 @@
     {
       "id": "boss-26020201",
       "controller": "pyroRegisvine",
+      "coop": true,
       "entity": 26020201,
       "name": "爆炎樹",
       "node": "pyro-field-grotto",
@@ -914,6 +915,7 @@
     {
       "id": "boss-26020301",
       "controller": "electroRegisvine",
+      "coop": true,
       "entity": 26020301,
       "name": "迅電樹",
       "node": "electro-regisvine-field-cave",
