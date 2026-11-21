@@ -261,7 +261,7 @@
       "id": "shouki",
       "name": "正機の神（全身形態・待機候補）",
       "file": "shouki-idle-sprites.json",
-      "height": 240,
+      "height": 360,
       "mapHover": 32
     },
     {

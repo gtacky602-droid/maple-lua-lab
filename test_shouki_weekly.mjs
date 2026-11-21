@@ -7,7 +7,7 @@ const page=await browser.newPage({viewport:{width:1240,height:940}});
 const frame=()=>page.evaluate(()=>window.lab.frame);
 const wait=(predicate,arg)=>page.waitForFunction(predicate,arg,{timeout:80000});
 const canvas=page.locator('#game'),controls=page.locator('#weeklyShouki');
-const prefix='evidence/shouki-weekly';
+const prefix='evidence/shouki-weekly-giant';
 const hub='sumeru-hub',node='shouki-godmaking-arena',quest='shouki-weekly-commission',id='boss-29070101';
 const errors=[];
 page.on('pageerror',e=>errors.push(e.message));
@@ -35,14 +35,14 @@ try{
  await page.keyboard.press('KeyF');
  await wait(node=>window.lab.frame.story.node===node,node);
  const scene=await page.evaluate(async()=>{
-  const {backgroundReady,sceneryStatus}=await import('./scenery.js');
-  await backgroundReady;
+  const {loadScenery,sceneryStatus}=await import('./scenery.js');
+  await loadScenery(window.lab.frame);
   return sceneryStatus(window.lab.frame);
  });
  assert.deepEqual([scene.key,scene.state],['sumeruCanopy','ready']);
  const opening=await frame();
  assert.deepEqual(opening.weeklyBoss.phaseHp.map(v=>v.max),[590,1040]);
- assert.ok(opening.draws.some(d=>d.source==='shouki-idle-source-v1.png'&&d.h===176));
+ assert.ok(opening.draws.some(d=>d.source==='shouki-idle-source-v1.png'&&d.h===288&&d.y===423));
  await page.locator('.game').screenshot({path:prefix+'-upper.png'});
  await canvas.click();
  await page.evaluate(()=>{
@@ -104,6 +104,12 @@ try{
  await wait(()=>window.lab.frame.weeklyBoss?.shouki.left);
  await page.evaluate(()=>{window.shoukiMain=true;});
  await wait(()=>window.lab.frame.weeklyBoss?.shouki.canAim);
+ const armored=await frame();
+ assert.ok(armored.draws.some(d=>d.source==='shouki-idle-source-v1.png'&&d.h===360&&d.y===480));
+ assert.ok(armored.weeklyBoss.shouki.core.exposed);
+ assert.ok(Math.abs(armored.weeklyBoss.shouki.core.y-(480-360*870/1480))<0.001);
+ assert.equal(await controls.locator('#weeklyShoukiHint').textContent(),'端末で胸部を照準');
+ await page.locator('.game').screenshot({path:prefix+'-full.png'});
  assert.ok(await controls.locator('#weeklyShoukiArmor').isVisible());
  await interact.click();
  await wait(()=>window.lab.frame.weeklyBoss?.shouki.aim&&!window.lab.frame.weeklyBoss.shouki.aim.confirmed);
@@ -117,6 +123,10 @@ try{
  await wait(()=>window.lab.frame.events.some(e=>e.kind==='shouki:WN14:guard-hit'));
  await page.evaluate(()=>{window.shoukiRealShot=true;});
  await wait(()=>window.lab.frame.weeklyBoss?.shouki.targets.length===4);
+ const trial=await frame();
+ assert.ok(trial.draws.some(d=>d.source==='shouki-idle-source-v1.png'&&d.h===320&&d.y===397));
+ assert.equal(trial.weeklyBoss.shouki.core.exposed,false);
+ assert.ok(Math.abs(trial.weeklyBoss.shouki.core.y-(397-320*870/1480))<0.001);
  await page.locator('.game').screenshot({path:prefix+'-trial.png'});
  await wait(()=>{
   const f=window.lab.frame,b=f.weeklyBoss;
@@ -127,6 +137,7 @@ try{
  await wait(()=>window.lab.frame.paused);
  const down=await frame();
  assert.ok(down.weeklyBoss.damageable&&down.weeklyBoss.shouki.exposure>=590);
+ assert.ok(down.draws.some(d=>d.source==='shouki-idle-source-v1.png'&&d.h===236&&d.y===480));
  assert.ok(down.events.some(e=>e.kind==='shouki:WN14:core-hit'));
  assert.equal(down.events.filter(e=>e.kind==='shouki:WN15:destroyed').length,4);
  assert.ok(await page.locator('#status').evaluate(el=>!el.classList.contains('error')));
@@ -168,6 +179,7 @@ try{
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({entry:true,manualMatrix:true,twoPhases:true,
   reservedAndCancelled:true,terminalHitArmor:true,manualTrialParts:4,terminalHitCore:true,exposureTicks:down.weeklyBoss.shouki.exposure,
+  art:{upper:288,full:360,trial:320,collapse:236,shieldCore:armored.weeklyBoss.shouki.core,trialCore:trial.weeklyBoss.shouki.core},
   clearReportRestore:true,remainingHp:finished.actors[0].hp,viewport390:true,scene,
   commands:{png:down.commands,standard:standard.commands,light:light.commands},errors},null,2)+'\n');
  console.log('Shouki Chrome: matrix, terminal controls, four parts, collapse, clear, report and save passed');

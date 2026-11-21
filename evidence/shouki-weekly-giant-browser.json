@@ -1,0 +1,40 @@
+{
+  "entry": true,
+  "manualMatrix": true,
+  "twoPhases": true,
+  "reservedAndCancelled": true,
+  "terminalHitArmor": true,
+  "manualTrialParts": 4,
+  "terminalHitCore": true,
+  "exposureTicks": 599,
+  "art": {
+    "upper": 288,
+    "full": 360,
+    "trial": 320,
+    "collapse": 236,
+    "shieldCore": {
+      "exposed": true,
+      "y": 268.3783783783784,
+      "x": 480
+    },
+    "trialCore": {
+      "exposed": false,
+      "y": 208.8918918918919,
+      "x": 480
+    }
+  },
+  "clearReportRestore": true,
+  "remainingHp": 961,
+  "viewport390": true,
+  "scene": {
+    "key": "sumeruCanopy",
+    "file": "sumeru-canopy-background-v1.png",
+    "state": "ready"
+  },
+  "commands": {
+    "png": 15,
+    "standard": 11650,
+    "light": 2892
+  },
+  "errors": []
+}

@@ -566,9 +566,12 @@ function hud(f,calls,renderMs){
    const hands=v.left||v.right?` ｜ 抑制中 ${v.left?'雷A':''}${v.right?'雷B':''}`:'';
    const trial=v.trialTime===undefined?'':v.trialLeft?`滅度機 残り${v.trialLeft}基 ｜ ${Math.ceil(v.trialTime/60)}秒`:
     v.trialTime<120?'端末の発射受付終了':`胸部を照準 ｜ 残り${Math.ceil(v.trialTime/60)}秒`;
+   const combatHint=field.shoukiStage==='p1'?(info||(
+    v.charge===v.max?'元素装置に近づいて起動':'充填ブロックを拾う'))+hands:
+    field.shoukiStage==='p2'?(field.damageable?'足元から本体を攻撃':v.canAim?'端末で胸部を照準':'充填ブロックを拾う'):'';
    $('weeklyShoukiHint').textContent=v.exposure?`攻撃できる時間 残り${Math.ceil(v.exposure/60)}秒`:
     aim?(aim.fired?'端末を発射':aim.confirmed?'端末を発射準備中':'照準先を選んで射撃を確定'):
-    trial||(info?info+hands:field.shoukiStage==='p1'||field.shoukiStage==='p2'?'充填ブロックを拾う'+hands:'');
+    trial||combatHint;
    use.hidden=!device&&!v.canAim;
    use.disabled=!!device&&(device.cooldown>0||v.charge<v.max)||f.paused||f.auto;
    use.textContent=device?device.title+'装置を起動':'端末を構える';

@@ -12,12 +12,14 @@ Lv64でスメール・樹陰の広場の依頼「工房の再現戦・端末と�
 
 既存の全身ドット絵と、同じ原画から作った上半身の描画データを使う。原画には3Dモデルの正面・側面・背面と顔の参照記録がある。装置、滅度機、端末と攻撃の予兆は仮描画。背景は樹冠の仮画像を使い、本番は3D配置の方針。連続作画、音、難度調整、多人数と幻境実機は後続。 [原画の参照記録](../../evidence/shouki-reference-audit.json)
 
+現行の表示高は、前半の上半身が288px、装甲戦の全身が360px。滅度機の試練では320px高で浮き、ダウン中は236px高まで沈む。960×540の戦闘画面で、正機の神の輪郭と足元の装置・予告を同時に見られるようにした。胸の照準と端末弾の到達判定は絵の宝玉を基準に置く。滅度機が残っている間は胸の印が紫で、4基が消えると緑になる。通常攻撃の判定は前半が両腕と中央、後半が足元。 [上半身戦](../../evidence/shouki-weekly-giant-upper.png) · [全身の装甲戦](../../evidence/shouki-weekly-giant-full.png) · [滅度機が残る状態](../../evidence/shouki-weekly-giant-trial.png)
+
 ```powershell
 python compile_boss_assets.py --source shouki-idle-source-v1.png --output shouki-weekly-upper-sprites-v1.json --height 176 --crop 0 0 1024 928
 ```
 
 ## 検証
 
-- [正機の神の設計](SHOUKI_NO_KAMI.md) と [スメールの検証仕様](QA_SUMERU.md) のタイミングを使う。 `test_shouki_weekly.py` は装置、充填、装甲、予約と発射、滅度機、期限切れ、600tickの露出、保存復元を確認する。 [Luaの結果](../../evidence/shouki-weekly-lua.json)
-- `test_shouki_weekly.mjs` は装備付きLv64の試験データで、Chromeから受注、元素装置の起動、予約の中止、装甲と胸部への射撃、滅度機4基の破壊、討伐、報告、保存復元まで確認した。 [Chromeの結果](../../evidence/shouki-weekly-browser.json) ／ [上半身戦](../../evidence/shouki-weekly-upper.png) ／ [滅度機の試練](../../evidence/shouki-weekly-trial.png)
-- 胸部の反撃中の同一フレームで、描画指示はPNGで11件、標準矩形で11,646件、軽量16色で2,888件。軽量16色版は標準矩形より75.2％少ない。 [PNG](../../evidence/shouki-weekly-png.png) ／ [標準矩形](../../evidence/shouki-weekly-standard.png) ／ [軽量16色](../../evidence/shouki-weekly-light.png)
+- [正機の神の設計](SHOUKI_NO_KAMI.md) と [スメールの検証仕様](QA_SUMERU.md) のタイミングを使う。`test_shouki_weekly.py` は胸部照準の位置、通常攻撃が届く高さ、装置、予約と発射、期限切れと600tickの露出、保存復元を確認する。 [Luaの結果](../../evidence/shouki-weekly-giant-lua.json)
+- `test_shouki_weekly.mjs` は装備付きLv64の試験データで、Chromeから受注、元素装置の起動、予約の中止、装甲と胸部への射撃、滅度機4基の破壊、討伐、報告、保存復元まで確認する。拡大した絵を各段階で描画し、390px幅で戦闘の操作欄が収まることも検査する。 [Chromeの結果](../../evidence/shouki-weekly-giant-browser.json)
+- 胸部への射撃後にダウンした同一フレームで、元PNG、標準矩形、軽量16色を比較した。描画指示はPNGで15件、標準矩形で11,650件、軽量16色で2,892件。 [PNG](../../evidence/shouki-weekly-giant-png.png) · [標準矩形](../../evidence/shouki-weekly-giant-standard.png) · [軽量16色](../../evidence/shouki-weekly-giant-light.png)

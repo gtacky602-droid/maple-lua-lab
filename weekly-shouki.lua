@@ -3,6 +3,19 @@ return function(C)
  local avoid=C.aiAvoidTarget
  local clamp=function(x,lo,hi) return math.max(lo,math.min(hi,x)) end
  local colors={pyro='#ff9469',cryo='#a1daf7',electro='#caa3fc',anemo='#91e3cb',hydro='#87c6ff',charge='#b9f2a9',gold='#f5d794'}
+ -- Chest gem is at source y=624 in the full form crop y=[14,1494).
+ local coreFromBottom=870/1480
+ local function visual(w,spec)
+  local name,t,y=w.stage,w.stageTick,spec.floorY
+  if name=='p1' or name=='overload' or name=='rise' and t<120 then
+   if name=='overload' and t>=60 then return 'upper',y-31,248 end
+   return 'upper',y-57,288
+  end
+  if name=='trial' then return 'full',y-83,320 end
+  if name=='collapse' and t>=60 then return 'full',y,236 end
+  if name=='rise' then return 'full',y,270+90*clamp((t-120)/120,0,1) end
+  return 'full',y,360
+ end
  local function actor(s) return s.actors[s.active] end
  local function event(s,w,key,owner,v) C.combatEvent(s,'shouki:'..key,owner or 0,w.primary.id,v or 0) end
  local function body(e,x,y,h) e.x,e.y,e.hitTop,e.hitBottom=x,y,y-h,y end
@@ -350,8 +363,8 @@ return function(C)
   end
  end
  local function aimPoint(w,spec,option)
-  local x=w.primary.x
-  local y=w.stage=='trial' and spec.floorY-212 or spec.floorY-112
+  local _,base,height=visual(w,spec)
+  local x,y=w.primary.x,base-height*coreFromBottom
   if option=='left' then return x-170,y end
   if option=='right' then return x+170,y end
   return x,y
@@ -491,7 +504,8 @@ return function(C)
   local b,e,c,name=f.weeklyBoss,w.primary,w.cast,w.stage
   local label={rise='全身起動',overload='過負荷停止',trial='滅度機と胸部弱点',failure='刹那生滅',collapse='神機崩落'}
   local card={rise='WN08',overload='WN07',trial='WN15',failure='WN16',collapse='WN17'}
-  local upper=name=='p1' or name=='overload' or name=='rise' and w.stageTick<120
+  local form,base,height=visual(w,spec)
+  local upper=form=='upper'
   b.x,b.y,b.shoukiStage=e.x,e.y,name
   b.formName=upper and '上半身' or '全身'
   b.label=c and c.move.title or label[name] or '構え'
@@ -523,13 +537,7 @@ return function(C)
    f.draws[#f.draws+1]={kind='text',x=x-s.camera,y=y,text=value,color=color,size=15}
   end
   local y=spec.floorY
-  local lower=name=='overload' and w.stageTick>=60 or name=='collapse' and w.stageTick>=60
-  local art=upper and C.shoukiWeeklyArt.upper or C.shoukiWeeklyArt.full
-  local base=upper and (lower and 449 or 423) or y
-  local height=upper and (lower and 152 or 176) or (lower and 155 or 240)
-  if name=='trial' then base=y-83 end
-  if name=='rise' and not upper then height=195+45*clamp((w.stageTick-120)/120,0,1) end
-  C.drawFieldDisplayArt(f,art,e.x-s.camera,base,height,mode,profile,false)
+  C.drawFieldDisplayArt(f,C.shoukiWeeklyArt[form],e.x-s.camera,base,height,mode,profile,false)
   for _,p in ipairs(w.floors) do
    rect(p.x-p.width/2,y-7,p.width,6,colors[p.element])
    for dx=4,p.width-4,13 do rect(p.x-p.width/2+dx,y-11,(p.element=='cryo' and 6 or 4),7,colors[p.element]) end
@@ -581,9 +589,12 @@ return function(C)
   end end
   if name=='trial' or name=='p2' and w.shield>0 then
    local x,cy=aimPoint(w,spec,'core')
-   rect(x-18,cy-19,36,38,colors.charge,.22)
-   rect(x-19,cy-21,38,4,colors.charge);rect(x-19,cy+17,38,4,colors.charge)
-   rect(x-21,cy-17,4,34,colors.charge);rect(x+17,cy-17,4,34,colors.charge)
+   local exposed=name~='trial' or w.trialLeft==0
+   local color=exposed and colors.charge or colors.electro
+   state.core={x=x,y=cy,exposed=exposed}
+   rect(x-18,cy-19,36,38,color,.22)
+   rect(x-19,cy-21,38,4,color);rect(x-19,cy+17,38,4,color)
+   rect(x-21,cy-17,4,34,color);rect(x+17,cy-17,4,34,color)
   end
   if q then
    local x,cy=aimPoint(w,spec,q.target)
