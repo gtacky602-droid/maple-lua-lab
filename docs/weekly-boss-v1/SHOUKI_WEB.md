@@ -12,9 +12,9 @@ Lv64でスメール・樹陰の広場の依頼「工房の再現戦・端末と�
 
 既存の全身ドット絵と、同じ原画から作った上半身の描画データを使う。原画には3Dモデルの正面・側面・背面と顔の参照記録がある。装置、滅度機、端末と攻撃の予兆は仮描画。背景は樹冠の仮画像を使い、本番は3D配置の方針。連続作画、音、難度調整、多人数と幻境実機は後続。 [原画の参照記録](../../evidence/shouki-reference-audit.json)
 
-960×540の戦闘画面で、前半の上半身は高さ800px・幅約760px。顔の上と上段の腕が画面上端で切れ、胸と両腕が大きく迫る構図にした。足元には6つの装置と攻撃予告が出る。後半の機体は高さ680pxで上端から200pxはみ出す。滅度機の試練では610px高で浮き、ダウン中は510px高まで沈む。 [上半身戦](../../evidence/shouki-weekly-closeup-upper.png) · [全身形態の装甲戦](../../evidence/shouki-weekly-closeup-full.png) · [滅度機が残る状態](../../evidence/shouki-weekly-closeup-trial.png)
+960×540の戦闘画面で、前半の上半身は高さ1,160px・幅約1,102px。上と左右からはみ出し、胸と両腕が画面を占める。機体は旅人たちの後ろに描き、手前に6つの装置と攻撃予告が出る。後半の機体は744px高で上端から264pxはみ出す。滅度機の試練では630px高で浮き、ダウン中は600px高まで沈む。 [上半身戦](../../evidence/shouki-weekly-overflow-upper.png) · [全身形態の装甲戦](../../evidence/shouki-weekly-overflow-full.png) · [滅度機が残る状態](../../evidence/shouki-weekly-overflow-trial.png)
 
-端末弾は画面に見える胸の宝玉を狙う。滅度機が残っている間は胸の印が紫で、4基が消えると緑になる。通常攻撃が届く部位は前半が両腕と中央、後半が足元。 [ラボを開く](http://127.0.0.1:9012/)
+端末弾は画面に見える胸の宝玉を狙う。滅度機が残っている間は胸の印が紫で、4基が消えると緑になる。通常攻撃が届く部位は前半が両腕と中央、後半が足元。 [ラボを開く](http://127.0.0.1:9013/)
 
 ```powershell
 python compile_boss_assets.py --source shouki-idle-source-v1.png --output shouki-weekly-upper-sprites-v1.json --height 176 --crop 0 0 1024 928
@@ -22,6 +22,6 @@ python compile_boss_assets.py --source shouki-idle-source-v1.png --output shouki
 
 ## 検証
 
-- [正機の神の設計](SHOUKI_NO_KAMI.md) と [スメールの検証仕様](QA_SUMERU.md) のタイミングを使う。`test_shouki_weekly.py` は胸部照準の位置、通常攻撃が届く高さ、装置、予約と発射、期限切れと600tickの露出、保存復元を確認する。 [Luaの結果](../../evidence/shouki-weekly-closeup-lua.json)
-- `test_shouki_weekly.mjs` は装備付きLv64の試験データで、Chromeから受注、元素装置の起動、予約の中止、装甲と胸部への射撃、滅度機4基の破壊、討伐、報告、保存復元まで確認する。各段階で構図、装置、照準位置を確認し、390px幅での操作欄も検査する。 [Chromeの結果](../../evidence/shouki-weekly-closeup-browser.json)
-- 胸部への射撃後にダウンした同一フレームで、元PNG、標準矩形、軽量16色を比較した。 [PNG](../../evidence/shouki-weekly-closeup-png.png) · [標準矩形](../../evidence/shouki-weekly-closeup-standard.png) · [軽量16色](../../evidence/shouki-weekly-closeup-light.png)
+- [正機の神の設計](SHOUKI_NO_KAMI.md) と [スメールの検証仕様](QA_SUMERU.md) のタイミングを使う。`test_shouki_weekly.py` は胸部照準の位置、通常攻撃が届く高さ、装置、予約と発射、期限切れと600tickの露出、保存復元を確認する。 [Luaの結果](../../evidence/shouki-weekly-overflow-lua.json)
+- `test_shouki_weekly.mjs` は装備付きLv64の試験データで、Chromeから受注、元素装置の起動、予約の中止、装甲と胸部への射撃、滅度機4基の破壊、討伐、報告、保存復元まで確認する。各段階で構図、装置、照準位置を確認し、390px幅での操作欄も検査する。 [Chromeの結果](../../evidence/shouki-weekly-overflow-browser.json)
+- 胸部への射撃後にダウンした同一フレームで、元PNG、標準矩形、軽量16色を比較した。 [PNG](../../evidence/shouki-weekly-overflow-png.png) · [標準矩形](../../evidence/shouki-weekly-overflow-standard.png) · [軽量16色](../../evidence/shouki-weekly-overflow-light.png)

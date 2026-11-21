@@ -5,16 +5,16 @@ return function(C)
  local colors={pyro='#ff9469',cryo='#a1daf7',electro='#caa3fc',anemo='#91e3cb',hydro='#87c6ff',charge='#b9f2a9',gold='#f5d794'}
  -- Chest gem is at source y=624 in the full form crop y=[14,1494).
  local coreFromBottom=870/1480
- local fullHeight=680
+ local fullHeight=744
  local function visual(w,spec)
   local name,t,y=w.stage,w.stageTick,spec.floorY
   if name=='p1' or name=='overload' or name=='rise' and t<120 then
-   if name=='overload' and t>=60 then return 'upper',y-31,640 end
-   return 'upper',y-57,800
+   if name=='overload' and t>=60 then return 'upper',y-31,910 end
+   return 'upper',y-31,1160
   end
-  if name=='trial' then return 'full',y-83,610 end
-  if name=='collapse' and t>=60 then return 'full',y,510 end
-  if name=='rise' then return 'full',y,600+(fullHeight-600)*clamp((t-120)/120,0,1) end
+  if name=='trial' then return 'full',y-83,630 end
+  if name=='collapse' and t>=60 then return 'full',y,600 end
+  if name=='rise' then return 'full',y,656+(fullHeight-656)*clamp((t-120)/120,0,1) end
   return 'full',y,fullHeight
  end
  local function actor(s) return s.actors[s.active] end
@@ -538,7 +538,11 @@ return function(C)
    f.draws[#f.draws+1]={kind='text',x=x-s.camera,y=y,text=value,color=color,size=15}
   end
   local y=spec.floorY
-  C.drawFieldDisplayArt(f,C.shoukiWeeklyArt[form],e.x-s.camera,base,height,mode,profile,false)
+  -- Put the oversized machine behind the party and its combat cues.
+  local bodyFrame={draws={}}
+  C.drawFieldDisplayArt(bodyFrame,C.shoukiWeeklyArt[form],e.x-s.camera,base,height,mode,profile,false)
+  table.move(f.draws,1,#f.draws,#bodyFrame.draws+1,bodyFrame.draws)
+  f.draws=bodyFrame.draws
   for _,p in ipairs(w.floors) do
    rect(p.x-p.width/2,y-7,p.width,6,colors[p.element])
    for dx=4,p.width-4,13 do rect(p.x-p.width/2+dx,y-11,(p.element=='cryo' and 6 or 4),7,colors[p.element]) end

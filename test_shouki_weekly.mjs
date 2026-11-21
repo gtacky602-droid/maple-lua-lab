@@ -7,7 +7,7 @@ const page=await browser.newPage({viewport:{width:1240,height:940}});
 const frame=()=>page.evaluate(()=>window.lab.frame);
 const wait=(predicate,arg)=>page.waitForFunction(predicate,arg,{timeout:80000});
 const canvas=page.locator('#game'),controls=page.locator('#weeklyShouki');
-const prefix='evidence/shouki-weekly-closeup';
+const prefix='evidence/shouki-weekly-overflow';
 const hub='sumeru-hub',node='shouki-godmaking-arena',quest='shouki-weekly-commission',id='boss-29070101';
 const errors=[];
 page.on('pageerror',e=>errors.push(e.message));
@@ -43,7 +43,9 @@ try{
  const opening=await frame();
  assert.deepEqual(opening.weeklyBoss.phaseHp.map(v=>v.max),[590,1040]);
  const upper=opening.draws.find(d=>d.source==='shouki-idle-source-v1.png');
- assert.ok(upper?.h===800&&upper.y===423&&upper.w>720&&upper.y-upper.h<0);
+ assert.ok(upper?.h===1160&&upper.y===449&&upper.y-upper.h<0);
+ assert.ok(upper.x-upper.w/2<0&&upper.x+upper.w/2>960);
+ assert.equal(opening.draws[0],upper);
  assert.equal(opening.draws.filter(d=>d.kind==='text'&&['炎','風','雷A','水','氷','雷B'].includes(d.text)&&d.y<540).length,6);
  await page.locator('.game').screenshot({path:prefix+'-upper.png'});
  await canvas.click();
@@ -108,9 +110,9 @@ try{
  await wait(()=>window.lab.frame.weeklyBoss?.shouki.canAim);
  const armored=await frame();
  const full=armored.draws.find(d=>d.source==='shouki-idle-source-v1.png');
- assert.ok(full?.h===680&&full.y===480&&full.y-full.h<0);
+ assert.ok(full?.h===744&&full.y===480&&full.y-full.h<0);
  assert.ok(armored.weeklyBoss.shouki.core.exposed);
- assert.ok(Math.abs(armored.weeklyBoss.shouki.core.y-(480-680*870/1480))<0.001);
+ assert.ok(Math.abs(armored.weeklyBoss.shouki.core.y-(480-744*870/1480))<0.001);
  assert.ok(armored.weeklyBoss.shouki.core.y>21);
  assert.equal(await controls.locator('#weeklyShoukiHint').textContent(),'端末で胸部を照準');
  await page.locator('.game').screenshot({path:prefix+'-full.png'});
@@ -128,9 +130,9 @@ try{
  await page.evaluate(()=>{window.shoukiRealShot=true;});
  await wait(()=>window.lab.frame.weeklyBoss?.shouki.targets.length===4);
  const trial=await frame();
- assert.ok(trial.draws.some(d=>d.source==='shouki-idle-source-v1.png'&&d.h===610&&d.y===397));
+ assert.ok(trial.draws.some(d=>d.source==='shouki-idle-source-v1.png'&&d.h===630&&d.y===397));
  assert.equal(trial.weeklyBoss.shouki.core.exposed,false);
- assert.ok(Math.abs(trial.weeklyBoss.shouki.core.y-(397-610*870/1480))<0.001);
+ assert.ok(Math.abs(trial.weeklyBoss.shouki.core.y-(397-630*870/1480))<0.001);
  assert.ok(trial.weeklyBoss.shouki.core.y>21&&trial.weeklyBoss.shouki.targets.every(p=>p.y===480&&p.x>0&&p.x<960));
  await page.locator('.game').screenshot({path:prefix+'-trial.png'});
  await wait(()=>{
@@ -142,7 +144,7 @@ try{
  await wait(()=>window.lab.frame.paused);
  const down=await frame();
  assert.ok(down.weeklyBoss.damageable&&down.weeklyBoss.shouki.exposure>=590);
- assert.ok(down.draws.some(d=>d.source==='shouki-idle-source-v1.png'&&d.h===510&&d.y===480));
+ assert.ok(down.draws.some(d=>d.source==='shouki-idle-source-v1.png'&&d.h===600&&d.y===480));
  assert.ok(down.events.some(e=>e.kind==='shouki:WN14:core-hit'));
  assert.equal(down.events.filter(e=>e.kind==='shouki:WN15:destroyed').length,4);
  assert.ok(await page.locator('#status').evaluate(el=>!el.classList.contains('error')));
@@ -184,8 +186,9 @@ try{
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({entry:true,manualMatrix:true,twoPhases:true,
   reservedAndCancelled:true,terminalHitArmor:true,manualTrialParts:4,terminalHitCore:true,exposureTicks:down.weeklyBoss.shouki.exposure,
-  art:{upper:800,upperWidth:upper.w,full:680,trial:610,collapse:510,
-   upperTop:upper.y-upper.h,fullTop:full.y-full.h,shieldCore:armored.weeklyBoss.shouki.core,trialCore:trial.weeklyBoss.shouki.core},
+  art:{upper:1160,upperWidth:upper.w,full:744,trial:630,collapse:600,
+   upperLeft:upper.x-upper.w/2,upperTop:upper.y-upper.h,fullTop:full.y-full.h,
+   machineBehindParty:true,shieldCore:armored.weeklyBoss.shouki.core,trialCore:trial.weeklyBoss.shouki.core},
   clearReportRestore:true,remainingHp:finished.actors[0].hp,viewport390:true,scene,
   commands:{png:down.commands,standard:standard.commands,light:light.commands},errors},null,2)+'\n');
  console.log('Shouki Chrome: matrix, terminal controls, four parts, collapse, clear, report and save passed');
