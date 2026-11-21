@@ -104,7 +104,15 @@ const cases={
   boss:'boss-26220301',quest:'yumka-commission',hp:1035,mora:370,xp:212400,scene:'yumkaField',
   asset:'yumka-field',pose:'poses',label:'fruits',fixture:'yumka-field',report:[7400,470],
   flight:{move:'FYM02',height:154,offset:0,warning:'#d0ed89',warningY:476,warningHeight:2,capture:false},
-  evade:{FYM01:[104],FYM02:[116],FYM03:[122,176]}}
+  evade:{FYM01:[104],FYM02:[116],FYM03:[122,176]}},
+ 'config-device':{hub:'natlan-hub',arena:'config-device-field-workshop',approach:'natlan-field',
+  boss:'boss-24090201',quest:'config-device-commission',hp:1020,mora:380,xp:240900,scene:'configDeviceField',
+  asset:'config-device-field',pose:'poses',label:'collector',fixture:'config-device-field',report:[7600,480],
+  breakable:{form:'hover',color:'#ffb44d',y:375,pips:true},evade:{FSC01:[98,158],FSC02:[104,164],FSC03:[320]}},
+ papilla:{hub:'natlan-hub',arena:'papilla-field-hollow',approach:'natlan-field',
+  boss:'boss-22120101',quest:'papilla-commission',hp:1050,mora:395,xp:273250,scene:'papillaField',
+  asset:'papilla-field',pose:'poses',label:'morph',fixture:'papilla-field',report:[7800,500],
+  evade:{FMP01:[128],FMP02:[122,182],FMP03:[128]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -145,12 +153,12 @@ async function fight(page,side,key,config) {
   const forms=new Set(),landings=new Set(),maskPaths=new Set(),flightTargets=new Set(),fallLayouts=new Set();
   const skullTracks=new Set(),bombLayouts=new Set(),relayTracks=new Set(),struck=new Set();
   const gravityTracks=new Set(),fireLayouts=new Set(),exposedAt=new Set(),pearls=new Set(),interruptedAt=new Set();
-  const sharedObjects=new Set(),diveLayouts=new Set();
+  const sharedObjects=new Set(),diveLayouts=new Set(),cannonLayouts=new Set();
   const art=config.pose&&config.asset+'-'+config.pose+'-source-v1.png';
   const entities=config.bodies??[Number(config.boss.slice(5))];
   const start=window.lab.frame;
   let cloaked=false,lastMove,lastTick,used=new Set(),capture=null,guardTick=null,recovery=0,shieldUsed=false,recovered=false;
-  let jumpProbe=null,jump=null;
+  let jumpProbe=null,jump=null,lastHp=Infinity,hpMonotonic=true;
   function hold(code,on) {
    if(on===held.has(code)) return;
    if(on) held.add(code); else held.delete(code);
@@ -174,7 +182,8 @@ async function fight(page,side,key,config) {
      flightTargets:[...flightTargets],fallLayouts:[...fallLayouts],recovered,
      skullTracks:[...skullTracks],bombLayouts:[...bombLayouts],relayTracks:[...relayTracks],struck:[...struck],
      gravityTracks:[...gravityTracks],jump,fireLayouts:[...fireLayouts],exposedAt:[...exposedAt],
-     pearls:[...pearls],interruptedAt:[...interruptedAt],sharedObjects:[...sharedObjects],diveLayouts:[...diveLayouts]};
+     pearls:[...pearls],interruptedAt:[...interruptedAt],sharedObjects:[...sharedObjects],diveLayouts:[...diveLayouts],
+     cannonLayouts:[...cannonLayouts],hpMonotonic};
     return;
    }
    if(!b) {
@@ -185,6 +194,8 @@ async function fight(page,side,key,config) {
    if(b.move!==lastMove||b.tick<lastTick){lastMove=b.move;used=new Set()}
    lastTick=b.tick;
    if(b.move) moves.add(b.move);
+   hpMonotonic=hpMonotonic&&b.hp<=lastHp;
+   lastHp=b.hp;
    const sprite=art&&f.draws.find(d=>d.source===art);
    let visual=false;
    if(key==='asimon'&&b.cloaked&&sprite?.opacity===.45){
@@ -316,14 +327,24 @@ async function fight(page,side,key,config) {
    }
    if(config.breakable){
     const device=b.summon;
-    const {form,color,y}=config.breakable;
-    if(device&&b.form===form&&f.draws.some(d=>d.y===y&&d.h===5&&d.color===color&&
-       Math.abs(d.x+17+f.camera-device.x)<.001&&Math.abs(d.w-34*device.hp/device.maxhp)<.001)){
+    const {form,color,y,pips}=config.breakable;
+    const deviceMarks=device?f.draws.filter(d=>d.y===y&&Math.abs(d.x+f.camera-device.x)<24):[];
+    const bar=pips?deviceMarks.filter(d=>d.w===11&&d.h===4&&d.color===color).length===device?.hp:
+     deviceMarks.some(d=>d.h===5&&d.color===color&&Math.abs(d.x+17+f.camera-device.x)<.001&&
+      Math.abs(d.w-34*device.hp/device.maxhp)<.001);
+    if(device&&b.form===form&&bar){
      sharedObjects.add([device.x.toFixed(3),device.maxhp].join(','));
      visual=true;
     }
-    const interrupted=key==='legatus'?b.form==='staggered'&&b.label==='共鳴が止まる・反撃':b.flightInterrupted;
+    const interrupted=pips?b.form==='down':key==='legatus'?
+     b.form==='staggered'&&b.label==='共鳴が止まる・反撃':b.flightInterrupted;
     if(!device&&interrupted&&sprite) interruptedAt.add(b.x);
+    if(pips&&b.cannonBounds&&b.tick<324){
+     const {left,right}=b.cannonBounds;
+     const edges=f.draws.filter(d=>d.color===color&&d.w===2&&d.h>100);
+     if([left,right-2].every(x=>edges.some(d=>Math.abs(d.x+f.camera-x)<.001)))
+      cannonLayouts.add([left,right].map(x=>x.toFixed(3)).join(','));
+    }
    }
    if(key==='qucusaur'&&b.divePoints?.length===2&&b.tick<186){
     const marks=f.draws.filter(d=>d.kind==='text'&&d.color==='#ffebbc'&&(d.text==='1'||d.text==='2'));
@@ -335,6 +356,16 @@ async function fight(page,side,key,config) {
     if(marks.length===2&&marks.every((d,i)=>Math.abs(d.x+f.camera-b.firePoints[i])<.001)){
      fireLayouts.add(b.firePoints.map(x=>x.toFixed(3)).join(','));
      visual=b.tick>=96&&f.draws.filter(d=>d.source===art).length===2;
+    }
+   }
+   if(key==='papilla'&&sprite){
+    if(b.form==='stem'&&b.pose?.startsWith('stem-')) forms.add('stem');
+    if(b.form==='wing'&&b.pose?.startsWith('wing-')) forms.add('wing');
+    if(b.flying&&b.y<421&&b.pose==='fungus-ready'&&sprite.y===b.y&&Math.abs(sprite.x+f.camera-b.x)<.001){
+     const start=b.destinationX-.7*88;
+     visual=f.draws.some(d=>d.color==='#bd96ff'&&d.y===477&&d.w===6&&d.h===2&&
+      Math.abs(d.x+f.camera-start)<.001);
+     if(visual){forms.add('fungus');flightTargets.add(b.destinationX)}
     }
    }
    const tell=config.fallTell;
@@ -363,7 +394,7 @@ async function fight(page,side,key,config) {
    }
    const preferred=b.bodies?.[side===-1?0:1];
    const other=b.bodies?.[side===-1?1:0];
-   const device=config.breakable&&b.summon;
+   const device=config.breakable&&b.summon&&(!config.breakable.pips||b.cannonBounds);
    const target=device||(config.bodies?(preferred?.y<450?other:preferred)??b:b);
    const dx=target.x-a.x;
    let desired=target.x+side*(device?65:config.stance??104);
@@ -394,7 +425,8 @@ async function fight(page,side,key,config) {
    const watchSuanni=key==='suanni'&&b.hp<410&&flightTargets.size===0;
    const watchBreak=config.breakable&&b.hp<420&&!device&&interruptedAt.size===0;
    const watchYumka=key==='yumka'&&b.hp<420&&fireLayouts.size===0;
-   hold('KeyJ',!watchRelay&&!watchGravity&&!watchEmperor&&!watchPearl&&!watchSuanni&&!watchBreak&&!watchYumka&&
+   const watchPapilla=key==='papilla'&&b.hp<420&&flightTargets.size===0;
+   hold('KeyJ',!watchRelay&&!watchGravity&&!watchEmperor&&!watchPearl&&!watchSuanni&&!watchBreak&&!watchYumka&&!watchPapilla&&
     Math.abs(dx)<(device?96:125)&&dx*a.dir>=0);
    requestAnimationFrame(control);
   }
@@ -500,6 +532,11 @@ async function run(key,config) {
  }
  if(key==='qucusaur') assert.ok(a.diveLayouts.some(layout=>b.diveLayouts.includes(layout)),JSON.stringify(results));
  if(key==='yumka') assert.ok(a.fireLayouts.some(layout=>b.fireLayouts.includes(layout)),JSON.stringify(results));
+ if(key==='config-device') assert.ok(a.cannonLayouts.some(layout=>b.cannonLayouts.includes(layout)),JSON.stringify(results));
+ if(key==='papilla'){
+  for(const r of results) assert.ok(r.hpMonotonic&&r.forms.join(',')==='fungus,stem,wing',JSON.stringify(results));
+  assert.ok(a.flightTargets.some(point=>b.flightTargets.includes(point)),JSON.stringify(results));
+ }
  if(config.fallTell) assert.ok(a.fallLayouts.some(x=>b.fallLayouts.includes(x)),JSON.stringify(results));
  if(config.observeRecovery) assert.ok(a.recovered&&b.recovered,JSON.stringify(results));
  const questCounts=await Promise.all(players.map(({page})=>page.evaluate(q=>window.lab.frame.story.quests[q]?.count??null,quest)));

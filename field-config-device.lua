@@ -21,17 +21,30 @@ return function(C)
   return {move=m,tick=0,origin=b.x,dir=b.facing,seen={{},{}},
    source={id=b.id,owner=b,y=s.floorY,damageElement=m.element}}
  end
+ function device.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
+
+ function device.frame(f,b,s,c)
+  if c and c.move.kind=='charge' and c.left and not c.brokenAt and c.tick<c.move.recover then
+   f.cannonBounds={left=c.left,right=c.right}
+  end
+ end
 
  local function collector(state,b,s,c)
   local y=s.floorY-.35*U
   c.collectorX=clamp(c.origin+c.dir*.9*U,s.arenaMin+12,s.arenaMax-12)
   if state.t<(b.rearmAt or 0) then return end
   local counted={}
-  local function acceptsCast(cast)
-   return c.openedAt and cast.startedAt and cast.startedAt>=c.openedAt and not cast.reaction
+  local function acceptsCast(cast,party)
+   if not c.openedAt or not cast.startedAt or cast.reaction then return false end
+   -- Cast times use the party clock. The collector opens on the encounter clock.
+   local _,now=C.fieldSlot(party,b.fieldBoss)
+   local openedInPartyTime=party.t-(now-c.openedAt)
+   return cast.startedAt>=openedInPartyTime-1e-8
   end
-  local function contact(_,cast,summon)
-   if acceptsCast(cast) and not counted[cast] then
+  local function contact(party,cast,summon)
+   if acceptsCast(cast,party) and not counted[cast] then
     counted[cast]=true
     summon.hp=summon.hp-1
    end

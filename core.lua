@@ -178,7 +178,7 @@ local function targets(s,a,range,limit,includePartners)
  local contacts={}
  for _,e in ipairs(s.enemies) do
   if (C.canTargetEnemy(e) or (a.persistentTarget==e and e.hp>0)) and (not a.targetId or e.id==a.targetId) and
-     (not e.acceptsCast or e.acceptsCast(a)) and
+     (not e.acceptsCast or e.acceptsCast(a,s)) and
      (not a.groundOnly or not e.flying) and hitRegion(a,e,range) then
    out[#out+1]=e
    if not includePartners and (e.sharedHealth or e.fieldPartner) then

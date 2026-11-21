@@ -20,6 +20,15 @@ return function(C)
   return {move=m,tick=0,origin=b.x,dir=b.facing,seen={{},{}},
    source={id=b.id,owner=b,y=s.floorY,damageElement=m.element}}
  end
+ function papilla.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
+
+ function papilla.frame(f,b,s,c)
+  f.pose=b.pose
+  f.flying=b.form=='airborne' or nil
+  if c and c.dest and c.tick<c.move.recover then f.destinationX=c.dest end
+ end
 
  local function lock(s,m,c,a)
   if m.air then

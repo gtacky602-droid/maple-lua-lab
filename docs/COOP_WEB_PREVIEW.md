@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する65地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する67地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -244,6 +244,19 @@ Luaの4人試験とHTTPの2人試験で、個別の命中、共鳴器の破壊�
 | 山の王・貪食のユムカ竜 | 104 | 山王の峡谷 | 1,035 | 212,400 EXP・370モラ | 7,400 EXP・470モラ |
 
 Luaの4人試験で羽根の共同破壊、二度の降下の中断、実の着弾時の個別命中を確認した。HTTPの2人試験では退避後に同じ戦闘状態へ戻り、Chromeの2画面で討伐と依頼報告を保存した。`python test_qucusaur_field.py` と `python test_yumka_field.py` で試験用のセーブを作る。`LAB_URL` にラボのURLを設定し、`node test_coop_field_routes.mjs qucusaur yumka` で再現できる。 [Lua・HTTPの検証](../evidence/coop-natlan-saurians-lua-http.json) · [クク竜のChrome試走](../evidence/coop-qucusaur-browser.json) · [ユムカ竜のChrome試走](../evidence/coop-yumka-browser.json)
+
+## 秘源機兵・機巧デバイスと深遠なるミミックパピラ・I型
+
+秘源の機構室では、集積器の目盛りが点灯してから別々の直接攻撃を合計3回当てると、球雷砲が止まり、ボスが3秒ダウンする。参加者が別々に攻撃しても同じ目盛りに加算する。攻撃を出した時刻は部屋の受付時刻にそろえて判定し、点灯前に出した攻撃の後続ヒットは数に含まれない。 [機巧デバイスのラボ版仕様](field-boss-v1/NATLAN_CONFIG_DEVICE.md) · [共通の集積器と球雷砲の予告](../evidence/coop-config-device-collector.png)
+
+紫影の石窟では、パピラが樹影・機竜影・菌獣影に擬態する。見た目と攻撃範囲が変わっても、参加者の攻撃は同じHPに届き、付着と発動済みの攻撃の標的も引き継ぐ。菌獣影は予告した位置に着地する。 [パピラのラボ版仕様](field-boss-v1/NATLAN_PAPILLA.md) · [菌獣影の姿と着地予告](../evidence/coop-papilla-morph.png)
+
+| ボス | Lv | HP | 討伐参加者一人あたり | 依頼を報告した人 |
+| --- | ---: | ---: | --- | --- |
+| 秘源機兵・機巧デバイス | 106 | 1,020 | 240,900 EXP・380モラ | 7,600 EXP・480モラ |
+| 深遠なるミミックパピラ・I型 | 108 | 1,050 | 273,250 EXP・395モラ | 7,800 EXP・500モラ |
+
+Luaの4人試験では、時刻の基準が異なる三人で集積器を壊し、パピラでは擬態をまたぐ付着と遅れて届く攻撃を確認した。HTTPの2人試験では一時退避後に再合流し、Chromeの2画面で各自の討伐と受注者の報告を保存した。`python test_config_device_field.py` と `python test_papilla_field.py` で試験用のセーブを作る。`LAB_URL` にラボのURLを設定し、`node test_coop_field_routes.mjs config-device papilla` で再現できる。 [Lua・HTTPの検証](../evidence/coop-config-papilla-lua-http.json) · [機巧デバイスのChrome試走](../evidence/coop-config-device-browser.json) · [パピラのChrome試走](../evidence/coop-papilla-browser.json)
 
 ## マッシュラプトル
 

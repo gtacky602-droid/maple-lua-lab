@@ -1,0 +1,39 @@
+{
+  "config": {
+    "lua": {
+      "participants": 4,
+      "hp": 1020,
+      "differentPartyClocks": true,
+      "preopeningAndReactionRejected": true,
+      "threeDistinctPlayersCanInterrupt": true,
+      "repeatedPulseCountsOnce": true,
+      "lastTickCancelsCannon": true,
+      "sharedRearmTimer": true,
+      "noCollectorRewardsOrGauge": true,
+      "individualRewards": true,
+      "soloHitPreservedOnJoin": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  },
+  "papilla": {
+    "lua": {
+      "participants": 4,
+      "hp": 1050,
+      "sameReceiverThroughMorphs": true,
+      "auraAndPendingCastPreserved": true,
+      "independentlyHitByStemAndWing": true,
+      "sharedLandingAndAirHurtbox": true,
+      "individualRewards": true,
+      "soloHitPreservedOnJoin": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  }
+}

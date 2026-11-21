@@ -1,0 +1,136 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 1050,
+  "results": [
+    {
+      "seconds": 27.35,
+      "hp": 119,
+      "kills": 1,
+      "startingMora": 0,
+      "mora": 395,
+      "startingXp": 0,
+      "xp": 273250,
+      "moves": [
+        "FMP01",
+        "FMP02",
+        "FMP03"
+      ],
+      "manualDamage": 304,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [
+        "fungus",
+        "stem",
+        "wing"
+      ],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [
+        982
+      ],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        22120101
+      ],
+      "gravityTracks": [],
+      "jump": null,
+      "fireLayouts": [],
+      "exposedAt": [],
+      "pearls": [],
+      "interruptedAt": [],
+      "sharedObjects": [],
+      "diveLayouts": [],
+      "cannonLayouts": [],
+      "hpMonotonic": true
+    },
+    {
+      "seconds": 27.37,
+      "hp": 122,
+      "kills": 1,
+      "startingMora": 0,
+      "mora": 395,
+      "startingXp": 0,
+      "xp": 273250,
+      "moves": [
+        "FMP01",
+        "FMP02",
+        "FMP03"
+      ],
+      "manualDamage": 316,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [
+        "fungus",
+        "stem",
+        "wing"
+      ],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [
+        982
+      ],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        22120101
+      ],
+      "gravityTracks": [],
+      "jump": null,
+      "fireLayouts": [],
+      "exposedAt": [],
+      "pearls": [],
+      "interruptedAt": [],
+      "sharedObjects": [],
+      "diveLayouts": [],
+      "cannonLayouts": [],
+      "hpMonotonic": true
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 395,
+      "xp": 273250,
+      "respawn": true
+    },
+    {
+      "clears": 1,
+      "mora": 395,
+      "xp": 273250,
+      "respawn": true
+    }
+  ],
+  "report": {
+    "hub": "natlan-hub",
+    "hostSaved": true,
+    "guestQuest": null,
+    "xp": 7800,
+    "mora": 500
+  },
+  "scenery": "papillaField",
+  "errors": []
+}

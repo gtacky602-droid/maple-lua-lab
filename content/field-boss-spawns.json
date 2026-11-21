@@ -1301,7 +1301,7 @@
       ]
     },
     {
-      "id":"boss-24090201","controller":"configDevice","entity":24090201,
+      "id":"boss-24090201","controller":"configDevice","entity":24090201,"coop":true,
       "name":"秘源機兵・機巧デバイス","node":"config-device-field-workshop","storyChallenge":"config-device",
       "level":106,"hp":1020,"mora":380,"artHeight":156,"floorY":480,"home":890,
       "arenaMin":340,"arenaMax":1570,"noticeRange":310,"noticeTicks":36,"restTicks":36,
@@ -1313,7 +1313,7 @@
       ]
     },
     {
-      "id":"boss-22120101","controller":"papilla","entity":22120101,
+      "id":"boss-22120101","controller":"papilla","entity":22120101,"coop":true,
       "name":"深遠なるミミックパピラ・I型","node":"papilla-field-hollow","storyChallenge":"papilla",
       "level":108,"hp":1050,"mora":395,"artHeight":172,"floorY":480,"home":890,
       "arenaMin":330,"arenaMax":1570,"noticeRange":315,"noticeTicks":36,"restTicks":36,

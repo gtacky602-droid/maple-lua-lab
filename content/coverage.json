@@ -8129,6 +8129,8 @@
       "natlan-field",
       "qucusaur-field-cavern",
       "yumka-field-ravine",
+      "config-device-field-workshop",
+      "papilla-field-hollow",
       "witztli-tristars-camp",
       "atocpan-battlegoat-ironclaw-field",
       "sne-novokichev-ore-yard"
@@ -8167,6 +8169,8 @@
       "icewind-coppelius",
       "boss-26230301",
       "boss-26220301",
+      "boss-24090201",
+      "boss-22120101",
       "legend-natlan_polychrome_tristars",
       "legend-natlan_battlegoat_ironclaw",
       "legend-snez_rowdy_beast_host"
@@ -8275,6 +8279,11 @@
       "evidence/coop-qucusaur-feather.png",
       "evidence/coop-yumka-browser.json",
       "evidence/coop-yumka-fruits.png",
+      "evidence/coop-config-papilla-lua-http.json",
+      "evidence/coop-config-device-browser.json",
+      "evidence/coop-config-device-collector.png",
+      "evidence/coop-papilla-browser.json",
+      "evidence/coop-papilla-morph.png",
       "evidence/coop-jadeplume-lua-http.json",
       "evidence/coop-jadeplume-browser.json",
       "evidence/coop-jadeplume-leap.png"
