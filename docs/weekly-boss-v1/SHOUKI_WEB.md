@@ -12,9 +12,9 @@ Lv64でスメール・樹陰の広場の依頼「工房の再現戦・端末と�
 
 既存の全身ドット絵と、同じ原画から作った上半身の描画データを使う。原画には3Dモデルの正面・側面・背面と顔の参照記録がある。装置、滅度機、端末と攻撃の予兆は仮描画。背景は樹冠の仮画像を使い、本番は3D配置の方針。連続作画、音、難度調整、多人数と幻境実機は後続。 [原画の参照記録](../../evidence/shouki-reference-audit.json)
 
-960×540の戦闘画面で、前半は胴の細いくびれを旅人が立つ床に合わせ、そこから上を表示する。床を起点に拡大して、高さ1,060px、幅約1,273pxにした。頭飾りと両腕が画面の上と左右にはみ出し、手前に旅人と6つの装置、攻撃予告が見える。後半の機体は744px高で上端から264pxはみ出す。滅度機の試練では630px高で浮き、ダウン中は600px高まで沈む。 [調整前](../../evidence/shouki-weekly-grounded-upper.png) · [調整後](../../evidence/shouki-weekly-floor-waist-upper.png) · [全身形態の装甲戦](../../evidence/shouki-weekly-waist-full.png)
+960×540の戦闘画面で、前半は胴の細いくびれから上だけを表示する。くびれを旅人の足元より10px上に置き、そこから高さ1,120px、幅約1,345pxに広げた。頭飾りと両腕が画面の上と左右にはみ出し、手前に旅人と6つの装置、攻撃予告が見える。後半の機体は744px高で上端から264pxはみ出す。滅度機の試練では630px高で浮き、ダウン中は600px高まで沈む。 [調整前](../../evidence/shouki-weekly-floor-waist-upper-png.png) · [調整後](../../evidence/shouki-weekly-waist-rise-upper-png.png) · [全身形態の装甲戦](../../evidence/shouki-weekly-waist-full.png)
 
-端末弾は画面に見える胸の宝玉を狙う。滅度機が残っている間は胸の印が紫で、4基が消えると緑になる。通常攻撃が届く部位は前半が両腕と中央、後半が足元。 [ラボを開く](http://127.0.0.1:9035/)
+端末弾は画面に見える胸の宝玉を狙う。滅度機が残っている間は胸の印が紫で、4基が消えると緑になる。通常攻撃が届く部位は前半が両腕と中央、後半が足元。 [ラボを開く](http://127.0.0.1:9042/)
 
 ```powershell
 python compile_boss_assets.py --source shouki-idle-source-v1.png --output shouki-weekly-torso-sprites-v2.json --height 139 --crop 87 14 868 723
@@ -22,7 +22,7 @@ python compile_boss_assets.py --source shouki-idle-source-v1.png --output shouki
 
 ## 検証
 
-- `test_shouki_weekly.py` は全描画設定でくびれと床がそろうことを検査する。胸部照準、通常攻撃が届く高さ、装置、予約と発射、期限切れと600tickの露出、保存復元も確認する。 [正機の神の設計](SHOUKI_NO_KAMI.md) · [スメールの検証仕様](QA_SUMERU.md) · [Luaの結果](../../evidence/shouki-weekly-floor-waist-lua.json)
-- `test_shouki_weekly.mjs` は装備付きLv64の試験データで、Chromeから受注、元素装置の起動、予約の中止、装甲と胸部への射撃、滅度機4基の破壊、討伐、報告、保存復元まで確認する。各段階で構図、装置、照準位置を確認し、390px幅での操作欄も検査する。 [Chromeの結果](../../evidence/shouki-weekly-floor-waist-browser.json)
-- 上半身戦の同じフレームで描画方式を比較できる。画面全体の描画指示はPNGで43件、標準矩形で10,487件、軽量16色で2,754件。軽量16色は標準矩形より約74%少なく、顔や胸の細部は粗く見える。 [PNG](../../evidence/shouki-weekly-floor-waist-upper-png.png) · [標準矩形](../../evidence/shouki-weekly-floor-waist-upper-standard.png) · [軽量16色](../../evidence/shouki-weekly-floor-waist-upper-light.png)
+- `test_shouki_weekly.py` は全描画設定でくびれの位置が床の10px上にそろうことを検査する。胸部照準、通常攻撃が届く高さ、装置、予約と発射、期限切れと600tickの露出、保存復元も確認する。 [正機の神の設計](SHOUKI_NO_KAMI.md) · [スメールの検証仕様](QA_SUMERU.md) · [Luaの結果](../../evidence/shouki-weekly-waist-rise-lua.json)
+- `test_shouki_weekly.mjs` は装備付きLv64の試験データで、Chromeから受注、元素装置の起動、予約の中止、装甲と胸部への射撃、滅度機4基の破壊、討伐、報告、保存復元まで確認する。各段階で構図、装置、照準位置を確認し、390px幅での操作欄も検査する。 [Chromeの結果](../../evidence/shouki-weekly-waist-rise-browser.json)
+- 上半身戦の同じフレームで描画方式を比較できる。画面全体の描画指示はPNGで43件、標準矩形で10,487件、軽量16色で2,754件。軽量16色は標準矩形より約74%少なく、顔や胸の細部は粗く見える。 [PNG](../../evidence/shouki-weekly-waist-rise-upper-png.png) · [標準矩形](../../evidence/shouki-weekly-waist-rise-upper-standard.png) · [軽量16色](../../evidence/shouki-weekly-waist-rise-upper-light.png)
 - 胸部への射撃後にダウンした同一フレームで、元PNG、標準矩形、軽量16色を比較した。 [PNG](../../evidence/shouki-weekly-waist-png.png) · [標準矩形](../../evidence/shouki-weekly-waist-standard.png) · [軽量16色](../../evidence/shouki-weekly-waist-light.png)

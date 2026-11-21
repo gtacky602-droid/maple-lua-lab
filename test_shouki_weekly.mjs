@@ -7,19 +7,21 @@ const page=await browser.newPage({viewport:{width:1240,height:940}});
 const frame=()=>page.evaluate(()=>window.lab.frame);
 const wait=(predicate,arg)=>page.waitForFunction(predicate,arg,{timeout:80000});
 const canvas=page.locator('#game'),controls=page.locator('#weeklyShouki');
-const prefix='evidence/shouki-weekly-floor-waist';
+const prefix='evidence/shouki-weekly-waist-rise';
+const regressionPrefix='work/shouki-weekly-waist-rise';
 const hub='sumeru-hub',node='shouki-godmaking-arena',quest='shouki-weekly-commission',id='boss-29070101';
 const errors=[];
 page.on('pageerror',e=>errors.push(e.message));
 
 async function capture(name){
  const raw=await canvas.evaluate(el=>el.toDataURL('image/png').split(',')[1]);
- await fs.writeFile(prefix+'-'+name+'.png',Buffer.from(raw,'base64'));
+ const output=name.startsWith('upper-')?prefix:regressionPrefix;
+ await fs.writeFile(output+'-'+name+'.png',Buffer.from(raw,'base64'));
  return raw;
 }
 
 try{
- await page.goto(process.env.LAB_URL||'http://127.0.0.1:8947/');
+ await page.goto(process.env.LAB_URL||'http://127.0.0.1:9042/');
  await wait(()=>window.lab?.frame);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
   await fs.readFile('work/shouki-weekly-gear.json','utf8'));
@@ -46,8 +48,9 @@ try{
  assert.equal(upperParts.length,1);
  const [upper]=upperParts;
  assert.deepEqual(upper.box,[87,14,868,723]);
- assert.equal(upper.h,1060);
- assert.equal(upper.y,480);
+ assert.equal(upper.h,1120);
+ assert.equal(upper.y,470);
+ assert.ok(opening.actors.every(a=>a.y===480));
  assert.ok(upper.y-upper.h<0);
  assert.ok(upper.x-upper.w/2<0&&upper.x+upper.w/2>960);
  assert.equal(opening.draws[0],upper);
@@ -140,7 +143,7 @@ try{
  assert.ok(Math.abs(armored.weeklyBoss.shouki.core.y-(480-744*870/1480))<0.001);
  assert.ok(armored.weeklyBoss.shouki.core.y>21);
  assert.equal(await controls.locator('#weeklyShoukiHint').textContent(),'端末で胸部を照準');
- await page.locator('.game').screenshot({path:prefix+'-full.png'});
+ await page.locator('.game').screenshot({path:regressionPrefix+'-full.png'});
  assert.ok(await controls.locator('#weeklyShoukiArmor').isVisible());
  await interact.click();
  await wait(()=>window.lab.frame.weeklyBoss?.shouki.aim&&!window.lab.frame.weeklyBoss.shouki.aim.confirmed);
@@ -159,7 +162,7 @@ try{
  assert.equal(trial.weeklyBoss.shouki.core.exposed,false);
  assert.ok(Math.abs(trial.weeklyBoss.shouki.core.y-(397-630*870/1480))<0.001);
  assert.ok(trial.weeklyBoss.shouki.core.y>21&&trial.weeklyBoss.shouki.targets.every(p=>p.y===480&&p.x>0&&p.x<960));
- await page.locator('.game').screenshot({path:prefix+'-trial.png'});
+ await page.locator('.game').screenshot({path:regressionPrefix+'-trial.png'});
  await wait(()=>{
   const f=window.lab.frame,b=f.weeklyBoss;
   if(f.paused||!b?.shouki.exposure||b.shoukiStage!=='collapse')return false;
@@ -173,7 +176,7 @@ try{
  assert.ok(down.events.some(e=>e.kind==='shouki:WN14:core-hit'));
  assert.equal(down.events.filter(e=>e.kind==='shouki:WN15:destroyed').length,4);
  assert.ok(await page.locator('#status').evaluate(el=>!el.classList.contains('error')));
- await page.locator('.game').screenshot({path:prefix+'-exposure.png'});
+ await page.locator('.game').screenshot({path:regressionPrefix+'-exposure.png'});
  const png=await capture('png');
  await page.locator('#renderMode').selectOption('rect');
  await wait(()=>window.lab.frame.commands>1000);
@@ -211,7 +214,7 @@ try{
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({entry:true,manualMatrix:true,twoPhases:true,
   reservedAndCancelled:true,terminalHitArmor:true,manualTrialParts:4,terminalHitCore:true,exposureTicks:down.weeklyBoss.shouki.exposure,
-  art:{upper:upper.h,upperWidth:upper.w,torsoSourceEnd:737,torsoBottom:upper.y,floor:480,full:744,trial:630,collapse:600,
+  art:{upper:upper.h,upperWidth:upper.w,torsoSourceEnd:737,torsoBottom:upper.y,floor:480,waistClearance:480-upper.y,full:744,trial:630,collapse:600,
    upperLeft:upper.x-upper.w/2,upperTop:upper.y-upper.h,fullTop:full.y-full.h,
    machineBehindParty:true,shieldCore:armored.weeklyBoss.shouki.core,trialCore:trial.weeklyBoss.shouki.core},
   clearReportRestore:true,remainingHp:finished.actors[0].hp,viewport390:true,scene,

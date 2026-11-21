@@ -115,7 +115,7 @@ a=s.actors[1]
 assert len(s.enemies)==3 and all(e.sharedHealth.id==w.primary.id for e in w.hands.values())
 upper,=machine_art(s)
 assert list(upper.box.values())==[87,14,868,723]
-assert upper.h==1060 and upper.y==spec.floorY
+assert upper.h==1120 and upper.y==spec.floorY-10
 assert upper.x-upper.w/2<0 and upper.x+upper.w/2>960 and upper.y-upper.h<0
 assert core.frame(s,'sprite').draws[1].source==upper.source
 for profile in ('legacy','h48c32','h32c16'):
@@ -123,7 +123,7 @@ for profile in ('legacy','h48c32','h32c16'):
     draws=core.frame(s,'rect',profile).draws
     machine=[draws[i] for i in range(1,len(runs)+1)]
     assert all(d.kind=='rect' for d in machine)
-    assert abs(max(d.y+d.h for d in machine)-spec.floorY)<.051
+    assert abs(max(d.y+d.h for d in machine)-upper.y)<.051
 assert [e.hitTop for e in (w.primary,*w.hands.values())]==[342,367,367]
 wide=lua.table_from({'id':1,'radial':True,'x':480,'y':480,'range':300,'atk':30,'mult':1,'limit':5,
                    'playerInputAt':s.t,'element':'physical','gain':0,'color':'#fff'})
@@ -170,7 +170,7 @@ act(s,'encounter_interact')
 assert w.stage=='overload' and w.primary.invulnerable and not w.cast
 ticks(core,s,60)
 assert not w.primary.invulnerable and core.frame(s).weeklyBoss.shouki.exposure==360
-assert (art(s).h,art(s).y)==(720,spec.floorY)
+assert (art(s).h,art(s).y)==(720,spec.floorY-10)
 ticks(core,s,360)
 assert w.primary.invulnerable
 ticks(core,s,60)
@@ -372,11 +372,11 @@ result={'live_durations':checked,'upper_hits_share_hp':True,'independent_floor_a
         'art_heights':{'upper':upper.h,'full':744,'trial':630,'collapse':600},
         'upper_width':upper.w,'upper_extends_past_edges':True,'machine_behind_party':True,
         'upper_torso_ends_at_source_row':737,'upper_waist_y':upper.y,
-        'floor_y':spec.floorY,'waist_on_floor_in_all_profiles':True,
+        'floor_y':spec.floorY,'waist_clearance':spec.floorY-upper.y,'waist_aligned_in_all_profiles':True,
         'chest_art_aim_and_collision_aligned':True,'combat_hit_heights_unchanged':True,
         'reserve_cancel_swap_and_missed_shot':True,'hit_applies_shield_separately':True,
         'four_physical_trials_and_core_collision':True,'explicit_ai_assistance_only':True,
         'deadline_tick_prefers_accepted_impact':True,'exposure_ticks':600,
         'ordinary_failure_and_retry':True,'route_report_and_save':True}
-(ROOT/'evidence/shouki-weekly-floor-waist-lua.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+(ROOT/'evidence/shouki-weekly-waist-rise-lua.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
 print('Shouki Lua: two phases, matrices, charge and shield, terminal settlement, trial and save passed')
