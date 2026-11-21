@@ -61,7 +61,16 @@ const cases={
   boss:'boss-20040401',quest:'hydro-hypostasis-commission',hp:1010,mora:200,xp:27700,scene:'hydroHypostasisField',
   asset:'hydro-hypostasis-field',pose:'poses',label:'dolphin',fixture:'hydro-hypostasis-field',report:[4000,300],
   flight:{move:'FHH01',height:94,offset:15,warning:'#e7ad7b',warningY:474,warningHeight:2},
-  fallTell:{move:'FHH03',color:'#ffdfac'},observeRecovery:true,evade:{FHH01:[110],FHH02:[92,118],FHH03:[104,146,188]}}
+  fallTell:{move:'FHH03',color:'#ffdfac'},observeRecovery:true,evade:{FHH01:[110],FHH02:[92,118],FHH03:[104,146,188]}},
+ wolflord:{hub:'inazuma-port',transit:[],arena:'wolflord-field-ruins',approach:'tsurumi-coast',
+  boss:'boss-22060101',quest:'wolflord-commission',hp:1100,mora:210,xp:32300,scene:'wolflordField',
+  asset:'wolflord-field',pose:'poses',label:'skull',fixture:'wolflord-field',report:[4000,300],
+  flight:{move:'FWL01',height:86,offset:44,warning:'#e8aa63',warningY:474,warningHeight:2,warningCenter:'path'},
+  evade:{FWL01:[116],FWL02:[104],FWL03:[80,116]}},
+ serpent:{hub:'chasm-camp',transit:['chasm-depth'],arena:'ruin-serpent-field-pit',approach:'chasm-wp-25264',
+  boss:'boss-24010401',quest:'ruin-serpent-commission',hp:900,mora:150,xp:2350,scene:'ruinSerpentField',
+  asset:'ruin-serpent-field',pose:'poses',label:'emerge',fixture:'ruin-serpent-field',report:[4000,300],
+  evade:{FRS01:[104],FRS02:[134],FRS03:[104,146,188]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -99,6 +108,7 @@ async function fight(page,side,key,config) {
   const held=new Set(),moves=new Set(),hits=new Map();
   const markers=new Set(),emerged=new Set(),air=new Set(),down=new Set();
   const forms=new Set(),landings=new Set(),maskPaths=new Set(),flightTargets=new Set(),fallLayouts=new Set();
+  const skullTracks=new Set(),bombLayouts=new Set();
   const art=config.pose&&config.asset+'-'+config.pose+'-source-v1.png';
   const entity=Number(config.boss.slice(5));
   const start=window.lab.frame;
@@ -120,7 +130,8 @@ async function fight(page,side,key,config) {
      moves:[...moves].sort(),manualDamage:[...hits.values()].reduce((sum,v)=>sum+v,0),cloaked,
      markers:[...markers],emerged:[...emerged],air:[...air],down:[...down],
      guardTick,recovery,shieldUsed,forms:[...forms].sort(),landings:[...landings],maskPaths:[...maskPaths],
-     flightTargets:[...flightTargets],fallLayouts:[...fallLayouts],recovered};
+     flightTargets:[...flightTargets],fallLayouts:[...fallLayouts],recovered,
+     skullTracks:[...skullTracks],bombLayouts:[...bombLayouts]};
     return;
    }
    if(!b) {
@@ -189,6 +200,34 @@ async function fight(page,side,key,config) {
      Math.abs(d.x+d.w/2+f.camera-center)<.001);
     if(visual) flightTargets.add(b.destinationX);
    }
+   if(key==='wolflord'){
+    // The ground cue is checked above. Capture one of the moving skulls.
+    visual=false;
+    for(const skull of Array.isArray(b.skulls)?b.skulls:[]){
+     const age=b.tick-[84,120][skull.index-1];
+     const dir=Math.sign(skull.x-b.x);
+     const distance=(.37+age*3.5/60)*88;
+     if(Math.abs(b.x+dir*distance-skull.x)<.001&&f.draws.some(d=>d.source===art&&d.h===27&&
+        Math.abs(d.y-(skull.y+13))<.001&&Math.abs(d.x+f.camera-skull.x)<.001)){
+      skullTracks.add([skull.index,b.x.toFixed(3),dir].join(','));
+      if(age>=4) visual=true;
+     }
+    }
+   }
+   if(key==='serpent'){
+    const marks=f.draws.filter(d=>d.kind==='rect'&&d.y===473&&d.h===3&&d.color==='#ed9e57');
+    if(b.move==='FRS02'&&marks.some(d=>Math.abs(d.x+d.w/2+f.camera-b.emergeX)<.001)){
+     if(b.underground&&!sprite) markers.add(b.emergeX);
+     if(!b.underground&&b.tick>=114&&b.tick<138&&sprite&&Math.abs(sprite.x+f.camera-b.emergeX)<.001){
+      emerged.add(b.emergeX);
+      if(b.tick>=122) visual=true;
+     }
+    }
+    if(b.bombPoints?.length===3&&marks.length===3&&marks.every((d,i)=>
+     Math.abs(d.x+d.w/2+f.camera-b.bombPoints[i])<.001)){
+     bombLayouts.add(b.bombPoints.map(x=>x.toFixed(3)).join(','));
+    }
+   }
    const tell=config.fallTell;
    if(tell&&b.move===tell.move&&b.fallPoints?.length===3){
     const marks=f.draws.filter(d=>d.kind==='text'&&d.color===tell.color);
@@ -249,7 +288,16 @@ async function run(key,config) {
   assert.deepEqual(actual,{key:scene,file:asset+'-background-v1.png',state:'ready'});
  }
  await Promise.all([fight(host,-1,key,config),fight(guest,1,key,config)]);
- await Promise.all(players.map(({page})=>page.waitForFunction(()=>window.coopSumeru,null,{timeout:130000})));
+ try{
+  await Promise.all(players.map(({page})=>page.waitForFunction(()=>window.coopSumeru,null,{timeout:130000})));
+ }catch(error){
+  const state=await Promise.allSettled(players.map(({page})=>page.evaluate(()=>{
+   const frame=window.lab.frame;
+   return {node:frame.story.node,boss:frame.fieldBoss,time:frame.t,returns:frame.returns,
+    status:document.querySelector('#status')?.textContent};
+  })));
+  throw new Error(key+' fight did not finish: '+JSON.stringify({state,errors}),{cause:error});
+ }
  const results=await Promise.all(players.map(({page})=>page.evaluate(()=>window.coopSumeru)));
  const moves=Object.keys(config.evade);
  for(const r of results){
@@ -274,6 +322,14 @@ async function run(key,config) {
   for(const r of results) assert.deepEqual(r.forms,['blade','core','rocket','wheel']);
  }
  if(config.flight) assert.ok(a.flightTargets.some(x=>b.flightTargets.includes(x)),JSON.stringify(results));
+ if(key==='wolflord'){
+  for(const index of [1,2])
+   assert.ok(a.skullTracks.some(track=>track.startsWith(index+',')&&b.skullTracks.includes(track)),JSON.stringify(results));
+ }
+ if(key==='serpent'){
+  assert.ok(a.markers.some(x=>b.markers.includes(x)&&a.emerged.includes(x)&&b.emerged.includes(x)),JSON.stringify(results));
+  assert.ok(a.bombLayouts.some(x=>b.bombLayouts.includes(x)),JSON.stringify(results));
+ }
  if(config.fallTell) assert.ok(a.fallLayouts.some(x=>b.fallLayouts.includes(x)),JSON.stringify(results));
  if(config.observeRecovery) assert.ok(a.recovered&&b.recovered,JSON.stringify(results));
  const questCounts=await Promise.all(players.map(({page})=>page.evaluate(q=>window.lab.frame.story.quests[q]?.count??null,quest)));

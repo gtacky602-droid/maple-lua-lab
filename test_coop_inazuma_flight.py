@@ -17,7 +17,7 @@ def place_all(states, center, offsets):
         place(state, center + offset)
 
 
-def check_adoption(core, case, move, hit_tick, damage):
+def check_adoption(core, case, move, hit_tick, damage, rejoin_dx=-93):
     solo, newcomer = party(core, case), party(core, case)
     slot = solo.fieldSlots[case[0]]
     boss = slot.enemy
@@ -26,7 +26,7 @@ def check_adoption(core, case, move, hit_tick, damage):
     room = core.newCoop(solo)
     for state in (solo, newcomer):
         core.attachCoop(room, state)
-        place(state, boss.x - 93)
+        place(state, boss.x + rejoin_dx)
     mark = solo.seq
     core.stepCoop(room, TICK)
     assert hits(solo, boss, mark) == [] and hits(newcomer, boss) == [damage]

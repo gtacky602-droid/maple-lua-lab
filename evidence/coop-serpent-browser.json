@@ -1,0 +1,108 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 900,
+  "results": [
+    {
+      "seconds": 24.57,
+      "hp": 140,
+      "kills": 1,
+      "startingMora": 0,
+      "mora": 150,
+      "startingXp": 0,
+      "xp": 2350,
+      "moves": [
+        "FRS01",
+        "FRS02",
+        "FRS03"
+      ],
+      "manualDamage": 276,
+      "cloaked": false,
+      "markers": [
+        690.5
+      ],
+      "emerged": [
+        690.5
+      ],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [
+        "613.900,697.500,781.100"
+      ]
+    },
+    {
+      "seconds": 24.62,
+      "hp": 129,
+      "kills": 1,
+      "startingMora": 0,
+      "mora": 150,
+      "startingXp": 0,
+      "xp": 2350,
+      "moves": [
+        "FRS01",
+        "FRS02",
+        "FRS03"
+      ],
+      "manualDamage": 252,
+      "cloaked": false,
+      "markers": [
+        690.5
+      ],
+      "emerged": [
+        690.5
+      ],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [
+        "613.900,697.500,781.100"
+      ]
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 150,
+      "xp": 2350,
+      "respawn": true
+    },
+    {
+      "clears": 1,
+      "mora": 150,
+      "xp": 2350,
+      "respawn": true
+    }
+  ],
+  "report": {
+    "hub": "chasm-camp",
+    "hostSaved": true,
+    "guestQuest": null,
+    "xp": 4000,
+    "mora": 300
+  },
+  "scenery": "ruinSerpentField",
+  "errors": []
+}

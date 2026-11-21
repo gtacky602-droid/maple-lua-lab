@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する44地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する48地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -178,6 +178,19 @@ Luaの4人戦で予告と当たり判定、回転刃の個別命中、三枚の�
 Luaの4人試験で個別の命中、途中参加、着地と攻撃後の核の表示を検証した。HTTPの2人試験では、氷輪または跳躍の途中で空になった会場の状態を保持し、合流後に討伐した。Chromeの2画面では予告を見ながら討伐し、各自の報酬と受注者の依頼報告を保存した。 [Lua・HTTPの検証](../evidence/coop-elemental-cubes-lua-http.json) · [無相の氷のChrome試走](../evidence/coop-cryo-cube-browser.json) · [無相の炎のChrome試走](../evidence/coop-pyro-cube-browser.json) · [無相の水のChrome試走](../evidence/coop-hydro-cube-browser.json)
 
 `test_cryo_hypostasis_field.py`、`test_pyro_hypostasis_field.py`、`test_hydro_hypostasis_field.py` を Python で実行して初期セーブを作る。ポート9020でラボを起動し、`node test_coop_field_routes.mjs cryo-cube pyro-cube hydro-cube` で再現できる。別のポートは環境変数 `LAB_URL` で指定する。 [落氷の予告](../evidence/coop-cryo-cube-fall.png) · [炎拳の跳躍](../evidence/coop-pyro-cube-fist.png) · [海豚の跳躍](../evidence/coop-hydro-cube-dolphin.png)
+
+## 黄金王獣と遺跡サーペント
+
+| ボス | Lv | 会場 | 本体HP | 討伐参加者一人あたり |
+| --- | ---: | --- | ---: | --- |
+| 黄金王獣 | 54 | 稲妻・鶴観の霧浜遺跡 | 1,100 | 32,300 EXP・210モラ |
+| 遺跡サーペント | 24 | 層岩巨淵・巨蛇岩穴の掘削場 | 900 | 2,350 EXP・150モラ |
+
+黄金王獣の低空突進は終点を予告で固定し、飛行中は本体の絵と当たり判定が一緒に上がる。口から飛ばす黄金首弾は、絵と当たり判定が同じ軌道を進み、先に触れた参加者で止まる。遺跡サーペントは36刻み（0.6秒）の潜行中に直接攻撃を受けず、固定した印から出てから24刻み（0.4秒）後に掘り上げる。三点の掘削弾は着弾位置を共有する。 [黄金王獣の仕様](field-boss-v1/HYPOSTASES_WOLFLORD_MOVESETS.md#6-黄金王獣boss-22060101) · [サーペントの仕様](field-boss-v1/DEEP_RUINS_MOVESETS.md#3-遺跡サーペントboss-24010401)
+
+Luaの4人試験で、首弾二発と掘削弾三発が別々の参加者に当たること、潜行前の燃焼で倒すと掘り上げが止まることを確認した。HTTPの2人試験では全員の退避中に飛行・潜行の状態を保持し、同じ部屋へ戻って追撃できた。Chromeの2画面で首弾の軌道と出現印が一致し、双方が討伐報酬を保存した。依頼は受注者が拠点へ戻って報告し、4,000 EXP・300モラと完了状態を保存した。 [Lua・HTTPの検証](../evidence/coop-wolflord-serpent-lua-http.json) · [黄金王獣のChrome試走](../evidence/coop-wolflord-browser.json) · [遺跡サーペントのChrome試走](../evidence/coop-serpent-browser.json)
+
+`python test_wolflord_field.py` と `python test_ruin_serpent_field.py` で初期セーブを作り、ポート9020でラボを起動して `node test_coop_field_routes.mjs wolflord serpent` を実行する。別のポートは環境変数 `LAB_URL` で指定する。 [黄金首弾](../evidence/coop-wolflord-skull.png) · [短潜行からの出現](../evidence/coop-serpent-emerge.png)
 
 ## マッシュラプトル
 

@@ -24,6 +24,23 @@ return function(C)
   aim(b,s,c,a)
   return c
  end
+ function wolf.shareCast(cast,actors)
+  C.shareFieldHits({cast.seen},actors)
+ end
+ function wolf.frame(f,b,s,c)
+  f.flying=b.y<s.floorY
+  if not c then return end
+  if c.dest and c.tick>=c.move.lock and c.tick<c.move.active[1][2] then
+   f.destinationX=c.dest
+  end
+  if c.move.fire then
+   f.skulls={}
+   for i in ipairs(c.move.fire) do
+    local p=c.projectiles[i]
+    if p and not c.shots[i] then f.skulls[#f.skulls+1]={index=i,x=p.x,y=p.y} end
+   end
+  end
+ end
  local function tailBand(c)
   local a,b=c.origin-c.dir*2*U,c.origin-c.dir*.4*U
   return math.min(a,b),math.max(a,b)

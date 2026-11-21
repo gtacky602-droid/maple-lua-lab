@@ -32,6 +32,14 @@ return function(C)
   aim(b,s,c,a)
   return c
  end
+ function serpent.shareCast(cast,actors)
+  C.shareFieldHits(cast.seen,actors)
+ end
+ function serpent.frame(f,b,s,c)
+  if not c or c.tick<c.move.lock or c.tick>=c.move.active[#c.move.active][2] then return end
+  if c.move.hidden then f.emergeX=c.dest end
+  if c.move.kind=='bombs' then f.bombPoints=c.landings end
+ end
 
  local function attackBounds(c,i)
   local kind=c.move.kind

@@ -754,6 +754,7 @@
     {
       "id": "boss-22060101",
       "controller": "wolflord",
+      "coop": true,
       "entity": 22060101,
       "name": "黄金王獣",
       "node": "wolflord-field-ruins",
@@ -833,6 +834,7 @@
     {
       "id": "boss-24010401",
       "controller": "ruinSerpent",
+      "coop": true,
       "entity": 24010401,
       "name": "遺跡サーペント",
       "node": "ruin-serpent-field-pit",

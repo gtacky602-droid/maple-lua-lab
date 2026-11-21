@@ -1,0 +1,30 @@
+{
+  "wolflord": {
+    "lua": {
+      "participants": 4,
+      "sharedRamAndRaisedHitbox": true,
+      "tailBehindOnly": true,
+      "movingSkullsMatchCollisionAndSeparateHits": true,
+      "priorSoloHitSurvivesAdoption": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  },
+  "serpent": {
+    "lua": {
+      "participants": 4,
+      "hiddenUntargetableButAuraRemains": true,
+      "sharedEmergenceAndBombPoints": true,
+      "threeBombsCanHitThreeTravelers": true,
+      "burningKillCancelsEmergence": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  }
+}
