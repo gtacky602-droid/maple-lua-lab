@@ -36,6 +36,15 @@ return function(C)
   aim(b,s,c,a)
   return c
  end
+ function emperor.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
+
+ function emperor.frame(f,b,s,c)
+  if c and c.points and c.tick>=c.move.lock and c.tick<c.move.recover then
+   f.firePoints=c.points
+  end
+ end
 
  local function bounds(c,i,y)
   local m=c.move

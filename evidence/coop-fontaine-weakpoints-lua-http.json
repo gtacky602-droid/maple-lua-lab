@@ -1,0 +1,41 @@
+{
+  "emperor": {
+    "lua": {
+      "participants": 4,
+      "hp": 980,
+      "guardedDamage": {
+        "front": 68,
+        "rear": 95
+      },
+      "matchingFireMarkers": true,
+      "independentClawAndFireHits": true,
+      "simultaneousExposure": true,
+      "sameDamageOnBothSidesDuringExposure": true,
+      "soloHitPreservedOnJoin": true,
+      "individualRewards": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  },
+  "seahorse": {
+    "lua": {
+      "participants": 4,
+      "hp": 1010,
+      "sharedPearlProgress": true,
+      "separatePlayersCanInterrupt": true,
+      "sameCastAndReactionDoNotAdvance": true,
+      "landingAndHurtboxFollowFlight": true,
+      "interruptedDiveDoesNotLand": true,
+      "soloHitPreservedOnJoin": true,
+      "individualRewards": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  }
+}

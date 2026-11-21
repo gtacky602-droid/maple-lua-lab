@@ -78,7 +78,15 @@ const cases={
  generator:{hub:'fontaine-hub',arena:'field-generator-field-chamber',approach:'fontaine-field',
   boss:'boss-24080101',quest:'field-generator-commission',hp:1020,mora:305,xp:129550,scene:'generatorField',
   asset:'field-generator-field',pose:'poses',label:'gravity',fixture:'field-generator-field',report:[5400,380],
-  gravityJump:true,evade:{FFG01:[86,140],FFG02:[92,140],FFG03:[]}}
+  gravityJump:true,evade:{FFG01:[86,140],FFG02:[92,140],FFG03:[]}},
+ emperor:{hub:'fontaine-hub',arena:'emperor-field-cove',approach:'fontaine-field',
+  boss:'boss-26160302',quest:'emperor-commission',hp:980,mora:280,xp:98800,scene:'emperorField',
+  asset:'emperor-field',pose:'poses',label:'exposed',fixture:'emperor-field',report:[5000,360],
+  evade:{FEC01:[98],FEC02:[104,152],FEC03:[116]}},
+ seahorse:{hub:'fontaine-hub',arena:'seahorse-field-cavern',approach:'fontaine-field',
+  boss:'boss-26180101',quest:'seahorse-commission',hp:1010,mora:290,xp:113150,scene:'seahorseField',
+  asset:'seahorse-field',pose:'poses',label:'pearl',fixture:'seahorse-field',report:[5200,370],
+  evade:{FSH01:[92],FSH02:[98,146],FSH03:[128]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -117,7 +125,7 @@ async function fight(page,side,key,config) {
   const markers=new Set(),emerged=new Set(),air=new Set(),down=new Set();
   const forms=new Set(),landings=new Set(),maskPaths=new Set(),flightTargets=new Set(),fallLayouts=new Set();
   const skullTracks=new Set(),bombLayouts=new Set(),relayTracks=new Set(),struck=new Set();
-  const gravityTracks=new Set();
+  const gravityTracks=new Set(),fireLayouts=new Set(),exposedAt=new Set(),pearls=new Set(),interruptedAt=new Set();
   const art=config.pose&&config.asset+'-'+config.pose+'-source-v1.png';
   const entities=config.bodies??[Number(config.boss.slice(5))];
   const start=window.lab.frame;
@@ -145,7 +153,8 @@ async function fight(page,side,key,config) {
      guardTick,recovery,shieldUsed,forms:[...forms].sort(),landings:[...landings],maskPaths:[...maskPaths],
      flightTargets:[...flightTargets],fallLayouts:[...fallLayouts],recovered,
      skullTracks:[...skullTracks],bombLayouts:[...bombLayouts],relayTracks:[...relayTracks],struck:[...struck],
-     gravityTracks:[...gravityTracks],jump};
+     gravityTracks:[...gravityTracks],jump,fireLayouts:[...fireLayouts],exposedAt:[...exposedAt],
+     pearls:[...pearls],interruptedAt:[...interruptedAt]};
     return;
    }
    if(!b) {
@@ -264,6 +273,24 @@ async function fight(page,side,key,config) {
      visual=a.y<285;
     }
    }
+   if(key==='emperor'){
+    if(b.firePoints?.length===2&&b.tick<108){
+     const marks=f.draws.filter(d=>d.color==='#ffad66'&&d.y===476&&d.h===2);
+     if(marks.length===2&&marks.every((d,i)=>Math.abs(d.x+d.w/2+f.camera-b.firePoints[i])<.001))
+      fireLayouts.add(b.firePoints.map(x=>x.toFixed(3)).join(','));
+    }
+    if(b.form==='exposed'&&sprite?.h===91){exposedAt.add(b.x);visual=true}
+   }
+   if(key==='seahorse'){
+    const pearl=b.weakpoint;
+    if(pearl?.required===2&&b.form==='charging'&&f.draws.some(d=>(d.color==='#b9cdfc'||d.color==='#f6edff')&&
+       d.w===6&&d.h===3&&d.y===pearl.y-13&&Math.abs(d.x+f.camera-pearl.x)<8)){
+     pearls.add([pearl.x.toFixed(3),pearl.y.toFixed(3)].join(','));
+     visual=true;
+    }
+    if(b.form==='dim'&&b.label==='真珠が消灯・反撃'&&!b.flying&&b.destinationX===undefined&&sprite)
+     interruptedAt.add(b.x);
+   }
    const tell=config.fallTell;
    if(tell&&b.move===tell.move&&b.fallPoints?.length===3){
     const marks=f.draws.filter(d=>d.kind==='text'&&d.color===tell.color);
@@ -314,7 +341,10 @@ async function fight(page,side,key,config) {
    hold('KeyD',position>7||(Math.abs(position)<=7&&turn&&dx>0));
    const watchRelay=config.bodies&&b.hp<450&&relayTracks.size<2;
    const watchGravity=config.gravityJump&&(gravityTurn||(!jump&&b.hp<470));
-   hold('KeyJ',!watchRelay&&!watchGravity&&Math.abs(dx)<125&&dx*a.dir>=0);
+   const watchEmperor=key==='emperor'&&b.hp<420&&exposedAt.size===0;
+   const watchPearl=key==='seahorse'&&((b.hp<430&&!b.weakpoint&&interruptedAt.size===0)||
+    (side===1&&b.weakpoint?.hits===0&&b.tick<68));
+   hold('KeyJ',!watchRelay&&!watchGravity&&!watchEmperor&&!watchPearl&&Math.abs(dx)<125&&dx*a.dir>=0);
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
@@ -404,6 +434,14 @@ async function run(key,config) {
   assert.ok(a.gravityTracks.some(track=>b.gravityTracks.includes(track)),JSON.stringify(results));
   assert.ok(a.jump?.inside&&b.jump?.inside===false&&b.jump.height>145&&b.jump.height<170&&
    a.jump.height>b.jump.height*1.7,JSON.stringify(results));
+ }
+ if(key==='emperor'){
+  assert.ok(a.fireLayouts.some(layout=>b.fireLayouts.includes(layout)),JSON.stringify(results));
+  assert.ok(a.exposedAt.some(x=>b.exposedAt.includes(x)),JSON.stringify(results));
+ }
+ if(key==='seahorse'){
+  assert.ok(a.pearls.some(point=>b.pearls.includes(point)),JSON.stringify(results));
+  assert.ok(a.interruptedAt.some(x=>b.interruptedAt.includes(x)),JSON.stringify(results));
  }
  if(config.fallTell) assert.ok(a.fallLayouts.some(x=>b.fallLayouts.includes(x)),JSON.stringify(results));
  if(config.observeRecovery) assert.ok(a.recovered&&b.recovered,JSON.stringify(results));

@@ -32,6 +32,16 @@ return function(C)
   aim(b,s,c,a)
   return c
  end
+ function seahorse.shareCast(c,actors)
+  C.shareFieldHits({c.seen},actors)
+ end
+
+ function seahorse.frame(f,b,s,c)
+  f.flying=b.flying
+  if c and c.dest and not c.interrupted and c.tick>=c.move.lock and c.tick<c.move.recover then
+   f.destinationX=c.dest
+  end
+ end
 
  function seahorse.onHit(cast,b,s,slot)
   local c=slot and slot.cast

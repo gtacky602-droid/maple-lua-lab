@@ -1,0 +1,126 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 980,
+  "results": [
+    {
+      "seconds": 29.25,
+      "hp": 119,
+      "kills": 1,
+      "startingMora": 20,
+      "mora": 280,
+      "startingXp": 3452,
+      "xp": 98800,
+      "moves": [
+        "FEC01",
+        "FEC02",
+        "FEC03"
+      ],
+      "manualDamage": 304,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        26160302
+      ],
+      "gravityTracks": [],
+      "jump": null,
+      "fireLayouts": [
+        "894.000,1004.000",
+        "807.500,697.500"
+      ],
+      "exposedAt": [
+        850
+      ],
+      "pearls": [],
+      "interruptedAt": []
+    },
+    {
+      "seconds": 29.22,
+      "hp": 140,
+      "kills": 1,
+      "startingMora": 20,
+      "mora": 280,
+      "startingXp": 3452,
+      "xp": 98800,
+      "moves": [
+        "FEC01",
+        "FEC02",
+        "FEC03"
+      ],
+      "manualDamage": 286,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        26160302
+      ],
+      "gravityTracks": [],
+      "jump": null,
+      "fireLayouts": [
+        "894.000,1004.000",
+        "807.500,697.500"
+      ],
+      "exposedAt": [
+        850
+      ],
+      "pearls": [],
+      "interruptedAt": []
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 300,
+      "xp": 102252,
+      "respawn": true
+    },
+    {
+      "clears": 1,
+      "mora": 300,
+      "xp": 102252,
+      "respawn": true
+    }
+  ],
+  "report": {
+    "hub": "fontaine-hub",
+    "hostSaved": true,
+    "guestQuest": null,
+    "xp": 5000,
+    "mora": 360
+  },
+  "scenery": "emperorField",
+  "errors": []
+}
