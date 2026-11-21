@@ -12,9 +12,14 @@ return function(C,configs,controllers)
   local id=s.story and s.story.active and s.story.node
   return id and s.campaign and s.campaign.zone=='story:'..id and byNode[id] or nil
  end
+ local function sharedRoom(s,spec)
+  local room=s.coop
+  if room and room.weeklySpec==spec and C.sharesCoopField(s) then return room end
+ end
  function C.currentWeeklyBoss(s)
   local spec=current(s)
-  return spec and s.weeklySlots and s.weeklySlots[spec.id],spec
+  local room=spec and sharedRoom(s,spec)
+  return room and room.weeklySlot or (spec and s.weeklySlots and s.weeklySlots[spec.id]),spec
  end
  function C.enemyHitDamage(s,a,e,mult,element,resist)
   local slot=C.currentWeeklyBoss(s)
@@ -47,6 +52,66 @@ return function(C,configs,controllers)
    slot.primary.level=mode.level
   end
   controllers[spec.controller].attach(s,slot,spec);slot.attached=true
+ end
+ local function roomState(room,actors,owners,parties)
+  return {t=room.time,actors=actors,actorOwners=owners,parties=parties,active=parties[1].active,
+   story={node=room.node},enemies=room.enemies,platforms=room.platforms}
+ end
+ local function currentRoomState(room)
+  local actors,owners,parties={},{},{}
+  for _,member in ipairs(room.members) do
+   local s=member.state
+   if member.online and C.sharesCoopField(s) then
+    parties[#parties+1]=s
+    for _,a in ipairs(s.actors) do actors[#actors+1]=a;owners[a]=s end
+   end
+  end
+  return roomState(room,actors,owners,parties)
+ end
+ local function syncPlatforms(room,world)
+  room.platforms=world.platforms
+  for _,party in ipairs(world.parties) do party.platforms=room.platforms end
+ end
+ function C.adoptCoopWeekly(room,s)
+  local spec=byNode[room.node]
+  if not spec or not spec.coop then return end
+  local live=s.weeklySlots[spec.id]
+  room.weeklySpec,room.weeklySlot,room.platforms=spec,live,s.platforms
+  local personal={generation=live.generation,waitUntil=live.waitUntil}
+  spawn(s,spec,personal)
+  if live.waitUntil then personal.primary.hp=0;personal.phase='respawn' end
+  s.weeklySlots[spec.id]=personal
+  local controller=controllers[spec.controller]
+  if controller.share then controller.share(live,s.actors) end
+ end
+ function C.prepareCoopWeekly(room,dt)
+  local slot,spec=room.weeklySlot,room.weeklySpec
+  local world=currentRoomState(room)
+  if slot.waitUntil then
+   if room.time+1e-8<slot.waitUntil then return end
+   slot.waitUntil=nil;slot.generation=slot.generation+1
+   spawn(world,spec,slot);attach(world,slot,spec)
+  end
+  controllers[spec.controller].prepare(world,slot,spec,{},dt)
+  syncPlatforms(room,world)
+ end
+ function C.advanceCoopWeekly(room,actors,owners,parties,dt)
+  local slot,spec=room.weeklySlot,room.weeklySpec
+  if slot.waitUntil then return end
+  local world=roomState(room,actors,owners,parties)
+  controllers[spec.controller].finish(world,slot,spec,dt)
+  syncPlatforms(room,world)
+ end
+ function C.finishCoopWeekly(room,e)
+  local slot,spec=room.weeklySlot,room.weeklySpec
+  if not slot or e~=slot.primary or slot.waitUntil then return end
+  slot.waitUntil=room.time+spec.respawnTicks/60;slot.phase='respawn'
+  local world=currentRoomState(room)
+  cleanup(world,spec,slot);syncPlatforms(room,world)
+ end
+ function C.weeklyCoopRewardAllowed(s,e)
+  local slot=e.weeklyBoss and s.weeklySlots and s.weeklySlots[e.weeklyBoss]
+  return not (slot and slot.waitUntil)
  end
  function C.enterWeeklyBossNode(s,id)
   if enter then enter(s,id) end
@@ -96,15 +161,16 @@ return function(C,configs,controllers)
  end
  function C.step(s,dt,input)
   local slot,spec=C.currentWeeklyBoss(s)
-  local active=slot and not slot.waitUntil and not s.paused and dt>0
+  local shared=slot and sharedRoom(s,spec)
+  local active=slot and not shared and not slot.waitUntil and not s.paused and dt>0
   if active then controllers[spec.controller].prepare(s,slot,spec,input or {},dt) end
-  local before,returns=s.t,s.returns
+  local before,returns,damage=s.t,s.returns,s.damage
   step(s,dt,input)
   if s.t==before then return end
   for id,stored in pairs(s.weeklySlots or {}) do
    if stored.waitUntil and s.t+1e-8>=stored.waitUntil then
     stored.waitUntil=nil;stored.generation=stored.generation+1;spawn(s,byId[id],stored)
-    if current(s)==byId[id] then attach(s,stored,byId[id]) end
+    if current(s)==byId[id] and not sharedRoom(s,byId[id]) then attach(s,stored,byId[id]) end
    end
   end
   if active and returns==s.returns and current(s)==spec and not slot.waitUntil then
@@ -114,6 +180,7 @@ return function(C,configs,controllers)
     slot.lastDamage=s.damage
    end
   end
+  if shared and s.damage>damage then C.noteGrowth(s,'weekly-participation') end
   if slot and current(s)==spec and controllers[spec.controller].afterStep then
    controllers[spec.controller].afterStep(s,slot,spec)
   end
@@ -121,21 +188,27 @@ return function(C,configs,controllers)
  function C.onKill(s,e)
   if e.weeklyBoss then
    local spec=byId[e.weeklyBoss];local slot=s.weeklySlots and s.weeklySlots[e.weeklyBoss]
-   if not slot or e~=slot.primary or e.hp>0 or slot.waitUntil then return end
+   local room=sharedRoom(s,spec)
+   local live=room and room.weeklySlot or slot
+   if not live or e~=live.primary or e.hp>0 or slot.waitUntil then return end
    slot.waitUntil=s.t+spec.respawnTicks/60;slot.phase='respawn'
-   cleanup(s,spec,slot)
+   local started=slot.attemptAt
+   if room then
+    slot.primary.hp=0
+    started=s.t-(room.time-live.attemptAt)
+   else cleanup(s,spec,slot) end
    C.noteGrowth(s,'weekly-participation')
    if slot.mode then
     local mode=slot.mode
     local first=C.recordWeeklyClear(s,spec.id,mode.id,slot.attemptAt)
     slot.reward={xp=e.fixedKillXp,mora=e.rewardMora,first=first}
-   elseif C.recordChallengeBoss then C.recordChallengeBoss(s,spec.id,slot.attemptAt) end
+   elseif C.recordChallengeBoss then C.recordChallengeBoss(s,spec.id,started) end
    C.storyBossDefeated(s,spec.storyChallenge)
   end
   if onKill then onKill(s,e) end
  end
- local function wait(s,slot)
-  return slot.waitUntil and math.max(1,math.ceil((slot.waitUntil-s.t)*60-1e-7)) or 0
+ local function wait(now,slot)
+  return slot.waitUntil and math.max(1,math.ceil((slot.waitUntil-now)*60-1e-7)) or 0
  end
  function C.checkpoint(s)
   local out=checkpoint(s)
@@ -143,7 +216,7 @@ return function(C,configs,controllers)
    out.weeklyBosses={}
    for id,slot in pairs(s.weeklySlots) do
     -- An unfinished weekly attempt restarts at full HP on re-entry/restore.
-    out.weeklyBosses[id]={generation=slot.generation,hp=slot.waitUntil and 0 or byId[id].hp,waitTicks=wait(s,slot)}
+    out.weeklyBosses[id]={generation=slot.generation,hp=slot.waitUntil and 0 or byId[id].hp,waitTicks=wait(s.t,slot)}
    end
   end
   return out
@@ -170,7 +243,7 @@ return function(C,configs,controllers)
   local target=portal and byNode[portal.to]
   if target and target.node==portal.to and target.modes and not slot then
    local stored=s.weeklySlots and s.weeklySlots[target.id]
-   local remaining=stored and wait(s,stored)/60 or 0
+   local remaining=stored and wait(s.t,stored)/60 or 0
    local history=s.endgame and s.endgame.weekly
    f.weeklyDesk={id=target.id,name=target.name,remaining=remaining,modes={}}
    for _,rank in ipairs(target.modes) do
@@ -181,9 +254,10 @@ return function(C,configs,controllers)
    end
   end
   if not slot then return f end
+  local room=sharedRoom(s,spec)
   f.weeklyBoss={id=spec.id,name=spec.name,level=slot.mode and slot.mode.level or spec.level,hp=slot.primary.hp,maxhp=spec.hp,
    difficulty=slot.mode and slot.mode.name,reward=slot.reward,
-   generation=slot.generation,phase=slot.phase,remaining=wait(s,slot)/60}
+   generation=slot.generation,phase=slot.phase,remaining=wait(room and room.time or s.t,slot)/60}
   controllers[spec.controller].observe(f,s,slot,spec,mode,profile)
   f.commands=#f.draws
   return f

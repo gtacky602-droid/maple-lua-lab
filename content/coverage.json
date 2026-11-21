@@ -8068,6 +8068,7 @@
     "status": "split_map_room_membership_and_local_combat_verified",
     "maps": [
       "mond-town",
+      "dvalin-sky-arena",
       "mond-road",
       "cryo-approach",
       "cryo-field-grove",
@@ -8208,7 +8209,8 @@
       "boss-25134601",
       "legend-natlan_polychrome_tristars",
       "legend-natlan_battlegoat_ironclaw",
-      "legend-snez_rowdy_beast_host"
+      "legend-snez_rowdy_beast_host",
+      "boss-29010101"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8357,7 +8359,10 @@
       "evidence/coop-wavebinder-valiant-anchor.png",
       "evidence/coop-jadeplume-lua-http.json",
       "evidence/coop-jadeplume-browser.json",
-      "evidence/coop-jadeplume-leap.png"
+      "evidence/coop-jadeplume-leap.png",
+      "evidence/coop-dvalin-lua-http.json",
+      "evidence/coop-dvalin-browser.json",
+      "evidence/coop-dvalin-crystal.png"
     ],
     "pending": [
       "remaining original field encounters, local legends, weekly and Stygian bosses",

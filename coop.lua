@@ -10,6 +10,7 @@ return function(C, config)
  function C.newCoop(s)
   local room={node=s.story.node,enemies=s.enemies,solids=s.solids,time=s.t,tick=0,members={},nextId=0}
   C.adoptCoopField(room,s)
+  C.adoptCoopWeekly(room,s)
   return room
  end
  function C.attachCoop(room,s,member)
@@ -21,6 +22,7 @@ return function(C, config)
   room.members[#room.members+1]=member
   s.coop,s.coopMember,s.enemies=room,member,room.enemies
   s.paused,s.auto=false,false
+  if room.weeklySlot then s.platforms=room.platforms end
   for _,e in ipairs(room.enemies) do
    if e.burning and not e.burning.member and #room.members==1 then e.burning.member=member end
   end
@@ -60,6 +62,7 @@ return function(C, config)
  function C.coopDefeat(s,e)
   local room=s.coop
   C.finishCoopField(s,e)
+  C.finishCoopWeekly(room,e)
   local hits=e.coopHits or {}
   e.coopHits=nil
   for _,member in ipairs(room.members) do
@@ -67,7 +70,7 @@ return function(C, config)
    if hit and room.time-hit.time<=config.contributionSeconds and onField(member) then
     local party=member.state
     local a=party.actors[party.active]
-    if a.hp>0 and nearEncounter(a,e) then
+    if a.hp>0 and nearEncounter(a,e) and C.weeklyCoopRewardAllowed(party,e) then
      C.creditDefeat(party,e,hit.actor)
     end
    end
@@ -82,6 +85,7 @@ return function(C, config)
   if not world then return end
   C.advanceEnemyReactions(world,dt)
   room.time=room.time+dt
+  if room.weeklySlot then C.prepareCoopWeekly(room,dt) end
   local actors,decoys,owners,parties={},{},{},{}
   for _,member in ipairs(room.members) do
    if onField(member) then
@@ -96,6 +100,7 @@ return function(C, config)
   end
   C.advanceEnemies({enemies=room.enemies},dt,actors,decoys,owners)
   C.advanceCoopField(room,actors,owners,parties)
+  if room.weeklySlot and #parties>0 then C.advanceCoopWeekly(room,actors,owners,parties,dt) end
   room.tick=room.tick+1
  end
 
@@ -132,6 +137,10 @@ return function(C, config)
   local room=s.coop
   local party={tick=room.tick,enemies={}}
   for _,e in ipairs(room.enemies) do
+   if not e.weeklyPart then party.enemies[#party.enemies+1]={id=e.id,hp=e.hp,maxhp=e.maxhp} end
+  end
+  if room.weeklySlot then
+   local e=room.weeklySlot.primary
    party.enemies[#party.enemies+1]={id=e.id,hp=e.hp,maxhp=e.maxhp}
   end
   return party

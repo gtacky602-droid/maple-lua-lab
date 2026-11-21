@@ -5,6 +5,7 @@
     {
       "id": "boss-29010101",
       "controller": "dvalin",
+      "coop": true,
       "entity": 29010101,
       "name": "空を裂く魔龍・トワリン",
       "node": "dvalin-sky-arena",

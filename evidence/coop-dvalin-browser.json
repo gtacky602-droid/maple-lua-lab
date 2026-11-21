@@ -1,0 +1,81 @@
+{
+  "participants": 2,
+  "hp": 600,
+  "results": [
+    {
+      "won": true,
+      "seconds": 50.03,
+      "hp": 140,
+      "returns": 0,
+      "moves": [
+        "WD01",
+        "WD04",
+        "WD02",
+        "WD08",
+        "WD05",
+        "WD06"
+      ],
+      "breaks": 3,
+      "falls": 0,
+      "aiLanded": true,
+      "manualLanded": true,
+      "manualCrystalDamage": 196
+    },
+    {
+      "won": true,
+      "seconds": 50,
+      "hp": 140,
+      "returns": 0,
+      "moves": [
+        "WD01",
+        "WD04",
+        "WD02",
+        "WD08",
+        "WD05",
+        "WD06"
+      ],
+      "breaks": 3,
+      "falls": 0,
+      "aiLanded": true,
+      "manualLanded": true,
+      "manualCrystalDamage": 196
+    }
+  ],
+  "scenery": [
+    {
+      "key": "dvalinWeekly",
+      "file": "dvalin-weekly-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "key": "dvalinWeekly",
+      "file": "dvalin-weekly-background-v1.png",
+      "state": "ready"
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saved": [
+    {
+      "wait": 3551,
+      "clears": 1,
+      "mora": 340,
+      "xp": 3454,
+      "quest": "active"
+    },
+    {
+      "wait": 3551,
+      "clears": 1,
+      "mora": 350,
+      "xp": 3455,
+      "quest": null
+    }
+  ],
+  "questReport": {
+    "xp": 1400,
+    "mora": 360
+  },
+  "errors": []
+}

@@ -2,6 +2,7 @@ return function(C)
  local dragon={}
  local resolve,avoid=C.resolveCast,C.aiAvoidTarget
  local teal,pale,purple,ink='#51ddda','#e3ffff','#c775f1','#223554'
+ local function actorKey(s,a) return s.actorOwners and a or a.id end
  local function clamp(x,a,b) return math.max(a,math.min(b,x)) end
  local function zone(s,x)
   for i,p in ipairs(s.platforms) do if not p.weeklyStep and x>=p.x and x<=p.x+p.w then return i,p end end
@@ -44,7 +45,7 @@ return function(C)
   w.guard,w.cycle,w.index,w.notice=spec.guard,0,1,spec.noticeTicks
   w.stage,w.pose,w.perch,w.crystalX='flight','hover',2,spec.platforms[2].x+spec.platforms[2].w/2+40
   w.projectiles,w.hazard,w.guardHits,w.breaks,w.falls={},nil,0,0,0
-  w.crossings={}
+  w.crossings=setmetatable({},{__mode='k'})
   w.parts={}
   local receiver={id=spec.entity}
   local function contact(state,cast,part,mult,_,element)
@@ -79,7 +80,7 @@ return function(C)
  function dragon.cleanup(s,w,spec)
   removeParts(s);w.projectiles={};w.hazard=nil;w.cast=nil
   for _,part in ipairs(w.parts)do part.underground=true end
-  w.crossings={};w.stage=w.primary.hp<=0 and 'defeated' or 'flight'
+  w.crossings=setmetatable({},{__mode='k'});w.stage=w.primary.hp<=0 and 'defeated' or 'flight'
   -- Story enter already installed the destination's platforms before calling cleanup.
   if s.story and s.story.node==spec.node then platforms(s,w,spec) end
   w.padY=nil
@@ -93,8 +94,17 @@ return function(C)
    local amount=math.min(w.guard,hit.amount);w.guard=w.guard-amount;w.guardHits=w.guardHits+1
    C.combatNumber(s,hit.part,'体勢 -'..amount,teal)
    C.combatEvent(s,'weekly_guard_hit',cast.id,w.primary.id,amount)
+   if s.coop then C.coopContact(s,w.primary,cast.id) end
   end
   return table.unpack(result,1,result.n)
+ end
+ function dragon.share(w,actors)
+  local c=w.cast
+  if c then
+   C.shareFieldHits(c.seen,actors)
+   if c.lastBreath then C.shareFieldHits({c.lastBreath},actors) end
+  end
+  if w.hazard then C.shareFieldHits({w.hazard.hits},actors) end
  end
  local function nextCast(s,w,spec,id)
   if not id then
@@ -171,13 +181,14 @@ return function(C)
   local nx=(480+(index%2==0 and 20 or -20))*(1-q)+x*q;local ny=210*(1-q)+450*q
   -- One accepted hit per actor per pair; the drawn orb and its swept collision share a path.
   for _,a in ipairs(s.actors) do
-   if a.hp>0 and not p.seen[a.id] then
+   local key=actorKey(s,a)
+   if a.hp>0 and not p.seen[key] then
     local dx,dy=nx-p.x,ny-p.y;local length=dx*dx+dy*dy
     local centerY=a.y-25
     local u=length>0 and clamp(((a.x-p.x)*dx+(centerY-p.y)*dy)/length,0,1) or 0
     local px,py=p.x+u*dx,p.y+u*dy
     if math.abs(px-a.x)<20 and py>a.y-62 and py<a.y+12 then
-     p.seen[a.id]=true;C.damageActor(s,a,damage,{id=w.primary.id,x=px,y=py+30,damageElement='anemo'},true,true)
+     p.seen[key]=true;C.damageActor(s.actorOwners and s.actorOwners[a] or s,a,damage,{id=w.primary.id,x=px,y=py+30,damageElement='anemo'},true,true)
     end
    end
   end
@@ -191,9 +202,10 @@ return function(C)
   h.remaining=h.remaining-1
   local p=spec.platforms[h.zone]
   for _,a in ipairs(s.actors) do
+   local key=actorKey(s,a)
    if a.hp>0 and a.ground and math.abs(a.y-spec.floorY)<4 and a.x>=p.x and a.x<=p.x+p.w
-    and s.t+1e-8>=(h.hits[a.id] or 0) then
-    h.hits[a.id]=s.t+1;C.damageActor(s,a,spec.floorDamage,{id=w.primary.id,damageElement='anemo'},false,true)
+    and s.t+1e-8>=(h.hits[key] or 0) then
+    h.hits[key]=s.t+1;C.damageActor(s.actorOwners and s.actorOwners[a] or s,a,spec.floorDamage,{id=w.primary.id,damageElement='anemo'},false,true)
    end
   end
  end
@@ -213,11 +225,14 @@ return function(C)
    local q=(t-90)/144;local x=c.dir<0 and c.right-(c.right-c.left)*q or c.left+(c.right-c.left)*q
    c.beamX=x
    local seen={}
-   for _,a in ipairs(s.actors) do if s.t<(c.lastBreath and c.lastBreath[a.id] or 0) then seen[a.id]=true end end
+   for _,a in ipairs(s.actors) do
+    local key=actorKey(s,a)
+    if c.lastBreath and s.t<(c.lastBreath[key] or 0) then seen[key]=true end
+   end
    local hp={};for i,a in ipairs(s.actors)do hp[i]=a.hp end
    area(s,w,seen,x-38,x+38,390,m.damage)
    c.lastBreath=c.lastBreath or {}
-   for i,a in ipairs(s.actors)do if a.hp<hp[i] then c.lastBreath[a.id]=s.t+.5 end end
+   for i,a in ipairs(s.actors)do if a.hp<hp[i] then c.lastBreath[actorKey(s,a)]=s.t+.5 end end
   elseif m.kind=='bolts' and c.targets then
    for i=1,4 do projectile(s,w,c,i,i<=2 and 72 or 108,i<=2 and 132 or 168,c.targets[(i-1)%2+1],m.damage) end
   elseif m.kind=='floor' and t==180 then
@@ -240,7 +255,7 @@ return function(C)
    if a.hp>0 and a.y>560 then
     local _,p=zone(s,a.x);a.x=clamp(a.x,p.x+22,p.x+p.w-22);a.y=p.y;a.vy=0;a.ground=true
     w.falls=w.falls+1
-    w.crossings[a.id]=nil
+    w.crossings[a]=nil
     if not w.waitUntil then C.damageActor(s,a,spec.fallDamage,{id=w.primary.id,damageElement='anemo'},false,true)end
    end
   end
@@ -248,9 +263,9 @@ return function(C)
  function C.aiAvoidTarget(s,a)
   local w,spec=active(s)
   if not w then return avoid and avoid(s,a) end
-  local crossing=w.crossings[a.id]
+  local crossing=w.crossings[a]
   if crossing then
-   if a.ground and a.x>=crossing.left and a.x<=crossing.right then w.crossings[a.id]=nil
+   if a.ground and a.x>=crossing.left and a.x<=crossing.right then w.crossings[a]=nil
    else return crossing.x end
   end
   local destination
@@ -280,7 +295,7 @@ return function(C)
      local nextFloor=spec.platforms[i+dir]
      if nextFloor and math.abs(a.x-edge)<55 and (destination-edge)*dir>25 then
       a.buffer=.1
-      w.crossings[a.id]={x=clamp(destination,nextFloor.x+22,nextFloor.x+nextFloor.w-22),left=nextFloor.x,right=nextFloor.x+nextFloor.w}
+      w.crossings[a]={x=clamp(destination,nextFloor.x+22,nextFloor.x+nextFloor.w-22),left=nextFloor.x,right=nextFloor.x+nextFloor.w}
      end
     end
    end

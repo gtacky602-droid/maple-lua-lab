@@ -1,0 +1,17 @@
+{
+  "lua": {
+    "participants": 4,
+    "sharedPostureAndCrystal": true,
+    "perPartyFootingAndDamage": true,
+    "independentWindPairsAndBreathCooldownAndFloor": true,
+    "soloHitPreservedOnAdoption": true,
+    "sharedRespawnAndSeparateCooldown": true,
+    "guardContributionEarnsReward": true
+  },
+  "http": {
+    "participants": 2,
+    "emptyArenaFreezesExposure": true,
+    "sharedCrystalHpOnReturn": true,
+    "separateWeeklyProgressAndReward": true
+  }
+}
