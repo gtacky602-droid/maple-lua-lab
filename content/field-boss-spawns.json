@@ -318,6 +318,7 @@
     {
       "id": "boss-24021101",
       "controller": "array",
+      "coop": true,
       "entity": 24021101,
       "name": "恒常からくり陣形",
       "node": "array-field-court",
@@ -399,6 +400,7 @@
     {
       "id": "boss-20070101",
       "controller": "thunder",
+      "coop": true,
       "entity": 20070101,
       "name": "雷音権現",
       "node": "thunder-field-crest",

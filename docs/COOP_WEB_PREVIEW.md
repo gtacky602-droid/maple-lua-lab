@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する34地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する38地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -149,6 +149,21 @@ Chromeの2画面で盾の反応と隙の延長を確認し、双方が討伐に�
 Luaの4人戦で水鶴の二波が別々の参加者に当たること、水蛙の着地と跳躍中の有効打、斬り返しの二打と仮面の個別命中を確認した。HTTPの2人戦で跳躍中と仮面の移動中に全員が退いても、その時点から再開できた。Chromeの2画面で着地印と仮面の走路が一致し、双方の討伐報酬を保存した。受注者は帰町して報告し、報告報酬4,000 EXP・300モラを保存した。 [Lua・HTTP検証](../evidence/coop-oceanid-maguu-lua-http.json) · [純水精霊のChrome試走](../evidence/coop-oceanid-browser.json) · [魔偶剣鬼のChrome試走](../evidence/coop-maguu-browser.json)
 
 `python test_oceanid_field.py` と `python test_maguu_field.py` で初期セーブを作る。ポート9020でラボを起動し、`node test_coop_field_routes.mjs oceanid maguu` で再現できる。別のポートで起動したラボには環境変数 `LAB_URL` で接続する。 [水蛙の跳躍](../evidence/coop-oceanid-frog.png) · [剣鬼の仮面](../evidence/coop-maguu-mask.png)
+
+## 恒常からくり陣形と雷音権現
+
+| ボス | Lv | 稲妻の会場 | 本体HP | 討伐参加者一人あたり |
+| --- | ---: | --- | ---: | --- |
+| 恒常からくり陣形 | 46 | 機巧の石庭 | 960 | 17,450 EXP・185モラ |
+| 雷音権現 | 48 | 雷鳴の岩峰 | 940 | 20,350 EXP・190モラ |
+
+恒常からくり陣形は機刃・回転刃・跳躍へ形を変えても、HPと元素付着を引き継ぐ。雷音権現は三枚の雷羽を順に放ち、低空の雷走に入る前に突進の終点を固定する。両戦とも上昇中は絵と当たり判定が一緒に上がり、地上の通常攻撃は届かなくなる。 [ラボの攻撃仕様](field-boss-v1/OCEANID_INAZUMA_MOVESETS.md)
+
+Luaの4人戦で予告と当たり判定、回転刃の個別命中、三枚の雷羽が別々の参加者に当たることを確認した。HTTPの2人戦では、全員が退いた間に飛行と予告の位置を保持し、合流して討伐した。Chromeの2画面で着地印と雷走の予告が一致し、討伐報酬は各自に入った。受注者は稲妻港に戻り、報告報酬4,000 EXPと300モラを受け取って保存した。 [Lua・HTTPの検証](../evidence/coop-inazuma-flight-lua-http.json) · [恒常からくり陣形のChrome試走](../evidence/coop-array-browser.json) · [雷音権現のChrome試走](../evidence/coop-thunder-browser.json)
+
+`python test_array_field.py` と `python test_thunder_field.py` で初期セーブを作り、`node test_coop_field_routes.mjs array thunder` で再現できる。ポート9020以外のラボを使う場合は環境変数 `LAB_URL` に起動先を指定する。 [機核の跳躍](../evidence/coop-array-rocket.png) · [低空の雷走の予告](../evidence/coop-thunder-flight.png)
+
+単独戦の同じコマで標準矩形と軽量16色を切り替えると、Luaが返す描画指示は陣形が4,293件から1,141件、雷音権現が5,843件から1,606件に減った。 [陣形の計測](../evidence/array-field-lua.json) · [雷音権現の計測](../evidence/thunder-field-lua.json)
 
 ## マッシュラプトル
 

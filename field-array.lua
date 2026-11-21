@@ -23,6 +23,19 @@ return function(C)
   aim(b,s,c,a)
   return c
  end
+ function array.shareCast(cast,actors)
+  C.shareFieldHits({cast.seen},actors)
+ end
+ local function poseFor(cast)
+  return cast and cast.tick<cast.move.recover and cast.move.art or 'core'
+ end
+ function array.frame(f,b,s,c)
+  f.form=poseFor(c)
+  f.flying=b.y<s.floorY
+  if c and c.dest and c.tick>=c.move.lock and c.tick<c.move.active[1][2] then
+   f.destinationX=c.dest
+  end
+ end
  local function path(c,t,start,finish)
   local p=clamp((t-start)/(finish-start),0,1)
   return c.origin+(c.dest-c.origin)*p,p
@@ -55,10 +68,9 @@ return function(C)
  end
  function array.draw(f,state,b,s,c,mode,profile)
   local x,y=b.x-state.camera,b.y
-  local style='core'
-  if c and c.tick<c.move.recover then
+  local style=poseFor(c)
+  if style~='core' then
    local m,t=c.move,c.tick
-   style=m.art
    local w=m.active[1]
    local color=t>=w[1] and '#fff1b2' or '#f0ae68'
    if t>=m.lock and t<w[2] then

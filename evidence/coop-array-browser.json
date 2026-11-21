@@ -1,0 +1,102 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 960,
+  "results": [
+    {
+      "seconds": 25.92,
+      "hp": 140,
+      "kills": 1,
+      "startingMora": 0,
+      "mora": 185,
+      "startingXp": 0,
+      "xp": 17450,
+      "moves": [
+        "FPA01",
+        "FPA02",
+        "FPA03"
+      ],
+      "manualDamage": 280,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [
+        "blade",
+        "core",
+        "rocket",
+        "wheel"
+      ],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [
+        863
+      ]
+    },
+    {
+      "seconds": 25.83,
+      "hp": 140,
+      "kills": 1,
+      "startingMora": 0,
+      "mora": 185,
+      "startingXp": 0,
+      "xp": 17450,
+      "moves": [
+        "FPA01",
+        "FPA02",
+        "FPA03"
+      ],
+      "manualDamage": 272,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [
+        "blade",
+        "core",
+        "rocket",
+        "wheel"
+      ],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [
+        863
+      ]
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 185,
+      "xp": 17450,
+      "respawn": true
+    },
+    {
+      "clears": 1,
+      "mora": 185,
+      "xp": 17450,
+      "respawn": true
+    }
+  ],
+  "report": {
+    "hub": "inazuma-port",
+    "hostSaved": true,
+    "guestQuest": null,
+    "xp": 4000,
+    "mora": 300
+  },
+  "scenery": "arrayField",
+  "errors": []
+}

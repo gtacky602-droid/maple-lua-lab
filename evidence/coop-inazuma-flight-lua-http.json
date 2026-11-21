@@ -1,0 +1,30 @@
+{
+  "array": {
+    "lua": {
+      "participants": 4,
+      "sharedHpAndAuraAcrossForms": true,
+      "sweptRollHitsEachTravelerOnce": true,
+      "rocketSpriteAndHitboxFollowSharedLanding": true,
+      "priorSoloHitSurvivesAdoption": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  },
+  "thunder": {
+    "lua": {
+      "participants": 4,
+      "immuneToElectro": true,
+      "threeFeathersCanHitThreeTravelers": true,
+      "dashFlightAndHitboxFollowSharedRoute": true,
+      "priorSoloHitSurvivesAdoption": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  }
+}

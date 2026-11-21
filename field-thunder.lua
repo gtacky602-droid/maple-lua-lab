@@ -32,6 +32,15 @@ return function(C)
   place(b,s,0,poseHeight(c))
   return c
  end
+ function thunder.shareCast(cast,actors)
+  C.shareFieldHits({cast.seen},actors)
+ end
+ function thunder.frame(f,b,s,c)
+  f.flying=b.y<s.floorY
+  if c and c.move.kind=='dash' and c.tick>=c.move.lock and c.tick<c.move.active[1][2] then
+   f.destinationX=c.dest
+  end
+ end
  local function feather(c,age)
   return c.origin+c.dir*(.42+age*4/60)*U
  end

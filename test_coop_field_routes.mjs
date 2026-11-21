@@ -36,7 +36,17 @@ const cases={
   asset:'oceanid-field',label:'frog',fixture:'oceanid-field',report:true,evade:{FO01:[84],FO02:[74,122],FO03:[110]}},
  maguu:{hub:'inazuma-port',transit:['inazuma-road'],arena:'maguu-field-dojo',approach:'maguu-approach',
   boss:'boss-25090101',quest:'maguu-commission',hp:900,mora:180,xp:14950,scene:'maguuField',
-  asset:'maguu-field',label:'mask',fixture:'maguu-field',report:true,evade:{FMK01:[122],FMK02:[80,140],FMK03:[97]}}
+  asset:'maguu-field',label:'mask',fixture:'maguu-field',report:true,evade:{FMK01:[122],FMK02:[80,140],FMK03:[97]}},
+ array:{hub:'inazuma-port',transit:['inazuma-road'],arena:'array-field-court',approach:'array-approach',
+  boss:'boss-24021101',quest:'array-commission',hp:960,mora:185,xp:17450,scene:'arrayField',
+  asset:'array-field',pose:'poses',label:'rocket',fixture:'array-field',report:true,
+  flight:{move:'FPA03',height:108,offset:39.6,warning:'#f0ae68',warningY:474},
+  evade:{FPA01:[92],FPA02:[87],FPA03:[110]}},
+ thunder:{hub:'inazuma-port',transit:['inazuma-road'],arena:'thunder-field-crest',approach:'thunder-approach',
+  boss:'boss-20070101',quest:'thunder-commission',hp:940,mora:190,xp:20350,scene:'thunderField',
+  asset:'thunder-field',pose:'poses',label:'flight',fixture:'thunder-field',report:true,
+  flight:{move:'FTM03',height:89,offset:35.2,warning:'#da98ee',warningY:476},
+  evade:{FTM01:[92],FTM02:[80,104,128],FTM03:[104]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -72,7 +82,7 @@ async function fight(page,side,key,config) {
   document.activeElement.blur();
   const held=new Set(),moves=new Set(),hits=new Map();
   const markers=new Set(),emerged=new Set(),air=new Set(),down=new Set();
-  const forms=new Set(),landings=new Set(),maskPaths=new Set();
+  const forms=new Set(),landings=new Set(),maskPaths=new Set(),flightTargets=new Set();
   const art=config.pose&&config.asset+'-'+config.pose+'-source-v1.png';
   const entity=Number(config.boss.slice(5));
   const start=window.lab.frame;
@@ -93,7 +103,8 @@ async function fight(page,side,key,config) {
      mora:f.mora-start.mora,startingXp:start.progression.killXp,xp:f.progression.killXp-start.progression.killXp,
      moves:[...moves].sort(),manualDamage:[...hits.values()].reduce((sum,v)=>sum+v,0),cloaked,
      markers:[...markers],emerged:[...emerged],air:[...air],down:[...down],
-     guardTick,recovery,shieldUsed,forms:[...forms].sort(),landings:[...landings],maskPaths:[...maskPaths]};
+     guardTick,recovery,shieldUsed,forms:[...forms].sort(),landings:[...landings],maskPaths:[...maskPaths],
+     flightTargets:[...flightTargets]};
     return;
    }
    if(!b) {
@@ -152,6 +163,15 @@ async function fight(page,side,key,config) {
      maskPaths.add([b.x.toFixed(3),dir].join(','));
      visual=true;
     }
+   }
+   if(key==='array'&&b.form&&sprite) forms.add(b.form);
+   const flight=config.flight;
+   if(flight&&b.move===flight.move&&b.flying&&b.y<426&&sprite?.h===flight.height&&
+      Math.abs(sprite.y-(b.y-flight.offset))<.001&&Math.abs(sprite.x+f.camera-b.x)<.001){
+    const center=key==='array'?b.destinationX:(b.destinationX+b.x)/2;
+    visual=f.draws.some(d=>d.kind==='rect'&&d.color===flight.warning&&d.y===flight.warningY&&d.h===3&&
+     Math.abs(d.x+d.w/2+f.camera-center)<.001);
+    if(visual) flightTargets.add(b.destinationX);
    }
    if(visual&&!capture&&side===-1){
     capture=document.querySelector('#game').toDataURL('image/png').split(',')[1];
@@ -225,6 +245,10 @@ async function run(key,config) {
   assert.ok(a.landings.some(x=>b.landings.includes(x)),JSON.stringify(results));
  }
  if(key==='maguu') assert.ok(a.maskPaths.some(path=>b.maskPaths.includes(path)),JSON.stringify(results));
+ if(key==='array'){
+  for(const r of results) assert.deepEqual(r.forms,['blade','core','rocket','wheel']);
+ }
+ if(config.flight) assert.ok(a.flightTargets.some(x=>b.flightTargets.includes(x)),JSON.stringify(results));
  const questCounts=await Promise.all(players.map(({page})=>page.evaluate(q=>window.lab.frame.story.quests[q]?.count??null,quest)));
  assert.deepEqual(questCounts,[1,null]);
  const saves=[];
