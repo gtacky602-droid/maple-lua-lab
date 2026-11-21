@@ -7,7 +7,7 @@ const page=await browser.newPage({viewport:{width:1240,height:940}});
 const frame=()=>page.evaluate(()=>window.lab.frame);
 const wait=(predicate,arg)=>page.waitForFunction(predicate,arg,{timeout:80000});
 const canvas=page.locator('#game'),controls=page.locator('#weeklyShouki');
-const prefix='evidence/shouki-weekly-overflow';
+const prefix='evidence/shouki-weekly-waist';
 const hub='sumeru-hub',node='shouki-godmaking-arena',quest='shouki-weekly-commission',id='boss-29070101';
 const errors=[];
 page.on('pageerror',e=>errors.push(e.message));
@@ -42,12 +42,30 @@ try{
  assert.deepEqual([scene.key,scene.state],['sumeruCanopy','ready']);
  const opening=await frame();
  assert.deepEqual(opening.weeklyBoss.phaseHp.map(v=>v.max),[590,1040]);
- const upper=opening.draws.find(d=>d.source==='shouki-idle-source-v1.png');
- assert.ok(upper?.h===1160&&upper.y===449&&upper.y-upper.h<0);
+ const upperParts=opening.draws.filter(d=>d.source==='shouki-idle-source-v1.png');
+ assert.equal(upperParts.length,5);
+ const [upper,leftHand,rightHand,leftPendant,rightPendant]=upperParts;
+ assert.deepEqual(upper.box,[87,14,868,723]);
+ assert.ok(Math.abs(upper.h-1160*723/914)<0.001&&upper.y-upper.h<0);
+ assert.ok([leftHand,rightHand].every(hand=>hand.box[1]===737&&hand.y===449&&Math.abs(hand.y-hand.h-upper.y)<0.001));
+ assert.ok(leftHand.box[0]+leftHand.box[2]<368&&rightHand.box[0]>=672);
+ assert.ok([leftPendant,rightPendant].every(p=>p.box[1]===737&&Math.abs(p.y-p.h-upper.y)<0.001));
  assert.ok(upper.x-upper.w/2<0&&upper.x+upper.w/2>960);
  assert.equal(opening.draws[0],upper);
  assert.equal(opening.draws.filter(d=>d.kind==='text'&&['炎','風','雷A','水','氷','雷B'].includes(d.text)&&d.y<540).length,6);
  await page.locator('.game').screenshot({path:prefix+'-upper.png'});
+ await page.evaluate(()=>window.lab.action('pause'));
+ await wait(()=>window.lab.frame.paused);
+ const pausedUpper=await frame();
+ await page.locator('#renderMode').selectOption('h32c16');
+ await wait(()=>window.lab.frame.commands>1000);
+ const upperLight=await frame();
+ assert.equal(upperLight.t,pausedUpper.t);
+ await capture('upper-light');
+ await page.locator('#renderMode').selectOption('sprite');
+ await wait(()=>window.lab.frame.draws[0]?.kind==='boss_sprite');
+ await page.evaluate(()=>window.lab.action('pause'));
+ await wait(()=>!window.lab.frame.paused);
  await canvas.click();
  await page.evaluate(()=>{
   const held=new Set();
@@ -186,7 +204,7 @@ try{
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({entry:true,manualMatrix:true,twoPhases:true,
   reservedAndCancelled:true,terminalHitArmor:true,manualTrialParts:4,terminalHitCore:true,exposureTicks:down.weeklyBoss.shouki.exposure,
-  art:{upper:1160,upperWidth:upper.w,full:744,trial:630,collapse:600,
+  art:{upper:1160,upperWidth:upper.w,torsoSourceEnd:737,torsoBottom:upper.y,handsBottom:leftHand.y,full:744,trial:630,collapse:600,
    upperLeft:upper.x-upper.w/2,upperTop:upper.y-upper.h,fullTop:full.y-full.h,
    machineBehindParty:true,shieldCore:armored.weeklyBoss.shouki.core,trialCore:trial.weeklyBoss.shouki.core},
   clearReportRestore:true,remainingHp:finished.actors[0].hp,viewport390:true,scene,

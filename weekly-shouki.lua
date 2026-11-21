@@ -17,6 +17,25 @@ return function(C)
   if name=='rise' then return 'full',y,656+(fullHeight-656)*clamp((t-120)/120,0,1) end
   return 'full',y,fullHeight
  end
+ local upperParts={'torso','leftHand','rightHand','leftPendant','rightPendant'}
+ local upperBox={x=87,y=14,w=868,h=914}
+ local function drawMachine(f,form,x,base,height,mode,profile)
+  local art=C.shoukiWeeklyArt
+  if form=='full' then
+   C.drawFieldDisplayArt(f,art.full,x,base,height,mode,profile,false)
+   return
+  end
+  -- The crops share the original upper-form transform. Only the central waist is cut.
+  local scale=height/upperBox.h
+  local left,top=x-upperBox.w*scale/2,base-height
+  for _,key in ipairs(upperParts) do
+   local part=art[key]
+   local box=part.box
+   local center=left+(box[1]-upperBox.x+box[3]/2)*scale
+   local bottom=top+(box[2]-upperBox.y+box[4])*scale
+   C.drawFieldDisplayArt(f,part,center,bottom,box[4]*scale,mode,profile,false)
+  end
+ end
  local function actor(s) return s.actors[s.active] end
  local function event(s,w,key,owner,v) C.combatEvent(s,'shouki:'..key,owner or 0,w.primary.id,v or 0) end
  local function body(e,x,y,h) e.x,e.y,e.hitTop,e.hitBottom=x,y,y-h,y end
@@ -540,7 +559,7 @@ return function(C)
   local y=spec.floorY
   -- Put the oversized machine behind the party and its combat cues.
   local bodyFrame={draws={}}
-  C.drawFieldDisplayArt(bodyFrame,C.shoukiWeeklyArt[form],e.x-s.camera,base,height,mode,profile,false)
+  drawMachine(bodyFrame,form,e.x-s.camera,base,height,mode,profile)
   table.move(f.draws,1,#f.draws,#bodyFrame.draws+1,bodyFrame.draws)
   f.draws=bodyFrame.draws
   for _,p in ipairs(w.floors) do

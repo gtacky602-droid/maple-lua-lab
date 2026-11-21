@@ -511,7 +511,12 @@ def runtime():
         'armored':'raiden-boss-idle-sprites.json','normal':'raiden-weekly-normal-sprites-v1.json'})
     shouki=lua.execute((ROOT/'weekly-shouki.lua').read_text(encoding='utf8'))(core)
     core.shoukiWeeklyArt=field_art(lua,'shouki',(),variants={
-        'full':'shouki-idle-sprites.json','upper':'shouki-weekly-upper-sprites-v1.json'})
+        'full':'shouki-idle-sprites.json',
+        'torso':'shouki-weekly-torso-sprites-v2.json',
+        'leftHand':'shouki-weekly-left-hand-sprites-v2.json',
+        'rightHand':'shouki-weekly-right-hand-sprites-v2.json',
+        'leftPendant':'shouki-weekly-left-pendant-sprites-v2.json',
+        'rightPendant':'shouki-weekly-right-pendant-sprites-v2.json'})
     apep_defense=lua.execute((ROOT/'weekly-apep-defense.lua').read_text(encoding='utf8'))(core)
     apep=lua.execute((ROOT/'weekly-apep.lua').read_text(encoding='utf8'))(core,apep_defense)
     core.apepWeeklyArt=field_art(lua,'apep',(),variants={
