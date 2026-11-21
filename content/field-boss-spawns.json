@@ -1246,7 +1246,7 @@
       ]
     },
     {
-      "id":"boss-26140101","controller":"legatus","entity":26140101,
+      "id":"boss-26140101","controller":"legatus","entity":26140101,"coop":true,
       "name":"魔像レガトゥス","node":"legatus-field-hall","storyChallenge":"legatus",
       "level":92,"hp":1010,"mora":335,"artHeight":155,"floorY":480,"home":860,
       "arenaMin":335,"arenaMax":1570,"noticeRange":303,"noticeTicks":36,"restTicks":36,
@@ -1258,7 +1258,7 @@
       ]
     },
     {
-      "id":"boss-26190101","controller":"suanni","entity":26190101,
+      "id":"boss-26190101","controller":"suanni","entity":26190101,"coop":true,
       "name":"山隠れの猊獣","node":"suanni-field-sanctum","storyChallenge":"suanni",
       "level":32,"hp":738,"mora":196,"artHeight":154,"floorY":480,"home":863,
       "arenaMin":335,"arenaMax":1550,"noticeRange":294,"noticeTicks":36,"restTicks":36,

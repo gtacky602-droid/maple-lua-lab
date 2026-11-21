@@ -86,7 +86,16 @@ const cases={
  seahorse:{hub:'fontaine-hub',arena:'seahorse-field-cavern',approach:'fontaine-field',
   boss:'boss-26180101',quest:'seahorse-commission',hp:1010,mora:290,xp:113150,scene:'seahorseField',
   asset:'seahorse-field',pose:'poses',label:'pearl',fixture:'seahorse-field',report:[5200,370],
-  evade:{FSH01:[92],FSH02:[98,146],FSH03:[128]}}
+  evade:{FSH01:[92],FSH02:[98,146],FSH03:[128]}},
+ suanni:{hub:'chenyu-camp',arena:'suanni-field-sanctum',approach:'chenyu-depth',
+  boss:'boss-26190101',quest:'suanni-commission',hp:738,mora:196,xp:5900,scene:'suanniField',
+  asset:'suanni-field',pose:'poses',label:'fall',fixture:'suanni-field',report:[2900,240],stance:84,
+  flight:{move:'FSU03',height:142,offset:0,warning:'#91d6ff',warningY:476,warningHeight:2},
+  evade:{FSU01:[92,164],FSU02:[101,161],FSU03:[104,188,214]}},
+ legatus:{hub:'fontaine-hub',arena:'legatus-field-hall',approach:'nostoi-castle-approach',
+  boss:'boss-26140101',quest:'legatus-commission',hp:1010,mora:335,xp:191700,scene:'legatusField',
+  asset:'legatus-field',pose:'poses',label:'resonator',fixture:'legatus-field',report:[6200,420],
+  evade:{FLG01:[95],FLG02:[111,136],FLG03:[162]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -112,6 +121,7 @@ async function start(fixture,{hub='sumeru-hub',quest,approach,transit=[]},accept
  await page.locator('#loadProgress').click();
  const route=waypointDriver(page,nodes,{walkTimeout:22000});
  await route.waitNode(hub);
+ if(accepted&&!save.story.quests[quest]) await route.accept(quest);
  for(const node of transit) await route.cross(node);
  if(approach!==hub) await route.cross(approach);
  await page.locator('#coopPanel summary').click();
@@ -126,6 +136,7 @@ async function fight(page,side,key,config) {
   const forms=new Set(),landings=new Set(),maskPaths=new Set(),flightTargets=new Set(),fallLayouts=new Set();
   const skullTracks=new Set(),bombLayouts=new Set(),relayTracks=new Set(),struck=new Set();
   const gravityTracks=new Set(),fireLayouts=new Set(),exposedAt=new Set(),pearls=new Set(),interruptedAt=new Set();
+  const resonators=new Set();
   const art=config.pose&&config.asset+'-'+config.pose+'-source-v1.png';
   const entities=config.bodies??[Number(config.boss.slice(5))];
   const start=window.lab.frame;
@@ -154,7 +165,7 @@ async function fight(page,side,key,config) {
      flightTargets:[...flightTargets],fallLayouts:[...fallLayouts],recovered,
      skullTracks:[...skullTracks],bombLayouts:[...bombLayouts],relayTracks:[...relayTracks],struck:[...struck],
      gravityTracks:[...gravityTracks],jump,fireLayouts:[...fireLayouts],exposedAt:[...exposedAt],
-     pearls:[...pearls],interruptedAt:[...interruptedAt]};
+     pearls:[...pearls],interruptedAt:[...interruptedAt],resonators:[...resonators]};
     return;
    }
    if(!b) {
@@ -291,6 +302,15 @@ async function fight(page,side,key,config) {
     if(b.form==='dim'&&b.label==='真珠が消灯・反撃'&&!b.flying&&b.destinationX===undefined&&sprite)
      interruptedAt.add(b.x);
    }
+   if(key==='legatus'){
+    const device=b.summon;
+    if(device&&b.form==='resonating'&&f.draws.some(d=>d.y===415&&d.h===5&&d.color==='#ffb464'&&
+       Math.abs(d.x+17+f.camera-device.x)<.001&&Math.abs(d.w-34*device.hp/device.maxhp)<.001)){
+     resonators.add([device.x.toFixed(3),device.maxhp].join(','));
+     visual=true;
+    }
+    if(!device&&b.form==='staggered'&&b.label==='共鳴が止まる・反撃'&&sprite) interruptedAt.add(b.x);
+   }
    const tell=config.fallTell;
    if(tell&&b.move===tell.move&&b.fallPoints?.length===3){
     const marks=f.draws.filter(d=>d.kind==='text'&&d.color===tell.color);
@@ -317,9 +337,10 @@ async function fight(page,side,key,config) {
    }
    const preferred=b.bodies?.[side===-1?0:1];
    const other=b.bodies?.[side===-1?1:0];
-   const target=config.bodies?(preferred?.y<450?other:preferred)??b:b;
+   const device=key==='legatus'&&b.summon;
+   const target=device||(config.bodies?(preferred?.y<450?other:preferred)??b:b);
    const dx=target.x-a.x;
-   let desired=target.x+side*(config.stance??104);
+   let desired=target.x+side*(device?65:config.stance??104);
    const gravityTurn=config.gravityJump&&b.move==='FFG03'&&b.tick<188;
    if(gravityTurn&&side===1) desired=(b.gravity?.right??b.x+264)+26;
    if(config.gravityJump){
@@ -344,7 +365,10 @@ async function fight(page,side,key,config) {
    const watchEmperor=key==='emperor'&&b.hp<420&&exposedAt.size===0;
    const watchPearl=key==='seahorse'&&((b.hp<430&&!b.weakpoint&&interruptedAt.size===0)||
     (side===1&&b.weakpoint?.hits===0&&b.tick<68));
-   hold('KeyJ',!watchRelay&&!watchGravity&&!watchEmperor&&!watchPearl&&Math.abs(dx)<125&&dx*a.dir>=0);
+   const watchSuanni=key==='suanni'&&b.hp<410&&flightTargets.size===0;
+   const watchLegatus=key==='legatus'&&b.hp<420&&!device&&interruptedAt.size===0;
+   hold('KeyJ',!watchRelay&&!watchGravity&&!watchEmperor&&!watchPearl&&!watchSuanni&&!watchLegatus&&
+    Math.abs(dx)<(device?96:125)&&dx*a.dir>=0);
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
@@ -441,6 +465,10 @@ async function run(key,config) {
  }
  if(key==='seahorse'){
   assert.ok(a.pearls.some(point=>b.pearls.includes(point)),JSON.stringify(results));
+  assert.ok(a.interruptedAt.some(x=>b.interruptedAt.includes(x)),JSON.stringify(results));
+ }
+ if(key==='legatus'){
+  assert.ok(a.resonators.some(point=>b.resonators.includes(point)),JSON.stringify(results));
   assert.ok(a.interruptedAt.some(x=>b.interruptedAt.includes(x)),JSON.stringify(results));
  }
  if(config.fallTell) assert.ok(a.fallLayouts.some(x=>b.fallLayouts.includes(x)),JSON.stringify(results));

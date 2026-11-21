@@ -25,6 +25,13 @@ return function(C)
   return {move=m,tick=0,origin=b.x,dir=b.facing,seen={},
    source={id=b.id,y=s.floorY,owner=b,damageElement=m.element}}
  end
+ function legatus.shareCast(c,actors)
+  C.shareFieldHits({c.seen},actors)
+ end
+
+ function legatus.frame(f,b,s,c)
+  if c and c.dest and c.tick<c.move.recover then f.destinationX=c.dest end
+ end
 
  local function lock(b,s,c)
   local m=c.move

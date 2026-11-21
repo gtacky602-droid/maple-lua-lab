@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する56地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する61地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -218,6 +218,19 @@ Luaの4人試験で、同時に跳んだ二人の高さが枠の内外で変わ�
 | 千年真珠の海駿 | 84 | 真珠珊瑚の洞 | 1,010 | 113,150 EXP・290モラ | 5,200 EXP・370モラ |
 
 Luaの4人試験で個別の命中と反撃時間を確認し、HTTPの2人試験では全員が退避してから同じ状態へ合流した。Chromeの2画面で討伐、報告、保存を確認した。`python test_emperor_field.py` と `python test_seahorse_field.py` で初期セーブを作り、`LAB_URL` にラボのURLを設定して、`node test_coop_field_routes.mjs emperor seahorse` で再現できる。 [Lua・HTTPの検証](../evidence/coop-fontaine-weakpoints-lua-http.json) · [熔炎帝王のChrome試走](../evidence/coop-emperor-browser.json) · [海駿のChrome試走](../evidence/coop-seahorse-browser.json)
+
+## 山隠れの猊獣と魔像レガトゥス
+
+沈玉の谷では入口拠点から探索路を通り、懸練山の石庭で山隠れの猊獣と戦える。跳躍中は姿勢と当たり判定が一緒に上がり、青い印に着地する。着地と続く水波は、参加者ごとに合わせて一回だけ当たる。着地を避けた人も、水波の進路にいると被弾する。 [猊獣のラボ版仕様](field-boss-v1/CHENYU_SUANNI.md) · [跳躍と着地予告](../evidence/coop-suanni-fall.png)
+
+フォンテーヌの水辺の広場から色褪せた城の入口を通ると、展示広間で魔像レガトゥスと戦える。部屋で一つの共鳴器を共有し、複数の参加者が同じ共鳴器を削れる。点火前にHP14を削り切ると炎と装甲が止まり、2.4秒の反撃時間に入る。共鳴器が残ると、予告された帯に炎が出る。討伐報酬は魔像の撃破時に付く。 [レガトゥスのラボ版仕様](field-boss-v1/FONTAINE_LEGATUS.md) · [共鳴器と炎の予告](../evidence/coop-legatus-resonator.png)
+
+| ボス | Lv | HP | 討伐参加者一人あたり | 依頼を報告した人 |
+| --- | ---: | ---: | --- | --- |
+| 山隠れの猊獣 | 32 | 738 | 5,900 EXP・196モラ | 2,900 EXP・240モラ |
+| 魔像レガトゥス | 92 | 1,010 | 191,700 EXP・335モラ | 6,200 EXP・420モラ |
+
+Luaの4人試験とHTTPの2人試験で、個別の命中、共鳴器の破壊、会場を出た後の同じ状態への合流を確認した。Chromeの2画面で討伐、帰還、報告、保存まで試走した。`python test_suanni_field.py` と `python test_legatus_field.py` で試験用のセーブを作り、`LAB_URL` にラボのURLを設定して、`node test_coop_field_routes.mjs suanni legatus` で再現できる。 [Lua・HTTPの検証](../evidence/coop-suanni-legatus-lua-http.json) · [猊獣のChrome試走](../evidence/coop-suanni-browser.json) · [レガトゥスのChrome試走](../evidence/coop-legatus-browser.json)
 
 ## マッシュラプトル
 

@@ -22,6 +22,14 @@ return function(C)
   end
   return c
  end
+ function suanni.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
+
+ function suanni.frame(f,b,s,c)
+  f.flying=b.form=='airborne' or nil
+  if c and c.dest and c.tick<c.move.recover then f.destinationX=c.dest end
+ end
 
  local function bounds(c,band)
   local center=band.landing and c.dest or c.origin

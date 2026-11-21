@@ -1,0 +1,122 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 738,
+  "results": [
+    {
+      "seconds": 22.13,
+      "hp": 104,
+      "kills": 1,
+      "startingMora": 0,
+      "mora": 196,
+      "startingXp": 0,
+      "xp": 5900,
+      "moves": [
+        "FSU01",
+        "FSU02",
+        "FSU03"
+      ],
+      "manualDamage": 176,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [
+        780
+      ],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        26190101
+      ],
+      "gravityTracks": [],
+      "jump": null,
+      "fireLayouts": [],
+      "exposedAt": [],
+      "pearls": [],
+      "interruptedAt": [],
+      "resonators": []
+    },
+    {
+      "seconds": 22.13,
+      "hp": 108,
+      "kills": 1,
+      "startingMora": 0,
+      "mora": 196,
+      "startingXp": 0,
+      "xp": 5900,
+      "moves": [
+        "FSU01",
+        "FSU02",
+        "FSU03"
+      ],
+      "manualDamage": 176,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [
+        780
+      ],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        26190101
+      ],
+      "gravityTracks": [],
+      "jump": null,
+      "fireLayouts": [],
+      "exposedAt": [],
+      "pearls": [],
+      "interruptedAt": [],
+      "resonators": []
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 196,
+      "xp": 5900,
+      "respawn": true
+    },
+    {
+      "clears": 1,
+      "mora": 196,
+      "xp": 5900,
+      "respawn": true
+    }
+  ],
+  "report": {
+    "hub": "chenyu-camp",
+    "hostSaved": true,
+    "guestQuest": null,
+    "xp": 2900,
+    "mora": 240
+  },
+  "scenery": "suanniField",
+  "errors": []
+}

@@ -1,0 +1,38 @@
+{
+  "suanni": {
+    "lua": {
+      "participants": 4,
+      "hp": 738,
+      "lockedFrontAndRearHits": true,
+      "eachWaterBladeCanHitMultiplePlayers": true,
+      "fixedLandingAndAirHurtbox": true,
+      "sharedLandingAndWaveHitOncePerPlayer": true,
+      "waveStillHitsMissedPlayer": true,
+      "individualRewards": true,
+      "soloHitPreservedOnJoin": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  },
+  "legatus": {
+    "lua": {
+      "participants": 4,
+      "hp": 1010,
+      "sharedDashPathAndSummonHp": true,
+      "twoPlayersBreakOnLastTick": true,
+      "noRewardForResonator": true,
+      "uninterruptedFlameHitsPerPlayer": true,
+      "armorAndFlameStopTogether": true,
+      "bossDefeatRemovesResonator": true,
+      "soloHitPreservedOnJoin": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  }
+}
