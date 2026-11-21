@@ -8098,6 +8098,7 @@
       "thunder-field-crest",
       "inazuma-town",
       "signora-ten-shrine-arena",
+      "raiden-thunder-echo-arena",
       "pyro-hypostasis-field-terrace",
       "watatsumi-landing",
       "hydro-hypostasis-field-cove",
@@ -8219,7 +8220,8 @@
       "boss-29020101",
       "boss-29030101",
       "boss-29040101",
-      "boss-29050101"
+      "boss-29050101",
+      "boss-29060201"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8387,7 +8389,11 @@
       "evidence/coop-signora-lua-http.json",
       "evidence/coop-signora-browser.json",
       "evidence/coop-signora-cocoon.png",
-      "evidence/coop-signora-flame.png"
+      "evidence/coop-signora-flame.png",
+      "evidence/coop-raiden-lua-http.json",
+      "evidence/coop-raiden-browser.json",
+      "evidence/coop-raiden-dome.png",
+      "evidence/coop-raiden-collapse.png"
     ],
     "pending": [
       "remaining original field encounters, local legends, weekly and Stygian bosses",

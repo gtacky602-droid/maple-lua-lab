@@ -97,9 +97,10 @@ return function(C,configs,controllers)
  function C.prepareCoopWeekly(room,dt)
   local slot,spec=room.weeklySlot,room.weeklySpec
   local world=currentRoomState(room)
-  if slot.waitUntil then
-   if room.time+1e-8<slot.waitUntil then return end
-   slot.waitUntil=nil;slot.generation=slot.generation+1
+  if slot.waitUntil or slot.rechallenge then
+   if slot.waitUntil and room.time+1e-8<slot.waitUntil then return end
+   if slot.rechallenge then cleanup(world,spec,slot) end
+   slot.waitUntil,slot.rechallenge=nil,nil;slot.generation=slot.generation+1
    spawn(world,spec,slot);attach(world,slot,spec)
   end
   controllers[spec.controller].prepare(world,slot,spec,{},dt)

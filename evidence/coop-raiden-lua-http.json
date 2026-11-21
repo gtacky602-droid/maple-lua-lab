@@ -1,0 +1,26 @@
+{
+  "lua": {
+    "participants": 4,
+    "independentActorIDs": true,
+    "eyeShared": true,
+    "shadeSelectsFromOwnPosition": true,
+    "armorSharedCap": 4,
+    "oldAndNonManualHitsRejected": true,
+    "flowerCountsPerActor": true,
+    "protected": 2,
+    "hitOutside": 2,
+    "drainAppliedOnce": 30,
+    "downTicks": 480,
+    "wipeResets": true
+  },
+  "http": {
+    "participants": 2,
+    "normalAttacksShared": true,
+    "unoccupiedArenaFreezes": true,
+    "flowerProgressPreserved": true,
+    "personalClearXp": 61050,
+    "personalMora": 980,
+    "sameBossHp": 1500,
+    "acceptedQuestAndSavesVerified": true
+  }
+}

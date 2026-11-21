@@ -5,7 +5,21 @@ return function(C)
  local mix=function(a,b,t) return a+(b-a)*clamp(t,0,1) end
  local purple,pale,dark='#bd9afa','#f4e9ff','#583c8b'
  local function actor(s) return s.actors[s.active] end
- local function log(s,w,key,owner,value) C.combatEvent(s,'raiden:'..key,owner or 0,w.primary.id,value or 0) end
+ local function target(s,e)
+  if not s.parties then return actor(s) end
+  local best,distance=nil,math.huge
+  for _,party in ipairs(s.parties) do
+   local a=actor(party)
+   if a.hp<=0 then a=party.actors[3-party.active] end
+   local dx=math.abs(a.x-e.x)
+   if a.hp>0 and dx<distance then best,distance=a,dx end
+  end
+  return best or e
+ end
+ local function ownLog(s,w,key,owner,value) C.combatEvent(s,'raiden:'..key,owner or 0,w.primary.id,value or 0) end
+ local function log(s,w,key,owner,value)
+  for _,party in ipairs(s.parties or {s}) do ownLog(party,w,key,owner,value) end
+ end
  local function body(e,x,y,h)
   e.x,e.y,e.hitTop,e.hitBottom=x,y,y-h,y
  end
@@ -25,20 +39,27 @@ return function(C)
   w.objects={}
  end
  local function spawnObject(s,w,spec,c,kind,x,index,accept,contact)
-  local e={id=spec.entity+200+index,custom=true,boss=true,noRewards=true,noAutoTarget=true,
+  local e={id=spec.entity+200+index,custom=true,boss=true,weeklyPart=true,noRewards=true,noAutoTarget=true,
     kind=kind,index=index,hp=1,maxhp=1,warning=0,respawn=math.huge,acceptsCast=accept,onCastContact=contact}
   body(e,x,spec.floorY,kind=='shade' and 106 or 57)
   w.objects[#w.objects+1]=e
   s.enemies[#s.enemies+1]=e
   return e
  end
- local function manual(cast,opened)
-  return opened and cast.playerInputAt and cast.playerInputAt>=opened and not cast.reaction
+ local function manual(s,w,cast,opened)
+  -- Compare elapsed time because a guest's input timestamp uses that player's clock.
+  local now=s.coop and s.coop.weeklySlot==w and s.coop.time or s.t
+  return opened and cast.playerInputAt and not cast.reaction and not cast.growthAI
+   and s.t-cast.playerInputAt<=now-opened+1e-8
  end
- local function spend(c,cast,ownerClock,spent,delay)
-  if spent[cast] or (ownerClock[cast.id] or -math.huge)+delay>c.t then return false end
-  spent[cast]=true;ownerClock[cast.id]=c.t
+ local function weakKeys() return setmetatable({},{__mode='k'}) end
+ local function spend(c,cast,owner,ownerClock,spent,delay)
+  if not owner or spent[cast] or (ownerClock[owner] or -math.huge)+delay>c.t then return false end
+  spent[cast]=true;ownerClock[owner]=c.t
   return true
+ end
+ local function contribution(s,w,cast)
+  if s.coop then C.coopContact(s,w.primary,cast.id) end
  end
  local function elements(cast,element,get)
   local n=get(element)
@@ -57,8 +78,9 @@ return function(C)
  end
  local function armorHit(s,w,spec,cast,element)
   local a=spec.armor
-  if not manual(cast,w.armorOpened) or w.armorTouched[cast] or
-    w.clock<(w.armorOwners[cast.id] or -math.huge)+a.hitInterval then return end
+  local owner=s.actors[cast.id]
+  if not owner or not manual(s,w,cast,w.armorOpened) or w.armorTouched[cast] or
+    w.clock<(w.armorOwners[owner] or -math.huge)+a.hitInterval then return end
   local used=0
   for i=#w.armorWindow,1,-1 do
    local hit=w.armorWindow[i]
@@ -69,7 +91,7 @@ return function(C)
   end)
   n=math.min(n,a.hitBudget-used,w.armor)
   if n<=0 then return end
-  w.armorTouched[cast]=true;w.armorOwners[cast.id]=w.clock
+  w.armorTouched[cast]=true;w.armorOwners[owner]=w.clock
   w.armorWindow[#w.armorWindow+1]={tick=w.clock,value=n}
   w.armor=w.armor-n;log(s,w,'WR18:hit',cast.id,n)
  end
@@ -83,6 +105,7 @@ return function(C)
   C.combatNumber(s,e,critical and (n..'!') or n,color)
   C.combatEvent(s,'hit',cast.id,e.id,n)
   local event=s.events[#s.events];event.element=element;event.critical=not not critical;event.reaction=cast.reaction or false
+  contribution(s,w,cast)
   if n==e.hp then C.defeatEnemy(s,e,cast.id);return true end
   e.hp=e.hp-n
   if w.stage=='armored' and w.armor>0 then armorHit(s,w,spec,cast,element) end
@@ -124,9 +147,10 @@ return function(C)
   local xs=c.key=='WR05' and {spec.center} or {192,480,768}
   for i,x in ipairs(xs) do
    local e=spawnObject(s,w,spec,c,'eye',x,i,
-    function(cast) return w.cast==c and c.t<360 and manual(cast,c.opened) end,
+    function(cast,state) return w.cast==c and c.t<360 and manual(state,w,cast,c.opened) end,
     function(state,cast,obj)
-     if not spend(c,cast,obj.owners,obj.spent,spec.objects.cooldown) then return false end
+     if not spend(c,cast,state.actors[cast.id],obj.owners,obj.spent,spec.objects.cooldown) then return false end
+     contribution(state,w,cast)
      obj.charges=obj.charges-1;log(state,w,'WR05:hit',cast.id,obj.index)
      if obj.charges==0 then
       obj.hp=0;remove(state,obj);c.eyes=c.eyes-1
@@ -134,7 +158,7 @@ return function(C)
      end
      return true
     end)
-   e.charges=spec.objects.eyeHits;e.owners={};e.spent={}
+   e.charges=spec.objects.eyeHits;e.owners=weakKeys();e.spent=weakKeys()
   end
   c.eyes=#xs
   w.primary.underground=true;w.primary.invulnerable=true
@@ -148,18 +172,20 @@ return function(C)
  end
  local function shades(s,w,spec,c)
   c.correct=(w.shadeIndex or 0)%4+1;w.shadeIndex=c.correct
-  c.choices={}
+  c.choices=weakKeys()
   for i,x in ipairs({144,365,595,816}) do
    spawnObject(s,w,spec,c,'shade',x,i,
-    function(cast)
-     if w.cast~=c or not manual(cast,c.opened) then return false end
-     if c.choices[cast]==nil then c.choices[cast]=nearestShade(s,w) or false end
+    function(cast,state)
+     if w.cast~=c or not manual(state,w,cast,c.opened) then return false end
+     if c.choices[cast]==nil then c.choices[cast]=nearestShade(state,w) or false end
      return c.choices[cast] and c.choices[cast].index==i
     end,
     function(state,cast,obj)
      obj.hp=0;remove(state,obj)
      log(state,w,'WR06:choice',cast.id,i)
-     if i==c.correct then stop(state,w,spec,c,spec.objects.shadePause,x) end
+     if i==c.correct then
+      contribution(state,w,cast);stop(state,w,spec,c,spec.objects.shadePause,x)
+     end
      return true
     end)
   end
@@ -167,19 +193,20 @@ return function(C)
  end
  local function openFlower(s,w,spec,c)
   local rule=spec.objects
-  c.opened=s.t;c.owners={};c.spent={};c.charges=0
+  c.opened=s.t;c.owners=weakKeys();c.spent=weakKeys();c.charges=0
   c.flower=spawnObject(s,w,spec,c,'flower',c.location,1,
-   function(cast) return w.cast==c and c.t<rule.flowerLockout and c.charges<rule.flowerHits and manual(cast,c.opened) end,
+   function(cast,state) return w.cast==c and c.t<rule.flowerLockout and c.charges<rule.flowerHits and manual(state,w,cast,c.opened) end,
    function(state,cast,_,_,_,element)
-    if not spend(c,cast,c.owners,c.spent,rule.cooldown) then return false end
+    if not spend(c,cast,state.actors[cast.id],c.owners,c.spent,rule.cooldown) then return false end
     local n=elements(cast,element,function(el) return el=='electro' and rule.flowerHits or 1 end)
     c.charges=math.min(rule.flowerHits,c.charges+n)
+    contribution(state,w,cast)
     log(state,w,'WR14:charge',cast.id,c.charges)
     return true
    end)
  end
  local function lock(s,w,spec,c,i)
-  local a,e=actor(s),w.primary
+  local e=w.primary;local a=target(s,e)
   local dir=a.x>=e.x and 1 or -1
   if i==1 then c.dir=dir;e.dir=dir;c.origin=e.x end
   local id=c.id
@@ -213,13 +240,15 @@ return function(C)
  end
  local function deal(s,w,spec,c,i,a,x)
   if w.primary.hp<=0 then return end
-  local key=i..':'..a.id
-  if c.hit[key] then return end
-  c.hit[key]=true
-  local n=C.damageActor(s,a,c.move.damage,{id=w.primary.id,x=x,y=spec.floorY,damageElement='electro'},true,true)
+  local hit=c.hit[i]
+  if not hit then hit={};c.hit[i]=hit end
+  if hit[a] then return end
+  hit[a]=true
+  local party=s.actorOwners and s.actorOwners[a] or s
+  local n=C.damageActor(party,a,c.move.damage,{id=w.primary.id,x=x,y=spec.floorY,damageElement='electro'},true,true)
   if n>0 then
-   log(s,w,c.id..':hit',a.id,i)
-   if w.stage=='normal' and not c.raised and a.id==s.active and not s.auto then
+   ownLog(party,w,c.id..':hit',a.id,i)
+   if w.stage=='normal' and not c.raised and a.id==party.active and not party.auto then
     c.raised=true;w.omen=math.min(spec.omen.max,w.omen+spec.omen.onHit)
    end
   end
@@ -228,12 +257,12 @@ return function(C)
   for _,a in ipairs(s.actors) do if inside(a,b) then deal(s,w,spec,c,i,a,(b.lo+b.hi)/2) end end
  end
  local function start(s,w,spec,key,flower)
-  local a,e=actor(s),w.primary
+  local e=w.primary;local a=target(s,e)
   local c={key=key,id=key:sub(1,4),t=0,move=spec.moves[key],hit={},waves={},origin=e.x,dir=a.x>=e.x and 1 or -1,
     land=clamp(a.x,170,790)}
   c.to=clamp(c.origin+c.dir*176,80,880);c.back=clamp(c.to-c.dir*220,80,880)
   if key=='WR14' then
-   c.location=a.x<480 and 192 or 768;w.flowerCount=w.flowerCount+1
+   c.location=s.parties and spec.center or (a.x<480 and 192 or 768);w.flowerCount=w.flowerCount+1
    e.invulnerable=true;e.noAutoTarget=true
   elseif key=='WR15' then c.location,c.charges=flower.location,flower.charges end
   w.cast=c;w.phase='tell'
@@ -277,7 +306,9 @@ return function(C)
     elseif id=='WR15' and t==win[1] then
      for _,a in ipairs(s.actors) do
       local protected=c.charges==spec.objects.flowerHits and inDome(a,c.location,spec)
-      if protected then log(s,w,'WR15:protected',a.id) else deal(s,w,spec,c,i,a,spec.center) end
+      if protected then
+       ownLog(s.actorOwners and s.actorOwners[a] or s,w,'WR15:protected',a.id)
+      else deal(s,w,spec,c,i,a,spec.center) end
      end
      w.armor=math.max(0,w.armor-spec.armor.slashDrain)
      log(s,w,'WR15:drain',0,spec.armor.slashDrain)
@@ -314,7 +345,7 @@ return function(C)
    if t==120 then w.armor=spec.armor.max end
    if t==spec.moves.WR09.total then
     posture(s,w,spec,'armored');w.armorTime=0;w.armorOpened=s.t
-    w.armorTouched=setmetatable({},{__mode='k'});w.armorOwners={};w.armorWindow={}
+    w.armorTouched=weakKeys();w.armorOwners=weakKeys();w.armorWindow={}
     w.armorIndex=1;w.flowerCount=0;w.sinceFlower=0;w.lastFlower=0
    end
    return
@@ -344,7 +375,7 @@ return function(C)
   if stage=='normal' and w.omen>=spec.omen.max then posture(s,w,spec,'awaken','WR09');return end
   if stage=='normal' and w.weaponCasts==spec.omen.switchAfter then posture(s,w,spec,'switch','WR08');return end
   w.rest=w.rest-1
-  local dx=actor(s).x-e.x
+  local dx=target(s,e).x-e.x
   if math.abs(dx)>194 and w.rest>0 then
    e.dir=dx>0 and 1 or -1
    body(e,clamp(e.x+e.dir*2,98,862),spec.floorY,stage=='armored' and 144 or 112)
@@ -369,6 +400,9 @@ return function(C)
  function controller.finish(s,w,spec,dt)
   w.remainder=w.remainder+math.min(dt,1/30)*60
   while w.remainder>=1-1e-8 and w.primary.hp>0 do w.remainder=w.remainder-1;tick(s,w,spec) end
+  if not s.parties or w.primary.hp<=0 then return end
+  for _,a in ipairs(s.actors) do if a.hp>0 then return end end
+  clearObjects(s,w);w.cast=nil;w.rechallenge=true;w.primary.invulnerable=true
  end
 
  local function warnings(spec,c)

@@ -1910,6 +1910,7 @@
     },
     {
       "controller": "raiden",
+      "coop": true,
       "id": "boss-29060201",
       "entity": 29060201,
       "node": "raiden-thunder-echo-arena",
