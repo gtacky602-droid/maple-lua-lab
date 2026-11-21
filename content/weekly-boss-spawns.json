@@ -2294,6 +2294,7 @@
     },
     {
       "controller": "shouki",
+      "coop": true,
       "id": "boss-29070101",
       "entity": 29070101,
       "node": "shouki-godmaking-arena",

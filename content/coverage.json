@@ -8113,6 +8113,8 @@
       "chenyu-depth",
       "suanni-field-sanctum",
       "sumeru-entry",
+      "sumeru-hub",
+      "shouki-godmaking-arena",
       "sumeru-field",
       "electro-regisvine-field-cave",
       "aeonblight-field-chamber",
@@ -8221,7 +8223,8 @@
       "boss-29030101",
       "boss-29040101",
       "boss-29050101",
-      "boss-29060201"
+      "boss-29060201",
+      "boss-29070101"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8393,7 +8396,13 @@
       "evidence/coop-raiden-lua-http.json",
       "evidence/coop-raiden-browser.json",
       "evidence/coop-raiden-dome.png",
-      "evidence/coop-raiden-collapse.png"
+      "evidence/coop-raiden-collapse.png",
+      "evidence/coop-shouki-lua-http.json",
+      "evidence/coop-shouki-browser.json",
+      "evidence/coop-shouki-upper.png",
+      "evidence/coop-shouki-terminal.png",
+      "evidence/coop-shouki-pods.png",
+      "evidence/coop-shouki-exposure.png"
     ],
     "pending": [
       "remaining original field encounters, local legends, weekly and Stygian bosses",

@@ -287,14 +287,15 @@ s,w,spec=arena()
 enter_p2(s,w,spec)
 start_trial(s,w,spec)
 act(s,'encounter_target:pod2')
-assert w.assist==2 and not w.targets[2].noAutoTarget and w.targets[1].noAutoTarget
+assert core.frame(s).weeklyBoss.shouki.assist==2
+assert w.targets[2].acceptsAutoTarget(s,s.actors[2]) and not w.targets[1].acceptsAutoTarget(s,s.actors[2])
 ally=lua.table_from({'id':2,'x':330,'y':480,'dir':1,'range':420,'atk':100,'mult':1,'gain':0,'radial':True,
                      'limit':5,'element':'physical','color':'#fff','growthAI':True,'startedAt':s.t})
 core.resolveCast(s,ally)
 core.resolveCast(s,ally)
 assert [p.charges for p in w.targets.values()]==[4,3,4,4]
 act(s,'encounter_target:pod2')
-assert w.assist is None and w.targets[2].noAutoTarget
+assert core.frame(s).weeklyBoss.shouki.assist is None and not w.targets[2].acceptsAutoTarget(s,s.actors[2])
 
 s,w,spec=arena()
 enter_p2(s,w,spec)

@@ -1,0 +1,28 @@
+{
+  "lua": {
+    "participants": 4,
+    "uniqueBlockPickup": true,
+    "individualFloorAndFields": true,
+    "pairedMatrixOverload": true,
+    "separateShieldCooldowns": true,
+    "foreignTargetAndCancelRejected": true,
+    "swapAndOfflineReleaseReservation": true,
+    "launchedShotSurvivesExit": true,
+    "oldAndMultiHitInputsRejected": true,
+    "perPartyCompanionOrders": true,
+    "independentPodCredit": true,
+    "podSupportQualifiesForReward": true,
+    "coreExposureTicks": 600,
+    "wipeReset": true
+  },
+  "http": {
+    "participants": 2,
+    "ownerLeavesBeforeFireWithoutSpending": true,
+    "replacementShoots": true,
+    "sharedTrialFrozenOutsideArena": true,
+    "sharedHp": 1630,
+    "personalXp": 119850,
+    "personalMora": 1370,
+    "ownQuestAndSaves": true
+  }
+}

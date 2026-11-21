@@ -18,7 +18,23 @@ return function(C)
   return 'full',y,fullHeight
  end
  local function actor(s) return s.actors[s.active] end
- local function event(s,w,key,owner,v) C.combatEvent(s,'shouki:'..key,owner or 0,w.primary.id,v or 0) end
+ local function weakKeys() return setmetatable({},{__mode='k'}) end
+ local function ownEvent(s,w,key,owner,v) C.combatEvent(s,'shouki:'..key,owner or 0,w.primary.id,v or 0) end
+ local function event(s,w,key,owner,v)
+  for _,party in ipairs(s.parties or {s}) do ownEvent(party,w,key,owner,v) end
+ end
+ local function actorParty(s,a) return s.actorOwners and s.actorOwners[a] or s end
+ local function target(s,x)
+  local best,distance
+  for _,party in ipairs(s.parties or {s}) do
+   local a=actor(party);local dx=math.abs(a.x-x)
+   if a.hp>0 and (not distance or dx<distance) then best,distance=a,dx end
+  end
+  return best,distance
+ end
+ local function contribution(s,w,id)
+  if s.coop then C.coopContact(s,w.primary,id) end
+ end
  local function body(e,x,y,h) e.x,e.y,e.hitTop,e.hitBottom=x,y,y-h,y end
  local function band(x,r,y,h) return {lo=x-r,hi=x+r,y=y,h=h} end
  local function inside(a,b)
@@ -31,7 +47,7 @@ return function(C)
   for _,e in ipairs(list or {}) do remove(s,e) end
  end
  local function addPart(s,spec,id,x,height,contact)
-  local e={id=spec.entity+id,custom=true,boss=true,noRewards=true,hp=1,maxhp=1,warning=0,respawn=math.huge,
+  local e={id=spec.entity+id,custom=true,boss=true,noRewards=true,weeklyPart=true,hp=1,maxhp=1,warning=0,respawn=math.huge,
     onCastContact=contact}
   body(e,x,spec.floorY,height);s.enemies[#s.enemies+1]=e
   return e
@@ -40,8 +56,8 @@ return function(C)
   w.aim=nil;w.shot=nil
  end
  local function cleanupCast(s,w)
-  clearParts(s,w.targets);w.targets={};w.cast=nil;w.floors={};w.blocks={};w.floorClock={}
-  w.windUntil=0;w.healUntil=0;w.assist=nil;w.assistAt=nil;releaseAim(w)
+  clearParts(s,w.targets);w.targets={};w.cast=nil;w.floors={};w.blocks={};w.floorClock=weakKeys()
+  w.windUntil=0;w.healUntil=0;w.assists=weakKeys();releaseAim(w)
  end
  local function posture(s,w,spec,name,card)
   cleanupCast(s,w)
@@ -56,13 +72,13 @@ return function(C)
  end
  local function charge(w,spec,n) w.charge=math.min(spec.charge.max,w.charge+n) end
  local function addBlock(s,w,spec,value,avoidX)
-  local a=actor(s);local y=spec.floorY
+  local y=spec.floorY
   local best,dist=nil,math.huge
   for _,x in ipairs({128,183,351,609,777,832}) do
    local safe=math.abs(x-(avoidX or w.primary.x))>=75
    for _,f in ipairs(w.floors) do if math.abs(x-f.x)<f.width/2+25 then safe=false end end
    for _,b in ipairs(w.blocks) do if math.abs(x-b.x)<45 then safe=false end end
-   local dx=math.abs(x-a.x)
+   local _,dx=target(s,x);dx=dx or math.abs(x-w.primary.x)
    if safe and dx<dist then best,dist=x,dx end
   end
   if not best then return end
@@ -80,34 +96,40 @@ return function(C)
   w.floors[#w.floors+1]={x=x,width=width,element=element,expires=w.clock+ttl}
  end
  local function environment(s,w,spec)
-  local a=actor(s)
   for i=#w.blocks,1,-1 do
    local b=w.blocks[i]
    if w.clock>=b.expires then table.remove(w.blocks,i)
-   elseif not s.auto and a.hp>0 and math.abs(a.x-b.x)<=spec.charge.collectRange and math.abs(a.y-b.y)<26 and w.charge<spec.charge.max then
-    charge(w,spec,b.value);table.remove(w.blocks,i);event(s,w,'WN18:collected',a.id,b.id)
+   elseif w.charge<spec.charge.max then
+    for _,party in ipairs(s.parties or {s}) do
+     local a=actor(party)
+     if not party.auto and a.hp>0 and math.abs(a.x-b.x)<=spec.charge.collectRange and math.abs(a.y-b.y)<26 then
+      charge(w,spec,b.value);table.remove(w.blocks,i);ownEvent(party,w,'WN18:collected',a.id,b.id);break
+     end
+    end
    end
   end
   for i=#w.floors,1,-1 do if w.clock>=w.floors[i].expires then table.remove(w.floors,i) end end
   for _,a in ipairs(s.actors) do
-   if w.clock>=(w.floorClock[a.id] or 0) and a.ground and math.abs(a.y-spec.floorY)<5 then
+   local party=actorParty(s,a)
+   if a.hp>0 and w.clock>=(w.floorClock[a] or 0) and a.ground and math.abs(a.y-spec.floorY)<5 then
     for _,f in ipairs(w.floors) do if math.abs(a.x-f.x)<f.width/2 then
-     w.floorClock[a.id]=w.clock+spec.hazards.interval
-     if C.damageActor(s,a,spec.hazards.damage,{id=w.primary.id,x=f.x,y=spec.floorY,damageElement=f.element},false,false)>0 then
-      event(s,w,'WN18:floor-hit',a.id)
+     w.floorClock[a]=w.clock+spec.hazards.interval
+     if C.damageActor(party,a,spec.hazards.damage,{id=w.primary.id,x=f.x,y=spec.floorY,damageElement=f.element},false,false)>0 then
+      ownEvent(party,w,'WN18:floor-hit',a.id)
      end
      break
     end end
    end
    if w.clock<w.healUntil and w.clock>=w.healNext and math.abs(a.x-557)<=84 and math.abs(a.y-spec.floorY)<72 then
-    local amount=C.healActor(s,a,spec.charge.healPulse)
-    if amount>0 then event(s,w,'WN06:healed',a.id,amount) end
+    local amount=C.healActor(party,a,spec.charge.healPulse)
+    if amount>0 then ownEvent(party,w,'WN06:healed',a.id,amount) end
+   end
+   if w.clock<w.windUntil and w.wasGround[a] and not a.ground and a.vy<-300 and math.abs(a.x-230)<=72
+      and a.hp>0 and a.id==party.active and not party.auto then
+    a.vy=math.min(a.vy,-790);ownEvent(party,w,'WN06:lift',a.id)
    end
   end
   if w.clock<w.healUntil and w.clock>=w.healNext then w.healNext=w.clock+60 end
-  if w.clock<w.windUntil and w.wasGround and not a.ground and a.vy<-300 and math.abs(a.x-230)<=72 and not s.auto then
-   a.vy=math.min(a.vy,-790);event(s,w,'WN06:lift',a.id)
-  end
   if (w.stage=='p1' or w.stage=='p2') and w.charge<spec.charge.max and w.clock>=w.lastSupply+spec.charge.replenish then
    -- A reachable existing block already provides the supply.
    if #w.blocks==0 then addBlock(s,w,spec,50) end
@@ -117,7 +139,7 @@ return function(C)
  local function deviceNear(s,w,spec)
   if w.stage~='p1' then return nil end
   local a=actor(s)
-  if math.abs(a.y-spec.floorY)>30 then return nil end
+  if a.hp<=0 or math.abs(a.y-spec.floorY)>30 then return nil end
   for _,d in ipairs(spec.devices) do if math.abs(a.x-d.x)<=spec.charge.deviceRange then return d end end
  end
  local function device(s,w,spec,d)
@@ -139,14 +161,17 @@ return function(C)
    end
   end
  end
- local function manual(cast,since)
-  return cast.playerInputAt and cast.playerInputAt>=since and not cast.reaction
+ local function manual(s,w,cast,since)
+  local now=s.coop and s.coop.weeklySlot==w and s.coop.time or s.t
+  return cast.playerInputAt and not cast.reaction and not cast.growthAI and s.t-cast.playerInputAt<=now-since+1e-8
  end
  local function shieldHit(s,w,spec,cast)
   local rule=spec.charge
-  if cast.reaction or w.shieldSpent[cast] or w.clock<(w.shieldOwners[cast.id] or -math.huge)+rule.hitInterval then return false end
-  w.shieldSpent[cast]=true;w.shieldOwners[cast.id]=w.clock
+  local a=s.actors[cast.id]
+  if not a or cast.reaction or w.shieldSpent[cast] or w.clock<(w.shieldOwners[a] or -math.huge)+rule.hitInterval then return false end
+  w.shieldSpent[cast]=true;w.shieldOwners[a]=w.clock
   w.shield=math.max(0,w.shield-1);event(s,w,'WN18:guard-hit',cast.id,w.shield)
+  contribution(s,w,cast.id)
   return true
  end
  local function contact(s,w,spec,cast,mult,color,element)
@@ -164,6 +189,7 @@ return function(C)
   C.combatNumber(s,e,critical and amount..'!' or amount,color)
   C.combatEvent(s,'hit',cast.id,e.id,amount)
   local last=s.events[#s.events];last.element=element;last.critical=not not critical;last.reaction=cast.reaction or false
+  contribution(s,w,cast.id)
   if e.hp==amount then C.defeatEnemy(s,e,cast.id);return true end
   e.hp=e.hp-amount
   if minHp>0 and e.hp==minHp then
@@ -178,7 +204,7 @@ return function(C)
   w.clock=0;w.remainder=0;w.charge=0;w.shield=0;w.serial=0
   w.hands={};w.targets={};w.deviceCd={};w.suppressed={}
   w.index=1;w.elementIndex=0;w.needTrial=true;w.trialCasts=0;w.trialLeftAt=nil;w.trialFailed=false
-  w.autoAt=nil;w.shieldSpent=setmetatable({},{__mode='k'});w.shieldOwners={}
+  w.autoAt=nil;w.shieldSpent=weakKeys();w.shieldOwners=weakKeys();w.wasGround=weakKeys()
   posture(s,w,spec,'p1');w.rest=spec.noticeTicks
   w.primary.onCastContact=function(state,cast,_,mult,color,element) return contact(state,w,spec,cast,mult,color,element) end
  end
@@ -199,11 +225,16 @@ return function(C)
   cleanupCast(s,w);clearParts(s,w.hands);w.hands={}
   remove(s,w.primary);w.primary.underground=true;w.charge=0
  end
+ function controller.leaveCoop(s,w)
+  w.assists[s]=nil
+  local q=w.aim
+  if q and q.party==s and not q.fired then releaseAim(w) end
+ end
  local function armSuppressed(w,i)
   return w.clock<(w.suppressed[i==1 and 'left' or 'right'] or 0)
  end
  local function locate(s,w,spec,c)
-  local a,e=actor(s),w.primary
+  local e=w.primary;local a=target(s,e.x) or e
   local id=c.id
   c.origin=e.x;c.dir=a.x>=e.x and 1 or -1;c.target=clamp(a.x,122,838)
   if id=='WN01' then
@@ -235,12 +266,14 @@ return function(C)
   return c.element
  end
  local function damage(s,w,spec,c,i,b,element)
+  local hit=c.hits[i]
+  if not hit then hit={};c.hits[i]=hit end
   for _,a in ipairs(s.actors) do
-   local key=i..':'..a.id
-   if inside(a,b) and not c.hits[key] then
-    c.hits[key]=true
-    if C.damageActor(s,a,c.move.damage,{id=w.primary.id,x=(b.lo+b.hi)/2,y=b.y,damageElement=element},true,true)>0 then
-     event(s,w,c.id..':hit',a.id,i)
+   if inside(a,b) and not hit[a] then
+    hit[a]=true
+    local party=actorParty(s,a)
+    if C.damageActor(party,a,c.move.damage,{id=w.primary.id,x=(b.lo+b.hi)/2,y=b.y,damageElement=element},true,true)>0 then
+     ownEvent(party,w,c.id..':hit',a.id,i)
     end
    end
   end
@@ -306,24 +339,30 @@ return function(C)
   for i,x in ipairs(spec.trial.positions) do
    local function accepted(state,cast)
     if w.stage~='trial' then return false end
-    if manual(cast,w.trialOpened) then return true end
-    return w.assist==i and not state.auto and cast.id~=state.active and not cast.reaction and
-     (cast.growthAI or state.growthAIActor==cast.id) and cast.startedAt and cast.startedAt>=w.assistAt
+    if manual(state,w,cast,w.trialOpened) then return true end
+    local assist=w.assists[state]
+    return assist and assist.index==i and not state.auto and cast.id~=state.active and not cast.reaction and
+     (cast.growthAI or state.growthAIActor==cast.id) and cast.startedAt and cast.startedAt>=assist.at
    end
    local e=addPart(s,spec,9+i,x,52,function(state,cast,obj)
     if not accepted(state,cast) or obj.charged[cast] then return false end
     obj.charged[cast]=true;obj.charges=obj.charges-1
+    contribution(state,w,cast.id)
     event(state,w,'WN15:hit',cast.id,obj.index)
     if obj.charges==0 then
      obj.hp=0;remove(state,obj);w.trialLeft=w.trialLeft-1
-     if w.assist==i then w.assist=nil;w.assistAt=nil end
+     for party,assist in pairs(w.assists) do if assist.index==i then w.assists[party]=nil end end
      charge(w,spec,spec.trial.reward)
      event(state,w,'WN15:destroyed',cast.id,obj.index)
     end
     return true
    end)
-   e.noAutoTarget=true;e.index=i;e.charges=spec.trial.hits;e.charged=setmetatable({},{__mode='k'})
-   e.acceptsCast=function(cast) return accepted(s,cast) end
+   e.index=i;e.charges=spec.trial.hits;e.charged=weakKeys()
+   e.acceptsAutoTarget=function(state,a)
+    local assist=w.assists[state]
+    return assist and assist.index==i and a.id~=state.active and not state.auto
+   end
+   e.acceptsCast=function(cast,state) return accepted(state,cast) end
    w.targets[#w.targets+1]=e
   end
  end
@@ -335,18 +374,19 @@ return function(C)
   local a=actor(s)
   if a.hp<=0 or s.auto then return end
   local q=w.aim
+  local owns=q and q.party==s and q.actor==a
   local option=key:match('^encounter_target:(%w+)$')
-  if w.stage=='trial' and not q and option and option:match('^pod[1-4]$') then
+  if w.stage=='trial' and option and option:match('^pod[1-4]$') then
    local index=tonumber(option:sub(4))
    local selected=w.targets[index]
    if not selected or selected.hp<=0 then return end
-   w.assist=w.assist~=index and index or nil;w.assistAt=w.assist and s.t or nil
-   for _,target in ipairs(w.targets) do target.noAutoTarget=target.index~=w.assist end
-   event(s,w,'WN15:assist',a.id,w.assist)
+   local assist=w.assists[s]
+   w.assists[s]=(not assist or assist.index~=index) and {index=index,at=s.t} or nil
+   ownEvent(s,w,'WN15:assist',a.id,w.assists[s] and index)
    return
   end
   if key=='encounter_cancel' then
-   if q and q.owner==a.id and not q.fired then releaseAim(w);event(s,w,'WN14:cancel',a.id) end
+   if owns and not q.fired then releaseAim(w);ownEvent(s,w,'WN14:cancel',a.id) end
    return
   end
   if key=='encounter_interact' and w.stage=='p1' then
@@ -355,11 +395,12 @@ return function(C)
    return
   end
   if key=='encounter_interact' and not q and canAim(w,spec) and w.charge==spec.charge.max then
-   w.aim={owner=a.id,started=w.clock,target='core'};event(s,w,'WN14:reserve',a.id)
-  elseif q and q.owner==a.id and not q.confirmed then
+   w.aim={owner=a.id,actor=a,party=s,slot=s.coopMember and s.coopMember.id,started=w.clock,target='core'}
+   ownEvent(s,w,'WN14:reserve',a.id)
+  elseif owns and not q.confirmed then
    if option=='left' or option=='core' or option=='right' then q.target=option
    elseif key=='encounter_confirm' and canAim(w,spec) then
-    q.confirmed=true;q.tick=0;event(s,w,'WN14',a.id)
+    q.confirmed=true;q.tick=0;ownEvent(s,w,'WN14',a.id)
    end
   end
  end
@@ -373,19 +414,23 @@ return function(C)
  local function aimStep(s,w,spec)
   local q=w.aim
   if not q then return end
-  local a=s.actors[q.owner];local m=spec.moves.WN14
-  if not q.fired and (a.hp<=0 or s.active~=q.owner or (not q.confirmed and w.clock>=q.started+spec.charge.aimLimit)) then
-   releaseAim(w);event(s,w,'WN14:cancel',q.owner);return
+  local a,party,m=q.actor,q.party,spec.moves.WN14
+  local present=actorParty(s,a)==party
+  if not q.slot and party.coopMember then q.slot=party.coopMember.id end
+  if not q.fired and (not present or a.hp<=0 or actor(party)~=a or (not q.confirmed and w.clock>=q.started+spec.charge.aimLimit)) then
+   releaseAim(w)
+   if present then ownEvent(party,w,'WN14:cancel',q.owner) end
+   return
   end
   if not q.confirmed then return end
   q.tick=q.tick+1
-  if q.tick==m.locks[1] then q.tx,q.ty=aimPoint(w,spec,q.target);event(s,w,'WN14:lock',q.owner) end
+  if q.tick==m.locks[1] then q.tx,q.ty=aimPoint(w,spec,q.target);ownEvent(party,w,'WN14:lock',q.owner) end
   if q.tick==m.launches[1] then
    local x,y=a.x+a.dir*39,a.y-72
    local dx,dy=q.tx-x,q.ty-y
    local dist=math.max(1,math.sqrt(dx*dx+dy*dy))
-   q.fired=true;w.charge=0;w.shot={x=x,y=y,dx=dx/dist,dy=dy/dist}
-   event(s,w,'WN14:fire',q.owner)
+   q.fired=true;q.launchX=x;q.launchY=y;w.charge=0;w.shot={x=x,y=y,dx=dx/dist,dy=dy/dist}
+   ownEvent(party,w,'WN14:fire',q.owner)
   end
   local shot=w.shot
   if shot then
@@ -396,24 +441,25 @@ return function(C)
     if math.abs(shot.x-x)<23 and math.abs(shot.y-y)<25 then
      w.shot=nil
      if w.stage=='trial' and w.trialLeft==0 then
-      event(s,w,'WN14:core-hit',q.owner)
+      if present then ownEvent(party,w,'WN14:core-hit',q.owner);contribution(party,w,q.owner) end
       posture(s,w,spec,'collapse','WN17');w.trialLeftAt=w.clock;w.trialCasts=0;w.trialFailed=false
       return
      elseif w.stage=='p2' and w.shield>0 then
       w.shield=math.max(0,w.shield-spec.charge.shotDamage)
-      event(s,w,'WN14:guard-hit',q.owner,w.shield)
+      if present then ownEvent(party,w,'WN14:guard-hit',q.owner,w.shield);contribution(party,w,q.owner) end
      end
      break
     end
    end
    if w.shot and q.tick>=m.launches[1]+m.ttl then
-    w.shot=nil;event(s,w,'WN14:miss',q.owner)
+    w.shot=nil
+    if present then ownEvent(party,w,'WN14:miss',q.owner) end
    end
   end
   if q.tick>=m.total then releaseAim(w) end
  end
  function controller.prepare(s,w)
-  w.wasGround=actor(s).ground
+  for _,a in ipairs(s.actors) do w.wasGround[a]=a.ground end
  end
  local function tick(s,w,spec)
   w.clock=w.clock+1;w.stageTick=w.stageTick+1
@@ -475,6 +521,9 @@ return function(C)
  function controller.finish(s,w,spec,dt)
   w.remainder=w.remainder+math.min(dt,1/30)*60
   while w.remainder>=1-1e-8 and w.primary.hp>0 do w.remainder=w.remainder-1;tick(s,w,spec) end
+  if not s.parties or w.primary.hp<=0 then return end
+  for _,a in ipairs(s.actors) do if a.hp>0 then return end end
+  cleanupCast(s,w);w.rechallenge=true;w.primary.invulnerable=true
  end
  local function warnings(spec,c)
   local out={}
@@ -516,17 +565,19 @@ return function(C)
     {name='全身',max=spec.p2Hp,hp=math.min(e.hp,spec.p2Hp)}}
   local device=deviceNear(s,w,spec)
   local q=w.aim
+  local assist=w.assists[s]
   local state={charge=w.charge,max=spec.charge.max,shield=w.shield,shieldMax=spec.charge.shield,
     p2=not upper,blocks={},targets={},canAim=not q and canAim(w,spec) and w.charge==spec.charge.max,
     left=w.clock<(w.suppressed.left or 0),right=w.clock<(w.suppressed.right or 0),
     trialLeft=name=='trial' and w.trialLeft or nil,trialTime=name=='trial' and math.max(0,spec.trial.deadline-w.stageTick) or nil,
-    assist=w.assist}
+    assist=assist and assist.index}
   if name=='collapse' and b.damageable then state.exposure=spec.moves.WN17.recovery-w.stageTick end
   if name=='overload' and b.damageable then state.exposure=420-w.stageTick end
   if device then
    state.device={id=device.id,title=device.title,cooldown=math.max(0,(w.deviceCd[device.id] or 0)-w.clock)}
   end
-  if q then state.aim={owner=q.owner,target=q.target,confirmed=not not q.confirmed,fired=not not q.fired,tick=q.tick} end
+  if q then state.aim={owner=q.owner,slot=q.slot or (q.party.coopMember and q.party.coopMember.id),
+   mine=q.party==s and q.actor==actor(s),target=q.target,confirmed=not not q.confirmed,fired=not not q.fired,tick=q.tick} end
   b.shouki=state
   if e.hp<=0 then return end
   local function rect(x,y,width,height,color,opacity)
@@ -588,8 +639,8 @@ return function(C)
   for _,part in ipairs(w.targets) do if part.hp>0 then
    rect(part.x-13,y-45,26,45,'#5c4472');rect(part.x-8,y-52,16,37,colors.electro)
    for i=1,part.charges do rect(part.x-23+i*8,y-63,6,6,colors.gold) end
-   text(part.x,y-72,tostring(part.index),w.assist==part.index and colors.charge or colors.gold)
-   if w.assist==part.index then rect(part.x-26,y-5,52,4,colors.charge) end
+   text(part.x,y-72,tostring(part.index),state.assist==part.index and colors.charge or colors.gold)
+   if state.assist==part.index then rect(part.x-26,y-5,52,4,colors.charge) end
    state.targets[#state.targets+1]={x=part.x,y=y,charges=part.charges,index=part.index}
   end end
   if name=='trial' or name=='p2' and w.shield>0 then
@@ -604,8 +655,8 @@ return function(C)
   if q then
    local x,cy=aimPoint(w,spec,q.target)
    if q.tx then x,cy=q.tx,q.ty end
-   local a=s.actors[q.owner]
-   for i=1,10 do rect(a.x+(x-a.x)*i/10-2,a.y-72+(cy-a.y+72)*i/10,4,4,colors.charge) end
+   local ax,ay=q.launchX or q.actor.x,q.launchY or q.actor.y-72
+   for i=1,10 do rect(ax+(x-ax)*i/10-2,ay+(cy-ay)*i/10,4,4,colors.charge) end
   end
   if w.shot then rect(w.shot.x-7,w.shot.y-4,14,8,colors.charge) end
   if name=='failure' and w.stageTick<186 then

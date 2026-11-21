@@ -1,0 +1,88 @@
+{
+  "participants": 2,
+  "hp": 1630,
+  "upper": {
+    "feet": 480,
+    "height": 1160
+  },
+  "terminalOnlyOwner": true,
+  "chargePreservedOnCancel": true,
+  "results": [
+    {
+      "won": true,
+      "stages": [
+        "p1",
+        "rise",
+        "p2",
+        "trial",
+        "collapse"
+      ],
+      "pods": [
+        2,
+        1
+      ],
+      "armorShots": 2,
+      "coreShots": 0,
+      "damage": 734,
+      "returns": 0
+    },
+    {
+      "won": true,
+      "stages": [
+        "p1",
+        "rise",
+        "p2",
+        "trial",
+        "collapse"
+      ],
+      "pods": [
+        3,
+        4
+      ],
+      "armorShots": 0,
+      "coreShots": 1,
+      "damage": 748,
+      "returns": 0
+    }
+  ],
+  "scene": {
+    "key": "sumeruCanopy",
+    "file": "sumeru-canopy-background-v1.png",
+    "state": "ready"
+  },
+  "rewards": [
+    [
+      119850,
+      1370
+    ],
+    [
+      119850,
+      1370
+    ]
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saved": [
+    {
+      "wait": 3556,
+      "clears": 1,
+      "xp": 119850,
+      "mora": 99770,
+      "quest": "active"
+    },
+    {
+      "wait": 3556,
+      "clears": 1,
+      "xp": 119850,
+      "mora": 99770,
+      "quest": null
+    }
+  ],
+  "report": {
+    "xp": 80000,
+    "mora": 5200
+  },
+  "errors": []
+}

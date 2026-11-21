@@ -556,7 +556,8 @@ function hud(f,calls,renderMs){
   if(!shouki.hidden){
    const v=field.shouki,aim=v.aim,device=v.device;
    const use=$('weeklyShoukiAction');
-   $('weeklyShoukiChargeText').textContent=`共有充填 ${v.charge} / ${v.max}${aim&&!aim.fired?'（予約中）':''}`;
+   const reserved=aim&&!aim.fired?(aim.mine?'（自分が予約中）':`（${aim.slot?`参加者${aim.slot}`:'同行者'}が予約中）`):'';
+   $('weeklyShoukiChargeText').textContent=`共有充填 ${v.charge} / ${v.max}${reserved}`;
    $('weeklyShoukiCharge').value=v.charge;
    $('weeklyShoukiArmor').hidden=!v.p2;
    $('weeklyShoukiArmorText').textContent=`装甲 ${v.shield} / ${v.shieldMax}`;
@@ -570,7 +571,7 @@ function hud(f,calls,renderMs){
     v.charge===v.max?'元素装置に近づいて起動':'充填ブロックを拾う'))+hands:
     field.shoukiStage==='p2'?(field.damageable?'足元から本体を攻撃':v.canAim?'端末で胸部を照準':'充填ブロックを拾う'):'';
    $('weeklyShoukiHint').textContent=v.exposure?`攻撃できる時間 残り${Math.ceil(v.exposure/60)}秒`:
-    aim?(aim.fired?'端末を発射':aim.confirmed?'端末を発射準備中':'照準先を選んで射撃を確定'):
+    aim?(aim.fired?'端末を発射':!aim.mine?'端末が使用中':aim.confirmed?'端末を発射準備中':'照準先を選んで射撃を確定'):
     trial||combatHint;
    use.hidden=!device&&!v.canAim;
    use.disabled=!!device&&(device.cooldown>0||v.charge<v.max)||f.paused||f.auto;
@@ -583,10 +584,10 @@ function hud(f,calls,renderMs){
     button.setAttribute('aria-pressed',String(v.assist===index));
    }
    const panel=$('weeklyShoukiAim');
-   panel.hidden=!aim||aim.fired;
+   panel.hidden=!aim?.mine||aim.fired;
    for(const button of panel.querySelectorAll('button')){
     const action=button.dataset.action;
-    button.disabled=f.paused||f.auto||aim?.owner!==f.active||aim?.confirmed&&action!=='encounter_cancel';
+    button.disabled=f.paused||f.auto||!aim?.mine||aim.confirmed&&action!=='encounter_cancel';
     if(action.startsWith('encounter_target:'))button.setAttribute('aria-pressed',String(action.endsWith(':'+aim?.target)));
    }
   }

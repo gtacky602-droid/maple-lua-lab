@@ -522,7 +522,12 @@ function C.step(s,dt,input)
    local move=manual and ((input.right and 1 or 0)-(input.left and 1 or 0)) or 0
    local nearest,dist=nil,10000
    if not manual then
-    for _,e in ipairs(s.enemies) do local d=abs(e.x-a.x)+abs(e.y-a.y)*2;if not e.noAutoTarget and C.canTargetEnemy(e) and d<dist then nearest=e;dist=d end end
+    for _,e in ipairs(s.enemies) do
+     local d=abs(e.x-a.x)+abs(e.y-a.y)*2
+     if d<dist and not e.noAutoTarget and C.canTargetEnemy(e) and (not e.acceptsAutoTarget or e.acceptsAutoTarget(s,a)) then
+      nearest,dist=e,d
+     end
+    end
     local leader=s.actors[s.active]
     local avoid=C.aiAvoidTarget and C.aiAvoidTarget(s,a)
     if avoid then
