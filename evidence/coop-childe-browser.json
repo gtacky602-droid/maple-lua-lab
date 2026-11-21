@@ -1,0 +1,72 @@
+{
+  "participants": 2,
+  "phaseHp": [
+    240,
+    300,
+    420
+  ],
+  "remoteMarkObserved": true,
+  "swapAndCleanse": true,
+  "results": [
+    {
+      "won": true,
+      "forms": [
+        1,
+        2,
+        3
+      ],
+      "transitions": [
+        720,
+        420
+      ],
+      "partyHp": 140,
+      "manualDamage": 318,
+      "returns": 0
+    },
+    {
+      "won": true,
+      "forms": [
+        1,
+        2,
+        3
+      ],
+      "transitions": [
+        720,
+        420
+      ],
+      "partyHp": 106,
+      "manualDamage": 380,
+      "returns": 0
+    }
+  ],
+  "scenery": {
+    "key": "buriedWeaving",
+    "file": "buried-weaving-background-v1.png",
+    "state": "ready"
+  },
+  "questCounts": [
+    1,
+    null
+  ],
+  "saved": [
+    {
+      "wait": 3542,
+      "clears": 1,
+      "xp": 14700,
+      "mora": 560,
+      "quest": "active"
+    },
+    {
+      "wait": 3542,
+      "clears": 1,
+      "xp": 14700,
+      "mora": 560,
+      "quest": null
+    }
+  ],
+  "report": {
+    "xp": 18000,
+    "mora": 1800
+  },
+  "errors": []
+}

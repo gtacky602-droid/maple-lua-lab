@@ -493,6 +493,7 @@
     {
       "id": "boss-29030101",
       "controller": "childe",
+      "coop": true,
       "entity": 29030101,
       "name": "「公子」",
       "node": "childe-golden-house-arena",

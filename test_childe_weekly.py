@@ -66,9 +66,9 @@ def move(s,w,spec,name,x=280,y=480):
     w.index=list(spec.orders[w.form].values()).index(name)+1
     w.rest=0
     if name in ('WC02','WC05'):
-        w.mark='hydro'
+        w.marks[s]='hydro'
     elif name=='WC10':
-        w.mark='electro'
+        w.marks[s]='electro'
     ticks(core,s,1)
     assert w.cast.id==name
     return w.cast
@@ -93,12 +93,12 @@ place(marked,322,480)
 marks=marked.hp
 ticks(core,s,46)
 assert archery.origin==locked[0] and archery.dir==locked[1]
-assert w.mark=='hydro' and marked.hp<marks and len(events(s,'childe:WC01:hit'))==1
+assert w.marks[s]=='hydro' and marked.hp<marks and len(events(s,'childe:WC01:hit'))==1
 act(s,'swap')
-assert s.active==2 and w.mark=='hydro'
+assert s.active==2 and w.marks[s]=='hydro'
 place(s.actors[2],spec.edge-2)
 ticks(core,s,1)
-assert w.mark is None and len(events(s,'childe:cleanse'))==1
+assert w.marks[s] is None and len(events(s,'childe:cleanse'))==1
 
 s,w,spec=arena()
 c=move(s,w,spec,'WC02',221,372)
@@ -153,7 +153,7 @@ for cleanse_at in (60,105):
     position=c.land
     place(a,spec.edge-2)
     ticks(core,s,1)
-    assert w.mark is None
+    assert w.marks[s] is None
     if cleanse_at==60:
         assert c.cancelled and c.total==144
         ticks(core,s,90)
@@ -204,9 +204,9 @@ for row in move_rows:
 
 s,w,spec=arena()
 s.actors[2].hp=0
-w.mark='hydro'
+w.marks[s]='hydro'
 old=s.mora,s.kills
-assert decisive(s,w) and w.primary.hp==720 and w.shift and w.mark is None
+assert decisive(s,w) and w.primary.hp==720 and w.shift and w.marks[s] is None
 assert w.primary.invulnerable and w.cast is None and (s.mora,s.kills)==old
 ticks(core,s,120)
 assert w.form==2 and w.primary.invulnerable and decisive(s,w) and w.primary.hp==720

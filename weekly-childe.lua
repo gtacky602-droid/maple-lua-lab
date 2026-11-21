@@ -7,7 +7,7 @@ return function(C)
  local function mix(a,b,t) return a+(b-a)*t end
  local function live(s)
   local a=s.actors[s.active]
-  if a.hp>0 then return a end
+  if a and a.hp>0 then return a end
   for _,other in ipairs(s.actors) do if other.hp>0 then return other end end
  end
  local function body(e,x,y)
@@ -28,12 +28,25 @@ return function(C)
   for i=#s.enemies,1,-1 do if s.enemies[i]==w.primary then table.remove(s.enemies,i) end end
  end
  local function log(s,w,key,actor,value)
-  C.combatEvent(s,'childe:'..key,actor or 0,w.primary.id,value)
+  for _,party in ipairs(s.parties or {s}) do
+   C.combatEvent(party,'childe:'..key,actor or 0,w.primary.id,value)
+  end
  end
+ local function owner(s,a) return s.actorOwners and s.actorOwners[a] or s end
  local function clearMark(s,w)
-  if not w.mark then return end
-  w.mark=nil;w.cleanseUntil=s.t+.2
+  if not w.marks[s] then return end
+  w.marks[s]=nil;w.cleanseUntil[s]=s.t+.2
   log(s,w,'cleanse',s.active)
+ end
+ local function markedActor(s,w,element)
+  for _,party in ipairs(s.parties or {s}) do
+   local a=party.actors[party.active]
+   if a.hp>0 and w.marks[party]==element then return a end
+  end
+ end
+ local function castTarget(s,c)
+  local party=c.target;local a=party.actors[party.active]
+  if a.hp>0 and (not s.actorOwners or s.actorOwners[a]==party) then return a end
  end
  local function threshold(spec,form)
   local rest=0
@@ -42,7 +55,8 @@ return function(C)
  end
  local function shift(s,w,spec)
   local e=w.primary
-  w.cast=nil;clearMark(s,w);w.phase='transition'
+  w.cast=nil;w.phase='transition'
+  for party in pairs(w.marks) do clearMark(party,w) end
   w.shift={tick=0,timing=spec.transitions[w.form],next=w.form+1}
   e.invulnerable=true;e.aura=nil;e.applicationClocks=nil;e.burning=nil
   body(e,spec.center,spec.floorY)
@@ -57,8 +71,10 @@ return function(C)
    local guardFront=(cast.x-e.x)*c.dir>-10
    if guardFront then
     mult=mult*spec.guardFactor
+    local now=s.coop and s.coop.weeklySlot==w and s.coop.time or s.t
+    local fresh=cast.startedAt and s.t-cast.startedAt<=now-c.guardAt+1e-8
     if not c.counter and not cast.reaction and not cast.growthAI and s.growthAIActor~=cast.id
-        and not s.auto and cast.id==s.active and (cast.startedAt or -1)>=c.guardAt then
+        and not s.auto and cast.id==s.active and fresh then
      c.counter=true;log(s,w,'guard-reserved',cast.id)
     end
    end
@@ -71,6 +87,7 @@ return function(C)
   C.combatNumber(s,e,critical and tostring(n)..'!' or n,color)
   C.combatEvent(s,'hit',cast.id,e.id,n)
   local event=s.events[#s.events];event.element=element;event.critical=not not critical;event.reaction=cast.reaction or false
+  if s.coop then C.coopContact(s,e,cast.id) end
   if e.hp==n then C.defeatEnemy(s,e,cast.id)
   else
    e.hp=e.hp-n
@@ -81,7 +98,8 @@ return function(C)
  end
  function controller.spawn(s,w,spec)
   w.form,w.index,w.rest=1,1,spec.noticeTicks
-  w.remainder=0;w.shift=nil;w.mark=nil;w.cleanseUntil=nil
+  w.remainder=0;w.shift=nil
+  w.marks=setmetatable({},{__mode='k'});w.cleanseUntil=setmetatable({},{__mode='k'})
   local e=w.primary
   e.drawHeight=112;e.dir=-1;e.invulnerable=false;e.underground=false
   body(e,spec.center,spec.floorY)
@@ -95,7 +113,8 @@ return function(C)
   for _,a in ipairs(s.actors) do a.grapple=nil end
  end
  function controller.cleanup(s,w)
-  remove(s,w);w.cast=nil;w.shift=nil;w.mark=nil;w.primary.underground=true
+  remove(s,w);w.cast=nil;w.shift=nil;w.primary.underground=true
+  w.marks=setmetatable({},{__mode='k'});w.cleanseUntil=setmetatable({},{__mode='k'})
  end
 
  local function targetFloor(s,a,floor)
@@ -113,7 +132,11 @@ return function(C)
  end
  local function locate(s,w,spec,c,lockIndex,tracking)
   local e=w.primary
-  local a=c.id=='WC10' and s.actors[c.targetId] or live(s)
+  local a
+  if c.target then
+   a=castTarget(s,c)
+   if not a then return end
+  else a=live(s) end
   local x=a and a.x or spec.center
   if lockIndex==1 or c.id=='WC09' then
    c.origin=e.x;c.dir=x>=e.x and 1 or -1
@@ -138,9 +161,9 @@ return function(C)
    c.points=points(x,{-150,-46,46,150},106,854)
   end
  end
- local function start(s,w,spec,id,a)
+ local function start(s,w,spec,id,a,target)
   local move=spec.moves[id];local e=w.primary
-  local c={id=id,move=move,tick=0,floor=spec.floorY,origin=e.x,dir=e.dir,targetId=a.id,
+  local c={id=id,move=move,tick=0,floor=spec.floorY,origin=e.x,dir=e.dir,target=target,
    recovery=move.recovery,total=move.total,arrows={},hits={},segments={},guardAt=s.t}
   c.spin=id=='WC04' and math.abs(a.x-e.x)<70
   locate(s,w,spec,c,1,false)
@@ -152,8 +175,10 @@ return function(C)
   local order=spec.orders[w.form]
   for _=1,#order do
    local id=order[w.index];w.index=w.index%#order+1
-   if (id~='WC05' and id~='WC02' or w.mark=='hydro') and (id~='WC10' or w.mark=='electro') then
-    start(s,w,spec,id,a)
+   local element=(id=='WC02' or id=='WC05') and 'hydro' or id=='WC10' and 'electro'
+   local target=element and markedActor(s,w,element)
+   if not element or target then
+    start(s,w,spec,id,target or a,target and owner(s,target))
     return
    end
   end
@@ -161,13 +186,14 @@ return function(C)
  local function hurt(s,w,c,index,a,element,amount)
   local hit=c.hits[index]
   if not hit then hit={};c.hits[index]=hit end
-  if hit[a.id] then return end
-  hit[a.id]=true
-  local damage=C.damageActor(s,a,amount,{id=w.primary.id,x=w.primary.x,damageElement=element},true,true)
+  if hit[a] then return end
+  hit[a]=true
+  local party=owner(s,a)
+  local damage=C.damageActor(party,a,amount,{id=w.primary.id,x=w.primary.x,damageElement=element},true,true)
   if damage>0 then
-   log(s,w,c.id..':hit',a.id,index)
-   if a.id==s.active then
-    w.mark=element;log(s,w,'mark:'..element,a.id)
+   log(party,w,c.id..':hit',a.id,index)
+   if a.id==party.active then
+    w.marks[party]=element;log(party,w,'mark:'..element,a.id)
    end
   end
  end
@@ -218,7 +244,10 @@ return function(C)
  end
  local function phaseTick(s,w,spec)
   local e=w.primary;local a=live(s)
-  if a and (a.x<=spec.edge or a.x>=960-spec.edge) then clearMark(s,w) end
+  for _,party in ipairs(s.parties or {s}) do
+   local current=party.actors[party.active]
+   if current.hp>0 and (current.x<=spec.edge or current.x>=960-spec.edge) then clearMark(party,w) end
+  end
   if w.shift then
    local sh=w.shift
    sh.tick=sh.tick+1
@@ -244,9 +273,10 @@ return function(C)
   end
   local c=w.cast;c.tick=c.tick+1;local t=c.tick
   local id=c.id
-  if id=='WC10' and t<=84 and (w.mark~='electro' or s.actors[c.targetId].hp<=0) and not c.cancelled then
+  if id=='WC10' and t<=84 and not c.cancelled and
+      (w.marks[c.target]~='electro' or not castTarget(s,c)) then
    c.cancelled=true;c.total=spec.branches.cleansed.total;c.recovery=spec.branches.cleansed.recovery
-   log(s,w,'drop-cancelled',c.targetId)
+   log(s,w,'drop-cancelled',c.target.active)
   end
   if id=='WC06' then
    if t==48 then c.guardAt=s.t end
@@ -338,7 +368,7 @@ return function(C)
   for i,hp in ipairs(spec.phaseHp) do
    bed.phaseHp[i]={max=hp,hp=clamp(e.hp-threshold(spec,i),0,hp)}
   end
-  bed.mark=w.mark
+  bed.mark=w.marks[s]
   bed.move=w.shift and 'WC14' or c and c.id or nil
   bed.moveTick=w.shift and w.shift.tick or c and c.tick or nil
   bed.label=w.shift and (w.shift.timing.title..'・変身中') or c and
@@ -349,7 +379,7 @@ return function(C)
   local function text(x,y,value,color)
    f.draws[#f.draws+1]={kind='text',x=x-s.camera,y=y,text=value,color=color,size=14}
   end
-  local edgeColor=w.cleanseUntil and w.cleanseUntil>s.t and '#fff5cd' or '#caaf69'
+  local edgeColor=(w.cleanseUntil[s] or 0)>s.t and '#fff5cd' or '#caaf69'
   for _,x in ipairs({spec.edge,960-spec.edge}) do
    rect(x-6,410,12,69,'#55463b');rect(x-2,409,4,69,edgeColor)
    text(x,400,'解除',edgeColor)
@@ -394,8 +424,19 @@ return function(C)
    rect(x-3,e.y-93,6,48,'#3a9fcf');rect(x+e.dir*6-4,e.y-84,8,29,'#b9ebff')
   elseif w.form==3 then rect(e.x+e.dir*51-18,e.y-77,36,5,ink) end
   if w.shift then text(e.x,e.y-151,w.shift.timing.title,'#eee2ff') end
-  local a=s.actors[s.active]
-  if w.mark and a.hp>0 then text(a.x,a.y-98,w.mark=='hydro' and '◆ 水断流' or 'ϟ 雷断流',colors[w.mark]) end
+  local function drawMark(party)
+   local mark=w.marks[party];local a=party.actors[party.active]
+   if mark and a.hp>0 then
+    local offset=party==s and 98 or 132
+    text(a.x,a.y-offset,mark=='hydro' and '◆ 水断流' or 'ϟ 雷断流',colors[mark])
+   end
+  end
+  drawMark(s)
+  if s.coop and s.coop.weeklySlot==w then
+   for _,member in ipairs(s.coop.members) do
+    if member.online and member.state~=s and C.sharesCoopField(member.state) then drawMark(member.state) end
+   end
+  end
  end
  return controller
 end

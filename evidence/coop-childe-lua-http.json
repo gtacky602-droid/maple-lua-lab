@@ -1,0 +1,17 @@
+{
+  "lua": {
+    "participants": 4,
+    "marksAndBoundaryPerParty": true,
+    "marksFollowSwap": true,
+    "rainTargetsMarkedParty": true,
+    "sharedCounterClockWithFreshManualCast": true,
+    "lockedLightningAndOwnerCancellation": true,
+    "oneHitPerActorAndAdoptedHitsPreserved": true,
+    "threeSharedPhasesAndIndividualRewards": true
+  },
+  "http": {
+    "participants": 2,
+    "sharedTransitionWhileRoomEmpty": true,
+    "personalRewardsAndAcceptedQuest": true
+  }
+}
