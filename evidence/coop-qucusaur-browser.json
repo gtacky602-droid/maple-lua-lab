@@ -1,0 +1,136 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 1020,
+  "results": [
+    {
+      "seconds": 30.62,
+      "hp": 72,
+      "kills": 1,
+      "startingMora": 30,
+      "mora": 360,
+      "startingXp": 38232,
+      "xp": 212400,
+      "moves": [
+        "FQT01",
+        "FQT02",
+        "FQT03"
+      ],
+      "manualDamage": 328,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        26230301
+      ],
+      "gravityTracks": [],
+      "jump": null,
+      "fireLayouts": [],
+      "exposedAt": [],
+      "pearls": [],
+      "interruptedAt": [
+        865
+      ],
+      "sharedObjects": [
+        "964.500,14",
+        "962.000,14"
+      ],
+      "diveLayouts": [
+        "964.500,1156.340",
+        "962.000,1153.840"
+      ]
+    },
+    {
+      "seconds": 30.62,
+      "hp": 140,
+      "kills": 1,
+      "startingMora": 40,
+      "mora": 360,
+      "startingXp": 42480,
+      "xp": 212400,
+      "moves": [
+        "FQT01",
+        "FQT02",
+        "FQT03"
+      ],
+      "manualDamage": 328,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        26230301
+      ],
+      "gravityTracks": [],
+      "jump": null,
+      "fireLayouts": [],
+      "exposedAt": [],
+      "pearls": [],
+      "interruptedAt": [
+        865
+      ],
+      "sharedObjects": [
+        "964.500,14",
+        "962.000,14"
+      ],
+      "diveLayouts": [
+        "964.500,1156.340",
+        "962.000,1153.840"
+      ]
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 390,
+      "xp": 250632,
+      "respawn": true
+    },
+    {
+      "clears": 1,
+      "mora": 400,
+      "xp": 254880,
+      "respawn": true
+    }
+  ],
+  "report": {
+    "hub": "natlan-hub",
+    "hostSaved": true,
+    "guestQuest": null,
+    "xp": 7200,
+    "mora": 460
+  },
+  "scenery": "qucusaurField",
+  "errors": []
+}

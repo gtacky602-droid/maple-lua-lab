@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する61地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する65地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -231,6 +231,19 @@ Luaの4人試験で個別の命中と反撃時間を確認し、HTTPの2人試�
 | 魔像レガトゥス | 92 | 1,010 | 191,700 EXP・335モラ | 6,200 EXP・420モラ |
 
 Luaの4人試験とHTTPの2人試験で、個別の命中、共鳴器の破壊、会場を出た後の同じ状態への合流を確認した。Chromeの2画面で討伐、帰還、報告、保存まで試走した。`python test_suanni_field.py` と `python test_legatus_field.py` で試験用のセーブを作り、`LAB_URL` にラボのURLを設定して、`node test_coop_field_routes.mjs suanni legatus` で再現できる。 [Lua・HTTPの検証](../evidence/coop-suanni-legatus-lua-http.json) · [猊獣のChrome試走](../evidence/coop-suanni-browser.json) · [レガトゥスのChrome試走](../evidence/coop-legatus-browser.json)
+
+## 暴君・金焔のクク竜と山の王・貪食のユムカ竜
+
+ナタの谷の集落から岩場の道へ進み、各会場へ入る。クク竜の二つの降下地点と、床に刺さる一枚の羽根は部屋で共有する。複数の参加者で羽根のHP14を削り切ると、二度の降下を止めてクク竜を地上に戻せる。最初の降下に入る直前でも羽根の破壊が間に合う。討伐報酬はクク竜の撃破時に発生する。 [クク竜のラボ版仕様](field-boss-v1/NATLAN_QUCUSAUR.md) · [羽根と降下予告](../evidence/coop-qucusaur-feather.png)
+
+ユムカ竜の腹落ちと二つの実は、決まった地点を全員に予告する。①②の順に実が落ち、着弾範囲にいる参加者が個別に被弾する。空を飛ぶ実は着弾の予告として表示する。 [ユムカ竜のラボ版仕様](field-boss-v1/NATLAN_YUMKA.md) · [実の軌道と着弾予告](../evidence/coop-yumka-fruits.png)
+
+| ボス | Lv | 会場 | HP | 討伐参加者一人あたり | 依頼を報告した人 |
+| --- | ---: | --- | ---: | --- | --- |
+| 暴君・金焔のクク竜 | 102 | 金焔の岩窟 | 1,020 | 212,400 EXP・360モラ | 7,200 EXP・460モラ |
+| 山の王・貪食のユムカ竜 | 104 | 山王の峡谷 | 1,035 | 212,400 EXP・370モラ | 7,400 EXP・470モラ |
+
+Luaの4人試験で羽根の共同破壊、二度の降下の中断、実の着弾時の個別命中を確認した。HTTPの2人試験では退避後に同じ戦闘状態へ戻り、Chromeの2画面で討伐と依頼報告を保存した。`python test_qucusaur_field.py` と `python test_yumka_field.py` で試験用のセーブを作る。`LAB_URL` にラボのURLを設定し、`node test_coop_field_routes.mjs qucusaur yumka` で再現できる。 [Lua・HTTPの検証](../evidence/coop-natlan-saurians-lua-http.json) · [クク竜のChrome試走](../evidence/coop-qucusaur-browser.json) · [ユムカ竜のChrome試走](../evidence/coop-yumka-browser.json)
 
 ## マッシュラプトル
 

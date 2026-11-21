@@ -26,6 +26,15 @@ return function(C)
   return {move=m,tick=0,origin=b.x,dir=b.facing,seen={{},{}},shots={},projectiles={},
    source={id=b.id,y=s.floorY,owner=b,damageElement=m.element}}
  end
+ function qucusaur.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
+
+ function qucusaur.frame(f,b,s,c)
+  if not c then return end
+  if c.breakAt then f.flightInterrupted=true
+  elseif c.first and c.tick<c.move.recover then f.divePoints={c.first,c.second} end
+ end
 
  local function lock(c,s,a)
   if not c.move.feather then return end

@@ -8125,6 +8125,10 @@
       "icewind-promenade",
       "icewind-coppelia-field",
       "icewind-coppelius-field",
+      "natlan-hub",
+      "natlan-field",
+      "qucusaur-field-cavern",
+      "yumka-field-ravine",
       "witztli-tristars-camp",
       "atocpan-battlegoat-ironclaw-field",
       "sne-novokichev-ore-yard"
@@ -8161,6 +8165,8 @@
       "boss-20051201",
       "icewind-coppelia",
       "icewind-coppelius",
+      "boss-26230301",
+      "boss-26220301",
       "legend-natlan_polychrome_tristars",
       "legend-natlan_battlegoat_ironclaw",
       "legend-snez_rowdy_beast_host"
@@ -8264,6 +8270,11 @@
       "evidence/coop-suanni-fall.png",
       "evidence/coop-legatus-browser.json",
       "evidence/coop-legatus-resonator.png",
+      "evidence/coop-natlan-saurians-lua-http.json",
+      "evidence/coop-qucusaur-browser.json",
+      "evidence/coop-qucusaur-feather.png",
+      "evidence/coop-yumka-browser.json",
+      "evidence/coop-yumka-fruits.png",
       "evidence/coop-jadeplume-lua-http.json",
       "evidence/coop-jadeplume-browser.json",
       "evidence/coop-jadeplume-leap.png"

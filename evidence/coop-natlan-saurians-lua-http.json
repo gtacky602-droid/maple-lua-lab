@@ -1,0 +1,38 @@
+{
+  "qucusaur": {
+    "lua": {
+      "participants": 4,
+      "hp": 1020,
+      "sharedLockedDives": true,
+      "separateFeatherAndDiveHits": true,
+      "goldWardAndAirHitbox": true,
+      "bothPlayersCanBreakFeather": true,
+      "lastTickBreakStopsBothDives": true,
+      "noFeatherRewards": true,
+      "individualRewards": true,
+      "priorSoloHitSurvivesAdoption": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  },
+  "yumka": {
+    "lua": {
+      "participants": 4,
+      "hp": 1035,
+      "sharedBellyLandingAndAirHurtbox": true,
+      "sharedFruitCues": true,
+      "fruitFlightCannotHit": true,
+      "separateFruitImpacts": true,
+      "individualRewards": true,
+      "priorSoloHitSurvivesAdoption": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  }
+}

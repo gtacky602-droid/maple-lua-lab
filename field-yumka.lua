@@ -20,6 +20,17 @@ return function(C)
   return {move=m,tick=0,origin=b.x,dir=b.facing,seen={{},{}},
    source={id=b.id,owner=b,y=s.floorY,damageElement=m.element}}
  end
+ function yumka.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
+
+ function yumka.frame(f,b,s,c)
+  f.flying=b.form=='airborne' or nil
+  if c and c.tick<c.move.recover then
+   f.destinationX=c.dest
+   f.firePoints=c.points
+  end
+ end
 
  local function lock(b,s,c,a)
   local m=c.move

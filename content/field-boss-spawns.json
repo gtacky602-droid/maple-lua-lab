@@ -1275,7 +1275,7 @@
       ]
     },
     {
-      "id":"boss-26230301","controller":"qucusaur","entity":26230301,
+      "id":"boss-26230301","controller":"qucusaur","entity":26230301,"coop":true,
       "name":"暴君・金焔のクク竜","node":"qucusaur-field-cavern","storyChallenge":"qucusaur",
       "level":102,"hp":1020,"mora":360,"artHeight":156,"floorY":480,"home":865,
       "arenaMin":340,"arenaMax":1590,"noticeRange":310,"noticeTicks":36,"restTicks":36,
@@ -1289,7 +1289,7 @@
       ]
     },
     {
-      "id":"boss-26220301","controller":"yumka","entity":26220301,
+      "id":"boss-26220301","controller":"yumka","entity":26220301,"coop":true,
       "name":"山の王・貪食のユムカ竜","node":"yumka-field-ravine","storyChallenge":"yumka",
       "level":104,"hp":1035,"mora":370,"artHeight":162,"floorY":480,"home":895,
       "arenaMin":345,"arenaMax":1590,"noticeRange":310,"noticeTicks":36,"restTicks":36,
