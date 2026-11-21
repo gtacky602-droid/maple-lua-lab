@@ -149,7 +149,15 @@ const cases={
  moongecko:{hub:'nod-town',arena:'nod-gecko-depths',approach:'nod-field',
   boss:'boss-26302101',quest:'moongecko-commission',hp:1160,mora:495,xp:988100,scene:'moongeckoField',
   asset:'moongecko-field',pose:'poses',label:'moonstone-anchor',report:[9600,670],stance:78,
-  evade:{FMG01:[99,169],FMG02:[129],FMG03:[475]}}
+  evade:{FMG01:[99,169],FMG02:[129],FMG03:[475]}},
+ vigil:{hub:'dornman-camp',arena:'windrest-vigil-court',approach:'dornman-camp',
+  boss:'boss-24111101',quest:'fallen-vigil-commission',hp:700,mora:155,xp:1250,scene:'vigilField',
+  asset:'fallen-vigil-field',pose:'poses',label:'elemental-stars',fixture:'fallen-vigil-field',report:[1400,220],stance:70,
+  evade:{FV01:[99,169],FV02:[107,173],FV03:[925,1005]}},
+ flugel:{hub:'snezhnaya-hub',arena:'flugel-tundra-basin',approach:'snezhnaya-field',
+  boss:'boss-26310501',quest:'flugel-commission',hp:1180,mora:540,xp:1466100,scene:'flugelField',
+  asset:'flugel-field',pose:'poses',label:'wind-orbs',fixture:'flugel-field',report:[10400,710],stance:78,
+  evade:{FL01:[99,169],FL02:[129,203],FL03:[171,247,323,485]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -197,6 +205,8 @@ async function fight(page,side,key,config) {
   const adaptedElements=new Set(),fisherLayouts=new Set(),shieldStates=new Set();
   const anchorLayers=new Set();
   const hasCocoon=key==='moonfly'||key==='moongecko';
+  const jumpEvade=hasCocoon||key==='vigil'||key==='flugel';
+  const starLayouts=new Set(),orbLayouts=new Set();
   const art=config.pose&&config.asset+'-'+config.pose+'-source-v1.png';
   const entities=config.bodies??[Number(config.boss.slice(5))];
   const start=window.lab.frame;
@@ -207,6 +217,7 @@ async function fight(page,side,key,config) {
   let machineDown=false,shipHeating=false,lastShipFire=-Infinity;
   let adaptationEnded=false,gloomDown=false,shieldDown=false,nextIce=-Infinity,iceCasts=0;
   let caught=false,escaped=false,peerEscaped=false,peerStillBound=false,anchorBroken=false,geoExposure=false,healX,nextHeal=0;
+  let vigilDown=false,lastRecord=-Infinity,lionReady=false,wardDown=false,orbsDown=false,lastLionFire=-Infinity;
   function hold(code,on) {
    if(on===held.has(code)) return;
    if(on) held.add(code); else held.delete(code);
@@ -237,7 +248,9 @@ async function fight(page,side,key,config) {
      repairLayouts:[...repairLayouts],thermalStates:[...thermalStates],machineDown,
      ...(key==='herra'?{adaptedElements:[...adaptedElements],adaptationEnded,gloomDown}:{}),
      ...(key==='nightmare'?{fisherLayouts:[...fisherLayouts],shieldStates:[...shieldStates],shieldDown}:{}),
-     ...(hasCocoon?{caught,escaped,peerStillBound,anchorLayers:[...anchorLayers],anchorBroken,geoExposure}:{})};
+     ...(hasCocoon?{caught,escaped,peerStillBound,anchorLayers:[...anchorLayers],anchorBroken,geoExposure}:{}),
+     ...(key==='vigil'?{starLayouts:[...starLayouts],vigilDown}:{}),
+     ...(key==='flugel'?{orbLayouts:[...orbLayouts],wardDown,orbsDown}:{})};
     return;
    }
    if(!b) {
@@ -524,6 +537,27 @@ async function fight(page,side,key,config) {
     if(mark?.bound&&(key==='moonfly'||anchorBroken)&&
        (side===-1||peerEscaped)) healX??=b.x+side*295;
    }
+   if(key==='vigil'){
+    if(b.summons?.length===2&&b.vigil.records.every(e=>e==='pyro')&&
+       f.draws.filter(d=>d.source===art).length===3){
+     starLayouts.add(b.summons.map(u=>`${u.x.toFixed(2)}:${u.element}:${u.maxhp}`).join(','));
+     visual=true;
+    }
+    if(b.move==='FV03'&&b.tick>=402&&f.active===2) window.lab.action('swap');
+    if(b.form==='down'&&!b.summons) vigilDown=true;
+   }
+   if(key==='flugel'){
+    if(b.move==='FL01'&&b.tick>=125) lionReady=true;
+    if(b.flugel.downReason==='ward'&&b.form==='down') wardDown=true;
+    if(b.flugel.downReason==='orbs'&&b.form==='down'&&!b.summons) orbsDown=true;
+    if(b.flugel.mode==='anemo'&&b.summons?.length===5){
+     const sprites=f.draws.filter(d=>d.source===art).slice(1);
+     if(sprites.length===5&&sprites.every((d,i)=>Math.abs(d.x+f.camera-b.summons[i].x)<.001)){
+      orbLayouts.add(b.summons.map(u=>u.id).join(','));
+      visual=true;
+     }
+    }
+   }
    if(config.observeRecovery&&b.recovering&&sprite) recovered=true;
    if(visual&&!capture&&side===-1){
     capture=document.querySelector('#game').toDataURL('image/png').split(',')[1];
@@ -537,8 +571,8 @@ async function fight(page,side,key,config) {
    }
    const healing=mark?.bound&&!escaped&&healX!==undefined;
    const attackTimings=config.evade[b.move]||[];
-   if(hasCocoon) hold('Space',!healing&&attackTimings.some(at=>b.tick>=at-15&&b.tick<at+6));
-   for(const at of prepareShield||hasCocoon?[]:attackTimings) {
+   if(jumpEvade) hold('Space',!healing&&attackTimings.some(at=>b.tick>=at-15&&b.tick<at+6));
+   for(const at of prepareShield||jumpEvade?[]:attackTimings) {
     if(b.tick>=at&&b.tick<at+6&&!used.has(at)){
      used.add(at);hold('ShiftLeft',true);hold('ShiftLeft',false);
     }
@@ -547,7 +581,8 @@ async function fight(page,side,key,config) {
    const other=b.bodies?.[side===-1?1:0];
    const device=config.breakable&&b.summon&&(!config.breakable.pips||b.cannonBounds);
    const sharedSummon=key==='moongecko'?b.summon:
-    (key==='spiritspeaker'||key==='duckle'||key==='nightmare')&&b.summons?.at(side===-1?0:-1);
+    (key==='spiritspeaker'||key==='duckle'||key==='nightmare'||key==='vigil'||key==='flugel')&&
+     b.summons?.at(side===-1?0:-1);
    const target=device||sharedSummon||(config.bodies?(preferred?.y<450?other:preferred)??b:b);
    const dx=target.x-a.x;
    let desired=target.x+side*(device?65:config.stance??104);
@@ -572,6 +607,14 @@ async function fight(page,side,key,config) {
    hold('KeyA',position<-7||(Math.abs(position)<=7&&turn&&dx<0));
    hold('KeyD',position>7||(Math.abs(position)<=7&&turn&&dx>0));
    const inReach=Math.abs(dx)<125&&dx*a.dir>=0;
+   if(key==='vigil'&&f.active===2&&b.vigil?.monitor&&!b.vigil.recorded&&inReach&&a.lock<=0&&f.t-lastRecord>.8){
+    const skill=b.vigil.monitor===1?'skill1':'skill2';
+    if((a.cd[skill]??0)===0){window.lab.action(skill);lastRecord=f.t}
+   }
+   if(key==='flugel'&&lionReady&&(sharedSummon||b.flugel.ward>0&&!wardDown)&&inReach&&
+      a.ground&&!f.macro&&f.t-lastLionFire>3.2){
+    window.lab.action('slot1');lastLionFire=f.t;
+   }
    if(healing&&Math.abs(position)<15&&a.ground&&!f.macro&&f.t>=nextHeal){
     window.lab.action('slot1');nextHeal=f.t+10;
    }
@@ -623,9 +666,11 @@ async function fight(page,side,key,config) {
    const watchHerra=key==='herra'&&!gloomDown&&b.hp<680;
    const watchNightmare=key==='nightmare'&&!shieldDown&&!sharedSummon&&b.hp<640;
    const watchCocoon=hasCocoon&&!sharedSummon&&(!escaped||!peerEscaped);
+   const watchVigil=key==='vigil'&&!vigilDown&&!sharedSummon;
+   const watchLion=key==='flugel'&&!sharedSummon&&(!lionReady||!orbsDown&&b.hp<620);
    hold('KeyJ',!watchRelay&&!watchGravity&&!watchEmperor&&!watchPearl&&!watchSuanni&&!watchBreak&&!watchYumka&&!watchPapilla&&
     !watchLava&&!watchOverseer&&!watchReflections&&!watchDuck&&!watchShip&&!watchHerra&&!watchNightmare&&
-    !watchCocoon&&!healing&&inReach&&(!device||Math.abs(dx)<96));
+    !watchCocoon&&!watchVigil&&!watchLion&&!healing&&inReach&&(!device||Math.abs(dx)<96));
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
@@ -662,6 +707,10 @@ async function run(key,config) {
    await page.locator('#fieldBossHp').waitFor({state:'visible',timeout:8000});
    assert.equal(await page.locator('#fieldBoss progress:visible').count(),1);
   }
+ }
+ if(key==='vigil'){
+  await host.evaluate(()=>window.lab.action('swap'));
+  await host.waitForFunction(()=>window.lab.frame.active===2);
  }
  await Promise.all([fight(host,-1,key,config),fight(guest,1,key,config)]);
  try{
@@ -774,6 +823,14 @@ async function run(key,config) {
  if(key==='moongecko'){
   assert.ok(a.anchorLayers.some(layers=>b.anchorLayers.includes(layers)),JSON.stringify(results));
   assert.ok(results.every(result=>result.anchorBroken&&result.geoExposure),JSON.stringify(results));
+ }
+ if(key==='vigil'){
+  assert.ok(a.starLayouts.some(layout=>b.starLayouts.includes(layout)),JSON.stringify(results));
+  assert.ok(a.vigilDown&&b.vigilDown,JSON.stringify(results));
+ }
+ if(key==='flugel'){
+  assert.ok(a.orbLayouts.some(layout=>b.orbLayouts.includes(layout)),JSON.stringify(results));
+  assert.ok(results.every(result=>result.wardDown&&result.orbsDown),JSON.stringify(results));
  }
  if(config.fallTell) assert.ok(a.fallLayouts.some(x=>b.fallLayouts.includes(x)),JSON.stringify(results));
  if(config.observeRecovery) assert.ok(a.recovered&&b.recovered,JSON.stringify(results));

@@ -26,9 +26,9 @@ return function(C)
   if b.form=='down' then return s.ward.downFactor end
   return b.mode=='electro' and b.ward>0 and s.ward.damageFactor or 1
  end
- function lion.onHit(cast,b,s,_,element)
+ function lion.onHit(cast,b,s,_,element,_,party)
   if b.mode~='electro' or b.ward<=0 or b.wardContacts[cast] or cast.reaction or
-     not cast.startedAt or cast.startedAt<b.wardOpenedAt then return end
+     not C.fieldCastStartedSince(party,b.fieldBoss,cast,b.wardOpenedAt) then return end
   b.wardContacts[cast]=true
   local amount=element=='electro' and 0 or effective[element] and s.ward.effectiveLayers or 1
   b.ward=math.max(0,b.ward-amount)
@@ -53,6 +53,9 @@ return function(C)
   return {move=m,tick=0,origin=b.x,dir=b.facing,mode=b.mode,seen={{},{},{}},brokenOrbs=0,
    source={id=b.id,owner=b,y=s.floorY,damageElement=b.mode}}
  end
+ function lion.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
  local function lock(s,c,a)
   local m=c.move
   if m.kind=='slash' then
@@ -70,11 +73,11 @@ return function(C)
   for i,offset in ipairs(s.orbs.offsets) do
    local x=clamp(c.origin+offset*U,s.arenaMin+32,s.arenaMax-32)
    local contacts=setmetatable({},{__mode='k'})
-   local function accepts(cast)
-    return not cast.reaction and cast.startedAt and cast.startedAt>=c.openedAt
+   local function accepts(cast,party)
+    return not cast.reaction and C.fieldCastStartedSince(party,b.fieldBoss,cast,c.openedAt)
    end
-   local function contact(_,cast,unit)
-    if accepts(cast) and not contacts[cast] then
+   local function contact(party,cast,unit)
+    if accepts(cast,party) and not contacts[cast] then
      contacts[cast]=true
      unit.hp=math.max(0,unit.hp-(swirl[cast.element] and s.orbs.elementalLayers or 1))
     end

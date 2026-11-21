@@ -64,11 +64,8 @@ return function(C)
     local layers=cast.element=='geo' and s.anchor.geoLayers or 1
     unit.hp=math.max(0,unit.hp-layers)
     if unit.hp==0 then
-     c.anchorParty=party
-     c.backlash={id=cast.id,key='moongecko:anchor',atk=s.anchor.backlashAttack,
-      x=b.x,y=b.y,dir=1,radial=true,range=1,limit=1,targetId=b.id,mult=1,color=gold,
-      element='geo',reaction=true,critRate=0,gain=0}
-     c.backlashDamage=C.enemyHitDamage(party,c.backlash,b,1,'geo')
+     c.backlash=C.captureFieldBacklash(party,b,cast.id,
+      {atk=s.anchor.backlashAttack,key='moongecko:anchor',element='geo',color=gold})
     end
    end
    return false
@@ -79,24 +76,13 @@ return function(C)
    acceptsCast=accepts,onCastContact=contact}
   state.enemies[#state.enemies+1]=c.summon
  end
- local function backlash(state,b,c)
-  local party=c.anchorParty
-  if not state.parties or (party.enemies==state.enemies and C.sharesCoopField(party) and party.coopMember.online) then
-   C.resolveCast(party,c.backlash)
-  elseif b.hp<=c.backlashDamage then
-   -- Settle a lethal backlash using existing contributions when the breaker has left.
-   C.defeatEnemy(state.parties[1],b,nil)
-  else
-   b.hp=b.hp-c.backlashDamage
-  end
- end
  function gecko.tick(state,b,s,c,a)
   local m,t=c.move,c.tick+1
   c.tick=t
   if c.summon and c.summon.hp<=0 then
    c.broken=t
    C.clearFieldSummon(state,c)
-   backlash(state,b,c)
+   C.resolveFieldBacklash(state,b,c.backlash)
    if b.hp<=0 then return true end
   end
   if c.broken then

@@ -22,10 +22,13 @@ return function(C)
   return {move=m,tick=0,origin=b.x,dir=b.facing,seen={{},{}},records={'none','none'},counts={},
    source={id=b.id,owner=b,y=s.floorY,damageElement=m.element}}
  end
- function vigil.onHit(cast,b,s,slot,element,damage)
+ function vigil.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
+ function vigil.onHit(cast,b,s,slot,element,damage,party)
   local c=slot.cast
   if not c or not c.monitor or c.recorded or not colors[element] or element=='none' then return end
-  if damage<=0 or cast.reaction or not cast.startedAt or cast.startedAt<c.openedAt then return end
+  if damage<=0 or cast.reaction or not C.fieldCastStartedSince(party,b.fieldBoss,cast,c.openedAt) then return end
   c.counts[element]=(c.counts[element] or 0)+1
   local needed=c.monitor==2 and c.records[1]==element and s.monitor.repeatHits or s.monitor.hits
   if c.counts[element]>=needed then c.records[c.monitor]=element;c.recorded=true end
@@ -38,11 +41,11 @@ return function(C)
    local layers=element=='none' and s.stars.inertLayers or s.stars.activeLayers
    local x=clamp(c.origin+dir*s.stars.offset*U,s.arenaMin+40,s.arenaMax-40)
    local contacts=setmetatable({},{__mode='k'})
-   local function accepts(cast)
-    return not cast.reaction and cast.startedAt and cast.startedAt>=c.starsOpenedAt
+   local function accepts(cast,party)
+    return not cast.reaction and C.fieldCastStartedSince(party,b.fieldBoss,cast,c.starsOpenedAt)
    end
-   local function contact(_,cast,unit)
-    if accepts(cast) and not contacts[cast] then
+   local function contact(party,cast,unit)
+    if accepts(cast,party) and not contacts[cast] then
      contacts[cast]=true
      local amount=1
      if element~='none' then
@@ -50,7 +53,10 @@ return function(C)
       elseif colors[cast.element] and cast.element~='none' then amount=s.stars.opposedLayers end
      end
      unit.hp=math.max(0,unit.hp-amount)
-     if amount>0 then unit.lastActor=cast.id end
+     if unit.hp==0 then
+      unit.backlash=C.captureFieldBacklash(party,b,cast.id,
+       {atk=s.stars.backlashAttack,key='fallen-vigil:star',element='physical',color=gold})
+     end
     end
     return false
    end
@@ -70,9 +76,7 @@ return function(C)
     if not unit.resolved then
      unit.resolved=true
      C.removeFieldSummon(state,unit)
-     C.resolveCast(state,{id=unit.lastActor or 1,key='fallen-vigil:star',atk=s.stars.backlashAttack,
-      x=b.x,y=b.y,dir=1,radial=true,range=1,limit=1,targetId=b.id,mult=1,color=gold,
-      element='physical',reaction=true,critRate=0,gain=0})
+     C.resolveFieldBacklash(state,b,unit.backlash)
      if b.hp<=0 then return end
     end
    else alive=alive+1 end

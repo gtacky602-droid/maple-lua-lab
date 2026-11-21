@@ -8142,6 +8142,11 @@
       "nod-nightmare-shore",
       "nod-moonfly-hollow",
       "nod-gecko-depths",
+      "dornman-camp",
+      "windrest-vigil-court",
+      "snezhnaya-hub",
+      "snezhnaya-field",
+      "flugel-tundra-basin",
       "witztli-tristars-camp",
       "atocpan-battlegoat-ironclaw-field",
       "sne-novokichev-ore-yard"
@@ -8191,6 +8196,8 @@
       "boss-22150101",
       "boss-26301101",
       "boss-26302101",
+      "boss-24111101",
+      "boss-26310501",
       "legend-natlan_polychrome_tristars",
       "legend-natlan_battlegoat_ironclaw",
       "legend-snez_rowdy_beast_host"
@@ -8327,6 +8334,11 @@
       "evidence/coop-moonfly-cocoons.png",
       "evidence/coop-moongecko-browser.json",
       "evidence/coop-moongecko-moonstone-anchor.png",
+      "evidence/coop-vigil-flugel-lua-http.json",
+      "evidence/coop-vigil-browser.json",
+      "evidence/coop-vigil-elemental-stars.png",
+      "evidence/coop-flugel-browser.json",
+      "evidence/coop-flugel-wind-orbs.png",
       "evidence/coop-jadeplume-lua-http.json",
       "evidence/coop-jadeplume-browser.json",
       "evidence/coop-jadeplume-leap.png"

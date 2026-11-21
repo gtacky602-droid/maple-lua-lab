@@ -61,6 +61,22 @@ return function(C,configs,controllers)
   local _,now=C.fieldSlot(party,id)
   return party.t-cast.startedAt<=now-openedAt+1e-8
  end
+ function C.captureFieldBacklash(party,boss,actor,hit)
+  local cast={id=actor,key=hit.key,atk=hit.atk,x=boss.x,y=boss.y,dir=1,radial=true,range=1,
+   limit=1,targetId=boss.id,mult=1,color=hit.color,element=hit.element,reaction=true,critRate=0,gain=0}
+  return {party=party,cast=cast,damage=C.enemyHitDamage(party,cast,boss,1,cast.element)}
+ end
+ function C.resolveFieldBacklash(state,boss,backlash)
+  local party=backlash.party
+  if not state.parties or (party.enemies==state.enemies and C.sharesCoopField(party) and party.coopMember.online) then
+   C.resolveCast(party,backlash.cast)
+  elseif boss.hp<=backlash.damage then
+   -- Settle a lethal backlash using existing contributions when the breaker has left.
+   C.defeatEnemy(state.parties[1],boss,nil)
+  else
+   boss.hp=boss.hp-backlash.damage
+  end
+ end
  function C.fieldGravityFactor(s,a)
   local spec=byNode[current(s)]
   local slot=spec and C.fieldSlot(s,spec.id)
@@ -420,7 +436,7 @@ return function(C,configs,controllers)
   local spec=e.fieldBoss and byId[e.fieldBoss]
   if not spec or e.hp<=0 or e.invulnerable then return end
   local behavior=controllers[spec.controller]
-  if behavior.onHit then behavior.onHit(cast,e,spec,C.fieldSlot(s,spec.id),damageElement,damage) end
+  if behavior.onHit then behavior.onHit(cast,e,spec,C.fieldSlot(s,spec.id),damageElement,damage,s) end
  end
 
  local function waitTicks(now,slot)
@@ -497,7 +513,8 @@ return function(C,configs,controllers)
   if cast and cast.summons then
    f.fieldBoss.summons={}
    for _,unit in ipairs(cast.summons) do
-    if unit.hp>0 then f.fieldBoss.summons[#f.fieldBoss.summons+1]={id=unit.id,x=unit.x,y=unit.y,hp=unit.hp,maxhp=unit.maxhp} end
+    if unit.hp>0 then f.fieldBoss.summons[#f.fieldBoss.summons+1]={id=unit.id,x=unit.x,y=unit.y,hp=unit.hp,
+     maxhp=unit.maxhp,element=unit.element} end
    end
   end
   if partner then

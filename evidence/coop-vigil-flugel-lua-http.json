@@ -1,0 +1,41 @@
+{
+  "vigil": {
+    "lua": {
+      "participants": 4,
+      "sharedRecords": [
+        "pyro",
+        "hydro"
+      ],
+      "distinctPartyClocks": true,
+      "prewindowAndReactionRejected": true,
+      "repeatElementThreshold": 6,
+      "starHitsDeduplicated": true,
+      "backlashAttributedToBreaker": true,
+      "onlyRemainingWaveHits": true,
+      "departingBreakerDoesNotDuplicateRewards": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  },
+  "flugel": {
+    "lua": {
+      "participants": 4,
+      "separateAreaHits": true,
+      "sharedFlight": true,
+      "oneWardAcrossParties": true,
+      "wardBreakStopsThunder": true,
+      "sharedOrbPositions": true,
+      "thirdOrbCancelsGaleAtBoundary": true,
+      "rearmedWardRejectsOldCasts": true,
+      "individualRewards": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  }
+}

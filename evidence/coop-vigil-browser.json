@@ -1,0 +1,154 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 700,
+  "results": [
+    {
+      "seconds": 23.58,
+      "hp": 94,
+      "kills": 1,
+      "startingMora": 0,
+      "mora": 155,
+      "startingXp": 0,
+      "xp": 1250,
+      "moves": [
+        "FV01",
+        "FV02",
+        "FV03"
+      ],
+      "manualDamage": 322,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        24111101
+      ],
+      "gravityTracks": [],
+      "jump": null,
+      "fireLayouts": [],
+      "exposedAt": [],
+      "pearls": [],
+      "interruptedAt": [],
+      "sharedObjects": [],
+      "diveLayouts": [],
+      "cannonLayouts": [],
+      "hpMonotonic": true,
+      "heatStates": [],
+      "eruptionLayouts": [],
+      "coolingTime": null,
+      "purgeLayouts": [],
+      "cooledFlows": [],
+      "reflectionLayouts": [],
+      "reflectionLayers": [],
+      "reflectionBroken": false,
+      "repairLayouts": [],
+      "thermalStates": [],
+      "machineDown": false,
+      "starLayouts": [
+        "867.10:pyro:3,1139.90:pyro:3"
+      ],
+      "vigilDown": true
+    },
+    {
+      "seconds": 23.6,
+      "hp": 140,
+      "kills": 1,
+      "startingMora": 0,
+      "mora": 155,
+      "startingXp": 0,
+      "xp": 1250,
+      "moves": [
+        "FV01",
+        "FV02",
+        "FV03"
+      ],
+      "manualDamage": 50,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        24111101
+      ],
+      "gravityTracks": [],
+      "jump": null,
+      "fireLayouts": [],
+      "exposedAt": [],
+      "pearls": [],
+      "interruptedAt": [],
+      "sharedObjects": [],
+      "diveLayouts": [],
+      "cannonLayouts": [],
+      "hpMonotonic": true,
+      "heatStates": [],
+      "eruptionLayouts": [],
+      "coolingTime": null,
+      "purgeLayouts": [],
+      "cooledFlows": [],
+      "reflectionLayouts": [],
+      "reflectionLayers": [],
+      "reflectionBroken": false,
+      "repairLayouts": [],
+      "thermalStates": [],
+      "machineDown": false,
+      "starLayouts": [
+        "867.10:pyro:3,1139.90:pyro:3"
+      ],
+      "vigilDown": true
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 155,
+      "xp": 1250,
+      "respawn": true
+    },
+    {
+      "clears": 1,
+      "mora": 155,
+      "xp": 1250,
+      "respawn": true
+    }
+  ],
+  "report": {
+    "hub": "dornman-camp",
+    "hostSaved": true,
+    "guestQuest": null,
+    "xp": 1400,
+    "mora": 220
+  },
+  "scenery": "vigilField",
+  "errors": []
+}
