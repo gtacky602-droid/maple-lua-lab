@@ -1,0 +1,73 @@
+{
+  "participants": 2,
+  "hp": 1280,
+  "localTemperature": 0,
+  "remoteTemperature": 6.43333333333332,
+  "sharedDeviceCooldown": true,
+  "results": [
+    {
+      "won": true,
+      "stages": [
+        "cryo",
+        "seal",
+        "transform",
+        "pyro"
+      ],
+      "moths": [
+        1,
+        3
+      ],
+      "sealDamage": 50,
+      "hp": 110,
+      "manualDamage": 442,
+      "returns": 0
+    },
+    {
+      "won": true,
+      "stages": [
+        "cryo",
+        "seal",
+        "transform",
+        "pyro"
+      ],
+      "moths": [
+        2,
+        4
+      ],
+      "sealDamage": 50,
+      "hp": 140,
+      "manualDamage": 642,
+      "returns": 0
+    }
+  ],
+  "scene": {
+    "key": "inazuma",
+    "file": "inazuma-background-v1.png",
+    "state": "ready"
+  },
+  "questCounts": [
+    1,
+    null
+  ],
+  "saved": [
+    {
+      "wait": 3546,
+      "clears": 1,
+      "xp": 44850,
+      "mora": 860,
+      "quest": "active"
+    },
+    {
+      "wait": 3545,
+      "clears": 1,
+      "xp": 44850,
+      "mora": 860,
+      "quest": null
+    }
+  ],
+  "report": {
+    "xp": 36000,
+    "mora": 3000
+  },
+  "errors": []
+}

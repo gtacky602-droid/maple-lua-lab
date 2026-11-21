@@ -7,14 +7,16 @@ return function(C)
  local function mix(a,b,q)return a+(b-a)*q end
  local function actor(s)
   local a=s.actors[s.active]
-  if a.hp>0 then return a end
+  if a and a.hp>0 then return a end
   for _,other in ipairs(s.actors) do if other.hp>0 then return other end end
  end
  local function body(e,x,y,height)
   e.x,e.y,e.drawHeight=x,y,height;e.hitTop=y-height;e.hitBottom=y
  end
  local function log(s,w,key,id,value)
-  C.combatEvent(s,'signora:'..key,id or 0,w.primary.id,value)
+  for _,party in ipairs(s.parties or {s}) do
+   C.combatEvent(party,'signora:'..key,id or 0,w.primary.id,value)
+  end
  end
  local function box(x,r,y,h) return {lo=x-r,hi=x+r,y=y,h=h} end
  local function standing(a,shape)
@@ -24,22 +26,32 @@ return function(C)
  local function remove(s,w)
   for i=#s.enemies,1,-1 do if s.enemies[i]==w.primary then table.remove(s.enemies,i) end end
  end
- local function clearEnvironment(w)
-  w.floors={};w.devices={0,0};w.hold=0;w.heldDevice=nil
-  w.lastFloor={};w.nextExtreme=nil;w.lastHeatHit=nil;w.cause=nil;w.holdActor=nil
+ local function newClimate(temperature) return {temperature=temperature or 0,hold=0,lastFloor={}} end
+ local function climate(w,party)
+  local record=w.climates[party]
+  if not record then record=newClimate();w.climates[party]=record end
+  return record
  end
- local function cause(w,kind) w.cause={kind=kind,untilTick=w.clock+60} end
+ local function clearEnvironment(w,keepTemperature)
+  local climates=setmetatable({},{__mode='k'})
+  if keepTemperature then
+   for party,record in pairs(w.climates) do climates[party]=newClimate(record.temperature) end
+  end
+  w.climates=climates;w.floors={};w.devices={0,0}
+ end
+ local function cause(w,record,kind) record.cause={kind=kind,untilTick=w.clock+60} end
  local function transformation(s,w,spec)
   w.stage='transform';w.phase='transition';w.cast=nil;w.seal=nil;w.stageTick=0
-  clearEnvironment(w);w.primary.invulnerable=true
+  clearEnvironment(w,true);w.primary.invulnerable=true
   log(s,w,'WS09')
  end
  local function cocoon(s,w,spec)
   local e=w.primary
   w.stage='seal';w.phase='cocoon';w.stageTick=0;w.cast=nil
-  w.seal={hp=spec.seal.strength,moths={},serial=0,spent={},nextHit=0,
+  w.seal={hp=spec.seal.strength,moths={},serial=0,spent=setmetatable({},{__mode='k'}),
+   nextHit=setmetatable({},{__mode='k'}),tokens=setmetatable({},{__mode='k'}),
    nextMoths=spec.seal.opening,nextPressure=spec.seal.pressureFirst}
-  clearEnvironment(w)
+  clearEnvironment(w,true)
   body(e,spec.center,spec.floorY,115)
   e.invulnerable=true;e.noAutoTarget=true;e.aura=nil;e.burning=nil;e.applicationClocks=nil
   log(s,w,'WS08')
@@ -47,19 +59,22 @@ return function(C)
  local function hitSeal(s,w,spec,cast,element)
   local seal=w.seal
   local inputAt=cast.playerInputAt
-  if not seal.openedAt or not inputAt or inputAt<seal.openedAt or cast.reaction or seal.spent[cast] or w.clock<seal.nextHit then return false end
+  local now=s.coop and s.coop.weeklySlot==w and s.coop.time or s.t
+  if not seal.openedAt or not inputAt or s.t-inputAt>now-seal.openedAt+1e-8 or cast.reaction
+     or seal.spent[cast] or w.clock<(seal.nextHit[s] or 0) then return false end
   local flame=element=='pyro'
   for _,part in ipairs(cast.damageElements or {}) do if part=='pyro' then flame=true end end
   local charge=flame and spec.seal.pyroCharge or spec.seal.plainCharge
-  local token=seal.token
+  local token=seal.tokens[s]
   if token and inputAt>=token.at then
-   charge=spec.seal.mothCharge;seal.token=nil
+   charge=spec.seal.mothCharge;seal.tokens[s]=nil
    log(s,w,'moth-used',cast.id,token.id)
   end
-  seal.spent[cast]=true;seal.nextHit=w.clock+spec.seal.hitInterval
+  seal.spent[cast]=true;seal.nextHit[s]=w.clock+spec.seal.hitInterval
   seal.hp=math.max(0,seal.hp-charge)
   log(s,w,'seal-hit',cast.id,charge)
   C.combatNumber(s,w.primary,charge,'#ffdc8e')
+  if s.coop then C.coopContact(s,w.primary,cast.id) end
   if seal.hp==0 then transformation(s,w,spec) end
   return true
  end
@@ -77,6 +92,7 @@ return function(C)
   C.combatNumber(s,e,critical and tostring(amount)..'!' or amount,color)
   C.combatEvent(s,'hit',cast.id,e.id,amount)
   local last=s.events[#s.events];last.element=element;last.critical=not not critical;last.reaction=cast.reaction or false
+  if s.coop then C.coopContact(s,e,cast.id) end
   if amount==e.hp then C.defeatEnemy(s,e,cast.id)
   else
    e.hp=e.hp-amount
@@ -86,7 +102,7 @@ return function(C)
   return true
  end
  function controller.spawn(s,w,spec)
-  w.stage='cryo';w.stageTick=0;w.clock=0;w.remainder=0;w.temperature=0
+  w.stage='cryo';w.stageTick=0;w.clock=0;w.remainder=0
   w.index=1;w.cast=nil;w.rest=spec.noticeTicks;w.seal=nil;w.lastTornado=-math.huge;w.sinceTornado=3
   clearEnvironment(w)
   local e=w.primary;e.dir=-1;e.invulnerable=false;e.underground=false
@@ -99,20 +115,30 @@ return function(C)
   for _,a in ipairs(s.actors) do a.grapple=nil end
  end
  function controller.cleanup(s,w)
-  remove(s,w);w.cast=nil;w.seal=nil;w.temperature=0;w.primary.underground=true
+  remove(s,w);w.cast=nil;w.seal=nil;w.primary.underground=true
   clearEnvironment(w)
+ end
+ function controller.leaveCoop(party,w)
+  w.climates[party]=nil
+  if w.seal then w.seal.tokens[party]=nil;w.seal.nextHit[party]=nil end
  end
  local function damage(s,w,spec,c,index,a,amount,element,raises)
   if w.primary.hp<=0 then return end
-  local key=index..':'..a.id
-  if c.hit[key] then return end
-  c.hit[key]=true
-  local actual=C.damageActor(s,a,amount,{id=w.primary.id,x=w.primary.x,y=w.primary.y,damageElement=element},true,true)
+  local hit=c.hit[index]
+  if not hit then hit={};c.hit[index]=hit end
+  if hit[a] then return end
+  hit[a]=true
+  local party=s.actorOwners and s.actorOwners[a] or s
+  local actual=C.damageActor(party,a,amount,{id=w.primary.id,x=w.primary.x,y=w.primary.y,damageElement=element},true,true)
   if actual<=0 then return end
-  log(s,w,c.id..':hit',a.id,index)
-  if raises and not c.raised and a.id==s.active and w.clock>=(w.lastHeatHit or -60)+spec.temperature.hitInterval then
-   c.raised=true;w.lastHeatHit=w.clock;w.temperature=math.min(100,w.temperature+spec.temperature.hitRise)
-   cause(w,'hit')
+  log(party,w,c.id..':hit',a.id,index)
+  if raises and a.id==party.active then
+   local record=climate(w,party)
+   if not c.raised[party] and w.clock>=(record.lastHeatHit or -60)+spec.temperature.hitInterval then
+    c.raised[party]=true;record.lastHeatHit=w.clock
+    record.temperature=math.min(100,record.temperature+spec.temperature.hitRise)
+    cause(w,record,'hit')
+   end
   end
  end
  local function area(s,w,spec,c,i,b,amount,element,raises)
@@ -144,54 +170,75 @@ return function(C)
   w.floors[#w.floors+1]={x=x,y=y,width=width,expires=w.clock+conf.floorTtl}
   log(s,w,'floor-set',0,x)
  end
- local function environment(s,w,spec,input)
+ local function updateClimate(party,w,spec,input,element,releases)
+  local a=actor(party);if not a then return end
   local conf=spec.temperature
-  local a=actor(s);if not a then return end
-  local element=w.stage=='pyro' and 'pyro' or 'cryo'
-  for i=#w.floors,1,-1 do if w.clock>=w.floors[i].expires then table.remove(w.floors,i) end end
-  local device=nil
+  local record=climate(w,party)
+  local device
   for i=1,2 do if w.clock>=w.devices[i] and inDevice(a,spec,i,conf.deviceRange) then device=i;break end end
   if device then
-   w.temperature=math.max(0,w.temperature-conf.devicePerSecond/60)
-   if input.interact and not s.auto then
-    if w.heldDevice~=device or w.holdActor~=a.id then w.hold=0 end
-    w.heldDevice=device;w.holdActor=a.id;w.hold=w.hold+1
-    if w.hold>=conf.hold then
-     w.hold=0;w.temperature=0;w.devices[device]=w.clock+conf.recharge
-     local other=3-device
-     if w.clock<w.devices[other] then w.devices[other]=w.clock end
-     for i=#w.floors,1,-1 do local f=w.floors[i]
-      if f.y==spec.floorY and math.abs(f.x-conf.deviceX[device])<conf.clearRange+f.width/2 then table.remove(w.floors,i) end
-     end
-     cause(w,'release');log(s,w,'WS16:release',a.id,device)
-    end
-   else w.hold=0 end
+   record.temperature=math.max(0,record.temperature-conf.devicePerSecond/60)
+   if input and input.interact and not party.auto then
+    if record.heldDevice~=device or record.holdActor~=a then record.hold=0 end
+    record.heldDevice=device;record.holdActor=a;record.hold=record.hold+1
+    if record.hold>=conf.hold then releases[device]=releases[device] or party end
+   else record.hold=0 end
   else
-   w.hold=0;w.heldDevice=nil
+   record.hold=0;record.heldDevice=nil
    local rise=w.stage=='seal' and conf.sealPerSecond or conf.basePerSecond
    for _,f in ipairs(w.floors) do if covered(a,f) then rise=rise+conf.floorPerSecond;break end end
-   w.temperature=math.min(100,w.temperature+rise/60)
+   record.temperature=math.min(100,record.temperature+rise/60)
   end
-  for _,other in ipairs(s.actors) do
-   if w.clock>=(w.lastFloor[other.id] or 0) and not (other.id==a.id and device) then
+  for _,other in ipairs(party.actors) do
+   if w.clock>=(record.lastFloor[other] or 0) and not (other==a and device) then
     for _,f in ipairs(w.floors) do if covered(other,f) then
-     w.lastFloor[other.id]=w.clock+conf.hazardInterval
-     if C.damageActor(s,other,conf.floorDamage,{id=w.primary.id,damageElement=element},false,false)>0 then
-      if other.id==s.active then cause(w,'floor') end
-      log(s,w,'floor-damage',other.id)
+     record.lastFloor[other]=w.clock+conf.hazardInterval
+     if C.damageActor(party,other,conf.floorDamage,{id=w.primary.id,damageElement=element},false,false)>0 then
+      if other.id==party.active then cause(w,record,'floor') end
+      log(party,w,'floor-damage',other.id)
      end
      break
     end end
    end
   end
-  if w.temperature<100 then w.nextExtreme=nil
-  elseif not w.nextExtreme then w.nextExtreme=w.clock+conf.hazardInterval
-  elseif w.clock>=w.nextExtreme then
-   w.nextExtreme=w.clock+conf.hazardInterval
-   if C.damageActor(s,a,conf.envDamage,{id=w.primary.id,damageElement=element},false,false)>0 then
-    cause(w,'overload')
-    log(s,w,'temperature-damage',a.id)
+  if record.temperature<100 then record.nextExtreme=nil
+  elseif not record.nextExtreme then record.nextExtreme=w.clock+conf.hazardInterval
+  elseif w.clock>=record.nextExtreme then
+   record.nextExtreme=w.clock+conf.hazardInterval
+   if C.damageActor(party,a,conf.envDamage,{id=w.primary.id,damageElement=element},false,false)>0 then
+    cause(w,record,'overload');log(party,w,'temperature-damage',a.id)
    end
+  end
+ end
+ local function releaseDevice(w,spec,parties,device,holder)
+  local conf=spec.temperature
+  w.devices[device]=w.clock+conf.recharge
+  local other=3-device
+  if w.clock<w.devices[other] then w.devices[other]=w.clock end
+  for i=#w.floors,1,-1 do
+   local f=w.floors[i]
+   if f.y==spec.floorY and math.abs(f.x-conf.deviceX[device])<conf.clearRange+f.width/2 then table.remove(w.floors,i) end
+  end
+  for _,party in ipairs(parties) do
+   if inDevice(actor(party),spec,device,conf.deviceRange) then
+    local record=climate(w,party)
+    record.temperature=0;record.hold=0;record.nextExtreme=nil
+    cause(w,record,'release')
+   end
+  end
+  log(holder,w,'WS16:release',holder.active,device)
+ end
+ local function environment(s,w,spec,input)
+  local parties=s.parties or {s}
+  local releases={}
+  local element=w.stage=='pyro' and 'pyro' or 'cryo'
+  for i=#w.floors,1,-1 do if w.clock>=w.floors[i].expires then table.remove(w.floors,i) end end
+  for _,party in ipairs(parties) do
+   local held=s.parties and party.coopMember.input or input
+   updateClimate(party,w,spec,held,element,releases)
+  end
+  for device=1,2 do
+   if releases[device] then releaseDevice(w,spec,parties,device,releases[device]) end
   end
  end
  local function sealTick(s,w,spec)
@@ -204,9 +251,16 @@ return function(C)
    if t>=moth.expires then
     seal.serial=seal.serial+1
     seal.moths[i]={id=seal.serial,x=conf.moths[i]+(i==1 and 36 or -36),expires=t+conf.mothTtl}
-   elseif a and not s.auto and not seal.token and math.abs(a.x-moth.x)<33 and math.abs(a.y-spec.floorY)<36 then
-    seal.token={id=moth.id,at=s.t};seal.moths[i]=nil
-    log(s,w,'moth-picked',a.id,moth.id)
+   else
+    for _,party in ipairs(s.parties or {s}) do
+     local picker=actor(party)
+     if picker and not party.auto and not seal.tokens[party]
+        and math.abs(picker.x-moth.x)<33 and math.abs(picker.y-spec.floorY)<36 then
+      seal.tokens[party]={id=moth.id,at=party.t};seal.moths[i]=nil
+      log(party,w,'moth-picked',picker.id,moth.id)
+      break
+     end
+    end
    end
   end
   if t>=seal.nextMoths then
@@ -257,7 +311,7 @@ return function(C)
  end
  local function start(s,w,spec,key)
   local move=spec.moves[key];local e=w.primary
-  local c={key=key,id=key:sub(1,4),t=0,move=move,hit={},projectiles={},points={},targets={},
+  local c={key=key,id=key:sub(1,4),t=0,move=move,hit={},raised={},projectiles={},points={},targets={},
    origin=e.x,dir=e.dir,element=w.stage,floor=spec.floorY}
   for i in ipairs(move.locks) do lock(s,w,spec,c,i) end
   if c.id=='WS14' then w.lastTornado=w.clock;w.sinceTornado=0
@@ -366,7 +420,8 @@ return function(C)
   w.clock=w.clock+1;w.stageTick=w.stageTick+1
   if w.stage=='transform' then
    if w.stageTick>=spec.moves.WS09.total then
-    w.stage='pyro';w.phase='available';w.stageTick=0;w.temperature=0;w.index=1;w.rest=30
+    w.stage='pyro';w.phase='available';w.stageTick=0;w.index=1;w.rest=30
+    clearEnvironment(w)
     body(w.primary,spec.center,spec.floorY,144);w.primary.noAutoTarget=false;w.primary.invulnerable=false
    end
    return
@@ -437,15 +492,16 @@ return function(C)
   v.moveTick=c and c.t or w.stageTick
   v.label=w.stage=='seal' and '氷の繭' or w.stage=='transform' and '焔蝶の羽化' or
     c and (c.t>=c.move.recovery and '反撃の隙' or c.move.title) or '構え'
-  v.temperature=w.temperature;v.temperatureLabel=element=='cryo' and '極寒' or '灼熱'
+  local record=climate(w,s)
+  v.temperature=record.temperature;v.temperatureLabel=element=='cryo' and '極寒' or '灼熱'
   v.deviceLabel=element=='cryo' and '炎心' or '霜眼'
   v.devices={math.max(0,w.devices[1]-w.clock),math.max(0,w.devices[2]-w.clock)}
-  v.deviceHold=w.hold;v.deviceTotal=spec.temperature.hold
+  v.deviceHold=record.hold;v.deviceTotal=spec.temperature.hold
   v.deviceEnabled=w.stage~='transform' and w.phase~='clear'
-  v.cause=w.cause and w.cause.untilTick>w.clock and w.cause.kind or nil
+  v.cause=record.cause and record.cause.untilTick>w.clock and record.cause.kind or nil
   if seal then
    v.seal={hp=seal.hp,max=spec.seal.strength,ready=seal.openedAt~=nil,
-    carrying=seal.token~=nil,moths={}}
+    carrying=seal.tokens[s]~=nil,moths={}}
    for i=1,2 do local m=seal.moths[i];if m then v.seal.moths[#v.seal.moths+1]={x=m.x,id=m.id} end end
   end
   if e.hp<=0 then return end
@@ -504,8 +560,18 @@ return function(C)
   elseif not e.underground then
    C.drawFieldDisplayArt(f,C.signoraWeeklyArt[element],e.x-s.camera,e.y,e.drawHeight,mode,profile,e.dir>0)
   end
-  local a=actor(s)
-  if a and seal and seal.token then text(a.x,a.y-104,'紅蓮蛾','#ffde91') end
+  if seal then
+   local function drawMoth(party,offset)
+    local a=actor(party)
+    if a and seal.tokens[party] then text(a.x,a.y-offset,'紅蓮蛾','#ffde91') end
+   end
+   drawMoth(s,104)
+   if s.coop and s.coop.weeklySlot==w then
+    for _,member in ipairs(s.coop.members) do
+     if member.online and member.state~=s and C.sharesCoopField(member.state) then drawMoth(member.state,132) end
+    end
+   end
+  end
  end
  return controller
 end

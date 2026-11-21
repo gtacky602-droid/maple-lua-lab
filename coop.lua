@@ -33,6 +33,7 @@ return function(C, config)
   local room=s.coop
   if not room then return end
   for i,row in ipairs(room.members) do if row==member then table.remove(room.members,i);break end end
+  C.leaveCoopWeekly(room,s)
   local stillShared=s.enemies==room.enemies
   s.coop,s.coopMember=nil,nil
   if stillShared then C.enterStoryNode(s,s.story.node) end

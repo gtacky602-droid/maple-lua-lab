@@ -8097,6 +8097,7 @@
       "thunder-approach",
       "thunder-field-crest",
       "inazuma-town",
+      "signora-ten-shrine-arena",
       "pyro-hypostasis-field-terrace",
       "watatsumi-landing",
       "hydro-hypostasis-field-cove",
@@ -8217,7 +8218,8 @@
       "boss-29010101",
       "boss-29020101",
       "boss-29030101",
-      "boss-29040101"
+      "boss-29040101",
+      "boss-29050101"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8381,7 +8383,11 @@
       "evidence/coop-azhdaha-lua-http.json",
       "evidence/coop-azhdaha-browser.json",
       "evidence/coop-azhdaha-absorption.png",
-      "evidence/coop-azhdaha-tail.png"
+      "evidence/coop-azhdaha-tail.png",
+      "evidence/coop-signora-lua-http.json",
+      "evidence/coop-signora-browser.json",
+      "evidence/coop-signora-cocoon.png",
+      "evidence/coop-signora-flame.png"
     ],
     "pending": [
       "remaining original field encounters, local legends, weekly and Stygian bosses",

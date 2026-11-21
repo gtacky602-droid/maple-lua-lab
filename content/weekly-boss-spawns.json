@@ -1473,6 +1473,7 @@
     {
       "id": "boss-29050101",
       "controller": "signora",
+      "coop": true,
       "entity": 29050101,
       "name": "淑女",
       "node": "signora-ten-shrine-arena",

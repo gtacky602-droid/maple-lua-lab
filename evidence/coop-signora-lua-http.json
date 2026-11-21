@@ -1,0 +1,21 @@
+{
+  "lua": {
+    "participants": 4,
+    "independentTemperatureAndHits": true,
+    "oneLocalReleaseWhenBothHold": true,
+    "deviceCooldownGuaranteesOneReady": true,
+    "sharedFloorsClearLocally": true,
+    "separateMothsAndInputClocks": true,
+    "onePickupPerMoth": true,
+    "manualFreshAttackOnly": true,
+    "independentCocoonHitInterval": true,
+    "oneTransformationAndIndividualRewards": true
+  },
+  "http": {
+    "participants": 2,
+    "transportedHoldInput": true,
+    "localReleaseOnly": true,
+    "departureClearsMothButKeepsCocoon": true,
+    "individualRewardsAndQuest": true
+  }
+}

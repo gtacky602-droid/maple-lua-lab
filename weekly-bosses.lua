@@ -87,6 +87,13 @@ return function(C,configs,controllers)
   local controller=controllers[spec.controller]
   if controller.share then controller.share(live,s.actors) end
  end
+ function C.leaveCoopWeekly(room,s)
+  local spec=room.weeklySpec
+  if spec then
+   local controller=controllers[spec.controller]
+   if controller.leaveCoop then controller.leaveCoop(s,room.weeklySlot) end
+  end
+ end
  function C.prepareCoopWeekly(room,dt)
   local slot,spec=room.weeklySlot,room.weeklySpec
   local world=currentRoomState(room)

@@ -99,16 +99,16 @@ for row in manifest['entries']:
 s, w, spec = arena()
 a, ally = s.actors[1], s.actors[2]
 assert has_art(s,'idle-')
-w.temperature = 95
+w.climates[s].temperature = 95
 ticks(core,s,29,True)
-assert w.hold == 29 and w.temperature < 95 and w.devices[1] == 0
+assert w.climates[s].hold == 29 and w.climates[s].temperature < 95 and w.devices[1] == 0
 ticks(core,s,1,True)
-assert w.hold == 0 and w.temperature == 0 and w.devices[1] > w.clock
+assert w.climates[s].hold == 0 and w.climates[s].temperature == 0 and w.devices[1] > w.clock
 place(a,890)
 ticks(core,s,30,True)
 assert w.devices[1] <= w.clock < w.devices[2] and len(events(s,'WS16:release')) == 2
 w.cast, w.rest = None, 1000
-w.temperature = 100
+w.climates[s].temperature = 100
 place(a,160)
 hp, ally_hp = a.hp, ally.hp
 ticks(core,s,91)
@@ -149,26 +149,26 @@ for remaining in (74,49,24,0):
     moth = next(iter(w.seal.moths.values()))
     place(a,moth.x)
     ticks(core,s,1)
-    assert w.seal.token.id == moth.id
+    assert w.seal.tokens[s].id == moth.id
     if remaining == 74:
         before = w.seal.hp
         hit(s,w,ally)
         ticks(core,s,28)
-        assert w.seal.token.id == moth.id and w.seal.hp == before
+        assert w.seal.tokens[s].id == moth.id and w.seal.hp == before
         act(s,'swap')
-        assert s.active == 2 and w.seal.token.id == moth.id
+        assert s.active == 2 and w.seal.tokens[s].id == moth.id
         ticks(core,s,48)
         act(s,'swap')
         assert s.active == 1
     hit(s,w)
     if remaining:
-        assert w.seal.hp == remaining and w.seal.token is None
+        assert w.seal.hp == remaining and w.seal.tokens[s] is None
 assert w.stage == 'transform' and w.primary.hp == spec.pyroHp
 assert not list(w.floors.values()) and list(w.devices.values()) == [0,0]
 ticks(core,s,spec.moves.WS09.total-1)
 assert w.primary.invulnerable
 ticks(core,s,1)
-assert not w.primary.invulnerable and w.stage == 'pyro' and w.temperature == 0 and has_art(s,'flame-idle-')
+assert not w.primary.invulnerable and w.stage == 'pyro' and core.frame(s).weeklyBoss.temperature == 0 and has_art(s,'flame-idle-')
 assert len(events(s,'moth-used')) == 4
 
 fight = start()
@@ -185,13 +185,13 @@ play = lua.eval("""function(C,s)
  for t=1,14000 do
   local dx=e.x-a.x
   local goal=e.x+(dx>=0 and -73 or 73)
-  local needsCooling=w.stage~='transform' and w.temperature>=53
+  local needsCooling=w.stage~='transform' and (w.climates[s] and w.climates[s].temperature or 0)>=53
   local attacking=w.stage~='transform' and not e.invulnerable
   if needsCooling then
    local left=w.clock>=w.devices[1]
    local right=w.clock>=w.devices[2]
    goal=(left and (not right or a.x<480)) and 70 or 890;attacking=false
-  elseif w.stage=='seal' and not w.seal.token then
+  elseif w.stage=='seal' and not w.seal.tokens[s] then
    attacking=false;goal=70
    for _,moth in pairs(w.seal.moths) do goal=moth.x;break end
   end
