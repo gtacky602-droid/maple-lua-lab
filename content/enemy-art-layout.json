@@ -129,6 +129,12 @@
     "hover": 0,
     "file": "fatui-wind-operative-shared-idle-sprites-v2.json"
   },
+  "primordial-bathysmal-vishap": {
+    "name": "アビサルヴィシャップ・原種（シネアスと共用する待機候補）",
+    "height": 118,
+    "hover": 0,
+    "file": "cineas-field-idle-sprites-v2.json"
+  },
   "oprichniki-fireblade-shock-trooper": {
     "name": "ファデュイ特務隊・突撃兵・ファイアーブレイド（ラスコルニコフと共用する待機候補）",
     "height": 110,

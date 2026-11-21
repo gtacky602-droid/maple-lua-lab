@@ -1,0 +1,197 @@
+{
+  "scope": "赤璋巡岳府君・移即と天虞、シネアスを対応する通常のヴィシャップと照合。",
+  "images": [
+    {
+      "id": "geo-wiki-10",
+      "page": "https://wiki.biligame.com/ys/岩龙蜥",
+      "image": "https://patchwiki.biligame.com/images/ys/e/ef/amxkd0ddfngq0yocyahc0zg9fh641qu.png",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "3025bdebba46d753c092e769c99e8b6b9d5e0a82484f921ca1a17dab1723236d",
+      "frames": 1,
+      "subject": "ヴィシャップ・岩／移即・天虞",
+      "kind": "共通の図鑑画像",
+      "observation": "正面の橙色の額、白い顎縁。通常型と名付き2体の図鑑ページが同じ画像を参照。"
+    },
+    {
+      "id": "geo-action-7",
+      "page": "https://genshinchronicle.com/gameplay/geovishap-genshin-impact-guide/",
+      "image": "https://genshinchronicle.com/wp-content/uploads/2022/06/Geovishap-without-Infusion.jpg",
+      "size": [
+        1024,
+        576
+      ],
+      "sha256": "48c3d00b4d4e9fa7656d44b7092ab3c5a4bf90735905ad152541c98bfee78169",
+      "frames": 1,
+      "subject": "ヴィシャップ・岩",
+      "kind": "通常・現地",
+      "observation": "元素付与前の斜め正面。大きな肩と前脚、黄褐色の岩板。"
+    },
+    {
+      "id": "geo-action-12",
+      "page": "https://genshinchronicle.com/gameplay/geovishap-genshin-impact-guide/",
+      "image": "https://genshinchronicle.com/wp-content/uploads/2022/06/pyro-infusion-geovishap.jpg",
+      "size": [
+        1024,
+        576
+      ],
+      "sha256": "1d790c93a4e74748c917a270f20a31b33eb730c1f4e861124e888a351f1dfcbe",
+      "frames": 1,
+      "subject": "ヴィシャップ・岩",
+      "kind": "炎・現地",
+      "observation": "斜め横。前脚周辺の橙色と火の範囲、後ろ脚と細くなる尾。"
+    },
+    {
+      "id": "geo-action-17",
+      "page": "https://genshinchronicle.com/gameplay/geovishap-genshin-impact-guide/",
+      "image": "https://genshinchronicle.com/wp-content/uploads/2022/06/Cryo-Infusion.jpg",
+      "size": [
+        1024,
+        468
+      ],
+      "sha256": "cb61f517ee08a760bdf8a84519135a1f16522948c581a505ec87fc1410f31ae8",
+      "frames": 1,
+      "subject": "ヴィシャップ・岩",
+      "kind": "氷・現地",
+      "observation": "斜め横。通常型でも身体に沿って氷が発生する。周囲の氷塊は体の外。"
+    },
+    {
+      "id": "chiz-action-4",
+      "page": "https://kamigame.jp/genshin/page/301691096252040876.html",
+      "image": "https://lh3.googleusercontent.com/npireJ8WlTa7ldiFDcYiDKCXyPqXgMnIroQg-XHeIYmvPrtHcGgOZUGsJrmX2TVf4j4THvsuRKJS0vQutzAGo3Xes9PVj3Eg3TbQ2WYpRVI",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "b13a0c37a12d226f6c4c05e95b0971854c95010298fe81a4ae09e8688865a2f3",
+      "frames": 1,
+      "subject": "移即・天虞",
+      "kind": "名付き遭遇の現地",
+      "observation": "上から両個体を見た姿。共通する肩と腰の厚み、末端が細い尾。"
+    },
+    {
+      "id": "chiz-action-5",
+      "page": "https://kamigame.jp/genshin/page/301691096252040876.html",
+      "image": "https://lh3.googleusercontent.com/su2Hl7sfqL_eUSp_zpv7iuVRN8XAOG963ObfbRXRfwsDcxHb2TtuaLrEwdc7_BevuV50YBYP0O0-ELpMZD-Wj8roVqYa3n4P-sy2mDPOn5fC8A",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "e9188cdccb39a87e48b1c8de132430f9fbe601f6f0691f736563c69e441b4e26",
+      "frames": 1,
+      "subject": "移即・天虞",
+      "kind": "名前付きの現地・戦闘中",
+      "observation": "斜め正面。天虞の青白い前脚の岩板と、移即の橙に発光する前脚。"
+    },
+    {
+      "id": "chiz-secondary-213",
+      "page": "https://gamewith.net/genshin-impact/article/show/43755",
+      "image": "https://img.gamewith.net/img/645afb3dbc26ddaeca026f4ad598cdf0.png",
+      "size": [
+        710,
+        454
+      ],
+      "sha256": "4ab3528a10c92fd5d2965073f6e3f108e61e1717831b01ce301a87756792f940",
+      "frames": 1,
+      "subject": "移即・天虞",
+      "kind": "名前付きの現地・別の撮影者",
+      "observation": "正面寄り。頭の角と顎、前脚の太さが共通。体の外側の氷と炎は戦闘演出。"
+    },
+    {
+      "id": "bath-wiki-10",
+      "page": "https://wiki.biligame.com/ys/深海龙蜥·原种",
+      "image": "https://patchwiki.biligame.com/images/ys/8/8e/99esnve7bheu9xysnc5favy0opf6i0m.png",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "22084c4bb6d71276858f07013878e94a13375fdb4a576f531ba9a159745021f4",
+      "frames": 1,
+      "subject": "アビサルヴィシャップ・原種／シネアス",
+      "kind": "共通の図鑑画像",
+      "observation": "尖った濃紺の頭と青い額、顎の両側の淡色。原種とシネアスのページが同じ画像を参照。"
+    },
+    {
+      "id": "bath-wiki-23",
+      "page": "https://wiki.biligame.com/ys/深海龙蜥·原种",
+      "image": "https://patchwiki.biligame.com/images/ys/9/9e/qgu67f778m0os48c9p9g8kkum7bys1d.gif",
+      "size": [
+        434,
+        300
+      ],
+      "sha256": "deb86fff21e8e21045850b56349a3e84c00f5f7d9c17eb49917e27c7896c3067",
+      "frames": 80,
+      "subject": "アビサルヴィシャップ・原種",
+      "kind": "現地動画の3フレーム",
+      "observation": "25%位置で正面寄り、50%位置で右に旋回。大きな前脚と背の突起が見える。",
+      "reviewedFrames": [
+        0,
+        20,
+        40
+      ]
+    },
+    {
+      "id": "bath-wiki-25",
+      "page": "https://wiki.biligame.com/ys/深海龙蜥·原种",
+      "image": "https://patchwiki.biligame.com/images/ys/9/96/7axj3fadb36hmuojqf428acn5rrnss7.gif",
+      "size": [
+        434,
+        300
+      ],
+      "sha256": "ff16b1bfa2b375f85d79bd920ad396b7787af3e2e20c757e222668f70f29be17",
+      "frames": 126,
+      "subject": "アビサルヴィシャップ・原種",
+      "kind": "現地動画の3フレーム",
+      "observation": "25%位置で側面、50%位置で背側を確認。背中の突起と後脚、後ろに伸びる尾。",
+      "reviewedFrames": [
+        0,
+        31,
+        63
+      ]
+    },
+    {
+      "id": "cine-action-2",
+      "page": "https://altema.jp/gensin/cineas",
+      "image": "https://img.altema.jp/gensin/uploads/2024/04/2024y04m25d_170359908.jpg",
+      "size": [
+        580,
+        296
+      ],
+      "sha256": "1e6ed28f82d3d44f42c0ab7188fd6522c8355f6000a180b4e7741913010c0865",
+      "frames": 1,
+      "subject": "シネアス",
+      "kind": "名前付きの現地・斜め正面",
+      "observation": "暗い青紫の体と高い背。明るい弧が離れて見える戦闘中のカット。"
+    },
+    {
+      "id": "cine-action-9",
+      "page": "https://altema.jp/gensin/cineas",
+      "image": "https://img.altema.jp/gensin/uploads/2024/04/2024y04m25d_1938041796.jpg",
+      "size": [
+        580,
+        325
+      ],
+      "sha256": "f5e0dcaf5572856920401cb67e3d8e1392cefd2009738b35f56c6fd330a81d20",
+      "frames": 1,
+      "subject": "シネアス",
+      "kind": "名前付きの現地・正面寄り",
+      "observation": "発光の外側に頭・肩と前脚が見える。胸の白い光と青い円を体色から除く。"
+    }
+  ],
+  "samePortraitOn": {
+    "geo-wiki-10": [
+      "https://wiki.biligame.com/ys/赤璋巡岳府君·移即",
+      "https://wiki.biligame.com/ys/赤璋巡岳府君·天虞"
+    ],
+    "bath-wiki-10": [
+      "https://wiki.biligame.com/ys/西尼阿斯"
+    ]
+  },
+  "limits": [
+    "図鑑の共通画像は1点。全身の同一性は図鑑だけで判断しない。",
+    "名付き個体を真後ろから撮った画像と単体3Dビューアは未確認。",
+    "原寸とゲーム内のモデル・テクスチャIDは未確認。"
+  ]
+}

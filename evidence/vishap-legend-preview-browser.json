@@ -1,0 +1,177 @@
+{
+  "gallery": {
+    "legacy": {
+      "runs": 5273,
+      "height": 118,
+      "pixels": [
+        "f89ce03f579db8e4d90cc6968f70decc34409bdf6a6118e6129d04a2df0e39a1",
+        "c25e1e3a74110a229fdd15a777d9048a83190a285d790a394acc1936673bc37b"
+      ]
+    },
+    "h48c32": {
+      "runs": 3170,
+      "height": 118,
+      "pixels": [
+        "f89ce03f579db8e4d90cc6968f70decc34409bdf6a6118e6129d04a2df0e39a1",
+        "07cbc2618f6ecdd2b6fc86d0974aad16f1b49fc093405de626b8159933507c01"
+      ]
+    },
+    "h32c16": {
+      "runs": 1497,
+      "height": 118,
+      "pixels": [
+        "f89ce03f579db8e4d90cc6968f70decc34409bdf6a6118e6129d04a2df0e39a1",
+        "130c73d0af4dfa9ab1a8ba8a9d41db455c680ff7c3f01ae4f6474a8adb89c71e"
+      ]
+    }
+  },
+  "placements": {
+    "cineas-legend-chamber": {
+      "legacy": {
+        "status": "配置3体 ／ 矩形16,459個（配置した全体の合計・FPSではありません） ／ 全個体の配置基準点が足場上",
+        "placements": [
+          {
+            "id": "preview-primordial-bathysmal-vishap",
+            "species": "primordial-bathysmal-vishap",
+            "x": 230,
+            "y": 480,
+            "flip": false
+          },
+          {
+            "id": "preview-cineas-shared",
+            "species": "boss-cineas-revised",
+            "x": 480,
+            "y": 480,
+            "flip": false
+          },
+          {
+            "id": "preview-cineas-first",
+            "species": "boss-cineas",
+            "x": 730,
+            "y": 480,
+            "flip": false
+          }
+        ],
+        "background": "bygone-resonance-background-v1.png"
+      },
+      "h48c32": {
+        "status": "配置3体 ／ 矩形9,959個（配置した全体の合計・FPSではありません） ／ 全個体の配置基準点が足場上",
+        "placements": [
+          {
+            "id": "preview-primordial-bathysmal-vishap",
+            "species": "primordial-bathysmal-vishap",
+            "x": 230,
+            "y": 480,
+            "flip": false
+          },
+          {
+            "id": "preview-cineas-shared",
+            "species": "boss-cineas-revised",
+            "x": 480,
+            "y": 480,
+            "flip": false
+          },
+          {
+            "id": "preview-cineas-first",
+            "species": "boss-cineas",
+            "x": 730,
+            "y": 480,
+            "flip": false
+          }
+        ],
+        "background": "bygone-resonance-background-v1.png"
+      },
+      "h32c16": {
+        "status": "配置3体 ／ 矩形4,557個（配置した全体の合計・FPSではありません） ／ 全個体の配置基準点が足場上",
+        "placements": [
+          {
+            "id": "preview-primordial-bathysmal-vishap",
+            "species": "primordial-bathysmal-vishap",
+            "x": 230,
+            "y": 480,
+            "flip": false
+          },
+          {
+            "id": "preview-cineas-shared",
+            "species": "boss-cineas-revised",
+            "x": 480,
+            "y": 480,
+            "flip": false
+          },
+          {
+            "id": "preview-cineas-first",
+            "species": "boss-cineas",
+            "x": 730,
+            "y": 480,
+            "flip": false
+          }
+        ],
+        "background": "bygone-resonance-background-v1.png"
+      }
+    },
+    "chizhang-legend-terrace": {
+      "legacy": {
+        "status": "配置2体 ／ 矩形10,119個（配置した全体の合計・FPSではありません） ／ 全個体の配置基準点が足場上",
+        "placements": [
+          {
+            "id": "preview-yiji-current",
+            "species": "boss-chizhang-ember-revised",
+            "x": 290,
+            "y": 480,
+            "flip": false
+          },
+          {
+            "id": "preview-tianyu-current",
+            "species": "boss-chizhang-frost-revised",
+            "x": 655,
+            "y": 480,
+            "flip": false
+          }
+        ],
+        "background": "chenyu-background-v1.png"
+      },
+      "h48c32": {
+        "status": "配置2体 ／ 矩形6,143個（配置した全体の合計・FPSではありません） ／ 全個体の配置基準点が足場上",
+        "placements": [
+          {
+            "id": "preview-yiji-current",
+            "species": "boss-chizhang-ember-revised",
+            "x": 290,
+            "y": 480,
+            "flip": false
+          },
+          {
+            "id": "preview-tianyu-current",
+            "species": "boss-chizhang-frost-revised",
+            "x": 655,
+            "y": 480,
+            "flip": false
+          }
+        ],
+        "background": "chenyu-background-v1.png"
+      },
+      "h32c16": {
+        "status": "配置2体 ／ 矩形2,738個（配置した全体の合計・FPSではありません） ／ 全個体の配置基準点が足場上",
+        "placements": [
+          {
+            "id": "preview-yiji-current",
+            "species": "boss-chizhang-ember-revised",
+            "x": 290,
+            "y": 480,
+            "flip": false
+          },
+          {
+            "id": "preview-tianyu-current",
+            "species": "boss-chizhang-frost-revised",
+            "x": 655,
+            "y": 480,
+            "flip": false
+          }
+        ],
+        "background": "chenyu-background-v1.png"
+      }
+    }
+  },
+  "errors": [],
+  "mobileGalleryWidth": 390
+}
