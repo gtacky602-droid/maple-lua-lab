@@ -112,7 +112,15 @@ const cases={
  papilla:{hub:'natlan-hub',arena:'papilla-field-hollow',approach:'natlan-field',
   boss:'boss-22120101',quest:'papilla-commission',hp:1050,mora:395,xp:273250,scene:'papillaField',
   asset:'papilla-field',pose:'poses',label:'morph',fixture:'papilla-field',report:[7800,500],
-  evade:{FMP01:[128],FMP02:[122,182],FMP03:[128]}}
+  evade:{FMP01:[128],FMP02:[122,182],FMP03:[128]}},
+ 'lava-dragon':{hub:'natlan-hub',arena:'atocpan-lava-field',approach:'natlan-field',
+  boss:'boss-26270301',quest:'lava-dragon-commission',hp:1100,mora:410,xp:309900,scene:'lavaDragonField',
+  asset:'lava-dragon-field',pose:'poses',label:'eruption',fixture:'lava-dragon-field',report:[8000,520],stance:87,
+  evade:{FLD01:[104],FLD02:[104,170],FLD03:[106,124],FLD04:[122,188]}},
+ overseer:{hub:'natlan-hub',transit:['natlan-field'],arena:'atocpan-overseer-ruin',approach:'atocpan-lava-field',
+  boss:'boss-24090501',quest:'overseer-commission',hp:1125,mora:420,xp:351500,scene:'overseerField',
+  asset:'overseer-field',pose:'poses',label:'cooled',fixture:'overseer-field',report:[8200,540],stance:87,
+  evade:{FOV01:[104,175,246],FOV02:[107,132],FOV03:[156,242,328]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -154,11 +162,13 @@ async function fight(page,side,key,config) {
   const skullTracks=new Set(),bombLayouts=new Set(),relayTracks=new Set(),struck=new Set();
   const gravityTracks=new Set(),fireLayouts=new Set(),exposedAt=new Set(),pearls=new Set(),interruptedAt=new Set();
   const sharedObjects=new Set(),diveLayouts=new Set(),cannonLayouts=new Set();
+  const heatStates=new Set(),eruptionLayouts=new Set(),purgeLayouts=new Set(),cooledFlows=new Set();
   const art=config.pose&&config.asset+'-'+config.pose+'-source-v1.png';
   const entities=config.bodies??[Number(config.boss.slice(5))];
   const start=window.lab.frame;
   let cloaked=false,lastMove,lastTick,used=new Set(),capture=null,guardTick=null,recovery=0,shieldUsed=false,recovered=false;
   let jumpProbe=null,jump=null,lastHp=Infinity,hpMonotonic=true;
+  let lavaStage='rock',lastHeatAction=-Infinity,hotAt=null,coolingTime=null;
   function hold(code,on) {
    if(on===held.has(code)) return;
    if(on) held.add(code); else held.delete(code);
@@ -183,7 +193,8 @@ async function fight(page,side,key,config) {
      skullTracks:[...skullTracks],bombLayouts:[...bombLayouts],relayTracks:[...relayTracks],struck:[...struck],
      gravityTracks:[...gravityTracks],jump,fireLayouts:[...fireLayouts],exposedAt:[...exposedAt],
      pearls:[...pearls],interruptedAt:[...interruptedAt],sharedObjects:[...sharedObjects],diveLayouts:[...diveLayouts],
-     cannonLayouts:[...cannonLayouts],hpMonotonic};
+     cannonLayouts:[...cannonLayouts],hpMonotonic,heatStates:[...heatStates],eruptionLayouts:[...eruptionLayouts],
+     coolingTime,purgeLayouts:[...purgeLayouts],cooledFlows:[...cooledFlows]};
     return;
    }
    if(!b) {
@@ -368,6 +379,27 @@ async function fight(page,side,key,config) {
      if(visual){forms.add('fungus');flightTargets.add(b.destinationX)}
     }
    }
+   if(key==='lava-dragon'&&b.lavaHeat){
+    heatStates.add([b.form,b.lavaHeat.level].join(','));
+    if(b.eruptionPoints?.length===2&&b.tick<144){
+     const marks=f.draws.filter(d=>d.kind==='text'&&d.color==='#fff1be'&&['1 / 2','2 / 2'].includes(d.text));
+     if(marks.length===2&&marks.every((d,i)=>Math.abs(d.x+f.camera-b.eruptionPoints[i])<.001)){
+      eruptionLayouts.add(b.eruptionPoints.map(x=>x.toFixed(3)).join(','));
+      visual=b.tick>=119;
+     }
+    }
+   }
+   if(key==='overseer'&&b.purgePoints?.length===3){
+    const mark=f.draws.find(d=>d.kind==='text'&&d.color==='#ebfcff'&&/^[123] \/ 3$/.test(d.text));
+    if(mark&&Math.abs(mark.x+f.camera-b.purgePoints[Number(mark.text[0])-1])<.001){
+     const layout=b.purgePoints.map(x=>x.toFixed(3)).join(',');
+     purgeLayouts.add(layout);
+     if(b.form==='cooled'&&b.tick>=332&&b.tick<346&&f.draws.filter(d=>d.source===art).length===2){
+      cooledFlows.add([layout,b.flow.level].join(','));
+      visual=true;
+     }
+    }
+   }
    const tell=config.fallTell;
    if(tell&&b.move===tell.move&&b.fallPoints?.length===3){
     const marks=f.draws.filter(d=>d.kind==='text'&&d.color===tell.color);
@@ -417,6 +449,23 @@ async function fight(page,side,key,config) {
    const position=desired-a.x,turn=Math.abs(dx)>8&&dx*a.dir<0;
    hold('KeyA',position<-7||(Math.abs(position)<=7&&turn&&dx<0));
    hold('KeyD',position>7||(Math.abs(position)<=7&&turn&&dx>0));
+   const inReach=Math.abs(dx)<125&&dx*a.dir>=0;
+   if(key==='lava-dragon'&&b.lavaHeat){
+    if(lavaStage==='rock'&&b.move==='FLD02'&&b.tick>=215) lavaStage='heatRock';
+    if(lavaStage==='heatRock'&&b.form==='molten') lavaStage='molten';
+    if(lavaStage==='molten'&&b.move==='FLD04'&&b.tick>=233) lavaStage='heatMolten';
+    if(lavaStage==='heatMolten'&&b.form==='overburn'){lavaStage='hot';hotAt=f.t}
+    if(lavaStage==='hot'&&b.form==='rock'){lavaStage='finish';coolingTime=+(f.t-hotAt).toFixed(2)}
+    const heating=lavaStage==='heatRock'||lavaStage==='heatMolten';
+    const heatSide=b.lavaHeat.level%2===0?-1:1;
+    if(inReach&&a.ground&&!f.macro&&f.t-lastHeatAction>.35){
+     if(heating&&side===heatSide){window.lab.action('slot1');lastHeatAction=f.t}
+     if(lavaStage==='hot'&&side===1&&b.lavaHeat.overburnTicks<=154){window.lab.action('slot2');lastHeatAction=f.t}
+    }
+   }
+   if(key==='overseer'&&side===-1&&b.move==='FOV03'&&b.tick>=302&&b.tick<322&&inReach&&!used.has('cool')){
+    window.lab.action('slot1');used.add('cool');
+   }
    const watchRelay=config.bodies&&b.hp<450&&relayTracks.size<2;
    const watchGravity=config.gravityJump&&(gravityTurn||(!jump&&b.hp<470));
    const watchEmperor=key==='emperor'&&b.hp<420&&exposedAt.size===0;
@@ -426,8 +475,10 @@ async function fight(page,side,key,config) {
    const watchBreak=config.breakable&&b.hp<420&&!device&&interruptedAt.size===0;
    const watchYumka=key==='yumka'&&b.hp<420&&fireLayouts.size===0;
    const watchPapilla=key==='papilla'&&b.hp<420&&flightTargets.size===0;
+   const watchLava=key==='lava-dragon'&&b.hp<650&&lavaStage!=='finish';
+   const watchOverseer=key==='overseer'&&b.hp<520&&cooledFlows.size===0;
    hold('KeyJ',!watchRelay&&!watchGravity&&!watchEmperor&&!watchPearl&&!watchSuanni&&!watchBreak&&!watchYumka&&!watchPapilla&&
-    Math.abs(dx)<(device?96:125)&&dx*a.dir>=0);
+    !watchLava&&!watchOverseer&&inReach&&(!device||Math.abs(dx)<96));
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
@@ -536,6 +587,15 @@ async function run(key,config) {
  if(key==='papilla'){
   for(const r of results) assert.ok(r.hpMonotonic&&r.forms.join(',')==='fungus,stem,wing',JSON.stringify(results));
   assert.ok(a.flightTargets.some(point=>b.flightTargets.includes(point)),JSON.stringify(results));
+ }
+ if(key==='lava-dragon'){
+  for(const r of results) assert.ok(['rock,0','molten,2','overburn,4'].every(state=>r.heatStates.includes(state))&&
+   r.coolingTime>0&&r.coolingTime<2.9,JSON.stringify(results));
+  assert.ok(a.eruptionLayouts.some(layout=>b.eruptionLayouts.includes(layout)),JSON.stringify(results));
+ }
+ if(key==='overseer'){
+  assert.ok(a.purgeLayouts.some(layout=>b.purgeLayouts.includes(layout)),JSON.stringify(results));
+  assert.ok(a.cooledFlows.some(flow=>b.cooledFlows.includes(flow)),JSON.stringify(results));
  }
  if(config.fallTell) assert.ok(a.fallLayouts.some(x=>b.fallLayouts.includes(x)),JSON.stringify(results));
  if(config.observeRecovery) assert.ok(a.recovered&&b.recovered,JSON.stringify(results));

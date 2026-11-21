@@ -8131,6 +8131,8 @@
       "yumka-field-ravine",
       "config-device-field-workshop",
       "papilla-field-hollow",
+      "atocpan-lava-field",
+      "atocpan-overseer-ruin",
       "witztli-tristars-camp",
       "atocpan-battlegoat-ironclaw-field",
       "sne-novokichev-ore-yard"
@@ -8171,6 +8173,8 @@
       "boss-26220301",
       "boss-24090201",
       "boss-22120101",
+      "boss-26270301",
+      "boss-24090501",
       "legend-natlan_polychrome_tristars",
       "legend-natlan_battlegoat_ironclaw",
       "legend-snez_rowdy_beast_host"
@@ -8284,6 +8288,11 @@
       "evidence/coop-config-device-collector.png",
       "evidence/coop-papilla-browser.json",
       "evidence/coop-papilla-morph.png",
+      "evidence/coop-atocpan-lua-http.json",
+      "evidence/coop-lava-dragon-browser.json",
+      "evidence/coop-lava-dragon-eruption.png",
+      "evidence/coop-overseer-browser.json",
+      "evidence/coop-overseer-cooled.png",
       "evidence/coop-jadeplume-lua-http.json",
       "evidence/coop-jadeplume-browser.json",
       "evidence/coop-jadeplume-leap.png"

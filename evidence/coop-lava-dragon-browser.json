@@ -1,0 +1,152 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 1100,
+  "results": [
+    {
+      "seconds": 26.17,
+      "hp": 140,
+      "kills": 1,
+      "startingMora": 40,
+      "mora": 410,
+      "startingXp": 38231,
+      "xp": 309900,
+      "moves": [
+        "FLD01",
+        "FLD02",
+        "FLD03",
+        "FLD04"
+      ],
+      "manualDamage": 214,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        26270301
+      ],
+      "gravityTracks": [],
+      "jump": null,
+      "fireLayouts": [],
+      "exposedAt": [],
+      "pearls": [],
+      "interruptedAt": [],
+      "sharedObjects": [],
+      "diveLayouts": [],
+      "cannonLayouts": [],
+      "hpMonotonic": true,
+      "heatStates": [
+        "rock,0",
+        "rock,1",
+        "molten,2",
+        "molten,3",
+        "overburn,4"
+      ],
+      "eruptionLayouts": [
+        "1188.733,1320.733"
+      ],
+      "coolingTime": 0.43,
+      "purgeLayouts": [],
+      "cooledFlows": []
+    },
+    {
+      "seconds": 26.18,
+      "hp": 140,
+      "kills": 1,
+      "startingMora": 0,
+      "mora": 410,
+      "startingXp": 0,
+      "xp": 309900,
+      "moves": [
+        "FLD01",
+        "FLD02",
+        "FLD03",
+        "FLD04"
+      ],
+      "manualDamage": 207,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        26270301
+      ],
+      "gravityTracks": [],
+      "jump": null,
+      "fireLayouts": [],
+      "exposedAt": [],
+      "pearls": [],
+      "interruptedAt": [],
+      "sharedObjects": [],
+      "diveLayouts": [],
+      "cannonLayouts": [],
+      "hpMonotonic": true,
+      "heatStates": [
+        "rock,0",
+        "rock,1",
+        "molten,2",
+        "molten,3",
+        "overburn,4"
+      ],
+      "eruptionLayouts": [
+        "1188.733,1320.733"
+      ],
+      "coolingTime": 0.52,
+      "purgeLayouts": [],
+      "cooledFlows": []
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 450,
+      "xp": 348131,
+      "respawn": true
+    },
+    {
+      "clears": 1,
+      "mora": 410,
+      "xp": 309900,
+      "respawn": true
+    }
+  ],
+  "report": {
+    "hub": "natlan-hub",
+    "hostSaved": true,
+    "guestQuest": null,
+    "xp": 8000,
+    "mora": 520
+  },
+  "scenery": "lavaDragonField",
+  "errors": []
+}

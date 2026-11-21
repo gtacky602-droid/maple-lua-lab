@@ -62,6 +62,17 @@ return function(C)
   return {move=m,tick=0,origin=b.x,dir=b.facing,seen={{},{}},
    source={id=b.id,owner=b,y=s.floorY,damageElement=m.element}}
  end
+ function lava.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
+
+ function lava.frame(f,b,s,c)
+  f.lavaHeat={level=b.lavaHeat,max=s.heat.overburnAt,overburnTicks=b.overburnTicks}
+  if c and c.bounds and c.move.kind=='eruption' and c.tick<c.move.recover then
+   f.eruptionPoints={}
+   for i,band in ipairs(c.bounds) do f.eruptionPoints[i]=(band[1]+band[2])/2 end
+  end
+ end
 
  local function lock(s,c)
   local m=c.move

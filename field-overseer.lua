@@ -16,6 +16,18 @@ return function(C)
   return {move=move,tick=0,origin=b.x,dir=b.facing,seen={{},{},{}},damage={},flow=0,flowClock=0,flowMax=s.flow.max,
    chilled=0,cooledCasts=setmetatable({},{__mode='k'}),source={id=b.id,owner=b,y=s.floorY,damageElement=move.element}}
  end
+ function overseer.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
+
+ function overseer.frame(f,b,s,c)
+  if not c then return end
+  f.waveX=c.waveX
+  if c.centers and c.tick<c.move.recover then
+   f.purgePoints=c.centers
+   f.flow={level=c.flow,max=c.flowMax,chilledTicks=c.chilled}
+  end
+ end
 
  local function lock(s,c)
   local m=c.move

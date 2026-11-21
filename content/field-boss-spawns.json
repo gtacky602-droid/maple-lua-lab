@@ -1325,7 +1325,7 @@
       ]
     },
     {
-      "id":"boss-26270301","controller":"lavaDragon","entity":26270301,
+      "id":"boss-26270301","controller":"lavaDragon","entity":26270301,"coop":true,
       "name":"輝ける溶岩の龍像","node":"atocpan-lava-field","storyChallenge":"lava-dragon",
       "level":110,"hp":1100,"mora":410,"artHeight":180,"floorY":480,"home":925,
       "arenaMin":335,"arenaMax":1580,"noticeRange":320,"noticeTicks":36,"restTicks":42,
@@ -1339,7 +1339,7 @@
       ]
     },
     {
-      "id":"boss-24090501","controller":"overseer","entity":24090501,
+      "id":"boss-24090501","controller":"overseer","entity":24090501,"coop":true,
       "name":"秘源機兵・統御デバイス","node":"atocpan-overseer-ruin","storyChallenge":"overseer",
       "level":112,"hp":1125,"mora":420,"artHeight":172,"floorY":480,"home":915,
       "arenaMin":335,"arenaMax":1590,"noticeRange":325,"noticeTicks":36,"restTicks":42,

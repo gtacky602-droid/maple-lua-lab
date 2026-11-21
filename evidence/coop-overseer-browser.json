@@ -1,0 +1,142 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 1125,
+  "results": [
+    {
+      "seconds": 25.97,
+      "hp": 123,
+      "kills": 1,
+      "startingMora": 50,
+      "mora": 420,
+      "startingXp": 30372,
+      "xp": 351500,
+      "moves": [
+        "FOV01",
+        "FOV02",
+        "FOV03"
+      ],
+      "manualDamage": 240,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        24090501
+      ],
+      "gravityTracks": [],
+      "jump": null,
+      "fireLayouts": [],
+      "exposedAt": [],
+      "pearls": [],
+      "interruptedAt": [],
+      "sharedObjects": [],
+      "diveLayouts": [],
+      "cannonLayouts": [],
+      "hpMonotonic": true,
+      "heatStates": [],
+      "eruptionLayouts": [],
+      "coolingTime": null,
+      "purgeLayouts": [
+        "977.393,1065.393,1155.153"
+      ],
+      "cooledFlows": [
+        "977.393,1065.393,1155.153,3"
+      ]
+    },
+    {
+      "seconds": 25.97,
+      "hp": 117,
+      "kills": 1,
+      "startingMora": 50,
+      "mora": 420,
+      "startingXp": 30372,
+      "xp": 351500,
+      "moves": [
+        "FOV01",
+        "FOV02",
+        "FOV03"
+      ],
+      "manualDamage": 214,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        24090501
+      ],
+      "gravityTracks": [],
+      "jump": null,
+      "fireLayouts": [],
+      "exposedAt": [],
+      "pearls": [],
+      "interruptedAt": [],
+      "sharedObjects": [],
+      "diveLayouts": [],
+      "cannonLayouts": [],
+      "hpMonotonic": true,
+      "heatStates": [],
+      "eruptionLayouts": [],
+      "coolingTime": null,
+      "purgeLayouts": [
+        "977.393,1065.393,1155.153"
+      ],
+      "cooledFlows": [
+        "977.393,1065.393,1155.153,3"
+      ]
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 470,
+      "xp": 381872,
+      "respawn": true
+    },
+    {
+      "clears": 1,
+      "mora": 470,
+      "xp": 381872,
+      "respawn": true
+    }
+  ],
+  "report": {
+    "hub": "natlan-hub",
+    "hostSaved": true,
+    "guestQuest": null,
+    "xp": 8200,
+    "mora": 540
+  },
+  "scenery": "overseerField",
+  "errors": []
+}

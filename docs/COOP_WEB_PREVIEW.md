@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する67地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する69地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -257,6 +257,21 @@ Luaの4人試験で羽根の共同破壊、二度の降下の中断、実の着�
 | 深遠なるミミックパピラ・I型 | 108 | 1,050 | 273,250 EXP・395モラ | 7,800 EXP・500モラ |
 
 Luaの4人試験では、時刻の基準が異なる三人で集積器を壊し、パピラでは擬態をまたぐ付着と遅れて届く攻撃を確認した。HTTPの2人試験では一時退避後に再合流し、Chromeの2画面で各自の討伐と受注者の報告を保存した。`python test_config_device_field.py` と `python test_papilla_field.py` で試験用のセーブを作る。`LAB_URL` にラボのURLを設定し、`node test_coop_field_routes.mjs config-device papilla` で再現できる。 [Lua・HTTPの検証](../evidence/coop-config-papilla-lua-http.json) · [機巧デバイスのChrome試走](../evidence/coop-config-device-browser.json) · [パピラのChrome試走](../evidence/coop-papilla-browser.json)
+
+## 輝ける溶岩の龍像と秘源機兵・統御デバイス
+
+ナタの岩場の道から溶岩棚へ進むと龍像と戦える。試作の熱目盛りを参加者で共有し、別々の炎攻撃を合計2回当てると熔焰の龍になる。さらに2回で過燃焼に入り、進行中の技が止まる。過燃焼は水・氷の直接攻撃か3秒の経過で解ける。熔岩噴出の二地点は固定し、参加者ごとに命中を判定する。 [龍像のラボ版仕様](field-boss-v1/NATLAN_LAVA_DRAGON.md) · [熔焰の龍と噴出予告](../evidence/coop-lava-dragon-eruption.png)
+
+溶岩棚の入口側から分岐した統御の遺構では、三連噴流の位置と液流の目盛りを共有する。氷の直接攻撃は攻撃一回につき一目盛り減らし、1.2秒間蓄積を止める。各噴流の威力は噴き始めに決まり、途中で冷却しても同じ噴流内の参加者には同じ威力を適用する。 [統御デバイスのラボ版仕様](field-boss-v1/NATLAN_OVERSEER.md) · [冷却中の三連噴流](../evidence/coop-overseer-cooled.png)
+
+| ボス | Lv | HP | 討伐参加者一人あたり | 依頼を報告した人 |
+| --- | ---: | ---: | --- | --- |
+| 輝ける溶岩の龍像 | 110 | 1,100 | 309,900 EXP・410モラ | 8,000 EXP・520モラ |
+| 秘源機兵・統御デバイス | 112 | 1,125 | 351,500 EXP・420モラ | 8,200 EXP・540モラ |
+
+Luaの4人試験で複数人の加熱と冷却、同じ噴流への個別命中を確認した。HTTPの2人試験では退避後に同じ戦闘状態へ合流し、Chromeの2画面で討伐と依頼報告を保存した。今回の共闘は現行のラボ試作を使用した。龍像を自発変身の三技にまとめる案と、統御デバイスの冷却受付や回復時間を調整する案は移行待ち。 [後半の動作設計案](field-boss-v1/NATLAN_REMAINING_MOVESETS.md) · [Lua・HTTPの検証](../evidence/coop-atocpan-lua-http.json)
+
+`python test_lava_dragon_field.py` と `python test_overseer_field.py` で試験用のセーブを作る。`LAB_URL` にラボのURLを設定し、`node test_coop_field_routes.mjs lava-dragon overseer` で試走を再現できる。 [龍像のChrome試走](../evidence/coop-lava-dragon-browser.json) · [統御デバイスのChrome試走](../evidence/coop-overseer-browser.json)
 
 ## マッシュラプトル
 

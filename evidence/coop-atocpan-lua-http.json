@@ -1,0 +1,39 @@
+{
+  "lava": {
+    "lua": {
+      "participants": 4,
+      "hp": 1100,
+      "sameReceiverAndAura": true,
+      "distinctPlayerCastsShareHeat": true,
+      "repeatAndReactionCannotHeat": true,
+      "sharedEruptionPoints": true,
+      "independentAreaHits": true,
+      "overburnCancelsPendingEruption": true,
+      "timeoutAndWaterCool": true,
+      "individualRewards": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  },
+  "overseer": {
+    "lua": {
+      "participants": 4,
+      "hp": 1125,
+      "threeBladeWindowsPerPlayer": true,
+      "matchingMovingWave": true,
+      "sharedPurgePointsAndFlow": true,
+      "separateCryoCastersReduceSameMeter": true,
+      "repeatAndReactionCannotCool": true,
+      "activeJetDamageLockedAt24": true,
+      "individualRewards": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  }
+}
