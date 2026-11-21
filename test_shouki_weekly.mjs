@@ -7,8 +7,8 @@ const page=await browser.newPage({viewport:{width:1240,height:940}});
 const frame=()=>page.evaluate(()=>window.lab.frame);
 const wait=(predicate,arg)=>page.waitForFunction(predicate,arg,{timeout:80000});
 const canvas=page.locator('#game'),controls=page.locator('#weeklyShouki');
-const prefix='evidence/shouki-weekly-waist-rise';
-const regressionPrefix='work/shouki-weekly-waist-rise';
+const prefix='evidence/shouki-weekly-floor-contact';
+const regressionPrefix='work/shouki-weekly-floor-contact';
 const hub='sumeru-hub',node='shouki-godmaking-arena',quest='shouki-weekly-commission',id='boss-29070101';
 const errors=[];
 page.on('pageerror',e=>errors.push(e.message));
@@ -21,7 +21,7 @@ async function capture(name){
 }
 
 try{
- await page.goto(process.env.LAB_URL||'http://127.0.0.1:9042/');
+ await page.goto(process.env.LAB_URL||'http://127.0.0.1:9049/');
  await wait(()=>window.lab?.frame);
  await page.evaluate(raw=>localStorage.setItem('maple-lua-lab.checkpoint.v1',raw),
   await fs.readFile('work/shouki-weekly-gear.json','utf8'));
@@ -36,6 +36,8 @@ try{
  finally{await page.keyboard.up('KeyD');}
  await page.keyboard.press('KeyF');
  await wait(node=>window.lab.frame.story.node===node,node);
+ await page.evaluate(()=>window.lab.action('pause'));
+ await wait(()=>window.lab.frame.paused);
  const scene=await page.evaluate(async()=>{
   const {loadScenery,sceneryStatus}=await import('./scenery.js');
   await loadScenery(window.lab.frame);
@@ -48,17 +50,14 @@ try{
  assert.equal(upperParts.length,1);
  const [upper]=upperParts;
  assert.deepEqual(upper.box,[87,14,868,723]);
- assert.equal(upper.h,1120);
- assert.equal(upper.y,470);
+ assert.equal(upper.h,1160);
+ assert.equal(upper.y,480);
  assert.ok(opening.actors.every(a=>a.y===480));
  assert.ok(upper.y-upper.h<0);
  assert.ok(upper.x-upper.w/2<0&&upper.x+upper.w/2>960);
  assert.equal(opening.draws[0],upper);
  assert.equal(opening.draws.filter(d=>d.kind==='text'&&['炎','風','雷A','水','氷','雷B'].includes(d.text)&&d.y<540).length,6);
  await page.locator('.game').screenshot({path:prefix+'-upper.png'});
- await page.evaluate(()=>window.lab.action('pause'));
- await wait(()=>window.lab.frame.paused);
- const pausedUpper=await frame();
  const upperPng=await capture('upper-png');
  await page.locator('#renderMode').selectOption('rect');
  await wait(()=>window.lab.frame.draws[0]?.kind==='rect');
@@ -69,7 +68,7 @@ try{
  const upperReduced=await capture('upper-light');
  assert.equal(new Set([upperPng,upperRect,upperReduced]).size,3);
  for(const rendered of [upperStandard,upperLight]){
-  assert.equal(rendered.t,pausedUpper.t);
+  assert.equal(rendered.t,opening.t);
   assert.ok(rendered.draws[0].y<0);
  }
  await page.locator('#renderMode').selectOption('sprite');
@@ -218,7 +217,7 @@ try{
    upperLeft:upper.x-upper.w/2,upperTop:upper.y-upper.h,fullTop:full.y-full.h,
    machineBehindParty:true,shieldCore:armored.weeklyBoss.shouki.core,trialCore:trial.weeklyBoss.shouki.core},
   clearReportRestore:true,remainingHp:finished.actors[0].hp,viewport390:true,scene,
-  upperCommands:{png:pausedUpper.commands,standard:upperStandard.commands,light:upperLight.commands},
+  upperCommands:{png:opening.commands,standard:upperStandard.commands,light:upperLight.commands},
   commands:{png:down.commands,standard:standard.commands,light:light.commands},errors},null,2)+'\n');
  console.log('Shouki Chrome: matrix, terminal controls, four parts, collapse, clear, report and save passed');
 }catch(error){

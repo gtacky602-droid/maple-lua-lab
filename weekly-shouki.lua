@@ -9,8 +9,8 @@ return function(C)
  local function visual(w,spec)
   local name,t,y=w.stage,w.stageTick,spec.floorY
   if name=='p1' or name=='overload' or name=='rise' and t<120 then
-   -- Show the narrow waist just above the floor so the upper body rises behind the party.
-   return 'upper',y-10,name=='overload' and t>=60 and 720 or 1120
+   -- The crop ends at the waist. Meet the platform so the torso rises from the floor.
+   return 'upper',y,name=='overload' and t>=60 and 720 or 1160
   end
   if name=='trial' then return 'full',y-83,630 end
   if name=='collapse' and t>=60 then return 'full',y,600 end
