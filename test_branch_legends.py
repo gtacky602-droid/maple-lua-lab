@@ -181,6 +181,22 @@ def check_lake_pose(s, spec, source, pose):
     assert abs(rendered[0].h-expected['box'][3]*spec['artScale']) < 1e-7
 
 
+def check_chizhang_poses(s, boss, preview):
+    drawn = []
+    for body in (boss, boss.fieldPartner):
+        pose = body.legendPose
+        expected = read(f'assets/{body.legendArt}-field-{pose}-sprites-v3.json')
+        sprites = [d for d in preview.draws.values()
+                   if d.source == expected['source'] and d.x == body.x-s.camera
+                   and list(d.box.values()) == expected['box']]
+        assert len(sprites) == 1, (body.legendArt, pose)
+        draw = sprites[0]
+        assert (draw.h, draw.y, draw.flip) == (body.drawHeight, 480, body.facing > 0)
+        assert abs(draw.anchorX-expected['anchorX']) < 1e-7
+        drawn.append(draw)
+    return drawn
+
+
 entries = [(entry, manifest['art_source'])
            for manifest in map(read, (CHALLENGES, LAKE_CHALLENGES, DRY_CHALLENGES))
            for entry in manifest['legends']]
@@ -232,14 +248,19 @@ for r, source_art in entries:
     assert slot.phase=='available' and hero.hp==hero.maxhp
     hero.x=spec['home']-185
     lake = spec.get('artRevision')==6
+    chizhang = stage=='chizhang-legend-terrace' and spec.get('artRevision')==3
     if lake:
         check_lake_pose(s,spec,source_art,'idle')
+    if chizhang:
+        assert boss.legendPose==boss.fieldPartner.legendPose=='idle'
+        check_chizhang_poses(s,boss,core.frame(s,'sprite','legacy'))
     step_to(slot, s, lambda e: e.cast is not None)
     cast = slot.cast
     if lake:
         check_lake_pose(s,spec,source_art,'brace')
     preview = core.frame(s, 'sprite', 'legacy')
-    rendered = [d for d in preview.draws.values() if d.source==source_art]
+    rendered = (check_chizhang_poses(s,boss,preview) if chizhang
+                else [d for d in preview.draws.values() if d.source==source_art])
     assert len(rendered)==r['members'] and all(d.y==480 for d in rendered)
     counts = {'png':len(rendered)}
     for profile in ['legacy','h48c32','h32c16']:
@@ -261,6 +282,9 @@ for r, source_art in entries:
             core.step(s,1/60,idle)
             if lake:
                 check_lake_pose(s,spec,source_art,'strike')
+            if chizhang:
+                assert strike.owner.legendPose=='strike'
+                check_chizhang_poses(s,boss,core.frame(s,'sprite','legacy'))
             if phase.get('wave'):
                 owner_x = strike.owner.x
                 assert hero.hp==before and abs(strike.activeRight-strike.activeLeft) < strike.right-strike.left
@@ -321,6 +345,8 @@ for r, source_art in entries:
     assert s.fieldSlots[id].enemy.hp==spec['hp'] and s.endgame.bosses[id].clears==1
     evidence[id]={'moves_hit_once_in_their_windows':tested,'level':spec['level'],'bodies':r['members'],
                   'png_bodies_and_scene_draw_counts':counts, 'normal_attack_clear':normal_clear(r,spec)}
+    if chizhang:
+        evidence[id]['pose_draws_on_shared_bodies']=['idle','brace','strike']
 
 write('evidence/sites-branch-legends-lua.json',{
     'encounters':evidence,'entry_level_and_exploration_requirement':True,

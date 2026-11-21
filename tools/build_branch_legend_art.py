@@ -68,3 +68,14 @@ for layout_name, revision in PIVOT_LAYOUTS.items():
             '--height', str(height), '--pivot', *(str(v) for v in pivot),
             '--crop', *(str(v) for v in crop),
         ], cwd=ROOT, check=True)
+
+motion = json.loads((ROOT/'assets'/'chizhang-shared-motion-layout-v3.json').read_text(encoding='utf-8'))
+for frame in motion['frames']:
+    args = [
+        sys.executable, 'compile_boss_assets.py', '--source', frame['source'],
+        '--output', frame['output'], '--height', str(frame['height']),
+        '--pivot', *(str(v) for v in frame['pivot']), '--crop', *(str(v) for v in frame['crop']),
+    ]
+    for color in frame['accent_colors']:
+        args.extend(('--accent-color', color))
+    subprocess.run(args, cwd=ROOT, check=True)

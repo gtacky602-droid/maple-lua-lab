@@ -48,7 +48,7 @@
           132
         ]
       },
-      "compiled": "chizhang-ember-shared-idle-v3-sprites.json",
+      "compiled": "chizhang-ember-field-idle-sprites-v3.json",
       "accent_colors": [
         "#ee6327",
         "#ff9a35",
@@ -67,7 +67,7 @@
           132
         ]
       },
-      "compiled": "chizhang-frost-shared-idle-v3-sprites.json",
+      "compiled": "chizhang-frost-field-idle-sprites-v3.json",
       "accent_colors": [
         "#67acc9",
         "#a1dceb",

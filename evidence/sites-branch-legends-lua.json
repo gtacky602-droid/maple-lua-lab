@@ -10,9 +10,9 @@
       "bodies": 2,
       "png_bodies_and_scene_draw_counts": {
         "png": 2,
-        "legacy": 11076,
-        "h48c32": 6654,
-        "h32c16": 2962
+        "legacy": 12146,
+        "h48c32": 7531,
+        "h32c16": 3568
       },
       "normal_attack_clear": {
         "seconds": 82.18,
@@ -22,7 +22,12 @@
           "LC02",
           "LC03"
         ]
-      }
+      },
+      "pose_draws_on_shared_bodies": [
+        "idle",
+        "brace",
+        "strike"
+      ]
     },
     "legend-fontaine_cineas": {
       "moves_hit_once_in_their_windows": [

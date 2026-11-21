@@ -13,7 +13,7 @@
 
 ## 赤璋の共通待機絵
 
-Astraの別チャットが、ヴィシャップ・岩の1枚の原画から、前脚の岩板の色が異なる移即と天虞を制作した。配置比較は左から通常型、移即、天虞。表示高118pxで同じ足元に揃えた。元PNGと3段階の矩形描画で透過輪郭は3体とも一致する。 [赤璋の配置比較](http://127.0.0.1:9010/map-art.html?node=chizhang-legend-terrace) · [旧稿と新稿の比較](../evidence/geovishap-shared-idle-art-review.png) · [作画資料と判断](../evidence/geovishap-shared-idle-references.json)
+Astraの別チャットが、ヴィシャップ・岩の1枚の原画から、前脚の岩板の色が異なる移即と天虞を制作した。配置比較は左から通常型、移即、天虞。表示高118pxで同じ足元に揃えた。元PNGと3段階の矩形描画で透過輪郭は3体とも一致する。 [赤璋の配置比較](http://127.0.0.1:9016/map-art.html?node=chizhang-legend-terrace) · [旧稿と新稿の比較](../evidence/geovishap-shared-idle-art-review.png) · [作画資料と判断](../evidence/geovishap-shared-idle-references.json)
 
 | 待機絵 | 標準 | 中間32色 | 最軽量16色 |
 | --- | ---: | ---: | ---: |
@@ -25,4 +25,10 @@ Astraの別チャットが、ヴィシャップ・岩の1枚の原画から、�
 
 Chromeで茶棚の脇部屋まで移動し、通常型のPNGがそこで読み込まれて足場に接することを確認した。3体の配置は3段階すべてで表示でき、2つの素材ギャラリーは390px幅に収まる。 [本編の通常型](../evidence/geovishap-shared-idle-live.png) · [比較画面](../evidence/geovishap-shared-idle-lab.png) · [ブラウザ検証](../evidence/geovishap-shared-idle-browser.json)
 
-名付き個体の完全な背面、3Dビューアによる回転、モデルとテクスチャのIDは未確認。赤璋の新稿は待機候補で、構え・攻撃は次の作画工程。通常のアビサルヴィシャップは待機比較の段階。
+## 赤璋の構えと攻撃
+
+移即と天虞に共通の構えと踏み込みを作画し、待機を含む3ポーズを赤璋の丘の戦闘に反映した。構えは前脚を着けて腰を低くし、尾を上げる。攻撃では前脚を踏み出して後脚と尾を伸ばす。表示高は待機118px、構え98px、攻撃105pxで、すべて同じ床位置を基準にした。最軽量16色でも、移即の前脚の橙と天虞の青白い結晶が分かる。 [3ポーズ比較](../evidence/chizhang-shared-motion-review.png) · [使用した参照と判断](../evidence/chizhang-shared-motion-references.json)
+
+Luaで両者の3ポーズの切り替えと、向き・足元・攻撃判定・共有HPを確認した。Chromeで赤璋の丘へ入り、移即と天虞の攻撃をそれぞれ撮影した。 [移即の踏み込み](../evidence/chizhang-ember-strike.png) · [天虞の霜の輪](../evidence/chizhang-frost-strike.png) · [標準と軽量の検証](../evidence/sites-branch-legends-browser.json)
+
+名付き個体の完全な背面、3Dビューアによる回転、モデルとテクスチャのIDは未確認。通常のアビサルヴィシャップは待機比較の段階。

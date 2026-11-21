@@ -1,5 +1,14 @@
 {
   "originalSpriteSheet": "legend-poses-source-v2.png",
+  "chizhangSources": [
+    "chizhang-ember-shared-idle-v3.png",
+    "chizhang-ember-shared-brace-v3.png",
+    "chizhang-ember-shared-strike-v3.png",
+    "chizhang-frost-shared-idle-v3.png",
+    "chizhang-frost-shared-brace-v3.png",
+    "chizhang-frost-shared-strike-v3.png"
+  ],
+  "sharedBodyStrikesDisplayed": true,
   "bothOptionalEntriesFromAtlas": true,
   "sameFrameComparisonAndGallery": true,
   "galleryShowsBothArtRevisions": true,
@@ -8,8 +17,8 @@
   "measuredDrawCommandsSamePausedFrame": {
     "chizhang": {
       "png": 24,
-      "legacy": 13620,
-      "h32c16": 3565
+      "legacy": 14690,
+      "h32c16": 4171
     }
   },
   "errors": []

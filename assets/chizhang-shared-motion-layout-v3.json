@@ -1,0 +1,105 @@
+{
+  "canvas_wh": [
+    288,
+    144
+  ],
+  "facing": "left",
+  "floorPivot": [
+    144,
+    132
+  ],
+  "frames": [
+    {
+      "source": "chizhang-ember-shared-brace-v3.png",
+      "output": "chizhang-ember-field-brace-sprites-v3.json",
+      "pose": "brace",
+      "id": "chizhang-ember",
+      "height": 98,
+      "crop": [
+        43,
+        34,
+        226,
+        98
+      ],
+      "pivot": [
+        101,
+        98
+      ],
+      "accent_colors": [
+        "#ac4024",
+        "#ee6327",
+        "#ff9a35",
+        "#ffd780"
+      ]
+    },
+    {
+      "source": "chizhang-frost-shared-brace-v3.png",
+      "output": "chizhang-frost-field-brace-sprites-v3.json",
+      "pose": "brace",
+      "id": "chizhang-frost",
+      "height": 98,
+      "crop": [
+        43,
+        34,
+        226,
+        98
+      ],
+      "pivot": [
+        101,
+        98
+      ],
+      "accent_colors": [
+        "#397599",
+        "#67acc9",
+        "#a1dceb",
+        "#e0f9fa"
+      ]
+    },
+    {
+      "source": "chizhang-ember-shared-strike-v3.png",
+      "output": "chizhang-ember-field-strike-sprites-v3.json",
+      "pose": "strike",
+      "id": "chizhang-ember",
+      "height": 105,
+      "crop": [
+        5,
+        27,
+        276,
+        105
+      ],
+      "pivot": [
+        139,
+        105
+      ],
+      "accent_colors": [
+        "#ac4024",
+        "#ee6327",
+        "#ff9a35",
+        "#ffd780"
+      ]
+    },
+    {
+      "source": "chizhang-frost-shared-strike-v3.png",
+      "output": "chizhang-frost-field-strike-sprites-v3.json",
+      "pose": "strike",
+      "id": "chizhang-frost",
+      "height": 105,
+      "crop": [
+        5,
+        27,
+        276,
+        105
+      ],
+      "pivot": [
+        139,
+        105
+      ],
+      "accent_colors": [
+        "#397599",
+        "#67acc9",
+        "#a1dceb",
+        "#e0f9fa"
+      ]
+    }
+  ]
+}
