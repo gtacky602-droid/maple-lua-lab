@@ -1,0 +1,834 @@
+{
+  "sources": {
+    "2": {
+      "url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v3/map/point/list?app_sn=ys_obc&lang=ja-jp&map_id=2",
+      "sha256": "fbfe7fa386632e84440c37e4c32e547c7c029d44f41421d28f1db18ea297a92c",
+      "label_ids": [
+        154
+      ],
+      "count": 74
+    },
+    "7": {
+      "url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v3/map/point/list?app_sn=ys_obc&lang=ja-jp&map_id=7",
+      "sha256": "2fb0c0c07cfaf9ddd51c7f16a1235117e07cbefb32db904fb4192dcd727e176a",
+      "label_ids": [],
+      "count": 0
+    },
+    "9": {
+      "url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v3/map/point/list?app_sn=ys_obc&lang=ja-jp&map_id=9",
+      "sha256": "4b48370acc6da8649c22030488ab1600dd2a16c120e60810a5e8c5454755e01c",
+      "label_ids": [],
+      "count": 0
+    },
+    "34": {
+      "url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v3/map/point/list?app_sn=ys_obc&lang=ja-jp&map_id=34",
+      "sha256": "32d7c539d8688cb7369ac097f372b67f66120f14013667353554e432eb2c87fa",
+      "label_ids": [],
+      "count": 0
+    },
+    "36": {
+      "url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v3/map/point/list?app_sn=ys_obc&lang=ja-jp&map_id=36",
+      "sha256": "03a09cdb48b7e7df09c46b1a6f036949ebe86155ad29f5a3ef80dee9b6f1a66d",
+      "label_ids": [],
+      "count": 0
+    },
+    "37": {
+      "url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v3/map/point/list?app_sn=ys_obc&lang=ja-jp&map_id=37",
+      "sha256": "a9cfd6373e785c911650ea0dc921a9ca7012f1138ed23c9a5ebe521a23978d55",
+      "label_ids": [],
+      "count": 0
+    },
+    "40": {
+      "url": "https://sg-public-api-static.hoyolab.com/common/map_user/ys_obc/v3/map/point/list?app_sn=ys_obc&lang=ja-jp&map_id=40",
+      "sha256": "329965fc37ad77bd15c55334555451ef6ceab7d77157dd945b5e83708f4ebae5",
+      "label_ids": [],
+      "count": 0
+    }
+  },
+  "nodes": [
+    {
+      "id": "teyvat:7092",
+      "source_id": 7092,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -508.5,
+      "y": 65,
+      "area_id": 1,
+      "region": "モンド"
+    },
+    {
+      "id": "teyvat:7111",
+      "source_id": 7111,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -873.5,
+      "y": -331.5,
+      "area_id": 1,
+      "region": "モンド"
+    },
+    {
+      "id": "teyvat:7114",
+      "source_id": 7114,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -2174,
+      "y": 1032,
+      "area_id": 2,
+      "region": "璃月"
+    },
+    {
+      "id": "teyvat:7116",
+      "source_id": 7116,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -1918.5,
+      "y": 1666.5,
+      "area_id": 2,
+      "region": "璃月"
+    },
+    {
+      "id": "teyvat:7121",
+      "source_id": 7121,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -1142.5,
+      "y": 632,
+      "area_id": 2,
+      "region": "璃月"
+    },
+    {
+      "id": "teyvat:7137",
+      "source_id": 7137,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -81,
+      "y": 620,
+      "area_id": 1,
+      "region": "モンド"
+    },
+    {
+      "id": "teyvat:7149",
+      "source_id": 7149,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 143,
+      "y": 658.5,
+      "area_id": 1,
+      "region": "モンド"
+    },
+    {
+      "id": "teyvat:7157",
+      "source_id": 7157,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 425.5,
+      "y": 183.5,
+      "area_id": 1,
+      "region": "モンド"
+    },
+    {
+      "id": "teyvat:7164",
+      "source_id": 7164,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 74.5,
+      "y": 1286,
+      "area_id": 1,
+      "region": "モンド"
+    },
+    {
+      "id": "teyvat:7173",
+      "source_id": 7173,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -335,
+      "y": 1600,
+      "area_id": 2,
+      "region": "璃月"
+    },
+    {
+      "id": "teyvat:7186",
+      "source_id": 7186,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 690,
+      "y": 655,
+      "area_id": 1,
+      "region": "モンド"
+    },
+    {
+      "id": "teyvat:7190",
+      "source_id": 7190,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -927.5,
+      "y": 1936.5,
+      "area_id": 2,
+      "region": "璃月"
+    },
+    {
+      "id": "teyvat:7201",
+      "source_id": 7201,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 814.5,
+      "y": -173.5,
+      "area_id": 1,
+      "region": "モンド"
+    },
+    {
+      "id": "teyvat:7206",
+      "source_id": 7206,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 890.5,
+      "y": 156,
+      "area_id": 1,
+      "region": "モンド"
+    },
+    {
+      "id": "teyvat:7210",
+      "source_id": 7210,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 1127,
+      "y": 993,
+      "area_id": 1,
+      "region": "モンド"
+    },
+    {
+      "id": "teyvat:7215",
+      "source_id": 7215,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 219,
+      "y": 2609,
+      "area_id": 2,
+      "region": "璃月"
+    },
+    {
+      "id": "teyvat:7218",
+      "source_id": 7218,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -1004.5,
+      "y": 3227,
+      "area_id": 2,
+      "region": "璃月"
+    },
+    {
+      "id": "teyvat:7220",
+      "source_id": 7220,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -1636.5,
+      "y": 2896.5,
+      "area_id": 2,
+      "region": "璃月"
+    },
+    {
+      "id": "teyvat:9778",
+      "source_id": 9778,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -1275,
+      "y": 2219,
+      "area_id": 2,
+      "region": "璃月"
+    },
+    {
+      "id": "teyvat:10009",
+      "source_id": 10009,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -431,
+      "y": 859,
+      "area_id": 1,
+      "region": "モンド"
+    },
+    {
+      "id": "teyvat:12778",
+      "source_id": 12778,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 3721,
+      "y": 4512,
+      "area_id": 3,
+      "region": "稲妻",
+      "point_group": {
+        "group_id": 64,
+        "floor_id": 20
+      }
+    },
+    {
+      "id": "teyvat:12781",
+      "source_id": 12781,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 3656.75,
+      "y": 4726.75,
+      "area_id": 3,
+      "region": "稲妻"
+    },
+    {
+      "id": "teyvat:12784",
+      "source_id": 12784,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 3185.25,
+      "y": 5531,
+      "area_id": 3,
+      "region": "稲妻"
+    },
+    {
+      "id": "teyvat:12788",
+      "source_id": 12788,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 2477,
+      "y": 6202.5,
+      "area_id": 3,
+      "region": "稲妻"
+    },
+    {
+      "id": "teyvat:12791",
+      "source_id": 12791,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 1628.5,
+      "y": 6093,
+      "area_id": 3,
+      "region": "稲妻"
+    },
+    {
+      "id": "teyvat:12794",
+      "source_id": 12794,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 1482.25,
+      "y": 6320,
+      "area_id": 3,
+      "region": "稲妻"
+    },
+    {
+      "id": "teyvat:15949",
+      "source_id": 15949,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 380.5,
+      "y": 5935,
+      "area_id": 3,
+      "region": "稲妻",
+      "point_group": {
+        "group_id": 78,
+        "floor_id": 70
+      }
+    },
+    {
+      "id": "teyvat:17223",
+      "source_id": 17223,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 3815.5,
+      "y": 5677.000030517578,
+      "area_id": 3,
+      "region": "稲妻"
+    },
+    {
+      "id": "teyvat:18048",
+      "source_id": 18048,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -2511,
+      "y": 1701,
+      "area_id": 2,
+      "region": "璃月"
+    },
+    {
+      "id": "teyvat:18667",
+      "source_id": 18667,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 1796.5,
+      "y": 7294.000030517578,
+      "area_id": 3,
+      "region": "稲妻"
+    },
+    {
+      "id": "teyvat:20369",
+      "source_id": 20369,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 3466.75,
+      "y": 6617.5,
+      "area_id": 3,
+      "region": "稲妻",
+      "point_group": {
+        "group_id": 75,
+        "floor_id": 67
+      }
+    },
+    {
+      "id": "teyvat:24906",
+      "source_id": 24906,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 3653.5,
+      "y": 4803.5,
+      "area_id": 3,
+      "region": "稲妻"
+    },
+    {
+      "id": "teyvat:24907",
+      "source_id": 24907,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -2646.6241067408714,
+      "y": 2798.381964769672,
+      "area_id": 2,
+      "region": "璃月"
+    },
+    {
+      "id": "teyvat:28751",
+      "source_id": 28751,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -2936.5,
+      "y": 1844.5,
+      "area_id": 4,
+      "region": "スメール"
+    },
+    {
+      "id": "teyvat:28752",
+      "source_id": 28752,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -2955.25,
+      "y": 2887,
+      "area_id": 4,
+      "region": "スメール"
+    },
+    {
+      "id": "teyvat:28753",
+      "source_id": 28753,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -3759,
+      "y": 2419.75,
+      "area_id": 4,
+      "region": "スメール"
+    },
+    {
+      "id": "teyvat:28754",
+      "source_id": 28754,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -4094.25,
+      "y": 3145.25,
+      "area_id": 4,
+      "region": "スメール",
+      "point_group": {
+        "group_id": 19,
+        "floor_id": 108
+      }
+    },
+    {
+      "id": "teyvat:28755",
+      "source_id": 28755,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -3716.25,
+      "y": 3777.75,
+      "area_id": 4,
+      "region": "スメール"
+    },
+    {
+      "id": "teyvat:28756",
+      "source_id": 28756,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -3980,
+      "y": 4161.5,
+      "area_id": 4,
+      "region": "スメール",
+      "point_group": {
+        "group_id": 11,
+        "floor_id": 36
+      }
+    },
+    {
+      "id": "teyvat:28757",
+      "source_id": 28757,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -4220,
+      "y": 4071.25,
+      "area_id": 4,
+      "region": "スメール"
+    },
+    {
+      "id": "teyvat:36703",
+      "source_id": 36703,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -5166.75,
+      "y": 4359,
+      "area_id": 4,
+      "region": "スメール",
+      "point_group": {
+        "group_id": 41,
+        "floor_id": 1
+      }
+    },
+    {
+      "id": "teyvat:36704",
+      "source_id": 36704,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -6411,
+      "y": 4152.5,
+      "area_id": 4,
+      "region": "スメール"
+    },
+    {
+      "id": "teyvat:36705",
+      "source_id": 36705,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -6028.5,
+      "y": 4577.5,
+      "area_id": 4,
+      "region": "スメール",
+      "point_group": {
+        "group_id": 61,
+        "floor_id": 60
+      }
+    },
+    {
+      "id": "teyvat:41009",
+      "source_id": 41009,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -3292.5,
+      "y": 2843.2520911280017,
+      "area_id": 4,
+      "region": "スメール"
+    },
+    {
+      "id": "teyvat:41694",
+      "source_id": 41694,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -5042.7378102542325,
+      "y": 3731.683398785568,
+      "area_id": 4,
+      "region": "スメール"
+    },
+    {
+      "id": "teyvat:41817",
+      "source_id": 41817,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -5742,
+      "y": 2719,
+      "area_id": 4,
+      "region": "スメール"
+    },
+    {
+      "id": "teyvat:41818",
+      "source_id": 41818,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -5167.25,
+      "y": 3065,
+      "area_id": 4,
+      "region": "スメール",
+      "point_group": {
+        "group_id": 55,
+        "floor_id": 13
+      }
+    },
+    {
+      "id": "teyvat:46531",
+      "source_id": 46531,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -6893.5,
+      "y": 1396,
+      "area_id": 4,
+      "region": "スメール"
+    },
+    {
+      "id": "teyvat:46532",
+      "source_id": 46532,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -6280.5,
+      "y": 1932.75,
+      "area_id": 4,
+      "region": "スメール"
+    },
+    {
+      "id": "teyvat:46533",
+      "source_id": 46533,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -6799,
+      "y": 2395.25,
+      "area_id": 4,
+      "region": "スメール"
+    },
+    {
+      "id": "teyvat:46534",
+      "source_id": 46534,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -6498.75,
+      "y": 2527.75,
+      "area_id": 4,
+      "region": "スメール",
+      "point_group": {
+        "group_id": 57,
+        "floor_id": 23
+      }
+    },
+    {
+      "id": "teyvat:50034",
+      "source_id": 50034,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -5477.25,
+      "y": 476.5,
+      "area_id": 8,
+      "region": "フォンテーヌ"
+    },
+    {
+      "id": "teyvat:50057",
+      "source_id": 50057,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -5448.75,
+      "y": -1626.25,
+      "area_id": 8,
+      "region": "フォンテーヌ"
+    },
+    {
+      "id": "teyvat:50067",
+      "source_id": 50067,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -4938.75,
+      "y": -653,
+      "area_id": 8,
+      "region": "フォンテーヌ",
+      "point_group": {
+        "group_id": 90,
+        "floor_id": 78
+      }
+    },
+    {
+      "id": "teyvat:56792",
+      "source_id": 56792,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -4781.25,
+      "y": -727.375,
+      "area_id": 8,
+      "region": "フォンテーヌ",
+      "point_group": {
+        "group_id": 90,
+        "floor_id": 78
+      }
+    },
+    {
+      "id": "teyvat:63738",
+      "source_id": 63738,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -4700.083343505859,
+      "y": -143.93532018148562,
+      "area_id": 8,
+      "region": "フォンテーヌ"
+    },
+    {
+      "id": "teyvat:68346",
+      "source_id": 68346,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -4953.7518704383765,
+      "y": 1037.501682974791,
+      "area_id": 8,
+      "region": "フォンテーヌ"
+    },
+    {
+      "id": "teyvat:68347",
+      "source_id": 68347,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -5691.5,
+      "y": -1862.5,
+      "area_id": 8,
+      "region": "フォンテーヌ"
+    },
+    {
+      "id": "teyvat:73159",
+      "source_id": 73159,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -8543.753201867077,
+      "y": 4187.745816021552,
+      "area_id": 11,
+      "region": "ナタ"
+    },
+    {
+      "id": "teyvat:73160",
+      "source_id": 73160,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -9787.626584081607,
+      "y": 4744.245441336916,
+      "area_id": 11,
+      "region": "ナタ"
+    },
+    {
+      "id": "teyvat:73161",
+      "source_id": 73161,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -8924.377426678206,
+      "y": 4197.244504625323,
+      "area_id": 11,
+      "region": "ナタ"
+    },
+    {
+      "id": "teyvat:81383",
+      "source_id": 81383,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -10227,
+      "y": 4266.5,
+      "area_id": 11,
+      "region": "ナタ"
+    },
+    {
+      "id": "teyvat:82577",
+      "source_id": 82577,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -11294.999653622523,
+      "y": 5713.25,
+      "area_id": 11,
+      "region": "ナタ"
+    },
+    {
+      "id": "teyvat:85351",
+      "source_id": 85351,
+      "map_id": 2,
+      "kind": "domain",
+      "x": 861.0219911521126,
+      "y": 599.9847013775225,
+      "area_id": 1,
+      "region": "モンド"
+    },
+    {
+      "id": "teyvat:88121",
+      "source_id": 88121,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -11568.5,
+      "y": 381.75,
+      "area_id": 13,
+      "region": "ナド・クライ"
+    },
+    {
+      "id": "teyvat:88122",
+      "source_id": 88122,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -10718,
+      "y": 497,
+      "area_id": 13,
+      "region": "ナド・クライ"
+    },
+    {
+      "id": "teyvat:88123",
+      "source_id": 88123,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -10126,
+      "y": -829,
+      "area_id": 13,
+      "region": "ナド・クライ"
+    },
+    {
+      "id": "teyvat:92859",
+      "source_id": 92859,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -10789.125,
+      "y": -3619.375,
+      "area_id": 13,
+      "region": "ナド・クライ"
+    },
+    {
+      "id": "teyvat:92860",
+      "source_id": 92860,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -10272.5,
+      "y": -4066.5,
+      "area_id": 13,
+      "region": "ナド・クライ"
+    },
+    {
+      "id": "teyvat:98499",
+      "source_id": 98499,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -3666.1092783089916,
+      "y": 2105.116702893185,
+      "area_id": 4,
+      "region": "スメール"
+    },
+    {
+      "id": "teyvat:98500",
+      "source_id": 98500,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -790.7499955075837,
+      "y": -926.4999351714132,
+      "area_id": 1,
+      "region": "モンド"
+    },
+    {
+      "id": "teyvat:100705",
+      "source_id": 100705,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -7637.500204177431,
+      "y": -6058.501280390177,
+      "area_id": 16,
+      "region": "スネージナヤ"
+    },
+    {
+      "id": "teyvat:100706",
+      "source_id": 100706,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -8217.250102088716,
+      "y": -6591.497225821284,
+      "area_id": 16,
+      "region": "スネージナヤ"
+    },
+    {
+      "id": "teyvat:100707",
+      "source_id": 100707,
+      "map_id": 2,
+      "kind": "domain",
+      "x": -7670.5,
+      "y": -6728.248933008186,
+      "area_id": 16,
+      "region": "スネージナヤ"
+    }
+  ]
+}

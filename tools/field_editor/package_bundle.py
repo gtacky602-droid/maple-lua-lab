@@ -13,6 +13,7 @@ def main():
     for folder in ('tools/field_editor','design/field-editor','docs/field-editor'):
         files.extend(p for p in (ROOT/folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix not in ('.lock','.tmp','.pyc') and 'node_modules' not in p.parts)
     files.extend(ROOT/'content'/n for n in ('map-catalog.json','enemy-art-status.json'))
+    files.append(ROOT / 'build_map_catalog.py')
     with zipfile.ZipFile(args.output,'w',zipfile.ZIP_DEFLATED) as z:
         for p in sorted(files):z.write(p,p.relative_to(ROOT).as_posix())
         z.writestr('Start-Field-Editor.cmd','@echo off\r\ncd /d "%~dp0"\r\npython -m tools.field_editor.server\r\npause\r\n')

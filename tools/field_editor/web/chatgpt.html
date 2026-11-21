@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ChatGPT連携 · テイワット・フィールド設計室</title>
+  <link rel="icon" href="/favicon.svg">
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/chatgpt.js"></script>
+</head>
+<body class="connection-page">
+  <header class="topbar">
+    <div class="brand"><div><b>TEYVAT FIELD ATLAS</b><small>テイワット・フィールド設計室</small></div></div>
+    <a class="settings-link" href="/">設計室に戻る</a>
+  </header>
+  <main class="chatgpt-settings">
+    <h1>ChatGPT連携</h1>
+    <p>ChatGPTからこのPCの設計データを参照できます。変更案を受け取ったら、設計室の「変更案」で差分を確認して採用します。</p>
+    <section aria-labelledby="connection-title">
+      <h2 id="connection-title">接続情報</h2>
+      <dl class="connection-details">
+        <div><dt>接続状態</dt><dd id="connection-state">読み込み中</dd></div>
+        <div><dt>認証状態</dt><dd id="connection-auth">—</dd></div>
+        <div><dt>MCPエンドポイント（ローカル）</dt><dd><code id="connection-endpoint">—</code></dd></div>
+        <div><dt>Secure MCP Tunnel ID</dt><dd><code id="connection-tunnel">—</code></dd></div>
+        <div><dt>アクセス権限</dt><dd id="connection-tools">—</dd></div>
+        <div><dt>起動後の最終アクセス</dt><dd id="connection-last">—</dd></div>
+        <div><dt>最新 revision</dt><dd id="connection-revision">—</dd></div>
+      </dl>
+      <div class="connection-actions">
+        <button type="button" class="primary" id="connection-test" disabled>接続テスト</button>
+        <button type="button" class="danger" id="connection-stop" disabled>接続停止</button>
+      </div>
+      <p id="connection-feedback" role="status">接続テストはこのPCのMCP応答を確認します。</p>
+    </section>
+    <section aria-labelledby="setup-title">
+      <h2 id="setup-title">ChatGPTで接続する</h2>
+      <ol class="connection-steps">
+        <li>PCでtunnel-clientを起動します。初回はリポジトリの <code>docs/field-editor/CHATGPT_SETUP.md</code> に沿って設定してください。</li>
+        <li><a href="https://chatgpt.com/plugins" target="_blank" rel="noopener noreferrer">ChatGPTのプラグイン画面</a>で「＋」からカスタムMCPサーバーを追加します。接続方式は「Tunnel」を選び、上のTunnel IDを指定します。</li>
+        <li>トンネル経由の認証を使う設定では、ChatGPT側は「認証なし」を選びます。追加したプラグインを会話で選び、<code>list_fields</code> に <code>map_id: region-01-map</code> を渡してモンドの51地点を取得します。</li>
+      </ol>
+      <p>読み取り専用の場合は、ChatGPTに最新revision付きの変更JSONを作らせます。設計室の「変更案」からJSONを取り込めます。</p>
+    </section>
+  </main>
+</body>
+</html>
