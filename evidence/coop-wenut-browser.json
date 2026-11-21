@@ -1,0 +1,75 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 1080,
+  "results": [
+    {
+      "seconds": 28.48,
+      "hp": 140,
+      "kills": 1,
+      "startingMora": 20,
+      "mora": 250,
+      "startingXp": 1038,
+      "xp": 71200,
+      "moves": [
+        "FWN01",
+        "FWN02",
+        "FWN03"
+      ],
+      "manualDamage": 324,
+      "cloaked": false,
+      "markers": [
+        762.5
+      ],
+      "emerged": [
+        762.5
+      ],
+      "air": [],
+      "down": []
+    },
+    {
+      "seconds": 28.5,
+      "hp": 140,
+      "kills": 1,
+      "startingMora": 20,
+      "mora": 250,
+      "startingXp": 1038,
+      "xp": 71200,
+      "moves": [
+        "FWN01",
+        "FWN02",
+        "FWN03"
+      ],
+      "manualDamage": 298,
+      "cloaked": false,
+      "markers": [
+        762.5
+      ],
+      "emerged": [
+        762.5
+      ],
+      "air": [],
+      "down": []
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 270,
+      "xp": 72238,
+      "respawn": true
+    },
+    {
+      "clears": 1,
+      "mora": 270,
+      "xp": 72238,
+      "respawn": true
+    }
+  ],
+  "scenery": "wenutField",
+  "errors": []
+}

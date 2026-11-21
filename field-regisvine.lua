@@ -18,6 +18,11 @@ return function(C)
    boss.coreHits=boss.coreHits-1
   end
 
+  function behavior.frame(f,boss)
+   f.coreHits=boss.coreHits
+   f.downTicks=boss.down
+  end
+
   function behavior.updateHeight(boss,spec,cast)
    local pose=poseFor(boss,cast)
    boss.drawHeight=pose=='idle' and spec.artHeight or art[pose].profiles.legacy.height

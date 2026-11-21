@@ -1,0 +1,18 @@
+{
+  "lua": {
+    "participants": 4,
+    "hp": 570,
+    "sharedCoreAndDown": true,
+    "separateMeleeContacts": true,
+    "iceBoltsStopOnFirstContact": true,
+    "soloCastHistorySurvivesAdoption": true,
+    "xpPerContributor": 900,
+    "moraPerContributor": 125
+  },
+  "http": {
+    "participants": 2,
+    "downPausedWhileEmpty": true,
+    "sameRoomRejoin": true,
+    "personalQuestCreditAndRewardsSaved": true
+  }
+}

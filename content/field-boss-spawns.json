@@ -32,6 +32,7 @@
     {
       "id": "boss-26020101",
       "controller": "cryoRegisvine",
+      "coop": true,
       "entity": 26020101,
       "name": "急凍樹",
       "node": "cryo-field-grove",

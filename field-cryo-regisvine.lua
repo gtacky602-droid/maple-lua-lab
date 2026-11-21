@@ -22,6 +22,10 @@ return function(C)
   return {move=move,tick=0,dir=direction,seen={},shots={},projectiles={}}
  end
 
+ function cryo.shareCast(cast,actors)
+  C.shareFieldHits({cast.seen},actors)
+ end
+
  local function attackBounds(boss,cast)
   local slam=cast.move.pattern=='slam'
   local a=boss.x+cast.dir*(slam and .4 or .3)*U
@@ -53,11 +57,7 @@ return function(C)
    local window=cast.move.active[1]
    if t>=window[1] and t<window[2] then
     local x0,x1,y0,y1=attackBounds(boss,cast)
-    for _,a in ipairs(s.actors) do
-     if a.hp>0 and not cast.seen[a.id] and a.x+10>x0 and a.x-10<x1 and a.y>y0 and a.y-50<y1 then
-      cast.seen[a.id]=true;C.damageActor(s,a,cast.move.damage,boss,false,true)
-     end
-    end
+    C.hitFieldArea(s,boss,cast.seen,x0,x1,y0,cast.move.damage,y1)
    end
   end
   cryo.updateHeight(boss,spec,t<cast.move.total and cast or nil)

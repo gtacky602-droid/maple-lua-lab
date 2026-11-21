@@ -8069,6 +8069,8 @@
     "maps": [
       "mond-town",
       "mond-road",
+      "cryo-approach",
+      "cryo-field-grove",
       "anemo-approach",
       "anemo-field-basin",
       "electro-approach",
@@ -8092,6 +8094,7 @@
       "sne-novokichev-ore-yard"
     ],
     "bosses": [
+      "boss-26020101",
       "boss-20040201",
       "boss-20040101",
       "boss-20040301",
@@ -8154,6 +8157,13 @@
       "evidence/coop-sumeru-field-lua-http.json",
       "evidence/coop-asimon-browser.json",
       "evidence/coop-asimon-cloak.png",
+      "evidence/coop-wenut-browser.json",
+      "evidence/coop-wenut-burrow.png",
+      "evidence/coop-dendro-browser.json",
+      "evidence/coop-dendro-plunge.png",
+      "evidence/coop-cryo-field-lua-http.json",
+      "evidence/coop-cryo-browser.json",
+      "evidence/coop-cryo-down.png",
       "evidence/coop-jadeplume-lua-http.json",
       "evidence/coop-jadeplume-browser.json",
       "evidence/coop-jadeplume-leap.png"

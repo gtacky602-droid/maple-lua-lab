@@ -215,8 +215,10 @@ def dendro_check(lua,core):
 
 def run_lua():
     lua,core=runtime()
-    fixture=validate_save(native(core.checkpoint(party(core,MATRIX,True,True))))
-    (ROOT/'work/coop-asimon-fixture.json').write_text(json.dumps(fixture),encoding='utf-8')
+    (ROOT/'work').mkdir(exist_ok=True)
+    for name,case in (('asimon',MATRIX),('wenut',WENUT),('dendro',DENDRO)):
+        fixture=validate_save(native(core.checkpoint(party(core,case,True,True))))
+        (ROOT/f'work/coop-{name}-fixture.json').write_text(json.dumps(fixture),encoding='utf-8')
     return {'matrix':matrix_check(lua,core),'wenut':wenut_check(lua,core),'dendro':dendro_check(lua,core)}
 
 

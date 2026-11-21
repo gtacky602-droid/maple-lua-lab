@@ -114,6 +114,11 @@ return function(C)
    if m.hidden then
     local center=c.dest-camera
     if t<m.hidden[2] then
+     -- Keep the edges visible when a party member stands on the emergence point.
+     rect(f,center-45,y-14,12,4,'#5a3b29')
+     rect(f,center+33,y-14,12,4,'#5a3b29')
+     rect(f,center-44,y-13,10,2,white)
+     rect(f,center+34,y-13,10,2,white)
      rect(f,center-19,y-4,38,3,sand)
      rect(f,center-14,y-7,28,2,sand)
      rect(f,center-3,y-13,6,5,white)

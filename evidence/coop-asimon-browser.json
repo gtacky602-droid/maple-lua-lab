@@ -4,32 +4,44 @@
   "bossHp": 1100,
   "results": [
     {
-      "seconds": 28.15,
-      "hp": 78,
-      "kills": 1,
-      "startingMora": 20,
-      "mora": 245,
-      "moves": [
-        "FMT01",
-        "FMT02",
-        "FMT03"
-      ],
-      "manualDamage": 316,
-      "cloaked": true
-    },
-    {
-      "seconds": 28.13,
+      "seconds": 28.62,
       "hp": 120,
       "kills": 1,
       "startingMora": 0,
       "mora": 245,
+      "startingXp": 0,
+      "xp": 61650,
       "moves": [
         "FMT01",
         "FMT02",
         "FMT03"
       ],
-      "manualDamage": 309,
-      "cloaked": true
+      "manualDamage": 324,
+      "cloaked": true,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": []
+    },
+    {
+      "seconds": 28.6,
+      "hp": 78,
+      "kills": 1,
+      "startingMora": 0,
+      "mora": 245,
+      "startingXp": 0,
+      "xp": 61650,
+      "moves": [
+        "FMT01",
+        "FMT02",
+        "FMT03"
+      ],
+      "manualDamage": 313,
+      "cloaked": true,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": []
     }
   ],
   "questCounts": [
@@ -39,12 +51,17 @@
   "saves": [
     {
       "clears": 1,
-      "mora": 265
+      "mora": 245,
+      "xp": 61650,
+      "respawn": true
     },
     {
       "clears": 1,
-      "mora": 245
+      "mora": 245,
+      "xp": 61650,
+      "respawn": true
     }
   ],
+  "scenery": "asimonField",
   "errors": []
 }
