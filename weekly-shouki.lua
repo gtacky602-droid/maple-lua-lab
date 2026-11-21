@@ -9,53 +9,13 @@ return function(C)
  local function visual(w,spec)
   local name,t,y=w.stage,w.stageTick,spec.floorY
   if name=='p1' or name=='overload' or name=='rise' and t<120 then
-   if name=='overload' and t>=60 then return 'upper',y-20,910 end
-   return 'upper',y-36,1160
+   -- The upper-form crop ends at the waist, right at the arena floor.
+   return 'upper',y,name=='overload' and t>=60 and 720 or 950
   end
   if name=='trial' then return 'full',y-83,630 end
   if name=='collapse' and t>=60 then return 'full',y,600 end
   if name=='rise' then return 'full',y,656+(fullHeight-656)*clamp((t-120)/120,0,1) end
   return 'full',y,fullHeight
- end
- local upperParts={'torso','leftHand','rightHand','leftPendant','rightPendant'}
- local upperBox={x=87,y=14,w=868,h=914}
- local function clipAtFloor(draws,floorY)
-  local kept=0
-  for _,d in ipairs(draws) do
-   local top=d.kind=='rect' and d.y or d.y-d.h
-   local visible=math.min(d.h,floorY-top)
-   if visible>0 then
-    if visible<d.h then
-     if d.kind=='boss_sprite' then
-      local box=d.box
-      d.box={box[1],box[2],box[3],box[4]*visible/d.h}
-      d.y=floorY
-     end
-     d.h=visible
-    end
-    kept=kept+1
-    draws[kept]=d
-   end
-  end
-  for i=#draws,kept+1,-1 do draws[i]=nil end
- end
- local function drawMachine(f,form,x,base,height,mode,profile,floorY)
-  local art=C.shoukiWeeklyArt
-  if form=='full' then
-   C.drawFieldDisplayArt(f,art.full,x,base,height,mode,profile,false)
-   return
-  end
-  -- Anchor the cropped waist just above the arena floor.
-  local scale=height/upperBox.h
-  local left,top=x-upperBox.w*scale/2,base-art.torso.box[4]*scale
-  for _,key in ipairs(upperParts) do
-   local part=art[key]
-   local box=part.box
-   local center=left+(box[1]-upperBox.x+box[3]/2)*scale
-   local bottom=top+(box[2]-upperBox.y+box[4])*scale
-   C.drawFieldDisplayArt(f,part,center,bottom,box[4]*scale,mode,profile,false)
-  end
-  clipAtFloor(f.draws,floorY)
  end
  local function actor(s) return s.actors[s.active] end
  local function event(s,w,key,owner,v) C.combatEvent(s,'shouki:'..key,owner or 0,w.primary.id,v or 0) end
@@ -580,7 +540,7 @@ return function(C)
   local y=spec.floorY
   -- Put the oversized machine behind the party and its combat cues.
   local bodyFrame={draws={}}
-  drawMachine(bodyFrame,form,e.x-s.camera,base,height,mode,profile,y)
+  C.drawFieldDisplayArt(bodyFrame,C.shoukiWeeklyArt[form],e.x-s.camera,base,height,mode,profile,false)
   table.move(f.draws,1,#f.draws,#bodyFrame.draws+1,bodyFrame.draws)
   f.draws=bodyFrame.draws
   for _,p in ipairs(w.floors) do
