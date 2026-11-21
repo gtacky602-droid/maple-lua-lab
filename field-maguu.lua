@@ -1,6 +1,7 @@
 return function(C)
  local maguu={}
  local U=88
+ local maskStart,maskEnd=90,144
  local function aim(b,c,a)
   c.dir=a.x<b.x and -1 or 1
   b.facing=c.dir
@@ -10,9 +11,17 @@ return function(C)
   aim(b,c,a)
   return c
  end
+ function maguu.shareCast(cast,actors)
+  C.shareFieldHits(cast.seen,actors)
+ end
  function maguu.cancel() end
  local function mask(c,t)
-  return c.origin+c.dir*U*(.5+math.max(0,t-90)*3/60)
+  return c.origin+c.dir*U*(.5+math.max(0,t-maskStart)*3/60)
+ end
+ function maguu.frame(f,b,spec,c)
+  if c and c.move.mask and c.tick>=c.move.lock and c.tick<maskEnd then
+   f.maskX=mask(c,c.tick)
+  end
  end
  local function band(b,c)
   local m=c.move
@@ -25,7 +34,7 @@ return function(C)
   c.tick=t
   if a and t<=m.lock then aim(b,c,a) end
   if m.mask then
-   if t>=90 and t<144 then
+   if t>=maskStart and t<maskEnd then
     local x,prev=mask(c,t),mask(c,t-1)
     C.hitFieldArea(s,b,c.seen[1],math.min(x,prev)-.35*U,math.max(x,prev)+.35*U,b.y-U,m.damage,b.y-.2*U)
    end
@@ -49,7 +58,7 @@ return function(C)
    pose.phase='iai_warning'
    local m,t=c.move,c.tick
    if m.mask then
-    if t>=m.lock and t<144 then C.drawMaguuMask(f,mask(c,t)-s.camera,b.y-.2*U,70,c.dir,mode,profile) end
+    if t>=m.lock and t<maskEnd then C.drawMaguuMask(f,mask(c,t)-s.camera,b.y-.2*U,70,c.dir,mode,profile) end
    elseif t>=m.lock then
     local w=m.active[t>=112 and m.active[2] and 2 or 1]
     if t<w[2] then

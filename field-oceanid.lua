@@ -62,6 +62,17 @@ return function(C)
   return cast
  end
 
+ function oceanid.shareCast(cast,actors)
+  C.shareFieldHits({cast.seen},actors)
+ end
+
+ function oceanid.frame(f,boss,spec,cast)
+  f.flying=boss.y<spec.floorY
+  if cast and cast.move.airborne and cast.tick>=cast.move.lock and cast.tick<cast.move.active[1][2] then
+   f.landingX=cast.dest
+  end
+ end
+
  local function waveX(cast,age)
   local move=cast.move
   return cast.origin+cast.dir*(move.shotOffset+move.shotSpeed*age/60)*U

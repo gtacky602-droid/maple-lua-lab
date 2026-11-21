@@ -1,0 +1,30 @@
+{
+  "oceanid": {
+    "lua": {
+      "participants": 4,
+      "singleHpAndAuraAcrossForms": true,
+      "wavesHitSeparateTravelers": true,
+      "frogSpriteAndHitboxFollowLockedLanding": true,
+      "priorSoloHitSurvivesAdoption": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  },
+  "maguu": {
+    "lua": {
+      "participants": 4,
+      "fixedDirection": true,
+      "twoHitsPerTraveler": true,
+      "oneMovingMaskForAll": true,
+      "priorSoloHitSurvivesAdoption": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  }
+}

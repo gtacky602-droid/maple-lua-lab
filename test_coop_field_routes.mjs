@@ -30,7 +30,13 @@ const cases={
  primo:{hub:'liyue-harbor',transit:['liyue-field'],arena:'primo-field-vault',approach:'primo-approach',
   boss:'boss-26050101',quest:'primo-commission',hp:970,mora:165,xp:8500,scene:'primoField',
   asset:'primo-geovishap-field',pose:'actions',label:'shield',stance:104,
-  fixture:'primo-geovishap-field',shieldMove:'FV03',evade:{FV01:[80,140],FV02:[92],FV03:[128]}}
+  fixture:'primo-geovishap-field',shieldMove:'FV03',evade:{FV01:[80,140],FV02:[92],FV03:[128]}},
+ oceanid:{hub:'liyue-harbor',transit:['liyue-field'],arena:'oceanid-field-reservoir',approach:'oceanid-approach',
+  boss:'boss-20050101',quest:'oceanid-commission',hp:900,mora:170,xp:12250,scene:'oceanidField',
+  asset:'oceanid-field',label:'frog',fixture:'oceanid-field',report:true,evade:{FO01:[84],FO02:[74,122],FO03:[110]}},
+ maguu:{hub:'inazuma-port',transit:['inazuma-road'],arena:'maguu-field-dojo',approach:'maguu-approach',
+  boss:'boss-25090101',quest:'maguu-commission',hp:900,mora:180,xp:14950,scene:'maguuField',
+  asset:'maguu-field',label:'mask',fixture:'maguu-field',report:true,evade:{FMK01:[122],FMK02:[80,140],FMK03:[97]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -66,7 +72,8 @@ async function fight(page,side,key,config) {
   document.activeElement.blur();
   const held=new Set(),moves=new Set(),hits=new Map();
   const markers=new Set(),emerged=new Set(),air=new Set(),down=new Set();
-  const art=config.asset+'-'+config.pose+'-source-v1.png';
+  const forms=new Set(),landings=new Set(),maskPaths=new Set();
+  const art=config.pose&&config.asset+'-'+config.pose+'-source-v1.png';
   const entity=Number(config.boss.slice(5));
   const start=window.lab.frame;
   let cloaked=false,lastMove,lastTick,used=new Set(),capture=null,guardTick=null,recovery=0,shieldUsed=false;
@@ -86,7 +93,7 @@ async function fight(page,side,key,config) {
      mora:f.mora-start.mora,startingXp:start.progression.killXp,xp:f.progression.killXp-start.progression.killXp,
      moves:[...moves].sort(),manualDamage:[...hits.values()].reduce((sum,v)=>sum+v,0),cloaked,
      markers:[...markers],emerged:[...emerged],air:[...air],down:[...down],
-     guardTick,recovery,shieldUsed};
+     guardTick,recovery,shieldUsed,forms:[...forms].sort(),landings:[...landings],maskPaths:[...maskPaths]};
     return;
    }
    if(!b) {
@@ -97,7 +104,7 @@ async function fight(page,side,key,config) {
    if(b.move!==lastMove||b.tick<lastTick){lastMove=b.move;used=new Set()}
    lastTick=b.tick;
    if(b.move) moves.add(b.move);
-   const sprite=f.draws.find(d=>d.source===art);
+   const sprite=art&&f.draws.find(d=>d.source===art);
    let visual=false;
    if(key==='asimon'&&b.cloaked&&sprite?.opacity===.45){
     cloaked=true;
@@ -127,6 +134,24 @@ async function fight(page,side,key,config) {
     guardTick=b.guardTick;
     recovery=Math.max(recovery,b.recoveryTicks??0);
     visual=b.label==='盾で受けた・隙＋1秒'&&Boolean(sprite);
+   }
+   if(key==='oceanid'){
+    const mimic=f.draws.find(d=>d.source==='oceanid-'+b.form+'-source-v1.png');
+    if(mimic&&f.draws.some(d=>d.source==='oceanid-source-v1.png')) forms.add(b.form);
+    if(b.move==='FO03'&&b.flying&&b.y<420&&mimic?.y===b.y&&Math.abs(mimic.x+f.camera-b.x)<.001){
+     visual=f.draws.some(d=>d.kind==='rect'&&d.y===469&&d.h===3&&d.color==='#ffca93'&&
+      Math.abs(d.x+d.w/2+f.camera-b.landingX)<.001);
+     if(visual) landings.add(b.landingX);
+    }
+   }
+   if(key==='maguu'&&b.move==='FMK03'&&b.tick>94&&b.tick<144){
+    const mask=f.draws.find(d=>d.source==='maguu-mask-source-v1.png');
+    const dir=Math.sign(b.maskX-b.x);
+    const distance=44+(b.tick-90)*3*88/60;
+    if(mask&&Math.abs(mask.x+f.camera-b.maskX)<.001&&Math.abs(b.x+dir*distance-b.maskX)<.001){
+     maskPaths.add([b.x.toFixed(3),dir].join(','));
+     visual=true;
+    }
    }
    if(visual&&!capture&&side===-1){
     capture=document.querySelector('#game').toDataURL('image/png').split(',')[1];
@@ -195,6 +220,11 @@ async function run(key,config) {
  if(config.shieldMove)
   assert.ok(!a.shieldUsed&&b.shieldUsed&&a.guardTick===132&&b.guardTick===132&&
    a.recovery>120&&b.recovery>120,JSON.stringify(results));
+ if(key==='oceanid'){
+  for(const r of results) assert.deepEqual(r.forms,['boar','crane','frog']);
+  assert.ok(a.landings.some(x=>b.landings.includes(x)),JSON.stringify(results));
+ }
+ if(key==='maguu') assert.ok(a.maskPaths.some(path=>b.maskPaths.includes(path)),JSON.stringify(results));
  const questCounts=await Promise.all(players.map(({page})=>page.evaluate(q=>window.lab.frame.story.quests[q]?.count??null,quest)));
  assert.deepEqual(questCounts,[1,null]);
  const saves=[];
@@ -208,12 +238,27 @@ async function run(key,config) {
   },[saveKey,boss]));
  }
  assert.deepEqual(saves,results.map(r=>({clears:1,mora:r.startingMora+mora,xp:r.startingXp+xp,respawn:true})));
+ let report;
+ if(config.report){
+  for(const node of [config.approach,...config.transit.toReversed(),config.hub])
+   await Promise.all(players.map(({route})=>route.cross(node)));
+  const rewardState=()=>host.evaluate(()=>[window.lab.frame.progression.questXp,window.lab.frame.mora]);
+  const before=await rewardState();
+  await players[0].route.report(quest);
+  const [afterXp,afterMora]=await rewardState();
+  assert.deepEqual([afterXp-before[0],afterMora-before[1]],[4000,300]);
+  assert.equal(await guest.evaluate(q=>window.lab.frame.story.quests[q]??null,quest),null);
+  await host.locator('#saveProgress').click();
+  await host.waitForFunction(([key,q])=>JSON.parse(localStorage.getItem(key))?.story.quests[q]?.status==='complete',
+   [saveKey,quest]);
+  report={hub:config.hub,hostSaved:true,guestQuest:null,xp:afterXp-before[0],mora:afterMora-before[1]};
+ }
  assert.deepEqual(errors,[]);
  const shot=await host.evaluate(()=>window.coopSumeruCapture);
  assert.ok(shot,'Expected canvas capture for '+key);
  await fs.writeFile('evidence/coop-'+key+'-'+label+'.png',Buffer.from(shot,'base64'));
  await fs.writeFile('evidence/coop-'+key+'-browser.json',JSON.stringify({
-  browser:'Chrome',participants:2,bossHp:hp,results,questCounts,saves,scenery:scene,errors
+  browser:'Chrome',participants:2,bossHp:hp,results,questCounts,saves,report,scenery:scene,errors
  },null,2)+'\n');
  console.log(`Chrome: ${key}, each player attacked, cleared, received ${xp} XP and ${mora} mora, and saved.`);
  await Promise.all(players.map(({page})=>page.context().close()));

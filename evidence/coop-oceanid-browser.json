@@ -1,0 +1,98 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 900,
+  "results": [
+    {
+      "seconds": 24.35,
+      "hp": 128,
+      "kills": 1,
+      "startingMora": 20,
+      "mora": 170,
+      "startingXp": 30,
+      "xp": 12250,
+      "moves": [
+        "FO01",
+        "FO02",
+        "FO03"
+      ],
+      "manualDamage": 272,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [
+        "boar",
+        "crane",
+        "frog"
+      ],
+      "landings": [
+        755.5
+      ],
+      "maskPaths": []
+    },
+    {
+      "seconds": 24.35,
+      "hp": 128,
+      "kills": 1,
+      "startingMora": 20,
+      "mora": 170,
+      "startingXp": 30,
+      "xp": 12250,
+      "moves": [
+        "FO01",
+        "FO02",
+        "FO03"
+      ],
+      "manualDamage": 248,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [
+        "boar",
+        "crane",
+        "frog"
+      ],
+      "landings": [
+        755.5
+      ],
+      "maskPaths": []
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 190,
+      "xp": 12280,
+      "respawn": true
+    },
+    {
+      "clears": 1,
+      "mora": 190,
+      "xp": 12280,
+      "respawn": true
+    }
+  ],
+  "report": {
+    "hub": "liyue-harbor",
+    "hostSaved": true,
+    "guestQuest": null,
+    "xp": 4000,
+    "mora": 300
+  },
+  "scenery": "oceanidField",
+  "errors": []
+}
