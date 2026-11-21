@@ -1,0 +1,124 @@
+{
+  "participants": 2,
+  "hp": 2900,
+  "scene": {
+    "key": "lavaDragonField",
+    "file": "lava-dragon-field-background-v1.png",
+    "state": "ready"
+  },
+  "results": [
+    {
+      "won": true,
+      "floors": [
+        {
+          "left": 40,
+          "x": 40,
+          "width": 880
+        },
+        {
+          "left": 128,
+          "x": 128,
+          "width": 792
+        },
+        {
+          "left": 216,
+          "x": 216,
+          "width": 704
+        },
+        {
+          "left": 304,
+          "x": 304,
+          "width": 616
+        }
+      ],
+      "trials": [
+        "WG05",
+        "WG14",
+        "WG16"
+      ],
+      "initialGate": [
+        1,
+        1,
+        1
+      ],
+      "damage": 1869,
+      "falls": 1,
+      "marks": 5,
+      "returns": 0
+    },
+    {
+      "won": true,
+      "floors": [
+        {
+          "left": 40,
+          "x": 40,
+          "width": 880
+        },
+        {
+          "left": 128,
+          "x": 128,
+          "width": 792
+        },
+        {
+          "left": 216,
+          "x": 216,
+          "width": 704
+        },
+        {
+          "left": 304,
+          "x": 304,
+          "width": 616
+        }
+      ],
+      "trials": [
+        "WG05",
+        "WG14",
+        "WG16"
+      ],
+      "initialGate": [
+        1,
+        1,
+        1
+      ],
+      "damage": 102,
+      "falls": 2,
+      "marks": 1,
+      "returns": 0
+    }
+  ],
+  "rewards": [
+    [
+      637200,
+      3400
+    ],
+    [
+      637200,
+      3400
+    ]
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saved": [
+    {
+      "wait": 3533,
+      "clears": 1,
+      "xp": 637200,
+      "mora": 346200,
+      "quest": "active"
+    },
+    {
+      "wait": 3533,
+      "clears": 1,
+      "xp": 637200,
+      "mora": 346200,
+      "quest": null
+    }
+  ],
+  "report": {
+    "xp": 420000,
+    "mora": 12800
+  },
+  "errors": []
+}

@@ -3913,6 +3913,7 @@
       "id": "boss-29091101",
       "entity": 29091101,
       "controller": "primal_fire",
+      "coop": true,
       "node": "primal-fire-sundered-forge",
       "storyChallenge": "primal-fire-weekly",
       "name": "蝕まれし源焔の主",

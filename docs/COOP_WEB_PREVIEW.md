@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する101地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する102地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -468,6 +468,16 @@ Lua・HTTPの検証は `python test_coop_narwhal.py` で再現できる。Chrome
 
 Lua・HTTPの検証は `python test_coop_knave.py` で再現できる。Chromeでは `python test_knave_weekly.py` で試験用セーブを作り、`LAB_URL` を指定して `node test_coop_knave.mjs` を実行する。 [LuaとHTTPの結果](../evidence/coop-knave-lua-http.json) · [Chromeの結果](../evidence/coop-knave-browser.json)
 
+## 蝕まれし源焔の主の週ボス戦
+
+ナタ・谷の集落でLv104の「源焔の再現戦・虚界の障壁」を受注し、x351から入る。HP2,900と床を共有する。床は左端が88pxずつ最大3回崩れ、足場の幅が880pxから616pxまで縮む。落下したキャラだけに最大HPの25％相当の通常ダメージを要求し、生存者を安全な床に戻す。 [最初の床切断](../evidence/coop-primal-fire-cut.png) · [三回切断後](../evidence/coop-primal-fire-narrow.png)
+
+障壁12、擬態芽4、三柱の各6は全員で削る。通常攻撃で1、元素攻撃で2を削り、同じキャラが同じ対象を削る間隔は24tick。ほかの人は同じ刻みに攻撃できる。期限前に試練を解くと8秒間攻撃でき、期限切れの衝撃は各キャラに判定する。 [虚界の障壁](../evidence/coop-primal-fire-gate.png) · [三柱](../evidence/coop-primal-fire-pillars.png)
+
+蝕破は付いたキャラが120tick後に受け、交代しても引き継ぎ先は変わらない。退避した組の蝕破は消える。全員が広場へ出ると戦闘は止まり、戻ると床と障壁の続きから再開する。全滅時は床も復元する。通常ルートで討伐条件を満たした各自に637,200 EXP・3,400モラ、受注者の報告に420,000 EXP・12,800モラが入る。
+
+Lua・HTTPは `python test_coop_primal_fire.py` で再現できる。Chromeでは `python test_primal_fire_weekly.py` で試験用セーブを作り、`LAB_URL` を指定して `node test_coop_primal_fire.mjs` を実行する。 [LuaとHTTPの結果](../evidence/coop-primal-fire-lua-http.json) · [Chromeの結果](../evidence/coop-primal-fire-browser.json)
+
 ## マッシュラプトル
 
 Lv60で雨林の道から菌傘の谷へ進む。本体HPは800。ついばみの当たり判定、跳躍の着地地点、3回の胞子の位置を共有し、各参加者が個別に被弾する。跳躍中は本体の絵と当たり判定が一緒に上がる。Luaの4人戦で各自の被弾を、HTTPの2人戦で退避後の再合流と討伐保存を確認した。Chromeの2画面で同じ着地と胞子を確認し、討伐に参加した双方に39,950 EXPと180モラが入った。試験用のセーブは `python test_jadeplume_field.py` で生成し、`node test_coop_jadeplume.mjs` で再現できる。 [Lua・HTTPの検証](../evidence/coop-jadeplume-lua-http.json) · [Chromeの検証](../evidence/coop-jadeplume-browser.json) · [跳躍中の画面](../evidence/coop-jadeplume-leap.png)
@@ -492,4 +502,4 @@ Lv60で雨林の道から菌傘の谷へ進む。本体HPは800。ついばみ�
 
 同じPCから各接続が毎秒30回の受信を目指す短時間試験。サイズはHTTP応答本文の中央値。4人の軽量16色では描画する矩形が5,251個のまま、本文は97.1%減り、応答時間の中央値は101.89msから27.54msになった。表は通信とLuaの試験で、Chromeの描画FPSや幻境実機の値は含まない。 [生の計測結果](../evidence/coop-local-http.json)
 
-現行台帳の原作通常ボス49戦、地方伝説3戦、週ボス10戦を共闘に登録した。ラボ独自のフィールド戦、残りの地方伝説と週ボス、幽境の共闘、汎用支援による参加判定、全滅した組の観戦、別端末からの通信、星々の幻境実機は確認待ち。人数でボスHPを増やさない方針は採用済み。 [11月16日の採用仕様](../sources/20261116-amendment.md)
+現行台帳の原作通常ボス49戦、地方伝説3戦、週ボス11戦を共闘に登録した。ラボ独自のフィールド戦、残りの地方伝説と週ボス、幽境の共闘、汎用支援による参加判定、全滅した組の観戦、別端末からの通信、星々の幻境実機は確認待ち。人数でボスHPを増やさない方針は採用済み。 [11月16日の採用仕様](../sources/20261116-amendment.md)

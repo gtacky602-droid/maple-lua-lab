@@ -153,13 +153,13 @@ a,ally=s.actors[1],s.actors[2]
 place(a,350)
 c=choose(s,w,spec,'WG07')
 step(s,132)
-assert len(w.actors[1].marks)==1 and not len(w.actors[2].marks)
-due=w.actors[1].marks[1].due
+assert len(w.actors[a].marks)==1 and not len(w.actors[ally].marks)
+due=w.actors[a].marks[1].due
 assert due-w.clock==120
 ally.hp=ally.maxhp
 core.healActor(s,a,a.maxhp)
 core.action(s,'swap')
-assert s.active==2 and len(w.actors[1].marks)==1
+assert s.active==2 and len(w.actors[a].marks)==1
 place(ally,740)
 step(s,45)
 place(a,740)

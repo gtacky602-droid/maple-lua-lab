@@ -1,0 +1,31 @@
+{
+  "lua": {
+    "participants": 4,
+    "oneErosionQueuePerActor": true,
+    "persistsOnSwapAndNotExit": true,
+    "threeSharedCuts": [
+      128,
+      216,
+      304
+    ],
+    "physicalFallsOnlyWhenOffLedge": true,
+    "gatesSharedAndCooldownPerActor": true,
+    "sameRootRejected": true,
+    "closingBoundarySuccessBeforeAndFailureAtDeadline": true,
+    "sharedPillars": true,
+    "exposure": 480,
+    "catastropheOncePerActor": true,
+    "wipeRestoresFloorAndHp": true
+  },
+  "http": {
+    "participants": 2,
+    "normalInputsShareGate": true,
+    "cutGeometryShared": true,
+    "retreatFreezesTrial": true,
+    "returnedToSameCutAndGate": true,
+    "sharedHp": 2900,
+    "personalXp": 637200,
+    "personalMora": 3400,
+    "ownQuestAndSaves": true
+  }
+}

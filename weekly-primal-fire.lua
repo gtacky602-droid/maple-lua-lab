@@ -8,7 +8,31 @@ return function(C)
  local ordinary={WG01=true,WG02=true,WG03=true,WG04=true,WG07=true,WG10=true,WG11=true,WG12=true,WG13=true}
  local function clamp(x,lo,hi) return math.max(lo,math.min(hi,x)) end
  local function active(s) return s.actors[s.active] end
- local function log(s,w,key,owner,n) C.combatEvent(s,'primal:'..key,owner or 0,w.primary.id,n or 0) end
+ local function ownLog(s,w,key,owner,n) C.combatEvent(s,'primal:'..key,owner or 0,w.primary.id,n or 0) end
+ local function log(s,w,key,owner,n)
+  for _,party in ipairs(s.parties or {s}) do ownLog(party,w,key,owner,n) end
+ end
+ local function owner(s,a) return s.actorOwners and s.actorOwners[a] or s end
+ local function target(s,e)
+  if not s.parties then return active(s) end
+  local best,distance=e,math.huge
+  for _,party in ipairs(s.parties) do
+   local a=active(party)
+   if a.hp<=0 then a=party.actors[3-party.active] end
+   local dx=math.abs(a.x-e.x)
+   if a.hp>0 and dx<distance then best,distance=a,dx end
+  end
+  return best
+ end
+ local function weakKeys() return setmetatable({},{__mode='k'}) end
+ local function state(w,a)
+  local data=w.actors[a]
+  if not data then data={marks={},last=-math.huge,floorAt=-math.huge,fallAt=0};w.actors[a]=data end
+  return data
+ end
+ local function contribution(s,w,id)
+  if s.coop then C.coopContact(s,w.primary,id) end
+ end
  local function remove(s,e)
   for i=#s.enemies,1,-1 do if s.enemies[i]==e then table.remove(s.enemies,i) end end
  end
@@ -56,6 +80,7 @@ return function(C)
   C.combatNumber(s,e,critical and n..'!' or n,color)
   C.combatEvent(s,'hit',cast.id,e.id,n)
   local hit=s.events[#s.events];hit.element=element;hit.reaction=cast.reaction or false;hit.critical=not not critical
+  contribution(s,w,cast.id)
   if n==e.hp then C.defeatEnemy(s,e,cast.id)
   else
    e.hp=e.hp-n
@@ -68,24 +93,25 @@ return function(C)
   w.objects={}
  end
  local function recordErosion(s,w,spec,a)
-  local d=w.actors[a.id];local data=spec.erosion
+  local d=state(w,a);local data=spec.erosion
   if a.hp<=0 or #d.marks>=data.cap or w.clock-d.last<data.gap then return end
   d.last=w.clock;w.serial=w.serial+1
   d.marks[#d.marks+1]={id=w.serial,due=w.clock+data.delay}
-  log(s,w,'WG18:mark',a.id,#d.marks)
+  ownLog(s,w,'WG18:mark',a.id,#d.marks)
  end
  local function damage(s,w,spec,a,amount,erosion,tag)
-  local actual=C.damageActor(s,a,amount,w.primary,true,true)
+  local party=owner(s,a)
+  local actual=C.damageActor(party,a,amount,w.primary,true,true)
   if actual<=0 then return end
-  if erosion then recordErosion(s,w,spec,a) end
-  log(s,w,tag..':hit',a.id,actual)
+  if erosion then recordErosion(party,w,spec,a) end
+  ownLog(party,w,tag..':hit',a.id,actual)
  end
  local function strike(s,w,spec,zones,seen,amount,tag)
   for _,a in ipairs(s.actors) do
-   if not seen[a.id] then
+   if not seen[a] then
     for _,z in ipairs(zones) do
      if inside(a,z) then
-      seen[a.id]=true;damage(s,w,spec,a,amount,z.erosion,tag);break
+      seen[a]=true;damage(s,w,spec,a,amount,z.erosion,tag);break
      end
     end
    end
@@ -93,13 +119,14 @@ return function(C)
  end
  local function resolveErosion(s,w,spec)
   for _,a in ipairs(s.actors) do
-   local d=w.actors[a.id]
+   local d=state(w,a)
    if a.hp<=0 then d.marks={}
    else
     while d.marks[1] and d.marks[1].due<=w.clock do
      local mark=table.remove(d.marks,1)
-     C.damageActor(s,a,math.max(1,a.maxhp*spec.erosion.ratio),w.primary,false,false)
-     log(s,w,'WG18:resolve',a.id,mark.id)
+     local party=owner(s,a)
+     C.damageActor(party,a,math.max(1,a.maxhp*spec.erosion.ratio),w.primary,false,false)
+     ownLog(party,w,'WG18:resolve',a.id,mark.id)
      if a.hp<=0 then d.marks={};break end
     end
    end
@@ -139,7 +166,7 @@ return function(C)
  local function tickGround(s,w,spec)
   for i=#w.ground,1,-1 do if w.clock>=w.ground[i].expires then table.remove(w.ground,i) end end
   for _,a in ipairs(s.actors) do
-   local d=w.actors[a.id]
+   local d=state(w,a)
    if w.clock>=d.floorAt+spec.ground.gap then
     for i=#w.ground,1,-1 do
      local g=w.ground[i]
@@ -157,13 +184,14 @@ return function(C)
  local function falls(s,w,spec)
   for _,a in ipairs(s.actors) do
    if a.hp>0 then
-    local data=w.actors[a.id]
+    local data=state(w,a)
     a.x=math.min(a.x,spec.arena.right-4)
     if a.y>spec.floorY+spec.arena.fallDepth then
      if w.clock>=data.fallAt then
       data.fallAt=w.clock+spec.arena.fallGrace;w.serial=w.serial+1
-      C.damageActor(s,a,a.maxhp*spec.arena.fallRatio,w.primary,false,false)
-      log(s,w,'WG18:fall',a.id,w.serial)
+      local party=owner(s,a)
+      C.damageActor(party,a,a.maxhp*spec.arena.fallRatio,w.primary,false,false)
+      ownLog(party,w,'WG18:fall',a.id,w.serial)
      end
      if a.hp>0 then
       local lo,hi=safeGround(w,spec)
@@ -176,7 +204,7 @@ return function(C)
  local function start(s,w,spec,key)
   dropObjects(s,w);w.contactTick=nil
   if cleanse[key] then w.ground={} end
-  local a,e=active(s),w.primary
+  local e=w.primary;local a=target(s,e)
   local c={key=key,move=spec.moves[key],x=e.x,t=0,dir=a.x<e.x and -1 or 1,mark=project(w,spec,a.x,48),
    seen={},shots={},left=w.left}
   c.travel=project(w,spec,e.x+c.dir*math.min(3*U,math.abs(a.x-e.x)),92)
@@ -189,12 +217,15 @@ return function(C)
   local t=w.contactTick or c.t
   if w.cast~=c or o.hp<=0 or t<spec.gate.opens or t>=(c.move.accept and c.move.accept[2] or c.move.total) then return false end
   local root=cast.rootCast or cast
-  local last=o.last[cast.id]
+  local a=s.actors[cast.id]
+  if not a then return false end
+  local last=o.last[a]
   local clock=w.clock+t-c.t
   if o.seen[root] or last and clock<last+spec.gate.gap then return false end
-  o.last[cast.id]=clock;o.seen[root]=true
+  o.last[a]=clock;o.seen[root]=true
   local n=math.min(o.hp,element=='physical' and spec.gate.physical or spec.gate.element)
   o.hp=o.hp-n
+  contribution(s,w,cast.id)
   log(s,w,c.key..':gate',cast.id,n)
   if o.hp==0 then
    o.underground=true
@@ -213,7 +244,7 @@ return function(C)
    local x=kind=='gate' and w.primary.x or w.left+(spec.arena.right-w.left)*(.2+.3*(i-1))
    local o={id=spec.entity+20+i,x=x,y=spec.floorY,hp=c.move.units,maxhp=c.move.units,
     hitTop=spec.floorY-120,hitBottom=spec.floorY-40,hitHalfWidth=kind=='gate' and 27 or 12,
-    kind=kind,custom=true,boss=true,noRewards=true,warning=0,respawn=math.huge,last={},seen=setmetatable({},{__mode='k'})}
+    kind=kind,custom=true,boss=true,noRewards=true,weeklyPart=true,warning=0,respawn=math.huge,last=weakKeys(),seen=weakKeys()}
    o.onCastContact=function(state,cast,_,_,_,element) return gateContact(state,w,spec,c,o,cast,element) end
    w.objects[#w.objects+1]=o;s.enemies[#s.enemies+1]=o
   end
@@ -228,7 +259,7 @@ return function(C)
   log(s,w,'WG09:commit',0,w.left)
  end
  local function lock(s,w,spec,c)
-  local a=active(s)
+  local a=target(s,w.primary)
   if c.key=='WG04' and c.t==180 or c.key=='WG13' and c.t==318 then
    c.returnX=w.primary.x
    local x=project(w,spec,a.x-c.dir*118,92)
@@ -330,7 +361,7 @@ return function(C)
    for _,at in ipairs(p.spawn_ticks or p.relative_spawn_ticks) do
     if c.t==at then
      if k=='WG06' then
-      c.mark=active(s).x
+      c.mark=target(s,w.primary).x
       for _,o in ipairs(w.objects) do if o.hp>0 then launch(w,spec,c,p.ttl_ticks,o) end end
      else launch(w,spec,c,p.ttl_ticks) end
     end
@@ -358,40 +389,49 @@ return function(C)
   w.left,w.cuts,w.cutAt,w.normalCount=spec.arena.left,0,0,0
   w.form,w.index,w.rest=1,1,spec.noticeTicks
   w.cutPending=false;w.contactTick=nil;w.objects={};w.ground={};w.part=nil
-  w.actors={}
-  for i in ipairs(s.actors) do w.actors[i]={marks={},last=-math.huge,floorAt=-math.huge,fallAt=0} end
+  w.actors=weakKeys()
   locate(w,spec,spec.center);targetable(w,true)
   w.primary.onCastContact=function(state,cast,_,mult,color,element) return contact(state,w,cast,mult,color,element) end
  end
  function controller.attach(s,w,spec)
   putFloor(s,w,spec)
   s.enemies[#s.enemies+1]=w.primary
-  w.part={id=spec.entity+1,sharedHealth=w.primary,hp=1,maxhp=1,custom=true,boss=true,noRewards=true,noAutoTarget=true,
+  w.part={id=spec.entity+1,sharedHealth=w.primary,hp=1,maxhp=1,custom=true,boss=true,noRewards=true,noAutoTarget=true,weeklyPart=true,
    respawn=math.huge,warning=0,onCastContact=w.primary.onCastContact}
   s.enemies[#s.enemies+1]=w.part;locate(w,spec,w.primary.x)
   s.grappleNodes={};s.selectedGrapple=nil
   for _,a in ipairs(s.actors) do a.grapple=nil end
  end
  function controller.cleanup(s,w)
-  dropObjects(s,w);w.ground={};w.contactTick=nil;w.cast=nil;w.actors={}
+  dropObjects(s,w);w.ground={};w.contactTick=nil;w.cast=nil;w.actors=weakKeys()
   if w.part then remove(s,w.part);w.part=nil end
   remove(s,w.primary)
+ end
+ function controller.leaveCoop(s,w)
+  for _,a in ipairs(s.actors) do w.actors[a]=nil end
  end
  function controller.prepare(s,w,spec,input,dt)
   local c=w.cast
   if not c then return end
   w.contactTick=c.t+math.floor(w.remainder+math.min(dt,1/30)*60+1e-8)
   if c.key~='WG05' and c.key~='WG14' then return end
-  local ally=s.actors[3-s.active]
-  if not ally.ground or ally.hp<=0 then return end
   for _,win in ipairs(c.move.windows) do
-   if win[1]-c.t==13 then ally.buffer=.1;return end
+   if win[1]-c.t==13 then
+    for _,party in ipairs(s.parties or {s}) do
+     local ally=party.actors[3-party.active]
+     if ally.ground and ally.hp>0 then ally.buffer=.1 end
+    end
+    return
+   end
   end
  end
  function controller.finish(s,w,spec,dt)
   w.contactTick=nil
   w.remainder=w.remainder+math.min(dt,1/30)*60
   while w.remainder>=1-1e-8 and w.primary.hp>0 do w.remainder=w.remainder-1;tick(s,w,spec) end
+  if not s.parties or w.primary.hp<=0 then return end
+  for _,a in ipairs(s.actors) do if a.hp>0 then return end end
+  dropObjects(s,w);w.cast=nil;w.rechallenge=true;targetable(w,false)
  end
  function controller.afterStep(s,w,spec)
   if not w.waitUntil then return end
@@ -506,7 +546,7 @@ return function(C)
    v.ground[#v.ground+1]={lo=g.lo,hi=g.hi,kind=g.color==violet and 'violet' or 'fire',remaining=g.expires-w.clock}
   end
   for _,a in ipairs(s.actors) do
-   local d=w.actors[a.id]
+   local d=state(w,a)
    local row={id=a.id,count=#d.marks,remaining=d.marks[1] and d.marks[1].due-w.clock}
    v.actors[#v.actors+1]=row
    for i=1,row.count do rect(a.x+(i-1)*9-14,a.y-99,6,6,violet) end

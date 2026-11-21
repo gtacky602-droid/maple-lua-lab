@@ -8139,6 +8139,7 @@
       "icewind-coppelia-field",
       "icewind-coppelius-field",
       "natlan-hub",
+      "primal-fire-sundered-forge",
       "natlan-field",
       "qucusaur-field-cavern",
       "yumka-field-ravine",
@@ -8231,7 +8232,8 @@
       "boss-29070101",
       "boss-29080101",
       "boss-29090101",
-      "boss-29091001"
+      "boss-29091001",
+      "boss-29091101"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8424,7 +8426,13 @@
       "evidence/coop-knave-browser.json",
       "evidence/coop-knave-lamp.png",
       "evidence/coop-knave-interrupt.png",
-      "evidence/coop-knave-double.png"
+      "evidence/coop-knave-double.png",
+      "evidence/coop-primal-fire-lua-http.json",
+      "evidence/coop-primal-fire-browser.json",
+      "evidence/coop-primal-fire-gate.png",
+      "evidence/coop-primal-fire-cut.png",
+      "evidence/coop-primal-fire-pillars.png",
+      "evidence/coop-primal-fire-narrow.png"
     ],
     "pending": [
       "remaining original field encounters, local legends, weekly and Stygian bosses",
