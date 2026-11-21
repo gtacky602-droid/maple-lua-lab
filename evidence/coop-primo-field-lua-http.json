@@ -1,0 +1,23 @@
+{
+  "lua": {
+    "participants": 4,
+    "hp": 970,
+    "clawAndTailPerTraveler": true,
+    "jumpAvoidsShowerUntilLanding": true,
+    "partialAndFullShieldsArePersonal": true,
+    "bothShieldCountersCreditTheirOwners": true,
+    "extraRecoveryTicks": 60,
+    "soloHitHistorySurvivesAdoption": true,
+    "lethalShieldCounterClosesCast": true,
+    "respawnElementAtGenerationTwo": "pyro",
+    "xpPerContributor": 8500,
+    "moraPerContributor": 165
+  },
+  "http": {
+    "participants": 2,
+    "guestShieldExtendsBothViews": true,
+    "recoveryPausedWhileEmpty": true,
+    "shieldCounterEarnsCreditWithoutManualAttack": true,
+    "personalQuestCreditAndRewardsSaved": true
+  }
+}

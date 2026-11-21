@@ -51,6 +51,18 @@ return function(C)
   return cast
  end
 
+ function primo.shareCast(cast,actors)
+  C.shareFieldHits(cast.groups,actors)
+ end
+
+ function primo.frame(f,boss,spec,cast)
+  if not cast then return end
+  f.guardTick=cast.guardTick
+  if cast.tick>=cast.move.recover then
+   f.recoveryTicks=cast.total-cast.tick
+  end
+ end
+
  local function bounds(boss,cast)
   local move=cast.move
   local a,b

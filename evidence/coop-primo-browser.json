@@ -1,0 +1,73 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 970,
+  "results": [
+    {
+      "seconds": 41.08,
+      "hp": 110,
+      "kills": 1,
+      "startingMora": 10,
+      "mora": 165,
+      "startingXp": 15,
+      "xp": 8500,
+      "moves": [
+        "FV01",
+        "FV02",
+        "FV03"
+      ],
+      "manualDamage": 246,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": 132,
+      "recovery": 179,
+      "shieldUsed": false
+    },
+    {
+      "seconds": 41.1,
+      "hp": 62,
+      "kills": 1,
+      "startingMora": 10,
+      "mora": 165,
+      "startingXp": 15,
+      "xp": 8500,
+      "moves": [
+        "FV01",
+        "FV02",
+        "FV03"
+      ],
+      "manualDamage": 233,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": 132,
+      "recovery": 180,
+      "shieldUsed": true
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 175,
+      "xp": 8515,
+      "respawn": true
+    },
+    {
+      "clears": 1,
+      "mora": 175,
+      "xp": 8515,
+      "respawn": true
+    }
+  ],
+  "scenery": "primoField",
+  "errors": []
+}

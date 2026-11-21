@@ -26,7 +26,11 @@ const cases={
  'electro-regisvine':{arena:'electro-regisvine-field-cave',approach:'sumeru-field',
   boss:'boss-26020301',quest:'electro-regisvine-commission',hp:1240,mora:225,xp:39950,scene:'electroVineField',
   asset:'electro-regisvine-field',pose:'poses',label:'down',stance:78,observeDown:true,
-  fixture:'electro-regisvine-field',evade:{FER01:[92],FER02:[80,128],FER03:[104,146,188]}}
+  fixture:'electro-regisvine-field',evade:{FER01:[92],FER02:[80,128],FER03:[104,146,188]}},
+ primo:{hub:'liyue-harbor',transit:['liyue-field'],arena:'primo-field-vault',approach:'primo-approach',
+  boss:'boss-26050101',quest:'primo-commission',hp:970,mora:165,xp:8500,scene:'primoField',
+  asset:'primo-geovishap-field',pose:'actions',label:'shield',stance:104,
+  fixture:'primo-geovishap-field',shieldMove:'FV03',evade:{FV01:[80,140],FV02:[92],FV03:[128]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -65,7 +69,7 @@ async function fight(page,side,key,config) {
   const art=config.asset+'-'+config.pose+'-source-v1.png';
   const entity=Number(config.boss.slice(5));
   const start=window.lab.frame;
-  let cloaked=false,lastMove,lastTick,used=new Set(),capture=null;
+  let cloaked=false,lastMove,lastTick,used=new Set(),capture=null,guardTick=null,recovery=0,shieldUsed=false;
   function hold(code,on) {
    if(on===held.has(code)) return;
    if(on) held.add(code); else held.delete(code);
@@ -81,7 +85,8 @@ async function fight(page,side,key,config) {
     window.coopSumeru={seconds:+(f.t-start.t).toFixed(2),hp:a.hp,kills:f.kills-start.kills,startingMora:start.mora,
      mora:f.mora-start.mora,startingXp:start.progression.killXp,xp:f.progression.killXp-start.progression.killXp,
      moves:[...moves].sort(),manualDamage:[...hits.values()].reduce((sum,v)=>sum+v,0),cloaked,
-     markers:[...markers],emerged:[...emerged],air:[...air],down:[...down]};
+     markers:[...markers],emerged:[...emerged],air:[...air],down:[...down],
+     guardTick,recovery,shieldUsed};
     return;
    }
    if(!b) {
@@ -118,11 +123,22 @@ async function fight(page,side,key,config) {
     down.add(Math.ceil(b.downTicks/12)*12);
     visual=true;
    }
+   if(config.shieldMove&&b.guardTick!==undefined){
+    guardTick=b.guardTick;
+    recovery=Math.max(recovery,b.recoveryTicks??0);
+    visual=b.label==='盾で受けた・隙＋1秒'&&Boolean(sprite);
+   }
    if(visual&&!capture&&side===-1){
     capture=document.querySelector('#game').toDataURL('image/png').split(',')[1];
     window.coopSumeruCapture=capture;
    }
-   for(const at of config.evade[b.move]||[]) {
+   const prepareShield=side===1&&config.shieldMove&&b.move===config.shieldMove;
+   if(prepareShield&&b.tick>=91&&b.tick<107&&!used.has('shield')){
+    used.add('shield');
+    shieldUsed=true;
+    hold('Digit1',true);hold('Digit1',false);
+   }
+   for(const at of prepareShield?[]:config.evade[b.move]||[]) {
     if(b.tick>=at&&b.tick<at+6&&!used.has(at)){
      used.add(at);hold('ShiftLeft',true);hold('ShiftLeft',false);
     }
@@ -176,6 +192,9 @@ async function run(key,config) {
   assert.ok(a.markers.some(x=>b.markers.includes(x)&&a.emerged.includes(x)&&b.emerged.includes(x)),JSON.stringify(results));
  if(key==='dendro') assert.ok(a.air.some(p=>b.air.includes(p)),JSON.stringify(results));
  if(config.observeDown) assert.ok(a.down.some(t=>b.down.includes(t)),JSON.stringify(results));
+ if(config.shieldMove)
+  assert.ok(!a.shieldUsed&&b.shieldUsed&&a.guardTick===132&&b.guardTick===132&&
+   a.recovery>120&&b.recovery>120,JSON.stringify(results));
  const questCounts=await Promise.all(players.map(({page})=>page.evaluate(q=>window.lab.frame.story.quests[q]?.count??null,quest)));
  assert.deepEqual(questCounts,[1,null]);
  const saves=[];

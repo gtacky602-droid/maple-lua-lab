@@ -231,6 +231,7 @@
     {
       "id": "boss-26050101",
       "controller": "primoGeovishap",
+      "coop": true,
       "entity": 26050101,
       "name": "エンシェントヴィシャップ・岩",
       "node": "primo-field-vault",
