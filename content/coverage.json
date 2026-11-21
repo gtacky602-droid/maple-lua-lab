@@ -8069,6 +8069,7 @@
     "maps": [
       "mond-town",
       "dvalin-sky-arena",
+      "andrius-wolf-ring",
       "mond-road",
       "cryo-approach",
       "cryo-field-grove",
@@ -8210,7 +8211,8 @@
       "legend-natlan_polychrome_tristars",
       "legend-natlan_battlegoat_ironclaw",
       "legend-snez_rowdy_beast_host",
-      "boss-29010101"
+      "boss-29010101",
+      "boss-29020101"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8362,7 +8364,11 @@
       "evidence/coop-jadeplume-leap.png",
       "evidence/coop-dvalin-lua-http.json",
       "evidence/coop-dvalin-browser.json",
-      "evidence/coop-dvalin-crystal.png"
+      "evidence/coop-dvalin-crystal.png",
+      "evidence/coop-andrius-lua-http.json",
+      "evidence/coop-andrius-browser.json",
+      "evidence/coop-andrius-upper-platforms.png",
+      "evidence/coop-andrius-awakened.png"
     ],
     "pending": [
       "remaining original field encounters, local legends, weekly and Stygian bosses",

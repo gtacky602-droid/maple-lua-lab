@@ -1,0 +1,93 @@
+{
+  "participants": 2,
+  "hp": 900,
+  "rank": "entry",
+  "results": [
+    {
+      "won": true,
+      "seconds": 31.7,
+      "hp": 118,
+      "returns": 0,
+      "moves": [
+        "WA01",
+        "WA02",
+        "WA03",
+        "WA04",
+        "WA05",
+        "WA06",
+        "WA07",
+        "WA08"
+      ],
+      "transitions": 1,
+      "falls": 0,
+      "aiUpper": true,
+      "manualUpper": true,
+      "immuneEvent": true,
+      "manualDamage": 164
+    },
+    {
+      "won": true,
+      "seconds": 31.68,
+      "hp": 59,
+      "returns": 0,
+      "moves": [
+        "WA01",
+        "WA02",
+        "WA03",
+        "WA04",
+        "WA05",
+        "WA06",
+        "WA07",
+        "WA08"
+      ],
+      "transitions": 1,
+      "falls": 0,
+      "aiUpper": true,
+      "manualUpper": true,
+      "immuneEvent": false,
+      "manualDamage": 184
+    }
+  ],
+  "scenery": [
+    {
+      "key": "andriusWeekly",
+      "file": "andrius-weekly-background-v1.png",
+      "state": "ready"
+    },
+    {
+      "key": "andriusWeekly",
+      "file": "andrius-weekly-background-v1.png",
+      "state": "ready"
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saved": [
+    {
+      "wait": 3444,
+      "clears": 1,
+      "xp": 31245,
+      "mora": 272290,
+      "quest": "active"
+    },
+    {
+      "wait": 3437,
+      "clears": 1,
+      "xp": 31245,
+      "mora": 272290,
+      "quest": null
+    }
+  ],
+  "report": {
+    "xp": 1600,
+    "mora": 390
+  },
+  "reward": {
+    "xp": 31241,
+    "mora": 272250,
+    "first": true
+  },
+  "errors": []
+}

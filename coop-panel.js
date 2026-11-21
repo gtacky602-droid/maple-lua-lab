@@ -43,7 +43,8 @@ export function initCoopPanel(queueAction){
    const online=view.peers.filter(peer=>peer.online).length+1;
    message=`合言葉 ${view.code}　参加中 ${online} / ${view.capacity}人　自分は旅人 ${view.slot}`;
    const locations=view.peers.map(peer=>{
-    const location=peer.online?(peer.mapName||'冒険中'):'離席中';
+    const map=peer.mapName||'冒険中';
+    const location=peer.online?(peer.difficulty?map+'・'+peer.difficulty:map):'離席中';
     return `旅人 ${peer.slot}　${location}`;
    }).join('　／　');
    if(peers.textContent!==locations)peers.textContent=locations;

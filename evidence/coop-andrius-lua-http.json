@@ -1,0 +1,34 @@
+{
+  "lua": {
+    "participants": 4,
+    "oneInterlude": true,
+    "individualRushAndLanding": true,
+    "independentBladeCapsAndHazards": true,
+    "adoptedColdFloorCooldown": true,
+    "realHeightSafety": true,
+    "individualRewards": true,
+    "lethalHitPrecedesInterlude": true
+  },
+  "http": {
+    "participants": 3,
+    "rank": "entry",
+    "underlevelEntryRejection": true,
+    "rankedAndStoryWorldsSeparate": true,
+    "rankedJoinMigration": true,
+    "emptyInterludePreserved": true,
+    "personalRankRewards": [
+      {
+        "first": true,
+        "xp": 31241,
+        "mora": 272250,
+        "clears": 1
+      },
+      {
+        "first": false,
+        "xp": 29700,
+        "mora": 181500,
+        "clears": 2
+      }
+    ]
+  }
+}

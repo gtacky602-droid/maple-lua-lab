@@ -127,6 +127,7 @@
     {
       "id": "boss-29020101",
       "controller": "andrius",
+      "coop": true,
       "entity": 29020101,
       "name": "北風の王狼・アンドリアス",
       "node": "andrius-wolf-ring",

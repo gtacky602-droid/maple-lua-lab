@@ -70,8 +70,9 @@ return function(C, config)
    if hit and room.time-hit.time<=config.contributionSeconds and onField(member) then
     local party=member.state
     local a=party.actors[party.active]
-    if a.hp>0 and nearEncounter(a,e) and C.weeklyCoopRewardAllowed(party,e) then
-     C.creditDefeat(party,e,hit.actor)
+    if a.hp>0 and nearEncounter(a,e) then
+     local credit=C.coopCreditTarget(party,e)
+     if credit then C.creditDefeat(party,credit,hit.actor) end
     end
    end
   end
@@ -136,19 +137,21 @@ return function(C, config)
  function C.coopFrame(s)
   local room=s.coop
   local party={tick=room.tick,enemies={}}
+  local weekly=room.weeklySlot and room.weeklySlot.primary
   for _,e in ipairs(room.enemies) do
-   if not e.weeklyPart then party.enemies[#party.enemies+1]={id=e.id,hp=e.hp,maxhp=e.maxhp} end
+   if not e.weeklyPart and e~=weekly then party.enemies[#party.enemies+1]={id=e.id,hp=e.hp,maxhp=e.maxhp} end
   end
-  if room.weeklySlot then
-   local e=room.weeklySlot.primary
-   party.enemies[#party.enemies+1]={id=e.id,hp=e.hp,maxhp=e.maxhp}
+  if weekly then
+   party.enemies[#party.enemies+1]={id=weekly.id,hp=weekly.hp,maxhp=weekly.maxhp}
   end
   return party
  end
 
  function C.coopPeer(member,world)
   local s=member.state
-  local view={slot=member.id,online=member.online,map=s.story.node,mapName=C.storyNodeName(s),actors={}}
+  local slot=C.currentWeeklyBoss(s)
+  local view={slot=member.id,online=member.online,map=s.story.node,mapName=C.storyNodeName(s),actors={},
+   difficulty=slot and slot.mode and slot.mode.name}
   if world and s.coop==world and onField(member) then
    for _,a in ipairs(s.actors) do
     view.actors[#view.actors+1]={x=a.x,y=a.y,dir=a.dir,hp=a.hp}

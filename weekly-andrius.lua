@@ -3,6 +3,7 @@ return function(C)
  local avoid=C.aiAvoidTarget
  local ice,wind,pale,ink='#74ddff','#b9f4d9','#efffff','#233855'
  local function clamp(x,a,b)return math.max(a,math.min(b,x))end
+ local function actorKey(s,a) return s.actorOwners and a or a.id end
  local function lerp(a,b,q)return a+(b-a)*q end
  local function active(s)
   local w,spec=C.currentWeeklyBoss(s)
@@ -34,6 +35,15 @@ return function(C)
  function wolf.cleanup(s,w,spec)
   remove(s,w);w.cast=nil;w.hazards={};w.primary.underground=true
   w.stage=w.primary.hp<=0 and 'finished' or 'P1'
+ end
+ function wolf.share(w,actors)
+  if w.cast then
+   local c=w.cast
+   C.shareFieldHits(c.seen,actors)
+   C.shareFieldHits({c.counts},actors)
+   for _,bolt in pairs(c.bolts) do C.shareFieldHits({bolt.seen},actors) end
+  end
+  for _,h in ipairs(w.hazards) do C.shareFieldHits({h.hits},actors) end
  end
  local function start(s,w,spec,id)
   if not id then
@@ -138,14 +148,15 @@ return function(C)
   -- Fixed swept projectile path; cap is shared across all blades/pieces of this cast.
   local dx,dy=nx-p.x,ny-p.y;local length=dx*dx+dy*dy
   for _,a in ipairs(s.actors)do
-   if a.hp>0 and not p.seen[a.id] and (c.counts[a.id] or 0)<2 then
+   local key=actorKey(s,a)
+   if a.hp>0 and not p.seen[key] and (c.counts[key] or 0)<2 then
     local u=length>0 and clamp(((a.x-p.x)*dx+(a.y-25-p.y)*dy)/length,0,1) or 0
     local x,cy=p.x+u*dx,p.y+u*dy
     if math.abs(x-a.x)<p.radius+10 and cy+p.radius>a.y-50 and cy-p.radius<a.y then
-     p.seen[a.id]=true
+     p.seen[key]=true
      local before=a.hp
-     C.damageActor(s,a,damage,{id=w.primary.id,x=x,y=cy+30,damageElement=element},true,true)
-     if a.hp<before then c.counts[a.id]=(c.counts[a.id] or 0)+1 end
+     C.damageActor(s.actorOwners and s.actorOwners[a] or s,a,damage,{id=w.primary.id,x=x,y=cy+30,damageElement=element},true,true)
+     if a.hp<before then c.counts[key]=(c.counts[key] or 0)+1 end
     end
    end
   end
@@ -157,9 +168,10 @@ return function(C)
    if h.remaining<=0 then table.remove(w.hazards,i)
    else
     for _,a in ipairs(s.actors)do
+     local key=actorKey(s,a)
      if a.hp>0 and a.ground and math.abs(a.y-spec.floorY)<3 and a.x>=h.left and a.x<=h.right
-      and s.t+1e-8>=(h.hits[a.id] or 0) then
-      h.hits[a.id]=s.t+1;C.damageActor(s,a,spec.floorDamage,{id=w.primary.id,damageElement='cryo'},false,true)
+      and s.t+1e-8>=(h.hits[key] or 0) then
+      h.hits[key]=s.t+1;C.damageActor(s.actorOwners and s.actorOwners[a] or s,a,spec.floorDamage,{id=w.primary.id,damageElement='cryo'},false,true)
      end
     end
     h.remaining=h.remaining-1
@@ -173,9 +185,11 @@ return function(C)
   if m.kind=='swipe' and t>=60 and t<72 then area(s,w,c.seen[1],c.left,c.right,410,m.damage)
   elseif m.kind=='tail' then
    if t>=72 and t<84 then
-    local before={};for _,a in ipairs(s.actors)do before[a.id]=a.hp end
+    local before={};for i,a in ipairs(s.actors)do before[i]=a.hp end
     area(s,w,c.seen[1],c.left,c.right,420,m.damage)
-    for _,a in ipairs(s.actors)do if a.hp<before[a.id]then c.counts[a.id]=(c.counts[a.id] or 0)+1 end end
+    for i,a in ipairs(s.actors) do
+     if a.hp<before[i] then local key=actorKey(s,a);c.counts[key]=(c.counts[key] or 0)+1 end
+    end
    end
    if c.variant=='ranged' then for i=1,3 do bolt(s,w,c,i,90,144,420+(i-1)*24,m.rangedDamage,'cryo',c.targets)end end
   elseif m.kind=='leap' and t>=108 and t<120 then area(s,w,c.seen[1],c.left,c.right,400,m.damage)

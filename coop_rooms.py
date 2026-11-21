@@ -69,9 +69,11 @@ class CoopRooms:
         member = env['coop_member']
         room.core.detachCoop(member)
         if site in RULES['nodes']:
-            if site not in room.worlds:
-                room.worlds[site] = room.core.newCoop(state)
-            room.core.attachCoop(room.worlds[site], state, member)
+            rank = room.core.weeklyCoopMode(state)
+            world_key = (site, rank) if rank else site
+            if world_key not in room.worlds:
+                room.worlds[world_key] = room.core.newCoop(state)
+            room.core.attachCoop(room.worlds[world_key], state, member)
 
     def command(self, env, action, now):
         if action == 'coop_leave':
@@ -103,7 +105,8 @@ class CoopRooms:
             source = env['state']
             checkpoint = native(env['core'].checkpoint(source))
             state = room.core.restore(room.lua.table_from(checkpoint, recursive=True), source.density)
-            room.core.enterStoryNode(state, site)
+            rank = env['core'].weeklyCoopMode(source)
+            room.core.enterCoopNode(state, site, rank)
             for index in (1, 2):
                 actor, original = state.actors[index], source.actors[index]
                 actor.x, actor.y, actor.vy = original.x, original.y, original.vy
