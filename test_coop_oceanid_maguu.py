@@ -187,7 +187,7 @@ def check_maguu(lua, core):
             'oneMovingMaskForAll': True, 'priorSoloHitSurvivesAdoption': True}
 
 
-def check_http(url, case, move, tick, coordinate, after):
+def check_http(url, case, move, tick, coordinate, after, gate=1270):
     boss_id, _, entry, quest = case
     spec = SPECS[boss_id]
     clients = [Client(url), Client(url)]
@@ -199,7 +199,7 @@ def check_http(url, case, move, tick, coordinate, after):
     code = clients[0].frame(['coop_create'])['coop']['code']
     assert clients[1].frame(['coop_join:' + code])['coop']['code'] == code
     for client in clients:
-        assert cross(client, 1270, spec['node'])['coop']['code'] == code
+        assert cross(client, gate, spec['node'])['coop']['code'] == code
     with LOCK:
         h, g = [SESSIONS[c.sid] for c in clients]
         lua, core = h['lua'], h['core']
@@ -218,7 +218,7 @@ def check_http(url, case, move, tick, coordinate, after):
     advance(*clients, .2)
     assert (room.tick, slot.cast.tick, boss.x, boss.y) == frozen
     for client in clients:
-        assert cross(client, 1270, spec['node'])['coop']['code'] == code
+        assert cross(client, gate, spec['node'])['coop']['code'] == code
     with LOCK:
         if slot.cast.tick < after:
             wait_cast(lambda: core.stepCoop(room, TICK), slot, move, after)

@@ -24,6 +24,17 @@ return function(C)
   aim(b,s,c,a)
   return c
  end
+ function cryo.shareCast(cast,actors)
+  C.shareFieldHits(cast.seen,actors)
+ end
+ function cryo.frame(f,b,s,c)
+  if not c then return end
+  if c.tick>=c.move.recover then f.recovering=true end
+  if c.tick>=c.move.lock and c.tick<c.move.active[#c.move.active][2] then
+   if c.move.kind=='wheel' then f.destinationX=c.dest end
+   if c.move.kind=='fall' then f.fallPoints=c.points end
+  end
+ end
  local function interval(b,c,i)
   local fall=c.move.kind=='fall'
   local x=fall and c.points[i] or b.x

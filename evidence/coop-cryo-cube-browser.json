@@ -1,0 +1,96 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 785,
+  "results": [
+    {
+      "seconds": 20.75,
+      "hp": 126,
+      "kills": 1,
+      "startingMora": 0,
+      "mora": 145,
+      "startingXp": 0,
+      "xp": 1150,
+      "moves": [
+        "FHC01",
+        "FHC02",
+        "FHC03"
+      ],
+      "manualDamage": 228,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [
+        "892.300,971.500,1050.700"
+      ],
+      "recovered": true
+    },
+    {
+      "seconds": 20.67,
+      "hp": 128,
+      "kills": 1,
+      "startingMora": 0,
+      "mora": 145,
+      "startingXp": 0,
+      "xp": 1150,
+      "moves": [
+        "FHC01",
+        "FHC02",
+        "FHC03"
+      ],
+      "manualDamage": 213,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [
+        "892.300,971.500,1050.700"
+      ],
+      "recovered": true
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 145,
+      "xp": 1150,
+      "respawn": true
+    },
+    {
+      "clears": 1,
+      "mora": 145,
+      "xp": 1150,
+      "respawn": true
+    }
+  ],
+  "report": {
+    "hub": "dragonspine-camp",
+    "hostSaved": true,
+    "guestQuest": null,
+    "xp": 1500,
+    "mora": 300
+  },
+  "scenery": "cryoHypostasisField",
+  "errors": []
+}

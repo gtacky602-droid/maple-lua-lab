@@ -1,0 +1,45 @@
+{
+  "cryo": {
+    "lua": {
+      "participants": 4,
+      "iceImmune": true,
+      "wheelAndPalmsHitEachTravelerOnce": true,
+      "threeLockedIciclesAndVisibleRecovery": true,
+      "soloHitHistorySurvivesAdoption": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  },
+  "pyro": {
+    "lua": {
+      "participants": 4,
+      "fireImmune": true,
+      "threeProjectilesThreeTravelers": true,
+      "airAndGroundHitboxesAndSharedLanding": true,
+      "soloHitHistorySurvivesAdoption": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  },
+  "hydro": {
+    "lua": {
+      "participants": 4,
+      "waterImmune": true,
+      "airAndGroundHitboxesAndSharedLanding": true,
+      "rayAndWaveShareOneHitPerTraveler": true,
+      "fixedRainAndRecovery": true,
+      "soloHitHistorySurvivesAdoption": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  }
+}

@@ -27,6 +27,18 @@ return function(C)
   aim(s,c,a)
   return c
  end
+ function hydro.shareCast(cast,actors)
+  C.shareFieldHits(cast.seen,actors)
+ end
+ function hydro.frame(f,b,s,c)
+  f.flying=b.y<s.floorY
+  if not c then return end
+  if c.tick>=c.move.recover then f.recovering=true end
+  if c.tick>=c.move.lock and c.tick<c.move.active[#c.move.active][2] then
+   if c.move.kind=='dolphin' then f.destinationX=c.dest end
+   if c.move.kind=='rain' then f.fallPoints=c.points end
+  end
+ end
  local function band(c,i)
   local a,b
   if c.move.kind=='dolphin' then a,b=c.dest-.7*U,c.dest+.7*U

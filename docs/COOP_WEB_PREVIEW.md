@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する38地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する44地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -164,6 +164,20 @@ Luaの4人戦で予告と当たり判定、回転刃の個別命中、三枚の�
 `python test_array_field.py` と `python test_thunder_field.py` で初期セーブを作り、`node test_coop_field_routes.mjs array thunder` で再現できる。ポート9020以外のラボを使う場合は環境変数 `LAB_URL` に起動先を指定する。 [機核の跳躍](../evidence/coop-array-rocket.png) · [低空の雷走の予告](../evidence/coop-thunder-flight.png)
 
 単独戦の同じコマで標準矩形と軽量16色を切り替えると、Luaが返す描画指示は陣形が4,293件から1,141件、雷音権現が5,843件から1,606件に減った。 [陣形の計測](../evidence/array-field-lua.json) · [雷音権現の計測](../evidence/thunder-field-lua.json)
+
+## 無相の氷・炎・水
+
+| ボス | Lv | 会場 | 本体HP | 討伐参加者一人あたり |
+| --- | ---: | --- | ---: | --- |
+| 無相の氷 | 20 | ドラゴンスパイン・霜輪の窪地 | 785 | 1,150 EXP・145モラ |
+| 無相の炎 | 50 | 稲妻・燎火の石浜 | 990 | 23,750 EXP・195モラ |
+| 無相の水 | 52 | 稲妻・潮紋の洞 | 1,010 | 27,700 EXP・200モラ |
+
+無相の氷は氷輪の進路と落氷三本の位置を予告で固定する。無相の炎は炎拳の絵と当たり判定が着地点に向かって動き、炎蛇の弾は一発ずつ別の参加者にも当たる。無相の水は海豚の着地と三点の雨紋を共有し、水翼に当たった人へ後続の波を重ねて当てない。固有元素への無効と攻撃後に核がほどける演出は、従来の単独戦と同じ。
+
+Luaの4人試験で個別の命中、途中参加、着地と攻撃後の核の表示を検証した。HTTPの2人試験では、氷輪または跳躍の途中で空になった会場の状態を保持し、合流後に討伐した。Chromeの2画面では予告を見ながら討伐し、各自の報酬と受注者の依頼報告を保存した。 [Lua・HTTPの検証](../evidence/coop-elemental-cubes-lua-http.json) · [無相の氷のChrome試走](../evidence/coop-cryo-cube-browser.json) · [無相の炎のChrome試走](../evidence/coop-pyro-cube-browser.json) · [無相の水のChrome試走](../evidence/coop-hydro-cube-browser.json)
+
+`test_cryo_hypostasis_field.py`、`test_pyro_hypostasis_field.py`、`test_hydro_hypostasis_field.py` を Python で実行して初期セーブを作る。ポート9020でラボを起動し、`node test_coop_field_routes.mjs cryo-cube pyro-cube hydro-cube` で再現できる。別のポートは環境変数 `LAB_URL` で指定する。 [落氷の予告](../evidence/coop-cryo-cube-fall.png) · [炎拳の跳躍](../evidence/coop-pyro-cube-fist.png) · [海豚の跳躍](../evidence/coop-hydro-cube-dolphin.png)
 
 ## マッシュラプトル
 

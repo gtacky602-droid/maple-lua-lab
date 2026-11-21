@@ -491,6 +491,7 @@
     {
       "id": "boss-20040501",
       "controller": "cryoHypostasis",
+      "coop": true,
       "entity": 20040501,
       "name": "無相の氷",
       "node": "cryo-hypostasis-field-basin",
@@ -574,6 +575,7 @@
     {
       "id": "boss-20040601",
       "controller": "pyroHypostasis",
+      "coop": true,
       "entity": 20040601,
       "name": "無相の炎",
       "node": "pyro-hypostasis-field-terrace",
@@ -656,6 +658,7 @@
     {
       "id": "boss-20040401",
       "controller": "hydroHypostasis",
+      "coop": true,
       "entity": 20040401,
       "name": "無相の水",
       "node": "hydro-hypostasis-field-cove",

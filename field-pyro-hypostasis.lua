@@ -23,6 +23,17 @@ return function(C)
   aim(b,s,c,a)
   return c
  end
+ function pyro.shareCast(cast,actors)
+  C.shareFieldHits({cast.seen},actors)
+ end
+ function pyro.frame(f,b,s,c)
+  f.flying=b.y<s.floorY
+  if not c then return end
+  if c.tick>=c.move.recover then f.recovering=true end
+  if c.dest and c.tick>=c.move.lock and c.tick<c.move.active[1][2] then
+   f.destinationX=c.dest
+  end
+ end
  local function progress(t,first,last) return (t-first)/(last-first) end
  local function ball(c,age)
   return c.origin+c.dir*(.48+age*4/60)*U

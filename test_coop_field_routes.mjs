@@ -33,20 +33,35 @@ const cases={
   fixture:'primo-geovishap-field',shieldMove:'FV03',evade:{FV01:[80,140],FV02:[92],FV03:[128]}},
  oceanid:{hub:'liyue-harbor',transit:['liyue-field'],arena:'oceanid-field-reservoir',approach:'oceanid-approach',
   boss:'boss-20050101',quest:'oceanid-commission',hp:900,mora:170,xp:12250,scene:'oceanidField',
-  asset:'oceanid-field',label:'frog',fixture:'oceanid-field',report:true,evade:{FO01:[84],FO02:[74,122],FO03:[110]}},
+  asset:'oceanid-field',label:'frog',fixture:'oceanid-field',report:[4000,300],evade:{FO01:[84],FO02:[74,122],FO03:[110]}},
  maguu:{hub:'inazuma-port',transit:['inazuma-road'],arena:'maguu-field-dojo',approach:'maguu-approach',
   boss:'boss-25090101',quest:'maguu-commission',hp:900,mora:180,xp:14950,scene:'maguuField',
-  asset:'maguu-field',label:'mask',fixture:'maguu-field',report:true,evade:{FMK01:[122],FMK02:[80,140],FMK03:[97]}},
+  asset:'maguu-field',label:'mask',fixture:'maguu-field',report:[4000,300],evade:{FMK01:[122],FMK02:[80,140],FMK03:[97]}},
  array:{hub:'inazuma-port',transit:['inazuma-road'],arena:'array-field-court',approach:'array-approach',
   boss:'boss-24021101',quest:'array-commission',hp:960,mora:185,xp:17450,scene:'arrayField',
-  asset:'array-field',pose:'poses',label:'rocket',fixture:'array-field',report:true,
+  asset:'array-field',pose:'poses',label:'rocket',fixture:'array-field',report:[4000,300],
   flight:{move:'FPA03',height:108,offset:39.6,warning:'#f0ae68',warningY:474},
   evade:{FPA01:[92],FPA02:[87],FPA03:[110]}},
  thunder:{hub:'inazuma-port',transit:['inazuma-road'],arena:'thunder-field-crest',approach:'thunder-approach',
   boss:'boss-20070101',quest:'thunder-commission',hp:940,mora:190,xp:20350,scene:'thunderField',
-  asset:'thunder-field',pose:'poses',label:'flight',fixture:'thunder-field',report:true,
-  flight:{move:'FTM03',height:89,offset:35.2,warning:'#da98ee',warningY:476},
-  evade:{FTM01:[92],FTM02:[80,104,128],FTM03:[104]}}
+  asset:'thunder-field',pose:'poses',label:'flight',fixture:'thunder-field',report:[4000,300],
+  flight:{move:'FTM03',height:89,offset:35.2,warning:'#da98ee',warningY:476,warningCenter:'path'},
+  evade:{FTM01:[92],FTM02:[80,104,128],FTM03:[104]}},
+ 'cryo-cube':{hub:'dragonspine-camp',transit:[],approach:'dragonspine-depth',arena:'cryo-hypostasis-field-basin',
+  boss:'boss-20040501',quest:'cryo-hypostasis-commission',hp:785,mora:145,xp:1150,scene:'cryoHypostasisField',
+  asset:'cryo-hypostasis-field',pose:'poses',label:'fall',fixture:'cryo-hypostasis-field',report:[1500,300],
+  fallTell:{move:'FHC03',color:'#ffdfa6',captureAt:98},observeRecovery:true,
+  evade:{FHC01:[104],FHC02:[86],FHC03:[104,140,176]}},
+ 'pyro-cube':{hub:'inazuma-town',transit:[],approach:'inazuma-town',arena:'pyro-hypostasis-field-terrace',
+  boss:'boss-20040601',quest:'pyro-hypostasis-commission',hp:990,mora:195,xp:23750,scene:'pyroHypostasisField',
+  asset:'pyro-hypostasis-field',pose:'poses',label:'fist',fixture:'pyro-hypostasis-field',report:[4000,300],
+  flight:{move:'FHP03',height:102,offset:13,warning:'#ee9557',warningY:474,warningHeight:2},
+  observeRecovery:true,evade:{FHP01:[104],FHP02:[92,128,164],FHP03:[110]}},
+ 'hydro-cube':{hub:'inazuma-port',transit:[],approach:'watatsumi-landing',arena:'hydro-hypostasis-field-cove',
+  boss:'boss-20040401',quest:'hydro-hypostasis-commission',hp:1010,mora:200,xp:27700,scene:'hydroHypostasisField',
+  asset:'hydro-hypostasis-field',pose:'poses',label:'dolphin',fixture:'hydro-hypostasis-field',report:[4000,300],
+  flight:{move:'FHH01',height:94,offset:15,warning:'#e7ad7b',warningY:474,warningHeight:2},
+  fallTell:{move:'FHH03',color:'#ffdfac'},observeRecovery:true,evade:{FHH01:[110],FHH02:[92,118],FHH03:[104,146,188]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -72,7 +87,8 @@ async function start(fixture,{hub='sumeru-hub',quest,approach,transit=[]},accept
  await page.locator('#loadProgress').click();
  const route=waypointDriver(page,nodes,{walkTimeout:22000});
  await route.waitNode(hub);
- for(const node of [...transit,approach]) await route.cross(node);
+ for(const node of transit) await route.cross(node);
+ if(approach!==hub) await route.cross(approach);
  await page.locator('#coopPanel summary').click();
  return {page,route};
 }
@@ -82,11 +98,11 @@ async function fight(page,side,key,config) {
   document.activeElement.blur();
   const held=new Set(),moves=new Set(),hits=new Map();
   const markers=new Set(),emerged=new Set(),air=new Set(),down=new Set();
-  const forms=new Set(),landings=new Set(),maskPaths=new Set(),flightTargets=new Set();
+  const forms=new Set(),landings=new Set(),maskPaths=new Set(),flightTargets=new Set(),fallLayouts=new Set();
   const art=config.pose&&config.asset+'-'+config.pose+'-source-v1.png';
   const entity=Number(config.boss.slice(5));
   const start=window.lab.frame;
-  let cloaked=false,lastMove,lastTick,used=new Set(),capture=null,guardTick=null,recovery=0,shieldUsed=false;
+  let cloaked=false,lastMove,lastTick,used=new Set(),capture=null,guardTick=null,recovery=0,shieldUsed=false,recovered=false;
   function hold(code,on) {
    if(on===held.has(code)) return;
    if(on) held.add(code); else held.delete(code);
@@ -104,7 +120,7 @@ async function fight(page,side,key,config) {
      moves:[...moves].sort(),manualDamage:[...hits.values()].reduce((sum,v)=>sum+v,0),cloaked,
      markers:[...markers],emerged:[...emerged],air:[...air],down:[...down],
      guardTick,recovery,shieldUsed,forms:[...forms].sort(),landings:[...landings],maskPaths:[...maskPaths],
-     flightTargets:[...flightTargets]};
+     flightTargets:[...flightTargets],fallLayouts:[...fallLayouts],recovered};
     return;
    }
    if(!b) {
@@ -168,11 +184,20 @@ async function fight(page,side,key,config) {
    const flight=config.flight;
    if(flight&&b.move===flight.move&&b.flying&&b.y<426&&sprite?.h===flight.height&&
       Math.abs(sprite.y-(b.y-flight.offset))<.001&&Math.abs(sprite.x+f.camera-b.x)<.001){
-    const center=key==='array'?b.destinationX:(b.destinationX+b.x)/2;
-    visual=f.draws.some(d=>d.kind==='rect'&&d.color===flight.warning&&d.y===flight.warningY&&d.h===3&&
+    const center=flight.warningCenter==='path'?(b.destinationX+b.x)/2:b.destinationX;
+    visual=f.draws.some(d=>d.kind==='rect'&&d.color===flight.warning&&d.y===flight.warningY&&d.h===(flight.warningHeight??3)&&
      Math.abs(d.x+d.w/2+f.camera-center)<.001);
     if(visual) flightTargets.add(b.destinationX);
    }
+   const tell=config.fallTell;
+   if(tell&&b.move===tell.move&&b.fallPoints?.length===3){
+    const marks=f.draws.filter(d=>d.kind==='text'&&d.color===tell.color);
+    if(marks.length===3&&marks.every((d,i)=>d.text===String(i+1)&&Math.abs(d.x+f.camera-b.fallPoints[i])<.001)){
+     fallLayouts.add(b.fallPoints.map(x=>x.toFixed(3)).join(','));
+     if(tell.captureAt&&b.tick>=tell.captureAt) visual=true;
+    }
+   }
+   if(config.observeRecovery&&b.recovering&&sprite) recovered=true;
    if(visual&&!capture&&side===-1){
     capture=document.querySelector('#game').toDataURL('image/png').split(',')[1];
     window.coopSumeruCapture=capture;
@@ -249,6 +274,8 @@ async function run(key,config) {
   for(const r of results) assert.deepEqual(r.forms,['blade','core','rocket','wheel']);
  }
  if(config.flight) assert.ok(a.flightTargets.some(x=>b.flightTargets.includes(x)),JSON.stringify(results));
+ if(config.fallTell) assert.ok(a.fallLayouts.some(x=>b.fallLayouts.includes(x)),JSON.stringify(results));
+ if(config.observeRecovery) assert.ok(a.recovered&&b.recovered,JSON.stringify(results));
  const questCounts=await Promise.all(players.map(({page})=>page.evaluate(q=>window.lab.frame.story.quests[q]?.count??null,quest)));
  assert.deepEqual(questCounts,[1,null]);
  const saves=[];
@@ -264,13 +291,13 @@ async function run(key,config) {
  assert.deepEqual(saves,results.map(r=>({clears:1,mora:r.startingMora+mora,xp:r.startingXp+xp,respawn:true})));
  let report;
  if(config.report){
-  for(const node of [config.approach,...config.transit.toReversed(),config.hub])
+  for(const node of new Set([config.approach,...config.transit.toReversed(),config.hub]))
    await Promise.all(players.map(({route})=>route.cross(node)));
   const rewardState=()=>host.evaluate(()=>[window.lab.frame.progression.questXp,window.lab.frame.mora]);
   const before=await rewardState();
   await players[0].route.report(quest);
   const [afterXp,afterMora]=await rewardState();
-  assert.deepEqual([afterXp-before[0],afterMora-before[1]],[4000,300]);
+  assert.deepEqual([afterXp-before[0],afterMora-before[1]],config.report);
   assert.equal(await guest.evaluate(q=>window.lab.frame.story.quests[q]??null,quest),null);
   await host.locator('#saveProgress').click();
   await host.waitForFunction(([key,q])=>JSON.parse(localStorage.getItem(key))?.story.quests[q]?.status==='complete',
