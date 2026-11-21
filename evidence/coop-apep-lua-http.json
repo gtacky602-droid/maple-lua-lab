@@ -1,0 +1,28 @@
+{
+  "lua": {
+    "participants": 4,
+    "oneSpawnScheduleAndHp": true,
+    "oneNetProgressPerTick": true,
+    "sharedRetry": true,
+    "oneSporeContact": true,
+    "interceptionProtectsHeart": true,
+    "wallCollisionPerActor": true,
+    "independentWallOrders": true,
+    "oldAndRepeatedWallHitsRejected": true,
+    "wallClearsWithSource": true,
+    "innerSafeAndHighPlatformUnsafe": true,
+    "oneHitPerActorPerPulse": true,
+    "exposure": 480,
+    "wipeReset": true
+  },
+  "http": {
+    "participants": 2,
+    "normalInputsShareDefense": true,
+    "frozenAndResumedDefense": true,
+    "separateProtection": true,
+    "sharedHp": 1580,
+    "personalXp": 160050,
+    "personalMora": 1500,
+    "ownQuestAndSaves": true
+  }
+}

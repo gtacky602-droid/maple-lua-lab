@@ -4,13 +4,30 @@ return function(C)
  local cards={melee='WP07',ranged='WP07_RANGED',eater='WP09',barrier='WP11',burst='WP12'}
  local names={melee='基本',ranged='小弾',warden='護衛',breeder='飼育',eater='捕食',barrier='障壁',burst='自爆'}
  local bodyColor={warden='#c6e5a3',breeder='#cbd07a',eater='#89aa54',barrier='#a8c38d',burst='#e0bb56'}
- local function log(s,w,name,actor,value) C.combatEvent(s,'apep:'..name,actor or 0,w.primary.id,value or 0) end
+ local function ownLog(s,w,name,actor,value) C.combatEvent(s,'apep:'..name,actor or 0,w.primary.id,value or 0) end
+ local function log(s,w,name,actor,value)
+  for _,party in ipairs(s.parties or {s}) do ownLog(party,w,name,actor,value) end
+ end
  local function remove(s,e)
   for i=#s.enemies,1,-1 do if s.enemies[i]==e then table.remove(s.enemies,i) end end
  end
  local function near(x,other,r) return math.abs(x-other)<=r end
  local function live(e) return e and e.hp>0 end
  local function player(s) return s.actors[s.active] end
+ local function owner(s,a) return s.actorOwners and s.actorOwners[a] or s end
+ local function present(s,a) return live(a) and (not s.actorOwners or s.actorOwners[a]) end
+ local function target(s,x,minY)
+  if not s.parties then return player(s) end
+  local best,distance
+  for _,a in ipairs(s.actors) do
+   local dx=math.abs(a.x-x)
+   if a.hp>0 and a.y>=minY and (not distance or dx<distance) then best,distance=a,dx end
+  end
+  return best
+ end
+ local function contribution(s,w,id)
+  if s.coop then C.coopContact(s,w.primary,id) end
+ end
  local function reserve(s,w,d,roles,due)
   d.queue[#d.queue+1]={roles=roles,due=due,index=1}
   log(s,w,'WP06:queue',0,#roles)
@@ -18,6 +35,7 @@ return function(C)
  function D.start(s,w,spec)
   local rule=spec.defense
   local d={t=0,progress=rule.start,delta=0,units={},walls={},spores={},queue={},waves={},serial=0,
+    wallOrders=setmetatable({},{__mode='k'}),
     lastWave=rule.first,lastBurst=rule.burstStart-rule.burstInterval,kills=0}
   w.defense=d
   reserve(s,w,d,{'melee','ranged','ranged','melee'},rule.first)
@@ -27,6 +45,10 @@ return function(C)
   if not d then return end
   for _,list in ipairs({d.units,d.walls}) do for _,e in ipairs(list) do remove(s,e) end end
   w.defense=nil
+ end
+ local function clearWall(s,d,e)
+  e.hp=0;remove(s,e)
+  for party,order in pairs(d.wallOrders) do if order.wall==e then d.wallOrders[party]=nil end end
  end
  local function gone(s,w,spec,e,reason,owner)
   local d=w.defense
@@ -39,10 +61,7 @@ return function(C)
    log(s,w,'WP06:defeated',owner,e.id)
   else log(s,w,'WP06:'..reason,0,e.id) end
   for _,wall in ipairs(d.walls) do
-   if wall.source==e then
-    wall.hp=0;remove(s,wall)
-    if d.wallTarget==wall.id then d.wallTarget=nil end
-   end
+   if wall.source==e then clearWall(s,d,wall) end
   end
  end
  local function hit(s,w,spec,cast,e,mult,color,element)
@@ -55,6 +74,7 @@ return function(C)
   n=math.min(n,e.hp)
   C.combatNumber(s,e,critical and (n..'!') or n,color)
   s.hits=s.hits+1;s.damage=s.damage+n
+  contribution(s,w,cast.id)
   if n==e.hp then gone(s,w,spec,e,'hit',cast.id)
   else
    e.hp=e.hp-n
@@ -69,7 +89,7 @@ return function(C)
   local offset=math.floor((d.serial-1)/2)%2*32
   local x=right and 866-offset or 94+offset
   local e={id=spec.entity+100+d.serial,role=role,hp=hp,maxhp=hp,x=x,y=spec.floorY,dir=right and -1 or 1,
-    hitTop=spec.floorY-55,hitBottom=spec.floorY,born=d.t,next=d.t+25,shell=0,custom=true,noRewards=true,
+    hitTop=spec.floorY-55,hitBottom=spec.floorY,born=d.t,next=d.t+25,shell=0,custom=true,noRewards=true,weeklyPart=true,
     warning=0,respawn=math.huge}
   e.onCastContact=function(state,cast,part,mult,color,element) return hit(state,w,spec,cast,part,mult,color,element) end
   d.units[#d.units+1]=e;s.enemies[#s.enemies+1]=e
@@ -79,24 +99,27 @@ return function(C)
  local function prune(list)
   for i=#list,1,-1 do if list[i].hp<=0 then table.remove(list,i) end end
  end
- local function clearWall(s,d,e)
-  e.hp=0;remove(s,e)
-  if d.wallTarget==e.id then d.wallTarget=nil end
- end
  local function wall(s,w,spec,d,source,x,slot)
   d.serial=d.serial+1
   local rule=spec.defense
   local e={id=spec.entity+2000+d.serial,x=x,y=spec.floorY,hitTop=spec.floorY-rule.wallHeight,hitBottom=spec.floorY,
-    hp=rule.wallHp,maxhp=rule.wallHp,custom=true,boss=true,noRewards=true,noAutoTarget=true,warning=0,respawn=math.huge,
+    hp=rule.wallHp,maxhp=rule.wallHp,custom=true,boss=true,noRewards=true,weeklyPart=true,warning=0,respawn=math.huge,
     expires=d.t+rule.wallLife,opened=s.t,source=source,slot=slot,spent=setmetatable({},{__mode='k'})}
   e.onCastContact=function(state,cast,obj)
-   local manual=cast.playerInputAt and cast.playerInputAt>=obj.opened
-   local ally=d.wallTarget==obj.id and not state.auto and cast.id~=state.active and (cast.growthAI or state.growthAIActor==cast.id)
-      and cast.startedAt and cast.startedAt>=d.wallRequested
+   local now=state.coop and state.coop.weeklySlot==w and state.coop.time or state.t
+   local manual=cast.playerInputAt and not cast.growthAI and state.t-cast.playerInputAt<=now-obj.opened+1e-8
+   local order=d.wallOrders[state]
+   local ally=order and order.wall==obj and not state.auto and cast.id~=state.active and (cast.growthAI or state.growthAIActor==cast.id)
+      and cast.startedAt and cast.startedAt>=order.at
    if w.defense~=d or (not manual and not ally) or cast.reaction or obj.spent[cast] then return false end
    obj.spent[cast]=true;obj.hp=obj.hp-1
+   contribution(state,w,cast.id)
    if obj.hp==0 then clearWall(state,d,obj);log(state,w,'WP11:broken',cast.id,obj.id) end
    return true
+  end
+  e.acceptsAutoTarget=function(state,a)
+   local order=d.wallOrders[state]
+   return order and order.wall==e and a.id~=state.active and not state.auto
   end
   d.walls[#d.walls+1]=e;s.enemies[#s.enemies+1]=e
   log(s,w,'WP11:wall',0,e.id)
@@ -108,8 +131,8 @@ return function(C)
   local e=nil
   for _,candidate in ipairs(d.walls) do if candidate.slot==index and live(candidate) then e=candidate;break end end
   if not e then return end
-  d.wallTarget=d.wallTarget~=e.id and e.id or nil;d.wallRequested=s.t
-  for _,part in ipairs(d.walls) do part.noAutoTarget=part.id~=d.wallTarget end
+  local order=d.wallOrders[s]
+  d.wallOrders[s]=(not order or order.wall~=e) and {wall=e,at=s.t} or nil
  end
  local function refreshLinks(d)
   for _,e in ipairs(d.units) do e.guard=nil;e.noAutoTarget=false end
@@ -140,8 +163,8 @@ return function(C)
   log(s,w,'WP06:heart',0,e.id)
  end
  local function strike(s,w,spec,e,a,n)
-  if a.hp>0 and near(a.x,e.x,76) and a.y>=spec.floorY-76 then
-   C.damageActor(s,a,n,{id=e.id,x=e.x,y=e.y,damageElement='dendro'},true,true)
+  if present(s,a) and near(a.x,e.x,76) and a.y>=spec.floorY-76 then
+   C.damageActor(owner(s,a),a,n,{id=e.id,x=e.x,y=e.y,damageElement='dendro'},true,true)
   end
  end
  local function startCast(s,w,spec,d,e,a)
@@ -149,7 +172,7 @@ return function(C)
   if not key then return end
   local c={t=0,key=key,move=spec.moves[key],done={}}
   if basic[e.role] then
-   c.actor=near(a.x,e.x,e.role=='melee' and 48 or 75) and a.y>=spec.floorY-76 and a or nil
+   c.actor=a and near(a.x,e.x,e.role=='melee' and 48 or 75) and a.y>=spec.floorY-76 and a or nil
   elseif e.role=='eater' then
    c.actor=a
    for _,p in ipairs(d.units) do
@@ -175,7 +198,8 @@ return function(C)
   c.t=c.t+1
   local t,key=c.t,c.key
   if t==c.move.locks[1] then
-   c.target=c.actor and c.actor.x or spec.center
+   if not present(s,c.actor) then c.actor=nil end
+   c.target=c.actor and c.actor.x or (key=='WP09' and e.x or spec.center)
    c.targetY=c.actor and c.actor.y-36 or spec.floorY-25
    log(s,w,key..':lock',0,e.id)
   end
@@ -243,6 +267,13 @@ return function(C)
    if q.index>#q.roles then table.remove(d.queue,1);d.lastWave=math.max(d.lastWave,d.t) end
   end
  end
+ local function sporeTouches(p,a)
+  return live(a) and near(p.x,a.x,15) and a.y>=p.y-14 and a.y-72<=p.y+14
+ end
+ local function sporeTarget(s,p)
+  if not s.actorOwners then return sporeTouches(p,p.actor) and p.actor or nil end
+  for _,a in ipairs(s.actors) do if sporeTouches(p,a) then return a end end
+ end
  function D.step(s,w,spec)
   local d=w.defense
   d.t=d.t+1
@@ -251,16 +282,19 @@ return function(C)
   for _,e in ipairs(d.walls) do if e.hp>0 and d.t>=e.expires then clearWall(s,d,e) end end
   prune(d.walls)
   refreshLinks(d)
-  local a=player(s)
   for _,e in ipairs(d.units) do
    if live(e) then
     if e.cast then runCast(s,w,spec,d,e,e.cast)
-    elseif d.t>=e.next and (scheduled(d,e,spec) or e.role=='eater' and near(e.x,a.x,165)) then startCast(s,w,spec,d,e,a)
-    elseif not scheduled(d,e,spec) then
-     local target=e.role=='eater' and a.x or spec.center
-     local amount=e.role=='warden' or e.role=='breeder'
-     if not amount or not near(e.x,spec.center,128) then
-      walk(e,target,(basic[e.role] and 1.38 or e.role=='burst' and 2.6 or 1.95)*C.enemyRate(e))
+    else
+     local ready=scheduled(d,e,spec)
+     local a=(ready or e.role=='eater') and target(s,e.x,spec.floorY-76) or nil
+     if d.t>=e.next and (ready or e.role=='eater' and a and near(e.x,a.x,165)) then startCast(s,w,spec,d,e,a)
+     elseif not ready then
+      local goal=e.role=='eater' and a and a.x or spec.center
+      local support=e.role=='warden' or e.role=='breeder'
+      if not support or not near(e.x,spec.center,128) then
+       walk(e,goal,(basic[e.role] and 1.38 or e.role=='burst' and 2.6 or 1.95)*C.enemyRate(e))
+      end
      end
     end
    end
@@ -269,14 +303,17 @@ return function(C)
    local p=d.spores[i]
    p.x,p.y=p.x+p.dx,p.y+p.dy
    local done=d.t>=p.expires
-   if not done and p.actor and p.actor.hp>0 and near(p.x,p.actor.x,15) and p.actor.y>=p.y-14 and p.actor.y-72<=p.y+14 then
-    C.damageActor(s,p.actor,p.damage,{id=p.e.id,x=p.x,y=p.y,damageElement='dendro'},true,true);done=true
+   local a=not done and sporeTarget(s,p)
+   if a then
+    C.damageActor(owner(s,a),a,p.damage,{id=p.e.id,x=p.x,y=p.y,damageElement='dendro'},true,true);done=true
    elseif not done and not p.actor and near(p.x,spec.center,16) and near(p.y,spec.floorY-25,20) then
     heartHit(s,w,spec,d,p.e,spec.defense.heartHit);done=true
    end
    if done then table.remove(d.spores,i) end
   end
-  if s.actors[1].hp<=0 and s.actors[2].hp<=0 then return end
+  local defending=false
+  for _,a in ipairs(s.actors) do if a.hp>0 then defending=true;break end end
+  if not defending then return end
   if d.delta~=0 then
    local n=d.delta;d.delta=0
    d.progress=math.max(0,math.min(spec.defense.max,d.progress+n))
@@ -290,7 +327,7 @@ return function(C)
   local d=w.defense
   if not d or not prior then return end
   for _,a in ipairs(s.actors) do
-   local before=prior[a.id]
+   local before=prior[a]
    if before and a.hp>0 then
     for _,e in ipairs(d.walls) do
      if live(e) and a.y>spec.floorY-spec.defense.wallHeight then
@@ -304,13 +341,15 @@ return function(C)
  function D.ai(s,w,a)
   local d=w.defense
   if not d or not a.ground then return end
+  local order=d.wallOrders[s]
   for _,e in ipairs(d.walls) do
-   if live(e) and d.wallTarget~=e.id and near(a.x,e.x,42) then a.buffer=.11;return end
+   if live(e) and (not order or order.wall~=e) and near(a.x,e.x,42) then a.buffer=.11;return end
   end
  end
  function D.draw(s,w,spec,view,mode,profile,rect,label,line,f)
   local d=w.defense
   if not d then return end
+  local order=d.wallOrders[s]
   local y=spec.floorY
   view.progress=d.progress;view.dead=d.kills;view.units={};view.walls={}
   view.incoming=#d.queue>0
@@ -345,10 +384,11 @@ return function(C)
   end
   for _,e in ipairs(d.walls) do if live(e) then
    local top=spec.floorY-spec.defense.wallHeight
+   local selected=order~=nil and order.wall==e
    rect(e.x-12,top,24,spec.defense.wallHeight,'#526f59')
-   rect(e.x-9,top+3,18,spec.defense.wallHeight-7,d.wallTarget==e.id and '#d2e691' or '#a5bb8b')
+   rect(e.x-9,top+3,18,spec.defense.wallHeight-7,selected and '#d2e691' or '#a5bb8b')
    label(e.x,top-9,'壁'..e.slot,'#d1ecb3')
-   view.walls[#view.walls+1]={index=e.slot,hp=e.hp,x=e.x,selected=d.wallTarget==e.id}
+   view.walls[#view.walls+1]={index=e.slot,hp=e.hp,x=e.x,selected=selected}
   end end
   for _,p in ipairs(d.spores) do rect(p.x-6,p.y-6,12,12,'#dded8d') end
  end

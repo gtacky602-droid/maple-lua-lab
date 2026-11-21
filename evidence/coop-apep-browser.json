@@ -1,0 +1,109 @@
+{
+  "participants": 2,
+  "hp": 1580,
+  "domes": 3,
+  "results": [
+    {
+      "won": true,
+      "stages": [
+        "dark",
+        "expose",
+        "defense",
+        "rebirth",
+        "prime",
+        "shelter",
+        "weak"
+      ],
+      "defeated": [
+        29080204,
+        29080202,
+        29080206,
+        29080208,
+        29080212,
+        29080210,
+        29080214
+      ],
+      "safe": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "struck": [],
+      "damage": 587,
+      "failures": 0,
+      "returns": 0
+    },
+    {
+      "won": true,
+      "stages": [
+        "dark",
+        "expose",
+        "defense",
+        "rebirth",
+        "prime",
+        "shelter",
+        "weak"
+      ],
+      "defeated": [
+        29080205,
+        29080203,
+        29080209,
+        29080207,
+        29080213,
+        29080211,
+        29080215
+      ],
+      "safe": [],
+      "struck": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "damage": 567,
+      "failures": 0,
+      "returns": 0
+    }
+  ],
+  "scene": {
+    "key": "tunigiExcavation",
+    "file": "tunigi-excavation-background-v1.png",
+    "state": "ready"
+  },
+  "rewards": [
+    [
+      160050,
+      1500
+    ],
+    [
+      160050,
+      1500
+    ]
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saved": [
+    {
+      "wait": 3556,
+      "clears": 1,
+      "xp": 160050,
+      "mora": 124300,
+      "quest": "active"
+    },
+    {
+      "wait": 3554,
+      "clears": 1,
+      "xp": 160050,
+      "mora": 124300,
+      "quest": null
+    }
+  ],
+  "report": {
+    "xp": 90000,
+    "mora": 5600
+  },
+  "errors": []
+}

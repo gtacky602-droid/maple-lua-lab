@@ -2700,6 +2700,7 @@
     },
     {
       "controller": "apep",
+      "coop": true,
       "id": "boss-29080101",
       "entity": 29080101,
       "node": "apep-oasis-heart-arena",

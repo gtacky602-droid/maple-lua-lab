@@ -3,8 +3,12 @@ return function(C,D)
  local previousAvoid=C.aiAvoidTarget
  local mint,gold,shadow='#c2ecc2','#f4dd98','#534f3a'
  local function clamp(x,lo,hi) return math.max(lo,math.min(hi,x)) end
- local function log(s,w,key,actor,n) C.combatEvent(s,'apep:'..key,actor or 0,w.primary.id,n or 0) end
+ local function ownLog(s,w,key,actor,n) C.combatEvent(s,'apep:'..key,actor or 0,w.primary.id,n or 0) end
+ local function log(s,w,key,actor,n)
+  for _,party in ipairs(s.parties or {s}) do ownLog(party,w,key,actor,n) end
+ end
  local function player(s) return s.actors[s.active] end
+ local function owner(s,a) return s.actorOwners and s.actorOwners[a] or s end
  local function band(x,r,y,h) return {lo=x-r,hi=x+r,y=y,h=h} end
  local function inside(a,b)
   return a.hp>0 and a.x>=b.lo and a.x<=b.hi and a.y<=b.y+5 and a.y>=b.y-b.h
@@ -43,6 +47,7 @@ return function(C,D)
   C.combatNumber(s,e,critical and n..'!' or n,color)
   C.combatEvent(s,'hit',cast.id,e.id,n)
   local hit=s.events[#s.events];hit.element=element;hit.critical=not not critical;hit.reaction=cast.reaction or false
+  if s.coop then C.coopContact(s,e,cast.id) end
   if n==e.hp then C.defeatEnemy(s,e,cast.id)
   else
    e.hp=e.hp-n
@@ -55,6 +60,7 @@ return function(C,D)
  end
  function controller.spawn(s,w,spec)
   w.clock,w.remainder=0,0;w.index=1;w.normal=0;w.lastDome=-math.huge;w.parts={}
+  w.actorX=setmetatable({},{__mode='k'})
   phase(s,w,spec,'dark');w.rest=spec.noticeTicks
   w.primary.dir=-1
   w.primary.onCastContact=function(state,cast,_,mult,color,element) return contact(state,w,spec,cast,mult,color,element) end
@@ -64,7 +70,7 @@ return function(C,D)
   for _,e in ipairs(w.parts) do remove(s,e) end
   w.parts={}
   for i=1,2 do
-   local e={id=spec.entity+i,sharedHealth=w.primary,custom=true,boss=true,noRewards=true,noAutoTarget=true,
+   local e={id=spec.entity+i,sharedHealth=w.primary,custom=true,boss=true,noRewards=true,noAutoTarget=true,weeklyPart=true,
      hp=1,maxhp=1,respawn=math.huge,warning=0,onCastContact=w.primary.onCastContact}
    w.parts[#w.parts+1]=e;s.enemies[#s.enemies+1]=e
   end
@@ -72,7 +78,6 @@ return function(C,D)
   targetable(w,w.stage=='dark' or w.stage=='prime' or w.stage=='shelter' or w.stage=='weak')
   s.grappleNodes={};s.selectedGrapple=nil
   for _,a in ipairs(s.actors) do a.grapple=nil end
-  w.actorX={s.actors[1].x,s.actors[2].x}
  end
  function controller.cleanup(s,w)
   D.clear(s,w);w.cast=nil;w.wave=nil;w.actorX=nil
@@ -84,8 +89,16 @@ return function(C,D)
    phase(s,w,spec,'defense','WP06')
   elseif w.stage=='defense' then D.interact(s,w,key) end
  end
+ function controller.leaveCoop(s,w)
+  if w.defense then w.defense.wallOrders[s]=nil end
+ end
  local function commit(s,w,spec,c)
-  local a=player(s);local e=w.primary
+  local e=w.primary;local a=not s.parties and player(s) or e
+  local distance=math.huge
+  for _,party in ipairs(s.parties or {}) do
+   local hero=player(party);local dx=math.abs(hero.x-e.x)
+   if hero.hp>0 and dx<distance then a,distance=hero,dx end
+  end
   c.dir=a.x>=e.x and 1 or -1;e.dir=c.dir;c.origin=e.x
   c.target=clamp(a.x,168,792)
   c.y=a.y<=382 and 355 or spec.floorY
@@ -118,11 +131,14 @@ return function(C,D)
   elseif id=='WP15' then return band(c.points[i],62,c.y,98) end
  end
  local function hit(s,w,spec,c,group,a,x,amount)
-  local key=group..':'..a.id
-  if c.hits[key] or w.primary.hp<=0 then return end
-  c.hits[key]=true
-  if C.damageActor(s,a,amount,{id=w.primary.id,x=x,y=spec.floorY,damageElement='dendro'},true,true)>0 then
-   log(s,w,c.id..':hit',a.id,group)
+  if w.primary.hp<=0 then return end
+  local hits=c.hits[group]
+  if not hits then hits={};c.hits[group]=hits end
+  if hits[a] then return end
+  hits[a]=true
+  local party=owner(s,a)
+  if C.damageActor(party,a,amount,{id=w.primary.id,x=x,y=spec.floorY,damageElement='dendro'},true,true)>0 then
+   ownLog(party,w,c.id..':hit',a.id,group)
   end
  end
  local function runCast(s,w,spec,c)
@@ -191,7 +207,7 @@ return function(C,D)
      local n=group==#config.windows and spec.dome.impact or config.damage
      wave.id='WP17'
      for _,a in ipairs(s.actors) do if a.hp>0 then
-      if shielded(a,w,spec) then log(s,w,'WP17:protected',a.id,group)
+      if shielded(a,w,spec) then ownLog(owner(s,a),w,'WP17:protected',a.id,group)
       else hit(s,w,spec,wave,group,a,w.primary.x,n) end
       if w.wave~=wave then return end
      end end
@@ -224,14 +240,18 @@ return function(C,D)
    start(s,w,spec,steps[w.index]);w.index=w.index%#steps+1
   end
  end
- function controller.prepare() end
+ function controller.prepare(s,w)
+  for _,a in ipairs(s.actors) do w.actorX[a]=a.x end
+ end
  function controller.finish(s,w,spec,dt)
   w.remainder=w.remainder+math.min(dt,1/30)*60
   while w.remainder>=1-1e-8 and w.primary.hp>0 do w.remainder=w.remainder-1;update(s,w,spec) end
+  if not s.parties or w.primary.hp<=0 then return end
+  for _,a in ipairs(s.actors) do if a.hp>0 then return end end
+  D.clear(s,w);w.cast=nil;w.wave=nil;w.rechallenge=true;targetable(w,false)
  end
  function controller.afterStep(s,w,spec)
   if w.stage=='defense' then D.collide(s,w,spec,w.actorX) end
-  w.actorX={s.actors[1].x,s.actors[2].x}
  end
  local function warnings(spec,c)
   local out={}

@@ -197,24 +197,23 @@ ticks(core,s,120)
 assert len(d.walls)==2 and d.walls[1].hp==2
 a=s.actors[1]
 place(a,220)
-w.actorX[1]=220
 walk(core,s,18,False)
 assert a.x==241 and a.y==480
 act(s,'jump')
 walk(core,s,40,True)
 assert a.x>289
 act(s,'encounter_target:wall1')
-assert d.wallTarget==d.walls[1].id
+assert core.frame(s).weeklyBoss.apep.walls[1].selected
 wall=d.walls[1]
 hit(s,wall.x,3)
 assert wall.hp==1
 hit(s,wall.x,3)
-assert wall.hp==0 and d.wallTarget is None and d.kills==0
+assert wall.hp==0 and d.wallOrders[s] is None and d.kills==0
 ticks(core,s,1)
 act(s,'encounter_target:wall1')
-assert d.wallTarget is None
+assert d.wallOrders[s] is None
 act(s,'encounter_target:wall2')
-assert d.wallTarget==d.walls[1].id and d.walls[1].slot==2
+assert core.frame(s).weeklyBoss.apep.walls[1].selected and d.walls[1].slot==2
 
 s,w,spec=arena()
 d=defense(s,w,spec)
