@@ -1,0 +1,120 @@
+{
+  "references_used": [
+    {
+      "id": "geo-wiki-10",
+      "page": "https://wiki.biligame.com/ys/岩龙蜥",
+      "image": "https://patchwiki.biligame.com/images/ys/e/ef/amxkd0ddfngq0yocyahc0zg9fh641qu.png",
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "3025bdebba46d753c092e769c99e8b6b9d5e0a82484f921ca1a17dab1723236d",
+      "frames": 1,
+      "subject": "ヴィシャップ・岩／移即・天虞",
+      "kind": "共通の図鑑画像",
+      "observation": "正面の橙色の額、白い顎縁。通常型と名付き2体の図鑑ページが同じ画像を参照。"
+    },
+    {
+      "id": "geo-action-7",
+      "page": "https://genshinchronicle.com/gameplay/geovishap-genshin-impact-guide/",
+      "image": "https://genshinchronicle.com/wp-content/uploads/2022/06/Geovishap-without-Infusion.jpg",
+      "size": [
+        1024,
+        576
+      ],
+      "sha256": "48c3d00b4d4e9fa7656d44b7092ab3c5a4bf90735905ad152541c98bfee78169",
+      "frames": 1,
+      "subject": "ヴィシャップ・岩",
+      "kind": "通常・現地",
+      "observation": "元素付与前の斜め正面。大きな肩と前脚、黄褐色の岩板。"
+    },
+    {
+      "id": "geo-action-12",
+      "page": "https://genshinchronicle.com/gameplay/geovishap-genshin-impact-guide/",
+      "image": "https://genshinchronicle.com/wp-content/uploads/2022/06/pyro-infusion-geovishap.jpg",
+      "size": [
+        1024,
+        576
+      ],
+      "sha256": "1d790c93a4e74748c917a270f20a31b33eb730c1f4e861124e888a351f1dfcbe",
+      "frames": 1,
+      "subject": "ヴィシャップ・岩",
+      "kind": "炎・現地",
+      "observation": "斜め横。前脚周辺の橙色と火の範囲、後ろ脚と細くなる尾。"
+    },
+    {
+      "id": "geo-action-17",
+      "page": "https://genshinchronicle.com/gameplay/geovishap-genshin-impact-guide/",
+      "image": "https://genshinchronicle.com/wp-content/uploads/2022/06/Cryo-Infusion.jpg",
+      "size": [
+        1024,
+        468
+      ],
+      "sha256": "cb61f517ee08a760bdf8a84519135a1f16522948c581a505ec87fc1410f31ae8",
+      "frames": 1,
+      "subject": "ヴィシャップ・岩",
+      "kind": "氷・現地",
+      "observation": "斜め横。通常型でも身体に沿って氷が発生する。周囲の氷塊は体の外。"
+    },
+    {
+      "id": "chiz-action-4",
+      "page": "https://kamigame.jp/genshin/page/301691096252040876.html",
+      "image": "https://lh3.googleusercontent.com/npireJ8WlTa7ldiFDcYiDKCXyPqXgMnIroQg-XHeIYmvPrtHcGgOZUGsJrmX2TVf4j4THvsuRKJS0vQutzAGo3Xes9PVj3Eg3TbQ2WYpRVI",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "b13a0c37a12d226f6c4c05e95b0971854c95010298fe81a4ae09e8688865a2f3",
+      "frames": 1,
+      "subject": "移即・天虞",
+      "kind": "名付き遭遇の現地",
+      "observation": "上から両個体を見た姿。共通する肩と腰の厚み、末端が細い尾。"
+    },
+    {
+      "id": "chiz-action-5",
+      "page": "https://kamigame.jp/genshin/page/301691096252040876.html",
+      "image": "https://lh3.googleusercontent.com/su2Hl7sfqL_eUSp_zpv7iuVRN8XAOG963ObfbRXRfwsDcxHb2TtuaLrEwdc7_BevuV50YBYP0O0-ELpMZD-Wj8roVqYa3n4P-sy2mDPOn5fC8A",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "e9188cdccb39a87e48b1c8de132430f9fbe601f6f0691f736563c69e441b4e26",
+      "frames": 1,
+      "subject": "移即・天虞",
+      "kind": "名前付きの現地・戦闘中",
+      "observation": "斜め正面。天虞の青白い前脚の岩板と、移即の橙に発光する前脚。"
+    },
+    {
+      "id": "chiz-secondary-213",
+      "page": "https://gamewith.net/genshin-impact/article/show/43755",
+      "image": "https://img.gamewith.net/img/645afb3dbc26ddaeca026f4ad598cdf0.png",
+      "size": [
+        710,
+        454
+      ],
+      "sha256": "4ab3528a10c92fd5d2965073f6e3f108e61e1717831b01ce301a87756792f940",
+      "frames": 1,
+      "subject": "移即・天虞",
+      "kind": "名前付きの現地・別の撮影者",
+      "observation": "正面寄り。頭の角と顎、前脚の太さが共通。体の外側の氷と炎は戦闘演出。"
+    }
+  ],
+  "reference_index": "evidence/vishap-legend-references.json",
+  "direction": "docs/VISHAP_LEGEND_BASE_REFERENCES.md",
+  "old_comparison_inputs": [
+    "assets\\chizhang-ember-field-idle-sprites-v2.json",
+    "assets\\chizhang-frost-field-idle-sprites-v2.json"
+  ],
+  "original_generated_art": "exec-ec3ccd60-734d-41ac-814a-f85b0b6d9584.png",
+  "decisions": [
+    "通常型の額は橙、下顎は淡色。広い肩から太い手前の前脚へつなげ、背に重なる岩板から尾先へ細くした。",
+    "第5稿Aの色面の読みやすさと細い暗色の縁を目安にした。",
+    "同じ原画を3点に使用し、前脚の岩板に限って移即は橙から淡黄、天虞は青から青白の明部を置いた。環境効果は描いていない。",
+    "比較の旧稿は既存のlegacyとh32c16を既存の横基準点に合わせ、高さ118pxで描画。"
+  ],
+  "unverified": [
+    "ゲーム内の原寸",
+    "背面",
+    "モデルID"
+  ]
+}

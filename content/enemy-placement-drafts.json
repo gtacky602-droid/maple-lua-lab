@@ -8,8 +8,9 @@
       {"id": "preview-cineas-first", "species": "boss-cineas", "x": 730, "y": 480, "flip": false}
     ],
     "chizhang-legend-terrace": [
-      {"id": "preview-yiji-current", "species": "boss-chizhang-ember-revised", "x": 290, "y": 480, "flip": false},
-      {"id": "preview-tianyu-current", "species": "boss-chizhang-frost-revised", "x": 655, "y": 480, "flip": false}
+      {"id": "preview-geovishap", "species": "geovishap", "x": 180, "y": 480, "flip": false},
+      {"id": "preview-yiji-shared", "species": "boss-chizhang-ember-shared", "x": 480, "y": 480, "flip": false},
+      {"id": "preview-tianyu-shared", "species": "boss-chizhang-frost-shared", "x": 780, "y": 480, "flip": false}
     ],
     "yseut-legend-court": [
       {"id": "preview-frost-ordinary", "species": "fatui-frost-operative", "x": 190, "y": 480, "flip": false},

@@ -687,6 +687,8 @@
     {"id":"chizhang-ember-revised","name":"赤璋巡岳府君・移即（改稿）","file":"chizhang-ember-field-idle-sprites-v2.json","height":118,"mapHover":0},
     {"id":"chizhang-frost","name":"赤璋巡岳府君・天虞（初稿）","file":"chizhang-frost-field-idle-sprites-v1.json","height":118,"mapHover":0},
     {"id":"chizhang-frost-revised","name":"赤璋巡岳府君・天虞（改稿）","file":"chizhang-frost-field-idle-sprites-v2.json","height":118,"mapHover":0},
+    {"id":"chizhang-ember-shared","name":"赤璋巡岳府君・移即（ヴィシャップ・岩と共通の待機候補）","file":"chizhang-ember-shared-idle-v3-sprites.json","height":118,"mapHover":0},
+    {"id":"chizhang-frost-shared","name":"赤璋巡岳府君・天虞（ヴィシャップ・岩と共通の待機候補）","file":"chizhang-frost-shared-idle-v3-sprites.json","height":118,"mapHover":0},
     {"id":"lake-vivianne","name":"湖辺のヴィヴィアン（初稿）","file":"lake-vivianne-field-idle-sprites-v1.json","height":134,"mapHover":0},
     {"id":"lake-vivianne-revised","name":"湖辺のヴィヴィアン（第2稿）","file":"lake-vivianne-field-idle-sprites-v2.json","height":134,"mapHover":0},
     {"id":"lake-vivianne-single-eye","name":"湖辺のヴィヴィアン（第3稿・一つ目）","file":"lake-vivianne-field-idle-sprites-v3.json","height":134,"mapHover":0},

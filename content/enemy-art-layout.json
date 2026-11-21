@@ -135,6 +135,12 @@
     "hover": 0,
     "file": "cineas-field-idle-sprites-v2.json"
   },
+  "geovishap": {
+    "name": "ヴィシャップ・岩（赤璋巡岳府君と共通の体型）",
+    "height": 118,
+    "hover": 0,
+    "file": "geovishap-shared-idle-v1-sprites.json"
+  },
   "oprichniki-fireblade-shock-trooper": {
     "name": "ファデュイ特務隊・突撃兵・ファイアーブレイド（ラスコルニコフと共用する待機候補）",
     "height": 110,

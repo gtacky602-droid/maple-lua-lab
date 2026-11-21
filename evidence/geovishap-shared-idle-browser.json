@@ -1,0 +1,107 @@
+{
+  "live": {
+    "node": "branch-hunt-64835-pocket-2",
+    "journeys": [
+      [
+        "liyue-wp-64835",
+        "branch-hunt-64835",
+        "walk"
+      ],
+      [
+        "branch-hunt-64835",
+        "branch-hunt-64835-pocket-2",
+        "walk"
+      ]
+    ],
+    "source": "geovishap-shared-idle-v1.png",
+    "assetResponses": [
+      200
+    ],
+    "draw": {
+      "h": 118,
+      "y": 480
+    }
+  },
+  "placement": {
+    "legacy": {
+      "visuals": [
+        {
+          "id": "preview-geovishap",
+          "source": "geovishap-shared-idle-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 118
+        },
+        {
+          "id": "preview-yiji-shared",
+          "source": "chizhang-ember-shared-idle-v3.png",
+          "y": 480,
+          "hover": 0,
+          "height": 118
+        },
+        {
+          "id": "preview-tianyu-shared",
+          "source": "chizhang-frost-shared-idle-v3.png",
+          "y": 480,
+          "hover": 0,
+          "height": 118
+        }
+      ],
+      "status": "配置3体 ／ 矩形15,077個（配置した全体の合計・FPSではありません） ／ 全個体の配置基準点が足場上"
+    },
+    "h48c32": {
+      "visuals": [
+        {
+          "id": "preview-geovishap",
+          "source": "geovishap-shared-idle-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 118
+        },
+        {
+          "id": "preview-yiji-shared",
+          "source": "chizhang-ember-shared-idle-v3.png",
+          "y": 480,
+          "hover": 0,
+          "height": 118
+        },
+        {
+          "id": "preview-tianyu-shared",
+          "source": "chizhang-frost-shared-idle-v3.png",
+          "y": 480,
+          "hover": 0,
+          "height": 118
+        }
+      ],
+      "status": "配置3体 ／ 矩形9,323個（配置した全体の合計・FPSではありません） ／ 全個体の配置基準点が足場上"
+    },
+    "h32c16": {
+      "visuals": [
+        {
+          "id": "preview-geovishap",
+          "source": "geovishap-shared-idle-v1.png",
+          "y": 480,
+          "hover": 0,
+          "height": 118
+        },
+        {
+          "id": "preview-yiji-shared",
+          "source": "chizhang-ember-shared-idle-v3.png",
+          "y": 480,
+          "hover": 0,
+          "height": 118
+        },
+        {
+          "id": "preview-tianyu-shared",
+          "source": "chizhang-frost-shared-idle-v3.png",
+          "y": 480,
+          "hover": 0,
+          "height": 118
+        }
+      ],
+      "status": "配置3体 ／ 矩形4,590個（配置した全体の合計・FPSではありません） ／ 全個体の配置基準点が足場上"
+    }
+  },
+  "errors": [],
+  "mobileGalleryWidth": 390
+}

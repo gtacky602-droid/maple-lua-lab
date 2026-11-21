@@ -1,0 +1,79 @@
+{
+  "canvas_wh": [
+    288,
+    144
+  ],
+  "shared_crop_xywh": [
+    28,
+    14,
+    232,
+    118
+  ],
+  "pivot_xy": [
+    144,
+    132
+  ],
+  "pivot_in_crop": [
+    116,
+    118
+  ],
+  "floor_y": 132,
+  "facing": "left",
+  "display_height_px": 118,
+  "coordinates": "top-left origin; bottom/right exclusive",
+  "lightweight": "Lua / Chrome variants compiled with compile_boss_assets.py from each standard PNG",
+  "variants": {
+    "geovishap": {
+      "standard": {
+        "file": "geovishap-shared-idle-v1.png",
+        "opaque_colors": 28,
+        "opaque_bbox_ltrb": [
+          28,
+          14,
+          260,
+          132
+        ]
+      },
+      "compiled": "geovishap-shared-idle-v1-sprites.json",
+      "accent_colors": []
+    },
+    "yiji": {
+      "standard": {
+        "file": "chizhang-ember-shared-idle-v3.png",
+        "opaque_colors": 32,
+        "opaque_bbox_ltrb": [
+          28,
+          14,
+          260,
+          132
+        ]
+      },
+      "compiled": "chizhang-ember-shared-idle-v3-sprites.json",
+      "accent_colors": [
+        "#ee6327",
+        "#ff9a35",
+        "#ffd780",
+        "#ac4024"
+      ]
+    },
+    "tianyu": {
+      "standard": {
+        "file": "chizhang-frost-shared-idle-v3.png",
+        "opaque_colors": 32,
+        "opaque_bbox_ltrb": [
+          28,
+          14,
+          260,
+          132
+        ]
+      },
+      "compiled": "chizhang-frost-shared-idle-v3-sprites.json",
+      "accent_colors": [
+        "#67acc9",
+        "#a1dceb",
+        "#e0f9fa",
+        "#397599"
+      ]
+    }
+  }
+}

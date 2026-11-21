@@ -1,0 +1,46 @@
+{
+  "sharedAlpha": true,
+  "profileRunCounts": {
+    "legacy": {
+      "geovishap": 5065,
+      "yiji": 4977,
+      "tianyu": 5035
+    },
+    "h48c32": {
+      "geovishap": 3132,
+      "yiji": 3074,
+      "tianyu": 3117
+    },
+    "h32c16": {
+      "geovishap": 1585,
+      "yiji": 1519,
+      "tianyu": 1486
+    }
+  },
+  "liveSpawns": {
+    "branch-hunt-64835-pocket-2": {
+      "art": "geovishap",
+      "level": 81,
+      "hp": 294,
+      "y": 480
+    },
+    "sites-hunt-7114-pocket-1": {
+      "art": "geovishap",
+      "level": 40,
+      "hp": 96,
+      "y": 480
+    },
+    "branch-hunt-64836-pocket-2": {
+      "art": "fanged-beast",
+      "level": 84,
+      "hp": 303,
+      "y": 480
+    },
+    "sites-hunt-24907-pocket-1": {
+      "art": "fanged-beast",
+      "level": 40,
+      "hp": 96,
+      "y": 480
+    }
+  }
+}
