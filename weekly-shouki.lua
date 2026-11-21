@@ -9,8 +9,8 @@ return function(C)
  local function visual(w,spec)
   local name,t,y=w.stage,w.stageTick,spec.floorY
   if name=='p1' or name=='overload' or name=='rise' and t<120 then
-   -- The upper-form crop ends at the waist, right at the arena floor.
-   return 'upper',y,name=='overload' and t>=60 and 720 or 950
+   -- Scale upward from the narrow waist where it meets the arena floor.
+   return 'upper',y,name=='overload' and t>=60 and 720 or 1060
   end
   if name=='trial' then return 'full',y-83,630 end
   if name=='collapse' and t>=60 then return 'full',y,600 end

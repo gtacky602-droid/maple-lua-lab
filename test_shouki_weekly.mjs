@@ -46,7 +46,7 @@ try{
  assert.equal(upperParts.length,1);
  const [upper]=upperParts;
  assert.deepEqual(upper.box,[87,14,868,723]);
- assert.equal(upper.h,950);
+ assert.equal(upper.h,1060);
  assert.equal(upper.y,480);
  assert.ok(upper.y-upper.h<0);
  assert.ok(upper.x-upper.w/2<0&&upper.x+upper.w/2>960);

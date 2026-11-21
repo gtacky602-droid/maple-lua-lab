@@ -8,27 +8,27 @@
   "terminalHitCore": true,
   "exposureTicks": 600,
   "art": {
-    "upper": 950,
-    "upperWidth": 1140.5255878284925,
+    "upper": 1060,
+    "upperWidth": 1272.5864453665283,
     "torsoSourceEnd": 737,
     "torsoBottom": 480,
     "floor": 480,
     "full": 744,
     "trial": 630,
     "collapse": 600,
-    "upperLeft": -90.26279391424623,
-    "upperTop": -470,
+    "upperLeft": -156.29322268326416,
+    "upperTop": -580,
     "fullTop": -264,
     "machineBehindParty": true,
     "shieldCore": {
       "y": 42.648648648648646,
-      "x": 480,
-      "exposed": true
+      "exposed": true,
+      "x": 480
     },
     "trialCore": {
       "y": 26.66216216216219,
-      "x": 480,
-      "exposed": false
+      "exposed": false,
+      "x": 480
     }
   },
   "clearReportRestore": true,
@@ -40,9 +40,9 @@
     "state": "ready"
   },
   "upperCommands": {
-    "png": 57,
-    "standard": 10501,
-    "light": 2768
+    "png": 43,
+    "standard": 10487,
+    "light": 2754
   },
   "commands": {
     "png": 10,

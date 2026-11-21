@@ -17,12 +17,12 @@
   "paired_electro_six_seconds": true,
   "only_manual_actor_collects": true,
   "art_heights": {
-    "upper": 950,
+    "upper": 1060,
     "full": 744,
     "trial": 630,
     "collapse": 600
   },
-  "upper_width": 1140.5255878284925,
+  "upper_width": 1272.5864453665283,
   "upper_extends_past_edges": true,
   "machine_behind_party": true,
   "upper_torso_ends_at_source_row": 737,

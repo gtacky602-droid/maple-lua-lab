@@ -115,7 +115,7 @@ a=s.actors[1]
 assert len(s.enemies)==3 and all(e.sharedHealth.id==w.primary.id for e in w.hands.values())
 upper,=machine_art(s)
 assert list(upper.box.values())==[87,14,868,723]
-assert upper.h==950 and upper.y==spec.floorY
+assert upper.h==1060 and upper.y==spec.floorY
 assert upper.x-upper.w/2<0 and upper.x+upper.w/2>960 and upper.y-upper.h<0
 assert core.frame(s,'sprite').draws[1].source==upper.source
 for profile in ('legacy','h48c32','h32c16'):
