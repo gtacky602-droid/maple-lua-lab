@@ -1,0 +1,56 @@
+{
+  "lua": {
+    "matrix": {
+      "hp": 1100,
+      "sharedBeamsHitPerParty": true,
+      "lockedDestination": true,
+      "fadeAlpha": 0.45,
+      "hitboxMovesWithArt": true,
+      "twoPartiesCombineBurningDuringCloak": true,
+      "preexistingSoloHitHistory": true,
+      "xp": 61650,
+      "mora": 245
+    },
+    "wenut": {
+      "hp": 1080,
+      "sharedEmergenceMark": true,
+      "noBuriedDirectHit": true,
+      "twoPartyBurningCancelsBurrowOnKill": true,
+      "noLateAnemoProjectile": true,
+      "preexistingSoloHitHistory": true,
+      "xp": 71200,
+      "mora": 250
+    },
+    "dendro": {
+      "hp": 1120,
+      "sharedAirborneHurtbox": true,
+      "dendroImmunity": true,
+      "allyWallBlocksDendroSeed": true,
+      "xp": 53350,
+      "mora": 240
+    }
+  },
+  "http": {
+    "boss-24050101": {
+      "participants": 2,
+      "sharedMapAndBoss": true,
+      "emptyArenaPreservesMoveAndPosition": true,
+      "ownSavedRewards": true,
+      "questOnlyForAccepted": true
+    },
+    "boss-26130101": {
+      "participants": 2,
+      "sharedMapAndBoss": true,
+      "emptyArenaPreservesMoveAndPosition": true,
+      "ownSavedRewards": true,
+      "questOnlyForAccepted": true
+    },
+    "boss-20040701": {
+      "participants": 2,
+      "sharedMapAndBoss": true,
+      "emptyArenaPreservesMoveAndPosition": true,
+      "ownSavedRewards": true,
+      "questOnlyForAccepted": true
+    }
+  }
+}

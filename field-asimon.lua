@@ -28,6 +28,9 @@ return function(C)
   aim(s,c,a)
   return c
  end
+ function matrix.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
 
  local function bounds(c,i,y)
   local m=c.move
@@ -59,6 +62,15 @@ return function(C)
 
  function matrix.label(b,c)
   if c and c.tick>=c.move.recover then return '外装が緩む・反撃' end
+ end
+
+ local function cloaked(c)
+  local travel=c and c.move.travel
+  return travel and c.tick>=travel[1] and c.tick<travel[2]
+ end
+ function matrix.frame(f,b,s,c)
+  f.cloaked=not not cloaked(c)
+  if c and c.tick>=c.move.lock then f.destination=c.dest end
  end
 
  local function rect(f,x,y,w,h,color)
@@ -102,14 +114,13 @@ return function(C)
  function matrix.draw(f,state,b,s,c,mode,profile)
   local camera,y=state.camera,s.floorY
   local x,pose=b.x-camera,'idle'
-  local soft
+  local soft=cloaked(c) and .45 or nil
   rect(f,x-35,y-5,70,5,dark)
   rect(f,x-30,y-6,60,2,'#ab7f60')
   if c then
    local m,t=c.move,c.tick
    pose=t>=m.recover and 'recover' or m.kind
    if m.travel then
-    if t>=m.travel[1] and t<m.travel[2] then soft=.45 end
     if t>=m.travel[2] and t<m.recover then pose='idle' end
    end
    for i,w in ipairs(m.active) do

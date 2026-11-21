@@ -24,6 +24,12 @@ return function(C)
   aim(s,c,a)
   return c
  end
+ function dendro.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
+ function dendro.frame(f,b)
+  f.flying=not not b.flying
+ end
  local function bounds(c)
   if c.move.kind=='plunge' then return c.dest-.7*U,c.dest+.7*U end
   local left,right=c.origin+c.dir*.25*U,c.origin+c.dir*1.65*U

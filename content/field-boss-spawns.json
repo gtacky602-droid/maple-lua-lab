@@ -971,6 +971,7 @@
     },
     {
       "id": "boss-20040701",
+      "coop": true,
       "controller": "dendroHypostasis",
       "entity": 20040701,
       "name": "無相の草",
@@ -1000,6 +1001,7 @@
     },
     {
       "id":"boss-24050101",
+      "coop":true,
       "controller":"asimon",
       "entity":24050101,
       "name":"半永久統制マトリックス",
@@ -1028,6 +1030,7 @@
     },
     {
       "id":"boss-26130101",
+      "coop":true,
       "controller":"wenut",
       "entity":26130101,
       "name":"風蝕ウェネト",

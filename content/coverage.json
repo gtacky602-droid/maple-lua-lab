@@ -8078,6 +8078,9 @@
       "sumeru-entry",
       "sumeru-field",
       "aeonblight-field-chamber",
+      "dendro-hypostasis-field-den",
+      "asimon-field-ruins",
+      "wenut-field-cavern",
       "baptist-field-sanctuary",
       "tulpa-field-grotto",
       "icewind-promenade",
@@ -8093,6 +8096,9 @@
       "boss-20040301",
       "boss-22100501",
       "boss-24030301",
+      "boss-20040701",
+      "boss-24050101",
+      "boss-26130101",
       "boss-20051201",
       "icewind-coppelia",
       "icewind-coppelius",
@@ -8142,7 +8148,10 @@
       "evidence/coop-aeonblight-lua-http.json",
       "evidence/coop-aeonblight-browser.json",
       "evidence/coop-aeonblight-down.png",
-      "evidence/coop-aeonblight-flight.png"
+      "evidence/coop-aeonblight-flight.png",
+      "evidence/coop-sumeru-field-lua-http.json",
+      "evidence/coop-asimon-browser.json",
+      "evidence/coop-asimon-cloak.png"
     ],
     "pending": [
       "remaining normal, weekly and Stygian bosses",

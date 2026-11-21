@@ -1,0 +1,50 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 1100,
+  "results": [
+    {
+      "seconds": 28.15,
+      "hp": 78,
+      "kills": 1,
+      "startingMora": 20,
+      "mora": 245,
+      "moves": [
+        "FMT01",
+        "FMT02",
+        "FMT03"
+      ],
+      "manualDamage": 316,
+      "cloaked": true
+    },
+    {
+      "seconds": 28.13,
+      "hp": 120,
+      "kills": 1,
+      "startingMora": 0,
+      "mora": 245,
+      "moves": [
+        "FMT01",
+        "FMT02",
+        "FMT03"
+      ],
+      "manualDamage": 309,
+      "cloaked": true
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 265
+    },
+    {
+      "clears": 1,
+      "mora": 245
+    }
+  ],
+  "errors": []
+}

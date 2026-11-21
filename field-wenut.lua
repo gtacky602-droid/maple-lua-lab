@@ -29,6 +29,12 @@ return function(C)
   aim(b,s,c,a)
   return c
  end
+ function wenut.shareCast(c,actors)
+  C.shareFieldHits({c.seen},actors)
+ end
+ function wenut.frame(f,b,s,c)
+  if c and c.move.hidden and c.tick>=c.move.lock and c.tick<c.move.hidden[2] then f.emergeX=c.dest end
+ end
 
  local function poseAt(c)
   if not c then return 'idle',1 end
