@@ -54,6 +54,9 @@ return function(C)
   end
   return c
  end
+ function herd.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
  local function prepare(c)
   local ready=true
   for i,body in ipairs(c.bodies) do
@@ -121,6 +124,11 @@ return function(C)
   if not c then return end
   if c.prepare then return '二体が位置を取る' end
   if c.tick>=c.move.recover then return '二体が伏せる・反撃' end
+ end
+ function herd.frame(f,b,s,c)
+  if c and c.landings and c.tick<c.move.recover then
+   f.relayLandings=c.landings
+  end
  end
  local function rect(f,x,y,w,h,color)
   f.draws[#f.draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}

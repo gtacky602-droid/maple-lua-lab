@@ -70,7 +70,11 @@ const cases={
  serpent:{hub:'chasm-camp',transit:['chasm-depth'],arena:'ruin-serpent-field-pit',approach:'chasm-wp-25264',
   boss:'boss-24010401',quest:'ruin-serpent-commission',hp:900,mora:150,xp:2350,scene:'ruinSerpentField',
   asset:'ruin-serpent-field',pose:'poses',label:'emerge',fixture:'ruin-serpent-field',report:[4000,300],
-  evade:{FRS01:[104],FRS02:[134],FRS03:[104,146,188]}}
+  evade:{FRS01:[104],FRS02:[134],FRS03:[104,146,188]}},
+ bathysmal:{hub:'enkanomiya-camp',arena:'bathysmal-field-sanctum',approach:'enkanomiya-depth',
+  boss:'bathysmal-herd',quest:'bathysmal-commission',hp:1120,mora:195,xp:17450,scene:'bathysmalField',
+  asset:'bathysmal-field',pose:'poses',label:'relay',fixture:'bathysmal-field',report:[4000,300],
+  bodies:[26050701,26050801],evade:{FBH01:[86],FBH02:[96,185],FBH03:[109,229]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -108,9 +112,9 @@ async function fight(page,side,key,config) {
   const held=new Set(),moves=new Set(),hits=new Map();
   const markers=new Set(),emerged=new Set(),air=new Set(),down=new Set();
   const forms=new Set(),landings=new Set(),maskPaths=new Set(),flightTargets=new Set(),fallLayouts=new Set();
-  const skullTracks=new Set(),bombLayouts=new Set();
+  const skullTracks=new Set(),bombLayouts=new Set(),relayTracks=new Set(),struck=new Set();
   const art=config.pose&&config.asset+'-'+config.pose+'-source-v1.png';
-  const entity=Number(config.boss.slice(5));
+  const entities=config.bodies??[Number(config.boss.slice(5))];
   const start=window.lab.frame;
   let cloaked=false,lastMove,lastTick,used=new Set(),capture=null,guardTick=null,recovery=0,shieldUsed=false,recovered=false;
   function hold(code,on) {
@@ -121,7 +125,10 @@ async function fight(page,side,key,config) {
   function control(){
    const f=window.lab.frame,b=f.fieldBoss,a=f.actors[f.active-1];
    for(const event of Array.isArray(f.events)?f.events:[]) {
-    if(event.actor===1&&event.kind==='hit'&&event.target===entity&&event.t>=start.t) hits.set(event.seq,event.value);
+    if(event.actor===1&&event.kind==='hit'&&entities.includes(event.target)&&event.t>=start.t){
+     hits.set(event.seq,event.value);
+     struck.add(event.target);
+    }
    }
    if(!f.coop?.code||b?.phase==='respawn'||f.returns>start.returns||f.t-start.t>105){
     for(const code of [...held]) hold(code,false);
@@ -131,7 +138,7 @@ async function fight(page,side,key,config) {
      markers:[...markers],emerged:[...emerged],air:[...air],down:[...down],
      guardTick,recovery,shieldUsed,forms:[...forms].sort(),landings:[...landings],maskPaths:[...maskPaths],
      flightTargets:[...flightTargets],fallLayouts:[...fallLayouts],recovered,
-     skullTracks:[...skullTracks],bombLayouts:[...bombLayouts]};
+     skullTracks:[...skullTracks],bombLayouts:[...bombLayouts],relayTracks:[...relayTracks],struck:[...struck]};
     return;
    }
    if(!b) {
@@ -228,6 +235,19 @@ async function fight(page,side,key,config) {
      bombLayouts.add(b.bombPoints.map(x=>x.toFixed(3)).join(','));
     }
    }
+   if(config.bodies&&b.relayLandings?.length===2){
+    const airborne=b.bodies.findIndex(body=>body.y<440);
+    if(airborne>=0&&b.bodies[1-airborne].y===480){
+     const color=['#83eeff','#dcabff'][airborne];
+     const cue=f.draws.find(d=>d.kind==='rect'&&d.y===473&&d.h===2&&d.color===color);
+     const sprites=f.draws.filter(d=>d.source===art||
+      d.source==='rimebiter-idle-source-v1.png'||d.source==='bolteater-idle-source-v1.png');
+     visual=Boolean(cue)&&sprites.length===2&&b.bodies.every((body,i)=>
+      Math.abs(sprites[i].x+f.camera-body.x)<.001&&sprites[i].y===body.y)&&
+      Math.abs(cue.x+cue.w/2+f.camera-b.relayLandings[airborne])<.001;
+     if(visual) relayTracks.add([airborne,...b.relayLandings.map(x=>x.toFixed(3))].join(','));
+    }
+   }
    const tell=config.fallTell;
    if(tell&&b.move===tell.move&&b.fallPoints?.length===3){
     const marks=f.draws.filter(d=>d.kind==='text'&&d.color===tell.color);
@@ -252,11 +272,15 @@ async function fight(page,side,key,config) {
      used.add(at);hold('ShiftLeft',true);hold('ShiftLeft',false);
     }
    }
-   const dx=b.x-a.x,desired=b.x+side*(config.stance??104);
+   const preferred=b.bodies?.[side===-1?0:1];
+   const other=b.bodies?.[side===-1?1:0];
+   const target=config.bodies?(preferred?.y<450?other:preferred)??b:b;
+   const dx=target.x-a.x,desired=target.x+side*(config.stance??104);
    const position=desired-a.x,turn=Math.abs(dx)>8&&dx*a.dir<0;
    hold('KeyA',position<-7||(Math.abs(position)<=7&&turn&&dx<0));
    hold('KeyD',position>7||(Math.abs(position)<=7&&turn&&dx>0));
-   hold('KeyJ',Math.abs(dx)<125&&dx*a.dir>=0);
+   const watchRelay=config.bodies&&b.hp<450&&relayTracks.size<2;
+   hold('KeyJ',!watchRelay&&Math.abs(dx)<125&&dx*a.dir>=0);
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
@@ -279,6 +303,7 @@ async function run(key,config) {
   const coop=window.lab.frame.coop;
   return coop.code===code&&coop.enemies[0]?.maxhp===hp&&coop.peers[0]?.actors.length===2;
  },{code,hp})));
+ if(config.bodies) await Promise.all(players.map(({route})=>route.walk(400)));
  for(const {page} of players) {
   const actual=await page.evaluate(async()=>{
    const {sceneryStatus,loadScenery}=await import('./scenery.js');
@@ -286,6 +311,12 @@ async function run(key,config) {
    return sceneryStatus(window.lab.frame);
   });
   assert.deepEqual(actual,{key:scene,file:asset+'-background-v1.png',state:'ready'});
+  if(config.bodies){
+   const view=await page.evaluate(ids=>window.lab.frame.coop.enemies.filter(e=>ids.includes(e.id)),config.bodies);
+   assert.deepEqual(view.map(e=>[e.id,e.hp]),config.bodies.map(id=>[id,hp]));
+   await page.locator('#fieldBossHp').waitFor({state:'visible',timeout:8000});
+   assert.equal(await page.locator('#fieldBoss progress:visible').count(),1);
+  }
  }
  await Promise.all([fight(host,-1,key,config),fight(guest,1,key,config)]);
  try{
@@ -330,6 +361,11 @@ async function run(key,config) {
   assert.ok(a.markers.some(x=>b.markers.includes(x)&&a.emerged.includes(x)&&b.emerged.includes(x)),JSON.stringify(results));
   assert.ok(a.bombLayouts.some(x=>b.bombLayouts.includes(x)),JSON.stringify(results));
  }
+ if(config.bodies){
+  for(const index of [0,1])
+   assert.ok(a.relayTracks.some(track=>track.startsWith(index+',')&&b.relayTracks.includes(track)),JSON.stringify(results));
+  assert.ok(config.bodies.every(id=>a.struck.includes(id)||b.struck.includes(id)),JSON.stringify(results));
+ }
  if(config.fallTell) assert.ok(a.fallLayouts.some(x=>b.fallLayouts.includes(x)),JSON.stringify(results));
  if(config.observeRecovery) assert.ok(a.recovered&&b.recovered,JSON.stringify(results));
  const questCounts=await Promise.all(players.map(({page})=>page.evaluate(q=>window.lab.frame.story.quests[q]?.count??null,quest)));
@@ -347,7 +383,7 @@ async function run(key,config) {
  assert.deepEqual(saves,results.map(r=>({clears:1,mora:r.startingMora+mora,xp:r.startingXp+xp,respawn:true})));
  let report;
  if(config.report){
-  for(const node of new Set([config.approach,...config.transit.toReversed(),config.hub]))
+  for(const node of new Set([config.approach,...(config.transit??[]).toReversed(),config.hub]))
    await Promise.all(players.map(({route})=>route.cross(node)));
   const rewardState=()=>host.evaluate(()=>[window.lab.frame.progression.questXp,window.lab.frame.mora]);
   const before=await rewardState();

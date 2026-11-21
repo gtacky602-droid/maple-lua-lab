@@ -1,0 +1,20 @@
+{
+  "lua": {
+    "participants": 4,
+    "sharedHp": 1120,
+    "separateAuras": true,
+    "wideHitCountedOnce": true,
+    "tailAndRelaysUsePerPlayerWindows": true,
+    "breathsHitSeparatePlayers": true,
+    "landingCuesMatchBothBodies": true,
+    "lastHitToLightningDefeatsPair": true,
+    "oneRewardPerContributor": true,
+    "pairedRespawn": true,
+    "soloHitSurvivesAdoption": true
+  },
+  "http": {
+    "participants": 2,
+    "emptyArenaPreservedLiveMove": true,
+    "individualRewardsAndQuestSaved": true
+  }
+}

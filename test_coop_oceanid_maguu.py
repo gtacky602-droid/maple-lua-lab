@@ -3,7 +3,7 @@ import json
 import math
 
 from experience import LEVELS, RUNTIME_EXP
-from runtime import ROOT, runtime
+from runtime import ROOT, native, runtime
 from test_coop_anemo import TICK, place, wait_cast
 from test_coop_local import Client, LOCK, SESSIONS, advance, lab
 from test_coop_sumeru_field import SPECS, attack
@@ -209,8 +209,8 @@ def check_http(url, case, move, tick, coordinate, after, gate=1270):
         for env in (h, g):
             place(env['state'], boss.x - 93)
         wait_cast(lambda: core.stepCoop(room, TICK), slot, move, tick)
-        coord = core.frame(h['state']).fieldBoss[coordinate]
-        assert coord == core.frame(g['state']).fieldBoss[coordinate]
+        coord = native(core.frame(h['state']).fieldBoss[coordinate])
+        assert coord == native(core.frame(g['state']).fieldBoss[coordinate])
     for client in clients:
         assert client.frame()['fieldBoss'][coordinate] is not None
         assert cross(client, 65, entry)['coop']['code'] == code

@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する48地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する51地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -191,6 +191,14 @@ Luaの4人試験で個別の命中、途中参加、着地と攻撃後の核の�
 Luaの4人試験で、首弾二発と掘削弾三発が別々の参加者に当たること、潜行前の燃焼で倒すと掘り上げが止まることを確認した。HTTPの2人試験では全員の退避中に飛行・潜行の状態を保持し、同じ部屋へ戻って追撃できた。Chromeの2画面で首弾の軌道と出現印が一致し、双方が討伐報酬を保存した。依頼は受注者が拠点へ戻って報告し、4,000 EXP・300モラと完了状態を保存した。 [Lua・HTTPの検証](../evidence/coop-wolflord-serpent-lua-http.json) · [黄金王獣のChrome試走](../evidence/coop-wolflord-browser.json) · [遺跡サーペントのChrome試走](../evidence/coop-serpent-browser.json)
 
 `python test_wolflord_field.py` と `python test_ruin_serpent_field.py` で初期セーブを作り、ポート9020でラボを起動して `node test_coop_field_routes.mjs wolflord serpent` を実行する。別のポートは環境変数 `LAB_URL` で指定する。 [黄金首弾](../evidence/coop-wolflord-skull.png) · [短潜行からの出現](../evidence/coop-serpent-emerge.png)
+
+## アビサルヴィシャップの群れ
+
+淵下宮の入口拠点から探索路を経て、Lv46で双影の石庭へ入る。氷と雷の二体でHP1,120を共有し、どちらへ当てても同じゲージが減る。一発の範囲攻撃が両方に届いたときは一回分だけ減り、元素付着は当たった側に残る。HPが0になると二体が同時に倒れ、60秒後にそろって再出現する。 [ラボ版の設計](field-boss-v1/DEEP_RUINS_MOVESETS.md#4-アビサルヴィシャップの群れbathysmal-herd)
+
+跳躍リレーは①の氷、②の雷の順に着地する。床の番号付きの印と実際の着地点は全画面でそろう。Luaの4人試験で段ごとの個別命中、二発の吐息が別々の参加者に当たること、雷側への最後の一撃で二体が消えることを確認した。HTTPでは全員が探索路に退避してから戻っても、同じ跳躍から再開した。 [Lua・HTTPの検証](../evidence/coop-bathysmal-lua-http.json)
+
+討伐に参加した二人は各17,450 EXPと195モラを保存した。依頼の受注者は入口拠点に戻って報告し、4,000 EXPと300モラを受け取った。試験用のセーブは `python test_bathysmal_field.py` で生成する。ラボのURLを `LAB_URL` に設定し、`node test_coop_field_routes.mjs bathysmal` でChromeの試走を再現できる。 [跳躍中の画面](../evidence/coop-bathysmal-relay.png) · [Chromeの検証](../evidence/coop-bathysmal-browser.json)
 
 ## マッシュラプトル
 

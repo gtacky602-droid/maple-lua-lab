@@ -102,7 +102,7 @@ try{
  const original=await frame(), before=original;
  assert.equal(original.fieldBoss.maxhp,1120);
  assert.equal(original.fieldBoss.bodies.length,2);
- assert.equal(await page.locator('#fieldBoss progress').count(),1);
+ assert.equal(await page.locator('#fieldBoss progress:visible').count(),1);
  assert.match(await page.locator('#fieldBossLabel').textContent(),/氷①.*雷②/);
  assert.ok(original.draws.some(d=>d.source==='bathysmal-field-poses-source-v1.png'));
  assert.equal(original.boss,undefined);
