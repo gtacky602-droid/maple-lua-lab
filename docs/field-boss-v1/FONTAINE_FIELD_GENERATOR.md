@@ -12,6 +12,6 @@
 
 仮背景には実験室の青い石壁を使用し、ドット絵には金色の外輪と低い核を残した。外輪は姿勢差分で動かす。
 
-Luaの同一ジャンプ入力で、通常は157.08px、低重力場の中では290.06px上昇した。通常攻撃のみのソロは、低重力ジャンプで89.08秒、ジャンプを使わず場の外へ退避すると95.40秒。装備差・Webマルチ・幻境実機は未検証。
+Luaの同一ジャンプ入力で、通常は157.08px、低重力場の中では290.06px上昇した。通常攻撃のみのソロは、低重力ジャンプで89.08秒、ジャンプを使わず場の外へ退避すると95.40秒。ローカル共闘では枠を共有し、重力は参加者の位置ごとに適用される。装備差と幻境実機は未検証。 [共闘の遊び方と検証](../COOP_WEB_PREVIEW.md#実験用フィールド生成装置)
 
 [原作の重力軽減フィールド](https://genshin.hoyoverse.com/en/news/detail/113142)・[Lua検査](../../evidence/field-generator-field-lua.json)・[Chrome検査](../../evidence/field-generator-field-browser.json)・[美術参照](../../evidence/field-generator-field-art-audit.json)

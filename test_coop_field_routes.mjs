@@ -74,7 +74,11 @@ const cases={
  bathysmal:{hub:'enkanomiya-camp',arena:'bathysmal-field-sanctum',approach:'enkanomiya-depth',
   boss:'bathysmal-herd',quest:'bathysmal-commission',hp:1120,mora:195,xp:17450,scene:'bathysmalField',
   asset:'bathysmal-field',pose:'poses',label:'relay',fixture:'bathysmal-field',report:[4000,300],
-  bodies:[26050701,26050801],evade:{FBH01:[86],FBH02:[96,185],FBH03:[109,229]}}
+  bodies:[26050701,26050801],evade:{FBH01:[86],FBH02:[96,185],FBH03:[109,229]}},
+ generator:{hub:'fontaine-hub',arena:'field-generator-field-chamber',approach:'fontaine-field',
+  boss:'boss-24080101',quest:'field-generator-commission',hp:1020,mora:305,xp:129550,scene:'generatorField',
+  asset:'field-generator-field',pose:'poses',label:'gravity',fixture:'field-generator-field',report:[5400,380],
+  gravityJump:true,evade:{FFG01:[86,140],FFG02:[92,140],FFG03:[]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -113,10 +117,12 @@ async function fight(page,side,key,config) {
   const markers=new Set(),emerged=new Set(),air=new Set(),down=new Set();
   const forms=new Set(),landings=new Set(),maskPaths=new Set(),flightTargets=new Set(),fallLayouts=new Set();
   const skullTracks=new Set(),bombLayouts=new Set(),relayTracks=new Set(),struck=new Set();
+  const gravityTracks=new Set();
   const art=config.pose&&config.asset+'-'+config.pose+'-source-v1.png';
   const entities=config.bodies??[Number(config.boss.slice(5))];
   const start=window.lab.frame;
   let cloaked=false,lastMove,lastTick,used=new Set(),capture=null,guardTick=null,recovery=0,shieldUsed=false,recovered=false;
+  let jumpProbe=null,jump=null;
   function hold(code,on) {
    if(on===held.has(code)) return;
    if(on) held.add(code); else held.delete(code);
@@ -138,7 +144,8 @@ async function fight(page,side,key,config) {
      markers:[...markers],emerged:[...emerged],air:[...air],down:[...down],
      guardTick,recovery,shieldUsed,forms:[...forms].sort(),landings:[...landings],maskPaths:[...maskPaths],
      flightTargets:[...flightTargets],fallLayouts:[...fallLayouts],recovered,
-     skullTracks:[...skullTracks],bombLayouts:[...bombLayouts],relayTracks:[...relayTracks],struck:[...struck]};
+     skullTracks:[...skullTracks],bombLayouts:[...bombLayouts],relayTracks:[...relayTracks],struck:[...struck],
+     gravityTracks:[...gravityTracks],jump};
     return;
    }
    if(!b) {
@@ -248,6 +255,15 @@ async function fight(page,side,key,config) {
      if(visual) relayTracks.add([airborne,...b.relayLandings.map(x=>x.toFixed(3))].join(','));
     }
    }
+   if(config.gravityJump&&b.gravity){
+    const z=b.gravity;
+    const outlined=f.draws.some(d=>d.color==='#a9deeb'&&d.y===z.bottom-3&&d.h===3&&
+     Math.abs(d.x+f.camera-z.left)<.001&&Math.abs(d.w-(z.right-z.left))<.001);
+    if(outlined&&z.factor===.55){
+     gravityTracks.add([z.left,z.right,z.top,z.bottom].map(v=>v.toFixed(3)).join(','));
+     visual=a.y<285;
+    }
+   }
    const tell=config.fallTell;
    if(tell&&b.move===tell.move&&b.fallPoints?.length===3){
     const marks=f.draws.filter(d=>d.kind==='text'&&d.color===tell.color);
@@ -275,12 +291,30 @@ async function fight(page,side,key,config) {
    const preferred=b.bodies?.[side===-1?0:1];
    const other=b.bodies?.[side===-1?1:0];
    const target=config.bodies?(preferred?.y<450?other:preferred)??b:b;
-   const dx=target.x-a.x,desired=target.x+side*(config.stance??104);
+   const dx=target.x-a.x;
+   let desired=target.x+side*(config.stance??104);
+   const gravityTurn=config.gravityJump&&b.move==='FFG03'&&b.tick<188;
+   if(gravityTurn&&side===1) desired=(b.gravity?.right??b.x+264)+26;
+   if(config.gravityJump){
+    const z=b.gravity;
+    const inside=z&&a.x>z.left&&a.x<z.right;
+    if(!jump&&!jumpProbe&&z&&a.ground&&b.tick>=90&&b.tick<125&&Boolean(inside)===(side===-1))
+     jumpProbe={inside:Boolean(inside),start:a.y,min:a.y};
+    if(jumpProbe){
+     jumpProbe.min=Math.min(jumpProbe.min,a.y);
+     if(a.y>jumpProbe.min+5){
+      jump={inside:jumpProbe.inside,height:+(jumpProbe.start-jumpProbe.min).toFixed(2)};
+      jumpProbe=null;
+     }
+    }
+    hold('Space',Boolean(jumpProbe));
+   }
    const position=desired-a.x,turn=Math.abs(dx)>8&&dx*a.dir<0;
    hold('KeyA',position<-7||(Math.abs(position)<=7&&turn&&dx<0));
    hold('KeyD',position>7||(Math.abs(position)<=7&&turn&&dx>0));
    const watchRelay=config.bodies&&b.hp<450&&relayTracks.size<2;
-   hold('KeyJ',!watchRelay&&Math.abs(dx)<125&&dx*a.dir>=0);
+   const watchGravity=config.gravityJump&&(gravityTurn||(!jump&&b.hp<470));
+   hold('KeyJ',!watchRelay&&!watchGravity&&Math.abs(dx)<125&&dx*a.dir>=0);
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
@@ -365,6 +399,11 @@ async function run(key,config) {
   for(const index of [0,1])
    assert.ok(a.relayTracks.some(track=>track.startsWith(index+',')&&b.relayTracks.includes(track)),JSON.stringify(results));
   assert.ok(config.bodies.every(id=>a.struck.includes(id)||b.struck.includes(id)),JSON.stringify(results));
+ }
+ if(config.gravityJump){
+  assert.ok(a.gravityTracks.some(track=>b.gravityTracks.includes(track)),JSON.stringify(results));
+  assert.ok(a.jump?.inside&&b.jump?.inside===false&&b.jump.height>145&&b.jump.height<170&&
+   a.jump.height>b.jump.height*1.7,JSON.stringify(results));
  }
  if(config.fallTell) assert.ok(a.fallLayouts.some(x=>b.fallLayouts.includes(x)),JSON.stringify(results));
  if(config.observeRecovery) assert.ok(a.recovered&&b.recovered,JSON.stringify(results));

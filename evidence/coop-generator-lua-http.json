@@ -1,0 +1,21 @@
+{
+  "lua": {
+    "participants": 4,
+    "hp": 1020,
+    "jumpHeight": {
+      "inside": 290.06,
+      "outside": 157.08
+    },
+    "syncedFieldAndGroundCue": true,
+    "individualSweepAndQuakes": true,
+    "stonesHitDifferentPlayers": true,
+    "gravityClearsForEveryone": true,
+    "priorSoloHitSurvivesAdoption": true,
+    "rewardsOnlyForContributors": true
+  },
+  "http": {
+    "participants": 2,
+    "emptyArenaPreservedLiveMove": true,
+    "individualRewardsAndQuestSaved": true
+  }
+}

@@ -1163,6 +1163,7 @@
     {
       "id":"boss-24080101",
       "controller":"generator",
+      "coop":true,
       "entity":24080101,
       "name":"実験用フィールド生成装置",
       "node":"field-generator-field-chamber",

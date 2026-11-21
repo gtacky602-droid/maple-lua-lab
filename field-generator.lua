@@ -22,6 +22,9 @@ return function(C)
   end
   return c
  end
+ function generator.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
 
  local function bounds(c)
   if c.field then return c.field.left,c.field.right end

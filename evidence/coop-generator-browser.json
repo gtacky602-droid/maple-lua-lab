@@ -1,0 +1,118 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 1020,
+  "results": [
+    {
+      "seconds": 27.87,
+      "hp": 34,
+      "kills": 1,
+      "startingMora": 20,
+      "mora": 305,
+      "startingXp": 3106,
+      "xp": 129550,
+      "moves": [
+        "FFG01",
+        "FFG02",
+        "FFG03"
+      ],
+      "manualDamage": 288,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        24080101
+      ],
+      "gravityTracks": [
+        "596.000,1124.000,128.000,480.000"
+      ],
+      "jump": {
+        "inside": true,
+        "height": 290.06
+      }
+    },
+    {
+      "seconds": 27.87,
+      "hp": 140,
+      "kills": 1,
+      "startingMora": 10,
+      "mora": 305,
+      "startingXp": 1553,
+      "xp": 129550,
+      "moves": [
+        "FFG01",
+        "FFG02",
+        "FFG03"
+      ],
+      "manualDamage": 256,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        24080101
+      ],
+      "gravityTracks": [
+        "596.000,1124.000,128.000,480.000"
+      ],
+      "jump": {
+        "inside": false,
+        "height": 157.08
+      }
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 325,
+      "xp": 132656,
+      "respawn": true
+    },
+    {
+      "clears": 1,
+      "mora": 315,
+      "xp": 131103,
+      "respawn": true
+    }
+  ],
+  "report": {
+    "hub": "fontaine-hub",
+    "hostSaved": true,
+    "guestQuest": null,
+    "xp": 5400,
+    "mora": 380
+  },
+  "scenery": "generatorField",
+  "errors": []
+}
