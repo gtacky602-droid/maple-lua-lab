@@ -28,6 +28,15 @@ return function(C)
   return {move=m,tick=0,origin=b.x,dir=b.facing,seen={{},{}},
    source={id=b.id,owner=b,y=s.floorY,damageElement=m.element}}
  end
+ function nightmare.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+  for _,unit in ipairs(c.summons or {}) do
+   if unit.seen then C.shareFieldHits({unit.seen},actors) end
+  end
+ end
+ function nightmare.frame(f,b,s)
+  f.darkShield={hp=b.damageShield,maxhp=s.ward.max}
+ end
  local function breakShield(state,b,s,c)
   if c.broken or b.damageShield>0 then return end
   c.broken=c.tick

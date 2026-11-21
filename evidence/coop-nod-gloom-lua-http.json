@@ -1,0 +1,46 @@
+{
+  "herra": {
+    "lua": {
+      "participants": 4,
+      "separateAreaHits": true,
+      "sameDurationWithDifferentPartyClocks": true,
+      "sharedAdaptationTicks": 210,
+      "elementalDamageBeforeAndAfter": [
+        13,
+        22
+      ],
+      "lateJoinPreservesAdaptation": true,
+      "dispelNeedsThreeDistinctCasts": true,
+      "individualRewards": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  },
+  "nightmare": {
+    "lua": {
+      "participants": 4,
+      "separateAreaHits": true,
+      "sharedSummons": true,
+      "individualFisherHits": true,
+      "lunarDamageToShield": true,
+      "shieldStates": [
+        400,
+        312,
+        12,
+        0
+      ],
+      "lateJoinPreservesShield": true,
+      "shieldBreakDespawnsLivingFisher": true,
+      "individualRewards": true,
+      "soloFisherHitPreservedOnJoin": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  }
+}

@@ -22,6 +22,16 @@ return function(C)
   return {move=m,tick=0,origin=b.x,dir=b.facing,seen={{},{}},
    source={id=b.id,owner=b,y=s.floorY,damageElement=m.element}}
  end
+ function herra.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
+
+ local function adaptationRemaining(state,b)
+  if not b.adaptUntil then return 0 end
+  -- Adaptation is awarded on the encounter clock, including in shared rooms.
+  local _,now=C.fieldSlot(state,b.fieldBoss)
+  return math.max(0,b.adaptUntil-now)
+ end
 
  local function lock(c,s,a)
   local m=c.move
@@ -57,7 +67,7 @@ return function(C)
 
  function herra.damageFactor(state,_,b,s,element)
   if b.form=='gloom' then return s.gloom.factor end
-  if b.adaptedElement==element and state.t<b.adaptUntil then return s.gloom.adaptFactor end
+  if b.adaptedElement==element and adaptationRemaining(state,b)>1e-8 then return s.gloom.adaptFactor end
   return 1
  end
 
@@ -110,11 +120,16 @@ return function(C)
  function herra.label(b,c,s,state)
   if b.form=='gloom' then return '薄闇・氷／月 '..b.gloomCharges..'／'..s.gloom.charges end
   if b.form=='down' then return '薄闇解除・反撃の好機' end
-  if b.adaptedElement and state.t<b.adaptUntil then
+  if b.adaptedElement and adaptationRemaining(state,b)>1e-8 then
    local adaptation='元素適応・'..names[b.adaptedElement]
    return c and adaptation..' ／ '..c.move.title or adaptation
   end
   if b.form=='recover' then return '硬直中・反撃の好機' end
+ end
+ function herra.frame(f,b,s,c,state)
+  local ticks=math.max(0,math.ceil(adaptationRemaining(state,b)*60-1e-7))
+  f.gloom={charges=b.gloomCharges,maxCharges=s.gloom.charges,
+   adaptedElement=ticks>0 and b.adaptedElement or nil,remainingTicks=ticks}
  end
 
  local function rect(f,x,y,w,h,color)

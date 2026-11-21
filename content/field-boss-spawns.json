@@ -1378,7 +1378,7 @@
       "coolingMove":{"id":"FBT03","kind":"ward","title":"氷バリア・冷却放出","pose":"ward","lock":60,"distance":2.05,"width":2.0,"height":1.17,"active":[[252,270]],"recover":340,"total":424,"damage":33,"element":"cryo","coolEvery":84}
     },
     {
-      "id":"boss-20081001","controller":"frostnightHerra","entity":20081001,
+      "id":"boss-20081001","controller":"frostnightHerra","entity":20081001,"coop":true,
       "name":"霜夜の空を巡る霊主","node":"nod-herra-terrace","storyChallenge":"frostnight-herra",
       "level":126,"hp":1200,"mora":465,"artHeight":220,"floorY":480,"home":920,
       "arenaMin":320,"arenaMax":1570,"noticeRange":350,"noticeTicks":36,"restTicks":44,
@@ -1391,7 +1391,7 @@
       ]
     },
     {
-      "id":"boss-22150101","controller":"whispererNightmares","entity":22150101,
+      "id":"boss-22150101","controller":"whispererNightmares","entity":22150101,"coop":true,
       "name":"昏き魘夢の主","node":"nod-nightmare-shore","storyChallenge":"whisperer-nightmares",
       "level":128,"hp":1340,"mora":475,"artHeight":210,"floorY":480,"home":940,
       "arenaMin":325,"arenaMax":1600,"noticeRange":350,"noticeTicks":36,"restTicks":42,
