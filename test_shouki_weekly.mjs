@@ -7,7 +7,7 @@ const page=await browser.newPage({viewport:{width:1240,height:940}});
 const frame=()=>page.evaluate(()=>window.lab.frame);
 const wait=(predicate,arg)=>page.waitForFunction(predicate,arg,{timeout:80000});
 const canvas=page.locator('#game'),controls=page.locator('#weeklyShouki');
-const prefix='evidence/shouki-weekly-waist';
+const prefix='evidence/shouki-weekly-grounded';
 const hub='sumeru-hub',node='shouki-godmaking-arena',quest='shouki-weekly-commission',id='boss-29070101';
 const errors=[];
 page.on('pageerror',e=>errors.push(e.message));
@@ -46,10 +46,12 @@ try{
  assert.equal(upperParts.length,5);
  const [upper,leftHand,rightHand,leftPendant,rightPendant]=upperParts;
  assert.deepEqual(upper.box,[87,14,868,723]);
- assert.ok(Math.abs(upper.h-1160*723/914)<0.001&&upper.y-upper.h<0);
- assert.ok([leftHand,rightHand].every(hand=>hand.box[1]===737&&hand.y===449&&Math.abs(hand.y-hand.h-upper.y)<0.001));
+ assert.ok(Math.abs(upper.h-1160*723/914)<0.001&&upper.y-upper.h<0&&Math.abs(upper.y-444)<0.001);
+ assert.ok([leftHand,rightHand].every(hand=>hand.box[1]===737&&hand.y===480&&
+  Math.abs(hand.y-hand.h-upper.y)<0.001&&Math.abs(hand.box[3]-36*914/1160)<0.001));
  assert.ok(leftHand.box[0]+leftHand.box[2]<368&&rightHand.box[0]>=672);
  assert.ok([leftPendant,rightPendant].every(p=>p.box[1]===737&&Math.abs(p.y-p.h-upper.y)<0.001));
+ assert.ok(upperParts.every(d=>d.y<=480));
  assert.ok(upper.x-upper.w/2<0&&upper.x+upper.w/2>960);
  assert.equal(opening.draws[0],upper);
  assert.equal(opening.draws.filter(d=>d.kind==='text'&&['炎','風','雷A','水','氷','雷B'].includes(d.text)&&d.y<540).length,6);

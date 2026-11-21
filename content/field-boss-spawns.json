@@ -3,6 +3,7 @@
     {
       "id": "boss-26110101",
       "controller": "jadeplume",
+      "coop": true,
       "entity": 26110101,
       "name": "マッシュラプトル",
       "node": "sumeru-jadeplume-grove",

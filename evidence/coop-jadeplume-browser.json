@@ -1,0 +1,92 @@
+{
+  "participants": 2,
+  "results": [
+    {
+      "seconds": 25.08,
+      "hp": 140,
+      "kills": 1,
+      "startingMora": 70,
+      "mora": 180,
+      "startingKillXp": 15181,
+      "killXp": 39950,
+      "moves": [
+        "FJ01",
+        "FJ02",
+        "FJ03"
+      ],
+      "manualDamage": 210,
+      "leaps": [
+        {
+          "landingX": 743,
+          "spriteFollowsBoss": true
+        },
+        {
+          "landingX": 834.5,
+          "spriteFollowsBoss": true
+        }
+      ],
+      "spores": [
+        [
+          835,
+          750,
+          920
+        ],
+        [
+          740.5,
+          655.5,
+          825.5
+        ]
+      ]
+    },
+    {
+      "seconds": 25.08,
+      "hp": 122,
+      "kills": 1,
+      "startingMora": 20,
+      "mora": 180,
+      "startingKillXp": 1598,
+      "killXp": 39950,
+      "moves": [
+        "FJ01",
+        "FJ02",
+        "FJ03"
+      ],
+      "manualDamage": 215,
+      "leaps": [
+        {
+          "landingX": 743,
+          "spriteFollowsBoss": true
+        },
+        {
+          "landingX": 834.5,
+          "spriteFollowsBoss": true
+        }
+      ],
+      "spores": [
+        [
+          835,
+          750,
+          920
+        ],
+        [
+          740.5,
+          655.5,
+          825.5
+        ]
+      ]
+    }
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 250,
+      "xp": 55131
+    },
+    {
+      "clears": 1,
+      "mora": 200,
+      "xp": 41548
+    }
+  ],
+  "errors": []
+}

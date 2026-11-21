@@ -115,11 +115,13 @@ a=s.actors[1]
 assert len(s.enemies)==3 and all(e.sharedHealth.id==w.primary.id for e in w.hands.values())
 upper,left_hand,right_hand,left_pendant,right_pendant=machine_art(s)
 assert list(upper.box.values())==[87,14,868,723]
-assert abs(upper.h-1160*723/914)<1e-7 and abs(upper.y-(449-1160*191/914))<1e-7
+assert abs(upper.h-1160*723/914)<1e-7 and abs(upper.y-(spec.floorY-36))<1e-7
 assert upper.x-upper.w/2<0 and upper.x+upper.w/2>960 and upper.y-upper.h<0
-assert all(h.box[2]==737 and h.y==449 and abs(h.y-h.h-upper.y)<1e-7 for h in (left_hand,right_hand))
+assert all(h.box[2]==737 and h.y==spec.floorY and abs(h.y-h.h-upper.y)<1e-7
+           and abs(h.box[4]-36*914/1160)<1e-7 for h in (left_hand,right_hand))
 assert left_hand.box[1]+left_hand.box[3]<368 and right_hand.box[1]>=672
 assert all(p.box[2]==737 and abs(p.y-p.h-upper.y)<1e-7 for p in (left_pendant,right_pendant))
+assert all(d.y<=spec.floorY for d in machine_art(s))
 assert left_pendant.box[1]+left_pendant.box[3]<497 and right_pendant.box[1]>549
 assert core.frame(s,'sprite').draws[1].source==upper.source
 assert [e.hitTop for e in (w.primary,*w.hands.values())]==[342,367,367]
@@ -368,11 +370,12 @@ result={'live_durations':checked,'upper_hits_share_hp':True,'independent_floor_a
         'wind_and_heal':True,'paired_electro_six_seconds':True,'only_manual_actor_collects':True,
         'art_heights':{'upper':1160,'full':744,'trial':630,'collapse':600},
         'upper_width':upper.w,'upper_extends_past_edges':True,'machine_behind_party':True,
-        'upper_torso_ends_at_source_row':737,'hands_and_pendants_preserved_below_torso':True,
+        'upper_torso_ends_at_source_row':737,'upper_waist_y':upper.y,
+        'floor_y':left_hand.y,'hands_clipped_at_floor':True,
         'chest_art_aim_and_collision_aligned':True,'combat_hit_heights_unchanged':True,
         'reserve_cancel_swap_and_missed_shot':True,'hit_applies_shield_separately':True,
         'four_physical_trials_and_core_collision':True,'explicit_ai_assistance_only':True,
         'deadline_tick_prefers_accepted_impact':True,'exposure_ticks':600,
         'ordinary_failure_and_retry':True,'route_report_and_save':True}
-(ROOT/'evidence/shouki-weekly-waist-lua.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+(ROOT/'evidence/shouki-weekly-grounded-lua.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
 print('Shouki Lua: two phases, matrices, charge and shield, terminal settlement, trial and save passed')

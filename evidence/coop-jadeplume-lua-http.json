@@ -1,0 +1,19 @@
+{
+  "lua": {
+    "participants": 4,
+    "hp": 800,
+    "samePeckEachOnce": true,
+    "roundedCornerMisses": true,
+    "lockedLeapAndSharedHurtbox": true,
+    "sporesHitThreeSeparateTravelers": true,
+    "soloHitHistorySurvivesAdoption": true,
+    "xpPerContributor": 39950,
+    "moraPerContributor": 180
+  },
+  "http": {
+    "participants": 2,
+    "leftAndRejoinedSameRoom": true,
+    "emptyArenaPreservesLeap": true,
+    "bothSavedRewardsAndRespawn": true
+  }
+}

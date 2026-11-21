@@ -1661,8 +1661,8 @@
       "evidence": [
         "https://github.com/theBowja/genshin-db/blob/8e5badd60b5d894284ccc927a56c9683529d2592/src/data/Japanese/enemies/shoukinokamitheprodigal.json",
         "docs/weekly-boss-v1/SHOUKI_WEB.md",
-        "evidence/shouki-weekly-waist-lua.json",
-        "evidence/shouki-weekly-waist-browser.json"
+        "evidence/shouki-weekly-grounded-lua.json",
+        "evidence/shouki-weekly-grounded-browser.json"
       ],
       "remaining": [
         "本体と巨腕の連続作画、端末と装置の仕上げ、音",
@@ -1671,12 +1671,12 @@
       ],
       "weeklyNode": "shouki-godmaking-arena",
       "weeklyEntrance": "工房の再現戦・正機の神（Lv64）",
-      "review_note": "上半身は幅約1,102pxで画面の上と左右から見切れ、中央の胴はくびれまで描く。後半は端末射撃と滅度機、胸部の10秒露出を試せる。",
+      "review_note": "上半身は細いくびれから上を表示し、くびれを床の36px上に置く。幅約1,102pxで画面の上と左右から見切れる。後半は端末射撃と滅度機、胸部の10秒露出を試せる。",
       "art_candidate": {
         "source": "assets/shouki-idle-source-v1.png",
         "encoding": "assets/shouki-idle-sprites.json",
         "audit": "evidence/shouki-reference-audit.json",
-        "status": "The upper form extends beyond the viewport and stops at the narrow waist. The arms and pendants extend below it. The terminal targets the visible chest gem."
+        "status": "The narrow waist anchors the opening form 36px above the arena floor. The upper body extends above the viewport and beyond both sides. The terminal targets the visible chest gem in the later form."
       }
     },
     {

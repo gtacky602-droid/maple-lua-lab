@@ -1,0 +1,42 @@
+{
+  "live_durations": {
+    "WN01": 300,
+    "WN02": 264,
+    "WN03": 360,
+    "WN04": 360,
+    "WN05": 420,
+    "WN09": 300,
+    "WN10": 330,
+    "WN11": 420,
+    "WN12": 300,
+    "WN13": 384
+  },
+  "upper_hits_share_hp": true,
+  "independent_floor_and_matrix_cooldown": true,
+  "wind_and_heal": true,
+  "paired_electro_six_seconds": true,
+  "only_manual_actor_collects": true,
+  "art_heights": {
+    "upper": 1160,
+    "full": 744,
+    "trial": 630,
+    "collapse": 600
+  },
+  "upper_width": 1101.6192560175054,
+  "upper_extends_past_edges": true,
+  "machine_behind_party": true,
+  "upper_torso_ends_at_source_row": 737,
+  "upper_waist_y": 444.0,
+  "floor_y": 480,
+  "hands_clipped_at_floor": true,
+  "chest_art_aim_and_collision_aligned": true,
+  "combat_hit_heights_unchanged": true,
+  "reserve_cancel_swap_and_missed_shot": true,
+  "hit_applies_shield_separately": true,
+  "four_physical_trials_and_core_collision": true,
+  "explicit_ai_assistance_only": true,
+  "deadline_tick_prefers_accepted_impact": true,
+  "exposure_ticks": 600,
+  "ordinary_failure_and_retry": true,
+  "route_report_and_save": true
+}

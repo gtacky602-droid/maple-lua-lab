@@ -20,6 +20,9 @@ return function(C)
   boss.facing=cast.dir
   return cast
  end
+ function jade.shareCast(cast,actors)
+  C.shareFieldHits(cast.groups,actors)
+ end
 
  local function region(spec,cast,index)
   local y=spec.floorY
@@ -33,15 +36,25 @@ return function(C)
   return x-.275*U,x+.275*U,y-.55*U,y
  end
 
- local function hitRegion(actor,pattern,x0,x1,y0,y1)
-  local left,right,top,bottom=actor.x-10,actor.x+10,actor.y-50,actor.y
-  if pattern=='peck' then
-   local radius,center=(y1-y0)/2,(y0+y1)/2
-   local dx=math.max(0,x0+radius-right,left-(x1-radius))
-   local dy=math.max(0,center-bottom,top-center)
-   return dx*dx+dy*dy<radius*radius
+ local function warningVisible(cast,index,window)
+  local move,tick=cast.move,cast.tick
+  return (tick>=move.lock or move.pattern~='peck') and tick<window[2] and
+   (move.pattern=='spores' or index==1 or tick>=move.active[index-1][2])
+ end
+
+ function jade.frame(f,boss,spec,cast)
+  f.flying=boss.y<spec.floorY
+  if not cast then return end
+  local locked=cast.tick>=cast.move.lock
+  f.landingX=locked and cast.land or nil
+  f.warnings={}
+  for index,window in ipairs(cast.move.active) do
+   if warningVisible(cast,index,window) then
+    local left,right,top,bottom=region(spec,cast,index)
+    f.warnings[#f.warnings+1]={left=left,right=right,top=top,bottom=bottom,
+     first=window[1],after=window[2],active=cast.tick>=window[1],locked=locked}
+   end
   end
-  return right>x0 and left<x1 and bottom>y0 and top<y1
  end
 
  function jade.tick(s,boss,spec,cast,target)
@@ -65,11 +78,11 @@ return function(C)
     local seen=cast.groups[index] or {}
     cast.groups[index]=seen
     local x0,x1,y0,y1=region(spec,cast,index)
-    for _,a in ipairs(s.actors) do
-     if a.hp>0 and not seen[a.id] and hitRegion(a,cast.move.pattern,x0,x1,y0,y1) then
-      seen[a.id]=true
-      C.damageActor(s,a,cast.move.damage,boss,false,true)
-     end
+    if cast.move.pattern=='peck' then
+     local radius,center=(y1-y0)/2,(y0+y1)/2
+     C.hitFieldCapsule(s,boss,seen,x0+radius,x1-radius,center,radius,cast.move.damage)
+    else
+     C.hitFieldArea(s,boss,seen,x0,x1,y0,cast.move.damage,y1)
     end
    end
   end
@@ -85,9 +98,7 @@ return function(C)
   if cast then
    local move,tick=cast.move,cast.tick
    for index,window in ipairs(move.active) do
-    local visible=(tick>=move.lock or move.pattern~='peck') and tick<window[2] and (move.pattern=='spores' or
-      index==1 or tick>=move.active[index-1][2])
-    if visible then
+    if warningVisible(cast,index,window) then
      local x0,x1,y0,y1=region(spec,cast,index)
      x0=x0-s.camera;x1=x1-s.camera
      local active=tick>=window[1]
