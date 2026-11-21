@@ -649,13 +649,13 @@
       }
     },
     "boss-29070101": {
-      "extra_evidence": ["docs/weekly-boss-v1/SHOUKI_WEB.md", "evidence/shouki-weekly-giant-lua.json", "evidence/shouki-weekly-giant-browser.json"],
+      "extra_evidence": ["docs/weekly-boss-v1/SHOUKI_WEB.md", "evidence/shouki-weekly-closeup-lua.json", "evidence/shouki-weekly-closeup-browser.json"],
       "remaining": ["本体と巨腕の連続作画、端末と装置の仕上げ、音", "難度と報酬の調整", "本番3D背景、多人数と幻境実機の検証"],
-      "review_note": "スメールの専用マップで上半身288px・全身360pxの2段階、元素装置、共有充填、装甲、端末射撃、滅度機、胸部の10秒露出を試せる。",
+      "review_note": "上半身800px・全身形態680pxが画面上端からはみ出す。前半は元素装置、後半は端末射撃と滅度機、胸部の10秒露出を試せる。",
       "art_candidate": {
         "item": "shouki",
         "audit": "evidence/shouki-reference-audit.json",
-        "status": "Enlarged full-body atlas and torso crop in the Lua trial. The terminal targets the visible chest gem. Devices and attack cues use prototype geometry."
+        "status": "The torso fills most of the viewport and both forms extend above its top edge. The terminal targets the visible chest gem."
       }
     },
     "boss-26190101": {

@@ -5,16 +5,17 @@ return function(C)
  local colors={pyro='#ff9469',cryo='#a1daf7',electro='#caa3fc',anemo='#91e3cb',hydro='#87c6ff',charge='#b9f2a9',gold='#f5d794'}
  -- Chest gem is at source y=624 in the full form crop y=[14,1494).
  local coreFromBottom=870/1480
+ local fullHeight=680
  local function visual(w,spec)
   local name,t,y=w.stage,w.stageTick,spec.floorY
   if name=='p1' or name=='overload' or name=='rise' and t<120 then
-   if name=='overload' and t>=60 then return 'upper',y-31,248 end
-   return 'upper',y-57,288
+   if name=='overload' and t>=60 then return 'upper',y-31,640 end
+   return 'upper',y-57,800
   end
-  if name=='trial' then return 'full',y-83,320 end
-  if name=='collapse' and t>=60 then return 'full',y,236 end
-  if name=='rise' then return 'full',y,270+90*clamp((t-120)/120,0,1) end
-  return 'full',y,360
+  if name=='trial' then return 'full',y-83,610 end
+  if name=='collapse' and t>=60 then return 'full',y,510 end
+  if name=='rise' then return 'full',y,600+(fullHeight-600)*clamp((t-120)/120,0,1) end
+  return 'full',y,fullHeight
  end
  local function actor(s) return s.actors[s.active] end
  local function event(s,w,key,owner,v) C.combatEvent(s,'shouki:'..key,owner or 0,w.primary.id,v or 0) end

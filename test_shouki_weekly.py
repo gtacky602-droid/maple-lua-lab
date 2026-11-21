@@ -110,7 +110,8 @@ s,w,spec=arena()
 a=s.actors[1]
 assert len(s.enemies)==3 and all(e.sharedHealth.id==w.primary.id for e in w.hands.values())
 upper=art(s)
-assert (upper.h, upper.y)==(288,423)
+assert (upper.h, upper.y)==(800,423)
+assert 720<upper.w<960 and upper.y-upper.h<0
 assert [e.hitTop for e in (w.primary,*w.hands.values())]==[342,367,367]
 wide=lua.table_from({'id':1,'radial':True,'x':480,'y':480,'range':300,'atk':30,'mult':1,'limit':5,
                    'playerInputAt':s.t,'element':'physical','gain':0,'color':'#fff'})
@@ -187,9 +188,10 @@ ticks(core,s,1)
 assert w.charge==100 and not len(w.blocks)
 enter_p2(s,w,spec,100)
 full=art(s)
-assert (full.h,full.y,w.primary.hitTop)==(360,480,315)
+assert (full.h,full.y,w.primary.hitTop)==(680,480,315)
 core_hint=core.frame(s).weeklyBoss.shouki.core
-assert core_hint.exposed and core_hint.x==w.primary.x and abs(core_hint.y-(480-360*870/1480))<1e-7
+assert core_hint.exposed and core_hint.x==w.primary.x and abs(core_hint.y-(480-680*870/1480))<1e-7
+assert 21<core_hint.y<480 and full.y-full.h<0
 act(s,'encounter_interact')
 assert w.aim.owner==1 and w.charge==100
 act(s,'encounter_interact')
@@ -236,9 +238,10 @@ attack(s,w.primary.x,10000)
 assert w.shield==99
 start_trial(s,w,spec)
 trial=art(s)
-assert (trial.h,trial.y)==(320,397)
+assert (trial.h,trial.y)==(610,397)
 core_hint=core.frame(s).weeklyBoss.shouki.core
-assert not core_hint.exposed and abs(core_hint.y-(397-320*870/1480))<1e-7
+assert not core_hint.exposed and abs(core_hint.y-(397-610*870/1480))<1e-7
+assert 21<core_hint.y<480 and trial.y-trial.h<0
 for i,target in enumerate(list(w.targets.values()),1):
     old=lua.table_from({'id':1,'x':target.x-30,'y':480,'dir':1,'range':110,'atk':100,'mult':1,'gain':0,
                         'limit':1,'element':'physical','color':'#fff','playerInputAt':w.trialOpened-.2})
@@ -258,7 +261,7 @@ ticks(core,s,120)
 assert w.stage=='collapse' and len(events(s,'WN14:core-hit'))==1
 ticks(core,s,60-w.stageTick)
 assert not w.primary.invulnerable and core.frame(s).weeklyBoss.shouki.exposure==600
-assert art(s).h==236 and core.frame(s).weeklyBoss.shouki.core is None
+assert art(s).h==510 and core.frame(s).weeklyBoss.shouki.core is None
 n=w.primary.hp
 attack(s,w.primary.x)
 assert w.primary.hp<n
@@ -353,11 +356,12 @@ assert again.weeklySlots[uid].primary.hp==0 and again.story.quests[quest].status
 
 result={'live_durations':checked,'upper_hits_share_hp':True,'independent_floor_and_matrix_cooldown':True,
         'wind_and_heal':True,'paired_electro_six_seconds':True,'only_manual_actor_collects':True,
-        'art_heights':{'upper':288,'full':360,'trial':320,'collapse':236},
+        'art_heights':{'upper':800,'full':680,'trial':610,'collapse':510},
+        'upper_width':upper.w,'art_extends_above_frame':True,
         'chest_art_aim_and_collision_aligned':True,'combat_hit_heights_unchanged':True,
         'reserve_cancel_swap_and_missed_shot':True,'hit_applies_shield_separately':True,
         'four_physical_trials_and_core_collision':True,'explicit_ai_assistance_only':True,
         'deadline_tick_prefers_accepted_impact':True,'exposure_ticks':600,
         'ordinary_failure_and_retry':True,'route_report_and_save':True}
-(ROOT/'evidence/shouki-weekly-giant-lua.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+(ROOT/'evidence/shouki-weekly-closeup-lua.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
 print('Shouki Lua: two phases, matrices, charge and shield, terminal settlement, trial and save passed')
