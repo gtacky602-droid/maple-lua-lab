@@ -1,0 +1,39 @@
+{
+  "driftingSnow": {
+    "lua": {
+      "participants": 4,
+      "independentSlashesAndSeeds": true,
+      "sharedLayerCount": true,
+      "distinctPartyClocks": true,
+      "oldCastReactionAndMultihitRejected": true,
+      "finalTickBreakPreventsHeal": true,
+      "unbrokenCoffinHealsOnce": 96,
+      "individualRewards": true,
+      "soloOneUseFlagPreserved": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  },
+  "immortalConstruct": {
+    "lua": {
+      "participants": 4,
+      "independentSlashesAndSeeds": true,
+      "paidHp": 96,
+      "sharedGuardUnits": 12,
+      "oldCastReactionAndMultihitRejected": true,
+      "segmentBreakCancelsOneWave": true,
+      "lastUnitCancelsBloom": true,
+      "sharedHealingCap": 72,
+      "individualRewards": true,
+      "soloBloomHitPreservedOnJoin": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  }
+}

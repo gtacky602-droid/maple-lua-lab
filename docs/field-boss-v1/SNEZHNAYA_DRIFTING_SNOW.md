@@ -28,6 +28,6 @@
 
 英語・中国語で同名の3Dモデルを検索したが利用できるものは見つからず、背面の鎧・布の取り付けと奥行きは未確認。反対向きはミラー表示で、左右別の作画、連続動作、被弾・撃破・音も残る。雪庭は参照画像の色と環境を使ったラボ仮背景であり、正確な原作地理や本番3D配置の完成ではない。参照URL・ハッシュ・プロンプト・切り出し・縮尺・矩形数は[美術監査](../../evidence/drifting-snow-field-art-audit.json)に保存した。
 
-検査は `C:/Python314/python.exe test_drifting_snow_field.py` と `node test_drifting_snow_field.mjs`。Chromeの既定接続先は `http://127.0.0.1:8844`、`LAB_URL` で変更できる。Luaでは固定範囲、多段・旧cast・反応の除外、元素差、締切直前の破壊、未破壊時の一度の回復と反撃、HP0優先、フラグの保存・旧形式・不正値、退出、討伐・報告と再出現を検査する。証拠は `evidence/drifting-snow-field-{lua,browser}.json` とready・棺・軽量・ダウンの画面。Webマルチ、幻境実機、全体の完成判定は未完。
+単独戦の検査は `C:/Python314/python.exe test_drifting_snow_field.py` と `node test_drifting_snow_field.mjs`。Chromeの既定接続先は `http://127.0.0.1:8844`、`LAB_URL` で変更できる。Luaでは固定範囲、多段・旧cast・反応の除外、元素差、締切直前の破壊、未破壊時の一度の回復と反撃、HP0優先、フラグの保存・旧形式・不正値、退出、討伐・報告と再出現を検査する。証拠は `evidence/drifting-snow-field-{lua,browser}.json` とready・棺・軽量・ダウンの画面。現行の氷の棺はローカル共闘でも検証済み。幻境実機は未検証。 [共闘の遊び方と検証](../COOP_WEB_PREVIEW.md#游雪のブレードガーディアンと不滅の副産物)
 
 今回のLua検査は通常攻撃のみ・同行戦闘不能・回復なしで90.15秒、HP140。45〜90秒の目標をわずかに超えるため、成長・装備別の調整は残る。Chromeでは放浪者同行・炎技使用で39.6秒、HP140・帰還0。UIで受注→門→棺破壊→討伐→帰還→報告→保存まで通過した。同じtickの棺の場面は、描画指示がPNG31件、標準12,813件、軽量3,600件（約71.9%減）。実機FPS改善の保証ではない。

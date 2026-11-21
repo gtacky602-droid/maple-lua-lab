@@ -131,12 +131,15 @@ return function(C,configs,controllers)
   -- Keep the running encounter in the room. Solo saves retain an independent slot.
   local personal={generation=live.generation}
   spawn(personal,spec,spec.manualRechallenge and spec.hp or live.enemy.hp)
+  local behavior=controllers[spec.controller]
+  if not spec.manualRechallenge and behavior.checkpoint and behavior.restore then
+   behavior.restore(personal.enemy,spec,behavior.checkpoint(live.enemy,spec,live),personal)
+  end
   personal.waitUntil,personal.entryAt=live.waitUntil,live.entryAt
   if personal.waitUntil then personal.phase='respawn' end
   s.fieldSlots[spec.id]=personal
   live.entryAt=live.entryAt or room.time
   C.shareFieldHits({live.contact},s.actors)
-  local behavior=controllers[spec.controller]
   if live.cast and behavior.shareCast then behavior.shareCast(live.cast,s.actors) end
  end
 

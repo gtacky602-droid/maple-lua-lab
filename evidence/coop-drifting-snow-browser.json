@@ -1,0 +1,161 @@
+{
+  "browser": "Chrome",
+  "participants": 2,
+  "bossHp": 1200,
+  "results": [
+    {
+      "seconds": 27.87,
+      "hp": 140,
+      "kills": 1,
+      "startingMora": 40,
+      "mora": 560,
+      "startingXp": 82828,
+      "xp": 1868400,
+      "moves": [
+        "FDS01",
+        "FDS02",
+        "FDS03"
+      ],
+      "manualDamage": 230,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        25135202
+      ],
+      "gravityTracks": [],
+      "jump": null,
+      "fireLayouts": [],
+      "exposedAt": [],
+      "pearls": [],
+      "interruptedAt": [],
+      "sharedObjects": [],
+      "diveLayouts": [],
+      "cannonLayouts": [],
+      "hpMonotonic": true,
+      "heatStates": [],
+      "eruptionLayouts": [],
+      "coolingTime": null,
+      "purgeLayouts": [],
+      "cooledFlows": [],
+      "reflectionLayouts": [],
+      "reflectionLayers": [],
+      "reflectionBroken": false,
+      "repairLayouts": [],
+      "thermalStates": [],
+      "machineDown": false,
+      "guardAmounts": [
+        8,
+        4,
+        2
+      ],
+      "guardDown": true,
+      "chantSeen": false,
+      "paidHp": 0
+    },
+    {
+      "seconds": 27.88,
+      "hp": 140,
+      "kills": 1,
+      "startingMora": 0,
+      "mora": 560,
+      "startingXp": 0,
+      "xp": 1868400,
+      "moves": [
+        "FDS01",
+        "FDS02",
+        "FDS03"
+      ],
+      "manualDamage": 228,
+      "cloaked": false,
+      "markers": [],
+      "emerged": [],
+      "air": [],
+      "down": [],
+      "guardTick": null,
+      "recovery": 0,
+      "shieldUsed": false,
+      "forms": [],
+      "landings": [],
+      "maskPaths": [],
+      "flightTargets": [],
+      "fallLayouts": [],
+      "recovered": false,
+      "skullTracks": [],
+      "bombLayouts": [],
+      "relayTracks": [],
+      "struck": [
+        25135202
+      ],
+      "gravityTracks": [],
+      "jump": null,
+      "fireLayouts": [],
+      "exposedAt": [],
+      "pearls": [],
+      "interruptedAt": [],
+      "sharedObjects": [],
+      "diveLayouts": [],
+      "cannonLayouts": [],
+      "hpMonotonic": true,
+      "heatStates": [],
+      "eruptionLayouts": [],
+      "coolingTime": null,
+      "purgeLayouts": [],
+      "cooledFlows": [],
+      "reflectionLayouts": [],
+      "reflectionLayers": [],
+      "reflectionBroken": false,
+      "repairLayouts": [],
+      "thermalStates": [],
+      "machineDown": false,
+      "guardAmounts": [
+        8,
+        4
+      ],
+      "guardDown": true,
+      "chantSeen": false,
+      "paidHp": 0
+    }
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saves": [
+    {
+      "clears": 1,
+      "mora": 600,
+      "xp": 1951228,
+      "respawn": true
+    },
+    {
+      "clears": 1,
+      "mora": 560,
+      "xp": 1868400,
+      "respawn": true
+    }
+  ],
+  "report": {
+    "hub": "snezhnaya-hub",
+    "hostSaved": true,
+    "guestQuest": null,
+    "xp": 10800,
+    "mora": 730
+  },
+  "scenery": "driftingSnowField",
+  "errors": []
+}

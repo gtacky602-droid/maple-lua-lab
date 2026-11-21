@@ -21,9 +21,9 @@ return function(C)
   if b.form=='down' then return s.life.downFactor end
   return b.lifeUnits>0 and s.life.damageFactor or 1
  end
- function beast.onHit(cast,b,s)
+ function beast.onHit(cast,b,s,_,_,_,party)
   if b.lifeUnits<=0 or b.lifeContacts[cast] or cast.reaction or
-     not cast.startedAt or cast.startedAt<b.lifeOpenedAt then return end
+     not C.fieldCastStartedSince(party,b.fieldBoss,cast,b.lifeOpenedAt) then return end
   b.lifeContacts[cast]=true
   local before=math.ceil(b.lifeUnits/s.life.unitsPerLayer)
   b.lifeUnits=math.max(0,b.lifeUnits-1)
@@ -44,6 +44,10 @@ return function(C)
  function beast.begin(b,s,m)
   return {move=m,tick=0,origin=b.x,dir=b.facing,seen={{},{},{}},cancelled={},interruptions=0,healed=0,
    source={id=b.id,owner=b,y=s.floorY,damageElement='pyro'}}
+ end
+ function beast.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+  if c.releaseSeen then C.shareFieldHits({c.releaseSeen},actors) end
  end
  local function lock(b,s,c,a)
   local m=c.move

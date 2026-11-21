@@ -8147,6 +8147,8 @@
       "snezhnaya-hub",
       "snezhnaya-field",
       "flugel-tundra-basin",
+      "drifting-snow-court",
+      "immortal-construct-root-hollow",
       "witztli-tristars-camp",
       "atocpan-battlegoat-ironclaw-field",
       "sne-novokichev-ore-yard"
@@ -8198,6 +8200,8 @@
       "boss-26302101",
       "boss-24111101",
       "boss-26310501",
+      "boss-25135202",
+      "boss-25140101",
       "legend-natlan_polychrome_tristars",
       "legend-natlan_battlegoat_ironclaw",
       "legend-snez_rowdy_beast_host"
@@ -8339,6 +8343,11 @@
       "evidence/coop-vigil-elemental-stars.png",
       "evidence/coop-flugel-browser.json",
       "evidence/coop-flugel-wind-orbs.png",
+      "evidence/coop-snez-life-lua-http.json",
+      "evidence/coop-drifting-snow-browser.json",
+      "evidence/coop-drifting-snow-ice-coffin.png",
+      "evidence/coop-immortal-construct-browser.json",
+      "evidence/coop-immortal-construct-resurrection-guard.png",
       "evidence/coop-jadeplume-lua-http.json",
       "evidence/coop-jadeplume-browser.json",
       "evidence/coop-jadeplume-leap.png"

@@ -187,7 +187,7 @@ def check_maguu(lua, core):
             'oneMovingMaskForAll': True, 'priorSoloHitSurvivesAdoption': True}
 
 
-def check_http(url, case, move, tick, coordinate, after, gate=1270):
+def check_http(url, case, move, tick, coordinate, after, gate=1270, trigger=None):
     boss_id, _, entry, quest = case
     spec = SPECS[boss_id]
     clients = [Client(url), Client(url)]
@@ -208,6 +208,8 @@ def check_http(url, case, move, tick, coordinate, after, gate=1270):
         boss = slot.enemy
         for env in (h, g):
             place(env['state'], boss.x - 93)
+        if trigger:
+            trigger(lua, core, h['state'], boss)
         wait_cast(lambda: core.stepCoop(room, TICK), slot, move, tick)
         coord = native(core.frame(h['state']).fieldBoss[coordinate])
         assert coord == native(core.frame(g['state']).fieldBoss[coordinate])

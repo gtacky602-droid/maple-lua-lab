@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する83地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する85地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -340,6 +340,21 @@ Luaの4人試験で、回復と脱出が個別に進むこと、錨を壊した�
 Luaの4人試験で、時刻の異なる参加者の攻撃を同じ記録や層に反映し、召喚前に始めた攻撃を除外することを確認した。元素星の破壊者が退場しても、反動の討伐報酬は条件を満たした人に一度だけ入る。HTTPの2人試験で退避後の再合流を確認し、Chromeの2画面で召喚、ダウン、各自の討伐報酬と受注者の依頼報告を保存した。 [Lua・HTTPの検証](../evidence/coop-vigil-flugel-lua-http.json) · [堕天のChrome試走](../evidence/coop-vigil-browser.json) · [フリューゲルのChrome試走](../evidence/coop-flugel-browser.json)
 
 `python test_fallen_vigil_field.py` と `python test_flugel_field.py` でセーブを作り、`LAB_URL` を指定して `node test_coop_field_routes.mjs vigil flugel` を実行すると再現できる。現在の共闘は既存のラボ試作を使用する。 [堕天の後続設計](field-boss-v1/RADIANT_VIGIL_MOVESETS.md) · [フリューゲルの後続設計](field-boss-v1/SNEZHNAYA_QUARTET_MOVESETS.md)
+
+## 游雪のブレードガーディアンと不滅の副産物
+
+スネージナヤの凍った街道から氷冠の雪庭へ進むと、游雪のブレードガーディアンと戦える。本体HPが55％以下になると、一戦に一度だけ氷の棺を展開する。8層の棺は全員で削れる。期限までに壊すと回復と氷剣の反撃を止められ、壊し切れなければ本体が最大96 HPを一度だけ回復する。ソロ戦の途中から部屋を作っても、ソロ側に戻ったときの棺の使用済み記録を保持する。 [氷の棺の画面](../evidence/coop-drifting-snow-ice-coffin.png)
+
+赤葉の根洞の不滅の副産物は、自分のHPを最大96使って蘇生の守りを張る。守りは6層で、直接攻撃2回につき1層が割れて次の小波を止める。全層を壊せば灼焔の華も中断できる。小波や灼焔の華が命中した際の回復は、何人に当たっても1回の展開につき最大72 HP。 [蘇生の守りの画面](../evidence/coop-immortal-construct-resurrection-guard.png)
+
+| ボス | Lv | HP | 討伐参加者一人あたり | 依頼を報告した人 |
+| --- | ---: | ---: | ---: | ---: |
+| 游雪のブレードガーディアン | 148 | 1,200 | 1,868,400 EXP・560モラ | 10,800 EXP・730モラ |
+| 不滅の副産物 | 142 | 1,260 | 1,298,650 EXP・550モラ | 10,600 EXP・720モラ |
+
+Luaの4人試験で、展開前に始めた技や同じ技の多段ヒットを重ねて数えず、別々の参加者の攻撃で守りを削れることを確認した。HTTPの2人試験では退避からの再合流と保存、Chromeの2画面では同じ守りの残り量とダウン、個別報酬と受注者の依頼報告を確認した。 [Lua・HTTPの検証](../evidence/coop-snez-life-lua-http.json) · [游雪のChrome試走](../evidence/coop-drifting-snow-browser.json) · [不滅の副産物のChrome試走](../evidence/coop-immortal-construct-browser.json)
+
+`python test_drifting_snow_field.py` と `python test_immortal_construct_field.py` でセーブを作り、`LAB_URL` を指定して `node test_coop_field_routes.mjs drifting-snow immortal-construct` を実行すると再現できる。現在の共闘は既存のラボ試作を使用する。 [後続の動作設計](field-boss-v1/SNEZHNAYA_QUARTET_MOVESETS.md)
 
 ## マッシュラプトル
 

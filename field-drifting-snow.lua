@@ -29,9 +29,9 @@ return function(C)
   if b.form=='down' then return s.coffin.downFactor end
   return b.coffinLayers>0 and s.coffin.damageFactor or 1
  end
- function guardian.onHit(cast,b,s,_,element)
+ function guardian.onHit(cast,b,s,_,element,_,party)
   if b.coffinLayers<=0 or b.coffinContacts[cast] or cast.reaction or
-     not cast.startedAt or cast.startedAt<b.coffinOpenedAt then return end
+     not C.fieldCastStartedSince(party,b.fieldBoss,cast,b.coffinOpenedAt) then return end
   b.coffinContacts[cast]=true
   local amount=element=='cryo' and 0 or effective[element] and s.coffin.effectiveLayers or 1
   b.coffinLayers=math.max(0,b.coffinLayers-amount)
@@ -39,6 +39,9 @@ return function(C)
  function guardian.begin(b,s,m)
   return {move=m,tick=0,origin=b.x,dir=b.facing,seen={{},{},{},{}},
    source={id=b.id,owner=b,y=s.floorY,damageElement='cryo'}}
+ end
+ function guardian.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
  end
  function guardian.preempt(b,s,slot)
   local c=slot.cast

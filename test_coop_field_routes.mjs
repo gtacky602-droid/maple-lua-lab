@@ -157,7 +157,17 @@ const cases={
  flugel:{hub:'snezhnaya-hub',arena:'flugel-tundra-basin',approach:'snezhnaya-field',
   boss:'boss-26310501',quest:'flugel-commission',hp:1180,mora:540,xp:1466100,scene:'flugelField',
   asset:'flugel-field',pose:'poses',label:'wind-orbs',fixture:'flugel-field',report:[10400,710],stance:78,
-  evade:{FL01:[99,169],FL02:[129,203],FL03:[171,247,323,485]}}
+  evade:{FL01:[99,169],FL02:[129,203],FL03:[171,247,323,485]}},
+ 'drifting-snow':{hub:'snezhnaya-hub',arena:'drifting-snow-court',approach:'snezhnaya-field',
+  boss:'boss-25135202',quest:'drifting-snow-commission',hp:1200,mora:560,xp:1868400,scene:'driftingSnowField',
+  asset:'drifting-snow-field',pose:'poses',label:'ice-coffin',fixture:'drifting-snow-field',report:[10800,730],stance:76,
+  sharedGuard:{view:'driftingSnow',value:'layers',readyMove:'FDS02',move:'FDS03'},
+  evade:{FDS01:[99,169],FDS02:[123,203],FDS03:[177,287,457,529]}},
+ 'immortal-construct':{hub:'snezhnaya-hub',arena:'immortal-construct-root-hollow',approach:'snezhnaya-field',
+  boss:'boss-25140101',quest:'immortal-construct-commission',hp:1260,mora:550,xp:1298650,scene:'immortalConstructField',
+  asset:'immortal-construct-field',pose:'poses',label:'resurrection-guard',fixture:'immortal-construct-field',report:[10600,720],stance:76,
+  sharedGuard:{view:'immortalConstruct',value:'units',readyMove:'IC02',move:'IC03'},
+  evade:{IC01:[99,169],IC02:[123,203],IC03:[135,215,295]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -205,8 +215,9 @@ async function fight(page,side,key,config) {
   const adaptedElements=new Set(),fisherLayouts=new Set(),shieldStates=new Set();
   const anchorLayers=new Set();
   const hasCocoon=key==='moonfly'||key==='moongecko';
-  const jumpEvade=hasCocoon||key==='vigil'||key==='flugel';
+  const jumpEvade=hasCocoon||key==='vigil'||key==='flugel'||config.sharedGuard;
   const starLayouts=new Set(),orbLayouts=new Set();
+  const guardAmounts=new Set();
   const art=config.pose&&config.asset+'-'+config.pose+'-source-v1.png';
   const entities=config.bodies??[Number(config.boss.slice(5))];
   const start=window.lab.frame;
@@ -218,6 +229,7 @@ async function fight(page,side,key,config) {
   let adaptationEnded=false,gloomDown=false,shieldDown=false,nextIce=-Infinity,iceCasts=0;
   let caught=false,escaped=false,peerEscaped=false,peerStillBound=false,anchorBroken=false,geoExposure=false,healX,nextHeal=0;
   let vigilDown=false,lastRecord=-Infinity,lionReady=false,wardDown=false,orbsDown=false,lastLionFire=-Infinity;
+  let guardReady=false,guardDown=false,chantSeen=false,paidHp=0,lastGuardFire=-Infinity;
   function hold(code,on) {
    if(on===held.has(code)) return;
    if(on) held.add(code); else held.delete(code);
@@ -250,7 +262,8 @@ async function fight(page,side,key,config) {
      ...(key==='nightmare'?{fisherLayouts:[...fisherLayouts],shieldStates:[...shieldStates],shieldDown}:{}),
      ...(hasCocoon?{caught,escaped,peerStillBound,anchorLayers:[...anchorLayers],anchorBroken,geoExposure}:{}),
      ...(key==='vigil'?{starLayouts:[...starLayouts],vigilDown}:{}),
-     ...(key==='flugel'?{orbLayouts:[...orbLayouts],wardDown,orbsDown}:{})};
+     ...(key==='flugel'?{orbLayouts:[...orbLayouts],wardDown,orbsDown}:{}),
+     ...(config.sharedGuard?{guardAmounts:[...guardAmounts],guardDown,chantSeen,paidHp}:{})};
     return;
    }
    if(!b) {
@@ -558,6 +571,19 @@ async function fight(page,side,key,config) {
      }
     }
    }
+   const guard=config.sharedGuard;
+   const guardState=guard&&b[guard.view];
+   const guardAmount=guardState?guardState[guard.value]:0;
+   if(guardState){
+    if(b.move===guard.readyMove&&b.tick>=225) guardReady=true;
+    if(guardAmount>0&&sprite){
+     guardAmounts.add(guardAmount);
+     visual=true;
+    }
+    if(guardState.chantStart) chantSeen=true;
+    if(guardState.spent) paidHp=guardState.spent;
+    if(b.form==='down'&&guardAmount===0&&guardAmounts.size) guardDown=true;
+   }
    if(config.observeRecovery&&b.recovering&&sprite) recovered=true;
    if(visual&&!capture&&side===-1){
     capture=document.querySelector('#game').toDataURL('image/png').split(',')[1];
@@ -570,7 +596,7 @@ async function fight(page,side,key,config) {
     hold('Digit1',true);hold('Digit1',false);
    }
    const healing=mark?.bound&&!escaped&&healX!==undefined;
-   const attackTimings=config.evade[b.move]||[];
+   const attackTimings=guardState?.chantStart?[guardState.chantStart+151]:config.evade[b.move]||[];
    if(jumpEvade) hold('Space',!healing&&attackTimings.some(at=>b.tick>=at-15&&b.tick<at+6));
    for(const at of prepareShield||jumpEvade?[]:attackTimings) {
     if(b.tick>=at&&b.tick<at+6&&!used.has(at)){
@@ -614,6 +640,9 @@ async function fight(page,side,key,config) {
    if(key==='flugel'&&lionReady&&(sharedSummon||b.flugel.ward>0&&!wardDown)&&inReach&&
       a.ground&&!f.macro&&f.t-lastLionFire>3.2){
     window.lab.action('slot1');lastLionFire=f.t;
+   }
+   if(guardAmount>0&&b.tick>=84&&inReach&&a.ground&&!f.macro&&f.t-lastGuardFire>3.2){
+    window.lab.action('slot1');lastGuardFire=f.t;
    }
    if(healing&&Math.abs(position)<15&&a.ground&&!f.macro&&f.t>=nextHeal){
     window.lab.action('slot1');nextHeal=f.t+10;
@@ -668,9 +697,10 @@ async function fight(page,side,key,config) {
    const watchCocoon=hasCocoon&&!sharedSummon&&(!escaped||!peerEscaped);
    const watchVigil=key==='vigil'&&!vigilDown&&!sharedSummon;
    const watchLion=key==='flugel'&&!sharedSummon&&(!lionReady||!orbsDown&&b.hp<620);
+   const watchGuard=guard&&(!guardReady||b.move===guard.move&&b.tick<84||!guardDown&&guardAmount===0&&b.hp<500);
    hold('KeyJ',!watchRelay&&!watchGravity&&!watchEmperor&&!watchPearl&&!watchSuanni&&!watchBreak&&!watchYumka&&!watchPapilla&&
     !watchLava&&!watchOverseer&&!watchReflections&&!watchDuck&&!watchShip&&!watchHerra&&!watchNightmare&&
-    !watchCocoon&&!watchVigil&&!watchLion&&!healing&&inReach&&(!device||Math.abs(dx)<96));
+    !watchCocoon&&!watchVigil&&!watchLion&&!watchGuard&&!healing&&inReach&&(!device||Math.abs(dx)<96));
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
@@ -831,6 +861,13 @@ async function run(key,config) {
  if(key==='flugel'){
   assert.ok(a.orbLayouts.some(layout=>b.orbLayouts.includes(layout)),JSON.stringify(results));
   assert.ok(results.every(result=>result.wardDown&&result.orbsDown),JSON.stringify(results));
+ }
+ if(config.sharedGuard){
+  assert.ok(a.guardAmounts.some(amount=>b.guardAmounts.includes(amount)),JSON.stringify(results));
+  assert.ok(a.guardDown&&b.guardDown,JSON.stringify(results));
+ }
+ if(key==='immortal-construct'){
+  assert.ok(results.every(result=>result.chantSeen&&result.paidHp===96),JSON.stringify(results));
  }
  if(config.fallTell) assert.ok(a.fallLayouts.some(x=>b.fallLayouts.includes(x)),JSON.stringify(results));
  if(config.observeRecovery) assert.ok(a.recovered&&b.recovered,JSON.stringify(results));
