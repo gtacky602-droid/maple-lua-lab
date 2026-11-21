@@ -55,6 +55,12 @@ return function(C,configs,controllers)
   local room=sharedRoom(s,id)
   return room and room.fieldSlot or (s.fieldSlots and s.fieldSlots[id]),room and room.time or s.t
  end
+ function C.fieldCastStartedSince(party,id,cast,openedAt)
+  if not openedAt or not cast.startedAt then return false end
+  -- Compare time elapsed on each clock, including for parties that joined late.
+  local _,now=C.fieldSlot(party,id)
+  return party.t-cast.startedAt<=now-openedAt+1e-8
+ end
  function C.fieldGravityFactor(s,a)
   local spec=byNode[current(s)]
   local slot=spec and C.fieldSlot(s,spec.id)

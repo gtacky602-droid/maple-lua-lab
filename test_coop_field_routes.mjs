@@ -120,7 +120,11 @@ const cases={
  overseer:{hub:'natlan-hub',transit:['natlan-field'],arena:'atocpan-overseer-ruin',approach:'atocpan-lava-field',
   boss:'boss-24090501',quest:'overseer-commission',hp:1125,mora:420,xp:351500,scene:'overseerField',
   asset:'overseer-field',pose:'poses',label:'cooled',fixture:'overseer-field',report:[8200,540],stance:87,
-  evade:{FOV01:[104,175,246],FOV02:[107,132],FOV03:[156,242,328]}}
+  evade:{FOV01:[104,175,246],FOV02:[107,132],FOV03:[156,242,328]}},
+ spiritspeaker:{hub:'natlan-hub',arena:'spiritspeaker-field-grotto',approach:'natlan-field',
+  boss:'boss-25520101',quest:'spiritspeaker-commission',hp:1060,mora:420,xp:398700,scene:'spiritspeakerField',
+  asset:'spiritspeaker-field',pose:'poses',label:'reflections',fixture:'spiritspeaker-field',report:[8600,560],stance:74,
+  evade:{FSP01:[99,168],FSP02:[107,180],FSP03:[235,315,395,475]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -163,12 +167,14 @@ async function fight(page,side,key,config) {
   const gravityTracks=new Set(),fireLayouts=new Set(),exposedAt=new Set(),pearls=new Set(),interruptedAt=new Set();
   const sharedObjects=new Set(),diveLayouts=new Set(),cannonLayouts=new Set();
   const heatStates=new Set(),eruptionLayouts=new Set(),purgeLayouts=new Set(),cooledFlows=new Set();
+  const reflectionLayouts=new Set(),reflectionLayers=new Set();
   const art=config.pose&&config.asset+'-'+config.pose+'-source-v1.png';
   const entities=config.bodies??[Number(config.boss.slice(5))];
   const start=window.lab.frame;
   let cloaked=false,lastMove,lastTick,used=new Set(),capture=null,guardTick=null,recovery=0,shieldUsed=false,recovered=false;
   let jumpProbe=null,jump=null,lastHp=Infinity,hpMonotonic=true;
   let lavaStage='rock',lastHeatAction=-Infinity,hotAt=null,coolingTime=null;
+  let reflectionBroken=false,lastReflectionFire=-Infinity;
   function hold(code,on) {
    if(on===held.has(code)) return;
    if(on) held.add(code); else held.delete(code);
@@ -194,7 +200,8 @@ async function fight(page,side,key,config) {
      gravityTracks:[...gravityTracks],jump,fireLayouts:[...fireLayouts],exposedAt:[...exposedAt],
      pearls:[...pearls],interruptedAt:[...interruptedAt],sharedObjects:[...sharedObjects],diveLayouts:[...diveLayouts],
      cannonLayouts:[...cannonLayouts],hpMonotonic,heatStates:[...heatStates],eruptionLayouts:[...eruptionLayouts],
-     coolingTime,purgeLayouts:[...purgeLayouts],cooledFlows:[...cooledFlows]};
+     coolingTime,purgeLayouts:[...purgeLayouts],cooledFlows:[...cooledFlows],
+     reflectionLayouts:[...reflectionLayouts],reflectionLayers:[...reflectionLayers],reflectionBroken};
     return;
    }
    if(!b) {
@@ -408,6 +415,20 @@ async function fight(page,side,key,config) {
      if(tell.captureAt&&b.tick>=tell.captureAt) visual=true;
     }
    }
+   if(key==='spiritspeaker'){
+    if(b.underground&&b.summons?.length){
+     const sprites=f.draws.filter(d=>d.source===art);
+     if(sprites.length===b.summons.length&&sprites.every((d,i)=>Math.abs(d.x+f.camera-b.summons[i].x)<.001)){
+      if(b.summons.length===4&&b.summons.every(unit=>unit.hp===unit.maxhp)){
+       reflectionLayouts.add(b.summons.map(unit=>unit.x.toFixed(3)).join(','));
+       visual=true;
+      }
+      if(b.summons.some(unit=>unit.hp<unit.maxhp))
+       reflectionLayers.add(b.summons.map(unit=>`${unit.id}:${unit.hp}`).join(','));
+     }
+    }
+    if(b.form==='down'&&sprite&&!b.underground&&!b.summons) reflectionBroken=true;
+   }
    if(config.observeRecovery&&b.recovering&&sprite) recovered=true;
    if(visual&&!capture&&side===-1){
     capture=document.querySelector('#game').toDataURL('image/png').split(',')[1];
@@ -427,7 +448,8 @@ async function fight(page,side,key,config) {
    const preferred=b.bodies?.[side===-1?0:1];
    const other=b.bodies?.[side===-1?1:0];
    const device=config.breakable&&b.summon&&(!config.breakable.pips||b.cannonBounds);
-   const target=device||(config.bodies?(preferred?.y<450?other:preferred)??b:b);
+   const reflection=key==='spiritspeaker'&&b.summons?.at(side===-1?0:-1);
+   const target=device||reflection||(config.bodies?(preferred?.y<450?other:preferred)??b:b);
    const dx=target.x-a.x;
    let desired=target.x+side*(device?65:config.stance??104);
    const gravityTurn=config.gravityJump&&b.move==='FFG03'&&b.tick<188;
@@ -450,6 +472,9 @@ async function fight(page,side,key,config) {
    hold('KeyA',position<-7||(Math.abs(position)<=7&&turn&&dx<0));
    hold('KeyD',position>7||(Math.abs(position)<=7&&turn&&dx>0));
    const inReach=Math.abs(dx)<125&&dx*a.dir>=0;
+   if(reflection&&inReach&&a.ground&&!f.macro&&f.t-lastReflectionFire>3.2){
+    window.lab.action('slot1');lastReflectionFire=f.t;
+   }
    if(key==='lava-dragon'&&b.lavaHeat){
     if(lavaStage==='rock'&&b.move==='FLD02'&&b.tick>=215) lavaStage='heatRock';
     if(lavaStage==='heatRock'&&b.form==='molten') lavaStage='molten';
@@ -477,8 +502,9 @@ async function fight(page,side,key,config) {
    const watchPapilla=key==='papilla'&&b.hp<420&&flightTargets.size===0;
    const watchLava=key==='lava-dragon'&&b.hp<650&&lavaStage!=='finish';
    const watchOverseer=key==='overseer'&&b.hp<520&&cooledFlows.size===0;
+   const watchReflections=key==='spiritspeaker'&&!reflectionBroken&&!reflection&&b.hp<520;
    hold('KeyJ',!watchRelay&&!watchGravity&&!watchEmperor&&!watchPearl&&!watchSuanni&&!watchBreak&&!watchYumka&&!watchPapilla&&
-    !watchLava&&!watchOverseer&&inReach&&(!device||Math.abs(dx)<96));
+    !watchLava&&!watchOverseer&&!watchReflections&&inReach&&(!device||Math.abs(dx)<96));
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
@@ -596,6 +622,11 @@ async function run(key,config) {
  if(key==='overseer'){
   assert.ok(a.purgeLayouts.some(layout=>b.purgeLayouts.includes(layout)),JSON.stringify(results));
   assert.ok(a.cooledFlows.some(flow=>b.cooledFlows.includes(flow)),JSON.stringify(results));
+ }
+ if(key==='spiritspeaker'){
+  assert.ok(a.reflectionLayouts.some(layout=>b.reflectionLayouts.includes(layout)),JSON.stringify(results));
+  assert.ok(a.reflectionLayers.some(layers=>b.reflectionLayers.includes(layers)),JSON.stringify(results));
+  assert.ok(a.reflectionBroken&&b.reflectionBroken,JSON.stringify(results));
  }
  if(config.fallTell) assert.ok(a.fallLayouts.some(x=>b.fallLayouts.includes(x)),JSON.stringify(results));
  if(config.observeRecovery) assert.ok(a.recovered&&b.recovered,JSON.stringify(results));

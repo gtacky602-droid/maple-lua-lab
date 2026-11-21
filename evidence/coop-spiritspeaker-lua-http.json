@@ -1,0 +1,18 @@
+{
+  "lua": {
+    "participants": 4,
+    "sharedHp": 1060,
+    "sharedLanes": true,
+    "sharedLayers": true,
+    "rejectsPrewindowAndReaction": true,
+    "dedupesCastAcrossHits": true,
+    "preservesLayerStateOnRejoin": true,
+    "individualRewards": true,
+    "adoptionPreservesBodyAndReflectionHits": true
+  },
+  "http": {
+    "participants": 2,
+    "emptyArenaPreservedLiveMove": true,
+    "individualRewardsAndQuestSaved": true
+  }
+}

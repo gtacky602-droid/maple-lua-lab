@@ -26,6 +26,10 @@ return function(C)
   return {move=m,tick=0,origin=b.x,dir=b.facing,seen={{},{}},shots={},
    source={id=b.id,owner=b,y=s.floorY,damageElement='cryo'}}
  end
+ function spirit.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+  for _,shot in pairs(c.shots) do C.shareFieldHits({shot.seen},actors) end
+ end
  local function lock(s,c)
   local m=c.move
   if m.kind=='sweep' then
@@ -44,11 +48,11 @@ return function(C)
   for i,offset in ipairs(s.reflections.offsets) do
    local x=clamp(c.origin+offset*U,s.arenaMin+40,s.arenaMax-40)
    local contacts=setmetatable({},{__mode='k'})
-   local function accepts(cast)
-    return not cast.reaction and cast.startedAt and cast.startedAt>=c.openedAt
+   local function accepts(cast,party)
+    return not cast.reaction and C.fieldCastStartedSince(party,b.fieldBoss,cast,c.openedAt)
    end
-   local function contact(_,cast,unit)
-    if accepts(cast) and not contacts[cast] then
+   local function contact(party,cast,unit)
+    if accepts(cast,party) and not contacts[cast] then
      contacts[cast]=true
      unit.hp=math.max(0,unit.hp-(cast.element=='pyro' and s.reflections.pyroLayers or 1))
     end

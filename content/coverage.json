@@ -8133,6 +8133,7 @@
       "papilla-field-hollow",
       "atocpan-lava-field",
       "atocpan-overseer-ruin",
+      "spiritspeaker-field-grotto",
       "witztli-tristars-camp",
       "atocpan-battlegoat-ironclaw-field",
       "sne-novokichev-ore-yard"
@@ -8175,6 +8176,7 @@
       "boss-22120101",
       "boss-26270301",
       "boss-24090501",
+      "boss-25520101",
       "legend-natlan_polychrome_tristars",
       "legend-natlan_battlegoat_ironclaw",
       "legend-snez_rowdy_beast_host"
@@ -8293,6 +8295,9 @@
       "evidence/coop-lava-dragon-eruption.png",
       "evidence/coop-overseer-browser.json",
       "evidence/coop-overseer-cooled.png",
+      "evidence/coop-spiritspeaker-lua-http.json",
+      "evidence/coop-spiritspeaker-browser.json",
+      "evidence/coop-spiritspeaker-reflections.png",
       "evidence/coop-jadeplume-lua-http.json",
       "evidence/coop-jadeplume-browser.json",
       "evidence/coop-jadeplume-leap.png"

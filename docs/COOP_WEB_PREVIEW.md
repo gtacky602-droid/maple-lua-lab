@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する69地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する70地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -272,6 +272,14 @@ Luaの4人試験では、時刻の基準が異なる三人で集積器を壊し�
 Luaの4人試験で複数人の加熱と冷却、同じ噴流への個別命中を確認した。HTTPの2人試験では退避後に同じ戦闘状態へ合流し、Chromeの2画面で討伐と依頼報告を保存した。今回の共闘は現行のラボ試作を使用した。龍像を自発変身の三技にまとめる案と、統御デバイスの冷却受付や回復時間を調整する案は移行待ち。 [後半の動作設計案](field-boss-v1/NATLAN_REMAINING_MOVESETS.md) · [Lua・HTTPの検証](../evidence/coop-atocpan-lua-http.json)
 
 `python test_lava_dragon_field.py` と `python test_overseer_field.py` で試験用のセーブを作る。`LAB_URL` にラボのURLを設定し、`node test_coop_field_routes.mjs lava-dragon overseer` で試走を再現できる。 [龍像のChrome試走](../evidence/coop-lava-dragon-browser.json) · [統御デバイスのChrome試走](../evidence/coop-overseer-browser.json)
+
+## 迷える霊覚の修験者
+
+Lv114の謎煙の修練窟へは、ナタ・岩場の道の門から入る。試作の本体HPは1,060。色彩の分身では本体が隠れ、4体の分身の位置と守りの残り層を全員で共有する。分身1体につき3層あり、新しい直接攻撃で1層、炎の直接攻撃で2層削れる。4体を倒すと本体が3秒間ダウンする。 [現行の戦闘仕様](field-boss-v1/NATLAN_SPIRITSPEAKER.md) · [分身が出現した画面](../evidence/coop-spiritspeaker-reflections.png)
+
+本体を攻撃して討伐に参加した人に、各398,700 EXPと420モラが入る。依頼を受けた人が集落に戻って報告すると、8,600 EXPと560モラが入る。Luaの4人試験で攻撃の受付、途中参加、個別報酬を、HTTPの2人試験で全員離脱後の再合流と保存を確認した。Chromeの2画面では、同じ4体を倒して本体を追撃し、討伐と依頼報告を保存した。 [Lua・HTTPの検証](../evidence/coop-spiritspeaker-lua-http.json) · [Chromeの試走](../evidence/coop-spiritspeaker-browser.json)
+
+`python test_spiritspeaker_field.py` で試験用のセーブを作り、`LAB_URL` を指定して `node test_coop_field_routes.mjs spiritspeaker` を実行すると試走を再現できる。本体を表示したまま二影が順に攻撃する案は後続の設計。 [二影の設計案](field-boss-v1/NATLAN_REMAINING_MOVESETS.md#fsp03色彩の二影順筆)
 
 ## マッシュラプトル
 

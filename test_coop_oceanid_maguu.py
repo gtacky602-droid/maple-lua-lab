@@ -220,6 +220,8 @@ def check_http(url, case, move, tick, coordinate, after, gate=1270):
     for client in clients:
         assert cross(client, gate, spec['node'])['coop']['code'] == code
     with LOCK:
+        for env in (h, g):
+            place(env['state'], boss.x - 93)
         if slot.cast.tick < after:
             wait_cast(lambda: core.stepCoop(room, TICK), slot, move, after)
         for env in (h, g):

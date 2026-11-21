@@ -1438,6 +1438,7 @@
   "id": "boss-25520101",
   "controller": "spiritspeaker",
   "entity": 25520101,
+  "coop": true,
   "name": "迷える霊覚の修験者",
   "node": "spiritspeaker-field-grotto",
   "storyChallenge": "spiritspeaker",

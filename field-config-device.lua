@@ -37,11 +37,7 @@ return function(C)
   if state.t<(b.rearmAt or 0) then return end
   local counted={}
   local function acceptsCast(cast,party)
-   if not c.openedAt or not cast.startedAt or cast.reaction then return false end
-   -- Cast times use the party clock. The collector opens on the encounter clock.
-   local _,now=C.fieldSlot(party,b.fieldBoss)
-   local openedInPartyTime=party.t-(now-c.openedAt)
-   return cast.startedAt>=openedInPartyTime-1e-8
+   return not cast.reaction and C.fieldCastStartedSince(party,b.fieldBoss,cast,c.openedAt)
   end
   local function contact(party,cast,summon)
    if acceptsCast(cast,party) and not counted[cast] then
