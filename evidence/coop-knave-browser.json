@@ -1,0 +1,96 @@
+{
+  "participants": 2,
+  "hp": 2400,
+  "sameLamp": true,
+  "releasedIndependently": true,
+  "keepsFeather": [
+    false,
+    true
+  ],
+  "scene": {
+    "key": "fontaineUnderstage",
+    "file": "fontaine-understage-background-v1.png",
+    "state": "ready"
+  },
+  "results": [
+    {
+      "won": true,
+      "forms": [
+        1,
+        2
+      ],
+      "cards": [
+        "WK01",
+        "WK07",
+        "WK03",
+        "WK04",
+        "WK10",
+        "WK17",
+        "WK11"
+      ],
+      "payments": 5,
+      "feathers": 1,
+      "interrupts": 1,
+      "requests": 1,
+      "damage": 1085.6,
+      "returns": 0
+    },
+    {
+      "won": true,
+      "forms": [
+        1,
+        2
+      ],
+      "cards": [
+        "WK01",
+        "WK07",
+        "WK03",
+        "WK04",
+        "WK10",
+        "WK17",
+        "WK11"
+      ],
+      "payments": 5,
+      "feathers": 1,
+      "interrupts": 0,
+      "requests": 1,
+      "damage": 816,
+      "returns": 0
+    }
+  ],
+  "rewards": [
+    [
+      444900,
+      2800
+    ],
+    [
+      444900,
+      2800
+    ]
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "saved": [
+    {
+      "wait": 3554,
+      "clears": 1,
+      "xp": 444900,
+      "mora": 275600,
+      "quest": "active"
+    },
+    {
+      "wait": 3553,
+      "clears": 1,
+      "xp": 444900,
+      "mora": 275600,
+      "quest": null
+    }
+  ],
+  "report": {
+    "xp": 280000,
+    "mora": 9600
+  },
+  "errors": []
+}

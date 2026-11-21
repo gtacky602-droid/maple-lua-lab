@@ -3515,6 +3515,7 @@
       "id": "boss-29091001",
       "entity": 29091001,
       "controller": "knave",
+      "coop": true,
       "node": "knave-crimson-court",
       "storyChallenge": "knave-weekly",
       "name": "召使",

@@ -8127,6 +8127,7 @@
       "fontaine-hub",
       "narwhal-star-sea",
       "narwhal-inner-echo",
+      "knave-crimson-court",
       "fontaine-field",
       "emperor-field-cove",
       "seahorse-field-cavern",
@@ -8229,7 +8230,8 @@
       "boss-29060201",
       "boss-29070101",
       "boss-29080101",
-      "boss-29090101"
+      "boss-29090101",
+      "boss-29091001"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8417,7 +8419,12 @@
       "evidence/coop-narwhal-browser.json",
       "evidence/coop-narwhal-eye.png",
       "evidence/coop-narwhal-kernel.png",
-      "evidence/coop-narwhal-return.png"
+      "evidence/coop-narwhal-return.png",
+      "evidence/coop-knave-lua-http.json",
+      "evidence/coop-knave-browser.json",
+      "evidence/coop-knave-lamp.png",
+      "evidence/coop-knave-interrupt.png",
+      "evidence/coop-knave-double.png"
     ],
     "pending": [
       "remaining original field encounters, local legends, weekly and Stygian bosses",

@@ -59,11 +59,11 @@ def declare(s, w, spec):
     step(s, 1)
     assert w.cast.key == 'WK07'
     step(s, 119)
-    assert w.actors[1].debt == 0
+    assert w.actors[s.actors[1]].debt == 0
     hp = s.actors[1].hp
     step(s, 1)
     assert w.cast.t == 120 and s.actors[1].hp == hp
-    assert isclose(w.actors[1].debt, s.actors[1].maxhp*.25)
+    assert isclose(w.actors[s.actors[1]].debt, s.actors[1].maxhp*.25)
 
 
 def normal(s, w, key='normal', atk=8, offset=70):
@@ -87,7 +87,7 @@ for row in manifest['entries']:
     assert (native(m.interrupt) if m.interrupt else None) == row.get('interrupt_window')
 
 s, w, spec = start()
-a, d = s.actors[1], w.actors[1]
+a, d = s.actors[1], w.actors[s.actors[1]]
 declare(s, w, spec)
 quarter = d.debt
 assert core.healActor(s, a, 0) == 0 and d.debt == quarter
@@ -98,7 +98,7 @@ assert len(events(s, 'WK08:feather')) == 1
 core.healActor(s, a, 40)
 assert len(events(s, 'WK08:feather')) == 1
 s, w, spec = start()
-a, d = s.actors[1], w.actors[1]
+a, d = s.actors[1], w.actors[s.actors[1]]
 declare(s, w, spec)
 step(s, 1, hold)
 start_tick = w.clock
@@ -112,7 +112,7 @@ assert len(events(s, 'WK08:lamp')) == 1
 step(s, 1, hold)
 assert isclose(d.debt, a.maxhp*.15)
 step(s, 1)
-assert w.hold is None
+assert w.players[s].hold is None
 step(s, 1, hold)
 step(s, 44, hold)
 assert isclose(d.debt, a.maxhp*.15)
@@ -139,7 +139,8 @@ step(s, 216)
 assert w.phase == 'recover' and not w.primary.invulnerable
 
 s, w, spec = start()
-a, d, b, other = s.actors[1], w.actors[1], s.actors[2], w.actors[2]
+a, b = s.actors[1], s.actors[2]
+d, other = w.actors[a], w.actors[b]
 declare(s, w, spec)
 b.hp = b.maxhp
 action(s, 'swap')
@@ -150,15 +151,15 @@ action(s, 'swap')
 assert s.active == 1 and isclose(d.debt, a.maxhp*.25)
 place(a, 44)
 step(s, 21, hold)
-assert w.hold
+assert w.players[s].hold
 action(s, 'jump')
 step(s, 1, hold)
-assert w.hold is None
+assert w.players[s].hold is None
 place(a, 44)
 step(s, 20, hold)
 action(s, 'dodge')
 step(s, 1, hold)
-assert w.hold is None and isclose(d.debt, a.maxhp*.25)
+assert w.players[s].hold is None and isclose(d.debt, a.maxhp*.25)
 core.healActor(s, a, a.maxhp)
 assert d.feather and other.feather is None
 a.hp = 0
@@ -166,7 +167,7 @@ step(s, 1)
 assert d.feather is None and not d.debt and s.active == 2
 
 s, w, spec = start()
-a, d = s.actors[1], w.actors[1]
+a, d = s.actors[1], w.actors[s.actors[1]]
 declare(s, w, spec)
 hp = a.hp
 normal(s, w, atk=10000)
@@ -209,7 +210,7 @@ w, spec = core.currentWeeklyBoss(s)
 declare(s, w, spec)
 core.enterStoryNode(s, hub)
 core.enterStoryNode(s, arena)
-assert w.actors[1].debt == 0 and w.actors[1].feather is None and w.primary.hp == spec.hp
+assert w.actors[s.actors[1]].debt == 0 and w.actors[s.actors[1]].feather is None and w.primary.hp == spec.hp
 s.actors[2].hp = 0
 normal(s, w, atk=10000)
 step(s, 240)

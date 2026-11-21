@@ -1,0 +1,25 @@
+{
+  "lua": {
+    "participants": 4,
+    "declarationOnlyActiveActors": true,
+    "healFirstAndIndependent": true,
+    "parallelSameLamp45Then30": true,
+    "cancelsOnlyOwnHold": true,
+    "contractAndFeatherSurviveTransformation": true,
+    "leaveAndDeathClearWithoutAward": true,
+    "contractRefundOncePerForm": true,
+    "simultaneousCounterOneFeather": true,
+    "pendingCounterInvalidAfterSwap": true,
+    "allWipeResets": true
+  },
+  "http": {
+    "participants": 2,
+    "sameLampSimultaneousInput": true,
+    "remoteReleaseDoesNotCancel": true,
+    "personalDebtClearedOnExit": true,
+    "sharedHp": 2400,
+    "personalXp": 444900,
+    "personalMora": 2800,
+    "ownQuestAndSaves": true
+  }
+}

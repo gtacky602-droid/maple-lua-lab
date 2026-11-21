@@ -5,13 +5,41 @@ return function(C)
  local red,cream,dark='#ff6575','#ffe5dc','#671e39'
  local cancelInput={dodge=true,jump=true,drop=true,normal=true,skill1=true,skill2=true,skill3=true,skill4=true}
  local function clamp(x,lo,hi) return math.max(lo,math.min(x,hi)) end
- local function log(s,w,key,owner,value) C.combatEvent(s,'knave:'..key,owner or 0,w.primary.id,value or 0) end
+ local function ownLog(s,w,key,owner,value) C.combatEvent(s,'knave:'..key,owner or 0,w.primary.id,value or 0) end
+ local function log(s,w,key,owner,value)
+  local room=s.coopWorld or (s.coop and s.coop.weeklySlot==w and s.coop)
+  if not room then ownLog(s,w,key,owner,value);return end
+  for _,member in ipairs(room.members) do
+   if C.sharesCoopField(member.state) then ownLog(member.state,w,key,owner,value) end
+  end
+ end
+ local function actor(s) return s.actors[s.active] end
+ local function actorParty(s,a) return s.actorOwners and s.actorOwners[a] or s end
+ local function target(s,e)
+  if not s.parties then return actor(s) end
+  local best,distance=e,math.huge
+  for _,party in ipairs(s.parties) do
+   local a=actor(party)
+   if a.hp<=0 then a=party.actors[3-party.active] end
+   local dx=math.abs(a.x-e.x)
+   if a.hp>0 and dx<distance then best,distance=a,dx end
+  end
+  return best
+ end
  local function current(s)
   local w,spec=C.currentWeeklyBoss(s)
   if w and spec.controller=='knave' and not w.waitUntil then return w,spec end
  end
- local function ledger(w,a) return w.actors[a.id] end
- local function stopHolding(w) w.hold=nil end
+ local function ledger(w,a)
+  local record=w.actors[a]
+  if not record then record={debt=0,lastPay=-math.huge};w.actors[a]=record end
+  return record
+ end
+ local function controls(w,s)
+  local record=w.players[s]
+  if not record then record={};w.players[s]=record end
+  return record
+ end
  local function contract(s,w,spec,a)
   if a.hp<=0 then return false end
   local d=ledger(w,a)
@@ -19,7 +47,7 @@ return function(C)
   d.debt=math.min(a.maxhp*spec.debt.cap,before+a.maxhp*spec.debt.apply)
   if d.debt<=before then return false end
   if before==0 then d.nextDrain=w.debtClock+spec.debt.drainEvery end
-  log(s,w,'WK08:debt',a.id,d.debt-before)
+  ownLog(s,w,'WK08:debt',a.id,d.debt-before)
   return true
  end
  local function repay(s,w,a,amount,method)
@@ -27,11 +55,11 @@ return function(C)
   if d.debt<=0 or amount<=0 then return 0 end
   local paid=math.min(amount,d.debt)
   d.debt=math.max(0,d.debt-paid)
-  log(s,w,'WK08:'..method,a.id,paid)
+  ownLog(s,w,'WK08:'..method,a.id,paid)
   if d.debt<1e-7 then
    d.debt=0;d.nextDrain=nil
    if not d.feather then
-    d.feather={};log(s,w,'WK08:feather',a.id,1)
+    d.feather={};ownLog(s,w,'WK08:feather',a.id,1)
    end
   end
   return paid
@@ -45,8 +73,9 @@ return function(C)
  function C.onCastBuilt(s,a,cast,delay,lock,definition)
   if priorBuild then priorBuild(s,a,cast,delay,lock,definition) end
   local w=current(s)
-  local order=w and w.order
-  if order and order.actor==a.id and cast.isNormal and cast.playerInputAt and not order.cast then
+  local localState=w and w.players and w.players[s]
+  local order=localState and localState.order
+  if order and order.actor==a and cast.isNormal and cast.playerInputAt and not cast.growthAI and not order.cast then
    order.cast=cast;cast.knaveOrder=order
   end
  end
@@ -57,7 +86,7 @@ return function(C)
   e.x,e.y=x,y;e.hitTop=y-90;e.hitBottom=y
  end
  local function start(s,w,spec,key)
-  local a,e=s.actors[s.active],w.primary
+  local e=w.primary;local a=target(s,e)
   local move=spec.moves[key]
   local c={key=key,move=move,t=0,groups={},shots={},charged={},origin=e.x,target=clamp(a.x,168,792),dir=a.x>=e.x and 1 or -1}
   c.dash=clamp(e.x+c.dir*math.min(4*U,math.abs(a.x-e.x)+45),120,840)
@@ -85,30 +114,32 @@ return function(C)
   C.combatNumber(s,e,critical and (n..'!') or n,color)
   C.combatEvent(s,'hit',cast.id,e.id,n)
   local event=s.events[#s.events];event.element=element;event.critical=not not critical;event.reaction=cast.reaction or false
+  if s.coop then C.coopContact(s,e,cast.id) end
   if w.form==2 and n==e.hp then C.defeatEnemy(s,e,cast.id);return true end
   e.hp=e.hp-n
   if w.form==1 and e.hp==spec.secondHp then
-   shielded(e,true);stopHolding(w);start(s,w,spec,'WK11');return true
+   shielded(e,true)
+   for _,record in pairs(w.players) do record.hold=nil end
+   start(s,w,spec,'WK11');return true
   end
   local order=cast.knaveOrder
   local window=c and c.move.interrupt
-  local a=s.actors[s.active]
-  if order and not order.resolved and order.cast==cast and order.enemyCast==c and a.id==cast.id and a.hp>0 then
+  local a=actor(s)
+  if order and not order.resolved and order.cast==cast and order.enemyCast==c and a==order.actor and a.hp>0 then
    order.resolved=true
    local d=ledger(w,a)
    if d.feather==order.feather and window and c.t>=window[1] and c.t<window[2] then
-    d.feather=nil;log(s,w,'WK09',a.id,1);start(s,w,spec,'WK17')
+    d.feather=nil;ownLog(s,w,'WK09',a.id,1);start(s,w,spec,'WK17')
    end
   end
   if C.afterElementHit then C.afterElementHit(s,cast,e,cast.applicationElement or element,element,n) end
   return true
  end
  function controller.spawn(s,w,spec)
-  w.clock,w.debtClock,w.remainder=0,0,0;w.returns=s.returns
+  w.clock,w.debtClock,w.remainder=0,0,0
   w.form,w.index,w.rest=1,1,spec.noticeTicks
   w.declared,w.lastDeclaration,w.glyph=false,-math.huge,'circle'
-  w.actors={{debt=0,lastPay=-math.huge},{debt=0,lastPay=-math.huge}}
-  w.order=nil;w.cancelHold=false;stopHolding(w)
+  w.actors=setmetatable({},{__mode='k'});w.players=setmetatable({},{__mode='k'})
   local e=w.primary
   locate(e,spec.center,spec.floorY);e.dir=-1
   e.onCastContact=function(state,cast,_,mult,color,element) return hit(state,w,spec,cast,mult,color,element) end
@@ -116,33 +147,47 @@ return function(C)
  function controller.attach(s,w,spec)
   s.enemies[#s.enemies+1]=w.primary
   s.grappleNodes={};s.selectedGrapple=nil
-  for _,a in ipairs(s.actors) do a.grapple=nil end
+  for _,a in ipairs(s.actors) do a.grapple=nil;ledger(w,a) end
  end
  function controller.cleanup(s,w)
-  w.order=nil;w.cast=nil;stopHolding(w);w.actors=nil
+  w.cast,w.actors,w.players=nil,nil,nil
   for i=#s.enemies,1,-1 do if s.enemies[i]==w.primary then table.remove(s.enemies,i) end end
  end
+ function controller.leaveCoop(s,w)
+  if not w.actors then return end
+  for _,a in ipairs(s.actors) do w.actors[a]=nil end
+  w.players[s]=nil
+ end
  function controller.beforeAction(s,w,key)
-  if cancelInput[key] then stopHolding(w);w.cancelHold=true end
+  if cancelInput[key] then
+   local state=controls(w,s);state.hold=nil;state.cancelHold=true
+  end
  end
  local function lampAt(spec,a)
   if not a.ground or math.abs(a.y-spec.floorY)>4 then return end
   for i,x in ipairs(spec.lamps.x) do if math.abs(a.x-x)<=spec.lamps.radius then return i end end
  end
+ local function prepareParty(s,w,input)
+  local state=controls(w,s)
+  state.held=input and input.interact and not (input.jump or input.attack or state.cancelHold or s.auto)
+  state.cancelHold=false
+  if not state.held then state.hold=nil end
+ end
  function controller.prepare(s,w,spec,input)
-  w.held=input.interact and not (input.jump or input.attack or w.cancelHold or s.auto)
-  w.cancelHold=false
-  if not w.held then stopHolding(w) end
+  if not s.coopWorld then prepareParty(s,w,input);return end
+  for _,member in ipairs(s.coopWorld.members) do
+   if C.sharesCoopField(member.state) then prepareParty(member.state,w,member.online and member.input) end
+  end
  end
  function controller.interact(s,w,spec,key)
-  local a=s.actors[s.active]
+  local a=actor(s)
   if key~='encounter_interact' or s.auto or a.hp<=0 or w.primary.invulnerable then return end
   local d=ledger(w,a)
   if not d.feather then return end
-  stopHolding(w);w.cancelHold=true
-  local order={actor=a.id,enemyCast=w.cast,feather=d.feather}
+  local state=controls(w,s);state.hold=nil;state.cancelHold=true
+  local order={actor=a,enemyCast=w.cast,feather=d.feather}
   local first=#s.pending+1
-  w.order=order
+  state.order=order
   if C.attack(s,a,'normal') and not order.cast then
    for i=first,#s.pending do
     local cast=s.pending[i]
@@ -151,7 +196,23 @@ return function(C)
     end
    end
   end
-  w.order=nil
+  state.order=nil
+ end
+ local function updateLamp(s,w,spec,frozen)
+  local state=controls(w,s);local a=actor(s)
+  local d=ledger(w,a)
+  local lamp=state.held and a.hp>0 and a.lock<=0 and not a.channel and d.debt>0 and lampAt(spec,a)
+  if not lamp or frozen then state.hold=nil;return end
+  local hold=state.hold
+  if not hold or hold.actor~=a or hold.lamp~=lamp then
+   hold={actor=a,lamp=lamp,next=math.max(w.clock+spec.lamps.start,d.lastPay+spec.lamps.interval)}
+   state.hold=hold
+  end
+  if w.clock>=hold.next then
+   d.lastPay=w.clock;hold.next=w.clock+spec.lamps.interval
+   repay(s,w,a,a.maxhp*spec.lamps.ratio,'lamp')
+   if d.debt==0 then state.hold=nil end
+  end
  end
  local function updateLedger(s,w,spec,frozen)
   if not frozen then w.debtClock=w.debtClock+1 end
@@ -161,25 +222,14 @@ return function(C)
    d.debt=math.min(d.debt,a.maxhp*spec.debt.cap)
    if d.debt>0 and not frozen and w.debtClock>=d.nextDrain then
     d.nextDrain=w.debtClock+spec.debt.drainEvery
-    C.damageActor(s,a,math.max(1,a.maxhp*spec.debt.drain),w.primary,false,false)
+    C.damageActor(actorParty(s,a),a,math.max(1,a.maxhp*spec.debt.drain),w.primary,false,false)
     if a.hp<=0 then d.debt=0;d.feather=nil;d.nextDrain=nil end
    end
   end
-  local a=s.actors[s.active]
-  local d=ledger(w,a)
-  local lamp=w.held and a.hp>0 and a.lock<=0 and not a.channel and d.debt>0 and lampAt(spec,a)
-  if not lamp or frozen then stopHolding(w);return end
-  if not w.hold or w.hold.actor~=a.id or w.hold.lamp~=lamp then
-   w.hold={actor=a.id,lamp=lamp,next=math.max(w.clock+spec.lamps.start,d.lastPay+spec.lamps.interval)}
-  end
-  if w.clock>=w.hold.next then
-   d.lastPay=w.clock;w.hold.next=w.clock+spec.lamps.interval
-   repay(s,w,a,a.maxhp*spec.lamps.ratio,'lamp')
-   if d.debt==0 then stopHolding(w) end
-  end
+  for _,party in ipairs(s.parties or {s}) do updateLamp(party,w,spec,frozen) end
  end
  local function lock(s,w,spec,c)
-  local e,a=w.primary,s.actors[s.active]
+  local e=w.primary;local a=target(s,e)
   if c.key=='WK18' and c.t==270 then return end -- The descent committed on the first lock.
   c.origin=e.x;c.dir=a.x>=e.x and 1 or -1;e.dir=c.dir
   c.target=clamp(a.x,168,792)
@@ -231,22 +281,24 @@ return function(C)
   return a.hp>0 and a.x>=b.lo and a.x<=b.hi and a.y-38>=b.y-b.height and a.y-38<=b.y+5
  end
  local function damage(s,w,spec,c,a)
-  local actual=C.damageActor(s,a,spec.damage[c.key] or spec.baseDamage,w.primary,true,true)
+  local party=actorParty(s,a)
+  local actual=C.damageActor(party,a,spec.damage[c.key] or spec.baseDamage,w.primary,true,true)
   if actual<=0 then return end
-  if w.hold and w.hold.actor==a.id then stopHolding(w);w.held=false end
-  if c.move.contract and not c.charged[a.id] then
-   c.charged[a.id]=true
-   if contract(s,w,spec,a) and not c.refunded then
+  local state=controls(w,party)
+  if state.hold and state.hold.actor==a then state.hold=nil;state.held=false end
+  if c.move.contract and not c.charged[a] then
+   c.charged[a]=true
+   if contract(party,w,spec,a) and not c.refunded then
     c.refunded=true;w.primary.hp=w.primary.hp+c.spent
    end
   end
-  log(s,w,c.key..':hit',a.id,actual)
+  ownLog(party,w,c.key..':hit',a.id,actual)
  end
  local function strike(s,w,spec,c,boxes,seen)
   for _,a in ipairs(s.actors) do
-   if not seen[a.id] then
+   if not seen[a] then
     for _,box in ipairs(boxes) do
-     if inside(a,box) then seen[a.id]=true;damage(s,w,spec,c,a);break end
+     if inside(a,box) then seen[a]=true;damage(s,w,spec,c,a);break end
     end
    end
   end
@@ -277,7 +329,9 @@ return function(C)
   end
   for _,tick in ipairs(move.locks) do if c.t==tick then lock(s,w,spec,c) end end
   motion(w,spec,c)
-  if c.key=='WK07' and c.t==120 then contract(s,w,spec,s.actors[s.active]) end
+  if c.key=='WK07' and c.t==120 then
+   for _,party in ipairs(s.parties or {s}) do contract(party,w,spec,actor(party)) end
+  end
   if c.key=='WK11' then
    if c.t==144 then w.form=2;w.index=1 end
    return
@@ -317,7 +371,7 @@ return function(C)
    start(s,w,spec,'WK07');return
   end
   local order=w.form==1 and spec.first or spec.second
-  local e,a=w.primary,s.actors[s.active]
+  local e=w.primary;local a=target(s,e)
   local nextKey=order[w.index]
   if spec.closeMoves[nextKey] and math.abs(a.x-e.x)>130 then
    locate(e,e.x+clamp(a.x-e.x,-2.6,2.6),spec.floorY);e.dir=a.x>=e.x and 1 or -1;w.phase='approach';return
@@ -327,14 +381,10 @@ return function(C)
  end
  function controller.finish(s,w,spec,dt)
   w.remainder=w.remainder+math.min(dt,1/30)*60
-  while w.remainder>=1-1e-8 do w.remainder=w.remainder-1;update(s,w,spec) end
- end
- function controller.afterStep(s,w,spec)
-  if w.actors and not w.waitUntil and s.returns~=(w.returns or 0) then
-   w.returns=s.returns
-   w.actors={{debt=0,lastPay=-math.huge},{debt=0,lastPay=-math.huge}}
-   stopHolding(w)
-  end
+  while w.remainder>=1-1e-8 and w.primary.hp>0 do w.remainder=w.remainder-1;update(s,w,spec) end
+  if not s.parties or w.primary.hp<=0 then return end
+  for _,a in ipairs(s.actors) do if a.hp>0 then return end end
+  w.cast=nil;w.rechallenge=true;shielded(w.primary,true)
  end
  local function warnings(spec,c)
   local out={}
@@ -358,7 +408,8 @@ return function(C)
   v.label=labels[w.phase];v.phaseHp={{name='片鎌',hp=math.max(0,e.hp-spec.secondHp),max=spec.hp-spec.secondHp},
    {name='凶月・双鎌',hp=math.min(e.hp,spec.secondHp),max=spec.secondHp}}
   if not w.actors or e.hp<=0 then return end
-  local a=s.actors[s.active]
+  local a=actor(s)
+  local hold=controls(w,s).hold
   local window=c and c.move.interrupt
   local rows={}
   for _,owner in ipairs(s.actors) do
@@ -368,7 +419,7 @@ return function(C)
   local title=c and c.move.title
   if c and c.variant then title=title..(c.variant=='circle' and '・円' or '・斜線') end
   local b={form=w.form,card=c and c.key,title=title,tick=c and c.t,actors=rows,active=a.id,x=e.x,nearLamp=lampAt(spec,a),
-   hold=w.hold and math.max(0,w.hold.next-w.clock),window=window and c.t>=window[1] and c.t<window[2],
+   hold=hold and math.max(0,hold.next-w.clock),window=window and c.t>=window[1] and c.t<window[2],
    exposure=w.phase=='exposure' and 252-c.t,airborne=c and c.key=='WK18' and e.invulnerable}
   v.knave=b
   local back={draws={}}
