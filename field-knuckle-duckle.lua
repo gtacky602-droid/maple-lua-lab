@@ -33,6 +33,12 @@ return function(C)
   return {move=m,tick=0,origin=b.x,dir=b.facing,seen={{},{}},
    source={id=b.id,owner=b,y=s.floorY,damageElement=m.element}}
  end
+ function duck.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
+ function duck.frame(f,b,s)
+  f.repairWard={hp=b.duckWard,maxhp=s.ward.max}
+ end
 
  local function lock(s,c,a)
   local m=c.move

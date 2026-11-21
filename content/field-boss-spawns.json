@@ -1352,7 +1352,7 @@
       ]
     },
     {
-      "id":"boss-24100101","controller":"knuckleDuck","entity":24100101,
+      "id":"boss-24100101","controller":"knuckleDuck","entity":24100101,"coop":true,
       "name":"ボコボコダック","node":"nod-duckle-workyard","storyChallenge":"knuckle-duckle",
       "level":122,"hp":1135,"mora":445,"artHeight":155,"floorY":480,"home":920,
       "arenaMin":335,"arenaMax":1590,"noticeRange":335,"noticeTicks":36,"restTicks":42,
@@ -1365,7 +1365,7 @@
       ]
     },
     {
-      "id":"boss-23090101","controller":"battleship","entity":23090101,
+      "id":"boss-23090101","controller":"battleship","entity":23090101,"coop":true,
       "name":"重量級陸巡艦「バトルシップ」","node":"nod-battleship-depot","storyChallenge":"battleship",
       "level":124,"hp":1170,"mora":455,"artHeight":190,"floorY":480,"home":930,
       "arenaMin":335,"arenaMax":1600,"noticeRange":340,"noticeTicks":36,"restTicks":42,

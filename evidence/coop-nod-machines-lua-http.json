@@ -1,0 +1,42 @@
+{
+  "duckle": {
+    "lua": {
+      "participants": 4,
+      "punchesAndStompHitIndividually": true,
+      "sameAirPosition": true,
+      "sharedRepairStates": [
+        100,
+        40,
+        0
+      ],
+      "noRewardsForRepairUnits": true,
+      "individualRewards": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  },
+  "battleship": {
+    "lua": {
+      "participants": 4,
+      "sawAndCannonsHitIndividually": true,
+      "distinctPartiesShareHeat": true,
+      "repeatAndSwirlDoNotHeat": true,
+      "rejoinPreservesShield": true,
+      "sharedShieldStates": [
+        5,
+        2,
+        0
+      ],
+      "breakCancelsDischarge": true,
+      "individualRewards": true
+    },
+    "http": {
+      "participants": 2,
+      "emptyArenaPreservedLiveMove": true,
+      "individualRewardsAndQuestSaved": true
+    }
+  }
+}

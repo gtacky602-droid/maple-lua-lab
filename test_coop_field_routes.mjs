@@ -124,7 +124,15 @@ const cases={
  spiritspeaker:{hub:'natlan-hub',arena:'spiritspeaker-field-grotto',approach:'natlan-field',
   boss:'boss-25520101',quest:'spiritspeaker-commission',hp:1060,mora:420,xp:398700,scene:'spiritspeakerField',
   asset:'spiritspeaker-field',pose:'poses',label:'reflections',fixture:'spiritspeaker-field',report:[8600,560],stance:74,
-  evade:{FSP01:[99,168],FSP02:[107,180],FSP03:[235,315,395,475]}}
+  evade:{FSP01:[99,168],FSP02:[107,180],FSP03:[235,315,395,475]}},
+ duckle:{hub:'nod-town',arena:'nod-duckle-workyard',approach:'nod-field',
+  boss:'boss-24100101',quest:'knuckle-duckle-commission',hp:1135,mora:445,xp:526400,scene:'duckleField',
+  asset:'knuckle-duckle-field',pose:'poses',label:'repair-units',fixture:'knuckle-duckle-field',report:[8500,570],stance:76,
+  evade:{FDK01:[97,165],FDK02:[124],FDK03:[336]}},
+ battleship:{hub:'nod-town',arena:'nod-battleship-depot',approach:'nod-field',
+  boss:'boss-23090101',quest:'battleship-commission',hp:1170,mora:455,xp:597050,scene:'battleshipField',
+  asset:'battleship-field',pose:'poses',label:'thermal-shield',fixture:'battleship-field',report:[8800,590],stance:77,
+  evade:{FBT01:[109],FBT02:[111,179],FBT03:[247]}}
 };
 const saveKey='maple-lua-lab.checkpoint.v1';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
@@ -168,6 +176,7 @@ async function fight(page,side,key,config) {
   const sharedObjects=new Set(),diveLayouts=new Set(),cannonLayouts=new Set();
   const heatStates=new Set(),eruptionLayouts=new Set(),purgeLayouts=new Set(),cooledFlows=new Set();
   const reflectionLayouts=new Set(),reflectionLayers=new Set();
+  const repairLayouts=new Set(),thermalStates=new Set();
   const art=config.pose&&config.asset+'-'+config.pose+'-source-v1.png';
   const entities=config.bodies??[Number(config.boss.slice(5))];
   const start=window.lab.frame;
@@ -175,6 +184,7 @@ async function fight(page,side,key,config) {
   let jumpProbe=null,jump=null,lastHp=Infinity,hpMonotonic=true;
   let lavaStage='rock',lastHeatAction=-Infinity,hotAt=null,coolingTime=null;
   let reflectionBroken=false,lastReflectionFire=-Infinity;
+  let machineDown=false,shipHeating=false,lastShipFire=-Infinity;
   function hold(code,on) {
    if(on===held.has(code)) return;
    if(on) held.add(code); else held.delete(code);
@@ -201,7 +211,8 @@ async function fight(page,side,key,config) {
      pearls:[...pearls],interruptedAt:[...interruptedAt],sharedObjects:[...sharedObjects],diveLayouts:[...diveLayouts],
      cannonLayouts:[...cannonLayouts],hpMonotonic,heatStates:[...heatStates],eruptionLayouts:[...eruptionLayouts],
      coolingTime,purgeLayouts:[...purgeLayouts],cooledFlows:[...cooledFlows],
-     reflectionLayouts:[...reflectionLayouts],reflectionLayers:[...reflectionLayers],reflectionBroken};
+     reflectionLayouts:[...reflectionLayouts],reflectionLayers:[...reflectionLayers],reflectionBroken,
+     repairLayouts:[...repairLayouts],thermalStates:[...thermalStates],machineDown};
     return;
    }
    if(!b) {
@@ -429,6 +440,23 @@ async function fight(page,side,key,config) {
     }
     if(b.form==='down'&&sprite&&!b.underground&&!b.summons) reflectionBroken=true;
    }
+   if(key==='duckle'){
+    const sprites=f.draws.filter(d=>d.source===art);
+    if(b.repairWard.hp>0&&b.summons?.length===2&&sprites.length===3&&
+       sprites.slice(1).every((d,i)=>Math.abs(d.x+f.camera-b.summons[i].x)<.001)){
+     repairLayouts.add(b.summons.map(unit=>unit.id).join(','));
+     visual=true;
+    }
+    if(b.form==='down'&&b.repairWard.hp===0&&!b.summons) machineDown=true;
+   }
+   if(key==='battleship'){
+    if(b.move==='FBT02'&&b.tick>=212) shipHeating=true;
+    if(b.thermal.ward>0&&sprite){
+     thermalStates.add(`${b.thermal.heat}:${b.thermal.ward}`);
+     visual=true;
+    }
+    if(b.form==='down'&&b.thermal.ward===0&&sprite) machineDown=true;
+   }
    if(config.observeRecovery&&b.recovering&&sprite) recovered=true;
    if(visual&&!capture&&side===-1){
     capture=document.querySelector('#game').toDataURL('image/png').split(',')[1];
@@ -448,8 +476,8 @@ async function fight(page,side,key,config) {
    const preferred=b.bodies?.[side===-1?0:1];
    const other=b.bodies?.[side===-1?1:0];
    const device=config.breakable&&b.summon&&(!config.breakable.pips||b.cannonBounds);
-   const reflection=key==='spiritspeaker'&&b.summons?.at(side===-1?0:-1);
-   const target=device||reflection||(config.bodies?(preferred?.y<450?other:preferred)??b:b);
+   const sharedSummon=(key==='spiritspeaker'||key==='duckle')&&b.summons?.at(side===-1?0:-1);
+   const target=device||sharedSummon||(config.bodies?(preferred?.y<450?other:preferred)??b:b);
    const dx=target.x-a.x;
    let desired=target.x+side*(device?65:config.stance??104);
    const gravityTurn=config.gravityJump&&b.move==='FFG03'&&b.tick<188;
@@ -472,8 +500,12 @@ async function fight(page,side,key,config) {
    hold('KeyA',position<-7||(Math.abs(position)<=7&&turn&&dx<0));
    hold('KeyD',position>7||(Math.abs(position)<=7&&turn&&dx>0));
    const inReach=Math.abs(dx)<125&&dx*a.dir>=0;
-   if(reflection&&inReach&&a.ground&&!f.macro&&f.t-lastReflectionFire>3.2){
+   if(key==='spiritspeaker'&&sharedSummon&&inReach&&a.ground&&!f.macro&&f.t-lastReflectionFire>3.2){
     window.lab.action('slot1');lastReflectionFire=f.t;
+   }
+   if(key==='battleship'&&shipHeating&&!machineDown&&b.form!=='shield'&&
+      side===(b.thermal.heat%2===0?-1:1)&&inReach&&a.ground&&!f.macro&&f.t-lastShipFire>3.2){
+    window.lab.action('slot1');lastShipFire=f.t;
    }
    if(key==='lava-dragon'&&b.lavaHeat){
     if(lavaStage==='rock'&&b.move==='FLD02'&&b.tick>=215) lavaStage='heatRock';
@@ -502,9 +534,11 @@ async function fight(page,side,key,config) {
    const watchPapilla=key==='papilla'&&b.hp<420&&flightTargets.size===0;
    const watchLava=key==='lava-dragon'&&b.hp<650&&lavaStage!=='finish';
    const watchOverseer=key==='overseer'&&b.hp<520&&cooledFlows.size===0;
-   const watchReflections=key==='spiritspeaker'&&!reflectionBroken&&!reflection&&b.hp<520;
+   const watchReflections=key==='spiritspeaker'&&!reflectionBroken&&!sharedSummon&&b.hp<520;
+   const watchDuck=key==='duckle'&&!machineDown&&!sharedSummon&&b.hp<570;
+   const watchShip=key==='battleship'&&!machineDown&&(b.form==='shield'?b.tick<28:b.hp<570);
    hold('KeyJ',!watchRelay&&!watchGravity&&!watchEmperor&&!watchPearl&&!watchSuanni&&!watchBreak&&!watchYumka&&!watchPapilla&&
-    !watchLava&&!watchOverseer&&!watchReflections&&inReach&&(!device||Math.abs(dx)<96));
+    !watchLava&&!watchOverseer&&!watchReflections&&!watchDuck&&!watchShip&&inReach&&(!device||Math.abs(dx)<96));
    requestAnimationFrame(control);
   }
   requestAnimationFrame(control);
@@ -627,6 +661,16 @@ async function run(key,config) {
   assert.ok(a.reflectionLayouts.some(layout=>b.reflectionLayouts.includes(layout)),JSON.stringify(results));
   assert.ok(a.reflectionLayers.some(layers=>b.reflectionLayers.includes(layers)),JSON.stringify(results));
   assert.ok(a.reflectionBroken&&b.reflectionBroken,JSON.stringify(results));
+ }
+ if(key==='duckle'){
+  assert.ok(a.repairLayouts.some(layout=>b.repairLayouts.includes(layout)),JSON.stringify(results));
+  assert.ok(a.machineDown&&b.machineDown,JSON.stringify(results));
+ }
+ if(key==='battleship'){
+  for(const result of results){
+   assert.ok(result.thermalStates.some(state=>state.startsWith('4:'))&&result.machineDown,JSON.stringify(results));
+  }
+  assert.ok(a.thermalStates.some(state=>!state.endsWith(':5')&&b.thermalStates.includes(state)),JSON.stringify(results));
  }
  if(config.fallTell) assert.ok(a.fallLayouts.some(x=>b.fallLayouts.includes(x)),JSON.stringify(results));
  if(config.observeRecovery) assert.ok(a.recovered&&b.recovered,JSON.stringify(results));

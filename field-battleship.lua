@@ -20,6 +20,12 @@ return function(C)
   return {move=m,tick=0,origin=b.x,dir=b.facing,seen={{},{}},
    source={id=b.id,owner=b,y=s.floorY,damageElement=m.element}}
  end
+ function ship.shareCast(c,actors)
+  C.shareFieldHits(c.seen,actors)
+ end
+ function ship.frame(f,b,s)
+  f.thermal={heat=b.heat,maxHeat=s.thermal.max,ward=b.iceWard,maxWard=s.thermal.wardHp}
+ end
 
  function ship.onHit(cast,b,s,slot)
   if (cast.reaction and cast.key~='reaction:burning') or b.heatContacts[cast] then return end
