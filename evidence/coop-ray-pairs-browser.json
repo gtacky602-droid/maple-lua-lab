@@ -1,0 +1,70 @@
+{
+  "participants": 2,
+  "fairy-knight-twins": {
+    "warning": [
+      [
+        97063,
+        58,
+        330,
+        865,
+        224,
+        252
+      ],
+      [
+        97064,
+        104,
+        350,
+        1110,
+        348,
+        376
+      ]
+    ],
+    "rewards": [
+      [
+        212400,
+        355
+      ],
+      [
+        212400,
+        355
+      ]
+    ],
+    "waterControlsOnly": true,
+    "saved": true,
+    "sharedRematch": true
+  },
+  "swords-of-the-gorge": {
+    "warning": [
+      [
+        97065,
+        58,
+        330,
+        867,
+        223,
+        251
+      ],
+      [
+        97066,
+        58,
+        345,
+        1105,
+        361,
+        389
+      ]
+    ],
+    "rewards": [
+      [
+        212400,
+        370
+      ],
+      [
+        212400,
+        370
+      ]
+    ],
+    "waterControlsOnly": true,
+    "saved": true,
+    "sharedRematch": true
+  },
+  "errors": []
+}

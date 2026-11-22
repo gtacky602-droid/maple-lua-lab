@@ -1,0 +1,62 @@
+{
+  "lua": {
+    "participants": 4,
+    "outcomes": {
+      "legend-fontaine_fairy_knight_twins": {
+        "move": "FW31",
+        "sources": [
+          97063,
+          97064
+        ],
+        "depths": [
+          [
+            224,
+            252
+          ],
+          [
+            348,
+            376
+          ]
+        ],
+        "upperPulse": 5,
+        "lowerPulse": 5,
+        "overlapPulse": 5,
+        "xp": 212400
+      },
+      "legend-fontaine_swords_of_the_gorge": {
+        "move": "FW34",
+        "sources": [
+          97065,
+          97066
+        ],
+        "depths": [
+          [
+            223,
+            251
+          ],
+          [
+            361,
+            389
+          ]
+        ],
+        "upperPulse": 5,
+        "lowerPulse": 5,
+        "overlapPulse": 5,
+        "xp": 212400
+      }
+    },
+    "personalDepthAndInjury": true,
+    "safeMiddleBetweenBlades": true,
+    "partnerOnlyFinisherCredited": true,
+    "onlyContributorsCredited": true,
+    "onePulsePerSharedReceiver": true
+  },
+  "http": {
+    "participants": 2,
+    "individualLevelGate": true,
+    "sharedHpFromBothBodies": true,
+    "retreatPreservesBoth": true,
+    "eachRewardSavedOnce": true,
+    "rematchWaitsForAll": true
+  }
+}

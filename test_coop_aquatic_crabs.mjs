@@ -6,8 +6,16 @@ import {waypointDriver} from './tools/browser_waypoint_test.mjs';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 const nodes=Object.fromEntries(graph.nodes.map(n=>[n.id,n]));
 const hub='fontaine-hub', quest=graph.quests.find(q=>q.id==='fon-beryl-thermal-vents');
-const prefix='evidence/coop-aquatic-crabs';
-const cases=[
+const rayPairs=process.argv.includes('--rays');
+const prefix=rayPairs?'evidence/coop-ray-pairs':'evidence/coop-aquatic-crabs';
+const cases=rayPairs?[
+ {name:'fairy-knight-twins',id:'legend-fontaine_fairy_knight_twins',host:'fon-wp-50075',
+  arena:'fairy-knight-twins-legend-court',move:'FW31',hp:910,x:810,y:238,entity:97063,partner:97064,
+  names:['アンジェリカ','ミドロ'],starts:[58,104],mora:355},
+ {name:'swords-of-the-gorge',id:'legend-fontaine_swords_of_the_gorge',host:'fon-wp-50071',
+  arena:'swords-of-the-gorge-legend-rift',move:'FW34',hp:980,x:812,y:237,entity:97065,partner:97066,
+  names:['コルタナ','モーグレイ'],starts:[58,58],mora:370},
+]:[
  {name:'ocean-judge',id:'legend-fontaine_ocean_circuit_judge',host:'fon-wp-50065',
   arena:'ocean-judge-legend-pool',move:'FW11',hp:1050,x:850,y:305,entity:97061,mora:320},
  {name:'iron-viscount',id:'legend-fontaine_iron_viscount',host:'fon-wp-50044',
@@ -16,7 +24,7 @@ const cases=[
 ];
 const browser=await chromium.launch({channel:'chrome',headless:true,args:['--disable-gpu']});
 const key='maple-lua-lab.checkpoint.v1';
-const url=process.env.LAB_URL||'http://127.0.0.1:9065/';
+const url=process.env.LAB_URL||`http://127.0.0.1:${rayPairs?9066:9065}/`;
 const errors=[];
 let pages=[];
 const frame=page=>page.evaluate(()=>window.lab.frame);
@@ -30,7 +38,8 @@ async function start(cfg,reported){
  page.on('pageerror',err=>errors.push(err.message));
  page.on('response',res=>{if(res.url().endsWith('/api/frame')&&!res.ok())errors.push('Frame HTTP '+res.status());});
  const route=waypointDriver(page,nodes,{walkTimeout:27000});
- const file=reported?'work/coop-iron-viscount-ready.json':'work/'+cfg.name+'-fixture.json';
+ const file=rayPairs?'work/coop-fontaine-ray-pairs-fixture.json':
+  reported?'work/coop-iron-viscount-ready.json':'work/'+cfg.name+'-fixture.json';
  await page.goto(url);
  await wait(page,()=>window.lab?.frame);
  await page.locator('#importSave').setInputFiles(file);
@@ -94,8 +103,9 @@ async function swim(page,cfg,slot){
     return;
    }
    const guard=f.storySwimCombat?.counter;
-   const bx=b?.x??cfg.x,by=b?.y??cfg.y;
-   const side=slot===1?-1:1;
+   const body=b?.bodies?.[slot-1];
+   const bx=body?.x??b?.x??cfg.x,by=body?.y??b?.y??cfg.y;
+   const side=cfg.partner||slot===1?-1:1;
    let x=bx+(test.counter&&slot===1?-100:side*(test.attack?112:167)), y=by+28;
    const warnings=Array.isArray(b?.warnings)?b.warnings:[];
    const canCatch=cfg.vent&&!test.attack&&!test.counter&&warnings.find(w=>w.catchable&&!w.active);
@@ -109,7 +119,15 @@ async function swim(page,cfg,slot){
     }
    }
    if(guard?.ready)test.guardUsed=true;
-   if(test.attack){
+   if(test.attack&&cfg.partner){
+    const lanes=warnings.filter(w=>a.x>=w.left-20&&a.x<=w.right+20&&b.tick>=w.first-18);
+    const clearDepth=depth=>lanes.every(w=>depth<=w.top-10||depth>=w.bottom+60);
+    if(!clearDepth(y)){
+     const choices=[145,480,...lanes.flatMap(w=>[w.top-10,w.bottom+60])]
+      .filter(depth=>depth>=145&&depth<=480&&clearDepth(depth));
+     if(choices.length)y=choices.reduce((best,next)=>Math.abs(next-y)<Math.abs(best-y)?next:best);
+    }
+   }else if(test.attack){
     for(const w of warnings){
      if(w.left-20<=a.x&&a.x<=w.right+20&&a.y>w.top&&a.y-50<w.bottom&&b.tick>=w.first-12){
       const up=w.top-14,down=w.bottom+62;
@@ -159,16 +177,32 @@ async function scenario(cfg){
  const before=await Promise.all(pages.map(frame));
  await Promise.all([swim(a,cfg,1),swim(b,cfg,2)]);
  const warnings=await Promise.all(pages.map(async p=>{
-  const value=await wait(p,move=>{
+  const value=await wait(p,({move,partner})=>{
    const boss=window.lab.frame.fieldBoss,w=boss?.warnings?.[0];
+   if(partner)return boss?.move===move&&boss.warnings?.length===2&&
+    boss.warnings.map(w=>[w.sourceId,w.first,w.left,w.right,w.top,w.bottom]);
    return boss?.move===move&&w&&[w.left,w.right,w.top,w.bottom,w.first,w.after];
-  },cfg.move);
+  },{move:cfg.move,partner:cfg.partner});
   return value.jsonValue();
  }));
  assert.deepEqual(warnings[0],warnings[1]);
  const controls=a.locator('#fieldSwimHelp');
  let guardEvidence;
- if(cfg.vent){
+ if(cfg.partner){
+  assert.deepEqual(warnings[0].map(w=>w.slice(0,2)),[[cfg.entity,cfg.starts[0]],[cfg.partner,cfg.starts[1]]]);
+  for(const p of pages){
+   const f=await frame(p);
+   assert.deepEqual(f.fieldBoss.bodies.map(member=>member.name),cfg.names);
+   assert.ok(f.draws.filter(d=>d.source==='fontaine-ray-pair-poses-source-v1.png').length===2);
+  }
+  await wait(a,({move,starts})=>{
+   const f=window.lab.frame,b=f.fieldBoss;
+   return b?.move===move&&b.warnings?.length===2&&
+    (starts[0]!==starts[1]||b.warnings.every(w=>w.active))&&
+    f.draws.some(d=>d.kind==='text'&&d.text===(starts[0]===starts[1]?'同時':'2'));
+  },cfg);
+  await a.locator('.game').screenshot({path:prefix+'-'+cfg.name+'-blades.png'});
+ }else if(cfg.vent){
   await wait(a,()=>window.lab.frame.storySwimCombat?.counter?.ready);
   await wait(b,id=>window.lab.frame.events.some(e=>e.kind==='hurt'&&e.target===id),cfg.entity);
   assert.equal((await frame(b)).storySwimCombat.counter.ready,false);
@@ -195,7 +229,7 @@ async function scenario(cfg){
  const after=await Promise.all(pages.map(frame));
  const rewards=after.map((f,i)=>[f.progression.killXp-before[i].progression.killXp,f.mora-before[i].mora]);
  assert.deepEqual(rewards,[[212400,cfg.mora],[212400,cfg.mora]]);
- assert.ok(after.every(f=>f.events.some(e=>e.kind==='hit'&&e.actor===1&&e.target===cfg.entity)));
+ assert.ok(after.every(f=>f.events.some(e=>e.kind==='hit'&&e.actor===1&&[cfg.entity,cfg.partner].includes(e.target))));
  await Promise.all(pages.map(async p=>{
   await p.locator('#saveProgress').click();
   await wait(p,([key,id])=>JSON.parse(localStorage.getItem(key))?.endgame?.bosses?.[id]?.clears===1,[key,cfg.id]);
@@ -203,7 +237,10 @@ async function scenario(cfg){
  const entry=cfg.vent??cfg.host;
  await Promise.all(players.map(p=>p.route.cross(entry)));
  await Promise.all(players.map(p=>p.route.cross(cfg.arena)));
- assert.ok((await Promise.all(pages.map(frame))).every(f=>f.coop.enemies[0]?.hp===cfg.hp));
+ const expected=cfg.partner?[[cfg.entity,cfg.hp],[cfg.partner,cfg.hp]]:[[cfg.entity,cfg.hp]];
+ for(const f of await Promise.all(pages.map(frame))){
+  assert.deepEqual(f.coop.enemies.map(e=>[e.id,e.hp]),expected);
+ }
  await Promise.all(players.map(p=>p.context.close()));
  return {warning:warnings[0],rewards,waterControlsOnly:true,saved:true,sharedRematch:true,...guardEvidence};
 }
@@ -213,7 +250,8 @@ try{
  for(const cfg of cases)result[cfg.name]=await scenario(cfg);
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({...result,errors},null,2)+'\n');
- console.log('Chrome: shared water depth, personal counter, both rewards and repeat entry.');
+ console.log(rayPairs?'Chrome: both ray pairs share blades, rewards and repeat entry.':
+  'Chrome: shared water depth, personal counter, both rewards and repeat entry.');
 }catch(error){
  console.error(JSON.stringify(await Promise.allSettled(pages.map(p=>p.evaluate(()=>{
   const f=window.lab.frame;

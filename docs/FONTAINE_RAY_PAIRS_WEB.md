@@ -7,10 +7,14 @@
 | 双生妖精の騎士 | 南の沈水層の入口 → サラシア海原・妖精の騎士の水路 | 上のアンジェリカ、下のミドロが順に撃つ。続いて狙った深さ、さらに上下同時に撃つ。 |
 | 深谷の剣 | 北の水底の坂 → タラッタ海底谷・深谷の剣の割れ目 | コルタナとモーグレイが初手から上下同時に撃つ。二本の間を泳ぎ、深さを変えながら来る二連の水刃をよける。 |
 
-WASDか方向キーで泳ぎ、Jで同じ深さの相手に水撃。SpaceかShiftで急回避。予告には水刃の順番か「同時」が出る。命中範囲は刃と一緒に水平移動する。二体のHPはラボの試作設計として共通で、どちらにもJが当たる。討伐報酬・記録は各組に1件。入口のFから退却でき、入り直すと両方が全快する。日次討伐の対象外。HP・攻撃の時間・報酬は試作値。入口は既存の配置案に沿ったラボ用の接続で、背景は仮画像。 [配置案](../design/world/encounters.json)
+WASDか方向キーで泳ぎ、Jで同じ深さの相手に水撃。SpaceかShiftで急回避。予告には水刃の順番か「同時」が出る。命中範囲は刃と一緒に水平移動する。二体のHPはラボの試作設計として共通で、どちらにもJが当たる。討伐報酬・記録は各組に1件。入口のFから退却できる。ソロでは入り直すと両方が全快する。日次討伐の対象外。HP・攻撃の時間・報酬は試作値。入口は既存の配置案に沿ったラボ用の接続で、背景は仮画像。 [配置案](../design/world/encounters.json)
+
+共闘では、各入口で部屋を作り、門を通った参加者が予告とHPを共有する。全員で退却した場合は、戻ると残りHPから続けられる。討伐後は全員が出口を通ると再戦できる。 [共闘の詳細と戦闘画面](COOP_WEB_PREVIEW.md#双生妖精の騎士と深谷の剣の水中共闘)
 
 4体の待機・構え・攻撃の12枚を使用している。前縁の色、ひれ先の三日月・二本線・菱形・斑点で個体を見分けられる。個体ごとの配色はラボ用に決めた。名前とひれの形は戦闘画面の複数角度と一般個体を参照した。 [12ポーズ](../evidence/fontaine-ray-pair-art-poses.png) · [素材の出典](../evidence/fontaine-ray-pair-art-sources.json)
 
 Luaで両方の門、6行動の水刃の発生元と当たり方、二体に重ねて撃った際の1回のダメージ、退却と再挑戦、報酬と保存を確認。通常の移動・水撃・急回避での単独自動試走では67.85秒と72.98秒。 [Lua検証ログ](../evidence/fontaine-ray-pairs-lua.json)
 
 ChromeでMからの案内、キーボードでの入退場とJ、同一場面で2体・予告を保った軽量化を確認。標準と16色の描画指示数は双生7,526→2,048、深谷7,768→2,037。 [Chrome検証ログ](../evidence/fontaine-ray-pairs-browser.json) · [双生の戦闘](../evidence/fairy-knight-twins-field.png) · [軽量16色](../evidence/fairy-knight-twins-light.png) · [深谷の戦闘](../evidence/swords-of-the-gorge-field.png) · [軽量16色](../evidence/swords-of-the-gorge-light.png)
+
+共闘を再検証するには、`python -X utf8 test_fontaine_ray_pairs.py` でセーブを生成してから `python -X utf8 test_coop_ray_pairs.py` を実行する。サーバーのURLを `LAB_URL` に設定し、`node test_coop_aquatic_crabs.mjs --rays` でChromeの2人試走を実行できる。

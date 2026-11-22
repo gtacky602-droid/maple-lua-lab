@@ -8153,6 +8153,10 @@
       "fon-wp-50044",
       "iron-viscount-thermal-gallery",
       "iron-viscount-legend-pool",
+      "fon-wp-50075",
+      "fairy-knight-twins-legend-court",
+      "fon-wp-50071",
+      "swords-of-the-gorge-legend-rift",
       "narwhal-star-sea",
       "narwhal-inner-echo",
       "knave-crimson-court",
@@ -8262,6 +8266,8 @@
       "legend-fontaine_deianeira_of_snezhevna",
       "legend-fontaine_ocean_circuit_judge",
       "legend-fontaine_iron_viscount",
+      "legend-fontaine_fairy_knight_twins",
+      "legend-fontaine_swords_of_the_gorge",
       "legend-natlan_battlegoat_ironclaw",
       "legend-snez_rowdy_beast_host",
       "boss-29010101",
@@ -8521,7 +8527,11 @@
       "evidence/coop-aquatic-crabs-lua-http.json",
       "evidence/coop-aquatic-crabs-browser.json",
       "evidence/coop-aquatic-crabs-ocean-judge-wave.png",
-      "evidence/coop-aquatic-crabs-iron-viscount-counter.png"
+      "evidence/coop-aquatic-crabs-iron-viscount-counter.png",
+      "evidence/coop-ray-pairs-lua-http.json",
+      "evidence/coop-ray-pairs-browser.json",
+      "evidence/coop-ray-pairs-fairy-knight-twins-blades.png",
+      "evidence/coop-ray-pairs-swords-of-the-gorge-blades.png"
     ],
     "pending": [
       "lab-original field encounters, remaining Local Legends and Stygian bosses",
