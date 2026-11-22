@@ -43,6 +43,12 @@ return function(C)
   if b.fieldPartner then setPose(b.fieldPartner,spec,'idle') end
  end
 
+ function legend.shareCast(cast,actors)
+  local groups={}
+  for _,strike in ipairs(cast.strikes) do groups[#groups+1]=strike.seen end
+  C.shareFieldHits(groups,actors)
+ end
+
  function legend.walk(b,spec,target,speed)
   local partner=b.fieldPartner
   if not partner then return end
@@ -110,11 +116,11 @@ return function(C)
  function legend.frame(f,_,_,cast)
   if not cast then return end
   f.warnings={}
-  for _,strike in ipairs(cast.strikes) do
+  for i,strike in ipairs(cast.strikes) do
    local step=strike.step
    if cast.tick<step.after then
     f.warnings[#f.warnings+1]={left=strike.left,right=strike.right,first=step.first,after=step.after,
-     element=strike.owner.element,active=cast.tick>=step.first,
+     number=i,height=step.height,element=strike.owner.element,active=cast.tick>=step.first,
      activeLeft=strike.activeLeft,activeRight=strike.activeRight}
    end
   end

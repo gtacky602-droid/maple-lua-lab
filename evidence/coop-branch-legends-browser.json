@@ -1,0 +1,116 @@
+{
+  "participants": 2,
+  "chizhang": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1677,
+        "moves": [
+          "LC01",
+          "LC02",
+          "LC03"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1696,
+        "moves": [
+          "LC01",
+          "LC02",
+          "LC03"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "pyro",
+        63,
+        334,
+        490
+      ],
+      [
+        2,
+        "cryo",
+        111,
+        477,
+        639
+      ]
+    ],
+    "rewards": [
+      [
+        231550,
+        280
+      ],
+      [
+        231550,
+        280
+      ]
+    ],
+    "contacts": [
+      6,
+      6
+    ],
+    "saved": true,
+    "sharedRematch": true
+  },
+  "cineas": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1668,
+        "moves": [
+          "LW01",
+          "LW02",
+          "LW03"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1644,
+        "moves": [
+          "LW01",
+          "LW02",
+          "LW03"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "hydro",
+        63,
+        533,
+        687
+      ],
+      [
+        2,
+        "hydro",
+        116,
+        694,
+        902
+      ]
+    ],
+    "rewards": [
+      [
+        2816850,
+        440
+      ],
+      [
+        2816850,
+        440
+      ]
+    ],
+    "contacts": [
+      8,
+      7
+    ],
+    "saved": true,
+    "sharedRematch": true
+  },
+  "errors": []
+}

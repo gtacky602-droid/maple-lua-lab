@@ -1,0 +1,24 @@
+{
+  "lua": {
+    "participants": 4,
+    "midCastRoomCreationRetainsHit": true,
+    "orderedPyroCryo": true,
+    "separateHitsAndJumpEvades": true,
+    "sameHpFromBothBodies": true,
+    "areaCastCountedOnce": true,
+    "rewardRangeIncludesPartner": true,
+    "cineasSharedWarnings": true,
+    "liveRetreatKeepsCast": true,
+    "onlyContributorsCredited": true,
+    "chizhangXp": 231550,
+    "cineasXp": 2816850
+  },
+  "http": {
+    "participants": 2,
+    "ordinaryInputsShared": true,
+    "cineasLevelAndReportIndividuallyRequired": true,
+    "sharedDefeatSaved": true,
+    "rematchWaitsForAllToLeave": true,
+    "incompleteBattleResumes": true
+  }
+}
