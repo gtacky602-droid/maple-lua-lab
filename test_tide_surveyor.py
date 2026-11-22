@@ -69,38 +69,38 @@ assert hero.hp==140 and (cast.zones[1].left,cast.zones[1].right)==(left,right)
 info=core.frame(state,'sprite','legacy').weeklyBoss
 assert info.zones[1].left==left and info.zones[1].right==right and not info.zones[1].active
 ticks(state)
-assert hero.hp==140 and slot.marks[1] is None
+assert hero.hp==140 and slot.marks[hero] is None
 
 # An invulnerable player does not receive a mark, and cleanses are actor-specific and grounded.
 state,slot,hero=trial()
 until(state,slot,'TS01',53)
 hero.inv=1
 ticks(state,13)
-assert hero.hp==140 and slot.marks[1] is None
+assert hero.hp==140 and slot.marks[hero] is None
 state,slot,hero=trial()
 until(state,slot,'TS01',54)
-assert hero.hp==128 and slot.marks[1]>state.t
+assert hero.hp==128 and slot.marks[hero]>state.t
 spot(hero,160,374)
 ticks(state)
-assert slot.marks[1] is not None
+assert slot.marks[hero] is not None
 spot(hero,160)
 ticks(state)
-assert slot.marks[1] is None
+assert slot.marks[hero] is None
 assert any(e.kind=='surveyor_cleanse' for e in state.events.values())
 
 # An uncleaned mark adds exactly 12 once. Hit immunity does not consume it.
 state,slot,hero=trial()
 until(state,slot,'TS02',65)
-assert slot.marks[1] is not None
+assert slot.marks[hero] is not None
 ticks(state)
-assert hero.hp==100 and slot.marks[1] is None
+assert hero.hp==100 and slot.marks[hero] is None
 ticks(state,20)
 assert hero.hp==100
 state,slot,hero=trial()
 until(state,slot,'TS02',65)
 hero.inv=1
 ticks(state,13)
-assert hero.hp==128 and slot.marks[1] is not None
+assert hero.hp==128 and slot.marks[hero] is not None
 
 # Jump a floor wave using normal input.
 state,slot,hero=trial()

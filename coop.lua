@@ -48,7 +48,7 @@ return function(C, config)
  function C.coopContact(s,e,actor)
   local room,member=s.coop,s.coopMember
   if not onField(member) then return end
-  e=e.fieldGroup or e.sharedHealth or e
+  e=e.coopRewardTarget or e.fieldGroup or e.sharedHealth or e
   if e.noRewards then return end
   e.coopHits=e.coopHits or {}
   e.coopHits[member.id]={time=room.time,actor=actor}

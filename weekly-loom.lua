@@ -20,8 +20,8 @@ return function(C)
   for i,row in ipairs(spec.shuttles) do
    slot.shuttles[i]={id=row.entity,name=row.name,x=row.x,y=spec.floorY,
        hitTop=spec.floorY-70,hitBottom=spec.floorY,hp=spec.shuttleHP,maxhp=spec.shuttleHP,
-       level=spec.level,custom=true,noRewards=true,boss=true,warning=0,
-       respawn=math.huge,loomOwner=slot.primary}
+       level=spec.level,custom=true,noRewards=true,boss=true,warning=0,weeklyPart=true,
+       respawn=math.huge,loomOwner=slot.primary,coopRewardTarget=slot.primary}
   end
  end
  local function installShuttles(state,slot)
@@ -44,9 +44,11 @@ return function(C)
   removeTargets(state,slot)
   state.enemies[#state.enemies+1]=slot.primary
   installShuttles(state,slot)
-  state.grappleNodes={}
-  state.selectedGrapple=1
-  for _,actor in ipairs(state.actors) do actor.grapple=nil end
+  for _,party in ipairs(state.parties or {state}) do
+   party.grappleNodes={}
+   party.selectedGrapple=1
+   for _,actor in ipairs(party.actors) do actor.grapple=nil end
+  end
  end
  function loom.cleanup(state,slot)
   removeTargets(state,slot)
@@ -55,7 +57,7 @@ return function(C)
   slot.shuttles={}
  end
  local function newCast(state,slot,spec,move)
-  local actor=state.actors[state.active]
+  local actor=C.weeklyTargetActor(state,slot.primary.x) or slot.primary
   local x=math.max(150,math.min(810,actor.x))
   local zones={}
   local function add(left,right,top,bottom,at,sourceIndex)
@@ -85,7 +87,8 @@ return function(C)
   end
   slot.phase='combat'
   if slot.openUntil then
-   if state.t+dt+1e-8<slot.openUntil then return end
+   local nextTime=state.t+(state.coopWorld and 0 or dt)
+   if nextTime+1e-8<slot.openUntil then return end
    slot.openUntil=nil
    slot.primary.underground=true
    slot.primary.invulnerable=true
@@ -113,7 +116,9 @@ return function(C)
    slot.primary.underground=false
    slot.primary.invulnerable=false
    slot.openUntil=state.t+spec.openTicks/60
-   C.combatEvent(state,'loom_exposed',0,slot.primary.id,slot.cycle)
+   for _,party in ipairs(state.parties or {state}) do
+    C.combatEvent(party,'loom_exposed',0,slot.primary.id,slot.cycle)
+   end
    return
   end
   local cast=slot.cast
@@ -124,6 +129,9 @@ return function(C)
    end
   end
   if cast.tick>=cast.move.total then slot.cast=nil end
+  if not state.parties then return end
+  for _,actor in ipairs(state.actors) do if actor.hp>0 then return end end
+  slot.cast=nil;slot.rechallenge=true
  end
  function C.aiAvoidTarget(state,actor)
   local slot=current(state)
@@ -154,7 +162,8 @@ return function(C)
  function loom.observe(frame,state,slot,spec,mode,profile)
   local info=frame.weeklyBoss
   info.cycle=slot.cycle
-  info.openTicks=slot.openUntil and math.max(0,math.ceil((slot.openUntil-state.t)*60-1e-7)) or 0
+  local now=state.coop and C.sharesCoopField(state) and state.coop.time or state.t
+  info.openTicks=slot.openUntil and math.max(0,math.ceil((slot.openUntil-now)*60-1e-7)) or 0
   info.stage=slot.openUntil and 'open' or 'sealed'
   info.shuttles={}
   info.zones={}

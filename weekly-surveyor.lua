@@ -15,12 +15,13 @@ return function(C)
    if state.enemies[i]==slot.primary then table.remove(state.enemies,i) end
   end
  end
+ local function newMarks() return setmetatable({},{__mode='k'}) end
  function surveyor.spawn(_,slot,spec)
   slot.stage=1
   slot.sequence=1
   slot.intro=spec.noticeTicks
   slot.transition=0
-  slot.marks={}
+  slot.marks=newMarks()
   slot.primary.dir=-1
   slot.primary.hitTop=spec.floorY-118
   slot.primary.hitBottom=spec.floorY
@@ -29,26 +30,26 @@ return function(C)
  function surveyor.attach(state,slot)
   removeBody(state,slot)
   state.enemies[#state.enemies+1]=slot.primary
-  state.grappleNodes={}
-  state.selectedGrapple=1
-  for _,actor in ipairs(state.actors) do actor.grapple=nil end
+  for _,party in ipairs(state.parties or {state}) do
+   party.grappleNodes={}
+   party.selectedGrapple=1
+   for _,actor in ipairs(party.actors) do actor.grapple=nil end
+  end
  end
  function surveyor.cleanup(state,slot)
   removeBody(state,slot)
   slot.cast=nil
-  slot.marks={}
+  slot.marks=newMarks()
  end
- local function getTarget(state)
-  local actor=state.actors[state.active]
-  if actor.hp>0 then return actor end
-  return state.actors[3-state.active]
+ function surveyor.leaveCoop(state,slot)
+  for _,actor in ipairs(state.actors) do slot.marks[actor]=nil end
  end
  local function zone(left,right,top,bottom,at,untilTick)
   return {left=left,right=right,top=top,bottom=bottom,at=at,untilTick=untilTick,seen={}}
  end
  local function makeCast(state,slot,spec,move)
   local boss=slot.primary
-  local target=getTarget(state)
+  local target=C.weeklyTargetActor(state,boss.x) or boss
   local origin=boss.x
   local dir=target.x>=origin and 1 or -1
   local cross=clamp(target.x,160,800)
@@ -131,43 +132,47 @@ return function(C)
  end
  function surveyor.finish(state,slot,spec)
   for _,actor in ipairs(state.actors) do
-   local mark=slot.marks[actor.id]
+   local mark=slot.marks[actor]
    if mark and (actor.hp<=0 or mark<=state.t or inPad(actor,spec)) then
-    slot.marks[actor.id]=nil
+    slot.marks[actor]=nil
     if actor.hp>0 and mark>state.t then
-     C.combatEvent(state,'surveyor_cleanse',actor.id,slot.primary.id)
+     local party=state.actorOwners and state.actorOwners[actor] or state
+     C.combatEvent(party,'surveyor_cleanse',actor.id,slot.primary.id)
     end
    end
   end
   local cast=slot.cast
-  if not cast then return end
-  local tick=cast.tick
-  for _,area in ipairs(cast.zones) do
-   if tick>=area.at and tick<area.untilTick then
-    for _,actor in ipairs(state.actors) do
-     local overlap=actor.x+10>area.left and actor.x-10<area.right
-         and actor.y>area.top and actor.y-50<area.bottom
-     if actor.hp>0 and not area.seen[actor.id] and overlap then
-      area.seen[actor.id]=true
-      local feedback=cast.move.feedback and slot.marks[actor.id]
-      local damage=cast.move.damage+(feedback and spec.feedbackDamage or 0)
-      local before=actor.hp
-      C.damageActor(state,actor,damage,slot.primary,false,true)
-      if actor.hp<before then
-       if feedback then
-        slot.marks[actor.id]=nil
-        C.combatEvent(state,'surveyor_feedback',actor.id,slot.primary.id,spec.feedbackDamage)
-       end
-       if cast.move.mark and actor.hp>0 and not inPad(actor,spec) then
-        slot.marks[actor.id]=state.t+spec.markSeconds
-        C.combatEvent(state,'surveyor_mark',actor.id,slot.primary.id)
+  if cast then
+   local tick=cast.tick
+   for _,area in ipairs(cast.zones) do
+    if tick>=area.at and tick<area.untilTick then
+     for _,actor in ipairs(state.actors) do
+      local overlap=actor.x+10>area.left and actor.x-10<area.right
+          and actor.y>area.top and actor.y-50<area.bottom
+      if actor.hp>0 and not area.seen[actor] and overlap then
+       area.seen[actor]=true
+       local party=state.actorOwners and state.actorOwners[actor] or state
+       local feedback=cast.move.feedback and slot.marks[actor]
+       local damage=cast.move.damage+(feedback and spec.feedbackDamage or 0)
+       if C.damageActor(party,actor,damage,slot.primary,false,true)>0 then
+        if feedback then
+         slot.marks[actor]=nil
+         C.combatEvent(party,'surveyor_feedback',actor.id,slot.primary.id,spec.feedbackDamage)
+        end
+        if cast.move.mark and actor.hp>0 and not inPad(actor,spec) then
+         slot.marks[actor]=state.t+spec.markSeconds
+         C.combatEvent(party,'surveyor_mark',actor.id,slot.primary.id)
+        end
        end
       end
      end
     end
    end
+   if tick>=cast.move.total then slot.cast=nil end
   end
-  if tick>=cast.move.total then slot.cast=nil end
+  if not state.parties then return end
+  for _,actor in ipairs(state.actors) do if actor.hp>0 then return end end
+  slot.cast=nil;slot.marks=newMarks();slot.rechallenge=true;slot.primary.underground=true
  end
  function C.aiAvoidTarget(state,actor)
   local slot,spec=controller(state)
@@ -187,7 +192,7 @@ return function(C)
      end
     end
    end
-   if slot.marks[actor.id] then
+   if slot.marks[actor] then
     local left,right=spec.cleansePads[1],spec.cleansePads[2]
     return actor.x<(left+right)/2 and left or right
    end
@@ -206,8 +211,10 @@ return function(C)
   info.stageName=spec.stageNames[slot.stage]
   info.transition=slot.transition
   info.marks={}
-  for id,expiry in pairs(slot.marks) do
-   info.marks[tostring(id)]=math.max(0,expiry-state.t)
+  local now=state.coop and C.sharesCoopField(state) and state.coop.time or state.t
+  for _,actor in ipairs(state.actors) do
+   local expiry=slot.marks[actor]
+   if expiry then info.marks[tostring(actor.id)]=math.max(0,expiry-now) end
   end
   info.cleansePads=spec.cleansePads
   local cast=slot.cast
@@ -246,7 +253,7 @@ return function(C)
   C.drawSurveyorArt({draws=draws},boss.x,boss.y,pose,mode,profile,boss.dir>0)
   for i=portalPrefix+1,#existing do draws[#draws+1]=existing[i] end
   for _,actor in ipairs(state.actors) do
-   if slot.marks[actor.id] then text(draws,actor.x,actor.y-130,'測距印',plum) end
+   if slot.marks[actor] then text(draws,actor.x,actor.y-130,'測距印',plum) end
   end
   text(draws,480,65,info.stageName,mint,14)
   if slot.transition>0 then text(draws,480,86,'機構切り替え・攻撃の好機',mint) end

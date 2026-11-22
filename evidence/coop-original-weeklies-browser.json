@@ -1,0 +1,121 @@
+{
+  "participants": 2,
+  "surveyor": {
+    "scene": {
+      "key": "tideCalibration",
+      "file": "tide-calibration-background-v1.png",
+      "state": "ready"
+    },
+    "results": [
+      {
+        "won": true,
+        "hp": 77,
+        "returns": 0,
+        "stages": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "won": true,
+        "hp": 77,
+        "returns": 0,
+        "stages": [
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    "rewards": [
+      [
+        17700,
+        340
+      ],
+      [
+        17700,
+        340
+      ]
+    ],
+    "report": [
+      [
+        1800,
+        420
+      ],
+      [
+        1800,
+        420
+      ]
+    ],
+    "separateReports": true,
+    "personalMarkLabel": true,
+    "independentCleanse": true
+  },
+  "loom": {
+    "scene": {
+      "key": "buriedWeaving",
+      "file": "buried-weaving-background-v1.png",
+      "state": "ready"
+    },
+    "results": [
+      {
+        "won": true,
+        "hp": 140,
+        "returns": 0,
+        "stages": [
+          "sealed",
+          "open"
+        ],
+        "exposures": 1
+      },
+      {
+        "won": true,
+        "hp": 140,
+        "returns": 0,
+        "stages": [
+          "sealed",
+          "open"
+        ],
+        "exposures": 1
+      }
+    ],
+    "rewards": [
+      [
+        17700,
+        360
+      ],
+      [
+        17700,
+        360
+      ]
+    ],
+    "report": [
+      [
+        2100,
+        450
+      ],
+      [
+        2100,
+        450
+      ]
+    ],
+    "separateReports": true,
+    "shuttleContacts": [
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        2,
+        1,
+        2,
+        2,
+        1
+      ]
+    ]
+  },
+  "bothTrialsInSameSave": true,
+  "errors": []
+}

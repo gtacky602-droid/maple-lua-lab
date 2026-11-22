@@ -1,0 +1,27 @@
+{
+  "lua": {
+    "participants": 4,
+    "eachActorOwnMark": true,
+    "sameRoomClock": true,
+    "groundedCleanse": true,
+    "personalFeedbackBonus": 12,
+    "threeSharedStages": true,
+    "leaveClearsMarks": true,
+    "shuttlesIndependent": true,
+    "exposureTicks": 780,
+    "noDamageAtClosure": true,
+    "rebuildPreservesHp": true,
+    "contributorOnlyRewards": true,
+    "wipeRestoresBothTrials": true
+  },
+  "http": {
+    "participants": 2,
+    "mechanicsThroughNormalInput": true,
+    "retreatFreezesBoth": true,
+    "separateReports": true,
+    "surveyorXp": 17700,
+    "surveyorMora": 340,
+    "loomXp": 17700,
+    "loomMora": 360
+  }
+}

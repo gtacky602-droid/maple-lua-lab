@@ -8072,6 +8072,8 @@
       "dvalin-sky-arena",
       "andrius-wolf-ring",
       "liyue-harbor",
+      "tide-calibration-hall",
+      "buried-weaving-room",
       "childe-golden-house-arena",
       "azhdaha-dragon-seal-arena",
       "mond-road",
@@ -8240,7 +8242,9 @@
       "boss-29091101",
       "boss-29122000",
       "boss-29130201",
-      "boss-29150101"
+      "boss-29150101",
+      "original-tide-surveyor",
+      "original-twin-shuttle-loom"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8458,10 +8462,15 @@
       "evidence/coop-heretic-change.png",
       "evidence/coop-heretic-wall.png",
       "evidence/coop-heretic-chant.png",
-      "evidence/coop-heretic-exposure.png"
+      "evidence/coop-heretic-exposure.png",
+      "evidence/coop-original-weeklies-lua-http.json",
+      "evidence/coop-original-weeklies-browser.json",
+      "evidence/coop-original-weeklies-surveyor-mark.png",
+      "evidence/coop-original-weeklies-loom-closed.png",
+      "evidence/coop-original-weeklies-loom-open.png"
     ],
     "pending": [
-      "lab-original field and weekly encounters, remaining Local Legends and Stygian bosses",
+      "lab-original field encounters, remaining Local Legends and Stygian bosses",
       "shared combat outside the supported maps",
       "remote and Miliastra tests"
     ]

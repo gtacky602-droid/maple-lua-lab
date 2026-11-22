@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する106地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する108地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -510,6 +510,16 @@ Lua・HTTPは `python test_coop_primal_fire.py` で再現できる。Chromeで�
 
 `python test_coop_heretic.py` でLua・HTTP検査を再現する。`python test_heretic_weekly.py` で試験用セーブを作り、`LAB_URL` を指定して `node test_coop_heretic.mjs` を実行するとChromeの2画面で再現できる。 [戦い方](weekly-boss-v1/HERETIC_WEB.md) · [LuaとHTTPの結果](../evidence/coop-heretic-lua-http.json) · [Chromeの結果](../evidence/coop-heretic-browser.json)
 
+## 測潮機関士と双杼織機の週ボス戦
+
+璃月・港の広場で、測潮機関士の「夜間の潮位点検」と双杼織機の「夜明けまでに織機を止める」を各自で受注する。港のx1120からLv30の潮位較正室、x1240からLv34の埋もれた織房へ入れる。 [測潮機関士](weekly-boss-v1/TIDE_SURVEYOR_WEB.md) · [双杼織機](weekly-boss-v1/TWIN_SHUTTLE_LOOM_WEB.md)
+
+測潮機関士のHP650と三つの段階は全員で共有する。測距印は被弾したキャラに付き、緑の接地板でそのキャラだけが解除できる。印が残った状態で反響パルスを受けると、追加ダメージ12が入る。 [測距印と接地板](../evidence/coop-original-weeklies-surveyor-mark.png)
+
+双杼織機は芯のHP250、杼は左右それぞれHP24。左右の杼を分担でき、片方を壊すとその側の糸だけが止まる。両方を壊すと芯が13秒間開く。時間切れでは杼が再生し、芯の残りHPを引き継ぐ。杼への有効打も討伐の参加判定に入る。 [閉じた織機](../evidence/coop-original-weeklies-loom-closed.png) · [露出した芯](../evidence/coop-original-weeklies-loom-open.png)
+
+全員が退避すると戦闘は止まり、戻ると続きから再開する。全滅すると初期状態から再戦する。討伐条件を満たした各自に、測潮機関士は17,700 EXP・340モラ、双杼織機は17,700 EXP・360モラが入る。依頼の報告も各自で行う。 [LuaとHTTPの結果](../evidence/coop-original-weeklies-lua-http.json) · [Chromeの結果](../evidence/coop-original-weeklies-browser.json)
+
 ## マッシュラプトル
 
 Lv60で雨林の道から菌傘の谷へ進む。本体HPは800。ついばみの当たり判定、跳躍の着地地点、3回の胞子の位置を共有し、各参加者が個別に被弾する。跳躍中は本体の絵と当たり判定が一緒に上がる。Luaの4人戦で各自の被弾を、HTTPの2人戦で退避後の再合流と討伐保存を確認した。Chromeの2画面で同じ着地と胞子を確認し、討伐に参加した双方に39,950 EXPと180モラが入った。試験用のセーブは `python test_jadeplume_field.py` で生成し、`node test_coop_jadeplume.mjs` で再現できる。 [Lua・HTTPの検証](../evidence/coop-jadeplume-lua-http.json) · [Chromeの検証](../evidence/coop-jadeplume-browser.json) · [跳躍中の画面](../evidence/coop-jadeplume-leap.png)
@@ -534,4 +544,4 @@ Lv60で雨林の道から菌傘の谷へ進む。本体HPは800。ついばみ�
 
 同じPCから各接続が毎秒30回の受信を目指す短時間試験。サイズはHTTP応答本文の中央値。4人の軽量16色では描画する矩形が5,251個のまま、本文は97.1%減り、応答時間の中央値は101.89msから27.54msになった。表は通信とLuaの試験で、Chromeの描画FPSや幻境実機の値は含まない。 [生の計測結果](../evidence/coop-local-http.json)
 
-現行台帳の原作通常ボス49戦、原作週ボス14戦、地方伝説3戦を共闘に登録した。ラボ独自の通常・週ボス、残りの地方伝説、幽境の共闘、汎用支援による参加判定、全滅した組の観戦、別端末からの通信、星々の幻境実機は確認待ち。人数でボスHPを増やさない方針は採用済み。 [11月16日の採用仕様](../sources/20261116-amendment.md)
+現行台帳の原作通常ボス49戦、原作週ボス14戦、ラボ独自の週ボス2戦、地方伝説3戦を共闘に登録した。ラボ独自の通常ボス、残りの地方伝説、幽境の共闘、汎用支援による参加判定、全滅した組の観戦、別端末からの通信、星々の幻境実機は確認待ち。人数でボスHPを増やさない方針は採用済み。 [11月16日の採用仕様](../sources/20261116-amendment.md)

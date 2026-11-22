@@ -21,6 +21,20 @@ return function(C,configs,controllers)
   local room=spec and sharedRoom(s,spec)
   return room and room.weeklySlot or (spec and s.weeklySlots and s.weeklySlots[spec.id]),spec
  end
+ function C.weeklyTargetActor(s,x)
+  if not s.parties then
+   local a=s.actors[s.active]
+   return a.hp>0 and a or s.actors[3-s.active]
+  end
+  local best,distance
+  for _,party in ipairs(s.parties) do
+   local a=party.actors[party.active]
+   if a.hp<=0 then a=party.actors[3-party.active] end
+   local d=math.abs(a.x-x)
+   if a.hp>0 and (not distance or d<distance) then best,distance=a,d end
+  end
+  return best
+ end
  function C.enemyHitDamage(s,a,e,mult,element,resist)
   local slot=C.currentWeeklyBoss(s)
   if slot and slot.mode then mult=mult*slot.mode.attackFactor end

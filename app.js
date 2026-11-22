@@ -504,7 +504,10 @@ function hud(f,calls,renderMs){
   if(field.marks){
    for(const [id,item] of Object.entries(field.marks)){
     const role=id==='1'?'旅人':'同行';
-    mark+=` ｜ ${role} ${elementNames[item.element]}刻印 ${Math.ceil(item.ticks/60)}秒`;
+    const effect=typeof item==='number'
+     ?`測距印 ${Math.ceil(item)}秒`
+     :`${elementNames[item.element]}刻印 ${Math.ceil(item.ticks/60)}秒`;
+    mark+=` ｜ ${role} ${effect}`;
    }
   }
   const form=field.formName?`・${field.formName}`:'';
