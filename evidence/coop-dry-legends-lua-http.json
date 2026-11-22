@@ -1,0 +1,45 @@
+{
+  "lua": {
+    "participants": 4,
+    "encounters": {
+      "yseut-legend-court": {
+        "move": "FD12",
+        "xp": 212400,
+        "mora": 300
+      },
+      "gravity-device-legend-terrace": {
+        "move": "FD22",
+        "xp": 212400,
+        "mora": 360
+      },
+      "rocky-legend-ledge": {
+        "move": "FD31",
+        "xp": 212400,
+        "mora": 300
+      },
+      "liam-legend-pond": {
+        "move": "FD41",
+        "xp": 212400,
+        "mora": 300
+      },
+      "deianeira-legend-lab": {
+        "move": "FD52",
+        "xp": 212400,
+        "mora": 330
+      }
+    },
+    "orderedSharedZones": true,
+    "separateHitsAndHeightAvoidance": true,
+    "onlyContributorsCredited": true
+  },
+  "http": {
+    "participants": 2,
+    "groundEncounters": 4,
+    "individualLevel100": true,
+    "sharedUnderwaterRoute": true,
+    "personalQuestGate": true,
+    "underwaterInspectAndReport": true,
+    "sharedHpAfterRetreat": true,
+    "individualLedger": true
+  }
+}

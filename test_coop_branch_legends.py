@@ -206,10 +206,10 @@ def report_fixture(core,s):
     core.enterStoryNode(s,'bygone-wp-68610')
 
 
-def browser_fixtures(lua,core,encounters=(CHIZHANG,CINEAS)):
+def browser_fixtures(lua,core,encounters=(CHIZHANG,CINEAS),suffix='fixture'):
     for id in encounters:
         arena=SPECS[id]['node']
-        saved=read(f'work/{arena}-fixture.json')
+        saved=read(f'work/{arena}-{suffix}.json')
         s=core.restore(lua.table_from(saved,recursive=True))
         s.mora=400000
         assert core.giveArtifact(s,1,82,3)
@@ -218,7 +218,7 @@ def browser_fixtures(lua,core,encounters=(CHIZHANG,CINEAS)):
         assert core.giveArtifact(s,2,40,3)
         core.action(s,'artifact_equip:2')
         checkpoint=validate_save(native(core.checkpoint(s)))
-        (ROOT/f'work/coop-{arena}-fixture.json').write_text(json.dumps(checkpoint),encoding='utf8')
+        (ROOT/f'work/coop-{arena}-{suffix}.json').write_text(json.dumps(checkpoint),encoding='utf8')
 
 
 def via_http(url,id,check_level=False):

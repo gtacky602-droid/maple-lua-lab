@@ -4,8 +4,27 @@ import {chromium} from 'playwright';
 import {waypointDriver} from './tools/browser_waypoint_test.mjs';
 
 const lake=process.argv.includes('--lake');
-const prefix=lake?'evidence/coop-lake-legends':'evidence/coop-branch-legends';
-const cases=lake?[
+const dry=process.argv.includes('--dry');
+const prefix='evidence/coop-'+(dry?'dry':lake?'lake':'branch')+'-legends';
+const dryCases=[
+ {tag:'yseut',id:'legend-fontaine_yseut',arena:'yseut-legend-court',
+  entry:'fon-wp-50058',hp:1020,mora:300,x:780,warning:'FD12',entities:[97051],
+  warningOrder:[[1,'cryo',62],[2,'cryo',106]]},
+ {tag:'gravity-device',id:'legend-fontaine_automated_supercomputing_field_generator',arena:'gravity-device-legend-terrace',
+  entry:'fon-wp-53859',hp:1230,mora:360,x:820,warning:'FD22',entities:[97052],
+  warningOrder:[[1,'geo',69],[2,'geo',112]]},
+ {tag:'rocky',id:'legend-fontaine_rocky_avildsen',arena:'rocky-legend-ledge',
+  entry:'fon-wp-55780',hp:980,mora:300,x:760,warning:'FD31',entities:[97053],
+  warningOrder:[[1,'physical',57],[2,'physical',91]],movingWave:true},
+ {tag:'liam',id:'legend-fontaine_liam',arena:'liam-legend-pond',
+  entry:'fon-wp-55781',hp:1000,mora:300,x:890,warning:'FD41',entities:[97054],
+  warningOrder:[[1,'pyro',65],[2,'pyro',105]]},
+ {tag:'deianeira',id:'legend-fontaine_deianeira_of_snezhevna',arena:'deianeira-legend-lab',
+  entry:'fon-wp-55768',approach:'fon-wp-55770',quest:'fon-hidden-lab-access',
+  hp:1130,mora:330,x:830,warning:'FD52',entities:[97055],
+  warningOrder:[[1,'anemo',62],[2,'anemo',111]]},
+].map(cfg=>({...cfg,checkpoint:'fontaine-hub'}));
+const cases=dry?dryCases:lake?[
  {tag:'vivianne',id:'legend-fontaine_vivianne_of_the_lake',arena:'vivianne-legend-bank',
   entry:'fon-wp-50056',checkpoint:'fontaine-hub',hp:1040,mora:300,x:890,warning:'LV02',entities:[97041],
   warningOrder:[[1,'hydro',64],[2,'hydro',115]],movingWave:true},
@@ -20,7 +39,7 @@ const cases=lake?[
   entry:'bygone-wp-68610',checkpoint:'bygone-camp',hp:1320,mora:440,x:925,warning:'LW03',entities:[97031],
   warningOrder:[[1,'hydro',63],[2,'hydro',116]]},
 ];
-const lakeArt='fontaine-lake-legend-poses-source-v6.png';
+const artSource=dry?'fontaine-dry-legend-poses-source-v1.png':lake?'fontaine-lake-legend-poses-source-v6.png':null;
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 const nodes=Object.fromEntries(graph.nodes.map(row=>[row.id,row]));
 const key='maple-lua-lab.checkpoint.v1';
@@ -31,22 +50,55 @@ const frame=p=>p.evaluate(()=>window.lab.frame);
 const wait=(p,fn,arg,timeout=70000)=>p.waitForFunction(fn,arg,{timeout});
 const capture=(p,t)=>p.locator('.game').screenshot({path:prefix+'-'+t+'.png'});
 
-async function start(cfg){
+async function start(cfg,needsReport){
  const context=await browser.newContext({viewport:{width:1200,height:940}});
  const page=await context.newPage();
  pages.push(page);
  page.setDefaultTimeout(45000);
  page.on('pageerror',e=>errors.push(e.message));
  const route=waypointDriver(page,nodes,{walkTimeout:32000});
- const fixture=await fs.readFile('work/coop-'+cfg.arena+'-fixture.json','utf8');
- await page.goto(process.env.LAB_URL||(lake?'http://127.0.0.1:9063/':'http://127.0.0.1:9060/'));
+ const suffix=needsReport?'-before-report-fixture.json':'-fixture.json';
+ const fixture=await fs.readFile('work/coop-'+cfg.arena+suffix,'utf8');
+ const port=dry?9064:lake?9063:9060;
+ await page.goto(process.env.LAB_URL||`http://127.0.0.1:${port}/`);
  await wait(page,()=>window.lab?.frame);
  await page.evaluate(([key,fixture])=>localStorage.setItem(key,fixture),[key,fixture]);
  await page.locator('#loadProgress').click();
  await route.waitNode(cfg.checkpoint);
- await route.warp(cfg.entry);
+ await route.warp(cfg.approach??cfg.entry);
  await page.locator('#coopPanel summary').click();
  return {context,page,route};
+}
+
+async function reportFromWaterway({page,route},cfg,code){
+ const gate=nodes[cfg.entry].exits.find(edge=>edge.to===cfg.arena);
+ await route.walk(gate.x);
+ await route.changeHeight(gate.y);
+ await wait(page,n=>{
+  const g=window.lab.frame.storyNearbyPortal;
+  return g?.to===n&&!g.available&&g.reason.includes('報告');
+ },cfg.arena);
+ await page.keyboard.press('KeyF');
+ assert.equal(await route.node(),cfg.entry);
+ const {itinerary}=graph.quests.find(q=>q.id===cfg.quest);
+ const inspect=itinerary[1];
+ await route.cross(cfg.approach);
+ await route.warp(cfg.checkpoint);
+ await route.accept(cfg.quest);
+ await route.warp(cfg.approach);
+ await route.cross(cfg.entry);
+ await route.count(cfg.quest,1);
+ await route.walk(inspect.x);
+ await route.changeHeight(inspect.y);
+ await page.keyboard.press('KeyG');
+ await route.count(cfg.quest,2);
+ await route.cross(cfg.approach);
+ await route.count(cfg.quest,3);
+ await route.warp(cfg.checkpoint);
+ await route.report(cfg.quest);
+ await route.warp(cfg.approach);
+ await route.cross(cfg.entry);
+ assert.equal((await frame(page)).coop.code,code);
 }
 
 async function drive(page,cfg,side){
@@ -98,7 +150,7 @@ async function drive(page,cfg,side){
 
 async function scenario(cfg){
  pages=[];
- const players=await Promise.all([start(cfg),start(cfg)]);
+ const players=await Promise.all([start(cfg,false),start(cfg,Boolean(cfg.quest))]);
  const [a,b]=players.map(p=>p.page);
  await a.locator('#coopCreate').click();
  await wait(a,()=>window.lab.frame.coop?.code);
@@ -106,12 +158,20 @@ async function scenario(cfg){
  await b.locator('#coopCode').fill(code);
  await b.locator('#coopJoin').click();
  await wait(b,c=>window.lab.frame.coop?.code===c,code);
- await Promise.all(players.map(p=>p.route.cross(cfg.arena)));
+ if(cfg.approach){
+  await Promise.all(players.map(p=>p.route.cross(cfg.entry)));
+  const cave=await Promise.all(players.map(p=>frame(p.page)));
+  assert.ok(cave.every(f=>f.storySwim&&f.coop.code===code&&f.coop.map===cfg.entry));
+  await players[0].route.cross(cfg.arena);
+  await reportFromWaterway(players[1],cfg,code);
+ }
+ await Promise.all((cfg.approach?players.slice(1):players).map(p=>p.route.cross(cfg.arena)));
  await Promise.all(players.map(({page})=>wait(page,n=>{
   const f=window.lab.frame;
   return f.story.node===n&&f.coop?.peers[0]?.actors.length>=1;
  },cfg.arena)));
  const before=await Promise.all(players.map(p=>frame(p.page)));
+ assert.ok(before.every(f=>!f.storySwim));
  await Promise.all([drive(a,cfg,-1),drive(b,cfg,1)]);
  const warnings=await Promise.all(players.map(async ({page})=>{
   const token=await wait(page,move=>{
@@ -122,11 +182,11 @@ async function scenario(cfg){
  }));
  assert.deepEqual(warnings[0],warnings[1]);
  assert.deepEqual(warnings[0].map(x=>x.slice(0,3)),cfg.warningOrder);
- if(lake){
+ if(artSource){
   await Promise.all(players.map(({page})=>wait(page,source=>{
    const draws=window.lab.frame.draws;
    return draws.some(d=>d.source===source)&&draws.some(d=>d.kind==='rect'&&d.color==='#17344c');
-  },lakeArt)));
+  },artSource)));
  }
  if(cfg.movingWave){
   await Promise.all(players.map(({page})=>wait(page,move=>{
@@ -154,15 +214,16 @@ async function scenario(cfg){
  const restart=await Promise.all(players.map(p=>frame(p.page)));
  assert.ok(restart.every(f=>f.coop.enemies[0]?.hp===cfg.hp));
  await Promise.all(players.map(p=>p.context.close()));
- return {results,warnings: warnings[0],rewards,contacts,saved:true,sharedRematch:true};
+ return {results,warnings: warnings[0],rewards,contacts,saved:true,sharedRematch:true,
+  ...(cfg.quest?{personalQuestGate:true,sharedUnderwaterApproach:true}:{})};
 }
 
 try{
- const evidence={participants:2,...(lake?{artSource:lakeArt}: {})};
+ const evidence={participants:2,...(artSource?{artSource}: {})};
  for(const cfg of cases)evidence[cfg.tag]=await scenario(cfg);
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({...evidence,errors},null,2)+'\n');
- console.log('Chrome: both Local Legends share warnings, combat, personal rewards, and a fresh rematch.');
+ console.log(`Chrome: ${cases.length} Local Legends share warnings, combat, personal rewards, and a fresh rematch.`);
 }catch(error){
  const status=await Promise.allSettled(pages.map(p=>p.evaluate(()=>{
   const f=window.lab.frame;

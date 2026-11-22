@@ -1,0 +1,273 @@
+{
+  "participants": 2,
+  "artSource": "fontaine-dry-legend-poses-source-v1.png",
+  "yseut": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1696,
+        "moves": [
+          "FD11",
+          "FD12"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1698,
+        "moves": [
+          "FD11",
+          "FD12"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "cryo",
+        62,
+        396,
+        532
+      ],
+      [
+        2,
+        "cryo",
+        106,
+        556,
+        696
+      ]
+    ],
+    "rewards": [
+      [
+        212400,
+        300
+      ],
+      [
+        212400,
+        300
+      ]
+    ],
+    "contacts": [
+      6,
+      6
+    ],
+    "saved": true,
+    "sharedRematch": true
+  },
+  "gravity-device": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1682,
+        "moves": [
+          "FD21",
+          "FD22"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1667,
+        "moves": [
+          "FD21",
+          "FD22"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "geo",
+        69,
+        694,
+        884
+      ],
+      [
+        2,
+        "geo",
+        112,
+        891,
+        1089
+      ]
+    ],
+    "rewards": [
+      [
+        212400,
+        360
+      ],
+      [
+        212400,
+        360
+      ]
+    ],
+    "contacts": [
+      7,
+      8
+    ],
+    "saved": true,
+    "sharedRematch": true
+  },
+  "rocky": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1698,
+        "moves": [
+          "FD31"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1698,
+        "moves": [
+          "FD31"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "physical",
+        57,
+        533.1000000000008,
+        773.1000000000008
+      ],
+      [
+        2,
+        "physical",
+        91,
+        445,
+        569
+      ]
+    ],
+    "rewards": [
+      [
+        212400,
+        300
+      ],
+      [
+        212400,
+        300
+      ]
+    ],
+    "contacts": [
+      6,
+      6
+    ],
+    "saved": true,
+    "sharedRematch": true
+  },
+  "liam": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1713,
+        "moves": [
+          "FD41"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1713,
+        "moves": [
+          "FD41"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "pyro",
+        65,
+        423,
+        567
+      ],
+      [
+        2,
+        "pyro",
+        105,
+        591,
+        735
+      ]
+    ],
+    "rewards": [
+      [
+        212400,
+        300
+      ],
+      [
+        212400,
+        300
+      ]
+    ],
+    "contacts": [
+      7,
+      6
+    ],
+    "saved": true,
+    "sharedRematch": true
+  },
+  "deianeira": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1678,
+        "moves": [
+          "FD51",
+          "FD52"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1679,
+        "moves": [
+          "FD51",
+          "FD52"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "anemo",
+        62,
+        601.5,
+        753.5
+      ],
+      [
+        2,
+        "anemo",
+        111,
+        439.5,
+        609.5
+      ]
+    ],
+    "rewards": [
+      [
+        212400,
+        330
+      ],
+      [
+        212400,
+        330
+      ]
+    ],
+    "contacts": [
+      6,
+      7
+    ],
+    "saved": true,
+    "sharedRematch": true,
+    "personalQuestGate": true,
+    "sharedUnderwaterApproach": true
+  },
+  "errors": []
+}

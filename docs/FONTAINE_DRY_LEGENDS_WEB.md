@@ -12,6 +12,10 @@
 
 ディアンナラの入口には依頼「水洞の奥の圧力扉」がある。Lv94で水辺の広場の調査係から受注し、湾東の岬から潜る。水洞の圧力計近くでGを押し、岬へ戻って調査係に報告する。水洞の扉から乾いた床へ入れ、退却時は同じ深さの水洞へ戻る。派生の任意依頼と戦闘条件はラボ用の試作。地上4戦は報告不要で、全5戦とも本編・日次の必須条件の外にある。 [位置と配置の台帳](../design/world/encounters.json) · [入口と条件の実装索引](../sources/map-research/sites-fontaine-dry-legends.json)
 
+## 共闘
+
+地上4戦は入口、ディアンナラ戦は湾東の岬と東の島の水洞で部屋を作れる。戦闘の門は各自Lv100。ディアンナラ戦の扉は依頼を報告した人から通れ、途中で報告した仲間も同じ部屋へ入れる。予告の境界が見やすいように濃紺で縁を付けた。 [共有HPと個別報酬、戦闘画面](COOP_WEB_PREVIEW.md#フォンテーヌの陸上地方伝説5戦)
+
 ## 絵と軽量描画
 
 画像の確認とドット絵はGPT-6.2 Astraの別チャットが担当した。公開ゲーム画面14点で輪郭や道具を確認し、独自のラボ用の待機・構え・攻撃15ポーズを制作した。人型4体の待機姿勢は目視推定2.88〜3.07頭身。装置は原寸で床から14px浮かせた。床位置は元PNGと矩形描画で共通。5体の透過PNGシートは約203KBで、ラボの戦闘画面では初めて表示する時に読み込む。背景はラボ用の仮画像で、本番の3D配置は移植時に検証する。 [全15ポーズ](../evidence/fontaine-dry-legend-poses.png) · [確認した画像と採用理由](../evidence/fontaine-dry-legend-art-sources.json) · [待機絵の比較](http://127.0.0.1:8978/bosses-art.html?q=%E3%83%AD%E3%83%83%E3%82%AD%E3%83%BC)
@@ -21,3 +25,5 @@
 Luaで既存4戦を含む任意戦9件を検証した。入口のLv境界、依頼による開放、行動の予告と命中範囲、戦闘中に退く経路、再挑戦、討伐報酬の重複防止、セーブ後の記録が通った。今回の5戦は通常攻撃・移動・ジャンプを自動入力し、設定した最大HPから討伐まで75.52〜100.00秒。予告中の同じ状態で標準から軽量16色に切り替えると、新規5戦で描画指示数が約72〜74％減った。数値はローカルラボでの結果。 [Lua検証ログ](../evidence/sites-branch-legends-lua.json) · [Chrome検証ログ](../evidence/sites-fontaine-dry-legends-browser.json)
 
 再検証は `python -X utf8 test_branch_legends.py`、8978のラボで `node test_branch_legends.mjs --dry`。素材を再変換する場合は `python -X utf8 tools/build_branch_legend_art.py`。
+
+共闘の再検証は、ソロ試験でセーブを生成した後に `python -X utf8 test_coop_dry_legends.py` を実行する。サーバーのURLを `LAB_URL` に設定して、`node test_coop_branch_legends.mjs --dry` でブラウザ2画面の入場、報酬と再戦を確認できる。
