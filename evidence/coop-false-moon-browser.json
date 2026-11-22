@@ -1,0 +1,53 @@
+{
+  "participants": 2,
+  "court": {
+    "key": "falseMoonCourt",
+    "file": "false-moon-court-background-v1.png",
+    "state": "ready"
+  },
+  "rift": {
+    "key": "falseMoonRift",
+    "file": "false-moon-rift-background-v1.png",
+    "state": "ready"
+  },
+  "rules": [
+    [
+      "WM09:success"
+    ],
+    [
+      "WM12",
+      "WM12:hit"
+    ]
+  ],
+  "visited": [
+    [
+      "nod-false-moon-court",
+      "nod-false-moon-rift",
+      "nod-false-moon-court"
+    ],
+    [
+      "nod-false-moon-court",
+      "nod-false-moon-rift",
+      "nod-false-moon-court"
+    ]
+  ],
+  "unanimousEntry": true,
+  "cancelAndConfirmAgain": true,
+  "sharedShadows": 3,
+  "settledLoss": 408,
+  "rewards": [
+    [
+      2964300,
+      5500
+    ],
+    [
+      2964300,
+      5500
+    ]
+  ],
+  "report": {
+    "xp": 840000,
+    "mora": 21200
+  },
+  "errors": []
+}

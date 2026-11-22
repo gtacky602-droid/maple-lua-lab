@@ -8150,6 +8150,8 @@
       "atocpan-overseer-ruin",
       "spiritspeaker-field-grotto",
       "nod-town",
+      "nod-false-moon-court",
+      "nod-false-moon-rift",
       "nod-field",
       "nod-duckle-workyard",
       "nod-battleship-depot",
@@ -8235,7 +8237,8 @@
       "boss-29090101",
       "boss-29091001",
       "boss-29091101",
-      "boss-29122000"
+      "boss-29122000",
+      "boss-29130201"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8440,7 +8443,14 @@
       "evidence/coop-gate-pawns.png",
       "evidence/coop-gate-lure.png",
       "evidence/coop-gate-exposure.png",
-      "evidence/coop-gate-transfer.png"
+      "evidence/coop-gate-transfer.png",
+      "evidence/coop-false-moon-lua-http.json",
+      "evidence/coop-false-moon-browser.json",
+      "evidence/coop-false-moon-law.png",
+      "evidence/coop-false-moon-ward.png",
+      "evidence/coop-false-moon-vote.png",
+      "evidence/coop-false-moon-rift.png",
+      "evidence/coop-false-moon-returned.png"
     ],
     "pending": [
       "remaining original field encounters, local legends, weekly and Stygian bosses",

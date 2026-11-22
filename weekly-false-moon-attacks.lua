@@ -24,12 +24,25 @@ return function(C)
  function M.coverAt(spec,a)
   for i in ipairs(spec.cover.pointsU) do if M.protects(a,M.ward(spec,i)) then return i end end
  end
+ function M.target(s,x)
+  if not s.parties then return s.actors[s.active] end
+  local best,distance
+  for _,party in ipairs(s.parties) do
+   local a=party.actors[party.active]
+   if a.hp<=0 then a=party.actors[3-party.active] end
+   local d=math.abs(a.x-x)
+   if a.hp>0 and (not distance or d<distance) then best,distance=a,d end
+  end
+  return best
+ end
  function M.hurt(s,w,spec,key,a,n,source)
-  local damage=C.damageActor(s,a,n,source or w.primary,true,true)
-  if damage>0 then C.combatEvent(s,'false-moon:'..key..':hit',a.id,w.primary.id,damage) end
+  local party=s.actorOwners and s.actorOwners[a] or s
+  local damage=C.damageActor(party,a,n,source or w.primary,true,true)
+  if damage>0 then C.combatEvent(party,'false-moon:'..key..':hit',a.id,w.primary.id,damage) end
  end
  function M.lock(s,w,spec,c,i)
-  local a=s.actors[s.active]
+  local a=M.target(s,c.origin)
+  if not a then return end
   c.mark=M.point(spec,a.x)
   c.dir=a.x>=c.origin and 1 or -1
   if c.key=='WM01' then
@@ -96,12 +109,13 @@ return function(C)
     local zones=M.shapes(w,spec,c,i)
     c.seen[i]=c.seen[i] or {};w.phase='active'
     for _,a in ipairs(s.actors) do
-     if not c.seen[i][a.id] then
+     if not c.seen[i][a] then
       for _,z in ipairs(zones) do
        if M.inside(a,z) then
-        c.seen[i][a.id]=true
+        c.seen[i][a]=true
         if c.key=='WM08' and i==2 and M.coverAt(spec,a) then
-         C.combatEvent(s,'false-moon:WM08:ward',a.id,w.primary.id,M.coverAt(spec,a))
+         local party=s.actorOwners and s.actorOwners[a] or s
+         C.combatEvent(party,'false-moon:WM08:ward',a.id,w.primary.id,M.coverAt(spec,a))
         else M.hurt(s,w,spec,c.key,a,c.key=='WM08' and i==2 and spec.damage.shock or spec.damage.base) end
         break
        end

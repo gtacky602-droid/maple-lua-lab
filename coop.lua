@@ -20,7 +20,9 @@ return function(C, config)
    member={id=room.nextId,state=s,online=true}
   end
   if room.weeklySpec and room.weeklySpec.innerNode and s.story.node~=room.node then
-   assert(C.switchWeeklyStoryScene(s,room.node,room.weeklySpec.sceneSpawn+#room.members*72))
+   local spec=room.weeklySpec
+   local spawn=(room.node==spec.innerNode and spec.innerSceneSpawn) or spec.sceneSpawn
+   assert(C.switchWeeklyStoryScene(s,room.node,spawn+#room.members*72))
   end
   room.members[#room.members+1]=member
   s.coop,s.coopMember,s.enemies=room,member,room.enemies

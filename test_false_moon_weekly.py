@@ -68,15 +68,16 @@ assert list(native(spec.moves.WM09.rule_window))==[120,420]
 
 a=s.actors[1]
 c=choose(s,w,spec,'WM09')
+rule=c.players[s]
 step(s,117)
 a.dash,a.dashDir=.25,1
 step(s,25)
-assert c.t==142 and not c.violation
+assert c.t==142 and not rule.violation
 place(a,330)
 step(s,16,attack=True)
-assert not c.violation
+assert not rule.violation
 step(s,9,right=True)
-assert c.violation.kind=='walk' and len(events(s,'WM09:violation:walk'))==1
+assert rule.violation.kind=='walk' and len(events(s,'WM09:violation:walk'))==1
 a.cd.dodge=0
 core.action(s,'dodge')
 assert not events(s,'WM09:violation:dodge')
@@ -85,7 +86,7 @@ ally.hp=ally.maxhp
 core.action(s,'swap')
 assert s.active==2
 step(s,420-c.t)
-assert c.sentence.owner==2
+assert rule.sentence.actor.id==2
 place(ally,448)
 place(a,448)
 step(s,36)
@@ -101,7 +102,7 @@ c=choose(s,w,spec,'WM09')
 step(s,419)
 place(s.actors[1],320)
 step(s,1,right=True)
-assert not c.violation and len(events(s,'WM09:success'))==1
+assert not c.players[s].violation and len(events(s,'WM09:success'))==1
 
 s,w,spec=start()
 a=s.actors[1]
@@ -109,10 +110,10 @@ c=choose(s,w,spec,'WM09')
 step(s,119)
 core.action(s,'jump')
 step(s,50,jump=True)
-assert not c.violation and a.ground
+assert not c.players[s].violation and a.ground
 core.action(s,'jump')
 step(s,1,jump=True)
-assert c.violation.kind=='jump' and not a.ground
+assert c.players[s].violation.kind=='jump' and not a.ground
 
 s,w,spec=start()
 a=s.actors[1]
@@ -121,23 +122,23 @@ c=choose(s,w,spec,'WM10')
 a.dir=1
 place(a,310)
 step(s,124)
-assert not c.violation and c.logical==-1
+assert not c.players[s].violation and c.players[s].logical==-1
 step(s,1,right=True)
-assert c.violation.kind=='facing' and len(events(s,'WM10:violation:facing'))==1
+assert c.players[s].violation.kind=='facing' and len(events(s,'WM10:violation:facing'))==1
 
 s,w,spec=start()
 a=s.actors[1]
 c=choose(s,w,spec,'WM09')
 step(s,119)
-s.macroInputAt=c.startedAt+1.9
+s.macroInputAt=c.players[s].startedAt+1.9
 dash=a.dash
 key=next(k for k,m in core.skillDefinitions.items() if m.dash)
 step(s,2)
 assert core.attack(s,a,key)
 s.macroInputAt=None
-assert a.dash!=dash and not c.violation
+assert a.dash!=dash and not c.players[s].violation
 a.lock,a.cd[key]=0,0
-assert core.attack(s,a,key) and c.violation.kind=='root'
+assert core.attack(s,a,key) and c.players[s].violation.kind=='root'
 
 s,w,spec=start()
 c=choose(s,w,spec,'WM08')

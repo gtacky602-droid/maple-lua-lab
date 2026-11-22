@@ -1,0 +1,30 @@
+{
+  "lua": {
+    "participants": 4,
+    "ownMotionAndFacing": true,
+    "onlyOwnSentenceAfterSwap": true,
+    "individualCover": true,
+    "allLivingVotes": true,
+    "deathRecountsVotes": true,
+    "arrivalBeforeCommitReopensVote": true,
+    "roomCreatedDuringEntryRecountsVotes": true,
+    "earlyReturnRequiresAll": true,
+    "carriesHpCooldownAndGauge": true,
+    "earlyReturnLoss": 272,
+    "exposureTicks": 360,
+    "twoFullReturnsCap": 816,
+    "zeroBudgetStillExposes": true,
+    "lethalSettlementOnce": true,
+    "detachedAttackerNoReward": true,
+    "wipeReturnsToOuter": true
+  },
+  "http": {
+    "participants": 3,
+    "oneRoomAcrossScenes": true,
+    "lateJoinToInner": true,
+    "earlyReturnRequiresAll": true,
+    "ownRewards": true,
+    "personalXp": 2964300,
+    "personalMora": 5500
+  }
+}
