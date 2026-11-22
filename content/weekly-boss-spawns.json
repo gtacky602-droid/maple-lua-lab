@@ -5167,6 +5167,7 @@
       "entity": 29150101,
       "controller": "heretic",
       "node": "sumeru-heretic-lattice",
+      "coop": true,
       "storyChallenge": "heretic-weekly",
       "name": "ドットーレ・左道の真諦者",
       "level": 144,

@@ -1,0 +1,67 @@
+{
+  "participants": 2,
+  "scene": {
+    "key": "hereticLattice",
+    "file": "heretic-lattice-background-v1.png",
+    "state": "ready"
+  },
+  "healthPools": [
+    1650,
+    2250
+  ],
+  "cards": [
+    [
+      "WH01",
+      "WH02",
+      "WH10",
+      "WH11",
+      "WH13",
+      "WH18",
+      "WH16",
+      "WH17",
+      "WH13",
+      "WH19"
+    ],
+    [
+      "WH01",
+      "WH02",
+      "WH10",
+      "WH11",
+      "WH13",
+      "WH18",
+      "WH16",
+      "WH17",
+      "WH13",
+      "WH19"
+    ]
+  ],
+  "sharedWall": true,
+  "deadlineTicks": 1800,
+  "successfulTrial": 2,
+  "sharedAcceptedChantHits": 24,
+  "sourceCounts": [
+    [
+      12,
+      12
+    ],
+    [
+      12,
+      12
+    ]
+  ],
+  "rewards": [
+    [
+      4398300,
+      6600
+    ],
+    [
+      4398300,
+      6600
+    ]
+  ],
+  "report": {
+    "xp": 1230000,
+    "mora": 26500
+  },
+  "errors": []
+}

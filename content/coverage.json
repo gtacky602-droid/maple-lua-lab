@@ -8115,6 +8115,7 @@
       "suanni-field-sanctum",
       "sumeru-entry",
       "sumeru-hub",
+      "sumeru-heretic-lattice",
       "shouki-godmaking-arena",
       "apep-oasis-heart-arena",
       "sumeru-field",
@@ -8238,7 +8239,8 @@
       "boss-29091001",
       "boss-29091101",
       "boss-29122000",
-      "boss-29130201"
+      "boss-29130201",
+      "boss-29150101"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8450,10 +8452,16 @@
       "evidence/coop-false-moon-ward.png",
       "evidence/coop-false-moon-vote.png",
       "evidence/coop-false-moon-rift.png",
-      "evidence/coop-false-moon-returned.png"
+      "evidence/coop-false-moon-returned.png",
+      "evidence/coop-heretic-lua-http.json",
+      "evidence/coop-heretic-browser.json",
+      "evidence/coop-heretic-change.png",
+      "evidence/coop-heretic-wall.png",
+      "evidence/coop-heretic-chant.png",
+      "evidence/coop-heretic-exposure.png"
     ],
     "pending": [
-      "remaining original field encounters, local legends, weekly and Stygian bosses",
+      "lab-original field and weekly encounters, remaining Local Legends and Stygian bosses",
       "shared combat outside the supported maps",
       "remote and Miliastra tests"
     ]

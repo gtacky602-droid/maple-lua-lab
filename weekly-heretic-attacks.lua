@@ -15,24 +15,38 @@ return function(C)
  local function inside(a,z)
   return a.hp>0 and a.x>=z.lo and a.x<=z.hi and a.y>=z.y-z.h and a.y<=z.y+4
  end
+ function M.target(s,x)
+  if not s.parties then return s.actors[s.active] end
+  local best,distance
+  for _,party in ipairs(s.parties) do
+   local a=party.actors[party.active]
+   if a.hp<=0 then a=party.actors[3-party.active] end
+   local d=math.abs(a.x-x)
+   if a.hp>0 and (not distance or d<distance) then best,distance=a,d end
+  end
+  return best
+ end
  local function hurt(s,w,c,a,amount)
-  local n=C.damageActor(s,a,amount,w.primary,true,true)
-  if n>0 then C.combatEvent(s,'heretic:'..c.key..':hit',a.id,w.primary.id,n) end
+  local party=s.actorOwners and s.actorOwners[a] or s
+  local n=C.damageActor(party,a,amount,w.primary,true,true)
+  if n>0 then C.combatEvent(party,'heretic:'..c.key..':hit',a.id,w.primary.id,n) end
  end
  local function impact(s,w,c,group,zones,damage)
   local seen=c.seen[group] or {};c.seen[group]=seen
   for _,a in ipairs(s.actors) do
-   if not seen[a.id] then
+   if not seen[a] then
     for _,z in ipairs(zones) do
      if inside(a,z) then
-      seen[a.id]=true;hurt(s,w,c,a,damage);break
+      seen[a]=true;hurt(s,w,c,a,damage);break
      end
     end
    end
   end
  end
  local function target(s,w,spec,c,i)
-  local a,e=s.actors[s.active],w.primary
+  local e=w.primary
+  local a=M.target(s,e.x)
+  if not a then return end
   local U=spec.board.unit
   c.origin,c.dir=e.x,a.x>=e.x and 1 or -1
   if c.key=='WH01' or c.key=='WH09' and i==1 then

@@ -1,0 +1,31 @@
+{
+  "lua": {
+    "participants": 4,
+    "hp": [
+      1650,
+      2250
+    ],
+    "wallPushPerActor": 30.8,
+    "harmlessWall": true,
+    "upperOpening": true,
+    "sharedCores": true,
+    "independentIntervals": true,
+    "repeatImpactRejected": true,
+    "sameTickMultipleActors": true,
+    "noCopiedEncounterState": true,
+    "mimicHitsPerActor": true,
+    "chantHits": 24,
+    "deadlineInclusive": 1800,
+    "exposureTicks": 720,
+    "wipeResetsTrial": true
+  },
+  "http": {
+    "participants": 2,
+    "roomFreezesOnRetreat": true,
+    "normalHitsShareCore": true,
+    "bothSaved": true,
+    "personalXp": 4398300,
+    "personalMora": 6600,
+    "onlyOwnQuest": true
+  }
+}

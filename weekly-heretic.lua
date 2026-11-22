@@ -1,7 +1,20 @@
 return function(C,M)
  local controller={}
- local function log(s,w,key,actor,value)
+ local function weakKeys() return setmetatable({},{__mode='k'}) end
+ local function ownLog(s,w,key,actor,value,member)
   C.combatEvent(s,'heretic:'..key,actor or 0,w.primary.id,value or 0)
+  if member then s.events[#s.events].member=member end
+ end
+ local function log(s,w,key,actor,value)
+  local room=s.coopWorld or (s.coop and s.coop.weeklySlot==w and s.coop)
+  if not room then ownLog(s,w,key,actor,value);return end
+  local source=s.coopMember and s.coopMember.id
+  for _,member in ipairs(room.members) do
+   if member.online and C.sharesCoopField(member.state) then ownLog(member.state,w,key,actor,value,source) end
+  end
+ end
+ local function contribute(s,w,id)
+  if s.coop and s.coop.weeklySlot==w then C.coopContact(s,w.primary,id) end
  end
  local function remove(s,e)
   for i=#s.enemies,1,-1 do if s.enemies[i]==e then table.remove(s.enemies,i) end end
@@ -19,7 +32,8 @@ return function(C,M)
   if w.cast then w.cast.child=nil end
  end
  local function start(s,w,spec,key)
-  local a,e=s.actors[s.active],w.primary
+  local e=w.primary
+  local a=M.target(s,e.x) or e
   local c={key=key,t=0,move=spec.moves[key],origin=e.x,dir=a.x>=e.x and 1 or -1,seen={},shots={}}
   w.cast=c;w.phase='warning';w.contactTick=nil
   if key=='WH10' or key=='WH13' or key=='WH19' then targetable(e,false)
@@ -33,7 +47,7 @@ return function(C,M)
   elseif key=='WH13' then
    w.stage='trial';w.phase='anchors'
    w.trialId=w.trialId+1
-   c.chant=c.move.chant_count;c.wallIndex=0;c.pushedAt={}
+   c.chant=c.move.chant_count;c.wallIndex=0;c.pushedAt=weakKeys()
    c.nextChild=c.move.spawn_tick
    ground(e,spec,M.x(spec,spec.trial.bodyU));e.dir=-1
   elseif key=='WH19' then
@@ -45,7 +59,7 @@ return function(C,M)
   return c
  end
  local function ledger()
-  return {last={},events=setmetatable({},{__mode='k'})}
+  return {last=weakKeys(),events=weakKeys()}
  end
  local function credit(s,w,c,e,cast)
   local tick=w.contactTick or c.t
@@ -53,9 +67,11 @@ return function(C,M)
   local l=e==w.primary and c.ledger or e.ledger
   if (l.events[cast] or 0)>=cast.impactEvent then return false end
   l.events[cast]=cast.impactEvent
-  if tick-(l.last[cast.id] or -math.huge)<c.move.hit_interval_ticks then return false end
-  l.last[cast.id]=tick;c.resolutionTick=tick
+  local a=s.actors[cast.id]
+  if not a or tick-(l.last[a] or -math.huge)<c.move.hit_interval_ticks then return false end
+  l.last[a]=tick;c.resolutionTick=tick
   C.combatNumber(s,e,'−1',M.safe)
+  contribute(s,w,cast.id)
   return true
  end
  local function contact(s,w,spec,e,cast,mult,color,element)
@@ -79,6 +95,7 @@ return function(C,M)
   C.combatEvent(s,'hit',cast.id,e.id,amount)
   local event=s.events[#s.events]
   event.element=element;event.reaction=cast.reaction or false;event.critical=not not crit
+  contribute(s,w,cast.id)
   if amount==available and w.form==2 then
    C.defeatEnemy(s,e,cast.id)
   else
@@ -102,7 +119,7 @@ return function(C,M)
    local hp,y=c.move.anchor_count_hp,spec.floorY
    local e={id=spec.entity+i,kind='anchor',x=M.x(spec,u),y=y,hp=hp,maxhp=hp,
     hitTop=y-.85*spec.board.unit,hitBottom=y-.20*spec.board.unit,
-    hitHalfWidth=21,custom=true,boss=true,noRewards=true,respawn=math.huge,warning=0,ledger=ledger()}
+    hitHalfWidth=21,custom=true,boss=true,noRewards=true,weeklyPart=true,respawn=math.huge,warning=0,ledger=ledger()}
    e.onCastContact=function(state,cast) return anchorContact(state,w,c,e,cast) end
    w.anchors[#w.anchors+1]=e;s.enemies[#s.enemies+1]=e
   end
@@ -114,15 +131,16 @@ return function(C,M)
   local previous=wall.x
   wall.x=wall.x-wall.speed
   for _,a in ipairs(s.actors) do
-   local from=(w.actorBefore and w.actorBefore[a.id]) or a.x
+   local from=(w.actorBefore and w.actorBefore[a]) or a.x
    local lo,hi=math.min(from-previous,a.x-wall.x),math.max(from-previous,a.x-wall.x)
    local fits=a.y<174 or a.y<=wall.bottom+1 and a.y-78>=wall.top
    if a.hp>0 and lo<=spec.trial.wallHalfWidth+18 and hi>=-spec.trial.wallHalfWidth-18 and not fits and
-      not wall.touched[a.id] and w.clock-(parent.pushedAt[a.id] or -math.huge)>=child.move.push_interval_ticks then
-    wall.touched[a.id]=true;parent.pushedAt[a.id]=w.clock
+      not wall.touched[a] and w.clock-(parent.pushedAt[a] or -math.huge)>=child.move.push_interval_ticks then
+    wall.touched[a]=true;parent.pushedAt[a]=w.clock
     local x=a.x
     a.x=math.min(x,math.max(spec.board.left+10,x-child.move.max_push_U*spec.board.unit))
-    log(s,w,'WH14:push',a.id,math.floor((x-a.x)*10+.5)/10)
+    local party=s.actorOwners and s.actorOwners[a] or s
+    ownLog(party,w,'WH14:push',a.id,math.floor((x-a.x)*10+.5)/10)
    end
   end
  end
@@ -166,7 +184,7 @@ return function(C,M)
    if child.t==m.spawn_tick then
     local g=child.gap
     child.wall={x=M.x(spec,9.25),speed=spec.trial.wallSpeedU*spec.board.unit/60,
-     top=g.top,bottom=g.bottom,touched={}}
+     top=g.top,bottom=g.bottom,touched=weakKeys()}
    end
    if child.t==m.spawn_tick+m.ttl_ticks then child.wall=nil end
    if child.wall then sweep(s,w,spec,c,child) end
@@ -223,7 +241,7 @@ return function(C,M)
  end
  function controller.attach(s,w)
   s.enemies[#s.enemies+1]=w.primary
-  s.grappleNodes={};s.selectedGrapple=nil
+  for _,party in ipairs(s.parties or {s}) do party.grappleNodes={};party.selectedGrapple=nil end
  end
  function controller.cleanup(s,w)
   clearTrial(s,w)
@@ -240,7 +258,7 @@ return function(C,M)
    end
   end
   w.actorBefore={}
-  for _,a in ipairs(s.actors) do w.actorBefore[a.id]=a.x end
+  for _,a in ipairs(s.actors) do w.actorBefore[a]=a.x end
  end
  function controller.finish(s,w,spec,dt)
   w.contactTick=nil;w.forecast=nil
@@ -249,6 +267,9 @@ return function(C,M)
    w.remainder=w.remainder-1;tick(s,w,spec)
   end
   w.actorBefore=nil
+  if not s.parties or w.primary.hp<=0 then return end
+  for _,a in ipairs(s.actors) do if a.hp>0 then return end end
+  clearTrial(s,w);w.cast=nil;w.rechallenge=true;targetable(w.primary,false)
  end
  local function painter(f,s)
   return function(x,y,width,height,color,opacity)

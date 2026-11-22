@@ -8,7 +8,7 @@ lua,core=runtime()
 hub,arena='sumeru-hub','sumeru-heretic-lattice'
 quest,uid='heretic-weekly-commission','boss-29150101'
 advance=lua.eval('function(C,s,n) for i=1,n do C.step(s,1/60,{}) end end')
-same_wall_actor=lua.eval('function(w,id) return w.cast.child.wall.touched[id] end')
+same_wall_actor=lua.eval('function(w,actor) return w.cast.child.wall.touched[actor] end')
 
 
 def step(s,n):
@@ -125,10 +125,10 @@ place(a,711)
 hp=a.hp
 step(s,137)
 assert w.cast.child.key=='WH14' and not w.cast.child.gap.upper
-assert not same_wall_actor(w,1) and a.x==711 and a.hp==hp
+assert not same_wall_actor(w,a) and a.x==711 and a.hp==hp
 step(s,360)
 assert w.cast.child.key=='WH14' and w.cast.child.gap.upper
-assert same_wall_actor(w,1) and 30.7<=711-a.x<=30.9 and a.hp==hp
+assert same_wall_actor(w,a) and 30.7<=711-a.x<=30.9 and a.hp==hp
 assert len(events(s,'WH14:push'))==1
 place(a,711,339)
 step(s,14)
