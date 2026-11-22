@@ -1,0 +1,80 @@
+{
+  "participants": 2,
+  "fading-veteran": {
+    "warning": [
+      344,
+      851,
+      296,
+      340,
+      112,
+      152
+    ],
+    "rewards": [
+      [
+        212400,
+        375
+      ],
+      [
+        212400,
+        375
+      ]
+    ],
+    "waterControlsOnly": true,
+    "saved": true,
+    "sharedRematch": true,
+    "sharedRevealedWithoutDamage": true,
+    "sonarCooldownIsPersonal": true,
+    "guestHitDuringReveal": true
+  },
+  "dobharcu": {
+    "warning": [
+      344,
+      860,
+      229,
+      273,
+      83,
+      116
+    ],
+    "rewards": [
+      [
+        212400,
+        390
+      ],
+      [
+        212400,
+        390
+      ]
+    ],
+    "waterControlsOnly": true,
+    "saved": true,
+    "sharedRematch": true,
+    "sharedRevealedWithoutDamage": true,
+    "sonarCooldownIsPersonal": true,
+    "guestHitDuringReveal": true
+  },
+  "luachra": {
+    "warning": [
+      370,
+      890,
+      265,
+      339,
+      62,
+      97
+    ],
+    "rewards": [
+      [
+        212400,
+        402
+      ],
+      [
+        212400,
+        402
+      ]
+    ],
+    "waterControlsOnly": true,
+    "saved": true,
+    "sharedRematch": true,
+    "bossMovesWithHitZone": true
+  },
+  "errors": []
+}

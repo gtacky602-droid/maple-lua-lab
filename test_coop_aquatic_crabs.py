@@ -226,6 +226,18 @@ def fixture(lua,core):
         json.dumps(validate_save(native(core.checkpoint(s)))),encoding='utf8')
 
 
+def equipped_fixture(lua,core,name):
+    s=core.restore(lua.table_from(read(f'work/{name}-fixture.json'),recursive=True))
+    s.mora=400000
+    assert core.giveArtifact(s,1,82,3)
+    core.action(s,'artifact_equip:1')
+    core.action(s,'artifact_upgrade:1')
+    assert core.giveArtifact(s,2,40,3)
+    core.action(s,'artifact_equip:2')
+    saved=validate_save(native(core.checkpoint(s)))
+    (ROOT/f'work/coop-{name}-fixture.json').write_text(json.dumps(saved),encoding='utf8')
+
+
 if __name__=='__main__':
     lua,core=runtime()
     fixture(lua,core)

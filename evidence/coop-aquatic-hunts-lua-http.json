@@ -1,0 +1,39 @@
+{
+  "lua": {
+    "participants": 4,
+    "outcomes": {
+      "legend-fontaine_fading_veteran": {
+        "move": "FW41",
+        "exposedTicks": 136,
+        "guestPulse": 5,
+        "xp": 212400
+      },
+      "legend-fontaine_dobharcu_lord_of_the_hidden": {
+        "move": "FW44",
+        "exposedTicks": 136,
+        "guestPulse": 5,
+        "xp": 212400
+      },
+      "legend-fontaine_luachra_the_brilliant": {
+        "move": "FW47",
+        "damage": 35,
+        "xp": 212400
+      }
+    },
+    "sharedRevealCancelsActiveOrb": true,
+    "wrongDirectionAndCooldownArePersonal": true,
+    "repeatEchoDoesNotExtend": true,
+    "allyCanHitDuringReveal": true,
+    "dashSweepsWithBody": true,
+    "dashDepthAvoidance": true,
+    "onlyContributorsCredited": true
+  },
+  "http": {
+    "participants": 2,
+    "individualLevelGate": true,
+    "sharedRevealFromRealInput": true,
+    "retreatPreservesHp": true,
+    "eachRewardSavedOnce": true,
+    "sharedRematch": true
+  }
+}

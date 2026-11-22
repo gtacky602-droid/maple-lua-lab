@@ -1,12 +1,12 @@
 """Verify both paired-ray encounters through shared Lua and HTTP rooms."""
 import json
 
-from runtime import ROOT, native, runtime
+from runtime import ROOT, runtime
 from savegame import validate_save
 from test_coop_anemo import TICK
-from test_coop_aquatic_crabs import pulse, swimmers, through
+from test_coop_aquatic_crabs import equipped_fixture, pulse, swimmers, through
 from test_coop_branch_legends import (
-    SPECS, actor_at, damage, level, read, run_until, verify_credit, view,
+    SPECS, actor_at, damage, level, run_until, verify_credit, view,
 )
 from test_coop_childe import run
 from test_coop_dry_legends import at, edge
@@ -16,18 +16,6 @@ from test_coop_local import Client, LOCK, SESSIONS, advance, lab
 TWINS='legend-fontaine_fairy_knight_twins'
 GORGE='legend-fontaine_swords_of_the_gorge'
 ENTRANCES={TWINS:'fon-wp-50075',GORGE:'fon-wp-50071'}
-
-
-def fixture(lua,core):
-    s=core.restore(lua.table_from(read('work/fontaine-ray-pairs-fixture.json'),recursive=True))
-    s.mora=400000
-    assert core.giveArtifact(s,1,82,3)
-    core.action(s,'artifact_equip:1')
-    core.action(s,'artifact_upgrade:1')
-    assert core.giveArtifact(s,2,40,3)
-    core.action(s,'artifact_equip:2')
-    saved=validate_save(native(core.checkpoint(s)))
-    (ROOT/'work/coop-fontaine-ray-pairs-fixture.json').write_text(json.dumps(saved),encoding='utf8')
 
 
 def shared_combat(core,id):
@@ -151,7 +139,7 @@ def http(url,id):
 
 if __name__=='__main__':
     lua,core=runtime()
-    fixture(lua,core)
+    equipped_fixture(lua,core,'fontaine-ray-pairs')
     outcomes={id:shared_combat(core,id) for id in ENTRANCES}
     with lab() as url:
         for id in ENTRANCES: http(url,id)

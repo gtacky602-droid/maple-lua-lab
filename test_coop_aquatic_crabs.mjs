@@ -7,8 +7,17 @@ const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 const nodes=Object.fromEntries(graph.nodes.map(n=>[n.id,n]));
 const hub='fontaine-hub', quest=graph.quests.find(q=>q.id==='fon-beryl-thermal-vents');
 const rayPairs=process.argv.includes('--rays');
-const prefix=rayPairs?'evidence/coop-ray-pairs':'evidence/coop-aquatic-crabs';
-const cases=rayPairs?[
+const hunts=process.argv.includes('--hunts');
+const prefix=hunts?'evidence/coop-aquatic-hunts':rayPairs?'evidence/coop-ray-pairs':'evidence/coop-aquatic-crabs';
+const echoArt='fontaine-echo-poses-source-v1.png';
+const cases=hunts?[
+ {name:'fading-veteran',id:'legend-fontaine_fading_veteran',host:'fon-wp-50073',
+  arena:'fading-veteran-legend-wreck',move:'FW41',hp:985,x:833,y:318,entity:97067,mora:375,sonar:true},
+ {name:'dobharcu',id:'legend-fontaine_dobharcu_lord_of_the_hidden',host:'fon-wp-50062',
+  arena:'dobharcu-legend-garden',move:'FW44',hp:1050,x:842,y:293,entity:97068,mora:390,sonar:true},
+ {name:'luachra',id:'legend-fontaine_luachra_the_brilliant',host:'fon-wp-53865',
+  arena:'luachra-legend-shelf',move:'FW47',hp:1040,x:845,y:302,entity:97069,mora:402,dash:true},
+]:rayPairs?[
  {name:'fairy-knight-twins',id:'legend-fontaine_fairy_knight_twins',host:'fon-wp-50075',
   arena:'fairy-knight-twins-legend-court',move:'FW31',hp:910,x:810,y:238,entity:97063,partner:97064,
   names:['アンジェリカ','ミドロ'],starts:[58,104],mora:355},
@@ -24,7 +33,8 @@ const cases=rayPairs?[
 ];
 const browser=await chromium.launch({channel:'chrome',headless:true,args:['--disable-gpu']});
 const key='maple-lua-lab.checkpoint.v1';
-const url=process.env.LAB_URL||`http://127.0.0.1:${rayPairs?9066:9065}/`;
+const port=hunts?9067:rayPairs?9066:9065;
+const url=process.env.LAB_URL||`http://127.0.0.1:${port}/`;
 const errors=[];
 let pages=[];
 const frame=page=>page.evaluate(()=>window.lab.frame);
@@ -38,7 +48,8 @@ async function start(cfg,reported){
  page.on('pageerror',err=>errors.push(err.message));
  page.on('response',res=>{if(res.url().endsWith('/api/frame')&&!res.ok())errors.push('Frame HTTP '+res.status());});
  const route=waypointDriver(page,nodes,{walkTimeout:27000});
- const file=rayPairs?'work/coop-fontaine-ray-pairs-fixture.json':
+ const file=hunts?`work/coop-fontaine-${cfg.sonar?'echo':'bubble'}-fixture.json`:
+  rayPairs?'work/coop-fontaine-ray-pairs-fixture.json':
   reported?'work/coop-iron-viscount-ready.json':'work/'+cfg.name+'-fixture.json';
  await page.goto(url);
  await wait(page,()=>window.lab?.frame);
@@ -88,7 +99,7 @@ async function swim(page,cfg,slot){
  await page.evaluate(({cfg,slot})=>{
   const held=new Set();
   const start=window.lab.frame.t;
-  const test=window.aquaticTrial={attack:false,counter:false,guardUsed:false};
+  const test=window.aquaticTrial={attack:false,counter:false,guardUsed:false,reveal:false,attackDuringReveal:false};
   function key(code,on){
    if(held.has(code)===on)return;
    on?held.add(code):held.delete(code);
@@ -138,13 +149,19 @@ async function swim(page,cfg,slot){
     }
    }
    const enemyDistance=bx-a.x;
+   const sonar=f.storySwimCombat?.sonar;
+   if(cfg.sonar&&slot===1&&(test.reveal||test.attack)&&sonar?.hidden&&!sonar.cooldown&&
+      enemyDistance*a.dir>=0&&Math.abs(enemyDistance)<=316&&Math.abs(a.y-by-27)<=85){
+    window.lab.action('skill1');
+   }
    const turn=Math.abs(x-a.x)<=12&&Math.abs(enemyDistance)>12&&a.dir*enemyDistance<0;
    key('KeyA',a.x>x+12||turn&&enemyDistance<0);
    key('KeyD',a.x<x-12||turn&&enemyDistance>0);
    key('KeyW',a.y>y+8);
    key('KeyS',a.y<y-8);
    const aligned=Math.abs(a.y-by-28)<21&&Math.abs(enemyDistance)<201&&enemyDistance*a.dir>0;
-   key('KeyJ',aligned&&!turn&&(test.attack||test.counter&&Boolean(guard?.ready)));
+   const attacking=test.attack||test.counter&&Boolean(guard?.ready)||test.attackDuringReveal&&sonar?.exposed>0;
+   key('KeyJ',aligned&&!turn&&!sonar?.hidden&&attacking);
    requestAnimationFrame(tick);
   }
   document.activeElement.blur();
@@ -172,7 +189,7 @@ async function scenario(cfg){
   assert.ok(await p.locator('.game .skills').isHidden());
   assert.ok(await p.locator('.touch [data-hold="attack"]').isVisible());
   assert.ok(await p.locator('#touchSwimBurst').isVisible());
-  assert.equal(await p.locator('#touchSwimGuard').isVisible(),Boolean(cfg.vent));
+  assert.equal(await p.locator('#touchSwimGuard').isVisible(),Boolean(cfg.vent||cfg.sonar));
  }
  const before=await Promise.all(pages.map(frame));
  await Promise.all([swim(a,cfg,1),swim(b,cfg,2)]);
@@ -187,8 +204,30 @@ async function scenario(cfg){
  }));
  assert.deepEqual(warnings[0],warnings[1]);
  const controls=a.locator('#fieldSwimHelp');
- let guardEvidence;
- if(cfg.partner){
+ let mechanics;
+ if(cfg.sonar){
+  await Promise.all(pages.map(p=>wait(p,source=>{
+   const f=window.lab.frame;
+   return f.storySwimCombat?.sonar?.hidden&&!f.draws.some(d=>d.source===source)&&
+    f.draws.some(d=>d.kind==='effect'&&d.color==='#eff0ad');
+  },echoArt)));
+  await a.evaluate(()=>{window.aquaticTrial.reveal=true});
+  const revealed=await Promise.all(pages.map(p=>wait(p,source=>{
+   const f=window.lab.frame,echo=f.storySwimCombat?.sonar;
+   return echo?.exposed>0&&!echo.hidden&&!Object.keys(f.fieldBoss.warnings).length&&
+    f.draws.some(d=>d.source===source)&&{remaining:echo.exposed,cooldown:echo.cooldown,hp:f.fieldBoss.hp};
+  },echoArt).then(value=>value.jsonValue())));
+  assert.ok(revealed[0].cooldown>0&&revealed[1].cooldown===0);
+  assert.equal(revealed[0].hp,revealed[1].hp);
+  assert.match(await controls.textContent(),/Jで反撃/);
+  await b.evaluate(()=>{window.aquaticTrial.attackDuringReveal=true});
+  await wait(b,id=>{
+   const f=window.lab.frame;
+   return f.storySwimCombat?.sonar?.exposed>0&&Object.values(f.events??{}).some(e=>e.kind==='hit'&&e.target===id);
+  },cfg.entity);
+  await a.locator('.game').screenshot({path:prefix+'-'+cfg.name+'-reveal.png'});
+  mechanics={sharedRevealedWithoutDamage:true,sonarCooldownIsPersonal:true,guestHitDuringReveal:true};
+ }else if(cfg.partner){
   assert.deepEqual(warnings[0].map(w=>w.slice(0,2)),[[cfg.entity,cfg.starts[0]],[cfg.partner,cfg.starts[1]]]);
   for(const p of pages){
    const f=await frame(p);
@@ -204,24 +243,27 @@ async function scenario(cfg){
   await a.locator('.game').screenshot({path:prefix+'-'+cfg.name+'-blades.png'});
  }else if(cfg.vent){
   await wait(a,()=>window.lab.frame.storySwimCombat?.counter?.ready);
-  await wait(b,id=>window.lab.frame.events.some(e=>e.kind==='hurt'&&e.target===id),cfg.entity);
+  await wait(b,id=>Object.values(window.lab.frame.events??{}).some(e=>e.kind==='hurt'&&e.target===id),cfg.entity);
   assert.equal((await frame(b)).storySwimCombat.counter.ready,false);
   assert.match(await controls.textContent(),/反撃/);
   await a.locator('.game').screenshot({path:prefix+'-iron-viscount-counter.png'});
   await a.evaluate(()=>{window.aquaticTrial.counter=true});
   await wait(a,id=>{
    const f=window.lab.frame;
-   return f.events.some(e=>e.kind==='swim_counter'&&e.target===id)&&
-    f.events.some(e=>e.kind==='hit'&&e.target===id)&&!f.storySwimCombat.counter.ready;
+   const events=Object.values(f.events??{});
+   return events.some(e=>e.kind==='swim_counter'&&e.target===id)&&
+    events.some(e=>e.kind==='hit'&&e.target===id)&&!f.storySwimCombat.counter.ready;
   },cfg.entity);
-  guardEvidence={personalGuardAndCounter:true,unreportedGuestCouldNotFollow:true};
+  mechanics={personalGuardAndCounter:true,unreportedGuestCouldNotFollow:true};
  }else{
   assert.match(await controls.textContent(),/水撃.*急回避/);
-  await wait(a,()=>{
+  await wait(a,({move,dash})=>{
    const boss=window.lab.frame.fieldBoss,w=boss?.warnings?.[0];
-   return boss?.move==='FW11'&&w?.active&&w.activeRight-w.activeLeft<w.right-w.left;
-  });
-  await a.locator('.game').screenshot({path:prefix+'-ocean-judge-wave.png'});
+   return boss?.move===move&&w?.active&&w.activeRight-w.activeLeft<w.right-w.left&&
+    (!dash||w.dash&&boss.x>=w.activeLeft&&boss.x<=w.activeRight);
+  },cfg);
+  await a.locator('.game').screenshot({path:prefix+'-'+cfg.name+(cfg.dash?'-dash.png':'-wave.png')});
+  if(cfg.dash)mechanics={bossMovesWithHitZone:true};
  }
  await Promise.all(pages.map(p=>p.evaluate(()=>{window.aquaticTrial.attack=true})));
  await Promise.all(pages.map(p=>wait(p,()=>window.aquaticTrial.stopped)));
@@ -229,7 +271,8 @@ async function scenario(cfg){
  const after=await Promise.all(pages.map(frame));
  const rewards=after.map((f,i)=>[f.progression.killXp-before[i].progression.killXp,f.mora-before[i].mora]);
  assert.deepEqual(rewards,[[212400,cfg.mora],[212400,cfg.mora]]);
- assert.ok(after.every(f=>f.events.some(e=>e.kind==='hit'&&e.actor===1&&[cfg.entity,cfg.partner].includes(e.target))));
+ assert.ok(after.every(f=>Object.values(f.events??{}).some(e=>
+  e.kind==='hit'&&e.actor===1&&[cfg.entity,cfg.partner].includes(e.target))));
  await Promise.all(pages.map(async p=>{
   await p.locator('#saveProgress').click();
   await wait(p,([key,id])=>JSON.parse(localStorage.getItem(key))?.endgame?.bosses?.[id]?.clears===1,[key,cfg.id]);
@@ -242,7 +285,7 @@ async function scenario(cfg){
   assert.deepEqual(f.coop.enemies.map(e=>[e.id,e.hp]),expected);
  }
  await Promise.all(players.map(p=>p.context.close()));
- return {warning:warnings[0],rewards,waterControlsOnly:true,saved:true,sharedRematch:true,...guardEvidence};
+ return {warning:warnings[0],rewards,waterControlsOnly:true,saved:true,sharedRematch:true,...mechanics};
 }
 
 try{
@@ -250,13 +293,14 @@ try{
  for(const cfg of cases)result[cfg.name]=await scenario(cfg);
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({...result,errors},null,2)+'\n');
- console.log(rayPairs?'Chrome: both ray pairs share blades, rewards and repeat entry.':
+ console.log(hunts?'Chrome: shared sonar reveal, Luachra dash, personal rewards and repeat entry.':
+  rayPairs?'Chrome: both ray pairs share blades, rewards and repeat entry.':
   'Chrome: shared water depth, personal counter, both rewards and repeat entry.');
 }catch(error){
  console.error(JSON.stringify(await Promise.allSettled(pages.map(p=>p.evaluate(()=>{
   const f=window.lab.frame;
   return {node:f?.story?.node,t:f?.t,boss:f?.fieldBoss,swim:f?.storySwimCombat,
-   trial:window.aquaticTrial,actors:f?.actors?.map(a=>[a.x,a.y,a.hp,a.dir]),events:f?.events?.slice(-10)};
+   trial:window.aquaticTrial,actors:f?.actors?.map(a=>[a.x,a.y,a.hp,a.dir]),events:Object.values(f?.events??{}).slice(-10)};
  }))),null,2),errors);
  throw error;
 }finally{
