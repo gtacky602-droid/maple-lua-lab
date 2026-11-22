@@ -206,8 +206,8 @@ def report_fixture(core,s):
     core.enterStoryNode(s,'bygone-wp-68610')
 
 
-def browser_fixtures(lua,core):
-    for id in (CHIZHANG,CINEAS):
+def browser_fixtures(lua,core,encounters=(CHIZHANG,CINEAS)):
+    for id in encounters:
         arena=SPECS[id]['node']
         saved=read(f'work/{arena}-fixture.json')
         s=core.restore(lua.table_from(saved,recursive=True))
@@ -221,7 +221,7 @@ def browser_fixtures(lua,core):
         (ROOT/f'work/coop-{arena}-fixture.json').write_text(json.dumps(checkpoint),encoding='utf8')
 
 
-def via_http(url,id):
+def via_http(url,id,check_level=False):
     spec=SPECS[id]
     arena=spec['node']
     gate=NODES[arena]['exits'][0]
@@ -232,8 +232,8 @@ def via_http(url,id):
         client.frame(['story_start'])
         with LOCK:
             env=SESSIONS[client.sid]
-            if id==CINEAS and i==1:
-                level(env['core'],env['state'],159)
+            if (check_level or id==CINEAS) and i==1:
+                level(env['core'],env['state'],spec['level']-1)
                 env['core'].enterStoryNode(env['state'],entry)
                 env['state'].actors[2].hp=0
             else:
@@ -242,15 +242,16 @@ def via_http(url,id):
     code=host.frame(['coop_create'])['coop']['code']
     assert guest.frame(['coop_join:'+code])['coop']['code']==code
     assert cross(host,inbound['x'],arena)['coop']['map']==arena
-    if id==CINEAS:
+    if check_level or id==CINEAS:
         with LOCK:
             env=SESSIONS[guest.sid]
             actor_at(env['state'],inbound['x'])
         blocked=guest.frame(['story_portal:'+arena])
-        assert blocked['story']['node']==entry and '160' in blocked['storyNearbyPortal']['reason']
+        assert blocked['story']['node']==entry and str(spec['level']) in blocked['storyNearbyPortal']['reason']
         with LOCK:
-            level(env['core'],env['state'],160)
+            level(env['core'],env['state'],spec['level'])
             actor_at(env['state'],inbound['x'])
+    if id==CINEAS:
         blocked=guest.frame(['story_portal:'+arena])
         assert blocked['story']['node']==entry and '依頼' in blocked['storyNearbyPortal']['reason']
         with LOCK:

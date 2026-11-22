@@ -8133,6 +8133,10 @@
       "fontaine-hub",
       "bygone-wp-68610",
       "cineas-legend-chamber",
+      "fon-wp-50056",
+      "vivianne-legend-bank",
+      "fon-wp-50042",
+      "ninianne-legend-bank",
       "narwhal-star-sea",
       "narwhal-inner-echo",
       "knave-crimson-court",
@@ -8233,6 +8237,8 @@
       "legend-natlan_polychrome_tristars",
       "legend-liyue_rulers_of_chizhang_mountains",
       "legend-fontaine_cineas",
+      "legend-fontaine_vivianne_of_the_lake",
+      "legend-fontaine_ninianne_of_the_lake",
       "legend-natlan_battlegoat_ironclaw",
       "legend-snez_rowdy_beast_host",
       "boss-29010101",
@@ -8477,7 +8483,11 @@
       "evidence/coop-branch-legends-lua-http.json",
       "evidence/coop-branch-legends-browser.json",
       "evidence/coop-branch-legends-chizhang-warning.png",
-      "evidence/coop-branch-legends-cineas-warning.png"
+      "evidence/coop-branch-legends-cineas-warning.png",
+      "evidence/coop-lake-legends-lua-http.json",
+      "evidence/coop-lake-legends-browser.json",
+      "evidence/coop-lake-legends-vivianne-warning.png",
+      "evidence/coop-lake-legends-ninianne-warning.png"
     ],
     "pending": [
       "lab-original field encounters, remaining Local Legends and Stygian bosses",

@@ -1,0 +1,115 @@
+{
+  "participants": 2,
+  "artSource": "fontaine-lake-legend-poses-source-v6.png",
+  "vivianne": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1695,
+        "moves": [
+          "LV01",
+          "LV02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1680,
+        "moves": [
+          "LV01",
+          "LV02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "hydro",
+        64,
+        856,
+        1389
+      ],
+      [
+        2,
+        "hydro",
+        115,
+        850,
+        1410
+      ]
+    ],
+    "rewards": [
+      [
+        212400,
+        300
+      ],
+      [
+        212400,
+        300
+      ]
+    ],
+    "contacts": [
+      6,
+      7
+    ],
+    "saved": true,
+    "sharedRematch": true
+  },
+  "ninianne": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1713,
+        "moves": [
+          "LN01",
+          "LN02",
+          "LN03"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 1675,
+        "moves": [
+          "LN01",
+          "LN02",
+          "LN03"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "hydro",
+        63,
+        800,
+        930
+      ],
+      [
+        2,
+        "hydro",
+        107,
+        879,
+        1065
+      ]
+    ],
+    "rewards": [
+      [
+        212400,
+        300
+      ],
+      [
+        212400,
+        300
+      ]
+    ],
+    "contacts": [
+      6,
+      6
+    ],
+    "saved": true,
+    "sharedRematch": true
+  },
+  "errors": []
+}

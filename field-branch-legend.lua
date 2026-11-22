@@ -143,6 +143,15 @@ return function(C)
      if active then
       rect(f,strike.activeLeft-camera,y-step.height,strike.activeRight-strike.activeLeft,step.height,color..'68')
      end
+     if spec.warningOutline then
+      local edge=spec.warningOutline
+      rect(f,x-1,y-7,width+2,5,edge)
+      rect(f,x-1,y-step.height,4,step.height,edge)
+      rect(f,x+width-3,y-step.height,4,step.height,edge)
+      if active then
+       rect(f,strike.activeLeft-camera,y-step.height,strike.activeRight-strike.activeLeft,4,edge)
+      end
+     end
      rect(f,x,y-6,width,3,color)
      rect(f,x,y-step.height,2,step.height,color)
      rect(f,x+width-2,y-step.height,2,step.height,color)

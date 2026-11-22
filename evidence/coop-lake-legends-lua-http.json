@@ -1,0 +1,21 @@
+{
+  "lua": {
+    "participants": 4,
+    "waveSweepsInsideWarning": true,
+    "waveHitsAtDifferentTimes": true,
+    "jumpAvoidsWave": true,
+    "columnStaysInLockedPlace": true,
+    "backwashFollowsColumn": true,
+    "onlyContributorsCredited": true,
+    "vivianneXp": 212400,
+    "ninianneXp": 212400
+  },
+  "http": {
+    "participants": 2,
+    "level100RequiredIndividually": true,
+    "sharedHpFromNormalAttacks": true,
+    "incompleteBattleResumes": true,
+    "sharedDefeatSaved": true,
+    "rematchWaitsForAllToLeave": true
+  }
+}

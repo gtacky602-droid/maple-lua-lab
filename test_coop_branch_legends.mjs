@@ -3,12 +3,24 @@ import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
 import {waypointDriver} from './tools/browser_waypoint_test.mjs';
 
-const cases=[
+const lake=process.argv.includes('--lake');
+const prefix=lake?'evidence/coop-lake-legends':'evidence/coop-branch-legends';
+const cases=lake?[
+ {tag:'vivianne',id:'legend-fontaine_vivianne_of_the_lake',arena:'vivianne-legend-bank',
+  entry:'fon-wp-50056',checkpoint:'fontaine-hub',hp:1040,mora:300,x:890,warning:'LV02',entities:[97041],
+  warningOrder:[[1,'hydro',64],[2,'hydro',115]],movingWave:true},
+ {tag:'ninianne',id:'legend-fontaine_ninianne_of_the_lake',arena:'ninianne-legend-bank',
+  entry:'fon-wp-50042',checkpoint:'fontaine-hub',hp:1010,mora:300,x:860,warning:'LN03',entities:[97042],
+  warningOrder:[[1,'hydro',63],[2,'hydro',107]]},
+]:[
  {tag:'chizhang',id:'legend-liyue_rulers_of_chizhang_mountains',arena:'chizhang-legend-terrace',
-  entry:'liyue-wp-64830',checkpoint:'chenyu-camp',hp:1060,mora:280,x:700,warning:'LC03',entities:[97021,97022]},
+  entry:'liyue-wp-64830',checkpoint:'chenyu-camp',hp:1060,mora:280,x:700,warning:'LC03',entities:[97021,97022],
+  warningOrder:[[1,'pyro',63],[2,'cryo',111]]},
  {tag:'cineas',id:'legend-fontaine_cineas',arena:'cineas-legend-chamber',
-  entry:'bygone-wp-68610',checkpoint:'bygone-camp',hp:1320,mora:440,x:925,warning:'LW03',entities:[97031]},
+  entry:'bygone-wp-68610',checkpoint:'bygone-camp',hp:1320,mora:440,x:925,warning:'LW03',entities:[97031],
+  warningOrder:[[1,'hydro',63],[2,'hydro',116]]},
 ];
+const lakeArt='fontaine-lake-legend-poses-source-v6.png';
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 const nodes=Object.fromEntries(graph.nodes.map(row=>[row.id,row]));
 const key='maple-lua-lab.checkpoint.v1';
@@ -17,7 +29,7 @@ let pages=[];
 const errors=[];
 const frame=p=>p.evaluate(()=>window.lab.frame);
 const wait=(p,fn,arg,timeout=70000)=>p.waitForFunction(fn,arg,{timeout});
-const capture=(p,t)=>p.locator('.game').screenshot({path:'evidence/coop-branch-legends-'+t+'.png'});
+const capture=(p,t)=>p.locator('.game').screenshot({path:prefix+'-'+t+'.png'});
 
 async function start(cfg){
  const context=await browser.newContext({viewport:{width:1200,height:940}});
@@ -27,7 +39,7 @@ async function start(cfg){
  page.on('pageerror',e=>errors.push(e.message));
  const route=waypointDriver(page,nodes,{walkTimeout:32000});
  const fixture=await fs.readFile('work/coop-'+cfg.arena+'-fixture.json','utf8');
- await page.goto(process.env.LAB_URL||'http://127.0.0.1:9060/');
+ await page.goto(process.env.LAB_URL||(lake?'http://127.0.0.1:9063/':'http://127.0.0.1:9060/'));
  await wait(page,()=>window.lab?.frame);
  await page.evaluate(([key,fixture])=>localStorage.setItem(key,fixture),[key,fixture]);
  await page.locator('#loadProgress').click();
@@ -109,8 +121,20 @@ async function scenario(cfg){
   return token.jsonValue();
  }));
  assert.deepEqual(warnings[0],warnings[1]);
- assert.deepEqual(warnings[0].map(x=>x.slice(0,3)),cfg.tag==='chizhang'
-  ?[[1,'pyro',63],[2,'cryo',111]]:[[1,'hydro',63],[2,'hydro',116]]);
+ assert.deepEqual(warnings[0].map(x=>x.slice(0,3)),cfg.warningOrder);
+ if(lake){
+  await Promise.all(players.map(({page})=>wait(page,source=>{
+   const draws=window.lab.frame.draws;
+   return draws.some(d=>d.source===source)&&draws.some(d=>d.kind==='rect'&&d.color==='#17344c');
+  },lakeArt)));
+ }
+ if(cfg.movingWave){
+  await Promise.all(players.map(({page})=>wait(page,move=>{
+   const b=window.lab.frame.fieldBoss;
+   const wave=b?.move===move&&b.warnings.find(w=>w.number===1&&w.active);
+   return wave&&wave.activeRight-wave.activeLeft<wave.right-wave.left;
+  },cfg.warning)));
+ }
  await capture(a,cfg.tag+'-warning');
  await Promise.all(players.map(p=>p.page.evaluate(()=>{window.branchLegendFight=true})));
  await Promise.all(players.map(({page})=>wait(page,()=>window.branchLegendResult,null,155000)));
@@ -134,10 +158,10 @@ async function scenario(cfg){
 }
 
 try{
- const evidence={participants:2};
+ const evidence={participants:2,...(lake?{artSource:lakeArt}: {})};
  for(const cfg of cases)evidence[cfg.tag]=await scenario(cfg);
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/coop-branch-legends-browser.json',JSON.stringify({...evidence,errors},null,2)+'\n');
+ await fs.writeFile(prefix+'-browser.json',JSON.stringify({...evidence,errors},null,2)+'\n');
  console.log('Chrome: both Local Legends share warnings, combat, personal rewards, and a fresh rematch.');
 }catch(error){
  const status=await Promise.allSettled(pages.map(p=>p.evaluate(()=>{

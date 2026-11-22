@@ -9,6 +9,10 @@
 
 同じLvでも避け方が異なるよう、攻撃と足場をラボ用に設計した。通常ルートから分かれる任意戦で、日次の討伐数には含まれない。青い波は本体から離れて進み、予告で示す全体の道筋と、現在当たる範囲が画面で分かれる。敵HP、予告時間、報酬は試作値。 [Sitesの配置案](../design/world/encounters.json) · [公式の水の幻霊の紹介](https://genshin.hoyoverse.com/en/news/detail/112690)
 
+## 共闘
+
+入口で協力部屋を作り、参加者それぞれがLv100で門を通ると同じ戦闘に入る。HPと予告を共有し、命中は各参加者の位置と高さで判定する。予告線に濃紺の縁を付け、仮背景の水面でも境界が読めるようにした。各自の有効打と討伐時の位置が報酬に反映される。 [共闘の始め方と検証](COOP_WEB_PREVIEW.md#湖辺のヴィヴィアンとニニアンの共闘)
+
 ## ドット絵と軽量化
 
 本人が選んだ第5稿A案を両方の戦闘に採用した。待機絵は選定時の画素と同じ。構え・攻撃でも半月形の眼と5色の配色を保ち、ヴィヴィアンは頭の上下と左腕の伸び、ニニアンは両腕の持ち上げと振りで動きを見せる。同一の縮尺で切り替え、Luaで待機・構え・攻撃の切り出しと床位置を確認した。 [6ポーズの比較](../evidence/lake-legend-a-poses.png)
@@ -26,3 +30,5 @@ Luaで通行Lv100の境界、6行動、移動する水波の命中範囲、退�
 ChromeでM表示、実際の門、予告、両方の退路と再挑戦、待機絵の左右比較を確認した。両方の戦闘で同じ場面を一時停止し、標準矩形描画と軽量16色を比較した。描画指示数はログを参照。 [Chromeログ](../evidence/sites-fontaine-lake-legends-a-browser.json) · [ヴィヴィアンPNG](../evidence/vivianne-legend-a-field.png) · [軽量16色](../evidence/vivianne-legend-a-light.png) · [ニニアンPNG](../evidence/ninianne-legend-a-field.png) · [軽量16色](../evidence/ninianne-legend-a-light.png)
 
 再検証は `python -X utf8 test_branch_legends.py`、Chromeの確認は `$env:LAB_URL='http://127.0.0.1:8983/'` を設定して `node test_branch_legends.mjs --lake`。
+
+共闘の再検証は、ソロ試験でセーブを生成した後に `python -X utf8 test_coop_lake_legends.py` を実行する。Chromeは共闘を実行するサーバーに `LAB_URL` を設定し、`node test_coop_branch_legends.mjs --lake` で二人分の受け取りと再戦を検査する。
