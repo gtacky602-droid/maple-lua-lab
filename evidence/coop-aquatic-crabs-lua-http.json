@@ -1,0 +1,29 @@
+{
+  "lua": {
+    "participants": 4,
+    "ocean": {
+      "xp": 212400,
+      "front": 6,
+      "rear": 24
+    },
+    "iron": {
+      "xp": 212400,
+      "guarded": 5,
+      "counter": 63
+    },
+    "adoptionKeepsConsumedHit": true,
+    "movingWaveKeepsDepth": true,
+    "directionalSwimBurst": true,
+    "heldPulseSharesHp": true,
+    "guardAndCounterArePersonal": true,
+    "onlyContributorsCredited": true
+  },
+  "http": {
+    "participants": 2,
+    "individualLevelGate": true,
+    "ironReportRequiredForEach": true,
+    "sharedHealthFromWaterPulses": true,
+    "retreatKeepsHpAndDepth": true,
+    "savedAndRematch": true
+  }
+}

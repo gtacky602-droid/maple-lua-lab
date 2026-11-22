@@ -1,0 +1,52 @@
+{
+  "participants": 2,
+  "ocean-judge": {
+    "warning": [
+      365,
+      890,
+      272,
+      338,
+      56,
+      103
+    ],
+    "rewards": [
+      [
+        212400,
+        320
+      ],
+      [
+        212400,
+        320
+      ]
+    ],
+    "waterControlsOnly": true,
+    "saved": true,
+    "sharedRematch": true
+  },
+  "iron-viscount": {
+    "warning": [
+      390.200000000001,
+      614.200000000001,
+      269,
+      367,
+      68,
+      85
+    ],
+    "rewards": [
+      [
+        212400,
+        345
+      ],
+      [
+        212400,
+        345
+      ]
+    ],
+    "waterControlsOnly": true,
+    "saved": true,
+    "sharedRematch": true,
+    "personalGuardAndCounter": true,
+    "unreportedGuestCouldNotFollow": true
+  },
+  "errors": []
+}

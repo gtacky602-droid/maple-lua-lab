@@ -321,6 +321,7 @@ function updateProgression(f){
  $('a2').hidden=diving||(solo&&f.active===1);
  $('diveHelp').hidden=!diving;
  const swimHelp=$('fieldSwimHelp');
+ swimHelp.closest('.game').classList.toggle('field-swim',swimming);
  swimHelp.hidden=!swimming;
  if(swimming){
   let instructions=waterCombat?'WASD・方向キーで泳ぐ ｜ Jで水撃 ｜ Space・Shiftで急回避 ｜ Fで退く':'WASD・方向キーで泳ぐ ｜ 門の深さを合わせてF ｜ 目印の近くでG';

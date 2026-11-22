@@ -119,6 +119,12 @@ return function(C)
   if boss.fieldPartner then boss.fieldPartner.waterPose='idle' end
  end
 
+ function combat.shareCast(cast,actors)
+  local hitSets={}
+  for _,strike in ipairs(cast.strikes) do hitSets[#hitSets+1]=strike.seen end
+  C.shareFieldHits(hitSets,actors)
+ end
+
  function combat.tick(s,boss,spec,cast)
   local tick=cast.tick+1
   cast.tick=tick

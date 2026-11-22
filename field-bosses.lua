@@ -354,7 +354,7 @@ return function(C,configs,controllers)
 
  function C.fieldSwimAction(s,key)
   local spec=byNode[current(s)]
-  local slot=spec and s.fieldSlots and s.fieldSlots[spec.id]
+  local slot=spec and C.fieldSlot(s,spec.id)
   local behavior=slot and controllers[spec.controller]
   if behavior and behavior.swimAction and s.storySwimming and not s.lift and not s.paused then
    behavior.swimAction(s,slot.enemy,spec,key,slot.cast)
@@ -367,6 +367,12 @@ return function(C,configs,controllers)
   local ticks=math.floor((s.t-before)*60+.5)
   if ticks<=0 then return end
   local node=current(s)
+  local swimSpec=s.storySwimming and not s.lift and byNode[node]
+  if swimSpec and available(s,swimSpec) then
+   local slot=C.fieldSlot(s,swimSpec.id)
+   local behavior=controllers[swimSpec.controller]
+   if slot and behavior.swimStep then behavior.swimStep(s,slot.enemy,swimSpec,input or {}) end
+  end
   for id,slot in pairs(s.fieldSlots or {}) do
    local spec=byId[id]
    local behavior=controllers[spec.controller]
@@ -374,7 +380,6 @@ return function(C,configs,controllers)
    if sharedRoom(s,id) then
     if slot.waitUntil then advance(s,spec,slot,false) end
    elseif available(s,spec) and not (behavior.swimStep and s.lift) then
-    if here and behavior.swimStep and s.storySwimming then behavior.swimStep(s,slot.enemy,spec,input or {}) end
     for _=1,ticks do advance(s,spec,slot,here) end
    end
   end
