@@ -8068,6 +8068,7 @@
     "status": "split_map_room_membership_and_local_combat_verified",
     "maps": [
       "mond-town",
+      "mond-gate-chess-court",
       "dvalin-sky-arena",
       "andrius-wolf-ring",
       "liyue-harbor",
@@ -8233,7 +8234,8 @@
       "boss-29080101",
       "boss-29090101",
       "boss-29091001",
-      "boss-29091101"
+      "boss-29091101",
+      "boss-29122000"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8432,7 +8434,13 @@
       "evidence/coop-primal-fire-gate.png",
       "evidence/coop-primal-fire-cut.png",
       "evidence/coop-primal-fire-pillars.png",
-      "evidence/coop-primal-fire-narrow.png"
+      "evidence/coop-primal-fire-narrow.png",
+      "evidence/coop-gate-lua-http.json",
+      "evidence/coop-gate-browser.json",
+      "evidence/coop-gate-pawns.png",
+      "evidence/coop-gate-lure.png",
+      "evidence/coop-gate-exposure.png",
+      "evidence/coop-gate-transfer.png"
     ],
     "pending": [
       "remaining original field encounters, local legends, weekly and Stygian bosses",

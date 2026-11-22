@@ -11,14 +11,27 @@ return function(C)
  function M.inside(a,z)
   return a.hp>0 and a.x>=z.lo and a.x<=z.hi and a.y>=z.y-z.h and a.y<=z.y+5
  end
+ -- Ordinary moves aim at the nearest living player. A lured charge (no x)
+ -- follows the player furthest along the board towards the pieces.
+ function M.target(s,x)
+  if not s.parties then return s.actors[s.active],s end
+  local actor,owner,score
+  for _,party in ipairs(s.parties) do
+   local a=party.actors[party.active]
+   local d=x and -math.abs(x-a.x) or a.x
+   if a.hp>0 and (not score or d>score) then actor,owner,score=a,party,d end
+  end
+  return actor,owner
+ end
  function M.damage(s,w,spec,c,zones,seen,amount,source)
   for _,a in ipairs(s.actors) do
-   if not seen[a.id] then
+   if not seen[a] then
     for _,z in ipairs(zones) do
      if M.inside(a,z) then
-      seen[a.id]=true
-      local dealt=C.damageActor(s,a,amount,source or c.body,true,true)
-      if dealt>0 then C.combatEvent(s,'gate:'..c.key..':hurt',a.id,w.primary.id,dealt) end
+      seen[a]=true
+      local party=s.actorOwners and s.actorOwners[a] or s
+      local dealt=C.damageActor(party,a,amount,source or c.body,true,true)
+      if dealt>0 then C.combatEvent(party,'gate:'..c.key..':hurt',a.id,w.primary.id,dealt) end
       break
      end
     end
@@ -29,7 +42,8 @@ return function(C)
   return band(pos(spec,x+d*18),pos(spec,x+d*length),spec.floorY,h,color)
  end
  function M.lock(s,w,spec,c,i)
-  local a=s.actors[s.active]
+  local a=M.target(s,c.body.x)
+  if not a then return end
   if c.key=='WT01' then
    c.points[i]=pos(spec,a.x)
    return

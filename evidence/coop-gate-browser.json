@@ -1,0 +1,86 @@
+{
+  "participants": 2,
+  "hp": 3620,
+  "scene": {
+    "key": "gateCourt",
+    "file": "gate-court-background-v1.png",
+    "state": "ready"
+  },
+  "results": [
+    {
+      "won": true,
+      "returns": 0,
+      "damage": 2789,
+      "stages": [
+        "king",
+        "queen",
+        "finish",
+        "royal"
+      ],
+      "pawns": [
+        2,
+        1,
+        0
+      ],
+      "freezes": [
+        50,
+        100
+      ],
+      "lures": [
+        744
+      ],
+      "collision": true,
+      "transfers": [
+        437
+      ],
+      "sawReservation": true
+    },
+    {
+      "won": true,
+      "returns": 0,
+      "damage": 404,
+      "stages": [
+        "king",
+        "queen",
+        "finish",
+        "royal"
+      ],
+      "pawns": [
+        2,
+        1,
+        0
+      ],
+      "freezes": [
+        50,
+        100
+      ],
+      "lures": [
+        744
+      ],
+      "collision": true,
+      "transfers": [
+        437
+      ],
+      "sawReservation": true
+    }
+  ],
+  "rewards": [
+    [
+      1054500,
+      4200
+    ],
+    [
+      1054500,
+      4200
+    ]
+  ],
+  "questCounts": [
+    1,
+    null
+  ],
+  "report": {
+    "xp": 570000,
+    "mora": 16100
+  },
+  "errors": []
+}

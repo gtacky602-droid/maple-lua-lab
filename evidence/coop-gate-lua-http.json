@@ -1,0 +1,31 @@
+{
+  "lua": {
+    "participants": 4,
+    "sharedPawns": 3,
+    "retargetBeforeLock": true,
+    "fixedPathAfterLock": true,
+    "individualHits": true,
+    "sharedBarrier": 12,
+    "frostExclusive": true,
+    "frostShared": [
+      50,
+      100
+    ],
+    "damageAndExitCancelFrost": true,
+    "wipeRestoresRoom": true,
+    "collision": true,
+    "exposureTicks": 360,
+    "hpConservedAcrossTwoTransfers": true,
+    "sameCastBothPiecesOneClear": true,
+    "spectatorNoReward": true
+  },
+  "http": {
+    "participants": 2,
+    "sharedHp": 3620,
+    "retreatFreezesRoom": true,
+    "eachPlayerHitsOwnTarget": true,
+    "personalXp": 1054500,
+    "personalMora": 4200,
+    "ownQuestAndSaves": true
+  }
+}

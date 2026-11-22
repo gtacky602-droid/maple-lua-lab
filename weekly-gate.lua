@@ -1,6 +1,6 @@
 return function(C,M)
  local controller={}
- local previousFactor,previousAvoid=C.fieldMoveFactor,C.aiAvoidTarget
+ local previousFactor,previousAvoid,damageActor=C.fieldMoveFactor,C.aiAvoidTarget,C.damageActor
  local cancelInput={jump=true,drop=true,dodge=true,normal=true,skill1=true,skill2=true,skill3=true,skill4=true}
  local queenMoves={WT06=true,WT07=true,WT08=true,WT12=true,WT13=true}
  local transient={WT09=true,WT16=true,WT17=true,WT18=true,WT19=true}
@@ -8,7 +8,29 @@ return function(C,M)
  local function clamp(x,lo,hi) return math.max(lo,math.min(hi,x)) end
  local function fromU(s,u) return s.board.left+s.board.unit*u end
  local function board(s,x) return clamp(x,s.board.left+13,s.board.right-13) end
- local function log(s,w,key,actor,n) C.combatEvent(s,'gate:'..key,actor or 0,w.primary.id,n or 0) end
+ local function weakKeys() return setmetatable({},{__mode='k'}) end
+ local function log(s,w,key,actor,n)
+  local room=s.coopWorld or (s.coop and s.coop.weeklySlot==w and s.coop)
+  if room then
+   for _,member in ipairs(room.members) do
+    if member.online and C.sharesCoopField(member.state) then
+     C.combatEvent(member.state,'gate:'..key,actor or 0,w.primary.id,n or 0)
+    end
+   end
+  else C.combatEvent(s,'gate:'..key,actor or 0,w.primary.id,n or 0) end
+ end
+ local function controls(w,s)
+  local input=w.controls[s]
+  if not input then input={};w.controls[s]=input end
+  return input
+ end
+ local function contribute(s,w,actor)
+  if s.coop and s.coop.weeklySlot==w and C.sharesCoopField(s) then C.coopContact(s,w.primary,actor) end
+ end
+ local function present(s,party,a)
+  if not party or not a or a.hp<=0 or active(party)~=a then return false end
+  return not s.coopWorld or (party.coop==s.coopWorld and party.coopMember.online and C.sharesCoopField(party))
+ end
  local function remove(s,e)
   for i=#s.enemies,1,-1 do if s.enemies[i]==e then table.remove(s.enemies,i) end end
  end
@@ -31,11 +53,11 @@ return function(C,M)
   end
  end
  local function cancelHold(w,c,reason,s)
-  if c.hold then
-   log(s,w,'WT20:cancel:'..reason,c.hold.actor)
-   c.hold=nil
-   if reason~='released' then w.requireRelease=true end
-  end
+  local h=c.hold
+  if not h then return end
+  log(s,w,'WT20:cancel:'..reason,h.actor.id)
+  c.hold=nil
+  if reason~='released' then controls(w,h.party).requireRelease=true end
  end
  local function transition(s,w,spec,stage)
   w.stage=stage;w.index=1;w.phase='available';w.rest=spec.restTicks;w.cast=nil
@@ -47,7 +69,7 @@ return function(C,M)
   if w.cast then cancelHold(w,w.cast,'target',s) end
   local first=queenMoves[key] and w.queen or w.king
   if first.hp<=0 then first=first==w.king and w.queen or w.king end
-  local a=active(s)
+  local a=M.target(s,first.x) or first
   local c={key=key,move=spec.moves[key],t=0,body=first,x=first.x,dir=a.x>=first.x and 1 or -1,
    mark=board(spec,a.x),points={},shots={},seen={}}
   w.cast=c;w.phase='warning'
@@ -57,7 +79,7 @@ return function(C,M)
    for i,u in ipairs(spec.charge.pawnU) do c.pawns[i]={x=fromU(spec,u),next=90+i*44} end
    c.shield=#c.pawns;c.failures=0;c.next=0
   elseif key=='WT05' then
-   c.g=c.move.shield_units;c.last={};c.casts=setmetatable({},{__mode='k'})
+   c.g=c.move.shield_units;c.last=weakKeys();c.casts=weakKeys()
    w.king.invulnerable=false;w.king.noAutoTarget=false;w.king.underground=false
   elseif key=='WT16' or key=='WT17' then
    c.freeze=0;c.ready=0;c.freezeBy=c.move.freeze_completed_by or c.move.deadline_ticks-1
@@ -79,10 +101,12 @@ return function(C,M)
    if tick>=c.move.total or c.g<=0 or e~=w.king then return false end
    local root=cast.rootCast or cast
    local clock=w.clock+tick-c.t
-   if c.casts[root] or clock<(c.last[cast.id] or -math.huge)+24 then return false end
-   c.casts[root]=true;c.last[cast.id]=clock
+   local a=s.actors[cast.id]
+   if not a or c.casts[root] or clock<(c.last[a] or -math.huge)+24 then return false end
+   c.casts[root]=true;c.last[a]=clock
    local n=math.min(c.g,element=='physical' and 1 or 2)
    c.g=c.g-n;log(s,w,'WT05:barrier',cast.id,n)
+   contribute(s,w,cast.id)
    return true
   end
   if c and c.key=='WT18' and tick>=c.move.exposure[2] then return false end
@@ -99,6 +123,7 @@ return function(C,M)
   C.combatEvent(s,'hit',cast.id,e.id,n)
   local event=s.events[#s.events]
   event.element=element;event.reaction=cast.reaction or false;event.critical=not not critical
+  contribute(s,w,cast.id)
   syncHP(w,spec)
   if e.hp>0 and C.afterElementHit then C.afterElementHit(s,cast,e,cast.applicationElement or element,element,n) end
   return true
@@ -110,14 +135,15 @@ return function(C,M)
   end
   w.stage='royal';w.index=1
   w.king.x,w.queen.x=fromU(spec,2.9),fromU(spec,6.8)
+  w.primary.fieldMembers={w.king,w.queen}
   syncHP(w,spec);targetable(w,false);log(s,w,'WT09:pair')
  end
  function controller.spawn(s,w,spec)
   w.clock,w.remainder=0,0;w.reviveLeft=spec.moves.WT19.revive_budget_total
-  w.pawnsDone=false;w.requireRelease=false;w.contactTick=nil
+  w.pawnsDone=false;w.controls=weakKeys();w.contactTick=nil
   local function body(id,hp,x,dir)
    local e={id=spec.entity+id,hp=hp,maxhp=hp,x=x,y=spec.floorY,hitTop=spec.floorY-86,hitBottom=spec.floorY,
-    hitHalfWidth=22,dir=dir,level=spec.level,custom=true,boss=true,noRewards=true,warning=0,respawn=math.huge,generation=1}
+    hitHalfWidth=22,dir=dir,level=spec.level,custom=true,boss=true,noRewards=true,weeklyPart=true,warning=0,respawn=math.huge,generation=1}
    e.onCastContact=function(state,cast,_,mult,color,element) return contact(state,w,spec,e,cast,mult,color,element) end
    return e
   end
@@ -126,12 +152,14 @@ return function(C,M)
  end
  function controller.attach(s,w,spec)
   s.enemies[#s.enemies+1]=w.king;s.enemies[#s.enemies+1]=w.queen
-  s.grappleNodes={};s.selectedGrapple=nil
-  for _,a in ipairs(s.actors) do a.grapple=nil end
+  for _,party in ipairs(s.parties or {s}) do
+   party.grappleNodes={};party.selectedGrapple=nil
+   for _,a in ipairs(party.actors) do a.grapple=nil end
+  end
  end
  function controller.cleanup(s,w)
   if w.cast then cancelHold(w,w.cast,'scene',s) end
-  w.cast=nil;w.contactTick=nil;w.requireRelease=false
+  w.cast=nil;w.contactTick=nil;w.controls=weakKeys()
   remove(s,w.king);remove(s,w.queen)
  end
  local function rest(w,spec)
@@ -152,7 +180,8 @@ return function(C,M)
  local function resolveDeaths(s,w,spec)
   if w.stage=='royal' then
    if w.king.hp<=0 and w.queen.hp<=0 then
-    C.defeatEnemy(s,w.primary,s.active);return true
+    local party=s.parties and s.parties[1] or s
+    C.defeatEnemy(party,w.primary,party.active);return true
    end
    local dead=w.king.hp<=0 and w.king or w.queen.hp<=0 and w.queen
    if dead and not dead.retired and (not w.cast or w.cast.key~='WT19') then start(s,w,spec,'WT19');return true end
@@ -162,14 +191,15 @@ return function(C,M)
   end
   return false
  end
- local function chargeLock(s,w,spec,run,leftOnly)
-  local a=active(s)
+ local function newRun(s,t)
+  local a,party=M.target(s)
+  if a and a.hp>0 then return {start=t,seen={},actor=a,party=party} end
+ end
+ local function chargeLock(w,spec,run)
   local from=w.king.x
   local max=spec.charge.rangeU*spec.board.unit
   run.origin=from
-  run.owner=s.active
-  run.goal=board(spec,from+clamp(a.x-from,-max,max))
-  if leftOnly then run.goal=math.max(from,run.goal) end
+  run.goal=math.max(from,board(spec,from+clamp(run.actor.x-from,-max,max)))
   run.prior=from;w.king.dir=run.goal>=from and 1 or -1
  end
  local function chargeMove(s,w,spec,c,run,i,length)
@@ -195,24 +225,26 @@ return function(C,M)
  local function pawnTick(s,w,spec,c)
   local cfg=spec.charge
   if not c.run and c.t>=c.next then
-   c.run={start=c.t,seen={},owner=s.active};w.king.x=fromU(spec,cfg.kingStartU)
-   log(s,w,'WT04',s.active,c.shield)
+   c.run=newRun(s,c.t);w.king.x=fromU(spec,cfg.kingStartU)
+   if c.run then log(s,w,'WT04',c.run.actor.id,c.shield) end
   end
   local run=c.run
   if run then
    local t=c.t-run.start
-   if t<=cfg.lock and s.actors[run.owner].hp<=0 then
-    run.start=c.t;run.owner=s.active
-   elseif t==cfg.lock then chargeLock(s,w,spec,run,true);log(s,w,'WT04:lock',run.owner,run.goal)
+   if t<=cfg.lock and not present(s,run.party,run.actor) then
+    c.run=newRun(s,c.t)
+    if c.run then log(s,w,'WT04',c.run.actor.id,c.shield) end
+   elseif t==cfg.lock then chargeLock(w,spec,run);log(s,w,'WT04:lock',run.actor.id,run.goal)
    elseif t>=cfg.active[1] and t<cfg.active[2] and not run.hit then
     local pawn=chargeMove(s,w,spec,c,run,t-cfg.active[1],cfg.active[2]-cfg.active[1])
     if pawn then
      pawn.broken=true;run.hit=true;c.shield=c.shield-1;c.failures=0
-     log(s,w,'WT04:pawn',run.owner,c.shield)
+     contribute(run.party,w,run.actor.id)
+     log(s,w,'WT04:pawn',run.actor.id,c.shield)
      if c.shield==0 then w.pawnsDone=true;start(s,w,spec,'WT18');return end
     end
    elseif t==cfg.finish then
-    if not run.hit then c.failures=c.failures+1;log(s,w,'WT04:miss',run.owner,c.failures) end
+    if not run.hit then c.failures=c.failures+1;log(s,w,'WT04:miss',run.actor.id,c.failures) end
     c.run=nil;c.next=c.t+(c.failures>=3 and 84 or 50)
    end
   end
@@ -223,8 +255,11 @@ return function(C,M)
      if c.t>=a.at and c.t<a.at+8 then
       M.damage(s,w,spec,c,{M.band(p.x,p.x+a.dir*.8*spec.board.unit,spec.floorY,64,M.fire)},a.seen,spec.damage.pawn)
      elseif c.t>=a.at+8 then p.attack=nil;p.next=c.t+cfg.pawnGap end
-    elseif c.t>=p.next and math.abs(active(s).x-p.x)<=.8*spec.board.unit then
-     p.attack={at=c.t+cfg.pawnWarn,dir=active(s).x>=p.x and 1 or -1,seen={}}
+    elseif c.t>=p.next then
+     local a=M.target(s,p.x)
+     if a and math.abs(a.x-p.x)<=.8*spec.board.unit then
+      p.attack={at=c.t+cfg.pawnWarn,dir=a.x>=p.x and 1 or -1,seen={}}
+     end
     end
    end
   end
@@ -239,28 +274,36 @@ return function(C,M)
  local function summonRun(s,w,spec,c)
   if c.t>c.move.last_retry_start_tick then return end
   w.king.x=fromU(spec,spec.charge.royalKingU)
-  c.run={start=c.t,owner=s.active,seen={}}
-  log(s,w,'WT17:lead',s.active,c.t)
+  c.run=newRun(s,c.t)
+  if c.run then log(s,w,'WT17:lead',c.run.actor.id,c.t) end
  end
  local function freezeTick(s,w,spec,c)
-  local a=active(s)
+  local mode=spec.moves.WT20
   if c.freeze<100 and c.t<=c.freezeBy then
-   local at=frostAt(spec,a)
    local h=c.hold
-   if h and (not w.held or a.id~=h.actor or a.hp<=0 or h.at~=at or a.hp<h.hp or a.channel) then
-    cancelHold(w,c,not w.held and 'released' or 'owner',s);h=nil
+   if h then
+    local a,control=h.actor,controls(w,h.party)
+    if not control.held or not present(s,h.party,a) or h.at~=frostAt(spec,a) or a.channel then
+     cancelHold(w,c,not control.held and 'released' or 'owner',s);h=nil
+    end
    end
-   if not c.hold and w.held and not w.requireRelease and not s.auto and a.hp>0 and a.lock<=0 and
-      not a.channel and at and c.t>=c.ready then
-    c.hold={actor=a.id,at=at,start=c.t,hp=a.hp}
-    log(s,w,'WT20:hold',a.id,at)
-   elseif h and c.t-h.start>=spec.moves.WT20.context_channel_ticks then
-    c.hold=nil;c.ready=c.t+spec.moves.WT20.context_cooldown_ticks;w.requireRelease=true
-    c.freeze=math.min(100,c.freeze+spec.moves.WT20.context_gain)
-    log(s,w,'WT20:complete',a.id,c.freeze)
+   if h and c.t-h.start>=mode.context_channel_ticks then
+    c.hold=nil;c.ready=c.t+mode.context_cooldown_ticks;controls(w,h.party).requireRelease=true
+    c.freeze=math.min(100,c.freeze+mode.context_gain)
+    log(s,w,'WT20:complete',h.actor.id,c.freeze);contribute(h.party,w,h.actor.id)
     if c.freeze==100 then
      if c.key=='WT16' then start(s,w,spec,'WT18');return end
      summonRun(s,w,spec,c)
+    end
+   elseif not h and c.t>=c.ready then
+    for _,party in ipairs(s.parties or {s}) do
+     local a,control=active(party),controls(w,party)
+     local at=frostAt(spec,a)
+     if control.held and not control.requireRelease and a.hp>0 and a.lock<=0 and not a.channel and at then
+      c.hold={party=party,actor=a,at=at,start=c.t}
+      log(s,w,'WT20:hold',a.id,at)
+      break
+     end
     end
    end
   else cancelHold(w,c,'deadline',s) end
@@ -268,16 +311,17 @@ return function(C,M)
   if run and c.t<c.move.deadline_ticks then
    local t=c.t-run.start
    local window=c.move.charge_window_offset
-   if t<=c.move.lock_offset and s.actors[run.owner].hp<=0 then
+   if t<=c.move.lock_offset and not present(s,run.party,run.actor) then
     c.run=nil;summonRun(s,w,spec,c)
    elseif t==c.move.lock_offset then
-    chargeLock(s,w,spec,run,true);log(s,w,'WT17:lock',run.owner,run.goal)
+    chargeLock(w,spec,run);log(s,w,'WT17:lock',run.actor.id,run.goal)
    elseif t>=window[1] and t<window[2] then
     if chargeMove(s,w,spec,c,run,t-window[1],window[2]-window[1]) then
-     log(s,w,'WT17:collision',run.owner,w.king.x);start(s,w,spec,'WT18');return
+     contribute(run.party,w,run.actor.id)
+     log(s,w,'WT17:collision',run.actor.id,w.king.x);start(s,w,spec,'WT18');return
     end
    elseif t==window[2] then
-    c.run=nil;log(s,w,'WT17:miss',run.owner,c.t);summonRun(s,w,spec,c)
+    c.run=nil;log(s,w,'WT17:miss',run.actor.id,c.t);summonRun(s,w,spec,c)
    end
   end
   local window=c.move.failure_window
@@ -292,7 +336,8 @@ return function(C,M)
   local cycle=c.t%c.move.pulse_period_ticks
   if cycle==0 then c.seen={};c.points={} end
   if cycle==c.move.relative_lock_tick then
-   local x=active(s).x
+   local a=M.target(s,w.king.x)
+   local x=a and a.x or c.mark
    for i=-1,1 do c.points[i+2]=board(spec,x+i*105) end
   end
   for i,win in ipairs(c.move.windows) do
@@ -332,7 +377,8 @@ return function(C,M)
    if c.key=='WT05' then
     if c.g==0 then start(s,w,spec,'WT18');return end
     for _,a in ipairs(s.actors) do
-     if a.hp>1 then C.damageActor(s,a,math.min(a.hp-1,spec.damage.fallback),w.king,false,true) end
+     local party=s.actorOwners and s.actorOwners[a] or s
+     if a.hp>1 then C.damageActor(party,a,math.min(a.hp-1,spec.damage.fallback),w.king,false,true) end
     end
     log(s,w,'WT05:expired')
    end
@@ -349,24 +395,52 @@ return function(C,M)
   else M.step(s,w,spec,c) end
  end
  function controller.beforeAction(s,w,key)
-  if w.cast and cancelInput[key] then cancelHold(w,w.cast,'action',s) end
+  local c=w.cast
+  if c and c.hold and c.hold.party==s and cancelInput[key] then cancelHold(w,c,'action',s) end
+ end
+ function controller.leaveCoop(s,w)
+  local c=w.cast
+  if c and c.hold and c.hold.party==s then cancelHold(w,c,'scene',s) end
+  w.controls[s]=nil
+ end
+ local function readInput(s,w,input)
+  local control=controls(w,s)
+  if not input.interact then control.requireRelease=false end
+  control.held=input.interact and not (input.jump or input.attack or s.auto)
+  local c=w.cast
+  if c and c.hold and c.hold.party==s and input.interact and not control.held then cancelHold(w,c,'action',s) end
  end
  function controller.prepare(s,w,spec,input,dt)
-  if not input.interact then w.requireRelease=false end
-  w.held=input.interact and not (input.jump or input.attack or s.auto)
+  if s.coopWorld then
+   for _,member in ipairs(s.coopWorld.members) do
+    if member.online and C.sharesCoopField(member.state) then readInput(member.state,w,member.input or {}) end
+   end
+  else readInput(s,w,input) end
   local c=w.cast
   if not c then return end
-  if c.hold and input.interact and not w.held then cancelHold(w,c,'action',s) end
   w.contactTick=c.t+math.floor(w.remainder+math.min(dt,1/30)*60+1e-8)
  end
  function controller.finish(s,w,spec,dt)
   w.contactTick=nil
   w.remainder=w.remainder+math.min(dt,1/30)*60
   while w.remainder>=1-1e-8 and w.primary.hp>0 do w.remainder=w.remainder-1;tick(s,w,spec) end
+  if not s.parties or w.primary.hp<=0 then return end
+  for _,a in ipairs(s.actors) do if a.hp>0 then return end end
+  if w.cast then cancelHold(w,w.cast,'scene',s) end
+  w.cast=nil;w.rechallenge=true;targetable(w,false)
  end
  local function live(s)
   local w,spec=C.currentWeeklyBoss(s)
   if w and spec.controller=='game_before_gate' and not w.waitUntil then return w,spec end
+ end
+ function C.damageActor(s,a,amount,source,blockable,telegraphed)
+  local dealt=damageActor(s,a,amount,source,blockable,telegraphed)
+  if dealt>0 then
+   local w=live(s)
+   local h=w and w.cast and w.cast.hold
+   if h and h.actor==a then cancelHold(w,w.cast,'damage',s) end
+  end
+  return dealt
  end
  function C.fieldMoveFactor(s,a)
   local w,spec=live(s)
@@ -475,9 +549,11 @@ return function(C,M)
    end
   elseif c.key=='WT16' or c.key=='WT17' then
    local mode=spec.moves.WT20
+   local h=c.hold
    v.freeze=c.freeze;v.freezeBy=c.freezeBy;v.deadline=c.move.deadline_ticks
-   v.nearFrost=frostAt(spec,a);v.frostReady=math.max(0,c.ready-c.t);v.hold=c.hold and c.t-c.hold.start
-   v.releaseRequired=w.requireRelease
+   v.nearFrost=frostAt(spec,a);v.frostReady=math.max(0,c.ready-c.t);v.hold=h and h.party==s and c.t-h.start or nil
+   v.frostOwner=h and h.party.coopMember and h.party.coopMember.id
+   v.releaseRequired=controls(w,s).requireRelease or false
    v.canFrost=c.freeze<100 and c.t<=c.freezeBy
    if v.canFrost then
     for _,u in ipairs(mode.context_positions_U) do
@@ -506,10 +582,12 @@ return function(C,M)
   end
   if c.run then
    local run=c.run
-   v.run={t=c.t-run.start,goal=run.goal,owner=run.owner,hit=run.hit}
-   local marked=run.goal or active(s).x
-   local victim=run.goal and s.actors[run.owner] or a
-   if victim and victim.hp>0 then
+   v.run={t=c.t-run.start,goal=run.goal,owner=run.actor.id,hit=run.hit,
+    member=run.party.coopMember and run.party.coopMember.id,mine=run.party==s}
+   local marked=run.goal or run.actor.x
+   local victim=run.actor
+   if victim.hp>0 and (run.party==s or run.party.coop==s.coop and v.run.member and
+       run.party.coopMember.online and C.sharesCoopField(run.party)) then
     rect(victim.x-10,victim.y-105,20,6,M.gold);rect(victim.x-7,victim.y-111,4,7,M.gold);rect(victim.x+3,victim.y-111,4,7,M.gold)
    end
    local from=run.origin or k.x

@@ -4342,6 +4342,7 @@
       "node": "mond-gate-chess-court",
       "storyChallenge": "gate-weekly",
       "name": "扉に通ずる対局",
+      "coop": true,
       "level": 112,
       "hp": 3620,
       "pieceKingHp": 900,
