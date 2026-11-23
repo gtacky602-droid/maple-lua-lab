@@ -2225,12 +2225,16 @@
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "docs/balance/DRAGONSPINE_OBSERVATION_WEB.md"
+        "docs/balance/DRAGONSPINE_OBSERVATION_WEB.md",
+        "evidence/spine-observation-lua.json",
+        "evidence/spine-observation-browser.json",
+        "evidence/coop-original-field-bosses-lua.json",
+        "evidence/coop-original-field-bosses-browser.json"
       ],
       "remaining": [
         "連続アニメーション",
         "報酬の調整",
-        "マルチ検証"
+        "別端末での共闘検証"
       ],
       "fieldNode": "spine-trace-ridge",
       "fieldEntrance": "霜紋の稜線（Lv60）",
@@ -2250,12 +2254,16 @@
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "docs/balance/CHENYU_TEA_ROUTE_WEB.md"
+        "docs/balance/CHENYU_TEA_ROUTE_WEB.md",
+        "evidence/chenyu-tea-lua.json",
+        "evidence/chenyu-tea-browser.json",
+        "evidence/coop-original-field-bosses-lua.json",
+        "evidence/coop-original-field-bosses-browser.json"
       ],
       "remaining": [
         "連続アニメーション",
         "報酬の調整",
-        "マルチ検証"
+        "別端末での共闘検証"
       ],
       "fieldNode": "chenyu-boulder-gully",
       "fieldEntrance": "段丘の岩陰（Lv95）",

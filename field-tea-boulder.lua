@@ -8,6 +8,10 @@ return function(C)
  function boulder.spawn(b,spec) b.exposed,b.barrier=false,spec.barrier end
  function boulder.cancel(b,spec) boulder.spawn(b,spec) end
 
+ function boulder.shareCast(cast,actors)
+  C.shareFieldHits({cast.seen},actors)
+ end
+
  local function stopAtRock(spec,origin,destination,dir)
   for _,rock in ipairs(spec.cover) do
    local face=dir>0 and rock.x or rock.x+rock.w

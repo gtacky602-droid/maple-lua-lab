@@ -8,6 +8,10 @@ return function(C)
  function hare.spawn(b,spec) b.recovering,b.barrier=false,spec.barrier end
  function hare.cancel(b,spec) hare.spawn(b,spec) end
 
+ function hare.shareCast(cast,actors)
+  C.shareFieldHits({cast.seen},actors)
+ end
+
  function hare.begin(b,spec,move,target)
   b.facing=target.x<b.x and -1 or 1
   local lanes={}

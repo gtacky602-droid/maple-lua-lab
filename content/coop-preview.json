@@ -148,7 +148,11 @@
     "sne-novokichev-ore-yard": "ノヴォキッチェヴ市街地・鉱荷の集積場",
     "novokichev-camp": "ノヴォキッチェヴ（仮構造）・入口拠点",
     "novokichev-depth": "ノヴォキッチェヴ（仮構造）・探索路",
-    "wavebinder-tide-cavern": "ノヴォキッチェヴ・西港の潮洞（仮配置）"
+    "wavebinder-tide-cavern": "ノヴォキッチェヴ・西港の潮洞（仮配置）",
+    "spine-shelter": "峰下の観測小屋",
+    "spine-trace-ridge": "霜紋の稜線",
+    "chenyu-tea-pavilion": "谷を望む茶亭",
+    "chenyu-boulder-gully": "段丘の岩陰"
   },
   "capacity": 4,
   "rewardRange": {"x": 420, "y": 180},

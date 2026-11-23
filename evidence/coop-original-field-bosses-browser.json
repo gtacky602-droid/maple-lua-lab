@@ -1,0 +1,41 @@
+{
+  "results": {
+    "original-rime-hare": {
+      "hp": 1040,
+      "moraPerPlayer": 380,
+      "clear": [
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 23.68333333333223
+        },
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 23.66666666666569
+        }
+      ],
+      "hostReported": true,
+      "bothSavedAndReloaded": true
+    },
+    "original-tea-boulder": {
+      "hp": 984,
+      "moraPerPlayer": 472,
+      "clear": [
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 25.283333333332205
+        },
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 25.299999999998978
+        }
+      ],
+      "hostReported": true,
+      "bothSavedAndReloaded": true
+    }
+  },
+  "errors": []
+}

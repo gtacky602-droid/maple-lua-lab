@@ -1,0 +1,32 @@
+{
+  "original-rime-hare": {
+    "players": 4,
+    "requiredLevel": 60,
+    "sharedHP": 1040,
+    "attack": "RH01",
+    "hitOnJoin": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "rewardedPlayers": 2,
+    "xpPerContributor": 39950,
+    "questReportedAndRestored": true
+  },
+  "original-tea-boulder": {
+    "players": 4,
+    "requiredLevel": 95,
+    "sharedHP": 984,
+    "attack": "TB01",
+    "hitOnJoin": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "rewardedPlayers": 2,
+    "xpPerContributor": 231550,
+    "questReportedAndRestored": true
+  }
+}

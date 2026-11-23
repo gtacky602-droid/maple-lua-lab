@@ -8214,7 +8214,11 @@
       "sne-novokichev-ore-yard",
       "novokichev-camp",
       "novokichev-depth",
-      "wavebinder-tide-cavern"
+      "wavebinder-tide-cavern",
+      "spine-shelter",
+      "spine-trace-ridge",
+      "chenyu-tea-pavilion",
+      "chenyu-boulder-gully"
     ],
     "bosses": [
       "boss-26020101",
@@ -8302,7 +8306,9 @@
       "boss-29130201",
       "boss-29150101",
       "original-tide-surveyor",
-      "original-twin-shuttle-loom"
+      "original-twin-shuttle-loom",
+      "original-rime-hare",
+      "original-tea-boulder"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8558,10 +8564,12 @@
       "evidence/coop-bubble-returns-browser.json",
       "evidence/coop-bubble-returns-chassanion-outside.png",
       "evidence/coop-bubble-returns-chassanion-inside.png",
-      "evidence/coop-bubble-returns-corrouge-return.png"
+      "evidence/coop-bubble-returns-corrouge-return.png",
+      "evidence/coop-original-field-bosses-lua.json",
+      "evidence/coop-original-field-bosses-browser.json"
     ],
     "pending": [
-      "lab-original field encounters, remaining Local Legends and Stygian bosses",
+      "remaining lab-original field encounters, remaining Local Legends and Stygian bosses",
       "shared combat outside the supported maps",
       "remote and Miliastra tests"
     ]
