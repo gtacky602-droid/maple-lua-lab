@@ -56,7 +56,7 @@ def shared_attacks(lua,core,id):
     slot=room.fieldSlot
     boss=slot.enemy
     step=lambda:core.stepCoop(room,TICK)
-    if id==SAPPHO:
+    if spec.get('provokeOnly'):
         for _ in range(150):
             step()
         assert slot.phase=='available' and boss.hp==spec['hp'] and boss.noAutoTarget

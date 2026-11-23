@@ -1,0 +1,184 @@
+{
+  "participants": 2,
+  "rilai": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 194,
+        "moves": [
+          "NW01",
+          "NW02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 194,
+        "moves": [
+          "NW01",
+          "NW02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "cryo",
+        68,
+        609.5,
+        745.5
+      ],
+      [
+        2,
+        "cryo",
+        117,
+        798.5,
+        968.5
+      ]
+    ],
+    "rewards": [
+      [
+        464100,
+        530
+      ],
+      [
+        464100,
+        530
+      ]
+    ],
+    "contacts": [
+      7,
+      6
+    ],
+    "saved": true,
+    "sharedRematch": true,
+    "returnY": 480,
+    "restoredBoth": true,
+    "neutralUntilHit": true,
+    "bothReported": true
+  },
+  "fallen-dawnstar": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 151,
+        "moves": [
+          "NW03",
+          "NW04"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 173,
+        "moves": [
+          "NW03",
+          "NW04"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "cryo",
+        70,
+        384,
+        540
+      ],
+      [
+        2,
+        "cryo",
+        118,
+        328,
+        666
+      ]
+    ],
+    "rewards": [
+      [
+        464100,
+        550
+      ],
+      [
+        464100,
+        550
+      ]
+    ],
+    "contacts": [
+      7,
+      8
+    ],
+    "saved": true,
+    "sharedRematch": true,
+    "returnY": 346,
+    "restoredBoth": true,
+    "independentPillarTransfers": true,
+    "bothReported": true
+  },
+  "ironbeard": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 174,
+        "moves": [
+          "NW05",
+          "NW06"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 172,
+        "moves": [
+          "NW05",
+          "NW06"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "pyro",
+        69,
+        696,
+        832
+      ],
+      [
+        2,
+        "pyro",
+        108,
+        833,
+        987
+      ],
+      [
+        3,
+        "pyro",
+        147,
+        988,
+        1124
+      ]
+    ],
+    "rewards": [
+      [
+        464100,
+        565
+      ],
+      [
+        464100,
+        565
+      ]
+    ],
+    "contacts": [
+      8,
+      7
+    ],
+    "saved": true,
+    "sharedRematch": true,
+    "returnY": 343,
+    "restoredBoth": true,
+    "independentPillarTransfers": true
+  },
+  "errors": []
+}

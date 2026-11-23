@@ -1,0 +1,116 @@
+{
+  "legend-natlan_rilai": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1150,
+      "moves": [
+        {
+          "id": "NW01",
+          "warningTicks": [
+            64
+          ]
+        },
+        {
+          "id": "NW02",
+          "warningTicks": [
+            68,
+            117
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 464100,
+      "mora": 530
+    },
+    "http": {
+      "sharedRoomDifferentArenas": true,
+      "neutralWithCompanion": true,
+      "normalAttackProvokes": true,
+      "independentHealthAndLoot": true,
+      "canRegroupAfterClear": true,
+      "rematchRestoresNeutral": true,
+      "independentLevelGate": true,
+      "sharedGroundFightAndSaves": true
+    }
+  },
+  "legend-natlan_fallen_dawnstar": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1220,
+      "moves": [
+        {
+          "id": "NW03",
+          "warningTicks": [
+            64
+          ]
+        },
+        {
+          "id": "NW04",
+          "warningTicks": [
+            70,
+            118
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 464100,
+      "mora": 550,
+      "departingPartyReceivesNoLateKillCredit": true
+    },
+    "http": {
+      "players": 2,
+      "individualPhaseTransfers": true,
+      "independentLevelGate": true,
+      "pausedOnRetreat": true,
+      "onePartyWipeKeepsFight": true,
+      "fullRoomWipeResets": true,
+      "rematchAfterEveryoneLeaves": true,
+      "personalRewardsRestored": true
+    }
+  },
+  "legend-natlan_ironbeard": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1260,
+      "moves": [
+        {
+          "id": "NW05",
+          "warningTicks": [
+            63
+          ]
+        },
+        {
+          "id": "NW06",
+          "warningTicks": [
+            69,
+            108,
+            147
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 464100,
+      "mora": 565,
+      "departingPartyReceivesNoLateKillCredit": true
+    },
+    "http": {
+      "players": 2,
+      "individualPhaseTransfers": true,
+      "independentLevelGate": true,
+      "pausedOnRetreat": true,
+      "onePartyWipeKeepsFight": true,
+      "fullRoomWipeResets": true,
+      "rematchAfterEveryoneLeaves": true,
+      "personalRewardsRestored": true
+    }
+  }
+}
