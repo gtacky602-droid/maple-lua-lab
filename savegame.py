@@ -758,12 +758,16 @@ def validate_save(data):
         for id, slot in slots.items():
             spec=_FIELD_BOSSES.get(id)
             if (not spec or spec.get('manualRechallenge') or not isinstance(slot,dict)
-                    or set(slot)-{'flags'}!={'generation','hp','waitTicks'}
+                    or set(slot)-{'flags','elapsedTicks'}!={'generation','hp','waitTicks'}
                     or any(type(slot[k]) is not int for k in ('generation','hp','waitTicks'))
                     or not 1<=slot['generation']<=10**9 or not 0<=slot['hp']<=spec['hp']
                     or not 0<=slot['waitTicks']<=spec['respawnTicks']
                     or bool(slot['hp'])==bool(slot['waitTicks'])):
                 raise ValueError('フィールドボスの個体情報が不正です')
+            if 'elapsedTicks' in slot and (not spec.get('questRewardsOnly')
+                    or not 0<slot['hp']<spec['hp']
+                    or type(slot['elapsedTicks']) is not int or not 0<=slot['elapsedTicks']<=10**9):
+                raise ValueError('フィールドボスの経過時間が不正です')
             if 'flags' in slot:
                 flags=slot['flags']
                 allowed=spec.get('saveFlags',[])

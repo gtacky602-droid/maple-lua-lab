@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {observeRuinAttacks} from './tools/browser_ruin_guardian_test.mjs';
 
 const hub='fontaine-hub',watch='fontaine-stage-watch',wing='fontaine-scenery-booth';
 const runway='fontaine-grand-stage-approach',arena='fontaine-grand-stage',quest='fontaine-grand-finale';
@@ -156,8 +157,9 @@ try{
   const stageScene=await scene();
   assert.deepEqual(stageScene,{key:'fontaineGrandStage',file:'fontaine-grand-stage-background-v1.png',state:'ready'});
   await walk(858);
-  await wait(()=>window.lab.frame.fieldBoss?.label==='外装の駆動部');
+  await wait(()=>Object.values(window.lab.frame.fieldBoss?.zones??{}).some(zone=>!zone.active));
   const commands=await compare();
+  const battle=await observeRuinAttacks(page,['GF01','GF02']);
   await walk(910);
   const beforeClear=(await frame()).progression.questXp;
   await auto(true);
@@ -186,6 +188,8 @@ try{
     after.mora-before.mora,after.inventory.upgradeOre-before.inventory.upgradeOre];
   assert.deepEqual(reward,luaProof.reward);
   await saveReload(hub);
+  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1'))
+    .endgame.bosses['original-grand-finale'].clears),1);
   await gate(1320,arena);
   await jump(1447,390);
   await cue('performed');
@@ -194,7 +198,7 @@ try{
   assert.equal((await frame()).fieldBoss,undefined);
   await screenshot('show');
   assert.deepEqual(errors,[]);
-  const proof={evacuation:true,deckAfterReload:true,twoGuardLevels:true,scene:stageScene,commands,
+  const proof={evacuation:true,deckAfterReload:true,twoGuardLevels:true,scene:stageScene,commands,battle,bossClearSaved:true,
     firstClearExp:luaProof.firstClearExp,shutdownConfetti:true,earlyCueRejected:true,performance:true,
     performanceAfterReload:true,noBossAfterShow:true,reward,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');

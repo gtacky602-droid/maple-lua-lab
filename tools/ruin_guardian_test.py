@@ -26,8 +26,8 @@ def exercise_ruin_guardian(lua, core, state, boss_id):
     zone = first.zones[1]
     shown = core.frame(state).fieldBoss.zones
     assert shown[1].first == zone.first and shown[1].active is False
-    if boss_id=='original-bellgate':
-        assert shown[2].first-shown[1].first==42
+    if len(shown)==2:
+        assert shown[2].first-shown[1].first==first.move.interval
         assert shown[1].right < boss.x < shown[2].left
     place((zone.left+zone.right)/2)
     until(lambda: first.tick==zone.first-12)
@@ -48,17 +48,29 @@ def exercise_ruin_guardian(lua, core, state, boss_id):
     zone = second.zones[1]
     bounds = zone.left, zone.right
     assert bounds[0]<actor.x<bounds[1]
-    place(zone.right+48)
-    until(lambda: second.tick==zone.first)
-    assert (zone.left,zone.right)==bounds and actor.hp==hp
-    place((zone.left+zone.right)/2)
-    core.step(state,1/60,idle)
+    if second.destination is not None:
+        place((second.origin+second.destination)/2)
+        until(lambda: second.tick==zone.first)
+        assert boss.x!=second.origin and actor.hp==hp
+        until(lambda: actor.hp<hp)
+        assert (zone.left,zone.right)==bounds
+    else:
+        place(zone.right+48)
+        until(lambda: second.tick==zone.first)
+        assert (zone.left,zone.right)==bounds and actor.hp==hp
+        place((zone.left+zone.right)/2)
+        core.step(state,1/60,idle)
     assert actor.hp==hp-second.move.damage
     until(lambda: boss.recovering)
     assert actor.hp==hp-second.move.damage
+    if second.destination is not None:
+        assert boss.x==second.destination
     test_cast = lua.table_from({'id':state.active,'atk':40,'mult':1,'gain':0,'element':'physical'})
     recover_damage = core.damageFactor(state,test_cast,boss,'physical')
     assert recover_damage==1.35
-    return dict(moves=[first.move.id,second.move.id], warningAt=shown[1].first,
-                jumpAvoidance=True, targetedAreaStaysFixed=True, singleHit=second.move.damage,
-                recoveryFactor=recover_damage, warningZones=native(shown))
+    proof = dict(moves=[first.move.id,second.move.id], warningAt=shown[1].first, jumpAvoidance=True)
+    if second.destination is not None:
+        proof.update(warningStaysFixed=True, bodyTravel=abs(second.destination-second.origin))
+    else:
+        proof['targetedAreaStaysFixed']=True
+    return dict(proof,singleHit=second.move.damage,recoveryFactor=recover_damage,warningZones=native(shown))

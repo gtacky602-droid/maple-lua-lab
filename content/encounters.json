@@ -2369,10 +2369,11 @@
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "docs/balance/SUMERU_CANOPY_WEB.md"
+        "docs/balance/SUMERU_CANOPY_WEB.md",
+        "evidence/sumeru-canopy-lua.json",
+        "evidence/sumeru-canopy-browser.json"
       ],
       "remaining": [
-        "ボスの技",
         "連続アニメーション",
         "報酬の調整",
         "マルチ検証"
@@ -2383,7 +2384,7 @@
         "source": "assets/canopy-fungus-source-v1.png",
         "encoding": "assets/canopy-fungus-field-idle-sprites-v1.json",
         "audit": "evidence/canopy-fungus-art.json",
-        "status": "original mushroom with canopy foliage; appearance and quest progression"
+        "status": "original mushroom with canopy foliage, used for spore and seed attacks"
       }
     },
     {
@@ -2395,10 +2396,11 @@
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "docs/balance/FONTAINE_GRAND_FINALE_WEB.md"
+        "docs/balance/FONTAINE_GRAND_FINALE_WEB.md",
+        "evidence/fontaine-finale-lua.json",
+        "evidence/fontaine-finale-browser.json"
       ],
       "remaining": [
-        "腕と荷台の固有攻撃",
         "外装と腕の連続アニメーション",
         "再戦の試運転",
         "協力検証"
@@ -2409,7 +2411,7 @@
         "source": "assets/grand-finale-source-v1.png",
         "encoding": "assets/grand-finale-field-idle-sprites-v1.json",
         "audit": "evidence/grand-finale-art.json",
-        "status": "original stage carrier; shutdown and performance route"
+        "status": "original stage carrier, used for a drive sweep and rolling platform attack"
       }
     },
     {

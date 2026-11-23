@@ -22,7 +22,7 @@ return function(C,abyss,weekly,matches,controllers)
  end
  local function ticks(seconds) return math.max(1,math.floor(seconds*60+.5)) end
  local function personalBest(s,collection,id,elapsed)
-  local ticksUsed=ticks(elapsed)
+  local ticksUsed=math.min(10^9,ticks(elapsed))
   local entry=collection[id]
   if not entry then entry={clears=0};collection[id]=entry end
   entry.clears=math.min(1000000,entry.clears+1)

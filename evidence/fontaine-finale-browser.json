@@ -8,10 +8,23 @@
     "state": "ready"
   },
   "commands": {
-    "png": 20,
-    "standard": 16038,
-    "light": 4098
+    "png": 48,
+    "standard": 16066,
+    "light": 4126
   },
+  "battle": {
+    "moves": [
+      "GF02",
+      "GF01"
+    ],
+    "recovered": [
+      "GF02",
+      "GF01"
+    ],
+    "alive": true,
+    "returns": 0
+  },
+  "bossClearSaved": true,
   "firstClearExp": 3020570,
   "shutdownConfetti": true,
   "earlyCueRejected": true,

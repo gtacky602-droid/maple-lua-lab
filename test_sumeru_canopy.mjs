@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {observeRuinAttacks} from './tools/browser_ruin_guardian_test.mjs';
 
 const hub='sumeru-hub';
 const [roots,bank,junction,rootPath,branch,stop,approach,terrace,observatory]=[
@@ -230,7 +231,9 @@ try{
   const canopy=await background();
   assert.deepEqual(canopy,{key:'sumeruCanopy',file:'sumeru-canopy-background-v1.png',state:'ready'});
   await walk(853);
+  await wait(()=>Object.values(window.lab.frame.fieldBoss?.zones??{}).some(zone=>!zone.active));
   const commands=await compare();
+  const battle=await observeRuinAttacks(page,['CF01','CF02']);
   await auto(true);
   await count(third,2);
   await auto(false);
@@ -242,6 +245,8 @@ try{
   await gate(55,hub);
   await report(third,rewards[2]);
   await saveReload();
+  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1'))
+    .endgame.bosses['original-canopy-fungus'].clears),1);
   await gate(1282,observatory);
   await jump(826,391);
   await survey('sumeru-height-map','map');
@@ -249,7 +254,7 @@ try{
   await wait(()=>window.lab.frame.storyNotice?.startsWith('観測所の地図'));
   assert.deepEqual(errors,[]);
   const proof={reloadedLeaf:true,walkedLeafBridge:true,wrongAdjustmentRejected:true,upperGate:true,
-    bothRoutesConverge:true,liftRoundTrip:true,bossAppearanceAndDefeat:true,readbackAfterReload:true,
+    bothRoutesConverge:true,liftRoundTrip:true,battle,bossClearSaved:true,readbackAfterReload:true,
     scenes:[river,canopy],commands,rewards,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);

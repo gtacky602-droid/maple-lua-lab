@@ -1,7 +1,9 @@
 import json
+from copy import deepcopy
 
 from experience import CHAPTER_CLEAR_EXP, LEVELS, QUEST_REPORT_EXP
 from runtime import ROOT, native, runtime
+from tools.ruin_guardian_test import exercise_ruin_guardian
 from savegame import validate_save
 
 
@@ -131,13 +133,29 @@ move(s,912)
 assert frame(s).fieldBoss.label=='外装の駆動部'
 assert any(d.source=='grand-finale-source-v1.png' and d.h==167 for d in frame(s).draws.values())
 strike(s,enemy,55)
+advance(s,31)
 hp=enemy.hp
 assert 0<hp<300
-s=restore(checkpoint(s))
+saved_battle=checkpoint(s)
+elapsed=saved_battle['fieldBosses'][boss]['elapsedTicks']
+assert elapsed>=31
+legacy_battle=deepcopy(saved_battle)
+legacy_battle['fieldBosses'][boss].pop('elapsedTicks')
+assert restore(validate_save(legacy_battle)).fieldSlots[boss].enemy.hp==hp
+invalid_battle=deepcopy(saved_battle)
+invalid_battle['fieldBosses'][boss]['elapsedTicks']=-1
+try:
+    validate_save(invalid_battle)
+except ValueError as error:
+    assert '経過時間' in str(error)
+else:
+    raise AssertionError('A negative field battle clock was accepted')
+s=restore(saved_battle)
 gate(s,1157,wing)
 gate(s,1310,runway)
 gate(s,1719,arena)
 assert s.enemies[1].hp==hp
+battle=exercise_ruin_guardian(lua,core,s,boss)
 before=(s.progression.questXp,s.progression.killXp)
 strike(s,s.enemies[1])
 clear=CHAPTER_CLEAR_EXP['Q-FON-M03:BOSS_FIRST']
@@ -178,6 +196,8 @@ reward=(QUEST_REPORT_EXP['Q-FON-M03'],6100,5)
 assert tuple(a-b for a,b in zip(after,before))==reward
 s=restore(checkpoint(s))
 gate(s,1320,arena)
+assert s.endgame.bosses[boss].clears==1
+assert s.endgame.bosses[boss].bestTicks>=elapsed
 collect(s,1447,6,390)
 assert s.storyNotice.startswith('主舞台の記録') and not len(s.enemies)
 assert frame(s).storyTheaterPerformance.phase=='performed'
@@ -186,7 +206,7 @@ assert not len(s.enemies) and frame(s).fieldBoss is None
 
 proof=dict(requiresPrevious=True,staffEvacuation=True,twoPlayableLayouts=True,stagePlanValidation=True,
            waveCollisionAndDeck=True,dropFromShelfAndGroundSafe=True,bossOnlyDuringChapterStep=True,
-           bossHpAfterReload=True,firstClearOnce=True,
+           bossHpAfterReload=True,elapsedTicksAfterReload=True,battle=battle,bossClearSaved=True,firstClearOnce=True,
            shutdownAfterReload=True,delayedConfetti=True,earlyAndLateCuesRetry=True,showAndReadbackAfterReload=True,
            noBossRespawnAfterShow=True,reportOnce=True,firstClearExp=clear,reward=reward)
 (ROOT/'evidence/fontaine-finale-lua.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')

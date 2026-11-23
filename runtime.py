@@ -441,7 +441,7 @@ def runtime():
     ruin_guardian=lua.execute((ROOT/'field-ruin-guardian.lua').read_text(encoding='utf8'))
     wind_ring=ruin_guardian(core,field_art(lua,'wind-ring',('idle',)).idle)
     bell_gate=ruin_guardian(core,field_art(lua,'bellgate',('idle',)).idle)
-    canopy_fungus=field_display(core,field_art(lua,'canopy-fungus',('idle',)).idle)
+    canopy_fungus=ruin_guardian(core,field_art(lua,'canopy-fungus',('idle',)).idle)
     core.trolleyArt=field_art(lua,'mirage-trolley',('idle',),idle='mirage-trolley-sprites-v1.json').idle
     core.parcelMekaArt=field_art(lua,'parcel-meka',('idle',),idle='parcel-meka-sprites-v1.json').idle
     core.stageWaveArt=field_art(lua,'stage-wave',('idle',),idle='stage-wave-sprites-v1.json').idle
@@ -473,7 +473,7 @@ def runtime():
         lua.table_from({'snowSweeper':snow_sweeper,'frostAntler':frost_antler,'windwardTower':windward_tower,
                         'rubbleSifter':rubble_sifter,'prismWalker':prism_walker,'iceCrawler':ice_crawler,'rimeHare':rime_hare,
                         'teaBoulder':tea_boulder,'plateTail':plate_tail,'windRing':wind_ring,'bellGate':bell_gate,
-                        'canopyFungus':canopy_fungus,'grandFinale':field_display(core,core.grandFinaleArt),'riverRacer':river_racer,
+                        'canopyFungus':canopy_fungus,'grandFinale':ruin_guardian(core,core.grandFinaleArt),'riverRacer':river_racer,
                         'moonCrab':moon_crab,'branchLegend':branch_legend,'waterLegend':water_legend,
                         'jadeplume':jade,'cryoRegisvine':cryo_field,'pyroRegisvine':pyro_field,
                         'anemoHypostasis':anemo_field,'electroHypostasis':electro_field,'geoHypostasis':geo_field,

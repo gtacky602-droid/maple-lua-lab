@@ -192,12 +192,13 @@ check('Wavebinder has a Novokitezhgrad tide cavern route',
 fields={s['id']:s for s in json.loads((ROOT/'content/field-boss-spawns.json').read_text(encoding='utf8'))['fieldBosses']}
 normal=[r for r in rows if r['kind']=='normal']
 fungus=by_id['original-canopy-fungus']
-check('Canopy Fungus is a presentation encounter attached to the observatory route',
+check('Canopy Fungus is a two-move quest encounter attached to the observatory route',
       fungus['status']=='partial' and fungus['fieldNode']=='sumeru-observatory-terrace' and fungus['action'] is None
-      and fields[fungus['id']]['presentationOnly'] and not fields[fungus['id']]['moves'])
+      and fields[fungus['id']]['questRewardsOnly'] and len(fields[fungus['id']]['moves'])==2)
 finale=by_id['original-grand-finale']
 check('Grand Finale is connected to one chapter and remains partial',
       finale['status']=='partial' and finale['fieldNode']=='fontaine-grand-stage' and finale['action'] is None
+      and fields[finale['id']]['questRewardsOnly'] and len(fields[finale['id']]['moves'])==2
       and fields[finale['id']]['storyWindow']=={'quest':'fontaine-grand-finale','first':3,'after':4})
 racer=by_id['original-river-racer']
 check('Original river racer is a chapter practice opponent',

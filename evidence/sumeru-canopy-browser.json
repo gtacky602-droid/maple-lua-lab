@@ -5,7 +5,19 @@
   "upperGate": true,
   "bothRoutesConverge": true,
   "liftRoundTrip": true,
-  "bossAppearanceAndDefeat": true,
+  "battle": {
+    "moves": [
+      "CF01",
+      "CF02"
+    ],
+    "recovered": [
+      "CF01",
+      "CF02"
+    ],
+    "alive": true,
+    "returns": 0
+  },
+  "bossClearSaved": true,
   "readbackAfterReload": true,
   "scenes": [
     {
@@ -20,9 +32,9 @@
     }
   ],
   "commands": {
-    "png": 28,
-    "standard": 7641,
-    "light": 2191
+    "png": 43,
+    "standard": 7656,
+    "light": 2206
   },
   "rewards": [
     [

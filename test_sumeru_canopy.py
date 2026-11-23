@@ -2,6 +2,7 @@ import json
 
 from experience import LEVELS, QUEST_REPORT_EXP
 from runtime import ROOT, native, runtime
+from tools.ruin_guardian_test import exercise_ruin_guardian
 from savegame import validate_save
 
 
@@ -136,11 +137,10 @@ move(s,850)
 assert any(d.source=='canopy-fungus-source-v1.png' and d.h==149 for d in frame(s).draws.values())
 boss=next(e for e in s.enemies.values() if e.boss)
 assert boss.hp==375
-step(core,s,90,False,False)
-assert boss.x==930 and s.actors[1].hp==s.actors[1].maxhp
-kill_xp=s.progression.killXp
+battle=exercise_ruin_guardian(lua,core,s,'original-canopy-fungus')
+kill_xp,mora=s.progression.killXp,s.mora
 defeat(s)
-assert s.story.quests[third].count==2 and s.progression.killXp==kill_xp
+assert s.story.quests[third].count==2 and (s.progression.killXp,s.mora)==(kill_xp,mora)
 collect(s,third,3,1525,390)
 s.actors[1].hp=10
 gate(s,1744,observatory,390)
@@ -149,6 +149,7 @@ collect(s,third,4,826,391)
 gate(s,55,hub)
 report(s,third,rewards[2])
 s=restore(s)
+assert s.endgame.bosses['original-canopy-fungus'].clears==1
 gate(s,1282,observatory)
 move(s,826,391)
 assert frame(s).storySurveyMap.id=='sumeru-height-map'
@@ -158,7 +159,7 @@ gate(s,55,hub)
 gate(s,1380,'sumeru-field')
 
 proof=dict(leafAfterReload=True,walkedLeafBridge=True,riverFallRecovery=True,wrongAdjustmentRejected=True,
-    bothRoutesConverge=True,liftRoundTrip=True,bossAppearanceAndDefeat=True,observatoryHeals=True,
+    bothRoutesConverge=True,liftRoundTrip=True,battle=battle,bossClearSaved=True,observatoryHeals=True,
     savedSurvey=True,oldGate=True,oneTimePayouts=True,
     rewards=rewards)
 (ROOT/'evidence/sumeru-canopy-lua.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')

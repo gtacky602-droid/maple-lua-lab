@@ -8,10 +8,16 @@ return function(C,art)
   b.facing=target.x<b.x and -1 or 1
   local anchor=move.aimAtTarget and target.x or b.x
   local cast={move=move,tick=0,zones={},source={id=b.id,owner=b,y=spec.floorY,damageElement=move.element}}
+  if move.travel then
+   cast.origin=b.x
+   cast.destination=math.max(spec.arenaMin+move.halfWidth,
+    math.min(spec.arenaMax-move.halfWidth,b.x+b.facing*move.travel))
+  end
   for index,offset in ipairs(move.offsets) do
    local center=anchor+offset*b.facing
-   cast.zones[index]={left=math.max(spec.arenaMin,center-move.halfWidth),
-    right=math.min(spec.arenaMax,center+move.halfWidth),top=spec.floorY-move.height,
+   local goal=cast.destination or center
+   cast.zones[index]={left=math.max(spec.arenaMin,math.min(center,goal)-move.halfWidth),
+    right=math.min(spec.arenaMax,math.max(center,goal)+move.halfWidth),top=spec.floorY-move.height,
     first=move.windup+(index-1)*move.interval,seen={}}
   end
   cast.ends=cast.zones[#cast.zones].first+move.active
@@ -23,7 +29,14 @@ return function(C,art)
   local move=cast.move
   for _,zone in ipairs(cast.zones) do
    if cast.tick>=zone.first and cast.tick<zone.first+move.active then
-    C.hitFieldArea(state,cast.source,zone.seen,zone.left,zone.right,zone.top,move.damage)
+    local left,right=zone.left,zone.right
+    if cast.destination then
+     local previous=b.x
+     local fraction=(cast.tick-zone.first+1)/move.active
+     b.x=cast.origin+(cast.destination-cast.origin)*fraction
+     left,right=math.min(previous,b.x)-move.halfWidth,math.max(previous,b.x)+move.halfWidth
+    end
+    C.hitFieldArea(state,cast.source,zone.seen,left,right,zone.top,move.damage)
    end
   end
   b.recovering=cast.tick>=cast.ends
@@ -60,7 +73,12 @@ return function(C,art)
     if cast.tick<zone.first+cast.move.active then
      local left,right=zone.left-s.camera,zone.right-s.camera
      local active=cast.tick>=zone.first
-     rect(left,zone.top,right-left,y-zone.top,cast.move.color..(active and '66' or '25'))
+     rect(left,zone.top,right-left,y-zone.top,cast.move.color..(active and not cast.destination and '66' or '25'))
+     if active and cast.destination then
+      local center=b.x-s.camera
+      local radius=cast.move.halfWidth
+      rect(center-radius,zone.top,radius*2,y-zone.top,cast.move.color..'66')
+     end
      rect(left,zone.top,3,y-zone.top,'#192332')
      rect(right-3,zone.top,3,y-zone.top,'#192332')
      for x=left+5,right-11,18 do
