@@ -3,16 +3,21 @@ import json
 import subprocess
 import sys
 
+from experience import CHAPTER_CLEAR_EXP, QUEST_REPORT_EXP
 from runtime import ROOT, native, runtime
 from savegame import validate_save
 from test_coop_branch_legends import NODES, SPECS, actor_at, damage, hit, run_until
 from test_coop_local import Client, LOCK, SESSIONS, advance, lab
-from test_coop_travel import cross
 
 
 CASES = (
     ('original-wind-ring', 'tunigi-excavation', ('tunigi-return-shelter','tunigi-elite-passage'), ('WR01','WR02')),
     ('original-bellgate', 'bygone-resonance', ('bygone-listening-gallery',), ('BG01','BG02')),
+)
+CHAPTER_CASES = (
+    ('original-canopy-fungus','sumeru-canopy',('sumeru-observation-stop','sumeru-observatory-approach'),('CF01','CF02')),
+    ('original-grand-finale','fontaine-finale',('fontaine-stage-watch','fontaine-scenery-booth',
+      'fontaine-grand-stage-approach'),('GF01','GF02')),
 )
 QUESTS = {q['id']:q for q in json.loads((ROOT/'content/story-graph.json').read_bytes())['quests']}
 TICK = 1/60
@@ -41,6 +46,17 @@ def inspect(core,state,objective):
     core.action(state,'story_collect')
 
 
+def prepare_section(core,state,q,upper_deck):
+    step=QUESTS[q]['itinerary'][state.story.quests[q].count]
+    if step['node']!=state.story.node or step['kind']!='inspect':
+        return
+    inspect(core,state,step)
+    if step.get('airflow'):
+        if upper_deck:
+            inspect(core,state,step)
+        core.action(state,'story_airflow_commit')
+
+
 def shared_fight(spec,path,moves,seed):
     lua,core=runtime()
     arena=spec['node']
@@ -50,10 +66,11 @@ def shared_fight(spec,path,moves,seed):
     camp=quest['hub']
     players=[core.restore(lua.table_from(seed,recursive=True),12) for _ in range(4)]
     host,guest,watcher,evader=players
-    for state in players:
+    for i,state in enumerate(players):
         core.action(state,'story_accept:'+q)
         for target in path:
             lua_cross(core,state,edge(state.story.node,target))
+            prepare_section(core,state,q,bool(i%2))
         gate=edge(path[-1],arena)
         if window['first']:
             lua_cross(core,state,gate,False)
@@ -79,7 +96,7 @@ def shared_fight(spec,path,moves,seed):
     step=lambda:core.stepCoop(room,TICK)
     actor_at(guest,center)
     actor_at(evader,center,first.top-25)
-    actor_at(watcher,spec['home'])
+    actor_at(watcher,first.right+70)
     step()
     assert [len(damage(s)) for s in players]==[1,1,0,0]
     assert all(core.frame(s).fieldBoss.hp==spec['hp'] for s in players)
@@ -91,7 +108,7 @@ def shared_fight(spec,path,moves,seed):
         actor_at(watcher,(second.left+second.right)/2).inv=0
         step()
         assert damage(watcher)==[(spec['entity'],cast.move.damage)]
-        assert second.first-first.first==42
+        assert second.first-first.first==cast.move.interval
     run_until(step,lambda:slot.enemy.recovering)
     assert all(core.frame(s).fieldBoss.recovering for s in players)
 
@@ -101,14 +118,22 @@ def shared_fight(spec,path,moves,seed):
     target=slot.cast.zones[1]
     locked=(target.left,target.right)
     run_until(step,lambda:slot.cast.tick==target.first-1)
-    actor_at(host,target.right+35)
-    actor_at(guest,(target.left+target.right)/2).inv=0
+    moving=bool(slot.cast.destination is not None)
+    actor_at(host,slot.cast.destination if moving else target.right+35).inv=0
+    actor_at(guest,slot.cast.origin if moving else (target.left+target.right)/2).inv=0
     actor_at(watcher,target.left-50)
     actor_at(evader,target.right+60)
     before=[len(damage(s)) for s in players]
     step()
     assert [len(damage(s))-n for s,n in zip(players,before)]==[0,1,0,0]
     assert (target.left,target.right)==locked
+    if moving:
+        area=core.frame(host).fieldBoss.zones[1]
+        assert area.hitLeft<=slot.enemy.x<=area.hitRight
+        assert not area.hitLeft<=host.actors[1].x<=area.hitRight
+        assert all(native(core.frame(s).fieldBoss.zones[1])==native(area) for s in players)
+        run_until(step,lambda:len(damage(host))>before[0])
+        assert damage(host)[-1]==(spec['entity'],slot.cast.move.damage)
     run_until(step,lambda:slot.enemy.recovering)
 
     before=[balances(s) for s in players]
@@ -117,19 +142,34 @@ def shared_fight(spec,path,moves,seed):
     hit(lua,core,guest,slot.enemy,power=8)
     hit(lua,core,host,slot.enemy,power=1000)
     assert [s.story.quests[q].count for s in players]==[window['after']]*2+[window['first']]*2
-    assert [balances(s) for s in players]==before
+    chapter_exp=CHAPTER_CLEAR_EXP[quest['designId']+':BOSS_FIRST'] if quest.get('chapterClearCount')==window['after'] else 0
+    assert [tuple(a-b for a,b in zip(balances(s),old)) for s,old in zip(players,before)]==[
+        (chapter_exp,0,0,0)]*2+[(0,0,0,0)]*2
 
-    record,report=quest['itinerary'][-2:]
-    rewards=(quest['xp'],0,quest['mora'],quest['ore'])
+    collapse=spec['controller']=='windRing'
+    rewards=(QUEST_REPORT_EXP.get(quest['designId'],quest['xp']),0,quest['mora'],quest['ore'])
     for state in (host,guest):
-        if window['first']:
+        core.detachCoop(state.coopMember,True)
+        if collapse:
             gate=lua_cross(core,state,edge(arena,path[-1]),False)
             assert '崩れた壁' in gate.reason
-        inspect(core,state,record)
-        # Bell Gate has two exits to the gallery. Follow the right-hand return route.
-        lua_cross(core,state,NODES[arena]['exits'][-1])
-        lua_cross(core,state,edge(state.story.node,camp))
-        inspect(core,state,report)
+        for objective in quest['itinerary'][window['after']:]:
+            if state.story.node!=objective['node']:
+                lua_cross(core,state,NODES[arena]['exits'][-1])
+                if state.story.node!=objective['node']:
+                    lua_cross(core,state,edge(state.story.node,objective['node']))
+            inspect(core,state,objective)
+            if objective.get('performance'):
+                assert core.frame(state).storyTheaterPerformance.phase=='wait'
+                run_until(lambda:core.step(state,TICK,lua.table()),
+                          lambda:core.frame(state).storyTheaterPerformance.phase=='cue')
+                inspect(core,state,objective)
+                assert core.frame(state).storyTheaterPerformance.phase=='performed'
+                assert state.story.quests[q].stagePlan==('cover' if state==host else 'deck')
+                if state==host:
+                    assert guest.story.quests[q].count==window['after']
+        if state.story.node!=camp:
+            lua_cross(core,state,edge(state.story.node,camp))
         before_report=balances(state)
         for _ in range(2):
             core.action(state,'story_report:'+q)
@@ -139,7 +179,16 @@ def shared_fight(spec,path,moves,seed):
         assert core.restore(lua.table_from(data,recursive=True),12).story.quests[q].status=='complete'
     return dict(players=4,hp=spec['hp'],moves=list(moves),noDoubleHitOnRoomCreation=True,
                 staggeredZones=len(cast.zones),lockedTarget=list(locked), sharedRecovery=True,
-                twoContributorsOnly=True,noFightPayout=True,reportReward=list(rewards))
+                movingHitbox=moving,twoContributorsOnly=True,chapterFirstClearExp=chapter_exp,
+                independentStagePlans=bool(chapter_exp),reportReward=list(rewards),path=list(path))
+
+
+def cross(client,portal):
+    with LOCK:
+        actor_at(SESSIONS[client.sid]['state'],portal['x'],portal.get('y',480))
+    frame=client.frame(['story_portal:'+portal['to']])
+    assert frame['story']['node']==portal['to']
+    return frame
 
 
 def http_fight(url,spec,path,seed):
@@ -151,31 +200,35 @@ def http_fight(url,spec,path,seed):
         client.frame(restore=seed)
     code=host.frame(['coop_create'])['coop']['code']
     assert guest.frame(['coop_join:'+code])['coop']['code']==code
-    for client in (host,guest):
+    for i,client in enumerate((host,guest)):
         camp=QUESTS[q]['hub']
         if client is guest and not window['first']:
-            cross(client,edge(camp,path[0])['x'],path[0])
+            cross(client,edge(camp,path[0]))
             with LOCK:
                 actor_at(SESSIONS[client.sid]['state'],edge(path[0],arena)['x'])
             blocked=client.frame(['story_portal:'+arena])
             assert blocked['story']['node']==path[0] and not blocked['storyNearbyPortal']['available']
-            cross(client,edge(path[0],camp)['x'],camp)
+            cross(client,edge(path[0],camp))
         frame=client.frame(['story_accept:'+q])
         assert frame['story']['quests'][q]['status']=='active'
         node=frame['story']['node']
         for target in path:
-            cross(client,edge(node,target)['x'],target)
+            cross(client,edge(node,target))
+            with LOCK:
+                env=SESSIONS[client.sid]
+                prepare_section(env['core'],env['state'],q,bool(i))
             node=target
         with LOCK:
             env=SESSIONS[client.sid]
-            actor_at(env['state'],edge(path[-1],arena)['x'])
+            gate=edge(path[-1],arena)
+            actor_at(env['state'],gate['x'],gate.get('y',480))
         if window['first']:
             frame=client.frame(['story_portal:'+arena])
             assert frame['story']['node']==path[-1] and not frame['storyNearbyPortal']['available']
             with LOCK:
                 for enemy in list(env['state'].enemies.values()):
                     env['core'].defeatEnemy(env['state'],enemy,1)
-        frame=cross(client,edge(path[-1],arena)['x'],arena)
+        frame=cross(client,gate)
         assert frame['coop']['shared']
         with LOCK:
             env['state'].actors[2].hp=0
@@ -191,12 +244,12 @@ def http_fight(url,spec,path,seed):
     hp=a['fieldBoss']['hp']
     assert 0<hp<spec['hp'] and b['fieldBoss']['hp']==hp
     for client in (host,guest):
-        cross(client,edge(arena,path[-1])['x'],path[-1])
+        cross(client,edge(arena,path[-1]))
     paused=room.tick
     advance(host,guest,.12)
     assert room.tick==paused and room.fieldSlot.enemy.hp==hp
     for client in (host,guest):
-        f=cross(client,edge(path[-1],arena)['x'],arena)
+        f=cross(client,gate)
         assert any(enemy['id']==spec['entity'] and enemy['hp']==hp for enemy in f['coop']['enemies'])
     with LOCK:
         actor_at(state,body.x)
@@ -205,22 +258,24 @@ def http_fight(url,spec,path,seed):
     assert not a['coop']['shared'] and b['coop']['shared']
     assert a['story']['quests'][q]['count']==window['after']
     assert b['story']['quests'][q]['count']==window['first']
-    if window['first']:
+    if spec['controller']=='windRing':
         with LOCK:
             actor_at(state,edge(arena,path[-1])['x'])
         assert '崩れた壁' in host.frame()['storyNearbyPortal']['reason']
-        cross(guest,edge(arena,path[-1])['x'],path[-1])
+        cross(guest,edge(arena,path[-1]))
     return dict(personalGate=True,ordinaryAttackSharesHP=True,retreatKeepsHP=True,onlyContributorAdvances=True,
-                collapseDependsOnPersonalQuest=bool(window['first']))
+                collapseDependsOnPersonalQuest=spec['controller']=='windRing')
 
 
 if __name__=='__main__':
+    chapters=sys.argv[1:]==['chapters']
+    prefix='coop-chapter-guardians' if chapters else 'coop-ruin-guardians'
     result={}
-    for id,name,path,moves in CASES:
+    for id,name,path,moves in CHAPTER_CASES if chapters else CASES:
         subprocess.run([sys.executable,'-X','utf8',str(ROOT/f'test_{name.replace("-","_")}.py')],check=True)
         seed=json.loads((ROOT/f'work/coop-{id}-fixture.json').read_text(encoding='utf8'))
         result[id]=dict(lua=shared_fight(SPECS[id],path,moves,seed))
         with lab() as url:
             result[id]['http']=http_fight(url,SPECS[id],path,seed)
-    (ROOT/'evidence/coop-ruin-guardians-lua-http.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')
+    (ROOT/f'evidence/{prefix}-lua-http.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')
     print(result)

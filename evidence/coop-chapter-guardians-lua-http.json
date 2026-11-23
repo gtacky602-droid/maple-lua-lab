@@ -1,0 +1,79 @@
+{
+  "original-canopy-fungus": {
+    "lua": {
+      "players": 4,
+      "hp": 375,
+      "moves": [
+        "CF01",
+        "CF02"
+      ],
+      "noDoubleHitOnRoomCreation": true,
+      "staggeredZones": 2,
+      "lockedTarget": [
+        781.0,
+        919.0
+      ],
+      "sharedRecovery": true,
+      "movingHitbox": false,
+      "twoContributorsOnly": true,
+      "chapterFirstClearExp": 0,
+      "independentStagePlans": false,
+      "reportReward": [
+        1033165,
+        0,
+        3800,
+        4
+      ],
+      "path": [
+        "sumeru-observation-stop",
+        "sumeru-observatory-approach"
+      ]
+    },
+    "http": {
+      "personalGate": true,
+      "ordinaryAttackSharesHP": true,
+      "retreatKeepsHP": true,
+      "onlyContributorAdvances": true,
+      "collapseDependsOnPersonalQuest": false
+    }
+  },
+  "original-grand-finale": {
+    "lua": {
+      "players": 4,
+      "hp": 300,
+      "moves": [
+        "GF01",
+        "GF02"
+      ],
+      "noDoubleHitOnRoomCreation": true,
+      "staggeredZones": 1,
+      "lockedTarget": [
+        681,
+        1043
+      ],
+      "sharedRecovery": true,
+      "movingHitbox": true,
+      "twoContributorsOnly": true,
+      "chapterFirstClearExp": 3020570,
+      "independentStagePlans": true,
+      "reportReward": [
+        3550820,
+        0,
+        6100,
+        5
+      ],
+      "path": [
+        "fontaine-stage-watch",
+        "fontaine-scenery-booth",
+        "fontaine-grand-stage-approach"
+      ]
+    },
+    "http": {
+      "personalGate": true,
+      "ordinaryAttackSharesHP": true,
+      "retreatKeepsHP": true,
+      "onlyContributorAdvances": true,
+      "collapseDependsOnPersonalQuest": false
+    }
+  }
+}

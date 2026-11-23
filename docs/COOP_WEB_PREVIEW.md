@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する164地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する168地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -41,6 +41,16 @@ Chromeの2画面で、それぞれの門から入場し、討伐後に圧力計�
 風礫の割輪機はLv130の風礫の記録庫で戦う。入口拠点か風よけ所で部屋を作り、各自が発掘通路の精鋭を退けてから記録庫へ入る。潮鐘の門像はLv160の潮鐘の記録室。入口拠点か観賞路から合流し、各自が依頼を受けて記録室に入る。 [トゥニギの道順](balance/TUNIGI_EXCAVATION_WEB.md) · [往日の海の道順](balance/BYGONE_RESONANCE_WEB.md)
 
 HP、攻撃範囲、反撃時間を共有する。討伐に貢献した人は依頼が進み、割輪機ではその人の往路が崩れる。右奥で記録片を拾って退路から帰る。門像では上段の記録を取り、右の門から観賞路へ戻る。EXP・モラ・強化鉱石は各自の初回報告で受け取る。 [LuaとHTTPの検証](../evidence/coop-ruin-guardians-lua-http.json) · [Chromeの検証](../evidence/coop-ruin-guardians-browser.json) · [割輪機の画面](../evidence/coop-ruin-guardians-original-wind-ring.png) · [門像の画面](../evidence/coop-ruin-guardians-original-bellgate.png)
+
+## 枝傘の大キノコンとグラン・フィナーレ
+
+大キノコンはLv60の枝傘の止まり台で戦う。樹陰の広場や樹冠の中継所から部屋に入り、大枝の敵は各自で退ける。止まり台では胞子の左右の時間差と反撃時間を共有し、討伐に貢献した人は見晴らしから観測所へ進める。 [スメールの観測所までの道順](balance/SUMERU_CANOPY_WEB.md) · [止まり台の共闘画面](../evidence/coop-chapter-guardians-original-canopy-fungus.png)
+
+グラン・フィナーレはLv80の主舞台で戦う。水辺の広場や監視所から部屋に入り、作業員の退避、波板か床板の選択、作業メカの討伐を各自で済ませる。主舞台では本体と荷台の当たり判定を共有する。外装を止めた後は、各自の停止盤と合図灯で公演を再開する。 [フォンテーヌの主舞台までの道順](balance/FONTAINE_GRAND_FINALE_WEB.md) · [主舞台の共闘画面](../evidence/coop-chapter-guardians-original-grand-finale.png)
+
+討伐記録と報酬は各自の冒険に残る。主舞台では外装を初めて止めた人に章のEXPが入り、報告後は公演を見に戻れる。 [Lua・HTTPの確認](../evidence/coop-chapter-guardians-lua-http.json) · [Chromeの検証](../evidence/coop-chapter-guardians-browser.json)
+
+`python -X utf8 test_coop_ruin_guardians.py chapters` でソロ・共闘のLua試験とHTTP試験を再実行できる。続けて、ラボを起動した状態で `node test_coop_ruin_guardians.mjs chapters` を実行すると、Chromeの2画面で入場から報告・保存まで確認できる。
 
 ## 無相の風を共闘する
 

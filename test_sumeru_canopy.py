@@ -126,6 +126,7 @@ gate(s,1007,stop,ride=True)
 assert s.actors[1].x==239
 gate(s,55,hub)
 report(s,second,rewards[1])
+coop_fixture=checkpoint(s)
 
 core.action(s,'story_accept:'+third)
 gate(s,1162,stop)
@@ -164,4 +165,5 @@ proof=dict(leafAfterReload=True,walkedLeafBridge=True,riverFallRecovery=True,wro
     rewards=rewards)
 (ROOT/'evidence/sumeru-canopy-lua.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')
 (ROOT/'work/sumeru-canopy-fixture.json').write_text(json.dumps(fixture),encoding='utf8')
+(ROOT/'work/coop-original-canopy-fungus-fixture.json').write_text(json.dumps(coop_fixture),encoding='utf8')
 print(proof)

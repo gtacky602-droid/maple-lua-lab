@@ -1,0 +1,33 @@
+{
+  "results": {
+    "original-canopy-fungus": {
+      "sharedHP": 375,
+      "sharedWarnings": [
+        "CF01",
+        "CF02"
+      ],
+      "bothReportedAndSaved": true,
+      "reportReward": [
+        1033165,
+        0,
+        3800,
+        4
+      ]
+    },
+    "original-grand-finale": {
+      "sharedHP": 300,
+      "sharedWarnings": [
+        "GF01",
+        "GF02"
+      ],
+      "bothReportedAndSaved": true,
+      "reportReward": [
+        3550820,
+        0,
+        6100,
+        5
+      ]
+    }
+  },
+  "errors": []
+}

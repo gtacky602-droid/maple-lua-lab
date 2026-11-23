@@ -8127,6 +8127,8 @@
       "suanni-field-sanctum",
       "sumeru-entry",
       "sumeru-hub",
+      "sumeru-observation-stop",
+      "sumeru-observatory-terrace",
       "sumeru-heretic-lattice",
       "shouki-godmaking-arena",
       "apep-oasis-heart-arena",
@@ -8139,6 +8141,8 @@
       "wenut-field-cavern",
       "baptist-field-sanctuary",
       "fontaine-hub",
+      "fontaine-stage-watch",
+      "fontaine-grand-stage",
       "bygone-wp-68610",
       "tunigi-camp",
       "tunigi-return-shelter",
@@ -8333,7 +8337,9 @@
       "original-windward-tower",
       "original-moon-crab",
       "original-wind-ring",
-      "original-bellgate"
+      "original-bellgate",
+      "original-canopy-fungus",
+      "original-grand-finale"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8595,7 +8601,9 @@
       "evidence/coop-moon-crab-lua-http.json",
       "evidence/coop-moon-crab-browser.json",
       "evidence/coop-ruin-guardians-lua-http.json",
-      "evidence/coop-ruin-guardians-browser.json"
+      "evidence/coop-ruin-guardians-browser.json",
+      "evidence/coop-chapter-guardians-lua-http.json",
+      "evidence/coop-chapter-guardians-browser.json"
     ],
     "pending": [
       "remaining lab-original field encounters, remaining Local Legends and Stygian bosses",

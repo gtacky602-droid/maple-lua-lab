@@ -3,6 +3,7 @@
   "staffEvacuation": true,
   "twoPlayableLayouts": true,
   "stagePlanValidation": true,
+  "coverCanBeJumpedOver": true,
   "waveCollisionAndDeck": true,
   "dropFromShelfAndGroundSafe": true,
   "bossOnlyDuringChapterStep": true,
@@ -21,11 +22,11 @@
     "recoveryFactor": 1.35,
     "warningZones": [
       {
-        "active": false,
         "left": 608,
-        "right": 1008,
+        "active": false,
+        "first": 70,
         "top": 424,
-        "first": 70
+        "right": 1008
       }
     ]
   },

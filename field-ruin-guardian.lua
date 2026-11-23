@@ -40,6 +40,7 @@ return function(C,art)
      b.x=cast.origin+(cast.destination-cast.origin)*fraction
      cast.source.x=b.x
      left,right=math.min(previous,b.x)-move.halfWidth,math.max(previous,b.x)+move.halfWidth
+     zone.hitLeft,zone.hitRight=left,right
     end
     C.hitFieldArea(state,cast.source,zone.seen,left,right,zone.top,move.damage)
    end
@@ -63,8 +64,9 @@ return function(C,art)
   if not cast or b.recovering then return end
   f.zones={}
   for index,zone in ipairs(cast.zones) do
+   local active=cast.tick>=zone.first and cast.tick<zone.first+cast.move.active
    f.zones[index]={left=zone.left,right=zone.right,top=zone.top,first=zone.first,
-    active=cast.tick>=zone.first and cast.tick<zone.first+cast.move.active}
+    active=active,hitLeft=active and zone.hitLeft or nil,hitRight=active and zone.hitRight or nil}
   end
  end
 
@@ -79,10 +81,8 @@ return function(C,art)
      local left,right=zone.left-s.camera,zone.right-s.camera
      local active=cast.tick>=zone.first
      rect(left,zone.top,right-left,y-zone.top,cast.move.color..(active and not cast.destination and '66' or '25'))
-     if active and cast.destination then
-      local center=b.x-s.camera
-      local radius=cast.move.halfWidth
-      rect(center-radius,zone.top,radius*2,y-zone.top,cast.move.color..'66')
+     if active and zone.hitLeft then
+      rect(zone.hitLeft-s.camera,zone.top,zone.hitRight-zone.hitLeft,y-zone.top,cast.move.color..'66')
      end
      rect(left,zone.top,3,y-zone.top,'#192332')
      rect(right-3,zone.top,3,y-zone.top,'#192332')

@@ -111,6 +111,9 @@ for choice,presses in [('cover',1),('deck',2)]:
         assert s.actors[1].x<=692
         advance(s,330)
         assert s.actors[1].hp==s.actors[1].maxhp
+        core.action(s,'jump')
+        step(core,s,55,True,False,True)
+        assert s.actors[1].x>798 and s.actors[1].y<=391
     else:
         move(s,571)
         core.action(s,'jump')
@@ -205,10 +208,12 @@ advance(s,3700)
 assert not len(s.enemies) and frame(s).fieldBoss is None
 
 proof=dict(requiresPrevious=True,staffEvacuation=True,twoPlayableLayouts=True,stagePlanValidation=True,
+           coverCanBeJumpedOver=True,
            waveCollisionAndDeck=True,dropFromShelfAndGroundSafe=True,bossOnlyDuringChapterStep=True,
            bossHpAfterReload=True,elapsedTicksAfterReload=True,battle=battle,bossClearSaved=True,firstClearOnce=True,
            shutdownAfterReload=True,delayedConfetti=True,earlyAndLateCuesRetry=True,showAndReadbackAfterReload=True,
            noBossRespawnAfterShow=True,reportOnce=True,firstClearExp=clear,reward=reward)
 (ROOT/'evidence/fontaine-finale-lua.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')
 (ROOT/'work/fontaine-finale-fixture.json').write_text(json.dumps(fixture),encoding='utf8')
+(ROOT/'work/coop-original-grand-finale-fixture.json').write_text(json.dumps(fixture),encoding='utf8')
 print(proof)

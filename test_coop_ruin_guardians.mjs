@@ -6,9 +6,15 @@ import {waypointDriver} from './tools/browser_waypoint_test.mjs';
 const read=async file=>JSON.parse(await fs.readFile(file,'utf8'));
 const graph=await read('content/story-graph.json');
 const nodes=Object.fromEntries(graph.nodes.map(n=>[n.id,n]));
-const tests=await read('evidence/coop-ruin-guardians-lua-http.json');
 const specs=(await read('content/field-boss-spawns.json')).fieldBosses;
-const prefix='evidence/coop-ruin-guardians',saveKey='maple-lua-lab.checkpoint.v1';
+const prefix=process.argv[2]==='chapters'?'evidence/coop-chapter-guardians':'evidence/coop-ruin-guardians';
+const tests=await read(prefix+'-lua-http.json');
+const saveKey='maple-lua-lab.checkpoint.v1';
+const hallwayEnemies={
+  'tunigi-elite-passage':[[392,480],[908,390]],
+  'sumeru-observatory-approach':[[277,480],[771,390],[1372,391]],
+  'fontaine-grand-stage-approach':[[990,391],[1342,480]],
+};
 const browser=await chromium.launch({channel:'chrome',headless:true});
 const frame=page=>page.evaluate(()=>window.lab.frame);
 const results={};
@@ -26,6 +32,70 @@ async function interact({page,route},objective,quest,count){
   await page.waitForFunction(()=>window.lab.frame.storyNearbyMilestone,undefined,{timeout:5000});
   await page.keyboard.press('KeyG');
   await route.count(quest,count);
+}
+
+async function prepareSection(player,quest,upperDeck){
+  const {page,route}=player;
+  const id=await route.node();
+  const count=(await frame(page)).story.quests[quest.id].count;
+  const step=quest.itinerary[count];
+  if(step.node!==id) return;
+  if(step.kind==='inspect'){
+    await interact(player,step,quest.id,count+(step.airflow?0:1));
+    if(step.airflow){
+      const select=label=>page.waitForFunction(label=>window.lab.frame.storyAirflow?.selection===label,label);
+      await select(step.airflow.choices[0].label);
+      if(upperDeck){
+        await page.keyboard.press('KeyG');
+        await select(step.airflow.choices[1].label);
+      }
+      await page.locator('#airflowCommit').click();
+      await route.count(quest.id,count+1);
+    }
+    return;
+  }
+  assert.equal((await frame(page)).coop.shared,false);
+  if(id==='fontaine-grand-stage-approach'&&!upperDeck){
+    await route.walk(678);
+    await page.keyboard.down('Space');
+    try{await route.walk(818)}finally{await page.keyboard.up('Space')}
+  }
+  const initial=(await frame(page)).kills;
+  for(const [index,[x,y]] of hallwayEnemies[id].entries()){
+    if((await frame(page)).kills>initial+index) continue;
+    await route.walk(x-30);
+    await route.changeHeight(y);
+    const kill=()=>page.waitForFunction(n=>window.lab.frame.kills>=n,initial+index+1,{timeout:11000});
+    await page.keyboard.down('KeyJ');
+    try {
+      await kill();
+    } catch (error){
+      if(error.name!=='TimeoutError') throw error;
+      await page.keyboard.up('KeyJ');
+      await page.locator('#auto').click();
+      await page.waitForFunction(()=>window.lab.frame.auto);
+      await kill();
+    } finally {
+      await page.keyboard.up('KeyJ');
+      if((await frame(page)).auto){
+        await page.locator('#auto').click();
+        await page.waitForFunction(()=>!window.lab.frame.auto);
+      }
+    }
+  }
+  await route.count(quest.id,count+1);
+}
+
+async function leaveArena({page,route},arena){
+  const right=nodes[arena].exits.at(-1);
+  await route.walk(right.x);
+  await route.changeHeight(right.y??480);
+  await page.waitForFunction(name=>{
+    const p=window.lab.frame.storyNearbyPortal;
+    return p?.available&&p.name===name;
+  },right.rideLabel??nodes[right.to].name,{timeout:8000});
+  await page.keyboard.press('KeyF');
+  await route.waitNode(right.to);
 }
 
 async function fight(page,quest,goal,side){
@@ -68,9 +138,9 @@ async function fight(page,quest,goal,side){
 try{
   for (const [id,proof] of Object.entries(tests)){
     const spec=specs.find(spec=>spec.id===id);
-    const {quest,first,after}=spec.storyWindow;
+    const {quest,after}=spec.storyWindow;
     const q=graph.quests.find(q=>q.id===quest), arena=spec.node;
-    const approach=first?'tunigi-return-shelter':'bygone-listening-gallery';
+    const path=proof.lua.path??(spec.controller==='windRing'?['tunigi-return-shelter','tunigi-elite-passage']:['bygone-listening-gallery']);
     players=[];
     for (let i=0;i<2;i++){
       const page=await browser.newPage({viewport:{width:1240,height:930}});
@@ -83,7 +153,7 @@ try{
       await page.locator('#importSave').setInputFiles('work/coop-'+id+'-fixture.json');
       await route.waitNode(q.hub);
       await route.accept(quest);
-      await route.cross(approach);
+      await route.cross(path[0]);
       await page.locator('#coopPanel summary').click();
     }
     const [host,guest]=players;
@@ -93,22 +163,16 @@ try{
     await guest.page.locator('#coopCode').fill(code);
     await guest.page.locator('#coopJoin').click();
     await guest.page.waitForFunction(code=>window.lab.frame.coop?.code===code,code);
-    await Promise.all(players.map(async({page,route})=>{
-      if (first){
-        await route.cross('tunigi-elite-passage');
-        assert.equal((await frame(page)).coop.shared,false);
-        const original=(await frame(page)).kills;
-        for(const [index,[x,y]] of [[392,480],[908,390]].entries()){
-          if((await frame(page)).kills>original+index) continue;
-          await route.walk(x);
-          await route.changeHeight(y);
-          await page.locator('#auto').click();
-          await page.waitForFunction(n=>window.lab.frame.kills>=n,original+index+1,{timeout:35000});
-          await page.locator('#auto').click();
-          await page.waitForFunction(()=>!window.lab.frame.auto);
-        }
-        await route.count(quest,first);
+    await Promise.all(players.map(async(player,i)=>{
+      const {page,route}=player;
+      for(const node of path){
+        if(await route.node()!==node) await route.cross(node);
+        await prepareSection(player,q,Boolean(i));
       }
+      if(spec.controller==='grandFinale') assert.equal((await frame(page)).storyStageLayout,i?'deck':'cover');
+    }));
+    console.log(id,'approach cleared in both profiles');
+    await Promise.all(players.map(async({route})=>{
       await route.cross(arena);
       await route.walk(spec.home-170);
     }));
@@ -123,6 +187,9 @@ try{
       const shapes=await Promise.all(players.map(({page})=>frame(page).then(zoneGeometry)));
       assert.deepEqual(shapes[0],shapes[1]);
     }
+    if(proof.lua.movingHitbox){
+      await host.page.waitForFunction(()=>Object.values(window.lab.frame.fieldBoss?.zones??{}).some(z=>z.hitLeft!==undefined));
+    }
     await host.page.locator('.game').screenshot({path:prefix+'-'+id+'.png'});
     await Promise.all(players.map(({page},i)=>fight(page,quest,after,i?1:-1)));
     await Promise.all(players.map(({page})=>page.waitForFunction(()=>window.ruinCoopResult,undefined,{timeout:100000})));
@@ -134,24 +201,29 @@ try{
       assert.equal(f.coop.shared,false);
       assert.equal(f.progression.killXp,initial[i].progression.killXp);
       assert.equal(f.mora,initial[i].mora);
-      if(first){
+      assert.equal(f.progression.questXp-initial[i].progression.questXp,proof.lua.chapterFirstClearExp??0);
+      if(spec.controller==='windRing'){
         await route.walk(55);
         await page.waitForFunction(()=>window.lab.frame.storyNearbyPortal?.reason.includes('崩れた壁'));
         await page.keyboard.press('KeyF');
         assert.equal(await route.node(),arena);
       }
-      const [record,report]=q.itinerary.slice(-2);
-      await interact(player,record,quest,after+1);
-      const right=nodes[arena].exits.at(-1);
-      await route.walk(right.x);
-      await page.waitForFunction(name=>{
-        const p=window.lab.frame.storyNearbyPortal;
-        return p?.available&&p.name===name;
-      },right.rideLabel,{timeout:8000});
-      await page.keyboard.press('KeyF');
-      await route.waitNode(approach);
-      await route.cross(q.hub);
-      await interact(player,report,quest,q.goal);
+      for(const [index,objective] of q.itinerary.entries()){
+        if(index<after) continue;
+        if(await route.node()!==objective.node){
+          if(await route.node()===arena) await leaveArena(player,arena);
+          if(await route.node()!==objective.node) await route.cross(objective.node);
+        }
+        await interact(player,objective,quest,index+(objective.performance?0:1));
+        if(objective.performance){
+          await page.waitForFunction(()=>window.lab.frame.storyTheaterPerformance?.phase==='cue');
+          await page.keyboard.press('KeyG');
+          await route.count(quest,index+1);
+          assert.equal((await frame(page)).storyTheaterPerformance.phase,'performed');
+        }
+      }
+      if(await route.node()===arena) await leaveArena(player,arena);
+      if(await route.node()!==q.hub) await route.cross(q.hub);
       const before=await frame(page);
       await route.report(quest);
       const completed=await frame(page);
@@ -175,7 +247,8 @@ try{
   for(const {page} of players) if(!page.isClosed()) console.dir(await page.evaluate(()=>{
     const f=window.lab?.frame;
     const a=f?.actors[f.active-1];
-    return {node:f?.story?.node,x:a?.x,y:a?.y,field:f?.fieldBoss,portal:f?.storyNearbyPortal,result:window.ruinCoopResult};
+    return {node:f?.story?.node,x:a?.x,y:a?.y,hp:a?.hp,auto:f?.auto,kills:f?.kills,
+      t:f?.t,field:f?.fieldBoss,portal:f?.storyNearbyPortal,result:window.ruinCoopResult};
   }),{depth:2});
   throw err;
 }finally{

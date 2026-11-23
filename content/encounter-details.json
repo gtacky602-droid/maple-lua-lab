@@ -6,8 +6,7 @@
     "original-grand-finale": {
       "remaining": [
         "外装と腕の連続アニメーション",
-        "再戦の試運転",
-        "協力検証"
+        "再戦の試運転"
       ],
       "art_candidate": {
         "item": "grand-finale",
@@ -16,14 +15,15 @@
       },
       "extra_evidence": [
         "evidence/fontaine-finale-lua.json",
-        "evidence/fontaine-finale-browser.json"
+        "evidence/fontaine-finale-browser.json",
+        "evidence/coop-chapter-guardians-lua-http.json",
+        "evidence/coop-chapter-guardians-browser.json"
       ]
     },
     "original-canopy-fungus": {
       "remaining": [
         "連続アニメーション",
-        "報酬の調整",
-        "マルチ検証"
+        "報酬の調整"
       ],
       "art_candidate": {
         "item": "canopy-fungus",
@@ -32,7 +32,9 @@
       },
       "extra_evidence": [
         "evidence/sumeru-canopy-lua.json",
-        "evidence/sumeru-canopy-browser.json"
+        "evidence/sumeru-canopy-browser.json",
+        "evidence/coop-chapter-guardians-lua-http.json",
+        "evidence/coop-chapter-guardians-browser.json"
       ]
     },
     "original-bellgate": {

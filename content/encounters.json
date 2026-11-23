@@ -2373,12 +2373,13 @@
       "evidence": [
         "docs/balance/SUMERU_CANOPY_WEB.md",
         "evidence/sumeru-canopy-lua.json",
-        "evidence/sumeru-canopy-browser.json"
+        "evidence/sumeru-canopy-browser.json",
+        "evidence/coop-chapter-guardians-lua-http.json",
+        "evidence/coop-chapter-guardians-browser.json"
       ],
       "remaining": [
         "連続アニメーション",
-        "報酬の調整",
-        "マルチ検証"
+        "報酬の調整"
       ],
       "fieldNode": "sumeru-observatory-terrace",
       "fieldEntrance": "枝傘の止まり台（Lv60）",
@@ -2400,12 +2401,13 @@
       "evidence": [
         "docs/balance/FONTAINE_GRAND_FINALE_WEB.md",
         "evidence/fontaine-finale-lua.json",
-        "evidence/fontaine-finale-browser.json"
+        "evidence/fontaine-finale-browser.json",
+        "evidence/coop-chapter-guardians-lua-http.json",
+        "evidence/coop-chapter-guardians-browser.json"
       ],
       "remaining": [
         "外装と腕の連続アニメーション",
-        "再戦の試運転",
-        "協力検証"
+        "再戦の試運転"
       ],
       "fieldNode": "fontaine-grand-stage",
       "fieldEntrance": "グラン・フィナーレの主舞台（Lv80）",
