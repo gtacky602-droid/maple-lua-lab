@@ -1,0 +1,45 @@
+{
+  "results": {
+    "original-frost-antler": {
+      "hp": 615,
+      "moraPerPlayer": 970,
+      "clear": [
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 14.1499999999992
+        },
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 14.18333333333253
+        }
+      ],
+      "personalSignalBox": false,
+      "hostReported": true,
+      "bothSavedAndReloaded": true,
+      "bothReported": true
+    },
+    "original-rubble-sifter": {
+      "hp": 900,
+      "moraPerPlayer": 1020,
+      "clear": [
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 20.18333333333219
+        },
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 20.18333333333219
+        }
+      ],
+      "personalSignalBox": false,
+      "hostReported": true,
+      "bothSavedAndReloaded": true,
+      "bothReported": true
+    }
+  },
+  "errors": []
+}

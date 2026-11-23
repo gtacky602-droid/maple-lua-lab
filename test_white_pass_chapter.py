@@ -172,6 +172,7 @@ inspect(s,1660,trail,3)
 gate(s,55,station)
 report(s,rest,'S04')
 report(s,trail,'M02')
+coop_fixture=saved(s)
 core.action(s,'story_accept:'+summit)
 gate(s,1144,woods)
 gate(s,1774,ridge)
@@ -224,4 +225,5 @@ proof={'earnedLv140KillExp':earned.progression.killXp,'earnedLv160KillExp':almos
        'chapterOrdinaryKillExp':normal_reward,'repeatRewardBlocked':True}
 (ROOT/'evidence/white-pass-chapter.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')
 (ROOT/'work/white-pass-fixture.json').write_text(json.dumps(browser_fixture),encoding='utf8')
+(ROOT/'work/coop-original-frost-antler-fixture.json').write_text(json.dumps(coop_fixture),encoding='utf8')
 print(proof)

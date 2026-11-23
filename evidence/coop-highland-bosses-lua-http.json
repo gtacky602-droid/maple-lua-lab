@@ -1,0 +1,79 @@
+{
+  "original-frost-antler": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 615,
+      "midAttackJoinKeepsHits": true,
+      "battle": {
+        "moves": [
+          "FR01",
+          "FR02",
+          "FR03"
+        ],
+        "movingCharge": true,
+        "sharedRecoveryFactor": 1.25
+      },
+      "rewardsOnlyForContributors": true,
+      "chapterClearExp": 61667202,
+      "rewards": [
+        4796120,
+        970
+      ],
+      "report": [
+        72834160,
+        0,
+        1100,
+        0
+      ]
+    },
+    "http": {
+      "players": 2,
+      "questGateChecked": true,
+      "unacceptedVisitorCanContribute": false,
+      "sharedHitAndRetreatHP": true,
+      "individualQuestCredit": true,
+      "rematchDoesNotRepeatChapterExp": true
+    }
+  },
+  "original-rubble-sifter": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 900,
+      "midAttackJoinKeepsHits": true,
+      "battle": {
+        "moves": [
+          "RK01",
+          "RK02"
+        ],
+        "heatTimes": [
+          63,
+          99,
+          135
+        ],
+        "oneHitAcrossLanes": true,
+        "defendedHit": 9,
+        "rotorHit": 123
+      },
+      "rewardsOnlyForContributors": true,
+      "chapterClearExp": 0,
+      "rewards": [
+        7484250,
+        1020
+      ],
+      "report": [
+        8653565,
+        0,
+        797220,
+        0
+      ]
+    },
+    "http": {
+      "players": 2,
+      "questGateChecked": false,
+      "unacceptedVisitorCanContribute": true,
+      "sharedHitAndRetreatHP": true,
+      "individualQuestCredit": true,
+      "rematchDoesNotRepeatChapterExp": true
+    }
+  }
+}

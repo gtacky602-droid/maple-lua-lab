@@ -8,6 +8,7 @@ return function(C)
   b.pose,b.exposed,b.barrier,b.weakpoint='idle',false,0,nil
  end
  function sifter.cancel(b) sifter.spawn(b) end
+ function sifter.shareCast(cast,actors) C.shareFieldHits({cast.seen},actors) end
 
  function sifter.damageFactor(_,cast,b,spec)
   if b.exposed and C.hitFieldWeakpoint(cast,b) then return spec.rotorFactor end
@@ -30,7 +31,7 @@ return function(C)
   end
   b.pose,b.barrier='heating',spec.barrier
   return {move=move,lanes=lanes,tick=0,seen={},ends=lanes[#lanes].at+move.active,
-   source={id=b.id,owner=b,y=spec.floorY,damageElement=move.element}}
+   source={id=b.id,owner=b,x=b.x,y=spec.floorY,damageElement=move.element}}
  end
 
  function sifter.tick(state,b,spec,cast)

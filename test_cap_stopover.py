@@ -120,6 +120,7 @@ inspect(s,1290,second,3,upper=393)
 gate(s,55,steps)
 gate(s,58,dock)
 report(s,second,(15500000,6800))
+coop_fixture=saved(s)
 
 core.action(s,'story_accept:'+third)
 gate(s,525,steps)
@@ -183,4 +184,5 @@ proof=dict(newCapField=True,earnedLv200=True,postCapHitExp=296366,lateBoatContin
            savedAfterBoss=True,continuedVoyage=True)
 (ROOT/'evidence/cap-stopover-lua.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')
 (ROOT/'work/cap-stopover-fixture.json').write_text(json.dumps(fixture),encoding='utf8')
+(ROOT/'work/coop-original-rubble-sifter-fixture.json').write_text(json.dumps(coop_fixture),encoding='utf8')
 print(proof)

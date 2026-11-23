@@ -2104,12 +2104,13 @@
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "docs/balance/WHITE_PASS_PROGRESSION_WEB.md"
+        "docs/balance/WHITE_PASS_PROGRESSION_WEB.md",
+        "evidence/coop-highland-bosses-lua-http.json",
+        "evidence/coop-highland-bosses-browser.json"
       ],
       "remaining": [
         "連続アニメーション",
-        "報酬の調整",
-        "マルチ検証"
+        "報酬の調整"
       ],
       "fieldNode": "white-rainbow-basin",
       "fieldEntrance": "白虹の高原（Lv156）",
@@ -2157,12 +2158,13 @@
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "docs/balance/CAP_AND_STOPOVER_WEB.md"
+        "docs/balance/CAP_AND_STOPOVER_WEB.md",
+        "evidence/coop-highland-bosses-lua-http.json",
+        "evidence/coop-highland-bosses-browser.json"
       ],
       "remaining": [
         "連続アニメーション",
-        "報酬の調整",
-        "マルチ検証"
+        "報酬の調整"
       ],
       "fieldNode": "ochka-sifting-kiln",
       "fieldEntrance": "焚き口の選鉱室（Lv185）",

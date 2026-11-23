@@ -6,6 +6,7 @@ return function(C)
 
  function antler.spawn(b) b.pose,b.recovering='idle',false end
  function antler.cancel(b) antler.spawn(b) end
+ function antler.shareCast(cast,actors) C.shareFieldHits({cast.seen},actors) end
  function antler.damageFactor(_,_,b,spec)
   return b.recovering and spec.recoveryFactor or 1
  end
@@ -17,7 +18,7 @@ return function(C)
   local forward=origin+b.facing*(m.forward or 0)
   return {move=m,tick=0,seen={},origin=origin,destination=destination,
    left=math.min(origin,destination,forward)-m.radius,right=math.max(origin,destination,forward)+m.radius,
-   source={id=b.id,owner=b,y=spec.floorY,damageElement=m.element}}
+   source={id=b.id,owner=b,x=origin,y=spec.floorY,damageElement=m.element}}
  end
 
  function antler.tick(state,b,spec,cast)
@@ -30,8 +31,10 @@ return function(C)
    if m.travel then
     local previous=b.x
     b.x=cast.origin+(cast.destination-cast.origin)*(cast.tick-m.windup+1)/m.activeTicks
+    cast.source.x=b.x
     left,right=math.min(previous,b.x)-m.radius,math.max(previous,b.x)+m.radius
    end
+   cast.hitLeft,cast.hitRight=left,right
    C.hitFieldArea(state,cast.source,cast.seen,left,right,spec.floorY-m.height,m.damage)
   else
    b.pose,b.recovering='exposed',true
@@ -46,7 +49,7 @@ return function(C)
   f.pose,f.recovering=b.pose,b.recovering
   if cast and not b.recovering then
    f.lane={left=cast.left,right=cast.right,top=spec.floorY-cast.move.height,
-    at=cast.move.windup,active=cast.tick>=cast.move.windup}
+    at=cast.move.windup,active=cast.tick>=cast.move.windup,hitLeft=cast.hitLeft,hitRight=cast.hitRight}
   end
  end
 
@@ -55,10 +58,9 @@ return function(C)
   if cast and not b.recovering then
    local active=cast.tick>=cast.move.windup
    local left,right=cast.left-camera,cast.right-camera
-   if active then
-    local x,height=b.x-camera,cast.move.height
-    local from,to=left,right
-    if cast.move.travel then from,to=x-cast.move.radius,x+cast.move.radius end
+   if active and cast.hitLeft then
+    local height=cast.move.height
+    local from,to=cast.hitLeft-camera,cast.hitRight-camera
     rect(f,from,y-height,to-from,height,cast.move.color..'42')
    end
    for x=left+1,right-8,16 do rect(f,x,y-4,9,3,cast.move.color) end

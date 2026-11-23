@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する171地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する178地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -59,6 +59,14 @@ Lv100のナタ第3話「夕映えの一番勝負！」で共闘できる。谷�
 勝負に貢献した人は初回のEXPを受け取り、各自で記録台へ行って報告する。報告後、同じ部屋の仲間と合図台を操作すると練習にも参加できる。練習を終えてもEXP・モラ・勝利記録は増えない。 [Lua・HTTPの検証](../evidence/coop-sunset-duel-lua-http.json) · [Chromeの検証](../evidence/coop-sunset-duel-browser.json)
 
 `python -X utf8 test_coop_sunset_duel.py` でソロ、Lua共闘、HTTPを検証できる。ラボ起動中に `node test_coop_sunset_duel.mjs` を実行するとChromeの2画面で練習まで確認できる。
+
+## 霜鎧の大角獣と礫脈の選鉱炉
+
+霜鎧の大角獣はLv156の白虹の高原で戦う。雪原の終着駅で各自が「終着駅の、その先へ！」を受け、雪棚の道から入る。角薙ぎと前脚叩きの範囲、短突進に沿って移動する当たり判定、胸の継ぎ目が開く時間を共有する。討伐に貢献した人は、初回の章EXPを受け取ってから高原の奥で白虹を観測できる。 [白虹峠の道順](balance/WHITE_PASS_PROGRESSION_WEB.md) · [高原の共闘画面](../evidence/coop-highland-bosses-original-frost-antler.png)
+
+礫脈の選鉱炉はLv185の焚き口の選鉱室で戦う。オシカ・ナタの寄港地から進み、三本の排熱流の位置・順番と回転輪が開く時間を共有する。受注前でも入場して討伐報酬を受け取れる。「出航前の、もうひと仕事」を受けている人は討伐後に奥で寸法を測り、寄港地で報告できる。 [寄港地までの道順](balance/CAP_AND_STOPOVER_WEB.md) · [選鉱室の共闘画面](../evidence/coop-highland-bosses-original-rubble-sifter.png)
+
+`python -X utf8 test_coop_highland_bosses.py` でLuaとHTTPを検証できる。続けてラボを起動し、`node test_coop_original_field_bosses.mjs highland` を実行すると、Chromeの2画面で入場から報告・保存まで検証できる。 [Lua・HTTPの結果](../evidence/coop-highland-bosses-lua-http.json) · [Chromeの結果](../evidence/coop-highland-bosses-browser.json)
 
 ## 無相の風を共闘する
 

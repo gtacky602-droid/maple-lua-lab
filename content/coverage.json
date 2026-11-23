@@ -8204,6 +8204,9 @@
       "natlan-duel-entry",
       "natlan-sunset-review",
       "natlan-sunset-arena",
+      "ochkanatlan-dock",
+      "ochka-tide-stairs",
+      "ochka-sifting-kiln",
       "primal-fire-sundered-forge",
       "natlan-field",
       "qucusaur-field-cavern",
@@ -8229,6 +8232,10 @@
       "windrest-vigil-court",
       "snezhnaya-hub",
       "snezhnaya-field",
+      "white-pass-station",
+      "white-pass-woods",
+      "white-pass-ridge",
+      "white-rainbow-basin",
       "flugel-tundra-basin",
       "drifting-snow-court",
       "immortal-construct-root-hollow",
@@ -8343,7 +8350,9 @@
       "original-bellgate",
       "original-canopy-fungus",
       "original-grand-finale",
-      "original-river-racer"
+      "original-river-racer",
+      "original-frost-antler",
+      "original-rubble-sifter"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8609,7 +8618,9 @@
       "evidence/coop-chapter-guardians-lua-http.json",
       "evidence/coop-chapter-guardians-browser.json",
       "evidence/coop-sunset-duel-lua-http.json",
-      "evidence/coop-sunset-duel-browser.json"
+      "evidence/coop-sunset-duel-browser.json",
+      "evidence/coop-highland-bosses-lua-http.json",
+      "evidence/coop-highland-bosses-browser.json"
     ],
     "pending": [
       "remaining lab-original field encounters, remaining Local Legends and Stygian bosses",
