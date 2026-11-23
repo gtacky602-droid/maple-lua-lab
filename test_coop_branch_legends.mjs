@@ -5,7 +5,8 @@ import {waypointDriver} from './tools/browser_waypoint_test.mjs';
 
 const lake=process.argv.includes('--lake');
 const dry=process.argv.includes('--dry');
-const prefix='evidence/coop-'+(dry?'dry':lake?'lake':'branch')+'-legends';
+const natlan=process.argv.includes('--natlan-entry');
+const prefix='evidence/coop-'+(natlan?'natlan-entry':dry?'dry':lake?'lake':'branch')+'-legends';
 const dryCases=[
  {tag:'yseut',id:'legend-fontaine_yseut',arena:'yseut-legend-court',
   entry:'fon-wp-50058',hp:1020,mora:300,x:780,warning:'FD12',entities:[97051],
@@ -24,7 +25,20 @@ const dryCases=[
   hp:1130,mora:330,x:830,warning:'FD52',entities:[97055],
   warningOrder:[[1,'anemo',62],[2,'anemo',111]]},
 ].map(cfg=>({...cfg,checkpoint:'fontaine-hub'}));
-const cases=dry?dryCases:lake?[
+const natlanCases=[
+ {tag:'sappho',id:'legend-natlan_sappho',arena:'tepeakak-sappho-bank',
+  entry:'nat-wp-72438',hp:1080,mora:465,x:800,warning:'SP02',entities:[97072],
+  warningOrder:[[1,'hydro',68],[2,'hydro',111]],provoke:true},
+ {tag:'balachko',id:'legend-natlan_balachko',arena:'toyac-balachko-inner-cave',
+  approach:'nat-wp-72422',via:'sites-hunt-73160',entry:'toyac-rainbow-key-cave',
+  quest:'natlan-rainbow-cave-keys',hp:1250,mora:550,x:842,warning:'BK02',entities:[97077],
+  warningOrder:[[1,'pyro',60],[2,'pyro',99],[3,'pyro',138]],lock:'鍵を2本'},
+ {tag:'cocijo',id:'legend-natlan_cocijo',arena:'toyac-cocijo-stone-ring',
+  approach:'nat-wp-77772',entry:'toyac-electro-crystal-shore',quest:'natlan-toyac-electro-crystals',
+  hp:1310,mora:515,x:842,warning:'CJ02',entities:[97078],
+  warningOrder:[[1,'electro',69],[2,'electro',111]],lock:'電気水晶'},
+].map(cfg=>({...cfg,checkpoint:'natlan-hub'}));
+const cases=natlan?natlanCases:dry?dryCases:lake?[
  {tag:'vivianne',id:'legend-fontaine_vivianne_of_the_lake',arena:'vivianne-legend-bank',
   entry:'fon-wp-50056',checkpoint:'fontaine-hub',hp:1040,mora:300,x:890,warning:'LV02',entities:[97041],
   warningOrder:[[1,'hydro',64],[2,'hydro',115]],movingWave:true},
@@ -58,16 +72,81 @@ async function start(cfg,needsReport){
  page.on('pageerror',e=>errors.push(e.message));
  const route=waypointDriver(page,nodes,{walkTimeout:32000});
  const suffix=needsReport?'-before-report-fixture.json':'-fixture.json';
- const fixture=await fs.readFile('work/coop-'+cfg.arena+suffix,'utf8');
- const port=dry?9064:lake?9063:9060;
+ const fixture=await fs.readFile(natlan?'work/coop-natlan-entry-legends-fixture.json':'work/coop-'+cfg.arena+suffix,'utf8');
+ const port=natlan?9068:dry?9064:lake?9063:9060;
  await page.goto(process.env.LAB_URL||`http://127.0.0.1:${port}/`);
  await wait(page,()=>window.lab?.frame);
  await page.evaluate(([key,fixture])=>localStorage.setItem(key,fixture),[key,fixture]);
  await page.locator('#loadProgress').click();
  await route.waitNode(cfg.checkpoint);
+ if(natlan && cfg.quest) await route.accept(cfg.quest);
  await route.warp(cfg.approach??cfg.entry);
  await page.locator('#coopPanel summary').click();
  return {context,page,route};
+}
+
+async function lockedNatlanGate({page,route},cfg){
+ const gate=nodes[cfg.entry].exits.find(edge=>edge.to===cfg.arena);
+ await route.walk(gate.x);
+ await route.changeHeight(gate.y??480);
+ await wait(page,({arena,lock})=>{
+  const portal=window.lab.frame.storyNearbyPortal;
+  return portal?.to===arena&&!portal.available&&portal.reason.includes(lock);
+ },{arena:cfg.arena,lock:cfg.lock});
+ await page.keyboard.press('KeyF');
+ assert.equal(await route.node(),cfg.entry);
+}
+
+async function openNatlanGate({page,route},cfg){
+ if(cfg.tag==='balachko'){
+  const {itinerary}=graph.quests.find(q=>q.id===cfg.quest);
+  for(const [index,step] of itinerary.slice(1).entries()){
+   await route.walk(step.x);
+   await route.changeHeight(step.y);
+   await page.keyboard.press('KeyG');
+   await route.count(cfg.quest,index+2);
+  }
+ }else{
+  await page.keyboard.press('KeyE');
+  await wait(page,()=>window.lab.frame.active===2);
+  const stones=nodes[cfg.entry].breakTargets;
+  for(const [index,stone] of [stones[2],stones[0],stones[1]].entries()){
+   await route.walk(stone.x+55);
+   await route.walk((await route.actor()).x-25);
+   const expected=index===2?'3つ砕きました':(index+1)+' / 3';
+   for(let attempt=0;attempt<5;attempt++){
+    await page.keyboard.press('KeyK');
+    try{
+     await wait(page,label=>window.lab.frame.storyNotice?.includes(label),expected,1400);
+     break;
+    }catch(error){
+     if(error.name!=='TimeoutError'||attempt===4)throw error;
+    }
+   }
+  }
+  await route.count(cfg.quest,1);
+  await page.keyboard.press('KeyE');
+  await wait(page,()=>window.lab.frame.active===1);
+ }
+ await route.cross(cfg.arena);
+}
+
+async function verifyNatlanSave(players,cfg){
+ await Promise.all(players.map(async ({page,route})=>{
+  await page.reload();
+  await wait(page,()=>window.lab?.frame);
+  await page.locator('#loadProgress').click();
+  await wait(page,()=>document.querySelector('#saveStatus').textContent.includes('町から再開しました'));
+  await route.waitNode(cfg.checkpoint);
+  if(cfg.quest){
+   const quest=graph.quests.find(q=>q.id===cfg.quest);
+   const before=await frame(page);
+   await route.report(cfg.quest);
+   const after=await frame(page);
+   assert.deepEqual([after.progression.questXp-before.progression.questXp,after.mora-before.mora],
+    [quest.xp,quest.mora]);
+  }
+ }));
 }
 
 async function reportFromWaterway({page,route},cfg,code){
@@ -158,26 +237,50 @@ async function scenario(cfg){
  await b.locator('#coopCode').fill(code);
  await b.locator('#coopJoin').click();
  await wait(b,c=>window.lab.frame.coop?.code===c,code);
- if(cfg.approach){
+ if(natlan&&cfg.quest){
+  await Promise.all(players.map(async ({route})=>{
+   if(cfg.via) await route.cross(cfg.via);
+   await route.cross(cfg.entry);
+  }));
+  assert.ok((await Promise.all(players.map(p=>frame(p.page)))).every(
+   f=>f.coop.code===code&&f.coop.shared===(cfg.tag==='balachko')));
+  await lockedNatlanGate(players[0],cfg);
+  await openNatlanGate(players[0],cfg);
+  await lockedNatlanGate(players[1],cfg);
+  await openNatlanGate(players[1],cfg);
+ }else if(cfg.approach){
   await Promise.all(players.map(p=>p.route.cross(cfg.entry)));
   const cave=await Promise.all(players.map(p=>frame(p.page)));
   assert.ok(cave.every(f=>f.storySwim&&f.coop.code===code&&f.coop.map===cfg.entry));
   await players[0].route.cross(cfg.arena);
   await reportFromWaterway(players[1],cfg,code);
  }
- await Promise.all((cfg.approach?players.slice(1):players).map(p=>p.route.cross(cfg.arena)));
+ if(!natlan||!cfg.quest){
+  await Promise.all((cfg.approach?players.slice(1):players).map(p=>p.route.cross(cfg.arena)));
+ }
  await Promise.all(players.map(({page})=>wait(page,n=>{
   const f=window.lab.frame;
   return f.story.node===n&&f.coop?.peers[0]?.actors.length>=1;
  },cfg.arena)));
  const before=await Promise.all(players.map(p=>frame(p.page)));
  assert.ok(before.every(f=>!f.storySwim));
+ if(cfg.provoke){
+  await Promise.all(players.map(({route},i)=>route.walk(cfg.x-52-i*75)));
+  const start=(await frame(a)).t;
+  await wait(a,t=>window.lab.frame.t>t+.8,start);
+  assert.ok((await Promise.all(players.map(p=>frame(p.page)))).every(f=>
+   f.fieldBoss.phase==='available'&&f.fieldBoss.hp===cfg.hp));
+  await a.keyboard.down('KeyJ');
+  try{
+   await wait(b,hp=>window.lab.frame.fieldBoss.hp<hp,cfg.hp);
+  }finally{await a.keyboard.up('KeyJ')}
+ }
  await Promise.all([drive(a,cfg,-1),drive(b,cfg,1)]);
  const warnings=await Promise.all(players.map(async ({page})=>{
-  const token=await wait(page,move=>{
+  const token=await wait(page,({move,count})=>{
    const b=window.lab.frame.fieldBoss;
-   return b?.move===move&&b.warnings?.length===2&&b.warnings.map(w=>[w.number,w.element,w.first,w.left,w.right]);
-  },cfg.warning);
+   return b?.move===move&&b.warnings?.length===count&&b.warnings.map(w=>[w.number,w.element,w.first,w.left,w.right]);
+  },{move:cfg.warning,count:cfg.warningOrder.length});
   return token.jsonValue();
  }));
  assert.deepEqual(warnings[0],warnings[1]);
@@ -213,9 +316,12 @@ async function scenario(cfg){
  await Promise.all(players.map(p=>p.route.cross(cfg.arena)));
  const restart=await Promise.all(players.map(p=>frame(p.page)));
  assert.ok(restart.every(f=>f.coop.enemies[0]?.hp===cfg.hp));
+ if(natlan) await verifyNatlanSave(players,cfg);
  await Promise.all(players.map(p=>p.context.close()));
  return {results,warnings: warnings[0],rewards,contacts,saved:true,sharedRematch:true,
-  ...(cfg.quest?{personalQuestGate:true,sharedUnderwaterApproach:true}:{})};
+  ...(natlan?{restoredBoth:true,...(cfg.provoke?{neutralUntilHit:true}:{}),
+    ...(cfg.quest?{personalQuestGate:true,bothReported:true}:{})}
+   :cfg.quest?{personalQuestGate:true,sharedUnderwaterApproach:true}:{})};
 }
 
 try{

@@ -37,7 +37,7 @@ def normal_rewards(spec):
 
 
 def report_rewards(quest):
-    return (QUEST_REPORT_EXP.get(quest['designId'], quest['xp']), 0, quest['mora'], quest.get('ore', 0))
+    return (QUEST_REPORT_EXP.get(quest.get('designId'), quest['xp']), 0, quest['mora'], quest.get('ore', 0))
 
 
 def difference(after, before):

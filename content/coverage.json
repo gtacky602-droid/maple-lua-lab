@@ -8212,6 +8212,14 @@
       "ochka-sifting-kiln",
       "primal-fire-sundered-forge",
       "natlan-field",
+      "nat-wp-72438",
+      "tepeakak-sappho-bank",
+      "nat-wp-72422",
+      "sites-hunt-73160",
+      "toyac-rainbow-key-cave",
+      "toyac-balachko-inner-cave",
+      "nat-wp-77772",
+      "toyac-cocijo-stone-ring",
       "qucusaur-field-cavern",
       "yumka-field-ravine",
       "config-device-field-workshop",
@@ -8363,7 +8371,10 @@
       "original-rubble-sifter",
       "original-prism-walker",
       "original-ice-crawler",
-      "original-plate-tail"
+      "original-plate-tail",
+      "legend-natlan_sappho",
+      "legend-natlan_balachko",
+      "legend-natlan_cocijo"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8635,7 +8646,9 @@
       "evidence/coop-late-branch-bosses-lua-http.json",
       "evidence/coop-late-branch-bosses-browser.json",
       "evidence/coop-plate-tail-lua-http.json",
-      "evidence/coop-plate-tail-browser.json"
+      "evidence/coop-plate-tail-browser.json",
+      "evidence/coop-natlan-entry-legends-lua-http.json",
+      "evidence/coop-natlan-entry-legends-browser.json"
     ],
     "pending": [
       "remaining Local Legends and Stygian bosses",

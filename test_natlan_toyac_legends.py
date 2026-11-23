@@ -42,6 +42,10 @@ def start(level):
     core.action(state, 'story_start')
     core.enterStoryNode(state, HUB)
     core.grantExp(state, exp(level), 'quest')
+    for slot in (1,2):
+        assert core.giveArtifact(state,slot,82,3)
+        core.action(state,'artifact_equip:'+str(slot))
+    assert state.actors[1].atk>4
     return state
 
 
@@ -99,11 +103,34 @@ def defeat(state, walk, id):
     walk.approach(slot.enemy.x - 46, 480, arena)
     actor.dir = 1
     kills, mora, xp = state.kills, state.mora, state.progression.killXp
-    for _ in range(5200):
+    for _ in range(7200):
         if slot.phase == 'cleared':
             break
-        tick(state, 1, attack)
-    assert slot.phase == 'cleared' and slot.enemy.hp == 0
+        boss = slot.enemy
+        goal = boss.x - 56
+        jump = False
+        if slot.cast:
+            for warning in slot.cast.strikes.values():
+                step = warning.step
+                if not (step.first-18 <= slot.cast.tick < step.after):
+                    continue
+                if warning.left-12 <= actor.x <= warning.right+12:
+                    if step.height < 95:
+                        jump = True
+                    else:
+                        left, right = warning.left-32, warning.right+32
+                        goal = left if abs(actor.x-left) < abs(actor.x-right) else right
+        # Turn toward the boss once in striking range.
+        delta, aim = goal-actor.x, boss.x-actor.x
+        direction = 0
+        if abs(delta)>=10:
+            direction = 1 if delta>0 else -1
+        elif aim*actor.dir<0:
+            direction = 1 if aim>0 else -1
+        tick(state,1,lua.table(left=direction<0,right=direction>0,jump=jump,
+                               attack=abs(aim)<106 and aim*actor.dir>0))
+    assert slot.phase == 'cleared' and slot.enemy.hp == 0, (
+        s.story.node,slot.phase,slot.enemy.hp,actor.hp,s.returns,actor.x,slot.enemy.x)
     base = LEVELS[spec['level'] - 1]['normal_enemy_base_exp']
     award = int(base * RUNTIME_EXP['roles']['field_boss'] + .5)
     assert (state.kills, state.mora, state.progression.killXp) == (kills + 1, mora + spec['mora'], xp + award)

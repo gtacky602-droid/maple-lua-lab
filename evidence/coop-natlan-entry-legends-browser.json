@@ -1,0 +1,181 @@
+{
+  "participants": 2,
+  "sappho": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 197,
+        "moves": [
+          "SP01",
+          "SP02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 212,
+        "moves": [
+          "SP01",
+          "SP02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "hydro",
+        68,
+        578.5,
+        712.5
+      ],
+      [
+        2,
+        "hydro",
+        111,
+        758.5,
+        892.5
+      ]
+    ],
+    "rewards": [
+      [
+        316350,
+        465
+      ],
+      [
+        316350,
+        465
+      ]
+    ],
+    "contacts": [
+      7,
+      5
+    ],
+    "saved": true,
+    "sharedRematch": true,
+    "restoredBoth": true,
+    "neutralUntilHit": true
+  },
+  "balachko": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 177,
+        "moves": [
+          "BK01",
+          "BK02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 177,
+        "moves": [
+          "BK01",
+          "BK02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "pyro",
+        60,
+        325,
+        455
+      ],
+      [
+        2,
+        "pyro",
+        99,
+        422,
+        552
+      ],
+      [
+        3,
+        "pyro",
+        138,
+        567,
+        697
+      ]
+    ],
+    "rewards": [
+      [
+        464100,
+        550
+      ],
+      [
+        464100,
+        550
+      ]
+    ],
+    "contacts": [
+      8,
+      7
+    ],
+    "saved": true,
+    "sharedRematch": true,
+    "restoredBoth": true,
+    "personalQuestGate": true,
+    "bothReported": true
+  },
+  "cocijo": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 151,
+        "moves": [
+          "CJ01",
+          "CJ02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 171,
+        "moves": [
+          "CJ01",
+          "CJ02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "electro",
+        69,
+        357,
+        533
+      ],
+      [
+        2,
+        "electro",
+        111,
+        325,
+        657
+      ]
+    ],
+    "rewards": [
+      [
+        452200,
+        515
+      ],
+      [
+        452200,
+        515
+      ]
+    ],
+    "contacts": [
+      7,
+      9
+    ],
+    "saved": true,
+    "sharedRematch": true,
+    "restoredBoth": true,
+    "personalQuestGate": true,
+    "bothReported": true
+  },
+  "errors": []
+}

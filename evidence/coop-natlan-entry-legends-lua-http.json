@@ -1,0 +1,114 @@
+{
+  "legend-natlan_sappho": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1080,
+      "moves": [
+        {
+          "id": "SP01",
+          "warningTicks": [
+            64
+          ]
+        },
+        {
+          "id": "SP02",
+          "warningTicks": [
+            68,
+            111
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 351500,
+      "mora": 465
+    },
+    "http": {
+      "players": 2,
+      "individualGate": true,
+      "personalCrystals": false,
+      "neutralUntilHit": true,
+      "sharedHealthPreservedByRetreat": true,
+      "manualRematchRequiresEmptyArena": true,
+      "personalSaveRestored": true,
+      "bothQuestReportsChecked": false
+    }
+  },
+  "legend-natlan_balachko": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1250,
+      "moves": [
+        {
+          "id": "BK01",
+          "warningTicks": [
+            57
+          ]
+        },
+        {
+          "id": "BK02",
+          "warningTicks": [
+            60,
+            99,
+            138
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 464100,
+      "mora": 550
+    },
+    "http": {
+      "players": 2,
+      "individualGate": true,
+      "personalCrystals": false,
+      "neutralUntilHit": false,
+      "sharedHealthPreservedByRetreat": true,
+      "manualRematchRequiresEmptyArena": true,
+      "personalSaveRestored": true,
+      "bothQuestReportsChecked": true
+    }
+  },
+  "legend-natlan_cocijo": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1310,
+      "moves": [
+        {
+          "id": "CJ01",
+          "warningTicks": [
+            70
+          ]
+        },
+        {
+          "id": "CJ02",
+          "warningTicks": [
+            69,
+            111
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 452200,
+      "mora": 515
+    },
+    "http": {
+      "players": 2,
+      "individualGate": true,
+      "personalCrystals": true,
+      "neutralUntilHit": false,
+      "sharedHealthPreservedByRetreat": true,
+      "manualRematchRequiresEmptyArena": true,
+      "personalSaveRestored": true,
+      "bothQuestReportsChecked": true
+    }
+  }
+}
