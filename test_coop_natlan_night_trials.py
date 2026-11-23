@@ -7,8 +7,9 @@ from time import monotonic, sleep
 from runtime import ROOT, runtime
 from test_coop_branch_legends import SPECS, actor_at, hit, level
 from test_coop_natlan_entry_legends import shared_attacks, start
+from test_coop_late_branch_bosses import difference, report_rewards
 from test_coop_local import Client, LOCK, SESSIONS, advance, lab
-from test_coop_ruin_guardians import cross, edge
+from test_coop_ruin_guardians import QUESTS, balances, cross, edge
 
 
 HOSTS={
@@ -17,15 +18,16 @@ HOSTS={
 }
 
 
-def phase_travel(client,source,target,other):
+def timed_travel(client,source,target,other):
     gate=edge(source,target)
+    duration=gate.get('phaseSeconds',gate.get('liftSeconds'))
     with LOCK:
         state=SESSIONS[client.sid]['state']
         actor_at(state,gate['x'],gate.get('y',480))
     frame=client.frame(['story_portal:'+target])
-    assert frame['story']['node']==source and frame['storyLift']['phase']
-    assert frame['storyLift']['seconds']==gate['phaseSeconds']
-    until=monotonic()+gate['phaseSeconds']+5
+    assert frame['story']['node']==source and frame['storyLift']['phase']==('phaseSeconds' in gate)
+    assert frame['storyLift']['seconds']==duration
+    until=monotonic()+duration+5
     while monotonic()<until:
         sleep(.03)
         frame=client.frame()
@@ -40,7 +42,7 @@ def phase_travel(client,source,target,other):
 def outgoing_reward(lua,core,spec):
     id=spec['id']
     arena=spec['node']
-    approach=spec['entryThrough'][0]
+    approach=spec['entryThrough'][-1]
     players=[start(core,spec['level']) for _ in range(2)]
     for state in players:
         core.enterStoryNode(state,arena)
@@ -69,10 +71,10 @@ def knock_out(env):
         actor.hp=0
 
 
-def http_trial(url,id,host_node):
+def http_trial(url,id,host_node,prepare=None,quest=None):
     spec=SPECS[id]
     arena=spec['node']
-    approach=spec['entryThrough'][0]
+    approach=spec['entryThrough'][-1]
     entrance=edge(approach,arena)
     host,guest=Client(url),Client(url)
     for client in (host,guest):
@@ -83,12 +85,17 @@ def http_trial(url,id,host_node):
             core.action(s,'story_start')
             core.enterStoryNode(s,'natlan-hub')
             level(core,s,spec['level']-int(client is guest))
+            if quest:
+                core.action(s,'story_accept:'+quest)
             core.enterStoryNode(s,host_node)
     code=host.frame(['coop_create'])['coop']['code']
     assert guest.frame(['coop_join:'+code])['coop']['code']==code
-    for client in (host,guest):
-        assert cross(client,edge(host_node,approach))['coop']['shared']
-    assert phase_travel(host,approach,arena,guest)['coop']['code']==code
+    if prepare:
+        prepare(host,guest,host_node,approach)
+    else:
+        for client in (host,guest):
+            assert cross(client,edge(host_node,approach))['coop']['shared']
+    assert timed_travel(host,approach,arena,guest)['coop']['code']==code
     with LOCK:
         env=SESSIONS[guest.sid]
         actor_at(env['state'],entrance['x'])
@@ -97,7 +104,7 @@ def http_trial(url,id,host_node):
     assert locked['story']['node']==approach and 'storyLift' not in locked
     with LOCK:
         level(env['core'],env['state'],spec['level'])
-    assert phase_travel(guest,approach,arena,host)['coop']['peers'][0]['map']==arena
+    assert timed_travel(guest,approach,arena,host)['coop']['peers'][0]['map']==arena
 
     with LOCK:
         env=SESSIONS[host.sid]
@@ -116,13 +123,13 @@ def http_trial(url,id,host_node):
     assert 0<hp<spec['hp'] and b['fieldBoss']['hp']==hp
 
     # An ordinary exit is a retreat with the same fight waiting when everyone leaves.
-    phase_travel(host,arena,approach,guest)
-    phase_travel(guest,arena,approach,host)
+    timed_travel(host,arena,approach,guest)
+    timed_travel(guest,arena,approach,host)
     frozen=room.tick,boss.hp
     advance(host,guest,.11)
     assert frozen==(room.tick,boss.hp)
     for client,peer in ((host,guest),(guest,host)):
-        assert phase_travel(client,approach,arena,peer)['coop']['enemies'][0]['hp']==frozen[1]
+        assert timed_travel(client,approach,arena,peer)['coop']['enemies'][0]['hp']==frozen[1]
 
     # A player losing both characters returns to their own pillar.
     with LOCK:
@@ -140,7 +147,7 @@ def http_trial(url,id,host_node):
         id,generation,slot.generation,slot.enemy.hp,slot.phase,room.nightTrialWipe)
 
     for client,peer in ((host,guest),(guest,host)):
-        phase_travel(client,approach,arena,peer)
+        timed_travel(client,approach,arena,peer)
     with LOCK:
         boss=slot.enemy
         for player in (state,other):
@@ -153,15 +160,25 @@ def http_trial(url,id,host_node):
         assert frame['fieldBoss']['phase']=='cleared' and frame['kills']==1
         assert frame['checkpoint']['endgame']['bosses'][id]['clears']==1
         saves.append(frame['checkpoint'])
-    phase_travel(host,arena,approach,guest)
-    assert phase_travel(host,approach,arena,guest)['coop']['enemies'][0]['hp']==0
-    phase_travel(host,arena,approach,guest)
-    phase_travel(guest,arena,approach,host)
-    assert phase_travel(host,approach,arena,guest)['coop']['enemies'][0]['hp']==spec['hp']
+    timed_travel(host,arena,approach,guest)
+    assert timed_travel(host,approach,arena,guest)['coop']['enemies'][0]['hp']==0
+    timed_travel(host,arena,approach,guest)
+    timed_travel(guest,arena,approach,host)
+    assert timed_travel(host,approach,arena,guest)['coop']['enemies'][0]['hp']==spec['hp']
     for client,save in zip((host,guest),saves):
         frame=client.frame(restore=save,checkpoint=True)
         assert frame['story']['node']=='natlan-hub'
         assert frame['checkpoint']['endgame']['bosses'][id]['clears']==1
+        if quest:
+            with LOCK:
+                current=SESSIONS[client.sid]['state']
+                before=balances(current)
+            for _ in range(2):
+                report=client.frame(['story_report:'+quest],checkpoint=True)
+            assert report['story']['quests'][quest]['status']=='complete'
+            with LOCK:
+                assert difference(balances(current),before)==report_rewards(QUESTS[quest])
+            assert client.frame(restore=report['checkpoint'])['story']['quests'][quest]['status']=='complete'
     return dict(players=2,individualPhaseTransfers=True,independentLevelGate=True,
                 pausedOnRetreat=True,onePartyWipeKeepsFight=True,fullRoomWipeResets=True,
                 rematchAfterEveryoneLeaves=True,personalRewardsRestored=True)

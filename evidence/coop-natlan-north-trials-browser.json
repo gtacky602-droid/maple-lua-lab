@@ -1,0 +1,118 @@
+{
+  "participants": 2,
+  "tlatzacuilotl": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 172,
+        "moves": [
+          "NT01",
+          "NT02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 175,
+        "moves": [
+          "NT01",
+          "NT02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "geo",
+        68,
+        727,
+        881
+      ],
+      [
+        2,
+        "geo",
+        117,
+        888,
+        1114
+      ]
+    ],
+    "rewards": [
+      [
+        316350,
+        460
+      ],
+      [
+        316350,
+        460
+      ]
+    ],
+    "contacts": [
+      6,
+      8
+    ],
+    "saved": true,
+    "sharedRematch": true,
+    "independentPillarTransfers": true,
+    "personalQuestGate": true,
+    "bothReported": true,
+    "restoredBoth": true
+  },
+  "ichcahuipilli": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 212,
+        "moves": [
+          "NI01"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 212,
+        "moves": [
+          "NI01"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "dendro",
+        70,
+        390,
+        532
+      ],
+      [
+        2,
+        "dendro",
+        120,
+        602,
+        744
+      ]
+    ],
+    "rewards": [
+      [
+        512900,
+        525
+      ],
+      [
+        512900,
+        525
+      ]
+    ],
+    "contacts": [
+      8,
+      8
+    ],
+    "saved": true,
+    "sharedRematch": true,
+    "independentPillarTransfers": true,
+    "personalQuestGate": true,
+    "bothReported": true,
+    "restoredBoth": true
+  },
+  "errors": []
+}

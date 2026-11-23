@@ -8226,6 +8226,17 @@
       "nat-wp-72416",
       "temple-northwest-totem-ravine",
       "night-trial-chimalli",
+      "nat-wp-72434",
+      "nat-wp-72441",
+      "sulfurous-resonant-basin",
+      "sulfurous-totem-cave",
+      "night-trial-tlatzacuilotl",
+      "nat-wp-72436",
+      "witztli-sealed-stone-bank",
+      "witztli-root-hollow",
+      "witztli-crystal-niche",
+      "witztli-loose-ledge",
+      "night-trial-ichcahuipilli",
       "qucusaur-field-cavern",
       "yumka-field-ravine",
       "config-device-field-workshop",
@@ -8382,7 +8393,9 @@
       "legend-natlan_balachko",
       "legend-natlan_cocijo",
       "legend-natlan_undead",
-      "legend-natlan_chimalli"
+      "legend-natlan_chimalli",
+      "legend-natlan_tlatzacuilotl",
+      "legend-natlan_ichcahuipilli"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8658,7 +8671,9 @@
       "evidence/coop-natlan-entry-legends-lua-http.json",
       "evidence/coop-natlan-entry-legends-browser.json",
       "evidence/coop-natlan-night-trials-lua-http.json",
-      "evidence/coop-natlan-night-trials-browser.json"
+      "evidence/coop-natlan-night-trials-browser.json",
+      "evidence/coop-natlan-north-trials-lua-http.json",
+      "evidence/coop-natlan-north-trials-browser.json"
     ],
     "pending": [
       "remaining Local Legends and Stygian bosses",

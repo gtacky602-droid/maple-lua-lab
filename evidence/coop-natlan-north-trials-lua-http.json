@@ -1,0 +1,84 @@
+{
+  "legend-natlan_tlatzacuilotl": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1150,
+      "moves": [
+        {
+          "id": "NT01",
+          "warningTicks": [
+            65
+          ]
+        },
+        {
+          "id": "NT02",
+          "warningTicks": [
+            68,
+            117
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 351500,
+      "mora": 460,
+      "departingPartyReceivesNoLateKillCredit": true
+    },
+    "http": {
+      "players": 2,
+      "individualPhaseTransfers": true,
+      "independentLevelGate": true,
+      "pausedOnRetreat": true,
+      "onePartyWipeKeepsFight": true,
+      "fullRoomWipeResets": true,
+      "rematchAfterEveryoneLeaves": true,
+      "personalRewardsRestored": true,
+      "personalResonanceAndCaveGate": true,
+      "wrongOrderRejected": true,
+      "bothQuestReportsRestored": true
+    }
+  },
+  "legend-natlan_ichcahuipilli": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1230,
+      "moves": [
+        {
+          "id": "NI01",
+          "warningTicks": [
+            70,
+            120
+          ]
+        },
+        {
+          "id": "NI02",
+          "warningTicks": [
+            64
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 512900,
+      "mora": 525,
+      "departingPartyReceivesNoLateKillCredit": true
+    },
+    "http": {
+      "players": 2,
+      "individualPhaseTransfers": true,
+      "independentLevelGate": true,
+      "pausedOnRetreat": true,
+      "onePartyWipeKeepsFight": true,
+      "fullRoomWipeResets": true,
+      "rematchAfterEveryoneLeaves": true,
+      "personalRewardsRestored": true,
+      "personalThreeReturnsAndRockSeal": true,
+      "emptyReturnDoesNotCount": true,
+      "bothQuestReportsRestored": true
+    }
+  }
+}
