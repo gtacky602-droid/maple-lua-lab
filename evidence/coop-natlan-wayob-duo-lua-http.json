@@ -1,0 +1,85 @@
+{
+  "legend-natlan_potapo": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1220,
+      "moves": [
+        {
+          "id": "NP01",
+          "warningTicks": [
+            64
+          ]
+        },
+        {
+          "id": "NP02",
+          "warningTicks": [
+            68,
+            106,
+            146
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 512900,
+      "mora": 550,
+      "departingPartyReceivesNoLateKillCredit": true
+    },
+    "http": {
+      "players": 2,
+      "individualPhaseTransfers": true,
+      "independentLevelGate": true,
+      "pausedOnRetreat": true,
+      "onePartyWipeKeepsFight": true,
+      "fullRoomWipeResets": true,
+      "rematchAfterEveryoneLeaves": true,
+      "personalRewardsRestored": true,
+      "sharedRoomAcrossConnector": true,
+      "personalMarksAndReports": true,
+      "entryWithoutSurveyChecked": true
+    }
+  },
+  "legend-natlan_tupayo": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1280,
+      "moves": [
+        {
+          "id": "NY01",
+          "warningTicks": [
+            66
+          ]
+        },
+        {
+          "id": "NY02",
+          "warningTicks": [
+            74,
+            123
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 464100,
+      "mora": 575,
+      "departingPartyReceivesNoLateKillCredit": true
+    },
+    "http": {
+      "players": 2,
+      "individualPhaseTransfers": true,
+      "independentLevelGate": true,
+      "pausedOnRetreat": true,
+      "onePartyWipeKeepsFight": true,
+      "fullRoomWipeResets": true,
+      "rematchAfterEveryoneLeaves": true,
+      "personalRewardsRestored": true,
+      "sharedRoomAcrossConnector": true,
+      "personalMarksAndReports": true,
+      "sameHeightAfterDefeatAndExit": 274
+    }
+  }
+}
