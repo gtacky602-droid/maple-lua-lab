@@ -50,8 +50,8 @@ class Client:
             data = decompress(data)
         return json.loads(data) if data else None
 
-    def frame(self, actions=(), **extra):
-        result = self.post('/api/frame', session=self.sid, owner=self.owner, steps=0, actions=actions,
+    def frame(self, actions=(), *, steps=0, **extra):
+        result = self.post('/api/frame', session=self.sid, owner=self.owner, steps=steps, actions=actions,
                            storyGraphRevision=self.revision, **extra)
         self.sid = result['session']
         self.revision = result['storyGraphRevision']

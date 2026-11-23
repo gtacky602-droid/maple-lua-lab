@@ -8237,6 +8237,14 @@
       "witztli-crystal-niche",
       "witztli-loose-ledge",
       "night-trial-ichcahuipilli",
+      "nat-wp-72414",
+      "sites-hunt-73159",
+      "tepeacac-waterfall-wall",
+      "ancient-excavation-upper-ledge",
+      "night-trial-atlatl",
+      "nat-wp-72759",
+      "canopy-square-plateau",
+      "night-trial-cihuacoatl",
       "qucusaur-field-cavern",
       "yumka-field-ravine",
       "config-device-field-workshop",
@@ -8395,7 +8403,9 @@
       "legend-natlan_undead",
       "legend-natlan_chimalli",
       "legend-natlan_tlatzacuilotl",
-      "legend-natlan_ichcahuipilli"
+      "legend-natlan_ichcahuipilli",
+      "legend-natlan_atlatl",
+      "legend-natlan_cihuacoatl"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8673,7 +8683,9 @@
       "evidence/coop-natlan-night-trials-lua-http.json",
       "evidence/coop-natlan-night-trials-browser.json",
       "evidence/coop-natlan-north-trials-lua-http.json",
-      "evidence/coop-natlan-north-trials-browser.json"
+      "evidence/coop-natlan-north-trials-browser.json",
+      "evidence/coop-natlan-cliff-trials-lua-http.json",
+      "evidence/coop-natlan-cliff-trials-browser.json"
     ],
     "pending": [
       "remaining Local Legends and Stygian bosses",

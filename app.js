@@ -512,7 +512,7 @@ function hud(f,calls,renderMs){
    }
   }
   const form=field.formName?`・${field.formName}`:'';
-  const party=f.storyTravelerTrial?' ｜ 旅人単独':'';
+  const party=f.storyTravelerTrial?(f.coop?.shared?' ｜ 旅人のみで共闘':' ｜ 旅人単独'):'';
   const difficulty=field.difficulty?` ｜ ${field.difficulty}`:'';
   const line=`${field.name}${form}（Lv${field.level}）${difficulty}${elements} ｜ ${status}${mark}${party}`;
   if(fieldLabel.textContent!==line)fieldLabel.textContent=line;

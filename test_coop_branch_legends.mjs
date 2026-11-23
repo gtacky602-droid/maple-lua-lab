@@ -8,7 +8,10 @@ const dry=process.argv.includes('--dry');
 const natlan=process.argv.includes('--natlan-entry');
 const night=process.argv.includes('--natlan-night');
 const north=process.argv.includes('--natlan-north');
-const prefix=north?'evidence/coop-natlan-north-trials':night?'evidence/coop-natlan-night-trials'
+const cliff=process.argv.includes('--natlan-cliff');
+const localNatlan=natlan||night||north||cliff;
+const prefix=cliff?'evidence/coop-natlan-cliff-trials'
+ : north?'evidence/coop-natlan-north-trials':night?'evidence/coop-natlan-night-trials'
  : 'evidence/coop-'+(natlan?'natlan-entry':dry?'dry':lake?'lake':'branch')+'-legends';
 const dryCases=[
  {tag:'yseut',id:'legend-fontaine_yseut',arena:'yseut-legend-court',
@@ -60,7 +63,16 @@ const northCases=[
   hp:1230,mora:525,x:845,warning:'NI01',entities:[97082],
   warningOrder:[[1,'dendro',70],[2,'dendro',120]],lock:'三つの光',phase:true},
 ].map(cfg=>({...cfg,checkpoint:'natlan-hub'}));
-const cases=north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
+const cliffCases=[
+ {tag:'atlatl',id:'legend-natlan_atlatl',arena:'night-trial-atlatl',approach:'nat-wp-72414',
+  wall:'tepeacac-waterfall-wall',entry:'ancient-excavation-upper-ledge',quest:'natlan-ancient-excavation-wall',
+  hp:1180,mora:470,x:845,warning:'NA02',entities:[97083],warningOrder:[[1,'geo',72],[2,'geo',121]],
+  travelerOnly:true,returnY:272,phase:true},
+ {tag:'cihuacoatl',id:'legend-natlan_cihuacoatl',arena:'night-trial-cihuacoatl',approach:'nat-wp-72759',
+  entry:'canopy-square-plateau',hp:1240,mora:525,x:845,warning:'NS02',entities:[97084],
+  warningOrder:[[1,'dendro',66],[2,'dendro',104],[3,'dendro',142]],returnY:207,phase:true},
+].map(cfg=>({...cfg,checkpoint:'natlan-hub'}));
+const cases=cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
  {tag:'vivianne',id:'legend-fontaine_vivianne_of_the_lake',arena:'vivianne-legend-bank',
   entry:'fon-wp-50056',checkpoint:'fontaine-hub',hp:1040,mora:300,x:890,warning:'LV02',entities:[97041],
   warningOrder:[[1,'hydro',64],[2,'hydro',115]],movingWave:true},
@@ -94,16 +106,17 @@ async function start(cfg,needsReport){
  page.on('pageerror',e=>errors.push(e.message));
  const route=waypointDriver(page,nodes,{walkTimeout:32000});
  const suffix=needsReport?'-before-report-fixture.json':'-fixture.json';
- const fixturePath=north?'work/natlan-north-trials-fixture.json':night?'work/natlan-night-trial-fixture.json'
+ const fixturePath=cliff?'work/natlan-cliff-trials-fixture.json'
+  : north?'work/natlan-north-trials-fixture.json':night?'work/natlan-night-trial-fixture.json'
   : natlan?'work/coop-natlan-entry-legends-fixture.json':'work/coop-'+cfg.arena+suffix;
  const fixture=await fs.readFile(fixturePath,'utf8');
- const port=natlan||night||north?9068:dry?9064:lake?9063:9060;
+ const port=localNatlan?9068:dry?9064:lake?9063:9060;
  await page.goto(process.env.LAB_URL||`http://127.0.0.1:${port}/`);
  await wait(page,()=>window.lab?.frame);
  await page.evaluate(([key,fixture])=>localStorage.setItem(key,fixture),[key,fixture]);
  await page.locator('#loadProgress').click();
  await route.waitNode(cfg.checkpoint);
- if((natlan||north) && cfg.quest) await route.accept(cfg.quest);
+ if(localNatlan && cfg.quest) await route.accept(cfg.quest);
  await route.warp(cfg.approach??cfg.entry);
  await page.locator('#coopPanel summary').click();
  return {context,page,route};
@@ -126,6 +139,34 @@ async function collectSpot({page,route},spot){
  await route.walk(spot.x);
  await route.changeHeight(spot.y??480);
  await page.keyboard.press('KeyG');
+}
+
+async function prepareCliffTrial(players,cfg){
+ if(cfg.wall){
+  const {itinerary}=graph.quests.find(q=>q.id===cfg.quest);
+  await Promise.all(players.map(async ({page,route})=>{
+   await route.cross(cfg.wall);
+   await collectSpot({page,route},itinerary[0]);
+   await route.count(cfg.quest,1);
+   await Promise.all([
+    route.cross(cfg.entry),
+    wait(page,()=>window.lab.frame.storyLift?.wall===true),
+   ]);
+   await route.count(cfg.quest,2);
+   await collectSpot({page,route},itinerary[2]);
+   await route.count(cfg.quest,3);
+   await page.keyboard.press('KeyE');
+   await wait(page,()=>window.lab.frame.active===2);
+  }));
+  return;
+ }
+ await Promise.all(players.map(async ({route})=>{
+  await route.cross(cfg.entry);
+  for(const [x,y] of [[495,412],[631,343],[870,275],[1143,207]]){
+   await route.walk(x);
+   await route.changeHeight(y);
+  }
+ }));
 }
 
 async function prepareNorthTrial(players,cfg){
@@ -299,7 +340,8 @@ async function scenario(cfg){
  await b.locator('#coopJoin').click();
  await wait(b,c=>window.lab.frame.coop?.code===c,code);
  if(cfg.phase){
-  if(north) await prepareNorthTrial(players,cfg);
+  if(cliff) await prepareCliffTrial(players,cfg);
+  else if(north) await prepareNorthTrial(players,cfg);
   else await Promise.all(players.map(p=>p.route.cross(cfg.entry)));
   await players[0].route.cross(cfg.arena);
   assert.equal(await players[1].route.node(),cfg.entry);
@@ -332,6 +374,9 @@ async function scenario(cfg){
  },cfg.arena)));
  const before=await Promise.all(players.map(p=>frame(p.page)));
  assert.ok(before.every(f=>!f.storySwim));
+ if(cfg.travelerOnly){
+  assert.ok(before.every(f=>f.storyTravelerTrial&&f.active===1&&f.actors[1].hp===0));
+ }
  if(cfg.provoke){
   await Promise.all(players.map(({route},i)=>route.walk(cfg.x-52-i*75)));
   const start=(await frame(a)).t;
@@ -344,6 +389,11 @@ async function scenario(cfg){
   }finally{await a.keyboard.up('KeyJ')}
  }
  await Promise.all([drive(a,cfg,-1),drive(b,cfg,1)]);
+ if(cfg.travelerOnly){
+  await Promise.all(players.map(({page})=>wait(page,()=>
+   document.querySelector('#fieldBossLabel').textContent.includes('旅人のみで共闘')&&
+   document.querySelector('#a2').hidden)));
+ }
  const warnings=await Promise.all(players.map(async ({page})=>{
   const token=await wait(page,({move,count})=>{
    const b=window.lab.frame.fieldBoss;
@@ -381,13 +431,20 @@ async function scenario(cfg){
   await wait(page,([key,id])=>JSON.parse(localStorage.getItem(key))?.endgame?.bosses?.[id]?.clears===1,[key,cfg.id]);
  }));
  await Promise.all(players.map(p=>p.route.cross(cfg.entry)));
+ if(cliff){
+  const returned=await Promise.all(players.map(p=>frame(p.page)));
+  assert.ok(returned.every(f=>f.actors[0].y===cfg.returnY));
+  if(cfg.travelerOnly) assert.ok(returned.every(f=>!f.storyTravelerTrial&&f.active===2&&f.actors[1].hp>0));
+ }
  await Promise.all(players.map(p=>p.route.cross(cfg.arena)));
  const restart=await Promise.all(players.map(p=>frame(p.page)));
  assert.ok(restart.every(f=>f.coop.enemies[0]?.hp===cfg.hp));
- if(natlan||night||north) await verifyNatlanSave(players,cfg);
+ if(localNatlan) await verifyNatlanSave(players,cfg);
  await Promise.all(players.map(p=>p.context.close()));
  return {results,warnings: warnings[0],rewards,contacts,saved:true,sharedRematch:true,
-  ...(north?{independentPillarTransfers:true,personalQuestGate:true,bothReported:true,restoredBoth:true}
+  ...(cliff?{independentPillarTransfers:true,returnY:cfg.returnY,restoredBoth:true,
+    ...(cfg.travelerOnly?{bothTravelersOnly:true,companionsRestored:true,bothReported:true}:{})}
+   :north?{independentPillarTransfers:true,personalQuestGate:true,bothReported:true,restoredBoth:true}
    :night?{independentPillarTransfers:true,restoredBoth:true}
    :natlan?{restoredBoth:true,...(cfg.provoke?{neutralUntilHit:true}:{}),
     ...(cfg.quest?{personalQuestGate:true,bothReported:true}:{})}

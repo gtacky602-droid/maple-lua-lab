@@ -1,0 +1,128 @@
+{
+  "participants": 2,
+  "atlatl": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 175,
+        "moves": [
+          "NA01",
+          "NA02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 155,
+        "moves": [
+          "NA01",
+          "NA02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "geo",
+        72,
+        824.5,
+        988.5
+      ],
+      [
+        2,
+        "geo",
+        121,
+        746.5,
+        1066.5
+      ]
+    ],
+    "rewards": [
+      [
+        398700,
+        470
+      ],
+      [
+        398700,
+        470
+      ]
+    ],
+    "contacts": [
+      8,
+      8
+    ],
+    "saved": true,
+    "sharedRematch": true,
+    "independentPillarTransfers": true,
+    "returnY": 272,
+    "restoredBoth": true,
+    "bothTravelersOnly": true,
+    "companionsRestored": true,
+    "bothReported": true
+  },
+  "cihuacoatl": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 175,
+        "moves": [
+          "NS01",
+          "NS02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 212,
+        "moves": [
+          "NS01",
+          "NS02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "dendro",
+        66,
+        328,
+        468
+      ],
+      [
+        2,
+        "dendro",
+        104,
+        416.5,
+        556.5
+      ],
+      [
+        3,
+        "dendro",
+        142,
+        580.5,
+        720.5
+      ]
+    ],
+    "rewards": [
+      [
+        512900,
+        525
+      ],
+      [
+        512900,
+        525
+      ]
+    ],
+    "contacts": [
+      7,
+      8
+    ],
+    "saved": true,
+    "sharedRematch": true,
+    "independentPillarTransfers": true,
+    "returnY": 207,
+    "restoredBoth": true
+  },
+  "errors": []
+}

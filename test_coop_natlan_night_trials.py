@@ -18,22 +18,27 @@ HOSTS={
 }
 
 
-def timed_travel(client,source,target,other):
+def timed_travel(client,source,target,other,*,shared=True):
     gate=edge(source,target)
     duration=gate.get('phaseSeconds',gate.get('liftSeconds'))
     with LOCK:
         state=SESSIONS[client.sid]['state']
-        actor_at(state,gate['x'],gate.get('y',480))
+        actor=state.actors[state.active]
+        actor.x,actor.y,actor.vy,actor.ground=gate['x'],gate.get('y',480),0,True
     frame=client.frame(['story_portal:'+target])
     assert frame['story']['node']==source and frame['storyLift']['phase']==('phaseSeconds' in gate)
     assert frame['storyLift']['seconds']==duration
+    if 'wallTrack' in gate:
+        assert frame['storyLift']['wall']
     until=monotonic()+duration+5
     while monotonic()<until:
         sleep(.03)
-        frame=client.frame()
+        frame=client.frame(steps=0 if shared else 3)
         other.frame()
         if frame['story']['node']==target:
-            assert frame['coop']['map']==target and frame['coop']['shared']
+            assert bool(frame['coop'].get('shared'))==shared
+            if shared:
+                assert frame['coop']['map']==target
             assert abs(frame['actors'][0]['x']-gate['arrivalX'])<=1
             return frame
     raise AssertionError((source,target,frame.get('storyLift')))
@@ -98,7 +103,7 @@ def http_trial(url,id,host_node,prepare=None,quest=None):
     assert timed_travel(host,approach,arena,guest)['coop']['code']==code
     with LOCK:
         env=SESSIONS[guest.sid]
-        actor_at(env['state'],entrance['x'])
+        actor_at(env['state'],entrance['x'],entrance.get('y',480))
     locked=guest.frame(['story_portal:'+arena])
     assert str(spec['level']) in locked['storyNearbyPortal']['reason']
     assert locked['story']['node']==approach and 'storyLift' not in locked
@@ -135,7 +140,8 @@ def http_trial(url,id,host_node,prepare=None,quest=None):
     with LOCK:
         knock_out(env)
     returned,remaining=advance(host,guest,.12)
-    assert (returned['story']['node'],returned['actors'][0]['x'],returned['returns'])==(approach,entrance['x'],1)
+    assert (returned['story']['node'],returned['actors'][0]['x'],returned['actors'][0]['y'],returned['returns'])==(
+        approach,entrance['x'],entrance.get('y',480),1)
     assert remaining['story']['node']==arena and remaining['coop']['enemies'][0]['hp']==frozen[1]
     assert slot.generation==generation
     with LOCK:

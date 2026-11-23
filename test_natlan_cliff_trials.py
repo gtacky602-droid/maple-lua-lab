@@ -39,6 +39,9 @@ def start(level):
     core.action(state, 'story_start')
     core.enterStoryNode(state, HUB)
     core.grantExp(state, LEVELS[level - 1]['maple_reference_total_exp_to_reach'], 'quest')
+    for slot in (1,2):
+        assert core.giveArtifact(state,slot,40,3)
+        core.action(state,'artifact_equip:'+str(slot))
     return state
 
 

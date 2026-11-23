@@ -1,0 +1,86 @@
+{
+  "legend-natlan_atlatl": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1180,
+      "moves": [
+        {
+          "id": "NA01",
+          "warningTicks": [
+            65
+          ]
+        },
+        {
+          "id": "NA02",
+          "warningTicks": [
+            72,
+            121
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 398700,
+      "mora": 470,
+      "departingPartyReceivesNoLateKillCredit": true
+    },
+    "http": {
+      "players": 2,
+      "individualPhaseTransfers": true,
+      "independentLevelGate": true,
+      "pausedOnRetreat": true,
+      "onePartyWipeKeepsFight": true,
+      "fullRoomWipeResets": true,
+      "rematchAfterEveryoneLeaves": true,
+      "personalRewardsRestored": true,
+      "wallCrossingAndMarksArePersonal": true,
+      "bothQuestReportsRestored": true,
+      "downedTravelerGate": true,
+      "bothTravelersOnly": true,
+      "previousActorSurvivesJoin": true,
+      "allyHPPreservedOnExitAndDefeat": true
+    }
+  },
+  "legend-natlan_cihuacoatl": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1240,
+      "moves": [
+        {
+          "id": "NS01",
+          "warningTicks": [
+            63
+          ]
+        },
+        {
+          "id": "NS02",
+          "warningTicks": [
+            66,
+            104,
+            142
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 512900,
+      "mora": 525,
+      "departingPartyReceivesNoLateKillCredit": true
+    },
+    "http": {
+      "players": 2,
+      "individualPhaseTransfers": true,
+      "independentLevelGate": true,
+      "pausedOnRetreat": true,
+      "onePartyWipeKeepsFight": true,
+      "fullRoomWipeResets": true,
+      "rematchAfterEveryoneLeaves": true,
+      "personalRewardsRestored": true,
+      "groundCannotUseHighGate": true
+    }
+  }
+}

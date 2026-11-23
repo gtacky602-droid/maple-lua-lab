@@ -126,6 +126,10 @@ class CoopRooms:
                 state.azhdahaPair = room.lua.table_from(native(source.azhdahaPair))
             entrance = env['core'].weeklyCoopSite(source) or site
             room.core.enterCoopNode(state, entrance, rank)
+            if source.travelerTrial and state.travelerTrial:
+                # The suspended companion's HP is separate from its in-trial HP of zero.
+                state.travelerTrial.allyHp = source.travelerTrial.allyHp
+                state.travelerTrial.previousActive = source.travelerTrial.previousActive
             if source.storyDuelReplay:
                 room.core.resumeDuelPractice(state, source.storyDuelReplay)
             for index in (1, 2):
