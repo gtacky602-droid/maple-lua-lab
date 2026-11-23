@@ -1,0 +1,47 @@
+{
+  "results": {
+    "original-prism-walker": {
+      "hp": 1020,
+      "moraPerPlayer": 1120,
+      "clear": [
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 19.83333333333221
+        },
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 19.816666666665544
+        }
+      ],
+      "hostReported": true,
+      "bothSavedAndReloaded": true,
+      "personalGuardSweep": false,
+      "directReturn": true,
+      "bothReported": true
+    },
+    "original-ice-crawler": {
+      "hp": 1060,
+      "moraPerPlayer": 1230,
+      "clear": [
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 28.21666666666507
+        },
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 28.199999999998404
+        }
+      ],
+      "hostReported": true,
+      "bothSavedAndReloaded": true,
+      "personalGuardSweep": true,
+      "directReturn": true,
+      "bothReported": true
+    }
+  },
+  "errors": []
+}

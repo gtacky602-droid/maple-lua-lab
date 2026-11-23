@@ -1,0 +1,76 @@
+{
+  "original-prism-walker": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1020,
+      "moves": [
+        "MW01",
+        "MW02"
+      ],
+      "imagesAreVisualOnly": true,
+      "lockedSecondAttack": true,
+      "oneHitPerActor": true,
+      "soloHitRetainedOnRoomCreate": true,
+      "defendedHit": 95,
+      "exposedHit": 119,
+      "rewards": [
+        0,
+        12191050,
+        1120,
+        0
+      ],
+      "report": [
+        14095746,
+        0,
+        853650,
+        0
+      ]
+    },
+    "http": {
+      "players": 2,
+      "questGateChecked": true,
+      "privateGuardSweeps": false,
+      "sharedCombatPersistsDuringRetreat": true,
+      "directReturn": true,
+      "bothReportedOnce": true,
+      "bothRestored": true
+    }
+  },
+  "original-ice-crawler": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1060,
+      "moves": [
+        "IC01",
+        "IC02"
+      ],
+      "imagesAreVisualOnly": false,
+      "lockedSecondAttack": true,
+      "oneHitPerActor": true,
+      "soloHitRetainedOnRoomCreate": true,
+      "defendedHit": 9,
+      "exposedHit": 121,
+      "rewards": [
+        0,
+        14818300,
+        1230,
+        0
+      ],
+      "report": [
+        17133467,
+        0,
+        882270,
+        8
+      ]
+    },
+    "http": {
+      "players": 2,
+      "questGateChecked": true,
+      "privateGuardSweeps": true,
+      "sharedCombatPersistsDuringRetreat": true,
+      "directReturn": true,
+      "bothReportedOnce": true,
+      "bothRestored": true
+    }
+  }
+}

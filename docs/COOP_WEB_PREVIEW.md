@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する178地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する183地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -67,6 +67,14 @@ Lv100のナタ第3話「夕映えの一番勝負！」で共闘できる。谷�
 礫脈の選鉱炉はLv185の焚き口の選鉱室で戦う。オシカ・ナタの寄港地から進み、三本の排熱流の位置・順番と回転輪が開く時間を共有する。受注前でも入場して討伐報酬を受け取れる。「出航前の、もうひと仕事」を受けている人は討伐後に奥で寸法を測り、寄港地で報告できる。 [寄港地までの道順](balance/CAP_AND_STOPOVER_WEB.md) · [選鉱室の共闘画面](../evidence/coop-highland-bosses-original-rubble-sifter.png)
 
 `python -X utf8 test_coop_highland_bosses.py` でLuaとHTTPを検証できる。続けてラボを起動し、`node test_coop_original_field_bosses.mjs highland` を実行すると、Chromeの2画面で入場から報告・保存まで検証できる。 [Lua・HTTPの結果](../evidence/coop-highland-bosses-lua-http.json) · [Chromeの結果](../evidence/coop-highland-bosses-browser.json)
+
+## 玻璃根の歩行晶と氷継ぎの岩這い
+
+玻璃根の歩行晶はLv195の庭の外周で戦う。ナド・クライの町や庭の入口拠点から部屋に入れる。反射板と記録箱の作業は各自で済ませる。戦闘ではHP1020と反射像の位置を共有する。足元に線が一本ある本体に攻撃が当たり、反射像が消えると反撃しやすくなる。討伐後は各自で高台を調べ、右端の門から町へ直接戻る。 [庭の道順](balance/MOONLIT_GARDEN_WEB.md) · [歩行晶の共闘画面](../evidence/coop-late-branch-bosses-original-prism-walker.png)
+
+氷継ぎの岩這いはLv200の氷殻の最深室で戦う。入口拠点で部屋に入り、吹き溜まりの連絡坑の見張りを各自で3体倒してから最深室で合流する。HP1060、予告した位置に出る氷柱、障壁50が外れる反撃時間を共有する。討伐後は高台で帰路を確認して、右端の門から拠点へ直接戻る。 [遠征の道順](balance/NOVOKICHEV_EXPEDITION_WEB.md) · [岩這いの共闘画面](../evidence/coop-late-branch-bosses-original-ice-crawler.png)
+
+`python -X utf8 test_coop_late_branch_bosses.py` でソロ・共闘のLua試験とHTTP試験を再実行できる。ラボを起動し、`node test_coop_original_field_bosses.mjs late-branch` を実行すると、Chromeの2画面で合流、討伐、個別報告、保存からの再開まで確認できる。 [Lua・HTTPの結果](../evidence/coop-late-branch-bosses-lua-http.json) · [Chromeの結果](../evidence/coop-late-branch-bosses-browser.json)
 
 ## 無相の風を共闘する
 

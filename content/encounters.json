@@ -2184,12 +2184,13 @@
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "docs/balance/MOONLIT_GARDEN_WEB.md"
+        "docs/balance/MOONLIT_GARDEN_WEB.md",
+        "evidence/coop-late-branch-bosses-lua-http.json",
+        "evidence/coop-late-branch-bosses-browser.json"
       ],
       "remaining": [
         "連続アニメーション",
-        "報酬の調整",
-        "マルチ検証"
+        "報酬の調整"
       ],
       "fieldNode": "nod-quiet-rim",
       "fieldEntrance": "庭の外周・静かな道（Lv195）",
@@ -2209,12 +2210,13 @@
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "docs/balance/NOVOKICHEV_EXPEDITION_WEB.md"
+        "docs/balance/NOVOKICHEV_EXPEDITION_WEB.md",
+        "evidence/coop-late-branch-bosses-lua-http.json",
+        "evidence/coop-late-branch-bosses-browser.json"
       ],
       "remaining": [
         "連続アニメーション",
-        "報酬の調整",
-        "マルチ検証"
+        "報酬の調整"
       ],
       "fieldNode": "novo-ice-vault",
       "fieldEntrance": "氷殻の最深室（Lv200）",

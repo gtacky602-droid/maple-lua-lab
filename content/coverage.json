@@ -8222,6 +8222,10 @@
       "nod-false-moon-court",
       "nod-false-moon-rift",
       "nod-field",
+      "nod-special-camp",
+      "nod-reflector-shore",
+      "nod-reflection-garden",
+      "nod-quiet-rim",
       "nod-duckle-workyard",
       "nod-battleship-depot",
       "nod-herra-terrace",
@@ -8244,6 +8248,7 @@
       "sne-novokichev-ore-yard",
       "novokichev-camp",
       "novokichev-depth",
+      "novo-ice-vault",
       "wavebinder-tide-cavern",
       "spine-shelter",
       "spine-trace-ridge",
@@ -8352,7 +8357,9 @@
       "original-grand-finale",
       "original-river-racer",
       "original-frost-antler",
-      "original-rubble-sifter"
+      "original-rubble-sifter",
+      "original-prism-walker",
+      "original-ice-crawler"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8620,7 +8627,9 @@
       "evidence/coop-sunset-duel-lua-http.json",
       "evidence/coop-sunset-duel-browser.json",
       "evidence/coop-highland-bosses-lua-http.json",
-      "evidence/coop-highland-bosses-browser.json"
+      "evidence/coop-highland-bosses-browser.json",
+      "evidence/coop-late-branch-bosses-lua-http.json",
+      "evidence/coop-late-branch-bosses-browser.json"
     ],
     "pending": [
       "remaining lab-original field encounters, remaining Local Legends and Stygian bosses",

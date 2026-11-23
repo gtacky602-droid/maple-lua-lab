@@ -9,6 +9,7 @@ return function(C)
   b.exposed,b.pose,b.barrier=false,'idle',spec.barrier
  end
  function crawler.cancel(b,spec) crawler.spawn(b,spec) end
+ function crawler.shareCast(cast,actors) C.shareFieldHits({cast.seen},actors) end
 
  function crawler.begin(b,spec,move,target)
   b.facing=target.x<b.x and -1 or 1
@@ -16,7 +17,7 @@ return function(C)
   center=math.max(spec.arenaMin+move.halfWidth,math.min(spec.arenaMax-move.halfWidth,center))
   return {move=move,tick=0,left=center-move.halfWidth,right=center+move.halfWidth,
    top=spec.floorY-move.height,seen={},
-   source={id=b.id,owner=b,y=spec.floorY,damageElement=move.element}}
+   source={id=b.id,owner=b,x=b.x,y=spec.floorY,damageElement=move.element}}
  end
 
  function crawler.tick(s,b,spec,cast)

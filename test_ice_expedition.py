@@ -156,6 +156,7 @@ collect(s,1535,385,second,5)
 gate(s,1435,camp)
 report(s,second,(26800000,10800,4))
 
+(ROOT/'work/coop-original-ice-crawler-fixture.json').write_text(json.dumps(checkpoint(s)),encoding='utf8')
 core.action(s,'story_accept:'+third)
 gate(s,1050,works)
 gate(s,1595,passage,y=385)

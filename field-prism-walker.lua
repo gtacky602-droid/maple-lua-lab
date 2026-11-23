@@ -7,6 +7,7 @@ return function(C)
 
  function walker.spawn(b) b.exposed=false end
  function walker.cancel(b) walker.spawn(b) end
+ function walker.shareCast(cast,actors) C.shareFieldHits({cast.seen},actors) end
 
  function walker.begin(b,spec,move,target)
   b.facing=target.x<b.x and -1 or 1
@@ -15,7 +16,7 @@ return function(C)
   local top=spec.floorY-move.height
   return {move=move,tick=0,left=center-move.halfWidth,right=center+move.halfWidth,top=top,
    images={b.x-move.echoSpacing,b.x+move.echoSpacing},seen={},
-   source={id=b.id,owner=b,y=spec.floorY,damageElement=move.element}}
+   source={id=b.id,owner=b,x=b.x,y=spec.floorY,damageElement=move.element}}
  end
 
  function walker.tick(s,b,spec,cast)

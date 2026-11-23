@@ -7,10 +7,18 @@ const read = async path => JSON.parse(await fs.readFile(path,'utf8'));
 const graph = await read('content/story-graph.json');
 const nodes = Object.fromEntries(graph.nodes.map(n => [n.id,n]));
 const highland = process.argv[2] === 'highland';
-const prefix = highland ? 'evidence/coop-highland-bosses' : 'evidence/coop-original-field-bosses';
-const expected = highland ? await read(prefix+'-lua-http.json') : {};
+const lateBranch = process.argv[2] === 'late-branch';
+const bothReport = highland || lateBranch;
+const prefix = lateBranch ? 'evidence/coop-late-branch-bosses'
+  : highland ? 'evidence/coop-highland-bosses' : 'evidence/coop-original-field-bosses';
+const expected = bothReport ? await read(prefix+'-lua-http.json') : {};
 const key = 'maple-lua-lab.checkpoint.v1';
-const cases = highland ? [
+const cases = lateBranch ? [
+  ['original-prism-walker','nod-rim-return',95000005,1020,1120,857,
+    ['nod-field','nod-special-camp','nod-reflector-shore','nod-reflection-garden']],
+  ['original-ice-crawler','novo-return-report',95000006,1060,1230,870,
+    ['novo-frozen-works','novo-drift-passage']],
+] : highland ? [
   ['original-frost-antler','white-pass-summit',95000002,615,970,651,['white-pass-woods','white-pass-ridge']],
   ['original-rubble-sifter','ochka-sifter-clear',95000004,900,1020,834,['ochka-tide-stairs','ochka-patched-court']],
 ] : [
@@ -37,6 +45,27 @@ async function inspect(player, objective, quest, count) {
   await player.page.waitForFunction(()=>window.lab.frame.storyNearbyMilestone,undefined,{timeout:5000});
   await player.page.keyboard.press('KeyG');
   await player.route.count(quest,count);
+}
+
+async function clearExpeditionGuards(player, quest) {
+  const {page,route} = player;
+  for (const [index,enemy] of quest.itinerary[0].enemies.entries()) {
+    const [x,y] = [[321,480],[753,389],[1125,480]][index];
+    const objective = {q:quest.id,enemy};
+    const done = ({q,enemy}) => {
+      const progress = window.lab.frame.story.quests[q];
+      return progress?.count>=1 || progress?.sweep?.[enemy]===true;
+    };
+    if (await page.evaluate(done,objective)) continue;
+    await route.walk(x);
+    await route.changeHeight(y);
+    await page.keyboard.down('KeyJ');
+    try {
+      await page.waitForFunction(done,objective,{timeout:30000});
+    } finally {
+      await page.keyboard.up('KeyJ');
+    }
+  }
 }
 
 async function fight(page, side) {
@@ -100,7 +129,7 @@ try {
     }
     const [host,guest] = players;
     await host.route.accept(questId);
-    if (bossIndex || highland) await guest.route.accept(questId);
+    if (bossIndex || bothReport) await guest.route.accept(questId);
     await Promise.all(players.map(({page})=>page.locator('#coopPanel summary').click()));
     await host.page.locator('#coopCreate').click();
     await host.page.waitForFunction(()=>window.lab.frame.coop?.code);
@@ -112,7 +141,9 @@ try {
       for (const stop of path) await route.cross(stop);
     }));
     if (bossIndex) {
-      await inspect(host,quest.itinerary[0],questId,1);
+      const prepare = lateBranch ? player=>clearExpeditionGuards(player,quest)
+        : player=>inspect(player,quest.itinerary[0],questId,1);
+      await prepare(host);
       await host.route.cross(arena);
       const edge = nodes[path.at(-1)].exits.find(e=>e.to===arena);
       await guest.route.walk(edge.x);
@@ -122,7 +153,7 @@ try {
       },arena);
       await guest.page.keyboard.press('KeyF');
       assert.equal(await guest.route.node(),path.at(-1));
-      await inspect(guest,quest.itinerary[0],questId,1);
+      await prepare(guest);
       await guest.route.cross(arena);
     } else {
       await Promise.all(players.map(({route})=>route.cross(arena)));
@@ -136,7 +167,14 @@ try {
     await Promise.all(players.map(({route})=>route.walk(approach)));
     await Promise.all(players.map(({page})=>page.waitForFunction(id=>window.lab.frame.fieldBoss?.id===id,boss)));
     await host.page.waitForFunction(()=>window.lab.frame.fieldBoss?.lane||window.lab.frame.fieldBoss?.lanes);
-    if (highland) {
+    if (lateBranch && boss==='original-prism-walker') {
+      const views = await Promise.all(players.map(async({page})=>{
+        await page.waitForFunction(()=>window.lab.frame.fieldBoss?.images?.length===2);
+        return (await readFrame(page)).fieldBoss;
+      }));
+      assert.deepEqual(views[0].images,views[1].images);
+    }
+    if (highland || boss==='original-ice-crawler') {
       await Promise.all(players.map(({page})=>page.waitForFunction(()=>{
         const b=window.lab.frame.fieldBoss;
         return b?.recovering||b?.exposed;
@@ -154,22 +192,23 @@ try {
       const frame = await readFrame(page);
       assert.ok(Object.values(frame.events??{}).some(e=>e.kind==='hit'&&e.target===entity));
       assert.equal(frame.mora-before[i].mora,mora);
-      if (highland) {
-        assert.equal(frame.progression.killXp-before[i].progression.killXp,expected[boss].lua.rewards[0]);
-        assert.equal(frame.progression.questXp-before[i].progression.questXp,expected[boss].lua.chapterClearExp);
+      if (bothReport) {
+        const xp=expected[boss].lua;
+        assert.equal(frame.progression.killXp-before[i].progression.killXp,xp.rewards[lateBranch?1:0]);
+        assert.equal(frame.progression.questXp-before[i].progression.questXp,xp.chapterClearExp??0);
       }
       return run;
     }));
     assert.equal((await readFrame(host.page)).story.quests[questId].count,bossIndex+1);
-    assert.equal((await readFrame(guest.page)).story.quests[questId]?.count,bossIndex || highland ? bossIndex+1 : undefined);
-    const reportingPlayers=highland?players:[host];
+    assert.equal((await readFrame(guest.page)).story.quests[questId]?.count,bossIndex || bothReport ? bossIndex+1 : undefined);
+    const reportingPlayers=bothReport?players:[host];
     for (const [index,objective] of quest.itinerary.entries()) {
       if (index>bossIndex && objective.node===arena) {
         await Promise.all(reportingPlayers.map(player=>inspect(player,objective,questId,index+1)));
       }
     }
     await Promise.all(players.map(async ({route})=>{
-      for (const stop of [...path].reverse()) await route.cross(stop);
+      if (!lateBranch) for (const stop of [...path].reverse()) await route.cross(stop);
       await route.cross(quest.hub);
     }));
     for (const [index,objective] of quest.itinerary.entries()) {
@@ -178,7 +217,7 @@ try {
     await Promise.all(reportingPlayers.map(async({page,route})=>{
       const before=await readFrame(page);
       await route.report(questId);
-      if (highland) {
+      if (bothReport) {
         const after=await readFrame(page);
         assert.deepEqual([after.progression.questXp-before.progression.questXp,0,
           after.mora-before.mora,after.inventory.upgradeOre-before.inventory.upgradeOre],expected[boss].lua.report);
@@ -186,29 +225,31 @@ try {
     }));
     await Promise.all(players.map(async ({page},i)=>{
       await page.locator('#saveProgress').click();
-      await page.waitForFunction(({key,boss,questId,i,bossIndex,highland})=>{
+      await page.waitForFunction(({key,boss,questId,i,bossIndex,bothReport})=>{
         const s=JSON.parse(localStorage.getItem(key));
         return s?.endgame?.bosses?.[boss]?.clears===1 &&
-          (i && !highland ? (bossIndex ? s.story.quests[questId]?.count===bossIndex+1 : !s.story.quests[questId])
+          (i && !bothReport ? (bossIndex ? s.story.quests[questId]?.count===bossIndex+1 : !s.story.quests[questId])
              : s.story.quests[questId]?.status==='complete');
-      },{key,boss,questId,i,bossIndex,highland});
+      },{key,boss,questId,i,bossIndex,bothReport});
       await page.reload();
       await page.waitForFunction(()=>window.lab?.frame);
       await page.locator('#loadProgress').click();
     }));
     await Promise.all(players.map(({route})=>route.waitNode(quest.hub)));
     assert.equal((await readFrame(host.page)).story.quests[questId].status,'complete');
-    if (highland) assert.equal((await readFrame(guest.page)).story.quests[questId].status,'complete');
-    results[boss]={hp,moraPerPlayer:mora,clear,personalSignalBox:Boolean(bossIndex),
+    if (bothReport) assert.equal((await readFrame(guest.page)).story.quests[questId].status,'complete');
+    results[boss]={hp,moraPerPlayer:mora,clear,
       hostReported:true,bothSavedAndReloaded:true};
-    if(highland) results[boss].bothReported=true;
+    if(lateBranch) Object.assign(results[boss],{personalGuardSweep:Boolean(bossIndex),directReturn:true});
+    else results[boss].personalSignalBox=Boolean(bossIndex);
+    if(bothReport) results[boss].bothReported=true;
     console.log(boss,'cleared and saved');
     await Promise.all(players.map(({page})=>page.close()));
   }
   assert.deepEqual([...errors],[]);
   await fs.writeFile(prefix+'-browser.json',JSON.stringify({results,errors:[...errors]},null,2)+'\n');
-  console.log(highland
-    ? 'Chrome: both profiles cleared, reported and restored both highland encounters.'
+  console.log(bothReport
+    ? 'Chrome: both profiles cleared, reported and restored both encounters.'
     : 'Chrome: two independent players, both victories, one quest report per fight, and reloads passed.');
 } catch (error) {
   console.dir(await Promise.allSettled(currentPlayers.map(({page})=>page.evaluate(()=>{

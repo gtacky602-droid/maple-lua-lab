@@ -119,6 +119,7 @@ report(s,second,(21000000,8700))
 
 gate(s,60,field)
 gate(s,1380,town)
+(ROOT/'work/coop-original-prism-walker-fixture.json').write_text(json.dumps(checkpoint(s)),encoding='utf8')
 core.action(s,'story_accept:'+third)
 gate(s,60,field)
 gate(s,720,camp)
