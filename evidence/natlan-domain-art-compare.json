@@ -1,0 +1,51 @@
+{
+  "countsForWholeMap": true,
+  "originalPngUnchanged": true,
+  "savedDraft": false,
+  "fields": [
+    {
+      "id": "sites-hunt-73159",
+      "name": "東の秘境周辺",
+      "count": 48,
+      "allGrounded": true,
+      "background": "natlan-riverside-trial-background-v1.png",
+      "camera": 780,
+      "standardRectangles": 139520,
+      "light16Rectangles": 40664,
+      "reductionPercent": 70.9
+    },
+    {
+      "id": "sites-hunt-73160",
+      "name": "南西の秘境周辺",
+      "count": 48,
+      "allGrounded": true,
+      "background": "nat-kachina-charms-trail-background-v1.png",
+      "camera": 780,
+      "standardRectangles": 123168,
+      "light16Rectangles": 35264,
+      "reductionPercent": 71.4
+    },
+    {
+      "id": "sites-hunt-81383",
+      "name": "北西の秘境周辺",
+      "count": 48,
+      "allGrounded": true,
+      "background": "natlan-race-ridge-background-v1.png",
+      "camera": 780,
+      "standardRectangles": 123168,
+      "light16Rectangles": 35264,
+      "reductionPercent": 71.4
+    },
+    {
+      "id": "sites-hunt-82577",
+      "name": "火山南の征討入口",
+      "count": 48,
+      "allGrounded": true,
+      "background": "nat-mualani-surf-cove-background-v1.png",
+      "camera": 780,
+      "standardRectangles": 210336,
+      "light16Rectangles": 64032,
+      "reductionPercent": 69.6
+    }
+  ]
+}

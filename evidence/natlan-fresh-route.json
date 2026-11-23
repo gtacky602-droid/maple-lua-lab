@@ -74,21 +74,21 @@
     },
     {
       "id": "lv120",
-      "seconds": 5513.57,
+      "seconds": 5437.82,
       "level": 120,
-      "total": 110366329,
+      "total": 110486504,
       "questXp": 43181221,
-      "killXp": 67185108,
-      "kills": 15612
+      "killXp": 67305283,
+      "kills": 15623
     },
     {
       "id": "nod-town",
-      "seconds": 5643.52,
+      "seconds": 5567.77,
       "level": 120,
-      "total": 110447634,
+      "total": 110567809,
       "questXp": 43181221,
-      "killXp": 67266413,
-      "kills": 15626
+      "killXp": 67386588,
+      "kills": 15637
     }
   ],
   "completedQuests": [
@@ -117,9 +117,9 @@
     {
       "stage": "sites-hunt-73159",
       "sorties": 4,
-      "kills": 532,
-      "xp": 5812100,
-      "seconds": 258.68
+      "kills": 534,
+      "xp": 5833950,
+      "seconds": 182.47
     }
   ],
   "equippedEarnedArtifactIds": {

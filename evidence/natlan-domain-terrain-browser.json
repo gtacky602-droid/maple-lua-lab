@@ -1,0 +1,231 @@
+{
+  "waterfall": {
+    "stage": "sites-hunt-73159",
+    "scenery": {
+      "key": "natlanRiverTrial",
+      "file": "natlan-riverside-trial-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-06",
+      "x": 694.8,
+      "y": 307.6,
+      "adjacent": [
+        "nat-wp-72414",
+        "tepeacac-waterfall-wall",
+        "sites-hunt-73159-pocket-1",
+        "sites-hunt-73159-pocket-2"
+      ],
+      "next": "tepeacac-waterfall-wall"
+    },
+    "jump": [
+      480,
+      421
+    ],
+    "returnHeight": 480,
+    "journeys": [
+      [
+        "nat-wp-72414",
+        "sites-hunt-73159",
+        "walk"
+      ],
+      [
+        "sites-hunt-73159",
+        "tepeacac-waterfall-wall",
+        "walk"
+      ],
+      [
+        "tepeacac-waterfall-wall",
+        "sites-hunt-73159",
+        "walk"
+      ],
+      [
+        "sites-hunt-73159",
+        "nat-wp-72414",
+        "walk"
+      ]
+    ]
+  },
+  "cave": {
+    "stage": "sites-hunt-73160",
+    "scenery": {
+      "key": "natlanCharmTrail",
+      "file": "nat-kachina-charms-trail-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-06",
+      "x": 605.8,
+      "y": 347.4,
+      "adjacent": [
+        "toyac-rainbow-key-cave",
+        "nat-wp-72422"
+      ],
+      "next": "toyac-rainbow-key-cave"
+    },
+    "jump": [
+      480,
+      406
+    ],
+    "returnHeight": 406,
+    "journeys": [
+      [
+        "nat-wp-72422",
+        "sites-hunt-73160",
+        "walk"
+      ],
+      [
+        "sites-hunt-73160",
+        "toyac-rainbow-key-cave",
+        "raised"
+      ],
+      [
+        "toyac-rainbow-key-cave",
+        "sites-hunt-73160",
+        "walk"
+      ],
+      [
+        "sites-hunt-73160",
+        "nat-wp-72422",
+        "walk"
+      ]
+    ]
+  },
+  "cliff": {
+    "stage": "sites-hunt-81383",
+    "scenery": {
+      "key": "natlanRaceRidge",
+      "file": "natlan-race-ridge-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-06",
+      "x": 574.3,
+      "y": 313.2,
+      "adjacent": [
+        "nat-wp-79051",
+        "sites-hunt-81383-pocket-1"
+      ],
+      "next": "sites-hunt-81383-pocket-1"
+    },
+    "jump": [
+      480,
+      394
+    ],
+    "returnHeight": 396,
+    "journeys": [
+      [
+        "nat-wp-79051",
+        "sites-hunt-81383",
+        "walk"
+      ],
+      [
+        "sites-hunt-81383",
+        "sites-hunt-81383-pocket-1",
+        "raised"
+      ],
+      [
+        "sites-hunt-81383-pocket-1",
+        "sites-hunt-81383",
+        "walk"
+      ],
+      [
+        "sites-hunt-81383",
+        "nat-wp-79051",
+        "walk"
+      ]
+    ]
+  },
+  "shore": {
+    "stage": "sites-hunt-82577",
+    "scenery": {
+      "key": "natlanSurfCove",
+      "file": "nat-mualani-surf-cove-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-06",
+      "x": 497.8,
+      "y": 416.8,
+      "adjacent": [
+        "nat-wp-82564",
+        "atocpan-domain-side-clearing"
+      ],
+      "next": "atocpan-domain-side-clearing"
+    },
+    "jump": [
+      480,
+      434
+    ],
+    "returnHeight": 480,
+    "journeys": [
+      [
+        "nat-wp-82564",
+        "sites-hunt-82577",
+        "walk"
+      ],
+      [
+        "sites-hunt-82577",
+        "atocpan-domain-side-clearing",
+        "walk"
+      ],
+      [
+        "atocpan-domain-side-clearing",
+        "sites-hunt-82577",
+        "walk"
+      ],
+      [
+        "sites-hunt-82577",
+        "nat-wp-82564",
+        "walk"
+      ]
+    ]
+  },
+  "central": {
+    "stage": "sites-hunt-73161",
+    "existingTerrain": true,
+    "scenery": {
+      "key": "ochkaCliff",
+      "file": "ochka-cliff-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-06",
+      "x": 667.6,
+      "y": 308.2,
+      "adjacent": [
+        "nat-wp-72445",
+        "sites-hunt-73161-pocket-1"
+      ],
+      "next": "sites-hunt-73161-pocket-1"
+    },
+    "jump": [
+      480,
+      348
+    ],
+    "returnHeight": 480,
+    "journeys": [
+      [
+        "nat-wp-72445",
+        "sites-hunt-73161",
+        "walk"
+      ],
+      [
+        "sites-hunt-73161",
+        "sites-hunt-73161-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-73161-pocket-1",
+        "sites-hunt-73161",
+        "walk"
+      ],
+      [
+        "sites-hunt-73161",
+        "nat-wp-72445",
+        "walk"
+      ]
+    ]
+  },
+  "errors": []
+}

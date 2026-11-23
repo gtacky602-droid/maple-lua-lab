@@ -1,0 +1,71 @@
+{
+  "sites-hunt-73159": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      421,
+      366,
+      300,
+      242
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 4,
+    "level_required": 119,
+    "exterior_scenery": "natlanRiverTrial",
+    "arrivals_outside_enemy_contact": 4
+  },
+  "sites-hunt-73160": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      406,
+      368,
+      290,
+      386
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 119,
+    "exterior_scenery": "natlanCharmTrail",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-81383": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      394,
+      263,
+      324,
+      237
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 119,
+    "exterior_scenery": "natlanRaceRidge",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-82577": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      434,
+      417,
+      452,
+      421
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 119,
+    "exterior_scenery": "natlanSurfCove",
+    "arrivals_outside_enemy_contact": 2
+  },
+  "sites-hunt-73161": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      348,
+      396,
+      345,
+      398
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 119,
+    "exterior_scenery": "ochkaCliff"
+  }
+}
