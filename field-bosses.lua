@@ -47,6 +47,10 @@ return function(C,configs,controllers)
   return state and ((state.status=='active' and state.count>=window.first and state.count<window.after)
     or (window.repeatAfterReport and state.status=='complete'))
  end
+ function C.canShareCoopNode(s)
+  local spec=byNode[current(s)]
+  return not spec or not spec.coop or available(s,spec)==true
+ end
  local function sharedRoom(s,id)
   local room=s.coop
   if room and room.fieldSpec and room.fieldSpec.id==id and C.sharesCoopField(s) then return room end
@@ -126,7 +130,8 @@ return function(C,configs,controllers)
  function C.adoptCoopField(room,s)
   local spec=byNode[room.node]
   if not spec or not spec.coop then return end
-  local live=s.fieldSlots[spec.id]
+  local live=s.fieldSlots and s.fieldSlots[spec.id]
+  if not live then return end
   room.fieldSpec,room.fieldSlot=spec,live
   -- Keep the running encounter in the room. Solo saves retain an independent slot.
   local personal={generation=live.generation}

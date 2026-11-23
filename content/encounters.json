@@ -2450,12 +2450,13 @@
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "docs/balance/NOD_MOON_VAULT_WEB.md"
+        "docs/balance/NOD_MOON_VAULT_WEB.md",
+        "evidence/coop-moon-crab-lua-http.json",
+        "evidence/coop-moon-crab-browser.json"
       ],
       "remaining": [
         "専用の歩行・ハサミ・被弾の連続作画",
-        "装備と編成ごとの数値調整",
-        "協力時の判定検証"
+        "装備と編成ごとの数値調整"
       ],
       "fieldNode": "nod-moon-crab-arena",
       "fieldEntrance": "ナド・クライ・月殻の広間（Lv120）",

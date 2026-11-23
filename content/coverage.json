@@ -8201,6 +8201,8 @@
       "atocpan-overseer-ruin",
       "spiritspeaker-field-grotto",
       "nod-town",
+      "nod-moon-cave-mouth",
+      "nod-moon-crab-arena",
       "nod-false-moon-court",
       "nod-false-moon-rift",
       "nod-field",
@@ -8322,7 +8324,8 @@
       "original-rime-hare",
       "original-tea-boulder",
       "original-snow-sweeper",
-      "original-windward-tower"
+      "original-windward-tower",
+      "original-moon-crab"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8580,7 +8583,9 @@
       "evidence/coop-bubble-returns-chassanion-inside.png",
       "evidence/coop-bubble-returns-corrouge-return.png",
       "evidence/coop-original-field-bosses-lua.json",
-      "evidence/coop-original-field-bosses-browser.json"
+      "evidence/coop-original-field-bosses-browser.json",
+      "evidence/coop-moon-crab-lua-http.json",
+      "evidence/coop-moon-crab-browser.json"
     ],
     "pending": [
       "remaining lab-original field encounters, remaining Local Legends and Stygian bosses",

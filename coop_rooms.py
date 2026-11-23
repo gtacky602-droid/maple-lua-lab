@@ -29,6 +29,10 @@ def location(env):
     return story.node if story and story.active else None
 
 
+def shareable(env, site):
+    return site in RULES['nodes'] and env['core'].canShareCoopNode(env['state'])
+
+
 class CoopRooms:
     def __init__(self):
         self.rooms = {}
@@ -64,11 +68,14 @@ class CoopRooms:
             self.detach(env, '通常の冒険を離れて協力部屋から出ました。')
             return
         state = env['state']
-        if room.core.sharesCoopField(state):
+        sharing = room.core.sharesCoopField(state)
+        open_battle = room.core.canShareCoopNode(state)
+        if sharing and open_battle:
             return
         member = env['coop_member']
-        room.core.detachCoop(member)
-        if site in RULES['nodes']:
+        if state.coop is not None:
+            room.core.detachCoop(member, sharing)
+        if open_battle and site in RULES['nodes']:
             rank = room.core.weeklyCoopMode(state)
             variant = room.core.weeklyCoopVariant(state)
             # A multi-scene weekly keeps one world keyed by its entrance.
@@ -97,7 +104,7 @@ class CoopRooms:
         if env.get('coop_room'):
             return unavailable('すでに協力部屋にいます。')
         site = location(env)
-        if site not in RULES['nodes'] or env['rank_player']:
+        if env['rank_player'] or not shareable(env, site):
             return unavailable('通常の冒険で指定のマップに着くと参加できます。')
         if joining:
             code = action.removeprefix('coop_join:').upper()
@@ -169,7 +176,7 @@ class CoopRooms:
     def view(self, env):
         site = location(env)
         room = env.get('coop_room')
-        view = dict(eligible=site in RULES['nodes'] and not env['rank_player'],
+        view = dict(eligible=not env['rank_player'] and shareable(env, site),
                     sites=list(RULES['nodes'].values()), capacity=RULES['capacity'],
                     notice=env.get('coop_notice'))
         if room:

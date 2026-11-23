@@ -1,0 +1,29 @@
+{
+  "lua": {
+    "players": 4,
+    "hp": 228,
+    "noRepeatedHitOnJoin": true,
+    "sharedBox": true,
+    "sharedCrackedForm": true,
+    "reflectionBands": 3,
+    "rewardedPlayers": 2,
+    "expPerContributor": 464100,
+    "moraPerContributor": 730,
+    "individualCacheChoices": [
+      "feather",
+      "flower"
+    ],
+    "chapterExp": 21294130,
+    "reportExp": 25032225
+  },
+  "http": {
+    "players": 2,
+    "personalEntry": true,
+    "ordinaryInputsShareHP": true,
+    "retreatRetainsHP": true,
+    "victoryRetainsPositionAndBanner": true,
+    "preReportReturnIsPrivate": true,
+    "sameRoomRespawn": true,
+    "reportedPlayerCanRejoinWithoutDuplicateChapterReward": true
+  }
+}

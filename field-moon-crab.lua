@@ -23,6 +23,10 @@ return function(C)
  function crab.spawn(b,spec) setForm(b,spec,cracked(b,spec)) end
  function crab.cancel(b,spec) setForm(b,spec,cracked(b,spec)) end
 
+ function crab.shareCast(cast,actors)
+  if cast.seen then C.shareFieldHits({cast.seen},actors) end
+ end
+
  function crab.preempt(b,spec,slot)
   if b.cracked or not cracked(b,spec) then return false end
   setForm(b,spec,true)

@@ -1,0 +1,37 @@
+{
+  "players": 2,
+  "sharedHP": 228,
+  "personalEntry": true,
+  "bothSawCrackedForm": true,
+  "clears": [
+    {
+      "won": true,
+      "returns": 0,
+      "seconds": 5.366666666666365,
+      "casts": [
+        "claw",
+        "box",
+        "shell-break",
+        "reflection"
+      ]
+    },
+    {
+      "won": true,
+      "returns": 0,
+      "seconds": 5.383333333333027,
+      "casts": [
+        "claw",
+        "box",
+        "shell-break",
+        "reflection"
+      ]
+    }
+  ],
+  "choices": [
+    "feather",
+    "flower"
+  ],
+  "preReportReturnIsPrivate": true,
+  "personalRewardsAndReload": true,
+  "errors": []
+}

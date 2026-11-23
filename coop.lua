@@ -34,7 +34,7 @@ return function(C, config)
   end
   return member
  end
- function C.detachCoop(member)
+ function C.detachCoop(member,keepClearedScene)
   local s=member.state
   local room=s.coop
   if not room then return end
@@ -42,7 +42,14 @@ return function(C, config)
   C.leaveCoopWeekly(room,s)
   local stillShared=s.enemies==room.enemies
   s.coop,s.coopMember=nil,nil
-  if stillShared then C.enterStoryNode(s,C.weeklyCoopSite(s) or s.story.node) end
+  if stillShared then
+   if keepClearedScene then
+    -- The chapter gate closed on victory. Keep the clear banner and positions.
+    s.enemies={}
+   else
+    C.enterStoryNode(s,C.weeklyCoopSite(s) or s.story.node)
+   end
+  end
  end
 
  function C.coopContact(s,e,actor)
