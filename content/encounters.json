@@ -2429,12 +2429,13 @@
       "evidence": [
         "docs/balance/NATLAN_SUNSET_DUEL_WEB.md",
         "evidence/natlan-sunset-duel-lua.json",
-        "evidence/natlan-sunset-duel-browser.json"
+        "evidence/natlan-sunset-duel-browser.json",
+        "evidence/coop-sunset-duel-lua-http.json",
+        "evidence/coop-sunset-duel-browser.json"
       ],
       "remaining": [
         "本役の美術と連続アニメーション",
-        "装備別の難度調整",
-        "協力検証"
+        "装備別の難度調整"
       ],
       "fieldNode": "natlan-sunset-arena",
       "fieldEntrance": "夕映えの模擬戦会場（Lv100）",

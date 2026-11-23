@@ -146,6 +146,7 @@ return function(C,configs,controllers)
   live.entryAt=live.entryAt or room.time
   C.shareFieldHits({live.contact},s.actors)
   if live.cast and behavior.shareCast then behavior.shareCast(live.cast,s.actors) end
+  if behavior.adoptCoop then behavior.adoptCoop(room,s) end
  end
 
  function C.rechallengeCoopField(room)
@@ -356,6 +357,8 @@ return function(C,configs,controllers)
   if not room.fieldSlot or #parties==0 then return end
   local combat={t=room.time,actors=actors,actorOwners=owners,parties=parties,enemies=room.enemies,solids=room.solids}
   advance(combat,room.fieldSpec,room.fieldSlot,true)
+  local behavior=controllers[room.fieldSpec.controller]
+  if behavior.stepCoop then behavior.stepCoop(combat,room) end
  end
 
  function C.fieldSwimAction(s,key)
@@ -401,7 +404,10 @@ return function(C,configs,controllers)
  end
  function C.finishCoopField(s,e)
   local room=sharedRoom(s,e.fieldBoss)
-  if room and e==room.fieldSlot.enemy then finishField(s,room.fieldSpec,room.fieldSlot,room.time) end
+  if not room or e~=room.fieldSlot.enemy then return end
+  finishField(s,room.fieldSpec,room.fieldSlot,room.time)
+  local behavior=controllers[room.fieldSpec.controller]
+  if behavior.finishPractice then return behavior.finishPractice(room,e.fieldBoss) end
  end
  function C.onKill(s,e)
   if e.fieldBoss then

@@ -2,7 +2,7 @@
   "version": 1,
   "entries": {
     "original-moon-crab": {"remaining":["専用の歩行・ハサミ・被弾の連続作画","装備と編成ごとの数値調整"],"extra_evidence":["evidence/coop-moon-crab-lua-http.json","evidence/coop-moon-crab-browser.json"],"art_candidate":{"item":"moon-crab","audit":"evidence/moon-crab-art.json","status":"Original creature with intact and exposed sprites"}},
-    "original-river-racer": {"remaining":["本役の美術と連続アニメーション","装備別の難度調整","協力検証"],"extra_evidence":["evidence/natlan-sunset-duel-lua.json","evidence/natlan-sunset-duel-browser.json"],"art_candidate":{"item":"river-racer","audit":"evidence/river-racer-art.json","status":"Original placeholder for the chapter practice opponent"}},
+    "original-river-racer": {"remaining":["本役の美術と連続アニメーション","装備別の難度調整"],"extra_evidence":["evidence/natlan-sunset-duel-lua.json","evidence/natlan-sunset-duel-browser.json","evidence/coop-sunset-duel-lua-http.json","evidence/coop-sunset-duel-browser.json"],"art_candidate":{"item":"river-racer","audit":"evidence/river-racer-art.json","status":"Original placeholder for the chapter practice opponent"}},
     "original-grand-finale": {
       "remaining": [
         "外装と腕の連続アニメーション",

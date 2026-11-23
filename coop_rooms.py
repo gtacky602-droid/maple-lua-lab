@@ -85,7 +85,9 @@ class CoopRooms:
                 world_key = (anchor, rank, variant.key)
             elif rank:
                 world_key = (anchor, rank)
-            if world_key not in room.worlds:
+            elif state.storyDuelReplay:
+                world_key = (anchor, state.storyDuelReplay)
+            if world_key not in room.worlds or room.worlds[world_key].duelClosed:
                 room.worlds[world_key] = room.core.newCoop(state)
             room.core.attachCoop(room.worlds[world_key], state, member)
 
@@ -124,6 +126,8 @@ class CoopRooms:
                 state.azhdahaPair = room.lua.table_from(native(source.azhdahaPair))
             entrance = env['core'].weeklyCoopSite(source) or site
             room.core.enterCoopNode(state, entrance, rank)
+            if source.storyDuelReplay:
+                room.core.resumeDuelPractice(state, source.storyDuelReplay)
             for index in (1, 2):
                 actor, original = state.actors[index], source.actors[index]
                 if entrance == site:

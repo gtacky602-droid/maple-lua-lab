@@ -1,6 +1,15 @@
 return function(C)
  local duel={}
 
+ local function newRound(spec,clock,generation)
+  return {spec=spec,start=clock,generation=generation,contacts={}}
+ end
+
+ local function roundAndClock(s)
+  if C.sharesCoopField(s) and s.coop.duelRound then return s.coop.duelRound,s.coop.time end
+  return s.duelRound,s.t
+ end
+
  function duel.active(s,spec)
   if not spec then return false end
   local state=s.story.quests[spec.quest]
@@ -9,7 +18,8 @@ return function(C)
 
  function duel.enter(s,spec,sameArena)
   if not sameArena then s.storyDuelReplay=nil end
-  s.duelRound=duel.active(s,spec) and {start=s.t,contacts={}} or nil
+  s.duelSpec=spec
+  s.duelRound=duel.active(s,spec) and newRound(spec,s.t) or nil
  end
 
  local function atReplayBell(s,spec)
@@ -19,21 +29,47 @@ return function(C)
       and math.abs(a.x-spec.bellX)<54 and math.abs(a.y-480)<34
  end
 
- function duel.ring(s,spec)
-  if not atReplayBell(s,spec) then return false end
+ local function beginPractice(s,spec)
+  if C.sharesCoopField(s) and s.coop.duelClosed then C.detachCoop(s.coopMember,true) end
   s.storyDuelReplay=spec.encounter
-  s.duelRound={start=s.t,contacts={}}
+  s.duelRound=newRound(spec,s.t)
   for _,a in ipairs(s.actors) do a.hp=a.maxhp end
   C.resetFieldTrial(s,spec.encounter)
   C.enterFieldBossNode(s,s.story.node)
   s.storyNotice='練習の勝負を始めました。章の報酬は受領済みです。'
+ end
+
+ function duel.ring(s,spec)
+  if not atReplayBell(s,spec) then return false end
+  beginPractice(s,spec)
   return true
+ end
+
+ function C.resumeDuelPractice(s,id)
+  local spec=s.duelSpec
+  local state=spec and s.story.quests[spec.quest]
+  if state and spec.encounter==id and state.status=='complete' then beginPractice(s,spec) end
  end
 
  function C.finishDuelReplay(s,id)
   if s.storyDuelReplay~=id then return end
   s.storyDuelReplay,s.duelRound=nil,nil
   s.storyNotice='練習の勝負が終わりました。合図台からもう一度挑戦できます。'
+ end
+
+ function duel.adoptCoop(room,s)
+  local round=s.duelRound
+  room.duelRound=round
+  room.duelPractice=s.storyDuelReplay~=nil
+  round.generation=room.fieldSlot.generation
+  for _,mark in ipairs(round.marks or {}) do C.shareFieldHits({mark.hits},s.actors) end
+ end
+
+ function duel.finishPractice(room,id)
+  if not room.duelPractice then return end
+  for _,member in ipairs(room.members) do C.finishDuelReplay(member.state,id) end
+  room.duelClosed=true
+  return true
  end
 
  local function timing(t,spec)
@@ -61,45 +97,48 @@ return function(C)
   return index,'opening',spec.opening-(localTime-spec.sweep),from,lane
  end
 
- local function splashMarks(s,boss,spec)
+ local function splashMarks(target,boss,spec)
   local splash=spec.splash
-  local target=s.actors[s.active]
   local x=math.max(splash.left,math.min(splash.right,target.x))
   local direction=x<boss.home and 1 or -1
   return {{x=x,hits={}},{x=x+direction*splash.offset,hits={}}}
  end
 
- function duel.damageFactor(s)
-  local round=s.duelRound
-  return round and (round.phase=='opening' or round.phase=='splashOpening') and 1 or .65
+ local function open(round)
+  return round and (round.phase=='opening' or round.phase=='splashOpening')
  end
 
- function duel.step(s,spec)
-  local round=s.duelRound
-  if not round or not duel.active(s,spec) then return end
-  local slot=C.fieldSlot(s,spec.encounter)
-  local boss=slot and slot.enemy
+ function duel.damageFactor(s)
+  local round=roundAndClock(s)
+  return open(round) and 1 or .65
+ end
+
+ local function stepRound(s,round,boss,target)
   if not boss or boss.hp<=0 then return end
+  local spec=round.spec
   local index,phase,_,position,lane=timing(s.t-round.start,spec)
   round.phase=phase
-  boss.recovering=duel.damageFactor(s)==1
+  boss.recovering=open(round)
   if lane then
    boss.x=position
    local direction=lane[1]<lane[2] and 1 or -1
    boss.facing=(phase=='back' or phase=='turn') and -direction or direction
    if phase~='out' and phase~='back' then return end
    local contact=index*2+(phase=='out' and 0 or 1)
+   if round.contact~=contact then round.contact,round.contacts=contact,{} end
    for _,a in ipairs(s.actors) do
-    if a.hp>0 and a.y>432 and math.abs(a.x-boss.x)<spec.width and round.contacts[a.id]~=contact then
-     round.contacts[a.id]=contact
-     C.damageActor(s,a,spec.damage,{id=boss.id,x=boss.x,y=boss.y,damageElement='hydro'},true,true)
+    if a.hp>0 and a.y>432 and math.abs(a.x-boss.x)<spec.width and not round.contacts[a] then
+     round.contacts[a]=true
+     local party=s.actorOwners and s.actorOwners[a] or s
+     C.damageActor(party,a,spec.damage,{id=boss.id,x=boss.x,y=boss.y,damageElement='hydro'},true,true)
     end
    end
    return
   end
   if round.markIndex~=index then
+   if not target then return end
    round.markIndex=index
-   round.marks=splashMarks(s,boss,spec)
+   round.marks=splashMarks(target,boss,spec)
    boss.facing=round.marks[1].x<boss.x and -1 or 1
   end
   if phase=='splash' then
@@ -112,6 +151,29 @@ return function(C)
     end
    end
   end
+ end
+
+ function duel.step(s,spec)
+  if not duel.active(s,spec) or not s.duelRound or C.sharesCoopField(s) then return end
+  local slot=C.fieldSlot(s,spec.encounter)
+  stepRound(s,s.duelRound,slot and slot.enemy,s.actors[s.active])
+ end
+
+ function duel.stepCoop(combat,room)
+  local slot,round=room.fieldSlot,room.duelRound
+  local boss=slot.enemy
+  if boss.hp<=0 then return end
+  if round.generation~=slot.generation then
+   round=newRound(round.spec,room.time,slot.generation)
+   room.duelRound=round
+  end
+  local target,distance=nil,math.huge
+  for _,party in ipairs(combat.parties) do
+   local actor=party.actors[party.active]
+   local dx=math.abs(boss.x-actor.x)
+   if actor.hp>0 and dx<distance then target,distance=actor,dx end
+  end
+  stepRound(combat,round,boss,target)
  end
 
  local function box(draws,x,y,w,h,color)
@@ -146,9 +208,12 @@ return function(C)
  function duel.frame(s,f,draws,spec)
   if not spec then return end
   if atReplayBell(s,spec) then f.storyNearbyMilestone={label='模擬戦をもう一度始める'} end
-  if not duel.active(s,spec) or not s.duelRound then return end
-  local round=s.duelRound
-  local _,phase,remaining,position,lane=timing(s.t-round.start,spec)
+  if not duel.active(s,spec) then return end
+  local round,clock=roundAndClock(s)
+  if not round then return end
+  local slot=C.fieldSlot(s,spec.encounter)
+  if slot and slot.enemy.hp<=0 then return end
+  local _,phase,remaining,position,lane=timing(clock-round.start,spec)
   f.storyDuel={phase=phase,label=captions[phase],remaining=remaining,replay=s.storyDuelReplay~=nil,
    move=lane and 'SR01' or 'SR02'}
   if not lane then

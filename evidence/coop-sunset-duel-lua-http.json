@@ -1,0 +1,33 @@
+{
+  "lua": {
+    "players": 4,
+    "hp": 124,
+    "sharedCharge": true,
+    "safeUpperShelf": true,
+    "noRepeatedChargeOnJoin": true,
+    "lockedSplashMarks": [
+      830.0,
+      956.0
+    ],
+    "splitSplashDamage": true,
+    "noRepeatedSplashOnJoin": true,
+    "sharedOpening": true,
+    "creditedPlayers": 2,
+    "chapterFirstClearExp": 6826100,
+    "reportReward": [
+      8024394,
+      10800,
+      6
+    ]
+  },
+  "http": {
+    "players": 3,
+    "individualEntryChecks": true,
+    "retreatRetainsSharedHP": true,
+    "practiceLobbiesSeparateFromChapter": true,
+    "practiceWins": 2,
+    "joinWhilePracticing": true,
+    "chapterRespawnsAtFreshWarning": true,
+    "practiceAwardsNothing": true
+  }
+}

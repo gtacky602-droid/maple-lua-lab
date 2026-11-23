@@ -451,6 +451,9 @@ def runtime():
     river_racer=field_display(core,field_art(lua,'river-racer',('idle',)).idle)
     river_racer.damageFactor=duel.damageFactor
     river_racer.storyDriven=True
+    river_racer.adoptCoop=duel.adoptCoop
+    river_racer.stepCoop=duel.stepCoop
+    river_racer.finishPractice=duel.finishPractice
     moon_crab=lua.execute((ROOT/'field-moon-crab.lua').read_text(encoding='utf8'))(core)
     core.moonCrabArt=field_art(lua,'moon-crab',('idle','cracked'))
     core.paperLanternArt=field_art(lua,'paper-lantern',('idle',),idle='paper-lantern-sprites-v1.json').idle

@@ -75,7 +75,7 @@ return function(C, config)
 
  function C.coopDefeat(s,e)
   local room=s.coop
-  C.finishCoopField(s,e)
+  if C.finishCoopField(s,e) then e.coopHits=nil;return end
   C.finishCoopWeekly(room,e)
   local hits=e.coopHits or {}
   e.coopHits=nil

@@ -1,0 +1,13 @@
+{
+  "players": 2,
+  "sharedHP": 124,
+  "sharedCharge": true,
+  "lockedSplashMarks": [
+    622,
+    748
+  ],
+  "bothReportedAndReloaded": true,
+  "sharedPracticeWon": true,
+  "noDuplicateRewardOrRecord": true,
+  "errors": []
+}

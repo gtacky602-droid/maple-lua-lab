@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する168地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する171地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -51,6 +51,14 @@ HP、攻撃範囲、反撃時間を共有する。討伐に貢献した人は依
 討伐記録と報酬は各自の冒険に残る。主舞台では外装を初めて止めた人に章のEXPが入り、報告後は公演を見に戻れる。 [Lua・HTTPの確認](../evidence/coop-chapter-guardians-lua-http.json) · [Chromeの検証](../evidence/coop-chapter-guardians-browser.json)
 
 `python -X utf8 test_coop_ruin_guardians.py chapters` でソロ・共闘のLua試験とHTTP試験を再実行できる。続けて、ラボを起動した状態で `node test_coop_ruin_guardians.mjs chapters` を実行すると、Chromeの2画面で入場から報告・保存まで確認できる。
+
+## 夕映えの水走者
+
+Lv100のナタ第3話「夕映えの一番勝負！」で共闘できる。谷の集落・控え広場・水路の見張り台から部屋に入り、受付と水路の点検を各自で済ませる。会場では勝負ゲージ124、往復突進、二つの水柱の位置と発生順を共有する。水柱の予告が出たら、参加者が動いても印は移動しない。 [会場までの道順](balance/NATLAN_SUNSET_DUEL_WEB.md) · [水柱の予告](../evidence/coop-sunset-duel-splash.png)
+
+勝負に貢献した人は初回のEXPを受け取り、各自で記録台へ行って報告する。報告後、同じ部屋の仲間と合図台を操作すると練習にも参加できる。練習を終えてもEXP・モラ・勝利記録は増えない。 [Lua・HTTPの検証](../evidence/coop-sunset-duel-lua-http.json) · [Chromeの検証](../evidence/coop-sunset-duel-browser.json)
+
+`python -X utf8 test_coop_sunset_duel.py` でソロ、Lua共闘、HTTPを検証できる。ラボ起動中に `node test_coop_sunset_duel.mjs` を実行するとChromeの2画面で練習まで確認できる。
 
 ## 無相の風を共闘する
 
