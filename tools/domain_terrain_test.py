@@ -52,7 +52,7 @@ def jump_across(walk, src, dest, direction):
     raise AssertionError('Did not land on the adjacent shelf')
 
 
-def check_field(stage, host, hub, level, scenery, first_x, *, check_arrivals=True, raised_gate=False):
+def check_field(stage, host, hub, level, scenery, first_x, *, check_arrivals=True, raised_gate=False, population_count=48):
     state = start(level - 1, [host], hub)
     core.action(state, 'story_fast:' + host)
     assert state.story.node == host
@@ -75,7 +75,7 @@ def check_field(stage, host, hub, level, scenery, first_x, *, check_arrivals=Tru
     margin = floor['w'] * nodes[stage]['enemySafeFraction']
     assert walk.actor.x < margin or walk.actor.x > floor['w'] - margin
     population = placements[stage]
-    assert len(state.enemies) == len(population) == 48
+    assert len(state.enemies) == len(population) == population_count, stage
     for enemy, spawn in zip(state.enemies.values(), population, strict=True):
         shelf = platforms[spawn['platform']]
         assert enemy.x == spawn['x'] and enemy.y == shelf['y']

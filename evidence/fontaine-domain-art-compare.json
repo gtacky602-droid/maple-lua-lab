@@ -1,0 +1,85 @@
+{
+  "countsForWholeMap": true,
+  "originalPngUnchanged": true,
+  "savedDraft": false,
+  "fields": [
+    {
+      "id": "sites-hunt-50034",
+      "name": "ベリルの秘境周辺",
+      "count": 48,
+      "allGrounded": true,
+      "background": "fon-emilie-scent-shore-background-v1.png",
+      "camera": 780,
+      "standardRectangles": 61912,
+      "light16Rectangles": 17192,
+      "visibleStandardRectangles": 25902,
+      "visibleLight16Rectangles": 7075,
+      "reductionPercent": 72.2
+    },
+    {
+      "id": "sites-hunt-50057",
+      "name": "廷北の秘境周辺",
+      "count": 48,
+      "allGrounded": true,
+      "background": "fontaine-delivery-quay-background-v1.png",
+      "camera": 780,
+      "standardRectangles": 86216,
+      "light16Rectangles": 23264,
+      "visibleStandardRectangles": 34156,
+      "visibleLight16Rectangles": 9267,
+      "reductionPercent": 73
+    },
+    {
+      "id": "sites-hunt-50067",
+      "name": "海中の秘境周辺",
+      "count": 18,
+      "allGrounded": true,
+      "background": "bygone-background-v1.png",
+      "camera": 780,
+      "standardRectangles": 38820,
+      "light16Rectangles": 11142,
+      "visibleStandardRectangles": 21864,
+      "visibleLight16Rectangles": 6388,
+      "reductionPercent": 71.3
+    },
+    {
+      "id": "sites-hunt-56792",
+      "name": "海中の征討入口",
+      "count": 18,
+      "allGrounded": true,
+      "background": "bygone-resonance-background-v1.png",
+      "camera": 780,
+      "standardRectangles": 38820,
+      "light16Rectangles": 11142,
+      "visibleStandardRectangles": 21864,
+      "visibleLight16Rectangles": 6388,
+      "reductionPercent": 71.3
+    },
+    {
+      "id": "sites-hunt-63738",
+      "name": "モルテ側の秘境周辺",
+      "count": 48,
+      "allGrounded": true,
+      "background": "tide-calibration-background-v1.png",
+      "camera": 780,
+      "standardRectangles": 296496,
+      "light16Rectangles": 82416,
+      "visibleStandardRectangles": 135894,
+      "visibleLight16Rectangles": 37774,
+      "reductionPercent": 72.2
+    },
+    {
+      "id": "sites-hunt-68347",
+      "name": "北岸の征討入口",
+      "count": 48,
+      "allGrounded": true,
+      "background": "coastal-lookout-background-v1.png",
+      "camera": 780,
+      "standardRectangles": 182008,
+      "light16Rectangles": 50704,
+      "visibleStandardRectangles": 87969,
+      "visibleLight16Rectangles": 24379,
+      "reductionPercent": 72.1
+    }
+  ]
+}

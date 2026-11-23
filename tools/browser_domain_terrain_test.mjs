@@ -69,18 +69,21 @@ async function visit(browser, suite, field, errors) {
     if (field.screenshot) {
       await page.locator('#game').screenshot({ path: 'evidence/' + suite.prefix + '-' + field.name + '-terrain.png' });
     }
-    let returnHeight, pocketScenery;
-    if (field.beyond) {
-      await drive.cross(field.beyond);
-      if (field.pocketScenery) pocketScenery = await loadedScenery(page, field.pocketScenery);
+    const detours = field.detours || (field.beyond ? [{ id: field.beyond, scenery: field.pocketScenery }] : []);
+    const returns = [];
+    for (const detour of detours) {
+      await drive.cross(detour.id);
+      const pocketScenery = detour.scenery ? await loadedScenery(page, detour.scenery) : undefined;
       await drive.cross(field.stage);
-      returnHeight = (await drive.actor()).y;
-      const returnGate = nodes[field.beyond].exits.find(exit => exit.to === field.stage);
+      const returnHeight = (await drive.actor()).y;
+      const returnGate = nodes[detour.id].exits.find(exit => exit.to === field.stage);
       assert.equal(returnHeight, returnGate.arrivalY ?? 480);
+      returns.push({ id: detour.id, returnHeight, pocketScenery });
     }
     await drive.cross(field.host);
+    const { returnHeight, pocketScenery } = returns[0] || {};
     return { stage: field.stage, ...(field.existing ? { existingTerrain: true } : {}), scenery, atlas: map, jump: [start.y, landed.y],
-      returnHeight, pocketScenery, journeys: drive.journeys };
+      returnHeight, pocketScenery, journeys: drive.journeys, ...(field.detours ? { detours: returns } : {}) };
   } catch (error) {
     console.error(field.name, await page.evaluate(() => {
       const f = window.lab?.frame;

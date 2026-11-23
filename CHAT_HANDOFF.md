@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## フォンテーヌの水辺と沈水狩場
+
+Lv99の6狩場を入江、埠頭、沈んだ段丘、柱列、水門、港の高台に作り分けた。水中の2地点は水路を通って歩ける石床へ出る。Lv80からのLua試走では6件の依頼を終え、Lv100でナタへ渡ってセーブを読み直せた。 [狩場の画面と往復・描画比較](docs/FONTAINE_DOMAIN_TERRAIN_WEB.md)
+
 ## スメール砂漠の狩場と王墓前の仮背景
 
 Lv79の砂漠の狩場6地点を整え、Lv80の脇部屋5か所を含めてChromeで22回の門移動、各地点のジャンプとM地図の道案内を確認した。王墓前には砂岩のピラミッドを描いたラボ用の仮画像を配置した。配置比較は今の画角に入った素材の矩形数と標準比も表示する。 [王墓のゲーム画面](evidence/sumeru-domain-royal-tomb-terrain.png) · [道案内と往復](evidence/sumeru-domain-terrain-browser.json) · [王墓のPNGと16色の比較](evidence/sumeru-domain-art-compare.png) · [6地点の計測値](evidence/sumeru-domain-art-compare.json) · [仮背景の生成記録](assets/sumeru-desert-tomb-approach-generation.json)

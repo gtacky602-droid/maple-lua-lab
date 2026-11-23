@@ -12,9 +12,14 @@ const regions = {
     sideRooms: { 36703: 'asimonField', 36704: 'wenutField', 36705: 'asimonField',
       41694: 'asimonField', 41817: 'wenutField' },
   },
+  fontaine: {
+    fields: [50034, 50057, 50067, 56792, 63738, 68347], screenshot: 50034,
+    backgrounds: { 50034: 'fontaineScentShore', 50057: 'fontaineDelivery', 50067: 'bygone',
+      56792: 'bygoneResonance', 63738: 'tideCalibration', 68347: 'coastalLookout' },
+  },
 };
 const region = process.argv[2] ?? 'natlan';
-assert.ok(Object.hasOwn(regions, region), 'Expected natlan or sumeru');
+assert.ok(Object.hasOwn(regions, region), 'Expected natlan, sumeru or fontaine');
 const prefix = 'evidence/' + region + '-domain-art-compare';
 const { fields, screenshot, backgrounds, sideRooms = {} } = regions[region];
 const aliases = { 'hydro-slime': 'hydro-slime-reference', 'pyro-slime': 'pyro-slime-reference' };
@@ -66,7 +71,7 @@ try {
     await page.locator('#camera').fill('780');
     await page.locator('#camera').dispatchEvent('input');
     const scene = await page.evaluate(() => window.mapArt);
-    assert.equal(scene.count, 48);
+    assert.equal(scene.count, live.length);
     assert.equal(scene.diff.unchanged, scene.count);
     assert.ok(scene.grounded && !scene.backgroundFallback);
     assert.equal(scene.background, node.scenery);

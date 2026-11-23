@@ -74,20 +74,20 @@
     },
     {
       "id": "lv100",
-      "seconds": 4871.87,
+      "seconds": 4740.45,
       "level": 100,
-      "total": 37619266,
+      "total": 37625223,
       "questXp": 15666763,
-      "killXp": 21952503,
-      "kills": 9643
+      "killXp": 21958460,
+      "kills": 9644
     },
     {
       "id": "natlan-hub",
-      "seconds": 4895.48,
+      "seconds": 4764.07,
       "level": 100,
-      "total": 37636498,
+      "total": 37638207,
       "questXp": 15666763,
-      "killXp": 21969735,
+      "killXp": 21971444,
       "kills": 9650
     }
   ],
@@ -116,13 +116,13 @@
     },
     {
       "stage": "sites-hunt-50034",
-      "sorties": 11,
-      "kills": 382,
-      "xp": 2275574,
-      "seconds": 387.28
+      "sorties": 5,
+      "kills": 388,
+      "xp": 2311316,
+      "seconds": 293.52
     }
   ],
-  "recoveryTrips": 68,
+  "recoveryTrips": 62,
   "partyWipes": 0,
   "noWorkfloorWallInStoreroom": true,
   "savedAndRestored": true,

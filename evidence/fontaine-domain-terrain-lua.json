@@ -1,0 +1,106 @@
+{
+  "sites-hunt-50034": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      429,
+      370,
+      356,
+      415
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 99,
+    "exterior_scenery": "fontaineScentShore",
+    "arrivals_outside_enemy_contact": 2,
+    "side_rooms": {
+      "sites-hunt-50034-pocket-1": 100
+    },
+    "waterway_seconds": null
+  },
+  "sites-hunt-50057": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      429,
+      383,
+      337,
+      295
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 99,
+    "exterior_scenery": "fontaineDelivery",
+    "arrivals_outside_enemy_contact": 1,
+    "side_rooms": {},
+    "waterway_seconds": null
+  },
+  "sites-hunt-50067": {
+    "population": 18,
+    "shelf_heights_from_entrance": [
+      428,
+      375,
+      319,
+      267
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 99,
+    "exterior_scenery": "bygone",
+    "arrivals_outside_enemy_contact": 1,
+    "side_rooms": {},
+    "waterway_seconds": 2.4
+  },
+  "sites-hunt-56792": {
+    "population": 18,
+    "shelf_heights_from_entrance": [
+      405,
+      368,
+      295,
+      357
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 99,
+    "exterior_scenery": "bygoneResonance",
+    "arrivals_outside_enemy_contact": 1,
+    "side_rooms": {},
+    "waterway_seconds": 2.4
+  },
+  "sites-hunt-63738": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      407,
+      329,
+      419,
+      334
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 99,
+    "exterior_scenery": "tideCalibration",
+    "arrivals_outside_enemy_contact": 2,
+    "side_rooms": {
+      "sites-hunt-63738-pocket-1": 100
+    },
+    "waterway_seconds": null
+  },
+  "sites-hunt-68347": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      395,
+      324,
+      342,
+      270
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 4,
+    "level_required": 99,
+    "exterior_scenery": "coastalLookout",
+    "arrivals_outside_enemy_contact": 4,
+    "side_rooms": {
+      "sites-hunt-68347-pocket-1": 100,
+      "sites-hunt-68347-pocket-2": 99,
+      "sites-hunt-68347-pocket-3": 99
+    },
+    "waterway_seconds": null
+  }
+}

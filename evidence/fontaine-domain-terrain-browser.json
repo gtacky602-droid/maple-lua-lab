@@ -1,0 +1,303 @@
+{
+  "inlet": {
+    "stage": "sites-hunt-50034",
+    "scenery": {
+      "key": "fontaineScentShore",
+      "file": "fon-emilie-scent-shore-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-05",
+      "x": 382.9,
+      "y": 372.2,
+      "adjacent": [
+        "fon-wp-50035",
+        "sites-hunt-50034-pocket-1"
+      ],
+      "next": "sites-hunt-50034-pocket-1"
+    },
+    "jump": [
+      480,
+      429
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "goldenGrotto",
+      "file": "golden-grotto-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "fon-wp-50035",
+        "sites-hunt-50034",
+        "walk"
+      ],
+      [
+        "sites-hunt-50034",
+        "sites-hunt-50034-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-50034-pocket-1",
+        "sites-hunt-50034",
+        "walk"
+      ],
+      [
+        "sites-hunt-50034",
+        "fon-wp-50035",
+        "walk"
+      ]
+    ]
+  },
+  "north-quay": {
+    "stage": "sites-hunt-50057",
+    "scenery": {
+      "key": "fontaineDelivery",
+      "file": "fontaine-delivery-quay-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-05",
+      "x": 385.7,
+      "y": 168.3,
+      "adjacent": [
+        "fon-wp-50056"
+      ],
+      "next": "fon-wp-50056"
+    },
+    "jump": [
+      480,
+      429
+    ],
+    "journeys": [
+      [
+        "fon-wp-50056",
+        "sites-hunt-50057",
+        "raised"
+      ],
+      [
+        "sites-hunt-50057",
+        "fon-wp-50056",
+        "walk"
+      ]
+    ]
+  },
+  "sunken-terrace": {
+    "stage": "sites-hunt-50067",
+    "scenery": {
+      "key": "bygone",
+      "file": "bygone-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-05",
+      "x": 435.1,
+      "y": 262.7,
+      "adjacent": [
+        "fon-wp-50075"
+      ],
+      "next": "fon-wp-50075"
+    },
+    "jump": [
+      480,
+      428
+    ],
+    "journeys": [
+      [
+        "fon-wp-50075",
+        "sites-hunt-50067",
+        "waterway"
+      ],
+      [
+        "sites-hunt-50067",
+        "fon-wp-50075",
+        "waterway"
+      ]
+    ]
+  },
+  "sunken-hall": {
+    "stage": "sites-hunt-56792",
+    "scenery": {
+      "key": "bygoneResonance",
+      "file": "bygone-resonance-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-05",
+      "x": 450.4,
+      "y": 255.5,
+      "adjacent": [
+        "fon-wp-50066"
+      ],
+      "next": "fon-wp-50066"
+    },
+    "jump": [
+      480,
+      405
+    ],
+    "journeys": [
+      [
+        "fon-wp-50066",
+        "sites-hunt-56792",
+        "waterway"
+      ],
+      [
+        "sites-hunt-56792",
+        "fon-wp-50066",
+        "waterway"
+      ]
+    ]
+  },
+  "sluice": {
+    "stage": "sites-hunt-63738",
+    "scenery": {
+      "key": "tideCalibration",
+      "file": "tide-calibration-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-05",
+      "x": 458.3,
+      "y": 312.1,
+      "adjacent": [
+        "fon-wp-55763",
+        "sites-hunt-63738-pocket-1"
+      ],
+      "next": "sites-hunt-63738-pocket-1"
+    },
+    "jump": [
+      480,
+      407
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "tideCalibration",
+      "file": "tide-calibration-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "fon-wp-55763",
+        "sites-hunt-63738",
+        "walk"
+      ],
+      [
+        "sites-hunt-63738",
+        "sites-hunt-63738-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-63738-pocket-1",
+        "sites-hunt-63738",
+        "walk"
+      ],
+      [
+        "sites-hunt-63738",
+        "fon-wp-55763",
+        "walk"
+      ]
+    ]
+  },
+  "north-cliff": {
+    "stage": "sites-hunt-68347",
+    "scenery": {
+      "key": "coastalLookout",
+      "file": "coastal-lookout-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-05",
+      "x": 362.1,
+      "y": 145.4,
+      "adjacent": [
+        "fon-wp-53867",
+        "sites-hunt-68347-pocket-1",
+        "sites-hunt-68347-pocket-2",
+        "sites-hunt-68347-pocket-3"
+      ],
+      "next": "sites-hunt-68347-pocket-1"
+    },
+    "jump": [
+      480,
+      395
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "goldenGrotto",
+      "file": "golden-grotto-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "fon-wp-53867",
+        "sites-hunt-68347",
+        "walk"
+      ],
+      [
+        "sites-hunt-68347",
+        "sites-hunt-68347-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-68347-pocket-1",
+        "sites-hunt-68347",
+        "walk"
+      ],
+      [
+        "sites-hunt-68347",
+        "sites-hunt-68347-pocket-2",
+        "walk"
+      ],
+      [
+        "sites-hunt-68347-pocket-2",
+        "sites-hunt-68347",
+        "walk"
+      ],
+      [
+        "sites-hunt-68347",
+        "sites-hunt-68347-pocket-3",
+        "walk"
+      ],
+      [
+        "sites-hunt-68347-pocket-3",
+        "sites-hunt-68347",
+        "walk"
+      ],
+      [
+        "sites-hunt-68347",
+        "fon-wp-53867",
+        "walk"
+      ]
+    ],
+    "detours": [
+      {
+        "id": "sites-hunt-68347-pocket-1",
+        "returnHeight": 480,
+        "pocketScenery": {
+          "key": "goldenGrotto",
+          "file": "golden-grotto-background-v1.png",
+          "state": "ready"
+        }
+      },
+      {
+        "id": "sites-hunt-68347-pocket-2",
+        "returnHeight": 480,
+        "pocketScenery": {
+          "key": "fontaineUnderstage",
+          "file": "fontaine-understage-background-v1.png",
+          "state": "ready"
+        }
+      },
+      {
+        "id": "sites-hunt-68347-pocket-3",
+        "returnHeight": 480,
+        "pocketScenery": {
+          "key": "tideCalibration",
+          "file": "tide-calibration-background-v1.png",
+          "state": "ready"
+        }
+      }
+    ]
+  },
+  "errors": []
+}
