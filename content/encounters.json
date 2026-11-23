@@ -2423,11 +2423,12 @@
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "docs/balance/NATLAN_SUNSET_DUEL_WEB.md"
+        "docs/balance/NATLAN_SUNSET_DUEL_WEB.md",
+        "evidence/natlan-sunset-duel-lua.json",
+        "evidence/natlan-sunset-duel-browser.json"
       ],
       "remaining": [
-        "本役の美術と動き",
-        "固有攻撃と足場切り替え",
+        "本役の美術と連続アニメーション",
         "装備別の難度調整",
         "協力検証"
       ],

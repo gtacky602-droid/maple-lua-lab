@@ -3,10 +3,25 @@
   "realLaneDamage": true,
   "upperShelfSafety": true,
   "pauseFreezes": true,
+  "moves": [
+    "SR01",
+    "SR02"
+  ],
+  "movingCharge": true,
+  "lockedSplashMarks": [
+    650.0,
+    776.0
+  ],
+  "safeOutsideTheMarks": true,
+  "secondSplashDamage": 21,
+  "bothOpeningsAllowFullDamage": true,
   "hydroWorksAndOpeningHelps": true,
   "lossResetsSameArena": true,
   "keepsRewards": true,
   "activeHpAfterSave": true,
+  "elapsedTicksAfterSave": true,
+  "firstClearRecorded": true,
+  "replayDoesNotCountAsFirstClear": true,
   "firstWinOnce": true,
   "arenaCalmAfterWin": true,
   "recordAfterSave": true,

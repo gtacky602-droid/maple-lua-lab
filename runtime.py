@@ -449,7 +449,8 @@ def runtime():
     core.natlanRaceFlagArt=field_art(lua,'natlan-race-flag',('idle',),idle='natlan-race-flag-sprites-v1.json').idle
     core.natlanTrialRaftArt=field_art(lua,'natlan-trial-raft',('idle',),idle='natlan-trial-raft-sprites-v1.json').idle
     river_racer=field_display(core,field_art(lua,'river-racer',('idle',)).idle)
-    river_racer.damageFactor=lua.eval("function(s) return s.duelRound and s.duelRound.phase=='opening' and 1 or .65 end")
+    river_racer.damageFactor=duel.damageFactor
+    river_racer.storyDriven=True
     moon_crab=lua.execute((ROOT/'field-moon-crab.lua').read_text(encoding='utf8'))(core)
     core.moonCrabArt=field_art(lua,'moon-crab',('idle','cracked'))
     core.paperLanternArt=field_art(lua,'paper-lantern',('idle',),idle='paper-lantern-sprites-v1.json').idle

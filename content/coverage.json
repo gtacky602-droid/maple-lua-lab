@@ -7983,6 +7983,14 @@
       "challenge_evidence": "evidence/cap-fresh-challenges.json",
       "evidence": "evidence/cap-fresh-route.json"
     },
+    "chapter_fight_evidence": {
+      "Q-NAT-M03": {
+        "encounter": "original-river-racer",
+        "scope": "Two prototype moves, solo chapter clear, checkpoint and reward-free practice.",
+        "lua": "evidence/natlan-sunset-duel-lua.json",
+        "browser": "evidence/natlan-sunset-duel-browser.json"
+      }
+    },
     "scope_complete": false,
     "not_proven": [
       "production layouts and access conditions for all mapped stages",

@@ -20,7 +20,7 @@
     },
     {
       "id": "natlan-sunset-duel",
-      "seconds": 115.62,
+      "seconds": 115.73,
       "level": 109,
       "total": 60657884,
       "questXp": 38649917,
@@ -29,7 +29,7 @@
     },
     {
       "id": "natlan-kachina-charms",
-      "seconds": 131.22,
+      "seconds": 130.92,
       "level": 109,
       "total": 61984654,
       "questXp": 39969041,
@@ -38,7 +38,7 @@
     },
     {
       "id": "natlan-mualani-surf",
-      "seconds": 144.0,
+      "seconds": 143.7,
       "level": 109,
       "total": 63389521,
       "questXp": 41373908,
@@ -47,7 +47,7 @@
     },
     {
       "id": "natlan-kinich-ambush",
-      "seconds": 171.27,
+      "seconds": 170.97,
       "level": 110,
       "total": 65223596,
       "questXp": 43181221,
@@ -56,7 +56,7 @@
     },
     {
       "id": "lv115",
-      "seconds": 3113.67,
+      "seconds": 3113.37,
       "level": 115,
       "total": 83452661,
       "questXp": 43181221,
@@ -65,7 +65,7 @@
     },
     {
       "id": "lv119",
-      "seconds": 5236.5,
+      "seconds": 5236.2,
       "level": 119,
       "total": 104292029,
       "questXp": 43181221,
@@ -74,7 +74,7 @@
     },
     {
       "id": "lv120",
-      "seconds": 5437.82,
+      "seconds": 5437.52,
       "level": 120,
       "total": 110486504,
       "questXp": 43181221,
@@ -83,7 +83,7 @@
     },
     {
       "id": "nod-town",
-      "seconds": 5567.77,
+      "seconds": 5567.47,
       "level": 120,
       "total": 110567809,
       "questXp": 43181221,

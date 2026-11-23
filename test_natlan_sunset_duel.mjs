@@ -4,6 +4,7 @@ import {chromium} from 'playwright';
 
 const hub='natlan-hub',meet='natlan-duel-entry',review='natlan-sunset-review';
 const arena='natlan-sunset-arena',rostrum='natlan-sunset-rostrum',quest='natlan-sunset-duel';
+const boss='original-river-racer';
 const prefix='evidence/natlan-sunset-duel';
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1280,height:960}});
@@ -125,9 +126,20 @@ try{
     return sceneryStatus(window.lab.frame);
   });
   assert.deepEqual(scene,{key:'natlanSunset',file:'natlan-sunset-arena-background-v1.png',state:'ready'});
+  await wait(()=>window.lab.frame.storyDuel?.phase==='out');
+  const charge=await frame();
+  assert.equal(charge.storyDuel.move,'SR01');
+  await wait(x=>{
+    const duel=window.lab.frame.storyDuel;
+    return duel?.phase==='out'&&Math.abs(duel.x-x)>30;
+  },charge.storyDuel.x);
   await walk(848);
-  await wait(()=>window.lab.frame.storyDuel?.phase==='opening');
+  await wait(()=>window.lab.frame.storyDuel?.phase==='splashWarning'&&window.lab.frame.storyDuel.marks?.length===2);
+  const marked=(await frame()).storyDuel.marks.map(mark=>mark.x);
   const commands=await compare();
+  await wait(()=>window.lab.frame.storyDuel?.phase==='splash'&&window.lab.frame.storyDuel.marks?.[1]?.state==='active');
+  assert.deepEqual((await frame()).storyDuel.marks.map(mark=>mark.x),marked);
+  await wait(()=>window.lab.frame.storyDuel?.phase==='splashOpening');
   const beforeWin=(await frame()).progression.questXp;
   await walk(923);
   await auto(true);
@@ -149,6 +161,13 @@ try{
     after.mora-before.mora,after.inventory.upgradeOre-before.inventory.upgradeOre];
   assert.deepEqual(reward,luaProof.reward);
   await saveReload(hub);
+  const savedClear=id=>page.evaluate(id=>{
+    const save=JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1'));
+    return save?.endgame?.bosses[id];
+  },id);
+  const firstClear=await savedClear(boss);
+  assert.equal(firstClear.clears,1);
+  assert.ok(firstClear.bestTicks>0);
   await gate(965,arena);
   assert.equal((await frame()).fieldBoss,undefined);
   await walk(322);
@@ -164,8 +183,12 @@ try{
   assert.equal(replayAfter.progression.questXp,replayBefore.progression.questXp);
   assert.equal(replayAfter.progression.killXp,replayBefore.progression.killXp);
   assert.equal(replayAfter.mora,replayBefore.mora);
+  await page.locator('#saveProgress').click();
+  await wait(()=>document.querySelector('#saveStatus').textContent.includes('冒険を保存しました'));
+  assert.deepEqual(await savedClear(boss),firstClear);
   assert.deepEqual(errors,[]);
   const proof={firstRunAndReplay:true,warningsAndOpening:true,sameFrameComparison:true,
+    moves:['SR01','SR02'],chargeMoved:true,lockedSplashMarks:marked,firstClearSaved:true,
     firstClearExp:luaProof.firstClearExp,recordAndReport:true,noRepeatReward:true,scene,commands,reward,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);

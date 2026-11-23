@@ -2,6 +2,16 @@
   "firstRunAndReplay": true,
   "warningsAndOpening": true,
   "sameFrameComparison": true,
+  "moves": [
+    "SR01",
+    "SR02"
+  ],
+  "chargeMoved": true,
+  "lockedSplashMarks": [
+    772.5,
+    898.5
+  ],
+  "firstClearSaved": true,
   "firstClearExp": 6826100,
   "recordAndReport": true,
   "noRepeatReward": true,
@@ -11,9 +21,9 @@
     "state": "ready"
   },
   "commands": {
-    "png": 24,
-    "standard": 5944,
-    "light": 1484
+    "png": 30,
+    "standard": 5950,
+    "light": 1490
   },
   "reward": [
     8024394,

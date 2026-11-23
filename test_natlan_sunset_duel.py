@@ -30,6 +30,14 @@ def frame(s):
     return core.frame(s,'sprite','legacy')
 
 
+def until(s,predicate):
+    for _ in range(480):
+        if predicate():
+            return
+        step(core,s,1)
+    raise AssertionError(native(frame(s).storyDuel))
+
+
 def gate(s,x,dest,y=480):
     move(s,x,y)
     portal=frame(s).storyNearbyPortal
@@ -83,12 +91,36 @@ strike(s,20)
 guarded=124-s.enemies[1].hp
 assert 0<guarded<20
 s.actors[1].inv=0
-step(core,s,100)
-assert s.actors[1].hp<hp
+until(s,lambda: s.actors[1].hp<hp)
+charge=frame(s).storyDuel
+assert charge.phase=='out' and charge.move=='SR01'
+assert charge.x==s.enemies[1].x and abs(charge.x-s.actors[1].x)<54
 move(s,650,390)
 hp=s.actors[1].hp
-step(core,s,96)
+until(s,lambda: s.duelRound.phase=='opening')
 assert s.actors[1].hp==hp and frame(s).storyDuel.phase=='opening'
+assert s.enemies[1].x==s.enemies[1].home
+before=s.enemies[1].hp
+strike(s,20)
+assert before-s.enemies[1].hp>guarded
+until(s,lambda: s.duelRound.phase=='splashWarning')
+warning=frame(s).storyDuel
+assert warning.move=='SR02' and len(warning.marks)==2
+first_mark,second_mark=(warning.marks[i].x for i in (1,2))
+assert (first_mark,second_mark)==(650,776)
+move(s,570,390)
+until(s,lambda: s.duelRound.phase=='splash')
+assert s.actors[1].hp==hp
+first_jet=frame(s).storyDuel
+assert first_jet.marks[1].state=='active' and first_jet.marks[2].state=='warning'
+assert (first_jet.marks[1].x,first_jet.marks[2].x)==(first_mark,second_mark)
+move(s,second_mark)
+until(s,lambda: s.actors[1].hp<hp)
+assert frame(s).storyDuel.marks[2].state=='active'
+second_hit=s.actors[1].hp
+assert hp-second_hit==21
+until(s,lambda: s.duelRound.phase=='splashOpening')
+assert s.actors[1].hp==second_hit
 before=s.enemies[1].hp
 strike(s,20)
 assert before-s.enemies[1].hp>guarded
@@ -102,6 +134,9 @@ assert (s.mora,s.progression.questXp,s.inventory.upgradeOre)==kept
 assert '仕切り直し' in s.storyNotice
 strike(s,30)
 hp=s.enemies[1].hp
+step(core,s,90)
+elapsed=checkpoint(s)['fieldBosses'][boss]['elapsedTicks']
+assert elapsed>=90
 s=restore(s)
 assert s.story.node==meet
 gate(s,1240,review);gate(s,1412,arena,390)
@@ -112,6 +147,7 @@ strike(s,1600)
 clear=CHAPTER_CLEAR_EXP['Q-NAT-M03:BOSS_FIRST']
 assert s.story.quests[quest].count==3 and s.progression.questXp==before+clear
 assert frame(s).storyDuel is None and frame(s).storyFirstClear.xp==clear
+assert s.endgame.bosses[boss].bestTicks>=elapsed and s.endgame.bosses[boss].clears==1
 collect(s,1408,4)
 gate(s,1560,rostrum)
 collect(s,853,5,390)
@@ -135,9 +171,13 @@ for _ in range(2):
     strike(s,1600)
     assert frame(s).storyDuel is None and frame(s).fieldBoss is None
     assert (s.progression.questXp,s.progression.killXp,s.mora,s.inventory.upgradeOre)==before
+    assert s.endgame.bosses[boss].clears==1
 
 proof=dict(prerequisite=True,realLaneDamage=True,upperShelfSafety=True,pauseFreezes=True,
+           moves=['SR01','SR02'],movingCharge=True,lockedSplashMarks=[first_mark,second_mark],
+           safeOutsideTheMarks=True,secondSplashDamage=21,bothOpeningsAllowFullDamage=True,
            hydroWorksAndOpeningHelps=True,lossResetsSameArena=True,keepsRewards=True,activeHpAfterSave=True,
+           elapsedTicksAfterSave=True,firstClearRecorded=True,replayDoesNotCountAsFirstClear=True,
            firstWinOnce=True,arenaCalmAfterWin=True,recordAfterSave=True,replaysWithoutRewards=True,
            firstClearExp=clear,reward=reward)
 (ROOT/'evidence/natlan-sunset-duel-lua.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')

@@ -283,6 +283,7 @@ return function(C,configs,controllers)
    if spec.keepHpOnExit then slot.out=0;return end
   end
   local behavior=controllers[spec.controller]
+  if behavior.storyDriven then return end
   local target,distance
   if here then target,distance=nearest(s,spec,boss,behavior) end
   if slot.phase=='available' then
@@ -416,7 +417,9 @@ return function(C,configs,controllers)
     started=slot.entryAt
     finishField(s,spec,slot,s.t)
    end
-   if not spec.presentationOnly and C.recordChallengeBoss then C.recordChallengeBoss(s,spec.id,started) end
+   if not spec.presentationOnly and s.storyDuelReplay~=spec.id and C.recordChallengeBoss then
+    C.recordChallengeBoss(s,spec.id,started)
+   end
    if spec.storyChallenge then C.storyBossDefeated(s,spec.storyChallenge) end
    if C.finishDuelReplay then C.finishDuelReplay(s,spec.id) end
    if spec.presentationOnly or spec.questRewardsOnly then return end
