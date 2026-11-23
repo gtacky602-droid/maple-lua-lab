@@ -86,6 +86,7 @@ collect(s,763,390,second,0)
 assert (s.actors[1].x,s.actors[1].y,s.actors[1].ground)==(478,480,True)
 assert len(s.platforms)==2 and frame(s).storyLocalLight.mode=='bright'
 collect(s,390,480,second,1)
+coop_lamp_fixture=checkpoint(s)
 collect(s,224,480,second,1)
 collect(s,647,480,second,1)
 collect(s,647,390,second,2)
@@ -102,6 +103,7 @@ gate(s,55,camp)
 report(s,second,(391000,4400,4))
 
 gate(s,1292,gallery)
+coop_fixture=checkpoint(s)
 core.action(s,'story_accept:'+third)
 gate(s,1210,hollow)
 slot=s.fieldSlots[boss]
@@ -153,4 +155,6 @@ proof=dict(legacyLv40Access=True,threeSafetyMarks=True,phaseSpecificInspection=T
 work=ROOT/'work'
 work.mkdir(exist_ok=True)
 (work/'enkan-lamp-fixture.json').write_text(json.dumps(fixture),encoding='utf8')
+(work/'coop-original-plate-tail-fixture.json').write_text(json.dumps(coop_fixture),encoding='utf8')
+(work/'coop-enkan-lamp-fixture.json').write_text(json.dumps(coop_lamp_fixture),encoding='utf8')
 print(proof)

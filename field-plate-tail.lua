@@ -7,6 +7,7 @@ return function(C)
 
  function plate.spawn(b,spec) b.exposed,b.stopped,b.barrier=false,false,spec.barrier end
  function plate.cancel(b,spec) plate.spawn(b,spec) end
+ function plate.shareCast(cast,actors) C.shareFieldHits({cast.seen},actors) end
 
  local function stopAtRock(spec,m,origin,finish,dir)
   local stopped=false
@@ -32,7 +33,7 @@ return function(C)
   end
   return {move=move,tick=0,left=math.min(origin,finish)-move.radius,right=math.max(origin,finish)+move.radius,
    top=spec.floorY-move.height,origin=origin,finish=finish,stopped=stopped,seen={},
-   source={id=b.id,owner=b,y=spec.floorY,damageElement=move.element}}
+   source={id=b.id,owner=b,x=origin,y=spec.floorY,damageElement=move.element}}
  end
 
  function plate.tick(s,b,spec,cast)
@@ -41,8 +42,10 @@ return function(C)
   if t>=move.windup and t<move.windup+move.active then
    local previous=b.x
    if move.distance then b.x=cast.origin+(cast.finish-cast.origin)*(t-move.windup+1)/move.active end
-   C.hitFieldArea(s,cast.source,cast.seen,math.min(previous,b.x)-move.radius,
-    math.max(previous,b.x)+move.radius,cast.top,move.damage)
+   cast.source.x=b.x
+   cast.hitLeft=math.min(previous,b.x)-move.radius
+   cast.hitRight=math.max(previous,b.x)+move.radius
+   C.hitFieldArea(s,cast.source,cast.seen,cast.hitLeft,cast.hitRight,cast.top,move.damage)
   elseif t==move.windup+move.active then
    b.exposed,b.stopped,b.barrier=true,cast.stopped,0
   end
@@ -62,7 +65,8 @@ return function(C)
   f.exposed,f.stopped,f.barrier,f.cover=b.exposed,b.stopped,b.barrier,spec.cover
   if cast and not b.exposed then
    f.lane={left=cast.left,right=cast.right,top=cast.top,at=cast.move.windup,
-    active=cast.tick>=cast.move.windup,activeTicks=cast.move.active,finish=cast.finish}
+    active=cast.tick>=cast.move.windup,activeTicks=cast.move.active,finish=cast.finish,
+    hitLeft=cast.hitLeft,hitRight=cast.hitRight}
   end
  end
 
@@ -71,8 +75,8 @@ return function(C)
    local y=b.y
    local left,right=cast.left-s.camera,cast.right-s.camera
    local active=cast.tick>=cast.move.windup
-   if active and cast.move.distance then
-    left,right=b.x-s.camera-cast.move.radius,b.x-s.camera+cast.move.radius
+   if active then
+    left,right=cast.hitLeft-s.camera,cast.hitRight-s.camera
    end
    rect(f,left,cast.top,right-left,y-cast.top,active and '#c0f0e589' or '#b0dfcb20')
    for x=left+3,right-10,18 do rect(f,x,y-6,10,4,active and '#e1ffdb' or '#8dd9d3') end

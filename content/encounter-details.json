@@ -71,7 +71,7 @@
         "evidence/coop-ruin-guardians-browser.json"
       ]
     },
-    "original-plate-tail": {"art_candidate":{"item":"plate-tail","audit":"evidence/plate-tail-art.json","status":"original basalt animal with two teal slate plates and collision-limited charge"}},
+    "original-plate-tail": {"remaining":["連続アニメーション","報酬の調整"],"extra_evidence":["evidence/coop-plate-tail-lua-http.json","evidence/coop-plate-tail-browser.json"],"art_candidate":{"item":"plate-tail","audit":"evidence/plate-tail-art.json","status":"original basalt animal with two teal slate plates and collision-limited charge"}},
     "original-tea-boulder": {
       "art_candidate": {
         "item": "tea-boulder",

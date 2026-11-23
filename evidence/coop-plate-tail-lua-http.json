@@ -1,0 +1,41 @@
+{
+  "original-plate-tail": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1035,
+      "moves": [
+        "PT01",
+        "PT02"
+      ],
+      "leftStop": 708,
+      "sameSweptHitbox": true,
+      "rockAndHeightAvoidDamage": true,
+      "hitHistoryPreservedOnRoomCreation": true,
+      "extraRecoveryTicks": 47,
+      "closedHit": 9,
+      "exposedHit": 118,
+      "rewards": [
+        0,
+        309900,
+        580,
+        0
+      ],
+      "report": [
+        103552,
+        0,
+        371745,
+        5
+      ],
+      "rightStop": 1242
+    },
+    "http": {
+      "players": 2,
+      "personalLightAndBridge": true,
+      "retainedRoomThroughLamp": true,
+      "individualDarkExitGate": true,
+      "sharedHPAfterReturning": true,
+      "unacceptedGuestKeepsKillOnly": true,
+      "reportAndLogRestored": true
+    }
+  }
+}

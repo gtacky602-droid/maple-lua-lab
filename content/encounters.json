@@ -2294,12 +2294,13 @@
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "docs/balance/ENKANOMIYA_LAMP_ROUTE_WEB.md"
+        "docs/balance/ENKANOMIYA_LAMP_ROUTE_WEB.md",
+        "evidence/coop-plate-tail-lua-http.json",
+        "evidence/coop-plate-tail-browser.json"
       ],
       "remaining": [
         "連続アニメーション",
-        "報酬の調整",
-        "マルチ検証"
+        "報酬の調整"
       ],
       "fieldNode": "enkan-tablet-hollow",
       "fieldEntrance": "石版裏の窪み（Lv110）",

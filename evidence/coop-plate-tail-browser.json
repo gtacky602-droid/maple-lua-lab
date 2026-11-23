@@ -1,0 +1,27 @@
+{
+  "results": {
+    "original-plate-tail": {
+      "hp": 1035,
+      "moraPerPlayer": 580,
+      "clear": [
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 24.98333333333207
+        },
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 25.016666666665838
+        }
+      ],
+      "hostReported": true,
+      "bothSavedAndReloaded": true,
+      "chargeStoppedAt": 708,
+      "bothSheltered": true,
+      "bothReadAfterReload": true,
+      "bothReported": true
+    }
+  },
+  "errors": []
+}

@@ -8119,6 +8119,9 @@
       "wolflord-field-ruins",
       "enkanomiya-camp",
       "enkanomiya-depth",
+      "enkan-guide-shelf",
+      "enkan-route-gallery",
+      "enkan-tablet-hollow",
       "bathysmal-field-sanctum",
       "chasm-wp-25264",
       "ruin-serpent-field-pit",
@@ -8359,7 +8362,8 @@
       "original-frost-antler",
       "original-rubble-sifter",
       "original-prism-walker",
-      "original-ice-crawler"
+      "original-ice-crawler",
+      "original-plate-tail"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8629,10 +8633,12 @@
       "evidence/coop-highland-bosses-lua-http.json",
       "evidence/coop-highland-bosses-browser.json",
       "evidence/coop-late-branch-bosses-lua-http.json",
-      "evidence/coop-late-branch-bosses-browser.json"
+      "evidence/coop-late-branch-bosses-browser.json",
+      "evidence/coop-plate-tail-lua-http.json",
+      "evidence/coop-plate-tail-browser.json"
     ],
     "pending": [
-      "remaining lab-original field encounters, remaining Local Legends and Stygian bosses",
+      "remaining Local Legends and Stygian bosses",
       "shared combat outside the supported maps",
       "remote and Miliastra tests"
     ]

@@ -8,12 +8,15 @@ const graph = await read('content/story-graph.json');
 const nodes = Object.fromEntries(graph.nodes.map(n => [n.id,n]));
 const highland = process.argv[2] === 'highland';
 const lateBranch = process.argv[2] === 'late-branch';
-const bothReport = highland || lateBranch;
-const prefix = lateBranch ? 'evidence/coop-late-branch-bosses'
+const plateTail = process.argv[2] === 'plate-tail';
+const bothReport = highland || lateBranch || plateTail;
+const prefix = plateTail ? 'evidence/coop-plate-tail' : lateBranch ? 'evidence/coop-late-branch-bosses'
   : highland ? 'evidence/coop-highland-bosses' : 'evidence/coop-original-field-bosses';
 const expected = bothReport ? await read(prefix+'-lua-http.json') : {};
 const key = 'maple-lua-lab.checkpoint.v1';
-const cases = lateBranch ? [
+const cases = plateTail ? [
+  ['original-plate-tail','enkan-coverless-log',95000009,1035,580,604,[]],
+] : lateBranch ? [
   ['original-prism-walker','nod-rim-return',95000005,1020,1120,857,
     ['nod-field','nod-special-camp','nod-reflector-shore','nod-reflection-garden']],
   ['original-ice-crawler','novo-return-report',95000006,1060,1230,870,
@@ -164,9 +167,22 @@ try {
     },{entity,hp})));
     const before = await Promise.all(players.map(({page})=>readFrame(page)));
     assert.ok(before.every(f=>Object.values(f.coop.enemies).some(e=>e.id===entity&&e.hp===hp)));
-    await Promise.all(players.map(({route})=>route.walk(approach)));
+    await Promise.all(players.map(({route},i)=>route.walk(approach+(plateTail?i*22:0))));
     await Promise.all(players.map(({page})=>page.waitForFunction(id=>window.lab.frame.fieldBoss?.id===id,boss)));
     await host.page.waitForFunction(()=>window.lab.frame.fieldBoss?.lane||window.lab.frame.fieldBoss?.lanes);
+    if (plateTail) {
+      const before = await Promise.all(players.map(async ({page})=>{
+        await page.waitForFunction(()=>window.lab.frame.fieldBoss?.lane?.finish===708);
+        return (await readFrame(page)).actors[0].hp;
+      }));
+      await host.page.locator('#game').screenshot({path:prefix+'-charge.png'});
+      const after = await Promise.all(players.map(async ({page})=>{
+        await page.waitForFunction(()=>window.lab.frame.fieldBoss?.stopped);
+        return readFrame(page);
+      }));
+      assert.deepEqual(after.map(f=>f.actors[0].hp),before);
+      assert.ok(after.every(f=>f.fieldBoss.x===708 && f.fieldBoss.barrier===0));
+    }
     if (lateBranch && boss==='original-prism-walker') {
       const views = await Promise.all(players.map(async({page})=>{
         await page.waitForFunction(()=>window.lab.frame.fieldBoss?.images?.length===2);
@@ -194,7 +210,7 @@ try {
       assert.equal(frame.mora-before[i].mora,mora);
       if (bothReport) {
         const xp=expected[boss].lua;
-        assert.equal(frame.progression.killXp-before[i].progression.killXp,xp.rewards[lateBranch?1:0]);
+        assert.equal(frame.progression.killXp-before[i].progression.killXp,xp.rewards[highland?0:1]);
         assert.equal(frame.progression.questXp-before[i].progression.questXp,xp.chapterClearExp??0);
       }
       return run;
@@ -212,7 +228,9 @@ try {
       await route.cross(quest.hub);
     }));
     for (const [index,objective] of quest.itinerary.entries()) {
-      if (index>bossIndex && objective.node!==arena) await inspect(host,objective,questId,index+1);
+      if (index>bossIndex && objective.node!==arena) {
+        await Promise.all(reportingPlayers.map(player=>inspect(player,objective,questId,index+1)));
+      }
     }
     await Promise.all(reportingPlayers.map(async({page,route})=>{
       const before=await readFrame(page);
@@ -234,13 +252,24 @@ try {
       await page.reload();
       await page.waitForFunction(()=>window.lab?.frame);
       await page.locator('#loadProgress').click();
+      await page.waitForFunction(()=>document.querySelector('#saveStatus').textContent.includes('町から再開しました'));
     }));
     await Promise.all(players.map(({route})=>route.waitNode(quest.hub)));
     assert.equal((await readFrame(host.page)).story.quests[questId].status,'complete');
     if (bothReport) assert.equal((await readFrame(guest.page)).story.quests[questId].status,'complete');
+    if (plateTail) {
+      await Promise.all(players.map(async ({page,route})=>{
+        await route.walk(825);
+        await page.waitForFunction(()=>window.lab.frame.storyNearbyMilestone?.label==='完成した探検記を読む');
+        await page.locator('#game').click();
+        await page.keyboard.press('KeyG');
+        await page.waitForFunction(()=>window.lab.frame.storyNotice?.includes('同じ道で小間へ戻る'));
+      }));
+    }
     results[boss]={hp,moraPerPlayer:mora,clear,
       hostReported:true,bothSavedAndReloaded:true};
-    if(lateBranch) Object.assign(results[boss],{personalGuardSweep:Boolean(bossIndex),directReturn:true});
+    if(plateTail) Object.assign(results[boss],{chargeStoppedAt:708,bothSheltered:true,bothReadAfterReload:true});
+    else if(lateBranch) Object.assign(results[boss],{personalGuardSweep:Boolean(bossIndex),directReturn:true});
     else results[boss].personalSignalBox=Boolean(bossIndex);
     if(bothReport) results[boss].bothReported=true;
     console.log(boss,'cleared and saved');
@@ -249,7 +278,7 @@ try {
   assert.deepEqual([...errors],[]);
   await fs.writeFile(prefix+'-browser.json',JSON.stringify({results,errors:[...errors]},null,2)+'\n');
   console.log(bothReport
-    ? 'Chrome: both profiles cleared, reported and restored both encounters.'
+    ? 'Chrome: both profiles cleared, reported and restored '+cases.length+' encounter(s).'
     : 'Chrome: two independent players, both victories, one quest report per fight, and reloads passed.');
 } catch (error) {
   console.dir(await Promise.allSettled(currentPlayers.map(({page})=>page.evaluate(()=>{
