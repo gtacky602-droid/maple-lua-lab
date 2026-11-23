@@ -1,0 +1,117 @@
+{
+  "countsForWholeMap": true,
+  "originalPngUnchanged": true,
+  "savedDraft": false,
+  "fields": [
+    {
+      "id": "sites-hunt-36703",
+      "name": "赤砂の秘境周辺",
+      "count": 48,
+      "allGrounded": true,
+      "background": "asimon-field-background-v1.png",
+      "camera": 780,
+      "standardRectangles": 77104,
+      "light16Rectangles": 19520,
+      "visibleStandardRectangles": 31274,
+      "visibleLight16Rectangles": 7963,
+      "reductionPercent": 74.7
+    },
+    {
+      "id": "sites-hunt-36704",
+      "name": "王墓の秘境周辺",
+      "count": 48,
+      "allGrounded": true,
+      "background": "sumeru-desert-tomb-approach-background-v1.png",
+      "camera": 780,
+      "standardRectangles": 76832,
+      "light16Rectangles": 19024,
+      "visibleStandardRectangles": 31104,
+      "visibleLight16Rectangles": 7653,
+      "reductionPercent": 75.2
+    },
+    {
+      "id": "sites-hunt-36705",
+      "name": "砂丘の秘境周辺",
+      "count": 48,
+      "allGrounded": true,
+      "background": "asimon-field-background-v1.png",
+      "camera": 780,
+      "standardRectangles": 58688,
+      "light16Rectangles": 14288,
+      "visibleStandardRectangles": 25390,
+      "visibleLight16Rectangles": 6175,
+      "reductionPercent": 75.7
+    },
+    {
+      "id": "sites-hunt-41694",
+      "name": "砂漠東の秘境周辺",
+      "count": 48,
+      "allGrounded": true,
+      "background": "tunigi-excavation-background-v1.png",
+      "camera": 780,
+      "standardRectangles": 74816,
+      "light16Rectangles": 18544,
+      "visibleStandardRectangles": 31288,
+      "visibleLight16Rectangles": 7733,
+      "reductionPercent": 75.2
+    },
+    {
+      "id": "sites-hunt-41817",
+      "name": "千尋北の秘境周辺",
+      "count": 48,
+      "allGrounded": true,
+      "background": "wenut-field-background-v1.png",
+      "camera": 780,
+      "standardRectangles": 79448,
+      "light16Rectangles": 19760,
+      "visibleStandardRectangles": 32739,
+      "visibleLight16Rectangles": 8113,
+      "reductionPercent": 75.1
+    },
+    {
+      "id": "sites-hunt-41818",
+      "name": "千尋東の秘境周辺",
+      "count": 48,
+      "allGrounded": true,
+      "background": "tunigi-background-v1.png",
+      "camera": 780,
+      "standardRectangles": 73672,
+      "light16Rectangles": 18240,
+      "visibleStandardRectangles": 30573,
+      "visibleLight16Rectangles": 7543,
+      "reductionPercent": 75.2
+    }
+  ],
+  "sideRooms": [
+    {
+      "id": "sites-hunt-36703-pocket-1",
+      "count": 1,
+      "allGrounded": true,
+      "background": "asimon-field-background-v1.png"
+    },
+    {
+      "id": "sites-hunt-36704-pocket-1",
+      "count": 1,
+      "allGrounded": true,
+      "background": "wenut-field-background-v1.png"
+    },
+    {
+      "id": "sites-hunt-36705-pocket-1",
+      "count": 1,
+      "allGrounded": true,
+      "background": "asimon-field-background-v1.png"
+    },
+    {
+      "id": "sites-hunt-41694-pocket-1",
+      "count": 1,
+      "allGrounded": true,
+      "background": "asimon-field-background-v1.png"
+    },
+    {
+      "id": "sites-hunt-41817-pocket-1",
+      "count": 1,
+      "allGrounded": true,
+      "background": "wenut-field-background-v1.png"
+    }
+  ]
+}

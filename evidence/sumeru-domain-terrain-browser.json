@@ -1,0 +1,286 @@
+{
+  "red-sand": {
+    "stage": "sites-hunt-36703",
+    "scenery": {
+      "key": "asimonField",
+      "file": "asimon-field-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 452.1,
+      "y": 346.1,
+      "adjacent": [
+        "sum-wp-36683",
+        "sites-hunt-36703-pocket-1"
+      ],
+      "next": "sites-hunt-36703-pocket-1"
+    },
+    "jump": [
+      480,
+      387
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "asimonField",
+      "file": "asimon-field-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "sum-wp-36683",
+        "sites-hunt-36703",
+        "walk"
+      ],
+      [
+        "sites-hunt-36703",
+        "sites-hunt-36703-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-36703-pocket-1",
+        "sites-hunt-36703",
+        "walk"
+      ],
+      [
+        "sites-hunt-36703",
+        "sum-wp-36683",
+        "walk"
+      ]
+    ]
+  },
+  "royal-tomb": {
+    "stage": "sites-hunt-36704",
+    "scenery": {
+      "key": "sumeruDesertTombApproach",
+      "file": "sumeru-desert-tomb-approach-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 348.5,
+      "y": 328.9,
+      "adjacent": [
+        "sum-wp-36691",
+        "sites-hunt-36704-pocket-1"
+      ],
+      "next": "sites-hunt-36704-pocket-1"
+    },
+    "jump": [
+      480,
+      400
+    ],
+    "returnHeight": 397,
+    "pocketScenery": {
+      "key": "wenutField",
+      "file": "wenut-field-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "sum-wp-36691",
+        "sites-hunt-36704",
+        "walk"
+      ],
+      [
+        "sites-hunt-36704",
+        "sites-hunt-36704-pocket-1",
+        "raised"
+      ],
+      [
+        "sites-hunt-36704-pocket-1",
+        "sites-hunt-36704",
+        "walk"
+      ],
+      [
+        "sites-hunt-36704",
+        "sum-wp-36691",
+        "walk"
+      ]
+    ]
+  },
+  "dunes": {
+    "stage": "sites-hunt-36705",
+    "scenery": {
+      "key": "asimonField",
+      "file": "asimon-field-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 380.4,
+      "y": 364.3,
+      "adjacent": [
+        "sum-wp-36697",
+        "sites-hunt-36705-pocket-1"
+      ],
+      "next": "sites-hunt-36705-pocket-1"
+    },
+    "jump": [
+      480,
+      348
+    ],
+    "returnHeight": 403,
+    "pocketScenery": {
+      "key": "asimonField",
+      "file": "asimon-field-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "sum-wp-36697",
+        "sites-hunt-36705",
+        "walk"
+      ],
+      [
+        "sites-hunt-36705",
+        "sites-hunt-36705-pocket-1",
+        "raised"
+      ],
+      [
+        "sites-hunt-36705-pocket-1",
+        "sites-hunt-36705",
+        "walk"
+      ],
+      [
+        "sites-hunt-36705",
+        "sum-wp-36697",
+        "walk"
+      ]
+    ]
+  },
+  "east-desert": {
+    "stage": "sites-hunt-41694",
+    "scenery": {
+      "key": "tunigiExcavation",
+      "file": "tunigi-excavation-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 462.4,
+      "y": 293.9,
+      "adjacent": [
+        "sum-wp-36680",
+        "sites-hunt-41694-pocket-1"
+      ],
+      "next": "sites-hunt-41694-pocket-1"
+    },
+    "jump": [
+      480,
+      420
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "asimonField",
+      "file": "asimon-field-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "sum-wp-36680",
+        "sites-hunt-41694",
+        "walk"
+      ],
+      [
+        "sites-hunt-41694",
+        "sites-hunt-41694-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-41694-pocket-1",
+        "sites-hunt-41694",
+        "walk"
+      ],
+      [
+        "sites-hunt-41694",
+        "sum-wp-36680",
+        "walk"
+      ]
+    ]
+  },
+  "north-tunnel": {
+    "stage": "sites-hunt-41817",
+    "scenery": {
+      "key": "wenutField",
+      "file": "wenut-field-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 404.2,
+      "y": 209.6,
+      "adjacent": [
+        "sum-wp-41836",
+        "sites-hunt-41817-pocket-1"
+      ],
+      "next": "sites-hunt-41817-pocket-1"
+    },
+    "jump": [
+      480,
+      375
+    ],
+    "returnHeight": 480,
+    "pocketScenery": {
+      "key": "wenutField",
+      "file": "wenut-field-background-v1.png",
+      "state": "ready"
+    },
+    "journeys": [
+      [
+        "sum-wp-41836",
+        "sites-hunt-41817",
+        "walk"
+      ],
+      [
+        "sites-hunt-41817",
+        "sites-hunt-41817-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-41817-pocket-1",
+        "sites-hunt-41817",
+        "walk"
+      ],
+      [
+        "sites-hunt-41817",
+        "sum-wp-41836",
+        "walk"
+      ]
+    ]
+  },
+  "east-basin": {
+    "stage": "sites-hunt-41818",
+    "scenery": {
+      "key": "tunigi",
+      "file": "tunigi-background-v1.png",
+      "state": "ready"
+    },
+    "atlas": {
+      "region": "region-04",
+      "x": 452,
+      "y": 238.4,
+      "adjacent": [
+        "sum-wp-41839"
+      ],
+      "next": "sum-wp-41839"
+    },
+    "jump": [
+      480,
+      431
+    ],
+    "journeys": [
+      [
+        "sum-wp-41839",
+        "sites-hunt-41818",
+        "walk"
+      ],
+      [
+        "sites-hunt-41818",
+        "sum-wp-41839",
+        "walk"
+      ]
+    ]
+  },
+  "errors": []
+}

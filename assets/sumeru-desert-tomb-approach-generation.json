@@ -1,0 +1,6 @@
+{
+  "tool": "builtin image_gen",
+  "use": "Web/Lua lab provisional background for the Sumeru royal tomb approach. The production background is planned in 3D.",
+  "file": "sumeru-desert-tomb-approach-background-v1.png",
+  "prompt": "Create a single opaque wide 16:9 landscape background for a side-view pixel art RPG. A Sumeru desert royal tomb exterior, an original provisional interpretation: a monumental ancient sandstone pyramid with a geometric terraced base, high in the middle distance slightly right of center, weathered low walls partly buried in dunes and warm desert cliffs far behind. Open sky, honey sandstone in sunlight with a muted violet-blue shadowed face, distant ochre sandy ridges in shimmering air. Hand-placed-looking clusters of crisp pixels and clean 16-bit color ramps, consistent with detailed painted pixel scenery in MapleStory-like side-scrolling RPGs. Low-contrast open sand in the lower half leaves foreground adventurers, enemies and physical platforms readable; hold the architectural silhouette mostly within the central 65% horizontally for parallax cropping. A still location panorama only, no figures, no UI, no writing, no enemies, no foreground platforms, no border, no photographic textures."
+}

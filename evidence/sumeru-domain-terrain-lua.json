@@ -1,0 +1,111 @@
+{
+  "sites-hunt-36703": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      387,
+      280,
+      368,
+      271
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 79,
+    "exterior_scenery": "asimonField",
+    "arrivals_outside_enemy_contact": 2,
+    "pocket": {
+      "id": "sites-hunt-36703-pocket-1",
+      "level_required": 80,
+      "scenery": "asimonField"
+    }
+  },
+  "sites-hunt-36704": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      400,
+      339,
+      281,
+      228
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 79,
+    "exterior_scenery": "sumeruDesertTombApproach",
+    "arrivals_outside_enemy_contact": 2,
+    "pocket": {
+      "id": "sites-hunt-36704-pocket-1",
+      "level_required": 80,
+      "scenery": "wenutField"
+    }
+  },
+  "sites-hunt-36705": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      348,
+      417,
+      408,
+      335
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 79,
+    "exterior_scenery": "asimonField",
+    "arrivals_outside_enemy_contact": 2,
+    "pocket": {
+      "id": "sites-hunt-36705-pocket-1",
+      "level_required": 80,
+      "scenery": "asimonField"
+    }
+  },
+  "sites-hunt-41694": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      420,
+      371,
+      304,
+      390
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 79,
+    "exterior_scenery": "tunigiExcavation",
+    "arrivals_outside_enemy_contact": 2,
+    "pocket": {
+      "id": "sites-hunt-41694-pocket-1",
+      "level_required": 80,
+      "scenery": "asimonField"
+    }
+  },
+  "sites-hunt-41817": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      375,
+      364,
+      265,
+      253
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 2,
+    "level_required": 79,
+    "exterior_scenery": "wenutField",
+    "arrivals_outside_enemy_contact": 2,
+    "pocket": {
+      "id": "sites-hunt-41817-pocket-1",
+      "level_required": 80,
+      "scenery": "wenutField"
+    }
+  },
+  "sites-hunt-41818": {
+    "population": 48,
+    "shelf_heights_from_entrance": [
+      431,
+      401,
+      413,
+      365
+    ],
+    "upper_route_jumps": 6,
+    "round_trips": 1,
+    "level_required": 79,
+    "exterior_scenery": "tunigi",
+    "arrivals_outside_enemy_contact": 1
+  }
+}

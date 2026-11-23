@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## スメール砂漠の狩場と王墓前の仮背景
+
+Lv79の砂漠の狩場6地点を整え、Lv80の脇部屋5か所を含めてChromeで22回の門移動、各地点のジャンプとM地図の道案内を確認した。王墓前には砂岩のピラミッドを描いたラボ用の仮画像を配置した。配置比較は今の画角に入った素材の矩形数と標準比も表示する。 [王墓のゲーム画面](evidence/sumeru-domain-royal-tomb-terrain.png) · [道案内と往復](evidence/sumeru-domain-terrain-browser.json) · [王墓のPNGと16色の比較](evidence/sumeru-domain-art-compare.png) · [6地点の計測値](evidence/sumeru-domain-art-compare.json) · [仮背景の生成記録](assets/sumeru-desert-tomb-approach-generation.json)
+
 ## ナタの秘境へ続く4つの狩場
 
 Lv119の東の秘境、南西の秘境、北西の秘境、火山南の征討入口に、それぞれ川沿いの段丘、洞口の岩棚、断崖、低い海岸の足場を配置した。Mで道順を確認でき、配置比較では各地点の敵48体を同じ画角で見比べられる。ナタのLv100セーブから6件の依頼を報告し、Lv120でナド・クライへ渡ってセーブを再開できた。 [4地点の画面と検証結果](docs/NATLAN_DOMAIN_TERRAIN_WEB.md)

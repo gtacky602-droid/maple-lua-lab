@@ -9,6 +9,36 @@ import {comparePlacements,liveNodeDraft,validatePlacementDraft,MAX_DRAFT_BYTES,M
 const DRAFT_KEY='maple-lua-lab.map-draft.v1';
 const $=id=>document.getElementById(id),assets={},histories={},redos={},baselines={};
 async function json(path){const r=await fetch(path);if(!r.ok)throw Error(path);return r.json()}
+
+function paintPlacementLayer(ctx,art,bounds,profile,x,y,flip,cost){
+ const left=x+(flip?-bounds.x-bounds.width:bounds.x),top=y+bounds.y;
+ // paintSprite slightly overlaps adjacent rectangle edges. Keep boundary layers until fully clear.
+ const visible=left<ctx.canvas.width+1&&left+bounds.width>-1&&top<ctx.canvas.height+1&&top+bounds.height>-1;
+ if(profile){
+  const runs=art.profiles[profile].runs.length;
+  cost.total+=runs;
+  if(visible){
+   cost.visible+=runs;
+   cost.standard+=art.profiles.legacy.runs.length;
+  }
+ }
+ if(!visible)return;
+ ctx.save();
+ ctx.translate(x,y);
+ if(flip)ctx.scale(-1,1);
+ paintSprite(ctx,art,art.image,bounds,profile);
+ ctx.restore();
+}
+
+function viewportSummary(cost,profile){
+ if(!cost.standard)return 'この画角に表示する素材はありません';
+ const current='この画角の矩形 '+cost.visible.toLocaleString('ja-JP')+'個';
+ if(profile==='legacy')return current+'（標準）';
+ const change=100*(cost.visible-cost.standard)/cost.standard;
+ const difference=change===0?'変化なし':Math.abs(change).toFixed(1)+(change<0?'%減':'%増');
+ return current+'（標準 '+cost.standard.toLocaleString('ja-JP')+'個から'+difference+'）';
+}
+
 try{
  const [graph,initial,variants]=await Promise.all([json('content/story-graph.json'),json('content/enemy-placement-drafts.json'),json('assets/variants.json')]);
  const layouts=await json('content/enemy-art-layout.json');
@@ -93,15 +123,14 @@ try{
    background.state==='error'?'背景画像を読み込めません：単色で表示（'+background.file+'）':
    mapped?(sceneryDefinitions[background.key].note||'地域用の仮背景'):'専用背景未制作：モンド画像で代用';
   $('cameraValue').value=camera;$('context').textContent=`${n.name} ／ 幅${n.width}px ／ ${n.hub?'拠点':n.peaceful?'非戦闘地点':'戦闘地点の仮構成'} ／ ${backgroundLabel}。配置${items.length}体（見た目確認用）。`;
+  const cost={total:0,visible:0,standard:0};
   for(const mode of ['png','rect']){const ctx=$(mode).getContext('2d');ctx.clearRect(0,0,960,540);scenery(ctx,frame);ctx.imageSmoothingEnabled=false;
    for(const e of items){
     const a=placementArt(e),flip=e.flip&&a===assets[e.species],x=e.x-camera,y=e.y-a.hover;
     const body=spriteBounds(a,a.h),rear=a.rear&&spriteBounds(a.rear,a.rear.height,a.rear.bottom);
     const quality=mode==='png'?null:profile;
-    ctx.save();ctx.translate(x,y);
-    if(rear)paintSprite(ctx,a.rear,a.rear.image,rear,quality);
-    if(flip)ctx.scale(-1,1);
-    paintSprite(ctx,a,a.image,body,quality);ctx.restore();
+    if(rear)paintPlacementLayer(ctx,a.rear,rear,quality,x,y,false,cost);
+    paintPlacementLayer(ctx,a,body,quality,x,y,flip,cost);
     if(e.id===selected){
      const left=flip?-body.x-body.width:body.x;
      const minX=rear?Math.min(left,rear.x):left;
@@ -115,7 +144,8 @@ try{
   }
   $('placements').replaceChildren();for(const e of items){const label=document.createElement('button');label.type='button';label.dataset.id=e.id;label.setAttribute('aria-pressed',String(e.id===selected));label.onclick=()=>{selected=e.id;$('editMode').value='move';render()};label.textContent=`${e.species}：(${e.x}, ${e.y})${assets[e.species].hover?` ／ 浮き ${assets[e.species].hover}px`:``}`;$('placements').append(label)}
   const chosen=items.find(e=>e.id===selected);$('selectionStatus').textContent=chosen?`選択：${chosen.species} (${chosen.x}, ${chosen.y})`:'選択なし';for(const id of ['focusSelected','replaceSelected','copySelected','flipSelected','deleteSelected','clearSelection'])$(id).disabled=!chosen;
-  const runs=items.reduce((sum,e)=>sum+placementArt(e).profiles[profile].runs.length,0);$('status').textContent=`配置${items.length}体 ／ 矩形${runs.toLocaleString()}個（配置した全体の合計・FPSではありません） ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
+  $('viewportCost').textContent=viewportSummary(cost,profile);
+  $('status').textContent=`配置${items.length}体 ／ 矩形${cost.total.toLocaleString('ja-JP')}個（配置全体の合計） ／ ${valid?'全個体の配置基準点が足場上':'足場外の配置あり'}`;$('undo').disabled=!(histories[n.id]?.length);$('redo').disabled=!(redos[n.id]?.length);
   const diff=baselines[n.id]?comparePlacements(baselines[n.id],items):null;
   $('diffSummary').textContent=diff?`取得した本編配置との差分：追加${diff.added.length}・削除${diff.removed.length}・変更${diff.changed.length}・同じ${diff.unchanged}体`:'この地点の本編配置は未取得です。比較しても編集案は変わりません。';
   $('diffDetails').replaceChildren();

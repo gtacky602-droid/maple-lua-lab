@@ -1,0 +1,74 @@
+[
+  {
+    "camera": 0,
+    "profile": "legacy",
+    "total": 17792,
+    "visible": 2504,
+    "samePixels": {
+      "png": true,
+      "rect": true
+    },
+    "caption": "この画角の矩形 2,504個（標準）",
+    "status": "配置2体 ／ 矩形17,792個（配置全体の合計） ／ 全個体の配置基準点が足場上"
+  },
+  {
+    "camera": 0,
+    "profile": "h32c16",
+    "total": 4765,
+    "visible": 626,
+    "samePixels": {
+      "png": true,
+      "rect": true
+    },
+    "caption": "この画角の矩形 626個（標準 2,504個から75.0%減）",
+    "status": "配置2体 ／ 矩形4,765個（配置全体の合計） ／ 全個体の配置基準点が足場上"
+  },
+  {
+    "camera": 600,
+    "profile": "legacy",
+    "total": 17792,
+    "visible": 17792,
+    "samePixels": {
+      "png": true,
+      "rect": true
+    },
+    "caption": "この画角の矩形 17,792個（標準）",
+    "status": "配置2体 ／ 矩形17,792個（配置全体の合計） ／ 全個体の配置基準点が足場上"
+  },
+  {
+    "camera": 600,
+    "profile": "h32c16",
+    "total": 4765,
+    "visible": 4765,
+    "samePixels": {
+      "png": true,
+      "rect": true
+    },
+    "caption": "この画角の矩形 4,765個（標準 17,792個から73.2%減）",
+    "status": "配置2体 ／ 矩形4,765個（配置全体の合計） ／ 全個体の配置基準点が足場上"
+  },
+  {
+    "camera": 1920,
+    "profile": "legacy",
+    "total": 17792,
+    "visible": 0,
+    "samePixels": {
+      "png": true,
+      "rect": true
+    },
+    "caption": "この画角に表示する素材はありません",
+    "status": "配置2体 ／ 矩形17,792個（配置全体の合計） ／ 全個体の配置基準点が足場上"
+  },
+  {
+    "camera": 1920,
+    "profile": "h32c16",
+    "total": 4765,
+    "visible": 0,
+    "samePixels": {
+      "png": true,
+      "rect": true
+    },
+    "caption": "この画角に表示する素材はありません",
+    "status": "配置2体 ／ 矩形4,765個（配置全体の合計） ／ 全個体の配置基準点が足場上"
+  }
+]
