@@ -1,0 +1,33 @@
+{
+  "results": {
+    "original-wind-ring": {
+      "sharedHP": 315,
+      "sharedWarnings": [
+        "WR01",
+        "WR02"
+      ],
+      "bothReportedAndSaved": true,
+      "reportReward": [
+        364882,
+        0,
+        461918,
+        6
+      ]
+    },
+    "original-bellgate": {
+      "sharedHP": 450,
+      "sharedWarnings": [
+        "BG01",
+        "BG02"
+      ],
+      "bothReportedAndSaved": true,
+      "reportReward": [
+        2297237,
+        0,
+        660060,
+        7
+      ]
+    }
+  },
+  "errors": []
+}

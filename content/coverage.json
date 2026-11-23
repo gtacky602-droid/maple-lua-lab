@@ -8140,6 +8140,12 @@
       "baptist-field-sanctuary",
       "fontaine-hub",
       "bygone-wp-68610",
+      "tunigi-camp",
+      "tunigi-return-shelter",
+      "tunigi-fragment-vault",
+      "bygone-camp",
+      "bygone-listening-gallery",
+      "bygone-bell-archive",
       "cineas-legend-chamber",
       "fon-wp-50056",
       "vivianne-legend-bank",
@@ -8325,7 +8331,9 @@
       "original-tea-boulder",
       "original-snow-sweeper",
       "original-windward-tower",
-      "original-moon-crab"
+      "original-moon-crab",
+      "original-wind-ring",
+      "original-bellgate"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8585,7 +8593,9 @@
       "evidence/coop-original-field-bosses-lua.json",
       "evidence/coop-original-field-bosses-browser.json",
       "evidence/coop-moon-crab-lua-http.json",
-      "evidence/coop-moon-crab-browser.json"
+      "evidence/coop-moon-crab-browser.json",
+      "evidence/coop-ruin-guardians-lua-http.json",
+      "evidence/coop-ruin-guardians-browser.json"
     ],
     "pending": [
       "remaining lab-original field encounters, remaining Local Legends and Stygian bosses",

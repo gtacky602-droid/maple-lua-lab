@@ -2317,12 +2317,13 @@
       "evidence": [
         "docs/balance/TUNIGI_EXCAVATION_WEB.md",
         "evidence/tunigi-excavation-lua.json",
-        "evidence/tunigi-excavation-browser.json"
+        "evidence/tunigi-excavation-browser.json",
+        "evidence/coop-ruin-guardians-lua-http.json",
+        "evidence/coop-ruin-guardians-browser.json"
       ],
       "remaining": [
         "連続アニメーション",
-        "報酬の調整",
-        "マルチ検証"
+        "報酬の調整"
       ],
       "fieldNode": "tunigi-fragment-vault",
       "fieldEntrance": "風礫の記録庫（Lv130）",
@@ -2344,12 +2345,13 @@
       "evidence": [
         "docs/balance/BYGONE_RESONANCE_WEB.md",
         "evidence/bygone-resonance-lua.json",
-        "evidence/bygone-resonance-browser.json"
+        "evidence/bygone-resonance-browser.json",
+        "evidence/coop-ruin-guardians-lua-http.json",
+        "evidence/coop-ruin-guardians-browser.json"
       ],
       "remaining": [
         "連続アニメーション",
-        "素材報酬の選択",
-        "マルチ検証"
+        "素材報酬の選択"
       ],
       "fieldNode": "bygone-bell-archive",
       "fieldEntrance": "潮鐘の記録室（Lv160）",

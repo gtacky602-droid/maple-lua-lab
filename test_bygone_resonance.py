@@ -123,6 +123,7 @@ collect(s,second,2,403)
 collect(s,second,3,848,391)
 gate(s,55,camp)
 report(s,second,(1280000,12300,6))
+coop_fixture=checkpoint(s)
 
 gate(s,1265,gallery)
 gate(s,1390,archive,opened=False)
@@ -167,4 +168,5 @@ proof=dict(legacyLv80Access=True,twoWayWaterway=True,pauseHoldsCrossing=True,
 work=ROOT/'work'
 work.mkdir(exist_ok=True)
 (work/'bygone-resonance-fixture.json').write_text(json.dumps(fixture),encoding='utf8')
+(work/'coop-original-bellgate-fixture.json').write_text(json.dumps(coop_fixture),encoding='utf8')
 print(proof)

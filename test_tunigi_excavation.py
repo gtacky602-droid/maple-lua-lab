@@ -126,6 +126,7 @@ move(s,879)
 collect(s,second,3)
 gate(s,55,camp)
 report(s,second,(630000,6200,5))
+coop_fixture=checkpoint(s)
 
 core.action(s,'story_accept:'+third)
 gate(s,1240,shelter)
@@ -169,4 +170,5 @@ proof=dict(legacyLv60Access=True,tones=tones,positions=[545,820,1120],previewRes
 work=ROOT/'work'
 work.mkdir(exist_ok=True)
 (work/'tunigi-excavation-fixture.json').write_text(json.dumps(fixture),encoding='utf8')
+(work/'coop-original-wind-ring-fixture.json').write_text(json.dumps(coop_fixture),encoding='utf8')
 print(proof)

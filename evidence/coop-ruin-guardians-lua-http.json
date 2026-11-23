@@ -1,0 +1,66 @@
+{
+  "original-wind-ring": {
+    "lua": {
+      "players": 4,
+      "hp": 315,
+      "moves": [
+        "WR01",
+        "WR02"
+      ],
+      "noDoubleHitOnRoomCreation": true,
+      "staggeredZones": 1,
+      "lockedTarget": [
+        778.0,
+        910.0
+      ],
+      "sharedRecovery": true,
+      "twoContributorsOnly": true,
+      "noFightPayout": true,
+      "reportReward": [
+        364882,
+        0,
+        461918,
+        6
+      ]
+    },
+    "http": {
+      "personalGate": true,
+      "ordinaryAttackSharesHP": true,
+      "retreatKeepsHP": true,
+      "onlyContributorAdvances": true,
+      "collapseDependsOnPersonalQuest": true
+    }
+  },
+  "original-bellgate": {
+    "lua": {
+      "players": 4,
+      "hp": 450,
+      "moves": [
+        "BG01",
+        "BG02"
+      ],
+      "noDoubleHitOnRoomCreation": true,
+      "staggeredZones": 2,
+      "lockedTarget": [
+        774.0,
+        940.0
+      ],
+      "sharedRecovery": true,
+      "twoContributorsOnly": true,
+      "noFightPayout": true,
+      "reportReward": [
+        2297237,
+        0,
+        660060,
+        7
+      ]
+    },
+    "http": {
+      "personalGate": true,
+      "ordinaryAttackSharesHP": true,
+      "retreatKeepsHP": true,
+      "onlyContributorAdvances": true,
+      "collapseDependsOnPersonalQuest": false
+    }
+  }
+}

@@ -4,10 +4,14 @@ return function(C,art)
  function guardian.spawn(b) b.recovering=false end
  guardian.cancel=guardian.spawn
 
+ function guardian.shareCast(cast,actors)
+  for _,zone in ipairs(cast.zones) do C.shareFieldHits({zone.seen},actors) end
+ end
+
  function guardian.begin(b,spec,move,target)
   b.facing=target.x<b.x and -1 or 1
   local anchor=move.aimAtTarget and target.x or b.x
-  local cast={move=move,tick=0,zones={},source={id=b.id,owner=b,y=spec.floorY,damageElement=move.element}}
+  local cast={move=move,tick=0,zones={},source={id=b.id,owner=b,x=b.x,y=spec.floorY,damageElement=move.element}}
   if move.travel then
    cast.origin=b.x
    cast.destination=math.max(spec.arenaMin+move.halfWidth,
@@ -34,6 +38,7 @@ return function(C,art)
      local previous=b.x
      local fraction=(cast.tick-zone.first+1)/move.active
      b.x=cast.origin+(cast.destination-cast.origin)*fraction
+     cast.source.x=b.x
      left,right=math.min(previous,b.x)-move.halfWidth,math.max(previous,b.x)+move.halfWidth
     end
     C.hitFieldArea(state,cast.source,zone.seen,left,right,zone.top,move.damage)
