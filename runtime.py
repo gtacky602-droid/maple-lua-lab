@@ -438,8 +438,9 @@ def runtime():
     plate_tail=lua.execute((ROOT/'field-plate-tail.lua').read_text(encoding='utf8'))(core)
     core.plateTailArt=field_art(lua,'plate-tail',('idle',))
     field_display=lua.execute((ROOT/'field-display.lua').read_text(encoding='utf8'))
-    wind_ring=field_display(core,field_art(lua,'wind-ring',('idle',)).idle)
-    bell_gate=field_display(core,field_art(lua,'bellgate',('idle',)).idle)
+    ruin_guardian=lua.execute((ROOT/'field-ruin-guardian.lua').read_text(encoding='utf8'))
+    wind_ring=ruin_guardian(core,field_art(lua,'wind-ring',('idle',)).idle)
+    bell_gate=ruin_guardian(core,field_art(lua,'bellgate',('idle',)).idle)
     canopy_fungus=field_display(core,field_art(lua,'canopy-fungus',('idle',)).idle)
     core.trolleyArt=field_art(lua,'mirage-trolley',('idle',),idle='mirage-trolley-sprites-v1.json').idle
     core.parcelMekaArt=field_art(lua,'parcel-meka',('idle',),idle='parcel-meka-sprites-v1.json').idle

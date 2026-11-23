@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {observeRuinAttacks} from './tools/browser_ruin_guardian_test.mjs';
 
 
 const camp='bygone-camp',pier='bygone-waterway-pier',chamber='bygone-resonance-chamber';
@@ -210,7 +211,9 @@ try{
     return sceneryStatus(window.lab.frame);
   });
   assert.deepEqual(background,{key:'bygoneResonance',file:'bygone-resonance-background-v1.png',state:'ready'});
+  await wait(()=>Object.values(window.lab.frame.fieldBoss?.zones??{}).some(zone=>!zone.active));
   const commands=await compare();
+  const battle=await observeRuinAttacks(page,['BG01','BG02']);
   await defeatOne(865);
   await count(third,1);
   assert.equal((await frame()).progression.killXp,ready.progression.killXp);
@@ -229,6 +232,8 @@ try{
   await nodeIs(camp);
   const resumed=await frame();
   assert.ok([first,second,third].every(id=>resumed.story.quests[id]?.status==='complete'));
+  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1'))
+    .endgame.bosses['original-bellgate'].clears),1);
   await walk(689);
   await wait(()=>window.lab.frame.storyNearbyMilestone?.label==='音の絵本を開く');
   await page.click('#airflowSound');
@@ -240,7 +245,7 @@ try{
   await page.locator('.game').screenshot({path:prefix+'-book.png'});
   assert.deepEqual(errors,[]);
   const proof={threeQuests:true,waterway:true,reversedSilent:true,repairedTones,wrongOrderResets:true,
-    mutedOrder:true,bridgeAfterReload:true,firstReport,bookAfterReload:true,bookTones,background,commands,errors};
+    mutedOrder:true,bridgeAfterReload:true,firstReport,bookAfterReload:true,bookTones,background,commands,battle,bossClearSaved:true,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){

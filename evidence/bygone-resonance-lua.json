@@ -11,7 +11,34 @@
   "wrongOrderClearsOnlyLights": true,
   "bridgePersistsAfterLoad": true,
   "recordOnUpperShelf": true,
-  "bossAppearanceOnly": true,
+  "battle": {
+    "moves": [
+      "BG01",
+      "BG02"
+    ],
+    "warningAt": 68,
+    "jumpAvoidance": true,
+    "targetedAreaStaysFixed": true,
+    "singleHit": 24,
+    "recoveryFactor": 1.35,
+    "warningZones": [
+      {
+        "top": 428,
+        "active": false,
+        "left": 575,
+        "first": 68,
+        "right": 851
+      },
+      {
+        "top": 428,
+        "active": false,
+        "left": 1023,
+        "first": 110,
+        "right": 1299
+      }
+    ]
+  },
+  "bossClearSaved": true,
   "bookPages": [
     [
       "≈",

@@ -32,9 +32,22 @@
     "state": "ready"
   },
   "commands": {
-    "png": 27,
-    "standard": 8912,
-    "light": 2164
+    "png": 33,
+    "standard": 8918,
+    "light": 2170
   },
+  "battle": {
+    "moves": [
+      "BG02",
+      "BG01"
+    ],
+    "recovered": [
+      "BG02",
+      "BG01"
+    ],
+    "alive": true,
+    "returns": 0
+  },
+  "bossClearSaved": true,
   "errors": []
 }

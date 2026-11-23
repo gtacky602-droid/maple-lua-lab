@@ -3,6 +3,7 @@ import json
 from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.ruin_guardian_test import exercise_ruin_guardian
 
 
 lua, core = runtime()
@@ -138,11 +139,10 @@ f=frame(s)
 assert f.fieldBoss and f.fieldBoss.id==boss
 gate(s,1630,shelter,opened=False)
 move(s,880)
-advance(core,s,120)
-assert s.fieldSlots[boss].cast is None and s.actors[1].hp==s.actors[1].maxhp
-kill_xp=s.progression.killXp
+battle=exercise_ruin_guardian(lua,core,s,boss)
+kill_xp,mora=s.progression.killXp,s.mora
 defeat(s,s.fieldSlots[boss].enemy)
-assert s.progression.killXp==kill_xp
+assert (s.progression.killXp,s.mora)==(kill_xp,mora)
 assert s.story.quests[third].count==2 and s.fieldSlots[boss].phase=='respawn'
 assert '崩れた壁' in gate(s,55,passage,opened=False).reason
 gate(s,1630,shelter,opened=False)
@@ -155,6 +155,7 @@ collect(s,third,4)
 report(s,third,(364882,461918,6))
 s=restore(s)
 assert s.story.node==camp and s.story.quests[third].status=='complete'
+assert s.endgame.bosses[boss].clears==1
 move(s,665)
 assert frame(s).storyNearbyMilestone.label=='展示された記録片を読む'
 collect(s,third,4)
@@ -163,7 +164,7 @@ assert '東の退路' in s.storyNotice
 proof=dict(legacyLv60Access=True,tones=tones,positions=[545,820,1120],previewResetsOnReload=True,
            fixedDeckSurvivesReload=True,
            windBlocksLift=True,returnTrip=True,gateCollapse=True,preparedExit=True,
-           bossAppearanceOnly=True,readableAfterRestore=True,firstReport=[364882,461918,6],noSecondPayout=True)
+           battle=battle,bossClearSaved=True,readableAfterRestore=True,firstReport=[364882,461918,6],noSecondPayout=True)
 (ROOT/'evidence/tunigi-excavation-lua.json').write_text(json.dumps(proof,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
 work=ROOT/'work'
 work.mkdir(exist_ok=True)

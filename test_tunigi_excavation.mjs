@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {observeRuinAttacks} from './tools/browser_ruin_guardian_test.mjs';
 
 const camp='tunigi-camp',shelf='tunigi-vent-shelf',shop='tunigi-baffle-workshop';
 const shelter='tunigi-return-shelter',passage='tunigi-elite-passage',vault='tunigi-fragment-vault';
@@ -71,11 +72,13 @@ async function quest(id,label,status){
   await wait(({id,status})=>window.lab.frame.story.quests[id]?.status===status,{id,status});
 }
 
-async function defeatOne(x,y=480){
+async function defeatOne(x,y=480,goal){
   if(y===480)await walk(x);else await jump(x,y);
   const before=await frame();
+  const target=goal??before.kills+1;
+  if(before.kills>=target)return;
   await page.click('#auto');
-  await wait(n=>window.lab.frame.kills>=n,before.kills+1,25000);
+  await wait(n=>window.lab.frame.kills>=n,target,25000);
   await page.click('#auto');
   await wait(()=>!window.lab.frame.auto);
 }
@@ -138,10 +141,10 @@ try{
   await nodeIs(camp);
   await quest(first,'受注','active');
   await gate(925,shelf);
-  await defeatOne(286);
-  await defeatOne(742,390);
-  await walk(1170);
-  await defeatOne(1180);
+  const sentries=(await frame()).kills;
+  await defeatOne(286,480,sentries+1);
+  await defeatOne(742,390,sentries+2);
+  await defeatOne(1180,480,sentries+3);
   await count(first,1);
   await walk(449);
   await wait(()=>window.lab.frame.storyAirflow?.target==='○');
@@ -200,8 +203,9 @@ try{
   await quest(third,'受注','active');
   await gate(1240,shelter);
   await gate(1220,passage);
-  await defeatOne(392);
-  await defeatOne(908,390);
+  const elites=(await frame()).kills;
+  await defeatOne(392,480,elites+1);
+  await defeatOne(908,390,elites+2);
   await count(third,1);
   await gate(1530,vault);
   await walk(864);
@@ -214,7 +218,9 @@ try{
     return sceneryStatus(window.lab.frame);
   });
   assert.deepEqual(background,{key:'tunigiExcavation',file:'tunigi-excavation-background-v1.png',state:'ready'});
+  await wait(()=>Object.values(window.lab.frame.fieldBoss?.zones??{}).some(zone=>!zone.active));
   const commands=await compare();
+  const battle=await observeRuinAttacks(page,['WR01','WR02']);
   await defeatOne(866);
   await count(third,2);
   assert.equal((await frame()).progression.killXp,ready.progression.killXp);
@@ -236,13 +242,15 @@ try{
   await nodeIs(camp);
   const resumed=await frame();
   assert.ok([first,second,third].every(id=>resumed.story.quests[id]?.status==='complete'));
+  assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1'))
+    .endgame.bosses['original-wind-ring'].clears),1);
   await walk(665);
   await wait(()=>window.lab.frame.storyNearbyMilestone?.label==='展示された記録片を読む');
   await key('KeyG');
   await wait(()=>window.lab.frame.storyNotice?.includes('東の退路'));
   assert.deepEqual(errors,[]);
   const proof={threeQuests:true,tones,candidates,roundTrip:true,gateCollapse:true,
-    firstReport,preparedExit:true,readableAfterReload:true,background,commands,errors};
+    firstReport,preparedExit:true,readableAfterReload:true,background,commands,battle,bossClearSaved:true,errors};
   await fs.writeFile(prefix+'-browser.json',JSON.stringify(proof,null,2)+'\n');
   console.log(proof);
 }catch(error){

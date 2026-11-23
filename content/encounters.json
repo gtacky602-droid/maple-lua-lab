@@ -2315,10 +2315,11 @@
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "docs/balance/TUNIGI_EXCAVATION_WEB.md"
+        "docs/balance/TUNIGI_EXCAVATION_WEB.md",
+        "evidence/tunigi-excavation-lua.json",
+        "evidence/tunigi-excavation-browser.json"
       ],
       "remaining": [
-        "ボスの技",
         "連続アニメーション",
         "報酬の調整",
         "マルチ検証"
@@ -2329,7 +2330,7 @@
         "source": "assets/wind-ring-source-v1.png",
         "encoding": "assets/wind-ring-field-idle-sprites-v1.json",
         "audit": "evidence/wind-ring-art.json",
-        "status": "original sandstone split ring and mint core; appearance and story progression only"
+        "status": "original sandstone split ring and mint core, used in the quest battle"
       }
     },
     {
@@ -2341,10 +2342,11 @@
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "docs/balance/BYGONE_RESONANCE_WEB.md"
+        "docs/balance/BYGONE_RESONANCE_WEB.md",
+        "evidence/bygone-resonance-lua.json",
+        "evidence/bygone-resonance-browser.json"
       ],
       "remaining": [
-        "ボスの技",
         "連続アニメーション",
         "素材報酬の選択",
         "マルチ検証"
@@ -2355,7 +2357,7 @@
         "source": "assets/bellgate-source-v1.png",
         "encoding": "assets/bellgate-field-idle-sprites-v1.json",
         "audit": "evidence/bellgate-art.json",
-        "status": "original low-poly form reference; appearance and quest progression"
+        "status": "original stone guardian, used with floor warnings and recovery"
       }
     },
     {

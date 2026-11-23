@@ -3,6 +3,7 @@ import json
 from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.ruin_guardian_test import exercise_ruin_guardian
 
 
 lua,core=runtime()
@@ -130,15 +131,14 @@ core.action(s,'story_accept:'+third)
 gate(s,1265,gallery)
 gate(s,1390,archive)
 move(s,880)
-advance(core,s,120)
+battle=exercise_ruin_guardian(lua,core,s,boss)
 slot=s.fieldSlots[boss]
-assert slot.cast is None and s.actors[1].hp==s.actors[1].maxhp
 assert any(d.source=='bellgate-source-v1.png' for d in frame(s).draws.values())
 enemy=slot.enemy
-xp=s.progression.killXp
+xp,mora=s.progression.killXp,s.mora
 core.resolveCast(s,lua.table_from(dict(id=1,targetId=enemy.id,x=enemy.x,y=enemy.y,atk=800,dir=1,
     radial=True,mult=1,range=60,limit=1,element='physical',gain=0,color='#ffd083',critRate=0)))
-assert slot.phase=='respawn' and s.story.quests[third].count==1 and s.progression.killXp==xp
+assert slot.phase=='respawn' and s.story.quests[third].count==1 and (s.progression.killXp,s.mora)==(xp,mora)
 gate(s,1715,gallery,opened=False)
 collect(s,third,1,1402)
 collect(s,third,2,1402,386)
@@ -148,6 +148,7 @@ collect(s,third,3,689)
 report(s,third,(2297237,660060,7))
 s=restore(s)
 assert s.story.node==camp and s.story.quests[third].status=='complete'
+assert s.endgame.bosses[boss].clears==1
 move(s,689)
 assert frame(s).storyNearbyMilestone.label=='音の絵本を開く'
 pages=[]
@@ -160,7 +161,7 @@ assert pages==[('≈',[330,494]),('◇',[294]),('✧',[392,523,587]),('≈',[330
 
 proof=dict(legacyLv80Access=True,twoWayWaterway=True,pauseHoldsCrossing=True,
     reversedStoneSilent=True,turnedStoneNotes=[392,523,587],wrongOrderClearsOnlyLights=True,
-    bridgePersistsAfterLoad=True,recordOnUpperShelf=True,bossAppearanceOnly=True,bookPages=pages,
+    bridgePersistsAfterLoad=True,recordOnUpperShelf=True,battle=battle,bossClearSaved=True,bookPages=pages,
     firstReport=[2297237,660060,7],oneTimeReport=True)
 (ROOT/'evidence/bygone-resonance-lua.json').write_text(json.dumps(proof,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
 work=ROOT/'work'

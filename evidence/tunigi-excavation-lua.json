@@ -53,7 +53,27 @@
   "returnTrip": true,
   "gateCollapse": true,
   "preparedExit": true,
-  "bossAppearanceOnly": true,
+  "battle": {
+    "moves": [
+      "WR01",
+      "WR02"
+    ],
+    "warningAt": 65,
+    "jumpAvoidance": true,
+    "targetedAreaStaysFixed": true,
+    "singleHit": 20,
+    "recoveryFactor": 1.35,
+    "warningZones": [
+      {
+        "first": 65,
+        "right": 906,
+        "active": false,
+        "top": 436,
+        "left": 522
+      }
+    ]
+  },
+  "bossClearSaved": true,
   "readableAfterRestore": true,
   "firstReport": [
     364882,

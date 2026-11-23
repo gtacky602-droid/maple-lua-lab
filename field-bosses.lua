@@ -419,7 +419,7 @@ return function(C,configs,controllers)
    if not spec.presentationOnly and C.recordChallengeBoss then C.recordChallengeBoss(s,spec.id,started) end
    if spec.storyChallenge then C.storyBossDefeated(s,spec.storyChallenge) end
    if C.finishDuelReplay then C.finishDuelReplay(s,spec.id) end
-   if spec.presentationOnly then return end
+   if spec.presentationOnly or spec.questRewardsOnly then return end
   end
   if onKill then onKill(s,e) end
  end

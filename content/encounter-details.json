@@ -5,22 +5,113 @@
     "original-river-racer": {"remaining":["本役の美術と動き","固有攻撃と足場切り替え","装備別の難度調整","協力検証"],"art_candidate":{"item":"river-racer","audit":"evidence/river-racer-art.json","status":"Original placeholder for the chapter practice opponent"}},
     "original-grand-finale": {"remaining":["腕と荷台の固有攻撃","外装と腕の連続アニメーション","再戦の試運転","協力検証"],"art_candidate":{"item":"grand-finale","audit":"evidence/grand-finale-art.json","status":"original stage carrier; shutdown and performance route"}},
     "original-canopy-fungus": {"remaining":["ボスの技","連続アニメーション","報酬の調整","マルチ検証"],"art_candidate":{"item":"canopy-fungus","audit":"evidence/canopy-fungus-art.json","status":"original mushroom with canopy foliage; appearance and quest progression"}},
-    "original-bellgate": {"remaining":["ボスの技","連続アニメーション","素材報酬の選択","マルチ検証"],"art_candidate":{"item":"bellgate","audit":"evidence/bellgate-art.json","status":"original low-poly form reference; appearance and quest progression"}},
-    "original-wind-ring": {"remaining":["ボスの技","連続アニメーション","報酬の調整","マルチ検証"],"art_candidate":{"item":"wind-ring","audit":"evidence/wind-ring-art.json","status":"original sandstone split ring and mint core; appearance and story progression only"}},
+    "original-bellgate": {
+      "remaining": [
+        "連続アニメーション",
+        "素材報酬の選択",
+        "マルチ検証"
+      ],
+      "art_candidate": {
+        "item": "bellgate",
+        "audit": "evidence/bellgate-art.json",
+        "status": "original stone guardian, used with floor warnings and recovery"
+      },
+      "extra_evidence": [
+        "evidence/bygone-resonance-lua.json",
+        "evidence/bygone-resonance-browser.json"
+      ]
+    },
+    "original-wind-ring": {
+      "remaining": [
+        "連続アニメーション",
+        "報酬の調整",
+        "マルチ検証"
+      ],
+      "art_candidate": {
+        "item": "wind-ring",
+        "audit": "evidence/wind-ring-art.json",
+        "status": "original sandstone split ring and mint core, used in the quest battle"
+      },
+      "extra_evidence": [
+        "evidence/tunigi-excavation-lua.json",
+        "evidence/tunigi-excavation-browser.json"
+      ]
+    },
     "original-plate-tail": {"art_candidate":{"item":"plate-tail","audit":"evidence/plate-tail-art.json","status":"original basalt animal with two teal slate plates and collision-limited charge"}},
-    "original-tea-boulder": {"art_candidate":{"item":"tea-boulder","audit":"evidence/tea-boulder-art.json","status":"original limestone crawler, rock cover blocks a single direction of its pulse"}},
-    "original-rime-hare": {"art_candidate":{"item":"rime-hare","audit":"evidence/rime-hare-art.json","status":"original rock hare against mountain ridge with distinct floor telegraphs"}},
+    "original-tea-boulder": {
+      "art_candidate": {
+        "item": "tea-boulder",
+        "audit": "evidence/tea-boulder-art.json",
+        "status": "original limestone crawler, rock cover blocks a single direction of its pulse"
+      },
+      "remaining": [
+        "連続アニメーション",
+        "報酬の調整",
+        "別端末での共闘検証"
+      ],
+      "extra_evidence": [
+        "evidence/chenyu-tea-lua.json",
+        "evidence/chenyu-tea-browser.json",
+        "evidence/coop-original-field-bosses-lua.json",
+        "evidence/coop-original-field-bosses-browser.json"
+      ]
+    },
+    "original-rime-hare": {
+      "art_candidate": {
+        "item": "rime-hare",
+        "audit": "evidence/rime-hare-art.json",
+        "status": "original rock hare against mountain ridge with distinct floor telegraphs"
+      },
+      "remaining": [
+        "連続アニメーション",
+        "報酬の調整",
+        "別端末での共闘検証"
+      ],
+      "extra_evidence": [
+        "evidence/spine-observation-lua.json",
+        "evidence/spine-observation-browser.json",
+        "evidence/coop-original-field-bosses-lua.json",
+        "evidence/coop-original-field-bosses-browser.json"
+      ]
+    },
     "original-ice-crawler": {"art_candidate":{"item":"ice-crawler","audit":"evidence/ice-crawler-art.json","status":"original field boss, visible armor and exposed core"}},
     "original-prism-walker": {"art_candidate":{"item":"prism-walker","audit":"evidence/prism-walker-art.json","status":"original field boss and local reflection outline"}},
     "original-rubble-sifter": {"art_candidate":{"item":"rubble-sifter","audit":"evidence/cap-stopover-art.json","status":"original optional encounter, heating and exposed rotor poses"}},
-    "original-windward-tower": {"art_candidate":{"item":"windward-tower","audit":"evidence/windward-art.json","status":"original optional branch boss with three poses"}},
+    "original-windward-tower": {
+      "art_candidate": {
+        "item": "windward-tower",
+        "audit": "evidence/windward-art.json",
+        "status": "original optional branch boss with three poses"
+      },
+      "remaining": [
+        "連続アニメーション",
+        "報酬の調整",
+        "別端末での共闘検証"
+      ],
+      "extra_evidence": [
+        "evidence/windward-branch-lua.json",
+        "evidence/coop-original-field-bosses-lua.json",
+        "evidence/coop-original-field-bosses-browser.json"
+      ]
+    },
     "original-frost-antler": {"art_candidate":{"item":"frost-antler","audit":"evidence/white-pass-art.json","status":"original story boss base and two key poses"}},
     "original-snow-sweeper": {
       "art_candidate": {
         "item": "snow-sweeper",
         "audit": "evidence/snow-rail-art.json",
         "status": "original field boss, idle, plowing and open cooling vents"
-      }
+      },
+      "remaining": [
+        "連続アニメーション",
+        "報酬の調整",
+        "別端末での共闘検証"
+      ],
+      "extra_evidence": [
+        "evidence/snow-rail-lua.json",
+        "evidence/snow-rail-browser.json",
+        "evidence/coop-original-field-bosses-lua.json",
+        "evidence/coop-original-field-bosses-browser.json"
+      ]
     },
     "original-twin-shuttle-loom": {
       "art_candidate": {
