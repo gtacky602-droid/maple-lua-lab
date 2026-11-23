@@ -2075,12 +2075,16 @@
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "docs/field-boss-v1/SNOW_RAIL_WEB.md"
+        "docs/field-boss-v1/SNOW_RAIL_WEB.md",
+        "evidence/snow-rail-lua.json",
+        "evidence/snow-rail-browser.json",
+        "evidence/coop-original-field-bosses-lua.json",
+        "evidence/coop-original-field-bosses-browser.json"
       ],
       "remaining": [
         "連続アニメーション",
         "報酬の調整",
-        "マルチ検証"
+        "別端末での共闘検証"
       ],
       "fieldNode": "steam-stabling-depot",
       "fieldEntrance": "蒸気留置庫（Lv142）",
@@ -2125,12 +2129,15 @@
       "action": null,
       "grouping": "original_design",
       "evidence": [
-        "docs/balance/WINDWARD_ROUTE_WEB.md"
+        "docs/balance/WINDWARD_ROUTE_WEB.md",
+        "evidence/windward-branch-lua.json",
+        "evidence/coop-original-field-bosses-lua.json",
+        "evidence/coop-original-field-bosses-browser.json"
       ],
       "remaining": [
         "連続アニメーション",
         "報酬の調整",
-        "マルチ検証"
+        "別端末での共闘検証"
       ],
       "fieldNode": "dornman-windworks",
       "fieldEntrance": "潮風の機関室（Lv175）",

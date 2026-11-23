@@ -152,7 +152,11 @@
     "spine-shelter": "峰下の観測小屋",
     "spine-trace-ridge": "霜紋の稜線",
     "chenyu-tea-pavilion": "谷を望む茶亭",
-    "chenyu-boulder-gully": "段丘の岩陰"
+    "chenyu-boulder-gully": "段丘の岩陰",
+    "snow-rail-transfer": "連絡鉄道・積替場",
+    "steam-stabling-depot": "蒸気留置庫",
+    "dornman-flag-trestle": "ドーンマンポート・旗の渡り廊下",
+    "dornman-windworks": "潮風の機関室"
   },
   "capacity": 4,
   "rewardRange": {"x": 420, "y": 180},

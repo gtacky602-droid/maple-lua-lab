@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する152地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する156地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。同じ地点に4人が集まると、旅人と同行者が計8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -20,7 +20,15 @@ HTTPで、同じ部屋の4人が南の街道と風鳴りの広場に2人ずつ�
 
 岩兎の攻撃範囲と踏石獣の岩脈を部屋で共有する。岩兎の薙ぎ払いは高い棚に乗って避けられる。踏石獣の岩脈は途中の岩で止まる。同じ攻撃を受けた直後にソロから部屋を作っても、その攻撃のダメージは追加されない。有効打と距離の条件を満たした参加者に討伐報酬が入り、受注した人はそのあと現地調査と報告を進められる。 [4人の判定と依頼の保存](../evidence/coop-original-field-bosses-lua.json)
 
-Chromeの2画面で、小屋や茶亭から入り、通常攻撃で岩兎を約24秒、踏石獣を約25秒で討伐した。参加者それぞれに岩兎は380モラ、踏石獣は472モラが入った。依頼を受けた側は、討伐後に観測板への展示や茶席の調査を終え、報告してからセーブを読み直した。 [Chromeの結果](../evidence/coop-original-field-bosses-browser.json) · [岩兎の共闘画面](../evidence/coop-original-field-bosses-original-rime-hare.png) · [踏石獣の共闘画面](../evidence/coop-original-field-bosses-original-tea-boulder.png)
+Chromeの2画面で、小屋や茶亭から入り、通常攻撃で岩兎と踏石獣をいずれも約25秒で討伐した。参加者それぞれに岩兎は380モラ、踏石獣は472モラが入った。依頼を受けた側は、討伐後に観測板への展示や茶席の調査を終え、報告してからセーブを読み直した。 [Chromeの結果](../evidence/coop-original-field-bosses-browser.json) · [岩兎の共闘画面](../evidence/coop-original-field-bosses-original-rime-hare.png) · [踏石獣の共闘画面](../evidence/coop-original-field-bosses-original-tea-boulder.png)
+
+## 鉱殻除雪機と稜風の帆塔機
+
+鉱殻除雪機はLv142で、積替場から蒸気留置庫に入る。部屋に入ったあとも、各自が「止まらない除雪機」を受け、積替場の信号箱を操作してから門を通る。稜風の帆塔機はLv175で、旗の渡り廊下から潮風の機関室に入る。 [連絡鉄道の道順](field-boss-v1/SNOW_RAIL_WEB.md) · [港から機関室までの道順](balance/WINDWARD_ROUTE_WEB.md)
+
+除雪機が突進すると本体と命中範囲が一緒に動く。床に広がる蒸気は跳び越えられる。帆塔機の横風はジャンプ、縦風は左右へ移動して避けられる。冷却や排気口の開放は同じタイミングで全員に見える。4人のLua試験では、二人が攻撃して倒し、討伐報酬はその二人に入った。除雪機は各1,298,650 EXPと425モラ、帆塔機は各6,514,150 EXPと960モラだった。 [攻撃と報酬の検証](../evidence/coop-original-field-bosses-lua.json)
+
+Chromeの2画面で、それぞれの門から入場し、討伐後に圧力計と通行確認の標識を調べて報告した。両者とも討伐記録を保存し、拠点から再開できた。 [Chromeの結果](../evidence/coop-original-field-bosses-browser.json) · [留置庫の戦闘画面](../evidence/coop-original-field-bosses-original-snow-sweeper.png) · [機関室の戦闘画面](../evidence/coop-original-field-bosses-original-windward-tower.png)
 
 ## 無相の風を共闘する
 

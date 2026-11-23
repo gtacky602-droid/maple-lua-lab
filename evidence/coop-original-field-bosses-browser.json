@@ -7,14 +7,15 @@
         {
           "won": true,
           "returns": 0,
-          "seconds": 23.68333333333223
+          "seconds": 24.66666666666587
         },
         {
           "won": true,
           "returns": 0,
-          "seconds": 23.66666666666569
+          "seconds": 24.649999999999345
         }
       ],
+      "personalSignalBox": false,
       "hostReported": true,
       "bothSavedAndReloaded": true
     },
@@ -25,14 +26,53 @@
         {
           "won": true,
           "returns": 0,
-          "seconds": 25.283333333332205
+          "seconds": 25.599999999999064
         },
         {
           "won": true,
           "returns": 0,
-          "seconds": 25.299999999998978
+          "seconds": 25.58333333333252
         }
       ],
+      "personalSignalBox": false,
+      "hostReported": true,
+      "bothSavedAndReloaded": true
+    },
+    "original-snow-sweeper": {
+      "hp": 345,
+      "moraPerPlayer": 425,
+      "clear": [
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 6.599999999999628
+        },
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 6.599999999999628
+        }
+      ],
+      "personalSignalBox": true,
+      "hostReported": true,
+      "bothSavedAndReloaded": true
+    },
+    "original-windward-tower": {
+      "hp": 940,
+      "moraPerPlayer": 960,
+      "clear": [
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 28.716666666665038
+        },
+        {
+          "won": true,
+          "returns": 0,
+          "seconds": 28.73333333333197
+        }
+      ],
+      "personalSignalBox": false,
       "hostReported": true,
       "bothSavedAndReloaded": true
     }

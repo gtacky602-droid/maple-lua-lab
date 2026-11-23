@@ -8,6 +8,9 @@ return function(C)
   b.pose,b.exposed,b.barrier='idle',false,spec.barrier
  end
  function tower.cancel(b,spec) tower.spawn(b,spec) end
+ function tower.shareCast(cast,actors)
+  C.shareFieldHits({cast.seen},actors)
+ end
 
  function tower.begin(b,spec,move,target)
   b.facing=target.x<b.x and -1 or 1

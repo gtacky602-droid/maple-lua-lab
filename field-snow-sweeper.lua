@@ -9,6 +9,9 @@ return function(C)
   b.cooling=false
  end
  function sweeper.cancel(b) sweeper.spawn(b) end
+ function sweeper.shareCast(cast,actors)
+  C.shareFieldHits({cast.seen},actors)
+ end
  function sweeper.damageFactor(_,_,b,spec)
   return b.cooling and spec.coolingDamageFactor or 1
  end

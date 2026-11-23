@@ -9,14 +9,24 @@ const nodes = Object.fromEntries(graph.nodes.map(n => [n.id,n]));
 const prefix = 'evidence/coop-original-field-bosses';
 const key = 'maple-lua-lab.checkpoint.v1';
 const cases = [
-  ['original-rime-hare','spine-ridge-record',95000007,1040,380],
-  ['original-tea-boulder','chenyu-tea-with-friends',95000008,984,472],
+  ['original-rime-hare','spine-ridge-record',95000007,1040,380,820,[]],
+  ['original-tea-boulder','chenyu-tea-with-friends',95000008,984,472,820,[]],
+  ['original-snow-sweeper','snow-rail-pressure',95000001,345,425,605,['snezhnaya-field','snow-rail-transfer']],
+  ['original-windward-tower','windward-tower-clear',95000003,940,960,720,['dornman-flag-trestle']],
 ];
 const browser = await chromium.launch({channel:'chrome',headless:true});
 const readFrame = page => page.evaluate(() => window.lab.frame);
-const errors = [];
+const errors = new Set();
 const results = {};
 let currentPlayers = [];
+
+async function inspect(player, objective, quest, count) {
+  assert.equal(await player.route.node(),objective.node);
+  await player.route.walk(objective.x);
+  await player.route.changeHeight(objective.y);
+  await player.page.keyboard.press('KeyG');
+  await player.route.count(quest,count);
+}
 
 async function fight(page, side) {
   await page.evaluate(side => {
@@ -56,22 +66,30 @@ async function fight(page, side) {
 }
 
 try {
-  for (const [boss,questId,entity,hp,mora] of cases) {
+  for (const [boss,questId,entity,hp,mora,approach,path] of cases) {
     const quest = graph.quests.find(q => q.id===questId);
-    const players = await Promise.all([0,1].map(async () => {
+    const bossIndex = quest.itinerary.findIndex(q=>q.kind==='boss');
+    const arena = quest.itinerary[bossIndex].node;
+    const players = [];
+    currentPlayers = players;
+    for (let i=0; i<2; i++) {
       const page = await browser.newPage({viewport:{width:1200,height:920}});
-      page.on('pageerror',error=>errors.push(error.message));
-      page.on('response',r=>{if (r.url().endsWith('/api/frame')&&!r.ok()) errors.push('Frame HTTP '+r.status());});
+      page.on('pageerror',error=>errors.add(error.message));
+      page.on('response',async r=>{
+        if (!r.url().endsWith('/api/frame') || r.ok()) return;
+        const body = await r.json().catch(()=>null);
+        errors.add('Frame HTTP '+r.status()+(body?.error ? ' '+body.error : ''));
+      });
       const route = waypointDriver(page,nodes,{walkTimeout:20000});
+      players.push({page,route});
       await page.goto(process.env.LAB_URL || 'http://127.0.0.1:9068/');
-      await page.waitForFunction(()=>window.lab?.frame);
+      await page.waitForFunction(()=>window.lab?.frame,undefined,{timeout:60000});
       await page.locator('#importSave').setInputFiles('work/coop-'+boss+'-fixture.json');
       await route.waitNode(quest.hub);
-      return {page,route};
-    }));
+    }
     const [host,guest] = players;
-    currentPlayers = players;
     await host.route.accept(questId);
+    if (bossIndex) await guest.route.accept(questId);
     await Promise.all(players.map(({page})=>page.locator('#coopPanel summary').click()));
     await host.page.locator('#coopCreate').click();
     await host.page.waitForFunction(()=>window.lab.frame.coop?.code);
@@ -79,11 +97,33 @@ try {
     await guest.page.locator('#coopCode').fill(code);
     await guest.page.locator('#coopJoin').click();
     await guest.page.waitForFunction(c=>window.lab.frame.coop?.code===c,code);
-    await Promise.all(players.map(({route})=>route.cross(quest.target)));
-    await Promise.all(players.map(({route})=>route.walk(820)));
-    await Promise.all(players.map(({page})=>page.waitForFunction(id=>window.lab.frame.fieldBoss?.id===id,boss)));
+    await Promise.all(players.map(async ({route})=>{
+      for (const stop of path) await route.cross(stop);
+    }));
+    if (bossIndex) {
+      await inspect(host,quest.itinerary[0],questId,1);
+      await host.route.cross(arena);
+      const edge = nodes[path.at(-1)].exits.find(e=>e.to===arena);
+      await guest.route.walk(edge.x);
+      await guest.page.waitForFunction(id=>{
+        const f=window.lab.frame;
+        return f.storyNearbyPortal?.to===id && f.storyNearbyPortal.available===false;
+      },arena);
+      await guest.page.keyboard.press('KeyF');
+      assert.equal(await guest.route.node(),path.at(-1));
+      await inspect(guest,quest.itinerary[0],questId,1);
+      await guest.route.cross(arena);
+    } else {
+      await Promise.all(players.map(({route})=>route.cross(arena)));
+    }
+    await Promise.all(players.map(({page})=>page.waitForFunction(({entity,hp})=>{
+      const enemies=Object.values(window.lab.frame.coop?.enemies??{});
+      return enemies.some(e=>e.id===entity&&e.maxhp===hp);
+    },{entity,hp})));
     const before = await Promise.all(players.map(({page})=>readFrame(page)));
-    assert.ok(before.every(f=>f.fieldBoss.maxhp===hp&&f.fieldBoss.hp===hp));
+    assert.ok(before.every(f=>Object.values(f.coop.enemies).some(e=>e.id===entity&&e.hp===hp)));
+    await Promise.all(players.map(({route})=>route.walk(approach)));
+    await Promise.all(players.map(({page})=>page.waitForFunction(id=>window.lab.frame.fieldBoss?.id===id,boss)));
     await host.page.waitForFunction(()=>window.lab.frame.fieldBoss?.lane||window.lab.frame.fieldBoss?.lanes);
     await host.page.locator('#game').screenshot({path:prefix+'-'+boss+'.png'});
     await Promise.all(players.map(({page},i)=>fight(page,i?1:-1)));
@@ -96,43 +136,47 @@ try {
       assert.equal(frame.mora-before[i].mora,mora);
       return run;
     }));
-    assert.equal((await readFrame(host.page)).story.quests[questId].count,1);
-    assert.equal((await readFrame(guest.page)).story.quests[questId],undefined);
+    assert.equal((await readFrame(host.page)).story.quests[questId].count,bossIndex+1);
+    assert.equal((await readFrame(guest.page)).story.quests[questId]?.count,bossIndex ? bossIndex+1 : undefined);
     for (const [index,objective] of quest.itinerary.entries()) {
-      if (!index) continue;
-      if (await host.route.node()!==objective.node) await host.route.cross(objective.node);
-      await host.route.walk(objective.x);
-      await host.route.changeHeight(objective.y);
-      await host.page.keyboard.press('KeyG');
-      await host.route.count(questId,index+1);
+      if (index>bossIndex && objective.node===arena) await inspect(host,objective,questId,index+1);
+    }
+    await Promise.all(players.map(async ({route})=>{
+      for (const stop of [...path].reverse()) await route.cross(stop);
+      await route.cross(quest.hub);
+    }));
+    for (const [index,objective] of quest.itinerary.entries()) {
+      if (index>bossIndex && objective.node!==arena) await inspect(host,objective,questId,index+1);
     }
     await host.route.report(questId);
-    await guest.route.cross(quest.hub);
     await Promise.all(players.map(async ({page},i)=>{
       await page.locator('#saveProgress').click();
-      await page.waitForFunction(({key,boss,questId,i})=>{
+      await page.waitForFunction(({key,boss,questId,i,bossIndex})=>{
         const s=JSON.parse(localStorage.getItem(key));
         return s?.endgame?.bosses?.[boss]?.clears===1 &&
-          (i ? !s.story.quests[questId] : s.story.quests[questId]?.status==='complete');
-      },{key,boss,questId,i});
+          (i ? (bossIndex ? s.story.quests[questId]?.count===bossIndex+1 : !s.story.quests[questId])
+             : s.story.quests[questId]?.status==='complete');
+      },{key,boss,questId,i,bossIndex});
       await page.reload();
       await page.waitForFunction(()=>window.lab?.frame);
       await page.locator('#loadProgress').click();
     }));
     await Promise.all(players.map(({route})=>route.waitNode(quest.hub)));
     assert.equal((await readFrame(host.page)).story.quests[questId].status,'complete');
-    results[boss]={hp,moraPerPlayer:mora,clear,hostReported:true,bothSavedAndReloaded:true};
+    results[boss]={hp,moraPerPlayer:mora,clear,personalSignalBox:Boolean(bossIndex),
+      hostReported:true,bothSavedAndReloaded:true};
     await Promise.all(players.map(({page})=>page.close()));
   }
-  assert.deepEqual(errors,[]);
-  await fs.writeFile(prefix+'-browser.json',JSON.stringify({results,errors},null,2)+'\n');
+  assert.deepEqual([...errors],[]);
+  await fs.writeFile(prefix+'-browser.json',JSON.stringify({results,errors:[...errors]},null,2)+'\n');
   console.log('Chrome: two independent players, both victories, one quest report per fight, and reloads passed.');
 } catch (error) {
-  console.error(await Promise.allSettled(currentPlayers.map(({page})=>page.evaluate(()=>{
-    const f=window.lab.frame;
-    return {story:f.story.node,boss:f.fieldBoss,peers:f.coop?.peers,actor:f.actors[f.active-1],
+  console.dir(await Promise.allSettled(currentPlayers.map(({page})=>page.evaluate(()=>{
+    const f=window.lab?.frame;
+    if (!f) return {url:location.href,status:document.getElementById('status')?.textContent};
+    return {story:f.story.node,boss:f.fieldBoss,coop:f.coop?.enemies,actor:f.actors[f.active-1],
       result:window.coopResult,notice:f.storyNotice};
-  }))));
+  }))),{depth:4});
   throw error;
 } finally {
   await browser.close();

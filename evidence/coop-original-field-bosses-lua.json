@@ -12,6 +12,7 @@
     ],
     "rewardedPlayers": 2,
     "xpPerContributor": 39950,
+    "personalSignalBox": false,
     "questReportedAndRestored": true
   },
   "original-tea-boulder": {
@@ -27,6 +28,59 @@
     ],
     "rewardedPlayers": 2,
     "xpPerContributor": 231550,
+    "personalSignalBox": false,
     "questReportedAndRestored": true
+  },
+  "original-snow-sweeper": {
+    "players": 4,
+    "requiredLevel": 142,
+    "sharedHP": 345,
+    "attack": "SR01",
+    "hitOnJoin": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "rewardedPlayers": 2,
+    "xpPerContributor": 1298650,
+    "personalSignalBox": true,
+    "questReportedAndRestored": true,
+    "secondAttack": {
+      "attack": "SR02",
+      "hits": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "sharedRecovery": true
+    }
+  },
+  "original-windward-tower": {
+    "players": 4,
+    "requiredLevel": 175,
+    "sharedHP": 940,
+    "attack": "WDW01",
+    "hitOnJoin": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "rewardedPlayers": 2,
+    "xpPerContributor": 6514150,
+    "personalSignalBox": false,
+    "questReportedAndRestored": true,
+    "secondAttack": {
+      "attack": "WDW02",
+      "hits": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "sharedRecovery": true
+    }
   }
 }

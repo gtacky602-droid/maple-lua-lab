@@ -8218,7 +8218,11 @@
       "spine-shelter",
       "spine-trace-ridge",
       "chenyu-tea-pavilion",
-      "chenyu-boulder-gully"
+      "chenyu-boulder-gully",
+      "snow-rail-transfer",
+      "steam-stabling-depot",
+      "dornman-flag-trestle",
+      "dornman-windworks"
     ],
     "bosses": [
       "boss-26020101",
@@ -8308,7 +8312,9 @@
       "original-tide-surveyor",
       "original-twin-shuttle-loom",
       "original-rime-hare",
-      "original-tea-boulder"
+      "original-tea-boulder",
+      "original-snow-sweeper",
+      "original-windward-tower"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
