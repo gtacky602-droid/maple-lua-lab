@@ -6,6 +6,10 @@ return function(C, config)
  local function onField(member)
   return member.online and C.sharesCoopField(member.state)
  end
+ local function inCombat(member)
+  local ride=member.state.lift
+  return onField(member) and not (ride and ride.phase)
+ end
 
  function C.newCoop(s)
   local room={node=s.story.node,enemies=s.enemies,solids=s.solids,time=s.t,tick=0,members={},nextId=0}
@@ -54,7 +58,7 @@ return function(C, config)
 
  function C.coopContact(s,e,actor)
   local room,member=s.coop,s.coopMember
-  if not onField(member) then return end
+  if not inCombat(member) then return end
   e=e.coopRewardTarget or e.fieldGroup or e.sharedHealth or e
   if e.noRewards then return end
   e.coopHits=e.coopHits or {}
@@ -81,7 +85,7 @@ return function(C, config)
   e.coopHits=nil
   for _,member in ipairs(room.members) do
    local hit=hits[member.id]
-   if hit and room.time-hit.time<=config.contributionSeconds and onField(member) then
+   if hit and room.time-hit.time<=config.contributionSeconds and inCombat(member) then
     local party=member.state
     local a=party.actors[party.active]
     if a.hp>0 and nearEncounter(a,e) then
@@ -93,12 +97,13 @@ return function(C, config)
  end
 
  function C.stepCoop(room,dt)
-  local world
+  local occupied,world
   for _,member in ipairs(room.members) do
-   if onField(member) then world=member.state;break end
+   if onField(member) then occupied=true end
+   if inCombat(member) then world=member.state;break end
   end
-  if not world then return end
-  C.advanceEnemyReactions(world,dt)
+  if not occupied then return end
+  if world then C.advanceEnemyReactions(world,dt) end
   room.time=room.time+dt
   if room.weeklySlot then C.prepareCoopWeekly(room,dt) end
   local actors,decoys,owners,parties={},{},{},{}
@@ -106,7 +111,7 @@ return function(C, config)
    if onField(member) then
     local s=member.state
     C.step(s,dt,member.input)
-    if onField(member) then
+    if inCombat(member) then
      for _,a in ipairs(s.actors) do actors[#actors+1]=a;owners[a]=s end
      for _,d in ipairs(s.decoys or {}) do decoys[#decoys+1]=d;owners[d]=s end
      parties[#parties+1]=s

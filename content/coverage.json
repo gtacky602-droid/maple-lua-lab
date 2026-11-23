@@ -8220,6 +8220,12 @@
       "toyac-balachko-inner-cave",
       "nat-wp-77772",
       "toyac-cocijo-stone-ring",
+      "nat-wp-72417",
+      "temple-east-totem-pond",
+      "night-trial-undead",
+      "nat-wp-72416",
+      "temple-northwest-totem-ravine",
+      "night-trial-chimalli",
       "qucusaur-field-cavern",
       "yumka-field-ravine",
       "config-device-field-workshop",
@@ -8374,7 +8380,9 @@
       "original-plate-tail",
       "legend-natlan_sappho",
       "legend-natlan_balachko",
-      "legend-natlan_cocijo"
+      "legend-natlan_cocijo",
+      "legend-natlan_undead",
+      "legend-natlan_chimalli"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8648,7 +8656,9 @@
       "evidence/coop-plate-tail-lua-http.json",
       "evidence/coop-plate-tail-browser.json",
       "evidence/coop-natlan-entry-legends-lua-http.json",
-      "evidence/coop-natlan-entry-legends-browser.json"
+      "evidence/coop-natlan-entry-legends-browser.json",
+      "evidence/coop-natlan-night-trials-lua-http.json",
+      "evidence/coop-natlan-night-trials-browser.json"
     ],
     "pending": [
       "remaining Local Legends and Stygian bosses",

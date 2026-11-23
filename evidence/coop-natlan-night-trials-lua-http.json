@@ -1,0 +1,78 @@
+{
+  "legend-natlan_undead": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1170,
+      "moves": [
+        {
+          "id": "NU01",
+          "warningTicks": [
+            63
+          ]
+        },
+        {
+          "id": "NU02",
+          "warningTicks": [
+            70,
+            116
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 512900,
+      "mora": 525,
+      "departingPartyReceivesNoLateKillCredit": true
+    },
+    "http": {
+      "players": 2,
+      "individualPhaseTransfers": true,
+      "independentLevelGate": true,
+      "pausedOnRetreat": true,
+      "onePartyWipeKeepsFight": true,
+      "fullRoomWipeResets": true,
+      "rematchAfterEveryoneLeaves": true,
+      "personalRewardsRestored": true
+    }
+  },
+  "legend-natlan_chimalli": {
+    "lua": {
+      "players": 4,
+      "sharedHP": 1210,
+      "moves": [
+        {
+          "id": "NC01",
+          "warningTicks": [
+            65
+          ]
+        },
+        {
+          "id": "NC02",
+          "warningTicks": [
+            71,
+            121
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 452200,
+      "mora": 515,
+      "departingPartyReceivesNoLateKillCredit": true
+    },
+    "http": {
+      "players": 2,
+      "individualPhaseTransfers": true,
+      "independentLevelGate": true,
+      "pausedOnRetreat": true,
+      "onePartyWipeKeepsFight": true,
+      "fullRoomWipeResets": true,
+      "rematchAfterEveryoneLeaves": true,
+      "personalRewardsRestored": true
+    }
+  }
+}

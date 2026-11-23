@@ -6,7 +6,9 @@ import {waypointDriver} from './tools/browser_waypoint_test.mjs';
 const lake=process.argv.includes('--lake');
 const dry=process.argv.includes('--dry');
 const natlan=process.argv.includes('--natlan-entry');
-const prefix='evidence/coop-'+(natlan?'natlan-entry':dry?'dry':lake?'lake':'branch')+'-legends';
+const night=process.argv.includes('--natlan-night');
+const prefix=night?'evidence/coop-natlan-night-trials'
+ : 'evidence/coop-'+(natlan?'natlan-entry':dry?'dry':lake?'lake':'branch')+'-legends';
 const dryCases=[
  {tag:'yseut',id:'legend-fontaine_yseut',arena:'yseut-legend-court',
   entry:'fon-wp-50058',hp:1020,mora:300,x:780,warning:'FD12',entities:[97051],
@@ -38,7 +40,15 @@ const natlanCases=[
   hp:1310,mora:515,x:842,warning:'CJ02',entities:[97078],
   warningOrder:[[1,'electro',69],[2,'electro',111]],lock:'電気水晶'},
 ].map(cfg=>({...cfg,checkpoint:'natlan-hub'}));
-const cases=natlan?natlanCases:dry?dryCases:lake?[
+const nightCases=[
+ {tag:'undead',id:'legend-natlan_undead',arena:'night-trial-undead',approach:'nat-wp-72417',
+  entry:'temple-east-totem-pond',hp:1170,mora:525,x:845,warning:'NU02',entities:[97079],
+  warningOrder:[[1,'physical',70],[2,'physical',116]],phase:true},
+ {tag:'chimalli',id:'legend-natlan_chimalli',arena:'night-trial-chimalli',approach:'nat-wp-72416',
+  entry:'temple-northwest-totem-ravine',hp:1210,mora:515,x:845,warning:'NC02',entities:[97080],
+  warningOrder:[[1,'hydro',71],[2,'hydro',121]],phase:true},
+].map(cfg=>({...cfg,checkpoint:'natlan-hub'}));
+const cases=night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
  {tag:'vivianne',id:'legend-fontaine_vivianne_of_the_lake',arena:'vivianne-legend-bank',
   entry:'fon-wp-50056',checkpoint:'fontaine-hub',hp:1040,mora:300,x:890,warning:'LV02',entities:[97041],
   warningOrder:[[1,'hydro',64],[2,'hydro',115]],movingWave:true},
@@ -72,8 +82,10 @@ async function start(cfg,needsReport){
  page.on('pageerror',e=>errors.push(e.message));
  const route=waypointDriver(page,nodes,{walkTimeout:32000});
  const suffix=needsReport?'-before-report-fixture.json':'-fixture.json';
- const fixture=await fs.readFile(natlan?'work/coop-natlan-entry-legends-fixture.json':'work/coop-'+cfg.arena+suffix,'utf8');
- const port=natlan?9068:dry?9064:lake?9063:9060;
+ const fixturePath=night?'work/natlan-night-trial-fixture.json'
+  : natlan?'work/coop-natlan-entry-legends-fixture.json':'work/coop-'+cfg.arena+suffix;
+ const fixture=await fs.readFile(fixturePath,'utf8');
+ const port=natlan||night?9068:dry?9064:lake?9063:9060;
  await page.goto(process.env.LAB_URL||`http://127.0.0.1:${port}/`);
  await wait(page,()=>window.lab?.frame);
  await page.evaluate(([key,fixture])=>localStorage.setItem(key,fixture),[key,fixture]);
@@ -237,7 +249,13 @@ async function scenario(cfg){
  await b.locator('#coopCode').fill(code);
  await b.locator('#coopJoin').click();
  await wait(b,c=>window.lab.frame.coop?.code===c,code);
- if(natlan&&cfg.quest){
+ if(cfg.phase){
+  await Promise.all(players.map(p=>p.route.cross(cfg.entry)));
+  await players[0].route.cross(cfg.arena);
+  assert.equal(await players[1].route.node(),cfg.entry);
+  await wait(b,arena=>window.lab.frame.coop?.peers[0]?.map===arena,cfg.arena);
+  await players[1].route.cross(cfg.arena);
+ }else if(natlan&&cfg.quest){
   await Promise.all(players.map(async ({route})=>{
    if(cfg.via) await route.cross(cfg.via);
    await route.cross(cfg.entry);
@@ -255,7 +273,7 @@ async function scenario(cfg){
   await players[0].route.cross(cfg.arena);
   await reportFromWaterway(players[1],cfg,code);
  }
- if(!natlan||!cfg.quest){
+ if(!cfg.phase&&(!natlan||!cfg.quest)){
   await Promise.all((cfg.approach?players.slice(1):players).map(p=>p.route.cross(cfg.arena)));
  }
  await Promise.all(players.map(({page})=>wait(page,n=>{
@@ -316,10 +334,11 @@ async function scenario(cfg){
  await Promise.all(players.map(p=>p.route.cross(cfg.arena)));
  const restart=await Promise.all(players.map(p=>frame(p.page)));
  assert.ok(restart.every(f=>f.coop.enemies[0]?.hp===cfg.hp));
- if(natlan) await verifyNatlanSave(players,cfg);
+ if(natlan||night) await verifyNatlanSave(players,cfg);
  await Promise.all(players.map(p=>p.context.close()));
  return {results,warnings: warnings[0],rewards,contacts,saved:true,sharedRematch:true,
-  ...(natlan?{restoredBoth:true,...(cfg.provoke?{neutralUntilHit:true}:{}),
+  ...(night?{independentPillarTransfers:true,restoredBoth:true}
+   :natlan?{restoredBoth:true,...(cfg.provoke?{neutralUntilHit:true}:{}),
     ...(cfg.quest?{personalQuestGate:true,bothReported:true}:{})}
    :cfg.quest?{personalQuestGate:true,sharedUnderwaterApproach:true}:{})};
 }

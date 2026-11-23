@@ -1,0 +1,116 @@
+{
+  "participants": 2,
+  "undead": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 175,
+        "moves": [
+          "NU01",
+          "NU02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 175,
+        "moves": [
+          "NU01",
+          "NU02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "physical",
+        70,
+        388.5,
+        616.5
+      ],
+      [
+        2,
+        "physical",
+        116,
+        626.5,
+        854.5
+      ]
+    ],
+    "rewards": [
+      [
+        512900,
+        525
+      ],
+      [
+        512900,
+        525
+      ]
+    ],
+    "contacts": [
+      7,
+      7
+    ],
+    "saved": true,
+    "sharedRematch": true,
+    "independentPillarTransfers": true,
+    "restoredBoth": true
+  },
+  "chimalli": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 173,
+        "moves": [
+          "NC01",
+          "NC02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 194,
+        "moves": [
+          "NC01",
+          "NC02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "hydro",
+        71,
+        723.5,
+        865.5
+      ],
+      [
+        2,
+        "hydro",
+        121,
+        947.5,
+        1089.5
+      ]
+    ],
+    "rewards": [
+      [
+        452200,
+        515
+      ],
+      [
+        452200,
+        515
+      ]
+    ],
+    "contacts": [
+      7,
+      8
+    ],
+    "saved": true,
+    "sharedRematch": true,
+    "independentPillarTransfers": true,
+    "restoredBoth": true
+  },
+  "errors": []
+}

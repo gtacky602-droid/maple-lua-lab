@@ -1519,6 +1519,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
    local node=nodes[s.story.node]
    for _,edge in ipairs(node.exits) do
     if edge.nightTotem=='return' then
+     C.markNightTrialWipe(s)
      enter(s,edge.to,edge.arrivalX,nil,edge.arrivalY)
      s.storyNotice='夜魂の試練を中断し、黒曜石の柱へ戻りました。'
      return

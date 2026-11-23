@@ -149,12 +149,21 @@ return function(C,configs,controllers)
   if behavior.adoptCoop then behavior.adoptCoop(room,s) end
  end
 
- function C.rechallengeCoopField(room)
-  local spec,slot=room.fieldSpec,room.fieldSlot
-  if not spec or not spec.manualRechallenge or slot.phase~='cleared' then return end
+ local function resetCoopField(room,spec,slot)
   slot.generation=slot.generation+1
   spawn(slot,spec,spec.hp)
   attach({enemies=room.enemies,t=room.time},spec,slot)
+ end
+
+ function C.rechallengeCoopField(room)
+  local spec,slot=room.fieldSpec,room.fieldSlot
+  if spec and spec.manualRechallenge and slot.phase=='cleared' then resetCoopField(room,spec,slot) end
+ end
+
+ function C.markNightTrialWipe(s)
+  local room=s.coop
+  -- The campaign defeat handler has already replaced this player's enemy list.
+  if room and room.fieldSlot and room.node==s.story.node then room.nightTrialWipe=true end
  end
 
  local function cancelCast(s,spec,slot)
@@ -354,6 +363,12 @@ return function(C,configs,controllers)
  end
 
  function C.advanceCoopField(room,actors,owners,parties)
+  if room.nightTrialWipe then
+   room.nightTrialWipe=nil
+   if #parties==0 and room.fieldSlot.phase~='cleared' then
+    resetCoopField(room,room.fieldSpec,room.fieldSlot)
+   end
+  end
   if not room.fieldSlot or #parties==0 then return end
   local combat={t=room.time,actors=actors,actorOwners=owners,parties=parties,enemies=room.enemies,solids=room.solids}
   advance(combat,room.fieldSpec,room.fieldSlot,true)
