@@ -147,10 +147,8 @@ return function(C)
      strike.y=p.y+(boss.y-p.y)*progress
      if progress>=1 then
       p.impact=true
-      C.combatEvent(s,'swim_bubble_impact',p.actor,boss.id)
-      C.resolveCast(s,{id=p.actor,targetId=boss.id,key='swimBubbleReturn',x=boss.x,y=boss.y,
-       radial=true,range=12,vertical=24,limit=1,mult=1,atk=spec.swimPlayer.reflect.power,
-       color=returnColor,element='physical',gain=0})
+      p.cast.x,p.cast.y=boss.x,boss.y
+      C.resolveFieldBacklash(s,boss,p)
       if boss.hp<=0 then return true end
      end
     end
@@ -229,7 +227,11 @@ return function(C)
    local target=returnTarget(a,cast,reflection)
    if target then
     local arrives=cast.tick+reflection.returnTicks
-    target.reflection={at=cast.tick,arrives=arrives,x=target.x,y=target.y,actor=a.id}
+    local hit={id=a.id,targetId=boss.id,key='swimBubbleReturn',x=boss.x,y=boss.y,
+     radial=true,range=12,vertical=24,limit=1,mult=1,atk=reflection.power,
+     color=returnColor,element='physical',gain=0}
+    target.reflection={at=cast.tick,arrives=arrives,x=target.x,y=target.y,party=s,cast=hit,
+     damage=C.enemyHitDamage(s,hit,boss,hit.mult,hit.element),impactKind='swim_bubble_impact'}
     cast.lastActive=math.max(cast.lastActive,arrives)
     C.combatEvent(s,'swim_bubble_return',a.id,boss.id)
    else

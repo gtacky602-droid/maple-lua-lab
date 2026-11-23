@@ -67,14 +67,14 @@ return function(C,configs,controllers)
   return {party=party,cast=cast,damage=C.enemyHitDamage(party,cast,boss,1,cast.element)}
  end
  function C.resolveFieldBacklash(state,boss,backlash)
-  local party=backlash.party
+  local party,cast=backlash.party,backlash.cast
   if not state.parties or (party.enemies==state.enemies and C.sharesCoopField(party) and party.coopMember.online) then
-   C.resolveCast(party,backlash.cast)
-  elseif boss.hp<=backlash.damage then
-   -- Settle a lethal backlash using existing contributions when the breaker has left.
-   C.defeatEnemy(state.parties[1],boss,nil)
+   if backlash.impactKind then C.combatEvent(party,backlash.impactKind,cast.id,boss.id) end
+   C.resolveCast(party,cast)
   else
-   boss.hp=boss.hp-backlash.damage
+   -- A hit launched before departure still lands, without credit in the new scene.
+   if boss.hp<=backlash.damage then C.defeatEnemy(state.parties[1],boss,nil)
+   else boss.hp=boss.hp-backlash.damage end
   end
  end
  function C.fieldGravityFactor(s,a)
@@ -347,7 +347,7 @@ return function(C,configs,controllers)
  end
 
  function C.advanceCoopField(room,actors,owners,parties)
-  if not room.fieldSlot then return end
+  if not room.fieldSlot or #parties==0 then return end
   local combat={t=room.time,actors=actors,actorOwners=owners,parties=parties,enemies=room.enemies,solids=room.solids}
   advance(combat,room.fieldSpec,room.fieldSlot,true)
  end

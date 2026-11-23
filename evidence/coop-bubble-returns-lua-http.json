@@ -1,0 +1,34 @@
+{
+  "lua": {
+    "participants": 4,
+    "encounters": {
+      "legend-fontaine_chassanion": {
+        "returnDamage": 156,
+        "lethalRewardXp": 212400,
+        "departedReturnDamage": 156,
+        "resumedReturnDamage": 156
+      },
+      "legend-fontaine_mageblade_corrouge": {
+        "returnDamage": 162,
+        "lethalRewardXp": 212400,
+        "departedReturnDamage": 162,
+        "resumedReturnDamage": 162
+      }
+    },
+    "sameBubbleCannotBeReturnedTwice": true,
+    "ownerGetsImpactAndReward": true,
+    "departedReturnHasNoRemoteCredit": true,
+    "departedLethalReturnSettlesPresentContributor": true,
+    "departureGearChangeKeepsLaunchedDamage": true,
+    "allGoneFreezesPendingReturn": true
+  },
+  "http": {
+    "participants": 2,
+    "chassanionDifferentEntrancesAndBackgrounds": true,
+    "corrougeIndividualReport": true,
+    "individualLevel100": true,
+    "realInputLethalReturn": true,
+    "eachRewardSavedOnce": true,
+    "sharedRematch": true
+  }
+}

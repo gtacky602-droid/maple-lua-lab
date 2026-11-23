@@ -1,0 +1,42 @@
+{
+  "participants": 2,
+  "chassanion": {
+    "returnDamage": 156,
+    "rewards": [
+      [
+        212400,
+        410
+      ],
+      [
+        212400,
+        410
+      ]
+    ],
+    "onlyGuestReturned": true,
+    "returnSeenByBoth": true,
+    "atmosphere": [
+      "outside",
+      "bygoneResonance"
+    ],
+    "saved": true,
+    "sharedRematch": true
+  },
+  "corrouge": {
+    "returnDamage": 162,
+    "rewards": [
+      [
+        212400,
+        430
+      ],
+      [
+        212400,
+        430
+      ]
+    ],
+    "onlyGuestReturned": true,
+    "returnSeenByBoth": true,
+    "saved": true,
+    "sharedRematch": true
+  },
+  "errors": []
+}
