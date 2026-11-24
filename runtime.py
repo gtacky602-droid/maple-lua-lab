@@ -52,7 +52,8 @@ def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None, variants=None)
     return loader(read, asset_entries)
 
 
-def runtime(*, draft_balance=False, draft_field_boss_hp=True):
+def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=False):
+    draft_balance = draft_balance or draft_field_moves
     lua = LuaRuntime(unpack_returned_tuples=True)
     core = lua.execute((ROOT / 'core.lua').read_text(encoding='utf-8'))
     skill_settings = json.loads((ROOT / 'content/skill-runtime-settings.json').read_text(encoding='utf8'))
@@ -136,6 +137,14 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True):
                 key, fields = scaled
                 for field in fields:
                     spec[key][field] = round(spec[key][field] * ratio)
+    if draft_field_moves:
+        for spec in field_specs:
+            overrides = balance['fieldBossMoveOverrides'].get(spec['id'])
+            if overrides is None:
+                continue
+            spec['draftMoves'] = True
+            for move in spec['moves']:
+                move.update(overrides.get(move['id'], {}))
     weekly_specs=resolve_weekly_rewards(json.loads((ROOT/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses'])
     if draft_balance:
         for spec in weekly_specs:

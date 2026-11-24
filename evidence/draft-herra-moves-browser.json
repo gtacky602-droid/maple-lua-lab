@@ -1,0 +1,18 @@
+{
+  "level": 128,
+  "maxHp": 4500000,
+  "bounds": {
+    "left": 725.1,
+    "right": 931.9
+  },
+  "hpBeforeWave": 10706,
+  "hpAfterSecondWave": 10706,
+  "firstWaveJump": true,
+  "secondWaveExit": true,
+  "visibleCounterWindow": true,
+  "sameFrameCommands": {
+    "standard": 22481,
+    "light": 5558
+  },
+  "errors": []
+}

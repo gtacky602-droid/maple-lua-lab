@@ -41,9 +41,10 @@ class LabServer(ThreadingHTTPServer):
     request_queue_size = 64
 
     def __init__(self, *args, daily_path=None, daily_period=period_at,
-                 ranking_path=None, ranking_week=week_start, draft_balance=False, **kwargs):
-        self.draft_balance = draft_balance
-        if draft_balance:
+                 ranking_path=None, ranking_week=week_start, draft_balance=False, draft_field_moves=False, **kwargs):
+        self.draft_balance = draft_balance or draft_field_moves
+        self.draft_field_moves = draft_field_moves
+        if self.draft_balance:
             daily_path = ranking_path = ':memory:'
         if ranking_path is None:
             ranking_path = ':memory:' if daily_path == ':memory:' else default_path()
@@ -102,7 +103,8 @@ class Handler(SimpleHTTPRequestHandler):
 
     def do_GET(self):
         if self.path == '/api/lab-info':
-            self.send_json(200, {'draftBalance': self.server.draft_balance})
+            self.send_json(200, {'draftBalance': self.server.draft_balance,
+                                 'draftFieldMoves': self.server.draft_field_moves})
             return
         if self.path != '/api/exp-ranking':
             super().do_GET()
@@ -188,7 +190,8 @@ class Handler(SimpleHTTPRequestHandler):
                     if (saved_daily and saved_daily['ledger']['period'] > period
                             and restore_daily_store.load(saved_profile) is None):
                         raise ValueError('日次依頼の保存日時がラボの更新日より先です')
-                    lua,core=runtime(draft_balance=self.server.draft_balance)
+                    lua,core=runtime(draft_balance=self.server.draft_balance,
+                                     draft_field_moves=self.server.draft_field_moves)
                     density=int(req.get('density',16));density=density if density in (12,16,20,40) else 16
                     state = core.restore(lua.table_from(saved, recursive=True), density) if saved is not None else core.new(density)
                     rank_player = None
@@ -311,8 +314,10 @@ if __name__=='__main__':
     parser.add_argument('--daily-store',type=Path,help='Override the local daily SQLite database path')
     parser.add_argument('--ranking-store', type=Path, help='Override the private ranking SQLite database path')
     parser.add_argument('--draft-balance', action='store_true', help='Use provisional enemy HP and weapon ATK')
+    parser.add_argument('--draft-field-moves', action='store_true',
+                        help='Use provisional balance and alternate field boss moves')
     args=parser.parse_args()
     with LabServer(('127.0.0.1',args.port),Handler,daily_path=args.daily_store, ranking_path=args.ranking_store,
-                   draft_balance=args.draft_balance) as server:
+                   draft_balance=args.draft_balance, draft_field_moves=args.draft_field_moves) as server:
         print(f'Lua lab: http://127.0.0.1:{server.server_port}',flush=True)
         server.serve_forever()

@@ -8263,6 +8263,14 @@
       "entry_gate_confirmed_at_level_120": true,
       "lua_evidence": "evidence/draft-nod-boss-hp-lua.json",
       "browser_evidence": "evidence/draft-nod-boss-hp-browser.json"
+    },
+    "draft_field_moves": {
+      "encounters": ["boss-20081001"],
+      "earned_save_level": 128,
+      "same_input_clear_seconds": {"previous": 68.417, "alternate": 63.367},
+      "cooperative_participants": 4,
+      "lua_evidence": "evidence/draft-herra-moves-lua.json",
+      "browser_evidence": "evidence/draft-herra-moves-browser.json"
     }
   },
   "natlan_gear_recovery": {

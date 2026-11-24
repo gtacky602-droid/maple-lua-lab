@@ -1,0 +1,152 @@
+{
+  "earned": {
+    "level": 128,
+    "previous": {
+      "sourceSha256": "e18c1a3ee930ac7a287b6c9eb79b857e5596dc8c02e1d47c059c90836cbd4e8d",
+      "boss": "boss-20081001",
+      "arena": "nod-herra-terrace",
+      "entryRoute": [
+        "nod-field",
+        "nod-herra-terrace"
+      ],
+      "maxHp": 4500000,
+      "partyAttack": [
+        9314,
+        6652
+      ],
+      "elapsedSeconds": 68.417,
+      "damagingHits": 455,
+      "moves": [
+        "FHR01",
+        "FHR02",
+        "FHR03"
+      ],
+      "skillCasts": {
+        "SK21": 0,
+        "SK09": 0,
+        "SK10": 0,
+        "SK13": 0
+      },
+      "killXpAndMora": [
+        677150,
+        465
+      ],
+      "commission": {
+        "quest": "frostnight-herra-commission",
+        "xp": 9000,
+        "mora": 610
+      },
+      "savedClear": true
+    },
+    "alternateNormal": {
+      "sourceSha256": "e18c1a3ee930ac7a287b6c9eb79b857e5596dc8c02e1d47c059c90836cbd4e8d",
+      "boss": "boss-20081001",
+      "arena": "nod-herra-terrace",
+      "entryRoute": [
+        "nod-field",
+        "nod-herra-terrace"
+      ],
+      "maxHp": 4500000,
+      "partyAttack": [
+        9314,
+        6652
+      ],
+      "elapsedSeconds": 63.367,
+      "damagingHits": 423,
+      "moves": [
+        "FHR01",
+        "FHR02",
+        "FHR03"
+      ],
+      "skillCasts": {
+        "SK21": 0,
+        "SK09": 0,
+        "SK10": 0,
+        "SK13": 0
+      },
+      "killXpAndMora": [
+        677150,
+        465
+      ],
+      "commission": {
+        "quest": "frostnight-herra-commission",
+        "xp": 9000,
+        "mora": 610
+      },
+      "savedClear": true
+    },
+    "alternateEvadeAndCounter": {
+      "sourceSha256": "e18c1a3ee930ac7a287b6c9eb79b857e5596dc8c02e1d47c059c90836cbd4e8d",
+      "boss": "boss-20081001",
+      "arena": "nod-herra-terrace",
+      "entryRoute": [
+        "nod-field",
+        "nod-herra-terrace"
+      ],
+      "maxHp": 4500000,
+      "partyAttack": [
+        9314,
+        6652
+      ],
+      "elapsedSeconds": 72.983,
+      "damagingHits": 430,
+      "moves": [
+        "FHR01",
+        "FHR02",
+        "FHR03"
+      ],
+      "skillCasts": {
+        "SK21": 0,
+        "SK09": 0,
+        "SK10": 0,
+        "SK13": 0
+      },
+      "killXpAndMora": [
+        677150,
+        465
+      ],
+      "commission": {
+        "quest": "frostnight-herra-commission",
+        "xp": 9000,
+        "mora": 610
+      },
+      "savedClear": true
+    },
+    "jumpOverFirstWave": true,
+    "walkedOutOfSecondWave": true,
+    "lockedCenter": 832.0,
+    "groundCounterTick": 325,
+    "partialCheckpoint": {
+      "hp": 4030820,
+      "generation": 1,
+      "waitTicks": 0,
+      "maxHp": 4500000,
+      "elapsedTicks": 1018
+    },
+    "reloadedInBothProfiles": true
+  },
+  "shared": {
+    "participants": 4,
+    "maxHp": 4500000,
+    "sharedEnemy": true,
+    "damageByParticipant": [
+      [
+        24
+      ],
+      [
+        24,
+        24
+      ],
+      [
+        24
+      ],
+      []
+    ],
+    "damageInWhiteAndDark": [
+      95,
+      95
+    ],
+    "recoveryTicks": 144,
+    "airTicks": 36
+  }
+}

@@ -42,13 +42,16 @@ return function(C)
   end
   local radius=m.width*U/2
   local dx=clamp((a and a.x or c.origin)-c.origin,-m.distance*U,m.distance*U)
-  c.center=clamp(c.origin+dx,s.arenaMin+radius,s.arenaMax-radius)
+  c.center=c.origin+dx
+  if not s.draftMoves then
+   c.center=clamp(c.center,s.arenaMin+radius,s.arenaMax-radius)
+  end
   c.left,c.right=c.center-radius,c.center+radius
  end
 
  function herra.onHit(cast,b,s,slot,element,damage)
   local c=slot.cast
-  if b.form~='gloom' or not c or c.broken then return end
+  if s.draftMoves or b.form~='gloom' or not c or c.broken then return end
   if names[element] then
    local sum=(c.damageByElement[element] or 0)+damage
    c.damageByElement[element]=sum
@@ -66,6 +69,7 @@ return function(C)
  end
 
  function herra.damageFactor(state,_,b,s,element)
+  if s.draftMoves then return 1 end
   if b.form=='gloom' then return s.gloom.factor end
   if b.adaptedElement==element and adaptationRemaining(state,b)>1e-8 then return s.gloom.adaptFactor end
   return 1
@@ -95,8 +99,12 @@ return function(C)
     pose='land'
    end
   elseif m.kind=='gloom' and t>=m.lock and t<m.recover then
-   if t==m.lock then c.damageByElement,c.dominantDamage,c.contacts={},0,{} end
-   form,pose='gloom','gloom'
+   if s.draftMoves then
+    form,pose='shadow','gloom'
+   else
+    if t==m.lock then c.damageByElement,c.dominantDamage,c.contacts={},0,{} end
+    form,pose='gloom','gloom'
+   end
   end
   for i,w in ipairs(m.active) do
    if t>=w[1] and t<w[2] then
@@ -104,7 +112,7 @@ return function(C)
     C.hitFieldArea(state,c.source,c.seen[i],c.left,c.right,s.floorY-m.height*U,m.damage)
    end
   end
-  if t==m.recover and m.kind=='gloom' then
+  if not s.draftMoves and t==m.recover and m.kind=='gloom' then
    b.gloomCharges=0
    if c.dominant then
     b.adaptedElement,b.adaptUntil=c.dominant,state.t+s.gloom.adaptTicks/60
@@ -118,6 +126,15 @@ return function(C)
  end
 
  function herra.label(b,c,s,state)
+  if s.draftMoves then
+   if b.form=='recover' then return '反撃の隙' end
+   if b.form=='shadow' then
+    if c.tick<c.move.active[1][2] then return '薄闇の二連波・一波目' end
+    if c.tick<c.move.active[2][2] then return '薄闇の二連波・二波目' end
+    return '翼を戻す'
+   end
+   return
+  end
   if b.form=='gloom' then return '薄闇・氷／月 '..b.gloomCharges..'／'..s.gloom.charges end
   if b.form=='down' then return '薄闇解除・反撃の好機' end
   if b.adaptedElement and adaptationRemaining(state,b)>1e-8 then
@@ -127,6 +144,13 @@ return function(C)
   if b.form=='recover' then return '硬直中・反撃の好機' end
  end
  function herra.frame(f,b,s,c,state)
+  if s.draftMoves then
+   f.draftMoves=true
+   if c and c.left and c.move.kind=='gloom' then
+    f.lockedWave={left=c.left,right=c.right}
+   end
+   return
+  end
   local ticks=math.max(0,math.ceil(adaptationRemaining(state,b)*60-1e-7))
   f.gloom={charges=b.gloomCharges,maxCharges=s.gloom.charges,
    adaptedElement=ticks>0 and b.adaptedElement or nil,remainingTicks=ticks}
@@ -135,7 +159,7 @@ return function(C)
  local function rect(f,x,y,w,h,color)
   f.draws[#f.draws+1]={kind='rect',x=x,y=y,w=w,h=h,color=color}
  end
- local function warning(f,c,cam,y)
+ local function warning(f,c,cam,y,shortWave)
   if c.broken or not c.left then return end
   local m=c.move
   for i,w in ipairs(m.active) do
@@ -144,7 +168,14 @@ return function(C)
     local top=y-m.height*U
     local tint=m.kind=='gloom' and gloom or ice
     if c.tick>=w[1] then rect(f,l,top,r-l,y-top,tint..'55');rect(f,l,top,r-l,3,light) end
-    for x=l+2,r-5,13 do rect(f,x,y-5,8,3,tint) end
+    if shortWave then
+     rect(f,l,y-8,r-l,7,'#392957')
+     rect(f,l,y-7,r-l,3,tint)
+     rect(f,l,y-23,3,21,light)
+     rect(f,r-3,y-23,3,21,light)
+    else
+     for x=l+2,r-5,13 do rect(f,x,y-5,8,3,tint) end
+    end
     if #m.active>1 then
      f.draws[#f.draws+1]={kind='text',x=(l+r)/2,y=top-7,text=i..' / '..#m.active,size=13,color=light}
     end
@@ -154,9 +185,11 @@ return function(C)
  end
  function herra.draw(f,state,b,s,c,mode,profile)
   local x=b.x-state.camera
-  if c then warning(f,c,state.camera,s.floorY) end
+  local shortWave=s.draftMoves and c and c.move.kind=='gloom'
+  if c and not shortWave then warning(f,c,state.camera,s.floorY) end
   local nativeLeft=b.pose=='idle'
   C.drawFrostnightHerraFieldArt(f,x,b.y,b.pose,mode,profile,(b.facing<0)~=nativeLeft)
+  if shortWave then warning(f,c,state.camera,s.floorY,true) end
   if b.form~='gloom' then return end
   local count=s.gloom.charges
   local y=b.hitTop-14

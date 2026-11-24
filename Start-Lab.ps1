@@ -2,7 +2,8 @@ param(
     [ValidateRange(1, 65535)]
     [int]$Port = 8769,
     [switch]$NoOpen,
-    [switch]$DraftBalance
+    [switch]$DraftBalance,
+    [switch]$DraftFieldMoves
 )
 
 $labUrl = "http://127.0.0.1:$Port"
@@ -12,6 +13,7 @@ try { $labAlive = (Invoke-WebRequest -Uri $labUrl -TimeoutSec 2).StatusCode -eq 
 if (-not $labAlive) {
     $labArgs = @('server.py', '--port', $Port)
     if ($DraftBalance) { $labArgs += '--draft-balance' }
+    if ($DraftFieldMoves) { $labArgs += '--draft-field-moves' }
     $labProcess = Start-Process -FilePath 'C:/Python314/python.exe' -ArgumentList $labArgs -WorkingDirectory $PSScriptRoot -WindowStyle Hidden -RedirectStandardOutput (Join-Path $PSScriptRoot "evidence/server$labSuffix.log") -RedirectStandardError (Join-Path $PSScriptRoot "evidence/server-errors$labSuffix.log") -PassThru
     $labProcess.Id | Set-Content (Join-Path $PSScriptRoot "work-server$labSuffix.pid")
     for ($labAttempt=0; $labAttempt -lt 20; $labAttempt++) {
@@ -26,7 +28,8 @@ if (-not $labAlive) {
 }
 $labInfo = $null
 try { $labInfo = Invoke-RestMethod -Uri "$labUrl/api/lab-info" -TimeoutSec 2 } catch {}
-if ([bool]$labInfo.draftBalance -ne [bool]$DraftBalance) {
+$expectedBalance = [bool]$DraftBalance -or [bool]$DraftFieldMoves
+if ([bool]$labInfo.draftBalance -ne $expectedBalance -or [bool]$labInfo.draftFieldMoves -ne [bool]$DraftFieldMoves) {
     throw "$labUrl は別のバランス設定で起動しています。別のポートを指定してください。"
 }
 if ($NoOpen) {
