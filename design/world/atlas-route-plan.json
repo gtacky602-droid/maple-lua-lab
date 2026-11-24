@@ -585,6 +585,28 @@
         "nat-sky-camp",
         "dornman-camp"
       ],
+      "regional_approaches": [
+        {
+          "field": "map37:96380",
+          "stages": [
+            "nat-wp-84110",
+            "nat-sky-camp",
+            "nat-wp-96366",
+            "nat-wp-96367",
+            "nat-wp-96368",
+            "nat-wp-96380"
+          ]
+        },
+        {
+          "field": "teyvat:95801",
+          "stages": [
+            "dornman-camp",
+            "mond-wp-95798",
+            "mond-wp-95800",
+            "mond-wp-95801"
+          ]
+        }
+      ],
       "review_focus": "discovery_or_dedicated_gate"
     },
     {

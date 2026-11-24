@@ -467,6 +467,7 @@
     "region_assignment": "official area IDs",
     "playable_at_imported_nodes": 873,
     "all_imported_markers_linked": true,
+    "runtime_waypoint_evidence": "evidence/world-map-runtime.json",
     "stage_links": {
       "map34:68599": {
         "stage_id": "bygone-wp-68599",
@@ -8054,7 +8055,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Verify runtime travel and return routes for mapped stages beyond the existing structural connectivity checks.",
+  "current_priority": "Show battle-only entrances in atlas guidance and audit the remaining non-marker stages with their actual travel and quest gates.",
   "background_loading": {
     "status": "local_chrome_on_demand_scenery_verified",
     "surfaces": [

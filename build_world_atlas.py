@@ -310,6 +310,14 @@ def build():
     retained_entrances = {frozenset(entry['fields']): entry for entry in atlas_review['retained_regional_entrances']}
     for pair, entry in retained_entrances.items():
         assert pair in pending_reasons and all(entrance in nodes for entrance in entry['entrances'])
+        approaches = entry.get('regional_approaches', [])
+        assert {route['field'] for route in approaches} == pair
+        for route, entrance in zip(approaches, entry['entrances'], strict=True):
+            stages = route['stages']
+            assert entrance in stages and stages[-1] == field_links[route['field']]['stage_id']
+            for start, end in zip(stages, stages[1:]):
+                assert any(edge['to']==end for edge in nodes[start]['exits'])
+                assert any(edge['to']==start for edge in nodes[end]['exits'])
     reviewed_paths = {frozenset(route['fields']): route for route in reviewed_routes}
     assert len(reviewed_paths) == len(reviewed_routes)
     for route in reviewed_routes:
@@ -391,9 +399,11 @@ def build():
                     finding = 'use_existing_local_detour' if floor_change else 'use_existing_level_route'
             else:
                 finding = 'unverified_travel_choice'
+        regional = retained_entrances.get(pair)
         review.append({'fields':[a,b],'mode':source['mode'],'finding':finding,
                        'terrain_note':note, **({'runtime_paths':paths} if paths else {}),
-                       **({'regional_entrances':retained_entrances[pair]['entrances']} if pair in retained_entrances else {}),
+                       **({'regional_entrances':regional['entrances'],
+                           'regional_approaches':regional['regional_approaches']} if regional else {}),
                        **({'review_focus':pending_reasons[pair]} if pair in pending_reasons and not paths else {})})
     walkthrough_levels = []
     for field, data in field_links.items():

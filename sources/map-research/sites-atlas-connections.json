@@ -419,6 +419,16 @@
         "nat-sky-camp",
         "dornman-camp"
       ],
+      "regional_approaches": [
+        {
+          "field": "map37:96380",
+          "stages": ["nat-wp-84110", "nat-sky-camp", "nat-wp-96366", "nat-wp-96367", "nat-wp-96368", "nat-wp-96380"]
+        },
+        {
+          "field": "teyvat:95801",
+          "stages": ["dornman-camp", "mond-wp-95798", "mond-wp-95800", "mond-wp-95801"]
+        }
+      ],
       "note": "ナタの空の神殿へは古の聖山の昇降機、ドーンマンポートの北岸へは港の街区経由。両地域に直結する専用ゲート案は保留。"
     }
   ]

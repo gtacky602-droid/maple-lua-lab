@@ -1,0 +1,52 @@
+{
+  "method": "Nine Lua movement suites rerun with regional fixtures and scoped quest progress.",
+  "visitedMarkers": 873,
+  "directedCrossingsAcrossSuites": 2256,
+  "suites": [
+    {
+      "evidence": "evidence/mondstadt-waypoint-test.json",
+      "visitedMarkers": 51,
+      "directedCrossings": 124
+    },
+    {
+      "evidence": "evidence/liyue-waypoint-test.json",
+      "visitedMarkers": 83,
+      "directedCrossings": 234
+    },
+    {
+      "evidence": "evidence/chasm-waypoint-test.json",
+      "visitedMarkers": 15,
+      "directedCrossings": 34
+    },
+    {
+      "evidence": "evidence/inazuma-waypoint-test.json",
+      "visitedMarkers": 77,
+      "directedCrossings": 212
+    },
+    {
+      "evidence": "evidence/sumeru-waypoint-test.json",
+      "visitedMarkers": 125,
+      "directedCrossings": 338
+    },
+    {
+      "evidence": "evidence/fontaine-waypoint-test.json",
+      "visitedMarkers": 117,
+      "directedCrossings": 306
+    },
+    {
+      "evidence": "evidence/natlan-waypoint-test.json",
+      "visitedMarkers": 174,
+      "directedCrossings": 422
+    },
+    {
+      "evidence": "evidence/nod-waypoint-test.json",
+      "visitedMarkers": 123,
+      "directedCrossings": 302
+    },
+    {
+      "evidence": "evidence/snezhnaya-waypoint-test.json",
+      "visitedMarkers": 108,
+      "directedCrossings": 284
+    }
+  ]
+}

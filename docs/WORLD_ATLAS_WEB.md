@@ -8,6 +8,8 @@
 
 GitHubのマップ設計から取り込んだ24地域・979フィールドをラボで選べる。本編は全1,528ステージ。山脊の見守り、チェスへの誘い、山風の荊冠は、原作の入口を照合して往復路を実装した。Sitesにしかなかった421候補は、137組をラボに実装し、283組を既存経路で確認した。ドーンマンポートの北岸とナタの空の神殿を直結する1案は保留し、港の街区と古の聖山の昇降機からそれぞれ向かう。 [接続台帳](../design/world/atlas-route-plan.json) · [3か所の秘境入口](SITES_DOMAIN_ENTRANCES_WEB.md)
 
+空の神殿・南の雲の下の小間にはLv134で入れる。古の聖山・北の遠望台から空の神殿の西の入口へ上がり、南東の小島から雲下に降りる。帰りの昇降機は「南東の小島へ上がる」「古の聖山へ戻る」と表示する。ドーンマンポート・北岸の船溜まりはLv168。港の石段広場で上段の入口に上り、風が抜ける丘を通る。 [M地図に従ったLua往復の記録](../evidence/atlas-regional-approaches-lua.json)
+
 | 区域 | ラボで通る道 |
 | --- | --- |
 | スメールの南の段丘と北岸 | Lv63のキャラバン小道とLv61の木橋。高いLvの狩場は任意の寄り道として残した。 |
@@ -47,5 +49,7 @@ Lv1の開始地点から、87戦すべてに通行条件付きの道順が出る
 
 - Luaで18組の往復を確認した。位相門の順序と保存、国境や橋の5つの通行Lv、発見後に入れる3つの隠し世界を含む。試走は戦闘の影響を外した状態で行った。稲妻と淵下宮の77地点では212方向の門を再試走した。 [Luaの経路ログ](../evidence/sites-atlas-connections-lua.json) · [稲妻・淵下宮](../evidence/inazuma-waypoint-test.json)
 - ChromeでM・Esc、地点検索、階層切替、道順、幅390pxの表示と、淵下宮の位相門の往復を確認した。 [全体図](../evidence/world-atlas-overview.png) · [淵下宮の道順](../evidence/atlas-enkan-phase.png) · [モバイル](../evidence/world-atlas-mobile.png) · [操作ログ](../evidence/world-atlas-browser.json)
+- 9本の地域別Lua試験を再実行し、取り込み済みのワープ・神像873地点への訪問と2,256回の方向別通行を確認した。試験では地域ごとの開始セーブと一部の既存依頼進行を用意している。 `python -X utf8 test_world_regional_runtime.py` で再現できる。 [各地域の集計](../evidence/world-map-runtime.json)
+- 空の神殿とドーンマンポート北岸では、ChromeでM地図に出た道順をたどって16区間を往復し、訪問記録を保存した。Luaでは最後の入口に必要なLvを一つ下回ると、地図に条件が出て現地でも通れないことを確認した。 `python -X utf8 test_atlas_regional_approaches.py` で試験用のセーブを作り、ラボ起動中に `node test_atlas_regional_approaches.mjs` で再現できる。 [空の神殿の帰路](../evidence/atlas-regional-sky-return.png) · [港の上段の入口](../evidence/atlas-regional-port-upper-gate.png) · [Chromeの記録](../evidence/atlas-regional-approaches-browser.json)
 
 再生成は `python -X utf8 build_world_atlas.py`。Lua検査は `python -X utf8 test_world_atlas.py`、ブラウザ検査は `node test_world_atlas.mjs`。位相門と追加ルートは `python -X utf8 test_sites_atlas_connections.py`、続けて `node test_sites_atlas_connections.mjs` で確認できる。Luaラボの狩場背景は仮画像。本番の3D配置と幻境への移植は別途検証する。

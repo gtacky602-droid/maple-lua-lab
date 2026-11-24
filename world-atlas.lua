@@ -182,6 +182,21 @@ return function(C, atlas)
   return exits
  end
 
+ local function route_hint(edge,node)
+  local voyage=node.voyage
+  local instruction=edge.darkOnly and '灯りを消して足場を出す'
+    or edge.wind and '風が止むまで待つ'
+    or edge.windowStart and '停車・寄港時に降りる'
+    or voyage and voyage.destination==edge.to and (
+      voyage.kind=='ferry' and ('出航から'..voyage.seconds..'秒で着岸')
+      or voyage.kind=='train' and ('発車から'..voyage.seconds..'秒で到着')) or nil
+  local parts={}
+  if edge.y and edge.y<480 and not node.swim then parts[#parts+1]='上段の入口' end
+  if edge.rideLabel then parts[#parts+1]=edge.rideLabel end
+  if instruction then parts[#parts+1]=instruction end
+  if #parts>0 then return table.concat(parts,'・') end
+ end
+
  local function overview(out, options, current, nodes)
   sea(out,false)
   for x=45,w-30,45 do line(out,x,19,x,h-19,'#6ca4ad',1) end
@@ -332,12 +347,7 @@ return function(C, atlas)
       if allowBlocked or not reason then
        local mode=route_mode(edge,node,nextNode)
        previous[edge.to]={from=id,id=edge.to,name=nextNode.name,region=places[edge.to],
-        label=route_labels[mode],mode=mode,reason=reason,
-        hint=edge.darkOnly and '灯りを消して足場を出す' or edge.wind and '風が止むまで待つ'
-          or edge.windowStart and '停車・寄港時に降りる'
-          or node.voyage and node.voyage.destination==edge.to and (
-            node.voyage.kind=='ferry' and ('出航から'..node.voyage.seconds..'秒で着岸')
-            or node.voyage.kind=='train' and ('発車から'..node.voyage.seconds..'秒で到着')) or nil}
+        label=route_labels[mode],mode=mode,reason=reason,hint=route_hint(edge,node)}
        queue[#queue+1]=edge.to
       end
      end
