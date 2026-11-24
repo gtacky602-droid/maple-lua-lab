@@ -1,5 +1,11 @@
 # ChatGPTへの引き継ぎ
 
+## 同行者の登攀と元素支援
+
+カチーナのAIは上段にいる旅人や敵に向かうとき、届く蔦の根元まで移動して登る。獲得Lv165の雪原の終着駅で、旅人の「芽吹きの台」を使って同じ足場に着くことと、地図移動で登攀加速が解除されることをLuaとChromeで確認した。
+
+獲得Lv200の暁晶原では、試験中に敵を倒し切らないよう町で旅人の装備を調整した。エミリエの燃焼強化は燃えている敵への自身の攻撃に30%加算され、敵の燃焼が切れた時点で加算が止まった。コロンビーナは領域と印が重なると旅人の雷攻撃から追撃が1回発生した。領域が切れた後は印による追撃が止まり、付着済みの水元素からは月感電が起きた。 [Luaの検証記録](evidence/earned-support-effects-lua.json) · [Chromeの登攀記録](evidence/earned-kachina-climb-browser.json) · [登攀中の画面](evidence/earned-kachina-climb.png)
+
 ## 野外ボスの予兆に合わせる同行者の防御
 
 霜紋の岩兎と礫脈の選鉱炉で、北斗と綾華のAIが床攻撃の範囲と着弾時刻を見て反撃・防御・回避するようにした。獲得Lv165で北斗は岩兎の17ダメージを反撃で無効化し、反撃のクールダウン中は防御構えで17から8に軽減した。放浪者の浮遊は岩兎の床攻撃の高さを上回り、直後の空中連射も命中した。獲得Lv200のChromeでは選鉱炉の同じ攻撃で旅人は20ダメージ、綾華は霜影回避で0だった。 [Luaでの効果確認](evidence/earned-companion-defense-lua.json) · [Chromeの着弾記録](evidence/earned-companion-defense-browser.json) · [回避に入った画面](evidence/earned-ayaka-sifter-dodge.png)

@@ -541,8 +541,14 @@ function C.step(s,dt,input)
     end
     local leader=s.actors[s.active]
     local avoid=C.aiAvoidTarget and C.aiAvoidTarget(s,a)
+    local climb
+    if a.id==2 and C.companionClimbX then
+     climb=C.companionClimbX(s,a,not avoid and (nearest and dist<450 and nearest or leader))
+    end
     if avoid then
      move=abs(avoid-a.x)>6 and (avoid>a.x and 1 or -1) or 0
+    elseif climb then
+     move=abs(climb-a.x)>12 and (climb>a.x and 1 or -1) or 0
     elseif nearest and dist<450 then
      a.dir=nearest.x>=a.x and 1 or -1
      if abs(nearest.x-a.x)>(a.id==1 and 85 or 220) then move=a.dir end

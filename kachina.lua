@@ -18,13 +18,29 @@ return function(C)
   end
   cast.startedAt=s.t;s.pending[#s.pending+1]=cast;return true
  end
+ function C.companionClimbX(s,a,target)
+  local climbing=a.climbIntent
+  a.climbIntent=false
+  if s.companion~='kachina' or not target then return end
+  local nearest,distance
+  for _,p in ipairs(s.platforms) do
+   if p.structure=='vine' and a.y>p.y and a.y<=p.base+10 and target.y<p.base-60
+      and (climbing or target.y<a.y-60) then
+    local x=p.x+p.w/2
+    local dx=math.abs(a.x-x)
+    if dx<320 and math.abs(target.x-x)<225 and (not p.life or p.life>dx/210+(a.y-p.y)/280)
+       and (not distance or dx<distance) and C.pathClear(s,a,x,a.y) then
+     nearest,distance=x,dx
+    end
+   end
+  end
+  if not nearest then return end
+  a.climbIntent=distance<35
+  if a.climbIntent and C.traversalRate(s,a)==1 then C.attack(s,a,'skill3') end
+  return nearest
+ end
  function C.companionAI(s,a,nearest)
   if s.companion~='kachina' then return ai(s,a,nearest) end
-  a.climbIntent=false
-  if nearest.y<a.y-60 then
-   for _,p in ipairs(s.platforms) do if p.structure=='vine' and math.abs(a.x-(p.x+60))<35 and a.y>p.y and a.y<=p.base+10 then a.climbIntent=true;break end end
-  end
-  if a.climbIntent and C.attack(s,a,'skill3') then return true end
   for _,key in ipairs({'skill4','skill1','skill2','normal'}) do if C.attack(s,a,key) then break end end
   return true
  end
@@ -32,6 +48,7 @@ return function(C)
  function C.action(s,key)
   local zone=s.campaign and s.campaign.zone;local companion=s.companion;action(s,key)
   if zone~=(s.campaign and s.campaign.zone) or companion~=s.companion or key=='boss_anemo' then clear(s) end
+  if key=='swap' then s.actors[2].climbIntent=false end
  end
  function C.step(s,dt,input)
   local returns=s.returns;step(s,dt,input)

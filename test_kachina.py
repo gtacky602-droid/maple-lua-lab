@@ -22,7 +22,7 @@ def vine(s,a):
 s,a,e=scene();vine(s,a);c.step(s,1/60,lua.table_from({'jump':True}));baseline=a.y
 s,a,e=scene();vine(s,a);c.attack(s,a,'skill3');c.step(s,1/60,lua.table_from({'jump':True}));check('climb boost increases actual vertical movement',a.y<baseline and c.traversalRate(s,a)==1.25);ticks(s,301);check('climb boost expires',c.traversalRate(s,a)==1)
 s,a,e=scene();c.companionAI(s,a,e);check('flat combat AI avoids traversal buff',a.cd.skill3 is None)
-s,a,e=scene();vine(s,a);e.y=340;c.companionAI(s,a,e);check('AI enables boost at authored climb route',a.climbIntent and a.cd.skill3==12)
+s,a,e=scene();vine(s,a);e.y=340;s.active=1;ticks(s,1);check('AI enables boost at authored climb route',a.climbIntent and a.cd.skill3==12)
 s,a,e=scene();c.attack(s,a,'skill1');a.hp=0;ticks(s,550);check('death cancels top',s.hits==0 and s.drillTop is None)
 s,a,e=scene();c.attack(s,a,'skill1');s.paused=True;ticks(s,550);check('pause freezes top',s.hits==0 and s.drillTop is not None)
 s,a,e=scene();c.attack(s,a,'skill1');c.action(s,'campaign');check('map clears top',s.drillTop is None)

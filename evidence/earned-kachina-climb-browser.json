@@ -1,0 +1,19 @@
+{
+  "field": "white-pass-station",
+  "level": 165,
+  "vine": {
+    "x": 421,
+    "top": 320
+  },
+  "climbing": {
+    "heights": [
+      318.83333333333377,
+      441.6944444444444
+    ],
+    "boost": 4.883333333333335,
+    "vineDrawn": true
+  },
+  "reachedSameLedge": true,
+  "clearsOnExit": true,
+  "errors": []
+}

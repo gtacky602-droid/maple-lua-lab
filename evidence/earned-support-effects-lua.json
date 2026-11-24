@@ -1,0 +1,195 @@
+{
+  "kachina": {
+    "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+    "field": "white-pass-station",
+    "leaderCast": "SK16",
+    "stem": 421.0,
+    "ledgeY": 320,
+    "boostedPixelsPerTick": 5.4722,
+    "mapExitClears": true
+  },
+  "emilie": {
+    "sourceSha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+    "field": "dawn-crystal-field",
+    "target": "dawn-crystal-field-1-1",
+    "hits": [
+      {
+        "cast": "emilie:skill4",
+        "damage": 5,
+        "bonus": 0,
+        "burning": false,
+        "t": 0.4167
+      },
+      {
+        "cast": "emilie:skill4",
+        "damage": 6,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 0.7167
+      },
+      {
+        "cast": "emilie:skill4",
+        "damage": 6,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 1.0167
+      },
+      {
+        "cast": "emilie:skill4",
+        "damage": 6,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 1.3167
+      },
+      {
+        "cast": "emilie:skill1",
+        "damage": 4,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 1.5333
+      },
+      {
+        "cast": "emilie:skill4",
+        "damage": 6,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 1.6167
+      },
+      {
+        "cast": "emilie:skill2",
+        "damage": 6,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 1.65
+      },
+      {
+        "cast": "emilie:skill2",
+        "damage": 6,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 1.7333
+      },
+      {
+        "cast": "emilie:skill2",
+        "damage": 6,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 1.8167
+      },
+      {
+        "cast": "emilie:skill2",
+        "damage": 6,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 1.9
+      },
+      {
+        "cast": "emilie:skill4",
+        "damage": 6,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 1.9167
+      },
+      {
+        "cast": "emilie:normal",
+        "damage": 4,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 2.2167
+      },
+      {
+        "cast": "emilie:skill4",
+        "damage": 6,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 2.2167
+      },
+      {
+        "cast": "emilie:normal",
+        "damage": 4,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 2.3
+      },
+      {
+        "cast": "emilie:skill4",
+        "damage": 6,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 2.5167
+      },
+      {
+        "cast": "emilie:skill1",
+        "damage": 4,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 2.5333
+      },
+      {
+        "cast": "emilie:skill4",
+        "damage": 6,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 2.8167
+      },
+      {
+        "cast": "emilie:normal",
+        "damage": 4,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 2.9667
+      },
+      {
+        "cast": "emilie:normal",
+        "damage": 4,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 3.05
+      },
+      {
+        "cast": "emilie:skill4",
+        "damage": 6,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 3.1167
+      },
+      {
+        "cast": "emilie:skill1",
+        "damage": 4,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 3.5333
+      },
+      {
+        "cast": "emilie:normal",
+        "damage": 4,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 3.7167
+      },
+      {
+        "cast": "emilie:normal",
+        "damage": 4,
+        "bonus": 0.3,
+        "burning": true,
+        "t": 3.8
+      },
+      {
+        "cast": "emilie:normal",
+        "damage": 3,
+        "bonus": 0,
+        "burning": false,
+        "t": 4.4667
+      }
+    ]
+  },
+  "columbina": {
+    "sourceSha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+    "field": "dawn-crystal-field",
+    "target": "dawn-crystal-field-1-1",
+    "travelerSupportStrikes": 1,
+    "supportExcludedAfterDomainExpiry": true,
+    "moonElectroWithExistingHydroAuraAfterDomainExpiry": true,
+    "mapExitClears": true
+  }
+}

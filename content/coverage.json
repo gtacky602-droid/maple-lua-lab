@@ -8136,6 +8136,15 @@
       "lua_evidence": "evidence/earned-companion-defense-lua.json",
       "browser_evidence": "evidence/earned-companion-defense-browser.json"
     },
+    "earned_companion_support": {
+      "live_checks": [
+        "Kachina approaches a Traveler-created vine and reaches the same ledge",
+        "Emilie gains 30% against a burning target and loses the bonus when burning expires",
+        "Columbina's marked follow-up requires the domain, while prior Hydro still enables Moon Electro"
+      ],
+      "lua_evidence": "evidence/earned-support-effects-lua.json",
+      "browser_climb_evidence": "evidence/earned-kachina-climb-browser.json"
+    },
     "scope": "Prepared combat checks cooldowns, static damage profiles, and companion action locks and scheduled timings. Special followups and actual hits have separate tests. Chrome covers a regional acquisition, loadout restoration, a dodge interrupt, and the shared water field.",
     "lua_evidence": "evidence/skill-roster-lua.json",
     "browser_evidence": "evidence/skill-learning-browser.json",
