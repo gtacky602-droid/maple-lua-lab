@@ -26,14 +26,16 @@ REFERENCE_ENGINE = runtime(draft_balance=True, draft_field_boss_hp=False)
 
 
 class Trial:
-    def __init__(self, spec, controlled, *, file='lv165-save.json', engine=REFERENCE_ENGINE):
+    def __init__(self, spec, controlled, *, file='lv165-save.json', engine=REFERENCE_ENGINE, skills=SKILLS):
         self.spec = spec
+        self.skills = skills
         self.trip = Journey(file, engine=engine)
         self.controls = {
             (move, attack): self.trip.lua.table(left=move == -1, right=move == 1, attack=attack)
             for move in (-1, 0, 1) for attack in (False, True)
         }
-        self.trip.warp('snezhnaya-hub')
+        start = spec.hub if self.trip.state.story.visited[spec.hub] else 'snezhnaya-hub'
+        self.trip.warp(start)
         if controlled:
             self.trip.act('companion:kachina')
             self.trip.act('weapon_equip:traveler:SW03')
@@ -42,7 +44,7 @@ class Trial:
                 if item.owner == 1 and item.slot in (2, 3):
                     self.trip.act(f'artifact_remove:{item.id}')
             assert 0 < self.trip.actor.atk < 70
-        slots = [[key] for key in SKILLS] + [[] for _ in range(4)]
+        slots = [[key] for key in skills] + [[] for _ in range(8-len(skills))]
         assert self.trip.core.configure(self.trip.state, self.trip.lua.table_from(slots, recursive=True))[0]
         if spec.hub != self.trip.state.story.node:
             self.trip.travel(spec.hub)
@@ -56,7 +58,7 @@ class Trial:
         self.boss = self.slot.enemy
         self.max_hp = self.boss.maxhp
         self.moves = []
-        self.attacks = {key:0 for key in SKILLS}
+        self.attacks = {key:0 for key in skills}
         self.kills = self.trip.state.kills
         self.hits = self.trip.state.hits
         self.totals = self.trip.state.progression.killXp, self.trip.state.mora
@@ -81,7 +83,7 @@ class Trial:
             for key in skills:
                 if (actor.cd[key] or 0) > 0:
                     continue
-                self.trip.act('slot'+str(SKILLS.index(key)+1))
+                self.trip.act('slot'+str(self.skills.index(key)+1))
                 chosen = key
                 attack = False
                 break

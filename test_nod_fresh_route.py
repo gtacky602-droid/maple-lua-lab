@@ -89,6 +89,9 @@ def mark(id):
     row = dict(id=id, seconds=round(state.t, 2), level=p.level, total=p.total, questXp=p.questXp,
                killXp=p.killXp, kills=state.kills)
     milestones.append(row)
+    if draft and p.level in (122, 128, 130, 133):
+        data = validate_save(native(core.checkpoint(state)))
+        (work / f'earned-lv{p.level}.json').write_text(json.dumps(data, ensure_ascii=False)+'\n', encoding='utf8')
     print(id, p.level, p.total, flush=True)
 
 

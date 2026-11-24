@@ -1,0 +1,9 @@
+{
+  "boss": "boss-26301101",
+  "level": 130,
+  "playerHpWhileBound": 10699,
+  "playerHpAfterHealing": 10771,
+  "draftBossMaxHp": 4100000,
+  "cocoonReleasedByWaterField": true,
+  "errors": []
+}

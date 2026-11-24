@@ -118,6 +118,12 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True):
     }
     field_specs=json.loads((ROOT/'content/field-boss-spawns.json').read_text(encoding='utf-8-sig'))['fieldBosses']
     if draft_balance and draft_field_boss_hp:
+        proportional_hp = {
+            'driftingSnow': ('coffin', ('heal',)),
+            'immortalConstruct': ('life', ('cost', 'healOnHit', 'healBudget')),
+            'knuckleDuck': ('ward', ('unitHp',)),
+            'whispererNightmares': ('ward', ('max', 'unitHp')),
+        }
         for spec in field_specs:
             draft_hp = balance['fieldBossHp'].get(spec['id'])
             if draft_hp is None:
@@ -125,11 +131,11 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True):
             spec['baseHp'] = spec['hp']
             spec['hp'] = draft_hp
             ratio = draft_hp / spec['baseHp']
-            # Keep health exchanged by these mechanics proportional in both profiles.
-            for key, fields in (('life', ('cost', 'healOnHit', 'healBudget')), ('coffin', ('heal',))):
-                if key in spec:
-                    for field in fields:
-                        spec[key][field] = round(spec[key][field] * ratio)
+            scaled = proportional_hp.get(spec['controller'])
+            if scaled:
+                key, fields = scaled
+                for field in fields:
+                    spec[key][field] = round(spec[key][field] * ratio)
     weekly_specs=resolve_weekly_rewards(json.loads((ROOT/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses'])
     if draft_balance:
         for spec in weekly_specs:

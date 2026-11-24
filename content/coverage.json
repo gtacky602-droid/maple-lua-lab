@@ -8229,7 +8229,7 @@
   },
   "field_balance_draft": {
     "status": "local_opt_in_prototype",
-    "scope": "Optional local server applies level-based ordinary field HP, revised reward sword ATK, and fixed trial HP for four normal bosses, selected weekly tiers, and Beidou extreme. The draft server is unranked and uses the existing EXP and Mora formulas.",
+    "scope": "Optional local server applies level-based ordinary field HP, revised reward sword ATK, and fixed trial HP for ten normal bosses, selected weekly tiers, and Beidou extreme. The draft server is unranked and uses the existing EXP and Mora formulas.",
     "settings": "content/field-balance-draft.json",
     "lua_evidence": "evidence/field-balance-draft-lua.json",
     "browser_evidence": "evidence/liyue-m01-browser-draft.json",
@@ -8241,6 +8241,13 @@
       "checkpoint_conversion": "Preserves remaining HP percentage, elapsed time, respawn cooldown, and phase flags when changing profiles.",
       "lua_evidence": "evidence/draft-snezhnaya-boss-hp-lua.json",
       "browser_evidence": "evidence/draft-snezhnaya-boss-hp-browser.json"
+    },
+    "nod_krai_normal_boss_hp": {
+      "encounters": 6,
+      "earned_save_levels": [122, 128, 130, 133],
+      "entry_gate_confirmed_at_level_120": true,
+      "lua_evidence": "evidence/draft-nod-boss-hp-lua.json",
+      "browser_evidence": "evidence/draft-nod-boss-hp-browser.json"
     }
   },
   "natlan_gear_recovery": {

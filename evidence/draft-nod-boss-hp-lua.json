@@ -1,0 +1,757 @@
+{
+  "levelGates": {
+    "level": 120,
+    "sourceSha256": "f5878ff190b45467843d9380addca40d46b79820996089aab0ab3d62ec3ce523",
+    "gates": [
+      {
+        "node": "nod-field",
+        "target": "nod-duckle-workyard",
+        "reason": "必要レベル 122"
+      },
+      {
+        "node": "nod-field",
+        "target": "nod-battleship-depot",
+        "reason": "必要レベル 124"
+      },
+      {
+        "node": "nod-field",
+        "target": "nod-herra-terrace",
+        "reason": "必要レベル 126"
+      },
+      {
+        "node": "nod-field",
+        "target": "nod-nightmare-shore",
+        "reason": "必要レベル 128"
+      },
+      {
+        "node": "nod-field",
+        "target": "nod-moonfly-hollow",
+        "reason": "必要レベル 130"
+      },
+      {
+        "node": "nod-field",
+        "target": "nod-gecko-depths",
+        "reason": "必要レベル 132"
+      }
+    ]
+  },
+  "balance": {
+    "knuckleDuck": {
+      "level": 122,
+      "previousHp": {
+        "sourceSha256": "d0958a9973732ed44db9a79376e98c4d1349b86201a30b1688475b0501b00cb7",
+        "boss": "boss-24100101",
+        "arena": "nod-duckle-workyard",
+        "entryRoute": [
+          "nod-field",
+          "nod-duckle-workyard"
+        ],
+        "maxHp": 1135,
+        "partyAttack": [
+          9314,
+          6652
+        ],
+        "elapsedSeconds": 2.667,
+        "damagingHits": 1,
+        "moves": [],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          526400,
+          445
+        ],
+        "commission": {
+          "quest": "knuckle-duckle-commission",
+          "xp": 8500,
+          "mora": 570
+        },
+        "savedClear": true
+      },
+      "comparisonHp": {
+        "sourceSha256": "d0958a9973732ed44db9a79376e98c4d1349b86201a30b1688475b0501b00cb7",
+        "boss": "boss-24100101",
+        "arena": "nod-duckle-workyard",
+        "entryRoute": [
+          "nod-field",
+          "nod-duckle-workyard"
+        ],
+        "maxHp": 4250000,
+        "partyAttack": [
+          9314,
+          6652
+        ],
+        "elapsedSeconds": 67.083,
+        "damagingHits": 462,
+        "moves": [
+          "FDK01",
+          "FDK02",
+          "FDK03"
+        ],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          526400,
+          445
+        ],
+        "commission": {
+          "quest": "knuckle-duckle-commission",
+          "xp": 8500,
+          "mora": 570
+        },
+        "savedClear": true
+      }
+    },
+    "battleship": {
+      "level": 128,
+      "previousHp": {
+        "sourceSha256": "e18c1a3ee930ac7a287b6c9eb79b857e5596dc8c02e1d47c059c90836cbd4e8d",
+        "boss": "boss-23090101",
+        "arena": "nod-battleship-depot",
+        "entryRoute": [
+          "nod-field",
+          "nod-battleship-depot"
+        ],
+        "maxHp": 1170,
+        "partyAttack": [
+          9314,
+          6652
+        ],
+        "elapsedSeconds": 2.517,
+        "damagingHits": 1,
+        "moves": [],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          597050,
+          455
+        ],
+        "commission": {
+          "quest": "battleship-commission",
+          "xp": 8800,
+          "mora": 590
+        },
+        "savedClear": true
+      },
+      "comparisonHp": {
+        "sourceSha256": "e18c1a3ee930ac7a287b6c9eb79b857e5596dc8c02e1d47c059c90836cbd4e8d",
+        "boss": "boss-23090101",
+        "arena": "nod-battleship-depot",
+        "entryRoute": [
+          "nod-field",
+          "nod-battleship-depot"
+        ],
+        "maxHp": 4500000,
+        "partyAttack": [
+          9314,
+          6652
+        ],
+        "elapsedSeconds": 60.833,
+        "damagingHits": 405,
+        "moves": [
+          "FBT01",
+          "FBT02",
+          "FBT03"
+        ],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          597050,
+          455
+        ],
+        "commission": {
+          "quest": "battleship-commission",
+          "xp": 8800,
+          "mora": 590
+        },
+        "savedClear": true
+      }
+    },
+    "frostnightHerra": {
+      "level": 128,
+      "previousHp": {
+        "sourceSha256": "e18c1a3ee930ac7a287b6c9eb79b857e5596dc8c02e1d47c059c90836cbd4e8d",
+        "boss": "boss-20081001",
+        "arena": "nod-herra-terrace",
+        "entryRoute": [
+          "nod-field",
+          "nod-herra-terrace"
+        ],
+        "maxHp": 1200,
+        "partyAttack": [
+          9314,
+          6652
+        ],
+        "elapsedSeconds": 2.717,
+        "damagingHits": 1,
+        "moves": [
+          "FHR01"
+        ],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          677150,
+          465
+        ],
+        "commission": {
+          "quest": "frostnight-herra-commission",
+          "xp": 9000,
+          "mora": 610
+        },
+        "savedClear": true
+      },
+      "comparisonHp": {
+        "sourceSha256": "e18c1a3ee930ac7a287b6c9eb79b857e5596dc8c02e1d47c059c90836cbd4e8d",
+        "boss": "boss-20081001",
+        "arena": "nod-herra-terrace",
+        "entryRoute": [
+          "nod-field",
+          "nod-herra-terrace"
+        ],
+        "maxHp": 4500000,
+        "partyAttack": [
+          9314,
+          6652
+        ],
+        "elapsedSeconds": 68.417,
+        "damagingHits": 455,
+        "moves": [
+          "FHR01",
+          "FHR02",
+          "FHR03"
+        ],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          677150,
+          465
+        ],
+        "commission": {
+          "quest": "frostnight-herra-commission",
+          "xp": 9000,
+          "mora": 610
+        },
+        "savedClear": true
+      }
+    },
+    "whispererNightmares": {
+      "level": 128,
+      "previousHp": {
+        "sourceSha256": "e18c1a3ee930ac7a287b6c9eb79b857e5596dc8c02e1d47c059c90836cbd4e8d",
+        "boss": "boss-22150101",
+        "arena": "nod-nightmare-shore",
+        "entryRoute": [
+          "nod-field",
+          "nod-nightmare-shore"
+        ],
+        "maxHp": 1340,
+        "partyAttack": [
+          9314,
+          6652
+        ],
+        "elapsedSeconds": 2.8,
+        "damagingHits": 1,
+        "moves": [
+          "FWN01"
+        ],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          768050,
+          475
+        ],
+        "commission": {
+          "quest": "whisperer-nightmares-commission",
+          "xp": 9200,
+          "mora": 630
+        },
+        "savedClear": true
+      },
+      "comparisonHp": {
+        "sourceSha256": "e18c1a3ee930ac7a287b6c9eb79b857e5596dc8c02e1d47c059c90836cbd4e8d",
+        "boss": "boss-22150101",
+        "arena": "nod-nightmare-shore",
+        "entryRoute": [
+          "nod-field",
+          "nod-nightmare-shore"
+        ],
+        "maxHp": 3100000,
+        "partyAttack": [
+          9314,
+          6652
+        ],
+        "elapsedSeconds": 85.0,
+        "damagingHits": 457,
+        "moves": [
+          "FWN01",
+          "FWN02",
+          "FWN03"
+        ],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          768050,
+          475
+        ],
+        "commission": {
+          "quest": "whisperer-nightmares-commission",
+          "xp": 9200,
+          "mora": 630
+        },
+        "savedClear": true
+      }
+    },
+    "moonfly": {
+      "level": 130,
+      "previousHp": {
+        "sourceSha256": "3d5d617aa65943aaca4d44794753c41ed27ee92677a7b3032332176b30bff752",
+        "boss": "boss-26301101",
+        "arena": "nod-moonfly-hollow",
+        "entryRoute": [
+          "nod-field",
+          "nod-moonfly-hollow"
+        ],
+        "maxHp": 1050,
+        "partyAttack": [
+          9314,
+          6652
+        ],
+        "elapsedSeconds": 2.35,
+        "damagingHits": 1,
+        "moves": [],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          871150,
+          485
+        ],
+        "commission": {
+          "quest": "moonfly-commission",
+          "xp": 9400,
+          "mora": 650
+        },
+        "savedClear": true
+      },
+      "comparisonHp": {
+        "sourceSha256": "3d5d617aa65943aaca4d44794753c41ed27ee92677a7b3032332176b30bff752",
+        "boss": "boss-26301101",
+        "arena": "nod-moonfly-hollow",
+        "entryRoute": [
+          "nod-field",
+          "nod-moonfly-hollow"
+        ],
+        "maxHp": 4100000,
+        "partyAttack": [
+          9314,
+          6652
+        ],
+        "elapsedSeconds": 63.417,
+        "damagingHits": 432,
+        "moves": [
+          "FMF01",
+          "FMF02",
+          "FMF03"
+        ],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          871150,
+          485
+        ],
+        "commission": {
+          "quest": "moonfly-commission",
+          "xp": 9400,
+          "mora": 650
+        },
+        "savedClear": true
+      }
+    },
+    "moongecko": {
+      "level": 133,
+      "previousHp": {
+        "sourceSha256": "2b5a4fd6316d74af48717cffbc38cc11319d85c1e8baf5db89204128888a7924",
+        "boss": "boss-26302101",
+        "arena": "nod-gecko-depths",
+        "entryRoute": [
+          "nod-field",
+          "nod-gecko-depths"
+        ],
+        "maxHp": 1160,
+        "partyAttack": [
+          9314,
+          6652
+        ],
+        "elapsedSeconds": 2.75,
+        "damagingHits": 1,
+        "moves": [
+          "FMG01"
+        ],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          988100,
+          495
+        ],
+        "commission": {
+          "quest": "moongecko-commission",
+          "xp": 9600,
+          "mora": 670
+        },
+        "savedClear": true
+      },
+      "comparisonHp": {
+        "sourceSha256": "2b5a4fd6316d74af48717cffbc38cc11319d85c1e8baf5db89204128888a7924",
+        "boss": "boss-26302101",
+        "arena": "nod-gecko-depths",
+        "entryRoute": [
+          "nod-field",
+          "nod-gecko-depths"
+        ],
+        "maxHp": 4500000,
+        "partyAttack": [
+          9314,
+          6652
+        ],
+        "elapsedSeconds": 79.55,
+        "damagingHits": 531,
+        "moves": [
+          "FMG01",
+          "FMG02",
+          "FMG03"
+        ],
+        "skillCasts": {
+          "SK21": 0,
+          "SK09": 0,
+          "SK10": 0,
+          "SK13": 0
+        },
+        "killXpAndMora": [
+          988100,
+          495
+        ],
+        "commission": {
+          "quest": "moongecko-commission",
+          "xp": 9600,
+          "mora": 670
+        },
+        "savedClear": true
+      }
+    }
+  },
+  "mechanics": {
+    "duck": {
+      "sourceSha256": "1a16356c7fd84c12e7889df35c552b48532e532b44804840538d555e4af4f4fa",
+      "boss": "boss-24100101",
+      "arena": "nod-duckle-workyard",
+      "entryRoute": [
+        "nod-field",
+        "nod-duckle-workyard"
+      ],
+      "maxHp": 4250000,
+      "partyAttack": [
+        9314,
+        6652
+      ],
+      "elapsedSeconds": 58.717,
+      "damagingHits": 401,
+      "moves": [
+        "FDK01",
+        "FDK02",
+        "FDK03"
+      ],
+      "skillCasts": {
+        "SK21": 15,
+        "SK09": 15,
+        "SK10": 0
+      },
+      "killXpAndMora": [
+        342160,
+        445
+      ],
+      "commission": {
+        "quest": "knuckle-duckle-commission",
+        "xp": 8500,
+        "mora": 570
+      },
+      "savedClear": true,
+      "repairUnitsDestroyed": 2
+    },
+    "battleship": {
+      "sourceSha256": "1a16356c7fd84c12e7889df35c552b48532e532b44804840538d555e4af4f4fa",
+      "boss": "boss-23090101",
+      "arena": "nod-battleship-depot",
+      "entryRoute": [
+        "nod-field",
+        "nod-battleship-depot"
+      ],
+      "maxHp": 4500000,
+      "partyAttack": [
+        9314,
+        6652
+      ],
+      "elapsedSeconds": 57.667,
+      "damagingHits": 389,
+      "moves": [
+        "FBT01",
+        "FBT03",
+        "FBT02"
+      ],
+      "skillCasts": {
+        "SK21": 2,
+        "SK22": 1,
+        "SK24": 1,
+        "SK23": 1
+      },
+      "killXpAndMora": [
+        388083,
+        455
+      ],
+      "commission": {
+        "quest": "battleship-commission",
+        "xp": 8800,
+        "mora": 590
+      },
+      "savedClear": true,
+      "heatedAndInterruptedCooling": true
+    },
+    "herra": {
+      "sourceSha256": "ebe8418f66adf18b7e5e5e02ec8a6ce65dffbbce2be03ec96cf6ac9fed04f1e6",
+      "boss": "boss-20081001",
+      "arena": "nod-herra-terrace",
+      "entryRoute": [
+        "nod-field",
+        "nod-herra-terrace"
+      ],
+      "maxHp": 4500000,
+      "partyAttack": [
+        10470,
+        6652
+      ],
+      "elapsedSeconds": 69.1,
+      "damagingHits": 421,
+      "moves": [
+        "FHR01",
+        "FHR02",
+        "FHR03"
+      ],
+      "skillCasts": {
+        "SK25": 1,
+        "SK26": 1,
+        "SK28": 1
+      },
+      "killXpAndMora": [
+        135430,
+        465
+      ],
+      "commission": {
+        "quest": "frostnight-herra-commission",
+        "xp": 9000,
+        "mora": 610
+      },
+      "savedClear": true,
+      "gloomBrokenByThreeCryoCasts": true
+    },
+    "nightmare": {
+      "sourceSha256": "1a16356c7fd84c12e7889df35c552b48532e532b44804840538d555e4af4f4fa",
+      "boss": "boss-22150101",
+      "arena": "nod-nightmare-shore",
+      "entryRoute": [
+        "nod-field",
+        "nod-nightmare-shore"
+      ],
+      "maxHp": 3100000,
+      "partyAttack": [
+        9314,
+        6652
+      ],
+      "elapsedSeconds": 52.817,
+      "damagingHits": 338,
+      "moves": [
+        "FWN01",
+        "FWN02",
+        "FWN03"
+      ],
+      "skillCasts": {
+        "SK21": 13,
+        "SK09": 13,
+        "SK10": 1
+      },
+      "killXpAndMora": [
+        499233,
+        475
+      ],
+      "commission": {
+        "quest": "whisperer-nightmares-commission",
+        "xp": 9200,
+        "mora": 630
+      },
+      "savedClear": true,
+      "fishersDefeated": 4,
+      "shieldBroken": true
+    },
+    "moonfly": {
+      "sourceSha256": "1a16356c7fd84c12e7889df35c552b48532e532b44804840538d555e4af4f4fa",
+      "boss": "boss-26301101",
+      "arena": "nod-moonfly-hollow",
+      "entryRoute": [
+        "nod-field",
+        "nod-moonfly-hollow"
+      ],
+      "maxHp": 4100000,
+      "partyAttack": [
+        9314,
+        6652
+      ],
+      "elapsedSeconds": 52.917,
+      "damagingHits": 355,
+      "moves": [
+        "FMF01",
+        "FMF02",
+        "FMF03"
+      ],
+      "skillCasts": {
+        "SK21": 13,
+        "SK17": 13,
+        "SK18": 1
+      },
+      "killXpAndMora": [
+        784035,
+        485
+      ],
+      "commission": {
+        "quest": "moonfly-commission",
+        "xp": 9400,
+        "mora": 650
+      },
+      "savedClear": true,
+      "wingElements": [
+        "pyro",
+        "dendro"
+      ],
+      "cocoonReleasedByHealing": true
+    },
+    "gecko": {
+      "sourceSha256": "1a16356c7fd84c12e7889df35c552b48532e532b44804840538d555e4af4f4fa",
+      "boss": "boss-26302101",
+      "arena": "nod-gecko-depths",
+      "entryRoute": [
+        "nod-field",
+        "nod-gecko-depths"
+      ],
+      "maxHp": 4500000,
+      "partyAttack": [
+        9314,
+        6652
+      ],
+      "elapsedSeconds": 88.6,
+      "damagingHits": 559,
+      "moves": [
+        "FMG01",
+        "FMG02",
+        "FMG03"
+      ],
+      "skillCasts": {
+        "SK05": 23,
+        "SK07": 8,
+        "SK18": 0
+      },
+      "killXpAndMora": [
+        889290,
+        495
+      ],
+      "commission": {
+        "quest": "moongecko-commission",
+        "xp": 9600,
+        "mora": 670
+      },
+      "savedClear": true,
+      "moonstoneAnchorBroken": true,
+      "anchorBacklashDamage": 34
+    }
+  },
+  "cocoonDodge": {
+    "insideBindRange": true,
+    "hpBefore": 10711,
+    "hpAfter": 10711,
+    "noCocoon": true
+  },
+  "earlyHerra": {
+    "sourceSha256": "1810759ccb4f43694fef4551993d822ddf5918fe240d689dfe7e8c8d6e94cf12",
+    "boss": "boss-20081001",
+    "arena": "nod-herra-terrace",
+    "entryRoute": [
+      "nod-field",
+      "nod-herra-terrace"
+    ],
+    "maxHp": 4500000,
+    "partyAttack": [
+      9314,
+      4
+    ],
+    "elapsedSeconds": 142.217,
+    "damagingHits": 560,
+    "moves": [
+      "FHR01",
+      "FHR02",
+      "FHR03"
+    ],
+    "skillCasts": {
+      "SK21": 0
+    },
+    "killXpAndMora": [
+      677150,
+      465
+    ],
+    "commission": {
+      "quest": "frostnight-herra-commission",
+      "xp": 9000,
+      "mora": 610
+    },
+    "savedClear": true,
+    "level": 128,
+    "gloomBrokenByAyaka": true
+  }
+}

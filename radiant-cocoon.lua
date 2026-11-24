@@ -53,8 +53,9 @@ return function(C)
   for _,a in ipairs(state.actors) do
    if a.hp>0 and a.x>=left and a.x<=right then
     local party=state.actorOwners and state.actorOwners[a] or state
+    local before=a.hp
     C.damageActor(party,a,spec.cocoon.damage,source,false,true)
-    if a.hp>0 then
+    if a.hp>0 and a.hp<before then
      party.radiantCocoonEffects=party.radiantCocoonEffects or {}
      party.radiantCocoonEffects[a.id]={bound=true}
      party.radiantCocoonSpec=binding

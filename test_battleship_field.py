@@ -32,6 +32,7 @@ def make(fixture=False):
     state=core.new(12)
     core.action(state,'story_start')
     core.grantExp(state,LEVELS[123]['maple_reference_total_exp_to_reach'],'quest')
+    core.enterStoryNode(state,'natlan-hub')
     core.enterStoryNode(state,hub)
     if fixture:
         (ROOT/'work').mkdir(exist_ok=True)

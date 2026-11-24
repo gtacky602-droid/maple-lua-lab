@@ -31,6 +31,8 @@ def make(fixture=False):
     state=core.new(12)
     core.action(state,'story_start')
     core.grantExp(state,LEVELS[131]['maple_reference_total_exp_to_reach'],'quest')
+    core.enterStoryNode(state,'liyue-harbor')
+    core.enterStoryNode(state,'fontaine-hub')
     core.enterStoryNode(state,hub)
     if fixture:
         save=validate_save(native(core.checkpoint(state)))
