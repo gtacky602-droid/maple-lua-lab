@@ -8356,6 +8356,20 @@
       "nod-wp-92889",
       "nod-aamsvaltnir-east-ridge",
       "nod-homesick-wolf-lakeland",
+      "sne-wp-100660",
+      "sne-wp-100659",
+      "sne-wp-100670",
+      "sne-wp-100697",
+      "sne-churin-snow-square",
+      "sne-churin-snow-court",
+      "sne-wp-100658",
+      "sne-svetloredovka-ice-passage",
+      "sne-bandersnatch-ice-cavern",
+      "sne-wp-100643",
+      "sne-wp-100695",
+      "sne-obsession-scar-upper-trail",
+      "sites-hunt-100707",
+      "sne-furiosa-domain-outlook",
       "nod-moon-crab-arena",
       "nod-false-moon-court",
       "nod-false-moon-rift",
@@ -8524,7 +8538,10 @@
       "legend-nod_raskolnikov",
       "legend-nod_hexadecatonic_mandragora",
       "legend-nod_hiljetta",
-      "legend-nod_homesick_lone_wolf"
+      "legend-nod_homesick_lone_wolf",
+      "legend-snez_churin",
+      "legend-snez_bandersnatch",
+      "legend-snez_furiosa"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8818,7 +8835,9 @@
       "evidence/coop-nod-first-field-legends-lua-http.json",
       "evidence/coop-nod-first-field-legends-browser.json",
       "evidence/coop-nod-north-field-legends-lua-http.json",
-      "evidence/coop-nod-north-field-legends-browser.json"
+      "evidence/coop-nod-north-field-legends-browser.json",
+      "evidence/coop-snez-first-field-legends-lua-http.json",
+      "evidence/coop-snez-first-field-legends-browser.json"
     ],
     "pending": [
       "remaining Local Legends and Stygian bosses",

@@ -16,8 +16,10 @@ const finalNatlan=process.argv.includes('--natlan-final');
 const highland=process.argv.includes('--natlan-highland');
 const nodFirst=process.argv.includes('--nod-first');
 const nodNorth=process.argv.includes('--nod-north');
+const snezFirst=process.argv.includes('--snez-first');
 const localNatlan=natlan||night||north||cliff||northwest||wayob||atocpan||finalNatlan||highland;
-const prefix=nodNorth?'evidence/coop-nod-north-field-legends':nodFirst?'evidence/coop-nod-first-field-legends'
+const prefix=snezFirst?'evidence/coop-snez-first-field-legends'
+ : nodNorth?'evidence/coop-nod-north-field-legends':nodFirst?'evidence/coop-nod-first-field-legends'
  : highland?'evidence/coop-natlan-highland-legends':finalNatlan?'evidence/coop-natlan-final-legends'
  : atocpan?'evidence/coop-natlan-atocpan-totem':wayob?'evidence/coop-natlan-wayob-duo'
  : northwest?'evidence/coop-natlan-northwest-legends':cliff?'evidence/coop-natlan-cliff-trials'
@@ -151,7 +153,20 @@ const nodNorthCases=[
   approach:'nod-wp-92889',entry:'nod-aamsvaltnir-east-ridge',hp:1720,mora:785,x:825,warning:'NNW02',
   entities:[97106],warningOrder:[[1,'cryo',75],[2,'cryo',118],[3,'cryo',163]],shelves:[[570,412],[836,345]],returnY:345},
 ].map(cfg=>({...cfg,checkpoint:'nod-north-harbor',quest:'nod-north-landmark-round'}));
-const cases=nodNorth?nodNorthCases:nodFirst?nodFirstCases:highland?highlandCases:finalNatlan?finalNatlanCases:atocpan?atocpanCases:wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
+const snezFirstCases=[
+ {tag:'churin',id:'legend-snez_churin',arena:'sne-churin-snow-court',approach:'sne-wp-100697',
+  square:'sne-churin-snow-square',firstBout:'sne-churin-apprentice-bout',entry:'sne-churin-bragin-bout',
+  quest:'sne-snow-sculptor-bouts',hp:1770,mora:810,x:830,warning:'SC02',
+  entities:[97107],warningOrder:[[1,'cryo',70],[2,'cryo',120]],returnY:480},
+ {tag:'bandersnatch',id:'legend-snez_bandersnatch',arena:'sne-bandersnatch-ice-cavern',approach:'sne-wp-100658',
+  entry:'sne-svetloredovka-ice-passage',quest:'sne-svetloredovka-cavern-check',lock:'操作盤',
+  hp:1850,mora:840,x:830,warning:'SB02',entities:[97108],
+  warningOrder:[[1,'cryo',74],[2,'cryo',117],[3,'cryo',161]],returnY:411},
+ {tag:'furiosa',id:'legend-snez_furiosa',arena:'sne-furiosa-domain-outlook',approach:'sne-wp-100695',
+  entry:'sne-obsession-scar-upper-trail',domain:'sites-hunt-100707',hp:1890,mora:860,x:830,
+  warning:'SF02',entities:[97109],warningOrder:[[1,'physical',72],[2,'physical',116],[3,'physical',158]],returnY:480},
+].map(cfg=>({...cfg,checkpoint:'snezhnaya-hub'}));
+const cases=snezFirst?snezFirstCases:nodNorth?nodNorthCases:nodFirst?nodFirstCases:highland?highlandCases:finalNatlan?finalNatlanCases:atocpan?atocpanCases:wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
  {tag:'vivianne',id:'legend-fontaine_vivianne_of_the_lake',arena:'vivianne-legend-bank',
   entry:'fon-wp-50056',checkpoint:'fontaine-hub',hp:1040,mora:300,x:890,warning:'LV02',entities:[97041],
   warningOrder:[[1,'hydro',64],[2,'hydro',115]],movingWave:true},
@@ -185,20 +200,21 @@ async function start(cfg,needsReport){
  page.on('pageerror',e=>errors.push(e.message));
  const route=waypointDriver(page,nodes,{walkTimeout:32000});
  const suffix=needsReport?'-before-report-fixture.json':'-fixture.json';
- const fixturePath=nodNorth?'work/nod-north-field-legends-fixture.json':nodFirst?'work/nod-first-field-legends-fixture.json'
+ const fixturePath=snezFirst?'work/snez-first-field-legends-coop-fixture.json'
+  : nodNorth?'work/nod-north-field-legends-fixture.json':nodFirst?'work/nod-first-field-legends-fixture.json'
   : highland?'work/natlan-highland-legends-fixture.json':finalNatlan?'work/natlan-final-legends-fixture.json'
   : atocpan?'work/natlan-atocpan-totem-fixture.json':wayob?'work/natlan-wayob-duo-fixture.json'
   : northwest?'work/natlan-northwest-legends-fixture.json':cliff?'work/natlan-cliff-trials-fixture.json'
   : north?'work/natlan-north-trials-fixture.json':night?'work/natlan-night-trial-fixture.json'
   : natlan?'work/coop-natlan-entry-legends-fixture.json':'work/coop-'+cfg.arena+suffix;
  const fixture=await fs.readFile(fixturePath,'utf8');
- const port=(localNatlan||nodFirst||nodNorth)?9068:dry?9064:lake?9063:9060;
+ const port=(localNatlan||nodFirst||nodNorth||snezFirst)?9068:dry?9064:lake?9063:9060;
  await page.goto(process.env.LAB_URL||`http://127.0.0.1:${port}/`);
  await wait(page,()=>window.lab?.frame);
  await page.evaluate(([key,fixture])=>localStorage.setItem(key,fixture),[key,fixture]);
  await page.locator('#loadProgress').click();
  await route.waitNode(cfg.checkpoint);
- if(localNatlan||nodFirst||nodNorth){
+ if(localNatlan||nodFirst||nodNorth||snezFirst){
   for(const id of cfg.quests??(cfg.quest?[cfg.quest]:[])) await route.accept(id);
  }
  await route.warp(cfg.approach??cfg.entry);
@@ -697,7 +713,7 @@ async function atocpanJourney(){
 async function verifySavedReports(players,bosses){
  const cfg=bosses.at(-1);
  const ids=bosses.map(boss=>boss.id);
- const quests=[...new Set(bosses.map(boss=>boss.quest))];
+ const quests=[...new Set(bosses.map(boss=>boss.quest).filter(Boolean))];
  await verifyQuestReports(players,cfg,quests);
  await Promise.all(players.map(async ({page,route})=>{
   await page.locator('#saveProgress').click();
@@ -949,9 +965,96 @@ async function nodNorthJourney(){
  return {...proof,routes,surveyOrders:orders,personalSurveyProgress:true,peninsulaEntrances:2,reportRestoredForBoth:true};
 }
 
+async function crossPrivate({route,page},id,code){
+ await route.cross(id);
+ const {coop}=await frame(page);
+ assert.ok(coop.code===code&&!coop.shared&&coop.map===id);
+}
+
+async function winSparring({route,page},quest,count){
+ await route.walk(787);
+ await page.keyboard.down('KeyJ');
+ try{await route.count(quest,count)}
+ finally{await page.keyboard.up('KeyJ')}
+}
+
+async function snezFirstJourney(){
+ const [churin,bandersnatch,furiosa]=cases;
+ const first={...churin,quests:[churin.quest,bandersnatch.quest]};
+ const players=await Promise.all([start(first,false),start(first,false)]);
+ const [host,guest]=players;
+ const code=await createRoom(players);
+ const guide=graph.quests.find(q=>q.id===churin.quest).itinerary[0];
+ await Promise.all(players.map(async player=>{
+  await crossShared(player,churin.square,code);
+  await collectSpot(player,guide);
+  await player.route.count(churin.quest,1);
+  await crossPrivate(player,churin.firstBout,code);
+ }));
+ await winSparring(host,churin.quest,2);
+ await guest.route.count(churin.quest,1);
+ assert.equal((await frame(guest.page)).total,1);
+ await crossPrivate(host,churin.entry,code);
+ await winSparring(host,churin.quest,3);
+ await winSparring(guest,churin.quest,2);
+ await crossPrivate(guest,churin.entry,code);
+ await guest.route.count(churin.quest,2);
+ await crossShared(host,churin.arena,code);
+ assert.equal(await guest.route.node(),churin.entry);
+ await guest.route.count(churin.quest,2);
+ await winSparring(guest,churin.quest,3);
+ await crossShared(guest,churin.arena,code);
+ const churinProof=await fightAndSave(players,churin);
+ await rematch(players,churin);
+ await leaveArena(players,churin);
+ await Promise.all(players.map(async player=>{
+  assert.equal((await frame(player.page)).total,0);
+  await crossPrivate(player,churin.firstBout,code);
+  assert.equal((await frame(player.page)).total,0);
+  await player.route.warp(bandersnatch.approach);
+  await crossShared(player,bandersnatch.entry,code);
+ }));
+ console.log('Chrome: both players cleared Churin after their own sparring rounds.');
+
+ const {itinerary}=graph.quests.find(q=>q.id===bandersnatch.quest);
+ for(const step of itinerary) await collectSpot(host,step);
+ await host.route.count(bandersnatch.quest,2);
+ await crossShared(host,bandersnatch.arena,code);
+ await lockedNatlanGate(guest,bandersnatch);
+ await guest.route.count(bandersnatch.quest,0);
+ for(const step of itinerary) await collectSpot(guest,step);
+ await guest.route.count(bandersnatch.quest,2);
+ await crossShared(guest,bandersnatch.arena,code);
+ const bandersnatchProof=await fightAndSave(players,bandersnatch);
+ await rematch(players,bandersnatch);
+ await leaveArena(players,bandersnatch);
+ console.log('Chrome: both players opened the ice door and cleared Bandersnatch.');
+
+ await Promise.all(players.map(async player=>{
+  await player.route.warp(furiosa.approach);
+  await crossShared(player,furiosa.entry,code);
+ }));
+ await crossShared(guest,furiosa.domain,code);
+ await crossShared(guest,furiosa.entry,code);
+ await enterIndividually(players,furiosa);
+ const furiosaProof=await fightAndSave(players,furiosa);
+ await rematch(players,furiosa);
+ await leaveArena(players,furiosa);
+ await verifySavedReports(players,cases);
+ const routes=players.map(p=>p.route.journeys);
+ assert.ok(!routes[0].some(leg=>leg.includes(furiosa.domain)));
+ assert.ok(routes[1].some(leg=>leg[0]===furiosa.domain&&leg[1]===furiosa.entry));
+ await Promise.all(players.map(p=>p.context.close()));
+ return {churin:{...churinProof,returnY:churin.returnY,sharedRematch:true},
+  bandersnatch:{...bandersnatchProof,returnY:bandersnatch.returnY,sharedRematch:true},
+  furiosa:{...furiosaProof,returnY:furiosa.returnY,sharedRematch:true},routes,
+  separateSparringAndIceDoor:true,clearedRoundsStayEmpty:true,twoSnowfieldEntrances:true,reportRestoredForBoth:true};
+}
+
 try{
  const evidence={participants:2,...(artSource?{artSource}: {})};
- if(nodNorth) Object.assign(evidence,await nodNorthJourney());
+ if(snezFirst) Object.assign(evidence,await snezFirstJourney());
+ else if(nodNorth) Object.assign(evidence,await nodNorthJourney());
  else if(nodFirst) Object.assign(evidence,await nodFirstJourney());
  else if(highland) Object.assign(evidence,await highlandJourney());
  else if(finalNatlan) Object.assign(evidence,await finalNatlanJourney());

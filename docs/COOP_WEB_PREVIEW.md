@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する321地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。部屋には最大4人が入れる。通常の編成なら、同じ地点に旅人と同行者が最大8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する335地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。部屋には最大4人が入れる。通常の編成なら、同じ地点に旅人と同行者が最大8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -183,6 +183,16 @@ Chromeの2画面では、各自が入口を開けて合流し、3戦の予告、
 「北部三つの見回り」は各自が好きな順番で進める任意依頼。共闘中も各自が道しるべを調べ、南の港の神像で報告する。マンドラゴラは地を走る根と二つの噴き上げ、ハイジェードは踏み込みの突きと横薙ぎの返し、狼は氷牙の飛び込みと三連の霜爪を使う。いずれもラボの試作攻撃。 [Lua・HTTPの検証](../evidence/coop-nod-north-field-legends-lua-http.json)
 
 Chromeの2画面で、片方は海岸から、もう片方は湖の尾根から見回りを始めた。半島の別々の入口から合流し、3戦の予告、各自の報酬、帰還、再戦と依頼報告後の保存再開を確認した。 `python -X utf8 test_coop_nod_north_field_legends.py` でLuaとHTTPを、ラボ起動中の `node test_coop_branch_legends.mjs --nod-north` でChromeを検証できる。 [Chromeの検証](../evidence/coop-nod-north-field-legends-browser.json) · [崖下のマンドラゴラ](../evidence/coop-nod-north-field-legends-mandragora-warning.png) · [半島のハイジェード](../evidence/coop-nod-north-field-legends-hiljetta-warning.png) · [湖東の孤独の狼](../evidence/coop-nod-north-field-legends-homesick-wolf-warning.png)
+
+## チュリン、バンダースナッチ、フュリオサ
+
+チュリンはLv152。凍った街道から霜の精の村の南へ進む。弟子とブラーギンの手合わせ中も同じ部屋に所属し、各自が二戦を終えて彫刻広場で合流する。先行二戦の勝利は保存に残り、チュリンの再戦で広場に戻っても相手は再出現しない。
+
+バンダースナッチはLv156。石壁沿いの坂から地下道に入り、道標と上段の操作盤を各自が調べて氷扉を開ける。フュリオサは町南の地下道からならLv158で挑める。Lv159の都南の秘境周辺から入った仲間とも、雪の脇道で合流できる。三戦に二種類ずつラボ用の試作攻撃を追加した。 [入口と足場](SNEZ_FIRST_FIELD_LEGENDS_WEB.md)
+
+`python -X utf8 test_coop_snez_first_field_legends.py` で各自の入場、討伐と再戦、報告の保存をLua4人・HTTP2人で検証できる。 [Lua・HTTPの検証](../evidence/coop-snez-first-field-legends-lua-http.json)
+
+Chromeの2画面で、各自が手合わせと氷扉を終えて合流し、雪の脇道には別々の入口から入った。三戦の攻撃予告、報酬、帰還と再戦、二つの依頼の報告と保存再開を確認した。ラボ起動中の `node test_coop_branch_legends.mjs --snez-first` で再現できる。 [Chromeの検証](../evidence/coop-snez-first-field-legends-browser.json) · [チュリンの氷彫](../evidence/coop-snez-first-field-legends-churin-warning.png) · [バンダースナッチの前爪](../evidence/coop-snez-first-field-legends-bandersnatch-warning.png) · [フュリオサの矢の着弾](../evidence/coop-snez-first-field-legends-furiosa-warning.png)
 
 ## 無相の風を共闘する
 
@@ -784,4 +794,4 @@ Lv60で雨林の道から菌傘の谷へ進む。本体HPは800。ついばみ�
 
 同じPCから各接続が毎秒30回の受信を目指す短時間試験。サイズはHTTP応答本文の中央値。4人の軽量16色では描画する矩形が5,251個のまま、本文は97.1%減り、応答時間の中央値は101.89msから27.54msになった。表は通信とLuaの試験で、Chromeの描画FPSや幻境実機の値は含まない。 [生の計測結果](../evidence/coop-local-http.json)
 
-現行台帳の原作通常ボス49戦、原作週ボス14戦、ラボ独自の週ボス2戦と通常ボス15戦、地方伝説47戦を共闘に登録した。残りの地方伝説、幽境の共闘、汎用支援による参加判定、全滅した組の観戦、別端末からの通信、星々の幻境実機は確認待ち。人数でボスHPを増やさない方針は採用済み。 [11月16日の採用仕様](../sources/20261116-amendment.md)
+現行台帳の原作通常ボス49戦、原作週ボス14戦、ラボ独自の週ボス2戦と通常ボス15戦、地方伝説50戦を共闘に登録した。残りの地方伝説、幽境の共闘、汎用支援による参加判定、全滅した組の観戦、別端末からの通信、星々の幻境実機は確認待ち。人数でボスHPを増やさない方針は採用済み。 [11月16日の採用仕様](../sources/20261116-amendment.md)

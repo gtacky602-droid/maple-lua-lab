@@ -1,0 +1,111 @@
+{
+  "lua": {
+    "legend-snez_churin": {
+      "players": 4,
+      "sharedHP": 1770,
+      "moves": [
+        {
+          "id": "SC01",
+          "warningTicks": [
+            66
+          ]
+        },
+        {
+          "id": "SC02",
+          "warningTicks": [
+            70,
+            120
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 2381150,
+      "mora": 810
+    },
+    "legend-snez_bandersnatch": {
+      "players": 4,
+      "sharedHP": 1850,
+      "moves": [
+        {
+          "id": "SB01",
+          "warningTicks": [
+            67
+          ]
+        },
+        {
+          "id": "SB02",
+          "warningTicks": [
+            74,
+            117,
+            161
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 3034600,
+      "mora": 840
+    },
+    "legend-snez_furiosa": {
+      "players": 4,
+      "sharedHP": 1890,
+      "moves": [
+        {
+          "id": "SF01",
+          "warningTicks": [
+            65
+          ]
+        },
+        {
+          "id": "SF02",
+          "warningTicks": [
+            72,
+            116,
+            158
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 3425800,
+      "mora": 860
+    }
+  },
+  "http": {
+    "churin": {
+      "sharedOrdinaryAttack": true,
+      "pausedOnRetreat": true,
+      "returnY": 480,
+      "clearPersistsUntilEveryoneLeaves": true,
+      "personalAwards": true,
+      "personalSparringAndGates": true,
+      "clearedRoundsStayEmpty": true,
+      "reportRestored": true
+    },
+    "bandersnatch": {
+      "sharedOrdinaryAttack": true,
+      "pausedOnRetreat": true,
+      "returnY": 411,
+      "clearPersistsUntilEveryoneLeaves": true,
+      "personalAwards": true,
+      "personalIceDoor": true,
+      "reportRestored": true
+    },
+    "furiosa": {
+      "sharedOrdinaryAttack": true,
+      "pausedOnRetreat": true,
+      "returnY": 480,
+      "clearPersistsUntilEveryoneLeaves": true,
+      "personalAwards": true,
+      "lowLevelBypass": true,
+      "twoSnowfieldEntrances": true
+    }
+  }
+}

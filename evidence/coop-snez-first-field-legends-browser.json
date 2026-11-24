@@ -1,0 +1,383 @@
+{
+  "participants": 2,
+  "churin": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 167,
+        "moves": [
+          "SC01",
+          "SC02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 166,
+        "moves": [
+          "SC01",
+          "SC02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "cryo",
+        70,
+        326,
+        474
+      ],
+      [
+        2,
+        "cryo",
+        120,
+        522,
+        682
+      ]
+    ],
+    "rewards": [
+      [
+        2143035,
+        810
+      ],
+      [
+        2143035,
+        810
+      ]
+    ],
+    "contacts": [
+      13,
+      10
+    ],
+    "saved": true,
+    "returnY": 480,
+    "sharedRematch": true
+  },
+  "bandersnatch": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 123,
+        "moves": [
+          "SB01",
+          "SB02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 142,
+        "moves": [
+          "SB01",
+          "SB02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "cryo",
+        74,
+        665.5,
+        813.5
+      ],
+      [
+        2,
+        "cryo",
+        117,
+        813.5,
+        971.5
+      ],
+      [
+        3,
+        "cryo",
+        161,
+        970.5,
+        1120.5
+      ]
+    ],
+    "rewards": [
+      [
+        3034600,
+        840
+      ],
+      [
+        3034600,
+        840
+      ]
+    ],
+    "contacts": [
+      14,
+      12
+    ],
+    "saved": true,
+    "returnY": 411,
+    "sharedRematch": true
+  },
+  "furiosa": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 78,
+        "moves": [
+          "SF01",
+          "SF02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 95,
+        "moves": [
+          "SF01",
+          "SF02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "physical",
+        72,
+        667.5,
+        797.5
+      ],
+      [
+        2,
+        "physical",
+        116,
+        824.5,
+        960.5
+      ],
+      [
+        3,
+        "physical",
+        158,
+        985.5,
+        1119.5
+      ]
+    ],
+    "rewards": [
+      [
+        3425800,
+        860
+      ],
+      [
+        3425800,
+        860
+      ]
+    ],
+    "contacts": [
+      14,
+      12
+    ],
+    "saved": true,
+    "returnY": 480,
+    "sharedRematch": true
+  },
+  "routes": [
+    [
+      [
+        "sne-wp-100697",
+        "sne-churin-snow-square",
+        "raised"
+      ],
+      [
+        "sne-churin-snow-square",
+        "sne-churin-apprentice-bout",
+        "walk"
+      ],
+      [
+        "sne-churin-apprentice-bout",
+        "sne-churin-bragin-bout",
+        "walk"
+      ],
+      [
+        "sne-churin-bragin-bout",
+        "sne-churin-snow-court",
+        "walk"
+      ],
+      [
+        "sne-churin-snow-court",
+        "sne-churin-bragin-bout",
+        "walk"
+      ],
+      [
+        "sne-churin-bragin-bout",
+        "sne-churin-snow-court",
+        "walk"
+      ],
+      [
+        "sne-churin-snow-court",
+        "sne-churin-bragin-bout",
+        "walk"
+      ],
+      [
+        "sne-churin-bragin-bout",
+        "sne-churin-apprentice-bout",
+        "walk"
+      ],
+      [
+        "sne-wp-100658",
+        "sne-svetloredovka-ice-passage",
+        "raised"
+      ],
+      [
+        "sne-svetloredovka-ice-passage",
+        "sne-bandersnatch-ice-cavern",
+        "raised"
+      ],
+      [
+        "sne-bandersnatch-ice-cavern",
+        "sne-svetloredovka-ice-passage",
+        "walk"
+      ],
+      [
+        "sne-svetloredovka-ice-passage",
+        "sne-bandersnatch-ice-cavern",
+        "raised"
+      ],
+      [
+        "sne-bandersnatch-ice-cavern",
+        "sne-svetloredovka-ice-passage",
+        "walk"
+      ],
+      [
+        "sne-wp-100695",
+        "sne-obsession-scar-upper-trail",
+        "raised"
+      ],
+      [
+        "sne-obsession-scar-upper-trail",
+        "sne-furiosa-domain-outlook",
+        "walk"
+      ],
+      [
+        "sne-furiosa-domain-outlook",
+        "sne-obsession-scar-upper-trail",
+        "walk"
+      ],
+      [
+        "sne-obsession-scar-upper-trail",
+        "sne-furiosa-domain-outlook",
+        "walk"
+      ],
+      [
+        "sne-furiosa-domain-outlook",
+        "sne-obsession-scar-upper-trail",
+        "walk"
+      ]
+    ],
+    [
+      [
+        "sne-wp-100697",
+        "sne-churin-snow-square",
+        "raised"
+      ],
+      [
+        "sne-churin-snow-square",
+        "sne-churin-apprentice-bout",
+        "walk"
+      ],
+      [
+        "sne-churin-apprentice-bout",
+        "sne-churin-bragin-bout",
+        "walk"
+      ],
+      [
+        "sne-churin-bragin-bout",
+        "sne-churin-snow-court",
+        "walk"
+      ],
+      [
+        "sne-churin-snow-court",
+        "sne-churin-bragin-bout",
+        "walk"
+      ],
+      [
+        "sne-churin-bragin-bout",
+        "sne-churin-snow-court",
+        "walk"
+      ],
+      [
+        "sne-churin-snow-court",
+        "sne-churin-bragin-bout",
+        "walk"
+      ],
+      [
+        "sne-churin-bragin-bout",
+        "sne-churin-apprentice-bout",
+        "walk"
+      ],
+      [
+        "sne-wp-100658",
+        "sne-svetloredovka-ice-passage",
+        "raised"
+      ],
+      [
+        "sne-svetloredovka-ice-passage",
+        "sne-bandersnatch-ice-cavern",
+        "raised"
+      ],
+      [
+        "sne-bandersnatch-ice-cavern",
+        "sne-svetloredovka-ice-passage",
+        "walk"
+      ],
+      [
+        "sne-svetloredovka-ice-passage",
+        "sne-bandersnatch-ice-cavern",
+        "raised"
+      ],
+      [
+        "sne-bandersnatch-ice-cavern",
+        "sne-svetloredovka-ice-passage",
+        "walk"
+      ],
+      [
+        "sne-wp-100695",
+        "sne-obsession-scar-upper-trail",
+        "raised"
+      ],
+      [
+        "sne-obsession-scar-upper-trail",
+        "sites-hunt-100707",
+        "walk"
+      ],
+      [
+        "sites-hunt-100707",
+        "sne-obsession-scar-upper-trail",
+        "walk"
+      ],
+      [
+        "sne-obsession-scar-upper-trail",
+        "sne-furiosa-domain-outlook",
+        "walk"
+      ],
+      [
+        "sne-furiosa-domain-outlook",
+        "sne-obsession-scar-upper-trail",
+        "walk"
+      ],
+      [
+        "sne-obsession-scar-upper-trail",
+        "sne-furiosa-domain-outlook",
+        "walk"
+      ],
+      [
+        "sne-furiosa-domain-outlook",
+        "sne-obsession-scar-upper-trail",
+        "walk"
+      ]
+    ]
+  ],
+  "separateSparringAndIceDoor": true,
+  "clearedRoundsStayEmpty": true,
+  "twoSnowfieldEntrances": true,
+  "reportRestoredForBoth": true,
+  "errors": []
+}

@@ -11,7 +11,7 @@ from test_coop_natlan_atocpan_totem import cross_route
 from test_coop_natlan_entry_legends import shared_attacks
 from test_coop_natlan_night_trials import timed_travel
 from test_coop_natlan_north_trials import collect
-from test_coop_ruin_guardians import QUESTS, balances, edge
+from test_coop_ruin_guardians import QUESTS, balances, cross, edge
 
 
 PEAK = 'legend-natlan_peak'
@@ -32,13 +32,17 @@ NORTH_PORT = (STATUE, 'nat-wp-82559', 'nat-wp-82558', 'nat-wp-82572',
 RESORT = (PIER, 'nat-wp-85957', 'nat-wp-85960', 'nat-wp-85962', 'nat-wp-85968', 'nat-wp-85969', BAY)
 
 
-def encounter(host, guest, id, entry, code, *, check_level=False):
+def encounter(host, guest, id, entry, code, *, check_level=False, private_entry=False):
     spec = SPECS[id]
     arena = spec['node']
     inbound = edge(entry, arena)
     return_y = edge(arena, entry).get('arrivalY', 480)
 
     def travel(client, source, target):
+        if private_entry and target == entry:
+            frame = cross(client, edge(source, target))
+            assert frame['coop']['code'] == code and not frame['coop']['shared']
+            return frame
         if 'liftSeconds' in edge(source, target):
             peer = guest if client is host else host
             frame = timed_travel(client, source, target, peer)
