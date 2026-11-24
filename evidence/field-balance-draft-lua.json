@@ -21,5 +21,30 @@
       23,
       1
     ]
+  },
+  "artifactRecovery": {
+    "saveSha256": "eb292eae4f7e6c0147f917dd5f517e8b83bf40766e0fa773c6e2512a093740fe",
+    "weapon": "SW01",
+    "upgrade": 5,
+    "start": {
+      "atk": 8,
+      "hp": 140,
+      "moraSpent": 450
+    },
+    "set": "paleFlame",
+    "twoDomainClears": [
+      {
+        "id": 4,
+        "slot": 1,
+        "seconds": 22.35
+      },
+      {
+        "id": 5,
+        "slot": 2,
+        "seconds": 21.6
+      }
+    ],
+    "equippedAtk": 82,
+    "equippedHp": 236
   }
 }

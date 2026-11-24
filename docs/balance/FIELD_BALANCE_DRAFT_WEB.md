@@ -32,13 +32,15 @@ Lv200まで進めたセーブから、比較版で月縁の反射板・照合・
 
 Chromeでは比較版の璃月で配達を報告し、港の護送剣を+1にして保存と再開を確認した。その編成で狩場へ歩いて入り、通常敵を倒した。Luaでは同じ敵を倒すと両版で23 EXPと10モラを受け取り、再出現時もそれぞれのHPになることを確認した。 [Chrome](../../evidence/liyue-m01-browser-draft.json) · [Lua](../../evidence/field-balance-draft-lua.json)
 
-Lv120の試験セーブから聖遺物を外し、初期剣に戻した条件では180秒以内に倒せなかった。後半の比較版を本編へ採用するには、装備を入手し損ねた場合の経路と、通常・精鋭・ボスを実際に回るペースを確認する。11月20日の全敵設計表との照合、全編の通し試験、星々の幻境の実機は未検証。
+Lv20到達時のセーブで、旅人の聖遺物なしから初期剣を+5に強化し、モンドへ戻って「山脊の見守りⅠ」を2周した。獲得した蒼白の炎の花と羽を装備するとATKが8から82、最大HPが140から236になり、保存から再開して維持された。序盤の狩りでは強い伸び幅なので、報酬剣と両方を使った進行も測る。 [秘境2周の測定](../../evidence/field-balance-draft-lua.json)
+
+Lv120の試験セーブから聖遺物を外し、初期剣に戻した条件では180秒以内に倒せなかった。後半の比較版を本編へ採用するには、中盤で装備を更新し損ねた場合の経路と、通常・精鋭・ボスを実際に回るペースを確認する。11月20日の全敵設計表との照合、全編の通し試験、星々の幻境の実機は未検証。
 
 ## 再測定
 
 ```powershell
 python measure_equipment_progression.py
-python test_field_balance.py
+python test_field_balance.py --recovery-route work/mondstadt-fresh-route/liyue-save.json
 python test_moonlit_garden.py --earned-save work/cap-fresh-route/lv200-save.json --draft-balance
 python measure_equipment_progression.py --draft-balance --moonlit-save work/moonlit-garden-balance/draft-sword-save.json
 ```
