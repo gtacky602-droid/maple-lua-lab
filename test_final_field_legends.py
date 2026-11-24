@@ -151,6 +151,11 @@ for node in (CH_HOST, MA_HOST, PR_HOST, MU_HOST, SKY, FROST, 'frost-wp-99285', D
     core.enterStoryNode(fixture, node)
 write('work/final-field-legends-fixture.json', saved(fixture))
 
+fixture = start(190, FROST)
+for node in ('nod-wp-92871', PR_HOST, MU_HOST, FROST):
+    core.enterStoryNode(fixture, node)
+write('work/coop-frostmoon-legends-fixture.json', saved(fixture))
+
 state = start(174, DORN)
 core.enterStoryNode(state, CH_HOST)
 walk = trail(state)
@@ -242,7 +247,6 @@ walk.cross(MU_HOST)
 assert walk.actor.y == 390
 report(state, FROST, MU_Q)
 assert restore(state).story.quests[MU_Q].status == 'complete'
-assert all(not specs[id]['moves'] for id in (PR, MU))
 
 expected = {row['encounter_id'] for row in read('design/world/encounters.json')['legends']}
 covered = read('content/coverage.json')['optional_legend_coverage']['stage_by_legend']

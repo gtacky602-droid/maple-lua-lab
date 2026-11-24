@@ -1,0 +1,80 @@
+{
+  "sharedLocalLegendBindings": 56,
+  "lua": {
+    "legend-frostmoon_prism_slime": {
+      "players": 4,
+      "sharedHP": 2570,
+      "moves": [
+        {
+          "id": "FP01",
+          "warningTicks": [
+            66
+          ]
+        },
+        {
+          "id": "FP02",
+          "warningTicks": [
+            73,
+            121
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 8663950,
+      "mora": 1130
+    },
+    "legend-frostmoon_mushteshir": {
+      "players": 4,
+      "sharedHP": 2960,
+      "moves": [
+        {
+          "id": "FM01",
+          "warningTicks": [
+            68
+          ]
+        },
+        {
+          "id": "FM02",
+          "warningTicks": [
+            74,
+            119,
+            164
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 9552000,
+      "mora": 1210
+    }
+  },
+  "http": {
+    "prism": {
+      "sharedOrdinaryAttack": true,
+      "pausedOnRetreat": true,
+      "returnY": 480,
+      "clearPersistsUntilEveryoneLeaves": true,
+      "personalAwards": true
+    },
+    "musht": {
+      "sharedOrdinaryAttack": true,
+      "pausedOnRetreat": true,
+      "returnY": 480,
+      "clearPersistsUntilEveryoneLeaves": true,
+      "personalAwards": true
+    },
+    "sharedCoastalRoute": true,
+    "individualSurveyReport": true,
+    "independentChamberLevel": true,
+    "personalConsoleWaves": true,
+    "firstWaveSavedAndRestored": true,
+    "clearedWavesStayEmpty": true,
+    "consolePassageReturnY": 390,
+    "bothReportsAndClearsRestored": true
+  }
+}

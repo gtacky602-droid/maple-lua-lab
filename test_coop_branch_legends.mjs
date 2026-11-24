@@ -19,8 +19,9 @@ const nodNorth=process.argv.includes('--nod-north');
 const snezFirst=process.argv.includes('--snez-first');
 const snezLate=process.argv.includes('--snez-late');
 const dornSky=process.argv.includes('--dorn-sky');
+const frostmoon=process.argv.includes('--frostmoon');
 const localNatlan=natlan||night||north||cliff||northwest||wayob||atocpan||finalNatlan||highland;
-const prefix=dornSky?'evidence/coop-dorn-sky-legends'
+const prefix=frostmoon?'evidence/coop-frostmoon-legends':dornSky?'evidence/coop-dorn-sky-legends'
  : snezLate?'evidence/coop-snez-late-field-legends':snezFirst?'evidence/coop-snez-first-field-legends'
  : nodNorth?'evidence/coop-nod-north-field-legends':nodFirst?'evidence/coop-nod-first-field-legends'
  : highland?'evidence/coop-natlan-highland-legends':finalNatlan?'evidence/coop-natlan-final-legends'
@@ -189,7 +190,16 @@ const dornSkyCases=[
   lock:'マーダヴァ',hp:2420,mora:1050,x:830,warning:'SM02',entities:[97117],
   warningOrder:[[1,'geo',74],[2,'geo',118],[3,'geo',165]],returnY:409},
 ];
-const cases=dornSky?dornSkyCases:snezLate?snezLateCases:snezFirst?snezFirstCases:nodNorth?nodNorthCases:nodFirst?nodFirstCases:highland?highlandCases:finalNatlan?finalNatlanCases:atocpan?atocpanCases:wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
+const frostmoonCases=[
+ {tag:'prism',id:'legend-frostmoon_prism_slime',arena:'frost-prism-slime-basin',
+  checkpoint:'frostmoon-camp',approach:'nod-wp-92871',entry:'frost-wujian-south-trail',access:'frost-wujian-access-survey',
+  lock:'報告',hp:2570,mora:1130,x:830,warning:'FP02',entities:[97118],warningOrder:[[1,'physical',73],[2,'physical',121]],returnY:480},
+ {tag:'mushteshir',id:'legend-frostmoon_mushteshir',arena:'frost-mushteshir-inner-chamber',
+  checkpoint:'frostmoon-camp',approach:'frost-wp-99306',entry:'frost-ancient-moon-console',quest:'frost-commander-console-test',
+  lock:'奥の扉',hp:2960,mora:1210,x:830,warning:'FM02',entities:[97119],
+  warningOrder:[[1,'hydro',74],[2,'hydro',119],[3,'hydro',164]],returnY:480},
+];
+const cases=frostmoon?frostmoonCases:dornSky?dornSkyCases:snezLate?snezLateCases:snezFirst?snezFirstCases:nodNorth?nodNorthCases:nodFirst?nodFirstCases:highland?highlandCases:finalNatlan?finalNatlanCases:atocpan?atocpanCases:wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
  {tag:'vivianne',id:'legend-fontaine_vivianne_of_the_lake',arena:'vivianne-legend-bank',
   entry:'fon-wp-50056',checkpoint:'fontaine-hub',hp:1040,mora:300,x:890,warning:'LV02',entities:[97041],
   warningOrder:[[1,'hydro',64],[2,'hydro',115]],movingWave:true},
@@ -223,7 +233,7 @@ async function start(cfg,needsReport){
  page.on('pageerror',e=>errors.push(e.message));
  const route=waypointDriver(page,nodes,{walkTimeout:32000});
  const suffix=needsReport?'-before-report-fixture.json':'-fixture.json';
- const fixturePath=dornSky?'work/final-field-legends-fixture.json'
+ const fixturePath=frostmoon?'work/coop-frostmoon-legends-fixture.json':dornSky?'work/final-field-legends-fixture.json'
   : snezLate?'work/snez-late-field-legends-fixture.json':snezFirst?'work/snez-first-field-legends-coop-fixture.json'
   : nodNorth?'work/nod-north-field-legends-fixture.json':nodFirst?'work/nod-first-field-legends-fixture.json'
   : highland?'work/natlan-highland-legends-fixture.json':finalNatlan?'work/natlan-final-legends-fixture.json'
@@ -232,7 +242,7 @@ async function start(cfg,needsReport){
   : north?'work/natlan-north-trials-fixture.json':night?'work/natlan-night-trial-fixture.json'
   : natlan?'work/coop-natlan-entry-legends-fixture.json':'work/coop-'+cfg.arena+suffix;
  const fixture=await fs.readFile(fixturePath,'utf8');
- const port=(localNatlan||nodFirst||nodNorth||snezFirst||snezLate||dornSky)?9068:dry?9064:lake?9063:9060;
+ const port=(localNatlan||nodFirst||nodNorth||snezFirst||snezLate||dornSky||frostmoon)?9068:dry?9064:lake?9063:9060;
  await page.goto(process.env.LAB_URL||`http://127.0.0.1:${port}/`);
  await wait(page,()=>window.lab?.frame);
  await page.evaluate(([key,fixture])=>localStorage.setItem(key,fixture),[key,fixture]);
@@ -1180,9 +1190,116 @@ async function dornSkyJourney(){
   sharedBayCrossing:true,personalPavilionSurvey:true,templeLiftReturnY:365,reportRestoredForBoth:true};
 }
 
+async function winConsoleWave({route,page},quest,count){
+ const source='frost-commander-normal-idle-source-v1.png';
+ await wait(page,()=>window.lab.frame.total===2);
+ for(let attempt=0;attempt<12;attempt++){
+  const {progress,x,nearest}=await page.evaluate(({quest,source})=>{
+   const f=window.lab.frame;
+   const {x}=f.actors.find(actor=>actor.id===f.active);
+   const positions=f.draws.filter(draw=>draw.source===source).map(draw=>draw.x+(f.camera||0));
+   positions.sort((a,b)=>Math.abs(a-x)-Math.abs(b-x));
+   return {progress:f.story.quests[quest].count,x,nearest:positions[0]};
+  },{quest,source});
+  if(progress===count)return;
+  await route.walk(nearest===undefined?1050:nearest+(x<nearest?-42:42));
+  await page.keyboard.down('KeyJ');
+  try{
+   await wait(page,({quest,count})=>window.lab.frame.story.quests[quest].count===count,{quest,count},3500);
+   return;
+  }catch(error){
+   if(error.name!=='TimeoutError')throw error;
+  }finally{await page.keyboard.up('KeyJ')}
+ }
+ assert.equal((await frame(page)).story.quests[quest].count,count);
+}
+
+async function frostmoonJourney(){
+ const [prism,musht]=cases;
+ const players=await Promise.all([start(prism,false),start(prism,false)]);
+ const [host,guest]=players;
+ const code=await createRoom(players);
+ const quest=musht.quest;
+ const {itinerary}=graph.quests.find(q=>q.id===quest);
+ const first=itinerary[1].node,second=itinerary[3].node;
+ await Promise.all(players.map(async player=>{
+  for(const id of ['nod-wp-92872','nod-wp-99218','nod-wp-99223','nod-wp-99219',prism.checkpoint]){
+   await crossShared(player,id,code);
+  }
+  await player.route.accept(prism.access);
+  await inspectQuestSteps(player,prism.access,0,1);
+  for(const id of ['frost-wp-99282','frost-wp-99284','frost-wp-99285'])await crossShared(player,id,code);
+  await inspectQuestSteps(player,prism.access,1,2);
+  if(player===host){
+   await player.route.warp(prism.checkpoint);
+   await player.route.report(prism.access);
+  }
+  await player.route.warp('frost-wp-99287');
+  await crossShared(player,prism.entry,code);
+ }));
+ await crossShared(host,prism.arena,code);
+ await lockedNatlanGate(guest,prism);
+ await guest.route.warp(prism.checkpoint);
+ await guest.route.report(prism.access);
+ await guest.route.warp('frost-wp-99287');
+ await crossShared(guest,prism.entry,code);
+ await crossShared(guest,prism.arena,code);
+ const prismProof=await fightAndSave(players,prism);
+ await rematch(players,prism);
+ await leaveArena(players,prism);
+ console.log('Chrome: shared coastal journey and both personal survey reports passed.');
+
+ await Promise.all(players.map(async player=>{
+  await player.route.warp(musht.checkpoint);
+  await player.route.accept(quest);
+  await player.route.warp(musht.approach);
+  await crossShared(player,musht.entry,code);
+  await inspectQuestSteps(player,quest,0,1);
+  await crossPrivate(player,first,code);
+ }));
+ await winConsoleWave(host,quest,2);
+ await guest.route.count(quest,1);
+ assert.equal((await frame(guest.page)).total,2);
+ await capture(guest.page,'private-console-trial');
+ await winConsoleWave(guest,quest,2);
+ await Promise.all(players.map(async player=>{
+  await crossShared(player,musht.entry,code);
+  await inspectQuestSteps(player,quest,2,3);
+  await crossPrivate(player,second,code);
+ }));
+ await winConsoleWave(host,quest,4);
+ await crossShared(host,musht.entry,code);
+ await inspectQuestSteps(host,quest,4,5);
+ await crossShared(host,musht.arena,code);
+ await guest.route.count(quest,3);
+ assert.equal((await frame(guest.page)).total,2);
+ await winConsoleWave(guest,quest,4);
+ await crossShared(guest,musht.entry,code);
+ await lockedNatlanGate(guest,musht);
+ await inspectQuestSteps(guest,quest,4,5);
+ await crossShared(guest,musht.arena,code);
+ const mushtProof=await fightAndSave(players,musht);
+ await rematch(players,musht);
+ await leaveArena(players,musht);
+ await Promise.all(players.map(async player=>{
+  await crossPrivate(player,first,code);
+  assert.equal((await frame(player.page)).total,0);
+  await crossShared(player,musht.entry,code);
+  await crossShared(player,musht.approach,code);
+  assert.equal((await player.route.actor()).y,390);
+ }));
+ await verifySavedReports(players,cases);
+ const routes=players.map(p=>p.route.journeys);
+ await Promise.all(players.map(p=>p.context.close()));
+ return {prism:{...prismProof,sharedRematch:true},mushteshir:{...mushtProof,sharedRematch:true},routes,
+  sharedCoastalRoute:true,personalSurveyReport:true,personalConsoleWaves:true,clearedWaveStaysEmpty:true,
+  consolePassageReturnY:390,reportRestoredForBoth:true};
+}
+
 try{
  const evidence={participants:2,...(artSource?{artSource}: {})};
- if(dornSky) Object.assign(evidence,await dornSkyJourney());
+ if(frostmoon) Object.assign(evidence,await frostmoonJourney());
+ else if(dornSky) Object.assign(evidence,await dornSkyJourney());
  else if(snezLate) Object.assign(evidence,await snezLateJourney());
  else if(snezFirst) Object.assign(evidence,await snezFirstJourney());
  else if(nodNorth) Object.assign(evidence,await nodNorthJourney());
