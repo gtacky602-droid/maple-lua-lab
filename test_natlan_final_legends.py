@@ -43,6 +43,9 @@ def start(level):
     core.action(state, 'story_start')
     core.enterStoryNode(state, HUB)
     core.grantExp(state, exp(level), 'quest')
+    for slot in (1, 2):
+        assert core.giveArtifact(state, slot, 40, 3)
+        core.action(state, 'artifact_equip:' + str(slot))
     return state
 
 
@@ -106,7 +109,7 @@ def defeat_single(state, walk, spec):
 peak, pair, teno = (specs[id] for id in (PEAK, PAIR, TENO))
 p_trail, d_trail = (spec['entryThrough'][0] for spec in (peak, pair))
 fixture = start(120)
-for host in (PEAK_HOST, COAST, BAY, HUB):
+for host in (PEAK_HOST, COAST, BAY, 'nat-wp-82557', 'natlan-port', HUB):
     core.enterStoryNode(fixture, host)
 write('work/natlan-final-legends-fixture.json', saved(fixture))
 

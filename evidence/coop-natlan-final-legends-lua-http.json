@@ -1,0 +1,76 @@
+{
+  "lua": {
+    "legend-natlan_peak": {
+      "players": 4,
+      "sharedHP": 1340,
+      "moves": [
+        {
+          "id": "PF01",
+          "warningTicks": [
+            64
+          ]
+        },
+        {
+          "id": "PF02",
+          "warningTicks": [
+            68,
+            117
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 464100,
+      "mora": 600
+    },
+    "legend-natlan_last_tenochtzitoc": {
+      "players": 4,
+      "sharedHP": 1370,
+      "moves": [
+        {
+          "id": "ZT01",
+          "warningTicks": [
+            62
+          ]
+        },
+        {
+          "id": "ZT02",
+          "warningTicks": [
+            71,
+            112,
+            157
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 464100,
+      "mora": 630
+    }
+  },
+  "http": {
+    "participants": 2,
+    "peak": {
+      "sharedOrdinaryAttack": true,
+      "pausedOnRetreat": true,
+      "returnY": 346,
+      "clearPersistsUntilEveryoneLeaves": true,
+      "personalAwards": true,
+      "independentLevelGate": true
+    },
+    "lastTenochtzitoc": {
+      "sharedOrdinaryAttack": true,
+      "pausedOnRetreat": true,
+      "returnY": 419,
+      "clearPersistsUntilEveryoneLeaves": true,
+      "personalAwards": true
+    },
+    "sameRoomAcrossBoatAndLand": true,
+    "bothGrasslandRoutes": true,
+    "savedClearsAndPersonalReports": true
+  }
+}

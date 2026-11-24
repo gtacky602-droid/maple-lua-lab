@@ -8271,6 +8271,21 @@
       "nat-wp-82563",
       "collective-eastern-headland",
       "night-trial-tupu",
+      "nat-wp-82570",
+      "nat-wp-82571",
+      "atocpan-peak-rock-trail",
+      "atocpan-peak-cave",
+      "nat-wp-82564",
+      "sites-hunt-82577",
+      "atocpan-domain-side-clearing",
+      "nat-resort-pier",
+      "nat-wp-85957",
+      "nat-wp-85960",
+      "nat-wp-85962",
+      "nat-wp-85968",
+      "nat-wp-85969",
+      "nat-wp-85972",
+      "zapabay-tenochtzitoc-shallows",
       "qucusaur-field-cavern",
       "yumka-field-ravine",
       "config-device-field-workshop",
@@ -8438,7 +8453,9 @@
       "legend-natlan_potapo",
       "legend-natlan_tupayo",
       "legend-natlan_reji",
-      "legend-natlan_tupu"
+      "legend-natlan_tupu",
+      "legend-natlan_peak",
+      "legend-natlan_last_tenochtzitoc"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8724,7 +8741,9 @@
       "evidence/coop-natlan-wayob-duo-lua-http.json",
       "evidence/coop-natlan-wayob-duo-browser.json",
       "evidence/coop-natlan-atocpan-totem-lua-http.json",
-      "evidence/coop-natlan-atocpan-totem-browser.json"
+      "evidence/coop-natlan-atocpan-totem-browser.json",
+      "evidence/coop-natlan-final-legends-lua-http.json",
+      "evidence/coop-natlan-final-legends-browser.json"
     ],
     "pending": [
       "remaining Local Legends and Stygian bosses",

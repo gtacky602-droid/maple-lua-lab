@@ -1,0 +1,397 @@
+{
+  "participants": 2,
+  "peak": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 192,
+        "moves": [
+          "PF01",
+          "PF02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 168,
+        "moves": [
+          "PF01",
+          "PF02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "pyro",
+        68,
+        328,
+        498
+      ],
+      [
+        2,
+        "pyro",
+        117,
+        484.5,
+        664.5
+      ]
+    ],
+    "rewards": [
+      [
+        464100,
+        600
+      ],
+      [
+        464100,
+        600
+      ]
+    ],
+    "contacts": [
+      9,
+      7
+    ],
+    "saved": true,
+    "returnY": 346,
+    "sharedRematch": true
+  },
+  "lastTenochtzitoc": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 173,
+        "moves": [
+          "ZT01",
+          "ZT02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 168,
+        "moves": [
+          "ZT01",
+          "ZT02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "hydro",
+        71,
+        671,
+        797
+      ],
+      [
+        2,
+        "hydro",
+        112,
+        822,
+        998
+      ],
+      [
+        3,
+        "hydro",
+        157,
+        1023,
+        1149
+      ]
+    ],
+    "rewards": [
+      [
+        464100,
+        630
+      ],
+      [
+        464100,
+        630
+      ]
+    ],
+    "contacts": [
+      9,
+      10
+    ],
+    "saved": true,
+    "returnY": 419,
+    "sharedRematch": true,
+    "shallowGround": true
+  },
+  "routes": [
+    [
+      [
+        "nat-wp-82557",
+        "nat-wp-82570",
+        "walk"
+      ],
+      [
+        "nat-wp-82570",
+        "nat-wp-82571",
+        "walk"
+      ],
+      [
+        "nat-wp-82571",
+        "atocpan-peak-rock-trail",
+        "raised"
+      ],
+      [
+        "atocpan-peak-rock-trail",
+        "atocpan-peak-cave",
+        "raised"
+      ],
+      [
+        "atocpan-peak-cave",
+        "atocpan-peak-rock-trail",
+        "walk"
+      ],
+      [
+        "atocpan-peak-rock-trail",
+        "atocpan-peak-cave",
+        "raised"
+      ],
+      [
+        "atocpan-peak-cave",
+        "atocpan-peak-rock-trail",
+        "walk"
+      ],
+      [
+        "atocpan-peak-rock-trail",
+        "nat-wp-82571",
+        "walk"
+      ],
+      [
+        "nat-wp-82571",
+        "nat-wp-82570",
+        "walk"
+      ],
+      [
+        "nat-wp-82570",
+        "nat-wp-82557",
+        "walk"
+      ],
+      [
+        "nat-wp-82557",
+        "nat-wp-82560",
+        "walk"
+      ],
+      [
+        "nat-wp-82560",
+        "nat-wp-82561",
+        "walk"
+      ],
+      [
+        "nat-wp-82561",
+        "nat-wp-82562",
+        "walk"
+      ],
+      [
+        "nat-wp-82562",
+        "nat-wp-82564",
+        "walk"
+      ],
+      [
+        "nat-wp-82564",
+        "atocpan-domain-side-clearing",
+        "raised"
+      ],
+      [
+        "natlan-port",
+        "nat-resort-pier",
+        "boat"
+      ],
+      [
+        "nat-resort-pier",
+        "nat-wp-85957",
+        "walk"
+      ],
+      [
+        "nat-wp-85957",
+        "nat-wp-85960",
+        "walk"
+      ],
+      [
+        "nat-wp-85960",
+        "nat-wp-85962",
+        "walk"
+      ],
+      [
+        "nat-wp-85962",
+        "nat-wp-85968",
+        "walk"
+      ],
+      [
+        "nat-wp-85968",
+        "nat-wp-85969",
+        "walk"
+      ],
+      [
+        "nat-wp-85969",
+        "nat-wp-85972",
+        "walk"
+      ],
+      [
+        "nat-wp-85972",
+        "zapabay-tenochtzitoc-shallows",
+        "raised"
+      ],
+      [
+        "zapabay-tenochtzitoc-shallows",
+        "nat-wp-85972",
+        "walk"
+      ],
+      [
+        "nat-wp-85972",
+        "zapabay-tenochtzitoc-shallows",
+        "raised"
+      ],
+      [
+        "zapabay-tenochtzitoc-shallows",
+        "nat-wp-85972",
+        "walk"
+      ]
+    ],
+    [
+      [
+        "nat-wp-82557",
+        "nat-wp-82570",
+        "walk"
+      ],
+      [
+        "nat-wp-82570",
+        "nat-wp-82571",
+        "walk"
+      ],
+      [
+        "nat-wp-82571",
+        "atocpan-peak-rock-trail",
+        "raised"
+      ],
+      [
+        "atocpan-peak-rock-trail",
+        "atocpan-peak-cave",
+        "raised"
+      ],
+      [
+        "atocpan-peak-cave",
+        "atocpan-peak-rock-trail",
+        "walk"
+      ],
+      [
+        "atocpan-peak-rock-trail",
+        "atocpan-peak-cave",
+        "raised"
+      ],
+      [
+        "atocpan-peak-cave",
+        "atocpan-peak-rock-trail",
+        "walk"
+      ],
+      [
+        "atocpan-peak-rock-trail",
+        "nat-wp-82571",
+        "walk"
+      ],
+      [
+        "nat-wp-82571",
+        "nat-wp-82570",
+        "walk"
+      ],
+      [
+        "nat-wp-82570",
+        "nat-wp-82557",
+        "walk"
+      ],
+      [
+        "nat-wp-82557",
+        "nat-wp-82560",
+        "walk"
+      ],
+      [
+        "nat-wp-82560",
+        "nat-wp-82561",
+        "walk"
+      ],
+      [
+        "nat-wp-82561",
+        "nat-wp-82562",
+        "walk"
+      ],
+      [
+        "nat-wp-82562",
+        "nat-wp-82564",
+        "walk"
+      ],
+      [
+        "nat-wp-82564",
+        "sites-hunt-82577",
+        "walk"
+      ],
+      [
+        "sites-hunt-82577",
+        "atocpan-domain-side-clearing",
+        "walk"
+      ],
+      [
+        "natlan-port",
+        "nat-resort-pier",
+        "boat"
+      ],
+      [
+        "nat-resort-pier",
+        "nat-wp-85957",
+        "walk"
+      ],
+      [
+        "nat-wp-85957",
+        "nat-wp-85960",
+        "walk"
+      ],
+      [
+        "nat-wp-85960",
+        "nat-wp-85962",
+        "walk"
+      ],
+      [
+        "nat-wp-85962",
+        "nat-wp-85968",
+        "walk"
+      ],
+      [
+        "nat-wp-85968",
+        "nat-wp-85969",
+        "walk"
+      ],
+      [
+        "nat-wp-85969",
+        "nat-wp-85972",
+        "walk"
+      ],
+      [
+        "nat-wp-85972",
+        "zapabay-tenochtzitoc-shallows",
+        "raised"
+      ],
+      [
+        "zapabay-tenochtzitoc-shallows",
+        "nat-wp-85972",
+        "walk"
+      ],
+      [
+        "nat-wp-85972",
+        "zapabay-tenochtzitoc-shallows",
+        "raised"
+      ],
+      [
+        "zapabay-tenochtzitoc-shallows",
+        "nat-wp-85972",
+        "walk"
+      ]
+    ]
+  ],
+  "bothGrasslandRoutes": true,
+  "sharedRoomAcrossBothRoutes": true,
+  "bothReported": true,
+  "reportRestoredForBoth": true,
+  "errors": []
+}

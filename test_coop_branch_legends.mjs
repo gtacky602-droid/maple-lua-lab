@@ -12,8 +12,9 @@ const cliff=process.argv.includes('--natlan-cliff');
 const northwest=process.argv.includes('--natlan-northwest');
 const wayob=process.argv.includes('--natlan-wayob');
 const atocpan=process.argv.includes('--natlan-atocpan');
-const localNatlan=natlan||night||north||cliff||northwest||wayob||atocpan;
-const prefix=atocpan?'evidence/coop-natlan-atocpan-totem':wayob?'evidence/coop-natlan-wayob-duo'
+const finalNatlan=process.argv.includes('--natlan-final');
+const localNatlan=natlan||night||north||cliff||northwest||wayob||atocpan||finalNatlan;
+const prefix=finalNatlan?'evidence/coop-natlan-final-legends':atocpan?'evidence/coop-natlan-atocpan-totem':wayob?'evidence/coop-natlan-wayob-duo'
  : northwest?'evidence/coop-natlan-northwest-legends':cliff?'evidence/coop-natlan-cliff-trials'
  : north?'evidence/coop-natlan-north-trials':night?'evidence/coop-natlan-night-trials'
  : 'evidence/coop-'+(natlan?'natlan-entry':dry?'dry':lake?'lake':'branch')+'-legends';
@@ -103,7 +104,15 @@ const atocpanCases=[
   entry:'collective-eastern-headland',hp:1300,mora:590,x:845,warning:'AT02',entities:[97091],
   warningOrder:[[1,'electro',70],[2,'electro',110],[3,'electro',150]],returnY:345},
 ].map(cfg=>({...cfg,checkpoint:'natlan-hub',quest:'natlan-atocpan-landmarks'}));
-const cases=atocpan?atocpanCases:wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
+const finalNatlanCases=[
+ {tag:'peak',id:'legend-natlan_peak',arena:'atocpan-peak-cave',approach:'nat-wp-82557',
+  entry:'atocpan-peak-rock-trail',hp:1340,mora:600,x:845,warning:'PF02',entities:[97092],
+  warningOrder:[[1,'pyro',68],[2,'pyro',117]],returnY:346},
+ {tag:'last-tenochtzitoc',id:'legend-natlan_last_tenochtzitoc',arena:'zapabay-tenochtzitoc-shallows',
+  entry:'nat-wp-85972',hp:1370,mora:630,x:845,warning:'ZT02',entities:[97096],
+  warningOrder:[[1,'hydro',71],[2,'hydro',112],[3,'hydro',157]],returnY:419},
+].map(cfg=>({...cfg,checkpoint:'natlan-hub',quest:'natlan-southern-trail-survey'}));
+const cases=finalNatlan?finalNatlanCases:atocpan?atocpanCases:wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
  {tag:'vivianne',id:'legend-fontaine_vivianne_of_the_lake',arena:'vivianne-legend-bank',
   entry:'fon-wp-50056',checkpoint:'fontaine-hub',hp:1040,mora:300,x:890,warning:'LV02',entities:[97041],
   warningOrder:[[1,'hydro',64],[2,'hydro',115]],movingWave:true},
@@ -137,7 +146,7 @@ async function start(cfg,needsReport){
  page.on('pageerror',e=>errors.push(e.message));
  const route=waypointDriver(page,nodes,{walkTimeout:32000});
  const suffix=needsReport?'-before-report-fixture.json':'-fixture.json';
- const fixturePath=atocpan?'work/natlan-atocpan-totem-fixture.json':wayob?'work/natlan-wayob-duo-fixture.json'
+ const fixturePath=finalNatlan?'work/natlan-final-legends-fixture.json':atocpan?'work/natlan-atocpan-totem-fixture.json':wayob?'work/natlan-wayob-duo-fixture.json'
   : northwest?'work/natlan-northwest-legends-fixture.json':cliff?'work/natlan-cliff-trials-fixture.json'
   : north?'work/natlan-north-trials-fixture.json':night?'work/natlan-night-trial-fixture.json'
   : natlan?'work/coop-natlan-entry-legends-fixture.json':'work/coop-'+cfg.arena+suffix;
@@ -393,7 +402,7 @@ async function createRoom(players){
  return code;
 }
 
-async function enterPillars(players,cfg){
+async function enterIndividually(players,cfg){
  const [host,guest]=players;
  await host.route.cross(cfg.arena);
  assert.equal(await guest.route.node(),cfg.entry);
@@ -410,7 +419,7 @@ async function scenario(cfg){
   if(cliff) await prepareCliffTrial(players,cfg);
   else if(north) await prepareNorthTrial(players,cfg);
   else if(!northwest) await Promise.all(players.map(p=>p.route.cross(cfg.entry)));
-  await enterPillars(players,cfg);
+  await enterIndividually(players,cfg);
  }else if(natlan&&cfg.quest){
   await Promise.all(players.map(async ({route})=>{
    if(cfg.via) await route.cross(cfg.via);
@@ -566,7 +575,7 @@ async function wayobJourney(){
    await route.count(cfg.quest,index+1);
    assert.equal((await frame(page)).coop.code,code);
   }));
-  await enterPillars(players,cfg);
+  await enterIndividually(players,cfg);
   proof[cfg.tag]=await fightAndSave(players,cfg);
   await rematch(players,cfg);
   await leaveArena(players,cfg);
@@ -600,7 +609,7 @@ async function atocpanJourney(){
   await collectSpot(player,itinerary[0]);
   await player.route.count(reji.quest,1);
  }));
- await enterPillars(players,reji);
+ await enterIndividually(players,reji);
  const rejiProof=await fightAndSave(players,reji);
  await rematch(players,reji);
  await leaveArena(players,reji);
@@ -629,7 +638,7 @@ async function atocpanJourney(){
   await collectSpot(player,itinerary[1]);
   await player.route.count(tupu.quest,2);
  }));
- await enterPillars(players,tupu);
+ await enterIndividually(players,tupu);
  const tupuProof=await fightAndSave(players,tupu);
  await rematch(players,tupu);
  await leaveArena(players,tupu);
@@ -661,9 +670,57 @@ async function verifySavedReports(players,bosses){
  }));
 }
 
+async function finalNatlanJourney(){
+ const [peak,teno]=cases;
+ const players=await Promise.all([start(peak,false),start(peak,false)]);
+ const code=await createRoom(players);
+ const {itinerary}=graph.quests.find(q=>q.id===peak.quest);
+ const foothills='nat-wp-82571',fork='nat-wp-82570',coast='nat-wp-82564';
+ const grassland='atocpan-domain-side-clearing',port='natlan-port',pier='nat-resort-pier';
+ await Promise.all(players.map(async player=>{
+  for(const id of [fork,foothills,peak.entry]) await crossShared(player,id,code);
+  await climb(player.route,[[526,412],[851,346]]);
+  await collectSpot(player,itinerary[0]);
+  await player.route.count(peak.quest,1);
+ }));
+ await enterIndividually(players,peak);
+ const peakProof=await fightAndSave(players,peak);
+ await rematch(players,peak);
+ await leaveArena(players,peak);
+ console.log('Chrome: both players cleared Peak and returned to the upper ledge.');
+ await Promise.all(players.map(async (player,index)=>{
+  const path=[foothills,fork,peak.approach,'nat-wp-82560','nat-wp-82561','nat-wp-82562',coast];
+  for(const id of path) await crossShared(player,id,code);
+  if(index===1) await crossShared(player,'sites-hunt-82577',code);
+  await crossShared(player,grassland,code);
+  await collectSpot(player,itinerary[1]);
+  await player.route.count(peak.quest,2);
+  await player.route.warp(port);
+  assert.equal((await frame(player.page)).coop.code,code);
+ }));
+ await Promise.all(players.map(player=>crossShared(player,pier,code)));
+ assert.ok(players.every(player=>player.route.journeys.at(-1)[2]==='boat'));
+ await Promise.all(players.map(async player=>{
+  for(const id of ['nat-wp-85957','nat-wp-85960','nat-wp-85962','nat-wp-85968','nat-wp-85969',teno.entry]){
+   await crossShared(player,id,code);
+  }
+ }));
+ await enterIndividually(players,teno);
+ const tenoProof=await fightAndSave(players,teno);
+ await rematch(players,teno);
+ await leaveArena(players,teno);
+ await verifySavedReports(players,cases);
+ const routes=players.map(p=>p.route.journeys);
+ await Promise.all(players.map(p=>p.context.close()));
+ return {peak:{...peakProof,returnY:peak.returnY,sharedRematch:true},
+  lastTenochtzitoc:{...tenoProof,returnY:teno.returnY,sharedRematch:true,shallowGround:true},
+  routes,bothGrasslandRoutes:true,sharedRoomAcrossBothRoutes:true,bothReported:true,reportRestoredForBoth:true};
+}
+
 try{
  const evidence={participants:2,...(artSource?{artSource}: {})};
- if(atocpan) Object.assign(evidence,await atocpanJourney());
+ if(finalNatlan) Object.assign(evidence,await finalNatlanJourney());
+ else if(atocpan) Object.assign(evidence,await atocpanJourney());
  else if(wayob) Object.assign(evidence,await wayobJourney());
  else for(const cfg of cases)evidence[cfg.tag]=await scenario(cfg);
  assert.deepEqual(errors,[]);
