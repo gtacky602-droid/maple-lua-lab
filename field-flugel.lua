@@ -14,19 +14,28 @@ return function(C)
   b.wardContacts=setmetatable({},{__mode='k'})
   b.wardDown,b.downReason=0,nil
  end
- function lion.spawn(b,s) arm(b,s,0);place(b,s,'idle','idle') end
+ function lion.spawn(b,s)
+  if s.draftMoves then b.mode,b.ward,b.downReason='electro',0,nil
+  else arm(b,s,0) end
+  place(b,s,'idle','idle')
+ end
  local function clear(state,c)
-  if not c or not c.summons then return end
-  for _,unit in ipairs(c.summons) do C.removeFieldSummon(state,unit) end
-  c.summons=nil
+  if not c then return end
+  if c.summons then
+   for _,unit in ipairs(c.summons) do C.removeFieldSummon(state,unit) end
+   c.summons=nil
+  end
+  c.relayOrb=nil
  end
  function lion.cancel(b,s,state,c) clear(state,c);lion.spawn(b,s) end
  function lion.onDefeat(state,b,s,c) lion.cancel(b,s,state,c) end
  function lion.damageFactor(_,_,b,s)
+  if s.draftMoves then return 1 end
   if b.form=='down' then return s.ward.downFactor end
   return b.mode=='electro' and b.ward>0 and s.ward.damageFactor or 1
  end
  function lion.onHit(cast,b,s,_,element,_,party)
+  if s.draftMoves then return end
   if b.mode~='electro' or b.ward<=0 or b.wardContacts[cast] or cast.reaction or
      not C.fieldCastStartedSince(party,b.fieldBoss,cast,b.wardOpenedAt) then return end
   b.wardContacts[cast]=true
@@ -34,6 +43,7 @@ return function(C)
   b.ward=math.max(0,b.ward-amount)
  end
  function lion.preempt(b,s,slot)
+  if s.draftMoves then return false end
   if b.mode=='electro' and b.ward<=0 and not b.wardBroken then
    b.wardBroken=true;b.wardDown=s.ward.downTicks;b.downReason='ward'
    slot.cast=nil
@@ -49,8 +59,9 @@ return function(C)
   return true
  end
  function lion.selectMove(b,m) return m.kind=='ritual' and m[b.mode] or m end
- function lion.begin(b,s,m)
+ function lion.begin(b,s,m,_,state)
   return {move=m,tick=0,origin=b.x,dir=b.facing,mode=b.mode,seen={{},{},{}},brokenOrbs=0,
+   startTime=state.t,
    source={id=b.id,owner=b,y=s.floorY,damageElement=b.mode}}
  end
  function lion.shareCast(c,actors)
@@ -65,7 +76,61 @@ return function(C)
    local half=m.width*U/2
    c.center=clamp(c.origin+clamp((a and a.x or c.origin)-c.origin,-m.distance*U,m.distance*U),s.arenaMin+half,s.arenaMax-half)
    c.left,c.right=c.center-half,c.center+half
+  elseif m.waves then
+   c.waves={}
+   for i,wave in ipairs(m.waves) do
+    local near,far=c.origin+c.dir*wave.near*U,c.origin+c.dir*wave.far*U
+    c.waves[i]={left=math.min(near,far),right=math.max(near,far),damage=wave.damage,element=wave.element}
+   end
   else c.left,c.right=c.origin-m.radius*U,c.origin+m.radius*U end
+ end
+ local function groundRetreat(s,c,left,right,ticks)
+  local margin=10+.10*U
+  local escape=c.dir>0 and right+margin or left-margin
+  if escape<20 or escape>s.worldwidth-20 then return false end
+  for _,actor in ipairs(s.actors) do
+   if actor.hp>0 and actor.x+10>left and actor.x-10<right then
+    if math.abs(escape-actor.x)>ticks*210/60 or not C.pathClear(s,actor,escape,actor.y) then return false end
+   end
+  end
+  return true
+ end
+ local function canLock(state,c)
+  for i,active in ipairs(c.move.active) do
+   local lane=c.waves and c.waves[i] or c
+   if not groundRetreat(state,c,lane.left,lane.right,active[1]-c.move.lock) then return false end
+  end
+  return true
+ end
+ local function restartTell(b,s,c,state)
+  local dx=c.reposition-b.x
+  b.x=b.x+clamp(dx,-s.walkSpeed/60,s.walkSpeed/60)
+  place(b,s,'reposition','ready')
+  if math.abs(dx)<=s.walkSpeed/60 then
+   c.reposition=nil
+   c.tick,c.origin,c.startTime=0,b.x,state.t
+  end
+ end
+ local function deployRelayOrb(c)
+  if c.relayOrb then return end
+  local m,y=c.move,c.source.y
+  c.relayOrb={x=c.origin+c.dir*m.orbOffset*U,y=y,hitTop=y-m.orbHeight*U,hitBottom=y,
+              hitHalfWidth=m.orbHalfWidth*U,layers=m.orbLayers,contacts=setmetatable({},{__mode='k'})}
+ end
+ function lion.onAttackPulse(party,cast,b,c,_,left,right)
+  local m=c.move
+  if not m.waves or c.broken or c.reposition or cast.reaction or cast.persistentTarget or (cast.mult or 0)<=0 then return end
+  local actor=party.actors[cast.id]
+  if not actor or actor.hp<=0 then return end
+  local _,now=C.fieldSlot(party,b.fieldBoss)
+  local t=math.floor((now-c.startTime)*60+.5)
+  if t<m.deploy or t>=m.orbClose or not C.fieldCastStartedSince(party,b.fieldBoss,cast,c.startTime+m.deploy/60) then return end
+  deployRelayOrb(c)
+  local orb=c.relayOrb
+  if orb.layers>0 and not orb.contacts[cast] and C.castReachesFieldPart(cast,orb,left,right) then
+   orb.contacts[cast]=true
+   orb.layers=orb.layers-1
+  end
  end
  local function orbs(state,b,s,c)
   c.openedAt=state.t
@@ -109,12 +174,21 @@ return function(C)
   elseif t>=m.absorbEnd then c.absorbed=alive;clear(state,c) end
  end
  function lion.tick(state,b,s,c,a)
+  if c.reposition then restartTell(b,s,c,state);return false end
   local m,t=c.move,c.tick+1
   c.tick=t
   if t<=m.lock and a then c.dir=a.x<c.origin and -1 or 1;b.facing=c.dir end
-  if t==m.lock then lock(s,c,a) end
+  if t==m.lock then
+   lock(s,c,a)
+   if s.draftMoves and not canLock(state,c) then
+    c.reposition=clamp(c.origin-c.dir*.65*U,32,state.worldwidth-32)
+    c.left,c.right,c.waves=nil,nil,nil
+    place(b,s,'reposition','ready')
+    return false
+   end
+  end
   if m.kind=='gale' then gather(state,b,s,c) end
-  if c.broken then
+  if c.broken and not m.waves then
    if t-c.broken<s.orbs.downTicks then place(b,s,'down','down');return false end
    arm(b,s,state.t);place(b,s,'idle','idle');return true
   end
@@ -127,11 +201,32 @@ return function(C)
   elseif m.kind=='gale' then
    form,pose='gathering','charge'
    if t>=m.deploy then y=y-s.orbs.bodyHover end
-  elseif m.kind=='thunder' then form,pose='thundercall','charge' end
+  elseif m.kind=='thunder' then form,pose='thundercall','charge'
+  elseif m.waves then
+   b.mode=t<m.deploy and 'electro' or 'anemo'
+   form,pose=t<m.deploy and 'thundercall' or 'gathering','charge'
+   if t==m.deploy then deployRelayOrb(c) end
+   if c.relayOrb and (c.relayOrb.layers==0 or t>=m.orbClose) then
+    if c.relayOrb.layers==0 then
+     c.broken=t
+     c.restOverride=0
+    else
+     c.absorbedFrom=c.relayOrb.x
+    end
+    clear(state,c)
+   end
+   if c.broken then
+    place(b,s,'recover','down')
+    if t-c.broken<m.total-m.recover then return false end
+    lion.spawn(b,s);return true
+   end
+  end
   for i,w in ipairs(m.active) do
    if t>=w[1] and t<w[2] then
-    if m.kind=='slash' or m.kind=='thunder' then pose='slash' end
-    C.hitFieldArea(state,c.source,c.seen[i],c.left,c.right,s.floorY-m.height*U,m.damage)
+    if m.kind=='slash' or m.kind=='thunder' or (m.waves and i==1) then pose='slash' end
+    local lane=c.waves and c.waves[i] or c
+    if lane.element then c.source.damageElement=lane.element end
+    C.hitFieldArea(state,c.source,c.seen[i],lane.left,lane.right,s.floorY-m.height*U,lane.damage or m.damage)
    end
   end
   if t>=m.recover then form,pose='recover','down' end
@@ -139,9 +234,19 @@ return function(C)
   if t<m.total then return false end
   if m.kind=='thunder' then b.mode,b.ward,b.wardBroken='anemo',0,true
   elseif m.kind=='gale' then clear(state,c);arm(b,s,state.t) end
+  if m.waves then c.restOverride=0;lion.spawn(b,s);return true end
   place(b,s,'idle','idle');return true
  end
  function lion.label(b,c,s)
+  if s.draftMoves then
+   if b.form=='reposition' then return '位置を変えて再予告' end
+   if c and c.broken then return '風を中断・反撃の隙' end
+   if b.form=='recover' then return '反撃の隙' end
+   if c and c.relayOrb then return '使風・風球 あと'..c.relayOrb.layers..'打' end
+   if b.form=='gathering' then return '使風・予告範囲の外へ' end
+   if b.form=='thundercall' then return '招雷・予告範囲の外へ' end
+   return
+  end
   if b.form=='down' then return b.downReason=='ward' and '雷の守りが割れた・使風へ移る' or '風の球を崩した・反撃の好機' end
   if b.form=='recover' then return '翼を休める・反撃の好機' end
   if b.mode=='electro' then return '招雷・雷の守り '..b.ward..' / '..s.ward.layers end
@@ -151,6 +256,20 @@ return function(C)
   return '使風・翼と刃の動きに注意'
  end
  function lion.frame(f,b,s,c)
+  if s.draftMoves then
+   f.draftMoves=true
+   f.flugel={mode=b.mode,interrupted=c and c.broken~=nil or false}
+   if c and c.relayOrb then
+    local orb=c.relayOrb
+    f.flugel.orb={x=orb.x,left=orb.x-orb.hitHalfWidth,right=orb.x+orb.hitHalfWidth,
+                  top=orb.hitTop,layers=orb.layers,maxLayers=c.move.orbLayers}
+   end
+   if c and c.waves and not c.broken then
+    local i=c.tick<c.move.deploy and 1 or 2
+    if c.tick<c.move.active[i][2] then f.flugel.wave=c.waves[i] end
+   end
+   return
+  end
   f.flugel={mode=b.mode,ward=b.ward,maxWard=s.ward.layers,downReason=b.downReason,
    brokenOrbs=c and c.brokenOrbs or 0,requiredOrbs=s.orbs.required,absorbed=c and c.absorbed}
  end
@@ -172,6 +291,17 @@ return function(C)
     end
    end
   end
+  if c and c.waves and not c.broken then
+   local i=c.tick<c.move.deploy and 1 or 2
+   local window,wave=c.move.active[i],c.waves[i]
+   if c.tick<window[2] then
+    local left,right=c.waves[i].left-cam,c.waves[i].right-cam
+    local height=c.move.height*U
+    local glow=wave.element=='electro' and purple or mint
+    rect(f,left,y-height,2,height,glow);rect(f,right-2,y-height,2,height,glow)
+    lane(f,left,right,y,height,glow,c.tick>=window[1])
+   end
+  end
   C.drawFlugelFieldArt(f,b.x-cam,b.y,b.pose,mode,profile,b.facing>0)
   if b.mode=='electro' and b.ward>0 then
    local top=b.hitTop-14
@@ -191,6 +321,20 @@ return function(C)
      rect(f,x-18,unit.hitTop-9,36*unit.hp/unit.maxhp,2,mint)
     end
    end
+  end
+  if c and c.relayOrb then
+   local orb=c.relayOrb
+   C.drawFlugelFieldArt(f,orb.x-cam,orb.y,'orb',mode,profile,false)
+   rect(f,orb.x-cam-20,orb.hitTop-11,40,6,ink)
+   for i=1,c.move.orbLayers do
+    rect(f,orb.x-cam-18+(i-1)*18,orb.hitTop-9,16,2,i<=orb.layers and mint or '#525066')
+   end
+  end
+  if c and c.absorbedFrom and c.tick<c.move.orbClose+18 then
+   local progress=(c.tick-c.move.orbClose)/18
+   local x=c.absorbedFrom+(b.x-c.absorbedFrom)*progress-cam
+   local height=40+34*progress
+   f.draws[#f.draws+1]={kind='rect',x=x-6,y=y-height,w=12,h=5,color=mint,opacity=1-progress,motionOnly=true}
   end
  end
  return lion

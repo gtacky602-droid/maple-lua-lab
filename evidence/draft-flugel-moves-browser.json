@@ -1,0 +1,16 @@
+{
+  "level": 145,
+  "forecastElements": [
+    "electro",
+    "anemo"
+  ],
+  "orbShownAt": 198,
+  "interruptedAt": 228,
+  "normalAttackInput": true,
+  "ordinaryKillCountersUnchanged": true,
+  "sameFrameCommands": {
+    "standard": 23241,
+    "light": 6434
+  },
+  "errors": []
+}

@@ -1,0 +1,150 @@
+{
+  "participants": 4,
+  "airTicks": 36,
+  "bodyDamageAcrossForms": 95,
+  "received": [
+    [
+      [
+        25,
+        "electro"
+      ]
+    ],
+    [
+      [
+        34,
+        "anemo"
+      ]
+    ],
+    [],
+    []
+  ],
+  "windOrbClosedAt": 324,
+  "absorptionCausesNoDamage": true,
+  "naturalRecoveryTicks": 144,
+  "restAfterRecovery": 0,
+  "acceptedContactsAt": [
+    192,
+    323
+  ],
+  "rejectedDuplicateEarlierAndIndirect": true,
+  "cancelledWind": true,
+  "interruptRecoveryTicks": 144,
+  "noBacklashOrMultiplier": true,
+  "unsafeOrigin": 1517,
+  "restartedOrigin": 1459.8,
+  "groundEscapeX": 1716.2,
+  "level": 145,
+  "previous": {
+    "sourceSha256": "8846709541311ea499f75971ff690ae2f1250590b591390a6288aad008f09479",
+    "boss": "boss-26310501",
+    "arena": "flugel-tundra-basin",
+    "entryRoute": [
+      "snezhnaya-field",
+      "flugel-tundra-basin"
+    ],
+    "maxHp": 6000000,
+    "partyAttack": [
+      9314,
+      6652
+    ],
+    "elapsedSeconds": 84.25,
+    "damagingHits": 536,
+    "moves": [
+      "FL01",
+      "FL02",
+      "FL03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      1466100,
+      540
+    ],
+    "commission": {
+      "quest": "flugel-commission",
+      "xp": 10400,
+      "mora": 710
+    },
+    "savedClear": true
+  },
+  "short": {
+    "sourceSha256": "8846709541311ea499f75971ff690ae2f1250590b591390a6288aad008f09479",
+    "boss": "boss-26310501",
+    "arena": "flugel-tundra-basin",
+    "entryRoute": [
+      "snezhnaya-field",
+      "flugel-tundra-basin"
+    ],
+    "maxHp": 6000000,
+    "partyAttack": [
+      9314,
+      6652
+    ],
+    "elapsedSeconds": 83.6,
+    "damagingHits": 557,
+    "moves": [
+      "FL01",
+      "FL02",
+      "FL03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      1466100,
+      540
+    ],
+    "commission": {
+      "quest": "flugel-commission",
+      "xp": 10400,
+      "mora": 710
+    },
+    "savedClear": true
+  },
+  "interrupted": {
+    "sourceSha256": "8846709541311ea499f75971ff690ae2f1250590b591390a6288aad008f09479",
+    "boss": "boss-26310501",
+    "arena": "flugel-tundra-basin",
+    "entryRoute": [
+      "snezhnaya-field",
+      "flugel-tundra-basin"
+    ],
+    "maxHp": 6000000,
+    "partyAttack": [
+      9314,
+      6652
+    ],
+    "elapsedSeconds": 92.1,
+    "damagingHits": 566,
+    "moves": [
+      "FL01",
+      "FL02",
+      "FL03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      1466100,
+      540
+    ],
+    "commission": {
+      "quest": "flugel-commission",
+      "xp": 10400,
+      "mora": 710
+    },
+    "savedClear": true
+  },
+  "interruptedAt": 223,
+  "groundEvasionAndCounterAt": 429
+}

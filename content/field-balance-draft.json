@@ -22,6 +22,18 @@
     "boss-25134601": 6800000
   },
   "fieldBossMoveOverrides": {
+    "boss-26310501": {
+      "FL02": { "air": [88, 124], "active": [[124, 138], [198, 212]], "recover": 236, "total": 312 },
+      "FL03": {
+        "kind": "relay", "title": "招雷・使風の連奏", "lock": 60, "height": 0.74,
+        "deploy": 192, "orbClose": 324, "orbOffset": 1.25, "orbHalfWidth": 0.35, "orbHeight": 0.80, "orbLayers": 2,
+        "active": [[132, 146], [348, 366]], "recover": 384, "total": 528,
+        "waves": [
+          { "near": 0.10, "far": 2.40, "element": "electro", "damage": 25 },
+          { "near": 0.10, "far": 2.70, "element": "anemo", "damage": 34 }
+        ]
+      }
+    },
     "boss-24111101": {
       "FV02": { "air": [142, 178], "spearStart": 88 },
       "FV03": {

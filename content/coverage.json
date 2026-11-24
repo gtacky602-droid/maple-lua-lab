@@ -8266,6 +8266,13 @@
     },
     "draft_field_moves": {
       "encounters": {
+        "boss-26310501": {
+          "earned_save_level": 145,
+          "same_input_clear_seconds": {"previous": 84.25, "alternate": 83.6},
+          "cooperative_participants": 4,
+          "lua_evidence": "evidence/draft-flugel-moves-lua.json",
+          "browser_evidence": "evidence/draft-flugel-moves-browser.json"
+        },
         "boss-24111101": {
           "earned_save_level": 18,
           "same_input_clear_seconds": {"previous": 32.717, "alternate": 33.483},

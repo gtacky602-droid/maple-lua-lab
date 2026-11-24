@@ -360,8 +360,12 @@ return function(C,configs,controllers)
    return
   end
   if behavior.preempt and behavior.preempt(boss,spec,slot) then return end
-  if slot.cast then
-   if behavior.tick(s,boss,spec,slot.cast,target) then slot.cast=nil;slot.delay=spec.restTicks end
+  local cast=slot.cast
+  if cast then
+   if behavior.tick(s,boss,spec,cast,target) then
+    slot.delay=cast.restOverride or spec.restTicks
+    slot.cast=nil
+   end
    return
   end
   if not target then return end
@@ -412,7 +416,8 @@ return function(C,configs,controllers)
    end
   end
   if not room.fieldSlot or #parties==0 then return end
-  local combat={t=room.time,actors=actors,actorOwners=owners,parties=parties,enemies=room.enemies,solids=room.solids}
+  local combat={t=room.time,actors=actors,actorOwners=owners,parties=parties,enemies=room.enemies,
+                solids=room.solids,worldwidth=parties[1].worldwidth}
   advance(combat,room.fieldSpec,room.fieldSlot,true)
   local behavior=controllers[room.fieldSpec.controller]
   if behavior.stepCoop then behavior.stepCoop(combat,room) end
