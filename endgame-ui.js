@@ -138,7 +138,9 @@ export function initEndgameUI(action){
    next.hidden=fight.kind!=='abyss'||fight.status!=='between';
    const prize=fight.matchReward;
    const result=fight.match?(fight.status==='clear'
-    ? `勝利 ｜ ${prize.xp.toLocaleString()}EXP・${prize.mora.toLocaleString()}モラ・★${prize.rank} ${prize.set}${prize.bag?'':'（拠点で受取）'}`
+    ? (prize?`勝利 ｜ ${prize.xp.toLocaleString()}EXP・${prize.mora.toLocaleString()}モラ・★${prize.rank} ${prize.set}${prize.bag?'':'（拠点で受取）'}`:'勝利 ｜ 個人報酬の対象外')
+    :fight.status==='spectate'?'味方の挑戦を観戦しています。'
+    :fight.gathering!==undefined?`同じ難度で仲間を待っています ｜ あと${fight.gathering}秒`
     : fight.status==='failed'?(fight.phase==='spectate'?fight.hint
       :fight.remaining===0?'時間切れ。入口から再挑戦できます。':'挑戦終了。入口から再挑戦できます。')
     :fight.hint)

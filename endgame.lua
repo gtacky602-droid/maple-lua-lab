@@ -106,11 +106,10 @@ return function(C,abyss,weekly,matches,controllers)
   s.campaign.message='三つの区画を突破しました。'
  end
 
- local function stygianClear(s,run,spec)
+ local function stygianClear(s,run,spec,elapsed)
   local data=records(s)
   data.stygian=data.stygian or {}
   local key=run.match..':'..run.rules.id
-  local elapsed=s.t-run.start
   local first=data.stygian[key]==nil
   local improved,record=personalBest(s,data.stygian,key,elapsed)
   if improved then
@@ -135,6 +134,102 @@ return function(C,abyss,weekly,matches,controllers)
   s.campaign.message=run.rules.name..'の模擬戦を突破しました。'
  end
 
+ function C.stygianCoopMode(s)
+  local run=s.endgameRun
+  if run and run.match and matches[run.match].coop then return run.rules.id end
+ end
+ function C.adoptCoopStygian(room,s)
+  if not C.stygianCoopMode(s) then return end
+  local run=s.endgameRun
+  room.stygianRun=run
+  run.gatherUntil=room.time+matches[run.match].coop.gatherSeconds
+  run.elapsed=0
+ end
+ function C.attachCoopStygian(room,s)
+  local shared=room.stygianRun
+  if not shared then return end
+  local set=s.endgameRun.set
+  local personal={shared=shared,set=set,skills={}}
+  shared.set,shared.skills=nil,nil
+  s.endgameRun=setmetatable(personal,{__index=shared})
+  local offset=(#room.members-1)*48
+  for _,actor in ipairs(s.actors) do actor.x=actor.x+offset end
+ end
+ function C.leaveCoopStygian(room,s)
+  if s.endgameRun and s.endgameRun.shared==room.stygianRun and room.stygianRun then
+   leave(s)
+   return true
+  end
+ end
+
+ local previousWipe=C.handlesPartyWipe
+ function C.handlesPartyWipe(s)
+  local run=s.endgameRun
+  if run and run.shared then
+   if run.status=='fighting' then
+    run.status='spectate'
+    C.clearWeeklySceneCasts(s)
+    s.campaign.message='味方の挑戦を観戦しています。'
+   end
+   return true
+  end
+  return previousWipe and previousWipe(s)
+ end
+
+ function C.stepCoopStygian(room,parties,dt)
+  local run=room.stygianRun
+  local spec,controller=matches[run.match],controllers[run.match]
+  if run.status=='clear' then
+   if controller.afterClear then controller.afterClear(room.members[1].state,run,spec,dt) end
+   return
+  end
+  if run.status~='fighting' then return end
+  local live,target,distance={},nil,math.huge
+  local waitingForPeer=false
+  for _,member in ipairs(room.members) do
+   local s=member.state
+   if s.endgameRun.status=='fighting' and not member.online then waitingForPeer=true end
+  end
+  for _,s in ipairs(parties) do
+   C.checkPartyDefeat(s)
+   if s.endgameRun.status=='fighting' then
+    live[#live+1]=s
+    local a=s.actors[s.active]
+    local gap=math.abs(a.x-run.boss.x)
+    if gap<distance then target,distance=a,gap end
+   end
+  end
+  local result
+  if run.boss.hp<=0 then result='clear'
+  elseif #live==0 then
+   if waitingForPeer then return end
+   result='failed'
+  elseif not run.launched and room.time<run.gatherUntil then return
+  else
+   run.launched=true
+   run.elapsed=run.elapsed+dt
+   if run.rules.limit and run.elapsed+1e-8>=run.rules.limit then
+    result='failed'
+   else
+    run.parties,run.target=live,target
+    controller.finish(live[1],run,spec,dt)
+    run.parties,run.target=nil,nil
+    return
+   end
+  end
+  run.status=result
+  if result=='failed' and controller.abort then controller.abort(room.members[1].state,run) end
+  for _,member in ipairs(room.members) do
+   local s=member.state
+   local personal=s.endgameRun
+   if result=='clear' and next(personal.skills) then
+    stygianClear(s,personal,spec,run.elapsed)
+   else
+    personal.status=result
+   end
+  end
+ end
+
  local function atHub(s,id)
   return not s.paused and s.story and s.story.active and s.story.node==id and not s.lift and not s.voyage
     and s.actors[s.active].hp>0 and s.campaign.zone=='town'
@@ -148,8 +243,8 @@ return function(C,abyss,weekly,matches,controllers)
     if controller.interact then controller.interact(s,run) end
    elseif (key=='endgame_next' or key=='story_nearby_portal') and not s.paused and run.kind=='abyss' and run.status=='between' then
     run.room=run.room+1;openRoom(s,run)
-   elseif key=='pause' or ((run.status=='fighting' or run.status=='between')
-       and (battleActions[key] or key:match('^slot[1-8]$'))) then
+   elseif (key=='pause' and not run.shared) or ((run.status=='fighting' or run.status=='between')
+       and (not run.shared or key~='pause') and (battleActions[key] or key:match('^slot[1-8]$'))) then
     local controller=run.match and controllers[run.match]
     if not (controller and controller.blocksAction and controller.blocksAction(s,run,key)) then action(s,key) end
    end
@@ -202,6 +297,10 @@ return function(C,abyss,weekly,matches,controllers)
   local run=s.endgameRun
   if not run then return step(s,dt,input) end
   if s.paused then return end
+  if run.shared then
+   if run.status=='fighting' then step(s,dt,input) end
+   return
+  end
   if run.status=='clear' and run.match then
    local controller=controllers[run.match]
    if controller.afterClear then controller.afterClear(s,run,matches[run.match],dt) end
@@ -218,7 +317,7 @@ return function(C,abyss,weekly,matches,controllers)
     if controller.abort then controller.abort(s,run) end
     run.status='failed';s.campaign.message='挑戦終了。入口から再挑戦できます。'
    elseif run.boss.hp<=0 and not run.preparingNextAct and (not limit or s.t-run.start<=limit+1e-8) then
-    stygianClear(s,run,spec)
+    stygianClear(s,run,spec,s.t-run.start)
    elseif limit and s.t-run.start>=limit then
     if controller.abort then controller.abort(s,run) end
     run.status='failed';s.campaign.message='時間切れ。入口から再挑戦できます。'
@@ -280,9 +379,13 @@ return function(C,abyss,weekly,matches,controllers)
    if run.match then
     local spec=matches[run.match]
     v.match,v.name,v.mode,v.elapsed=run.match,spec.name,run.rules.name,run.elapsed
-    v.remaining=run.rules.limit and math.max(0,run.rules.limit-(s.t-run.start)) or nil
+    local elapsed=run.shared and run.shared.elapsed or s.t-run.start
+    v.remaining=run.rules.limit and math.max(0,run.rules.limit-elapsed) or nil
     v.matchReward=run.reward
     controllers[run.match].observe(f,s,run,spec,mode,profile)
+    if run.shared and not run.launched and run.status=='fighting' then
+     v.gathering=math.max(0,math.ceil(run.gatherUntil-s.coop.time))
+    end
    end
   elseif s.story and s.story.active and byNode[s.story.node] then
    local id=byNode[s.story.node];local spec=matches[id]

@@ -26,7 +26,7 @@ return function(C,G)
   return a.x>x and 1 or -1
  end
  local function aim(s,r,c)
-  local b,a=r.boss,s.actors[s.active]
+  local b,a=r.boss,r.target or s.actors[s.active]
   local p=r.spec.arena
   local u,m=p.unit,c.motion
   c.dir=facing(a,c.x,c.dir)
@@ -84,11 +84,14 @@ return function(C,G)
  local function sample(s,r,c,i)
   local area=M.geometry(r,c,i)
   local seen=c.seen[i]
-  for _,a in ipairs(s.actors) do
-   if not seen[a.id] and G.bodyContact(area,a) then
-    seen[a.id]=true
-    local damage=C.damageActor(s,a,c.damage,r.boss,true,true)
-    log(s,r,c,'contact',i,a.id,damage)
+  for _,party in ipairs(r.parties or {s}) do
+   for _,a in ipairs(party.actors) do
+    local key=r.parties and a or a.id
+    if not seen[key] and G.bodyContact(area,a) then
+     seen[key]=true
+     local damage=C.damageActor(party,a,c.damage,r.boss,true,true)
+     log(party,r,c,'contact',i,a.id,damage)
+    end
    end
   end
  end

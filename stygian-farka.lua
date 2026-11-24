@@ -9,7 +9,8 @@ return function(C,G,M,view)
  end
  local function contact(s,r,cast,mult,color,element)
   local b=r.boss
-  if b.hp<=0 or b.invulnerable or r.status~='fighting' then return false end
+  local personal=s.endgameRun
+  if not personal or personal.status~='fighting' or b.hp<=0 or b.invulnerable or r.status~='fighting' then return false end
   local resist=C.enemyResistance(cast,b,element)
   if resist>=1 then return false end
   local amount,critical=C.enemyHitDamage(s,cast,b,mult,element,resist)
@@ -18,7 +19,8 @@ return function(C,G,M,view)
   amount=math.min(amount,b.hp-lower)
   if amount<=0 then return false end
   local name=cast.key or 'normal'
-  r.skills[name]=(r.skills[name] or 0)+amount
+  local skills=personal.skills
+  skills[name]=(skills[name] or 0)+amount
   s.damage=s.damage+amount;s.hits=s.hits+1
   C.combatNumber(s,b,critical and amount..'!' or amount,color)
   C.combatEvent(s,'hit',cast.id,b.id,amount)
@@ -116,7 +118,7 @@ return function(C,G,M,view)
    r.rest=r.rest-1
    b.y=math.min(spec.arena.floor,b.y+6)
    b.hitTop,b.hitBottom=b.y-139,b.y
-   local gap=s.actors[s.active].x-b.x
+   local gap=(r.target or s.actors[s.active]).x-b.x
    if math.abs(gap)>106 then
     b.dir=gap>0 and 1 or -1
     b.x=G.clamp(spec,b.x+b.dir*2.1,32)

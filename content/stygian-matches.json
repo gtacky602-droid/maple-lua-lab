@@ -1749,6 +1749,7 @@
       ]
     },
     "farka": {
+      "coop": {"gatherSeconds": 6},
       "entity": 990001,
       "node": "mond-stygian-dual-court",
       "hub": "mond-town",

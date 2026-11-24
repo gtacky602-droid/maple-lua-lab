@@ -1,0 +1,39 @@
+{
+  "contributors": 2,
+  "normalHP": 670,
+  "hardHP": 1880,
+  "warningAndDamageForBoth": true,
+  "lateJoinBlocked": true,
+  "sameSessionRestoredHP": true,
+  "defeatedContributorRewarded": true,
+  "idleObserverUnrewarded": true,
+  "independentDifficulties": true,
+  "allDownReturnsThroughHub": true,
+  "selectedSets": [
+    {
+      "xp": 1657,
+      "rank": 3,
+      "set": "黄金の劇団",
+      "first": true,
+      "bag": true,
+      "mora": 2400
+    },
+    {
+      "xp": 1657,
+      "rank": 3,
+      "set": "剣闘士のフィナーレ",
+      "first": true,
+      "bag": true,
+      "mora": 2400
+    }
+  ],
+  "rematchReward": {
+    "xp": 1620,
+    "rank": 3,
+    "set": "黄金の劇団",
+    "first": false,
+    "bag": true,
+    "mora": 1350
+  },
+  "savedClears": 2
+}

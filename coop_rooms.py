@@ -30,7 +30,9 @@ def location(env):
 
 
 def shareable(env, site):
-    return site in RULES['nodes'] and env['core'].canShareCoopNode(env['state'])
+    core, state = env['core'], env['state']
+    return (site in RULES['nodes'] and core.canShareCoopNode(state)
+            and (not core.stygianCoopMode(state) or state.coop is not None))
 
 
 class CoopRooms:
@@ -76,18 +78,22 @@ class CoopRooms:
         if state.coop is not None:
             room.core.detachCoop(member, sharing)
         if open_battle and site in RULES['nodes']:
+            stygian = room.core.stygianCoopMode(state)
             rank = room.core.weeklyCoopMode(state)
             variant = room.core.weeklyCoopVariant(state)
             # A multi-scene weekly keeps one world keyed by its entrance.
             anchor = room.core.weeklyCoopSite(state) or site
             world_key = anchor
-            if variant:
+            if stygian:
+                world_key = (anchor, 'stygian', stygian)
+            elif variant:
                 world_key = (anchor, rank, variant.key)
             elif rank:
                 world_key = (anchor, rank)
             elif state.storyDuelReplay:
                 world_key = (anchor, state.storyDuelReplay)
-            if world_key not in room.worlds or room.worlds[world_key].duelClosed:
+            world = room.worlds.get(world_key)
+            if world is None or world.duelClosed or (stygian and len(world.members) == 0):
                 room.worlds[world_key] = room.core.newCoop(state)
             room.core.attachCoop(room.worlds[world_key], state, member)
 
@@ -95,6 +101,17 @@ class CoopRooms:
         if action == 'coop_leave':
             self.detach(env)
             return True
+        room = env.get('coop_room')
+        if room and action.startswith('stygian_start:'):
+            args = action.split(':')
+            if len(args) == 4:
+                world = room.worlds.get((location(env), 'stygian', args[2]))
+                if (world and len(world.members)
+                        and (world.stygianRun.launched or world.stygianRun.status != 'fighting')):
+                    env['coop_notice'] = 'この難度は挑戦中です。全員が入口へ戻ると再挑戦できます。'
+                    return True
+                env.pop('coop_notice', None)
+            return False
         joining = action.startswith('coop_join:')
         if not joining and action != 'coop_create':
             return False

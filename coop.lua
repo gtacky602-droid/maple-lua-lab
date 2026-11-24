@@ -16,6 +16,7 @@ return function(C, config)
   local room={node=s.story.node,enemies=s.enemies,solids=s.solids,time=s.t,tick=0,members={},nextId=0}
   C.adoptCoopField(room,s)
   C.adoptCoopWeekly(room,s)
+  C.adoptCoopStygian(room,s)
   return room
  end
  function C.attachCoop(room,s,member)
@@ -32,6 +33,7 @@ return function(C, config)
   room.members[#room.members+1]=member
   s.coop,s.coopMember,s.enemies=room,member,room.enemies
   s.paused,s.auto=false,false
+  C.attachCoopStygian(room,s)
   if room.weeklySlot then s.platforms=room.platforms end
   if room.weeklySpec and room.weeklySpec.innerNode then s.solids=room.solids end
   for _,e in ipairs(room.enemies) do
@@ -47,6 +49,7 @@ return function(C, config)
   C.leaveCoopWeekly(room,s)
   local stillShared=s.enemies==room.enemies
   s.coop,s.coopMember=nil,nil
+  if C.leaveCoopStygian(room,s) then return end
   if stillShared then
    if keepClearedScene then
     -- The chapter gate closed on victory. Keep the clear banner and positions.
@@ -122,6 +125,7 @@ return function(C, config)
   C.advanceEnemies({enemies=room.enemies},dt,actors,decoys,owners)
   C.advanceCoopField(room,actors,owners,parties)
   if room.weeklySlot and #parties>0 then C.advanceCoopWeekly(room,actors,owners,parties,dt) end
+  if room.stygianRun then C.stepCoopStygian(room,parties,dt) end
   room.tick=room.tick+1
  end
 
@@ -172,7 +176,8 @@ return function(C, config)
   local slot=C.currentWeeklyBoss(s)
   local variant=C.weeklyCoopVariant(s)
   local view={slot=member.id,online=member.online,map=s.story.node,mapName=C.storyNodeName(s),actors={},
-   difficulty=slot and slot.mode and slot.mode.name,variant=variant and variant.label}
+   difficulty=(slot and slot.mode and slot.mode.name) or (s.endgameRun and s.endgameRun.shared and s.endgameRun.rules.name),
+   variant=variant and variant.label}
   if world and s.coop==world and onField(member) then
    for _,a in ipairs(s.actors) do
     view.actors[#view.actors+1]={x=a.x,y=a.y,dir=a.dir,hp=a.hp}

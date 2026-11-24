@@ -1,0 +1,54 @@
+{
+  "players": 2,
+  "warning": {
+    "direction": -1,
+    "maxhp": 670,
+    "areas": [
+      {
+        "top": 343.6,
+        "right": 596.2,
+        "left": 424.5999999999999,
+        "bottom": 466.8,
+        "index": 0
+      }
+    ]
+  },
+  "trails": [
+    {
+      "stages": [
+        1,
+        2,
+        3
+      ],
+      "hits": 5
+    },
+    {
+      "stages": [
+        1,
+        2,
+        3
+      ],
+      "hits": 3
+    }
+  ],
+  "rewards": [
+    {
+      "xp": 1657,
+      "rank": 3,
+      "bag": true,
+      "set": "黄金の劇団",
+      "mora": 2400,
+      "first": true
+    },
+    {
+      "xp": 1657,
+      "rank": 3,
+      "bag": true,
+      "set": "剣闘士のフィナーレ",
+      "mora": 2400,
+      "first": true
+    }
+  ],
+  "clearsSavedForBoth": true,
+  "errors": []
+}
