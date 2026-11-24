@@ -51,7 +51,7 @@ try{
  assert.equal(entrance.status,'ready');
  assert.match(entrance.stops.at(-1).hint,/横穴の任意戦へ/);
  await closeMap();
- for(const leg of entrance.stops)await drive.cross(leg.id);
+ for(const leg of entrance.stops)await drive.cross(leg.id,leg.gateX);
  await page.waitForFunction(()=>window.lab.frame.total===1);
  const previous=await page.evaluate(()=>window.lab.frame.kills);
  await drive.walk(spawns[arena][0].x-300);

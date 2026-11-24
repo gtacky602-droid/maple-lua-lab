@@ -104,7 +104,10 @@ def console_exits(state, forward_label, *, cleared):
     else:
         assert '2体とも倒してください' in choices[1].reason
     core.action(state, 'world_map_select:' + console)
-    assert '左側の門' in core.frame(state).worldMap.guide.stops[1].hint
+    leg = core.frame(state).worldMap.guide.stops[1]
+    right = cleared and abs(state.actors[state.active].x - 1460) < abs(state.actors[state.active].x - 94)
+    assert leg.gateX == (1460 if right else 94)
+    assert ('右側の門' if right else '左側の門') in leg.hint
     core.action(state, 'world_map_close')
 
 
@@ -235,6 +238,7 @@ walk.cross(console)
 blocked(state, walk, FIRST, '第一試験')
 collect(state, walk, MU_Q, 0)
 walk.cross(FIRST)
+walk.approach(1460, 480, console)
 console_exits(state, '第一試験を終えて装置へ', cleared=False)
 retreat = exits[FIRST][0]
 walk.approach(retreat['x'], 480, console)

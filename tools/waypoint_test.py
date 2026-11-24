@@ -34,9 +34,11 @@ class TrailWalk:
             self.core.step(self.state, 1 / 60, movement)
         raise AssertionError((origin, target, x, y, actor.x, actor.y, actor.ground))
 
-    def cross(self, target):
+    def cross(self, target, gate_x=None):
         origin = self.state.story.node
         edge = self.edges[origin, target]
+        if gate_x is not None:
+            edge = next(e for e in self.exits[origin] if e['to'] == target and e['x'] == gate_x)
         self.approach(edge['x'], edge.get('y', 480), target)
         if 'windowStart' in edge:
             voyage = self.state.voyage

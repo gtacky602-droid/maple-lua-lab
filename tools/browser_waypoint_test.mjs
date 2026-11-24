@@ -71,9 +71,9 @@ export function waypointDriver(page,nodes,{walkTimeout=12000}={}){
   await waitY(y);
  }
 
- async function cross(id){
+ async function cross(id,gateX){
   const from=await node();
-  const edge=nodes[from].exits.find(e=>e.to===id);
+  const edge=nodes[from].exits.find(e=>e.to===id&&(gateX===undefined||e.x===gateX));
   assert.ok(edge,`No gate ${from} → ${id}`);
   await walk(edge.x);
   await changeHeight(edge.y??480);

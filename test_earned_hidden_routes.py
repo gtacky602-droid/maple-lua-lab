@@ -64,7 +64,7 @@ def travel(target):
     for leg in plan['stops']:
         assert state.story.node == leg['from']
         if (leg['from'], leg['id']) in edges:
-            walk.cross(leg['id'])
+            walk.cross(leg['id'], leg.get('gateX'))
         else:
             voyage = state.voyage
             assert voyage and voyage.destination == leg['id']

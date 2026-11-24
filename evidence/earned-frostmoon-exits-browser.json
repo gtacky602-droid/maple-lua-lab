@@ -1,0 +1,119 @@
+{
+  "approach": {
+    "status": "ready",
+    "stops": [
+      {
+        "from": "frostmoon-camp",
+        "region": "official-area-15",
+        "mode": "walk",
+        "id": "frost-wp-99282",
+        "name": "霜月・南東の台地",
+        "label": "徒歩"
+      },
+      {
+        "from": "frost-wp-99282",
+        "region": "official-area-15",
+        "hint": "赤い丘へ渡る昇降機・移動に2.3秒",
+        "mode": "lift",
+        "id": "frost-wp-99284",
+        "name": "霜月・潮色の道の南端",
+        "label": "昇降機"
+      },
+      {
+        "from": "frost-wp-99284",
+        "region": "official-area-15",
+        "mode": "walk",
+        "id": "frost-wp-99285",
+        "name": "霜月・赤い丘の南棚",
+        "label": "徒歩"
+      },
+      {
+        "from": "frost-wp-99285",
+        "region": "official-area-15",
+        "mode": "walk",
+        "id": "frost-wp-99289",
+        "name": "霜月・赤い丘の東棚",
+        "label": "徒歩"
+      },
+      {
+        "from": "frost-wp-99289",
+        "region": "official-area-15",
+        "mode": "walk",
+        "id": "frost-wp-99290",
+        "name": "霜月・赤い丘の北東縁",
+        "label": "徒歩"
+      },
+      {
+        "from": "frost-wp-99290",
+        "region": "official-area-15",
+        "hint": "北の下層に降りる昇降機・移動に2.5秒",
+        "mode": "lift",
+        "id": "frost-wp-99305",
+        "name": "霜月・赤い丘の北の下層",
+        "label": "昇降機"
+      },
+      {
+        "from": "frost-wp-99305",
+        "region": "official-area-15",
+        "mode": "walk",
+        "id": "frost-wp-99306",
+        "name": "霜月・赤い丘の北端の下層",
+        "label": "徒歩"
+      },
+      {
+        "from": "frost-wp-99306",
+        "region": "official-area-15",
+        "hint": "上段の入口・岩の間から古月の地下広間へ",
+        "mode": "walk",
+        "id": "frost-ancient-moon-console",
+        "name": "ウージエン生態圏北西・装置の広間",
+        "label": "徒歩"
+      },
+      {
+        "from": "frost-ancient-moon-console",
+        "region": "official-area-15",
+        "hint": "上段の入口・装置の第一試験へ",
+        "mode": "walk",
+        "id": "frost-commander-first-wave",
+        "name": "古月の広間・第一試験",
+        "label": "徒歩"
+      }
+    ],
+    "afterTransfer": false
+  },
+  "retreat": {
+    "status": "ready",
+    "stops": [
+      {
+        "from": "frost-commander-first-wave",
+        "region": "official-area-15",
+        "gateX": 94,
+        "hint": "左側の門・装置の広間へ戻る",
+        "mode": "walk",
+        "id": "frost-ancient-moon-console",
+        "name": "ウージエン生態圏北西・装置の広間",
+        "label": "徒歩"
+      }
+    ],
+    "afterTransfer": false
+  },
+  "exit": {
+    "status": "ready",
+    "stops": [
+      {
+        "from": "frost-commander-first-wave",
+        "region": "official-area-15",
+        "gateX": 1460,
+        "hint": "右側の門・第一試験を終えて装置へ",
+        "mode": "walk",
+        "id": "frost-ancient-moon-console",
+        "name": "ウージエン生態圏北西・装置の広間",
+        "label": "徒歩"
+      }
+    ],
+    "afterTransfer": false
+  },
+  "twoCommandersDefeated": true,
+  "trialProgressRestored": true,
+  "errors": []
+}

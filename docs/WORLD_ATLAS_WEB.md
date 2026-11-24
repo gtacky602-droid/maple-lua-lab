@@ -100,6 +100,14 @@ Chromeでは金リンゴ群島で地図を開き、横穴へ歩いて入って�
 
 再走は、比較版の獲得Lv160・165・180・200のセーブを作り、`python -X utf8 test_earned_hidden_routes.py`。続けてラボ起動中に `node test_earned_atlas_routes.mjs` でChromeを確認できる。Lv165セーブは `python test_cap_fresh_route.py --draft-balance --checkpoint-165` で作成する。
 
+### ドーンマンポートの機関室と霜月の試験室
+
+獲得Lv180のセーブで、ドーンマンポートの見晴らし台3か所、渡り廊下での旗の配達、潮風の機関室での稜風の帆塔機の討伐と通行確認を行った。港に戻って3件を報告し、保存を読み直して討伐後の再出現待ちも確認した。見晴らし道と渡り廊下の昇降機に行き先を表示する。 [ドーンマンポートの依頼](balance/WINDWARD_ROUTE_WEB.md) · [獲得セーブのLuaログ](../evidence/earned-branch-quests-lua.json)
+
+獲得Lv200のセーブでは、霜月で生態圏の通路を報告してプリズムスライムを倒した。地下広間の装置を調べ、2つの試験でコマンダーを各2体倒し、最深室でムシュテシルを討伐した。第一試験の直後に保存を読み直しても、試験室の敵は消えたままで、次の試験を始めるには中央の装置の操作が必要だった。依頼2件を報告し、霜月から「円環島へ戻る昇降機」で帰還した。 [霜月のLuaログ](../evidence/earned-branch-quests-lua.json)
+
+同じ場所へ通じる門が現在のマップに複数ある場合、M地図は通れる門の中から現在地に近い方を案内する。Chromeの霜月の第一試験では、コマンダーを倒す前は左の門が案内され、討伐後に右の門へ近づくと右側の出口が道順に出た。右の門から広間に戻り、保存を読み直して試験の進行を確認した。再走は `python -X utf8 test_earned_branch_quests.py`、続けてラボ起動中に `node test_earned_frostmoon_exits.mjs`。 [右の出口を案内する地図](../evidence/earned-frostmoon-right-exit.png) · [Chromeの結果](../evidence/earned-frostmoon-exits-browser.json)
+
 ## 検証
 
 ドーンマンポート、霜月、ナド・クライ特別地域など、地図と移動の台帳に載っていなかった最後の34地点を試験資料に対応付けた。霜月の試験室では、同じ広間に戻る二つの門をM地図で左右と名前で見分けられる。全1,528地点がM地図に掲載され、接続データに往路と帰路があり、それぞれ試験資料と対応していることを確認した。 [34地点の試験資料](../design/world/remaining-branches-stage-evidence.json) · [全地点の接続と対応資料](../evidence/world-map-connectivity.json)

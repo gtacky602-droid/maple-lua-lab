@@ -1,0 +1,1031 @@
+{
+  "dornman": {
+    "sourceSha256": "c9847a79b92f4522b2cf455f50cb8f23a07dc93f7036148615aeee37f997a4ef",
+    "itineraries": [
+      {
+        "start": "mond-town",
+        "destination": "dornman-camp",
+        "stops": [
+          {
+            "from": "mond-town",
+            "region": "region-01",
+            "label": "徒歩",
+            "id": "mond-road",
+            "mode": "walk",
+            "name": "モンド・南の街道"
+          },
+          {
+            "from": "mond-road",
+            "region": "branch-06",
+            "label": "徒歩",
+            "id": "dornman-camp",
+            "mode": "walk",
+            "name": "ドーンマンポート・入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "dornman-camp",
+        "destination": "dornman-wind-stairs",
+        "stops": [
+          {
+            "from": "dornman-camp",
+            "region": "branch-06",
+            "label": "徒歩",
+            "id": "dornman-wind-stairs",
+            "mode": "walk",
+            "name": "潮風の見晴らし道"
+          }
+        ]
+      },
+      {
+        "start": "dornman-wind-stairs",
+        "destination": "dornman-camp",
+        "stops": [
+          {
+            "from": "dornman-wind-stairs",
+            "region": "branch-06",
+            "label": "徒歩",
+            "id": "dornman-camp",
+            "mode": "walk",
+            "name": "ドーンマンポート・入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "dornman-camp",
+        "destination": "dornman-flag-trestle",
+        "stops": [
+          {
+            "from": "dornman-camp",
+            "region": "branch-06",
+            "label": "徒歩",
+            "id": "dornman-flag-trestle",
+            "mode": "walk",
+            "name": "合図旗の渡り廊下"
+          }
+        ]
+      },
+      {
+        "start": "dornman-camp",
+        "destination": "dornman-wind-stairs",
+        "stops": [
+          {
+            "from": "dornman-camp",
+            "region": "branch-06",
+            "label": "徒歩",
+            "id": "dornman-wind-stairs",
+            "mode": "walk",
+            "name": "潮風の見晴らし道"
+          }
+        ]
+      },
+      {
+        "start": "dornman-wind-stairs",
+        "destination": "dornman-flag-trestle",
+        "stops": [
+          {
+            "from": "dornman-wind-stairs",
+            "region": "branch-06",
+            "label": "昇降機",
+            "id": "dornman-flag-trestle",
+            "hint": "上段の入口・見晴らし道から渡り廊下へ・移動に2秒",
+            "mode": "lift",
+            "name": "合図旗の渡り廊下"
+          }
+        ]
+      },
+      {
+        "start": "dornman-flag-trestle",
+        "destination": "dornman-camp",
+        "stops": [
+          {
+            "from": "dornman-flag-trestle",
+            "region": "branch-06",
+            "label": "徒歩",
+            "id": "dornman-camp",
+            "mode": "walk",
+            "name": "ドーンマンポート・入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "dornman-camp",
+        "destination": "dornman-windworks",
+        "stops": [
+          {
+            "from": "dornman-camp",
+            "region": "branch-06",
+            "label": "徒歩",
+            "id": "dornman-flag-trestle",
+            "mode": "walk",
+            "name": "合図旗の渡り廊下"
+          },
+          {
+            "from": "dornman-flag-trestle",
+            "region": "branch-06",
+            "label": "徒歩",
+            "id": "dornman-windworks",
+            "mode": "walk",
+            "name": "潮風の機関室"
+          }
+        ]
+      },
+      {
+        "start": "dornman-windworks",
+        "destination": "dornman-camp",
+        "stops": [
+          {
+            "from": "dornman-windworks",
+            "region": "branch-06",
+            "label": "徒歩",
+            "id": "dornman-flag-trestle",
+            "mode": "walk",
+            "name": "合図旗の渡り廊下"
+          },
+          {
+            "from": "dornman-flag-trestle",
+            "region": "branch-06",
+            "label": "徒歩",
+            "id": "dornman-camp",
+            "mode": "walk",
+            "name": "ドーンマンポート・入口拠点"
+          }
+        ]
+      }
+    ],
+    "reports": [
+      {
+        "quest": "windward-lookouts",
+        "xp": 6500000,
+        "mora": 4600
+      },
+      {
+        "quest": "windward-flags",
+        "xp": 9250000,
+        "mora": 6400
+      },
+      {
+        "quest": "windward-tower-clear",
+        "xp": 5312539,
+        "mora": 741600
+      }
+    ],
+    "battles": [
+      {
+        "node": "dornman-windworks",
+        "targets": [
+          "original-windward-tower"
+        ],
+        "xp": 5862735,
+        "kills": 1
+      }
+    ],
+    "locks": [],
+    "returns": 0
+  },
+  "frostmoon": {
+    "sourceSha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+    "itineraries": [
+      {
+        "start": "nod-town",
+        "destination": "frostmoon-camp",
+        "stops": [
+          {
+            "from": "nod-town",
+            "region": "region-08",
+            "label": "徒歩",
+            "id": "snezhnaya-entry",
+            "mode": "walk",
+            "name": "スネージナヤ・雪原の入口"
+          },
+          {
+            "from": "snezhnaya-entry",
+            "region": "region-08",
+            "label": "徒歩",
+            "id": "sites-northern-fault-pass",
+            "hint": "スネージナヤ南端・北部断層の峠道へ",
+            "mode": "walk",
+            "name": "スネージナヤ南端・北部断層の峠道"
+          },
+          {
+            "from": "sites-northern-fault-pass",
+            "region": "region-07",
+            "label": "徒歩",
+            "id": "nod-wp-92889",
+            "mode": "walk",
+            "name": "北部高地・高地東の割れ岩"
+          },
+          {
+            "from": "nod-wp-92889",
+            "region": "region-07",
+            "label": "徒歩",
+            "id": "nod-wp-92888",
+            "mode": "walk",
+            "name": "北部高地・北の丘の麓"
+          },
+          {
+            "from": "nod-wp-92888",
+            "region": "region-07",
+            "label": "徒歩",
+            "id": "nod-wp-92866",
+            "mode": "walk",
+            "name": "北部高地・高地の神像"
+          },
+          {
+            "from": "nod-wp-92866",
+            "region": "region-07",
+            "label": "徒歩",
+            "id": "nod-wp-92885",
+            "mode": "walk",
+            "name": "北部高地・北の峠道"
+          },
+          {
+            "from": "nod-wp-92885",
+            "region": "region-07",
+            "label": "徒歩",
+            "id": "nod-wp-92883",
+            "mode": "walk",
+            "name": "北部沿岸・西の砂洲の高台"
+          },
+          {
+            "from": "nod-wp-92883",
+            "region": "region-07",
+            "label": "徒歩",
+            "id": "nod-wp-92877",
+            "mode": "walk",
+            "name": "北部沿岸・東の林間道"
+          },
+          {
+            "from": "nod-wp-92877",
+            "region": "region-07",
+            "label": "徒歩",
+            "id": "nod-wp-92873",
+            "mode": "walk",
+            "name": "北部沿岸・湾を見下ろす棚"
+          },
+          {
+            "from": "nod-wp-92873",
+            "region": "region-07",
+            "label": "徒歩",
+            "id": "nod-wp-92872",
+            "mode": "walk",
+            "name": "北部沿岸・東突端の波止場"
+          },
+          {
+            "from": "nod-wp-92872",
+            "region": "region-07",
+            "label": "舟・寄港",
+            "id": "nod-wp-99218",
+            "hint": "円環島へ向かう連絡船・移動に4.1秒",
+            "mode": "boat",
+            "name": "北東の円環島・島南西の小桟橋"
+          },
+          {
+            "from": "nod-wp-99218",
+            "region": "region-07",
+            "label": "舟・寄港",
+            "id": "nod-wp-99223",
+            "hint": "沖の神像への小舟・移動に2.6秒",
+            "mode": "boat",
+            "name": "北東の円環島・沖の神像"
+          },
+          {
+            "from": "nod-wp-99223",
+            "region": "region-07",
+            "label": "舟・寄港",
+            "id": "nod-wp-99219",
+            "hint": "円環へ渡る小舟・移動に2.8秒",
+            "mode": "boat",
+            "name": "北東の円環島・円環の東の段丘"
+          },
+          {
+            "from": "nod-wp-99219",
+            "region": "official-area-15",
+            "label": "昇降機",
+            "id": "frostmoon-camp",
+            "hint": "上段の入口・円環島から霜月の入口へ向かう昇降機・移動に3.2秒",
+            "mode": "lift",
+            "name": "霜月・南東の入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "frostmoon-camp",
+        "destination": "frost-wp-99285",
+        "stops": [
+          {
+            "from": "frostmoon-camp",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99282",
+            "mode": "walk",
+            "name": "霜月・南東の台地"
+          },
+          {
+            "from": "frost-wp-99282",
+            "region": "official-area-15",
+            "label": "昇降機",
+            "id": "frost-wp-99284",
+            "hint": "赤い丘へ渡る昇降機・移動に2.3秒",
+            "mode": "lift",
+            "name": "霜月・潮色の道の南端"
+          },
+          {
+            "from": "frost-wp-99284",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99285",
+            "mode": "walk",
+            "name": "霜月・赤い丘の南棚"
+          }
+        ]
+      },
+      {
+        "start": "frost-wp-99285",
+        "destination": "frost-wujian-south-trail",
+        "stops": [
+          {
+            "from": "frost-wp-99285",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99287",
+            "mode": "walk",
+            "name": "霜月・南の渡り台"
+          },
+          {
+            "from": "frost-wp-99287",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wujian-south-trail",
+            "hint": "上段の入口・ウージエン生態圏の南へ",
+            "mode": "walk",
+            "name": "ウージエン生態圏・南の斜道"
+          }
+        ]
+      },
+      {
+        "start": "frost-wujian-south-trail",
+        "destination": "frostmoon-camp",
+        "stops": [
+          {
+            "from": "frost-wujian-south-trail",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99287",
+            "hint": "南の渡り台へ戻る",
+            "mode": "walk",
+            "name": "霜月・南の渡り台"
+          },
+          {
+            "from": "frost-wp-99287",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99284",
+            "mode": "walk",
+            "name": "霜月・潮色の道の南端"
+          },
+          {
+            "from": "frost-wp-99284",
+            "region": "official-area-15",
+            "label": "昇降機",
+            "id": "frost-wp-99282",
+            "hint": "赤い丘へ渡る昇降機・移動に2.3秒",
+            "mode": "lift",
+            "name": "霜月・南東の台地"
+          },
+          {
+            "from": "frost-wp-99282",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frostmoon-camp",
+            "mode": "walk",
+            "name": "霜月・南東の入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "frostmoon-camp",
+        "destination": "frost-prism-slime-basin",
+        "stops": [
+          {
+            "from": "frostmoon-camp",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99282",
+            "mode": "walk",
+            "name": "霜月・南東の台地"
+          },
+          {
+            "from": "frost-wp-99282",
+            "region": "official-area-15",
+            "label": "昇降機",
+            "id": "frost-wp-99284",
+            "hint": "赤い丘へ渡る昇降機・移動に2.3秒",
+            "mode": "lift",
+            "name": "霜月・潮色の道の南端"
+          },
+          {
+            "from": "frost-wp-99284",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99287",
+            "mode": "walk",
+            "name": "霜月・南の渡り台"
+          },
+          {
+            "from": "frost-wp-99287",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wujian-south-trail",
+            "hint": "上段の入口・ウージエン生態圏の南へ",
+            "mode": "walk",
+            "name": "ウージエン生態圏・南の斜道"
+          },
+          {
+            "from": "frost-wujian-south-trail",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-prism-slime-basin",
+            "hint": "生態圏の南の水たまりへ",
+            "mode": "walk",
+            "name": "ウージエン生態圏南・プリズムスライムの水たまり"
+          }
+        ]
+      },
+      {
+        "start": "frost-prism-slime-basin",
+        "destination": "frost-ancient-moon-console",
+        "stops": [
+          {
+            "from": "frost-prism-slime-basin",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wujian-south-trail",
+            "hint": "生態圏の南の斜道へ戻る",
+            "mode": "walk",
+            "name": "ウージエン生態圏・南の斜道"
+          },
+          {
+            "from": "frost-wujian-south-trail",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99287",
+            "hint": "南の渡り台へ戻る",
+            "mode": "walk",
+            "name": "霜月・南の渡り台"
+          },
+          {
+            "from": "frost-wp-99287",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99285",
+            "mode": "walk",
+            "name": "霜月・赤い丘の南棚"
+          },
+          {
+            "from": "frost-wp-99285",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99289",
+            "mode": "walk",
+            "name": "霜月・赤い丘の東棚"
+          },
+          {
+            "from": "frost-wp-99289",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99290",
+            "mode": "walk",
+            "name": "霜月・赤い丘の北東縁"
+          },
+          {
+            "from": "frost-wp-99290",
+            "region": "official-area-15",
+            "label": "昇降機",
+            "id": "frost-wp-99305",
+            "hint": "北の下層に降りる昇降機・移動に2.5秒",
+            "mode": "lift",
+            "name": "霜月・赤い丘の北の下層"
+          },
+          {
+            "from": "frost-wp-99305",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99306",
+            "mode": "walk",
+            "name": "霜月・赤い丘の北端の下層"
+          },
+          {
+            "from": "frost-wp-99306",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-ancient-moon-console",
+            "hint": "上段の入口・岩の間から古月の地下広間へ",
+            "mode": "walk",
+            "name": "ウージエン生態圏北西・装置の広間"
+          }
+        ]
+      },
+      {
+        "start": "frost-ancient-moon-console",
+        "destination": "frost-commander-first-wave",
+        "stops": [
+          {
+            "from": "frost-ancient-moon-console",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-commander-first-wave",
+            "hint": "上段の入口・装置の第一試験へ",
+            "mode": "walk",
+            "name": "古月の広間・第一試験"
+          }
+        ]
+      },
+      {
+        "start": "frost-commander-first-wave",
+        "destination": "frost-ancient-moon-console",
+        "stops": [
+          {
+            "from": "frost-commander-first-wave",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-ancient-moon-console",
+            "gateX": 1460,
+            "hint": "右側の門・第一試験を終えて装置へ",
+            "mode": "walk",
+            "name": "ウージエン生態圏北西・装置の広間"
+          }
+        ]
+      },
+      {
+        "start": "frostmoon-camp",
+        "destination": "frost-ancient-moon-console",
+        "stops": [
+          {
+            "from": "frostmoon-camp",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99282",
+            "mode": "walk",
+            "name": "霜月・南東の台地"
+          },
+          {
+            "from": "frost-wp-99282",
+            "region": "official-area-15",
+            "label": "昇降機",
+            "id": "frost-wp-99284",
+            "hint": "赤い丘へ渡る昇降機・移動に2.3秒",
+            "mode": "lift",
+            "name": "霜月・潮色の道の南端"
+          },
+          {
+            "from": "frost-wp-99284",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99285",
+            "mode": "walk",
+            "name": "霜月・赤い丘の南棚"
+          },
+          {
+            "from": "frost-wp-99285",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99289",
+            "mode": "walk",
+            "name": "霜月・赤い丘の東棚"
+          },
+          {
+            "from": "frost-wp-99289",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99290",
+            "mode": "walk",
+            "name": "霜月・赤い丘の北東縁"
+          },
+          {
+            "from": "frost-wp-99290",
+            "region": "official-area-15",
+            "label": "昇降機",
+            "id": "frost-wp-99305",
+            "hint": "北の下層に降りる昇降機・移動に2.5秒",
+            "mode": "lift",
+            "name": "霜月・赤い丘の北の下層"
+          },
+          {
+            "from": "frost-wp-99305",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99306",
+            "mode": "walk",
+            "name": "霜月・赤い丘の北端の下層"
+          },
+          {
+            "from": "frost-wp-99306",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-ancient-moon-console",
+            "hint": "上段の入口・岩の間から古月の地下広間へ",
+            "mode": "walk",
+            "name": "ウージエン生態圏北西・装置の広間"
+          }
+        ]
+      },
+      {
+        "start": "frost-ancient-moon-console",
+        "destination": "frost-commander-first-wave",
+        "stops": [
+          {
+            "from": "frost-ancient-moon-console",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-commander-first-wave",
+            "hint": "上段の入口・装置の第一試験へ",
+            "mode": "walk",
+            "name": "古月の広間・第一試験"
+          }
+        ]
+      },
+      {
+        "start": "frost-commander-first-wave",
+        "destination": "frost-ancient-moon-console",
+        "stops": [
+          {
+            "from": "frost-commander-first-wave",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-ancient-moon-console",
+            "gateX": 94,
+            "hint": "左側の門・装置の広間へ戻る",
+            "mode": "walk",
+            "name": "ウージエン生態圏北西・装置の広間"
+          }
+        ]
+      },
+      {
+        "start": "frost-ancient-moon-console",
+        "destination": "frost-commander-second-wave",
+        "stops": [
+          {
+            "from": "frost-ancient-moon-console",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-commander-second-wave",
+            "hint": "上段の入口・装置の第二試験へ",
+            "mode": "walk",
+            "name": "古月の広間・第二試験"
+          }
+        ]
+      },
+      {
+        "start": "frost-commander-second-wave",
+        "destination": "frost-ancient-moon-console",
+        "stops": [
+          {
+            "from": "frost-commander-second-wave",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-ancient-moon-console",
+            "gateX": 1460,
+            "hint": "右側の門・第二試験を終えて装置へ",
+            "mode": "walk",
+            "name": "ウージエン生態圏北西・装置の広間"
+          }
+        ]
+      },
+      {
+        "start": "frost-ancient-moon-console",
+        "destination": "frost-mushteshir-inner-chamber",
+        "stops": [
+          {
+            "from": "frost-ancient-moon-console",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-mushteshir-inner-chamber",
+            "hint": "装置の奥の扉から最深室へ",
+            "mode": "walk",
+            "name": "ウージエン生態圏北西・ムーシュ＝テヒルの最深室"
+          }
+        ]
+      },
+      {
+        "start": "frost-mushteshir-inner-chamber",
+        "destination": "frostmoon-camp",
+        "stops": [
+          {
+            "from": "frost-mushteshir-inner-chamber",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-ancient-moon-console",
+            "hint": "装置の広間へ戻る",
+            "mode": "walk",
+            "name": "ウージエン生態圏北西・装置の広間"
+          },
+          {
+            "from": "frost-ancient-moon-console",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99306",
+            "hint": "赤い丘の北端の下層へ戻る",
+            "mode": "walk",
+            "name": "霜月・赤い丘の北端の下層"
+          },
+          {
+            "from": "frost-wp-99306",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99305",
+            "mode": "walk",
+            "name": "霜月・赤い丘の北の下層"
+          },
+          {
+            "from": "frost-wp-99305",
+            "region": "official-area-15",
+            "label": "昇降機",
+            "id": "frost-wp-99290",
+            "hint": "北の下層に降りる昇降機・移動に2.5秒",
+            "mode": "lift",
+            "name": "霜月・赤い丘の北東縁"
+          },
+          {
+            "from": "frost-wp-99290",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99289",
+            "mode": "walk",
+            "name": "霜月・赤い丘の東棚"
+          },
+          {
+            "from": "frost-wp-99289",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99285",
+            "mode": "walk",
+            "name": "霜月・赤い丘の南棚"
+          },
+          {
+            "from": "frost-wp-99285",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frost-wp-99284",
+            "mode": "walk",
+            "name": "霜月・潮色の道の南端"
+          },
+          {
+            "from": "frost-wp-99284",
+            "region": "official-area-15",
+            "label": "昇降機",
+            "id": "frost-wp-99282",
+            "hint": "赤い丘へ渡る昇降機・移動に2.3秒",
+            "mode": "lift",
+            "name": "霜月・南東の台地"
+          },
+          {
+            "from": "frost-wp-99282",
+            "region": "official-area-15",
+            "label": "徒歩",
+            "id": "frostmoon-camp",
+            "mode": "walk",
+            "name": "霜月・南東の入口拠点"
+          }
+        ]
+      },
+      {
+        "start": "frostmoon-camp",
+        "destination": "nod-town",
+        "stops": [
+          {
+            "from": "frostmoon-camp",
+            "region": "region-07",
+            "label": "昇降機",
+            "id": "nod-wp-99219",
+            "hint": "円環島へ戻る昇降機・移動に3.2秒",
+            "mode": "lift",
+            "name": "北東の円環島・円環の東の段丘"
+          },
+          {
+            "from": "nod-wp-99219",
+            "region": "region-07",
+            "label": "舟・寄港",
+            "id": "nod-wp-99223",
+            "hint": "円環へ渡る小舟・移動に2.8秒",
+            "mode": "boat",
+            "name": "北東の円環島・沖の神像"
+          },
+          {
+            "from": "nod-wp-99223",
+            "region": "region-07",
+            "label": "舟・寄港",
+            "id": "nod-wp-99218",
+            "hint": "沖の神像への小舟・移動に2.6秒",
+            "mode": "boat",
+            "name": "北東の円環島・島南西の小桟橋"
+          },
+          {
+            "from": "nod-wp-99218",
+            "region": "region-07",
+            "label": "舟・寄港",
+            "id": "nod-wp-92872",
+            "hint": "円環島へ向かう連絡船・移動に4.1秒",
+            "mode": "boat",
+            "name": "北部沿岸・東突端の波止場"
+          },
+          {
+            "from": "nod-wp-92872",
+            "region": "region-07",
+            "label": "徒歩",
+            "id": "nod-wp-92873",
+            "mode": "walk",
+            "name": "北部沿岸・湾を見下ろす棚"
+          },
+          {
+            "from": "nod-wp-92873",
+            "region": "region-07",
+            "label": "徒歩",
+            "id": "nod-wp-92877",
+            "mode": "walk",
+            "name": "北部沿岸・東の林間道"
+          },
+          {
+            "from": "nod-wp-92877",
+            "region": "region-07",
+            "label": "徒歩",
+            "id": "nod-wp-92883",
+            "mode": "walk",
+            "name": "北部沿岸・西の砂洲の高台"
+          },
+          {
+            "from": "nod-wp-92883",
+            "region": "region-07",
+            "label": "徒歩",
+            "id": "nod-wp-92885",
+            "mode": "walk",
+            "name": "北部高地・北の峠道"
+          },
+          {
+            "from": "nod-wp-92885",
+            "region": "region-07",
+            "label": "徒歩",
+            "id": "nod-wp-92866",
+            "mode": "walk",
+            "name": "北部高地・高地の神像"
+          },
+          {
+            "from": "nod-wp-92866",
+            "region": "region-07",
+            "label": "徒歩",
+            "id": "nod-wp-92888",
+            "mode": "walk",
+            "name": "北部高地・北の丘の麓"
+          },
+          {
+            "from": "nod-wp-92888",
+            "region": "region-07",
+            "label": "徒歩",
+            "id": "nod-wp-92889",
+            "mode": "walk",
+            "name": "北部高地・高地東の割れ岩"
+          },
+          {
+            "from": "nod-wp-92889",
+            "region": "region-08",
+            "label": "徒歩",
+            "id": "sites-northern-fault-pass",
+            "hint": "スネージナヤ南端・北部断層の峠道へ",
+            "mode": "walk",
+            "name": "スネージナヤ南端・北部断層の峠道"
+          },
+          {
+            "from": "sites-northern-fault-pass",
+            "region": "region-08",
+            "label": "徒歩",
+            "id": "snezhnaya-entry",
+            "mode": "walk",
+            "name": "スネージナヤ・雪原の入口"
+          },
+          {
+            "from": "snezhnaya-entry",
+            "region": "region-07",
+            "label": "徒歩",
+            "id": "nod-town",
+            "mode": "walk",
+            "name": "ナド・クライ・町の広場"
+          }
+        ]
+      }
+    ],
+    "reports": [
+      {
+        "quest": "frost-wujian-access-survey",
+        "xp": 2890000,
+        "mora": 55200
+      },
+      {
+        "quest": "frost-commander-console-test",
+        "xp": 3600000,
+        "mora": 63400
+      }
+    ],
+    "battles": [
+      {
+        "node": "frost-prism-slime-basin",
+        "targets": [
+          "legend-frostmoon_prism_slime"
+        ],
+        "xp": 5631568,
+        "kills": 1
+      },
+      {
+        "node": "frost-commander-first-wave",
+        "targets": [
+          "frost-console-first-commander-west",
+          "frost-console-first-commander-east"
+        ],
+        "xp": 204320,
+        "kills": 2
+      },
+      {
+        "node": "frost-commander-second-wave",
+        "targets": [
+          "frost-console-second-commander-west",
+          "frost-console-second-commander-east"
+        ],
+        "xp": 225262,
+        "kills": 2
+      },
+      {
+        "node": "frost-mushteshir-inner-chamber",
+        "targets": [
+          "legend-frostmoon_mushteshir"
+        ],
+        "xp": 8596800,
+        "kills": 1
+      }
+    ],
+    "locks": [
+      {
+        "node": "frost-wujian-south-trail",
+        "target": "frost-prism-slime-basin",
+        "reason": "ウージエン生態圏の通路を開き、拠点で報告してください。"
+      },
+      {
+        "node": "frost-ancient-moon-console",
+        "target": "frost-commander-first-wave",
+        "reason": "中央の装置を調べると、第一試験を始められます。"
+      },
+      {
+        "node": "frost-ancient-moon-console",
+        "target": "frost-commander-second-wave",
+        "reason": "第一試験の後、中央の装置をもう一度調べてください。"
+      },
+      {
+        "node": "frost-ancient-moon-console",
+        "target": "frost-mushteshir-inner-chamber",
+        "reason": "二つの試験を終え、中央の装置で奥の扉を開いてください。"
+      }
+    ],
+    "returns": 0,
+    "testedExitChoices": [
+      {
+        "from": "frost-commander-first-wave",
+        "region": "official-area-15",
+        "label": "徒歩",
+        "id": "frost-ancient-moon-console",
+        "gateX": 94,
+        "hint": "左側の門・装置の広間へ戻る",
+        "mode": "walk",
+        "name": "ウージエン生態圏北西・装置の広間"
+      },
+      {
+        "from": "frost-commander-first-wave",
+        "region": "official-area-15",
+        "label": "徒歩",
+        "id": "frost-ancient-moon-console",
+        "gateX": 1460,
+        "hint": "右側の門・第一試験を終えて装置へ",
+        "mode": "walk",
+        "name": "ウージエン生態圏北西・装置の広間"
+      },
+      {
+        "from": "frost-commander-second-wave",
+        "region": "official-area-15",
+        "label": "徒歩",
+        "id": "frost-ancient-moon-console",
+        "gateX": 94,
+        "hint": "左側の門・装置の広間へ戻る",
+        "mode": "walk",
+        "name": "ウージエン生態圏北西・装置の広間"
+      },
+      {
+        "from": "frost-commander-second-wave",
+        "region": "official-area-15",
+        "label": "徒歩",
+        "id": "frost-ancient-moon-console",
+        "gateX": 1460,
+        "hint": "右側の門・第二試験を終えて装置へ",
+        "mode": "walk",
+        "name": "ウージエン生態圏北西・装置の広間"
+      }
+    ]
+  }
+}

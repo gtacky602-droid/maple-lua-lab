@@ -352,8 +352,26 @@ return function(C, atlas)
   return out
  end
 
+ local function starting_gates(s,node)
+  local gates={}
+  if s.lift or s.story.node~=node.id then return gates end
+  local actor=s.actors[s.active]
+  for _,edge in ipairs(node.exits) do
+   if edge.x and not edge.loopOnce then
+    local distance=math.abs(actor.x-edge.x)+math.abs(actor.y-(edge.y or 480))
+    local blocked=C.atlasGateRestriction(s,node.id,edge)~=nil
+    local current=gates[edge.to]
+    if not current or (current.blocked and not blocked) or (current.blocked==blocked and distance<current.distance) then
+     gates[edge.to]={edge=edge,blocked=blocked,distance=distance}
+    end
+   end
+  end
+  return gates
+ end
+
  local function travel_itinerary(s,nodes,origin,target)
   if origin==target then return {status='here',stops={}} end
+  local gates=starting_gates(s,nodes[origin])
 
   local function find(allowBlocked)
    local queue, previous={origin},{[origin]=false}
@@ -361,15 +379,18 @@ return function(C, atlas)
    while head<=#queue and previous[target]==nil do
     local id=queue[head];head=head+1
     local node=nodes[id]
-    for _,edge in ipairs(connections(node)) do
+    for _,candidate in ipairs(connections(node)) do
+     local edge=id==origin and gates[candidate.to] and gates[candidate.to].edge or candidate
      local nextNode=nodes[edge.to]
      if nextNode and previous[edge.to]==nil and not edge.loopOnce
        and (id==origin or not node.voyage or edge.to~=node.voyage.source) then
       local reason=C.atlasGateRestriction(s,id,edge)
       if allowBlocked or not reason then
        local mode=route_mode(edge,node,nextNode)
+       local parallel=parallel_gate_hint(edge,node)
        previous[edge.to]={from=id,id=edge.to,name=nextNode.name,region=places[edge.to],
-        label=route_labels[mode],mode=mode,reason=reason,hint=route_hint(edge,node,nextNode)}
+        label=route_labels[mode],mode=mode,reason=reason,hint=route_hint(edge,node,nextNode),
+        gateX=parallel and edge.x or nil}
        queue[#queue+1]=edge.to
       end
      end
