@@ -1,0 +1,110 @@
+{
+  "walkedFields": [
+    "aurora-ice-cut",
+    "aurora-ice-shelf",
+    "aurora-steam-channel",
+    "aurora-mineral-terraces",
+    "dawn-vein-mine",
+    "dawn-vein-deep",
+    "dawn-glass-ridge",
+    "dawn-glass-divide",
+    "dawn-crystal-field"
+  ],
+  "levels": [
+    160,
+    165,
+    170,
+    175,
+    180,
+    185,
+    190,
+    195,
+    200
+  ],
+  "levelBoundaries": 9,
+  "huntDirections": 18,
+  "corridors": [
+    {
+      "stages": [
+        "white-pass-cut",
+        "sites-white-pass-service-path",
+        "white-pass-station"
+      ],
+      "crossings": [
+        [
+          "sites-white-pass-service-path",
+          "white-pass-cut"
+        ],
+        [
+          "sites-white-pass-service-path",
+          "white-pass-station"
+        ],
+        [
+          "white-pass-cut",
+          "sites-white-pass-service-path"
+        ],
+        [
+          "white-pass-station",
+          "sites-white-pass-service-path"
+        ]
+      ]
+    },
+    {
+      "stages": [
+        "sne-wp-100642",
+        "sites-corridor-snow-ravine",
+        "sne-wp-100657"
+      ],
+      "crossings": [
+        [
+          "sites-corridor-snow-ravine",
+          "sne-wp-100642"
+        ],
+        [
+          "sites-corridor-snow-ravine",
+          "sne-wp-100657"
+        ],
+        [
+          "sne-wp-100642",
+          "sites-corridor-snow-ravine"
+        ],
+        [
+          "sne-wp-100657",
+          "sites-corridor-snow-ravine"
+        ]
+      ]
+    },
+    {
+      "stages": [
+        "sne-wp-106180",
+        "sites-corridor-snow-mine",
+        "sne-wp-106186"
+      ],
+      "crossings": [
+        [
+          "sites-corridor-snow-mine",
+          "sne-wp-106180"
+        ],
+        [
+          "sites-corridor-snow-mine",
+          "sne-wp-106186"
+        ],
+        [
+          "sne-wp-106180",
+          "sites-corridor-snow-mine"
+        ],
+        [
+          "sne-wp-106186",
+          "sites-corridor-snow-mine"
+        ]
+      ]
+    }
+  ],
+  "registeredAfterVisit": [
+    "dawn-vein-mine",
+    "dawn-crystal-field"
+  ],
+  "unvisitedWarpsRejected": true,
+  "restoredAt": "white-pass-station",
+  "warpedAgainAfterRestore": true
+}

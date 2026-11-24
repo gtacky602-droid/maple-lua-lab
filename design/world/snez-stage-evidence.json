@@ -1,0 +1,175 @@
+{
+  "scope": "Snezhnaya stages outside the marker, hunt, voyage and short transfer ledgers.",
+  "stage_count": 42,
+  "interpretation": "Links identify available evidence per stage. Some boss trials begin inside the encounter. The endgame access check walks the nine fields and the three corridors before testing registered warps.",
+  "entries": [
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "flugel-tundra-basin"
+      ],
+      "evidence": [
+        "evidence/flugel-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "drifting-snow-court"
+      ],
+      "evidence": [
+        "evidence/drifting-snow-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "immortal-construct-root-hollow"
+      ],
+      "evidence": [
+        "evidence/immortal-construct-field-lua.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "snow-rail-transfer",
+        "steam-stabling-depot"
+      ],
+      "evidence": [
+        "evidence/snow-rail-lua.json",
+        "evidence/snow-rail-browser.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "white-pass-ridge",
+        "white-rainbow-basin"
+      ],
+      "evidence": [
+        "evidence/white-pass-chapter.json",
+        "evidence/snez-fresh-route.json"
+      ]
+    },
+    {
+      "kind": "hunt",
+      "stages": [
+        "aurora-ice-cut",
+        "aurora-ice-shelf",
+        "aurora-steam-channel",
+        "aurora-mineral-terraces",
+        "dawn-vein-mine",
+        "dawn-vein-deep",
+        "dawn-glass-ridge",
+        "dawn-glass-divide",
+        "dawn-crystal-field"
+      ],
+      "evidence": [
+        "evidence/cap-fresh-route.json",
+        "evidence/snez-endgame-access-lua.json",
+        "evidence/snez-endgame-access-browser.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "sne-survey-shed",
+        "sne-survey-yard",
+        "sne-survey-ridge"
+      ],
+      "evidence": [
+        "evidence/sne-survey-lua.json"
+      ]
+    },
+    {
+      "kind": "daily",
+      "stages": [
+        "sne-survey-outskirts"
+      ],
+      "evidence": [
+        "evidence/daily-sne-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "sne-snow-match"
+      ],
+      "evidence": [
+        "evidence/sne-snow-match-lua.json"
+      ]
+    },
+    {
+      "kind": "stygian",
+      "stages": [
+        "sne-stygian-last-gate"
+      ],
+      "evidence": [
+        "evidence/stygian-ronova-lua.json"
+      ]
+    },
+    {
+      "kind": "stygian",
+      "stages": [
+        "sne-stygian-frost-court"
+      ],
+      "evidence": [
+        "evidence/stygian-capitano-lua.json"
+      ]
+    },
+    {
+      "kind": "corridor",
+      "stages": [
+        "sites-corridor-snow-ravine",
+        "sites-corridor-snow-mine",
+        "sites-white-pass-service-path"
+      ],
+      "evidence": [
+        "evidence/snez-endgame-access-lua.json"
+      ]
+    },
+    {
+      "kind": "corridor",
+      "stages": [
+        "sites-northern-fault-pass"
+      ],
+      "evidence": [
+        "evidence/sites-atlas-connections-lua.json"
+      ]
+    },
+    {
+      "kind": "local_legend",
+      "stages": [
+        "sne-churin-snow-square",
+        "sne-churin-apprentice-bout",
+        "sne-churin-bragin-bout",
+        "sne-churin-snow-court",
+        "sne-svetloredovka-ice-passage",
+        "sne-bandersnatch-ice-cavern",
+        "sne-obsession-scar-upper-trail",
+        "sne-furiosa-domain-outlook"
+      ],
+      "evidence": [
+        "evidence/snez-first-field-legends-lua.json",
+        "evidence/snez-first-field-legends-browser.json"
+      ]
+    },
+    {
+      "kind": "local_legend",
+      "stages": [
+        "sne-merciful-fissure",
+        "sne-ancient-mouse-den",
+        "sne-crystal-mining-junction",
+        "sne-crystal-prism-gallery",
+        "sne-crystal-tree-refuge",
+        "sne-novokichev-lantern-alley",
+        "sne-novokichev-ore-yard"
+      ],
+      "evidence": [
+        "evidence/snez-late-field-legends-lua.json",
+        "evidence/snez-late-field-legends-browser.json"
+      ]
+    }
+  ]
+}

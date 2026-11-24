@@ -154,7 +154,7 @@ export function initAtlas(action, clearKeys) {
    selected.review === 'needs_entrance_review' ? '入口・階層の照合待ち' : '接続案を検証中',
   ].join(' ｜ ')
    : selected ? [
-    selected.current ? '現在地' : selected.visited ? '訪問済み' : '未訪問',
+    selected.current ? '現在地' : selected.visited ? (selected.waypoint ? 'ワープ登録済み' : '訪問済み') : '未訪問',
     '通行Lv' + selected.level,
     selected.battleScene && '戦闘中に入る区画',
     selected.boss && bossKinds[selected.boss.kind],

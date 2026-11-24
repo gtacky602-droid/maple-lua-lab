@@ -436,6 +436,7 @@ return function(C, atlas)
       recommended=p.recommended,provisional=p.provisional,entrancePending=p.entrancePending,
       huntLevels=p.huntLevels,huntKind=p.huntKind,boss=p.boss,
       current=p.id==state.node,selected=p.id==map.selected,
+      waypoint=node.waypoint~=nil,
       major=node.hub or node.waypoint and node.waypoint.kind=='statue',
       visited=state.visited[p.id],mode=node.hub and 'hub' or node.swim and 'water' or 'field'}
     where[p.id]=point
