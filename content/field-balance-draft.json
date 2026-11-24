@@ -22,6 +22,13 @@
     "boss-25134601": 6800000
   },
   "fieldBossMoveOverrides": {
+    "boss-24100101": {
+      "FDK03": {
+        "kind": "discharge", "title": "メカダック補修・放電", "deploy": 76, "expire": 300,
+        "repairOffsets": [1.3, 2.5], "repairDestination": 0.65, "repairHp": 55000,
+        "downTicks": 144, "standTicks": 24, "total": 528
+      }
+    },
     "boss-23090101": {
       "FBT03": {
         "kind": "plate", "title": "氷装甲・冷却放出", "reach": 230,

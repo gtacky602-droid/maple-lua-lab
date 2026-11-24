@@ -1,0 +1,153 @@
+{
+  "earned": {
+    "level": 122,
+    "previous": {
+      "sourceSha256": "d0958a9973732ed44db9a79376e98c4d1349b86201a30b1688475b0501b00cb7",
+      "boss": "boss-24100101",
+      "arena": "nod-duckle-workyard",
+      "entryRoute": [
+        "nod-field",
+        "nod-duckle-workyard"
+      ],
+      "maxHp": 4250000,
+      "partyAttack": [
+        9314,
+        6652
+      ],
+      "elapsedSeconds": 67.083,
+      "damagingHits": 462,
+      "moves": [
+        "FDK01",
+        "FDK02",
+        "FDK03"
+      ],
+      "skillCasts": {
+        "SK21": 0,
+        "SK09": 0,
+        "SK10": 0,
+        "SK13": 0
+      },
+      "killXpAndMora": [
+        526400,
+        445
+      ],
+      "commission": {
+        "quest": "knuckle-duckle-commission",
+        "xp": 8500,
+        "mora": 570
+      },
+      "savedClear": true
+    },
+    "alternateNormal": {
+      "sourceSha256": "d0958a9973732ed44db9a79376e98c4d1349b86201a30b1688475b0501b00cb7",
+      "boss": "boss-24100101",
+      "arena": "nod-duckle-workyard",
+      "entryRoute": [
+        "nod-field",
+        "nod-duckle-workyard"
+      ],
+      "maxHp": 4250000,
+      "partyAttack": [
+        9314,
+        6652
+      ],
+      "elapsedSeconds": 60.083,
+      "damagingHits": 428,
+      "moves": [
+        "FDK01",
+        "FDK02",
+        "FDK03"
+      ],
+      "skillCasts": {
+        "SK21": 0,
+        "SK09": 0,
+        "SK10": 0,
+        "SK13": 0
+      },
+      "killXpAndMora": [
+        526400,
+        445
+      ],
+      "commission": {
+        "quest": "knuckle-duckle-commission",
+        "xp": 8500,
+        "mora": 570
+      },
+      "savedClear": true
+    },
+    "alternateInterrupted": {
+      "sourceSha256": "d0958a9973732ed44db9a79376e98c4d1349b86201a30b1688475b0501b00cb7",
+      "boss": "boss-24100101",
+      "arena": "nod-duckle-workyard",
+      "entryRoute": [
+        "nod-field",
+        "nod-duckle-workyard"
+      ],
+      "maxHp": 4250000,
+      "partyAttack": [
+        9314,
+        6652
+      ],
+      "elapsedSeconds": 68.15,
+      "damagingHits": 428,
+      "moves": [
+        "FDK01",
+        "FDK02",
+        "FDK03"
+      ],
+      "skillCasts": {
+        "SK21": 1,
+        "SK09": 1,
+        "SK10": 0
+      },
+      "killXpAndMora": [
+        526400,
+        445
+      ],
+      "commission": {
+        "quest": "knuckle-duckle-commission",
+        "xp": 8500,
+        "mora": 570
+      },
+      "savedClear": true
+    },
+    "interruptionTick": 117,
+    "checkpointBossHp": 3893259,
+    "checkpointBothProfiles": true,
+    "avoidedDischarge": true,
+    "counterTick": 385,
+    "dischargeTrialCompanionInactive": true
+  },
+  "timings": {
+    "participants": 4,
+    "maxHp": 4250000,
+    "airTicks": 36,
+    "repairStarts": [
+      1120.4,
+      1226.0
+    ],
+    "repairDestination": 1063.2,
+    "arrivalsAtTick": 300,
+    "bossHpUnchangedOnArrival": true,
+    "damageWithAndWithoutMechas": [
+      95,
+      95
+    ],
+    "releaseDamageByParticipant": [
+      32,
+      0,
+      0,
+      0
+    ],
+    "naturalRecoveryTicks": 144
+  },
+  "deadline": {
+    "lastAcceptedTick": 299,
+    "interruptedOnTick": 300,
+    "downTicks": 144,
+    "standTicks": 24,
+    "uniqueAcrossCasts": true,
+    "unattributedRemovalDoesNotCount": true,
+    "bossDeathWinsSameTick": true
+  }
+}

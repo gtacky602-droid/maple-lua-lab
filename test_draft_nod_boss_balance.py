@@ -4,7 +4,7 @@ import json
 
 from runtime import ROOT
 from test_earned_branch_quests import Journey, lua, core
-from test_earned_snezhnaya_bosses import Encounter, Trial, REFERENCE_ENGINE
+from test_earned_snezhnaya_bosses import Encounter, Trial, reference_engine
 
 
 HUB = 'nod-town'
@@ -44,7 +44,7 @@ def compare():
     for name, spec in SPECS.items():
         level = EARLY[name]
         file = SAVES/f'earned-lv{level}.json'
-        base = Trial(spec, False, file=file, engine=REFERENCE_ENGINE)
+        base = Trial(spec, False, file=file, engine=reference_engine())
         base_result = base.finish(normal=True)
         assert base_result['damagingHits'] == 1
         draft = Trial(spec, False, file=file, engine=(lua,core))

@@ -1,0 +1,11 @@
+{
+  "level": 122,
+  "twoMovingMechas": true,
+  "interruptedBy": 164,
+  "ordinaryKillCountersUnchanged": true,
+  "sameFrameCommands": {
+    "standard": 13368,
+    "light": 3628
+  },
+  "errors": []
+}

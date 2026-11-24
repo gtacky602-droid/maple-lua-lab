@@ -70,7 +70,16 @@ Lv120で町に着いたセーブでは、6会場すべてで必要Lv122〜132が
 
 個別の試走では補修メカ2機の破壊、炎で過熱させた陸巡艦の冷却中断、氷3回で霊主の薄闇解除、闇の漁師の撃破と暗黒のシールド破壊、幻月蝶の羽の元素切り替えと繭からの脱出、月石の錨の破壊を経て討伐した。霜夜の空を巡る霊主はLv128のセーブでも綾華の氷攻撃3回で薄闇を解除し、撃破から依頼報告と保存復元まで通した。集光の繭は命中時に実際にHPが減ったキャラクターに付く。回避無敵で範囲内に残っても付かず、ChromeではLv130の旅人が水の領域で回復して脱出できた。次期技票の短縮版は、今回の比較版とは別の試作案として扱う。 [Chromeの繭](../../evidence/draft-nod-boss-hp-browser.json)
 
-ナド・クライ3戦の短縮技は、別ポートで起動できる。両ポートで同じ比較用HPと武器ATKを使う。 [霊主の短縮技](../field-boss-v1/NOD_KRAI_FROSTNIGHT_HERRA.md#短縮技案をラボで試す) · [魘夢の主の短縮技](../field-boss-v1/NOD_KRAI_WHISPERER_NIGHTMARES.md#短縮技案をラボで試す) · [陸巡艦の短縮技](../field-boss-v1/NOD_KRAI_BATTLESHIP.md#短縮技案をラボで試す)
+## ナド・クライ4戦の行動を比較
+
+比較版は `./Start-Lab.ps1 -Port 9099 -DraftBalance -NoOpen`、短縮技案は `./Start-Lab.ps1 -Port 9101 -DraftFieldMoves -NoOpen`。両方に同じ獲得セーブを読み込むと、同じHPと武器ATKで戦える。表の時間はLua内で通常攻撃と同行AIを使った計測。ギミックを狙う別試走は各ボスの詳細に記録した。
+
+| ボス | Lv | 従来技 | 短縮技案 |
+| --- | ---: | ---: | ---: |
+| [ボコボコダック](../field-boss-v1/NOD_KRAI_KNUCKLE_DUCKLE.md#短縮技案をラボで試す) | 122 | 67.08秒 | 60.08秒 |
+| [重量級陸巡艦](../field-boss-v1/NOD_KRAI_BATTLESHIP.md#短縮技案をラボで試す) | 128 | 60.83秒 | 62.63秒 |
+| [霜夜の空を巡る霊主](../field-boss-v1/NOD_KRAI_FROSTNIGHT_HERRA.md#短縮技案をラボで試す) | 128 | 68.42秒 | 63.37秒 |
+| [昏き魘夢の主](../field-boss-v1/NOD_KRAI_WHISPERER_NIGHTMARES.md#短縮技案をラボで試す) | 128 | 85.00秒 | 44.75秒 |
 
 ## 再測定
 

@@ -1,6 +1,7 @@
 """Clear four normal-boss commissions using runtime inputs and an earned save."""
 
 from dataclasses import dataclass
+from functools import cache
 import json
 
 from runtime import ROOT, runtime
@@ -22,14 +23,16 @@ ENCOUNTERS = {
     'wavebinder': Encounter('boss-25134601', 'wavebinder-tide-cavern', 'wavebinder-commission', 'novokichev-camp'),
 }
 SKILLS = ('SK21', 'SK09', 'SK10', 'SK13')
-REFERENCE_ENGINE = runtime(draft_balance=True, draft_field_boss_hp=False)
+@cache
+def reference_engine():
+    return runtime(draft_balance=True, draft_field_boss_hp=False)
 
 
 class Trial:
-    def __init__(self, spec, controlled, *, file='lv165-save.json', engine=REFERENCE_ENGINE, skills=SKILLS):
+    def __init__(self, spec, controlled, *, file='lv165-save.json', engine=None, skills=SKILLS):
         self.spec = spec
         self.skills = skills
-        self.trip = Journey(file, engine=engine)
+        self.trip = Journey(file, engine=engine if engine is not None else reference_engine())
         self.controls = {
             (move, attack): self.trip.lua.table(left=move == -1, right=move == 1, attack=attack)
             for move in (-1, 0, 1) for attack in (False, True)
