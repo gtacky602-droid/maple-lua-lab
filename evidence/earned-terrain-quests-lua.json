@@ -1,0 +1,1030 @@
+{
+  "bygone": {
+    "battles": [
+      {
+        "kills": 1,
+        "node": "bygone-bell-archive",
+        "targets": [
+          "original-bellgate"
+        ],
+        "xp": 0
+      }
+    ],
+    "itineraries": [
+      {
+        "destination": "bygone-camp",
+        "start": "fontaine-hub",
+        "stops": [
+          {
+            "from": "fontaine-hub",
+            "id": "fontaine-field",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "フォンテーヌ・水路沿い",
+            "region": "region-05"
+          },
+          {
+            "from": "fontaine-field",
+            "id": "bygone-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "往日の海・入口拠点",
+            "region": "branch-05"
+          }
+        ]
+      },
+      {
+        "destination": "bygone-wp-68600",
+        "start": "bygone-camp",
+        "stops": [
+          {
+            "from": "bygone-camp",
+            "hint": "珊瑚の浅い水路へ潜る・移動に2.4秒",
+            "id": "bygone-wp-68600",
+            "label": "水路",
+            "mode": "water",
+            "name": "往日の海・珊瑚の浅い水路",
+            "region": "branch-05"
+          }
+        ]
+      },
+      {
+        "destination": "bygone-camp",
+        "start": "bygone-wp-68600",
+        "stops": [
+          {
+            "from": "bygone-wp-68600",
+            "hint": "門と同じ深さまで泳ぐ・浅い水路から入口拠点へ浮上・移動に2.4秒",
+            "id": "bygone-camp",
+            "label": "水路",
+            "mode": "water",
+            "name": "往日の海・入口拠点",
+            "region": "branch-05"
+          }
+        ]
+      },
+      {
+        "destination": "bygone-wp-68600",
+        "start": "bygone-camp",
+        "stops": [
+          {
+            "from": "bygone-camp",
+            "hint": "珊瑚の浅い水路へ潜る・移動に2.4秒",
+            "id": "bygone-wp-68600",
+            "label": "水路",
+            "mode": "water",
+            "name": "往日の海・珊瑚の浅い水路",
+            "region": "branch-05"
+          }
+        ]
+      },
+      {
+        "destination": "bygone-wp-68599",
+        "start": "bygone-wp-68600",
+        "stops": [
+          {
+            "from": "bygone-wp-68600",
+            "hint": "門と同じ深さまで泳ぐ",
+            "id": "bygone-wp-68599",
+            "label": "遊泳",
+            "mode": "swim",
+            "name": "往日の海・南西から潜る水門",
+            "region": "branch-05"
+          }
+        ]
+      },
+      {
+        "destination": "fon-wp-68345",
+        "start": "bygone-wp-68599",
+        "stops": [
+          {
+            "from": "bygone-wp-68599",
+            "hint": "門と同じ深さまで泳ぐ・ノストイ地区の遺構へ戻る水路・移動に2.4秒",
+            "id": "fon-wp-68345",
+            "label": "水路",
+            "mode": "water",
+            "name": "ノストイ地区・海へ続く第一層",
+            "region": "region-05"
+          }
+        ]
+      },
+      {
+        "destination": "fon-wp-68341",
+        "start": "fon-wp-68345",
+        "stops": [
+          {
+            "from": "fon-wp-68345",
+            "hint": "門と同じ深さまで泳ぐ・遺構から島南の桟橋へ浮上・移動に2.4秒",
+            "id": "fon-wp-68341",
+            "label": "水路",
+            "mode": "water",
+            "name": "ノストイ地区・島南の古い桟橋",
+            "region": "region-05"
+          }
+        ]
+      },
+      {
+        "destination": "fon-wp-68345",
+        "start": "fon-wp-68341",
+        "stops": [
+          {
+            "from": "fon-wp-68341",
+            "hint": "島南から遺構に潜る水路・移動に2.4秒",
+            "id": "fon-wp-68345",
+            "label": "水路",
+            "mode": "water",
+            "name": "ノストイ地区・海へ続く第一層",
+            "region": "region-05"
+          }
+        ]
+      },
+      {
+        "destination": "bygone-wp-68599",
+        "start": "fon-wp-68345",
+        "stops": [
+          {
+            "from": "fon-wp-68345",
+            "hint": "門と同じ深さまで泳ぐ・往日の海へ続く水路・移動に2.4秒",
+            "id": "bygone-wp-68599",
+            "label": "水路",
+            "mode": "water",
+            "name": "往日の海・南西から潜る水門",
+            "region": "branch-05"
+          }
+        ]
+      },
+      {
+        "destination": "bygone-camp",
+        "start": "bygone-wp-68599",
+        "stops": [
+          {
+            "from": "bygone-wp-68599",
+            "hint": "門と同じ深さまで泳ぐ",
+            "id": "bygone-wp-68600",
+            "label": "遊泳",
+            "mode": "swim",
+            "name": "往日の海・珊瑚の浅い水路",
+            "region": "branch-05"
+          },
+          {
+            "from": "bygone-wp-68600",
+            "hint": "門と同じ深さまで泳ぐ・浅い水路から入口拠点へ浮上・移動に2.4秒",
+            "id": "bygone-camp",
+            "label": "水路",
+            "mode": "water",
+            "name": "往日の海・入口拠点",
+            "region": "branch-05"
+          }
+        ]
+      },
+      {
+        "destination": "bygone-resonance-chamber",
+        "start": "bygone-camp",
+        "stops": [
+          {
+            "from": "bygone-camp",
+            "id": "bygone-waterway-pier",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "水路の乗り継ぎ場",
+            "region": "branch-05"
+          },
+          {
+            "from": "bygone-waterway-pier",
+            "hint": "共鳴石のある足場室・移動に1.6秒",
+            "id": "bygone-resonance-chamber",
+            "label": "水路",
+            "mode": "water",
+            "name": "共鳴石の足場室",
+            "region": "branch-05"
+          }
+        ]
+      },
+      {
+        "destination": "bygone-camp",
+        "start": "bygone-resonance-chamber",
+        "stops": [
+          {
+            "from": "bygone-resonance-chamber",
+            "id": "bygone-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "往日の海・入口拠点",
+            "region": "branch-05"
+          }
+        ]
+      },
+      {
+        "destination": "bygone-inscribed-hall",
+        "start": "bygone-camp",
+        "stops": [
+          {
+            "from": "bygone-camp",
+            "id": "bygone-inscribed-hall",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "三つの印の回廊",
+            "region": "branch-05"
+          }
+        ]
+      },
+      {
+        "destination": "bygone-inscribed-hall",
+        "start": "bygone-camp",
+        "stops": [
+          {
+            "from": "bygone-camp",
+            "id": "bygone-inscribed-hall",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "三つの印の回廊",
+            "region": "branch-05"
+          }
+        ]
+      },
+      {
+        "destination": "bygone-listening-gallery",
+        "start": "bygone-inscribed-hall",
+        "stops": [
+          {
+            "from": "bygone-inscribed-hall",
+            "hint": "上段の入口",
+            "id": "bygone-listening-gallery",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "音をたどる観賞路",
+            "region": "branch-05"
+          }
+        ]
+      },
+      {
+        "destination": "bygone-camp",
+        "start": "bygone-listening-gallery",
+        "stops": [
+          {
+            "from": "bygone-listening-gallery",
+            "id": "bygone-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "往日の海・入口拠点",
+            "region": "branch-05"
+          }
+        ]
+      },
+      {
+        "destination": "bygone-bell-archive",
+        "start": "bygone-camp",
+        "stops": [
+          {
+            "from": "bygone-camp",
+            "id": "bygone-listening-gallery",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "音をたどる観賞路",
+            "region": "branch-05"
+          },
+          {
+            "from": "bygone-listening-gallery",
+            "id": "bygone-bell-archive",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "潮鐘の記録室",
+            "region": "branch-05"
+          }
+        ]
+      },
+      {
+        "destination": "bygone-camp",
+        "start": "bygone-bell-archive",
+        "stops": [
+          {
+            "from": "bygone-bell-archive",
+            "gateX": 1715,
+            "hint": "右側の門・記録を持ち帰る出口",
+            "id": "bygone-listening-gallery",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "音をたどる観賞路",
+            "region": "branch-05"
+          },
+          {
+            "from": "bygone-listening-gallery",
+            "id": "bygone-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "往日の海・入口拠点",
+            "region": "branch-05"
+          }
+        ]
+      },
+      {
+        "destination": "bygone-camp",
+        "start": "bygone-camp",
+        "stops": []
+      }
+    ],
+    "locks": [
+      {
+        "node": "bygone-camp",
+        "reason": "依頼「沈黙の楽譜を、拾いに」を報告してください。",
+        "target": "bygone-inscribed-hall"
+      }
+    ],
+    "reports": [
+      {
+        "mora": 8000,
+        "quest": "bygone-stone-rubbings",
+        "xp": 810000
+      },
+      {
+        "mora": 12300,
+        "quest": "bygone-lit-passage",
+        "xp": 1280000
+      },
+      {
+        "mora": 660060,
+        "quest": "bygone-sound-book",
+        "xp": 2297237
+      }
+    ],
+    "restoredReports": [
+      "bygone-stone-rubbings",
+      "bygone-lit-passage",
+      "bygone-sound-book"
+    ],
+    "returns": 0,
+    "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8"
+  },
+  "enkanomiya": {
+    "battles": [
+      {
+        "kills": 1,
+        "node": "enkan-tablet-hollow",
+        "targets": [
+          "original-plate-tail"
+        ],
+        "xp": 9297
+      }
+    ],
+    "itineraries": [
+      {
+        "destination": "enkanomiya-camp",
+        "start": "inazuma-town",
+        "stops": [
+          {
+            "from": "inazuma-town",
+            "id": "inazuma-road",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "稲妻・海辺の街道",
+            "region": "region-03"
+          },
+          {
+            "from": "inazuma-road",
+            "id": "enkanomiya-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "淵下宮・入口拠点",
+            "region": "branch-03"
+          }
+        ]
+      },
+      {
+        "destination": "enkan-guide-shelf",
+        "start": "enkanomiya-camp",
+        "stops": [
+          {
+            "from": "enkanomiya-camp",
+            "id": "enkan-guide-shelf",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "帰路しるべの棚",
+            "region": "branch-03"
+          }
+        ]
+      },
+      {
+        "destination": "enkanomiya-camp",
+        "start": "enkan-guide-shelf",
+        "stops": [
+          {
+            "from": "enkan-guide-shelf",
+            "id": "enkanomiya-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "淵下宮・入口拠点",
+            "region": "branch-03"
+          }
+        ]
+      },
+      {
+        "destination": "enkan-lamp-chamber",
+        "start": "enkanomiya-camp",
+        "stops": [
+          {
+            "from": "enkanomiya-camp",
+            "id": "enkan-lamp-chamber",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "照り影の灯室",
+            "region": "branch-03"
+          }
+        ]
+      },
+      {
+        "destination": "enkan-lamp-chamber",
+        "start": "enkanomiya-camp",
+        "stops": [
+          {
+            "from": "enkanomiya-camp",
+            "id": "enkan-lamp-chamber",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "照り影の灯室",
+            "region": "branch-03"
+          }
+        ]
+      },
+      {
+        "destination": "enkan-route-gallery",
+        "start": "enkan-lamp-chamber",
+        "stops": [
+          {
+            "from": "enkan-lamp-chamber",
+            "hint": "上段の入口・灯りを消して足場を出す",
+            "id": "enkan-route-gallery",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "道順記録の小間",
+            "region": "branch-03"
+          }
+        ]
+      },
+      {
+        "destination": "enkanomiya-camp",
+        "start": "enkan-route-gallery",
+        "stops": [
+          {
+            "from": "enkan-route-gallery",
+            "id": "enkanomiya-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "淵下宮・入口拠点",
+            "region": "branch-03"
+          }
+        ]
+      },
+      {
+        "destination": "enkan-route-gallery",
+        "start": "enkanomiya-camp",
+        "stops": [
+          {
+            "from": "enkanomiya-camp",
+            "id": "enkan-route-gallery",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "道順記録の小間",
+            "region": "branch-03"
+          }
+        ]
+      },
+      {
+        "destination": "enkan-tablet-hollow",
+        "start": "enkan-route-gallery",
+        "stops": [
+          {
+            "from": "enkan-route-gallery",
+            "id": "enkan-tablet-hollow",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "石版裏の窪み",
+            "region": "branch-03"
+          }
+        ]
+      },
+      {
+        "destination": "enkan-route-gallery",
+        "start": "enkan-tablet-hollow",
+        "stops": [
+          {
+            "from": "enkan-tablet-hollow",
+            "id": "enkan-route-gallery",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "道順記録の小間",
+            "region": "branch-03"
+          }
+        ]
+      },
+      {
+        "destination": "enkan-route-gallery",
+        "start": "enkan-route-gallery",
+        "stops": []
+      }
+    ],
+    "locks": [
+      {
+        "node": "enkanomiya-camp",
+        "reason": "依頼「海の底の、遠足案内」を報告してください。",
+        "target": "enkan-lamp-chamber"
+      }
+    ],
+    "reports": [
+      {
+        "mora": 3200,
+        "quest": "enkan-safety-leaflet",
+        "xp": 284000
+      },
+      {
+        "mora": 4400,
+        "quest": "enkan-shadow-crossing",
+        "xp": 391000
+      },
+      {
+        "mora": 371745,
+        "quest": "enkan-coverless-log",
+        "xp": 103552
+      }
+    ],
+    "restoredReports": [
+      "enkan-safety-leaflet",
+      "enkan-shadow-crossing",
+      "enkan-coverless-log"
+    ],
+    "returns": 0,
+    "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8"
+  },
+  "novo": {
+    "battles": [
+      {
+        "kills": 1,
+        "node": "novo-frozen-works",
+        "targets": [
+          "novo-works-hoist-guard"
+        ],
+        "xp": 1975778
+      },
+      {
+        "kills": 1,
+        "node": "novo-frozen-works",
+        "targets": [
+          "novo-works-wheel-guard"
+        ],
+        "xp": 1975778
+      },
+      {
+        "kills": 3,
+        "node": "novo-drift-passage",
+        "targets": [
+          "novo-drift-west-guard",
+          "novo-drift-upper-guard",
+          "novo-drift-east-guard"
+        ],
+        "xp": 6223686
+      },
+      {
+        "kills": 1,
+        "node": "novo-ice-vault",
+        "targets": [
+          "original-ice-crawler"
+        ],
+        "xp": 14818300
+      }
+    ],
+    "itineraries": [
+      {
+        "destination": "novokichev-camp",
+        "start": "snezhnaya-hub",
+        "stops": [
+          {
+            "from": "snezhnaya-hub",
+            "id": "snezhnaya-field",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "スネージナヤ・凍った街道",
+            "region": "region-08"
+          },
+          {
+            "from": "snezhnaya-field",
+            "id": "novokichev-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "ノヴォキッチェヴ（仮構造）・入口拠点",
+            "region": "branch-09"
+          }
+        ]
+      },
+      {
+        "destination": "novokichev-camp",
+        "start": "novokichev-camp",
+        "stops": []
+      },
+      {
+        "destination": "novo-frozen-works",
+        "start": "novokichev-camp",
+        "stops": [
+          {
+            "from": "novokichev-camp",
+            "id": "novo-frozen-works",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "凍止設備の通路",
+            "region": "branch-09"
+          }
+        ]
+      },
+      {
+        "destination": "novo-frozen-works",
+        "start": "novokichev-camp",
+        "stops": [
+          {
+            "from": "novokichev-camp",
+            "id": "novo-frozen-works",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "凍止設備の通路",
+            "region": "branch-09"
+          }
+        ]
+      },
+      {
+        "destination": "novokichev-camp",
+        "start": "novo-frozen-works",
+        "stops": [
+          {
+            "from": "novo-frozen-works",
+            "gateX": 1435,
+            "hint": "右側の門",
+            "id": "novokichev-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "ノヴォキッチェヴ（仮構造）・入口拠点",
+            "region": "branch-09"
+          }
+        ]
+      },
+      {
+        "destination": "novo-drift-passage",
+        "start": "novokichev-camp",
+        "stops": [
+          {
+            "from": "novokichev-camp",
+            "id": "novo-frozen-works",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "凍止設備の通路",
+            "region": "branch-09"
+          },
+          {
+            "from": "novo-frozen-works",
+            "hint": "上段の入口",
+            "id": "novo-drift-passage",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "吹き溜まりの連絡坑",
+            "region": "branch-09"
+          }
+        ]
+      },
+      {
+        "destination": "novo-ice-vault",
+        "start": "novo-drift-passage",
+        "stops": [
+          {
+            "from": "novo-drift-passage",
+            "id": "novo-ice-vault",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "氷殻の最深室",
+            "region": "branch-09"
+          }
+        ]
+      },
+      {
+        "destination": "novokichev-camp",
+        "start": "novo-ice-vault",
+        "stops": [
+          {
+            "from": "novo-ice-vault",
+            "id": "novokichev-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "ノヴォキッチェヴ（仮構造）・入口拠点",
+            "region": "branch-09"
+          }
+        ]
+      },
+      {
+        "destination": "novokichev-camp",
+        "start": "novokichev-camp",
+        "stops": []
+      }
+    ],
+    "locks": [
+      {
+        "node": "novokichev-camp",
+        "reason": "依頼「最深部へ、急がずに」を報告してください。",
+        "target": "novo-frozen-works"
+      },
+      {
+        "node": "novo-frozen-works",
+        "reason": "依頼「凍った設備に、通り道」を報告してください。",
+        "target": "novo-drift-passage"
+      }
+    ],
+    "reports": [
+      {
+        "mora": 9200,
+        "quest": "novo-expedition-ready",
+        "xp": 19500000
+      },
+      {
+        "mora": 10800,
+        "quest": "novo-equipment-route",
+        "xp": 26800000
+      },
+      {
+        "mora": 882270,
+        "quest": "novo-return-report",
+        "xp": 17133467
+      }
+    ],
+    "restoredReports": [
+      "novo-expedition-ready",
+      "novo-equipment-route",
+      "novo-return-report"
+    ],
+    "returns": 0,
+    "sourceSha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299"
+  },
+  "tunigi": {
+    "battles": [
+      {
+        "kills": 3,
+        "node": "tunigi-vent-shelf",
+        "targets": [
+          "tunigi-vent-guard-1",
+          "tunigi-vent-guard-2",
+          "tunigi-vent-guard-3"
+        ],
+        "xp": 924
+      },
+      {
+        "kills": 2,
+        "node": "tunigi-elite-passage",
+        "targets": [
+          "tunigi-elite-1",
+          "tunigi-elite-2"
+        ],
+        "xp": 6970
+      },
+      {
+        "kills": 1,
+        "node": "tunigi-fragment-vault",
+        "targets": [
+          "original-wind-ring"
+        ],
+        "xp": 0
+      }
+    ],
+    "itineraries": [
+      {
+        "destination": "tunigi-camp",
+        "start": "sumeru-hub",
+        "stops": [
+          {
+            "from": "sumeru-hub",
+            "id": "sumeru-field",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "スメール・雨林の道",
+            "region": "region-04"
+          },
+          {
+            "from": "sumeru-field",
+            "id": "tunigi-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "トゥニギの黒淵・入口拠点",
+            "region": "region-04"
+          }
+        ]
+      },
+      {
+        "destination": "tunigi-vent-shelf",
+        "start": "tunigi-camp",
+        "stops": [
+          {
+            "from": "tunigi-camp",
+            "id": "tunigi-vent-shelf",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "風鳴りの棚",
+            "region": "branch-04"
+          }
+        ]
+      },
+      {
+        "destination": "tunigi-camp",
+        "start": "tunigi-vent-shelf",
+        "stops": [
+          {
+            "from": "tunigi-vent-shelf",
+            "id": "tunigi-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "トゥニギの黒淵・入口拠点",
+            "region": "region-04"
+          }
+        ]
+      },
+      {
+        "destination": "tunigi-baffle-workshop",
+        "start": "tunigi-camp",
+        "stops": [
+          {
+            "from": "tunigi-camp",
+            "id": "tunigi-baffle-workshop",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "風よけ板の工房",
+            "region": "branch-04"
+          }
+        ]
+      },
+      {
+        "destination": "tunigi-baffle-workshop",
+        "start": "tunigi-camp",
+        "stops": [
+          {
+            "from": "tunigi-camp",
+            "id": "tunigi-baffle-workshop",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "風よけ板の工房",
+            "region": "branch-04"
+          }
+        ]
+      },
+      {
+        "destination": "tunigi-return-shelter",
+        "start": "tunigi-baffle-workshop",
+        "stops": [
+          {
+            "from": "tunigi-baffle-workshop",
+            "hint": "上段の入口・退路確認用の昇降台・風が止むまで待つ・移動に1.25秒",
+            "id": "tunigi-return-shelter",
+            "label": "昇降機",
+            "mode": "lift",
+            "name": "発掘隊の風よけ所",
+            "region": "branch-04"
+          }
+        ]
+      },
+      {
+        "destination": "tunigi-baffle-workshop",
+        "start": "tunigi-return-shelter",
+        "stops": [
+          {
+            "from": "tunigi-return-shelter",
+            "hint": "上段の入口・工房へ戻る昇降台・移動に1.25秒",
+            "id": "tunigi-baffle-workshop",
+            "label": "昇降機",
+            "mode": "lift",
+            "name": "風よけ板の工房",
+            "region": "branch-04"
+          }
+        ]
+      },
+      {
+        "destination": "tunigi-return-shelter",
+        "start": "tunigi-baffle-workshop",
+        "stops": [
+          {
+            "from": "tunigi-baffle-workshop",
+            "hint": "上段の入口・退路確認用の昇降台・風が止むまで待つ・移動に1.25秒",
+            "id": "tunigi-return-shelter",
+            "label": "昇降機",
+            "mode": "lift",
+            "name": "発掘隊の風よけ所",
+            "region": "branch-04"
+          }
+        ]
+      },
+      {
+        "destination": "tunigi-camp",
+        "start": "tunigi-return-shelter",
+        "stops": [
+          {
+            "from": "tunigi-return-shelter",
+            "id": "tunigi-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "トゥニギの黒淵・入口拠点",
+            "region": "region-04"
+          }
+        ]
+      },
+      {
+        "destination": "tunigi-elite-passage",
+        "start": "tunigi-camp",
+        "stops": [
+          {
+            "from": "tunigi-camp",
+            "id": "tunigi-return-shelter",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "発掘隊の風よけ所",
+            "region": "branch-04"
+          },
+          {
+            "from": "tunigi-return-shelter",
+            "id": "tunigi-elite-passage",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "岩陰の発掘通路",
+            "region": "branch-04"
+          }
+        ]
+      },
+      {
+        "destination": "tunigi-fragment-vault",
+        "start": "tunigi-elite-passage",
+        "stops": [
+          {
+            "from": "tunigi-elite-passage",
+            "id": "tunigi-fragment-vault",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "風礫の記録庫",
+            "region": "branch-04"
+          }
+        ]
+      },
+      {
+        "destination": "tunigi-camp",
+        "start": "tunigi-fragment-vault",
+        "stops": [
+          {
+            "from": "tunigi-fragment-vault",
+            "hint": "準備した退路",
+            "id": "tunigi-return-shelter",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "発掘隊の風よけ所",
+            "region": "branch-04"
+          },
+          {
+            "from": "tunigi-return-shelter",
+            "id": "tunigi-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "トゥニギの黒淵・入口拠点",
+            "region": "region-04"
+          }
+        ]
+      },
+      {
+        "destination": "tunigi-camp",
+        "start": "tunigi-camp",
+        "stops": []
+      }
+    ],
+    "locks": [
+      {
+        "node": "tunigi-camp",
+        "reason": "依頼「風が鳴らす、古い返事」を報告してください。",
+        "target": "tunigi-baffle-workshop"
+      },
+      {
+        "node": "tunigi-fragment-vault",
+        "reason": "崩れた壁で往路が塞がれました。右奥の記録片を回収し、準備した退路へ。",
+        "target": "tunigi-elite-passage"
+      }
+    ],
+    "reports": [
+      {
+        "mora": 4800,
+        "quest": "tunigi-vent-record",
+        "xp": 450000
+      },
+      {
+        "mora": 6200,
+        "quest": "tunigi-return-design",
+        "xp": 630000
+      },
+      {
+        "mora": 461918,
+        "quest": "tunigi-fragment-return",
+        "xp": 364882
+      }
+    ],
+    "restoredReports": [
+      "tunigi-vent-record",
+      "tunigi-return-design",
+      "tunigi-fragment-return"
+    ],
+    "returns": 0,
+    "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8"
+  }
+}

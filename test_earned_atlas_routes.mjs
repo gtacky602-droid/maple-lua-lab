@@ -80,10 +80,28 @@ try{
  assert.equal(locked.status,'blocked');
  assert.equal(locked.reason,'必要Lv168');
  await closeMap();
+
+ const camp='bygone-camp', shallows='bygone-wp-68600';
+ await load('work/earned-bygone-camp.json',165,camp);
+ const dive=await selectMap(shallows);
+ assert.equal(dive.status,'ready');
+ assert.deepEqual(dive.stops.map(stop=>stop.id),[shallows]);
+ assert.match(dive.stops[0].hint,/珊瑚の浅い水路へ潜る/);
+ await atlas.locator('#atlasItineraryStops button').filter({hasText:'珊瑚の浅い水路へ潜る'}).waitFor();
+ await atlas.screenshot({path:'evidence/earned-atlas-bygone-dive.png'});
+ await closeMap();
+ await drive.cross(shallows);
+ const surface=await selectMap(camp);
+ assert.deepEqual(surface.stops.map(stop=>stop.id),[camp]);
+ assert.match(surface.stops[0].hint,/浅い水路から入口拠点へ浮上/);
+ await closeMap();
+ await drive.cross(camp);
+
  assert.deepEqual(errors,[]);
- const proof={golden:{entrance,back,guardianDefeated:true,visitsSaved:true},port:{level:165,locked},errors};
+ const proof={golden:{entrance,back,guardianDefeated:true,visitsSaved:true},port:{level:165,locked},
+  bygone:{level:165,dive,surface,returned:true},errors};
  await fs.writeFile('evidence/earned-atlas-routes-browser.json',JSON.stringify(proof,null,2)+'\n');
- console.log('Chrome: Golden guardian and labeled return, plus the earned Lv165 port restriction.');
+ console.log('Chrome: Golden guardian and return, Lv165 port restriction, and Bygone dive and surfacing.');
 }catch(error){
  console.error(await page.evaluate(()=>({
   node:window.lab?.frame.story?.node,actor:window.lab?.frame.actors?.[0]?.x,

@@ -100,8 +100,43 @@
           "mode": "walk",
           "reason": "必要Lv168"
         }
-      ]
+      ],
+      "requiredLevel": 168
     }
   },
-  "errors": []
+  "errors": [],
+  "bygone": {
+    "level": 165,
+    "dive": {
+      "afterTransfer": false,
+      "status": "ready",
+      "stops": [
+        {
+          "label": "水路",
+          "id": "bygone-wp-68600",
+          "from": "bygone-camp",
+          "region": "branch-05",
+          "name": "往日の海・珊瑚の浅い水路",
+          "hint": "珊瑚の浅い水路へ潜る・移動に2.4秒",
+          "mode": "water"
+        }
+      ]
+    },
+    "surface": {
+      "afterTransfer": false,
+      "status": "ready",
+      "stops": [
+        {
+          "label": "水路",
+          "id": "bygone-camp",
+          "from": "bygone-wp-68600",
+          "region": "branch-05",
+          "name": "往日の海・入口拠点",
+          "hint": "門と同じ深さまで泳ぐ・浅い水路から入口拠点へ浮上・移動に2.4秒",
+          "mode": "water"
+        }
+      ]
+    },
+    "returned": true
+  }
 }

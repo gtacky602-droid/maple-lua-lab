@@ -8104,7 +8104,16 @@
     "lua_evidence": "evidence/earned-branch-quests-lua.json",
     "browser_evidence": "evidence/earned-frostmoon-exits-browser.json"
   },
-  "current_priority": "Compare authored optional-region terrain and gate levels to the live Lua stages, prioritizing layout mismatches and incomplete traversal conditions, then continue matching skill effects and visual cues against the authored scope.",
+  "earned_terrain_quest_checks": {
+    "level_165": ["enkanomiya", "tunigi", "bygone"],
+    "level_200": ["novo"],
+    "quest_reports": 12,
+    "bosses": 4,
+    "guards": 10,
+    "lua_evidence": "evidence/earned-terrain-quests-lua.json",
+    "browser_waterway_evidence": "evidence/earned-atlas-routes-browser.json"
+  },
+  "current_priority": "Continue earned-save playthroughs for the remaining high-level quest chains, then continue matching skill effects and visual cues against the authored scope.",
   "skill_runtime_checks": {
     "traveler_activations": 60,
     "companion_activations": 40,

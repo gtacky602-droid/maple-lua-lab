@@ -1,6 +1,7 @@
 {
   "scope": "Dragonspine, Chenyu Vale, The Chasm, Enkanomiya, Tunigi Hollow and Sea of Bygone Eras stages outside the marker, hunt, voyage and short transfer ledgers.",
   "stage_count": 25,
+  "earned_terrain_quest_run": "evidence/earned-terrain-quests-lua.json",
   "interpretation": "The two Liyue border routes start at a waypoint with a prepared level. Encounter tests may start near a field entrance or inside an arena. Each link records the scope of the corresponding run.",
   "entries": [
     {

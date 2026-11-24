@@ -112,7 +112,7 @@ class Journey(TrailWalk):
         assert after[0] > before[0] and after[1] > before[1]
         self.reports.append(dict(quest=quest, xp=after[0]-before[0], mora=after[1]-before[1]))
 
-    def fight(self, enemies, before):
+    def fight(self, enemies, before, *, rewarded=True):
         for enemy in enemies:
             if enemy.hp > 0:
                 self.approach(max(30, enemy.x-52), enemy.y, enemy.id)
@@ -122,9 +122,10 @@ class Journey(TrailWalk):
                 core.step(self.state, 1/60, attack)
             assert enemy.hp <= 0, (enemy.id, enemy.hp, self.actor.x, self.actor.dir)
         assert self.state.kills-before[0] == len(enemies)
-        assert self.state.progression.killXp > before[1] and self.state.returns == before[2]
+        xp = self.state.progression.killXp-before[1]
+        assert (xp > 0 if rewarded else xp == 0) and self.state.returns == before[2]
         self.battles.append(dict(node=self.state.story.node, targets=[e.spawnId or e.fieldBoss for e in enemies],
-                                 xp=self.state.progression.killXp-before[1], kills=len(enemies)))
+                                 xp=xp, kills=len(enemies)))
 
     def totals(self):
         return self.state.kills, self.state.progression.killXp, self.state.returns

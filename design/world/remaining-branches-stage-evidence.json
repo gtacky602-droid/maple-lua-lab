@@ -4,6 +4,7 @@
   "interpretation": "The linked runs cover entry, traversal, quest steps or combat as specified in each run. Regional fixtures set an appropriate level and visits. The Frostmoon trials check both return gates and the quest lock.",
   "earned_route_run": "evidence/earned-late-atlas-routes-lua.json",
   "earned_quest_run": "evidence/earned-branch-quests-lua.json",
+  "earned_novokichev_quest_run": "evidence/earned-terrain-quests-lua.json",
   "entries": [
     {
       "region": "ドーンマンポート",
