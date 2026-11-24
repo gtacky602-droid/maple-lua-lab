@@ -1,6 +1,6 @@
 # ローカルラボの協力プレイ
 
-ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する260地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。部屋には最大4人が入れる。通常の編成なら、同じ地点に旅人と同行者が最大8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
+ローカルラボの通常の冒険を、参加者それぞれのブラウザプロフィールで開く。画面下の「協力プレイ（ローカル試作）」を開き、対応する275地点のいずれかで部屋を作る。他の参加者は対応地点で合言葉を入力し、「参加」を押す。部屋には最大4人が入れる。通常の編成なら、同じ地点に旅人と同行者が最大8体表示される。 [部屋を作成・参加できる地点](../content/coop-preview.json)
 
 参加者の入力をサーバーのLuaへ送り、マップごとに敵のHP、攻撃、再出現を60Hzの刻みで進める。仲間の現在地は画面下の協力欄に表示され、同じ共有マップにいる操作キャラには水色の名前が出る。地図を開いたプレイヤーの移動・攻撃入力は止まり、その場の戦闘は続く。
 
@@ -157,6 +157,14 @@ Chromeの2画面で、山裾から徒歩と小舟に分かれて岬で合流し�
 ピークは熱を帯びた突進と二連の火礫、最後のテノチズトク人は床を走る引き波と三つの水柱を使う。攻撃と数値はラボ用の試作。戦闘中に全員が退避するとHPを保持する。討伐後は、全員が退出すると再戦できる。 `python -X utf8 test_coop_natlan_final_legends.py` でLua4人とHTTP2人の検証を再現できる。 [Lua・HTTPの検証](../evidence/coop-natlan-final-legends-lua-http.json)
 
 Chromeの2画面で、岩洞への足場、草地への二つの入口、港の連絡舟と西島の桟橋を同じ部屋で通った。両戦の予告、討伐報酬、元の高さへの帰還と再戦、各自の報告と保存再開を確認した。ラボ起動中の `node test_coop_branch_legends.mjs --natlan-final` で再現できる。 [Chromeの検証](../evidence/coop-natlan-final-legends-browser.json) · [ピークの火礫](../evidence/coop-natlan-final-legends-peak-warning.png) · [浅瀬の水柱](../evidence/coop-natlan-final-legends-last-tenochtzitoc-warning.png)
+
+## 微末と銅の錠
+
+古の聖山へは火山の入口台から昇降機で入る。同じ部屋のまま中央の浮き台を経由し、東島の石棚から西の石広場でLv130の微末に挑める。微末は火芯から走る熱波と左右の噴火を使う。 [古の聖山の入口と足場](NATLAN_HIGHLAND_LEGENDS_WEB.md)
+
+銅の錠へはオシカ・ナタの寄港地から北東島の渡し舟に乗り、東の遠い岩礁から装置の岸へ進む。岸では合言葉を維持し、装置と光の道は各自の依頼で進む。装置を一つ壊した状態を保存し、読み込んで部屋に入り直すと残りの一つから続けられる。浮遊島の船着き石で合流し、Lv180で遺構へ進む。銅の錠は重装の突進と三段の装甲打ちを使う。両戦とも攻撃と数値はラボ用の試作。 [Lua・HTTPの検証](../evidence/coop-natlan-highland-legends-lua-http.json)
+
+Chromeの2画面で、古の聖山までの昇降機、北東島の渡し舟、装置の個別破壊と光の道の往復、両戦の予告・報酬・再戦、各自の依頼報告と保存再開を確認した。 `python -X utf8 test_coop_natlan_highland_legends.py` でLua・HTTPを、ラボ起動中の `node test_coop_branch_legends.mjs --natlan-highland` でChromeを検証できる。 [Chromeの検証](../evidence/coop-natlan-highland-legends-browser.json) · [古の聖山での共闘](../evidence/coop-natlan-highland-legends-infinitesimal-warning.png) · [浮遊島への光の道](../evidence/coop-natlan-highland-legends-spiritway.png) · [銅の錠の装甲打ち](../evidence/coop-natlan-highland-legends-bronzelock-warning.png)
 
 ## 無相の風を共闘する
 
@@ -758,4 +766,4 @@ Lv60で雨林の道から菌傘の谷へ進む。本体HPは800。ついばみ�
 
 同じPCから各接続が毎秒30回の受信を目指す短時間試験。サイズはHTTP応答本文の中央値。4人の軽量16色では描画する矩形が5,251個のまま、本文は97.1%減り、応答時間の中央値は101.89msから27.54msになった。表は通信とLuaの試験で、Chromeの描画FPSや幻境実機の値は含まない。 [生の計測結果](../evidence/coop-local-http.json)
 
-現行台帳の原作通常ボス49戦、原作週ボス14戦、ラボ独自の週ボス2戦と通常ボス15戦、地方伝説39戦を共闘に登録した。残りの地方伝説、幽境の共闘、汎用支援による参加判定、全滅した組の観戦、別端末からの通信、星々の幻境実機は確認待ち。人数でボスHPを増やさない方針は採用済み。 [11月16日の採用仕様](../sources/20261116-amendment.md)
+現行台帳の原作通常ボス49戦、原作週ボス14戦、ラボ独自の週ボス2戦と通常ボス15戦、地方伝説41戦を共闘に登録した。残りの地方伝説、幽境の共闘、汎用支援による参加判定、全滅した組の観戦、別端末からの通信、星々の幻境実機は確認待ち。人数でボスHPを増やさない方針は採用済み。 [11月16日の採用仕様](../sources/20261116-amendment.md)

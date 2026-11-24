@@ -13,8 +13,10 @@ const northwest=process.argv.includes('--natlan-northwest');
 const wayob=process.argv.includes('--natlan-wayob');
 const atocpan=process.argv.includes('--natlan-atocpan');
 const finalNatlan=process.argv.includes('--natlan-final');
-const localNatlan=natlan||night||north||cliff||northwest||wayob||atocpan||finalNatlan;
-const prefix=finalNatlan?'evidence/coop-natlan-final-legends':atocpan?'evidence/coop-natlan-atocpan-totem':wayob?'evidence/coop-natlan-wayob-duo'
+const highland=process.argv.includes('--natlan-highland');
+const localNatlan=natlan||night||north||cliff||northwest||wayob||atocpan||finalNatlan||highland;
+const prefix=highland?'evidence/coop-natlan-highland-legends':finalNatlan?'evidence/coop-natlan-final-legends'
+ : atocpan?'evidence/coop-natlan-atocpan-totem':wayob?'evidence/coop-natlan-wayob-duo'
  : northwest?'evidence/coop-natlan-northwest-legends':cliff?'evidence/coop-natlan-cliff-trials'
  : north?'evidence/coop-natlan-north-trials':night?'evidence/coop-natlan-night-trials'
  : 'evidence/coop-'+(natlan?'natlan-entry':dry?'dry':lake?'lake':'branch')+'-legends';
@@ -112,7 +114,15 @@ const finalNatlanCases=[
   entry:'nat-wp-85972',hp:1370,mora:630,x:845,warning:'ZT02',entities:[97096],
   warningOrder:[[1,'hydro',71],[2,'hydro',112],[3,'hydro',157]],returnY:419},
 ].map(cfg=>({...cfg,checkpoint:'natlan-hub',quest:'natlan-southern-trail-survey'}));
-const cases=finalNatlan?finalNatlanCases:atocpan?atocpanCases:wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
+const highlandCases=[
+ {tag:'infinitesimal',id:'legend-natlan_infinitesimal',arena:'sacred-mountain-east-isle-dais',
+  approach:'nat-wp-82560',entry:'nat-wp-84107',hp:1420,mora:660,x:832,warning:'MH02',
+  entities:[97097],warningOrder:[[1,'pyro',68],[2,'pyro',112]],returnY:401},
+ {tag:'bronzelock',id:'legend-natlan_bronzelock',arena:'ochka-bronzelock-island-court',
+  entry:'ochka-bronzelock-floating-landing',hp:1880,mora:860,x:832,warning:'BL02',
+  entities:[97098],warningOrder:[[1,'physical',73],[2,'physical',117],[3,'physical',165]],returnY:410},
+].map(cfg=>({...cfg,checkpoint:'ochkanatlan-dock',quest:'ochka-floating-island-spiritway'}));
+const cases=highland?highlandCases:finalNatlan?finalNatlanCases:atocpan?atocpanCases:wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
  {tag:'vivianne',id:'legend-fontaine_vivianne_of_the_lake',arena:'vivianne-legend-bank',
   entry:'fon-wp-50056',checkpoint:'fontaine-hub',hp:1040,mora:300,x:890,warning:'LV02',entities:[97041],
   warningOrder:[[1,'hydro',64],[2,'hydro',115]],movingWave:true},
@@ -146,7 +156,8 @@ async function start(cfg,needsReport){
  page.on('pageerror',e=>errors.push(e.message));
  const route=waypointDriver(page,nodes,{walkTimeout:32000});
  const suffix=needsReport?'-before-report-fixture.json':'-fixture.json';
- const fixturePath=finalNatlan?'work/natlan-final-legends-fixture.json':atocpan?'work/natlan-atocpan-totem-fixture.json':wayob?'work/natlan-wayob-duo-fixture.json'
+ const fixturePath=highland?'work/natlan-highland-legends-fixture.json':finalNatlan?'work/natlan-final-legends-fixture.json'
+  : atocpan?'work/natlan-atocpan-totem-fixture.json':wayob?'work/natlan-wayob-duo-fixture.json'
   : northwest?'work/natlan-northwest-legends-fixture.json':cliff?'work/natlan-cliff-trials-fixture.json'
   : north?'work/natlan-north-trials-fixture.json':night?'work/natlan-night-trial-fixture.json'
   : natlan?'work/coop-natlan-entry-legends-fixture.json':'work/coop-'+cfg.arena+suffix;
@@ -717,9 +728,89 @@ async function finalNatlanJourney(){
   routes,bothGrasslandRoutes:true,sharedRoomAcrossBothRoutes:true,bothReported:true,reportRestoredForBoth:true};
 }
 
+const deviceCount=page=>page.evaluate(()=>window.lab.frame.draws.filter(draw=>draw.text==='浮遊装置').length);
+
+async function breakHighlandDevice({route,page},point,remaining){
+ await route.walk(point.x-36);
+ await route.changeHeight(point.y);
+ await route.walk((await route.actor()).x+25);
+ await page.keyboard.down('KeyJ');
+ try{
+  await wait(page,left=>window.lab.frame.draws.filter(draw=>draw.text==='浮遊装置').length===left,remaining);
+ }finally{
+  await page.keyboard.up('KeyJ');
+ }
+}
+
+async function highlandJourney(){
+ const [small,bronze]=cases;
+ const [camp,reef,shore]=['nat-mountain-camp','nat-wp-80030','ochka-bronzelock-device-shore'];
+ const players=await Promise.all([start(small,false),start(small,false)]);
+ const [host,guest]=players;
+ const code=await createRoom(players);
+ await Promise.all(players.map(async player=>{
+  await climb(player.route,[[1280,408],[1472,371]]);
+  for(const id of [camp,'nat-wp-84104','nat-wp-84105','nat-wp-84106','nat-wp-84108','nat-wp-84109',small.entry]){
+   await crossShared(player,id,code);
+  }
+ }));
+ await enterIndividually(players,small);
+ const smallProof=await fightAndSave(players,small);
+ await rematch(players,small);
+ await leaveArena(players,small);
+ console.log('Chrome: both players cleared Infinitesimal and returned to the island ledge.');
+
+ await Promise.all(players.map(async player=>{
+  await player.route.warp(bronze.checkpoint);
+  for(const id of ['ochkanatlan-ruins','nat-wp-79546','nat-wp-80846','nat-wp-79550',reef]){
+   await crossShared(player,id,code);
+  }
+  await player.route.cross(shore);
+  const {coop}=await frame(player.page);
+  assert.ok(!coop.shared&&coop.code===code);
+  assert.equal(await deviceCount(player.page),2);
+ }));
+ const [west,east]=nodes[shore].breakTargets;
+ await breakHighlandDevice(guest,east,1);
+ await breakHighlandDevice(host,west,1);
+ await breakHighlandDevice(host,east,0);
+ await host.route.count(bronze.quest,1);
+ await Promise.all([
+  crossShared(host,bronze.entry,code),
+  wait(host.page,()=>window.lab.frame.storyLift?.spiritway&&window.lab.frame.actors[0].y<290)
+   .then(()=>capture(host.page,'spiritway')),
+ ]);
+ await host.route.count(bronze.quest,2);
+ assert.equal(await deviceCount(guest.page),1);
+ await lockedNatlanGate(guest,{arena:bronze.entry,lock:'二つ'});
+ await guest.route.count(bronze.quest,0);
+ await breakHighlandDevice(guest,west,0);
+ await crossShared(guest,bronze.entry,code);
+ await guest.route.count(bronze.quest,2);
+ await enterIndividually(players,bronze);
+ const bronzeProof=await fightAndSave(players,bronze);
+ await rematch(players,bronze);
+ await leaveArena(players,bronze);
+ await Promise.all(players.map(async player=>{
+  await player.route.cross(shore);
+  assert.equal((await player.route.actor()).y,414);
+  const {coop}=await frame(player.page);
+  assert.ok(!coop.shared&&coop.code===code);
+  await crossShared(player,reef,code);
+ }));
+ await verifySavedReports(players,cases);
+ const routes=players.map(p=>p.route.journeys);
+ await Promise.all(players.map(p=>p.context.close()));
+ return {infinitesimal:{...smallProof,returnY:small.returnY,sharedRematch:true},
+  bronzelock:{...bronzeProof,returnY:bronze.returnY,sharedRematch:true},
+  routes,personalDeviceProgress:true,independentSpiritwayAccess:true,sameRoomAcrossSpiritway:true,
+  bothReported:true,reportRestoredForBoth:true};
+}
+
 try{
  const evidence={participants:2,...(artSource?{artSource}: {})};
- if(finalNatlan) Object.assign(evidence,await finalNatlanJourney());
+ if(highland) Object.assign(evidence,await highlandJourney());
+ else if(finalNatlan) Object.assign(evidence,await finalNatlanJourney());
  else if(atocpan) Object.assign(evidence,await atocpanJourney());
  else if(wayob) Object.assign(evidence,await wayobJourney());
  else for(const cfg of cases)evidence[cfg.tag]=await scenario(cfg);

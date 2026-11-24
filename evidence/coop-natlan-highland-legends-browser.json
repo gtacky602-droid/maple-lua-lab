@@ -1,0 +1,372 @@
+{
+  "participants": 2,
+  "infinitesimal": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 170,
+        "moves": [
+          "MH01",
+          "MH02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 193,
+        "moves": [
+          "MH01",
+          "MH02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "pyro",
+        68,
+        701,
+        853
+      ],
+      [
+        2,
+        "pyro",
+        112,
+        939,
+        1091
+      ]
+    ],
+    "rewards": [
+      [
+        26135,
+        660
+      ],
+      [
+        26135,
+        660
+      ]
+    ],
+    "contacts": [
+      8,
+      10
+    ],
+    "saved": true,
+    "returnY": 401,
+    "sharedRematch": true
+  },
+  "bronzelock": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 138,
+        "moves": [
+          "BL01",
+          "BL02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 164,
+        "moves": [
+          "BL01",
+          "BL02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "physical",
+        73,
+        326,
+        498
+      ],
+      [
+        2,
+        "physical",
+        117,
+        355.5,
+        547.5
+      ],
+      [
+        3,
+        "physical",
+        165,
+        525.5,
+        697.5
+      ]
+    ],
+    "rewards": [
+      [
+        5864100,
+        860
+      ],
+      [
+        5864100,
+        860
+      ]
+    ],
+    "contacts": [
+      14,
+      12
+    ],
+    "saved": true,
+    "returnY": 410,
+    "sharedRematch": true
+  },
+  "routes": [
+    [
+      [
+        "nat-wp-82560",
+        "nat-mountain-camp",
+        "lift"
+      ],
+      [
+        "nat-mountain-camp",
+        "nat-wp-84104",
+        "walk"
+      ],
+      [
+        "nat-wp-84104",
+        "nat-wp-84105",
+        "lift"
+      ],
+      [
+        "nat-wp-84105",
+        "nat-wp-84106",
+        "walk"
+      ],
+      [
+        "nat-wp-84106",
+        "nat-wp-84108",
+        "walk"
+      ],
+      [
+        "nat-wp-84108",
+        "nat-wp-84109",
+        "walk"
+      ],
+      [
+        "nat-wp-84109",
+        "nat-wp-84107",
+        "lift"
+      ],
+      [
+        "nat-wp-84107",
+        "sacred-mountain-east-isle-dais",
+        "raised"
+      ],
+      [
+        "sacred-mountain-east-isle-dais",
+        "nat-wp-84107",
+        "walk"
+      ],
+      [
+        "nat-wp-84107",
+        "sacred-mountain-east-isle-dais",
+        "raised"
+      ],
+      [
+        "sacred-mountain-east-isle-dais",
+        "nat-wp-84107",
+        "walk"
+      ],
+      [
+        "ochkanatlan-dock",
+        "ochkanatlan-ruins",
+        "walk"
+      ],
+      [
+        "ochkanatlan-ruins",
+        "nat-wp-79546",
+        "walk"
+      ],
+      [
+        "nat-wp-79546",
+        "nat-wp-80846",
+        "walk"
+      ],
+      [
+        "nat-wp-80846",
+        "nat-wp-79550",
+        "walk"
+      ],
+      [
+        "nat-wp-79550",
+        "nat-wp-80030",
+        "boat"
+      ],
+      [
+        "nat-wp-80030",
+        "ochka-bronzelock-device-shore",
+        "raised"
+      ],
+      [
+        "ochka-bronzelock-device-shore",
+        "ochka-bronzelock-floating-landing",
+        "lift"
+      ],
+      [
+        "ochka-bronzelock-floating-landing",
+        "ochka-bronzelock-island-court",
+        "raised"
+      ],
+      [
+        "ochka-bronzelock-island-court",
+        "ochka-bronzelock-floating-landing",
+        "walk"
+      ],
+      [
+        "ochka-bronzelock-floating-landing",
+        "ochka-bronzelock-island-court",
+        "raised"
+      ],
+      [
+        "ochka-bronzelock-island-court",
+        "ochka-bronzelock-floating-landing",
+        "walk"
+      ],
+      [
+        "ochka-bronzelock-floating-landing",
+        "ochka-bronzelock-device-shore",
+        "lift"
+      ],
+      [
+        "ochka-bronzelock-device-shore",
+        "nat-wp-80030",
+        "walk"
+      ]
+    ],
+    [
+      [
+        "nat-wp-82560",
+        "nat-mountain-camp",
+        "lift"
+      ],
+      [
+        "nat-mountain-camp",
+        "nat-wp-84104",
+        "walk"
+      ],
+      [
+        "nat-wp-84104",
+        "nat-wp-84105",
+        "lift"
+      ],
+      [
+        "nat-wp-84105",
+        "nat-wp-84106",
+        "walk"
+      ],
+      [
+        "nat-wp-84106",
+        "nat-wp-84108",
+        "walk"
+      ],
+      [
+        "nat-wp-84108",
+        "nat-wp-84109",
+        "walk"
+      ],
+      [
+        "nat-wp-84109",
+        "nat-wp-84107",
+        "lift"
+      ],
+      [
+        "nat-wp-84107",
+        "sacred-mountain-east-isle-dais",
+        "raised"
+      ],
+      [
+        "sacred-mountain-east-isle-dais",
+        "nat-wp-84107",
+        "walk"
+      ],
+      [
+        "nat-wp-84107",
+        "sacred-mountain-east-isle-dais",
+        "raised"
+      ],
+      [
+        "sacred-mountain-east-isle-dais",
+        "nat-wp-84107",
+        "walk"
+      ],
+      [
+        "ochkanatlan-dock",
+        "ochkanatlan-ruins",
+        "walk"
+      ],
+      [
+        "ochkanatlan-ruins",
+        "nat-wp-79546",
+        "walk"
+      ],
+      [
+        "nat-wp-79546",
+        "nat-wp-80846",
+        "walk"
+      ],
+      [
+        "nat-wp-80846",
+        "nat-wp-79550",
+        "walk"
+      ],
+      [
+        "nat-wp-79550",
+        "nat-wp-80030",
+        "boat"
+      ],
+      [
+        "nat-wp-80030",
+        "ochka-bronzelock-device-shore",
+        "raised"
+      ],
+      [
+        "ochka-bronzelock-device-shore",
+        "ochka-bronzelock-floating-landing",
+        "lift"
+      ],
+      [
+        "ochka-bronzelock-floating-landing",
+        "ochka-bronzelock-island-court",
+        "raised"
+      ],
+      [
+        "ochka-bronzelock-island-court",
+        "ochka-bronzelock-floating-landing",
+        "walk"
+      ],
+      [
+        "ochka-bronzelock-floating-landing",
+        "ochka-bronzelock-island-court",
+        "raised"
+      ],
+      [
+        "ochka-bronzelock-island-court",
+        "ochka-bronzelock-floating-landing",
+        "walk"
+      ],
+      [
+        "ochka-bronzelock-floating-landing",
+        "ochka-bronzelock-device-shore",
+        "lift"
+      ],
+      [
+        "ochka-bronzelock-device-shore",
+        "nat-wp-80030",
+        "walk"
+      ]
+    ]
+  ],
+  "personalDeviceProgress": true,
+  "independentSpiritwayAccess": true,
+  "sameRoomAcrossSpiritway": true,
+  "bothReported": true,
+  "reportRestoredForBoth": true,
+  "errors": []
+}

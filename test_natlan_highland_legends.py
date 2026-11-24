@@ -41,6 +41,9 @@ def start(level):
     core.action(state, 'story_start')
     core.enterStoryNode(state, DOCK)
     core.grantExp(state, exp(level), 'quest')
+    for slot in (1, 2):
+        assert core.giveArtifact(state, slot, 40, 3)
+        core.action(state, 'artifact_equip:' + str(slot))
     return state
 
 
@@ -111,7 +114,7 @@ def defeat(state, walk, spec):
 
 
 fixture = start(180)
-for stage in (ISLE, REEF, DOCK):
+for stage in (ISLE, REEF, 'nat-wp-82560', DOCK):
     core.enterStoryNode(fixture, stage)
 write('work/natlan-highland-legends-fixture.json', saved(fixture))
 small, lock = specs[SMALL], specs[LOCK]

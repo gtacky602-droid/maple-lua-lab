@@ -1,0 +1,80 @@
+{
+  "lua": {
+    "legend-natlan_infinitesimal": {
+      "players": 4,
+      "sharedHP": 1420,
+      "moves": [
+        {
+          "id": "MH01",
+          "warningTicks": [
+            61
+          ]
+        },
+        {
+          "id": "MH02",
+          "warningTicks": [
+            68,
+            112
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 871150,
+      "mora": 660
+    },
+    "legend-natlan_bronzelock": {
+      "players": 4,
+      "sharedHP": 1880,
+      "moves": [
+        {
+          "id": "BL01",
+          "warningTicks": [
+            69
+          ]
+        },
+        {
+          "id": "BL02",
+          "warningTicks": [
+            73,
+            117,
+            165
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 5864100,
+      "mora": 860
+    }
+  },
+  "http": {
+    "participants": 2,
+    "mountain": {
+      "sharedOrdinaryAttack": true,
+      "pausedOnRetreat": true,
+      "returnY": 401,
+      "clearPersistsUntilEveryoneLeaves": true,
+      "personalAwards": true,
+      "independentLevelGate": true
+    },
+    "bronzelock": {
+      "sharedOrdinaryAttack": true,
+      "pausedOnRetreat": true,
+      "returnY": 410,
+      "clearPersistsUntilEveryoneLeaves": true,
+      "personalAwards": true,
+      "independentLevelGate": true
+    },
+    "sharedLiftAndFerry": true,
+    "separateDevicesAndUnlock": true,
+    "partialDeviceSaveAndRejoin": true,
+    "sameRoomAcrossSpiritway": true,
+    "spiritwayReturnY": 414,
+    "personalReportsRestored": true
+  }
+}

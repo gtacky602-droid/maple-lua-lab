@@ -31,6 +31,8 @@ def timed_travel(client,source,target,other,*,shared=True):
     assert frame['storyLift']['seconds']==duration
     if 'wallTrack' in gate:
         assert frame['storyLift']['wall']
+    if 'spiritwayTrack' in gate:
+        assert frame['storyLift']['spiritway']
     until=monotonic()+duration+5
     while monotonic()<until:
         sleep(.03)
