@@ -1,0 +1,107 @@
+{
+  "golden": {
+    "entrance": {
+      "stops": [
+        {
+          "name": "危機の島の桟橋",
+          "hint": "入江の桟橋を結ぶ連絡船・移動に3.6秒",
+          "from": "golden-hub",
+          "region": "hidden-01",
+          "mode": "boat",
+          "label": "舟・寄港",
+          "id": "sites-gaa-03"
+        },
+        {
+          "name": "危機の島の登り道",
+          "hint": "上段の入口・桟橋の奥の石段",
+          "from": "sites-gaa-03",
+          "region": "hidden-01",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "sites-gaa-04"
+        },
+        {
+          "name": "群島の狂風のコアの横穴",
+          "hint": "離れた横穴の任意戦へ",
+          "from": "sites-gaa-04",
+          "region": "hidden-01",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "sites-gaa-04-side-arena"
+        }
+      ],
+      "status": "ready",
+      "afterTransfer": false
+    },
+    "back": {
+      "stops": [
+        {
+          "name": "危機の島の登り道",
+          "hint": "危機の島の登り道へ戻る",
+          "from": "sites-gaa-04-side-arena",
+          "region": "hidden-01",
+          "mode": "walk",
+          "label": "徒歩",
+          "id": "sites-gaa-04"
+        }
+      ],
+      "status": "ready",
+      "afterTransfer": false
+    },
+    "guardianDefeated": true,
+    "visitsSaved": true
+  },
+  "port": {
+    "level": 165,
+    "locked": {
+      "afterTransfer": false,
+      "status": "blocked",
+      "reason": "必要Lv168",
+      "stops": [
+        {
+          "id": "mond-road",
+          "name": "モンド・南の街道",
+          "region": "region-01",
+          "from": "mond-town",
+          "label": "徒歩",
+          "mode": "walk"
+        },
+        {
+          "id": "dornman-camp",
+          "name": "ドーンマンポート・入口拠点",
+          "region": "branch-06",
+          "from": "mond-road",
+          "label": "徒歩",
+          "mode": "walk"
+        },
+        {
+          "id": "mond-wp-95798",
+          "name": "ドーンマンポート・港の石段広場",
+          "region": "branch-06",
+          "from": "dornman-camp",
+          "label": "徒歩",
+          "mode": "walk"
+        },
+        {
+          "id": "mond-wp-95800",
+          "name": "ドーンマンポート・港北の風が抜ける丘",
+          "region": "branch-06",
+          "from": "mond-wp-95798",
+          "label": "徒歩",
+          "mode": "walk",
+          "hint": "上段の入口"
+        },
+        {
+          "id": "mond-wp-95801",
+          "name": "ドーンマンポート・北岸の船溜まり",
+          "region": "branch-06",
+          "from": "mond-wp-95800",
+          "label": "徒歩",
+          "mode": "walk",
+          "reason": "必要Lv168"
+        }
+      ]
+    }
+  },
+  "errors": []
+}

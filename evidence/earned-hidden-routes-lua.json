@@ -1,0 +1,937 @@
+{
+  "sourceSha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+  "level": 200,
+  "trips": [
+    {
+      "origin": "mond-town",
+      "destination": "mond-road",
+      "stops": [
+        {
+          "from": "mond-town",
+          "label": "徒歩",
+          "region": "region-01",
+          "id": "mond-road",
+          "mode": "walk",
+          "name": "モンド・南の街道"
+        }
+      ]
+    },
+    {
+      "origin": "mond-road",
+      "destination": "golden-mainland-coast",
+      "stops": [
+        {
+          "from": "mond-road",
+          "label": "徒歩",
+          "region": "region-01",
+          "id": "golden-mainland-coast",
+          "mode": "walk",
+          "name": "潮だまりの船着き場"
+        }
+      ]
+    },
+    {
+      "origin": "golden-mainland-coast",
+      "destination": "golden-hub",
+      "stops": [
+        {
+          "hint": "島行きの小舟・移動に2.1秒",
+          "from": "golden-mainland-coast",
+          "label": "舟・寄港",
+          "region": "hidden-01",
+          "id": "golden-hub",
+          "mode": "boat",
+          "name": "金リンゴ群島・入口広場"
+        }
+      ]
+    },
+    {
+      "origin": "golden-hub",
+      "destination": "golden-mainland-coast",
+      "stops": [
+        {
+          "hint": "本土へ戻る小舟・移動に2.1秒",
+          "from": "golden-hub",
+          "label": "舟・寄港",
+          "region": "region-01",
+          "id": "golden-mainland-coast",
+          "mode": "boat",
+          "name": "潮だまりの船着き場"
+        }
+      ]
+    },
+    {
+      "origin": "golden-mainland-coast",
+      "destination": "golden-hub",
+      "stops": [
+        {
+          "hint": "島行きの小舟・移動に2.1秒",
+          "from": "golden-mainland-coast",
+          "label": "舟・寄港",
+          "region": "hidden-01",
+          "id": "golden-hub",
+          "mode": "boat",
+          "name": "金リンゴ群島・入口広場"
+        }
+      ]
+    },
+    {
+      "origin": "golden-hub",
+      "destination": "golden-shadow-lookouts",
+      "stops": [
+        {
+          "from": "golden-hub",
+          "label": "徒歩",
+          "region": "hidden-01",
+          "id": "golden-shadow-lookouts",
+          "mode": "walk",
+          "name": "重なり岩の見晴らし道"
+        }
+      ]
+    },
+    {
+      "origin": "golden-shadow-lookouts",
+      "destination": "golden-shadow-grotto",
+      "stops": [
+        {
+          "from": "golden-shadow-lookouts",
+          "label": "徒歩",
+          "region": "hidden-01",
+          "id": "golden-shadow-grotto",
+          "mode": "walk",
+          "name": "岩のあいだの小洞窟"
+        }
+      ]
+    },
+    {
+      "origin": "golden-shadow-grotto",
+      "destination": "golden-hub",
+      "stops": [
+        {
+          "from": "golden-shadow-grotto",
+          "label": "徒歩",
+          "region": "hidden-01",
+          "id": "golden-shadow-lookouts",
+          "mode": "walk",
+          "name": "重なり岩の見晴らし道"
+        },
+        {
+          "from": "golden-shadow-lookouts",
+          "label": "徒歩",
+          "region": "hidden-01",
+          "id": "golden-hub",
+          "mode": "walk",
+          "name": "金リンゴ群島・入口広場"
+        }
+      ]
+    },
+    {
+      "origin": "golden-hub",
+      "destination": "sites-gaa-04-side-arena",
+      "stops": [
+        {
+          "hint": "入江の桟橋を結ぶ連絡船・移動に3.6秒",
+          "from": "golden-hub",
+          "label": "舟・寄港",
+          "region": "hidden-01",
+          "id": "sites-gaa-03",
+          "mode": "boat",
+          "name": "危機の島の桟橋"
+        },
+        {
+          "hint": "上段の入口・桟橋の奥の石段",
+          "from": "sites-gaa-03",
+          "label": "徒歩",
+          "region": "hidden-01",
+          "id": "sites-gaa-04",
+          "mode": "walk",
+          "name": "危機の島の登り道"
+        },
+        {
+          "hint": "離れた横穴の任意戦へ",
+          "from": "sites-gaa-04",
+          "label": "徒歩",
+          "region": "hidden-01",
+          "id": "sites-gaa-04-side-arena",
+          "mode": "walk",
+          "name": "群島の狂風のコアの横穴"
+        }
+      ]
+    },
+    {
+      "origin": "sites-gaa-04-side-arena",
+      "destination": "sites-gaa-04",
+      "stops": [
+        {
+          "hint": "危機の島の登り道へ戻る",
+          "from": "sites-gaa-04-side-arena",
+          "label": "徒歩",
+          "region": "hidden-01",
+          "id": "sites-gaa-04",
+          "mode": "walk",
+          "name": "危機の島の登り道"
+        }
+      ]
+    },
+    {
+      "origin": "sites-gaa-04",
+      "destination": "sites-gaa-06-side-arena",
+      "stops": [
+        {
+          "hint": "桟橋の奥の石段",
+          "from": "sites-gaa-04",
+          "label": "徒歩",
+          "region": "hidden-01",
+          "id": "sites-gaa-03",
+          "mode": "walk",
+          "name": "危機の島の桟橋"
+        },
+        {
+          "hint": "入江の桟橋を結ぶ連絡船・移動に3.6秒",
+          "from": "sites-gaa-03",
+          "label": "舟・寄港",
+          "region": "hidden-01",
+          "id": "golden-hub",
+          "mode": "boat",
+          "name": "金リンゴ群島・入口広場"
+        },
+        {
+          "hint": "プリン島の浜への小舟・移動に3.2秒",
+          "from": "golden-hub",
+          "label": "舟・寄港",
+          "region": "hidden-01",
+          "id": "sites-gaa-05",
+          "mode": "boat",
+          "name": "プリン島の浜"
+        },
+        {
+          "hint": "上段の入口・浜の奥の丘道",
+          "from": "sites-gaa-05",
+          "label": "徒歩",
+          "region": "hidden-01",
+          "id": "sites-gaa-06",
+          "mode": "walk",
+          "name": "プリン島の丘"
+        },
+        {
+          "hint": "離れた横穴の任意戦へ",
+          "from": "sites-gaa-06",
+          "label": "徒歩",
+          "region": "hidden-01",
+          "id": "sites-gaa-06-side-arena",
+          "mode": "walk",
+          "name": "群島の遺跡守衛の横穴"
+        }
+      ]
+    },
+    {
+      "origin": "sites-gaa-06-side-arena",
+      "destination": "sites-gaa-06",
+      "stops": [
+        {
+          "hint": "プリン島の丘へ戻る",
+          "from": "sites-gaa-06-side-arena",
+          "label": "徒歩",
+          "region": "hidden-01",
+          "id": "sites-gaa-06",
+          "mode": "walk",
+          "name": "プリン島の丘"
+        }
+      ]
+    },
+    {
+      "origin": "sites-gaa-06",
+      "destination": "sites-gaa-07-side-arena",
+      "stops": [
+        {
+          "hint": "浜の奥の丘道",
+          "from": "sites-gaa-06",
+          "label": "徒歩",
+          "region": "hidden-01",
+          "id": "sites-gaa-05",
+          "mode": "walk",
+          "name": "プリン島の浜"
+        },
+        {
+          "hint": "プリン島の浜への小舟・移動に3.2秒",
+          "from": "sites-gaa-05",
+          "label": "舟・寄港",
+          "region": "hidden-01",
+          "id": "golden-hub",
+          "mode": "boat",
+          "name": "金リンゴ群島・入口広場"
+        },
+        {
+          "hint": "ボロボロ島へ渡る連絡船・移動に4.1秒",
+          "from": "golden-hub",
+          "label": "舟・寄港",
+          "region": "hidden-01",
+          "id": "sites-gaa-07",
+          "mode": "boat",
+          "name": "ボロボロ島の浜"
+        },
+        {
+          "hint": "離れた横穴の任意戦へ",
+          "from": "sites-gaa-07",
+          "label": "徒歩",
+          "region": "hidden-01",
+          "id": "sites-gaa-07-side-arena",
+          "mode": "walk",
+          "name": "群島のヒルチャール暴徒・炎斧の横穴"
+        }
+      ]
+    },
+    {
+      "origin": "sites-gaa-07-side-arena",
+      "destination": "sites-gaa-07",
+      "stops": [
+        {
+          "hint": "ボロボロ島の浜へ戻る",
+          "from": "sites-gaa-07-side-arena",
+          "label": "徒歩",
+          "region": "hidden-01",
+          "id": "sites-gaa-07",
+          "mode": "walk",
+          "name": "ボロボロ島の浜"
+        }
+      ]
+    },
+    {
+      "origin": "sites-gaa-07",
+      "destination": "mond-town",
+      "stops": [
+        {
+          "hint": "ボロボロ島へ渡る連絡船・移動に4.1秒",
+          "from": "sites-gaa-07",
+          "label": "舟・寄港",
+          "region": "hidden-01",
+          "id": "golden-hub",
+          "mode": "boat",
+          "name": "金リンゴ群島・入口広場"
+        },
+        {
+          "from": "golden-hub",
+          "label": "徒歩",
+          "region": "region-01",
+          "id": "mond-road",
+          "mode": "walk",
+          "name": "モンド・南の街道"
+        },
+        {
+          "from": "mond-road",
+          "label": "徒歩",
+          "region": "region-01",
+          "id": "mond-town",
+          "mode": "walk",
+          "name": "モンド・城門広場"
+        }
+      ]
+    },
+    {
+      "origin": "sumeru-hub",
+      "destination": "sumeru-entry",
+      "stops": [
+        {
+          "from": "sumeru-hub",
+          "label": "徒歩",
+          "region": "region-04",
+          "id": "sumeru-entry",
+          "mode": "walk",
+          "name": "スメール・地域の入口"
+        }
+      ]
+    },
+    {
+      "origin": "sumeru-entry",
+      "destination": "veluriyam-bottle-yard",
+      "stops": [
+        {
+          "from": "sumeru-entry",
+          "label": "徒歩",
+          "region": "region-04",
+          "id": "veluriyam-bottle-yard",
+          "mode": "walk",
+          "name": "模様瓶の庭"
+        }
+      ]
+    },
+    {
+      "origin": "veluriyam-bottle-yard",
+      "destination": "veluriyam-hub",
+      "stops": [
+        {
+          "hint": "瓶の中の広場",
+          "from": "veluriyam-bottle-yard",
+          "label": "徒歩",
+          "region": "hidden-02",
+          "id": "veluriyam-hub",
+          "mode": "walk",
+          "name": "ヴェルーリヤ・ミラージュ・入口広場"
+        }
+      ]
+    },
+    {
+      "origin": "veluriyam-hub",
+      "destination": "veluriyam-bottle-yard",
+      "stops": [
+        {
+          "hint": "瓶の庭へ戻る門",
+          "from": "veluriyam-hub",
+          "label": "徒歩",
+          "region": "region-04",
+          "id": "veluriyam-bottle-yard",
+          "mode": "walk",
+          "name": "模様瓶の庭"
+        }
+      ]
+    },
+    {
+      "origin": "veluriyam-bottle-yard",
+      "destination": "veluriyam-hub",
+      "stops": [
+        {
+          "hint": "瓶の中の広場",
+          "from": "veluriyam-bottle-yard",
+          "label": "徒歩",
+          "region": "hidden-02",
+          "id": "veluriyam-hub",
+          "mode": "walk",
+          "name": "ヴェルーリヤ・ミラージュ・入口広場"
+        }
+      ]
+    },
+    {
+      "origin": "veluriyam-hub",
+      "destination": "veluriyam-petal-stop",
+      "stops": [
+        {
+          "hint": "花棚行きのトロッコ",
+          "from": "veluriyam-hub",
+          "label": "鉄道",
+          "region": "hidden-02",
+          "id": "veluriyam-trolley-out",
+          "mode": "rail",
+          "name": "花棚へ向かうトロッコ"
+        },
+        {
+          "hint": "出発から1.8〜6.3秒の間に途中下車",
+          "from": "veluriyam-trolley-out",
+          "label": "鉄道",
+          "region": "hidden-02",
+          "id": "veluriyam-petal-stop",
+          "mode": "rail",
+          "name": "花棚の停留所"
+        }
+      ]
+    },
+    {
+      "origin": "veluriyam-petal-stop",
+      "destination": "veluriyam-petal-lookout",
+      "stops": [
+        {
+          "hint": "上段の入口・花棚の細道",
+          "from": "veluriyam-petal-stop",
+          "label": "徒歩",
+          "region": "hidden-02",
+          "id": "veluriyam-petal-lookout",
+          "mode": "walk",
+          "name": "花びら越しの展望台"
+        }
+      ]
+    },
+    {
+      "origin": "veluriyam-petal-lookout",
+      "destination": "veluriyam-petal-stop",
+      "stops": [
+        {
+          "from": "veluriyam-petal-lookout",
+          "label": "徒歩",
+          "region": "hidden-02",
+          "id": "veluriyam-petal-stop",
+          "mode": "walk",
+          "name": "花棚の停留所"
+        }
+      ]
+    },
+    {
+      "origin": "veluriyam-trolley-back",
+      "destination": "veluriyam-hub",
+      "stops": [
+        {
+          "hint": "発車から8.4秒で到着",
+          "from": "veluriyam-trolley-back",
+          "label": "鉄道",
+          "region": "hidden-02",
+          "id": "veluriyam-hub",
+          "mode": "rail",
+          "name": "ヴェルーリヤ・ミラージュ・入口広場"
+        }
+      ]
+    },
+    {
+      "origin": "veluriyam-hub",
+      "destination": "sites-vlm-02",
+      "stops": [
+        {
+          "from": "veluriyam-hub",
+          "label": "徒歩",
+          "region": "hidden-02",
+          "id": "sites-vlm-02",
+          "mode": "walk",
+          "name": "銀瓶の庭の道"
+        }
+      ]
+    },
+    {
+      "origin": "sites-vlm-02",
+      "destination": "sumeru-hub",
+      "stops": [
+        {
+          "from": "sites-vlm-02",
+          "label": "徒歩",
+          "region": "hidden-02",
+          "id": "veluriyam-hub",
+          "mode": "walk",
+          "name": "ヴェルーリヤ・ミラージュ・入口広場"
+        },
+        {
+          "from": "veluriyam-hub",
+          "label": "徒歩",
+          "region": "region-04",
+          "id": "sumeru-entry",
+          "mode": "walk",
+          "name": "スメール・地域の入口"
+        },
+        {
+          "from": "sumeru-entry",
+          "label": "徒歩",
+          "region": "region-04",
+          "id": "sumeru-hub",
+          "mode": "walk",
+          "name": "スメール・樹陰の広場"
+        }
+      ]
+    },
+    {
+      "origin": "fontaine-hub",
+      "destination": "fontaine-hub",
+      "stops": []
+    },
+    {
+      "origin": "fontaine-hub",
+      "destination": "simulanka-book-room",
+      "stops": [
+        {
+          "from": "fontaine-hub",
+          "label": "徒歩",
+          "region": "region-05",
+          "id": "simulanka-book-room",
+          "mode": "walk",
+          "name": "折り目の読書室"
+        }
+      ]
+    },
+    {
+      "origin": "simulanka-book-room",
+      "destination": "simulanka-hub",
+      "stops": [
+        {
+          "hint": "上段の入口・ページの向こうの広場",
+          "from": "simulanka-book-room",
+          "label": "徒歩",
+          "region": "hidden-03",
+          "id": "simulanka-hub",
+          "mode": "walk",
+          "name": "シムランカ・入口広場"
+        }
+      ]
+    },
+    {
+      "origin": "simulanka-hub",
+      "destination": "simulanka-book-room",
+      "stops": [
+        {
+          "hint": "本の外の読書室",
+          "from": "simulanka-hub",
+          "label": "徒歩",
+          "region": "region-05",
+          "id": "simulanka-book-room",
+          "mode": "walk",
+          "name": "折り目の読書室"
+        }
+      ]
+    },
+    {
+      "origin": "simulanka-book-room",
+      "destination": "simulanka-hub",
+      "stops": [
+        {
+          "hint": "上段の入口・ページの向こうの広場",
+          "from": "simulanka-book-room",
+          "label": "徒歩",
+          "region": "hidden-03",
+          "id": "simulanka-hub",
+          "mode": "walk",
+          "name": "シムランカ・入口広場"
+        }
+      ]
+    },
+    {
+      "origin": "simulanka-hub",
+      "destination": "simulanka-fold-valley",
+      "stops": [
+        {
+          "from": "simulanka-hub",
+          "label": "徒歩",
+          "region": "hidden-03",
+          "id": "simulanka-fold-valley",
+          "mode": "walk",
+          "name": "三枚板の紙の谷"
+        }
+      ]
+    },
+    {
+      "origin": "simulanka-fold-valley",
+      "destination": "simulanka-lantern-perch",
+      "stops": [
+        {
+          "hint": "上段の入口・紙の灯りの台",
+          "from": "simulanka-fold-valley",
+          "label": "徒歩",
+          "region": "hidden-03",
+          "id": "simulanka-lantern-perch",
+          "mode": "walk",
+          "name": "紙の灯りの止まり木"
+        }
+      ]
+    },
+    {
+      "origin": "simulanka-lantern-perch",
+      "destination": "simulanka-hub",
+      "stops": [
+        {
+          "hint": "入口広場への近道",
+          "from": "simulanka-lantern-perch",
+          "label": "徒歩",
+          "region": "hidden-03",
+          "id": "simulanka-hub",
+          "mode": "walk",
+          "name": "シムランカ・入口広場"
+        }
+      ]
+    },
+    {
+      "origin": "simulanka-hub",
+      "destination": "sites-sim-06-side-arena",
+      "stops": [
+        {
+          "from": "simulanka-hub",
+          "label": "徒歩",
+          "region": "hidden-03",
+          "id": "sites-sim-02",
+          "mode": "walk",
+          "name": "祝福の森・小径"
+        },
+        {
+          "from": "sites-sim-02",
+          "label": "徒歩",
+          "region": "hidden-03",
+          "id": "sites-sim-04",
+          "mode": "walk",
+          "name": "星軌の駅"
+        },
+        {
+          "hint": "王城行きの星軌便",
+          "from": "sites-sim-04",
+          "label": "鉄道",
+          "region": "hidden-03",
+          "id": "sites-star-rail-out",
+          "mode": "rail",
+          "name": "王城行きの星軌便"
+        },
+        {
+          "hint": "発車から4.8秒で到着",
+          "from": "sites-star-rail-out",
+          "label": "鉄道",
+          "region": "hidden-03",
+          "id": "sites-sim-05",
+          "mode": "rail",
+          "name": "王城・安全広場"
+        },
+        {
+          "from": "sites-sim-05",
+          "label": "徒歩",
+          "region": "hidden-03",
+          "id": "sites-sim-06",
+          "mode": "walk",
+          "name": "積み木の裏道"
+        },
+        {
+          "hint": "離れた横穴の任意戦へ",
+          "from": "sites-sim-06",
+          "label": "徒歩",
+          "region": "hidden-03",
+          "id": "sites-sim-06-side-arena",
+          "mode": "walk",
+          "name": "絵本の国のヒルチャール暴徒・炎斧の横穴"
+        }
+      ]
+    },
+    {
+      "origin": "sites-sim-06-side-arena",
+      "destination": "sites-sim-06",
+      "stops": [
+        {
+          "hint": "積み木の裏道へ戻る",
+          "from": "sites-sim-06-side-arena",
+          "label": "徒歩",
+          "region": "hidden-03",
+          "id": "sites-sim-06",
+          "mode": "walk",
+          "name": "積み木の裏道"
+        }
+      ]
+    },
+    {
+      "origin": "sites-sim-06",
+      "destination": "sites-sim-08-side-arena",
+      "stops": [
+        {
+          "from": "sites-sim-06",
+          "label": "徒歩",
+          "region": "hidden-03",
+          "id": "sites-sim-05",
+          "mode": "walk",
+          "name": "王城・安全広場"
+        },
+        {
+          "hint": "砕けた海への渡り台・移動に2.9秒",
+          "from": "sites-sim-05",
+          "label": "昇降機",
+          "region": "hidden-03",
+          "id": "sites-sim-07",
+          "mode": "lift",
+          "name": "砕けた海の上陸点"
+        },
+        {
+          "from": "sites-sim-07",
+          "label": "徒歩",
+          "region": "hidden-03",
+          "id": "sites-sim-08",
+          "mode": "walk",
+          "name": "最後のページの挑戦区画"
+        },
+        {
+          "hint": "離れた横穴の任意戦へ",
+          "from": "sites-sim-08",
+          "label": "徒歩",
+          "region": "hidden-03",
+          "id": "sites-sim-08-side-arena",
+          "mode": "walk",
+          "name": "絵本の国のヒルチャールレンジャー・水の横穴"
+        }
+      ]
+    },
+    {
+      "origin": "sites-sim-08-side-arena",
+      "destination": "sites-sim-08",
+      "stops": [
+        {
+          "hint": "最後のページへ戻る",
+          "from": "sites-sim-08-side-arena",
+          "label": "徒歩",
+          "region": "hidden-03",
+          "id": "sites-sim-08",
+          "mode": "walk",
+          "name": "最後のページの挑戦区画"
+        }
+      ]
+    },
+    {
+      "origin": "sites-sim-08",
+      "destination": "fontaine-hub",
+      "stops": [
+        {
+          "from": "sites-sim-08",
+          "label": "徒歩",
+          "region": "hidden-03",
+          "id": "sites-sim-07",
+          "mode": "walk",
+          "name": "砕けた海の上陸点"
+        },
+        {
+          "hint": "砕けた海への渡り台・移動に2.9秒",
+          "from": "sites-sim-07",
+          "label": "昇降機",
+          "region": "hidden-03",
+          "id": "sites-sim-05",
+          "mode": "lift",
+          "name": "王城・安全広場"
+        },
+        {
+          "hint": "星軌の駅へ戻る便",
+          "from": "sites-sim-05",
+          "label": "鉄道",
+          "region": "hidden-03",
+          "id": "sites-star-rail-in",
+          "mode": "rail",
+          "name": "星軌の駅へ戻る便"
+        },
+        {
+          "hint": "発車から4.8秒で到着",
+          "from": "sites-star-rail-in",
+          "label": "鉄道",
+          "region": "hidden-03",
+          "id": "sites-sim-04",
+          "mode": "rail",
+          "name": "星軌の駅"
+        },
+        {
+          "from": "sites-sim-04",
+          "label": "徒歩",
+          "region": "hidden-03",
+          "id": "sites-sim-02",
+          "mode": "walk",
+          "name": "祝福の森・小径"
+        },
+        {
+          "from": "sites-sim-02",
+          "label": "徒歩",
+          "region": "hidden-03",
+          "id": "simulanka-hub",
+          "mode": "walk",
+          "name": "シムランカ・入口広場"
+        },
+        {
+          "from": "simulanka-hub",
+          "label": "徒歩",
+          "region": "region-05",
+          "id": "fontaine-hub",
+          "mode": "walk",
+          "name": "フォンテーヌ・水辺の広場"
+        }
+      ]
+    }
+  ],
+  "crossings": 62,
+  "reports": [
+    {
+      "quest": "golden-little-boat",
+      "xp": 220,
+      "mora": 120
+    },
+    {
+      "quest": "golden-trace-shadows",
+      "xp": 420,
+      "mora": 210
+    },
+    {
+      "quest": "veluriyam-bottle-ticket",
+      "xp": 13400,
+      "mora": 510
+    },
+    {
+      "quest": "veluriyam-trolley-lookout",
+      "xp": 18100,
+      "mora": 680
+    },
+    {
+      "quest": "simulanka-open-page",
+      "xp": 25500,
+      "mora": 790
+    },
+    {
+      "quest": "simulanka-folded-road",
+      "xp": 33400,
+      "mora": 1060
+    }
+  ],
+  "battles": [
+    {
+      "node": "golden-shadow-grotto",
+      "targets": [
+        "golden-cave-patrol-1",
+        "golden-cave-patrol-2",
+        "golden-cave-patrol-3"
+      ],
+      "kills": 3,
+      "xp": 3
+    },
+    {
+      "node": "sites-gaa-04-side-arena",
+      "targets": [
+        "sites-gaa-04-side-arena-guardian"
+      ],
+      "kills": 1,
+      "xp": 25
+    },
+    {
+      "node": "sites-gaa-06-side-arena",
+      "targets": [
+        "sites-gaa-06-side-arena-guardian"
+      ],
+      "kills": 1,
+      "xp": 30
+    },
+    {
+      "node": "sites-gaa-07-side-arena",
+      "targets": [
+        "sites-gaa-07-side-arena-guardian"
+      ],
+      "kills": 1,
+      "xp": 30
+    },
+    {
+      "node": "sites-vlm-02",
+      "targets": [
+        "sites-vlm-02-1"
+      ],
+      "kills": 3,
+      "xp": 86
+    },
+    {
+      "node": "simulanka-fold-valley",
+      "targets": [
+        "simulanka-fold-guard-1",
+        "simulanka-fold-guard-2"
+      ],
+      "kills": 2,
+      "xp": 104
+    },
+    {
+      "node": "sites-sim-06-side-arena",
+      "targets": [
+        "sites-sim-06-side-arena-guardian"
+      ],
+      "kills": 1,
+      "xp": 857
+    },
+    {
+      "node": "sites-sim-08-side-arena",
+      "targets": [
+        "sites-sim-08-side-arena-guardian"
+      ],
+      "kills": 1,
+      "xp": 973
+    }
+  ],
+  "locks": [
+    {
+      "node": "golden-mainland-coast",
+      "target": "golden-hub",
+      "reason": "依頼「地図のすみの、小さな船」を進めてください。"
+    },
+    {
+      "node": "veluriyam-hub",
+      "target": "veluriyam-trolley-out",
+      "reason": "依頼「瓶の向こうの、特別な切符」を報告してください。"
+    },
+    {
+      "node": "veluriyam-petal-stop",
+      "target": "veluriyam-petal-lookout",
+      "reason": "依頼「トロッコを降りた、その先に」を進めてください。"
+    }
+  ],
+  "resumedAt": "fontaine-hub",
+  "returns": 0
+}

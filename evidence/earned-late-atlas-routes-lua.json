@@ -1,0 +1,936 @@
+{
+  "routes": [
+    {
+      "level": 160,
+      "sourceSha256": "ebe8418f66adf18b7e5e5e02ec8a6ce65dffbbce2be03ec96cf6ac9fed04f1e6",
+      "origin": "natlan-hub",
+      "trips": [
+        {
+          "origin": "natlan-hub",
+          "destination": "nat-wp-96380",
+          "stops": [
+            {
+              "from": "natlan-hub",
+              "label": "徒歩",
+              "region": "region-06",
+              "id": "natlan-field",
+              "mode": "walk",
+              "name": "ナタ・岩場の道"
+            },
+            {
+              "from": "natlan-field",
+              "label": "徒歩",
+              "region": "region-06",
+              "id": "nat-wp-72429",
+              "mode": "walk",
+              "name": "万火のほとぎ周辺・競技場の裏口"
+            },
+            {
+              "from": "nat-wp-72429",
+              "label": "徒歩",
+              "region": "region-06",
+              "id": "nat-wp-79051",
+              "mode": "walk",
+              "name": "クァワカン断崖周辺・断崖南の道"
+            },
+            {
+              "from": "nat-wp-79051",
+              "label": "徒歩",
+              "region": "region-06",
+              "id": "nat-wp-82572",
+              "mode": "walk",
+              "name": "アトクパンの大地・森から入る北の道"
+            },
+            {
+              "from": "nat-wp-82572",
+              "label": "徒歩",
+              "region": "region-06",
+              "id": "nat-wp-82558",
+              "mode": "walk",
+              "name": "アトクパンの大地・北東の細道"
+            },
+            {
+              "from": "nat-wp-82558",
+              "label": "徒歩",
+              "region": "region-06",
+              "id": "nat-wp-82559",
+              "mode": "walk",
+              "name": "アトクパンの大地・東の外輪の棚"
+            },
+            {
+              "from": "nat-wp-82559",
+              "label": "徒歩",
+              "region": "region-06",
+              "id": "nat-wp-82557",
+              "mode": "walk",
+              "name": "アトクパンの大地・火山東の神像"
+            },
+            {
+              "from": "nat-wp-82557",
+              "label": "徒歩",
+              "region": "region-06",
+              "id": "nat-wp-82560",
+              "mode": "walk",
+              "name": "アトクパンの大地・火山の入口台"
+            },
+            {
+              "hint": "上段の入口・火山と古の聖山を結ぶ昇降機・移動に2.5秒",
+              "from": "nat-wp-82560",
+              "label": "昇降機",
+              "region": "official-area-12",
+              "id": "nat-mountain-camp",
+              "mode": "lift",
+              "name": "古の聖山・南の入口拠点"
+            },
+            {
+              "from": "nat-mountain-camp",
+              "label": "徒歩",
+              "region": "official-area-12",
+              "id": "nat-wp-84104",
+              "mode": "walk",
+              "name": "古の聖山・南の石段"
+            },
+            {
+              "hint": "西の山への渡り台・移動に2.3秒",
+              "from": "nat-wp-84104",
+              "label": "昇降機",
+              "region": "official-area-12",
+              "id": "nat-wp-84105",
+              "mode": "lift",
+              "name": "古の聖山・西の岩山の裾"
+            },
+            {
+              "from": "nat-wp-84105",
+              "label": "徒歩",
+              "region": "official-area-12",
+              "id": "nat-wp-84106",
+              "mode": "walk",
+              "name": "古の聖山・西の火道"
+            },
+            {
+              "from": "nat-wp-84106",
+              "label": "徒歩",
+              "region": "official-area-12",
+              "id": "nat-wp-84108",
+              "mode": "walk",
+              "name": "古の聖山・西の山口"
+            },
+            {
+              "from": "nat-wp-84108",
+              "label": "徒歩",
+              "region": "official-area-12",
+              "id": "nat-wp-84109",
+              "mode": "walk",
+              "name": "古の聖山・中央の浮き台"
+            },
+            {
+              "hint": "上段の入口・北の遠望台への昇降機・移動に2.3秒",
+              "from": "nat-wp-84109",
+              "label": "昇降機",
+              "region": "official-area-12",
+              "id": "nat-wp-84110",
+              "mode": "lift",
+              "name": "古の聖山・北の遠望台"
+            },
+            {
+              "hint": "古の聖山から空の神殿へ向かう昇降機・移動に3.2秒",
+              "from": "nat-wp-84110",
+              "label": "昇降機",
+              "region": "official-area-14",
+              "id": "nat-sky-camp",
+              "mode": "lift",
+              "name": "空の神殿・西の入口拠点"
+            },
+            {
+              "from": "nat-sky-camp",
+              "label": "徒歩",
+              "region": "official-area-14",
+              "id": "nat-wp-96366",
+              "mode": "walk",
+              "name": "空の神殿・西の浮き庭"
+            },
+            {
+              "from": "nat-wp-96366",
+              "label": "徒歩",
+              "region": "official-area-14",
+              "id": "nat-wp-96367",
+              "mode": "walk",
+              "name": "空の神殿・南の渡り台"
+            },
+            {
+              "hint": "南東の小島への渡り台・移動に2.4秒",
+              "from": "nat-wp-96367",
+              "label": "昇降機",
+              "region": "official-area-14",
+              "id": "nat-wp-96368",
+              "mode": "lift",
+              "name": "空の神殿・南東の小島"
+            },
+            {
+              "hint": "南東の雲下に降りる昇降機・移動に2秒",
+              "from": "nat-wp-96368",
+              "label": "昇降機",
+              "region": "official-area-14",
+              "id": "nat-wp-96380",
+              "mode": "lift",
+              "name": "空の神殿・南の雲の下の小間"
+            }
+          ]
+        },
+        {
+          "origin": "nat-wp-96380",
+          "destination": "natlan-hub",
+          "stops": [
+            {
+              "hint": "南東の小島へ上がる昇降機・移動に2秒",
+              "from": "nat-wp-96380",
+              "label": "昇降機",
+              "region": "official-area-14",
+              "id": "nat-wp-96368",
+              "mode": "lift",
+              "name": "空の神殿・南東の小島"
+            },
+            {
+              "hint": "南の渡り台へ戻る足場・移動に2.4秒",
+              "from": "nat-wp-96368",
+              "label": "昇降機",
+              "region": "official-area-14",
+              "id": "nat-wp-96367",
+              "mode": "lift",
+              "name": "空の神殿・南の渡り台"
+            },
+            {
+              "from": "nat-wp-96367",
+              "label": "徒歩",
+              "region": "official-area-14",
+              "id": "nat-wp-96366",
+              "mode": "walk",
+              "name": "空の神殿・西の浮き庭"
+            },
+            {
+              "from": "nat-wp-96366",
+              "label": "徒歩",
+              "region": "official-area-14",
+              "id": "nat-sky-camp",
+              "mode": "walk",
+              "name": "空の神殿・西の入口拠点"
+            },
+            {
+              "hint": "古の聖山へ戻る昇降機・移動に3.2秒",
+              "from": "nat-sky-camp",
+              "label": "昇降機",
+              "region": "official-area-12",
+              "id": "nat-wp-84110",
+              "mode": "lift",
+              "name": "古の聖山・北の遠望台"
+            },
+            {
+              "hint": "北の遠望台への昇降機・移動に2.3秒",
+              "from": "nat-wp-84110",
+              "label": "昇降機",
+              "region": "official-area-12",
+              "id": "nat-wp-84109",
+              "mode": "lift",
+              "name": "古の聖山・中央の浮き台"
+            },
+            {
+              "from": "nat-wp-84109",
+              "label": "徒歩",
+              "region": "official-area-12",
+              "id": "nat-wp-84108",
+              "mode": "walk",
+              "name": "古の聖山・西の山口"
+            },
+            {
+              "from": "nat-wp-84108",
+              "label": "徒歩",
+              "region": "official-area-12",
+              "id": "nat-wp-84106",
+              "mode": "walk",
+              "name": "古の聖山・西の火道"
+            },
+            {
+              "from": "nat-wp-84106",
+              "label": "徒歩",
+              "region": "official-area-12",
+              "id": "nat-wp-84105",
+              "mode": "walk",
+              "name": "古の聖山・西の岩山の裾"
+            },
+            {
+              "hint": "西の山への渡り台・移動に2.3秒",
+              "from": "nat-wp-84105",
+              "label": "昇降機",
+              "region": "official-area-12",
+              "id": "nat-wp-84104",
+              "mode": "lift",
+              "name": "古の聖山・南の石段"
+            },
+            {
+              "from": "nat-wp-84104",
+              "label": "徒歩",
+              "region": "official-area-12",
+              "id": "nat-mountain-camp",
+              "mode": "walk",
+              "name": "古の聖山・南の入口拠点"
+            },
+            {
+              "hint": "火山と古の聖山を結ぶ昇降機・移動に2.5秒",
+              "from": "nat-mountain-camp",
+              "label": "昇降機",
+              "region": "region-06",
+              "id": "nat-wp-82560",
+              "mode": "lift",
+              "name": "アトクパンの大地・火山の入口台"
+            },
+            {
+              "from": "nat-wp-82560",
+              "label": "徒歩",
+              "region": "region-06",
+              "id": "nat-wp-82557",
+              "mode": "walk",
+              "name": "アトクパンの大地・火山東の神像"
+            },
+            {
+              "from": "nat-wp-82557",
+              "label": "徒歩",
+              "region": "region-06",
+              "id": "nat-wp-82559",
+              "mode": "walk",
+              "name": "アトクパンの大地・東の外輪の棚"
+            },
+            {
+              "from": "nat-wp-82559",
+              "label": "徒歩",
+              "region": "region-06",
+              "id": "nat-wp-82558",
+              "mode": "walk",
+              "name": "アトクパンの大地・北東の細道"
+            },
+            {
+              "from": "nat-wp-82558",
+              "label": "徒歩",
+              "region": "region-06",
+              "id": "nat-wp-82572",
+              "mode": "walk",
+              "name": "アトクパンの大地・森から入る北の道"
+            },
+            {
+              "from": "nat-wp-82572",
+              "label": "徒歩",
+              "region": "region-06",
+              "id": "nat-wp-79051",
+              "mode": "walk",
+              "name": "クァワカン断崖周辺・断崖南の道"
+            },
+            {
+              "from": "nat-wp-79051",
+              "label": "徒歩",
+              "region": "region-06",
+              "id": "nat-wp-72429",
+              "mode": "walk",
+              "name": "万火のほとぎ周辺・競技場の裏口"
+            },
+            {
+              "from": "nat-wp-72429",
+              "label": "徒歩",
+              "region": "region-06",
+              "id": "natlan-field",
+              "mode": "walk",
+              "name": "ナタ・岩場の道"
+            },
+            {
+              "from": "natlan-field",
+              "label": "徒歩",
+              "region": "region-06",
+              "id": "natlan-hub",
+              "mode": "walk",
+              "name": "ナタ・谷の集落"
+            }
+          ]
+        }
+      ],
+      "battles": [],
+      "lockedGates": [],
+      "visitedTarget": "nat-wp-96380"
+    },
+    {
+      "level": 165,
+      "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+      "origin": "mond-town",
+      "trips": [
+        {
+          "origin": "mond-town",
+          "destination": "mond-wp-95800",
+          "stops": [
+            {
+              "from": "mond-town",
+              "label": "徒歩",
+              "region": "region-01",
+              "id": "mond-road",
+              "mode": "walk",
+              "name": "モンド・南の街道"
+            },
+            {
+              "from": "mond-road",
+              "label": "徒歩",
+              "region": "branch-06",
+              "id": "dornman-camp",
+              "mode": "walk",
+              "name": "ドーンマンポート・入口拠点"
+            },
+            {
+              "from": "dornman-camp",
+              "label": "徒歩",
+              "region": "branch-06",
+              "id": "mond-wp-95798",
+              "mode": "walk",
+              "name": "ドーンマンポート・港の石段広場"
+            },
+            {
+              "hint": "上段の入口",
+              "from": "mond-wp-95798",
+              "label": "徒歩",
+              "region": "branch-06",
+              "id": "mond-wp-95800",
+              "mode": "walk",
+              "name": "ドーンマンポート・港北の風が抜ける丘"
+            }
+          ]
+        },
+        {
+          "origin": "mond-wp-95800",
+          "destination": "mond-town",
+          "stops": [
+            {
+              "from": "mond-wp-95800",
+              "label": "徒歩",
+              "region": "branch-06",
+              "id": "mond-wp-95798",
+              "mode": "walk",
+              "name": "ドーンマンポート・港の石段広場"
+            },
+            {
+              "from": "mond-wp-95798",
+              "label": "徒歩",
+              "region": "branch-06",
+              "id": "dornman-camp",
+              "mode": "walk",
+              "name": "ドーンマンポート・入口拠点"
+            },
+            {
+              "from": "dornman-camp",
+              "label": "徒歩",
+              "region": "region-01",
+              "id": "mond-road",
+              "mode": "walk",
+              "name": "モンド・南の街道"
+            },
+            {
+              "from": "mond-road",
+              "label": "徒歩",
+              "region": "region-01",
+              "id": "mond-town",
+              "mode": "walk",
+              "name": "モンド・城門広場"
+            }
+          ]
+        }
+      ],
+      "battles": [],
+      "lockedGates": [
+        {
+          "node": "mond-wp-95800",
+          "target": "mond-wp-95801",
+          "reason": "必要レベル 168"
+        }
+      ],
+      "blockedPlan": {
+        "stops": [
+          {
+            "from": "mond-town",
+            "label": "徒歩",
+            "region": "region-01",
+            "id": "mond-road",
+            "mode": "walk",
+            "name": "モンド・南の街道"
+          },
+          {
+            "from": "mond-road",
+            "label": "徒歩",
+            "region": "branch-06",
+            "id": "dornman-camp",
+            "mode": "walk",
+            "name": "ドーンマンポート・入口拠点"
+          },
+          {
+            "from": "dornman-camp",
+            "label": "徒歩",
+            "region": "branch-06",
+            "id": "mond-wp-95798",
+            "mode": "walk",
+            "name": "ドーンマンポート・港の石段広場"
+          },
+          {
+            "hint": "上段の入口",
+            "from": "mond-wp-95798",
+            "label": "徒歩",
+            "region": "branch-06",
+            "id": "mond-wp-95800",
+            "mode": "walk",
+            "name": "ドーンマンポート・港北の風が抜ける丘"
+          },
+          {
+            "from": "mond-wp-95800",
+            "reason": "必要Lv168",
+            "label": "徒歩",
+            "region": "branch-06",
+            "id": "mond-wp-95801",
+            "mode": "walk",
+            "name": "ドーンマンポート・北岸の船溜まり"
+          }
+        ],
+        "afterTransfer": false,
+        "reason": "必要Lv168",
+        "status": "blocked"
+      }
+    },
+    {
+      "level": 180,
+      "sourceSha256": "c9847a79b92f4522b2cf455f50cb8f23a07dc93f7036148615aeee37f997a4ef",
+      "origin": "mond-town",
+      "trips": [
+        {
+          "origin": "mond-town",
+          "destination": "mond-wp-95801",
+          "stops": [
+            {
+              "from": "mond-town",
+              "label": "徒歩",
+              "region": "region-01",
+              "id": "mond-road",
+              "mode": "walk",
+              "name": "モンド・南の街道"
+            },
+            {
+              "from": "mond-road",
+              "label": "徒歩",
+              "region": "branch-06",
+              "id": "dornman-camp",
+              "mode": "walk",
+              "name": "ドーンマンポート・入口拠点"
+            },
+            {
+              "from": "dornman-camp",
+              "label": "徒歩",
+              "region": "branch-06",
+              "id": "mond-wp-95798",
+              "mode": "walk",
+              "name": "ドーンマンポート・港の石段広場"
+            },
+            {
+              "hint": "上段の入口",
+              "from": "mond-wp-95798",
+              "label": "徒歩",
+              "region": "branch-06",
+              "id": "mond-wp-95800",
+              "mode": "walk",
+              "name": "ドーンマンポート・港北の風が抜ける丘"
+            },
+            {
+              "from": "mond-wp-95800",
+              "label": "徒歩",
+              "region": "branch-06",
+              "id": "mond-wp-95801",
+              "mode": "walk",
+              "name": "ドーンマンポート・北岸の船溜まり"
+            }
+          ]
+        },
+        {
+          "origin": "mond-wp-95801",
+          "destination": "mond-town",
+          "stops": [
+            {
+              "from": "mond-wp-95801",
+              "label": "徒歩",
+              "region": "branch-06",
+              "id": "mond-wp-95800",
+              "mode": "walk",
+              "name": "ドーンマンポート・港北の風が抜ける丘"
+            },
+            {
+              "from": "mond-wp-95800",
+              "label": "徒歩",
+              "region": "branch-06",
+              "id": "mond-wp-95798",
+              "mode": "walk",
+              "name": "ドーンマンポート・港の石段広場"
+            },
+            {
+              "from": "mond-wp-95798",
+              "label": "徒歩",
+              "region": "branch-06",
+              "id": "dornman-camp",
+              "mode": "walk",
+              "name": "ドーンマンポート・入口拠点"
+            },
+            {
+              "from": "dornman-camp",
+              "label": "徒歩",
+              "region": "region-01",
+              "id": "mond-road",
+              "mode": "walk",
+              "name": "モンド・南の街道"
+            },
+            {
+              "from": "mond-road",
+              "label": "徒歩",
+              "region": "region-01",
+              "id": "mond-town",
+              "mode": "walk",
+              "name": "モンド・城門広場"
+            }
+          ]
+        }
+      ],
+      "battles": [],
+      "lockedGates": [],
+      "visitedTarget": "mond-wp-95801"
+    },
+    {
+      "level": 180,
+      "sourceSha256": "c9847a79b92f4522b2cf455f50cb8f23a07dc93f7036148615aeee37f997a4ef",
+      "origin": "nod-town",
+      "trips": [
+        {
+          "origin": "nod-town",
+          "destination": "sites-nsp-03",
+          "stops": [
+            {
+              "from": "nod-town",
+              "label": "徒歩",
+              "region": "region-07",
+              "id": "nod-field",
+              "mode": "walk",
+              "name": "ナド・クライ・月明かりの道"
+            },
+            {
+              "from": "nod-field",
+              "label": "徒歩",
+              "region": "branch-08",
+              "id": "nod-special-camp",
+              "mode": "walk",
+              "name": "ナド・クライ特別地域（仮）・入口拠点"
+            },
+            {
+              "from": "nod-special-camp",
+              "label": "徒歩",
+              "region": "branch-08",
+              "id": "sites-nsp-02",
+              "mode": "walk",
+              "name": "外縁の霜道"
+            },
+            {
+              "from": "sites-nsp-02",
+              "label": "徒歩",
+              "region": "branch-08",
+              "id": "sites-nsp-03",
+              "mode": "walk",
+              "name": "見張りの林"
+            }
+          ]
+        },
+        {
+          "origin": "sites-nsp-03",
+          "destination": "nod-town",
+          "stops": [
+            {
+              "from": "sites-nsp-03",
+              "label": "徒歩",
+              "region": "branch-08",
+              "id": "sites-nsp-02",
+              "mode": "walk",
+              "name": "外縁の霜道"
+            },
+            {
+              "from": "sites-nsp-02",
+              "label": "徒歩",
+              "region": "branch-08",
+              "id": "nod-special-camp",
+              "mode": "walk",
+              "name": "ナド・クライ特別地域（仮）・入口拠点"
+            },
+            {
+              "from": "nod-special-camp",
+              "label": "徒歩",
+              "region": "region-07",
+              "id": "nod-field",
+              "mode": "walk",
+              "name": "ナド・クライ・月明かりの道"
+            },
+            {
+              "from": "nod-field",
+              "label": "徒歩",
+              "region": "region-07",
+              "id": "nod-town",
+              "mode": "walk",
+              "name": "ナド・クライ・町の広場"
+            }
+          ]
+        }
+      ],
+      "battles": [],
+      "lockedGates": [
+        {
+          "node": "sites-nsp-03",
+          "target": "sites-nsp-05",
+          "reason": "必要レベル 184"
+        }
+      ],
+      "blockedPlan": {
+        "stops": [
+          {
+            "from": "nod-town",
+            "label": "徒歩",
+            "region": "region-07",
+            "id": "nod-field",
+            "mode": "walk",
+            "name": "ナド・クライ・月明かりの道"
+          },
+          {
+            "from": "nod-field",
+            "label": "徒歩",
+            "region": "branch-08",
+            "id": "nod-special-camp",
+            "mode": "walk",
+            "name": "ナド・クライ特別地域（仮）・入口拠点"
+          },
+          {
+            "from": "nod-special-camp",
+            "label": "徒歩",
+            "region": "branch-08",
+            "id": "sites-nsp-02",
+            "mode": "walk",
+            "name": "外縁の霜道"
+          },
+          {
+            "from": "sites-nsp-02",
+            "label": "徒歩",
+            "region": "branch-08",
+            "id": "sites-nsp-03",
+            "mode": "walk",
+            "name": "見張りの林"
+          },
+          {
+            "from": "sites-nsp-03",
+            "reason": "必要Lv184",
+            "label": "徒歩",
+            "region": "branch-08",
+            "id": "sites-nsp-05",
+            "mode": "walk",
+            "name": "境界の観測所"
+          },
+          {
+            "hint": "観測塔から凍った水路へ降りる昇降機・移動に2.4秒",
+            "from": "sites-nsp-05",
+            "reason": "必要Lv186",
+            "label": "昇降機",
+            "region": "branch-08",
+            "id": "sites-nsp-06",
+            "mode": "lift",
+            "name": "凍った水路の入口"
+          },
+          {
+            "hint": "氷の下の石造回廊",
+            "from": "sites-nsp-06",
+            "reason": "必要Lv188",
+            "label": "徒歩",
+            "region": "branch-08",
+            "id": "sites-nsp-07",
+            "mode": "walk",
+            "name": "奥の遺構"
+          },
+          {
+            "hint": "極光境界の挑戦区画へ",
+            "from": "sites-nsp-07",
+            "reason": "必要Lv190",
+            "label": "徒歩",
+            "region": "branch-08",
+            "id": "sites-nsp-08",
+            "mode": "walk",
+            "name": "極光境界の挑戦区画"
+          }
+        ],
+        "afterTransfer": false,
+        "reason": "必要Lv184",
+        "status": "blocked"
+      }
+    },
+    {
+      "level": 200,
+      "sourceSha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+      "origin": "nod-town",
+      "trips": [
+        {
+          "origin": "nod-town",
+          "destination": "sites-nsp-08",
+          "stops": [
+            {
+              "from": "nod-town",
+              "label": "徒歩",
+              "region": "region-07",
+              "id": "nod-field",
+              "mode": "walk",
+              "name": "ナド・クライ・月明かりの道"
+            },
+            {
+              "from": "nod-field",
+              "label": "徒歩",
+              "region": "branch-08",
+              "id": "nod-special-camp",
+              "mode": "walk",
+              "name": "ナド・クライ特別地域（仮）・入口拠点"
+            },
+            {
+              "from": "nod-special-camp",
+              "label": "徒歩",
+              "region": "branch-08",
+              "id": "sites-nsp-02",
+              "mode": "walk",
+              "name": "外縁の霜道"
+            },
+            {
+              "from": "sites-nsp-02",
+              "label": "徒歩",
+              "region": "branch-08",
+              "id": "sites-nsp-03",
+              "mode": "walk",
+              "name": "見張りの林"
+            },
+            {
+              "from": "sites-nsp-03",
+              "label": "徒歩",
+              "region": "branch-08",
+              "id": "sites-nsp-05",
+              "mode": "walk",
+              "name": "境界の観測所"
+            },
+            {
+              "hint": "観測塔から凍った水路へ降りる昇降機・移動に2.4秒",
+              "from": "sites-nsp-05",
+              "label": "昇降機",
+              "region": "branch-08",
+              "id": "sites-nsp-06",
+              "mode": "lift",
+              "name": "凍った水路の入口"
+            },
+            {
+              "hint": "氷の下の石造回廊",
+              "from": "sites-nsp-06",
+              "label": "徒歩",
+              "region": "branch-08",
+              "id": "sites-nsp-07",
+              "mode": "walk",
+              "name": "奥の遺構"
+            },
+            {
+              "hint": "極光境界の挑戦区画へ",
+              "from": "sites-nsp-07",
+              "label": "徒歩",
+              "region": "branch-08",
+              "id": "sites-nsp-08",
+              "mode": "walk",
+              "name": "極光境界の挑戦区画"
+            }
+          ]
+        },
+        {
+          "origin": "sites-nsp-08",
+          "destination": "nod-town",
+          "stops": [
+            {
+              "hint": "奥の遺構へ戻る",
+              "from": "sites-nsp-08",
+              "label": "徒歩",
+              "region": "branch-08",
+              "id": "sites-nsp-07",
+              "mode": "walk",
+              "name": "奥の遺構"
+            },
+            {
+              "hint": "氷の下の石造回廊",
+              "from": "sites-nsp-07",
+              "label": "徒歩",
+              "region": "branch-08",
+              "id": "sites-nsp-06",
+              "mode": "walk",
+              "name": "凍った水路の入口"
+            },
+            {
+              "hint": "境界の観測所へ上がる昇降機・移動に2.4秒",
+              "from": "sites-nsp-06",
+              "label": "昇降機",
+              "region": "branch-08",
+              "id": "sites-nsp-05",
+              "mode": "lift",
+              "name": "境界の観測所"
+            },
+            {
+              "from": "sites-nsp-05",
+              "label": "徒歩",
+              "region": "branch-08",
+              "id": "sites-nsp-03",
+              "mode": "walk",
+              "name": "見張りの林"
+            },
+            {
+              "from": "sites-nsp-03",
+              "label": "徒歩",
+              "region": "branch-08",
+              "id": "sites-nsp-02",
+              "mode": "walk",
+              "name": "外縁の霜道"
+            },
+            {
+              "from": "sites-nsp-02",
+              "label": "徒歩",
+              "region": "branch-08",
+              "id": "nod-special-camp",
+              "mode": "walk",
+              "name": "ナド・クライ特別地域（仮）・入口拠点"
+            },
+            {
+              "from": "nod-special-camp",
+              "label": "徒歩",
+              "region": "region-07",
+              "id": "nod-field",
+              "mode": "walk",
+              "name": "ナド・クライ・月明かりの道"
+            },
+            {
+              "from": "nod-field",
+              "label": "徒歩",
+              "region": "region-07",
+              "id": "nod-town",
+              "mode": "walk",
+              "name": "ナド・クライ・町の広場"
+            }
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "node": "sites-nsp-08",
+          "targets": [
+            "sites-nsp-08-guardian"
+          ],
+          "kills": 1,
+          "xp": 1203552
+        }
+      ],
+      "lockedGates": [],
+      "visitedTarget": "sites-nsp-08"
+    }
+  ]
+}

@@ -8087,7 +8087,16 @@
     "beidou_bait_evidence": "evidence/earned-beidou-bait-lua.json",
     "beidou_draft_hp_browser_evidence": "evidence/earned-beidou-balance-browser.json"
   },
-  "current_priority": "Reconcile the authored field catalog with playable late-game and hidden routes, checking level and quest gates in play, then continue matching skill effects and visual cues against the authored scope.",
+  "earned_atlas_checks": {
+    "hidden_worlds": 3,
+    "hidden_quest_reports": 6,
+    "hidden_battle_stages": 8,
+    "late_route_sessions": 5,
+    "lua_hidden_evidence": "evidence/earned-hidden-routes-lua.json",
+    "lua_late_evidence": "evidence/earned-late-atlas-routes-lua.json",
+    "browser_evidence": "evidence/earned-atlas-routes-browser.json"
+  },
+  "current_priority": "Use earned saves for the optional Dornman Port windworks and Frostmoon side-quest chains, checking terrain, map directions and quest reporting in play, then continue matching skill effects and visual cues against the authored scope.",
   "skill_runtime_checks": {
     "traveler_activations": 60,
     "companion_activations": 40,

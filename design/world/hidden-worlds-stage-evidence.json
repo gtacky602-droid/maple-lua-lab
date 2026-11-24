@@ -1,7 +1,8 @@
 {
   "scope": "Golden Apple Archipelago, Veluriyam Mirage and Simulanka stages outside the marker, hunt, voyage and short transfer ledgers.",
   "stage_count": 32,
-  "interpretation": "Hidden area discovery and map visibility use Lua level fixtures to reach the three clues. Golden starts at Lv1 in the Chrome quest run. The optional battle entries have gate and enemy placement checks.",
+  "interpretation": "Earlier discovery and traversal runs use Lua level fixtures, and the Golden quest run starts at Lv1 in Chrome. The earned run uses a Lv200 save from the Lv1 route and completes both quests in each world. It fights the optional guardians in the five hidden side arenas.",
+  "earned_run": "evidence/earned-hidden-routes-lua.json",
   "entries": [
     {
       "region": "金リンゴ群島",

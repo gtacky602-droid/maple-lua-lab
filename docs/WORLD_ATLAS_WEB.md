@@ -84,6 +84,22 @@ ChromeではLv36で港東からLv34の採石斜面へ往復し、Lv38の入口�
 
 Luaで両ルートの1Lv手前の入場拒否、往復、訪問履歴の保存復元を確認した。Chromeでも璃月側のワープ地点からM地図を開き、両ルートを往復して璃月港で再開した。 [Luaの試験](../evidence/subregion-checkpoints-lua.json) · [Chromeの試験](../evidence/subregion-checkpoints-browser.json) · [6地域25地点の試験資料](../design/world/subregions-stage-evidence.json)
 
+## 獲得セーブから戦闘ありで試走
+
+隠し世界を未発見の比較版Lv200セーブを使った。金リンゴ群島では絵と岩の見え方を調べて洞窟へ入り、ヴェルーリヤでは瓶の模様を合わせてトロッコを途中下車し、シムランカでは紙の足場を渡って飾りを持ち帰った。3世界で入口と寄り道の依頼を各2件報告した。洞窟や横穴など8か所で敵を倒し、各地域へ帰還したあと、保存を読み直して発見と報告の記録を確認した。移動には通常の入力を使い、被弾と同行AIも有効。M地図から39回の経路をたどった。 [隠し3世界のLuaログ](../evidence/earned-hidden-routes-lua.json)
+
+| 寄り道 | 獲得セーブで確認した条件と往復 |
+| --- | --- |
+| 空の神殿・南の雲の下の小間 | Lv160でナタの町から向かい、南東の小島の昇降機で降りて帰還。入口はLv134。 |
+| ドーンマンポート・北岸の船溜まり | Lv165では北岸の入口でLv168の条件が出た。Lv180で港の上段を通り往復。 |
+| 極光境界の挑戦区画 | Lv180では手前の境界の観測所でLv184の条件が出た。Lv200でLv190の挑戦区画まで入り、番人を倒して帰還。 |
+
+金リンゴ群島とシムランカの横穴5か所の出口は戻る地名を表示する。ナド・クライ特別地域では、凍った水路から「境界の観測所へ上がる昇降機」、極光境界の挑戦区画から「奥の遺構へ戻る」と案内する。 [終盤の寄り道のLuaログ](../evidence/earned-late-atlas-routes-lua.json)
+
+Chromeでは金リンゴ群島で地図を開き、横穴へ歩いて入って番人を倒した。帰りの案内に「危機の島の登り道へ戻る」が出て、案内どおり帰還し、保存から横穴の訪問履歴も復元できた。ドーンマンポート北岸のLv168条件も獲得Lv165セーブのM地図で確認した。 [地図の帰路表示](../evidence/earned-atlas-golden-return.png) · [Chromeの試走](../evidence/earned-atlas-routes-browser.json)
+
+再走は、比較版の獲得Lv160・165・180・200のセーブを作り、`python -X utf8 test_earned_hidden_routes.py`。続けてラボ起動中に `node test_earned_atlas_routes.mjs` でChromeを確認できる。Lv165セーブは `python test_cap_fresh_route.py --draft-balance --checkpoint-165` で作成する。
+
 ## 検証
 
 ドーンマンポート、霜月、ナド・クライ特別地域など、地図と移動の台帳に載っていなかった最後の34地点を試験資料に対応付けた。霜月の試験室では、同じ広間に戻る二つの門をM地図で左右と名前で見分けられる。全1,528地点がM地図に掲載され、接続データに往路と帰路があり、それぞれ試験資料と対応していることを確認した。 [34地点の試験資料](../design/world/remaining-branches-stage-evidence.json) · [全地点の接続と対応資料](../evidence/world-map-connectivity.json)
