@@ -22,14 +22,14 @@ export function initEndgameUI(action){
  const record=r=>`${(r.bestTicks/60).toFixed(1)}秒・${companion[r.companion]}同行・${r.clears}勝`;
  let previousDesk='';
  const amount=value=>value.toLocaleString();
+ const hpLabel=pick=>`HP ${amount(pick.hp)}${pick.draftHp?'（比較版）':''}`;
  function updateWeeklySelection(){
   const pick=weeklyChallenge?.modes.find(mode=>mode.id===weeklyDifficulty.value);
   if(!pick)return;
   weeklyStart.disabled=!pick.available;
   const rewards=`勝利 ${amount(pick.xp)} EXP・${amount(pick.mora)}モラ${pick.record?'':` ｜ 初回追加 ${amount(pick.firstXp)} EXP・${amount(pick.firstMora)}モラ`}`;
   const pending=weeklyChallenge.wait>0?` ｜ 再出現まで ${weeklyChallenge.wait}秒`:'';
-  const hp=`HP ${amount(pick.hp)}${pick.draftHp?'（比較版）':''}`;
-  weeklyDetails.textContent=`必要Lv${pick.level} ｜ ${hp} ｜ 攻撃ダメージ×${pick.attackFactor} ｜ ${rewards}${pending}`;
+  weeklyDetails.textContent=`必要Lv${pick.level} ｜ ${hpLabel(pick)} ｜ 攻撃ダメージ×${pick.attackFactor} ｜ ${rewards}${pending}`;
   weeklyRecord.hidden=!pick.record;
   weeklyRecord.textContent=pick.record?record(pick.record):'';
  }
@@ -43,9 +43,10 @@ export function initEndgameUI(action){
   const pick=duel?.modes.find(mode=>mode.id===duelMode.value);
   if(!pick)return;
   duelStart.disabled=!pick.available;
+  const hp=pick.secondHp?`第一幕 ${hpLabel(pick)}・第二幕 HP ${amount(pick.secondHp)}`:hpLabel(pick);
   get('stygianReward').textContent=pick.available
-   ? `勝利 ${pick.xp.toLocaleString()}EXP・${pick.mora.toLocaleString()}モラ・★${pick.rarity} 聖遺物Lv${pick.itemLevel}${pick.record?'':` ｜ 初回は+${pick.firstXp.toLocaleString()}EXP・+${pick.firstMora.toLocaleString()}モラ`}`
-   : `Lv${pick.level}で挑戦できます`;
+   ? `${hp} ｜ 勝利 ${amount(pick.xp)}EXP・${amount(pick.mora)}モラ・★${pick.rarity} 聖遺物Lv${pick.itemLevel}${pick.record?'':` ｜ 初回は+${amount(pick.firstXp)}EXP・+${amount(pick.firstMora)}モラ`}`
+   : `Lv${pick.level}で挑戦できます ｜ ${hp}`;
   const history=get('stygianRecord');
   history.hidden=!pick.record;
   const skill=pick.record?.mainSkill;

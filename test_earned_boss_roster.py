@@ -11,6 +11,7 @@ from tools.waypoint_test import TrailWalk
 
 SAVES = {
     160: 'work/snez-fresh-route-draft/white-pass-save.json',
+    165: 'work/cap-fresh-route-draft/lv165-save.json',
     180: 'work/cap-fresh-route-draft/lv180-save.json',
     200: 'work/cap-fresh-route-draft/lv200-save.json',
 }
@@ -27,7 +28,7 @@ def read(path):
     return json.loads((ROOT / path).read_text(encoding='utf-8-sig'))
 
 
-def run(levels, only, seconds, write, expect_clear):
+def run(levels, only, seconds, write, expect_clear, route):
     lua, core = runtime(draft_balance=True)
     fight = lua.execute((ROOT / 'tools/earned_boss_driver.lua').read_text(encoding='utf8'))
     exits = {node['id']: node['exits'] for node in read('content/story-graph.json')['nodes']}
@@ -66,7 +67,7 @@ def run(levels, only, seconds, write, expect_clear):
         mode = deck.id
         equipped = [a.atk for a in state.actors.values()]
         before = state.progression.total, state.mora
-        result = native(fight(core, state, encounter, kind, seconds * 60))
+        result = native(fight(core, state, encounter, kind, seconds * 60, route))
         for key in ('phases', 'moves', 'events'):
             result[key] = result[key] or []
         delta = (state.progression.total - before[0], state.mora - before[1])
@@ -100,7 +101,7 @@ def run(levels, only, seconds, write, expect_clear):
             if only and name not in only:
                 continue
             state, _ = approach(save, origins[node], node)
-            mode = frame(state).weeklyDesk.modes[3 if level == 160 else 4]
+            mode = frame(state).weeklyDesk.modes[3 if level < 180 else 4]
             assert mode.available, (name, level, state.storyNotice)
             prior = mode.record.clears if mode.record else 0
             core.action(state, f'weekly_start:{spec["id"]}:{mode.id}')
@@ -127,9 +128,10 @@ def run(levels, only, seconds, write, expect_clear):
             prior = mode.record.clears if mode.record else 0
             core.action(state, f'stygian_start:{name}:{mode.id}:troupe')
             assert state.endgameRun is not None
+            assert state.endgameRun.boss.maxhp == mode.hp
             capture(state, 'stygian', state.endgameRun, mode, name, prior)
     if write:
-        proof = dict(draftBalance=True, inputBudgetSeconds=seconds, sources=sources, encounters=rows)
+        proof = dict(draftBalance=True, route=route, inputBudgetSeconds=seconds, sources=sources, encounters=rows)
         (ROOT / write).write_text(json.dumps(proof, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
     if expect_clear:
         incomplete = [(row['level'], row['name'], row['status']) for row in rows
@@ -143,6 +145,18 @@ def run(levels, only, seconds, write, expect_clear):
             assert not missing, (row['level'], name, missing)
             if name == 'raiden':
                 assert 'armored' in [phase['id'] for phase in row['phases']], row
+            if name == 'shouki' and route == 'mechanics':
+                counts = {event['id']:event['count'] for event in row['events']}
+                assert counts['shouki:WN15:destroyed'] == 4, row
+                assert counts['shouki:WN14:core-hit'] == 1 and counts['shouki:WN14:guard-hit'] >= 1, row
+                assert 'shouki:WN16' not in counts, row
+            if name == 'beidou' and route != 'basic':
+                events = {event['id']:event for event in row['events']}
+                choice = 'baited' if route == 'bait' else 'waited'
+                assert {'stygian:beidou:' + choice, 'stygian:beidou:opening-hit'} <= events.keys(), row
+                if row['mode'] == 'extreme':
+                    expected = 72 if route == 'bait' else 139
+                    assert events['stygian:beidou:recover']['value'] == expected, row
 
 
 if __name__ == '__main__':
@@ -152,5 +166,6 @@ if __name__ == '__main__':
     parser.add_argument('--seconds', type=int, default=180)
     parser.add_argument('--write')
     parser.add_argument('--expect-clear', action='store_true')
+    parser.add_argument('--route', choices=['basic', 'mechanics', 'bait'], default='basic')
     args = parser.parse_args()
-    run(args.level, set(args.only), args.seconds, args.write, args.expect_clear)
+    run(args.level, set(args.only), args.seconds, args.write, args.expect_clear, args.route)

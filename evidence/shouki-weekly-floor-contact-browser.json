@@ -3,10 +3,11 @@
   "manualMatrix": true,
   "twoPhases": true,
   "reservedAndCancelled": true,
+  "keyboardTerminal": true,
   "terminalHitArmor": true,
   "manualTrialParts": 4,
   "terminalHitCore": true,
-  "exposureTicks": 600,
+  "exposureTicks": 599,
   "art": {
     "upper": 1160,
     "upperWidth": 1392.6417704011064,
@@ -22,18 +23,18 @@
     "fullTop": -264,
     "machineBehindParty": true,
     "shieldCore": {
-      "y": 42.648648648648646,
       "x": 480,
+      "y": 42.648648648648646,
       "exposed": true
     },
     "trialCore": {
-      "y": 26.66216216216219,
       "x": 480,
+      "y": 26.66216216216219,
       "exposed": false
     }
   },
   "clearReportRestore": true,
-  "remainingHp": 976,
+  "remainingHp": 961,
   "viewport390": true,
   "scene": {
     "key": "sumeruCanopy",
@@ -46,9 +47,9 @@
     "light": 2750
   },
   "commands": {
-    "png": 10,
-    "standard": 10773,
-    "light": 2720
+    "png": 15,
+    "standard": 11650,
+    "light": 2892
   },
   "errors": []
 }

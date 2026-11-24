@@ -402,7 +402,8 @@ return function(C,abyss,weekly,matches,controllers)
    for _,r in ipairs(spec.modes) do
     local record=s.endgame and s.endgame.stygian and s.endgame.stygian[id..':'..r.id]
     f.stygianDesk.modes[#f.stygianDesk.modes+1]={id=r.id,name=r.name,level=r.level,available=s.progression.level>=r.level,
-     xp=r.xp,firstXp=r.firstXp,mora=r.mora,firstMora=r.firstMora,itemLevel=r.itemLevel,rarity=r.rarity,record=record}
+     hp=r.hp,secondHp=r.secondHp,draftHp=r.draftHp,xp=r.xp,firstXp=r.firstXp,mora=r.mora,firstMora=r.firstMora,
+     itemLevel=r.itemLevel,rarity=r.rarity,record=record}
    end
   elseif s.story and s.story.active and s.story.node=='mond-town' then
    f.endgameDesk={weekly={}}

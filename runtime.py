@@ -128,6 +128,12 @@ def runtime(*, draft_balance=False):
         target:spec['node'] for spec in field_specs+weekly_specs
         for target in (spec['id'],spec.get('storyChallenge')) if target}
     stygian=resolve_stygian_exp(json.loads((ROOT/'content/stygian-matches.json').read_text(encoding='utf8'))['matches'])
+    if draft_balance:
+        for match, hp_by_mode in balance['stygianBossHp'].items():
+            for mode in stygian[match]['modes']:
+                if mode['id'] in hp_by_mode:
+                    mode['hp'] = hp_by_mode[mode['id']]
+                    mode['draftHp'] = True
     stygian_timing=json.loads((ROOT/'docs/stygian-motion-v1/MANIFEST.json').read_text(encoding='utf8'))
     for scripted_match in ('farka','rerir','ronova'):
         stygian[scripted_match]['cards']={

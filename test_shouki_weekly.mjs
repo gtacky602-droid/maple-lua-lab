@@ -7,8 +7,8 @@ const page=await browser.newPage({viewport:{width:1240,height:940}});
 const frame=()=>page.evaluate(()=>window.lab.frame);
 const wait=(predicate,arg)=>page.waitForFunction(predicate,arg,{timeout:80000});
 const canvas=page.locator('#game'),controls=page.locator('#weeklyShouki');
-const prefix='evidence/shouki-weekly-floor-contact';
-const regressionPrefix='work/shouki-weekly-floor-contact';
+const prefix=process.env.SHOUKI_OUTPUT||'evidence/shouki-weekly-floor-contact';
+const regressionPrefix=process.env.SHOUKI_OUTPUT||'work/shouki-weekly-floor-contact';
 const hub='sumeru-hub',node='shouki-godmaking-arena',quest='shouki-weekly-commission',id='boss-29070101';
 const errors=[];
 page.on('pageerror',e=>errors.push(e.message));
@@ -129,9 +129,8 @@ try{
   }
   requestAnimationFrame(run);
  });
- const interact=controls.locator('#weeklyShoukiAction');
  await wait(()=>window.lab.frame.weeklyBoss?.shouki.device?.id==='left'&&window.lab.frame.weeklyBoss.shouki.charge===100);
- await interact.click();
+ await page.keyboard.press('KeyH');
  await wait(()=>window.lab.frame.weeklyBoss?.shouki.left);
  await page.evaluate(()=>{window.shoukiMain=true;});
  await wait(()=>window.lab.frame.weeklyBoss?.shouki.canAim);
@@ -144,15 +143,15 @@ try{
  assert.equal(await controls.locator('#weeklyShoukiHint').textContent(),'端末で胸部を照準');
  await page.locator('.game').screenshot({path:regressionPrefix+'-full.png'});
  assert.ok(await controls.locator('#weeklyShoukiArmor').isVisible());
- await interact.click();
+ await page.keyboard.press('KeyH');
  await wait(()=>window.lab.frame.weeklyBoss?.shouki.aim&&!window.lab.frame.weeklyBoss.shouki.aim.confirmed);
  await controls.getByRole('button',{name:'左',exact:true}).click();
  await wait(()=>window.lab.frame.weeklyBoss?.shouki.aim?.target==='left');
- await controls.getByRole('button',{name:'照準を中止',exact:true}).click();
+ await page.keyboard.press('Escape');
  await wait(()=>!window.lab.frame.weeklyBoss?.shouki.aim&&window.lab.frame.weeklyBoss.shouki.charge===100);
- await interact.click();
+ await page.keyboard.press('KeyH');
  await wait(()=>window.lab.frame.weeklyBoss?.shouki.aim?.target==='core');
- await controls.getByRole('button',{name:'射撃を確定',exact:true}).click();
+ await page.keyboard.press('KeyH');
  await wait(()=>window.lab.frame.events.some(e=>e.kind==='shouki:WN14:guard-hit'));
  await page.evaluate(()=>{window.shoukiRealShot=true;});
  await wait(()=>window.lab.frame.weeklyBoss?.shouki.targets.length===4);
@@ -212,7 +211,7 @@ try{
  assert.equal(saved.weeklyBosses[id].hp,0);
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({entry:true,manualMatrix:true,twoPhases:true,
-  reservedAndCancelled:true,terminalHitArmor:true,manualTrialParts:4,terminalHitCore:true,exposureTicks:down.weeklyBoss.shouki.exposure,
+  reservedAndCancelled:true,keyboardTerminal:true,terminalHitArmor:true,manualTrialParts:4,terminalHitCore:true,exposureTicks:down.weeklyBoss.shouki.exposure,
   art:{upper:upper.h,upperWidth:upper.w,torsoSourceEnd:737,torsoBottom:upper.y,floor:480,waistClearance:480-upper.y,full:744,trial:630,collapse:600,
    upperLeft:upper.x-upper.w/2,upperTop:upper.y-upper.h,fullTop:full.y-full.h,
    machineBehindParty:true,shieldCore:armored.weeklyBoss.shouki.core,trialCore:trial.weeklyBoss.shouki.core},

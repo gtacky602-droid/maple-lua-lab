@@ -18,6 +18,7 @@ def read(path):
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--replay', action='store_true', help='Regenerate the upstream Lv160 checkpoint')
 parser.add_argument('--draft-balance', action='store_true', help='Continue the draft field balance profile')
+parser.add_argument('--checkpoint-165', action='store_true', help='Stop after earning the Lv165 checkpoint')
 options = parser.parse_args()
 draft = options.draft_balance
 suffix = '-draft' if draft else ''
@@ -340,12 +341,17 @@ assert core.growthSkillCondition(state, 'SK59')[0] is False
 assert core.growthSkillCondition(state, 'SK60')[0] is False
 resupply()
 learn_release()
-route_checkpoint()
+if not options.checkpoint_165:
+    route_checkpoint()
 
 for index, level in enumerate(range(165, 201, 5), start=1):
     if state.progression.level < level:
         hunt(index, level)
-        if level == 170:
+        if level == 165:
+            save('lv165-save')
+            if options.checkpoint_165:
+                sys.exit(0)
+        elif level == 170:
             assert core.growthSkillCondition(state,'SK60')[0] is False
             learn_echo()
         elif level == 180:

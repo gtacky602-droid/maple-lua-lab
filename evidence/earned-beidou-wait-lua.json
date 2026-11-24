@@ -1,0 +1,414 @@
+{
+  "draftBalance": true,
+  "route": "mechanics",
+  "inputBudgetSeconds": 240,
+  "sources": {
+    "165": {
+      "sha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+      "companion": "amber",
+      "travelerWeapon": "SW07"
+    },
+    "180": {
+      "sha256": "c9847a79b92f4522b2cf455f50cb8f23a07dc93f7036148615aeee37f997a4ef",
+      "companion": "amber",
+      "travelerWeapon": "SW07"
+    },
+    "200": {
+      "sha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+      "companion": "amber",
+      "travelerWeapon": "SW07"
+    }
+  },
+  "encounters": [
+    {
+      "level": 165,
+      "name": "beidou",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        58542,
+        53711
+      ],
+      "partyHp": [
+        34711,
+        37282
+      ],
+      "status": "clear",
+      "hits": 79,
+      "events": [
+        {
+          "tick": 76,
+          "id": "stygian:beidou:guard",
+          "value": 0,
+          "count": 2
+        },
+        {
+          "tick": 159,
+          "id": "stygian:beidou:tell:quiet",
+          "value": 0,
+          "count": 2
+        },
+        {
+          "tick": 159,
+          "id": "stygian:beidou:waited",
+          "value": 83,
+          "count": 2
+        },
+        {
+          "tick": 210,
+          "id": "stygian:beidou:strike:quiet",
+          "value": 0,
+          "count": 2
+        },
+        {
+          "tick": 229,
+          "id": "stygian:beidou:recover",
+          "value": 139,
+          "count": 4
+        },
+        {
+          "tick": 231,
+          "id": "stygian:beidou:opening-hit",
+          "value": 88630,
+          "count": 56
+        },
+        {
+          "tick": 369,
+          "id": "stygian:beidou:tell:sweep",
+          "value": 0,
+          "count": 1
+        },
+        {
+          "tick": 420,
+          "id": "stygian:beidou:strike:sweep",
+          "value": 0,
+          "count": 1
+        },
+        {
+          "tick": 821,
+          "id": "stygian:beidou:feint",
+          "value": 0,
+          "count": 1
+        },
+        {
+          "tick": 821,
+          "id": "stygian:beidou:tell:overhead",
+          "value": 0,
+          "count": 2
+        },
+        {
+          "tick": 903,
+          "id": "stygian:beidou:strike:overhead",
+          "value": 0,
+          "count": 1
+        },
+        {
+          "tick": 922,
+          "id": "stygian:beidou:tell:wake",
+          "value": 0,
+          "count": 1
+        },
+        {
+          "tick": 973,
+          "id": "stygian:beidou:strike:wake",
+          "value": 0,
+          "count": 1
+        }
+      ],
+      "node": "liyue-stygian-deck",
+      "phases": [
+        {
+          "tick": 0,
+          "id": "intro"
+        },
+        {
+          "tick": 75,
+          "id": "approach"
+        },
+        {
+          "tick": 76,
+          "id": "guard"
+        },
+        {
+          "tick": 159,
+          "id": "tell"
+        },
+        {
+          "tick": 210,
+          "id": "strike"
+        },
+        {
+          "tick": 229,
+          "id": "recover"
+        },
+        {
+          "tick": 821,
+          "id": "feint"
+        }
+      ],
+      "moves": [
+        {
+          "tick": 159,
+          "id": "quiet"
+        },
+        {
+          "tick": 369,
+          "id": "sweep"
+        },
+        {
+          "tick": 821,
+          "id": "overhead"
+        },
+        {
+          "tick": 922,
+          "id": "wake"
+        }
+      ],
+      "ticks": 1049,
+      "damage": 4800000,
+      "maxHp": 4800000,
+      "elapsed": 17.483333333333587,
+      "hpRemaining": 0,
+      "award": {
+        "mora": 6100,
+        "first": true,
+        "set": "黄金の劇団",
+        "xp": 30937308,
+        "rank": 5,
+        "bag": true
+      }
+    },
+    {
+      "level": 180,
+      "name": "beidou",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "partyHp": [
+        67609,
+        63499
+      ],
+      "status": "clear",
+      "hits": 52,
+      "events": [
+        {
+          "tick": 76,
+          "id": "stygian:beidou:guard",
+          "value": 0,
+          "count": 2
+        },
+        {
+          "tick": 159,
+          "id": "stygian:beidou:tell:quiet",
+          "value": 0,
+          "count": 2
+        },
+        {
+          "tick": 159,
+          "id": "stygian:beidou:waited",
+          "value": 83,
+          "count": 2
+        },
+        {
+          "tick": 210,
+          "id": "stygian:beidou:strike:quiet",
+          "value": 0,
+          "count": 2
+        },
+        {
+          "tick": 229,
+          "id": "stygian:beidou:recover",
+          "value": 139,
+          "count": 3
+        },
+        {
+          "tick": 235,
+          "id": "stygian:beidou:opening-hit",
+          "value": 105503,
+          "count": 36
+        },
+        {
+          "tick": 369,
+          "id": "stygian:beidou:tell:sweep",
+          "value": 0,
+          "count": 1
+        },
+        {
+          "tick": 420,
+          "id": "stygian:beidou:strike:sweep",
+          "value": 0,
+          "count": 1
+        }
+      ],
+      "node": "liyue-stygian-deck",
+      "phases": [
+        {
+          "tick": 0,
+          "id": "intro"
+        },
+        {
+          "tick": 75,
+          "id": "approach"
+        },
+        {
+          "tick": 76,
+          "id": "guard"
+        },
+        {
+          "tick": 159,
+          "id": "tell"
+        },
+        {
+          "tick": 210,
+          "id": "strike"
+        },
+        {
+          "tick": 229,
+          "id": "recover"
+        }
+      ],
+      "moves": [
+        {
+          "tick": 159,
+          "id": "quiet"
+        },
+        {
+          "tick": 369,
+          "id": "sweep"
+        }
+      ],
+      "ticks": 795,
+      "damage": 4800000,
+      "maxHp": 4800000,
+      "elapsed": 13.25000000000027,
+      "hpRemaining": 0,
+      "award": {
+        "mora": 6100,
+        "first": true,
+        "set": "黄金の劇団",
+        "xp": 30937308,
+        "rank": 5,
+        "bag": true
+      }
+    },
+    {
+      "level": 200,
+      "name": "beidou",
+      "type": "stygian",
+      "mode": "extreme",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "partyHp": [
+        112471,
+        118920
+      ],
+      "status": "clear",
+      "hits": 30,
+      "events": [
+        {
+          "tick": 76,
+          "id": "stygian:beidou:guard",
+          "value": 0,
+          "count": 1
+        },
+        {
+          "tick": 159,
+          "id": "stygian:beidou:tell:quiet",
+          "value": 0,
+          "count": 1
+        },
+        {
+          "tick": 159,
+          "id": "stygian:beidou:waited",
+          "value": 83,
+          "count": 1
+        },
+        {
+          "tick": 210,
+          "id": "stygian:beidou:strike:quiet",
+          "value": 0,
+          "count": 1
+        },
+        {
+          "tick": 229,
+          "id": "stygian:beidou:recover",
+          "value": 139,
+          "count": 2
+        },
+        {
+          "tick": 235,
+          "id": "stygian:beidou:opening-hit",
+          "value": 191769,
+          "count": 22
+        },
+        {
+          "tick": 369,
+          "id": "stygian:beidou:tell:sweep",
+          "value": 0,
+          "count": 1
+        },
+        {
+          "tick": 420,
+          "id": "stygian:beidou:strike:sweep",
+          "value": 0,
+          "count": 1
+        }
+      ],
+      "node": "liyue-stygian-deck",
+      "phases": [
+        {
+          "tick": 0,
+          "id": "intro"
+        },
+        {
+          "tick": 75,
+          "id": "approach"
+        },
+        {
+          "tick": 76,
+          "id": "guard"
+        },
+        {
+          "tick": 159,
+          "id": "tell"
+        },
+        {
+          "tick": 210,
+          "id": "strike"
+        },
+        {
+          "tick": 229,
+          "id": "recover"
+        }
+      ],
+      "moves": [
+        {
+          "tick": 159,
+          "id": "quiet"
+        },
+        {
+          "tick": 369,
+          "id": "sweep"
+        }
+      ],
+      "ticks": 488,
+      "damage": 4800000,
+      "maxHp": 4800000,
+      "elapsed": 8.133333333333349,
+      "hpRemaining": 0,
+      "award": {
+        "mora": 6100,
+        "first": true,
+        "set": "黄金の劇団",
+        "xp": 30937308,
+        "rank": 5,
+        "bag": true
+      }
+    }
+  ]
+}

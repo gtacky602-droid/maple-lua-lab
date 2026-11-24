@@ -8078,7 +8078,16 @@
     "earned_save_weekly_clears": 42,
     "earned_save_stygian_clears": 20
   },
-  "current_priority": "Use earned saves to verify the Shouki successful trial route and Beidou reaction windows, then continue matching skill effects and visual cues against the authored scope.",
+  "authored_boss_mechanics_checks": {
+    "shouki_trial_success_levels": [160, 180, 200],
+    "shouki_keyboard_evidence": "evidence/shouki-weekly-floor-contact-browser.json",
+    "shouki_trial_evidence": "evidence/earned-shouki-trial.json",
+    "beidou_extreme_draft_levels": [165, 180, 200],
+    "beidou_wait_evidence": "evidence/earned-beidou-wait-lua.json",
+    "beidou_bait_evidence": "evidence/earned-beidou-bait-lua.json",
+    "beidou_draft_hp_browser_evidence": "evidence/earned-beidou-balance-browser.json"
+  },
+  "current_priority": "Reconcile the authored field catalog with playable late-game and hidden routes, checking level and quest gates in play, then continue matching skill effects and visual cues against the authored scope.",
   "skill_runtime_checks": {
     "traveler_activations": 60,
     "companion_activations": 40,
@@ -8125,7 +8134,7 @@
   },
   "field_balance_draft": {
     "status": "local_opt_in_prototype",
-    "scope": "Optional local server applies level-based ordinary field HP and revised fixed reward sword ATK. Same saves can be loaded on both servers. The draft server is unranked. Authored boss HP and existing experience and Mora formulas are retained.",
+    "scope": "Optional local server applies level-based ordinary field HP, revised fixed reward sword ATK, and opt-in HP values for selected weekly tiers and Beidou extreme. Same saves can be loaded on both servers. The draft server is unranked and uses the existing EXP and Mora formulas.",
     "settings": "content/field-balance-draft.json",
     "lua_evidence": "evidence/field-balance-draft-lua.json",
     "browser_evidence": "evidence/liyue-m01-browser-draft.json",

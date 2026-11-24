@@ -110,7 +110,18 @@ function updateTeaCase(view){
 try{spriteData=await (await fetch('assets/sprites.json')).json()}catch{}
 const mapping={KeyF:'story_nearby_portal',KeyG:'story_collect',KeyK:'skill1',KeyL:'skill2',KeyI:'skill3',KeyN:'skill4',KeyQ:'light',KeyE:'swap',ShiftLeft:'dodge',ShiftRight:'dodge',KeyP:'pause'};
 addEventListener('keydown',e=>{
- if(e.code==='KeyH'&&!e.repeat&&(frame?.weeklyBoss?.knave||frame?.weeklyBoss?.falseMoon?.canUse||frame?.endgameRun?.lampVisible||frame?.endgameRun?.aidReady)&&!(/INPUT|SELECT|BUTTON/.test(document.activeElement.tagName)))actions.push('encounter_interact');
+ if(e.repeat||frame?.worldMap||/INPUT|SELECT|BUTTON/.test(document.activeElement.tagName))return;
+ const shouki=frame?.weeklyBoss?.shouki;
+ if(shouki&&!frame.paused&&!frame.auto){
+  const aim=shouki.aim,device=shouki.device;
+  if(e.code==='Escape'&&aim?.mine&&!aim.fired){actions.push('encounter_cancel');return}
+  if(e.code==='KeyH'){
+   if(aim?.mine&&!aim.confirmed)actions.push('encounter_confirm');
+   else if(shouki.canAim||(device&&!device.cooldown&&shouki.charge>=shouki.max))actions.push('encounter_interact');
+   return;
+  }
+ }
+ if(e.code==='KeyH'&&(frame?.weeklyBoss?.knave||frame?.weeklyBoss?.falseMoon?.canUse||frame?.endgameRun?.lampVisible||frame?.endgameRun?.aidReady))actions.push('encounter_interact');
 });
 for(let i=1;i<=8;i++)mapping['Digit'+i]='slot'+i;
 addEventListener('keydown',e=>{if(frame?.worldMap)return;if(e.code==='Escape'&&frame?.growthTrial){actions.push('growth_practice_exit');return}if(e.code==='Escape'&&frame?.storyIansan?.panel){actions.push('story_iansan_close');return}if(e.code==='Escape'&&frame?.storySpringCourse?.panel){actions.push('story_spring_close');return}if(e.code==='Escape'&&frame?.storyStonePair){actions.push('story_charm_close');return}if(e.code==='Escape'&&frame?.storyNaviaPhoto?.panel){actions.push('story_photo_close');return}if(e.code==='Escape'&&frame?.storyFurinaRehearsal?.open){actions.push('story_rehearsal:close');return}if(e.code==='Escape'&&frame?.storyDiscoveryMap){actions.push('story_discovery_close');return}if(e.code==='Escape'&&frame?.storyKavehModel){actions.push('story_model_close');return}if(/INPUT|SELECT|BUTTON/.test(document.activeElement.tagName))return;if(['Space','ArrowLeft','ArrowRight','ArrowDown'].includes(e.code)||(e.code==='ArrowUp'&&(frame?.storyToyDive||frame?.storySwim)))e.preventDefault();keys.add(e.code);if(!e.repeat){if(e.code==='Space')actions.push(keys.has('KeyS')||keys.has('ArrowDown')?'drop':'jump');else if(e.code==='KeyJ'&&frame?.storySurf?.phase==='cove')actions.push('story_surf_hit');else if(mapping[e.code])actions.push(mapping[e.code])}});
@@ -367,7 +378,7 @@ function hud(f,calls,renderMs){
   const hp=balance.minHp===balance.maxHp?balance.minHp?.toLocaleString('ja-JP'):
    `${balance.minHp?.toLocaleString('ja-JP')}〜${balance.maxHp?.toLocaleString('ja-JP')}`;
   const text=balance.count?`比較版（試作）　通常敵 ${balance.count}体 ／ 最大HP ${hp}`:
-   '比較版（試作）　通常敵のHPと報酬剣のATKを調整したデータです。';
+   '比較版（試作）　通常敵と一部のボスのHP、報酬剣のATKを調整しています。';
   if(balanceNote.textContent!==text)balanceNote.textContent=text;
  }
  $('expRanking').hidden=!!balance;
@@ -583,17 +594,17 @@ function hud(f,calls,renderMs){
    const effects={pyro:'氷床を解除',anemo:'ジャンプを補助',left:'左腕を抑制',hydro:'回復場を展開',cryo:'炎床を解除',right:'右腕を抑制'};
    const info=device?`${device.title}・${effects[device.id]}${device.cooldown?` ｜ 再使用まで${Math.ceil(device.cooldown/60)}秒`:''}`:'';
    const hands=v.left||v.right?` ｜ 抑制中 ${v.left?'雷A':''}${v.right?'雷B':''}`:'';
-   const trial=v.trialTime===undefined?'':v.trialLeft?`滅度機 残り${v.trialLeft}基 ｜ ${Math.ceil(v.trialTime/60)}秒`:
-    v.trialTime<120?'端末の発射受付終了':`胸部を照準 ｜ 残り${Math.ceil(v.trialTime/60)}秒`;
+   const trial=v.trialTime===undefined?'':v.trialLeft?`滅度機を攻撃（J） ｜ 残り${v.trialLeft}基・${Math.ceil(v.trialTime/60)}秒`:
+    v.canAim?`端末を構える（H） ｜ 残り${Math.ceil(v.trialTime/60)}秒`:'端末の発射受付終了';
    const combatHint=field.shoukiStage==='p1'?(info||(
     v.charge===v.max?'元素装置に近づいて起動':'充填ブロックを拾う'))+hands:
     field.shoukiStage==='p2'?(field.damageable?'足元から本体を攻撃':v.canAim?'端末で胸部を照準':'充填ブロックを拾う'):'';
    $('weeklyShoukiHint').textContent=v.exposure?`攻撃できる時間 残り${Math.ceil(v.exposure/60)}秒`:
-    aim?(aim.fired?'端末を発射':!aim.mine?'端末が使用中':aim.confirmed?'端末を発射準備中':'照準先を選んで射撃を確定'):
+    aim?(aim.fired?'端末を発射':!aim.mine?'端末が使用中':aim.confirmed?'端末を発射準備中':'Hで射撃を確定・Escで中止'):
     trial||combatHint;
    use.hidden=!device&&!v.canAim;
    use.disabled=!!device&&(device.cooldown>0||v.charge<v.max)||f.paused||f.auto;
-   use.textContent=device?device.title+'装置を起動':'端末を構える';
+   use.textContent=device?device.title+'装置を起動（H）':'端末を構える（H）';
    const pods=$('weeklyShoukiPods'),targets=Array.isArray(v.targets)?v.targets:[];
    pods.hidden=targets.length===0||f.actors[2-f.active]?.hp<=0;
    for(const button of pods.querySelectorAll('button')){

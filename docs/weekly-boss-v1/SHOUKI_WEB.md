@@ -5,7 +5,7 @@ Lv64でスメール・樹陰の広場の依頼「工房の再現戦・端末と�
 ## 戦い方
 
 - 前半は胸と両腕を攻撃できる。範囲攻撃が複数部位をとらえてもHPへの加算は1回。緑の充填ブロックを歩いて拾い、装置の近くでボタンを押す。炎は氷床、氷は炎床を解除し、風はジャンプを補助し、水は回復場を作る。雷Aと雷Bが同時に効くと、6秒の攻撃機会が生まれる。
-- 後半は通常攻撃と端末射撃で装甲を削る。端末を構えた時点では充填を予約し、発射するまで中止できる。胸部に弾が届くと装甲を25削る。通常攻撃で装甲を削っている間はHPが減らない。
+- 後半は通常攻撃と端末射撃で装甲を削る。充填100で **H** を押すと端末を構え、もう一度 **H** を押すと射撃を確定する。発射までは **Esc** で中止できる。胸部に弾が届くと装甲を25削る。前半は使用可能な元素装置の近くで **H** を押して起動する。
 - 装甲が消えたら滅度機4基を通常攻撃で破壊し、端末で胸部を撃つ。支援先を指定すると、同行者も指定した1基を攻撃できる。弾が届くと10秒間ボスを攻撃できる。時間切れの場合は通常計算の大ダメージが発生し、装甲0のまま戦闘に戻る。
 
 ## 素材
@@ -25,6 +25,7 @@ python compile_boss_assets.py --source shouki-idle-source-v1.png --output shouki
 ## 検証
 
 - `test_shouki_weekly.py` は全描画設定でくびれが床面にそろうことを検査する。胸部照準、通常攻撃が届く高さ、装置、予約と発射、期限切れと600tickの露出、保存復元も確認する。 [正機の神の設計](SHOUKI_NO_KAMI.md) · [スメールの検証仕様](QA_SUMERU.md) · [Luaの結果](../../evidence/shouki-weekly-floor-contact-lua.json)
-- `test_shouki_weekly.mjs` は装備付きLv64の試験データで、Chromeから受注、元素装置の起動、予約の中止、装甲と胸部への射撃、滅度機4基の破壊、討伐、報告、保存復元まで確認する。各段階で構図、装置、照準位置を確認し、390px幅での操作欄も検査する。 [Chromeの結果](../../evidence/shouki-weekly-floor-contact-browser.json)
+- `test_shouki_weekly.mjs` は装備付きLv64の試験データで、Chromeから受注、Hで元素装置の起動、Hで照準を構える操作、Escで中止、Hで射撃を確定する操作を確認する。装甲と胸部への射撃、滅度機4基の破壊、討伐、報告、保存復元まで進め、390px幅での操作欄も検査する。 [Chromeの結果](../../evidence/shouki-weekly-floor-contact-browser.json)
+- 獲得済みのLv160・180・200セーブを使ったLua試走では、胸部への射撃2回で装甲を削り、滅度機4基を通常攻撃で破壊した。端末で胸部を撃ったあと10秒の攻撃時間に入り、37.0〜37.8秒でクリアできた。上級・最上級のEXP、モラ、勝利記録も照合した。 [試練成功のLuaログ](../../evidence/earned-shouki-trial.json)
 - 上半身戦の同じフレームで描画方式を比較できる。画面全体の描画指示はPNGで39件、標準矩形で10,483件、軽量16色で2,750件。軽量16色は標準矩形より約74%少なく、顔や胸の細部は粗く見える。 [PNG](../../evidence/shouki-weekly-floor-contact-upper-png.png) · [標準矩形](../../evidence/shouki-weekly-floor-contact-upper-standard.png) · [軽量16色](../../evidence/shouki-weekly-floor-contact-upper-light.png)
 - 胸部への射撃後にダウンした同一フレームで、元PNG、標準矩形、軽量16色を比較した。 [PNG](../../evidence/shouki-weekly-waist-png.png) · [標準矩形](../../evidence/shouki-weekly-waist-standard.png) · [軽量16色](../../evidence/shouki-weekly-waist-light.png)

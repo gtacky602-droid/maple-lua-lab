@@ -1,0 +1,669 @@
+{
+  "draftBalance": true,
+  "route": "mechanics",
+  "inputBudgetSeconds": 180,
+  "sources": {
+    "160": {
+      "sha256": "ebe8418f66adf18b7e5e5e02ec8a6ce65dffbbce2be03ec96cf6ac9fed04f1e6",
+      "companion": "amber",
+      "travelerWeapon": "SW07"
+    },
+    "180": {
+      "sha256": "c9847a79b92f4522b2cf455f50cb8f23a07dc93f7036148615aeee37f997a4ef",
+      "companion": "amber",
+      "travelerWeapon": "SW07"
+    },
+    "200": {
+      "sha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+      "companion": "amber",
+      "travelerWeapon": "SW07"
+    }
+  },
+  "encounters": [
+    {
+      "level": 160,
+      "name": "shouki",
+      "type": "weekly",
+      "mode": "advanced",
+      "equippedAtk": [
+        10470,
+        6652
+      ],
+      "hits": 2,
+      "hpRemaining": 0,
+      "ticks": 2266,
+      "elapsed": 37.7666666666656,
+      "moves": [
+        {
+          "id": "WN09",
+          "tick": 288
+        },
+        {
+          "id": "WN10",
+          "tick": 612
+        },
+        {
+          "id": "WN11",
+          "tick": 966
+        }
+      ],
+      "events": [
+        {
+          "tick": 25,
+          "value": 0,
+          "id": "shouki:WN08",
+          "count": 1
+        },
+        {
+          "tick": 264,
+          "value": 100,
+          "id": "shouki:WN18:supply",
+          "count": 5
+        },
+        {
+          "tick": 275,
+          "value": 1,
+          "id": "shouki:WN18:collected",
+          "count": 4
+        },
+        {
+          "tick": 276,
+          "value": 0,
+          "id": "shouki:WN14:reserve",
+          "count": 3
+        },
+        {
+          "tick": 277,
+          "value": 0,
+          "id": "shouki:WN14",
+          "count": 3
+        },
+        {
+          "tick": 288,
+          "value": 0,
+          "id": "shouki:WN09",
+          "count": 1
+        },
+        {
+          "tick": 302,
+          "value": 99,
+          "id": "shouki:WN18:guard-hit",
+          "count": 41
+        },
+        {
+          "tick": 312,
+          "value": 0,
+          "id": "shouki:WN14:lock",
+          "count": 3
+        },
+        {
+          "tick": 330,
+          "value": 1,
+          "id": "shouki:WN09:lock",
+          "count": 1
+        },
+        {
+          "tick": 336,
+          "value": 0,
+          "id": "shouki:WN14:fire",
+          "count": 3
+        },
+        {
+          "tick": 356,
+          "value": 73,
+          "id": "shouki:WN14:guard-hit",
+          "count": 2
+        },
+        {
+          "tick": 384,
+          "value": 71,
+          "id": "shouki:WN18:auto",
+          "count": 9
+        },
+        {
+          "tick": 390,
+          "value": 1,
+          "id": "shouki:WN09:hit",
+          "count": 3
+        },
+        {
+          "tick": 612,
+          "value": 0,
+          "id": "shouki:WN10",
+          "count": 1
+        },
+        {
+          "tick": 660,
+          "value": 1,
+          "id": "shouki:WN10:lock",
+          "count": 1
+        },
+        {
+          "tick": 696,
+          "value": 1,
+          "id": "shouki:WN10:launch",
+          "count": 5
+        },
+        {
+          "tick": 966,
+          "value": 0,
+          "id": "shouki:WN11",
+          "count": 1
+        },
+        {
+          "tick": 1026,
+          "value": 1,
+          "id": "shouki:WN11:lock",
+          "count": 1
+        },
+        {
+          "tick": 1086,
+          "value": 1,
+          "id": "shouki:WN11:hit",
+          "count": 2
+        },
+        {
+          "tick": 1183,
+          "value": 0,
+          "id": "shouki:WN18:floor-hit",
+          "count": 4
+        },
+        {
+          "tick": 1344,
+          "value": 0,
+          "id": "shouki:WN15",
+          "count": 1
+        },
+        {
+          "tick": 1405,
+          "value": 2,
+          "id": "shouki:WN15:hit",
+          "count": 16
+        },
+        {
+          "tick": 1513,
+          "value": 2,
+          "id": "shouki:WN15:destroyed",
+          "count": 4
+        },
+        {
+          "tick": 2181,
+          "value": 0,
+          "id": "shouki:WN17",
+          "count": 1
+        },
+        {
+          "tick": 2181,
+          "value": 0,
+          "id": "shouki:WN14:core-hit",
+          "count": 1
+        }
+      ],
+      "partyHp": [
+        10710,
+        10728
+      ],
+      "status": "clear",
+      "node": "shouki-godmaking-arena",
+      "damage": 1630,
+      "maxHp": 1630,
+      "phases": [
+        {
+          "id": "p1",
+          "tick": 0
+        },
+        {
+          "id": "rise",
+          "tick": 25
+        },
+        {
+          "id": "p2",
+          "tick": 264
+        },
+        {
+          "id": "trial",
+          "tick": 1344
+        },
+        {
+          "id": "collapse",
+          "tick": 2181
+        }
+      ],
+      "award": {
+        "xp": 12955323,
+        "mora": 2640240,
+        "first": true
+      }
+    },
+    {
+      "level": 180,
+      "name": "shouki",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        83923,
+        73404
+      ],
+      "hits": 2,
+      "hpRemaining": 0,
+      "ticks": 2264,
+      "elapsed": 37.73333333333227,
+      "moves": [
+        {
+          "id": "WN09",
+          "tick": 273
+        },
+        {
+          "id": "WN10",
+          "tick": 597
+        },
+        {
+          "id": "WN11",
+          "tick": 951
+        }
+      ],
+      "events": [
+        {
+          "tick": 10,
+          "value": 0,
+          "id": "shouki:WN08",
+          "count": 1
+        },
+        {
+          "tick": 249,
+          "value": 100,
+          "id": "shouki:WN18:supply",
+          "count": 5
+        },
+        {
+          "tick": 250,
+          "value": 1,
+          "id": "shouki:WN18:collected",
+          "count": 4
+        },
+        {
+          "tick": 251,
+          "value": 0,
+          "id": "shouki:WN14:reserve",
+          "count": 3
+        },
+        {
+          "tick": 252,
+          "value": 0,
+          "id": "shouki:WN14",
+          "count": 3
+        },
+        {
+          "tick": 259,
+          "value": 99,
+          "id": "shouki:WN18:guard-hit",
+          "count": 41
+        },
+        {
+          "tick": 273,
+          "value": 0,
+          "id": "shouki:WN09",
+          "count": 1
+        },
+        {
+          "tick": 287,
+          "value": 0,
+          "id": "shouki:WN14:lock",
+          "count": 3
+        },
+        {
+          "tick": 311,
+          "value": 0,
+          "id": "shouki:WN14:fire",
+          "count": 3
+        },
+        {
+          "tick": 315,
+          "value": 1,
+          "id": "shouki:WN09:lock",
+          "count": 1
+        },
+        {
+          "tick": 331,
+          "value": 73,
+          "id": "shouki:WN14:guard-hit",
+          "count": 2
+        },
+        {
+          "tick": 369,
+          "value": 72,
+          "id": "shouki:WN18:auto",
+          "count": 9
+        },
+        {
+          "tick": 375,
+          "value": 1,
+          "id": "shouki:WN09:hit",
+          "count": 3
+        },
+        {
+          "tick": 597,
+          "value": 0,
+          "id": "shouki:WN10",
+          "count": 1
+        },
+        {
+          "tick": 645,
+          "value": 1,
+          "id": "shouki:WN10:lock",
+          "count": 1
+        },
+        {
+          "tick": 681,
+          "value": 1,
+          "id": "shouki:WN10:launch",
+          "count": 5
+        },
+        {
+          "tick": 951,
+          "value": 0,
+          "id": "shouki:WN11",
+          "count": 1
+        },
+        {
+          "tick": 1011,
+          "value": 1,
+          "id": "shouki:WN11:lock",
+          "count": 1
+        },
+        {
+          "tick": 1071,
+          "value": 1,
+          "id": "shouki:WN11:hit",
+          "count": 2
+        },
+        {
+          "tick": 1168,
+          "value": 0,
+          "id": "shouki:WN18:floor-hit",
+          "count": 4
+        },
+        {
+          "tick": 1329,
+          "value": 0,
+          "id": "shouki:WN15",
+          "count": 1
+        },
+        {
+          "tick": 1390,
+          "value": 2,
+          "id": "shouki:WN15:hit",
+          "count": 16
+        },
+        {
+          "tick": 1498,
+          "value": 2,
+          "id": "shouki:WN15:destroyed",
+          "count": 4
+        },
+        {
+          "tick": 2166,
+          "value": 0,
+          "id": "shouki:WN17",
+          "count": 1
+        },
+        {
+          "tick": 2166,
+          "value": 0,
+          "id": "shouki:WN14:core-hit",
+          "count": 1
+        }
+      ],
+      "partyHp": [
+        67548,
+        63456
+      ],
+      "status": "clear",
+      "node": "shouki-godmaking-arena",
+      "damage": 1630,
+      "maxHp": 1630,
+      "phases": [
+        {
+          "id": "p1",
+          "tick": 0
+        },
+        {
+          "id": "rise",
+          "tick": 10
+        },
+        {
+          "id": "p2",
+          "tick": 249
+        },
+        {
+          "id": "trial",
+          "tick": 1329
+        },
+        {
+          "id": "collapse",
+          "tick": 2166
+        }
+      ],
+      "award": {
+        "xp": 32560274,
+        "mora": 3590160,
+        "first": true
+      }
+    },
+    {
+      "level": 200,
+      "name": "shouki",
+      "type": "weekly",
+      "mode": "expert",
+      "equippedAtk": [
+        152544,
+        127370
+      ],
+      "hits": 2,
+      "hpRemaining": 0,
+      "ticks": 2223,
+      "elapsed": 37.049999999998974,
+      "moves": [
+        {
+          "id": "WN09",
+          "tick": 301
+        },
+        {
+          "id": "WN10",
+          "tick": 625
+        },
+        {
+          "id": "WN11",
+          "tick": 979
+        }
+      ],
+      "events": [
+        {
+          "tick": 38,
+          "value": 0,
+          "id": "shouki:WN08",
+          "count": 1
+        },
+        {
+          "tick": 277,
+          "value": 100,
+          "id": "shouki:WN18:supply",
+          "count": 5
+        },
+        {
+          "tick": 286,
+          "value": 1,
+          "id": "shouki:WN18:collected",
+          "count": 3
+        },
+        {
+          "tick": 287,
+          "value": 99,
+          "id": "shouki:WN18:guard-hit",
+          "count": 42
+        },
+        {
+          "tick": 287,
+          "value": 0,
+          "id": "shouki:WN14:reserve",
+          "count": 3
+        },
+        {
+          "tick": 288,
+          "value": 0,
+          "id": "shouki:WN14",
+          "count": 3
+        },
+        {
+          "tick": 301,
+          "value": 0,
+          "id": "shouki:WN09",
+          "count": 1
+        },
+        {
+          "tick": 323,
+          "value": 0,
+          "id": "shouki:WN14:lock",
+          "count": 3
+        },
+        {
+          "tick": 343,
+          "value": 1,
+          "id": "shouki:WN09:lock",
+          "count": 1
+        },
+        {
+          "tick": 347,
+          "value": 0,
+          "id": "shouki:WN14:fire",
+          "count": 3
+        },
+        {
+          "tick": 363,
+          "value": 73,
+          "id": "shouki:WN14:guard-hit",
+          "count": 2
+        },
+        {
+          "tick": 397,
+          "value": 71,
+          "id": "shouki:WN18:auto",
+          "count": 8
+        },
+        {
+          "tick": 403,
+          "value": 1,
+          "id": "shouki:WN09:hit",
+          "count": 2
+        },
+        {
+          "tick": 625,
+          "value": 0,
+          "id": "shouki:WN10",
+          "count": 1
+        },
+        {
+          "tick": 673,
+          "value": 1,
+          "id": "shouki:WN10:lock",
+          "count": 1
+        },
+        {
+          "tick": 709,
+          "value": 1,
+          "id": "shouki:WN10:launch",
+          "count": 5
+        },
+        {
+          "tick": 979,
+          "value": 0,
+          "id": "shouki:WN11",
+          "count": 1
+        },
+        {
+          "tick": 1039,
+          "value": 1,
+          "id": "shouki:WN11:lock",
+          "count": 1
+        },
+        {
+          "tick": 1159,
+          "value": 2,
+          "id": "shouki:WN11:hit",
+          "count": 1
+        },
+        {
+          "tick": 1250,
+          "value": 0,
+          "id": "shouki:WN18:floor-hit",
+          "count": 1
+        },
+        {
+          "tick": 1278,
+          "value": 0,
+          "id": "shouki:WN15",
+          "count": 1
+        },
+        {
+          "tick": 1349,
+          "value": 3,
+          "id": "shouki:WN15:hit",
+          "count": 16
+        },
+        {
+          "tick": 1457,
+          "value": 3,
+          "id": "shouki:WN15:destroyed",
+          "count": 4
+        },
+        {
+          "tick": 2125,
+          "value": 0,
+          "id": "shouki:WN17",
+          "count": 1
+        },
+        {
+          "tick": 2125,
+          "value": 0,
+          "id": "shouki:WN14:core-hit",
+          "count": 1
+        }
+      ],
+      "partyHp": [
+        112415,
+        118920
+      ],
+      "status": "clear",
+      "node": "shouki-godmaking-arena",
+      "damage": 1630,
+      "maxHp": 1630,
+      "phases": [
+        {
+          "id": "p1",
+          "tick": 0
+        },
+        {
+          "id": "rise",
+          "tick": 38
+        },
+        {
+          "id": "p2",
+          "tick": 277
+        },
+        {
+          "id": "trial",
+          "tick": 1278
+        },
+        {
+          "id": "collapse",
+          "tick": 2125
+        }
+      ],
+      "award": {
+        "xp": 32560274,
+        "mora": 3590160,
+        "first": true
+      }
+    }
+  ]
+}

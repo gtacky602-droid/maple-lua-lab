@@ -16,5 +16,8 @@
     "boss-29090101": { "advanced": 5500000, "expert": 16000000 },
     "boss-29091101": { "advanced": 4500000, "expert": 19000000 },
     "boss-29130201": { "advanced": 3300000, "expert": 18000000 }
+  },
+  "stygianBossHp": {
+    "beidou": { "extreme": 4800000 }
   }
 }

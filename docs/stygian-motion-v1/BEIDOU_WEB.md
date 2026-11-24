@@ -28,3 +28,17 @@ Luaで4難度の受付と戦闘の分岐、構えの入力判定、通常と初�
 同じ構えを一時停止して描画を切り替えれば、武器・眼帯・前身頃の変化を比べられる。Chromeで取得した同一フレームの描画コマンドは標準7,826件、軽量16色版2,090件。 [PNG見本](../../evidence/stygian-beidou-png.png) [標準矩形](../../evidence/stygian-beidou-standard.png) [軽量16色](../../evidence/stygian-beidou-light.png) [右向きの構え](../../evidence/stygian-beidou-right.png)
 
 ローカルラボでは共闘でも挑める。連続ドット作画、被弾・撃破・効果音、報酬バランス、別端末間の入力、日本語音声、本番3D配置と幻境実機検証が残る。 [共闘の遊び方と検証](../COOP_WEB_PREVIEW.md#幽境の北斗を共闘する)
+
+## 獲得装備で極限の待ち方を比較
+
+獲得Lv200装備では調整前の極限が1.7秒で終わり、構えのあとに反撃する時間まで進まなかった。比較版の極限だけに固定HP4,800,000を試作した。通常版の極限ではHP2,860。受付で選んだ敵HPを表示し、二幕制のレリルは第一幕・第二幕を分けて読める。 [調整前の記録](../../evidence/earned-boss-roster-draft.json) · [Chromeで受付とHPバーを比較](../../evidence/earned-beidou-balance-browser.json)
+
+構えを待って一閃を避けると、最初の反撃時間は139tick（約2.3秒）。構えに打ち込んだ場合は誘い返しと返し波を経て、最初の反撃時間は72tick（1.2秒）。各レベルで両方の攻め方を使い、反撃の時間に攻撃を当てて勝利した。時間は入場から撃破までのLua内時間。各レベルの装備は冒険中に獲得したものを使用した。 [待つ場合の記録](../../evidence/earned-beidou-wait-lua.json) · [打ち込む場合の記録](../../evidence/earned-beidou-bait-lua.json)
+
+| 極限へ入場した時点 | 待って反撃 | 打ち込んで反撃 |
+| --- | ---: | ---: |
+| Lv165・解放直後 | 17.5秒 | 21.1秒 |
+| Lv180 | 13.3秒 | 15.0秒 |
+| Lv200 | 8.1秒 | 7.3秒 |
+
+同じ冒険をLv165まで再走して試す場合は `python test_cap_fresh_route.py --draft-balance --checkpoint-165`。試走は `python test_earned_boss_roster.py --level 165 180 200 --only beidou --seconds 240 --route mechanics --expect-clear` を使い、打ち込む場合は `--route bait` を選ぶ。
