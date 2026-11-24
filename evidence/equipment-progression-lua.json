@@ -1,0 +1,500 @@
+{
+  "scope": "Lua normal-attack benchmark. Each variant uses the same regional enemy and initial combat RNG. It places the traveler 50 px from the spawned enemy and disables enemy movement and allied attacks. Equipment and Mora come from the named route saves. A null time means the target survived 180 seconds.",
+  "samples": [
+    {
+      "level": 20,
+      "save": "work/mondstadt-fresh-route/liyue-save.json",
+      "sha256": "eb292eae4f7e6c0147f917dd5f517e8b83bf40766e0fa773c6e2512a093740fe",
+      "node": "liyue-field",
+      "enemy": {
+        "spawn": "liyue-field-2",
+        "level": 20,
+        "hp": 15
+      },
+      "earnedMora": 6120,
+      "equippedArtifacts": 0,
+      "cases": {
+        "starter_only": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 4,
+          "spentMora": 0,
+          "seconds": 0.75,
+          "frames": 45
+        },
+        "route_artifacts": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 4,
+          "spentMora": 0,
+          "seconds": 0.75,
+          "frames": 45
+        },
+        "owned_weapon": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 4,
+          "spentMora": 0,
+          "seconds": 0.75,
+          "frames": 45
+        },
+        "owned_weapon_plus_five": {
+          "weapon": "SW01",
+          "upgrade": 5,
+          "atk": 8,
+          "spentMora": 450,
+          "seconds": 0.15,
+          "frames": 9
+        },
+        "starter_plus_ten": {
+          "weapon": "SW01",
+          "upgrade": 10,
+          "atk": 14,
+          "spentMora": 1650,
+          "seconds": 0.15,
+          "frames": 9
+        }
+      }
+    },
+    {
+      "level": 40,
+      "save": "work/liyue-fresh-route/inazuma-save.json",
+      "sha256": "707fba68f9316da2def35c1ce1884a8e8d410d38020b661e0d10ad0dac972eaa",
+      "node": "inazuma-road",
+      "enemy": {
+        "spawn": "inazuma-road-2",
+        "level": 40,
+        "hp": 15
+      },
+      "earnedMora": 14610,
+      "equippedArtifacts": 0,
+      "cases": {
+        "starter_only": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 4,
+          "spentMora": 0,
+          "seconds": 0.75,
+          "frames": 45
+        },
+        "route_artifacts": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 4,
+          "spentMora": 0,
+          "seconds": 0.75,
+          "frames": 45
+        },
+        "owned_weapon": {
+          "weapon": "SW02",
+          "upgrade": 0,
+          "atk": 5,
+          "spentMora": 0,
+          "seconds": 0.617,
+          "frames": 37
+        },
+        "owned_weapon_plus_five": {
+          "weapon": "SW02",
+          "upgrade": 5,
+          "atk": 10,
+          "spentMora": 1200,
+          "seconds": 0.15,
+          "frames": 9
+        },
+        "starter_plus_ten": {
+          "weapon": "SW01",
+          "upgrade": 10,
+          "atk": 14,
+          "spentMora": 1650,
+          "seconds": 0.15,
+          "frames": 9
+        }
+      }
+    },
+    {
+      "level": 60,
+      "save": "work/inazuma-fresh-route/sumeru-save.json",
+      "sha256": "f44c04878179bb91ae3280372082ab29d8dde4cae0a704516464d298aba39623",
+      "node": "sumeru-field",
+      "enemy": {
+        "spawn": "sumeru-field-2",
+        "level": 60,
+        "hp": 15
+      },
+      "earnedMora": 34360,
+      "equippedArtifacts": 0,
+      "cases": {
+        "starter_only": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 4,
+          "spentMora": 0,
+          "seconds": 0.75,
+          "frames": 45
+        },
+        "route_artifacts": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 4,
+          "spentMora": 0,
+          "seconds": 0.75,
+          "frames": 45
+        },
+        "owned_weapon": {
+          "weapon": "SW03",
+          "upgrade": 0,
+          "atk": 6,
+          "spentMora": 0,
+          "seconds": 0.617,
+          "frames": 37
+        },
+        "owned_weapon_plus_five": {
+          "weapon": "SW03",
+          "upgrade": 5,
+          "atk": 12,
+          "spentMora": 3750,
+          "seconds": 0.15,
+          "frames": 9
+        },
+        "starter_plus_ten": {
+          "weapon": "SW01",
+          "upgrade": 10,
+          "atk": 14,
+          "spentMora": 1650,
+          "seconds": 0.15,
+          "frames": 9
+        }
+      }
+    },
+    {
+      "level": 80,
+      "save": "work/sumeru-fresh-route/fontaine-save.json",
+      "sha256": "d4c559d6d3979352e24aa078d86ede1447386c2e1cdf7901ddca0c80a51b4ebf",
+      "node": "fontaine-field",
+      "enemy": {
+        "spawn": "fontaine-field-2",
+        "level": 80,
+        "hp": 15
+      },
+      "earnedMora": 84360,
+      "equippedArtifacts": 0,
+      "cases": {
+        "starter_only": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 4,
+          "spentMora": 0,
+          "seconds": 0.75,
+          "frames": 45
+        },
+        "route_artifacts": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 4,
+          "spentMora": 0,
+          "seconds": 0.75,
+          "frames": 45
+        },
+        "owned_weapon": {
+          "weapon": "SW04",
+          "upgrade": 0,
+          "atk": 7,
+          "spentMora": 0,
+          "seconds": 0.617,
+          "frames": 37
+        },
+        "owned_weapon_plus_five": {
+          "weapon": "SW04",
+          "upgrade": 5,
+          "atk": 14,
+          "spentMora": 10200,
+          "seconds": 0.15,
+          "frames": 9
+        },
+        "starter_plus_ten": {
+          "weapon": "SW01",
+          "upgrade": 10,
+          "atk": 14,
+          "spentMora": 1650,
+          "seconds": 0.15,
+          "frames": 9
+        }
+      }
+    },
+    {
+      "level": 100,
+      "save": "work/fontaine-fresh-route/natlan-save.json",
+      "sha256": "8c043d6e5fcc1e5eaa050e54a2dfe916410d2cfe1acfdec9fc931f9c92f59031",
+      "node": "natlan-field",
+      "enemy": {
+        "spawn": "natlan-field-1",
+        "level": 100,
+        "hp": 15
+      },
+      "earnedMora": 143890,
+      "equippedArtifacts": 0,
+      "cases": {
+        "starter_only": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 4,
+          "spentMora": 0,
+          "seconds": 0.75,
+          "frames": 45
+        },
+        "route_artifacts": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 4,
+          "spentMora": 0,
+          "seconds": 0.75,
+          "frames": 45
+        },
+        "owned_weapon": {
+          "weapon": "SW05",
+          "upgrade": 0,
+          "atk": 9,
+          "spentMora": 0,
+          "seconds": 0.15,
+          "frames": 9
+        },
+        "owned_weapon_plus_five": {
+          "weapon": "SW05",
+          "upgrade": 5,
+          "atk": 17,
+          "spentMora": 27000,
+          "seconds": 0.017,
+          "frames": 1
+        },
+        "starter_plus_ten": {
+          "weapon": "SW01",
+          "upgrade": 10,
+          "atk": 14,
+          "spentMora": 1650,
+          "seconds": 0.15,
+          "frames": 9
+        }
+      }
+    },
+    {
+      "level": 120,
+      "save": "work/natlan-fresh-route/nod-save.json",
+      "sha256": "6215cca6d48fff5549517df295da67b7c6943714fb51ddd41555f811eb7ba284",
+      "node": "nod-field",
+      "enemy": {
+        "spawn": "nod-field-1",
+        "level": 120,
+        "hp": 15
+      },
+      "earnedMora": 464145,
+      "equippedArtifacts": 5,
+      "cases": {
+        "starter_only": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 4,
+          "spentMora": 0,
+          "seconds": 0.75,
+          "frames": 45
+        },
+        "route_artifacts": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 1244,
+          "spentMora": 0,
+          "seconds": 0.017,
+          "frames": 1
+        },
+        "owned_weapon": {
+          "weapon": "SW05",
+          "upgrade": 0,
+          "atk": 1251,
+          "spentMora": 0,
+          "seconds": 0.017,
+          "frames": 1
+        },
+        "owned_weapon_plus_five": {
+          "weapon": "SW05",
+          "upgrade": 5,
+          "atk": 1261,
+          "spentMora": 27000,
+          "seconds": 0.017,
+          "frames": 1
+        },
+        "starter_plus_ten": {
+          "weapon": "SW01",
+          "upgrade": 10,
+          "atk": 1257,
+          "spentMora": 1650,
+          "seconds": 0.017,
+          "frames": 1
+        }
+      }
+    },
+    {
+      "level": 140,
+      "save": "work/nod-fresh-route/snezhnaya-save.json",
+      "sha256": "2fa4800a33e15adbe6848e05999a719ee6412f2efb1c508afe855c9330ec433c",
+      "node": "snezhnaya-field",
+      "enemy": {
+        "spawn": "snezhnaya-field-1",
+        "level": 140,
+        "hp": 15
+      },
+      "earnedMora": 926265,
+      "equippedArtifacts": 5,
+      "cases": {
+        "starter_only": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 4,
+          "spentMora": 0,
+          "seconds": 0.75,
+          "frames": 45
+        },
+        "route_artifacts": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 1244,
+          "spentMora": 0,
+          "seconds": 0.017,
+          "frames": 1
+        },
+        "owned_weapon": {
+          "weapon": "SW05",
+          "upgrade": 0,
+          "atk": 1251,
+          "spentMora": 0,
+          "seconds": 0.017,
+          "frames": 1
+        },
+        "owned_weapon_plus_five": {
+          "weapon": "SW05",
+          "upgrade": 5,
+          "atk": 1261,
+          "spentMora": 27000,
+          "seconds": 0.017,
+          "frames": 1
+        },
+        "starter_plus_ten": {
+          "weapon": "SW01",
+          "upgrade": 10,
+          "atk": 1257,
+          "spentMora": 1650,
+          "seconds": 0.017,
+          "frames": 1
+        }
+      }
+    },
+    {
+      "level": 160,
+      "save": "work/snez-fresh-route/white-pass-save.json",
+      "sha256": "8e03ca7fc5eed45bac37cc8035837411be02c00533f6132ac475e40c95f934ef",
+      "node": "aurora-ice-cut",
+      "enemy": {
+        "spawn": "aurora-ice-cut-1-1",
+        "level": 160,
+        "hp": 11
+      },
+      "earnedMora": 2258745,
+      "equippedArtifacts": 5,
+      "cases": {
+        "starter_only": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 4,
+          "spentMora": 0,
+          "seconds": 0.617,
+          "frames": 37
+        },
+        "route_artifacts": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 1244,
+          "spentMora": 0,
+          "seconds": 0.017,
+          "frames": 1
+        },
+        "owned_weapon": {
+          "weapon": "SW07",
+          "upgrade": 0,
+          "atk": 1537,
+          "spentMora": 0,
+          "seconds": 0.017,
+          "frames": 1
+        },
+        "owned_weapon_plus_five": {
+          "weapon": "SW07",
+          "upgrade": 5,
+          "atk": 1816,
+          "spentMora": 270000,
+          "seconds": 0.017,
+          "frames": 1
+        },
+        "starter_plus_ten": {
+          "weapon": "SW01",
+          "upgrade": 10,
+          "atk": 1257,
+          "spentMora": 1650,
+          "seconds": 0.017,
+          "frames": 1
+        }
+      }
+    },
+    {
+      "level": 200,
+      "save": "work/cap-fresh-route/lv200-save.json",
+      "sha256": "9539f3a5c3dad3d09b50c5cc40f9bc2f2c14c48238f09fdde34c2f20d8de99ac",
+      "node": "dawn-crystal-field",
+      "enemy": {
+        "spawn": "dawn-crystal-field-1-1",
+        "level": 200,
+        "hp": 16
+      },
+      "earnedMora": 9434505,
+      "equippedArtifacts": 5,
+      "cases": {
+        "starter_only": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 4,
+          "spentMora": 0,
+          "seconds": 0.75,
+          "frames": 45
+        },
+        "route_artifacts": {
+          "weapon": "SW01",
+          "upgrade": 0,
+          "atk": 141656,
+          "spentMora": 0,
+          "seconds": 0.017,
+          "frames": 1
+        },
+        "owned_weapon": {
+          "weapon": "SW07",
+          "upgrade": 0,
+          "atk": 141986,
+          "spentMora": 0,
+          "seconds": 0.017,
+          "frames": 1
+        },
+        "owned_weapon_plus_five": {
+          "weapon": "SW07",
+          "upgrade": 5,
+          "atk": 142301,
+          "spentMora": 270000,
+          "seconds": 0.017,
+          "frames": 1
+        },
+        "starter_plus_ten": {
+          "weapon": "SW01",
+          "upgrade": 10,
+          "atk": 141670,
+          "spentMora": 1650,
+          "seconds": 0.017,
+          "frames": 1
+        }
+      }
+    }
+  ]
+}
