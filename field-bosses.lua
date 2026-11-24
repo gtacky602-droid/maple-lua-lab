@@ -3,8 +3,11 @@ return function(C,configs,controllers)
  local after=C.afterElementHit
  local damageFactor=C.damageFactor
  local defeatEnemy=C.defeatEnemy
- local byId,byNode={},{}
- for _,spec in ipairs(configs) do byId[spec.id]=spec;byNode[spec.node]=spec end
+ local byId,byNode,attackPulseNodes={},{},{}
+ for _,spec in ipairs(configs) do
+  byId[spec.id]=spec;byNode[spec.node]=spec
+  if spec.draftMoves and controllers[spec.controller].onAttackPulse then attackPulseNodes[spec.node]=spec end
+ end
  local shared={hp=true,invulnerable=true}
  local healthProxy={
   __index=function(body,key) if shared[key] then return body.sharedHealth[key] end end,
@@ -516,6 +519,17 @@ return function(C,configs,controllers)
   if not spec or e.hp<=0 or e.invulnerable then return end
   local behavior=controllers[spec.controller]
   if behavior.onHit then behavior.onHit(cast,e,spec,C.fieldSlot(s,spec.id),damageElement,damage,s) end
+ end
+
+ if next(attackPulseNodes) then
+  function C.onFieldAttackPulse(s,cast,selected,left,right)
+   local spec=attackPulseNodes[current(s)]
+   if not spec then return end
+   local slot=C.fieldSlot(s,spec.id)
+   if slot and slot.cast and slot.enemy.hp>0 then
+    controllers[spec.controller].onAttackPulse(s,cast,slot.enemy,slot.cast,selected,left,right)
+   end
+  end
  end
 
  local function waitTicks(now,slot)

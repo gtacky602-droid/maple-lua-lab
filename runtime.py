@@ -143,6 +143,9 @@ def runtime(*, draft_balance=False, draft_field_boss_hp=True, draft_field_moves=
             if overrides is None:
                 continue
             spec['draftMoves'] = True
+            cooling = spec.get('coolingMove')
+            if cooling and cooling['id'] in overrides:
+                spec['moves'].append(spec.pop('coolingMove'))
             for move in spec['moves']:
                 move.update(overrides.get(move['id'], {}))
     weekly_specs=resolve_weekly_rewards(json.loads((ROOT/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses'])

@@ -173,6 +173,14 @@ local function hitRegion(a,e,range)
     (a.radial or (e.x-a.x)*a.dir>-25-half) then return true end
  return e.weakpoint and C.hitFieldWeakpoint(a,e,range)
 end
+local function castReaches(a,e,range,left,right)
+ return (not left or (e.x+(e.hitHalfWidth or 0)>=left and e.x-(e.hitHalfWidth or 0)<=right)) and
+        (not a.groundWave or e.boss or abs(e.y-a.y)<5) and
+        (not a.groundOnly or not e.flying) and hitRegion(a,e,range)
+end
+function C.castReachesFieldPart(cast,part,left,right)
+ return castReaches(cast,part,cast.range,left,right)
+end
 function C.placeGroundCast(s,cast)
  local floorY=math.huge
  for _,p in ipairs(s.platforms) do
@@ -198,10 +206,7 @@ local function targets(s,a,range,limit,includePartners,left,right)
  local contacts={}
  for _,e in ipairs(s.enemies) do
   if (C.canTargetEnemy(e) or (a.persistentTarget==e and e.hp>0)) and (not a.targetId or e.id==a.targetId) and
-     (not e.acceptsCast or e.acceptsCast(a,s)) and
-     (not left or (e.x+(e.hitHalfWidth or 0)>=left and e.x-(e.hitHalfWidth or 0)<=right)) and
-     (not a.groundWave or e.boss or abs(e.y-a.y)<5) and
-     (not a.groundOnly or not e.flying) and hitRegion(a,e,range) then
+     (not e.acceptsCast or e.acceptsCast(a,s)) and castReaches(a,e,range,left,right) then
    out[#out+1]=e
    if not includePartners and (e.sharedHealth or e.fieldPartner) then
     local key=receiver(e)
@@ -311,6 +316,7 @@ local function pulse(s,cast)
   end
   if chainLightning then lightningX,lightningY=e.x,e.y-35 end
  end
+ if C.onFieldAttackPulse then C.onFieldAttackPulse(s,cast,selected,waveLeft,waveRight) end
  if cast.travelSpeed then cast.lastPulseX=cast.x end
  if touched and not cast.gained then
   local actor=s.actors[cast.id]

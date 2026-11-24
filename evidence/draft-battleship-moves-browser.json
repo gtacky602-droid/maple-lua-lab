@@ -1,0 +1,11 @@
+{
+  "level": 128,
+  "plateInitially": 5,
+  "interruptedBy": 112,
+  "ordinaryKillCountersUnchanged": true,
+  "sameFrameCommands": {
+    "standard": 24070,
+    "light": 6322
+  },
+  "errors": []
+}

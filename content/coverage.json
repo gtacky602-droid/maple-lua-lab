@@ -8279,6 +8279,13 @@
           "cooperative_participants": 4,
           "lua_evidence": "evidence/draft-nightmare-moves-lua.json",
           "browser_evidence": "evidence/draft-nightmare-moves-browser.json"
+        },
+        "boss-23090101": {
+          "earned_save_level": 128,
+          "same_input_clear_seconds": {"previous": 60.833, "alternate": 62.633},
+          "cooperative_participants": 4,
+          "lua_evidence": "evidence/draft-battleship-moves-lua.json",
+          "browser_evidence": "evidence/draft-battleship-moves-browser.json"
         }
       }
     }

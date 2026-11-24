@@ -1,0 +1,142 @@
+{
+  "earned": {
+    "level": 128,
+    "previous": {
+      "sourceSha256": "e18c1a3ee930ac7a287b6c9eb79b857e5596dc8c02e1d47c059c90836cbd4e8d",
+      "boss": "boss-23090101",
+      "arena": "nod-battleship-depot",
+      "entryRoute": [
+        "nod-field",
+        "nod-battleship-depot"
+      ],
+      "maxHp": 4500000,
+      "partyAttack": [
+        9314,
+        6652
+      ],
+      "elapsedSeconds": 60.833,
+      "damagingHits": 405,
+      "moves": [
+        "FBT01",
+        "FBT02",
+        "FBT03"
+      ],
+      "skillCasts": {
+        "SK21": 0,
+        "SK09": 0,
+        "SK10": 0,
+        "SK13": 0
+      },
+      "killXpAndMora": [
+        597050,
+        455
+      ],
+      "commission": {
+        "quest": "battleship-commission",
+        "xp": 8800,
+        "mora": 590
+      },
+      "savedClear": true
+    },
+    "alternateNormal": {
+      "sourceSha256": "e18c1a3ee930ac7a287b6c9eb79b857e5596dc8c02e1d47c059c90836cbd4e8d",
+      "boss": "boss-23090101",
+      "arena": "nod-battleship-depot",
+      "entryRoute": [
+        "nod-field",
+        "nod-battleship-depot"
+      ],
+      "maxHp": 4500000,
+      "partyAttack": [
+        9314,
+        6652
+      ],
+      "elapsedSeconds": 62.633,
+      "damagingHits": 423,
+      "moves": [
+        "FBT01",
+        "FBT02",
+        "FBT03"
+      ],
+      "skillCasts": {
+        "SK21": 0,
+        "SK09": 0,
+        "SK10": 0,
+        "SK13": 0
+      },
+      "killXpAndMora": [
+        597050,
+        455
+      ],
+      "commission": {
+        "quest": "battleship-commission",
+        "xp": 8800,
+        "mora": 590
+      },
+      "savedClear": true
+    },
+    "alternateInterrupted": {
+      "sourceSha256": "e18c1a3ee930ac7a287b6c9eb79b857e5596dc8c02e1d47c059c90836cbd4e8d",
+      "boss": "boss-23090101",
+      "arena": "nod-battleship-depot",
+      "entryRoute": [
+        "nod-field",
+        "nod-battleship-depot"
+      ],
+      "maxHp": 4500000,
+      "partyAttack": [
+        9314,
+        6652
+      ],
+      "elapsedSeconds": 68.717,
+      "damagingHits": 427,
+      "moves": [
+        "FBT01",
+        "FBT02",
+        "FBT03"
+      ],
+      "skillCasts": {
+        "SK21": 1,
+        "SK22": 0,
+        "SK09": 0
+      },
+      "killXpAndMora": [
+        597050,
+        455
+      ],
+      "commission": {
+        "quest": "battleship-commission",
+        "xp": 8800,
+        "mora": 590
+      },
+      "savedClear": true
+    },
+    "interruptionTick": 111,
+    "avoidedDischarge": true,
+    "counterTick": 362,
+    "dischargeTrialCompanionInactive": true
+  },
+  "cooling": {
+    "maxHp": 4500000,
+    "participants": 4,
+    "plateOnlyNoDamage": true,
+    "bodyOnlyNoPlate": true,
+    "overlapDamageOncePerPulse": true,
+    "deduplicatedPlateContactAcrossPulses": true,
+    "oldAndReactionExcluded": true,
+    "lastAcceptedTick": 299,
+    "interruptedOnTick": 300,
+    "downTicks": 168,
+    "standTicks": 24,
+    "naturalDischargeDamage": [
+      33,
+      0,
+      0,
+      0
+    ],
+    "naturalRecoveryTicks": 144,
+    "bossDeathWinsSameTick": true
+  },
+  "restoredBossHp": 4057790,
+  "reloadedInBothProfiles": true
+}
