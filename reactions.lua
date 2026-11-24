@@ -64,7 +64,7 @@ return function(C)
      e.burning=nil
     elseif burn and now+dt+1e-8>=burn.next then
      local source=burn.member and burn.member.state or s
-     C.resolveCast(source,{id=burn.owner,key='reaction:burning',atk=burn.atk,x=e.x,y=e.y,targetId=e.id,persistentTarget=e,dir=1,radial=true,range=1,limit=1,mult=.3,element='pyro',color=colors.pyro,gain=0,reaction=true,critRate=0})
+     C.resolveCast(source,{id=burn.owner,key='reaction:burning',atk=burn.atk,x=e.x,y=e.y,targetId=e.id,persistentTarget=e,dir=1,radial=true,range=1,limit=1,mult=.3,element='pyro',color=colors.pyro,gain=0,reaction=true,critRate=0,resolvedAt=now+dt})
      burn.remaining=burn.remaining-1;burn.next=burn.next+1
      if burn.remaining<=0 or e.hp<=0 then e.burning=nil end
     end

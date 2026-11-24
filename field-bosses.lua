@@ -248,7 +248,7 @@ return function(C,configs,controllers)
   return a.x+10>left and a.x-10<right and a.y>top and a.y-50<bottom
  end
 
- function C.hitFieldArea(s,source,seen,left,right,top,damage,bottom)
+ function C.hitFieldArea(s,source,seen,left,right,top,damage,bottom,onDamage)
   bottom=bottom or source.y
   local owner=source.owner or source
   for _,a in ipairs(s.actors) do
@@ -256,7 +256,9 @@ return function(C,configs,controllers)
    local key=s.actorOwners and a or a.id
    if a.hp>0 and not seen[key] and inFieldArea(a,left,right,top,bottom) then
     seen[key]=true
-    C.damageActor(s.actorOwners and s.actorOwners[a] or s,a,damage,source,false,true)
+    local party,before=s.actorOwners and s.actorOwners[a] or s,a.hp
+    C.damageActor(party,a,damage,source,false,true)
+    if onDamage and a.hp>0 and a.hp<before then onDamage(party,a) end
    end
   end
  end

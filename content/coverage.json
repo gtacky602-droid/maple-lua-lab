@@ -8266,6 +8266,13 @@
     },
     "draft_field_moves": {
       "encounters": {
+        "boss-26301101": {
+          "earned_save_level": 130,
+          "same_input_clear_seconds": {"previous": 63.417, "alternate": 57.65},
+          "cooperative_participants": 4,
+          "lua_evidence": "evidence/draft-moonfly-moves-lua.json",
+          "browser_evidence": "evidence/draft-moonfly-moves-browser.json"
+        },
         "boss-24100101": {
           "earned_save_level": 122,
           "same_input_clear_seconds": {"previous": 67.083, "alternate": 60.083},

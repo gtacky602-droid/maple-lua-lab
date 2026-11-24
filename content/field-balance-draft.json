@@ -22,6 +22,18 @@
     "boss-25134601": 6800000
   },
   "fieldBossMoveOverrides": {
+    "boss-26301101": {
+      "FMF03": {
+        "kind": "wingSequence", "title": "集光の繭・三拍の羽解放",
+        "flare": 168, "charge": 240, "active": [[132, 146], [216, 230], [300, 316]],
+        "recover": 336, "total": 480, "cocoonTicks": 180, "cocoonFactor": 0.9,
+        "waves": [
+          { "near": 0.25, "far": 2.25, "element": "dendro" },
+          { "near": 0.25, "far": 2.25, "element": "pyro" },
+          { "near": 0.10, "far": 2.70, "element": "pyro" }
+        ]
+      }
+    },
     "boss-24100101": {
       "FDK03": {
         "kind": "discharge", "title": "メカダック補修・放電", "deploy": 76, "expire": 300,

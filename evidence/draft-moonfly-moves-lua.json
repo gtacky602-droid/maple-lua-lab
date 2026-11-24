@@ -1,0 +1,100 @@
+{
+  "waveElements": [
+    "dendro",
+    "pyro",
+    "pyro"
+  ],
+  "hitTicks": [
+    132,
+    216,
+    300
+  ],
+  "hpLossEach": 25,
+  "partialHealing": 4,
+  "naturalClearTick": 312,
+  "damageBeforeDuringAfter": [
+    95,
+    85,
+    95
+  ],
+  "naturalRecoveryTicks": 144,
+  "lethalAndOutsideFirstWaveUnmarked": true,
+  "invulnerableAndShieldedUnmarked": true,
+  "clearedOnDefeatAndExit": true,
+  "unrelatedParentPreserved": true,
+  "level": 130,
+  "previous": {
+    "sourceSha256": "3d5d617aa65943aaca4d44794753c41ed27ee92677a7b3032332176b30bff752",
+    "boss": "boss-26301101",
+    "arena": "nod-moonfly-hollow",
+    "entryRoute": [
+      "nod-field",
+      "nod-moonfly-hollow"
+    ],
+    "maxHp": 4100000,
+    "partyAttack": [
+      9314,
+      6652
+    ],
+    "elapsedSeconds": 63.417,
+    "damagingHits": 432,
+    "moves": [
+      "FMF01",
+      "FMF02",
+      "FMF03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      871150,
+      485
+    ],
+    "commission": {
+      "quest": "moonfly-commission",
+      "xp": 9400,
+      "mora": 650
+    },
+    "savedClear": true
+  },
+  "short": {
+    "sourceSha256": "3d5d617aa65943aaca4d44794753c41ed27ee92677a7b3032332176b30bff752",
+    "boss": "boss-26301101",
+    "arena": "nod-moonfly-hollow",
+    "entryRoute": [
+      "nod-field",
+      "nod-moonfly-hollow"
+    ],
+    "maxHp": 4100000,
+    "partyAttack": [
+      9314,
+      6652
+    ],
+    "elapsedSeconds": 57.65,
+    "damagingHits": 385,
+    "moves": [
+      "FMF01",
+      "FMF02",
+      "FMF03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      871150,
+      485
+    ],
+    "commission": {
+      "quest": "moonfly-commission",
+      "xp": 9400,
+      "mora": 650
+    },
+    "savedClear": true
+  }
+}

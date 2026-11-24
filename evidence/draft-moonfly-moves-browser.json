@@ -1,0 +1,15 @@
+{
+  "level": 130,
+  "healthFixture": "Traveler HP reduced 800 from the earned checkpoint to demonstrate partial healing",
+  "firstWaveTick": 133,
+  "healedTick": 197,
+  "hpBeforeHeal": 9886,
+  "hpAfterHeal": 10155.275,
+  "maxHp": 10771,
+  "noEscapeBuff": true,
+  "sameFrameCommands": {
+    "standard": 11723,
+    "light": 3078
+  },
+  "errors": []
+}
