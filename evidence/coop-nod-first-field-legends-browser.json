@@ -1,0 +1,368 @@
+{
+  "participants": 2,
+  "sigurd": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 169,
+        "moves": [
+          "NSG01",
+          "NSG02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 168,
+        "moves": [
+          "NSG01",
+          "NSG02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "physical",
+        70,
+        326,
+        482
+      ],
+      [
+        2,
+        "physical",
+        118,
+        517,
+        691
+      ]
+    ],
+    "rewards": [
+      [
+        889290,
+        680
+      ],
+      [
+        889290,
+        680
+      ]
+    ],
+    "contacts": [
+      11,
+      8
+    ],
+    "saved": true,
+    "returnY": 480,
+    "personalQuestGate": true,
+    "sharedRematch": true
+  },
+  "crab-tsar": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 127,
+        "moves": [
+          "NCT01",
+          "NCT02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 168,
+        "moves": [
+          "NCT01",
+          "NCT02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "hydro",
+        72,
+        677.5,
+        843.5
+      ],
+      [
+        2,
+        "hydro",
+        121,
+        941.5,
+        1107.5
+      ]
+    ],
+    "rewards": [
+      [
+        1271150,
+        715
+      ],
+      [
+        1271150,
+        715
+      ]
+    ],
+    "contacts": [
+      10,
+      12
+    ],
+    "saved": true,
+    "returnY": 409,
+    "personalQuestGate": true,
+    "sharedRematch": true
+  },
+  "raskolnikov": {
+    "results": [
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 83,
+        "moves": [
+          "NRK01",
+          "NRK02"
+        ]
+      },
+      {
+        "won": true,
+        "returns": 0,
+        "hp": 122,
+        "moves": [
+          "NRK01",
+          "NRK02"
+        ]
+      }
+    ],
+    "warnings": [
+      [
+        1,
+        "pyro",
+        72,
+        665.5,
+        795.5
+      ],
+      [
+        2,
+        "pyro",
+        112,
+        813.5,
+        971.5
+      ],
+      [
+        3,
+        "pyro",
+        153,
+        989.5,
+        1119.5
+      ]
+    ],
+    "rewards": [
+      [
+        1150400,
+        750
+      ],
+      [
+        1150400,
+        750
+      ]
+    ],
+    "contacts": [
+      12,
+      11
+    ],
+    "saved": true,
+    "returnY": 407,
+    "personalQuestGate": true,
+    "sharedRematch": true
+  },
+  "routes": [
+    [
+      [
+        "nod-wp-88147",
+        "nod-wp-88148",
+        "walk"
+      ],
+      [
+        "nod-wp-88148",
+        "nod-bonemos-grave-path",
+        "raised"
+      ],
+      [
+        "nod-bonemos-grave-path",
+        "nod-sigurd-grave-court",
+        "walk"
+      ],
+      [
+        "nod-sigurd-grave-court",
+        "nod-bonemos-grave-path",
+        "walk"
+      ],
+      [
+        "nod-bonemos-grave-path",
+        "nod-sigurd-grave-court",
+        "walk"
+      ],
+      [
+        "nod-sigurd-grave-court",
+        "nod-bonemos-grave-path",
+        "walk"
+      ],
+      [
+        "nod-wp-88131",
+        "nod-wp-88138",
+        "lift"
+      ],
+      [
+        "nod-wp-88138",
+        "nod-hiisi-mirror-court",
+        "raised"
+      ],
+      [
+        "nod-hiisi-mirror-court",
+        "nod-crab-tsar-palace",
+        "raised"
+      ],
+      [
+        "nod-crab-tsar-palace",
+        "nod-hiisi-mirror-court",
+        "walk"
+      ],
+      [
+        "nod-hiisi-mirror-court",
+        "nod-crab-tsar-palace",
+        "raised"
+      ],
+      [
+        "nod-crab-tsar-palace",
+        "nod-hiisi-mirror-court",
+        "walk"
+      ],
+      [
+        "nod-wp-88174",
+        "nod-wp-88171",
+        "lift"
+      ],
+      [
+        "nod-wp-88171",
+        "nod-bureau-upper-lift-station",
+        "raised"
+      ],
+      [
+        "nod-bureau-upper-lift-station",
+        "nod-raskolnikov-upper-ring",
+        "lift"
+      ],
+      [
+        "nod-raskolnikov-upper-ring",
+        "nod-bureau-upper-lift-station",
+        "lift"
+      ],
+      [
+        "nod-bureau-upper-lift-station",
+        "nod-raskolnikov-upper-ring",
+        "lift"
+      ],
+      [
+        "nod-raskolnikov-upper-ring",
+        "nod-bureau-upper-lift-station",
+        "lift"
+      ]
+    ],
+    [
+      [
+        "nod-wp-88147",
+        "nod-wp-88148",
+        "walk"
+      ],
+      [
+        "nod-wp-88148",
+        "nod-bonemos-grave-path",
+        "raised"
+      ],
+      [
+        "nod-bonemos-grave-path",
+        "nod-sigurd-grave-court",
+        "walk"
+      ],
+      [
+        "nod-sigurd-grave-court",
+        "nod-bonemos-grave-path",
+        "walk"
+      ],
+      [
+        "nod-bonemos-grave-path",
+        "nod-sigurd-grave-court",
+        "walk"
+      ],
+      [
+        "nod-sigurd-grave-court",
+        "nod-bonemos-grave-path",
+        "walk"
+      ],
+      [
+        "nod-wp-88131",
+        "nod-wp-88138",
+        "lift"
+      ],
+      [
+        "nod-wp-88138",
+        "nod-hiisi-mirror-court",
+        "raised"
+      ],
+      [
+        "nod-hiisi-mirror-court",
+        "nod-crab-tsar-palace",
+        "raised"
+      ],
+      [
+        "nod-crab-tsar-palace",
+        "nod-hiisi-mirror-court",
+        "walk"
+      ],
+      [
+        "nod-hiisi-mirror-court",
+        "nod-crab-tsar-palace",
+        "raised"
+      ],
+      [
+        "nod-crab-tsar-palace",
+        "nod-hiisi-mirror-court",
+        "walk"
+      ],
+      [
+        "nod-wp-88174",
+        "nod-wp-88171",
+        "lift"
+      ],
+      [
+        "nod-wp-88171",
+        "nod-bureau-upper-lift-station",
+        "raised"
+      ],
+      [
+        "nod-bureau-upper-lift-station",
+        "nod-raskolnikov-upper-ring",
+        "lift"
+      ],
+      [
+        "nod-raskolnikov-upper-ring",
+        "nod-bureau-upper-lift-station",
+        "lift"
+      ],
+      [
+        "nod-bureau-upper-lift-station",
+        "nod-raskolnikov-upper-ring",
+        "lift"
+      ],
+      [
+        "nod-raskolnikov-upper-ring",
+        "nod-bureau-upper-lift-station",
+        "lift"
+      ]
+    ]
+  ],
+  "personalMirrorBridge": true,
+  "sharedRoomAcrossRoutes": true,
+  "allThreeReportsRestoredForBoth": true,
+  "errors": []
+}

@@ -1,0 +1,117 @@
+{
+  "lua": {
+    "legend-nod_sigurd": {
+      "players": 4,
+      "sharedHP": 1520,
+      "moves": [
+        {
+          "id": "NSG01",
+          "warningTicks": [
+            66
+          ]
+        },
+        {
+          "id": "NSG02",
+          "warningTicks": [
+            70,
+            118
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 988100,
+      "mora": 680
+    },
+    "legend-nod_crab_tsar": {
+      "players": 4,
+      "sharedHP": 1600,
+      "moves": [
+        {
+          "id": "NCT01",
+          "warningTicks": [
+            64
+          ]
+        },
+        {
+          "id": "NCT02",
+          "warningTicks": [
+            72,
+            121
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 1271150,
+      "mora": 715
+    },
+    "legend-nod_raskolnikov": {
+      "players": 4,
+      "sharedHP": 1640,
+      "moves": [
+        {
+          "id": "NRK01",
+          "warningTicks": [
+            66
+          ]
+        },
+        {
+          "id": "NRK02",
+          "warningTicks": [
+            72,
+            112,
+            153
+          ]
+        }
+      ],
+      "sharedSweptMotion": true,
+      "heightAndDistanceAvoidDamage": true,
+      "singleContactPerStrike": true,
+      "onlyContributorsRewarded": true,
+      "killExp": 1150400,
+      "mora": 750
+    }
+  },
+  "http": {
+    "legend-nod_sigurd": {
+      "sharedOrdinaryAttack": true,
+      "pausedOnRetreat": true,
+      "returnY": 480,
+      "clearPersistsUntilEveryoneLeaves": true,
+      "personalAwards": true,
+      "independentLevelGate": true,
+      "independentQuestGate": true,
+      "personalReportsRestored": true,
+      "sharedTravelFromTown": true
+    },
+    "legend-nod_crab_tsar": {
+      "sharedOrdinaryAttack": true,
+      "pausedOnRetreat": true,
+      "returnY": 409,
+      "clearPersistsUntilEveryoneLeaves": true,
+      "personalAwards": true,
+      "independentLevelGate": true,
+      "independentQuestGate": true,
+      "personalReportsRestored": true,
+      "sharedTravelFromTown": true,
+      "personalBridgeAndAngleRestore": true
+    },
+    "legend-nod_raskolnikov": {
+      "sharedOrdinaryAttack": true,
+      "pausedOnRetreat": true,
+      "returnY": 407,
+      "clearPersistsUntilEveryoneLeaves": true,
+      "personalAwards": true,
+      "lastElevatorPausesCombat": true,
+      "independentLevelGate": true,
+      "independentQuestGate": true,
+      "personalReportsRestored": true,
+      "sharedTravelFromTown": true
+    }
+  }
+}

@@ -7,8 +7,9 @@ return function(C, config)
   return member.online and C.sharesCoopField(member.state)
  end
  local function inCombat(member)
-  local ride=member.state.lift
-  return onField(member) and not (ride and ride.phase)
+  local state=member.state
+  local ride=state.lift
+  return onField(member) and not (ride and (ride.phase or ride.destination~=state.story.node))
  end
 
  function C.newCoop(s)

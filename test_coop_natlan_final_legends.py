@@ -36,18 +36,28 @@ def encounter(host, guest, id, entry, code, *, check_level=False):
     spec = SPECS[id]
     arena = spec['node']
     inbound = edge(entry, arena)
-    cross_route(host, (entry, arena), code)
+    return_y = edge(arena, entry).get('arrivalY', 480)
+
+    def travel(client, source, target):
+        if 'liftSeconds' in edge(source, target):
+            peer = guest if client is host else host
+            frame = timed_travel(client, source, target, peer)
+            assert frame['coop']['code'] == code
+            return frame
+        return cross_route(client, (source, target), code)
+
+    travel(host, entry, arena)
     if check_level:
         with LOCK:
             env = SESSIONS[guest.sid]
-            actor_at(env['state'], inbound['x'], inbound['y'])
+            actor_at(env['state'], inbound['x'], inbound.get('y', 480))
         denied = guest.frame(['story_portal:' + arena])
         assert denied['story']['node'] == entry
         assert str(spec['level']) in denied['storyNearbyPortal']['reason']
         assert denied['coop']['peers'][0]['map'] == arena
         with LOCK:
             level(env['core'], env['state'], spec['level'])
-    assert not cross_route(guest, (entry, arena), code).get('storySwim')
+    assert not travel(guest, entry, arena).get('storySwim')
 
     with LOCK:
         env = SESSIONS[host.sid]
@@ -61,15 +71,24 @@ def encounter(host, guest, id, entry, code, *, check_level=False):
     first, second = advance(host, guest, .4)
     hp = first['fieldBoss']['hp']
     assert 0 < hp < spec['hp'] and second['fieldBoss']['hp'] == hp
+    with LOCK:
+        actor_at(b, boss.x + 52)
     clients = (host, guest)
     for client in clients:
-        returned = cross_route(client, (arena, entry), code)
-        assert returned['actors'][0]['y'] == inbound['y']
-    frozen = room.tick
+        returned = travel(client, arena, entry)
+        assert returned['actors'][0]['y'] == return_y
+    elevator = 'liftSeconds' in edge(arena, entry)
+    if elevator:
+        assert room.fieldSlot.out == 0, 'The last party in the elevator must not advance the combat leash.'
+    frozen = room.tick, boss.hp
+    assert 0 < frozen[1] <= hp
     advance(host, guest, .15)
-    assert room.tick == frozen and boss.hp == hp
+    assert (room.tick, boss.hp) == frozen
     for client in clients:
-        assert cross_route(client, (entry, arena), code)['fieldBoss']['hp'] == hp
+        resumed = travel(client, entry, arena)['coop']['enemies'][0]['hp']
+        assert resumed == frozen[1], (id, resumed, frozen[1])
+        with LOCK:
+            actor_at(SESSIONS[client.sid]['state'], boss.x)
     with LOCK:
         before = balances(a), balances(b)
         for state in (a, b):
@@ -81,17 +100,19 @@ def encounter(host, guest, id, entry, code, *, check_level=False):
     for client in clients:
         saved = client.frame(checkpoint=True)['checkpoint']
         assert saved['endgame']['bosses'][id]['clears'] == 1
-    cross_route(host, (arena, entry), code)
-    assert cross_route(host, (entry, arena), code)['fieldBoss']['phase'] == 'cleared'
+    travel(host, arena, entry)
+    assert travel(host, entry, arena)['coop']['enemies'][0]['hp'] == 0
     for client in clients:
-        cross_route(client, (arena, entry), code)
-    restarted = cross_route(host, (entry, arena), code)
+        travel(client, arena, entry)
+    restarted = travel(host, entry, arena)
     assert restarted['coop']['enemies'][0]['hp'] == spec['hp']
-    cross_route(host, (arena, entry), code)
-    result = dict(sharedOrdinaryAttack=True, pausedOnRetreat=True, returnY=inbound['y'],
+    travel(host, arena, entry)
+    result = dict(sharedOrdinaryAttack=True, pausedOnRetreat=True, returnY=return_y,
                   clearPersistsUntilEveryoneLeaves=True, personalAwards=True)
     if check_level:
         result['independentLevelGate'] = True
+    if elevator:
+        result['lastElevatorPausesCombat'] = True
     return result
 
 

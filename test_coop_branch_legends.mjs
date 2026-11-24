@@ -14,8 +14,10 @@ const wayob=process.argv.includes('--natlan-wayob');
 const atocpan=process.argv.includes('--natlan-atocpan');
 const finalNatlan=process.argv.includes('--natlan-final');
 const highland=process.argv.includes('--natlan-highland');
+const nodFirst=process.argv.includes('--nod-first');
 const localNatlan=natlan||night||north||cliff||northwest||wayob||atocpan||finalNatlan||highland;
-const prefix=highland?'evidence/coop-natlan-highland-legends':finalNatlan?'evidence/coop-natlan-final-legends'
+const prefix=nodFirst?'evidence/coop-nod-first-field-legends'
+ : highland?'evidence/coop-natlan-highland-legends':finalNatlan?'evidence/coop-natlan-final-legends'
  : atocpan?'evidence/coop-natlan-atocpan-totem':wayob?'evidence/coop-natlan-wayob-duo'
  : northwest?'evidence/coop-natlan-northwest-legends':cliff?'evidence/coop-natlan-cliff-trials'
  : north?'evidence/coop-natlan-north-trials':night?'evidence/coop-natlan-night-trials'
@@ -122,7 +124,21 @@ const highlandCases=[
   entry:'ochka-bronzelock-floating-landing',hp:1880,mora:860,x:832,warning:'BL02',
   entities:[97098],warningOrder:[[1,'physical',73],[2,'physical',117],[3,'physical',165]],returnY:410},
 ].map(cfg=>({...cfg,checkpoint:'ochkanatlan-dock',quest:'ochka-floating-island-spiritway'}));
-const cases=highland?highlandCases:finalNatlan?finalNatlanCases:atocpan?atocpanCases:wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
+const nodFirstCases=[
+ {tag:'sigurd',id:'legend-nod_sigurd',arena:'nod-sigurd-grave-court',approach:'nod-wp-88147',
+  stops:['nod-wp-88148','nod-bonemos-grave-path'],entry:'nod-bonemos-grave-path',
+  quest:'nod-bonemos-offerings',lock:'供え物',hp:1520,mora:680,x:830,warning:'NSG02',
+  entities:[97101],warningOrder:[[1,'physical',70],[2,'physical',118]],returnY:480},
+ {tag:'crab-tsar',id:'legend-nod_crab_tsar',arena:'nod-crab-tsar-palace',approach:'nod-wp-88131',
+  stops:['nod-wp-88138','nod-hiisi-mirror-court'],entry:'nod-hiisi-mirror-court',
+  quest:'nod-hiisi-palace-mirrors',hp:1600,mora:715,x:830,warning:'NCT02',
+  entities:[97102],warningOrder:[[1,'hydro',72],[2,'hydro',121]],returnY:409},
+ {tag:'raskolnikov',id:'legend-nod_raskolnikov',arena:'nod-raskolnikov-upper-ring',approach:'nod-wp-88174',
+  stops:['nod-wp-88171','nod-bureau-upper-lift-station'],entry:'nod-bureau-upper-lift-station',
+  quest:'nod-bureau-lift-check',lock:'操作盤',hp:1640,mora:750,x:830,warning:'NRK02',
+  entities:[97103],warningOrder:[[1,'pyro',72],[2,'pyro',112],[3,'pyro',153]],returnY:407},
+].map(cfg=>({...cfg,checkpoint:'nod-town'}));
+const cases=nodFirst?nodFirstCases:highland?highlandCases:finalNatlan?finalNatlanCases:atocpan?atocpanCases:wayob?wayobCases:northwest?northwestCases:cliff?cliffCases:north?northCases:night?nightCases:natlan?natlanCases:dry?dryCases:lake?[
  {tag:'vivianne',id:'legend-fontaine_vivianne_of_the_lake',arena:'vivianne-legend-bank',
   entry:'fon-wp-50056',checkpoint:'fontaine-hub',hp:1040,mora:300,x:890,warning:'LV02',entities:[97041],
   warningOrder:[[1,'hydro',64],[2,'hydro',115]],movingWave:true},
@@ -156,19 +172,22 @@ async function start(cfg,needsReport){
  page.on('pageerror',e=>errors.push(e.message));
  const route=waypointDriver(page,nodes,{walkTimeout:32000});
  const suffix=needsReport?'-before-report-fixture.json':'-fixture.json';
- const fixturePath=highland?'work/natlan-highland-legends-fixture.json':finalNatlan?'work/natlan-final-legends-fixture.json'
+ const fixturePath=nodFirst?'work/nod-first-field-legends-fixture.json'
+  : highland?'work/natlan-highland-legends-fixture.json':finalNatlan?'work/natlan-final-legends-fixture.json'
   : atocpan?'work/natlan-atocpan-totem-fixture.json':wayob?'work/natlan-wayob-duo-fixture.json'
   : northwest?'work/natlan-northwest-legends-fixture.json':cliff?'work/natlan-cliff-trials-fixture.json'
   : north?'work/natlan-north-trials-fixture.json':night?'work/natlan-night-trial-fixture.json'
   : natlan?'work/coop-natlan-entry-legends-fixture.json':'work/coop-'+cfg.arena+suffix;
  const fixture=await fs.readFile(fixturePath,'utf8');
- const port=localNatlan?9068:dry?9064:lake?9063:9060;
+ const port=(localNatlan||nodFirst)?9068:dry?9064:lake?9063:9060;
  await page.goto(process.env.LAB_URL||`http://127.0.0.1:${port}/`);
  await wait(page,()=>window.lab?.frame);
  await page.evaluate(([key,fixture])=>localStorage.setItem(key,fixture),[key,fixture]);
  await page.locator('#loadProgress').click();
  await route.waitNode(cfg.checkpoint);
- if(localNatlan && cfg.quest) await route.accept(cfg.quest);
+ if(localNatlan||nodFirst){
+  for(const id of cfg.quests??(cfg.quest?[cfg.quest]:[])) await route.accept(id);
+ }
  await route.warp(cfg.approach??cfg.entry);
  await page.locator('#coopPanel summary').click();
  return {context,page,route};
@@ -306,17 +325,17 @@ async function openNatlanGate({page,route},cfg){
  await route.cross(cfg.arena);
 }
 
-async function verifyNatlanSave(players,cfg){
+async function verifyQuestReports(players,cfg,quests=cfg.quest?[cfg.quest]:[]){
  await Promise.all(players.map(async ({page,route})=>{
   await page.reload();
   await wait(page,()=>window.lab?.frame);
   await page.locator('#loadProgress').click();
   await wait(page,()=>document.querySelector('#saveStatus').textContent.includes('町から再開しました'));
   await route.waitNode(cfg.checkpoint);
-  if(cfg.quest){
-   const quest=graph.quests.find(q=>q.id===cfg.quest);
+  for(const id of quests){
+   const quest=graph.quests.find(q=>q.id===id);
    const before=await frame(page);
-   await route.report(cfg.quest);
+   await route.report(id);
    const after=await frame(page);
    assert.deepEqual([after.progression.questXp-before.progression.questXp,after.mora-before.mora],
     [quest.xp,quest.mora]);
@@ -455,7 +474,7 @@ async function scenario(cfg){
  }
  const proof=await fightAndSave(players,cfg);
  await rematch(players,cfg);
- if(localNatlan) await verifyNatlanSave(players,cfg);
+ if(localNatlan) await verifyQuestReports(players,cfg);
  await Promise.all(players.map(p=>p.context.close()));
  return {...proof,sharedRematch:true,
   ...(northwest?{returnY:cfg.returnY,restoredBoth:true,...(cfg.phase?{independentPillarTransfers:true}:{neutralUntilHit:true}),
@@ -664,20 +683,21 @@ async function atocpanJourney(){
 
 async function verifySavedReports(players,bosses){
  const cfg=bosses.at(-1);
- await verifyNatlanSave(players,cfg);
  const ids=bosses.map(boss=>boss.id);
+ const quests=[...new Set(bosses.map(boss=>boss.quest))];
+ await verifyQuestReports(players,cfg,quests);
  await Promise.all(players.map(async ({page,route})=>{
   await page.locator('#saveProgress').click();
-  await wait(page,({key,quest,ids})=>{
+  await wait(page,({key,quests,ids})=>{
    const data=JSON.parse(localStorage.getItem(key));
-   return data?.story?.quests?.[quest]?.status==='complete'&&ids.every(id=>data?.endgame?.bosses?.[id]?.clears===1);
-  },{key,quest:cfg.quest,ids});
+   return quests.every(id=>data?.story?.quests?.[id]?.status==='complete')&&ids.every(id=>data?.endgame?.bosses?.[id]?.clears===1);
+  },{key,quests,ids});
   await page.reload();
   await wait(page,()=>window.lab?.frame);
   await page.locator('#loadProgress').click();
   await wait(page,()=>document.querySelector('#saveStatus').textContent.includes('町から再開しました'));
   await route.waitNode(cfg.checkpoint);
-  await wait(page,quest=>window.lab.frame.story.quests[quest]?.status==='complete',cfg.quest);
+  await wait(page,ids=>ids.every(id=>window.lab.frame.story.quests[id]?.status==='complete'),quests);
  }));
 }
 
@@ -807,9 +827,70 @@ async function highlandJourney(){
   bothReported:true,reportRestoredForBoth:true};
 }
 
+async function solveNodRoute(player,cfg){
+ const {page,route}=player;
+ const {itinerary}=graph.quests.find(q=>q.id===cfg.quest);
+ for(const [index,step] of itinerary.entries()){
+  await route.walk(step.x);
+  await route.changeHeight(step.y);
+  if(step.reflect){
+   for(const face of step.reflect.faces.slice(0,step.reflect.align-1)){
+    await page.keyboard.press('KeyG');
+    await wait(page,label=>window.lab.frame.storyReflection?.orientation===label,face.label);
+   }
+  }
+  await page.keyboard.press('KeyG');
+  await route.count(cfg.quest,index+1);
+ }
+}
+
+async function nodFirstJourney(){
+ const first={...cases[0],quests:cases.map(cfg=>cfg.quest)};
+ const players=await Promise.all([start(first,false),start(first,false)]);
+ const [host,guest]=players;
+ const code=await createRoom(players);
+ const proof={};
+ for(const [index,cfg] of cases.entries()){
+  await Promise.all(players.map(async player=>{
+   if(index>0){
+    await player.route.warp(cfg.approach);
+    assert.equal((await frame(player.page)).coop.code,code);
+   }
+   for(const id of cfg.stops) await crossShared(player,id,code);
+  }));
+  await solveNodRoute(host,cfg);
+  if(cfg.tag==='crab-tsar'){
+   const hasBridge=f=>Object.values(f.platforms).some(p=>p.y===409&&p.x===1020&&p.moonDeck);
+   assert.ok(hasBridge(await frame(host.page)));
+   assert.ok(!hasBridge(await frame(guest.page)));
+   await host.route.walk(1220);
+   await host.route.changeHeight(409);
+   await capture(host.page,'crab-tsar-bridge');
+  }
+  await crossShared(host,cfg.arena,code);
+  assert.equal(await guest.route.node(),cfg.entry);
+  await guest.route.count(cfg.quest,0);
+  await wait(guest.page,arena=>window.lab.frame.coop?.peers[0]?.map===arena,cfg.arena);
+  if(cfg.lock) await lockedNatlanGate(guest,cfg);
+  await solveNodRoute(guest,cfg);
+  await crossShared(guest,cfg.arena,code);
+  const result=await fightAndSave(players,cfg);
+  await rematch(players,cfg);
+  await leaveArena(players,cfg);
+  proof[cfg.tag]={...result,returnY:cfg.returnY,personalQuestGate:true,sharedRematch:true};
+  console.log('Chrome: both players cleared '+cfg.tag+' and verified the return route.');
+ }
+ await verifySavedReports(players,cases);
+ const routes=players.map(p=>p.route.journeys);
+ await Promise.all(players.map(p=>p.context.close()));
+ return {...proof,routes,personalMirrorBridge:true,sharedRoomAcrossRoutes:true,
+  allThreeReportsRestoredForBoth:true};
+}
+
 try{
  const evidence={participants:2,...(artSource?{artSource}: {})};
- if(highland) Object.assign(evidence,await highlandJourney());
+ if(nodFirst) Object.assign(evidence,await nodFirstJourney());
+ else if(highland) Object.assign(evidence,await highlandJourney());
  else if(finalNatlan) Object.assign(evidence,await finalNatlanJourney());
  else if(atocpan) Object.assign(evidence,await atocpanJourney());
  else if(wayob) Object.assign(evidence,await wayobJourney());

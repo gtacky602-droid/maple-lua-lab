@@ -37,6 +37,9 @@ def start(level):
     core.action(state, 'story_start')
     core.enterStoryNode(state, TOWN)
     core.grantExp(state, exp(level), 'quest')
+    for slot in (1, 2):
+        assert core.giveArtifact(state, slot, 40, 3)
+        core.action(state, 'artifact_equip:' + str(slot))
     return state
 
 
@@ -87,7 +90,7 @@ def defeat(state, walk, spec):
 
 
 fixture = start(140)
-for stage in (*HOSTS.values(), TOWN):
+for stage in (*HOSTS.values(), 'nod-wp-88147', 'nod-wp-88131', 'nod-wp-88174', TOWN):
     core.enterStoryNode(fixture, stage)
 write('work/nod-first-field-legends-fixture.json', save(fixture))
 
