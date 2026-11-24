@@ -1,0 +1,8 @@
+{
+  "joinedWithBothDodgeCooldowns": true,
+  "swapCooldownPreserved": true,
+  "hpGaugeAndActiveActorPreserved": true,
+  "reservesKeptHpAndCooldownAge": true,
+  "resumedOriginalRoomSlot": true,
+  "leftWithBothDodgeCooldowns": true
+}

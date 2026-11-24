@@ -83,6 +83,64 @@ def advance(first, second, seconds):
     return first_frame, second_frame
 
 
+def run_party_transition(url):
+    host, guest = Client(url), Client(url)
+    host.prepare(False)
+    guest.prepare(False)
+    guest.frame(steps=6)
+    code = host.frame(['coop_create'])['coop']['code']
+    with LOCK:
+        env = SESSIONS[guest.sid]
+        state, core = env['state'], env['core']
+        core.enterStoryNode(state, 'mond-town')
+        state.actors[2].hp = 61
+        state.actors[2].cd.skill1 = 12
+        core.action(state, 'companion:beidou')
+        assert state.companion == 'beidou' and state.companionRest.amber.hp == 61
+        core.enterStoryNode(state, 'mond-road')
+        state.actors[1].hp, state.actors[2].hp = 72, 85
+        state.gauge = 57
+        reserve_time = state.t - state.companionRest.amber.time
+    dodged = guest.frame(['dodge', 'swap', 'dodge'])
+    assert all(0 < actor['cd']['dodge'] <= 2 for actor in dodged['actors'])
+    assert dodged['t'] > 0
+    with LOCK:
+        SESSIONS[guest.sid]['state'].actors[1].lock = 4
+    joined = guest.frame(['coop_join:' + code])
+    assert joined['coop']['code'] == code and joined['gauge'] == 57, joined['gauge']
+    assert [actor['hp'] for actor in joined['actors']] == [72, 85]
+    assert joined['active'] == 2
+    assert all(0 < actor['cd']['dodge'] <= 2 for actor in joined['actors'])
+    assert 3 < joined['actors'][0]['lock'] <= 4
+    with LOCK:
+        state = SESSIONS[guest.sid]['state']
+        assert state.companion == 'beidou'
+        assert 0 < state.swap <= .8
+        reserve = state.companionRest.amber
+        assert reserve.hp == 61 and reserve.cd.skill1 == 12
+        assert reserve_time <= state.t - reserve.time < reserve_time + .5
+
+    guest.release()
+    guest.owner = uuid4().hex
+    recovered = guest.frame(resume=True)
+    assert recovered['coop']['slot'] == joined['coop']['slot']
+    assert all(0 < actor['cd']['dodge'] <= 2 for actor in recovered['actors'])
+    left = guest.frame(['coop_leave'])
+    assert 'code' not in left['coop'] and left['gauge'] == 57
+    assert all(0 < actor['cd']['dodge'] <= 2 for actor in left['actors'])
+    with LOCK:
+        env = SESSIONS[guest.sid]
+        state, core = env['state'], env['core']
+        remaining = 12 - (state.t - state.companionRest.amber.time)
+        core.enterStoryNode(state, 'mond-town')
+        core.action(state, 'companion:amber')
+        assert state.actors[2].hp == 61
+        assert state.actors[2].cd.skill1 == remaining
+    return dict(joinedWithBothDodgeCooldowns=True, swapCooldownPreserved=True,
+                hpGaugeAndActiveActorPreserved=True, reservesKeptHpAndCooldownAge=True,
+                resumedOriginalRoomSlot=True, leftWithBothDodgeCooldowns=True)
+
+
 def run_two_players(url):
     host, guest = Client(url), Client(url)
     solo = host.prepare(True)
@@ -311,6 +369,10 @@ def run_four_players(url):
 
 
 if __name__ == '__main__':
+    with lab() as url:
+        party = run_party_transition(url)
+        Path('evidence/coop-party-transition-http.json').write_text(
+            json.dumps(party, indent=2)+'\n', encoding='utf8')
     with lab() as url:
         two = run_two_players(url)
     with lab() as url:

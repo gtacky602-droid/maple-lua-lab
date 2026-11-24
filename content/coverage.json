@@ -8068,7 +8068,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Review individual HP, cooldowns, gauge, and equipment through control swaps and party changes, then compare remaining skill effects and timings with the approved handoff.",
+  "current_priority": "Compare remaining skill effects and timings with the approved handoff. Review party state when returning from a file checkpoint separately from reconnecting to a live room.",
   "skill_runtime_checks": {
     "traveler_activations": 60,
     "companion_activations": 40,
@@ -8078,6 +8078,7 @@
     "lua_evidence": "evidence/skill-roster-lua.json",
     "browser_evidence": "evidence/skill-learning-browser.json"
   },
+  "coop_party_transition_check": "evidence/coop-party-transition-http.json",
   "quest_runtime_checks": {
     "authored_story_records": 283,
     "acceptance_and_report_links": 279,

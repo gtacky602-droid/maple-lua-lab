@@ -149,12 +149,21 @@ class CoopRooms:
                 state.travelerTrial.previousActive = source.travelerTrial.previousActive
             if source.storyDuelReplay:
                 room.core.resumeDuelPractice(state, source.storyDuelReplay)
+            state.swap = source.swap
+            if source.companionRest is not None:
+                reserve = native(source.companionRest)
+                for member in reserve.values():
+                    # Reserve cooldowns count from the time the companion left the party.
+                    member['time'] += state.t - source.t
+                state.companionRest = room.lua.table_from(reserve, recursive=True)
             for index in (1, 2):
                 actor, original = state.actors[index], source.actors[index]
                 if entrance == site:
                     actor.x, actor.y, actor.vy = original.x, original.y, original.vy
                     actor.dir, actor.ground = original.dir, original.ground
                 actor.hp, actor.inv = min(actor.maxhp, original.hp), original.inv
+                actor.cd = room.lua.table_from(native(original.cd))
+                actor.lock, actor.light = original.lock, original.light
             env.update(lua=room.lua, core=room.core, state=state)
         else:
             code = secrets.token_hex(4).upper()
