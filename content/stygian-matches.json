@@ -1320,6 +1320,7 @@
       ]
     },
     "ronova": {
+      "coop": {"gatherSeconds": 6},
       "entity": 990006,
       "node": "sne-stygian-last-gate",
       "hub": "snezhnaya-hub",

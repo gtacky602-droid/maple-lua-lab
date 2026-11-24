@@ -152,6 +152,8 @@ return function(C,abyss,weekly,matches,controllers)
   local personal={shared=shared,set=set,skills={}}
   shared.set,shared.skills=nil,nil
   s.endgameRun=setmetatable(personal,{__index=shared})
+  local controller=controllers[shared.match]
+  if controller.attachCoop then controller.attachCoop(s.endgameRun) end
   local offset=(#room.members-1)*48
   for _,actor in ipairs(s.actors) do actor.x=actor.x+offset end
  end
@@ -166,6 +168,8 @@ return function(C,abyss,weekly,matches,controllers)
  function C.handlesPartyWipe(s)
   local run=s.endgameRun
   if run and run.shared then
+   -- Some fights resolve full-pair defeat with their own return mechanic.
+   if controllers[run.match].advanceCoopParties then return true end
    if run.status=='fighting' then
     run.status='spectate'
     C.clearWeeklySceneCasts(s)
@@ -186,13 +190,17 @@ return function(C,abyss,weekly,matches,controllers)
   if run.status~='fighting' then return end
   local live,target,targetMember,distance={},nil,nil,math.huge
   local waitingForPeer=false
+  local waitingForReturn=false
+  if controller.advanceCoopParties and run.boss.hp>0 and (run.launched or room.time>=run.gatherUntil) then
+   waitingForReturn=controller.advanceCoopParties(parties,dt)
+  end
   for _,member in ipairs(room.members) do
    local s=member.state
    if s.endgameRun.status=='fighting' and not member.online then waitingForPeer=true end
   end
   for _,s in ipairs(parties) do
    C.checkPartyDefeat(s)
-   if s.endgameRun.status=='fighting' then
+   if s.endgameRun.status=='fighting' and not s.endgameRun.wipe then
     live[#live+1]=s
     local a=s.actors[s.active]
     local gap=math.abs(a.x-run.boss.x)
@@ -202,7 +210,7 @@ return function(C,abyss,weekly,matches,controllers)
   local result
   if run.boss.hp<=0 and not run.preparingNextAct then result='clear'
   elseif #live==0 then
-   if waitingForPeer then return end
+   if waitingForPeer or waitingForReturn then return end
    result='failed'
   elseif not run.launched and room.time<run.gatherUntil then return
   else
@@ -222,6 +230,7 @@ return function(C,abyss,weekly,matches,controllers)
   for _,member in ipairs(room.members) do
    local s=member.state
    local personal=s.endgameRun
+   if controller.finishCoopParty then controller.finishCoopParty(personal) end
    if result=='clear' and (next(personal.skills) or personal.mechanicContribution) then
     stygianClear(s,personal,spec,run.elapsed)
    else

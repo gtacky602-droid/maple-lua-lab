@@ -7,7 +7,8 @@ return function(C,G,A,M,view)
  end
  local function contact(s,r,cast,mult,color,element)
   local b,spec=r.boss,r.spec
-  if b.hp<=0 or b.invulnerable or r.status~='fighting' or r.wipe then return false end
+  local party=s.endgameRun
+  if b.hp<=0 or b.invulnerable or r.status~='fighting' or party.status~='fighting' or party.wipe then return false end
   local resist=C.enemyResistance(cast,b,element)
   if resist>=1 then return false end
   local amount,critical=C.enemyHitDamage(s,cast,b,mult,element,resist)
@@ -16,7 +17,7 @@ return function(C,G,A,M,view)
   amount=math.min(amount,b.hp-lower)
   if amount<=0 then return false end
   local key=cast.key or 'normal'
-  r.skills[key]=(r.skills[key] or 0)+amount
+  party.skills[key]=(party.skills[key] or 0)+amount
   s.damage=s.damage+amount;s.hits=s.hits+1
   C.combatNumber(s,b,critical and amount..'!' or amount,color)
   C.combatEvent(s,'hit',cast.id,b.id,amount)
@@ -49,10 +50,9 @@ return function(C,G,A,M,view)
   s.enemies={b}
   r.boss,r.spec,r.stage,r.phase=b,spec,1,'enter'
   r.serial,r.age,r.index,r.rest,r.remainder,r.phaseAt=0,0,1,0,0,0
-  r.protected,r.generation,r.aidCooldown=0,0,0
+  A.init(r,spec)
   r.finaleRest,r.finaleSeen,r.finaleOpen=0,false,false
-  r.skills,r.echoes,r.downed,r.orders={},{},{},{}
-  r.life,r.lamps=spec.life.max,spec.revive.lamps
+  r.skills,r.orders={},{}
   for i,order in ipairs(spec.orders) do
    local selected={}
    for _,key in ipairs(order) do
@@ -62,6 +62,9 @@ return function(C,G,A,M,view)
   end
   targetable(b,false)
   A.log(s,r,'enter',nil,r.life)
+ end
+ function D.attachCoop(r)
+  A.init(r,r.spec)
  end
  local function start(s,r,key)
   r.cast=M.begin(s,r,key)
@@ -126,15 +129,12 @@ return function(C,G,A,M,view)
   if not A.beginWipe(s,r) then return false end
   C.clearWeeklySceneCasts(s)
   r.echoes={}
-  local c=r.cast
-  if c and (c.key=='RN03' or c.key=='RN05' or c.key=='RN06' or c.key=='RN08' or c.key=='RN12') then
-   c.waived=true
-   c.shadows,c.gateX={},nil
-   if c.key=='RN12' then c.arrived=true end
-  end
+  M.waive(s,r.cast)
   if r.status=='failed' then
    r.cast=nil
    s.campaign.message='復活の灯が尽きました。入口から再挑戦できます。'
+  elseif r.status=='spectate' then
+   s.campaign.message='復活の灯が尽きました。味方の挑戦を観戦しています。'
   end
   return true
  end
@@ -163,8 +163,41 @@ return function(C,G,A,M,view)
   r.remainder=r.remainder+math.min(dt,1/30)*60
   while r.remainder>=1-1e-8 and r.status=='fighting' do
    r.remainder=r.remainder-1
-   tick(s,r)
+   if r.parties then
+    r.age=r.age+1
+    bossTick(s,r)
+   else tick(s,r) end
   end
+ end
+ function D.advanceCoopParties(parties,dt)
+  local waiting=false
+  for _,s in ipairs(parties) do
+   local r=s.endgameRun
+   if r.status=='fighting' then
+    r.reviveRemainder=(r.reviveRemainder or 0)+math.min(dt,1/30)*60
+    while r.reviveRemainder>=1-1e-8 and r.status=='fighting' do
+     r.reviveRemainder=r.reviveRemainder-1
+     A.observeLoss(s,r)
+     if wipe(s,r) then break end
+     A.tickAid(s,r,r.age+1)
+     if r.wipe then
+      r.wipe.wait=math.max(0,r.wipe.wait-1)
+      if r.wipe.wait==0 then
+       local x=M.returnFloor(r)
+       if x then A.returnPair(s,r,x) end
+      end
+     else
+      r.protected=math.max(0,r.protected-1)
+      M.touchEchoes(s,r)
+     end
+    end
+    waiting=waiting or r.wipe~=nil
+   end
+  end
+  return waiting
+ end
+ function D.finishCoopParty(r)
+  r.wipe,r.aid,r.echoes=nil,nil,{}
  end
  function D.abort(s,r)
   r.cast,r.wipe,r.aid,r.echoes=nil,nil,nil,{}

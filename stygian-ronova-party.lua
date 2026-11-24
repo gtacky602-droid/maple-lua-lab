@@ -6,10 +6,15 @@ return function(C)
   local r=s.endgameRun
   return r and r.match=='ronova' and r.status=='fighting' and r or nil
  end
+ function A.init(r,spec)
+  r.protected,r.generation,r.aidCooldown=0,0,0
+  r.echoes,r.downed={},{}
+  r.life,r.lamps=spec.life.max,spec.revive.lamps
+ end
  function A.log(s,r,kind,actor,value,cast)
   C.combatEvent(s,'stygian:ronova:'..kind,actor or 0,r.boss.id,value or 0)
   local e=s.events[#s.events]
-  e.owner=1
+  e.owner=s.coopMember and s.coopMember.id or 1
   e.generation=r.generation
   if cast then e.cast,e.tick=cast.serial,cast.t end
  end
@@ -93,7 +98,7 @@ return function(C)
   r.aid={by=a.id,to=other.id,x=a.x,y=a.y,finish=r.age+r.spec.revive.aidTime}
   A.log(s,r,'aid-start',a.id)
  end
- function A.tickAid(s,r)
+ function A.tickAid(s,r,age)
   r.aidCooldown=math.max(0,r.aidCooldown-1)
   local aid=r.aid
   if not aid then return end
@@ -101,7 +106,7 @@ return function(C)
   if s.active~=aid.by or a.hp<=0 or other.hp>0 or math.abs(a.x-aid.x)>8 or math.abs(a.y-aid.y)>8 then
    r.aid=nil
    A.log(s,r,'aid-interrupted',a.id)
-  elseif r.age>=aid.finish then
+  elseif (age or r.age)>=aid.finish then
    other.hp=math.max(1,math.floor(other.maxhp*r.spec.revive.aidFraction))
    other.inv=.6
    r.downed[other.id]=nil
@@ -125,7 +130,8 @@ return function(C)
   r.aid=nil
   r.protected=0
   if r.lamps==0 then
-   r.status,r.phase='failed','spectate'
+   if r.shared then r.status='spectate'
+   else r.status,r.phase='failed','spectate' end
    A.log(s,r,'spectate')
   else
    r.lamps=r.lamps-1
@@ -141,7 +147,7 @@ return function(C)
    a.inv,a.dodgeInvUntil,a.dash,a.drop,a.buffer=0,nil,0,0,0
    a.lock,a.channel,a.waterShield,a.iceShield=0,nil,nil,nil
   end
-  r.downed,r.wipe={},nil
+  r.downed,r.wipe,r.lastDown={},nil,nil
   r.life,r.protected=r.spec.life.max,r.spec.revive.protection
   A.log(s,r,'returned',s.active,r.lamps)
  end

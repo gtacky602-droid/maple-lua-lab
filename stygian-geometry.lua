@@ -65,7 +65,7 @@ local G={}
   for _,party in ipairs(run.parties or {s}) do
    for _,a in ipairs(party.actors) do
     local key=run.parties and a or a.id
-    if a.hp>0 and not seen[key] and collides(a,key) then
+    if a.hp>0 and not seen[key] and collides(a,key,party) then
      seen[key]=true
      hit(party,a,key)
     end

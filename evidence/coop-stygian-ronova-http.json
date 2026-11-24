@@ -1,0 +1,48 @@
+{
+  "players": 2,
+  "trials": {
+    "hp": 5460,
+    "lifeLossPerPair": 18,
+    "ownEchoesAndAid": true,
+    "independentTrials": [
+      "RN03",
+      "RN06",
+      "RN08",
+      "RN12"
+    ],
+    "gatePositions": [
+      224,
+      736
+    ],
+    "clearBeforeWipe": true,
+    "rewards": [
+      {
+        "first": true,
+        "bag": true,
+        "xp": 14558781,
+        "mora": 54300,
+        "rank": 5,
+        "set": "黄金の劇団"
+      },
+      {
+        "first": true,
+        "bag": true,
+        "xp": 14558781,
+        "mora": 54300,
+        "rank": 5,
+        "set": "剣闘士のフィナーレ"
+      }
+    ],
+    "savedClears": 1
+  },
+  "returns": {
+    "lampsPerPair": 5,
+    "finalReturnAtZero": true,
+    "blockedOldVerdict": true,
+    "protectedReturn": true,
+    "sharedClockHeldWhileAllDown": true,
+    "clockActiveWithSurvivor": true,
+    "reconnectPreservedLamps": true,
+    "spectateThenFail": true
+  }
+}

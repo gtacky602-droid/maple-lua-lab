@@ -1,0 +1,75 @@
+{
+  "players": 2,
+  "mode": "normal",
+  "hp": 5460,
+  "gates": [
+    {
+      "x": 224,
+      "life": 88,
+      "lamps": 5
+    },
+    {
+      "x": 736,
+      "life": 88,
+      "lamps": 5
+    }
+  ],
+  "trails": [
+    {
+      "stages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "judgment": [
+        475.6,
+        528.4
+      ],
+      "gates": [
+        224
+      ],
+      "approved": 1,
+      "lampSpends": 0,
+      "road": 4
+    },
+    {
+      "stages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "judgment": [
+        475.6,
+        528.4
+      ],
+      "gates": [
+        736
+      ],
+      "approved": 1,
+      "lampSpends": 0,
+      "road": 4
+    }
+  ],
+  "rewards": [
+    {
+      "xp": 14558781,
+      "rank": 5,
+      "mora": 54300,
+      "bag": true,
+      "first": true,
+      "set": "黄金の劇団"
+    },
+    {
+      "xp": 14558781,
+      "rank": 5,
+      "mora": 54300,
+      "bag": true,
+      "first": true,
+      "set": "剣闘士のフィナーレ"
+    }
+  ],
+  "savedClears": 1,
+  "errors": []
+}

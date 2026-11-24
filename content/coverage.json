@@ -8444,6 +8444,7 @@
       "dornman-camp",
       "windrest-vigil-court",
       "snezhnaya-hub",
+      "sne-stygian-last-gate",
       "sne-stygian-frost-court",
       "snezhnaya-field",
       "white-pass-station",
@@ -8609,7 +8610,8 @@
       "stygian-farka",
       "stygian-capitano",
       "stygian-xbalanque",
-      "stygian-rerir"
+      "stygian-rerir",
+      "stygian-ronova"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8919,7 +8921,9 @@
       "evidence/coop-stygian-xbalanque-http.json",
       "evidence/coop-stygian-xbalanque-browser.json",
       "evidence/coop-stygian-rerir-http.json",
-      "evidence/coop-stygian-rerir-browser.json"
+      "evidence/coop-stygian-rerir-browser.json",
+      "evidence/coop-stygian-ronova-http.json",
+      "evidence/coop-stygian-ronova-browser.json"
     ],
     "pending": [
       "remaining Stygian bosses",

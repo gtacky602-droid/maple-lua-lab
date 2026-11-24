@@ -47,9 +47,9 @@ return function(C,G,M)
    rect(x+w+dx-9,y0,9,3,crimson,.86)
   end
  end
- local function hint(r,c)
+ local function hint(r,c,p)
   if r.status=='clear' then return '最後の審問を終えた' end
-  if r.status=='failed' then return '復活の灯を使い切った。観戦中' end
+  if r.status=='failed' or r.status=='spectate' then return '復活の灯を使い切った。観戦中' end
   if r.wipe then
    return r.wipe.wait>0 and string.format('復帰まで %.1f秒',r.wipe.wait/60) or '安全な足場を待っています'
   end
@@ -58,7 +58,7 @@ return function(C,G,M)
   if r.phase=='enter' or r.phase=='phase' then return stageNames[r.stage] end
   if not c then return '間合いを取る' end
   if c.t>=c.recover then return string.format('反撃の隙 %.1f秒',(c.stop-c.t)/60) end
-  if c.waived then return '復帰前の裁定から外れた' end
+  if p.waived then return '復帰前の裁定から外れた' end
   if c.key=='RN05' then return c.t<84 and '確定死の指名。線が固定されるまで見る' or '確定死の線が固定された。横へ離れる' end
   if c.key=='RN06' then
    return c.t<660 and '命の返還。影を二つ拾う' or '返還の受付終了。まもなく裁定'
@@ -67,9 +67,9 @@ return function(C,G,M)
   if c.key=='RN08' then
    if c.t<240 then return '終告 1　羽の射線から離れる' end
    if c.t<612 then return '終告 2　門を開くために影を二つ拾う' end
-   return c.gateX and '終告 3　開いた門の中へ。外側に確定死の裁定' or '終告 3　門が開かなかった。裁定に備える'
+   return p.gateX and '終告 3　開いた門の中へ。外側に確定死の裁定' or '終告 3　門が開かなかった。裁定に備える'
   end
-  if c.key=='RN12' then return c.arrived and '冥路の終端に到達した' or '冥路の通過印を左から順にたどり、右の門へ' end
+  if c.key=='RN12' then return p.arrived and '冥路の終端に到達した' or '冥路の通過印を左から順にたどり、右の門へ' end
   if c.key=='RN02' then return '床の波はジャンプで避け、落ちた命は影から回収する' end
   if c.key=='RN03' then return '離れた命を、床と上段の影に触れて取り戻す' end
   return c.data.title
@@ -125,8 +125,8 @@ return function(C,G,M)
    if c.t<72 then rect(c.endMark-4,floor-13,8,12,safe,.84) end
   end
  end
- local function objectives(rect,s,r,c,v)
-  if c.waived then return end
+ local function objectives(rect,s,r,c,p,v)
+  if p.waived then return end
   local floor=r.spec.arena.floor
   local starts={RN03=78,RN06=60,RN08=252}
   local ends={RN03=606,RN06=660,RN08=612}
@@ -135,13 +135,13 @@ return function(C,G,M)
    local stop=ends[c.key]
    if c.key~='RN08' or c.t>=240 then
     v.shadows={}
-    v.found,v.goal=c.found,c.key=='RN03' and #c.shadows or 2
+    v.found,v.goal=p.found,c.key=='RN03' and #p.shadows or 2
    end
    if c.t>=start and c.t<stop then
-    for _,p in ipairs(c.shadows) do
-     if not p.taken then
-      v.shadows[#v.shadows+1]={x=p.x,y=p.y,id=p.id}
-      shadow(rect,p,c.key=='RN06' and gold or pink)
+    for _,item in ipairs(p.shadows) do
+     if not item.taken then
+      v.shadows[#v.shadows+1]={x=item.x,y=item.y,id=item.id}
+      shadow(rect,item,c.key=='RN06' and gold or pink)
      end
     end
     if #v.shadows>0 then v.untilTick=stop-c.t end
@@ -152,33 +152,34 @@ return function(C,G,M)
   if c.key=='RN08' then
    v.beat=c.t<240 and 1 or c.t<612 and 2 or c.t<846 and 3 or 4
    for i=1,4 do rect(435+i*17,49,11,6,i==v.beat and white or ink,.9) end
-   if c.gateX and c.t<846 then
+   if p.gateX and c.t<846 then
     local w=.7*r.spec.arena.unit
-    v.gate={x=c.gateX,width=w,inside=M.gate(s,r,c)}
-    gate(rect,c.gateX,w,floor)
+    v.gate={x=p.gateX,width=w,inside=M.gate(s,r,c)}
+    gate(rect,p.gateX,w,floor)
    end
    if c.t>=612 and c.t<846 then
     for x=52,912,23 do
-     if not c.gateX or math.abs(c.gateX-x)>.7*r.spec.arena.unit then
+     if not p.gateX or math.abs(p.gateX-x)>.7*r.spec.arena.unit then
       rect(x,floor-7,7,7,crimson,.78)
       if c.t>=840 then rect(x,floor-162,7,155,crimson,.46,true) end
      end
     end
    end
   elseif c.key=='RN12' and c.t>=30 and c.t<c.recover then
-   v.road={passed=c.passed,total=#r.spec.arena.road}
-   local current=r.spec.arena.road[c.passed+1]
+   v.road={passed=p.passed,total=#r.spec.arena.road}
+   local current=r.spec.arena.road[p.passed+1]
    if current then v.road.x,v.road.y=current[1],current[2]-24 end
-   for i,p in ipairs(r.spec.arena.road) do
-    local color=i==c.passed+1 and safe or '#657b79'
-    if i<=c.passed then color='#a3b8af' end
-    outline(rect,p[1],p[2]-20,17,i==#r.spec.arena.road and 41 or 19,color,.87)
-    rect(p[1]-16,p[2]-3,32,3,color)
+   for i,point in ipairs(r.spec.arena.road) do
+    local color=i==p.passed+1 and safe or '#657b79'
+    if i<=p.passed then color='#a3b8af' end
+    outline(rect,point[1],point[2]-20,17,i==#r.spec.arena.road and 41 or 19,color,.87)
+    rect(point[1]-16,point[2]-3,32,3,color)
    end
   end
  end
  return function(f,s,r,spec,mode,profile)
   local v,b,c=f.endgameRun,r.boss,r.cast
+  local p=c and M.progress(s,c)
   local a,other=s.actors[s.active],s.actors[3-s.active]
   v.stage,v.stageName=r.stage,stageNames[r.stage]
   v.phase=r.status=='clear' and 'clear' or r.wipe and 'returning' or c and c.t>=c.recover and 'recover' or r.phase
@@ -189,7 +190,7 @@ return function(C,G,M)
   v.aidReady=v.aidVisible and math.abs(a.x-other.x)<=spec.revive.aidRange and math.abs(a.y-other.y)<=48 and not r.aid
   v.aidTicks=r.aid and r.aid.finish-r.age or nil
   v.aidCooldown=r.aidCooldown
-  v.card,v.tick,v.hint=c and c.key,c and c.t or r.age-r.phaseAt,hint(r,c)
+  v.card,v.tick,v.hint=c and c.key,c and c.t or r.age-r.phaseAt,hint(r,c,p)
   if c and c.t>=c.recover and (c.key=='RN08' or c.key=='RN12') then v.pose='RN09' end
   if r.lastDown and r.age-r.lastDown.at<=12 then v.lastDown=r.lastDown end
   f.boss={name=spec.name,hp=b.hp,maxhp=b.maxhp,x=b.x,y=b.y,dir=b.dir,phase=v.phase,
@@ -208,9 +209,9 @@ return function(C,G,M)
   table.move(f.draws,1,#f.draws,#back.draws+1,back.draws)
   f.draws=back.draws
   rect=painter(f,s.camera)
-  if c and not r.wipe then
+  if c and (r.shared or not r.wipe) then
    battleCues(rect,r,c,v)
-   objectives(rect,s,r,c,v)
+   if r.status=='fighting' and not r.wipe then objectives(rect,s,r,c,p,v) end
   end
   for _,p in ipairs(r.echoes) do shadow(rect,p,gold) end
   if r.protected>0 then
