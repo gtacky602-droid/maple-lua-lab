@@ -6,7 +6,7 @@ return function(C)
   SK09={range=320,targets=3,mult=2,hits=2,ct=3,lock=.4,interval=.15,color='#d5adff',element='electro'},
   SK10={range=520,targets=6,mult=1.6,hits=5,ct=8,lock=.6,interval=.2,color='#c68fff',element='electro',chain=180},
   SK11={range=150,targets=5,mult=1.4,hits=4,ct=10,lock=.5,interval=.15,color='#bfa0ff',element='electro',dash=.45},
-  SK12={range=300,targets=3,mult=1,hits=6,ct=18,lock=.3,interval=1,delay=1,color='#cb9fff',element='electro',placed=true},
+  SK12={range=300,targets=3,mult=1,hits=6,ct=18,lock=.3,interval=1,delay=1,color='#cb9fff',element='electro',placed=true,groundPlacement=true},
   SK13={range=300,targets=5,mult=.9,hits=2,ct=12,lock=.45,interval=.15,color='#a9de78',element='dendro',root=2},
   SK14={range=360,targets=5,mult=1.7,hits=4,ct=6,lock=.6,interval=.15,color='#c0ed83',element='dendro',vertical=170,upward=true},
   SK15={range=520,targets=6,mult=1.3,hits=6,ct=11,lock=.6,interval=.2,color='#d2ed8d',element='dendro',homing=true,vertical=170}
@@ -77,8 +77,15 @@ return function(C)
    f.draws[#f.draws+1]={kind='rect',x=e.x-20-s.camera,y=e.y-8,w=40,h=6,color='#a9de78'}
   end end
   for _,cast in ipairs(s.pending) do if cast.placed=='SK12' then
-   f.draws[#f.draws+1]={kind='rect',x=cast.x-s.camera-10,y=cast.y-38,w=20,h=38,color='#795297'}
-   f.draws[#f.draws+1]={kind='rect',x=cast.x-s.camera-14,y=cast.y-44,w=28,h=10,color='#d5adff'}
+   local x,y=cast.x-s.camera,cast.y
+   local charge=10*math.max(0, math.min(1, 1-(cast.next-s.t)))
+   f.draws[#f.draws+1]={kind='rect',x=x-13,y=y-6,w=26,h=6,color='#493461'}
+   f.draws[#f.draws+1]={kind='rect',x=x-7,y=y-34,w=14,h=28,color='#795297'}
+   f.draws[#f.draws+1]={kind='rect',x=x-10,y=y-40,w=20,h=10,color='#bb89f3'}
+   f.draws[#f.draws+1]={kind='rect',x=x-4,y=y-44,w=8,h=14,color='#f8efff'}
+   if charge>0 then
+    f.draws[#f.draws+1]={kind='rect',x=x-5,y=y-21,w=charge,h=4,color='#d5adff'}
+   end
   end end
   if s.rockWall then
    C.drawRockWall(f,s.camera,s.rockWall)

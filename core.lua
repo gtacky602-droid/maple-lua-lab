@@ -203,6 +203,8 @@ local function pulse(s,cast)
  cast.impactEvent=(cast.impactEvent or 0)+1
  local touched=false
  if cast.follow then local owner=s.actors[cast.id];cast.x=owner.x;cast.y=owner.y end
+ local chainLightning,stakeLightning=cast.key=='SK10',cast.key=='SK12'
+ local lightningX,lightningY=cast.x,cast.y-(stakeLightning and 37 or 45)
  if cast.trail then s.effects[#s.effects+1]={x=cast.x-cast.dir*30,y=cast.y-15,w=80,h=30,life=.3,color=cast.color} end
  local selected=targets(s,cast,cast.range,cast.limit)
  if cast.scatter then
@@ -235,11 +237,13 @@ local function pulse(s,cast)
        (d<distance or (d==distance and e.id<nearest.id)) then nearest,distance=e,d end
    end
    if not nearest then break end
-   s.effects[#s.effects+1]={x=(x+nearest.x)/2,y=nearest.y-45,w=math.max(8,abs(nearest.x-x)),h=5,life=.18,color=cast.color}
+   if not chainLightning then
+    s.effects[#s.effects+1]={x=(x+nearest.x)/2,y=nearest.y-45,w=math.max(8,abs(nearest.x-x)),h=5,life=.18,color=cast.color}
+   end
    selected[#selected+1]=nearest;receivers[receiver(nearest)]=true;x,y=nearest.x,nearest.y
   end
  end
- if cast.interval==.3 or cast.travelSpeed or cast.element=='electro' then
+ if not (chainLightning or stakeLightning) and (cast.interval==.3 or cast.travelSpeed or cast.element=='electro') then
   s.effects[#s.effects+1]={x=cast.radial and cast.x or cast.x+cast.dir*cast.range/2,y=cast.y-40,w=cast.radial and cast.range*2 or cast.range,h=60,life=.3,color=cast.color}
  end
  for _,e in ipairs(selected) do
@@ -248,6 +252,10 @@ local function pulse(s,cast)
   local count=cast.contactHits[id] or 0
   local allowed=not cast.contactBudget or (count<cast.contactBudget and (count>0 or cast.contactTargets<cast.limit))
   if allowed and hit(s,cast,e,cast.mult,cast.color,cast.element) then
+   if chainLightning or stakeLightning then
+    local y=e.y-35
+    s.effects[#s.effects+1]={x=lightningX,y=lightningY,endX=e.x,endY=y,life=.16,color=cast.color}
+   end
    if count==0 then cast.contactTargets=cast.contactTargets+1 end;cast.contactHits[id]=count+1
    touched=true
    if cast.pull and e.hp>0 and not e.boss then
@@ -265,6 +273,7 @@ local function pulse(s,cast)
    end
    if cast.push and not e.boss then e.x=clamp(e.x+cast.dir*cast.push,20,(s.worldwidth or 2880)-20);e.home=e.x end
   end
+  if chainLightning then lightningX,lightningY=e.x,e.y-35 end
  end
  if cast.travelSpeed then cast.lastPulseX=cast.x end
  if touched and not cast.gained then
@@ -310,7 +319,11 @@ function C.attack(s,a,key)
  if definition then range=definition.range;limit=definition.targets;mult=definition.mult;hits=definition.hits;ct=definition.ct;lock=definition.lock;interval=definition.interval;color=definition.color;delay=definition.delay or 0 end
  local ts=targets(s,a,range,limit)
  a.cd[key]=ct;a.lock=lock;a.walk=0
- s.effects[#s.effects+1]={x=a.x+a.dir*range/2,y=a.y-40,w=range,h=60,life=.3,color=color}
+ if key=='SK10' then
+  s.effects[#s.effects+1]={x=a.x,y=a.y-45,w=20,h=20,life=.2,color=color}
+ elseif key~='SK12' then
+  s.effects[#s.effects+1]={x=a.x+a.dir*range/2,y=a.y-40,w=range,h=60,life=.3,color=color}
+ end
  local cast={id=a.id,startedAt=s.t,atk=a.atk,elementBonus=a.elementBonus,x=a.x,y=a.y,dir=a.dir,range=range,limit=limit,mult=mult,color=color,
   growthAI=s.growthAIActor==a.id or nil,playerInputAt=C.playerAttackAt(s,a),
   key=key,isNormal=key=='normal',normalBonus=a.normalBonus,skillBonus=a.skillBonus,troupe4=a.troupe4,critRate=a.critRate,critDamageBonus=a.critDamageBonus,
@@ -582,6 +595,21 @@ function C.enemyHeadY(e)
  return e.y-(e.drawHeight or (layout and (layout.height+layout.hover) or 40))
 end
 
+local function drawLightning(add,e,camera)
+ local dx,dy=e.endX-e.x,e.endY-e.y
+ local x,y=e.x,e.y
+ for index=1,4 do
+  local t=index/4
+  local offset=index<4 and (index==2 and -6 or 6) or 0
+  local nextX,nextY=e.x+dx*t,e.y+dy*t+offset
+  local rotation=math.atan(nextY-y,nextX-x)
+  local length=math.sqrt((nextX-x)^2+(nextY-y)^2)
+  add({kind='rect',x=x-camera,y=y-2,w=length+2,h=5,rotation=rotation,color=e.color,opacity=e.life/.16})
+  add({kind='rect',x=x-camera,y=y-1,w=length+1,h=2,rotation=rotation,color='#f8efff',opacity=e.life/.16})
+  x,y=nextX,nextY
+ end
+end
+
 function C.frame(s,mode,profile)
  local draws={};local visible=0
  local artFrame={draws=draws}
@@ -637,7 +665,10 @@ function C.frame(s,mode,profile)
    if a.id==s.active then add({kind='text',x=a.x-s.camera,y=a.y-116,text='▼',color='#fff8cc',size=17}) end
   end
  end
- for _,e in ipairs(s.effects) do add({kind='effect',x=e.x-s.camera,y=e.y,w=e.w,h=e.h,color=e.color,alpha=e.life/.3}) end
+ for _,e in ipairs(s.effects) do
+  if e.endX then drawLightning(add,e,s.camera)
+  else add({kind='effect',x=e.x-s.camera,y=e.y,w=e.w,h=e.h,color=e.color,alpha=e.life/.3}) end
+ end
  for _,n in ipairs(s.numbers) do add({kind='text',x=n.x-s.camera,y=n.y-(.8-n.life)*35,text=n.text,color=n.color,size=19}) end
  return {draws=draws,rectBatches=artFrame.rectBatches,camera=s.camera,platforms=s.platforms,t=s.t,active=s.active,gauge=s.gauge,actors=s.actors,hits=s.hits,kills=s.kills,mora=s.mora,damage=s.damage,returns=s.returns,visible=visible,total=#s.enemies,commands=#draws,numbers=#s.numbers,auto=s.auto,paused=s.paused,events=s.events}
 end

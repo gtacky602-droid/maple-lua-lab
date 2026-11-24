@@ -1,0 +1,18 @@
+{
+  "field": "dawn-crystal-field",
+  "level": 200,
+  "chain": {
+    "actorX": 164,
+    "links": 6,
+    "hasBroadRing": false,
+    "hitsAtLastPulse": 6
+  },
+  "stake": {
+    "actorX": 38,
+    "links": 3,
+    "hasBroadRing": false,
+    "hitsAtLastPulse": 3,
+    "stakeX": 108
+  },
+  "errors": []
+}

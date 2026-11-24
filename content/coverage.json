@@ -8145,6 +8145,13 @@
       "lua_evidence": "evidence/earned-support-effects-lua.json",
       "browser_climb_evidence": "evidence/earned-kachina-climb-browser.json"
     },
+    "earned_traveler_electro": {
+      "skill_ids": ["SK09", "SK10", "SK11", "SK12"],
+      "field": "dawn-crystal-field",
+      "level": 200,
+      "lua_evidence": "evidence/earned-traveler-electro-lua.json",
+      "browser_evidence": "evidence/earned-traveler-electro-browser.json"
+    },
     "scope": "Prepared combat checks cooldowns, static damage profiles, and companion action locks and scheduled timings. Special followups and actual hits have separate tests. Chrome covers a regional acquisition, loadout restoration, a dodge interrupt, and the shared water field.",
     "lua_evidence": "evidence/skill-roster-lua.json",
     "browser_evidence": "evidence/skill-learning-browser.json",
