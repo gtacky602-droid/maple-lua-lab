@@ -8068,7 +8068,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Connect the proposed party presets with current companion, equipment, and skill slots, and continue checking the remaining skill effects and visual cues.",
+  "current_priority": "Check remaining equipment progression and artifact replacement loops, then continue matching skill effects and visual cues against the authored scope.",
   "skill_runtime_checks": {
     "traveler_activations": 60,
     "companion_activations": 40,
@@ -8094,6 +8094,13 @@
     "scope": "A field checkpoint resumes at the existing hub while restoring party HP, remaining cooldowns, reserve state, and active selection. Compatible with v1 files without the optional party state.",
     "lua_evidence": "evidence/party-checkpoint-lua.json",
     "browser_evidence": "evidence/party-checkpoint-browser.json"
+  },
+  "party_presets": {
+    "slots": 3,
+    "status": "local_prototype",
+    "scope": "Town-only registration and atomic switching of companion, two five-piece artifact loadouts by item ID, and eight skill or macro slots. Compatible with v1 saves without presets.",
+    "lua_evidence": "evidence/party-presets-lua.json",
+    "browser_evidence": "evidence/party-presets-browser.json"
   },
   "quest_runtime_checks": {
     "authored_story_records": 283,

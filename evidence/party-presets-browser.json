@@ -1,0 +1,11 @@
+{
+  "browser": "Chrome",
+  "threeSlotControls": true,
+  "changedCompanionEquipmentAndMacro": true,
+  "restoredAfterReload": true,
+  "soldGearAppliesDisabled": true,
+  "fieldEditsDisabled": true,
+  "mobileWidth": 390,
+  "noPanelOverflow": true,
+  "errors": []
+}

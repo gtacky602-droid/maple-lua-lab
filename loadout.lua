@@ -5,19 +5,24 @@ return function(C)
  local function setup(s)
   if not s.loadout then s.loadout={{'SK01'},{'SK02'},{'SK01','SK02'},{},{},{},{},{}} end
  end
- function C.configure(s,slots)
-  setup(s)
-  if not s.campaign or s.campaign.zone~='town' then return false,'町で編集してください。' end
-  if type(slots)~='table' or #slots~=8 then return false,'8枠が必要です。' end
+ function C.copySkillLoadout(slots)
+  if type(slots)~='table' or #slots~=8 then return nil,'8枠が必要です。' end
   local copy={}
   for i=1,8 do
-   if type(slots[i])~='table' or #slots[i]>3 then return false,'1枠は最大3技です。' end
+   if type(slots[i])~='table' or #slots[i]>3 then return nil,'1枠は最大3技です。' end
    copy[i]={}
    for j,id in ipairs(slots[i]) do
-    if not available[id] then return false,'未実装の技・マクロ参照は装着できません。' end
+    if not available[id] then return nil,'未実装の技・マクロ参照は装着できません。' end
     copy[i][j]=id
    end
   end
+  return copy
+ end
+ function C.configure(s,slots)
+  setup(s)
+  if not s.campaign or s.campaign.zone~='town' then return false,'町で編集してください。' end
+  local copy,reason=C.copySkillLoadout(slots)
+  if not copy then return false,reason end
   s.loadout=copy;s.macro=nil;return true,'スキル枠を更新しました。'
  end
  function C.action(s,key)

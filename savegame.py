@@ -16,10 +16,11 @@ _ARTIFACT_DOMAIN_RANKS={
     for rank in domain['ranks']
 }
 _COMPANIONS=('amber','columbina','wanderer','beidou','ayaka','emilie','kachina','mitya')
+_TRAVELER_SKILLS = {f'SK{index:02}' for index in range(1, 61)}
 _COMBAT_COOLDOWNS = {
     'normal', 'skill1', 'skill2', 'skill3', 'skill4', 'light', 'dodge',
     'swimPulse', 'swimReflect', 'swimSonar', 'swimGuard', 'swimBurst',
-} | {f'SK{index:02}' for index in range(1, 61)}
+} | _TRAVELER_SKILLS
 import math
 import re
 _STYGIAN_MODES={
@@ -429,8 +430,36 @@ def validate_party_combat(party, companion):
             raise ValueError('技の残り時間が不正です')
 
 
+def validate_loadout(slots):
+    if not isinstance(slots, list) or len(slots) != 8:
+        raise ValueError('スキル枠は8個です')
+    for slot in slots:
+        if (not isinstance(slot, list) or len(slot) > 3
+                or any(not isinstance(skill, str) or skill not in _TRAVELER_SKILLS for skill in slot)):
+            raise ValueError('スキル枠が不正です')
+
+
+def validate_party_presets(presets):
+    if not isinstance(presets, dict) or set(presets) - {'1', '2', '3'}:
+        raise ValueError('編成プリセットの枠が不正です')
+    for record in presets.values():
+        if (not isinstance(record, dict) or set(record) != {'companion', 'traveler', 'partner', 'loadout'}
+                or record['companion'] not in _COMPANIONS):
+            raise ValueError('編成プリセットの形式が不正です')
+        validate_loadout(record['loadout'])
+        used = set()
+        for gear in (record['traveler'], record['partner']):
+            if not isinstance(gear, list) or len(gear) != 5:
+                raise ValueError('編成プリセットの装備枠が不正です')
+            for item_id in gear:
+                if type(item_id) is not int or not 0 <= item_id < 10**9 or item_id in used:
+                    raise ValueError('編成プリセットの装備参照が不正です')
+                if item_id:
+                    used.add(item_id)
+
+
 def validate_save(data):
-    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses','daily','endgame','rankProof','partyCombat'}!=FIELDS:
+    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses','daily','endgame','rankProof','partyCombat','partyPresets'}!=FIELDS:
         raise ValueError('保存データの項目が一致しません')
     if type(data['version']) is not int or data['version']!=1:
         raise ValueError('対応していない保存バージョンです')
@@ -440,6 +469,8 @@ def validate_save(data):
     if companion not in _COMPANIONS: raise ValueError('仲間が不正です')
     if 'partyCombat' in data:
         validate_party_combat(data['partyCombat'], companion)
+    if 'partyPresets' in data:
+        validate_party_presets(data['partyPresets'])
     for key,maximum in [('count',8),('mora',10**12),('kills',10**9),('hits',10**12),('damage',10**15),('gauge',100),('active',2)]:
         if type(data[key]) is not int or not 0<=data[key]<=maximum:
             raise ValueError('保存数値が不正です: '+key)
@@ -450,11 +481,7 @@ def validate_save(data):
     if (q=='available' and n!=0) or (q=='hunt' and n>=8) or (q in ('boss','report','complete') and n!=8):
         raise ValueError('討伐数と依頼の状態が一致しません')
     if 'loadout' in data:
-        slots=data['loadout']
-        if not isinstance(slots,list) or len(slots)!=8: raise ValueError('スキル枠は8個です')
-        for slot in slots:
-            if not isinstance(slot,list) or len(slot)>3 or any(x not in ('SK01','SK02','SK03','SK04','SK05','SK06','SK07','SK08','SK09','SK10','SK11','SK12','SK13','SK14','SK15','SK16','SK17','SK18','SK19','SK20','SK21','SK22','SK23','SK24','SK25','SK26','SK27','SK28','SK29','SK30','SK31','SK32','SK33','SK34','SK35','SK36','SK37','SK38','SK39','SK40','SK41','SK42','SK43','SK44','SK45','SK46','SK47','SK48','SK49','SK50','SK51','SK52','SK53','SK54','SK55','SK56','SK57','SK58','SK59','SK60') for x in slot):
-                raise ValueError('スキル枠が不正です')
+        validate_loadout(data['loadout'])
     if 'progression' in data:
         p=data['progression']
         legacy_fields={'level','xp','total','killXp','questXp','lastKills','questRewarded'}

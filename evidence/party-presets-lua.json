@@ -1,0 +1,17 @@
+{
+  "threeSlots": true,
+  "sparseSlotsRoundTrip": true,
+  "stableItemIds": true,
+  "preservedHpCooldownsAndGauge": true,
+  "noRepeatedApplySideEffects": true,
+  "staleItemApplyLeftLivePartyUnchanged": true,
+  "townOnly": true,
+  "legacySaveLoaded": true,
+  "invalidRecordsRejected": [
+    "unknown companion",
+    "invalid slot",
+    "duplicate item",
+    "invalid macro",
+    "invalid gear id"
+  ]
+}

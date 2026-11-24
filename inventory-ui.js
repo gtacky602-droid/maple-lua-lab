@@ -1,6 +1,7 @@
+export const companionNames={amber:'アンバー',columbina:'コロンビーナ',wanderer:'放浪者',beidou:'北斗',ayaka:'綾華',emilie:'エミリエ',kachina:'カチーナ',mitya:'ミティア'};
+
 export function initInventoryUI(action){
  const names=['','花：HP','羽：ATK','時計：ATK%','杯：元素ダメージ%','冠：会心ダメージ%'];let signature='';
- const companionNames={amber:'アンバー',columbina:'コロンビーナ',wanderer:'放浪者',beidou:'北斗',ayaka:'綾華',emilie:'エミリエ',kachina:'カチーナ',mitya:'ミティア'};
  const desk=document.getElementById('expeditionDesk');
  const gearRows=document.getElementById('expeditionGear');
  let gearSignature='';
