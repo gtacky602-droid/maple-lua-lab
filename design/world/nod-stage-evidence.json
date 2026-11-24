@@ -1,0 +1,229 @@
+{
+  "scope": "Nod-Krai stages outside the marker, hunt, voyage and short transfer ledgers.",
+  "stage_count": 48,
+  "interpretation": "Links identify available evidence per stage. Some boss runs start in the encounter. The winter pass proof records input, both level gates and save restoration.",
+  "entries": [
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "nod-duckle-workyard"
+      ],
+      "evidence": [
+        "evidence/knuckle-duckle-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "nod-battleship-depot"
+      ],
+      "evidence": [
+        "evidence/battleship-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "nod-herra-terrace"
+      ],
+      "evidence": [
+        "evidence/frostnight-herra-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "nod-nightmare-shore"
+      ],
+      "evidence": [
+        "evidence/whisperer-nightmares-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "nod-moonfly-hollow"
+      ],
+      "evidence": [
+        "evidence/moonfly-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "nod-gecko-depths"
+      ],
+      "evidence": [
+        "evidence/moongecko-field-lua.json"
+      ]
+    },
+    {
+      "kind": "daily",
+      "stages": [
+        "nod-tide-scrapyard",
+        "nod-forest-outer"
+      ],
+      "evidence": [
+        "evidence/daily-nod-lua.json"
+      ]
+    },
+    {
+      "kind": "hunt",
+      "stages": [
+        "winter-frontier-switchback"
+      ],
+      "evidence": [
+        "evidence/nod-fresh-route.json",
+        "evidence/nod-winter-pass-lua.json",
+        "evidence/nod-winter-pass-browser.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "nod-workshop-coast",
+        "nod-moon-shallows",
+        "nod-tide-rocks"
+      ],
+      "evidence": [
+        "evidence/nod-shallows-lua.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "nod-lull-wood",
+        "nod-spruce-clearing",
+        "nod-lantern-shore",
+        "nod-box-inlet",
+        "nod-moon-cave-mouth"
+      ],
+      "evidence": [
+        "evidence/nod-moon-paths-lua.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "nod-moon-crab-arena",
+        "nod-moon-vault"
+      ],
+      "evidence": [
+        "evidence/nod-moon-vault-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "nod-night-stalls",
+        "nod-detour-shore",
+        "nod-far-sea-bench"
+      ],
+      "evidence": [
+        "evidence/columbina-detour-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "nod-appraisal-workshop",
+        "nod-appraisal-yard"
+      ],
+      "evidence": [
+        "evidence/nod-appraisal-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "nod-rumor-quay",
+        "nod-rumor-ledge"
+      ],
+      "evidence": [
+        "evidence/nod-moon-rumor-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "nod-bloom-gate",
+        "nod-bloom-trail",
+        "nod-bloom-grove"
+      ],
+      "evidence": [
+        "evidence/nod-moon-bloom-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "nod-patrol-cabin",
+        "nod-patrol-shore",
+        "nod-patrol-bend",
+        "nod-patrol-post"
+      ],
+      "evidence": [
+        "evidence/nod-lantern-patrol-lua.json"
+      ]
+    },
+    {
+      "kind": "hunt",
+      "stages": [
+        "nod-west-frost-slope",
+        "nod-north-spruce-shelves"
+      ],
+      "evidence": [
+        "evidence/nod-fresh-route.json",
+        "evidence/nod-fresh-route-browser.json"
+      ]
+    },
+    {
+      "kind": "stygian",
+      "stages": [
+        "nod-stygian-hunt"
+      ],
+      "evidence": [
+        "evidence/stygian-rerir-lua.json"
+      ]
+    },
+    {
+      "kind": "weekly_boss",
+      "stages": [
+        "nod-false-moon-court",
+        "nod-false-moon-rift"
+      ],
+      "evidence": [
+        "evidence/false-moon-weekly-lua.json",
+        "evidence/atlas-battle-false-moon-browser.json"
+      ]
+    },
+    {
+      "kind": "local_legend",
+      "stages": [
+        "nod-bonemos-grave-path",
+        "nod-sigurd-grave-court",
+        "nod-hiisi-mirror-court",
+        "nod-crab-tsar-palace"
+      ],
+      "evidence": [
+        "evidence/nod-first-field-legends-lua.json",
+        "evidence/nod-first-field-legends-browser.json"
+      ]
+    },
+    {
+      "kind": "local_legend",
+      "stages": [
+        "nod-pyramid-seaward-steps",
+        "nod-mandragora-cliff-foot",
+        "nod-wind-fort-peninsula",
+        "nod-hiljetta-peninsula-camp",
+        "nod-aamsvaltnir-east-ridge",
+        "nod-homesick-wolf-lakeland"
+      ],
+      "evidence": [
+        "evidence/nod-north-field-legends-lua.json",
+        "evidence/nod-north-field-legends-browser.json"
+      ]
+    }
+  ]
+}

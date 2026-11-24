@@ -1,0 +1,16 @@
+{
+  "route": [
+    "nod-town",
+    "winter-frontier-switchback",
+    "snezhnaya-entry",
+    "winter-frontier-switchback"
+  ],
+  "snowfieldGuide": [
+    "snezhnaya-entry",
+    "snezhnaya-hub"
+  ],
+  "returnedThroughUpperGate": true,
+  "savedAt": "snezhnaya-entry",
+  "restoredAt": "nod-town",
+  "errors": []
+}

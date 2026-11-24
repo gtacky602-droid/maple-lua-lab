@@ -1,0 +1,74 @@
+{
+  "frontierMinLevel": 136,
+  "snowfieldMinLevel": 140,
+  "bothLowerLevelsRejectedInAtlasAndAtGate": true,
+  "directPath": [
+    {
+      "label": "徒歩",
+      "name": "スネージナヤ・雪原の入口",
+      "hint": "峠を越えて雪原へ",
+      "from": "winter-frontier-switchback",
+      "mode": "walk",
+      "id": "snezhnaya-entry",
+      "region": "region-08"
+    },
+    {
+      "label": "徒歩",
+      "name": "スネージナヤ・雪の町",
+      "from": "snezhnaya-entry",
+      "mode": "walk",
+      "id": "snezhnaya-hub",
+      "region": "region-08"
+    }
+  ],
+  "upperSnowfieldLanding": [
+    295,
+    380
+  ],
+  "reversePath": [
+    {
+      "label": "徒歩",
+      "name": "冬越えの折返し道",
+      "hint": "上段の入口・峠から折返し道へ戻る",
+      "from": "snezhnaya-entry",
+      "mode": "walk",
+      "id": "winter-frontier-switchback",
+      "region": "region-07"
+    }
+  ],
+  "crossings": [
+    [
+      "nod-town",
+      "snezhnaya-entry"
+    ],
+    [
+      "nod-town",
+      "winter-frontier-switchback"
+    ],
+    [
+      "snezhnaya-entry",
+      "snezhnaya-hub"
+    ],
+    [
+      "snezhnaya-entry",
+      "winter-frontier-switchback"
+    ],
+    [
+      "snezhnaya-hub",
+      "snezhnaya-entry"
+    ],
+    [
+      "winter-frontier-switchback",
+      "nod-town"
+    ],
+    [
+      "winter-frontier-switchback",
+      "snezhnaya-entry"
+    ]
+  ],
+  "restoredAt": "nod-town",
+  "townsVisited": [
+    "nod-town",
+    "snezhnaya-hub"
+  ]
+}
