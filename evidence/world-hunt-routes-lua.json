@@ -1,0 +1,1850 @@
+{
+  "scope": "Sites geographic and branch hunts and their side rooms. Movement starts from regional fixtures; combat does not gate these paths.",
+  "fieldRoundTrips": 103,
+  "sideRoomRoundTrips": 83,
+  "uniqueDirectedCrossings": 372,
+  "separateLevelBoundaries": 167,
+  "savedVisitsRestored": 186,
+  "stages": [
+    {
+      "stage": "sites-hunt-7092",
+      "host": "mond-wp-21",
+      "intermediate": [],
+      "kind": "field",
+      "level": 13,
+      "belowLevelRejected": true,
+      "restoredAt": "mond-town"
+    },
+    {
+      "stage": "sites-hunt-7092-pocket-1",
+      "host": "mond-wp-21",
+      "intermediate": [
+        "sites-hunt-7092"
+      ],
+      "kind": "elite",
+      "level": 15,
+      "belowLevelRejected": true,
+      "restoredAt": "mond-town"
+    },
+    {
+      "stage": "sites-hunt-7111",
+      "host": "mond-wp-24",
+      "intermediate": [],
+      "kind": "field",
+      "level": 14,
+      "belowLevelRejected": false,
+      "restoredAt": "mond-town"
+    },
+    {
+      "stage": "sites-hunt-7111-pocket-1",
+      "host": "mond-wp-24",
+      "intermediate": [
+        "sites-hunt-7111"
+      ],
+      "kind": "elite",
+      "level": 15,
+      "belowLevelRejected": true,
+      "restoredAt": "mond-town"
+    },
+    {
+      "stage": "sites-hunt-7111-pocket-2",
+      "host": "mond-wp-24",
+      "intermediate": [
+        "sites-hunt-7111"
+      ],
+      "kind": "elite",
+      "level": 14,
+      "belowLevelRejected": false,
+      "restoredAt": "mond-town"
+    },
+    {
+      "stage": "sites-hunt-7137",
+      "host": "mond-wp-19",
+      "intermediate": [],
+      "kind": "field",
+      "level": 13,
+      "belowLevelRejected": true,
+      "restoredAt": "mond-town"
+    },
+    {
+      "stage": "sites-hunt-7137-pocket-1",
+      "host": "mond-wp-19",
+      "intermediate": [
+        "sites-hunt-7137"
+      ],
+      "kind": "elite",
+      "level": 15,
+      "belowLevelRejected": true,
+      "restoredAt": "mond-town"
+    },
+    {
+      "stage": "sites-hunt-7149",
+      "host": "mond-wp-14",
+      "intermediate": [],
+      "kind": "field",
+      "level": 13,
+      "belowLevelRejected": true,
+      "restoredAt": "mond-town"
+    },
+    {
+      "stage": "sites-hunt-7149-pocket-1",
+      "host": "mond-wp-14",
+      "intermediate": [
+        "sites-hunt-7149"
+      ],
+      "kind": "elite",
+      "level": 15,
+      "belowLevelRejected": true,
+      "restoredAt": "mond-town"
+    },
+    {
+      "stage": "sites-hunt-7157",
+      "host": "mond-road",
+      "intermediate": [],
+      "kind": "field",
+      "level": 13,
+      "belowLevelRejected": true,
+      "restoredAt": "mond-town"
+    },
+    {
+      "stage": "sites-hunt-7186",
+      "host": "mond-wp-18",
+      "intermediate": [],
+      "kind": "field",
+      "level": 13,
+      "belowLevelRejected": true,
+      "restoredAt": "mond-town"
+    },
+    {
+      "stage": "sites-hunt-7201",
+      "host": "mond-wp-7",
+      "intermediate": [],
+      "kind": "field",
+      "level": 13,
+      "belowLevelRejected": true,
+      "restoredAt": "mond-town"
+    },
+    {
+      "stage": "sites-hunt-7206",
+      "host": "mond-wp-7",
+      "intermediate": [],
+      "kind": "field",
+      "level": 13,
+      "belowLevelRejected": true,
+      "restoredAt": "mond-town"
+    },
+    {
+      "stage": "sites-hunt-7206-pocket-1",
+      "host": "mond-wp-7",
+      "intermediate": [
+        "sites-hunt-7206"
+      ],
+      "kind": "elite",
+      "level": 15,
+      "belowLevelRejected": true,
+      "restoredAt": "mond-town"
+    },
+    {
+      "stage": "sites-hunt-7210",
+      "host": "mond-wp-17",
+      "intermediate": [],
+      "kind": "field",
+      "level": 14,
+      "belowLevelRejected": false,
+      "restoredAt": "mond-town"
+    },
+    {
+      "stage": "sites-hunt-7210-pocket-1",
+      "host": "mond-wp-17",
+      "intermediate": [
+        "sites-hunt-7210"
+      ],
+      "kind": "elite",
+      "level": 15,
+      "belowLevelRejected": true,
+      "restoredAt": "mond-town"
+    },
+    {
+      "stage": "sites-hunt-7114",
+      "host": "liyue-wp-39",
+      "intermediate": [],
+      "kind": "field",
+      "level": 38,
+      "belowLevelRejected": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-7114-pocket-1",
+      "host": "liyue-wp-39",
+      "intermediate": [
+        "sites-hunt-7114"
+      ],
+      "kind": "elite",
+      "level": 40,
+      "belowLevelRejected": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-7116",
+      "host": "liyue-wp-42",
+      "intermediate": [],
+      "kind": "field",
+      "level": 38,
+      "belowLevelRejected": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-7121",
+      "host": "oceanid-approach",
+      "intermediate": [],
+      "kind": "field",
+      "level": 38,
+      "belowLevelRejected": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-7121-pocket-1",
+      "host": "oceanid-approach",
+      "intermediate": [
+        "sites-hunt-7121"
+      ],
+      "kind": "elite",
+      "level": 40,
+      "belowLevelRejected": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-7173",
+      "host": "liyue-wp-35",
+      "intermediate": [],
+      "kind": "field",
+      "level": 38,
+      "belowLevelRejected": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-7173-pocket-1",
+      "host": "liyue-wp-35",
+      "intermediate": [
+        "sites-hunt-7173"
+      ],
+      "kind": "elite",
+      "level": 40,
+      "belowLevelRejected": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-7190",
+      "host": "liyue-field",
+      "intermediate": [],
+      "kind": "field",
+      "level": 38,
+      "belowLevelRejected": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-7190-pocket-1",
+      "host": "liyue-field",
+      "intermediate": [
+        "sites-hunt-7190"
+      ],
+      "kind": "elite",
+      "level": 40,
+      "belowLevelRejected": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-7215",
+      "host": "geo-approach",
+      "intermediate": [],
+      "kind": "field",
+      "level": 39,
+      "belowLevelRejected": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-7215-pocket-1",
+      "host": "geo-approach",
+      "intermediate": [
+        "sites-hunt-7215"
+      ],
+      "kind": "elite",
+      "level": 40,
+      "belowLevelRejected": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-7218",
+      "host": "liyue-wp-104",
+      "intermediate": [],
+      "kind": "field",
+      "level": 38,
+      "belowLevelRejected": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-7220",
+      "host": "liyue-wp-105",
+      "intermediate": [],
+      "kind": "field",
+      "level": 38,
+      "belowLevelRejected": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-7220-pocket-1",
+      "host": "liyue-wp-105",
+      "intermediate": [
+        "sites-hunt-7220"
+      ],
+      "kind": "elite",
+      "level": 40,
+      "belowLevelRejected": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-9778",
+      "host": "primo-approach",
+      "intermediate": [],
+      "kind": "field",
+      "level": 38,
+      "belowLevelRejected": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-18048",
+      "host": "liyue-wp-45",
+      "intermediate": [],
+      "kind": "field",
+      "level": 38,
+      "belowLevelRejected": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-18048-pocket-1",
+      "host": "liyue-wp-45",
+      "intermediate": [
+        "sites-hunt-18048"
+      ],
+      "kind": "elite",
+      "level": 40,
+      "belowLevelRejected": true,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-18048-pocket-2",
+      "host": "liyue-wp-45",
+      "intermediate": [
+        "sites-hunt-18048"
+      ],
+      "kind": "elite",
+      "level": 38,
+      "belowLevelRejected": false,
+      "restoredAt": "liyue-harbor"
+    },
+    {
+      "stage": "sites-hunt-24907",
+      "host": "liyue-wp-24909",
+      "intermediate": [],
+      "kind": "field",
+      "level": 38,
+      "belowLevelRejected": true,
+      "restoredAt": "chasm-camp"
+    },
+    {
+      "stage": "sites-hunt-24907-pocket-1",
+      "host": "liyue-wp-24909",
+      "intermediate": [
+        "sites-hunt-24907"
+      ],
+      "kind": "elite",
+      "level": 40,
+      "belowLevelRejected": true,
+      "restoredAt": "chasm-camp"
+    },
+    {
+      "stage": "sites-hunt-12778",
+      "host": "ina-wp-47990",
+      "intermediate": [],
+      "kind": "field",
+      "level": 59,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-town"
+    },
+    {
+      "stage": "sites-hunt-12778-pocket-1",
+      "host": "ina-wp-47990",
+      "intermediate": [
+        "sites-hunt-12778"
+      ],
+      "kind": "elite",
+      "level": 60,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-town"
+    },
+    {
+      "stage": "sites-hunt-12781",
+      "host": "ina-wp-12733",
+      "intermediate": [],
+      "kind": "field",
+      "level": 59,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-town"
+    },
+    {
+      "stage": "sites-hunt-12781-pocket-1",
+      "host": "ina-wp-12733",
+      "intermediate": [
+        "sites-hunt-12781"
+      ],
+      "kind": "elite",
+      "level": 60,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-town"
+    },
+    {
+      "stage": "sites-hunt-12784",
+      "host": "ina-wp-12725",
+      "intermediate": [],
+      "kind": "field",
+      "level": 59,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-town"
+    },
+    {
+      "stage": "sites-hunt-12784-pocket-1",
+      "host": "ina-wp-12725",
+      "intermediate": [
+        "sites-hunt-12784"
+      ],
+      "kind": "elite",
+      "level": 60,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-town"
+    },
+    {
+      "stage": "sites-hunt-12788",
+      "host": "ina-wp-12715",
+      "intermediate": [],
+      "kind": "field",
+      "level": 59,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-port"
+    },
+    {
+      "stage": "sites-hunt-12788-pocket-1",
+      "host": "ina-wp-12715",
+      "intermediate": [
+        "sites-hunt-12788"
+      ],
+      "kind": "elite",
+      "level": 60,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-port"
+    },
+    {
+      "stage": "sites-hunt-12791",
+      "host": "ina-wp-12749",
+      "intermediate": [],
+      "kind": "field",
+      "level": 59,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-port"
+    },
+    {
+      "stage": "sites-hunt-12791-pocket-1",
+      "host": "ina-wp-12749",
+      "intermediate": [
+        "sites-hunt-12791"
+      ],
+      "kind": "elite",
+      "level": 60,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-port"
+    },
+    {
+      "stage": "sites-hunt-12791-pocket-2",
+      "host": "ina-wp-12749",
+      "intermediate": [
+        "sites-hunt-12791"
+      ],
+      "kind": "elite",
+      "level": 59,
+      "belowLevelRejected": false,
+      "restoredAt": "inazuma-port"
+    },
+    {
+      "stage": "sites-hunt-12794",
+      "host": "maguu-approach",
+      "intermediate": [],
+      "kind": "field",
+      "level": 59,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-port"
+    },
+    {
+      "stage": "sites-hunt-15949",
+      "host": "ina-wp-15951",
+      "intermediate": [],
+      "kind": "field",
+      "level": 59,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-port"
+    },
+    {
+      "stage": "sites-hunt-17223",
+      "host": "ina-wp-12722",
+      "intermediate": [],
+      "kind": "field",
+      "level": 59,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-town"
+    },
+    {
+      "stage": "sites-hunt-18667",
+      "host": "tsurumi-coast",
+      "intermediate": [],
+      "kind": "field",
+      "level": 56,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-port"
+    },
+    {
+      "stage": "sites-hunt-18667-pocket-1",
+      "host": "tsurumi-coast",
+      "intermediate": [
+        "sites-hunt-18667"
+      ],
+      "kind": "elite",
+      "level": 58,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-port"
+    },
+    {
+      "stage": "sites-hunt-20369",
+      "host": "ina-wp-16030",
+      "intermediate": [],
+      "kind": "field",
+      "level": 59,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-town"
+    },
+    {
+      "stage": "sites-hunt-24906",
+      "host": "ina-wp-12733",
+      "intermediate": [],
+      "kind": "field",
+      "level": 59,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-town"
+    },
+    {
+      "stage": "sites-hunt-24906-pocket-1",
+      "host": "ina-wp-12733",
+      "intermediate": [
+        "sites-hunt-24906"
+      ],
+      "kind": "elite",
+      "level": 60,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-town"
+    },
+    {
+      "stage": "sites-hunt-28751",
+      "host": "sum-wp-28749",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-28751-pocket-1",
+      "host": "sum-wp-28749",
+      "intermediate": [
+        "sites-hunt-28751"
+      ],
+      "kind": "elite",
+      "level": 80,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-28752",
+      "host": "sumeru-entry",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "inazuma-town"
+    },
+    {
+      "stage": "sites-hunt-28753",
+      "host": "sum-wp-28741",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-28754",
+      "host": "sum-wp-28729",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-28754-pocket-1",
+      "host": "sum-wp-28729",
+      "intermediate": [
+        "sites-hunt-28754"
+      ],
+      "kind": "elite",
+      "level": 80,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-28755",
+      "host": "sum-wp-28726",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-28755-pocket-1",
+      "host": "sum-wp-28726",
+      "intermediate": [
+        "sites-hunt-28755"
+      ],
+      "kind": "elite",
+      "level": 80,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-28756",
+      "host": "sum-wp-28718",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-28757",
+      "host": "sum-wp-28717",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-28757-pocket-1",
+      "host": "sum-wp-28717",
+      "intermediate": [
+        "sites-hunt-28757"
+      ],
+      "kind": "elite",
+      "level": 80,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-36703",
+      "host": "sum-wp-36683",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-36703-pocket-1",
+      "host": "sum-wp-36683",
+      "intermediate": [
+        "sites-hunt-36703"
+      ],
+      "kind": "elite",
+      "level": 80,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-36704",
+      "host": "sum-wp-36691",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-36704-pocket-1",
+      "host": "sum-wp-36691",
+      "intermediate": [
+        "sites-hunt-36704"
+      ],
+      "kind": "elite",
+      "level": 80,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-36705",
+      "host": "sum-wp-36697",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-36705-pocket-1",
+      "host": "sum-wp-36697",
+      "intermediate": [
+        "sites-hunt-36705"
+      ],
+      "kind": "elite",
+      "level": 80,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-41009",
+      "host": "sum-wp-28734",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-41694",
+      "host": "sum-wp-36680",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-41694-pocket-1",
+      "host": "sum-wp-36680",
+      "intermediate": [
+        "sites-hunt-41694"
+      ],
+      "kind": "elite",
+      "level": 80,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-41817",
+      "host": "sum-wp-41836",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-41817-pocket-1",
+      "host": "sum-wp-41836",
+      "intermediate": [
+        "sites-hunt-41817"
+      ],
+      "kind": "elite",
+      "level": 80,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-41818",
+      "host": "sum-wp-41839",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-46531",
+      "host": "sum-wp-46524",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "tunigi-camp"
+    },
+    {
+      "stage": "sites-hunt-46531-pocket-1",
+      "host": "sum-wp-46524",
+      "intermediate": [
+        "sites-hunt-46531"
+      ],
+      "kind": "elite",
+      "level": 80,
+      "belowLevelRejected": true,
+      "restoredAt": "tunigi-camp"
+    },
+    {
+      "stage": "sites-hunt-46532",
+      "host": "sum-wp-46527",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "tunigi-camp"
+    },
+    {
+      "stage": "sites-hunt-46532-pocket-1",
+      "host": "sum-wp-46527",
+      "intermediate": [
+        "sites-hunt-46532"
+      ],
+      "kind": "elite",
+      "level": 80,
+      "belowLevelRejected": true,
+      "restoredAt": "tunigi-camp"
+    },
+    {
+      "stage": "sites-hunt-46533",
+      "host": "sum-wp-46516",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "tunigi-camp"
+    },
+    {
+      "stage": "sites-hunt-46533-pocket-1",
+      "host": "sum-wp-46516",
+      "intermediate": [
+        "sites-hunt-46533"
+      ],
+      "kind": "elite",
+      "level": 80,
+      "belowLevelRejected": true,
+      "restoredAt": "tunigi-camp"
+    },
+    {
+      "stage": "sites-hunt-46534",
+      "host": "sum-wp-46515",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "tunigi-camp"
+    },
+    {
+      "stage": "sites-hunt-46534-pocket-1",
+      "host": "sum-wp-46515",
+      "intermediate": [
+        "sites-hunt-46534"
+      ],
+      "kind": "elite",
+      "level": 80,
+      "belowLevelRejected": true,
+      "restoredAt": "tunigi-camp"
+    },
+    {
+      "stage": "sites-hunt-98499",
+      "host": "sum-wp-28744",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stage": "sites-hunt-50034",
+      "host": "fon-wp-50035",
+      "intermediate": [],
+      "kind": "field",
+      "level": 99,
+      "belowLevelRejected": true,
+      "restoredAt": "fontaine-hub"
+    },
+    {
+      "stage": "sites-hunt-50034-pocket-1",
+      "host": "fon-wp-50035",
+      "intermediate": [
+        "sites-hunt-50034"
+      ],
+      "kind": "elite",
+      "level": 100,
+      "belowLevelRejected": true,
+      "restoredAt": "fontaine-hub"
+    },
+    {
+      "stage": "sites-hunt-50057",
+      "host": "fon-wp-50056",
+      "intermediate": [],
+      "kind": "field",
+      "level": 99,
+      "belowLevelRejected": true,
+      "restoredAt": "fontaine-hub"
+    },
+    {
+      "stage": "sites-hunt-50067",
+      "host": "fon-wp-50075",
+      "intermediate": [],
+      "kind": "field",
+      "level": 99,
+      "belowLevelRejected": true,
+      "restoredAt": "fontaine-hub"
+    },
+    {
+      "stage": "sites-hunt-56792",
+      "host": "fon-wp-50066",
+      "intermediate": [],
+      "kind": "field",
+      "level": 99,
+      "belowLevelRejected": true,
+      "restoredAt": "fontaine-hub"
+    },
+    {
+      "stage": "sites-hunt-63738",
+      "host": "fon-wp-55763",
+      "intermediate": [],
+      "kind": "field",
+      "level": 99,
+      "belowLevelRejected": true,
+      "restoredAt": "fontaine-hub"
+    },
+    {
+      "stage": "sites-hunt-63738-pocket-1",
+      "host": "fon-wp-55763",
+      "intermediate": [
+        "sites-hunt-63738"
+      ],
+      "kind": "elite",
+      "level": 100,
+      "belowLevelRejected": true,
+      "restoredAt": "fontaine-hub"
+    },
+    {
+      "stage": "sites-hunt-68346",
+      "host": "fon-wp-68341",
+      "intermediate": [],
+      "kind": "field",
+      "level": 99,
+      "belowLevelRejected": true,
+      "restoredAt": "fontaine-hub"
+    },
+    {
+      "stage": "sites-hunt-68346-pocket-1",
+      "host": "fon-wp-68341",
+      "intermediate": [
+        "sites-hunt-68346"
+      ],
+      "kind": "elite",
+      "level": 100,
+      "belowLevelRejected": true,
+      "restoredAt": "fontaine-hub"
+    },
+    {
+      "stage": "sites-hunt-68347",
+      "host": "fon-wp-53867",
+      "intermediate": [],
+      "kind": "field",
+      "level": 99,
+      "belowLevelRejected": true,
+      "restoredAt": "fontaine-hub"
+    },
+    {
+      "stage": "sites-hunt-68347-pocket-1",
+      "host": "fon-wp-53867",
+      "intermediate": [
+        "sites-hunt-68347"
+      ],
+      "kind": "elite",
+      "level": 100,
+      "belowLevelRejected": true,
+      "restoredAt": "fontaine-hub"
+    },
+    {
+      "stage": "sites-hunt-68347-pocket-2",
+      "host": "fon-wp-53867",
+      "intermediate": [
+        "sites-hunt-68347"
+      ],
+      "kind": "elite",
+      "level": 99,
+      "belowLevelRejected": false,
+      "restoredAt": "fontaine-hub"
+    },
+    {
+      "stage": "sites-hunt-68347-pocket-3",
+      "host": "fon-wp-53867",
+      "intermediate": [
+        "sites-hunt-68347"
+      ],
+      "kind": "elite",
+      "level": 99,
+      "belowLevelRejected": false,
+      "restoredAt": "fontaine-hub"
+    },
+    {
+      "stage": "sites-hunt-73159",
+      "host": "nat-wp-72414",
+      "intermediate": [],
+      "kind": "field",
+      "level": 119,
+      "belowLevelRejected": true,
+      "restoredAt": "natlan-hub"
+    },
+    {
+      "stage": "sites-hunt-73159-pocket-1",
+      "host": "nat-wp-72414",
+      "intermediate": [
+        "sites-hunt-73159"
+      ],
+      "kind": "elite",
+      "level": 120,
+      "belowLevelRejected": true,
+      "restoredAt": "natlan-hub"
+    },
+    {
+      "stage": "sites-hunt-73159-pocket-2",
+      "host": "nat-wp-72414",
+      "intermediate": [
+        "sites-hunt-73159"
+      ],
+      "kind": "elite",
+      "level": 119,
+      "belowLevelRejected": false,
+      "restoredAt": "natlan-hub"
+    },
+    {
+      "stage": "sites-hunt-73160",
+      "host": "nat-wp-72422",
+      "intermediate": [],
+      "kind": "field",
+      "level": 119,
+      "belowLevelRejected": true,
+      "restoredAt": "natlan-hub"
+    },
+    {
+      "stage": "sites-hunt-73161",
+      "host": "nat-wp-72445",
+      "intermediate": [],
+      "kind": "field",
+      "level": 119,
+      "belowLevelRejected": true,
+      "restoredAt": "natlan-hub"
+    },
+    {
+      "stage": "sites-hunt-73161-pocket-1",
+      "host": "nat-wp-72445",
+      "intermediate": [
+        "sites-hunt-73161"
+      ],
+      "kind": "elite",
+      "level": 120,
+      "belowLevelRejected": true,
+      "restoredAt": "natlan-hub"
+    },
+    {
+      "stage": "sites-hunt-81383",
+      "host": "nat-wp-79051",
+      "intermediate": [],
+      "kind": "field",
+      "level": 119,
+      "belowLevelRejected": true,
+      "restoredAt": "natlan-hub"
+    },
+    {
+      "stage": "sites-hunt-81383-pocket-1",
+      "host": "nat-wp-79051",
+      "intermediate": [
+        "sites-hunt-81383"
+      ],
+      "kind": "elite",
+      "level": 120,
+      "belowLevelRejected": true,
+      "restoredAt": "natlan-hub"
+    },
+    {
+      "stage": "sites-hunt-82577",
+      "host": "nat-wp-82564",
+      "intermediate": [],
+      "kind": "field",
+      "level": 119,
+      "belowLevelRejected": true,
+      "restoredAt": "natlan-hub"
+    },
+    {
+      "stage": "sites-hunt-88121",
+      "host": "nod-wp-88133",
+      "intermediate": [],
+      "kind": "field",
+      "level": 140,
+      "belowLevelRejected": true,
+      "restoredAt": "nod-town"
+    },
+    {
+      "stage": "sites-hunt-88121-pocket-1",
+      "host": "nod-wp-88133",
+      "intermediate": [
+        "sites-hunt-88121"
+      ],
+      "kind": "elite",
+      "level": 140,
+      "belowLevelRejected": false,
+      "restoredAt": "nod-town"
+    },
+    {
+      "stage": "sites-hunt-88122",
+      "host": "nod-wp-88144",
+      "intermediate": [],
+      "kind": "field",
+      "level": 140,
+      "belowLevelRejected": true,
+      "restoredAt": "nod-town"
+    },
+    {
+      "stage": "sites-hunt-88122-pocket-1",
+      "host": "nod-wp-88144",
+      "intermediate": [
+        "sites-hunt-88122"
+      ],
+      "kind": "elite",
+      "level": 140,
+      "belowLevelRejected": false,
+      "restoredAt": "nod-town"
+    },
+    {
+      "stage": "sites-hunt-88123",
+      "host": "nod-wp-88129",
+      "intermediate": [],
+      "kind": "field",
+      "level": 140,
+      "belowLevelRejected": true,
+      "restoredAt": "nod-town"
+    },
+    {
+      "stage": "sites-hunt-88123-pocket-1",
+      "host": "nod-wp-88129",
+      "intermediate": [
+        "sites-hunt-88123"
+      ],
+      "kind": "elite",
+      "level": 140,
+      "belowLevelRejected": false,
+      "restoredAt": "nod-town"
+    },
+    {
+      "stage": "sites-hunt-92859",
+      "host": "nod-wp-92885",
+      "intermediate": [],
+      "kind": "field",
+      "level": 140,
+      "belowLevelRejected": true,
+      "restoredAt": "nod-north-harbor"
+    },
+    {
+      "stage": "sites-hunt-92859-pocket-1",
+      "host": "nod-wp-92885",
+      "intermediate": [
+        "sites-hunt-92859"
+      ],
+      "kind": "elite",
+      "level": 140,
+      "belowLevelRejected": false,
+      "restoredAt": "nod-north-harbor"
+    },
+    {
+      "stage": "sites-hunt-92860",
+      "host": "nod-wp-92892",
+      "intermediate": [],
+      "kind": "field",
+      "level": 140,
+      "belowLevelRejected": true,
+      "restoredAt": "nod-north-harbor"
+    },
+    {
+      "stage": "sites-hunt-100705",
+      "host": "sne-wp-100658",
+      "intermediate": [],
+      "kind": "field",
+      "level": 159,
+      "belowLevelRejected": true,
+      "restoredAt": "snezhnaya-hub"
+    },
+    {
+      "stage": "sites-hunt-100705-pocket-1",
+      "host": "sne-wp-100658",
+      "intermediate": [
+        "sites-hunt-100705"
+      ],
+      "kind": "elite",
+      "level": 160,
+      "belowLevelRejected": true,
+      "restoredAt": "snezhnaya-hub"
+    },
+    {
+      "stage": "sites-hunt-100706",
+      "host": "white-pass-cut",
+      "intermediate": [],
+      "kind": "field",
+      "level": 159,
+      "belowLevelRejected": true,
+      "restoredAt": "snezhnaya-hub"
+    },
+    {
+      "stage": "sites-hunt-100706-pocket-1",
+      "host": "white-pass-cut",
+      "intermediate": [
+        "sites-hunt-100706"
+      ],
+      "kind": "elite",
+      "level": 160,
+      "belowLevelRejected": true,
+      "restoredAt": "snezhnaya-hub"
+    },
+    {
+      "stage": "sites-hunt-100707",
+      "host": "sne-wp-100695",
+      "intermediate": [],
+      "kind": "field",
+      "level": 159,
+      "belowLevelRejected": true,
+      "restoredAt": "snezhnaya-hub"
+    },
+    {
+      "stage": "sites-hunt-7164",
+      "host": "mond-wp-6609",
+      "intermediate": [],
+      "kind": "field",
+      "level": 60,
+      "belowLevelRejected": false,
+      "restoredAt": "dragonspine-camp"
+    },
+    {
+      "stage": "branch-hunt-64824",
+      "host": "liyue-wp-64824",
+      "intermediate": [],
+      "kind": "field",
+      "level": 84,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64824-pocket-1",
+      "host": "liyue-wp-64824",
+      "intermediate": [
+        "branch-hunt-64824"
+      ],
+      "kind": "elite",
+      "level": 86,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64824-pocket-2",
+      "host": "liyue-wp-64824",
+      "intermediate": [
+        "branch-hunt-64824"
+      ],
+      "kind": "elite",
+      "level": 84,
+      "belowLevelRejected": false,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64824-pocket-3",
+      "host": "liyue-wp-64824",
+      "intermediate": [
+        "branch-hunt-64824"
+      ],
+      "kind": "elite",
+      "level": 84,
+      "belowLevelRejected": false,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64825",
+      "host": "liyue-wp-64825",
+      "intermediate": [],
+      "kind": "field",
+      "level": 75,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64825-pocket-1",
+      "host": "liyue-wp-64825",
+      "intermediate": [
+        "branch-hunt-64825"
+      ],
+      "kind": "elite",
+      "level": 77,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64826",
+      "host": "liyue-wp-64826",
+      "intermediate": [],
+      "kind": "field",
+      "level": 88,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64826-pocket-1",
+      "host": "liyue-wp-64826",
+      "intermediate": [
+        "branch-hunt-64826"
+      ],
+      "kind": "elite",
+      "level": 90,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64827",
+      "host": "liyue-wp-64827",
+      "intermediate": [],
+      "kind": "field",
+      "level": 89,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64827-pocket-1",
+      "host": "liyue-wp-64827",
+      "intermediate": [
+        "branch-hunt-64827"
+      ],
+      "kind": "elite",
+      "level": 90,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64828",
+      "host": "liyue-wp-64828",
+      "intermediate": [],
+      "kind": "field",
+      "level": 89,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64828-pocket-1",
+      "host": "liyue-wp-64828",
+      "intermediate": [
+        "branch-hunt-64828"
+      ],
+      "kind": "elite",
+      "level": 90,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64829",
+      "host": "liyue-wp-64829",
+      "intermediate": [],
+      "kind": "field",
+      "level": 85,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64829-pocket-1",
+      "host": "liyue-wp-64829",
+      "intermediate": [
+        "branch-hunt-64829"
+      ],
+      "kind": "elite",
+      "level": 87,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64830",
+      "host": "liyue-wp-64830",
+      "intermediate": [],
+      "kind": "field",
+      "level": 83,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64830-pocket-1",
+      "host": "liyue-wp-64830",
+      "intermediate": [
+        "branch-hunt-64830"
+      ],
+      "kind": "elite",
+      "level": 85,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64831",
+      "host": "liyue-wp-64831",
+      "intermediate": [],
+      "kind": "field",
+      "level": 85,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64831-pocket-1",
+      "host": "liyue-wp-64831",
+      "intermediate": [
+        "branch-hunt-64831"
+      ],
+      "kind": "elite",
+      "level": 87,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64832",
+      "host": "liyue-wp-64832",
+      "intermediate": [],
+      "kind": "field",
+      "level": 84,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64832-pocket-1",
+      "host": "liyue-wp-64832",
+      "intermediate": [
+        "branch-hunt-64832"
+      ],
+      "kind": "elite",
+      "level": 86,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64833",
+      "host": "liyue-wp-64833",
+      "intermediate": [],
+      "kind": "field",
+      "level": 88,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64833-pocket-1",
+      "host": "liyue-wp-64833",
+      "intermediate": [
+        "branch-hunt-64833"
+      ],
+      "kind": "elite",
+      "level": 90,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64834",
+      "host": "liyue-wp-64834",
+      "intermediate": [],
+      "kind": "field",
+      "level": 87,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64834-pocket-1",
+      "host": "liyue-wp-64834",
+      "intermediate": [
+        "branch-hunt-64834"
+      ],
+      "kind": "elite",
+      "level": 89,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64835",
+      "host": "liyue-wp-64835",
+      "intermediate": [],
+      "kind": "field",
+      "level": 81,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64835-pocket-1",
+      "host": "liyue-wp-64835",
+      "intermediate": [
+        "branch-hunt-64835"
+      ],
+      "kind": "elite",
+      "level": 83,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64835-pocket-2",
+      "host": "liyue-wp-64835",
+      "intermediate": [
+        "branch-hunt-64835"
+      ],
+      "kind": "elite",
+      "level": 81,
+      "belowLevelRejected": false,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64836",
+      "host": "liyue-wp-64836",
+      "intermediate": [],
+      "kind": "field",
+      "level": 84,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64836-pocket-1",
+      "host": "liyue-wp-64836",
+      "intermediate": [
+        "branch-hunt-64836"
+      ],
+      "kind": "elite",
+      "level": 86,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64836-pocket-2",
+      "host": "liyue-wp-64836",
+      "intermediate": [
+        "branch-hunt-64836"
+      ],
+      "kind": "elite",
+      "level": 84,
+      "belowLevelRejected": false,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64838",
+      "host": "liyue-wp-64838",
+      "intermediate": [],
+      "kind": "field",
+      "level": 80,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64839",
+      "host": "liyue-wp-64839",
+      "intermediate": [],
+      "kind": "field",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64839-pocket-1",
+      "host": "liyue-wp-64839",
+      "intermediate": [
+        "branch-hunt-64839"
+      ],
+      "kind": "elite",
+      "level": 81,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64840",
+      "host": "liyue-wp-64840",
+      "intermediate": [],
+      "kind": "field",
+      "level": 83,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64841",
+      "host": "liyue-wp-64841",
+      "intermediate": [],
+      "kind": "field",
+      "level": 77,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64841-pocket-1",
+      "host": "liyue-wp-64841",
+      "intermediate": [
+        "branch-hunt-64841"
+      ],
+      "kind": "elite",
+      "level": 79,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64842",
+      "host": "liyue-wp-64842",
+      "intermediate": [],
+      "kind": "field",
+      "level": 78,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64842-pocket-1",
+      "host": "liyue-wp-64842",
+      "intermediate": [
+        "branch-hunt-64842"
+      ],
+      "kind": "elite",
+      "level": 80,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64844",
+      "host": "liyue-wp-64844",
+      "intermediate": [],
+      "kind": "field",
+      "level": 80,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64844-pocket-1",
+      "host": "liyue-wp-64844",
+      "intermediate": [
+        "branch-hunt-64844"
+      ],
+      "kind": "elite",
+      "level": 82,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64845",
+      "host": "chenyu-depth",
+      "intermediate": [],
+      "kind": "field",
+      "level": 81,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64845-pocket-1",
+      "host": "chenyu-depth",
+      "intermediate": [
+        "branch-hunt-64845"
+      ],
+      "kind": "elite",
+      "level": 83,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64846",
+      "host": "liyue-wp-64846",
+      "intermediate": [],
+      "kind": "field",
+      "level": 82,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64846-pocket-1",
+      "host": "liyue-wp-64846",
+      "intermediate": [
+        "branch-hunt-64846"
+      ],
+      "kind": "elite",
+      "level": 84,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64847",
+      "host": "liyue-wp-64847",
+      "intermediate": [],
+      "kind": "field",
+      "level": 86,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64847-pocket-1",
+      "host": "liyue-wp-64847",
+      "intermediate": [
+        "branch-hunt-64847"
+      ],
+      "kind": "elite",
+      "level": 88,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64848",
+      "host": "liyue-wp-64848",
+      "intermediate": [],
+      "kind": "field",
+      "level": 88,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64848-pocket-1",
+      "host": "liyue-wp-64848",
+      "intermediate": [
+        "branch-hunt-64848"
+      ],
+      "kind": "elite",
+      "level": 90,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64849",
+      "host": "liyue-wp-64849",
+      "intermediate": [],
+      "kind": "field",
+      "level": 90,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64849-pocket-1",
+      "host": "liyue-wp-64849",
+      "intermediate": [
+        "branch-hunt-64849"
+      ],
+      "kind": "elite",
+      "level": 90,
+      "belowLevelRejected": false,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64850",
+      "host": "chenyu-camp",
+      "intermediate": [],
+      "kind": "field",
+      "level": 76,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-64850-pocket-1",
+      "host": "chenyu-camp",
+      "intermediate": [
+        "branch-hunt-64850"
+      ],
+      "kind": "elite",
+      "level": 78,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-66768",
+      "host": "liyue-wp-66768",
+      "intermediate": [],
+      "kind": "field",
+      "level": 88,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-66768-pocket-1",
+      "host": "liyue-wp-66768",
+      "intermediate": [
+        "branch-hunt-66768"
+      ],
+      "kind": "elite",
+      "level": 90,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-66769",
+      "host": "liyue-wp-66769",
+      "intermediate": [],
+      "kind": "field",
+      "level": 86,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-66770",
+      "host": "liyue-wp-66770",
+      "intermediate": [],
+      "kind": "field",
+      "level": 90,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-66770-pocket-1",
+      "host": "liyue-wp-66770",
+      "intermediate": [
+        "branch-hunt-66770"
+      ],
+      "kind": "elite",
+      "level": 90,
+      "belowLevelRejected": false,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-66979",
+      "host": "liyue-wp-66979",
+      "intermediate": [],
+      "kind": "field",
+      "level": 87,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-66979-pocket-1",
+      "host": "liyue-wp-66979",
+      "intermediate": [
+        "branch-hunt-66979"
+      ],
+      "kind": "elite",
+      "level": 89,
+      "belowLevelRejected": true,
+      "restoredAt": "chenyu-camp"
+    },
+    {
+      "stage": "branch-hunt-68600",
+      "host": "bygone-wp-68600",
+      "intermediate": [],
+      "kind": "field",
+      "level": 142,
+      "belowLevelRejected": true,
+      "restoredAt": "bygone-camp"
+    },
+    {
+      "stage": "branch-hunt-68603",
+      "host": "bygone-wp-68603",
+      "intermediate": [],
+      "kind": "field",
+      "level": 151,
+      "belowLevelRejected": true,
+      "restoredAt": "bygone-camp"
+    },
+    {
+      "stage": "branch-hunt-68607",
+      "host": "bygone-wp-68607",
+      "intermediate": [],
+      "kind": "field",
+      "level": 148,
+      "belowLevelRejected": true,
+      "restoredAt": "bygone-camp"
+    }
+  ]
+}

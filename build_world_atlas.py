@@ -217,8 +217,17 @@ def build():
     hunt_kinds = {row['stage']: 'field' for row in geographic}
     hunt_kinds.update({pocket: 'elite' for row in geographic for pocket in row['pockets']})
     hunt_kinds.update({id: node['huntKind'] for id, node in nodes.items() if 'huntKind' in node})
-    hunting_regions = {mapped_stage[stage] for stage in hunt_kinds}
-    hunts_by_host = {row['host']:row for row in hunt_rows}
+    hunt_entrances = {row['stage']: row['approach'] for row in geographic}
+    hunt_entrances.update({row['stage']: row['host'] for row in hunt_rows})
+    for stage, kind in hunt_kinds.items():
+        host = nodes[stage].get('atlasParent')
+        if kind == 'field' and host in nodes and any(e['to'] == stage for e in nodes[host]['exits']):
+            hunt_entrances.setdefault(stage, host)
+    hunt_levels = defaultdict(set)
+    for stage, host in hunt_entrances.items():
+        assert any(e['to'] == stage for e in nodes[host]['exits']), (host, stage)
+        hunt_levels[host].add(nodes[stage]['level'])
+    hunting_regions = {mapped_stage[stage] for stage in hunt_kinds.keys() | hunt_levels.keys()}
     for row in hunt_rows:
         host, hunt = nodes[row['host']], nodes[row['stage']]
         assert host['mapPoint'] == row['field'] and hunt['level'] == all_fields[row['field']]['level'] == row['level']
@@ -245,7 +254,7 @@ def build():
                            'layer': node.get('atlasLayer', layer),
                            **({'provisional': True} if node.get('designField') or node.get('atlasParent') else {}),
                            **({'entrancePending': True} if node.get('atlasEntrancePending') else {}),
-                           **({'huntLevel': hunts_by_host[node_id]['level']} if node_id in hunts_by_host else {}),
+                           **({'huntLevels': sorted(hunt_levels[node_id])} if node_id in hunt_levels else {}),
                            **({'huntKind': hunt_kinds[node_id]} if node_id in hunt_kinds else {}),
                            **({'boss': bosses_by_stage[node_id]} if node_id in bosses_by_stage else {}),
                            **({'recommended': field['level'], 'field': field['field_id']} if field else {})})

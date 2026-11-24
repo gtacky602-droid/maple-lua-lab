@@ -45,6 +45,14 @@ Lv1の開始地点から、87戦すべてに通行条件付きの道順が出る
 
 幽境は、各地域の受付へ案内する。現地の入口でFを押し、受付で**難易度と聖遺物セット**を選ぶ。Chromeでは「北斗」から試合甲板へ移動し、極限のLv165条件と、通常戦の勝利・依頼報告・保存からの復元を確認した。 [幽境の案内画面](../evidence/stygian-beidou-atlas.png) · [北斗戦のログ](../evidence/stygian-clear-rewards-browser.json)
 
+## 狩場と脇部屋の入口
+
+M地図の「狩場・任意戦」には、狩場と脇部屋に加えて入口側の地点も出る。璃月・港東の荷揚げ波止場を選ぶと、採石斜面のLv34と港南の征討入口のLv38が並ぶ。行き先を選ぶと、必要Lvと途中の門を確認できる。 [港東の二つの狩場](../evidence/world-hunt-multiple-entrances.png)
+
+Sites由来の追加狩場103か所と脇部屋83か所をLuaで往復し、計372方向の通行と全186地点の訪問の保存復元を確認した。手前の地点より必要Lvが高い167地点は、1Lv手前で地図に条件が出て現地で入場が止まることを確認。試験は地域ごとの開始地点とレベルを用意し、移動中の被弾を抑えて実施した。 [地点IDごとの実移動記録](../evidence/world-hunt-routes-lua.json)
+
+ChromeではLv36で港東からLv34の採石斜面へ往復し、Lv38の入口には地図上で通行条件が出ることを確認した。モンドの脇部屋では、Lv14で現地の門が開かず、Lv15で地図の経路を往復して訪問を保存できた。 `python -X utf8 test_world_hunt_routes.py` で試験の記録とセーブを作り、ラボ起動中に `node test_world_hunt_routes.mjs` で再現できる。 [脇部屋のLv条件](../evidence/world-hunt-pocket-level-gate.png) · [Chromeの記録](../evidence/world-hunt-routes-browser.json)
+
 ## 戦闘中に入る区画
 
 - **呑星の鯨・腹中**は水辺の広場からLv84の星海へ。鯨のHPが20％を超えた状態で敵意が100になると、捕食で腹中へ移る。腹中で星海を選ぶと幻影を倒して戦闘を続ける手順が出る。水辺の広場を選ぶと歩いて撤退する出口が出る。 [呑星の鯨の戦闘](weekly-boss-v1/NARWHAL_WEB.md)

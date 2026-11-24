@@ -161,7 +161,7 @@ export function initAtlas(action, clearKeys) {
     selected.entrancePending ? '試作の見晴らし場・原作入口は照合中' :
       selected.huntKind === 'elite' ? '任意戦' : selected.huntKind ? '狩場' : '',
     selected.provisional && !selected.entrancePending && '試作区画',
-    selected.huntLevel ? '脇道の狩場はLv' + selected.huntLevel :
+    selected.huntLevels?.length ? '脇道の狩場は' + selected.huntLevels.map(level => 'Lv' + level).join('・') :
       selected.recommended && selected.recommended !== selected.level ? '設計推奨Lv' + selected.recommended : '',
    ].filter(Boolean).join(' ｜ ') : area ? `設計推奨Lv${area.low}〜${area.high}` : '地域を選ぶと周辺のフィールドを確認できます';
   const links = entries(view.routes).map(route => {

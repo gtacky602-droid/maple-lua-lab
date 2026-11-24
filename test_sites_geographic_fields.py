@@ -79,7 +79,7 @@ for field, row in routes.items():
     assert row['recommended']==specs[field]['level'] and row['access']==max(row['recommended'],nodes[host]['level'])
     p=positions[stage]
     assert p['provisional'] and p['recommended']==row['recommended']
-    assert p['huntKind']=='field'
+    assert p['huntKind']=='field' and row['access'] in positions[host]['huntLevels']
     assert all(positions[pocket]['huntKind']=='elite' for pocket in row['pockets'])
     assert p['layer']==('water' if row['mode']=='water' else 'below' if row['mode'] in ('cave','lift') else 'surface')
     layout=specs[field]['stage_layout']

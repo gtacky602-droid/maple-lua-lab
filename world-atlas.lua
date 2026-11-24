@@ -420,10 +420,10 @@ return function(C, atlas)
    local node=nodes[p.id]
    if node and (map.layer=='all' or p.layer==map.layer or map.layer=='review' and p.entrancePending
       or map.layer=='boss' and (p.boss or p.id==state.node)
-      or map.layer=='hunt' and (p.huntKind or p.huntLevel or p.id==state.node)) then
+      or map.layer=='hunt' and (p.huntKind or p.huntLevels or p.id==state.node)) then
     local point={id=p.id,name=node.name,x=p.x,y=p.y,level=node.level,layer=p.layer,
       recommended=p.recommended,provisional=p.provisional,entrancePending=p.entrancePending,
-      huntLevel=p.huntLevel,huntKind=p.huntKind,boss=p.boss,
+      huntLevels=p.huntLevels,huntKind=p.huntKind,boss=p.boss,
       current=p.id==state.node,selected=p.id==map.selected,
       major=node.hub or node.waypoint and node.waypoint.kind=='statue',
       visited=state.visited[p.id],mode=node.hub and 'hub' or node.swim and 'water' or 'field'}

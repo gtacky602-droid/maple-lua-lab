@@ -74,7 +74,7 @@ for row in routes:
     kind = spec['mode']
     s, walk = ready(level - 1, host)
     assert nodes[host]['level'] < level
-    assert points[host]['huntLevel'] == level and points[stage]['huntKind'] == 'field'
+    assert level in points[host]['huntLevels'] and points[stage]['huntKind'] == 'field'
     assert not nodes[stage].get('swim'), stage
     quest_before = native(s.story.quests)
     gate = edges[host, stage]

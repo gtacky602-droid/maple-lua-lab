@@ -1,0 +1,65 @@
+{
+  "pocket": {
+    "blockedAt": 14,
+    "enteredAt": 15,
+    "gates": [
+      "sites-hunt-7092",
+      "sites-hunt-7092-pocket-1"
+    ],
+    "returning": [
+      "sites-hunt-7092",
+      "mond-wp-21"
+    ],
+    "savedVisit": "sites-hunt-7092-pocket-1",
+    "restoredAt": "mond-town",
+    "journeys": [
+      [
+        "mond-wp-21",
+        "sites-hunt-7092",
+        "walk"
+      ],
+      [
+        "mond-wp-21",
+        "sites-hunt-7092",
+        "walk"
+      ],
+      [
+        "sites-hunt-7092",
+        "sites-hunt-7092-pocket-1",
+        "walk"
+      ],
+      [
+        "sites-hunt-7092-pocket-1",
+        "sites-hunt-7092",
+        "walk"
+      ],
+      [
+        "sites-hunt-7092",
+        "mond-wp-21",
+        "walk"
+      ]
+    ]
+  },
+  "multipleHunts": {
+    "host": "liyue-wp-104",
+    "playerLevel": 36,
+    "displayedLevels": [
+      34,
+      38
+    ],
+    "allowed": "liyue-quarry-scree",
+    "blocked": "sites-hunt-7218",
+    "journeys": [
+      [
+        "liyue-wp-104",
+        "liyue-quarry-scree",
+        "walk"
+      ],
+      [
+        "liyue-quarry-scree",
+        "liyue-wp-104",
+        "walk"
+      ]
+    ]
+  }
+}

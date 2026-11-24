@@ -8055,7 +8055,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Audit actual travel, quest gates and return paths for stages outside the 873 imported marker suite.",
+  "current_priority": "Match the remaining stages against special transit and quest-gated route playthroughs.",
   "background_loading": {
     "status": "local_chrome_on_demand_scenery_verified",
     "surfaces": [
@@ -8941,6 +8941,10 @@
     ]
   },
   "world_map_review": {
+    "supplemental_hunt_route_evidence": [
+      "evidence/world-hunt-routes-lua.json",
+      "evidence/world-hunt-routes-browser.json"
+    ],
     "battle_route_evidence": "evidence/atlas-battle-routes-lua.json",
     "battle_route_browser_evidence": [
       "evidence/atlas-battle-narwhal-browser.json",
