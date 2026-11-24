@@ -16,6 +16,9 @@ LAB_ACTION_PREFIXES = ('boss_', 'barrier_trial:')
 SESSIONS = {}
 LOCK = threading.RLock()
 LARGE_FRAME_BYTES = 32 * 1024
+MAX_REQUEST_BYTES = 64 * 1024
+# Restore requests carry the 256 KiB save along with the frame metadata.
+MAX_RESTORE_REQUEST_BYTES = 272 * 1024
 
 
 def accepts_gzip(header):
@@ -111,9 +114,12 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_error(403); return
         try:
             size=int(self.headers.get('Content-Length',0))
-            if not 0<=size<=65536: raise ValueError('invalid request size')
+            limit = MAX_RESTORE_REQUEST_BYTES if self.path == '/api/frame' else MAX_REQUEST_BYTES
+            if not 0 <= size <= limit: raise ValueError('invalid request size')
             req=json.loads(self.rfile.read(size))
             if not isinstance(req,dict): raise ValueError('request must be an object')
+            if size > MAX_REQUEST_BYTES and 'restore' not in req:
+                raise ValueError('invalid request size')
             if self.path=='/api/farka-idle':
                 self.send_json(200,render_farka_idle(req));return
             owner=req.get('owner')

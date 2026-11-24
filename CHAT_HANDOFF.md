@@ -1,5 +1,9 @@
 # ChatGPTへの引き継ぎ
 
+## 全地図の訪問記録を含むJSONの移行
+
+ラボのJSON読み込み上限を256 KiBにした。全1,528地点と隠し3地域の訪問記録、聖遺物80点、地面の未回収品160点、編成プリセット3枠を入れた70,996バイトの試験用セーブを、Chromeの二つの独立した画面で読み込み・再出力した。通常のHTTP要求は64 KiBまで、復元要求は通信に必要な情報を含め272 KiBまで受け付ける。上限超過時は元の保存とセッションを維持する。 [ブラウザの往復試験](evidence/full-atlas-checkpoint-browser.json) · [HTTPの復元試験](evidence/full-atlas-checkpoint-http.json)
+
 ## 編成プリセット3枠の試作
 
 町の「編成プリセット」で、同行者、旅人と同行者の聖遺物5部位ずつ、8つの技枠とマクロを登録・切り替えできる。聖遺物は現物のIDを参照し、同じ品を別のキャラが装備している場合は適用先へ移す。売却や継承で現物がなくなった枠には理由を表示し、編成全体の適用を見送る。切り替え時はHPを装備後の上限まで引き継ぎ、残りCTと光界ゲージを維持する。保存からの再開と旧v1の読み込みも確認した。 [Luaの編成試験](evidence/party-presets-lua.json) · [Chromeの操作試験](evidence/party-presets-browser.json) · [390pxの画面](evidence/party-presets-mobile.png)

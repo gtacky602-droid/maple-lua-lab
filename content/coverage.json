@@ -8102,6 +8102,13 @@
     "lua_evidence": "evidence/party-presets-lua.json",
     "browser_evidence": "evidence/party-presets-browser.json"
   },
+  "full_atlas_checkpoint_transfer": {
+    "scope": "Prepared Lv200 checkpoint with all atlas nodes and hidden discoveries, 80 bag items, 160 uncollected drops, and three party presets.",
+    "fixture_bytes": 70996,
+    "browser_import_limit_bytes": 262144,
+    "http_evidence": "evidence/full-atlas-checkpoint-http.json",
+    "browser_evidence": "evidence/full-atlas-checkpoint-browser.json"
+  },
   "quest_runtime_checks": {
     "authored_story_records": 283,
     "acceptance_and_report_links": 279,

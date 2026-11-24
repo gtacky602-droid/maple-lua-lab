@@ -1,4 +1,4 @@
-export const MAX_SAVE_FILE_BYTES=48*1024;
+export const MAX_SAVE_FILE_BYTES=256*1024;
 export function initSaveTransfer({readSaved,restore}){
  const output=document.getElementById('saveStatus'),input=document.getElementById('importSave');
  document.getElementById('exportSave').onclick=()=>{
@@ -11,7 +11,7 @@ export function initSaveTransfer({readSaved,restore}){
   const file=input.files[0];if(!file)return;
   const controls=['saveProgress','loadProgress','exportSave','importSave'].map(id=>document.getElementById(id));controls.forEach(el=>el.disabled=true);
   try{
-   if(file.size>MAX_SAVE_FILE_BYTES)throw Error('保存ファイルは48KB以下にしてください。');
+   if(file.size>MAX_SAVE_FILE_BYTES)throw Error(`保存ファイルは${MAX_SAVE_FILE_BYTES/1024}KiB以下にしてください。`);
    let data;try{data=JSON.parse(await file.text())}catch{throw Error('JSONを読み取れません。')}
    if(!data||typeof data!=='object'||Array.isArray(data))throw Error('保存データの形式が不正です。');
    output.textContent='ファイルを検証して再開しています…';

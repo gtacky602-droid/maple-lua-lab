@@ -26,6 +26,7 @@
 
 `Start-Lab.ps1` をPowerShellで実行。起動中は http://127.0.0.1:8769 を開く。
 既に起動中の環境と並べて最新版を試すときは `.\Start-Lab.ps1 -Port 8796` を実行。ブラウザの保存先はポートごとに分かれる。進行を持ち込む場合は保存ファイルを書き出して読み込む。
+JSON読み込みは256 KiBまで受け付ける。全1,528地点の訪問記録、聖遺物80点、編成プリセット3枠を入れた試験用セーブを、Chromeの別画面へ移行した。 [移行試験](evidence/full-atlas-checkpoint-browser.json)
 このPCのPython 3.14と、既存の `outputs/lua-limit-break-20261026-r1/work/python/lupa` を利用する。追加APIキー・ネット接続は不要。サーバーは127.0.0.1だけで待受。
 
 冒険・描画比較・配置比較は、表示する地点の背景PNGから読み込みます。同じタブで戻った地点の背景は再利用し、読み込み中や取得できなかった場合は単色を表示します。Chromeの初回起動では、背景表示用に要求したPNGが174枚から1枚に減り、ファイルサイズの合計が約393.4 MBから2.6 MBになりました。ナヴィアの撮影依頼でも使う共通PNGは集計から外しています。 [測定結果](evidence/scenery-on-demand.json) · [機翼の間への移動](evidence/scenery-on-demand-chamber.png)
