@@ -1,0 +1,149 @@
+{
+  "participants": 4,
+  "airTicks": 36,
+  "apexY": 392,
+  "acceptedAt": [
+    84,
+    299
+  ],
+  "closedAt": 300,
+  "rejectedPriorAndIndirectCasts": true,
+  "sweepDamageByParticipant": [
+    [
+      [
+        34,
+        "geo"
+      ]
+    ],
+    [],
+    [],
+    []
+  ],
+  "naturalRecoveryTicks": 144,
+  "layersAfterCasts": [
+    3,
+    1,
+    0
+  ],
+  "sameCastCountedOnce": true,
+  "noBacklashOrModifier": true,
+  "normalGeoDamage": 57,
+  "downTicks": 180,
+  "standTicks": 24,
+  "bossDefeatPrioritized": true,
+  "level": 133,
+  "previous": {
+    "sourceSha256": "2b5a4fd6316d74af48717cffbc38cc11319d85c1e8baf5db89204128888a7924",
+    "boss": "boss-26302101",
+    "arena": "nod-gecko-depths",
+    "entryRoute": [
+      "nod-field",
+      "nod-gecko-depths"
+    ],
+    "maxHp": 4500000,
+    "partyAttack": [
+      9314,
+      6652
+    ],
+    "elapsedSeconds": 79.55,
+    "damagingHits": 531,
+    "moves": [
+      "FMG01",
+      "FMG02",
+      "FMG03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      988100,
+      495
+    ],
+    "commission": {
+      "quest": "moongecko-commission",
+      "xp": 9600,
+      "mora": 670
+    },
+    "savedClear": true
+  },
+  "short": {
+    "sourceSha256": "2b5a4fd6316d74af48717cffbc38cc11319d85c1e8baf5db89204128888a7924",
+    "boss": "boss-26302101",
+    "arena": "nod-gecko-depths",
+    "entryRoute": [
+      "nod-field",
+      "nod-gecko-depths"
+    ],
+    "maxHp": 4500000,
+    "partyAttack": [
+      9314,
+      6652
+    ],
+    "elapsedSeconds": 63.167,
+    "damagingHits": 417,
+    "moves": [
+      "FMG01",
+      "FMG02",
+      "FMG03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      988100,
+      495
+    ],
+    "commission": {
+      "quest": "moongecko-commission",
+      "xp": 9600,
+      "mora": 670
+    },
+    "savedClear": true
+  },
+  "interrupted": {
+    "sourceSha256": "2b5a4fd6316d74af48717cffbc38cc11319d85c1e8baf5db89204128888a7924",
+    "boss": "boss-26302101",
+    "arena": "nod-gecko-depths",
+    "entryRoute": [
+      "nod-field",
+      "nod-gecko-depths"
+    ],
+    "maxHp": 4500000,
+    "partyAttack": [
+      9314,
+      6652
+    ],
+    "elapsedSeconds": 70.533,
+    "damagingHits": 422,
+    "moves": [
+      "FMG01",
+      "FMG02",
+      "FMG03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      988100,
+      495
+    ],
+    "commission": {
+      "quest": "moongecko-commission",
+      "xp": 9600,
+      "mora": 670
+    },
+    "savedClear": true
+  },
+  "interruptedAtTick": 173,
+  "walkedOffSweep": true,
+  "counterTick": 405
+}

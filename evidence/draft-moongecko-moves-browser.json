@@ -1,0 +1,12 @@
+{
+  "level": 133,
+  "anchorShownAtTick": 90,
+  "interruptedAtTick": 189,
+  "usedNormalAttackInput": true,
+  "ordinaryKillCountersUnchanged": true,
+  "sameFrameCommands": {
+    "standard": 14956,
+    "light": 3981
+  },
+  "errors": []
+}

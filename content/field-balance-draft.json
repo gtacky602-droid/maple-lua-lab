@@ -22,6 +22,14 @@
     "boss-25134601": 6800000
   },
   "fieldBossMoveOverrides": {
+    "boss-26302101": {
+      "FMG02": { "air": [90, 126], "active": [[126, 140]], "recover": 174, "total": 278 },
+      "FMG03": {
+        "kind": "sweep", "title": "錨月の岩・空虚な掃蕩", "near": 0.10, "far": 2.70,
+        "deploy": 84, "anchorClose": 300, "anchorHalfWidth": 0.35, "anchorHeight": 0.90,
+        "active": [[324, 342]], "recover": 360, "total": 504, "standTicks": 24
+      }
+    },
     "boss-26301101": {
       "FMF03": {
         "kind": "wingSequence", "title": "集光の繭・三拍の羽解放",

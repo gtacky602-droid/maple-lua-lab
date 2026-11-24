@@ -81,6 +81,7 @@ Lv120で町に着いたセーブでは、6会場すべてで必要Lv122〜132が
 | [霜夜の空を巡る霊主](../field-boss-v1/NOD_KRAI_FROSTNIGHT_HERRA.md#短縮技案をラボで試す) | 128 | 68.42秒 | 63.37秒 |
 | [昏き魘夢の主](../field-boss-v1/NOD_KRAI_WHISPERER_NIGHTMARES.md#短縮技案をラボで試す) | 128 | 85.00秒 | 44.75秒 |
 | [集光の幻月蝶](../field-boss-v1/NOD_KRAI_MOONFLY.md#短縮技案をラボで試す) | 130 | 63.42秒 | 57.65秒 |
+| [集光の月ヤモリ](../field-boss-v1/NOD_KRAI_MOONGECKO.md#短縮技案をラボで試す) | 133 | 79.55秒 | 63.17秒 |
 
 ## 再測定
 
