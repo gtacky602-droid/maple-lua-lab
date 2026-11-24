@@ -5,9 +5,11 @@ import {waypointDriver} from './tools/browser_waypoint_test.mjs';
 
 const graph=JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
 const nodes=Object.fromEntries(graph.nodes.map(node=>[node.id,node]));
-const file='work/cap-fresh-route/lv200-save.json';
+const draft=process.env.DRAFT_BALANCE==='1';
+const suffix=draft?'-draft':'';
+const file=`work/cap-fresh-route${suffix}/lv200-save.json`;
 const saved=JSON.parse(await fs.readFile(file,'utf8'));
-const proof=JSON.parse(await fs.readFile('evidence/cap-fresh-route.json','utf8'));
+const proof=JSON.parse(await fs.readFile(`evidence/cap-fresh-route${suffix}.json`,'utf8'));
 const browser=await chromium.launch({headless:true,channel:'chrome'});
 const page=await browser.newPage({viewport:{width:1240,height:920}});
 const drive=waypointDriver(page,nodes);
@@ -25,6 +27,7 @@ try{
  await drive.waitNode(station);
  await page.waitForFunction(()=>window.lab.frame.progression.level===200);
  const start=await frame();
+ assert.equal(Boolean(start.fieldBalance),draft);
  assert.deepEqual(start.progression,saved.progression);
  assert.match(await status.textContent(),/共通Lv 200 MAX.*上限後のEXP.*累計EXP/);
  for(const id of proof.growthQuests)assert.equal(start.story.quests[id].status,'complete');
@@ -39,10 +42,11 @@ try{
  assert.equal(guide.status,'ready');
  const route=guide.stops.map(s=>s.id);
  assert.deepEqual(route,[...proof.hunts.map(h=>h.node),cap]);
- await atlas.screenshot({path:'evidence/cap-fresh-atlas.png'});
+ await atlas.screenshot({path:`evidence/cap-fresh-atlas${suffix}.png`});
  await page.keyboard.press('Escape');
  await atlas.waitFor({state:'hidden'});
  for(const id of route)await drive.cross(id);
+ if(draft)await drive.walk(265);
  const atCap=await frame();
  assert.equal(atCap.story.node,cap);
  assert.equal(atCap.total,28);
@@ -60,7 +64,7 @@ try{
  assert.equal(gained.level,200);
  assert.equal(gained.overflowXp-atCap.progression.overflowXp,delta);
  assert.equal(gained.baseXp-atCap.progression.baseXp,delta);
- await status.screenshot({path:'evidence/cap-fresh-exp.png'});
+ await status.screenshot({path:`evidence/cap-fresh-exp${suffix}.png`});
  await page.locator('#saveProgress').click();
  await page.waitForFunction(()=>document.getElementById('saveStatus').textContent.includes('保存しました'));
  await page.reload();
@@ -70,7 +74,7 @@ try{
  const restored=(await frame()).progression;
  assert.deepEqual(restored,gained);
  assert.deepEqual(errors,[]);
- await fs.writeFile('evidence/cap-fresh-route-browser.json',JSON.stringify({
+ await fs.writeFile(`evidence/cap-fresh-route-browser${suffix}.json`,JSON.stringify({
   imported:start.progression,route,growthQuests:proof.growthQuests,cap:restored,
   addedExp:delta,gameSaveReload:true,errors
  },null,2)+'\n');

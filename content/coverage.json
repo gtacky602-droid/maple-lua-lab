@@ -8068,7 +8068,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Verify weapon and artifact progression at regional milestones, then continue matching skill effects and visual cues against the authored scope.",
+  "current_priority": "Use the earned Lv200 draft save to audit boss difficulty, encounter phases and rewards, then continue matching skill effects and visual cues against the authored scope.",
   "skill_runtime_checks": {
     "traveler_activations": 60,
     "companion_activations": 40,
@@ -8143,6 +8143,13 @@
     "scope": "Continues the draft Lv140 save earned at Nod-Krai, reports eight quests, equips the fixed sword reward, and unlocks Aurora at Lv160. Browser verification covers the train, equipment and progress restore, light release, and the next gate.",
     "lua_evidence": "evidence/snez-fresh-route-draft.json",
     "browser_evidence": "evidence/snez-fresh-route-browser-draft.json"
+  },
+  "level_cap_draft_route": {
+    "status": "verified_local",
+    "scope": "Continues the earned draft Lv160 checkpoint through all nine final field gates, five growth reports, three challenge reports, post-cap EXP and save restoration. This proves the documented route and challenges under the draft profile.",
+    "lua_evidence": "evidence/cap-fresh-route-draft.json",
+    "browser_evidence": "evidence/cap-fresh-route-browser-draft.json",
+    "challenge_evidence": "evidence/cap-fresh-challenges-draft.json"
   },
   "full_atlas_checkpoint_transfer": {
     "scope": "Prepared Lv200 checkpoint with all atlas nodes and hidden discoveries, 80 bag items, 160 uncollected drops, and three party presets.",

@@ -1,0 +1,49 @@
+{
+  "imported": {
+    "overflowXp": 31759801,
+    "curve": "maplesea-reference-v02",
+    "questRewarded": false,
+    "level": 200,
+    "killXp": 11064695445,
+    "lastKills": 115046,
+    "questXp": 429399586,
+    "baseXp": 11494095031,
+    "total": 11494095031,
+    "curveAdjustment": 0,
+    "xp": 0
+  },
+  "route": [
+    "aurora-ice-cut",
+    "aurora-ice-shelf",
+    "aurora-steam-channel",
+    "aurora-mineral-terraces",
+    "dawn-vein-mine",
+    "dawn-vein-deep",
+    "dawn-glass-ridge",
+    "dawn-glass-divide",
+    "dawn-crystal-field"
+  ],
+  "growthQuests": [
+    "growth-light-release",
+    "growth-branch-visit",
+    "growth-light-echo",
+    "growth-seven-strike",
+    "growth-next-goal"
+  ],
+  "cap": {
+    "overflowXp": 44583346,
+    "curve": "maplesea-reference-v02",
+    "questRewarded": false,
+    "level": 200,
+    "killXp": 11077518990,
+    "lastKills": 115217,
+    "questXp": 429399586,
+    "baseXp": 11506918576,
+    "total": 11506918576,
+    "curveAdjustment": 0,
+    "xp": 0
+  },
+  "addedExp": 296366,
+  "gameSaveReload": true,
+  "errors": []
+}

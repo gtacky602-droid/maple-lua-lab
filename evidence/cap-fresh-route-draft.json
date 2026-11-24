@@ -1,0 +1,823 @@
+{
+  "hunts": [
+    {
+      "node": "aurora-ice-cut",
+      "toLevel": 165,
+      "kills": 7614,
+      "exp": 428944284,
+      "autoSeconds": 6761.23,
+      "seconds": 6979.9
+    },
+    {
+      "node": "aurora-ice-shelf",
+      "toLevel": 170,
+      "kills": 7682,
+      "exp": 584376504,
+      "autoSeconds": 6833.05,
+      "seconds": 7057.3
+    },
+    {
+      "node": "aurora-steam-channel",
+      "toLevel": 175,
+      "kills": 7460,
+      "exp": 755037007,
+      "autoSeconds": 6573.48,
+      "seconds": 6825.6
+    },
+    {
+      "node": "aurora-mineral-terraces",
+      "toLevel": 180,
+      "kills": 7566,
+      "exp": 970814953,
+      "autoSeconds": 6599.35,
+      "seconds": 6887.88
+    },
+    {
+      "node": "dawn-vein-mine",
+      "toLevel": 185,
+      "kills": 10632,
+      "exp": 1227410946,
+      "autoSeconds": 9184.5,
+      "seconds": 9612.52
+    },
+    {
+      "node": "dawn-vein-deep",
+      "toLevel": 190,
+      "kills": 10840,
+      "exp": 1582746217,
+      "autoSeconds": 9469.35,
+      "seconds": 9910.02
+    },
+    {
+      "node": "dawn-glass-ridge",
+      "toLevel": 195,
+      "kills": 11034,
+      "exp": 2020816280,
+      "autoSeconds": 9383.48,
+      "seconds": 9921.83
+    },
+    {
+      "node": "dawn-glass-divide",
+      "toLevel": 200,
+      "kills": 11036,
+      "exp": 2580177162,
+      "autoSeconds": 9856.4,
+      "seconds": 10390.07
+    }
+  ],
+  "milestones": [
+    {
+      "id": "release-and-exploration",
+      "node": "white-pass-station",
+      "level": 160,
+      "exp": 1226151666,
+      "kills": 39944,
+      "seconds": 31.55
+    },
+    {
+      "id": "lv165",
+      "node": "aurora-ice-shelf",
+      "level": 165,
+      "exp": 1656662118,
+      "kills": 47586,
+      "seconds": 7024.33
+    },
+    {
+      "id": "lv170",
+      "node": "aurora-steam-channel",
+      "level": 170,
+      "exp": 2244808776,
+      "kills": 55326,
+      "seconds": 14106.15
+    },
+    {
+      "id": "live-light-echo",
+      "node": "white-pass-station",
+      "level": 170,
+      "exp": 2250836610,
+      "kills": 55387,
+      "seconds": 14131.48
+    },
+    {
+      "id": "lv175",
+      "node": "aurora-mineral-terraces",
+      "level": 175,
+      "exp": 3011621037,
+      "kills": 62922,
+      "seconds": 20989.53
+    },
+    {
+      "id": "lv180",
+      "node": "dawn-vein-mine",
+      "level": 180,
+      "exp": 3990908525,
+      "kills": 70586,
+      "seconds": 27918.0
+    },
+    {
+      "id": "live-seven-strike",
+      "node": "white-pass-station",
+      "level": 180,
+      "exp": 4001952213,
+      "kills": 70694,
+      "seconds": 27956.7
+    },
+    {
+      "id": "lv185",
+      "node": "dawn-vein-deep",
+      "level": 185,
+      "exp": 5238560654,
+      "kills": 81438,
+      "seconds": 37612.8
+    },
+    {
+      "id": "lv190",
+      "node": "dawn-glass-ridge",
+      "level": 190,
+      "exp": 6832181938,
+      "kills": 92408,
+      "seconds": 47576.5
+    },
+    {
+      "id": "lv195",
+      "node": "dawn-glass-divide",
+      "level": 195,
+      "exp": 8868342378,
+      "kills": 103606,
+      "seconds": 57562.65
+    },
+    {
+      "id": "lv200",
+      "node": "dawn-crystal-field",
+      "level": 200,
+      "exp": 11465035516,
+      "kills": 114816,
+      "seconds": 68024.97
+    },
+    {
+      "id": "lv200-post-cap",
+      "node": "white-pass-station",
+      "level": 200,
+      "exp": 11494095031,
+      "kills": 115046,
+      "seconds": 68150.48
+    }
+  ],
+  "equipment": [
+    {
+      "level": 160,
+      "slot": 1,
+      "actor": 1,
+      "oldMain": 9146,
+      "newMain": 30994,
+      "itemLv": 179,
+      "item": 377
+    },
+    {
+      "level": 160,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 9146,
+      "newMain": 24795,
+      "itemLv": 179,
+      "item": 381
+    },
+    {
+      "level": 160,
+      "slot": 2,
+      "actor": 1,
+      "oldMain": 6226,
+      "newMain": 26077,
+      "itemLv": 175,
+      "item": 389
+    },
+    {
+      "level": 160,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 4715,
+      "newMain": 20861,
+      "itemLv": 175,
+      "item": 373
+    },
+    {
+      "level": 163,
+      "slot": 1,
+      "actor": 1,
+      "oldMain": 30994,
+      "newMain": 32000,
+      "itemLv": 180,
+      "item": 395
+    },
+    {
+      "level": 163,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 24795,
+      "newMain": 32000,
+      "itemLv": 180,
+      "item": 403
+    },
+    {
+      "level": 163,
+      "slot": 2,
+      "actor": 1,
+      "oldMain": 26077,
+      "newMain": 38090,
+      "itemLv": 184,
+      "item": 404
+    },
+    {
+      "level": 163,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 20861,
+      "newMain": 26077,
+      "itemLv": 175,
+      "item": 389
+    },
+    {
+      "level": 163,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 26077,
+      "newMain": 38090,
+      "itemLv": 184,
+      "item": 424
+    },
+    {
+      "level": 166,
+      "slot": 1,
+      "actor": 1,
+      "oldMain": 32000,
+      "newMain": 36287,
+      "itemLv": 184,
+      "item": 462
+    },
+    {
+      "level": 166,
+      "slot": 2,
+      "actor": 1,
+      "oldMain": 38090,
+      "newMain": 43902,
+      "itemLv": 189,
+      "item": 468
+    },
+    {
+      "level": 166,
+      "slot": 1,
+      "actor": 1,
+      "oldMain": 36287,
+      "newMain": 37446,
+      "itemLv": 185,
+      "item": 474
+    },
+    {
+      "level": 166,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 32000,
+      "newMain": 36287,
+      "itemLv": 184,
+      "item": 462
+    },
+    {
+      "level": 167,
+      "slot": 1,
+      "actor": 1,
+      "oldMain": 37446,
+      "newMain": 42462,
+      "itemLv": 189,
+      "item": 488
+    },
+    {
+      "level": 167,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 36287,
+      "newMain": 37446,
+      "itemLv": 185,
+      "item": 474
+    },
+    {
+      "level": 167,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 38090,
+      "newMain": 39187,
+      "itemLv": 185,
+      "item": 504
+    },
+    {
+      "level": 169,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 39187,
+      "newMain": 43902,
+      "itemLv": 189,
+      "item": 531
+    },
+    {
+      "level": 170,
+      "slot": 2,
+      "actor": 1,
+      "oldMain": 43902,
+      "newMain": 47806,
+      "itemLv": 192,
+      "item": 553
+    },
+    {
+      "level": 172,
+      "slot": 1,
+      "actor": 1,
+      "oldMain": 42462,
+      "newMain": 43818,
+      "itemLv": 190,
+      "item": 562
+    },
+    {
+      "level": 172,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 37446,
+      "newMain": 42462,
+      "itemLv": 189,
+      "item": 488
+    },
+    {
+      "level": 172,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 42462,
+      "newMain": 43818,
+      "itemLv": 190,
+      "item": 576
+    },
+    {
+      "level": 172,
+      "slot": 2,
+      "actor": 1,
+      "oldMain": 47806,
+      "newMain": 50600,
+      "itemLv": 194,
+      "item": 571
+    },
+    {
+      "level": 172,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 43902,
+      "newMain": 47806,
+      "itemLv": 192,
+      "item": 553
+    },
+    {
+      "level": 174,
+      "slot": 1,
+      "actor": 1,
+      "oldMain": 43818,
+      "newMain": 49688,
+      "itemLv": 194,
+      "item": 605
+    },
+    {
+      "level": 174,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 47806,
+      "newMain": 50600,
+      "itemLv": 194,
+      "item": 596
+    },
+    {
+      "level": 176,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 43818,
+      "newMain": 49688,
+      "itemLv": 194,
+      "item": 613
+    },
+    {
+      "level": 176,
+      "slot": 1,
+      "actor": 1,
+      "oldMain": 49688,
+      "newMain": 51274,
+      "itemLv": 195,
+      "item": 631
+    },
+    {
+      "level": 176,
+      "slot": 2,
+      "actor": 1,
+      "oldMain": 50600,
+      "newMain": 52057,
+      "itemLv": 195,
+      "item": 619
+    },
+    {
+      "level": 177,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 49688,
+      "newMain": 51274,
+      "itemLv": 195,
+      "item": 644
+    },
+    {
+      "level": 177,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 50600,
+      "newMain": 52057,
+      "itemLv": 195,
+      "item": 637
+    },
+    {
+      "level": 177,
+      "slot": 1,
+      "actor": 1,
+      "oldMain": 51274,
+      "newMain": 58144,
+      "itemLv": 199,
+      "item": 653
+    },
+    {
+      "level": 177,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 51274,
+      "newMain": 54601,
+      "itemLv": 197,
+      "item": 648
+    },
+    {
+      "level": 179,
+      "slot": 2,
+      "actor": 1,
+      "oldMain": 52057,
+      "newMain": 58320,
+      "itemLv": 199,
+      "item": 683
+    },
+    {
+      "level": 180,
+      "slot": 1,
+      "actor": 1,
+      "oldMain": 58144,
+      "newMain": 66977,
+      "itemLv": 204,
+      "item": 702
+    },
+    {
+      "level": 180,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 54601,
+      "newMain": 60000,
+      "itemLv": 200,
+      "item": 707
+    },
+    {
+      "level": 180,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 52057,
+      "newMain": 53557,
+      "itemLv": 196,
+      "item": 698
+    },
+    {
+      "level": 181,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 53557,
+      "newMain": 53582,
+      "itemLv": 204,
+      "item": 714
+    },
+    {
+      "level": 181,
+      "slot": 1,
+      "actor": 1,
+      "oldMain": 66977,
+      "newMain": 70765,
+      "itemLv": 206,
+      "item": 732
+    },
+    {
+      "level": 181,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 60000,
+      "newMain": 66977,
+      "itemLv": 204,
+      "item": 702
+    },
+    {
+      "level": 181,
+      "slot": 2,
+      "actor": 1,
+      "oldMain": 58320,
+      "newMain": 60000,
+      "itemLv": 200,
+      "item": 723
+    },
+    {
+      "level": 181,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 53582,
+      "newMain": 58320,
+      "itemLv": 199,
+      "item": 683
+    },
+    {
+      "level": 182,
+      "slot": 2,
+      "actor": 1,
+      "oldMain": 60000,
+      "newMain": 63393,
+      "itemLv": 202,
+      "item": 740
+    },
+    {
+      "level": 182,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 58320,
+      "newMain": 60000,
+      "itemLv": 200,
+      "item": 723
+    },
+    {
+      "level": 182,
+      "slot": 2,
+      "actor": 1,
+      "oldMain": 63393,
+      "newMain": 66977,
+      "itemLv": 204,
+      "item": 746
+    },
+    {
+      "level": 182,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 60000,
+      "newMain": 63393,
+      "itemLv": 202,
+      "item": 740
+    },
+    {
+      "level": 185,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 63393,
+      "newMain": 66977,
+      "itemLv": 204,
+      "item": 789
+    },
+    {
+      "level": 186,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 66977,
+      "newMain": 68845,
+      "itemLv": 205,
+      "item": 817
+    },
+    {
+      "level": 186,
+      "slot": 1,
+      "actor": 1,
+      "oldMain": 70765,
+      "newMain": 72738,
+      "itemLv": 207,
+      "item": 832
+    },
+    {
+      "level": 186,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 68845,
+      "newMain": 72738,
+      "itemLv": 207,
+      "item": 826
+    },
+    {
+      "level": 187,
+      "slot": 2,
+      "actor": 1,
+      "oldMain": 66977,
+      "newMain": 76851,
+      "itemLv": 209,
+      "item": 835
+    },
+    {
+      "level": 187,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 66977,
+      "newMain": 72738,
+      "itemLv": 207,
+      "item": 845
+    },
+    {
+      "level": 190,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 72738,
+      "newMain": 76851,
+      "itemLv": 209,
+      "item": 888
+    },
+    {
+      "level": 190,
+      "slot": 1,
+      "actor": 1,
+      "oldMain": 72738,
+      "newMain": 74533,
+      "itemLv": 216,
+      "item": 906
+    },
+    {
+      "level": 191,
+      "slot": 1,
+      "actor": 1,
+      "oldMain": 74533,
+      "newMain": 78994,
+      "itemLv": 210,
+      "item": 911
+    },
+    {
+      "level": 191,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 72738,
+      "newMain": 74533,
+      "itemLv": 216,
+      "item": 906
+    },
+    {
+      "level": 191,
+      "slot": 2,
+      "actor": 1,
+      "oldMain": 76851,
+      "newMain": 78994,
+      "itemLv": 210,
+      "item": 913
+    },
+    {
+      "level": 191,
+      "slot": 1,
+      "actor": 1,
+      "oldMain": 78994,
+      "newMain": 88180,
+      "itemLv": 214,
+      "item": 928
+    },
+    {
+      "level": 191,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 74533,
+      "newMain": 78994,
+      "itemLv": 210,
+      "item": 911
+    },
+    {
+      "level": 191,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 76851,
+      "newMain": 78994,
+      "itemLv": 210,
+      "item": 926
+    },
+    {
+      "level": 192,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 78994,
+      "newMain": 83460,
+      "itemLv": 212,
+      "item": 939
+    },
+    {
+      "level": 196,
+      "slot": 1,
+      "actor": 1,
+      "oldMain": 88180,
+      "newMain": 104000,
+      "itemLv": 220,
+      "item": 1015
+    },
+    {
+      "level": 196,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 83460,
+      "newMain": 88180,
+      "itemLv": 214,
+      "item": 928
+    },
+    {
+      "level": 196,
+      "slot": 2,
+      "actor": 1,
+      "oldMain": 78994,
+      "newMain": 81196,
+      "itemLv": 211,
+      "item": 1024
+    },
+    {
+      "level": 197,
+      "slot": 2,
+      "actor": 1,
+      "oldMain": 81196,
+      "newMain": 90639,
+      "itemLv": 215,
+      "item": 1035
+    },
+    {
+      "level": 197,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 78994,
+      "newMain": 81196,
+      "itemLv": 211,
+      "item": 1024
+    },
+    {
+      "level": 197,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 81196,
+      "newMain": 90639,
+      "itemLv": 215,
+      "item": 1053
+    },
+    {
+      "level": 198,
+      "slot": 1,
+      "actor": 2,
+      "oldMain": 88180,
+      "newMain": 95764,
+      "itemLv": 217,
+      "item": 1065
+    },
+    {
+      "level": 198,
+      "slot": 2,
+      "actor": 1,
+      "oldMain": 90639,
+      "newMain": 95764,
+      "itemLv": 217,
+      "item": 1069
+    },
+    {
+      "level": 199,
+      "slot": 2,
+      "actor": 1,
+      "oldMain": 95764,
+      "newMain": 101179,
+      "itemLv": 219,
+      "item": 1087
+    },
+    {
+      "level": 199,
+      "slot": 2,
+      "actor": 2,
+      "oldMain": 90639,
+      "newMain": 95764,
+      "itemLv": 217,
+      "item": 1069
+    }
+  ],
+  "rests": 0,
+  "inventoryStops": 28,
+  "method": "Earned Lv160 checkpoint from Lv1. Normal travel, optional growth quests, field skills, and auto battle.",
+  "startingLevel": 160,
+  "endLevel": 200,
+  "totalExp": 11494095031,
+  "kills": 75124,
+  "partyWipes": 0,
+  "growthQuests": [
+    "growth-light-release",
+    "growth-branch-visit",
+    "growth-light-echo",
+    "growth-seven-strike",
+    "growth-next-goal"
+  ],
+  "cap": {
+    "node": "dawn-crystal-field",
+    "kills": 56,
+    "extraExp": 16596496,
+    "seconds": 60.0,
+    "overflow": 31759801,
+    "restored": true
+  },
+  "sourceSha256": "ebe8418f66adf18b7e5e5e02ec8a6ce65dffbbce2be03ec96cf6ac9fed04f1e6",
+  "draftBalance": true
+}

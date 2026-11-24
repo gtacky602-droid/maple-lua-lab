@@ -1,4 +1,6 @@
 """Exercise the three challenge lessons on the Lv200 save earned from Lv1."""
+from argparse import ArgumentParser
+from hashlib import sha256
 import json
 
 from runtime import ROOT, native, runtime
@@ -10,11 +12,16 @@ def read(path):
     return json.loads(path.read_text(encoding='utf8'))
 
 
-work = ROOT / 'work/cap-fresh-route'
-saved = validate_save(read(work / 'lv200-save.json'))
+parser = ArgumentParser(description=__doc__)
+parser.add_argument('--draft-balance', action='store_true', help='Continue the earned draft Lv200 save')
+draft = parser.parse_args().draft_balance
+suffix = '-draft' if draft else ''
+work = ROOT / 'work' / ('cap-fresh-route' + suffix)
+source = (work / 'lv200-save.json').read_bytes()
+saved = validate_save(json.loads(source))
 assert saved['progression']['level'] == 200
 assert saved['story']['quests']['growth-next-goal']['status'] == 'complete'
-lua, core = runtime()
+lua, core = runtime(draft_balance=draft)
 state = core.restore(lua.table_from(saved, recursive=True), 12)
 gates = {n['id']: n['exits'] for n in read(ROOT / 'content/story-graph.json')['nodes']}
 edges = {(id, edge['to']): edge for id, exits in gates.items() for edge in exits}
@@ -114,7 +121,7 @@ roundtrip = validate_save(native(core.checkpoint(restore)))
 assert roundtrip['progression'] == after['progression']
 assert roundtrip['endgame'] == after['endgame']
 assert roundtrip['story']['quests'] == after['story']['quests']
-growth = read(ROOT / 'evidence/cap-fresh-route.json')['growthQuests'] + [abyss, stygian, weekly]
+growth = read(ROOT / 'evidence' / f'cap-fresh-route{suffix}.json')['growthQuests'] + [abyss, stygian, weekly]
 assert all(roundtrip['story']['quests'][id]['status'] == 'complete' for id in growth)
 exp = after['progression']['total'] - saved['progression']['total']
 assert exp > 0 and after['progression']['level'] == 200 and after['progression']['xp'] == 0
@@ -123,6 +130,10 @@ proof = dict(completedQuests=[abyss, stygian, weekly], abyssRooms=rooms, abyssSt
              abyssRewardSet=reward.setId, abyssRewardRarity=reward.rarity, farkaTrialCleared=True,
              weeklyBoss='andrius', weeklyAttackRegistered=True, weeklyDefeated=boss.primary.hp==0,
              extraExpAtCap=exp, savedAndRestored=True)
+if draft:
+    assert roundtrip['weapons'] == saved['weapons']
+    proof.update(sourceSha256=sha256(source).hexdigest(), draftBalance=True)
 (work / 'lv200-challenges-save.json').write_text(json.dumps(after, ensure_ascii=False) + '\n', encoding='utf8')
-(ROOT / 'evidence/cap-fresh-challenges.json').write_text(json.dumps(proof, indent=2) + '\n', encoding='utf8')
+(ROOT / 'evidence' / f'cap-fresh-challenges{suffix}.json').write_text(
+    json.dumps(proof, indent=2) + '\n', encoding='utf8')
 print(proof)

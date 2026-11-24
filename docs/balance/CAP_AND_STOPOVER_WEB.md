@@ -29,6 +29,16 @@ Lv160から到達までのLua内経過は18時間35分19秒。狩りは自動戦
 
 `python -X utf8 test_cap_fresh_route.py` はLv160の到着セーブから開始する。`--replay` を付けるとLv1から再生成する。出力は `work/cap-fresh-route/lv200-save.json`。続けて `python -X utf8 test_cap_fresh_challenges.py` で `lv200-challenges-save.json` を出力。ブラウザのLv200検証は `node test_cap_fresh_route.mjs`。
 
+### 同じ比較版の冒険をLv200まで継続
+
+ナタで装備を立て直し、ナド・クライと白虹峠を通った比較版のLv160セーブから、極光谷、湯気谷、星脈坑、暁晶尾根へ進んだ。光界解放、光界反響、七律開天をLv160、170、180の戦闘で使い、装備更新を含む成長依頼5件を報告した。Lv200までのLua内時間は18時間53分45秒。道中の装備を70回更新し、荷物整理で28回帰還した。回復のみの帰還と全滅は0回。狩りには自動戦闘を使用した。 [比較版の試走](../../evidence/cap-fresh-route-draft.json)
+
+Lv200到達後に暁晶原で1分戦うと、56体を倒して16,596,496 EXPが加わった。Lv200・次レベル向けのEXP 0を保ったまま累計と上限後EXPが増え、白虹峠の剣と成長依頼の記録も保存から再開できた。同じLv200のセーブから入門螺旋3区画を星3、ファルカの通常模擬戦と北風の王狼を討伐し、成長依頼を3件追加で報告した。 [上限後の挑戦](../../evidence/cap-fresh-challenges-draft.json)
+
+ChromeでLv200のセーブを読み込み、M地図を開いて終着駅から暁晶原までの9区間を歩いた。到着後の討伐で296,366 EXPを追加し、再読み込み後もLv200、次レベル向けのEXP 0、上限後EXPと累計を確認した。 [道順](../../evidence/cap-fresh-atlas-draft.png) · [Lv200の表示](../../evidence/cap-fresh-exp-draft.png) · [Chromeの記録](../../evidence/cap-fresh-route-browser-draft.json)
+
+比較版の再検査は、白虹峠の比較版から `python test_cap_fresh_route.py --draft-balance`、続いて `python test_cap_fresh_challenges.py --draft-balance`。出力は `work/cap-fresh-route-draft/lv200-save.json` と同フォルダの `lv200-challenges-save.json`。ブラウザーの検査は比較版のラボURLと `DRAFT_BALANCE=1` を指定して `node test_cap_fresh_route.mjs` を実行する。
+
 ## 寄港クエスト
 
 ナタの港で乗船し、航海開始から30秒以上50秒未満に甲板の出入口で `F` を押すと、オシカ・ナタに下船できます。寄港地では時間を気にせず探索できます。波止場の左端で再乗船すると、残り40秒でナド・クライへ到着します。下船せずに乗り続ける場合は、出航から90秒で到着します。その後、ナタへ帰る船でも寄港できるようにしました。寄港地で再乗船してから保存した場合は、同じ寄港地から再開します。 [南行きの航海と試走](../SITES_RETURN_FERRIES_WEB.md)

@@ -1,5 +1,6 @@
 """Play the late game using the equipment and records earned from the Lv1 route."""
 import argparse
+from hashlib import sha256
 import json
 import subprocess
 import sys
@@ -15,14 +16,21 @@ def read(path):
 
 
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--replay', action='store_true', help='Regenerate the Lv160 checkpoint from Lv1')
+parser.add_argument('--replay', action='store_true', help='Regenerate the upstream Lv160 checkpoint')
+parser.add_argument('--draft-balance', action='store_true', help='Continue the draft field balance profile')
 options = parser.parse_args()
+draft = options.draft_balance
+suffix = '-draft' if draft else ''
 if options.replay:
-    subprocess.run([sys.executable, str(ROOT / 'test_snez_fresh_route.py')], stdout=subprocess.DEVNULL, check=True)
+    command = [sys.executable, str(ROOT / 'test_snez_fresh_route.py')]
+    if draft:
+        command.append('--draft-balance')
+    subprocess.run(command, stdout=subprocess.DEVNULL, check=True)
 
-work = ROOT / 'work' / 'cap-fresh-route'
+work = ROOT / 'work' / ('cap-fresh-route' + suffix)
 work.mkdir(parents=True, exist_ok=True)
-initial = validate_save(read('work/snez-fresh-route/white-pass-save.json'))
+source = (ROOT / 'work' / ('snez-fresh-route' + suffix) / 'white-pass-save.json').read_bytes()
+initial = validate_save(json.loads(source))
 station, snow, town = 'white-pass-station', 'snezhnaya-hub', 'mond-town'
 assert initial['story']['node'] == station and initial['progression']['level'] == 160
 assert initial['story']['quests']['white-pass-summit']['status'] == 'complete'
@@ -34,17 +42,18 @@ release, branch, echo, seven, personal = ('growth-' + key for key in
     ('light-release', 'branch-visit', 'light-echo', 'seven-strike', 'next-goal'))
 exits = {n['id']: n['exits'] for n in read('content/story-graph.json')['nodes']}
 edges = {(id, e['to']): e for id, gates in exits.items() for e in gates}
-lua, core = runtime()
+lua, core = runtime(draft_balance=draft)
 idle = lua.table()
 advance = lua.eval('''function(C,s,n,input)
     for _=1,n do C.step(s,1/60,input) end
 end''')
-farm = lua.eval('''function(C,s,target,n,input)
+farm = lua.eval('''function(C,s,target,n,input,draft)
     local start=s.story.node
     for i=1,n do
         C.step(s,1/60,input)
         if s.progression.level>=target or s.story.node~=start
-            or s.actors[s.active].hp<80 or #s.inventory.ground>=15 then return i end
+            or s.actors[s.active].hp<80 or draft and s.actors[1].hp<80
+            or #s.inventory.ground>=15 then return i end
     end
     return n
 end''')
@@ -191,7 +200,7 @@ def hunt(index, level):
         near(265)
         before = state.kills
         toggle_auto(True)
-        work_ticks += farm(core, state, level, 5400, idle)
+        work_ticks += farm(core, state, level, 5400, idle, draft)
         toggle_auto(False)
         if state.progression.level >= level:
             break
@@ -358,7 +367,7 @@ near(265)
 p = state.progression
 before = dict(total=p.total, base=p.baseXp, overflow=p.overflowXp, kills=state.kills)
 toggle_auto(True)
-ticks = farm(core, state, 201, 3600, idle)
+ticks = farm(core, state, 201, 3600, idle, draft)
 toggle_auto(False)
 delta = p.total-before['total']
 assert p.level == 200 and p.xp == 0 and delta > 0
@@ -370,6 +379,8 @@ restored = core.restore(lua.table_from(cap, recursive=True), 12)
 roundtrip = validate_save(native(core.checkpoint(restored)))
 assert roundtrip['progression'] == cap['progression'] and roundtrip['inventory'] == cap['inventory']
 assert roundtrip['story']['quests'] == cap['story']['quests']
+if draft:
+    assert roundtrip['weapons'] == cap['weapons']
 assert cap_field_save['progression'] == cap['progression']
 expected = [release, branch, echo, seven, personal]
 assert all(roundtrip['story']['quests'][id]['status']=='complete' for id in expected), expected
@@ -381,4 +392,7 @@ progression.update(
              overflow=p.overflowXp, restored=True),
 )
 write_progress('lv200-post-cap')
-(ROOT/'evidence/cap-fresh-route.json').write_text(json.dumps(progression,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+if draft:
+    progression.update(sourceSha256=sha256(source).hexdigest(), draftBalance=True)
+(ROOT / 'evidence' / f'cap-fresh-route{suffix}.json').write_text(
+    json.dumps(progression,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
