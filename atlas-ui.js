@@ -138,7 +138,8 @@ export function initAtlas(action, clearKeys) {
   itineraryStops.replaceChildren(...stops.map(stop => {
    const li = document.createElement('li');
    const button = document.createElement('button');
-   button.textContent = `${stop.name} ｜ ${stop.label}${stop.reason ? '・通行条件あり' : stop.hint ? '・' + stop.hint : ''}`;
+   const details = [stop.label, stop.reason, stop.hint].filter(Boolean);
+   button.textContent = `${stop.name} ｜ ${details.join('・')}`;
    button.onclick = () => showPlace(stop);
    li.append(button);
    return li;

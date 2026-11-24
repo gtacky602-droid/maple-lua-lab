@@ -1,0 +1,22 @@
+{
+  "freshLevel": 1,
+  "gatesShown": [
+    12,
+    20
+  ],
+  "upperGateHintShown": true,
+  "roundTrip": [
+    "mond-town",
+    "mond-road",
+    "mond-border",
+    "sites-lookout-10009",
+    "ridge-watch-domain",
+    "sites-lookout-10009",
+    "mond-border",
+    "mond-road",
+    "mond-town"
+  ],
+  "travelFromLevel20Fixture": true,
+  "restoredAt": "mond-town",
+  "errors": []
+}

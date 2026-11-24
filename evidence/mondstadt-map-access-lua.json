@@ -1,0 +1,102 @@
+{
+  "freshStartLevel": 1,
+  "domainPath": [
+    {
+      "region": "region-01",
+      "label": "徒歩",
+      "from": "mond-town",
+      "name": "モンド・南の街道",
+      "mode": "walk",
+      "id": "mond-road"
+    },
+    {
+      "region": "region-01",
+      "label": "徒歩",
+      "from": "mond-road",
+      "name": "モンド・国境の道",
+      "mode": "walk",
+      "id": "mond-border"
+    },
+    {
+      "hint": "石門の岩棚・山脊の見守りへ",
+      "region": "region-01",
+      "label": "徒歩",
+      "from": "mond-border",
+      "reason": "必要Lv12",
+      "name": "石門の岩棚・山脊の見守り",
+      "mode": "walk",
+      "id": "sites-lookout-10009"
+    },
+    {
+      "hint": "上段の入口・祈聖秘境・山脊の見守り",
+      "region": "region-01",
+      "label": "徒歩",
+      "from": "sites-lookout-10009",
+      "reason": "必要Lv20",
+      "name": "山脊の見守り・試練の広間",
+      "mode": "walk",
+      "id": "ridge-watch-domain"
+    }
+  ],
+  "bothDomainLevelGates": true,
+  "domainRoundTrip": true,
+  "forestLevel": 7,
+  "forestRoundTrip": true,
+  "arenas": [
+    {
+      "path": [
+        "mond-road",
+        "anemo-approach",
+        "anemo-field-basin"
+      ],
+      "level": 16,
+      "rejectedBelowLevel": true,
+      "restoredAt": "mond-town",
+      "roundTrip": true
+    },
+    {
+      "path": [
+        "mond-road",
+        "electro-approach",
+        "electro-field-shelf"
+      ],
+      "level": 18,
+      "rejectedBelowLevel": true,
+      "restoredAt": "mond-town",
+      "roundTrip": true
+    },
+    {
+      "path": [
+        "mond-road",
+        "mond-border",
+        "cryo-approach",
+        "cryo-field-grove"
+      ],
+      "level": 16,
+      "rejectedBelowLevel": true,
+      "restoredAt": "mond-town",
+      "roundTrip": true
+    },
+    {
+      "path": [
+        "mond-road",
+        "dvalin-sky-arena"
+      ],
+      "level": 20,
+      "rejectedBelowLevel": true,
+      "restoredAt": "mond-town",
+      "roundTrip": true
+    },
+    {
+      "path": [
+        "mond-road",
+        "andrius-wolf-ring"
+      ],
+      "level": 24,
+      "rejectedBelowLevel": true,
+      "restoredAt": "mond-town",
+      "roundTrip": true
+    }
+  ],
+  "setup": "Starts in the regular Lv1 town. Tests add XP at the boundary and suppress damage during travel."
+}

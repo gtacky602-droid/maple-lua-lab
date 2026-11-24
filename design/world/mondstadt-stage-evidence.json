@@ -1,0 +1,163 @@
+{
+  "scope": "Mondstadt stages outside the marker, hunt, voyage and short transfer ledgers.",
+  "stage_count": 25,
+  "interpretation": "Links identify available evidence per stage. Some encounter runs begin inside the arena. The map-access checks start at Lv1 and use the field entrances.",
+  "entries": [
+    {
+      "kind": "practice",
+      "stages": [
+        "mond-library-orchard"
+      ],
+      "evidence": [
+        "evidence/mond-return-box-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "mond-night-hill"
+      ],
+      "evidence": [
+        "evidence/mond-night-banner-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "mond-roof-route",
+        "mond-windmill-lookout"
+      ],
+      "evidence": [
+        "evidence/mondstadt-s05-lua.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "mond-old-road",
+        "mond-old-canopy",
+        "mond-old-ground",
+        "mond-hill"
+      ],
+      "evidence": [
+        "evidence/mondstadt-m02-lua.json",
+        "evidence/mondstadt-fresh-route.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "mond-bennett-ledge",
+        "mond-bennett-depth"
+      ],
+      "evidence": [
+        "evidence/mondstadt-s03-lua.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "mond-watchtower",
+        "mond-restored-road"
+      ],
+      "evidence": [
+        "evidence/mondstadt-m03-lua.json",
+        "evidence/mondstadt-fresh-route.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "anemo-approach",
+        "anemo-field-basin"
+      ],
+      "evidence": [
+        "evidence/anemo-hypostasis-field-lua.json",
+        "evidence/mondstadt-map-access-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "cryo-approach",
+        "cryo-field-grove"
+      ],
+      "evidence": [
+        "evidence/cryo-regisvine-field-lua.json",
+        "evidence/mondstadt-map-access-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "electro-approach",
+        "electro-field-shelf"
+      ],
+      "evidence": [
+        "evidence/electro-hypostasis-field-lua.json",
+        "evidence/mondstadt-map-access-lua.json"
+      ]
+    },
+    {
+      "kind": "weekly_boss",
+      "stages": [
+        "dvalin-sky-arena"
+      ],
+      "evidence": [
+        "evidence/dvalin-weekly-lua.json",
+        "evidence/mondstadt-map-access-lua.json"
+      ]
+    },
+    {
+      "kind": "weekly_boss",
+      "stages": [
+        "andrius-wolf-ring"
+      ],
+      "evidence": [
+        "evidence/andrius-weekly-lua.json",
+        "evidence/mondstadt-map-access-lua.json"
+      ]
+    },
+    {
+      "kind": "weekly_boss",
+      "stages": [
+        "mond-gate-chess-court"
+      ],
+      "evidence": [
+        "evidence/gate-weekly-lua.json",
+        "evidence/gate-weekly-browser.json"
+      ]
+    },
+    {
+      "kind": "stygian",
+      "stages": [
+        "mond-stygian-dual-court"
+      ],
+      "evidence": [
+        "evidence/stygian-farka-lua.json"
+      ]
+    },
+    {
+      "kind": "domain",
+      "stages": [
+        "sites-lookout-10009",
+        "ridge-watch-domain"
+      ],
+      "evidence": [
+        "evidence/artifact-domains-lua.json",
+        "evidence/mondstadt-map-access-lua.json",
+        "evidence/mondstadt-map-access-browser.json"
+      ]
+    },
+    {
+      "kind": "corridor",
+      "stages": [
+        "sites-corridor-mond-forest"
+      ],
+      "evidence": [
+        "evidence/mondstadt-map-access-lua.json",
+        "evidence/sites-main-corridors-lua.json"
+      ]
+    }
+  ]
+}
