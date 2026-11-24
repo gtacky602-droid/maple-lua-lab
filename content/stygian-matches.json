@@ -2,6 +2,7 @@
   "status": "Web prototype. Approved theme: an original read-and-counter bout. Arena, timing, enemy stats and rewards are provisional.",
   "matches": {
     "beidou": {
+      "coop": {"gatherSeconds": 6},
       "entity": 990002,
       "node": "liyue-stygian-deck",
       "hub": "liyue-harbor",

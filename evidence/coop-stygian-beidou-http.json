@@ -1,0 +1,60 @@
+{
+  "players": 2,
+  "normal": {
+    "quietOpeningTicks": 174,
+    "outOfRangeEscaped": true,
+    "hp": 690,
+    "hostGuestClockOffset": 120,
+    "staleAIAttacksIgnored": true,
+    "openingShared": true,
+    "rewards": [
+      {
+        "set": "黄金の劇団",
+        "first": true,
+        "mora": 1210,
+        "xp": 16503,
+        "bag": true,
+        "rank": 3
+      },
+      {
+        "set": "剣闘士のフィナーレ",
+        "first": true,
+        "mora": 1210,
+        "xp": 16503,
+        "bag": true,
+        "rank": 3
+      }
+    ],
+    "savedClears": 1
+  },
+  "hard": {
+    "baitedOpeningTicks": 83,
+    "firstInputReserved": true,
+    "lockSurvivedReconnect": true,
+    "oneHitPerPairActor": true,
+    "jumpEscapedWake": true,
+    "hp": 1250,
+    "hostGuestClockOffset": 120,
+    "staleAIAttacksIgnored": true,
+    "openingShared": true,
+    "rewards": [
+      {
+        "rank": 4,
+        "set": "黄金の劇団",
+        "mora": 2270,
+        "bag": true,
+        "first": true,
+        "xp": 166428
+      },
+      {
+        "rank": 4,
+        "set": "剣闘士のフィナーレ",
+        "mora": 2270,
+        "bag": true,
+        "first": true,
+        "xp": 166428
+      }
+    ],
+    "savedClears": 1
+  }
+}

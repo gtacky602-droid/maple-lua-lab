@@ -7,7 +7,10 @@ const base=process.env.LAB_URL||'http://127.0.0.1:9068/';
 const capitano=process.argv.includes('--capitano');
 const xbalanque=process.argv.includes('--xbalanque');
 const rerir=process.argv.includes('--rerir');
-const cfg=rerir
+const beidou=process.argv.includes('--beidou');
+const cfg=beidou
+ ? {name:'beidou',hub:'liyue-harbor',arena:'liyue-stygian-deck',entity:990002,hp:1250,mora:2270,mode:'hard',card:'baited',lock:10,hit:41}
+ : rerir
  ? {name:'rerir',hub:'nod-town',arena:'nod-stygian-hunt',entity:990005,hp:2180,mora:22300,card:'RR01',lock:18,hit:42}
  : xbalanque
  ? {name:'xbalanque',hub:'natlan-hub',arena:'natlan-solar-court',entity:990004,hp:1780,mora:2530,card:'XB01',lock:12,hit:36}
@@ -37,7 +40,7 @@ async function open(set){
  await route.waitNode(cfg.hub);
  await route.cross(cfg.arena);
  await page.locator('#coopPanel summary').click();
- await page.locator('#stygianMode').selectOption('normal');
+ await page.locator('#stygianMode').selectOption(cfg.mode||'normal');
  await page.locator('#stygianSet').selectOption(set);
  return {page,route};
 }
@@ -132,6 +135,55 @@ async function driveRerir(page,first){
  },first);
 }
 
+async function driveBeidou(page,bait){
+ await page.evaluate(bait=>{
+  const held=new Set(),seen=new Set();
+  const trail=window.coopStygianTrail={baited:0,wake:false,hits:0};
+  const key=(code,pressed)=>{
+   if(held.has(code)===pressed)return;
+   if(pressed)held.add(code);else held.delete(code);
+   window.dispatchEvent(new KeyboardEvent(pressed?'keydown':'keyup',{code,bubbles:true,cancelable:true}));
+  };
+  function loop(){
+   const f=window.lab.frame,v=f.endgameRun,b=f.boss;
+   if(v?.status!=='fighting'){
+    for(const code of [...held])key(code,false);
+    return;
+   }
+   for(const event of Object.values(f.events||{})){
+    if(seen.has(event.seq))continue;
+    seen.add(event.seq);
+    if(event.kind==='stygian:beidou:baited')trail.baited++;
+    if(event.kind==='stygian:beidou:opening-hit')trail.hits++;
+   }
+   const a=f.actors[f.active-1],dx=b.x-a.x;
+   let goal=a.x,attack=false;
+   if(v.card==='wake')trail.wake=true;
+   if(v.phase==='recover'&&trail.wake){
+    const dir=Math.sign(dx||1);
+    goal=b.x-dir*66;
+    if(Math.abs(goal-a.x)<10&&a.dir!==dir)goal=a.x+dir*20;
+    attack=Math.abs(dx)<109&&a.dir===dir&&a.y>420;
+   }else if(v.area&&['tell','strike'].includes(v.phase)){
+    const area=v.area;
+    if(a.x>=area.left-10&&a.x<=area.right+10){
+     const lo=area.left-28,hi=area.right+28;
+     goal=hi>940||(lo>=20&&a.x-lo<hi-a.x)?lo:hi;
+    }
+   }else if(!trail.wake){
+    goal=b.x-(bait?66:193);
+    if(bait&&v.phase==='guard'&&!trail.baited){
+     if(Math.abs(goal-a.x)<10&&a.dir!==1)goal=a.x+20;
+     attack=dx>32&&dx<107&&a.dir===1&&a.y>420;
+    }
+   }
+   key('KeyA',goal<a.x-7);key('KeyD',goal>a.x+7);key('KeyJ',attack);
+   requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+ },bait);
+}
+
 try{
  const players=await Promise.all([open('troupe'),open('gladiator')]);
  const [{page:host},{page:guest}]=players;
@@ -145,22 +197,29 @@ try{
  await host.waitForFunction(()=>window.lab.frame.endgameRun?.gathering>0);
  await guest.locator('#stygianStart').click();
  await guest.waitForFunction(()=>window.lab.frame.endgameRun?.gathering>0);
- await Promise.all(players.map(({route})=>route.walk(510)));
+ if(beidou)await Promise.all([driveBeidou(host,false),driveBeidou(guest,true)]);
+ else await Promise.all(players.map(({route})=>route.walk(510)));
  const telegraphs=await Promise.all(players.map(async({page})=>{
   const value=await page.waitForFunction(cfg=>{
    const f=window.lab.frame,v=f.endgameRun;
-   return v.card===cfg.card&&v.tick>=cfg.lock&&v.tick<cfg.hit&&v.areas?.length>0&&
-    {direction:f.boss.dir,maxhp:f.boss.maxhp,areas:v.areas,targetSlot:v.targetSlot};
+   const areas=v.areas||(v.area&&[v.area]);
+   return v.card===cfg.card&&v.phase!=='strike'&&v.tick>=cfg.lock&&v.tick<cfg.hit&&areas?.length>0&&
+    {direction:f.boss.dir,maxhp:f.boss.maxhp,areas,targetSlot:v.targetSlot};
   },cfg);
   return value.jsonValue();
  }));
  assert.deepEqual(telegraphs[0],telegraphs[1]);
  assert.equal(telegraphs[0].maxhp,cfg.hp);
  if(capitano||xbalanque)assert.ok([1,2].includes(telegraphs[0].targetSlot));
+ if(beidou)assert.equal(telegraphs[0].targetSlot,(await frame(guest)).coop.slot);
  await host.locator('#game').screenshot({path:prefix+'-warning.png'});
  if(rerir)await Promise.all([driveRerir(host,true),driveRerir(guest,false)]);
- else await Promise.all([drive(host,-1),drive(guest,1)]);
+ else if(!beidou)await Promise.all([drive(host,-1),drive(guest,1)]);
  let safeLane;
+ if(beidou){
+  await Promise.all(players.map(({page})=>page.waitForFunction(()=>window.lab.frame.endgameRun?.card==='wake')));
+  await guest.locator('#game').screenshot({path:prefix+'-wake.png'});
+ }
  if(xbalanque){
   const lanes=await Promise.all(players.map(async({page})=>{
    const value=await page.waitForFunction(()=>{
@@ -191,7 +250,8 @@ try{
  const settled=await Promise.all(players.map(({page})=>frame(page)));
  const rewards=settled.map(f=>f.endgameRun.matchReward);
  assert.deepEqual(rewards.map(r=>r.set),['黄金の劇団','剣闘士のフィナーレ']);
- assert.ok(settled.every(f=>f.boss.hp===0&&f.endgame.stygian[`${cfg.name}:normal`].clears===1));
+ const matchKey=`${cfg.name}:${cfg.mode||'normal'}`;
+ assert.ok(settled.every(f=>f.boss.hp===0&&f.endgame.stygian[matchKey].clears===1));
  assert.ok(rewards.every(reward=>reward.first&&reward.mora===cfg.mora));
  const trails=await Promise.all(players.map(({page})=>page.evaluate(()=>window.coopStygianTrail)));
  if(rerir){
@@ -199,12 +259,13 @@ try{
   assert.deepEqual(trails.map(t=>t.protected),[{1:true,2:false},{1:false,2:true}]);
   assert.ok(trails.every(t=>t.interlude&&t.stages.join()==='1,2'));
  }else assert.ok(trails.every(trail=>trail.hits>0));
+ if(beidou)assert.ok(trails.every((trail,index)=>trail.wake&&trail.baited===index));
  if(xbalanque)assert.ok(trails.every(trail=>trail.finalRecovery));
  await host.locator('#game').screenshot({path:prefix+'-clear.png'});
  await Promise.all(players.map(async({page})=>{
   await page.locator('#saveProgress').click();
   await page.waitForFunction(([key,id])=>JSON.parse(localStorage.getItem(key))?.endgame?.stygian?.[id]?.clears===1,
-   [key,`${cfg.name}:normal`]);
+   [key,matchKey]);
  }));
  assert.deepEqual(errors,[]);
  await fs.writeFile(prefix+'-browser.json',JSON.stringify({players:2,warning:telegraphs[0],safeLane,trails,rewards,

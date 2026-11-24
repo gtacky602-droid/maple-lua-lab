@@ -1,5 +1,5 @@
 -- Beidou's independent training duel. Contact provenance is recorded by the shared combat core.
-return function(C)
+return function(C,G)
  local D={}
  local previousAvoid=C.aiAvoidTarget
  local gold,red,green,violet='#ffc778','#f68f81','#9cf6cd','#dfb6ff'
@@ -19,7 +19,10 @@ return function(C)
   return math.floor(ticks*run.rules.openScale+.5)
  end
  local function prepareAttack(s,run,spec,key,span,x,dialogue)
-  local b,a=run.boss,s.actors[s.active]
+  local b,a=run.boss,run.target or s.actors[s.active]
+  local slot=run.targetMember and run.targetMember.id
+  if key=='baited' and b.guardMember then slot=b.guardMember.id
+  elseif key=='wake' then slot=b.move.targetSlot end
   local m=spec.moves[key]
   if x and x~=b.x then b.dir=x>b.x and 1 or -1 else turn(a,b) end
   local mark=x or location(spec,b.x+b.dir*math.min(spec.timing.targetReach,math.abs(a.x-b.x)))
@@ -30,24 +33,34 @@ return function(C)
    start,finish=mark-m.radius,mark+m.radius
   end
   b.move={key=key,name=m.name,lo=location(spec,math.min(start,finish)),hi=location(spec,math.max(start,finish)),
-   ground=spec.arena.floor,height=m.height,mark=mark,origin=b.x,damage=math.floor(m.damage*run.rules.attackScale+.5),seen={}}
+   ground=spec.arena.floor,height=m.height,mark=mark,origin=b.x,targetSlot=slot,
+   damage=math.floor(m.damage*run.rules.attackScale+.5),seen={}}
   b.line=dialogue
   phase(b,'tell',span)
   log(s,b,'tell:'..key,a.id)
  end
  local function invite(s,run,spec)
   local b=run.boss
-  b.move=nil;b.line=spec.dialogue.guard;b.guardAt=s.t;b.guardOwner=nil
+  b.move=nil;b.line=spec.dialogue.guard;b.guardAt=s.t
+  b.guardOwner,b.guardMember,b.guardX,b.guardInputAt=nil,nil,nil,nil
+  if run.parties then
+   -- Each browser keeps its own combat clock, including through disconnects.
+   b.guardInputAt={}
+   for _,member in ipairs(s.coop.members) do b.guardInputAt[member]=member.state.t end
+  end
   b.aura=nil;b.burning=nil;b.applicationClocks=nil
   phase(b,'guard',run.rules.guard)
   log(s,b,'guard')
  end
  local function contact(s,run,spec,b,cast,mult,color,element)
-  if run.status~='fighting' or b.hp<=0 or b.phase=='intro' then return false end
+  local party=s.endgameRun
+  if not party or party.status~='fighting' or run.status~='fighting' or b.hp<=0 or b.phase=='intro' then return false end
   if b.phase=='guard' then
+   local guardAt=b.guardInputAt and b.guardInputAt[s.coopMember] or b.guardAt
    if not b.guardOwner and not s.auto and not cast.growthAI and not cast.reaction and cast.playerInputAt and
-      cast.playerInputAt>=b.guardAt-1e-8 and (cast.startedAt or -1)>=b.guardAt-1e-8 then
+      cast.playerInputAt>=guardAt-1e-8 and (cast.startedAt or -1)>=guardAt-1e-8 then
     b.guardOwner=cast.id
+    if party.shared then b.guardMember,b.guardX=s.coopMember,s.actors[cast.id].x end
     log(s,b,'baited',cast.id)
    end
    return false
@@ -60,7 +73,7 @@ return function(C)
   if b.phase~='recover' then amount=math.max(1,math.floor(amount*spec.timing.armorFactor)) end
   amount=math.min(b.hp,amount)
   local ability=cast.key or 'normal'
-  run.skills[ability]=(run.skills[ability] or 0)+amount
+  party.skills[ability]=(party.skills[ability] or 0)+amount
   s.damage=s.damage+amount;s.hits=s.hits+1
   C.combatNumber(s,b,crit and amount..'!' or amount,color)
   C.combatEvent(s,'hit',cast.id,b.id,amount)
@@ -109,22 +122,21 @@ return function(C)
  end
  local function impact(s,run)
   local b,m=run.boss,run.boss.move
-  for _,a in ipairs(s.actors) do
-   if a.hp>0 and a.x>=m.lo and a.x<=m.hi and a.y>m.ground-m.height and not m.seen[a.id] then
-    m.seen[a.id]=true
-    local n=C.damageActor(s,a,m.damage,b,true,true)
-    log(s,b,'impact:'..m.key,a.id,n)
-   end
-  end
+  G.eachContact(s,run,m.seen,function(a)
+   return a.x>=m.lo and a.x<=m.hi and a.y>m.ground-m.height
+  end,function(party,a)
+   local n=C.damageActor(party,a,m.damage,b,true,true)
+   log(party,b,'impact:'..m.key,a.id,n)
+  end)
  end
  local function tick(s,run,spec)
   local b,t=run.boss,spec.timing
-  local a=s.actors[s.active]
+  local a=run.target or s.actors[s.active]
   b.tick=b.tick+1
   if b.phase=='guard' then
    if b.guardOwner then
     local owner=s.actors[b.guardOwner]
-    local x=owner and owner.hp>0 and owner.x or a.x
+    local x=b.guardX or (owner and owner.hp>0 and owner.x or a.x)
     local reach=t.targetReach
     local mark=location(spec,b.x+math.max(-reach,math.min(reach,x-b.x)))
     prepareAttack(s,run,spec,'baited',run.rules.quickTell,mark,spec.dialogue.baited)
@@ -216,7 +228,7 @@ return function(C)
   if b.phase=='recover' and not cleared then hint=string.format('反撃のチャンス %.1f秒',(b.span-b.tick)/60) end
   if b.phase=='tell' and b.move.key=='sweep' then hint='低い横薙ぎ。ジャンプか足場へ' end
   if b.phase=='tell' and b.move.key=='wake' then hint='低い返し波。もう一度ジャンプ' end
-  f.boss={name=spec.name,hp=b.hp,maxhp=b.maxhp,x=b.x,y=b.y,
+  f.boss={name=spec.name,hp=b.hp,maxhp=b.maxhp,x=b.x,y=b.y,dir=b.dir,
    phase=b.phase,label=cleared and '模擬戦突破' or b.move and b.move.name or hint}
   f.endgameRun.hint=hint;f.endgameRun.dialogue=cleared and spec.dialogue.clear or b.line
   f.endgameRun.phase=b.phase;f.endgameRun.tick=b.tick
@@ -242,6 +254,7 @@ return function(C)
   rect=paint(f,s)
   local move=b.move
   if move then
+   f.endgameRun.card,f.endgameRun.targetSlot=move.key,move.targetSlot
    f.endgameRun.area={left=move.lo,right=move.hi,top=move.ground-move.height,ground=move.ground}
    local width=move.hi-move.lo
    local hue=n=='feint' and '#b298be' or (n=='strike' and violet or red)

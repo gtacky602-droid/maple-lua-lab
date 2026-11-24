@@ -550,7 +550,8 @@ def runtime():
     daily=json.loads((ROOT/'content/daily-quests.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'daily-quests.lua').read_text(encoding='utf8'))(core,lua.table_from(daily,recursive=True),graph)
     abyss=json.loads((ROOT/'content/abyss-settings.json').read_text(encoding='utf8'))
-    stygian_beidou=lua.execute((ROOT/'stygian-beidou.lua').read_text(encoding='utf8'))(core)
+    stygian_geometry=lua.execute((ROOT/'stygian-geometry.lua').read_text(encoding='utf8'))
+    stygian_beidou=lua.execute((ROOT/'stygian-beidou.lua').read_text(encoding='utf8'))(core,stygian_geometry)
     guard_assets={}
     beidou_audit=json.loads((ROOT/'assets/beidou-stygian-generation-v1.json').read_text(encoding='utf8'))
     for direction,pose in beidou_audit['poses'].items():
@@ -562,7 +563,6 @@ def runtime():
         'idle':{'left':companion_art['beidou']['left'],'right':companion_art['beidou']},
         'guard':guard_assets,
     },recursive=True)
-    stygian_geometry=lua.execute((ROOT/'stygian-geometry.lua').read_text(encoding='utf8'))
     capitano_moves=lua.execute((ROOT/'stygian-capitano-moves.lua').read_text(encoding='utf8'))(core,stygian_geometry)
     capitano=lua.execute((ROOT/'stygian-capitano.lua').read_text(encoding='utf8'))(core,capitano_moves)
     capitano_audit=json.loads((ROOT/'assets/capitano-stygian-generation-v1.json').read_text(encoding='utf8'))

@@ -8081,6 +8081,7 @@
       "dvalin-sky-arena",
       "andrius-wolf-ring",
       "liyue-harbor",
+      "liyue-stygian-deck",
       "liyue-wp-64830",
       "chizhang-legend-terrace",
       "tide-calibration-hall",
@@ -8611,7 +8612,8 @@
       "stygian-capitano",
       "stygian-xbalanque",
       "stygian-rerir",
-      "stygian-ronova"
+      "stygian-ronova",
+      "stygian-beidou"
     ],
     "rules": "content/coop-preview.json",
     "evidence": [
@@ -8923,7 +8925,9 @@
       "evidence/coop-stygian-rerir-http.json",
       "evidence/coop-stygian-rerir-browser.json",
       "evidence/coop-stygian-ronova-http.json",
-      "evidence/coop-stygian-ronova-browser.json"
+      "evidence/coop-stygian-ronova-browser.json",
+      "evidence/coop-stygian-beidou-http.json",
+      "evidence/coop-stygian-beidou-browser.json"
     ],
     "pending": [
       "remaining Stygian bosses",

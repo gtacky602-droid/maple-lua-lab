@@ -1,0 +1,48 @@
+{
+  "players": 2,
+  "warning": {
+    "direction": -1,
+    "maxhp": 1250,
+    "areas": [
+      {
+        "left": 495.5,
+        "top": 362,
+        "ground": 480,
+        "right": 755.5
+      }
+    ],
+    "targetSlot": 2
+  },
+  "trails": [
+    {
+      "baited": 0,
+      "wake": true,
+      "hits": 12
+    },
+    {
+      "baited": 1,
+      "wake": true,
+      "hits": 13
+    }
+  ],
+  "rewards": [
+    {
+      "mora": 2270,
+      "xp": 166428,
+      "rank": 4,
+      "set": "黄金の劇団",
+      "first": true,
+      "bag": true
+    },
+    {
+      "mora": 2270,
+      "xp": 166428,
+      "rank": 4,
+      "set": "剣闘士のフィナーレ",
+      "first": true,
+      "bag": true
+    }
+  ],
+  "clearsSavedForBoth": true,
+  "errors": []
+}
