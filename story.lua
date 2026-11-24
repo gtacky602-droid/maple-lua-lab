@@ -20,6 +20,15 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   {'モンド','風',1},{'璃月','岩',20},{'稲妻','雷',40},{'スメール','草',60},
   {'フォンテーヌ','水',80},{'ナタ','炎',100},{'スネージナヤ','氷',140},
  }
+ local elementByRegion,elements={},{}
+ for _,entry in ipairs(elementalRegions) do
+  local region,name,level=table.unpack(entry)
+  local element={level=level,hubs={},places={}}
+  elementByRegion[region]=element
+  elements[name]=element
+ end
+ local regionalSkills=data.regionalSkills or {}
+ local skillAliases={skill1='SK01',skill2='SK02'}
  local moonReactions={['reaction:moon-electro']=true,['reaction:moon-dendro']=true,['reaction:moon-geo']=true}
  local barrierTargets={}
  local lunarJoin={'columbina-join','columbina-coast-detour'}
@@ -27,6 +36,11 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
  local lanternQuest,contestQuest,sightQuest,restQuest,caveQuest,roofQuest
  for _,n in ipairs(data.nodes) do
   nodes[n.id]=n
+  local element=elementByRegion[n.region]
+  if element and not n.branch and not n.hiddenGroup then
+   local places=n.hub and element.hubs or element.places
+   places[#places+1]=n.id
+  end
   if n.hiddenGroup or n.revealAfter then graphNodes[#graphNodes+1]=n end
   for _,edge in ipairs(n.exits) do
    if edge.visitedOnly or edge.hideUntilAllowed then graphEdges[#graphEdges+1]={from=n,edge=edge} end
@@ -67,15 +81,18 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   for _,id in ipairs(lunarJoin) do if completed(s,id) then return true end end
   return false
  end
+ local function learnedElement(s,name)
+  local element=elements[name]
+  if not element or not s.progression or s.progression.level<element.level then return false end
+  local visited=s.story.visited
+  for _,id in ipairs(element.hubs) do if visited[id] then return true end end
+  for _,id in ipairs(element.places) do if visited[id] then return true end end
+  return false
+ end
  local function learnedElements(s)
-  local reached,missing={},{}
-  for id in pairs(s.story.visited) do
-   local node=nodes[id]
-   if node and not node.branch and not node.hiddenGroup then reached[node.region]=true end
-  end
-  local level=s.progression and s.progression.level or 0
-  for _,element in ipairs(elementalRegions) do
-   if not reached[element[1]] or level<element[3] then missing[#missing+1]=element[2] end
+  local missing={}
+  for _,entry in ipairs(elementalRegions) do
+   if not learnedElement(s,entry[2]) then missing[#missing+1]=entry[2] end
   end
   return missing
  end
@@ -97,8 +114,23 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     and (s.story.visited[milestone.region] or s.story.visited[milestone.alternate])
  end
  function C.growthSkillCondition(s,key)
+  if not s.story or not (s.story.active or s.endgameRun) then return true end
+  local skill=regionalSkills[skillAliases[key] or key]
+  if skill then
+   if not s.progression or s.progression.level<skill.level then
+    return false,'Lv'..skill.level..'になると使えます。'
+   end
+   local missing={}
+   for _,element in ipairs(skill.elements) do
+    if not learnedElement(s,element) then missing[#missing+1]=element end
+   end
+   if #missing>0 then
+    return false,'未習得の元素：'..table.concat(missing,'・')..'。各地域で旅を始めると習得できます。'
+   end
+   return true
+  end
   local milestone=advancedGrowth[key]
-  if not milestone or not s.story or not (s.story.active or s.endgameRun) or milestoneReached(s,milestone) then return true end
+  if not milestone or milestoneReached(s,milestone) then return true end
   if milestone.elements then
    local missing=learnedElements(s)
    if #missing>0 then return false,'未習得の元素：'..table.concat(missing,'・')..'。各地域で旅を始めると習得できます。' end

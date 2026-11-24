@@ -1,5 +1,5 @@
 {
-  "count": 15,
+  "count": 18,
   "checks": [
     "editing outside town rejected",
     "invalid sequence rejected ['SK01', 'SK01', 'SK01', 'SK01']",
@@ -11,6 +11,9 @@
     "ordered casts respect CT and lock",
     "sequence terminates",
     "no automatic loop",
+    "first step executes before dodge",
+    "dodge clears remaining steps",
+    "dodged macro does not resume after cooldown",
     "explicit cancel",
     "swap cancels queued skills",
     "companion cannot use traveler slots",

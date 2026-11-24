@@ -1,0 +1,395 @@
+{
+  "traveler": {
+    "SK01": {
+      "input": "skill1",
+      "level": 1,
+      "acceptedInBattle": true
+    },
+    "SK02": {
+      "input": "skill2",
+      "level": 6,
+      "acceptedInBattle": true
+    },
+    "SK03": {
+      "input": "SK03",
+      "level": 11,
+      "acceptedInBattle": true
+    },
+    "SK04": {
+      "input": "SK04",
+      "level": 16,
+      "acceptedInBattle": true
+    },
+    "SK05": {
+      "input": "SK05",
+      "level": 20,
+      "acceptedInBattle": true
+    },
+    "SK06": {
+      "input": "SK06",
+      "level": 24,
+      "acceptedInBattle": true
+    },
+    "SK07": {
+      "input": "SK07",
+      "level": 30,
+      "acceptedInBattle": true
+    },
+    "SK08": {
+      "input": "SK08",
+      "level": 36,
+      "acceptedInBattle": true
+    },
+    "SK09": {
+      "input": "SK09",
+      "level": 40,
+      "acceptedInBattle": true
+    },
+    "SK10": {
+      "input": "SK10",
+      "level": 44,
+      "acceptedInBattle": true
+    },
+    "SK11": {
+      "input": "SK11",
+      "level": 50,
+      "acceptedInBattle": true
+    },
+    "SK12": {
+      "input": "SK12",
+      "level": 56,
+      "acceptedInBattle": true
+    },
+    "SK13": {
+      "input": "SK13",
+      "level": 60,
+      "acceptedInBattle": true
+    },
+    "SK14": {
+      "input": "SK14",
+      "level": 64,
+      "acceptedInBattle": true
+    },
+    "SK15": {
+      "input": "SK15",
+      "level": 70,
+      "acceptedInBattle": true
+    },
+    "SK16": {
+      "input": "SK16",
+      "level": 76,
+      "acceptedInBattle": true
+    },
+    "SK17": {
+      "input": "SK17",
+      "level": 80,
+      "acceptedInBattle": true
+    },
+    "SK18": {
+      "input": "SK18",
+      "level": 84,
+      "acceptedInBattle": true
+    },
+    "SK19": {
+      "input": "SK19",
+      "level": 90,
+      "acceptedInBattle": true
+    },
+    "SK20": {
+      "input": "SK20",
+      "level": 96,
+      "acceptedInBattle": true
+    },
+    "SK21": {
+      "input": "SK21",
+      "level": 100,
+      "acceptedInBattle": true
+    },
+    "SK22": {
+      "input": "SK22",
+      "level": 104,
+      "acceptedInBattle": true
+    },
+    "SK23": {
+      "input": "SK23",
+      "level": 110,
+      "acceptedInBattle": true
+    },
+    "SK24": {
+      "input": "SK24",
+      "level": 116,
+      "acceptedInBattle": true
+    },
+    "SK25": {
+      "input": "SK25",
+      "level": 140,
+      "acceptedInBattle": true
+    },
+    "SK26": {
+      "input": "SK26",
+      "level": 144,
+      "acceptedInBattle": true
+    },
+    "SK27": {
+      "input": "SK27",
+      "level": 150,
+      "acceptedInBattle": true
+    },
+    "SK28": {
+      "input": "SK28",
+      "level": 156,
+      "acceptedInBattle": true
+    },
+    "SK29": {
+      "input": "SK29",
+      "level": 27,
+      "acceptedInBattle": true
+    },
+    "SK30": {
+      "input": "SK30",
+      "level": 47,
+      "acceptedInBattle": true
+    },
+    "SK31": {
+      "input": "SK31",
+      "level": 67,
+      "acceptedInBattle": true
+    },
+    "SK32": {
+      "input": "SK32",
+      "level": 87,
+      "acceptedInBattle": true
+    },
+    "SK33": {
+      "input": "SK33",
+      "level": 107,
+      "acceptedInBattle": true
+    },
+    "SK34": {
+      "input": "SK34",
+      "level": 147,
+      "acceptedInBattle": true
+    },
+    "SK35": {
+      "input": "SK35",
+      "level": 51,
+      "acceptedInBattle": true
+    },
+    "SK36": {
+      "input": "SK36",
+      "level": 72,
+      "acceptedInBattle": true
+    },
+    "SK37": {
+      "input": "SK37",
+      "level": 91,
+      "acceptedInBattle": true
+    },
+    "SK38": {
+      "input": "SK38",
+      "level": 111,
+      "acceptedInBattle": true
+    },
+    "SK39": {
+      "input": "SK39",
+      "level": 151,
+      "acceptedInBattle": true
+    },
+    "SK40": {
+      "input": "SK40",
+      "level": 77,
+      "acceptedInBattle": true
+    },
+    "SK41": {
+      "input": "SK41",
+      "level": 95,
+      "acceptedInBattle": true
+    },
+    "SK42": {
+      "input": "SK42",
+      "level": 114,
+      "acceptedInBattle": true
+    },
+    "SK43": {
+      "input": "SK43",
+      "level": 153,
+      "acceptedInBattle": true
+    },
+    "SK44": {
+      "input": "SK44",
+      "level": 97,
+      "acceptedInBattle": true
+    },
+    "SK45": {
+      "input": "SK45",
+      "level": 117,
+      "acceptedInBattle": true
+    },
+    "SK46": {
+      "input": "SK46",
+      "level": 157,
+      "acceptedInBattle": true
+    },
+    "SK47": {
+      "input": "SK47",
+      "level": 118,
+      "acceptedInBattle": true
+    },
+    "SK48": {
+      "input": "SK48",
+      "level": 158,
+      "acceptedInBattle": true
+    },
+    "SK49": {
+      "input": "SK49",
+      "level": 159,
+      "acceptedInBattle": true
+    },
+    "SK50": {
+      "input": "SK50",
+      "level": 78,
+      "acceptedInBattle": true
+    },
+    "SK51": {
+      "input": "SK51",
+      "level": 98,
+      "acceptedInBattle": true
+    },
+    "SK52": {
+      "input": "SK52",
+      "level": 119,
+      "acceptedInBattle": true
+    },
+    "SK53": {
+      "input": "SK53",
+      "level": 158,
+      "acceptedInBattle": true
+    },
+    "SK54": {
+      "input": "SK54",
+      "level": 127,
+      "acceptedInBattle": true
+    },
+    "SK55": {
+      "input": "SK55",
+      "level": 133,
+      "acceptedInBattle": true
+    },
+    "SK56": {
+      "input": "SK56",
+      "level": 149,
+      "acceptedInBattle": true
+    },
+    "SK57": {
+      "input": "SK57",
+      "level": 155,
+      "acceptedInBattle": true
+    },
+    "SK58": {
+      "input": "SK58",
+      "level": 160,
+      "acceptedInBattle": true
+    },
+    "SK59": {
+      "input": "SK59",
+      "level": 170,
+      "acceptedInBattle": true
+    },
+    "SK60": {
+      "input": "SK60",
+      "level": 180,
+      "acceptedInBattle": true
+    }
+  },
+  "companions": {
+    "amber": {
+      "inputs": {
+        "amber_0": "normal",
+        "amber_1": "skill1",
+        "amber_2": "skill3",
+        "amber_3": "skill4",
+        "amber_4": "skill2"
+      },
+      "reloadedOwner": true,
+      "autonomousInput": true
+    },
+    "beidou": {
+      "inputs": {
+        "beidou_0": "normal",
+        "beidou_1": "skill1",
+        "beidou_2": "skill2",
+        "beidou_3": "skill3",
+        "beidou_4": "skill4"
+      },
+      "reloadedOwner": true,
+      "autonomousInput": true
+    },
+    "ayaka": {
+      "inputs": {
+        "ayaka_0": "normal",
+        "ayaka_1": "skill1",
+        "ayaka_2": "skill2",
+        "ayaka_3": "skill3",
+        "ayaka_4": "skill4"
+      },
+      "reloadedOwner": true,
+      "autonomousInput": true
+    },
+    "wanderer": {
+      "inputs": {
+        "wanderer_0": "normal",
+        "wanderer_1": "skill1",
+        "wanderer_2": "skill2",
+        "wanderer_3": "skill3",
+        "wanderer_4": "skill4"
+      },
+      "reloadedOwner": true,
+      "autonomousInput": true
+    },
+    "emilie": {
+      "inputs": {
+        "emilie_0": "normal",
+        "emilie_1": "skill1",
+        "emilie_2": "skill2",
+        "emilie_3": "skill3",
+        "emilie_4": "skill4"
+      },
+      "reloadedOwner": true,
+      "autonomousInput": true
+    },
+    "kachina": {
+      "inputs": {
+        "kachina_0": "normal",
+        "kachina_1": "skill1",
+        "kachina_2": "skill2",
+        "kachina_3": "skill3",
+        "kachina_4": "skill4"
+      },
+      "reloadedOwner": true,
+      "autonomousInput": true
+    },
+    "columbina": {
+      "inputs": {
+        "columbina_0": "normal",
+        "columbina_1": "skill1",
+        "columbina_2": "skill2",
+        "columbina_3": "skill3",
+        "columbina_4": "skill4"
+      },
+      "reloadedOwner": true,
+      "autonomousInput": true
+    },
+    "mitya": {
+      "inputs": {
+        "mitya_0": "normal",
+        "mitya_1": "skill1",
+        "mitya_2": "skill2",
+        "mitya_3": "skill3",
+        "mitya_4": "skill4"
+      },
+      "reloadedOwner": true,
+      "autonomousInput": true
+    }
+  },
+  "scope": "Prepared regional visits, levels and combat targets. Records accepted player casts and one autonomous action per companion. Damage balance and all fight matchups are outside this probe."
+}

@@ -97,6 +97,12 @@ def runtime():
     sights = lua.execute((ROOT / 'story-sights.lua').read_text(encoding='utf-8'))(core)
     rest = lua.execute((ROOT / 'story-rest.lua').read_text(encoding='utf-8'))(core)
     story_data = json.loads((ROOT/'content/story-graph.json').read_text(encoding='utf8'))
+    skill_catalog = json.loads((ROOT/'content/skill-catalog.json').read_text(encoding='utf8'))
+    story_data['regionalSkills'] = {
+        skill['id']: {'level': skill['unlock_level'], 'elements': skill['elements']}
+        for skill in skill_catalog['skills']
+        if skill['owner'] == 'traveler' and skill.get('category') in ('単独', '二元素', '三元素')
+    }
     field_specs=json.loads((ROOT/'content/field-boss-spawns.json').read_text(encoding='utf-8-sig'))['fieldBosses']
     weekly_specs=resolve_weekly_rewards(json.loads((ROOT/'content/weekly-boss-spawns.json').read_text(encoding='utf8'))['weeklyBosses'])
     story_data['bossNodes']={

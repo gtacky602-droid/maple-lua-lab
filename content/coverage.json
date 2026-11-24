@@ -8068,7 +8068,16 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Cross-check the lab against the approved handoff and later decisions, then verify remaining behavior and presentation gaps.",
+  "current_priority": "Review individual HP, cooldowns, gauge, and equipment through control swaps and party changes, then compare remaining skill effects and timings with the approved handoff.",
+  "skill_runtime_checks": {
+    "traveler_activations": 60,
+    "companion_activations": 40,
+    "autonomous_companions_after_restore": 8,
+    "regional_skills": 53,
+    "scope": "Lua combat accepts each skill with the relevant combat setup and tests regional and level locks. Chrome covers one regional acquisition, loadout restoration, and a dodge interrupt. Damage tuning and presentation vary by skill.",
+    "lua_evidence": "evidence/skill-roster-lua.json",
+    "browser_evidence": "evidence/skill-learning-browser.json"
+  },
   "quest_runtime_checks": {
     "authored_story_records": 283,
     "acceptance_and_report_links": 279,

@@ -7,7 +7,15 @@ export async function initSkillUI(action,configure){
   const button=document.createElement('button');button.onclick=()=>{action('slot'+(i+1));button.blur()};buttons.append(button);
   const row=document.createElement('div');row.style.margin='8px 0';const label=document.createElement('span');label.textContent=`枠 ${i+1}　`;row.append(label);
   const fields=[];
-  for(let j=0;j<3;j++){const select=document.createElement('select');select.setAttribute('aria-label',`枠${i+1}の${j+1}番目`);select.add(new Option('空き',''));for(const s of choices)select.add(new Option(s.name,s.id));row.append(select);fields.push(select)}
+  for(let j=0;j<3;j++){
+   const select=document.createElement('select');
+   select.setAttribute('aria-label',`枠${i+1}の${j+1}番目`);
+   select.add(new Option('空き',''));
+   for(const skill of choices){
+    select.add(new Option(`${skill.name}（Lv${skill.unlock_level}）`,skill.id));
+   }
+   row.append(select);fields.push(select);
+  }
   selects.push(fields);root.append(row);
  }
  document.getElementById('applySlots').onclick=()=>configure(selects.map(row=>row.map(e=>e.value).filter(Boolean)));
@@ -17,7 +25,7 @@ export async function initSkillUI(action,configure){
   const slots=f.loadout||[],sig=JSON.stringify(slots);
   if(sig!==signature){signature=sig;selects.forEach((row,i)=>row.forEach((e,j)=>e.value=slots[i]?.[j]||''))}
   [...buttons.children].forEach((b,i)=>{b.textContent=`${i+1}: ${(slots[i]||[]).map(id=>names[id]).join(' → ')||'空き'}`;b.disabled=f.active!==1||!(slots[i]?.length)});
-  document.getElementById('macroStatus').textContent=f.macro?`枠${f.macro.slot}：${f.macro.index}番目を待機中（CT・硬直を尊重）`:'マクロ停止中。1〜8キーで発動、交代・移動先変更で中止。';
+  document.getElementById('macroStatus').textContent=f.macro?`枠${f.macro.slot}：${f.macro.index}番目を待機中`:'1〜8キーで発動。回避・交代・地点移動で中止。';
   if(f.configuration)document.getElementById('slotStatus').textContent=f.configuration.message;
  }};
 }

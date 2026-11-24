@@ -31,7 +31,7 @@ return function(C)
    end
    return
   end
-  if key=='cancel_macro' or key=='swap' or key=='town' or key=='field' or key=='arena' or key=='boss_anemo' then s.macro=nil end
+  if key=='cancel_macro' or key=='dodge' or key=='swap' or key=='town' or key=='field' or key=='arena' or key=='boss_anemo' then s.macro=nil end
   if key~='cancel_macro' then action(s,key) end
  end
  function C.step(s,dt,input)

@@ -3,7 +3,7 @@ return function(C)
  C.skillDefinitions.SK54={range=300,targets=8,mult=.9,hits=12,ct=22,lock=.5,interval=1,delay=1,color='#c6d0ff',element='lunar',damageElements={'electro','hydro'},applicationElement='hydro',follow=true,radial=true,placed=true,partnerRequired='columbina',special=true,suppressAura=true}
  C.skillDefinitions.SK55={range=180,targets=6,mult=1.25,hits=10,ct=24,lock=.5,interval=.8,delay=.8,color='#e3e3c0',element='lunar',damageElements={'geo','hydro'},applicationElement='hydro',follow=true,radial=true,placed=true,partnerRequired='columbina',special=true,suppressAura=true}
  function C.skillPrerequisite(s,a,key)
-  if C.growthSkillCondition then
+  if a.id==1 and C.growthSkillCondition then
    local ok,reason=C.growthSkillCondition(s,key)
    if not ok then return false,reason end
   end
