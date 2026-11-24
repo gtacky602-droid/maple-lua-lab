@@ -648,6 +648,7 @@ def runtime():
     lua.execute((ROOT/'world-atlas.lua').read_text(encoding='utf8'))(core,lua.table_from(atlas,recursive=True))
     coop = json.loads((ROOT/'content/coop-preview.json').read_text(encoding='utf8'))
     lua.execute((ROOT/'coop.lua').read_text(encoding='utf8'))(core,lua.table_from(coop,recursive=True))
+    lua.execute((ROOT/'party-checkpoint.lua').read_text(encoding='utf8'))(core)
     return lua, core
 
 def native(value):

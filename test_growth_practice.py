@@ -138,8 +138,12 @@ act(no_join, 'companion:columbina')
 assert accept(no_join, moon) is None
 
 moon_checks = {}
-for move, kind in [('SK05', '月結晶'), ('SK09', '月感電'), ('SK13', '月開花')]:
+for move, kind, region_hub in [('SK05', '月結晶', 'liyue-harbor'),
+                                ('SK09', '月感電', 'inazuma-town'),
+                                ('SK13', '月開花', 'sumeru-hub')]:
     m = joined(120, 'nod-port', 'columbina-join', 4)
+    core.enterStoryNode(m, region_hub)
+    core.enterStoryNode(m, 'nod-port')
     act(m, 'companion:columbina')
     if move == 'SK09':
         core.configure(m, lua.table_from([[move]] + [[] for _ in range(7)], recursive=True))

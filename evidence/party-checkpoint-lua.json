@@ -1,0 +1,44 @@
+{
+  "fieldSaveReturnedToTown": true,
+  "restoredParty": {
+    "companion": {
+      "cooldowns": {
+        "skill2": 7
+      },
+      "hp": 90.25
+    },
+    "swap": 0.8,
+    "reserve": {
+      "amber": {
+        "cooldowns": {
+          "skill1": 5.5
+        },
+        "hp": 68.25
+      }
+    },
+    "traveler": {
+      "cooldowns": {
+        "dodge": 2
+      },
+      "hp": 105.5
+    }
+  },
+  "activeActorAndGaugePreserved": true,
+  "inFlightAttackCleared": true,
+  "reserveCooldownAgesOnlyDuringPlay": true,
+  "ordinaryTownVisitRestoresHp": true,
+  "legacySaveLoaded": true,
+  "downedActorStaysDown": true,
+  "suspendedAllyRestoredAfterSoloTrialSave": true,
+  "invalidCombatRecordsRejected": [
+    "nan HP",
+    "boolean HP",
+    "negative HP",
+    "unknown skill",
+    "infinite cooldown",
+    "negative cooldown",
+    "illegal reserve",
+    "unknown reserve",
+    "invalid swap time"
+  ]
+}

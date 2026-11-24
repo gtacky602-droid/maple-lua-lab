@@ -16,6 +16,10 @@ _ARTIFACT_DOMAIN_RANKS={
     for rank in domain['ranks']
 }
 _COMPANIONS=('amber','columbina','wanderer','beidou','ayaka','emilie','kachina','mitya')
+_COMBAT_COOLDOWNS = {
+    'normal', 'skill1', 'skill2', 'skill3', 'skill4', 'light', 'dodge',
+    'swimPulse', 'swimReflect', 'swimSonar', 'swimGuard', 'swimBurst',
+} | {f'SK{index:02}' for index in range(1, 61)}
 import math
 import re
 _STYGIAN_MODES={
@@ -405,8 +409,28 @@ def validate_endgame(data):
                     raise ValueError('Invalid artifact domain result')
 
 
+def validate_party_combat(party, companion):
+    if not isinstance(party, dict) or set(party) != {'traveler', 'companion', 'reserve', 'swap'}:
+        raise ValueError('パーティの戦闘保存形式が不正です')
+    if type(party['swap']) not in (int, float) or not 0 <= party['swap'] <= .8:
+        raise ValueError('操作交代の残り時間が不正です')
+    reserve = party['reserve']
+    if not isinstance(reserve, dict) or set(reserve) - (set(_COMPANIONS) - {companion}):
+        raise ValueError('控えの同行者が不正です')
+    for actor in (party['traveler'], party['companion'], *reserve.values()):
+        if not isinstance(actor, dict) or set(actor) != {'hp', 'cooldowns'}:
+            raise ValueError('キャラの戦闘保存形式が不正です')
+        if type(actor['hp']) not in (int, float) or not 0 <= actor['hp'] <= 10**9:
+            raise ValueError('保存HPが不正です')
+        cooldowns = actor['cooldowns']
+        if (not isinstance(cooldowns, dict) or set(cooldowns) - _COMBAT_COOLDOWNS
+                or any(type(value) not in (int, float) or not 0 < value <= 3600
+                       for value in cooldowns.values())):
+            raise ValueError('技の残り時間が不正です')
+
+
 def validate_save(data):
-    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses','daily','endgame','rankProof'}!=FIELDS:
+    if not isinstance(data,dict) or set(data)-{'loadout','progression','inventory','companion','story','fieldBosses','weeklyBosses','daily','endgame','rankProof','partyCombat'}!=FIELDS:
         raise ValueError('保存データの項目が一致しません')
     if type(data['version']) is not int or data['version']!=1:
         raise ValueError('対応していない保存バージョンです')
@@ -414,6 +438,8 @@ def validate_save(data):
         raise ValueError('依頼の状態が不正です')
     companion=data.get('companion','amber')
     if companion not in _COMPANIONS: raise ValueError('仲間が不正です')
+    if 'partyCombat' in data:
+        validate_party_combat(data['partyCombat'], companion)
     for key,maximum in [('count',8),('mora',10**12),('kills',10**9),('hits',10**12),('damage',10**15),('gauge',100),('active',2)]:
         if type(data[key]) is not int or not 0<=data[key]<=maximum:
             raise ValueError('保存数値が不正です: '+key)

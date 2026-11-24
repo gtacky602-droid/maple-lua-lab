@@ -8068,7 +8068,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Check party persistence when resuming from a file checkpoint, and compare the remaining conditional skill effects and visual cues with the approved handoff.",
+  "current_priority": "Compare the remaining conditional skill effects and visual cues with the approved handoff.",
   "skill_runtime_checks": {
     "traveler_activations": 60,
     "companion_activations": 40,
@@ -8085,6 +8085,11 @@
     "shared_healing_browser_evidence": "evidence/shared-water-field-browser.json"
   },
   "coop_party_transition_check": "evidence/coop-party-transition-http.json",
+  "party_checkpoint_checks": {
+    "scope": "A field checkpoint resumes at the existing hub while restoring party HP, remaining cooldowns, reserve state, and active selection. Compatible with v1 files without the optional party state.",
+    "lua_evidence": "evidence/party-checkpoint-lua.json",
+    "browser_evidence": "evidence/party-checkpoint-browser.json"
+  },
   "quest_runtime_checks": {
     "authored_story_records": 283,
     "acceptance_and_report_links": 279,
