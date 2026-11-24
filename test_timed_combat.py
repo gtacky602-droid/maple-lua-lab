@@ -27,6 +27,26 @@ s,e=scene();c.attack(s,s.actors[1],'skill2');c.action(s,'pause');tick(s,120)
 check('pause freezes pending attacks',s.hits==1 and len(s.pending)==1)
 check('paused input cannot add attacks',not c.attack(s,s.actors[1],'normal'))
 c.action(s,'pause');tick(s,127);check('tornado eight pulses finish',s.hits==8 and len(s.pending)==0)
+for direction in (1,-1):
+    s,e=scene()
+    a=s.actors[1];a.x=600;a.dir=direction;a.atk=100;a.critRate=0
+    center=a.x+direction*190
+    e.x=center+direction*120;e.home=e.x;e.root=999
+    second=lua.table(id=2,x=center-direction*100,home=center-direction*100,y=480,
+                     hp=1000,maxhp=1000,root=999,cd=999,kind=1,custom=True)
+    boss=lua.table(id=3,x=center+direction*100,home=center+direction*100,y=480,
+                   hp=1000,maxhp=1000,root=999,cd=999,kind=1,custom=True,boss=True)
+    s.enemies=lua.table_from([e,second,boss])
+    c.action(s,'skill2');tick(s,126)
+    check(f'tornado pulls enemies from both sides toward its center (dir {direction})',
+          e.x==center and second.x==center and boss.x==center+direction*100)
+    check(f'tornado deals eight hits per enemy and retains its cooldown (dir {direction})',
+          all(target.hp==360 for target in (e,second,boss)) and abs(a.cd.skill2-5.9)<1e-8)
+s,e=scene()
+a=s.actors[1];a.x=600;e.x=900;e.home=900;e.root=999
+s.solids=lua.table_from([{'x':855,'y':415,'w':20,'h':65}],recursive=True)
+c.action(s,'skill2');tick(s,126)
+check('tornado does not drag an enemy through a solid wall',e.x>=887 and s.hits==8)
 s,e=scene();c.attack(s,s.actors[1],'skill2');c.action(s,'campaign');tick(s,180)
 check('map transition cancels old attacks',len(s.pending)==0 and len(s.enemies)==0)
 s=c.new(12);c.action(s,'boss_anemo');b=s.encounter;b.phase='exposed';b.timer=20;b.invulnerable=False

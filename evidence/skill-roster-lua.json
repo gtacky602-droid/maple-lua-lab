@@ -3,302 +3,787 @@
     "SK01": {
       "input": "skill1",
       "level": 1,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 2,
+        "lock": 0.65,
+        "delay": 0,
+        "pct": 120.0,
+        "interval": 0.12,
+        "targets": 4,
+        "hits": 3
+      }
     },
     "SK02": {
       "input": "skill2",
       "level": 6,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 8,
+        "lock": 0.8,
+        "delay": 0,
+        "pct": 85.0,
+        "interval": 0.3,
+        "targets": 8,
+        "hits": 8
+      }
     },
     "SK03": {
       "input": "SK03",
       "level": 11,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 16,
+        "lock": 0
+      }
     },
     "SK04": {
       "input": "SK04",
       "level": 16,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 14,
+        "lock": 0.2
+      }
     },
     "SK05": {
       "input": "SK05",
       "level": 20,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 3,
+        "lock": 0.45,
+        "delay": 0,
+        "pct": 180.0,
+        "interval": 0.12,
+        "targets": 3,
+        "hits": 2
+      }
     },
     "SK06": {
       "input": "SK06",
       "level": 24,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 20,
+        "lock": 0.3
+      }
     },
     "SK07": {
       "input": "SK07",
       "level": 30,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 9,
+        "lock": 0.7,
+        "delay": 0,
+        "pct": 155.0,
+        "interval": 0.2,
+        "targets": 7,
+        "hits": 5
+      }
     },
     "SK08": {
       "input": "SK08",
       "level": 36,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 12,
+        "lock": 0.2
+      }
     },
     "SK09": {
       "input": "SK09",
       "level": 40,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 3,
+        "lock": 0.4,
+        "delay": 0,
+        "pct": 200,
+        "interval": 0.15,
+        "targets": 3,
+        "hits": 2
+      }
     },
     "SK10": {
       "input": "SK10",
       "level": 44,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 8,
+        "lock": 0.6,
+        "delay": 0,
+        "pct": 160.0,
+        "interval": 0.2,
+        "targets": 6,
+        "hits": 5
+      }
     },
     "SK11": {
       "input": "SK11",
       "level": 50,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 10,
+        "lock": 0.5,
+        "delay": 0,
+        "pct": 140.0,
+        "interval": 0.15,
+        "targets": 5,
+        "hits": 4
+      }
     },
     "SK12": {
       "input": "SK12",
       "level": 56,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 18,
+        "lock": 0.3,
+        "delay": 1,
+        "pct": 100,
+        "interval": 1,
+        "targets": 3,
+        "hits": 6
+      }
     },
     "SK13": {
       "input": "SK13",
       "level": 60,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 12,
+        "lock": 0.45,
+        "delay": 0,
+        "pct": 90.0,
+        "interval": 0.15,
+        "targets": 5,
+        "hits": 2
+      }
     },
     "SK14": {
       "input": "SK14",
       "level": 64,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 6,
+        "lock": 0.6,
+        "delay": 0,
+        "pct": 170.0,
+        "interval": 0.15,
+        "targets": 5,
+        "hits": 4
+      }
     },
     "SK15": {
       "input": "SK15",
       "level": 70,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 11,
+        "lock": 0.6,
+        "delay": 0,
+        "pct": 130.0,
+        "interval": 0.2,
+        "targets": 6,
+        "hits": 6
+      }
     },
     "SK16": {
       "input": "SK16",
       "level": 76,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 15,
+        "lock": 0.2
+      }
     },
     "SK17": {
       "input": "SK17",
       "level": 80,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 3,
+        "lock": 0.45,
+        "delay": 0,
+        "pct": 155.0,
+        "interval": 0.15,
+        "targets": 4,
+        "hits": 3
+      }
     },
     "SK18": {
       "input": "SK18",
       "level": 84,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 24,
+        "lock": 0.3
+      }
     },
     "SK19": {
       "input": "SK19",
       "level": 90,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 10,
+        "lock": 0.7,
+        "delay": 0,
+        "pct": 150.0,
+        "interval": 0.2,
+        "targets": 8,
+        "hits": 5
+      }
     },
     "SK20": {
       "input": "SK20",
       "level": 96,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 22,
+        "lock": 0.3
+      }
     },
     "SK21": {
       "input": "SK21",
       "level": 100,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 3,
+        "lock": 0.5,
+        "delay": 0,
+        "pct": 195.0,
+        "interval": 0.15,
+        "targets": 5,
+        "hits": 3
+      }
     },
     "SK22": {
       "input": "SK22",
       "level": 104,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 9,
+        "lock": 0.4,
+        "delay": 1,
+        "pct": 175.0,
+        "interval": 1,
+        "targets": 6,
+        "hits": 5
+      }
     },
     "SK23": {
       "input": "SK23",
       "level": 110,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 12,
+        "lock": 0.8,
+        "delay": 0,
+        "pct": 120.0,
+        "interval": 0.15,
+        "targets": 7,
+        "hits": 6
+      }
     },
     "SK24": {
       "input": "SK24",
       "level": 116,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 18,
+        "lock": 0.4,
+        "delay": 1,
+        "pct": 115.0,
+        "interval": 1,
+        "targets": 6,
+        "hits": 8
+      }
     },
     "SK25": {
       "input": "SK25",
       "level": 140,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 3,
+        "lock": 0.5,
+        "delay": 0,
+        "pct": 230.0,
+        "interval": 0.15,
+        "targets": 4,
+        "hits": 3
+      }
     },
     "SK26": {
       "input": "SK26",
       "level": 144,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 9,
+        "lock": 0.7,
+        "delay": 0,
+        "pct": 170.0,
+        "interval": 0.2,
+        "targets": 8,
+        "hits": 5
+      }
     },
     "SK27": {
       "input": "SK27",
       "level": 150,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 18,
+        "lock": 0.4,
+        "delay": 1,
+        "pct": 110.0,
+        "interval": 1,
+        "targets": 6,
+        "hits": 4
+      }
     },
     "SK28": {
       "input": "SK28",
       "level": 156,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 12,
+        "lock": 0.65,
+        "delay": 0,
+        "pct": 130.0,
+        "interval": 0.08,
+        "targets": 3,
+        "hits": 8
+      }
     },
     "SK29": {
       "input": "SK29",
       "level": 27,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 12,
+        "lock": 0.7,
+        "delay": 0,
+        "pct": 135.0,
+        "interval": 0.15,
+        "targets": 8,
+        "hits": 8
+      }
     },
     "SK30": {
       "input": "SK30",
       "level": 47,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 20,
+        "lock": 0.4,
+        "delay": 1,
+        "pct": 75.0,
+        "interval": 1,
+        "targets": 6,
+        "hits": 10
+      }
     },
     "SK31": {
       "input": "SK31",
       "level": 67,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 12,
+        "lock": 0.65,
+        "delay": 0,
+        "pct": 250.0,
+        "interval": 0.15,
+        "targets": 1,
+        "hits": 6
+      }
     },
     "SK32": {
       "input": "SK32",
       "level": 87,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 15,
+        "lock": 0.9,
+        "delay": 0,
+        "pct": 185.0,
+        "interval": 0.1,
+        "targets": 2,
+        "hits": 9
+      }
     },
     "SK33": {
       "input": "SK33",
       "level": 107,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 18,
+        "lock": 0.6,
+        "delay": 0,
+        "pct": 110.0,
+        "interval": 0.25,
+        "targets": 10,
+        "hits": 12
+      }
     },
     "SK34": {
       "input": "SK34",
       "level": 147,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 16,
+        "lock": 0.2,
+        "delay": 0,
+        "pct": 75.0,
+        "interval": 0.5,
+        "targets": 5,
+        "hits": 6
+      }
     },
     "SK35": {
       "input": "SK35",
       "level": 51,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 20,
+        "lock": 0.4,
+        "delay": 1.333333,
+        "pct": 90.0,
+        "interval": 1.333333,
+        "targets": 4,
+        "hits": 6
+      }
     },
     "SK36": {
       "input": "SK36",
       "level": 72,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 16,
+        "lock": 0.8,
+        "delay": 0,
+        "pct": 460.0,
+        "interval": 0.25,
+        "targets": 2,
+        "hits": 3
+      }
     },
     "SK37": {
       "input": "SK37",
       "level": 91,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 24,
+        "lock": 0.3
+      }
     },
     "SK38": {
       "input": "SK38",
       "level": 111,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 25,
+        "lock": 0.4,
+        "delay": 1,
+        "pct": 65.0,
+        "interval": 1,
+        "targets": 5,
+        "hits": 10
+      }
     },
     "SK39": {
       "input": "SK39",
       "level": 151,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 18,
+        "lock": 0.8,
+        "delay": 0,
+        "pct": 350.0,
+        "interval": 0.15,
+        "targets": 3,
+        "hits": 6
+      }
     },
     "SK40": {
       "input": "SK40",
       "level": 77,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 20,
+        "lock": 0.4,
+        "delay": 1,
+        "pct": 125.0,
+        "interval": 1,
+        "targets": 5,
+        "hits": 10
+      }
     },
     "SK41": {
       "input": "SK41",
       "level": 95,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 16,
+        "lock": 0.4,
+        "delay": 1,
+        "pct": 100,
+        "interval": 1,
+        "targets": 7,
+        "hits": 8
+      }
     },
     "SK42": {
       "input": "SK42",
       "level": 114,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 16,
+        "lock": 0.7,
+        "delay": 0,
+        "pct": 170.0,
+        "interval": 0.15,
+        "targets": 10,
+        "hits": 8
+      }
     },
     "SK43": {
       "input": "SK43",
       "level": 153,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 14,
+        "lock": 0.7,
+        "delay": 0,
+        "pct": 180.0,
+        "interval": 0.15,
+        "targets": 8,
+        "hits": 7
+      }
     },
     "SK44": {
       "input": "SK44",
       "level": 97,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 20,
+        "lock": 0.4,
+        "delay": 0.666667,
+        "pct": 115.0,
+        "interval": 0.666667,
+        "targets": 8,
+        "hits": 12
+      }
     },
     "SK45": {
       "input": "SK45",
       "level": 117,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 20,
+        "lock": 0.4
+      }
     },
     "SK46": {
       "input": "SK46",
       "level": 157,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 12,
+        "lock": 0.39334745737353155
+      }
     },
     "SK47": {
       "input": "SK47",
       "level": 118,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 20,
+        "lock": 0.4,
+        "delay": 1.166667,
+        "pct": 70.0,
+        "interval": 1.166667,
+        "targets": 6,
+        "hits": 6
+      }
     },
     "SK48": {
       "input": "SK48",
       "level": 158,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 18,
+        "lock": 0.3,
+        "delay": 1.2,
+        "pct": 80.0,
+        "interval": 1.2,
+        "targets": 5,
+        "hits": 5
+      }
     },
     "SK49": {
       "input": "SK49",
       "level": 159,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 18,
+        "lock": 0.65,
+        "delay": 0,
+        "pct": 350.0,
+        "interval": 0.1,
+        "targets": 3,
+        "hits": 6
+      }
     },
     "SK50": {
       "input": "SK50",
       "level": 78,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 32,
+        "lock": 0.5,
+        "delay": 1,
+        "pct": 115.0,
+        "interval": 1,
+        "targets": 6,
+        "hits": 10
+      }
     },
     "SK51": {
       "input": "SK51",
       "level": 98,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 32,
+        "lock": 0.7,
+        "delay": 0,
+        "pct": 180.0,
+        "interval": 0.1,
+        "targets": 10,
+        "hits": 10
+      }
     },
     "SK52": {
       "input": "SK52",
       "level": 119,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 34,
+        "lock": 3,
+        "delay": 0.25,
+        "pct": 245.0,
+        "interval": 0.25,
+        "targets": 3,
+        "hits": 12
+      }
     },
     "SK53": {
       "input": "SK53",
       "level": 158,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 36,
+        "lock": 0.5,
+        "delay": 1,
+        "pct": 115.0,
+        "interval": 1,
+        "targets": 6,
+        "hits": 12
+      }
     },
     "SK54": {
       "input": "SK54",
       "level": 127,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 22,
+        "lock": 0.5,
+        "delay": 1,
+        "pct": 90.0,
+        "interval": 1,
+        "targets": 8,
+        "hits": 12
+      }
     },
     "SK55": {
       "input": "SK55",
       "level": 133,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 24,
+        "lock": 0.5,
+        "delay": 0.8,
+        "pct": 125.0,
+        "interval": 0.8,
+        "targets": 6,
+        "hits": 10
+      }
     },
     "SK56": {
       "input": "SK56",
       "level": 149,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 28,
+        "lock": 0.6,
+        "delay": 1,
+        "pct": 110.0,
+        "interval": 1,
+        "targets": 8,
+        "hits": 12
+      }
     },
     "SK57": {
       "input": "SK57",
       "level": 155,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 30,
+        "lock": 1,
+        "delay": 0.12,
+        "pct": 450.0,
+        "interval": 0.116,
+        "targets": 3,
+        "hits": 6
+      }
     },
     "SK58": {
       "input": "SK58",
       "level": 160,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 60,
+        "lock": 0.35
+      }
     },
     "SK59": {
       "input": "SK59",
       "level": 170,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 24,
+        "lock": 0.35,
+        "delay": 0.12,
+        "pct": 110.0,
+        "interval": 0.15,
+        "targets": 3,
+        "hits": 2
+      }
     },
     "SK60": {
       "input": "SK60",
       "level": 180,
-      "acceptedInBattle": true
+      "acceptedInBattle": true,
+      "profile": {
+        "cooldown": 90,
+        "lock": 2.8,
+        "delay": 0.12,
+        "pct": 250.0,
+        "interval": 0.134,
+        "targets": 15,
+        "hits": 20
+      }
     }
   },
   "companions": {
@@ -309,6 +794,53 @@
         "amber_2": "skill3",
         "amber_3": "skill4",
         "amber_4": "skill2"
+      },
+      "profiles": {
+        "amber_0": {
+          "cooldown": 0,
+          "lock": 0.7,
+          "delay": 0.15,
+          "pct": 95.0,
+          "interval": 0.08,
+          "targets": 2,
+          "hits": 2
+        },
+        "amber_1": {
+          "cooldown": 7,
+          "lock": 0.65,
+          "delay": 0.15,
+          "pct": 170.0,
+          "interval": 0.08,
+          "targets": 4,
+          "hits": 4
+        },
+        "amber_2": {
+          "cooldown": 14,
+          "lock": 0.45,
+          "delay": 3.8,
+          "pct": 200,
+          "interval": 0.1,
+          "targets": 6,
+          "hits": 3
+        },
+        "amber_3": {
+          "cooldown": 9,
+          "lock": 0.5,
+          "delay": 0.15,
+          "pct": 125.0,
+          "interval": 0.08,
+          "targets": 3,
+          "hits": 3
+        },
+        "amber_4": {
+          "cooldown": 24,
+          "lock": 0.8,
+          "delay": 0.4,
+          "pct": 105.0,
+          "interval": 0.3,
+          "targets": 8,
+          "hits": 12
+        }
       },
       "reloadedOwner": true,
       "autonomousInput": true
@@ -321,6 +853,48 @@
         "beidou_3": "skill3",
         "beidou_4": "skill4"
       },
+      "profiles": {
+        "beidou_0": {
+          "cooldown": 0,
+          "lock": 0.85,
+          "delay": 0.15,
+          "pct": 115.0,
+          "interval": 0.08,
+          "targets": 3,
+          "hits": 2
+        },
+        "beidou_1": {
+          "cooldown": 8,
+          "lock": 0.85,
+          "delay": 0.15,
+          "pct": 260.0,
+          "interval": 0.08,
+          "targets": 5,
+          "hits": 5
+        },
+        "beidou_2": {
+          "cooldown": 7,
+          "lock": 0.75,
+          "delay": 0.15,
+          "pct": 150.0,
+          "interval": 0.08,
+          "targets": 6,
+          "hits": 4
+        },
+        "beidou_3": {
+          "cooldown": 15,
+          "lock": 0.35
+        },
+        "beidou_4": {
+          "cooldown": 22,
+          "lock": 0.55,
+          "delay": 0.8,
+          "pct": 110.0,
+          "interval": 1.2,
+          "targets": 5,
+          "hits": 8
+        }
+      },
       "reloadedOwner": true,
       "autonomousInput": true
     },
@@ -331,6 +905,48 @@
         "ayaka_2": "skill2",
         "ayaka_3": "skill3",
         "ayaka_4": "skill4"
+      },
+      "profiles": {
+        "ayaka_0": {
+          "cooldown": 0,
+          "lock": 0.75,
+          "delay": 0.15,
+          "pct": 100,
+          "interval": 0.08,
+          "targets": 3,
+          "hits": 3
+        },
+        "ayaka_1": {
+          "cooldown": 6,
+          "lock": 0.45,
+          "delay": 0.15,
+          "pct": 125.0,
+          "interval": 0.08,
+          "targets": 4,
+          "hits": 3
+        },
+        "ayaka_2": {
+          "cooldown": 8,
+          "lock": 0.7,
+          "delay": 0.15,
+          "pct": 160.0,
+          "interval": 0.08,
+          "targets": 6,
+          "hits": 6
+        },
+        "ayaka_3": {
+          "cooldown": 10,
+          "lock": 0.3
+        },
+        "ayaka_4": {
+          "cooldown": 25,
+          "lock": 0.75,
+          "delay": 0.4,
+          "pct": 150.0,
+          "interval": 0.25,
+          "targets": 6,
+          "hits": 12
+        }
       },
       "reloadedOwner": true,
       "autonomousInput": true
@@ -343,6 +959,48 @@
         "wanderer_3": "skill3",
         "wanderer_4": "skill4"
       },
+      "profiles": {
+        "wanderer_0": {
+          "cooldown": 0,
+          "lock": 0.7,
+          "delay": 0.15,
+          "pct": 120.0,
+          "interval": 0.08,
+          "targets": 3,
+          "hits": 3
+        },
+        "wanderer_1": {
+          "cooldown": 18,
+          "lock": 0.35
+        },
+        "wanderer_2": {
+          "cooldown": 9,
+          "lock": 0.75,
+          "delay": 0.15,
+          "pct": 120.0,
+          "interval": 0.08,
+          "targets": 6,
+          "hits": 6
+        },
+        "wanderer_3": {
+          "cooldown": 10,
+          "lock": 0.4,
+          "delay": 0.15,
+          "pct": 100,
+          "interval": 0.08,
+          "targets": 4,
+          "hits": 3
+        },
+        "wanderer_4": {
+          "cooldown": 24,
+          "lock": 0.8,
+          "delay": 0.15,
+          "pct": 165.0,
+          "interval": 0.08,
+          "targets": 8,
+          "hits": 8
+        }
+      },
       "reloadedOwner": true,
       "autonomousInput": true
     },
@@ -353,6 +1011,48 @@
         "emilie_2": "skill2",
         "emilie_3": "skill3",
         "emilie_4": "skill4"
+      },
+      "profiles": {
+        "emilie_0": {
+          "cooldown": 0,
+          "lock": 0.75,
+          "delay": 0.15,
+          "pct": 90.0,
+          "interval": 0.08,
+          "targets": 3,
+          "hits": 2
+        },
+        "emilie_1": {
+          "cooldown": 16,
+          "lock": 0.45,
+          "delay": 0.5,
+          "pct": 90.0,
+          "interval": 1,
+          "targets": 6,
+          "hits": 10
+        },
+        "emilie_2": {
+          "cooldown": 8,
+          "lock": 0.55,
+          "delay": 0.15,
+          "pct": 135.0,
+          "interval": 0.08,
+          "targets": 5,
+          "hits": 4
+        },
+        "emilie_3": {
+          "cooldown": 18,
+          "lock": 0.35
+        },
+        "emilie_4": {
+          "cooldown": 24,
+          "lock": 0.65,
+          "delay": 0.4,
+          "pct": 140.0,
+          "interval": 0.3,
+          "targets": 8,
+          "hits": 10
+        }
       },
       "reloadedOwner": true,
       "autonomousInput": true
@@ -365,6 +1065,48 @@
         "kachina_3": "skill3",
         "kachina_4": "skill4"
       },
+      "profiles": {
+        "kachina_0": {
+          "cooldown": 0,
+          "lock": 0.75,
+          "delay": 0.15,
+          "pct": 100,
+          "interval": 0.08,
+          "targets": 3,
+          "hits": 2
+        },
+        "kachina_1": {
+          "cooldown": 16,
+          "lock": 0.45,
+          "delay": 0.5,
+          "pct": 110.0,
+          "interval": 1.1,
+          "targets": 6,
+          "hits": 8
+        },
+        "kachina_2": {
+          "cooldown": 10,
+          "lock": 0.65,
+          "delay": 0.15,
+          "pct": 140.0,
+          "interval": 0.08,
+          "targets": 5,
+          "hits": 5
+        },
+        "kachina_3": {
+          "cooldown": 12,
+          "lock": 0.3
+        },
+        "kachina_4": {
+          "cooldown": 24,
+          "lock": 0.8,
+          "delay": 0.15,
+          "pct": 185.0,
+          "interval": 0.08,
+          "targets": 8,
+          "hits": 7
+        }
+      },
       "reloadedOwner": true,
       "autonomousInput": true
     },
@@ -375,6 +1117,48 @@
         "columbina_2": "skill2",
         "columbina_3": "skill3",
         "columbina_4": "skill4"
+      },
+      "profiles": {
+        "columbina_0": {
+          "cooldown": 0,
+          "lock": 0.8,
+          "delay": 0.15,
+          "pct": 90.0,
+          "interval": 0.08,
+          "targets": 3,
+          "hits": 3
+        },
+        "columbina_1": {
+          "cooldown": 15,
+          "lock": 0.45,
+          "delay": 0.4,
+          "pct": 70.0,
+          "interval": 0.6,
+          "targets": 6,
+          "hits": 10
+        },
+        "columbina_2": {
+          "cooldown": 20,
+          "lock": 0.5,
+          "delay": 0.6,
+          "pct": 45.0,
+          "interval": 1.2,
+          "targets": 6,
+          "hits": 8
+        },
+        "columbina_3": {
+          "cooldown": 12,
+          "lock": 0.35
+        },
+        "columbina_4": {
+          "cooldown": 26,
+          "lock": 0.75,
+          "delay": 0.15,
+          "pct": 110.0,
+          "interval": 0.08,
+          "targets": 8,
+          "hits": 10
+        }
       },
       "reloadedOwner": true,
       "autonomousInput": true
@@ -387,9 +1171,56 @@
         "mitya_3": "skill3",
         "mitya_4": "skill4"
       },
+      "profiles": {
+        "mitya_0": {
+          "cooldown": 0,
+          "lock": 0.75,
+          "delay": 0.15,
+          "pct": 95.0,
+          "interval": 0.08,
+          "targets": 3,
+          "hits": 2
+        },
+        "mitya_1": {
+          "cooldown": 7,
+          "lock": 0.6,
+          "delay": 0.15,
+          "pct": 140.0,
+          "interval": 0.08,
+          "targets": 5,
+          "hits": 5
+        },
+        "mitya_2": {
+          "cooldown": 20,
+          "lock": 0.5,
+          "delay": 0.6,
+          "pct": 80.0,
+          "interval": 1.2,
+          "targets": 6,
+          "hits": 8
+        },
+        "mitya_3": {
+          "cooldown": 10,
+          "lock": 0.4,
+          "delay": 0.15,
+          "pct": 115.0,
+          "interval": 0.08,
+          "targets": 4,
+          "hits": 3
+        },
+        "mitya_4": {
+          "cooldown": 24,
+          "lock": 0.75,
+          "delay": 0.15,
+          "pct": 150.0,
+          "interval": 0.08,
+          "targets": 8,
+          "hits": 7
+        }
+      },
       "reloadedOwner": true,
       "autonomousInput": true
     }
   },
-  "scope": "Prepared regional visits, levels and combat targets. Records accepted player casts and one autonomous action per companion. Damage balance and all fight matchups are outside this probe."
+  "scope": "Prepared regional visits, levels and combat targets. Includes cooldown at activation, configured cast profiles and one autonomous action per companion. The cast profile does not count actual hits or apply damage modifiers; conditional followups have separate tests."
 }

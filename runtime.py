@@ -55,6 +55,8 @@ def field_art(lua, prefix, poses, *, idle=None, idle_anchor=None, variants=None)
 def runtime():
     lua = LuaRuntime(unpack_returned_tuples=True)
     core = lua.execute((ROOT / 'core.lua').read_text(encoding='utf-8'))
+    skill_settings = json.loads((ROOT / 'content/skill-runtime-settings.json').read_text(encoding='utf8'))
+    core.tornadoPull = skill_settings['tornado']['pull_pixels_per_hit']
     lua.execute((ROOT / 'campaign.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'anemo.lua').read_text(encoding='utf-8'))(core)
     lua.execute((ROOT / 'traveler-utility.lua').read_text(encoding='utf-8'))(core)

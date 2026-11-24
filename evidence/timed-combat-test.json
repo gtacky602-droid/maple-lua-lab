@@ -1,5 +1,5 @@
 {
-  "count": 16,
+  "count": 21,
   "checks": [
     "only first hit occurs at cast",
     "next hit waits for interval",
@@ -12,6 +12,11 @@
     "pause freezes pending attacks",
     "paused input cannot add attacks",
     "tornado eight pulses finish",
+    "tornado pulls enemies from both sides toward its center (dir 1)",
+    "tornado deals eight hits per enemy and retains its cooldown (dir 1)",
+    "tornado pulls enemies from both sides toward its center (dir -1)",
+    "tornado deals eight hits per enemy and retains its cooldown (dir -1)",
+    "tornado does not drag an enemy through a solid wall",
     "map transition cancels old attacks",
     "Anemo immunity rejects all wind hits",
     "physical normal attacks work",

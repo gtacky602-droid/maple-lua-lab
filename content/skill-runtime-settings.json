@@ -1,0 +1,5 @@
+{
+  "tornado": {
+    "pull_pixels_per_hit": 24
+  }
+}

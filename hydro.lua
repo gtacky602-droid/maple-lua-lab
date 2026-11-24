@@ -36,6 +36,21 @@ return function(C)
   local zone=s.campaign and s.campaign.zone;action(s,key)
   if zone~=(s.campaign and s.campaign.zone) or key=='boss_anemo' then clear(s) end
  end
+ function C.advanceWaterField(s,dt)
+  local field=s.healingField
+  if not field or s.paused then return end
+  if s.actors[field.owner].hp<=0 then s.healingField=nil;return end
+  field.elapsed=field.elapsed+dt
+  if field.elapsed+1e-8<field.pulses+1 then return end
+  field.pulses=field.pulses+1
+  if field.pulses==6 then s.healingField=nil end
+  return field
+ end
+ function C.healInWaterField(s,a,field)
+  if a.hp<=0 or math.abs(a.x-field.x)>field.radius or math.abs(a.y-field.y)>=75 then return false end
+  C.healActor(s,a,a.maxhp*.025)
+  return true
+ end
  function C.step(s,dt,input)
   if s.paused then return step(s,dt,input) end
   dt=math.max(0,math.min(dt,1/30))
@@ -43,28 +58,19 @@ return function(C)
    a.waterShield.life=a.waterShield.life-dt
    if a.waterShield.life<=0 or a.hp<=0 then a.waterShield=nil end
   end end
-  local field=s.healingField
-  if field then
-   if s.actors[field.owner].hp<=0 then s.healingField=nil
-   else
-    field.elapsed=field.elapsed+dt
-    if field.pulses<6 and field.elapsed+1e-8>=field.pulses+1 then
-     field.pulses=field.pulses+1;local count=0
-     for _,a in ipairs(s.actors) do if count<8 and a.hp>0 and math.abs(a.x-field.x)<=field.radius and math.abs(a.y-field.y)<75 then
-      C.healActor(s,a,a.maxhp*.025);count=count+1
-     end end
-    end
-    if field.pulses>=6 then s.healingField=nil end
-   end
+  if not s.coop or not C.sharesCoopField(s) then
+   local field=C.advanceWaterField(s,dt)
+   if field then for _,a in ipairs(s.actors) do C.healInWaterField(s,a,field) end end
   end
   local returns=s.returns;step(s,dt,input)
   if s.returns~=returns then clear(s) end
  end
+ function C.drawWaterField(f,camera,field)
+  f.draws[#f.draws+1]={kind='rect',x=field.x-field.radius-camera,y=field.y-8,w=field.radius*2,h=8,color='#70cce9'}
+ end
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile);f.healingField=s.healingField
-  if s.healingField then local d=s.healingField
-   f.draws[#f.draws+1]={kind='rect',x=d.x-d.radius-s.camera,y=d.y-8,w=d.radius*2,h=8,color='#70cce9'}
-  end
+  if s.healingField then C.drawWaterField(f,s.camera,s.healingField) end
   for _,a in ipairs(s.actors) do if a.waterShield then
    local x=a.x-s.camera
    f.draws[#f.draws+1]={kind='rect',x=x-24,y=a.y-60,w=4,h=60,color='#a1e7ff'}

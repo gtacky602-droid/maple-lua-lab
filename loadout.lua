@@ -1,4 +1,4 @@
--- Eight slots, at most three nonrecursive skill IDs per slot. Lab unlocks only.
+-- Eight slots, at most three nonrecursive skill IDs per slot.
 return function(C)
  local action,step,frame,checkpoint,restore=C.action,C.step,C.frame,C.checkpoint,C.restore
  local available={SK01='skill1',SK02='skill2',SK03='SK03',SK04='SK04',SK05='SK05',SK06='SK06',SK07='SK07',SK08='SK08',SK09='SK09',SK10='SK10',SK11='SK11',SK12='SK12',SK13='SK13',SK14='SK14',SK15='SK15',SK16='SK16',SK17='SK17',SK18='SK18',SK19='SK19',SK20='SK20',SK21='SK21',SK22='SK22',SK23='SK23',SK24='SK24',SK25='SK25',SK26='SK26',SK27='SK27',SK28='SK28',SK29='SK29',SK30='SK30',SK31='SK31',SK32='SK32',SK33='SK33',SK34='SK34',SK35='SK35',SK36='SK36',SK37='SK37',SK38='SK38',SK39='SK39',SK40='SK40',SK41='SK41',SK42='SK42',SK43='SK43',SK44='SK44',SK45='SK45',SK46='SK46',SK47='SK47',SK48='SK48',SK49='SK49',SK50='SK50',SK51='SK51',SK52='SK52',SK53='SK53',SK54='SK54',SK55='SK55',SK56='SK56',SK57='SK57',SK58='SK58',SK59='SK59',SK60='SK60'}

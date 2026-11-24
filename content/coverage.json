@@ -8068,15 +8068,21 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Compare remaining skill effects and timings with the approved handoff. Review party state when returning from a file checkpoint separately from reconnecting to a live room.",
+  "current_priority": "Check party persistence when resuming from a file checkpoint, and compare the remaining conditional skill effects and visual cues with the approved handoff.",
   "skill_runtime_checks": {
     "traveler_activations": 60,
     "companion_activations": 40,
     "autonomous_companions_after_restore": 8,
     "regional_skills": 53,
-    "scope": "Lua combat accepts each skill with the relevant combat setup and tests regional and level locks. Chrome covers one regional acquisition, loadout restoration, and a dodge interrupt. Damage tuning and presentation vary by skill.",
+    "cooldowns_matched_to_catalog": 100,
+    "traveler_cast_profiles_matched_to_catalog": 48,
+    "companion_attack_profiles_matched_to_catalog": 34,
+    "scope": "Prepared combat checks cooldowns, static damage profiles, and companion action locks and scheduled timings. Special followups and actual hits have separate tests. Chrome covers a regional acquisition, loadout restoration, a dodge interrupt, and the shared water field.",
     "lua_evidence": "evidence/skill-roster-lua.json",
-    "browser_evidence": "evidence/skill-learning-browser.json"
+    "browser_evidence": "evidence/skill-learning-browser.json",
+    "tornado_hit_and_pull_evidence": "evidence/timed-combat-test.json",
+    "shared_healing_evidence": "evidence/hydro-test.json",
+    "shared_healing_browser_evidence": "evidence/shared-water-field-browser.json"
   },
   "coop_party_transition_check": "evidence/coop-party-transition-http.json",
   "quest_runtime_checks": {

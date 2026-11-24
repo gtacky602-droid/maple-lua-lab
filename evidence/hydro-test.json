@@ -1,5 +1,5 @@
 {
-  "count": 22,
+  "count": 32,
   "checks": [
     "water shots three 155 percent hits",
     "wave pushes small targets through five hits",
@@ -22,6 +22,16 @@
     "map clears field and shield",
     "death clears owned support effects",
     "hydro skills equip",
-    "hydro slots persist"
+    "hydro slots persist",
+    "host casts healing through its normal battle input",
+    "guest sees the host healing field",
+    "shared healing waits one second",
+    "one field heals all eight fighters once",
+    "guest casts an overlapping field one half-second out of phase",
+    "guest starts its own overlapping field",
+    "overlapping fields do not add an extra heal between one-second pulses",
+    "no resurrection and no healing off map or offline",
+    "first field grants six pulses then the later field continues at the same rate",
+    "later field supplies one subsequent pulse and expires"
   ]
 }

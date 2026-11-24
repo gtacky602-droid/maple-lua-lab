@@ -13,7 +13,7 @@ return function(C, config)
  end
 
  function C.newCoop(s)
-  local room={node=s.story.node,enemies=s.enemies,solids=s.solids,time=s.t,tick=0,members={},nextId=0}
+  local room={node=s.story.node,enemies=s.enemies,solids=s.solids,time=s.t,tick=0,members={},nextId=0,waterHealUntil={}}
   C.adoptCoopField(room,s)
   C.adoptCoopWeekly(room,s)
   C.adoptCoopStygian(room,s)
@@ -45,6 +45,7 @@ return function(C, config)
   local s=member.state
   local room=s.coop
   if not room then return end
+  for _,a in ipairs(s.actors) do room.waterHealUntil[a]=nil end
   for i,row in ipairs(room.members) do if row==member then table.remove(room.members,i);break end end
   C.leaveCoopWeekly(room,s)
   local stillShared=s.enemies==room.enemies
@@ -56,6 +57,19 @@ return function(C, config)
     s.enemies={}
    else
     C.enterStoryNode(s,C.weeklyCoopSite(s) or s.story.node)
+   end
+  end
+ end
+
+ local function healSharedField(room,parties,actors,owners,dt)
+  for _,party in ipairs(parties) do
+   local field=C.advanceWaterField(party,dt)
+   if field then
+    for _,a in ipairs(actors) do
+     if room.time+1e-8>=(room.waterHealUntil[a] or 0) and C.healInWaterField(owners[a],a,field) then
+      room.waterHealUntil[a]=room.time+1
+     end
+    end
    end
   end
  end
@@ -122,6 +136,7 @@ return function(C, config)
     end
    end
   end
+  healSharedField(room,parties,actors,owners,dt)
   C.advanceEnemies({enemies=room.enemies},dt,actors,decoys,owners)
   C.advanceCoopField(room,actors,owners,parties)
   if room.weeklySlot and #parties>0 then C.advanceCoopWeekly(room,actors,owners,parties,dt) end
@@ -135,6 +150,7 @@ return function(C, config)
     local peer=member.state
     if peer.rockWall then C.drawRockWall(f,s.camera,peer.rockWall) end
     if peer.coralWall then C.drawCoralWall(f,s.camera,peer.coralWall) end
+    if peer.healingField then C.drawWaterField(f,s.camera,peer.healingField) end
     local camera={camera=s.camera,companion=peer.companion}
     for _,a in ipairs(peer.actors) do
      if a.hp>0 and a.x>=s.camera-55 and a.x<=s.camera+1015 then

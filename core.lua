@@ -250,7 +250,11 @@ local function pulse(s,cast)
   if allowed and hit(s,cast,e,cast.mult,cast.color,cast.element) then
    if count==0 then cast.contactTargets=cast.contactTargets+1 end;cast.contactHits[id]=count+1
    touched=true
-   if cast.pull and not e.boss then e.x=e.x+clamp(cast.x-e.x,-cast.pull,cast.pull);e.home=e.x end
+   if cast.pull and e.hp>0 and not e.boss then
+    local center=cast.pullCenter or cast.x
+    local nextX=e.x+clamp(center-e.x,-cast.pull,cast.pull)
+    if not C.pathClear or C.pathClear(s,e,nextX,e.y) then e.x=nextX;e.home=nextX end
+   end
    if cast.armorBreak then e.armorBreak=cast.armorBreak end
    if cast.physicalBreak then e.physicalBreak=cast.physicalBreak end
    if cast.chill then e.chill=cast.chill end
@@ -312,6 +316,10 @@ function C.attack(s,a,key)
   key=key,isNormal=key=='normal',normalBonus=a.normalBonus,skillBonus=a.skillBonus,troupe4=a.troupe4,critRate=a.critRate,critDamageBonus=a.critDamageBonus,
   element=key=='normal' and 'physical' or (a.id==1 and 'anemo' or 'pyro'),
   remaining=hits,interval=interval,gain=key=='normal' and 2 or 5}
+ if a.id==1 and key=='skill2' then
+  cast.pull=C.tornadoPull
+  cast.pullCenter=clamp(a.x+a.dir*range/2,20,(s.worldwidth or 2880)-20)
+ end
  if key=='normal' and a.id==1 and a.light>0 then cast.lightNormal=true;cast.suppressAura=true end
  if definition then
   cast.element=definition.element;cast.push=definition.push;cast.travelSpeed=definition.travelSpeed;cast.groundOnly=definition.groundOnly;cast.chain=definition.chain;cast.root=definition.root;cast.vertical=definition.vertical;cast.homing=definition.homing;cast.upward=definition.upward
