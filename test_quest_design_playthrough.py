@@ -52,9 +52,18 @@ PLAYTHROUGHS = {
 
 OBSERVE_ACTIONS = """
 return function(C, observe)
- local action=C.action
+ local action,restore=C.action,C.restore
  local function slot(rows,id)
   for _,r in ipairs(rows) do if r.id==id then return r end end
+ end
+ function C.restore(data,density)
+  local s=restore(data,density)
+  if s.story and s.story.quests then
+   for id,record in pairs(s.story.quests) do
+    if record.status=='complete' then observe('restored',id,record.count) end
+   end
+  end
+  return s
  end
  function C.action(s,key)
   local source,command,id=key:match('^(%a+)_(%a+):([%w%-]+)$')
@@ -93,7 +102,7 @@ def content(name):
     return json.loads((ROOT / 'content' / name).read_text(encoding='utf8'))
 
 
-def run_playthrough(name, quests, coverage):
+def run_playthrough(name, quests, coverage, restored=None):
     script = ROOT / f'test_{name}.py'
     events = defaultdict(dict)
     original = runtime.runtime
@@ -103,6 +112,8 @@ def run_playthrough(name, quests, coverage):
             return
         if event == 'paid':
             assert count == quests[id]['goal'], (script.name, id, count)
+        if event == 'restored' and 'paid' not in events[id]:
+            return
         events[id][event] = count
 
     def instrumented_runtime():
@@ -119,6 +130,8 @@ def run_playthrough(name, quests, coverage):
     for id, observed in events.items():
         if {'accepted', 'paid'} <= observed.keys():
             coverage[id].append(script.name)
+            if restored is not None and observed.get('restored') == quests[id]['goal']:
+                restored[id].append(script.name)
 
 
 def main():

@@ -1,0 +1,402 @@
+{
+  "cases": {
+    "mond-border-check": {
+      "level": 1,
+      "outbound": [
+        "mond-road",
+        "mond-border"
+      ],
+      "inbound": [
+        "mond-road",
+        "mond-town"
+      ],
+      "reportHub": "mond-town",
+      "priorDiscovery": null,
+      "xp": 250,
+      "mora": 100,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "liyue-entry-check": {
+      "level": 20,
+      "outbound": [
+        "liyue-entry"
+      ],
+      "inbound": [
+        "liyue-harbor"
+      ],
+      "reportHub": "liyue-harbor",
+      "priorDiscovery": null,
+      "xp": 400,
+      "mora": 150,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "inazuma-delivery": {
+      "level": 40,
+      "outbound": [
+        "inazuma-road",
+        "inazuma-town"
+      ],
+      "inbound": [
+        "inazuma-road",
+        "inazuma-port"
+      ],
+      "reportHub": "inazuma-port",
+      "priorDiscovery": null,
+      "xp": 1500,
+      "mora": 200,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "sumeru-entry-check": {
+      "level": 60,
+      "outbound": [
+        "sumeru-entry"
+      ],
+      "inbound": [
+        "sumeru-hub"
+      ],
+      "reportHub": "sumeru-hub",
+      "priorDiscovery": null,
+      "xp": 2000,
+      "mora": 200,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "fontaine-entry-check": {
+      "level": 80,
+      "outbound": [
+        "fontaine-entry"
+      ],
+      "inbound": [
+        "fontaine-hub"
+      ],
+      "reportHub": "fontaine-hub",
+      "priorDiscovery": null,
+      "xp": 3000,
+      "mora": 200,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "natlan-entry-check": {
+      "level": 100,
+      "outbound": [
+        "natlan-entry"
+      ],
+      "inbound": [
+        "natlan-hub"
+      ],
+      "reportHub": "natlan-hub",
+      "priorDiscovery": null,
+      "xp": 4200,
+      "mora": 200,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "ochkanatlan-survey": {
+      "level": 120,
+      "outbound": [
+        "ochkanatlan-ruins"
+      ],
+      "inbound": [
+        "ochkanatlan-dock"
+      ],
+      "reportHub": "ochkanatlan-dock",
+      "priorDiscovery": null,
+      "xp": 5000,
+      "mora": 300,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "snezhnaya-entry-check": {
+      "level": 140,
+      "outbound": [
+        "snezhnaya-entry"
+      ],
+      "inbound": [
+        "snezhnaya-hub"
+      ],
+      "reportHub": "snezhnaya-hub",
+      "priorDiscovery": null,
+      "xp": 8000,
+      "mora": 300,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "dragonspine-survey": {
+      "level": 1,
+      "outbound": [
+        "dragonspine-depth"
+      ],
+      "inbound": [
+        "dragonspine-camp"
+      ],
+      "reportHub": "dragonspine-camp",
+      "priorDiscovery": null,
+      "xp": 1300,
+      "mora": 230,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "chenyu-survey": {
+      "level": 20,
+      "outbound": [
+        "chenyu-depth"
+      ],
+      "inbound": [
+        "chenyu-camp"
+      ],
+      "reportHub": "chenyu-camp",
+      "priorDiscovery": null,
+      "xp": 1800,
+      "mora": 280,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "enkanomiya-survey": {
+      "level": 40,
+      "outbound": [
+        "enkanomiya-depth"
+      ],
+      "inbound": [
+        "enkanomiya-camp"
+      ],
+      "reportHub": "enkanomiya-camp",
+      "priorDiscovery": null,
+      "xp": 2000,
+      "mora": 300,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "tunigi-survey": {
+      "level": 60,
+      "outbound": [
+        "tunigi-depth"
+      ],
+      "inbound": [
+        "tunigi-camp"
+      ],
+      "reportHub": "tunigi-camp",
+      "priorDiscovery": null,
+      "xp": 2300,
+      "mora": 330,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "bygone-survey": {
+      "level": 80,
+      "outbound": [
+        "bygone-depth"
+      ],
+      "inbound": [
+        "bygone-camp"
+      ],
+      "reportHub": "bygone-camp",
+      "priorDiscovery": null,
+      "xp": 3500,
+      "mora": 450,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "dornman-survey": {
+      "level": 1,
+      "outbound": [
+        "dornman-depth"
+      ],
+      "inbound": [
+        "dornman-camp"
+      ],
+      "reportHub": "dornman-camp",
+      "priorDiscovery": null,
+      "xp": 4000,
+      "mora": 500,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "nod-special-survey": {
+      "level": 120,
+      "outbound": [
+        "nod-special-depth"
+      ],
+      "inbound": [
+        "nod-special-camp"
+      ],
+      "reportHub": "nod-special-camp",
+      "priorDiscovery": null,
+      "xp": 5000,
+      "mora": 600,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "novokichev-survey": {
+      "level": 140,
+      "outbound": [
+        "novokichev-depth"
+      ],
+      "inbound": [
+        "novokichev-camp"
+      ],
+      "reportHub": "novokichev-camp",
+      "priorDiscovery": null,
+      "xp": 6000,
+      "mora": 700,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "wingspan-survey": {
+      "level": 140,
+      "outbound": [
+        "wingspan-lookout"
+      ],
+      "inbound": [
+        "wingspan-camp"
+      ],
+      "reportHub": "wingspan-camp",
+      "priorDiscovery": null,
+      "xp": 6000,
+      "mora": 700,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "chasm-survey": {
+      "level": 20,
+      "outbound": [
+        "chasm-depth"
+      ],
+      "inbound": [
+        "chasm-camp"
+      ],
+      "reportHub": "chasm-camp",
+      "priorDiscovery": null,
+      "xp": 1100,
+      "mora": 300,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "chasm-wetland-survey": {
+      "level": 20,
+      "outbound": [
+        "chasm-depth",
+        "chasm-wp-25266",
+        "chasm-wp-25267",
+        "chasm-wp-25270"
+      ],
+      "inbound": [
+        "chasm-wp-25267",
+        "chasm-wp-25266",
+        "chasm-depth",
+        "chasm-camp"
+      ],
+      "reportHub": "chasm-camp",
+      "priorDiscovery": null,
+      "xp": 1400,
+      "mora": 350,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "chasm-stonehall-survey": {
+      "level": 20,
+      "outbound": [
+        "chasm-depth",
+        "chasm-wp-25266",
+        "chasm-wp-25267",
+        "chasm-wp-25270",
+        "chasm-wp-26463",
+        "chasm-wp-25276",
+        "chasm-wp-25275"
+      ],
+      "inbound": [
+        "chasm-wp-25276",
+        "chasm-wp-26463",
+        "chasm-wp-25270",
+        "chasm-wp-25267",
+        "chasm-wp-25266",
+        "chasm-depth",
+        "chasm-camp"
+      ],
+      "reportHub": "chasm-camp",
+      "priorDiscovery": null,
+      "xp": 1800,
+      "mora": 450,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "chasm-west-survey": {
+      "level": 20,
+      "outbound": [
+        "chasm-depth",
+        "chasm-wp-25266",
+        "chasm-wp-25267",
+        "chasm-wp-25270",
+        "chasm-wp-26463",
+        "chasm-wp-25271",
+        "chasm-wp-25273",
+        "chasm-wp-25272"
+      ],
+      "inbound": [
+        "chasm-wp-25273",
+        "chasm-wp-25271",
+        "chasm-wp-26463",
+        "chasm-wp-25270",
+        "chasm-wp-25267",
+        "chasm-wp-25266",
+        "chasm-depth",
+        "chasm-camp"
+      ],
+      "reportHub": "chasm-camp",
+      "priorDiscovery": null,
+      "xp": 2000,
+      "mora": 500,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "golden-explore": {
+      "level": 1,
+      "outbound": [
+        "golden-play"
+      ],
+      "inbound": [
+        "golden-hub"
+      ],
+      "reportHub": "golden-hub",
+      "priorDiscovery": "golden",
+      "xp": 1000,
+      "mora": 300,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "veluriyam-explore": {
+      "level": 60,
+      "outbound": [
+        "veluriyam-play"
+      ],
+      "inbound": [
+        "veluriyam-hub"
+      ],
+      "reportHub": "veluriyam-hub",
+      "priorDiscovery": "veluriyam",
+      "xp": 2000,
+      "mora": 300,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    },
+    "simulanka-explore": {
+      "level": 80,
+      "outbound": [
+        "simulanka-play"
+      ],
+      "inbound": [
+        "simulanka-hub"
+      ],
+      "reportHub": "simulanka-hub",
+      "priorDiscovery": "simulanka",
+      "xp": 3000,
+      "mora": 300,
+      "savedReadyToReport": true,
+      "savedAfterReport": true
+    }
+  },
+  "count": 24,
+  "scope": "Level and starting hub are fixtures. The three hidden-area tests start after discovery."
+}

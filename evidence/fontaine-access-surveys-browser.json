@@ -1,0 +1,21 @@
+{
+  "cases": {
+    "fon-hidden-lab-access": {
+      "steps": 3,
+      "arena": "deianeira-legend-lab",
+      "requiredReport": true,
+      "openedAfterReload": true,
+      "payoutXp": 162000,
+      "payoutMora": 13600
+    },
+    "fon-beryl-thermal-vents": {
+      "steps": 6,
+      "arena": "iron-viscount-legend-pool",
+      "requiredReport": true,
+      "openedAfterReload": true,
+      "payoutXp": 172000,
+      "payoutMora": 13900
+    }
+  },
+  "errors": []
+}

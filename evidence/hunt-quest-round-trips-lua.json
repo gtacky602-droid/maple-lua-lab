@@ -1,0 +1,148 @@
+{
+  "cases": {
+    "mond-patrol": {
+      "goal": 8,
+      "level": 1,
+      "reportHub": "mond-town",
+      "target": "mond-road",
+      "restoredMidHuntCount": 4,
+      "savedCompletedCycles": 1,
+      "xpPerReport": 500,
+      "moraPerReport": 200
+    },
+    "liyue-supply": {
+      "goal": 8,
+      "level": 20,
+      "reportHub": "liyue-harbor",
+      "target": "liyue-field",
+      "restoredMidHuntCount": 4,
+      "savedCompletedCycles": 1,
+      "xpPerReport": 800,
+      "moraPerReport": 300
+    },
+    "mond-contract": {
+      "goal": 12,
+      "level": 1,
+      "reportHub": "mond-town",
+      "target": "mond-road",
+      "restoredMidHuntCount": 6,
+      "savedCompletedCycles": 2,
+      "xpPerReport": 2500,
+      "moraPerReport": 200
+    },
+    "liyue-contract": {
+      "goal": 16,
+      "level": 20,
+      "reportHub": "liyue-harbor",
+      "target": "liyue-field",
+      "restoredMidHuntCount": 8,
+      "savedCompletedCycles": 2,
+      "xpPerReport": 6500,
+      "moraPerReport": 350
+    },
+    "inazuma-contract": {
+      "goal": 16,
+      "level": 40,
+      "reportHub": "inazuma-port",
+      "target": "inazuma-road",
+      "restoredMidHuntCount": 8,
+      "savedCompletedCycles": 2,
+      "xpPerReport": 12000,
+      "moraPerReport": 400
+    },
+    "sumeru-contract": {
+      "goal": 20,
+      "level": 60,
+      "reportHub": "sumeru-hub",
+      "target": "sumeru-field",
+      "restoredMidHuntCount": 10,
+      "savedCompletedCycles": 2,
+      "xpPerReport": 20000,
+      "moraPerReport": 500
+    },
+    "emilie-join": {
+      "goal": 4,
+      "level": 80,
+      "reportHub": "fontaine-hub",
+      "target": "fontaine-field",
+      "restoredMidHuntCount": 2,
+      "savedCompletedCycles": 1,
+      "xpPerReport": 6000,
+      "moraPerReport": 300
+    },
+    "fontaine-contract": {
+      "goal": 20,
+      "level": 80,
+      "reportHub": "fontaine-hub",
+      "target": "fontaine-field",
+      "restoredMidHuntCount": 10,
+      "savedCompletedCycles": 2,
+      "xpPerReport": 30000,
+      "moraPerReport": 500
+    },
+    "natlan-contract": {
+      "goal": 20,
+      "level": 100,
+      "reportHub": "natlan-hub",
+      "target": "natlan-field",
+      "restoredMidHuntCount": 10,
+      "savedCompletedCycles": 2,
+      "xpPerReport": 42000,
+      "moraPerReport": 500
+    },
+    "nod-contract": {
+      "goal": 20,
+      "level": 120,
+      "reportHub": "nod-port",
+      "target": "nod-field",
+      "restoredMidHuntCount": 10,
+      "savedCompletedCycles": 2,
+      "xpPerReport": 60000,
+      "moraPerReport": 600
+    },
+    "snezhnaya-contract": {
+      "goal": 20,
+      "level": 140,
+      "reportHub": "snezhnaya-hub",
+      "target": "snezhnaya-field",
+      "restoredMidHuntCount": 10,
+      "savedCompletedCycles": 2,
+      "xpPerReport": 80000,
+      "moraPerReport": 700
+    },
+    "snow-rail-clear": {
+      "goal": 3,
+      "level": 140,
+      "reportHub": "snezhnaya-hub",
+      "target": "snow-rail-transfer",
+      "restoredMidHuntCount": 1,
+      "savedCompletedCycles": 1,
+      "xpPerReport": 8400,
+      "moraPerReport": 460
+    }
+  },
+  "count": 12,
+  "legacyCases": {
+    "wanderer-join": {
+      "savedBeforeFinalKill": true,
+      "reportedAfterReload": true,
+      "companion": "wanderer"
+    },
+    "kachina-join": {
+      "savedBeforeFinalKill": true,
+      "reportedAfterReload": true,
+      "companion": "kachina"
+    },
+    "columbina-join": {
+      "savedBeforeFinalKill": true,
+      "reportedAfterReload": true,
+      "companion": "columbina"
+    },
+    "mitya-join": {
+      "savedBeforeFinalKill": true,
+      "reportedAfterReload": true,
+      "companion": "mitya"
+    }
+  },
+  "scope": "Prepared levels and hubs. Physical gate routes and ordinary defeat settlement, not a combat difficulty test."
+}

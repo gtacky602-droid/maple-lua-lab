@@ -1,0 +1,804 @@
+{
+  "scope": "The listed Lua scenarios accepted each new quest and reported with full objective progress and a payout. Reload evidence means the scenario also restored a completed quest after observing payout. Scenarios may use prepared levels, visits or combat states.",
+  "authored_story_quests": 283,
+  "newly_acceptable_story_quests": 279,
+  "legacy_save_only": {
+    "wanderer-join": {
+      "savedBeforeFinalKill": true,
+      "reportedAfterReload": true,
+      "companion": "wanderer"
+    },
+    "kachina-join": {
+      "savedBeforeFinalKill": true,
+      "reportedAfterReload": true,
+      "companion": "kachina"
+    },
+    "columbina-join": {
+      "savedBeforeFinalKill": true,
+      "reportedAfterReload": true,
+      "companion": "columbina"
+    },
+    "mitya-join": {
+      "savedBeforeFinalKill": true,
+      "reportedAfterReload": true,
+      "companion": "mitya"
+    }
+  },
+  "daily_quests_with_report_links": 40,
+  "prior_story_report_links": 161,
+  "new_quest_reports": {
+    "andrius-weekly-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_andrius_weekly.py"
+      ],
+      "restore_scripts": []
+    },
+    "apep-weekly-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_apep_weekly.py"
+      ],
+      "restore_scripts": [
+        "test_apep_weekly.py"
+      ]
+    },
+    "azhdaha-weekly-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_azhdaha_weekly.py"
+      ],
+      "restore_scripts": [
+        "test_azhdaha_weekly.py"
+      ]
+    },
+    "chasm-stonehall-survey": {
+      "goal": 1,
+      "scripts": [
+        "test_chasm_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_chasm_waypoints.py"
+      ]
+    },
+    "chasm-survey": {
+      "goal": 1,
+      "scripts": [
+        "test_chasm_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_chasm_waypoints.py"
+      ]
+    },
+    "chasm-west-survey": {
+      "goal": 1,
+      "scripts": [
+        "test_chasm_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_chasm_waypoints.py"
+      ]
+    },
+    "chasm-wetland-survey": {
+      "goal": 1,
+      "scripts": [
+        "test_chasm_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_chasm_waypoints.py"
+      ]
+    },
+    "childe-weekly-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_childe_weekly.py"
+      ],
+      "restore_scripts": [
+        "test_childe_weekly.py"
+      ]
+    },
+    "dvalin-weekly-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_dvalin_weekly.py"
+      ],
+      "restore_scripts": []
+    },
+    "false-moon-weekly-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_false_moon_weekly.py"
+      ],
+      "restore_scripts": [
+        "test_false_moon_weekly.py"
+      ]
+    },
+    "fon-erinnyes-root-water-survey": {
+      "goal": 5,
+      "scripts": [
+        "test_fontaine_corrouge.py"
+      ],
+      "restore_scripts": [
+        "test_fontaine_corrouge.py"
+      ]
+    },
+    "fon-mapped-bygone-current": {
+      "goal": 5,
+      "scripts": [
+        "test_fontaine_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_fontaine_waypoints.py"
+      ]
+    },
+    "fon-mapped-depth-samples": {
+      "goal": 6,
+      "scripts": [
+        "test_fontaine_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_fontaine_waypoints.py"
+      ]
+    },
+    "fon-mapped-north-lock": {
+      "goal": 6,
+      "scripts": [
+        "test_fontaine_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_fontaine_waypoints.py"
+      ]
+    },
+    "fon-mapped-nostoi-record": {
+      "goal": 6,
+      "scripts": [
+        "test_fontaine_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_fontaine_waypoints.py"
+      ]
+    },
+    "fon-morte-sluice-survey": {
+      "goal": 4,
+      "scripts": [
+        "test_fontaine_bubbles.py"
+      ],
+      "restore_scripts": [
+        "test_fontaine_bubbles.py"
+      ]
+    },
+    "frost-commander-console-test": {
+      "goal": 5,
+      "scripts": [
+        "test_final_field_legends.py"
+      ],
+      "restore_scripts": [
+        "test_final_field_legends.py"
+      ]
+    },
+    "frost-wujian-access-survey": {
+      "goal": 2,
+      "scripts": [
+        "test_final_field_legends.py"
+      ],
+      "restore_scripts": [
+        "test_final_field_legends.py"
+      ]
+    },
+    "gate-weekly-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_gate_weekly.py"
+      ],
+      "restore_scripts": [
+        "test_gate_weekly.py"
+      ]
+    },
+    "heretic-weekly-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_heretic_weekly.py"
+      ],
+      "restore_scripts": [
+        "test_heretic_weekly.py"
+      ]
+    },
+    "ina-mapped-enkan-beacons": {
+      "goal": 5,
+      "scripts": [
+        "test_inazuma_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_inazuma_waypoints.py"
+      ]
+    },
+    "ina-mapped-seirai-ferry": {
+      "goal": 5,
+      "scripts": [
+        "test_inazuma_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_inazuma_waypoints.py"
+      ]
+    },
+    "ina-mapped-undersea-floor": {
+      "goal": 5,
+      "scripts": [
+        "test_inazuma_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_inazuma_waypoints.py"
+      ]
+    },
+    "knave-weekly-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_knave_weekly.py"
+      ],
+      "restore_scripts": [
+        "test_knave_weekly.py"
+      ]
+    },
+    "liyue-mapped-chasm-shaft": {
+      "goal": 8,
+      "scripts": [
+        "test_liyue_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_liyue_waypoints.py"
+      ]
+    },
+    "liyue-mapped-east-shore": {
+      "goal": 5,
+      "scripts": [
+        "test_liyue_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_liyue_waypoints.py"
+      ]
+    },
+    "liyue-mapped-hidden-cave": {
+      "goal": 7,
+      "scripts": [
+        "test_liyue_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_liyue_waypoints.py"
+      ]
+    },
+    "loom-stopped": {
+      "goal": 1,
+      "scripts": [
+        "test_twin_shuttle_loom.py"
+      ],
+      "restore_scripts": []
+    },
+    "mond-mapped-islet": {
+      "goal": 4,
+      "scripts": [
+        "test_mondstadt_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_mondstadt_waypoints.py"
+      ]
+    },
+    "mond-mapped-lakeside": {
+      "goal": 5,
+      "scripts": [
+        "test_mondstadt_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_mondstadt_waypoints.py"
+      ]
+    },
+    "mond-mapped-snowline": {
+      "goal": 4,
+      "scripts": [
+        "test_mondstadt_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_mondstadt_waypoints.py"
+      ]
+    },
+    "narwhal-weekly-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_narwhal_weekly.py"
+      ],
+      "restore_scripts": [
+        "test_narwhal_weekly.py"
+      ]
+    },
+    "nat-mapped-mountain-layers": {
+      "goal": 7,
+      "scripts": [
+        "test_natlan_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_natlan_waypoints.py"
+      ]
+    },
+    "nat-mapped-ochka-supplies": {
+      "goal": 5,
+      "scripts": [
+        "test_natlan_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_natlan_waypoints.py"
+      ]
+    },
+    "nat-mapped-resort-canal": {
+      "goal": 7,
+      "scripts": [
+        "test_natlan_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_natlan_waypoints.py"
+      ]
+    },
+    "nat-mapped-sky-lift": {
+      "goal": 7,
+      "scripts": [
+        "test_natlan_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_natlan_waypoints.py"
+      ]
+    },
+    "nat-mapped-valley-trail": {
+      "goal": 4,
+      "scripts": [
+        "test_natlan_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_natlan_waypoints.py"
+      ]
+    },
+    "natlan-ancient-excavation-wall": {
+      "goal": 3,
+      "scripts": [
+        "test_natlan_cliff_trials.py"
+      ],
+      "restore_scripts": []
+    },
+    "natlan-atocpan-landmarks": {
+      "goal": 2,
+      "scripts": [
+        "test_natlan_atocpan_totem.py"
+      ],
+      "restore_scripts": []
+    },
+    "natlan-rainbow-cave-keys": {
+      "goal": 4,
+      "scripts": [
+        "test_natlan_toyac_legends.py"
+      ],
+      "restore_scripts": []
+    },
+    "natlan-seaward-signs": {
+      "goal": 2,
+      "scripts": [
+        "test_natlan_northwest_legends.py"
+      ],
+      "restore_scripts": []
+    },
+    "natlan-southern-trail-survey": {
+      "goal": 2,
+      "scripts": [
+        "test_natlan_final_legends.py"
+      ],
+      "restore_scripts": []
+    },
+    "natlan-sulfurous-resonant-stones": {
+      "goal": 1,
+      "scripts": [
+        "test_natlan_north_trials.py"
+      ],
+      "restore_scripts": []
+    },
+    "natlan-toyac-electro-crystals": {
+      "goal": 1,
+      "scripts": [
+        "test_natlan_toyac_legends.py"
+      ],
+      "restore_scripts": []
+    },
+    "natlan-two-pillar-trails": {
+      "goal": 2,
+      "scripts": [
+        "test_natlan_wayob_duo.py"
+      ],
+      "restore_scripts": []
+    },
+    "natlan-witztli-three-echoes": {
+      "goal": 2,
+      "scripts": [
+        "test_natlan_north_trials.py"
+      ],
+      "restore_scripts": []
+    },
+    "nod-bonemos-offerings": {
+      "goal": 4,
+      "scripts": [
+        "test_nod_first_field_legends.py"
+      ],
+      "restore_scripts": []
+    },
+    "nod-bureau-lift-check": {
+      "goal": 2,
+      "scripts": [
+        "test_nod_first_field_legends.py"
+      ],
+      "restore_scripts": []
+    },
+    "nod-hiisi-palace-mirrors": {
+      "goal": 2,
+      "scripts": [
+        "test_nod_first_field_legends.py"
+      ],
+      "restore_scripts": [
+        "test_nod_first_field_legends.py"
+      ]
+    },
+    "nod-mapped-frostmoon-shadow": {
+      "goal": 5,
+      "scripts": [
+        "test_nod_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_nod_waypoints.py"
+      ]
+    },
+    "nod-mapped-harbor-lamp": {
+      "goal": 6,
+      "scripts": [
+        "test_nod_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_nod_waypoints.py"
+      ]
+    },
+    "nod-mapped-north-bay": {
+      "goal": 6,
+      "scripts": [
+        "test_nod_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_nod_waypoints.py"
+      ]
+    },
+    "nod-mapped-paha-shadow": {
+      "goal": 5,
+      "scripts": [
+        "test_nod_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_nod_waypoints.py"
+      ]
+    },
+    "nod-north-landmark-round": {
+      "goal": 1,
+      "scripts": [
+        "test_nod_north_field_legends.py"
+      ],
+      "restore_scripts": []
+    },
+    "ochka-floating-island-spiritway": {
+      "goal": 2,
+      "scripts": [
+        "test_natlan_highland_legends.py"
+      ],
+      "restore_scripts": [
+        "test_natlan_highland_legends.py"
+      ]
+    },
+    "primal-fire-weekly-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_primal_fire_weekly.py"
+      ],
+      "restore_scripts": [
+        "test_primal_fire_weekly.py"
+      ]
+    },
+    "raiden-weekly-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_raiden_weekly.py"
+      ],
+      "restore_scripts": [
+        "test_raiden_weekly.py"
+      ]
+    },
+    "shouki-weekly-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_shouki_weekly.py"
+      ],
+      "restore_scripts": [
+        "test_shouki_weekly.py"
+      ]
+    },
+    "signora-weekly-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_signora_weekly.py"
+      ],
+      "restore_scripts": [
+        "test_signora_weekly.py"
+      ]
+    },
+    "sky-pavilion-notes": {
+      "goal": 3,
+      "scripts": [
+        "test_final_field_legends.py"
+      ],
+      "restore_scripts": []
+    },
+    "sne-crystal-stream-survey": {
+      "goal": 2,
+      "scripts": [
+        "test_snez_late_field_legends.py"
+      ],
+      "restore_scripts": [
+        "test_snez_late_field_legends.py"
+      ]
+    },
+    "sne-mapped-east-wall": {
+      "goal": 6,
+      "scripts": [
+        "test_snezhnaya_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_snezhnaya_waypoints.py"
+      ]
+    },
+    "sne-mapped-four-tower-floors": {
+      "goal": 7,
+      "scripts": [
+        "test_snezhnaya_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_snezhnaya_waypoints.py"
+      ]
+    },
+    "sne-mapped-track-walk": {
+      "goal": 5,
+      "scripts": [
+        "test_snezhnaya_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_snezhnaya_waypoints.py"
+      ]
+    },
+    "sne-mapped-works-wire": {
+      "goal": 5,
+      "scripts": [
+        "test_snezhnaya_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_snezhnaya_waypoints.py"
+      ]
+    },
+    "sne-rescue-three-mice": {
+      "goal": 4,
+      "scripts": [
+        "test_snez_late_field_legends.py"
+      ],
+      "restore_scripts": []
+    },
+    "sne-snow-sculptor-bouts": {
+      "goal": 3,
+      "scripts": [
+        "test_snez_first_field_legends.py"
+      ],
+      "restore_scripts": []
+    },
+    "sne-suspicious-lantern": {
+      "goal": 2,
+      "scripts": [
+        "test_snez_late_field_legends.py"
+      ],
+      "restore_scripts": [
+        "test_snez_late_field_legends.py"
+      ]
+    },
+    "sne-svetloredovka-cavern-check": {
+      "goal": 2,
+      "scripts": [
+        "test_snez_first_field_legends.py"
+      ],
+      "restore_scripts": []
+    },
+    "snow-rail-clear": {
+      "goal": 3,
+      "scripts": [
+        "test_snow_rail.py"
+      ],
+      "restore_scripts": [
+        "test_snow_rail.py"
+      ]
+    },
+    "snow-rail-pressure": {
+      "goal": 3,
+      "scripts": [
+        "test_snow_rail.py"
+      ],
+      "restore_scripts": [
+        "test_snow_rail.py"
+      ]
+    },
+    "stygian-beidou-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_stygian_beidou.py"
+      ],
+      "restore_scripts": [
+        "test_stygian_beidou.py"
+      ]
+    },
+    "stygian-capitano-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_stygian_capitano.py"
+      ],
+      "restore_scripts": [
+        "test_stygian_capitano.py"
+      ]
+    },
+    "stygian-farka-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_stygian_farka.py"
+      ],
+      "restore_scripts": [
+        "test_stygian_farka.py"
+      ]
+    },
+    "stygian-rerir-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_stygian_rerir.py"
+      ],
+      "restore_scripts": [
+        "test_stygian_rerir.py"
+      ]
+    },
+    "stygian-ronova-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_stygian_ronova.py"
+      ],
+      "restore_scripts": [
+        "test_stygian_ronova.py"
+      ]
+    },
+    "stygian-wanderer-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_stygian_wanderer.py"
+      ],
+      "restore_scripts": [
+        "test_stygian_wanderer.py"
+      ]
+    },
+    "stygian-xbalanque-commission": {
+      "goal": 1,
+      "scripts": [
+        "test_stygian_xbalanque.py"
+      ],
+      "restore_scripts": [
+        "test_stygian_xbalanque.py"
+      ]
+    },
+    "sum-mapped-desert-wind": {
+      "goal": 4,
+      "scripts": [
+        "test_sumeru_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_sumeru_waypoints.py"
+      ]
+    },
+    "sum-mapped-north-quay": {
+      "goal": 5,
+      "scripts": [
+        "test_sumeru_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_sumeru_waypoints.py"
+      ]
+    },
+    "sum-mapped-tunigi-water": {
+      "goal": 7,
+      "scripts": [
+        "test_sumeru_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_sumeru_waypoints.py"
+      ]
+    },
+    "sum-mapped-twin-shaft": {
+      "goal": 6,
+      "scripts": [
+        "test_sumeru_waypoints.py"
+      ],
+      "restore_scripts": [
+        "test_sumeru_waypoints.py"
+      ]
+    },
+    "surveyor-inspection": {
+      "goal": 1,
+      "scripts": [
+        "test_tide_surveyor.py"
+      ],
+      "restore_scripts": []
+    },
+    "threadline-restore": {
+      "goal": 3,
+      "scripts": [
+        "test_threadline.py"
+      ],
+      "restore_scripts": [
+        "test_threadline.py"
+      ]
+    },
+    "threadline-survey": {
+      "goal": 3,
+      "scripts": [
+        "test_threadline.py"
+      ],
+      "restore_scripts": [
+        "test_threadline.py"
+      ]
+    }
+  },
+  "direct_route_trials": {
+    "visit-quest-round-trips-lua.json": [
+      "bygone-survey",
+      "chasm-stonehall-survey",
+      "chasm-survey",
+      "chasm-west-survey",
+      "chasm-wetland-survey",
+      "chenyu-survey",
+      "dornman-survey",
+      "dragonspine-survey",
+      "enkanomiya-survey",
+      "fontaine-entry-check",
+      "golden-explore",
+      "inazuma-delivery",
+      "liyue-entry-check",
+      "mond-border-check",
+      "natlan-entry-check",
+      "nod-special-survey",
+      "novokichev-survey",
+      "ochkanatlan-survey",
+      "simulanka-explore",
+      "snezhnaya-entry-check",
+      "sumeru-entry-check",
+      "tunigi-survey",
+      "veluriyam-explore",
+      "wingspan-survey"
+    ],
+    "hunt-quest-round-trips-lua.json": [
+      "emilie-join",
+      "fontaine-contract",
+      "inazuma-contract",
+      "liyue-contract",
+      "liyue-supply",
+      "mond-contract",
+      "mond-patrol",
+      "natlan-contract",
+      "nod-contract",
+      "snezhnaya-contract",
+      "snow-rail-clear",
+      "sumeru-contract"
+    ],
+    "fontaine-access-surveys-lua.json": [
+      "fon-beryl-thermal-vents",
+      "fon-hidden-lab-access"
+    ]
+  },
+  "story_quests_with_report_links": 279,
+  "story_quests_without_report_links": []
+}

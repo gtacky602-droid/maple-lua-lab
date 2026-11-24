@@ -8068,7 +8068,16 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Audit authored quests against acceptance, objective progress, report payouts and save restoration, including quests outside the design-ID and normal boss results.",
+  "current_priority": "Cross-check the lab against the approved handoff and later decisions, then verify remaining behavior and presentation gaps.",
+  "quest_runtime_checks": {
+    "authored_story_records": 283,
+    "acceptance_and_report_links": 279,
+    "legacy_save_records_resumed": 4,
+    "daily_acceptance_and_payout_links": 40,
+    "scope": "Per-quest acceptance and report evidence, with fixtures as documented in individual scenarios. Save restoration is checked in the linked scenarios that exercise it.",
+    "evidence": "evidence/authored-quest-playthrough.json",
+    "fontaine_access_browser": "evidence/fontaine-access-surveys-browser.json"
+  },
   "background_loading": {
     "status": "local_chrome_on_demand_scenery_verified",
     "surfaces": [
