@@ -237,7 +237,7 @@ def audit(root):
             errors.append(f"E_CARD_REF master {row['id']} must list three nonempty move titles")
     if master_text is not None:
         links = set(re.findall(r"\]\((docs/field-boss-v1/MANIFEST_[^)]+\.json)\)", master_text))
-        expected_links = {str(MANIFEST_DIR / profile[0]) for profile in PROFILES}
+        expected_links = {(MANIFEST_DIR / profile[0]).as_posix() for profile in PROFILES}
         if expected_links - links:
             errors.append(f"E_MASTER_REF missing manifest links: {sorted(expected_links - links)}")
         result["other_master_manifest_links"] = sorted(links - expected_links)

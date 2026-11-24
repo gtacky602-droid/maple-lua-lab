@@ -340,7 +340,8 @@
     {
       "id": "ship",
       "name": "花翼の集側→航海→ナド・クライ、途中下船でオシカ・ナタ",
-      "status": "not_implemented"
+      "status": "playable_lab_round_trip_and_stopover",
+      "evidence": "evidence/world-voyage-routes-lua.json"
     },
     {
       "id": "abyss",
@@ -356,7 +357,7 @@
     {
       "id": "stygian",
       "name": "幽境の激戦",
-      "status": "farka_normal_and_beidou_capitano_xbalanque_four_mode_prototypes",
+      "status": "seven_playable_lab_encounters_with_four_modes",
       "boss_candidates": [
         "ファルカ",
         "隊長",
@@ -370,9 +371,13 @@
     }
   ],
   "boss_catalog": {
-    "status": "entity_candidates_imported",
+    "status": "reference_entities_and_reviewed_encounter_groups",
     "catalog": "content/boss-catalog.json",
     "entity_candidates": 63,
+    "roster_review": "content/encounter-roster-review.json",
+    "reviewed_normal_families": 48,
+    "reviewed_normal_lineups": 49,
+    "reviewed_weekly_encounters": 14,
     "complete_roster_verified": false,
     "warning": "Entity records, not encounter count. Paired enemies and alternative forms require grouping. Latest-release coverage not established."
   },
@@ -442,8 +447,10 @@
     },
     {
       "id": "bosses",
-      "status": "not_implemented",
-      "acceptance": "full roster and unique tested encounters, not renamed shared placeholder fights"
+      "status": "playable_reviewed_roster_lab_prototypes",
+      "acceptance": "full roster and unique tested encounters, not renamed shared placeholder fights",
+      "scope": "7.2 review: 49 normal lineups and 14 weekly encounters; seven authored Stygian encounters. Actual clears with earned equipment and tuning coverage vary by encounter.",
+      "evidence": "evidence/boss-roster-lua-audit.json"
     },
     {
       "id": "quests",
@@ -8048,6 +8055,15 @@
       "scope": "In-world gate movement from prepared waypoints, controlled terminal defeats, payouts, cooldowns, save restoration and repeat clears.",
       "evidence": "evidence/normal-boss-lifecycle-lua.json",
       "browser_resume_evidence": "evidence/suanni-field-browser.json"
+    },
+    "earned_normal_mechanics": {
+      "level": 165,
+      "encounters_cleared_and_commissions_restored": [
+        "boss-26310501", "boss-25135202", "boss-25140101", "boss-25134601"
+      ],
+      "comparison": "All four ended in one hit with unchanged earned gear in the draft profile. Earlier gear and Kachina were equipped in town to exercise the mechanics.",
+      "lua_evidence": "evidence/earned-snezhnaya-bosses-lua.json",
+      "browser_evidence": "evidence/earned-drifting-snow-browser.json"
     },
     "original_scenarios": {
       "normal": 15,

@@ -1,0 +1,208 @@
+{
+  "level": 165,
+  "draftBalance": true,
+  "tests": {
+    "wavebinder": {
+      "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+      "boss": "boss-25134601",
+      "arena": "wavebinder-tide-cavern",
+      "entryRoute": [
+        "novokichev-depth",
+        "wavebinder-tide-cavern"
+      ],
+      "maxHp": 1160,
+      "partyAttack": [
+        34,
+        4
+      ],
+      "elapsedSeconds": 18.3,
+      "damagingHits": 58,
+      "moves": [
+        "WB01",
+        "WB02",
+        "WB03"
+      ],
+      "skillCasts": {
+        "SK21": 1,
+        "SK09": 2,
+        "SK10": 1,
+        "SK13": 0
+      },
+      "killXpAndMora": [
+        1547748,
+        570
+      ],
+      "commission": {
+        "quest": "wavebinder-commission",
+        "xp": 11200,
+        "mora": 750
+      },
+      "savedClear": true,
+      "drinkInterruptedByTwoElectroCasts": true
+    },
+    "immortal": {
+      "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+      "boss": "boss-25140101",
+      "arena": "immortal-construct-root-hollow",
+      "entryRoute": [
+        "snezhnaya-field",
+        "immortal-construct-root-hollow"
+      ],
+      "maxHp": 1260,
+      "partyAttack": [
+        34,
+        4
+      ],
+      "elapsedSeconds": 21.0,
+      "damagingHits": 75,
+      "moves": [
+        "IC01",
+        "IC02",
+        "IC03"
+      ],
+      "skillCasts": {
+        "SK21": 1,
+        "SK09": 1,
+        "SK10": 0,
+        "SK13": 0
+      },
+      "killXpAndMora": [
+        259730,
+        550
+      ],
+      "commission": {
+        "quest": "immortal-construct-commission",
+        "xp": 10600,
+        "mora": 720
+      },
+      "savedClear": true,
+      "lifeLayersBrokenWithNormalAttacks": 6
+    },
+    "drifting_snow": {
+      "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+      "boss": "boss-25135202",
+      "arena": "drifting-snow-court",
+      "entryRoute": [
+        "snezhnaya-field",
+        "drifting-snow-court"
+      ],
+      "maxHp": 1200,
+      "partyAttack": [
+        34,
+        4
+      ],
+      "elapsedSeconds": 10.85,
+      "damagingHits": 43,
+      "moves": [
+        "FDS01",
+        "FDS03"
+      ],
+      "skillCasts": {
+        "SK21": 1,
+        "SK09": 1,
+        "SK10": 0,
+        "SK13": 0
+      },
+      "killXpAndMora": [
+        1214460,
+        560
+      ],
+      "commission": {
+        "quest": "drifting-snow-commission",
+        "xp": 10800,
+        "mora": 730
+      },
+      "savedClear": true,
+      "coffinBroken": true
+    },
+    "flugel": {
+      "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8",
+      "boss": "boss-26310501",
+      "arena": "flugel-tundra-basin",
+      "entryRoute": [
+        "snezhnaya-field",
+        "flugel-tundra-basin"
+      ],
+      "maxHp": 1180,
+      "partyAttack": [
+        34,
+        4
+      ],
+      "elapsedSeconds": 19.067,
+      "damagingHits": 58,
+      "moves": [
+        "FL01",
+        "FL02",
+        "FL03"
+      ],
+      "skillCasts": {
+        "SK21": 2,
+        "SK09": 1,
+        "SK10": 0,
+        "SK13": 1
+      },
+      "killXpAndMora": [
+        293220,
+        540
+      ],
+      "commission": {
+        "quest": "flugel-commission",
+        "xp": 10400,
+        "mora": 710
+      },
+      "savedClear": true,
+      "wardBrokenAndSwitchedToAnemo": true,
+      "windOrbsBroken": 3
+    }
+  },
+  "unchangedGear": {
+    "flugel": {
+      "boss": "boss-26310501",
+      "elapsedSeconds": 2.8,
+      "damagingHits": 1,
+      "partyAttack": [
+        58542,
+        53711
+      ],
+      "moves": [
+        "FL01"
+      ]
+    },
+    "driftingSnow": {
+      "boss": "boss-25135202",
+      "elapsedSeconds": 2.8,
+      "damagingHits": 1,
+      "partyAttack": [
+        58542,
+        53711
+      ],
+      "moves": [
+        "FDS01"
+      ]
+    },
+    "immortalConstruct": {
+      "boss": "boss-25140101",
+      "elapsedSeconds": 2.8,
+      "damagingHits": 1,
+      "partyAttack": [
+        58542,
+        53711
+      ],
+      "moves": [
+        "IC01"
+      ]
+    },
+    "wavebinder": {
+      "boss": "boss-25134601",
+      "elapsedSeconds": 3.167,
+      "damagingHits": 1,
+      "partyAttack": [
+        58542,
+        53711
+      ],
+      "moves": [
+        "WB01"
+      ]
+    }
+  }
+}
