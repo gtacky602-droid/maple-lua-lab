@@ -5,6 +5,7 @@
   "ground_and_lift_there_and_back": true,
   "both_routes_built_and_restored_via_ui": true,
   "only_chosen_route_opens": true,
+  "atlas_explains_unchosen_route_after_restoring_both_plans": true,
   "lift_progress_visible": true,
   "viewport_390": true,
   "errors": []

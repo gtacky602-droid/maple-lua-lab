@@ -18,6 +18,7 @@
       "exclusive": true
     }
   ],
+  "atlas_explains_unchosen_route_and_updates_after_report": true,
   "lift_pause_and_safe_elevated_arrival": true,
   "same_one_time_reward": {
     "xp": 28412,

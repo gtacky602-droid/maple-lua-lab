@@ -501,7 +501,8 @@ return function(C, atlas)
     if nodes[edge.to] then
      routes[#routes+1]={id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
        level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],
-       huntKind=positions[edge.to] and positions[edge.to].huntKind,restricted=edge.requires~=nil}
+       huntKind=positions[edge.to] and positions[edge.to].huntKind,restricted=edge.requires~=nil,
+       reason=C.atlasGateRestriction(s,selected.id,edge)}
     end
    end
    local spec=C.atlasWeeklyTransfer(selected.id)

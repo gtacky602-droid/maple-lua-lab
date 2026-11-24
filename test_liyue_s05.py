@@ -38,6 +38,15 @@ def save():
     return validate_save(native(core.checkpoint(s)))
 
 
+def atlas_exits():
+    core.action(s, 'world_map_toggle')
+    view = core.frame(s).worldMap
+    assert view.selected.id == port and view.selected.current
+    reasons = {route.id: route.reason for route in view.routes.values()}
+    core.action(s, 'world_map_close')
+    return reasons
+
+
 def step(**keys):
     core.step(s,1/60,lua.table_from(keys))
 
@@ -159,6 +168,7 @@ for plan,route,entry,other,other_x,far_x in (
         through(port)
     walk(entry)
     assert not gate(route).available
+    assert '報告' in atlas_exits()[route]
     cash,xp=s.mora,s.progression.questXp
     core.action(s,'story_report:'+qid)
     core.action(s,'story_report:'+qid)
@@ -173,6 +183,8 @@ for plan,route,entry,other,other_x,far_x in (
     else:
         raise AssertionError('Unsuitable roof accepted as a completed plan')
     s=load(finished)
+    reasons = atlas_exits()
+    assert reasons[route] is None and reasons[other] == '今回はもう一方の道を整備しました。'
     walk(other_x)
     assert not gate(other).available
     walk(entry)
@@ -205,6 +217,7 @@ for plan,route,entry,other,other_x,far_x in (
     'M02_prerequisite':True,'all_survey_positions_with_normal_movement':True,
     'roof_rejected_for_carts':True,'choice_saved_before_construction':True,
     'construction_then_report_opens_one_route':True,'routes':verified,
+    'atlas_explains_unchosen_route_and_updates_after_report':True,
     'lift_pause_and_safe_elevated_arrival':True,
     'same_one_time_reward':{'xp':28412,'mora':240},
 },indent=2)+'\n',encoding='utf8')

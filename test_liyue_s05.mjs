@@ -14,6 +14,23 @@ const frame=()=>page.evaluate(()=>window.lab.frame);
 const current=id=>page.waitForFunction(id=>window.lab?.frame.story.node===id,id);
 const progress=n=>page.waitForFunction(({qid,n})=>window.lab.frame.story.quests[qid]?.count===n,{qid,n});
 const button=name=>page.getByRole('button',{name,exact:true});
+const atlas=page.locator('#worldAtlas');
+const routeButton=name=>atlas.locator('#atlasRoutes').getByRole('button',{name:new RegExp(name)});
+
+async function checkAtlas(chosen,blocked,reason,screenshot){
+ await page.keyboard.press('KeyM');
+ await atlas.waitFor({state:'visible'});
+ const available=routeButton(chosen), closed=routeButton(blocked);
+ assert.doesNotMatch(await available.textContent(),/報告|もう一方/);
+ assert.match(await closed.textContent(),reason);
+ if(screenshot){
+  await available.scrollIntoViewIfNeeded();
+  await closed.scrollIntoViewIfNeeded();
+  await atlas.screenshot({path:screenshot});
+ }
+ await page.keyboard.press('Escape');
+ await atlas.waitFor({state:'hidden'});
+}
 
 async function held(key,until){
  await page.keyboard.down(key);
@@ -115,6 +132,9 @@ try{
   await page.waitForSelector(`[data-quest="${qid}"][data-status="complete"]`);
   const done=await save();
   await load(done);
+  const roadName='港の荷車道', liftName='港の荷揚げ台';
+  await checkAtlas(plan==='ground'?roadName:liftName,plan==='ground'?liftName:roadName,
+   /今回はもう一方の道を整備しました。/,plan==='lift'?'evidence/liyue-harbor-atlas.png':null);
   await walk(otherX);
   const wrong=(await frame()).storyNearbyPortal;
   assert.equal(wrong.to,other);
@@ -145,6 +165,7 @@ try{
  await fs.writeFile('evidence/liyue-s05-browser.json',JSON.stringify({
   browser:'Chrome', actual_controls:true, all_surveys:true, ground_and_lift_there_and_back:true,
   both_routes_built_and_restored_via_ui:true, only_chosen_route_opens:true,
+  atlas_explains_unchosen_route_after_restoring_both_plans:true,
   lift_progress_visible:true, viewport_390:true, errors
  },null,2)+'\n');
  console.log('Liyue S05 Chrome surveys, both construction choices and both shortcut round trips passed');

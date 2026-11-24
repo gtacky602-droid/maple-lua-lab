@@ -1,0 +1,175 @@
+{
+  "scope": "Liyue stages outside the marker, hunt, voyage and short transfer ledgers.",
+  "stage_count": 20,
+  "interpretation": "Links identify available evidence per stage. Some encounter runs start inside the arena. The harbor shortcut runs use movement, both construction choices, quest reporting and save restoration.",
+  "entries": [
+    {
+      "kind": "chapter",
+      "stages": [
+        "liyue-loading-yard"
+      ],
+      "evidence": [
+        "evidence/liyue-m01-lua.json",
+        "evidence/daily-liyue-lua.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "liyue-quarry-storage"
+      ],
+      "evidence": [
+        "evidence/liyue-m03-lua.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "liyue-quarry-scree"
+      ],
+      "evidence": [
+        "evidence/liyue-fresh-route.json",
+        "evidence/liyue-fresh-route-browser.json"
+      ]
+    },
+    {
+      "kind": "side_quest",
+      "stages": [
+        "liyue-craftsmen-overlook"
+      ],
+      "evidence": [
+        "evidence/liyue-s04-lua.json"
+      ]
+    },
+    {
+      "kind": "side_quest",
+      "stages": [
+        "liyue-crux-wharf"
+      ],
+      "evidence": [
+        "evidence/liyue-s01-lua.json"
+      ]
+    },
+    {
+      "kind": "side_quest",
+      "stages": [
+        "liyue-cart-road"
+      ],
+      "evidence": [
+        "evidence/liyue-s05-lua.json",
+        "evidence/liyue-s05-browser.json"
+      ]
+    },
+    {
+      "kind": "side_quest",
+      "stages": [
+        "liyue-book-camp"
+      ],
+      "evidence": [
+        "evidence/liyue-s03-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "pyro-field-grotto"
+      ],
+      "evidence": [
+        "evidence/pyro-regisvine-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "geo-field-court"
+      ],
+      "evidence": [
+        "evidence/geo-hypostasis-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "oceanid-field-reservoir"
+      ],
+      "evidence": [
+        "evidence/oceanid-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "primo-field-vault"
+      ],
+      "evidence": [
+        "evidence/primo-geovishap-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "tide-calibration-hall"
+      ],
+      "evidence": [
+        "evidence/tide-surveyor-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "buried-weaving-room"
+      ],
+      "evidence": [
+        "evidence/twin-shuttle-loom-lua.json",
+        "evidence/threadline-lua.json"
+      ]
+    },
+    {
+      "kind": "approach",
+      "stages": [
+        "cloth-service-walk",
+        "threadline-relay"
+      ],
+      "evidence": [
+        "evidence/threadline-lua.json"
+      ]
+    },
+    {
+      "kind": "weekly_boss",
+      "stages": [
+        "childe-golden-house-arena"
+      ],
+      "evidence": [
+        "evidence/childe-weekly-lua.json"
+      ]
+    },
+    {
+      "kind": "weekly_boss",
+      "stages": [
+        "azhdaha-dragon-seal-arena"
+      ],
+      "evidence": [
+        "evidence/azhdaha-weekly-lua.json"
+      ]
+    },
+    {
+      "kind": "stygian",
+      "stages": [
+        "liyue-stygian-deck"
+      ],
+      "evidence": [
+        "evidence/stygian-beidou-lua.json"
+      ]
+    },
+    {
+      "kind": "corridor",
+      "stages": [
+        "sites-corridor-liyue-switchback",
+        "sites-corridor-dihua-causeway"
+      ],
+      "evidence": [
+        "evidence/sites-main-corridors-lua.json"
+      ]
+    }
+  ]
+}
