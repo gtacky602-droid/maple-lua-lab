@@ -1,5 +1,5 @@
 {
-  "scope": "Acceptance and payout at the Lua action boundaries in the same scenario script; scenario fixtures can supply level, prior progress, positioning or combat conditions.",
+  "scope": "Acceptance and payout at the Lua action boundaries in the same scenario script. Restore links cover story quests observed complete after payout in that script. Scenario fixtures can supply level, prior progress, positioning or combat conditions.",
   "quest_count": 153,
   "scenario_count": 81,
   "quest_playthroughs": {
@@ -8,12 +8,18 @@
       "goal": 4,
       "scripts": [
         "test_spine_observation.py"
+      ],
+      "restore_scripts": [
+        "test_spine_observation.py"
       ]
     },
     "Q-B01-02": {
       "quest_id": "spine-wind-route",
       "goal": 2,
       "scripts": [
+        "test_spine_observation.py"
+      ],
+      "restore_scripts": [
         "test_spine_observation.py"
       ]
     },
@@ -22,12 +28,18 @@
       "goal": 3,
       "scripts": [
         "test_spine_observation.py"
+      ],
+      "restore_scripts": [
+        "test_spine_observation.py"
       ]
     },
     "Q-B02-01": {
       "quest_id": "chenyu-tea-delivery",
       "goal": 5,
       "scripts": [
+        "test_chenyu_tea_route.py"
+      ],
+      "restore_scripts": [
         "test_chenyu_tea_route.py"
       ]
     },
@@ -36,12 +48,18 @@
       "goal": 4,
       "scripts": [
         "test_chenyu_tea_route.py"
+      ],
+      "restore_scripts": [
+        "test_chenyu_tea_route.py"
       ]
     },
     "Q-B02-03": {
       "quest_id": "chenyu-tea-with-friends",
       "goal": 3,
       "scripts": [
+        "test_chenyu_tea_route.py"
+      ],
+      "restore_scripts": [
         "test_chenyu_tea_route.py"
       ]
     },
@@ -50,12 +68,18 @@
       "goal": 3,
       "scripts": [
         "test_enkan_lamp_route.py"
+      ],
+      "restore_scripts": [
+        "test_enkan_lamp_route.py"
       ]
     },
     "Q-B03-02": {
       "quest_id": "enkan-shadow-crossing",
       "goal": 3,
       "scripts": [
+        "test_enkan_lamp_route.py"
+      ],
+      "restore_scripts": [
         "test_enkan_lamp_route.py"
       ]
     },
@@ -64,12 +88,18 @@
       "goal": 3,
       "scripts": [
         "test_enkan_lamp_route.py"
+      ],
+      "restore_scripts": [
+        "test_enkan_lamp_route.py"
       ]
     },
     "Q-B04-01": {
       "quest_id": "tunigi-vent-record",
       "goal": 4,
       "scripts": [
+        "test_tunigi_excavation.py"
+      ],
+      "restore_scripts": [
         "test_tunigi_excavation.py"
       ]
     },
@@ -78,12 +108,18 @@
       "goal": 3,
       "scripts": [
         "test_tunigi_excavation.py"
+      ],
+      "restore_scripts": [
+        "test_tunigi_excavation.py"
       ]
     },
     "Q-B04-03": {
       "quest_id": "tunigi-fragment-return",
       "goal": 4,
       "scripts": [
+        "test_tunigi_excavation.py"
+      ],
+      "restore_scripts": [
         "test_tunigi_excavation.py"
       ]
     },
@@ -92,12 +128,18 @@
       "goal": 4,
       "scripts": [
         "test_bygone_resonance.py"
+      ],
+      "restore_scripts": [
+        "test_bygone_resonance.py"
       ]
     },
     "Q-B05-02": {
       "quest_id": "bygone-lit-passage",
       "goal": 3,
       "scripts": [
+        "test_bygone_resonance.py"
+      ],
+      "restore_scripts": [
         "test_bygone_resonance.py"
       ]
     },
@@ -106,12 +148,18 @@
       "goal": 3,
       "scripts": [
         "test_bygone_resonance.py"
+      ],
+      "restore_scripts": [
+        "test_bygone_resonance.py"
       ]
     },
     "Q-B06-01": {
       "quest_id": "windward-lookouts",
       "goal": 3,
       "scripts": [
+        "test_windward_branch.py"
+      ],
+      "restore_scripts": [
         "test_windward_branch.py"
       ]
     },
@@ -120,12 +168,18 @@
       "goal": 2,
       "scripts": [
         "test_windward_branch.py"
+      ],
+      "restore_scripts": [
+        "test_windward_branch.py"
       ]
     },
     "Q-B06-03": {
       "quest_id": "windward-tower-clear",
       "goal": 2,
       "scripts": [
+        "test_windward_branch.py"
+      ],
+      "restore_scripts": [
         "test_windward_branch.py"
       ]
     },
@@ -134,12 +188,18 @@
       "goal": 3,
       "scripts": [
         "test_cap_stopover.py"
+      ],
+      "restore_scripts": [
+        "test_cap_stopover.py"
       ]
     },
     "Q-B07-02": {
       "quest_id": "ochka-wall-marks",
       "goal": 3,
       "scripts": [
+        "test_cap_stopover.py"
+      ],
+      "restore_scripts": [
         "test_cap_stopover.py"
       ]
     },
@@ -148,12 +208,18 @@
       "goal": 2,
       "scripts": [
         "test_cap_stopover.py"
+      ],
+      "restore_scripts": [
+        "test_cap_stopover.py"
       ]
     },
     "Q-B08-01": {
       "quest_id": "nod-light-path",
       "goal": 4,
       "scripts": [
+        "test_moonlit_garden.py"
+      ],
+      "restore_scripts": [
         "test_moonlit_garden.py"
       ]
     },
@@ -162,12 +228,18 @@
       "goal": 4,
       "scripts": [
         "test_moonlit_garden.py"
+      ],
+      "restore_scripts": [
+        "test_moonlit_garden.py"
       ]
     },
     "Q-B08-03": {
       "quest_id": "nod-rim-return",
       "goal": 2,
       "scripts": [
+        "test_moonlit_garden.py"
+      ],
+      "restore_scripts": [
         "test_moonlit_garden.py"
       ]
     },
@@ -176,12 +248,18 @@
       "goal": 1,
       "scripts": [
         "test_ice_expedition.py"
+      ],
+      "restore_scripts": [
+        "test_ice_expedition.py"
       ]
     },
     "Q-B09-02": {
       "quest_id": "novo-equipment-route",
       "goal": 5,
       "scripts": [
+        "test_ice_expedition.py"
+      ],
+      "restore_scripts": [
         "test_ice_expedition.py"
       ]
     },
@@ -190,6 +268,9 @@
       "goal": 3,
       "scripts": [
         "test_ice_expedition.py"
+      ],
+      "restore_scripts": [
+        "test_ice_expedition.py"
       ]
     },
     "Q-FON-D01": {
@@ -197,40 +278,48 @@
       "goal": 200,
       "scripts": [
         "test_daily_fontaine.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-FON-D02": {
       "quest_id": "daily-fon-gathering",
       "goal": 60,
       "scripts": [
         "test_daily_fontaine.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-FON-D03": {
       "quest_id": "daily-fon-film-route",
       "goal": 80,
       "scripts": [
         "test_daily_fontaine.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-FON-D04": {
       "quest_id": "daily-fon-meka",
       "goal": 50,
       "scripts": [
         "test_daily_fontaine.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-FON-D05": {
       "quest_id": "daily-fon-land-elites",
       "goal": 3,
       "scripts": [
         "test_daily_fontaine.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-FON-M01": {
       "quest_id": "fontaine-moon-parcel",
       "goal": 7,
       "scripts": [
+        "test_fontaine_delivery.py"
+      ],
+      "restore_scripts": [
         "test_fontaine_delivery.py"
       ]
     },
@@ -239,12 +328,18 @@
       "goal": 10,
       "scripts": [
         "test_fontaine_understage.py"
+      ],
+      "restore_scripts": [
+        "test_fontaine_understage.py"
       ]
     },
     "Q-FON-M03": {
       "quest_id": "fontaine-grand-finale",
       "goal": 6,
       "scripts": [
+        "test_fontaine_finale.py"
+      ],
+      "restore_scripts": [
         "test_fontaine_finale.py"
       ]
     },
@@ -253,12 +348,18 @@
       "goal": 9,
       "scripts": [
         "test_fontaine_emilie_scent.py"
+      ],
+      "restore_scripts": [
+        "test_fontaine_emilie_scent.py"
       ]
     },
     "Q-FON-S02": {
       "quest_id": "fon-furina-cues",
       "goal": 4,
       "scripts": [
+        "test_fontaine_furina_cues.py"
+      ],
+      "restore_scripts": [
         "test_fontaine_furina_cues.py"
       ]
     },
@@ -267,12 +368,18 @@
       "goal": 8,
       "scripts": [
         "test_fontaine_navia_photo.py"
+      ],
+      "restore_scripts": [
+        "test_fontaine_navia_photo.py"
       ]
     },
     "Q-FON-S04": {
       "quest_id": "fon-lyney-magic",
       "goal": 7,
       "scripts": [
+        "test_fontaine_lyney_magic.py"
+      ],
+      "restore_scripts": [
         "test_fontaine_lyney_magic.py"
       ]
     },
@@ -281,12 +388,16 @@
       "goal": 6,
       "scripts": [
         "test_fontaine_freminet_dive.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-G01": {
       "quest_id": "growth-partner-swap",
       "goal": 2,
       "scripts": [
+        "test_growth_foundations.py"
+      ],
+      "restore_scripts": [
         "test_growth_foundations.py"
       ]
     },
@@ -295,12 +406,18 @@
       "goal": 2,
       "scripts": [
         "test_growth_foundations.py"
+      ],
+      "restore_scripts": [
+        "test_growth_foundations.py"
       ]
     },
     "Q-G03": {
       "quest_id": "growth-upgrade-gear",
       "goal": 1,
       "scripts": [
+        "test_growth_foundations.py"
+      ],
+      "restore_scripts": [
         "test_growth_foundations.py"
       ]
     },
@@ -309,12 +426,18 @@
       "goal": 1,
       "scripts": [
         "test_growth_foundations.py"
+      ],
+      "restore_scripts": [
+        "test_growth_foundations.py"
       ]
     },
     "Q-G05": {
       "quest_id": "growth-first-imprint",
       "goal": 1,
       "scripts": [
+        "test_growth_practice.py"
+      ],
+      "restore_scripts": [
         "test_growth_practice.py"
       ]
     },
@@ -323,19 +446,24 @@
       "goal": 1,
       "scripts": [
         "test_growth_practice.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-G07": {
       "quest_id": "growth-lunar-practice",
       "goal": 1,
       "scripts": [
         "test_growth_practice.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-G08": {
       "quest_id": "growth-star-practice",
       "goal": 1,
       "scripts": [
+        "test_growth_practice.py"
+      ],
+      "restore_scripts": [
         "test_growth_practice.py"
       ]
     },
@@ -344,61 +472,72 @@
       "goal": 2,
       "scripts": [
         "test_growth_light.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-G10": {
       "quest_id": "growth-branch-visit",
       "goal": 1,
       "scripts": [
         "test_growth_light.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-G11": {
       "quest_id": "growth-light-echo",
       "goal": 1,
       "scripts": [
         "test_growth_light.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-G12": {
       "quest_id": "growth-seven-strike",
       "goal": 1,
       "scripts": [
         "test_growth_light.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-G13": {
       "quest_id": "growth-abyss",
       "goal": 1,
       "scripts": [
         "test_growth_endgame.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-G14": {
       "quest_id": "growth-stygian",
       "goal": 1,
       "scripts": [
         "test_growth_endgame.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-G15": {
       "quest_id": "growth-weekly",
       "goal": 1,
       "scripts": [
         "test_growth_endgame.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-G16": {
       "quest_id": "growth-next-goal",
       "goal": 2,
       "scripts": [
         "test_growth_endgame.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-H01-01": {
       "quest_id": "golden-little-boat",
       "goal": 6,
       "scripts": [
+        "test_golden_island_route.py"
+      ],
+      "restore_scripts": [
         "test_golden_island_route.py"
       ]
     },
@@ -407,12 +546,18 @@
       "goal": 7,
       "scripts": [
         "test_golden_island_route.py"
+      ],
+      "restore_scripts": [
+        "test_golden_island_route.py"
       ]
     },
     "Q-H02-01": {
       "quest_id": "veluriyam-bottle-ticket",
       "goal": 4,
       "scripts": [
+        "test_veluriyam_trolley.py"
+      ],
+      "restore_scripts": [
         "test_veluriyam_trolley.py"
       ]
     },
@@ -421,12 +566,18 @@
       "goal": 4,
       "scripts": [
         "test_veluriyam_trolley.py"
+      ],
+      "restore_scripts": [
+        "test_veluriyam_trolley.py"
       ]
     },
     "Q-H03-01": {
       "quest_id": "simulanka-open-page",
       "goal": 4,
       "scripts": [
+        "test_simulanka_folds.py"
+      ],
+      "restore_scripts": [
         "test_simulanka_folds.py"
       ]
     },
@@ -435,6 +586,9 @@
       "goal": 5,
       "scripts": [
         "test_simulanka_folds.py"
+      ],
+      "restore_scripts": [
+        "test_simulanka_folds.py"
       ]
     },
     "Q-INA-D01": {
@@ -442,40 +596,48 @@
       "goal": 200,
       "scripts": [
         "test_daily_inazuma.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-INA-D02": {
       "quest_id": "daily-ina-firework-road",
       "goal": 80,
       "scripts": [
         "test_daily_inazuma.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-INA-D03": {
       "quest_id": "daily-ina-short-patrol",
       "goal": 60,
       "scripts": [
         "test_daily_inazuma.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-INA-D04": {
       "quest_id": "daily-ina-trial",
       "goal": 3,
       "scripts": [
         "test_daily_inazuma.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-INA-D05": {
       "quest_id": "daily-ina-nobushi",
       "goal": 60,
       "scripts": [
         "test_daily_inazuma.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-INA-M01": {
       "quest_id": "inazuma-moving-lantern",
       "goal": 6,
       "scripts": [
+        "test_inazuma_m01.py"
+      ],
+      "restore_scripts": [
         "test_inazuma_m01.py"
       ]
     },
@@ -484,12 +646,18 @@
       "goal": 5,
       "scripts": [
         "test_inazuma_m02.py"
+      ],
+      "restore_scripts": [
+        "test_inazuma_m02.py"
       ]
     },
     "Q-INA-M03": {
       "quest_id": "inazuma-lantern-contest",
       "goal": 5,
       "scripts": [
+        "test_inazuma_m03.py"
+      ],
+      "restore_scripts": [
         "test_inazuma_m03.py"
       ]
     },
@@ -498,12 +666,18 @@
       "goal": 4,
       "scripts": [
         "test_inazuma_s01.py"
+      ],
+      "restore_scripts": [
+        "test_inazuma_s01.py"
       ]
     },
     "Q-INA-S02": {
       "quest_id": "ina-window-fireworks",
       "goal": 5,
       "scripts": [
+        "test_ina_window_fireworks.py"
+      ],
+      "restore_scripts": [
         "test_ina_window_fireworks.py"
       ]
     },
@@ -512,12 +686,18 @@
       "goal": 6,
       "scripts": [
         "test_ina_sayu_route.py"
+      ],
+      "restore_scripts": [
+        "test_ina_sayu_route.py"
       ]
     },
     "Q-INA-S04": {
       "quest_id": "ina-itto-three-games",
       "goal": 4,
       "scripts": [
+        "test_ina_itto_three_games.py"
+      ],
+      "restore_scripts": [
         "test_ina_itto_three_games.py"
       ]
     },
@@ -526,6 +706,9 @@
       "goal": 7,
       "scripts": [
         "test_ina_walking_teahouse.py"
+      ],
+      "restore_scripts": [
+        "test_ina_walking_teahouse.py"
       ]
     },
     "Q-LIY-D01": {
@@ -533,40 +716,48 @@
       "goal": 200,
       "scripts": [
         "test_daily_liyue.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-LIY-D02": {
       "quest_id": "daily-liyue-route",
       "goal": 80,
       "scripts": [
         "test_daily_liyue.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-LIY-D03": {
       "quest_id": "daily-liyue-treasure-hoarders",
       "goal": 40,
       "scripts": [
         "test_daily_liyue.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-LIY-D04": {
       "quest_id": "daily-liyue-prep-materials",
       "goal": 20,
       "scripts": [
         "test_daily_liyue.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-LIY-D05": {
       "quest_id": "daily-liyue-relics",
       "goal": 3,
       "scripts": [
         "test_daily_liyue.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-LIY-M01": {
       "quest_id": "liyue-market-delivery",
       "goal": 3,
       "scripts": [
+        "test_liyue_m01.py"
+      ],
+      "restore_scripts": [
         "test_liyue_m01.py"
       ]
     },
@@ -575,12 +766,18 @@
       "goal": 3,
       "scripts": [
         "test_liyue_m02.py"
+      ],
+      "restore_scripts": [
+        "test_liyue_m02.py"
       ]
     },
     "Q-LIY-M03": {
       "quest_id": "liyue-market-opening",
       "goal": 3,
       "scripts": [
+        "test_liyue_m03.py"
+      ],
+      "restore_scripts": [
         "test_liyue_m03.py"
       ]
     },
@@ -589,12 +786,18 @@
       "goal": 4,
       "scripts": [
         "test_liyue_s01.py"
+      ],
+      "restore_scripts": [
+        "test_liyue_s01.py"
       ]
     },
     "Q-LIY-S02": {
       "quest_id": "liyue-harbor-meal",
       "goal": 4,
       "scripts": [
+        "test_liyue_s02.py"
+      ],
+      "restore_scripts": [
         "test_liyue_s02.py"
       ]
     },
@@ -603,12 +806,18 @@
       "goal": 4,
       "scripts": [
         "test_liyue_s03.py"
+      ],
+      "restore_scripts": [
+        "test_liyue_s03.py"
       ]
     },
     "Q-LIY-S04": {
       "quest_id": "liyue-stone-marks",
       "goal": 5,
       "scripts": [
+        "test_liyue_s04.py"
+      ],
+      "restore_scripts": [
         "test_liyue_s04.py"
       ]
     },
@@ -617,6 +826,9 @@
       "goal": 6,
       "scripts": [
         "test_liyue_s05.py"
+      ],
+      "restore_scripts": [
+        "test_liyue_s05.py"
       ]
     },
     "Q-MON-D01": {
@@ -624,40 +836,48 @@
       "goal": 200,
       "scripts": [
         "test_daily_mondstadt.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-MON-D02": {
       "quest_id": "daily-mond-slimes",
       "goal": 60,
       "scripts": [
         "test_daily_mondstadt.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-MON-D03": {
       "quest_id": "daily-mond-elites",
       "goal": 3,
       "scripts": [
         "test_daily_mondstadt.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-MON-D04": {
       "quest_id": "daily-mond-rest",
       "goal": 80,
       "scripts": [
         "test_daily_mondstadt.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-MON-D05": {
       "quest_id": "daily-mond-cave",
       "goal": 60,
       "scripts": [
         "test_daily_mondstadt.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-MON-M01": {
       "quest_id": "amber-join",
       "goal": 4,
       "scripts": [
+        "test_mondstadt_m01.py"
+      ],
+      "restore_scripts": [
         "test_mondstadt_m01.py"
       ]
     },
@@ -666,12 +886,18 @@
       "goal": 2,
       "scripts": [
         "test_mondstadt_m02.py"
+      ],
+      "restore_scripts": [
+        "test_mondstadt_m02.py"
       ]
     },
     "Q-MON-M03": {
       "quest_id": "mond-watchtower-clear",
       "goal": 1,
       "scripts": [
+        "test_mondstadt_m03.py"
+      ],
+      "restore_scripts": [
         "test_mondstadt_m03.py"
       ]
     },
@@ -680,12 +906,18 @@
       "goal": 5,
       "scripts": [
         "test_mondstadt_s01.py"
+      ],
+      "restore_scripts": [
+        "test_mondstadt_s01.py"
       ]
     },
     "Q-MON-S02": {
       "quest_id": "mond-return-box-quest",
       "goal": 7,
       "scripts": [
+        "test_mond_return_box.py"
+      ],
+      "restore_scripts": [
         "test_mond_return_box.py"
       ]
     },
@@ -694,12 +926,18 @@
       "goal": 4,
       "scripts": [
         "test_mondstadt_s03.py"
+      ],
+      "restore_scripts": [
+        "test_mondstadt_s03.py"
       ]
     },
     "Q-MON-S04": {
       "quest_id": "mond-night-banner-quest",
       "goal": 7,
       "scripts": [
+        "test_mond_night_banner.py"
+      ],
+      "restore_scripts": [
         "test_mond_night_banner.py"
       ]
     },
@@ -708,6 +946,9 @@
       "goal": 4,
       "scripts": [
         "test_mondstadt_s05.py"
+      ],
+      "restore_scripts": [
+        "test_mondstadt_s05.py"
       ]
     },
     "Q-NAT-D01": {
@@ -715,40 +956,48 @@
       "goal": 200,
       "scripts": [
         "test_daily_natlan.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-NAT-D02": {
       "quest_id": "daily-nat-ridge",
       "goal": 80,
       "scripts": [
         "test_daily_natlan.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-NAT-D03": {
       "quest_id": "daily-nat-riverside",
       "goal": 60,
       "scripts": [
         "test_daily_natlan.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-NAT-D04": {
       "quest_id": "daily-nat-elite-hunt",
       "goal": 3,
       "scripts": [
         "test_daily_natlan.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-NAT-D05": {
       "quest_id": "daily-nat-quarry",
       "goal": 60,
       "scripts": [
         "test_daily_natlan.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-NAT-M01": {
       "quest_id": "natlan-ridge-flag",
       "goal": 5,
       "scripts": [
+        "test_natlan_flag_course.py"
+      ],
+      "restore_scripts": [
         "test_natlan_flag_course.py"
       ]
     },
@@ -757,12 +1006,18 @@
       "goal": 4,
       "scripts": [
         "test_natlan_two_trials.py"
+      ],
+      "restore_scripts": [
+        "test_natlan_two_trials.py"
       ]
     },
     "Q-NAT-M03": {
       "quest_id": "natlan-sunset-duel",
       "goal": 5,
       "scripts": [
+        "test_natlan_sunset_duel.py"
+      ],
+      "restore_scripts": [
         "test_natlan_sunset_duel.py"
       ]
     },
@@ -771,12 +1026,18 @@
       "goal": 6,
       "scripts": [
         "test_natlan_kachina_charms.py"
+      ],
+      "restore_scripts": [
+        "test_natlan_kachina_charms.py"
       ]
     },
     "Q-NAT-S02": {
       "quest_id": "natlan-mualani-surf",
       "goal": 4,
       "scripts": [
+        "test_natlan_mualani_surf.py"
+      ],
+      "restore_scripts": [
         "test_natlan_mualani_surf.py"
       ]
     },
@@ -785,12 +1046,18 @@
       "goal": 2,
       "scripts": [
         "test_natlan_kinich_ambush.py"
+      ],
+      "restore_scripts": [
+        "test_natlan_kinich_ambush.py"
       ]
     },
     "Q-NAT-S04": {
       "quest_id": "natlan-xilonen-springs",
       "goal": 4,
       "scripts": [
+        "test_natlan_xilonen_course.py"
+      ],
+      "restore_scripts": [
         "test_natlan_xilonen_course.py"
       ]
     },
@@ -799,6 +1066,9 @@
       "goal": 4,
       "scripts": [
         "test_natlan_iansan_training.py"
+      ],
+      "restore_scripts": [
+        "test_natlan_iansan_training.py"
       ]
     },
     "Q-NOD-D01": {
@@ -806,40 +1076,48 @@
       "goal": 200,
       "scripts": [
         "test_daily_nod_krai.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-NOD-D02": {
       "quest_id": "daily-nod-parts-route",
       "goal": 60,
       "scripts": [
         "test_daily_nod_krai.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-NOD-D03": {
       "quest_id": "daily-nod-rumored-elites",
       "goal": 3,
       "scripts": [
         "test_daily_nod_krai.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-NOD-D04": {
       "quest_id": "daily-nod-forest-border",
       "goal": 80,
       "scripts": [
         "test_daily_nod_krai.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-NOD-D05": {
       "quest_id": "daily-nod-coast-revisit",
       "goal": 60,
       "scripts": [
         "test_daily_nod_krai.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-NOD-M01": {
       "quest_id": "nod-first-treasure",
       "goal": 5,
       "scripts": [
+        "test_nod_shallows.py"
+      ],
+      "restore_scripts": [
         "test_nod_shallows.py"
       ]
     },
@@ -848,12 +1126,18 @@
       "goal": 6,
       "scripts": [
         "test_nod_moon_paths.py"
+      ],
+      "restore_scripts": [
+        "test_nod_moon_paths.py"
       ]
     },
     "Q-NOD-M03": {
       "quest_id": "nod-moon-vault-quest",
       "goal": 4,
       "scripts": [
+        "test_nod_moon_vault.py"
+      ],
+      "restore_scripts": [
         "test_nod_moon_vault.py"
       ]
     },
@@ -862,12 +1146,18 @@
       "goal": 5,
       "scripts": [
         "test_columbina_detour.py"
+      ],
+      "restore_scripts": [
+        "test_columbina_detour.py"
       ]
     },
     "Q-NOD-S02": {
       "quest_id": "nod-treasure-appraisal",
       "goal": 5,
       "scripts": [
+        "test_nod_appraisal.py"
+      ],
+      "restore_scripts": [
         "test_nod_appraisal.py"
       ]
     },
@@ -876,12 +1166,18 @@
       "goal": 6,
       "scripts": [
         "test_nod_moon_rumor.py"
+      ],
+      "restore_scripts": [
+        "test_nod_moon_rumor.py"
       ]
     },
     "Q-NOD-S04": {
       "quest_id": "nod-moon-bloom",
       "goal": 7,
       "scripts": [
+        "test_nod_moon_bloom.py"
+      ],
+      "restore_scripts": [
         "test_nod_moon_bloom.py"
       ]
     },
@@ -890,6 +1186,9 @@
       "goal": 6,
       "scripts": [
         "test_nod_lantern_patrol.py"
+      ],
+      "restore_scripts": [
+        "test_nod_lantern_patrol.py"
       ]
     },
     "Q-SNE-D01": {
@@ -897,40 +1196,48 @@
       "goal": 200,
       "scripts": [
         "test_daily_snezhnaya.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-SNE-D02": {
       "quest_id": "daily-sne-survey-road",
       "goal": 60,
       "scripts": [
         "test_daily_snezhnaya.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-SNE-D03": {
       "quest_id": "daily-sne-forest-road",
       "goal": 80,
       "scripts": [
         "test_daily_snezhnaya.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-SNE-D04": {
       "quest_id": "daily-sne-tour-route",
       "goal": 60,
       "scripts": [
         "test_daily_snezhnaya.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-SNE-D05": {
       "quest_id": "daily-sne-elites",
       "goal": 3,
       "scripts": [
         "test_daily_snezhnaya.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-SNE-M01": {
       "quest_id": "white-pass-ticket",
       "goal": 3,
       "scripts": [
+        "test_white_pass_chapter.py"
+      ],
+      "restore_scripts": [
         "test_white_pass_chapter.py"
       ]
     },
@@ -939,12 +1246,18 @@
       "goal": 3,
       "scripts": [
         "test_white_pass_chapter.py"
+      ],
+      "restore_scripts": [
+        "test_white_pass_chapter.py"
       ]
     },
     "Q-SNE-M03": {
       "quest_id": "white-pass-summit",
       "goal": 2,
       "scripts": [
+        "test_white_pass_chapter.py"
+      ],
+      "restore_scripts": [
         "test_white_pass_chapter.py"
       ]
     },
@@ -953,12 +1266,18 @@
       "goal": 8,
       "scripts": [
         "test_sne_mitya_observation.py"
+      ],
+      "restore_scripts": [
+        "test_sne_mitya_observation.py"
       ]
     },
     "Q-SNE-S02": {
       "quest_id": "white-pass-footprints",
       "goal": 2,
       "scripts": [
+        "test_white_pass_chapter.py"
+      ],
+      "restore_scripts": [
         "test_white_pass_chapter.py"
       ]
     },
@@ -967,12 +1286,18 @@
       "goal": 2,
       "scripts": [
         "test_white_pass_chapter.py"
+      ],
+      "restore_scripts": [
+        "test_white_pass_chapter.py"
       ]
     },
     "Q-SNE-S04": {
       "quest_id": "white-pass-rest",
       "goal": 2,
       "scripts": [
+        "test_white_pass_chapter.py"
+      ],
+      "restore_scripts": [
         "test_white_pass_chapter.py"
       ]
     },
@@ -981,6 +1306,9 @@
       "goal": 3,
       "scripts": [
         "test_sne_snow_match.py"
+      ],
+      "restore_scripts": [
+        "test_sne_snow_match.py"
       ]
     },
     "Q-SUM-D01": {
@@ -988,40 +1316,48 @@
       "goal": 200,
       "scripts": [
         "test_daily_sumeru.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-SUM-D02": {
       "quest_id": "daily-sum-forest",
       "goal": 80,
       "scripts": [
         "test_daily_sumeru.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-SUM-D03": {
       "quest_id": "daily-sum-elites",
       "goal": 3,
       "scripts": [
         "test_daily_sumeru.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-SUM-D04": {
       "quest_id": "daily-sum-workyard",
       "goal": 60,
       "scripts": [
         "test_daily_sumeru.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-SUM-D05": {
       "quest_id": "daily-sum-species",
       "goal": 3,
       "scripts": [
         "test_daily_sumeru.py"
-      ]
+      ],
+      "restore_scripts": []
     },
     "Q-SUM-M01": {
       "quest_id": "sumeru-leaf-crossing",
       "goal": 5,
       "scripts": [
+        "test_sumeru_canopy.py"
+      ],
+      "restore_scripts": [
         "test_sumeru_canopy.py"
       ]
     },
@@ -1030,12 +1366,18 @@
       "goal": 5,
       "scripts": [
         "test_sumeru_canopy.py"
+      ],
+      "restore_scripts": [
+        "test_sumeru_canopy.py"
       ]
     },
     "Q-SUM-M03": {
       "quest_id": "sumeru-observatory-map",
       "goal": 4,
       "scripts": [
+        "test_sumeru_canopy.py"
+      ],
+      "restore_scripts": [
         "test_sumeru_canopy.py"
       ]
     },
@@ -1044,12 +1386,18 @@
       "goal": 8,
       "scripts": [
         "test_sumeru_wanderer_survey.py"
+      ],
+      "restore_scripts": [
+        "test_sumeru_wanderer_survey.py"
       ]
     },
     "Q-SUM-S02": {
       "quest_id": "sum-fungus-visitors",
       "goal": 11,
       "scripts": [
+        "test_sumeru_observation_visitors.py"
+      ],
+      "restore_scripts": [
         "test_sumeru_observation_visitors.py"
       ]
     },
@@ -1058,6 +1406,9 @@
       "goal": 6,
       "scripts": [
         "test_sumeru_collei_guide.py"
+      ],
+      "restore_scripts": [
+        "test_sumeru_collei_guide.py"
       ]
     },
     "Q-SUM-S04": {
@@ -1065,12 +1416,18 @@
       "goal": 2,
       "scripts": [
         "test_sumeru_kaveh_model.py"
+      ],
+      "restore_scripts": [
+        "test_sumeru_kaveh_model.py"
       ]
     },
     "Q-SUM-S05": {
       "quest_id": "sum-nahida-map",
       "goal": 2,
       "scripts": [
+        "test_sumeru_nahida_map.py"
+      ],
+      "restore_scripts": [
         "test_sumeru_nahida_map.py"
       ]
     }

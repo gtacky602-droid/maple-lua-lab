@@ -10,6 +10,7 @@
       "firstKillMora": 195,
       "redoKillXp": 17450,
       "commission": "bathysmal-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_bathysmal_field.py"
     },
@@ -22,6 +23,7 @@
       "firstKillMora": 140,
       "redoKillXp": 1250,
       "commission": "electro-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_electro_field.py"
     },
@@ -34,6 +36,7 @@
       "firstKillMora": 125,
       "redoKillXp": 900,
       "commission": "anemo-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_anemo_field.py"
     },
@@ -46,6 +49,7 @@
       "firstKillMora": 160,
       "redoKillXp": 5900,
       "commission": "geo-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_geo_field.py"
     },
@@ -58,6 +62,7 @@
       "firstKillMora": 200,
       "redoKillXp": 27700,
       "commission": "hydro-hypostasis-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_hydro_hypostasis_field.py"
     },
@@ -70,6 +75,7 @@
       "firstKillMora": 145,
       "redoKillXp": 1150,
       "commission": "cryo-hypostasis-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_cryo_hypostasis_field.py"
     },
@@ -82,6 +88,7 @@
       "firstKillMora": 195,
       "redoKillXp": 23750,
       "commission": "pyro-hypostasis-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_pyro_hypostasis_field.py"
     },
@@ -94,6 +101,7 @@
       "firstKillMora": 240,
       "redoKillXp": 53350,
       "commission": "dendro-hypostasis-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_dendro_hypostasis_field.py"
     },
@@ -106,6 +114,7 @@
       "firstKillMora": 170,
       "redoKillXp": 12250,
       "commission": "oceanid-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_oceanid_field.py"
     },
@@ -118,6 +127,7 @@
       "firstKillMora": 315,
       "redoKillXp": 148300,
       "commission": "tulpa-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_tulpa_field.py"
     },
@@ -130,6 +140,7 @@
       "firstKillMora": 190,
       "redoKillXp": 20350,
       "commission": "thunder-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_thunder_field.py"
     },
@@ -142,6 +153,7 @@
       "firstKillMora": 465,
       "redoKillXp": 677150,
       "commission": "frostnight-herra-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_frostnight_herra_field.py"
     },
@@ -154,6 +166,7 @@
       "firstKillMora": 210,
       "redoKillXp": 32300,
       "commission": "wolflord-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_wolflord_field.py"
     },
@@ -166,6 +179,7 @@
       "firstKillMora": 255,
       "redoKillXp": 82300,
       "commission": "baptist-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_baptist_field.py"
     },
@@ -178,6 +192,7 @@
       "firstKillMora": 395,
       "redoKillXp": 273250,
       "commission": "papilla-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_papilla_field.py"
     },
@@ -190,6 +205,7 @@
       "firstKillMora": 475,
       "redoKillXp": 768050,
       "commission": "whisperer-nightmares-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_whisperer_nightmares_field.py"
     },
@@ -202,6 +218,7 @@
       "firstKillMora": 455,
       "redoKillXp": 597050,
       "commission": "battleship-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_battleship_field.py"
     },
@@ -214,6 +231,7 @@
       "firstKillMora": 150,
       "redoKillXp": 2350,
       "commission": "ruin-serpent-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_ruin_serpent_field.py"
     },
@@ -226,6 +244,7 @@
       "firstKillMora": 185,
       "redoKillXp": 17450,
       "commission": "array-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_array_field.py"
     },
@@ -238,6 +257,7 @@
       "firstKillMora": 235,
       "redoKillXp": 46150,
       "commission": "aeonblight-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_aeonblight_field.py"
     },
@@ -250,6 +270,7 @@
       "firstKillMora": 245,
       "redoKillXp": 61650,
       "commission": "asimon-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_asimon_field.py"
     },
@@ -262,6 +283,7 @@
       "firstKillMora": 305,
       "redoKillXp": 129550,
       "commission": "field-generator-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_field_generator.py"
     },
@@ -274,6 +296,7 @@
       "firstKillMora": 380,
       "redoKillXp": 240900,
       "commission": "config-device-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_config_device_field.py"
     },
@@ -286,6 +309,7 @@
       "firstKillMora": 420,
       "redoKillXp": 351500,
       "commission": "overseer-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_overseer_field.py"
     },
@@ -298,6 +322,7 @@
       "firstKillMora": 445,
       "redoKillXp": 526400,
       "commission": "knuckle-duckle-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_knuckle_duckle_field.py"
     },
@@ -310,6 +335,7 @@
       "firstKillMora": 155,
       "redoKillXp": 1250,
       "commission": "fallen-vigil-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_fallen_vigil_field.py"
     },
@@ -322,6 +348,7 @@
       "firstKillMora": 180,
       "redoKillXp": 14950,
       "commission": "maguu-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_maguu_field.py"
     },
@@ -334,6 +361,7 @@
       "firstKillMora": 570,
       "redoKillXp": 2381150,
       "commission": "wavebinder-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_wavebinder_field.py"
     },
@@ -346,6 +374,7 @@
       "firstKillMora": 560,
       "redoKillXp": 1868400,
       "commission": "drifting-snow-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_drifting_snow_field.py"
     },
@@ -358,6 +387,7 @@
       "firstKillMora": 550,
       "redoKillXp": 1298650,
       "commission": "immortal-construct-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_immortal_construct_field.py"
     },
@@ -370,6 +400,7 @@
       "firstKillMora": 420,
       "redoKillXp": 398700,
       "commission": "spiritspeaker-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_spiritspeaker_field.py"
     },
@@ -382,6 +413,7 @@
       "firstKillMora": 125,
       "redoKillXp": 900,
       "commission": "cryo-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_cryo_field.py"
     },
@@ -394,6 +426,7 @@
       "firstKillMora": 150,
       "redoKillXp": 4900,
       "commission": "pyro-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_pyro_field.py"
     },
@@ -406,6 +439,7 @@
       "firstKillMora": 225,
       "redoKillXp": 39950,
       "commission": "electro-regisvine-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_electro_regisvine_field.py"
     },
@@ -418,6 +452,7 @@
       "firstKillMora": 165,
       "redoKillXp": 8500,
       "commission": "primo-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_primo_field.py"
     },
@@ -430,6 +465,7 @@
       "firstKillMora": 180,
       "redoKillXp": 39950,
       "commission": "jadeplume-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_jadeplume_field.py"
     },
@@ -442,6 +478,7 @@
       "firstKillMora": 250,
       "redoKillXp": 71200,
       "commission": "wenut-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_wenut_field.py"
     },
@@ -454,6 +491,7 @@
       "firstKillMora": 335,
       "redoKillXp": 191700,
       "commission": "legatus-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_legatus_field.py"
     },
@@ -466,6 +504,7 @@
       "firstKillMora": 280,
       "redoKillXp": 98800,
       "commission": "emperor-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_emperor_field.py"
     },
@@ -478,6 +517,7 @@
       "firstKillMora": 290,
       "redoKillXp": 113150,
       "commission": "seahorse-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_seahorse_field.py"
     },
@@ -490,6 +530,7 @@
       "firstKillMora": 196,
       "redoKillXp": 5900,
       "commission": "suanni-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_suanni_field.py"
     },
@@ -502,6 +543,7 @@
       "firstKillMora": 370,
       "redoKillXp": 212400,
       "commission": "yumka-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_yumka_field.py"
     },
@@ -514,6 +556,7 @@
       "firstKillMora": 360,
       "redoKillXp": 212400,
       "commission": "qucusaur-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_qucusaur_field.py"
     },
@@ -526,6 +569,7 @@
       "firstKillMora": 410,
       "redoKillXp": 309900,
       "commission": "lava-dragon-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_lava_dragon_field.py"
     },
@@ -538,6 +582,7 @@
       "firstKillMora": 485,
       "redoKillXp": 871150,
       "commission": "moonfly-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_moonfly_field.py"
     },
@@ -550,6 +595,7 @@
       "firstKillMora": 495,
       "redoKillXp": 988100,
       "commission": "moongecko-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_moongecko_field.py"
     },
@@ -562,6 +608,7 @@
       "firstKillMora": 540,
       "redoKillXp": 1466100,
       "commission": "flugel-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_flugel_field.py"
     },
@@ -574,6 +621,7 @@
       "firstKillMora": 325,
       "redoKillXp": 169000,
       "commission": "icewind-coppelia-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_icewind_field.py"
     },
@@ -586,6 +634,7 @@
       "firstKillMora": 325,
       "redoKillXp": 169000,
       "commission": "icewind-coppelius-commission",
+      "commissionRestored": true,
       "cooldownResumed": true,
       "encounterScenario": "test_icewind_field.py"
     }

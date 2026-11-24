@@ -82,6 +82,14 @@ def check_field(id, spec):
         assert (replay.progression.questXp, replay.mora) == (
             before_report[0] + commission['xp'], before_report[1] + commission['mora'],
         )
+        paid = replay.progression.questXp, replay.mora, replay.inventory.upgradeOre
+        replay = core.restore(lua.table_from(save(replay), recursive=True), 12)
+        assert replay.story.quests[key].status == 'complete' and replay.story.quests[key].count == commission['goal']
+        assert (replay.progression.questXp, replay.mora, replay.inventory.upgradeOre) == paid
+        if replay.story.node != commission['hub']:
+            core.enterStoryNode(replay, commission['hub'])
+        core.action(replay, 'story_report:' + key)
+        assert (replay.progression.questXp, replay.mora, replay.inventory.upgradeOre) == paid
 
     core.enterStoryNode(replay, origin)
     retry = TrailWalk(lua, core, replay, edges, exits)
@@ -100,7 +108,7 @@ def check_field(id, spec):
     return dict(
         arena=arena, approach=origin, gateLevel=gate_level, restoredAt=hub,
         firstKillXp=first[2], firstKillMora=first[1], redoKillXp=repeat[2],
-        commission=commission and commission['id'], cooldownResumed=True,
+        commission=commission and commission['id'], commissionRestored=bool(commission), cooldownResumed=True,
         encounterScenario=scenarios[id]['script'],
     )
 

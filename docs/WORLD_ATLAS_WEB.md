@@ -72,13 +72,17 @@ Lv1の開始地点から、87戦すべてに通行条件付きの道順が出る
 
 幽境は、各地域の受付へ案内する。現地の入口でFを押し、受付で**難易度と聖遺物セット**を選ぶ。Chromeでは「北斗」から試合甲板へ移動し、極限のLv165条件と、通常戦の勝利・依頼報告・保存からの復元を確認した。 [幽境の案内画面](../evidence/stygian-beidou-atlas.png) · [北斗戦のログ](../evidence/stygian-clear-rewards-browser.json)
 
-7.2の台帳にある通常49戦を、現地の門での入場、初回と再戦の討伐報酬、保存後の再出現、討伐依頼48件の一度限りの報告までLuaで検証した。開始Lvと開始地点を用意し、戦闘の決着を試験で作って報酬を確かめた。 [49戦の入場・報酬・復元](../evidence/normal-boss-lifecycle-lua.json) · [戦闘ごとの既存の試験](../evidence/boss-roster-lua-audit.json)
+7.2の台帳にある通常49戦を、現地の門での入場、初回と再戦の討伐報酬、保存後の再出現、討伐依頼49件の報告と報告後の保存再開までLuaで検証した。開始Lvと開始地点を用意し、戦闘の決着を試験で作って報酬を確かめた。 [49戦の入場・報酬・復元](../evidence/normal-boss-lifecycle-lua.json) · [戦闘ごとの既存の試験](../evidence/boss-roster-lua-audit.json)
 
 ラボ独自の通常15戦・週2戦は個別シナリオを再試験した。週ボス14戦の56難易度枠と幽境7戦の28難易度枠も、初回・再戦・保存再開の報酬試験を実行した。 [ラボ独自17戦の試験](../evidence/original-encounter-scenarios-lua.json) · [週ボス56枠](../evidence/weekly-difficulty-rewards-lua.json) · [幽境28枠](../evidence/stygian-clear-rewards-lua.json)
 
 独自の通常ボス15戦は、依頼を報告して保存を読み込んだ後の挙動まで確認した。13戦は門から再入場し、待機時間が終わると全快で再出現する。再討伐の記録は保存され、依頼報酬は一度だけ受け取れる。検証では門の前に立つ座標を用意し、再戦はクールダウンの最後の1ティックと討伐精算をLuaで実行した。 [ドラゴンスパイン](../evidence/original-rime-hare-lifecycle-lua.json) · [トゥニギ](../evidence/original-wind-ring-lifecycle-lua.json) · [月渡りの岩窟](../evidence/original-moon-crab-lifecycle-lua.json)
 
 ナタの夕映え決闘は、報告後に現地で練習戦を始められる。練習の勝利では報酬と章の勝利数が増えない。フォンテーヌの主舞台は、報告後も上演の記録を読める状態が続き、時間を進めてもボスは出現しない。 [夕映え決闘](../evidence/natlan-sunset-duel-lua.json) · [フォンテーヌ主舞台](../evidence/fontaine-finale-lua.json)
+
+## クエスト報告後の保存
+
+現行の本編・探索・討伐など、新規に受注できるストーリークエスト280件すべてに、報告後の保存再開の記録がそろった。今回追加で確認した31件は、報告直後のセーブを読み込み、目標数、完了状態、獲得済みのEXP・モラ・強化用鉱石が残ることと、同じ拠点での再報告で報酬が増えないことを確かめた。設計台帳153件の受注・報酬も81本のLuaシナリオで再試験した。各シナリオでは必要に応じてレベル、開始地点、装備や先行進行を用意した。 [クエスト台帳](../content/coverage.json) · [31件の保存復元と再報告](../evidence/quest-report-restart-lua.json) · [設計台帳の153件](../evidence/quest-design-playthrough.json)
 
 ## 狩場と脇部屋の入口
 

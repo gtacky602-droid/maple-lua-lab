@@ -78,7 +78,7 @@ return function(C, observe)
     observe('accepted',id,after.count)
    elseif command=='report' and status=='active' and after.status=='complete'
        and (s.progression.questXp>xp or s.mora>mora) then
-    observe('paid',id,count)
+    observe('paid',id,count,s)
    end
   elseif source=='daily' and (command=='accept' or command=='claim' or command=='carry') and s.daily then
    local ledger=s.daily.ledger
@@ -102,7 +102,7 @@ def content(name):
     return json.loads((ROOT / 'content' / name).read_text(encoding='utf8'))
 
 
-def run_playthrough(name, quests, coverage, restored=None):
+def run_playthrough(name, quests, coverage, restored=None, *, after_report=None):
     script = ROOT / f'test_{name}.py'
     events = defaultdict(dict)
     original = runtime.runtime
@@ -116,9 +116,15 @@ def run_playthrough(name, quests, coverage, restored=None):
             return
         events[id][event] = count
 
-    def instrumented_runtime():
-        lua, core = original()
-        lua.execute(OBSERVE_ACTIONS)(core, observe)
+    def instrumented_runtime(**options):
+        lua, core = original(**options)
+
+        def observe_session(event, id, count, state=None):
+            observe(event, id, count)
+            if after_report and state is not None and 'accepted' in events.get(id, {}):
+                after_report(lua, core, state, id)
+
+        lua.execute(OBSERVE_ACTIONS)(core, observe_session)
         return lua, core
 
     runtime.runtime = instrumented_runtime
@@ -139,22 +145,25 @@ def main():
               if 'designId' in q}
     assert len(quests) == 153
     coverage = defaultdict(list)
+    restored = defaultdict(list)
     failed = []
     for scripts in PLAYTHROUGHS.values():
         for name in scripts:
             print(f'Running test_{name}.py', flush=True)
             try:
-                run_playthrough(name, quests, coverage)
+                run_playthrough(name, quests, coverage, restored)
             except Exception:
                 traceback.print_exc()
                 failed.append(name)
     missing = [q['designId'] for id, q in quests.items() if not coverage[id]]
     result = {
-        'scope': 'Acceptance and payout at the Lua action boundaries in the same scenario script; scenario fixtures can supply level, prior progress, positioning or combat conditions.',
+        'scope': 'Acceptance and payout at the Lua action boundaries in the same scenario script. Restore links cover story quests observed complete after payout in that script. Scenario fixtures can supply level, prior progress, positioning or combat conditions.',
         'quest_count': len(quests),
         'scenario_count': sum(map(len, PLAYTHROUGHS.values())),
         'quest_playthroughs': {
-            q['designId']: {'quest_id': id, 'goal': q['goal'], 'scripts': coverage[id]}
+            q['designId']: {
+                'quest_id': id, 'goal': q['goal'], 'scripts': coverage[id], 'restore_scripts': restored[id],
+            }
             for id, q in sorted(quests.items(), key=lambda item: item[1]['designId'])
         },
     }

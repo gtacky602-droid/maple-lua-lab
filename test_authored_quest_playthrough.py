@@ -1,6 +1,7 @@
 """Observe real acceptance, reports and reloads beyond the design-ID quest suite."""
 
 from collections import defaultdict
+from contextlib import contextmanager
 import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -40,6 +41,22 @@ def evidence(name):
     return json.loads((ROOT / 'evidence' / name).read_text(encoding='utf8'))
 
 
+@contextmanager
+def redirect_scenario_outputs():
+    write_text = Path.write_text
+    with TemporaryDirectory(prefix='maple-quest-playthrough-') as folder:
+        def scenario_write(path, data, *args, **kwargs):
+            if path.is_relative_to(ROOT):
+                relative = path.relative_to(ROOT)
+                if relative.parts[0] in ('evidence', 'work'):
+                    path = Path(folder) / relative
+                    path.parent.mkdir(parents=True, exist_ok=True)
+            return write_text(path, data, *args, **kwargs)
+
+        with patch.object(Path, 'write_text', scenario_write):
+            yield
+
+
 def main():
     quests = {q['id']: q for q in content('story-graph.json')['quests']}
     legacy = {id for id, quest in quests.items() if quest.get('legacyOnly')}
@@ -53,21 +70,11 @@ def main():
     prior_story = prior & quests.keys()
     study = {id: q for id, q in quests.items() if id not in prior_story | legacy}
     reported, restored = defaultdict(list), defaultdict(list)
-    write_text = Path.write_text
-    with TemporaryDirectory(prefix='maple-quest-playthrough-') as folder:
-        def scenario_write(path, data, *args, **kwargs):
-            if path.is_relative_to(ROOT):
-                relative = path.relative_to(ROOT)
-                if relative.parts[0] in ('evidence', 'work'):
-                    path = Path(folder) / relative
-                    path.parent.mkdir(parents=True, exist_ok=True)
-            return write_text(path, data, *args, **kwargs)
-
-        with patch.object(Path, 'write_text', scenario_write):
-            for group in SCENARIOS.values():
-                for name in group:
-                    print(f'Running test_{name}.py', flush=True)
-                    run_playthrough(name, study, reported, restored)
+    with redirect_scenario_outputs():
+        for group in SCENARIOS.values():
+            for name in group:
+                print(f'Running test_{name}.py', flush=True)
+                run_playthrough(name, study, reported, restored)
 
     route_trials = {name: sorted(evidence(name)['cases']) for name in (
         'visit-quest-round-trips-lua.json',

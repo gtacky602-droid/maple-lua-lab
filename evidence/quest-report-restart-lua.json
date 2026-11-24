@@ -1,0 +1,254 @@
+{
+  "scope": "Each existing report scenario is replayed. The observed payout is saved through the checkpoint validator, restored in a separate state, and the report is retried at the same hub.",
+  "tested": 31,
+  "cases": {
+    "andrius-weekly-commission": {
+      "questCount": 1,
+      "reportNode": "mond-town",
+      "restoredAt": "mond-town",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_andrius_weekly.py"
+    },
+    "dvalin-weekly-commission": {
+      "questCount": 1,
+      "reportNode": "mond-town",
+      "restoredAt": "mond-town",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_dvalin_weekly.py"
+    },
+    "fon-freminet-dive": {
+      "questCount": 6,
+      "reportNode": "fontaine-hub",
+      "restoredAt": "fontaine-hub",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_fontaine_freminet_dive.py"
+    },
+    "growth-abyss": {
+      "questCount": 1,
+      "reportNode": "mond-town",
+      "restoredAt": "mond-town",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_growth_endgame.py"
+    },
+    "growth-branch-visit": {
+      "questCount": 1,
+      "reportNode": "mond-town",
+      "restoredAt": "mond-town",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_growth_light.py"
+    },
+    "growth-light-echo": {
+      "questCount": 1,
+      "reportNode": "snezhnaya-hub",
+      "restoredAt": "snezhnaya-hub",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_growth_light.py"
+    },
+    "growth-light-release": {
+      "questCount": 2,
+      "reportNode": "mond-town",
+      "restoredAt": "mond-town",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_growth_light.py"
+    },
+    "growth-lunar-practice": {
+      "questCount": 1,
+      "reportNode": "nod-port",
+      "restoredAt": "nod-port",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_growth_practice.py"
+    },
+    "growth-next-goal": {
+      "questCount": 2,
+      "reportNode": "mond-town",
+      "restoredAt": "mond-town",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_growth_endgame.py"
+    },
+    "growth-pair-imprint": {
+      "questCount": 1,
+      "reportNode": "natlan-hub",
+      "restoredAt": "natlan-hub",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_growth_practice.py"
+    },
+    "growth-seven-strike": {
+      "questCount": 1,
+      "reportNode": "snezhnaya-hub",
+      "restoredAt": "snezhnaya-hub",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_growth_light.py"
+    },
+    "growth-stygian": {
+      "questCount": 1,
+      "reportNode": "mond-town",
+      "restoredAt": "mond-town",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_growth_endgame.py"
+    },
+    "growth-weekly": {
+      "questCount": 1,
+      "reportNode": "mond-town",
+      "restoredAt": "mond-town",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_growth_endgame.py"
+    },
+    "loom-stopped": {
+      "questCount": 1,
+      "reportNode": "liyue-harbor",
+      "restoredAt": "liyue-harbor",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_twin_shuttle_loom.py"
+    },
+    "natlan-ancient-excavation-wall": {
+      "questCount": 3,
+      "reportNode": "natlan-hub",
+      "restoredAt": "natlan-hub",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_natlan_cliff_trials.py"
+    },
+    "natlan-atocpan-landmarks": {
+      "questCount": 2,
+      "reportNode": "natlan-hub",
+      "restoredAt": "natlan-hub",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_natlan_atocpan_totem.py"
+    },
+    "natlan-rainbow-cave-keys": {
+      "questCount": 4,
+      "reportNode": "natlan-hub",
+      "restoredAt": "natlan-hub",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_natlan_toyac_legends.py"
+    },
+    "natlan-seaward-signs": {
+      "questCount": 2,
+      "reportNode": "natlan-hub",
+      "restoredAt": "natlan-hub",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_natlan_northwest_legends.py"
+    },
+    "natlan-southern-trail-survey": {
+      "questCount": 2,
+      "reportNode": "natlan-hub",
+      "restoredAt": "natlan-hub",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_natlan_final_legends.py"
+    },
+    "natlan-sulfurous-resonant-stones": {
+      "questCount": 1,
+      "reportNode": "natlan-hub",
+      "restoredAt": "natlan-hub",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_natlan_north_trials.py"
+    },
+    "natlan-toyac-electro-crystals": {
+      "questCount": 1,
+      "reportNode": "natlan-hub",
+      "restoredAt": "natlan-hub",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_natlan_toyac_legends.py"
+    },
+    "natlan-two-pillar-trails": {
+      "questCount": 2,
+      "reportNode": "natlan-hub",
+      "restoredAt": "natlan-hub",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_natlan_wayob_duo.py"
+    },
+    "natlan-witztli-three-echoes": {
+      "questCount": 2,
+      "reportNode": "natlan-hub",
+      "restoredAt": "natlan-hub",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_natlan_north_trials.py"
+    },
+    "nod-bonemos-offerings": {
+      "questCount": 4,
+      "reportNode": "nod-town",
+      "restoredAt": "nod-town",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_nod_first_field_legends.py"
+    },
+    "nod-bureau-lift-check": {
+      "questCount": 2,
+      "reportNode": "nod-town",
+      "restoredAt": "nod-town",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_nod_first_field_legends.py"
+    },
+    "nod-north-landmark-round": {
+      "questCount": 1,
+      "reportNode": "nod-north-harbor",
+      "restoredAt": "nod-north-harbor",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_nod_north_field_legends.py"
+    },
+    "sky-pavilion-notes": {
+      "questCount": 3,
+      "reportNode": "nat-sky-camp",
+      "restoredAt": "nat-sky-camp",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_final_field_legends.py"
+    },
+    "sne-rescue-three-mice": {
+      "questCount": 4,
+      "reportNode": "snezhnaya-hub",
+      "restoredAt": "snezhnaya-hub",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_snez_late_field_legends.py"
+    },
+    "sne-snow-sculptor-bouts": {
+      "questCount": 3,
+      "reportNode": "snezhnaya-hub",
+      "restoredAt": "snezhnaya-hub",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_snez_first_field_legends.py"
+    },
+    "sne-svetloredovka-cavern-check": {
+      "questCount": 2,
+      "reportNode": "snezhnaya-hub",
+      "restoredAt": "snezhnaya-hub",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_snez_first_field_legends.py"
+    },
+    "surveyor-inspection": {
+      "questCount": 1,
+      "reportNode": "liyue-harbor",
+      "restoredAt": "liyue-harbor",
+      "paidCycles": 1,
+      "duplicateReward": false,
+      "script": "test_tide_surveyor.py"
+    }
+  }
+}

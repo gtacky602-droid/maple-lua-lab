@@ -8404,7 +8404,19 @@
     "acceptance_and_report_links": 280,
     "legacy_save_records_resumed": 4,
     "daily_acceptance_and_payout_links": 40,
-    "scope": "Per-quest acceptance and report evidence, with fixtures as documented in individual scenarios. Save restoration is checked in the linked scenarios that exercise it.",
+    "story_quests_with_post_report_restore": 280,
+    "additional_post_report_restarts": {
+      "tested": 31,
+      "evidence": "evidence/quest-report-restart-lua.json"
+    },
+    "scope": "Per-quest acceptance, report and post-report save restoration evidence for every currently offered story quest. Scenario fixtures may prepare levels, locations or earlier progress.",
+    "post_report_evidence": [
+      "evidence/quest-design-playthrough.json",
+      "evidence/normal-boss-lifecycle-lua.json",
+      "evidence/visit-quest-round-trips-lua.json",
+      "evidence/hunt-quest-round-trips-lua.json",
+      "evidence/fontaine-access-surveys-lua.json"
+    ],
     "evidence": "evidence/authored-quest-playthrough.json",
     "fontaine_access_browser": "evidence/fontaine-access-surveys-browser.json"
   },
