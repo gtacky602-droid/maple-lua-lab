@@ -36,9 +36,7 @@ return function(C, config)
   C.attachCoopStygian(room,s)
   if room.weeklySlot then s.platforms=room.platforms end
   if room.weeklySpec and room.weeklySpec.innerNode then s.solids=room.solids end
-  for _,e in ipairs(room.enemies) do
-   if e.burning and not e.burning.member and #room.members==1 then e.burning.member=member end
-  end
+  C.adoptCoopReactions(room,member)
   return member
  end
  function C.detachCoop(member,keepClearedScene)
@@ -151,6 +149,8 @@ return function(C, config)
     if peer.rockWall then C.drawRockWall(f,s.camera,peer.rockWall) end
     if peer.coralWall then C.drawCoralWall(f,s.camera,peer.coralWall) end
     if peer.healingField then C.drawWaterField(f,s.camera,peer.healingField) end
+    C.drawLunarCasts(peer,f,s.camera)
+    C.drawStarSeed(peer,f,s.camera)
     local camera={camera=s.camera,companion=peer.companion}
     for _,a in ipairs(peer.actors) do
      if a.hp>0 and a.x>=s.camera-55 and a.x<=s.camera+1015 then

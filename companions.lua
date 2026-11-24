@@ -54,27 +54,35 @@ return function(C)
  end
  function C.afterElementHit(s,cast,e,element)
   local prior=e.aura
-  after(s,cast,e,element)
-  if s.companion~='columbina' or s.actors[2].hp<=0 or cast.reaction or cast.special or e.hp<=0 or s.t<(s.moonICD or 0) then return end
+  local applied=after(s,cast,e,element)
+  if not applied or s.companion~='columbina' or s.actors[2].hp<=0 or cast.special
+    or e.hp<=0 or s.t<(s.moonICD or 0) then return applied end
+  local now=s.coop and s.coop.time or s.t
+  local ownerSlot=s.coopMember and s.coopMember.id
+  local ownAura=prior and prior.expires>now and prior.ownerSlot==ownerSlot
   local derived,proxy
   if cast.id==1 then
    local part=moonElement(cast,element)
-   if part and prior and prior.expires>s.t and prior.element=='hydro' and prior.companion=='columbina' and prior.owner==2 then
+   if part and ownAura and prior.element=='hydro' and prior.companion=='columbina' and prior.owner==2 then
     derived=part
    elseif part and s.t<(s.moonDomain or 0) and s.t<(s.moonMark or 0) then
     proxy=true
    end
-  elseif cast.id==2 and element=='hydro' and prior and prior.expires>s.t and prior.owner==1 and moonElements[prior.element] then
+  elseif cast.id==2 and element=='hydro' and ownAura and prior.owner==1 and moonElements[prior.element] then
    derived=prior.element
   end
-  if not (derived or proxy) then return end
+  if not (derived or proxy) then return applied end
   s.moonICD=s.t+1
   if derived then e.aura=nil end
   local before=s.damage
   C.resolveCast(s,{id=cast.id,key=derived and 'reaction:moon-'..derived or 'moon_support_proxy',atk=cast.atk,
    x=e.x,y=e.y,targetId=e.id,dir=1,radial=true,range=1,limit=1,mult=1.2,color='#e2e4ff',
    element='hydro',gain=0,reaction=true,critRate=0})
-  if derived and s.damage>before then s.lastMoonReaction={name=moonElements[derived],untilTime=s.t+3} end
+  if s.damage>before then
+   C.recordElementReaction(s,derived and 'moon-'..derived or 'moon-support','hydro',cast.id,derived and prior or nil,e.id)
+   if derived then s.lastMoonReaction={name=moonElements[derived],untilTime=s.t+3} end
+  end
+  return applied
  end
  local function clear(s) s.moonDomain=0;s.moonMark=0;s.moonICD=0;s.lastMoonReaction=nil;s.actors[2].floatUntil=0 end
  function C.action(s,key)

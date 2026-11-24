@@ -1,0 +1,10 @@
+{
+  "browser": "Chrome",
+  "twoSeparateBrowserContexts": true,
+  "map": "nod-field",
+  "guestCannotUseHostsColumbina": true,
+  "hostCannotUseGuestsWanderer": true,
+  "lunarCastVisibleOnBothViews": true,
+  "starSeedVisibleAndExpiresOnBothViews": true,
+  "errors": []
+}

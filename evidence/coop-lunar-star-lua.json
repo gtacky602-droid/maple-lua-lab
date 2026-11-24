@@ -1,0 +1,13 @@
+{
+  "browserFixtureLevel": 149,
+  "clockSkewSeconds": 40,
+  "foreignAuraRejectedInBothOrders": true,
+  "expiredAuraRejectedWithClockSkew": true,
+  "ownerSlotsAndSeparateKillRewards": true,
+  "preRoomAuraAndApplicationTimerAdopted": true,
+  "reverseLunarCrystallize": true,
+  "ordinaryBurningAllowsCrossPartyAura": true,
+  "partyReactionCooldownAndApplicationCooldown": true,
+  "starOwnerGrowthOnceAndFinalHitOnce": true,
+  "starSeedDrawnForPeer": true
+}

@@ -16,11 +16,13 @@ return function(C)
   return result
  end
  function C.afterElementHit(s,cast,e,element)
-  after(s,cast,e,element)
+  local applied=after(s,cast,e,element)
   local seed=s.starSeed
-  if not seed or cast.reaction or cast.special or s.t<seed.nextGrowth or seed.growth>=12 then return end
-  if math.abs(e.x-seed.cast.x)>seed.cast.range or math.abs(e.y-seed.cast.y)>100 then return end
-  seed.growth=seed.growth+1;seed.nextGrowth=s.t+.25;seed.cast.range=180+seed.growth*5
+  if seed and not cast.reaction and not cast.special and s.t>=seed.nextGrowth and seed.growth<12
+     and math.abs(e.x-seed.cast.x)<=seed.cast.range and math.abs(e.y-seed.cast.y)<=100 then
+   seed.growth=seed.growth+1;seed.nextGrowth=s.t+.25;seed.cast.range=180+seed.growth*5
+  end
+  return applied
  end
  local function valid(s,seed)
   return s.actors[1].hp>0 and s.actors[2].hp>0 and s.companion=='wanderer' and seed.zone==(s.campaign and s.campaign.zone) and seed.returns==s.returns
@@ -37,13 +39,19 @@ return function(C)
    end
   end
  end
+ function C.drawStarSeed(s,f,camera)
+  local seed=s.starSeed
+  if seed and valid(s,seed) then
+   local size=14+seed.growth*2
+   f.draws[#f.draws+1]={kind='rect',x=seed.cast.x-camera-size/2,y=seed.cast.y-50-size,w=size,h=size,color='#a5e8dc'}
+   f.draws[#f.draws+1]={kind='rect',x=seed.cast.x-camera-seed.cast.range,y=seed.cast.y-3,w=seed.cast.range*2,h=3,color='#a5e8dc'}
+  end
+ end
  function C.frame(s,mode,profile)
   local f=frame(s,mode,profile);local seed=s.starSeed
   if seed and valid(s,seed) then
    f.starSeed={growth=seed.growth,radius=seed.cast.range,seconds=math.max(0,seed.expires-s.t)}
-   local size=14+seed.growth*2
-   f.draws[#f.draws+1]={kind='rect',x=seed.cast.x-s.camera-size/2,y=seed.cast.y-50-size,w=size,h=size,color='#a5e8dc'}
-   f.draws[#f.draws+1]={kind='rect',x=seed.cast.x-s.camera-seed.cast.range,y=seed.cast.y-3,w=seed.cast.range*2,h=3,color='#a5e8dc'}
+   C.drawStarSeed(s,f,s.camera)
   end
   f.commands=#f.draws;return f
  end

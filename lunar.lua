@@ -24,17 +24,20 @@ return function(C)
   end end
   return step(s,dt,input)
  end
- function C.frame(s,mode,profile)
-  local f=frame(s,mode,profile);f.skillNotice=s.skillNotice
+ function C.drawLunarCasts(s,f,camera)
   for _,cast in ipairs(s.pending) do
    if cast.placed=='SK54' then local a=s.actors[cast.id]
-    f.draws[#f.draws+1]={kind='rect',x=a.x-s.camera-12,y=a.y-125,w=24,h=24,color='#c6d0ff'}
+    f.draws[#f.draws+1]={kind='rect',x=a.x-camera-12,y=a.y-125,w=24,h=24,color='#c6d0ff'}
    elseif cast.placed=='SK55' then local a=s.actors[cast.id]
     for i=1,6 do local angle=i*math.pi/3+s.t*2
-     f.draws[#f.draws+1]={kind='rect',x=a.x-s.camera+math.cos(angle)*145-6,y=a.y-40+math.sin(angle)*40-6,w=12,h=12,color='#e3e3c0'}
+     f.draws[#f.draws+1]={kind='rect',x=a.x-camera+math.cos(angle)*145-6,y=a.y-40+math.sin(angle)*40-6,w=12,h=12,color='#e3e3c0'}
     end
    end
   end
+ end
+ function C.frame(s,mode,profile)
+  local f=frame(s,mode,profile);f.skillNotice=s.skillNotice
+  C.drawLunarCasts(s,f,s.camera)
   f.commands=#f.draws;return f
  end
 end
