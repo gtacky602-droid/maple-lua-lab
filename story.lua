@@ -766,6 +766,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   return state
  end
  local function cleared(s,n)
+  -- Some routes remove their quest targets while the surrounding patrols stay active.
+  if n.keepOtherEnemies then return false end
   local state=clearState(s,n)
   return state and state.count>=(n.clearCount or quests[n.clearedBy].goal)
  end

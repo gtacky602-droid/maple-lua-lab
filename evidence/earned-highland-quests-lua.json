@@ -1,0 +1,1103 @@
+{
+  "chenyu": {
+    "battles": [
+      {
+        "kills": 1,
+        "node": "chenyu-boulder-gully",
+        "targets": [
+          "original-tea-boulder"
+        ],
+        "xp": 6947
+      }
+    ],
+    "itineraries": [
+      {
+        "destination": "chenyu-camp",
+        "start": "liyue-harbor",
+        "stops": [
+          {
+            "from": "liyue-harbor",
+            "id": "liyue-entry",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "璃月・北の入口",
+            "region": "region-02"
+          },
+          {
+            "from": "liyue-entry",
+            "id": "chenyu-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "沈玉の谷・入口拠点",
+            "region": "branch-02"
+          }
+        ]
+      },
+      {
+        "destination": "chenyu-tea-terraces",
+        "start": "chenyu-camp",
+        "stops": [
+          {
+            "from": "chenyu-camp",
+            "id": "chenyu-tea-terraces",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "茶畑の段丘道",
+            "region": "branch-02"
+          }
+        ]
+      },
+      {
+        "destination": "chenyu-tea-pavilion",
+        "start": "chenyu-tea-terraces",
+        "stops": [
+          {
+            "from": "chenyu-tea-terraces",
+            "hint": "上段の入口・展望亭への登り道",
+            "id": "chenyu-tea-pavilion",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "谷を望む茶亭",
+            "region": "branch-02"
+          }
+        ]
+      },
+      {
+        "destination": "chenyu-cart-road",
+        "start": "chenyu-tea-pavilion",
+        "stops": [
+          {
+            "from": "chenyu-tea-pavilion",
+            "id": "chenyu-cart-road",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "谷沿いの荷車道",
+            "region": "branch-02"
+          }
+        ]
+      },
+      {
+        "destination": "chenyu-camp",
+        "start": "chenyu-cart-road",
+        "stops": [
+          {
+            "from": "chenyu-cart-road",
+            "id": "chenyu-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "沈玉の谷・入口拠点",
+            "region": "branch-02"
+          }
+        ]
+      },
+      {
+        "destination": "chenyu-tea-lift",
+        "start": "chenyu-camp",
+        "stops": [
+          {
+            "from": "chenyu-camp",
+            "id": "chenyu-tea-lift",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "茶荷の昇降台",
+            "region": "branch-02"
+          }
+        ]
+      },
+      {
+        "destination": "chenyu-tea-lift",
+        "start": "chenyu-camp",
+        "stops": [
+          {
+            "from": "chenyu-camp",
+            "id": "chenyu-tea-lift",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "茶荷の昇降台",
+            "region": "branch-02"
+          }
+        ]
+      },
+      {
+        "destination": "chenyu-tea-pavilion",
+        "start": "chenyu-tea-lift",
+        "stops": [
+          {
+            "from": "chenyu-tea-lift",
+            "hint": "上段の入口・展望亭横の中継台・移動に1.35秒",
+            "id": "chenyu-tea-pavilion",
+            "label": "昇降機",
+            "mode": "lift",
+            "name": "谷を望む茶亭",
+            "region": "branch-02"
+          }
+        ]
+      },
+      {
+        "destination": "chenyu-camp",
+        "start": "chenyu-tea-pavilion",
+        "stops": [
+          {
+            "from": "chenyu-tea-pavilion",
+            "hint": "上段の入口",
+            "id": "chenyu-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "沈玉の谷・入口拠点",
+            "region": "branch-02"
+          }
+        ]
+      },
+      {
+        "destination": "chenyu-tea-pavilion",
+        "start": "chenyu-camp",
+        "stops": [
+          {
+            "from": "chenyu-camp",
+            "id": "chenyu-tea-terraces",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "茶畑の段丘道",
+            "region": "branch-02"
+          },
+          {
+            "from": "chenyu-tea-terraces",
+            "hint": "上段の入口・展望亭への登り道",
+            "id": "chenyu-tea-pavilion",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "谷を望む茶亭",
+            "region": "branch-02"
+          }
+        ]
+      },
+      {
+        "destination": "chenyu-boulder-gully",
+        "start": "chenyu-tea-pavilion",
+        "stops": [
+          {
+            "from": "chenyu-tea-pavilion",
+            "id": "chenyu-boulder-gully",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "段丘の岩陰",
+            "region": "branch-02"
+          }
+        ]
+      },
+      {
+        "destination": "chenyu-tea-pavilion",
+        "start": "chenyu-boulder-gully",
+        "stops": [
+          {
+            "from": "chenyu-boulder-gully",
+            "id": "chenyu-tea-pavilion",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "谷を望む茶亭",
+            "region": "branch-02"
+          }
+        ]
+      },
+      {
+        "destination": "chenyu-tea-pavilion",
+        "start": "chenyu-tea-pavilion",
+        "stops": []
+      }
+    ],
+    "locks": [
+      {
+        "node": "chenyu-camp",
+        "reason": "依頼「茶葉より速く、帰り道」を報告してください。",
+        "target": "chenyu-tea-lift"
+      }
+    ],
+    "reports": [
+      {
+        "mora": 2100,
+        "quest": "chenyu-tea-delivery",
+        "xp": 122000
+      },
+      {
+        "mora": 2800,
+        "quest": "chenyu-loading-landing",
+        "xp": 191000
+      },
+      {
+        "mora": 290472,
+        "quest": "chenyu-tea-with-friends",
+        "xp": 55165
+      }
+    ],
+    "restoredReports": [
+      "chenyu-tea-delivery",
+      "chenyu-loading-landing",
+      "chenyu-tea-with-friends"
+    ],
+    "returns": 0,
+    "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8"
+  },
+  "dragonspine": {
+    "battles": [
+      {
+        "kills": 3,
+        "node": "spine-observation-shelf",
+        "targets": [
+          "spine-shelf-near-beetle",
+          "spine-shelf-upper-beetle",
+          "spine-shelf-far-beetle"
+        ],
+        "xp": 24
+      },
+      {
+        "kills": 1,
+        "node": "spine-trace-ridge",
+        "targets": [
+          "original-rime-hare"
+        ],
+        "xp": 1199
+      }
+    ],
+    "itineraries": [
+      {
+        "destination": "dragonspine-camp",
+        "start": "mond-town",
+        "stops": [
+          {
+            "from": "mond-town",
+            "id": "mond-road",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "モンド・南の街道",
+            "region": "region-01"
+          },
+          {
+            "from": "mond-road",
+            "id": "mond-border",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "モンド・国境の道",
+            "region": "region-01"
+          },
+          {
+            "from": "mond-border",
+            "id": "dragonspine-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "ドラゴンスパイン・入口拠点",
+            "region": "branch-01"
+          }
+        ]
+      },
+      {
+        "destination": "spine-observation-shelf",
+        "start": "dragonspine-camp",
+        "stops": [
+          {
+            "from": "dragonspine-camp",
+            "id": "spine-observation-shelf",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "霜筋の観測棚",
+            "region": "branch-01"
+          }
+        ]
+      },
+      {
+        "destination": "dragonspine-camp",
+        "start": "dragonspine-camp",
+        "stops": []
+      },
+      {
+        "destination": "spine-wind-notch",
+        "start": "dragonspine-camp",
+        "stops": [
+          {
+            "from": "dragonspine-camp",
+            "id": "spine-observation-shelf",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "霜筋の観測棚",
+            "region": "branch-01"
+          },
+          {
+            "from": "spine-observation-shelf",
+            "id": "spine-wind-notch",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "風待ちの岩棚",
+            "region": "branch-01"
+          }
+        ]
+      },
+      {
+        "destination": "spine-shelter",
+        "start": "spine-wind-notch",
+        "stops": [
+          {
+            "from": "spine-wind-notch",
+            "hint": "上段の入口・風が止むまで待つ・移動に0.8秒",
+            "id": "spine-shelter",
+            "label": "昇降機",
+            "mode": "lift",
+            "name": "峰下の観測小屋",
+            "region": "branch-01"
+          }
+        ]
+      },
+      {
+        "destination": "dragonspine-camp",
+        "start": "spine-shelter",
+        "stops": [
+          {
+            "from": "spine-shelter",
+            "id": "dragonspine-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "ドラゴンスパイン・入口拠点",
+            "region": "branch-01"
+          }
+        ]
+      },
+      {
+        "destination": "spine-wind-notch",
+        "start": "dragonspine-camp",
+        "stops": [
+          {
+            "from": "dragonspine-camp",
+            "id": "spine-observation-shelf",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "霜筋の観測棚",
+            "region": "branch-01"
+          },
+          {
+            "from": "spine-observation-shelf",
+            "id": "spine-wind-notch",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "風待ちの岩棚",
+            "region": "branch-01"
+          }
+        ]
+      },
+      {
+        "destination": "spine-lee-walk",
+        "start": "spine-wind-notch",
+        "stops": [
+          {
+            "from": "spine-wind-notch",
+            "id": "spine-lee-walk",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "雪壁の風よけ道",
+            "region": "branch-01"
+          }
+        ]
+      },
+      {
+        "destination": "spine-shelter",
+        "start": "spine-lee-walk",
+        "stops": [
+          {
+            "from": "spine-lee-walk",
+            "id": "spine-shelter",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "峰下の観測小屋",
+            "region": "branch-01"
+          }
+        ]
+      },
+      {
+        "destination": "spine-trace-ridge",
+        "start": "spine-shelter",
+        "stops": [
+          {
+            "from": "spine-shelter",
+            "id": "spine-trace-ridge",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "霜紋の稜線",
+            "region": "branch-01"
+          }
+        ]
+      },
+      {
+        "destination": "spine-shelter",
+        "start": "spine-trace-ridge",
+        "stops": [
+          {
+            "from": "spine-trace-ridge",
+            "id": "spine-shelter",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "峰下の観測小屋",
+            "region": "branch-01"
+          }
+        ]
+      },
+      {
+        "destination": "spine-shelter",
+        "start": "spine-shelter",
+        "stops": []
+      }
+    ],
+    "locks": [],
+    "reports": [
+      {
+        "mora": 540,
+        "quest": "spine-noon-pattern",
+        "xp": 12100
+      },
+      {
+        "mora": 920,
+        "quest": "spine-wind-route",
+        "xp": 20400
+      },
+      {
+        "mora": 153675,
+        "quest": "spine-ridge-record",
+        "xp": 6649
+      }
+    ],
+    "restoredReports": [
+      "spine-noon-pattern",
+      "spine-wind-route",
+      "spine-ridge-record"
+    ],
+    "returns": 0,
+    "sourceSha256": "7a3e701770f587eb6a7f703550a83414436a25fed8875df4c3bbf54da7ced2f8"
+  },
+  "moonlit": {
+    "battles": [
+      {
+        "kills": 1,
+        "node": "nod-quiet-rim",
+        "targets": [
+          "original-prism-walker"
+        ],
+        "xp": 10971945
+      }
+    ],
+    "fixedWeaponReward": "SW08",
+    "itineraries": [
+      {
+        "destination": "nod-special-camp",
+        "start": "nod-town",
+        "stops": [
+          {
+            "from": "nod-town",
+            "id": "nod-field",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "ナド・クライ・月明かりの道",
+            "region": "region-07"
+          },
+          {
+            "from": "nod-field",
+            "id": "nod-special-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "ナド・クライ特別地域（仮）・入口拠点",
+            "region": "branch-08"
+          }
+        ]
+      },
+      {
+        "destination": "nod-reflector-shore",
+        "start": "nod-special-camp",
+        "stops": [
+          {
+            "from": "nod-special-camp",
+            "id": "nod-reflector-shore",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "照り返しの波打ち際",
+            "region": "branch-08"
+          }
+        ]
+      },
+      {
+        "destination": "nod-reflector-shore",
+        "start": "nod-special-camp",
+        "stops": [
+          {
+            "from": "nod-special-camp",
+            "id": "nod-reflector-shore",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "照り返しの波打ち際",
+            "region": "branch-08"
+          }
+        ]
+      },
+      {
+        "destination": "nod-reflection-garden",
+        "start": "nod-reflector-shore",
+        "stops": [
+          {
+            "from": "nod-reflector-shore",
+            "hint": "上段の入口",
+            "id": "nod-reflection-garden",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "月映りの庭（仮）",
+            "region": "branch-08"
+          }
+        ]
+      },
+      {
+        "destination": "nod-special-camp",
+        "start": "nod-reflection-garden",
+        "stops": [
+          {
+            "from": "nod-reflection-garden",
+            "id": "nod-reflector-shore",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "照り返しの波打ち際",
+            "region": "branch-08"
+          },
+          {
+            "from": "nod-reflector-shore",
+            "id": "nod-special-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "ナド・クライ特別地域（仮）・入口拠点",
+            "region": "branch-08"
+          }
+        ]
+      },
+      {
+        "destination": "nod-reflection-garden",
+        "start": "nod-special-camp",
+        "stops": [
+          {
+            "from": "nod-special-camp",
+            "id": "nod-reflector-shore",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "照り返しの波打ち際",
+            "region": "branch-08"
+          },
+          {
+            "from": "nod-reflector-shore",
+            "hint": "上段の入口",
+            "id": "nod-reflection-garden",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "月映りの庭（仮）",
+            "region": "branch-08"
+          }
+        ]
+      },
+      {
+        "destination": "nod-special-camp",
+        "start": "nod-reflection-garden",
+        "stops": [
+          {
+            "from": "nod-reflection-garden",
+            "hint": "上段の入口",
+            "id": "nod-special-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "ナド・クライ特別地域（仮）・入口拠点",
+            "region": "branch-08"
+          }
+        ]
+      },
+      {
+        "destination": "nod-town",
+        "start": "nod-special-camp",
+        "stops": [
+          {
+            "from": "nod-special-camp",
+            "id": "nod-field",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "ナド・クライ・月明かりの道",
+            "region": "region-07"
+          },
+          {
+            "from": "nod-field",
+            "id": "nod-town",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "ナド・クライ・町の広場",
+            "region": "region-07"
+          }
+        ]
+      },
+      {
+        "destination": "nod-quiet-rim",
+        "start": "nod-town",
+        "stops": [
+          {
+            "from": "nod-town",
+            "id": "nod-field",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "ナド・クライ・月明かりの道",
+            "region": "region-07"
+          },
+          {
+            "from": "nod-field",
+            "id": "nod-special-camp",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "ナド・クライ特別地域（仮）・入口拠点",
+            "region": "branch-08"
+          },
+          {
+            "from": "nod-special-camp",
+            "id": "nod-reflector-shore",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "照り返しの波打ち際",
+            "region": "branch-08"
+          },
+          {
+            "from": "nod-reflector-shore",
+            "hint": "上段の入口",
+            "id": "nod-reflection-garden",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "月映りの庭（仮）",
+            "region": "branch-08"
+          },
+          {
+            "from": "nod-reflection-garden",
+            "id": "nod-quiet-rim",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "庭の外周・静かな道",
+            "region": "branch-08"
+          }
+        ]
+      },
+      {
+        "destination": "nod-town",
+        "start": "nod-quiet-rim",
+        "stops": [
+          {
+            "from": "nod-quiet-rim",
+            "id": "nod-town",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "ナド・クライ・町の広場",
+            "region": "region-07"
+          }
+        ]
+      }
+    ],
+    "locks": [
+      {
+        "node": "nod-reflection-garden",
+        "reason": "依頼「月の光を、しまう箱」を報告してください。",
+        "target": "nod-quiet-rim"
+      }
+    ],
+    "reports": [
+      {
+        "mora": 6400,
+        "quest": "nod-light-path",
+        "xp": 15000000
+      },
+      {
+        "mora": 8700,
+        "quest": "nod-light-record",
+        "xp": 21000000
+      },
+      {
+        "mora": 853650,
+        "quest": "nod-rim-return",
+        "xp": 14095746
+      }
+    ],
+    "restoredReports": [
+      "nod-light-path",
+      "nod-light-record",
+      "nod-rim-return"
+    ],
+    "returns": 0,
+    "sourceSha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299"
+  },
+  "ochkanatlan": {
+    "battles": [
+      {
+        "kills": 1,
+        "node": "ochka-patched-court",
+        "targets": [
+          "ochka-court-blocking-carrier"
+        ],
+        "xp": 84048
+      },
+      {
+        "kills": 1,
+        "node": "ochka-sifting-kiln",
+        "targets": [
+          "original-rubble-sifter"
+        ],
+        "xp": 4864763
+      }
+    ],
+    "blockingCarrierAbsentAfterRestoreAndReport": true,
+    "itineraries": [
+      {
+        "destination": "natlan-port",
+        "start": "natlan-hub",
+        "stops": [
+          {
+            "from": "natlan-hub",
+            "id": "natlan-field",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "ナタ・岩場の道",
+            "region": "region-06"
+          },
+          {
+            "from": "natlan-field",
+            "id": "natlan-port",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "ナタ・花翼の集付近の港（仮）",
+            "region": "region-06"
+          }
+        ]
+      },
+      {
+        "destination": "natlan-voyage",
+        "start": "natlan-port",
+        "stops": [
+          {
+            "from": "natlan-port",
+            "hint": "オシカ・ナタ経由のナド・クライ行きに乗る",
+            "id": "natlan-voyage",
+            "label": "舟・寄港",
+            "mode": "boat",
+            "name": "北行き航海・甲板",
+            "region": "region-06"
+          }
+        ]
+      },
+      {
+        "destination": "ochkanatlan-dock",
+        "start": "natlan-voyage",
+        "stops": [
+          {
+            "from": "natlan-voyage",
+            "hint": "出発から30〜50秒の間に途中下船",
+            "id": "ochkanatlan-dock",
+            "label": "舟・寄港",
+            "mode": "boat",
+            "name": "オシカ・ナタ・寄港地",
+            "region": "branch-07"
+          }
+        ]
+      },
+      {
+        "destination": "ochka-tide-stairs",
+        "start": "ochkanatlan-dock",
+        "stops": [
+          {
+            "from": "ochkanatlan-dock",
+            "id": "ochka-tide-stairs",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "潮待ちの石段",
+            "region": "branch-07"
+          }
+        ]
+      },
+      {
+        "destination": "ochkanatlan-dock",
+        "start": "ochka-tide-stairs",
+        "stops": [
+          {
+            "from": "ochka-tide-stairs",
+            "id": "ochkanatlan-dock",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "オシカ・ナタ・寄港地",
+            "region": "branch-07"
+          }
+        ]
+      },
+      {
+        "destination": "ochka-patched-court",
+        "start": "ochkanatlan-dock",
+        "stops": [
+          {
+            "from": "ochkanatlan-dock",
+            "id": "ochka-tide-stairs",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "潮待ちの石段",
+            "region": "branch-07"
+          },
+          {
+            "from": "ochka-tide-stairs",
+            "id": "ochka-patched-court",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "継ぎ壁の中庭",
+            "region": "branch-07"
+          }
+        ]
+      },
+      {
+        "destination": "ochka-patched-court",
+        "start": "ochkanatlan-dock",
+        "stops": [
+          {
+            "from": "ochkanatlan-dock",
+            "id": "ochka-tide-stairs",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "潮待ちの石段",
+            "region": "branch-07"
+          },
+          {
+            "from": "ochka-tide-stairs",
+            "id": "ochka-patched-court",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "継ぎ壁の中庭",
+            "region": "branch-07"
+          }
+        ]
+      },
+      {
+        "destination": "ochkanatlan-dock",
+        "start": "ochka-patched-court",
+        "stops": [
+          {
+            "from": "ochka-patched-court",
+            "id": "ochka-tide-stairs",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "潮待ちの石段",
+            "region": "branch-07"
+          },
+          {
+            "from": "ochka-tide-stairs",
+            "id": "ochkanatlan-dock",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "オシカ・ナタ・寄港地",
+            "region": "branch-07"
+          }
+        ]
+      },
+      {
+        "destination": "ochka-patched-court",
+        "start": "ochkanatlan-dock",
+        "stops": [
+          {
+            "from": "ochkanatlan-dock",
+            "id": "ochka-tide-stairs",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "潮待ちの石段",
+            "region": "branch-07"
+          },
+          {
+            "from": "ochka-tide-stairs",
+            "id": "ochka-patched-court",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "継ぎ壁の中庭",
+            "region": "branch-07"
+          }
+        ]
+      },
+      {
+        "destination": "ochka-sifting-kiln",
+        "start": "ochka-patched-court",
+        "stops": [
+          {
+            "from": "ochka-patched-court",
+            "id": "ochka-sifting-kiln",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "焚き口の選鉱室",
+            "region": "branch-07"
+          }
+        ]
+      },
+      {
+        "destination": "ochkanatlan-dock",
+        "start": "ochka-sifting-kiln",
+        "stops": [
+          {
+            "from": "ochka-sifting-kiln",
+            "id": "ochka-patched-court",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "継ぎ壁の中庭",
+            "region": "branch-07"
+          },
+          {
+            "from": "ochka-patched-court",
+            "id": "ochka-tide-stairs",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "潮待ちの石段",
+            "region": "branch-07"
+          },
+          {
+            "from": "ochka-tide-stairs",
+            "id": "ochkanatlan-dock",
+            "label": "徒歩",
+            "mode": "walk",
+            "name": "オシカ・ナタ・寄港地",
+            "region": "branch-07"
+          }
+        ]
+      },
+      {
+        "destination": "natlan-voyage",
+        "start": "ochkanatlan-dock",
+        "stops": [
+          {
+            "from": "ochkanatlan-dock",
+            "hint": "ナド・クライ行きに再乗船・乗り直してから40秒で到着",
+            "id": "natlan-voyage",
+            "label": "舟・寄港",
+            "mode": "boat",
+            "name": "北行き航海・甲板",
+            "region": "region-06"
+          }
+        ]
+      }
+    ],
+    "locks": [],
+    "ordinaryEnemiesInCourt": 4,
+    "remainingVoyageSeconds": 40,
+    "reports": [
+      {
+        "mora": 5100,
+        "quest": "ochka-stopover-survey",
+        "xp": 11200000
+      },
+      {
+        "mora": 6800,
+        "quest": "ochka-wall-marks",
+        "xp": 15500000
+      },
+      {
+        "mora": 797220,
+        "quest": "ochka-sifter-clear",
+        "xp": 8653565
+      }
+    ],
+    "restoredReports": [
+      "ochka-stopover-survey",
+      "ochka-wall-marks",
+      "ochka-sifter-clear"
+    ],
+    "resumedFerryArrivedAt": "nod-port",
+    "returns": 0,
+    "sourceSha256": "3eca61f88485304c9810d86b5478168546db8ac2e20d6f81734b06eaab728299",
+    "surveyAtLv180": {
+      "battles": [],
+      "itineraries": [
+        {
+          "destination": "natlan-port",
+          "start": "natlan-hub",
+          "stops": [
+            {
+              "from": "natlan-hub",
+              "id": "natlan-field",
+              "label": "徒歩",
+              "mode": "walk",
+              "name": "ナタ・岩場の道",
+              "region": "region-06"
+            },
+            {
+              "from": "natlan-field",
+              "id": "natlan-port",
+              "label": "徒歩",
+              "mode": "walk",
+              "name": "ナタ・花翼の集付近の港（仮）",
+              "region": "region-06"
+            }
+          ]
+        },
+        {
+          "destination": "natlan-voyage",
+          "start": "natlan-port",
+          "stops": [
+            {
+              "from": "natlan-port",
+              "hint": "オシカ・ナタ経由のナド・クライ行きに乗る",
+              "id": "natlan-voyage",
+              "label": "舟・寄港",
+              "mode": "boat",
+              "name": "北行き航海・甲板",
+              "region": "region-06"
+            }
+          ]
+        },
+        {
+          "destination": "ochkanatlan-dock",
+          "start": "natlan-voyage",
+          "stops": [
+            {
+              "from": "natlan-voyage",
+              "hint": "出発から30〜50秒の間に途中下船",
+              "id": "ochkanatlan-dock",
+              "label": "舟・寄港",
+              "mode": "boat",
+              "name": "オシカ・ナタ・寄港地",
+              "region": "branch-07"
+            }
+          ]
+        },
+        {
+          "destination": "ochka-tide-stairs",
+          "start": "ochkanatlan-dock",
+          "stops": [
+            {
+              "from": "ochkanatlan-dock",
+              "id": "ochka-tide-stairs",
+              "label": "徒歩",
+              "mode": "walk",
+              "name": "潮待ちの石段",
+              "region": "branch-07"
+            }
+          ]
+        },
+        {
+          "destination": "ochkanatlan-dock",
+          "start": "ochka-tide-stairs",
+          "stops": [
+            {
+              "from": "ochka-tide-stairs",
+              "id": "ochkanatlan-dock",
+              "label": "徒歩",
+              "mode": "walk",
+              "name": "オシカ・ナタ・寄港地",
+              "region": "branch-07"
+            }
+          ]
+        }
+      ],
+      "locks": [],
+      "reports": [
+        {
+          "mora": 5100,
+          "quest": "ochka-stopover-survey",
+          "xp": 11200000
+        }
+      ],
+      "requiredLevelForCourt": 182,
+      "restoredReports": [
+        "ochka-stopover-survey"
+      ],
+      "returns": 0,
+      "sourceSha256": "c9847a79b92f4522b2cf455f50cb8f23a07dc93f7036148615aeee37f997a4ef"
+    }
+  }
+}

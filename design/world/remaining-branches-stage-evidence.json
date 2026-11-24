@@ -5,6 +5,7 @@
   "earned_route_run": "evidence/earned-late-atlas-routes-lua.json",
   "earned_quest_run": "evidence/earned-branch-quests-lua.json",
   "earned_novokichev_quest_run": "evidence/earned-terrain-quests-lua.json",
+  "earned_ochkanatlan_and_moonlit_run": "evidence/earned-highland-quests-lua.json",
   "entries": [
     {
       "region": "ドーンマンポート",

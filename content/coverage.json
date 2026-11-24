@@ -8113,7 +8113,15 @@
     "lua_evidence": "evidence/earned-terrain-quests-lua.json",
     "browser_waterway_evidence": "evidence/earned-atlas-routes-browser.json"
   },
-  "current_priority": "Continue earned-save playthroughs for the remaining high-level quest chains, then continue matching skill effects and visual cues against the authored scope.",
+  "earned_highland_quest_checks": {
+    "quest_reports": 12,
+    "additional_lv180_stopover_survey": true,
+    "design_branch_quests_verified": 27,
+    "verified_design_range": "Q-B01-01 through Q-B09-03",
+    "lua_evidence": "evidence/earned-highland-quests-lua.json",
+    "browser_carrier_evidence": "evidence/earned-ochka-carrier-browser.json"
+  },
+  "current_priority": "Cross-check remaining traveler and companion hit timings, effects and visual cues against the authored scope and test them in earned-save encounters.",
   "skill_runtime_checks": {
     "traveler_activations": 60,
     "companion_activations": 40,
