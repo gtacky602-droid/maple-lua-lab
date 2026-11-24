@@ -1,0 +1,128 @@
+{
+  "checkpoints": [
+    {
+      "stages": [
+        "sumeru-entry",
+        "sites-corridor-sumeru-bridge",
+        "sum-wp-28700"
+      ],
+      "restoredAt": "inazuma-town"
+    },
+    {
+      "stages": [
+        "sites-corridor-chasm-border",
+        "sum-wp-28704",
+        "sumeru-entry",
+        "sites-corridor-sumeru-bridge",
+        "sum-wp-28700"
+      ],
+      "restoredAt": "chasm-camp"
+    },
+    {
+      "stages": [
+        "sites-corridor-chasm-border",
+        "liyue-wp-28732"
+      ],
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stages": [
+        "sites-corridor-sumeru-bridge",
+        "sum-wp-28700"
+      ],
+      "restoredAt": "sumeru-hub"
+    }
+  ],
+  "chasmDefeatReturnsTo": "chasm-camp",
+  "chasmGateRejectsLevel63": true,
+  "legacyCorridorSaveRestoresTo": "inazuma-town",
+  "bridgesAndShafts": [
+    {
+      "stages": [
+        "sumeru-hub",
+        "sites-sumeru-north-bridge",
+        "sum-wp-28745"
+      ],
+      "directions": [
+        [
+          "sites-sumeru-north-bridge",
+          "sum-wp-28745"
+        ],
+        [
+          "sites-sumeru-north-bridge",
+          "sumeru-hub"
+        ],
+        [
+          "sum-wp-28745",
+          "sites-sumeru-north-bridge"
+        ],
+        [
+          "sumeru-hub",
+          "sites-sumeru-north-bridge"
+        ]
+      ],
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stages": [
+        "sum-wp-28716",
+        "sites-sumeru-terrace-road",
+        "sum-wp-28715"
+      ],
+      "directions": [
+        [
+          "sites-sumeru-terrace-road",
+          "sum-wp-28715"
+        ],
+        [
+          "sites-sumeru-terrace-road",
+          "sum-wp-28716"
+        ],
+        [
+          "sum-wp-28715",
+          "sites-sumeru-terrace-road"
+        ],
+        [
+          "sum-wp-28716",
+          "sites-sumeru-terrace-road"
+        ]
+      ],
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stages": [
+        "sum-wp-36696",
+        "sum-wp-36702"
+      ],
+      "directions": [
+        [
+          "sum-wp-36696",
+          "sum-wp-36702"
+        ],
+        [
+          "sum-wp-36702",
+          "sum-wp-36696"
+        ]
+      ],
+      "restoredAt": "sumeru-hub"
+    },
+    {
+      "stages": [
+        "sum-wp-36696",
+        "sum-wp-36695"
+      ],
+      "directions": [
+        [
+          "sum-wp-36695",
+          "sum-wp-36696"
+        ],
+        [
+          "sum-wp-36696",
+          "sum-wp-36695"
+        ]
+      ],
+      "restoredAt": "sumeru-hub"
+    }
+  ],
+  "fixture": "Testing starts at an existing hub or a border waypoint at the stated level."
+}

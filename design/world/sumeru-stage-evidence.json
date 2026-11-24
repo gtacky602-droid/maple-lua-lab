@@ -1,0 +1,214 @@
+{
+  "scope": "Sumeru stages outside the marker, hunt, voyage and short transfer ledgers.",
+  "stage_count": 36,
+  "interpretation": "Links identify available evidence per stage. Some encounter checks start inside the arena. The border checks drive the gates and verify save restoration.",
+  "entries": [
+    {
+      "kind": "practice",
+      "stages": [
+        "sum-wanderer-trail",
+        "sum-wanderer-hollow"
+      ],
+      "evidence": [
+        "evidence/sum-wanderer-sign-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "sum-visitors-meadow",
+        "sum-visitors-terrace",
+        "sum-visitors-store"
+      ],
+      "evidence": [
+        "evidence/sum-fungus-visitors-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "sum-collei-trail",
+        "sum-collei-rainfork",
+        "sum-collei-welcome"
+      ],
+      "evidence": [
+        "evidence/sum-collei-guide-lua.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "sum-kaveh-workshop",
+        "sum-kaveh-reading-room"
+      ],
+      "evidence": [
+        "evidence/sum-kaveh-room-lua.json"
+      ]
+    },
+    {
+      "kind": "daily",
+      "stages": [
+        "sum-kaveh-timberyard"
+      ],
+      "evidence": [
+        "evidence/daily-sum-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "sumeru-jadeplume-grove"
+      ],
+      "evidence": [
+        "evidence/jadeplume-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "electro-regisvine-field-cave"
+      ],
+      "evidence": [
+        "evidence/electro-regisvine-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "aeonblight-field-chamber"
+      ],
+      "evidence": [
+        "evidence/aeonblight-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "dendro-hypostasis-field-den"
+      ],
+      "evidence": [
+        "evidence/dendro-hypostasis-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "asimon-field-ruins"
+      ],
+      "evidence": [
+        "evidence/asimon-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "wenut-field-cavern"
+      ],
+      "evidence": [
+        "evidence/wenut-field-lua.json"
+      ]
+    },
+    {
+      "kind": "normal_boss",
+      "stages": [
+        "baptist-field-sanctuary"
+      ],
+      "evidence": [
+        "evidence/baptist-field-lua.json"
+      ]
+    },
+    {
+      "kind": "hidden_world",
+      "stages": [
+        "veluriyam-bottle-yard"
+      ],
+      "evidence": [
+        "evidence/veluriyam-trolley-lua.json"
+      ]
+    },
+    {
+      "kind": "chapter",
+      "stages": [
+        "sumeru-river-roots",
+        "sumeru-river-bank",
+        "sumeru-root-slope",
+        "sumeru-branch-run",
+        "sumeru-observatory-approach",
+        "sumeru-observatory-terrace",
+        "sumeru-sky-observatory"
+      ],
+      "evidence": [
+        "evidence/sumeru-canopy-browser.json",
+        "evidence/sumeru-fresh-route.json"
+      ]
+    },
+    {
+      "kind": "practice",
+      "stages": [
+        "sum-nahida-dew-glade"
+      ],
+      "evidence": [
+        "evidence/sum-nahida-map-lua.json"
+      ]
+    },
+    {
+      "kind": "weekly_boss",
+      "stages": [
+        "shouki-godmaking-arena"
+      ],
+      "evidence": [
+        "evidence/shouki-weekly-lua.json"
+      ]
+    },
+    {
+      "kind": "weekly_boss",
+      "stages": [
+        "apep-oasis-heart-arena"
+      ],
+      "evidence": [
+        "evidence/apep-weekly-lua.json"
+      ]
+    },
+    {
+      "kind": "weekly_boss",
+      "stages": [
+        "sumeru-heretic-lattice"
+      ],
+      "evidence": [
+        "evidence/heretic-weekly-lua.json"
+      ]
+    },
+    {
+      "kind": "hunt",
+      "stages": [
+        "sumeru-north-forest-floor",
+        "sumeru-north-bank-terraces"
+      ],
+      "evidence": [
+        "evidence/sumeru-fresh-route.json",
+        "evidence/sumeru-fresh-route-browser.json"
+      ]
+    },
+    {
+      "kind": "stygian",
+      "stages": [
+        "sumeru-stygian-windcourt"
+      ],
+      "evidence": [
+        "evidence/stygian-wanderer-lua.json"
+      ]
+    },
+    {
+      "kind": "corridor",
+      "stages": [
+        "sites-corridor-sumeru-bridge",
+        "sites-sumeru-terrace-road",
+        "sites-sumeru-north-bridge"
+      ],
+      "evidence": [
+        "evidence/sumeru-border-routes-lua.json",
+        "evidence/sumeru-border-routes-browser.json"
+      ]
+    }
+  ]
+}

@@ -941,17 +941,17 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   enter(s,dest,voyage.arrivalX,nil,voyage.arrivalY)
   recordArrival(s,from,dest)
  end
- local function checkpointNode(s)
-  local present=nodes[s.story.node]
-  local departure=s.storyCheckpointEntry and nodes[s.storyCheckpointEntry]
-  if departure and s.story.visited[departure.checkpoint] then return departure end
-  return present
- end
  local function checkpointHub(s,node)
   local visited=s.story.visited
   if visited[node.checkpoint] then return node.checkpoint end
-  if node.checkpointFallback and visited[node.checkpointFallback] then return node.checkpointFallback end
-  return 'mond-town'
+  for _,fallback in ipairs(node.checkpointFallbacks or {}) do
+   if visited[fallback] then return fallback end
+  end
+ end
+ local function checkpointNode(s)
+  local departure=s.storyCheckpointEntry and nodes[s.storyCheckpointEntry]
+  if departure and checkpointHub(s,departure) then return departure end
+  return nodes[s.story.node]
  end
  function C.enterStoryNode(s,id) setup(s);enter(s,id) end
  function C.storyNodeName(s)
@@ -1540,7 +1540,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     enter(s,node.id,node.duel.bellX)
     s.storyNotice='同じ会場で仕切り直します。水路の予告を見てください。'
    else
-    enter(s,checkpointHub(s,checkpointNode(s)))
+    enter(s,checkpointHub(s,checkpointNode(s)) or 'mond-town')
    end
  end
 
@@ -2443,7 +2443,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   if d.story then
    s.story=copy(d.story);setup(s)
    if s.story.active then
-    enter(s,checkpointHub(s,nodes[s.story.node]))
+    enter(s,checkpointHub(s,nodes[s.story.node]) or 'mond-town')
    end
   end
   if C.starterEquipment(s,s.companion) then C.refreshArtifactStats(s,true) end
