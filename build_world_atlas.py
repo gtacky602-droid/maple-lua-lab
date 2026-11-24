@@ -249,7 +249,8 @@ def build():
         for node_id, node in stages.items():
             field = all_fields.get(node.get('mapPoint') or node.get('designField'))
             floor = field['map_anchor']['point_group'] if field else None
-            layer = 'water' if node.get('swim') else 'below' if floor or node.get('waypoint', {}).get('floor') else 'surface'
+            below = floor or node.get('waypoint', {}).get('floor') or id == 'official-area-6'
+            layer = 'water' if node.get('swim') else 'below' if below else 'surface'
             points.append({'id': node_id, 'x': located[node_id][0], 'y': located[node_id][1],
                            'layer': node.get('atlasLayer', layer),
                            **({'provisional': True} if node.get('designField') or node.get('atlasParent') else {}),

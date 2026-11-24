@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import { chromium } from 'playwright';
+import { waypointDriver } from './tools/browser_waypoint_test.mjs';
 
 const browser = await chromium.launch({headless:true, channel:'chrome'});
 const page = await browser.newPage({viewport:{width:1280,height:900}});
@@ -71,7 +72,7 @@ try {
  await page.waitForFunction(()=>window.lab.frame.worldMap?.selected?.id==='dvalin-sky-arena');
  assert.match(await page.locator('#atlasPlaceName').textContent(),/空を裂く魔龍/);
  assert.match(await page.locator('#atlasPlaceLevel').textContent(),/週ボス/);
- assert.match(await page.locator('#atlasItineraryNote').textContent(),/必要Lv|依頼/);
+ assert.match(await page.locator('#atlasItineraryNote').textContent(),/必要Lv|Lv\d+から|依頼/);
  await page.locator('#atlasSearch').fill('');
  await page.locator('#atlasWorld').click();
  await area('world','all');
@@ -132,13 +133,46 @@ try {
  await page.keyboard.press('Escape');
  await atlas.waitFor({state:'hidden'});
  assert.equal(await page.locator('button.skill[data-action="skill3"] kbd').textContent(),'I');
+
+ await page.keyboard.press('KeyM');
+ await atlas.waitFor();
+ await page.locator('#atlasRegion').selectOption('official-area-6');
+ await area('official-area-6','all');
+ await page.locator('#atlasLayer').selectOption('below');
+ await area('official-area-6','below');
+ assert.equal((await map()).points.length,17);
+ await page.locator('#atlasField').selectOption('chasm-depth');
+ await page.waitForFunction(()=>window.lab.frame.worldMap.selected?.id==='chasm-depth');
+ assert.match(await page.locator('#atlasPlaceLevel').textContent(),/地下・別階層/);
+ await page.keyboard.press('Escape');
+ await atlas.waitFor({state:'hidden'});
+
+ const {nodes} = JSON.parse(await fs.readFile('content/story-graph.json','utf8'));
+ const drive = waypointDriver(page,Object.fromEntries(nodes.map(node => [node.id,node])));
+ await page.locator('#importSave').setInputFiles('work/atlas-chenyu-lv22.json');
+ await page.waitForFunction(()=>window.lab.frame.progression?.level===22);
+ await drive.warp('liyue-wp-64843');
+ await page.evaluate(()=>document.activeElement.blur());
+ await page.keyboard.press('KeyM');
+ await area('branch-02','all');
+ await page.locator('#atlasField').selectOption('liyue-wp-64842');
+ await page.waitForFunction(()=>window.lab.frame.worldMap.selected?.id==='liyue-wp-64842');
+ const chenyu=(await map()).guide;
+ assert.equal(chenyu.status,'blocked');
+ assert.equal(chenyu.requiredLevel,23);
+ assert.deepEqual(chenyu.stops.map(stop=>stop.id),['liyue-wp-64825','liyue-wp-64842']);
+ assert.equal(await page.locator('#atlasItineraryNote').textContent(),'この道順はLv23から通れます。');
+ await page.setViewportSize({width:1280,height:900});
+ await atlas.screenshot({path:'evidence/atlas-chenyu-lv23-detour.png'});
+
  assert.deepEqual(errors,[]);
  await fs.writeFile('evidence/world-atlas-browser.json',JSON.stringify({
   openedByKeyAndButton:true,worldRegions:8,currentPosition:true,
   mapClickAndFilter:true,searchAndPlaceSelection:true,itineraryOnCanvasAndPanel:true,hiddenAreaRemoved:true,windcrownExteriorReturn:true,
   globalBossChoices:bossCount,bossAliasAndWeeklyGate:true,stygianDeskInGlobalBossSearch:true,bossCatalogOpensFieldMap:true,
   mondstadtEarlyHuntLayer:true,
-  keyboardAndTurnRecovery:true,simulationTimeFrozen:true,noMobileOverflow:true,errors
+  keyboardAndTurnRecovery:true,simulationTimeFrozen:true,noMobileOverflow:true,
+  chasmUndergroundStages:17,chenyuLv22Guide:chenyu,errors
  },null,2)+'\n');
  console.log('Atlas current position, overview, regional and water layers, search, keyboard and mobile passed.');
 } catch (error) {

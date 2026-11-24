@@ -9088,6 +9088,8 @@
     ]
   },
   "world_map_review": {
+    "level_detour_evidence": "evidence/world-atlas-lua.json",
+    "level_detour_browser_evidence": "evidence/world-atlas-browser.json",
     "mondstadt_stage_evidence": "design/world/mondstadt-stage-evidence.json",
     "liyue_stage_evidence": "design/world/liyue-stage-evidence.json",
     "hidden_worlds_stage_evidence": "design/world/hidden-worlds-stage-evidence.json",

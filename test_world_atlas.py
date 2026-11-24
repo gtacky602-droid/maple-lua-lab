@@ -5,6 +5,7 @@ import json
 
 from build_world_atlas import BOSS_STAGE_FIELDS
 from runtime import ROOT, native, runtime
+from tools.waypoint_test import TrailWalk
 
 
 def read(path):
@@ -113,6 +114,66 @@ view = act('toggle')
 assert view.selected.id == 'fon-wp-50074' and view.selected.layer == 'water'
 assert view.selected.level == 87
 assert any(p.id == 'fon-wp-50076' and p.level == 93 for p in act('layer:water').points.values())
+act('close')
+
+core.enterStoryNode(s, 'chasm-camp')
+view = act('toggle')
+assert view.selected.layer == 'below' and view.region == 'official-area-6'
+chasm = {p.id for p in act('layer:below').points.values()}
+assert chasm == {p['id'] for r in atlas['regions'] if r['id'] == 'official-area-6' for p in r['points']}
+assert len(chasm) == 17 and not act('layer:surface').points[1]
+
+view = act('focus:golden-shadow-grotto')
+assert not view.selected or view.selected.id != 'golden-shadow-grotto'
+view = act('focus:sites-gaa-04-side-arena')
+assert view.selected.layer == 'below'
+assert view.selected.id in {p.id for p in act('layer:below').points.values()}
+assert view.selected.id not in {p.id for p in act('layer:surface').points.values()}
+
+exits = {id: node['exits'] for id, node in nodes.items()}
+edges = {(id, edge['to']): edge for id, gates in exits.items() for edge in gates}
+detours = []
+for source, target, minimum, shortcut_level, bypass in (
+    ('sites-dragonspine-south-foothill', 'mond-wp-6603', 48, 60,
+     ['mond-wp-6599', 'mond-wp-6596', 'mond-wp-6594', 'mond-wp-6601', 'mond-wp-6537', 'mond-wp-6603']),
+    ('liyue-wp-64843', 'liyue-wp-64842', 23, 26, ['liyue-wp-64825', 'liyue-wp-64842']),
+):
+    s = core.new(12)
+    core.action(s, 'story_start')
+    core.grantExp(s, sum(core.expNeeded(level) for level in range(1, minimum - 1)), 'quest')
+    core.enterStoryNode(s, source)
+    assert s.progression.level == minimum - 1
+    guide = act('focus:' + target).guide
+    assert guide.status == 'blocked' and guide.requiredLevel == minimum
+    assert [leg.id for leg in guide.stops.values()] == bypass
+    blocked = native(guide)
+    act('close')
+    if source == 'liyue-wp-64843':
+        (ROOT / 'work').mkdir(exist_ok=True)
+        (ROOT / 'work/atlas-chenyu-lv22.json').write_text(
+            json.dumps(native(core.checkpoint(s))), encoding='utf8')
+
+    core.grantExp(s, core.expNeeded(minimum - 1), 'quest')
+    assert s.progression.level == minimum
+    guide = act('focus:' + target).guide
+    assert guide.status == 'ready' and [leg.id for leg in guide.stops.values()] == bypass
+    act('close')
+    walk = TrailWalk(lua, core, s, edges, exits)
+    s.auto = False
+    for stop in bypass:
+        s.enemies = lua.table()
+        walk.cross(stop)
+    assert s.story.node == target
+
+    core.grantExp(s, sum(core.expNeeded(level) for level in range(minimum, shortcut_level)), 'quest')
+    core.enterStoryNode(s, source)
+    shortcut = act('focus:' + target).guide
+    assert shortcut.status == 'ready'
+    shortcut_path = [leg.id for leg in shortcut.stops.values()]
+    assert shortcut_path != bypass and max(nodes[id]['level'] for id in shortcut_path) == shortcut_level
+    act('close')
+    detours.append({'from': source, 'to': target, 'blocked_at': minimum - 1, 'guide': blocked,
+                    'walked_at': minimum, 'shortcut_at': shortcut_level, 'shortcut': shortcut_path})
 
 result = {'imported_fields':len(fields)+len(drafts),'live_runtime_fields':len(fields),
           'draft_entrance_proposals':len(drafts),'sites_only_route_reviews':len(plan['sites_only_route_review']),
@@ -122,6 +183,7 @@ result = {'imported_fields':len(fields)+len(drafts),'live_runtime_fields':len(fi
           'bosses_by_kind': dict(Counter(row['kind'] for row in roster.values())),
           'boss_path_status_from_level_1': dict(boss_guides),
           'hidden_area_visibility':True,'map_state_not_saved':True,'game_clock_pauses':True,
-          'rendered_by_lua':True,'water_layer_and_levels':True}
+          'rendered_by_lua':True,'water_layer_and_levels':True,'chasm_underground_stages':sorted(chasm),
+          'side_arena_underground_layer':True,'quest_cave_hidden_before_reveal':True,'level_detours':detours}
 (ROOT / 'evidence/world-atlas-lua.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8')
 print(result)

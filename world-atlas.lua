@@ -352,14 +352,14 @@ return function(C, atlas)
   return out
  end
 
- local function starting_gates(s,node)
+ local function starting_gates(s,node,routeLevel)
   local gates={}
   if s.lift or s.story.node~=node.id then return gates end
   local actor=s.actors[s.active]
   for _,edge in ipairs(node.exits) do
    if edge.x and not edge.loopOnce then
     local distance=math.abs(actor.x-edge.x)+math.abs(actor.y-(edge.y or 480))
-    local blocked=C.atlasGateRestriction(s,node.id,edge)~=nil
+    local blocked=C.atlasGateRestriction(s,node.id,edge,routeLevel)~=nil
     local current=gates[edge.to]
     if not current or (current.blocked and not blocked) or (current.blocked==blocked and distance<current.distance) then
      gates[edge.to]={edge=edge,blocked=blocked,distance=distance}
@@ -371,9 +371,9 @@ return function(C, atlas)
 
  local function travel_itinerary(s,nodes,origin,target)
   if origin==target then return {status='here',stops={}} end
-  local gates=starting_gates(s,nodes[origin])
 
-  local function find(allowBlocked)
+  local function find(routeLevel,allowBlocked)
+   local gates=starting_gates(s,nodes[origin],routeLevel)
    local queue, previous={origin},{[origin]=false}
    local head=1
    while head<=#queue and previous[target]==nil do
@@ -384,13 +384,12 @@ return function(C, atlas)
      local nextNode=nodes[edge.to]
      if nextNode and previous[edge.to]==nil and not edge.loopOnce
        and (id==origin or not node.voyage or edge.to~=node.voyage.source) then
-      local reason=C.atlasGateRestriction(s,id,edge)
+      local reason=C.atlasGateRestriction(s,id,edge,routeLevel)
       if allowBlocked or not reason then
        local mode=route_mode(edge,node,nextNode)
        local parallel=parallel_gate_hint(edge,node)
-       previous[edge.to]={from=id,id=edge.to,name=nextNode.name,region=places[edge.to],
-        label=route_labels[mode],mode=mode,reason=reason,hint=route_hint(edge,node,nextNode),
-        gateX=parallel and edge.x or nil}
+       previous[edge.to]={from=id,id=edge.to,name=nextNode.name,region=places[edge.to],edge=edge,
+        label=route_labels[mode],mode=mode,hint=route_hint(edge,node,nextNode),gateX=parallel and edge.x or nil}
        queue[#queue+1]=edge.to
       end
      end
@@ -407,12 +406,38 @@ return function(C, atlas)
    local blocked
    for index=#reverse,1,-1 do
     local leg=reverse[index]
+    leg.reason=C.atlasGateRestriction(s,leg.from,leg.edge)
+    leg.edge=nil
     stops[#stops+1]=leg
     blocked=blocked or leg.reason
    end
    return {status=blocked and 'blocked' or 'ready',stops=stops,reason=blocked,afterTransfer=s.lift~=nil}
   end
-  return find(false) or find(true)
+  local currentLevel=s.progression.level
+  local ready=find(currentLevel)
+  if ready then return ready end
+
+  -- Find the first level where a route opens under the current quest conditions.
+  local highest=currentLevel
+  for _,node in pairs(nodes) do highest=math.max(highest,node.level) end
+  if highest>currentLevel then
+   local guide=find(highest)
+   if guide then
+    local low,high=currentLevel+1,highest
+    while low<high do
+     local level=math.floor((low+high)/2)
+     local route=find(level)
+     if route then
+      high,guide=level,route
+     else
+      low=level+1
+     end
+    end
+    guide.requiredLevel=high
+    return guide
+   end
+  end
+  return find(currentLevel,true)
  end
 
  local function battle_stop(nodes,from,to,returning,hint)

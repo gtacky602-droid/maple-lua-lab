@@ -131,7 +131,8 @@ export function initAtlas(action, clearKeys) {
   const arriving = guide?.status === 'arriving';
   itineraryTitle.textContent = (arriving ? 'この地点へ移動中' : guide?.afterTransfer ? '移動完了後の道順' : '現在地からの道順') +
     (stops.length ? ` ｜ ${stops.length}区間` : '');
-  itineraryNote.textContent = guide?.reason ?? (guide?.status === 'unknown' ? '現在地からの経路を確認できません。'
+  itineraryNote.textContent = guide?.requiredLevel ? `この道順はLv${guide.requiredLevel}から通れます。`
+   : guide?.reason ?? (guide?.status === 'unknown' ? '現在地からの経路を確認できません。'
    : arriving && guide.paused ? '地図を閉じると移動を再開します。'
    : guide?.battle ? '地図を閉じて戦闘を進めてください。' : '');
   itineraryNote.hidden = !itineraryNote.textContent;
@@ -157,6 +158,8 @@ export function initAtlas(action, clearKeys) {
    : selected ? [
     selected.current ? '現在地' : selected.visited ? (selected.waypoint ? 'ワープ登録済み' : '訪問済み') : '未訪問',
     '通行Lv' + selected.level,
+    selected.layer === 'below' && '地下・別階層',
+    selected.layer === 'water' && '水中',
     selected.battleScene && '戦闘中に入る区画',
     selected.boss && bossKinds[selected.boss.kind],
     selected.boss && selected.boss.name !== selected.name && selected.name,
