@@ -3,6 +3,7 @@ import json
 from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.original_boss_lifecycle import check_original_boss_retry
 
 lua, core = runtime()
 hub, road = 'snezhnaya-hub', 'snezhnaya-field'
@@ -18,15 +19,17 @@ def press(key):
     core.action(state, key)
 
 
-def at(x):
-    actor = state.actors[state.active]
+def at(x, session=None):
+    session = state if session is None else session
+    actor = session.actors[session.active]
     actor.x, actor.y, actor.vy, actor.ground = x, 480, 0, True
 
 
-def gate(x, destination):
-    at(x)
-    press('story_nearby_portal')
-    assert state.story.node == destination, (state.story.node, destination)
+def gate(x, destination, session=None):
+    session = state if session is None else session
+    at(x, session)
+    core.action(session, 'story_nearby_portal')
+    assert session.story.node == destination, (session.story.node, destination)
 
 
 def step(count, **keys):
@@ -156,6 +159,15 @@ gate(60, hub)
 report(pressure, 11400, 740)
 state = resume(save())
 assert state.story.quests[pressure].status == 'complete'
+
+
+def reenter_depot(session):
+    gate(1380, road, session)
+    gate(260, yard, session)
+    gate(1432, depot, session)
+
+
+check_original_boss_retry(lua, core, state, boss, pressure, reenter_depot)
 
 evidence = {'threeRealCarts': True, 'wrongMapKillIgnored': True, 'blockedBeforeSignal': True,
     'surveyRestored': True, 'plowWarnThenHitOnce': True, 'avoidedSteamWithRealJump': True,

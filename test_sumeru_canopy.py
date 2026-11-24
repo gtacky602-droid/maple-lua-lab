@@ -4,6 +4,7 @@ from experience import LEVELS, QUEST_REPORT_EXP
 from runtime import ROOT, native, runtime
 from tools.ruin_guardian_test import exercise_ruin_guardian
 from savegame import validate_save
+from tools.original_boss_lifecycle import check_original_boss_retry
 
 
 lua,core=runtime()
@@ -158,6 +159,14 @@ collect(s,third,4,826,391)
 assert s.storyNotice.startswith('観測所の地図')
 gate(s,55,hub)
 gate(s,1380,'sumeru-field')
+
+
+def reenter_terrace(state):
+    gate(state, 1282, observatory)
+    gate(state, 228, terrace)
+
+
+check_original_boss_retry(lua, core, restore(s), 'original-canopy-fungus', third, reenter_terrace)
 
 proof=dict(leafAfterReload=True,walkedLeafBridge=True,riverFallRecovery=True,wrongAdjustmentRejected=True,
     bothRoutesConverge=True,liftRoundTrip=True,battle=battle,bossClearSaved=True,observatoryHeals=True,

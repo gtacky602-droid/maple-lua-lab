@@ -1,0 +1,16 @@
+{
+  "checkpoint": "white-pass-station",
+  "arena": "white-rainbow-basin",
+  "quest": "white-pass-summit",
+  "questCount": 2,
+  "savedCooldownTicks": 3600,
+  "respawnedAtFullHp": true,
+  "retryRewards": {
+    "kills": 1,
+    "mora": 970,
+    "killXp": 4796120,
+    "questXp": 0
+  },
+  "restoredClearCount": 2,
+  "scope": "Chapter scenario performs the first fight and report. Follow-up uses real portals at fixture coordinates, a simulated cooldown, and Lua defeat settlement."
+}

@@ -1,0 +1,16 @@
+{
+  "checkpoint": "ochkanatlan-dock",
+  "arena": "ochka-sifting-kiln",
+  "quest": "ochka-sifter-clear",
+  "questCount": 2,
+  "savedCooldownTicks": 3600,
+  "respawnedAtFullHp": true,
+  "retryRewards": {
+    "kills": 1,
+    "mora": 1020,
+    "killXp": 7484250,
+    "questXp": 0
+  },
+  "restoredClearCount": 2,
+  "scope": "Chapter scenario performs the first fight and report. Follow-up uses real portals at fixture coordinates, a simulated cooldown, and Lua defeat settlement."
+}

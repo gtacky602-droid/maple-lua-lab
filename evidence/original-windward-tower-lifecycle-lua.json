@@ -1,0 +1,16 @@
+{
+  "checkpoint": "dornman-camp",
+  "arena": "dornman-windworks",
+  "quest": "windward-tower-clear",
+  "questCount": 2,
+  "savedCooldownTicks": 3600,
+  "respawnedAtFullHp": true,
+  "retryRewards": {
+    "kills": 1,
+    "mora": 960,
+    "killXp": 6514150,
+    "questXp": 0
+  },
+  "restoredClearCount": 2,
+  "scope": "Chapter scenario performs the first fight and report. Follow-up uses real portals at fixture coordinates, a simulated cooldown, and Lua defeat settlement."
+}

@@ -3,6 +3,7 @@ import json
 from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.original_boss_lifecycle import check_original_boss_retry
 
 
 lua, core = runtime()
@@ -146,6 +147,7 @@ assert s.story.node==gallery and s.story.quests[third].status=='complete'
 move(s,825);assert frame(s).storyNearbyMilestone.label=='完成した探検記を読む'
 core.action(s,'story_collect')
 assert s.storyNotice.startswith('探検記『') and '同じ道で小間へ戻る' in s.storyNotice
+check_original_boss_retry(lua, core, s, boss, third, lambda state: gate(state, 1210, hollow))
 
 proof=dict(legacyLv40Access=True,threeSafetyMarks=True,phaseSpecificInspection=True,
     darkSupportAndExit=True,safeFloorOnRelight=True,saveRetainsCluesAndResetsLamp=True,permanentShortcut=True,

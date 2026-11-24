@@ -5,6 +5,7 @@ from pathlib import Path
 from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.original_boss_lifecycle import check_original_boss_retry
 
 
 parser = ArgumentParser(description='Play the Moonlit Garden route and report the fixed sword reward.')
@@ -202,6 +203,14 @@ finished=restore(s)
 assert finished.story.quests[third].status == 'complete'
 assert core.canEquipWeapon(finished,'traveler','SW08')
 
+
+def reenter_rim(state):
+    gate(state, 60, field)
+    gate(state, 720, camp)
+    gate(state, 1020, water)
+    gate(state, 1580, garden, y=390)
+    gate(state, 1640, rim)
+
 proof = dict(threeReflectors=True,blockedBeforeBridge=True,oneBridgeAfterRestore=True,
              wrongRecordRejected=True,darkAndLitRequired=True,recordedThreeOrientations=True,
              shortcutToCamp=True,afterimagesHaveNoHitbox=True,recoveryDamageBonus=True,
@@ -215,6 +224,7 @@ if comparison:
     proof |= {'startedAtLevel': fixture['progression']['level'], 'usedEarnedSave': options.earned_save is not None}
     (ROOT/f'evidence/moonlit-garden-{profile}-route.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')
 else:
+    check_original_boss_retry(lua, core, finished, boss, third, reenter_rim)
     (ROOT/'evidence/moonlit-garden-lua.json').write_text(json.dumps(proof,indent=2)+'\n',encoding='utf8')
     (ROOT/'work/moonlit-garden-fixture.json').write_text(json.dumps(fixture),encoding='utf8')
 print(proof)

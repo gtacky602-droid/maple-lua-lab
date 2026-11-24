@@ -3,6 +3,7 @@ import json
 from experience import CHAPTER_CLEAR_EXP, LEVELS, QUEST_REPORT_EXP
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.original_boss_lifecycle import check_original_boss_retry
 
 lua, core = runtime()
 nod, frontier = 'nod-town', 'winter-frontier-switchback'
@@ -209,6 +210,15 @@ report(s,summit,'M03')
 assert resume(s).story.quests[summit].status=='complete'
 assert resume(s).story.quests[footprints].status=='complete'
 assert resume(s).story.quests[footwork].status=='complete'
+
+
+def reenter_basin(state):
+    gate(state, 1144, woods)
+    gate(state, 1774, ridge)
+    gate(state, 1774, basin)
+
+
+check_original_boss_retry(lua, core, resume(s), boss, summit, reenter_basin)
 
 # A level-eligible traveler can take the uphill path before ever accepting M01.
 independent = session(155,hub)

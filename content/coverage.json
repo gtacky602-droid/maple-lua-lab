@@ -8084,6 +8084,23 @@
       "normal": 15,
       "weekly": 2,
       "evidence": "evidence/original-encounter-scenarios-lua.json"
+    },
+    "original_normal_lifecycle": {
+      "tested": 15,
+      "cooldown_and_repeat": [
+        "original-bellgate", "original-canopy-fungus", "original-frost-antler",
+        "original-ice-crawler", "original-moon-crab", "original-plate-tail",
+        "original-prism-walker", "original-rime-hare", "original-rubble-sifter",
+        "original-snow-sweeper", "original-tea-boulder", "original-wind-ring",
+        "original-windward-tower"
+      ],
+      "cooldown_evidence_pattern": "evidence/{encounter_id}-lifecycle-lua.json",
+      "practice_only": {
+        "original-river-racer": "evidence/natlan-sunset-duel-lua.json"
+      },
+      "story_only": {
+        "original-grand-finale": "evidence/fontaine-finale-lua.json"
+      }
     }
   },
   "world_boss_connections": {

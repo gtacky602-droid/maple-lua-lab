@@ -1,0 +1,16 @@
+{
+  "checkpoint": "tunigi-camp",
+  "arena": "tunigi-fragment-vault",
+  "quest": "tunigi-fragment-return",
+  "questCount": 4,
+  "savedCooldownTicks": 3600,
+  "respawnedAtFullHp": true,
+  "retryRewards": {
+    "kills": 1,
+    "mora": 0,
+    "killXp": 0,
+    "questXp": 0
+  },
+  "restoredClearCount": 2,
+  "scope": "Chapter scenario performs the first fight and report. Follow-up uses real portals at fixture coordinates, a simulated cooldown, and Lua defeat settlement."
+}

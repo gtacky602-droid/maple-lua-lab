@@ -3,6 +3,7 @@ import json
 from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.original_boss_lifecycle import check_original_boss_retry
 
 lua,core=runtime()
 port,boat,dock='natlan-port','natlan-voyage','ochkanatlan-dock'
@@ -173,6 +174,15 @@ gate(s,55,steps)
 gate(s,58,dock)
 report(s,third,(8653565,797220))
 assert resume(s).story.quests[third].status=='complete'
+
+
+def reenter_kiln(state):
+    gate(state, 525, steps)
+    gate(state, 1700, court)
+    gate(state, 1410, kiln)
+
+
+check_original_boss_retry(lua, core, resume(s), boss, third, reenter_kiln)
 gate(s,60,boat)
 assert 39.9<=s.voyage.arrives-s.t<=40.1
 step(s,2401)

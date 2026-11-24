@@ -3,6 +3,7 @@ import json
 from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.original_boss_lifecycle import check_original_boss_retry
 
 lua,core=runtime()
 port,view,flags,works='dornman-camp','dornman-wind-stairs','dornman-flag-trestle','dornman-windworks'
@@ -178,6 +179,14 @@ gate(s,58,flags)
 gate(s,55,port)
 report(s,third,5312539,741600)
 assert restore(s).story.quests[third].status=='complete'
+
+
+def reenter_windworks(state):
+    gate(state, 536, flags)
+    gate(state, 1698, works)
+
+
+check_original_boss_retry(lua, core, restore(s), boss, third, reenter_windworks)
 
 proof=dict(earlyGateBlocked=True,earnedLv160=True,independentOfQuests=True,
            groundAndLiftPaths=True,pausedQuestRestored=True,lowWindJump=True,lockedVerticalWind=True,

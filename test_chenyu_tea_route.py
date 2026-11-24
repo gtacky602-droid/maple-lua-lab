@@ -3,6 +3,7 @@ import json
 from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.original_boss_lifecycle import check_original_boss_retry
 
 
 lua, core = runtime()
@@ -162,6 +163,7 @@ assert s.story.node==pavilion and s.story.quests[third].status=='complete'
 frame=core.frame(s,'sprite','legacy')
 assert any(d.text=='茶席・一服の記録' for d in frame.draws.values())
 assert sum(d.color=='#e3e9cc' for d in frame.draws.values())==6
+check_original_boss_retry(lua, core, s, boss, third, lambda state: gate(state, 1325, gully))
 
 proof=dict(legacyLv20Access=True,independentLowRoute=True,threeMarksAndDelivery=True,cartReturn=True,
     actualLiftRiseAndLanding=True,pauseStopsLift=True,onePlatformAfterSwitch=True,placementSaved=True,

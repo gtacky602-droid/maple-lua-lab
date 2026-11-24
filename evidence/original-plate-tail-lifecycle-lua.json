@@ -1,0 +1,16 @@
+{
+  "checkpoint": "enkan-route-gallery",
+  "arena": "enkan-tablet-hollow",
+  "quest": "enkan-coverless-log",
+  "questCount": 3,
+  "savedCooldownTicks": 3600,
+  "respawnedAtFullHp": true,
+  "retryRewards": {
+    "kills": 1,
+    "mora": 580,
+    "killXp": 309900,
+    "questXp": 0
+  },
+  "restoredClearCount": 2,
+  "scope": "Chapter scenario performs the first fight and report. Follow-up uses real portals at fixture coordinates, a simulated cooldown, and Lua defeat settlement."
+}

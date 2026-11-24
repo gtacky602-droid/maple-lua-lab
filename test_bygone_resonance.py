@@ -3,6 +3,7 @@ import json
 from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.original_boss_lifecycle import check_original_boss_retry
 from tools.ruin_guardian_test import exercise_ruin_guardian
 
 
@@ -159,6 +160,14 @@ for index in (1,2,3,1):
     assert f.storyResonance.page==index
     pages.append((f.storyResonance.pattern,list(f.storyResonanceCue.notes.values())))
 assert pages==[('≈',[330,494]),('◇',[294]),('✧',[392,523,587]),('≈',[330,494])]
+
+
+def reenter_archive(state):
+    gate(state, 1265, gallery)
+    gate(state, 1390, archive)
+
+
+check_original_boss_retry(lua, core, s, boss, third, reenter_archive)
 
 proof=dict(legacyLv80Access=True,twoWayWaterway=True,pauseHoldsCrossing=True,
     reversedStoneSilent=True,turnedStoneNotes=[392,523,587],wrongOrderClearsOnlyLights=True,

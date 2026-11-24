@@ -3,6 +3,7 @@ import json
 from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.original_boss_lifecycle import check_original_boss_retry
 
 
 lua, core = runtime()
@@ -150,6 +151,7 @@ report(s,third,(6649,153675,3))
 s=restore(s)
 assert s.story.node==shelter and s.story.quests[third].status=='complete'
 assert any(d.text=='稜線の観測記録・展示中' for d in core.frame(s,'sprite','legacy').draws.values())
+check_original_boss_retry(lua, core, s, boss, third, lambda state: gate(state, 1130, ridge))
 
 proof=dict(legacyLevelOneAccess=True,optionalBarrierTest=True,shelfThreeAngles=True,observationsSaved=True,
     gustGateRejected=True,calmLift=True,pauseFreezesWind=True,leeRouteOpenInGust=True,

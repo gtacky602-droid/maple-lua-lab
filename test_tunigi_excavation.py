@@ -3,6 +3,7 @@ import json
 from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.original_boss_lifecycle import check_original_boss_retry
 from tools.ruin_guardian_test import exercise_ruin_guardian
 
 
@@ -161,6 +162,15 @@ move(s,665)
 assert frame(s).storyNearbyMilestone.label=='展示された記録片を読む'
 collect(s,third,4)
 assert '東の退路' in s.storyNotice
+
+
+def reenter_vault(state):
+    gate(state, 1240, shelter)
+    gate(state, 1220, passage)
+    gate(state, 1530, vault)
+
+
+check_original_boss_retry(lua, core, s, boss, third, reenter_vault)
 
 proof=dict(legacyLv60Access=True,tones=tones,positions=[545,820,1120],previewResetsOnReload=True,
            fixedDeckSurvivesReload=True,

@@ -3,6 +3,7 @@ import json
 from experience import CHAPTER_CLEAR_EXP, LEVELS, QUEST_REPORT_EXP
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.original_boss_lifecycle import check_original_boss_retry
 
 
 lua, core = runtime()
@@ -203,6 +204,7 @@ for _ in range(2):
 report=QUEST_REPORT_EXP["Q-NOD-M03"]
 assert progress(s).status=="complete" and s.progression.questXp==before+report
 assert (s.inventory.upgradeOre,s.mora)==(ore+8,mora+14500)
+check_original_boss_retry(lua, core, restore(s), boss, quest, return_to_arena)
 s=restore(s)
 step(s,3610)
 return_to_arena(s)

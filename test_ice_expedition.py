@@ -4,6 +4,7 @@ import json
 from experience import LEVELS
 from runtime import ROOT, native, runtime
 from savegame import validate_save
+from tools.original_boss_lifecycle import check_original_boss_retry
 
 
 lua, core = runtime()
@@ -204,6 +205,15 @@ collect(s,1510,388,third,3)
 gate(s,1660,camp)
 report(s,third,(17133467,882270,8))
 assert restore(s).story.quests[third].status=='complete'
+
+
+def reenter_vault(state):
+    gate(state, 1050, works)
+    gate(state, 1595, passage, y=385)
+    gate(state, 1475, vault)
+
+
+check_original_boss_retry(lua, core, restore(s), boss, third, reenter_vault)
 
 proof=dict(realEquipmentOpticalScore=True,imprintStatsAndCaps=True,companionEquipPersists=True,tenSlots=50,
            legacyOwnerMigrates=True,zeroImprintTrial=10,bridgesAndGuardsRestored=True,

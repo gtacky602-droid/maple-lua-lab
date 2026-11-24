@@ -1,0 +1,16 @@
+{
+  "checkpoint": "novokichev-camp",
+  "arena": "novo-ice-vault",
+  "quest": "novo-return-report",
+  "questCount": 3,
+  "savedCooldownTicks": 3600,
+  "respawnedAtFullHp": true,
+  "retryRewards": {
+    "kills": 1,
+    "mora": 1230,
+    "killXp": 14818300,
+    "questXp": 0
+  },
+  "restoredClearCount": 2,
+  "scope": "Chapter scenario performs the first fight and report. Follow-up uses real portals at fixture coordinates, a simulated cooldown, and Lua defeat settlement."
+}

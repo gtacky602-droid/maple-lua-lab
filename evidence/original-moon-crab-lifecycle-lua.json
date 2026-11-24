@@ -1,0 +1,16 @@
+{
+  "checkpoint": "nod-town",
+  "arena": "nod-moon-crab-arena",
+  "quest": "nod-moon-vault-quest",
+  "questCount": 4,
+  "savedCooldownTicks": 3600,
+  "respawnedAtFullHp": true,
+  "retryRewards": {
+    "kills": 1,
+    "mora": 730,
+    "killXp": 417690,
+    "questXp": 0
+  },
+  "restoredClearCount": 2,
+  "scope": "Chapter scenario performs the first fight and report. Follow-up uses real portals at fixture coordinates, a simulated cooldown, and Lua defeat settlement."
+}

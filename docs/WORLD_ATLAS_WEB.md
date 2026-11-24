@@ -76,6 +76,10 @@ Lv1の開始地点から、87戦すべてに通行条件付きの道順が出る
 
 ラボ独自の通常15戦・週2戦は個別シナリオを再試験した。週ボス14戦の56難易度枠と幽境7戦の28難易度枠も、初回・再戦・保存再開の報酬試験を実行した。 [ラボ独自17戦の試験](../evidence/original-encounter-scenarios-lua.json) · [週ボス56枠](../evidence/weekly-difficulty-rewards-lua.json) · [幽境28枠](../evidence/stygian-clear-rewards-lua.json)
 
+独自の通常ボス15戦は、依頼を報告して保存を読み込んだ後の挙動まで確認した。13戦は門から再入場し、待機時間が終わると全快で再出現する。再討伐の記録は保存され、依頼報酬は一度だけ受け取れる。検証では門の前に立つ座標を用意し、再戦はクールダウンの最後の1ティックと討伐精算をLuaで実行した。 [ドラゴンスパイン](../evidence/original-rime-hare-lifecycle-lua.json) · [トゥニギ](../evidence/original-wind-ring-lifecycle-lua.json) · [月渡りの岩窟](../evidence/original-moon-crab-lifecycle-lua.json)
+
+ナタの夕映え決闘は、報告後に現地で練習戦を始められる。練習の勝利では報酬と章の勝利数が増えない。フォンテーヌの主舞台は、報告後も上演の記録を読める状態が続き、時間を進めてもボスは出現しない。 [夕映え決闘](../evidence/natlan-sunset-duel-lua.json) · [フォンテーヌ主舞台](../evidence/fontaine-finale-lua.json)
+
 ## 狩場と脇部屋の入口
 
 M地図の「狩場・任意戦」には、狩場と脇部屋に加えて入口側の地点も出る。璃月・港東の荷揚げ波止場を選ぶと、採石斜面のLv34と港南の征討入口のLv38が並ぶ。行き先を選ぶと、必要Lvと途中の門を確認できる。 [港東の二つの狩場](../evidence/world-hunt-multiple-entrances.png)

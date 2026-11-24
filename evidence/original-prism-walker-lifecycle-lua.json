@@ -1,0 +1,16 @@
+{
+  "checkpoint": "nod-town",
+  "arena": "nod-quiet-rim",
+  "quest": "nod-rim-return",
+  "questCount": 2,
+  "savedCooldownTicks": 3600,
+  "respawnedAtFullHp": true,
+  "retryRewards": {
+    "kills": 1,
+    "mora": 1120,
+    "killXp": 12191050,
+    "questXp": 0
+  },
+  "restoredClearCount": 2,
+  "scope": "Chapter scenario performs the first fight and report. Follow-up uses real portals at fixture coordinates, a simulated cooldown, and Lua defeat settlement."
+}
