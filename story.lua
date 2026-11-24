@@ -314,6 +314,7 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
   for _,edge in ipairs(nodes[s.story.node].exits) do
    local n=nodes[edge.to];local dx=math.abs(a.x-edge.x)
    if dx<distance and nearGate(a,edge) and shownEdge(s,edge) then
+    local automatic=edge.requiresArrival and s.voyage and s.voyage.destination==edge.to or nil
     local reason=nil
     if s.roofFlight then reason='移動中'
     elseif s.caveFall then reason='崩落中'
@@ -322,7 +323,8 @@ return function(C,data,delivery,rail,cooking,book,stone,construction,lantern,for
     elseif not s.progression or s.progression.level<n.level then reason='必要レベル '..n.level
     elseif n.travelerTrial and s.actors[1].hp<=0 then reason='旅人が戦闘可能な状態で挑戦してください。'
     else reason=gateRestriction(s,edge) end
-    best={to=edge.to,name=edge.rideLabel or n.name,level=n.level,available=not reason,reason=reason,
+    best={to=edge.to,name=automatic and n.name or edge.rideLabel or n.name,level=n.level,available=not reason,reason=reason,
+          automaticArrival=automatic,
           liftSeconds=edge.liftSeconds,waterwaySeconds=edge.waterwaySeconds,boatSeconds=edge.boatSeconds,phaseSeconds=edge.phaseSeconds,
           ferryBoard=n.voyage and n.voyage.kind=='ferry' or nil,
           ferryReboard=n.voyage and n.voyage.kind=='ferry' and edge.resumeSeconds~=nil or nil,

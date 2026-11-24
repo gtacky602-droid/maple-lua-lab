@@ -8094,7 +8094,15 @@
     "late_route_sessions": 5,
     "lua_hidden_evidence": "evidence/earned-hidden-routes-lua.json",
     "lua_late_evidence": "evidence/earned-late-atlas-routes-lua.json",
-    "browser_evidence": "evidence/earned-atlas-routes-browser.json"
+    "browser_evidence": "evidence/earned-atlas-routes-browser.json",
+    "earned_round_trip": {
+      "start": "white-pass-station",
+      "destination": "sites-hunt-41818",
+      "outbound_legs": 20,
+      "return_legs": 21,
+      "lua_evidence": "evidence/earned-atlas-ferry-lua.json",
+      "browser_ferry_evidence": "evidence/earned-atlas-ferry-browser.json"
+    }
   },
   "earned_branch_quest_checks": {
     "dornman_level": 180,

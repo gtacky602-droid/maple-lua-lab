@@ -1,0 +1,15 @@
+{
+  "boarding": "nod-port",
+  "deck": "natlan-voyage-return",
+  "duration": 90,
+  "mapText": "ナタ・花翼の集付近の港（仮） ｜ 舟・寄港・到着まで 85秒・到着後に自動で移動",
+  "mapPausedVoyage": true,
+  "stopoverPassedWithoutDisembarking": true,
+  "automaticArrival": "natlan-port",
+  "landingPosition": [
+    720,
+    480
+  ],
+  "nextMap": "natlan-field",
+  "errors": []
+}

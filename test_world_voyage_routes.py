@@ -114,6 +114,8 @@ def verify(node):
     planned = guide(s, target)
     assert planned['status'] == 'ready' and planned['stops'][0]['id'] == target, planned
     assert f"{spec['seconds']}秒で" in planned['stops'][0]['hint']
+    assert planned['stops'][0]['automaticArrival'] and planned['stops'][0]['secondsRemaining'] == frame.seconds
+    assert 'gateX' not in planned['stops'][0]
     expected_save = nodes[source]['checkpoint'] if node.get('checkpointAtEntry') else node['checkpoint']
     elapsed(s, 0.5)
     saved_at = restore_on_land(s, expected_save)

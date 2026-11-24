@@ -178,6 +178,10 @@ return function(C, atlas)
   return mode=='walk' or mode=='swim'
  end
 
+ local function automatic_arrival(node,edge)
+  return node.voyage and node.voyage.destination==edge.to or nil
+ end
+
  local function connections(node)
   if not node.voyage then return node.exits end
   local to=node.voyage.destination
@@ -213,7 +217,7 @@ return function(C, atlas)
   local parts={}
   if edge.y and node.swim then parts[#parts+1]='門と同じ深さまで泳ぐ'
   elseif edge.y and edge.y<480 then parts[#parts+1]='上段の入口' end
-  local gate=parallel_gate_hint(edge,node) or (not edge.windowStart and edge.rideLabel)
+  local gate=not automatic_arrival(node,edge) and (parallel_gate_hint(edge,node) or (not edge.windowStart and edge.rideLabel))
   if gate then parts[#parts+1]=gate end
   if instruction then parts[#parts+1]=instruction end
   local seconds=edge.liftSeconds or edge.waterwaySeconds or edge.boatSeconds or edge.phaseSeconds
@@ -387,9 +391,11 @@ return function(C, atlas)
       local reason=C.atlasGateRestriction(s,id,edge,routeLevel)
       if allowBlocked or not reason then
        local mode=route_mode(edge,node,nextNode)
-       local parallel=parallel_gate_hint(edge,node)
+       local automatic=automatic_arrival(node,edge)
+       local parallel=not automatic and parallel_gate_hint(edge,node)
        previous[edge.to]={from=id,id=edge.to,name=nextNode.name,region=places[edge.to],edge=edge,
-        label=route_labels[mode],mode=mode,hint=route_hint(edge,node,nextNode),gateX=parallel and edge.x or nil}
+        label=route_labels[mode],mode=mode,hint=route_hint(edge,node,nextNode),
+        gateX=parallel and edge.x or nil,automaticArrival=automatic}
        queue[#queue+1]=edge.to
       end
      end
@@ -407,6 +413,9 @@ return function(C, atlas)
    for index=#reverse,1,-1 do
     local leg=reverse[index]
     leg.reason=C.atlasGateRestriction(s,leg.from,leg.edge)
+    if not s.coop and leg.automaticArrival and leg.from==s.story.node and s.voyage and s.voyage.destination==leg.id then
+     leg.secondsRemaining=math.max(0,s.voyage.arrives-s.t)
+    end
     leg.edge=nil
     stops[#stops+1]=leg
     blocked=blocked or leg.reason
@@ -562,7 +571,8 @@ return function(C, atlas)
      routes[#routes+1]={id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
        level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],
        huntKind=positions[edge.to] and positions[edge.to].huntKind,restricted=edge.requires~=nil,
-       reason=C.atlasGateRestriction(s,selected.id,edge),hint=parallel_gate_hint(edge,nodes[selected.id])}
+       reason=C.atlasGateRestriction(s,selected.id,edge),hint=parallel_gate_hint(edge,nodes[selected.id]),
+       automaticArrival=automatic_arrival(nodes[selected.id],edge)}
     end
    end
    local spec=C.atlasWeeklyTransfer(selected.id)

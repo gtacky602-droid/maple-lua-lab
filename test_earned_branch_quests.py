@@ -2,6 +2,7 @@
 
 from hashlib import sha256
 import json
+from math import ceil
 
 from runtime import ROOT, native, runtime
 from savegame import validate_save
@@ -70,13 +71,13 @@ class Journey(TrailWalk):
         stops = view['stops'] or []
         for leg in stops:
             assert self.state.story.node == leg['from']
-            if (leg['from'], leg['id']) in edges:
-                self.cross(leg['id'], leg.get('gateX'))
-            else:
+            if leg.get('automaticArrival') or (leg['from'], leg['id']) not in edges:
                 voyage = self.state.voyage
                 assert voyage and voyage.destination == leg['id']
-                self.tick(round((voyage.arrives-self.state.t)*60)+2)
+                self.tick(ceil((voyage.arrives-self.state.t)*60)+1)
                 assert self.state.story.node == leg['id'] and not self.state.voyage
+            else:
+                self.cross(leg['id'], leg.get('gateX'))
         assert self.state.story.node == target
         self.itineraries.append(dict(start=start, destination=target, stops=stops))
         return stops

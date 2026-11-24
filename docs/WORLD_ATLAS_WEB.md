@@ -54,7 +54,9 @@ GitHubのマップ設計から取り込んだ24地域・979フィールドをラ
 
 M地図で途中の停留所や港を選ぶと、出発から何秒の間に降りられるかが出る。トロッコは1.8〜6.3秒の間に花棚で降りられ、ナタとナド・クライを結ぶ船は30〜50秒の間にオシカ・ナタで下船できる。それぞれ停車・寄港中にFを押す。寄り道のあと同じ方向に乗り直す場合、花棚からは2秒、オシカ・ナタからは40秒で終点に着く。乗り直す門の案内にも所要時間を表示する。 [花棚の案内画面](../evidence/world-voyage-trolley-atlas.png)
 
-船6便、列車1便、トロッコ6便を現地の門から乗り、自動到着と乗車中に保存した場合の復元をLuaで確認した。途中で降りられる4便は、受付開始・終了の前後、再乗車、降りずに終点まで進む動きを確認した。現地の門が閉じる瞬間に地図の道順も変わる。試験では乗り場、必要Lv、二つの切符依頼の報告済み状態を用意した。Chromeでは白虹行き列車の表示・保存・到着と、ヴェルーリヤのトロッコの地図・途中下車・再乗車を確認した。 `python -X utf8 test_world_voyage_routes.py`、ラボ起動中に `node test_world_voyage_routes.mjs` で再現できる。 [Luaの全便ログ](../evidence/world-voyage-routes-lua.json) · [Chromeの試走](../evidence/world-voyage-routes-browser.json)
+船6便、列車1便、トロッコ6便を現地の門から乗り、自動到着と乗車中に保存した場合の復元をLuaで確認した。途中で降りられる4便は、受付開始・終了の前後、再乗車、降りずに終点まで進む動きを確認した。現地の門が閉じると地図の道順も変わる。試験では乗り場、必要Lv、二つの切符依頼の報告済み状態を用意した。Chromeでは白虹行き列車の表示・保存・到着と、ヴェルーリヤのトロッコの地図・途中下車・再乗車を確認した。 `python -X utf8 test_world_voyage_routes.py`、ラボ起動中に `node test_world_voyage_routes.mjs` で再現できる。 [Luaの全便ログ](../evidence/world-voyage-routes-lua.json) · [Chromeの試走](../evidence/world-voyage-routes-browser.json)
+
+乗り物の終点はM地図の道順に「到着後に自動で移動」と出る。ソロで乗車中に地図を開くと残り秒数を確認でき、閉じると移動が再開する。獲得Lv200で雪原の終着駅と千尋東の秘境周辺を往復した。往路20区間でナタ行きの船、復路21区間でナド・クライ行きの船と白虹行きの列車に乗った。 [獲得セーブの往復記録](../evidence/earned-atlas-ferry-lua.json) · [乗船中のM地図](../evidence/earned-natlan-ferry-atlas.png)
 
 ## 渡し舟・昇降機・水路・位相門
 
