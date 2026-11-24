@@ -1,0 +1,1257 @@
+{
+  "scope": "Timed gates with at least one endpoint outside the marker, hunt and voyage ledgers.",
+  "setup": "Each trial starts at its source with the required level and quest state; all gate approaches use movement.",
+  "counts": {
+    "lift": 37,
+    "boat": 12,
+    "water": 10,
+    "phase": 24
+  },
+  "directions": [
+    {
+      "origin": "liyue-harbor",
+      "destination": "liyue-cart-lift",
+      "kind": "lift",
+      "seconds": 1.8,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        180,
+        350
+      ],
+      "restoredDuringTransferAt": "liyue-harbor",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "liyue-harbor",
+      "destination": "liyue-quarry-post",
+      "kind": "lift",
+      "seconds": 2.0,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1700,
+        480
+      ],
+      "restoredDuringTransferAt": "liyue-harbor",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "liyue-river-trail",
+      "destination": "liyue-cliff-planks",
+      "kind": "lift",
+      "seconds": 1.6,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        340,
+        395
+      ],
+      "restoredDuringTransferAt": "liyue-harbor",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "liyue-cliff-planks",
+      "destination": "liyue-river-trail",
+      "kind": "lift",
+      "seconds": 1.6,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1120,
+        480
+      ],
+      "restoredDuringTransferAt": "liyue-harbor",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "liyue-quarry-post",
+      "destination": "liyue-harbor",
+      "kind": "lift",
+      "seconds": 2.0,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1165,
+        480
+      ],
+      "restoredDuringTransferAt": "liyue-harbor",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "liyue-cart-lift",
+      "destination": "liyue-harbor",
+      "kind": "lift",
+      "seconds": 1.8,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        840,
+        480
+      ],
+      "restoredDuringTransferAt": "liyue-harbor",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "chasm-camp",
+      "destination": "liyue-wp-24912",
+      "kind": "lift",
+      "seconds": 2.8,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        650,
+        480
+      ],
+      "restoredDuringTransferAt": "chasm-camp",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "golden-hub",
+      "destination": "golden-mainland-coast",
+      "kind": "boat",
+      "seconds": 2.1,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1440,
+        480
+      ],
+      "restoredDuringTransferAt": "golden-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "golden-hub",
+      "destination": "sites-gaa-03",
+      "kind": "boat",
+      "seconds": 3.6,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        76,
+        480
+      ],
+      "restoredDuringTransferAt": "golden-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "golden-hub",
+      "destination": "sites-gaa-05",
+      "kind": "boat",
+      "seconds": 3.2,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        76,
+        480
+      ],
+      "restoredDuringTransferAt": "golden-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "golden-hub",
+      "destination": "sites-gaa-07",
+      "kind": "boat",
+      "seconds": 4.1,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        76,
+        480
+      ],
+      "restoredDuringTransferAt": "golden-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "dornman-wind-stairs",
+      "destination": "dornman-flag-trestle",
+      "kind": "lift",
+      "seconds": 2,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1000,
+        374
+      ],
+      "restoredDuringTransferAt": "dornman-camp",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "dornman-flag-trestle",
+      "destination": "dornman-wind-stairs",
+      "kind": "lift",
+      "seconds": 2,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1720,
+        399
+      ],
+      "restoredDuringTransferAt": "dornman-camp",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "spine-wind-notch",
+      "destination": "spine-shelter",
+      "kind": "lift",
+      "seconds": 0.8,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        160,
+        480
+      ],
+      "restoredDuringTransferAt": "dragonspine-camp",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "chenyu-tea-lift",
+      "destination": "chenyu-tea-lift",
+      "kind": "lift",
+      "seconds": 1.15,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        650,
+        312
+      ],
+      "restoredDuringTransferAt": "chenyu-camp",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "chenyu-tea-lift",
+      "destination": "chenyu-tea-pavilion",
+      "kind": "lift",
+      "seconds": 1.35,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        375,
+        390
+      ],
+      "restoredDuringTransferAt": "chenyu-camp",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "tunigi-baffle-workshop",
+      "destination": "tunigi-return-shelter",
+      "kind": "lift",
+      "seconds": 1.25,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        565,
+        387
+      ],
+      "restoredDuringTransferAt": "tunigi-camp",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "tunigi-return-shelter",
+      "destination": "tunigi-baffle-workshop",
+      "kind": "lift",
+      "seconds": 1.25,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1300,
+        393
+      ],
+      "restoredDuringTransferAt": "tunigi-return-shelter",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "bygone-waterway-pier",
+      "destination": "bygone-resonance-chamber",
+      "kind": "water",
+      "seconds": 1.6,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        148,
+        480
+      ],
+      "restoredDuringTransferAt": "bygone-camp",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "bygone-resonance-chamber",
+      "destination": "bygone-waterway-pier",
+      "kind": "water",
+      "seconds": 1.6,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        741,
+        480
+      ],
+      "restoredDuringTransferAt": "bygone-camp",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "golden-mainland-coast",
+      "destination": "golden-hub",
+      "kind": "boat",
+      "seconds": 2.1,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        162,
+        480
+      ],
+      "restoredDuringTransferAt": "golden-mainland-coast",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "sumeru-canopy-junction",
+      "destination": "sumeru-observation-stop",
+      "kind": "lift",
+      "seconds": 1.55,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        239,
+        480
+      ],
+      "restoredDuringTransferAt": "sumeru-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "sumeru-observation-stop",
+      "destination": "sumeru-canopy-junction",
+      "kind": "lift",
+      "seconds": 1.55,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1007,
+        480
+      ],
+      "restoredDuringTransferAt": "sumeru-observation-stop",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "fontaine-lift-catwalk",
+      "destination": "fontaine-understage-workfloor",
+      "kind": "lift",
+      "seconds": 1.74,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        525,
+        480
+      ],
+      "restoredDuringTransferAt": "fontaine-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "fontaine-understage-workfloor",
+      "destination": "fontaine-lift-catwalk",
+      "kind": "lift",
+      "seconds": 1.74,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        525,
+        300
+      ],
+      "restoredDuringTransferAt": "fontaine-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "sites-gaa-03",
+      "destination": "golden-hub",
+      "kind": "boat",
+      "seconds": 3.6,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        614,
+        480
+      ],
+      "restoredDuringTransferAt": "golden-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "sites-gaa-05",
+      "destination": "golden-hub",
+      "kind": "boat",
+      "seconds": 3.2,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        804,
+        480
+      ],
+      "restoredDuringTransferAt": "golden-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "sites-gaa-07",
+      "destination": "golden-hub",
+      "kind": "boat",
+      "seconds": 4.1,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        989,
+        480
+      ],
+      "restoredDuringTransferAt": "golden-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "sites-nsp-05",
+      "destination": "sites-nsp-06",
+      "kind": "lift",
+      "seconds": 2.4,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        76,
+        480
+      ],
+      "restoredDuringTransferAt": "nod-special-camp",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "sites-nsp-06",
+      "destination": "sites-nsp-05",
+      "kind": "lift",
+      "seconds": 2.4,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        2780,
+        480
+      ],
+      "restoredDuringTransferAt": "nod-special-camp",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "sites-sim-05",
+      "destination": "sites-sim-07",
+      "kind": "lift",
+      "seconds": 2.9,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        76,
+        480
+      ],
+      "restoredDuringTransferAt": "sites-sim-05",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "sites-sim-07",
+      "destination": "sites-sim-05",
+      "kind": "lift",
+      "seconds": 2.9,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        686,
+        480
+      ],
+      "restoredDuringTransferAt": "simulanka-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "nat-wp-72418",
+      "destination": "sites-toyac-tide-landing",
+      "kind": "boat",
+      "seconds": 3.4,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        100,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "nat-wp-82563",
+      "destination": "collective-eastern-headland",
+      "kind": "boat",
+      "seconds": 2.4,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1392,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "nat-wp-96377",
+      "destination": "sky-sand-pavilion-walk",
+      "kind": "lift",
+      "seconds": 2.2,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        174,
+        480
+      ],
+      "restoredDuringTransferAt": "nat-sky-camp",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "fon-wp-50044",
+      "destination": "iron-viscount-thermal-gallery",
+      "kind": "water",
+      "seconds": 1.8,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        155,
+        360
+      ],
+      "restoredDuringTransferAt": "fontaine-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "fon-wp-55760",
+      "destination": "sites-lumidouce-landing",
+      "kind": "lift",
+      "seconds": 2.6,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1140,
+        480
+      ],
+      "restoredDuringTransferAt": "fontaine-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "fon-wp-55765",
+      "destination": "morte-tower-sluice",
+      "kind": "water",
+      "seconds": 1.7,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        178,
+        365
+      ],
+      "restoredDuringTransferAt": "fontaine-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "fon-wp-55768",
+      "destination": "deianeira-legend-lab",
+      "kind": "water",
+      "seconds": 1.8,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        164,
+        480
+      ],
+      "restoredDuringTransferAt": "fontaine-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "fon-wp-55784",
+      "destination": "erinnyes-root-waterway",
+      "kind": "water",
+      "seconds": 1.9,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        174,
+        360
+      ],
+      "restoredDuringTransferAt": "fontaine-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "liyue-wp-24912",
+      "destination": "chasm-camp",
+      "kind": "lift",
+      "seconds": 2.8,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        650,
+        480
+      ],
+      "restoredDuringTransferAt": "chasm-camp",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "mond-wp-15",
+      "destination": "sites-lookout-85351",
+      "kind": "lift",
+      "seconds": 2.2,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1070,
+        384
+      ],
+      "restoredDuringTransferAt": "mond-town",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "sites-lookout-85351",
+      "destination": "mond-wp-15",
+      "kind": "lift",
+      "seconds": 2.0,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1100,
+        480
+      ],
+      "restoredDuringTransferAt": "mond-town",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "sites-windcrown-waterfall",
+      "destination": "sites-lookout-98500",
+      "kind": "lift",
+      "seconds": 2.4,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1000,
+        312
+      ],
+      "restoredDuringTransferAt": "dornman-camp",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "sites-lookout-98500",
+      "destination": "sites-windcrown-waterfall",
+      "kind": "lift",
+      "seconds": 2.2,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1030,
+        410
+      ],
+      "restoredDuringTransferAt": "dornman-camp",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "sites-toyac-tide-landing",
+      "destination": "nat-wp-72418",
+      "kind": "boat",
+      "seconds": 3.4,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1070,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "sites-lumidouce-landing",
+      "destination": "fon-wp-55760",
+      "kind": "lift",
+      "seconds": 2.6,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        450,
+        480
+      ],
+      "restoredDuringTransferAt": "sites-lumidouce-landing",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "deianeira-legend-lab",
+      "destination": "fon-wp-55768",
+      "kind": "water",
+      "seconds": 1.8,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1000,
+        278
+      ],
+      "restoredDuringTransferAt": "fontaine-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "iron-viscount-thermal-gallery",
+      "destination": "fon-wp-50044",
+      "kind": "water",
+      "seconds": 1.8,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1090,
+        480
+      ],
+      "restoredDuringTransferAt": "fontaine-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "morte-tower-sluice",
+      "destination": "fon-wp-55765",
+      "kind": "water",
+      "seconds": 1.7,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1030,
+        402
+      ],
+      "restoredDuringTransferAt": "fontaine-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "erinnyes-root-waterway",
+      "destination": "fon-wp-55784",
+      "kind": "water",
+      "seconds": 1.9,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1120,
+        480
+      ],
+      "restoredDuringTransferAt": "fontaine-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "temple-east-totem-pond",
+      "destination": "night-trial-undead",
+      "kind": "phase",
+      "seconds": 1.0,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        175,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "night-trial-undead",
+      "destination": "temple-east-totem-pond",
+      "kind": "phase",
+      "seconds": 0.75,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1114,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "temple-northwest-totem-ravine",
+      "destination": "night-trial-chimalli",
+      "kind": "phase",
+      "seconds": 1.0,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        175,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "night-trial-chimalli",
+      "destination": "temple-northwest-totem-ravine",
+      "kind": "phase",
+      "seconds": 0.75,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1114,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "sulfurous-totem-cave",
+      "destination": "night-trial-tlatzacuilotl",
+      "kind": "phase",
+      "seconds": 1.0,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        175,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "night-trial-tlatzacuilotl",
+      "destination": "sulfurous-totem-cave",
+      "kind": "phase",
+      "seconds": 0.75,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1114,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "witztli-sealed-stone-bank",
+      "destination": "night-trial-ichcahuipilli",
+      "kind": "phase",
+      "seconds": 1.0,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        175,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "night-trial-ichcahuipilli",
+      "destination": "witztli-sealed-stone-bank",
+      "kind": "phase",
+      "seconds": 0.75,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1068,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "tepeacac-waterfall-wall",
+      "destination": "ancient-excavation-upper-ledge",
+      "kind": "lift",
+      "seconds": 2.6,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1106,
+        272
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "ancient-excavation-upper-ledge",
+      "destination": "tepeacac-waterfall-wall",
+      "kind": "lift",
+      "seconds": 2.6,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        496,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "ancient-excavation-upper-ledge",
+      "destination": "night-trial-atlatl",
+      "kind": "phase",
+      "seconds": 1,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        175,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "night-trial-atlatl",
+      "destination": "ancient-excavation-upper-ledge",
+      "kind": "phase",
+      "seconds": 0.75,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1409,
+        272
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "canopy-square-plateau",
+      "destination": "night-trial-cihuacoatl",
+      "kind": "phase",
+      "seconds": 1,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        175,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "night-trial-cihuacoatl",
+      "destination": "canopy-square-plateau",
+      "kind": "phase",
+      "seconds": 0.75,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1460,
+        207
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "night-wind-seaward-fork",
+      "destination": "night-trial-fallen-dawnstar",
+      "kind": "phase",
+      "seconds": 1,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        175,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "night-trial-fallen-dawnstar",
+      "destination": "night-wind-seaward-fork",
+      "kind": "phase",
+      "seconds": 0.75,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1140,
+        346
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "flower-feather-smiths-ridge",
+      "destination": "night-trial-ironbeard",
+      "kind": "phase",
+      "seconds": 1,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        175,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "night-trial-ironbeard",
+      "destination": "flower-feather-smiths-ridge",
+      "kind": "phase",
+      "seconds": 0.75,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1350,
+        343
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "stadium-west-waterfall-foot",
+      "destination": "night-trial-potapo",
+      "kind": "phase",
+      "seconds": 1,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        175,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "night-trial-potapo",
+      "destination": "stadium-west-waterfall-foot",
+      "kind": "phase",
+      "seconds": 0.75,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1220,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "flower-feather-statue-back-cliff",
+      "destination": "night-trial-tupayo",
+      "kind": "phase",
+      "seconds": 1,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        175,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "night-trial-tupayo",
+      "destination": "flower-feather-statue-back-cliff",
+      "kind": "phase",
+      "seconds": 0.75,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1410,
+        274
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "tetenanco-seaward-foot",
+      "destination": "night-trial-reji",
+      "kind": "phase",
+      "seconds": 1,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        175,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "night-trial-reji",
+      "destination": "tetenanco-seaward-foot",
+      "kind": "phase",
+      "seconds": 0.75,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1280,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "collective-eastern-headland",
+      "destination": "night-trial-tupu",
+      "kind": "phase",
+      "seconds": 1,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        175,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "collective-eastern-headland",
+      "destination": "nat-wp-82563",
+      "kind": "boat",
+      "seconds": 2.4,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        796,
+        480
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "night-trial-tupu",
+      "destination": "collective-eastern-headland",
+      "kind": "phase",
+      "seconds": 0.75,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        865,
+        345
+      ],
+      "restoredDuringTransferAt": "natlan-hub",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "ochka-bronzelock-device-shore",
+      "destination": "ochka-bronzelock-floating-landing",
+      "kind": "lift",
+      "seconds": 2.7,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        160,
+        480
+      ],
+      "restoredDuringTransferAt": "ochkanatlan-dock",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "ochka-bronzelock-floating-landing",
+      "destination": "ochka-bronzelock-device-shore",
+      "kind": "lift",
+      "seconds": 2.5,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1240,
+        414
+      ],
+      "restoredDuringTransferAt": "ochkanatlan-dock",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "nod-bureau-upper-lift-station",
+      "destination": "nod-raskolnikov-upper-ring",
+      "kind": "lift",
+      "seconds": 2.2,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        175,
+        480
+      ],
+      "restoredDuringTransferAt": "nod-town",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "nod-raskolnikov-upper-ring",
+      "destination": "nod-bureau-upper-lift-station",
+      "kind": "lift",
+      "seconds": 2.2,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        1320,
+        407
+      ],
+      "restoredDuringTransferAt": "nod-town",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    },
+    {
+      "origin": "sky-sand-pavilion-walk",
+      "destination": "nat-wp-96377",
+      "kind": "lift",
+      "seconds": 2.2,
+      "usedF": true,
+      "beforeArrivalDidNotMoveStage": true,
+      "landing": [
+        978,
+        365
+      ],
+      "restoredDuringTransferAt": "nat-sky-camp",
+      "atlasShowsDestinationDuringTransfer": true,
+      "atlasPausesTransfer": true
+    }
+  ]
+}

@@ -196,6 +196,8 @@ return function(C, atlas)
   if edge.y and edge.y<480 and not node.swim then parts[#parts+1]='上段の入口' end
   if edge.rideLabel and not edge.windowStart then parts[#parts+1]=edge.rideLabel end
   if instruction then parts[#parts+1]=instruction end
+  local seconds=edge.liftSeconds or edge.waterwaySeconds or edge.boatSeconds or edge.phaseSeconds
+  if seconds then parts[#parts+1]=('移動に%g秒'):format(seconds) end
   if #parts>0 then return table.concat(parts,'・') end
  end
 
@@ -379,6 +381,7 @@ return function(C, atlas)
  local function itinerary(s,nodes,target)
   local origin=s.lift and s.lift.destination or s.story.node
   if not nodes[origin] or not nodes[target] then return end
+  if s.lift and origin==target then return {status='arriving',stops={},paused=not s.coop} end
   if origin==target then return {status='here',stops={}} end
 
   local source=C.atlasWeeklyTransfer(origin)

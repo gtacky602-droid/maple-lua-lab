@@ -128,9 +128,11 @@ export function initAtlas(action, clearKeys) {
   const stops = entries(guide?.stops);
   itinerary.hidden = !guide || guide.status === 'here';
   itinerary.open = !itinerary.hidden;
-  itineraryTitle.textContent = (guide?.afterTransfer ? '移動完了後の道順' : '現在地からの道順') +
+  const arriving = guide?.status === 'arriving';
+  itineraryTitle.textContent = (arriving ? 'この地点へ移動中' : guide?.afterTransfer ? '移動完了後の道順' : '現在地からの道順') +
     (stops.length ? ` ｜ ${stops.length}区間` : '');
   itineraryNote.textContent = guide?.reason ?? (guide?.status === 'unknown' ? '現在地からの経路を確認できません。'
+   : arriving && guide.paused ? '地図を閉じると移動を再開します。'
    : guide?.battle ? '地図を閉じて戦闘を進めてください。' : '');
   itineraryNote.hidden = !itineraryNote.textContent;
   itineraryStops.replaceChildren(...stops.map(stop => {

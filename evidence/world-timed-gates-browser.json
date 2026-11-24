@@ -1,0 +1,19 @@
+{
+  "boat": {
+    "origin": "golden-hub",
+    "target": "sites-gaa-03",
+    "kind": "boat",
+    "seconds": 3.6,
+    "atlasPausesTransfer": true,
+    "returned": true
+  },
+  "waterway": {
+    "origin": "bygone-waterway-pier",
+    "target": "bygone-resonance-chamber",
+    "kind": "waterway",
+    "seconds": 1.6,
+    "atlasPausesTransfer": true,
+    "returned": true
+  },
+  "errors": []
+}
