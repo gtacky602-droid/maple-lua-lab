@@ -1,0 +1,13 @@
+{
+  "level": 160,
+  "anchorOutboundAt": 86,
+  "anchorReturningAt": 191,
+  "drinkShownAt": 66,
+  "interruptedAt": 171,
+  "normalAttackInput": true,
+  "sameFrameCommands": {
+    "standard": 15852,
+    "light": 4321
+  },
+  "errors": []
+}

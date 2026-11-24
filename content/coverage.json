@@ -8266,6 +8266,13 @@
     },
     "draft_field_moves": {
       "encounters": {
+        "boss-25134601": {
+          "earned_save_level": 160,
+          "same_input_clear_seconds": {"previous": 87.3, "alternate": 86.733},
+          "cooperative_participants": 4,
+          "lua_evidence": "evidence/draft-wavebinder-moves-lua.json",
+          "browser_evidence": "evidence/draft-wavebinder-moves-browser.json"
+        },
         "boss-25140101": {
           "earned_save_level": 145,
           "same_input_clear_seconds": {"previous": 69.867, "alternate": 89.567},

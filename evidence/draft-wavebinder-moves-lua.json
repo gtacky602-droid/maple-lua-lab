@@ -1,0 +1,201 @@
+{
+  "participants": 4,
+  "flightMidpointAt101": true,
+  "returnMidpointAt199": true,
+  "anchorHits": [
+    [
+      [
+        23,
+        "hydro"
+      ],
+      [
+        23,
+        "hydro"
+      ]
+    ],
+    [
+      [
+        23,
+        "hydro"
+      ]
+    ],
+    [
+      [
+        23,
+        "hydro"
+      ]
+    ],
+    []
+  ],
+  "noForcedMotion": true,
+  "acceptedAt60": true,
+  "deadlineAt240BodyDamageStillApplies": true,
+  "naturalHitsAt": [
+    288,
+    354,
+    420
+  ],
+  "baseDamageAcrossForms": 95,
+  "naturalRecoveryTicks": 144,
+  "nextMoveUsesNormalDamage": true,
+  "electroCastsRequired": 2,
+  "physicalCastsRequired": 4,
+  "multihitReactionDoTMissAndEarlierCastExcluded": true,
+  "lastContactAcceptedAt239": true,
+  "interruptedRecoveryTicks": 144,
+  "noExtraMultiplierOrReward": true,
+  "repositionsWhenInitialGroundWarningTooShort": true,
+  "checkpointRetainsHpWithoutTemporarySurge": true,
+  "exitCancelsTemporarySurge": true,
+  "level": 160,
+  "previous": {
+    "sourceSha256": "ebe8418f66adf18b7e5e5e02ec8a6ce65dffbbce2be03ec96cf6ac9fed04f1e6",
+    "boss": "boss-25134601",
+    "arena": "wavebinder-tide-cavern",
+    "entryRoute": [
+      "novokichev-depth",
+      "wavebinder-tide-cavern"
+    ],
+    "maxHp": 6800000,
+    "partyAttack": [
+      10470,
+      6652
+    ],
+    "elapsedSeconds": 87.3,
+    "damagingHits": 590,
+    "moves": [
+      "WB01",
+      "WB02",
+      "WB03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      2143035,
+      570
+    ],
+    "commission": {
+      "quest": "wavebinder-commission",
+      "xp": 11200,
+      "mora": 750
+    },
+    "savedClear": true
+  },
+  "short": {
+    "sourceSha256": "ebe8418f66adf18b7e5e5e02ec8a6ce65dffbbce2be03ec96cf6ac9fed04f1e6",
+    "boss": "boss-25134601",
+    "arena": "wavebinder-tide-cavern",
+    "entryRoute": [
+      "novokichev-depth",
+      "wavebinder-tide-cavern"
+    ],
+    "maxHp": 6800000,
+    "partyAttack": [
+      10470,
+      6652
+    ],
+    "elapsedSeconds": 86.733,
+    "damagingHits": 585,
+    "moves": [
+      "WB01",
+      "WB02",
+      "WB03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      2143035,
+      570
+    ],
+    "commission": {
+      "quest": "wavebinder-commission",
+      "xp": 11200,
+      "mora": 750
+    },
+    "savedClear": true
+  },
+  "interrupted": {
+    "sourceSha256": "ebe8418f66adf18b7e5e5e02ec8a6ce65dffbbce2be03ec96cf6ac9fed04f1e6",
+    "boss": "boss-25134601",
+    "arena": "wavebinder-tide-cavern",
+    "entryRoute": [
+      "novokichev-depth",
+      "wavebinder-tide-cavern"
+    ],
+    "maxHp": 6800000,
+    "partyAttack": [
+      10470,
+      6652
+    ],
+    "elapsedSeconds": 93.367,
+    "damagingHits": 597,
+    "moves": [
+      "WB01",
+      "WB02",
+      "WB03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      2143035,
+      570
+    ],
+    "commission": {
+      "quest": "wavebinder-commission",
+      "xp": 11200,
+      "mora": 750
+    },
+    "savedClear": true
+  },
+  "evaded": {
+    "sourceSha256": "ebe8418f66adf18b7e5e5e02ec8a6ce65dffbbce2be03ec96cf6ac9fed04f1e6",
+    "boss": "boss-25134601",
+    "arena": "wavebinder-tide-cavern",
+    "entryRoute": [
+      "novokichev-depth",
+      "wavebinder-tide-cavern"
+    ],
+    "maxHp": 6800000,
+    "partyAttack": [
+      10470,
+      6652
+    ],
+    "elapsedSeconds": 153.25,
+    "damagingHits": 488,
+    "moves": [
+      "WB01",
+      "WB02",
+      "WB03"
+    ],
+    "skillCasts": {
+      "SK21": 0,
+      "SK09": 0,
+      "SK10": 0,
+      "SK13": 0
+    },
+    "killXpAndMora": [
+      2143035,
+      570
+    ],
+    "commission": {
+      "quest": "wavebinder-commission",
+      "xp": 11200,
+      "mora": 750
+    },
+    "savedClear": true
+  },
+  "interruptedAt": 133,
+  "groundEvasionAndCounterAt": 491
+}

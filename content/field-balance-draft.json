@@ -22,6 +22,14 @@
     "boss-25134601": 6800000
   },
   "fieldBossMoveOverrides": {
+    "boss-25134601": {
+      "WB02": { "returnStart": 180, "returnEnd": 218, "chainMargin": 0.14 },
+      "WB03": {
+        "kind": "drinkSweep", "title": "熱い飲み物・勇躍の三連錨", "lock": 48,
+        "open": 60, "close": 240, "near": 0.10, "far": 2.30, "height": 0.68, "damage": 26,
+        "active": [[288, 300], [354, 366], [420, 432]], "recover": 456, "total": 600
+      }
+    },
     "boss-25140101": {
       "IC02": { "offsets": [0.85, 2.15], "width": 1.0 },
       "IC03": {
