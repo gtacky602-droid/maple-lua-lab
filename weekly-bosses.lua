@@ -8,6 +8,10 @@ return function(C,configs,controllers)
   byId[spec.id]=spec;byNode[spec.node]=spec
   if spec.innerNode then byNode[spec.innerNode]=spec end
  end
+ function C.atlasWeeklyTransfer(id)
+  local spec=byNode[id]
+  if spec and spec.atlasTransfer then return spec end
+ end
  local function current(s)
   local id=s.story and s.story.active and s.story.node
   return id and s.campaign and s.campaign.zone=='story:'..id and byNode[id] or nil

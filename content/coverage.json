@@ -8055,7 +8055,7 @@
     "design": "docs/balance/WEEKLY_DIFFICULTY_WEB.md",
     "evidence": "evidence/weekly-difficulty-rewards-lua.json"
   },
-  "current_priority": "Show battle-only entrances in atlas guidance and audit the remaining non-marker stages with their actual travel and quest gates.",
+  "current_priority": "Audit actual travel, quest gates and return paths for stages outside the 873 imported marker suite.",
   "background_loading": {
     "status": "local_chrome_on_demand_scenery_verified",
     "surfaces": [
@@ -8941,6 +8941,11 @@
     ]
   },
   "world_map_review": {
+    "battle_route_evidence": "evidence/atlas-battle-routes-lua.json",
+    "battle_route_browser_evidence": [
+      "evidence/atlas-battle-narwhal-browser.json",
+      "evidence/atlas-battle-false-moon-browser.json"
+    ],
     "basis": [
       "sources/20261113-master.md sections 4–6",
       "sources/20261116-amendment.md sections 1, 7",

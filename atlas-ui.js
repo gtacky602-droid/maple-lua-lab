@@ -130,7 +130,8 @@ export function initAtlas(action, clearKeys) {
   itinerary.open = !itinerary.hidden;
   itineraryTitle.textContent = (guide?.afterTransfer ? '移動完了後の道順' : '現在地からの道順') +
     (stops.length ? ` ｜ ${stops.length}区間` : '');
-  itineraryNote.textContent = guide?.reason ?? (guide?.status === 'unknown' ? '現在地からの経路を確認できません。' : '');
+  itineraryNote.textContent = guide?.reason ?? (guide?.status === 'unknown' ? '現在地からの経路を確認できません。'
+   : guide?.battle ? '地図を閉じて戦闘を進めてください。' : '');
   itineraryNote.hidden = !itineraryNote.textContent;
   itineraryStops.replaceChildren(...stops.map(stop => {
    const li = document.createElement('li');
@@ -153,6 +154,7 @@ export function initAtlas(action, clearKeys) {
    : selected ? [
     selected.current ? '現在地' : selected.visited ? '訪問済み' : '未訪問',
     '通行Lv' + selected.level,
+    selected.battleScene && '戦闘中に入る区画',
     selected.boss && bossKinds[selected.boss.kind],
     selected.boss && selected.boss.name !== selected.name && selected.name,
     selected.boss?.kind === 'stygian' && '受付で難度を選ぶ',

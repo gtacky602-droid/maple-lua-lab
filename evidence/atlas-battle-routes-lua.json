@@ -1,0 +1,132 @@
+{
+  "narwhal": {
+    "outbound": {
+      "battle": true,
+      "status": "battle",
+      "stops": [
+        {
+          "label": "徒歩",
+          "region": "region-05",
+          "name": "星海の再現戦",
+          "from": "fontaine-hub",
+          "id": "narwhal-star-sea",
+          "mode": "walk"
+        },
+        {
+          "mode": "battle",
+          "region": "region-05",
+          "name": "呑星の鯨・腹中",
+          "hint": "鯨のHPが20％を超えた状態で敵意100に達すると、捕食で移動",
+          "from": "narwhal-star-sea",
+          "id": "narwhal-inner-echo",
+          "label": "戦闘中に移動"
+        }
+      ],
+      "afterTransfer": false
+    },
+    "returnGuide": {
+      "status": "battle",
+      "stops": [
+        {
+          "mode": "battle",
+          "region": "region-05",
+          "name": "星海の再現戦",
+          "hint": "腹中の幻影を倒すと星海へ帰還",
+          "from": "narwhal-inner-echo",
+          "id": "narwhal-star-sea",
+          "label": "戦闘中に帰還"
+        }
+      ],
+      "battle": true
+    },
+    "retreat": {
+      "afterTransfer": false,
+      "status": "ready",
+      "stops": [
+        {
+          "label": "徒歩",
+          "region": "region-05",
+          "name": "フォンテーヌ・水辺の広場",
+          "from": "narwhal-inner-echo",
+          "id": "fontaine-hub",
+          "mode": "walk"
+        }
+      ]
+    },
+    "actualReturnStage": "weak"
+  },
+  "falseMoon": {
+    "outbound": {
+      "battle": true,
+      "status": "battle",
+      "stops": [
+        {
+          "label": "徒歩",
+          "region": "region-07",
+          "name": "偽月の再現戦・外界",
+          "from": "nod-town",
+          "id": "nod-false-moon-court",
+          "mode": "walk"
+        },
+        {
+          "mode": "battle",
+          "region": "region-07",
+          "name": "偽月の再現戦・異界",
+          "hint": "裂け目の予告後、中央でH。共闘は生存組全員の同意で移動",
+          "from": "nod-false-moon-court",
+          "id": "nod-false-moon-rift",
+          "label": "戦闘中に移動"
+        }
+      ],
+      "afterTransfer": false
+    },
+    "returnGuide": {
+      "status": "battle",
+      "stops": [
+        {
+          "mode": "battle",
+          "region": "region-07",
+          "name": "偽月の再現戦・外界",
+          "hint": "擬影3体を倒すか、右端の出口でH。共闘で出口を使うときは全員が同意",
+          "from": "nod-false-moon-rift",
+          "id": "nod-false-moon-court",
+          "label": "戦闘中に帰還"
+        }
+      ],
+      "battle": true
+    },
+    "routeToTown": {
+      "battle": true,
+      "status": "battle",
+      "stops": [
+        {
+          "mode": "battle",
+          "region": "region-07",
+          "name": "偽月の再現戦・外界",
+          "hint": "擬影3体を倒すか、右端の出口でH。共闘で出口を使うときは全員が同意",
+          "from": "nod-false-moon-rift",
+          "id": "nod-false-moon-court",
+          "label": "戦闘中に帰還"
+        },
+        {
+          "label": "徒歩",
+          "region": "region-07",
+          "name": "ナド・クライ・町の広場",
+          "from": "nod-false-moon-court",
+          "id": "nod-town",
+          "mode": "walk"
+        }
+      ],
+      "afterTransfer": false
+    },
+    "actualReturnStage": "outer"
+  },
+  "coop": {
+    "keptMapOpen": true,
+    "currentAfterSharedTransition": true,
+    "beforeRevision": 3,
+    "afterRevision": 4
+  },
+  "directPortalRejected": true,
+  "underleveledEntranceBlocked": true
+}

@@ -1,0 +1,63 @@
+{
+  "court": {
+    "key": "falseMoonCourt",
+    "file": "false-moon-court-background-v1.png",
+    "state": "ready"
+  },
+  "other": {
+    "key": "falseMoonRift",
+    "file": "false-moon-rift-background-v1.png",
+    "state": "ready"
+  },
+  "stages": [
+    "outer",
+    "entering",
+    "inner",
+    "returning",
+    "outer"
+  ],
+  "atlasEntry": [
+    {
+      "mode": "walk",
+      "id": "nod-false-moon-court",
+      "region": "region-07",
+      "from": "nod-town",
+      "name": "偽月の再現戦・外界",
+      "label": "徒歩"
+    },
+    {
+      "label": "戦闘中に移動",
+      "hint": "裂け目の予告後、中央でH。共闘は生存組全員の同意で移動",
+      "id": "nod-false-moon-rift",
+      "region": "region-07",
+      "from": "nod-false-moon-court",
+      "name": "偽月の再現戦・異界",
+      "mode": "battle"
+    }
+  ],
+  "atlasReturn": [
+    {
+      "label": "戦闘中に帰還",
+      "hint": "擬影3体を倒すか、右端の出口でH。共闘で出口を使うときは全員が同意",
+      "id": "nod-false-moon-court",
+      "region": "region-07",
+      "from": "nod-false-moon-rift",
+      "name": "偽月の再現戦・外界",
+      "mode": "battle"
+    }
+  ],
+  "walkViolationExactlyOnce": true,
+  "coveredShock": true,
+  "cancelAndConfirm": true,
+  "realShadows": 3,
+  "settlement": 408,
+  "lookAwaySuccess": true,
+  "clearReportRestore": true,
+  "viewport390": true,
+  "commands": {
+    "png": 18,
+    "standard": 15711,
+    "light": 4281
+  },
+  "errors": []
+}

@@ -1,12 +1,13 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {checkWeeklyAtlas} from './tools/browser_weekly_atlas.mjs';
 
 const browser=await chromium.launch({headless:true,channel:'chrome',args:['--disable-gpu']});
 const page=await browser.newPage({viewport:{width:1240,height:940}});
 const wait=(fn,arg,timeout=65000)=>page.waitForFunction(fn,arg,{timeout});
 const frame=()=>page.evaluate(()=>window.lab.frame);
-const canvas=page.locator('#game'),prefix='evidence/false-moon-weekly';
+const canvas=page.locator('#game'),prefix=(process.env.LAB_WEEKLY_EVIDENCE||'evidence')+'/false-moon-weekly';
 const hub='nod-town',outer='nod-false-moon-court',inner='nod-false-moon-rift';
 const quest='false-moon-weekly-commission',id='boss-29130201';
 const errors=[];
@@ -36,6 +37,7 @@ try{
  const row=page.locator('[data-quest="'+quest+'"]');
  await row.getByRole('button',{name:'受注',exact:true}).click();
  await wait(q=>window.lab.frame.story.quests[q]?.status==='active',quest);
+ const atlasEntry=await checkWeeklyAtlas(page,inner,[outer,inner],'戦闘中に移動');
  await canvas.click();
  const toward=(await frame()).actors[0].x<210?'KeyD':'KeyA';
  await page.keyboard.down(toward);
@@ -117,6 +119,7 @@ try{
  await wait(()=>window.lab.frame.weeklyBoss?.falseMoon.canUse);
  await page.locator('#weeklyFalseMoonUse').click();
  await wait(n=>window.lab.frame.story.node===n,inner);
+ const atlasReturn=await checkWeeklyAtlas(page,outer,[outer],'戦闘中に帰還',prefix+'-atlas-return.png');
  const other=await scene();
  assert.deepEqual([other.key,other.state],['falseMoonRift','ready']);
  await mode('wait');
@@ -175,7 +178,7 @@ try{
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));
  assert.equal(saved.weeklyBosses[id].hp,0);
  assert.deepEqual(errors,[]);
- await fs.writeFile(prefix+'-browser.json',JSON.stringify({court,other,stages,walkViolationExactlyOnce:true,coveredShock:true,
+ await fs.writeFile(prefix+'-browser.json',JSON.stringify({court,other,stages,atlasEntry,atlasReturn,walkViolationExactlyOnce:true,coveredShock:true,
   cancelAndConfirm:true,realShadows:3,settlement:408,lookAwaySuccess:true,clearReportRestore:true,viewport390:true,
   commands:{png:shadow.commands,standard:standard.commands,light:reduced.commands},errors},null,2)+'\n');
  console.log('False Moon Chrome: decree, ward, cancel and enter, three shadows, return, clear, report and save passed');

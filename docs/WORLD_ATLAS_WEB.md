@@ -45,11 +45,19 @@ Lv1の開始地点から、87戦すべてに通行条件付きの道順が出る
 
 幽境は、各地域の受付へ案内する。現地の入口でFを押し、受付で**難易度と聖遺物セット**を選ぶ。Chromeでは「北斗」から試合甲板へ移動し、極限のLv165条件と、通常戦の勝利・依頼報告・保存からの復元を確認した。 [幽境の案内画面](../evidence/stygian-beidou-atlas.png) · [北斗戦のログ](../evidence/stygian-clear-rewards-browser.json)
 
+## 戦闘中に入る区画
+
+- **呑星の鯨・腹中**は水辺の広場からLv84の星海へ。鯨のHPが20％を超えた状態で敵意が100になると、捕食で腹中へ移る。腹中で星海を選ぶと幻影を倒して戦闘を続ける手順が出る。水辺の広場を選ぶと歩いて撤退する出口が出る。 [呑星の鯨の戦闘](weekly-boss-v1/NARWHAL_WEB.md)
+- **偽月の再現戦・異界**はナド・クライの町の広場からLv132の外界へ。裂け目の予告後、中央でHを押す。異界からは擬影3体を倒すか、右端の出口でHを押して外界へ戻る。共闘で裂け目や出口を使うには生存組全員の同意が必要。 [偽月の異端者の戦闘](weekly-boss-v1/FALSE_MOON_WEB.md)
+
+地図上の「戦闘中に移動」「戦闘中に帰還」は、条件と操作を読むための案内。共闘で地図を開いている間に戦場が切り替わると、現在地と道順も更新する。Luaで実際の戦闘処理を使った往復、必要Lv未満での入場拒否と共闘の表示更新を検証した。Chromeのソロ試走でも両方の案内、戦闘中の往復、討伐・報告・保存復元を確認した。 [Luaの検証](../evidence/atlas-battle-routes-lua.json) · [鯨の腹中への案内](../evidence/narwhal-weekly-atlas-entry.png) · [偽月の異界からの帰還](../evidence/false-moon-weekly-atlas-return.png) · [鯨のChrome記録](../evidence/atlas-battle-narwhal-browser.json) · [偽月のChrome記録](../evidence/atlas-battle-false-moon-browser.json)
+
 ## 検証
 
 - Luaで18組の往復を確認した。位相門の順序と保存、国境や橋の5つの通行Lv、発見後に入れる3つの隠し世界を含む。試走は戦闘の影響を外した状態で行った。稲妻と淵下宮の77地点では212方向の門を再試走した。 [Luaの経路ログ](../evidence/sites-atlas-connections-lua.json) · [稲妻・淵下宮](../evidence/inazuma-waypoint-test.json)
 - ChromeでM・Esc、地点検索、階層切替、道順、幅390pxの表示と、淵下宮の位相門の往復を確認した。 [全体図](../evidence/world-atlas-overview.png) · [淵下宮の道順](../evidence/atlas-enkan-phase.png) · [モバイル](../evidence/world-atlas-mobile.png) · [操作ログ](../evidence/world-atlas-browser.json)
 - 9本の地域別Lua試験を再実行し、取り込み済みのワープ・神像873地点への訪問と2,256回の方向別通行を確認した。試験では地域ごとの開始セーブと一部の既存依頼進行を用意している。 `python -X utf8 test_world_regional_runtime.py` で再現できる。 [各地域の集計](../evidence/world-map-runtime.json)
+- 週ボス戦の二つの移動も経路の検査に含め、ラボの全1,528ステージに往路と帰路の接続があることを確認した。実際の通行条件と移動操作は地域別・戦闘別の試験で扱う。 [接続の検査](../evidence/world-map-connectivity.json)
 - 空の神殿とドーンマンポート北岸では、ChromeでM地図に出た道順をたどって16区間を往復し、訪問記録を保存した。Luaでは最後の入口に必要なLvを一つ下回ると、地図に条件が出て現地でも通れないことを確認した。 `python -X utf8 test_atlas_regional_approaches.py` で試験用のセーブを作り、ラボ起動中に `node test_atlas_regional_approaches.mjs` で再現できる。 [空の神殿の帰路](../evidence/atlas-regional-sky-return.png) · [港の上段の入口](../evidence/atlas-regional-port-upper-gate.png) · [Chromeの記録](../evidence/atlas-regional-approaches-browser.json)
 
 再生成は `python -X utf8 build_world_atlas.py`。Lua検査は `python -X utf8 test_world_atlas.py`、ブラウザ検査は `node test_world_atlas.mjs`。位相門と追加ルートは `python -X utf8 test_sites_atlas_connections.py`、続けて `node test_sites_atlas_connections.mjs` で確認できる。Luaラボの狩場背景は仮画像。本番の3D配置と幻境への移植は別途検証する。

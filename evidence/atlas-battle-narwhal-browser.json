@@ -1,0 +1,63 @@
+{
+  "stages": [
+    "outer",
+    "swallow",
+    "inner",
+    "expel",
+    "weak"
+  ],
+  "outer": {
+    "key": "tulpaField",
+    "file": "tulpa-field-background-v1.png",
+    "state": "ready"
+  },
+  "inner": {
+    "key": "narwhalInner",
+    "file": "narwhal-inner-background-v1.png",
+    "state": "ready"
+  },
+  "atlasEntry": [
+    {
+      "from": "fontaine-hub",
+      "label": "徒歩",
+      "name": "星海の再現戦",
+      "mode": "walk",
+      "id": "narwhal-star-sea",
+      "region": "region-05"
+    },
+    {
+      "from": "narwhal-star-sea",
+      "hint": "鯨のHPが20％を超えた状態で敵意100に達すると、捕食で移動",
+      "name": "呑星の鯨・腹中",
+      "label": "戦闘中に移動",
+      "mode": "battle",
+      "id": "narwhal-inner-echo",
+      "region": "region-05"
+    }
+  ],
+  "atlasReturn": [
+    {
+      "from": "narwhal-inner-echo",
+      "hint": "腹中の幻影を倒すと星海へ帰還",
+      "name": "星海の再現戦",
+      "label": "戦闘中に帰還",
+      "mode": "battle",
+      "id": "narwhal-star-sea",
+      "region": "region-05"
+    }
+  ],
+  "eyeEightHits": true,
+  "kernelFourCastPhysical": true,
+  "kernelLoss": 190,
+  "returnLoss": 440,
+  "exposure": 599,
+  "clearReportRestore": true,
+  "viewport390": true,
+  "remainingHp": 1671,
+  "commands": {
+    "png": 15,
+    "standard": 7897,
+    "light": 2237
+  },
+  "errors": []
+}

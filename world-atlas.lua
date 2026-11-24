@@ -328,9 +328,7 @@ return function(C, atlas)
   return out
  end
 
- local function itinerary(s,nodes,target)
-  local origin=s.lift and s.lift.destination or s.story.node
-  if not nodes[origin] or not nodes[target] then return end
+ local function travel_itinerary(s,nodes,origin,target)
   if origin==target then return {status='here',stops={}} end
 
   local function find(allowBlocked)
@@ -369,7 +367,43 @@ return function(C, atlas)
    end
    return {status=blocked and 'blocked' or 'ready',stops=stops,reason=blocked,afterTransfer=s.lift~=nil}
   end
-  return find(false) or find(true) or {status='unknown',stops={}}
+  return find(false) or find(true)
+ end
+
+ local function battle_stop(nodes,from,to,returning,hint)
+  return {from=from,id=to,name=nodes[to].name,region=places[to],mode='battle',hint=hint,
+   label=returning and '戦闘中に帰還' or '戦闘中に移動'}
+ end
+ local function itinerary(s,nodes,target)
+  local origin=s.lift and s.lift.destination or s.story.node
+  if not nodes[origin] or not nodes[target] then return end
+  if origin==target then return {status='here',stops={}} end
+
+  local source=C.atlasWeeklyTransfer(origin)
+  local destination=C.atlasWeeklyTransfer(target)
+  local fromBattle=source and source.innerNode==origin and nodes[source.node]
+  local intoBattle=destination and destination.innerNode==target and nodes[destination.node]
+  local entrance=intoBattle and destination.node or target
+  local guide
+
+  if not (fromBattle and entrance==source.node) then
+   guide=travel_itinerary(s,nodes,origin,entrance)
+  end
+  -- Keep an actual retreat door if the destination can be reached that way.
+  if not guide and fromBattle then
+   guide=travel_itinerary(s,nodes,source.node,entrance)
+   if guide then
+    table.insert(guide.stops,1,battle_stop(nodes,origin,source.node,true,source.atlasTransfer.leave))
+    guide.battle=true
+   end
+  end
+  if not guide then return {status='unknown',stops={}} end
+  if intoBattle then
+   guide.stops[#guide.stops+1]=battle_stop(nodes,entrance,target,false,destination.atlasTransfer.enter)
+   guide.battle=true
+  end
+  if guide.battle and guide.status~='blocked' then guide.status='battle' end
+  return guide
  end
 
  local function local_map(out, region, nodes, s, map)
@@ -456,6 +490,16 @@ return function(C, atlas)
      routes[#routes+1]={id=edge.to,name=nodes[edge.to].name,region=places[edge.to],
        level=nodes[edge.to].level,label=route_labels[route_mode(edge,nodes[selected.id],nodes[edge.to])],
        huntKind=positions[edge.to] and positions[edge.to].huntKind,restricted=edge.requires~=nil}
+    end
+   end
+   local spec=C.atlasWeeklyTransfer(selected.id)
+   if spec then
+    local returning=selected.id==spec.innerNode
+    local target=returning and spec.node or spec.innerNode
+    selected.battleScene=returning
+    if nodes[target] then
+     routes[#routes+1]={id=target,name=nodes[target].name,region=places[target],level=nodes[target].level,
+      label=returning and '戦闘中に帰還' or '戦闘中に移動'}
     end
    end
   elseif selected and nodes[selected.anchor] then
@@ -573,9 +617,18 @@ return function(C, atlas)
  end
  function C.frame(s,...)
   local f=frame(s,...)
-  if s.worldMap then
-   s.worldMap.view=s.worldMap.view or build(f,s,s.worldMap)
-   f.worldMap=s.worldMap.view
+  local map=s.worldMap
+  if map then
+   local node,transfer=s.story.node,s.lift and s.lift.destination
+   if map.view and (map.node~=node or map.transfer~=transfer or map.graphRevision~=f.storyGraphRevision) then
+    map.revision=map.revision+1
+    map.view=nil
+   end
+   if not map.view then
+    map.view=build(f,s,map)
+    map.node,map.transfer,map.graphRevision=node,transfer,f.storyGraphRevision
+   end
+   f.worldMap=map.view
   end
   return f
  end

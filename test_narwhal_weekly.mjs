@@ -1,12 +1,13 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {chromium} from 'playwright';
+import {checkWeeklyAtlas} from './tools/browser_weekly_atlas.mjs';
 
 const browser=await chromium.launch({headless:true,channel:'chrome',args:['--disable-gpu']});
 const page=await browser.newPage({viewport:{width:1240,height:940}});
 const wait=(fn,arg)=>page.waitForFunction(fn,arg,{timeout:85000});
 const frame=()=>page.evaluate(()=>window.lab.frame);
-const canvas=page.locator('#game'),prefix='evidence/narwhal-weekly';
+const canvas=page.locator('#game'),prefix=(process.env.LAB_WEEKLY_EVIDENCE||'evidence')+'/narwhal-weekly';
 const hub='fontaine-hub',outer='narwhal-star-sea',inner='narwhal-inner-echo';
 const quest='narwhal-weekly-commission',id='boss-29090101';
 const errors=[];
@@ -36,6 +37,7 @@ try{
  const row=page.locator(`[data-quest="${quest}"]`);
  await row.getByRole('button',{name:'受注',exact:true}).click();
  await wait(quest=>window.lab.frame.story.quests[quest]?.status==='active',quest);
+ const atlasEntry=await checkWeeklyAtlas(page,inner,[outer,inner],'戦闘中に移動',prefix+'-atlas-entry.png');
  await canvas.click();
  await page.keyboard.down('KeyD');
  try{await wait(outer=>window.lab.frame.storyNearbyPortal?.to===outer&&window.lab.frame.storyNearbyPortal.available,outer);}
@@ -103,6 +105,7 @@ try{
  });
  await page.locator('.game').screenshot({path:prefix+'-eye.png'});
  await wait(inner=>window.lab.frame.story.node===inner,inner);
+ const atlasReturn=await checkWeeklyAtlas(page,outer,[outer],'戦闘中に帰還');
  const belly=await scene();
  assert.deepEqual([belly.key,belly.state],['narwhalInner','ready']);
  await wait(()=>{
@@ -168,7 +171,7 @@ try{
  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('maple-lua-lab.checkpoint.v1')));
  assert.equal(saved.weeklyBosses[id].hp,0);
  assert.deepEqual(errors,[]);
- await fs.writeFile(prefix+'-browser.json',JSON.stringify({stages,outer:open,inner:belly,eyeEightHits:true,
+ await fs.writeFile(prefix+'-browser.json',JSON.stringify({stages,outer:open,inner:belly,atlasEntry,atlasReturn,eyeEightHits:true,
   kernelFourCastPhysical:true,kernelLoss:190,returnLoss:440,exposure:returned.weeklyBoss.narwhal.exposure,
   clearReportRestore:true,viewport390:true,remainingHp:finished.actors[0].hp,
   commands:{png:kernel.commands,standard:standard.commands,light:light.commands},errors},null,2)+'\n');

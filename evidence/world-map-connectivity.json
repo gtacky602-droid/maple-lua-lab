@@ -4,12 +4,17 @@
   "unique_stage_bindings": 873,
   "reachable_in_route_graph": 873,
   "can_return_in_route_graph": 873,
+  "authored_stages_with_outbound_and_return_routes": 1528,
+  "battle_interior_to_entrance": {
+    "narwhal-inner-echo": "narwhal-star-sea",
+    "nod-false-moon-rift": "nod-false-moon-court"
+  },
   "verified_marker_fields": [
     "kind",
     "floor",
     "position_on_platform_or_in_swim_bounds"
   ],
-  "route_model": "Stage exits and automatic voyage arrivals, without warp or visited-only gates. Other gate conditions are checked separately.",
+  "route_model": "Stage exits, voyage arrivals and two conditional battle transfers. The 873 marker counts use only exits and voyages. No warp or visited-only gates. Gate conditions are checked separately.",
   "markers_per_map": {
     "2": {
       "statues": 64,

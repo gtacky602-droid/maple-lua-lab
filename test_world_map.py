@@ -75,6 +75,23 @@ assert not (bound_stages - inbound), sorted(bound_stages - inbound)
 assert coverage['main_route_summary']['authored_stages'] == len(ids)
 assert coverage['main_route_summary']['provisional_quests'] == len(graph['quests'])
 
+# These transfers are performed by the weekly encounter, not by a portal.
+# The map audit includes them as conditional connections.
+battle_transfers = {}
+for match in content('weekly-boss-spawns.json')['weeklyBosses']:
+    if not match.get('innerNode'):
+        continue
+    outer, inner = match['node'], match['innerNode']
+    assert match.get('atlasTransfer') and outer in ids and inner in ids
+    assert inner not in forward[outer] and outer not in forward[inner]
+    battle_transfers[inner] = outer
+    for a, b in ((outer, inner), (inner, outer)):
+        forward[a].add(b)
+        reverse[b].add(a)
+all_outbound, all_inbound = reachable(start, forward), reachable(start, reverse)
+assert all_outbound == ids, sorted(ids - all_outbound)
+assert all_inbound == ids, sorted(ids - all_inbound)
+
 lua, core = runtime()
 state = core.new(12)
 core.action(state, 'story_start')
@@ -89,9 +106,11 @@ evidence = {
     'start': start, 'catalog_markers': len(points), 'unique_stage_bindings': len(bound_stages),
     'reachable_in_route_graph': len(bound_stages & outbound),
     'can_return_in_route_graph': len(bound_stages & inbound),
+    'authored_stages_with_outbound_and_return_routes': len(all_outbound & all_inbound),
+    'battle_interior_to_entrance': battle_transfers,
     'verified_marker_fields': ['kind', 'floor', 'position_on_platform_or_in_swim_bounds'],
-    'route_model': 'Stage exits and automatic voyage arrivals, without warp or visited-only gates. Other gate conditions are checked separately.',
+    'route_model': 'Stage exits, voyage arrivals and two conditional battle transfers. The 873 marker counts use only exits and voyages. No warp or visited-only gates. Gate conditions are checked separately.',
     'markers_per_map': {item['id']: item['counts'] for item in catalog['maps']},
 }
 (ROOT / 'evidence' / 'world-map-connectivity.json').write_text(json.dumps(evidence, indent=2) + '\n', encoding='utf8')
-print(f'{len(points)} marker bindings, outbound and return route structure, and Lv20 fixture passed.')
+print(f'{len(points)} marker bindings, {len(all_outbound & all_inbound)} connected stages, and Lv20 fixture passed.')

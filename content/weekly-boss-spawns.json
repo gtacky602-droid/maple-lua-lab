@@ -3129,6 +3129,10 @@
       "entity": 29090101,
       "node": "narwhal-star-sea",
       "innerNode": "narwhal-inner-echo",
+      "atlasTransfer": {
+        "enter": "鯨のHPが20％を超えた状態で敵意100に達すると、捕食で移動",
+        "leave": "腹中の幻影を倒すと星海へ帰還"
+      },
       "sceneSpawn": 238,
       "storyChallenge": "narwhal-weekly",
       "name": "呑星の鯨",
@@ -4792,6 +4796,10 @@
       "controller": "false_moon",
       "node": "nod-false-moon-court",
       "innerNode": "nod-false-moon-rift",
+      "atlasTransfer": {
+        "enter": "裂け目の予告後、中央でH。共闘は生存組全員の同意で移動",
+        "leave": "擬影3体を倒すか、右端の出口でH。共闘で出口を使うときは全員が同意"
+      },
       "coop": true,
       "sceneSpawn": 245,
       "innerSceneSpawn": 103,
